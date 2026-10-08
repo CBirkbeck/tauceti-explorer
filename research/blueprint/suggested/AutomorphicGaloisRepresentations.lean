@@ -1234,3 +1234,13 @@ Hypotheses: Local conditions are specified functors/quotients, not the open asse
 Required imported carriers/interfaces: AutomorphicGaloisRepresentations:R19.6/geometric-hecke-determinant, AutomorphicGaloisRepresentations:R19.6/determinants-and-representability-over-a-hecke-algebra, AutomorphicGaloisRepresentations:R19.5/ordinary-refinement-and-saturated-lattice, AutomorphicGaloisRepresentations:R19.5/kisin-hilbert-coefficient-prime, GlobalGaloisDeformations:R04.3, LocalGaloisDeformationRings:R08.3.
 
 -/
+
+/-
+Repair supplier contracts (/6, /14): determinants-and-representability-over-a-hecke-algebra
+imports IntegralHeckeAndGaloisDeterminants:IHG.1/henselian-irreducible.
+Kisin's coefficient-prime theorem imports LocalGaloisDeformationRings:R08.3/pst-quotient-in-families,
+beside semistable-height-quotient, for the arbitrary complete local coefficient algebra,
+finite-algebra tests and period-family specialisation. Kisin Theorems 2.5.5 and
+2.7.6, pp. 530–531, 534, and Theorem 4.3, pp. 543–544. These are planned supplier
+interfaces; the comments omitting unavailable period objects remain in force.
+-/

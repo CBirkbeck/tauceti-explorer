@@ -37805,7 +37805,8 @@
     "BP-AutomorphicFormsOnReductiveGroups~2"
    ],
    "prompt": "research/blueprint/prompts/REV-AutomorphicFormsOnReductiveGroups~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6989"
   },
   {
    "kind": "blueprint",
@@ -40132,7 +40133,9 @@
     "BP-KatoEulerSystems~2"
    ],
    "prompt": "research/blueprint/prompts/REV-KatoEulerSystems~2.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7071",
+   "finishedAt": "2026-10-08T22:53:55Z"
   },
   {
    "kind": "blueprint",
@@ -46851,7 +46854,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-HabiroCyclotomicCompletions.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7475"
   },
   {
    "id": "REV-PKG-HabiroCyclotomicCompletions",
@@ -47492,8 +47496,9 @@
     "PKG-PotentialAutomorphyInfrastructure"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-PotentialAutomorphyInfrastructure.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7486"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7486",
+   "finishedAt": "2026-10-08T22:16:58Z"
   },
   {
    "id": "PKG-PotentialModularityAndCompatibleSystems",
@@ -76169,8 +76174,9 @@
     "REV-FIX-RT-AREA-automorphic-1~4"
    ],
    "prompt": "research/blueprint/prompts/FIX-RT-AREA-automorphic-1~5.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7448"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7448",
+   "finishedAt": "2026-10-08T22:20:04Z"
   },
   {
    "id": "REV-FIX-RT-AREA-automorphic-1~5",
@@ -76225,7 +76231,9 @@
     "FIX-RT-AREA-automorphic-1~5"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-automorphic-1~5.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7449",
+   "finishedAt": "2026-10-08T22:43:18Z"
   },
   {
    "id": "RT-AREA-automorphic-2",
@@ -77395,8 +77403,8 @@
     "FIX-RT-AREA-langlands-2~3"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-langlands-2~3.md",
-   "state": "pending",
-   "note": "released on GitHub issue #5871"
+   "state": "external",
+   "note": "claimed on GitHub issue #5871"
   },
   {
    "id": "FIX-RT-AREA-langlands-2~4",
@@ -77467,8 +77475,9 @@
     "FIX-RT-AREA-langlands-2~3"
    ],
    "prompt": "research/blueprint/prompts/FIX-RT-AREA-langlands-2~4.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7450"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7450",
+   "finishedAt": "2026-10-08T22:26:50Z"
   },
   {
    "id": "REV-FIX-RT-AREA-langlands-2~4",
@@ -77522,7 +77531,8 @@
     "FIX-RT-AREA-langlands-2~4"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-langlands-2~4.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7451"
   },
   {
    "id": "RT-AREA-langlands-3",

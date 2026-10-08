@@ -1649,19 +1649,43 @@ Atlas planets: Quaternionic theta specialization; Waldspurger formula; Toric per
 
 ### Coherent quaternionic theta specialization
 
-**GZ.5/coherent-quaternionic-specialization** · theorem · `coherentQuaternionicTheta`
+**Declaration:** `coherentQuaternionicTheta`; theorem; node `GrossZagierAndArithmeticHeights:GZ.5/coherent-quaternionic-specialization`.
 
-For coherent quaternionic B/F and embedded K/F, specialize the imported extended Weil representation and unit-quotiented theta kernel to q=Nrd_B and the binary norm subspace K. With the fixed quotient measures, splittings and quadratic character η, the mixed binary Eisenstein integral at the centre is twice the coherent torus theta kernel. The ternary trace-zero B₀ Siegel–Weil identity gives the corresponding Petersson/toric factorization. Use the anisotropic ordinary identity for division norm data and the first-/second-term identity in the split divergent cases; the regularized correction is retained until its prescribed cuspidal projection.
+For coherent quaternionic B/F and an embedded nontrivial quadratic field K/F, specialize the imported extended Weil representation and unit-quotiented theta kernel to q=Nrd_B and its binary norm subspaces K and Kj. Each binary norm is anisotropic even when B is split: with probability Haar, E(0,g,Φ)=2∫θ(g,h,Φ)dh. In YZZ’s toric convention, where the quotient has volume2L(1,η), the double toric theta integral is L(1,η)I(0,g,χ,Φ). For division B the anisotropic ternary trace-zero identity gives the Shimizu/Petersson contraction used in the factorization. For split B the generic ternary second-term identity remains an identity modulo the residual image; the exact split Shimizu comparison is a separate required input, not a consequence asserted here.
 
-Hypotheses: Adelic additive character, self-dual measures, torus quotient and probability measures compared by GZ.0; Convergence/regularization regime is matched to binary/ternary Witt index, not assumed; For O(V_m)×Sp_(2n), let r be the Witt index. The ordinary theta integral is allowed when r=0 or m−r>n+1. Thus split binary (m,n,r)=(2,1,1) is divergent and requires its regularized first-term identity; ternary (3,1,1) is at equality and is also outside the ordinary convergent range. Division anisotropic data have r=0..
+**Hypotheses.**
 
-Direct prerequisites: `MetaplecticAutomorphicForms:MP.6/quadratic-quaternionic-norm-instances`, `MetaplecticAutomorphicForms:MP.6/toric-theta-pairing-interface`, `MetaplecticAutomorphicForms:MP.6/global-see-saw-and-projection`, [GZ.0/root-number-and-measure-normalisation-corrections](#root-number-and-measure-normalisation-corrections).
+- Adelic additive character, self-dual measures, torus quotient and probability measures compared by GZ.0
+- Convergence/regularization regime is matched to binary/ternary Witt index, not assumed
+- For O(V_m)×Sp_(2n), ordinary convergence requires r=0 or m−r>n+1. Here n=1; a quadratic-field norm has (m,r)=(2,0), division trace-zero data have (3,0), and split trace-zero data have (3,1), outside the ordinary range. The generic split binary (2,1) is an additional MP supplier case, not the norm of this K/F. YZZ’s 2011 draft Proposition2.2.1 proves the nonsplit case by Siegel–Weil and refers its split case to a different Waldspurger argument.
 
-Construction/proof: 1. Import the exact binary norm and ternary trace-zero exports from MP.6. 2. Compare their Haar and Weil splittings to the toric conventions. 3. Apply see-saw and the relevant Siegel–Weil term identity, retaining the regularized terms.
+**Construction or proof.**
 
-Acceptance: The binary norm identity alone is insufficient: the ternary identity is a separate prerequisite.; The split hyperbolic binary case uses A₁=B₀, not an ordinary divergent integral..
+1. Import the exact binary norm and ternary trace-zero exports from MP.6.
+2. Compare their Haar and Weil splittings to the toric conventions.
+3. For division B use the anisotropic ternary Siegel–Weil identity and the source’s cuspidal unfolding. For split B first supply the separately normalized Shimizu factorization from Waldspurger’s original argument, or a fully sourced comparison from GQT’s residual-image identity to that pairing; no elimination of the residual terms is assumed.
 
-Sources: `yzz-gross-zagier-shimura-curves-2013`, Chapter 1, Sec. 1.4.2, printed pp. 11-12; `gan-qiu-takeda-2014`, arXiv:1207.4709v3 §1.7, pp.3–4.
+**Direct prerequisites.** `MetaplecticAutomorphicForms:MP.6/quadratic-quaternionic-norm-instances`, `MetaplecticAutomorphicForms:MP.6/toric-theta-pairing-interface`, `MetaplecticAutomorphicForms:MP.6/global-see-saw-and-projection`, `GrossZagierAndArithmeticHeights:GZ.0/root-number-and-measure-normalisation-corrections`.
+
+**Proposed library location.** `TauCeti/NumberTheory/GrossZagier/Stage5`, namespace `TauCeti.GrossZagier`.
+
+**Acceptance checks.**
+
+- The binary norm identity alone is insufficient: the ternary identity is a separate prerequisite.
+- The generic split binary supplier uses A₁=B₀; it is not the quadratic-field norm used here. Neither that exceptional formula nor the split ternary quotient identity alone proves the split Shimizu contraction.
+
+**Sources.**
+
+- [Xinyi Yuan; Shou-Wu Zhang; Wei Zhang, The Gross-Zagier Formula on Shimura Curves](https://web.math.princeton.edu/~shouwu/publications.html), Chapter 1, Sec. 1.4.2, printed pp. 11-12. Fixes the measure used in the Petersson pairing, distinct from the toric measure. Reviewed decomposition supplies this locator/excerpt; the full book proof was not independently acquired in this run.
+  Recorded source verification: **unverifiable**. The exact 2013 published text and pagination were not independently reacquired. The 6 November 2011 public author preprint is a distinct version; inherited transliterations/ellipses are not certified as literal publication excerpts.
+- [W. T. Gan, Y. Qiu and S. Takeda, The regularized Siegel–Weil formula (the second term identity) and the Rallis inner product formula](https://arxiv.org/pdf/1207.4709v3), arXiv:1207.4709v3 §1.7, pp.3–4. The strict criterion prevents using the divergent split binary or boundary ternary ordinary integral. The orthogonal/symplectic specialization has ε₀=1.
+  Recorded source verification: **verified**. Checked this public source/version at the stated locator and the surrounding hypotheses. This is source support, not an assertion that the proposed Lean carrier is implemented.
+- [Xinyi Yuan; Shou-Wu Zhang; Wei Zhang, The Gross–Zagier Formula on Shimura Curves](https://www.researchgate.net/profile/Xinyi-Yuan-11/publication/267551160_Gross-Zagier_Formula_On_Shimura_Curves/links/548e842c0cf225bf66a5ff13/Gross-Zagier-Formula-On-Shimura-Curves.pdf?origin=publication_detail), 6 November 2011 draft, §2.1.5 Theorem2.1.1 pp.43–44; §2.2.1 Proposition2.2.1 proof p.48; §2.4 p.54. Confirms the quadratic-field/nonsplit hypotheses, probability and toric measures, and the explicit separate split proof route. It does not certify the inherited 2013 published excerpt or pagination.
+
+**Atlas planet:** Quaternionic theta specialization.
+
+**Implementation status:** `unchecked`.
+
 
 <a id="waldspurger-period-formula-and-its-siegel-weil-proof"></a>
 

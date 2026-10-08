@@ -388,11 +388,13 @@
    "id": "hr",
    "title": "Eisenstein cohomology for GL_N and ratios of critical values of Rankin–Selberg L-functions",
    "authors": "G. Harder, A. Raghuram",
-   "edition": "arXiv:1405.6513, read 2026-10-07 (Annals of Mathematics Studies 203, 2020)",
-   "url": "https://arxiv.org/abs/1405.6513",
+   "edition": "arXiv:1405.6513v2 (28 June 2015), 82 pages; source version independently read in REV-FIX-RT-AREA-automorphic-1~3",
+   "url": "https://arxiv.org/abs/1405.6513v2",
    "sha256": "1d3af2de1c1a370dc339e10c74cda84f5e6f5b25c09810bfdf8bbbbc8df6ca06",
    "readSections": [
-    "§4.1–4.2: boundary strata, the fibration with nilmanifold fibre, (4.2), Proposition 4.3, §4.2.3 Kostant's theorem (4.5)"
+    "§§2.3.1–2.3.4, pp.13–15: level/Hecke functoriality, coefficient extension and the GL_n inner-spectrum rationality field",
+    "§§3.1.4–3.1.5, pp.17–19: Wigner’s lemma, normalized induced D_λ and Proposition 3.11, including split-centre and component terms",
+    "§§4.2.1–4.2.3, pp.25–27: boundary fibration, Proposition 4.3 and Kostant (4.5)"
    ]
   },
   {
@@ -468,7 +470,7 @@
     {
      "sourceId": "milne",
      "locator": "§1, Cartan involutions, definition (9), p. 15",
-     "match": "The definition, verbatim up to notation; we apply it to (Res_{F/ℚ}G)_ℝ."
+     "match": "Supplies the Cartan-involution definition (an involution whose twisted real form is compact), applied here to (Res_{F/ℚ}G)_ℝ."
     },
     {
      "sourceId": "milne",
@@ -2459,7 +2461,7 @@
     },
     {
      "sourceId": "hr",
-     "locator": "§4.1, before (4.2)",
+     "locator": "§4.2.1, p.25, before (4.2) (arXiv:1405.6513v2)",
      "match": "The fibration over the Levi locally symmetric space and its Leray–Serre spectral sequence (characteristic zero)."
     }
    ],
@@ -3698,16 +3700,17 @@
    ],
    "title": "Nomizu–van Est: cohomology of unipotent arithmetic groups is Lie algebra cohomology",
    "kind": "theorem",
-   "statement": "Let N be a unipotent group over ℚ (the unipotent radical of a rational parabolic), 𝔫 = Lie N, Γ_N ⊂ N(ℚ) an arithmetic subgroup (a lattice in N(ℝ)) and V a finite-dimensional rational representation of N over a field E of characteristic 0. Then the inclusion of N(ℝ)-invariant forms gives natural isomorphisms H^*(𝔫, V) ≅ H^*(Γ_N\\N(ℝ), V) ≅ H^*(Γ_N, V), the Lie algebra cohomology carries its algebraic M-action, while the fixed nilmanifold comparison is equivariant for the normalizer of Γ_N in M(ℚ). Other Levi/commensurator elements require transported lattices and the corresponding pullback/trace maps; a fixed arithmetic lattice need not be preserved by all of M. This is a characteristic-zero statement: for integral or mod-p coefficients H^*(Γ_N, V) is not given by 𝔫-cohomology in general, and integral boundary statements must not assume it (ALS.4/boundary-stratum-cohomology-formula keeps the two regimes separate).",
+   "statement": "Let N be a unipotent group over ℚ, 𝔫_E=Lie(N)⊗ℚE, Γ_N⊂N(ℚ) an arithmetic lattice, E a number field, and V a finite-dimensional algebraic representation of N_E. Rational Nomizu comparison, extended to E, gives H*(𝔫_E,V)≅H*(Γ_N,V), equivalently the local-system cohomology of Γ_N\\N(ℝ). After an embedding E→ℂ this is the comparison by the invariant V-valued differential-form complex with its coefficient action. If N is the unipotent radical of a rational parabolic P=M⋉N and V extends to an algebraic P_E-representation, its Lie cohomology carries the algebraic M_E-action. The fixed nilmanifold comparison is equivariant for the normalizer of Γ_N in M(ℚ); other commensurator elements require transported lattices and their pullback/trace maps. No integral or mod-p Nomizu–Kostant comparison is asserted.",
    "hypotheses": [
-    "E a field of characteristic 0",
-    "V a rational N-representation",
-    "Γ_N arithmetic in N(ℚ)"
+    "E a number field of characteristic zero; the E-linear rational comparison is meant before any optional complex embedding",
+    "V a finite-dimensional algebraic N_E-representation",
+    "Γ_N arithmetic in N(ℚ), hence a lattice in N(ℝ)",
+    "For the Levi-equivariance statement, N is the unipotent radical of the rational parabolic P=M⋉N and V extends to an algebraic P_E-representation."
    ],
    "proofSteps": [
-    "Nomizu: for a compact nilmanifold Γ_N\\N(ℝ), left-invariant forms compute de Rham cohomology (induction on a central series, Leray–Serre for circle/torus bundles); with coefficients in a unipotent representation V the same induction applies since V has an N-stable flag with trivial graded pieces.",
+    "Apply rational Nomizu comparison for the algebraic unipotent group and its arithmetic lattice, with the induced E-structure; after E→ℂ this is the invariant-form de Rham comparison. The coefficient representation is unipotent and has a finite N-stable filtration with trivial graded pieces, so the central-series argument extends to V. An E-linear isomorphism is not obtained merely by forgetting the choice of a complex embedding: retain the rational comparison/descent input.",
     "Γ_N\\N(ℝ) is a K(Γ_N, 1) (nilmanifold fibre of stratum-nilmanifold-fibration), so its cohomology with local system V is H^*(Γ_N, V).",
-    "Levi equivariance: M acts on 𝔫 and V, hence on Lie algebra cochains. On a fixed nilmanifold only the normalizer of Γ_N acts geometrically. A general commensurator element compares transported lattices through refinement and transfer.",
+    "When the coefficient extends to P, M acts on 𝔫_E and V and therefore on their Lie cochains. Only the normalizer of Γ_N acts on the fixed nilmanifold; a general rational Levi commensurator compares transported lattices through refinement and transfer.",
     "Use the requested AF.1a absolute Lie algebra cochain complex over E to define H^*(𝔫,V); the existing relative complex over C does not supply this exact output. The lattice comparison itself stays in ALS.4."
    ],
    "acceptance": [
@@ -3723,8 +3726,8 @@
    "sources": [
     {
      "sourceId": "hr",
-     "locator": "§4.1, p. 25–26",
-     "match": "The statement used for boundary strata, with its Levi equivariance."
+     "locator": "§4.2.1, pp.25–26 (arXiv:1405.6513v2)",
+     "match": "The GL_n boundary application of the rational unipotent comparison. Its algebraic Levi action is on the coefficient module H*(𝔲_P,M_λ,E); geometry at a fixed lattice requires its normalizer. This passage invokes the comparison and is not a full proof of rational Nomizu."
     }
    ],
    "implementationStatus": "unchecked"
@@ -3737,15 +3740,17 @@
    ],
    "title": "Cohomology of a boundary stratum via van Est and Kostant",
    "kind": "theorem",
-   "statement": "Let G be connected reductive over F, P=M⋉N proper, K good neat, E characteristic 0 containing all coefficient embeddings and splitting the chosen restriction-of-scalars root datum, with a highest-weight Borel contained in P, and V_λ algebraic. For each transported decomposed level L_g from stratum-nilmanifold-fibration, Leray/Hochschild–Serre gives E₂^{a,b}=H^a(X^M_{L_{M,g}},H^b(𝔫,V_λ)~)⇒H^{a+b}(Y^P_{L_g},V_λ), by Nomizu–van Est. Kostant identifies H^b(𝔫,V_λ)=⊕_{w∈W^P,ℓ(w)=b}V^M_{w(λ+ρ)−ρ}; this describes the E₂ page for general reductive G and does not assert degeneration. For G=Res_{F/ℚ}GL_N with F totally real, Harder–Raghuram §4.2, (4.2) and Proposition 4.3 supply the degeneration and the natural cohomological decomposition H^q(X^P_K,V_λ)=⊕_g⊕_{w∈W^P}H^{q−ℓ(w)}(X^M_{L_{M,g}},V^M_{w·λ}), with the transported-component and real-component invariants of that source. Over all levels this is its algebraic unnormalized induction from π₀(P(ℝ))×P(A^∞) to π₀(G(ℝ))×G(A^∞). At eligible hyperspecial components the Hecke action is through the integral unnormalized S=r_M∘r_P; conversion to normalized induction multiplies by the explicit modulus half-character. Beyond that totally real GL_N setting, a direct-sum/derived splitting requires a separate Levi-equivariant nilpotent-cochain formality theorem; E₂ degeneration alone would give only an associated graded, not a canonical splitting. No integral Kostant decomposition is asserted.",
+   "statement": "Let G be connected reductive over F, P=M⋉N proper, K good neat, E a number field that splits 𝐆=Res_{F/ℚ}G and contains all embeddings of F, and V_λ the irreducible algebraic 𝐆_E-representation of dominant integral highest weight λ for a fixed split Borel and torus. For each transported decomposed level L_g from stratum-nilmanifold-fibration, Leray/Hochschild–Serre gives E₂^{a,b}=H^a(X^M_{L_{M,g}},H^b(𝔫,V_λ)~)⇒H^{a+b}(Y^P_{L_g},V_λ), by Nomizu–van Est. Kostant identifies H^b(𝔫,V_λ)=⊕_{w∈W^P,ℓ(w)=b}V^M_{w(λ+ρ)−ρ}; this describes the E₂ page for general reductive G and does not assert degeneration. For 𝐆=Res_{F/ℚ}GL_N with F totally real and E/ℚ Galois containing F, Harder–Raghuram §4.2, (4.2) and Proposition 4.3 supply the degeneration and the natural cohomological decomposition H^q(X^P_K,V_λ)=⊕_g⊕_{w∈W^P}H^{q−ℓ(w)}(X^M_{L_{M,g}},V^M_{w·λ}), with the transported-component and real-component invariants of that source. Over all levels this is its algebraic unnormalized induction from π₀(P(ℝ))×P(A^∞) to π₀(G(ℝ))×G(A^∞). At eligible hyperspecial components the Hecke action is through the integral unnormalized S=r_M∘r_P; conversion to normalized induction multiplies by the explicit modulus half-character. A general reductive direct-sum/derived splitting requires a separate Levi-equivariant nilpotent-cochain formality theorem; E₂ degeneration alone would give only an associated graded, not a canonical splitting. No integral Kostant decomposition is asserted.",
    "hypotheses": [
-    "E characteristic 0, containing the coefficient embeddings and splitting the chosen root datum; the highest-weight Borel lies in P; the Harder–Raghuram splitting branch assumes F totally real",
-    "K neat and decomposed with respect to P"
+    "F a number field; E/ℚ a finite characteristic-zero splitting field for 𝐆=Res_{F/ℚ}G containing all embeddings of F",
+    "Fix the split torus and Borel over E and a dominant integral highest weight λ; P and its Levi are compatible with these choices",
+    "K neat and decomposed at the transported levels",
+    "The cited natural direct-sum decomposition and real-component induction of Harder–Raghuram are used for 𝐆=Res_{F/ℚ}GL_N with F totally real and E/ℚ Galois containing F. General reductive G uses the E₂ spectral sequence unless a separate splitting theorem is supplied."
    ],
    "proofSteps": [
     "Apply the transported-level nilmanifold fibration to each g. Nomizu–van Est identifies the stalk cohomology with Lie-algebra cohomology; the discrete extension gives Leray/Hochschild–Serre before any degeneration claim.",
-    "Use the requested AF.1a absolute-cochain/Kostant theorem, using its actual Levi modules V^M_{w·λ}, not one-dimensional substitutes. This supplies the displayed E₂ page in characteristic zero.",
-    "For the totally real GL_N statement use Harder–Raghuram (4.2), Proposition 4.3 and §4.2.3 exactly: the natural decomposition and induction include transported levels and π₀(K_∞)-invariants. Do not transfer the GL_N degeneration to every reductive group or every number field.",
+    "Use the requested AF.1a absolute-cochain/Kostant theorem over the specified splitting field E and dominant integral λ, with its actual Levi modules V^M_{w·λ}. For nonsplit input without this extension one must first supply the scalar-extension/descent data; the displayed highest-weight sum is not asserted over an arbitrary characteristic-zero field.",
+    "For Res_{F/ℚ}GL_N with F totally real, use Harder–Raghuram v2 §4.2.1, (4.2), Proposition 4.3, §4.2.2 and §4.2.3 exactly. Keep E Galois containing F, transported levels and the real-component invariants. The proof’s referenced degeneration/splitting input remains explicit; no such natural direct sum is inferred for every reductive group.",
     "Apply boundary-stratum-hecke-comparison and parabolic-hecke-maps on eligible components. The generic reductive splitting and extension beyond decomposed levels are recorded gaps with exact earlier inputs."
    ],
    "acceptance": [
@@ -3763,17 +3768,17 @@
    "sources": [
     {
      "sourceId": "hr",
-     "locator": "§4.1, (4.2), p. 26",
+     "locator": "§4.2.1, (4.2), p.26 (arXiv:1405.6513v2)",
      "match": "Part (i), summed over the strata components."
     },
     {
      "sourceId": "hr",
-     "locator": "§4.2.3, (4.5)",
+     "locator": "§4.2.3, (4.5), p.27 (arXiv:1405.6513v2)",
      "match": "Part (ii)."
     },
     {
      "sourceId": "hr",
-     "locator": "§4.1, Proposition 4.3",
+     "locator": "§4.2.1, Proposition 4.3, p.26 (arXiv:1405.6513v2)",
      "match": "Part (iii), algebraic induction."
     }
    ],
@@ -3803,7 +3808,7 @@
    ],
    "acceptance": [
     "For GL_{2,ℚ}, P = B: Γ_N ≅ ℤ, E_2^{a,b} = H^a(pt, H^b(ℤ, V)), giving H^0 and H^1 of the cusp circle as invariants and coinvariants of the unipotent monodromy on V.",
-    "In characteristic 0 the E_2 page is the Kostant–van Est formula."
+    "In characteristic 0, over a number field E splitting the group and for V=V_λ irreducible of dominant integral highest weight, the E_2 page is the Kostant–van Est formula."
    ],
    "prerequisites": [
     "ArithmeticLocallySymmetricSpaces:ALS.2/stratum-nilmanifold-fibration",
@@ -3820,8 +3825,8 @@
     },
     {
      "sourceId": "hr",
-     "locator": "§4.1, before (4.2)",
-     "match": "The Leray–Serre spectral sequence of the stratum fibration (degeneration only in characteristic 0)."
+     "locator": "§4.2.1, p.25, before (4.2) (arXiv:1405.6513v2)",
+     "match": "The characteristic-zero GL_n/ totally-real-field boundary fibration in the source. Its degeneration is not used to identify the integral sequence, and alone does not produce a canonical general reductive splitting."
     }
    ],
    "implementationStatus": "unchecked"
@@ -5278,7 +5283,7 @@
   },
   {
    "supplier": "AutomorphicFormsOnReductiveGroups:AF.1a",
-   "need": "Kostant's theorem: for a reductive Lie algebra over a field of characteristic 0 and a parabolic 𝔮 = 𝔪 ⊕ 𝔫, H^q(𝔫, V_λ) ≅ ⊕_{w ∈ W^P, ℓ(w) = q} V^M_{w·λ} as M-modules, w·λ = w(λ + ρ) − ρ, with Tau Ceti's Weyl vector ρ; and Lie algebra cohomology H^*(𝔫, V) (RT-AREA-automorphic-1/6). Own the absolute Chevalley–Eilenberg complex and this theorem in the AF.1a cochain prefix; AF.1 imports that prefix. The current relative complex is over ℂ and does not yet supply the general characteristic-zero E statement or Kostant decomposition, so retain this stage request rather than citing it as an exact theorem.",
+   "need": "The full absolute algebraic Chevalley–Eilenberg complex C*(𝔫_E,V), differential and functorial coefficient/Levi action, in all degrees over a characteristic-zero field E; and Kostant’s theorem for a split reductive group over E, a compatible parabolic with Levi M and nilpotent radical 𝔫, and an irreducible algebraic coefficient V_λ of dominant integral highest weight: H^q(𝔫_E,V_λ)≅⊕_{w∈W^P,ℓ(w)=q}V^M_{w(λ+ρ)−ρ} as algebraic M-representations. For nonsplit input require a specified splitting extension and descent compatibility, not the same formula over an arbitrary field. AF.1a is the unique owner; AF.1 imports it. The existing relative complex over ℂ and Mathlib’s low-degree absolute maps do not yet supply this exact output, so this is a stage request, not an exact fulfilled theorem citation. ALS.4 owns the rational arithmetic-lattice Nomizu comparison and its transported-lattice Hecke application (RT-AREA-automorphic-1/6).",
    "neededBy": [
     "ArithmeticLocallySymmetricSpaces:ALS.4/nomizu-van-est",
     "ArithmeticLocallySymmetricSpaces:ALS.4/boundary-stratum-cohomology-formula"
@@ -5666,7 +5671,7 @@
    "source": "nt16",
    "kind": "error",
    "locator": "§3.1, paragraph on neatness, p. 41, and Lemma 3.2(1), p. 42, of the published version (Forum Math. Sigma 4 (2016) e21); also Proposition 3.7(1), p. 48, which omits the orientation sheaf. arXiv:1511.04913v1 has the same text.",
-   "printed": "If U is neat, then for all g ∈ G(A∞_F), the group Γg,U = G(F) ∩ gUg^{−1} is neat as an arithmetic subgroup of G(F ⊗Q R). In particular, it is torsion-free and acts freely and properly discontinuously on X^G, preserving orientations.",
+   "printed": "For neat U and arbitrary g∈G(𝔸_F^∞), the source calls Γ_{g,U}=G(F)∩gUg⁻¹ a neat arithmetic subgroup in G(F⊗_ℚℝ) and torsion-free. It claims the resulting X^G action is properly discontinuous, free, and preserves orientation.",
    "correction": "Neat arithmetic groups act freely and properly discontinuously but need not preserve the orientation of X^G; X^U_G need not be orientable, and Verdier duality (Proposition 3.7(1)) must be twisted by the orientation local system o_U. The claim holds when G(F ⊗ ℝ) is connected, which covers the paper's applications (Res_{F/ℚ}GL_n with F CM, and U(n, n)).",
    "reason": "G = PGL_{2,ℚ}, X^G = ℍ with det < 0 acting antiholomorphically. U = K(5)K(13)∏_{p≠5,13}PGL_2(Z_p) is neat (adjoint eigenvalues ≡ 1 at 5 and at 13, so torsion is 5-primary and 13-primary, hence trivial). The matrix (57, 455; 455, 3632) = 57·I + 65·(0, 7; 7, 55) has determinant −1 and lies in U, and its class reverses orientation, so the corresponding component of X^U_G is a nonorientable surface.",
    "affects": "a stated result",
@@ -5772,340 +5777,698 @@
  ],
  "review": {
   "status": "accepted",
-  "reviewer": "independent-review-REV-ArithmeticLocallySymmetricSpaces~2",
-  "date": "2026-10-07",
-  "notes": "Finished independent target-level review by Codex codex-hcCPKh: all 66 nodes, 156 source records in 13 public texts, 36 declarations at both pinned source commits, 132 API items, 88 tests, 31 planets, cross-owner prerequisites, prior review corrections, RS-09~2 and three confirmed red-team findings. Corrected 21 existing nodes, resolved three stage requests to exact suppliers, confirmed E1–E3, and synchronized the reader and suggested-file omission catalogue. No nodes added or baseline citations removed. Accepted as a complete planning pass with 16 explicit interface/signature/extension gaps, eight planned stages and no closed stage; general real-place ♠-only boundary vanishing and general reductive splitting are not claimed. lean-check stopped at a missing prebuilt TauCeti HeckeRing object before elaboration; file uncompiled, all implementation statuses unchecked.",
-  "checked": [
-   {
-    "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.0/cartan-involution",
-    "verdict": "verified",
-    "note": "Cartan characterization is semisimple on the Killing form; the reductive central-torus condition is separate (Milne 1.16)."
-   },
-   {
-    "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.0/maximal-compact-subgroup",
-    "verdict": "verified",
-    "note": "Compactness, maximality and conjugacy follow from the requested Cartan decomposition; Milne 1.18/1.20 have the appropriate central hypotheses."
-   },
-   {
-    "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.0/symmetric-space",
-    "verdict": "verified",
-    "note": "The rational split radical is divided out once; contractible Cartan coordinates and full-real-component convention are retained."
-   },
-   {
-    "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.0/symmetric-space-contractible",
-    "verdict": "verified",
-    "note": "Properness belongs to G(F∞)/A∞; projected discreteness and a finite central kernel are explicit, not consequences of arbitrary discreteness."
-   },
-   {
-    "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.0/locally-symmetric-space",
-    "verdict": "verified",
-    "note": "The adelic quotient, topology and full GL₂ real action match ACC §2.1; the generic Lean Datum is only a quotient adapter."
-   },
-   {
-    "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.0/component-decomposition",
-    "verdict": "verified",
-    "note": "The finite disjoint component decomposition uses AA finite class number and the actual Γ_{g,K} action."
-   },
-   {
-    "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.0/proper-action-stabilizers",
-    "verdict": "corrected",
-    "note": "Registered the unquotiented Borel–Serre bordification input used by the noncircular arithmetic properness proof (BS 9.3)."
-   },
-   {
-    "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.0/neat-level-manifold",
-    "verdict": "verified",
-    "note": "Torsion-free arithmetic groups plus properness give manifolds and freeness; Pink all-adelic neatness is not equated with the AA predicate."
-   },
-   {
-    "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.0/neatness-iwahori-criterion",
-    "verdict": "verified",
-    "note": "Two distinct residue characteristics force eigenvalue torsion to be simultaneously two-primary; ACC 6.5.2 retains integral local hypotheses."
-   },
-   {
-    "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.0/standard-level-subgroups",
-    "verdict": "verified",
-    "note": "Γp/Γ1 uses only the p-primary residue-unit subgroup; projective Γ1 has a common scalar and the mod-8 exception is retained."
-   },
-   {
-    "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.0/orientation-local-system",
-    "verdict": "corrected",
-    "note": "Added the F-neat GL₂/ℚ(√5) orientation regression; Q-restriction-of-scalars neatness and odd matrix rank have distinct consequences."
-   },
-   {
-    "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.0/nonorientable-neat-example",
-    "verdict": "corrected",
-    "note": "The PGL₂/ℚ determinant −1 example remains valid; the GLm norm argument now explicitly assumes Q-restriction-of-scalars neatness."
-   },
-   {
-    "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.1/arithmetic-local-system",
-    "verdict": "verified",
-    "note": "The slice action uses both coefficient factors without a partial inverse; whole-inverse opposite-loop monodromy is tested noncommutatively."
-   },
-   {
-    "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.1/betti-complexes",
-    "verdict": "verified",
-    "note": "The neat-normal-refinement D(R[Q]) model specifies ordinary, j!-supported and boundary objects; refinement coherence remains an explicit enhancement obligation."
-   },
-   {
-    "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.1/sheaf-singular-comparison",
-    "verdict": "corrected",
-    "note": "Sella's constant-coefficient resolution is extended conditionally via local trivializations; corrected the noncompact surface test to include orientability."
-   },
-   {
-    "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.1/group-cohomology-comparison",
-    "verdict": "verified",
-    "note": "Arithmetic group comparison uses contractibility and local-cochain descent; tame invariant pushforward may be constructible rather than locally constant."
-   },
-   {
-    "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.1/finite-complex-model",
-    "verdict": "corrected",
-    "note": "K′ must be open normal for a finite quotient; R[Q]-perfectness uses full-level free cells, distinct from underlying R-perfectness."
-   },
-   {
-    "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.1/coefficient-change",
-    "verdict": "verified",
-    "note": "Derived coefficient change uses the finite projective cell model and the explicit triangulation prerequisite, not arbitrary non-neat averaging."
-   },
-   {
-    "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.1/level-pullback",
-    "verdict": "verified",
-    "note": "Translation and pullback orders are r_g after r_h = r_hg; S-coefficient transport and support properness are explicit."
-   },
-   {
-    "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.2/geodesic-action-boundary-face",
-    "verdict": "verified",
-    "note": "BS geodesic action and reductive type S–Q decomposition support the faces; the AA semisimple horospherical extension is separately requested."
-   },
-   {
-    "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.2/borel-serre-bordification",
-    "verdict": "verified",
-    "note": "BS corner charts and generated-parabolic intersections support the gluing; every coface chart contains the interior face."
-   },
-   {
-    "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.2/borel-serre-quotient-compact",
-    "verdict": "verified",
-    "note": "BS 9.3/9.5 supply arithmetic compactness and the torsion-free corner quotient; the open inclusion is a homotopy equivalence."
-   },
-   {
-    "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.2/borel-serre-finite-triangulation",
-    "verdict": "verified",
-    "note": "BS 11.1 plus DH rounding give finite triangulation; the free relative/equivariant model still requires the precisely requested topology interface."
-   },
-   {
-    "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.2/boundary-stratification",
-    "verdict": "verified",
-    "note": "The P-space has P(Af), its induced stratum G(Af); the finite-level bijection is used with its exact topological scope."
-   },
-   {
-    "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.2/stratum-nilmanifold-fibration",
-    "verdict": "verified",
-    "note": "Every double-coset component has its transported P-level and Levi base; the nilmanifold fibre does not require a split lattice extension."
-   },
-   {
-    "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.2/stratification-spectral-sequence",
-    "verdict": "corrected",
-    "note": "Separated compact-support exact-couple degrees from ordinary flag degrees; restricted the HR ordinary flag branch to totally real GLN."
-   },
-   {
-    "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.3/hecke-action-on-invariants",
-    "verdict": "corrected",
-    "note": "The monoid is now a submonoid of an ambient group containing U; this gives free U-orbits and the exact induction needed to preserve injectives."
-   },
-   {
-    "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.3/derived-hecke-action",
-    "verdict": "verified",
-    "note": "NT derived invariants supply the strict Hecke object in the stated category; arbitrary supported equivariant lifts are separately requested."
-   },
-   {
-    "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.3/hecke-operator-formula",
-    "verdict": "verified",
-    "note": "The pullback/trace correspondence retains both intersection levels and coefficient transport; no unnecessary normality assumption is introduced."
-   },
-   {
-    "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.3/level-trace",
-    "verdict": "verified",
-    "note": "Finite-cover trace has both composites and supports; weighted stabilizer cardinalities are not coarse-cover indices at wild level."
-   },
-   {
-    "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.3/hecke-composition",
-    "verdict": "corrected",
-    "note": "Noncentral operators compose in End_D(R), even for a D(H) object; the S₃ regular module disproves unconditional H-linearity."
-   },
-   {
-    "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.3/hecke-support-boundary-compatibility",
-    "verdict": "verified",
-    "note": "Boundary and support maps intertwine the Hecke action via the chosen equivariant support model; arbitrary-level coherence is explicit."
-   },
-   {
-    "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.3/discrete-topological-comparison",
-    "verdict": "verified",
-    "note": "CN 2.1.3/2.1.4/2.1.5 apply at their good levels and distinguish strict D(H) objects from actions in End_D."
-   },
-   {
-    "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.3/derived-hecke-algebra",
-    "verdict": "corrected",
-    "note": "Imported the exact IHG finite-image, ghost-nilpotence and maximal-ideal nodes; the Ext¹ ghost and finite-free inverse-limit restriction remain valid."
-   },
-   {
-    "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.3/character-twist",
-    "verdict": "verified",
-    "note": "The character is on G(Af) and trivial on G(F); ideals versus field-valued eigensystems are distinguished."
-   },
-   {
-    "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.3/twisting-isomorphism",
-    "verdict": "verified",
-    "note": "ACC's invertible global twisting section induces the complex isomorphism; it is not replaced by H⁰ of the universal arithmetic space."
-   },
-   {
-    "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.3/degeneracy-old-forms",
-    "verdict": "verified",
-    "note": "CG18 9.6 gives the localized degeneracy matrix; determinant sign and W after further localization retain existing E188/E191/E229."
-   },
-   {
-    "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.4/boundary-triangle",
-    "verdict": "verified",
-    "note": "The cohomological support triangle ends in [1], including the enhancement-dependent arbitrary-level version; E2 remains confirmed."
-   },
-   {
-    "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.4/parabolic-hecke-maps",
-    "verdict": "verified",
-    "note": "The integral Satake coefficient order is p,1 for f(tn); hyperspecial q-half normalization and positive-Iwahori single terms are separated."
-   },
-   {
-    "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.4/boundary-stratum-hecke-comparison",
-    "verdict": "verified",
-    "note": "Transported P-levels and good decompositions are propagated through induction and Hecke restriction, as required by NT/ACC."
-   },
-   {
-    "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.4/nomizu-van-est",
-    "verdict": "corrected",
-    "note": "Characteristic-zero lattice Nomizu comparison is normalizer-equivariant; the commensurator compares lattices, and AF.1a owns the requested absolute Lie-cochain/Kostant prefix. Preserved the concurrent supplier correction and explicit missing E-linear absolute-cochain/Kostant export."
-   },
-   {
-    "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.4/boundary-stratum-cohomology-formula",
-    "verdict": "corrected",
-    "note": "Added the splitting-field/root-datum hypothesis and restricted HR splitting to totally real GLN; general reductive groups retain only the E₂/Kostant statement."
-   },
-   {
-    "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.4/levi-hochschild-serre",
-    "verdict": "verified",
-    "note": "NT 4.5 is discrete arithmetic unipotent cohomology; the transported group extension precedes a separate continuous comparison."
-   },
-   {
-    "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.4/boundary-gluing-convergence",
-    "verdict": "corrected",
-    "note": "Compact-support induction uses dual coefficient vanishing at the inverse ideal; the ordinary flag branch now retains its totally-real hypothesis."
-   },
-   {
-    "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.4/localization-at-maximal-ideal",
-    "verdict": "corrected",
-    "note": "Imported the exact IHG local-factor, localized-complex and support nodes; strict tensor localization is allowed only with its specified lift."
-   },
-   {
-    "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.4/eisenstein-maximal-ideal",
-    "verdict": "verified",
-    "note": "The unnormalized GL₂ constant-function polynomial is (X−1)(X−q); Galois attachment and rank-one qualifications remain explicit."
-   },
-   {
-    "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.4/boundary-eigenvalue-criterion",
-    "verdict": "corrected",
-    "note": "Required all transported Levi supports and the dual/orientation inverse-ideal exclusion (or direct Hc vanishing); corrected the cusp acceptance criterion."
-   },
-   {
-    "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.4/gln-boundary-eisenstein",
-    "verdict": "corrected",
-    "note": "Added an explicit dual-orientation Galois-type hypothesis to the real-place argument; the original ♠-only generality is recorded as an open extension."
-   },
-   {
-    "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.4/siegel-stratum-localization",
-    "verdict": "verified",
-    "note": "ACC Siegel localization keeps good decomposed levels and the GL/CM Galois hypotheses; early duality supplies the support induction."
-   },
-   {
-    "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.5:finite-level-duality/corner-boundary-bridge",
-    "verdict": "verified",
-    "note": "DH collar/rounding preserves the underlying topological pair; pair/cohomology naturality does not require functorial smoothings."
-   },
-   {
-    "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.5:finite-level-duality/verdier-poincare-duality",
-    "verdict": "verified",
-    "note": "Duality is RHom(RΓc,R) ≅ RΓ(V∨⊗o)[d], with the manifold pair and finite-projective hypotheses; generic topology is imported."
-   },
-   {
-    "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.5:finite-level-duality/duality-pairings",
-    "verdict": "verified",
-    "note": "Pairings have complementary total degree d, orientation coefficients and finite-cover pullback/trace adjunction."
-   },
-   {
-    "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.5:finite-level-duality/hecke-adjoint-duality",
-    "verdict": "verified",
-    "note": "The Hecke adjoint inverts double cosets and transports ideals, with the exact coefficient dual and orientation system."
-   },
-   {
-    "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.5:finite-level-duality/duality-triangle-compatibility",
-    "verdict": "verified",
-    "note": "Dualizing reverses the triangle; comparison is the inverse rotation with the negative connecting arrow and boundary dimension d−1."
-   },
-   {
-    "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.5:finite-level-duality/non-neat-duality",
-    "verdict": "verified",
-    "note": "Non-neat duality retains the tame/wild distinction; a perfect underlying complex does not justify averaging at bad stabilizer primes."
-   },
-   {
-    "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.5/early-duality-reexport",
-    "verdict": "verified",
-    "note": "This reexports only the early duality prefix; it does not create a second proof or a cycle through later boundary applications."
-   },
-   {
-    "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.5/de-rham-comparison",
-    "verdict": "verified",
-    "note": "Local-system de Rham comparison uses the arithmetic monodromy and mG = gC/aG; generic relative cochains remain AF.1a's input."
-   },
-   {
-    "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.5/automorphic-comparison",
-    "verdict": "corrected",
-    "note": "Replaced AS.5 by exact Franke comparison/support nodes; corrected anisotropic acceptance to automorphic (Z-finite) cuspidal forms."
-   },
-   {
-    "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.5/cuspidal-cohomology",
-    "verdict": "corrected",
-    "note": "Replaced the broad spectral input by AF.3/cuspidal-spectrum-discrete and AS.5 nodes; the image comes from the actual automorphic comparison."
-   },
-   {
-    "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.5/clozel-cohomological-gln",
-    "verdict": "corrected",
-    "note": "Imported exact AF.4 weight/C–L-algebraic/cohomological nodes; Scholze's real-component cover and quadratic twist remain in the statement."
-   },
-   {
-    "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.5/non-eisenstein-degree-range",
-    "verdict": "corrected",
-    "note": "Imported the exact AF.4 tempered degree-range node; CM degrees and conditional residual Galois attachment agree with ACC 2.4.10."
-   },
-   {
-    "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.5/unitary-middle-degree",
-    "verdict": "corrected",
-    "note": "The Siegel argument uses Kostant constituents, not HR split GLN cohomology; retain half-integral rho, Levi partitions and AG2.2/2.3 unitary inputs."
-   },
-   {
-    "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.6/finite-level-descent",
-    "verdict": "verified",
-    "note": "Finite residual quotients descend through coherent derived invariants; no completed limit or profinite vanishing is implicit."
-   },
-   {
-    "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.6/finite-cover-hochschild-serre",
-    "verdict": "corrected",
-    "note": "Used the discrete finite-cover Cartan–Leray supplier; relative derived endomorphisms give SS naturality, not an automatic simultaneous strict lift."
-   },
-   {
-    "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.6/lowest-degree-descent",
-    "verdict": "verified",
-    "note": "At the actual lowest degree the finite-cover edge map uses absence of lower cohomology; free normal covers and coefficient transport remain required."
-   },
-   {
-    "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.6/tower-acceptance-tests",
-    "verdict": "verified",
-    "note": "The retained tower-named identifier tests only finite covers, compact boundary-free quotients and invertible-order degeneration under RS-09."
-   }
-  ]
- }
+  "reviewer": "independent-review-REV-FIX-RT-AREA-automorphic-1~5",
+  "date": "2026-10-08",
+  "notes": "Independent completed review of FIX-RT-AREA-automorphic-1~5 (issue #7448, PR #7713, Codex codex-vvlCYM) by Codex session codex-zcs4LH, following REV-FIX-RT-AREA-automorphic-1~4 and the earlier blueprint review retained in reviewHistory. Findings /6, /27, /28 and /30: the rational arithmetic-lattice Nomizu comparison has finite algebraic coefficients, a number-field coefficient field, parabolic-extension and normalizer qualifications; Kostant requires a splitting field and dominant integral weight. Integral boundary induction is unnormalized. All 66 reader node contracts match the packet, with corrected Harder–Raghuram locators and early neatness/cochain ownership. All thirteen packet checks pass; exact prerequisite closure is acyclic. No mathematical field or suggested declaration changed in this review. Source receipts, reader checks and Lean limitations are in research/blueprint/reviews/REV-FIX-RT-AREA-automorphic-1~5.md."
+ },
+ "reviewHistory": [
+  {
+   "status": "needs_changes",
+   "reviewer": "independent-review-REV-ArithmeticLocallySymmetricSpaces",
+   "date": "2026-10-07",
+   "notes": "Complete independent review of all 66 nodes, 145 source records in 11 public texts, 36 baseline declarations at both source pins, 132 API items, 88 tests, 31 planets, supplier statements and the three assigned red-team findings. Corrected or clarified 34 existing nodes, three baseline descriptions and dependency/coverage metadata; added three data API items, five owner requests and source issue E3. No nodes added. Twelve precise gaps remain. ALS.6 and the under-budget packet are partial because completed tower targets are absent; other stages are planned with remaining obligations. Suggested file contains false/weakened signatures, ten True declarations, two existential-True declarations and 27 True examples. Reader requires an authorized revision. Not compiled: no existing build at both pins. This completed review is not a checkpoint.",
+   "checked": [
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.0/cartan-involution",
+     "verdict": "corrected",
+     "note": "Checked Milne definition (9), Theorem 1.16 and transpose-inverse examples. Corrected Killing criterion to semisimple groups; on a reductive group the central torus condition is separate. Lean trace positivity is only a shadow of this criterion."
+    },
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.0/maximal-compact-subgroup",
+     "verdict": "verified",
+     "note": "Milne Propositions 1.18/1.20 supply compactness and maximality; LieGroups layer 9 supplies Cartan decomposition. Lean states compactness but omits maximality and conjugacy."
+    },
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.0/symmetric-space",
+     "verdict": "corrected",
+     "note": "NT Definition 3.1 uses Rd for the Q-split part of the radical. Clarified this notation; the literal excerpt is not missing a qualifier. Lean carrier/product maps do not yet state the geometric equivalences."
+    },
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.0/symmetric-space-contractible",
+     "verdict": "corrected",
+     "note": "Corrected proper group action to G(F_infinity)/A_infinity. The subgroup consequence requires projected discreteness and finite central kernel; a discrete cyclic scalar-times-rotation group disproves the previous implication."
+    },
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.0/locally-symmetric-space",
+     "verdict": "verified",
+     "note": "Checked adelic quotient, topology and representative equivalence against ACC section 2.1.1. Full GL2 real points include orientation-reversing elements; the modular example must keep this convention."
+    },
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.0/component-decomposition",
+     "verdict": "verified",
+     "note": "NT Lemma 3.2 gives component decomposition conditional on finite class number supplied by AA.3. The quotient uses all real components through the chosen maximal compact."
+    },
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.0/proper-action-stabilizers",
+     "verdict": "unverifiable",
+     "note": "Replaced the faulty properness argument by its precise arithmetic obligation, and added AA.4/neat-level-exists. Corrected full GL2(Z) stabilizer order to 8, contrasting SL2(Z) order 4. Reduction-theoretic proof is still missing."
+    },
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.0/neat-level-manifold",
+     "verdict": "unverifiable",
+     "note": "Clarified K as a discrete group in universal-space freeness and removed quotient-by-trivial-action wording. Source neatness is stronger than the rational-intersection supplier; properness and that comparison remain gaps. Lean torsion-freeness of arbitrary Datum does not suffice."
+    },
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.0/neatness-iwahori-criterion",
+     "verdict": "verified",
+     "note": "ACC Lemma 6.5.2: two pro-v Iwahori factors of distinct residue characteristic give neatness. The two-primary torsion argument is valid; retain the local integral/Iwahori hypotheses."
+    },
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.0/standard-level-subgroups",
+     "verdict": "corrected",
+     "note": "Corrected Gamma_p/Gamma_1 to the p-primary part, strict iff p divides q-1; qualified projective Gamma_1-to-SL2 comparison at 2-power level and PGL_n quotient at n>=2. Added separate iwahoriOne/gamma1/gammaP data API items. Lean gamma1 and test still require replacement."
+    },
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.0/orientation-local-system",
+     "verdict": "verified",
+     "note": "Orientation character sign(Norm(det))^(m-1) and its local system are correct. At non-neat level descent is groupoid descent; the Lean GL formula currently assumes the desired formula."
+    },
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.0/nonorientable-neat-example",
+     "verdict": "verified",
+     "note": "Independently checked determinant -1 and scalar congruence modulo 65 of the PGL2 matrix. The two distinct residue characteristics prove neatness in the adjoint representation, while negative determinant reverses orientation. Confirms E1."
+    },
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.1/arithmetic-local-system",
+     "verdict": "unverifiable",
+     "note": "Corrected slice representation to rho_GF(gamma) rho_K((g_i^-1 gamma g_i)_S), without inverse on just the K factor. Deck/loop convention is unresolved. Qualified non-neat sign coefficients as orbifold coefficients."
+    },
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.1/betti-complexes",
+     "verdict": "unverifiable",
+     "note": "Neat derived sheaf model agrees with NT Corollary 3.3/ACC equations. Arbitrary-level compact supports and their boundary triangle are not defined by the phrase RGamma_c-type equivariant sections; recorded gap."
+    },
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.1/sheaf-singular-comparison",
+     "verdict": "unverifiable",
+     "note": "Sella proves constant-coefficient cohomology comparison. Local coefficients, derived naturality, equivariance and supports needed here are additional obligations; the given sources and requested chains do not yet establish the full comparison."
+    },
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.1/group-cohomology-comparison",
+     "verdict": "corrected",
+     "note": "Ordinary arithmetic group comparison is correct conditional on the cochain/local-system model. Corrected tame coarse descent: invariant pushforward is generally constructible, not automatically a local system. Lean existential collection with True gives no comparison."
+    },
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.1/finite-complex-model",
+     "verdict": "unverifiable",
+     "note": "Corrected full-level cell freeness: good neat K gives group-ring perfectness; only K-prime neat does not. Conditional finite-free-cell proof is valid, but the arithmetic cell/cochain/support comparison remains open."
+    },
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.1/coefficient-change",
+     "verdict": "corrected",
+     "note": "Derived coefficient change for finite projective coefficients follows from a genuine finite model. Added the triangulation prerequisite actually used by the proof; universal-coefficient conventions checked against NT Proposition 3.7(2)."
+    },
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.1/level-pullback",
+     "verdict": "corrected",
+     "note": "Corrected translation order: r_g after r_h is r_hg, and pullbacks satisfy r_h^* after r_g^*=r_hg^*. Retain compatible coefficient action when translating at S and properness for support pullback."
+    },
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.2/geodesic-action-boundary-face",
+     "verdict": "unverifiable",
+     "note": "Clarified relative split torus and removed a second split-centre quotient of X_Levi. NT/Ji-MacPherson support face description. Existing AA.3 horospherical statement is connected semisimple, so reductive/disconnected extension is requested and unproved."
+    },
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.2/borel-serre-bordification",
+     "verdict": "unverifiable",
+     "note": "Corrected corner intersections: every coface collection contains the open G-face, so the asserted empty-intersection alternative was false. Precise corner charts and analytic transition maps are not supplied by the secondary source."
+    },
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.2/borel-serre-quotient-compact",
+     "verdict": "unverifiable",
+     "note": "Borel-Serre compactness and interior homotopy equivalence are supported by NT/ACC and Ji-MacPherson. Arithmetic properness and the corner construction remain conditional prerequisites; the original Borel-Serre chart proof was unavailable."
+    },
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.2/borel-serre-finite-triangulation",
+     "verdict": "unverifiable",
+     "note": "Finite triangulation and finite cohomology are supported by ACC at good neat levels. GeometricTopology layer 11 does not explicitly settle corners; the free equivariant triangulation and local-cochain comparison need completion."
+    },
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.2/boundary-stratification",
+     "verdict": "unverifiable",
+     "note": "Corrected universal P-space to use P(A_f), before induction to G. The induced G-stratum still uses G(A_f). NT Lemma 3.10 supports the continuous bijection and maximal open strata; downstream uses must respect the distinction."
+    },
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.2/stratum-nilmanifold-fibration",
+     "verdict": "unverifiable",
+     "note": "Replaced one purported global Levi base by the decomposition over P(A_f)\\G(A_f)/K with transported P-levels and their respective Levi bases. No arbitrary arithmetic extension is assumed split. General/nondecomposed level comparison remains open."
+    },
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.2/stratification-spectral-sequence",
+     "verdict": "unverifiable",
+     "note": "Finite compact-support filtration is plausible, but exact couple, differential indexing and the separately asserted ordinary closed-cover sequence are not established by the cited NT induction. Must propagate transported levels and prove the pages/maps."
+    },
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.3/hecke-action-on-invariants",
+     "verdict": "verified",
+     "note": "NT section 2.2 gives the double-coset invariants and derived-invariants interface. Existing Hecke ring is imported from the pins. Lean sum over representatives lacks disjointness and overcounts; tests such as cardinality alone do not validate the action."
+    },
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.3/derived-hecke-action",
+     "verdict": "verified",
+     "note": "NT/ACC give Hecke actions in D(H) for the specified equivariant sheaf setup. A chosen D(H) model permits derived tensor localization, so the former blanket no-tensor nonexample in node 44 was corrected. Non-neat support action remains conditional."
+    },
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.3/hecke-operator-formula",
+     "verdict": "verified",
+     "note": "NT Lemma 2.19 verifies correspondence pullback/trace expression. Keep both intersection levels and exact coefficient transport; no normality assumption should be inserted without need."
+    },
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.3/level-trace",
+     "verdict": "unverifiable",
+     "note": "Trace is supported by ACC transfer and Tau Ceti weighted orbit cardinality. That identity has stabilizer cardinality, not index, on the right. Arbitrary-level support trace model and actual Lean regular-cover identity remain unverified."
+    },
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.3/hecke-composition",
+     "verdict": "verified",
+     "note": "Composition and degree factors follow from the existing convolution and correspondence interface; GL2 double-coset square has the (p+1) central term in these conventions. Do not confuse it with differently normalized classical Fourier operators."
+    },
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.3/hecke-support-boundary-compatibility",
+     "verdict": "unverifiable",
+     "note": "Neat supports and boundary compatibility are in NT/ACC. General-level variants depend on the missing support/groupoid construction; the packet does not yet provide those maps."
+    },
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.3/discrete-topological-comparison",
+     "verdict": "unverifiable",
+     "note": "Checked CN23 Proposition 2.1.3 and Lemmas 2.1.4/2.1.5. Added explicit good-level hypothesis. Continuous/discrete setup comparison must be restricted to their class of levels, not arbitrary compact opens."
+    },
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.3/derived-hecke-algebra",
+     "verdict": "corrected",
+     "note": "Corrected GL1 example (general number fields have unit tori; finite regular image is O[C]) and the false ghost example (one [O --varpi--> O] has none). Replaced it by k[0] plus k[1] with Ext^1 ghost. Restricted inverse-limit statement to finite-free coefficients; Lean limits remain True."
+    },
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.3/character-twist",
+     "verdict": "corrected",
+     "note": "Corrected character domain to G(A_f), trivial on G(F), since G(F) need not be normal. Corrected maximal-ideal nonexample to distinguish changed k-valued eigensystems from Frobenius-conjugate systems over larger fields."
+    },
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.3/twisting-isomorphism",
+     "verdict": "corrected",
+     "note": "ACC Proposition 2.2.23 uses an invertible global section of the twisting line, then tensors and applies derived sections. Removed invalid replacement of universal-space cohomology by H0. General GL1 quotient need not be finite."
+    },
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.3/degeneracy-old-forms",
+     "verdict": "verified",
+     "note": "Checked CG18 Lemma 9.6 matrix and localization, keeping W_m for general maximal ideals. Existing E188 sign correction leaves unit criterion unchanged; E191 needs factorial-power projectors, E229 kills W only after the stated enlarged localization."
+    },
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.4/boundary-triangle",
+     "verdict": "verified",
+     "note": "Boundary support triangle ends in [1]. Published NT p.55 has [-1]; E2 confirmed. For non-neat K the triangle is conditional on an actual equivariant j! support model."
+    },
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.4/parabolic-hecke-maps",
+     "verdict": "corrected",
+     "note": "Corrected GL2 unnormalized Satake coefficients to p[diag(p,1)]+[diag(1,p)] for integral f(tn). Delta^(1/2) gives the symmetric normalized formula. Owner requests remain SR.2/SR.4/RG2.4. Lean existential basis and arithmetic-equality test are insufficient."
+    },
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.4/boundary-stratum-hecke-comparison",
+     "verdict": "unverifiable",
+     "note": "NT Proposition 3.8/3.4 verifies parabolic Hecke comparison with its decomposed levels. Corrected global-stratum/transported-level geometry must still be carried through this statement and its induction."
+    },
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.4/nomizu-van-est",
+     "verdict": "corrected",
+     "note": "Characteristic-zero Nomizu/van Est is supported by Harder-Raghuram. Corrected fixed-lattice equivariance to its normalizer; all M acts on Lie cohomology, while commensurator maps compare lattices. Integral version is not asserted."
+    },
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.4/boundary-stratum-cohomology-formula",
+     "verdict": "unverifiable",
+     "note": "Kostant gives irreducible Levi modules V^M_(w dot lambda), not one-dimensional characters for a nonabelian Levi; corrected weight-zero test. General reductive E2-degeneration/splitting and transported levels exceed the GL_N source proof and remain open."
+    },
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.4/levi-hochschild-serre",
+     "verdict": "unverifiable",
+     "note": "Corrected NT Lemma 4.5 comparison to discrete cohomology. Replaced continuous profinite HS prerequisite by AlgebraicTopology stage 5; arithmetic comparison to continuous cohomology remains a gap. Specify good/decomposed transported levels."
+    },
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.4/boundary-gluing-convergence",
+     "verdict": "unverifiable",
+     "note": "NT Lemma 4.4 proves compact-support induction over finitely many strata after duality. Packet ordinary-to-Hc shortcut needs early duality, inverse maximal ideal and corrected exact couple, with no stage cycle."
+    },
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.4/localization-at-maximal-ideal",
+     "verdict": "corrected",
+     "note": "IHG.2 supplies splitting of the derived Hecke image. Corrected nonexample: an End_D action alone specifies no strict lift, but with a D(T) lift tensor localization is valid. Lean triangle must have localized vertices and connecting map, not an unrelated triangle."
+    },
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.4/eisenstein-maximal-ideal",
+     "verdict": "corrected",
+     "note": "Corrected constant-functions GL2 test: T1=1+q, T2=1, polynomial (X-1)(X-q). Frobenius fixes cyclotomic-versus-inverse convention. Do not apply H0 vanishing to GL1 or every component eigensystem without qualification."
+    },
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.4/boundary-eigenvalue-criterion",
+     "verdict": "verified",
+     "note": "NT Lemma 4.4 gives the eigenvalue vanishing criterion under its central-element/eigenvalue hypotheses; converse requires actual occurrence. No blanket vanishing from a weight label is justified."
+    },
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.4/gln-boundary-eisenstein",
+     "verdict": "unverifiable",
+     "note": "NT Theorem 4.2 gives GL_n Eisenstein boundary under condition sharp and its Galois-type hypotheses. Packet proof omits duality to transfer ordinary vanishing to compact supports and localization at the inverse ideal."
+    },
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.4/siegel-stratum-localization",
+     "verdict": "unverifiable",
+     "note": "ACC Theorem 2.4.2 localizes to the Siegel stratum with its decomposed good level and residual hypotheses. Corrected stratum geometry and early-duality gluing are prerequisites still to complete."
+    },
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.5:finite-level-duality/corner-boundary-bridge",
+     "verdict": "unverifiable",
+     "note": "Topological manifold-with-boundary bridge from corners is necessary for the requested generic duality. Needs explicit homeomorphism/collar construction, orientation identification and naturality; merely citing ordinary manifold duality does not construct it."
+    },
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.5:finite-level-duality/verdier-poincare-duality",
+     "verdict": "corrected",
+     "note": "Derived duality with orientation and [d] is the corrected formula, also explicit in ACC Proposition 2.2.21. NT Proposition 3.7(1) lacks [d], not an alternative convention; added E3. Perfect-coefficient extension remains conditional on the enhancement request."
+    },
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.5:finite-level-duality/duality-pairings",
+     "verdict": "unverifiable",
+     "note": "Geometric cup/evaluation pairings are correct conditional on duality. Lean arbitrary unrelated H and Hc can have different dimensions and d-i truncates Nat subtraction; cannot verify that signature as the packet pairing."
+    },
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.5:finite-level-duality/hecke-adjoint-duality",
+     "verdict": "verified",
+     "note": "NT Proposition 3.7(3)/ACC Proposition 2.2.21 give inverse-double-coset adjoint and restriction/corestriction pairing. Preserve orientation local system and use the actual finite-level maps."
+    },
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.5:finite-level-duality/duality-triangle-compatibility",
+     "verdict": "unverifiable",
+     "note": "Dualizing the support triangle requires actual maps, signs and compatibility with coefficient change; source references only motivate this construction. The listed proof does not pin those data."
+    },
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.5:finite-level-duality/non-neat-duality",
+     "verdict": "unverifiable",
+     "note": "Corrected non-neat group-ring perfectness to underlying-R perfectness at neat K-prime, with full K freeness for group-ring result. Invertible quotient order is sufficient, not equivalent to invertible stabilizer orders. Support model remains a gap."
+    },
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.5/early-duality-reexport",
+     "verdict": "verified",
+     "note": "Early-duality reexport is a bookkeeping specialization of nodes 50-53. It must consume finite-level duality and not automorphic spectral theory or completed cohomology."
+    },
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.5/de-rham-comparison",
+     "verdict": "unverifiable",
+     "note": "Corrected relative pair to m_G=g/a_G with cancelling coefficient central character; full (g,K) adds unwanted split-centre classes. GL1/Q point disproves old formulation. Function-space twist and chain comparison still require precise statements."
+    },
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.5/automorphic-comparison",
+     "verdict": "unverifiable",
+     "note": "Franke Theorem 18 is the supplier input for moderate-growth/automorphic comparison. Corrected the same split-centre pair; retain central character, topology and exact AS.5 interface."
+    },
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.5/cuspidal-cohomology",
+     "verdict": "unverifiable",
+     "note": "Corrected pair to m_G and added AS.4 discrete-spectrum prerequisite/request. Classical Saito-Kurokawa lifts are cuspidal CAP and do not prove the claimed residual strict-interior example; replacement test is explicitly unresolved. Lean injectivity/interior signatures are false."
+    },
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.5/clozel-cohomological-gln",
+     "verdict": "corrected",
+     "note": "Scholze Corollary V.4.2 proof verifies Clozel contribution. Corrected real-place quadratic twist to pi-prime tensor eta; twisting changes the representation unless absorbed into notation. CM statement has no such extra twist."
+    },
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.5/non-eisenstein-degree-range",
+     "verdict": "verified",
+     "note": "Checked ACC Theorem 2.4.10 q0/l0 range and cuspidality with its weight, field, residual and Galois-attachment hypotheses. Uses AF.4 and automorphic comparison only after the proposed split."
+    },
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.5/unitary-middle-degree",
+     "verdict": "unverifiable",
+     "note": "Corrected rho to rational character lattice, preserving integral dot action. Existing ACC E21-E23 correct weight indexing and imaginary-quadratic hypothesis. AG2.4 supplies GL_m, not every unitary factor required in this argument; exact additional supplier is missing."
+    },
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.6/finite-level-descent",
+     "verdict": "unverifiable",
+     "note": "Corrected full K neatness for group-ring perfectness, keeping K-prime neat underlying-R statement. Finite-group derived descent is standard with the given equivariant model; support/boundary descent depends on its missing construction."
+    },
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.6/finite-cover-hochschild-serre",
+     "verdict": "unverifiable",
+     "note": "Finite-cover Hochschild-Serre follows from AlgebraicTopology stage 5; continuous profinite arithmetic machinery is not automatically a supplier for discrete arithmetic groups. Hecke comparison must retain levels and coefficient restrictions."
+    },
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.6/lowest-degree-descent",
+     "verdict": "verified",
+     "note": "CG18 Lemma 5.9 lowest-degree descent is valid for the p-group quotient: nonzero invariants and first-quadrant edge prevent disappearance. Do not silently apply it to full Delta_Q with prime-to-p factors; CG20 E142 already records that distinction."
+    },
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.6/tower-acceptance-tests",
+     "verdict": "corrected",
+     "note": "Corrected whole-adelic GL2 deck group versus SL2 component stabilizer and X(7) versus open Y(7): genus 3, 24 cusps, open H1 dimension 29. Compact quaternion example needs neat refinement. These finite tests do not realize completed tower targets."
+    }
+   ]
+  },
+  {
+   "status": "accepted",
+   "reviewer": "independent-review-REV-ArithmeticLocallySymmetricSpaces~2",
+   "date": "2026-10-07",
+   "notes": "Finished independent target-level review by Codex codex-hcCPKh: all 66 nodes, 156 source records in 13 public texts, 36 declarations at both pinned source commits, 132 API items, 88 tests, 31 planets, cross-owner prerequisites, prior review corrections, RS-09~2 and three confirmed red-team findings. Corrected 21 existing nodes, resolved three stage requests to exact suppliers, confirmed E1–E3, and synchronized the reader and suggested-file omission catalogue. No nodes added or baseline citations removed. Accepted as a complete planning pass with 16 explicit interface/signature/extension gaps, eight planned stages and no closed stage; general real-place ♠-only boundary vanishing and general reductive splitting are not claimed. lean-check stopped at a missing prebuilt TauCeti HeckeRing object before elaboration; file uncompiled, all implementation statuses unchecked.",
+   "checked": [
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.0/cartan-involution",
+     "verdict": "verified",
+     "note": "Cartan characterization is semisimple on the Killing form; the reductive central-torus condition is separate (Milne 1.16)."
+    },
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.0/maximal-compact-subgroup",
+     "verdict": "verified",
+     "note": "Compactness, maximality and conjugacy follow from the requested Cartan decomposition; Milne 1.18/1.20 have the appropriate central hypotheses."
+    },
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.0/symmetric-space",
+     "verdict": "verified",
+     "note": "The rational split radical is divided out once; contractible Cartan coordinates and full-real-component convention are retained."
+    },
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.0/symmetric-space-contractible",
+     "verdict": "verified",
+     "note": "Properness belongs to G(F∞)/A∞; projected discreteness and a finite central kernel are explicit, not consequences of arbitrary discreteness."
+    },
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.0/locally-symmetric-space",
+     "verdict": "verified",
+     "note": "The adelic quotient, topology and full GL₂ real action match ACC §2.1; the generic Lean Datum is only a quotient adapter."
+    },
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.0/component-decomposition",
+     "verdict": "verified",
+     "note": "The finite disjoint component decomposition uses AA finite class number and the actual Γ_{g,K} action."
+    },
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.0/proper-action-stabilizers",
+     "verdict": "corrected",
+     "note": "Registered the unquotiented Borel–Serre bordification input used by the noncircular arithmetic properness proof (BS 9.3)."
+    },
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.0/neat-level-manifold",
+     "verdict": "verified",
+     "note": "Torsion-free arithmetic groups plus properness give manifolds and freeness; Pink all-adelic neatness is not equated with the AA predicate."
+    },
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.0/neatness-iwahori-criterion",
+     "verdict": "verified",
+     "note": "Two distinct residue characteristics force eigenvalue torsion to be simultaneously two-primary; ACC 6.5.2 retains integral local hypotheses."
+    },
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.0/standard-level-subgroups",
+     "verdict": "verified",
+     "note": "Γp/Γ1 uses only the p-primary residue-unit subgroup; projective Γ1 has a common scalar and the mod-8 exception is retained."
+    },
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.0/orientation-local-system",
+     "verdict": "corrected",
+     "note": "Added the F-neat GL₂/ℚ(√5) orientation regression; Q-restriction-of-scalars neatness and odd matrix rank have distinct consequences."
+    },
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.0/nonorientable-neat-example",
+     "verdict": "corrected",
+     "note": "The PGL₂/ℚ determinant −1 example remains valid; the GLm norm argument now explicitly assumes Q-restriction-of-scalars neatness."
+    },
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.1/arithmetic-local-system",
+     "verdict": "verified",
+     "note": "The slice action uses both coefficient factors without a partial inverse; whole-inverse opposite-loop monodromy is tested noncommutatively."
+    },
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.1/betti-complexes",
+     "verdict": "verified",
+     "note": "The neat-normal-refinement D(R[Q]) model specifies ordinary, j!-supported and boundary objects; refinement coherence remains an explicit enhancement obligation."
+    },
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.1/sheaf-singular-comparison",
+     "verdict": "corrected",
+     "note": "Sella's constant-coefficient resolution is extended conditionally via local trivializations; corrected the noncompact surface test to include orientability."
+    },
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.1/group-cohomology-comparison",
+     "verdict": "verified",
+     "note": "Arithmetic group comparison uses contractibility and local-cochain descent; tame invariant pushforward may be constructible rather than locally constant."
+    },
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.1/finite-complex-model",
+     "verdict": "corrected",
+     "note": "K′ must be open normal for a finite quotient; R[Q]-perfectness uses full-level free cells, distinct from underlying R-perfectness."
+    },
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.1/coefficient-change",
+     "verdict": "verified",
+     "note": "Derived coefficient change uses the finite projective cell model and the explicit triangulation prerequisite, not arbitrary non-neat averaging."
+    },
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.1/level-pullback",
+     "verdict": "verified",
+     "note": "Translation and pullback orders are r_g after r_h = r_hg; S-coefficient transport and support properness are explicit."
+    },
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.2/geodesic-action-boundary-face",
+     "verdict": "verified",
+     "note": "BS geodesic action and reductive type S–Q decomposition support the faces; the AA semisimple horospherical extension is separately requested."
+    },
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.2/borel-serre-bordification",
+     "verdict": "verified",
+     "note": "BS corner charts and generated-parabolic intersections support the gluing; every coface chart contains the interior face."
+    },
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.2/borel-serre-quotient-compact",
+     "verdict": "verified",
+     "note": "BS 9.3/9.5 supply arithmetic compactness and the torsion-free corner quotient; the open inclusion is a homotopy equivalence."
+    },
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.2/borel-serre-finite-triangulation",
+     "verdict": "verified",
+     "note": "BS 11.1 plus DH rounding give finite triangulation; the free relative/equivariant model still requires the precisely requested topology interface."
+    },
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.2/boundary-stratification",
+     "verdict": "verified",
+     "note": "The P-space has P(Af), its induced stratum G(Af); the finite-level bijection is used with its exact topological scope."
+    },
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.2/stratum-nilmanifold-fibration",
+     "verdict": "verified",
+     "note": "Every double-coset component has its transported P-level and Levi base; the nilmanifold fibre does not require a split lattice extension."
+    },
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.2/stratification-spectral-sequence",
+     "verdict": "corrected",
+     "note": "Separated compact-support exact-couple degrees from ordinary flag degrees; restricted the HR ordinary flag branch to totally real GLN."
+    },
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.3/hecke-action-on-invariants",
+     "verdict": "corrected",
+     "note": "The monoid is now a submonoid of an ambient group containing U; this gives free U-orbits and the exact induction needed to preserve injectives."
+    },
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.3/derived-hecke-action",
+     "verdict": "verified",
+     "note": "NT derived invariants supply the strict Hecke object in the stated category; arbitrary supported equivariant lifts are separately requested."
+    },
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.3/hecke-operator-formula",
+     "verdict": "verified",
+     "note": "The pullback/trace correspondence retains both intersection levels and coefficient transport; no unnecessary normality assumption is introduced."
+    },
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.3/level-trace",
+     "verdict": "verified",
+     "note": "Finite-cover trace has both composites and supports; weighted stabilizer cardinalities are not coarse-cover indices at wild level."
+    },
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.3/hecke-composition",
+     "verdict": "corrected",
+     "note": "Noncentral operators compose in End_D(R), even for a D(H) object; the S₃ regular module disproves unconditional H-linearity."
+    },
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.3/hecke-support-boundary-compatibility",
+     "verdict": "verified",
+     "note": "Boundary and support maps intertwine the Hecke action via the chosen equivariant support model; arbitrary-level coherence is explicit."
+    },
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.3/discrete-topological-comparison",
+     "verdict": "verified",
+     "note": "CN 2.1.3/2.1.4/2.1.5 apply at their good levels and distinguish strict D(H) objects from actions in End_D."
+    },
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.3/derived-hecke-algebra",
+     "verdict": "corrected",
+     "note": "Imported the exact IHG finite-image, ghost-nilpotence and maximal-ideal nodes; the Ext¹ ghost and finite-free inverse-limit restriction remain valid."
+    },
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.3/character-twist",
+     "verdict": "verified",
+     "note": "The character is on G(Af) and trivial on G(F); ideals versus field-valued eigensystems are distinguished."
+    },
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.3/twisting-isomorphism",
+     "verdict": "verified",
+     "note": "ACC's invertible global twisting section induces the complex isomorphism; it is not replaced by H⁰ of the universal arithmetic space."
+    },
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.3/degeneracy-old-forms",
+     "verdict": "verified",
+     "note": "CG18 9.6 gives the localized degeneracy matrix; determinant sign and W after further localization retain existing E188/E191/E229."
+    },
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.4/boundary-triangle",
+     "verdict": "verified",
+     "note": "The cohomological support triangle ends in [1], including the enhancement-dependent arbitrary-level version; E2 remains confirmed."
+    },
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.4/parabolic-hecke-maps",
+     "verdict": "verified",
+     "note": "The integral Satake coefficient order is p,1 for f(tn); hyperspecial q-half normalization and positive-Iwahori single terms are separated."
+    },
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.4/boundary-stratum-hecke-comparison",
+     "verdict": "verified",
+     "note": "Transported P-levels and good decompositions are propagated through induction and Hecke restriction, as required by NT/ACC."
+    },
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.4/nomizu-van-est",
+     "verdict": "corrected",
+     "note": "Characteristic-zero lattice Nomizu comparison is normalizer-equivariant; the commensurator compares lattices, and AF.1a owns the requested absolute Lie-cochain/Kostant prefix. Preserved the concurrent supplier correction and explicit missing E-linear absolute-cochain/Kostant export."
+    },
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.4/boundary-stratum-cohomology-formula",
+     "verdict": "corrected",
+     "note": "Added the splitting-field/root-datum hypothesis and restricted HR splitting to totally real GLN; general reductive groups retain only the E₂/Kostant statement."
+    },
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.4/levi-hochschild-serre",
+     "verdict": "verified",
+     "note": "NT 4.5 is discrete arithmetic unipotent cohomology; the transported group extension precedes a separate continuous comparison."
+    },
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.4/boundary-gluing-convergence",
+     "verdict": "corrected",
+     "note": "Compact-support induction uses dual coefficient vanishing at the inverse ideal; the ordinary flag branch now retains its totally-real hypothesis."
+    },
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.4/localization-at-maximal-ideal",
+     "verdict": "corrected",
+     "note": "Imported the exact IHG local-factor, localized-complex and support nodes; strict tensor localization is allowed only with its specified lift."
+    },
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.4/eisenstein-maximal-ideal",
+     "verdict": "verified",
+     "note": "The unnormalized GL₂ constant-function polynomial is (X−1)(X−q); Galois attachment and rank-one qualifications remain explicit."
+    },
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.4/boundary-eigenvalue-criterion",
+     "verdict": "corrected",
+     "note": "Required all transported Levi supports and the dual/orientation inverse-ideal exclusion (or direct Hc vanishing); corrected the cusp acceptance criterion."
+    },
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.4/gln-boundary-eisenstein",
+     "verdict": "corrected",
+     "note": "Added an explicit dual-orientation Galois-type hypothesis to the real-place argument; the original ♠-only generality is recorded as an open extension."
+    },
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.4/siegel-stratum-localization",
+     "verdict": "verified",
+     "note": "ACC Siegel localization keeps good decomposed levels and the GL/CM Galois hypotheses; early duality supplies the support induction."
+    },
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.5:finite-level-duality/corner-boundary-bridge",
+     "verdict": "verified",
+     "note": "DH collar/rounding preserves the underlying topological pair; pair/cohomology naturality does not require functorial smoothings."
+    },
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.5:finite-level-duality/verdier-poincare-duality",
+     "verdict": "verified",
+     "note": "Duality is RHom(RΓc,R) ≅ RΓ(V∨⊗o)[d], with the manifold pair and finite-projective hypotheses; generic topology is imported."
+    },
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.5:finite-level-duality/duality-pairings",
+     "verdict": "verified",
+     "note": "Pairings have complementary total degree d, orientation coefficients and finite-cover pullback/trace adjunction."
+    },
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.5:finite-level-duality/hecke-adjoint-duality",
+     "verdict": "verified",
+     "note": "The Hecke adjoint inverts double cosets and transports ideals, with the exact coefficient dual and orientation system."
+    },
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.5:finite-level-duality/duality-triangle-compatibility",
+     "verdict": "verified",
+     "note": "Dualizing reverses the triangle; comparison is the inverse rotation with the negative connecting arrow and boundary dimension d−1."
+    },
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.5:finite-level-duality/non-neat-duality",
+     "verdict": "verified",
+     "note": "Non-neat duality retains the tame/wild distinction; a perfect underlying complex does not justify averaging at bad stabilizer primes."
+    },
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.5/early-duality-reexport",
+     "verdict": "verified",
+     "note": "This reexports only the early duality prefix; it does not create a second proof or a cycle through later boundary applications."
+    },
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.5/de-rham-comparison",
+     "verdict": "verified",
+     "note": "Local-system de Rham comparison uses the arithmetic monodromy and mG = gC/aG; generic relative cochains remain AF.1a's input."
+    },
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.5/automorphic-comparison",
+     "verdict": "corrected",
+     "note": "Replaced AS.5 by exact Franke comparison/support nodes; corrected anisotropic acceptance to automorphic (Z-finite) cuspidal forms."
+    },
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.5/cuspidal-cohomology",
+     "verdict": "corrected",
+     "note": "Replaced the broad spectral input by AF.3/cuspidal-spectrum-discrete and AS.5 nodes; the image comes from the actual automorphic comparison."
+    },
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.5/clozel-cohomological-gln",
+     "verdict": "corrected",
+     "note": "Imported exact AF.4 weight/C–L-algebraic/cohomological nodes; Scholze's real-component cover and quadratic twist remain in the statement."
+    },
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.5/non-eisenstein-degree-range",
+     "verdict": "corrected",
+     "note": "Imported the exact AF.4 tempered degree-range node; CM degrees and conditional residual Galois attachment agree with ACC 2.4.10."
+    },
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.5/unitary-middle-degree",
+     "verdict": "corrected",
+     "note": "The Siegel argument uses Kostant constituents, not HR split GLN cohomology; retain half-integral rho, Levi partitions and AG2.2/2.3 unitary inputs."
+    },
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.6/finite-level-descent",
+     "verdict": "verified",
+     "note": "Finite residual quotients descend through coherent derived invariants; no completed limit or profinite vanishing is implicit."
+    },
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.6/finite-cover-hochschild-serre",
+     "verdict": "corrected",
+     "note": "Used the discrete finite-cover Cartan–Leray supplier; relative derived endomorphisms give SS naturality, not an automatic simultaneous strict lift."
+    },
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.6/lowest-degree-descent",
+     "verdict": "verified",
+     "note": "At the actual lowest degree the finite-cover edge map uses absence of lower cohomology; free normal covers and coefficient transport remain required."
+    },
+    {
+     "nodeId": "ArithmeticLocallySymmetricSpaces:ALS.6/tower-acceptance-tests",
+     "verdict": "verified",
+     "note": "The retained tower-named identifier tests only finite covers, compact boundary-free quotients and invertible-order degeneration under RS-09."
+    }
+   ]
+  },
+  {
+   "status": "needs_changes",
+   "reviewer": "independent-review-REV-FIX-RT-AREA-automorphic-1~3",
+   "date": "2026-10-07",
+   "notes": "Independent scoped review of RT-AREA-automorphic-1/6,/27, following REV-FIX-RT-AREA-automorphic-1~2 and the concurrent accepted REV-ArithmeticLocallySymmetricSpaces~2. Preserved that newer revision, its complete source/baseline ledger and unrelated corrections; the earlier first-review failures are not carried forward as if still present. Refined finite-dimensional algebraic coefficients, extension to P for Levi action, rational comparison and E-to-C realization/descent, dominant-weight/splitting-field scope, normalizer versus transported-lattice equivariance and exact Harder-Raghuram v2 locators. The corrected narrow packet/Lean contract is acceptable, but the newer reader still asserts an algebraic Levi action for an arbitrary N-representation and an unqualified E-valued differential-form realization; those concrete contradictions require authorized synchronization before whole-deliverable promotion. Explicit future-carrier/API omissions and the conditional general E2 statement are not blockers. This does not claim a fresh all-66-node/36-pin audit. Lean was not compiled."
+  },
+  {
+   "status": "needs_changes",
+   "reviewer": "independent-review-REV-FIX-RT-AREA-automorphic-1~4",
+   "date": "2026-10-08",
+   "notes": "Independent review of FIX-RT-AREA-automorphic-1~4 (issue #7280, PR #7314, Codex codex-Z0ErNN) by Claude session claude-95TvAO, following REV-FIX-RT-AREA-automorphic-1~3 and, for this packet, REV-ArithmeticLocallySymmetricSpaces~2 (accepted, promoted). Reviewed every change since the promoted version (76f959c6e): ALS.4/nomizu-van-est, boundary-stratum-cohomology-formula, levi-hochschild-serre, ALS.0/cartan-involution sources, the AF.1a request, sources and sourceIssues. Findings /6, /27, /28 and /30 are correctly fixed: algebraic coefficients, an E-linear rational comparison with the differential-form realization only after E→C, a Levi action only when the coefficient extends to P, Kostant over a splitting number field with dominant integral weight, Harder–Raghuram v2 locators §4.2.1–4.2.3 (checked in arXiv:1405.6513v2); SR.2, SR.4 and RG2.4 requests; exact AA.4 neat-level imports with no backward V0 edge; only AF.4 local-prefix imports. Corrected: \"radical\" to \"unipotent radical\" in nomizu-van-est (statement, hypothesis, suggested docstring); the ALS.2/stratum-nilmanifold-fibration locator; the Kostant conditions in a levi-hochschild-serre acceptance test; the cartan-involution source note. Remaining, for the next fix round (reader only, unchanged since promotion): reader ~1503 and ~1511 still give a Levi action on the Lie cohomology of an arbitrary N-module and an invariant-form isomorphism over any characteristic-zero field; ~2302 states Kostant for any reductive Lie algebra over any characteristic-zero field; the Harder–Raghuram locators at ~1521, ~1545 and ~1569 still say §4.1. The suggested file was not recompiled (Tau Ceti imports; docstring-only change)."
+  }
+ ]
 }

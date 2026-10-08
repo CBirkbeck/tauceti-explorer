@@ -318,8 +318,7 @@ to known only by a record proving every member of H.
 
 *Source.*
 - cg-2018, Theorem 1.1(1), §1, p. 3 (arXiv v2) = Invent. p. 300; proof §10, pp. 96–98 (arXiv
-  v2) = Invent. pp. 428–429: “Theorem 1.1. Assume Conjecture B. Let F be any number field, and
-  let E be an elliptic curve over F . Then the following hold: (1) E is potentially modular.” —
+  v2) = Invent. pp. 428–429 —
   Model of a conditional endpoint: Calegari–Geraghty's Theorem 1.1 assumes their Conjecture B.
 
 #### `ML.0/archimedean-langlands-conventions` — Archimedean Langlands parameters rec_ℝ, rec_ℂ, isobaric sums ⊞ and BC_{ℂ/ℝ}
@@ -386,9 +385,7 @@ rec_ℝ and rec_ℂ interchanged (recorded as a source issue).
 `tauceti:TauCetiRoadmap/ClassFieldTheory#layer-11-the-global-class-formation-and-global-artin-reciprocity`.
 
 *Source.*
-- acc-2023, §1.2 Notation, arXiv v2 p. 11 (Annals pp. 907–908): “We will write recC (resp. recR
-  ), or simply rec, for the local Langlands correspondence from irreducible admissible (Lie GLn
-  (R) ⊗R C, O(n))-modules” — ACC+ §1.2 notation for Art, rec_ℝ, rec_ℂ, ⊞ and BC_{ℂ/ℝ}.
+- acc-2023, §1.2 Notation, arXiv v2 p. 11 (Annals pp. 907–908) — ACC+ §1.2 notation for Art, rec_ℝ, rec_ℂ, ⊞ and BC_{ℂ/ℝ}.
 
 #### `ML.0/compatible-system-archimedean-factors` — Archimedean Euler factors and completed L-function of a pure compatible system
 
@@ -449,8 +446,7 @@ s)·∏_{v ∈ S finite} L_v(R, s)·∏_{v | ∞} L_v(R, s).
 
 *Source.*
 - acc-2023, §7.1, definition of purity and the paragraph after it, arXiv v2 pp. 197–198 (Annals
-  p. 1092 per routed locator): “If R is pure and regular and if v is an infinite place of F ,
-  then the Euler factor Lv (ıR, s) can be defined (see [BLGGT14, §5.1]).” — ACC+ §7.1 defines
+  p. 1092 per routed locator) — ACC+ §7.1 defines
   L(R, s) with its archimedean Euler factors.
 
 #### `ML.0/nt26-automorphy-predicate` — Automorphic Galois representations in Newton–Thorne's sense
@@ -513,9 +509,7 @@ note that it is not the most general one could adopt.
 
 *Source.*
 - nt-2026, §2 ('Some comforting lemmas'), opening paragraph immediately before Lemma 2.1, p. 9
-  (arXiv v2): “we say that a continuous representation ρ : GF → GLn (Qp ) is automorphic if
-  there exists a RAESDC or RAECSDC automorphic representation π of GLn (AF ) and an isomorphism
-  ι” — Newton–Thorne's definition of an automorphic Galois representation.
+  (arXiv v2) — Newton–Thorne's definition of an automorphic Galois representation.
 
 #### `ML.0/gsp4-galois-l-packet` — The L-packet L(ρ) of a GSp₄-valued local Galois representation, and n(π)
 
@@ -582,11 +576,8 @@ Iwahori-fixed vectors.
 - bcgp-2021, Definition 2.3.1, §2.3, p. 19 (arXiv v3): “then we write L(ρ) for the L-packet
   associated to ρ, which by deﬁnition is the set of equivalence classes of irreducible smooth”
   — BCGP Definition 2.3.1.
-- bcgp-2021, Remark 2.3.2, §2.3, p. 19 (arXiv v3): “We make (implicit) use of this for
-  unramiﬁed representations, and of the statement that the rank of the monodromy operator
-  associated to a representation with Iwahori-ﬁxed vectors” — BCGP Remarks 2.3.2–2.3.3.
-- bcgp-2021, §2.3, after Remark 2.3.3, p. 19 (arXiv v3): “then we write n(π) for n(rec(π))
-  (resp. n(recGT (π))).” — BCGP: n(π) := n(rec(π)) (resp. n(rec_GT(π))).
+- bcgp-2021, Remark 2.3.2, §2.3, p. 19 (arXiv v3) — BCGP Remarks 2.3.2–2.3.3.
+- bcgp-2021, §2.3, after Remark 2.3.3, p. 19 (arXiv v3) — BCGP: n(π) := n(rec(π)) (resp. n(rec_GT(π))).
 
 #### `ML.0/weight-22-abelian-variety-conjecture` — Conjecture: weight (2,2) Siegel eigenforms come from abelian varieties with real multiplication (conjectural endpoint)
 
@@ -682,12 +673,8 @@ Newton-above-Hodge statement is a consequence of V. Lafforgue's theorem.
 `ML.0/endpoint-status-register`.
 
 *Source.*
-- pilloni-2020, §5.3, Remark 5.3.2, p. 25 (author version): “One believes that the
-  representations constructed in the theorem are de Rham with Hodge-Tate weights (0, r − 2, r +
-  k − 1, k + 2r − 3) and crystalline at p if (N, p) = 1.” — Pilloni Remark 5.3.2.
-- pilloni-2020, §5.3, Remark 5.3.2, p. 26 (author version): “above the Hodge polygon with the
-  same initial and ending point. This is last statement is a consequence of the main theorem of
-  [45] if the weight is cohomological.” — Pilloni: the last statement follows from [45] (V.
+- pilloni-2020, §5.3, Remark 5.3.2, p. 25 (author version) — Pilloni Remark 5.3.2.
+- pilloni-2020, §5.3, Remark 5.3.2, p. 26 (author version) — Pilloni: the last statement follows from [45] (V.
   Lafforgue) in cohomological weight.
 
 ### Theorems, comparisons and registers
@@ -729,10 +716,9 @@ does not depend on ı (Clozel, Theorem 3.13).
 `AutomorphicGaloisRepresentationsPartII:AG2.2`.
 
 *Source.*
-- blggt-2014-v4, §2.1, p. 32 (arXiv v4): “By a polarized automorphic representation of” — The
+- blggt-2014-v4, §2.1, p. 32 (arXiv v4) — The
   definition of polarized automorphic representations, with BLGGT's remark on the renaming.
-- blggt-2014-v4, §2.1, Theorem 2.1.1, pp. 33–34 (arXiv v4): “we can associate l-adic
-  representations to regular algebraic” — Theorem 2.1.1: the Galois representations r_{l,ı}(π)
+- blggt-2014-v4, §2.1, Theorem 2.1.1, pp. 33–34 (arXiv v4) — Theorem 2.1.1: the Galois representations r_{l,ı}(π)
   and their normalisations.
 
 #### `ML.0/blggt-version-register` — BLGGT source versions: arXiv v1 against v4 (Annals 2014)
@@ -767,8 +753,7 @@ hypothesis.
 *Depends on:* `ML.0/blggt-normalization-register`.
 
 *Source.*
-- blggt-2014-v4, title page and table of contents, p. 1 (arXiv v4): “POTENTIAL AUTOMORPHY AND
-  CHANGE OF WEIGHT” — arXiv v4, dated 9 December 2013.
+- blggt-2014-v4, title page and table of contents, p. 1 (arXiv v4) — arXiv v4, dated 9 December 2013.
 
 #### `ML.0/arthur-dependency-gate` — Arthur dependency register: the conditional status of the endoscopic classification
 
@@ -807,20 +792,13 @@ visibly; the register does not claim that the weighted fundamental lemma follows
 *Depends on:* `ML.0/endpoint-status-register`.
 
 *Source.*
-- bcgp-2021, §1.4.1 'The work of Arthur', p. 14 (arXiv v3): “it depends on cases of the twisted
-  weighted fundamental lemma that were announced in [CL10], but whose proofs have not yet
-  appeared” — BCGP 2021 §1.4.1: the dependence on the twisted weighted fundamental lemma and
+- bcgp-2021, §1.4.1 'The work of Arthur', p. 14 (arXiv v3) — BCGP 2021 §1.4.1: the dependence on the twisted weighted fundamental lemma and
   [A24]–[A27].
-- bcgp-2025, §1.6 'The work of Arthur', pp. 7–8 (arXiv v1): “a complete proof of all the
-  missing ingredients from Arthur’s papers is now available, and thus the only result we use
-  for which a proof is not yet available is the twisted weighted fundamental lemma.” — BCGP
+- bcgp-2025, §1.6 'The work of Arthur', pp. 7–8 (arXiv v1) — BCGP
   2025 §1.6: after AGIKMS only the twisted weighted fundamental lemma remains.
-- agikms-2024, Abstract, p. 1 (arXiv v3): “these results make the endoscopic classiﬁcation
-  conditional only on the validity of the twisted weighted fundamental lemma.” — AGIKMS
+- agikms-2024, Abstract, p. 1 (arXiv v3) — AGIKMS
   abstract: the classification is conditional only on the twisted weighted fundamental lemma.
-- arthur-2013, §3.2, Hypothesis 3.2.1, p. 137; Preface p. xvi (2011 manuscript): “Our induction
-  assumptions have of course to be distinguished from the general condition (Hypothesis 3.2.1)
-  on which our results rely.” — Arthur's Hypothesis 3.2.1.
+- arthur-2013, §3.2, Hypothesis 3.2.1, p. 137; Preface p. xvi (2011 manuscript) — Arthur's Hypothesis 3.2.1.
 
 #### `ML.0/compatible-system-automorphic-l-function-comparison` — L-functions of the compatible system of an automorphic representation
 
@@ -859,8 +837,7 @@ and functional equation of Λ(π, s) (Godement–Jacquet).
 
 *Source.*
 - acc-2023, §7.1, paragraph after the proof of Lemma 7.1.10 (before Theorem 7.1.11), arXiv v2
-  p. 200 (Annals p. 1095): “If moreover Rπ is pure, and hypothesis (DGI) of Lemma 7.1.9 holds,
-  then for each infinite place v of F we have Lv (ı0 Rπ , s) = Lv (π, s).” — ACC+ §7.1 compares
+  p. 200 (Annals p. 1095) — ACC+ §7.1 compares
   L(R_π, s) with L(π, s).
 
 #### `ML.0/nt26-normalisation-bridge` — Newton–Thorne's normalisations against BLGGT's and the atlas's Galois conventions
@@ -895,9 +872,7 @@ under that dictionary.
 
 *Source.*
 - nt-2026, §1.2 Notation, p. 8 (arXiv v2) (geometric-Frobenius Art_K, rec^T, r_{π,ι}, HT
-  convention); Frob_v convention p. 7: “We use the cohomological normalization of class field
-  theory: it is the isomorphism ArtK : K × → WK ab which sends uniformizers to geometric
-  Frobenius elements.” — Newton–Thorne §1.2 conventions.
+  convention); Frob_v convention p. 7 — Newton–Thorne §1.2 conventions.
 
 #### `ML.0/regular-weight-serre-implies-abelian-surface-modularity` — A regular-weight Serre conjecture for GSp₄ implies modularity of abelian surfaces over ℚ (BCGP 2025, Lemma 10.4.1)
 
@@ -929,12 +904,8 @@ conditional endpoint: its hypothesis is a conjecture.
 `ML.0/endpoint-status-register`.
 
 *Source.*
-- bcgp-2025, Lemma 10.4.1, §10.4, p. 222 (arXiv v1): “there exists an ordinary cuspidal
-  automorphic representation π of GSp4 /Q of reg- ular weight, level prime to p, and central
-  character | · |2 , such that” — BCGP 2025 Lemma 10.4.1.
-- bcgp-2025, Remark 10.4.2, p. 222 (arXiv v1): “There are several possible natural variations
-  on the hypotheses of this Lemma; for example, one could only demand the statement for p
-  suﬃciently large.” — BCGP 2025 Remark 10.4.2.
+- bcgp-2025, Lemma 10.4.1, §10.4, p. 222 (arXiv v1) — BCGP 2025 Lemma 10.4.1.
+- bcgp-2025, Remark 10.4.2, p. 222 (arXiv v1) — BCGP 2025 Remark 10.4.2.
 
 **Remaining refinements.**
 - Conductors are registered only through the completed L-functions
@@ -1027,13 +998,9 @@ entire.
 `ML.0/endpoint-status-register`.
 
 *Source.*
-- kw-2009-I, §10.2, p. 20 (author copy results.pdf): “Langlands has made the stronger
-  conjecture that ρ arises from a cuspidal, automorphic representation π of GLn (AK ). Thus
-  L(ρ, s) = L(π, s)” — Khare–Wintenberger §10.2: Langlands' stronger conjecture that ρ arises
+- kw-2009-I, §10.2, p. 20 (author copy results.pdf) — Khare–Wintenberger §10.2: Langlands' stronger conjecture that ρ arises
   from a cuspidal automorphic π.
-- kw-2009-I, §10.2, p. 20 (author copy results.pdf): “Artin’s conjecture (cf. [2]) is the
-  assertion that the L-series L(ρ, s), that Artin attached (cf. [1]) to a non-trivial,
-  irreducible, continuous, complex representation ρ : GK → GLn (C)” — Khare–Wintenberger §10.2:
+- kw-2009-I, §10.2, p. 20 (author copy results.pdf) — Khare–Wintenberger §10.2:
   Artin's conjecture.
 
 ### Theorems, comparisons and registers
@@ -1080,15 +1047,10 @@ from a newform of weight one; in particular, after twisting to Hodge–Tate weig
 `AutomorphicGaloisRepresentations:R19.1/weight-one-artin-representation`.
 
 *Source.*
-- kw-2009-I, Theorem 10.1(ii), §10.1, p. 20 (author copy results.pdf): “(ii) A two-dimensional
-  irregular compatible system that is irreducible and odd arises up to twist from a newform of
-  weight 1.” — Khare–Wintenberger Theorem 10.1(ii).
-- kw-2009-I, Proof of Theorem 10.1(ii), p. 20 (author copy results.pdf): “Then arguing as in
-  [21], which uses the results of Gross and Coleman-Voloch, [19] and [7] (see also 3.4 of
-  [14]), we conclude from Serre’s conjecture” — Khare–Wintenberger: Serre's conjecture with
+- kw-2009-I, Theorem 10.1(ii), §10.1, p. 20 (author copy results.pdf) — Khare–Wintenberger Theorem 10.1(ii).
+- kw-2009-I, Proof of Theorem 10.1(ii), p. 20 (author copy results.pdf) — Khare–Wintenberger: Serre's conjecture with
   Gross and Coleman–Voloch gives weight one at bounded level, arguing as in Khare's note.
-- kw-2009-I, §5, p. 8 (author copy results.pdf): “We refer to a, b, as the weights of the
-  compatible system and when a ≥ 0, b = 0 we say that ρι is of weight a + 1.” —
+- kw-2009-I, §5, p. 8 (author copy results.pdf) —
   Khare–Wintenberger §5: weights, regular and irregular systems.
 
 #### `ML.1/odd-artin-modularity-over-q` — Registered: odd two-dimensional Artin representations of G_ℚ are modular (Langlands–Tunnell; Khare–Wintenberger Corollary 10.2(ii))
@@ -1096,14 +1058,7 @@ from a newform of weight one; in particular, after twisting to Hodge–Tate weig
 *Kind:* comparison.
 *Declaration:* `TauCeti.WeightOne.oddArtin_modular_Q` in `TauCeti/NumberTheory/WeightOne`.
 
-Every continuous odd irreducible ρ : G_ℚ → GL₂(ℂ) arises from a newform of weight one, hence
-satisfies Langlands' conjecture (ML.1/strong-artin-conjecture) and Artin's conjecture. The
-soluble cases (projective image dihedral, A₄, S₄) are Langlands–Tunnell (owner
-GL2AutomorphicRepresentationsAndTransfer R17.5, RS-21); the new case, projective image A₅, is
-Khare–Wintenberger Corollary 10.2(ii), deduced from ML.1/irregular-systems-weight-one, and
-exported by ClassicalSerreModularity R27.6. This node registers the two owners and the
-consequence for the strong Artin conjecture; it does not reprove either, and it does not derive
-weight-one representations from weight-two Jacobians.
+Every continuous odd irreducible ρ : G_ℚ → GL₂(ℂ) arises from a newform of weight one, hence satisfies Langlands' conjecture (ML.1/strong-artin-conjecture) and Artin's conjecture. The soluble cases (projective image dihedral, A₄, S₄) are Langlands–Tunnell (owner GL2AutomorphicRepresentationsAndTransfer R17.5, RS-21); the new case, projective image A₅, is Khare–Wintenberger Corollary 10.2(ii), proved and exported by ClassicalSerreModularity R27.6/odd-artin-weight-one-modularity. This node registers the two owners and the consequence for the strong Artin conjecture; it does not reprove either, and it does not derive weight-one representations from weight-two Jacobians.
 
 *Hypotheses.*
 - ρ odd (det ρ(c) = −1), irreducible, over ℚ only. Even two-dimensional ρ (Maass forms) are not
@@ -1119,22 +1074,17 @@ weight-one representations from weight-two Jacobians.
 - The acceptance criterion of ML.1: weight-one modularity over ℚ is imported from its owners;
   weight-one representations are never obtained from a weight-two Jacobian.
 
-*Depends on:* `ML.1/strong-artin-conjecture`, `ML.1/irregular-systems-weight-one`,
+*Depends on:* `ML.1/strong-artin-conjecture`, `AutomorphicGaloisRepresentations:R19.1/weight-one-artin-representation`,
 `GL2AutomorphicRepresentationsAndTransfer:R17.5/solvable-artin`,
 `ClassicalSerreModularity:R27.6/odd-artin-weight-one-modularity`,
 `ML.0/endpoint-status-register`.
 
 *Source.*
-- kw-2009-I, Corollary 10.2(ii), §10.2, p. 21 (author copy results.pdf): “(ii) A continuous,
-  odd, irreducible representation ρ : GQ → GL2 (C) arises from a newform of weight one.” —
+- kw-2009-I, Corollary 10.2(ii), §10.2, p. 21 (author copy results.pdf) —
   Khare–Wintenberger Corollary 10.2(ii).
-- kw-2009-I, §10.2, p. 21 (author copy results.pdf): “Given the results in [31] and [45], the
-  new cases are when the projective image of ρ is non-solvable and is thus isomorphic to the
-  alternating group A5 .” — Khare–Wintenberger: the new cases have projective image A₅.
+- kw-2009-I, §10.2, p. 21 (author copy results.pdf) — Khare–Wintenberger: the new cases have projective image A₅.
 - cg-2020, Appendix §A.2 'Relation with special values of periods', publ. p. 883 (copy p. 83);
-  appendix arXiv:1907.08694v1 §2 (not downloaded): “is an irreducible odd representation.
-  According to the Artin conjecture (known in this case; see [14], [15], [47]–[49]), one knows
-  that” — Calegari–Geraghty §A.2: the Artin conjecture, known in this case.
+  appendix arXiv:1907.08694v1 §2 (not downloaded) — Calegari–Geraghty §A.2: the Artin conjecture, known in this case.
 
 #### `ML.1/totally-real-odd-artin` — The odd Artin conjecture over totally real fields (Pilloni–Stroh), as used for A₅ images
 
@@ -1167,9 +1117,7 @@ finite image (Tate) of a mod 3 representation ϱ̄₃ : G_E → GL₂(F₉) with
 `GL2AutomorphicRepresentationsAndTransfer:R17.5`.
 
 *Source.*
-- bcgp-2021, Proof of Proposition 10.1.3, §10.1, p. 266 (arXiv v3): “The modularity of such a
-  representation follows as in the solvable case, except now invoking the odd Artin conjecture
-  for totally real ﬁelds ([PS16b, Thm. 0.3]) rather than Langlands–Tunnell.” — BCGP: the odd
+- bcgp-2021, Proof of Proposition 10.1.3, §10.1, p. 266 (arXiv v3) — BCGP: the odd
   Artin conjecture for totally real fields ([PS16b, Thm. 0.3]).
 
 #### `ML.1/non-solvable-residual-modularity` — Modularity of non-solvable mod 5 representations of totally real fields with cyclotomic determinant
@@ -1202,13 +1150,9 @@ Kisin's modularity lifting theorem.
 `AutomorphicGaloisRepresentations:R19.2`, `GL2ModularityLifting:R22.1`.
 
 *Source.*
-- bcgp-2021, Proof of Proposition 10.1.3, p. 266 (arXiv v3): “The method of Khare– Wintenberger
-  implies the existence of characteristic zero lifts of the required form (for example by
-  [Sno09, Thm. 7.2.1]” — BCGP: Khare–Wintenberger's method gives the lifts ([Sno09, Thm
+- bcgp-2021, Proof of Proposition 10.1.3, p. 266 (arXiv v3) — BCGP: Khare–Wintenberger's method gives the lifts ([Sno09, Thm
   7.2.1]).
-- bcgp-2021, Proof of Proposition 10.1.3, p. 266 (arXiv v3): “However, this follows from a
-  standard argument going back to [SBT97, Tay03] by realizing ̺ as the 5-torsion of a modular
-  elliptic curve over a solvable extension.” — BCGP: realising ϱ̄ as the 5-torsion of a modular
+- bcgp-2021, Proof of Proposition 10.1.3, p. 266 (arXiv v3) — BCGP: realising ϱ̄ as the 5-torsion of a modular
   elliptic curve over a solvable extension.
 
 #### `ML.1/buzzard-taylor-hypotheses` — Finitely many points with finite image make R[1/p] reduced (Calegari–Geraghty Lemma 4.14 and the Buzzard–Taylor remark)
@@ -1242,12 +1186,8 @@ weight-one modularity results connect to the classical ones.
 
 *Source.*
 - cg-2018, Lemma 4.14, §4.2, p. 52 (arXiv v2) = Invent. pp. 366–367; proof pp. 52–53 = Invent.
-  pp. 367–368: “Suppose that the Galois representation associated to any Qp -point of R has
-  finite image, and suppose that there are only finitely many Qp -points of R. Then R[1/p] is
-  reduced; equivalently, R[1/p]red = R[1/p].” — Calegari–Geraghty Lemma 4.14.
-- cg-2018, §4.2, remark after the proof of Lemma 4.14, p. 53 (arXiv v2) = Invent. p. 368: “If ρ
-  : GQ,S → GL2 (k) as above is modular, then one can often deduce the assumptions (and hence
-  the conclusions) of Lemma 4.14 from work of Buzzard–Taylor and Buzzard [BT99, Buz03].” — The
+  pp. 367–368 — Calegari–Geraghty Lemma 4.14.
+- cg-2018, §4.2, remark after the proof of Lemma 4.14, p. 53 (arXiv v2) = Invent. p. 368 — The
   remark after Lemma 4.14.
 
 #### `ML.1/imaginary-quadratic-elliptic-modularity` — Modularity of elliptic curves over imaginary quadratic fields with X₀(15)(F) finite (Caraiani–Newton) ★
@@ -1283,12 +1223,8 @@ Weierstrass equations over F, ordered by height, define modular elliptic curves.
 `PotentialModularityAndCompatibleSystems:R23.1`, `ML.0/endpoint-status-register`.
 
 *Source.*
-- caraiani-newton-2023, §1, Theorem 1.1 (Corollary 7.1.2), p. 2 (arXiv:2301.10509v3): “Let F be
-  an imaginary quadratic field such that the Mordell–Weil group X0 (15)(F ) is finite. Then
-  every elliptic curve E/F is modular.” — Theorem 1.1.
-- caraiani-newton-2023, §1, Theorem 1.2 (Corollary 6.1.2), p. 3 (arXiv:2301.10509v3): “Then
-  100% of Weierstrass equations over F , ordered by their height, define a modular elliptic
-  curve.” — Theorem 1.2 (F imaginary CM, Galois over ℚ, ζ₅ ∉ F).
+- caraiani-newton-2023, §1, Theorem 1.1 (Corollary 7.1.2), p. 2 (arXiv:2301.10509v3) — Theorem 1.1.
+- caraiani-newton-2023, §1, Theorem 1.2 (Corollary 6.1.2), p. 3 (arXiv:2301.10509v3) — Theorem 1.2 (F imaginary CM, Galois over ℚ, ζ₅ ∉ F).
 
 #### `ML.1/weight-one-separation-register` — Register separating weight-one and totally real/CM modularity from the weight ≥ 2 GL₂/ℚ endpoints
 
@@ -1319,9 +1255,7 @@ registered.
 `ML.1/imaginary-quadratic-elliptic-modularity`, `ML.0/endpoint-status-register`.
 
 *Source.*
-- kw-2009-I, §10.1, paragraph after Theorem 10.1, p. 20 (author copy results.pdf): “It is
-  well-known that newforms of weight ≥ 2 (resp. weight 1) give rise to two-dimensional, regular
-  (resp. irregular), irreducible, compatible sys-” — Khare–Wintenberger: weight ≥ 2 (resp.
+- kw-2009-I, §10.1, paragraph after Theorem 10.1, p. 20 (author copy results.pdf) — Khare–Wintenberger: weight ≥ 2 (resp.
   weight 1) newforms give regular (resp. irregular) systems.
 
 **Remaining refinements.**
@@ -1404,8 +1338,7 @@ a modular curve'.
 `tauceti:TauCetiRoadmap/ModularCurves#layer-10-compactified-coarse-curves-over-ℤ1n-cusps-and-the-shimura-covering`.
 
 *Source.*
-- cg-2018, §10, general case, p. 97 (arXiv v2) = Invent. p. 429: “This lemma also follows
-  easily from Prop. 6.2 of [BLGHT11], now applied to twists of a modular curve.” —
+- cg-2018, §10, general case, p. 97 (arXiv v2) = Invent. p. 429 —
   Calegari–Geraghty §10: twists of a modular curve.
 
 ### Theorems, comparisons and registers
@@ -1440,8 +1373,7 @@ K^{(avoid)} over K, and L_w ≅ L′_v with P ∈ Ω_v for w | v ∈ S_K.
 `PotentialModularityAndCompatibleSystems:R23.1/moret-bailly-theorem-incomplete-skolem-data-have-integral-points`.
 
 *Source.*
-- blggt-2014-v4, §3.1, Proposition 3.1.1, p. 41 (arXiv v4): “We start with another minor
-  variant of a result of” — Proposition 3.1.1 and its proof.
+- blggt-2014-v4, §3.1, Proposition 3.1.1, p. 41 (arXiv v4) — Proposition 3.1.1 and its proof.
 
 #### `ML.2/potential-ordinary-automorphy` — Potential ordinary automorphy of polarized mod l representations (Proposition 3.3.1)
 
@@ -1482,8 +1414,7 @@ outside S, ı_i-ordinary, HT_τ(r_{l_i,ı_i}(π_i)) = H_{i,τ|_F}, and r_{l_i,ı
 `AutomorphicGaloisRepresentationsPartII:AG2.0/polarized-galois-representation`.
 
 *Source.*
-- blggt-2014-v4, §3.3, Proposition 3.3.1, pp. 47–48 (arXiv v4): “The proof will combine Theorem
-  3.1.2 and Proposition 3.2.1” — Proposition 3.3.1.
+- blggt-2014-v4, §3.3, Proposition 3.3.1, pp. 47–48 (arXiv v4) — Proposition 3.3.1.
 
 #### `ML.2/pd-lifts-with-local-conditions` — Lifts with potentially diagonalizable local conditions (Theorem 4.3.1)
 
@@ -1518,8 +1449,7 @@ v ∈ S, unramified outside S.
 `GlobalGaloisDeformations:G7/polarized-representability`.
 
 *Source.*
-- blggt-2014-v4, §4.3, Theorem 4.3.1, p. 55 (arXiv v4): “We now use the same idea that we used
-  to prove Theorem” — The setting of §4.3 and Theorem 4.3.1.
+- blggt-2014-v4, §4.3, Theorem 4.3.1, p. 55 (arXiv v4) — The setting of §4.3 and Theorem 4.3.1.
 
 #### `ML.2/change-of-weight-and-level` — Change of weight and level (Theorem 4.4.1) ★
 
@@ -1556,8 +1486,7 @@ r_{l,ı}(π)|_{G_{F_ṽ}} for v ∈ S.
 `ML.0/blggt-normalization-register`.
 
 *Source.*
-- blggt-2014-v4, §4.4, Theorem 4.4.1, pp. 58–59 (arXiv v4): “In this section we combine
-  Theorems 4.2.1 and 4.3.1 to obtain” — Theorem 4.4.1 and its proof.
+- blggt-2014-v4, §4.4, Theorem 4.4.1, pp. 58–59 (arXiv v4) — Theorem 4.4.1 and its proof.
 
 #### `ML.2/potential-automorphy-theorem` — Potential automorphy of potentially diagonalizable polarized representations (Theorem 4.5.1) ★
 
@@ -1601,8 +1530,7 @@ cuspidal polarized (π_i, χ_i) of GL_{n_i}(𝔸_{F′}), unramified above l_i, 
 `PotentialAutomorphyInfrastructurePartII:PL.0/automorphic-polarized-representation`.
 
 *Source.*
-- blggt-2014-v4, §4.5, Theorem 4.5.1 and proof, pp. 59–60 (arXiv v4): “We can now turn to our
-  main potential automorphy theorem” — Theorem 4.5.1 and its proof.
+- blggt-2014-v4, §4.5, Theorem 4.5.1 and proof, pp. 59–60 (arXiv v4) — Theorem 4.5.1 and its proof.
 
 #### `ML.2/potential-automorphy-totally-real` — Potential automorphy over totally real fields (Corollary 4.5.2)
 
@@ -1631,8 +1559,7 @@ F^{+,′}/F⁺ such that (r|_{G_{F^{+,′}}}, µ|_{G_{F^{+,′}}}) is automorphi
 `PotentialAutomorphyInfrastructurePartII:PL.0/soluble-descent`.
 
 *Source.*
-- blggt-2014-v4, §4.5, Corollary 4.5.2, p. 60 (arXiv v4): “We can immediately deduce a version
-  over totally real” — Corollary 4.5.2 and its proof.
+- blggt-2014-v4, §4.5, Corollary 4.5.2, p. 60 (arXiv v4) — Corollary 4.5.2 and its proof.
 
 #### `ML.2/potential-automorphy-mod-l` — Potential automorphy of mod l representations with prescribed local lifts (Corollary 4.5.3)
 
@@ -1665,8 +1592,7 @@ potentially prime to l_i, unramified outside S, and r_{l_i,ı_i}(π_i)|_{G_{F′
 *Depends on:* `ML.2/pd-lifts-with-local-conditions`, `ML.2/potential-automorphy-theorem`.
 
 *Source.*
-- blggt-2014-v4, §4.5, Corollary 4.5.3, pp. 60–61 (arXiv v4): “Combining Theorem 4.5.1 with
-  Theorem 4.3.1 we get a potential” — Corollary 4.5.3 and its proof.
+- blggt-2014-v4, §4.5, Corollary 4.5.3, pp. 60–61 (arXiv v4) — Corollary 4.5.3 and its proof.
 
 #### `ML.2/compatible-systems-potentially-automorphic` — Potential automorphy of compatible systems (Theorem 5.4.1, Corollary 5.4.2) ★
 
@@ -1713,8 +1639,7 @@ system becomes automorphic over a finite Galois CM (resp. totally real) F′/F.
 `PotentialModularityAndCompatibleSystems:R24.5/compatible-system-predicates`.
 
 *Source.*
-- blggt-2014-v4, §5.4, Theorem 5.4.1, Corollary 5.4.2 and proof, p. 74 (arXiv v4): “In this
-  section we prove a potential automorphy theorem for weak” — Theorem 5.4.1 (v1 Theorem 5.3.1),
+- blggt-2014-v4, §5.4, Theorem 5.4.1, Corollary 5.4.2 and proof, p. 74 (arXiv v4) — Theorem 5.4.1 (v1 Theorem 5.3.1),
   Corollary 5.4.2 and the proof.
 
 #### `ML.2/compatible-system-l-function-continuation` — Meromorphic continuation, functional equation and purity for compatible systems (Corollary 5.4.3) ★
@@ -1753,8 +1678,7 @@ v | ∞, then tr r_λ(c_v) = ±1 is independent of λ.
 `AutomorphicGaloisRepresentationsPartII:AG2.2`, `AutomorphicLFunctionsAndLocalFactors:AL.2`.
 
 *Source.*
-- blggt-2014-v4, §5.4, Corollary 5.4.3 and proof, pp. 74–75 (arXiv v4): “The convergence and
-  meromorphic continuation and functio” — Corollary 5.4.3 (v1 Corollary 5.3.2) and its proof.
+- blggt-2014-v4, §5.4, Corollary 5.4.3 and proof, pp. 74–75 (arXiv v4) — Corollary 5.4.3 (v1 Corollary 5.3.2) and its proof.
 
 #### `ML.2/multiple-product-l-functions` — Tensor products of non-CM modular forms (Corollary 5.4.4)
 
@@ -1786,8 +1710,7 @@ particular L(×_k π_k, s) continues meromorphically to ℂ.
 `PotentialModularityAndCompatibleSystems:R24.5/linear-algebra-operations-on-systems`.
 
 *Source.*
-- blggt-2014-v4, §5.4, Corollary 5.4.4 and proof, pp. 75–76 (arXiv v4): “As one example of the
-  above theorem we state the following result” — Corollary 5.4.4 (v1 Corollary 5.3.3) and its
+- blggt-2014-v4, §5.4, Corollary 5.4.4 and proof, pp. 75–76 (arXiv v4) — Corollary 5.4.4 (v1 Corollary 5.3.3) and its
   proof.
 
 #### `ML.2/constituents-potentially-automorphic` — Constituents of polarized systems are potentially automorphic (Proposition 5.4.6)
@@ -1822,8 +1745,7 @@ with each (r_{λ,α}|_{G_{F′}}, µ_λ|_{G_{(F′)⁺}}) irreducible and automo
 `PotentialModularityAndCompatibleSystems:R24.5/residual-irreducibility-density-one`.
 
 *Source.*
-- blggt-2014-v4, §5.4, Lemma 5.4.5 and Proposition 5.4.6, pp. 76–77 (arXiv v4): “We now turn to
-  a proposition which will be useful in the next section” — Lemma 5.4.5 and Proposition 5.4.6
+- blggt-2014-v4, §5.4, Lemma 5.4.5 and Proposition 5.4.6, pp. 76–77 (arXiv v4) — Lemma 5.4.5 and Proposition 5.4.6
   (v1 Lemma 5.2.3, Proposition 5.3.4).
 
 #### `ML.2/part-of-compatible-system` — A potentially diagonalizable polarized representation lies in a compatible system (Theorem 5.5.1) ★
@@ -1867,8 +1789,7 @@ representations of G_F.
 `AutomorphicGaloisRepresentationsPartII:AG2.2`.
 
 *Source.*
-- blggt-2014-v4, §5.5, Theorem 5.5.1 and proof, pp. 79–81 (arXiv v4): “Thus the rl′,ı′ form a
-  strictly pure compatible system” — Theorem 5.5.1 (v1 Theorem 5.4.1) and its Brauer-induction
+- blggt-2014-v4, §5.5, Theorem 5.5.1 and proof, pp. 79–81 (arXiv v4) — Theorem 5.5.1 (v1 Theorem 5.4.1) and its Brauer-induction
   proof.
 
 #### `ML.2/irreducibility-density-one` — Irreducibility of r_{l,ı}(π) for density-one l (Theorem 5.5.2)
@@ -1902,8 +1823,7 @@ density 1 such that r_{l,ı}(π) is irreducible for every l ∈ L and ı : Q̄_l
 `PotentialModularityAndCompatibleSystems:R24.5/galois-grothendieck-ring`.
 
 *Source.*
-- blggt-2014-v4, §5.5, Theorem 5.5.2 and proof, pp. 81–82 (arXiv v4): “is meromorphic and is
-  holomorphic and non-zero at s = 1 unless” — Theorem 5.5.2 (v1 Theorem 5.4.2) and the
+- blggt-2014-v4, §5.5, Theorem 5.5.2 and proof, pp. 81–82 (arXiv v4) — Theorem 5.5.2 (v1 Theorem 5.4.2) and the
   Rankin–Selberg facts it uses.
 
 #### `ML.2/decomposition-into-irreducible-systems` — Splitting a polarized system into irreducible systems (Theorem 5.5.3)
@@ -1938,8 +1858,7 @@ polarizable compatible system.
 `PotentialModularityAndCompatibleSystems:R24.5/residual-irreducibility-density-one`.
 
 *Source.*
-- blggt-2014-v4, §5.5, Theorem 5.5.3 and proof, p. 82 (arXiv v4): “Choose a set L of rational
-  primes of Dirichlet density 1 which simultaneously” — Theorem 5.5.3 (v1 Theorem 5.4.3) and
+- blggt-2014-v4, §5.5, Theorem 5.5.3 and proof, p. 82 (arXiv v4) — Theorem 5.5.3 (v1 Theorem 5.4.3) and
   its proof.
 
 #### `ML.2/qian-residual-potential-automorphy` — Residual potential ordinary automorphy over CM fields (Qian, Theorem 1.1) ★
@@ -1981,8 +1900,7 @@ l. No polarization, oddness or residual image hypothesis is imposed.
 
 *Source.*
 - qian-2023, Theorem 1.1, §1, p. 1 (arXiv v1); Invent. pp. 1239–1240 per routed locator; proof
-  §4, pp. 21–24 (arXiv v1): “Then there exists a finite CM Galois extension F′/F linearly
-  disjoint from F av over F such that r|Gal(F/F′) is ordinarily automorphic.” — Qian Theorem
+  §4, pp. 21–24 (arXiv v1) — Qian Theorem
   1.1.
 
 #### `ML.2/qian-ordinary-potential-automorphy` — Potential automorphy of ordinary l-adic representations over CM fields (Qian, Theorem 1.4)
@@ -2015,9 +1933,7 @@ r|_{G_{F′}} is ordinarily automorphic. The bound l > n comes from ACC+ Theorem
 
 *Source.*
 - qian-2023, Theorem 1.4, §1, p. 2 (arXiv v1); Invent. p. 1241 per routed locator; proof: last
-  paragraph of §4, p. 26 (arXiv v1): “There exists σ ∈ GF − GF (ζl ) such that r(σ) is a
-  scalar. Then there exists a finite CM Galois extension F′/F linearly disjoint from F av over
-  F such that r|GF′ is ordinarily automorphic.” — Qian Theorem 1.4.
+  paragraph of §4, p. 26 (arXiv v1) — Qian Theorem 1.4.
 
 #### `ML.2/qian-auxiliary-prime` — Choice of the auxiliary elliptic curve, N, F^avoid and an ordinary auxiliary prime l′ (Qian §4, Proposition 4.1)
 
@@ -2047,8 +1963,7 @@ r̄_{E,l′}(G_ℚ) = GL₂(F_{l′}), and the remaining conditions of the list 
 *Source.*
 - qian-2023, Proposition 4.1 (first list), §4, p. 21, and first paragraph of its proof, p. 22
   (arXiv v1); §4 opening (choice of E, N, F^avoid), p. 21; Invent. pp. 1268–1269 per routed
-  locators: “there exists a rational prime l′ such that: • l′ ≡ 1 mod N • l′ > 2ln + 5 and is
-  unramified in F.” — Qian Proposition 4.1, first list.
+  locators — Qian Proposition 4.1, first list.
 
 #### `ML.2/elliptic-symmetric-power-seed` — An automorphic symmetric-power seed for the auxiliary elliptic curve (Qian Proposition 4.1; ACC+ Corollary 7.2.4)
 
@@ -2077,8 +1992,7 @@ F_2^avoid = ℚ, Sym^{n−1} r_{E,l′}|_{G_{F′}} is automorphic.
 
 *Source.*
 - qian-2023, Proposition 4.1 (second list and final assertion), §4, p. 21; proof p. 22 (arXiv
-  v1); Invent. pp. 1269–1270 per routed locator: “and for any finite totally real extension
-  F′/F suff such that F′ ∩ F2avoid = Q, Symmn−1 rE,l′ |GF′ is automorphic.” — Qian Proposition
+  v1); Invent. pp. 1269–1270 per routed locator — Qian Proposition
   4.1, second list and final assertion.
 
 #### `ML.2/dwork-fibre-automorphy-transport` — Automorphy of the Dwork fibre at l′ and its transport to l (Qian §4)
@@ -2113,11 +2027,9 @@ strong multiplicity one).
 
 *Source.*
 - qian-2023, §4, proof of Theorem 1.1, p. 24 (arXiv v1); Invent. pp. 1272–1273 per routed
-  locator: “Theorem 6.1.2 of [ACC+ 18] thus gives that Vλ′,t is automorphic as a GF′
-  representation. And so Vλ,t is automorphic as a GF′ representation.” — Qian §4: the
+  locator — Qian §4: the
   auxiliary-prime fibre is automorphic.
-- acc-2023, §6.1, Theorem 6.1.2, hypothesis (5), arXiv v2 p. 133 (Annals p. 1030): “and an
-  isomorphism ι : Qp → C such that π is ι-ordinary” — ACC+ Theorem 6.1.2 hypothesis (5).
+- acc-2023, §6.1, Theorem 6.1.2, hypothesis (5), arXiv v2 p. 133 (Annals p. 1030) — ACC+ Theorem 6.1.2 hypothesis (5).
 
 #### `ML.2/steinberg-ordinarity-lemma` — Steinberg component and ordinarity of the automorphic Dwork realisation (Qian Lemma 4.3)
 
@@ -2151,12 +2063,10 @@ retaining the semisimplicity qualification.
 
 *Source.*
 - qian-thesis-2023, Lemma 4.0.3 and its proof, Ch. 4, pp. 64–65 (thesis, PDF pp. 71–72); ≈
-  published Lemma 4.3, Invent. p. 1273: “Lemma 4.0.3. We assume t ∈ F′ satisfy v(t) < 0 for any
-  l-adic places v of F′ and Vλ,t is automorphic, then Vλ,t is ι-ordinarily automorphic.” —
+  published Lemma 4.3, Invent. p. 1273 —
   Qian's thesis Lemma 4.0.3 (published Lemma 4.3).
 - qian-2023, Lemma 3.10(4) and its proof, pp. 20–21 (arXiv v1); the published Lemma 4.3
-  (Invent. p. 1273) is NOT in arXiv v1: “(4) If v(t) < 0, then Vλ,t is regular and ordinary of
-  weight (λσ,i ) with λσ,i =” — Qian arXiv v1 Lemma 3.10(4).
+  (Invent. p. 1273) is NOT in arXiv v1 — Qian arXiv v1 Lemma 3.10(4).
 
 #### `ML.2/galois-ordinarity-from-automorphic` — Galois ordinarity from automorphic ordinarity (ACC+ Corollary 5.5.2; Qian Remark 4.4)
 
@@ -2185,12 +2095,9 @@ automorphic Dwork realisation.
 `PotentialAutomorphyInfrastructurePartII:PL.0`.
 
 *Source.*
-- acc-2023, §5.5, Corollary 5.5.2, arXiv v2 pp. 131–132 (Annals pp. 1027–1028): “in the sense
-  of [Ger19, §5.2], for every v ∈ Sp” — ACC+ Corollary 5.5.2.
+- acc-2023, §5.5, Corollary 5.5.2, arXiv v2 pp. 131–132 (Annals pp. 1027–1028) — ACC+ Corollary 5.5.2.
 - qian-thesis-2023, Remark 4.0.4, Ch. 4, p. 65 (thesis, PDF p. 72); ≈ published Remark 4.4,
-  Invent. p. 1274: “In the process of proof above, we actually proved that Vλ,t ∼= rl,ι (π) is
-  ι-ordinarily automorphic. Hence by the main local-global compatibility result Theorem 5.5.1
-  or [ACC+ 18],” — Qian Remark 4.4 (thesis Remark 4.0.4).
+  Invent. p. 1274 — Qian Remark 4.4 (thesis Remark 4.0.4).
 
 #### `ML.2/acc-symplectic-potential-automorphy` — Potential ordinary automorphy of symplectic residual representations with prescribed disjointness (ACC+ Proposition 7.2.3)
 
@@ -2225,8 +2132,7 @@ ordinarily automorphic of weight 0 and level prime to 𝓛. It strengthens BLGGT
 
 *Source.*
 - acc-2023, §7.2.1, Proposition 7.2.3 and its parenthetical proof, arXiv v2 pp. 204–205 (Annals
-  pp. 1099–1100): “We will need a slight strengthening of [BLGGT14, Thm. 3.1.2], which we now
-  state.” — ACC+ Proposition 7.2.3.
+  pp. 1099–1100) — ACC+ Proposition 7.2.3.
 
 #### `ML.2/acc-auxiliary-primes` — The auxiliary primes l₁, l₂ for symmetric powers over CM fields (ACC+ Assumption 7.2.6)
 
@@ -2260,9 +2166,7 @@ l₂, which holds for a positive-density set.
 
 *Source.*
 - acc-2023, §7.2.5, proof of Theorem 7.1.11, Assumption 7.2.6, arXiv v2 p. 208 (Annals p.
-  1103): “This is possible because all the conditions are satisfied for a set of primes of
-  Dirichlet density 1 (using Lemma 7.1.3), except for the first condition for l2 , which is
-  satisfied for a set of primes of positive Dirichlet density.” — ACC+ Assumption 7.2.6.
+  1103) — ACC+ Assumption 7.2.6.
 
 #### `ML.2/potential-automorphy-with-steinberg-place` — Residual potential automorphy with a Steinberg place (Fakhruddin–Khare–Patrikis, proof of Proposition 9.1)
 
@@ -2297,12 +2201,8 @@ for every w | v₀: run BLGGT Theorem 3.1.2 with the additional Moret-Bailly con
 `ML.2/moret-bailly-galois-control`.
 
 *Source.*
-- fkp-2022, §9, proof of Proposition 9.1, arXiv v5 p. 42: “We further add the requirement that
-  for all places v above v0 , P ∈ Te(F ′ ) should also satisfy the local condition v(t(P)) <
-  0.” — FKP §9, proof of Proposition 9.1.
-- fkp-2022, §9, proof of Proposition 9.1, arXiv v5 p. 42: “We further add the requirement that
-  for all places v above v0 , P ∈ Te(F ′ ) should also satisfy the local condition v(t(P)) <
-  0.” — FKP Proposition 9.1.
+- fkp-2022, §9, proof of Proposition 9.1, arXiv v5 p. 42 — FKP §9, proof of Proposition 9.1.
+- fkp-2022, §9, proof of Proposition 9.1, arXiv v5 p. 42 — FKP Proposition 9.1.
 
 #### `ML.2/compatible-system-from-potential-automorphy` — A potentially automorphic geometric GSp_{2n}-lift lies in a strictly pure compatible system (FKP, after BLGGT 5.5.1)
 
@@ -2330,8 +2230,7 @@ indexed by primes ℓ and ι′ : ℂ ≅ Q̄_ℓ, each with Zariski-dense image
 `PotentialAutomorphyInfrastructurePartII:PL.0/soluble-descent`.
 
 *Source.*
-- fkp-2022, §9, proof of Proposition 9.1, arXiv v5 p. 43: “Now we can apply the argument of
-  [BLGGT14, Theorem 5.5.1] to conclude that ρ belongs to” — FKP: the argument of BLGGT Theorem
+- fkp-2022, §9, proof of Proposition 9.1, arXiv v5 p. 43 — FKP: the argument of BLGGT Theorem
   5.5.1.
 
 #### `ML.2/patrikis-taylor-potential-automorphy` — Potential automorphy of pure regular odd essentially self-dual weakly compatible systems (Patrikis–Taylor, Theorem A)
@@ -2364,8 +2263,7 @@ Patrikis–Taylor do not assume irreducibility.
 `PotentialModularityAndCompatibleSystems:R24.5:operations`.
 
 *Source.*
-- fsy-2022, §5.3.2, Theorem 5.38 (Patrikis–Taylor, [44, Th. A]), arXiv v5 pp. 56–57: “Then
-  there exists a finite, Galois, totally real number field over which all of the” —
+- fsy-2022, §5.3.2, Theorem 5.38 (Patrikis–Taylor, [44, Th. A]), arXiv v5 pp. 56–57 —
   Fresán–Sabbah–Yu Theorem 5.38 (Patrikis–Taylor Theorem A).
 
 #### `ML.2/patrikis-taylor-l-function-consequences` — Purity, functional equation and strict compatibility from potential automorphy (Patrikis–Taylor, Corollary 2.2)
@@ -2397,10 +2295,8 @@ satisfies Λ(R, s) = ε(R, s) Λ(R^∨, 1 − s).
 `ML.2/compatible-system-l-function-continuation`, `ML.0/compatible-system-archimedean-factors`.
 
 *Source.*
-- fsy-2022, §5.3.2, Corollary 5.39 ([44, Cor. 2.2 (ii)]), arXiv v5 p. 57: “satisfies the
-  functional equation Λ(R, s) = ε(R, s)Λ(R ∨ , 1 − s).” — Fresán–Sabbah–Yu Corollary 5.39.
-- fsy-2022, Remark 5.41, arXiv v5 p. 59: “Moreover, if k is odd, then N = 0, and hence rk,p is
-  indeed crystalline over L.” — Fresán–Sabbah–Yu Remark 5.41.
+- fsy-2022, §5.3.2, Corollary 5.39 ([44, Cor. 2.2 (ii)]), arXiv v5 p. 57 — Fresán–Sabbah–Yu Corollary 5.39.
+- fsy-2022, Remark 5.41, arXiv v5 p. 59 — Fresán–Sabbah–Yu Remark 5.41.
 
 #### `ML.2/cg18-conditional-potential-modularity` — Conditional potential modularity of elliptic curves over arbitrary number fields (Calegari–Geraghty, Theorem 1.1(1))
 
@@ -2433,12 +2329,10 @@ in the atlas.
 
 *Source.*
 - cg-2018, Theorem 1.1(1), §1, p. 3 (arXiv v2) = Invent. p. 300; proof §10, pp. 96–98 (arXiv
-  v2) = Invent. pp. 428–429: “Theorem 1.1. Assume Conjecture B. Let F be any number field, and
-  let E be an elliptic curve over F . Then the following hold: (1) E is potentially modular.” —
+  v2) = Invent. pp. 428–429 —
   Calegari–Geraghty Theorem 1.1(1).
 - cg-2018, Theorem 1.1(1), §1, p. 3 (arXiv v2) = Invent. p. 300; proof §10, pp. 96–98 (arXiv
-  v2) = Invent. pp. 428–429: “Theorem 1.1. Assume Conjecture B. Let F be any number field, and
-  let E be an elliptic curve over F . Then the following hold: (1) E is potentially modular.” —
+  v2) = Invent. pp. 428–429 —
   Calegari–Geraghty Conjecture B.
 
 #### `ML.2/cg18-odd-symmetric-powers` — Conditional potential modularity of odd symmetric powers of elliptic curves (Calegari–Geraghty §10)
@@ -2473,13 +2367,9 @@ satisfying the special-case hypothesis reduces the general case to it.
 
 *Source.*
 - cg-2018, §10, proof of Theorem 1.1, 'extra hypothesis' bullet, p. 97 (arXiv v2) = Invent. p.
-  428 [sub-item sec10-special-case]: “There exists a prime p which is totally split in K, and
-  such that p + 1 is divisible by an integer N2 which is greater than n and prime to the
-  conductor of A.” — Calegari–Geraghty §10, the special case.
+  428 [sub-item sec10-special-case] — Calegari–Geraghty §10, the special case.
 - cg-2018, §10, general case, pp. 97–98 (arXiv v2) = Invent. p. 429 [sub-items
-  sec10-general-case, sec10-auxiliary-curve-lemma]: “(4) p + 1 is divisible by an integer N2 >
-  n + 1 which is prime to the conductor of A. (5) E[q] ≃ A[q] as GL -modules, and the
-  corresponding mod-p representation is surjective.” — Calegari–Geraghty §10, the general case.
+  sec10-general-case, sec10-auxiliary-curve-lemma] — Calegari–Geraghty §10, the general case.
 
 #### `ML.2/p-r-switch` — The p–r switch for symmetric powers over CM fields (BCGNT Proposition 6.2.3)
 
@@ -2515,8 +2405,7 @@ residual characteristics through the CM-induced system S_CM.
 
 *Source.*
 - bcgnt-2025, Proposition 6.2.3 and proof, §6.2, arXiv v3 pp. 61–63 (published pp. 54–57; arXiv
-  pagination differs): “The statement of Proposition 6.2.3 below is long but is merely a
-  precise formulation of the properties required of the various auxiliary compatible systems” —
+  pagination differs) —
   BCGNT Proposition 6.2.3.
 
 #### `ML.2/potential-weak-automorphy-symmetric-powers` — Potential weak automorphy of symmetric powers of rank-two systems over CM fields (BCGNT Theorem 6.2.4)
@@ -2548,8 +2437,7 @@ automorphy of Sym^{nm−1} of A over a CM field F₆ (ACC+).
 *Source.*
 - bcgnt-2025, Theorem 6.2.4 and proof (incl. the elliptic curve A/ℚ and the automorphy of
   Sym^{nm−1}ρ_{A,q}|G_{F₆}), §6.2, arXiv v3 pp. 64–68 (published pp. 57–61; arXiv pagination
-  differs): “Then for each n ≥ 1, there is a CM extension Fn /F , Galois over Q, such that
-  Symn−1 R|GFn is weakly automorphic of level prime to {v|v0 }.” — BCGNT Theorem 6.2.4.
+  differs) — BCGNT Theorem 6.2.4.
 
 **Remaining refinements.**
 - BLGGT Appendix A (density, disjointness and characters with prescribed local behaviour) is
@@ -2636,8 +2524,7 @@ cuspidal.
 `AutomorphicGaloisRepresentationsPartII:AG2.2`.
 
 *Source.*
-- newton-thorne-I, Introduction, p. 1 (arXiv v3): “The simplest interesting case is when n = 2
-  and R = Symm is themth symmetric” — The definition of the functorial lift along Sym^m and the
+- newton-thorne-I, Introduction, p. 1 (arXiv v3) — The definition of the functorial lift along Sym^m and the
   history of small cases.
 
 #### `ML.3/accessible-regular-refinement` — Accessible and n-regular refinements
@@ -2690,8 +2577,7 @@ its Jacquet module is nonzero, iff π_l is not supercuspidal.
 *Depends on:* `ML.3/symmetric-power-lifting`.
 
 *Source.*
-- newton-thorne-I, §2, p. 34, and Definition 2.23, p. 40 (arXiv v3): “We call an accessible
-  reﬁnement of π a choice” — The definitions of accessible and n-regular refinements.
+- newton-thorne-I, §2, p. 34, and Definition 2.23, p. 40 (arXiv v3) — The definitions of accessible and n-regular refinements.
 
 #### `ML.3/symmetric-power-lift-over-number-fields` — Symmetric power lifts Sym^{n−1}π over a number field
 
@@ -2901,8 +2787,7 @@ independent of τ, so π is of parallel weight when F is imaginary quadratic (BC
 *Source.*
 - bcgnt-2025, Definition 1.6.1 (Parallel Weight) and the following paragraph, §1.6 Notation,
   arXiv v3 p. 13 (= Definition 1.5.1, §1.5, published p. 11: arXiv numbering and pagination
-  differ): “This is a consequence of Clozel’s purity lemma [Clo90, Lemma 4.9]. In particular,
-  if F is imaginary quadratic, π is necessarily of parallel weight.” — BCGNT: Definition
+  differ) — BCGNT: Definition
   (Parallel Weight) and the following paragraph.
 
 #### `ML.3/sato-tate-group` — The Sato–Tate group ST(π) of a non-CM regular algebraic GL₂ representation over a CM field
@@ -2953,9 +2838,7 @@ class of q_v^{−w/2} rec(π_v)(Frob_v) meets ST(π) in a unique ST(π)-conjugac
 
 *Source.*
 - bcgnt-2025, Definition of ST(π) and Lemma 7.2.2 with proof, §7.2, arXiv v3 pp. 69–70
-  (published p. 62; arXiv pagination differs): “ST(π) is a compact subgroup of GL2 (C). If v is
-  a finite place of F such that πv is unramified and essentially tempered, then the GL2
-  (C)-conjugacy” — BCGNT §7.2: the definition of ST(π) and Lemma 7.2.2.
+  (published p. 62; arXiv pagination differs) — BCGNT §7.2: the definition of ST(π) and Lemma 7.2.2.
 
 #### `ML.3/bianchi-modular-forms` — Bianchi modular forms, their Fourier coefficients and parabolic cohomology
 
@@ -3010,8 +2893,7 @@ f) W(αt_∞) e_F(αz), coefficients c(I, f) vanishing unless I ⊂ O_F and norm
 
 *Source.*
 - bcgnt-2025, §1.3 Bianchi Modular Forms, arXiv v3 pp. 9–11 (published pp. 8–10; arXiv
-  pagination differs): “c(I, f ) is a Fourier coefficient which vanishes unless I ⊂ OF and
-  which we may assume is normalized so that c(OF , f ) = 1” — BCGNT §1.3: Bianchi modular
+  pagination differs) — BCGNT §1.3: Bianchi modular
   forms.
 
 #### `ML.3/functorial-lift` — Functorial lift of a GL_n representation along an algebraic representation R : GL_n → GL_N
@@ -3075,9 +2957,7 @@ and at almost all unramified finite places.
 `AutomorphicLFunctionsAndLocalFactors:AL.3/rs-boundary-nonvanishing`.
 
 *Source.*
-- newton-thorne-I, Introduction, 'Context', p. 1 (arXiv:1912.11261v3): “predicts the existence,
-  for any algebraic representation R : GLn → GLN , of a functorial lift of π along R; more
-  precisely, an automorphic representation R(π) of” — Newton–Thorne I define the functorial
+- newton-thorne-I, Introduction, 'Context', p. 1 (arXiv:1912.11261v3) — Newton–Thorne I define the functorial
   lift R(π) through local parameters at every place.
 
 ### Theorems, comparisons and registers
@@ -3118,8 +2998,7 @@ component of E_{0,ℂ_p}, then Sym^{n−1}r_{π′₀,ι} is automorphic.
 `PotentialAutomorphyInfrastructurePartII:PL.0/automorphic-polarized-representation`.
 
 *Source.*
-- newton-thorne-I, §2, Theorem 2.33, pp. 50–51 (arXiv v3): “Suppose that one of following two
-  sets of conditions are” — Theorem 2.33 (with Theorem 2.24 on p. 40).
+- newton-thorne-I, §2, Theorem 2.33, pp. 50–51 (arXiv v3) — Theorem 2.33 (with Theorem 2.24 on p. 40).
 
 #### `ML.3/buzzard-kilford-eigencurve` — The tame-level-one 2-adic eigencurve near the boundary (Buzzard–Kilford)
 
@@ -3145,8 +3024,7 @@ onto W₀(b), and on X_i the slope is i·v₂(w).
 *Depends on:* `PadicFamilies:L2`.
 
 *Source.*
-- newton-thorne-I, §3, Theorem 3.2, pp. 53–54 (arXiv v3): “We have the following explicit
-  result of Buzzard and Kilford on the geomet” — Theorem 3.2, quoting Buzzard–Kilford.
+- newton-thorne-I, §3, Theorem 3.2, pp. 53–54 (arXiv v3) — Theorem 3.2, quoting Buzzard–Kilford.
 
 #### `ML.3/level-one-ping-pong` — Symmetric powers for one level-one form give them for all (NT I Theorem 3.1 = Theorem D)
 
@@ -3180,8 +3058,7 @@ everywhere unramified cuspidal π of weight ≥ 2.
 `ML.3/symmetric-power-lifting`.
 
 *Source.*
-- newton-thorne-I, §3, Theorem 3.1, p. 53; Introduction pp. 3–4 (arXiv v3): “We call this
-  procedure playing ping pong” — Theorem 3.1 (Theorem D) and the ping-pong strategy.
+- newton-thorne-I, §3, Theorem 3.1, p. 53; Introduction pp. 3–4 (arXiv v3) — Theorem 3.1 (Theorem D) and the ping-pong strategy.
 
 #### `ML.3/steinberg-level-raising` — Level raising to Steinberg for symmetric powers of theta series (NT I Theorems 4.1, 6.1, 7.1)
 
@@ -3216,7 +3093,7 @@ the same Hodge–Tate numbers, and Π_v an unramified twist of Steinberg at some
 
 *Source.*
 - newton-thorne-I, §7, Theorem 7.1, p. 82; §4 Theorem 4.1, p. 59; §6 Theorem 6.1, p. 75 (arXiv
-  v3): “is an unramiﬁed twist of” — The level-raising results and their assembly.
+  v3) — The level-raising results and their assembly.
 
 #### `ML.3/one-level-one-symmetric-power` — One level-one form with automorphic Sym^{n−1} (NT I Theorem 7.6 = Theorem E)
 
@@ -3250,8 +3127,7 @@ that Sym^{n−1}r_{π,ι} is automorphic for every ι.
 `PotentialAutomorphyInfrastructurePartII:PL.0/soluble-descent`.
 
 *Source.*
-- newton-thorne-I, §7, Theorem 7.6, p. 89; Introduction p. 4 (arXiv v3): “we choose f to be
-  congruent modulo p to a theta series” — Theorem 7.6 (Theorem E) and the theta-series
+- newton-thorne-I, §7, Theorem 7.6, p. 89; Introduction p. 4 (arXiv v3) — Theorem 7.6 (Theorem E) and the theta-series
   strategy.
 
 #### `ML.3/level-one-symmetric-powers` — Symmetric power functoriality in level one (NT I Theorem 7.7 = Theorem A) ★
@@ -3281,8 +3157,7 @@ GL_n(𝔸_ℚ).
 `ML.3/symmetric-power-lifting`.
 
 *Source.*
-- newton-thorne-I, Introduction, Theorem A, p. 2; §7, Theorem 7.7, p. 90 (arXiv v3): “Then for
-  each integer” — Theorem A and its proof as Theorem 7.7.
+- newton-thorne-I, Introduction, Theorem A, p. 2; §7, Theorem 7.7, p. 90 (arXiv v3) — Theorem A and its proof as Theorem 7.7.
 
 #### `ML.3/n-regular-congruences` — Congruences to n-regular forms (NT I Proposition 8.3)
 
@@ -3310,8 +3185,7 @@ accessible refinements n-regular wherever π′_l is ramified.
 *Depends on:* `ML.3/accessible-regular-refinement`, `ML.3/symmetric-power-lifting`.
 
 *Source.*
-- newton-thorne-I, §8, Proposition 8.3, pp. 92–93 (arXiv v3): “which takes a given automorphic
-  representation” — Proposition 8.3.
+- newton-thorne-I, §8, Proposition 8.3, pp. 92–93 (arXiv v3) — Proposition 8.3.
 
 #### `ML.3/non-supercuspidal-symmetric-powers` — Symmetric powers when no local component is supercuspidal (NT I Theorem 8.1 = Theorem B, Corollary C)
 
@@ -3349,7 +3223,7 @@ s) is entire.
 
 *Source.*
 - newton-thorne-I, §8, Theorem 8.1, p. 91; Introduction, Theorem B and Corollary C, p. 2 (arXiv
-  v3): “Suppose that for each” — Theorem 8.1 (Theorem B) and Corollary C.
+  v3) — Theorem 8.1 (Theorem B) and Corollary C.
 
 #### `ML.3/symmetric-power-automorphy-lifting` — Automorphy lifting for symmetric powers (NT II Theorem 2.1)
 
@@ -3385,8 +3259,7 @@ Sym^{n−1}r_{π,ι} is automorphic. No irreducibility of Sym^{n−1}r̄ is requ
 `GlobalGaloisDeformations:G7/polarized-representability`.
 
 *Source.*
-- newton-thorne-II, §2, Theorem 2.1 and proof, pp. 5–6 (arXiv v2): “Suppose that there exists
-  another regular algebraic, cuspi dal au” — Theorem 2.1, the preliminary reductions and the
+- newton-thorne-II, §2, Theorem 2.1 and proof, pp. 5–6 (arXiv v2) — Theorem 2.1, the preliminary reductions and the
   patching argument sketched on pp. 2–3.
 
 #### `ML.3/non-cm-symmetric-powers` — Symmetric power functoriality for all non-CM modular forms (NT II Theorem A, Corollary B) ★
@@ -3423,7 +3296,7 @@ GL_{n+1}(𝔸_ℚ). In particular (Corollary B), for every elliptic curve E/ℚ 
 
 *Source.*
 - newton-thorne-II, Introduction, Theorem A and Corollary B, pp. 1–2; §3, Theorem 3.1, p. 20
-  (arXiv v2): “Suppose that π is non-CM. Then for each integer” — Theorem A (Theorem 3.1) and
+  (arXiv v2) — Theorem A (Theorem 3.1) and
   Corollary B.
 
 #### `ML.3/cm-and-weight-one-symmetric-powers` — Symmetric powers of CM and weight-one forms (NT II Theorem A.1)
@@ -3451,8 +3324,7 @@ automorphic induction of a Hecke character of a quadratic field. Then Sym^nπ ex
 *Depends on:* `ML.3/symmetric-power-lifting`, `GL2AutomorphicRepresentationsAndTransfer:R17.5`.
 
 *Source.*
-- newton-thorne-II, Appendix A, Theorem A.1, p. 27 (arXiv v2): “Note that in these cases Sym nπ
-  is usually not cuspidal” — Theorem A.1.
+- newton-thorne-II, Appendix A, Theorem A.1, p. 27 (arXiv v2) — Theorem A.1.
 
 #### `ML.3/l-function-equidistribution-criterion` — Equidistribution from L-functions (Kedlaya Theorem 24.2 and the Weyl criterion)
 
@@ -3485,7 +3357,7 @@ criterion).
 
 *Source.*
 - kedlaya-ant-2025, §§24.1–24.3, Theorem 24.1, Theorem 24.2 and Conjecture 24.3, printed pp.
-  133–134: “Here is a big generalization of our approach to” — The equidistribution formalism
+  133–134 — The equidistribution formalism
   (Conjecture 24.3 as printed is the criterion; see ModularityAndLanglandsExtensions/E6).
 
 #### `ML.3/sato-tate-elliptic-curves` — The Sato–Tate theorem for elliptic curves over ℚ ★
@@ -3554,8 +3426,7 @@ Sym^{n−1}R|_{G_{F_n}} is automorphic. For m = 1 the argument simplifies to ACC
 
 *Source.*
 - bcgnt-2025, Theorem 6.2.1 and proof, Remark 6.2.2, §6.2, arXiv v3 pp. 59–60 (published p.
-  53); ACC+ inputs also in the proof of Theorem 7.1.1, arXiv p. 69 (published p. 61): “We may
-  assume that m ≥ 2, since otherwise the result follows from [ACC+ 23, Cor 7.1.12].” — BCGNT
+  53); ACC+ inputs also in the proof of Theorem 7.1.1, arXiv p. 69 (published p. 61) — BCGNT
   Theorem 6.2.1 and Remark 6.2.2.
 
 #### `ML.3/one-prime-criterion` — One prime suffices for symmetric power functoriality (Newton–Thorne, Lemma 2.1)
@@ -3586,8 +3457,7 @@ Sym^{n−1} r_{π,ι} is automorphic (ML.0/nt26-automorphy-predicate).
 `tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev`.
 
 *Source.*
-- nt-2026, Lemma 2.1, §2, p. 9; proof pp. 9–10 (arXiv v2): “(3) For some prime p and
-  isomorphism ι : Qp → C, the representation Symn−1 rπ,ι is automorphic.” — Newton–Thorne Lemma
+- nt-2026, Lemma 2.1, §2, p. 9; proof pp. 9–10 (arXiv v2) — Newton–Thorne Lemma
   2.1.
 
 #### `ML.3/clozel-thorne-reductions` — Reductions for symmetric powers: Clozel–Thorne's Theorem 7.1, Lemma 7.4, Proposition 7.6 and Newton–Thorne's Proposition 6.1
@@ -3628,13 +3498,10 @@ cuspidal'.
 
 *Source.*
 - nt-2026, Proposition 6.1, §6, pp. 45–46; proof pp. 46–49 (arXiv v2); also proof of Theorem
-  6.5, p. 50: “To prove the claim, we follow closely the proofs of [CT14, Propositions 5.2,
-  5.3].” — Newton–Thorne Proposition 6.1.
-- ct-2017, §7, Lemma 7.4, manuscript p. 47: “Using the fact, due to Chevalley, that the
-  arithmetic subgroups of the unit group of F are congruence subgroups” — Clozel–Thorne Lemma
+  6.5, p. 50 — Newton–Thorne Proposition 6.1.
+- ct-2017, §7, Lemma 7.4, manuscript p. 47 — Clozel–Thorne Lemma
   7.4.
-- ct-2017, §7, Proposition 7.6 and proof, manuscript p. 49: “Applying [BLGGT14, Theorem 4.2.1]
-  once more, we deduce that” — Clozel–Thorne Proposition 7.6.
+- ct-2017, §7, Proposition 7.6 and proof, manuscript p. 49 — Clozel–Thorne Proposition 7.6.
 
 #### `ML.3/all-regular-symmetric-powers` — Symmetric power functoriality for all non-CM regular algebraic GL₂ representations over totally real fields (Newton–Thorne, Theorem 6.4)
 
@@ -3663,9 +3530,7 @@ of the senses of ML.3/one-prime-criterion.
 `ML.3/clozel-thorne-reductions`, `ML.3/one-prime-criterion`.
 
 *Source.*
-- nt-2026, Theorem 6.4 and its proof, §6, p. 50 (arXiv v2): “Theorem 6.4. Conjecture SPn holds
-  for all n ≥ 2. Proof. We prove it by induction on n ≥ 6, the cases n ≤ 5 being known
-  already.” — Newton–Thorne Theorem 6.4.
+- nt-2026, Theorem 6.4 and its proof, §6, p. 50 (arXiv v2) — Newton–Thorne Theorem 6.4.
 
 #### `ML.3/hilbert-symmetric-powers` — Symmetric power functoriality for Hilbert modular forms (Newton–Thorne, Theorem A = Theorem 6.5(1)) ★
 
@@ -3693,9 +3558,7 @@ place v. These π are those of cuspidal non-CM Hilbert modular forms of weights 
 `AutomorphicGaloisRepresentations:R19.2`.
 
 *Source.*
-- nt-2026, Theorem A, §1, p. 1 = Theorem 6.5(1), §6, p. 50 (arXiv v2): “without CM, such that
-  π∞ is essentially square-integrable. Then for each n ≥ 2, the (n − 1)th symmetric power
-  Symn−1 π exists” — Newton–Thorne Theorem A = Theorem 6.5(1).
+- nt-2026, Theorem A, §1, p. 1 = Theorem 6.5(1), §6, p. 50 (arXiv v2) — Newton–Thorne Theorem A = Theorem 6.5(1).
 
 #### `ML.3/cm-field-symmetric-powers` — Symmetric powers of conjugate self-dual GL₂ representations over CM fields (Newton–Thorne, Theorem 6.5(2))
 
@@ -3722,9 +3585,7 @@ induced from a quadratic extension. Then for every n ≥ 2 Sym^{n−1}π exists:
 `EndoscopicTransferAndUnitaryTraceComparison:ET.7a`.
 
 *Source.*
-- nt-2026, Theorem 6.5(2) and its proof, §6, p. 50 (arXiv v2): “The second part follows, in the
-  case that π is RACSDC, from Theorem 6.4 and [CT17, Proposition 7.6]. The general case can be
-  reduced to this one by twisting (using [CHT08, Lemma 4.1.4]).” — Newton–Thorne Theorem
+- nt-2026, Theorem 6.5(2) and its proof, §6, p. 50 (arXiv v2) — Newton–Thorne Theorem
   6.5(2).
 
 #### `ML.3/sym6-sym8` — Sixth and eighth symmetric powers over totally real fields (Clozel–Thorne, Theorem 6.1)
@@ -3754,9 +3615,7 @@ level-raising method is owned by the proposed Part II SymmetricPowersByUnitaryLe
 `ML.2/potential-automorphy-theorem`, `ML.3/clozel-thorne-reductions`.
 
 *Source.*
-- ct-2017, §6, Theorem 6.1 (= Theorem 1.1), manuscript p. 44 (Theorem 1.1 on p. 2): “Let F be a
-  totally real field, and let (π, χ) be a RAESDC automorphic representation of GL2 (AF ) which
-  is not automorphically induced from a quadratic CM extension.” — Clozel–Thorne Theorem 6.1.
+- ct-2017, §6, Theorem 6.1 (= Theorem 1.1), manuscript p. 44 (Theorem 1.1 on p. 2) — Clozel–Thorne Theorem 6.1.
 
 #### `ML.3/symmetric-powers-up-to-eight` — Symmetric powers up to eight and holomorphy of L(s, Sym^n π) (Clozel–Thorne, Corollary 7.2)
 
@@ -3785,9 +3644,7 @@ disjointness.
 `AutomorphicLFunctionsAndLocalFactors:AL.2/global-godement-jacquet`.
 
 *Source.*
-- ct-2017, §7, Corollary 7.2, manuscript pp. 46–47 (Corollaries 1.2, 1.3 on p. 2): “The
-  remaining points follow on combining Theorem 7.1 with Theorem 6.1 (case r = 6, 8) and [CT15,
-  Theorem 1.2] (case r = 5, 7).” — Clozel–Thorne Corollary 7.2.
+- ct-2017, §7, Corollary 7.2, manuscript pp. 46–47 (Corollaries 1.2, 1.3 on p. 2) — Clozel–Thorne Corollary 7.2.
 
 #### `ML.3/large-residual-image-density-one` — Large residual image for a density-one set of primes (Clozel–Thorne, Lemma 7.5)
 
@@ -3813,8 +3670,7 @@ cuspidal. Then there is a set L of rational primes of Dirichlet density one such
 `PotentialModularityAndCompatibleSystems:R24.5/residual-irreducibility-density-one`.
 
 *Source.*
-- ct-2017, §7, Lemma 7.5 and proof, manuscript p. 48: “Casting out finitely many elements of L,
-  we can also assume that for each l ∈ L, π and E are unramified above l.” — Clozel–Thorne
+- ct-2017, §7, Lemma 7.5 and proof, manuscript p. 48 — Clozel–Thorne
   Lemma 7.5.
 
 #### `ML.3/nt21-semistable-l-functions` — Analytic continuation of symmetric power L-functions of semistable elliptic curves (Newton–Thorne I, Corollary C)
@@ -3843,10 +3699,7 @@ continuation to ℂ.
 `AutomorphicLFunctionsAndLocalFactors:AL.2/global-godement-jacquet`.
 
 *Source.*
-- newton-thorne-I, Introduction, Corollary C, arXiv v3 p. 2 (Publ. IHÉS 134, p. 2): “Corollary
-  C. Let E be a semistable elliptic curve over Q. Then, for each integer n ≥ 2, the completed
-  symmetric power L-function Λ(Symn E, s) as defined in e.g. [DMW09], admits an analytic
-  continuation to the entire complex plane.” — Newton–Thorne I Corollary C.
+- newton-thorne-I, Introduction, Corollary C, arXiv v3 p. 2 (Publ. IHÉS 134, p. 2) — Newton–Thorne I Corollary C.
 
 #### `ML.3/acc-elliptic-symmetric-powers` — Potential automorphy of the symmetric powers of a non-CM elliptic curve over ℚ (ACC+, Corollary 7.2.4)
 
@@ -3877,10 +3730,7 @@ polarizable π of GL_{m+1}(𝔸_{F′}) of weight 0 with Sym^m r_{E,l}^∨|_{G_{
 
 *Source.*
 - acc-2023, §7.2.1, Corollary 7.2.4, arXiv v2 pp. 205–206 (Annals pp. 1100–1101); proof pp.
-  206–208 (Annals pp. 1101–1103): “For any finite totally real extension F ′ /F suffices ,
-  which is linearly disjoint from F2avoid over Q, and for any m ∈ M, there is a regular
-  algebraic, cuspidal, polarizable automorphic representation π of GLm+1 (AF ′ ) of weight
-  (0)τ,i” — ACC+ Corollary 7.2.4.
+  206–208 (Annals pp. 1101–1103) — ACC+ Corollary 7.2.4.
 
 #### `ML.3/acc-purity-rank-two` — Purity and analytic continuation for rank-two systems of weight zero over CM fields (ACC+, Corollary 7.1.13) ★
 
@@ -3910,12 +3760,8 @@ Re s ≥ m/2 + 1. In particular elliptic curves over CM fields satisfy Sato–Ta
 `ML.3/purity-from-symmetric-powers`, `ML.0/compatible-system-archimedean-factors`.
 
 *Source.*
-- acc-2023, §7.1, Corollary 7.1.13, arXiv v2 p. 201 (Annals p. 1096): “is an irreducible rank 2
-  very weakly compatible system of l-adic representations of GF such that Hτ = {0, 1} for all τ
-  . Suppose further that m is a non-negative integer.” — ACC+ Corollary 7.1.13.
-- acc-2023, §7.1, proof of Corollary 7.1.13, arXiv v2 p. 202 (Annals p. 1097): “Thus πı,m is
-  unitary and, applying the bound of [JS81b, Cor. 2.5] (which applies since each local factor
-  of πı,m is generic, by the final Corollary of [Sha74])” — ACC+: the Jacquet–Shalika bound in
+- acc-2023, §7.1, Corollary 7.1.13, arXiv v2 p. 201 (Annals p. 1096) — ACC+ Corollary 7.1.13.
+- acc-2023, §7.1, proof of Corollary 7.1.13, arXiv v2 p. 202 (Annals p. 1097) — ACC+: the Jacquet–Shalika bound in
   the proof.
 
 #### `ML.3/purity-from-symmetric-powers` — Purity from potential weak automorphy of symmetric powers (BCGNT Lemma 6.1.3)
@@ -3946,9 +3792,7 @@ Sym^{n−1}R|_{F_n} is weakly automorphic of level prime to the places above v�
 
 *Source.*
 - bcgnt-2025, Lemma 6.1.3 and proof (Jacquet–Shalika bound [JS81, Cor. 2.5]), §6.1, arXiv v3 p.
-  58 (published p. 52; arXiv pagination differs): “Suppose that for infinitely many n ≥ 1, we
-  can find a finite Galois extension Fn /F such that the very weakly compatible system Symn−1
-  R|Fn is weakly automorphic of level prime to X0,Fn = {v|v0 }.” — BCGNT Lemma 6.1.3.
+  58 (published p. 52; arXiv pagination differs) — BCGNT Lemma 6.1.3.
 
 #### `ML.3/bcgnt-symmetric-powers-purity` — Purity and potential automorphy of symmetric powers of rank-two systems over CM fields (BCGNT Theorem 7.2.1 = Theorem C)
 
@@ -3976,9 +3820,7 @@ compatible systems of dimension ≤ 2.
 
 *Source.*
 - bcgnt-2025, Theorem 7.2.1 and proof, §7.2, arXiv v3 p. 69 (published pp. 61–62); Theorem C,
-  §1, arXiv p. 4 (published p. 4): “If one alternatively assumes that R is irreducible but not
-  strongly irreducible, then R is pure of weight m, and for each n ≥ 1, Symn−1 R decomposes as
-  a direct sum of compatible systems of dimension at most 2 which are automorphic.” — BCGNT
+  §1, arXiv p. 4 (published p. 4) — BCGNT
   Theorem 7.2.1.
 
 #### `ML.3/bianchi-ramanujan` — The Ramanujan conjecture in parallel weight over imaginary CM fields (BCGNT Theorem A = Theorem 7.1.1) ★
@@ -4010,9 +3852,7 @@ rec(π_v)(Frob_v) is unitary, w = k − 2 (the normalisation of ML.3/sato-tate-g
 
 *Source.*
 - bcgnt-2025, Theorem 7.1.1 and proof, §7.1, arXiv v3 pp. 68–69 (published p. 61); Theorem A,
-  §1, arXiv p. 3 (published p. 3): “Let F be an imaginary CM field, and let π be a regular
-  algebraic cuspidal automorphic representation of GL2 (AF ) of parallel weight. Then, for all
-  primes v of F , the representation πv is (essentially) tempered.” — BCGNT Theorem 7.1.1 and
+  §1, arXiv p. 3 (published p. 3) — BCGNT Theorem 7.1.1 and
   Theorem A.
 
 #### `ML.3/serre-equidistribution-criterion` — Serre's equidistribution criterion through L-functions of representations of ST(π)
@@ -4044,8 +3884,7 @@ I, Appendix). This is the general form of ML.3/l-function-equidistribution-crite
 
 *Source.*
 - bcgnt-2025, Proof of Theorem 7.2.3, §7.2, arXiv v3 p. 70 (published p. 62; arXiv pagination
-  differs): “According to the criterion of Serre [Ser98, Ch. I, Appendix], the theorem will be
-  proved if we can show that for each non-trivial such ρ” — BCGNT proof of Theorem 7.2.3:
+  differs) — BCGNT proof of Theorem 7.2.3:
   Serre's criterion.
 
 #### `ML.3/bianchi-sato-tate` — The Sato–Tate conjecture in parallel weight over imaginary CM fields (BCGNT Theorem B = Theorem 7.2.3)
@@ -4078,8 +3917,7 @@ equidistributed for the Haar probability measure of ST(π).
 
 *Source.*
 - bcgnt-2025, Theorem 7.2.3, §7.2, arXiv v3 p. 70 (published p. 62); Theorem B, §1, arXiv p. 3
-  (published p. 3): “Let Sπ denote the set of finite places of F at which π is unramified. With
-  notation as above, the classes of elements [πv ] ∈ ST(π)” — BCGNT Theorem 7.2.3.
+  (published p. 3) — BCGNT Theorem 7.2.3.
 
 #### `ML.3/bianchi-fourier-ramanujan` — The Ramanujan bound for Fourier coefficients of Bianchi eigenforms (BCGNT Theorem E)
 
@@ -4102,9 +3940,7 @@ by c(O_F, f) = 1, and 𝔭 a prime ideal not dividing 𝔫. Then |c(𝔭, f)| �
 *Depends on:* `ML.3/bianchi-ramanujan`, `ML.3/bianchi-modular-forms`.
 
 *Source.*
-- bcgnt-2025, Theorem E, §1.3, arXiv v3 p. 10 (published p. 8; arXiv pagination differs): “Let
-  f be a cuspidal Bianchi modular eigenform of level n and weight k. Let p be a prime ideal of
-  OF not dividing n, and let c(p, f ) be an eigenvalue of Tp on H.” — BCGNT Theorem E.
+- bcgnt-2025, Theorem E, §1.3, arXiv v3 p. 10 (published p. 8; arXiv pagination differs) — BCGNT Theorem E.
 
 #### `ML.3/bianchi-parabolic-cohomology-ramanujan` — The Ramanujan bound for Hecke eigenvalues on parabolic cohomology of Bianchi groups (BCGNT Theorem F)
 
@@ -4128,9 +3964,7 @@ Let F be imaginary quadratic, 𝔫 ≠ 0, k ≥ 2, and H_par ⊂ H¹(Γ₁(𝔫)
 *Depends on:* `ML.3/bianchi-fourier-ramanujan`, `ML.3/bianchi-modular-forms`.
 
 *Source.*
-- bcgnt-2025, Theorem F, §1.3, arXiv v3 p. 11 (published p. 9; arXiv pagination differs): “Let
-  p be a principal prime ideal of OF not dividing n, and let ap be an eigenvalue of Tp on Hpar
-  . Then |ap | ≤ 2N (p)(k−1)/2 .” — BCGNT Theorem F.
+- bcgnt-2025, Theorem F, §1.3, arXiv v3 p. 11 (published p. 9; arXiv pagination differs) — BCGNT Theorem F.
 
 #### `ML.3/bianchi-mass-equidistribution` — Mass equidistribution for level-one Bianchi eigenforms of growing weight (BCGNT Theorem G)
 
@@ -4155,8 +3989,7 @@ level-one Bianchi eigenforms f of weight tending to ∞, the normalised measures
 
 *Source.*
 - bcgnt-2025, Theorem G and proof, §1.3, arXiv v3 p. 11 (published p. 10; arXiv pagination
-  differs): “For any sequence of Bianchi modular eigenforms f of weight tending to ∞, the
-  measures µf converge weakly to the hyperbolic volume on Y = SL2 (OF )\H3 .” — BCGNT Theorem
+  differs) — BCGNT Theorem
   G.
 
 #### `ML.3/cg18-conditional-sato-tate` — Conditional Sato–Tate for elliptic curves over arbitrary number fields (Calegari–Geraghty, Theorem 1.1(2))
@@ -4185,8 +4018,7 @@ curve. Then the Sato–Tate conjecture holds for E. Status: conditional
 
 *Source.*
 - cg-2018, Theorem 1.1(2), §1, p. 3 (arXiv v2) = Invent. p. 300; reduction in §10, p. 97 (arXiv
-  v2) = Invent. p. 428: “Then the following hold: (1) E is potentially modular. (2) The
-  Sato–Tate conjecture is true for E.” — Calegari–Geraghty Theorem 1.1(2).
+  v2) = Invent. p. 428 — Calegari–Geraghty Theorem 1.1(2).
 
 #### `ML.3/gelbart-jacquet` — Gelbart–Jacquet: the symmetric square (adjoint) lift from GL₂ to GL₃
 
@@ -4215,11 +4047,8 @@ automorphically induced from a Hecke character of a quadratic extension).
 `AutomorphicLFunctionsAndLocalFactors:AL.2/global-godement-jacquet`.
 
 *Source.*
-- newton-thorne-I, Introduction, 'Context', p. 1 (arXiv:1912.11261v3): “In this case the
-  automorphy of Symm π was proved for m = 2 by Gelbart and Jacquet [GJ78] and for m = 3, 4 by
-  Kim and Shahidi [KS02, Kim03].” — Newton–Thorne I: Sym² was proved by Gelbart–Jacquet.
-- gelbart-jacquet-1978, §9, (9.3) Theorem, p. 534 (Ann. Sci. ÉNS 11): “We can now formulate the
-  main theorem of this paper.” — Gelbart–Jacquet's main theorem.
+- newton-thorne-I, Introduction, 'Context', p. 1 (arXiv:1912.11261v3) — Newton–Thorne I: Sym² was proved by Gelbart–Jacquet.
+- gelbart-jacquet-1978, §9, (9.3) Theorem, p. 534 (Ann. Sci. ÉNS 11) — Gelbart–Jacquet's main theorem.
 
 #### `ML.3/kim-shahidi-sym3` — Kim–Shahidi: functorial products GL₂ × GL₃ → GL₆ and the symmetric cube
 
@@ -4250,12 +4079,9 @@ unless π is dihedral or tetrahedral (Ad(π) ≅ Ad(π) ⊗ χ for a cubic χ).
 `AutomorphicLFunctionsAndLocalFactors:AL.4`.
 
 *Source.*
-- newton-thorne-I, Introduction, 'Context', p. 1 (arXiv:1912.11261v3): “In this case the
-  automorphy of Symm π was proved for m = 2 by Gelbart and Jacquet [GJ78] and for m = 3, 4 by
-  Kim and Shahidi [KS02, Kim03].” — Newton–Thorne I: m = 3, 4 by Kim–Shahidi and Kim.
+- newton-thorne-I, Introduction, 'Context', p. 1 (arXiv:1912.11261v3) — Newton–Thorne I: m = 3, 4 by Kim–Shahidi and Kim.
 - kim-shahidi-2002, Introduction, Theorem A, p. 838 (= Theorem 5.1) (Ann. of Math. 155;
-  arXiv:math/0409607v1): “The representation π1 ⊠ π2 of GL6 (AF ) is automorphic, i.e.,
-  functorial products [La3] for GL2 × GL3 exist.” — Kim–Shahidi's statement.
+  arXiv:math/0409607v1) — Kim–Shahidi's statement.
 
 #### `ML.3/kim-sym4` — Kim: the exterior square GL₄ → GL₆ and the symmetric fourth power GL₂ → GL₅ (with Henniart)
 
@@ -4286,14 +4112,10 @@ or octahedral (Kim–Shahidi).
 `AutomorphicLFunctionsAndLocalFactors:AL.4`.
 
 *Source.*
-- bcgp-2021, Proof of Theorem 9.3.1, §9.3, p. 258 (arXiv v3): “By the main result of [Hen09]
-  (which is a reﬁnement of the main result of [Kim03]), together with Theorem 2.9.3, we see
-  that” — BCGP §9.3: the main result of Henniart, a refinement of Kim's.
-- gee-taibi-2019, §1.1, p. 2 (arXiv v1): “the exterior square functoriality for GL4 proved in
-  [Kim03] (and completed in [Hen09]);” — Gee–Taïbi: Kim's exterior square, completed by
+- bcgp-2021, Proof of Theorem 9.3.1, §9.3, p. 258 (arXiv v3) — BCGP §9.3: the main result of Henniart, a refinement of Kim's.
+- gee-taibi-2019, §1.1, p. 2 (arXiv v1) — Gee–Taïbi: Kim's exterior square, completed by
   Henniart, is an input.
-- kim-2003, §1, Theorem A, p. 139 (= Theorem 5.3.1) (J. Amer. Math. Soc. 16): “Then there
-  exists an automorphic representation Π of GL6 (A) such” — Kim's Theorems A and B.
+- kim-2003, §1, Theorem A, p. 139 (= Theorem 5.3.1) (J. Amer. Math. Soc. 16) — Kim's Theorems A and B.
 
 #### `ML.3/ramakrishnan-tensor-product` — Ramakrishnan: the automorphic tensor product GL₂ × GL₂ → GL₄
 
@@ -4320,9 +4142,7 @@ Let F be a number field and π₁, π₂ cuspidal automorphic representations of
 `AutomorphicLFunctionsAndLocalFactors:AL.3/rs-boundary-nonvanishing`.
 
 *Source.*
-- newton-thorne-II, Appendix A, proof of Theorem A.1, p. 28 (arXiv:2009.07180v2): “This allows
-  automorphy of Symn rπ to be deduced from the automorphy of Symm for m ≤ 4, together with
-  tensor product functorialities GL2 × GL2 → GL4 and GL2 × GL3 → GL6 [Kim04, Theorem 6.4].” —
+- newton-thorne-II, Appendix A, proof of Theorem A.1, p. 28 (arXiv:2009.07180v2) —
   Newton–Thorne II App. A use the tensor product functorialities GL₂ × GL₂ → GL₄ and GL₂ × GL₃
   → GL₆.
 - ramakrishnan-2000, §3, Theorem M, p. 54 (Ann. of Math. 152; arXiv:math/0007203v1):
@@ -4357,8 +4177,7 @@ SP_n of Newton–Thorne for n ≤ 5, the base case of their induction.
 `ML.3/sp-statement`.
 
 *Source.*
-- nt-2026, Proof of Theorem 6.4, §6, p. 50 (arXiv:2212.03595v2): “We prove it by induction on n
-  ≥ 6, the cases n ≤ 5 being known already.” — Newton–Thorne prove Theorem 6.4 by induction on
+- nt-2026, Proof of Theorem 6.4, §6, p. 50 (arXiv:2212.03595v2) — Newton–Thorne prove Theorem 6.4 by induction on
   n ≥ 6, the cases n ≤ 5 being known.
 - nt-2026, §1, p. 3 (arXiv:2212.03595v2): “Unconditional knowledge of conjectures LRm and TPm ,
   together with the known cases of SPn for 1 ≤ n ≤ 5, would therefore imply SPn for all n ≥ 1.”
@@ -4546,11 +4365,9 @@ the GL_{m_i}.
 `EndoscopicTransferAndUnitaryTraceComparison:ET.6`.
 
 *Source.*
-- arthur-2013, §1.4, (1.4.4), p. 30 (2011 manuscript): “This is to be our substitute for the
-  global Langlands group in our study of automorphic representations attached to ψ.” — Arthur
+- arthur-2013, §1.4, (1.4.4), p. 30 (2011 manuscript) — Arthur
   §1.4: formal global parameters as a substitute for the global Langlands group.
-- mok-2015, §2.3, p. 15 (arXiv v5): “In the absence of the conjectural automorphic Langlands
-  group, we can still define, following Arthur [A1], the global parameters” — Mok §2.3: the
+- mok-2015, §2.3, p. 15 (arXiv v5) — Mok §2.3: the
   same definition for unitary groups.
 
 #### `ML.4/extended-langlands-parameter` — Extended Langlands parameters (ϱ, χ_ϱ) of a p-adic classical group
@@ -4617,8 +4434,7 @@ automorphism), under which the L-packet Π_ϱ is the fibre over ϱ.
 `tauceti:TauCetiRoadmap/ReductiveGroups#layer-6-reductive-and-semisimple-groups`.
 
 *Source.*
-- kss-2021, §1.20, p. 8 (arXiv v3); p. 604 in the version of record: “As these appear in
-  various guises in the literature, we recall one formulation:” — KSS §1.20 defines extended
+- kss-2021, §1.20, p. 8 (arXiv v3); p. 604 in the version of record — KSS §1.20 defines extended
   Langlands parameters (ϱ, χ_ϱ) and Lang(G°).
 
 #### `ML.4/gsp4-discrete-spectrum-types` — Discrete automorphic representations of GSp₄: symplectic type, general type and transfer
@@ -4693,15 +4509,11 @@ respectively, with ε_ψ non-trivial only in the Saito–Kurokawa case with ε(1
 `ML.0/archimedean-langlands-conventions`.
 
 *Source.*
-- bcgp-2021, §2.9, p. 38 (arXiv v3): “Arthur’s classiﬁcation divides the discrete spectrum into
-  six families of automorphic representations.” — BCGP §2.9: discrete representations and the
+- bcgp-2021, §2.9, p. 38 (arXiv v3) — BCGP §2.9: discrete representations and the
   six families.
-- bcgp-2021, §2.9, definition of general type, p. 38 (arXiv v3): “We say that a discrete
-  automorphic representation π of GSp4 (AF ) is of general type in the sense of [Art04] if
-  there is a cuspidal automorphic representation Π of GL4 (AF ) of symplectic type” — BCGP
+- bcgp-2021, §2.9, definition of general type, p. 38 (arXiv v3) — BCGP
   §2.9: the definition of general type.
-- gee-taibi-2019, Remark 6.1.4, p. 35 (arXiv v1): “(a) cuspidal automorphic representations π
-  of GL4 such that π ∨ ⊗ χ ≃ π and” — Gee–Taïbi Remark 6.1.4: the six kinds of discrete
+- gee-taibi-2019, Remark 6.1.4, p. 35 (arXiv v1) — Gee–Taïbi Remark 6.1.4: the six kinds of discrete
   parameters with S_ψ and ε_ψ.
 
 ### Theorems, comparisons and registers
@@ -4750,11 +4562,8 @@ disjoint and exhaust the tempered dual. Part (c) is the local Langlands correspo
 - arthur-2013, §1.5, Theorem 1.5.1 and the paragraph before it, pp. 41–42 (2011 manuscript):
   “The first theorem concerns the case that F is local.” — Arthur's Theorem 1.5.1: local
   packets defined by endoscopic transfer of characters.
-- arthur-2013, §1.5, after Theorem 1.5.1, p. 42 (2011 manuscript): “For nonarchimedean F ,
-  Moeglin has recently established this fact [M4], using some of the properties of the tempered
-  L-packets” — Mœglin's multiplicity-freeness for non-archimedean F.
-- mok-2015, §2.5, Theorem 2.5.1, p. 32 (arXiv v5): “In particular, part (b) of theorem 2.5.1
-  gives the local Langlands classification of representations” — Mok Theorem 2.5.1, the unitary
+- arthur-2013, §1.5, after Theorem 1.5.1, p. 42 (2011 manuscript) — Mœglin's multiplicity-freeness for non-archimedean F.
+- mok-2015, §2.5, Theorem 2.5.1, p. 32 (arXiv v5) — Mok Theorem 2.5.1, the unitary
   analogue.
 
 #### `ML.4/arthur-multiplicity-formula` — Arthur's multiplicity formula for quasi-split classical groups (Theorem 1.5.2) ★
@@ -4798,8 +4607,7 @@ representations whose transfer is a sum of distinct self-dual cuspidals.
 `AutomorphicSpectralTheory:AS.6/invariant-trace-formula`.
 
 *Source.*
-- arthur-2013, §1.5, Theorem 1.5.2 and (1.5.3)–(1.5.7), pp. 45–47 (2011 manuscript): “is a
-  linear character defined explicitly in terms of symplectic ε-factors” — Arthur's Theorem
+- arthur-2013, §1.5, Theorem 1.5.2 and (1.5.3)–(1.5.7), pp. 45–47 (2011 manuscript) — Arthur's Theorem
   1.5.2.
 
 #### `ML.4/mok-unitary-classification` — Endoscopic classification for quasi-split unitary groups (Mok) ★
@@ -4836,9 +4644,7 @@ Langlands correspondence for U(N)(F_v); and (global) L²_disc(G(F)\G(𝔸_F)) �
 `ML.0/arthur-dependency-gate`, `AutomorphicSpectralTheory:AS.6/invariant-trace-formula`.
 
 *Source.*
-- mok-2015, §2.5, Theorem 2.5.2 and Remark 2.5.3, pp. 34–35 (arXiv v5): “By virtue of part (b)
-  of theorem 2.5.1, we see that theorem 2.5.2 implies the multiplicity one result for
-  representations π that belong to a global packet corresponding to a generic parameter.” —
+- mok-2015, §2.5, Theorem 2.5.2 and Remark 2.5.3, pp. 34–35 (arXiv v5) —
   Mok's local and global classification theorems for quasi-split unitary groups.
 
 #### `ML.4/kmsw-inner-forms` — Endoscopic classification for inner forms of unitary groups (Kaletha–Mínguez–Shin–White)
@@ -4874,9 +4680,7 @@ identities; and (global) for generic global parameters ψ the ψ-part of L²_dis
 `ML.0/arthur-dependency-gate`.
 
 *Source.*
-- kmsw-2014, §1.6.1, Theorem* 1.6.1 and the sentence before it, p. 80 (arXiv v3): “In this
-  paper we establish it under the hypothesis that ψ is generic. The theorem will be proven in
-  full in the next paper [KMSb].” — KMSW's local (tempered) and global (generic) classification
+- kmsw-2014, §1.6.1, Theorem* 1.6.1 and the sentence before it, p. 80 (arXiv v3) — KMSW's local (tempered) and global (generic) classification
   for inner forms of unitary groups.
 
 #### `ML.4/trace-formula-inputs-register` — Register of the trace-formula inputs of Arthur's classification and their owners
@@ -4916,8 +4720,7 @@ because a related unitary or GL_N result is.
 `EndoscopicTransferAndUnitaryTraceComparison:ET.4`, `ML.0/arthur-dependency-gate`.
 
 *Source.*
-- bcgp-2021, §1.4.1, p. 14 (arXiv v3): “as well as on the references [A24], [A25], [A26] and
-  [A27] in [Art13], which at the time of writing have not appeared publicly.” — AGIKMS
+- bcgp-2021, §1.4.1, p. 14 (arXiv v3) — AGIKMS
   §§0.3–0.4 state which inputs of Arthur's classification remain conditional.
 
 #### `ML.4/symplectic-branch-status` — The symplectic (GSp₄) branch is conditional: its verification task
@@ -4953,8 +4756,7 @@ GSp₄ endpoint.
 *Depends on:* `ML.4/trace-formula-inputs-register`, `ML.0/arthur-dependency-gate`.
 
 *Source.*
-- bcgp-2021, §1.4.1, p. 14 (arXiv v3): “as well as on the references [A24], [A25], [A26] and
-  [A27] in [Art13], which at the time of writing have not appeared publicly.” — The sources'
+- bcgp-2021, §1.4.1, p. 14 (arXiv v3) — The sources'
   own statements that the GSp₄ results depend on Arthur's unproved inputs.
 
 #### `ML.4/vogan-packets-so-v` — Vogan packets for odd special orthogonal groups of all quadratic spaces
@@ -4993,14 +4795,9 @@ tempered iff φ is tempered.
 `ML.4/trace-formula-inputs-register`, `ML.0/arthur-dependency-gate`.
 
 *Source.*
-- gan-ichino-2018, §5.2, (5.3), p. 17 (arXiv v3); published p. 987: “where the first disjoint
-  union runs over equivalence classes of 2n-dimensional symplectic representations φ of LF and
-  the second disjoint union runs over isometry classes of (2n + 1)-dimensional quadratic spaces
-  V over F with trivial discriminant.” — Gan–Ichino (5.3): the LLC for SO(V) over all V as a
+- gan-ichino-2018, §5.2, (5.3), p. 17 (arXiv v3); published p. 987 — Gan–Ichino (5.3): the LLC for SO(V) over all V as a
   partition into Vogan packets.
-- gan-ichino-2018, §1.2, p. 4 (arXiv v3); published p. 969: “On the other hand, the local
-  Langlands correspondence, established by Arthur [6] for SO(V + ) and by Mœglin–Renard [62]
-  for SO(V − ), gives a partition” — Gan–Ichino §1.2: Arthur for SO(V⁺), Mœglin–Renard for
+- gan-ichino-2018, §1.2, p. 4 (arXiv v3); published p. 969 — Gan–Ichino §1.2: Arthur for SO(V⁺), Mœglin–Renard for
   SO(V⁻).
 
 #### `ML.4/amf-nonsplit-so-v` — Arthur's multiplicity formula for non-split odd orthogonal groups, generic parameters (Gan–Ichino's hypothesis (6.1))
@@ -5036,12 +4833,9 @@ v, Σ_η = ⊗_v Σ_{η_v} through the Vogan packets of ML.4/vogan-packets-so-v,
 `ML.4/kmsw-inner-forms`, `ML.4/trace-formula-inputs-register`, `ML.0/arthur-dependency-gate`.
 
 *Source.*
-- gan-ichino-2018, §6.2, (6.1), p. 22 (arXiv v3); published p. 993: “Then Arthur’s multiplicity
-  formula (which has not been established if SO(V) is nonsplit but will be assumed in this
-  paper) asserts that” — Gan–Ichino (6.1): Arthur's multiplicity formula for SO(V), assumed
+- gan-ichino-2018, §6.2, (6.1), p. 22 (arXiv v3); published p. 993 — Gan–Ichino (6.1): Arthur's multiplicity formula for SO(V), assumed
   when SO(V) is non-split.
-- gan-ichino-2018, §3.1, p. 10 (arXiv v3); published p. 977: “Even if SO(V ) is not necessarily
-  split over F , this decomposition is expected to hold.” — Gan–Ichino §3.1: the decomposition
+- gan-ichino-2018, §3.1, p. 10 (arXiv v3); published p. 977 — Gan–Ichino §3.1: the decomposition
   by parameters, expected for non-split SO(V).
 
 #### `ML.4/packet-member-irreducibility` — Irreducibility of the induced representations building almost tempered packets (Gan–Ichino, Lemmas 5.1 and 5.5)
@@ -5074,13 +4868,8 @@ every irreducible subrepresentation σ′₀ of every member of the A-packet Π_
 *Depends on:* `ML.4/vogan-packets-so-v`, `ML.4/local-arthur-packets`.
 
 *Source.*
-- gan-ichino-2018, §5.2, Lemma 5.1 and proof, p. 18 (arXiv v3); published p. 987: “If F is
-  nonarchimedean, then this follows from a result of Mœglin–Waldspurger [64, §2.14] and a
-  conjecture of Gross–Prasad and Rallis [29, Conjecture 2.6], which is proved in [21, Appendix
-  B].” — Gan–Ichino Lemma 5.1.
-- gan-ichino-2018, §5.4, Lemma 5.5 and proof, p. 20 (arXiv v3); published p. 990: “The
-  assertion was proved in a more general context by Mœglin [56, §3.2], [57, Proposition 5.1]
-  when F is nonarchimedean, and by Mœglin–Renard [59, §6] when F = C.” — Gan–Ichino Lemma 5.5.
+- gan-ichino-2018, §5.2, Lemma 5.1 and proof, p. 18 (arXiv v3); published p. 987 — Gan–Ichino Lemma 5.1.
+- gan-ichino-2018, §5.4, Lemma 5.5 and proof, p. 20 (arXiv v3); published p. 990 — Gan–Ichino Lemma 5.5.
 
 #### `ML.4/generic-packets-standard-modules` — Members of generic L-packets of classical groups are irreducible standard modules (Jiang–Zhang, Proposition B.1)
 
@@ -5158,13 +4947,9 @@ Proposition 13.1).
 `GL2AutomorphicRepresentationsAndTransfer:R16.3`, `MetaplecticAutomorphicForms:MP.3`.
 
 *Source.*
-- bcgp-2021, §2.3, p. 18 (arXiv v3): “We denote the local Langlands correspondence of [GT11a]
-  by recGT ; this is a surjective ﬁnite-to-one map from the set of equivalence classes of
-  irreducible smooth complex representations of GSp4 (K)” — BCGP §2.3 recall rec_GT as a
+- bcgp-2021, §2.3, p. 18 (arXiv v3) — BCGP §2.3 recall rec_GT as a
   surjective finite-to-one map with its normalisations.
-- bcgp-2021, Proof of Proposition 2.4.22, §2.4.21, p. 25 (arXiv v3): “By the main theorem of
-  [GT11a] (part vii), the L-packet L(r) contains a generic representation if and only if the
-  adjoint L-factor” — BCGP use part (vii) of Gan–Takeda's main theorem (generic member iff the
+- bcgp-2021, Proof of Proposition 2.4.22, §2.4.21, p. 25 (arXiv v3) — BCGP use part (vii) of Gan–Takeda's main theorem (generic member iff the
   adjoint L-factor is holomorphic at s = 1).
 
 #### `ML.4/gsp4-arthur-classification` — Arthur's classification of the discrete spectrum of GSp₄ (Arthur 2004; Gee–Taïbi) ★
@@ -5205,16 +4990,11 @@ parameter.
 `ML.4/gan-takeda-llc-gsp4`, `ML.4/symplectic-branch-status`, `ML.0/arthur-dependency-gate`.
 
 *Source.*
-- cg-2020, Proof of Theorem 7.11, §7.2, publ. p. 854; arXiv v1 p. 40: “falls into one of six
-  classes (a)–(f ) given in [3, Section 5].” — Calegari–Geraghty quote the six classes (a)–(f)
+- cg-2020, Proof of Theorem 7.11, §7.2, publ. p. 854; arXiv v1 p. 40 — Calegari–Geraghty quote the six classes (a)–(f)
   of Arthur's classification.
-- cg-2020, Proof of Theorem 7.11, publ. p. 855 (copy p. 55): “it then follows from part (ii) of
-  [3, Classification Theorem] that” — Part (ii) of Arthur's classification theorem as used by
+- cg-2020, Proof of Theorem 7.11, publ. p. 855 (copy p. 55) — Part (ii) of Arthur's classification theorem as used by
   Calegari–Geraghty.
-- bcgp-2021, §2.9 'Arthur's classification', first paragraph, p. 38 (arXiv v3): “a proof of the
-  classiﬁcation announced in [Art04], making use of the results and techniques of [Art13] is
-  given in [GT19]. This reference establishes the compatibility of Arthur’s classiﬁcation with
-  the local Langlands correspondence recGT” — BCGP §2.9: Gee–Taïbi prove the classification
+- bcgp-2021, §2.9 'Arthur's classification', first paragraph, p. 38 (arXiv v3) — BCGP §2.9: Gee–Taïbi prove the classification
   announced by Arthur and its compatibility with rec_GT.
 
 #### `ML.4/non-general-type-reducible` — Discrete representations of GSp₄ not of general type have reducible Galois representations (BCGP Lemma 2.9.1)
@@ -5253,8 +5033,7 @@ only expected (BCGP Remark 2.9.2).
 `AutomorphicGaloisRepresentations:R19.1`.
 
 *Source.*
-- bcgp-2021, Lemma 2.9.1, §2.9, p. 38 (arXiv v3): “Suppose that π is not of general type. Then
-  there is a compatible system of reducible Galois representations” — BCGP Lemma 2.9.1.
+- bcgp-2021, Lemma 2.9.1, §2.9, p. 38 (arXiv v3) — BCGP Lemma 2.9.1.
 - pilloni-2020, §5.1.7, paragraph after Remark 5.1.7.1, p. 23 (author version 17 June 2019):
   “According to Arthur’s classiﬁcation [1], the representation π in the theorem can fall into
   six categories.” — Pilloni §5.1.7: the six categories and the reducibility outside general
@@ -5291,11 +5070,8 @@ cuspidal.
 *Depends on:* `ML.4/gsp4-arthur-classification`, `AutomorphicFormsOnReductiveGroups:AF.4`.
 
 *Source.*
-- bcgp-2021, Theorem 2.9.3, §2.9, p. 39 (arXiv v3): “Then there exists at least one discrete
-  automorphic representation π of GSp4 (AF ) with central character χ such that Π is the
-  transfer of π.” — BCGP Theorem 2.9.3.
-- bcgp-2021, Proof of Theorem 2.9.3, p. 39 (arXiv v3): “The statements of the ﬁrst two
-  paragraphs are immediate from the multiplicity formula of [Art04] as proved in [GT19]” —
+- bcgp-2021, Theorem 2.9.3, §2.9, p. 39 (arXiv v3) — BCGP Theorem 2.9.3.
+- bcgp-2021, Proof of Theorem 2.9.3, p. 39 (arXiv v3) —
   BCGP's proof: immediate from the multiplicity formula proved by Gee–Taïbi.
 
 #### `ML.4/shahidi-exterior-square` — Holomorphy and non-vanishing of twisted exterior-square L-functions on Re s = 1 (Shahidi)
@@ -5331,9 +5107,7 @@ s = 1, all others being holomorphic and non-zero there.
 *Depends on:* `ML.4/gsp4-discrete-spectrum-types`, `AutomorphicLFunctionsAndLocalFactors:AL.4`.
 
 *Source.*
-- bcgp-2021, Proof of Lemma 8.3.2, §8.3, p. 247 (arXiv v3): “while by the main result of
-  [Sha97], all but at most one factor on the right hand side is holomorphic and non-vanishing
-  at s = 1.” — BCGP's use of Shahidi 1997 in the proof of Lemma 8.3.2.
+- bcgp-2021, Proof of Lemma 8.3.2, §8.3, p. 247 (arXiv v3) — BCGP's use of Shahidi 1997 in the proof of Lemma 8.3.2.
 
 #### `ML.4/gsp4-archimedean-limit-packets` — The archimedean L-packet of a limit of discrete series of GSp₄(ℝ)
 
@@ -5370,11 +5144,9 @@ type the archimedean Arthur packet Π_{ψ_∞} is this L-packet.
 `AutomorphicFormsOnReductiveGroups:AF.1/discrete-series`.
 
 *Source.*
-- pilloni-2020, §15.2.4, proof of Proposition 15.2.4.1, p. 109 (author version): “It follows
-  that Π∞ is an L-packet, and this is {π(λ)g , π(λ)h } (see [4], prop. 5.3.7).” — Pilloni: Π_∞
+- pilloni-2020, §15.2.4, proof of Proposition 15.2.4.1, p. 109 (author version) — Pilloni: Π_∞
   is the L-packet {π(λ)^g, π(λ)^h} (BHR Prop. 5.3.7).
-- cg-2020, Proof of Theorem 7.11, point (2), publ. p. 855; arXiv v1 p. 41: “L-packet by [55,
-  Theorem 2.1]. Furthermore, it consists of the pair of representations” — Calegari–Geraghty:
+- cg-2020, Proof of Theorem 7.11, point (2), publ. p. 855; arXiv v1 p. 41 — Calegari–Geraghty:
   the packet consists of the pair π(λ, C₀), π(λ, C₁).
 
 #### `ML.4/limit-discrete-series-packet-types` — Global packets with a holomorphic limit of discrete series at infinity are of general, Yoshida or Saito–Kurokawa type
@@ -5411,12 +5183,9 @@ automorphic iff π_f ⊗ π(λ)^g is, both with multiplicity one (Pilloni, Propo
 `ML.4/gsp4-arthur-classification`.
 
 *Source.*
-- pilloni-2020, §15.2.4, proof of Proposition 15.2.4.1, p. 109 (author version): “Π can either
-  be of generic, Yoshida or Saito-Kurokawa type (compare [68], sect. 1.1 and 1.2 with the
-  description of the parameters attached to π(λ)h in [67], p.11).” — Pilloni: Π can be of
+- pilloni-2020, §15.2.4, proof of Proposition 15.2.4.1, p. 109 (author version) — Pilloni: Π can be of
   generic, Yoshida or Saito–Kurokawa type.
-- pilloni-2020, §15.2.4, proof of Proposition 15.2.4.1, p. 109 (author version): “It follows
-  that Π∞ is an L-packet, and this is {π(λ)g , π(λ)h } (see [4], prop. 5.3.7).” — Pilloni
+- pilloni-2020, §15.2.4, proof of Proposition 15.2.4.1, p. 109 (author version) — Pilloni
   Proposition 15.2.4.1.
 
 #### `ML.4/gsp4-gl4-archimedean-transfer` — Infinitesimal character of the transfer of π_∞ from GSp₄(ℝ) to GL₄(ℝ) (Calegari–Geraghty Theorem 5.6)
@@ -5450,10 +5219,8 @@ chamber C_i.
 `AutomorphicFormsOnReductiveGroups:AF.1/discrete-series`.
 
 *Source.*
-- cg-2020, Theorem 5.6(2), §5.3, publ. p. 829; quoted from arXiv v1 p. 22: “denote the transfer
-  of π∞ to GL4 (R). Then the infinitesimal character of π” — Calegari–Geraghty Theorem 5.6(2).
-- cg-2020, Proof of Theorem 5.6, publ. p. 829 (copy p. 29): “The second part can be inferred
-  from [64, Section 2.1.2].” — CG: the second part can be inferred from Sorensen §2.1.2.
+- cg-2020, Theorem 5.6(2), §5.3, publ. p. 829; quoted from arXiv v1 p. 22 — Calegari–Geraghty Theorem 5.6(2).
+- cg-2020, Proof of Theorem 5.6, publ. p. 829 (copy p. 29) — CG: the second part can be inferred from Sorensen §2.1.2.
 
 #### `ML.4/unitary-descent-of-gl4-transfer` — Descent of the GL₄ transfer of a Siegel form to a unitary group, and the symplectic sign
 
@@ -5489,8 +5256,7 @@ preserves a symplectic pairing (Calegari–Geraghty, Lemma 6.9).
 `AutomorphicGaloisRepresentationsPartII:AG2.2`.
 
 *Source.*
-- cg-2020, Proof of Lemma 6.9, §6.2, publ. p. 840 (copy p. 40); arXiv v1 p. 30: “of a unitary
-  group over Q. The family of `-adic Galois representations associated to” —
+- cg-2020, Proof of Lemma 6.9, §6.2, publ. p. 840 (copy p. 40); arXiv v1 p. 30 —
   Calegari–Geraghty's proof of Lemma 6.9.
 
 #### `ML.4/xu-gsp2n-packets` — Xu's L-packets for similitude groups GSp_{2n} (as used for PGSp₆)
@@ -5529,14 +5295,10 @@ which lift φ is the parameter of which packet.
 `ML.0/arthur-dependency-gate`.
 
 *Source.*
-- gan-savin-2023-g2, §7, (7.1), p. 22 (published): “who studied the problem of extending the
-  LLC for the isometry groups Sp2𝑛 to the corresponding similitude groups GSp2𝑛 , whose
-  Langlands dual groups are GSpin2𝑛+1 (C).” — Gan–Savin (7.1)–(7.2): the sets Π̃_{φ♭} and
+- gan-savin-2023-g2, §7, (7.1), p. 22 (published) — Gan–Savin (7.1)–(7.2): the sets Π̃_{φ♭} and
   Φ̃_{φ♭}.
-- gan-savin-2023-g2, §7 (a)–(b), p. 22 (published): “The natural restriction of representations
-  of PGSp6 to Sp6 deﬁnes a bijection” — Gan–Savin §7 (a)–(b).
-- gan-savin-2023-g2, §7 (e), p. 23 (published): “and the two sets above are (noncanonically)
-  isomorphic as homogeneous sets under Hom(𝐹 × , 𝜇2 ) = Hom(𝑊𝐹 , 𝜇2 ).” — Gan–Savin §7 (e).
+- gan-savin-2023-g2, §7 (a)–(b), p. 22 (published) — Gan–Savin §7 (a)–(b).
+- gan-savin-2023-g2, §7 (e), p. 23 (published) — Gan–Savin §7 (e).
 
 #### `ML.4/xu-multiplicity-formula` — Xu's multiplicity formula for the tempered discrete spectrum of PGSp_{2n}
 
@@ -5566,11 +5328,8 @@ group, every element of the global packet containing Σ is automorphic.
 `ML.0/arthur-dependency-gate`.
 
 *Source.*
-- gan-savin-2023-g2, §7 (f), p. 23 (published): “Globally, Xu used these local L-packets to
-  describe the tempered part of the automorphic discrete spectrum of PGSp6 in the style of
-  Arthur’s conjecture, in terms of an Arthur multiplicity formula.” — Gan–Savin §7 (f).
-- gan-savin-2023-g2, §12.8, proof of Theorem 12.7, pp. 39–40 (published): “spectrum is governed
-  by the Arthur multiplicity formula. In particular, since the global component group” —
+- gan-savin-2023-g2, §7 (f), p. 23 (published) — Gan–Savin §7 (f).
+- gan-savin-2023-g2, §12.8, proof of Theorem 12.7, pp. 39–40 (published) —
   Gan–Savin §12.8.
 
 #### `ML.4/adams-johnson-packets` — Archimedean Arthur packets of cohomological parameters are Adams–Johnson packets
@@ -5608,8 +5367,7 @@ Johnson's description for U(p, q)).
 `AutomorphicFormsOnReductiveGroups:AF.1/discrete-series`, `ML.0/arthur-dependency-gate`.
 
 *Source.*
-- chenevier-taibi-2020, §5.2.1, p. 303 (published): “coincides with the packet that Adams and
-  Johnson associate to ψR in [AJ87] (any element of this packet having multiplicity one).” —
+- chenevier-taibi-2020, §5.2.1, p. 303 (published) —
   Chenevier–Taïbi §5.2.1: Arthur's packet coincides with Adams–Johnson's (AMR18).
 - ichino-prasanna-2023, §11.2, p. 70 (arXiv v2); published p. 81: “Suppose that v is real. If
   Gv is quasi-split and ψv is “cohomological”, then it follows from the result of
@@ -5647,8 +5405,7 @@ to C_ψ does not depend on δ.
 `AutomorphicFormsOnReductiveGroups:AF.1/discrete-series`, `ML.0/arthur-dependency-gate`.
 
 *Source.*
-- chenevier-taibi-2020, §5.2.2, pp. 303–305 (published): “if, and only if, we are in one of the
-  two cases called (I) and (H) below.” — Chenevier–Taïbi §5.2.2: the two cases (I) and (H).
+- chenevier-taibi-2020, §5.2.2, pp. 303–305 (published) — Chenevier–Taïbi §5.2.2: the two cases (I) and (H).
 - chenevier-taibi-2020, §5.2.2, case (H), p. 305 (published): “Case (H). — This corresponds to
   case (ii) in [MR, Théorème 7.1]. According to Theorem 7.2 loc. cit. there are two subcases:”
   — Chenevier–Taïbi §5.2.2: case (H) and its subcases.
@@ -5733,9 +5490,7 @@ the theorem nodes of ML.5.
 `tauceti:TauCetiRoadmap/ReductiveGroups#layer-6-reductive-and-semisimple-groups`.
 
 *Source.*
-- arthur-2003, §4, Conjecture (Langlands [L1]), pp. 44–45 (Bull. AMS 40 (2003)): “Suppose that
-  G, G0 and ρ are given, and that G is quasisplit. Then for any automorphic representation π 0
-  of G0 , there is an automor-” — Arthur 2003 §4: Langlands' conjecture (principle of
+- arthur-2003, §4, Conjecture (Langlands [L1]), pp. 44–45 (Bull. AMS 40 (2003)) — Arthur 2003 §4: Langlands' conjecture (principle of
   functoriality).
 
 #### `ML.5/global-langlands-reciprocity-conjecture` — Global Langlands reciprocity for GL_n (frontier statement)
@@ -5836,8 +5591,7 @@ conditionally); GSp₄ (ML.4/gan-takeda-llc-gsp4).
 `tauceti:TauCetiRoadmap/ReductiveGroups#layer-6-reductive-and-semisimple-groups`.
 
 *Source.*
-- arthur-2003, §5, p. 47 (Bull. AMS 40 (2003)): “The general correspondence would be slightly
-  weaker. If G is quasisplit, one would expect surjective maps” — Arthur 2003 §5: the expected
+- arthur-2003, §5, p. 47 (Bull. AMS 40 (2003)) — Arthur 2003 §5: the expected
   surjective finite-to-one local map.
 
 #### `ML.5/categorical-local-langlands-conjecture` — The categorical local Langlands conjecture of Fargues–Scholze (frontier statement) ★
@@ -5887,8 +5641,7 @@ theorem, the equivalence is a conjecture.
 `ML.0/endpoint-status-register`.
 
 *Source.*
-- fargues-scholze-2021, §I.10, Conjecture I.10.2, p. 38 (arXiv:2102.13459v4): “Assume that G is
-  quasisplit and choose Whittaker data consisting of a” — Fargues–Scholze Conjecture I.10.2.
+- fargues-scholze-2021, §I.10, Conjecture I.10.2, p. 38 (arXiv:2102.13459v4) — Fargues–Scholze Conjecture I.10.2.
 
 ### Theorems, comparisons and registers
 
@@ -5930,12 +5683,9 @@ r|_{G_L} is irreducible and automorphic for a soluble Galois L/F, then r is auto
 `AutomorphicLFunctionsAndLocalFactors:AL.3/rs-boundary-nonvanishing`.
 
 *Source.*
-- nt-2026, §1.2, p. 8 (arXiv:2212.03595v2): “If L/F is a cyclic extension, then we write BCL/F
-  (π) for the base change of GLn (AF ) (see [AC89]): it is an auto-” — Newton–Thorne §1.2:
+- nt-2026, §1.2, p. 8 (arXiv:2212.03595v2) — Newton–Thorne §1.2:
   BC_{L/F}(π) for cyclic L/F, after Arthur–Clozel.
-- nt-2026, §3, end of proof of Theorem 3.2, p. 25 (arXiv:2212.03595v2): “a RACSDC automorphic
-  representation of GLn (AK3 ). Applying soluble descent and untwisting, we find that rπ,ι ⊗
-  Symr−1 rσ,ι is automorphic, as required.” — Newton–Thorne's use of soluble descent in Theorem
+- nt-2026, §3, end of proof of Theorem 3.2, p. 25 (arXiv:2212.03595v2) — Newton–Thorne's use of soluble descent in Theorem
   3.2.
 
 #### `ML.5/ckpss-generic-transfer` — Generic transfer from split classical groups to GL_N and its image (Cogdell–Kim–Piatetski-Shapiro–Shahidi; Ginzburg–Rallis–Soudry) ★
@@ -5971,15 +5721,9 @@ Ginzburg–Rallis–Soudry's).
 `AutomorphicLFunctionsAndLocalFactors:AL.4`.
 
 *Source.*
-- ckpss-2004, Theorem 1.1, §1, p. 169 (Publ. Math. IHÉS 99): “Let k be a number field and let π
-  be an irreducible globally generic cuspidal automorphic representation of Gn (A). Then π has
-  a functorial lift to GLN (A).” — CKPSS Theorem 1.1.
-- ckpss-2004, Theorem 7.1, §7.1, p. 195 (Publ. Math. IHÉS 99): “Let π be a globally generic
-  cuspidal representation of Gn (A) = SO2n+1 (A). Then any functorial lift of π to an
-  automorphic representation Π of GL2n (A) has” — CKPSS Theorem 7.1: the image for SO_{2n+1}.
-- bcg-2025, Remark 2.5, §2, p. 8 (arXiv:2309.15944v3); journal p. 515: “we see that there is a
-  globally generic, non-endoscopic, cuspidal automorphic representation for Sp104 /Q of level
-  one and weight zero.” — Boxer–Calegari–Gee Remark 2.5.
+- ckpss-2004, Theorem 1.1, §1, p. 169 (Publ. Math. IHÉS 99) — CKPSS Theorem 1.1.
+- ckpss-2004, Theorem 7.1, §7.1, p. 195 (Publ. Math. IHÉS 99) — CKPSS Theorem 7.1: the image for SO_{2n+1}.
+- bcg-2025, Remark 2.5, §2, p. 8 (arXiv:2309.15944v3); journal p. 515 — Boxer–Calegari–Gee Remark 2.5.
 
 #### `ML.5/grs-descent` — Automorphic descent of Ginzburg–Rallis–Soudry (with Jiang–Soudry's irreducibility) ★
 
@@ -6013,12 +5757,9 @@ structure depends on the uniqueness of local Bessel models over Vogan packets.
 `AutomorphicSpectralTheory:AS.6/invariant-trace-formula`.
 
 *Source.*
-- jiang-zhang-2020, §1.1, p. 6 (arXiv v4); published p. 744: “This π0 can be constructed by the
-  automorphic descent of Ginzburg, Rallis and Soudry in [24] and in [43].” — Jiang–Zhang §1.1:
+- jiang-zhang-2020, §1.1, p. 6 (arXiv v4); published p. 744 — Jiang–Zhang §1.1:
   π₀ is constructed by the automorphic descent of Ginzburg–Rallis–Soudry.
-- jiang-zhang-2020, §7.2, p. 75 (arXiv v4); published p. 809: “This is essentially proved by
-  the work of Cogdell, Kim, Piatetski-Shapiro and Shahidi in [11], with combination of the
-  automorphic descent of Ginzburg-Rallis-Soudry ([24]).” — Jiang–Zhang §7.2: CKPSS with the GRS
+- jiang-zhang-2020, §7.2, p. 75 (arXiv v4); published p. 809 — Jiang–Zhang §7.2: CKPSS with the GRS
   descent.
 
 #### `ML.5/local-descent-mp2n` — Local descent to Mp_{2n} and globalisation of square-integrable representations of GL_{2n} (Gan–Ichino Appendix A)
@@ -6053,8 +5794,7 @@ and L(1/2, T) ≠ 0.
 
 *Source.*
 - gan-ichino-2018, Appendix A, proof of Proposition A.1, pp. 29–30 (arXiv v3); published pp.
-  1001–1002: “For each v ∈ S ∪ {v0 }, let πv be the descent of τv to Mp2n (Fv ) relative to ψv
-  (see [27], [28], [36, Theorem 3.1]).” — Gan–Ichino Appendix A: the descent π_v of τ_v to
+  1001–1002 — Gan–Ichino Appendix A: the descent π_v of τ_v to
   Mp_{2n}(F_v).
 - gan-ichino-2018, Appendix A, proof of Proposition A.1, p. 30 (arXiv v3); published p. 1002:
   “We now take T to be the functorial lift of Σ to GL2n (A).” — Gan–Ichino: T is the functorial
@@ -6131,13 +5871,9 @@ one gets |α_v|^n < q_v^{1/2} for all n, hence |α_v| = 1.
 `ML.5/cyclic-base-change-gln`.
 
 *Source.*
-- acc-2023, §1, paragraph after Theorem 1.0.2, p. 3 (arXiv:1812.09999v2): “explained [Lan70]
-  how one could deduce Ramanujan from functoriality; namely, functoriality implies the
-  automorphy of Symmn (π) and Symmn (π ∨ ) as well as the product Symmn (π) ⊠ Symmn (π ∨ ).” —
+- acc-2023, §1, paragraph after Theorem 1.0.2, p. 3 (arXiv:1812.09999v2) —
   ACC+ §1: Langlands' deduction of Ramanujan from functoriality.
-- acc-2023, §1, paragraph after Theorem 1.0.2, p. 3 (arXiv:1812.09999v2): “explained [Lan70]
-  how one could deduce Ramanujan from functoriality; namely, functoriality implies the
-  automorphy of Symmn (π) and Symmn (π ∨ ) as well as the product Symmn (π) ⊠ Symmn (π ∨ ).” —
+- acc-2023, §1, paragraph after Theorem 1.0.2, p. 3 (arXiv:1812.09999v2) —
   ACC+ use potential automorphy of all symmetric powers and the Jacquet–Shalika bounds.
 
 **Remaining refinements.**

@@ -38675,9 +38675,9 @@
   },
   "review": {
     "status": "needs_changes",
-    "reviewer": "independent-review-REV-FIX-RT-AREA-automorphic-1~4",
+    "reviewer": "independent-review-REV-FIX-RT-AREA-automorphic-1~5",
     "date": "2026-10-08",
-    "notes": "Independent review of FIX-RT-AREA-automorphic-1~4 (issue #7280, PR #7314, Codex codex-Z0ErNN) by Claude session claude-95TvAO, following REV-FIX-RT-AREA-automorphic-1~3 and, for this packet, REV-FIX-RT-AREA-topology~4 (needs_changes) and REV-QSeriesPartitionsAndMockModularForms (needs_changes). Finding /20 is correctly fixed: QM.1's eight Jacobi nodes import MP.6 through one request whose item (e) keeps Skoruppa's balanced tensor product over C[Mp2(Z)], the finite-image hypothesis and the dual Weil module (Theorem 5, arXiv:0707.0718v1, checked). No packet correction was needed. Status stays needs_changes because this packet's own blueprint review (REV-QSeriesPartitionsAndMockModularForms) did not accept it and its revision BP-QSeriesPartitionsAndMockModularForms~2 is pending: accepting a narrow fix would promote the whole packet. The topology~4 obligations also remain. The reader still contradicts the packet at ~958 (tensor product without balancing or finite image) and ~4156 (refined MP.7 imports described as whole-stage QM.2 imports)."
+    "notes": "Independent completed review of FIX-RT-AREA-automorphic-1~5 (issue #7448, PR #7713, Codex codex-vvlCYM) by Codex session codex-zcs4LH, following REV-FIX-RT-AREA-automorphic-1~4 and the earlier blueprint review retained in reviewHistory. Finding /20 is correct in packet and focused reader sections: Skoruppa Theorem 5 retains finite-image coefficients, the tensor product balanced over C[Mp2(Z)] and the dual Weil module; MP.7 finite-Weil inputs remain distinct from scalar multiplier/theta/plus-space inputs. No further fix-region correction is required. BP-QSeriesPartitionsAndMockModularForms~2 and its review still need the broad REV-QSeriesPartitionsAndMockModularForms native-form guards, fifth-order coordinate/identity reconciliation and proof/supplier correspondence, together with the recorded topology round-4 obligations. Compilation alone does not settle those contracts. All thirteen packet checks pass; exact prerequisite closure is acyclic. No mathematical field or suggested declaration changed in this review. Source receipts, reader checks and Lean limitations are in research/blueprint/reviews/REV-FIX-RT-AREA-automorphic-1~5.md."
   },
   "reviewHistory": [
     {
@@ -41442,6 +41442,12 @@
       "reviewer": "independent-review-REV-FIX-RT-AREA-automorphic-1~3",
       "date": "2026-10-07",
       "notes": "Independent scoped review of RT-AREA-automorphic-1/20, following REV-FIX-RT-AREA-automorphic-1~2 and the later archived REV-FIX-RT-AREA-topology~4, while retaining the original REV-QSeriesPartitionsAndMockModularForms obligations. Corrected the theta-decomposition headline to state the balanced group-algebra tensor product and finite-image coefficient hypothesis; preserved the actual MP.6 classical requests, complex-order I/J carriers and accurate fine-dependency restructuring proposal. The reader still omits those hypotheses and describes obsolete broad MP/AS inputs. The independently reviewed topology export/matrix-cocycle obligations and broader source/reader defects remain binding; this ownership correction does not promote past them. Existing history entries are preserved verbatim. Honest unsupplied classical outputs alone are not the rejection reason. Fresh source/pin checks are explicitly scoped; no full537-node audit or Lean compilation is claimed."
+    },
+    {
+      "status": "needs_changes",
+      "reviewer": "independent-review-REV-FIX-RT-AREA-automorphic-1~4",
+      "date": "2026-10-08",
+      "notes": "Independent review of FIX-RT-AREA-automorphic-1~4 (issue #7280, PR #7314, Codex codex-Z0ErNN) by Claude session claude-95TvAO, following REV-FIX-RT-AREA-automorphic-1~3 and, for this packet, REV-FIX-RT-AREA-topology~4 (needs_changes) and REV-QSeriesPartitionsAndMockModularForms (needs_changes). Finding /20 is correctly fixed: QM.1's eight Jacobi nodes import MP.6 through one request whose item (e) keeps Skoruppa's balanced tensor product over C[Mp2(Z)], the finite-image hypothesis and the dual Weil module (Theorem 5, arXiv:0707.0718v1, checked). No packet correction was needed. Status stays needs_changes because this packet's own blueprint review (REV-QSeriesPartitionsAndMockModularForms) did not accept it and its revision BP-QSeriesPartitionsAndMockModularForms~2 is pending: accepting a narrow fix would promote the whole packet. The topology~4 obligations also remain. The reader still contradicts the packet at ~958 (tensor product without balancing or finite image) and ~4156 (refined MP.7 imports described as whole-stage QM.2 imports)."
     }
   ]
 }

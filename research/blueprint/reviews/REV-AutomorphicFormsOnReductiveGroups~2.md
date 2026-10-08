@@ -1,6 +1,6 @@
 # Independent review: Automorphic forms on reductive groups, revision 2
 
-**Completed review; verdict: needs_changes.** Job `REV-AutomorphicFormsOnReductiveGroups~2`, issue #6989; Codex session `codex-ULSv2d`, 8 October 2026. This session wrote neither the original plan nor revision 2. The reviewed revision is Codex session `codex-OGlhV1`’s PR #6923, following [the first independent review](REV-AutomorphicFormsOnReductiveGroups.md). The intervening narrow fix review is preserved in `reviewHistory`.
+**Completed review; verdict: needs_changes.** Job `REV-AutomorphicFormsOnReductiveGroups~2`, issue #6989; Codex session `codex-ULSv2d`, 8 October 2026. This session wrote neither the original plan nor revision 2. The reviewed revision is Codex session `codex-OGlhV1`’s PR #6923, following [the first independent review](REV-AutomorphicFormsOnReductiveGroups.md). The intervening narrow fix reviews are preserved in `reviewHistory`.
 
 The mathematical catalogue is substantially stronger than the first version. Its native carriers now express smoothness, differentiation, tensor colimits, coefficient covariance and actual integrals. Clear source/hypothesis errors are corrected here. The remaining rejection is the explicit **PROTOCOL §13** requirement that every packet definition, API name, theorem and specified test have its faithful suggested signature. The file still omits 256 distinct names across 82 nodes. Some existing named statements also cover only part of their advertised contract. Listing those omissions honestly is valuable, but does not satisfy that requirement.
 
@@ -54,7 +54,7 @@ These are interface/specification obligations. The unread original proofs of Har
 | AF.5 products | Restriction at the identity in the other factor need not extract an irreducible automorphic factor. Added a finite-type slice/coefficient-functional constituent-extraction gap. Flath proves abstract factorization, not this automorphic realization by itself. |
 | Compact basis | Added actual 2×2 compact H/X/Y matrices, their bracket signature and two examples distinguishing the circle generator from the split diagonal. The GL₂ Casimir proof now explicitly uses this triple and its direct prerequisite. |
 
-The source-issue section and every affected statement, API, acceptance clause, omission contract and request in the reader were synchronized. No source quotation or source-by-source digest was added. The previous narrow fix review is preserved as history; this full review supplies the current verdict.
+The source-issue section and every affected statement, API, acceptance clause, omission contract and request in the reader were synchronized. No source quotation or source-by-source digest was added. The previous narrow fix reviews are preserved as history; this full review supplies the current verdict.
 
 ## Previous review and assigned red-team obligations
 
@@ -74,6 +74,8 @@ The source-issue section and every affected statement, API, acceptance clause, o
 | RT-AREA-automorphic-1/31 | Gross rational and level-action carriers are distinct, with continuous p-adic coefficient actions, full stabilizers and semigroup extension. Base change is conditional on invertible orders or trivial stabilizers. Weighted Hecke representatives lie in the actual double coset. The new central-character branch uses effective central-quotient stabilizers and corrected ψ⁻¹ overlap. |
 
 The twelve AF reader discrepancies listed by `REV-FIX-RT-AREA-automorphic-1~4` were checked in the rewritten revision reader: local finiteness/countability, invariant base change, nonsplitting of W_R, Knapp availability, Hodge central balancing, Borel–Wallach and Vogan–Zuckerman scope, continuous p-adic actions, class number versus type number, compact-mod-centre convention, definite-quaternion cuspidality and RG2.3 attribution. None is restored here. This review edits no supplier or consumer files.
+
+Submission reconciliation: main advanced while this review ran, adding the round-five reader synchronization in PR #7713 and its independent review in PR #7715. I inspected that focused report and the eight rewritten reader entries, retained their formatting and unchanged contracts, and archived `independent-review-REV-FIX-RT-AREA-automorphic-1~5` in `reviewHistory`. Those commits changed no mathematical field or suggested declaration in this packet. The corrected Ding locator is also synchronized in the algebraic-modular-form acceptance/use clauses and E9 locator. All 100 reader statements, hypotheses, proof steps, API/test contracts and acceptance clauses were checked again after reconciliation. The full review verdict and counts are unchanged.
 
 ## Source findings and access limits
 

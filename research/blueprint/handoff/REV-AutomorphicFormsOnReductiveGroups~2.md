@@ -39,7 +39,9 @@ review. No second job was claimed.
   the split diagonal. The GL₂ dictionary explicitly uses that basis as a direct
   prerequisite. Its two-ray SO(2) carrier does not claim an O(2) extension or an
   integrated classification.
-- The previous narrow fix review is preserved in `reviewHistory`. No promoted,
+- The previous narrow fix reviews, including concurrent round 5 (PR #7715),
+  are preserved in `reviewHistory`. Its eight synchronized reader entries were
+  reconciled without changing their mathematical contracts. No promoted,
   atlas, supplier, consumer or upstream roadmap file is edited.
 
 ## What the next revision must do
