@@ -41271,8 +41271,9 @@
    ],
    "revisionOf": "BP-VStackSheavesAndLisseCategories",
    "prompt": "research/blueprint/prompts/BP-VStackSheavesAndLisseCategories~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7014"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7014",
+   "finishedAt": "2026-10-08T10:25:20Z"
   },
   {
    "priority": 2,
@@ -43951,7 +43952,8 @@
     "REV-RefinedTraceMethods--RT.5"
    ],
    "prompt": "research/blueprint/prompts/ASM-RefinedTraceMethods.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #256"
   },
   {
    "id": "ASM-RelativeFarguesFontaine",
