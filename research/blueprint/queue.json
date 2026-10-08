@@ -38210,7 +38210,8 @@
     "BP-CohomologyComparisons~2"
    ],
    "prompt": "research/blueprint/prompts/REV-CohomologyComparisons~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7037"
   },
   {
    "kind": "blueprint",
@@ -39141,8 +39142,9 @@
    ],
    "revisionOf": "BP-GrossZagierAndArithmeticHeights--GZ.8",
    "prompt": "research/blueprint/prompts/BP-GrossZagierAndArithmeticHeights--GZ.8~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6967"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6967",
+   "finishedAt": "2026-10-08T19:46:34Z"
   },
   {
    "priority": 2,
@@ -43551,8 +43553,9 @@
     "REV-GeometricSatakeAndFusion--GS3~2"
    ],
    "prompt": "research/blueprint/prompts/ASM-GeometricSatakeAndFusion.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #235"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #235",
+   "finishedAt": "2026-10-08T19:46:36Z"
   },
   {
    "id": "ASM-GrossZagierAndArithmeticHeights",
