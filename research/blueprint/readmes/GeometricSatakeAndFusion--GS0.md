@@ -24,7 +24,7 @@ This revision preserves the 59 existing node identities and the historical indep
 review record. It synchronizes the corrections throughout the reader and adds the
 three auxiliary lemmas explicitly routed by the current issue: FS VI.1.13 and
 VI.3.2–VI.3.3. The original review remains a record of the previous version; a new
-independent review must assess this revision.
+independent review of this revision is accepted as a complete target-level pass; see the review report `REV-GeometricSatakeAndFusion--GS0~2.md`. The inherited review remains historical provenance.
 
 The second part owns symmetric fusion, tensor compatibility of the fibre
 functor, rational Tannakian reductivity and dual-group reconstruction. They are
@@ -58,7 +58,10 @@ the whole inverse-limit group.
 
 For a finite set of ordered legs, add their Cartier divisors. At a geometric
 point with r distinct untilts there are r local factors, even when there are more
-than r labelled legs. Bounds on legs with the same untilt add. The perverse shift
+than r labelled legs. Bounds on legs with the same untilt add. The cocenter degree is the sum of the combined local cocharacters over distinct
+supports, counted once each; multiplicity is already present in the ordered-leg
+sum and in the Cartier equation. The author-copy description before FS VI.3.1
+adds an extra weight, corrected in E24. The perverse shift
 is the sum of the dimensions of these r local Schubert factors. On a single cell
 labelled μ it is d_μ=⟨2ρ,μ⟩. This avoids counting a collision twice in the local
 product while forgetting its summed relative-position bound.
@@ -206,6 +209,8 @@ SHA-256: `9ab9efbd0df251bfa3b610d1d1d88a8dfb1bdf7c397bd04f4c277280d98ae905`.
 
 **Revision access:** date: 2026-10-07; job: BP-GeometricSatakeAndFusion--GS0~2; url: https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf; sha256: 9ab9efbd0df251bfa3b610d1d1d88a8dfb1bdf7c397bd04f4c277280d98ae905; bytes: 2665415; matchesInheritedVersion: True
 
+**Current independent review access:** date: 2026-10-08; job: REV-GeometricSatakeAndFusion--GS0~2; opened PDF: https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf; SHA256: `9ab9efbd0df251bfa3b610d1d1d88a8dfb1bdf7c397bd04f4c277280d98ae905`. The review report records the exact passage extents and version limits.
+
 ### BS17-witt-grassmannian
 
 Bhargav Bhatt, Peter Scholze. [Projectivity of the Witt vector affine Grassmannian](https://arxiv.org/abs/1507.06490). arXiv:1507.06490v3, 61-page PDF; PDF page = printed page.
@@ -223,6 +228,8 @@ SHA-256: `b4d5a4e0a6591971c6b8521d790e5db6e61112f1350a0e4a05a8d98b6e0b961e`.
 - arXiv v3 only: Selected §6 descent statements/proofs pp20–26, including6.1,6.8,6.11 and6.13–6.14; §7.1–7.14 pp26–32 (types, Quot/filtration and fibres); §8.1–8.11 pp32–36 (determinant, positivity, full Theorem8.3 proof); §9.4–9.7 p37; §10.1–10.6 pp37–40. No published Springer PDF was read by this agent.
 
 **Revision access:** date: 2026-10-07; job: BP-GeometricSatakeAndFusion--GS0~2; url: https://arxiv.org/pdf/1507.06490v3; sha256: b4d5a4e0a6591971c6b8521d790e5db6e61112f1350a0e4a05a8d98b6e0b961e; bytes: 687439; matchesInheritedVersion: True
+
+**Current independent review access:** date: 2026-10-08; job: REV-GeometricSatakeAndFusion--GS0~2; opened PDF: https://arxiv.org/pdf/1507.06490v3?download=1; SHA256: `b4d5a4e0a6591971c6b8521d790e5db6e61112f1350a0e4a05a8d98b6e0b961e`. The review report records the exact passage extents and version limits.
 
 ### SW20-berkeley
 
@@ -242,6 +249,8 @@ SHA-256: `225505171ef809aa0070c023c881ff1da844923775f2d631474c0b42eea4bffc`.
 - Author PDF dated27March2020: §20.3.1–20.3.7 pp185–186; §20.5.3–20.5.4 p190; §21.1 pp191–192; Theorem21.2.1 and proof/21.2.2–3 pp192–194; Proposition21.4.3 and proof pp195–196; §21.5 setup and Proposition21.5.1 with proof passagepp196–197.
 
 **Revision access:** date: 2026-10-07; job: BP-GeometricSatakeAndFusion--GS0~2; url: https://www.math.uni-bonn.de/people/scholze/Berkeley.pdf; sha256: 225505171ef809aa0070c023c881ff1da844923775f2d631474c0b42eea4bffc; bytes: 1695564; matchesInheritedVersion: True
+
+**Current independent review access:** date: 2026-10-08; job: REV-GeometricSatakeAndFusion--GS0~2; opened PDF: https://www.math.uni-bonn.de/people/scholze/Berkeley.pdf; SHA256: `225505171ef809aa0070c023c881ff1da844923775f2d631474c0b42eea4bffc`. The review report records the exact passage extents and version limits.
 
 ### Zhu17
 
@@ -264,6 +273,8 @@ SHA-256: `5d50b415048f3a5ad14bccf1c8da83fc5a680fcf13b60911ca269daa474431a7`.
 
 **Revision access:** date: 2026-10-07; job: BP-GeometricSatakeAndFusion--GS0~2; url: https://annals.math.princeton.edu/wp-content/uploads/annals-v185-n2-p02-p.pdf; sha256: 5d50b415048f3a5ad14bccf1c8da83fc5a680fcf13b60911ca269daa474431a7; bytes: 768124; matchesInheritedVersion: True
 
+**Current independent review access:** date: 2026-10-08; job: REV-GeometricSatakeAndFusion--GS0~2; opened PDF: https://annals.math.princeton.edu/wp-content/uploads/annals-v185-n2-p02-p.pdf; SHA256: `5d50b415048f3a5ad14bccf1c8da83fc5a680fcf13b60911ca269daa474431a7`. The review report records the exact passage extents and version limits.
+
 ### CS17
 
 Ana Caraiani, Peter Scholze. [On the generic part of the cohomology of compact unitary Shimura varieties](https://annals.math.princeton.edu/wp-content/uploads/annals-v186-n3-p01-p.pdf). Published Annals 186 (2017); PDF page = printed page − 648.
@@ -279,6 +290,8 @@ SHA-256: `4f9449e5ecfd8fb8b43a04acef73060f531be995babaa9f744f3db36aaa5e61a`.
 - Published §3.4, Propositions3.4.3, Lemma3.4.4, Theorem3.4.5, Lemma3.4.6 and proofs, printed pp.684–686 (text lines1660–1813): lattice filtration, sign convention, minuscule BB comparison and membership detection.
 
 **Revision access:** date: 2026-10-07; job: BP-GeometricSatakeAndFusion--GS0~2; url: https://annals.math.princeton.edu/wp-content/uploads/annals-v186-n3-p01-p.pdf; sha256: 4f9449e5ecfd8fb8b43a04acef73060f531be995babaa9f744f3db36aaa5e61a; bytes: 899242; matchesInheritedVersion: True
+
+**Current independent review access:** date: 2026-10-08; job: REV-GeometricSatakeAndFusion--GS0~2; opened PDF: https://annals.math.princeton.edu/wp-content/uploads/annals-v186-n3-p01-p.pdf; SHA256: `4f9449e5ecfd8fb8b43a04acef73060f531be995babaa9f744f3db36aaa5e61a`. The review report records the exact passage extents and version limits.
 
 ### GLX26
 
@@ -296,6 +309,8 @@ SHA-256: `c40fe1fc5e0941812cf3aca5ba77c471ee49122c63ed7b0d864d322136031485`.
 
 **Revision access:** date: 2026-10-07; job: BP-GeometricSatakeAndFusion--GS0~2; url: https://link.springer.com/content/pdf/10.1007/s00222-025-01386-1.pdf; sha256: c40fe1fc5e0941812cf3aca5ba77c471ee49122c63ed7b0d864d322136031485; bytes: 1815979; matchesInheritedVersion: True
 
+**Current independent review access:** date: 2026-10-08; job: REV-GeometricSatakeAndFusion--GS0~2; opened PDF: https://link.springer.com/content/pdf/10.1007/s00222-025-01386-1.pdf; SHA256: `c40fe1fc5e0941812cf3aca5ba77c471ee49122c63ed7b0d864d322136031485`. The review report records the exact passage extents and version limits.
+
 ### VH24
 
 Pol van Hoften. [Mod p points on Shimura varieties of parahoric level](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/EC6F7AD8C8B489FEB8FC4D64485ABE1D/S2050508624000222a.pdf/mod_p_points_on_shimura_varieties_of_parahoric_level.pdf). Published Cambridge PDF, PDF pages used as locators.
@@ -311,6 +326,8 @@ SHA-256: `d86da9a0e35c93d22df291979be37a5acf1ddc44fbd762e11f2a5f6c92961be0`.
 - Published Cambridge PDF: relative-position §2.2.14 and admissible-set/local-model §2.2.15 pp15–16, with preceding parahoric-change argument on p15. The minuscule qualifier was read directly.
 
 **Revision access:** date: 2026-10-07; job: BP-GeometricSatakeAndFusion--GS0~2; url: https://www.cambridge.org/core/services/aop-cambridge-core/content/view/EC6F7AD8C8B489FEB8FC4D64485ABE1D/S2050508624000222a.pdf/mod_p_points_on_shimura_varieties_of_parahoric_level.pdf; sha256: d86da9a0e35c93d22df291979be37a5acf1ddc44fbd762e11f2a5f6c92961be0; bytes: 999392; matchesInheritedVersion: True
+
+**Current independent review access:** date: 2026-10-08; job: REV-GeometricSatakeAndFusion--GS0~2; opened PDF: https://www.cambridge.org/core/services/aop-cambridge-core/content/view/EC6F7AD8C8B489FEB8FC4D64485ABE1D/S2050508624000222a.pdf/mod_p_points_on_shimura_varieties_of_parahoric_level.pdf; SHA256: `d86da9a0e35c93d22df291979be37a5acf1ddc44fbd762e11f2a5f6c92961be0`. The review report records the exact passage extents and version limits.
 
 ### He21
 
@@ -341,6 +358,8 @@ The routed-source ledger below accounts individually for 239 extracted items. Pr
 | PAPER-HE-21 | 14 |
 | PAPER-VANHOFTEN-24 | 7 |
 | PAPER-ZHU-17 | 112 |
+
+**Current independent review access:** date: 2026-10-08; job: REV-GeometricSatakeAndFusion--GS0~2; opened PDF: https://www.cambridge.org/core/services/aop-cambridge-core/content/view/5A27DBF48CAEF6DA56A313061848574C/S205050862100010Xa.pdf/cordial-elements-and-dimensions-of-affine-delignelusztig-varieties.pdf; SHA256: `d53843f0c8875cf1e14173ad271e025bd30f177fe319a7d83926629d454683dd`. The review report records the exact passage extents and version limits.
 
 ## Coverage and acceptance
 
@@ -429,7 +448,7 @@ For an affine O_E-scheme Z and a divisor D in Div^d_𝒴, L⁺Z(S)=Z(B⁺_D(S)) 
 
 **Remaining obligations**
 
-- Typed geometric signatures and unavailable prebuilt line module: The suggested file retains the accepted algebraic/category cores and records their omitted supplier-dependent geometric conditions in prototypeNotes. This revision was not compiled because no existing build at the pinned commits is available in this workspace. The previous independent review reported a Mathlib-only projection and a full-file blocker at the prebuilt Tau Ceti line-bundle module; those checks concern the previous version. Once supplier carriers and the pinned build are available, state the exact geometric interfaces, including divisor sites, dimensions, properness, ULA, perfect models and locally constant coefficients, and elaborate the complete file. The three newly routed geometric lemmas reserve their declaration names through precise omissions until those supplier interfaces exist.
+- Typed geometric signatures and unavailable prebuilt line module: The suggested file retains the algebraic/category cores and records omitted supplier-dependent geometric conditions in prototypeNotes. The full file was not compiled: no existing build has both recorded pins. In this independent review, a Mathlib-only projection of this revision elaborated at Mathlib 082e2d3 using lean-check with only placeholder-proof warnings. It removed the Tau Ceti import and the geometric-determinant-line and h-descent-and-fibral-criterion node blocks; it validates neither those blocks nor the full file. Once supplier carriers and the pinned build are available, state the exact geometric interfaces, including divisor sites, dimensions, properness, ULA, perfect models and locally constant coefficients, and elaborate the complete file. The three geometric lemmas reserve their declaration names through precise omissions until those supplier interfaces exist.
 
 **Prototype boundary:** This signature retains affine functor evaluation; completed-ring assignment, divisor sites, v-descent and group-valued structure are supplied by RF2/RG. Full loop evaluation is the same signature at the localized input ring.
 
@@ -498,7 +517,7 @@ Hck_G(S) is the groupoid of two G-torsors on Spec B⁺_D(S), together with an is
 
 **Remaining obligations**
 
-- Typed geometric signatures and unavailable prebuilt line module: The suggested file retains the accepted algebraic/category cores and records their omitted supplier-dependent geometric conditions in prototypeNotes. This revision was not compiled because no existing build at the pinned commits is available in this workspace. The previous independent review reported a Mathlib-only projection and a full-file blocker at the prebuilt Tau Ceti line-bundle module; those checks concern the previous version. Once supplier carriers and the pinned build are available, state the exact geometric interfaces, including divisor sites, dimensions, properness, ULA, perfect models and locally constant coefficients, and elaborate the complete file. The three newly routed geometric lemmas reserve their declaration names through precise omissions until those supplier interfaces exist.
+- Typed geometric signatures and unavailable prebuilt line module: The suggested file retains the algebraic/category cores and records omitted supplier-dependent geometric conditions in prototypeNotes. The full file was not compiled: no existing build has both recorded pins. In this independent review, a Mathlib-only projection of this revision elaborated at Mathlib 082e2d3 using lean-check with only placeholder-proof warnings. It removed the Tau Ceti import and the geometric-determinant-line and h-descent-and-fibral-criterion node blocks; it validates neither those blocks nor the full file. Once supplier carriers and the pinned build are available, state the exact geometric interfaces, including divisor sites, dimensions, properness, ULA, perfect models and locally constant coefficients, and elaborate the complete file. The three geometric lemmas reserve their declaration names through precise omissions until those supplier interfaces exist.
 
 **Prototype boundary:** The action groupoid is the local presentation. Stackification, ring-valued torsors and étale-local trivialization are not encoded by a new unknown predicate.
 
@@ -565,7 +584,7 @@ Gr_G(S) classifies a G-torsor on Spec B⁺_D(S) with a B_D-trivialization. It is
 
 **Remaining obligations**
 
-- Typed geometric signatures and unavailable prebuilt line module: The suggested file retains the accepted algebraic/category cores and records their omitted supplier-dependent geometric conditions in prototypeNotes. This revision was not compiled because no existing build at the pinned commits is available in this workspace. The previous independent review reported a Mathlib-only projection and a full-file blocker at the prebuilt Tau Ceti line-bundle module; those checks concern the previous version. Once supplier carriers and the pinned build are available, state the exact geometric interfaces, including divisor sites, dimensions, properness, ULA, perfect models and locally constant coefficients, and elaborate the complete file. The three newly routed geometric lemmas reserve their declaration names through precise omissions until those supplier interfaces exist.
+- Typed geometric signatures and unavailable prebuilt line module: The suggested file retains the algebraic/category cores and records omitted supplier-dependent geometric conditions in prototypeNotes. The full file was not compiled: no existing build has both recorded pins. In this independent review, a Mathlib-only projection of this revision elaborated at Mathlib 082e2d3 using lean-check with only placeholder-proof warnings. It removed the Tau Ceti import and the geometric-determinant-line and h-descent-and-fibral-criterion node blocks; it validates neither those blocks nor the full file. Once supplier carriers and the pinned build are available, state the exact geometric interfaces, including divisor sites, dimensions, properness, ULA, perfect models and locally constant coefficients, and elaborate the complete file. The three geometric lemmas reserve their declaration names through precise omissions until those supplier interfaces exist.
 
 **Prototype boundary:** Only the coset presentation is typed; étale sheafification and the Beauville–Laszlo comparison require the RF4 supplier. The unit example tests its naming, while the nonnormal API prevents imposing an incorrect normality requirement.
 
@@ -609,7 +628,7 @@ For finite I, pull back Gr_G and Hck_G along (Div¹_𝒴)^I→Div^{|I|}_𝒴 giv
 
 **Remaining obligations**
 
-- Typed geometric signatures and unavailable prebuilt line module: The suggested file retains the accepted algebraic/category cores and records their omitted supplier-dependent geometric conditions in prototypeNotes. This revision was not compiled because no existing build at the pinned commits is available in this workspace. The previous independent review reported a Mathlib-only projection and a full-file blocker at the prebuilt Tau Ceti line-bundle module; those checks concern the previous version. Once supplier carriers and the pinned build are available, state the exact geometric interfaces, including divisor sites, dimensions, properness, ULA, perfect models and locally constant coefficients, and elaborate the complete file. The three newly routed geometric lemmas reserve their declaration names through precise omissions until those supplier interfaces exist.
+- Typed geometric signatures and unavailable prebuilt line module: The suggested file retains the algebraic/category cores and records omitted supplier-dependent geometric conditions in prototypeNotes. The full file was not compiled: no existing build has both recorded pins. In this independent review, a Mathlib-only projection of this revision elaborated at Mathlib 082e2d3 using lean-check with only placeholder-proof warnings. It removed the Tau Ceti import and the geometric-determinant-line and h-descent-and-fibral-criterion node blocks; it validates neither those blocks nor the full file. Once supplier carriers and the pinned build are available, state the exact geometric interfaces, including divisor sites, dimensions, properness, ULA, perfect models and locally constant coefficients, and elaborate the complete file. The three geometric lemmas reserve their declaration names through precise omissions until those supplier interfaces exist.
 
 **Prototype boundary:** The typed coweight core adds labels at collisions; divisor-completion base change and disjoint-product v-sheaf isomorphisms need RF2.
 
@@ -677,7 +696,7 @@ After a splitting extension and choices T⊂B⊂G, define Gr_{≤μ} by geometri
 
 **Remaining obligations**
 
-- Typed geometric signatures and unavailable prebuilt line module: The suggested file retains the accepted algebraic/category cores and records their omitted supplier-dependent geometric conditions in prototypeNotes. This revision was not compiled because no existing build at the pinned commits is available in this workspace. The previous independent review reported a Mathlib-only projection and a full-file blocker at the prebuilt Tau Ceti line-bundle module; those checks concern the previous version. Once supplier carriers and the pinned build are available, state the exact geometric interfaces, including divisor sites, dimensions, properness, ULA, perfect models and locally constant coefficients, and elaborate the complete file. The three newly routed geometric lemmas reserve their declaration names through precise omissions until those supplier interfaces exist.
+- Typed geometric signatures and unavailable prebuilt line module: The suggested file retains the algebraic/category cores and records omitted supplier-dependent geometric conditions in prototypeNotes. The full file was not compiled: no existing build has both recorded pins. In this independent review, a Mathlib-only projection of this revision elaborated at Mathlib 082e2d3 using lean-check with only placeholder-proof warnings. It removed the Tau Ceti import and the geometric-determinant-line and h-descent-and-fibral-criterion node blocks; it validates neither those blocks nor the full file. Once supplier carriers and the pinned build are available, state the exact geometric interfaces, including divisor sites, dimensions, properness, ULA, perfect models and locally constant coefficients, and elaborate the complete file. The three geometric lemmas reserve their declaration names through precise omissions until those supplier interfaces exist.
 
 **Prototype boundary:** The GL_n combinatorial core is a fully stated predicate, not a placeholder. Geometric relative-position maps, closedness and properness have their own theorem nodes and supplier requests.
 
@@ -726,7 +745,7 @@ For finite Galois E′/E splitting G, base change identifies loop spaces, torsor
 
 **Remaining obligations**
 
-- Typed geometric signatures and unavailable prebuilt line module: The suggested file retains the accepted algebraic/category cores and records their omitted supplier-dependent geometric conditions in prototypeNotes. This revision was not compiled because no existing build at the pinned commits is available in this workspace. The previous independent review reported a Mathlib-only projection and a full-file blocker at the prebuilt Tau Ceti line-bundle module; those checks concern the previous version. Once supplier carriers and the pinned build are available, state the exact geometric interfaces, including divisor sites, dimensions, properness, ULA, perfect models and locally constant coefficients, and elaborate the complete file. The three newly routed geometric lemmas reserve their declaration names through precise omissions until those supplier interfaces exist.
+- Typed geometric signatures and unavailable prebuilt line module: The suggested file retains the algebraic/category cores and records omitted supplier-dependent geometric conditions in prototypeNotes. The full file was not compiled: no existing build has both recorded pins. In this independent review, a Mathlib-only projection of this revision elaborated at Mathlib 082e2d3 using lean-check with only placeholder-proof warnings. It removed the Tau Ceti import and the geometric-determinant-line and h-descent-and-fibral-criterion node blocks; it validates neither those blocks nor the full file. Once supplier carriers and the pinned build are available, state the exact geometric interfaces, including divisor sites, dimensions, properness, ULA, perfect models and locally constant coefficients, and elaborate the complete file. The three geometric lemmas reserve their declaration names through precise omissions until those supplier interfaces exist.
 
 **Prototype boundary:** Only isomorphism detection is typed. Effective Galois descent and split orbit-bound data are omitted.
 
@@ -796,7 +815,7 @@ For split G and an Iwahori model 𝓘⊂G, Fl_G=LG/L⁺𝓘 over Spd O_C. Its pr
 
 **Remaining obligations**
 
-- Typed geometric signatures and unavailable prebuilt line module: The suggested file retains the accepted algebraic/category cores and records their omitted supplier-dependent geometric conditions in prototypeNotes. This revision was not compiled because no existing build at the pinned commits is available in this workspace. The previous independent review reported a Mathlib-only projection and a full-file blocker at the prebuilt Tau Ceti line-bundle module; those checks concern the previous version. Once supplier carriers and the pinned build are available, state the exact geometric interfaces, including divisor sites, dimensions, properness, ULA, perfect models and locally constant coefficients, and elaborate the complete file. The three newly routed geometric lemmas reserve their declaration names through precise omissions until those supplier interfaces exist.
+- Typed geometric signatures and unavailable prebuilt line module: The suggested file retains the algebraic/category cores and records omitted supplier-dependent geometric conditions in prototypeNotes. The full file was not compiled: no existing build has both recorded pins. In this independent review, a Mathlib-only projection of this revision elaborated at Mathlib 082e2d3 using lean-check with only placeholder-proof warnings. It removed the Tau Ceti import and the geometric-determinant-line and h-descent-and-fibral-criterion node blocks; it validates neither those blocks nor the full file. Once supplier carriers and the pinned build are available, state the exact geometric interfaces, including divisor sites, dimensions, properness, ULA, perfect models and locally constant coefficients, and elaborate the complete file. The three geometric lemmas reserve their declaration names through precise omissions until those supplier interfaces exist.
 
 **Prototype boundary:** The typed chain is the functor-of-points incidence core; contracted products, parahoric torsors and the iterated P¹-bundle structures need RG/SF/VS suppliers. This core does not prove representability.
 
@@ -855,7 +874,7 @@ Let S be a perfectoid space over F_q with a map S→Div^d_𝒴 and associated Ca
 
 **Remaining obligations**
 
-- Typed geometric signatures and unavailable prebuilt line module: The suggested file retains the accepted algebraic/category cores and records their omitted supplier-dependent geometric conditions in prototypeNotes. This revision was not compiled because no existing build at the pinned commits is available in this workspace. The previous independent review reported a Mathlib-only projection and a full-file blocker at the prebuilt Tau Ceti line-bundle module; those checks concern the previous version. Once supplier carriers and the pinned build are available, state the exact geometric interfaces, including divisor sites, dimensions, properness, ULA, perfect models and locally constant coefficients, and elaborate the complete file. The three newly routed geometric lemmas reserve their declaration names through precise omissions until those supplier interfaces exist.
+- Typed geometric signatures and unavailable prebuilt line module: The suggested file retains the algebraic/category cores and records omitted supplier-dependent geometric conditions in prototypeNotes. The full file was not compiled: no existing build has both recorded pins. In this independent review, a Mathlib-only projection of this revision elaborated at Mathlib 082e2d3 using lean-check with only placeholder-proof warnings. It removed the Tau Ceti import and the geometric-determinant-line and h-descent-and-fibral-criterion node blocks; it validates neither those blocks nor the full file. Once supplier carriers and the pinned build are available, state the exact geometric interfaces, including divisor sites, dimensions, properness, ULA, perfect models and locally constant coefficients, and elaborate the complete file. The three geometric lemmas reserve their declaration names through precise omissions until those supplier interfaces exist.
 - Étale-over-divisor geometric carriers and support-map input: FS VI.1.13 is now a distinct named lemma target with its exact universal property. Its §13 Lean signature is omitted until the actual perfectoid/adic category, divisor pullback and separated-étale representability carriers exist. RF2 must additionally supply the integral geometric-support description (including special O_E-untilts) and the closed support map |D_S|→|S|; existing generic E-untilt complete-DVR data are insufficient for that integral scope. This is an interface gap, not a claim that the source lemma is unproved.
 
 **Prototype boundary:** The named Lean declaration TauCeti.Suggested.GeometricSatake.etaleOverDivisor is omitted under PROTOCOL §13 pending the actual perfectoid/adic-space, effective-divisor pullback, separated-étale and representability carriers. The required signature quantifies E,S,d,D_S,D′→D_S and constructs S′→S with natural Hom_S(T,S′)≃Hom_{D_S}(D_T,D′). An arbitrary Type equivalence or an unspecified Prop field would not express this theorem.
@@ -909,7 +928,7 @@ For a smooth quasiprojective Z→O_E of relative dimension n, the functor of map
 
 **Remaining obligations**
 
-- Typed geometric signatures and unavailable prebuilt line module: The suggested file retains the accepted algebraic/category cores and records their omitted supplier-dependent geometric conditions in prototypeNotes. This revision was not compiled because no existing build at the pinned commits is available in this workspace. The previous independent review reported a Mathlib-only projection and a full-file blocker at the prebuilt Tau Ceti line-bundle module; those checks concern the previous version. Once supplier carriers and the pinned build are available, state the exact geometric interfaces, including divisor sites, dimensions, properness, ULA, perfect models and locally constant coefficients, and elaborate the complete file. The three newly routed geometric lemmas reserve their declaration names through precise omissions until those supplier interfaces exist.
+- Typed geometric signatures and unavailable prebuilt line module: The suggested file retains the algebraic/category cores and records omitted supplier-dependent geometric conditions in prototypeNotes. The full file was not compiled: no existing build has both recorded pins. In this independent review, a Mathlib-only projection of this revision elaborated at Mathlib 082e2d3 using lean-check with only placeholder-proof warnings. It removed the Tau Ceti import and the geometric-determinant-line and h-descent-and-fibral-criterion node blocks; it validates neither those blocks nor the full file. Once supplier carriers and the pinned build are available, state the exact geometric interfaces, including divisor sites, dimensions, properness, ULA, perfect models and locally constant coefficients, and elaborate the complete file. The three geometric lemmas reserve their declaration names through precise omissions until those supplier interfaces exist.
 - Étale-over-divisor geometric carriers and support-map input: FS VI.1.13 is now a distinct named lemma target with its exact universal property. Its §13 Lean signature is omitted until the actual perfectoid/adic category, divisor pullback and separated-étale representability carriers exist. RF2 must additionally supply the integral geometric-support description (including special O_E-untilts) and the closed support map |D_S|→|S|; existing generic E-untilt complete-DVR data are insufficient for that integral scope. This is an interface gap, not a claim that the source lemma is unproved.
 
 **Prototype boundary:** Only the degree-times-relative-dimension arithmetic is typed; representability, partial properness and ℓ-cohomological smoothness are missing supplier notions.
@@ -959,7 +978,7 @@ L⁺_mG=ker(L⁺G→G(B⁺/I^m)), m≥1, has successive quotients Lie(G)⊗_{O_E
 
 **Remaining obligations**
 
-- Typed geometric signatures and unavailable prebuilt line module: The suggested file retains the accepted algebraic/category cores and records their omitted supplier-dependent geometric conditions in prototypeNotes. This revision was not compiled because no existing build at the pinned commits is available in this workspace. The previous independent review reported a Mathlib-only projection and a full-file blocker at the prebuilt Tau Ceti line-bundle module; those checks concern the previous version. Once supplier carriers and the pinned build are available, state the exact geometric interfaces, including divisor sites, dimensions, properness, ULA, perfect models and locally constant coefficients, and elaborate the complete file. The three newly routed geometric lemmas reserve their declaration names through precise omissions until those supplier interfaces exist.
+- Typed geometric signatures and unavailable prebuilt line module: The suggested file retains the algebraic/category cores and records omitted supplier-dependent geometric conditions in prototypeNotes. The full file was not compiled: no existing build has both recorded pins. In this independent review, a Mathlib-only projection of this revision elaborated at Mathlib 082e2d3 using lean-check with only placeholder-proof warnings. It removed the Tau Ceti import and the geometric-determinant-line and h-descent-and-fibral-criterion node blocks; it validates neither those blocks nor the full file. Once supplier carriers and the pinned build are available, state the exact geometric interfaces, including divisor sites, dimensions, properness, ULA, perfect models and locally constant coefficients, and elaborate the complete file. The three geometric lemmas reserve their declaration names through precise omissions until those supplier interfaces exist.
 
 **Prototype boundary:** The group kernel is concrete. The Lie/Cartier-line graded-piece isomorphism and finite-quotient smoothness require RG/RF/DSO interfaces.
 
@@ -991,7 +1010,7 @@ For m≥1, L^{+,<m}G(S)=G(B⁺_D(S)/I^m) is the finite congruence quotient of L�
 
 1. Use smooth lifting across nilpotent thickenings to identify the quotient, not only its naive pointwise image.
 2. Linearize each finite step and apply DSO smoothness.
-3. Construct the transition maps of the finite quotients. The subsequent truncation-of-the-loop-action theorem proves the factorization of bounded actions; it is not used to construct these quotients.
+3. Construct the transition maps of the finite quotients. The later truncation-of-the-loop-action theorem proves the factorization of bounded actions; it is not used to construct these quotients.
 
 **Direct prerequisites**
 
@@ -1006,7 +1025,7 @@ For m≥1, L^{+,<m}G(S)=G(B⁺_D(S)/I^m) is the finite congruence quotient of L�
 
 **Sources**
 
-- [FS-geometrization](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), VI.1.10–VI.1.11, pp. 194–195; VI.2.8, p. 201, for the subsequent bounded-action application. The stated construction or result, with the conventions and corrections specified in this node.
+- [FS-geometrization](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), VI.1.10–VI.1.11, pp. 194–195; VI.2.8, p. 201, for the later bounded-action application. The stated construction or result, with the conventions and corrections specified in this node.
 
 **Uses shaping the API**
 
@@ -1035,7 +1054,7 @@ For m≥1, L^{+,<m}G(S)=G(B⁺_D(S)/I^m) is the finite congruence quotient of L�
 
 **Remaining obligations**
 
-- Typed geometric signatures and unavailable prebuilt line module: The suggested file retains the accepted algebraic/category cores and records their omitted supplier-dependent geometric conditions in prototypeNotes. This revision was not compiled because no existing build at the pinned commits is available in this workspace. The previous independent review reported a Mathlib-only projection and a full-file blocker at the prebuilt Tau Ceti line-bundle module; those checks concern the previous version. Once supplier carriers and the pinned build are available, state the exact geometric interfaces, including divisor sites, dimensions, properness, ULA, perfect models and locally constant coefficients, and elaborate the complete file. The three newly routed geometric lemmas reserve their declaration names through precise omissions until those supplier interfaces exist.
+- Typed geometric signatures and unavailable prebuilt line module: The suggested file retains the algebraic/category cores and records omitted supplier-dependent geometric conditions in prototypeNotes. The full file was not compiled: no existing build has both recorded pins. In this independent review, a Mathlib-only projection of this revision elaborated at Mathlib 082e2d3 using lean-check with only placeholder-proof warnings. It removed the Tau Ceti import and the geometric-determinant-line and h-descent-and-fibral-criterion node blocks; it validates neither those blocks nor the full file. Once supplier carriers and the pinned build are available, state the exact geometric interfaces, including divisor sites, dimensions, properness, ULA, perfect models and locally constant coefficients, and elaborate the complete file. The three geometric lemmas reserve their declaration names through precise omissions until those supplier interfaces exist.
 
 **Prototype boundary:** Nilpotent lifting, v-local surjectivity and finite-dimensional smoothness are omitted from the core type; no finite dimension is assigned to the entire positive loop group.
 
@@ -1087,7 +1106,7 @@ Gr_{G,μ} is ℓ-cohomologically smooth of dimension ⟨2ρ,μ⟩ over the degre
 
 **Remaining obligations**
 
-- Typed geometric signatures and unavailable prebuilt line module: The suggested file retains the accepted algebraic/category cores and records their omitted supplier-dependent geometric conditions in prototypeNotes. This revision was not compiled because no existing build at the pinned commits is available in this workspace. The previous independent review reported a Mathlib-only projection and a full-file blocker at the prebuilt Tau Ceti line-bundle module; those checks concern the previous version. Once supplier carriers and the pinned build are available, state the exact geometric interfaces, including divisor sites, dimensions, properness, ULA, perfect models and locally constant coefficients, and elaborate the complete file. The three newly routed geometric lemmas reserve their declaration names through precise omissions until those supplier interfaces exist.
+- Typed geometric signatures and unavailable prebuilt line module: The suggested file retains the algebraic/category cores and records omitted supplier-dependent geometric conditions in prototypeNotes. The full file was not compiled: no existing build has both recorded pins. In this independent review, a Mathlib-only projection of this revision elaborated at Mathlib 082e2d3 using lean-check with only placeholder-proof warnings. It removed the Tau Ceti import and the geometric-determinant-line and h-descent-and-fibral-criterion node blocks; it validates neither those blocks nor the full file. Once supplier carriers and the pinned build are available, state the exact geometric interfaces, including divisor sites, dimensions, properness, ULA, perfect models and locally constant coefficients, and elaborate the complete file. The three geometric lemmas reserve their declaration names through precise omissions until those supplier interfaces exist.
 
 **Prototype boundary:** Only the GL₂ root-pairing core is typed; cell stabilization and cohomological smoothness are not a predicate placeholder.
 
@@ -1103,7 +1122,7 @@ Gr_{G,μ} is ℓ-cohomologically smooth of dimension ⟨2ρ,μ⟩ over the degre
 
 **Owner:** `GeometricSatakeAndFusion:GS0:Schubert-smoothness`. **Realises:** `GeometricSatakeAndFusion:GS0:Schubert-smoothness`, `GeometricSatakeAndFusion:GS0`.
 
-If m>0 is at least every weight of μ on Lie G, then L⁺_mG acts trivially on Gr_{≤μ}. For ordered legs use the corresponding bound for the sum at each collision. Thus the action factors through L^{+,<m}G. The comparison of equivariant derived categories is the subsequent GS1/prounipotent-equivariance theorem, with its filtered continuity and prime-to-p coefficient hypotheses.
+If m>0 is at least every weight of μ on Lie G, then L⁺_mG acts trivially on Gr_{≤μ}. For ordered legs use the corresponding bound for the sum at each collision. Thus the action factors through L^{+,<m}G. The comparison of equivariant derived categories is the later GS1/prounipotent-equivariance theorem, with its filtered continuity and prime-to-p coefficient hypotheses.
 
 **Hypotheses**
 
@@ -1131,7 +1150,7 @@ If m>0 is at least every weight of μ on Lie G, then L⁺_mG acts trivially on G
 
 **Remaining obligations**
 
-- Typed geometric signatures and unavailable prebuilt line module: The suggested file retains the accepted algebraic/category cores and records their omitted supplier-dependent geometric conditions in prototypeNotes. This revision was not compiled because no existing build at the pinned commits is available in this workspace. The previous independent review reported a Mathlib-only projection and a full-file blocker at the prebuilt Tau Ceti line-bundle module; those checks concern the previous version. Once supplier carriers and the pinned build are available, state the exact geometric interfaces, including divisor sites, dimensions, properness, ULA, perfect models and locally constant coefficients, and elaborate the complete file. The three newly routed geometric lemmas reserve their declaration names through precise omissions until those supplier interfaces exist.
+- Typed geometric signatures and unavailable prebuilt line module: The suggested file retains the algebraic/category cores and records omitted supplier-dependent geometric conditions in prototypeNotes. The full file was not compiled: no existing build has both recorded pins. In this independent review, a Mathlib-only projection of this revision elaborated at Mathlib 082e2d3 using lean-check with only placeholder-proof warnings. It removed the Tau Ceti import and the geometric-determinant-line and h-descent-and-fibral-criterion node blocks; it validates neither those blocks nor the full file. Once supplier carriers and the pinned build are available, state the exact geometric interfaces, including divisor sites, dimensions, properness, ULA, perfect models and locally constant coefficients, and elaborate the complete file. The three geometric lemmas reserve their declaration names through precise omissions until those supplier interfaces exist.
 
 **Prototype boundary:** K must be the specified deep congruence subgroup on the specified bound; those absent geometric hypotheses are omitted.
 
@@ -1174,7 +1193,7 @@ If μ has Lie weights in {−1,0,1}, the Bialynicki–Birula map Gr_μ→(G/P⁻
 
 **Remaining obligations**
 
-- Typed geometric signatures and unavailable prebuilt line module: The suggested file retains the accepted algebraic/category cores and records their omitted supplier-dependent geometric conditions in prototypeNotes. This revision was not compiled because no existing build at the pinned commits is available in this workspace. The previous independent review reported a Mathlib-only projection and a full-file blocker at the prebuilt Tau Ceti line-bundle module; those checks concern the previous version. Once supplier carriers and the pinned build are available, state the exact geometric interfaces, including divisor sites, dimensions, properness, ULA, perfect models and locally constant coefficients, and elaborate the complete file. The three newly routed geometric lemmas reserve their declaration names through precise omissions until those supplier interfaces exist.
+- Typed geometric signatures and unavailable prebuilt line module: The suggested file retains the algebraic/category cores and records omitted supplier-dependent geometric conditions in prototypeNotes. The full file was not compiled: no existing build has both recorded pins. In this independent review, a Mathlib-only projection of this revision elaborated at Mathlib 082e2d3 using lean-check with only placeholder-proof warnings. It removed the Tau Ceti import and the geometric-determinant-line and h-descent-and-fibral-criterion node blocks; it validates neither those blocks nor the full file. Once supplier carriers and the pinned build are available, state the exact geometric interfaces, including divisor sites, dimensions, properness, ULA, perfect models and locally constant coefficients, and elaborate the complete file. The three geometric lemmas reserve their declaration names through precise omissions until those supplier interfaces exist.
 
 **Prototype boundary:** Cell/Flag must be the minuscule Grassmannian and its flag functor; the geometric minuscule hypotheses are omitted.
 
@@ -1247,7 +1266,7 @@ For a perfect F_p-algebra R let Λ be a finite projective W(R)-submodule of W(R)
 
 **Remaining obligations**
 
-- Typed geometric signatures and unavailable prebuilt line module: The suggested file retains the accepted algebraic/category cores and records their omitted supplier-dependent geometric conditions in prototypeNotes. This revision was not compiled because no existing build at the pinned commits is available in this workspace. The previous independent review reported a Mathlib-only projection and a full-file blocker at the prebuilt Tau Ceti line-bundle module; those checks concern the previous version. Once supplier carriers and the pinned build are available, state the exact geometric interfaces, including divisor sites, dimensions, properness, ULA, perfect models and locally constant coefficients, and elaborate the complete file. The three newly routed geometric lemmas reserve their declaration names through precise omissions until those supplier interfaces exist.
+- Typed geometric signatures and unavailable prebuilt line module: The suggested file retains the algebraic/category cores and records omitted supplier-dependent geometric conditions in prototypeNotes. The full file was not compiled: no existing build has both recorded pins. In this independent review, a Mathlib-only projection of this revision elaborated at Mathlib 082e2d3 using lean-check with only placeholder-proof warnings. It removed the Tau Ceti import and the geometric-determinant-line and h-descent-and-fibral-criterion node blocks; it validates neither those blocks nor the full file. Once supplier carriers and the pinned build are available, state the exact geometric interfaces, including divisor sites, dimensions, properness, ULA, perfect models and locally constant coefficients, and elaborate the complete file. The three geometric lemmas reserve their declaration names through precise omissions until those supplier interfaces exist.
 
 **Prototype boundary:** The generic imported coefficient algebra B→K is the ramified Witt ring and its localization in the intended application. The finite/projective/span conditions are concrete. A separate structure below records them; representing schemes are not defined by this point core.
 
@@ -1273,7 +1292,7 @@ A finite p-power-torsion isogeny cokernel Q over W(R) has geometric type λ=(λ�
 
 1. Import projective module algebra, Fitting-ideal tests and reducedness of perfect rings from SF.
 2. Apply BS 7.3, 7.5 and 7.7–7.9 to ranks of powers of p and the dominance inequalities.
-3. Use the finite-rank argument in source correction E37; do not infer finite generation from projectivity alone without constant finite rank.
+3. Use the repaired finite-rank argument in PAPER-BHATT-SCHOLZE-17/E37 (Lemma 7.7, p.29): establish the same finite rank at every prime before deducing finite generation of the projective kernel. Density of characteristic-zero points alone does not suffice.
 
 **Direct prerequisites**
 
@@ -1312,7 +1331,7 @@ A finite p-power-torsion isogeny cokernel Q over W(R) has geometric type λ=(λ�
 
 **Remaining obligations**
 
-- Typed geometric signatures and unavailable prebuilt line module: The suggested file retains the accepted algebraic/category cores and records their omitted supplier-dependent geometric conditions in prototypeNotes. This revision was not compiled because no existing build at the pinned commits is available in this workspace. The previous independent review reported a Mathlib-only projection and a full-file blocker at the prebuilt Tau Ceti line-bundle module; those checks concern the previous version. Once supplier carriers and the pinned build are available, state the exact geometric interfaces, including divisor sites, dimensions, properness, ULA, perfect models and locally constant coefficients, and elaborate the complete file. The three newly routed geometric lemmas reserve their declaration names through precise omissions until those supplier interfaces exist.
+- Typed geometric signatures and unavailable prebuilt line module: The suggested file retains the algebraic/category cores and records omitted supplier-dependent geometric conditions in prototypeNotes. The full file was not compiled: no existing build has both recorded pins. In this independent review, a Mathlib-only projection of this revision elaborated at Mathlib 082e2d3 using lean-check with only placeholder-proof warnings. It removed the Tau Ceti import and the geometric-determinant-line and h-descent-and-fibral-criterion node blocks; it validates neither those blocks nor the full file. Once supplier carriers and the pinned build are available, state the exact geometric interfaces, including divisor sites, dimensions, properness, ULA, perfect models and locally constant coefficients, and elaborate the complete file. The three geometric lemmas reserve their declaration names through precise omissions until those supplier interfaces exist.
 
 **Prototype boundary:** The type relation and column counts are concrete; elementary divisors for a finitely presented isogeny cokernel over a perfect family are an RG/SF refinement.
 
@@ -1377,7 +1396,7 @@ For λ=(N,0,…,0), V_N parametrizes W-matrices with determinant p^N times a uni
 
 **Remaining obligations**
 
-- Typed geometric signatures and unavailable prebuilt line module: The suggested file retains the accepted algebraic/category cores and records their omitted supplier-dependent geometric conditions in prototypeNotes. This revision was not compiled because no existing build at the pinned commits is available in this workspace. The previous independent review reported a Mathlib-only projection and a full-file blocker at the prebuilt Tau Ceti line-bundle module; those checks concern the previous version. Once supplier carriers and the pinned build are available, state the exact geometric interfaces, including divisor sites, dimensions, properness, ULA, perfect models and locally constant coefficients, and elaborate the complete file. The three newly routed geometric lemmas reserve their declaration names through precise omissions until those supplier interfaces exist.
+- Typed geometric signatures and unavailable prebuilt line module: The suggested file retains the algebraic/category cores and records omitted supplier-dependent geometric conditions in prototypeNotes. The full file was not compiled: no existing build has both recorded pins. In this independent review, a Mathlib-only projection of this revision elaborated at Mathlib 082e2d3 using lean-check with only placeholder-proof warnings. It removed the Tau Ceti import and the geometric-determinant-line and h-descent-and-fibral-criterion node blocks; it validates neither those blocks nor the full file. Once supplier carriers and the pinned build are available, state the exact geometric interfaces, including divisor sites, dimensions, properness, ULA, perfect models and locally constant coefficients, and elaborate the complete file. The three geometric lemmas reserve their declaration names through precise omissions until those supplier interfaces exist.
 
 **Prototype boundary:** The determinant equation is the matrix core. Finite Greenberg representability, the lift-kernel quotient and its perfect torsor are imported, not represented by an arbitrary smoothness predicate.
 
@@ -1420,7 +1439,7 @@ Each Gr̄_N and hence each bounded GL_n Witt Grassmannian is a perfectly finitel
 
 **Remaining obligations**
 
-- Typed geometric signatures and unavailable prebuilt line module: The suggested file retains the accepted algebraic/category cores and records their omitted supplier-dependent geometric conditions in prototypeNotes. This revision was not compiled because no existing build at the pinned commits is available in this workspace. The previous independent review reported a Mathlib-only projection and a full-file blocker at the prebuilt Tau Ceti line-bundle module; those checks concern the previous version. Once supplier carriers and the pinned build are available, state the exact geometric interfaces, including divisor sites, dimensions, properness, ULA, perfect models and locally constant coefficients, and elaborate the complete file. The three newly routed geometric lemmas reserve their declaration names through precise omissions until those supplier interfaces exist.
+- Typed geometric signatures and unavailable prebuilt line module: The suggested file retains the algebraic/category cores and records omitted supplier-dependent geometric conditions in prototypeNotes. The full file was not compiled: no existing build has both recorded pins. In this independent review, a Mathlib-only projection of this revision elaborated at Mathlib 082e2d3 using lean-check with only placeholder-proof warnings. It removed the Tau Ceti import and the geometric-determinant-line and h-descent-and-fibral-criterion node blocks; it validates neither those blocks nor the full file. Once supplier carriers and the pinned build are available, state the exact geometric interfaces, including divisor sites, dimensions, properness, ULA, perfect models and locally constant coefficients, and elaborate the complete file. The three geometric lemmas reserve their declaration names through precise omissions until those supplier interfaces exist.
 
 **Prototype boundary:** Presentation must be Zhu's smooth determinant-jet cover. The quotient algebraic-space carrier is not available and is omitted; this signature asserts only the cover's affineness.
 
@@ -1442,7 +1461,7 @@ For Q of type ≤λ, Dem_λ(Q) classifies Q=Q₀⊃Q₁⊃⋯⊃0 with Q_i/Q_{i+
 
 **Proof or construction**
 
-1. Use SF’s perfected Quot/Grassmann bundles; recurse on the first quotient Q/pQ of rank n_λ(0), then λ shifted by one column.
+1. Use SF’s perfected Quot/Grassmann bundles to choose a locally free quotient Q/pQ→G of rank n_λ(0), and recurse on ker(Q→G) with λ shifted by one column. Q/pQ itself can have larger rank on lower-type fibres; it is not the chosen quotient G.
 2. BS 7.13 gives image, uniqueness and properness. Zhu 1.13–1.18 gives the lattice-chain presentation, including reversed dual bounds for reversed chains.
 3. BS 8.6 produces a smooth projective finite-type model for the global tower.
 
@@ -1475,16 +1494,16 @@ For Q of type ≤λ, Dem_λ(Q) classifies Q=Q₀⊃Q₁⊃⋯⊃0 with Q_i/Q_{i+
 | Name | Kind | Statement |
 | --- | --- | --- |
 | `TauCeti.Suggested.GeometricSatake.filtration_length_zero` | degenerate | A length-zero filtration forces the module to be zero. |
-| `TauCeti.Suggested.GeometricSatake.filtration_one_step` | computation | A length-one filtration has first piece top and all subsequent pieces zero. |
+| `TauCeti.Suggested.GeometricSatake.filtration_one_step` | computation | A length-one filtration has first piece top and all later pieces zero. |
 | `TauCeti.Suggested.GeometricSatake.filtration_direction` | non-example | The filtration decreases; increasing kernels of p must first be reverse-indexed. |
 
 **Acceptance**
 
-- λ=0 gives the unit; λ=(1^r) is the perfected ordinary Grassmannian; λ=(2,1,0) has a P² boundary fibre.
+- λ=0 gives the unit; λ=(1^r) is the perfected ordinary Grassmannian. For λ=(2,1,0) and Q=k³ killed by p, choose a rank-two quotient of Q/pQ=k³; its kernel line varies in P², giving the boundary fibre. Replacing the chosen quotient by all of Q/pQ would lose this fibre.
 
 **Remaining obligations**
 
-- Typed geometric signatures and unavailable prebuilt line module: The suggested file retains the accepted algebraic/category cores and records their omitted supplier-dependent geometric conditions in prototypeNotes. This revision was not compiled because no existing build at the pinned commits is available in this workspace. The previous independent review reported a Mathlib-only projection and a full-file blocker at the prebuilt Tau Ceti line-bundle module; those checks concern the previous version. Once supplier carriers and the pinned build are available, state the exact geometric interfaces, including divisor sites, dimensions, properness, ULA, perfect models and locally constant coefficients, and elaborate the complete file. The three newly routed geometric lemmas reserve their declaration names through precise omissions until those supplier interfaces exist.
+- Typed geometric signatures and unavailable prebuilt line module: The suggested file retains the algebraic/category cores and records omitted supplier-dependent geometric conditions in prototypeNotes. The full file was not compiled: no existing build has both recorded pins. In this independent review, a Mathlib-only projection of this revision elaborated at Mathlib 082e2d3 using lean-check with only placeholder-proof warnings. It removed the Tau Ceti import and the geometric-determinant-line and h-descent-and-fibral-criterion node blocks; it validates neither those blocks nor the full file. Once supplier carriers and the pinned build are available, state the exact geometric interfaces, including divisor sites, dimensions, properness, ULA, perfect models and locally constant coefficients, and elaborate the complete file. The three geometric lemmas reserve their declaration names through precise omissions until those supplier interfaces exist.
 
 **Prototype boundary:** The submodule-chain core omits prescribed locally free quotient ranks, annihilation by p, perfect-scheme representability and its lattice map. These conditions are written in the packet, not replaced by unknown proposition fields.
 
@@ -1530,7 +1549,7 @@ The fibres of Gr̃_λ→Gr_{≤λ} are geometrically connected and have RΓ(O)=k
 
 **Remaining obligations**
 
-- Typed geometric signatures and unavailable prebuilt line module: The suggested file retains the accepted algebraic/category cores and records their omitted supplier-dependent geometric conditions in prototypeNotes. This revision was not compiled because no existing build at the pinned commits is available in this workspace. The previous independent review reported a Mathlib-only projection and a full-file blocker at the prebuilt Tau Ceti line-bundle module; those checks concern the previous version. Once supplier carriers and the pinned build are available, state the exact geometric interfaces, including divisor sites, dimensions, properness, ULA, perfect models and locally constant coefficients, and elaborate the complete file. The three newly routed geometric lemmas reserve their declaration names through precise omissions until those supplier interfaces exist.
+- Typed geometric signatures and unavailable prebuilt line module: The suggested file retains the algebraic/category cores and records omitted supplier-dependent geometric conditions in prototypeNotes. The full file was not compiled: no existing build has both recorded pins. In this independent review, a Mathlib-only projection of this revision elaborated at Mathlib 082e2d3 using lean-check with only placeholder-proof warnings. It removed the Tau Ceti import and the geometric-determinant-line and h-descent-and-fibral-criterion node blocks; it validates neither those blocks nor the full file. Once supplier carriers and the pinned build are available, state the exact geometric interfaces, including divisor sites, dimensions, properness, ULA, perfect models and locally constant coefficients, and elaborate the complete file. The three geometric lemmas reserve their declaration names through precise omissions until those supplier interfaces exist.
 
 **Prototype boundary:** X/Y/f must be the Witt resolution and bound; perfect structure-sheaf cohomology is omitted.
 
@@ -1572,7 +1591,7 @@ Apply the supplier’s v-descent for finite/formal Witt bundles and its proper p
 
 **Remaining obligations**
 
-- Typed geometric signatures and unavailable prebuilt line module: The suggested file retains the accepted algebraic/category cores and records their omitted supplier-dependent geometric conditions in prototypeNotes. This revision was not compiled because no existing build at the pinned commits is available in this workspace. The previous independent review reported a Mathlib-only projection and a full-file blocker at the prebuilt Tau Ceti line-bundle module; those checks concern the previous version. Once supplier carriers and the pinned build are available, state the exact geometric interfaces, including divisor sites, dimensions, properness, ULA, perfect models and locally constant coefficients, and elaborate the complete file. The three newly routed geometric lemmas reserve their declaration names through precise omissions until those supplier interfaces exist.
+- Typed geometric signatures and unavailable prebuilt line module: The suggested file retains the algebraic/category cores and records omitted supplier-dependent geometric conditions in prototypeNotes. The full file was not compiled: no existing build has both recorded pins. In this independent review, a Mathlib-only projection of this revision elaborated at Mathlib 082e2d3 using lean-check with only placeholder-proof warnings. It removed the Tau Ceti import and the geometric-determinant-line and h-descent-and-fibral-criterion node blocks; it validates neither those blocks nor the full file. Once supplier carriers and the pinned build are available, state the exact geometric interfaces, including divisor sites, dimensions, properness, ULA, perfect models and locally constant coefficients, and elaborate the complete file. The three geometric lemmas reserve their declaration names through precise omissions until those supplier interfaces exist.
 
 **Prototype boundary:** Only the line-bundle full-faithfulness core is typed; effective fibre-trivial descent and proper pfp hypotheses belong to SF.
 
@@ -1636,7 +1655,7 @@ There is a unique line bundle L on Gr_{≤λ} whose pullback to Gr̃_λ is ⊗_i
 
 **Remaining obligations**
 
-- Typed geometric signatures and unavailable prebuilt line module: The suggested file retains the accepted algebraic/category cores and records their omitted supplier-dependent geometric conditions in prototypeNotes. This revision was not compiled because no existing build at the pinned commits is available in this workspace. The previous independent review reported a Mathlib-only projection and a full-file blocker at the prebuilt Tau Ceti line-bundle module; those checks concern the previous version. Once supplier carriers and the pinned build are available, state the exact geometric interfaces, including divisor sites, dimensions, properness, ULA, perfect models and locally constant coefficients, and elaborate the complete file. The three newly routed geometric lemmas reserve their declaration names through precise omissions until those supplier interfaces exist.
+- Typed geometric signatures and unavailable prebuilt line module: The suggested file retains the algebraic/category cores and records omitted supplier-dependent geometric conditions in prototypeNotes. The full file was not compiled: no existing build has both recorded pins. In this independent review, a Mathlib-only projection of this revision elaborated at Mathlib 082e2d3 using lean-check with only placeholder-proof warnings. It removed the Tau Ceti import and the geometric-determinant-line and h-descent-and-fibral-criterion node blocks; it validates neither those blocks nor the full file. Once supplier carriers and the pinned build are available, state the exact geometric interfaces, including divisor sites, dimensions, properness, ULA, perfect models and locally constant coefficients, and elaborate the complete file. The three geometric lemmas reserve their declaration names through precise omissions until those supplier interfaces exist.
 
 **Prototype boundary:** Only the existing invertible-sheaf carrier is typed. X must be the specified bounded Witt scheme, pull the specified resolution/restriction, and gradedDet its graded determinant. Those missing geometric conditions are omitted in these signatures and are not arbitrary new predicates.
 
@@ -1679,7 +1698,7 @@ On Gr̃_λ, ⊗det(Q_i/Q_{i+1})^{a_i} is ample for a₀≫a₁≫⋯>0. Each det
 
 **Remaining obligations**
 
-- Typed geometric signatures and unavailable prebuilt line module: The suggested file retains the accepted algebraic/category cores and records their omitted supplier-dependent geometric conditions in prototypeNotes. This revision was not compiled because no existing build at the pinned commits is available in this workspace. The previous independent review reported a Mathlib-only projection and a full-file blocker at the prebuilt Tau Ceti line-bundle module; those checks concern the previous version. Once supplier carriers and the pinned build are available, state the exact geometric interfaces, including divisor sites, dimensions, properness, ULA, perfect models and locally constant coefficients, and elaborate the complete file. The three newly routed geometric lemmas reserve their declaration names through precise omissions until those supplier interfaces exist.
+- Typed geometric signatures and unavailable prebuilt line module: The suggested file retains the algebraic/category cores and records omitted supplier-dependent geometric conditions in prototypeNotes. The full file was not compiled: no existing build has both recorded pins. In this independent review, a Mathlib-only projection of this revision elaborated at Mathlib 082e2d3 using lean-check with only placeholder-proof warnings. It removed the Tau Ceti import and the geometric-determinant-line and h-descent-and-fibral-criterion node blocks; it validates neither those blocks nor the full file. Once supplier carriers and the pinned build are available, state the exact geometric interfaces, including divisor sites, dimensions, properness, ULA, perfect models and locally constant coefficients, and elaborate the complete file. The three geometric lemmas reserve their declaration names through precise omissions until those supplier interfaces exist.
 
 **Prototype boundary:** degree must be the determinant degree on a nonconstant proper curve in the specified bound. The missing curve/intersection API and hypotheses are omitted.
 
@@ -1701,7 +1720,7 @@ For every dominant positive λ, Gr_{≤λ} is the perfection of a projective F_p
 
 **Proof or construction**
 
-1. Induct on dominance. Realize the lower boundary as an iterated finite pushout of lower bounds along closed intersections, importing the missing representability argument from SF.1 (source E39).
+1. Induct on dominance. Realize the lower boundary as an iterated finite pushout of lower bounds along closed intersections, importing the missing representability argument from SF.1 (PAPER-BHATT-SCHOLZE-17/E39; BS proof of Theorem 8.3, pp.35–36).
 2. The determinant is ample on boundary pieces; Keel’s union lemma and strict curve positivity make it ample on the boundary. Keel’s restriction criterion then makes ψ*L semiample because its exceptional locus lies there.
 3. Take its Stein contraction on a finite model. Strict curve positivity and fibre triviality identify its equivalence relation with the Demazure quotient; hence the contraction is Gr_{≤λ}. Its descended line is ample.
 
@@ -1723,7 +1742,7 @@ For every dominant positive λ, Gr_{≤λ} is the perfection of a projective F_p
 **Remaining obligations**
 
 - Boundary representability before Keel: BS 8.3’s induction calls the lower-bound union a pfp proper perfect algebraic space before proving it. The SF1 finite-pushout/model request must construct closed intersections and effective pinching in the chosen model, then prove it is the image v-sheaf. This proof must precede the positivity application.
-- Typed geometric signatures and unavailable prebuilt line module: The suggested file retains the accepted algebraic/category cores and records their omitted supplier-dependent geometric conditions in prototypeNotes. This revision was not compiled because no existing build at the pinned commits is available in this workspace. The previous independent review reported a Mathlib-only projection and a full-file blocker at the prebuilt Tau Ceti line-bundle module; those checks concern the previous version. Once supplier carriers and the pinned build are available, state the exact geometric interfaces, including divisor sites, dimensions, properness, ULA, perfect models and locally constant coefficients, and elaborate the complete file. The three newly routed geometric lemmas reserve their declaration names through precise omissions until those supplier interfaces exist.
+- Typed geometric signatures and unavailable prebuilt line module: The suggested file retains the algebraic/category cores and records omitted supplier-dependent geometric conditions in prototypeNotes. The full file was not compiled: no existing build has both recorded pins. In this independent review, a Mathlib-only projection of this revision elaborated at Mathlib 082e2d3 using lean-check with only placeholder-proof warnings. It removed the Tau Ceti import and the geometric-determinant-line and h-descent-and-fibral-criterion node blocks; it validates neither those blocks nor the full file. Once supplier carriers and the pinned build are available, state the exact geometric interfaces, including divisor sites, dimensions, properness, ULA, perfect models and locally constant coefficients, and elaborate the complete file. The three geometric lemmas reserve their declaration names through precise omissions until those supplier interfaces exist.
 
 **Prototype boundary:** Only scheme properness is typed; X/f must be the finite model of the bound over the base field. Projectivity/ample line notions are imported from SF5 and omitted.
 
@@ -1769,7 +1788,7 @@ For the bounded Witt schemes/algebraic spaces, import compatible finite-type mod
 
 **Remaining obligations**
 
-- Typed geometric signatures and unavailable prebuilt line module: The suggested file retains the accepted algebraic/category cores and records their omitted supplier-dependent geometric conditions in prototypeNotes. This revision was not compiled because no existing build at the pinned commits is available in this workspace. The previous independent review reported a Mathlib-only projection and a full-file blocker at the prebuilt Tau Ceti line-bundle module; those checks concern the previous version. Once supplier carriers and the pinned build are available, state the exact geometric interfaces, including divisor sites, dimensions, properness, ULA, perfect models and locally constant coefficients, and elaborate the complete file. The three newly routed geometric lemmas reserve their declaration names through precise omissions until those supplier interfaces exist.
+- Typed geometric signatures and unavailable prebuilt line module: The suggested file retains the algebraic/category cores and records omitted supplier-dependent geometric conditions in prototypeNotes. The full file was not compiled: no existing build has both recorded pins. In this independent review, a Mathlib-only projection of this revision elaborated at Mathlib 082e2d3 using lean-check with only placeholder-proof warnings. It removed the Tau Ceti import and the geometric-determinant-line and h-descent-and-fibral-criterion node blocks; it validates neither those blocks nor the full file. Once supplier carriers and the pinned build are available, state the exact geometric interfaces, including divisor sites, dimensions, properness, ULA, perfect models and locally constant coefficients, and elaborate the complete file. The three geometric lemmas reserve their declaration names through precise omissions until those supplier interfaces exist.
 
 **Prototype boundary:** These categories must be the specified étale categories of a perfect Witt bound and its scheme diamond; supplier geometry is omitted.
 
@@ -1815,7 +1834,7 @@ The integral BD Grassmannian over Spd O_E (or Div^d_𝒴) interpolates between t
 
 **Remaining obligations**
 
-- Typed geometric signatures and unavailable prebuilt line module: The suggested file retains the accepted algebraic/category cores and records their omitted supplier-dependent geometric conditions in prototypeNotes. This revision was not compiled because no existing build at the pinned commits is available in this workspace. The previous independent review reported a Mathlib-only projection and a full-file blocker at the prebuilt Tau Ceti line-bundle module; those checks concern the previous version. Once supplier carriers and the pinned build are available, state the exact geometric interfaces, including divisor sites, dimensions, properness, ULA, perfect models and locally constant coefficients, and elaborate the complete file. The three newly routed geometric lemmas reserve their declaration names through precise omissions until those supplier interfaces exist.
+- Typed geometric signatures and unavailable prebuilt line module: The suggested file retains the algebraic/category cores and records omitted supplier-dependent geometric conditions in prototypeNotes. The full file was not compiled: no existing build has both recorded pins. In this independent review, a Mathlib-only projection of this revision elaborated at Mathlib 082e2d3 using lean-check with only placeholder-proof warnings. It removed the Tau Ceti import and the geometric-determinant-line and h-descent-and-fibral-criterion node blocks; it validates neither those blocks nor the full file. Once supplier carriers and the pinned build are available, state the exact geometric interfaces, including divisor sites, dimensions, properness, ULA, perfect models and locally constant coefficients, and elaborate the complete file. The three geometric lemmas reserve their declaration names through precise omissions until those supplier interfaces exist.
 
 **Prototype boundary:** Only the two functor-of-points fibre identifications are typed; the diamond base change and proper bounds are omitted.
 
@@ -1858,7 +1877,7 @@ For a smooth affine O_E-model 𝓖 of a reductive generic fibre, the Witt affine
 
 **Remaining obligations**
 
-- Typed geometric signatures and unavailable prebuilt line module: The suggested file retains the accepted algebraic/category cores and records their omitted supplier-dependent geometric conditions in prototypeNotes. This revision was not compiled because no existing build at the pinned commits is available in this workspace. The previous independent review reported a Mathlib-only projection and a full-file blocker at the prebuilt Tau Ceti line-bundle module; those checks concern the previous version. Once supplier carriers and the pinned build are available, state the exact geometric interfaces, including divisor sites, dimensions, properness, ULA, perfect models and locally constant coefficients, and elaborate the complete file. The three newly routed geometric lemmas reserve their declaration names through precise omissions until those supplier interfaces exist.
+- Typed geometric signatures and unavailable prebuilt line module: The suggested file retains the algebraic/category cores and records omitted supplier-dependent geometric conditions in prototypeNotes. The full file was not compiled: no existing build has both recorded pins. In this independent review, a Mathlib-only projection of this revision elaborated at Mathlib 082e2d3 using lean-check with only placeholder-proof warnings. It removed the Tau Ceti import and the geometric-determinant-line and h-descent-and-fibral-criterion node blocks; it validates neither those blocks nor the full file. Once supplier carriers and the pinned build are available, state the exact geometric interfaces, including divisor sites, dimensions, properness, ULA, perfect models and locally constant coefficients, and elaborate the complete file. The three geometric lemmas reserve their declaration names through precise omissions until those supplier interfaces exist.
 
 **Prototype boundary:** Only the Kottwitz label equivalence is typed, with geometric inertia coinvariants rather than full Galois coinvariants. Model representability and properness are omitted.
 
@@ -1906,7 +1925,7 @@ If 𝓖° is parahoric, Gr_{𝓖,Spd O_E} is an increasing union of closed prope
 
 **Remaining obligations**
 
-- Typed geometric signatures and unavailable prebuilt line module: The suggested file retains the accepted algebraic/category cores and records their omitted supplier-dependent geometric conditions in prototypeNotes. This revision was not compiled because no existing build at the pinned commits is available in this workspace. The previous independent review reported a Mathlib-only projection and a full-file blocker at the prebuilt Tau Ceti line-bundle module; those checks concern the previous version. Once supplier carriers and the pinned build are available, state the exact geometric interfaces, including divisor sites, dimensions, properness, ULA, perfect models and locally constant coefficients, and elaborate the complete file. The three newly routed geometric lemmas reserve their declaration names through precise omissions until those supplier interfaces exist.
+- Typed geometric signatures and unavailable prebuilt line module: The suggested file retains the algebraic/category cores and records omitted supplier-dependent geometric conditions in prototypeNotes. The full file was not compiled: no existing build has both recorded pins. In this independent review, a Mathlib-only projection of this revision elaborated at Mathlib 082e2d3 using lean-check with only placeholder-proof warnings. It removed the Tau Ceti import and the geometric-determinant-line and h-descent-and-fibral-criterion node blocks; it validates neither those blocks nor the full file. Once supplier carriers and the pinned build are available, state the exact geometric interfaces, including divisor sites, dimensions, properness, ULA, perfect models and locally constant coefficients, and elaborate the complete file. The three geometric lemmas reserve their declaration names through precise omissions until those supplier interfaces exist.
 
 **Prototype boundary:** Only topological properness is typed; spaces/map must be a closed parahoric bound over the integral base. Spatial-diamond representability is omitted.
 
@@ -1976,7 +1995,7 @@ For h>N, the finite-type truncated matrix locus det₀=⋯=det_{N−1}=0 with de
 **Remaining obligations**
 
 - Sketch-only canonical determinant and crystal comparison: Zhu B.1, B.9 and the closing B.3 paragraph are announced without proofs. The R07/CR7 interfaces and the map between the normalized jet model and the p-divisible chain model must prove the Hodge-line determinant comparison; no conjectural normal Cohen–Macaulay property is assumed.
-- Typed geometric signatures and unavailable prebuilt line module: The suggested file retains the accepted algebraic/category cores and records their omitted supplier-dependent geometric conditions in prototypeNotes. This revision was not compiled because no existing build at the pinned commits is available in this workspace. The previous independent review reported a Mathlib-only projection and a full-file blocker at the prebuilt Tau Ceti line-bundle module; those checks concern the previous version. Once supplier carriers and the pinned build are available, state the exact geometric interfaces, including divisor sites, dimensions, properness, ULA, perfect models and locally constant coefficients, and elaborate the complete file. The three newly routed geometric lemmas reserve their declaration names through precise omissions until those supplier interfaces exist.
+- Typed geometric signatures and unavailable prebuilt line module: The suggested file retains the algebraic/category cores and records omitted supplier-dependent geometric conditions in prototypeNotes. The full file was not compiled: no existing build has both recorded pins. In this independent review, a Mathlib-only projection of this revision elaborated at Mathlib 082e2d3 using lean-check with only placeholder-proof warnings. It removed the Tau Ceti import and the geometric-determinant-line and h-descent-and-fibral-criterion node blocks; it validates neither those blocks nor the full file. Once supplier carriers and the pinned build are available, state the exact geometric interfaces, including divisor sites, dimensions, properness, ULA, perfect models and locally constant coefficients, and elaborate the complete file. The three geometric lemmas reserve their declaration names through precise omissions until those supplier interfaces exist.
 
 **Prototype boundary:** The coefficient input is explicitly a perfect field of characteristic p. Finite-type, normalization, model perfection and Frobenius-twisted transition conditions are supplied by SF0/SF1. The canonical model and its maps use Mathlib Scheme. The sketch-only Dieudonné comparison is a recorded gap; Conjecture III is not a theorem.
 
@@ -2027,7 +2046,7 @@ For p>2, GL₂ and N=2, Gr̄₂ has an open chart equal to the perfection of Spe
 
 - Zhu B.11 corrected truncated-Witt interface: The rank-two adjugate calculation proves corrected right-factor integrality and unit determinant after choosing Witt lifts: adj(X* A)=A* X, det(Ã)=p² and det(X̃)=p²u with u a unit. The truncated equation is det(X)=p²[λ]⁻¹; only the residue of u is forced to equal λ⁻¹. What remains is the typed truncated-Witt interface, existence of a factor after the chosen lift, and compatibility with the jet-torsor quotient. The factor need not be unique or lift-independent (already A=3·Id over W₃(F₃) has a nontrivial stabilizer); uniqueness concerns the cone representative A. Retain the corrected order A⁻¹X.
 - Sketch-only canonical determinant and crystal comparison: Zhu B.1, B.9 and the closing B.3 paragraph are announced without proofs. The R07/CR7 interfaces and the map between the normalized jet model and the p-divisible chain model must prove the Hodge-line determinant comparison; no conjectural normal Cohen–Macaulay property is assumed.
-- Typed geometric signatures and unavailable prebuilt line module: The suggested file retains the accepted algebraic/category cores and records their omitted supplier-dependent geometric conditions in prototypeNotes. This revision was not compiled because no existing build at the pinned commits is available in this workspace. The previous independent review reported a Mathlib-only projection and a full-file blocker at the prebuilt Tau Ceti line-bundle module; those checks concern the previous version. Once supplier carriers and the pinned build are available, state the exact geometric interfaces, including divisor sites, dimensions, properness, ULA, perfect models and locally constant coefficients, and elaborate the complete file. The three newly routed geometric lemmas reserve their declaration names through precise omissions until those supplier interfaces exist.
+- Typed geometric signatures and unavailable prebuilt line module: The suggested file retains the algebraic/category cores and records omitted supplier-dependent geometric conditions in prototypeNotes. The full file was not compiled: no existing build has both recorded pins. In this independent review, a Mathlib-only projection of this revision elaborated at Mathlib 082e2d3 using lean-check with only placeholder-proof warnings. It removed the Tau Ceti import and the geometric-determinant-line and h-descent-and-fibral-criterion node blocks; it validates neither those blocks nor the full file. Once supplier carriers and the pinned build are available, state the exact geometric interfaces, including divisor sites, dimensions, properness, ULA, perfect models and locally constant coefficients, and elaborate the complete file. The three geometric lemmas reserve their declaration names through precise omissions until those supplier interfaces exist.
 
 **Prototype boundary:** Only the closed-orbit equation and a finite-ring regression are typed. The perfect cone open immersion and the corrected truncated-Witt/jet-torsor interface remain a gap. The adjugate argument proves right-factor integrality; it does not make the factor unique or independent of the chosen lift.
 
@@ -2091,7 +2110,7 @@ On Gr_SL_n over the ramified Witt coefficient ring, lattices have determinant tr
 
 **Remaining obligations**
 
-- Typed geometric signatures and unavailable prebuilt line module: The suggested file retains the accepted algebraic/category cores and records their omitted supplier-dependent geometric conditions in prototypeNotes. This revision was not compiled because no existing build at the pinned commits is available in this workspace. The previous independent review reported a Mathlib-only projection and a full-file blocker at the prebuilt Tau Ceti line-bundle module; those checks concern the previous version. Once supplier carriers and the pinned build are available, state the exact geometric interfaces, including divisor sites, dimensions, properness, ULA, perfect models and locally constant coefficients, and elaborate the complete file. The three newly routed geometric lemmas reserve their declaration names through precise omissions until those supplier interfaces exist.
+- Typed geometric signatures and unavailable prebuilt line module: The suggested file retains the algebraic/category cores and records omitted supplier-dependent geometric conditions in prototypeNotes. The full file was not compiled: no existing build has both recorded pins. In this independent review, a Mathlib-only projection of this revision elaborated at Mathlib 082e2d3 using lean-check with only placeholder-proof warnings. It removed the Tau Ceti import and the geometric-determinant-line and h-descent-and-fibral-criterion node blocks; it validates neither those blocks nor the full file. Once supplier carriers and the pinned build are available, state the exact geometric interfaces, including divisor sites, dimensions, properness, ULA, perfect models and locally constant coefficients, and elaborate the complete file. The three geometric lemmas reserve their declaration names through precise omissions until those supplier interfaces exist.
 
 **Prototype boundary:** This is the pointwise module carrier for the normalized line. M and M₀ must be the specified finite filtered torsion quotients, and the geometric sheaf gluing is not yet typed. The translation statement omits that geometry, while keeping the indispensable base-line factor.
 
@@ -2133,7 +2152,7 @@ For the ample determinant line on Gr_SL_n, restriction of global sections to any
 
 **Remaining obligations**
 
-- Typed geometric signatures and unavailable prebuilt line module: The suggested file retains the accepted algebraic/category cores and records their omitted supplier-dependent geometric conditions in prototypeNotes. This revision was not compiled because no existing build at the pinned commits is available in this workspace. The previous independent review reported a Mathlib-only projection and a full-file blocker at the prebuilt Tau Ceti line-bundle module; those checks concern the previous version. Once supplier carriers and the pinned build are available, state the exact geometric interfaces, including divisor sites, dimensions, properness, ULA, perfect models and locally constant coefficients, and elaborate the complete file. The three newly routed geometric lemmas reserve their declaration names through precise omissions until those supplier interfaces exist.
+- Typed geometric signatures and unavailable prebuilt line module: The suggested file retains the algebraic/category cores and records omitted supplier-dependent geometric conditions in prototypeNotes. The full file was not compiled: no existing build has both recorded pins. In this independent review, a Mathlib-only projection of this revision elaborated at Mathlib 082e2d3 using lean-check with only placeholder-proof warnings. It removed the Tau Ceti import and the geometric-determinant-line and h-descent-and-fibral-criterion node blocks; it validates neither those blocks nor the full file. Once supplier carriers and the pinned build are available, state the exact geometric interfaces, including divisor sites, dimensions, properness, ULA, perfect models and locally constant coefficients, and elaborate the complete file. The three geometric lemmas reserve their declaration names through precise omissions until those supplier interfaces exist.
 
 **Prototype boundary:** The modules/map must be determinant global sections and restriction to the specified proper bound. Serre vanishing/Frobenius section-colimit hypotheses are omitted.
 
@@ -2199,7 +2218,7 @@ For a parahoric 𝓚 and a dominant cocharacter class μ, the admissible locus A
 
 **Remaining obligations**
 
-- Typed geometric signatures and unavailable prebuilt line module: The suggested file retains the accepted algebraic/category cores and records their omitted supplier-dependent geometric conditions in prototypeNotes. This revision was not compiled because no existing build at the pinned commits is available in this workspace. The previous independent review reported a Mathlib-only projection and a full-file blocker at the prebuilt Tau Ceti line-bundle module; those checks concern the previous version. Once supplier carriers and the pinned build are available, state the exact geometric interfaces, including divisor sites, dimensions, properness, ULA, perfect models and locally constant coefficients, and elaborate the complete file. The three newly routed geometric lemmas reserve their declaration names through precise omissions until those supplier interfaces exist.
+- Typed geometric signatures and unavailable prebuilt line module: The suggested file retains the algebraic/category cores and records omitted supplier-dependent geometric conditions in prototypeNotes. The full file was not compiled: no existing build has both recorded pins. In this independent review, a Mathlib-only projection of this revision elaborated at Mathlib 082e2d3 using lean-check with only placeholder-proof warnings. It removed the Tau Ceti import and the geometric-determinant-line and h-descent-and-fibral-criterion node blocks; it validates neither those blocks nor the full file. Once supplier carriers and the pinned build are available, state the exact geometric interfaces, including divisor sites, dimensions, properness, ULA, perfect models and locally constant coefficients, and elaborate the complete file. The three geometric lemmas reserve their declaration names through precise omissions until those supplier interfaces exist.
 - Bounded affine-flag dimension and adjoint transfer: The He/GH10 imported fibre argument must be proved on compatible bounded pfp models; the unbounded ind-space need not have finitely many components. RG2.4 supplies rank-one induction and corrected componentwise adjoint comparison; SF4 supplies local-model functoriality for GLX admissible containment. These are precise supplier obligations, not a whole affine-flag isomorphism.
 
 **Prototype boundary:** This finite-union core records only membership and maps. Bruhat downward closure, reduced perfect structure and local-model functoriality belong to RG/SF suppliers.
@@ -2264,7 +2283,7 @@ For affine flags define O_w⊂Fl×Fl by relative position w. The two-step incide
 
 **Remaining obligations**
 
-- Typed geometric signatures and unavailable prebuilt line module: The suggested file retains the accepted algebraic/category cores and records their omitted supplier-dependent geometric conditions in prototypeNotes. This revision was not compiled because no existing build at the pinned commits is available in this workspace. The previous independent review reported a Mathlib-only projection and a full-file blocker at the prebuilt Tau Ceti line-bundle module; those checks concern the previous version. Once supplier carriers and the pinned build are available, state the exact geometric interfaces, including divisor sites, dimensions, properness, ULA, perfect models and locally constant coefficients, and elaborate the complete file. The three newly routed geometric lemmas reserve their declaration names through precise omissions until those supplier interfaces exist.
+- Typed geometric signatures and unavailable prebuilt line module: The suggested file retains the algebraic/category cores and records omitted supplier-dependent geometric conditions in prototypeNotes. The full file was not compiled: no existing build has both recorded pins. In this independent review, a Mathlib-only projection of this revision elaborated at Mathlib 082e2d3 using lean-check with only placeholder-proof warnings. It removed the Tau Ceti import and the geometric-determinant-line and h-descent-and-fibral-criterion node blocks; it validates neither those blocks nor the full file. Once supplier carriers and the pinned build are available, state the exact geometric interfaces, including divisor sites, dimensions, properness, ULA, perfect models and locally constant coefficients, and elaborate the complete file. The three geometric lemmas reserve their declaration names through precise omissions until those supplier interfaces exist.
 - Bounded affine-flag dimension and adjoint transfer: The He/GH10 imported fibre argument must be proved on compatible bounded pfp models; the unbounded ind-space need not have finitely many components. RG2.4 supplies rank-one induction and corrected componentwise adjoint comparison; SF4 supplies local-model functoriality for GLX admissible containment. These are precise supplier obligations, not a whole affine-flag isomorphism.
 
 **Prototype boundary:** The geometric fibre products, bounded pfp models and their dimensions are omitted from this pointwise core; no dimension is asserted for an unbounded ind-space.
@@ -2309,7 +2328,7 @@ If ℓ(uv)=ℓ(u)+ℓ(v), the product-incidence projection C_{u,v}|_{O_{uv}}→O
 
 **Remaining obligations**
 
-- Typed geometric signatures and unavailable prebuilt line module: The suggested file retains the accepted algebraic/category cores and records their omitted supplier-dependent geometric conditions in prototypeNotes. This revision was not compiled because no existing build at the pinned commits is available in this workspace. The previous independent review reported a Mathlib-only projection and a full-file blocker at the prebuilt Tau Ceti line-bundle module; those checks concern the previous version. Once supplier carriers and the pinned build are available, state the exact geometric interfaces, including divisor sites, dimensions, properness, ULA, perfect models and locally constant coefficients, and elaborate the complete file. The three newly routed geometric lemmas reserve their declaration names through precise omissions until those supplier interfaces exist.
+- Typed geometric signatures and unavailable prebuilt line module: The suggested file retains the algebraic/category cores and records omitted supplier-dependent geometric conditions in prototypeNotes. The full file was not compiled: no existing build has both recorded pins. In this independent review, a Mathlib-only projection of this revision elaborated at Mathlib 082e2d3 using lean-check with only placeholder-proof warnings. It removed the Tau Ceti import and the geometric-determinant-line and h-descent-and-fibral-criterion node blocks; it validates neither those blocks nor the full file. Once supplier carriers and the pinned build are available, state the exact geometric interfaces, including divisor sites, dimensions, properness, ULA, perfect models and locally constant coefficients, and elaborate the complete file. The three geometric lemmas reserve their declaration names through precise omissions until those supplier interfaces exist.
 - Bounded affine-flag dimension and adjoint transfer: The He/GH10 imported fibre argument must be proved on compatible bounded pfp models; the unbounded ind-space need not have finitely many components. RG2.4 supplies rank-one induction and corrected componentwise adjoint comparison; SF4 supplies local-model functoriality for GLX admissible containment. These are precise supplier obligations, not a whole affine-flag isomorphism.
 
 **Prototype boundary:** Only the ordinary-product length/dimension inequality is typed; the bounded nonempty geometric fibre and length interpretations are omitted. The Demazure-product factor differs and is stated in the document.
@@ -2320,7 +2339,7 @@ If ℓ(uv)=ℓ(u)+ℓ(v), the product-incidence projection C_{u,v}|_{O_{uv}}→O
 
 `GeometricSatakeAndFusion:GS1`
 
-Constant term is the plus pull–push functor with Braden’s minus comparison on eligible monodromic objects. The length and lattice-position lemmas establish the strata and their closed unions. Semi-infinite affineness supplies the early dimension input; integral ULA and flatness use FS’s constant-term criterion. The rational MV description is a separate subsequent refinement. The relative perverse structure uses distinct geometric untilts and their cell shifts. EDC.5 supplies scheme perversity within its recorded coefficient range, with the additional integral/adic extension requested explicitly; L1/L3 transport the perfect scheme charts; EDS supplies the generated/Ind extension. Standard and costandard objects keep their integral map, with rational torsion comparison isolated. The MV node retains its integrated id beginning GS0:Witt-geometry for compatibility, but its parent stage and realised target are GS1. Acceptance includes the torus shift, a nonflat coefficient module, nonempty intersections, the quasi-minuscule infinity term and fixed-model trace normalization.
+Constant term is the plus pull–push functor with Braden’s minus comparison on eligible monodromic objects. The length and lattice-position lemmas establish the strata and their closed unions. Semi-infinite affineness supplies the early dimension input; integral ULA and flatness use FS’s constant-term criterion. The rational MV description is a separate later refinement. The relative perverse structure uses distinct geometric untilts and their cell shifts. EDC.5 supplies scheme perversity within its recorded coefficient range, with the additional integral/adic extension requested explicitly; L1/L3 transport the perfect scheme charts; EDS supplies the generated/Ind extension. Standard and costandard objects keep their integral map, with rational torsion comparison isolated. The MV node retains its integrated id beginning GS0:Witt-geometry for compatibility, but its parent stage and realised target are GS1. Acceptance includes the torus shift, a nonflat coefficient module, nonempty intersections, the quasi-minuscule infinity term and fixed-model trace normalization.
 
 ### Semicontinuity of completed divisor length
 
@@ -2365,7 +2384,7 @@ In the ordered O_E-untilt setup of FS VI.3.2, let f∈B⁺. The function ℓ_f:|
 
 **Remaining obligations**
 
-- Typed geometric signatures and unavailable prebuilt line module: The suggested file retains the accepted algebraic/category cores and records their omitted supplier-dependent geometric conditions in prototypeNotes. This revision was not compiled because no existing build at the pinned commits is available in this workspace. The previous independent review reported a Mathlib-only projection and a full-file blocker at the prebuilt Tau Ceti line-bundle module; those checks concern the previous version. Once supplier carriers and the pinned build are available, state the exact geometric interfaces, including divisor sites, dimensions, properness, ULA, perfect models and locally constant coefficients, and elaborate the complete file. The three newly routed geometric lemmas reserve their declaration names through precise omissions until those supplier interfaces exist.
+- Typed geometric signatures and unavailable prebuilt line module: The suggested file retains the algebraic/category cores and records omitted supplier-dependent geometric conditions in prototypeNotes. The full file was not compiled: no existing build has both recorded pins. In this independent review, a Mathlib-only projection of this revision elaborated at Mathlib 082e2d3 using lean-check with only placeholder-proof warnings. It removed the Tau Ceti import and the geometric-determinant-line and h-descent-and-fibral-criterion node blocks; it validates neither those blocks nor the full file. Once supplier carriers and the pinned build are available, state the exact geometric interfaces, including divisor sites, dimensions, properness, ULA, perfect models and locally constant coefficients, and elaborate the complete file. The three geometric lemmas reserve their declaration names through precise omissions until those supplier interfaces exist.
 
 **Prototype boundary:** Signature omitted under §13, reserving the exact name divisorLengthUpperSemicontinuous until the actual affinoid-perfectoid space, ordered O_E-untilts, completed Cartier rings and geometric fibre maps exist. Its intended conclusion is ∀ m:ℕ, IsOpen {s∈|S| | length_{B_s⁺}(B_s⁺/(f_s))≤m}, with length in ℕ∪{∞}. An arbitrary topological space and arbitrary length function are not a substitute. The RF2 integral geometric-DVR extension is requested explicitly; the existing geometric-divisor-complete-dvr target covers generic E-untilts.
 
@@ -2418,7 +2437,7 @@ In the ordered O_E-untilt setup of FS VI.3.2, let L⊂B be a finitely generated 
 
 **Remaining obligations**
 
-- Typed geometric signatures and unavailable prebuilt line module: The suggested file retains the accepted algebraic/category cores and records their omitted supplier-dependent geometric conditions in prototypeNotes. This revision was not compiled because no existing build at the pinned commits is available in this workspace. The previous independent review reported a Mathlib-only projection and a full-file blocker at the prebuilt Tau Ceti line-bundle module; those checks concern the previous version. Once supplier carriers and the pinned build are available, state the exact geometric interfaces, including divisor sites, dimensions, properness, ULA, perfect models and locally constant coefficients, and elaborate the complete file. The three newly routed geometric lemmas reserve their declaration names through precise omissions until those supplier interfaces exist.
+- Typed geometric signatures and unavailable prebuilt line module: The suggested file retains the algebraic/category cores and records omitted supplier-dependent geometric conditions in prototypeNotes. The full file was not compiled: no existing build has both recorded pins. In this independent review, a Mathlib-only projection of this revision elaborated at Mathlib 082e2d3 using lean-check with only placeholder-proof warnings. It removed the Tau Ceti import and the geometric-determinant-line and h-descent-and-fibral-criterion node blocks; it validates neither those blocks nor the full file. Once supplier carriers and the pinned build are available, state the exact geometric interfaces, including divisor sites, dimensions, properness, ULA, perfect models and locally constant coefficients, and elaborate the complete file. The three geometric lemmas reserve their declaration names through precise omissions until those supplier interfaces exist.
 
 **Prototype boundary:** Signature omitted under §13, reserving the exact name latticeRelativePositionUpperSemicontinuous until the genuine completed Cartier-ring family and its fibrewise submodule images and relative positions can be stated. Its single named mathematical contract includes both the closed loci ⋃_{m′≥m}S_{m′} and the implication S_m=|S| ⇒ L finite projective of rank one. Do not assume L projective in order to state the result, replace finite generation by arbitrary lattice data, or substitute a proposition-valued placeholder. The RF2 integral geometric-DVR and RF4 fibre-detection extensions remain requests.
 
@@ -2434,15 +2453,15 @@ In the ordered O_E-untilt setup of FS VI.3.2, let L⊂B be a finitely generated 
 
 **Owner:** `GeometricSatakeAndFusion:GS1`. **Realises:** `GeometricSatakeAndFusion:GS1`.
 
-For a parabolic P⁺⊂G with Levi M and opposite P⁻, Hck_{P±}→Hck_G and Hck_{P±}→Hck_M give CT_P=R(p⁺)_!(q⁺)*. On bounded monodromic objects it identifies with R(p⁻)_*R(q⁻)!. For a Borel the geometric strata are S_λ=L U·λ(ξ), and the union of strata with cocenter weight ν′≤ν is closed as in VI.3.1; for a Borel this is the coroot order on all coweights, without requiring dominance; the attracting and repelling decompositions come from a regular central cocharacter of M.
+For a parabolic P⁺⊂G with Levi M and opposite P⁻, Hck_{P±}→Hck_G and Hck_{P±}→Hck_M give CT_P=R(p⁺)_!(q⁺)*. On bounded monodromic objects it identifies with R(p⁻)_*R(q⁻)!. For a Borel, on a one-leg geometric fibre with primitive equation t, the local strata are S_λ=L U·λ(t). On a general geometric fibre the stratum of total cocenter weight ν is the union of products of these local strata over the distinct supports, with local labels summing to ν. The union of total-weight strata with ν′≤ν is closed as in VI.3.1; for a Borel this is the coroot order on all coweights, without requiring dominance; the attracting and repelling decompositions come from a regular central cocharacter of M.
 
 **Hypotheses**
 
-- G split for labels; bounded quasicompact Schubert support; coefficients killed by an integer prime to p initially, with derived adic passage supplied by L0.
+- G split for labels; bounded quasicompact Schubert support; coefficients killed by an integer prime to p initially, with derived adic passage supplied by L0. The cocenter degree is the sum of the combined local cocharacters over distinct geometric supports, counted once each. At collisions the ordered-leg labels add first; the support multiplicity is not an additional weight (E24).
 
 **Proof or construction**
 
-1. Use RG’s parabolic/Levi and Iwasawa decompositions on geometric points. For the locally closed strata and their closed weight-bound unions, reduce via a faithful representation, maximal parabolics and exterior powers to an image submodule of a rank-one period module; apply lattice-relative-position-semicontinuity (FS VI.3.2), whose proof uses length-semicontinuity (VI.3.3).
+1. Use RG’s parabolic/Levi and Iwasawa decompositions on geometric points. For the locally closed strata and their closed weight-bound unions, reduce via a faithful representation, maximal parabolics and exterior powers to an image submodule of a rank-one period module; apply lattice-relative-position-semicontinuity (FS VI.3.2), whose proof uses length-semicontinuity (VI.3.3). In that reduction use ordinary product-DVR length, as in VI.3.2, rather than the extra multiplicity weighting in the description before VI.3.1 (E24).
 2. Verify FS IV.6.1’s finite attracting/repelling decomposition on each bound.
 3. Import the diamond hyperbolic-localization theorem, base change, duality and ULA preservation from VS1; apply it to the maps of Hecke stacks.
 
@@ -2492,11 +2511,11 @@ For a parabolic P⁺⊂G with Levi M and opposite P⁻, Hck_{P±}→Hck_G and Hc
 
 **Acceptance**
 
-- For G=T the constant term is the identity; plus and minus formulas need monodromicity.
+- For G=T the constant term is the identity; plus and minus formulas need monodromicity. For two coincident G_m legs with labels (1,0), the combined lattice tB⁺ has degree one, even though the product Cartier equation is t². A second multiplicity factor would incorrectly give degree two.
 
 **Remaining obligations**
 
-- Typed geometric signatures and unavailable prebuilt line module: The suggested file retains the accepted algebraic/category cores and records their omitted supplier-dependent geometric conditions in prototypeNotes. This revision was not compiled because no existing build at the pinned commits is available in this workspace. The previous independent review reported a Mathlib-only projection and a full-file blocker at the prebuilt Tau Ceti line-bundle module; those checks concern the previous version. Once supplier carriers and the pinned build are available, state the exact geometric interfaces, including divisor sites, dimensions, properness, ULA, perfect models and locally constant coefficients, and elaborate the complete file. The three newly routed geometric lemmas reserve their declaration names through precise omissions until those supplier interfaces exist.
+- Typed geometric signatures and unavailable prebuilt line module: The suggested file retains the algebraic/category cores and records omitted supplier-dependent geometric conditions in prototypeNotes. The full file was not compiled: no existing build has both recorded pins. In this independent review, a Mathlib-only projection of this revision elaborated at Mathlib 082e2d3 using lean-check with only placeholder-proof warnings. It removed the Tau Ceti import and the geometric-determinant-line and h-descent-and-fibral-criterion node blocks; it validates neither those blocks nor the full file. Once supplier carriers and the pinned build are available, state the exact geometric interfaces, including divisor sites, dimensions, properness, ULA, perfect models and locally constant coefficients, and elaborate the complete file. The three geometric lemmas reserve their declaration names through precise omissions until those supplier interfaces exist.
 
 **Prototype boundary:** The plus/minus comparison omits monodromicity and the geometric correspondence hypotheses. The functor type and plus composition are concrete; hyperbolic localization is imported from VS1.
 
@@ -2542,7 +2561,7 @@ On the Witt special fibre, S_λ∩Gr_{≤μ} is affine and perfectly finitely pr
 
 **Remaining obligations**
 
-- Typed geometric signatures and unavailable prebuilt line module: The suggested file retains the accepted algebraic/category cores and records their omitted supplier-dependent geometric conditions in prototypeNotes. This revision was not compiled because no existing build at the pinned commits is available in this workspace. The previous independent review reported a Mathlib-only projection and a full-file blocker at the prebuilt Tau Ceti line-bundle module; those checks concern the previous version. Once supplier carriers and the pinned build are available, state the exact geometric interfaces, including divisor sites, dimensions, properness, ULA, perfect models and locally constant coefficients, and elaborate the complete file. The three newly routed geometric lemmas reserve their declaration names through precise omissions until those supplier interfaces exist.
+- Typed geometric signatures and unavailable prebuilt line module: The suggested file retains the algebraic/category cores and records omitted supplier-dependent geometric conditions in prototypeNotes. The full file was not compiled: no existing build has both recorded pins. In this independent review, a Mathlib-only projection of this revision elaborated at Mathlib 082e2d3 using lean-check with only placeholder-proof warnings. It removed the Tau Ceti import and the geometric-determinant-line and h-descent-and-fibral-criterion node blocks; it validates neither those blocks nor the full file. Once supplier carriers and the pinned build are available, state the exact geometric interfaces, including divisor sites, dimensions, properness, ULA, perfect models and locally constant coefficients, and elaborate the complete file. The three geometric lemmas reserve their declaration names through precise omissions until those supplier interfaces exist.
 
 **Prototype boundary:** X must be the specified bounded semi-infinite intersection on its pfp model. Affineness also holds for the empty intersection; nonemptiness is required only for the dimension equality. General perfect-space affineness requires the SF model interface.
 
@@ -2586,7 +2605,7 @@ For the rational special-fibre category over k̄, the top-dimensional irreducibl
 **Remaining obligations**
 
 - Rational MV trace normalization on perfect models: Fix a finite model and its Frobenius power for fundamental classes; Zhu A.3.3’s model-independent scalar trace omits p-power degree. Require nonempty geometric intersections, geometrically irreducible components for a scalar trace, and the spreading step in the finite-field point-count route. The integral CT/perverse criterion uses FS instead of a rational MV basis.
-- Typed geometric signatures and unavailable prebuilt line module: The suggested file retains the accepted algebraic/category cores and records their omitted supplier-dependent geometric conditions in prototypeNotes. This revision was not compiled because no existing build at the pinned commits is available in this workspace. The previous independent review reported a Mathlib-only projection and a full-file blocker at the prebuilt Tau Ceti line-bundle module; those checks concern the previous version. Once supplier carriers and the pinned build are available, state the exact geometric interfaces, including divisor sites, dimensions, properness, ULA, perfect models and locally constant coefficients, and elaborate the complete file. The three newly routed geometric lemmas reserve their declaration names through precise omissions until those supplier interfaces exist.
+- Typed geometric signatures and unavailable prebuilt line module: The suggested file retains the algebraic/category cores and records omitted supplier-dependent geometric conditions in prototypeNotes. The full file was not compiled: no existing build has both recorded pins. In this independent review, a Mathlib-only projection of this revision elaborated at Mathlib 082e2d3 using lean-check with only placeholder-proof warnings. It removed the Tau Ceti import and the geometric-determinant-line and h-descent-and-fibral-criterion node blocks; it validates neither those blocks nor the full file. Once supplier carriers and the pinned build are available, state the exact geometric interfaces, including divisor sites, dimensions, properness, ULA, perfect models and locally constant coefficients, and elaborate the complete file. The three geometric lemmas reserve their declaration names through precise omissions until those supplier interfaces exist.
 
 **Prototype boundary:** Only the normalized dimension equality is typed; the nonempty Schubert/semi-infinite intersection, MV components and rational trace model are omitted.
 
@@ -2644,7 +2663,7 @@ Let H be a group small v-sheaf over S with closed congruence subgroups H^{≥m},
 
 **Remaining obligations**
 
-- Typed geometric signatures and unavailable prebuilt line module: The suggested file retains the accepted algebraic/category cores and records their omitted supplier-dependent geometric conditions in prototypeNotes. This revision was not compiled because no existing build at the pinned commits is available in this workspace. The previous independent review reported a Mathlib-only projection and a full-file blocker at the prebuilt Tau Ceti line-bundle module; those checks concern the previous version. Once supplier carriers and the pinned build are available, state the exact geometric interfaces, including divisor sites, dimensions, properness, ULA, perfect models and locally constant coefficients, and elaborate the complete file. The three newly routed geometric lemmas reserve their declaration names through precise omissions until those supplier interfaces exist.
+- Typed geometric signatures and unavailable prebuilt line module: The suggested file retains the algebraic/category cores and records omitted supplier-dependent geometric conditions in prototypeNotes. The full file was not compiled: no existing build has both recorded pins. In this independent review, a Mathlib-only projection of this revision elaborated at Mathlib 082e2d3 using lean-check with only placeholder-proof warnings. It removed the Tau Ceti import and the geometric-determinant-line and h-descent-and-fibral-criterion node blocks; it validates neither those blocks nor the full file. Once supplier carriers and the pinned build are available, state the exact geometric interfaces, including divisor sites, dimensions, properness, ULA, perfect models and locally constant coefficients, and elaborate the complete file. The three geometric lemmas reserve their declaration names through precise omissions until those supplier interfaces exist.
 - Early coefficient scope and filtered-equivariance continuity: Prove the new EDC5 coefficient-change/adic and torsion-pair interface under its exact hypotheses. Separately supply VS1’s spatial ball-subgroup presentations and ordinary-cohomology inverse-limit continuity for FS VI.4.1. Neither arbitrary integral duality from field BBD nor unshifted compact-support acyclicity closes these steps. These are named supplier refinements, before rational decomposition or GS3 fusion.
 
 **Prototype boundary:** D/DEq are the actual finite-quotient and full filtered-equivariant derived categories. The closed filtration, factorized action, spatial continuity and prime-to-p coefficient hypotheses are supplied by VS1 and omitted from this equivalence signature.
@@ -2687,7 +2706,7 @@ For split G and a Borel B, CT_B is conservative on bounded Hecke complexes with 
 
 **Remaining obligations**
 
-- Typed geometric signatures and unavailable prebuilt line module: The suggested file retains the accepted algebraic/category cores and records their omitted supplier-dependent geometric conditions in prototypeNotes. This revision was not compiled because no existing build at the pinned commits is available in this workspace. The previous independent review reported a Mathlib-only projection and a full-file blocker at the prebuilt Tau Ceti line-bundle module; those checks concern the previous version. Once supplier carriers and the pinned build are available, state the exact geometric interfaces, including divisor sites, dimensions, properness, ULA, perfect models and locally constant coefficients, and elaborate the complete file. The three newly routed geometric lemmas reserve their declaration names through precise omissions until those supplier interfaces exist.
+- Typed geometric signatures and unavailable prebuilt line module: The suggested file retains the algebraic/category cores and records omitted supplier-dependent geometric conditions in prototypeNotes. The full file was not compiled: no existing build has both recorded pins. In this independent review, a Mathlib-only projection of this revision elaborated at Mathlib 082e2d3 using lean-check with only placeholder-proof warnings. It removed the Tau Ceti import and the geometric-determinant-line and h-descent-and-fibral-criterion node blocks; it validates neither those blocks nor the full file. Once supplier carriers and the pinned build are available, state the exact geometric interfaces, including divisor sites, dimensions, properness, ULA, perfect models and locally constant coefficients, and elaborate the complete file. The three geometric lemmas reserve their declaration names through precise omissions until those supplier interfaces exist.
 
 **Prototype boundary:** CT must be the geometric torus constant term on the bounded-support category; its geometric hypotheses are omitted.
 
@@ -2710,7 +2729,7 @@ D^ULA(Hck_G/S,Λ) is the full subcategory of complexes with bounded quasicompact
 **Proof or construction**
 
 1. Use the smooth truncated positive-loop quotient charts and VS1’s ULA descent.
-2. Use the definition and smooth-chart ULA descent to construct the category. VI.6.5 reduces one-leg ULA to cell restrictions; the subsequent VI.6.4 constant-term criterion is proved in ula-constant-term-criterion, not assumed here.
+2. Use the definition and smooth-chart ULA descent to construct the category. VI.6.5 reduces one-leg ULA to cell restrictions; the later VI.6.4 constant-term criterion is proved in ula-constant-term-criterion, not assumed here.
 3. Demazure generators and prounipotent invariance prove the reverse implication; no arbitrary collision-version of 6.5 is asserted.
 
 **Direct prerequisites**
@@ -2753,7 +2772,7 @@ D^ULA(Hck_G/S,Λ) is the full subcategory of complexes with bounded quasicompact
 **Remaining obligations**
 
 - Stack enhancement and coherent Ind convolution: VS0/VS1 must supply Artin quotient descent and proper-relative ULA adjointability at the enhanced level; EDS3/5 supplies coherent correspondence and Ind t-structure extension. Verify common bounded correspondences, unit/counit triangles and support filtrations; choosing binary natural isomorphisms does not close this obligation.
-- Typed geometric signatures and unavailable prebuilt line module: The suggested file retains the accepted algebraic/category cores and records their omitted supplier-dependent geometric conditions in prototypeNotes. This revision was not compiled because no existing build at the pinned commits is available in this workspace. The previous independent review reported a Mathlib-only projection and a full-file blocker at the prebuilt Tau Ceti line-bundle module; those checks concern the previous version. Once supplier carriers and the pinned build are available, state the exact geometric interfaces, including divisor sites, dimensions, properness, ULA, perfect models and locally constant coefficients, and elaborate the complete file. The three newly routed geometric lemmas reserve their declaration names through precise omissions until those supplier interfaces exist.
+- Typed geometric signatures and unavailable prebuilt line module: The suggested file retains the algebraic/category cores and records omitted supplier-dependent geometric conditions in prototypeNotes. The full file was not compiled: no existing build has both recorded pins. In this independent review, a Mathlib-only projection of this revision elaborated at Mathlib 082e2d3 using lean-check with only placeholder-proof warnings. It removed the Tau Ceti import and the geometric-determinant-line and h-descent-and-fibral-criterion node blocks; it validates neither those blocks nor the full file. Once supplier carriers and the pinned build are available, state the exact geometric interfaces, including divisor sites, dimensions, properness, ULA, perfect models and locally constant coefficients, and elaborate the complete file. The three geometric lemmas reserve their declaration names through precise omissions until those supplier interfaces exist.
 
 **Prototype boundary:** DU is imported as the ULA category, not defined by an unknown proposition. Action DU H is only the discrete equivariant-object core at a chosen level; smooth geometric action/descent, bounded supports, and enhanced ULA kernels are not encoded.
 
@@ -2814,7 +2833,7 @@ For a bounded Hecke complex A, the following are equivalent: A is ULA; CT_B A is
 
 **Remaining obligations**
 
-- Typed geometric signatures and unavailable prebuilt line module: The suggested file retains the accepted algebraic/category cores and records their omitted supplier-dependent geometric conditions in prototypeNotes. This revision was not compiled because no existing build at the pinned commits is available in this workspace. The previous independent review reported a Mathlib-only projection and a full-file blocker at the prebuilt Tau Ceti line-bundle module; those checks concern the previous version. Once supplier carriers and the pinned build are available, state the exact geometric interfaces, including divisor sites, dimensions, properness, ULA, perfect models and locally constant coefficients, and elaborate the complete file. The three newly routed geometric lemmas reserve their declaration names through precise omissions until those supplier interfaces exist.
+- Typed geometric signatures and unavailable prebuilt line module: The suggested file retains the algebraic/category cores and records omitted supplier-dependent geometric conditions in prototypeNotes. The full file was not compiled: no existing build has both recorded pins. In this independent review, a Mathlib-only projection of this revision elaborated at Mathlib 082e2d3 using lean-check with only placeholder-proof warnings. It removed the Tau Ceti import and the geometric-determinant-line and h-descent-and-fibral-criterion node blocks; it validates neither those blocks nor the full file. Once supplier carriers and the pinned build are available, state the exact geometric interfaces, including divisor sites, dimensions, properness, ULA, perfect models and locally constant coefficients, and elaborate the complete file. The three geometric lemmas reserve their declaration names through precise omissions until those supplier interfaces exist.
 
 **Prototype boundary:** The typed coefficient core states that a geometric CT stalk admits a bounded cochain model of finite projective terms representing that derived object. Those terms are a strict perfect model, not the individual cohomology modules. The identification with the actual CT stalk, étale local constancy and ULA hypotheses require the supplied sheaf carriers and are omitted.
 
@@ -2860,7 +2879,7 @@ For a split integral model and one leg, restriction induces equivalences D^ULA(H
 
 **Remaining obligations**
 
-- Typed geometric signatures and unavailable prebuilt line module: The suggested file retains the accepted algebraic/category cores and records their omitted supplier-dependent geometric conditions in prototypeNotes. This revision was not compiled because no existing build at the pinned commits is available in this workspace. The previous independent review reported a Mathlib-only projection and a full-file blocker at the prebuilt Tau Ceti line-bundle module; those checks concern the previous version. Once supplier carriers and the pinned build are available, state the exact geometric interfaces, including divisor sites, dimensions, properness, ULA, perfect models and locally constant coefficients, and elaborate the complete file. The three newly routed geometric lemmas reserve their declaration names through precise omissions until those supplier interfaces exist.
+- Typed geometric signatures and unavailable prebuilt line module: The suggested file retains the algebraic/category cores and records omitted supplier-dependent geometric conditions in prototypeNotes. The full file was not compiled: no existing build has both recorded pins. In this independent review, a Mathlib-only projection of this revision elaborated at Mathlib 082e2d3 using lean-check with only placeholder-proof warnings. It removed the Tau Ceti import and the geometric-determinant-line and h-descent-and-fibral-criterion node blocks; it validates neither those blocks nor the full file. Once supplier carriers and the pinned build are available, state the exact geometric interfaces, including divisor sites, dimensions, properness, ULA, perfect models and locally constant coefficients, and elaborate the complete file. The three geometric lemmas reserve their declaration names through precise omissions until those supplier interfaces exist.
 
 **Prototype boundary:** The supplied categories must be the one-leg ULA categories with compatible finite supports. Arbitrary multi-leg collisions are excluded in the document.
 
@@ -2931,7 +2950,7 @@ On the bounded-support derived category over a leg base S, define perverse ≤0 
 
 **Remaining obligations**
 
-- Typed geometric signatures and unavailable prebuilt line module: The suggested file retains the accepted algebraic/category cores and records their omitted supplier-dependent geometric conditions in prototypeNotes. This revision was not compiled because no existing build at the pinned commits is available in this workspace. The previous independent review reported a Mathlib-only projection and a full-file blocker at the prebuilt Tau Ceti line-bundle module; those checks concern the previous version. Once supplier carriers and the pinned build are available, state the exact geometric interfaces, including divisor sites, dimensions, properness, ULA, perfect models and locally constant coefficients, and elaborate the complete file. The three newly routed geometric lemmas reserve their declaration names through precise omissions until those supplier interfaces exist.
+- Typed geometric signatures and unavailable prebuilt line module: The suggested file retains the algebraic/category cores and records omitted supplier-dependent geometric conditions in prototypeNotes. The full file was not compiled: no existing build has both recorded pins. In this independent review, a Mathlib-only projection of this revision elaborated at Mathlib 082e2d3 using lean-check with only placeholder-proof warnings. It removed the Tau Ceti import and the geometric-determinant-line and h-descent-and-fibral-criterion node blocks; it validates neither those blocks nor the full file. Once supplier carriers and the pinned build are available, state the exact geometric interfaces, including divisor sites, dimensions, properness, ULA, perfect models and locally constant coefficients, and elaborate the complete file. The three geometric lemmas reserve their declaration names through precise omissions until those supplier interfaces exist.
 - Early coefficient scope and filtered-equivariance continuity: Prove the new EDC5 coefficient-change/adic and torsion-pair interface under its exact hypotheses. Separately supply VS1’s spatial ball-subgroup presentations and ordinary-cohomology inverse-limit continuity for FS VI.4.1. Neither arbitrary integral duality from field BBD nor unshifted compact-support acyclicity closes these steps. These are named supplier refinements, before rational decomposition or GS3 fusion.
 
 **Prototype boundary:** D and DT denote the imported ULA categories with their triangulated structures; CT denotes the conservative normalized constant-term functor. The assumptions asserting that these data arise from the geometric Hecke family are omitted. This is an actual TStructure signature, not a proposition-valued stand-in.
@@ -2958,7 +2977,7 @@ Pullback of perverse Hecke objects to Gr is fully faithful. For A≤0 and B≥0 
 
 1. Use FS 7.3: for a connected cohomologically smooth map with section, H⁰Rf_*f*A→H⁰A is an isomorphism in the connective range.
 2. Combine finite action truncation with perverse gluing for full faithfulness.
-3. Reduce by collision-stratum excision and cell devissage to a one-leg shifted constant sheaf over a geometric base, then to field coefficients. On the Witt special fibre use dim(S_λ∩Gr_μ)≤⟨ρ,μ+λ⟩ and the ordinary compact-support bound 2dim; hyperbolic duality gives the costalk side. Transport by the one-leg comparison and geometric-point criterion. This does not use the subsequent rational weight-concentration theorem.
+3. Reduce by collision-stratum excision and cell devissage to a one-leg shifted constant sheaf over a geometric base, then to field coefficients. On the Witt special fibre use dim(S_λ∩Gr_μ)≤⟨ρ,μ+λ⟩ and the ordinary compact-support bound 2dim; hyperbolic duality gives the costalk side. Transport by the one-leg comparison and geometric-point criterion. This does not use the later rational weight-concentration theorem.
 
 **Direct prerequisites**
 
@@ -2980,7 +2999,7 @@ Pullback of perverse Hecke objects to Gr is fully faithful. For A≤0 and B≥0 
 
 **Remaining obligations**
 
-- Typed geometric signatures and unavailable prebuilt line module: The suggested file retains the accepted algebraic/category cores and records their omitted supplier-dependent geometric conditions in prototypeNotes. This revision was not compiled because no existing build at the pinned commits is available in this workspace. The previous independent review reported a Mathlib-only projection and a full-file blocker at the prebuilt Tau Ceti line-bundle module; those checks concern the previous version. Once supplier carriers and the pinned build are available, state the exact geometric interfaces, including divisor sites, dimensions, properness, ULA, perfect models and locally constant coefficients, and elaborate the complete file. The three newly routed geometric lemmas reserve their declaration names through precise omissions until those supplier interfaces exist.
+- Typed geometric signatures and unavailable prebuilt line module: The suggested file retains the algebraic/category cores and records omitted supplier-dependent geometric conditions in prototypeNotes. The full file was not compiled: no existing build has both recorded pins. In this independent review, a Mathlib-only projection of this revision elaborated at Mathlib 082e2d3 using lean-check with only placeholder-proof warnings. It removed the Tau Ceti import and the geometric-determinant-line and h-descent-and-fibral-criterion node blocks; it validates neither those blocks nor the full file. Once supplier carriers and the pinned build are available, state the exact geometric interfaces, including divisor sites, dimensions, properness, ULA, perfect models and locally constant coefficients, and elaborate the complete file. The three geometric lemmas reserve their declaration names through precise omissions until those supplier interfaces exist.
 - Early coefficient scope and filtered-equivariance continuity: Prove the new EDC5 coefficient-change/adic and torsion-pair interface under its exact hypotheses. Separately supply VS1’s spatial ball-subgroup presentations and ordinary-cohomology inverse-limit continuity for FS VI.4.1. Neither arbitrary integral duality from field BBD nor unshifted compact-support acyclicity closes these steps. These are named supplier refinements, before rational decomposition or GS3 fusion.
 
 **Prototype boundary:** CT must include the root-degree shift, and D the geometric ULA category. Smooth finite-jet stack descent and that identification are omitted.
@@ -3047,7 +3066,7 @@ A perverse object A is coefficient-flat if A⊗^L_Λ M is perverse for every Λ-
 
 **Remaining obligations**
 
-- Typed geometric signatures and unavailable prebuilt line module: The suggested file retains the accepted algebraic/category cores and records their omitted supplier-dependent geometric conditions in prototypeNotes. This revision was not compiled because no existing build at the pinned commits is available in this workspace. The previous independent review reported a Mathlib-only projection and a full-file blocker at the prebuilt Tau Ceti line-bundle module; those checks concern the previous version. Once supplier carriers and the pinned build are available, state the exact geometric interfaces, including divisor sites, dimensions, properness, ULA, perfect models and locally constant coefficients, and elaborate the complete file. The three newly routed geometric lemmas reserve their declaration names through precise omissions until those supplier interfaces exist.
+- Typed geometric signatures and unavailable prebuilt line module: The suggested file retains the algebraic/category cores and records omitted supplier-dependent geometric conditions in prototypeNotes. The full file was not compiled: no existing build has both recorded pins. In this independent review, a Mathlib-only projection of this revision elaborated at Mathlib 082e2d3 using lean-check with only placeholder-proof warnings. It removed the Tau Ceti import and the geometric-determinant-line and h-descent-and-fibral-criterion node blocks; it validates neither those blocks nor the full file. Once supplier carriers and the pinned build are available, state the exact geometric interfaces, including divisor sites, dimensions, properness, ULA, perfect models and locally constant coefficients, and elaborate the complete file. The three geometric lemmas reserve their declaration names through precise omissions until those supplier interfaces exist.
 - Early coefficient scope and filtered-equivariance continuity: Prove the new EDC5 coefficient-change/adic and torsion-pair interface under its exact hypotheses. Separately supply VS1’s spatial ball-subgroup presentations and ordinary-cohomology inverse-limit continuity for FS VI.4.1. Neither arbitrary integral duality from field BBD nor unshifted compact-support acyclicity closes these steps. These are named supplier refinements, before rational decomposition or GS3 fusion.
 
 **Prototype boundary:** The all-module derived tensor functors come from the coefficient supplier. The predicate is fully stated using the existing t-structure heart; the module compatibility specializes it to the existing injectivity characterization of Module.Flat. Derived tensor is not identified with ordinary tensor without flatness.
@@ -3118,7 +3137,7 @@ For a one-leg μ-cell of dimension d_μ, Δ_μ=pH⁰j_{μ!}Λ[d_μ] and ∇_μ=p
 
 **Remaining obligations**
 
-- Typed geometric signatures and unavailable prebuilt line module: The suggested file retains the accepted algebraic/category cores and records their omitted supplier-dependent geometric conditions in prototypeNotes. This revision was not compiled because no existing build at the pinned commits is available in this workspace. The previous independent review reported a Mathlib-only projection and a full-file blocker at the prebuilt Tau Ceti line-bundle module; those checks concern the previous version. Once supplier carriers and the pinned build are available, state the exact geometric interfaces, including divisor sites, dimensions, properness, ULA, perfect models and locally constant coefficients, and elaborate the complete file. The three newly routed geometric lemmas reserve their declaration names through precise omissions until those supplier interfaces exist.
+- Typed geometric signatures and unavailable prebuilt line module: The suggested file retains the algebraic/category cores and records omitted supplier-dependent geometric conditions in prototypeNotes. The full file was not compiled: no existing build has both recorded pins. In this independent review, a Mathlib-only projection of this revision elaborated at Mathlib 082e2d3 using lean-check with only placeholder-proof warnings. It removed the Tau Ceti import and the geometric-determinant-line and h-descent-and-fibral-criterion node blocks; it validates neither those blocks nor the full file. Once supplier carriers and the pinned build are available, state the exact geometric interfaces, including divisor sites, dimensions, properness, ULA, perfect models and locally constant coefficients, and elaborate the complete file. The three geometric lemmas reserve their declaration names through precise omissions until those supplier interfaces exist.
 - Early coefficient scope and filtered-equivariance continuity: Prove the new EDC5 coefficient-change/adic and torsion-pair interface under its exact hypotheses. Separately supply VS1’s spatial ball-subgroup presentations and ordinary-cohomology inverse-limit continuity for FS VI.4.1. Neither arbitrary integral duality from field BBD nor unshifted compact-support acyclicity closes these steps. These are named supplier refinements, before rational decomposition or GS3 fusion.
 
 **Prototype boundary:** jshriek/jstar, jpull, h0 and constant must be the indicated geometric functors and local system. Their geometric identities are omitted, while the existing shift/functor/object types fix the construction order.
@@ -3167,7 +3186,7 @@ For fixed μ, Δ_μ→∇_μ is an isomorphism after rationalization, and over Z
 
 **Remaining obligations**
 
-- Typed geometric signatures and unavailable prebuilt line module: The suggested file retains the accepted algebraic/category cores and records their omitted supplier-dependent geometric conditions in prototypeNotes. This revision was not compiled because no existing build at the pinned commits is available in this workspace. The previous independent review reported a Mathlib-only projection and a full-file blocker at the prebuilt Tau Ceti line-bundle module; those checks concern the previous version. Once supplier carriers and the pinned build are available, state the exact geometric interfaces, including divisor sites, dimensions, properness, ULA, perfect models and locally constant coefficients, and elaborate the complete file. The three newly routed geometric lemmas reserve their declaration names through precise omissions until those supplier interfaces exist.
+- Typed geometric signatures and unavailable prebuilt line module: The suggested file retains the algebraic/category cores and records omitted supplier-dependent geometric conditions in prototypeNotes. The full file was not compiled: no existing build has both recorded pins. In this independent review, a Mathlib-only projection of this revision elaborated at Mathlib 082e2d3 using lean-check with only placeholder-proof warnings. It removed the Tau Ceti import and the geometric-determinant-line and h-descent-and-fibral-criterion node blocks; it validates neither those blocks nor the full file. Once supplier carriers and the pinned build are available, state the exact geometric interfaces, including divisor sites, dimensions, properness, ULA, perfect models and locally constant coefficients, and elaborate the complete file. The three geometric lemmas reserve their declaration names through precise omissions until those supplier interfaces exist.
 
 **Prototype boundary:** R is explicitly a ℤ_ℓ-algebra, ℓ is prime, and the bound is ℓ^a. M must be the specified standard-to-costandard kernel or cokernel. The source supplies one a(μ) independent of R; this single-module core omits the geometric μ/family identification, not the coefficient algebra or the nonvacuous power bound.
 
@@ -3213,7 +3232,7 @@ For rational equivariant perverse A on the Witt Grassmannian, H_c^i(S_λ,A)=0 un
 
 - Rational MV trace normalization on perfect models: Fix a finite model and its Frobenius power for fundamental classes; Zhu A.3.3’s model-independent scalar trace omits p-power degree. Require nonempty geometric intersections, geometrically irreducible components for a scalar trace, and the spreading step in the finite-field point-count route. The integral CT/perverse criterion uses FS instead of a rational MV basis.
 - Quasi-minuscule infinity contribution and minimal generation: For the quasi-minuscule P¹ resolution retain the section-at-infinity term absent from Zhu (2.2.13); in SL₃ the zero-weight multiplicity is two. Check the corrected parahoric in type A_n, the finite U-jet torsor/twisted external product in 2.17 and 2.16’s minimal-generation argument with the RG/EDC interfaces.
-- Typed geometric signatures and unavailable prebuilt line module: The suggested file retains the accepted algebraic/category cores and records their omitted supplier-dependent geometric conditions in prototypeNotes. This revision was not compiled because no existing build at the pinned commits is available in this workspace. The previous independent review reported a Mathlib-only projection and a full-file blocker at the prebuilt Tau Ceti line-bundle module; those checks concern the previous version. Once supplier carriers and the pinned build are available, state the exact geometric interfaces, including divisor sites, dimensions, properness, ULA, perfect models and locally constant coefficients, and elaborate the complete file. The three newly routed geometric lemmas reserve their declaration names through precise omissions until those supplier interfaces exist.
+- Typed geometric signatures and unavailable prebuilt line module: The suggested file retains the algebraic/category cores and records omitted supplier-dependent geometric conditions in prototypeNotes. The full file was not compiled: no existing build has both recorded pins. In this independent review, a Mathlib-only projection of this revision elaborated at Mathlib 082e2d3 using lean-check with only placeholder-proof warnings. It removed the Tau Ceti import and the geometric-determinant-line and h-descent-and-fibral-criterion node blocks; it validates neither those blocks nor the full file. Once supplier carriers and the pinned build are available, state the exact geometric interfaces, including divisor sites, dimensions, properness, ULA, perfect models and locally constant coefficients, and elaborate the complete file. The three geometric lemmas reserve their declaration names through precise omissions until those supplier interfaces exist.
 
 **Prototype boundary:** W must be the concentrated rational weight module of the specified IC object. Its MV basis and the degree-vanishing assertions require enhanced cohomology interfaces and are omitted.
 
@@ -3290,7 +3309,7 @@ Sat^I_G(S,Λ) is the full subcategory of the bounded-support Hecke derived categ
 
 **Remaining obligations**
 
-- Typed geometric signatures and unavailable prebuilt line module: The suggested file retains the accepted algebraic/category cores and records their omitted supplier-dependent geometric conditions in prototypeNotes. This revision was not compiled because no existing build at the pinned commits is available in this workspace. The previous independent review reported a Mathlib-only projection and a full-file blocker at the prebuilt Tau Ceti line-bundle module; those checks concern the previous version. Once supplier carriers and the pinned build are available, state the exact geometric interfaces, including divisor sites, dimensions, properness, ULA, perfect models and locally constant coefficients, and elaborate the complete file. The three newly routed geometric lemmas reserve their declaration names through precise omissions until those supplier interfaces exist.
+- Typed geometric signatures and unavailable prebuilt line module: The suggested file retains the algebraic/category cores and records omitted supplier-dependent geometric conditions in prototypeNotes. The full file was not compiled: no existing build has both recorded pins. In this independent review, a Mathlib-only projection of this revision elaborated at Mathlib 082e2d3 using lean-check with only placeholder-proof warnings. It removed the Tau Ceti import and the geometric-determinant-line and h-descent-and-fibral-criterion node blocks; it validates neither those blocks nor the full file. Once supplier carriers and the pinned build are available, state the exact geometric interfaces, including divisor sites, dimensions, properness, ULA, perfect models and locally constant coefficients, and elaborate the complete file. The three geometric lemmas reserve their declaration names through precise omissions until those supplier interfaces exist.
 
 **Prototype boundary:** DU denotes the imported bounded-support ULA category and forgetULA its geometric inclusion. Boundedness is encoded in that input category, not in a new unknown proposition. The actual three-condition Satake subcategory uses Mathlib FullSubcategory.
 
@@ -3365,7 +3384,7 @@ F^I(A)=⊕_i H^iRπ_*(A|Gr^I_G) is a locally constant sheaf of finite projective
 
 **Remaining obligations**
 
-- Typed geometric signatures and unavailable prebuilt line module: The suggested file retains the accepted algebraic/category cores and records their omitted supplier-dependent geometric conditions in prototypeNotes. This revision was not compiled because no existing build at the pinned commits is available in this workspace. The previous independent review reported a Mathlib-only projection and a full-file blocker at the prebuilt Tau Ceti line-bundle module; those checks concern the previous version. Once supplier carriers and the pinned build are available, state the exact geometric interfaces, including divisor sites, dimensions, properness, ULA, perfect models and locally constant coefficients, and elaborate the complete file. The three newly routed geometric lemmas reserve their declaration names through precise omissions until those supplier interfaces exist.
+- Typed geometric signatures and unavailable prebuilt line module: The suggested file retains the algebraic/category cores and records omitted supplier-dependent geometric conditions in prototypeNotes. The full file was not compiled: no existing build has both recorded pins. In this independent review, a Mathlib-only projection of this revision elaborated at Mathlib 082e2d3 using lean-check with only placeholder-proof warnings. It removed the Tau Ceti import and the geometric-determinant-line and h-descent-and-fibral-criterion node blocks; it validates neither those blocks nor the full file. Once supplier carriers and the pinned build are available, state the exact geometric interfaces, including divisor sites, dimensions, properness, ULA, perfect models and locally constant coefficients, and elaborate the complete file. The three geometric lemmas reserve their declaration names through precise omissions until those supplier interfaces exist.
 - Early coefficient scope and filtered-equivariance continuity: Prove the new EDC5 coefficient-change/adic and torsion-pair interface under its exact hypotheses. Separately supply VS1’s spatial ball-subgroup presentations and ordinary-cohomology inverse-limit continuity for FS VI.4.1. Neither arbitrary integral duality from field BBD nor unshifted compact-support acyclicity closes these steps. These are named supplier refinements, before rational decomposition or GS3 fusion.
 
 **Prototype boundary:** S must be the actual Satake category and H the geometric cohomology functors. Finite support in degree and the CT filtration hypotheses are omitted from the finite-projectivity/faithfulness signatures. No canonical splitting or tensor identification is stated.
@@ -3418,7 +3437,7 @@ Relative Verdier duality preserves Satake, the biduality map A→D(D(A)) is an i
 
 **Remaining obligations**
 
-- Typed geometric signatures and unavailable prebuilt line module: The suggested file retains the accepted algebraic/category cores and records their omitted supplier-dependent geometric conditions in prototypeNotes. This revision was not compiled because no existing build at the pinned commits is available in this workspace. The previous independent review reported a Mathlib-only projection and a full-file blocker at the prebuilt Tau Ceti line-bundle module; those checks concern the previous version. Once supplier carriers and the pinned build are available, state the exact geometric interfaces, including divisor sites, dimensions, properness, ULA, perfect models and locally constant coefficients, and elaborate the complete file. The three newly routed geometric lemmas reserve their declaration names through precise omissions until those supplier interfaces exist.
+- Typed geometric signatures and unavailable prebuilt line module: The suggested file retains the algebraic/category cores and records omitted supplier-dependent geometric conditions in prototypeNotes. The full file was not compiled: no existing build has both recorded pins. In this independent review, a Mathlib-only projection of this revision elaborated at Mathlib 082e2d3 using lean-check with only placeholder-proof warnings. It removed the Tau Ceti import and the geometric-determinant-line and h-descent-and-fibral-criterion node blocks; it validates neither those blocks nor the full file. Once supplier carriers and the pinned build are available, state the exact geometric interfaces, including divisor sites, dimensions, properness, ULA, perfect models and locally constant coefficients, and elaborate the complete file. The three geometric lemmas reserve their declaration names through precise omissions until those supplier interfaces exist.
 
 **Prototype boundary:** S must be Satake and dual the relative Verdier duality. Levi normalization and geometric coefficient hypotheses are omitted.
 
@@ -3495,7 +3514,7 @@ The two-step Hecke stack has maps a:Hck×^{L⁺G}Hck→Hck×Hck (an L⁺G-torsor
 **Remaining obligations**
 
 - Stack enhancement and coherent Ind convolution: VS0/VS1 must supply Artin quotient descent and proper-relative ULA adjointability at the enhanced level; EDS3/5 supplies coherent correspondence and Ind t-structure extension. Verify common bounded correspondences, unit/counit triangles and support filtrations; choosing binary natural isomorphisms does not close this obligation.
-- Typed geometric signatures and unavailable prebuilt line module: The suggested file retains the accepted algebraic/category cores and records their omitted supplier-dependent geometric conditions in prototypeNotes. This revision was not compiled because no existing build at the pinned commits is available in this workspace. The previous independent review reported a Mathlib-only projection and a full-file blocker at the prebuilt Tau Ceti line-bundle module; those checks concern the previous version. Once supplier carriers and the pinned build are available, state the exact geometric interfaces, including divisor sites, dimensions, properness, ULA, perfect models and locally constant coefficients, and elaborate the complete file. The three newly routed geometric lemmas reserve their declaration names through precise omissions until those supplier interfaces exist.
+- Typed geometric signatures and unavailable prebuilt line module: The suggested file retains the algebraic/category cores and records omitted supplier-dependent geometric conditions in prototypeNotes. The full file was not compiled: no existing build has both recorded pins. In this independent review, a Mathlib-only projection of this revision elaborated at Mathlib 082e2d3 using lean-check with only placeholder-proof warnings. It removed the Tau Ceti import and the geometric-determinant-line and h-descent-and-fibral-criterion node blocks; it validates neither those blocks nor the full file. Once supplier carriers and the pinned build are available, state the exact geometric interfaces, including divisor sites, dimensions, properness, ULA, perfect models and locally constant coefficients, and elaborate the complete file. The three geometric lemmas reserve their declaration names through precise omissions until those supplier interfaces exist.
 
 **Prototype boundary:** The input functors must arise from the bounded torsor correspondence. Their properness, external derived tensor, support bounds, coherent correspondence composition, and unit-kernel identifications are omitted. The arbitrary input symbols are functors, not proposition placeholders.
 
@@ -3544,7 +3563,7 @@ Iterated composition supplies associator (A⋆B)⋆C≅A⋆(B⋆C), left/right u
 **Remaining obligations**
 
 - Stack enhancement and coherent Ind convolution: VS0/VS1 must supply Artin quotient descent and proper-relative ULA adjointability at the enhanced level; EDS3/5 supplies coherent correspondence and Ind t-structure extension. Verify common bounded correspondences, unit/counit triangles and support filtrations; choosing binary natural isomorphisms does not close this obligation.
-- Typed geometric signatures and unavailable prebuilt line module: The suggested file retains the accepted algebraic/category cores and records their omitted supplier-dependent geometric conditions in prototypeNotes. This revision was not compiled because no existing build at the pinned commits is available in this workspace. The previous independent review reported a Mathlib-only projection and a full-file blocker at the prebuilt Tau Ceti line-bundle module; those checks concern the previous version. Once supplier carriers and the pinned build are available, state the exact geometric interfaces, including divisor sites, dimensions, properness, ULA, perfect models and locally constant coefficients, and elaborate the complete file. The three newly routed geometric lemmas reserve their declaration names through precise omissions until those supplier interfaces exist.
+- Typed geometric signatures and unavailable prebuilt line module: The suggested file retains the algebraic/category cores and records omitted supplier-dependent geometric conditions in prototypeNotes. The full file was not compiled: no existing build has both recorded pins. In this independent review, a Mathlib-only projection of this revision elaborated at Mathlib 082e2d3 using lean-check with only placeholder-proof warnings. It removed the Tau Ceti import and the geometric-determinant-line and h-descent-and-fibral-criterion node blocks; it validates neither those blocks nor the full file. Once supplier carriers and the pinned build are available, state the exact geometric interfaces, including divisor sites, dimensions, properness, ULA, perfect models and locally constant coefficients, and elaborate the complete file. The three geometric lemmas reserve their declaration names through precise omissions until those supplier interfaces exist.
 
 **Prototype boundary:** Only the standard monoidal pentagon is typed; the ambient convolution monoidal instance must be supplied by the enhanced correspondence calculus.
 
@@ -3588,7 +3607,7 @@ On the rational Witt special fibre, the n-fold unbounded convolution Grassmannia
 
 **Remaining obligations**
 
-- Typed geometric signatures and unavailable prebuilt line module: The suggested file retains the accepted algebraic/category cores and records their omitted supplier-dependent geometric conditions in prototypeNotes. This revision was not compiled because no existing build at the pinned commits is available in this workspace. The previous independent review reported a Mathlib-only projection and a full-file blocker at the prebuilt Tau Ceti line-bundle module; those checks concern the previous version. Once supplier carriers and the pinned build are available, state the exact geometric interfaces, including divisor sites, dimensions, properness, ULA, perfect models and locally constant coefficients, and elaborate the complete file. The three newly routed geometric lemmas reserve their declaration names through precise omissions until those supplier interfaces exist.
+- Typed geometric signatures and unavailable prebuilt line module: The suggested file retains the algebraic/category cores and records omitted supplier-dependent geometric conditions in prototypeNotes. The full file was not compiled: no existing build has both recorded pins. In this independent review, a Mathlib-only projection of this revision elaborated at Mathlib 082e2d3 using lean-check with only placeholder-proof warnings. It removed the Tau Ceti import and the geometric-determinant-line and h-descent-and-fibral-criterion node blocks; it validates neither those blocks nor the full file. Once supplier carriers and the pinned build are available, state the exact geometric interfaces, including divisor sites, dimensions, properness, ULA, perfect models and locally constant coefficients, and elaborate the complete file. The three geometric lemmas reserve their declaration names through precise omissions until those supplier interfaces exist.
 
 **Prototype boundary:** These dimensions must come from the bounded rational Witt convolution map and a target stratum. Properness and coefficient restrictions are omitted.
 
@@ -3644,7 +3663,7 @@ If A and B are ULA bounded Hecke complexes, A⋆B is ULA over the leg base.
 
 **Remaining obligations**
 
-- Typed geometric signatures and unavailable prebuilt line module: The suggested file retains the accepted algebraic/category cores and records their omitted supplier-dependent geometric conditions in prototypeNotes. This revision was not compiled because no existing build at the pinned commits is available in this workspace. The previous independent review reported a Mathlib-only projection and a full-file blocker at the prebuilt Tau Ceti line-bundle module; those checks concern the previous version. Once supplier carriers and the pinned build are available, state the exact geometric interfaces, including divisor sites, dimensions, properness, ULA, perfect models and locally constant coefficients, and elaborate the complete file. The three newly routed geometric lemmas reserve their declaration names through precise omissions until those supplier interfaces exist.
+- Typed geometric signatures and unavailable prebuilt line module: The suggested file retains the algebraic/category cores and records omitted supplier-dependent geometric conditions in prototypeNotes. The full file was not compiled: no existing build has both recorded pins. In this independent review, a Mathlib-only projection of this revision elaborated at Mathlib 082e2d3 using lean-check with only placeholder-proof warnings. It removed the Tau Ceti import and the geometric-determinant-line and h-descent-and-fibral-criterion node blocks; it validates neither those blocks nor the full file. Once supplier carriers and the pinned build are available, state the exact geometric interfaces, including divisor sites, dimensions, properness, ULA, perfect models and locally constant coefficients, and elaborate the complete file. The three geometric lemmas reserve their declaration names through precise omissions until those supplier interfaces exist.
 
 **Prototype boundary:** The algebraic core composes two individually right-dualizable proper relative ULA kernels. It does not assume the entire ambient category is rigid; the geometric ULA/kernel identification requires VS1.
 
@@ -3689,7 +3708,7 @@ For any bounded Hecke complexes A,B in relative perverse degrees ≤0, A⋆B is 
 
 **Remaining obligations**
 
-- Typed geometric signatures and unavailable prebuilt line module: The suggested file retains the accepted algebraic/category cores and records their omitted supplier-dependent geometric conditions in prototypeNotes. This revision was not compiled because no existing build at the pinned commits is available in this workspace. The previous independent review reported a Mathlib-only projection and a full-file blocker at the prebuilt Tau Ceti line-bundle module; those checks concern the previous version. Once supplier carriers and the pinned build are available, state the exact geometric interfaces, including divisor sites, dimensions, properness, ULA, perfect models and locally constant coefficients, and elaborate the complete file. The three newly routed geometric lemmas reserve their declaration names through precise omissions until those supplier interfaces exist.
+- Typed geometric signatures and unavailable prebuilt line module: The suggested file retains the algebraic/category cores and records omitted supplier-dependent geometric conditions in prototypeNotes. The full file was not compiled: no existing build has both recorded pins. In this independent review, a Mathlib-only projection of this revision elaborated at Mathlib 082e2d3 using lean-check with only placeholder-proof warnings. It removed the Tau Ceti import and the geometric-determinant-line and h-descent-and-fibral-criterion node blocks; it validates neither those blocks nor the full file. Once supplier carriers and the pinned build are available, state the exact geometric interfaces, including divisor sites, dimensions, properness, ULA, perfect models and locally constant coefficients, and elaborate the complete file. The three geometric lemmas reserve their declaration names through precise omissions until those supplier interfaces exist.
 
 **Prototype boundary:** D/conv denote the full bounded-support Hecke derived category and its convolution, with the stated geometric perverse t-structure. The devissage, two-leg family and geometric identities are omitted. Inputs need not be ULA; only the reduced generators are ULA. GS3 fusion and ambient rigidity are not assumed.
 
@@ -3732,7 +3751,7 @@ Convolution of two Satake objects is Satake: it remains ULA, relative perverse a
 
 **Remaining obligations**
 
-- Typed geometric signatures and unavailable prebuilt line module: The suggested file retains the accepted algebraic/category cores and records their omitted supplier-dependent geometric conditions in prototypeNotes. This revision was not compiled because no existing build at the pinned commits is available in this workspace. The previous independent review reported a Mathlib-only projection and a full-file blocker at the prebuilt Tau Ceti line-bundle module; those checks concern the previous version. Once supplier carriers and the pinned build are available, state the exact geometric interfaces, including divisor sites, dimensions, properness, ULA, perfect models and locally constant coefficients, and elaborate the complete file. The three newly routed geometric lemmas reserve their declaration names through precise omissions until those supplier interfaces exist.
+- Typed geometric signatures and unavailable prebuilt line module: The suggested file retains the algebraic/category cores and records omitted supplier-dependent geometric conditions in prototypeNotes. The full file was not compiled: no existing build has both recorded pins. In this independent review, a Mathlib-only projection of this revision elaborated at Mathlib 082e2d3 using lean-check with only placeholder-proof warnings. It removed the Tau Ceti import and the geometric-determinant-line and h-descent-and-fibral-criterion node blocks; it validates neither those blocks nor the full file. Once supplier carriers and the pinned build are available, state the exact geometric interfaces, including divisor sites, dimensions, properness, ULA, perfect models and locally constant coefficients, and elaborate the complete file. The three geometric lemmas reserve their declaration names through precise omissions until those supplier interfaces exist.
 
 **Prototype boundary:** D/conv/tensor must be the ULA Hecke category, geometric convolution and derived coefficient tensors. Those supplier conditions are omitted.
 
@@ -3775,12 +3794,12 @@ Every Satake object has both left and right duals for convolution. The right dua
 
 **Acceptance**
 
-- The dual is sw*D(A), not D(A) without switching; it supplies GS3’s subsequent fusion argument.
+- The dual is sw*D(A), not D(A) without switching; it supplies GS3’s later fusion argument.
 
 **Remaining obligations**
 
 - Stack enhancement and coherent Ind convolution: VS0/VS1 must supply Artin quotient descent and proper-relative ULA adjointability at the enhanced level; EDS3/5 supplies coherent correspondence and Ind t-structure extension. Verify common bounded correspondences, unit/counit triangles and support filtrations; choosing binary natural isomorphisms does not close this obligation.
-- Typed geometric signatures and unavailable prebuilt line module: The suggested file retains the accepted algebraic/category cores and records their omitted supplier-dependent geometric conditions in prototypeNotes. This revision was not compiled because no existing build at the pinned commits is available in this workspace. The previous independent review reported a Mathlib-only projection and a full-file blocker at the prebuilt Tau Ceti line-bundle module; those checks concern the previous version. Once supplier carriers and the pinned build are available, state the exact geometric interfaces, including divisor sites, dimensions, properness, ULA, perfect models and locally constant coefficients, and elaborate the complete file. The three newly routed geometric lemmas reserve their declaration names through precise omissions until those supplier interfaces exist.
+- Typed geometric signatures and unavailable prebuilt line module: The suggested file retains the algebraic/category cores and records omitted supplier-dependent geometric conditions in prototypeNotes. The full file was not compiled: no existing build has both recorded pins. In this independent review, a Mathlib-only projection of this revision elaborated at Mathlib 082e2d3 using lean-check with only placeholder-proof warnings. It removed the Tau Ceti import and the geometric-determinant-line and h-descent-and-fibral-criterion node blocks; it validates neither those blocks nor the full file. Once supplier carriers and the pinned build are available, state the exact geometric interfaces, including divisor sites, dimensions, properness, ULA, perfect models and locally constant coefficients, and elaborate the complete file. The three geometric lemmas reserve their declaration names through precise omissions until those supplier interfaces exist.
 
 **Prototype boundary:** S must be the actual Satake category with its convolution structure. Both duals are asserted; the switch-pullback Verdier formula is in the document.
 
@@ -3828,7 +3847,7 @@ The one-leg ULA restriction equivalence over Spd O_C restricts to equivalences o
 
 **Remaining obligations**
 
-- Typed geometric signatures and unavailable prebuilt line module: The suggested file retains the accepted algebraic/category cores and records their omitted supplier-dependent geometric conditions in prototypeNotes. This revision was not compiled because no existing build at the pinned commits is available in this workspace. The previous independent review reported a Mathlib-only projection and a full-file blocker at the prebuilt Tau Ceti line-bundle module; those checks concern the previous version. Once supplier carriers and the pinned build are available, state the exact geometric interfaces, including divisor sites, dimensions, properness, ULA, perfect models and locally constant coefficients, and elaborate the complete file. The three newly routed geometric lemmas reserve their declaration names through precise omissions until those supplier interfaces exist.
+- Typed geometric signatures and unavailable prebuilt line module: The suggested file retains the algebraic/category cores and records omitted supplier-dependent geometric conditions in prototypeNotes. The full file was not compiled: no existing build has both recorded pins. In this independent review, a Mathlib-only projection of this revision elaborated at Mathlib 082e2d3 using lean-check with only placeholder-proof warnings. It removed the Tau Ceti import and the geometric-determinant-line and h-descent-and-fibral-criterion node blocks; it validates neither those blocks nor the full file. Once supplier carriers and the pinned build are available, state the exact geometric interfaces, including divisor sites, dimensions, properness, ULA, perfect models and locally constant coefficients, and elaborate the complete file. The three geometric lemmas reserve their declaration names through precise omissions until those supplier interfaces exist.
 
 **Prototype boundary:** These are the indicated one-leg flat-perverse ULA categories; the base change geometry and diagram compatibility are omitted.
 
@@ -3848,11 +3867,11 @@ All stages in this part remain missing as geometric Satake targets. The listed s
 | Declaration | Module at the pin | Interface reused |
 | --- | --- | --- |
 | `mathlib:WittVector` | `Mathlib/RingTheory/WittVector/Defs.lean` | The type of p-typical Witt vectors, indexed by a natural p. Its ring laws and perfect-ring properties are reused; ramified Witt coefficient comparison is RF0’s node, not a new definition here. |
-| `mathlib:PerfectRing` | `Mathlib/FieldTheory/Perfect.lean` | Perfect rings of characteristic p. Bhatt-Scholze work throughout with perfect F_p-algebras, because for a general F_p-algebra W(R) has p-torsion and W(R)/p -> R need not be an isomorphism; this is the pinned carrier for that hypothesis. |
+| `mathlib:PerfectRing` | `Mathlib/FieldTheory/Perfect.lean` | PerfectRing R p asserts bijectivity of the p-th power map on a type with powers; it does not itself assert that p is prime or that R has characteristic p. The Witt geometric applications separately require a commutative ring, Fact p.Prime and CharP R p, giving a perfect F_p-algebra. This is the algebraic hypothesis carrier, not a representability result. |
 | `mathlib:AlgebraicGeometry.Scheme` | `Mathlib/AlgebraicGeometry/Scheme.lean` | The ordinary scheme carrier and category. Being a perfection of a projective model is a missing target; the existence of Scheme does not establish BS representability. |
 | `mathlib:AlgebraicGeometry.IsProper` | `Mathlib/AlgebraicGeometry/Morphisms/Proper.lean` | Properness of a morphism of schemes. The representing object is a proper perfectly finitely presented scheme, and the fibral descent criterion is for proper maps. |
 | `mathlib:ValuationRing` | `Mathlib/RingTheory/Valuation/ValuationRing.lean` | Valuation rings. The proof of the fibral descent criterion reduces to a base whose connected components are spectra of valuation rings. |
-| `tauceti:TauCeti.AlgebraicGeometry.InvertibleSheaf` | `TauCeti/AlgebraicGeometry/LineBundle/Basic.lean` | Invertible sheaves on a scheme. The line bundle L on the Witt vector affine Grassmannian, the Demazure bundle it descends from, and the line bundle I_S^m/I_S^{m+1} on the divisor are all of this type. Tau Ceti has the carrier; what it does not have is ampleness. |
+| `tauceti:TauCeti.AlgebraicGeometry.InvertibleSheaf` | `TauCeti/AlgebraicGeometry/LineBundle/Basic.lean` | Invertible sheaves on an ordinary scheme, including the Witt-bound and Demazure determinant lines after those schemes are constructed. This carrier supplies neither ampleness nor the adic Cartier-divisor line I_S^m/I_S^{m+1}; the latter belongs to the RF2/RF4 geometric interfaces. |
 | `mathlib:CoxeterSystem` | `Mathlib/GroupTheory/Coxeter/Basic.lean` | Abstract Coxeter-system combinatorics only. Affine root data, Cartan/Iwasawa decomposition and parahoric geometry require RG2.4. |
 | `tauceti:TauCeti.TitsSystem.bruhatCell` | `TauCeti/GroupTheory/TitsSystem/Bruhat/Basic.lean` | Bruhat cells of a Tits system. Tau Ceti already has the Bruhat decomposition, which is the combinatorial shadow of the Schubert stratification this layer builds geometrically. |
 | `mathlib:RootPairing` | `Mathlib/LinearAlgebra/RootSystem/Defs.lean` | The abstract paired roots/coroots and their module dualities, not a built split reductive group, Lie-weight decomposition or affine Cartan theorem. |
@@ -3968,7 +3987,7 @@ Pfp perfect schemes/algebraic spaces and compatible finite-type models up to Fro
 
 ### SchemeAndStackFoundations:SF.1
 
-Effective quotients of separated pfp perfect spaces by smooth perfect affine torsors (Zhu A.29–A.31), normalized finite-jet quotients, and finite pushouts/pinching of a finite union of lower Schubert bounds along closed representable intersections BEFORE applying Keel. This repairs BS E39’s boundary representability gap.
+Effective quotients of separated pfp perfect spaces by smooth perfect affine torsors (Zhu A.29–A.31), normalized finite-jet quotients, and finite pushouts/pinching of a finite union of lower Schubert bounds along closed representable intersections BEFORE applying Keel. This repairs PAPER-BHATT-SCHOLZE-17/E39’s boundary representability gap.
 
 **Consumers:** `GeometricSatakeAndFusion:GS0:Witt-geometry/zhu-original-algebraic-space`, `GeometricSatakeAndFusion:GS0:Witt-geometry/witt-demazure-resolution`, `GeometricSatakeAndFusion:GS0:Witt-geometry/ampleness-via-keel`, `GeometricSatakeAndFusion:GS0:Witt-geometry/perfect-model-and-etale-comparison`, `GeometricSatakeAndFusion:GS0:Witt-geometry/canonical-witt-models`, `GeometricSatakeAndFusion:GS0:Witt-geometry/flag-incidence-correspondences`.
 
@@ -4060,7 +4079,7 @@ VS0/VS1 must supply Artin quotient descent and proper-relative ULA adjointabilit
 
 ### Typed geometric signatures and unavailable prebuilt line module
 
-The suggested file retains the accepted algebraic/category cores and records their omitted supplier-dependent geometric conditions in prototypeNotes. This revision was not compiled because no existing build at the pinned commits is available in this workspace. The previous independent review reported a Mathlib-only projection and a full-file blocker at the prebuilt Tau Ceti line-bundle module; those checks concern the previous version. Once supplier carriers and the pinned build are available, state the exact geometric interfaces, including divisor sites, dimensions, properness, ULA, perfect models and locally constant coefficients, and elaborate the complete file. The three newly routed geometric lemmas reserve their declaration names through precise omissions until those supplier interfaces exist.
+The suggested file retains the algebraic/category cores and records omitted supplier-dependent geometric conditions in prototypeNotes. The full file was not compiled: no existing build has both recorded pins. In this independent review, a Mathlib-only projection of this revision elaborated at Mathlib 082e2d3 using lean-check with only placeholder-proof warnings. It removed the Tau Ceti import and the geometric-determinant-line and h-descent-and-fibral-criterion node blocks; it validates neither those blocks nor the full file. Once supplier carriers and the pinned build are available, state the exact geometric interfaces, including divisor sites, dimensions, properness, ULA, perfect models and locally constant coefficients, and elaborate the complete file. The three geometric lemmas reserve their declaration names through precise omissions until those supplier interfaces exist.
 
 **Applies to:** `GeometricSatakeAndFusion:GS0:Schubert-smoothness/minuscule-bialynicki-birula`, `GeometricSatakeAndFusion:GS0:Schubert-smoothness/open-cell-stabilizer-and-smoothness`, `GeometricSatakeAndFusion:GS0:Schubert-smoothness/truncated-positive-loops`, `GeometricSatakeAndFusion:GS0:Schubert-smoothness/truncation-of-the-loop-action`, `GeometricSatakeAndFusion:GS0:Witt-geometry/ampleness-via-keel`, `GeometricSatakeAndFusion:GS0:Witt-geometry/bounded-admissible-flags`, `GeometricSatakeAndFusion:GS0:Witt-geometry/canonical-witt-models`, `GeometricSatakeAndFusion:GS0:Witt-geometry/connected-cohomological-fibres`, `GeometricSatakeAndFusion:GS0:Witt-geometry/determinant-positivity`, `GeometricSatakeAndFusion:GS0:Witt-geometry/flag-convolution-fibres`, `GeometricSatakeAndFusion:GS0:Witt-geometry/flag-incidence-correspondences`, `GeometricSatakeAndFusion:GS0:Witt-geometry/geometric-determinant-line`, `GeometricSatakeAndFusion:GS0:Witt-geometry/h-descent-and-fibral-criterion`, `GeometricSatakeAndFusion:GS0:Witt-geometry/integral-family-bounded-properness`, `GeometricSatakeAndFusion:GS0:Witt-geometry/integral-parahoric-properness`, `GeometricSatakeAndFusion:GS0:Witt-geometry/parahoric-ind-projectivity`, `GeometricSatakeAndFusion:GS0:Witt-geometry/perfect-model-and-etale-comparison`, `GeometricSatakeAndFusion:GS0:Witt-geometry/rank-two-cone-chart`, `GeometricSatakeAndFusion:GS0:Witt-geometry/sections-on-witt-bounds`, `GeometricSatakeAndFusion:GS0:Witt-geometry/semi-infinite-intersections-and-MV-cycles`, `GeometricSatakeAndFusion:GS0:Witt-geometry/sl-determinant-normalization`, `GeometricSatakeAndFusion:GS0:Witt-geometry/witt-demazure-resolution`, `GeometricSatakeAndFusion:GS0:Witt-geometry/witt-lattice-functor-and-representability`, `GeometricSatakeAndFusion:GS0:Witt-geometry/witt-types-and-bounds`, `GeometricSatakeAndFusion:GS0:Witt-geometry/zhu-finite-jet-presentation`, `GeometricSatakeAndFusion:GS0:Witt-geometry/zhu-original-algebraic-space`, `GeometricSatakeAndFusion:GS0:loop-geometry/affine-flag-demazure`, `GeometricSatakeAndFusion:GS0:loop-geometry/congruence-filtration-and-graded-pieces`, `GeometricSatakeAndFusion:GS0:loop-geometry/etale-over-divisor`, `GeometricSatakeAndFusion:GS0:loop-geometry/generic-galois-descent`, `GeometricSatakeAndFusion:GS0:loop-geometry/grassmannian`, `GeometricSatakeAndFusion:GS0:loop-geometry/local-hecke-stack`, `GeometricSatakeAndFusion:GS0:loop-geometry/loop-groups-and-local-hecke`, `GeometricSatakeAndFusion:GS0:loop-geometry/ordered-leg-base-change`, `GeometricSatakeAndFusion:GS0:loop-geometry/schubert-bounds-and-properness`, `GeometricSatakeAndFusion:GS0:loop-geometry/smooth-scheme-loops`, `GeometricSatakeAndFusion:GS1/ULA-sheaves-on-the-hecke-stack`, `GeometricSatakeAndFusion:GS1/constant-term-conservativity`, `GeometricSatakeAndFusion:GS1/flat-perverse-objects`, `GeometricSatakeAndFusion:GS1/integral-family-comparison`, `GeometricSatakeAndFusion:GS1/lattice-relative-position-semicontinuity`, `GeometricSatakeAndFusion:GS1/length-semicontinuity`, `GeometricSatakeAndFusion:GS1/perverse-descent-and-shifted-ct`, `GeometricSatakeAndFusion:GS1/prounipotent-equivariance`, `GeometricSatakeAndFusion:GS1/rational-weight-concentration`, `GeometricSatakeAndFusion:GS1/relative-perverse-t-structure`, `GeometricSatakeAndFusion:GS1/semi-infinite-affineness`, `GeometricSatakeAndFusion:GS1/semi-infinite-orbits-and-hyperbolic-localization`, `GeometricSatakeAndFusion:GS1/standard-costandard-objects`, `GeometricSatakeAndFusion:GS1/standard-costandard-torsion-bound`, `GeometricSatakeAndFusion:GS1/ula-constant-term-criterion`, `GeometricSatakeAndFusion:GS2:Satake-closure/convolution-perverse-nonpositive`, `GeometricSatakeAndFusion:GS2:Satake-closure/convolution-preserves-satake-and-dualizability`, `GeometricSatakeAndFusion:GS2:Satake-closure/convolution-ula`, `GeometricSatakeAndFusion:GS2:Satake-closure/one-leg-satake-comparison`, `GeometricSatakeAndFusion:GS2:Satake-closure/satake-rigidity`, `GeometricSatakeAndFusion:GS2:correspondences/convolution-associativity-and-unit`, `GeometricSatakeAndFusion:GS2:correspondences/convolution-diagram`, `GeometricSatakeAndFusion:GS2:correspondences/rational-special-fibre-convolution`, `GeometricSatakeAndFusion:GS2:correspondences/satake-category-and-fibre-functor`, `GeometricSatakeAndFusion:GS2:correspondences/satake-fibre-functor`, `GeometricSatakeAndFusion:GS2:correspondences/satake-verdier-duality`.
 
@@ -4090,7 +4109,7 @@ The source ledger contains 23 findings. E1–E22 retain their identities, mathem
 
 **Locator:** p412, coweight order
 
-**Source assertion:** The coweight dominance relation is described using positive roots.
+**Source assertion:** The source uses positive roots to specify dominance among coweights.
 
 **Correction:** Use positive coroots in the coweight dominance order.
 
@@ -4113,6 +4132,9 @@ The source ledger contains 23 findings. E1–E22 retain their identities, mathem
 **Statement format:** The source assertion is described in the worker’s own words; mathematical symbols and formulas are retained where needed to identify the issue. The correction and reason are mathematical analysis, not quoted source prose.
 
 **Historical independent review:** verdict: confirmed; reason: Coweight dominance is an order in X_*(T), hence positive coroots; printed p.412 uses roots.; by: REV-GeometricSatakeAndFusion--GS0
+
+**Current independent review:** confirmed — At Zhu p.412 the positivity cone for coweights is generated by positive coroots. Roots lie in the wrong lattice; the surrounding pairing fixes the intended correction. Reviewer: `REV-GeometricSatakeAndFusion--GS0~2`; date: 2026-10-08.
+
 
 ### GeometricSatakeAndFusion/E2 — misprint
 
@@ -4142,6 +4164,9 @@ The source ledger contains 23 findings. E1–E22 retain their identities, mathem
 
 **Historical independent review:** verdict: confirmed; reason: The displayed chain orientation and reversed sequence require F_i→F_{i−1} with μ*_{N+1−i}; checked the p.424 construction.; by: REV-GeometricSatakeAndFusion--GS0
 
+**Current independent review:** confirmed — Reversing the lattice chain on Zhu p.424 reverses the order of its graded quotients. Dualizing therefore reads μ_{N+1−i}, rather than μ_i. Reviewer: `REV-GeometricSatakeAndFusion--GS0~2`; date: 2026-10-08.
+
+
 ### GeometricSatakeAndFusion/E3 — misprint
 
 **Locator:** p488, determinant unit inB.11
@@ -4169,6 +4194,9 @@ The source ledger contains 23 findings. E1–E22 retain their identities, mathem
 **Statement format:** The source assertion is described in the worker’s own words; mathematical symbols and formulas are retained where needed to identify the issue. The correction and reason are mathematical analysis, not quoted source prose.
 
 **Historical independent review:** verdict: confirmed; reason: The determinant equation forces det X=p²[λ]⁻¹, agreeing with the corrected rank-two factorization.; by: REV-GeometricSatakeAndFusion--GS0
+
+**Current independent review:** confirmed — In the truncated Witt chart on Zhu p.488, det(A)=p² and det(X)=p²[λ]⁻¹. The right factor must have unit determinant reducing to λ⁻¹; a full lift need not equal the Teichmüller unit exactly. Reviewer: `REV-GeometricSatakeAndFusion--GS0~2`; date: 2026-10-08.
+
 
 ### GeometricSatakeAndFusion/E4 — misprint
 
@@ -4198,11 +4226,14 @@ The source ledger contains 23 findings. E1–E22 retain their identities, mathem
 
 **Historical independent review:** verdict: confirmed; reason: For X=Ag the right factor is A⁻¹X. The 2×2 adjugate of X* A proves integrality in the corrected order and its determinant is a unit.; by: REV-GeometricSatakeAndFusion--GS0
 
+**Current independent review:** confirmed — The chart equation on Zhu p.488 is X=Ag, hence g=A⁻¹X. For 2×2 matrices the adjugate of X* A proves integrality in that order; the printed opposite order need not be integral. Reviewer: `REV-GeometricSatakeAndFusion--GS0~2`; date: 2026-10-08.
+
+
 ### GeometricSatakeAndFusion/E5 — gap
 
 **Locator:** p. 482, Appendix B opening paragraph (not p. 484)
 
-**Source assertion:** The appendix opens with a notice that many of its assertions will not be accompanied by proofs.
+**Source assertion:** The opening of the appendix announces that proofs will be omitted for many assertions it contains.
 
 **Correction:** Stated without proof: Prop. B.1, Lemma B.9, and the final paragraph of B.3 (Conjecture I for GL_2, N = 2). Prop. B.2 has a one-sentence justification. It also needs \tilde L_det to be trivial on the fibres of π, which follows from base-point-freeness and the second part of Prop. B.1. Lemma B.4, Lemma B.7 and Prop. B.8 provide sketches whose further details are assigned to the reader. Also unproved: the claims on p. 485 (that M_{N,h} is an irreducible component of the RZ-type space) and p. 486 (\mathring M_{N,h} ≃ Gr′_N), and the claim in Remark B.6. Lemmas B.10 and B.11 are proved in full on pp. 487–488, apart from the misprints E32 and E33; the appeal to Lemma 1.10 for surjectivity goes through. Bhatt–Scholze prove Conjectures I–II. The main results of §§1–3 do not depend on Appendix B.
 
@@ -4224,11 +4255,14 @@ The source ledger contains 23 findings. E1–E22 retain their identities, mathem
 
 **Verification state:** Independently checked against the recorded source version; see review verdict.
 
+**Current independent review:** confirmed — Zhu’s Appendix B opening on p.482 expressly leaves arguments sketch-only. The B.1 and B.7–B.9 interfaces require proof requests, whereas the later B.10–B.11 computations are actually supplied. This is a qualified proof-status record, not a counterexample to all appendix results. Reviewer: `REV-GeometricSatakeAndFusion--GS0~2`; date: 2026-10-08.
+
+
 ### GeometricSatakeAndFusion/E6 — misprint
 
 **Locator:** p. 425, proof of Lemma 1.18 (positive dimension of fibres); also p. 425, proof of Lemma 1.18 (last paragraph)
 
-**Source assertion:** The fibre argument asserts that dim_k(Λ_λ ∩ p^iΛ_0/Λ_λ ∩ p^{i+1}Λ_0) > 1 for a suitable index i.
+**Source assertion:** The proof says that some index i satisfies dim_k(Λ_λ ∩ p^iΛ_0/Λ_λ ∩ p^{i+1}Λ_0) > 1 in its argument about fibres.
 
 **Correction:** Replace ∩ by +: for λ < Nω_1, dim_k((Λ_λ + p^iΛ_0)/(Λ_λ + p^{i+1}Λ_0)) > 1 for some i (e.g. i = 0). Every hyperplane 𝓔_1 ⊂ Λ_0 containing Λ_λ + pΛ_0 extends to a point of π^{−1}(p^λ), so the fibre surjects onto ℙ^{d−1,p^{−∞}} with d = #{j : l_j ≥ 1} ≥ 2. Also: Replace ∩ by + in both places: dim_k (Λ_λ + p^iΛ_0)/(Λ_λ + p^{i+1}Λ_0) > 1 (this holds at i = 0 when λ < Nω_1), and lines L in this space give the lattices Λ_λ + p^{i+1}Λ_0 + L̃, which extend to full chains. Equivalently, dim (p^{-1}Λ_λ ∩ Λ_0)/Λ_λ = #{j : m_j ≥ 1} ≥ 2, the fibre of π_2 from the preceding paragraph.
 
@@ -4250,6 +4284,9 @@ The source ledger contains 23 findings. E1–E22 retain their identities, mathem
 
 **Verification state:** Independently checked against the recorded source version; see review verdict.
 
+**Current independent review:** confirmed — On Zhu p.425 the intersection quotients lie inside the final lattice and cannot parametrize enlargements in the chain fibre. For Λ_λ=⟨p^{l_j}e_j⟩ their dimensions count l_j≤i, which eventually exceeds one even at λ=Nω₁ with point fibre. Replacing both lattice intersections by sums gives dimension #{j:l_j≥i+1}; at i=0 it is at least two exactly on the lower-type boundary. Reviewer: `REV-GeometricSatakeAndFusion--GS0~2`; date: 2026-10-08.
+
+
 ### GeometricSatakeAndFusion/E7 — error
 
 **Locator:** p. 433, Proposition 2.5 (second sentence)
@@ -4258,7 +4295,7 @@ The source ledger contains 23 findings. E1–E22 retain their identities, mathem
 
 **Correction:** Replace the second sentence by S̄_λ ∩ Gr_{≤μ} = ∪_{λ′≤λ}(S_{λ′} ∩ Gr_{≤μ}), which follows from the first. Or restrict to λ a weight of V_μ (equivalently S_λ ∩ Gr_{≤μ} ≠ ∅) and supply a proof of closure(S_λ ∩ Gr_{≤μ}) = S̄_λ ∩ Gr_{≤μ}.
 
-**Reason or counterexample:** If S_λ ∩ Gr_{≤μ} = ∅ but some λ′ ≤ λ has S_{λ′} ∩ Gr_{≤μ} ≠ ∅, the left side is empty and the right side is not. Example: G = GL_2, μ = (1,0), Gr_{≤μ} = P^1, λ = (2,−1) = (1,0) + α^∨. S_{(2,−1)} ∩ Gr_{≤μ} = ∅, since its lattices contain p^{-1}(xe_1 + e_2) ∉ Λ_0. The right side is S_{(1,0)} ∩ P^1 ∪ S_{(0,1)} ∩ P^1 = P^1. The proof only cites [Zhu16, Prop. 5.3.6], which I checked: it proves S̄_λ = ∪_{λ′≤λ} S_{λ′} and says nothing about closures of the intersections with Gr_{≤μ}. For weights λ the refinement is plausible (I checked GL_2, μ = (2,0) and GL_3, μ = (1,0,−1) by hand) but it is not proved. Subsequent arguments (Corollary 2.10, (2.2.11)) only use S̄_λ. The same wording is in arXiv v2 (Lemma 2.5) and v3.
+**Reason or counterexample:** The closure operations differ already for GL₂, μ=(1,0) and λ=(2,−1). The initial intersection S_λ∩Gr_{≤μ} is empty, so its closure is empty; the union of the lower intersections S_(1,0) and S_(0,1) is the perfected P¹. The corrected operation closes S_λ first and then intersects Gr_{≤μ}. This counterexample is checked against the published p.433 display; it does not require a comparison with an unread preprint or Zhu16 edition.
 
 **Effect:** a stated result
 
@@ -4276,11 +4313,14 @@ The source ledger contains 23 findings. E1–E22 retain their identities, mathem
 
 **Verification state:** Independently checked against the recorded source version; see review verdict.
 
+**Current independent review:** confirmed — The closure bar on Zhu p.433 covers the intersection as printed. An empty initial orbit intersection can have nonempty intersection after closing the semi-infinite orbit; closing the orbit first and then imposing the bound is the required operation. Reviewer: `REV-GeometricSatakeAndFusion--GS0~2`; date: 2026-10-08.
+
+
 ### GeometricSatakeAndFusion/E8 — misprint
 
 **Locator:** p. 434, Corollary 2.8; p. 439, Corollary 2.14
 
-**Source assertion:** The intersection is assigned a common component dimension without a nonemptiness qualification: dim(S_λ ∩ Gr_{≤μ}) = (ρ, λ + μ).
+**Source assertion:** The source gives the components of the intersection a uniform dimension, dim(S_λ ∩ Gr_{≤μ}) = (ρ, λ + μ), without requiring that the intersection have any points.
 
 **Correction:** Add 'if nonempty, i.e. if λ is a weight of V_μ' to the dimension clause of Cor. 2.8, and 'if nonempty, i.e. if each λ_i is a weight of V_{μ_i}' to Cor. 2.14.
 
@@ -4302,11 +4342,14 @@ The source ledger contains 23 findings. E1–E22 retain their identities, mathem
 
 **Verification state:** Independently checked against the recorded source version; see review verdict.
 
+**Current independent review:** confirmed — Zhu’s dimension equalities on pp.434 and 439 apply to nonempty intersections. Coweights outside a bounded orbit’s weights give empty intersections and cannot have the asserted finite dimension. Reviewer: `REV-GeometricSatakeAndFusion--GS0~2`; date: 2026-10-08.
+
+
 ### GeometricSatakeAndFusion/E9 — misprint
 
 **Locator:** p. 435, Corollary 2.9
 
-**Source assertion:** The cycle-class basis is assigned to H^i_c(S_λ, IC_μ), with the index i left unspecified.
+**Source assertion:** The source places a basis of cycle classes in H^i_c(S_λ, IC_μ), without choosing a value for i.
 
 **Correction:** The relevant cycle classes give a basis for H_c^{(2ρ,λ)}(S_λ, IC_μ) = CT_λ(IC_μ).
 
@@ -4327,6 +4370,9 @@ The source ledger contains 23 findings. E1–E22 retain their identities, mathem
 **Historical independent review:** verdict: confirmed; reason: The basis occurs only in degree ⟨2ρ,λ⟩ by 2.7; the unbound index i in 2.9 is a misprint.; by: REV-GeometricSatakeAndFusion--GS0
 
 **Verification state:** Independently checked against the recorded source version; see review verdict.
+
+**Current independent review:** confirmed — The weight-basis statement on Zhu p.435 uses a free index i where its proof selects cohomological degree ⟨2ρ,λ⟩. Retaining arbitrary i would make the claimed basis false. Reviewer: `REV-GeometricSatakeAndFusion--GS0~2`; date: 2026-10-08.
+
 
 ### GeometricSatakeAndFusion/E10 — error
 
@@ -4354,11 +4400,14 @@ The source ledger contains 23 findings. E1–E22 retain their identities, mathem
 
 **Verification state:** Independently checked against the recorded source version; see review verdict.
 
+**Current independent review:** confirmed — The printed opposite filtration on Zhu p.436 contains higher ordinary weights and fails to complement the selected λ-piece. In the GL₂ minuscule example the point-support image is nonzero while the other filtration already equals total cohomology. Use support in the opposite orbit closure S̄⁻_λ for the splitting argument. Reviewer: `REV-GeometricSatakeAndFusion--GS0~2`; date: 2026-10-08.
+
+
 ### GeometricSatakeAndFusion/E11 — error
 
 **Locator:** p. 437, item (2) before Lemma 2.12
 
-**Source assertion:** The assertion makes Q_{1/2} maximal among parahoric subgroups.
+**Source assertion:** The source claims that no parahoric subgroup properly contains Q_{1/2}.
 
 **Correction:** Delete item (2), or state: Q_{1/2} is the parahoric of −θ/2, whose reductive quotient contains the SL_2 of the affine roots ±(θ^∨+1). It is maximal unless the simple factor containing θ is of type A_n with n ≥ 2.
 
@@ -4379,6 +4428,9 @@ The source ledger contains 23 findings. E1–E22 retain their identities, mathem
 **Historical independent review:** verdict: confirmed; reason: In type A₂ the point −θ/2 lies in an edge rather than a vertex, so its parahoric is not maximal. The statement is unused in the needed proof.; by: REV-GeometricSatakeAndFusion--GS0
 
 **Verification state:** Independently checked against the recorded source version; see review verdict.
+
+**Current independent review:** confirmed — For SL₃ on Zhu p.437, θ=(1,0,−1) and −θ/2 lies in the interior of an affine alcove edge, not at a vertex. Its parahoric Q_{1/2} is properly contained in the two endpoint parahorics, disproving the stated maximality. This assertion is not needed in the proof used by the packet. Reviewer: `REV-GeometricSatakeAndFusion--GS0~2`; date: 2026-10-08.
+
 
 ### GeometricSatakeAndFusion/E12 — error
 
@@ -4406,11 +4458,14 @@ The source ledger contains 23 findings. E1–E22 retain their identities, mathem
 
 **Verification state:** Independently checked against the recorded source version; see review verdict.
 
+**Current independent review:** confirmed — In Zhu’s quasi-minuscule calculation on p.439 the infinity section over the complement contributes to compact support. For SL₃ the printed expression omits a degree-two term and gives an incorrect zero-weight answer; restoring the section gives multiplicity two. Excision and even-degree splitting supply the correction without a canonical splitting claim. Reviewer: `REV-GeometricSatakeAndFusion--GS0~2`; date: 2026-10-08.
+
+
 ### GeometricSatakeAndFusion/E13 — misprint
 
 **Locator:** A.3.5, last paragraph, p. 482
 
-**Source assertion:** The independence-of-kernel construction allows a pro-algebraic kernel J₁ assumed pro-unipotent, without separately requiring connectedness.
+**Source assertion:** The source permits a pro-unipotent pro-algebraic J₁ in its construction independent of the kernel; connectedness is not an additional hypothesis.
 
 **Correction:** Require J_1 to be connected (as for the congruence subgroups L^+G^{(h)} used in the paper). Two admissible choices J_1, J_1' are then compared through the connected, normal, pro-unipotent subgroup J_1J_1' (or through J_1 ∩ J_1'), applying (A.3.4) to the connected groups J_1J_1'/J_1 and J_1J_1'/J_1', and (A.3.6) for cohomology.
 
@@ -4432,11 +4487,14 @@ The source ledger contains 23 findings. E1–E22 retain their identities, mathem
 
 **Verification state:** Independently checked against the recorded source version; see review verdict.
 
+**Current independent review:** confirmed — Zhu p.482 needs connected pro-unipotent groups in the intended geometric convention. If a broader definition allows a constant F_p group, its nontrivial representations disprove equivalence with vector spaces. The packet already uses connected congruence kernels. Reviewer: `REV-GeometricSatakeAndFusion--GS0~2`; date: 2026-10-08.
+
+
 ### GeometricSatakeAndFusion/E14 — misprint
 
 **Locator:** arXivv3 Lemmas7.7–7.8 pp28–29; Definition7.10 convention
 
-**Source assertion:** The isogeny cokernel is assigned projective dimension equal to 1.
+**Source assertion:** The source claims that the cokernel of an isogeny has projective dimension 1 exactly.
 
 **Correction:** Use projective dimension at most one, or separately exclude Q=0 when claiming equality one.
 
@@ -4461,6 +4519,9 @@ The source ledger contains 23 findings. E1–E22 retain their identities, mathem
 **Historical independent review:** verdict: confirmed; reason: The identity isogeny has zero cokernel. The intended projective-dimension condition is ≤1; equality one is not literally true for this degenerate case.; by: REV-GeometricSatakeAndFusion--GS0
 
 **Verification state:** Independently checked against the recorded source version; see review verdict.
+
+**Current independent review:** confirmed — BS arXiv v3 pp.28–29 includes the identity isogeny, whose cokernel is zero. The correct projective-dimension condition is at most one, and the nonzero torsion case has dimension one. Reviewer: `REV-GeometricSatakeAndFusion--GS0~2`; date: 2026-10-08.
+
 
 ### GeometricSatakeAndFusion/E15 — misprint
 
@@ -4490,11 +4551,14 @@ The source ledger contains 23 findings. E1–E22 retain their identities, mathem
 
 **Verification state:** Independently checked against the recorded source version; see review verdict.
 
+**Current independent review:** confirmed — The locus notation on BS arXiv v3 p.29 is being defined by the displayed condition. Equality/definition notation is intended; reading the containment as a further restriction is unsupported. Reviewer: `REV-GeometricSatakeAndFusion--GS0~2`; date: 2026-10-08.
+
+
 ### GeometricSatakeAndFusion/E16 — gap
 
 **Locator:** p. 35, proof of Theorem 8.3, second paragraph
 
-**Source assertion:** Induction is invoked for the ampleness of L|⋃_{μ<λ}Gr_{≤μ} before representability of that union has been established.
+**Source assertion:** The proof appeals to induction to show that L|⋃_{μ<λ}Gr_{≤μ} is ample, although it has not yet shown that the union is representable.
 
 **Correction:** Before invoking Keel, show that Y = ∪_{μ<λ}Gr_{≤μ} is the perfection of a proper algebraic space. Here Y is the image sheaf of ⊔_{μ<λ}Gr_{≤μ}, equivalently the closed complement of Gr_λ. The map ⊔Gr_{≤μ} → Y is a v-cover. Its equivalence relation is given by the closed intersections Gr_{≤μ} ×_{Gr_{≤λ}} Gr_{≤μ'}. So Y is the iterated pushout of the Gr_{≤μ} along these intersections. Affine-locally this pushout is A1 ×_{A12} A2, which is perfect and satisfies A1 ⊗_A A2 = A12. On finite-type models the pushout is a proper algebraic space by [Ar70, 6.1]. Next, every subvariety of Y lies in some Gr_{≤μ}, where L is ample, so E(L|_Y) = ∅. Keel's Lemma 1.8, applied inductively over the pieces, then makes L|_Y semiample. Its morphism contracts no curve, hence is finite, so L|_Y is ample. Alternatively, cite Zhu's Theorem 8.2, which makes Y a closed subspace of a proper perfect algebraic space; but then the proof is no longer independent of Zhu as claimed (p. 32).
 
@@ -4518,6 +4582,9 @@ The source ledger contains 23 findings. E1–E22 retain their identities, mathem
 
 **Verification state:** Independently checked against the recorded source version; see review verdict.
 
+**Current independent review:** confirmed — The BS projectivity induction on arXiv v3 p.35 invokes positivity on the lower-bound union before constructing that union as a proper pfp perfect space. The SF1 finite-pushout request records the missing proof step; no failure of projectivity is alleged. Reviewer: `REV-GeometricSatakeAndFusion--GS0~2`; date: 2026-10-08.
+
+
 ### GeometricSatakeAndFusion/E17 — error
 
 **Locator:** p. 37, the sentence introducing Kottwitz' map and Proposition 9.7 ([Zhu14, Proposition 1.21])
@@ -4526,7 +4593,7 @@ The source ledger contains 23 findings. E1–E22 retain their identities, mathem
 
 **Correction:** Add the hypothesis 'k algebraically closed' (as in [Zhu14, §1.5.2]); then Gal_K is the inertia group. For a general perfect k: Kottwitz's map is κ: LG(k̄) = G(W_{O_K}(k̄)[1/p]) → π1(G)_{I_K}, where I_K ⊂ Gal_K is the inertia subgroup. It induces Gal(k̄/k)-equivariant bijections π0(LG_{k̄}) ≅ π0(Gr_{𝒢,k̄}) ≅ π1(G)_{I_K}. The connected components over k are the Gal(k̄/k)-orbits on π1(G)_{I_K}.
 
-**Reason or counterexample:** §9 fixes only a perfect residue field k, but Zhu states Prop. 1.21 in a subsection (§1.5.2 of arXiv v1/v2, §1.4.2 of v3) whose standing hypotheses require algebraically closed k. Kottwitz's map for the field W_{O_K}(k̄)[1/p] = K̆ lands in the inertia coinvariants π1(G)_{I_K}, not in π1(G)_{Gal_K}. Counterexample for finite k: let K'/K be unramified quadratic with residue field k', T = Res_{K'/K} G_m, and 𝒢 = Res_{O_K'/O_K} G_m its connected Néron model (parahoric). Then Gr_𝒢 = Res_{k'/k}(Z), whose geometric components form Z² with Frobenius swapping the factors, while π1(T)_{Gal_K} = Z²/(e1−e2) = Z. Neither the k-components (Frobenius orbits, e.g. {(0,0)} and {(1,−1),(−1,1)} both lying over 0) nor the geometric components (Z²) are in bijection with Z. Defence: for k algebraically closed, the case of Zhu's source, the statement is correct. The only subsequent use, in the proof of Proposition 10.3 for SL_n where π1 = 0, is unaffected. The same text appears in v1 and v2.
+**Reason or counterexample:** For finite k and an unramified quadratic extension K′/K, take T=Res_{K′/K}G_m with its connected integral model. The geometric components of its affine Grassmannian form ℤ² with Frobenius exchanging the coordinates, whereas full Galois coinvariants give ℤ. Thus BS arXiv v3 p.37 must use inertia coinvariants for geometric components and retain residual Frobenius. Zhu’s published Proposition 1.21 on p.427 has an algebraically closed residue-field standing setting; the broader finite-k assertion does not follow from that setting. The SL_n application has trivial π₁ and is unaffected.
 
 **Effect:** a stated result
 
@@ -4545,6 +4612,9 @@ The source ledger contains 23 findings. E1–E22 retain their identities, mathem
 **Historical independent review:** verdict: confirmed; reason: Geometric components use inertia coinvariants. An unramified restriction-of-scalars torus separates these from full-Galois coinvariants; the issue is scoped to the non-algebraically-closed base.; by: REV-GeometricSatakeAndFusion--GS0
 
 **Verification state:** Independently checked against the recorded source version; see review verdict.
+
+**Current independent review:** confirmed — BS arXiv v3 p.37 concerns geometric components. Inertia coinvariants retain a residual Frobenius action; passing directly to full Galois coinvariants would lose those geometric components. Reviewer: `REV-GeometricSatakeAndFusion--GS0~2`; date: 2026-10-08.
+
 
 ### GeometricSatakeAndFusion/E18 — gap
 
@@ -4574,6 +4644,9 @@ The source ledger contains 23 findings. E1–E22 retain their identities, mathem
 
 **Verification state:** Independently checked against the recorded source version; see review verdict.
 
+**Current independent review:** confirmed — The line on BS arXiv v3 p.37 exists for ramified coefficients, but the cited sentence alone does not prove its ampleness. Restriction of scalars with compatible finite proper bounded models supplies the extra positivity route requested from the owners. Reviewer: `REV-GeometricSatakeAndFusion--GS0~2`; date: 2026-10-08.
+
+
 ### GeometricSatakeAndFusion/E19 — misprint
 
 **Locator:** p. 37, last paragraph (after Proposition 10.1)
@@ -4602,6 +4675,9 @@ The source ledger contains 23 findings. E1–E22 retain their identities, mathem
 
 **Verification state:** Independently checked against the recorded source version; see review verdict.
 
+**Current independent review:** confirmed — The Witt torsion quotient on BS arXiv v3 p.37 is not an ordinary R-vector bundle to which det_R applies. The extended determinant with the inverse standard-lattice factor gives the SL normalization used by the node. Reviewer: `REV-GeometricSatakeAndFusion--GS0~2`; date: 2026-10-08.
+
+
 ### GeometricSatakeAndFusion/E20 — misprint
 
 **Source:** Zhu17
@@ -4626,13 +4702,16 @@ The source ledger contains 23 findings. E1–E22 retain their identities, mathem
 
 **Historical independent review:** verdict: confirmed; reason: The normalized IC in the paper’s Satake construction is perverse. On a smooth curve Q_ℓ[2] lies one degree away from the perverse constant Q_ℓ[1]. This printed formula confuses IC normalization with the smooth dualizing complex.; by: REV-GeometricSatakeAndFusion--GS0
 
+**Current independent review:** confirmed — For a smooth d-dimensional stratum, Zhu p.478 uses IC restricted as the constant sheaf shifted by d; its dualizing complex is shifted by 2d with twist d. Identifying them directly loses a shift and twist. Reviewer: `REV-GeometricSatakeAndFusion--GS0~2`; date: 2026-10-08.
+
+
 ### GeometricSatakeAndFusion/E21 — error
 
 **Source:** Zhu17
 
 **Locator:** A.3.3, pp.479–480
 
-**Source assertion:** Comparison between finite models is asserted to preserve the class normalizations c_{X′} and c_{X″}.
+**Source assertion:** The source claims that passing between finite models leaves c_{X′} and c_{X″}, the normalized classes, unchanged.
 
 **Correction:** Fix the finite model and account for the purely inseparable degree in trace/fundamental-class comparisons.
 
@@ -4650,13 +4729,16 @@ The source ledger contains 23 findings. E1–E22 retain their identities, mathem
 
 **Historical independent review:** verdict: confirmed; reason: Relative Frobenius P¹→P¹ has degree p and pulls c₁(O(1)) to p·c₁(O(1)). It induces an étale-topos equivalence and an isomorphism on rational top cohomology, but does not preserve the scalar trace normalization. Thus the claimed model independence fails.; by: REV-GeometricSatakeAndFusion--GS0
 
+**Current independent review:** confirmed — Zhu pp.479–480 uses a trace in top cohomology. Frobenius on an ordinary P¹ model has degree p and changes that trace normalization. Universal-homeomorphism invariance of the étale topos does not identify these model-dependent trace maps without normalization. Reviewer: `REV-GeometricSatakeAndFusion--GS0~2`; date: 2026-10-08.
+
+
 ### GeometricSatakeAndFusion/E22 — misprint
 
 **Source:** FS-geometrization
 
 **Locator:** Corollary VI.3.8, p.207
 
-**Source assertion:** The semi-infinite intersection is assigned the stated common component dimension without a nonemptiness qualification.
+**Source assertion:** The source gives a uniform dimension for components of the semi-infinite intersection, with no assumption that the intersection contains a point.
 
 **Correction:** Qualify the intersection dimension equality by nonemptiness, as also required for Zhu Corollary2.8.
 
@@ -4673,6 +4755,9 @@ The source ledger contains 23 findings. E1–E22 retain their identities, mathem
 **Added by:** REV-GeometricSatakeAndFusion--GS0
 
 **Historical independent review:** verdict: confirmed; reason: For GL₂ μ=(1,0), λ=(2,−1) is outside the weights of the minuscule bound, so S_λ∩Gr_{≤μ} is empty while ⟨ρ,μ+λ⟩=2. The closed-filtration proof applies to the nonempty strata.; by: REV-GeometricSatakeAndFusion--GS0
+
+**Current independent review:** confirmed — FS p.207’s numerical dimension formula needs a nonempty intersection. The GL₂ minuscule bound and λ=(2,−1) give an empty intersection despite a positive numerical expression. Reviewer: `REV-GeometricSatakeAndFusion--GS0~2`; date: 2026-10-08.
+
 
 ### GeometricSatakeAndFusion/E23 — misprint
 
@@ -4699,6 +4784,38 @@ The source ledger contains 23 findings. E1–E22 retain their identities, mathem
 **Added by:** BP-GeometricSatakeAndFusion--GS0~2
 
 **Verification state:** Verified directly against the published page, including its rendered image; not an author-endorsed erratum.
+
+**Current independent review:** confirmed — In Zhu’s published p.436 proof the restriction IC_μ|Gr_μ has shift d_μ. Thus H_c^r with IC becomes unshifted constant-coefficient H_c^{r+d_μ}. The minuscule GL₂ affine-line example has nonzero H_c² and zero H_c¹. Reviewer: `REV-GeometricSatakeAndFusion--GS0~2`; date: 2026-10-08.
+
+
+### GeometricSatakeAndFusion/E24 — misprint
+
+**Source:** FS-geometrization
+
+**Locator:** Description of the geometric-point degree function immediately before Proposition VI.3.1, printed/PDF p.202; compare Lemma VI.3.2 and its proof, pp.203–204, and collision bounds VI.2.6, p.200
+
+**Source assertion:** After identifying the geometric Grassmannian with factors indexed by the distinct untilts, the description weights each factor’s local cocharacter by that untilt’s multiplicity among the ordered legs.
+
+**Correction:** Sum the combined local cocharacters once over the distinct geometric supports. In a coincident block the local cocharacter already sums the ordered-leg labels. Retain the multiplicity in the product Cartier equation ξ, without applying it again to the local valuation or cocenter degree.
+
+**Reason or counterexample:** Take G=G_m and two coincident degree-one legs with primitive equation t. Completion for ξ=t² is the same as t-adic completion, and its geometric positive ring is one DVR B⁺. The ordered labels (1,0) give the lattice L=tB⁺, whose local cocharacter and ordinary length length(B⁺/L) are one. The printed extra weight gives two. Alternatively L=ξB⁺=t²B⁺ has ordinary position two and the printed weighting gives four. The sum over ordered labels at the start of p.202 and the product-DVR length identification in VI.3.2 both select the unweighted combined local cocharacter. This does not remove the collision addition of Schubert bounds.
+
+**Effect:** nothing
+
+**Published-correction status:** new; no author-endorsed correction found in the bounded primary-source search on 2026-10-08
+
+**Version scope:** Established only for the exact author-hosted PDF recorded above. No comparison with the arXiv PDF or the Astérisque version of record is claimed.
+
+**Recorded correction search:**
+
+- 2026-10-08: inspected the author-hosted PDF https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf, SHA256 9ab9efbd0df251bfa3b610d1d1d88a8dfb1bdf7c397bd04f4c277280d98ae905, including rendered p.202 and the surrounding pp.200–204.
+- 2026-10-08: opened https://people.mpim-bonn.mpg.de/scholze/papers.html; no separate correction for this passage was listed.
+- 2026-10-08: opened https://arxiv.org/abs/2102.13459 and checked its version metadata (v4 dated 27 November 2024). The arXiv PDF was not downloaded or compared.
+- 2026-10-08: searched the author domain and arxiv.org for Geometrization with correction, errata, VI.3.1 and multiplicity, and searched the exact title with erratum. No relevant author-endorsed correction was retrieved.
+
+**Current independent review:** confirmed — The repeated-leg torus example distinguishes Cartier multiplicity from the already combined local cocharacter. The neighbouring ordinary-length proof fixes the intended convention, so this is a descriptive misprint with no change to the intended results. Reviewer: `REV-GeometricSatakeAndFusion--GS0~2`; date: 2026-10-08.
+
+**Added by:** `REV-GeometricSatakeAndFusion--GS0~2`. Source assertion prose is paraphrased.
 
 ## Routed-source reconciliation
 
@@ -4964,11 +5081,14 @@ These are proposals and observations for the maintainer. This job changes only i
 
 ## Suggested-file validation and revision limits
 
-This revision was not compiled. No build of the pinned libraries is available in
-the worker workspace, and no build or cache was created. The previous independent
-review reported a successful Mathlib-only projection and a missing prebuilt Tau Ceti
-line-bundle object for the full file; those are historical checks of the earlier
-version, not validation of this revision.
+The full suggested file was not compiled: no existing build has both recorded
+pins. No library build or cache was created. On 2026-10-08 this independent review
+ran `lean-check` on a Mathlib-only projection of this revision at Mathlib
+`082e2d37e8b0463410cdb532e111cd43d5a66174`; it passed with only `sorry` warnings.
+The projection removed the Tau Ceti import and the entire
+`geometric-determinant-line` and `h-descent-and-fibral-criterion` node blocks.
+Those blocks, the full file, and all omitted geometric hypotheses remain
+unvalidated by that check.
 
 The suggested file retains the accepted algebraic and categorical cores and makes
 the remaining geometric boundaries explicit. Newly added source lemmas reserve
@@ -4980,3 +5100,7 @@ remains a follow-up task once the required environment and interfaces exist.
 ## Revision record
 
 job: BP-GeometricSatakeAndFusion--GS0~2; issue: 7303; date: 2026-10-07; agent: ChatGPT GPT-6 Astra Pro; session: gpt6astra-e19d65722997; inputCommit: 4689b245047bbf5817d9304ec7fff6b98f19ab31; preserved: All 59 inherited node IDs and their relative order, the historical top-level review, E1–E22 identities and mathematical corrections, and every historical source review. Source assertion descriptions are paraphrased to follow the superseding source-presentation rule adopted in main22f67751dcda86cd61c81a2213b5557123eab845.; newTargets: GeometricSatakeAndFusion:GS0:loop-geometry/etale-over-divisor; GeometricSatakeAndFusion:GS1/lattice-relative-position-semicontinuity; GeometricSatakeAndFusion:GS1/length-semicontinuity; changes: Synchronized the entire reader with the packet, including hypotheses, proof steps, dependencies, API, tests, coverage, baseline, requests, gaps and source findings.; Corrected the Witt right-factor lift claim and distinguished the full-lift unit determinant from the truncated Teichmüller equation; added a finite stabilizer regression.; Made the inherited perfect-complex/nonprojective-cohomology regression a named packet/reader test.; Corrected precise source scopes, labels and source attachments; supplied the actual ULA diagonal-duality proof and finite-filtration parity degeneration.; Imported existing VS1 hyperbolic and relative-ULA calculus nodes directly; narrowed the request to bounded Artin Hecke-chart transport and filtered ordinary-cohomology continuity.; Recorded new published-source finding E23 with its IC-shift correction, minuscule counterexample, exact version and bounded correction search.; Updated the nine rank-two route explanations to agree with the chosen-factor integrality proof and the remaining typed quotient/open-chart obligations.; validationLimit: No existing pinned build or full declaration index is available. No Lean compilation, library build, cache setup or LSP was performed. Prior projection checks remain historical.; correctedRouteReasons: PAPER-ZHU-17/B16; PAPER-ZHU-17/B17; PAPER-ZHU-17/B18; PAPER-ZHU-17/B19; PAPER-ZHU-17/B20; PAPER-ZHU-17/V23-witt-description; PAPER-ZHU-17/functor-W-decomposable; PAPER-ZHU-17/W-tilde-decomposition-claim; PAPER-ZHU-17/cone-chart-action-map-iso; concurrentProtocolUpdate: commit: 22f67751dcda86cd61c81a2213b5557123eab845; date: 2026-10-07; scope: PROTOCOL§5/§18 now require statements in our own words, no excerpt fields or copied source prose; incorrect formulas may be recorded as mathematics. The concurrent GS0 packet change only deleted excerpts. This revision adopts that change and paraphrases source-assertion descriptions while preserving mathematical content, IDs and historical reviews.; removedSourceFields: 130; paraphrasedSourceFields: 39; sourceIssuesWithPresentationChanges: GeometricSatakeAndFusion/E1; GeometricSatakeAndFusion/E5; GeometricSatakeAndFusion/E6; GeometricSatakeAndFusion/E8; GeometricSatakeAndFusion/E9; GeometricSatakeAndFusion/E11; GeometricSatakeAndFusion/E13; GeometricSatakeAndFusion/E14; GeometricSatakeAndFusion/E16; GeometricSatakeAndFusion/E21; GeometricSatakeAndFusion/E22; GeometricSatakeAndFusion/E2; GeometricSatakeAndFusion/E15; GeometricSatakeAndFusion/E17; GeometricSatakeAndFusion/E3; GeometricSatakeAndFusion/E4; GeometricSatakeAndFusion/E7; GeometricSatakeAndFusion/E10; GeometricSatakeAndFusion/E12; GeometricSatakeAndFusion/E18; GeometricSatakeAndFusion/E19; GeometricSatakeAndFusion/E23
+
+## Current independent review
+
+Accepted by Codex, session `codex-QiJw0o`, job `REV-GeometricSatakeAndFusion--GS0~2`, on 2026-10-08. All 62 nodes have individual verdicts: 58 verified and 4 corrected. The review checks all 30 pinned baseline declarations, eight public source versions, 79 direct supplier prerequisites, 23 requests, 73 API items, 72 tests, 25 planets, all eight planned stages and the six supplied red-team findings. The 24 source issues are individually confirmed with their stated qualifications. The full pass retains 10 explicit gaps and no closed stage. Every implementation status is unchecked. Exact audit extents, source hashes, corrections and the full-file Lean limit are recorded in the companion [review report](../reviews/REV-GeometricSatakeAndFusion--GS0~2.md).

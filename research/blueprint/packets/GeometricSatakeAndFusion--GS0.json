@@ -30,12 +30,19 @@
           "moduleBlob": "7f61d1db574cc9bc1799108264924ba51c6fd92f",
           "moduleSha256": "85d3b2ce8581eff133e9f89fb1e450cb623ebd29fe13b95623e214459eff968d",
           "read": "The actual declaration and surrounding hypotheses were read at this pin; this is an individual source read, not a full declaration-index or Lean compilation check."
+        },
+        "independentReviewChecked": {
+          "job": "REV-GeometricSatakeAndFusion--GS0~2",
+          "date": "2026-10-08",
+          "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "moduleSha256": "85d3b2ce8581eff133e9f89fb1e450cb623ebd29fe13b95623e214459eff968d",
+          "read": "The exact declaration, surrounding hypotheses and relevant instances were read at this pin; the existing module hash was independently recomputed. No full declaration-index audit or full Lean compilation is claimed."
         }
       },
       {
         "ref": "mathlib:PerfectRing",
         "module": "Mathlib/FieldTheory/Perfect.lean",
-        "provides": "Perfect rings of characteristic p. Bhatt-Scholze work throughout with perfect F_p-algebras, because for a general F_p-algebra W(R) has p-torsion and W(R)/p -> R need not be an isomorphism; this is the pinned carrier for that hypothesis.",
+        "provides": "PerfectRing R p asserts bijectivity of the p-th power map on a type with powers; it does not itself assert that p is prime or that R has characteristic p. The Witt geometric applications separately require a commutative ring, Fact p.Prime and CharP R p, giving a perfect F_p-algebra. This is the algebraic hypothesis carrier, not a representability result.",
         "checked": "Independently read the actual declaration and hypotheses at the indicated pinned commit, REV-GeometricSatakeAndFusion--GS0, 2026-10-07.",
         "revisionChecked": {
           "job": "BP-GeometricSatakeAndFusion--GS0~2",
@@ -44,6 +51,13 @@
           "moduleBlob": "ea762fd57d45617b2cf1ba37c226e41959978721",
           "moduleSha256": "557a6c6312edd40b889d07a9546a0d97bca53abcc08db3a778137aca7de59fe0",
           "read": "The actual declaration and surrounding hypotheses were read at this pin; this is an individual source read, not a full declaration-index or Lean compilation check."
+        },
+        "independentReviewChecked": {
+          "job": "REV-GeometricSatakeAndFusion--GS0~2",
+          "date": "2026-10-08",
+          "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "moduleSha256": "557a6c6312edd40b889d07a9546a0d97bca53abcc08db3a778137aca7de59fe0",
+          "read": "The exact declaration, surrounding hypotheses and relevant instances were read at this pin; the existing module hash was independently recomputed. No full declaration-index audit or full Lean compilation is claimed."
         }
       },
       {
@@ -58,6 +72,13 @@
           "moduleBlob": "7b6780cadcf0a4d2df6c5bf7e4356b95d059e8d9",
           "moduleSha256": "7252c65ef22e7b5fd516392a4e062f0d12150924ea055b65f08bc707db9d814a",
           "read": "The actual declaration and surrounding hypotheses were read at this pin; this is an individual source read, not a full declaration-index or Lean compilation check."
+        },
+        "independentReviewChecked": {
+          "job": "REV-GeometricSatakeAndFusion--GS0~2",
+          "date": "2026-10-08",
+          "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "moduleSha256": "7252c65ef22e7b5fd516392a4e062f0d12150924ea055b65f08bc707db9d814a",
+          "read": "The exact declaration, surrounding hypotheses and relevant instances were read at this pin; the existing module hash was independently recomputed. No full declaration-index audit or full Lean compilation is claimed."
         }
       },
       {
@@ -72,6 +93,13 @@
           "moduleBlob": "30481d9a0154cb7d7ac4eac4e46da96b7adb7e45",
           "moduleSha256": "d75c6a9ab9a1602b04e570c9b88ba6b63821732586a6791f75d209a58a8a3dd7",
           "read": "The actual declaration and surrounding hypotheses were read at this pin; this is an individual source read, not a full declaration-index or Lean compilation check."
+        },
+        "independentReviewChecked": {
+          "job": "REV-GeometricSatakeAndFusion--GS0~2",
+          "date": "2026-10-08",
+          "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "moduleSha256": "d75c6a9ab9a1602b04e570c9b88ba6b63821732586a6791f75d209a58a8a3dd7",
+          "read": "The exact declaration, surrounding hypotheses and relevant instances were read at this pin; the existing module hash was independently recomputed. No full declaration-index audit or full Lean compilation is claimed."
         }
       },
       {
@@ -86,12 +114,19 @@
           "moduleBlob": "f6a788bf200f4db0f407866e996b30e08b0eab68",
           "moduleSha256": "2432c56eef36af4fcc3aa0dec76f0204be2c41c4cd55abc7812668371769db5f",
           "read": "The actual declaration and surrounding hypotheses were read at this pin; this is an individual source read, not a full declaration-index or Lean compilation check."
+        },
+        "independentReviewChecked": {
+          "job": "REV-GeometricSatakeAndFusion--GS0~2",
+          "date": "2026-10-08",
+          "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "moduleSha256": "2432c56eef36af4fcc3aa0dec76f0204be2c41c4cd55abc7812668371769db5f",
+          "read": "The exact declaration, surrounding hypotheses and relevant instances were read at this pin; the existing module hash was independently recomputed. No full declaration-index audit or full Lean compilation is claimed."
         }
       },
       {
         "ref": "tauceti:TauCeti.AlgebraicGeometry.InvertibleSheaf",
         "module": "TauCeti/AlgebraicGeometry/LineBundle/Basic.lean",
-        "provides": "Invertible sheaves on a scheme. The line bundle L on the Witt vector affine Grassmannian, the Demazure bundle it descends from, and the line bundle I_S^m/I_S^{m+1} on the divisor are all of this type. Tau Ceti has the carrier; what it does not have is ampleness.",
+        "provides": "Invertible sheaves on an ordinary scheme, including the Witt-bound and Demazure determinant lines after those schemes are constructed. This carrier supplies neither ampleness nor the adic Cartier-divisor line I_S^m/I_S^{m+1}; the latter belongs to the RF2/RF4 geometric interfaces.",
         "checked": "Independently read the actual declaration and hypotheses at the indicated pinned commit, REV-GeometricSatakeAndFusion--GS0, 2026-10-07.",
         "revisionChecked": {
           "job": "BP-GeometricSatakeAndFusion--GS0~2",
@@ -100,6 +135,13 @@
           "moduleBlob": "9cabe8119dae928660241964d6c097df9fba0cf4",
           "moduleSha256": "a5b3a45ddf3e6d8ecee349b6a85d8e6381127b7bfbe6a4d70ac761c0340e3e43",
           "read": "The actual declaration and surrounding hypotheses were read at this pin; this is an individual source read, not a full declaration-index or Lean compilation check."
+        },
+        "independentReviewChecked": {
+          "job": "REV-GeometricSatakeAndFusion--GS0~2",
+          "date": "2026-10-08",
+          "pin": "f790474821cf4256814db967cb154e7af3d0c369",
+          "moduleSha256": "a5b3a45ddf3e6d8ecee349b6a85d8e6381127b7bfbe6a4d70ac761c0340e3e43",
+          "read": "The exact declaration, surrounding hypotheses and relevant instances were read at this pin; the existing module hash was independently recomputed. No full declaration-index audit or full Lean compilation is claimed."
         }
       },
       {
@@ -114,6 +156,13 @@
           "moduleBlob": "556b92e9135ec07d3437ab012daf6312c8563787",
           "moduleSha256": "bd36a83919e4951b3e54e927d63e80f15447e6e1440abb2979729a3f4486f195",
           "read": "The actual declaration and surrounding hypotheses were read at this pin; this is an individual source read, not a full declaration-index or Lean compilation check."
+        },
+        "independentReviewChecked": {
+          "job": "REV-GeometricSatakeAndFusion--GS0~2",
+          "date": "2026-10-08",
+          "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "moduleSha256": "bd36a83919e4951b3e54e927d63e80f15447e6e1440abb2979729a3f4486f195",
+          "read": "The exact declaration, surrounding hypotheses and relevant instances were read at this pin; the existing module hash was independently recomputed. No full declaration-index audit or full Lean compilation is claimed."
         }
       },
       {
@@ -128,6 +177,13 @@
           "moduleBlob": "92c6b0b8d761791d0ba013c7ca5c617cca68a10d",
           "moduleSha256": "4169994a1c480356bc4a3e7b5a2186ba1fdc4c784c97a78ec7de4f0a0c0c05ca",
           "read": "The actual declaration and surrounding hypotheses were read at this pin; this is an individual source read, not a full declaration-index or Lean compilation check."
+        },
+        "independentReviewChecked": {
+          "job": "REV-GeometricSatakeAndFusion--GS0~2",
+          "date": "2026-10-08",
+          "pin": "f790474821cf4256814db967cb154e7af3d0c369",
+          "moduleSha256": "4169994a1c480356bc4a3e7b5a2186ba1fdc4c784c97a78ec7de4f0a0c0c05ca",
+          "read": "The exact declaration, surrounding hypotheses and relevant instances were read at this pin; the existing module hash was independently recomputed. No full declaration-index audit or full Lean compilation is claimed."
         }
       },
       {
@@ -142,6 +198,13 @@
           "moduleBlob": "067b9da7c0525075224198060f339c5b2a589bd5",
           "moduleSha256": "26c2d862280f432882f01d3f1fdf635569f38e7c3a7ca3fb5051ca54c562ff00",
           "read": "The actual declaration and surrounding hypotheses were read at this pin; this is an individual source read, not a full declaration-index or Lean compilation check."
+        },
+        "independentReviewChecked": {
+          "job": "REV-GeometricSatakeAndFusion--GS0~2",
+          "date": "2026-10-08",
+          "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "moduleSha256": "26c2d862280f432882f01d3f1fdf635569f38e7c3a7ca3fb5051ca54c562ff00",
+          "read": "The exact declaration, surrounding hypotheses and relevant instances were read at this pin; the existing module hash was independently recomputed. No full declaration-index audit or full Lean compilation is claimed."
         }
       },
       {
@@ -156,6 +219,13 @@
           "moduleBlob": "c4f6a2b34f88d81c397b3b6879d83949679b7009",
           "moduleSha256": "855750108867871ba28df452135a8d7da7b5590a55d98eb0359e7d0d44f18317",
           "read": "The actual declaration and surrounding hypotheses were read at this pin; this is an individual source read, not a full declaration-index or Lean compilation check."
+        },
+        "independentReviewChecked": {
+          "job": "REV-GeometricSatakeAndFusion--GS0~2",
+          "date": "2026-10-08",
+          "pin": "f790474821cf4256814db967cb154e7af3d0c369",
+          "moduleSha256": "855750108867871ba28df452135a8d7da7b5590a55d98eb0359e7d0d44f18317",
+          "read": "The exact declaration, surrounding hypotheses and relevant instances were read at this pin; the existing module hash was independently recomputed. No full declaration-index audit or full Lean compilation is claimed."
         }
       },
       {
@@ -170,6 +240,13 @@
           "moduleBlob": "e03d365ad1e05af55cfc3eb5197a06becea4a996",
           "moduleSha256": "c756dec8e15f75f2604f9c42d169c0394f7db3a8d78047a8486f17d3937bef3a",
           "read": "The actual declaration and surrounding hypotheses were read at this pin; this is an individual source read, not a full declaration-index or Lean compilation check."
+        },
+        "independentReviewChecked": {
+          "job": "REV-GeometricSatakeAndFusion--GS0~2",
+          "date": "2026-10-08",
+          "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "moduleSha256": "c756dec8e15f75f2604f9c42d169c0394f7db3a8d78047a8486f17d3937bef3a",
+          "read": "The exact declaration, surrounding hypotheses and relevant instances were read at this pin; the existing module hash was independently recomputed. No full declaration-index audit or full Lean compilation is claimed."
         }
       },
       {
@@ -184,6 +261,13 @@
           "moduleBlob": "8a9811e67458c62c5d157471de9689f307982d74",
           "moduleSha256": "c54f17b81393dd4cf5264288308547d28cc2fba3e940b28c962d844e3296442c",
           "read": "The actual declaration and surrounding hypotheses were read at this pin; this is an individual source read, not a full declaration-index or Lean compilation check."
+        },
+        "independentReviewChecked": {
+          "job": "REV-GeometricSatakeAndFusion--GS0~2",
+          "date": "2026-10-08",
+          "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "moduleSha256": "c54f17b81393dd4cf5264288308547d28cc2fba3e940b28c962d844e3296442c",
+          "read": "The exact declaration, surrounding hypotheses and relevant instances were read at this pin; the existing module hash was independently recomputed. No full declaration-index audit or full Lean compilation is claimed."
         }
       },
       {
@@ -198,6 +282,13 @@
           "moduleBlob": "334496d1ca65a779532e58d8ad914c532c8ce2ca",
           "moduleSha256": "e11dc94205419b028af8ee19ab1b0bb0c6f7ced60cb89857a44d4b08ccb5e458",
           "read": "The actual declaration and surrounding hypotheses were read at this pin; this is an individual source read, not a full declaration-index or Lean compilation check."
+        },
+        "independentReviewChecked": {
+          "job": "REV-GeometricSatakeAndFusion--GS0~2",
+          "date": "2026-10-08",
+          "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "moduleSha256": "e11dc94205419b028af8ee19ab1b0bb0c6f7ced60cb89857a44d4b08ccb5e458",
+          "read": "The exact declaration, surrounding hypotheses and relevant instances were read at this pin; the existing module hash was independently recomputed. No full declaration-index audit or full Lean compilation is claimed."
         }
       },
       {
@@ -212,6 +303,13 @@
           "moduleBlob": "7402a18549f6348d33a7f9375c3c2cab542d03f8",
           "moduleSha256": "fb849d911197dbcf364a20cfdc524cf8bbd9180d408bff7d8407d58e019d8cbc",
           "read": "The actual declaration and surrounding hypotheses were read at this pin; this is an individual source read, not a full declaration-index or Lean compilation check."
+        },
+        "independentReviewChecked": {
+          "job": "REV-GeometricSatakeAndFusion--GS0~2",
+          "date": "2026-10-08",
+          "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "moduleSha256": "fb849d911197dbcf364a20cfdc524cf8bbd9180d408bff7d8407d58e019d8cbc",
+          "read": "The exact declaration, surrounding hypotheses and relevant instances were read at this pin; the existing module hash was independently recomputed. No full declaration-index audit or full Lean compilation is claimed."
         }
       },
       {
@@ -226,6 +324,13 @@
           "moduleBlob": "641ee8ef3e6d50a25451d92da7942af3292fa026",
           "moduleSha256": "e186b91a924c25ec3bdf802a47a2f83aeacac23e085e93025c0c875c07f4b1de",
           "read": "The actual declaration and surrounding hypotheses were read at this pin; this is an individual source read, not a full declaration-index or Lean compilation check."
+        },
+        "independentReviewChecked": {
+          "job": "REV-GeometricSatakeAndFusion--GS0~2",
+          "date": "2026-10-08",
+          "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "moduleSha256": "e186b91a924c25ec3bdf802a47a2f83aeacac23e085e93025c0c875c07f4b1de",
+          "read": "The exact declaration, surrounding hypotheses and relevant instances were read at this pin; the existing module hash was independently recomputed. No full declaration-index audit or full Lean compilation is claimed."
         }
       },
       {
@@ -240,6 +345,13 @@
           "moduleBlob": "31006495882f54a165c8d0821ed7f9a7f81e813c",
           "moduleSha256": "7cfa1dbe1bc7ac44fabb7cef395478d7978e72e5282fa67310bf7248ff1d611d",
           "read": "The actual declaration and surrounding hypotheses were read at this pin; this is an individual source read, not a full declaration-index or Lean compilation check."
+        },
+        "independentReviewChecked": {
+          "job": "REV-GeometricSatakeAndFusion--GS0~2",
+          "date": "2026-10-08",
+          "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "moduleSha256": "7cfa1dbe1bc7ac44fabb7cef395478d7978e72e5282fa67310bf7248ff1d611d",
+          "read": "The exact declaration, surrounding hypotheses and relevant instances were read at this pin; the existing module hash was independently recomputed. No full declaration-index audit or full Lean compilation is claimed."
         }
       },
       {
@@ -254,6 +366,13 @@
           "moduleBlob": "4990e8716361fe01b33d9c54baa5b822b08e8eee",
           "moduleSha256": "9314fb723d2a1efa82801e0aaacdb702b6cb3498c65b986018625f851b64dca9",
           "read": "The actual declaration and surrounding hypotheses were read at this pin; this is an individual source read, not a full declaration-index or Lean compilation check."
+        },
+        "independentReviewChecked": {
+          "job": "REV-GeometricSatakeAndFusion--GS0~2",
+          "date": "2026-10-08",
+          "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "moduleSha256": "9314fb723d2a1efa82801e0aaacdb702b6cb3498c65b986018625f851b64dca9",
+          "read": "The exact declaration, surrounding hypotheses and relevant instances were read at this pin; the existing module hash was independently recomputed. No full declaration-index audit or full Lean compilation is claimed."
         }
       },
       {
@@ -268,6 +387,13 @@
           "moduleBlob": "746038af84a0be6e682335dd41e9e9357477ce3c",
           "moduleSha256": "3a71ed4166356d5762efc0e7681bd51d92af1d812e003021ae6a1c3bd959ba4e",
           "read": "The actual declaration and surrounding hypotheses were read at this pin; this is an individual source read, not a full declaration-index or Lean compilation check."
+        },
+        "independentReviewChecked": {
+          "job": "REV-GeometricSatakeAndFusion--GS0~2",
+          "date": "2026-10-08",
+          "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "moduleSha256": "3a71ed4166356d5762efc0e7681bd51d92af1d812e003021ae6a1c3bd959ba4e",
+          "read": "The exact declaration, surrounding hypotheses and relevant instances were read at this pin; the existing module hash was independently recomputed. No full declaration-index audit or full Lean compilation is claimed."
         }
       },
       {
@@ -282,6 +408,13 @@
           "moduleBlob": "a1c1e527f13aee45f45f6e0dd82e64894bf56ad2",
           "moduleSha256": "7cdcf9ca9aa50982c7471a2f4124e667f164fd68dfc6bdad08272c6565a457ea",
           "read": "The actual declaration and surrounding hypotheses were read at this pin; this is an individual source read, not a full declaration-index or Lean compilation check."
+        },
+        "independentReviewChecked": {
+          "job": "REV-GeometricSatakeAndFusion--GS0~2",
+          "date": "2026-10-08",
+          "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "moduleSha256": "7cdcf9ca9aa50982c7471a2f4124e667f164fd68dfc6bdad08272c6565a457ea",
+          "read": "The exact declaration, surrounding hypotheses and relevant instances were read at this pin; the existing module hash was independently recomputed. No full declaration-index audit or full Lean compilation is claimed."
         }
       },
       {
@@ -296,6 +429,13 @@
           "moduleBlob": "6d9bc70c675ba452551f2f29fa69504a6f868d17",
           "moduleSha256": "1255c7c9ddf60a7a10dad9607fc0a1bfeeeb32158ff6b5974710b9f8ee7aa588",
           "read": "The actual declaration and surrounding hypotheses were read at this pin; this is an individual source read, not a full declaration-index or Lean compilation check."
+        },
+        "independentReviewChecked": {
+          "job": "REV-GeometricSatakeAndFusion--GS0~2",
+          "date": "2026-10-08",
+          "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "moduleSha256": "1255c7c9ddf60a7a10dad9607fc0a1bfeeeb32158ff6b5974710b9f8ee7aa588",
+          "read": "The exact declaration, surrounding hypotheses and relevant instances were read at this pin; the existing module hash was independently recomputed. No full declaration-index audit or full Lean compilation is claimed."
         }
       },
       {
@@ -310,6 +450,13 @@
           "moduleBlob": "b827fedf96ce35fa107badc6b41b7de0b8e14c66",
           "moduleSha256": "2cfbe7b77c608d1a8f3ccd5c49d7a5ca3c9528b3cf1415a67994a06fc228c9de",
           "read": "The actual declaration and surrounding hypotheses were read at this pin; this is an individual source read, not a full declaration-index or Lean compilation check."
+        },
+        "independentReviewChecked": {
+          "job": "REV-GeometricSatakeAndFusion--GS0~2",
+          "date": "2026-10-08",
+          "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "moduleSha256": "2cfbe7b77c608d1a8f3ccd5c49d7a5ca3c9528b3cf1415a67994a06fc228c9de",
+          "read": "The exact declaration, surrounding hypotheses and relevant instances were read at this pin; the existing module hash was independently recomputed. No full declaration-index audit or full Lean compilation is claimed."
         }
       },
       {
@@ -324,6 +471,13 @@
           "moduleBlob": "02c321ad3fb9135cff54a6eea621cce367ce0052",
           "moduleSha256": "8709ac0f99ad75ab33458c608297145d7afc86cec66c2fb03a0167ff7f6c137e",
           "read": "The actual declaration and surrounding hypotheses were read at this pin; this is an individual source read, not a full declaration-index or Lean compilation check."
+        },
+        "independentReviewChecked": {
+          "job": "REV-GeometricSatakeAndFusion--GS0~2",
+          "date": "2026-10-08",
+          "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "moduleSha256": "8709ac0f99ad75ab33458c608297145d7afc86cec66c2fb03a0167ff7f6c137e",
+          "read": "The exact declaration, surrounding hypotheses and relevant instances were read at this pin; the existing module hash was independently recomputed. No full declaration-index audit or full Lean compilation is claimed."
         }
       },
       {
@@ -338,6 +492,13 @@
           "moduleBlob": "e91f04cde835056b8839f2bdc5a3f4668b58f5e2",
           "moduleSha256": "027e0d69569985df6d43b60ac2d6f139c6f03ea620dc2ce2245e3cb446672983",
           "read": "The actual declaration and surrounding hypotheses were read at this pin; this is an individual source read, not a full declaration-index or Lean compilation check."
+        },
+        "independentReviewChecked": {
+          "job": "REV-GeometricSatakeAndFusion--GS0~2",
+          "date": "2026-10-08",
+          "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "moduleSha256": "027e0d69569985df6d43b60ac2d6f139c6f03ea620dc2ce2245e3cb446672983",
+          "read": "The exact declaration, surrounding hypotheses and relevant instances were read at this pin; the existing module hash was independently recomputed. No full declaration-index audit or full Lean compilation is claimed."
         }
       },
       {
@@ -353,6 +514,13 @@
           "moduleBlob": "746038af84a0be6e682335dd41e9e9357477ce3c",
           "moduleSha256": "3a71ed4166356d5762efc0e7681bd51d92af1d812e003021ae6a1c3bd959ba4e",
           "read": "The actual declaration and surrounding hypotheses were read at this pin; this is an individual source read, not a full declaration-index or Lean compilation check."
+        },
+        "independentReviewChecked": {
+          "job": "REV-GeometricSatakeAndFusion--GS0~2",
+          "date": "2026-10-08",
+          "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "moduleSha256": "3a71ed4166356d5762efc0e7681bd51d92af1d812e003021ae6a1c3bd959ba4e",
+          "read": "The exact declaration, surrounding hypotheses and relevant instances were read at this pin; the existing module hash was independently recomputed. No full declaration-index audit or full Lean compilation is claimed."
         }
       },
       {
@@ -368,6 +536,13 @@
           "moduleBlob": "ae96ca2885e875963560545ae4a8a49bd9628af7",
           "moduleSha256": "b0632c17353cdc5b33e484039a170dd4cb1f50afeaed0d783bc3df7a24b994cd",
           "read": "The actual declaration and surrounding hypotheses were read at this pin; this is an individual source read, not a full declaration-index or Lean compilation check."
+        },
+        "independentReviewChecked": {
+          "job": "REV-GeometricSatakeAndFusion--GS0~2",
+          "date": "2026-10-08",
+          "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "moduleSha256": "b0632c17353cdc5b33e484039a170dd4cb1f50afeaed0d783bc3df7a24b994cd",
+          "read": "The exact declaration, surrounding hypotheses and relevant instances were read at this pin; the existing module hash was independently recomputed. No full declaration-index audit or full Lean compilation is claimed."
         }
       },
       {
@@ -383,6 +558,13 @@
           "moduleBlob": "905142ac404488282bbc4ee8e2c75805359c452f",
           "moduleSha256": "f77ddee62b1491667184c83c5accd077e87f49033c74e8888696c93c78150813",
           "read": "The actual declaration and surrounding hypotheses were read at this pin; this is an individual source read, not a full declaration-index or Lean compilation check."
+        },
+        "independentReviewChecked": {
+          "job": "REV-GeometricSatakeAndFusion--GS0~2",
+          "date": "2026-10-08",
+          "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "moduleSha256": "f77ddee62b1491667184c83c5accd077e87f49033c74e8888696c93c78150813",
+          "read": "The exact declaration, surrounding hypotheses and relevant instances were read at this pin; the existing module hash was independently recomputed. No full declaration-index audit or full Lean compilation is claimed."
         }
       },
       {
@@ -398,6 +580,13 @@
           "moduleBlob": "b0ed1b84240d531af9a2ca831f6d6a20ff398f74",
           "moduleSha256": "1dff56d1a7b031144855d5400955be63212df3ef8d216a98bc41ebeddcb2f03d",
           "read": "The actual declaration and surrounding hypotheses were read at this pin; this is an individual source read, not a full declaration-index or Lean compilation check."
+        },
+        "independentReviewChecked": {
+          "job": "REV-GeometricSatakeAndFusion--GS0~2",
+          "date": "2026-10-08",
+          "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "moduleSha256": "1dff56d1a7b031144855d5400955be63212df3ef8d216a98bc41ebeddcb2f03d",
+          "read": "The exact declaration, surrounding hypotheses and relevant instances were read at this pin; the existing module hash was independently recomputed. No full declaration-index audit or full Lean compilation is claimed."
         }
       },
       {
@@ -413,6 +602,13 @@
           "moduleBlob": "07ea2c832a16c963165b95efa4068d57642abb01",
           "moduleSha256": "0f8bfdc780efe93d11d1256896a310bd32111114ddba302adfaa42596186d760",
           "read": "The actual declaration and surrounding hypotheses were read at this pin; this is an individual source read, not a full declaration-index or Lean compilation check."
+        },
+        "independentReviewChecked": {
+          "job": "REV-GeometricSatakeAndFusion--GS0~2",
+          "date": "2026-10-08",
+          "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "moduleSha256": "0f8bfdc780efe93d11d1256896a310bd32111114ddba302adfaa42596186d760",
+          "read": "The exact declaration, surrounding hypotheses and relevant instances were read at this pin; the existing module hash was independently recomputed. No full declaration-index audit or full Lean compilation is claimed."
         }
       },
       {
@@ -428,6 +624,13 @@
           "moduleBlob": "b827fedf96ce35fa107badc6b41b7de0b8e14c66",
           "moduleSha256": "2cfbe7b77c608d1a8f3ccd5c49d7a5ca3c9528b3cf1415a67994a06fc228c9de",
           "read": "The actual declaration and surrounding hypotheses were read at this pin; this is an individual source read, not a full declaration-index or Lean compilation check."
+        },
+        "independentReviewChecked": {
+          "job": "REV-GeometricSatakeAndFusion--GS0~2",
+          "date": "2026-10-08",
+          "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "moduleSha256": "2cfbe7b77c608d1a8f3ccd5c49d7a5ca3c9528b3cf1415a67994a06fc228c9de",
+          "read": "The exact declaration, surrounding hypotheses and relevant instances were read at this pin; the existing module hash was independently recomputed. No full declaration-index audit or full Lean compilation is claimed."
         }
       },
       {
@@ -442,6 +645,13 @@
           "moduleBlob": "d96ac499b84ac998f26f2bb126553453aacba972",
           "moduleSha256": "5392888b7e9833f14ab600bd3a3944da1f341366da2f3de95cd9737a19b1ff3b",
           "read": "The actual declaration and surrounding hypotheses were read at this pin; this is an individual source read, not a full declaration-index or Lean compilation check."
+        },
+        "independentReviewChecked": {
+          "job": "REV-GeometricSatakeAndFusion--GS0~2",
+          "date": "2026-10-08",
+          "pin": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "moduleSha256": "5392888b7e9833f14ab600bd3a3944da1f341366da2f3de95cd9737a19b1ff3b",
+          "read": "The exact declaration, surrounding hypotheses and relevant instances were read at this pin; the existing module hash was independently recomputed. No full declaration-index audit or full Lean compilation is claimed."
         }
       }
     ]
@@ -1674,7 +1884,7 @@
       "proofSteps": [
         "Import projective module algebra, Fitting-ideal tests and reducedness of perfect rings from SF.",
         "Apply BS 7.3, 7.5 and 7.7–7.9 to ranks of powers of p and the dominance inequalities.",
-        "Use the finite-rank argument in source correction E37; do not infer finite generation from projectivity alone without constant finite rank."
+        "Use the repaired finite-rank argument in PAPER-BHATT-SCHOLZE-17/E37 (Lemma 7.7, p.29): establish the same finite rank at every prime before deducing finite generation of the projective kernel. Density of characteristic-zero points alone does not suffice."
       ],
       "acceptance": [
         "For Q=W(k)/p²⊕W(k)/p the type is (2,1), rows (2,1); a different total length is never a dominance comparison."
@@ -1883,12 +2093,12 @@
         "λ sorted nonnegative; total length fixed; all quotient maps respect the Witt action; zero λ gives the vanishing locus."
       ],
       "proofSteps": [
-        "Use SF’s perfected Quot/Grassmann bundles; recurse on the first quotient Q/pQ of rank n_λ(0), then λ shifted by one column.",
+        "Use SF’s perfected Quot/Grassmann bundles to choose a locally free quotient Q/pQ→G of rank n_λ(0), and recurse on ker(Q→G) with λ shifted by one column. Q/pQ itself can have larger rank on lower-type fibres; it is not the chosen quotient G.",
         "BS 7.13 gives image, uniqueness and properness. Zhu 1.13–1.18 gives the lattice-chain presentation, including reversed dual bounds for reversed chains.",
         "BS 8.6 produces a smooth projective finite-type model for the global tower."
       ],
       "acceptance": [
-        "λ=0 gives the unit; λ=(1^r) is the perfected ordinary Grassmannian; λ=(2,1,0) has a P² boundary fibre."
+        "λ=0 gives the unit; λ=(1^r) is the perfected ordinary Grassmannian. For λ=(2,1,0) and Q=k³ killed by p, choose a rank-two quotient of Q/pQ=k³; its kernel line varies in P², giving the boundary fibre. Replacing the chosen quotient by all of Q/pQ would lose this fibre."
       ],
       "prerequisites": [
         "GeometricSatakeAndFusion:GS0:Witt-geometry/witt-types-and-bounds",
@@ -2176,7 +2386,7 @@
         "Use BS’s geometric determinant construction. Keel’s criterion, exceptional locus and Frobenius extension/descent are imported from SF.5; pfp/model theory from SF.0."
       ],
       "proofSteps": [
-        "Induct on dominance. Realize the lower boundary as an iterated finite pushout of lower bounds along closed intersections, importing the missing representability argument from SF.1 (source E39).",
+        "Induct on dominance. Realize the lower boundary as an iterated finite pushout of lower bounds along closed intersections, importing the missing representability argument from SF.1 (PAPER-BHATT-SCHOLZE-17/E39; BS proof of Theorem 8.3, pp.35–36).",
         "The determinant is ample on boundary pieces; Keel’s union lemma and strict curve positivity make it ample on the boundary. Keel’s restriction criterion then makes ψ*L semiample because its exceptional locus lies there.",
         "Take its Stein contraction on a finite model. Strict curve positivity and fibre triviality identify its equivalence relation with the Demazure quotient; hence the contraction is Gr_{≤λ}. Its descended line is ample."
       ],
@@ -2938,17 +3148,17 @@
       ],
       "title": "Semi-infinite strata and constant terms",
       "kind": "construction",
-      "statement": "For a parabolic P⁺⊂G with Levi M and opposite P⁻, Hck_{P±}→Hck_G and Hck_{P±}→Hck_M give CT_P=R(p⁺)_!(q⁺)*. On bounded monodromic objects it identifies with R(p⁻)_*R(q⁻)!. For a Borel the geometric strata are S_λ=L U·λ(ξ), and the union of strata with cocenter weight ν′≤ν is closed as in VI.3.1; for a Borel this is the coroot order on all coweights, without requiring dominance; the attracting and repelling decompositions come from a regular central cocharacter of M.",
+      "statement": "For a parabolic P⁺⊂G with Levi M and opposite P⁻, Hck_{P±}→Hck_G and Hck_{P±}→Hck_M give CT_P=R(p⁺)_!(q⁺)*. On bounded monodromic objects it identifies with R(p⁻)_*R(q⁻)!. For a Borel, on a one-leg geometric fibre with primitive equation t, the local strata are S_λ=L U·λ(t). On a general geometric fibre the stratum of total cocenter weight ν is the union of products of these local strata over the distinct supports, with local labels summing to ν. The union of total-weight strata with ν′≤ν is closed as in VI.3.1; for a Borel this is the coroot order on all coweights, without requiring dominance; the attracting and repelling decompositions come from a regular central cocharacter of M.",
       "hypotheses": [
-        "G split for labels; bounded quasicompact Schubert support; coefficients killed by an integer prime to p initially, with derived adic passage supplied by L0."
+        "G split for labels; bounded quasicompact Schubert support; coefficients killed by an integer prime to p initially, with derived adic passage supplied by L0. The cocenter degree is the sum of the combined local cocharacters over distinct geometric supports, counted once each. At collisions the ordered-leg labels add first; the support multiplicity is not an additional weight (E24)."
       ],
       "proofSteps": [
-        "Use RG’s parabolic/Levi and Iwasawa decompositions on geometric points. For the locally closed strata and their closed weight-bound unions, reduce via a faithful representation, maximal parabolics and exterior powers to an image submodule of a rank-one period module; apply lattice-relative-position-semicontinuity (FS VI.3.2), whose proof uses length-semicontinuity (VI.3.3).",
+        "Use RG’s parabolic/Levi and Iwasawa decompositions on geometric points. For the locally closed strata and their closed weight-bound unions, reduce via a faithful representation, maximal parabolics and exterior powers to an image submodule of a rank-one period module; apply lattice-relative-position-semicontinuity (FS VI.3.2), whose proof uses length-semicontinuity (VI.3.3). In that reduction use ordinary product-DVR length, as in VI.3.2, rather than the extra multiplicity weighting in the description before VI.3.1 (E24).",
         "Verify FS IV.6.1’s finite attracting/repelling decomposition on each bound.",
         "Import the diamond hyperbolic-localization theorem, base change, duality and ULA preservation from VS1; apply it to the maps of Hecke stacks."
       ],
       "acceptance": [
-        "For G=T the constant term is the identity; plus and minus formulas need monodromicity."
+        "For G=T the constant term is the identity; plus and minus formulas need monodromicity. For two coincident G_m legs with labels (1,0), the combined lattice tB⁺ has degree one, even though the product Cartier equation is t². A second multiplicity factor would incorrectly give degree two."
       ],
       "prerequisites": [
         "GeometricSatakeAndFusion:GS0:loop-geometry/schubert-bounds-and-properness",
@@ -4594,7 +4804,7 @@
         "GeometricSatakeAndFusion:GS2:correspondences/satake-fibre-functor",
         "GeometricSatakeAndFusion:GS2:correspondences/satake-verdier-duality"
       ],
-      "detail": "The suggested file retains the accepted algebraic/category cores and records their omitted supplier-dependent geometric conditions in prototypeNotes. This revision was not compiled because no existing build at the pinned commits is available in this workspace. The previous independent review reported a Mathlib-only projection and a full-file blocker at the prebuilt Tau Ceti line-bundle module; those checks concern the previous version. Once supplier carriers and the pinned build are available, state the exact geometric interfaces, including divisor sites, dimensions, properness, ULA, perfect models and locally constant coefficients, and elaborate the complete file. The three newly routed geometric lemmas reserve their declaration names through precise omissions until those supplier interfaces exist."
+      "detail": "The suggested file retains the algebraic/category cores and records omitted supplier-dependent geometric conditions in prototypeNotes. The full file was not compiled: no existing build has both recorded pins. In this independent review, a Mathlib-only projection of this revision elaborated at Mathlib 082e2d3 using lean-check with only placeholder-proof warnings. It removed the Tau Ceti import and the geometric-determinant-line and h-descent-and-fibral-criterion node blocks; it validates neither those blocks nor the full file. Once supplier carriers and the pinned build are available, state the exact geometric interfaces, including divisor sites, dimensions, properness, ULA, perfect models and locally constant coefficients, and elaborate the complete file. The three geometric lemmas reserve their declaration names through precise omissions until those supplier interfaces exist."
     },
     {
       "title": "Bounded affine-flag dimension and adjoint transfer",
@@ -4768,7 +4978,7 @@
     },
     {
       "supplier": "SchemeAndStackFoundations:SF.1",
-      "need": "Effective quotients of separated pfp perfect spaces by smooth perfect affine torsors (Zhu A.29–A.31), normalized finite-jet quotients, and finite pushouts/pinching of a finite union of lower Schubert bounds along closed representable intersections BEFORE applying Keel. This repairs BS E39’s boundary representability gap.",
+      "need": "Effective quotients of separated pfp perfect spaces by smooth perfect affine torsors (Zhu A.29–A.31), normalized finite-jet quotients, and finite pushouts/pinching of a finite union of lower Schubert bounds along closed representable intersections BEFORE applying Keel. This repairs PAPER-BHATT-SCHOLZE-17/E39’s boundary representability gap.",
       "neededBy": [
         "GeometricSatakeAndFusion:GS0:Witt-geometry/zhu-original-algebraic-space",
         "GeometricSatakeAndFusion:GS0:Witt-geometry/witt-demazure-resolution",
@@ -4938,6 +5148,11 @@
         "newApplicableEdges": 0,
         "scope": "Screened the 36 exact pinned link-map files and read all 29 entries mentioning this roadmap: 28 catalogue-screen records with no asserted edge and one root-system review spot-check entry for the out-of-scope GS4 dual-group stages. Their no-edge conclusions are not treated as a proof that indirect prerequisites are absent."
       }
+    },
+    "independentReviewEvidence": {
+      "job": "REV-GeometricSatakeAndFusion--GS0~2",
+      "date": "2026-10-08",
+      "scope": "All eight in-scope AUDIT-21 rows were read alongside all 30 pinned declaration statements. The target-level missing results remain distinct from the available algebraic/category carriers."
     }
   },
   "sourceIssues": [
@@ -4961,9 +5176,16 @@
       "quoteScope": "The source assertion is described in the worker’s own words; mathematical symbols and formulas are retained where needed to identify the issue. The correction and reason are mathematical analysis, not quoted source prose.",
       "review": {
         "verdict": "confirmed",
-        "reason": "Coweight dominance is an order in X_*(T), hence positive coroots; printed p.412 uses roots.",
-        "by": "REV-GeometricSatakeAndFusion--GS0"
-      }
+        "reason": "At Zhu p.412 the positivity cone for coweights is generated by positive coroots. Roots lie in the wrong lattice; the surrounding pairing fixes the intended correction.",
+        "by": "REV-GeometricSatakeAndFusion--GS0~2"
+      },
+      "reviewHistory": [
+        {
+          "verdict": "confirmed",
+          "reason": "Coweight dominance is an order in X_*(T), hence positive coroots; printed p.412 uses roots.",
+          "by": "REV-GeometricSatakeAndFusion--GS0"
+        }
+      ]
     },
     {
       "id": "GeometricSatakeAndFusion/E2",
@@ -4985,9 +5207,16 @@
       "quoteScope": "The source assertion is described in the worker’s own words; mathematical symbols and formulas are retained where needed to identify the issue. The correction and reason are mathematical analysis, not quoted source prose.",
       "review": {
         "verdict": "confirmed",
-        "reason": "The displayed chain orientation and reversed sequence require F_i→F_{i−1} with μ*_{N+1−i}; checked the p.424 construction.",
-        "by": "REV-GeometricSatakeAndFusion--GS0"
-      }
+        "reason": "Reversing the lattice chain on Zhu p.424 reverses the order of its graded quotients. Dualizing therefore reads μ_{N+1−i}, rather than μ_i.",
+        "by": "REV-GeometricSatakeAndFusion--GS0~2"
+      },
+      "reviewHistory": [
+        {
+          "verdict": "confirmed",
+          "reason": "The displayed chain orientation and reversed sequence require F_i→F_{i−1} with μ*_{N+1−i}; checked the p.424 construction.",
+          "by": "REV-GeometricSatakeAndFusion--GS0"
+        }
+      ]
     },
     {
       "id": "GeometricSatakeAndFusion/E3",
@@ -5009,9 +5238,16 @@
       "quoteScope": "The source assertion is described in the worker’s own words; mathematical symbols and formulas are retained where needed to identify the issue. The correction and reason are mathematical analysis, not quoted source prose.",
       "review": {
         "verdict": "confirmed",
-        "reason": "The determinant equation forces det X=p²[λ]⁻¹, agreeing with the corrected rank-two factorization.",
-        "by": "REV-GeometricSatakeAndFusion--GS0"
-      }
+        "reason": "In the truncated Witt chart on Zhu p.488, det(A)=p² and det(X)=p²[λ]⁻¹. The right factor must have unit determinant reducing to λ⁻¹; a full lift need not equal the Teichmüller unit exactly.",
+        "by": "REV-GeometricSatakeAndFusion--GS0~2"
+      },
+      "reviewHistory": [
+        {
+          "verdict": "confirmed",
+          "reason": "The determinant equation forces det X=p²[λ]⁻¹, agreeing with the corrected rank-two factorization.",
+          "by": "REV-GeometricSatakeAndFusion--GS0"
+        }
+      ]
     },
     {
       "id": "GeometricSatakeAndFusion/E4",
@@ -5033,9 +5269,16 @@
       "quoteScope": "The source assertion is described in the worker’s own words; mathematical symbols and formulas are retained where needed to identify the issue. The correction and reason are mathematical analysis, not quoted source prose.",
       "review": {
         "verdict": "confirmed",
-        "reason": "For X=Ag the right factor is A⁻¹X. The 2×2 adjugate of X* A proves integrality in the corrected order and its determinant is a unit.",
-        "by": "REV-GeometricSatakeAndFusion--GS0"
-      }
+        "reason": "The chart equation on Zhu p.488 is X=Ag, hence g=A⁻¹X. For 2×2 matrices the adjugate of X* A proves integrality in that order; the printed opposite order need not be integral.",
+        "by": "REV-GeometricSatakeAndFusion--GS0~2"
+      },
+      "reviewHistory": [
+        {
+          "verdict": "confirmed",
+          "reason": "For X=Ag the right factor is A⁻¹X. The 2×2 adjugate of X* A proves integrality in the corrected order and its determinant is a unit.",
+          "by": "REV-GeometricSatakeAndFusion--GS0"
+        }
+      ]
     },
     {
       "id": "GeometricSatakeAndFusion/E5",
@@ -5055,10 +5298,17 @@
       "quoteScope": "The source assertion is described in the worker’s own words; mathematical symbols and formulas are retained where needed to identify the issue. The correction and reason are mathematical analysis, not quoted source prose.",
       "review": {
         "verdict": "confirmed",
-        "reason": "Appendix opening is p.482; B.1/B.9 are announced and several other results sketched, whereas B.10/B.11 have proofs. The qualified correction accurately separates these.",
-        "by": "REV-GeometricSatakeAndFusion--GS0"
+        "reason": "Zhu’s Appendix B opening on p.482 expressly leaves arguments sketch-only. The B.1 and B.7–B.9 interfaces require proof requests, whereas the later B.10–B.11 computations are actually supplied. This is a qualified proof-status record, not a counterexample to all appendix results.",
+        "by": "REV-GeometricSatakeAndFusion--GS0~2"
       },
-      "reviewState": "Independently checked against the recorded source version; see review verdict."
+      "reviewState": "Independently checked against the recorded source version; see review verdict.",
+      "reviewHistory": [
+        {
+          "verdict": "confirmed",
+          "reason": "Appendix opening is p.482; B.1/B.9 are announced and several other results sketched, whereas B.10/B.11 have proofs. The qualified correction accurately separates these.",
+          "by": "REV-GeometricSatakeAndFusion--GS0"
+        }
+      ]
     },
     {
       "id": "GeometricSatakeAndFusion/E6",
@@ -5078,10 +5328,17 @@
       "quoteScope": "The source assertion is described in the worker’s own words; mathematical symbols and formulas are retained where needed to identify the issue. The correction and reason are mathematical analysis, not quoted source prose.",
       "review": {
         "verdict": "confirmed",
-        "reason": "The displayed intersection quotients sit inside the final lattice and cannot parametrize the chain. The sum quotients have dimension #{j:l_j≥i+1}, giving the needed lower-stratum fibre.",
-        "by": "REV-GeometricSatakeAndFusion--GS0"
+        "reason": "On Zhu p.425 the intersection quotients lie inside the final lattice and cannot parametrize enlargements in the chain fibre. For Λ_λ=⟨p^{l_j}e_j⟩ their dimensions count l_j≤i, which eventually exceeds one even at λ=Nω₁ with point fibre. Replacing both lattice intersections by sums gives dimension #{j:l_j≥i+1}; at i=0 it is at least two exactly on the lower-type boundary.",
+        "by": "REV-GeometricSatakeAndFusion--GS0~2"
       },
-      "reviewState": "Independently checked against the recorded source version; see review verdict."
+      "reviewState": "Independently checked against the recorded source version; see review verdict.",
+      "reviewHistory": [
+        {
+          "verdict": "confirmed",
+          "reason": "The displayed intersection quotients sit inside the final lattice and cannot parametrize the chain. The sum quotients have dimension #{j:l_j≥i+1}, giving the needed lower-stratum fibre.",
+          "by": "REV-GeometricSatakeAndFusion--GS0"
+        }
+      ]
     },
     {
       "id": "GeometricSatakeAndFusion/E7",
@@ -5089,7 +5346,7 @@
       "locator": "p. 433, Proposition 2.5 (second sentence)",
       "printed": "overline(S_λ ∩ Gr_{≤μ}) = ⋃_{λ′≤λ} S_{λ′} ∩ Gr_{≤μ}",
       "correction": "Replace the second sentence by S̄_λ ∩ Gr_{≤μ} = ∪_{λ′≤λ}(S_{λ′} ∩ Gr_{≤μ}), which follows from the first. Or restrict to λ a weight of V_μ (equivalently S_λ ∩ Gr_{≤μ} ≠ ∅) and supply a proof of closure(S_λ ∩ Gr_{≤μ}) = S̄_λ ∩ Gr_{≤μ}.",
-      "reason": "If S_λ ∩ Gr_{≤μ} = ∅ but some λ′ ≤ λ has S_{λ′} ∩ Gr_{≤μ} ≠ ∅, the left side is empty and the right side is not. Example: G = GL_2, μ = (1,0), Gr_{≤μ} = P^1, λ = (2,−1) = (1,0) + α^∨. S_{(2,−1)} ∩ Gr_{≤μ} = ∅, since its lattices contain p^{-1}(xe_1 + e_2) ∉ Λ_0. The right side is S_{(1,0)} ∩ P^1 ∪ S_{(0,1)} ∩ P^1 = P^1. The proof only cites [Zhu16, Prop. 5.3.6], which I checked: it proves S̄_λ = ∪_{λ′≤λ} S_{λ′} and says nothing about closures of the intersections with Gr_{≤μ}. For weights λ the refinement is plausible (I checked GL_2, μ = (2,0) and GL_3, μ = (1,0,−1) by hand) but it is not proved. Later arguments (Corollary 2.10, (2.2.11)) only use S̄_λ. The same wording is in arXiv v2 (Lemma 2.5) and v3.",
+      "reason": "The closure operations differ already for GL₂, μ=(1,0) and λ=(2,−1). The initial intersection S_λ∩Gr_{≤μ} is empty, so its closure is empty; the union of the lower intersections S_(1,0) and S_(0,1) is the perfected P¹. The corrected operation closes S_λ first and then intersects Gr_{≤μ}. This counterexample is checked against the published p.433 display; it does not require a comparison with an unread preprint or Zhu16 edition.",
       "affects": "a stated result",
       "known": "Previously recorded as PAPER-ZHU-17/E46. The corresponding source passage was checked in this run; no separate published correction verified here.",
       "searched": [
@@ -5101,10 +5358,17 @@
       "quoteScope": "The source assertion is described in the worker’s own words; mathematical symbols and formulas are retained where needed to identify the issue. The correction and reason are mathematical analysis, not quoted source prose.",
       "review": {
         "verdict": "confirmed",
-        "reason": "Visually checked the published p.433 display: the overline covers the intersection. The empty GL₂ example makes the asserted closure equality false; closure of S_λ intersected with the bound is the safe replacement.",
-        "by": "REV-GeometricSatakeAndFusion--GS0"
+        "reason": "The closure bar on Zhu p.433 covers the intersection as printed. An empty initial orbit intersection can have nonempty intersection after closing the semi-infinite orbit; closing the orbit first and then imposing the bound is the required operation.",
+        "by": "REV-GeometricSatakeAndFusion--GS0~2"
       },
-      "reviewState": "Independently checked against the recorded source version; see review verdict."
+      "reviewState": "Independently checked against the recorded source version; see review verdict.",
+      "reviewHistory": [
+        {
+          "verdict": "confirmed",
+          "reason": "Visually checked the published p.433 display: the overline covers the intersection. The empty GL₂ example makes the asserted closure equality false; closure of S_λ intersected with the bound is the safe replacement.",
+          "by": "REV-GeometricSatakeAndFusion--GS0"
+        }
+      ]
     },
     {
       "id": "GeometricSatakeAndFusion/E8",
@@ -5124,10 +5388,17 @@
       "quoteScope": "The source assertion is described in the worker’s own words; mathematical symbols and formulas are retained where needed to identify the issue. The correction and reason are mathematical analysis, not quoted source prose.",
       "review": {
         "verdict": "confirmed",
-        "reason": "An empty intersection has no asserted nonnegative equidimension. The dimension equality needs nonemptiness; the zero component count remains valid.",
-        "by": "REV-GeometricSatakeAndFusion--GS0"
+        "reason": "Zhu’s dimension equalities on pp.434 and 439 apply to nonempty intersections. Coweights outside a bounded orbit’s weights give empty intersections and cannot have the asserted finite dimension.",
+        "by": "REV-GeometricSatakeAndFusion--GS0~2"
       },
-      "reviewState": "Independently checked against the recorded source version; see review verdict."
+      "reviewState": "Independently checked against the recorded source version; see review verdict.",
+      "reviewHistory": [
+        {
+          "verdict": "confirmed",
+          "reason": "An empty intersection has no asserted nonnegative equidimension. The dimension equality needs nonemptiness; the zero component count remains valid.",
+          "by": "REV-GeometricSatakeAndFusion--GS0"
+        }
+      ]
     },
     {
       "id": "GeometricSatakeAndFusion/E9",
@@ -5147,10 +5418,17 @@
       "quoteScope": "The source assertion is described in the worker’s own words; mathematical symbols and formulas are retained where needed to identify the issue. The correction and reason are mathematical analysis, not quoted source prose.",
       "review": {
         "verdict": "confirmed",
-        "reason": "The basis occurs only in degree ⟨2ρ,λ⟩ by 2.7; the unbound index i in 2.9 is a misprint.",
-        "by": "REV-GeometricSatakeAndFusion--GS0"
+        "reason": "The weight-basis statement on Zhu p.435 uses a free index i where its proof selects cohomological degree ⟨2ρ,λ⟩. Retaining arbitrary i would make the claimed basis false.",
+        "by": "REV-GeometricSatakeAndFusion--GS0~2"
       },
-      "reviewState": "Independently checked against the recorded source version; see review verdict."
+      "reviewState": "Independently checked against the recorded source version; see review verdict.",
+      "reviewHistory": [
+        {
+          "verdict": "confirmed",
+          "reason": "The basis occurs only in degree ⟨2ρ,λ⟩ by 2.7; the unbound index i in 2.9 is a misprint.",
+          "by": "REV-GeometricSatakeAndFusion--GS0"
+        }
+      ]
     },
     {
       "id": "GeometricSatakeAndFusion/E10",
@@ -5170,10 +5448,17 @@
       "quoteScope": "The source assertion is described in the worker’s own words; mathematical symbols and formulas are retained where needed to identify the issue. The correction and reason are mathematical analysis, not quoted source prose.",
       "review": {
         "verdict": "confirmed",
-        "reason": "The printed opposite filtration contains higher weights rather than the complementary λ-piece. The GL₂ minuscule point-support example confirms the proof error; use support in the opposite orbit closure.",
-        "by": "REV-GeometricSatakeAndFusion--GS0"
+        "reason": "The printed opposite filtration on Zhu p.436 contains higher ordinary weights and fails to complement the selected λ-piece. In the GL₂ minuscule example the point-support image is nonzero while the other filtration already equals total cohomology. Use support in the opposite orbit closure S̄⁻_λ for the splitting argument.",
+        "by": "REV-GeometricSatakeAndFusion--GS0~2"
       },
-      "reviewState": "Independently checked against the recorded source version; see review verdict."
+      "reviewState": "Independently checked against the recorded source version; see review verdict.",
+      "reviewHistory": [
+        {
+          "verdict": "confirmed",
+          "reason": "The printed opposite filtration contains higher weights rather than the complementary λ-piece. The GL₂ minuscule point-support example confirms the proof error; use support in the opposite orbit closure.",
+          "by": "REV-GeometricSatakeAndFusion--GS0"
+        }
+      ]
     },
     {
       "id": "GeometricSatakeAndFusion/E11",
@@ -5193,10 +5478,17 @@
       "quoteScope": "The source assertion is described in the worker’s own words; mathematical symbols and formulas are retained where needed to identify the issue. The correction and reason are mathematical analysis, not quoted source prose.",
       "review": {
         "verdict": "confirmed",
-        "reason": "In type A₂ the point −θ/2 lies in an edge rather than a vertex, so its parahoric is not maximal. The statement is unused in the needed proof.",
-        "by": "REV-GeometricSatakeAndFusion--GS0"
+        "reason": "For SL₃ on Zhu p.437, θ=(1,0,−1) and −θ/2 lies in the interior of an affine alcove edge, not at a vertex. Its parahoric Q_{1/2} is properly contained in the two endpoint parahorics, disproving the stated maximality. This assertion is not needed in the proof used by the packet.",
+        "by": "REV-GeometricSatakeAndFusion--GS0~2"
       },
-      "reviewState": "Independently checked against the recorded source version; see review verdict."
+      "reviewState": "Independently checked against the recorded source version; see review verdict.",
+      "reviewHistory": [
+        {
+          "verdict": "confirmed",
+          "reason": "In type A₂ the point −θ/2 lies in an edge rather than a vertex, so its parahoric is not maximal. The statement is unused in the needed proof.",
+          "by": "REV-GeometricSatakeAndFusion--GS0"
+        }
+      ]
     },
     {
       "id": "GeometricSatakeAndFusion/E12",
@@ -5216,10 +5508,17 @@
       "quoteScope": "The source assertion is described in the worker’s own words; mathematical symbols and formulas are retained where needed to identify the issue. The correction and reason are mathematical analysis, not quoted source prose.",
       "review": {
         "verdict": "confirmed",
-        "reason": "The infinity section contributes the omitted cohomology. The SL₃ flag resolution yields zero-weight multiplicity two; retain the excision sequence and avoid a claimed canonical splitting.",
-        "by": "REV-GeometricSatakeAndFusion--GS0"
+        "reason": "In Zhu’s quasi-minuscule calculation on p.439 the infinity section over the complement contributes to compact support. For SL₃ the printed expression omits a degree-two term and gives an incorrect zero-weight answer; restoring the section gives multiplicity two. Excision and even-degree splitting supply the correction without a canonical splitting claim.",
+        "by": "REV-GeometricSatakeAndFusion--GS0~2"
       },
-      "reviewState": "Independently checked against the recorded source version; see review verdict."
+      "reviewState": "Independently checked against the recorded source version; see review verdict.",
+      "reviewHistory": [
+        {
+          "verdict": "confirmed",
+          "reason": "The infinity section contributes the omitted cohomology. The SL₃ flag resolution yields zero-weight multiplicity two; retain the excision sequence and avoid a claimed canonical splitting.",
+          "by": "REV-GeometricSatakeAndFusion--GS0"
+        }
+      ]
     },
     {
       "id": "GeometricSatakeAndFusion/E13",
@@ -5239,10 +5538,17 @@
       "quoteScope": "The source assertion is described in the worker’s own words; mathematical symbols and formulas are retained where needed to identify the issue. The correction and reason are mathematical analysis, not quoted source prose.",
       "review": {
         "verdict": "confirmed",
-        "reason": "Confirmed as a missing convention: under the broad convention allowing disconnected unipotent groups, the constant group F_p gives inequivalent representation categories. Require connected congruence kernels, or define pro-unipotent with connected quotients. This is not an error if connectedness is already built into that term.",
-        "by": "REV-GeometricSatakeAndFusion--GS0"
+        "reason": "Zhu p.482 needs connected pro-unipotent groups in the intended geometric convention. If a broader definition allows a constant F_p group, its nontrivial representations disprove equivalence with vector spaces. The packet already uses connected congruence kernels.",
+        "by": "REV-GeometricSatakeAndFusion--GS0~2"
       },
-      "reviewState": "Independently checked against the recorded source version; see review verdict."
+      "reviewState": "Independently checked against the recorded source version; see review verdict.",
+      "reviewHistory": [
+        {
+          "verdict": "confirmed",
+          "reason": "Confirmed as a missing convention: under the broad convention allowing disconnected unipotent groups, the constant group F_p gives inequivalent representation categories. Require connected congruence kernels, or define pro-unipotent with connected quotients. This is not an error if connectedness is already built into that term.",
+          "by": "REV-GeometricSatakeAndFusion--GS0"
+        }
+      ]
     },
     {
       "id": "GeometricSatakeAndFusion/E14",
@@ -5265,10 +5571,17 @@
       "versionScope": "Final arXiv v3 only; publisher refused the PDF. This is not a verified finding against the published version.",
       "review": {
         "verdict": "confirmed",
-        "reason": "The identity isogeny has zero cokernel. The intended projective-dimension condition is ≤1; equality one is not literally true for this degenerate case.",
-        "by": "REV-GeometricSatakeAndFusion--GS0"
+        "reason": "BS arXiv v3 pp.28–29 includes the identity isogeny, whose cokernel is zero. The correct projective-dimension condition is at most one, and the nonzero torsion case has dimension one.",
+        "by": "REV-GeometricSatakeAndFusion--GS0~2"
       },
-      "reviewState": "Independently checked against the recorded source version; see review verdict."
+      "reviewState": "Independently checked against the recorded source version; see review verdict.",
+      "reviewHistory": [
+        {
+          "verdict": "confirmed",
+          "reason": "The identity isogeny has zero cokernel. The intended projective-dimension condition is ≤1; equality one is not literally true for this degenerate case.",
+          "by": "REV-GeometricSatakeAndFusion--GS0"
+        }
+      ]
     },
     {
       "id": "GeometricSatakeAndFusion/E15",
@@ -5290,10 +5603,17 @@
       "versionScope": "Final arXiv v3 only; publisher refused the PDF. This is not a verified finding against the published version.",
       "review": {
         "verdict": "confirmed",
-        "reason": "The p.29 display specifies the whole type-bound locus, whose closedness is proved later; replace the ambiguous inclusion by the defining equality.",
-        "by": "REV-GeometricSatakeAndFusion--GS0"
+        "reason": "The locus notation on BS arXiv v3 p.29 is being defined by the displayed condition. Equality/definition notation is intended; reading the containment as a further restriction is unsupported.",
+        "by": "REV-GeometricSatakeAndFusion--GS0~2"
       },
-      "reviewState": "Independently checked against the recorded source version; see review verdict."
+      "reviewState": "Independently checked against the recorded source version; see review verdict.",
+      "reviewHistory": [
+        {
+          "verdict": "confirmed",
+          "reason": "The p.29 display specifies the whole type-bound locus, whose closedness is proved later; replace the ambiguous inclusion by the defining equality.",
+          "by": "REV-GeometricSatakeAndFusion--GS0"
+        }
+      ]
     },
     {
       "id": "GeometricSatakeAndFusion/E16",
@@ -5315,10 +5635,17 @@
       "versionScope": "Final arXiv v3 only; publisher refused the PDF. This is not a verified finding against the published version.",
       "review": {
         "verdict": "confirmed",
-        "reason": "The p.35 induction invokes representability of the lower-bound union before the pinching step is supplied. Confirmed as a recorded proof obligation, not a counterexample to projectivity.",
-        "by": "REV-GeometricSatakeAndFusion--GS0"
+        "reason": "The BS projectivity induction on arXiv v3 p.35 invokes positivity on the lower-bound union before constructing that union as a proper pfp perfect space. The SF1 finite-pushout request records the missing proof step; no failure of projectivity is alleged.",
+        "by": "REV-GeometricSatakeAndFusion--GS0~2"
       },
-      "reviewState": "Independently checked against the recorded source version; see review verdict."
+      "reviewState": "Independently checked against the recorded source version; see review verdict.",
+      "reviewHistory": [
+        {
+          "verdict": "confirmed",
+          "reason": "The p.35 induction invokes representability of the lower-bound union before the pinching step is supplied. Confirmed as a recorded proof obligation, not a counterexample to projectivity.",
+          "by": "REV-GeometricSatakeAndFusion--GS0"
+        }
+      ]
     },
     {
       "id": "GeometricSatakeAndFusion/E17",
@@ -5326,7 +5653,7 @@
       "locator": "p. 37, the sentence introducing Kottwitz' map and Proposition 9.7 ([Zhu14, Proposition 1.21])",
       "printed": "π₁(G)_{Gal_K}",
       "correction": "Add the hypothesis 'k algebraically closed' (as in [Zhu14, §1.5.2]); then Gal_K is the inertia group. For a general perfect k: Kottwitz's map is κ: LG(k̄) = G(W_{O_K}(k̄)[1/p]) → π1(G)_{I_K}, where I_K ⊂ Gal_K is the inertia subgroup. It induces Gal(k̄/k)-equivariant bijections π0(LG_{k̄}) ≅ π0(Gr_{𝒢,k̄}) ≅ π1(G)_{I_K}. The connected components over k are the Gal(k̄/k)-orbits on π1(G)_{I_K}.",
-      "reason": "§9 fixes only a perfect residue field k, but Zhu states Prop. 1.21 in a subsection (§1.5.2 of arXiv v1/v2, §1.4.2 of v3) whose standing hypotheses require algebraically closed k. Kottwitz's map for the field W_{O_K}(k̄)[1/p] = K̆ lands in the inertia coinvariants π1(G)_{I_K}, not in π1(G)_{Gal_K}. Counterexample for finite k: let K'/K be unramified quadratic with residue field k', T = Res_{K'/K} G_m, and 𝒢 = Res_{O_K'/O_K} G_m its connected Néron model (parahoric). Then Gr_𝒢 = Res_{k'/k}(Z), whose geometric components form Z² with Frobenius swapping the factors, while π1(T)_{Gal_K} = Z²/(e1−e2) = Z. Neither the k-components (Frobenius orbits, e.g. {(0,0)} and {(1,−1),(−1,1)} both lying over 0) nor the geometric components (Z²) are in bijection with Z. Defence: for k algebraically closed, the case of Zhu's source, the statement is correct. The only later use, in the proof of Proposition 10.3 for SL_n where π1 = 0, is unaffected. The same text appears in v1 and v2.",
+      "reason": "For finite k and an unramified quadratic extension K′/K, take T=Res_{K′/K}G_m with its connected integral model. The geometric components of its affine Grassmannian form ℤ² with Frobenius exchanging the coordinates, whereas full Galois coinvariants give ℤ. Thus BS arXiv v3 p.37 must use inertia coinvariants for geometric components and retain residual Frobenius. Zhu’s published Proposition 1.21 on p.427 has an algebraically closed residue-field standing setting; the broader finite-k assertion does not follow from that setting. The SL_n application has trivial π₁ and is unaffected.",
       "affects": "a stated result",
       "known": "Previously recorded as PAPER-BHATT-SCHOLZE-17/E41. The corresponding source passage was checked in this run; no separate published correction verified here.",
       "searched": [
@@ -5340,10 +5667,17 @@
       "versionScope": "Final arXiv v3 only; publisher refused the PDF. This is not a verified finding against the published version.",
       "review": {
         "verdict": "confirmed",
-        "reason": "Geometric components use inertia coinvariants. An unramified restriction-of-scalars torus separates these from full-Galois coinvariants; the issue is scoped to the non-algebraically-closed base.",
-        "by": "REV-GeometricSatakeAndFusion--GS0"
+        "reason": "BS arXiv v3 p.37 concerns geometric components. Inertia coinvariants retain a residual Frobenius action; passing directly to full Galois coinvariants would lose those geometric components.",
+        "by": "REV-GeometricSatakeAndFusion--GS0~2"
       },
-      "reviewState": "Independently checked against the recorded source version; see review verdict."
+      "reviewState": "Independently checked against the recorded source version; see review verdict.",
+      "reviewHistory": [
+        {
+          "verdict": "confirmed",
+          "reason": "Geometric components use inertia coinvariants. An unramified restriction-of-scalars torus separates these from full-Galois coinvariants; the issue is scoped to the non-algebraically-closed base.",
+          "by": "REV-GeometricSatakeAndFusion--GS0"
+        }
+      ]
     },
     {
       "id": "GeometricSatakeAndFusion/E18",
@@ -5365,10 +5699,17 @@
       "versionScope": "Final arXiv v3 only; publisher refused the PDF. This is not a verified finding against the published version.",
       "review": {
         "verdict": "confirmed",
-        "reason": "Proposition10.1 constructs the line but does not prove its stated ampleness. A finite restriction-of-scalars map to an ordinary Witt bound supplies the missing argument, under the listed lattice/model hypotheses.",
-        "by": "REV-GeometricSatakeAndFusion--GS0"
+        "reason": "The line on BS arXiv v3 p.37 exists for ramified coefficients, but the cited sentence alone does not prove its ampleness. Restriction of scalars with compatible finite proper bounded models supplies the extra positivity route requested from the owners.",
+        "by": "REV-GeometricSatakeAndFusion--GS0~2"
       },
-      "reviewState": "Independently checked against the recorded source version; see review verdict."
+      "reviewState": "Independently checked against the recorded source version; see review verdict.",
+      "reviewHistory": [
+        {
+          "verdict": "confirmed",
+          "reason": "Proposition10.1 constructs the line but does not prove its stated ampleness. A finite restriction-of-scalars map to an ordinary Witt bound supplies the missing argument, under the listed lattice/model hypotheses.",
+          "by": "REV-GeometricSatakeAndFusion--GS0"
+        }
+      ]
     },
     {
       "id": "GeometricSatakeAndFusion/E19",
@@ -5390,10 +5731,17 @@
       "versionScope": "Final arXiv v3 only; publisher refused the PDF. This is not a verified finding against the published version.",
       "review": {
         "verdict": "confirmed",
-        "reason": "The quotient is p-power torsion, not an R-module in general; det_R is undefined. The extended determinant and its normalized constant factor are the intended expression.",
-        "by": "REV-GeometricSatakeAndFusion--GS0"
+        "reason": "The Witt torsion quotient on BS arXiv v3 p.37 is not an ordinary R-vector bundle to which det_R applies. The extended determinant with the inverse standard-lattice factor gives the SL normalization used by the node.",
+        "by": "REV-GeometricSatakeAndFusion--GS0~2"
       },
-      "reviewState": "Independently checked against the recorded source version; see review verdict."
+      "reviewState": "Independently checked against the recorded source version; see review verdict.",
+      "reviewHistory": [
+        {
+          "verdict": "confirmed",
+          "reason": "The quotient is p-power torsion, not an R-module in general; det_R is undefined. The extended determinant and its normalized constant factor are the intended expression.",
+          "by": "REV-GeometricSatakeAndFusion--GS0"
+        }
+      ]
     },
     {
       "id": "GeometricSatakeAndFusion/E20",
@@ -5413,9 +5761,16 @@
       "addedBy": "REV-GeometricSatakeAndFusion--GS0",
       "review": {
         "verdict": "confirmed",
-        "reason": "The normalized IC in the paper’s Satake construction is perverse. On a smooth curve Q_ℓ[2] lies one degree away from the perverse constant Q_ℓ[1]. This printed formula confuses IC normalization with the smooth dualizing complex.",
-        "by": "REV-GeometricSatakeAndFusion--GS0"
-      }
+        "reason": "For a smooth d-dimensional stratum, Zhu p.478 uses IC restricted as the constant sheaf shifted by d; its dualizing complex is shifted by 2d with twist d. Identifying them directly loses a shift and twist.",
+        "by": "REV-GeometricSatakeAndFusion--GS0~2"
+      },
+      "reviewHistory": [
+        {
+          "verdict": "confirmed",
+          "reason": "The normalized IC in the paper’s Satake construction is perverse. On a smooth curve Q_ℓ[2] lies one degree away from the perverse constant Q_ℓ[1]. This printed formula confuses IC normalization with the smooth dualizing complex.",
+          "by": "REV-GeometricSatakeAndFusion--GS0"
+        }
+      ]
     },
     {
       "id": "GeometricSatakeAndFusion/E21",
@@ -5435,9 +5790,16 @@
       "addedBy": "REV-GeometricSatakeAndFusion--GS0",
       "review": {
         "verdict": "confirmed",
-        "reason": "Relative Frobenius P¹→P¹ has degree p and pulls c₁(O(1)) to p·c₁(O(1)). It induces an étale-topos equivalence and an isomorphism on rational top cohomology, but does not preserve the scalar trace normalization. Thus the claimed model independence fails.",
-        "by": "REV-GeometricSatakeAndFusion--GS0"
-      }
+        "reason": "Zhu pp.479–480 uses a trace in top cohomology. Frobenius on an ordinary P¹ model has degree p and changes that trace normalization. Universal-homeomorphism invariance of the étale topos does not identify these model-dependent trace maps without normalization.",
+        "by": "REV-GeometricSatakeAndFusion--GS0~2"
+      },
+      "reviewHistory": [
+        {
+          "verdict": "confirmed",
+          "reason": "Relative Frobenius P¹→P¹ has degree p and pulls c₁(O(1)) to p·c₁(O(1)). It induces an étale-topos equivalence and an isomorphism on rational top cohomology, but does not preserve the scalar trace normalization. Thus the claimed model independence fails.",
+          "by": "REV-GeometricSatakeAndFusion--GS0"
+        }
+      ]
     },
     {
       "id": "GeometricSatakeAndFusion/E22",
@@ -5457,9 +5819,16 @@
       "addedBy": "REV-GeometricSatakeAndFusion--GS0",
       "review": {
         "verdict": "confirmed",
-        "reason": "For GL₂ μ=(1,0), λ=(2,−1) is outside the weights of the minuscule bound, so S_λ∩Gr_{≤μ} is empty while ⟨ρ,μ+λ⟩=2. The closed-filtration proof applies to the nonempty strata.",
-        "by": "REV-GeometricSatakeAndFusion--GS0"
-      }
+        "reason": "FS p.207’s numerical dimension formula needs a nonempty intersection. The GL₂ minuscule bound and λ=(2,−1) give an empty intersection despite a positive numerical expression.",
+        "by": "REV-GeometricSatakeAndFusion--GS0~2"
+      },
+      "reviewHistory": [
+        {
+          "verdict": "confirmed",
+          "reason": "For GL₂ μ=(1,0), λ=(2,−1) is outside the weights of the minuscule bound, so S_λ∩Gr_{≤μ} is empty while ⟨ρ,μ+λ⟩=2. The closed-filtration proof applies to the nonempty strata.",
+          "by": "REV-GeometricSatakeAndFusion--GS0"
+        }
+      ]
     },
     {
       "id": "GeometricSatakeAndFusion/E23",
@@ -5481,7 +5850,37 @@
       "versionScope": "Established against the published Annals 185(2017) PDF only, exact SHA256 5d50b415048f3a5ad14bccf1c8da83fc5a680fcf13b60911ca269daa474431a7. This record does not assert that the same error occurs in an unread author-preprint edition.",
       "quoteScope": "The source assertion is described in the worker’s own words; mathematical symbols and formulas are retained where needed to identify the issue. The correction and reason are mathematical analysis, not quoted source prose.",
       "addedBy": "BP-GeometricSatakeAndFusion--GS0~2",
-      "reviewState": "Verified directly against the published page, including its rendered image; not an author-endorsed erratum."
+      "reviewState": "Verified directly against the published page, including its rendered image; not an author-endorsed erratum.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "In Zhu’s published p.436 proof the restriction IC_μ|Gr_μ has shift d_μ. Thus H_c^r with IC becomes unshifted constant-coefficient H_c^{r+d_μ}. The minuscule GL₂ affine-line example has nonzero H_c² and zero H_c¹.",
+        "by": "REV-GeometricSatakeAndFusion--GS0~2"
+      }
+    },
+    {
+      "id": "GeometricSatakeAndFusion/E24",
+      "kind": "misprint",
+      "source": "FS-geometrization",
+      "locator": "Description of the geometric-point degree function immediately before Proposition VI.3.1, printed/PDF p.202; compare Lemma VI.3.2 and its proof, pp.203–204, and collision bounds VI.2.6, p.200",
+      "printed": "After identifying the geometric Grassmannian with factors indexed by the distinct untilts, the description weights each factor’s local cocharacter by that untilt’s multiplicity among the ordered legs.",
+      "correction": "Sum the combined local cocharacters once over the distinct geometric supports. In a coincident block the local cocharacter already sums the ordered-leg labels. Retain the multiplicity in the product Cartier equation ξ, without applying it again to the local valuation or cocenter degree.",
+      "reason": "Take G=G_m and two coincident degree-one legs with primitive equation t. Completion for ξ=t² is the same as t-adic completion, and its geometric positive ring is one DVR B⁺. The ordered labels (1,0) give the lattice L=tB⁺, whose local cocharacter and ordinary length length(B⁺/L) are one. The printed extra weight gives two. Alternatively L=ξB⁺=t²B⁺ has ordinary position two and the printed weighting gives four. The sum over ordered labels at the start of p.202 and the product-DVR length identification in VI.3.2 both select the unweighted combined local cocharacter. This does not remove the collision addition of Schubert bounds.",
+      "affects": "nothing",
+      "known": "new; no author-endorsed correction found in the bounded primary-source search on 2026-10-08",
+      "searched": [
+        "2026-10-08: inspected the author-hosted PDF https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf, SHA256 9ab9efbd0df251bfa3b610d1d1d88a8dfb1bdf7c397bd04f4c277280d98ae905, including rendered p.202 and the surrounding pp.200–204.",
+        "2026-10-08: opened https://people.mpim-bonn.mpg.de/scholze/papers.html; no separate correction for this passage was listed.",
+        "2026-10-08: opened https://arxiv.org/abs/2102.13459 and checked its version metadata (v4 dated 27 November 2024). The arXiv PDF was not downloaded or compared.",
+        "2026-10-08: searched the author domain and arxiv.org for Geometrization with correction, errata, VI.3.1 and multiplicity, and searched the exact title with erratum. No relevant author-endorsed correction was retrieved."
+      ],
+      "versionScope": "Established only for the exact author-hosted PDF recorded above. No comparison with the arXiv PDF or the Astérisque version of record is claimed.",
+      "quoteScope": "Source prose is paraphrased; the mathematical example and correction are independent analysis.",
+      "addedBy": "REV-GeometricSatakeAndFusion--GS0~2",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The repeated-leg torus example distinguishes Cartier multiplicity from the already combined local cocharacter. The neighbouring ordinary-length proof fixes the intended convention, so this is a descriptive misprint with no change to the intended results.",
+        "by": "REV-GeometricSatakeAndFusion--GS0~2"
+      }
     }
   ],
   "routedCoverage": [
@@ -8008,7 +8407,14 @@
       "url": "https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf",
       "read": "2026-10-07",
       "sha256": "9ab9efbd0df251bfa3b610d1d1d88a8dfb1bdf7c397bd04f4c277280d98ae905",
-      "scope": "Author-hosted 356-page PDF; PDF page = printed page. Re-fetched and passages inspected 2026-10-07."
+      "scope": "Author-hosted 356-page PDF; PDF page = printed page. Re-fetched and passages inspected 2026-10-07.",
+      "independentReviewRead": {
+        "job": "REV-GeometricSatakeAndFusion--GS0~2",
+        "date": "2026-10-08",
+        "sha256": "9ab9efbd0df251bfa3b610d1d1d88a8dfb1bdf7c397bd04f4c277280d98ae905",
+        "scope": "Relevant passages, proof dependencies and source-issue locators independently read. Exact extents are in the review report; no whole-book or alternate-version audit is claimed.",
+        "url": "https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf"
+      }
     },
     {
       "source": "BS17-witt-grassmannian",
@@ -8016,7 +8422,14 @@
       "url": "https://arxiv.org/abs/1507.06490",
       "read": "2026-10-07",
       "sha256": "b4d5a4e0a6591971c6b8521d790e5db6e61112f1350a0e4a05a8d98b6e0b961e",
-      "scope": "arXiv:1507.06490v3, 61-page PDF; PDF page = printed page."
+      "scope": "arXiv:1507.06490v3, 61-page PDF; PDF page = printed page.",
+      "independentReviewRead": {
+        "job": "REV-GeometricSatakeAndFusion--GS0~2",
+        "date": "2026-10-08",
+        "sha256": "b4d5a4e0a6591971c6b8521d790e5db6e61112f1350a0e4a05a8d98b6e0b961e",
+        "scope": "Relevant passages, proof dependencies and source-issue locators independently read. Exact extents are in the review report; no whole-book or alternate-version audit is claimed.",
+        "url": "https://arxiv.org/pdf/1507.06490v3?download=1"
+      }
     },
     {
       "source": "SW20-berkeley",
@@ -8024,7 +8437,14 @@
       "url": "https://www.math.uni-bonn.de/people/scholze/Berkeley.pdf",
       "read": "2026-10-07",
       "sha256": "225505171ef809aa0070c023c881ff1da844923775f2d631474c0b42eea4bffc",
-      "scope": "Author-hosted Berkeley Lectures PDF dated March 27, 2020; PDF page = printed page + 10."
+      "scope": "Author-hosted Berkeley Lectures PDF dated March 27, 2020; PDF page = printed page + 10.",
+      "independentReviewRead": {
+        "job": "REV-GeometricSatakeAndFusion--GS0~2",
+        "date": "2026-10-08",
+        "sha256": "225505171ef809aa0070c023c881ff1da844923775f2d631474c0b42eea4bffc",
+        "scope": "Relevant passages, proof dependencies and source-issue locators independently read. Exact extents are in the review report; no whole-book or alternate-version audit is claimed.",
+        "url": "https://www.math.uni-bonn.de/people/scholze/Berkeley.pdf"
+      }
     },
     {
       "source": "Zhu17",
@@ -8032,7 +8452,14 @@
       "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v185-n2-p02-p.pdf",
       "read": "2026-10-07",
       "sha256": "5d50b415048f3a5ad14bccf1c8da83fc5a680fcf13b60911ca269daa474431a7",
-      "scope": "Published Annals 185 (2017), pp. 403–492; PDF page = printed page − 402."
+      "scope": "Published Annals 185 (2017), pp. 403–492; PDF page = printed page − 402.",
+      "independentReviewRead": {
+        "job": "REV-GeometricSatakeAndFusion--GS0~2",
+        "date": "2026-10-08",
+        "sha256": "5d50b415048f3a5ad14bccf1c8da83fc5a680fcf13b60911ca269daa474431a7",
+        "scope": "Relevant passages, proof dependencies and source-issue locators independently read. Exact extents are in the review report; no whole-book or alternate-version audit is claimed.",
+        "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v185-n2-p02-p.pdf"
+      }
     },
     {
       "source": "CS17",
@@ -8040,7 +8467,14 @@
       "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v186-n3-p01-p.pdf",
       "read": "2026-10-07",
       "sha256": "4f9449e5ecfd8fb8b43a04acef73060f531be995babaa9f744f3db36aaa5e61a",
-      "scope": "Published Annals 186 (2017); PDF page = printed page − 648."
+      "scope": "Published Annals 186 (2017); PDF page = printed page − 648.",
+      "independentReviewRead": {
+        "job": "REV-GeometricSatakeAndFusion--GS0~2",
+        "date": "2026-10-08",
+        "sha256": "4f9449e5ecfd8fb8b43a04acef73060f531be995babaa9f744f3db36aaa5e61a",
+        "scope": "Relevant passages, proof dependencies and source-issue locators independently read. Exact extents are in the review report; no whole-book or alternate-version audit is claimed.",
+        "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v186-n3-p01-p.pdf"
+      }
     },
     {
       "source": "GLX26",
@@ -8048,7 +8482,14 @@
       "url": "https://link.springer.com/content/pdf/10.1007/s00222-025-01386-1.pdf",
       "read": "2026-10-07",
       "sha256": "c40fe1fc5e0941812cf3aca5ba77c471ee49122c63ed7b0d864d322136031485",
-      "scope": "Published Inventiones 243 (2026), pp. 805–861; PDF page = printed page − 804."
+      "scope": "Published Inventiones 243 (2026), pp. 805–861; PDF page = printed page − 804.",
+      "independentReviewRead": {
+        "job": "REV-GeometricSatakeAndFusion--GS0~2",
+        "date": "2026-10-08",
+        "sha256": "c40fe1fc5e0941812cf3aca5ba77c471ee49122c63ed7b0d864d322136031485",
+        "scope": "Relevant passages, proof dependencies and source-issue locators independently read. Exact extents are in the review report; no whole-book or alternate-version audit is claimed.",
+        "url": "https://link.springer.com/content/pdf/10.1007/s00222-025-01386-1.pdf"
+      }
     },
     {
       "source": "VH24",
@@ -8056,7 +8497,14 @@
       "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/EC6F7AD8C8B489FEB8FC4D64485ABE1D/S2050508624000222a.pdf/mod_p_points_on_shimura_varieties_of_parahoric_level.pdf",
       "read": "2026-10-07",
       "sha256": "d86da9a0e35c93d22df291979be37a5acf1ddc44fbd762e11f2a5f6c92961be0",
-      "scope": "Published Cambridge PDF, PDF pages used as locators."
+      "scope": "Published Cambridge PDF, PDF pages used as locators.",
+      "independentReviewRead": {
+        "job": "REV-GeometricSatakeAndFusion--GS0~2",
+        "date": "2026-10-08",
+        "sha256": "d86da9a0e35c93d22df291979be37a5acf1ddc44fbd762e11f2a5f6c92961be0",
+        "scope": "Relevant passages, proof dependencies and source-issue locators independently read. Exact extents are in the review report; no whole-book or alternate-version audit is claimed.",
+        "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/EC6F7AD8C8B489FEB8FC4D64485ABE1D/S2050508624000222a.pdf/mod_p_points_on_shimura_varieties_of_parahoric_level.pdf"
+      }
     },
     {
       "source": "He21",
@@ -8064,309 +8512,331 @@
       "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/5A27DBF48CAEF6DA56A313061848574C/S205050862100010Xa.pdf/cordial-elements-and-dimensions-of-affine-delignelusztig-varieties.pdf",
       "read": "2026-10-07",
       "sha256": "d53843f0c8875cf1e14173ad271e025bd30f177fe319a7d83926629d454683dd",
-      "scope": "Published Forum of Mathematics Pi 9 (2021), e9; PDF page = printed page."
+      "scope": "Published Forum of Mathematics Pi 9 (2021), e9; PDF page = printed page.",
+      "independentReviewRead": {
+        "job": "REV-GeometricSatakeAndFusion--GS0~2",
+        "date": "2026-10-08",
+        "sha256": "d53843f0c8875cf1e14173ad271e025bd30f177fe319a7d83926629d454683dd",
+        "scope": "Relevant passages, proof dependencies and source-issue locators independently read. Exact extents are in the review report; no whole-book or alternate-version audit is claimed.",
+        "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/5A27DBF48CAEF6DA56A313061848574C/S205050862100010Xa.pdf/cordial-elements-and-dimensions-of-affine-delignelusztig-varieties.pdf"
+      }
     }
   ],
   "review": {
-    "status": "needs_changes",
-    "reviewer": "independent-review-REV-GeometricSatakeAndFusion--GS0",
-    "date": "2026-10-07",
-    "notes": "Independent target-level review of all 59 nodes, 30 pinned baseline declarations, eight public source versions, supplier contracts, all 23 definition/construction APIs and tests, 25 planets, 22 source issues and six supplied red-team findings. Clear corrections are applied to the packet and suggested signatures. All nodes are justified as verified or corrected with remaining supplier refinements recorded. The authorized reader document is not a deliverable of issue #418 and still contradicts these corrections; synchronize it in an authorized revision before acceptance/publication. Full Lean check is blocked by a missing prebuilt Tau Ceti line-bundle module; the Mathlib-only projection of this same suggested file elaborated with only placeholder-proof warnings. See the review report and handoff.",
+    "status": "accepted",
+    "reviewer": "independent-review-REV-GeometricSatakeAndFusion--GS0~2",
+    "date": "2026-10-08",
+    "notes": "Independent review of all 62 nodes, all 30 exact pinned declarations, all eight public source versions, 79 direct supplier prerequisites, 23 requests, 73 APIs, 72 tests, 25 planets, eight planned stages and six supplied red-team findings. Corrected the Demazure quotient recursion, two baseline descriptions and ambiguous imported erratum identifiers; added and confirmed E24 for repeated-leg degree weighting, with an explicit author-copy version limit. All 24 source issues have current individual verdicts. The reader is synchronized, including the predecessor corrections. Complete target-level pass accepted with its 10 explicit gaps; no stage is closed and every implementation status is unchecked. Full Lean file uncompiled because no existing build has both pins; the current Mathlib-only projection passed with only placeholder-proof warnings. See the report for exact validation boundaries.",
     "checked": [
       {
         "nodeId": "GeometricSatakeAndFusion:GS0:loop-geometry/loop-groups-and-local-hecke",
         "verdict": "verified",
-        "note": "Checked FS VI.1.5: completed-divisor evaluation is an RF input, not a new Witt-ring definition."
+        "note": "FS VI.1.5 p.192: affine functor evaluation and the affinoid-divisor basis match the RF2 rings. Its three APIs and tests detect units, the trivial group and categorical affine evaluation."
       },
       {
         "nodeId": "GeometricSatakeAndFusion:GS0:loop-geometry/local-hecke-stack",
-        "verdict": "corrected",
-        "note": "Strengthened the stabilizer test to a nonidentity element of the diagonal group, detecting replacement of the Hecke groupoid by its set of orbits."
+        "verdict": "verified",
+        "note": "FS VI.1.6–7 p.193: two torsors with punctured isomorphism retain the double-quotient groupoid. RF2 finite-thickening descent and RF4 completed algebraization are both named; the nonidentity diagonal stabilizer test is valid."
       },
       {
         "nodeId": "GeometricSatakeAndFusion:GS0:loop-geometry/grassmannian",
         "verdict": "verified",
-        "note": "Checked FS VI.1.8–1.9: the Grassmannian includes the trivialization, unlike the double-quotient Hecke groupoid."
+        "note": "FS VI.1.8–9 pp.193–194: the trivialization kills the extra automorphisms. The right-coset core does not assume normality; g⁻¹g′∈H is the correct equality test."
       },
       {
         "nodeId": "GeometricSatakeAndFusion:GS0:loop-geometry/ordered-leg-base-change",
         "verdict": "verified",
-        "note": "Checked disjoint factorization and collision addition; ordered-leg geometry is available before symmetric fusion."
+        "note": "FS VI.2.6 pp.199–200: disjoint supports factor and coincident ordered bounds add. The repeated-support completed DVR is counted once; the Cartier equation retains multiplicity."
       },
       {
         "nodeId": "GeometricSatakeAndFusion:GS0:loop-geometry/schubert-bounds-and-properness",
         "verdict": "verified",
-        "note": "Checked generic bounds separately from the mixed-characteristic Witt projectivity argument."
+        "note": "FS VI.2.2–3 pp.196–197 and SW 19.2/20.4: generic properness is separated from integral Witt properness. Dominance tests retain equal component/degree, and a torus bound is equality."
       },
       {
         "nodeId": "GeometricSatakeAndFusion:GS0:loop-geometry/generic-galois-descent",
-        "verdict": "corrected",
-        "note": "Specified finite Galois splitting and removed cohomological smoothness as an earlier proof input; smoothness is proved and descended at the later cell node."
+        "verdict": "verified",
+        "note": "FS p.196 and p.226: split over a finite Galois extension and descend the stable union of conjugate bounds. This does not create an integral reductive model for a ramified group or import later cell smoothness."
       },
       {
         "nodeId": "GeometricSatakeAndFusion:GS0:loop-geometry/affine-flag-demazure",
         "verdict": "verified",
-        "note": "Checked FS VI.5: Spd O_C flags and Demazure spaces are not asserted to be ordinary finite-type schemes."
+        "note": "FS VI.5.1–7 pp.209–211: the integral flag and reduced-word Demazure tower are diamonds over Spd O_C, with P¹ fibres and a length-zero factor. The combinatorial core explicitly omits this geometry."
+      },
+      {
+        "nodeId": "GeometricSatakeAndFusion:GS0:loop-geometry/etale-over-divisor",
+        "verdict": "verified",
+        "note": "FS VI.1.13 p.196: the separated étale divisor-lift functor has the stated natural universal property. The closed support-map request is necessary; its genuine geometric signature omission follows §13."
       },
       {
         "nodeId": "GeometricSatakeAndFusion:GS0:loop-geometry/smooth-scheme-loops",
         "verdict": "verified",
-        "note": "Checked FS VI.1.12–1.13: loop evaluation on a smooth scheme uses RF divisor rings and the stated chart argument."
+        "note": "FS VI.1.12–13 pp.195–196: the smooth quasiprojective evaluation space has dimension dn. The affine tower, separated étale lifts and finite-image chart argument use the preceding lemma without a circular cell theorem."
       },
       {
         "nodeId": "GeometricSatakeAndFusion:GS0:loop-geometry/congruence-filtration-and-graded-pieces",
-        "verdict": "corrected",
-        "note": "Replaced RG2.5 by RG2.1 for relative Lie weights; absolute adjoint/root theory is imported from existing ReductiveGroups layers."
+        "verdict": "verified",
+        "note": "FS VI.1.10–12 pp.194–196: m≥1 graded pieces are Lie(G) tensored with I^m/I^{m+1}; only each finite piece has dimension d dim G. Absolute group theory is imported, and relative weights are requested from RG2.1."
       },
       {
         "nodeId": "GeometricSatakeAndFusion:GS0:Schubert-smoothness/truncated-positive-loops",
-        "verdict": "corrected",
-        "note": "Corrected the locator to VI.1.10–1.11 and removed the later bounded-action theorem from the construction argument."
+        "verdict": "verified",
+        "note": "FS VI.1.10–11 pp.194–195: smooth nilpotent lifting proves finite quotient representability. The quotient-ring prototype omits that geometric lifting and does not depend on its later action application."
       },
       {
         "nodeId": "GeometricSatakeAndFusion:GS0:Schubert-smoothness/open-cell-stabilizer-and-smoothness",
-        "verdict": "corrected",
-        "note": "Corrected the locator to pp.198–200 and added the RF4 vector-bundle/finite-projectivity input; relative weights belong to RG2.1."
+        "verdict": "verified",
+        "note": "FS VI.2.4–5 pp.198–200 and IV.1.18 p.112: stabilizer weights give the cell’s dimension and smoothness after the RF4 finite-projectivity criterion. Opposite-parabolic signs and split descent are consistent."
       },
       {
         "nodeId": "GeometricSatakeAndFusion:GS0:Schubert-smoothness/truncation-of-the-loop-action",
-        "verdict": "corrected",
-        "note": "Routed the weight bound to RG2.1, retaining the strict finite congruence-depth condition and collision sums."
+        "verdict": "verified",
+        "note": "FS VI.2.8 p.201: m>0 and m at least every Lie weight suffice, including equality at the largest weight. Colliding bounds are summed before this comparison; the GL₂ example retains m≥a−b."
       },
       {
         "nodeId": "GeometricSatakeAndFusion:GS0:Schubert-smoothness/minuscule-bialynicki-birula",
-        "verdict": "corrected",
-        "note": "Routed minuscule Lie/parabolic compatibility to RG2.1; checked the CS/FS opposite-parabolic and coweight sign conventions."
+        "verdict": "verified",
+        "note": "CS 3.4.4–6 pp.685–686: the minuscule comparison uses the opposite parabolic and the generic characteristic-zero period-module construction. RF4 projectivity and the corrected period connection remain exact owner requests."
       },
       {
         "nodeId": "GeometricSatakeAndFusion:GS0:Witt-geometry/witt-lattice-functor-and-representability",
         "verdict": "verified",
-        "note": "Checked perfect-characteristic-p lattice representability, retaining the distinction between the original algebraic space and BS projective schemes."
+        "note": "BS 8.1 and 9.4–5 pp.32,36–37: perfect-base Witt lattice representability retains embedded finite-projective lattices and uniform poles. The original algebraic-space proof and later projective-model proof are different nodes."
       },
       {
         "nodeId": "GeometricSatakeAndFusion:GS0:Witt-geometry/witt-types-and-bounds",
-        "verdict": "verified",
-        "note": "Checked type inequalities, perfect-field fibre tests, and the identity-isogeny projective-dimension convention in E14."
+        "verdict": "corrected",
+        "note": "BS 7.3–9 pp.28–32: type dominance has fixed total length and the cokernel has projective dimension at most one. Qualified the finite-rank repair as PAPER-BHATT-SCHOLZE-17/E37 rather than an unbound packet identifier."
       },
       {
         "nodeId": "GeometricSatakeAndFusion:GS0:Witt-geometry/zhu-finite-jet-presentation",
         "verdict": "verified",
-        "note": "Checked the determinant-jet presentation and finite-depth bound; truncated Witt coefficients are supplied, not replaced by ordinary polynomials."
+        "note": "Zhu 1.9–11 pp.418–421: the determinant condition is in truncated Witt vectors at adequate depth. Ordinary polynomial coefficients cannot replace this jet algebra; the owner request supplies the actual coefficient interface."
       },
       {
         "nodeId": "GeometricSatakeAndFusion:GS0:Witt-geometry/zhu-original-algebraic-space",
         "verdict": "verified",
-        "note": "Checked Zhu 1.12/1.19/1.20 and Appendix A representability; this is the original algebraic-space construction, preceding BS projectivity."
+        "note": "Zhu 1.12/1.19–20 and A.29–31 pp.421,425–426,476–477: the torsor quotient is an algebraic space before BS projectivity. Smooth perfect quotient hypotheses are retained in the SF1 request."
       },
       {
         "nodeId": "GeometricSatakeAndFusion:GS0:Witt-geometry/witt-demazure-resolution",
-        "verdict": "verified",
-        "note": "Checked decreasing lattice-chain conventions, graded ranks and the Demazure proper map; no K-theory determinant construction is duplicated."
+        "verdict": "corrected",
+        "note": "BS 7.10–13/8.4–6 pp.29–34: corrected the recursion to choose Q/pQ→G and continue with ker(Q→G). For λ=(2,1,0) over Q=k³ the rank-two quotients give P²; setting G=Q/pQ wrongly removes this fibre."
       },
       {
         "nodeId": "GeometricSatakeAndFusion:GS0:Witt-geometry/connected-cohomological-fibres",
         "verdict": "verified",
-        "note": "Checked connected fibres, RΓ(O)=k, and the exact-type isomorphism; the positive-dimension claim is restricted to Zhu’s full chain resolution."
+        "note": "BS 7.13–14 pp.30–32 and Zhu 1.18 pp.424–425: connected structure-cohomology-trivial fibres justify descent. Positive-dimensional lower fibres are only claimed for Zhu’s full chain resolution, with exact-type isomorphism."
       },
       {
         "nodeId": "GeometricSatakeAndFusion:GS0:Witt-geometry/h-descent-and-fibral-criterion",
         "verdict": "verified",
-        "note": "Checked BS finite/formal bundle descent and the fibre-trivial criterion; the general theorem remains owned by SF."
+        "note": "BS 6.1/6.8/6.13 pp.21–26: this is the Witt application of SF’s proper pfp connected-fibre full faithfulness and fibre-trivial effective descent. Properness alone is not the descent hypothesis."
       },
       {
         "nodeId": "GeometricSatakeAndFusion:GS0:Witt-geometry/geometric-determinant-line",
         "verdict": "verified",
-        "note": "Checked BS 6.11/8.8: the positive graded-quotient determinant descends uniquely to the Witt bound using the existing invertible-sheaf carrier."
+        "note": "BS 6.11/8.8 pp.25,33–34: positive graded-quotient determinants descend uniquely. Tau Ceti provides the scheme invertible-sheaf carrier; tensor/Picard/descent operations remain supplied by their owners."
       },
       {
         "nodeId": "GeometricSatakeAndFusion:GS0:Witt-geometry/determinant-positivity",
         "verdict": "verified",
-        "note": "Checked BS 8.9–8.11: weighted ampleness, exact-type sections and positive degree on nonconstant proper curves have distinct uses."
+        "note": "BS 8.9–11 pp.34–35: weighted positivity, exact-type sections and positivity on nonconstant proper curves serve separate steps. No direct inference from nef to ample is used."
       },
       {
         "nodeId": "GeometricSatakeAndFusion:GS0:Witt-geometry/ampleness-via-keel",
         "verdict": "corrected",
-        "note": "Corrected Theorem 8.3’s statement/proof pages; general Keel, model and descent machinery stays in SF, with the boundary-pinching obligation explicit."
+        "note": "BS Theorem 8.3 pp.32,35–36: the boundary is constructed before Keel, then semiampleness and Stein contraction identify the quotient. Qualified the imported boundary gap as PAPER-BHATT-SCHOLZE-17/E39; general positivity remains solely SF5."
       },
       {
         "nodeId": "GeometricSatakeAndFusion:GS0:Witt-geometry/perfect-model-and-etale-comparison",
-        "verdict": "corrected",
-        "note": "Restricted this node to applying imported SF model/perfection theory to the Witt diamond comparison; it does not re-plan the general theorem."
+        "verdict": "verified",
+        "note": "SW 20.3.1–4 p.185: this applies SF’s direct Frobenius-colimit perfection/model theory to Witt schemes and L1/L3 comparison. Mathlib’s inverse-limit Perfection is not substituted."
       },
       {
         "nodeId": "GeometricSatakeAndFusion:GS0:Witt-geometry/integral-family-bounded-properness",
         "verdict": "verified",
-        "note": "Checked SW 20.3.6/20.5.4: integral bounds use special/generic fibres and the mixed-characteristic construction, not generic closed bounds alone."
+        "note": "SW 20.3.6 p.186 and 20.5.4 p.190: integral bounded properness uses the special-fibre Witt projective presentation as well as the generic bound. Generic properness alone cannot prove this statement."
       },
       {
         "nodeId": "GeometricSatakeAndFusion:GS0:Witt-geometry/parahoric-ind-projectivity",
         "verdict": "verified",
-        "note": "Checked SW 21.1 parahoric Witt ind-projectivity and inertia-coinvariant component indexing."
+        "note": "SW 21.1.1–4 pp.191–192: parahoric Witt ind-projectivity and geometric component labels retain inertia coinvariants and residual Frobenius. Model and affine-root requirements are imported from RG2."
       },
       {
         "nodeId": "GeometricSatakeAndFusion:GS0:Witt-geometry/integral-parahoric-properness",
         "verdict": "verified",
-        "note": "Checked SW 21.2–21.5: integral parahoric ind-properness needs Anschütz extension and its group-model assumptions."
+        "note": "SW 21.2/21.4.3/21.5.1 pp.192–197: quasi-parahoric integral ind-properness uses Anschütz extension, while the indicated connected-component comparisons retain minuscule scope. RF4 requests the actual punctured torsor theorem."
       },
       {
         "nodeId": "GeometricSatakeAndFusion:GS0:Witt-geometry/canonical-witt-models",
-        "verdict": "corrected",
-        "note": "Typed the perfect characteristic-p coefficient field and valid jet depth; replaced tautological tests by zero/rank-one models and a nilpotent counterexample."
+        "verdict": "verified",
+        "note": "Zhu B.4–9 pp.484–486: the canonical model uses a perfect characteristic-p field and valid jet depth. Zero/rank-one tests and a nilpotent thickening distinguish the model from its perfection; crystal/Hodge claims retain sketch-only proof requests."
       },
       {
         "nodeId": "GeometricSatakeAndFusion:GS0:Witt-geometry/rank-two-cone-chart",
-        "verdict": "corrected",
-        "note": "Recorded the corrected right-factor adjugate calculation proving integrality; narrowed the remaining gap to the truncated-Witt/lift interface."
+        "verdict": "verified",
+        "note": "Zhu B.10–11 pp.486–488: A⁻¹X is integral by the adjugate calculation. A chosen full lift has a unit determinant with the prescribed residue, not necessarily an exact Teichmüller value; factor nonuniqueness and the stabilizer regression are correct."
       },
       {
         "nodeId": "GeometricSatakeAndFusion:GS0:Witt-geometry/sl-determinant-normalization",
         "verdict": "verified",
-        "note": "Checked the SL_n normalization of the extended determinant and corrected E19; an ordinary R-determinant of a p-torsion quotient is not used."
+        "note": "BS §10 pp.37–39: the SL normalization uses the extended determinant with the standard-lattice correction and a central extension. Ramified positivity requires the recorded restriction-of-scalars extension, not an ordinary determinant of torsion."
       },
       {
         "nodeId": "GeometricSatakeAndFusion:GS0:Witt-geometry/sections-on-witt-bounds",
         "verdict": "verified",
-        "note": "Checked Zhu Appendix B section/determinant claims with their sketch-only scope; the Hodge comparison remains an explicit supplier refinement."
+        "note": "BS 10.5–6 pp.39–40: Frobenius-colimit sections and Serre surjectivity do not assert finite-dimensional sections or solve Question 10.6. The Hodge family interface stays a separate requested comparison."
       },
       {
         "nodeId": "GeometricSatakeAndFusion:GS0:Witt-geometry/bounded-admissible-flags",
-        "verdict": "corrected",
-        "note": "Added VH 2.2.14–2.2.15 and corrected GLX locators; imposed connected parahoric/local-model morphism hypotheses for functoriality."
+        "verdict": "verified",
+        "note": "GLX §§3.2–3.3 pp.822–823 and VH 2.2.14–15 pp.15–16: finite admissible Schubert unions have integral local-model suppliers and compatible connected parahoric morphisms. VH’s minuscule interpretation is not silently extended; GLX supplies the general route."
       },
       {
         "nodeId": "GeometricSatakeAndFusion:GS0:Witt-geometry/flag-incidence-correspondences",
         "verdict": "verified",
-        "note": "Checked relative-position incidence relations and multiplication order; the admissible union is downward closed, not a single exact stratum."
+        "note": "He §§5.3–5.4 pp.9–12 with standing §2.2 pp.4–5: ordered middle flags define the twisted incidence. The set prototype retains but does not prove bounded pfp geometric realization."
       },
       {
         "nodeId": "GeometricSatakeAndFusion:GS0:Witt-geometry/flag-convolution-fibres",
-        "verdict": "corrected",
-        "note": "Made He’s simple quasi-split standing hypotheses explicit; transfer beyond that setting requires the requested componentwise comparison."
+        "verdict": "verified",
+        "note": "He Theorem 5.6 p.10 and proof pp.10–12: ordinary multiplication gives the half-length lower bound, Demazure multiplication the full-length one. Simple quasi-split scope and componentwise adjoint transfers are retained as explicit hypotheses/requests."
+      },
+      {
+        "nodeId": "GeometricSatakeAndFusion:GS1/length-semicontinuity",
+        "verdict": "verified",
+        "note": "FS VI.3.3 p.204: zero-residue closed loci and division by one primitive degree-one equation prove open finite-length sublevels. Units, zero and repeated legs use ordinary product-DVR lengths; the exact signature omission preserves actual RF fibre maps."
+      },
+      {
+        "nodeId": "GeometricSatakeAndFusion:GS1/lattice-relative-position-semicontinuity",
+        "verdict": "verified",
+        "note": "FS VI.3.2 pp.203–204: the finitely generated open bounded lattice has closed upper-position loci and becomes rank-one projective at constant position. Fibre detection is an RF4 request, not an assumption of projectivity; multiplying by ξ adds its degree."
       },
       {
         "nodeId": "GeometricSatakeAndFusion:GS1/semi-infinite-orbits-and-hyperbolic-localization",
-        "verdict": "verified",
-        "note": "Checked FS VI.3 hyperbolic localization, shifts and weight indexing; enhanced six operations and scheme normalization are supplier inputs."
+        "verdict": "corrected",
+        "note": "FS VI.3.1–5 pp.202–206: corrected the cocenter convention to sum combined local cocharacters once at distinct supports (E24). The rank-one semicontinuity route precedes monodromic hyperbolic localization; the coincident two-leg torus case detects extra weighting."
       },
       {
         "nodeId": "GeometricSatakeAndFusion:GS1/semi-infinite-affineness",
-        "verdict": "corrected",
-        "note": "Added nonemptiness to dimension equalities, routed Lie weights to RG2.1, and used FS’s closed affine filtration rather than later rational generation."
+        "verdict": "verified",
+        "note": "FS VI.3.7–8 pp.205–207: the closed height filtration with affine successive complements gives affineness and the dimension bound on nonempty strata. Empty intersections remain allowed and no later rational generation theorem is an input."
       },
       {
         "nodeId": "GeometricSatakeAndFusion:GS0:Witt-geometry/semi-infinite-intersections-and-MV-cycles",
         "verdict": "verified",
-        "note": "Checked MV component counting and the qualified closure/dimension corrections; empty intersections have component count zero."
+        "note": "Zhu 2.8–9 pp.434–436 and A.3.3 pp.479–480: nonempty dimensions, IC shift r+d and fixed-model trace normalization are correct. Rational MV generators do not supply an integral canonical basis; E23 is independently confirmed."
       },
       {
         "nodeId": "GeometricSatakeAndFusion:GS1/prounipotent-equivariance",
-        "verdict": "corrected",
-        "note": "Replaced a finite-filtration assertion on H by the actual complete congruence filtration and truncated-action equivalence; added VS1 ordinary-cohomology continuity."
+        "verdict": "verified",
+        "note": "FS VI.4.1 pp.207–208: complete infinite congruence filtrations, finite filtrations of graded quotients and a finite-level action are all required. VS1’s requested ordinary-cohomology inverse-limit continuity is distinct from compact-support affine acyclicity."
       },
       {
         "nodeId": "GeometricSatakeAndFusion:GS1/constant-term-conservativity",
         "verdict": "verified",
-        "note": "Checked FS VI.4.2: maximal weight and hyperbolic localization prove conservativity after the corrected deep-equivariance input."
+        "note": "FS VI.4.2 pp.208–209: bounded support, positive-loop equivariance and split reduction give conservative constant terms. The height-filtration argument terminates and does not feed backwards into constructing the strata."
       },
       {
         "nodeId": "GeometricSatakeAndFusion:GS1/ULA-sheaves-on-the-hecke-stack",
-        "verdict": "corrected",
-        "note": "Removed the later constant-term criterion from the category construction; smooth-chart descent and VI.6.5 cell restrictions give the earlier definition."
+        "verdict": "verified",
+        "note": "FS VI.6.1–5 pp.211–214: ULA is first defined relative to the divisor base and descends through smooth charts; one-leg recognition is not claimed for arbitrary leg configurations. Perfect stalk complexes may have nonprojective cohomology."
       },
       {
         "nodeId": "GeometricSatakeAndFusion:GS1/ula-constant-term-criterion",
-        "verdict": "corrected",
-        "note": "Replaced projective individual cohomology by a derived stalk with a bounded finite-projective model; added the needed baseline references and a Z/4 regression."
+        "verdict": "verified",
+        "note": "FS VI.6.4–6/6.8 pp.212–215: the G×G constant term detects the diagonal duality-map isomorphism. One-leg and disjoint-factor scope, perfect complexes and the multiplication-by-two nonprojective-cohomology regression are preserved."
       },
       {
         "nodeId": "GeometricSatakeAndFusion:GS1/integral-family-comparison",
         "verdict": "verified",
-        "note": "Checked one-leg ULA special/generic transport; this alone is not a tensor comparison or a fusion structure."
+        "note": "FS VI.6.7 p.214 and VI.7.4 pp.217–219: one-leg ULA restriction equivalences retain coefficient/support hypotheses and use the actual Witt special-fibre comparison. No early fusion tensor equivalence is inferred."
       },
       {
         "nodeId": "GeometricSatakeAndFusion:GS1/relative-perverse-t-structure",
-        "verdict": "corrected",
-        "note": "Added the EDC5 coefficient-change/adic request: the existing scheme perverse node does not cover arbitrary integral coefficients."
+        "verdict": "verified",
+        "note": "FS VI.7.1–4 pp.215–219: cell/costalk normalization uses the sum over distinct local factor dimensions. EDC5’s actual limited coefficient contract is not enlarged silently; its requested extension and the EDS Ind t-structure extension remain gaps."
       },
       {
         "nodeId": "GeometricSatakeAndFusion:GS1/perverse-descent-and-shifted-ct",
-        "verdict": "corrected",
-        "note": "Added EDC5 and affine intersections directly; replaced later rational concentration by FS field devissage, dimension bounds and hyperbolic duality."
+        "verdict": "verified",
+        "note": "FS VI.7.2–4 pp.216–219: connective Hom descent and shifted CT exactness use early field devissage, affine dimension and hyperbolic duality. Later rational weight concentration is not a prerequisite."
       },
       {
         "nodeId": "GeometricSatakeAndFusion:GS1/flat-perverse-objects",
-        "verdict": "corrected",
-        "note": "Added EDC5 coefficient/torsion-pair compatibility, retaining the all-module tensor test rather than tensoring only with flat modules."
+        "verdict": "verified",
+        "note": "FS VI.7.7 pp.220–221: flat perversity tests derived tensor with every coefficient module. With perfectness and zero Tor amplitude the stalk is finite projective; perversity by itself does not remove torsion."
       },
       {
         "nodeId": "GeometricSatakeAndFusion:GS1/standard-costandard-objects",
-        "verdict": "corrected",
-        "note": "Added EDC5 coefficient compatibility, retaining the intermediate-image and standard/costandard conventions."
+        "verdict": "verified",
+        "note": "FS VI.7.5/7.9 pp.219–222: standard/costandard objects use perverse truncation of extension with the cell shift. Dual twists and coefficient change are kept; the diagrammatic prototype marks missing geometry."
       },
       {
         "nodeId": "GeometricSatakeAndFusion:GS1/standard-costandard-torsion-bound",
-        "verdict": "corrected",
-        "note": "Typed a Z_ell-algebra and a uniform ell-power exponent; added the pinned PadicInt carrier rather than the vacuous exponent N=0."
+        "verdict": "verified",
+        "note": "FS VI.7.5 pp.219–220 and Zhu Lemma 2.1 pp.429–430: the cone is killed by a uniform ℓ-power over a ℤ_ℓ-algebra. Rational semisimplicity supplies the rational step, not arbitrary integral semisimplicity."
       },
       {
         "nodeId": "GeometricSatakeAndFusion:GS1/rational-weight-concentration",
-        "verdict": "corrected",
-        "note": "Clarified the quasi-minuscule zero-weight multiplicity as short simple coroots of G in the relevant orbit; retained the corrected excision argument."
+        "verdict": "verified",
+        "note": "Zhu §§2.2.1–2.2.2 pp.434–440: the minimal-object argument and finite filtered parity yield rational concentration in weight degree. The infinity-section contribution and short simple coroot multiplicity are retained; no integral splitting is asserted."
       },
       {
         "nodeId": "GeometricSatakeAndFusion:GS2:correspondences/satake-category-and-fibre-functor",
         "verdict": "verified",
-        "note": "Checked finite support, ULA and flat perversity in the Satake category; neither the entire perverse heart nor generic rigid categories are substituted."
+        "note": "FS VI.7.8–9 pp.221–222: bounded ULA flat-perverse objects form the stated additive/exact full subcategory. It is not generally abelian, and the full-subcategory carrier is already Mathlib infrastructure."
       },
       {
         "nodeId": "GeometricSatakeAndFusion:GS2:correspondences/satake-fibre-functor",
-        "verdict": "corrected",
-        "note": "Added split kernel/cokernel lifting and preservation APIs, repaired the faithfulness argument, added an infinite-grading non-example, and requested EDC5 scope."
+        "verdict": "verified",
+        "note": "FS VI.7.10–11 pp.222–223: both split kernels and split cokernels lift with their universal maps. Bounded finite support gives finite projective total cohomology; kernel lifting plus conservativity gives faithfulness."
       },
       {
         "nodeId": "GeometricSatakeAndFusion:GS2:correspondences/satake-verdier-duality",
-        "verdict": "corrected",
-        "note": "Routed relative Lie/root conventions to RG2.1; checked inversion, duality and flat finite-Tor conditions, without assuming all perverse objects dualize."
+        "verdict": "verified",
+        "note": "FS VI.7.12–13 pp.223–224: relative Verdier duality with inversion preserves the flat-perverse Satake subcategory and supplies the proposed dual. The geometric coefficient/finite-Tor conditions are explicit prototype omissions."
       },
       {
         "nodeId": "GeometricSatakeAndFusion:GS2:correspondences/convolution-diagram",
         "verdict": "verified",
-        "note": "Checked ambient convolution correspondence and p_! with bounded proper support; exact coherence is requested from EDS/VS1."
+        "note": "FS VI.8 pp.224–225: the two-modification Hecke diagram and proper pull–push correspondence retain the middle bundle and supports. The enhanced kernel calculus and bounded Artin descent are owner imports/requests."
       },
       {
         "nodeId": "GeometricSatakeAndFusion:GS2:correspondences/convolution-associativity-and-unit",
         "verdict": "verified",
-        "note": "Checked associativity/unit from correspondence base change and projection formulas before GS3 symmetric fusion."
+        "note": "FS VI.8 pp.224–225: composition and identity correspondences give coherent associativity/unit data. An ordinary homotopy-category pentagon alone is insufficient; the EDS coherence request covers this boundary."
       },
       {
         "nodeId": "GeometricSatakeAndFusion:GS2:correspondences/rational-special-fibre-convolution",
         "verdict": "verified",
-        "note": "Checked Zhu rational Witt convolution/semismallness under its finite-type and coefficient hypotheses; it is not used to justify earlier integral perversity."
+        "note": "Zhu 2.1.2/2.2–4 pp.431–432: the rational special-fibre twisted-product convolution and geometric fibre bounds precede its Satake tensor use. These geometric estimates are distinct from the generic correspondence."
       },
       {
         "nodeId": "GeometricSatakeAndFusion:GS2:Satake-closure/convolution-ula",
-        "verdict": "corrected",
-        "note": "Replaced global rigidity in the Lean core by right duals of the two kernel objects; proper ULA kernel composition proves the geometric assertion."
+        "verdict": "verified",
+        "note": "FS VI.8.1(i) p.225: proper composition and ULA stability preserve ULA kernels. The algebraic core assumes right duals of its inputs only, not rigidity of the ambient category."
       },
       {
         "nodeId": "GeometricSatakeAndFusion:GS2:Satake-closure/convolution-perverse-nonpositive",
-        "verdict": "corrected",
-        "note": "Restored VI.8.1(ii) for all bounded perverse-nonpositive inputs; ordered collision/cell devissage reduces the proof to ULA cells and the two-leg family."
+        "verdict": "verified",
+        "note": "FS VI.8.1(ii) pp.225–226: nonpositive perversity is for arbitrary bounded nonpositive inputs. Ordered collision/cell devissage reduces to the ULA-cell estimates, before coherent symmetric fusion."
       },
       {
         "nodeId": "GeometricSatakeAndFusion:GS2:Satake-closure/convolution-preserves-satake-and-dualizability",
         "verdict": "verified",
-        "note": "Checked integral convolution closure using ULA plus perverse bounds and the DVR flatness test before tensor/fusion in GS3."
+        "note": "FS VI.8.1(iii) pp.225–226: ULA, nonpositive estimates, duality and the flatness criterion prove closure under convolution. The corrected stage order puts this before GS3 fusion."
       },
       {
         "nodeId": "GeometricSatakeAndFusion:GS2:Satake-closure/satake-rigidity",
         "verdict": "verified",
-        "note": "Checked both duals and triangle identities through proper-relative ULA kernels; Verdier/inversion duals do not presuppose fusion."
+        "note": "FS VI.8.2 p.226 and IV.2.24 pp.125–126: proper-relative ULA kernels and the inversion/Verdier dual give both adjoints with triangle identities. The RigidCategory carrier, not LeftRigidCategory alone, matches the conclusion."
       },
       {
         "nodeId": "GeometricSatakeAndFusion:GS2:Satake-closure/one-leg-satake-comparison",
         "verdict": "verified",
-        "note": "Checked the one-leg Satake equivalence through ULA comparison and shifted constant terms; tensor compatibility is explicitly reserved for GS3."
+        "note": "FS VI.6.7/VI.7.4–8/VI.8 pp.214,217–226: the one-leg equivalence is compatible with flat perversity and shifted constant terms. Tensor compatibility is reserved for GS3 and is not used to establish early closure."
       }
     ]
   },
@@ -8435,5 +8905,310 @@
         "GeometricSatakeAndFusion/E23"
       ]
     }
-  }
+  },
+  "reviewHistory": [
+    {
+      "status": "needs_changes",
+      "reviewer": "independent-review-REV-GeometricSatakeAndFusion--GS0",
+      "date": "2026-10-07",
+      "notes": "Independent target-level review of all 59 nodes, 30 pinned baseline declarations, eight public source versions, supplier contracts, all 23 definition/construction APIs and tests, 25 planets, 22 source issues and six supplied red-team findings. Clear corrections are applied to the packet and suggested signatures. All nodes are justified as verified or corrected with remaining supplier refinements recorded. The authorized reader document is not a deliverable of issue #418 and still contradicts these corrections; synchronize it in an authorized revision before acceptance/publication. Full Lean check is blocked by a missing prebuilt Tau Ceti line-bundle module; the Mathlib-only projection of this same suggested file elaborated with only placeholder-proof warnings. See the review report and handoff.",
+      "checked": [
+        {
+          "nodeId": "GeometricSatakeAndFusion:GS0:loop-geometry/loop-groups-and-local-hecke",
+          "verdict": "verified",
+          "note": "Checked FS VI.1.5: completed-divisor evaluation is an RF input, not a new Witt-ring definition."
+        },
+        {
+          "nodeId": "GeometricSatakeAndFusion:GS0:loop-geometry/local-hecke-stack",
+          "verdict": "corrected",
+          "note": "Strengthened the stabilizer test to a nonidentity element of the diagonal group, detecting replacement of the Hecke groupoid by its set of orbits."
+        },
+        {
+          "nodeId": "GeometricSatakeAndFusion:GS0:loop-geometry/grassmannian",
+          "verdict": "verified",
+          "note": "Checked FS VI.1.8–1.9: the Grassmannian includes the trivialization, unlike the double-quotient Hecke groupoid."
+        },
+        {
+          "nodeId": "GeometricSatakeAndFusion:GS0:loop-geometry/ordered-leg-base-change",
+          "verdict": "verified",
+          "note": "Checked disjoint factorization and collision addition; ordered-leg geometry is available before symmetric fusion."
+        },
+        {
+          "nodeId": "GeometricSatakeAndFusion:GS0:loop-geometry/schubert-bounds-and-properness",
+          "verdict": "verified",
+          "note": "Checked generic bounds separately from the mixed-characteristic Witt projectivity argument."
+        },
+        {
+          "nodeId": "GeometricSatakeAndFusion:GS0:loop-geometry/generic-galois-descent",
+          "verdict": "corrected",
+          "note": "Specified finite Galois splitting and removed cohomological smoothness as an earlier proof input; smoothness is proved and descended at the later cell node."
+        },
+        {
+          "nodeId": "GeometricSatakeAndFusion:GS0:loop-geometry/affine-flag-demazure",
+          "verdict": "verified",
+          "note": "Checked FS VI.5: Spd O_C flags and Demazure spaces are not asserted to be ordinary finite-type schemes."
+        },
+        {
+          "nodeId": "GeometricSatakeAndFusion:GS0:loop-geometry/smooth-scheme-loops",
+          "verdict": "verified",
+          "note": "Checked FS VI.1.12–1.13: loop evaluation on a smooth scheme uses RF divisor rings and the stated chart argument."
+        },
+        {
+          "nodeId": "GeometricSatakeAndFusion:GS0:loop-geometry/congruence-filtration-and-graded-pieces",
+          "verdict": "corrected",
+          "note": "Replaced RG2.5 by RG2.1 for relative Lie weights; absolute adjoint/root theory is imported from existing ReductiveGroups layers."
+        },
+        {
+          "nodeId": "GeometricSatakeAndFusion:GS0:Schubert-smoothness/truncated-positive-loops",
+          "verdict": "corrected",
+          "note": "Corrected the locator to VI.1.10–1.11 and removed the later bounded-action theorem from the construction argument."
+        },
+        {
+          "nodeId": "GeometricSatakeAndFusion:GS0:Schubert-smoothness/open-cell-stabilizer-and-smoothness",
+          "verdict": "corrected",
+          "note": "Corrected the locator to pp.198–200 and added the RF4 vector-bundle/finite-projectivity input; relative weights belong to RG2.1."
+        },
+        {
+          "nodeId": "GeometricSatakeAndFusion:GS0:Schubert-smoothness/truncation-of-the-loop-action",
+          "verdict": "corrected",
+          "note": "Routed the weight bound to RG2.1, retaining the strict finite congruence-depth condition and collision sums."
+        },
+        {
+          "nodeId": "GeometricSatakeAndFusion:GS0:Schubert-smoothness/minuscule-bialynicki-birula",
+          "verdict": "corrected",
+          "note": "Routed minuscule Lie/parabolic compatibility to RG2.1; checked the CS/FS opposite-parabolic and coweight sign conventions."
+        },
+        {
+          "nodeId": "GeometricSatakeAndFusion:GS0:Witt-geometry/witt-lattice-functor-and-representability",
+          "verdict": "verified",
+          "note": "Checked perfect-characteristic-p lattice representability, retaining the distinction between the original algebraic space and BS projective schemes."
+        },
+        {
+          "nodeId": "GeometricSatakeAndFusion:GS0:Witt-geometry/witt-types-and-bounds",
+          "verdict": "verified",
+          "note": "Checked type inequalities, perfect-field fibre tests, and the identity-isogeny projective-dimension convention in E14."
+        },
+        {
+          "nodeId": "GeometricSatakeAndFusion:GS0:Witt-geometry/zhu-finite-jet-presentation",
+          "verdict": "verified",
+          "note": "Checked the determinant-jet presentation and finite-depth bound; truncated Witt coefficients are supplied, not replaced by ordinary polynomials."
+        },
+        {
+          "nodeId": "GeometricSatakeAndFusion:GS0:Witt-geometry/zhu-original-algebraic-space",
+          "verdict": "verified",
+          "note": "Checked Zhu 1.12/1.19/1.20 and Appendix A representability; this is the original algebraic-space construction, preceding BS projectivity."
+        },
+        {
+          "nodeId": "GeometricSatakeAndFusion:GS0:Witt-geometry/witt-demazure-resolution",
+          "verdict": "verified",
+          "note": "Checked decreasing lattice-chain conventions, graded ranks and the Demazure proper map; no K-theory determinant construction is duplicated."
+        },
+        {
+          "nodeId": "GeometricSatakeAndFusion:GS0:Witt-geometry/connected-cohomological-fibres",
+          "verdict": "verified",
+          "note": "Checked connected fibres, RΓ(O)=k, and the exact-type isomorphism; the positive-dimension claim is restricted to Zhu’s full chain resolution."
+        },
+        {
+          "nodeId": "GeometricSatakeAndFusion:GS0:Witt-geometry/h-descent-and-fibral-criterion",
+          "verdict": "verified",
+          "note": "Checked BS finite/formal bundle descent and the fibre-trivial criterion; the general theorem remains owned by SF."
+        },
+        {
+          "nodeId": "GeometricSatakeAndFusion:GS0:Witt-geometry/geometric-determinant-line",
+          "verdict": "verified",
+          "note": "Checked BS 6.11/8.8: the positive graded-quotient determinant descends uniquely to the Witt bound using the existing invertible-sheaf carrier."
+        },
+        {
+          "nodeId": "GeometricSatakeAndFusion:GS0:Witt-geometry/determinant-positivity",
+          "verdict": "verified",
+          "note": "Checked BS 8.9–8.11: weighted ampleness, exact-type sections and positive degree on nonconstant proper curves have distinct uses."
+        },
+        {
+          "nodeId": "GeometricSatakeAndFusion:GS0:Witt-geometry/ampleness-via-keel",
+          "verdict": "corrected",
+          "note": "Corrected Theorem 8.3’s statement/proof pages; general Keel, model and descent machinery stays in SF, with the boundary-pinching obligation explicit."
+        },
+        {
+          "nodeId": "GeometricSatakeAndFusion:GS0:Witt-geometry/perfect-model-and-etale-comparison",
+          "verdict": "corrected",
+          "note": "Restricted this node to applying imported SF model/perfection theory to the Witt diamond comparison; it does not re-plan the general theorem."
+        },
+        {
+          "nodeId": "GeometricSatakeAndFusion:GS0:Witt-geometry/integral-family-bounded-properness",
+          "verdict": "verified",
+          "note": "Checked SW 20.3.6/20.5.4: integral bounds use special/generic fibres and the mixed-characteristic construction, not generic closed bounds alone."
+        },
+        {
+          "nodeId": "GeometricSatakeAndFusion:GS0:Witt-geometry/parahoric-ind-projectivity",
+          "verdict": "verified",
+          "note": "Checked SW 21.1 parahoric Witt ind-projectivity and inertia-coinvariant component indexing."
+        },
+        {
+          "nodeId": "GeometricSatakeAndFusion:GS0:Witt-geometry/integral-parahoric-properness",
+          "verdict": "verified",
+          "note": "Checked SW 21.2–21.5: integral parahoric ind-properness needs Anschütz extension and its group-model assumptions."
+        },
+        {
+          "nodeId": "GeometricSatakeAndFusion:GS0:Witt-geometry/canonical-witt-models",
+          "verdict": "corrected",
+          "note": "Typed the perfect characteristic-p coefficient field and valid jet depth; replaced tautological tests by zero/rank-one models and a nilpotent counterexample."
+        },
+        {
+          "nodeId": "GeometricSatakeAndFusion:GS0:Witt-geometry/rank-two-cone-chart",
+          "verdict": "corrected",
+          "note": "Recorded the corrected right-factor adjugate calculation proving integrality; narrowed the remaining gap to the truncated-Witt/lift interface."
+        },
+        {
+          "nodeId": "GeometricSatakeAndFusion:GS0:Witt-geometry/sl-determinant-normalization",
+          "verdict": "verified",
+          "note": "Checked the SL_n normalization of the extended determinant and corrected E19; an ordinary R-determinant of a p-torsion quotient is not used."
+        },
+        {
+          "nodeId": "GeometricSatakeAndFusion:GS0:Witt-geometry/sections-on-witt-bounds",
+          "verdict": "verified",
+          "note": "Checked Zhu Appendix B section/determinant claims with their sketch-only scope; the Hodge comparison remains an explicit supplier refinement."
+        },
+        {
+          "nodeId": "GeometricSatakeAndFusion:GS0:Witt-geometry/bounded-admissible-flags",
+          "verdict": "corrected",
+          "note": "Added VH 2.2.14–2.2.15 and corrected GLX locators; imposed connected parahoric/local-model morphism hypotheses for functoriality."
+        },
+        {
+          "nodeId": "GeometricSatakeAndFusion:GS0:Witt-geometry/flag-incidence-correspondences",
+          "verdict": "verified",
+          "note": "Checked relative-position incidence relations and multiplication order; the admissible union is downward closed, not a single exact stratum."
+        },
+        {
+          "nodeId": "GeometricSatakeAndFusion:GS0:Witt-geometry/flag-convolution-fibres",
+          "verdict": "corrected",
+          "note": "Made He’s simple quasi-split standing hypotheses explicit; transfer beyond that setting requires the requested componentwise comparison."
+        },
+        {
+          "nodeId": "GeometricSatakeAndFusion:GS1/semi-infinite-orbits-and-hyperbolic-localization",
+          "verdict": "verified",
+          "note": "Checked FS VI.3 hyperbolic localization, shifts and weight indexing; enhanced six operations and scheme normalization are supplier inputs."
+        },
+        {
+          "nodeId": "GeometricSatakeAndFusion:GS1/semi-infinite-affineness",
+          "verdict": "corrected",
+          "note": "Added nonemptiness to dimension equalities, routed Lie weights to RG2.1, and used FS’s closed affine filtration rather than later rational generation."
+        },
+        {
+          "nodeId": "GeometricSatakeAndFusion:GS0:Witt-geometry/semi-infinite-intersections-and-MV-cycles",
+          "verdict": "verified",
+          "note": "Checked MV component counting and the qualified closure/dimension corrections; empty intersections have component count zero."
+        },
+        {
+          "nodeId": "GeometricSatakeAndFusion:GS1/prounipotent-equivariance",
+          "verdict": "corrected",
+          "note": "Replaced a finite-filtration assertion on H by the actual complete congruence filtration and truncated-action equivalence; added VS1 ordinary-cohomology continuity."
+        },
+        {
+          "nodeId": "GeometricSatakeAndFusion:GS1/constant-term-conservativity",
+          "verdict": "verified",
+          "note": "Checked FS VI.4.2: maximal weight and hyperbolic localization prove conservativity after the corrected deep-equivariance input."
+        },
+        {
+          "nodeId": "GeometricSatakeAndFusion:GS1/ULA-sheaves-on-the-hecke-stack",
+          "verdict": "corrected",
+          "note": "Removed the later constant-term criterion from the category construction; smooth-chart descent and VI.6.5 cell restrictions give the earlier definition."
+        },
+        {
+          "nodeId": "GeometricSatakeAndFusion:GS1/ula-constant-term-criterion",
+          "verdict": "corrected",
+          "note": "Replaced projective individual cohomology by a derived stalk with a bounded finite-projective model; added the needed baseline references and a Z/4 regression."
+        },
+        {
+          "nodeId": "GeometricSatakeAndFusion:GS1/integral-family-comparison",
+          "verdict": "verified",
+          "note": "Checked one-leg ULA special/generic transport; this alone is not a tensor comparison or a fusion structure."
+        },
+        {
+          "nodeId": "GeometricSatakeAndFusion:GS1/relative-perverse-t-structure",
+          "verdict": "corrected",
+          "note": "Added the EDC5 coefficient-change/adic request: the existing scheme perverse node does not cover arbitrary integral coefficients."
+        },
+        {
+          "nodeId": "GeometricSatakeAndFusion:GS1/perverse-descent-and-shifted-ct",
+          "verdict": "corrected",
+          "note": "Added EDC5 and affine intersections directly; replaced later rational concentration by FS field devissage, dimension bounds and hyperbolic duality."
+        },
+        {
+          "nodeId": "GeometricSatakeAndFusion:GS1/flat-perverse-objects",
+          "verdict": "corrected",
+          "note": "Added EDC5 coefficient/torsion-pair compatibility, retaining the all-module tensor test rather than tensoring only with flat modules."
+        },
+        {
+          "nodeId": "GeometricSatakeAndFusion:GS1/standard-costandard-objects",
+          "verdict": "corrected",
+          "note": "Added EDC5 coefficient compatibility, retaining the intermediate-image and standard/costandard conventions."
+        },
+        {
+          "nodeId": "GeometricSatakeAndFusion:GS1/standard-costandard-torsion-bound",
+          "verdict": "corrected",
+          "note": "Typed a Z_ell-algebra and a uniform ell-power exponent; added the pinned PadicInt carrier rather than the vacuous exponent N=0."
+        },
+        {
+          "nodeId": "GeometricSatakeAndFusion:GS1/rational-weight-concentration",
+          "verdict": "corrected",
+          "note": "Clarified the quasi-minuscule zero-weight multiplicity as short simple coroots of G in the relevant orbit; retained the corrected excision argument."
+        },
+        {
+          "nodeId": "GeometricSatakeAndFusion:GS2:correspondences/satake-category-and-fibre-functor",
+          "verdict": "verified",
+          "note": "Checked finite support, ULA and flat perversity in the Satake category; neither the entire perverse heart nor generic rigid categories are substituted."
+        },
+        {
+          "nodeId": "GeometricSatakeAndFusion:GS2:correspondences/satake-fibre-functor",
+          "verdict": "corrected",
+          "note": "Added split kernel/cokernel lifting and preservation APIs, repaired the faithfulness argument, added an infinite-grading non-example, and requested EDC5 scope."
+        },
+        {
+          "nodeId": "GeometricSatakeAndFusion:GS2:correspondences/satake-verdier-duality",
+          "verdict": "corrected",
+          "note": "Routed relative Lie/root conventions to RG2.1; checked inversion, duality and flat finite-Tor conditions, without assuming all perverse objects dualize."
+        },
+        {
+          "nodeId": "GeometricSatakeAndFusion:GS2:correspondences/convolution-diagram",
+          "verdict": "verified",
+          "note": "Checked ambient convolution correspondence and p_! with bounded proper support; exact coherence is requested from EDS/VS1."
+        },
+        {
+          "nodeId": "GeometricSatakeAndFusion:GS2:correspondences/convolution-associativity-and-unit",
+          "verdict": "verified",
+          "note": "Checked associativity/unit from correspondence base change and projection formulas before GS3 symmetric fusion."
+        },
+        {
+          "nodeId": "GeometricSatakeAndFusion:GS2:correspondences/rational-special-fibre-convolution",
+          "verdict": "verified",
+          "note": "Checked Zhu rational Witt convolution/semismallness under its finite-type and coefficient hypotheses; it is not used to justify earlier integral perversity."
+        },
+        {
+          "nodeId": "GeometricSatakeAndFusion:GS2:Satake-closure/convolution-ula",
+          "verdict": "corrected",
+          "note": "Replaced global rigidity in the Lean core by right duals of the two kernel objects; proper ULA kernel composition proves the geometric assertion."
+        },
+        {
+          "nodeId": "GeometricSatakeAndFusion:GS2:Satake-closure/convolution-perverse-nonpositive",
+          "verdict": "corrected",
+          "note": "Restored VI.8.1(ii) for all bounded perverse-nonpositive inputs; ordered collision/cell devissage reduces the proof to ULA cells and the two-leg family."
+        },
+        {
+          "nodeId": "GeometricSatakeAndFusion:GS2:Satake-closure/convolution-preserves-satake-and-dualizability",
+          "verdict": "verified",
+          "note": "Checked integral convolution closure using ULA plus perverse bounds and the DVR flatness test before tensor/fusion in GS3."
+        },
+        {
+          "nodeId": "GeometricSatakeAndFusion:GS2:Satake-closure/satake-rigidity",
+          "verdict": "verified",
+          "note": "Checked both duals and triangle identities through proper-relative ULA kernels; Verdier/inversion duals do not presuppose fusion."
+        },
+        {
+          "nodeId": "GeometricSatakeAndFusion:GS2:Satake-closure/one-leg-satake-comparison",
+          "verdict": "verified",
+          "note": "Checked the one-leg Satake equivalence through ULA comparison and shifted constant terms; tensor compatibility is explicitly reserved for GS3."
+        }
+      ]
+    }
+  ]
 }
