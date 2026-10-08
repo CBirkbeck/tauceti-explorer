@@ -6,7 +6,7 @@
     "ClassicalAdicEtaleCohomology:H1:valuation-exports"
   ],
   "status": "partial",
-  "summary": "A source-blocked follow-up checkpoint, importing the eleven accepted H0 valuation-export nodes without rewriting them. Hansen–Scholze Corollary 4.5 gives a public, explicitly attributed restatement of Hub96 Corollary 4.2.7 for total scheme cohomology; this packet adds its bounded-below valuation invariance export, its separably closed fraction-field reduction, closed-support invariance and a canonical-map compatibility with proper nearby cycles and the inherited formal tubes. The finite-boundary alternative of 4.2.8–4.2.9 still has no verified target statement here, so coverage remains partial. The exact correspondence with 4.2.6 is also unverified. No forbidden book copy, verbatim source passage, fabricated target or implementation claim is used.",
+  "summary": "A source-blocked follow-up checkpoint, importing the eleven accepted H0 valuation-export nodes without rewriting them. Hansen–Scholze Corollary 4.5 gives a public, explicitly attributed restatement of Hub96 Corollary 4.2.7 for total scheme cohomology; this packet adds its bounded-below valuation invariance export, its separably closed fraction-field reduction, closed-support invariance and a canonical-map compatibility with proper nearby cycles and the inherited formal tubes. The finite-boundary alternative of 4.2.8–4.2.9 still has no verified target statement here, so coverage remains partial. The exact correspondence with 4.2.6 is also unverified. No forbidden book copy, verbatim source passage, fabricated target or implementation claim is used. This continuation makes the bounded-below étale/pro-étale comparison needed by the generic-extension proof explicit and repairs the inherited reader notation.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -121,7 +121,8 @@
       "sha256": "7fcca4cf382b20503f4f428b1268d2cd181488c96b362f34150c4f3daba9544e",
       "accessed": "2026-10-08",
       "readSections": [
-        "Coefficient conventions, §1 pp. 2–3 and §2 p. 7; Lemma 3.5 and proof, pp. 16–17; Theorem 4.1, Corollary 4.2 and proof, pp. 19–22; Lemma 4.3 and proof, pp. 21–22; Corollary 4.5 and entire proof, pp. 22–23."
+        "Coefficient conventions, §1 pp. 2–3 and §2 pp. 7–8; Lemma 3.5 and proof, pp. 16–17; Theorem 4.1, Corollary 4.2 and proof, pp. 19–22; Lemma 4.3 and proof, pp. 21–22; Corollary 4.5 and entire proof, pp. 22–23.",
+        "Proposition 2.1, §2 p. 8: bounded-below realization in the pro-étale category and the left-completed unbounded extension; Theorem 4.4(iii), p. 22: the universal Milnor-fibre criterion."
       ]
     },
     {
@@ -157,6 +158,18 @@
       "accessed": "2026-10-08",
       "readSections": [
         "Example 4.26(1)–(3) and Theorem 4.27, printed p. 37: Ψ-goodness and its distinct exceptional-locus hypothesis."
+      ]
+    },
+    {
+      "id": "BhattScholze-ProEtale-comparison-public",
+      "title": "The pro-étale topology for schemes",
+      "authors": "Bhargav Bhatt and Peter Scholze",
+      "edition": "Author-hosted 72-page copy, accessed 2026-10-08; printed pagination of this copy. Lemma 5.4.3 also checked in the published Astérisque 369 (2015), pp. 153–154, using the public academic mirror recorded in sourceVersions.",
+      "url": "https://people.mpim-bonn.mpg.de/scholze/proetale.pdf",
+      "sha256": "99b418b32846c12721e0603590be864b0982d5fa7cf594f8771fc78e53e014c7",
+      "accessed": "2026-10-08",
+      "readSections": [
+        "§5 Corollary 5.1.6 and proof, p. 35; Proposition 5.2.6 and proof, p. 37; Proposition 5.3.2 and proof, p. 38; Lemmas 5.4.1–5.4.3 and proofs, and Remark 5.4.4, p. 39. These passages delimit the precise bounded-below comparison and functoriality input."
       ]
     }
   ],
@@ -238,6 +251,7 @@
         "Use Stacks Lemma 15.14.5 (0DCQ) and the inherited algebraically-closed-fraction-field-strictly-henselian node to identify the algebraically closed fraction-field hypothesis with the absolutely integrally closed condition used by Hansen–Scholze.",
         "For affine X of finite presentation, use the scheme supplier’s finite ℓ-cohomological-dimension bound (Hansen–Scholze Lemma 3.5, d+1) to reduce to constructible sheaves, with coefficient reduction to Z/ℓⁿ and compatibility with forgetting Λ-modules. Approximation reduces the valuation rank to finite rank.",
         "Induct on that rank using E → Rj*j*E and its cone supported over a proper closed subset of Spec V. The requested H1:valuation-nearby-cycles generic-extension theorem is Hansen–Scholze Theorem 4.1: on separated finitely presented schemes over an absolutely integrally closed valuation, extension by Rj* identifies constructible generic coefficients with universally locally acyclic coefficients. Its formation commutes with flat absolutely integrally closed valuation changes (Corollary 4.2(ii)). After reducing constructible Z/ℓⁿ-sheaves by their ℓ-power filtration to F_ℓ-coefficients, bounded constructible coefficients are perfect, so this ULA theorem applies. On this term compute cohomology on the generic fibre; the closed-support term uses induction on the quotient valuation. Field-extension invariance is the requested scheme theorem, Stacks 0F0B.",
+        "Hansen–Scholze Theorem 4.1 and Corollary 4.2 use the pro-étale Rj* on perfect-constructible coefficients. Transfer the bounded-below torsion case through ν*: D⁺(X_ét,Λ) → D⁺(X_proét,Λ). The SF.2 supplier must retain the unit identification E ≅ Rν*ν*E and functorial pullback, Rj* and global-sections comparisons (Bhatt–Scholze Corollary 5.1.6, Proposition 5.2.6, Lemmas 5.4.1 and 5.4.3). The generic inclusion is affine, so Lemma 5.4.3’s qcqs hypothesis holds even when it is not open. Carry the adjunction-unit triangle and canonical cohomology map through these comparisons; no unrestricted unbounded étale/pro-étale identification is inferred. Use the typed subscript correction recorded in E-H1-valuation-exports-1.",
         "The final paragraph of Hansen–Scholze Corollary 4.5 treats D⁺ without a finite-type condition: reduce in a fixed cohomological degree to a constructible sheaf on an affine chart, descend the chart and sheaf along an affine inverse system of finite-type schemes, and use étale cohomology continuity. Import AdicCoefficientsAndComparisons:L2/etale-cohomology-continuity. Extend to qcqs X by descent on affine charts with quasi-compact intersections; use bounded-below truncation, not an unbounded-totalization interchange.",
         "Every reduction must carry the canonical adjunction-unit map β, not just an abstract isomorphism of groups. The SF.2 request fixes these coefficient, descent and composition identifications. The public proof establishes the result, while these typed supplier inputs remain open planning requests."
       ],
@@ -258,7 +272,7 @@
       "sources": [
         {
           "sourceId": "HansenScholze-RelativePerversity-public",
-          "locator": "Corollary 4.5 and proof, §4, printed pp. 22–23; coefficient setting (A), §1 p. 2 and §2 p. 7",
+          "locator": "Corollary 4.5 and proof, §4, printed pp. 22–23; coefficient setting (A), §1 p. 2 and §2 pp. 7–8",
           "match": "The public statement explicitly attributes total-cohomology invariance to Hub96 Corollary 4.2.7. Its last sentence removes finite type for bounded-below coefficients. This packet takes that bounded-below form and restricts schemes to qcqs."
         },
         {
@@ -270,6 +284,11 @@
           "sourceId": "Stacks-valuation-exports-public",
           "locator": "Lemma 15.14.5 (0DCQ) and Lemma 59.90.2 (0F0B), unpaginated HTML",
           "match": "The first recognizes absolute integral closure of a normal domain by its fraction field; the second is the prime-to-characteristic geometric-field cohomology invariance used at the generic-fibre step."
+        },
+        {
+          "sourceId": "BhattScholze-ProEtale-comparison-public",
+          "locator": "§5 Corollary 5.1.6, p. 35; Proposition 5.2.6, p. 37; Lemmas 5.4.1 and 5.4.3, p. 39, in the author copy; Lemma 5.4.3 pp. 153–154 in Astérisque 369 (2015)",
+          "match": "Bounded-below realization is fully faithful and compatible with pullback and derived direct image for qcqs scheme maps. These comparisons bridge the pro-étale formulation of generic extension and the classical étale target; the source subscript misprint is recorded and corrected."
         }
       ],
       "acceptance": [
@@ -477,14 +496,14 @@
         "ClassicalAdicEtaleCohomology:H1:valuation-exports/closed-support-valuation-invariance",
         "ClassicalAdicEtaleCohomology:H1:valuation-exports/proper-nearby-invariance-coherence"
       ],
-      "need": "On the EDC.0 bounded-below derived étale carrier of qcqs schemes, provide exact inverse image, Rg*, their adjunction, RΓ and the coherent isomorphism RΓ_X Rg* ≅ RΓ_Y. Fix β_g = RΓ_X(unit) followed by that isomorphism, with naturality, identity and composition. Supply the bounded-below pullback map of the imported EDC.0 localization triangles, with natural connecting arrows; topological invariance under universal homeomorphisms (Stacks 04DY); geometric-field cohomology invariance (0F0B); and the cohomological-dimension, filtered-constructible/coefficient and affine-descent inputs of Hansen–Scholze Lemma 3.5 and Corollary 4.5. The existing Brauer, coherent-duality and equivariant-support SF.2 nodes were inspected and do not supply these exact scheme-étale inputs. Also supply the general scheme ULA predicate on perfect-constructible coefficients: after every scheme base change and for every geometric x over s and geometric generization t of s, the canonical Milnor-fibre comparison E_x → RΓ(X_(x) ×_S_(s) t,E) is an isomorphism (Hansen–Scholze Theorem 4.4(iii), p. 22). General ULA belongs to this scheme-cohomology supplier; its valuation-specific generic-extension theorem remains with H1:valuation-nearby-cycles. Use the exact L2 higher-cohomology-continuity node already cited, rather than a second continuity carrier."
+      "need": "On the EDC.0 bounded-below derived étale carrier of qcqs schemes, provide exact inverse image, Rg*, their adjunction, RΓ and the coherent isomorphism RΓ_X Rg* ≅ RΓ_Y. Fix β_g = RΓ_X(unit) followed by that isomorphism, with naturality, identity and composition. Supply the bounded-below pullback map of the imported EDC.0 localization triangles, with natural connecting arrows; topological invariance under universal homeomorphisms (Stacks 04DY); geometric-field cohomology invariance (0F0B); and the cohomological-dimension, filtered-constructible/coefficient and affine-descent inputs of Hansen–Scholze Lemma 3.5 and Corollary 4.5. The existing Brauer, coherent-duality and equivariant-support SF.2 nodes were inspected and do not supply these exact scheme-étale inputs. Also supply the general scheme ULA predicate on perfect-constructible coefficients: after every scheme base change and for every geometric x over s and geometric generization t of s, the canonical Milnor-fibre comparison E_x → RΓ(X_(x) ×_S_(s) t,E) is an isomorphism (Hansen–Scholze Theorem 4.4(iii), p. 22). General ULA belongs to this scheme-cohomology supplier; its valuation-specific generic-extension theorem remains with H1:valuation-nearby-cycles. Use the exact L2 higher-cohomology-continuity node already cited, rather than a second continuity carrier. Include the same bounded-below étale/pro-étale realization already requested by AdicCoefficientsAndComparisons:L1, together with its functorial comparisons: ν* is fully faithful with E ≅ Rν*ν*E, commutes with inverse image, and for a qcqs f:Y→X has ν_X* Rf_ét,* E ≅ Rf_proét,* ν_Y* E (Bhatt–Scholze Corollary 5.1.6, Proposition 5.2.6 and Lemmas 5.4.1, 5.4.3, author-copy pp. 35, 37, 39). Preserve adjunction units, localization triangles and RΓ under the comparisons. The generic localization j is affine, so its Rj* meets the qcqs hypothesis. Proposition 5.3.2 is an unbounded left-completed statement, not permission to identify unrestricted unbounded classical étale complexes with pro-étale complexes. Use the corrected functor subscripts in E-H1-valuation-exports-1. This extends the existing SF.2 request, not a new owner or category."
     },
     {
       "supplier": "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles",
       "neededBy": [
         "ClassicalAdicEtaleCohomology:H1:valuation-exports/total-cohomology-valuation-invariance"
       ],
-      "need": "Extend the existing arbitrary-valuation nearby-cycle plan by the generic-extension result actually used in Hansen–Scholze Corollary 4.5: for a separated finitely presented X over an absolutely integrally closed valuation V, with j: X_K → X, Rj* takes perfect-constructible torsion generic coefficients to ULA objects and is inverse to generic restriction on the ULA subcategory (Theorem 4.1, pp. 19–22); retain flat AIC valuation-base compatibility (Corollary 4.2(ii), p. 19). The existing i*Rj* constructibility and valuative nearby-base-change nodes do not imply this Rj*/ULA result on the total scheme. Import the general scheme ULA definition from its supplier instead of reusing diamond ULA or creating another coefficient category."
+      "need": "Extend the existing arbitrary-valuation nearby-cycle plan by the generic-extension result actually used in Hansen–Scholze Corollary 4.5: for a separated finitely presented X over an absolutely integrally closed valuation V, with j: X_K → X, Rj* takes perfect-constructible torsion generic coefficients to ULA objects and is inverse to generic restriction on the ULA subcategory (Theorem 4.1, pp. 19–22); retain flat AIC valuation-base compatibility (Corollary 4.2(ii), p. 19). The existing i*Rj* constructibility and valuative nearby-base-change nodes do not imply this Rj*/ULA result on the total scheme. Import the general scheme ULA definition from its supplier instead of reusing diamond ULA or creating another coefficient category. State the theorem first on the source’s pro-étale realization of the perfect-constructible carrier, then provide its bounded-below torsion étale form through the SF.2 comparisons; retain both the canonical generic adjunction unit and the flat-valuation exchange map in this transfer."
     }
   ],
   "coverage": [
@@ -496,7 +515,7 @@
         "Obtain a cleared or public statement of Hub96 4.2.8–4.2.9, identify what the finite-boundary/finite-dimension alternative quantifies over, and create the missing exact target nodes with coefficient, presentation and support hypotheses. The existing finite-presentation and topologically-noetherian alternatives are imports, not substitutes.",
         "Obtain a cleared or public statement of Hub96 4.2.6 and compare it with both the inherited support/local-cohomology comparisons and the new closed-support base-change consequence. Do not label the latter as 4.2.6 until the statement is verified.",
         "Verify the original generality of Hub96 4.2.7 against Hansen–Scholze’s public attributed restatement: the public AIC, ℓ-power invertible, bounded-below form and its derived separably closed extension are established here; no assertion about a larger unbounded, composite-torsion or residue-characteristic range is made.",
-        "Resolve the exact generic-extension/ULA and scheme-functor/cohomological-dimension requests, preserving their owner boundaries and canonical-map compatibility. Refine the source proof’s finite-rank/coefficient reductions rather than treating i*Rj* constructibility as a proof of Rj*/ULA.",
+        "Resolve the exact generic-extension/ULA and scheme-functor/cohomological-dimension requests, preserving their owner boundaries and canonical-map compatibility. Refine the source proof’s finite-rank/coefficient reductions rather than treating i*Rj* constructibility as a proof of Rj*/ULA. The generic-extension source is pro-étale: retain the bounded-below realization, qcqs Rj* and canonical-unit comparisons now made explicit in the SF.2 request.",
         "Reconcile the planet selection across this packet and H0 during assembly according to the proposed split; the current H0 stage already has six planets.",
         "Complete the new target signatures and reader after the missing statements are accessible; retain the imported H0 suggested file for its definitions, APIs and tests."
       ]
@@ -525,7 +544,7 @@
         "ClassicalAdicEtaleCohomology:H1:valuation-exports/closed-support-valuation-invariance",
         "ClassicalAdicEtaleCohomology:H1:valuation-exports/proper-nearby-invariance-coherence"
       ],
-      "detail": "The public proof of total invariance is available, but the atlas has no exact node supplying its generic Rj*/ULA equivalence, nor all of the bounded-below scheme comparison, descent, cohomological-dimension and localization naturality inputs. The two precise requests above are the remaining proof-chain ends. The broader H0 formal-completion naturality and generic constructible-finiteness gaps remain imports and are not declared closed here."
+      "detail": "The public proof of total invariance is available, but the atlas has no exact node supplying its generic Rj*/ULA equivalence, nor all of the bounded-below scheme comparison, descent, cohomological-dimension and localization naturality inputs. The two precise requests above are the remaining proof-chain ends. The broader H0 formal-completion naturality and generic constructible-finiteness gaps remain imports and are not declared closed here. In particular, the exact generic-extension theorem is formulated pro-étale; its transfer to these classical bounded-below signatures needs the requested ν*, Rj* and RΓ comparison with canonical units. No exact supplier node was found for this full functorial comparison."
     }
   ],
   "restructure": [
@@ -538,5 +557,39 @@
       "proposal": "Propose H1:valuation-exports:scheme-invariance for the three new invariance theorems and the algebraic side of proper-nearby-invariance-coherence (two planets: Valuation cohomology invariance, Valuation support invariance), and H1:valuation-exports:nearby-and-tubes for all eleven imported H0 nodes plus the formal transport (retain its six existing planets). Keep all current stage and node ids until this proposal is applied; assembly must split the star or select no more than six planets in the unsplit star. The new planet marks are nominations for this reconciliation, not an instruction to draw eight planets now."
     }
   ],
-  "sourceIssues": []
+  "sourceIssues": [
+    {
+      "id": "ClassicalAdicEtaleCohomology/E-H1-valuation-exports-1",
+      "source": "BhattScholze-ProEtale-comparison-public",
+      "kind": "misprint",
+      "locator": "Bhatt–Scholze, The pro-étale topology for schemes: Lemma 5.4.3 and proof, author-hosted 72-page copy p. 39 (SHA-256 in sources); also published Astérisque 369 (2015), pp. 153–154, in the academic mirror listed in sourceVersions.",
+      "printed": "For f:Y→X and F on Y_ét, the displayed pushforward comparison labels the realization after f_ét,* by Y and the realization before f_proét,* by X. The first affine test object in the proof is placed over Y, and the final bounded-below input is placed over X.",
+      "correction": "The comparison is ν_X* Rf_ét,* F → Rf_proét,* ν_Y* F. The affine test object U and its finite-stage U_i belong over X; their inverse images under f belong over Y. The final derived input is F ∈ D⁺(Y_ét). Preserve f qcqs and F bounded below.",
+      "reason": "Direct image of F lives on X_ét and can only be realized by ν_X*. Realization before direct image must take F from Y_ét to Y_proét, hence uses ν_Y*. Likewise f⁻¹U_i is defined for test objects over X. The commutative topos square in Lemma 5.4.1 and the section calculation in the proof determine these corrections uniquely; no mathematical conclusion changes.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Author-hosted paper and Scholze’s public pages, accessed 2026-10-08: the p. 39 display retains the reversed subscripts; no linked correction was found.",
+        "Published Astérisque 369 article through the public academic mirror: Lemma 5.4.3 pp. 153–154 retains the same subscript and test-object slips.",
+        "SMF article listing and web searches for Bhatt Scholze 5.4.3 typo and pro-étale errata, 2026-10-08: no correction found. The arXiv record was checked as a version lead, not read as an additional full text."
+      ]
+    }
+  ],
+  "sourceVersions": [
+    {
+      "source": "BhattScholze-ProEtale-comparison-public",
+      "kind": "author copy",
+      "url": "https://people.mpim-bonn.mpg.de/scholze/proetale.pdf",
+      "read": "2026-10-08",
+      "sha256": "99b418b32846c12721e0603590be864b0982d5fa7cf594f8771fc78e53e014c7"
+    },
+    {
+      "source": "BhattScholze-ProEtale-comparison-public",
+      "kind": "published",
+      "url": "https://www.math.ru.nl/~bmoonen/Seminars/ProEtale.pdf",
+      "citation": "Astérisque 369 (2015), 99–201; public academic mirror, Lemma 5.4.3 pp. 153–154 read",
+      "read": "2026-10-08",
+      "sha256": "b40ac03aaeb1e11ed58b581ba1344194407a340e50bfb835bbf2e6cfa523a99f"
+    }
+  ]
 }

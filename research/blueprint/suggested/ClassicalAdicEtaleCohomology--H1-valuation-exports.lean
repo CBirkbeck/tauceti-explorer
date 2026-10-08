@@ -8,6 +8,10 @@ The eleven imported H0 nodes keep their original suggested file and ownership.
 Supplier interfaces below specify missing functors, not arbitrary parameters in the
 invariance theorems. Implement them as the actual derived étale functors attached to
 the scheme morphism. All their proofs and constructions remain supplier obligations.
+The generic-extension proof uses pro-étale Rj*. Its bounded-below torsion
+transfer requires the SF.2 realization, qcqs direct-image and canonical-unit
+comparisons of Bhatt–Scholze 5.1.6, 5.2.6, 5.4.1 and 5.4.3. No pro-étale
+carrier or unbounded identification is introduced by these signatures.
 No signature for the unread finite-boundary theorem is fabricated.
 -/
 
