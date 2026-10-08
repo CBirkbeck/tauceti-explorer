@@ -9,7 +9,9 @@ to the fibre outputs of an imported marked chart. It does not define a global
 variation, connection, holomorphic bundle or geometric cohomology theory.
 
 All proofs are placeholders. The final ledger identifies global signatures
-which cannot be expressed before the common suppliers exist. No unspecified
+which cannot be expressed before the common suppliers exist. The fibre Hodge
+structures are arbitrary weight-two ones; the packet's variations are effective
+(`HodgeStructureOn.IsEffective`), which no statement below needs. No unspecified
 geometric hypothesis is encoded as a Prop-valued field. The algebraic and
 analytic statements here are explicit local parts, not substitutes for the
 omitted geometric theorems.
@@ -18,6 +20,9 @@ import TauCeti.Geometry.Hodge.Structure
 import TauCeti.Geometry.Hodge.Conjugation
 import Mathlib.Algebra.Module.ZLattice.Basic
 import Mathlib.Analysis.Calculus.Implicit
+import Mathlib.Analysis.Calculus.InverseFunctionTheorem.FDeriv
+import Mathlib.Geometry.Convex.Cone.Basic
+import Mathlib.LinearAlgebra.BilinearForm.Orthogonal
 import Mathlib.Analysis.Analytic.Uniqueness
 import Mathlib.LinearAlgebra.Dimension.Finrank
 import Mathlib.LinearAlgebra.Matrix.Notation
@@ -97,6 +102,12 @@ example [Subsingleton V] (A : RealActionOnChart c H) (x : Complexification V) :
 -- real_action_combined_square
 example (A : RealActionOnChart c H) (x : Complexification V) :
     A.combined (A.combined x) = x := by
+  sorry
+
+-- real_action_identity_real_point: the identity is a real structure only in type (1,1)
+example (H : B → HodgeStructureOn (Complexification V) (complexificationConjugation V) 2)
+    (A : RealActionOnChart (id : B → B) H) (h : A.sigma = LinearEquiv.refl ℝ V) (b : B) :
+    (H b).piece 2 = ⊥ := by
   sorry
 end RealActionOnChart
 
@@ -204,10 +215,10 @@ example (H : HodgeStructureOn (Complexification V) (complexificationConjugation 
     transportedHodgeLocus (fun _ : B => H) lambda = ∅ := by
   sorry
 
--- transported_F_one
+-- transported_F_one: one arbitrary weight-two fibre, as a constant family
 example (H : HodgeStructureOn (Complexification V) (complexificationConjugation V) 2)
     (lambda : V) (b : B) :
-    b ∈ transportedHodgeLocus H lambda ↔ (1 : ℂ) ⊗ₜ[ℝ] lambda ∈ (H b).F 1 := by
+    b ∈ transportedHodgeLocus (fun _ : B => H) lambda ↔ (1 : ℂ) ⊗ₜ[ℝ] lambda ∈ H.F 1 := by
   sorry
 end Chart
 
@@ -303,8 +314,22 @@ def whole (V : Type u) [NormedAddCommGroup V] [NormedSpace ℝ V] : PositiveOpen
   nonempty := by sorry
   smul_mem := by sorry
 
+/-- An open nonempty Mathlib convex cone is a positive open cone. The converse
+fails: a positive open cone need not be closed under addition. -/
+def ofConvexCone (C : ConvexCone ℝ V) (hopen : IsOpen (C : Set V))
+    (hne : (C : Set V).Nonempty) : PositiveOpenCone V where
+  carrier := C
+  isOpen := hopen
+  nonempty := hne
+  smul_mem := by sorry
+
 -- cone_positive_ray
 example : (1 : ℝ) ∈ positiveRay.carrier ∧ (0 : ℝ) ∉ positiveRay.carrier := by
+  sorry
+
+-- cone_punctured_line: a positive open cone that is not closed under addition
+example : ∃ O : PositiveOpenCone ℝ, O.carrier = {x : ℝ | x ≠ 0} ∧
+    ¬ ∀ x ∈ O.carrier, ∀ y ∈ O.carrier, x + y ∈ O.carrier := by
   sorry
 
 -- cone_zero_dimension
@@ -420,6 +445,17 @@ theorem vanishingRankCriterion {T C K : Type*}
       Module.finrank ℂ C) : Function.Surjective (fun v => (f v).2) := by
   sorry
 
+/-- Fibre form of H.8/orthogonal-constant-splitting: nondegeneracy on the
+constant summand alone gives the complement; no positivity is used. This is
+Mathlib's `LinearMap.BilinForm.isCompl_orthogonal_of_restrict_nondegenerate`,
+recorded here for the rational fibre. Flatness and the Hodge property of the
+complement are in G1. -/
+theorem constantSummand_isCompl_orthogonal {W : Type*} [AddCommGroup W] [Module ℚ W]
+    [FiniteDimensional ℚ W] (Q : LinearMap.BilinForm ℚ W) (hQ : Q.IsSymm)
+    (C : Submodule ℚ W) (hC : (Q.restrict C).Nondegenerate) :
+    IsCompl C (Q.orthogonal C) := by
+  sorry
+
 end LocalTheorems
 
 section GraphDerivative
@@ -440,11 +476,12 @@ section AnalyticParts
 variable {E F : Type*} [NormedAddCommGroup E] [NormedSpace ℝ E] [CompleteSpace E]
 variable [NormedAddCommGroup F] [NormedSpace ℝ F] [CompleteSpace F]
 
-/-- Concrete local analytic input to Green's evaluation theorem. -/
+/-- Concrete local analytic input to Green's evaluation theorem. It is Mathlib's
+`HasStrictFDerivAt.map_nhds_eq_of_surj` unpacked on a metric ball; no
+complemented kernel is needed. -/
 theorem image_contains_ball_of_surjective_derivative
     (f : E → F) (L : E →L[ℝ] F) (a : E) (U : Set E)
-    (hf : HasStrictFDerivAt f L a) (hL : L.range = ⊤)
-    (hk : L.ker.ClosedComplemented) (hU : U ∈ nhds a) :
+    (hf : HasStrictFDerivAt f L a) (hL : L.range = ⊤) (hU : U ∈ nhds a) :
     ∃ epsilon : ℝ, 0 < epsilon ∧ Metric.ball (f a) epsilon ⊆ f '' U := by
   sorry
 
@@ -452,10 +489,9 @@ theorem image_contains_ball_of_surjective_derivative
 the geometric real evaluation must supply these explicit analytic hypotheses. -/
 theorem openCone_of_submersion
     (f : E → F) (L : E →L[ℝ] F) (a : E) (U : Set E)
-    (hf : HasStrictFDerivAt f L a) (hL : L.range = ⊤)
-    (hk : L.ker.ClosedComplemented) (hU : U ∈ nhds a)
+    (hf : HasStrictFDerivAt f L a) (hL : L.range = ⊤) (hU : U ∈ nhds a)
     (hscale : ∀ r : ℝ, 0 < r → ∀ y ∈ f '' U, r • y ∈ f '' U) :
-    ∃ O : PositiveOpenCone F, O.carrier ⊆ f '' U := by
+    ∃ O : PositiveOpenCone F, f a ∈ O.carrier ∧ O.carrier ⊆ f '' U := by
   sorry
 
 /-- Finite analytic coefficient engine for the componentwise density proof.
@@ -487,8 +523,11 @@ normalComposite_surjective states only their elementary linear composition.
 G3: realGreenOpenCone and realGoodLocusDensity need smooth real fixed-locus
 charts, their tangent identifications and real-analytic Hodge frames.
 affineCWBound, affineIntegralVanishing, ordinaryIntegralWeakLefschetzH3 and
-ordinaryIntegralWeakLefschetzH2 need the Geometric topology Part II Morse/CW
-extension and upstream AlgebraicTopology cellular/duality/Gysin adapters.
+ordinaryIntegralWeakLefschetzH2 need the manifold-level form of Tau Ceti's Morse
+declarations (`TauCeti.IsNondegenerateCriticalPoint`, `TauCeti.morseIndex`, in
+TauCeti/Analysis/Calculus/Morse) from the upstream Heegaard Floer Morse lane, the
+proper-Morse-function handle/CW theorem of the proposed Geometric topology
+Part II, and upstream AlgebraicTopology cellular/duality/Gysin adapters.
 image_contains_ball_of_surjective_derivative, openCone_of_submersion and
 analyticCoefficientLocus_dense are their explicit local analytic inputs.
 
@@ -496,8 +535,9 @@ G4: the Voisin statements need the exact general nodal, Grassmannian/Bott,
 uniform-position, Macaulay multiplication and Jacobian/residue suppliers; no
 record containing a theorem-valued field is introduced to hide that gap.
 
-G5: transportedDivisorExport needs the real equivariant integral(1,1) supplier
-in MC.7 and a genuine consumer-supplied equivariant integral lift. Twisted
+G5: transportedDivisorExport needs the real Lefschetz (1,1) theorem
+(Benoist--Wittenberg, Proposition 2.8) as an entry of the MC.7 register, and a
+genuine consumer-supplied equivariant integral lift. Twisted
 invariant ordinary cohomology alone does not type this missing hypothesis.
 -/
 end TauCeti.Hodge.RealNL
