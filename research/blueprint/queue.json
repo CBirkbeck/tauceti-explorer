@@ -46856,8 +46856,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-HabiroCyclotomicCompletions.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7475"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7475",
+   "finishedAt": "2026-10-08T23:17:04Z"
   },
   {
    "id": "REV-PKG-HabiroCyclotomicCompletions",
@@ -47605,7 +47606,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-SmallRamificationAndAbelianVarietyBaseCases.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7496"
   },
   {
    "id": "REV-PKG-SmallRamificationAndAbelianVarietyBaseCases",
