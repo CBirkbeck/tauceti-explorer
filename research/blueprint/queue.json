@@ -37152,7 +37152,8 @@
    ],
    "revisionOf": "DESIGN-EllipticCurveModularityPartII",
    "prompt": "research/blueprint/prompts/DESIGN-EllipticCurveModularityPartII~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6896"
   },
   {
    "priority": 2,
@@ -38092,8 +38093,9 @@
    ],
    "revisionOf": "BP-ClassicalSerreModularity--R26.1",
    "prompt": "research/blueprint/prompts/BP-ClassicalSerreModularity--R26.1~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6949"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6949",
+   "finishedAt": "2026-10-08T09:55:45Z"
   },
   {
    "priority": 2,
@@ -38370,7 +38372,8 @@
    ],
    "revisionOf": "BP-DerivedDeRhamCohomology",
    "prompt": "research/blueprint/prompts/BP-DerivedDeRhamCohomology~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6954"
   },
   {
    "priority": 2,
@@ -40348,8 +40351,9 @@
     "BP-PadicHodgeRegulators--D.1~2"
    ],
    "prompt": "research/blueprint/prompts/REV-PadicHodgeRegulators--D.1~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7078"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7078",
+   "finishedAt": "2026-10-08T09:55:47Z"
   },
   {
    "kind": "blueprint",
@@ -41264,7 +41268,8 @@
    ],
    "revisionOf": "BP-VStackSheavesAndLisseCategories",
    "prompt": "research/blueprint/prompts/BP-VStackSheavesAndLisseCategories~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7014"
   },
   {
    "priority": 2,
@@ -44329,7 +44334,8 @@
     "REV-HodgeStructuresPartII--H.8"
    ],
    "prompt": "research/blueprint/prompts/ASM-HodgeStructuresPartII.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6982"
   },
   {
    "id": "PLANETS-01",
