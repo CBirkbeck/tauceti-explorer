@@ -39393,7 +39393,8 @@
     "BP-HodgeTateAndCanonicalSubgroups--T0~2"
    ],
    "prompt": "research/blueprint/prompts/REV-HodgeTateAndCanonicalSubgroups--T0~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7298"
   },
   {
    "kind": "blueprint",
@@ -41105,7 +41106,8 @@
    ],
    "revisionOf": "BP-ShimuraVarieties--V8",
    "prompt": "research/blueprint/prompts/BP-ShimuraVarieties--V8~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7011"
   },
   {
    "priority": 2,
@@ -42383,8 +42385,9 @@
    ],
    "revisionOf": "BP-ArithmeticKTheory--N.6",
    "prompt": "research/blueprint/prompts/BP-ArithmeticKTheory--N.6~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6921"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6921",
+   "finishedAt": "2026-10-08T11:26:13Z"
   },
   {
    "priority": 2,
