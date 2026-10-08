@@ -1,0 +1,8 @@
+{
+  "review": {
+    "status": "needs_changes",
+    "reviewer": "independent-review-REV-PKG-IgusaVarietiesAndTorsionConcentration",
+    "date": "2026-10-08",
+    "notes": "Needs changes: checked all 123 accepted targets, hypotheses, prerequisite/source blocks, 234 API names and 47 supplier interfaces. README form, links, own-word prose, process exclusion and math.NT metadata pass; final README is 198000 UTF-8 bytes. Rephrased six source-like introductions without changing mathematics and corrected misleading Lean comments. The opaque HeckeAlgebra and heckeDoubleCoset have no typed adapter to the implemented Tau Ceti HeckeRing/HeckeAntiInvolution API; heckeInvolution_compat_tauceti and its test do not reference that construction, so the required baseline compatibility is not expressed. See the independent report for the concrete revision. lean-check exited 0 with zero errors and 1305 warnings, all for sorry. The compiled declarations and imports are unchanged by the comment corrections. Mathlib matches the pin; the checker has a newer Tau Ceti checkout but the file imports only Mathlib, so this is not a Tau Ceti integration check. The accepted plan checker reports zero errors and warnings."
+  }
+}

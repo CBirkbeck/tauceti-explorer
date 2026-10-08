@@ -7,8 +7,9 @@ statements below suggest Lean forms so that contributors converge on names and
 signatures. Everything is proved by `sorry`; nothing here is an implementation.
 
 Objects that other roadmaps own (p-divisible groups, the Kottwitz set, adic spaces and
-diamonds, étale cohomology with its operations, Hecke algebras, smooth representations) appear
-as opaque carriers in the section `Carriers`, with docstrings naming their owners. A condition
+diamonds, étale cohomology with its operations, smooth representations) appear as opaque
+carriers with docstrings naming their owners. The Hecke carriers below still need adapters
+to the existing Tau Ceti double-coset API; their names do not supply that identification. A condition
 that cannot be stated with these carriers is left out rather than replaced by a `Prop` field.
 
 Conventions: `p` is the geometric prime (unramified in `F`), `ℓ ≠ p` the coefficient prime,
@@ -189,9 +190,9 @@ def GAfp (D : UnitarySimilitudeDatum) (p : ℕ) : Type := sorry
 instance (D : UnitarySimilitudeDatum) (p : ℕ) : Group (GAfp D p) := sorry
 instance (D : UnitarySimilitudeDatum) (p : ℕ) : TopologicalSpace (GAfp D p) := sorry
 
-/-- The abstract unramified Hecke algebra `𝕋^S` outside a finite set of primes `S`, over `ℤ`
-(double cosets: Tau Ceti `HeckeRing`; owner of the spherical theory: SmoothRepresentations
-SR.1). -/
+/-- Suggested carrier for the unramified Hecke algebra `𝕋^S` outside `S`, over `ℤ`.
+The spherical theory belongs to SmoothRepresentations SR.1. Its identification with the
+existing Tau Ceti `HeckeRing` is not expressed by the declarations below. -/
 def HeckeAlgebra (D : UnitarySimilitudeDatum) (S : Finset ℕ) : Type := sorry
 
 instance (D : UnitarySimilitudeDatum) (S : Finset ℕ) : CommRing (HeckeAlgebra D S) := sorry
@@ -7542,12 +7543,14 @@ def GAS (D : UnitarySimilitudeDatum) (S : Finset ℕ) : Type := sorry
 
 instance (D : UnitarySimilitudeDatum) (S : Finset ℕ) : Group (GAS D S) := sorry
 
-/-- The double coset `[K^S g K^S] ∈ 𝕋^S` (characteristic function; Tau Ceti `HeckeRing`). -/
+/-- Suggested double-coset element `[K^S g K^S] ∈ 𝕋^S`. This signature does not yet
+identify it with a characteristic function in the existing Tau Ceti `HeckeRing`. -/
 def heckeDoubleCoset (g : GAS D S) : HeckeAlgebra D S := sorry
 
 /-- (IG.5/dual-hecke-ideal) The involution `ι : 𝕋^S → 𝕋^S`, `[KgK] ↦ [Kg⁻¹K]`, a ring involution of
-the commutative Hecke algebra; it is Tau Ceti `HeckeAntiInvolution.ofAmbient` applied to the
-inversion anti-automorphism of `G(𝔸^S)` (TauCeti/NumberTheory/HeckeRing/Commutativity.lean). -/
+the commutative Hecke algebra. The intended construction uses Tau Ceti
+`HeckeAntiInvolution.ofAmbient` for inversion on the relevant Hecke datum. This signature
+alone does not express its identification with that construction. -/
 def heckeInvolution (D : UnitarySimilitudeDatum) (S : Finset ℕ) :
     HeckeAlgebra D S →+* HeckeAlgebra D S := sorry
 
@@ -7598,8 +7601,9 @@ theorem dualIdeal_preserves {E : ImagQuadSubfield D} {ℓ : ℕ} [Fact ℓ.Prime
       h'.rho.FrobRatioCond (frobAt v) q) := sorry
 
 /-- `ι` is characterised on double cosets by `[KgK] ↦ [Kg⁻¹K]`: any ring endomorphism with this
-property is `ι`. This is the statement that `ι` agrees with Tau Ceti
-`HeckeAntiInvolution.ofAmbient` for the inversion anti-automorphism. -/
+property is `ι`. This describes inversion on the suggested carrier. An adapter to the
+existing `HeckeRing` and `HeckeAntiInvolution.onHeckeCoset` is additionally needed to state
+compatibility with Tau Ceti's construction. -/
 theorem heckeInvolution_compat_tauceti :
     (∀ g : GAS D S, heckeInvolution D S (heckeDoubleCoset g) = heckeDoubleCoset g⁻¹) ∧
     ∀ φ : HeckeAlgebra D S →+* HeckeAlgebra D S,
@@ -7622,7 +7626,7 @@ example {E : ImagQuadSubfield D} {ℓ : ℕ} [Fact ℓ.Prime] (hn : D.n = 1)
 example : (({1, 2} : Multiset (ZMod 11)).map (fun α => (7 : ZMod 11) ^ 1 * α⁻¹)) ≠ {1, 2} :=
   sorry
 
--- test: heckeInvolution_compat — ι is induced by g ↦ g⁻¹ on double cosets (HeckeAntiInvolution.ofAmbient)
+-- test: heckeInvolution_compat — inversion on the suggested double-coset carrier; the Tau Ceti adapter remains required
 example (g : GAS D S) : heckeInvolution D S (heckeDoubleCoset g) = heckeDoubleCoset g⁻¹ := sorry
 
 end DualIdeal
