@@ -4,7 +4,7 @@ Part 1: AG2.0–AG2.5. Roadmap identifier: `AutomorphicGaloisRepresentationsPart
 
 This roadmap constructs characteristic-zero Galois representations from regular algebraic automorphic representations over CM or totally real fields, keeping the polarized and nonselfdual branches distinct. Accepted RS-12 keeps it as a separate general-rank roadmap. Its early compact-unitary geometry supplies a foundation for ET’s local correspondences; its subsequent layers compare their rank-two outputs with R19’s existing classical and Hilbert constructions. Those constructions remain with R19. Potential automorphy consumes the outputs.
 
-All eight stages have a target-level planning pass. AG2.1 is the process aggregate of AG2.1a and AG2.1b. The packet is complete as a planning pass, with no stage claimed closed and every implementation status `unchecked`. The exact supplier requests and source gaps below specify what closure still requires. The previous independent review remains in the packet for the next reviewer to replace; this revision makes the reader agree with its corrected declarations, API and tests.
+All eight stages have a target-level planning pass. AG2.1 is the process aggregate of AG2.1a and AG2.1b. The packet is complete as a planning pass, with no stage claimed closed and every implementation status `unchecked`. The exact supplier requests and source gaps below specify what closure still requires. Independent review `REV-AutomorphicGaloisRepresentationsPartII--AG2.0~2` accepts this target-level planning pass after correcting the slope direction and source locators and checking the synchronized declarations, API and tests.
 
 The baseline is Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`. The reviewed library audit was read first. The four Mathlib declarations cited below supply CM conjugation and the Vieta coefficient identity. The suggested file prototypes the expressible weight, polynomial and numerical fragments. Its remaining entries have individual missing-carrier notes, rather than artificial substitutes for automorphic, arithmetic or geometric objects.
 
@@ -73,7 +73,7 @@ Construction or proof:
 3. The two forms of the (ℤⁿ)_w condition agree for Ω = ℂ because, for F totally real or CM, τ∘c = c∘τ for every τ: F → ℂ (Mathlib's NumberField.IsCMField.complexEmbedding_complexConj).
 4. a_{F′} is dominant, and lies in (ℤⁿ)_w for the same w when F′ is again totally real or CM and a ∈ (ℤⁿ)_w, since complex conjugation on F′ restricts to that of F.
 
-Acceptance: For integer k≥2, the classical weight-k form gives a = (k − 2, 0) at the single embedding of ℚ, which lies in (ℤ²)_{k−2}. For F imaginary quadratic and n = 1, a = (a_τ, a_{cτ}) lies in (ℤ¹)_w with w = a_τ + a_{cτ}; w can be odd, e.g. (1, 0), the weight of the Hecke character of a CM elliptic curve.
+Acceptance: For integer k≥2, the classical weight-k form gives a = (k − 2, 0) at the single embedding of ℚ, which lies in (ℤ²)_{k−2}. For F imaginary quadratic and n = 1, a = (a_τ, a_{cτ}) lies in (ℤ¹)_w with w = a_τ + a_{cτ}; w can be odd, e.g. (1, 0), the weight of the Hecke character of a CM elliptic curve. Dominant algebraic GL_n weights allow negative integers. The polarized determinant pair has tuples (1,…,1) and (−1,…,−1), with w=0; imposing nonnegative coordinates as in CH’s misprint E7 would wrongly exclude it.
 
 Direct prerequisites: `mathlib:NumberField.IsCMField.complexEmbedding_complexConj`, `AutomorphicFormsOnReductiveGroups:AF.4`, `AutomorphicFormsOnReductiveGroups:AF.4/algebraic-weight`.
 
@@ -335,7 +335,7 @@ Direct prerequisites: `AutomorphicGaloisRepresentationsPartII:AG2.0/regular-alge
 
 Sources:
 
-- [Patrick B. Allen, Frank Calegari, Ana Caraiani, Toby Gee, David Helm, Bao V. Le Hung, James Newton, Peter Scholze, Richard Taylor and Jack A. Thorne, Potential automorphy over CM fields](https://www.math.uchicago.edu/~fcale/papers/Ramanujan.pdf), §2.2.5, (2.2.6), p. 922. The Hecke polynomial P_v(X) and its Galois meaning.
+- [Patrick B. Allen, Frank Calegari, Ana Caraiani, Toby Gee, David Helm, Bao V. Le Hung, James Newton, Peter Scholze, Richard Taylor and Jack A. Thorne, Potential automorphy over CM fields](https://www.math.uchicago.edu/~fcale/papers/Ramanujan.pdf), §2.2.5, (2.2.6), p. 922. Use all signed coefficients of the characteristic polynomial. The terminal sign and unitary powers in the displayed definitions require the corrections recorded as E6; the packet’s GL_n polynomial already has the correct signs and degrees.
 - [Patrick B. Allen, Frank Calegari, Ana Caraiani, Toby Gee, David Helm, Bao V. Le Hung, James Newton, Peter Scholze, Richard Taylor and Jack A. Thorne, Potential automorphy over CM fields](https://www.math.uchicago.edu/~fcale/papers/Ramanujan.pdf), Theorem 2.3.2, p. 935. The geometric convention in the construction HLTT–ACC+ use (Frob_v geometric).
 - [Patrick B. Allen, Frank Calegari, Ana Caraiani, Toby Gee, David Helm, Bao V. Le Hung, James Newton, Peter Scholze, Richard Taylor and Jack A. Thorne, Potential automorphy over CM fields](https://www.math.uchicago.edu/~fcale/papers/Ramanujan.pdf), Notation, p. 906. rec^T, in which P_v is read.
 
@@ -761,7 +761,7 @@ Direct prerequisites: `AutomorphicGaloisRepresentationsPartII:AG2.1a/finite-leve
 
 Sources:
 
-- [Sug Woo Shin, Counting points on Igusa varieties](https://math.berkeley.edu/~swshin/StableIgusa.pdf), §§3–4, fixed-point formula and admissible triples. The raw count requires the actual effectivity and coefficient factors.
+- [Sug Woo Shin, Counting points on Igusa varieties](https://math.berkeley.edu/~swshin/StableIgusa.pdf), §4.2, Definition 4.2, pp. 13–14; §4.4, Theorem 4.4, p. 15. The raw count requires the actual effectivity and coefficient factors.
 
 ### Raw nearby-cycle and stratum traces
 
@@ -819,7 +819,7 @@ Direct prerequisites: `AutomorphicGaloisRepresentationsPartII:AG2.1a/raw-nearby-
 
 Sources:
 
-- [Sug Woo Shin, Galois representations arising from some compact Shimura varieties](https://math.berkeley.edu/~swshin/StableGal.pdf), §2, Mantovan functor, and Proposition 5.2, pp. 6–7, 34. The required global formula includes the Ext/colimit functor and normalization.
+- [Sug Woo Shin, Galois representations arising from some compact Shimura varieties](https://math.berkeley.edu/~swshin/StableGal.pdf), §2.2, Mantovan functor (2.1), p. 9; Proposition 5.2, p. 34. The required global formula includes the Ext/colimit functor and normalization.
 
 ### Shin’s stable and endoscopic Igusa computation
 
@@ -863,7 +863,7 @@ Direct prerequisites: `AutomorphicGaloisRepresentationsPartII:AG2.1b/shin-st-end
 
 Sources:
 
-- [Sug Woo Shin, Galois representations arising from some compact Shimura varieties](https://math.berkeley.edu/~swshin/StableGal.pdf), Propositions 2.2–2.3 and Theorem 6.4, pp. 8–10, 46–47. The local computation applies to the required generalized Steinberg and parabolic cases.
+- [Sug Woo Shin, Galois representations arising from some compact Shimura varieties](https://math.berkeley.edu/~swshin/StableGal.pdf), Propositions 2.2–2.3, pp. 10–11; Theorem 6.4, pp. 46–47. The local computation applies to the required generalized Steinberg and parabolic cases.
 
 ### Weight separation into the middle degree
 
@@ -1486,7 +1486,7 @@ Direct prerequisites: `IgusaVarietiesAndTorsionConcentration:IG.0/quasi-split-un
 
 Sources:
 
-- [Michael Harris, Kai-Wen Lan, Richard Taylor and Jack Thorne, On the rigid cohomology of certain Shimura varieties](https://www.kwlan.org/articles/rigcoh.pdf), §§3–5 and Appendix A.1, pp. 229–234. The ordinary mixed model, boundary charts and group actions are the actual geometric input.
+- [Michael Harris, Kai-Wen Lan, Richard Taylor and Jack Thorne, On the rigid cohomology of certain Shimura varieties](https://www.kwlan.org/articles/rigcoh.pdf), §§3–5 and Appendix A.1, pp. 229–234. The ordinary mixed model, boundary charts and group actions are the actual geometric input. In Appendix A.1 the Std factor is the lower-right invertible block of the Levi matrix, correcting the zero lower-left-block description recorded as E8.
 
 ### Dagger cohomology with boundary support
 
@@ -1555,7 +1555,7 @@ Sources:
 
 Declaration `AutomorphicGaloisRepresentationsPartII:AG2.4/hltt-frobenius-trace-normalization` (lemma; unchecked).
 
-On H^i_{c−∂}(A_Σ^ord), the pullback ς_p and trace trF commute with the ordinary adelic action and satisfy trF∘ς_p=p^{n(n+2m)[F⁺:Q]} id. On the ordinary minimal cusp-section module the normalized trace is the source controlling operator, with the explicit coefficient factor p^{mn[F:Q]} of Proposition 6.15: on a graded E_ρ term the Kuga trace is p^{mn[F:Q]} times the cusp-section trace. Thus a Kuga slope bound a becomes a section slope bound a+mn[F:Q] in Corollary 6.17. This distinguishes geometric Frobenius pullback from its finite-étale trace.
+On H^i_{c−∂}(A_Σ^ord), the pullback ς_p and trace trF commute with the ordinary adelic action and satisfy trF∘ς_p=p^{n(n+2m)[F⁺:Q]} id. On the ordinary minimal cusp-section module the normalized trace is the source controlling operator, with the explicit coefficient factor p^{mn[F:Q]} of Proposition 6.15: on a graded E_ρ term the Kuga trace is p^{mn[F:Q]} times the cusp-section trace. Thus section slope bound a gives Kuga slope bound a+mn[F:Q] in Corollary 6.17; conversely Kuga bound a corresponds to section bound a−mn[F:Q]. This distinguishes geometric Frobenius pullback from its finite-étale trace.
 
 Hypotheses: HLTT ordinary Frobenius quotient, dagger finite-étale trace and its boundary extension; characteristic zero coefficients.
 
@@ -1565,7 +1565,7 @@ Construction or proof:
 2. Compute its degree from the ordinary Kuga dimension.
 3. Extend through the boundary log complex and compare the coefficient trace filtration.
 
-Acceptance: At m=0 the exponent is n²[F⁺:Q]. trF is not identified with ς_p.
+Acceptance: At m=0 the exponent is n²[F⁺:Q]. trF is not identified with ς_p. For n=m=1 and [F:Q]=2, section slope 3 corresponds to Kuga slope 5, and Kuga bound 5 corresponds to section bound 3; reversing this shift is incorrect.
 
 Direct prerequisites: `AutomorphicGaloisRepresentationsPartII:AG2.4/boundary-support-dagger-cohomology`, `AutomorphicGaloisRepresentationsPartII:AG2.4/hltt-functorial-dagger-rigid-comparison`, `AdicSpacesPartII:F1/dagger-finite-etale-trace`.
 
@@ -1687,7 +1687,7 @@ Sources:
 
 Declaration `AutomorphicGaloisRepresentationsPartII:AG2.4/logarithmic-cusp-section-spectral-sequence` (theorem; unchecked).
 
-At each finite slope, the logarithmic de Rham cohomology of the ordinary Kuga model with I_∂ has the coefficient filtration and spectral sequence of HLTT Proposition 6.15/Corollary 6.17: the E₁ terms are finite-slope H⁰(X^ord,min,†,E_{ρ_{m,s}^{i,j}}^sub), with the specified trace and dimension shifts. Combining with Lemma 6.20 gives the spectral sequence to H^*_{c−∂,≤a}. Hence every irreducible constituent appearing in the abutment has the source rank-2n good-place Galois representation.
+At each fixed Kuga slope bound b, the logarithmic de Rham cohomology of the ordinary Kuga model with I_∂ has the coefficient filtration and spectral sequence of HLTT Proposition 6.15/Corollary 6.17: the E₁ terms are finite-slope H⁰(X^ord,min,†,E_{ρ_{m,s}^{i,j}}^sub), with section bound b−mn[F:Q]. Equivalently, section bound a gives Kuga bound a+mn[F:Q]. Combining with Lemma 6.20 gives the log de Rham spectral sequence to H^*_{c−∂,≤b}. Hence every irreducible constituent appearing in the abutment has the source rank-2n good-place Galois representation.
 
 Hypotheses: Actual algebraic representations ρ_{m,s}^{i,j}, coefficient trace factor and finite filtrations; the higher coherent cohomology vanishing on the ordinary affine locus.
 
@@ -1747,7 +1747,7 @@ Direct prerequisites: `AutomorphicGaloisRepresentationsPartII:AG2.4/boundary-str
 
 Sources:
 
-- [Michael Harris, Kai-Wen Lan, Richard Taylor and Jack Thorne, On the rigid cohomology of certain Shimura varieties](https://www.kwlan.org/articles/rigcoh.pdf), Corollaries 1.9 and 6.25–6.27, pp. 28–29, 221. The Levi inclusion and the varying-twist polynomial are the bridge to separation.
+- [Michael Harris, Kai-Wen Lan, Richard Taylor and Jack Thorne, On the rigid cohomology of certain Shimura varieties](https://www.kwlan.org/articles/rigcoh.pdf), Corollary 1.9, §1.5, p. 41; Corollaries 6.25–6.27, p. 221. The Levi inclusion and the varying-twist polynomial are the bridge to separation.
 
 ### Separating the two HLTT rank-n factors
 
@@ -1832,7 +1832,7 @@ Direct prerequisites: `AutomorphicGaloisRepresentationsPartII:AG2.4/hltt-constru
 
 Sources:
 
-- [Ila Varma, Local-global compatibility for regular algebraic cuspidal automorphic representations when l is different from p](https://arxiv.org/pdf/1411.2520), Theorem (1), Proposition 9.1 and §§10–11, pp. 2, 19–26, 26–29. The completed route gives the semisimple local comparison and the monodromy bound at all away places.
+- [Ila Varma, Local-global compatibility for regular algebraic cuspidal automorphic representations when l is different from p](https://arxiv.org/pdf/1411.2520), Theorem (1), p. 2; Proposition 8.1 and proof, pp. 18–19; Proposition 9.1 and proof, pp. 20–26; Theorem 10.2 and Corollary 10.3, §10, pp. 26–27. The completed route gives the semisimple local comparison and the monodromy bound at all away places.
 
 ### Caraiani’s full away-prime compatibility
 
@@ -1919,7 +1919,7 @@ Direct prerequisites: `AutomorphicGaloisRepresentationsPartII:AG2.4/hltt-ordinar
 
 Sources:
 
-- [Ila Varma, Local-global compatibility for regular algebraic cuspidal automorphic representations when l is different from p](https://arxiv.org/pdf/1411.2520), §7.2, integral operators; §9.1, e_{Π,B}, pp. 15–17, 24–25. The centre operators and their integral action are the additional local interpolation data.
+- [Ila Varma, Local-global compatibility for regular algebraic cuspidal automorphic representations when l is different from p](https://arxiv.org/pdf/1411.2520), §7.2, integral Bernstein operators, pp. 16–17; §9.1, e_{Π,B}, pp. 24–25. The centre operators and their integral action are the additional local interpolation data.
 
 ### Local Weil traces through the HLTT congruences
 
@@ -2046,7 +2046,7 @@ Direct prerequisites: `AutomorphicGaloisRepresentationsPartII:AG2.5/caraiani-ten
 
 Sources:
 
-- [Ana Caraiani, Local-global compatibility and the action of monodromy on nearby cycles](https://arxiv.org/pdf/1010.2188), Proposition 5.8 and Proposition 5.10, §5. The stratum concentration is the actual input used for degeneration in §7.
+- [Ana Caraiani, Local-global compatibility and the action of monodromy on nearby cycles](https://arxiv.org/pdf/1010.2188), Propositions 5.8 and 5.10, pp. 64–65. The stratum concentration is the actual input used for degeneration in §7.
 
 ### Temperedness of regular unitary-type cuspidal forms
 
@@ -2082,15 +2082,15 @@ Construction or proof:
 
 1. Apply the two filtrations and the geometric projector to the nearby-cycle complexes.
 2. Insert the stratum degree formula, forcing m=2n−2 in each nonzero term.
-3. Use the source graded weight computation and N maps to identify the monodromy filtration and Corollary 7.3 purity.
+3. Use the graded weight w+k−l−1 and N maps, reindexed by r=k−l−1, to identify the monodromy filtration centered at zero and Corollary 7.3 purity.
 
-Acceptance: The two filtration indices and the Tate twist −j−k+1 are retained. E₁ degeneration alone without the N identification does not establish purity.
+Acceptance: The two filtration indices and the Tate twist −j−k+1 are retained. E₁ degeneration alone without the N identification does not establish purity. To use R01.2’s monodromy filtration centered at zero, reindex the source kernel/image piece Gr_l Gr_k by r=k−l−1. Its weight is w+r with w=m_ξ−2t_ξ+2n−2; when N=0 the sole monodromy grade is r=0.
 
 Direct prerequisites: `AutomorphicGaloisRepresentationsPartII:AG2.5/two-chart-nearby-cycle-monodromy`, `AutomorphicGaloisRepresentationsPartII:AG2.5/caraiani-stratum-concentration`, `DeligneWeightsAndPurity:DWP.8`, `ArithmeticGaloisRepresentations:R01.2/monodromy-filtration`.
 
 Sources:
 
-- [Ana Caraiani, Local-global compatibility and the action of monodromy on nearby cycles](https://arxiv.org/pdf/1010.2188), Proposition 7.2 and Corollary 7.3, pp. 81–83. The exact double spectral sequence establishes the geometric monodromy purity.
+- [Ana Caraiani, Local-global compatibility and the action of monodromy on nearby cycles](https://arxiv.org/pdf/1010.2188), Proposition 7.2 and Corollary 7.3, pp. 82–84. The exact double spectral sequence establishes the geometric monodromy purity.
 
 ### Pure Weil–Deligne comparison up to equivalence
 
@@ -2113,6 +2113,8 @@ Direct prerequisites: `AutomorphicGaloisRepresentationsPartII:AG2.5/tensor-squar
 Sources:
 
 - [Richard Taylor and Teruyoshi Yoshida, Compatibility of local and global Langlands correspondences](https://arxiv.org/pdf/math/0412357), Lemma 1.4(2)–(4), proof of (4), pp. 6–7. The uniqueness is a WD equivalence statement and uses full purity.
+
+- [Ana Caraiani, Local-global compatibility and the action of monodromy on nearby cycles](https://arxiv.org/pdf/1010.2188), Published typeset author copy lgc1.pdf, proof of Theorem 7.4, pp. 2410–2411; the preprint gives a shorter argument on p. 85. The primitive-string/binomial argument proves tensor-square detection of purity, an additional generic R01.2 contract beyond TY Lemma 1.4’s uniqueness and finite-extension assertions.
 
 ### The polarized local comparison from the definite family
 
@@ -2156,7 +2158,7 @@ Direct prerequisites: `AutomorphicGaloisRepresentationsPartII:AG2.5/caraiani-upg
 
 Sources:
 
-- [Yifeng Liu, Yichao Tian, Liang Xiao, Wei Zhang and Xinwen Zhu, On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives](https://par.nsf.gov/servlets/purl/10323568), Definition 1.1.3, Proposition 3.2.4, Hypothesis 3.2.10 and Proposition 3.2.11. The geometric identification is conditional and has a restricted verification range.
+- [Yifeng Liu, Yichao Tian, Liang Xiao, Wei Zhang and Xinwen Zhu, On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives](https://par.nsf.gov/servlets/purl/10323568), Definition 1.1.3, p. 110; Proposition 3.2.4, Hypothesis 3.2.10 and Proposition 3.2.11, pp. 145–146 (PDF pp. 4, 39–40). The geometric identification is conditional and has a restricted verification range.
 - [George Boxer, Frank Calegari, Toby Gee and Vincent Pilloni, Modularity theorems for abelian surfaces](https://arxiv.org/pdf/2502.20645), Unnumbered RACSDC GL_n summary after equation (1.8.21), pp. 14–15. The unnumbered paragraph summarizes RACSDC systems; (1.8.21) labels the preceding GSp₄ equation.
 - [Ana Caraiani and Peter Scholze, On the generic part of the cohomology of compact unitary Shimura varieties](https://annals.math.princeton.edu/wp-content/uploads/annals-v186-n3-p01-p.pdf), Theorem 5.5.4, pp. 744–745. The published result is split by its away-prime and coefficient-prime dependencies.
 - [Ana Caraiani and Peter Scholze, On the generic part of the cohomology of compact unitary Shimura varieties](https://annals.math.princeton.edu/wp-content/uploads/annals-v186-n3-p01-p.pdf), Remark 5.5.6 and §5.6, pp. 746–750. The generic principal-series consequence and simple-Kottwitz variant have explicit supplier contracts.
@@ -2181,7 +2183,7 @@ Direct prerequisites: `AutomorphicGaloisRepresentationsPartII:AG2.5/good-prime-u
 
 Sources:
 
-- [Gaetan Chenevier and Michael Harris, Construction of automorphic Galois representations, II](https://webusers.imj-prg.fr/~michael.harris/ConstructionII.pdf), §3.2, p. 9, and §4 totally real fields. The overlap is identified by uniqueness after the arbitrary regular construction.
+- [Gaetan Chenevier and Michael Harris, Construction of automorphic Galois representations, II](https://webusers.imj-prg.fr/~michael.harris/ConstructionII.pdf), §3.2, pp. 10–12; §4, Hypotheses 4.1 and Theorem 4.2, p. 13. The overlap is identified by uniqueness after the arbitrary regular construction.
 
 ## Exact supplier contracts
 
@@ -2637,15 +2639,15 @@ Affected declarations: `AutomorphicGaloisRepresentationsPartII:AG2.1a/raw-fixed-
 
 ## Independently confirmed source corrections
 
-The independent review confirmed E1–E5. The declarations use the corrected mathematics. The descriptions below paraphrase the source claims and retain their exact locators and publication-search scope.
+This review independently confirms E1–E9. Declarations use the corrected mathematics; every finding is bounded to the source versions actually read.
 
 ### `AutomorphicGaloisRepresentationsPartII/E1`: misprint affecting nothing
 
 Source: [Potential automorphy and change of weight](https://arxiv.org/pdf/1010.2561v4), §2.1, definition of a polarized automorphic representation, p. 32; unchanged in published Annals §2.1, p. 536.
 
-Source claim, in our words: For imaginary F, the source additionally requires µv(−1) = (−1)n at all v|∞. It says this requirement can always be met by substituting µδF/F + for µ.
+Source claim, in our words: The automorphic parity condition uses the symbol μ although its pair is denoted (π,χ); the subsequent quadratic-character adjustment repeats that mismatched symbol.
 
-Correction: χ_v(−1) … replacing χ by χδ_{F/F⁺}: the character of a polarized automorphic pair (π, χ) is χ; µ is the Galois multiplier of the Galois-side definition on p. 31, from which the sentence was carried over.
+Correction: Use χ in the automorphic condition and in its δ_{F/F⁺} adjustment. The required parity is the separate weight-dependent correction E2.
 
 Reason: The definition introduces only π and χ; no µ is in scope, and the next paragraph speaks of a character µ with (π, µ) polarized, again meaning χ.
 
@@ -2656,13 +2658,13 @@ Published-correction check: No published correction found. Independently confirm
 - web search for an erratum
 - Published Annals 179 PDF, p. 536, independently obtained 2026-10-07
 
-Independent verdict: **confirmed** by `REV-AutomorphicGaloisRepresentationsPartII--AG2.0`. The published definition introduces χ, while the literal sign sentence uses out-of-scope μ. The same mismatch is present in arXiv v4; confirmed as a notation misprint.
+Independent verdict: **confirmed** by `REV-AutomorphicGaloisRepresentationsPartII--AG2.0~2`. Both the arXiv v4 definition and published Annals p. 536 introduce χ on the automorphic side; μ belongs to the preceding Galois definition. This is a symbol misprint, independent of the substantive parity correction E2.
 
 ### `AutomorphicGaloisRepresentationsPartII/E2`: error affecting a stated result
 
 Source: [Potential automorphy and change of weight](https://arxiv.org/pdf/1010.2561v4), §2.1, p. 32 (sign normalisation) and Theorem 2.1.1(1) with its proof, pp. 33–34; published Annals pp. 536–538.
 
-Source claim, in our words: On p. 32, the source requires µv(−1) = (−1)n at all v|∞ for imaginary F. On p. 33, it asserts that (rl,ı(π), ǫ1−n l rl,ı(χ)) is polarized, totally odd and l-adic. On p. 34, it claims that for CM F the definition makes ǫ1−n l rl,ı(χ) send each complex conjugation to −1.
+Source claim, in our words: The CM automorphic sign condition is independent of w, namely χ_v(−1)=(−1)^n after repairing the symbol. Theorem 2.1.1(1) then asserts total oddness for the multiplier ε_l^{1−n}r_{l,ι}(χ), and the proof evaluates it at complex conjugation as −1.
 
 Correction: For F imaginary and (π, χ) regular algebraic of weight a ∈ (ℤⁿ)_w, the normalisation making (r_{l,ι}(π), ε_l^{1−n} r_{l,ι}(χ)) totally odd is χ_v(−1) = (−1)^{n+w}. Equivalently, ε_l^{1−n} r_{l,ι}(χ)(c_v) = (−1)^{n−1+w} χ_v(−1), so the printed (−1)^n is right exactly when w is even. The stated result affected is Theorem 2.1.1(1) for odd w; the theorem holds for every polarizable π after replacing χ by χδ_{F/F⁺}, so no result about polarizable π is lost.
 
@@ -2677,13 +2679,13 @@ Published-correction check: new as a correction of BLGGT; the relation with (−
 - web search for an erratum
 - Published Annals 179 PDF, pp. 536–538, independently obtained 2026-10-07
 
-Independent verdict: **confirmed** by `REV-AutomorphicGaloisRepresentationsPartII--AG2.0`. Computed r(χ)(c_v)=(−1)^wχ_v(−1), hence μ(c_v)=(−1)^(n−1+w)χ_v(−1). The rank-one CM elliptic Hecke character with w=1 satisfies the printed parity yet gives μ(c_v)=+1; a nondegenerate pairing on a line forces μ(c_v)=−1. Published Annals retains the sentence. Patrikis Proposition4.1 and BC’s algebraic-character sign agree with the correction.
+Independent verdict: **confirmed** by `REV-AutomorphicGaloisRepresentationsPartII--AG2.0~2`. In both versions read, wt(χ)=2w and r(χ)(c_v)=(−1)^wχ_v(−1), so μ(c_v)=(−1)^{n−1+w}χ_v(−1). For the rank-one CM elliptic character with w=1, the printed sign gives μ(c_v)=+1. The line pairing forces the opposite sign. Patrikis Proposition 4.1 and Bellaïche–Chenevier’s sign convention support the corrected parity.
 
 ### `AutomorphicGaloisRepresentationsPartII/E3`: error affecting a stated result
 
 Source: [Abelian surfaces over totally real fields are potentially modular](https://pmihes.centre-mersenne.org/item/10.1007/s10240-021-00128-2.pdf), Published §2.5, Lemma 2.5.1, p. 189; n(r,N)=rank N in preceding paragraph.
 
-Source claim, in our words: The source characterizes the corresponding Weil–Deligne representation as the sole choice attaining the maximum of n(r, N).
+Source claim, in our words: Lemma 2.5.1 uses maximum rank of N as a uniqueness criterion for a pure Weil–Deligne extension of the fixed semisimple Weil representation.
 
 Correction: Pure extension is unique up to equivalence by TY Lemma 1.4(4). Rank N alone does not characterize it in arbitrary dimension. Use purity’s full family of monodromy-power isomorphisms, or a proved sufficiently refined criterion in the intended restricted rank.
 
@@ -2695,13 +2697,13 @@ Published-correction check: No published correction found in the versions and au
 - TY arXiv:math/0412357v2 Lemma 1.4(4)
 - Boxer author publication page; web search for BCGP Lemma 2.5.1 erratum, 2026-10-07
 
-Independent verdict: **confirmed** by `REV-AutomorphicGaloisRepresentationsPartII--AG2.0`. Independent exact rational matrix check: both displayed N satisfy FNF^−1=N/4 and ranks [4,2,1,0] versus [4,2,0,0]. The graded dimensions bound rank N by4, so both maximize it. Only the 4+2 strings have center0 and are pure; the 3+3 strings have centers±1. This refutes general rank-maximal uniqueness, without drawing a conclusion about the source’s restricted application.
+Independent verdict: **confirmed** by `REV-AutomorphicGaloisRepresentationsPartII--AG2.0~2`. Recomputed the two rational 6×6 matrices independently: FNF⁻¹=N/4 in each case; ranks of the powers are (4,2,1,0) and (4,2,0,0). Graded dimensions bound rank by 4. The first strings are centered at zero, the second at ±1; only the first extension is pure. This refutes the unrestricted uniqueness claim, without deciding its rank-four application.
 
 ### `AutomorphicGaloisRepresentationsPartII/E4`: error affecting the proof
 
 Source: [Construction of automorphic Galois representations, II](https://webusers.imj-prg.fr/~michael.harris/ConstructionII.pdf), Alternative argument after Theorem 3.2.3, author copy p. 12.
 
-Source claim, in our words: The source calls the map ∧2 : GL(n) → GL(n(n−1)/2) an isogeny.
+Source claim, in our words: The alternate de Rham proof treats the exterior-square map GL_n→GL_{n(n−1)/2} as an isogeny onto that target.
 
 Correction: For n≥4, the exterior-square homomorphism has finite kernel μ₂ onto its algebraic image; it is not an isogeny onto the full displayed GL group. The alternate de Rham argument needs the theorem for a finite-kernel map onto that image and compatibility of the p-adic Hodge condition with its faithful inclusion. This packet uses the first, eigenvariety/fixed-weight proof instead.
 
@@ -2713,13 +2715,13 @@ Published-correction check: No correction found on the Chenevier/Harris publicat
 - Harris author publication page, Construction II entry
 - Author copy ConstructionII.pdf; search for an exterior-square/isogeny erratum, 2026-10-07
 
-Independent verdict: **confirmed** by `REV-AutomorphicGaloisRepresentationsPartII--AG2.0`. Read both arguments after CH Theorem3.2.3. For n=4 dimensions16 and36 prevent an isogeny onto GL6; the exterior-square homomorphism has finite kernel onto its image. The packet correctly uses the first fixed-weight/eigenvariety proof instead.
+Independent verdict: **confirmed** by `REV-AutomorphicGaloisRepresentationsPartII--AG2.0~2`. The author copy p. 12 displays the full target GL_{n(n−1)/2}. At n=4 its dimension is 36 versus 16 for GL_4, ruling out surjectivity. Finite kernel onto the image is the appropriate assertion. The first proof is available and used by this plan. A fresh publisher PDF request was denied; this verdict is scoped to the author copy.
 
 ### `AutomorphicGaloisRepresentationsPartII/E5`: misprint affecting the proof
 
 Source: [Local-global compatibility and the action of monodromy on nearby cycles](https://arxiv.org/pdf/1010.2188), Proof of Theorem 7.4, arXiv:1010.2188 p. 84; published Duke version p. 2409.
 
-Source claim, in our words: The source assigns pure weight 2n − 2 to LF′p′,n (ΠF′,p′).
+Source claim, in our words: The proof identifies the individual tempered parameter L_n(Π) as having weight 2n−2, which is the weight appropriate to its tensor square.
 
 Correction: The individual normalized rank-n parameter L_n(Π) is pure of weight n−1. Its tensor square is pure of weight 2n−2.
 
@@ -2731,7 +2733,77 @@ Published-correction check: No correction found in the arXiv version, the publis
 - Published Duke typeset author copy lgc1.pdf, p.2409
 - Ana Caraiani papers.php; searches for monodromy Theorem7.4 erratum, 2026-10-07
 
-Independent verdict: **confirmed** by `REV-AutomorphicGaloisRepresentationsPartII--AG2.0`. Independently read both versions. The tempered factor has geometric weight n−1 and its square has weight2n−2. Node racsdc-temperedness already uses the correct factor weight; the main compatibility theorem is unaffected.
+Independent verdict: **confirmed** by `REV-AutomorphicGaloisRepresentationsPartII--AG2.0~2`. Read the preprint p. 84 and published typeset author copy p. 2409. The normalized tempered factor has weight n−1; tensor weights add. Published pp. 2410–2411 also supply the primitive-string tensor-square detection argument, so the doubled factor weight is a local misprint, not a failure of the compatibility theorem.
+
+### `AutomorphicGaloisRepresentationsPartII/E6`: misprint affecting nothing
+
+Source: [Potential automorphy over CM fields](https://www.math.uchicago.edu/~fcale/papers/Ramanujan.pdf), §2.2.5, equations (2.2.6)–(2.2.7) and following unitary σ-polynomial, journal-pagination author copy p. 922; current arXiv/author preprint p. 26 has equations (2.2.5)–(2.2.6).
+
+Source claim, in our words: The GL_n display ends with +q_v^{n(n−1)/2}T_{v,n}, omitting (−1)^n. The unitary display’s general j-term omits X^{2n−j}. Its following σ-polynomial has powers X^{n−i} although its index runs from 0 to 2n.
+
+Correction: The GL_n constant is (−1)^n q_v^{n(n−1)/2}T_{v,n}; the unitary j-term has X^{2n−j}, and every unitary σ-term has X^{2n−i}.
+
+Reason: For n=1 the spherical character polynomial is X−T_{v,1}. The degree-2n unitary characteristic polynomial has one coefficient in each nonnegative degree from 2n to 0. The displayed n−i exponent produces negative powers; the j-term without its X power collapses different degrees. The surrounding characteristic-polynomial interpretation and the correctly signed GL_n display later in §2.3 fix the intended expressions.
+
+Published-correction check: No correction found in the specific versions, publication pages and searches listed; finding limited to the text read on 2026-10-08.
+
+- Journal-pagination author copy Ramanujan.pdf, p. 922, and §2.3
+- Current arXiv:1812.09999 PDF and Caraiani potential_automorphy.pdf, p. 26, fetched 2026-10-08
+- Toby Gee and Peter Scholze publication pages; search for an ACC+ Hecke-polynomial erratum, 2026-10-08
+
+Independent verdict: **confirmed** by `REV-AutomorphicGaloisRepresentationsPartII--AG2.0~2`. For n=1 the spherical character polynomial is X−T_{v,1}. The degree-2n unitary characteristic polynomial has one coefficient in each nonnegative degree from 2n to 0. The displayed n−i exponent produces negative powers; the j-term without its X power collapses different degrees. The surrounding characteristic-polynomial interpretation and the correctly signed GL_n display later in §2.3 fix the intended expressions.
+
+### `AutomorphicGaloisRepresentationsPartII/E7`: misprint affecting nothing
+
+Source: [Construction of automorphic Galois representations, II](https://webusers.imj-prg.fr/~michael.harris/ConstructionII.pdf), §1, after Hypotheses 1.2, author copy p. 4; finding scoped to that copy (publisher download denied).
+
+Source claim, in our words: The coefficient highest weights are restricted to nonnegative coordinates on both conjugate embeddings, alongside the condition μ_i(τc)=−μ_{n−i+1}(τ).
+
+Correction: Use dominant integral coordinates, without a nonnegativity restriction. Polynomial representations form a smaller class than the algebraic GL_n representations used here.
+
+Reason: The two printed conditions together force every coordinate to vanish. The algebraic polarized pair det and det⁻¹ has dominant tuples (1,…,1) and (−1,…,−1), and is excluded by nonnegativity. BLGGT’s embedding-wise integer weights give the needed convention.
+
+Published-correction check: No correction found in the specific versions, publication pages and searches listed; finding limited to the text read on 2026-10-08.
+
+- Harris ConstructionII.pdf and Chenevier CheHar.pdf, identical author-copy hash, p. 4
+- Chenevier and Harris publication pages; web search for a highest-weight correction, 2026-10-08
+- Publisher CJM-2013-0001-0001-a002.pdf request, 2026-10-08: HTTP 403; no claim of reading the publisher PDF
+
+Independent verdict: **confirmed** by `REV-AutomorphicGaloisRepresentationsPartII--AG2.0~2`. The two printed conditions together force every coordinate to vanish. The algebraic polarized pair det and det⁻¹ has dominant tuples (1,…,1) and (−1,…,−1), and is excluded by nonnegativity. BLGGT’s embedding-wise integer weights give the needed convention.
+
+### `AutomorphicGaloisRepresentationsPartII/E8`: misprint affecting nothing
+
+Source: [On the rigid cohomology of certain Shimura varieties](https://www.kwlan.org/articles/rigcoh.pdf), Appendix A.1, definition of Std, article-pagination author copy p. 231.
+
+Source claim, in our words: Std is assigned the lower-left n×n block of the displayed block-diagonal Levi matrix.
+
+Correction: Std takes the lower-right n×n block. This is the invertible GL_n factor paired with ν in the displayed Levi isomorphism.
+
+Reason: The lower-left block in the display is zero, so it cannot even define a GL_n-valued map. The lower-right block is invertible; the ν×Std isomorphism and the Hodge-bundle examples determine the intended factor.
+
+Published-correction check: No correction found in the specific versions, publication pages and searches listed; finding limited to the text read on 2026-10-08.
+
+- Lan rigcoh.pdf, Appendix A.1, and its Std/Hodge-bundle examples
+- Harris publication page; search for an HLTT rigid-cohomology erratum, 2026-10-08
+
+Independent verdict: **confirmed** by `REV-AutomorphicGaloisRepresentationsPartII--AG2.0~2`. The lower-left block in the display is zero, so it cannot even define a GL_n-valued map. The lower-right block is invertible; the ν×Std isomorphism and the Hodge-bundle examples determine the intended factor.
+
+### `AutomorphicGaloisRepresentationsPartII/E9`: misprint affecting the proof
+
+Source: [Local-global compatibility for regular algebraic cuspidal automorphic representations when l is different from p](https://arxiv.org/pdf/1411.2520), arXiv:1411.2520v1, proof of Proposition 8.1, p. 19; §10 proof of Theorem 10.2 and Corollary 10.3, pp. 26–27.
+
+Source claim, in our words: The proof of Proposition 8.1 appeals to Corollary 9.3; the last section appeals to Corollary 11.1 and deduces Corollary 10.3 from Theorem 7.13. These numbers do not identify the comparison results established in this version.
+
+Correction: Use Corollary 8.3 for the continuous Hecke pseudorepresentation on p. 19. Use Proposition 9.1’s constituent-by-constituent monodromy bound in Theorem 10.2, and Theorem 10.2 followed by the stated patching argument for Corollary 10.3. HLTT Theorem 7.13 alone gives existence rather than that local bound.
+
+Reason: Corollary 8.3 appears immediately before the p. 19 application. Proposition 9.1 establishes the componentwise dominance used on p. 27. This version ends its mathematical sections at §10 and contains no Corollary 11.1; its preceding Theorem 10.2 supplies the bounded comparison that the final patching needs. The plan already distinguishes existence, trace agreement and the full family of N-power inequalities.
+
+Published-correction check: No correction found in the specific versions, publication pages and searches listed; finding limited to the text read on 2026-10-08.
+
+- arXiv:1411.2520v1, §§8–10 and bibliography, pp. 18–29
+- arXiv record and search for a Varma local-global compatibility correction, 2026-10-08
+
+Independent verdict: **confirmed** by `REV-AutomorphicGaloisRepresentationsPartII--AG2.0~2`. Corollary 8.3 appears immediately before the p. 19 application. Proposition 9.1 establishes the componentwise dominance used on p. 27. This version ends its mathematical sections at §10 and contains no Corollary 11.1; its preceding Theorem 10.2 supplies the bounded comparison that the final patching needs. The plan already distinguishes existence, trace agreement and the full family of N-power inequalities.
 
 ## Owner refinements
 
@@ -2749,10 +2821,10 @@ Reconcile the existing EDC.8/ET.5 boundary: a generic Fujiwara/Varshavsky geomet
 
 ## Baseline declarations and source versions
 
-- `mathlib:NumberField.IsCMField` in `Mathlib/NumberTheory/NumberField/CMField.lean`: For [Field K] [CharZero K], NumberField.IsCMField K asserts total complexness and quadraticity over its maximal real subfield K⁺; number fields supply these ambient instances. Independently re-read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-07, by REV-AutomorphicGaloisRepresentationsPartII--AG2.0; hypotheses and conventions confirmed. Rechecked at the same pin by Codex codex-cIVwMR, 2026-10-08.
-- `mathlib:NumberField.IsCMField.complexConj` in `Mathlib/NumberTheory/NumberField/CMField.lean`: For [Field K] [CharZero K] [NumberField.IsCMField K] [Algebra.IsIntegral ℚ K], complexConj K : K ≃ₐ[K⁺] K; [NumberField K] supplies integrality. Independently re-read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-07, by REV-AutomorphicGaloisRepresentationsPartII--AG2.0; hypotheses and conventions confirmed. Rechecked at the same pin by Codex codex-cIVwMR, 2026-10-08.
-- `mathlib:NumberField.IsCMField.complexEmbedding_complexConj` in `Mathlib/NumberTheory/NumberField/CMField.lean`: Under the same CM/integrality instances, for φ:K→+*ℂ and x:K, φ (complexConj K x) = conj (φ x). This identifies τ∘c with c∘τ. Independently re-read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-07, by REV-AutomorphicGaloisRepresentationsPartII--AG2.0; hypotheses and conventions confirmed. Rechecked at the same pin by Codex codex-cIVwMR, 2026-10-08.
-- `mathlib:Multiset.prod_X_sub_C_coeff` in `Mathlib/RingTheory/Polynomial/Vieta.lean`: For [CommRing R], s:Multiset R and k≤s.card, (s.map (fun t => X−C t)).prod.coeff k = (−1)^(s.card−k)*s.esymm(s.card−k). It supplies exactly the signed elementary-symmetric coefficient identity. Independently re-read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-07, by REV-AutomorphicGaloisRepresentationsPartII--AG2.0; hypotheses and conventions confirmed. Rechecked at the same pin by Codex codex-cIVwMR, 2026-10-08.
+- `mathlib:NumberField.IsCMField` in `Mathlib/NumberTheory/NumberField/CMField.lean`: For [Field K] [CharZero K], NumberField.IsCMField K asserts total complexness and quadraticity over its maximal real subfield K⁺; number fields supply these ambient instances. Independently re-read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-07, by REV-AutomorphicGaloisRepresentationsPartII--AG2.0~2~2~2~2~2; hypotheses and conventions confirmed. Rechecked at the same pin by Codex codex-cIVwMR, 2026-10-08.
+- `mathlib:NumberField.IsCMField.complexConj` in `Mathlib/NumberTheory/NumberField/CMField.lean`: For [Field K] [CharZero K] [NumberField.IsCMField K] [Algebra.IsIntegral ℚ K], complexConj K : K ≃ₐ[K⁺] K; [NumberField K] supplies integrality. Independently re-read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-07, by REV-AutomorphicGaloisRepresentationsPartII--AG2.0~2~2~2~2~2; hypotheses and conventions confirmed. Rechecked at the same pin by Codex codex-cIVwMR, 2026-10-08.
+- `mathlib:NumberField.IsCMField.complexEmbedding_complexConj` in `Mathlib/NumberTheory/NumberField/CMField.lean`: Under the same CM/integrality instances, for φ:K→+*ℂ and x:K, φ (complexConj K x) = conj (φ x). This identifies τ∘c with c∘τ. Independently re-read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-07, by REV-AutomorphicGaloisRepresentationsPartII--AG2.0~2~2~2~2~2; hypotheses and conventions confirmed. Rechecked at the same pin by Codex codex-cIVwMR, 2026-10-08.
+- `mathlib:Multiset.prod_X_sub_C_coeff` in `Mathlib/RingTheory/Polynomial/Vieta.lean`: For [CommRing R], s:Multiset R and k≤s.card, (s.map (fun t => X−C t)).prod.coeff k = (−1)^(s.card−k)*s.esymm(s.card−k). It supplies exactly the signed elementary-symmetric coefficient identity. Independently re-read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-07, by REV-AutomorphicGaloisRepresentationsPartII--AG2.0~2~2~2~2~2; hypotheses and conventions confirmed. Rechecked at the same pin by Codex codex-cIVwMR, 2026-10-08.
 
 ### blggt-potential-automorphy
 
@@ -2766,7 +2838,7 @@ Recorded reading:
 - §5.1 remark on the weights of r_{l,ι}(χ), p. 65; Theorem 5.5.1's proof and the remark before Theorem 5.5.2, p. 81
 - Appendix A.2: algebraic characters and their weights (1)–(8), Lemmas A.2.1–A.2.5, pp. 87–90
 - codex-Q1w8rI, 2026-10-07: §1 notation and §2.1 weight/polarization conventions, pp. 8–10, 31–35; Appendix A.2 algebraic Hecke characters, p. 87. Rechecked the retained parity correction and primary literal excerpts.
-- Independent REV-AutomorphicGaloisRepresentationsPartII--AG2.0: all locators/excerpts used by this packet rechecked at the recorded URL and SHA-256; hypotheses compared with the target statements, 2026-10-07.
+- Independent REV-AutomorphicGaloisRepresentationsPartII--AG2.0~2~2~2~2~2: all locators/excerpts used by this packet rechecked at the recorded URL and SHA-256; hypotheses compared with the target statements, 2026-10-07.
 - Revision 2, Codex codex-cIVwMR, 2026-10-08: §2.1, pp. 31–34, and Appendix A.2, p. 87: dominance, regular-algebraic weights, multiplier parity and algebraic-character normalization.
 
 Last recorded access: 2026-10-08. SHA-256: `c953df6229ba8d8b4ae25b1a00cf11592864c74692859d324ff10d3eef645d24`.
@@ -2780,7 +2852,7 @@ Recorded reading:
 - Earlier decomposition: 4.3 Definition 4.3.1 and Lemma 4.3.2 (pp. 972–973); 6.2.28–6.2.31 (pp. 1044–1045)
 - cc-fb70e5, 2026-09-29 (part AG2.0, checkpoint 1): §1 notation (Artin and rec normalisations, rec^T, algebraic characters, regular algebraic of weight ξ, totally odd), pp. 906–909; §2.2.5 with (2.2.6)–(2.2.7), pp. 921–922; Theorems 2.3.2–2.3.3, pp. 935–936; Definition 2.3.6 and the contragredient remark after it, p. 938; §7.1 up to Lemma 7.1.9, p. 1093; Corollary 7.2.4, p. 1100
 - codex-Q1w8rI, 2026-10-07: §1 notation; §§2.2–2.3 integral Hecke polynomial, good attachment and dual/twist remarks; §4.5.1 prescribed split-place crystalline character, pp. 985–986; §7.1 rationality and coefficient fields.
-- Independent REV-AutomorphicGaloisRepresentationsPartII--AG2.0: all locators/excerpts used by this packet rechecked at the recorded URL and SHA-256; hypotheses compared with the target statements, 2026-10-07.
+- Independent REV-AutomorphicGaloisRepresentationsPartII--AG2.0~2~2~2~2~2: all locators/excerpts used by this packet rechecked at the recorded URL and SHA-256; hypotheses compared with the target statements, 2026-10-07.
 
 Last recorded access: 2026-10-08. SHA-256: `c5429e4f384384045dbb48502d71547bb21699783c0f77cce27b24e742467f02`.
 
@@ -2792,7 +2864,7 @@ Recorded reading:
 
 - codex-Q1w8rI, 2026-10-07: §§1–3, Theorem 2.1 and archimedean sign calculations; §4 Proposition 4.1 and its proof, pp. 7–8, including the geometric-character sign formula.
 - codex-Q1w8rI, 2026-10-07: §4 Proposition 4.1, proof, p. 8: the integer w, unitary normalization and pairing sign (−1)^w ω_v(−1).
-- Independent REV-AutomorphicGaloisRepresentationsPartII--AG2.0: all locators/excerpts used by this packet rechecked at the recorded URL and SHA-256; hypotheses compared with the target statements, 2026-10-07.
+- Independent REV-AutomorphicGaloisRepresentationsPartII--AG2.0~2~2~2~2~2: all locators/excerpts used by this packet rechecked at the recorded URL and SHA-256; hypotheses compared with the target statements, 2026-10-07.
 
 Last recorded access: 2026-10-08. SHA-256: `2bfa2a6a00a94465725cd7b0e48d64eef1fed4113a6be4b246a015e7927259f8`.
 
@@ -2805,7 +2877,7 @@ Recorded reading:
 - Abstract and Introduction: Theorem A (quoted there as Corollary 7.14), the remark on extending local-global compatibility, the sketch of the argument including the group G_n, its maximal parabolic and Levi, the induced representation Pi(N), the realization in overconvergent p-adic cusp forms of finite slope, Katz's congruence argument, and the dagger-space set-up with the ordinary loci and the subcanonical sheaf, pp. 1-3
 - Reviewer (REVIEW-EXT-10-EXT-07): abstract and introduction pp. 1-3 (the displayed 2n-dimensional decomposition checked on the page image of p. 2), bibliography entries [CH], [Sh1], [Sh2]
 - codex-Q1w8rI, 2026-10-07: §1, Proposition 1.2 and Corollary 1.3; §3 moduli and §5 boundary charts; §6.1 Lemmas 6.1–6.2 and Proposition 6.5; §§6.2–6.5 Lemmas 6.7–6.9, 6.15–6.27; §7, hypotheses, Proposition 7.12, Theorem 7.13 and Corollary 7.14.
-- Independent REV-AutomorphicGaloisRepresentationsPartII--AG2.0: all locators/excerpts used by this packet rechecked at the recorded URL and SHA-256; hypotheses compared with the target statements, 2026-10-07.
+- Independent REV-AutomorphicGaloisRepresentationsPartII--AG2.0~2~2~2~2~2: all locators/excerpts used by this packet rechecked at the recorded URL and SHA-256; hypotheses compared with the target statements, 2026-10-07.
 - Revision 2, Codex codex-cIVwMR, 2026-10-08: Lemmas 6.10–6.12, Proposition 6.15, Corollary 6.17 and the §6.5 boundary-support definition, pp. 211–218: ordinary formal sections, coefficient trace factor and slope shift.
 
 Last recorded access: 2026-10-08. SHA-256: `abecfd049d617654dd0bb60e4945bf6967d3953ed20f2126de0624f2bd0bdbc7`.
@@ -2820,7 +2892,7 @@ Recorded reading:
 - Reviewer (REVIEW-EXT-10-EXT-07): introduction pp. 1-2 and the paragraph before Theorem 2.3 describing the dominance relation (it implies s = s' and N in the Zariski closure of the conjugacy class of N'), bibliography entry [Ch] = Chenevier, Une application des varietes de Hecke des groupes unitaires
 - cc-fb70e5, 2026-09-29: §4, General Hypotheses 4.1 and Theorem 4.2 (totally real fields), p. 13
 - codex-Q1w8rI, 2026-10-07: §§1–3: Hypotheses 1.1–1.3, Theorem 1.4; §2 definite-unitary eigenvariety and Theorem 2.3; §3.1 patching and local extensions; §3.2 induction P(m), Theorem 3.2.3 and Proposition 3.2.5.
-- Independent REV-AutomorphicGaloisRepresentationsPartII--AG2.0: all locators/excerpts used by this packet rechecked at the recorded URL and SHA-256; hypotheses compared with the target statements, 2026-10-07.
+- Independent REV-AutomorphicGaloisRepresentationsPartII--AG2.0~2~2~2~2~2: all locators/excerpts used by this packet rechecked at the recorded URL and SHA-256; hypotheses compared with the target statements, 2026-10-07.
 - Revision 2, Codex codex-cIVwMR, 2026-10-08: Special Hypotheses 1.2, pp. 3–4; §§2–3, pp. 7–12, especially Theorem 3.1.2, the first paragraph of the proof of 3.2.3 and Proposition 3.2.5: even-rank interpolation, arbitrary-regular field removal and realization-field hypotheses.
 
 Last recorded access: 2026-10-08. SHA-256: `9b5e76798f75273f53d1d4160f35815b1a3b656f04c965ad47fd4fa454840529`.
@@ -2835,7 +2907,7 @@ Recorded reading:
 - 1 Introduction: the setting, the known unramified compatibility, Theorem (1^ss), Theorem (1) with the partial order, and the summary of the proof strategy through the Bernstein centre, pp. 1-2
 - Reviewer (REVIEW-EXT-10-EXT-07): abstract and introduction pp. 1-3 including the construction of the pseudorepresentation T, bibliography entries [9] = HLTT, [10] = Harris-Taylor, [16] = Scholze
 - codex-Q1w8rI, 2026-10-07: §7.2 Bernstein centre and integral operators; §8 pseudorepresentation interpolation; §9 Definitions 1–2, Lemmas 9.2, 9.7–9.8 and Proposition 9.1; §§10–11 factor extraction and descent.
-- Independent REV-AutomorphicGaloisRepresentationsPartII--AG2.0: all locators/excerpts used by this packet rechecked at the recorded URL and SHA-256; hypotheses compared with the target statements, 2026-10-07.
+- Independent REV-AutomorphicGaloisRepresentationsPartII--AG2.0~2~2~2~2~2: all locators/excerpts used by this packet rechecked at the recorded URL and SHA-256; hypotheses compared with the target statements, 2026-10-07.
 - Revision 2, Codex codex-cIVwMR, 2026-10-08: Proof of Proposition 8.1, p. 19: the classical Hecke quotient and continuous semisimple reconstruction from the local-trace pseudorepresentation.
 
 Last recorded access: 2026-10-08. SHA-256: `24076dfcc6ca9b9e3168efb0150e75d5200f66e64085625b3e52895cfd1e56ef`.
@@ -2849,7 +2921,7 @@ Recorded reading:
 - Abstract and 1 Introduction: Theorem 1.1, Theorem 1.2 (Ramanujan-Petersson), the statement of what was already known, and the strategy (realizing R_l(Pi)^{tensor 2} in the cohomology of a unitary Shimura system and proving purity by computing the monodromy operator), pp. 1-2
 - Reviewer (REVIEW-EXT-10-EXT-07): abstract and introduction pp. 1-3
 - codex-Q1w8rI, 2026-10-07: §4, product of two semistable charts, nearby-cycle tensor product, monodromy and Corollary 4.29; §5, Proposition 5.8, Corollary 5.9 and Proposition 5.10; §7, Proposition 7.2, Corollary 7.3 and Theorem 7.4.
-- Independent REV-AutomorphicGaloisRepresentationsPartII--AG2.0: all locators/excerpts used by this packet rechecked at the recorded URL and SHA-256; hypotheses compared with the target statements, 2026-10-07.
+- Independent REV-AutomorphicGaloisRepresentationsPartII--AG2.0~2~2~2~2~2: all locators/excerpts used by this packet rechecked at the recorded URL and SHA-256; hypotheses compared with the target statements, 2026-10-07.
 - Revision 2, Codex codex-cIVwMR, 2026-10-08: Propositions 3.9, 4.6 and 4.10, pp. 24, 29 and 33; Corollary 4.29, p. 51; Corollary 5.9, p. 64, and §7, pp. 83–85: common-trait product monodromy, total-N filtrations, rank range and individual versus tensor-square purity weight.
 
 Last recorded access: 2026-10-08. SHA-256: `769e68e2384b42caf16861d9011b35afe48018eba006074ce0d6c4111451f3b3`.
@@ -2862,7 +2934,7 @@ Recorded reading:
 
 - Abstract and 1 Introduction: Theorem 1.1, the statement of what was known from Barnet-Lamb-Gee-Geraghty-Taylor and what is new, and the announcement of a generalization of Mokrane's weight spectral sequence for log crystalline cohomology, p. 1
 - Reviewer (REVIEW-EXT-10-EXT-07): abstract and introduction pp. 1-2, including the use of Theorem 1.2 of [C] and of Lemma 1.4(4) of Taylor-Yoshida
-- Independent REV-AutomorphicGaloisRepresentationsPartII--AG2.0: all locators/excerpts used by this packet rechecked at the recorded URL and SHA-256; hypotheses compared with the target statements, 2026-10-07.
+- Independent REV-AutomorphicGaloisRepresentationsPartII--AG2.0~2~2~2~2~2: all locators/excerpts used by this packet rechecked at the recorded URL and SHA-256; hypotheses compared with the target statements, 2026-10-07.
 
 Last recorded access: 2026-10-08. SHA-256: `6ec698414d5d3ad03f3d1c98de178b39d69722699f4a08a059e8d14027df885e`.
 
@@ -2873,7 +2945,7 @@ Sug Woo Shin. [Galois representations arising from some compact Shimura varietie
 Recorded reading:
 
 - §2, Mantovan functor, Lemma 2.1 and Propositions 2.2–2.3; §3.6 archimedean transfer conventions; §§5.1–5.3 compact datum, Drinfeld models, Proposition 5.2 and Proposition 5.3; §§6.1–6.2 ST/END, Theorems 6.1 and 6.4, Corollaries 6.5–6.8; §7 theorem and descent.
-- Independent REV-AutomorphicGaloisRepresentationsPartII--AG2.0: all locators/excerpts used by this packet rechecked at the recorded URL and SHA-256; hypotheses compared with the target statements, 2026-10-07.
+- Independent REV-AutomorphicGaloisRepresentationsPartII--AG2.0~2~2~2~2~2: all locators/excerpts used by this packet rechecked at the recorded URL and SHA-256; hypotheses compared with the target statements, 2026-10-07.
 - Revision 2, Codex codex-cIVwMR, 2026-10-08: Lemma 5.1, p. 30; compact integral model and global Mantovan formula, pp. 33–34; Corollaries 6.5(iv) and 6.8 and Remark 6.9, pp. 47–49: compact dimension, Ext/colimit normalization, cancellation and irreducible divisibility.
 
 Last recorded access: 2026-10-08. SHA-256: `93f4fe322200a646f337ae8d4aa9a036a866df1bb59ad5fe7bf09373324da75b`.
@@ -2885,7 +2957,7 @@ Sug Woo Shin. [Counting points on Igusa varieties](https://math.berkeley.edu/~sw
 Recorded reading:
 
 - §§2–4: admissible Kottwitz triples, fixed-point counting and stabilization. Used as the source of an explicit supplier request, not as a universal PEL statement.
-- Independent REV-AutomorphicGaloisRepresentationsPartII--AG2.0: all locators/excerpts used by this packet rechecked at the recorded URL and SHA-256; hypotheses compared with the target statements, 2026-10-07.
+- Independent REV-AutomorphicGaloisRepresentationsPartII--AG2.0~2~2~2~2~2: all locators/excerpts used by this packet rechecked at the recorded URL and SHA-256; hypotheses compared with the target statements, 2026-10-07.
 
 Last recorded access: 2026-10-08. SHA-256: `e74cbbe4463f003b8ae2eb10636744c7ae032d25a566f8b441004c7f14e2faf0`.
 
@@ -2896,7 +2968,7 @@ Richard Taylor and Teruyoshi Yoshida. [Compatibility of local and global Langlan
 Recorded reading:
 
 - §1 definitions, Lemma 1.4 and Theorem 1.5; §2, corrected Harris–Taylor projector a_ξ=ε_ξ ε(m_ξ,N)^(2n−1).
-- Independent REV-AutomorphicGaloisRepresentationsPartII--AG2.0: all locators/excerpts used by this packet rechecked at the recorded URL and SHA-256; hypotheses compared with the target statements, 2026-10-07.
+- Independent REV-AutomorphicGaloisRepresentationsPartII--AG2.0~2~2~2~2~2: all locators/excerpts used by this packet rechecked at the recorded URL and SHA-256; hypotheses compared with the target statements, 2026-10-07.
 - Revision 2, Codex codex-cIVwMR, 2026-10-08: Coefficient projector, relative-degree shift and commuting actions, p. 12; the cited Harris–Taylor recipe remains unavailable.
 
 Last recorded access: 2026-10-08. SHA-256: `a17d283d3a605cd3f031a1178f2914254ee9cbe430b11cfbff8c382e8cd1713b`.
@@ -2908,7 +2980,7 @@ Elmar Grosse-Klönne. [Rigid analytic spaces with overconvergent structure](http
 Recorded reading:
 
 - §5, Theorem 5.1 and its proof: partially proper dagger tubes and comparison with rigid cohomology.
-- Independent REV-AutomorphicGaloisRepresentationsPartII--AG2.0: all locators/excerpts used by this packet rechecked at the recorded URL and SHA-256; hypotheses compared with the target statements, 2026-10-07.
+- Independent REV-AutomorphicGaloisRepresentationsPartII--AG2.0~2~2~2~2~2: all locators/excerpts used by this packet rechecked at the recorded URL and SHA-256; hypotheses compared with the target statements, 2026-10-07.
 
 Last recorded access: 2026-10-08. SHA-256: `f75311cc7638b225ec79a528d59abdc71f3cf7e3270ff081287c328d60cb071b`.
 
@@ -2919,7 +2991,7 @@ Ana Caraiani and Peter Scholze. [On the generic part of the cohomology of compac
 Recorded reading:
 
 - §5.5, Theorem 5.5.4, Corollary 5.5.5 and Remark 5.5.6, pp. 744–746; §5.6 simple Kottwitz variants and Corollary 5.6.2, pp. 748–750.
-- Independent REV-AutomorphicGaloisRepresentationsPartII--AG2.0: all locators/excerpts used by this packet rechecked at the recorded URL and SHA-256; hypotheses compared with the target statements, 2026-10-07.
+- Independent REV-AutomorphicGaloisRepresentationsPartII--AG2.0~2~2~2~2~2: all locators/excerpts used by this packet rechecked at the recorded URL and SHA-256; hypotheses compared with the target statements, 2026-10-07.
 - Revision 2, Codex codex-cIVwMR, 2026-10-08: Corollary 5.5.5 and Remark 5.5.6, pp. 745–746 (PDF pp. 97–98): discrete-factor twists and the away-coefficient-prime local comparison.
 
 Last recorded access: 2026-10-08. SHA-256: `4f9449e5ecfd8fb8b43a04acef73060f531be995babaa9f744f3db36aaa5e61a`.
@@ -2931,7 +3003,7 @@ James Newton and Jack A. Thorne. [Symmetric power functoriality for Hilbert modu
 Recorded reading:
 
 - §5.1, Theorem 5.1 and Lemma 5.2: Clozel rationality and coefficient conjugation.
-- Independent REV-AutomorphicGaloisRepresentationsPartII--AG2.0: all locators/excerpts used by this packet rechecked at the recorded URL and SHA-256; hypotheses compared with the target statements, 2026-10-07.
+- Independent REV-AutomorphicGaloisRepresentationsPartII--AG2.0~2~2~2~2~2: all locators/excerpts used by this packet rechecked at the recorded URL and SHA-256; hypotheses compared with the target statements, 2026-10-07.
 - Revision 2, Codex codex-cIVwMR, 2026-10-08: §5.1, Theorem 5.1 and Lemma 5.2, p. 38 of the recorded preprint: rationality, finite-part realization and coefficient-conjugation formulas.
 
 Last recorded access: 2026-10-08. SHA-256: `6a156f7a5567226e0bd2209d5b237cbbc150dc10cfbd9ffd060a3245328cb82c`.
@@ -2943,7 +3015,7 @@ Yifeng Liu, Yichao Tian, Liang Xiao, Wei Zhang and Xinwen Zhu. [On the Beilinson
 Recorded reading:
 
 - Definitions 1.1.3 and 3.1.1, Lemma 3.1.2, Proposition 3.2.4, Definition 3.2.5, Hypothesis 3.2.10 and Proposition 3.2.11; Appendix D.1, Proposition D.1.3 and Corollary D.1.4.
-- Independent REV-AutomorphicGaloisRepresentationsPartII--AG2.0: all locators/excerpts used by this packet rechecked at the recorded URL and SHA-256; hypotheses compared with the target statements, 2026-10-07.
+- Independent REV-AutomorphicGaloisRepresentationsPartII--AG2.0~2~2~2~2~2: all locators/excerpts used by this packet rechecked at the recorded URL and SHA-256; hypotheses compared with the target statements, 2026-10-07.
 - Revision 2, Codex codex-cIVwMR, 2026-10-08: Definition 3.1.1 and Lemma 3.1.2, pp. 138–139 (PDF pp. 32–33): the finite-part stabilizer and normalized local-polynomial coefficient fields.
 
 Last recorded access: 2026-10-08. SHA-256: `dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97`.
@@ -2955,7 +3027,7 @@ George Boxer, Frank Calegari, Toby Gee and Vincent Pilloni. [Abelian surfaces ov
 Recorded reading:
 
 - §2.5, p. 189, purity definition and Lemma 2.5.1, checked against the arXiv version; generic GL_n claim separated from the GSp₄ application.
-- Independent REV-AutomorphicGaloisRepresentationsPartII--AG2.0: all locators/excerpts used by this packet rechecked at the recorded URL and SHA-256; hypotheses compared with the target statements, 2026-10-07.
+- Independent REV-AutomorphicGaloisRepresentationsPartII--AG2.0~2~2~2~2~2: all locators/excerpts used by this packet rechecked at the recorded URL and SHA-256; hypotheses compared with the target statements, 2026-10-07.
 
 Last recorded access: 2026-10-08. SHA-256: `b4cc8b016615bcaf4b92bdf826ec1e285f6aca842ebd9f13712e1c498f8454af`.
 
@@ -2966,7 +3038,7 @@ George Boxer, Frank Calegari, Toby Gee and Vincent Pilloni. [Modularity theorems
 Recorded reading:
 
 - RACSDC paragraph following equation (1.8.21), pp. 14–15, RACSDC GL_n representations; §1.8.13 regular GSp₄ result and §1.8.22 transfer read for ownership only.
-- Independent REV-AutomorphicGaloisRepresentationsPartII--AG2.0: all locators/excerpts used by this packet rechecked at the recorded URL and SHA-256; hypotheses compared with the target statements, 2026-10-07.
+- Independent REV-AutomorphicGaloisRepresentationsPartII--AG2.0~2~2~2~2~2: all locators/excerpts used by this packet rechecked at the recorded URL and SHA-256; hypotheses compared with the target statements, 2026-10-07.
 
 Last recorded access: 2026-10-08. SHA-256: `51d7eacca6eae394943f09ab72dfe09ee9aa6da27f563be8237c416e5da4e95c`.
 
@@ -2977,7 +3049,7 @@ Joël Bellaïche and Gaëtan Chenevier. [The sign of Galois representations atta
 Recorded reading:
 
 - Theorem 1.2 and Corollary 1.3; §§2–3 sign under twists, specialization, eigenvariety approximation and descent.
-- Independent REV-AutomorphicGaloisRepresentationsPartII--AG2.0: all locators/excerpts used by this packet rechecked at the recorded URL and SHA-256; hypotheses compared with the target statements, 2026-10-07.
+- Independent REV-AutomorphicGaloisRepresentationsPartII--AG2.0~2~2~2~2~2: all locators/excerpts used by this packet rechecked at the recorded URL and SHA-256; hypotheses compared with the target statements, 2026-10-07.
 - Revision 2, Codex codex-cIVwMR, 2026-10-08: Theorems 1.1–1.2 and Corollary 1.3, pp. 1337–1339 (PDF pp. 2–4): factor-wise sign hypotheses and the totally real pairing alternative.
 
 Last recorded access: 2026-10-08. SHA-256: `46a4a8c7dc1394b6ec72c4b908bb7616818db4d608dcadf2f96d0998b3e0caa8`.
@@ -2989,7 +3061,7 @@ Michael Harris, Nicholas Shepherd-Barron and Richard Taylor. [A family of Calabi
 Recorded reading:
 
 - Lemma 2.2, pp. 795–796, compatible idele characters with prescribed units and restriction to the totally real subfield.
-- Independent REV-AutomorphicGaloisRepresentationsPartII--AG2.0: all locators/excerpts used by this packet rechecked at the recorded URL and SHA-256; hypotheses compared with the target statements, 2026-10-07.
+- Independent REV-AutomorphicGaloisRepresentationsPartII--AG2.0~2~2~2~2~2: all locators/excerpts used by this packet rechecked at the recorded URL and SHA-256; hypotheses compared with the target statements, 2026-10-07.
 
 Last recorded access: 2026-10-08. SHA-256: `5e3fc579911961071bb7e7f7a7a4f4154d621d0abccafcf4d03702fbcfb3d1ab`.
 
@@ -3000,7 +3072,7 @@ Laurent Clozel and Jack A. Thorne. [Level-raising and symmetric power functorial
 Recorded reading:
 
 - §1.1 notation; §3.5 stable base change with selected real branches, pp. 30–31; Lemma 7.4, pp. 47–48, twisting character for rank two.
-- Independent REV-AutomorphicGaloisRepresentationsPartII--AG2.0: all locators/excerpts used by this packet rechecked at the recorded URL and SHA-256; hypotheses compared with the target statements, 2026-10-07.
+- Independent REV-AutomorphicGaloisRepresentationsPartII--AG2.0~2~2~2~2~2: all locators/excerpts used by this packet rechecked at the recorded URL and SHA-256; hypotheses compared with the target statements, 2026-10-07.
 
 Last recorded access: 2026-10-08. SHA-256: `fb88e83c3c056c2fa6100d1fbb4d0853c4ec636cc68a33548ac4259336094742`.
 
@@ -3032,6 +3104,34 @@ Additional source-version records:
 - [Potential automorphy and change of weight, Annals 179 (2014), 501–609; §2.1 pp. 535–538](https://annals.math.princeton.edu/wp-content/uploads/annals-v179-n2-p03-p.pdf) (published); read 2026-10-07; SHA-256 `c9d6c7107bcde7fb26f9388abea5209f28457076bae59d70ccb6c34bbe1d621b`.
 - [Local-global compatibility and the action of monodromy on nearby cycles, Duke Math. J. 161 (2012), 2311–2413; published proof of Theorem 7.4, p. 2409](https://www.ma.imperial.ac.uk/~acaraian/papers/lgc1.pdf) (author copy); read 2026-10-07; SHA-256 `9801588a90444b611e10fe810c11c0099b54af4871217f3b7cf2c493d00595fe`.
 
+### This review’s fresh source acquisitions
+
+- [Potential automorphy and change of weight; arXiv:1010.2561v4](https://arxiv.org/pdf/1010.2561v4) (preprint); read 2026-10-08; SHA-256 `c953df6229ba8d8b4ae25b1a00cf11592864c74692859d324ff10d3eef645d24`.
+- [Potential automorphy over CM fields; Published author copy, Annals 197 (2023), 897–1113](https://www.math.uchicago.edu/~fcale/papers/Ramanujan.pdf) (author copy); read 2026-10-08; SHA-256 `c5429e4f384384045dbb48502d71547bb21699783c0f77cce27b24e742467f02`.
+- [On the sign of regular algebraic polarizable automorphic representations; arXiv:1306.1242v2, 8 July 2014; published Math. Ann. 362 (2015), 147–171](https://arxiv.org/pdf/1306.1242v2) (preprint); read 2026-10-08; SHA-256 `2bfa2a6a00a94465725cd7b0e48d64eef1fed4113a6be4b246a015e7927259f8`.
+- [On the rigid cohomology of certain Shimura varieties; Author copy, article pagination](https://www.kwlan.org/articles/rigcoh.pdf) (author copy); read 2026-10-08; SHA-256 `abecfd049d617654dd0bb60e4945bf6967d3953ed20f2126de0624f2bd0bdbc7`.
+- [Construction of automorphic Galois representations, II; Author copy, 2013; article pagination](https://webusers.imj-prg.fr/~michael.harris/ConstructionII.pdf) (author copy); read 2026-10-08; SHA-256 `9b5e76798f75273f53d1d4160f35815b1a3b656f04c965ad47fd4fa454840529`.
+- [Local-global compatibility for regular algebraic cuspidal automorphic representations when l is different from p; arXiv:1411.2520v1; result and page numbers of this version](https://arxiv.org/pdf/1411.2520) (preprint); read 2026-10-08; SHA-256 `24076dfcc6ca9b9e3168efb0150e75d5200f66e64085625b3e52895cfd1e56ef`.
+- [Local-global compatibility and the action of monodromy on nearby cycles; arXiv:1010.2188v1; result and page numbers of this version](https://arxiv.org/pdf/1010.2188) (preprint); read 2026-10-08; SHA-256 `769e68e2384b42caf16861d9011b35afe48018eba006074ce0d6c4111451f3b3`.
+- [Monodromy and local-global compatibility for l = p; arXiv:1202.4683v1, 21 February 2012 (published Algebra Number Theory 8 (2014)); read from references/text/SS_CaraianiMonodromyAtP.txt. Locators give the arXiv version's page numbers](https://arxiv.org/pdf/1202.4683) (preprint); read 2026-10-08; SHA-256 `6ec698414d5d3ad03f3d1c98de178b39d69722699f4a08a059e8d14027df885e`.
+- [Galois representations arising from some compact Shimura varieties; Author copy; article pagination, 61 pages](https://math.berkeley.edu/~swshin/StableGal.pdf) (author copy); read 2026-10-08; SHA-256 `93f4fe322200a646f337ae8d4aa9a036a866df1bb59ad5fe7bf09373324da75b`.
+- [Counting points on Igusa varieties; Author copy; article pagination](https://math.berkeley.edu/~swshin/StableIgusa.pdf) (author copy); read 2026-10-08; SHA-256 `e74cbbe4463f003b8ae2eb10636744c7ae032d25a566f8b441004c7f14e2faf0`.
+- [Compatibility of local and global Langlands correspondences; arXiv:math/0412357v2, 7 April 2005; downloaded PDF metadata dated 2018](https://arxiv.org/pdf/math/0412357) (preprint); read 2026-10-08; SHA-256 `a17d283d3a605cd3f031a1178f2914254ee9cbe430b11cfbff8c382e8cd1713b`.
+- [Rigid analytic spaces with overconvergent structure; arXiv:1408.3329, author version](https://arxiv.org/pdf/1408.3329) (preprint); read 2026-10-08; SHA-256 `f75311cc7638b225ec79a528d59abdc71f3cf7e3270ff081287c328d60cb071b`.
+- [On the generic part of the cohomology of compact unitary Shimura varieties; Annals of Mathematics 186 (2017), 649–766; published PDF](https://annals.math.princeton.edu/wp-content/uploads/annals-v186-n3-p01-p.pdf) (published); read 2026-10-08; SHA-256 `4f9449e5ecfd8fb8b43a04acef73060f531be995babaa9f744f3db36aaa5e61a`.
+- [Symmetric power functoriality for Hilbert modular forms; arXiv:2212.03595v2, 19 February 2025; published Annals 2026](https://arxiv.org/pdf/2212.03595) (preprint); read 2026-10-08; SHA-256 `6a156f7a5567226e0bd2209d5b237cbbc150dc10cfbd9ffd060a3245328cb82c`.
+- [On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives; Inventiones Mathematicae 228 (2022), 107–375; published PDF](https://par.nsf.gov/servlets/purl/10323568) (published); read 2026-10-08; SHA-256 `dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97`.
+- [Abelian surfaces over totally real fields are potentially modular; Publications Mathématiques de l’IHÉS 134 (2021), 153–501; published PDF](https://pmihes.centre-mersenne.org/item/10.1007/s10240-021-00128-2.pdf) (published); read 2026-10-08; SHA-256 `b4cc8b016615bcaf4b92bdf826ec1e285f6aca842ebd9f13712e1c498f8454af`.
+- [Modularity theorems for abelian surfaces; arXiv:2502.20645v1, February 2025](https://arxiv.org/pdf/2502.20645) (preprint); read 2026-10-08; SHA-256 `51d7eacca6eae394943f09ab72dfe09ee9aa6da27f563be8237c416e5da4e95c`.
+- [The sign of Galois representations of unitary type; Compositio Mathematica 147 (2011), 1337–1352; published PDF](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/D778DCD413972E114657F69ACC7BB6BC/S0010437X11005264a.pdf/the-sign-of-galois-representations-attached-to-automorphic-forms-for-unitary-groups.pdf) (published); read 2026-10-08; SHA-256 `46a4a8c7dc1394b6ec72c4b908bb7616818db4d608dcadf2f96d0998b3e0caa8`.
+- [A family of Calabi–Yau varieties and potential automorphy; Annals of Mathematics 171 (2010), 779–813; published PDF](https://annals.math.princeton.edu/wp-content/uploads/annals-v171-n2-p04-p.pdf) (published); read 2026-10-08; SHA-256 `5e3fc579911961071bb7e7f7a7a4f4154d621d0abccafcf4d03702fbcfb3d1ab`.
+- [Level-raising and symmetric power functoriality, III; Accepted Cambridge repository copy, published 2017](https://www.repository.cam.ac.uk/bitstreams/dc59bf8c-174b-4034-9f2f-070974d101af/download) (author copy); read 2026-10-08; SHA-256 `fb88e83c3c056c2fa6100d1fbb4d0853c4ec636cc68a33548ac4259336094742`.
+- [BLGGT, Annals 179 (2014), §2.1 pp. 536–538, independent parity collation](https://annals.math.princeton.edu/wp-content/uploads/annals-v179-n2-p03-p.pdf) (published); read 2026-10-08; SHA-256 `c9d6c7107bcde7fb26f9388abea5209f28457076bae59d70ccb6c34bbe1d621b`.
+- [Caraiani, published Duke typeset author copy, Theorem 7.4 pp. 2408–2411; factor weight and primitive-string detection](https://www.ma.imperial.ac.uk/~acaraian/papers/lgc1.pdf) (author copy); read 2026-10-08; SHA-256 `9801588a90444b611e10fe810c11c0099b54af4871217f3b7cf2c493d00595fe`.
+- [ACC+, current arXiv download on 2026-10-08, §2.2.5 p. 26; numbering (2.2.5)–(2.2.6), distinct from journal pagination](https://arxiv.org/pdf/1812.09999) (preprint); read 2026-10-08; SHA-256 `7c882c4dc7208e08a0b1f4b3ce6e5c5234c9815f139a4c3a372898378a24d08c`.
+- [ACC+, Caraiani author preprint, §2.2.5 p. 26, same hash as current arXiv download](https://www.ma.imperial.ac.uk/~acaraian/papers/potential_automorphy.pdf) (author copy); read 2026-10-08; SHA-256 `7c882c4dc7208e08a0b1f4b3ce6e5c5234c9815f139a4c3a372898378a24d08c`.
+- [CH, author copy with pp. 4 and 12 checked independently; identical to ConstructionII.pdf, not a publisher typeset PDF](https://gaetan.chenevier.perso.math.cnrs.fr/articles/CheHar.pdf) (author copy); read 2026-10-08; SHA-256 `9b5e76798f75273f53d1d4160f35815b1a3b656f04c965ad47fd4fa454840529`.
+
 ## Assembly and acceptance
 
-The packet has 77 declarations, 84 planning API items, 58 discriminating tests, 35 planets, four baseline citations, 50 supplier requests, 13 gaps and five independently confirmed source issues. It remains a complete target-level pass. The handoff records the correspondence check, packet validation, elaboration result and the source loci rechecked for this revision. Closure requires the listed supplier refinements and unavailable proof steps, followed by independent review; no stage is closed or implemented here.
+The packet has 77 declarations, 84 planning API items, 58 discriminating tests, 35 planets, four baseline citations, 50 supplier requests, 13 gaps and nine independently confirmed source issues. It remains a complete target-level pass. The handoff records the correspondence check, packet validation, elaboration result and the source loci rechecked for this revision. This planning pass is independently accepted. Closure requires the listed supplier refinements and unavailable proof steps; no stage is closed or implemented here.

@@ -337,6 +337,21 @@ def hasseShift (p M j : ℕ) : ℕ := (p - 1) * p ^ (M - 1) * j
 
 example : hasseShift 3 1 2 = 4 ∧ hasseShift 3 2 2 = 12 := by decide
 
+/-- HLTT Corollary 6.17 scales the section trace by p^(mn[F:Q]) on
+the Kuga coefficient terms, so slopes increase in that direction. This is
+only the numerical convention, not a geometric spectral-sequence theorem. -/
+def kugaSlope (sectionSlope : ℚ) (m n fieldDegree : ℕ) : ℚ :=
+  sectionSlope + (m * n * fieldDegree : ℕ)
+
+/-- A degree-two CM field and one Kuga copy distinguish the two slope directions. -/
+example : kugaSlope 3 1 1 2 = 5 ∧
+    (5 : ℚ) - (1 * 1 * 2 : ℕ) = 3 ∧ kugaSlope 3 1 1 2 ≠ 1 := by
+  norm_num [kugaSlope]
+
+/-- The shift disappears for zero Kuga copies. -/
+example (a : ℚ) (n d : ℕ) : kugaSlope a 0 n d = a := by
+  simp [kugaSlope]
+
 /- The following are finite computations behind sourceIssue E3. They do not
 declare WD purity or prove a theorem about Galois representations. R01.2 owns
 those carriers and the full classification. A block of length d has rank
@@ -1020,7 +1035,7 @@ Direct owners/contracts: AutomorphicGaloisRepresentationsPartII:AG2.4/hltt-ordin
 -/
 /-
 Declaration `AutomorphicGaloisRepresentationsPartII:AG2.4/hltt-frobenius-trace-normalization` (lemma): HLTT Frobenius and trace normalization.
-Mathematical signature: On H^i_{c−∂}(A_Σ^ord), the pullback ς_p and trace trF commute with the ordinary adelic action and satisfy trF∘ς_p=p^{n(n+2m)[F⁺:Q]} id. On the ordinary minimal cusp-section module the normalized trace is the source controlling operator, with the explicit coefficient factor p^{mn[F:Q]} of Proposition 6.15: on a graded E_ρ term the Kuga trace is p^{mn[F:Q]} times the cusp-section trace. Thus a Kuga slope bound a becomes a section slope bound a+mn[F:Q] in Corollary 6.17. This distinguishes geometric Frobenius pullback from its finite-étale trace.
+Mathematical signature: On H^i_{c−∂}(A_Σ^ord), the pullback ς_p and trace trF commute with the ordinary adelic action and satisfy trF∘ς_p=p^{n(n+2m)[F⁺:Q]} id. On the ordinary minimal cusp-section module the normalized trace is the source controlling operator, with the explicit coefficient factor p^{mn[F:Q]} of Proposition 6.15: on a graded E_ρ term the Kuga trace is p^{mn[F:Q]} times the cusp-section trace. Thus section slope bound a gives Kuga slope bound a+mn[F:Q] in Corollary 6.17; conversely Kuga bound a corresponds to section bound a−mn[F:Q]. This distinguishes geometric Frobenius pullback from its finite-étale trace.
 Hypotheses: HLTT ordinary Frobenius quotient, dagger finite-étale trace and its boundary extension; characteristic zero coefficients.
 Signature omitted where not prototyped above. Missing objects: the ordinary mixed Shimura dagger/boundary cohomology, integral Hecke actions and continuous determinant/representation carriers.
 Direct owners/contracts: AutomorphicGaloisRepresentationsPartII:AG2.4/boundary-support-dagger-cohomology; AutomorphicGaloisRepresentationsPartII:AG2.4/hltt-functorial-dagger-rigid-comparison; AdicSpacesPartII:F1/dagger-finite-etale-trace
@@ -1062,7 +1077,7 @@ Direct owners/contracts: AutomorphicGaloisRepresentationsPartII:AG2.4/uniform-in
 -/
 /-
 Declaration `AutomorphicGaloisRepresentationsPartII:AG2.4/logarithmic-cusp-section-spectral-sequence` (theorem): The logarithmic cusp-section spectral sequence.
-Mathematical signature: At each finite slope, the logarithmic de Rham cohomology of the ordinary Kuga model with I_∂ has the coefficient filtration and spectral sequence of HLTT Proposition 6.15/Corollary 6.17: the E₁ terms are finite-slope H⁰(X^ord,min,†,E_{ρ_{m,s}^{i,j}}^sub), with the specified trace and dimension shifts. Combining with Lemma 6.20 gives the spectral sequence to H^*_{c−∂,≤a}. Hence every irreducible constituent appearing in the abutment has the source rank-2n good-place Galois representation.
+Mathematical signature: At each fixed Kuga slope bound b, the logarithmic de Rham cohomology of the ordinary Kuga model with I_∂ has the coefficient filtration and spectral sequence of HLTT Proposition 6.15/Corollary 6.17: the E₁ terms are finite-slope H⁰(X^ord,min,†,E_{ρ_{m,s}^{i,j}}^sub), with section bound b−mn[F:Q]. Equivalently, section bound a gives Kuga bound a+mn[F:Q]. Combining with Lemma 6.20 gives the log de Rham spectral sequence to H^*_{c−∂,≤b}. Hence every irreducible constituent appearing in the abutment has the source rank-2n good-place Galois representation.
 Hypotheses: Actual algebraic representations ρ_{m,s}^{i,j}, coefficient trace factor and finite filtrations; the higher coherent cohomology vanishing on the ordinary affine locus.
 Signature omitted where not prototyped above. Missing objects: the ordinary mixed Shimura dagger/boundary cohomology, integral Hecke actions and continuous determinant/representation carriers.
 Direct owners/contracts: AutomorphicGaloisRepresentationsPartII:AG2.4/boundary-support-dagger-cohomology; AutomorphicGaloisRepresentationsPartII:AG2.4/hltt-frobenius-trace-normalization; AutomorphicGaloisRepresentationsPartII:AG2.4/ordinary-cusp-finite-slope-pieces; AutomorphicGaloisRepresentationsPartII:AG2.4/ordinary-hecke-determinant-limit; AutomorphicBundles:B3
