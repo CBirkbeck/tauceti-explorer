@@ -37512,7 +37512,8 @@
     "BP-AInfCohomology--AI.6~2"
    ],
    "prompt": "research/blueprint/prompts/REV-AInfCohomology--AI.6~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6984"
   },
   {
    "kind": "blueprint",
@@ -39397,8 +39398,9 @@
     "BP-HodgeTateAndCanonicalSubgroups--T0~2"
    ],
    "prompt": "research/blueprint/prompts/REV-HodgeTateAndCanonicalSubgroups--T0~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7298"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7298",
+   "finishedAt": "2026-10-08T12:18:39Z"
   },
   {
    "kind": "blueprint",
@@ -41137,8 +41139,9 @@
     "BP-ShimuraVarieties--V8~2"
    ],
    "prompt": "research/blueprint/prompts/REV-ShimuraVarieties--V8~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7093"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7093",
+   "finishedAt": "2026-10-08T12:18:44Z"
   },
   {
    "kind": "blueprint",
