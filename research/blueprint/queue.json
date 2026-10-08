@@ -37660,7 +37660,8 @@
    ],
    "revisionOf": "BP-ArithmeticGaloisRepresentations",
    "prompt": "research/blueprint/prompts/BP-ArithmeticGaloisRepresentations~3.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7488"
   },
   {
    "priority": 2,
@@ -37776,8 +37777,9 @@
    ],
    "revisionOf": "BP-AutomorphicFormsOnReductiveGroups",
    "prompt": "research/blueprint/prompts/BP-AutomorphicFormsOnReductiveGroups~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6923"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6923",
+   "finishedAt": "2026-10-08T21:41:17Z"
   },
   {
    "priority": 2,
@@ -46241,8 +46243,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-CrystallineLocalGlobalCompatibilityCM.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7462"
+   "state": "pending",
+   "note": "released on GitHub issue #7462"
   },
   {
    "id": "REV-PKG-CrystallineLocalGlobalCompatibilityCM",
@@ -47267,7 +47269,8 @@
     "PKG-LocalGaloisDeformationRings"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-LocalGaloisDeformationRings.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7485"
   },
   {
    "id": "PKG-MetaplecticAutomorphicForms",
