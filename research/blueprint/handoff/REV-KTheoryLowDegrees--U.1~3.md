@@ -1,0 +1,15 @@
+# REV-KTheoryLowDegrees--U.1~3 handoff
+
+Codex, session `codex-9Lbyje`, 2026-10-08. Refs #7069. **Completed independent review; accepted bounded pass.** No further job was claimed.
+
+The review report and packet’s `review.checked` are the durable evidence ledger. All 334 nodes and 484 baseline declarations at the exact pins were read and checked. There are 296 verified and 38 corrected nodes, no added nodes, and 15 confirmed source issues. One baseline description was restricted to finite flat modules over a domain. Public source hashes and this review’s actual reading scopes are in the packet and report. Reader contracts agree with the packet; suggested-file annotations record the corrected proof routes. Historical attribution is retained.
+
+Important corrections for future work: BMS A.10 uses the inverse-a auxiliary idèle and c=d (E115); division-ring recursion has the nonadjacent row sign and empty determinant convention; residue cyclicity needs a finite residue field; finite arithmetic transfer requires S′ to be exactly the primes above S; determinant equality becomes K₁ equality only with injectivity. H.1–H.3 definition nodes were separated from their actual π₁, acyclicity and LES suppliers. Their current universal property has abelian targets; the plus-equals-Q/connected-H-space route discharges that restriction for the indicated BGL⁺ maps.
+
+The packet remains a `complete` pass with Z.1/Z.2/U.1/U.2 source-decomposed, U.3–U.6 partial, zero closed stages, nine gaps and eight requests. All implementation statuses remain `unchecked`. Four prior unverifiable entries are checked conditional targets; their missing proofs have not been supplied. Resume future planning from the precise `coverage.remaining`, `gaps` and `requests`, particularly the LieGroups retraction, BMS general-degree reciprocity/topology and higher units, relative-plus boundary comparison, two §10 swap cases then §11, arithmetic completion, infinite-unit-rank SL₂ and the CG Hecke/cohomology interface. Ownership and supplier review status are stated in the reader/report.
+
+Validation: the packet checker reports 0 errors and 0 warnings. All reader fields and baseline descriptions match; node IDs/statuses, current review entries, source hashes, test minima and planet caps were checked. `git diff --check` passes. The small 𝔽₂/𝔽₃ matrix-group examples were independently enumerated.
+
+Lean elaboration remains unverified. `lean-check research/blueprint/suggested/KTheoryLowDegrees--U.1.lean` stopped at the missing first Tau Ceti import, before any declaration. The available shared build does not have the packet’s Tau pin, although Mathlib matches. Use only an already complete build at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 and Tau Ceti f790474821cf4256814db967cb154e7af3d0c369. No library build, update, cache fetch or language server was run.
+
+To reproduce the structural validation, run `python3 scripts/check_blueprint.py research/blueprint/packets/KTheoryLowDegrees--U.1.json`. This job has no outstanding reviewer work or handoff dependency on temporary scratch files. The source PDFs and temporary scripts are deleted after submission.
