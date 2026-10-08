@@ -15,77 +15,77 @@
         "kind": "def",
         "module": "Mathlib/FieldTheory/IsAlgClosed/AlgebraicClosure.lean",
         "provides": "Algebraic closure of a field, with field, algebra and algebraic-closedness instances",
-        "checked": "Full statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174. Independently re-read by REV-AutomorphicGaloisRepresentationsPartII--AG2.6; no name, domain or convention correction required."
+        "checked": "Full declaration and surrounding hypotheses independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-08 by REV-AutomorphicGaloisRepresentationsPartII--AG2.6~2. Name, domain and convention confirmed; the cited matrix/representation algebra supplies the stated prototype component, not the missing arithmetic or period theory."
       },
       {
         "ref": "mathlib:Matrix.GeneralLinearGroup",
         "kind": "abbrev",
         "module": "Mathlib/LinearAlgebra/Matrix/GeneralLinearGroup/Defs.lean",
         "provides": "The group of units of square matrices; the carrier of the local prototypes",
-        "checked": "Full statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174. Independently re-read by REV-AutomorphicGaloisRepresentationsPartII--AG2.6; no name, domain or convention correction required."
+        "checked": "Full declaration and surrounding hypotheses independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-08 by REV-AutomorphicGaloisRepresentationsPartII--AG2.6~2. Name, domain and convention confirmed; the cited matrix/representation algebra supplies the stated prototype component, not the missing arithmetic or period theory."
       },
       {
         "ref": "mathlib:Matrix.charpoly",
         "kind": "def",
         "module": "Mathlib/LinearAlgebra/Matrix/Charpoly/Basic.lean",
         "provides": "det(X I − A) over a commutative ring",
-        "checked": "Full statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174. Independently re-read by REV-AutomorphicGaloisRepresentationsPartII--AG2.6; no name, domain or convention correction required."
+        "checked": "Full declaration and surrounding hypotheses independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-08 by REV-AutomorphicGaloisRepresentationsPartII--AG2.6~2. Name, domain and convention confirmed; the cited matrix/representation algebra supplies the stated prototype component, not the missing arithmetic or period theory."
       },
       {
         "ref": "mathlib:Matrix.charpoly_map",
         "kind": "lemma",
         "module": "Mathlib/LinearAlgebra/Matrix/Charpoly/Basic.lean",
         "provides": "charpoly(A mapped by f) = charpoly(A) mapped by f for a ring homomorphism",
-        "checked": "Full statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174. Independently re-read by REV-AutomorphicGaloisRepresentationsPartII--AG2.6; no name, domain or convention correction required."
+        "checked": "Full declaration and surrounding hypotheses independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-08 by REV-AutomorphicGaloisRepresentationsPartII--AG2.6~2. Name, domain and convention confirmed; the cited matrix/representation algebra supplies the stated prototype component, not the missing arithmetic or period theory."
       },
       {
         "ref": "mathlib:Matrix.charpoly_diagonal",
         "kind": "lemma",
         "module": "Mathlib/LinearAlgebra/Matrix/Charpoly/Basic.lean",
         "provides": "charpoly(diagonal d) = product of X − C(d_i)",
-        "checked": "Full statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174. Independently re-read by REV-AutomorphicGaloisRepresentationsPartII--AG2.6; no name, domain or convention correction required."
+        "checked": "Full declaration and surrounding hypotheses independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-08 by REV-AutomorphicGaloisRepresentationsPartII--AG2.6~2. Name, domain and convention confirmed; the cited matrix/representation algebra supplies the stated prototype component, not the missing arithmetic or period theory."
       },
       {
         "ref": "mathlib:Matrix.charpoly_units_conj",
         "kind": "theorem",
         "module": "Mathlib/LinearAlgebra/Matrix/Charpoly/Basic.lean",
         "provides": "invariance of characteristic polynomial under conjugation by an invertible matrix",
-        "checked": "Full statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174. Independently re-read by REV-AutomorphicGaloisRepresentationsPartII--AG2.6; no name, domain or convention correction required."
+        "checked": "Full declaration and surrounding hypotheses independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-08 by REV-AutomorphicGaloisRepresentationsPartII--AG2.6~2. Name, domain and convention confirmed; the cited matrix/representation algebra supplies the stated prototype component, not the missing arithmetic or period theory."
       },
       {
         "ref": "mathlib:Matrix.GeneralLinearGroup.map",
         "kind": "def",
         "module": "Mathlib/LinearAlgebra/Matrix/GeneralLinearGroup/Defs.lean",
         "provides": "coefficient change on GL_n as a group homomorphism; map_id and map_comp are available",
-        "checked": "Full statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174. Independently re-read by REV-AutomorphicGaloisRepresentationsPartII--AG2.6; no name, domain or convention correction required."
+        "checked": "Full declaration and surrounding hypotheses independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-08 by REV-AutomorphicGaloisRepresentationsPartII--AG2.6~2. Name, domain and convention confirmed; the cited matrix/representation algebra supplies the stated prototype component, not the missing arithmetic or period theory."
       },
       {
         "ref": "mathlib:Representation.IsSemisimpleRepresentation",
         "kind": "abbrev",
         "module": "Mathlib/RepresentationTheory/Semisimple.lean",
         "provides": "Complemented lattice of subrepresentations; equivalent to semisimplicity of the corresponding group-algebra module",
-        "checked": "Full declaration statement and surrounding hypotheses read on 2026-10-08 at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174. Reused in the typed prototype; no new roadmap owner is proposed."
+        "checked": "Full declaration and surrounding hypotheses independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-08 by REV-AutomorphicGaloisRepresentationsPartII--AG2.6~2. Name, domain and convention confirmed; the cited matrix/representation algebra supplies the stated prototype component, not the missing arithmetic or period theory."
       },
       {
         "ref": "mathlib:Representation.IsIrreducible",
         "kind": "abbrev",
         "module": "Mathlib/RepresentationTheory/Irreducible.lean",
         "provides": "Simple order of subrepresentations; apply after coefficient extension to AlgebraicClosure for absolute irreducibility",
-        "checked": "Full declaration statement and surrounding hypotheses read on 2026-10-08 at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174. Reused in the typed prototype; no new roadmap owner is proposed."
+        "checked": "Full declaration and surrounding hypotheses independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-08 by REV-AutomorphicGaloisRepresentationsPartII--AG2.6~2. Name, domain and convention confirmed; the cited matrix/representation algebra supplies the stated prototype component, not the missing arithmetic or period theory."
       },
       {
         "ref": "mathlib:Matrix.GeneralLinearGroup.toLin",
         "kind": "def",
         "module": "Mathlib/LinearAlgebra/Matrix/GeneralLinearGroup/Defs.lean",
         "provides": "Multiplicative equivalence from matrix units to invertible linear endomorphisms, used to obtain a Mathlib Representation",
-        "checked": "Full declaration statement and surrounding hypotheses read on 2026-10-08 at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174. Reused in the typed prototype; no new roadmap owner is proposed."
+        "checked": "Full declaration and surrounding hypotheses independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-08 by REV-AutomorphicGaloisRepresentationsPartII--AG2.6~2. Name, domain and convention confirmed; the cited matrix/representation algebra supplies the stated prototype component, not the missing arithmetic or period theory."
       },
       {
         "ref": "mathlib:Matrix.rank",
         "kind": "def",
         "module": "Mathlib/LinearAlgebra/Matrix/Rank.lean",
         "provides": "Finite rank of the range of mulVecLin, used for the zero-monodromy algebraic inference",
-        "checked": "Full declaration statement and surrounding hypotheses read on 2026-10-08 at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174. Reused in the typed prototype; no new roadmap owner is proposed."
+        "checked": "Full declaration and surrounding hypotheses independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-08 by REV-AutomorphicGaloisRepresentationsPartII--AG2.6~2. Name, domain and convention confirmed; the cited matrix/representation algebra supplies the stated prototype component, not the missing arithmetic or period theory."
       }
     ]
   },
@@ -107,6 +107,12 @@
         "date": "2026-10-08",
         "locators": "Theorem 1.2.1 and Corollary 1.2.2 pp.5–6; §3 introduction and Theorem 3.2.4 pp.27–30; Theorem 3.3.6 p.34; Proposition 5.2.8/Theorem 5.2.9 pp.75–76; §6 Definitions 6.0.1–5 and Corollary 6.0.6 pp.111–112",
         "method": "Downloaded the identified public PDF to disposable scratch, confirmed its SHA-256 against this packet, and read these source passages. Only paraphrased mathematical results and locators are retained."
+      },
+      "reviewVerification": {
+        "by": "REV-AutomorphicGaloisRepresentationsPartII--AG2.6~2",
+        "date": "2026-10-08",
+        "sha256Matched": true,
+        "scope": "Independently read the cited target statements and their relevant proof passages; this does not claim a complete reading of the source."
       }
     },
     {
@@ -124,6 +130,12 @@
         "date": "2026-10-08",
         "locators": "Theorem 2.1.1 pp.32–34; §5.1 definitions and normalization pp.62–65",
         "method": "Downloaded the identified public PDF to disposable scratch, confirmed its SHA-256 against this packet, and read these source passages. Only paraphrased mathematical results and locators are retained."
+      },
+      "reviewVerification": {
+        "by": "REV-AutomorphicGaloisRepresentationsPartII--AG2.6~2",
+        "date": "2026-10-08",
+        "sha256Matched": true,
+        "scope": "Independently read the cited target statements and their relevant proof passages; this does not claim a complete reading of the source."
       }
     },
     {
@@ -141,6 +153,12 @@
         "date": "2026-10-08",
         "locators": "(2.2.6)–(2.2.7) p.922; Definition 2.3.6 p.938; Definition 4.3.1 and Lemma 4.3.2 pp.972–973; §7.1.1–2 pp.1084–1085; Lemmas 7.1.9–10 pp.1093–1094",
         "method": "Downloaded the identified public PDF to disposable scratch, confirmed its SHA-256 against this packet, and read these source passages. Only paraphrased mathematical results and locators are retained."
+      },
+      "reviewVerification": {
+        "by": "REV-AutomorphicGaloisRepresentationsPartII--AG2.6~2",
+        "date": "2026-10-08",
+        "sha256Matched": true,
+        "scope": "Independently read the cited target statements and their relevant proof passages; this does not claim a complete reading of the source."
       }
     },
     {
@@ -158,6 +176,12 @@
         "date": "2026-10-08",
         "locators": "Theorem 1.4 and §1.5/formula (1.6) pp.5–7; Theorem 2.3 p.8; §3.2, Theorem 3.2.3 and Proposition 3.2.5 pp.11–12",
         "method": "Downloaded the identified public PDF to disposable scratch, confirmed its SHA-256 against this packet, and read these source passages. Only paraphrased mathematical results and locators are retained."
+      },
+      "reviewVerification": {
+        "by": "REV-AutomorphicGaloisRepresentationsPartII--AG2.6~2",
+        "date": "2026-10-08",
+        "sha256Matched": true,
+        "scope": "Independently read the cited target statements and their relevant proof passages; this does not claim a complete reading of the source."
       }
     },
     {
@@ -175,6 +199,12 @@
         "date": "2026-10-08",
         "locators": "Theorem 1.1 pp.1–2; §2 pp.2–3; Proposition 4.4 p.29; Theorem 4.6/Remark 4.7 and Proposition 5.1 pp.31–32",
         "method": "Downloaded the identified public PDF to disposable scratch, confirmed its SHA-256 against this packet, and read these source passages. Only paraphrased mathematical results and locators are retained."
+      },
+      "reviewVerification": {
+        "by": "REV-AutomorphicGaloisRepresentationsPartII--AG2.6~2",
+        "date": "2026-10-08",
+        "sha256Matched": true,
+        "scope": "Independently read the cited target statements and their relevant proof passages; this does not claim a complete reading of the source."
       }
     },
     {
@@ -192,6 +222,12 @@
         "date": "2026-10-08",
         "locators": "Theorem 5.1/Lemma 5.2/footnote 4 p.38; proof of Lemma 5.8 pp.42–44",
         "method": "Downloaded the identified public PDF to disposable scratch, confirmed its SHA-256 against this packet, and read these source passages. Only paraphrased mathematical results and locators are retained."
+      },
+      "reviewVerification": {
+        "by": "REV-AutomorphicGaloisRepresentationsPartII--AG2.6~2",
+        "date": "2026-10-08",
+        "sha256Matched": true,
+        "scope": "Independently read the cited target statements and their relevant proof passages; this does not claim a complete reading of the source."
       }
     },
     {
@@ -209,6 +245,12 @@
         "date": "2026-10-08",
         "locators": "Definition 3.2.5/Remark 3.2.6/Hypothesis 3.2.10 pp.145–146; Definition D.1.2 and footnote 37 p.365; Corollary D.1.4 and proof p.368",
         "method": "Downloaded the identified public PDF to disposable scratch, confirmed its SHA-256 against this packet, and read these source passages. Only paraphrased mathematical results and locators are retained."
+      },
+      "reviewVerification": {
+        "by": "REV-AutomorphicGaloisRepresentationsPartII--AG2.6~2",
+        "date": "2026-10-08",
+        "sha256Matched": true,
+        "scope": "Independently read the cited target statements and their relevant proof passages; this does not claim a complete reading of the source."
       }
     },
     {
@@ -226,6 +268,12 @@
         "date": "2026-10-08",
         "locators": "Proposition 6.8(3)–(4) and finite-field Baire proof, author-copy pp.38–39",
         "method": "Downloaded the identified public PDF to disposable scratch, confirmed its SHA-256 against this packet, and read these source passages. Only paraphrased mathematical results and locators are retained."
+      },
+      "reviewVerification": {
+        "by": "REV-AutomorphicGaloisRepresentationsPartII--AG2.6~2",
+        "date": "2026-10-08",
+        "sha256Matched": true,
+        "scope": "Independently read the cited target statements and their relevant proof passages; this does not claim a complete reading of the source."
       }
     },
     {
@@ -243,6 +291,12 @@
         "date": "2026-10-08",
         "locators": "Theorem 5.1.7.1/Remark 5.1.7.1, author-copy pp.22–23",
         "method": "Downloaded the identified public PDF to disposable scratch, confirmed its SHA-256 against this packet, and read these source passages. Only paraphrased mathematical results and locators are retained."
+      },
+      "reviewVerification": {
+        "by": "REV-AutomorphicGaloisRepresentationsPartII--AG2.6~2",
+        "date": "2026-10-08",
+        "sha256Matched": true,
+        "scope": "Independently read the cited target statements and their relevant proof passages; this does not claim a complete reading of the source."
       }
     },
     {
@@ -260,6 +314,29 @@
         "date": "2026-10-08",
         "locators": "§5.1 setup pp.730–731; Corollary 5.5.5 and Remark 5.5.6 pp.745–746",
         "method": "Downloaded the identified public PDF to disposable scratch, confirmed its SHA-256 against this packet, and read these source passages. Only paraphrased mathematical results and locators are retained."
+      },
+      "reviewVerification": {
+        "by": "REV-AutomorphicGaloisRepresentationsPartII--AG2.6~2",
+        "date": "2026-10-08",
+        "sha256Matched": true,
+        "scope": "Independently read the cited target statements and their relevant proof passages; this does not claim a complete reading of the source."
+      }
+    },
+    {
+      "id": "caraiani-monodromy-published",
+      "title": "Monodromy and local-global compatibility for l = p (published version)",
+      "authors": "Caraiani",
+      "edition": "Algebra & Number Theory 8 (2014), no.7, 1597–1646; published PDF includes two cover pages, printed page = PDF page + 1595",
+      "url": "https://msp.org/ant/2014/8-7/ant-v8-n7-p02-s.pdf",
+      "sha256": "a0c7963e45b4706c8d0e5ca4791d12f5de749ef77ca6ba8256371ecd215f5314",
+      "accessed": "2026-10-08",
+      "readSections": [
+        "§3A, pp.1609–1611, including the comparison domain before Corollary 2.3 and Lemma 3.2"
+      ],
+      "reviewVerification": {
+        "by": "REV-AutomorphicGaloisRepresentationsPartII--AG2.6~2",
+        "date": "2026-10-08",
+        "scope": "Independently read the text and viewed the pp.1610–1611 page images; confirmed the additional boundary/dimension misprints against the version of record."
       }
     }
   ],
@@ -272,7 +349,7 @@
       ],
       "title": "Weak, very weak and extremely weak automorphic data",
       "kind": "comparison",
-      "statement": "Conditional on the R24.5:operations owner separating data from admissibility, use its single arbitrary-rank data carrier: coefficient number field M, finite S, common good-prime polynomials P_v, continuous semisimple members r_λ and labelled Hodge metadata H_τ. The carrier does not intrinsically require the members to be de Rham, crystalline, pure or polarized. Weak, VeryWeak and ExtremelyWeak are predicates supplied by that owner. Weak requires full labelled Hodge multisets for all members and crystallinity at the specified good coefficient-prime places; VeryWeak retains the full coefficient-prime conditions on a density-one set of rational coefficient primes; ExtremelyWeak retains the determinant Hodge sums for all members. Prove Weak ⇒ VeryWeak ⇒ ExtremelyWeak on those same data. No higher-rank converse is asserted. The two current R24.5 supplier statements do not yet give this consistent interface, so this is a requested import, not a verified existing construction.",
+      "statement": "Conditional on the R24.5:operations owner separating data from admissibility, use its single arbitrary-rank data carrier: coefficient number field M, finite S, common good-prime polynomials P_v, continuous semisimple members r_λ and labelled Hodge metadata H_τ. The carrier does not intrinsically require the members to be de Rham, crystalline, pure or polarized. Weak, VeryWeak and ExtremelyWeak are predicates supplied by that owner. Weak requires de Rhamness at every v|ℓ for every λ, the full labelled Hodge multisets for all members, and crystallinity when v|ℓ lies outside S. VeryWeak retains the determinant Hodge sums for all λ and, outside a set of rational ℓ of Dirichlet density zero, requires every λ|ℓ to be crystalline at every v|ℓ with the full labelled Hodge multisets for every coefficient embedding over M. ExtremelyWeak drops this density-one clause and retains the determinant Hodge sums for all λ. Prove Weak ⇒ VeryWeak ⇒ ExtremelyWeak on those same data. No higher-rank converse is asserted. The two current R24.5 supplier statements do not yet give this consistent interface, so this is a requested import, not a verified existing construction.",
       "hypotheses": [],
       "proofSteps": [
         "Obtain the owner’s corrected data/predicate interface before importing weakening maps; do not reuse the current carrier with full weak conditions built in as extremely weak data.",
@@ -284,8 +361,7 @@
         "Rank-one extremely weak data become weak through the supplier’s algebraic-character classification."
       ],
       "prerequisites": [
-        "PotentialModularityAndCompatibleSystems:R24.5/weakly-compatible-system-rank-n",
-        "PotentialModularityAndCompatibleSystems:R24.5/weakened-compatible-data"
+        "PotentialModularityAndCompatibleSystems:R24.5:operations"
       ],
       "sources": [
         {
@@ -467,7 +543,8 @@
       "kind": "theorem",
       "statement": "In Caraiani’s two-boundary semistable PEL model and its Kuga–Sato projector, the Π-isotypic log-crystalline summand realizing the tensor-square representation is pure as a WD representation (Proposition 5.1). Use the two-index strata Y^(r,s) and Theorem 4.6’s generalized log-crystalline weight spectral sequence, with Frobenius, twists and the residue realization of N. Purity follows after proving the relevant projected stratum cohomology is concentrated on the required diagonal; neither semistability nor the existence of the spectral sequence alone implies purity.",
       "hypotheses": [
-        "The separate AG2.1a tensor-square realization includes the two distinguished coefficient-prime places, the closed two-index strata, cohomological multiplicity and coefficient-system projector/Tate twist. Its projected stratum concentration is proved before degeneration and purity are inferred."
+        "The separate AG2.1a tensor-square realization includes the two distinguished coefficient-prime places, the closed two-index strata, cohomological multiplicity and coefficient-system projector/Tate twist. Its projected stratum concentration is proved before degeneration and purity are inferred.",
+        "The log model used for comparison is proper, fine and saturated, log smooth and vertical over the standard log DVR, with special fiber of Cartier type. The second boundary uses its own divisors and s factors. With m smooth local coordinates, a nonempty (i,j)-stratum has dimension 2n+m−i−j; carry this dimension and the Kuga–Sato/Tate shifts into the spectral sequence."
       ],
       "proofSteps": [
         "Use the actual tensor-square cohomological realization and projector in §§2 and 5.",
@@ -490,6 +567,11 @@
           "sourceId": "caraiani-monodromy-at-p",
           "locator": "§§2–4; Theorem 4.6, Remark 4.7, Proposition 5.1, pp.31–32",
           "match": "The projected two-boundary spectral sequence supplies purity."
+        },
+        {
+          "sourceId": "caraiani-monodromy-published",
+          "locator": "§3A, pp.1609–1611, including Lemma 3.2; comparison hypotheses immediately before Corollary 2.3, p.1609",
+          "match": "Specifies the log comparison domain and both independent boundary directions; E6–E8 record corrected indices and the dimension contribution of the smooth coordinates."
         }
       ],
       "implementationStatus": "unchecked",
@@ -817,10 +899,10 @@
         "AutomorphicGaloisRepresentationsPartII:AG2.0/frobenius-polynomial-and-conventions",
         "AutomorphicGaloisRepresentationsPartII:AG2.0/expected-hodge-tate-multiset",
         "AutomorphicGaloisRepresentationsPartII:AG2.0/field-of-rationality",
-        "PotentialModularityAndCompatibleSystems:R24.5/weakly-compatible-system-rank-n",
         "AutomorphicGaloisRepresentationsPartII:AG2.6/coefficient-embedding-independence-and-semisimple-uniqueness",
         "AutomorphicGaloisRepresentationsPartII:AG2.6/all-cm-crystalline-and-iwahori-corollary",
-        "AutomorphicGaloisRepresentationsPartII:AG2.6/totally-real-polarized-coefficient-prime-descent"
+        "AutomorphicGaloisRepresentationsPartII:AG2.6/totally-real-polarized-coefficient-prime-descent",
+        "PotentialModularityAndCompatibleSystems:R24.5:operations"
       ],
       "sources": [
         {
@@ -1223,7 +1305,7 @@
       ],
       "prerequisites": [
         "AutomorphicGaloisRepresentationsPartII:AG2.6/compatible-system-of-pi",
-        "PotentialModularityAndCompatibleSystems:R24.5/weakened-compatible-data"
+        "PotentialModularityAndCompatibleSystems:R24.5:operations"
       ],
       "sources": [
         {
@@ -1582,8 +1664,8 @@
       "proofSteps": [
         "Use finite p-adic realization first; compactness then supplies an O_E-stable lattice.",
         "Reduce the integral representation and semisimplify; use arbitrary-rank residual Brauer–Nesbitt for lattice independence.",
-        "Descend the semisimple member by finite-field Brauer-group vanishing, using all characteristic-polynomial coefficients.",
-        "Apply the polarized semisimple extension theorem rather than claiming every chosen lattice carries a perfect pairing."
+        "Use finite-image Frobenius density to recover all characteristic-polynomial coefficients from good places; descend the semisimple member by finite-field Brauer-group vanishing. In positive characteristic use characteristic polynomials rather than traces alone.",
+        "Request preservation of polarization under reduction and semisimplification and the specified 𝒢_n-extension from ArithmeticGaloisRepresentations G7. The deformation-problem supplier assumes that extension as input. Do not claim every chosen lattice carries a perfect pairing."
       ],
       "acceptance": [
         "Changing λ may change the residual representation; only auxiliary choices at fixed λ are removed.",
@@ -1594,7 +1676,7 @@
         "ArithmeticGaloisRepresentations:R01.1/continuity-descent-and-lattice-independence",
         "ArithmeticGaloisRepresentations:R01.5/recognition-by-characteristic-polynomials-and-coefficient-descent",
         "AutomorphicGaloisRepresentationsPartII:AG2.0/polarized-galois-representation",
-        "GlobalGaloisDeformations:G7/polarized-deformation-problem",
+        "ArithmeticGaloisRepresentations:G7",
         "mathlib:Matrix.GeneralLinearGroup.map",
         "mathlib:Representation.IsSemisimpleRepresentation"
       ],
@@ -3406,6 +3488,13 @@
         "AutomorphicGaloisRepresentationsPartII:AG2.7/nonselfdual-hodge-and-monodromy-bound-export",
         "AutomorphicGaloisRepresentationsPartII:AG2.7/polarized-hodge-and-wd-export"
       ]
+    },
+    {
+      "supplier": "ArithmeticGaloisRepresentations:G7",
+      "need": "For a continuous finite-local-field CM polarized representation with multiplier ε_ℓ^(1−n)r_χ, prove that stable-lattice reduction followed by semisimplification admits the residual polarization and continuous extension G_{F+}→𝒢_n over the finite residue field or its algebraic closure, with multiplier ε̄_ℓ^(1−n)r̄_χ and the specified complex-conjugation sign. Retain the characteristic-2 case allowed by BLGGT §2.1, p.34, or prove exactly the additional restriction needed there. Do not impose Schur/absolute-irreducibility or deformation-ring hypotheses. Generic polarization and conjugation-extension constructions belong here; GlobalGaloisDeformations:G7/polarized-deformation-problem consumes a given extension and does not supply it.",
+      "neededBy": [
+        "AutomorphicGaloisRepresentationsPartII:AG2.7/residual-representation-of-pi"
+      ]
     }
   ],
   "gaps": [
@@ -3459,6 +3548,13 @@
         "AutomorphicGaloisRepresentationsPartII:AG2.6/geometric-coefficient-prime-comparison",
         "AutomorphicGaloisRepresentationsPartII:AG2.6/log-crystalline-purity-on-the-automorphic-summand"
       ]
+    },
+    {
+      "title": "Polarization through residual semisimplification",
+      "detail": "BLGGT §2.1, p.34 states the residual CM 𝒢_n-extension, but the previously cited deformation-problem node assumes it. ArithmeticGaloisRepresentations G7 owns the generic pairing/conjugation API; its exact reduction-and-semisimplification extension is requested here, including the coefficient-characteristic boundary, without importing Schur hypotheses. No self-dual lattice is asserted.",
+      "neededBy": [
+        "AutomorphicGaloisRepresentationsPartII:AG2.7/residual-representation-of-pi"
+      ]
     }
   ],
   "coverage": [
@@ -3477,7 +3573,8 @@
       "status": "planned",
       "remaining": [
         "Close the finite p-adic realization, arbitrary-rank recognition/Chebotarev, integral Hecke and unitary-transfer supplier requests.",
-        "Supply complete automorphic/Hecke/place/lattice and period/WD types and predicates, then refine the recorded algebraic fragments to the full statements. The actual suggested declarations and labelled tests are delivered and elaborate; implementation remains unchecked."
+        "Supply complete automorphic/Hecke/place/lattice and period/WD types and predicates, then refine the recorded algebraic fragments to the full statements. The actual suggested declarations and labelled tests are delivered and elaborate; implementation remains unchecked.",
+        "Close the G7 residual polarization/semisimplification extension request before the 𝒢_n-valued residual output; the deformation problem is a consumer of that extension."
       ]
     }
   ],
@@ -3495,12 +3592,13 @@
       "searched": [
         "Ramanujan.pdf (Annals pagination)",
         "p. 938, proof of Theorem 2.3.5, for the correct form",
-        "Annals article and author publication pages; arXiv version history, checked 2026-10-07"
+        "Annals article and author publication pages; arXiv version history, checked 2026-10-07",
+        "Independent review rechecked the cited page images and public author/publisher/version-history search on 2026-10-08"
       ],
       "review": {
         "verdict": "confirmed",
         "reason": "Independently viewed the p.922 page image and checked the correctly signed polynomial in Theorem 2.3.5 on p.938. For n=1 the final coefficient must be −T, so the missing (−1)^n is confirmed in this identified author copy.",
-        "by": "REV-AutomorphicGaloisRepresentationsPartII--AG2.6"
+        "by": "REV-AutomorphicGaloisRepresentationsPartII--AG2.6~2"
       }
     },
     {
@@ -3515,12 +3613,13 @@
       "known": "new: present in the journal-paginated copy; no erratum found",
       "searched": [
         "Ramanujan.pdf (Annals pagination)",
-        "Annals article and author publication pages; arXiv version history, checked 2026-10-07"
+        "Annals article and author publication pages; arXiv version history, checked 2026-10-07",
+        "Independent review rechecked the cited page images and public author/publisher/version-history search on 2026-10-08"
       ],
       "review": {
         "verdict": "confirmed",
         "reason": "Independently viewed the p.922 and p.927 page images. The degree-2n polynomial loses X^(2n−j) in (2.2.7), and both displayed sums print X^(n−i), producing negative exponents for i>n. The degree correction is confirmed in this identified author copy.",
-        "by": "REV-AutomorphicGaloisRepresentationsPartII--AG2.6"
+        "by": "REV-AutomorphicGaloisRepresentationsPartII--AG2.6~2"
       }
     },
     {
@@ -3536,12 +3635,97 @@
       "searched": [
         "Annals 197 (2023) article page, accessed 2026-10-07",
         "Calegari research/publication page, accessed 2026-10-07",
-        "arXiv:1812.09999 version history and public author copy, accessed 2026-10-07"
+        "arXiv:1812.09999 version history and public author copy, accessed 2026-10-07",
+        "Independent review rechecked the cited page images and public author/publisher/version-history search on 2026-10-08"
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Independently viewed p.972 and read Lemma 4.3.2 on p.973. The local statement needs the unramified scalar-twist qualification: 1⊕1 over F₃ at Q₂ is generic, whereas its ramified quadratic scalar twist has nontrivial inertia and identical projectivization. The global existential statement survives by avoiding the finite ramification set. Public erratum search was limited to the publisher article page, author publication page and arXiv version history.",
-        "by": "REV-AutomorphicGaloisRepresentationsPartII--AG2.6"
+        "reason": "Independently viewed p.972 and read Lemma 4.3.2 on p.973. The local statement needs the unramified scalar-twist qualification: 1⊕1 over F₃ at Q₂ is generic, whereas its ramified quadratic scalar twist has nontrivial inertia and identical projectivization. The global existential statement survives by avoiding the finite ramification set. Independent public erratum search on 2026-10-08 was limited to the publisher article page, author publication page and arXiv version history.",
+        "by": "REV-AutomorphicGaloisRepresentationsPartII--AG2.6~2"
+      }
+    },
+    {
+      "id": "AutomorphicGaloisRepresentationsPartII/E6",
+      "source": "caraiani-monodromy-published",
+      "kind": "misprint",
+      "affects": "nothing",
+      "locator": "§3A, definition of the second separate boundary log structure, p.1611; also arXiv v1 §3.1, p.9",
+      "printed": "The display for the second boundary log structure repeats the first boundary’s open immersions and open complements.",
+      "correction": "Use j_{2,j} and U_{2,j} for the second boundary; leave the first boundary using j_{1,j} and U_{1,j}.",
+      "reason": "The combined log structure on the same page uses both independent families. For X₁X₂=ϖ and Y₁Y₂=ϖ, the second boundary must detect the Y-divisors rather than duplicate the X-divisors. The p.1611 page image confirms the repeated first-boundary indices; the intended two-boundary construction is unchanged.",
+      "known": "new in the identified version; no public correction located in the recorded search",
+      "searched": [
+        "https://www.ma.imperial.ac.uk/~acaraian/papers.php, accessed 2026-10-08; no linked correction for this paper",
+        "https://arxiv.org/abs/1202.4683, accessed 2026-10-08; only v1 is listed",
+        "MSP article page https://msp.org/ant/2014/8-7/p02.xhtml and its public published PDF, accessed 2026-10-08; targeted title/erratum search found no correction"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The combined log structure on the same page uses both independent families. For X₁X₂=ϖ and Y₁Y₂=ϖ, the second boundary must detect the Y-divisors rather than duplicate the X-divisors. The p.1611 page image confirms the repeated first-boundary indices; the intended two-boundary construction is unchanged.",
+        "by": "REV-AutomorphicGaloisRepresentationsPartII--AG2.6~2"
+      }
+    },
+    {
+      "id": "AutomorphicGaloisRepresentationsPartII/E7",
+      "source": "caraiani-monodromy-published",
+      "kind": "misprint",
+      "affects": "nothing",
+      "locator": "§3A local boundary membership, p.1609, and Lemma 3.2 chart, p.1611; also arXiv v1 §3.1 and Lemma 3.1.2, pp.8–9",
+      "printed": "The second boundary’s membership list ends at j_r, and the chart’s second product ends at Y_r, although its second monoid has s generators.",
+      "correction": "Use j_s as the endpoint of the second boundary membership list and Y₁⋯Y_s in the chart’s second equation.",
+      "reason": "The model has independent r and s. Its preceding local equation and the proof’s second auxiliary model use s Y-factors, while the chart maps all s second-boundary generators to them. For r=1,s=2 the printed Y₁=ϖ chart loses the second boundary component. The published p.1611 image and p.1609 text confirm the slips; v1 has the same indices.",
+      "known": "new in the identified version; no public correction located in the recorded search",
+      "searched": [
+        "https://www.ma.imperial.ac.uk/~acaraian/papers.php, accessed 2026-10-08; no linked correction for this paper",
+        "https://arxiv.org/abs/1202.4683, accessed 2026-10-08; only v1 is listed",
+        "MSP article page https://msp.org/ant/2014/8-7/p02.xhtml and its public published PDF, accessed 2026-10-08; targeted title/erratum search found no correction"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The model has independent r and s. Its preceding local equation and the proof’s second auxiliary model use s Y-factors, while the chart maps all s second-boundary generators to them. For r=1,s=2 the printed Y₁=ϖ chart loses the second boundary component. The published p.1611 image and p.1609 text confirm the slips; v1 has the same indices.",
+        "by": "REV-AutomorphicGaloisRepresentationsPartII--AG2.6~2"
+      }
+    },
+    {
+      "id": "AutomorphicGaloisRepresentationsPartII/E8",
+      "source": "caraiani-monodromy-published",
+      "kind": "misprint",
+      "affects": "nothing",
+      "locator": "§3A dimension of Y^(i,j), p.1610; also arXiv v1 §3.1, p.8",
+      "printed": "The stated dimension of a nonempty two-index stratum omits the m smooth Z-coordinates of the local model.",
+      "correction": "The local dimension is 2n+m−i−j. The expression 2n−i−j applies when m=0.",
+      "reason": "On the special fiber, imposing i X-coordinates and j Y-coordinates to vanish already kills both product equations, leaving 2n+m−i−j free coordinates. With n=r=s=i=j=m=1, the stratum is the affine Z-line, of dimension 1 rather than 0. The published p.1610 page image includes the Z-coordinates and omits m from the dimension. This is a dimension slip; the projected degree/Tate shifts remain separate in the purity argument.",
+      "known": "new in the identified version; no public correction located in the recorded search",
+      "searched": [
+        "https://www.ma.imperial.ac.uk/~acaraian/papers.php, accessed 2026-10-08; no linked correction for this paper",
+        "https://arxiv.org/abs/1202.4683, accessed 2026-10-08; only v1 is listed",
+        "MSP article page https://msp.org/ant/2014/8-7/p02.xhtml and its public published PDF, accessed 2026-10-08; targeted title/erratum search found no correction"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "On the special fiber, imposing i X-coordinates and j Y-coordinates to vanish already kills both product equations, leaving 2n+m−i−j free coordinates. With n=r=s=i=j=m=1, the stratum is the affine Z-line, of dimension 1 rather than 0. The published p.1610 page image includes the Z-coordinates and omits m from the dimension. This is a dimension slip; the projected degree/Tate shifts remain separate in the purity argument.",
+        "by": "REV-AutomorphicGaloisRepresentationsPartII--AG2.6~2"
+      }
+    },
+    {
+      "id": "AutomorphicGaloisRepresentationsPartII/E9",
+      "source": "chenevier-harris-II",
+      "kind": "misprint",
+      "affects": "nothing",
+      "locator": "Identified author copy, §1, highest-weight notation immediately after Special Hypotheses 1.2, p.4",
+      "printed": "Both highest-weight tuples are described as having nonnegative entries, while the next formula makes them reverse negatives of one another.",
+      "correction": "Use non-increasing tuples of integers; a dominant algebraic GL_n weight need not have nonnegative entries.",
+      "reason": "Nonnegativity of both tuples combined with μ_i(τ^c)=−μ_{n−i+1}(τ) forces every entry to be zero. For n=2, μ(τ)=(1,0) has dual tuple (0,−1), a valid dominant integral weight excluded by that wording. The author-copy p.4 image confirms it. The packet already uses integer weights and needs no theorem restriction.",
+      "known": "new in the identified version; no public correction located in the recorded search",
+      "searched": [
+        "Harris author publication list and linked annotated errata PDF, accessed 2026-10-08; no correction for this notation located",
+        "Chenevier publication-list search result and targeted paper-title/erratum search, 2026-10-08; direct publication-page fetch timed out",
+        "Publisher DOI 10.4310/CJM.2013.v1.n1.a2 did not serve text through the browser; this finding is restricted to the identified author copy"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Nonnegativity of both tuples combined with μ_i(τ^c)=−μ_{n−i+1}(τ) forces every entry to be zero. For n=2, μ(τ)=(1,0) has dual tuple (0,−1), a valid dominant integral weight excluded by that wording. The author-copy p.4 image confirms it. The packet already uses integer weights and needs no theorem restriction.",
+        "by": "REV-AutomorphicGaloisRepresentationsPartII--AG2.6~2"
       }
     }
   ],
@@ -3625,6 +3809,14 @@
       "read": "2026-10-08",
       "sha256": "4f9449e5ecfd8fb8b43a04acef73060f531be995babaa9f744f3db36aaa5e61a",
       "note": "Identified public version read. Round-two revision re-read: §5.1 setup pp.730–731; Corollary 5.5.5 and Remark 5.5.6 pp.745–746. SHA-256 matched the recorded version."
+    },
+    {
+      "kind": "published",
+      "url": "https://msp.org/ant/2014/8-7/ant-v8-n7-p02-s.pdf",
+      "citation": "Caraiani, Monodromy and local-global compatibility for l = p, Algebra & Number Theory 8 (2014), no.7, 1597–1646",
+      "read": "2026-10-08",
+      "sha256": "a0c7963e45b4706c8d0e5ca4791d12f5de749ef77ca6ba8256371ecd215f5314",
+      "note": "Additional independent comparison of §3A pp.1609–1611 with arXiv:1202.4683v1 pp.8–9. E6–E8 are scoped to this version of record; the same slips occur in v1. Page images pp.1610–1611 checked. Only this local section of the published version was read."
     }
   ],
   "restructure": {
@@ -3666,225 +3858,225 @@
     }
   ],
   "review": {
-    "status": "needs_changes",
-    "reviewer": "independent-review-REV-AutomorphicGaloisRepresentationsPartII--AG2.6",
-    "date": "2026-10-07",
-    "notes": "Complete independent target-level review of all 43 nodes, all seven pinned Mathlib baseline declarations, ten identified public source versions, 58 API items, 49 tests, eleven planets, three sourceIssues and assigned red-team findings. Clear statements, locators and supplier references corrected in place. Section 13 remains unsatisfied by prose-only signatures; the R24 common-carrier contradiction and missing raw geometric realization are recorded precisely. No nodes added or baseline citations removed. A complete review, not a checkpoint; planned/open supplier work alone is not grounds for rejection.",
+    "status": "accepted",
+    "reviewer": "independent-review-REV-AutomorphicGaloisRepresentationsPartII--AG2.6~2",
+    "date": "2026-10-08",
+    "notes": "Independent target-level review of all 43 nodes, 11 pinned baseline declarations, 58 API names, 49 packet tests, three handed red-team findings and every predecessor correction. Five nodes corrected in place: precise compatibility quantifiers and requested R24 imports, log comparison domain/indices/dimensions, and the true residual polarization supplier. Added one precise G7 request and recorded gap, no new nodes. Confirmed E3–E5 and recorded four additional source findings E6–E9 with own verdicts and identified public versions. Both stages are planned, status complete is one target-level pass, and implementation remains unchecked. Acceptance is conditional on the honest recorded supplier interfaces; this is not closed mathematics or completed formalization. Validation details are in the independent report.",
     "checked": [
       {
         "nodeId": "AutomorphicGaloisRepresentationsPartII:AG2.6/extremely-weakly-compatible-system",
-        "verdict": "unverifiable",
-        "note": "ACC+ §7.1 pp.1084–1086 supports the three strengths. Import remains unverifiable: the supplier common carrier embeds weak conditions that its weakened-data node omits; recorded exact owner request and gap."
+        "verdict": "corrected",
+        "note": "Corrected the predicate quantifiers from ACC+ §7.1 pp.1084–1085: retain determinant Hodge sums for all λ and full crystallinity/Hodge data for every member over density-one rational ℓ. Replace contradictory named imports by the exact requested R24.5:operations stage."
       },
       {
         "nodeId": "AutomorphicGaloisRepresentationsPartII:AG2.6/geometric-coefficient-prime-comparison",
-        "verdict": "unverifiable",
-        "note": "CH §1.4–1.5 supports the geometric route, but the named AG2.1a supplier lacks the exact raw projector/Tate/multiplicity realization. Extended its request and recorded a gap; do not infer period dimensions from attachment alone."
+        "verdict": "verified",
+        "note": "CH Theorem 1.4/formula (1.6), pp.5–7 and the R06 statements justify projector-compatible comparison only after the raw geometric realization. The revision separates that request from the attached-representation conclusion and explicitly negates the supplier Hodge sign."
       },
       {
         "nodeId": "AutomorphicGaloisRepresentationsPartII:AG2.6/coefficient-hodge-comparison-through-families-and-descent",
-        "verdict": "corrected",
-        "note": "CH Theorem 2.3 and §3.1–3.2: constant Hodge type away from the varying place, controlled local splitting, cyclic patching and admissibility descent. Corrected ET.7 joint import to ET.7a pure branch; no arbitrary-limit or ramified crystalline descent claim."
+        "verdict": "verified",
+        "note": "CH Theorem 2.3 p.8 and §3.1–3.2 pp.9–12 retain the one varying place, bounded constant other Hodge types, S-general patching and controlled descent; generic Fredholm theory is only a supplied ingredient."
       },
       {
         "nodeId": "AutomorphicGaloisRepresentationsPartII:AG2.6/polarized-branch-de-rham-and-crystalline",
-        "verdict": "corrected",
-        "note": "BLGGT Theorem 2.1.1(3)–(4) pp.33–34: de Rham, spherical crystalline and Iwahori semistable/full WD. Corrected the nonexistent (4)(b) locator to (4); the general ramified case remains separate."
+        "verdict": "verified",
+        "note": "BLGGT Theorem 2.1.1(3)–(4), pp.33–34 has the required full Hodge, spherical crystalline and Iwahori semistable conclusions. The nonexistent (4)(b) reference is gone."
       },
       {
         "nodeId": "AutomorphicGaloisRepresentationsPartII:AG2.6/log-crystalline-purity-on-the-automorphic-summand",
-        "verdict": "verified",
-        "note": "Caraiani §2, Proposition 4.4, Theorem 4.6 and Proposition 5.1: projector/tensor-square realization, two boundary indices and diagonal concentration are essential. The CR.6/AG2.1a requests and recorded spectral-sequence gap are honest, not full closure."
+        "verdict": "corrected",
+        "note": "Caraiani Proposition 4.4/Theorem 4.6/Proposition 5.1, pp.29–32 require the tensor-square realization and diagonal concentration. Added the exact log comparison domain and corrected second-boundary/dimension conventions from published pp.1609–1611; no purity is inferred from semistability alone."
       },
       {
         "nodeId": "AutomorphicGaloisRepresentationsPartII:AG2.6/full-polarized-comparison-at-the-coefficient-prime",
-        "verdict": "corrected",
-        "note": "Caraiani Theorem 1.1 with tensor-square purity and pure-WD uniqueness supports full polarized comparison without Shin-regularity. Corrected pure ET.7a descent import; no nonselfdual upgrade asserted."
+        "verdict": "verified",
+        "note": "Caraiani Theorem 1.1 pp.1–2 and the stated pure-WD uniqueness input justify retaining N in the polarized branch. Twisting, solvable descent and full pure-parameter uniqueness remain explicit supplier requests."
       },
       {
         "nodeId": "AutomorphicGaloisRepresentationsPartII:AG2.6/all-cm-de-rham-and-semisimplified-coefficient-comparison",
-        "verdict": "corrected",
-        "note": "AHTW Theorem 1.2.1, 2.5.7, 3.3.6 and 5.2.8–5.2.9: unrestricted CM cuspidal cohomological case, labelled Hodge numbers and WD semisimplification. Corrected the gap to bounded stable-condition comparison rather than assumed general formal GAGA."
+        "verdict": "verified",
+        "note": "AHTW Theorem 1.2.1 pp.5–6 and Theorem 5.2.9 pp.76–77 apply in arbitrary rank to regular cuspidal forms over CM fields. Quantitative torsion cohomology and arbitrary-multiplicity bounded pseudodeformations are honestly recorded gaps, without non-Eisenstein/image assumptions or an IG.5 cycle."
       },
       {
         "nodeId": "AutomorphicGaloisRepresentationsPartII:AG2.6/nonselfdual-coefficient-prime-monodromy-bound",
-        "verdict": "corrected",
-        "note": "AHTW Definition 6.0.2 and Corollary 6.0.6: partition dominance and generic maximal orbit. Corrected the statement: equal Weil semisimplification is a separate comparison input, not part of the order definition."
+        "verdict": "verified",
+        "note": "AHTW Corollary 1.2.2 and §6 pp.111–112 separate semisimplified Weil equality from ordered monodromy dominance within Weil-isotypic classes modulo unramified twists; no unordered block comparison or automatic equality is used."
       },
       {
         "nodeId": "AutomorphicGaloisRepresentationsPartII:AG2.6/all-cm-crystalline-and-iwahori-corollary",
         "verdict": "verified",
-        "note": "AHTW Theorem 1.2.2 and its proof: spherical crystallinity and Iwahori semistability/full comparison; do not promote the general monodromy bound to equality."
+        "note": "Spherical and Iwahori parameters have the needed inertia properties; AHTW’s semisimplified comparison plus the R06 crystalline/semistable criteria gives this corollary. The Iwahori conclusion does not strengthen N to equality."
       },
       {
         "nodeId": "AutomorphicGaloisRepresentationsPartII:AG2.6/totally-real-polarized-coefficient-prime-descent",
-        "verdict": "corrected",
-        "note": "BLGGT polarized construction and CH controlled solvable descent: CM base change, local splitting and semisimple recognition. Corrected the ET.7a pure supplier; no unrestricted totally-real nonpolarized coefficient theorem."
+        "verdict": "verified",
+        "note": "BLGGT’s totally real polarized scope is preserved. ET.7a’s controlled cuspidality-preserving CM base change must split the selected local place, so the local completion and its comparison are unchanged."
       },
       {
         "nodeId": "AutomorphicGaloisRepresentationsPartII:AG2.6/coefficient-embedding-independence-and-semisimple-uniqueness",
-        "verdict": "corrected",
-        "note": "CH Proposition 3.2.3 and NT Lemma 5.2: good-polynomial recognition up to semisimple isomorphism. R01.5 already plans arbitrary rank; refined the request to the exact additional regular-Frobenius descent criterion."
+        "verdict": "verified",
+        "note": "Good-place characteristic polynomials and the arbitrary-rank R01.5 characteristic-zero recognition statement identify semisimple members after a common coefficient embedding; no choice-independent based matrices are claimed."
       },
       {
         "nodeId": "AutomorphicGaloisRepresentationsPartII:AG2.6/compatible-system-of-pi",
-        "verdict": "verified",
-        "note": "Uses the one R24-owned carrier, attachment and labelled Hodge recipe; adds no generic carrier. Underlying supplier carrier contradiction is recorded, and the missing actual construction signature is a section 13 revision item."
+        "verdict": "corrected",
+        "note": "The all-CM and totally real polarized local conclusions provide the full weak predicates on common data. Replaced the intrinsically weak named carrier import by the requested external R24.5:operations data/assembly interface."
       },
       {
         "nodeId": "AutomorphicGaloisRepresentationsPartII:AG2.6/complex-and-local-coefficient-conjugation",
         "verdict": "verified",
-        "note": "NT Theorem 5.1, Lemma 5.2 and footnote 4 p.38: σ⁻¹ι and local σℓ⁻¹ orientation checked. This is coefficient conjugation, not conjugation of G_F."
+        "note": "NT Theorem 5.1/Lemma 5.2 and footnote 4, p.38 preserve the σ⁻¹ coefficient convention and compare embeddings explicitly. AF.4’s automorphic conjugation extension is precisely requested."
       },
       {
         "nodeId": "AutomorphicGaloisRepresentationsPartII:AG2.6/strong-coefficient-field",
-        "verdict": "corrected",
-        "note": "Liu Definition 3.2.5/Remark 3.2.6 p.145 is only the relevant specialization. Corrected the domain to a stated generalization justified by CH Proposition 3.2.5, matching the next theorem; minimal-field rationality stays conditional."
+        "verdict": "verified",
+        "note": "Liu Definition 3.2.5/Remark 3.2.6 pp.145–146 define the relevant specialization, while CH supplies enlarged fields more generally. The API asks for models and scalar-extension identifications, not just rational traces; the quaternionic non-example detects the descent obstruction."
       },
       {
         "nodeId": "AutomorphicGaloisRepresentationsPartII:AG2.6/uniform-strong-realization-for-polarized-systems",
         "verdict": "verified",
-        "note": "CH Proposition 3.2.5 p.12: two regular good Frobenius elements of different residue characteristics give one finite field for all λ; regularity and trace/descent splitting retained. No unconditional minimal rationality field claim."
+        "note": "CH Proposition 3.2.5 p.12 uses split regular Frobenius at two good places of different residue characteristics. The exact obstruction-splitting criterion is requested from R01.5; the minimal rationality field is not asserted to suffice."
       },
       {
         "nodeId": "AutomorphicGaloisRepresentationsPartII:AG2.6/polarized-compatible-system-strictly-pure",
         "verdict": "verified",
-        "note": "BLGGT §5.1 pp.62–65 and Theorem 2.1.1: strict purity is away from the coefficient prime, while all-place comparison is separate. Weight w+n−1, χ weight 2w and corrected multiplier/oddness signs agree with AG2.0."
+        "note": "BLGGT §5.1 pp.62–65 gives pure good Frobenius of weight w+n−1 and full polarized strict purity. The multiplier’s cyclotomic and algebraic-character factors are retained; weak nonselfdual systems are not promoted to this output."
       },
       {
         "nodeId": "AutomorphicGaloisRepresentationsPartII:AG2.6/very-weak-compatibility-under-dgi",
-        "verdict": "unverifiable",
-        "note": "ACC+ §7.1.8 pp.1093–1094: determinant-only versus density-one crystalline/full-Hodge data retained, with DGI assumptions only where the source requires them. Supplier carrier conflict blocks the claimed common-carrier import, recorded as a gap."
+        "verdict": "corrected",
+        "note": "ACC+ Lemmas 7.1.9–7.1.10 pp.1093–1094 retain their original density-one DGI and rank-two routes as comparisons. Replaced the contradictory weakened-object prerequisite by the requested R24.5:operations weakening map; the all-CM proof does not use downstream lifting."
       },
       {
         "nodeId": "AutomorphicGaloisRepresentationsPartII:AG2.6/coefficient-prime-branch-and-what-it-does-not-give",
         "verdict": "verified",
-        "note": "Branch comparison checked against Caraiani and AHTW: nonselfdual general N equality and all-place strict compatibility do not follow from semisimplified WD and determinant Hodge data."
+        "note": "The source strengths are separated correctly: general CM de Rham/full Hodge and Weil semisimplification with N bound, polarized full WD equality, totally real polarized scope, and regular good-level GSp4. No residual-image consequence follows merely from these local comparisons."
       },
       {
         "nodeId": "AutomorphicGaloisRepresentationsPartII:AG2.6/rank-two-comparison-with-r19",
         "verdict": "verified",
-        "note": "R19 fixed-family and Skinner coefficient-prime supplier statements read. Classical rank-two normalization is compared explicitly, with generic period rings supplied by R06; no duplicate Hilbert-family theorem."
+        "note": "Read the R19.3 fixed classical/Hilbert and R19.5 full local statements. This node compares only their exact regular-weight overlap using the AG2 dual/Frobenius conversion, without rebuilding the rank-two family or imposing an unneeded residual-irreducibility hypothesis."
       },
       {
         "nodeId": "AutomorphicGaloisRepresentationsPartII:AG2.6/tensor-automorphy-independent-of-coefficient-embedding",
         "verdict": "verified",
-        "note": "NT proof of Lemma 5.8 pp.42–44 supports conjugation/recognition transport of a tensor product already irreducible and RAESDC automorphic at one coefficient embedding; no general tensor automorphy theorem."
+        "note": "NT proof of Lemma 5.8 pp.42–44 uses automorphic conjugation and tensor coefficient change for an already automorphic tensor. It does not infer tensor automorphy from compatibility alone."
       },
       {
         "nodeId": "AutomorphicGaloisRepresentationsPartII:AG2.6/gsp4-crystalline-hodge-comparison",
-        "verdict": "corrected",
-        "note": "CG Proposition 6.8(3) author pp.38–39: good level and a≥b≥3; crystalline Hodge numbers and the extra eigenform-at-p polynomial condition retained. Corrected the locator to the pagination actually read."
+        "verdict": "verified",
+        "note": "CG Proposition 6.8(3), author pp.38–39 retains a≥b≥3, good level at p and the p-Hecke eigenform hypothesis, with weights 0,b−2,a−1,a+b−3. Singular weight is explicitly excluded."
       },
       {
         "nodeId": "AutomorphicGaloisRepresentationsPartII:AG2.6/ordinary-gsp4-coefficient-prime-shape",
-        "verdict": "corrected",
-        "note": "CG Proposition 6.8(4) author p.39: both unit operator conditions, increasing distinct valuations and unit-normalized unramified diagonal characters checked. Corrected source pagination; known eigenform/polynomial corrections remain inherited."
+        "verdict": "verified",
+        "note": "CG Proposition 6.8(4) and its proof p.39 need both normalized operator eigenvalues to be units. The increasing Hodge/slopes and cyclotomic sign are consistent; the ordinary filtration theorem is an R06.4 request."
       },
       {
         "nodeId": "AutomorphicGaloisRepresentationsPartII:AG2.6/pilloni-gsp4-normalization-comparison",
-        "verdict": "corrected",
-        "note": "Pilloni Theorem 5.1.7.1 pp.22–23: discrete series, four Hodge numbers, reciprocal polynomial and known corrected similitude agree with the CG substitution. Corrected the remark number to 5.1.7.1; ML.4 automorphic normalization is still requested."
+        "verdict": "verified",
+        "note": "Pilloni Theorem/Remark 5.1.7.1 pp.22–23 gives geometric Frobenius, corrected similitude and the det(1−Xφ) convention. The CG/Pilloni weight and reciprocal-polynomial dictionary is requested from ML.4, not silently identified."
       },
       {
         "nodeId": "AutomorphicGaloisRepresentationsPartII:AG2.7/finite-p-adic-field-of-realization",
-        "verdict": "corrected",
-        "note": "Compact-image/countable finite-field Baire argument checked; a relatively open subgroup and finitely many cosets yield finite matrix field. Added CG Proposition 6.8 proof author p.39 as an explicit source, not only BLGGT residual motivation."
+        "verdict": "verified",
+        "note": "CG’s p.39 Baire proof uses countably many finite local fields, closed subgroup intersections, an open intersection and finitely many coset entries. Compactness over Q̄_ℓ is not used as a one-step finite-field argument; the R01.1 extension is explicit."
       },
       {
         "nodeId": "AutomorphicGaloisRepresentationsPartII:AG2.7/residual-representation-of-pi",
-        "verdict": "verified",
-        "note": "BLGGT p.34 and ACC+ §2.3: finite field before stable lattice, reduction then semisimplification, isomorphism-class rather than chosen-basis uniqueness. Four meaningful mathematical tests exist; actual construction/API/example signatures are largely missing."
+        "verdict": "corrected",
+        "note": "BLGGT §2.1 p.34 supports residual semisimplification and its CM extension. Corrected the supplier: the deformation-problem node takes that extension as input. Added a precise ArithmeticGaloisRepresentations:G7 request/gap, retaining the characteristic boundary and avoiding Schur or self-dual-lattice assumptions; made finite-image Frobenius density explicit in coefficient descent."
       },
       {
         "nodeId": "AutomorphicGaloisRepresentationsPartII:AG2.7/good-polynomial-reduction",
         "verdict": "verified",
-        "note": "Pinned Matrix.charpoly_map supplies the algebraic reduction identity exactly; lattice/good-place and semisimplification interfaces are separate hypotheses, not extra conclusions of that lemma."
+        "note": "The full statements of Matrix.charpoly_map and GeneralLinearGroup.map at the pin give integral matrix reduction. Semisimplification preserves characteristic polynomials; small characteristic uses polynomials rather than trace-only recognition."
       },
       {
         "nodeId": "AutomorphicGaloisRepresentationsPartII:AG2.7/hecke-maximal-ideal-of-galois-type",
         "verdict": "verified",
-        "note": "ACC+ §§2.2–2.3 pp.922–938: degree-n geometric Hecke polynomial and residual semisimple representation with all good primes. Integral/residue structure belongs to IHG; confirmed source sign/degree corrections do not change this predicate."
+        "note": "ACC+ Definition 2.3.6 p.938 requires a continuous semisimple finite-residue-field realization of every good Hecke polynomial. Uniqueness is an R01.5 consequence. The prototype uses Mathlib semisimplicity and polynomial matching, without defining a fake Hecke algebra."
       },
       {
         "nodeId": "AutomorphicGaloisRepresentationsPartII:AG2.7/non-eisenstein-maximal-ideal",
         "verdict": "verified",
-        "note": "ACC+ localized residual Hecke setup: Galois type plus absolute irreducibility, not genericity/enormousness. Rank-one and reducible/irreducible tests distinguish the conditions; missing executable predicate noted."
+        "note": "ACC+ Definition 2.3.6 p.938 requires absolute irreducibility. The Lean predicate tests Mathlib irreducibility after algebraic-closure coefficient extension; the real rotation example distinguishes relative irreducibility."
       },
       {
         "nodeId": "AutomorphicGaloisRepresentationsPartII:AG2.7/residual-hecke-ideal-independence",
         "verdict": "verified",
-        "note": "Good polynomial reduction plus Chebotarev–Brauer–Nesbitt makes the residual ideal representation independent of lattice/embedding after coefficient comparison; no literal basis equality."
+        "note": "At fixed λ, the reduced integral eigencharacter and its kernel are independent of lattice, basis and enlargement. A different λ need not give the same ideal; the typed signature covers coefficient-map kernel behavior and declares missing Hecke maximality."
       },
       {
         "nodeId": "AutomorphicGaloisRepresentationsPartII:AG2.7/dual-and-character-twist-hecke-comparison",
         "verdict": "verified",
-        "note": "ACC+ dual and algebraic-character normalization checked: reciprocal degree-n polynomial includes its constant coefficient and twists scale eigenvalues. Unramifiedness of twists is needed at each local comparison."
+        "note": "ACC+ §2.3.6 p.938 gives r∨ε̄^(1−n). Geometric Frobenius eigenvalues become q^(n−1)/α_i, with rank 2n replacing n in the unitary case; integrality and character twists are requested from IHG."
       },
       {
         "nodeId": "AutomorphicGaloisRepresentationsPartII:AG2.7/the-residual-ratio-condition-for-taylor-wiles-primes",
         "verdict": "verified",
-        "note": "ACC+ Definition 4.3.1(1) p.972: ordered ratios with multiplicity, unramifiedness and αi/αj≠q; repeated eigenvalues are allowed when q≠1. Algebraic closure eigenvalues and concrete repeated/ratio/rank-one tests checked."
+        "note": "ACC+ Definition 4.3.1(1) p.972 requires trivial inertia and ordered ratios excluding q, with multiplicity. Repeated roots may pass, and unequal roots may fail. Algebraic-closure factorization, coefficient transport and concrete tests are present."
       },
       {
         "nodeId": "AutomorphicGaloisRepresentationsPartII:AG2.7/completely-split-generic-prime",
         "verdict": "verified",
-        "note": "ACC+ Definition 4.3.1(2) p.972: rational prime distinct from ℓ, complete splitting in F and local genericity at every v above it; this (2) locator is correct and was retained."
+        "note": "ACC+ Definition 4.3.1(2) p.972 uses a rational prime completely split in F and genericity at every place above it, with p≠ℓ. The prototype uses the supplied entire nonempty place fiber, e=f=1, explicit coefficient characteristic and all-place quantification."
       },
       {
         "nodeId": "AutomorphicGaloisRepresentationsPartII:AG2.7/existential-decomposed-genericity",
-        "verdict": "corrected",
-        "note": "ACC+ Definition 4.3.1(3) p.972: existential rational-prime witness, not generic at all split primes or irreducibility. Corrected the (2) locator to (3)."
+        "verdict": "verified",
+        "note": "ACC+ Definition 4.3.1(3) p.972 is existence of one completely split all-place witness. The trivial reducible rank-two F₃ example separates it from irreducibility and checks p=2 versus p=7."
       },
       {
         "nodeId": "AutomorphicGaloisRepresentationsPartII:AG2.7/strong-local-decomposed-genericity",
-        "verdict": "corrected",
-        "note": "CS Definition 1.9 p.652 and Liu D.1.2/footnote37 p.365: arbitrary p-adic local field, ratios avoid {1,q}; distinctness is a genuinely stronger local condition. Strengthened the q=4 mod3 example to test failure of repeated eigenvalues rather than only a congruence."
+        "verdict": "verified",
+        "note": "CS Definition 1.9 p.652 and Liu D.1.2/footnote 37 p.365 use the stronger local exclusion of 1 and q. The arbitrary local residue cardinality is retained, including the unramified quadratic Q₂ example."
       },
       {
         "nodeId": "AutomorphicGaloisRepresentationsPartII:AG2.7/infinitely-many-decomposed-generic-primes",
         "verdict": "verified",
-        "note": "ACC+ Lemma 4.3.2 pp.972–973: Chebotarev on the finite residual/splitting/cyclotomic extension produces infinitely many rational witnesses, retaining all places above each completely split prime."
+        "note": "ACC+ Lemma 4.3.2 p.973 enlarges the finite normal extension by the normal closure and cyclotomic field, preserving all-place splitting and p mod ℓ. R01.5 owns Chebotarev; the Lean fragment transports an assumed infinite witness set rather than claiming to prove number-field Chebotarev."
       },
       {
         "nodeId": "AutomorphicGaloisRepresentationsPartII:AG2.7/genericity-transfer-and-projective-qualification",
         "verdict": "verified",
-        "note": "ACC+ remark and Lemma 4.3.2: ratios invariant under projective/scalar operations, but local unramifiedness must be retained; arbitrary ramified scalar twists need the global finite-ramification exclusion. Independently confirmed E5."
+        "note": "Conjugacy, coefficient change and unramified scalar twists preserve local genericity. E5’s ramified scalar-twist counterexample prevents unqualified local projective invariance; the global finite-character-twist claim follows by avoiding finite ramification."
       },
       {
         "nodeId": "AutomorphicGaloisRepresentationsPartII:AG2.7/finite-exceptional-residual-genericity-for-relevant-pi",
-        "verdict": "corrected",
-        "note": "Liu D.1.4 p.368: exclude finitely many divisors of nonzero root differences/nonratios, then obtain a split local place. Clarified F/F⁺ splitting is not itself the stronger ACC+ completely split rational-prime witness; concentration remains downstream."
+        "verdict": "verified",
+        "note": "Liu D.1.4 p.368 controls a finite coefficient-exception set using root and nonratio differences, then supplies a generic split local place. It is not substituted for ACC+’s all-place completely split rational witness or for concentration."
       },
       {
         "nodeId": "AutomorphicGaloisRepresentationsPartII:AG2.7/good-prime-characteristic-zero-export",
         "verdict": "verified",
-        "note": "Classical good-prime export only: rank-n normalized polynomial and semisimple attachment, with identity/composition change of coefficients. No nonreduced determinant interpolation or coefficient-prime purity smuggled into this package."
+        "note": "The good-prime wrapper consumes external common data and exact AG2.0 polynomials, without claiming bad-place N. Its rank-one, classical weight and distinct-monodromy tests use the stated algebraic components."
       },
       {
         "nodeId": "AutomorphicGaloisRepresentationsPartII:AG2.7/nonselfdual-hodge-and-monodromy-bound-export",
         "verdict": "verified",
-        "note": "AHTW-specific export keeps de Rham/full Hodge and semisimplified WD plus monodromy dominance, separately from equality/purity. Tests must eventually exercise this package, not only arithmetic identities."
+        "note": "The nonselfdual wrapper exposes full labelled Hodge data, semisimplified Weil parameters and N dominance independently. Its non-example and wrapper tests detect strengthening the bound to equality; the AHTW source/gaps stay visible."
       },
       {
         "nodeId": "AutomorphicGaloisRepresentationsPartII:AG2.7/polarized-hodge-and-wd-export",
-        "verdict": "corrected",
-        "note": "Polarized export uses full comparison and separate purity/polarization predicates; direct-sum and twist operations are imported with their preservation hypotheses, not declared automatically regular/irreducible. Added §5.1 pp.63–65 to support the literal strictly-pure excerpt, which is absent from Theorem 2.1.1 itself."
+        "verdict": "verified",
+        "note": "The polarized wrapper retains an actual pairing, good-prime purity and one map intertwining both Weil and N. Full weight-k Hodge extraction and the Weil-only monodromy counterexample distinguish it from the weaker wrapper."
       },
       {
         "nodeId": "AutomorphicGaloisRepresentationsPartII:AG2.7/unitary-discrete-parameter-export",
-        "verdict": "corrected",
-        "note": "CS Corollary 5.5.5/Remark 5.5.6 pp.745–746: two labelled endoscopic constituents, parity auxiliary character and degree-n polynomial at specified split primes away from ℓ. Corrected global transfer to ET.7a; ET.6 is its underlying local correspondence, not the global theorem. Corrected the known E11 undefined F₀ to the §5.1 imaginary quadratic 𝒦 and retained the literal corollary input/setup hypotheses; known E10 rank n_i is explicit."
+        "verdict": "verified",
+        "note": "CS §5.1 pp.730–731 and Corollary 5.5.5/Remark 5.5.6 pp.745–746 retain literal Igusa occurrence, field/level hypotheses, constituent ranks n_i, explicit parity/norm twists and full local comparison only away from ℓ. Corrected splitting field K is retained; the two-character sum is explicitly reducible."
       },
       {
         "nodeId": "AutomorphicGaloisRepresentationsPartII:AG2.7/lattice-residual-polynomial-export",
         "verdict": "verified",
-        "note": "Residual export includes finite coefficient field, stable lattice and residual semisimplification before characteristic-polynomial equality; no canonical lattice or global absolute irreducibility. Three mathematical tests supplied, executable structure missing."
+        "note": "The residual export retains an integral model, residue map, semisimple member and good polynomial reduction; it never asserts raw lattice reduction is canonical. The diagonal mod-3 computation and unequal unipotent mod-5 reductions test that boundary."
       },
       {
         "nodeId": "AutomorphicGaloisRepresentationsPartII:AG2.7/rank-two-residual-comparison-with-r19",
         "verdict": "verified",
-        "note": "Rank-two residual overlap checked against R19 and AG2.0 normalization. After classical dual/twist dictionary, residual polynomials and semisimple isomorphism classes match; R19 family/deformation theory is not duplicated."
+        "note": "The R19 classical/Hilbert comparison is restricted to fixed λ and the same residue embedding after the dual/twist normalization. Residual characteristic-polynomial recognition supplies the isomorphism, while residual-image/lifting hypotheses remain separate."
       }
     ]
   }

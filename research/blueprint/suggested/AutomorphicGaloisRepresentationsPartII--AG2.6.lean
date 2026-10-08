@@ -420,7 +420,10 @@ lemma residualRep_coeffExtension {k' : Type*} [Field k'] [Fintype k]
 
 /-- Polarization-equation fragment: G_n, total oddness, CM conjugation and the
 extension across G_F⊂G_F+ are unavailable. This proves only coefficient transport
-of the actual matrix pairing, not construction of the missing group. -/
+of the actual matrix pairing, not construction of the missing group.
+The full reduction/semisimplification and G_n-extension interface is requested
+from ArithmeticGaloisRepresentations G7. The polarized deformation problem
+assumes that extension as input and cannot supply it. -/
 lemma residualRep_extendGn {k' : Type*} [Field k']
     (f : k →+* k') (A Ac J : Matrix (Fin n) (Fin n) k) (μ : k)
     (h : Ac.transpose * J * A = μ • J) :

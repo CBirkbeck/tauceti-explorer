@@ -100,6 +100,7 @@ The following entries are organized by the AG2 consumer outputs, not by sections
 | R19.3 and R19.5 | Fixed classical/Hilbert systems and full coefficient-prime comparison on the exact regular-weight overlap |
 | PadicHodgeTheory R06.2, R06.4, R06.5 | Period exactness/base change, bounded-family extension, ordinary filtration and projector-compatible geometric comparison |
 | CrystallineCohomology CR.6; WeightsInEtaleCohomology R34.6 | Requested two-boundary extension and weight/purity inference after projected diagonal concentration |
+| ArithmeticGaloisRepresentations G7 | Requested residual polarization through semisimplification and CM conjugation extension, before the polarized deformation problem |
 | ArithmeticGaloisRepresentations R01.1, R01.5 | Finite local realization/lattices and existing arbitrary-rank recognition; requested precise regular-Frobenius descent splitting |
 | AG2.1a | Two separate requests: raw projector-compatible cohomology before comparison; Caraiani tensor-square and closed-stratum concentration |
 | AG2.0, AG2.2–AG2.5 | Weight/normalization, algebraic twists, bounded families, boundary analysis and local comparison |
@@ -114,7 +115,7 @@ The following entries are organized by the AG2 consumer outputs, not by sections
 
 Anchor: `AutomorphicGaloisRepresentationsPartII:AG2.6/extremely-weakly-compatible-system`. Kind: comparison. Implementation: unchecked.
 
-Conditional on the R24.5:operations owner separating data from admissibility, use its single arbitrary-rank data carrier: coefficient number field M, finite S, common good-prime polynomials P_v, continuous semisimple members r_λ and labelled Hodge metadata H_τ. The carrier does not intrinsically require the members to be de Rham, crystalline, pure or polarized. Weak, VeryWeak and ExtremelyWeak are predicates supplied by that owner. Weak requires full labelled Hodge multisets for all members and crystallinity at the specified good coefficient-prime places; VeryWeak retains the full coefficient-prime conditions on a density-one set of rational coefficient primes; ExtremelyWeak retains the determinant Hodge sums for all members. Prove Weak ⇒ VeryWeak ⇒ ExtremelyWeak on those same data. No higher-rank converse is asserted. The two current R24.5 supplier statements do not yet give this consistent interface, so this is a requested import, not a verified existing construction.
+Conditional on the R24.5:operations owner separating data from admissibility, use its single arbitrary-rank data carrier: coefficient number field M, finite S, common good-prime polynomials P_v, continuous semisimple members r_λ and labelled Hodge metadata H_τ. The carrier does not intrinsically require the members to be de Rham, crystalline, pure or polarized. Weak, VeryWeak and ExtremelyWeak are predicates supplied by that owner. Weak requires de Rhamness at every v|ℓ for every λ, the full labelled Hodge multisets for all members, and crystallinity when v|ℓ lies outside S. VeryWeak retains the determinant Hodge sums for all λ and, outside a set of rational ℓ of Dirichlet density zero, requires every λ|ℓ to be crystalline at every v|ℓ with the full labelled Hodge multisets for every coefficient embedding over M. ExtremelyWeak drops this density-one clause and retains the determinant Hodge sums for all λ. Prove Weak ⇒ VeryWeak ⇒ ExtremelyWeak on those same data. No higher-rank converse is asserted. The two current R24.5 supplier statements do not yet give this consistent interface, so this is a requested import, not a verified existing construction.
 
 Proof route:
 
@@ -124,8 +125,7 @@ Proof route:
 
 Direct inputs:
 
-- `PotentialModularityAndCompatibleSystems:R24.5/weakly-compatible-system-rank-n`
-- `PotentialModularityAndCompatibleSystems:R24.5/weakened-compatible-data`
+- `PotentialModularityAndCompatibleSystems:R24.5:operations`
 
 Acceptance checks:
 
@@ -264,6 +264,7 @@ In Caraiani’s two-boundary semistable PEL model and its Kuga–Sato projector,
 Additional input conditions:
 
 - The separate AG2.1a tensor-square realization includes the two distinguished coefficient-prime places, the closed two-index strata, cohomological multiplicity and coefficient-system projector/Tate twist. Its projected stratum concentration is proved before degeneration and purity are inferred.
+- The log model used for comparison is proper, fine and saturated, log smooth and vertical over the standard log DVR, with special fiber of Cartier type. The second boundary uses its own divisors and s factors. With m smooth local coordinates, a nonempty (i,j)-stratum has dimension 2n+m−i−j; carry this dimension and the Kuga–Sato/Tate shifts into the spectral sequence.
 
 Proof route:
 
@@ -291,6 +292,8 @@ Omitted conditions: Two-boundary log de Rham–Witt complex, Frobenius/residue m
 Sources:
 
 - [Monodromy and local-global compatibility for l = p](https://arxiv.org/pdf/1202.4683v1), §§2–4; Theorem 4.6, Remark 4.7, Proposition 5.1, pp.31–32. The projected two-boundary spectral sequence supplies purity.
+
+- [Caraiani, published version](https://msp.org/ant/2014/8-7/ant-v8-n7-p02-s.pdf), §3A, pp.1609–1611, including Lemma 3.2; comparison hypotheses immediately before Corollary 2.3, p.1609. Specifies the log comparison domain and both independent boundary directions; E6–E8 record corrected indices and the dimension contribution of the smooth coordinates.
 
 ### Full polarized local–global compatibility at ℓ
 
@@ -521,10 +524,10 @@ Direct inputs:
 - `AutomorphicGaloisRepresentationsPartII:AG2.0/frobenius-polynomial-and-conventions`
 - `AutomorphicGaloisRepresentationsPartII:AG2.0/expected-hodge-tate-multiset`
 - `AutomorphicGaloisRepresentationsPartII:AG2.0/field-of-rationality`
-- `PotentialModularityAndCompatibleSystems:R24.5/weakly-compatible-system-rank-n`
 - `AutomorphicGaloisRepresentationsPartII:AG2.6/coefficient-embedding-independence-and-semisimple-uniqueness`
 - `AutomorphicGaloisRepresentationsPartII:AG2.6/all-cm-crystalline-and-iwahori-corollary`
 - `AutomorphicGaloisRepresentationsPartII:AG2.6/totally-real-polarized-coefficient-prime-descent`
+- `PotentialModularityAndCompatibleSystems:R24.5:operations`
 
 Acceptance checks:
 
@@ -735,7 +738,7 @@ Proof route:
 Direct inputs:
 
 - `AutomorphicGaloisRepresentationsPartII:AG2.6/compatible-system-of-pi`
-- `PotentialModularityAndCompatibleSystems:R24.5/weakened-compatible-data`
+- `PotentialModularityAndCompatibleSystems:R24.5:operations`
 
 Acceptance checks:
 
@@ -991,8 +994,8 @@ Proof route:
 
 1. Use finite p-adic realization first; compactness then supplies an O_E-stable lattice.
 2. Reduce the integral representation and semisimplify; use arbitrary-rank residual Brauer–Nesbitt for lattice independence.
-3. Descend the semisimple member by finite-field Brauer-group vanishing, using all characteristic-polynomial coefficients.
-4. Apply the polarized semisimple extension theorem rather than claiming every chosen lattice carries a perfect pairing.
+3. Use finite-image Frobenius density to recover all characteristic-polynomial coefficients from good places; descend the semisimple member by finite-field Brauer-group vanishing. In positive characteristic use characteristic polynomials rather than traces alone.
+4. Request preservation of polarization under reduction and semisimplification and the specified 𝒢_n-extension from ArithmeticGaloisRepresentations G7. The deformation-problem supplier assumes that extension as input. Do not claim every chosen lattice carries a perfect pairing.
 
 Direct inputs:
 
@@ -1000,7 +1003,7 @@ Direct inputs:
 - `ArithmeticGaloisRepresentations:R01.1/continuity-descent-and-lattice-independence`
 - `ArithmeticGaloisRepresentations:R01.5/recognition-by-characteristic-polynomials-and-coefficient-descent`
 - `AutomorphicGaloisRepresentationsPartII:AG2.0/polarized-galois-representation`
-- `GlobalGaloisDeformations:G7/polarized-deformation-problem`
+- `ArithmeticGaloisRepresentations:G7`
 - `mathlib:Matrix.GeneralLinearGroup.map`
 - `mathlib:Representation.IsSemisimpleRepresentation`
 
@@ -1861,6 +1864,8 @@ These are precise imports or owner extensions. They remain requests; this packet
 - **`EndoscopicTransferAndUnitaryTraceComparison:ET.7a`**: CS5.5.5 Shin stable/endoscopic transfer with L-morphism ζ̃_{n1,n2} and the parity-corrected auxiliary Hecke character $, identifying the twisted direct-sum Satake polynomial. Needed by `AutomorphicGaloisRepresentationsPartII:AG2.7/unitary-discrete-parameter-export`.
 - **`PotentialModularityAndCompatibleSystems:R24.5:operations`**: Correct the single shared data carrier so it contains the coefficient number field/place indexing, finite ramification set, continuous semisimple members, common good polynomials and labelled Hodge metadata without intrinsically imposing local de Rham/full-Hodge/crystalline, pure or polarized conditions. Supply separate Weak, VeryWeak, ExtremelyWeak, Pure and Polarized predicates with precise quantifiers, weakening maps, assembly/projection laws and coefficient change. The current weakly-compatible-system-rank-n and weakened-compatible-data statements contradict one another on this boundary. AG2 uses universally supplied data and operations conditionally; it neither edits this owner nor defines a replacement carrier. Needed by `AutomorphicGaloisRepresentationsPartII:AG2.6/extremely-weakly-compatible-system`, `AutomorphicGaloisRepresentationsPartII:AG2.6/compatible-system-of-pi`, `AutomorphicGaloisRepresentationsPartII:AG2.6/very-weak-compatibility-under-dgi`, `AutomorphicGaloisRepresentationsPartII:AG2.7/good-prime-characteristic-zero-export`, `AutomorphicGaloisRepresentationsPartII:AG2.7/nonselfdual-hodge-and-monodromy-bound-export`, `AutomorphicGaloisRepresentationsPartII:AG2.7/polarized-hodge-and-wd-export`.
 
+- **`ArithmeticGaloisRepresentations:G7`**: For a continuous finite-local-field CM polarized representation with multiplier ε_ℓ^(1−n)r_χ, prove that stable-lattice reduction followed by semisimplification admits the residual polarization and continuous extension G_{F+}→𝒢_n over the finite residue field or its algebraic closure, with multiplier ε̄_ℓ^(1−n)r̄_χ and the specified complex-conjugation sign. Retain the characteristic-2 case allowed by BLGGT §2.1, p.34, or prove exactly the additional restriction needed there. Do not impose Schur/absolute-irreducibility or deformation-ring hypotheses. Generic polarization and conjugation-extension constructions belong here; GlobalGaloisDeformations:G7/polarized-deformation-problem consumes a given extension and does not supply it. Needed by `AutomorphicGaloisRepresentationsPartII:AG2.7/residual-representation-of-pi`.
+
 ## Remaining gaps and coverage
 
 - **Generalized two-boundary log-crystalline comparison**: CR.6 and the existing geometric period comparison do not yet specify Caraiani’s full two-boundary weight spectral sequence and the projected-stratum concentration interface. The target node records its exact source and proof; the reusable sequence is requested as a CrystallineCohomology, Part II extension.
@@ -1868,6 +1873,7 @@ These are precise imports or owner extensions. They remain requests; this packet
 - **Supplier types and complete predicates absent from the pinned Lean baseline**: The suggested file now has actual declarations for all 38 unique main names and 58 unique API names, with all 49 packet tests as labelled typed examples. The missing automorphic, raw geometric, period/WD, number-field place and stable-lattice interfaces remain implementation gaps. Each node and partial example records its algebraic component and omitted conditions under section 13; output signatures with necessary hypotheses omitted are not universal matrix theorems. System is an external parameter for the single R24 data carrier. Semisimplicity/absolute irreducibility use Mathlib, and no arbitrary Prop fields, empty predicates, fake automorphic types or AG2 compatible-system carrier are introduced.
 - **Common carrier and weakened predicates disagree in the supplier**: R24.5/weakly-compatible-system-rank-n builds full weak conditions into its object while weakened-compatible-data claims the same object permits determinant-only Hodge data. The owner must separate raw data from Weak/VeryWeak/ExtremelyWeak and stronger predicates. The relevant statements and constructor/import here are conditional on that requested correction; the suggested file quantifies external data and projection laws. Supplier edits are outside this issue’s deliverables.
 - **Raw projector-compatible geometric realization not supplied**: The current AG2.1a/polarized-construction-inputs-shin-and-chenevier-harris node states attached-representation conclusions. It does not supply the raw PEL/Kuga–Sato cohomology, commuting projectors, multiplicity and Tate twist needed before period comparison. The geometric node now depends on the AG2.1a stage’s exact raw-interface request rather than treating that named conclusion as a realization. A second, separate request supplies Caraiani’s tensor-square and projected closed-stratum concentration.
+- **Polarization through residual semisimplification**: BLGGT §2.1, p.34 states the residual CM 𝒢_n-extension, but the previously cited deformation-problem node assumes it. ArithmeticGaloisRepresentations G7 owns the generic pairing/conjugation API; its exact reduction-and-semisimplification extension is requested here, including the coefficient-characteristic boundary, without importing Schur hypotheses. No self-dual lattice is asserted.
 
 The target-level revision is complete. Both AG2.6 and AG2.7 remain **planned**, with no closed stage or implemented declaration. Source-level proof chains and typed algebraic prototypes do not establish full supplier closure.
 
@@ -1883,19 +1889,26 @@ Remaining work for `AutomorphicGaloisRepresentationsPartII:AG2.7`:
 - Close the finite p-adic realization, arbitrary-rank recognition/Chebotarev, integral Hecke and unitary-transfer supplier requests.
 - Supply complete automorphic/Hecke/place/lattice and period/WD types and predicates, then refine the recorded algebraic fragments to the full statements. The actual suggested declarations and labelled tests are delivered and elaborate; implementation remains unchecked.
 
+- Close the G7 residual polarization/semisimplification extension request before the 𝒢_n-valued residual output; the deformation problem is a consumer of that extension.
+
 ## Source corrections
 
-The independently confirmed E3–E5 judgments are retained. The descriptions below paraphrase the affected claims; the legacy packet field named `printed` also contains paraphrases.
+This independent review rechecked E3–E5 and confirmed four additional findings E6–E9. All descriptions are in our own words; the field named `printed` contains a paraphrase or an affected formula. E6–E8 were checked against the published version as well as the preprint. E9 is restricted to the identified Chenevier–Harris author copy.
 
 - **E3**, §2.2.5, (2.2.6), p. 922; checked on the page image: Paraphrase of the affected display: the final rank-n coefficient lacks the sign required in odd rank. The last term is (−1)^n q_v^{n(n−1)/2} T_{v,n}, the i = n case of the general term. For n = 1 the printed form gives X + T_{v,1} while the general term gives X − T_{v,1}, and the characteristic polynomial of the Frobenius on an unramified character χ is X − χ(ϖ_v). The proof of Theorem 2.3.5 (p. 938) prints the same polynomial with the last term (−1)^n q_v^{n(n−1)/2} T_{v,n}. Independent verdict: confirmed.
 - **E4**, §2.2.5, (2.2.7) and the definition of P̃_{v,σ}, p. 922; Lemma 2.2.13(2), p. 927: Paraphrase of the affected displays: the degree-2n coefficient formula loses its monomial in (2.2.7), and the following sums use exponents indexed as though the degree were n. The general term of (2.2.7) is (−1)^j q_v^{j(j−1)/2} T̃_{v,j} X^{2n−j}, and both sums of degree 2n are Σ_{i=0}^{2n} (−1)^i e_{v,i} X^{2n−i}. P̃_v is monic of degree 2n (its leading term X^{2n} is printed), so the i-th term must carry X^{2n−i}; with X^{n−i} the sum has negative exponents for i > n. Independent verdict: confirmed.
 - **E5**, Remark after Definition 4.3.1, printed p.972, local genericity reading: Paraphrase of the local reading: the remark treats projectivization as sufficient for genericity without separately retaining trivial inertia. The ratio predicate is projectively invariant. Local genericity is invariant under unramified scalar twists; an arbitrary scalar twist also requires checking unramifiedness. Global existential decomposed genericity is invariant under finite residual character twists after avoiding the twist’s ramification set via Lemma 4.3.2. At L=Q_2 with k=F_3, r=1⊕1 has q=2 and is generic. A ramified quadratic scalar twist χ⊕χ has the same projective representation and eigenvalue ratios but nontrivial inertia, so is not locally generic. This does not invalidate the global existential statement. Independent verdict: confirmed.
 
-The existing E10/E11 correction for CS constituent rank and its imaginary quadratic splitting field, and E27 for Pilloni’s similitude, are inherited corrections rather than new source findings. Public-version erratum-search limits remain those recorded in the packet; this revision does not broaden them.
+- **E6**, §3A, definition of the second separate boundary log structure, p.1611; also arXiv v1 §3.1, p.9: The display for the second boundary log structure repeats the first boundary’s open immersions and open complements. Use j_{2,j} and U_{2,j} for the second boundary; leave the first boundary using j_{1,j} and U_{1,j}. The combined log structure on the same page uses both independent families. For X₁X₂=ϖ and Y₁Y₂=ϖ, the second boundary must detect the Y-divisors rather than duplicate the X-divisors. The p.1611 page image confirms the repeated first-boundary indices; the intended two-boundary construction is unchanged. Independent verdict: confirmed.
+- **E7**, §3A local boundary membership, p.1609, and Lemma 3.2 chart, p.1611; also arXiv v1 §3.1 and Lemma 3.1.2, pp.8–9: The second boundary’s membership list ends at j_r, and the chart’s second product ends at Y_r, although its second monoid has s generators. Use j_s as the endpoint of the second boundary membership list and Y₁⋯Y_s in the chart’s second equation. The model has independent r and s. Its preceding local equation and the proof’s second auxiliary model use s Y-factors, while the chart maps all s second-boundary generators to them. For r=1,s=2 the printed Y₁=ϖ chart loses the second boundary component. The published p.1611 image and p.1609 text confirm the slips; v1 has the same indices. Independent verdict: confirmed.
+- **E8**, §3A dimension of Y^(i,j), p.1610; also arXiv v1 §3.1, p.8: The stated dimension of a nonempty two-index stratum omits the m smooth Z-coordinates of the local model. The local dimension is 2n+m−i−j. The expression 2n−i−j applies when m=0. On the special fiber, imposing i X-coordinates and j Y-coordinates to vanish already kills both product equations, leaving 2n+m−i−j free coordinates. With n=r=s=i=j=m=1, the stratum is the affine Z-line, of dimension 1 rather than 0. The published p.1610 page image includes the Z-coordinates and omits m from the dimension. This is a dimension slip; the projected degree/Tate shifts remain separate in the purity argument. Independent verdict: confirmed.
+- **E9**, Identified author copy, §1, highest-weight notation immediately after Special Hypotheses 1.2, p.4: Both highest-weight tuples are described as having nonnegative entries, while the next formula makes them reverse negatives of one another. Use non-increasing tuples of integers; a dominant algebraic GL_n weight need not have nonnegative entries. Nonnegativity of both tuples combined with μ_i(τ^c)=−μ_{n−i+1}(τ) forces every entry to be zero. For n=2, μ(τ)=(1,0) has dual tuple (0,−1), a valid dominant integral weight excluded by that wording. The author-copy p.4 image confirms it. The packet already uses integer weights and needs no theorem restriction. Independent verdict: confirmed.
+
+The existing E10/E11 correction for CS constituent rank and its imaginary quadratic splitting field, and E27 for Pilloni’s similitude, are inherited corrections rather than new source findings. The packet records the 8 October 2026 public erratum searches, including Caraiani’s author page, arXiv history, MSP article/PDF, and Harris’s annotated errata list. No relevant correction was located. The CH publisher did not serve text through the browser and the Chenevier page timed out; no claim about the CH version of record is made.
 
 ## Sources and verification
 
-The ten identified public PDFs were retrieved on 8 October 2026 and their SHA-256 hashes matched the packet. The revision re-read the following passages for the changed statements and supplier boundaries. The packet retains the prior broader read-section record and the historical independent review.
+The independent review retrieved the ten cited public PDFs on 8 October 2026 and confirmed every recorded SHA-256. It read the cited target statements and relevant proof passages, including the revision locators below, and additionally retrieved Caraiani’s published PDF for §3A pp.1609–1611. These are scoped readings, not a claim to have read every page of all eleven PDFs. Public URLs, hashes, access dates and version distinctions are recorded in the packet.
 
 - [Local-global compatibility of automorphic Galois representations over CM fields at p](https://arxiv.org/pdf/2607.11763v1) — A’Campo, Hevesi, Thorne and Whitmore. arXiv:2607.11763v1, 13 July 2026; unrefereed preprint. Revision check: Theorem 1.2.1 and Corollary 1.2.2 pp.5–6; §3 introduction and Theorem 3.2.4 pp.27–30; Theorem 3.3.6 p.34; Proposition 5.2.8/Theorem 5.2.9 pp.75–76; §6 Definitions 6.0.1–5 and Corollary 6.0.6 pp.111–112.
 - [Potential automorphy and change of weight](https://arxiv.org/pdf/1010.2561v4) — Barnet-Lamb, Gee, Geraghty and Taylor. arXiv:1010.2561v4; Annals 179 (2014). Revision check: Theorem 2.1.1 pp.32–34; §5.1 definitions and normalization pp.62–65.
@@ -1908,6 +1921,8 @@ The ten identified public PDFs were retrieved on 8 October 2026 and their SHA-25
 - [Higher coherent cohomology and p-adic modular forms of singular weights](https://www.imo.universite-paris-saclay.fr/~pilloni/complexhidatheorygsp4.pdf) — Pilloni. Author copy; Duke Mathematical Journal 169 (2020), no.9, 1647–1807. Revision check: Theorem 5.1.7.1/Remark 5.1.7.1, author-copy pp.22–23.
 - [On the generic part of the cohomology of compact unitary Shimura varieties](https://annals.math.princeton.edu/wp-content/uploads/annals-v186-n3-p01-p.pdf) — Caraiani and Scholze. Annals 186 (2017), 649–766; journal PDF. Revision check: §5.1 setup pp.730–731; Corollary 5.5.5 and Remark 5.5.6 pp.745–746.
 
+- [Caraiani, published version](https://msp.org/ant/2014/8-7/ant-v8-n7-p02-s.pdf) — Algebra & Number Theory 8 (2014), 1597–1646. Independent check: §3A pp.1609–1611, comparison domain and Lemma 3.2; E6–E8 persist from arXiv v1.
+
 Pinned declaration statements were read for the eleven baseline references. The seven prior references are retained, and the actual Mathlib semisimplicity, irreducibility, matrix-to-linear equivalence and matrix rank declarations are reused by the new prototypes.
 
-The original `review` object remains the earlier independent **needs_changes** verdict, not a self-issued acceptance of this revision. A fresh independent review must assess the changes and the remaining supplier gaps.
+The independent review `REV-AutomorphicGaloisRepresentationsPartII--AG2.6~2` accepts this target-level pass after five in-place node corrections. It confirms all eleven baseline entries, 58 API names and 49 packet tests. The 43 node verdicts are 38 verified and five corrected, with no added or unverifiable node. The source findings E3–E9 are confirmed. The 20 requests and six recorded gaps keep full supplier closure open; both stages remain planned and every implementation status remains unchecked. The [review report](../reviews/REV-AutomorphicGaloisRepresentationsPartII--AG2.6~2.md) gives the evidence and validation.
