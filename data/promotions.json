@@ -493,6 +493,17 @@
     "data/blueprints/AutomorphicGaloisRepresentations.md"
    ]
   },
+  "research/blueprint/packets/AutomorphicGaloisRepresentationsPartII--AG2.6.json": {
+   "promotedAt": "2026-10-08T15:00:03Z",
+   "review": "f8fe822bb35f8936",
+   "reviewDate": "2026-10-08",
+   "reviewer": "independent-review-REV-AutomorphicGaloisRepresentationsPartII--AG2.6~2",
+   "sha256": "3706a199082fc2e99e1e6f3d6eb79efb6fe560f3c52832ed36869dd532ad44a3",
+   "to": [
+    "data/blueprints/AutomorphicGaloisRepresentationsPartII--AG2.6.json",
+    "data/blueprints/AutomorphicGaloisRepresentationsPartII--AG2.6.md"
+   ]
+  },
   "research/blueprint/packets/BorelRegulators.json": {
    "promotedAt": "2026-10-08T09:37:24Z",
    "review": "330462f2ea339888",
