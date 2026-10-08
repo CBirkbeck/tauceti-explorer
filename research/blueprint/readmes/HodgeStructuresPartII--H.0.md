@@ -17,7 +17,7 @@ Four freely accessible sources determine the relevant conventions. The packet re
 - Esnault–Groechenig, [*Rigid connections and F-isocrystals*, author-hosted preprint](https://www.mi.fu-berlin.de/users/esnault/preprints/helene/126_esn_gro.pdf), §2.1, printed pp.5–6, and §4.2, pp.23–24: the Higgs and parameter Leibniz equations, scaling, and the special fixed-determinant convention. This edition has 44 pages; it has not been collated here with the published Acta edition. Its rigidity statements belong to H.5.
 - Liu–Zhu, [*Rigidity and a Riemann–Hilbert correspondence for p-adic local systems*, arXiv:1602.06282v3](https://arxiv.org/pdf/1602.06282v3), Theorem 2.1 and its setup, pp.6–8; Lemma 2.15 and its complete printed proof, pp.18–19; Definitions 3.5–3.6, pp.21–22; and Remark 3.2, p.24. These specify the Tate-valued Higgs field, semilinear action, tensor/dual/pullback formulas, filtered period bundle and t-connection. The shuffle and rank results below are authored algebraic deductions; they are not attributed to this paper as theorems in this generality.
 - Heuer, [*A p-adic Simpson correspondence for smooth proper rigid varieties*, published PDF](https://link.springer.com/content/pdf/10.1007/s00222-025-01321-4.pdf), Inventiones mathematicae 240 (2025), 261–312: Definition 1.2(2), p.262; Definition 2.1 and the following paragraph, pp.267–268; Definition 4.1 and Remark 4.2, pp.297–298. These passages give the analytic twisted Higgs definition, symmetric action, image algebra and canonical coefficient section. The spectral Picard construction and correspondence are consumer targets.
-- The Stacks Project, [Connections, tag 07J5](https://stacks.math.columbia.edu/tag/07J5), opening definitions and Lemma 60.15.1 with its displayed proof, read 7 October 2026: the additive connection, exterior extension and integrability convention. The crystalline example does not identify every arbitrary-site connection with a crystal.
+- The Stacks Project, [Connections, tag 07J5](https://stacks.math.columbia.edu/tag/07J5), opening definitions and Lemma 60.15.1 with its displayed proof, read 8 October 2026: the additive connection, exterior extension and integrability convention. The crystalline example does not identify every arbitrary-site connection with a crystal.
 
 The accepted extraction has 149 routed items. The packet gives each one a scope disposition. Exactly five concern H.0 directly: PAPER-HEUER-25/3, PAPER-LIU-ZHU-17/H02 and H03, and PAPER-ESNAULT-GROECHENIG-20/004 and /061. Their actual carriers and formulas are considered here. The other 144 are retained as sibling-stage source targets, not asserted proved or fully read. Their routing entries express scope decisions and do not modify the accepted extraction. In particular, H.8 and its real Noether–Lefschetz target remain mandatory.
 
@@ -27,7 +27,7 @@ The baseline is Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti 
 
 The reviewed library-coverage rows for HodgeStructures L0–L3, EnhancedDerivedSheaves E1 and ShimuraData D3 were read with their evidence and duplication notes. The Hodge-structure linear algebra is existing work; the incomplete categorical kernel/cokernel audit does not license redoing it. E1 contains native underived sheaf-related operations, but its derived presentability/tensor target does not alone give every ordinary tensor, exterior and descent interface used here. There is no dedicated reviewed HodgeStructuresPartII, CR.1 or DD.1 row.
 
-The current supplier packets were also read. CR.1/integrable-connection describes an affine differential quotient and crystalline connections; it does not state the general ringed-site comparison needed by H.0. E1/presentability-and-derived-tensor is a derived target. DD.1/filtered-modules and DD.1/rees-description describe filtered enhanced derived objects and a graded derived Rees equivalence. A derived t-cofiber is not, without an additional theorem, the ordinary finite locally free Rees fiber. Those packets have `needs_changes` reviews; citing their requested stage records an interface, not a completed implementation.
+The current supplier packets were also read. CR.1/integrable-connection describes an affine differential quotient and crystalline connections; it does not state the general ringed-site comparison needed by H.0. E1/presentability-and-derived-tensor is a derived target. DD.1/filtered-modules and DD.1/rees-description describe filtered enhanced derived objects and a graded derived Rees equivalence. A derived t-cofiber is not, without an additional theorem, the ordinary finite locally free Rees fiber. The CR.0 and DD packets have `needs_changes` reviews; the partial E0 packet has no review object as of 8 October 2026. Citing their requested stages records interfaces to be supplied.
 
 The bounded exact-pin searches in the packet found no native Higgs, parameter-connection or ordered-shuffle implementation. This is a bounded search report. It is not a claim about every declaration or every upstream discussion. No existing blueprint link map named this successor in the screened tree; the roadmap's stage requirements and its accepted eight joining briefs supply the cross-roadmap direction.
 
@@ -118,7 +118,7 @@ The new residue construction isolates the elementary part that does not require 
 
 Here tM is the range of multiplication by t, and both quotients are native module quotients. Composing D with the target quotient makes it R-linear, since its derivative term is killed. Moreover D(te)=tD(e)+t(e⊗d(t)), so this composite kills tE even if d(t) is nonzero. The linear quotient universal property then descends it. No regularity of t, flatness, integrability, finite filtration or derivation condition is needed for this elementary descent. A geometric relative connection imposes a derivation and d(t)=0 for its exterior and flatness formulas, separately from this proof.
 
-The generator equation, uniqueness and equality criterion form its API. Equality of the residues of D,D′ is equivalent to D(e)−D′(e) lying in t(E⊗Q) for every e. Surjectivity of the quotient projection proves uniqueness. At t=0 the map agrees with a native linear field under quotient by zero. At t=1 both quotients vanish. This latter residue is not the fiber of a polynomial parameter family evaluated at one: that fiber quotients by t−1 instead. For R=E=Q=Z and t=2, the linear map e↦e⊗1 gives a nonzero residue, ruling out the zero-map construction.
+The generator equation, uniqueness, equality criterion and naturality under intertwining module and coefficient maps form its API. The quotient maps are native Submodule.mapQ maps; generator equations also give their identity and composition compatibility. Equality of the residues of D,D′ is equivalent to D(e)−D′(e) lying in t(E⊗Q) for every e. Surjectivity of the quotient projection proves uniqueness. At t=0 the map agrees with a native linear field under quotient by zero. At t=1 both quotients vanish. This latter residue is not the fiber of a polynomial parameter family evaluated at one: that fiber quotients by t−1 instead. For R=E=Q=Z and t=2, the linear map e↦e⊗1 gives a nonzero residue, ruling out the zero-map construction.
 
 To regard the residue as an R/(t)-linear Higgs coefficient map one also identifies its target with (E/tE)⊗_{R/(t)}(Q/tQ), through the actual tensor/quotient equivalence. At the affine module level this is ordinary right-exact quotient algebra; it does not need flatness. The intrinsic sheaf version, its restriction maps and its exterior compatibility are E1 requests. The linearity statement alone does not transport integrability or identify the graded symbol.
 
@@ -197,7 +197,7 @@ For n≥0 and a subset s of Fin n, let a=|s|, b=|sᶜ|. Define the increasing sl
 - `H0.shuffle.test_zero_factor_bound` (compatibility): If M>0 and I_M(ψ)=0, then I_M(T(0,ψ))=0 for arbitrary E,F,Q.
 - `H0.shuffle.test_char_two_sharp` (non-example): Over F₂, use the rank-two square-zero Jordan operator X on each factor, with independent coefficient vectors q₀ and q₁ in F₂². Both fields have bound 2, their tensor field has bound 3, and its degree-two ordered tensor is nonzero.
 
-**Source match.** Theorem 2.1(iv), printed pp.7–8; Theorem 2.1(i), printed p.7. Literal anchor: “H is a tensor functor”. The source motivates the tensor field and preservation of nilpotence. The integral tensor-valued shuffle over arbitrary rings and coefficient modules is an authored deduction from the parent ordered-iterate convention, not a quoted source theorem.
+**Source match.** Theorem 2.1(iv), printed pp.7–8; Theorem 2.1(i), printed p.7. The source motivates the tensor field and preservation of nilpotence. The integral tensor-valued shuffle over arbitrary rings and coefficient modules is an authored deduction from the parent ordered-iterate convention, not a quoted source theorem.
 
 
 ### Shuffle summand vanishes at a factor bound
@@ -220,7 +220,7 @@ If I_N(θ)=0 and I_M(ψ)=0, and N≤|s| or M≤|sᶜ|, then L_s(θ,ψ)=0. This i
 - No injectivity or detection by coefficient duals is needed.
 - Only one sufficiently large factor is required.
 
-**Source match.** Theorem 2.1(iv), printed pp.7–8; Theorem 2.1(i), printed p.7. Literal anchor: “H is a tensor functor”. The source motivates the tensor field and preservation of nilpotence. The integral tensor-valued shuffle over arbitrary rings and coefficient modules is an authored deduction from the parent ordered-iterate convention, not a quoted source theorem.
+**Source match.** Theorem 2.1(iv), printed pp.7–8; Theorem 2.1(i), printed p.7. The source motivates the tensor field and preservation of nilpotence. The integral tensor-valued shuffle over arbitrary rings and coefficient modules is an authored deduction from the parent ordered-iterate convention, not a quoted source theorem.
 
 
 ### Integral ordered tensor shuffle expansion
@@ -245,7 +245,7 @@ For every n≥0, I_n(T(θ,ψ))=Σ_{s⊆Fin n} L_s(θ,ψ) as R-linear maps E tens
 - At n=1 the two subsets give exactly the two terms in the parent tensor field.
 - At n=2 the mixed slots produce q tensor r and r tensor q separately. In characteristic two their sum need not vanish.
 
-**Source match.** Theorem 2.1(iv), printed pp.7–8; Theorem 2.1(i), printed p.7. Literal anchor: “H is a tensor functor”. The source motivates the tensor field and preservation of nilpotence. The integral tensor-valued shuffle over arbitrary rings and coefficient modules is an authored deduction from the parent ordered-iterate convention, not a quoted source theorem.
+**Source match.** Theorem 2.1(iv), printed pp.7–8; Theorem 2.1(i), printed p.7. The source motivates the tensor field and preservation of nilpotence. The integral tensor-valued shuffle over arbitrary rings and coefficient modules is an authored deduction from the parent ordered-iterate convention, not a quoted source theorem.
 
 
 ### Tensor nilpotence bound for arbitrary coefficients
@@ -270,7 +270,7 @@ For positive N,M, I_N(θ)=0 and I_M(ψ)=0 imply I_{N+M−1}(T(θ,ψ))=0 for arbi
 - The rank-two characteristic-two test realizes degree two nonzero and degree three zero.
 - Neither factor needs to be an integrable Higgs field for this ordered-tensor conclusion.
 
-**Source match.** Theorem 2.1(iv), printed pp.7–8; Theorem 2.1(i), printed p.7. Literal anchor: “H is a tensor functor”. The source motivates the tensor field and preservation of nilpotence. The integral tensor-valued shuffle over arbitrary rings and coefficient modules is an authored deduction from the parent ordered-iterate convention, not a quoted source theorem.
+**Source match.** Theorem 2.1(iv), printed pp.7–8; Theorem 2.1(i), printed p.7. The source motivates the tensor field and preservation of nilpotence. The integral tensor-valued shuffle over arbitrary rings and coefficient modules is an authored deduction from the parent ordered-iterate convention, not a quoted source theorem.
 
 
 ### Ordered nilpotence bound by vector-space dimension
@@ -281,13 +281,13 @@ Let K be a field, V and P finite-dimensional K-vector spaces, and θ:V→V tenso
 
 **Hypotheses.** K is a field; V,P are actual K-modules with Module.Finite K V and Module.Finite K P. A positive ordered nilpotence bound exists. Individual nilpotence of chosen contractions is not substituted for it.
 
-**Prerequisites.** `HodgeStructuresPartII:H.0/affine-ordered-iterate-vanishing`, `mathlib:Module.Finite`, `mathlib:Module.Basis`, `mathlib:Module.Basis.coord`, `mathlib:Module.finrank`, `mathlib:Submodule.mkQ`, `mathlib:Submodule.mkQ_surjective`.
+**Prerequisites.** `HodgeStructuresPartII:H.0/affine-ordered-iterate-vanishing`, `mathlib:Module.Finite`, `mathlib:Module.Basis`, `mathlib:Module.Basis.coord`, `mathlib:Module.finrank`, `mathlib:Submodule.mkQ`, `mathlib:Submodule.mkQ_surjective`, `mathlib:Module.finBasis`, `mathlib:finrank_span_singleton`, `mathlib:Submodule.finrank_quotient_add_finrank`.
 
 **Proof route.**
 
-1. Choose a finite basis of P and use the parent all-order coefficient criterion: I_N=0 says every coefficient word of length N is zero. This gives joint nilpotence of the finite coefficient family.
+1. Choose Module.finBasis K P and use the parent all-order coefficient criterion: I_N=0 says every coefficient word of length N is zero. Longer words vanish by factoring off a length-N block. This gives joint nilpotence of the finite coefficient family.
 2. If V is nonzero, choose a nonzero vector and a coefficient word of maximal length whose action on it is nonzero. Lengths are bounded by N−1. Its resulting nonzero vector is killed by every coefficient operator; adding any operator on the left would contradict maximality. The resulting common-kernel line is invariant and killed, without a commutativity assumption.
-3. Pass to V divided by that line. Every length-N word on the quotient is still zero. Induct on dim V, which drops by one. Words of length dim V−1 take V into the line, and one more operator kills them. The dimension-zero case is the zero module and has positive bound 1.
+3. Pass each coefficient operator to V divided by the common-kernel line and reconstruct the quotient field with the chosen finite coefficient basis. Every length-N quotient word is zero, so the parent coefficient criterion gives its ordered nilpotence premise. The line has finrank one by finrank_span_singleton, and Submodule.finrank_quotient_add_finrank makes the quotient dimension dim V−1. If dim V=1, the line is all of V and every operator is already zero. If dim V>1, induction gives zero quotient words of length dim V−1; the lifted words therefore land in the line and one more operator kills them. The dimension-zero case is the zero module and has positive bound 1.
 4. Apply the parent basis coefficient criterion in the reverse direction at exponent max(1,dim V). This proves the tensor-valued assertion, not merely powers of a single contraction.
 
 **Acceptance.**
@@ -296,7 +296,7 @@ Let K be a field, V and P finite-dimensional K-vector spaces, and θ:V→V tenso
 - The size-three Jordan block with one coefficient has degree-three zero and degree-two nonzero, so the positive-rank bound is sharp.
 - No algebraic closure or characteristic-zero hypothesis occurs.
 
-**Source match.** Theorem 2.1(i), p.7; Lemma 2.15 and proof, pp.18–19. Literal anchor: “log γ is nilpotent”. The source supplies motivation for finite-rank nilpotence, with its own Galois and period hypotheses. The ordered-rank bounds here start with a specified ordered nilpotence premise and follow by common-kernel dimension induction and reduced-ring coefficient detection. They do not prove the source nilpotence premise.
+**Source match.** Theorem 2.1(i), p.7; Lemma 2.15 and proof, pp.18–19. The source supplies motivation for finite-rank nilpotence, with its own Galois and period hypotheses. The ordered-rank bounds here start with a specified ordered nilpotence premise and follow by common-kernel dimension induction and reduced-ring coefficient detection. They do not prove the source nilpotence premise.
 
 
 ### Ordered nilpotence bound over a reduced ring
@@ -307,12 +307,12 @@ Let R be a reduced commutative ring and let b:Fin r→E and c:Fin d→Q be bases
 
 **Hypotheses.** R is commutative and IsReduced R; no domain or Noetherian premise is required. E and Q have the displayed finite bases. The general locally free sheaf conclusion is conditioned on G2 and the finite-cover/uniformity gap G6. A positive ordered nilpotence bound exists.
 
-**Prerequisites.** `HodgeStructuresPartII:H.0/h0-field-rank-bound`, `HodgeStructuresPartII:H.0/affine-base-change-bound-arbitrary`, `HodgeStructuresPartII:H.0/affine-base-change-contraction`, `HodgeStructuresPartII:H.0/affine-base-change-word`, `HodgeStructuresPartII:H.0/affine-ordered-iterate-vanishing`, `mathlib:IsReduced`, `mathlib:nilpotent_iff_mem_prime`, `mathlib:nilradical_eq_zero`, `mathlib:Module.Basis.forall_coord_eq_zero_iff`.
+**Prerequisites.** `HodgeStructuresPartII:H.0/h0-field-rank-bound`, `HodgeStructuresPartII:H.0/affine-base-change-bound-arbitrary`, `HodgeStructuresPartII:H.0/affine-base-change-contraction`, `HodgeStructuresPartII:H.0/affine-base-change-word`, `HodgeStructuresPartII:H.0/affine-ordered-iterate-vanishing`, `mathlib:IsReduced`, `mathlib:nilpotent_iff_mem_prime`, `mathlib:nilradical_eq_zero`, `mathlib:Module.Basis.forall_coord_eq_zero_iff`, `mathlib:Module.finrank_eq_card_basis`, `mathlib:Ideal.Quotient.isDomain_iff_prime`, `mathlib:IsFractionRing.injective`, `mathlib:Ideal.Quotient.eq_zero_iff_mem`.
 
 **Proof route.**
 
-1. For each prime ideal p, pass to the fraction field of the domain R/p. Parent scalar-extension transport preserves the given ordered exponent, without reflecting zero back to R. The base-changed bases have ranks r,d.
-2. Apply h0-field-rank-bound over that field, so every length-max(1,r) coefficient-word matrix entry maps to zero. The injective map R/p into its fraction field shows each source entry belongs to p.
+1. For each prime ideal p, Ideal.Quotient.isDomain_iff_prime makes R/p a domain; pass to its fraction field. Parent scalar-extension transport preserves the given ordered exponent, without reflecting zero back to R. The transported bases have ranks r,d by Module.finrank_eq_card_basis.
+2. Apply h0-field-rank-bound over that field, so every length-max(1,r) coefficient-word matrix entry maps to zero. IsFractionRing.injective detects zero in R/p; Ideal.Quotient.eq_zero_iff_mem then puts each source entry in p.
 3. Each entry lies in every prime ideal, hence is nilpotent by nilpotent_iff_mem_prime. IsReduced makes it zero; equivalently use nilradical_eq_zero. The zero ring is handled by subsingleton modules.
 4. Basis coordinates detect zero for the ordered tensor target, or equivalently invoke the parent coefficient criterion after all word matrices vanish. Do not claim that one arbitrary residue map reflects curvature or any other source tensor.
 
@@ -322,7 +322,7 @@ Let R be a reduced commutative ring and let b:Fin r→E and c:Fin d→Q be bases
 - A free rank-zero module has positive bound 1.
 - This local free theorem does not identify rank on disconnected sheaf components with one fixed integer.
 
-**Source match.** Theorem 2.1(i), p.7; Lemma 2.15 and proof, pp.18–19. Literal anchor: “log γ is nilpotent”. The source supplies motivation for finite-rank nilpotence, with its own Galois and period hypotheses. The ordered-rank bounds here start with a specified ordered nilpotence premise and follow by common-kernel dimension induction and reduced-ring coefficient detection. They do not prove the source nilpotence premise.
+**Source match.** Theorem 2.1(i), p.7; Lemma 2.15 and proof, pp.18–19. The source supplies motivation for finite-rank nilpotence, with its own Galois and period hypotheses. The ordered-rank bounds here start with a specified ordered nilpotence premise and follow by common-kernel dimension induction and reduced-ring coefficient detection. They do not prove the source nilpotence premise.
 
 
 ### Linear residue of a parameter connection
@@ -333,13 +333,13 @@ For t∈R, an additive d:R→Q and an additive D:E→E tensor_R Q satisfying D(a
 
 **Hypotheses.** R is a commutative ring; E,Q are arbitrary R-modules. Only the displayed additive Leibniz equation is required for descent. No regularity of t, flatness of Q, filtration bounds or integrability premise is imposed. For a geometric relative parameter connection d is a derivation with d(t)=0. These additional conditions are needed by the flatness/exterior extension targets, not by the elementary linear residue map itself.
 
-**Prerequisites.** `mathlib:Submodule.mkQ`, `mathlib:Submodule.mkQ_surjective`, `mathlib:Submodule.liftQ`, `mathlib:Submodule.Quotient.eq`, `HodgeStructuresPartII:H.0/intrinsic-preconnection`.
+**Prerequisites.** `mathlib:Submodule.mkQ`, `mathlib:Submodule.mkQ_surjective`, `mathlib:Submodule.liftQ`, `mathlib:Submodule.Quotient.eq`, `HodgeStructuresPartII:H.0/intrinsic-preconnection`, `mathlib:Submodule.mapQ`.
 
 **Proof route.**
 
 1. Let T=E tensor Q and π:T→T/tT be the native module quotient. The composite πD is additive. Applying the Leibniz equation shows πD(ae)=aπD(e), because t(e tensor d(a)) is in tT; package πD as a genuine R-linear map.
 2. Apply the same formula at a=t: D(te)=tD(e)+t(e tensor d(t)), so πD vanishes on tE even if d(t)≠0. Use Submodule.liftQ to descend the now-linear map.
-3. The generator equation follows from liftQ. Surjectivity of mkQ gives uniqueness, and Submodule.Quotient.eq gives the comparison criterion for two D with the same parameter and differential.
+3. The generator equation follows from liftQ. Surjectivity of mkQ gives uniqueness, and Submodule.Quotient.eq gives the comparison criterion for two D with the same parameter and differential. Linear f and f⊗u preserve multiplication-by-t images, so Submodule.mapQ constructs their quotient maps. The intertwining equation and the generator formula give naturality; quotient surjectivity proves equality on the whole module, as well as identity and composition compatibility.
 4. The quotient field cannot be identified with a sheaf tensor of quotients by identifying global-section tensors. E1 supplies the actual quotient/base-change equivalence; exterior integrability requires its wedge compatibility and remains G5.
 
 **Acceptance.**
@@ -359,6 +359,7 @@ For t∈R, an additive d:R→Q and an additive D:E→E tensor_R Q satisfying D(a
 - `parameterResidue_mk` (simp): res_t(D)([e])=[D(e)] for the native module quotient projections.
 - `parameterResidue_unique` (universal-property): Any R-linear map on E/tE satisfying the same generator equation is res_t(D).
 - `parameterResidue_eq_iff` (extensionality): For fixed t,d and D,D′ with the displayed Leibniz equations, res_t(D)=res_t(D′) iff D(e)−D′(e) lies in t(E tensor Q) for every e.
+- `parameterResidue_natural` (functoriality): For linear f:E→F and u:Q→P, write f̄:E/tE→F/tF and (f⊗u)̄:(E⊗Q)/t(E⊗Q)→(F⊗P)/t(F⊗P) for native Submodule.mapQ maps. Given parameter operators D,D′ with the same t and their displayed Leibniz equations, if D′(f(e))=(f⊗u)(D(e)) for every e, then res_t(D′)∘f̄=(f⊗u)̄∘res_t(D). Quotient-map identity and composition laws follow on generators.
 
 **Unit tests.**
 
@@ -366,7 +367,7 @@ For t∈R, an additive d:R→Q and an additive D:E→E tensor_R Q satisfying D(a
 - `H0.parameterResidue.test_unit_parameter` (degenerate): At t=1 the parameterResidue linear map is zero for every D satisfying the displayed equation.
 - `H0.parameterResidue.test_nonzero_residue` (computation): For Z, t=2, Q=E=Z, d=0 and D(e)=e tensor 1, the parameter residue is nonzero.
 
-**Source match.** Definitions 3.5–3.6, printed pp.21–22; Remark 3.2, printed p.24. Literal anchor: “t∇”. The source forms a t-connection on a period lattice and identifies its zero fiber. The elementary module quotient construction here isolates the linear residue without claiming the period-sheaf, exterior-curvature or Tate identification. It is an authored affine deduction of the parameter Leibniz equation.
+**Source match.** Definitions 3.5–3.6, printed pp.21–22; Remark 3.2, printed p.24. The source forms a t-connection on a period lattice and identifies its zero fiber. The elementary module quotient construction here isolates the linear residue without claiming the period-sheaf, exterior-curvature or Tate identification. It is an authored affine deduction of the parameter Leibniz equation.
 
 
 ## Stage closure ledger
@@ -515,6 +516,6 @@ The six inherited H.0 planets remain the atlas display. This part adds no sevent
 
 ## Validation boundary
 
-The packet has seven new nodes (two constructions, one lemma and four theorems), twelve API entries, eleven construction tests and thirty individually inspected baseline declarations. The suggested file includes three additional theorem acceptance instances. There are seven explicit gaps and four supplier requests. H.0 coverage is planned, with its full remaining list; it is not closed. The other stages are outside the job scope.
+The packet has seven new nodes (two constructions, one lemma and four theorems), thirteen API entries, eleven construction tests and thirty-eight individually inspected baseline declarations. The suggested file includes three additional theorem acceptance instances. There are seven explicit gaps and four supplier requests. H.0 coverage is planned, with its full remaining list; it is not closed. The other stages are outside the job scope.
 
 The blueprint checker and exact-file Lean elaboration receipts are recorded in the handoff. Lean checks only the signatures with admitted bodies, including the two exact imported affine planning interfaces. It establishes no theorem proof, no sheaf comparison and no period correspondence. All new implementation statuses remain unchecked.

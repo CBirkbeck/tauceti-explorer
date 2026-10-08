@@ -242,6 +242,24 @@ lemma parameterResidue_eq_iff (t : R) (d : R →+ Q) (D D' : E →+ E ⊗[R] Q)
       ∀ e, D e - D' e ∈
         LinearMap.range (t • (LinearMap.id : E ⊗[R] Q →ₗ[R] E ⊗[R] Q)) := by sorry
 
+-- Native quotient maps compare residues before the separate geometric adapters.
+lemma parameterResidue_natural {P : Type*} [AddCommGroup P] [Module R P]
+    (t : R) (d : R →+ Q) (d' : R →+ P)
+    (D : E →+ E ⊗[R] Q) (D' : F →+ F ⊗[R] P)
+    (hD : ∀ a e, D (a • e) = a • D e + t • (e ⊗ₜ[R] d a))
+    (hD' : ∀ a e, D' (a • e) = a • D' e + t • (e ⊗ₜ[R] d' a))
+    (f : E →ₗ[R] F) (u : Q →ₗ[R] P)
+    (hintertwine : ∀ e, D' (f e) = TensorProduct.map f u (D e))
+    (hf : LinearMap.range (t • (LinearMap.id : E →ₗ[R] E)) ≤
+      Submodule.comap f (LinearMap.range (t • (LinearMap.id : F →ₗ[R] F))))
+    (hfu : LinearMap.range (t • (LinearMap.id : E ⊗[R] Q →ₗ[R] E ⊗[R] Q)) ≤
+      Submodule.comap (TensorProduct.map f u)
+        (LinearMap.range (t • (LinearMap.id : F ⊗[R] P →ₗ[R] F ⊗[R] P)))) :
+    (parameterResidue t d' D' hD').comp
+        (Submodule.mapQ _ _ f hf) =
+      (Submodule.mapQ _ _ (TensorProduct.map f u) hfu).comp
+        (parameterResidue t d D hD) := by sorry
+
 -- test: H0.parameterResidue.test_zero_parameter
 example (D : E →ₗ[R] E ⊗[R] Q)
     (hD : ∀ a e, D.toAddMonoidHom (a • e) =
