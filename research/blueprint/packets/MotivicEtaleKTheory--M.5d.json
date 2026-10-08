@@ -21,210 +21,210 @@
         "kind": "def",
         "module": "TauCeti/RingTheory/Kaehler/MapSemilinear.lean",
         "provides": "For an R-algebra homomorphism f, the map of Kaehler modules is f-semilinear.",
-        "checked": "Actual statement and relevant surrounding hypotheses read in the pinned source; additive aliases, where used, confirmed from the explicit to_additive annotation."
+        "checked": "Independent REV-MotivicEtaleKTheory--M.5d~2, 2026-10-08: actual declaration, surrounding typeclass hypotheses and conventions read at the recorded pin; the provided operation matches its use here. Additive aliases checked through the pinned to_additive annotation."
       },
       {
         "ref": "tauceti:KaehlerDifferential.mapSemilinear_D",
         "kind": "theorem",
         "module": "TauCeti/RingTheory/Kaehler/MapSemilinear.lean",
         "provides": "The semilinear map sends Da to D(fa).",
-        "checked": "Actual statement and relevant surrounding hypotheses read in the pinned source; additive aliases, where used, confirmed from the explicit to_additive annotation."
+        "checked": "Independent REV-MotivicEtaleKTheory--M.5d~2, 2026-10-08: actual declaration, surrounding typeclass hypotheses and conventions read at the recorded pin; the provided operation matches its use here. Additive aliases checked through the pinned to_additive annotation."
       },
       {
         "ref": "tauceti:KaehlerDifferential.mapSemilinear_smul",
         "kind": "theorem",
         "module": "TauCeti/RingTheory/Kaehler/MapSemilinear.lean",
         "provides": "It sends a omega to f(a) times the image of omega.",
-        "checked": "Actual statement and relevant surrounding hypotheses read in the pinned source; additive aliases, where used, confirmed from the explicit to_additive annotation."
+        "checked": "Independent REV-MotivicEtaleKTheory--M.5d~2, 2026-10-08: actual declaration, surrounding typeclass hypotheses and conventions read at the recorded pin; the provided operation matches its use here. Additive aliases checked through the pinned to_additive annotation."
       },
       {
         "ref": "mathlib:Int.range_nsmulAddMonoidHom",
         "kind": "lemma",
         "module": "Mathlib/Algebra/Group/Subgroup/ZPowers/Lemmas.lean",
         "provides": "On the integers, the range of multiplication by n is the subgroup of multiples of n.",
-        "checked": "Actual statement and relevant surrounding hypotheses read in the pinned source; additive aliases, where used, confirmed from the explicit to_additive annotation."
+        "checked": "Independent REV-MotivicEtaleKTheory--M.5d~2, 2026-10-08: actual declaration, surrounding typeclass hypotheses and conventions read at the recorded pin; the provided operation matches its use here. Additive aliases checked through the pinned to_additive annotation."
       },
       {
         "ref": "mathlib:Int.quotientZMultiplesNatEquivZMod",
         "kind": "def",
         "module": "Mathlib/Data/ZMod/QuotientGroup.lean",
         "provides": "The additive equivalence Z/(nZ) ≃ ZMod n.",
-        "checked": "Actual statement and relevant surrounding hypotheses read in the pinned source; additive aliases, where used, confirmed from the explicit to_additive annotation."
+        "checked": "Independent REV-MotivicEtaleKTheory--M.5d~2, 2026-10-08: actual declaration, surrounding typeclass hypotheses and conventions read at the recorded pin; the provided operation matches its use here. Additive aliases checked through the pinned to_additive annotation."
       },
       {
         "ref": "mathlib:Subfield.mem_bot_iff_pow_eq_self",
         "kind": "theorem",
         "module": "Mathlib/FieldTheory/Finite/Basic.lean",
         "provides": "In a field of prime characteristic p, the prime subfield consists exactly of the roots x^p=x.",
-        "checked": "Actual statement and relevant surrounding hypotheses read in the pinned source; additive aliases, where used, confirmed from the explicit to_additive annotation."
+        "checked": "Independent REV-MotivicEtaleKTheory--M.5d~2, 2026-10-08: actual declaration, surrounding typeclass hypotheses and conventions read at the recorded pin; the provided operation matches its use here. Additive aliases checked through the pinned to_additive annotation."
       },
       {
         "ref": "mathlib:AlternatingMap.map_eq_zero_of_eq",
         "kind": "theorem",
         "module": "Mathlib/LinearAlgebra/Alternating/Basic.lean",
         "provides": "An alternating map vanishes when two distinct positions carry equal entries, without a characteristic restriction.",
-        "checked": "Actual statement and relevant surrounding hypotheses read in the pinned source; additive aliases, where used, confirmed from the explicit to_additive annotation."
+        "checked": "Independent REV-MotivicEtaleKTheory--M.5d~2, 2026-10-08: actual declaration, surrounding typeclass hypotheses and conventions read at the recorded pin; the provided operation matches its use here. Additive aliases checked through the pinned to_additive annotation."
       },
       {
         "ref": "mathlib:exteriorPower.ιMulti",
         "kind": "def",
         "module": "Mathlib/LinearAlgebra/ExteriorPower/Basic.lean",
         "provides": "Alternating universal map from n-tuples to the existing nth exterior power.",
-        "checked": "Actual statement and relevant surrounding hypotheses read in the pinned source; additive aliases, where used, confirmed from the explicit to_additive annotation."
+        "checked": "Independent REV-MotivicEtaleKTheory--M.5d~2, 2026-10-08: actual declaration, surrounding typeclass hypotheses and conventions read at the recorded pin; the provided operation matches its use here. Additive aliases checked through the pinned to_additive annotation."
       },
       {
         "ref": "mathlib:exteriorPower.ιMulti_span",
         "kind": "lemma",
         "module": "Mathlib/LinearAlgebra/ExteriorPower/Basic.lean",
         "provides": "Pure wedges span the exterior power as a module.",
-        "checked": "Actual statement and relevant surrounding hypotheses read in the pinned source; additive aliases, where used, confirmed from the explicit to_additive annotation."
+        "checked": "Independent REV-MotivicEtaleKTheory--M.5d~2, 2026-10-08: actual declaration, surrounding typeclass hypotheses and conventions read at the recorded pin; the provided operation matches its use here. Additive aliases checked through the pinned to_additive annotation."
       },
       {
         "ref": "mathlib:exteriorPower.zeroEquiv",
         "kind": "def",
         "module": "Mathlib/LinearAlgebra/ExteriorPower/Basic.lean",
         "provides": "Degree-zero exterior power is the scalar ring, with empty wedge sent to one.",
-        "checked": "Actual statement and relevant surrounding hypotheses read in the pinned source; additive aliases, where used, confirmed from the explicit to_additive annotation."
+        "checked": "Independent REV-MotivicEtaleKTheory--M.5d~2, 2026-10-08: actual declaration, surrounding typeclass hypotheses and conventions read at the recorded pin; the provided operation matches its use here. Additive aliases checked through the pinned to_additive annotation."
       },
       {
         "ref": "mathlib:exteriorPower.oneEquiv",
         "kind": "def",
         "module": "Mathlib/LinearAlgebra/ExteriorPower/Basic.lean",
         "provides": "Degree-one exterior power is the original module.",
-        "checked": "Actual statement and relevant surrounding hypotheses read in the pinned source; additive aliases, where used, confirmed from the explicit to_additive annotation."
+        "checked": "Independent REV-MotivicEtaleKTheory--M.5d~2, 2026-10-08: actual declaration, surrounding typeclass hypotheses and conventions read at the recorded pin; the provided operation matches its use here. Additive aliases checked through the pinned to_additive annotation."
       },
       {
         "ref": "mathlib:PiTensorProduct.lift",
         "kind": "def",
         "module": "Mathlib/LinearAlgebra/PiTensorProduct/Basic.lean",
         "provides": "Universal equivalence between multilinear maps and linear maps out of the indexed tensor product.",
-        "checked": "Actual statement and relevant surrounding hypotheses read in the pinned source; additive aliases, where used, confirmed from the explicit to_additive annotation."
+        "checked": "Independent REV-MotivicEtaleKTheory--M.5d~2, 2026-10-08: actual declaration, surrounding typeclass hypotheses and conventions read at the recorded pin; the provided operation matches its use here. Additive aliases checked through the pinned to_additive annotation."
       },
       {
         "ref": "mathlib:Submodule.liftQ",
         "kind": "def",
         "module": "Mathlib/LinearAlgebra/Quotient/Basic.lean",
         "provides": "Descends a semilinear map killing a submodule to its quotient.",
-        "checked": "Actual statement and relevant surrounding hypotheses read in the pinned source; additive aliases, where used, confirmed from the explicit to_additive annotation."
+        "checked": "Independent REV-MotivicEtaleKTheory--M.5d~2, 2026-10-08: actual declaration, surrounding typeclass hypotheses and conventions read at the recorded pin; the provided operation matches its use here. Additive aliases checked through the pinned to_additive annotation."
       },
       {
         "ref": "mathlib:Derivation.leibniz",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/Derivation/Basic.lean",
         "provides": "D(ab)=a Db+b Da.",
-        "checked": "Actual statement and relevant surrounding hypotheses read in the pinned source; additive aliases, where used, confirmed from the explicit to_additive annotation."
+        "checked": "Independent REV-MotivicEtaleKTheory--M.5d~2, 2026-10-08: actual declaration, surrounding typeclass hypotheses and conventions read at the recorded pin; the provided operation matches its use here. Additive aliases checked through the pinned to_additive annotation."
       },
       {
         "ref": "mathlib:Derivation.map_one_eq_zero",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/Derivation/Basic.lean",
         "provides": "A derivation sends one to zero.",
-        "checked": "Actual statement and relevant surrounding hypotheses read in the pinned source; additive aliases, where used, confirmed from the explicit to_additive annotation."
+        "checked": "Independent REV-MotivicEtaleKTheory--M.5d~2, 2026-10-08: actual declaration, surrounding typeclass hypotheses and conventions read at the recorded pin; the provided operation matches its use here. Additive aliases checked through the pinned to_additive annotation."
       },
       {
         "ref": "mathlib:Derivation.leibniz_pow",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/Derivation/Basic.lean",
         "provides": "D(a^m)=m a^(m−1) Da, including positive characteristic.",
-        "checked": "Actual statement and relevant surrounding hypotheses read in the pinned source; additive aliases, where used, confirmed from the explicit to_additive annotation."
+        "checked": "Independent REV-MotivicEtaleKTheory--M.5d~2, 2026-10-08: actual declaration, surrounding typeclass hypotheses and conventions read at the recorded pin; the provided operation matches its use here. Additive aliases checked through the pinned to_additive annotation."
       },
       {
         "ref": "mathlib:KaehlerDifferential.D",
         "kind": "def",
         "module": "Mathlib/RingTheory/Kaehler/Basic.lean",
         "provides": "Absolute universal derivation with base Z, existing Kaehler module, additive and Leibniz laws.",
-        "checked": "Actual statement and relevant surrounding hypotheses read in the pinned source; additive aliases, where used, confirmed from the explicit to_additive annotation."
+        "checked": "Independent REV-MotivicEtaleKTheory--M.5d~2, 2026-10-08: actual declaration, surrounding typeclass hypotheses and conventions read at the recorded pin; the provided operation matches its use here. Additive aliases checked through the pinned to_additive annotation."
       },
       {
         "ref": "mathlib:KaehlerDifferential.span_range_derivation",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/Kaehler/Basic.lean",
         "provides": "The field-linear span of the universal differentials is the entire Kaehler module.",
-        "checked": "Actual statement and relevant surrounding hypotheses read in the pinned source; additive aliases, where used, confirmed from the explicit to_additive annotation."
+        "checked": "Independent REV-MotivicEtaleKTheory--M.5d~2, 2026-10-08: actual declaration, surrounding typeclass hypotheses and conventions read at the recorded pin; the provided operation matches its use here. Additive aliases checked through the pinned to_additive annotation."
       },
       {
         "ref": "mathlib:MonoidHom.ker",
         "kind": "def",
         "module": "Mathlib/Algebra/Group/Subgroup/Ker.lean",
         "provides": "The read to_additive annotation exports AddMonoidHom.ker as the subgroup of elements mapping to zero.",
-        "checked": "Actual statement and relevant surrounding hypotheses read in the pinned source; additive aliases, where used, confirmed from the explicit to_additive annotation."
+        "checked": "Independent REV-MotivicEtaleKTheory--M.5d~2, 2026-10-08: actual declaration, surrounding typeclass hypotheses and conventions read at the recorded pin; the provided operation matches its use here. Additive aliases checked through the pinned to_additive annotation."
       },
       {
         "ref": "mathlib:QuotientGroup.mk'",
         "kind": "def",
         "module": "Mathlib/GroupTheory/QuotientGroup/Defs.lean",
         "provides": "The read to_additive annotation exports the canonical additive quotient homomorphism QuotientAddGroup.mk'.",
-        "checked": "Actual statement and relevant surrounding hypotheses read in the pinned source; additive aliases, where used, confirmed from the explicit to_additive annotation."
+        "checked": "Independent REV-MotivicEtaleKTheory--M.5d~2, 2026-10-08: actual declaration, surrounding typeclass hypotheses and conventions read at the recorded pin; the provided operation matches its use here. Additive aliases checked through the pinned to_additive annotation."
       },
       {
         "ref": "mathlib:QuotientGroup.lift",
         "kind": "def",
         "module": "Mathlib/GroupTheory/QuotientGroup/Defs.lean",
         "provides": "The read to_additive annotation exports QuotientAddGroup.lift: an additive homomorphism killing a subgroup descends uniquely to the quotient.",
-        "checked": "Actual statement and relevant surrounding hypotheses read in the pinned source; additive aliases, where used, confirmed from the explicit to_additive annotation."
+        "checked": "Independent REV-MotivicEtaleKTheory--M.5d~2, 2026-10-08: actual declaration, surrounding typeclass hypotheses and conventions read at the recorded pin; the provided operation matches its use here. Additive aliases checked through the pinned to_additive annotation."
       },
       {
         "ref": "mathlib:mem_bot_iff_intCast",
         "kind": "theorem",
         "module": "Mathlib/FieldTheory/Finite/Basic.lean",
         "provides": "In prime characteristic the prime subfield consists of integer casts.",
-        "checked": "Statement and hypotheses read in the pinned source."
+        "checked": "Independent REV-MotivicEtaleKTheory--M.5d~2, 2026-10-08: actual declaration, surrounding typeclass hypotheses and conventions read at the recorded pin; the provided operation matches its use here. Additive aliases checked through the pinned to_additive annotation."
       },
       {
         "ref": "mathlib:AlternatingMap.map_coord_zero",
         "kind": "theorem",
         "module": "Mathlib/LinearAlgebra/Alternating/Basic.lean",
         "provides": "An alternating map with a zero coordinate is zero.",
-        "checked": "Statement and hypotheses read in the pinned source."
+        "checked": "Independent REV-MotivicEtaleKTheory--M.5d~2, 2026-10-08: actual declaration, surrounding typeclass hypotheses and conventions read at the recorded pin; the provided operation matches its use here. Additive aliases checked through the pinned to_additive annotation."
       },
       {
         "ref": "mathlib:CommGroup.torsion",
         "kind": "def",
         "module": "Mathlib/GroupTheory/Torsion.lean",
         "provides": "The torsion additive subgroup of an additive abelian group, reused in the genuine quotient I/I_tors.",
-        "checked": "Pinned CommGroup.torsion definition and its explicit to_additive export AddCommGroup.torsion, lines 365–395, read 2026-10-06."
+        "checked": "Independent REV-MotivicEtaleKTheory--M.5d~2, 2026-10-08: actual declaration, surrounding typeclass hypotheses and conventions read at the recorded pin; the provided operation matches its use here. Additive aliases checked through the pinned to_additive annotation."
       },
       {
         "ref": "mathlib:PadicInt",
         "kind": "def",
         "module": "Mathlib/NumberTheory/Padics/PadicIntegers.lean",
         "provides": "The existing p-adic integers as the norm-at-most-one subtype of the p-adic field, with prime Fact hypothesis and its native ring structure.",
-        "checked": "Definition, notation and ring instance read at the pin, lines 52–98, 2026-10-06."
+        "checked": "Independent REV-MotivicEtaleKTheory--M.5d~2, 2026-10-08: actual declaration, surrounding typeclass hypotheses and conventions read at the recorded pin; the provided operation matches its use here. Additive aliases checked through the pinned to_additive annotation."
       },
       {
         "ref": "mathlib:PadicInt.isUnit_iff",
         "kind": "theorem",
         "module": "Mathlib/NumberTheory/Padics/PadicIntegers.lean",
         "provides": "An element of Z_p is a unit exactly when its norm is one; supplies the integral-basis counterexample in the fundamental line.",
-        "checked": "Full statement and proof read at the pin, lines 373–379, and not_isUnit_iff at 392, 2026-10-06."
+        "checked": "Independent REV-MotivicEtaleKTheory--M.5d~2, 2026-10-08: actual declaration, surrounding typeclass hypotheses and conventions read at the recorded pin; the provided operation matches its use here. Additive aliases checked through the pinned to_additive annotation."
       },
       {
         "ref": "mathlib:Algebra.norm_algebraMap",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/Norm/Defs.lean",
         "provides": "For a free R-algebra S, norm(algebraMap(x))=x^finrank(R,S); applied to the genuine degree-two field norm, not to an invented transition.",
-        "checked": "Actual statement and surrounding hypotheses read at the pinned Mathlib commit on 2026-10-07; used by the revised typed signature or discriminating computation."
+        "checked": "Independent REV-MotivicEtaleKTheory--M.5d~2, 2026-10-08: actual declaration, surrounding typeclass hypotheses and conventions read at the recorded pin; the provided operation matches its use here. Additive aliases checked through the pinned to_additive annotation."
       },
       {
         "ref": "mathlib:Complex.finrank_real_complex",
         "kind": "theorem",
         "module": "Mathlib/LinearAlgebra/Complex/FiniteDimensional.lean",
         "provides": "The existing finite-dimensional R-vector-space structure on C has finrank two.",
-        "checked": "Actual statement and surrounding hypotheses read at the pinned Mathlib commit on 2026-10-07; used by the revised typed signature or discriminating computation."
+        "checked": "Independent REV-MotivicEtaleKTheory--M.5d~2, 2026-10-08: actual declaration, surrounding typeclass hypotheses and conventions read at the recorded pin; the provided operation matches its use here. Additive aliases checked through the pinned to_additive annotation."
       },
       {
         "ref": "mathlib:pow_lt_pow_right₀",
         "kind": "lemma",
         "module": "Mathlib/Algebra/Order/GroupWithZero/Basic.lean",
         "provides": "For 1<a and m<n, a^m<a^n; rational base a=2 separates source and target Adams weights.",
-        "checked": "Actual statement and surrounding hypotheses read at the pinned Mathlib commit on 2026-10-07; used by the revised typed signature or discriminating computation."
+        "checked": "Independent REV-MotivicEtaleKTheory--M.5d~2, 2026-10-08: actual declaration, surrounding typeclass hypotheses and conventions read at the recorded pin; the provided operation matches its use here. Additive aliases checked through the pinned to_additive annotation."
       },
       {
         "ref": "mathlib:LinearEquiv.ofBijective",
         "kind": "def",
         "module": "Mathlib/Algebra/Module/Submodule/Equiv.lean",
         "provides": "The equivalence induced by a bijective semilinear map, with ring-hom inverse-pair hypotheses; its underlying map is the supplied map.",
-        "checked": "Actual statement and surrounding hypotheses read at the pinned Mathlib commit on 2026-10-07; used by the revised typed signature or discriminating computation."
+        "checked": "Independent REV-MotivicEtaleKTheory--M.5d~2, 2026-10-08: actual declaration, surrounding typeclass hypotheses and conventions read at the recorded pin; the provided operation matches its use here. Additive aliases checked through the pinned to_additive annotation."
       }
     ]
   },
@@ -236,7 +236,7 @@
       "edition": "Author draft dated 29 August 2013",
       "url": "https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf",
       "sha256": "a04f53c9393b20672fab2a6818279b2f9996dbc7cf74735789ed13804b058845",
-      "accessed": "2026-10-06",
+      "accessed": "2026-10-08",
       "readSections": [
         "III.7 differential symbol, Definition 7.7.1 and Theorem 7.7.2, printed pp.250–251; Izhboldin continuation only a lead, no extra target",
         "V §§11.2–11.12, printed pp.451–458, and the universal motivic-class proof through p.459; Lemma 11.13 normalization",
@@ -251,7 +251,7 @@
       "edition": "Publications Mathématiques de l’IHÉS 63 (1986), 107–152, published scan",
       "url": "https://www.numdam.org/item/PMIHES_1986__63__107_0.pdf",
       "sha256": "51cf9c3fe85c3d55a6af56c9789c831b810cdd4c9b2c275057dcde6c14730dc8",
-      "accessed": "2026-10-06",
+      "accessed": "2026-10-08",
       "readSections": [
         "Entire §2, printed pp.113–118, re-read in this run, including Lemmas 2.2/2.3.2/2.5, Proposition 2.4 and Corollary 2.8",
         "Kato 1982 §1 is a cited original input that remains unread; no claim of full BK paper coverage"
@@ -264,7 +264,7 @@
       "edition": "Geometry & Topology Monographs 3 (2000), appendix pp.31–41; published publisher PDF",
       "url": "https://msp.org/gtm/2000/03/gtm-2000-03-003p.pdf",
       "sha256": "3fc22f399e587fbd689270de87e501f839258276b3926bc0a5acf395529a9b95",
-      "accessed": "2026-10-06",
+      "accessed": "2026-10-08",
       "readSections": [
         "Entire appendix A1–A2, printed pp.31–41 / PDF pp.1–11, read on 2026-09-26; key formulas on printed pp.31, 33, 36, 37, 38 and 40 visually checked.",
         "Compared the recorded source-issue passages with arXiv math/0012134v1. A2 remains a supplementary account with unresolved proof obligations, not a completed BGK proof.",
@@ -279,7 +279,7 @@
       "edition": "arXiv:math/0510334v1, 16 October 2005; publication 2008; locators here use the 67-page preprint",
       "url": "https://arxiv.org/pdf/math/0510334",
       "sha256": "5f268002b5ec36a74932a48ac051712c9c19c41a8b76e5bcb5dcdf0800538190",
-      "accessed": "2026-10-06",
+      "accessed": "2026-10-08",
       "readSections": [
         "Introduction §1.3; §2.1 support construction and convergence discussion",
         "Theorem 3.2.1 statement and opening proof; §4.1 Theorem 4.1.1 and proof; §5.3 Theorem 5.3.1/Corollary 5.3.2",
@@ -293,7 +293,7 @@
       "edition": "Author preprint December 2001, 86 pages",
       "url": "https://www.esaga.uni-due.de/f/marc.levine/publ/KthyMotI12.01.pdf",
       "sha256": "67affc5d6f837a78281c824d21723be9af1180bb77d44e8cff9cca5b0b2ef820",
-      "accessed": "2026-10-06",
+      "accessed": "2026-10-08",
       "readSections": [
         "Introduction and §2.3–§2.5 support/face definitions",
         "Theorem 12.12 and its proof, pp.58–59; Theorems 14.5 and 14.7 statements, pp.71–73",
@@ -308,7 +308,7 @@
       "edition": "Author PDF, published 2022",
       "url": "https://math.berkeley.edu/~fengt/Galois_action_on_KSp.pdf",
       "sha256": "5d717b2a94288593049be2aed34e38dbde10750beba4bd3d3387820d038e8807",
-      "accessed": "2026-10-06",
+      "accessed": "2026-10-08",
       "readSections": [
         "§§2.6–2.8, including Remark 2.8, Proposition 2.9, Lemma 2.10, Adams/transfer conventions and cited transfer proof",
         "Only these ordinary/étale K-theory inputs are routed here; no KSp construction planned"
@@ -321,7 +321,7 @@
       "edition": "Annals of Mathematics 194 (2021); author PDF AIPF.pdf",
       "url": "https://www.math.columbia.edu/~chaoli/AIPF.pdf",
       "sha256": "6ef2d63ea2cf55d8a2648f71ed7ac84e4d32f77e9e7eaeb62b47e584e4e5e566",
-      "accessed": "2026-10-06",
+      "accessed": "2026-10-08",
       "readSections": [
         "Appendix B, pp.57–62, including Lemma B.6, support Chern map and footnote 22",
         "No other automorphic or height-theoretic assertions routed to this packet"
@@ -334,7 +334,7 @@
       "edition": "The arithmetic and geometry of algebraic cycles (2000), author PDF",
       "url": "https://www.math.ias.edu/vladimir/sites/math.ias.edu.vladimir/files/susvoenew.pdf",
       "sha256": "4f29e999c004da03de80d80e3acc4b4318a18c95951629d9f899e27164fd5fad",
-      "accessed": "2026-10-06",
+      "accessed": "2026-10-08",
       "readSections": [
         "§7, pp.52–53, Theorem 7.4 and its resolution-of-singularities hypothesis; general proof not fully read"
       ]
@@ -346,7 +346,7 @@
       "edition": "Annales scientifiques de l’École normale supérieure 12 (1979), 501–661, published scan",
       "url": "https://www.numdam.org/item/ASENS_1979_4_12_4_501_0.pdf",
       "sha256": "bf9b783b4f5f255133c68ccb544aec029f25828aa943a744ccb6958d51f218d8",
-      "accessed": "2026-10-06",
+      "accessed": "2026-10-08",
       "readSections": [
         "I §5.7, printed pp.596–598, statements 5.7.1–5.7.9 and proof of Corollary 5.7.5",
         "This is I(5.7.5), not part II; full general de Rham–Witt theory stays with CR.4"
@@ -359,7 +359,7 @@
       "edition": "Mathematische Zeitschrift 248 (2004), 773–794, author/published PDF",
       "url": "https://www2.rikkyo.ac.jp/web/geisser/Dedekind.pdf",
       "sha256": "88b92df6124b0e3a2be09ac24250c2b811572628d17a6282e787e0883160091f",
-      "accessed": "2026-10-06",
+      "accessed": "2026-10-08",
       "readSections": [
         "Introduction, exact Theorem 1.2; Lemma 2.1 and Proposition 2.2",
         "Entire §5 proof of Theorem 1.2, pp.787–789; cited Geisser–Levine original unavailable"
@@ -372,7 +372,7 @@
       "edition": "arXiv:2009.07225v4, 27 April 2026; routed Annals 204 (2026)",
       "url": "https://arxiv.org/pdf/2009.07225v4",
       "sha256": "1e4b6720055ebdce0012f5780bfc7cdb5b853e32f29b17224a1be0bc676f770c",
-      "accessed": "2026-10-06",
+      "accessed": "2026-10-08",
       "readSections": [
         "Lemma 3.2.4 and entire proof, pp.56–57 only; no other hermitian K results claimed"
       ]
@@ -384,7 +384,7 @@
       "edition": "Annales scientifiques de l’École normale supérieure 35 (2002), author-hosted PDF",
       "url": "https://dornsife.usc.edu/ericmfriedlander/wp-content/uploads/sites/233/2023/06/23.pdf",
       "sha256": "d716deea11cf2e9e56d04b78eb777b10037bef4573fcc32db957d2cf6c4735a3",
-      "accessed": "2026-10-06",
+      "accessed": "2026-10-08",
       "readSections": [
         "Introduction; §13 Lemma 13.12 and Theorem 13.13, pp.67–68; Proposition 13.17 and Theorem 13.18, pp.71–72",
         "Earlier full multi-relative comparison/moving proofs not read; global filtered-zigzag gap retained"
@@ -397,7 +397,7 @@
       "edition": "Astérisque 147–148 (1987), 225–257, published scan",
       "url": "https://www.numdam.org/item/AST_1987__147-148__225_0.pdf",
       "sha256": "714881bf6d8d10db209d9a3f03835fb048e4fc85ae103942daaefc3924efb0b7",
-      "accessed": "2026-10-06",
+      "accessed": "2026-10-08",
       "readSections": [
         "§4.1–§4.4, printed pp.238–240: compatible units, Bott powers and K-degree/norm conventions"
       ]
@@ -409,7 +409,7 @@
       "edition": "ICM 2002 proceedings, 163–171; arXiv:math/0304233v1, 16 April 2003",
       "url": "https://arxiv.org/pdf/math/0304233v1",
       "sha256": "6d7f3a5924fd5291bc23870547b05552ba7fb1e39413d551f11daf052fbcf12b",
-      "accessed": "2026-10-06",
+      "accessed": "2026-10-08",
       "readSections": [
         "§§1.1–1.3 and §2.1 through its fundamental-line discussion, pp.163–168; opening of §2.2, p.169",
         "No proof of the characteristic-zero conjectural zeta-element/basis assertions is claimed"
@@ -422,9 +422,9 @@
       "edition": "CRM Monograph Series 15 (2002), author PDF",
       "url": "https://www.icmat.es/miembros/burgos/files/brbr.pdf",
       "sha256": "da6ba8c4b08bf447d1575788c33b96c52d8d0d0a377e8f2990ead6aed73f65ea",
-      "accessed": "2026-10-06",
+      "accessed": "2026-10-08",
       "readSections": [
-        "§4.4 and Remark 4.25 normalization, pp.31–32",
+        "§4.4 Proposition 4.20/Definition 4.21, pp.30–31; §4.5 Theorem 4.24/Remark 4.25, p.32",
         "§10.1–§10.3 in full, pp.89–94; §10.4 infinitesimal-diagonal construction and diagram through Lemma 10.10 and Proposition 10.11 on p.97",
         "§8.1 Lemmas 8.6–8.7 proof passage only; Theorems 8.12/8.15 and the full general Weil-algebra comparison are supplier inputs, not claimed fully read"
       ]
@@ -1603,9 +1603,15 @@
         "namespace": "TauCeti.MotivicEtale"
       },
       "acceptance": [
-        "Use the indicated genuine supplier carriers, the displayed coefficient and degree conventions, and the stated scheme class; the suggested signatures are prototypes."
+        "Use the indicated genuine supplier carriers, the displayed coefficient and degree conventions, and the stated scheme class; the suggested signatures are prototypes.",
+        "In the prototype, the Teichmüller wedge is a named genuine CR.4 supplier operation, not an arbitrary tuple map. Restriction preserves these wedges; coefficient reduction preserves quotient representatives; i sends [x] to [p^(r−1)x] and j sends the length-one wedge to p^(r−1) times the length-r wedge. The degree-zero equivalence preserves the unit section. These native evaluation laws are explicit hypotheses, while unavailable geometric sheaf conditions remain binding here."
       ],
       "api": [
+        {
+          "name": "TauCeti.MotivicEtale.wittLogWedge",
+          "role": "data",
+          "statement": "The CR.4 Teichmüller logarithmic wedge for the actual field, length and degree; the empty wedge is the unit section. It is fixed independently of h_r."
+        },
         {
           "name": "TauCeti.MotivicEtale.wittSymbol_symbol",
           "role": "simp",
@@ -2172,14 +2178,15 @@
       ],
       "title": "Well-connected K-theory",
       "kind": "theorem",
-      "statement": "K on smooth perfect-field schemes is well connected: support spectra used in the tower are connective, and the P¹-loop iterates have no nonzero homotopy in degrees other than zero on the indicated multirelative semilocal simplices. Their degree-zero cycle maps give the codimension-p cycle generators.",
+      "statement": "K on smooth schemes over a perfect field is well connected: each support spectrum is connective, and for every d≥0 the zeroth coniveau layer of Ω_T^d K over a finitely generated field F has homotopy only in degree zero. Proposition 6.3.4 reduces this second condition to vanishing of π₀ of the multirelative semilocal n-simplex with its boundary for n≥1; it does not assert concentration of that multirelative spectrum in degree zero. The resulting layer identifies degree-zero classes with cycle generators.",
       "hypotheses": [
-        "Levine Definition 6.1.1 well-connectedness; semilocal Δ with all faces and their boundary; regular ambient schemes, not arbitrary singular K-theory."
+        "Levine Definition 6.1.1: homotopy invariance, Nisnevich excision and finite-field axiom A3; connectivity of K with supports in smooth ambient schemes; finitely generated field extensions of the perfect base.",
+        "For the π₀ criterion, semilocal simplices include all their faces and their normal-crossing boundary; no corresponding assertion is made for arbitrary singular K-theory."
       ],
       "proofSteps": [
         "K satisfies homotopy invariance and excision; K₀ regular ambient→K₀ open is surjective, so its support fibre is connective.",
-        "Identify Ω_TK≃K through the projective-bundle formula. For semilocal simplices with normal-crossing boundary, apply the Vorst K₁ input and K/KH comparison and Mayer–Vietoris requested from the scheme owner.",
-        "Apply Corollary 5.3.2 to the resulting connective layer and cycle generators. The generic KH/boundary input remains an explicit supplier gap."
+        "Identify Ω_T K≃K through the projective-bundle formula. For the semilocal simplex ring R and boundary R/I, use the Vorst K₁ input, K_n≃KH_n for n≤1, Mayer–Vietoris, surjectivity GL(R)→GL(R/I) and K₀(R)≃K₀(R/I)≃Z to obtain multirelative K₀=0 for n≥1. The general KH/boundary input is requested from the scheme owner.",
+        "Apply Proposition 6.3.4 to obtain the degree-zero concentration required by Definition 6.1.1, giving Theorem 6.4.1. Corollary 5.3.2 and Theorem 6.4.2 then identify the layers with the cycle complexes. The generic KH/boundary input remains an explicit supplier gap."
       ],
       "prerequisites": [
         "MotivicEtaleKTheory:M.6a/moving-and-excision",
@@ -2189,8 +2196,8 @@
       "sources": [
         {
           "sourceId": "Levine2008",
-          "locator": "§6.4 proof of Theorem 6.4.2, pp.35–37",
-          "match": "The homotopy coniveau construction is defined on actual support K-theory spectra before identifying its layers."
+          "locator": "Definition 6.1.1, p.30; Proposition 6.3.4, pp.34–35; Theorem 6.4.1 and proof, pp.35–36; Theorem 6.4.2, pp.36–37",
+          "match": "Support connectivity and field-layer concentration are separate conditions; positive-dimensional multirelative π₀ vanishing is the proof criterion for the latter."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2524,7 +2531,7 @@
         {
           "sourceId": "LevineSchemes",
           "locator": "Theorem 12.12 and proof, pp.58–59",
-          "match": "Filtered λ/Adams construction and the codimension weight calculation."
+          "match": "Filtered λ/Adams construction and the codimension weight calculation. The sign of the weight is determined by the cycle codimension: the exponent is j at E₂^(a,−j). The source indexing misprint is recorded as E8."
         },
         {
           "sourceId": "Kbook2013",
@@ -2540,7 +2547,8 @@
       "acceptance": [
         "Use the indicated genuine supplier carriers, the displayed coefficient and degree conventions, and the stated scheme class; the suggested signatures are prototypes.",
         "The suggested operation is the induced page action of a transition- and augmentation-compatible tower endomorphism. An arbitrary endomorphism of E₂ does not satisfy this interface.",
-        "Its augmentation action is explicitly the supplied scheme Adams operation on K(X), so the filtered action is tied to the claimed abutment operation."
+        "Its augmentation action is explicitly the supplied scheme Adams operation on K(X), so the filtered action is tied to the claimed abutment operation.",
+        "Keep positive cycle weight j and scalar k^j. Levine Theorem 12.12(3), p.58, has the opposite sign when written in its displayed second-page coordinate; E8 records the correction, consistent with Theorem 14.7, pp.73–74."
       ],
       "planet": {
         "name": "Filtered Adams operations"
@@ -2589,7 +2597,8 @@
       },
       "acceptance": [
         "Use the indicated genuine supplier carriers, the displayed coefficient and degree conventions, and the stated scheme class; the suggested signatures are prototypes.",
-        "The differential and rational Adams actions belong to the same pages and satisfy the equivariance and inherited-weight laws. The suggested scalar argument proves the conditional algebraic vanishing; constructing the filtered action and finite filtration remains required."
+        "The differential and rational Adams actions belong to the same pages and satisfy the equivariance and inherited-weight laws. The suggested scalar argument proves the conditional algebraic vanishing; constructing the filtered action and finite filtration remains required.",
+        "The independent review confirms E6 (missing projector in two proof identities) and E7 (reversed filtration direction) in Levine Lemma 14.6, pp.71–72. The rational splitting uses part (1) with the corrected projected argument and does not rely on the incomplete printed induction of part (2)."
       ],
       "planet": {
         "name": "Rational motivic degeneration"
@@ -3175,7 +3184,7 @@
       "sources": [
         {
           "sourceId": "FGV2022",
-          "locator": "Transfer compatibility proof immediately before §2.8, pp.16–17",
+          "locator": "Proposition 2.15, Remark 2.16 and transfer/descent proof, pp.15–16, before §2.8",
           "match": "Odd-prime Bott inversion, Thomason descent, Adams operations and arithmetic transfer comparison in the source’s stated range."
         }
       ],
@@ -3768,11 +3777,11 @@
       "kind": "theorem",
       "statement": "For a number field F and j≥2, identify H_D¹(F⊗R,R(j)) with (∏_(σ:F→C)R(j−1))^conjugation using C/R(j)≃R(j−1) and the conjugate pairing. The universal rational K_(2j−1) character is the normalized suspension of the universal topological Chern character, ch_j=(2πi)^j pr_j/j! before suspension. The simplicial first-infinitesimal-diagonal realization, Adams weight, products and embeddings commute with this map. This export has no R.7 or D2 prerequisite.",
       "hypotheses": [
-        "pr_j is the primitive Newton class with the stated topological normalization; after positive-degree suspension the relation is the (j−1)! normalization of the preceding node. j≥2; no Borel analytic normalization assumed."
+        "pr_j is the primitive Newton class of Burgos Definition 4.21, §4.4, p.31: modulo decomposables its b_j coefficient is (−1)^(j−1)j. Thus suspension of ch_j is (−1)^(j−1)(2πi)^j α_(2j−1)/(j−1)!, in the source’s fixed Chern/suspension convention. j≥2; no Borel analytic normalization assumed."
       ],
       "proofSteps": [
         "Use Burgos (10.2) and Examples 10.4–10.5 to identify point Deligne cohomology and take conjugation invariants across all embeddings.",
-        "The universal class is the unique Deligne lift of ch_j under (10.10). Apply simplicial evaluation ev to B•GL(C)^δ and the plus-space Hurewicz pairing of Definition 10.7, then the embedding product of Definition 10.8. Remark 4.25 fixes suspension and the (j−1)! factor.",
+        "The universal class is the unique Deligne lift of ch_j under (10.10). Apply simplicial evaluation ev to B•GL(C)^δ and the plus-space Hurewicz pairing of Definition 10.7, then the embedding product of Definition 10.8. Definition 4.21 and Proposition 4.20 fix the signed suspension and (j−1)! factor. Remark 4.25 gives its absolute normalization but omits the Newton sign (E9).",
         "For the infinitesimal-diagonal interface, use the squared identity ideal J in §10.4, normalize its cosimplicial structure, and import the general differential/Weil algebra identifications from §§8.1–8.3. The original general Weil-algebra comparison proof remains with its supplier; the displayed real/complex diagram pins the map. This construction precedes the Borel factor-two theorem."
       ],
       "prerequisites": [
@@ -3784,7 +3793,7 @@
       "sources": [
         {
           "sourceId": "Burgos2002",
-          "locator": "§4.4, Remark 4.25; §10.1 Examples 10.4–10.5; §§10.2–10.4 through the diagram on p.97",
+          "locator": "§4.4, Proposition 4.20 and Definition 4.21, pp.30–31; §4.5, Theorem 4.24 and Remark 4.25, p.32; §10.1 Examples 10.4–10.5, pp.91–92; §§10.2–10.4, pp.92–97",
           "match": "Direct early definition from the universal Deligne class, point quotient, simplicial evaluation and Hurewicz map; no Borel comparison used."
         }
       ],
@@ -3794,7 +3803,8 @@
         "namespace": "TauCeti.MotivicEtale"
       },
       "acceptance": [
-        "Use the indicated genuine supplier carriers, the displayed coefficient and degree conventions, and the stated scheme class; the suggested signatures are prototypes."
+        "Use the indicated genuine supplier carriers, the displayed coefficient and degree conventions, and the stated scheme class; the suggested signatures are prototypes.",
+        "Use the Newton recurrence of Definition 4.21 to retain (−1)^(j−1) on the suspended primitive generator; E9 records the omission in Remark 4.25. This sign is absorbed only when a generator is explicitly reoriented, not silently discarded."
       ],
       "declarationName": "TauCeti.MotivicEtale.number_field_deligne_normalization"
     },
@@ -4683,7 +4693,7 @@
     },
     {
       "title": "Resolution-free Beilinson–Lichtenbaum input",
-      "detail": "Geisser–Levine 2001, Invent. Math. 143, pp.55–113: original author PDF BlochKato.pdf returned 404. Read its resolution-free cone/truncation proof and extract the exact semilocal transfer hypotheses. SV2000 Theorem 7.4 was read with resolution of singularities and does not supply the unconditional version by itself; Geisser Dedekind §5 supplies only the cited application.",
+      "detail": "Geisser–Levine 2001, Invent. Math. 143, pp.55–113: original author PDF BlochKato.pdf returned 404. Read its resolution-free cone/truncation proof and extract the exact semilocal transfer hypotheses. SV2000 Theorem 7.4 was read with resolution of singularities and does not supply the unconditional version by itself; Geisser Dedekind §5 supplies only the cited application. Assembly: MC.4/suslin-friedlander-into-cycle-complex and MC.4/motivic-cohomology-higher-chow supply the packaged comparison only under their stated perfect-field hypotheses, and M.5a/cycle-complex-transfers supplies the transfer action. Those exact imports do not prove the unrestricted resolution-free passage; that obligation remains here and in M.5c/hilbert-ninety-implies-beilinson-lichtenbaum.",
       "neededBy": [
         "MotivicEtaleKTheory:M.5d/mod-prime-motivic-comparison",
         "MotivicEtaleKTheory:M.7/beilinson-lichtenbaum",
@@ -4692,7 +4702,7 @@
     },
     {
       "title": "Global filtered-model comparison",
-      "detail": "Read the complete comparison between Levine homotopy coniveau and the Friedlander–Suslin global multi-relative K tower, and construct a filtered zigzag with augmentation/layer compatibility. Levine Theorem 6.4.1 and FS Theorem 13.13 each give their own layers; equality of E₂ pages is not the missing global equivalence.",
+      "detail": "Read the complete comparison between Levine homotopy coniveau and the Friedlander–Suslin global multi-relative K tower, and construct a filtered zigzag with augmentation/layer compatibility. Levine Theorem 6.4.2 and FS Theorem 13.13 each give their own layers; equality of E₂ pages is not the missing global equivalence.",
       "neededBy": [
         "MotivicEtaleKTheory:M.6a/global-model-comparison"
       ]
@@ -4766,15 +4776,6 @@
         "MotivicEtaleKTheory:M.8/arithmetic-fundamental-line",
         "MotivicEtaleKTheory:M.8/regulator-determinant-comparison"
       ]
-    },
-    {
-      "title": "Resolution-free Beilinson–Lichtenbaum input",
-      "detail": "Geisser–Levine 2001, Invent. Math. 143, pp.55–113: original author PDF BlochKato.pdf returned 404. Read its resolution-free cone/truncation proof and extract the exact semilocal transfer hypotheses. SV2000 Theorem 7.4 was read with resolution of singularities and does not supply the unconditional version by itself; Geisser Dedekind §5 supplies only the cited application. Assembly: MC.4/suslin-friedlander-into-cycle-complex and MC.4/motivic-cohomology-higher-chow supply the packaged comparison only under their stated perfect-field hypotheses, and M.5a/cycle-complex-transfers supplies the transfer action. Those exact imports do not prove the unrestricted resolution-free passage; that obligation remains here and in M.5c/hilbert-ninety-implies-beilinson-lichtenbaum.",
-      "neededBy": [
-        "MotivicEtaleKTheory:M.5d/mod-prime-motivic-comparison",
-        "MotivicEtaleKTheory:M.7/beilinson-lichtenbaum",
-        "MotivicEtaleKTheory:M.5d/prime-power-norm-residue"
-      ]
     }
   ],
   "sourceIssues": [
@@ -4783,7 +4784,7 @@
       "source": "KF2000",
       "kind": "misprint",
       "locator": "A2.2, printed p.40 (PDF p.10), definition of k_n(O)",
-      "printed": "k_n(O) = ker(k_n(E) → k_n(k))",
+      "printed": "The unramified Milnor-group definition uses a residue target with the same degree as the source.",
       "correction": "The defining map is the tame residue k_n(E)→k_(n−1)(k). The subsequent specialization from its kernel to k_n(k) is a separate map.",
       "reason": "The residue decreases degree. Bloch–Kato (2.3), printed p.114, displays the degree-(q−1) target explicitly; confusing it with specialization destroys the diagram.",
       "affects": "the proof",
@@ -4791,12 +4792,13 @@
       "searched": [
         "Publisher volume table of contents https://msp.org/gtm/2000/03/index.xhtml and the exact published appendix PDF inspected on 2026-09-26; no linked correction found.",
         "Targeted web searches on 2026-09-26 for Kurihara Fesenko Appendix errata and site:msp.org/gtm/2000/03 correction; no correction located. This is not a claim that none exists.",
-        "Independent review 2026-10-06: publisher appendix, arXiv math/0012134v1 and author volume https://ivanfesenko.org/wp-content/uploads/2021/10/m3-partI.pdf compared at the cited passages. arXiv metadata lists only v1. Targeted publisher/arXiv/author searches and author research-page inspection located no corrigendum; the MSP contents endpoint failed to render, so no comprehensive errata-list check is claimed."
+        "Independent review 2026-10-06: publisher appendix, arXiv math/0012134v1 and author volume https://ivanfesenko.org/wp-content/uploads/2021/10/m3-partI.pdf compared at the cited passages. arXiv metadata lists only v1. Targeted publisher/arXiv/author searches and author research-page inspection located no corrigendum; the MSP contents endpoint failed to render, so no comprehensive errata-list check is claimed.",
+        "Independent review 2026-10-08: exact recorded publisher/author PDF checked; targeted public searches for the appendix or Levine preprint, errata and relevant theorem numbers found no correction. Other editions were not independently compared in this run; novelty remains unestablished."
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Confirmed visually in the publisher PDF and repeated in arXiv v1/author volume. BK (2.3) has the tame-residue target of degree n−1; specialization from the kernel is a separate degree-n map.",
-        "by": "REV-MotivicEtaleKTheory--M.5d"
+        "reason": "Independently confirmed in the publisher appendix, p.40, against BK (2.3), p.114: tame residue lowers the Milnor degree; specialization from its kernel is a separate same-degree map.",
+        "by": "REV-MotivicEtaleKTheory--M.5d~2"
       }
     },
     {
@@ -4804,7 +4806,7 @@
       "source": "KF2000",
       "kind": "misprint",
       "locator": "A2.2, printed p.40 (PDF p.10), definition of ν_n(O)",
-      "printed": "ν_n(O) = ker(Ω_O^n → Ω_O^n/dΩ_O^(n−1))",
+      "printed": "The logarithmic kernel is displayed with an unlabeled arrow from forms to forms modulo exact forms.",
       "correction": "Label the arrow 1−C⁻¹ (or its negative), rather than leaving a quotient projection as the only evident map.",
       "reason": "BK (2.3), printed p.114, specifies 1−C⁻¹. The kernel of projection in degree zero is zero, whereas the logarithmic kernel contains 1. The intended arithmetic target would be lost.",
       "affects": "the proof",
@@ -4812,12 +4814,13 @@
       "searched": [
         "Publisher volume table of contents https://msp.org/gtm/2000/03/index.xhtml and the exact published appendix PDF inspected on 2026-09-26; no linked correction found.",
         "Targeted web searches on 2026-09-26 for Kurihara Fesenko Appendix errata and site:msp.org/gtm/2000/03 correction; no correction located. This is not a claim that none exists.",
-        "Independent review 2026-10-06: publisher appendix, arXiv math/0012134v1 and author volume https://ivanfesenko.org/wp-content/uploads/2021/10/m3-partI.pdf compared at the cited passages. arXiv metadata lists only v1. Targeted publisher/arXiv/author searches and author research-page inspection located no corrigendum; the MSP contents endpoint failed to render, so no comprehensive errata-list check is claimed."
+        "Independent review 2026-10-06: publisher appendix, arXiv math/0012134v1 and author volume https://ivanfesenko.org/wp-content/uploads/2021/10/m3-partI.pdf compared at the cited passages. arXiv metadata lists only v1. Targeted publisher/arXiv/author searches and author research-page inspection located no corrigendum; the MSP contents endpoint failed to render, so no comprehensive errata-list check is claimed.",
+        "Independent review 2026-10-08: exact recorded publisher/author PDF checked; targeted public searches for the appendix or Levine preprint, errata and relevant theorem numbers found no correction. Other editions were not independently compared in this run; novelty remains unestablished."
       ],
       "review": {
         "verdict": "rejected",
-        "reason": "Rejected as a demonstrated misprint: the arrow on p.40 is unlabeled, not labeled as quotient projection. A2 already defines the Artin–Schreier/Cartier operator on pp.35–36, so that context supplies the intended arrow. Labeling it would clarify the exposition; the counterexample to projection does not establish that projection was asserted. Retain the Cartier operator in the blueprint.",
-        "by": "REV-MotivicEtaleKTheory--M.5d"
+        "reason": "Independently rejected as a demonstrated misprint: the p.40 arrow is unlabeled. A2 on pp.35–36 has already introduced the Artin–Schreier/Cartier operator. The projection counterexample tests a reading that the source does not assert.",
+        "by": "REV-MotivicEtaleKTheory--M.5d~2"
       }
     },
     {
@@ -4825,7 +4828,7 @@
       "source": "KF2000",
       "kind": "error",
       "locator": "A2.1 Definitions–Properties (1), printed p.36, followed by the ordering of S in the proof on p.37 (PDF pp.6–7)",
-      "printed": "s₁ > ⋯ > s_m",
+      "printed": "The proof enumerates all increasing index tuples as a descending chain for the previously defined componentwise partial order.",
       "correction": "Use the lexicographic order of BK Proposition 2.4, printed p.115, and recheck every lower-term assertion against that order. This identifies the failed enumeration, not a certification of the whole supplementary proof.",
       "reason": "The printed componentwise strict partial order does not totally order increasing tuples: (1,4) and (2,3) are incomparable. Consequently all increasing 2-tuples from four indices cannot be enumerated as the asserted strict chain.",
       "affects": "the proof",
@@ -4833,12 +4836,13 @@
       "searched": [
         "Publisher volume table of contents https://msp.org/gtm/2000/03/index.xhtml and the exact published appendix PDF inspected on 2026-09-26; no linked correction found.",
         "Targeted web searches on 2026-09-26 for Kurihara Fesenko Appendix errata and site:msp.org/gtm/2000/03 correction; no correction located. This is not a claim that none exists.",
-        "Independent review 2026-10-06: publisher appendix, arXiv math/0012134v1 and author volume https://ivanfesenko.org/wp-content/uploads/2021/10/m3-partI.pdf compared at the cited passages. arXiv metadata lists only v1. Targeted publisher/arXiv/author searches and author research-page inspection located no corrigendum; the MSP contents endpoint failed to render, so no comprehensive errata-list check is claimed."
+        "Independent review 2026-10-06: publisher appendix, arXiv math/0012134v1 and author volume https://ivanfesenko.org/wp-content/uploads/2021/10/m3-partI.pdf compared at the cited passages. arXiv metadata lists only v1. Targeted publisher/arXiv/author searches and author research-page inspection located no corrigendum; the MSP contents endpoint failed to render, so no comprehensive errata-list check is claimed.",
+        "Independent review 2026-10-08: exact recorded publisher/author PDF checked; targeted public searches for the appendix or Levine preprint, errata and relevant theorem numbers found no correction. Other editions were not independently compared in this run; novelty remains unestablished."
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Confirmed visually, with the same text in both other versions. Under the stated componentwise order (1,4) and (2,3) are incomparable, so the asserted strict enumeration of all increasing tuples fails. BK Proposition 2.4 uses lexicographic order; replacing the order alone does not certify the complete sketch.",
-        "by": "REV-MotivicEtaleKTheory--M.5d"
+        "reason": "Independently confirmed from pp.36–37: (1,4) and (2,3) are incomparable in the stated componentwise order. BK Proposition 2.4, p.115, instead supplies lexicographic order. This does not certify the rest of the sketch.",
+        "by": "REV-MotivicEtaleKTheory--M.5d~2"
       }
     },
     {
@@ -4846,7 +4850,7 @@
       "source": "KF2000",
       "kind": "error",
       "locator": "A1.1, generators-and-relations description of differentials, printed p.31 / PDF p.1",
-      "printed": "The presentation takes dx, indexed by x ∈ B, as generators. Its stated relations are d(xy) = xdy + ydx and dx = 0 whenever x ∈ A.",
+      "printed": "The differential-module presentation imposes the product relation and vanishing on base scalars, but omits the sum relation.",
       "correction": "Include the additive relation d(x+y)=dx+dy for all x,y∈B. The preceding derivation universal property is the correct specification, and the roadmap should use the existing Kähler differential module with additive derivation.",
       "reason": "Leibniz and annihilation of base scalars do not imply additivity. Take A=ℚ, B=ℚ(t), M=B and define δ(f)=f·ord_t(f) for f≠0, δ(0)=0. Valuation additivity gives δ(fg)=fδ(g)+gδ(f), and δ annihilates ℚ, but δ(t+1)=0 whereas δ(t)+δ(1)=t. Thus the displayed relations alone admit a nonadditive map and do not present Kähler differentials.",
       "affects": "a stated result",
@@ -4856,12 +4860,13 @@
         "arXiv math/0012134 submission history lists only v1 (18 December 2000); the downloaded v1 repeats the cited passages.",
         "Targeted search for Kurihara Fesenko Appendix Section 2 errata found no corrigendum. The publisher contents endpoint did not render in the browser tool; no comprehensive publisher errata-list check is claimed.",
         "Author-hosted https://ivanfesenko.org/wp-content/uploads/2021/10/m3-partI.pdf was located but direct download returned HTTP 406; it was not used as a checked text.",
-        "Independent review 2026-10-06: publisher appendix, arXiv math/0012134v1 and author volume https://ivanfesenko.org/wp-content/uploads/2021/10/m3-partI.pdf compared at the cited passages. arXiv metadata lists only v1. Targeted publisher/arXiv/author searches and author research-page inspection located no corrigendum; the MSP contents endpoint failed to render, so no comprehensive errata-list check is claimed."
+        "Independent review 2026-10-06: publisher appendix, arXiv math/0012134v1 and author volume https://ivanfesenko.org/wp-content/uploads/2021/10/m3-partI.pdf compared at the cited passages. arXiv metadata lists only v1. Targeted publisher/arXiv/author searches and author research-page inspection located no corrigendum; the MSP contents endpoint failed to render, so no comprehensive errata-list check is claimed.",
+        "Independent review 2026-10-08: exact recorded publisher/author PDF checked; targeted public searches for the appendix or Levine preprint, errata and relevant theorem numbers found no correction. Other editions were not independently compared in this run; novelty remains unestablished."
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Confirmed visually and in both other versions. The valuation example over Q(t) satisfies the two displayed relations and fails additivity, so the generators-and-relations presentation needs the additive relation. The preceding derivation universal property supplies the correct object.",
-        "by": "REV-MotivicEtaleKTheory--M.5d"
+        "reason": "Independently confirmed from p.31. The valuation map δ(f)=f ord_t(f) on Q(t), with δ(0)=0, satisfies Leibniz and kills Q but has δ(t+1)=0≠t=δ(t)+δ(1). Additivity must be a relation.",
+        "by": "REV-MotivicEtaleKTheory--M.5d~2"
       }
     },
     {
@@ -4869,7 +4874,7 @@
       "source": "KF2000",
       "kind": "misprint",
       "locator": "A1.1, second symbol relation, printed p.33 / PDF p.3",
-      "printed": "[a, b₁b₂} = [a, b₁} + [a₂, b₂}",
+      "printed": "In the second logarithmic-symbol relation, the last summand has a different, unbound coefficient.",
       "correction": "The final term is [a,b₂}; the same coefficient a occurs in both terms.",
       "reason": "The relation comes from a·dlog(b₁b₂)=a·dlog(b₁)+a·dlog(b₂). The printed a₂ is free and unrelated to a. For example over ℚ(t), a=0, a₂=1, b₁=1, b₂=t gives zero on the left and dt/t on the right if the printed relation is imposed.",
       "affects": "nothing",
@@ -4879,12 +4884,13 @@
         "arXiv math/0012134 submission history lists only v1 (18 December 2000); the downloaded v1 repeats the cited passages.",
         "Targeted search for Kurihara Fesenko Appendix Section 2 errata found no corrigendum. The publisher contents endpoint did not render in the browser tool; no comprehensive publisher errata-list check is claimed.",
         "Author-hosted https://ivanfesenko.org/wp-content/uploads/2021/10/m3-partI.pdf was located but direct download returned HTTP 406; it was not used as a checked text.",
-        "Independent review 2026-10-06: publisher appendix, arXiv math/0012134v1 and author volume https://ivanfesenko.org/wp-content/uploads/2021/10/m3-partI.pdf compared at the cited passages. arXiv metadata lists only v1. Targeted publisher/arXiv/author searches and author research-page inspection located no corrigendum; the MSP contents endpoint failed to render, so no comprehensive errata-list check is claimed."
+        "Independent review 2026-10-06: publisher appendix, arXiv math/0012134v1 and author volume https://ivanfesenko.org/wp-content/uploads/2021/10/m3-partI.pdf compared at the cited passages. arXiv metadata lists only v1. Targeted publisher/arXiv/author searches and author research-page inspection located no corrigendum; the MSP contents endpoint failed to render, so no comprehensive errata-list check is claimed.",
+        "Independent review 2026-10-08: exact recorded publisher/author PDF checked; targeted public searches for the appendix or Levine preprint, errata and relevant theorem numbers found no correction. Other editions were not independently compared in this run; novelty remains unestablished."
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Confirmed visually and in both other versions. The free a₂ in the second relation must be the same a as on the left; the dlog product rule and the supplied Q(t) example both verify this.",
-        "by": "REV-MotivicEtaleKTheory--M.5d"
+        "reason": "Independently confirmed from p.33. The product rule for a dlog forces the same coefficient in both summands; the free second coefficient contradicts the example a=0, b₁=1, b₂=t over Q(t).",
+        "by": "REV-MotivicEtaleKTheory--M.5d~2"
       }
     },
     {
@@ -4892,7 +4898,7 @@
       "source": "KF2000",
       "kind": "misprint",
       "locator": "A2.1 proof of Proposition, definition of r on p.38 and top-degree forms on p.39 / PDF pp.8–9",
-      "printed": "The source sets |k₂ : k₁| = pʳ, then selects m(1) < ··· < m(r−n) and uses a union covering [s(1), s(n)] ∩ ℤ.",
+      "printed": "The top-form exponent is taken from the extension over the intermediate field rather than over the initial field.",
       "correction": "Define pʳ=[k₂:k₀], using the p-basis indices in the full interval from s(1) through s(n), rather than [k₂:k₁]. Then r is the degree of the top differential form and r−n is the number of complementary indices.",
       "reason": "The displayed definitions give [k₁:k₀]=p. Thus the printed r omits one p-basis element. Already for p=2, k=𝔽₂(b₁,b₂), n=2 and s=(1,2), the printed r is 1 although the interval has two elements: it asks for m(r−n)=m(−1), and Ω¹(k₂/k₀)/d(k₂) has dimension five over k₀, not one (Ω¹ has dimension eight and d(k₂) has dimension three). With r=2 the empty complement and the top-degree one-dimensional cohomology have the intended sizes.",
       "affects": "the proof",
@@ -4902,12 +4908,13 @@
         "arXiv math/0012134 submission history lists only v1 (18 December 2000); the downloaded v1 repeats the cited passages.",
         "Targeted search for Kurihara Fesenko Appendix Section 2 errata found no corrigendum. The publisher contents endpoint did not render in the browser tool; no comprehensive publisher errata-list check is claimed.",
         "Author-hosted https://ivanfesenko.org/wp-content/uploads/2021/10/m3-partI.pdf was located but direct download returned HTTP 406; it was not used as a checked text.",
-        "Independent review 2026-10-06: publisher appendix, arXiv math/0012134v1 and author volume https://ivanfesenko.org/wp-content/uploads/2021/10/m3-partI.pdf compared at the cited passages. arXiv metadata lists only v1. Targeted publisher/arXiv/author searches and author research-page inspection located no corrigendum; the MSP contents endpoint failed to render, so no comprehensive errata-list check is claimed."
+        "Independent review 2026-10-06: publisher appendix, arXiv math/0012134v1 and author volume https://ivanfesenko.org/wp-content/uploads/2021/10/m3-partI.pdf compared at the cited passages. arXiv metadata lists only v1. Targeted publisher/arXiv/author searches and author research-page inspection located no corrigendum; the MSP contents endpoint failed to render, so no comprehensive errata-list check is claimed.",
+        "Independent review 2026-10-08: exact recorded publisher/author PDF checked; targeted public searches for the appendix or Levine preprint, errata and relevant theorem numbers found no correction. Other editions were not independently compared in this run; novelty remains unestablished."
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Confirmed visually and in both other versions. The full p-basis interval has degree [k₂:k₀], whereas [k₂:k₁] omits one element. The p=2,n=2 example gives r−n=−1 with the printed exponent. The correction restores the top-degree dimension, without certifying other elimination steps.",
-        "by": "REV-MotivicEtaleKTheory--M.5d"
+        "reason": "Independently confirmed from pp.38–39: [k₁:k₀]=p, so [k₂:k₁] omits one p-basis index. For p=2 and n=2 in a two-element interval it makes r−n negative; degree [k₂:k₀] restores the top-form size.",
+        "by": "REV-MotivicEtaleKTheory--M.5d~2"
       }
     },
     {
@@ -4915,30 +4922,80 @@
       "source": "LevineSchemes",
       "kind": "misprint",
       "locator": "Author-hosted KthyMotI12.01.pdf preprint, Lemma 14.6(1) proof, printed/PDF p.72: eigenvalue displays before (14.1) and on the overlap localization",
-      "printed": "ψ_l(Π_q^k(x)) = l^q x; ψ_k(Π_q^l(x)) = k^q x",
+      "printed": "Two eigenvalue computations apply a projector on the left but omit the projected argument on the right.",
       "correction": "Retain the projected argument on the right: ψ_l(Π_q^k(x))=l^q Π_q^k(x) and ψ_k(Π_q^l(x))=k^q Π_q^l(x). This repairs the proof identities without changing the lemma statement.",
       "reason": "Take M=Q e_0⊕Q e_1, F^0=M, F^1=Q e_1, F^2=0 and ψ_l=diag(1,l). These satisfy the lemma hypotheses for a=0,b=1. For q=0 and x=e_1, Π_0^k(x)=0, so the printed identity asserts 0=e_1. The corrected identity follows from the equivariant splitting.",
       "affects": "the proof",
       "known": "No correction located in the recorded limited searches; novelty is unestablished.",
       "searched": [
         "Author publication catalogue https://www.esaga.uni-due.de/marc.levine/pub/ inspected on 2026-10-07: the entry lists this work as Preprint (2004), links to the same KthyMotI12.01.pdf, and gives no correction beside the entry.",
-        "Targeted web searches on 2026-10-07 for Marc Levine K-theory motivic cohomology schemes I errata, Lemma 14.6 correction, and author-domain corrigendum searches located no correction. This limited search does not establish novelty."
-      ]
+        "Targeted web searches on 2026-10-07 for Marc Levine K-theory motivic cohomology schemes I errata, Lemma 14.6 correction, and author-domain corrigendum searches located no correction. This limited search does not establish novelty.",
+        "Independent review 2026-10-08: exact recorded publisher/author PDF checked; targeted public searches for the appendix or Levine preprint, errata and relevant theorem numbers found no correction. Other editions were not independently compared in this run; novelty remains unestablished."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently confirmed on p.72. With M=Qe₀⊕Qe₁, weights 0 and 1 and x=e₁, the weight-zero projector gives zero; omitting it on the right gives the false equality 0=e₁. The projected eigenidentity is the valid one.",
+        "by": "REV-MotivicEtaleKTheory--M.5d~2"
+      }
     },
     {
       "id": "MotivicEtaleKTheory/E7",
       "source": "LevineSchemes",
       "kind": "gap",
       "locator": "Author-hosted KthyMotI12.01.pdf preprint, Lemma 14.6(2), printed/PDF pp.71–72: final induction and inclusion in the proof",
-      "printed": "n^{≥q}(a,b)F_1^q M ⊂ F_2^q M",
+      "printed": "The final induction proves the inclusion in the direction already supplied by the filtration hypothesis.",
       "correction": "The claimed conclusion on p.71 is n^{≥q}(a,b)F_2^q M⊂F_1^q M. Run the induction on x∈F_2^q, using denominator-cleared projectors that kill F_2^{q+1} and map M into F_1^q. The approximation error lies in F_2^{q+1}; the induction then proves the claimed direction. Recheck the filtration labels throughout the quasi-splitting paragraph.",
       "reason": "The printed proof assumes the multiplier sends F_1^{q+1} into F_2^{q+1}, starts with x∈F_1^q and concludes the displayed inclusion. That direction already follows from F_1⊂F_2 and does not prove the stated reverse inclusion. This is a proof gap as printed, not a counterexample to the lemma. The rational splitting node uses part (1), independently of this denominator refinement.",
       "affects": "the proof",
       "known": "No correction located in the recorded limited searches; novelty is unestablished.",
       "searched": [
         "Author publication catalogue https://www.esaga.uni-due.de/marc.levine/pub/ inspected on 2026-10-07: the entry lists this work as Preprint (2004), links to the same KthyMotI12.01.pdf, and gives no correction beside the entry.",
-        "Targeted web searches on 2026-10-07 for Marc Levine K-theory motivic cohomology schemes I errata, Lemma 14.6 correction, and author-domain corrigendum searches located no correction. This limited search does not establish novelty."
-      ]
+        "Targeted web searches on 2026-10-07 for Marc Levine K-theory motivic cohomology schemes I errata, Lemma 14.6 correction, and author-domain corrigendum searches located no correction. This limited search does not establish novelty.",
+        "Independent review 2026-10-08: exact recorded publisher/author PDF checked; targeted public searches for the appendix or Levine preprint, errata and relevant theorem numbers found no correction. Other editions were not independently compared in this run; novelty remains unestablished."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently confirmed on pp.71–72 as a proof gap. The lemma needs a denominator multiple of F₂ in F₁, but the printed induction starts in F₁ and ends in F₂. Reversing the filtration labels and using the projectors in the stated direction supplies the intended induction; this is not a counterexample to the lemma.",
+        "by": "REV-MotivicEtaleKTheory--M.5d~2"
+      }
+    },
+    {
+      "id": "MotivicEtaleKTheory/E8",
+      "source": "LevineSchemes",
+      "kind": "misprint",
+      "locator": "Author-hosted KthyMotI12.01.pdf preprint, Theorem 12.12(3), printed/PDF p.58; compare Theorem 14.7 and proof, pp.73–74",
+      "printed": "The Adams exponent in part (3) has the same sign as half the displayed second-page coordinate, whereas the motivic weight has the opposite sign.",
+      "correction": "For the source coordinate E₂^(p,2q)=H^p(X,Z(−q)), use the scalar k^(−q); equivalently write E₂^(p,−2j)=H^p(X,Z(j)) with scalar k^j.",
+      "reason": "The proof on pp.58–59 uses positive codimension j and scalar k^j, and Theorem 14.7 uses that sign. On P¹ the hyperplane class in H²(P¹,Z(1)) lies at E₂^(2,−2); ψ² acts by 2, not 1/2. Negative powers also cannot define the asserted integral scalar action in general.",
+      "affects": "a stated result",
+      "known": "No correction located in the recorded limited searches; novelty is unestablished.",
+      "searched": [
+        "On 2026-10-08 inspected the same author-hosted PDF and searched publicly for the work title with errata, correction, the cited theorem/remark and Adams or Chern sign. No corrigendum was located; no other edition or comprehensive errata inventory was checked."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The proof on pp.58–59 uses positive codimension j and scalar k^j, and Theorem 14.7 uses that sign. On P¹ the hyperplane class in H²(P¹,Z(1)) lies at E₂^(2,−2); ψ² acts by 2, not 1/2. Negative powers also cannot define the asserted integral scalar action in general.",
+        "by": "REV-MotivicEtaleKTheory--M.5d~2"
+      }
+    },
+    {
+      "id": "MotivicEtaleKTheory/E9",
+      "source": "Burgos2002",
+      "kind": "misprint",
+      "locator": "§4.5 Remark 4.25, printed p.32 / PDF p.38; compare §4.4 Proposition 4.20 and Definition 4.21, printed pp.30–31 / PDF pp.36–37",
+      "printed": "The coefficient of the indecomposable Chern generator and its suspended generator in Remark 4.25 are given without the alternating Newton sign.",
+      "correction": "With the fixed Newton recurrence and suspension s(b_j)=α_(2j−1), the coefficient is (−1)^(j−1)(2πi)^j/(j−1)!. Include that sign also after suspension. The final pairing with a Bott generator remains ±(2πi)^j.",
+      "reason": "Definition 4.21 gives pr₂=b₁²−2b₂. Thus ch₂=(2πi)²(b₁²/2−b₂), so its indecomposable b₂ coefficient is negative. Since b₂ is independent of the decomposable b₁² in H⁴(BGL(C),Q), the positive coefficient in the remark is incompatible with the source’s own definition. Proposition 4.20 preserves this sign upon suspension.",
+      "affects": "a stated result",
+      "known": "No correction located in the recorded limited searches; novelty is unestablished.",
+      "searched": [
+        "On 2026-10-08 inspected the same author-hosted PDF and searched publicly for the work title with errata, correction, the cited theorem/remark and Adams or Chern sign. No corrigendum was located; no other edition or comprehensive errata inventory was checked."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Definition 4.21 gives pr₂=b₁²−2b₂. Thus ch₂=(2πi)²(b₁²/2−b₂), so its indecomposable b₂ coefficient is negative. Since b₂ is independent of the decomposable b₁² in H⁴(BGL(C),Q), the positive coefficient in the remark is incompatible with the source’s own definition. Proposition 4.20 preserves this sign upon suspension.",
+        "by": "REV-MotivicEtaleKTheory--M.5d~2"
+      }
     }
   ],
   "restructure": [
@@ -4965,19 +5022,19 @@
     {
       "kind": "published",
       "url": "https://www.numdam.org/item/PMIHES_1986__63__107_0.pdf",
-      "read": "2026-10-06 (independent review of the recorded sections)",
+      "read": "2026-10-06 (independent review of the recorded sections); 2026-10-08 (independent round-2 review of the cited passages; hash reconfirmed)",
       "sha256": "51cf9c3fe85c3d55a6af56c9789c831b810cdd4c9b2c275057dcde6c14730dc8"
     },
     {
       "kind": "published",
       "url": "https://msp.org/gtm/2000/03/gtm-2000-03-003p.pdf",
-      "read": "2026-10-06 (independent review of the recorded sections)",
+      "read": "2026-10-06 (independent review of the recorded sections); 2026-10-08 (independent round-2 review of the cited passages; hash reconfirmed)",
       "sha256": "3fc22f399e587fbd689270de87e501f839258276b3926bc0a5acf395529a9b95"
     },
     {
       "kind": "author copy",
       "url": "https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf",
-      "read": "2026-09-26",
+      "read": "2026-09-26; 2026-10-08 (independent round-2 review of the cited passages; hash reconfirmed)",
       "sha256": "a04f53c9393b20672fab2a6818279b2f9996dbc7cf74735789ed13804b058845"
     },
     {
@@ -4989,74 +5046,74 @@
     {
       "kind": "preprint",
       "url": "https://arxiv.org/pdf/math/0510334",
-      "read": "2026-10-06 (only recorded sections)",
+      "read": "2026-10-06 (only recorded sections); 2026-10-08 (independent round-2 review of the cited passages; hash reconfirmed)",
       "sha256": "5f268002b5ec36a74932a48ac051712c9c19c41a8b76e5bcb5dcdf0800538190"
     },
     {
       "kind": "author copy",
       "url": "https://www.esaga.uni-due.de/f/marc.levine/publ/KthyMotI12.01.pdf",
-      "read": "2026-10-06 (only recorded sections); 2026-10-07 (revision: Theorem 12.12, Lemma 14.6 and Theorem 14.7 passages)",
+      "read": "2026-10-06 (only recorded sections); 2026-10-07 (revision: Theorem 12.12, Lemma 14.6 and Theorem 14.7 passages); 2026-10-08 (independent round-2 review of the cited passages; hash reconfirmed)",
       "sha256": "67affc5d6f837a78281c824d21723be9af1180bb77d44e8cff9cca5b0b2ef820",
       "citation": "Author-hosted preprint listed as Preprint (2004) in the author publication catalogue; findings E6/E7 are scoped to this file."
     },
     {
       "kind": "author copy",
       "url": "https://math.berkeley.edu/~fengt/Galois_action_on_KSp.pdf",
-      "read": "2026-10-06 (only recorded sections)",
+      "read": "2026-10-06 (only recorded sections); 2026-10-08 (independent round-2 review of the cited passages; hash reconfirmed)",
       "sha256": "5d717b2a94288593049be2aed34e38dbde10750beba4bd3d3387820d038e8807"
     },
     {
       "kind": "author copy",
       "url": "https://www.math.columbia.edu/~chaoli/AIPF.pdf",
-      "read": "2026-10-06 (only recorded sections)",
+      "read": "2026-10-06 (only recorded sections); 2026-10-08 (independent round-2 review of the cited passages; hash reconfirmed)",
       "sha256": "6ef2d63ea2cf55d8a2648f71ed7ac84e4d32f77e9e7eaeb62b47e584e4e5e566"
     },
     {
       "kind": "author copy",
       "url": "https://www.math.ias.edu/vladimir/sites/math.ias.edu.vladimir/files/susvoenew.pdf",
-      "read": "2026-10-06 (only recorded sections)",
+      "read": "2026-10-06 (only recorded sections); 2026-10-08 (independent round-2 review of the cited passages; hash reconfirmed)",
       "sha256": "4f29e999c004da03de80d80e3acc4b4318a18c95951629d9f899e27164fd5fad"
     },
     {
       "kind": "author copy",
       "url": "https://www.numdam.org/item/ASENS_1979_4_12_4_501_0.pdf",
-      "read": "2026-10-06 (only recorded sections)",
+      "read": "2026-10-06 (only recorded sections); 2026-10-08 (independent round-2 review of the cited passages; hash reconfirmed)",
       "sha256": "bf9b783b4f5f255133c68ccb544aec029f25828aa943a744ccb6958d51f218d8"
     },
     {
       "kind": "author copy",
       "url": "https://www2.rikkyo.ac.jp/web/geisser/Dedekind.pdf",
-      "read": "2026-10-06 (only recorded sections)",
+      "read": "2026-10-06 (only recorded sections); 2026-10-08 (independent round-2 review of the cited passages; hash reconfirmed)",
       "sha256": "88b92df6124b0e3a2be09ac24250c2b811572628d17a6282e787e0883160091f"
     },
     {
       "kind": "preprint",
       "url": "https://arxiv.org/pdf/2009.07225v4",
-      "read": "2026-10-06 (only recorded sections)",
+      "read": "2026-10-06 (only recorded sections); 2026-10-08 (independent round-2 review of the cited passages; hash reconfirmed)",
       "sha256": "1e4b6720055ebdce0012f5780bfc7cdb5b853e32f29b17224a1be0bc676f770c"
     },
     {
       "kind": "author copy",
       "url": "https://dornsife.usc.edu/ericmfriedlander/wp-content/uploads/sites/233/2023/06/23.pdf",
-      "read": "2026-10-06 (only recorded sections)",
+      "read": "2026-10-06 (only recorded sections); 2026-10-08 (independent round-2 review of the cited passages; hash reconfirmed)",
       "sha256": "d716deea11cf2e9e56d04b78eb777b10037bef4573fcc32db957d2cf6c4735a3"
     },
     {
       "kind": "author copy",
       "url": "https://www.numdam.org/item/AST_1987__147-148__225_0.pdf",
-      "read": "2026-10-06 (only recorded sections)",
+      "read": "2026-10-06 (only recorded sections); 2026-10-08 (independent round-2 review of the cited passages; hash reconfirmed)",
       "sha256": "714881bf6d8d10db209d9a3f03835fb048e4fc85ae103942daaefc3924efb0b7"
     },
     {
       "kind": "preprint",
       "url": "https://arxiv.org/pdf/math/0304233v1",
-      "read": "2026-10-06 (only recorded sections)",
+      "read": "2026-10-06 (only recorded sections); 2026-10-08 (independent round-2 review of the cited passages; hash reconfirmed)",
       "sha256": "6d7f3a5924fd5291bc23870547b05552ba7fb1e39413d551f11daf052fbcf12b"
     },
     {
       "kind": "author copy",
       "url": "https://www.icmat.es/miembros/burgos/files/brbr.pdf",
-      "read": "2026-10-06 (only recorded sections)",
+      "read": "2026-10-06 (only recorded sections); 2026-10-08 (independent round-2 review of the cited passages; hash reconfirmed)",
       "sha256": "da6ba8c4b08bf447d1575788c33b96c52d8d0d0a377e8f2990ead6aed73f65ea"
     },
     {
@@ -5067,13 +5124,13 @@
     }
   ],
   "checks": {
-    "libraryAudit": "Read the six scoped reviewed AUDIT-30 records (26 targets). Rechecked the actual pinned statements of all 26 inherited declarations, and read four additional native norm/degree/weight/equivalence declarations; 30 baseline entries. None supplies the geometric comparison tower or regulator infrastructure.",
+    "libraryAudit": "Independent round-2 review 2026-10-08: actual statements, typeclass hypotheses and additive aliases of all 30 entries read at Mathlib 082e2d3 and Tau Ceti f790474; none removed or replaced. Six scoped reviewed AUDIT-30 records (26 targets) read; baseline primitives are reused, with geometric K/étale/regulator infrastructure still absent.",
     "upstreamDocuments": [
       "HodgeStructures README fully read in this run",
       "GrothendieckEulerForms README fully read in this run"
     ],
     "ownership": "Accepted RS-08/28/33 boundaries retained. E3 coherent diagrams, E2 descent and E5 concrete-spectrum comparison remain imports, as do generic H.6 exact couples/pages/limits, M.4 cycles, S.6/S.7 operations, EDC.2 scheme pairings and MC.2 base change. Replaced circular whole-PS.4 imports with independent MC.2/PS.0 realization/period inputs and L5 determinants; PS.3/PS.4 consume the specialized comparisons downstream.",
-    "sourceAudit": "On 2026-10-07 downloaded all 15 public source PDFs and confirmed all recorded SHA-256 values. Rechecked the revision’s K-book VI.4.2/4.9 and V.11.11–11.13, Levine support/Adams/projector passages, Soulé 4.1–4.4 and Kato 1.2/2.1 against their actual texts. Existing independent review/source-issue verdicts and corrected locators retained; source acquisition and unestablished proof inputs remain explicit gaps. Visually checked Levine Lemma 14.6 pp.71–72 and recorded E6/E7 against the author-hosted preprint, both pending independent review; the five confirmed and one rejected inherited findings are unchanged.",
+    "sourceAudit": "Independent round-2 review 2026-10-08: downloaded all 15 active public sources and reconfirmed their recorded SHA-256 values; read each node’s cited theorem/definition passage and relevant proof steps. All eight inherited source issues checked in the exact publisher/author versions; E6/E7 confirmed, E2 rejected, and new E8/E9 recorded with explicit counterexamples and no novelty claim. Original Kato/Thomason/BM15/Suslin/Gillet/Huber and selected determinant/local proofs remain the 11 recorded gaps. No full-paper or multi-edition independent audit is claimed.",
     "targetCoverage": "All six scoped stages planned at target level under PROTOCOL §0, 67 nodes below the 300-node budget; no stage closed and all nodes implementationStatus unchecked. Stage-level imports each have a named export request; these include imports of existing upstream stages, not proposals to re-plan them.",
     "routing": {
       "RT-AREA-ktheory-1/2": "Mod-prime motivic-complex bridge, Beilinson–Lichtenbaum truncation and Dedekind node added; original resolution-free proof gap explicit.",
@@ -5085,34 +5142,42 @@
     "lean": {
       "compiled": true,
       "command": "lean-check research/blueprint/suggested/MotivicEtaleKTheory--M.5d.lean",
-      "date": "2026-10-07",
+      "date": "2026-10-08",
       "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
       "supplierBoundary": "Native Kaehler/exterior/tensor/quotient carriers retained. Shared build lacks the compiled Tau Ceti semilinear-map module, so its genuine typed map and D-compatibility are supplier inputs. Augmented towers, exact couples/pages, realizations and determinant interfaces are labelled stand-ins for their existing owners. No arbitrary proposition substitutes for a missing carrier.",
       "limits": "One wrapper-controlled check at a time; available memory checked above 20 GB. No language server, Lake build/update/cache or separate project. The file keeps placeholder warnings visible but nonfatal because the shared project enables warningAsError.",
       "exitCode": 0,
-      "warnings": 169,
+      "warnings": 170,
       "warningKind": "All warnings are declaration uses of placeholders; no other warnings or errors.",
-      "availableMemoryGiB": 100,
-      "suggestedFileSha256": "3027a98a98decff33755481d1e2d8e417d86416d729583d91add0f76a31d63f1"
+      "availableMemoryGiB": 110,
+      "suggestedFileSha256": "e41e211eb9be12242d10e421c6bca2fc419e58eaa745142ea47109f1da76ce05"
     },
-    "signatureConsistency": "All 67 node declarations, 66 API items and 61 named examples have suggested signatures. Typed augmented-tower comparison; actual exact-couple j∘k, exactness, square-zero and homology; differential/E₂ page naturality and field bindings; induced compatible Adams actions; rational scalar-weight argument; eigenspace-restricted normalized Chern comparison; fixed-base Soulé unit/Bott construction and genuine norm computation; actual determinant operation/comparison bindings. Reader is regenerated from these same packet statements. Unavailable geometric conditions remain binding in the reader; native typed algebraic conditions are expressed.",
+    "signatureConsistency": "All 67 node declarations, 67 API items and 61 named examples have matching suggested signatures or named supplier stand-ins under §13. In addition to the nine revision fixes, Witt wedge/quotient/transition/unit normalization and the three distinct well-connectedness conditions are explicit. The reader preserves the same statements, proof steps, prerequisites, acceptance conditions and source locators. Unavailable geometric hypotheses remain binding in the packet/reader.",
     "graph": "Internal prerequisite DAG retained. Transitive atlas requires inspection: PS.0 (11 visited stages), MC.2 (10) and L5 (6) have no M.8 ancestor. Whole PS.4 removed from prerequisites/requests; early R.7/D.2 exports remain declaration-specific imports and the broad atlas edges are not altered.",
     "reviewAudit": {
-      "job": "REV-MotivicEtaleKTheory--M.5d",
-      "session": "codex-kJsFzf",
-      "originalWorker": "Codex — codex-ckXiAw",
-      "date": "2026-10-06",
+      "job": "REV-MotivicEtaleKTheory--M.5d~2",
+      "issue": 7076,
+      "session": "codex-jgCHl7",
+      "date": "2026-10-08",
       "nodesRead": 67,
-      "baselineConfirmed": 26,
+      "nodesVerified": 61,
+      "nodesCorrected": 6,
+      "baselineConfirmed": 30,
       "baselineRemoved": 0,
       "baselineFixed": 0,
       "nodesAdded": 0,
       "apiAdded": 1,
-      "sourceIssuesConfirmed": 5,
+      "sourceIssuesConfirmed": 9,
       "sourceIssuesRejected": 1,
+      "newSourceIssues": 2,
       "redTeamFindingsChecked": 4,
-      "readerChanged": false,
-      "verdict": "needs_changes"
+      "readerChanged": true,
+      "duplicateGapsMerged": 1,
+      "verdict": "accepted",
+      "readerLocatorExcerptsRemoved": 84,
+      "readerCorrespondence": "All node statements, hypotheses, proof steps, prerequisites, API and test names/statements, uses, acceptance conditions and source locators checked against the reader; no omissions.",
+      "internalDAGNodes": 67,
+      "gapLocatorFixed": "Global filtered-model gap now cites Levine Theorem 6.4.2 for the cycle-layer comparison (6.4.1 proves well-connectedness)."
     },
     "revisionAudit": {
       "job": "BP-MotivicEtaleKTheory--M.5d~2",
@@ -5141,6 +5206,23 @@
         "MotivicEtaleKTheory/E7"
       ],
       "namedDeclarationsAdded": 18
+    },
+    "previousReviewAudit": {
+      "job": "REV-MotivicEtaleKTheory--M.5d",
+      "session": "codex-kJsFzf",
+      "originalWorker": "Codex — codex-ckXiAw",
+      "date": "2026-10-06",
+      "nodesRead": 67,
+      "baselineConfirmed": 26,
+      "baselineRemoved": 0,
+      "baselineFixed": 0,
+      "nodesAdded": 0,
+      "apiAdded": 1,
+      "sourceIssuesConfirmed": 5,
+      "sourceIssuesRejected": 1,
+      "redTeamFindingsChecked": 4,
+      "readerChanged": false,
+      "verdict": "needs_changes"
     }
   },
   "upstreamNotes": [
@@ -5152,345 +5234,345 @@
     "PS.4 consumes PS.3, which consumes M.8. M.8 therefore imports the independent MC.2/PS.0 realization and period-space prefix and the L5 determinant functor, never whole PS.4. Specialized regulator comparisons flow from M.8 to PS.3/PS.4. The direct stage contracts and their transitive requires graphs confirm no M.8 ancestor for these three early suppliers. Exact case-dependent rational-line factors and conjectural comparison hypotheses remain a source refinement. No supplier roadmap is edited."
   ],
   "review": {
-    "status": "needs_changes",
-    "reviewer": "independent-review-REV-MotivicEtaleKTheory--M.5d",
-    "date": "2026-10-06",
-    "notes": "Independent target-level review of all 67 nodes, source locators/excerpts, API/test/planet lists, all 26 declarations at the pinned commits, six AUDIT-30 stages and 26 targets, suppliers and four assigned red-team findings. Clear citation, Chern-product, supplier-routing and native algebraic signature errors corrected. Five source issues confirmed and E2 rejected. Remaining filtered/page/action/eigenspace/test signatures and PS.4 prefix are precise revision gaps, not a demand to close the already honest future proof refinements. Reader synchronization is requested in the report because that file is outside this issue’s deliverables. All implementations remain unchecked.",
+    "status": "accepted",
+    "reviewer": "independent-review-REV-MotivicEtaleKTheory--M.5d~2",
+    "date": "2026-10-08",
+    "notes": "Independent review of every node and all 30 pinned baseline statements, the nine revision corrections, source passages and ownership/supplier boundaries. Corrected Witt map normalization, well-connectedness, Adams/source sign cautions and transfer/Deligne locators; synchronized all reader prerequisites, removed the reader’s locator quotes, merged the duplicate BL gap. Seven inherited source issues confirmed, E2 rejected; two additional source misprints confirmed. Acceptance is at target level with 11 honest proof/source gaps and 36 supplier requests, no implementation or closed-stage claim.",
     "checked": [
       {
         "nodeId": "MotivicEtaleKTheory:M.5d/logarithmic-one-form",
-        "verdict": "corrected",
-        "note": "Lemma III.7.7 supplies a↦a⁻¹da; additive-unit convention and one/inverse/nonzero tests agree. Replaced nondiscriminating excerpt with the lemma label."
+        "verdict": "verified",
+        "note": "Existing absolute derivation and unit domain give the additive dlog map; III.7, pp.250–251. Its unit/nonzero/inverse tests distinguish the zero map."
       },
       {
         "nodeId": "MotivicEtaleKTheory:M.5d/logarithmic-one-form-natural",
-        "verdict": "corrected",
-        "note": "The actual pinned semilinear map commutes with D. Added that fully expressible compatibility to the supplier parameter; retained field variance and the lemma locator."
+        "verdict": "verified",
+        "note": "Pinned f-semilinear pullback and its D/scalar laws give naturality without assuming field-linear transport."
       },
       {
         "nodeId": "MotivicEtaleKTheory:M.5d/tensor-differential-symbol",
-        "verdict": "corrected",
-        "note": "Tensor universal property and exterior-power API provide multilinearity; empty tensor, degree one and repeated-symbol tests are appropriate. Corrected source excerpt."
+        "verdict": "verified",
+        "note": "Tensor universal property over Z and alternating wedge over F have the stated empty and one-factor conventions; uniqueness and three tests match."
       },
       {
         "nodeId": "MotivicEtaleKTheory:M.5d/steinberg-vanishing",
-        "verdict": "corrected",
-        "note": "Leibniz and da+d(1−a)=0 give Steinberg vanishing in every characteristic, including two; distinct wedge positions are explicit. Corrected source excerpt."
+        "verdict": "verified",
+        "note": "The two distinct positions with a_i+a_j=1 give proportional differentials, including characteristic two; alternating vanishing suffices."
       },
       {
         "nodeId": "MotivicEtaleKTheory:M.5d/milnor-differential-symbol",
-        "verdict": "corrected",
-        "note": "Milnor tensor/Steinberg quotient is supplied by T.2 rather than incorrectly exterioring units. Pure-symbol and quotient/universal-property API agree with III.7.7. Corrected excerpt."
+        "verdict": "verified",
+        "note": "The Z-linear tensor map kills the Steinberg ideal, descends to actual Milnor degree and has symbol/quotient/uniqueness APIs and three degree tests."
       },
       {
         "nodeId": "MotivicEtaleKTheory:M.5d/milnor-symbol-natural",
-        "verdict": "corrected",
-        "note": "Naturality follows on tensor generators from the supplied field pullbacks and D compatibility; supplier owns the semilinear differential map. Corrected excerpt."
+        "verdict": "verified",
+        "note": "Supplier field maps and pinned semilinear differential pullback preserve pure symbols; generator extensionality gives the naturality square."
       },
       {
         "nodeId": "MotivicEtaleKTheory:M.5d/milnor-symbol-product",
-        "verdict": "corrected",
-        "note": "Graded product keeps symbol order and wedge signs; does not impose an exterior-power presentation on Milnor K. Corrected excerpt."
+        "verdict": "verified",
+        "note": "Milnor and exterior products have matching i+j degree and pure generators; no finite-coefficient Quillen product is substituted."
       },
       {
         "nodeId": "MotivicEtaleKTheory:M.5d/characteristic-annihilation",
-        "verdict": "corrected",
-        "note": "Characteristic-p additive target is annihilated by p; the quotient descent uses the native group quotient, not a spectrum with coefficients. Corrected excerpt."
+        "verdict": "verified",
+        "note": "Characteristic p makes the absolute differential target p-annihilated; the quotient factor uses an additive group, not a field submodule."
       },
       {
         "nodeId": "MotivicEtaleKTheory:M.5d/mod-p-differential-symbol",
         "verdict": "verified",
-        "note": "The universal quotient by p has the intended additive target and pure-symbol evaluation. BK §2 and quotient baseline declarations support it."
+        "note": "The actual Milnor p-quotient and pure-symbol formula retain degree zero and repeated-wedge behavior; p-th powers map to zero."
       },
       {
         "nodeId": "MotivicEtaleKTheory:M.5d/artin-schreier-differential",
-        "verdict": "corrected",
-        "note": "wp is inverse Cartier minus projection, additive rather than F-linear, in the quotient by exact additive forms. Degree-zero and logarithmic coefficient conventions agree. Corrected excerpt."
+        "verdict": "verified",
+        "note": "BK §2, pp.113–115, defines the additive exact-form quotient and inverse Cartier input; the Frobenius-minus-identity sign is explicit."
       },
       {
         "nodeId": "MotivicEtaleKTheory:M.5d/artin-schreier-logarithmic-formula",
-        "verdict": "corrected",
-        "note": "The coefficient formula (a^p−a)dlog(b₁)∧… agrees with III.7.7.1 and supplier Frobenius conventions. Corrected excerpt."
+        "verdict": "verified",
+        "note": "The logarithmic coefficient formula has x^p−x and the correct quotient target; x=1 is Cartier-fixed, and degree zero tests the sign."
       },
       {
         "nodeId": "MotivicEtaleKTheory:M.5d/logarithmic-differential-group",
         "verdict": "verified",
-        "note": "ν is the additive kernel of wp, with inclusion/extensionality and zero/perfect/imperfect tests; the exact subgroup is not replaced by its F-linear span."
+        "note": "The Cartier kernel is an additive subgroup, not F-linear. The scalar non-example and map/coercion/id/composition APIs cover that distinction."
       },
       {
         "nodeId": "MotivicEtaleKTheory:M.5d/differential-symbol-fixed",
         "verdict": "verified",
-        "note": "Pure logarithmic wedges are fixed by inverse Cartier, so wp(dlog symbol)=0; the nontrivial Cartier input is explicitly requested from DD.3."
+        "note": "Inverse Cartier fixes pure logarithmic wedges, hence every symbol image; membership is separate from BGK bijectivity."
       },
       {
         "nodeId": "MotivicEtaleKTheory:M.5d/logarithmic-symbol",
         "verdict": "verified",
-        "note": "The codomain factorization is into the actual Cartier kernel, not an image defined tautologically to obtain BGK. Its quotient and inclusion API are usable."
+        "note": "The subgroup-target map has the actual underlying mod-p symbol, with coercion, uniqueness and symbol evaluation; three tests retain its normalization."
       },
       {
         "nodeId": "MotivicEtaleKTheory:M.5d/weight-zero-comparison",
-        "verdict": "corrected",
-        "note": "Weight zero is the prime subfield fixed by x↦x^p; native finite-field lemmas do not require the ambient field finite. Corrected source excerpt."
+        "verdict": "verified",
+        "note": "Prime-subfield roots x^p=x identify degree zero with Z/p; the target is smaller than an imperfect field."
       },
       {
         "nodeId": "MotivicEtaleKTheory:M.5d/perfect-field-differentials",
-        "verdict": "corrected",
-        "note": "Perfect characteristic-p fields have all da=0, hence positive-degree absolute forms vanish. The elementary calculation does not invoke general BGK. Replaced short excerpt."
+        "verdict": "verified",
+        "note": "For perfect F, every x is a p-th power and Dx=0; pure wedges span and n>0 is necessary."
       },
       {
         "nodeId": "MotivicEtaleKTheory:M.5d/perfect-field-milnor-mod-p",
-        "verdict": "corrected",
-        "note": "Each unit has a pth root, so each positive-degree Milnor symbol is p-divisible. This gives Milnor/p=0 by generators. Replaced short excerpt."
+        "verdict": "verified",
+        "note": "Multilinearity and p-th roots make positive Milnor degrees p-divisible independently of BGK; degree zero is excluded."
       },
       {
         "nodeId": "MotivicEtaleKTheory:M.5d/weight-one-injectivity",
-        "verdict": "corrected",
-        "note": "The kernel of D on a characteristic-p field is F^p using the requested p-basis/Cartier input; degree-one dlog injectivity follows. Corrected excerpt."
+        "verdict": "verified",
+        "note": "BK and the characteristic-p differential criterion identify ker(dlog)=(F×)^p; no separable norm-residue theorem is used."
       },
       {
         "nodeId": "MotivicEtaleKTheory:M.5d/bloch-gabber-kato",
         "verdict": "verified",
-        "note": "BK Theorem 2.1 is for every characteristic-p field; relative DVR/lexicographic elimination inputs remain explicit. No M.5a–M.5c dependency; Kato 1982 proof refinement is honestly open."
+        "note": "BK Theorem 2.1, pp.113–118, is the independent differential bijection; DD.3/CR.4/T.3 inputs and the original Kato elimination gap are explicit."
       },
       {
         "nodeId": "MotivicEtaleKTheory:M.5d/witt-logarithmic-symbol",
-        "verdict": "verified",
-        "note": "BK Corollary 2.8 and Illusie I(5.7.5) support logarithmic Witt symbols; positive-degree sheaf range and smooth-perfect-base field approximation are retained. Degree-zero extension is separately conventional."
+        "verdict": "corrected",
+        "note": "Corrected the Witt prototypes: fixed Teichmüller wedge, native representative laws for ρ/i, wedge laws for R/j and a unit-preserving zero-degree identification. BK Corollary 2.8 and Illusie I.5.7 supply the source route; arbitrary-field CR.4 continuity remains requested."
       },
       {
         "nodeId": "MotivicEtaleKTheory:M.5d/milnor-coefficient-row",
-        "verdict": "corrected",
-        "note": "The abelian coefficient row retains the left torsion kernel and multiplication-by-p Tor map. Added native evaluation laws for insertion and reduction and the resolution-map identity, excluding arbitrary zero maps."
+        "verdict": "verified",
+        "note": "The ordinary additive quotient row is right exact with the stated torsion kernel, not automatically short exact; its prototype binds i,ρ and Tor reduction on representatives."
       },
       {
         "nodeId": "MotivicEtaleKTheory:M.5d/prime-power-bgk",
         "verdict": "verified",
-        "note": "Prime-power induction uses the coherent Witt restriction/insertion diagram and a global-surjectivity proof obligation; sheaf exactness alone is not asserted to give surjectivity on sections."
+        "note": "BK Corollary 2.8, pp.117–118, proves length-r comparison by induction using the genuine logarithmic sheaf row; no global-section surjectivity is assumed before induction."
       },
       {
         "nodeId": "MotivicEtaleKTheory:M.5d/milnor-torsion-divisible",
         "verdict": "verified",
-        "note": "Only p-primary torsion divisibility is claimed, not torsion-freeness or divisibility of the whole Milnor group. BK Corollary 2.8 and its induction give the stated scope."
+        "note": "BK Corollary 2.8 deduces p-primary Milnor-torsion divisibility; the statement asks for a p-primary preimage, not uniqueness."
       },
       {
         "nodeId": "MotivicEtaleKTheory:M.5d/mod-prime-motivic-comparison",
         "verdict": "verified",
-        "note": "SV Theorem 7.4 resolution hypothesis is retained and the resolution-free Geisser–Levine proof is an explicit gap. The low-degree complex bridge is not replaced by a diagonal symbol isomorphism."
+        "note": "Field cone/truncation bridge has explicit cycle, transfer and semilocal inputs; the unrestricted resolution-free original proof stays in the named gap, beyond SV Theorem 7.4."
       },
       {
         "nodeId": "MotivicEtaleKTheory:M.5d/prime-power-norm-residue",
         "verdict": "verified",
-        "note": "Prime-power norm residue uses coherent finite Tate coefficients and coefficient triangles, with the appropriate prime-to-characteristic branch inputs. It does not use naive inclusions between μ-tensor powers."
+        "note": "Prime-to-characteristic norm residue follows through compatible coefficient diagrams and diagonal identification; it is separate from differential BGK, with correct twist transitions."
       },
       {
         "nodeId": "MotivicEtaleKTheory:M.5d/filtered-colimit-comparisons",
         "verdict": "verified",
-        "note": "Fixed finite coefficients commute with the indicated filtered field systems via finite-presentation descent; this is not a claim that filtered colimits commute with derived adic inverse limits."
+        "note": "Finite-presentation descent and filtered colimits are applications of the existing Milnor/differential/Galois owners; their comparison hypotheses remain explicit imports."
       },
       {
         "nodeId": "MotivicEtaleKTheory:M.5d/inseparable-and-characteristic-reductions",
         "verdict": "verified",
-        "note": "Purely inseparable invariance has coefficients prime to p and uses étale invariance plus the K norm-degree identity. It is not asserted for p-primary coefficients."
+        "note": "Purely inseparable degree is invertible at the distinct coefficient prime, while the residue-characteristic target uses differential/Witt symbols; the characteristic split is retained."
       },
       {
         "nodeId": "MotivicEtaleKTheory:M.6a/admissible-k-supports",
-        "verdict": "corrected",
-        "note": "Corrected Levine supports locator to §2.1 pp.9–11. Added closed-union and codimension-minimum laws to the prototype; supports meet every simplex face."
+        "verdict": "verified",
+        "note": "Every face imposes the support codimension inequality; empty, zero-weight and vertex tests catch forgetting the faces. Levine §2.1 supplies the support poset."
       },
       {
         "nodeId": "MotivicEtaleKTheory:M.6a/homotopy-coniveau-tower",
-        "verdict": "corrected",
-        "note": "Corrected tower locator and routed coherent colimits/spectral enhancement to E3 and E5:spectra-comparison. Adapted support pullback and finite-field A3 hypotheses remain explicit."
+        "verdict": "verified",
+        "note": "The actual support hocolimit and simplicial realization give the augmented coniveau tower; its maps and moving suppliers are explicit. The connectivity example is downstream of levelwise support vanishing."
       },
       {
         "nodeId": "MotivicEtaleKTheory:M.6a/moving-and-excision",
         "verdict": "verified",
-        "note": "Levine Theorems 3.2.1 and 4.1.1 supply moving/excision in the stated smooth perfect-field scope. Finite fields require the transfer-degree argument, not an automatic infinite-field proof."
+        "note": "Levine Theorem 3.2.1 and §4.1 support the moving/localization route in the perfect-field class with A3 at finite fields; no arbitrary singular pullback is claimed."
       },
       {
         "nodeId": "MotivicEtaleKTheory:M.6a/k-theory-well-connected",
-        "verdict": "verified",
-        "note": "Levine §6.4 well-connectedness uses semilocal supported K-theory and the connectivity/dévissage suppliers. Arbitrary support fibres are not assumed connective."
+        "verdict": "corrected",
+        "note": "Corrected the object carrying degree-zero concentration: the zeroth field layer of Ω_T^d K. Multirelative semilocal π₀ vanishing for n≥1 is the criterion (6.3.4), not concentration of that spectrum. Corrected proof and locators and typed all three distinct conditions."
       },
       {
         "nodeId": "MotivicEtaleKTheory:M.6a/coniveau-cycle-layer",
-        "verdict": "corrected",
-        "note": "Levine Theorem 6.4.2 identifies cycle Eilenberg–Mac Lane layers in the admitted scheme class. Corrected Remark 11.3.4 locator from p.65 to p.64."
+        "verdict": "verified",
+        "note": "Levine Theorem 6.4.2, pp.36–37, identifies genuine support layers with cycle Eilenberg–Mac Lane spectra using well-connectedness and Corollary 5.3.2."
       },
       {
         "nodeId": "MotivicEtaleKTheory:M.6a/global-model-comparison",
-        "verdict": "unverifiable",
-        "note": "The filtered proof gap is honest, and the misapplied S.4 Brown–Gersten/Quillen E₂ prerequisite was removed. Suggested global_model_comparison still gives only levelwise Iso, with no transition/augmentation data; target mismatch remains."
+        "verdict": "verified",
+        "note": "Revision now requires tower-level equivalences commuting with transitions and the common K(X) augmentation. Equal E₂ pages alone do not prove it; the filtered geometric zigzag remains the explicit gap."
       },
       {
         "nodeId": "MotivicEtaleKTheory:M.6b/motivic-exact-couple",
-        "verdict": "unverifiable",
-        "note": "Raw differential indices reindex correctly with r=s+1. Suggested differential existence is vacuous (zero always exists), and its boundary test permits arbitrary j,k without exactness. Must bind actual exact-couple differential and square-zero data."
+        "verdict": "verified",
+        "note": "Revision raw i,j,k indices, range=kernel exactness and d=j∘k are compatible; the square-zero and actual cycles/boundaries quotient give the derived page with r=s+1."
       },
       {
         "nodeId": "MotivicEtaleKTheory:M.6b/motivic-strong-convergence",
         "verdict": "verified",
-        "note": "The p>d+m connectivity bound, finite filtration and lim¹ vanishing yield strong convergence in the admitted finite-dimensional smooth range. Arithmetic/arbitrary-field extension remains an explicit separate gap."
+        "note": "Levine §2.1 and FS Lemma 13.12/Proposition 13.17/Theorem 13.18 justify the connectivity bound and finite filtration/Milnor obstruction route; H.6 owns generic convergence."
       },
       {
         "nodeId": "MotivicEtaleKTheory:M.6b/filtered-motivic-products",
         "verdict": "verified",
-        "note": "Products require simultaneous moving and coherent filtered multiplication; actual finite Moore product exclusions are retained. The unread full multiplicative comparison is explicitly recorded, not inferred from a binary group product."
+        "note": "Products require simultaneously moved supports and actual filtered pair maps; §11/Appendix D coherence remains an explicit source gap instead of a consequence of group-level multiplication."
       },
       {
         "nodeId": "MotivicEtaleKTheory:M.6b/filtered-adams-operations",
-        "verdict": "unverifiable",
-        "note": "Corrected Weibel VI citation to Example 4.9. The mathematical filtered action/weight target is sound, but the suggested ψ is an arbitrary homomorphism with no action or compatibility binding; revision required."
+        "verdict": "corrected",
+        "note": "Revision binds induced Adams pages to transitions, boundaries and the scheme abutment operation. Added the positive-weight convention and source E8 correction; ψ^k acts by k^j at weight j."
       },
       {
         "nodeId": "MotivicEtaleKTheory:M.6b/rational-motivic-degeneration",
-        "verdict": "unverifiable",
-        "note": "Corrected Weibel VI citation to Example 4.9. Rational weight separation is supported by Levine 14.5–14.7, but the suggested arbitrary dr has no compatible Adams actions; unconditional dr=0 is false."
+        "verdict": "corrected",
+        "note": "Revision uses the same actual differential and compatible scalar-weight actions, so distinct rational weights force vanishing. Confirmed source E6/E7 and separated the valid projected splitting from the incomplete printed denominator induction."
       },
       {
         "nodeId": "MotivicEtaleKTheory:M.6/motivic-spectral-sequence",
-        "verdict": "unverifiable",
-        "note": "Corrected Theorem 4.2 locator to p.480 and Addendum to p.481. Suggested pullback conclusion is another Nonempty additive map, satisfied by zero, and arbitrary HM/K field tests lose their specified models; revision required."
+        "verdict": "verified",
+        "note": "Actual tower functor, E₂ cycle identification and finite filtration have the stated (a,b) coordinates. Revision pullbacks commute with the differential and motivic identification; all field tests refer to the same field scheme."
       },
       {
         "nodeId": "MotivicEtaleKTheory:M.6/rational-weight-comparison",
-        "verdict": "corrected",
-        "note": "Corrected VI Example 4.9 locator; rational eigenspace comparison retains sign/factorial normalization and separate Newton-polynomial K₀ convention. Integral finite classes are not rationalized silently."
+        "verdict": "verified",
+        "note": "Rational eigenspaces follow from finite filtration and compatible Adams splitting, with degree 2j−m. This does not claim integral splitting or remove factorial denominators."
       },
       {
         "nodeId": "MotivicEtaleKTheory:M.7/beilinson-lichtenbaum",
         "verdict": "verified",
-        "note": "Beilinson–Lichtenbaum has smooth schemes and invertible coefficients, truncated through weight j with the next-degree injectivity. Resolution-free proof acquisition is explicitly open."
+        "note": "K-book VI.4.1, pp.480–481, gives smooth-scheme truncation through weight j and next-degree injectivity with invertible coefficients; resolution-free proof acquisition is honestly open."
       },
       {
         "nodeId": "MotivicEtaleKTheory:M.7/dedekind-motivic-comparison",
         "verdict": "verified",
-        "note": "Geisser Theorem 1.2 and §5 retain the Dedekind base, smoothness, weight and coefficient hypotheses; no full arithmetic filtered K tower is inferred from low-degree complex comparison."
+        "note": "Geisser Theorem 1.2 and §5, pp.774–775/787–789, give the mixed-characteristic Dedekind comparison in their local hypotheses, not a whole arithmetic filtered K tower."
       },
       {
         "nodeId": "MotivicEtaleKTheory:M.7/finite-etale-k-theory",
-        "verdict": "corrected",
-        "note": "Periodic finite étale K sheaf and its even Tate/odd-zero stalks retain the coefficient and finite-cd hypotheses. Rerouted Postnikov/hypercover descent to E2 plus E3 and the concrete spectral comparison, with the extension request explicit."
+        "verdict": "verified",
+        "note": "FGV §2.6.1 gives finite étale K and even twisted descent coefficients; odd-stalk vanishing and hyperdescent are imported, with admissible coefficients retained."
       },
       {
         "nodeId": "MotivicEtaleKTheory:M.7/bott-etale-descent",
         "verdict": "verified",
-        "note": "FGV Remark 2.8 is not a proof of general Thomason descent. Exact finite-cd/Tate–Tsen and dyadic exceptions remain explicit requests/gaps."
+        "note": "Bott telescope and descent retain prime invertibility, finite-cd/Tate–Tsen hypotheses and Moore-product restrictions; FGV’s odd-prime case does not justify unrestricted Thomason descent."
       },
       {
         "nodeId": "MotivicEtaleKTheory:M.7/quillen-lichtenbaum-field-range",
-        "verdict": "corrected",
-        "note": "Corrected FGV Theorem 2.9 to Proposition 2.9 and the proof locator to pp.12–13; field iso n≥cd−1 and injectivity n=cd−2 keep their hypotheses."
+        "verdict": "verified",
+        "note": "K-book VI.4.2–4.3 gives field comparison n≥max(0,cd_ell(F)−1), with the stated boundary injection and real dyadic exclusion; the arbitrary-field tower extension remains a gap."
       },
       {
         "nodeId": "MotivicEtaleKTheory:M.7/s-integer-comparison-range",
-        "verdict": "corrected",
-        "note": "Corrected FGV Proposition 2.9 label. S-integer finite coefficient iso/injectivity bounds and completed ≥2 bound remain distinct; odd-prime or totally imaginary dyadic regimes are retained."
+        "verdict": "verified",
+        "note": "S-integer odd-prime/totally-imaginary dyadic ranges and low-degree exceptions agree with VI.4.7–4.9 and VI.8; arithmetic tower extension is not asserted from the Dedekind low-degree complex alone."
       },
       {
         "nodeId": "MotivicEtaleKTheory:M.7/arithmetic-adic-degrees",
         "verdict": "verified",
-        "note": "Completed arithmetic odd H¹/even H² formulas require j≥2, arithmetic finite generation and removal of the finite Tor term. They do not replace continuous cohomology by a naive limit without justification."
+        "note": "Completed K_(2j−1)/K_(2j−2) correspond to continuous H¹/H² for j≥2; positive-twist H⁰ vanishes. VI.8 and Calmès Lemma 3.2.4 retain completion versus tensor distinctions."
       },
       {
         "nodeId": "MotivicEtaleKTheory:M.7/etale-adams-weights",
         "verdict": "verified",
-        "note": "Étale Adams weights retain unit/finite-coefficient conditions and duality sign (−1)^j. Transfer commutation is not inferred by canceling an arbitrary nonunit Adams factor."
+        "note": "FGV §2.6.1 Adams action uses the twist weight in the descent page; tower operations and positive degree/coefficient regimes remain supplier inputs."
       },
       {
         "nodeId": "MotivicEtaleKTheory:M.7/etale-k-transfer",
-        "verdict": "verified",
-        "note": "Finite étale norm/corestriction correspondence is the admitted transfer statement. Ramified transfers retain different-line corrections and the explicit Blumberg–Mandell tower proof gap."
+        "verdict": "corrected",
+        "note": "Corrected FGV locator to Proposition 2.15/Remark 2.16 and proof on pp.15–16. Finite étale transfer and corestriction are the admitted route; ramified dualizing corrections and BM15 tower coherence stay explicit gaps."
       },
       {
         "nodeId": "MotivicEtaleKTheory:M.7/number-ring-duality-sign",
         "verdict": "verified",
-        "note": "Calmès et al. Lemma 3.2.4 and full proof give both dualities acting by (−1)^n on the two completed degrees, away from two; finite generation and positive H⁰ vanishing are required."
+        "note": "Calmès Lemma 3.2.4, pp.56–57, gives the dualization parity on the two completed degrees; the weight-j sign and positive-twist H⁰ vanishing are retained."
       },
       {
         "nodeId": "MotivicEtaleKTheory:M.7/suslin-real-comparison",
         "verdict": "verified",
-        "note": "Suslin real finite-coefficient comparison precedes the table, with BO/KO owned by requested RT.4 Part II; complex KU is not substituted. Small-neighbourhood proof inputs remain explicit."
+        "note": "K-book VI.3.1(c) and pp.475–479 supply Suslin’s real finite-coefficient comparison before the table; real BO/KO is requested from RT Part II, with neighbourhood/stability gaps recorded."
       },
       {
         "nodeId": "MotivicEtaleKTheory:M.7/real-mod-two-sequence",
         "verdict": "verified",
-        "note": "The real mod-two E₂/d₂/extension table matches Weibel VI 9.1; degree two is Z/4, so page dimensions alone do not imply split Z/2⊕Z/2."
+        "note": "VI.9.1/Table 9.1.1 has the period-eight orders including Z/4 in degree two and zero in degrees five through seven; it follows from the real comparison, not complex KU."
       },
       {
         "nodeId": "MotivicEtaleKTheory:M.7/real-place-correction",
         "verdict": "verified",
-        "note": "Real-place correction is a mapping fibre with low-degree kernel conditions and Q₂/Z₂ coefficients; real fields have infinite ordinary 2-cohomological dimension. The supplier owns the actual complexes."
+        "note": "VI.9.2–9.4 uses the actual restriction to real places and mapping-fibre correction, including dyadic extension classes; finite ordinary cohomological dimension is not assumed at real places."
       },
       {
         "nodeId": "MotivicEtaleKTheory:M.7/dyadic-s-integer-extensions",
         "verdict": "verified",
-        "note": "All eight dyadic slots and nonsplit extension match Theorem 9.4 and its proof. The degree-zero Q₂/Z₂ and special real-place kernels are retained."
+        "note": "VI.9.4 and its proof fix the non-split dyadic extension information and the distinct degree-zero exception. The needed real-page/Poitou–Tate inputs are requested explicitly."
       },
       {
         "nodeId": "MotivicEtaleKTheory:M.8/finite-etale-chern",
-        "verdict": "corrected",
-        "note": "Early finite étale Chern map keeps Kummer, Bott and (−1)^(i−1)(i−1)! Milnor normalization. Added positive weight/K-degree to its additive Lean type; no D.2/R.7 prerequisite introduced."
+        "verdict": "verified",
+        "note": "V.11.5–11.10.1 defines early finite universal Chern classes, Kummer/Bott normalization and the actual product factorials. No D.2/R.7 prerequisite is added; coefficients with noninvertible factorials are not rationalized."
       },
       {
         "nodeId": "MotivicEtaleKTheory:M.8/motivic-chern-character",
-        "verdict": "unverifiable",
-        "note": "Rational total character and Newton K₀ normalization are mathematically sound. Suggested motivicChern_weight still quantifies arbitrary x and arbitrary weightComparison, without an eigenspace restriction or action compatibility; revision required."
+        "verdict": "verified",
+        "note": "Revision weight comparison is restricted to the simultaneous eigenspace and normalized on spanning actual cycle generators. V.11.11–11.13 gives the signed (i−1)! positive-degree formula; K₀ instead uses Newton/i!."
       },
       {
         "nodeId": "MotivicEtaleKTheory:M.8/supported-cycle-character",
         "verdict": "verified",
-        "note": "Li–Liu Appendix B applies to the regular proper flat supported setting and its generic fibre. Footnote 22 support intersection/product and B.8 normalization caveat are retained; no vertical equality is inferred from generic-fibre comparison."
+        "note": "Li–Liu Appendix B, pp.57–62, supports the regular-model supported-cycle application and product normalization; the Gillet/Gillet–Soulé universal proof remains the named source gap."
       },
       {
         "nodeId": "MotivicEtaleKTheory:M.8/deligne-regulator",
         "verdict": "verified",
-        "note": "Burgos supplies logarithmic cone/real descent for open schemes and distinct integral/real point quotients. Compactification independence and general motivic realization are explicit Hodge/MC.2 requests."
+        "note": "Burgos §10.1, pp.89–92, supplies the logarithmic cone for the admitted smooth/open class, with real conjugation and integral versus real point quotients; Hodge/MC.2 own general realization."
       },
       {
         "nodeId": "MotivicEtaleKTheory:M.8/number-field-deligne-normalization",
-        "verdict": "verified",
-        "note": "Burgos early number-field definition is independent of the factor-two Borel comparison, with Newton (2πi)^j/j! and suspended (j−1)! conventions. The infinitesimal diagram through p.97 was checked; generic Weil comparisons remain suppliers."
+        "verdict": "corrected",
+        "note": "Corrected Remark 4.25 to §4.5, p.32, and retained the Newton sign using §4.4 Definition 4.21/Proposition 4.20, pp.30–31. New E9 records the source omission; the early Deligne class still precedes Borel factor-two."
       },
       {
         "nodeId": "MotivicEtaleKTheory:M.8/chern-functoriality",
-        "verdict": "corrected",
-        "note": "Corrected false finite-Chern multiplicativity: integral classes satisfy universal product identities, rational total characters are multiplicative. Restricted proper GRR to supplied smooth projective K₀ scope; higher proper RR is not supplied."
+        "verdict": "verified",
+        "note": "Chern naturality, products and norm compatibilities retain the genuine supplier maps. S.7 geometric GRR is imported only in its smooth-projective K₀ range; higher ramified formulas remain open."
       },
       {
         "nodeId": "MotivicEtaleKTheory:M.8/integral-motivic-structures",
-        "verdict": "corrected",
-        "note": "Image, torsion quotient and rational image remain distinct. Corrected lattice prototype to require explicit finite generation and conclude an existential rank; Z versus 2Z and torsion tests are appropriate."
+        "verdict": "verified",
+        "note": "Actual integral image, torsion-free quotient, rational integral part and Borel lattice remain distinct; N.3 finite generation and R.4 determinant/lattice inputs match their current statements."
       },
       {
         "nodeId": "MotivicEtaleKTheory:M.8/tate-elliptic-realization-dictionary",
-        "verdict": "corrected",
-        "note": "Geometric Frobenius twist formulas agree with elliptic/Tate supplier conventions. Changed j to an integer and replaced analytic H3 with scheme EDC.2:pairings plus explicit MC.2 base-change request. Kato citation is marked conventions-only."
+        "verdict": "verified",
+        "note": "Tate/elliptic twists and cohomological dual Tate module use the imported scheme curve pairing and smooth proper base change; analytic adic H3 is a consumer. Geometric Frobenius fixes the quadratic Euler polynomial."
       },
       {
         "nodeId": "MotivicEtaleKTheory:M.8/norm-compatible-regulator-families",
-        "verdict": "unverifiable",
-        "note": "Added typed transfer-square hypothesis and a constructor for the specified unit/Bott norm family, replacing evaluation on an arbitrary family. Remaining degree-only arithmetic and unrestricted transfer tests fail to exercise that construction; revision required."
+        "verdict": "verified",
+        "note": "Revision distinguishes varying-ring norm transitions from Soulé fixed-base unit–Bott coefficient reduction. §4.1–4.4, pp.238–240, proves i≥2; i=1 is the separate exponent-zero case. The C/R norm computation catches confusing transfer with reduction."
       },
       {
         "nodeId": "MotivicEtaleKTheory:M.8/euler-factor-regulator-compatibility",
         "verdict": "verified",
-        "note": "The supplied norm and Frobenius-polynomial intertwining hypotheses imply the regulator relation by a commuting square. No arbitrary elliptic Euler-system existence is asserted."
+        "note": "Actual regulator/corestriction maps transport supplied Euler-system relations with the declared Frobenius convention; M.8 does not construct a second Euler-system family or infer bad-place factors."
       },
       {
         "nodeId": "MotivicEtaleKTheory:M.8/selmer-regulator-factorization",
-        "verdict": "corrected",
-        "note": "Added injectivity and the native range-in-local-condition hypothesis to the group factorization signature. The local syntomic/finite-condition proof remains with its named owners; Kato supplies conventions only."
+        "verdict": "verified",
+        "note": "Actual local maps must land in imported finite conditions and give a Selmer mapping-fibre lift. Unramified H¹ alone is insufficient; L2/L4 and p-adic local-regulator regimes are precise requests and source refinements."
       },
       {
         "nodeId": "MotivicEtaleKTheory:M.8/arithmetic-fundamental-line",
-        "verdict": "unverifiable",
-        "note": "Inverse determinant, integral basis criterion and conditional Tamagawa boundary agree with Kato. PS.4 currently imports PS.3 importing M.8; an independent period-line prefix is needed before this supplier claim is justified."
+        "verdict": "verified",
+        "note": "Revision uses independent MC.2/PS.0 realization/period spaces and L5 determinants, with no PS.4 ancestor. Perfectness, real-place corrections and integral basis are explicit; exact rational factors/signs remain conditional source refinement."
       },
       {
         "nodeId": "MotivicEtaleKTheory:M.8/regulator-determinant-comparison",
-        "verdict": "unverifiable",
-        "note": "Conditional comparison retains R.7 factor two, real/p-adic period inputs and integral versus rational distinctions. The PS.4/PS.3/M.8 supplier cycle must be split before using its claimed independent period assembly."
+        "verdict": "verified",
+        "note": "Revision forms the equivalence from the actual bijective regulator map and applies the same determinant operation composed with the specified period equivalence. Borel/p-adic normalizations and integral-basis versus rational-trivialization distinctions remain binding."
       }
     ]
   }

@@ -120,7 +120,7 @@ Consumers:
 
 Acceptance: The statement has the displayed degree and characteristic hypotheses and uses the imported carriers.
 
-Source: [Charles A. Weibel, The K-book: An introduction to algebraic K-theory](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), III.7, differential symbol and Lemma 7.7, printed pp.250–251 (PDF pp.258–259). Locator excerpt: “Lemma 7.7.”. The source gives the differential-symbol construction; this declaration separates the indicated step and its reusable interface.
+Source: [Charles A. Weibel, The K-book: An introduction to algebraic K-theory](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), III.7, differential symbol and Lemma 7.7, printed pp.250–251 (PDF pp.258–259). The source gives the differential-symbol construction; this declaration separates the indicated step and its reusable interface.
 
 Atlas planet: Logarithmic differential.
 
@@ -143,7 +143,7 @@ Proposed declaration: TauCeti.DifferentialSymbol.logOne_natural.
 
 Acceptance: Taking f to be the identity recovers logOne(a). The scalar moves through f; no F-linearity is asserted for an arbitrary field homomorphism.
 
-Source: [Charles A. Weibel, The K-book: An introduction to algebraic K-theory](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), III.7, differential symbol and Lemma 7.7, printed pp.250–251 (PDF pp.258–259). Locator excerpt: “Lemma 7.7.”. The source gives the differential-symbol construction; this declaration separates the indicated step and its reusable interface.
+Source: [Charles A. Weibel, The K-book: An introduction to algebraic K-theory](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), III.7, differential symbol and Lemma 7.7, printed pp.250–251 (PDF pp.258–259). The source gives the differential-symbol construction; this declaration separates the indicated step and its reusable interface.
 
 #### Tensor differential symbol
 
@@ -182,7 +182,7 @@ Consumers:
 
 Acceptance: The statement has the displayed degree and characteristic hypotheses and uses the imported carriers.
 
-Source: [Charles A. Weibel, The K-book: An introduction to algebraic K-theory](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), III.7, differential symbol and Lemma 7.7, printed pp.250–251 (PDF pp.258–259). Locator excerpt: “Lemma 7.7.”. The source gives the differential-symbol construction; this declaration separates the indicated step and its reusable interface.
+Source: [Charles A. Weibel, The K-book: An introduction to algebraic K-theory](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), III.7, differential symbol and Lemma 7.7, printed pp.250–251 (PDF pp.258–259). The source gives the differential-symbol construction; this declaration separates the indicated step and its reusable interface.
 
 #### Vanishing on Steinberg tensors
 
@@ -204,7 +204,7 @@ Proposed declaration: TauCeti.DifferentialSymbol.steinberg_vanish.
 
 Acceptance: For n=2 the pair (a,1−a), a≠0,1, has zero image. Consecutive positions suffice for the imported presentation; arbitrary distinct positions also vanish in forms.
 
-Source: [Charles A. Weibel, The K-book: An introduction to algebraic K-theory](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), III.7, differential symbol and Lemma 7.7, printed pp.250–251 (PDF pp.258–259). Locator excerpt: “Lemma 7.7.”. The source gives the differential-symbol construction; this declaration separates the indicated step and its reusable interface.
+Source: [Charles A. Weibel, The K-book: An introduction to algebraic K-theory](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), III.7, differential symbol and Lemma 7.7, printed pp.250–251 (PDF pp.258–259). The source gives the differential-symbol construction; this declaration separates the indicated step and its reusable interface.
 
 #### Differential symbol on Milnor K-theory
 
@@ -243,7 +243,7 @@ Consumers:
 
 Acceptance: The statement has the displayed degree and characteristic hypotheses and uses the imported carriers.
 
-Source: [Charles A. Weibel, The K-book: An introduction to algebraic K-theory](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), III.7, differential symbol and Lemma 7.7, printed pp.250–251 (PDF pp.258–259). Locator excerpt: “Lemma 7.7.”. The source gives the differential-symbol construction; this declaration separates the indicated step and its reusable interface.
+Source: [Charles A. Weibel, The K-book: An introduction to algebraic K-theory](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), III.7, differential symbol and Lemma 7.7, printed pp.250–251 (PDF pp.258–259). The source gives the differential-symbol construction; this declaration separates the indicated step and its reusable interface.
 
 Atlas planet: Milnor differential symbol.
 
@@ -266,7 +266,7 @@ Proposed declaration: TauCeti.DifferentialSymbol.differentialSymbol_natural.
 
 Acceptance: Identity and composite field maps agree with the imported functor laws.
 
-Source: [Charles A. Weibel, The K-book: An introduction to algebraic K-theory](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), III.7, differential symbol and Lemma 7.7, printed pp.250–251 (PDF pp.258–259). Locator excerpt: “Lemma 7.7.”. The source gives the differential-symbol construction; this declaration separates the indicated step and its reusable interface.
+Source: [Charles A. Weibel, The K-book: An introduction to algebraic K-theory](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), III.7, differential symbol and Lemma 7.7, printed pp.250–251 (PDF pp.258–259). The source gives the differential-symbol construction; this declaration separates the indicated step and its reusable interface.
 
 #### Products of differential symbols
 
@@ -288,7 +288,7 @@ Proposed declaration: TauCeti.DifferentialSymbol.differentialSymbol_product.
 
 Acceptance: Degree-zero multiplication is integer scalar multiplication on forms. In degree (1,1) the value is da/a∧db/b with that order.
 
-Source: [Charles A. Weibel, The K-book: An introduction to algebraic K-theory](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), III.7, differential symbol and Lemma 7.7, printed pp.250–251 (PDF pp.258–259). Locator excerpt: “Lemma 7.7.”. The source gives the differential-symbol construction; this declaration separates the indicated step and its reusable interface.
+Source: [Charles A. Weibel, The K-book: An introduction to algebraic K-theory](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), III.7, differential symbol and Lemma 7.7, printed pp.250–251 (PDF pp.258–259). The source gives the differential-symbol construction; this declaration separates the indicated step and its reusable interface.
 
 #### Characteristic annihilates absolute forms
 
@@ -309,7 +309,7 @@ Proposed declaration: TauCeti.DifferentialSymbol.forms_p_smul.
 
 Acceptance: In degree zero this is p·a=0 in F.
 
-Source: [Spencer Bloch and Kazuya Kato, p-adic étale cohomology](https://www.numdam.org/item/PMIHES_1986__63__107_0.pdf), §2 opening definition of k_q(F) and differential symbol, printed p.113 (PDF p.8). Locator excerpt: “2. The differential symbol”. The source gives the differential-symbol construction; this declaration separates the indicated step and its reusable interface.
+Source: [Spencer Bloch and Kazuya Kato, p-adic étale cohomology](https://www.numdam.org/item/PMIHES_1986__63__107_0.pdf), §2 opening definition of k_q(F) and differential symbol, printed p.113 (PDF p.8). The source gives the differential-symbol construction; this declaration separates the indicated step and its reusable interface.
 
 #### Differential symbol modulo p
 
@@ -348,7 +348,7 @@ Consumers:
 
 Acceptance: The statement has the displayed degree and characteristic hypotheses and uses the imported carriers.
 
-Source: [Spencer Bloch and Kazuya Kato, p-adic étale cohomology](https://www.numdam.org/item/PMIHES_1986__63__107_0.pdf), §2 opening display, printed p.113 (PDF p.8). Locator excerpt: “2. The differential symbol”. The source gives the differential-symbol construction; this declaration separates the indicated step and its reusable interface.
+Source: [Spencer Bloch and Kazuya Kato, p-adic étale cohomology](https://www.numdam.org/item/PMIHES_1986__63__107_0.pdf), §2 opening display, printed p.113 (PDF p.8). The source gives the differential-symbol construction; this declaration separates the indicated step and its reusable interface.
 
 #### Artin–Schreier differential operator
 
@@ -387,7 +387,7 @@ Consumers:
 
 Acceptance: The statement has the displayed degree and characteristic hypotheses and uses the imported carriers.
 
-Source: [Charles A. Weibel, The K-book: An introduction to algebraic K-theory](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Definition III.7.7.1, printed p.251 (PDF p.259). Locator excerpt: “Definition 7.7.1.”. The coefficient formula defines the same kernel as BK; the ordinary differential and Cartier theory stay with DD.2/DD.3.
+Source: [Charles A. Weibel, The K-book: An introduction to algebraic K-theory](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Definition III.7.7.1, printed p.251 (PDF p.259). The coefficient formula defines the same kernel as BK; the ordinary differential and Cartier theory stay with DD.2/DD.3.
 
 #### Artin–Schreier operator on logarithmic wedges
 
@@ -408,7 +408,7 @@ Proposed declaration: TauCeti.DifferentialSymbol.artinSchreier_logarithmic.
 
 Acceptance: For coefficient 1 the result is zero. Degree zero recovers x^p−x, so a non-Frobenius-fixed x detects the sign and nonzero operator.
 
-Source: [Charles A. Weibel, The K-book: An introduction to algebraic K-theory](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Definition III.7.7.1, printed p.251 (PDF p.259). Locator excerpt: “Definition 7.7.1.”. The coefficient formula defines the same kernel as BK; the ordinary differential and Cartier theory stay with DD.2/DD.3.
+Source: [Charles A. Weibel, The K-book: An introduction to algebraic K-theory](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Definition III.7.7.1, printed p.251 (PDF p.259). The coefficient formula defines the same kernel as BK; the ordinary differential and Cartier theory stay with DD.2/DD.3.
 
 #### Logarithmic differential forms
 
@@ -449,7 +449,7 @@ Consumers:
 
 Acceptance: The statement has the displayed degree and characteristic hypotheses and uses the imported carriers.
 
-Source: [Spencer Bloch and Kazuya Kato, p-adic étale cohomology](https://www.numdam.org/item/PMIHES_1986__63__107_0.pdf), §2 definition of ν, printed p.113 (PDF p.8). Locator excerpt: “2. The differential symbol”. The source gives the differential-symbol construction; this declaration separates the indicated step and its reusable interface.
+Source: [Spencer Bloch and Kazuya Kato, p-adic étale cohomology](https://www.numdam.org/item/PMIHES_1986__63__107_0.pdf), §2 definition of ν, printed p.113 (PDF p.8). The source gives the differential-symbol construction; this declaration separates the indicated step and its reusable interface.
 
 #### Differential symbols are Cartier fixed
 
@@ -470,7 +470,7 @@ Proposed declaration: TauCeti.DifferentialSymbol.differentialSymbol_fixed.
 
 Acceptance: The empty symbol is Cartier fixed. This proves membership, not injectivity or surjectivity.
 
-Source: [Spencer Bloch and Kazuya Kato, p-adic étale cohomology](https://www.numdam.org/item/PMIHES_1986__63__107_0.pdf), §2 symbol ψ with codomain ν, printed p.113 (PDF p.8). Locator excerpt: “2. The differential symbol”. The source gives the differential-symbol construction; this declaration separates the indicated step and its reusable interface.
+Source: [Spencer Bloch and Kazuya Kato, p-adic étale cohomology](https://www.numdam.org/item/PMIHES_1986__63__107_0.pdf), §2 symbol ψ with codomain ν, printed p.113 (PDF p.8). The source gives the differential-symbol construction; this declaration separates the indicated step and its reusable interface.
 
 #### Logarithmic symbol modulo p
 
@@ -509,7 +509,7 @@ Consumers:
 
 Acceptance: The statement has the displayed degree and characteristic hypotheses and uses the imported carriers.
 
-Source: [Spencer Bloch and Kazuya Kato, p-adic étale cohomology](https://www.numdam.org/item/PMIHES_1986__63__107_0.pdf), §2 definition of ψ preceding Theorem 2.1, printed p.113 (PDF p.8). Locator excerpt: “2. The differential symbol”. The source gives the differential-symbol construction; this declaration separates the indicated step and its reusable interface.
+Source: [Spencer Bloch and Kazuya Kato, p-adic étale cohomology](https://www.numdam.org/item/PMIHES_1986__63__107_0.pdf), §2 definition of ψ preceding Theorem 2.1, printed p.113 (PDF p.8). The source gives the differential-symbol construction; this declaration separates the indicated step and its reusable interface.
 
 #### Degree-zero differential comparison
 
@@ -531,7 +531,7 @@ Proposed declaration: TauCeti.DifferentialSymbol.logarithmicSymbol_zero_bijectiv
 
 Acceptance: For F=F_p the map is the identity Z/p→F_p. For F=F_p(t), the target is F_p, not all of F.
 
-Source: [Charles A. Weibel, The K-book: An introduction to algebraic K-theory](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Theorem III.7.7.2, n=0 specialization, printed p.251 (PDF p.259). Locator excerpt: “Theorem 7.7.2.”. An elementary base case of the theorem, proved here without invoking the general BGK theorem.
+Source: [Charles A. Weibel, The K-book: An introduction to algebraic K-theory](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Theorem III.7.7.2, n=0 specialization, printed p.251 (PDF p.259). An elementary base case of the theorem, proved here without invoking the general BGK theorem.
 
 #### Positive-degree forms over a perfect field
 
@@ -553,7 +553,7 @@ Proposed declaration: TauCeti.DifferentialSymbol.perfect_forms_zero.
 
 Acceptance: Applies to finite fields and algebraic closures of F_p. The hypothesis n>0 is necessary: Ω_F^0=F.
 
-Source: [Spencer Bloch and Kazuya Kato, p-adic étale cohomology](https://www.numdam.org/item/PMIHES_1986__63__107_0.pdf), Corollary 2.2.1 base field, printed p.114 (PDF p.9). Locator excerpt: “purely transcendental over a perfect field.”. Elementary perfect-field base calculation used before the pure-transcendental induction.
+Source: [Spencer Bloch and Kazuya Kato, p-adic étale cohomology](https://www.numdam.org/item/PMIHES_1986__63__107_0.pdf), Corollary 2.2.1 base field, printed p.114 (PDF p.9). Elementary perfect-field base calculation used before the pure-transcendental induction.
 
 #### Milnor groups modulo p over a perfect field
 
@@ -575,7 +575,7 @@ Proposed declaration: TauCeti.DifferentialSymbol.perfect_modP_zero.
 
 Acceptance: For F=F_p and n=1 this says F_p×/(F_p×)^p=0. The conclusion excludes n=0, where k_0(F)=Z/p.
 
-Source: [Spencer Bloch and Kazuya Kato, p-adic étale cohomology](https://www.numdam.org/item/PMIHES_1986__63__107_0.pdf), Corollary 2.2.1 base field, printed p.114 (PDF p.9). Locator excerpt: “purely transcendental over a perfect field.”. The elementary Milnor-side calculation needed for the perfect-field base case.
+Source: [Spencer Bloch and Kazuya Kato, p-adic étale cohomology](https://www.numdam.org/item/PMIHES_1986__63__107_0.pdf), Corollary 2.2.1 base field, printed p.114 (PDF p.9). The elementary Milnor-side calculation needed for the perfect-field base case.
 
 #### Injectivity of the degree-one differential symbol
 
@@ -598,7 +598,7 @@ Proposed declaration: TauCeti.DifferentialSymbol.logarithmicSymbol_one_injective
 
 Acceptance: The exact kernel of a↦da/a is (F×)^p. For a perfect field both the source and positive-degree target vanish.
 
-Source: [Charles A. Weibel, The K-book: An introduction to algebraic K-theory](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Theorem III.7.7.2, degree-one injectivity specialization, printed p.251 (PDF p.259). Locator excerpt: “Theorem 7.7.2.”. The elementary injectivity step isolated from full BGK; the nontrivial Cartier input is an explicit supplier request.
+Source: [Charles A. Weibel, The K-book: An introduction to algebraic K-theory](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Theorem III.7.7.2, degree-one injectivity specialization, printed p.251 (PDF p.259). The elementary injectivity step isolated from full BGK; the nontrivial Cartier input is an explicit supplier request.
 
 #### Bloch–Gabber–Kato theorem
 
@@ -620,7 +620,7 @@ Proposed declaration: TauCeti.MotivicEtale.bloch_gabber_kato.
 
 Acceptance: Use the indicated genuine supplier carriers, the displayed coefficient and degree conventions, and the stated scheme class; the suggested signatures are prototypes.
 
-Source: [Spencer Bloch and Kazuya Kato, p-adic étale cohomology](https://www.numdam.org/item/PMIHES_1986__63__107_0.pdf), §2, Theorem 2.1, Lemma 2.2, diagram (2.3.1), Proposition 2.4 and Lemma 2.5, printed pp.113–118. Locator excerpt: “Theorem (2.1)”. Characteristic-p field differential comparison, independent of motivic norm varieties.
+Source: [Spencer Bloch and Kazuya Kato, p-adic étale cohomology](https://www.numdam.org/item/PMIHES_1986__63__107_0.pdf), §2, Theorem 2.1, Lemma 2.2, diagram (2.3.1), Proposition 2.4 and Lemma 2.5, printed pp.113–118. Characteristic-p field differential comparison, independent of motivic norm varieties.
 
 Atlas planet: Bloch–Gabber–Kato theorem.
 
@@ -643,6 +643,7 @@ Proposed declaration: TauCeti.MotivicEtale.wittSymbol.
 
 Planning API:
 
+- **TauCeti.MotivicEtale.wittLogWedge** (data): The CR.4 Teichmüller logarithmic wedge for the actual field, length and degree; the empty wedge is the unit section. It is fixed independently of h_r.
 - **TauCeti.MotivicEtale.wittSymbol_symbol** (simp): h_r of a pure Milnor symbol is the displayed wedge of Teichmüller logarithms.
 - **TauCeti.MotivicEtale.wittSymbol_restrict** (compatibility): For r≥2, R∘h_r=h_(r−1)∘ρ, with ρ coefficient reduction.
 - **TauCeti.MotivicEtale.wittSymbol_insert** (compatibility): For r≥2, h_r∘i=j∘h₁, where i([a])=[p^(r−1)a].
@@ -658,11 +659,11 @@ Consumers:
 - BK Corollary 2.8: Inducts logarithmic comparison from p to p^r.
 - HigherLocalFieldsAndHigherClassFieldTheory:HL.2: Supplies the residue-characteristic prime-power symbol.
 
-Acceptance: Use the indicated genuine supplier carriers, the displayed coefficient and degree conventions, and the stated scheme class; the suggested signatures are prototypes.
+Acceptance: Use the indicated genuine supplier carriers, the displayed coefficient and degree conventions, and the stated scheme class; the suggested signatures are prototypes. In the prototype, the Teichmüller wedge is a named genuine CR.4 supplier operation, not an arbitrary tuple map. Restriction preserves these wedges; coefficient reduction preserves quotient representatives; i sends [x] to [p^(r−1)x] and j sends the length-one wedge to p^(r−1) times the length-r wedge. The degree-zero equivalence preserves the unit section. These native evaluation laws are explicit hypotheses, while unavailable geometric sheaf conditions remain binding here.
 
-Source: [Spencer Bloch and Kazuya Kato, p-adic étale cohomology](https://www.numdam.org/item/PMIHES_1986__63__107_0.pdf), Corollary 2.8, printed pp.117–118. Locator excerpt: “(2.8)”. Characteristic-p field differential comparison, independent of motivic norm varieties.
+Source: [Spencer Bloch and Kazuya Kato, p-adic étale cohomology](https://www.numdam.org/item/PMIHES_1986__63__107_0.pdf), Corollary 2.8, printed pp.117–118. Characteristic-p field differential comparison, independent of motivic norm varieties.
 
-Source: [Luc Illusie, Complexe de de Rham–Witt et cohomologie cristalline](https://www.numdam.org/item/ASENS_1979_4_12_4_501_0.pdf), I §5.7, pp.596–598, Corollary 5.7.5. Locator excerpt: “COROLLAIRE 5.7.5.”. Defines the étale logarithmic Witt sheaf and supplies its p-power quotient statement; passage to arbitrary fields requires the CR.4 colimit interface.
+Source: [Luc Illusie, Complexe de de Rham–Witt et cohomologie cristalline](https://www.numdam.org/item/ASENS_1979_4_12_4_501_0.pdf), I §5.7, pp.596–598, Corollary 5.7.5. Defines the étale logarithmic Witt sheaf and supplies its p-power quotient statement; passage to arbitrary fields requires the CR.4 colimit interface.
 
 Atlas planet: Witt logarithmic symbol.
 
@@ -685,7 +686,7 @@ Proposed declaration: TauCeti.MotivicEtale.milnor_coefficient_row.
 
 Acceptance: Use the indicated genuine supplier carriers, the displayed coefficient and degree conventions, and the stated scheme class; the suggested signatures are prototypes.
 
-Source: [Spencer Bloch and Kazuya Kato, p-adic étale cohomology](https://www.numdam.org/item/PMIHES_1986__63__107_0.pdf), Corollary 2.8 diagram and its induction, pp.117–118. Locator excerpt: “(2.8)”. Characteristic-p field differential comparison, independent of motivic norm varieties.
+Source: [Spencer Bloch and Kazuya Kato, p-adic étale cohomology](https://www.numdam.org/item/PMIHES_1986__63__107_0.pdf), Corollary 2.8 diagram and its induction, pp.117–118. Characteristic-p field differential comparison, independent of motivic norm varieties.
 
 #### Prime-power Bloch–Gabber–Kato theorem
 
@@ -707,7 +708,7 @@ Proposed declaration: TauCeti.MotivicEtale.prime_power_bgk.
 
 Acceptance: Use the indicated genuine supplier carriers, the displayed coefficient and degree conventions, and the stated scheme class; the suggested signatures are prototypes.
 
-Source: [Spencer Bloch and Kazuya Kato, p-adic étale cohomology](https://www.numdam.org/item/PMIHES_1986__63__107_0.pdf), Corollary 2.8, pp.117–118. Locator excerpt: “(2.8)”. Characteristic-p field differential comparison, independent of motivic norm varieties.
+Source: [Spencer Bloch and Kazuya Kato, p-adic étale cohomology](https://www.numdam.org/item/PMIHES_1986__63__107_0.pdf), Corollary 2.8, pp.117–118. Characteristic-p field differential comparison, independent of motivic norm varieties.
 
 Atlas planet: Prime-power differential comparison.
 
@@ -730,7 +731,7 @@ Proposed declaration: TauCeti.MotivicEtale.milnor_torsion_divisible.
 
 Acceptance: Use the indicated genuine supplier carriers, the displayed coefficient and degree conventions, and the stated scheme class; the suggested signatures are prototypes.
 
-Source: [Spencer Bloch and Kazuya Kato, p-adic étale cohomology](https://www.numdam.org/item/PMIHES_1986__63__107_0.pdf), Corollary 2.8 proof, pp.117–118. Locator excerpt: “(2.8)”. Characteristic-p field differential comparison, independent of motivic norm varieties.
+Source: [Spencer Bloch and Kazuya Kato, p-adic étale cohomology](https://www.numdam.org/item/PMIHES_1986__63__107_0.pdf), Corollary 2.8 proof, pp.117–118. Characteristic-p field differential comparison, independent of motivic norm varieties.
 
 #### Mod-prime motivic comparison
 
@@ -745,15 +746,15 @@ Proof/construction plan:
 1. Apply the field diagonal Milnor identification, transfers and semilocal acyclicity to the cone of the cycle map; stalkwise vanishing through weight j gives the truncation equivalence.
 2. SV2000 Theorem 7.4 alone assumes resolution of singularities; Geisser–Levine 2001 removes it. The latter original PDF was unavailable and its exact resolution-free proof input is an explicit gap, corroborated by Geisser 2004 §5.
 
-Direct prerequisites: MotivicEtaleKTheory:M.4, MotivicEtaleKTheory:M.5a, MotivicEtaleKTheory:M.5c.
+Direct prerequisites: MotivicEtaleKTheory:M.4/cycle-complex, MotivicEtaleKTheory:M.4/vanishing-above-weight, MotivicEtaleKTheory:M.4/nesterenko-suslin-totaro, MotivicEtaleKTheory:M.5a/suslin-complex-and-motivic-complexes, MotivicEtaleKTheory:M.5a/cycle-complex-transfers, MotivicEtaleKTheory:M.5a/etale-motivic-comparison, MotivicEtaleKTheory:M.5c/mod-l-norm-residue, MotivesAndAlgebraicCycles:MC.4/suslin-friedlander-into-cycle-complex, MotivesAndAlgebraicCycles:MC.4/motivic-cohomology-higher-chow.
 
 Proposed declaration: TauCeti.MotivicEtale.mod_prime_motivic_comparison.
 
 Acceptance: Use the indicated genuine supplier carriers, the displayed coefficient and degree conventions, and the stated scheme class; the suggested signatures are prototypes.
 
-Source: [Andrei Suslin and Vladimir Voevodsky, Bloch–Kato conjecture and motivic cohomology with finite coefficients](https://www.math.ias.edu/vladimir/sites/math.ias.edu.vladimir/files/susvoenew.pdf), §7, Theorem 7.4, pp.52–53. Locator excerpt: “Theorem 7.4”. The resolution-dependent original implication; its hypothesis is retained.
+Source: [Andrei Suslin and Vladimir Voevodsky, Bloch–Kato conjecture and motivic cohomology with finite coefficients](https://www.math.ias.edu/vladimir/sites/math.ias.edu.vladimir/files/susvoenew.pdf), §7, Theorem 7.4, pp.52–53. The resolution-dependent original implication; its hypothesis is retained.
 
-Source: [Thomas Geisser, Motivic cohomology over Dedekind rings](https://www2.rikkyo.ac.jp/web/geisser/Dedekind.pdf), §5 proof of Theorem 1.2, pp.787–789. Locator excerpt: “Beilinson-Lichtenbaum conjecture over a field”. Explicitly cites the resolution-free field implication [8,9]; not claimed to replace reading its proof.
+Source: [Thomas Geisser, Motivic cohomology over Dedekind rings](https://www2.rikkyo.ac.jp/web/geisser/Dedekind.pdf), §5 proof of Theorem 1.2, pp.787–789. Explicitly cites the resolution-free field implication [8,9]; not claimed to replace reading its proof.
 
 #### Prime-power norm-residue comparison
 
@@ -769,13 +770,13 @@ Proof/construction plan:
 2. The comparison cones have no cohomology in degrees ≤j and are extension-stable, so induction proves the prime-power truncation comparison. On a field H^j(F,Z/ℓ^r(j))=K^M_j(F)/ℓ^r because H^(j+1)(F,Z(j))=0.
 3. Retain full long exact rows: neither the Milnor row nor the degree-j Galois row is assumed left exact. In Q×, the class of −1 shows why the p-characteristic short-row argument cannot be copied at ℓ=2.
 
-Direct prerequisites: MotivicEtaleKTheory:M.5d/mod-prime-motivic-comparison, MotivicEtaleKTheory:M.4, MotivicEtaleKTheory:M.1, StableHomotopyKTheory:H.6/bockstein-long-exact-sequence.
+Direct prerequisites: MotivicEtaleKTheory:M.5d/mod-prime-motivic-comparison, MotivicEtaleKTheory:M.4/nesterenko-suslin-totaro, MotivicEtaleKTheory:M.4/vanishing-above-weight, MotivicEtaleKTheory:M.1/finite-tate-twist, MotivicEtaleKTheory:M.1/adic-tate-twist, StableHomotopyKTheory:H.6/bockstein-long-exact-sequence.
 
 Proposed declaration: TauCeti.MotivicEtale.prime_power_norm_residue.
 
 Acceptance: Use the indicated genuine supplier carriers, the displayed coefficient and degree conventions, and the stated scheme class; the suggested signatures are prototypes.
 
-Source: [Charles A. Weibel, The K-book: An introduction to algebraic K-theory](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), VI §4, Beilinson–Lichtenbaum theorem 4.1, pp.480–481. Locator excerpt: “Theorem 4.1.”. The cited construction or theorem fixes the coefficient, degree and normalization conventions.
+Source: [Charles A. Weibel, The K-book: An introduction to algebraic K-theory](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), VI §4, Beilinson–Lichtenbaum theorem 4.1, pp.480–481. The cited construction or theorem fixes the coefficient, degree and normalization conventions.
 
 Atlas planet: Prime-power norm-residue theorem.
 
@@ -792,15 +793,15 @@ Proof/construction plan:
 1. Milnor symbols and relations involve finitely many elements. Kähler forms/exterior powers and exact-form quotients commute with filtered colimits; filtered colimits of groups preserve kernels.
 2. Descend finite étale covers, cocycles and logarithmic sections to a finite stage and apply finite-presentation limit descent. Never commute an infinite derived inverse limit with a colimit without an additional theorem.
 
-Direct prerequisites: K2SymbolsBrauer:T.2/milnor-k-theory, DerivedDeRhamCohomology:DD.2/ordinary-de-rham-complex, CrystallineCohomology:CR.4, MotivicEtaleKTheory:M.1, tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees.
+Direct prerequisites: K2SymbolsBrauer:T.2/milnor-k-theory, DerivedDeRhamCohomology:DD.2/ordinary-de-rham-complex, CrystallineCohomology:CR.4, MotivicEtaleKTheory:M.1/field-etale-galois-comparison, tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees.
 
 Proposed declaration: TauCeti.MotivicEtale.filtered_colimit_comparisons.
 
 Acceptance: Use the indicated genuine supplier carriers, the displayed coefficient and degree conventions, and the stated scheme class; the suggested signatures are prototypes.
 
-Source: [Spencer Bloch and Kazuya Kato, p-adic étale cohomology](https://www.numdam.org/item/PMIHES_1986__63__107_0.pdf), §2 after Theorem 2.1, p.113. Locator excerpt: “Theorem (2.1)”. Characteristic-p field differential comparison, independent of motivic norm varieties.
+Source: [Spencer Bloch and Kazuya Kato, p-adic étale cohomology](https://www.numdam.org/item/PMIHES_1986__63__107_0.pdf), §2 after Theorem 2.1, p.113. Characteristic-p field differential comparison, independent of motivic norm varieties.
 
-Source: [Thomas Geisser, Motivic cohomology over Dedekind rings](https://www2.rikkyo.ac.jp/web/geisser/Dedekind.pdf), Lemma 2.1, pp.775–776. Locator excerpt: “Lemma 2.1.”. Noetherian étale-site limit argument; the exact field-colimit interface is requested.
+Source: [Thomas Geisser, Motivic cohomology over Dedekind rings](https://www2.rikkyo.ac.jp/web/geisser/Dedekind.pdf), Lemma 2.1, pp.775–776. Noetherian étale-site limit argument; the exact field-colimit interface is requested.
 
 #### Permitted field reductions
 
@@ -815,13 +816,13 @@ Proof/construction plan:
 1. For finite exponent e, every symbol over E has p^(eq)-multiple from F; invert p modulo m for surjectivity. Restriction followed by norm is [E:F], a p-power, for injectivity.
 2. Purely inseparable extensions give equivalent finite étale categories and identical absolute Galois groups. Apply filtered colimits for the infinite extension.
 
-Direct prerequisites: MotivicEtaleKTheory:M.5d/filtered-colimit-comparisons, K2SymbolsBrauer:T.4/restriction-transfer-degree, ArithmeticGaloisDuality:R02.2.
+Direct prerequisites: MotivicEtaleKTheory:M.5d/filtered-colimit-comparisons, K2SymbolsBrauer:T.4/restriction-transfer-degree, ArithmeticGaloisDuality:R02.2, MotivicEtaleKTheory:M.1/field-etale-galois-comparison.
 
 Proposed declaration: TauCeti.MotivicEtale.inseparable_and_characteristic_reductions.
 
 Acceptance: Use the indicated genuine supplier carriers, the displayed coefficient and degree conventions, and the stated scheme class; the suggested signatures are prototypes.
 
-Source: [Charles A. Weibel, The K-book: An introduction to algebraic K-theory](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), VI §4 Theorem 4.1 and its characteristic restrictions, p.480. Locator excerpt: “Theorem 4.1.”. The cited construction or theorem fixes the coefficient, degree and normalization conventions.
+Source: [Charles A. Weibel, The K-book: An introduction to algebraic K-theory](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), VI §4 Theorem 4.1 and its characteristic restrictions, p.480. The cited construction or theorem fixes the coefficient, degree and normalization conventions.
 
 ### M.6a
 
@@ -838,7 +839,7 @@ Proof/construction plan:
 1. Take the finite union poset of admissible closed supports. Proper face intersections ensure face/degeneracy pullbacks preserve the required support condition.
 2. Import the actual perfect-complex support categories and pullback K-theory; no support category is defined from the expected spectral sequence.
 
-Direct prerequisites: SchemeKTheoryOperations:S.4/codimension-support-filtration, SchemeKTheoryOperations:S.4/coniveau-layer-fibre-sequence, MotivicEtaleKTheory:M.4.
+Direct prerequisites: SchemeKTheoryOperations:S.4/codimension-support-filtration, SchemeKTheoryOperations:S.4/coniveau-layer-fibre-sequence, MotivicEtaleKTheory:M.4/algebraic-simplex, MotivicEtaleKTheory:M.4/admissible-cycles.
 
 Proposed declaration: TauCeti.MotivicEtale.admissibleSupports.
 
@@ -861,7 +862,7 @@ Consumers:
 
 Acceptance: Use the indicated genuine supplier carriers, the displayed coefficient and degree conventions, and the stated scheme class; the suggested signatures are prototypes.
 
-Source: [Marc Levine, The homotopy coniveau tower](https://arxiv.org/pdf/math/0510334), §2.1, admissible supports on every face and definition of the tower, pp.9–11. Locator excerpt: “2.1. The construction.”. The homotopy coniveau construction is defined on actual support K-theory spectra before identifying its layers.
+Source: [Marc Levine, The homotopy coniveau tower](https://arxiv.org/pdf/math/0510334), §2.1, admissible supports on every face and definition of the tower, pp.9–11. The homotopy coniveau construction is defined on actual support K-theory spectra before identifying its layers.
 
 Atlas planet: Admissible supports.
 
@@ -901,7 +902,7 @@ Consumers:
 
 Acceptance: Use the indicated genuine supplier carriers, the displayed coefficient and degree conventions, and the stated scheme class; the suggested signatures are prototypes.
 
-Source: [Marc Levine, The homotopy coniveau tower](https://arxiv.org/pdf/math/0510334), §2.1, pp.9–11; Theorem 4.1.1 and proof, pp.20–22. Locator excerpt: “Theorem 4.1.1.”. The homotopy coniveau construction is defined on actual support K-theory spectra before identifying its layers.
+Source: [Marc Levine, The homotopy coniveau tower](https://arxiv.org/pdf/math/0510334), §2.1, pp.9–11; Theorem 4.1.1 and proof, pp.20–22. The homotopy coniveau construction is defined on actual support K-theory spectra before identifying its layers.
 
 Atlas planet: Homotopy coniveau tower.
 
@@ -925,7 +926,7 @@ Proposed declaration: TauCeti.MotivicEtale.moving_and_excision.
 
 Acceptance: Use the indicated genuine supplier carriers, the displayed coefficient and degree conventions, and the stated scheme class; the suggested signatures are prototypes.
 
-Source: [Marc Levine, The homotopy coniveau tower](https://arxiv.org/pdf/math/0510334), Theorem 3.2.1 proof, pp.14–17; Theorem 4.1.1, pp.20–22. Locator excerpt: “Theorem 3.2.1.”. The homotopy coniveau construction is defined on actual support K-theory spectra before identifying its layers.
+Source: [Marc Levine, The homotopy coniveau tower](https://arxiv.org/pdf/math/0510334), Theorem 3.2.1 proof, pp.14–17; Theorem 4.1.1, pp.20–22. The homotopy coniveau construction is defined on actual support K-theory spectra before identifying its layers.
 
 Atlas planet: Coniveau moving theorem.
 
@@ -933,15 +934,15 @@ Atlas planet: Coniveau moving theorem.
 
 Identifier: MotivicEtaleKTheory:M.6a/k-theory-well-connected. Kind: theorem.
 
-K on smooth perfect-field schemes is well connected: support spectra used in the tower are connective, and the P¹-loop iterates have no nonzero homotopy in degrees other than zero on the indicated multirelative semilocal simplices. Their degree-zero cycle maps give the codimension-p cycle generators.
+K on smooth schemes over a perfect field is well connected: each support spectrum is connective, and for every d≥0 the zeroth coniveau layer of Ω_T^d K over a finitely generated field F has homotopy only in degree zero. Proposition 6.3.4 reduces this second condition to vanishing of π₀ of the multirelative semilocal n-simplex with its boundary for n≥1; it does not assert concentration of that multirelative spectrum in degree zero. The resulting layer identifies degree-zero classes with cycle generators.
 
-Hypotheses and conventions: Levine Definition 6.1.1 well-connectedness; semilocal Δ with all faces and their boundary; regular ambient schemes, not arbitrary singular K-theory.
+Hypotheses and conventions: Levine Definition 6.1.1: homotopy invariance, Nisnevich excision and finite-field axiom A3; connectivity of K with supports in smooth ambient schemes; finitely generated field extensions of the perfect base. For the π₀ criterion, semilocal simplices include all their faces and their normal-crossing boundary; no corresponding assertion is made for arbitrary singular K-theory.
 
 Proof/construction plan:
 
 1. K satisfies homotopy invariance and excision; K₀ regular ambient→K₀ open is surjective, so its support fibre is connective.
-2. Identify Ω_TK≃K through the projective-bundle formula. For semilocal simplices with normal-crossing boundary, apply the Vorst K₁ input and K/KH comparison and Mayer–Vietoris requested from the scheme owner.
-3. Apply Corollary 5.3.2 to the resulting connective layer and cycle generators. The generic KH/boundary input remains an explicit supplier gap.
+2. Identify Ω_T K≃K through the projective-bundle formula. For the semilocal simplex ring R and boundary R/I, use the Vorst K₁ input, K_n≃KH_n for n≤1, Mayer–Vietoris, surjectivity GL(R)→GL(R/I) and K₀(R)≃K₀(R/I)≃Z to obtain multirelative K₀=0 for n≥1. The general KH/boundary input is requested from the scheme owner.
+3. Apply Proposition 6.3.4 to obtain the degree-zero concentration required by Definition 6.1.1, giving Theorem 6.4.1. Corollary 5.3.2 and Theorem 6.4.2 then identify the layers with the cycle complexes. The generic KH/boundary input remains an explicit supplier gap.
 
 Direct prerequisites: MotivicEtaleKTheory:M.6a/moving-and-excision, SchemeKTheoryOperations:S.5/projective-bundle-theorem, SchemeKTheoryOperations:S.5/negative-k-vanishing-regular.
 
@@ -949,7 +950,7 @@ Proposed declaration: TauCeti.MotivicEtale.k_theory_well_connected.
 
 Acceptance: Use the indicated genuine supplier carriers, the displayed coefficient and degree conventions, and the stated scheme class; the suggested signatures are prototypes.
 
-Source: [Marc Levine, The homotopy coniveau tower](https://arxiv.org/pdf/math/0510334), §6.4 proof of Theorem 6.4.2, pp.35–37. Locator excerpt: “Theorem 6.4.2.”. The homotopy coniveau construction is defined on actual support K-theory spectra before identifying its layers.
+Source: [Marc Levine, The homotopy coniveau tower](https://arxiv.org/pdf/math/0510334), Definition 6.1.1, p.30; Proposition 6.3.4, pp.34–35; Theorem 6.4.1 and proof, pp.35–36; Theorem 6.4.2, pp.36–37. Support connectivity and field-layer concentration are separate conditions; positive-dimensional multirelative π₀ vanishing is the proof criterion for the latter.
 
 #### Coniveau cycle-layer comparison
 
@@ -965,13 +966,13 @@ Proof/construction plan:
 2. Dévissage maps a length-one generic coherent sheaf to its cycle. Moving ensures every cycle occurs; naturality of Tor intersection multiplicities identifies face and degeneracy maps.
 3. Apply the source’s simplicial cycle-layer weak equivalence, then the M.4 shift convention.
 
-Direct prerequisites: MotivicEtaleKTheory:M.6a/k-theory-well-connected, MotivicEtaleKTheory:M.6a/moving-and-excision, MotivicEtaleKTheory:M.4.
+Direct prerequisites: MotivicEtaleKTheory:M.6a/k-theory-well-connected, MotivicEtaleKTheory:M.6a/moving-and-excision, MotivicEtaleKTheory:M.4/cycle-complex, MotivicEtaleKTheory:M.4/localization-sequence, MotivicEtaleKTheory:M.4/moving-lemma.
 
 Proposed declaration: TauCeti.MotivicEtale.coniveau_cycle_layer.
 
 Acceptance: Use the indicated genuine supplier carriers, the displayed coefficient and degree conventions, and the stated scheme class; the suggested signatures are prototypes.
 
-Source: [Marc Levine, The homotopy coniveau tower](https://arxiv.org/pdf/math/0510334), Theorem 6.4.2, pp.35–37; Remark 11.3.4, p.64. Locator excerpt: “Theorem 6.4.2.”. The homotopy coniveau construction is defined on actual support K-theory spectra before identifying its layers.
+Source: [Marc Levine, The homotopy coniveau tower](https://arxiv.org/pdf/math/0510334), Theorem 6.4.2, pp.35–37; Remark 11.3.4, p.64. The homotopy coniveau construction is defined on actual support K-theory spectra before identifying its layers.
 
 Atlas planet: Coniveau cycle-layer comparison.
 
@@ -996,9 +997,9 @@ Proposed declaration: TauCeti.MotivicEtale.global_model_comparison.
 
 Acceptance: Use the indicated genuine supplier carriers, the displayed coefficient and degree conventions, and the stated scheme class; the suggested signatures are prototypes. The proposed comparison contains level equivalences, transition squares and the common K(X)-augmentation squares. In the stable enhancement these are coherent homotopies; the suggested categorical interface records their homotopy-category shadows. A zigzag is transported through the same H.6 spectral-object functor. The HC/FS geometric comparison remains the named proof/source gap; the typed interface does not assert its proof or infer it from equal cycle layers.
 
-Source: [Eric M. Friedlander and Andrei Suslin, The spectral sequence relating algebraic K-theory to motivic cohomology](https://dornsife.usc.edu/ericmfriedlander/wp-content/uploads/sites/233/2023/06/23.pdf), Introduction pp.1–2, §13 Theorem 13.13 and Proposition 13.17, pp.68–71. Locator excerpt: “Theorem 13.13.”. Constructs the genuine global tower and convergent exact couple; the comparison to the Levine tower is an explicit proof obligation.
+Source: [Eric M. Friedlander and Andrei Suslin, The spectral sequence relating algebraic K-theory to motivic cohomology](https://dornsife.usc.edu/ericmfriedlander/wp-content/uploads/sites/233/2023/06/23.pdf), Introduction pp.1–2, §13 Theorem 13.13 and Proposition 13.17, pp.68–71. Constructs the genuine global tower and convergent exact couple; the comparison to the Levine tower is an explicit proof obligation.
 
-Source: [Marc Levine, The homotopy coniveau tower](https://arxiv.org/pdf/math/0510334), §4.1 and §11.3, pp.20–22,64–65. Locator excerpt: “Theorem 4.1.1.”. The homotopy coniveau construction is defined on actual support K-theory spectra before identifying its layers.
+Source: [Marc Levine, The homotopy coniveau tower](https://arxiv.org/pdf/math/0510334), §4.1 and §11.3, pp.20–22,64–65. The homotopy coniveau construction is defined on actual support K-theory spectra before identifying its layers.
 
 Atlas planet: Global motivic comparison.
 
@@ -1044,9 +1045,9 @@ Consumers:
 
 Acceptance: Use the indicated genuine supplier carriers, the displayed coefficient and degree conventions, and the stated scheme class; the suggested signatures are prototypes. The D/E identifications must be the tower/layer homotopy identifications from the H.6 construction, and the derived-page identification must use this couple’s actual differential. The exact-couple constructor takes the augmented tower with its actual maps, not only the family of level objects.
 
-Source: [Marc Levine, The homotopy coniveau tower](https://arxiv.org/pdf/math/0510334), Proposition 2.1.3 and §11.3, pp.10–12,64–65. Locator excerpt: “Proposition 2.1.3.”. The homotopy coniveau construction is defined on actual support K-theory spectra before identifying its layers.
+Source: [Marc Levine, The homotopy coniveau tower](https://arxiv.org/pdf/math/0510334), Proposition 2.1.3 and §11.3, pp.10–12,64–65. The homotopy coniveau construction is defined on actual support K-theory spectra before identifying its layers.
 
-Source: [Eric M. Friedlander and Andrei Suslin, The spectral sequence relating algebraic K-theory to motivic cohomology](https://dornsife.usc.edu/ericmfriedlander/wp-content/uploads/sites/233/2023/06/23.pdf), Proposition 13.17, p.71. Locator excerpt: “Proposition 13.17.”. Pins the delooped global exact couple and page reindexing.
+Source: [Eric M. Friedlander and Andrei Suslin, The spectral sequence relating algebraic K-theory to motivic cohomology](https://dornsife.usc.edu/ericmfriedlander/wp-content/uploads/sites/233/2023/06/23.pdf), Proposition 13.17, p.71. Pins the delooped global exact couple and page reindexing.
 
 Atlas planet: Motivic exact couple.
 
@@ -1070,9 +1071,9 @@ Proposed declaration: TauCeti.MotivicEtale.motivic_strong_convergence.
 
 Acceptance: Use the indicated genuine supplier carriers, the displayed coefficient and degree conventions, and the stated scheme class; the suggested signatures are prototypes.
 
-Source: [Marc Levine, The homotopy coniveau tower](https://arxiv.org/pdf/math/0510334), Proposition 2.1.3, pp.10–12. Locator excerpt: “Proposition 2.1.3.”. The homotopy coniveau construction is defined on actual support K-theory spectra before identifying its layers.
+Source: [Marc Levine, The homotopy coniveau tower](https://arxiv.org/pdf/math/0510334), Proposition 2.1.3, pp.10–12. The homotopy coniveau construction is defined on actual support K-theory spectra before identifying its layers.
 
-Source: [Eric M. Friedlander and Andrei Suslin, The spectral sequence relating algebraic K-theory to motivic cohomology](https://dornsife.usc.edu/ericmfriedlander/wp-content/uploads/sites/233/2023/06/23.pdf), Lemma 13.12 and Theorem 13.13, pp.67–68. Locator excerpt: “Lemma 13.12.”. Supplies finite dimension connectivity of the global model.
+Source: [Eric M. Friedlander and Andrei Suslin, The spectral sequence relating algebraic K-theory to motivic cohomology](https://dornsife.usc.edu/ericmfriedlander/wp-content/uploads/sites/233/2023/06/23.pdf), Lemma 13.12 and Theorem 13.13, pp.67–68. Supplies finite dimension connectivity of the global model.
 
 Atlas planet: Motivic strong convergence.
 
@@ -1090,15 +1091,15 @@ Proof/construction plan:
 2. Compare on cycle generators to the M.4 intersection product and apply the generic product exact-couple construction.
 3. Retain the integral action at every m; do not deduce an associative mod-2 multiplication from the integral action.
 
-Direct prerequisites: MotivicEtaleKTheory:M.6a/moving-and-excision, MotivicEtaleKTheory:M.6b/motivic-exact-couple, SchemeKTheoryOperations:S.6/support-product-pairings, StableHomotopyKTheory:H.6/moore-spectrum-multiplication, MotivicEtaleKTheory:M.4.
+Direct prerequisites: MotivicEtaleKTheory:M.6a/moving-and-excision, MotivicEtaleKTheory:M.6b/motivic-exact-couple, SchemeKTheoryOperations:S.6/support-product-pairings, StableHomotopyKTheory:H.6/moore-spectrum-multiplication, MotivicEtaleKTheory:M.4/products, MotivicEtaleKTheory:M.4/moving-lemma, MotivicEtaleKTheory:M.4/cubical-cycle-complex.
 
 Proposed declaration: TauCeti.MotivicEtale.filtered_motivic_products.
 
 Acceptance: Use the indicated genuine supplier carriers, the displayed coefficient and degree conventions, and the stated scheme class; the suggested signatures are prototypes.
 
-Source: [Charles A. Weibel, The K-book: An introduction to algebraic K-theory](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), VI Addendum 4.2.1, p.481. Locator excerpt: “Addendum 4.2.1.”. The cited construction or theorem fixes the coefficient, degree and normalization conventions.
+Source: [Charles A. Weibel, The K-book: An introduction to algebraic K-theory](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), VI Addendum 4.2.1, p.481. The cited construction or theorem fixes the coefficient, degree and normalization conventions.
 
-Source: [Marc Levine, K-theory and motivic cohomology of schemes, I](https://www.esaga.uni-due.de/f/marc.levine/publ/KthyMotI12.01.pdf), §11 and Appendix D product construction; Theorem 12.12, pp.58–59. Locator excerpt: “Theorem 12.12.”. Read Theorem 12.12 and its proof; detailed product construction is a recorded source-read gap.
+Source: [Marc Levine, K-theory and motivic cohomology of schemes, I](https://www.esaga.uni-due.de/f/marc.levine/publ/KthyMotI12.01.pdf), §11 and Appendix D product construction; Theorem 12.12, pp.58–59. Read Theorem 12.12 and its proof; detailed product construction is a recorded source-read gap.
 
 Atlas planet: Filtered motivic product.
 
@@ -1121,11 +1122,11 @@ Direct prerequisites: MotivicEtaleKTheory:M.6a/coniveau-cycle-layer, MotivicEtal
 
 Proposed declaration: TauCeti.MotivicEtale.filtered_adams_operations.
 
-Acceptance: Use the indicated genuine supplier carriers, the displayed coefficient and degree conventions, and the stated scheme class; the suggested signatures are prototypes. The suggested operation is the induced page action of a transition- and augmentation-compatible tower endomorphism. An arbitrary endomorphism of E₂ does not satisfy this interface. Its augmentation action is explicitly the supplied scheme Adams operation on K(X), so the filtered action is tied to the claimed abutment operation.
+Acceptance: Use the indicated genuine supplier carriers, the displayed coefficient and degree conventions, and the stated scheme class; the suggested signatures are prototypes. The suggested operation is the induced page action of a transition- and augmentation-compatible tower endomorphism. An arbitrary endomorphism of E₂ does not satisfy this interface. Its augmentation action is explicitly the supplied scheme Adams operation on K(X), so the filtered action is tied to the claimed abutment operation. Keep positive cycle weight j and scalar k^j. Levine Theorem 12.12(3), p.58, has the opposite sign when written in its displayed second-page coordinate; E8 records the correction, consistent with Theorem 14.7, pp.73–74.
 
-Source: [Marc Levine, K-theory and motivic cohomology of schemes, I](https://www.esaga.uni-due.de/f/marc.levine/publ/KthyMotI12.01.pdf), Theorem 12.12 and proof, pp.58–59. Locator excerpt: “Theorem 12.12.”. Filtered λ/Adams construction and the codimension weight calculation.
+Source: [Marc Levine, K-theory and motivic cohomology of schemes, I](https://www.esaga.uni-due.de/f/marc.levine/publ/KthyMotI12.01.pdf), Theorem 12.12 and proof, pp.58–59. Filtered λ/Adams construction and the codimension weight calculation. The sign of the weight is determined by the cycle codimension: the exponent is j at E₂^(a,−j). The source indexing misprint is recorded as E8.
 
-Source: [Charles A. Weibel, The K-book: An introduction to algebraic K-theory](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), VI Example 4.9 and proof, pp.485–486. Locator excerpt: “Example 4.9.”. The cited construction or theorem fixes the coefficient, degree and normalization conventions.
+Source: [Charles A. Weibel, The K-book: An introduction to algebraic K-theory](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), VI Example 4.9 and proof, pp.485–486. The cited construction or theorem fixes the coefficient, degree and normalization conventions.
 
 Atlas planet: Filtered Adams operations.
 
@@ -1148,11 +1149,11 @@ Direct prerequisites: MotivicEtaleKTheory:M.6b/filtered-adams-operations, Motivi
 
 Proposed declaration: TauCeti.MotivicEtale.rational_motivic_degeneration.
 
-Acceptance: Use the indicated genuine supplier carriers, the displayed coefficient and degree conventions, and the stated scheme class; the suggested signatures are prototypes. The differential and rational Adams actions belong to the same pages and satisfy the equivariance and inherited-weight laws. The suggested scalar argument proves the conditional algebraic vanishing; constructing the filtered action and finite filtration remains required.
+Acceptance: Use the indicated genuine supplier carriers, the displayed coefficient and degree conventions, and the stated scheme class; the suggested signatures are prototypes. The differential and rational Adams actions belong to the same pages and satisfy the equivariance and inherited-weight laws. The suggested scalar argument proves the conditional algebraic vanishing; constructing the filtered action and finite filtration remains required. The independent review confirms E6 (missing projector in two proof identities) and E7 (reversed filtration direction) in Levine Lemma 14.6, pp.71–72. The rational splitting uses part (1) with the corrected projected argument and does not rely on the incomplete printed induction of part (2).
 
-Source: [Charles A. Weibel, The K-book: An introduction to algebraic K-theory](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), VI Example 4.9, pp.485–486. Locator excerpt: “Example 4.9.”. The cited construction or theorem fixes the coefficient, degree and normalization conventions.
+Source: [Charles A. Weibel, The K-book: An introduction to algebraic K-theory](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), VI Example 4.9, pp.485–486. The cited construction or theorem fixes the coefficient, degree and normalization conventions.
 
-Source: [Marc Levine, K-theory and motivic cohomology of schemes, I](https://www.esaga.uni-due.de/f/marc.levine/publ/KthyMotI12.01.pdf), Lemma 14.6 and Theorem 14.7 with proofs, pp.71–74. Locator excerpt: “Theorem 14.7.”. The finite-filtration projector lemma and integral denominator control supply the rational eigenspace splitting; n=0 is handled separately in Theorem 14.7.
+Source: [Marc Levine, K-theory and motivic cohomology of schemes, I](https://www.esaga.uni-due.de/f/marc.levine/publ/KthyMotI12.01.pdf), Lemma 14.6 and Theorem 14.7 with proofs, pp.71–74. The finite-filtration projector lemma and integral denominator control supply the rational eigenspace splitting; n=0 is handled separately in Theorem 14.7.
 
 Atlas planet: Rational motivic degeneration.
 
@@ -1196,7 +1197,7 @@ Consumers:
 
 Acceptance: Use the indicated genuine supplier carriers, the displayed coefficient and degree conventions, and the stated scheme class; the suggested signatures are prototypes. Page pullbacks satisfy both differential and E₂ naturality. Named field tests bind their HM and K groups to the same field scheme, rather than testing arbitrary carriers.
 
-Source: [Charles A. Weibel, The K-book: An introduction to algebraic K-theory](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), VI Theorem 4.2, p.480; Addendum 4.2.1, p.481. Locator excerpt: “Theorem 4.2.”. The cited construction or theorem fixes the coefficient, degree and normalization conventions.
+Source: [Charles A. Weibel, The K-book: An introduction to algebraic K-theory](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), VI Theorem 4.2, p.480; Addendum 4.2.1, p.481. The cited construction or theorem fixes the coefficient, degree and normalization conventions.
 
 Atlas planet: Motivic spectral sequence.
 
@@ -1220,7 +1221,7 @@ Proposed declaration: TauCeti.MotivicEtale.rational_weight_comparison.
 
 Acceptance: Use the indicated genuine supplier carriers, the displayed coefficient and degree conventions, and the stated scheme class; the suggested signatures are prototypes.
 
-Source: [Charles A. Weibel, The K-book: An introduction to algebraic K-theory](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), VI Example 4.9; V Lemma 11.3 and Theorem 11.11, pp.452–453,457,485–486. Locator excerpt: “Example 4.9.”. The cited construction or theorem fixes the coefficient, degree and normalization conventions.
+Source: [Charles A. Weibel, The K-book: An introduction to algebraic K-theory](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), VI Example 4.9; V Lemma 11.3 and Theorem 11.11, pp.452–453,457,485–486. The cited construction or theorem fixes the coefficient, degree and normalization conventions.
 
 Atlas planet: Rational K-theory weights.
 
@@ -1240,15 +1241,15 @@ Proof/construction plan:
 2. Identify stalks using semilocal motivic complexes and the M.5a transfer/cycle comparison. Apply hypercohomology to the truncation equivalence; the cone bound gives the injection in the next degree.
 3. Do not infer a low-degree complex comparison solely from the diagonal Milnor symbol theorem.
 
-Direct prerequisites: MotivicEtaleKTheory:M.5d/mod-prime-motivic-comparison, MotivicEtaleKTheory:M.5d/prime-power-norm-residue, MotivicEtaleKTheory:M.4, MotivicEtaleKTheory:M.5a.
+Direct prerequisites: MotivicEtaleKTheory:M.5d/mod-prime-motivic-comparison, MotivicEtaleKTheory:M.5d/prime-power-norm-residue, MotivicEtaleKTheory:M.4/cycle-complex, MotivicEtaleKTheory:M.4/vanishing-above-weight, MotivicEtaleKTheory:M.5a/suslin-complex-and-motivic-complexes, MotivicEtaleKTheory:M.5a/cycle-complex-transfers, MotivicEtaleKTheory:M.5a/etale-motivic-comparison, MotivesAndAlgebraicCycles:MC.4/suslin-friedlander-into-cycle-complex, MotivesAndAlgebraicCycles:MC.4/motivic-cohomology-higher-chow.
 
 Proposed declaration: TauCeti.MotivicEtale.beilinson_lichtenbaum.
 
 Acceptance: Use the indicated genuine supplier carriers, the displayed coefficient and degree conventions, and the stated scheme class; the suggested signatures are prototypes.
 
-Source: [Charles A. Weibel, The K-book: An introduction to algebraic K-theory](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), VI Theorem 4.1, p.480. Locator excerpt: “Theorem 4.1.”. The cited construction or theorem fixes the coefficient, degree and normalization conventions.
+Source: [Charles A. Weibel, The K-book: An introduction to algebraic K-theory](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), VI Theorem 4.1, p.480. The cited construction or theorem fixes the coefficient, degree and normalization conventions.
 
-Source: [Andrei Suslin and Vladimir Voevodsky, Bloch–Kato conjecture and motivic cohomology with finite coefficients](https://www.math.ias.edu/vladimir/sites/math.ias.edu.vladimir/files/susvoenew.pdf), §7, Theorem 7.4, pp.52–53. Locator excerpt: “Theorem 7.4”. Original motivic bridge with resolution; the resolution-free input remains identified as a gap.
+Source: [Andrei Suslin and Vladimir Voevodsky, Bloch–Kato conjecture and motivic cohomology with finite coefficients](https://www.math.ias.edu/vladimir/sites/math.ias.edu.vladimir/files/susvoenew.pdf), §7, Theorem 7.4, pp.52–53. Original motivic bridge with resolution; the resolution-free input remains identified as a gap.
 
 Atlas planet: Beilinson–Lichtenbaum theorem.
 
@@ -1266,13 +1267,13 @@ Proof/construction plan:
 2. Geisser Theorem 1.2(2) gives the integral comparison through j+1; its coefficient long exact sequence yields the finite comparison through j. Theorem 1.2(4) identifies the étale cycle sheaf.
 3. Neither an unqualified smooth-field theorem nor rational weights alone proves the S-integer comparison.
 
-Direct prerequisites: MotivicEtaleKTheory:M.7/beilinson-lichtenbaum, MotivicEtaleKTheory:M.4, ArithmeticGaloisDuality:R02.3.
+Direct prerequisites: MotivicEtaleKTheory:M.7/beilinson-lichtenbaum, MotivicEtaleKTheory:M.4/dedekind-cycle-complex, MotivicEtaleKTheory:M.4/dedekind-gersten, MotivicEtaleKTheory:M.4/purity-gysin-triangle, MotivicEtaleKTheory:M.4/zariski-descent, ArithmeticGaloisDuality:R02.3.
 
 Proposed declaration: TauCeti.MotivicEtale.dedekind_motivic_comparison.
 
 Acceptance: Use the indicated genuine supplier carriers, the displayed coefficient and degree conventions, and the stated scheme class; the suggested signatures are prototypes.
 
-Source: [Thomas Geisser, Motivic cohomology over Dedekind rings](https://www2.rikkyo.ac.jp/web/geisser/Dedekind.pdf), Theorem 1.2(1),(2),(4), pp.774–775; §5 proof, pp.787–789. Locator excerpt: “Theorem 1.2.”. Read the full localizing-triangle proof and retained its base and coefficient hypotheses.
+Source: [Thomas Geisser, Motivic cohomology over Dedekind rings](https://www2.rikkyo.ac.jp/web/geisser/Dedekind.pdf), Theorem 1.2(1),(2),(4), pp.774–775; §5 proof, pp.787–789. Read the full localizing-triangle proof and retained its base and coefficient hypotheses.
 
 #### Finite étale K-theory
 
@@ -1310,9 +1311,9 @@ Consumers:
 
 Acceptance: Use the indicated genuine supplier carriers, the displayed coefficient and degree conventions, and the stated scheme class; the suggested signatures are prototypes.
 
-Source: [Tony Feng, Søren Galatius and Akshay Venkatesh, The Galois action on symplectic K-theory](https://math.berkeley.edu/~fengt/Galois_action_on_KSp.pdf), §2.6.1 and Remark 2.8, pp.11–12. Locator excerpt: “hyperdescent spectral sequence”. Odd-prime Bott inversion, Thomason descent, Adams operations and arithmetic transfer comparison in the source’s stated range.
+Source: [Tony Feng, Søren Galatius and Akshay Venkatesh, The Galois action on symplectic K-theory](https://math.berkeley.edu/~fengt/Galois_action_on_KSp.pdf), §2.6.1 and Remark 2.8, pp.11–12. Odd-prime Bott inversion, Thomason descent, Adams operations and arithmetic transfer comparison in the source’s stated range.
 
-Source: [Baptiste Calmès, Emanuele Dotto, Yonatan Harpaz, Fabian Hebestreit, Markus Land, Kristian Moi, Denis Nardin, Thomas Nikolaus and Wolfgang Steimle, Hermitian K-theory for stable ∞-categories III: Grothendieck–Witt groups of rings](https://arxiv.org/pdf/2009.07225v4), Lemma 3.2.4 proof, pp.56–57 of arXiv v4. Locator excerpt: “3.2.4. Lemma.”. The étale sheaf computation and number-ring ℓ-adic descent used in the routed lemma.
+Source: [Baptiste Calmès, Emanuele Dotto, Yonatan Harpaz, Fabian Hebestreit, Markus Land, Kristian Moi, Denis Nardin, Thomas Nikolaus and Wolfgang Steimle, Hermitian K-theory for stable ∞-categories III: Grothendieck–Witt groups of rings](https://arxiv.org/pdf/2009.07225v4), Lemma 3.2.4 proof, pp.56–57 of arXiv v4. The étale sheaf computation and number-ring ℓ-adic descent used in the routed lemma.
 
 Atlas planet: Étale K-theory.
 
@@ -1336,7 +1337,7 @@ Proposed declaration: TauCeti.MotivicEtale.bott_etale_descent.
 
 Acceptance: Use the indicated genuine supplier carriers, the displayed coefficient and degree conventions, and the stated scheme class; the suggested signatures are prototypes.
 
-Source: [Tony Feng, Søren Galatius and Akshay Venkatesh, The Galois action on symplectic K-theory](https://math.berkeley.edu/~fengt/Galois_action_on_KSp.pdf), Remark 2.8 and §2.6.1, pp.11–12. Locator excerpt: “Remark 2.8.”. Odd-prime Bott inversion, Thomason descent, Adams operations and arithmetic transfer comparison in the source’s stated range.
+Source: [Tony Feng, Søren Galatius and Akshay Venkatesh, The Galois action on symplectic K-theory](https://math.berkeley.edu/~fengt/Galois_action_on_KSp.pdf), Remark 2.8 and §2.6.1, pp.11–12. Odd-prime Bott inversion, Thomason descent, Adams operations and arithmetic transfer comparison in the source’s stated range.
 
 Atlas planet: Thomason étale descent.
 
@@ -1360,7 +1361,7 @@ Proposed declaration: TauCeti.MotivicEtale.quillen_lichtenbaum_field_range.
 
 Acceptance: Use the indicated genuine supplier carriers, the displayed coefficient and degree conventions, and the stated scheme class; the suggested signatures are prototypes.
 
-Source: [Tony Feng, Søren Galatius and Akshay Venkatesh, The Galois action on symplectic K-theory](https://math.berkeley.edu/~fengt/Galois_action_on_KSp.pdf), §2.6.2, proof of Proposition 2.9, pp.12–13. Locator excerpt: “Tate-Tsen filtration”. Odd-prime Bott inversion, Thomason descent, Adams operations and arithmetic transfer comparison in the source’s stated range.
+Source: [Tony Feng, Søren Galatius and Akshay Venkatesh, The Galois action on symplectic K-theory](https://math.berkeley.edu/~fengt/Galois_action_on_KSp.pdf), §2.6.2, proof of Proposition 2.9, pp.12–13. Odd-prime Bott inversion, Thomason descent, Adams operations and arithmetic transfer comparison in the source’s stated range.
 
 Atlas planet: Quillen–Lichtenbaum theorem.
 
@@ -1378,15 +1379,15 @@ Proof/construction plan:
 2. Invert primes above ℓ using localization; their positive finite-coefficient K groups vanish in residue characteristic ℓ, leaving a degree-zero support contribution to K₁.
 3. Pass to derived completion via the Milnor sequence. The totally imaginary dyadic branch is kept dependent on the unread Thomason version.
 
-Direct prerequisites: MotivicEtaleKTheory:M.7/dedekind-motivic-comparison, MotivicEtaleKTheory:M.7/quillen-lichtenbaum-field-range, KTheoryFiniteLocalFields:L.1/finite-field-mod-m-groups, GeneralAlgebraicKTheory:K.3/abelian-localization-theorem, GeneralAlgebraicKTheory:K.3/transfer-maps-and-projection-formula, ArithmeticGaloisDuality:R02.3.
+Direct prerequisites: MotivicEtaleKTheory:M.7/dedekind-motivic-comparison, MotivicEtaleKTheory:M.7/quillen-lichtenbaum-field-range, KTheoryFiniteLocalFields:L.1/finite-field-mod-m-groups, GeneralAlgebraicKTheory:K.3/abelian-localization-theorem, GeneralAlgebraicKTheory:K.3/transfer-maps-and-projection-formula, ArithmeticGaloisDuality:R02.3, MotivicEtaleKTheory:M.2/high-degree-real-isomorphism, MotivicEtaleKTheory:M.2/adic-s-integer-cohomology.
 
 Proposed declaration: TauCeti.MotivicEtale.s_integer_comparison_range.
 
 Acceptance: Use the indicated genuine supplier carriers, the displayed coefficient and degree conventions, and the stated scheme class; the suggested signatures are prototypes.
 
-Source: [Tony Feng, Søren Galatius and Akshay Venkatesh, The Galois action on symplectic K-theory](https://math.berkeley.edu/~fengt/Galois_action_on_KSp.pdf), Proposition 2.9, Lemma 2.10 and their proofs, pp.12–13. Locator excerpt: “Lemma 2.10.”. Odd-prime Bott inversion, Thomason descent, Adams operations and arithmetic transfer comparison in the source’s stated range.
+Source: [Tony Feng, Søren Galatius and Akshay Venkatesh, The Galois action on symplectic K-theory](https://math.berkeley.edu/~fengt/Galois_action_on_KSp.pdf), Proposition 2.9, Lemma 2.10 and their proofs, pp.12–13. Odd-prime Bott inversion, Thomason descent, Adams operations and arithmetic transfer comparison in the source’s stated range.
 
-Source: [Charles A. Weibel, The K-book: An introduction to algebraic K-theory](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), VI Theorem 8.2, pp.513–514. Locator excerpt: “Theorem 8.2.”. The cited construction or theorem fixes the coefficient, degree and normalization conventions.
+Source: [Charles A. Weibel, The K-book: An introduction to algebraic K-theory](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), VI Theorem 8.2, pp.513–514. The cited construction or theorem fixes the coefficient, degree and normalization conventions.
 
 #### Arithmetic ℓ-adic comparison
 
@@ -1402,15 +1403,15 @@ Proof/construction plan:
 2. Use finite generation of the two adjacent K groups to remove the completion Tor/Tate-module and lim¹ terms through H.6/completion-finite-type.
 3. Retain j≥2: units, Picard and rank at K₀/K₁ require their separate low-degree calculations.
 
-Direct prerequisites: MotivicEtaleKTheory:M.7/s-integer-comparison-range, StableHomotopyKTheory:H.6/l-adic-completion-milnor-sequence, StableHomotopyKTheory:H.6/completion-finite-type, ArithmeticKTheory:N.3:finite-generation/finite-generation-of-K-of-S-integers, MotivicEtaleKTheory:M.1, ArithmeticGaloisDuality:R02.3.
+Direct prerequisites: MotivicEtaleKTheory:M.7/s-integer-comparison-range, StableHomotopyKTheory:H.6/l-adic-completion-milnor-sequence, StableHomotopyKTheory:H.6/completion-finite-type, ArithmeticKTheory:N.3:finite-generation/finite-generation-of-K-of-S-integers, MotivicEtaleKTheory:M.1/adic-tate-twist, MotivicEtaleKTheory:M.1/continuous-limit-comparison, MotivicEtaleKTheory:M.1/etale-twist-sheaf, MotivicEtaleKTheory:M.1/s-integer-galois-comparison, ArithmeticGaloisDuality:R02.3, MotivicEtaleKTheory:M.2/high-degree-real-isomorphism, MotivicEtaleKTheory:M.2/adic-s-integer-cohomology.
 
 Proposed declaration: TauCeti.MotivicEtale.arithmetic_adic_degrees.
 
 Acceptance: Use the indicated genuine supplier carriers, the displayed coefficient and degree conventions, and the stated scheme class; the suggested signatures are prototypes.
 
-Source: [Charles A. Weibel, The K-book: An introduction to algebraic K-theory](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), VI Theorem 8.2 proof, pp.513–514. Locator excerpt: “Theorem 8.2.”. The cited construction or theorem fixes the coefficient, degree and normalization conventions.
+Source: [Charles A. Weibel, The K-book: An introduction to algebraic K-theory](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), VI Theorem 8.2 proof, pp.513–514. The cited construction or theorem fixes the coefficient, degree and normalization conventions.
 
-Source: [Baptiste Calmès, Emanuele Dotto, Yonatan Harpaz, Fabian Hebestreit, Markus Land, Kristian Moi, Denis Nardin, Thomas Nikolaus and Wolfgang Steimle, Hermitian K-theory for stable ∞-categories III: Grothendieck–Witt groups of rings](https://arxiv.org/pdf/2009.07225v4), Lemma 3.2.4 proof, p.57. Locator excerpt: “3.2.4. Lemma.”. Explicitly identifies the two completed degrees and the vanishing of positive-twist H⁰.
+Source: [Baptiste Calmès, Emanuele Dotto, Yonatan Harpaz, Fabian Hebestreit, Markus Land, Kristian Moi, Denis Nardin, Thomas Nikolaus and Wolfgang Steimle, Hermitian K-theory for stable ∞-categories III: Grothendieck–Witt groups of rings](https://arxiv.org/pdf/2009.07225v4), Lemma 3.2.4 proof, p.57. Explicitly identifies the two completed degrees and the vanishing of positive-twist H⁰.
 
 Atlas planet: Arithmetic ℓ-adic comparison.
 
@@ -1433,7 +1434,7 @@ Proposed declaration: TauCeti.MotivicEtale.etale_adams_weights.
 
 Acceptance: Use the indicated genuine supplier carriers, the displayed coefficient and degree conventions, and the stated scheme class; the suggested signatures are prototypes.
 
-Source: [Tony Feng, Søren Galatius and Akshay Venkatesh, The Galois action on symplectic K-theory](https://math.berkeley.edu/~fengt/Galois_action_on_KSp.pdf), §2.6.1 after equation (2.6), p.12. Locator excerpt: “Adams operations”. Odd-prime Bott inversion, Thomason descent, Adams operations and arithmetic transfer comparison in the source’s stated range.
+Source: [Tony Feng, Søren Galatius and Akshay Venkatesh, The Galois action on symplectic K-theory](https://math.berkeley.edu/~fengt/Galois_action_on_KSp.pdf), §2.6.1 after equation (2.6), p.12. Odd-prime Bott inversion, Thomason descent, Adams operations and arithmetic transfer comparison in the source’s stated range.
 
 #### Étale K-theory transfer comparison
 
@@ -1455,7 +1456,7 @@ Proposed declaration: TauCeti.MotivicEtale.etale_k_transfer.
 
 Acceptance: Use the indicated genuine supplier carriers, the displayed coefficient and degree conventions, and the stated scheme class; the suggested signatures are prototypes.
 
-Source: [Tony Feng, Søren Galatius and Akshay Venkatesh, The Galois action on symplectic K-theory](https://math.berkeley.edu/~fengt/Galois_action_on_KSp.pdf), Transfer compatibility proof immediately before §2.8, pp.16–17. Locator excerpt: “Section 10 of [BM15]”. Odd-prime Bott inversion, Thomason descent, Adams operations and arithmetic transfer comparison in the source’s stated range.
+Source: [Tony Feng, Søren Galatius and Akshay Venkatesh, The Galois action on symplectic K-theory](https://math.berkeley.edu/~fengt/Galois_action_on_KSp.pdf), Proposition 2.15, Remark 2.16 and transfer/descent proof, pp.15–16, before §2.8. Odd-prime Bott inversion, Thomason descent, Adams operations and arithmetic transfer comparison in the source’s stated range.
 
 #### Number-ring duality sign
 
@@ -1477,7 +1478,7 @@ Proposed declaration: TauCeti.MotivicEtale.number_ring_duality_sign.
 
 Acceptance: Use the indicated genuine supplier carriers, the displayed coefficient and degree conventions, and the stated scheme class; the suggested signatures are prototypes.
 
-Source: [Baptiste Calmès, Emanuele Dotto, Yonatan Harpaz, Fabian Hebestreit, Markus Land, Kristian Moi, Denis Nardin, Thomas Nikolaus and Wolfgang Steimle, Hermitian K-theory for stable ∞-categories III: Grothendieck–Witt groups of rings](https://arxiv.org/pdf/2009.07225v4), Lemma 3.2.4 and proof, pp.56–57 arXiv:2009.07225v4. Locator excerpt: “3.2.4. Lemma.”. Exact routed assertion and proof; original source’s completed notation is restored in the sketch.
+Source: [Baptiste Calmès, Emanuele Dotto, Yonatan Harpaz, Fabian Hebestreit, Markus Land, Kristian Moi, Denis Nardin, Thomas Nikolaus and Wolfgang Steimle, Hermitian K-theory for stable ∞-categories III: Grothendieck–Witt groups of rings](https://arxiv.org/pdf/2009.07225v4), Lemma 3.2.4 and proof, pp.56–57 arXiv:2009.07225v4. Exact routed assertion and proof; original source’s completed notation is restored in the sketch.
 
 #### Suslin real comparison
 
@@ -1499,7 +1500,7 @@ Proposed declaration: TauCeti.MotivicEtale.suslin_real_comparison.
 
 Acceptance: Use the indicated genuine supplier carriers, the displayed coefficient and degree conventions, and the stated scheme class; the suggested signatures are prototypes.
 
-Source: [Charles A. Weibel, The K-book: An introduction to algebraic K-theory](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), VI Theorem 3.1(c) and proof, pp.475–479. Locator excerpt: “Theorem 3.1.”. The cited construction or theorem fixes the coefficient, degree and normalization conventions.
+Source: [Charles A. Weibel, The K-book: An introduction to algebraic K-theory](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), VI Theorem 3.1(c) and proof, pp.475–479. The cited construction or theorem fixes the coefficient, degree and normalization conventions.
 
 Atlas planet: Suslin real comparison.
 
@@ -1516,13 +1517,13 @@ Proof/construction plan:
 1. Suslin plus real Bott periodicity determines the abutment. Write page generators η^sβ_j. The forced nonzero d₂(β₂)=η³ and d₂(β₃)=η³β₁ propagate by the integral η action and periodicity.
 2. Eliminate the displayed columns; use the real KO finite-coefficient calculation to determine the nonsplit Z/4 extension. Associated graded F₂⊕F₂ alone would be insufficient.
 
-Direct prerequisites: MotivicEtaleKTheory:M.7/suslin-real-comparison, MotivicEtaleKTheory:M.6/motivic-spectral-sequence, MotivicEtaleKTheory:M.6b/filtered-motivic-products, MotivicEtaleKTheory:M.4, RefinedTraceMethods:RT.4.
+Direct prerequisites: MotivicEtaleKTheory:M.7/suslin-real-comparison, MotivicEtaleKTheory:M.6/motivic-spectral-sequence, MotivicEtaleKTheory:M.6b/filtered-motivic-products, MotivicEtaleKTheory:M.4/cycle-complex, MotivicEtaleKTheory:M.4/weight-zero-and-one, MotivicEtaleKTheory:M.4/products, RefinedTraceMethods:RT.4.
 
 Proposed declaration: TauCeti.MotivicEtale.real_mod_two_sequence.
 
 Acceptance: Use the indicated genuine supplier carriers, the displayed coefficient and degree conventions, and the stated scheme class; the suggested signatures are prototypes.
 
-Source: [Charles A. Weibel, The K-book: An introduction to algebraic K-theory](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), VI Theorem 9.1, Table 9.1.1 and proof, pp.517–518. Locator excerpt: “Theorem 9.1.”. The cited construction or theorem fixes the coefficient, degree and normalization conventions.
+Source: [Charles A. Weibel, The K-book: An introduction to algebraic K-theory](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), VI Theorem 9.1, Table 9.1.1 and proof, pp.517–518. The cited construction or theorem fixes the coefficient, degree and normalization conventions.
 
 #### Real-place correction sequence
 
@@ -1538,7 +1539,7 @@ Proof/construction plan:
 2. On the motivic E₂ page the map is α_(a−b)(−b). Arithmetic duality identifies α_s for s≥3 and the special s=2 range.
 3. Compare differentials with the real calculation and leave the H⁰/H¹ diagonals and connecting maps visible.
 
-Direct prerequisites: MotivicEtaleKTheory:M.7/real-mod-two-sequence, MotivicEtaleKTheory:M.2, ArithmeticGaloisDuality:D7, StableHomotopyKTheory:H.6/qp-zp-coefficients.
+Direct prerequisites: MotivicEtaleKTheory:M.7/real-mod-two-sequence, MotivicEtaleKTheory:M.2/real-restriction-map, MotivicEtaleKTheory:M.2/positive-and-modified-cohomology, MotivicEtaleKTheory:M.2/high-degree-real-isomorphism, ArithmeticGaloisDuality:D7, StableHomotopyKTheory:H.6/qp-zp-coefficients.
 
 Proposed declaration: TauCeti.MotivicEtale.realCorrection.
 
@@ -1561,7 +1562,7 @@ Consumers:
 
 Acceptance: Use the indicated genuine supplier carriers, the displayed coefficient and degree conventions, and the stated scheme class; the suggested signatures are prototypes.
 
-Source: [Charles A. Weibel, The K-book: An introduction to algebraic K-theory](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), VI formulas (9.2), Lemma 9.3 and Theorem 9.4 proof, pp.518–519. Locator excerpt: “Theorem 9.4.”. The cited construction or theorem fixes the coefficient, degree and normalization conventions.
+Source: [Charles A. Weibel, The K-book: An introduction to algebraic K-theory](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), VI formulas (9.2), Lemma 9.3 and Theorem 9.4 proof, pp.518–519. The cited construction or theorem fixes the coefficient, degree and normalization conventions.
 
 #### Dyadic S-integer extensions
 
@@ -1577,13 +1578,13 @@ Proof/construction plan:
 2. At 8k+4 the extension is nontrivial by comparison with R, producing the factor 2 in the cyclic summand. At 8k+5 retain the abelian-group extension.
 3. Strong approximation makes α₁(4k+4) surjective after enlarging S; finite even K groups and localization make the relevant K coefficient group independent of S, proving the 8k+6 zero case.
 
-Direct prerequisites: MotivicEtaleKTheory:M.7/real-place-correction, MotivicEtaleKTheory:M.7/real-mod-two-sequence, ArithmeticGaloisDuality:R02.4, ArithmeticKTheory:N.3:finite-generation/finite-generation-of-K-of-S-integers.
+Direct prerequisites: MotivicEtaleKTheory:M.7/real-place-correction, MotivicEtaleKTheory:M.7/real-mod-two-sequence, ArithmeticGaloisDuality:R02.4, ArithmeticKTheory:N.3:finite-generation/finite-generation-of-K-of-S-integers, MotivicEtaleKTheory:M.2/real-restriction-map, MotivicEtaleKTheory:M.2/high-degree-real-isomorphism, MotivicEtaleKTheory:M.2/adic-s-integer-cohomology.
 
 Proposed declaration: TauCeti.MotivicEtale.dyadic_s_integer_extensions.
 
 Acceptance: Use the indicated genuine supplier carriers, the displayed coefficient and degree conventions, and the stated scheme class; the suggested signatures are prototypes.
 
-Source: [Charles A. Weibel, The K-book: An introduction to algebraic K-theory](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), VI Theorem 9.4 and its proof, pp.519–520. Locator excerpt: “Theorem 9.4.”. The cited construction or theorem fixes the coefficient, degree and normalization conventions.
+Source: [Charles A. Weibel, The K-book: An introduction to algebraic K-theory](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), VI Theorem 9.4 and its proof, pp.519–520. The cited construction or theorem fixes the coefficient, degree and normalization conventions.
 
 ### M.8
 
@@ -1601,7 +1602,7 @@ Proof/construction plan:
 2. For finite coefficient classes retain the source’s Bockstein construction and universal product rule. In particular c_(1,2)(β)=ζ and c_(1,2) kills the image K₂(X)/m.
 3. The ordinary higher Chern maps themselves are not ring maps; the diagonal factorial and sign are retained. This is the early export requested by HB.1/HB.2/D2 and the verified routing RT-AREA-ktheory-2/18.
 
-Direct prerequisites: GeneralAlgebraicKTheory:K.2, SchemeKTheoryOperations:S.7/gamma-chern-character, MotivicEtaleKTheory:M.1, MotivicEtaleKTheory:M.4, StableHomotopyKTheory:H.6/bockstein-long-exact-sequence.
+Direct prerequisites: GeneralAlgebraicKTheory:K.2, SchemeKTheoryOperations:S.7/gamma-chern-character, MotivicEtaleKTheory:M.1/finite-tate-twist, MotivicEtaleKTheory:M.1/etale-twist-sheaf, MotivicEtaleKTheory:M.4/products, MotivicEtaleKTheory:M.4/projective-bundle-formula, StableHomotopyKTheory:H.6/bockstein-long-exact-sequence.
 
 Proposed declaration: TauCeti.MotivicEtale.finiteChern.
 
@@ -1624,7 +1625,7 @@ Consumers:
 
 Acceptance: Use the indicated genuine supplier carriers, the displayed coefficient and degree conventions, and the stated scheme class; the suggested signatures are prototypes.
 
-Source: [Charles A. Weibel, The K-book: An introduction to algebraic K-theory](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), V §§11.5–11.8 and Example 11.10, Lemma 11.10.1, pp.452–457. Locator excerpt: “Lemma 11.10.1.”. The cited construction or theorem fixes the coefficient, degree and normalization conventions.
+Source: [Charles A. Weibel, The K-book: An introduction to algebraic K-theory](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), V §§11.5–11.8 and Example 11.10, Lemma 11.10.1, pp.452–457. The cited construction or theorem fixes the coefficient, degree and normalization conventions.
 
 Atlas planet: Finite étale Chern maps.
 
@@ -1643,7 +1644,7 @@ Proof/construction plan:
 3. Restrict the weight statement to the simultaneous Adams eigenspace K_m(X)_Q^(j). Compare the independently constructed M.6 weight isomorphism with the universal character on normalized cycle generators spanning this eigenspace, then extend by linearity. Adams equivariance and distinct scalar weights force every component i≠j to vanish. No statement is made for an arbitrary element of K_m(X)_Q.
 4. The motivic class is integral but the normalized character generally is rational. No inverse factorial is asserted integrally or at a prime dividing that factorial.
 
-Direct prerequisites: MotivicEtaleKTheory:M.6/rational-weight-comparison, MotivicEtaleKTheory:M.6b/filtered-motivic-products, MotivicEtaleKTheory:M.4, SchemeKTheoryOperations:S.7/gamma-chern-character, SchemeKTheoryOperations:S.7/grothendieck-riemann-roch.
+Direct prerequisites: MotivicEtaleKTheory:M.6/rational-weight-comparison, MotivicEtaleKTheory:M.6b/filtered-motivic-products, MotivicEtaleKTheory:M.4/cycle-complex, MotivicEtaleKTheory:M.4/products, MotivicEtaleKTheory:M.4/projective-bundle-formula, SchemeKTheoryOperations:S.7/gamma-chern-character, SchemeKTheoryOperations:S.7/grothendieck-riemann-roch.
 
 Proposed declaration: TauCeti.MotivicEtale.motivicChern.
 
@@ -1666,7 +1667,7 @@ Consumers:
 
 Acceptance: Use the indicated genuine supplier carriers, the displayed coefficient and degree conventions, and the stated scheme class; the suggested signatures are prototypes. The suggested argument uses an explicit eigenspace carrier, actual Adams-compatible character, and normalization on spanning cycle generators. The comparison cannot be an arbitrary map on all of rational K-theory.
 
-Source: [Charles A. Weibel, The K-book: An introduction to algebraic K-theory](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), V Theorem 11.11, Examples 11.12, Lemma 11.13 and its proof, pp.457–459. Locator excerpt: “Theorem 11.11.”. The cited construction or theorem fixes the coefficient, degree and normalization conventions.
+Source: [Charles A. Weibel, The K-book: An introduction to algebraic K-theory](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), V Theorem 11.11, Examples 11.12, Lemma 11.13 and its proof, pp.457–459. The cited construction or theorem fixes the coefficient, degree and normalization conventions.
 
 Atlas planet: Motivic Chern character.
 
@@ -1684,13 +1685,13 @@ Proof/construction plan:
 2. Use Li–Liu Lemma B.6 on the generic fibre to identify cycle realization; footnote 22 proves the support intersection product via S_(Z₁∩Z₂)=S_Z₁∧S_Z₂ and ΩBQP multiplication.
 3. Gillet Definition 2.34(ii), Theorem 3.1 and §2.35 and Gillet–Soulé Proposition 5.5 remain precise unread-source proof gaps, not inferred from the Li–Liu application.
 
-Direct prerequisites: MotivicEtaleKTheory:M.8/motivic-chern-character, SchemeKTheoryOperations:S.3, SchemeKTheoryOperations:S.7/scheme-gamma-filtration, SchemeAndStackFoundations:SF.5.
+Direct prerequisites: MotivicEtaleKTheory:M.8/motivic-chern-character, SchemeKTheoryOperations:S.3, SchemeKTheoryOperations:S.7/scheme-gamma-filtration, SchemeAndStackFoundations:SF.5, MotivicEtaleKTheory:M.4/purity-gysin-triangle, MotivicEtaleKTheory:M.4/localization-sequence, MotivicEtaleKTheory:M.4/products.
 
 Proposed declaration: TauCeti.MotivicEtale.supported_cycle_character.
 
 Acceptance: Use the indicated genuine supplier carriers, the displayed coefficient and degree conventions, and the stated scheme class; the suggested signatures are prototypes.
 
-Source: [Chao Li and Yifeng Liu, Chow groups and L-derivatives of automorphic motives for unitary groups](https://www.math.columbia.edu/~chaoli/AIPF.pdf), Appendix B, pp.57–62, Lemma B.6 and footnote 22. Locator excerpt: “Lemma B.6.”. Routed supported character and refined cycle-class application, including the supported product explanation.
+Source: [Chao Li and Yifeng Liu, Chow groups and L-derivatives of automorphic motives for unitary groups](https://www.math.columbia.edu/~chaoli/AIPF.pdf), Appendix B, pp.57–62, Lemma B.6 and footnote 22. Routed supported character and refined cycle-class application, including the supported product explanation.
 
 #### Deligne regulator
 
@@ -1729,9 +1730,9 @@ Consumers:
 
 Acceptance: Use the indicated genuine supplier carriers, the displayed coefficient and degree conventions, and the stated scheme class; the suggested signatures are prototypes.
 
-Source: [Charles A. Weibel, The K-book: An introduction to algebraic K-theory](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), V Example 11.12(3), p.458. Locator excerpt: “Deligne-Beilinson.”. The cited construction or theorem fixes the coefficient, degree and normalization conventions.
+Source: [Charles A. Weibel, The K-book: An introduction to algebraic K-theory](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), V Example 11.12(3), p.458. The cited construction or theorem fixes the coefficient, degree and normalization conventions.
 
-Source: [José Ignacio Burgos Gil, The Regulators of Beilinson and Borel](https://www.icmat.es/miembros/burgos/files/brbr.pdf), §10.1, Definition 10.1, equations (10.2)–(10.5), Definitions 10.3 and Examples 10.4–10.5, pp.89–92. Locator excerpt: “Definition 10.1.”. Gives the actual logarithmic Deligne–Beilinson cone and its real descent; not just an ordinary analytic complex for open X.
+Source: [José Ignacio Burgos Gil, The Regulators of Beilinson and Borel](https://www.icmat.es/miembros/burgos/files/brbr.pdf), §10.1, Definition 10.1, equations (10.2)–(10.5), Definitions 10.3 and Examples 10.4–10.5, pp.89–92. Gives the actual logarithmic Deligne–Beilinson cone and its real descent; not just an ordinary analytic complex for open X.
 
 Atlas planet: Deligne regulator.
 
@@ -1741,21 +1742,21 @@ Identifier: MotivicEtaleKTheory:M.8/number-field-deligne-normalization. Kind: th
 
 For a number field F and j≥2, identify H_D¹(F⊗R,R(j)) with (∏_(σ:F→C)R(j−1))^conjugation using C/R(j)≃R(j−1) and the conjugate pairing. The universal rational K_(2j−1) character is the normalized suspension of the universal topological Chern character, ch_j=(2πi)^j pr_j/j! before suspension. The simplicial first-infinitesimal-diagonal realization, Adams weight, products and embeddings commute with this map. This export has no R.7 or D2 prerequisite.
 
-Hypotheses and conventions: pr_j is the primitive Newton class with the stated topological normalization; after positive-degree suspension the relation is the (j−1)! normalization of the preceding node. j≥2; no Borel analytic normalization assumed.
+Hypotheses and conventions: pr_j is the primitive Newton class of Burgos Definition 4.21, §4.4, p.31: modulo decomposables its b_j coefficient is (−1)^(j−1)j. Thus suspension of ch_j is (−1)^(j−1)(2πi)^j α_(2j−1)/(j−1)!, in the source’s fixed Chern/suspension convention. j≥2; no Borel analytic normalization assumed.
 
 Proof/construction plan:
 
 1. Use Burgos (10.2) and Examples 10.4–10.5 to identify point Deligne cohomology and take conjugation invariants across all embeddings.
-2. The universal class is the unique Deligne lift of ch_j under (10.10). Apply simplicial evaluation ev to B•GL(C)^δ and the plus-space Hurewicz pairing of Definition 10.7, then the embedding product of Definition 10.8. Remark 4.25 fixes suspension and the (j−1)! factor.
+2. The universal class is the unique Deligne lift of ch_j under (10.10). Apply simplicial evaluation ev to B•GL(C)^δ and the plus-space Hurewicz pairing of Definition 10.7, then the embedding product of Definition 10.8. Definition 4.21 and Proposition 4.20 fix the signed suspension and (j−1)! factor. Remark 4.25 gives its absolute normalization but omits the Newton sign (E9).
 3. For the infinitesimal-diagonal interface, use the squared identity ideal J in §10.4, normalize its cosimplicial structure, and import the general differential/Weil algebra identifications from §§8.1–8.3. The original general Weil-algebra comparison proof remains with its supplier; the displayed real/complex diagram pins the map. This construction precedes the Borel factor-two theorem.
 
 Direct prerequisites: MotivicEtaleKTheory:M.8/deligne-regulator, MotivicEtaleKTheory:M.8/motivic-chern-character, GeneralAlgebraicKTheory:K.2, tauceti:TauCetiRoadmap/HodgeStructures#milestone-l2--mixed-hodge-structures-strictness-deligne.
 
 Proposed declaration: TauCeti.MotivicEtale.number_field_deligne_normalization.
 
-Acceptance: Use the indicated genuine supplier carriers, the displayed coefficient and degree conventions, and the stated scheme class; the suggested signatures are prototypes.
+Acceptance: Use the indicated genuine supplier carriers, the displayed coefficient and degree conventions, and the stated scheme class; the suggested signatures are prototypes. Use the Newton recurrence of Definition 4.21 to retain (−1)^(j−1) on the suspended primitive generator; E9 records the omission in Remark 4.25. This sign is absorbed only when a generator is explicitly reoriented, not silently discarded.
 
-Source: [José Ignacio Burgos Gil, The Regulators of Beilinson and Borel](https://www.icmat.es/miembros/burgos/files/brbr.pdf), §4.4, Remark 4.25; §10.1 Examples 10.4–10.5; §§10.2–10.4 through the diagram on p.97. Locator excerpt: “Definition 10.7.”. Direct early definition from the universal Deligne class, point quotient, simplicial evaluation and Hurewicz map; no Borel comparison used.
+Source: [José Ignacio Burgos Gil, The Regulators of Beilinson and Borel](https://www.icmat.es/miembros/burgos/files/brbr.pdf), §4.4, Proposition 4.20 and Definition 4.21, pp.30–31; §4.5, Theorem 4.24 and Remark 4.25, p.32; §10.1 Examples 10.4–10.5, pp.91–92; §§10.2–10.4, pp.92–97. Direct early definition from the universal Deligne class, point quotient, simplicial evaluation and Hurewicz map; no Borel comparison used.
 
 #### Chern realization functoriality
 
@@ -1771,15 +1772,15 @@ Proof/construction plan:
 2. Apply the universal Chern product polynomial to finite integral classes. After rational normalization apply the total-character product formula. Use supported characters and S.7 K₀ GRR only in its smooth projective range, retaining its Todd correction; do not infer higher proper RR. Check the localization shift and twist separately.
 3. The full coherent boundary comparison is requested from M.4/MC.2/SF.5; it is not inferred merely from naturality on group homomorphisms.
 
-Direct prerequisites: MotivicEtaleKTheory:M.8/finite-etale-chern, MotivicEtaleKTheory:M.8/motivic-chern-character, MotivicEtaleKTheory:M.8/deligne-regulator, MotivicEtaleKTheory:M.8/supported-cycle-character, MotivicEtaleKTheory:M.7/etale-k-transfer, SchemeKTheoryOperations:S.7/grothendieck-riemann-roch, MotivicEtaleKTheory:M.4, MotivesAndAlgebraicCycles:MC.2, SchemeAndStackFoundations:SF.5.
+Direct prerequisites: MotivicEtaleKTheory:M.8/finite-etale-chern, MotivicEtaleKTheory:M.8/motivic-chern-character, MotivicEtaleKTheory:M.8/deligne-regulator, MotivicEtaleKTheory:M.8/supported-cycle-character, MotivicEtaleKTheory:M.7/etale-k-transfer, SchemeKTheoryOperations:S.7/grothendieck-riemann-roch, MotivicEtaleKTheory:M.4/functoriality, MotivicEtaleKTheory:M.4/products, MotivicEtaleKTheory:M.4/projective-bundle-formula, MotivesAndAlgebraicCycles:MC.2, SchemeAndStackFoundations:SF.5.
 
 Proposed declaration: TauCeti.MotivicEtale.chern_functoriality.
 
 Acceptance: Use the indicated genuine supplier carriers, the displayed coefficient and degree conventions, and the stated scheme class; the suggested signatures are prototypes.
 
-Source: [Charles A. Weibel, The K-book: An introduction to algebraic K-theory](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), V Theorem 11.11 proof, pp.458–459. Locator excerpt: “Theorem 11.11.”. The rational total character and its proof justify rational multiplicativity; they do not make the unnormalized finite Chern classes multiplicative.
+Source: [Charles A. Weibel, The K-book: An introduction to algebraic K-theory](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), V Theorem 11.11 proof, pp.458–459. The rational total character and its proof justify rational multiplicativity; they do not make the unnormalized finite Chern classes multiplicative.
 
-Source: [Chao Li and Yifeng Liu, Chow groups and L-derivatives of automorphic motives for unitary groups](https://www.math.columbia.edu/~chaoli/AIPF.pdf), Appendix B, footnote 22. Locator excerpt: “the product C1”. Supported pairings supply the exact product support; general proper comparison remains with the GRR owner.
+Source: [Chao Li and Yifeng Liu, Chow groups and L-derivatives of automorphic motives for unitary groups](https://www.math.columbia.edu/~chaoli/AIPF.pdf), Appendix B, footnote 22. Supported pairings supply the exact product support; general proper comparison remains with the GRR owner.
 
 #### Integral motivic structures
 
@@ -1795,7 +1796,7 @@ Proof/construction plan:
 2. Separate the integral group, torsion-free abelian group and rational vector-space image. Apply the case-specific finiteness/rank theorem only when constructing a lattice.
 3. Regulators kill torsion in characteristic-zero vector spaces; this does not identify two integral groups that differ by torsion. Model dependence is preserved until localization proves independence.
 
-Direct prerequisites: MotivicEtaleKTheory:M.4, MotivicEtaleKTheory:M.8/chern-functoriality, ArithmeticKTheory:N.3:finite-generation/finite-generation-of-K-of-S-integers, BorelRegulators:R.4/regulator-lattice, mathlib:CommGroup.torsion, mathlib:QuotientGroup.mk'.
+Direct prerequisites: MotivicEtaleKTheory:M.4/cycle-complex, MotivicEtaleKTheory:M.4/nesterenko-suslin-totaro, MotivicEtaleKTheory:M.8/chern-functoriality, ArithmeticKTheory:N.3:finite-generation/finite-generation-of-K-of-S-integers, BorelRegulators:R.4/regulator-lattice, mathlib:CommGroup.torsion, mathlib:QuotientGroup.mk'.
 
 Proposed declaration: TauCeti.MotivicEtale.integralStructures.
 
@@ -1818,9 +1819,9 @@ Consumers:
 
 Acceptance: Use the indicated genuine supplier carriers, the displayed coefficient and degree conventions, and the stated scheme class; the suggested signatures are prototypes.
 
-Source: [Kazuya Kato, Tamagawa Number Conjecture for zeta Values](https://arxiv.org/pdf/math/0304233v1), §2.1(a)–(d), pp.167–168. Locator excerpt: “K-groups (or motivic cohomology”. Tamagawa determinant and realization conventions; conjectural arithmetic assertions are not claimed proved.
+Source: [Kazuya Kato, Tamagawa Number Conjecture for zeta Values](https://arxiv.org/pdf/math/0304233v1), §2.1(a)–(d), pp.167–168. Tamagawa determinant and realization conventions; conjectural arithmetic assertions are not claimed proved.
 
-Source: [Charles A. Weibel, The K-book: An introduction to algebraic K-theory](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), VI §8 Theorems 8.2–8.3, pp.513–514. Locator excerpt: “Theorem 8.2.”. The cited construction or theorem fixes the coefficient, degree and normalization conventions.
+Source: [Charles A. Weibel, The K-book: An introduction to algebraic K-theory](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), VI §8 Theorems 8.2–8.3, pp.513–514. The cited construction or theorem fixes the coefficient, degree and normalization conventions.
 
 Atlas planet: Integral motivic structures.
 
@@ -1838,13 +1839,13 @@ Proof/construction plan:
 2. Use finite-field point counts and smooth proper base change to compute geometric Frobenius on H¹; twist multiplies eigenvalues by q^(−j).
 3. Export this realization dictionary to the Euler-system and determinant nodes. Never infer a Chow equality or a numerical-motive realization from equality of ℓ-adic characteristic polynomials.
 
-Direct prerequisites: MotivesAndAlgebraicCycles:MC.1, MotivesAndAlgebraicCycles:MC.2, tauceti:TauCetiRoadmap/EllipticCurves#layer-2-torsion-the-weil-pairing-and-the-tate-module-aec-iii68, MotivicEtaleKTheory:M.1, tauceti:TauCetiRoadmap/EllipticCurves#layer-3-elliptic-curves-over-finite-fields--the-hasse-bound-aec-v1, tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv, EtaleDualityAndPerverseSheaves:EDC.2:pairings.
+Direct prerequisites: MotivesAndAlgebraicCycles:MC.1, MotivesAndAlgebraicCycles:MC.2, tauceti:TauCetiRoadmap/EllipticCurves#layer-2-torsion-the-weil-pairing-and-the-tate-module-aec-iii68, MotivicEtaleKTheory:M.1/finite-tate-twist, MotivicEtaleKTheory:M.1/adic-tate-twist, tauceti:TauCetiRoadmap/EllipticCurves#layer-3-elliptic-curves-over-finite-fields--the-hasse-bound-aec-v1, tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv, EtaleDualityAndPerverseSheaves:EDC.2:pairings.
 
 Proposed declaration: TauCeti.MotivicEtale.tate_elliptic_realization_dictionary.
 
 Acceptance: Use the indicated genuine supplier carriers, the displayed coefficient and degree conventions, and the stated scheme class; the suggested signatures are prototypes.
 
-Source: [Kazuya Kato, Tamagawa Number Conjecture for zeta Values](https://arxiv.org/pdf/math/0304233v1), §2.1, example following (2.1.5), pp.167–168. Locator excerpt: “Let M be a motive over Q”. Supplies motive/realization conventions only. The good-place Euler polynomials require the elliptic Frobenius, Tate-twist and scheme base-change exports named in the prerequisites; Kato does not prove those polynomials here.
+Source: [Kazuya Kato, Tamagawa Number Conjecture for zeta Values](https://arxiv.org/pdf/math/0304233v1), §2.1, example following (2.1.5), pp.167–168. Supplies motive/realization conventions only. The good-place Euler polynomials require the elliptic Frobenius, Tate-twist and scheme base-change exports named in the prerequisites; Kato does not prove those polynomials here.
 
 #### Norm-compatible regulator families
 
@@ -1885,7 +1886,7 @@ Consumers:
 
 Acceptance: Use the indicated genuine supplier carriers, the displayed coefficient and degree conventions, and the stated scheme class; the suggested signatures are prototypes. The extension and fixed-base coefficient groups, transition directions, actual graded products and transfer laws are explicit. The tests evaluate elements and an actual field norm, not just the integer formula for the degree.
 
-Source: [Christophe Soulé, Éléments cyclotomiques en K-théorie](https://www.numdam.org/item/AST_1987__147-148__225_0.pdf), §4.1–§4.4, printed pp.238–240. Locator excerpt: “4.1.”. Explicit compatible-unit and Bott construction; its normalization and projection formula determine the K-degree.
+Source: [Christophe Soulé, Éléments cyclotomiques en K-théorie](https://www.numdam.org/item/AST_1987__147-148__225_0.pdf), §4.1–§4.4, printed pp.238–240. Explicit compatible-unit and Bott construction; its normalization and projection formula determine the K-degree.
 
 Atlas planet: Norm-compatible regulator families.
 
@@ -1908,9 +1909,9 @@ Proposed declaration: TauCeti.MotivicEtale.euler_factor_regulator_compatibility.
 
 Acceptance: Use the indicated genuine supplier carriers, the displayed coefficient and degree conventions, and the stated scheme class; the suggested signatures are prototypes.
 
-Source: [Kazuya Kato, Tamagawa Number Conjecture for zeta Values](https://arxiv.org/pdf/math/0304233v1), §2.1, after (2.1.5), p.167. Locator excerpt: “Euler systems”. Tamagawa determinant and realization conventions; conjectural arithmetic assertions are not claimed proved.
+Source: [Kazuya Kato, Tamagawa Number Conjecture for zeta Values](https://arxiv.org/pdf/math/0304233v1), §2.1, after (2.1.5), p.167. Tamagawa determinant and realization conventions; conjectural arithmetic assertions are not claimed proved.
 
-Source: [Christophe Soulé, Éléments cyclotomiques en K-théorie](https://www.numdam.org/item/AST_1987__147-148__225_0.pdf), §4.1–§4.4, pp.238–240. Locator excerpt: “4.1.”. The explicit unit/Bott norm family supplies the concrete compatibility test, not arbitrary elliptic Euler-system existence.
+Source: [Christophe Soulé, Éléments cyclotomiques en K-théorie](https://www.numdam.org/item/AST_1987__147-148__225_0.pdf), §4.1–§4.4, pp.238–240. The explicit unit/Bott norm family supplies the concrete compatibility test, not arbitrary elliptic Euler-system existence.
 
 #### Selmer regulator factorization
 
@@ -1932,7 +1933,7 @@ Proposed declaration: TauCeti.MotivicEtale.selmer_regulator_factorization.
 
 Acceptance: Use the indicated genuine supplier carriers, the displayed coefficient and degree conventions, and the stated scheme class; the suggested signatures are prototypes.
 
-Source: [Kazuya Kato, Tamagawa Number Conjecture for zeta Values](https://arxiv.org/pdf/math/0304233v1), §2.1(a)–(d), pp.167–168. Locator excerpt: “constructions require some conjectures”. Supplies conditional period and p-adic realization conventions only, not a proof that regulator classes meet every local Selmer condition. Those local proofs are requested from D.2/D.3/D.5/L1.
+Source: [Kazuya Kato, Tamagawa Number Conjecture for zeta Values](https://arxiv.org/pdf/math/0304233v1), §2.1(a)–(d), pp.167–168. Supplies conditional period and p-adic realization conventions only, not a proof that regulator classes meet every local Selmer condition. Those local proofs are requested from D.2/D.3/D.5/L1.
 
 #### Arithmetic fundamental line
 
@@ -1971,7 +1972,7 @@ Consumers:
 
 Acceptance: Use the indicated genuine supplier carriers, the displayed coefficient and degree conventions, and the stated scheme class; the suggested signatures are prototypes. The zero and shift tests use the determinant functor’s actual zero-complex and shift isomorphisms. Triangle/base-change maps are tied to those operations. Early MC.2/PS.0/L5 inputs have no M.8 ancestor; PS.3/PS.4 are downstream consumers.
 
-Source: [Kazuya Kato, Tamagawa Number Conjecture for zeta Values](https://arxiv.org/pdf/math/0304233v1), §1.2 and §2.1 equations (2.1.1)–(2.1.5), pp.165–168. Locator excerpt: “determinant module”. Tamagawa determinant and realization conventions; conjectural arithmetic assertions are not claimed proved.
+Source: [Kazuya Kato, Tamagawa Number Conjecture for zeta Values](https://arxiv.org/pdf/math/0304233v1), §1.2 and §2.1 equations (2.1.1)–(2.1.5), pp.165–168. Tamagawa determinant and realization conventions; conjectural arithmetic assertions are not claimed proved.
 
 Atlas planet: Arithmetic fundamental line.
 
@@ -1995,7 +1996,7 @@ Proposed declaration: TauCeti.MotivicEtale.regulator_determinant_comparison.
 
 Acceptance: Use the indicated genuine supplier carriers, the displayed coefficient and degree conventions, and the stated scheme class; the suggested signatures are prototypes. The typed comparison is an equivalence induced by the named regulator determinant map and early period comparison, conditional on that actual map being bijective; existence of an unrelated line isomorphism is insufficient. Real and p-adic variants use their respective coefficient embeddings; no map from Z_p to R is presumed.
 
-Source: [Kazuya Kato, Tamagawa Number Conjecture for zeta Values](https://arxiv.org/pdf/math/0304233v1), §2.1(a)–(d), pp.167–168. Locator excerpt: “K-groups (or motivic cohomology”. Tamagawa determinant and realization conventions; conjectural arithmetic assertions are not claimed proved.
+Source: [Kazuya Kato, Tamagawa Number Conjecture for zeta Values](https://arxiv.org/pdf/math/0304233v1), §2.1(a)–(d), pp.167–168. Tamagawa determinant and realization conventions; conjectural arithmetic assertions are not claimed proved.
 
 ## Supplier export requests
 
@@ -2227,13 +2228,13 @@ Needed by: MotivicEtaleKTheory:M.5d/bloch-gabber-kato.
 
 ### Resolution-free Beilinson–Lichtenbaum input
 
-Geisser–Levine 2001, Invent. Math. 143, pp.55–113: original author PDF BlochKato.pdf returned 404. Read its resolution-free cone/truncation proof and extract the exact semilocal transfer hypotheses. SV2000 Theorem 7.4 was read with resolution of singularities and does not supply the unconditional version by itself; Geisser Dedekind §5 supplies only the cited application.
+Geisser–Levine 2001, Invent. Math. 143, pp.55–113: original author PDF BlochKato.pdf returned 404. Read its resolution-free cone/truncation proof and extract the exact semilocal transfer hypotheses. SV2000 Theorem 7.4 was read with resolution of singularities and does not supply the unconditional version by itself; Geisser Dedekind §5 supplies only the cited application. Assembly: MC.4/suslin-friedlander-into-cycle-complex and MC.4/motivic-cohomology-higher-chow supply the packaged comparison only under their stated perfect-field hypotheses, and M.5a/cycle-complex-transfers supplies the transfer action. Those exact imports do not prove the unrestricted resolution-free passage; that obligation remains here and in M.5c/hilbert-ninety-implies-beilinson-lichtenbaum.
 
 Needed by: MotivicEtaleKTheory:M.5d/mod-prime-motivic-comparison, MotivicEtaleKTheory:M.7/beilinson-lichtenbaum, MotivicEtaleKTheory:M.5d/prime-power-norm-residue.
 
 ### Global filtered-model comparison
 
-Read the complete comparison between Levine homotopy coniveau and the Friedlander–Suslin global multi-relative K tower, and construct a filtered zigzag with augmentation/layer compatibility. Levine Theorem 6.4.1 and FS Theorem 13.13 each give their own layers; equality of E₂ pages is not the missing global equivalence.
+Read the complete comparison between Levine homotopy coniveau and the Friedlander–Suslin global multi-relative K tower, and construct a filtered zigzag with augmentation/layer compatibility. Levine Theorem 6.4.2 and FS Theorem 13.13 each give their own layers; equality of E₂ pages is not the missing global equivalence.
 
 Needed by: MotivicEtaleKTheory:M.6a/global-model-comparison.
 
@@ -2320,7 +2321,7 @@ Needed by: MotivicEtaleKTheory:M.8/selmer-regulator-factorization, MotivicEtaleK
 
 ## Source ledger and source issues
 
-The recorded public editions and hashes identify the exact sources. The target-level reading register below does not replace the unacquired or unread original proof inputs listed as gaps. Source-version and search provenance remains in the packet. The independent source-issue verdicts confirm E1, E3, E501, E502 and E504, and reject E2 as a demonstrated misprint. Novelty of the confirmed findings is unestablished. The two revision findings E6/E7 concern Levine’s author-hosted preprint, await independent review and make no novelty claim.
+The recorded public editions and hashes identify the exact sources. The target-level reading register below does not replace the unacquired or unread original proof inputs listed as gaps. Source-version and search provenance remains in the packet. The independent source-issue verdicts confirm E1, E3, E501, E502 and E504, and reject E2 as a demonstrated misprint. Novelty of the confirmed findings is unestablished. The round-2 review confirms E6/E7 in Levine’s author-hosted preprint, adds E8 on its Adams-weight indexing and E9 on Burgos’s Newton sign, and makes no novelty claim. All findings are stated in our own words with source locators.
 
 ### Kbook2013
 
@@ -2458,85 +2459,127 @@ Recorded SHA-256: 6d7f3a5924fd5291bc23870547b05552ba7fb1e39413d551f11daf052fbcf1
 
 Recorded SHA-256: da6ba8c4b08bf447d1575788c33b96c52d8d0d0a377e8f2990ead6aed73f65ea.
 
-- §4.4 and Remark 4.25 normalization, pp.31–32
+- §4.4 Proposition 4.20/Definition 4.21, pp.30–31; §4.5 Theorem 4.24/Remark 4.25, p.32
 - §10.1–§10.3 in full, pp.89–94; §10.4 infinitesimal-diagonal construction and diagram through Lemma 10.10 and Proposition 10.11 on p.97
 - §8.1 Lemmas 8.6–8.7 proof passage only; Theorems 8.12/8.15 and the full general Weil-algebra comparison are supplier inputs, not claimed fully read
 
 ### MotivicEtaleKTheory/E1
 
-A2.2, printed p.40 (PDF p.10), definition of k_n(O). The residue decreases degree. Bloch–Kato (2.3), printed p.114, displays the degree-(q−1) target explicitly; confusing it with specialization destroys the diagram.
+A2.2, printed p.40 (PDF p.10), definition of k_n(O). The unramified Milnor-group definition uses a residue target with the same degree as the source.
+
+Reason: The residue decreases degree. Bloch–Kato (2.3), printed p.114, displays the degree-(q−1) target explicitly; confusing it with specialization destroys the diagram.
 
 Correction: The defining map is the tame residue k_n(E)→k_(n−1)(k). The subsequent specialization from its kernel to k_n(k) is a separate map.
 
-Independent verdict: confirmed. Confirmed visually in the publisher PDF and repeated in arXiv v1/author volume. BK (2.3) has the tame-residue target of degree n−1; specialization from the kernel is a separate degree-n map.
+Independent verdict: confirmed. Independently confirmed in the publisher appendix, p.40, against BK (2.3), p.114: tame residue lowers the Milnor degree; specialization from its kernel is a separate same-degree map.
 
 No published correction located in the recorded searches; novelty is unestablished.
 
 ### MotivicEtaleKTheory/E2
 
-A2.2, printed p.40 (PDF p.10), definition of ν_n(O). The arrow is unlabelled. Interpreting it as the quotient projection does not establish a source error: Rejected as a demonstrated misprint: the arrow on p.40 is unlabeled, not labeled as quotient projection. A2 already defines the Artin–Schreier/Cartier operator on pp.35–36, so that context supplies the intended arrow. Labeling it would clarify the exposition; the counterexample to projection does not establish that projection was asserted. Retain the Cartier operator in the blueprint.
+A2.2, printed p.40 (PDF p.10), definition of ν_n(O). The logarithmic kernel is displayed with an unlabeled arrow from forms to forms modulo exact forms.
 
-Use the canonical labelled Artin–Schreier map 1−C⁻¹ in the mathematical interface. The proposed erratum is rejected; it is not among the five confirmed source mistakes.
+Reason: BK (2.3), printed p.114, specifies 1−C⁻¹. The kernel of projection in degree zero is zero, whereas the logarithmic kernel contains 1. The intended arithmetic target would be lost.
+
+Correction: Label the arrow 1−C⁻¹ (or its negative), rather than leaving a quotient projection as the only evident map.
+
+Independent verdict: rejected. Independently rejected as a demonstrated misprint: the p.40 arrow is unlabeled. A2 on pp.35–36 has already introduced the Artin–Schreier/Cartier operator. The projection counterexample tests a reading that the source does not assert.
 
 No published correction located in the recorded searches; novelty is unestablished.
 
 ### MotivicEtaleKTheory/E3
 
-A2.1 Definitions–Properties (1), printed p.36, followed by the ordering of S in the proof on p.37 (PDF pp.6–7). The printed componentwise strict partial order does not totally order increasing tuples: (1,4) and (2,3) are incomparable. Consequently all increasing 2-tuples from four indices cannot be enumerated as the asserted strict chain.
+A2.1 Definitions–Properties (1), printed p.36, followed by the ordering of S in the proof on p.37 (PDF pp.6–7). The proof enumerates all increasing index tuples as a descending chain for the previously defined componentwise partial order.
+
+Reason: The printed componentwise strict partial order does not totally order increasing tuples: (1,4) and (2,3) are incomparable. Consequently all increasing 2-tuples from four indices cannot be enumerated as the asserted strict chain.
 
 Correction: Use the lexicographic order of BK Proposition 2.4, printed p.115, and recheck every lower-term assertion against that order. This identifies the failed enumeration, not a certification of the whole supplementary proof.
 
-Independent verdict: confirmed. Confirmed visually, with the same text in both other versions. Under the stated componentwise order (1,4) and (2,3) are incomparable, so the asserted strict enumeration of all increasing tuples fails. BK Proposition 2.4 uses lexicographic order; replacing the order alone does not certify the complete sketch.
+Independent verdict: confirmed. Independently confirmed from pp.36–37: (1,4) and (2,3) are incomparable in the stated componentwise order. BK Proposition 2.4, p.115, instead supplies lexicographic order. This does not certify the rest of the sketch.
 
 No published correction located in the recorded searches; novelty is unestablished.
 
 ### MotivicEtaleKTheory/E501
 
-A1.1, generators-and-relations description of differentials, printed p.31 / PDF p.1. Leibniz and annihilation of base scalars do not imply additivity. Take A=ℚ, B=ℚ(t), M=B and define δ(f)=f·ord_t(f) for f≠0, δ(0)=0. Valuation additivity gives δ(fg)=fδ(g)+gδ(f), and δ annihilates ℚ, but δ(t+1)=0 whereas δ(t)+δ(1)=t. Thus the displayed relations alone admit a nonadditive map and do not present Kähler differentials.
+A1.1, generators-and-relations description of differentials, printed p.31 / PDF p.1. The differential-module presentation imposes the product relation and vanishing on base scalars, but omits the sum relation.
+
+Reason: Leibniz and annihilation of base scalars do not imply additivity. Take A=ℚ, B=ℚ(t), M=B and define δ(f)=f·ord_t(f) for f≠0, δ(0)=0. Valuation additivity gives δ(fg)=fδ(g)+gδ(f), and δ annihilates ℚ, but δ(t+1)=0 whereas δ(t)+δ(1)=t. Thus the displayed relations alone admit a nonadditive map and do not present Kähler differentials.
 
 Correction: Include the additive relation d(x+y)=dx+dy for all x,y∈B. The preceding derivation universal property is the correct specification, and the roadmap should use the existing Kähler differential module with additive derivation.
 
-Independent verdict: confirmed. Confirmed visually and in both other versions. The valuation example over Q(t) satisfies the two displayed relations and fails additivity, so the generators-and-relations presentation needs the additive relation. The preceding derivation universal property supplies the correct object.
+Independent verdict: confirmed. Independently confirmed from p.31. The valuation map δ(f)=f ord_t(f) on Q(t), with δ(0)=0, satisfies Leibniz and kills Q but has δ(t+1)=0≠t=δ(t)+δ(1). Additivity must be a relation.
 
 No published correction located in the recorded searches; novelty is unestablished.
 
 ### MotivicEtaleKTheory/E502
 
-A1.1, second symbol relation, printed p.33 / PDF p.3. The relation comes from a·dlog(b₁b₂)=a·dlog(b₁)+a·dlog(b₂). The printed a₂ is free and unrelated to a. For example over ℚ(t), a=0, a₂=1, b₁=1, b₂=t gives zero on the left and dt/t on the right if the printed relation is imposed.
+A1.1, second symbol relation, printed p.33 / PDF p.3. In the second logarithmic-symbol relation, the last summand has a different, unbound coefficient.
+
+Reason: The relation comes from a·dlog(b₁b₂)=a·dlog(b₁)+a·dlog(b₂). The printed a₂ is free and unrelated to a. For example over ℚ(t), a=0, a₂=1, b₁=1, b₂=t gives zero on the left and dt/t on the right if the printed relation is imposed.
 
 Correction: The final term is [a,b₂}; the same coefficient a occurs in both terms.
 
-Independent verdict: confirmed. Confirmed visually and in both other versions. The free a₂ in the second relation must be the same a as on the left; the dlog product rule and the supplied Q(t) example both verify this.
+Independent verdict: confirmed. Independently confirmed from p.33. The product rule for a dlog forces the same coefficient in both summands; the free second coefficient contradicts the example a=0, b₁=1, b₂=t over Q(t).
 
 No published correction located in the recorded searches; novelty is unestablished.
 
 ### MotivicEtaleKTheory/E504
 
-A2.1 proof of Proposition, definition of r on p.38 and top-degree forms on p.39 / PDF pp.8–9. The displayed definitions give [k₁:k₀]=p. Thus the printed r omits one p-basis element. Already for p=2, k=𝔽₂(b₁,b₂), n=2 and s=(1,2), the printed r is 1 although the interval has two elements: it asks for m(r−n)=m(−1), and Ω¹(k₂/k₀)/d(k₂) has dimension five over k₀, not one (Ω¹ has dimension eight and d(k₂) has dimension three). With r=2 the empty complement and the top-degree one-dimensional cohomology have the intended sizes.
+A2.1 proof of Proposition, definition of r on p.38 and top-degree forms on p.39 / PDF pp.8–9. The top-form exponent is taken from the extension over the intermediate field rather than over the initial field.
+
+Reason: The displayed definitions give [k₁:k₀]=p. Thus the printed r omits one p-basis element. Already for p=2, k=𝔽₂(b₁,b₂), n=2 and s=(1,2), the printed r is 1 although the interval has two elements: it asks for m(r−n)=m(−1), and Ω¹(k₂/k₀)/d(k₂) has dimension five over k₀, not one (Ω¹ has dimension eight and d(k₂) has dimension three). With r=2 the empty complement and the top-degree one-dimensional cohomology have the intended sizes.
 
 Correction: Define pʳ=[k₂:k₀], using the p-basis indices in the full interval from s(1) through s(n), rather than [k₂:k₁]. Then r is the degree of the top differential form and r−n is the number of complementary indices.
 
-Independent verdict: confirmed. Confirmed visually and in both other versions. The full p-basis interval has degree [k₂:k₀], whereas [k₂:k₁] omits one element. The p=2,n=2 example gives r−n=−1 with the printed exponent. The correction restores the top-degree dimension, without certifying other elimination steps.
+Independent verdict: confirmed. Independently confirmed from pp.38–39: [k₁:k₀]=p, so [k₂:k₁] omits one p-basis index. For p=2 and n=2 in a two-element interval it makes r−n negative; degree [k₂:k₀] restores the top-form size.
 
 No published correction located in the recorded searches; novelty is unestablished.
 
 ### MotivicEtaleKTheory/E6
 
-Author-hosted KthyMotI12.01.pdf preprint, Lemma 14.6(1) proof, printed/PDF p.72: eigenvalue displays before (14.1) and on the overlap localization. Take M=Q e_0⊕Q e_1, F^0=M, F^1=Q e_1, F^2=0 and ψ_l=diag(1,l). These satisfy the lemma hypotheses for a=0,b=1. For q=0 and x=e_1, Π_0^k(x)=0, so the printed identity asserts 0=e_1. The corrected identity follows from the equivariant splitting.
+Author-hosted KthyMotI12.01.pdf preprint, Lemma 14.6(1) proof, printed/PDF p.72: eigenvalue displays before (14.1) and on the overlap localization. Two eigenvalue computations apply a projector on the left but omit the projected argument on the right.
+
+Reason: Take M=Q e_0⊕Q e_1, F^0=M, F^1=Q e_1, F^2=0 and ψ_l=diag(1,l). These satisfy the lemma hypotheses for a=0,b=1. For q=0 and x=e_1, Π_0^k(x)=0, so the printed identity asserts 0=e_1. The corrected identity follows from the equivariant splitting.
 
 Correction: Retain the projected argument on the right: ψ_l(Π_q^k(x))=l^q Π_q^k(x) and ψ_k(Π_q^l(x))=k^q Π_q^l(x). This repairs the proof identities without changing the lemma statement.
 
-Independent verdict: pending. This revision finding requires the next independent review.
+Independent verdict: confirmed. Independently confirmed on p.72. With M=Qe₀⊕Qe₁, weights 0 and 1 and x=e₁, the weight-zero projector gives zero; omitting it on the right gives the false equality 0=e₁. The projected eigenidentity is the valid one.
 
 No correction located in the recorded limited searches; novelty is unestablished.
 
 ### MotivicEtaleKTheory/E7
 
-Author-hosted KthyMotI12.01.pdf preprint, Lemma 14.6(2), printed/PDF pp.71–72: final induction and inclusion in the proof. The printed proof assumes the multiplier sends F_1^{q+1} into F_2^{q+1}, starts with x∈F_1^q and concludes the displayed inclusion. That direction already follows from F_1⊂F_2 and does not prove the stated reverse inclusion. This is a proof gap as printed, not a counterexample to the lemma. The rational splitting node uses part (1), independently of this denominator refinement.
+Author-hosted KthyMotI12.01.pdf preprint, Lemma 14.6(2), printed/PDF pp.71–72: final induction and inclusion in the proof. The final induction proves the inclusion in the direction already supplied by the filtration hypothesis.
+
+Reason: The printed proof assumes the multiplier sends F_1^{q+1} into F_2^{q+1}, starts with x∈F_1^q and concludes the displayed inclusion. That direction already follows from F_1⊂F_2 and does not prove the stated reverse inclusion. This is a proof gap as printed, not a counterexample to the lemma. The rational splitting node uses part (1), independently of this denominator refinement.
 
 Correction: The claimed conclusion on p.71 is n^{≥q}(a,b)F_2^q M⊂F_1^q M. Run the induction on x∈F_2^q, using denominator-cleared projectors that kill F_2^{q+1} and map M into F_1^q. The approximation error lies in F_2^{q+1}; the induction then proves the claimed direction. Recheck the filtration labels throughout the quasi-splitting paragraph.
 
-Independent verdict: pending. This revision finding requires the next independent review.
+Independent verdict: confirmed. Independently confirmed on pp.71–72 as a proof gap. The lemma needs a denominator multiple of F₂ in F₁, but the printed induction starts in F₁ and ends in F₂. Reversing the filtration labels and using the projectors in the stated direction supplies the intended induction; this is not a counterexample to the lemma.
+
+No correction located in the recorded limited searches; novelty is unestablished.
+
+### MotivicEtaleKTheory/E8
+
+Author-hosted KthyMotI12.01.pdf preprint, Theorem 12.12(3), printed/PDF p.58; compare Theorem 14.7 and proof, pp.73–74. The Adams exponent in part (3) has the same sign as half the displayed second-page coordinate, whereas the motivic weight has the opposite sign.
+
+Reason: The proof on pp.58–59 uses positive codimension j and scalar k^j, and Theorem 14.7 uses that sign. On P¹ the hyperplane class in H²(P¹,Z(1)) lies at E₂^(2,−2); ψ² acts by 2, not 1/2. Negative powers also cannot define the asserted integral scalar action in general.
+
+Correction: For the source coordinate E₂^(p,2q)=H^p(X,Z(−q)), use the scalar k^(−q); equivalently write E₂^(p,−2j)=H^p(X,Z(j)) with scalar k^j.
+
+Independent verdict: confirmed. The proof on pp.58–59 uses positive codimension j and scalar k^j, and Theorem 14.7 uses that sign. On P¹ the hyperplane class in H²(P¹,Z(1)) lies at E₂^(2,−2); ψ² acts by 2, not 1/2. Negative powers also cannot define the asserted integral scalar action in general.
+
+No correction located in the recorded limited searches; novelty is unestablished.
+
+### MotivicEtaleKTheory/E9
+
+§4.5 Remark 4.25, printed p.32 / PDF p.38; compare §4.4 Proposition 4.20 and Definition 4.21, printed pp.30–31 / PDF pp.36–37. The coefficient of the indecomposable Chern generator and its suspended generator in Remark 4.25 are given without the alternating Newton sign.
+
+Reason: Definition 4.21 gives pr₂=b₁²−2b₂. Thus ch₂=(2πi)²(b₁²/2−b₂), so its indecomposable b₂ coefficient is negative. Since b₂ is independent of the decomposable b₁² in H⁴(BGL(C),Q), the positive coefficient in the remark is incompatible with the source’s own definition. Proposition 4.20 preserves this sign upon suspension.
+
+Correction: With the fixed Newton recurrence and suspension s(b_j)=α_(2j−1), the coefficient is (−1)^(j−1)(2πi)^j/(j−1)!. Include that sign also after suspension. The final pairing with a Bott generator remains ±(2πi)^j.
+
+Independent verdict: confirmed. Definition 4.21 gives pr₂=b₁²−2b₂. Thus ch₂=(2πi)²(b₁²/2−b₂), so its indecomposable b₂ coefficient is negative. Since b₂ is independent of the decomposable b₁² in H⁴(BGL(C),Q), the positive coefficient in the remark is incompatible with the source’s own definition. Proposition 4.20 preserves this sign upon suspension.
 
 No correction located in the recorded limited searches; novelty is unestablished.
 
@@ -2552,6 +2595,8 @@ The upstream mixed-Hodge layer is imported as existing work. The logarithmic Del
 
 ## Validation and suggested signatures
 
-The packet has 67 nodes, 66 API items, 61 named examples, 30 planets, 30 baseline declarations, 36 requests and 11 proof/source gaps. All six stages are planned; all implementation statuses remain unchecked. Packet-schema, prerequisite-routing and declaration/API/example correspondence checks are separate from mathematical proof.
+The packet has 67 nodes, 67 API items, 61 named examples, 30 planets, 30 baseline declarations, 36 requests and 11 proof/source gaps. All six stages are planned; all implementation statuses remain unchecked. Packet-schema, prerequisite-routing and declaration/API/example correspondence checks are separate from mathematical proof.
 
 The suggested file uses native Kähler/exterior/tensor/quotient carriers and explicit unavailable spectrum, cycle, realization and determinant suppliers. Its actual-map algebraic interfaces record transition and augmentation coherence, exact-couple square-zero and page homology, differential/E₂ naturality, compatible Adams actions, eigenspace restriction, normalized unit–Bott transfer and induced determinant comparison. Elaboration checks their types; it does not establish the source-level geometric or arithmetic claims. The pinned shared build lacks the compiled Tau Ceti semilinear-map module, so that existing map is passed through its genuine semilinear type and derivation-compatibility law. Compilation evidence is in the packet checks and handoff.
+
+Independent round-2 review on 2026-10-08 accepts this target-level pass after checking all 67 nodes and 30 pinned baseline entries. It corrects six nodes, confirms nine source findings and rejects one, and leaves the 11 named proof/source gaps and 36 supplier requests explicit. The reader’s direct prerequisites also include the current assembled M.1/M.4/M.5a–c and MC.4 imports. Acceptance does not close any stage or mark an implementation verified.

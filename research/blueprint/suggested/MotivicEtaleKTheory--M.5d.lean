@@ -354,21 +354,35 @@ variable (W : ℕ → ℕ → Type v) [∀ r q, AddCommGroup (W r q)]
 /-- CR.4 supplies W r q = H⁰_et(F,W_r Ω^q_log), Teichmüller wedges and maps. -/
 def wittSymbol (r q : ℕ) : ModP F (p ^ r) q →+ W r q := sorry
 
-theorem wittSymbol_symbol (r q : ℕ) (a : Fin q → Fˣ)
-    (teichLogWedge : (Fin q → Fˣ) → W r q) :
-    wittSymbol p W r q (reduce F (p ^ r) q (symbol F a)) = teichLogWedge a := by sorry
+/-- CR.4's genuine wedge of Teichmüller logarithms, not an arbitrary tuple map.
+At q=0 this is the unit section. Its geometric construction is a supplier input. -/
+def wittLogWedge (r q : ℕ) (a : Fin q → Fˣ) : W r q := sorry
+
+theorem wittSymbol_symbol (r q : ℕ) (hr : 1 ≤ r) (a : Fin q → Fˣ) :
+    wittSymbol p W r q (reduce F (p ^ r) q (symbol F a)) =
+      wittLogWedge (F := F) W r q a := by sorry
 
 theorem wittSymbol_restrict (r q : ℕ) (hr : 2 ≤ r)
     (R : W r q →+ W (r-1) q)
-    (ρ : ModP F (p ^ r) q →+ ModP F (p ^ (r-1)) q) :
+    (ρ : ModP F (p ^ r) q →+ ModP F (p ^ (r-1)) q)
+    (hR : ∀ a : Fin q → Fˣ,
+      R (wittLogWedge (F := F) W r q a) = wittLogWedge (F := F) W (r-1) q a)
+    (hρ : ∀ x : Milnor F q,
+      ρ (reduce F (p ^ r) q x) = reduce F (p ^ (r-1)) q x) :
     R.comp (wittSymbol p W r q) = (wittSymbol p W (r-1) q).comp ρ := by sorry
 
 theorem wittSymbol_insert (r q : ℕ) (hr : 2 ≤ r)
-    (i : ModP F (p ^ 1) q →+ ModP F (p ^ r) q) (j : W 1 q →+ W r q) :
+    (i : ModP F (p ^ 1) q →+ ModP F (p ^ r) q) (j : W 1 q →+ W r q)
+    (hi : ∀ x : Milnor F q,
+      i (reduce F (p ^ 1) q x) = reduce F (p ^ r) q ((p ^ (r-1)) • x))
+    (hj : ∀ a : Fin q → Fˣ,
+      j (wittLogWedge (F := F) W 1 q a) =
+        (p ^ (r-1)) • wittLogWedge (F := F) W r q a) :
     (wittSymbol p W r q).comp i = j.comp (wittSymbol (F := F) p W 1 q) := by sorry
 
--- wittSymbol_test_zero
-example (r : ℕ) (hr : 1 ≤ r) (e : W r 0 ≃+ ZMod (p ^ r)) :
+-- wittSymbol_test_zero: the supplier equivalence preserves the genuine unit section.
+example (r : ℕ) (hr : 1 ≤ r) (e : W r 0 ≃+ ZMod (p ^ r))
+    (he : e (wittLogWedge (F := F) W r 0 ![]) = 1) :
     e (wittSymbol p W r 0 (reduce F (p ^ r) 0 (symbol F ![]))) = 1 := by sorry
 -- wittSymbol_test_perfect
 example (r q : ℕ) (hr : 1 ≤ r) (hq : 0 < q)
@@ -516,8 +530,15 @@ example (layerZero HZ : Spectrum) : Nonempty (Iso layerZero HZ) := by sorry
 theorem moving_and_excision (movedTower ordinaryTower : ℕ → Spectrum) (p : ℕ) :
     Nonempty (Iso (movedTower p) (ordinaryTower p)) := by sorry
 
-theorem k_theory_well_connected (semilocalSupport : Spectrum) (m : ℤ) (hm : m < 0)
-    (x : π m semilocalSupport) : x = 0 := by sorry
+/-- M.6a/k-theory-well-connected: support connectivity is separate from
+concentration of the zeroth layer of each Ω_T iterate over a field. The proof
+criterion is vanishing of multirelative π₀ for positive simplex dimension,
+not concentration of multirelative spectra in degree zero (Levine 6.3.4). -/
+theorem k_theory_well_connected (supportSpectrum : Spectrum)
+    (zerothFieldLayer : ℕ → Spectrum) (multirelativeSimplex : ℕ → Spectrum) :
+    (∀ m : ℤ, m < 0 → ∀ x : π m supportSpectrum, x = 0) ∧
+    (∀ d : ℕ, ∀ m : ℤ, m ≠ 0 → ∀ x : π m (zerothFieldLayer d), x = 0) ∧
+    (∀ n : ℕ, 1 ≤ n → ∀ x : π 0 (multirelativeSimplex n), x = 0) := by sorry
 
 theorem coniveau_cycle_layer (layer : ℕ → Spectrum) (cycleEM : ℕ → Spectrum) (p : ℕ) :
     Nonempty (Iso (layer p) (cycleEM p)) := by sorry
