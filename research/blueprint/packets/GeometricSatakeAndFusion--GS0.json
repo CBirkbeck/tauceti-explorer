@@ -908,7 +908,7 @@
       "planet": {
         "name": "Loop spaces"
       },
-      "declarationName": "TauCeti.Suggested.GeometricSatake.positiveLoopSpace",
+      "declarationName": "TauCeti.GeometricSatake.positiveLoopSpace",
       "uses": [
         {
           "where": "FS VI.1.7–VI.1.9",
@@ -921,34 +921,34 @@
       ],
       "api": [
         {
-          "name": "TauCeti.Suggested.GeometricSatake.positiveLoopSpace_eval",
+          "name": "TauCeti.GeometricSatake.positiveLoopSpace_eval",
           "role": "characterisation",
           "statement": "At a completed ring A, the positive loop space is the affine functor of points F(A); the full loop space uses A[1/ξ]."
         },
         {
-          "name": "TauCeti.Suggested.GeometricSatake.positiveLoopSpace_map",
+          "name": "TauCeti.GeometricSatake.positiveLoopSpace_map",
           "role": "functoriality",
           "statement": "A ring map induces the map F(f); identity and composition agree with those in the affine functor."
         },
         {
-          "name": "TauCeti.Suggested.GeometricSatake.positiveLoopSpace_map_comp",
+          "name": "TauCeti.GeometricSatake.positiveLoopSpace_map_comp",
           "role": "relation",
           "statement": "Positive loop maps compose in the same order as ring maps."
         }
       ],
       "tests": [
         {
-          "name": "TauCeti.Suggested.GeometricSatake.loop_gm_units",
+          "name": "TauCeti.GeometricSatake.loop_gm_units",
           "kind": "computation",
           "statement": "For G_m the evaluation at A agrees with the unit group of A."
         },
         {
-          "name": "TauCeti.Suggested.GeometricSatake.loop_trivial",
+          "name": "TauCeti.GeometricSatake.loop_trivial",
           "kind": "degenerate",
           "statement": "The trivial affine group has one loop at every ring."
         },
         {
-          "name": "TauCeti.Suggested.GeometricSatake.loop_affine_evaluation",
+          "name": "TauCeti.GeometricSatake.loop_affine_evaluation",
           "kind": "compatibility",
           "statement": "Affine evaluation uses the existing CommRingCat functor, not an underlying-set functor on schemes."
         }
@@ -1000,7 +1000,7 @@
       "planet": {
         "name": "Local Hecke stack"
       },
-      "declarationName": "TauCeti.Suggested.GeometricSatake.localHeckeAction",
+      "declarationName": "TauCeti.GeometricSatake.localHeckeAction",
       "uses": [
         {
           "where": "FS VI.1.7",
@@ -1013,34 +1013,34 @@
       ],
       "api": [
         {
-          "name": "TauCeti.Suggested.GeometricSatake.localHeckeAction_formula",
+          "name": "TauCeti.GeometricSatake.localHeckeAction_formula",
           "role": "characterisation",
           "statement": "The double action is (h₁,h₂)·g=h₁gh₂⁻¹, and the quotient is an action groupoid."
         },
         {
-          "name": "TauCeti.Suggested.GeometricSatake.localHeckeAction_groupoid",
+          "name": "TauCeti.GeometricSatake.localHeckeAction_groupoid",
           "role": "compatibility",
           "statement": "For the double action, the local quotient uses Mathlib ActionCategory with its Groupoid instance."
         },
         {
-          "name": "TauCeti.Suggested.GeometricSatake.localHeckeAction_unit_stabilizer",
+          "name": "TauCeti.GeometricSatake.localHeckeAction_unit_stabilizer",
           "role": "characterisation",
           "statement": "The automorphism labels of the identity are exactly pairs (h,h), retaining the diagonal positive-loop group."
         }
       ],
       "tests": [
         {
-          "name": "TauCeti.Suggested.GeometricSatake.hecke_trivial_group",
+          "name": "TauCeti.GeometricSatake.hecke_trivial_group",
           "kind": "degenerate",
           "statement": "For the trivial group there is one modification and one automorphism."
         },
         {
-          "name": "TauCeti.Suggested.GeometricSatake.hecke_identity_automorphisms",
+          "name": "TauCeti.GeometricSatake.hecke_identity_automorphisms",
           "kind": "non-example",
           "statement": "In the multiplicative encoding of ℤ, the diagonal pair labelled by 1 additive fixes the identity modification and has a nonidentity group label. Replacing the action groupoid by its orbit set loses this automorphism."
         },
         {
-          "name": "TauCeti.Suggested.GeometricSatake.hecke_double_action",
+          "name": "TauCeti.GeometricSatake.hecke_double_action",
           "kind": "computation",
           "statement": "For G=H, (h,1) sends the identity to h, whereas (1,h) sends it to h inverse."
         }
@@ -1089,7 +1089,7 @@
       "planet": {
         "name": "Beilinson–Drinfeld Grassmannian"
       },
-      "declarationName": "TauCeti.Suggested.GeometricSatake.grassmannianQuotient",
+      "declarationName": "TauCeti.GeometricSatake.grassmannianQuotient",
       "uses": [
         {
           "where": "FS VI.2",
@@ -1102,39 +1102,39 @@
       ],
       "api": [
         {
-          "name": "TauCeti.Suggested.GeometricSatake.grassmannianQuotient_eq",
+          "name": "TauCeti.GeometricSatake.grassmannianQuotient_eq",
           "role": "compatibility",
           "statement": "The trivialized local presentation is the existing right-coset carrier G/H; H need not be normal."
         },
         {
-          "name": "TauCeti.Suggested.GeometricSatake.grassmannianQuotient_mk",
+          "name": "TauCeti.GeometricSatake.grassmannianQuotient_mk",
           "role": "constructor",
           "statement": "Every full loop gives its right-coset class and hence a trivialized modification."
         },
         {
-          "name": "TauCeti.Suggested.GeometricSatake.grassmannianQuotient_eq_iff",
+          "name": "TauCeti.GeometricSatake.grassmannianQuotient_eq_iff",
           "role": "characterisation",
           "statement": "Two trivializations define the same point precisely when g⁻¹g′ lies in H."
         },
         {
-          "name": "TauCeti.Suggested.GeometricSatake.grassmannianQuotient_unit",
+          "name": "TauCeti.GeometricSatake.grassmannianQuotient_unit",
           "role": "constructor",
           "statement": "The unit section is the class of the identity full loop."
         }
       ],
       "tests": [
         {
-          "name": "TauCeti.Suggested.GeometricSatake.grassmannian_zero",
+          "name": "TauCeti.GeometricSatake.grassmannian_zero",
           "kind": "degenerate",
           "statement": "The unit section is the coset of the identity full loop."
         },
         {
-          "name": "TauCeti.Suggested.GeometricSatake.grassmannian_all_subgroup",
+          "name": "TauCeti.GeometricSatake.grassmannian_all_subgroup",
           "kind": "computation",
           "statement": "When H=G, the local quotient has exactly one point."
         },
         {
-          "name": "TauCeti.Suggested.GeometricSatake.grassmannian_non_normal",
+          "name": "TauCeti.GeometricSatake.grassmannian_non_normal",
           "kind": "compatibility",
           "statement": "Grassmannian cosets do not require H normal; the quotient is the existing set quotient even without a quotient-group structure."
         }
@@ -1179,7 +1179,7 @@
         }
       ],
       "implementationStatus": "unchecked",
-      "declarationName": "TauCeti.Suggested.GeometricSatake.orderedLegCollision",
+      "declarationName": "TauCeti.GeometricSatake.orderedLegCollision",
       "prototypeNotes": "The typed coweight core adds labels at collisions; divisor-completion base change and disjoint-product v-sheaf isomorphisms need RF2."
     },
     {
@@ -1224,7 +1224,7 @@
       "planet": {
         "name": "Schubert bounds"
       },
-      "declarationName": "TauCeti.Suggested.GeometricSatake.dominanceBound",
+      "declarationName": "TauCeti.GeometricSatake.dominanceBound",
       "uses": [
         {
           "where": "FS VI.2.2–VI.2.3",
@@ -1237,34 +1237,34 @@
       ],
       "api": [
         {
-          "name": "TauCeti.Suggested.GeometricSatake.dominanceBound_iff",
+          "name": "TauCeti.GeometricSatake.dominanceBound_iff",
           "role": "characterisation",
           "statement": "For GL_n, dominance means equal total degree and every initial partial sum of ν at most the corresponding sum of μ."
         },
         {
-          "name": "TauCeti.Suggested.GeometricSatake.dominanceBound_refl",
+          "name": "TauCeti.GeometricSatake.dominanceBound_refl",
           "role": "relation",
           "statement": "Every dominant cocharacter lies in its own bound."
         },
         {
-          "name": "TauCeti.Suggested.GeometricSatake.dominanceBound_trans",
+          "name": "TauCeti.GeometricSatake.dominanceBound_trans",
           "role": "relation",
           "statement": "Bounds are nested by transitivity of the dominance relation."
         }
       ],
       "tests": [
         {
-          "name": "TauCeti.Suggested.GeometricSatake.bound_zero_component",
+          "name": "TauCeti.GeometricSatake.bound_zero_component",
           "kind": "degenerate",
           "statement": "For a torus of rank one the bound is equality, not the usual integer order."
         },
         {
-          "name": "TauCeti.Suggested.GeometricSatake.bound_gl2",
+          "name": "TauCeti.GeometricSatake.bound_gl2",
           "kind": "computation",
           "statement": "GL₂ coweight (1,1) is below (2,0)."
         },
         {
-          "name": "TauCeti.Suggested.GeometricSatake.bound_wrong_degree",
+          "name": "TauCeti.GeometricSatake.bound_wrong_degree",
           "kind": "non-example",
           "statement": "The cocharacter (1,0) is not below (2,0), despite its smaller partial sums."
         }
@@ -1314,7 +1314,7 @@
         }
       ],
       "implementationStatus": "unchecked",
-      "declarationName": "TauCeti.Suggested.GeometricSatake.genericGaloisDescent",
+      "declarationName": "TauCeti.GeometricSatake.genericGaloisDescent",
       "prototypeNotes": "Only isomorphism detection is typed. Effective Galois descent and split orbit-bound data are omitted."
     },
     {
@@ -1361,7 +1361,7 @@
       "planet": {
         "name": "Demazure spaces"
       },
-      "declarationName": "TauCeti.Suggested.GeometricSatake.demazureChains",
+      "declarationName": "TauCeti.GeometricSatake.demazureChains",
       "uses": [
         {
           "where": "FS VI.5",
@@ -1374,34 +1374,34 @@
       ],
       "api": [
         {
-          "name": "TauCeti.Suggested.GeometricSatake.demazureChains_points",
+          "name": "TauCeti.GeometricSatake.demazureChains_points",
           "role": "characterisation",
           "statement": "The point core consists of chains x₀,…,x_r with each consecutive pair in the specified simple-step relation."
         },
         {
-          "name": "TauCeti.Suggested.GeometricSatake.demazureChains_endpoint",
+          "name": "TauCeti.GeometricSatake.demazureChains_endpoint",
           "role": "projection",
           "statement": "Multiplication forgets the intermediate flags and keeps the endpoints."
         },
         {
-          "name": "TauCeti.Suggested.GeometricSatake.demazureChains_base_change",
+          "name": "TauCeti.GeometricSatake.demazureChains_base_change",
           "role": "functoriality",
           "statement": "A map of flag spaces preserving each simple-step relation acts on every vertex of a Demazure chain."
         }
       ],
       "tests": [
         {
-          "name": "TauCeti.Suggested.GeometricSatake.demazure_empty",
+          "name": "TauCeti.GeometricSatake.demazure_empty",
           "kind": "degenerate",
           "statement": "An empty chain is one flag; its two endpoints coincide."
         },
         {
-          "name": "TauCeti.Suggested.GeometricSatake.demazure_one_step",
+          "name": "TauCeti.GeometricSatake.demazure_one_step",
           "kind": "computation",
           "statement": "A one-step chain is the given simple-step incidence relation."
         },
         {
-          "name": "TauCeti.Suggested.GeometricSatake.demazure_not_product",
+          "name": "TauCeti.GeometricSatake.demazure_not_product",
           "kind": "non-example",
           "statement": "If a simple-step relation is empty, there is no chain, even if the flag space is nonempty."
         }
@@ -1464,8 +1464,8 @@
         }
       ],
       "implementationStatus": "unchecked",
-      "declarationName": "TauCeti.Suggested.GeometricSatake.etaleOverDivisor",
-      "prototypeNotes": "The named Lean declaration TauCeti.Suggested.GeometricSatake.etaleOverDivisor is omitted under PROTOCOL §13 pending the actual perfectoid/adic-space, effective-divisor pullback, separated-étale and representability carriers. The required signature quantifies E,S,d,D_S,D′→D_S and constructs S′→S with natural Hom_S(T,S′)≃Hom_{D_S}(D_T,D′). An arbitrary Type equivalence or an unspecified Prop field would not express this theorem."
+      "declarationName": "TauCeti.GeometricSatake.etaleOverDivisor",
+      "prototypeNotes": "The named Lean declaration TauCeti.GeometricSatake.etaleOverDivisor is omitted under PROTOCOL §13 pending the actual perfectoid/adic-space, effective-divisor pullback, separated-étale and representability carriers. The required signature quantifies E,S,d,D_S,D′→D_S and constructs S′→S with natural Hom_S(T,S′)≃Hom_{D_S}(D_T,D′). An arbitrary Type equivalence or an unspecified Prop field would not express this theorem."
     },
     {
       "id": "GeometricSatakeAndFusion:GS0:loop-geometry/smooth-scheme-loops",
@@ -1510,7 +1510,7 @@
         }
       ],
       "implementationStatus": "unchecked",
-      "declarationName": "TauCeti.Suggested.GeometricSatake.smoothSchemeLoopDimension",
+      "declarationName": "TauCeti.GeometricSatake.smoothSchemeLoopDimension",
       "prototypeNotes": "Only the degree-times-relative-dimension arithmetic is typed; representability, partial properness and ℓ-cohomological smoothness are missing supplier notions."
     },
     {
@@ -1557,7 +1557,7 @@
       "planet": {
         "name": "Congruence filtration"
       },
-      "declarationName": "TauCeti.Suggested.GeometricSatake.congruenceFiltration",
+      "declarationName": "TauCeti.GeometricSatake.congruenceFiltration",
       "prototypeNotes": "The group kernel is concrete. The Lie/Cartier-line graded-piece isomorphism and finite-quotient smoothness require RG/RF/DSO interfaces."
     },
     {
@@ -1602,7 +1602,7 @@
       "planet": {
         "name": "Truncated positive loops"
       },
-      "declarationName": "TauCeti.Suggested.GeometricSatake.truncatedPositiveLoop",
+      "declarationName": "TauCeti.GeometricSatake.truncatedPositiveLoop",
       "uses": [
         {
           "where": "FS VI.2.8",
@@ -1615,34 +1615,34 @@
       ],
       "api": [
         {
-          "name": "TauCeti.Suggested.GeometricSatake.truncatedPositiveLoop_eval",
+          "name": "TauCeti.GeometricSatake.truncatedPositiveLoop_eval",
           "role": "characterisation",
           "statement": "The finite loop quotient evaluates F on the ring A/I^m, rather than the subgroup ker(F(A)→F(A/I^m))."
         },
         {
-          "name": "TauCeti.Suggested.GeometricSatake.truncatedPositiveLoop_reduction",
+          "name": "TauCeti.GeometricSatake.truncatedPositiveLoop_reduction",
           "role": "functoriality",
           "statement": "Reduction of a positive loop gives a point in the m-th quotient; smoothness makes this locally surjective."
         },
         {
-          "name": "TauCeti.Suggested.GeometricSatake.truncatedPositiveLoop_transition",
+          "name": "TauCeti.GeometricSatake.truncatedPositiveLoop_transition",
           "role": "functoriality",
           "statement": "For a≤b, reduction modulo I^b maps to reduction modulo I^a."
         }
       ],
       "tests": [
         {
-          "name": "TauCeti.Suggested.GeometricSatake.truncation_one",
+          "name": "TauCeti.GeometricSatake.truncation_one",
           "kind": "computation",
           "statement": "At m=1 the quotient is G(A/I), not the congruence kernel."
         },
         {
-          "name": "TauCeti.Suggested.GeometricSatake.truncation_trivial_group",
+          "name": "TauCeti.GeometricSatake.truncation_trivial_group",
           "kind": "degenerate",
           "statement": "Every finite quotient of the trivial group is trivial."
         },
         {
-          "name": "TauCeti.Suggested.GeometricSatake.truncation_ring_quotient",
+          "name": "TauCeti.GeometricSatake.truncation_ring_quotient",
           "kind": "compatibility",
           "statement": "The ring input is Mathlib Ideal.Quotient, preserving the ideal and its exponent."
         }
@@ -1698,7 +1698,7 @@
       "planet": {
         "name": "Schubert cell smoothness"
       },
-      "declarationName": "TauCeti.Suggested.GeometricSatake.schubertCellDimension",
+      "declarationName": "TauCeti.GeometricSatake.schubertCellDimension",
       "prototypeNotes": "Only the GL₂ root-pairing core is typed; cell stabilization and cohomological smoothness are not a predicate placeholder."
     },
     {
@@ -1735,7 +1735,7 @@
         }
       ],
       "implementationStatus": "unchecked",
-      "declarationName": "TauCeti.Suggested.GeometricSatake.boundedLoopActionTrivial",
+      "declarationName": "TauCeti.GeometricSatake.boundedLoopActionTrivial",
       "prototypeNotes": "K must be the specified deep congruence subgroup on the specified bound; those absent geometric hypotheses are omitted."
     },
     {
@@ -1773,7 +1773,7 @@
         }
       ],
       "implementationStatus": "unchecked",
-      "declarationName": "TauCeti.Suggested.GeometricSatake.minusculeBialynickiBirula",
+      "declarationName": "TauCeti.GeometricSatake.minusculeBialynickiBirula",
       "prototypeNotes": "Cell/Flag must be the minuscule Grassmannian and its flag functor; the geometric minuscule hypotheses are omitted."
     },
     {
@@ -1817,7 +1817,7 @@
       "planet": {
         "name": "Witt vector affine Grassmannian"
       },
-      "declarationName": "TauCeti.Suggested.GeometricSatake.WittLattice",
+      "declarationName": "TauCeti.GeometricSatake.WittLattice",
       "uses": [
         {
           "where": "BS 7–8",
@@ -1830,34 +1830,34 @@
       ],
       "api": [
         {
-          "name": "TauCeti.Suggested.GeometricSatake.WittLattice_module",
+          "name": "TauCeti.GeometricSatake.WittLattice_module",
           "role": "projection",
           "statement": "A lattice is a finite projective B-submodule of K^n whose K-span is the whole module."
         },
         {
-          "name": "TauCeti.Suggested.GeometricSatake.WittLattice_standard",
+          "name": "TauCeti.GeometricSatake.WittLattice_standard",
           "role": "constructor",
           "statement": "The image of B^n in K^n gives the standard lattice when B→K is injective."
         },
         {
-          "name": "TauCeti.Suggested.GeometricSatake.WittLattice_ext",
+          "name": "TauCeti.GeometricSatake.WittLattice_ext",
           "role": "extensionality",
           "statement": "Lattices are equal when their embedded submodules are equal; finite-projectivity proofs carry no extra moduli."
         }
       ],
       "tests": [
         {
-          "name": "TauCeti.Suggested.GeometricSatake.lattice_rank_zero",
+          "name": "TauCeti.GeometricSatake.lattice_rank_zero",
           "kind": "degenerate",
           "statement": "There is only one rank-zero lattice."
         },
         {
-          "name": "TauCeti.Suggested.GeometricSatake.lattice_standard_field",
+          "name": "TauCeti.GeometricSatake.lattice_standard_field",
           "kind": "compatibility",
           "statement": "Over B=K the standard lattice agrees with the top Submodule of K^n."
         },
         {
-          "name": "TauCeti.Suggested.GeometricSatake.lattice_span",
+          "name": "TauCeti.GeometricSatake.lattice_span",
           "kind": "non-example",
           "statement": "A purported rank-one lattice with zero embedded submodule is excluded over a nonzero field."
         }
@@ -1905,7 +1905,7 @@
       "planet": {
         "name": "Witt module types"
       },
-      "declarationName": "TauCeti.Suggested.GeometricSatake.wittTypeBound",
+      "declarationName": "TauCeti.GeometricSatake.wittTypeBound",
       "uses": [
         {
           "where": "BS 7.2–7.13",
@@ -1918,34 +1918,34 @@
       ],
       "api": [
         {
-          "name": "TauCeti.Suggested.GeometricSatake.wittTypeBound_dominance",
+          "name": "TauCeti.GeometricSatake.wittTypeBound_dominance",
           "role": "compatibility",
           "statement": "The quotient-type relation is GL_n dominance after embedding nonnegative parts in the integer coweight lattice."
         },
         {
-          "name": "TauCeti.Suggested.GeometricSatake.wittTypeBound_columns",
+          "name": "TauCeti.GeometricSatake.wittTypeBound_columns",
           "role": "data",
           "statement": "The i-th graded quotient has rank equal to the number of parts λ_j exceeding i."
         },
         {
-          "name": "TauCeti.Suggested.GeometricSatake.wittTypeBound_closed_under_dominance",
+          "name": "TauCeti.GeometricSatake.wittTypeBound_closed_under_dominance",
           "role": "relation",
           "statement": "A lower quotient type remains in any larger bound."
         }
       ],
       "tests": [
         {
-          "name": "TauCeti.Suggested.GeometricSatake.witt_type_zero",
+          "name": "TauCeti.GeometricSatake.witt_type_zero",
           "kind": "degenerate",
           "statement": "The zero bound admits only zero nonnegative quotient parts."
         },
         {
-          "name": "TauCeti.Suggested.GeometricSatake.witt_type_210",
+          "name": "TauCeti.GeometricSatake.witt_type_210",
           "kind": "computation",
           "statement": "For λ=(2,1,0), the successive column ranks are two and one."
         },
         {
-          "name": "TauCeti.Suggested.GeometricSatake.witt_type_not_component_order",
+          "name": "TauCeti.GeometricSatake.witt_type_not_component_order",
           "kind": "non-example",
           "statement": "The quotient type (1,0,0) is not below (2,1,0), since its length is one rather than three."
         }
@@ -1990,7 +1990,7 @@
         }
       ],
       "implementationStatus": "unchecked",
-      "declarationName": "TauCeti.Suggested.GeometricSatake.jetDeterminantLocus",
+      "declarationName": "TauCeti.GeometricSatake.jetDeterminantLocus",
       "uses": [
         {
           "where": "Zhu 1.9–1.12",
@@ -2003,34 +2003,34 @@
       ],
       "api": [
         {
-          "name": "TauCeti.Suggested.GeometricSatake.jetDeterminantLocus_mem",
+          "name": "TauCeti.GeometricSatake.jetDeterminantLocus_mem",
           "role": "characterisation",
           "statement": "The matrix jet lies on the determinant locus when det(A)=uπ^N for a unit u; the finite truncation and bound h>N are retained in the application."
         },
         {
-          "name": "TauCeti.Suggested.GeometricSatake.jetDeterminantLocus_right_invariance",
+          "name": "TauCeti.GeometricSatake.jetDeterminantLocus_right_invariance",
           "role": "relation",
           "statement": "Right multiplication by an invertible matrix preserves the determinant locus."
         },
         {
-          "name": "TauCeti.Suggested.GeometricSatake.jetDeterminantLocus_ring_map",
+          "name": "TauCeti.GeometricSatake.jetDeterminantLocus_ring_map",
           "role": "functoriality",
           "statement": "A ring map takes the determinant locus to the corresponding locus with the image uniformizer."
         }
       ],
       "tests": [
         {
-          "name": "TauCeti.Suggested.GeometricSatake.jet_level_zero",
+          "name": "TauCeti.GeometricSatake.jet_level_zero",
           "kind": "degenerate",
           "statement": "For N=0 the determinant is a unit."
         },
         {
-          "name": "TauCeti.Suggested.GeometricSatake.jet_identity",
+          "name": "TauCeti.GeometricSatake.jet_identity",
           "kind": "computation",
           "statement": "The identity matrix is in the N=0 locus."
         },
         {
-          "name": "TauCeti.Suggested.GeometricSatake.jet_zero_excluded",
+          "name": "TauCeti.GeometricSatake.jet_zero_excluded",
           "kind": "non-example",
           "statement": "A zero rank-one matrix is excluded at N=0 over a nonzero field."
         }
@@ -2076,7 +2076,7 @@
         }
       ],
       "implementationStatus": "unchecked",
-      "declarationName": "TauCeti.Suggested.GeometricSatake.zhuBoundPresentation",
+      "declarationName": "TauCeti.GeometricSatake.zhuBoundPresentation",
       "prototypeNotes": "Presentation must be Zhu's smooth determinant-jet cover. The quotient algebraic-space carrier is not available and is omitted; this signature asserts only the cover's affineness."
     },
     {
@@ -2117,7 +2117,7 @@
       "planet": {
         "name": "Witt Demazure resolution"
       },
-      "declarationName": "TauCeti.Suggested.GeometricSatake.wittFiltration",
+      "declarationName": "TauCeti.GeometricSatake.wittFiltration",
       "uses": [
         {
           "where": "BS 7.13–7.14",
@@ -2130,34 +2130,34 @@
       ],
       "api": [
         {
-          "name": "TauCeti.Suggested.GeometricSatake.wittFiltration_eval",
+          "name": "TauCeti.GeometricSatake.wittFiltration_eval",
           "role": "characterisation",
           "statement": "The typed filtration consists of a decreasing chain of submodules starting at M and ending at zero."
         },
         {
-          "name": "TauCeti.Suggested.GeometricSatake.wittFiltration_piece",
+          "name": "TauCeti.GeometricSatake.wittFiltration_piece",
           "role": "projection",
           "statement": "Evaluation gives the i-th submodule in the chain."
         },
         {
-          "name": "TauCeti.Suggested.GeometricSatake.wittFiltration_ext",
+          "name": "TauCeti.GeometricSatake.wittFiltration_ext",
           "role": "extensionality",
           "statement": "Two filtration points are equal if all their submodules agree."
         }
       ],
       "tests": [
         {
-          "name": "TauCeti.Suggested.GeometricSatake.filtration_length_zero",
+          "name": "TauCeti.GeometricSatake.filtration_length_zero",
           "kind": "degenerate",
           "statement": "A length-zero filtration forces the module to be zero."
         },
         {
-          "name": "TauCeti.Suggested.GeometricSatake.filtration_one_step",
+          "name": "TauCeti.GeometricSatake.filtration_one_step",
           "kind": "computation",
           "statement": "A length-one filtration has first piece top and all later pieces zero."
         },
         {
-          "name": "TauCeti.Suggested.GeometricSatake.filtration_direction",
+          "name": "TauCeti.GeometricSatake.filtration_direction",
           "kind": "non-example",
           "statement": "The filtration decreases; increasing kernels of p must first be reverse-indexed."
         }
@@ -2207,7 +2207,7 @@
         }
       ],
       "implementationStatus": "unchecked",
-      "declarationName": "TauCeti.Suggested.GeometricSatake.wittResolutionConnectedFibres",
+      "declarationName": "TauCeti.GeometricSatake.wittResolutionConnectedFibres",
       "prototypeNotes": "X/Y/f must be the Witt resolution and bound; perfect structure-sheaf cohomology is omitted."
     },
     {
@@ -2244,7 +2244,7 @@
         }
       ],
       "implementationStatus": "unchecked",
-      "declarationName": "TauCeti.Suggested.GeometricSatake.wittFibralDescent",
+      "declarationName": "TauCeti.GeometricSatake.wittFibralDescent",
       "prototypeNotes": "Only the line-bundle full-faithfulness core is typed; effective fibre-trivial descent and proper pfp hypotheses belong to SF."
     },
     {
@@ -2285,7 +2285,7 @@
       "planet": {
         "name": "Determinant line"
       },
-      "declarationName": "TauCeti.Suggested.GeometricSatake.geometricDeterminantLine",
+      "declarationName": "TauCeti.GeometricSatake.geometricDeterminantLine",
       "uses": [
         {
           "where": "BS 8.9–8.11",
@@ -2298,34 +2298,34 @@
       ],
       "api": [
         {
-          "name": "TauCeti.Suggested.GeometricSatake.geometricDeterminantLine_pullback",
+          "name": "TauCeti.GeometricSatake.geometricDeterminantLine_pullback",
           "role": "compatibility",
           "statement": "On the Demazure resolution, the pulled-back line is the tensor product of the determinants of the graded quotients, with the positive quotient convention."
         },
         {
-          "name": "TauCeti.Suggested.GeometricSatake.geometricDeterminantLine_unique",
+          "name": "TauCeti.GeometricSatake.geometricDeterminantLine_unique",
           "role": "characterisation",
           "statement": "Fibre-trivial descent is unique through the fully faithful pullback of invertible sheaves."
         },
         {
-          "name": "TauCeti.Suggested.GeometricSatake.geometricDeterminantLine_lower_bound",
+          "name": "TauCeti.GeometricSatake.geometricDeterminantLine_lower_bound",
           "role": "functoriality",
           "statement": "Restriction to a lower bound agrees with that bound’s determinant line."
         }
       ],
       "tests": [
         {
-          "name": "TauCeti.Suggested.GeometricSatake.determinant_zero",
+          "name": "TauCeti.GeometricSatake.determinant_zero",
           "kind": "degenerate",
           "statement": "The zero bound has the trivial invertible sheaf."
         },
         {
-          "name": "TauCeti.Suggested.GeometricSatake.determinant_existing_carrier",
+          "name": "TauCeti.GeometricSatake.determinant_existing_carrier",
           "kind": "compatibility",
           "statement": "The descended geometric line uses Tau Ceti InvertibleSheaf, rather than a rank-one module at a point."
         },
         {
-          "name": "TauCeti.Suggested.GeometricSatake.determinant_quotient_sign",
+          "name": "TauCeti.GeometricSatake.determinant_quotient_sign",
           "kind": "computation",
           "statement": "On a one-step quotient Grassmannian, the descended line pulls back to the graded quotient determinant; its sign is the quotient sign."
         }
@@ -2369,7 +2369,7 @@
         }
       ],
       "implementationStatus": "unchecked",
-      "declarationName": "TauCeti.Suggested.GeometricSatake.determinantCurveDegree",
+      "declarationName": "TauCeti.GeometricSatake.determinantCurveDegree",
       "prototypeNotes": "degree must be the determinant degree on a nonconstant proper curve in the specified bound. The missing curve/intersection API and hypotheses are omitted."
     },
     {
@@ -2410,7 +2410,7 @@
       "planet": {
         "name": "Witt projectivity theorem"
       },
-      "declarationName": "TauCeti.Suggested.GeometricSatake.wittProjectiveBound",
+      "declarationName": "TauCeti.GeometricSatake.wittProjectiveBound",
       "prototypeNotes": "Only scheme properness is typed; X/f must be the finite model of the bound over the base field. Projectivity/ample line notions are imported from SF5 and omitted."
     },
     {
@@ -2449,7 +2449,7 @@
         }
       ],
       "implementationStatus": "unchecked",
-      "declarationName": "TauCeti.Suggested.GeometricSatake.wittEtaleComparison",
+      "declarationName": "TauCeti.GeometricSatake.wittEtaleComparison",
       "prototypeNotes": "These categories must be the specified étale categories of a perfect Witt bound and its scheme diamond; supplier geometry is omitted."
     },
     {
@@ -2490,7 +2490,7 @@
         }
       ],
       "implementationStatus": "unchecked",
-      "declarationName": "TauCeti.Suggested.GeometricSatake.integralWittGenericComparison",
+      "declarationName": "TauCeti.GeometricSatake.integralWittGenericComparison",
       "prototypeNotes": "Only the two functor-of-points fibre identifications are typed; the diamond base change and proper bounds are omitted."
     },
     {
@@ -2528,7 +2528,7 @@
         }
       ],
       "implementationStatus": "unchecked",
-      "declarationName": "TauCeti.Suggested.GeometricSatake.parahoricGeometricComponents",
+      "declarationName": "TauCeti.GeometricSatake.parahoricGeometricComponents",
       "prototypeNotes": "Only the Kottwitz label equivalence is typed, with geometric inertia coinvariants rather than full Galois coinvariants. Model representability and properness are omitted.",
       "planet": {
         "name": "Parahoric Witt Grassmannians"
@@ -2572,7 +2572,7 @@
         }
       ],
       "implementationStatus": "unchecked",
-      "declarationName": "TauCeti.Suggested.GeometricSatake.integralParahoricProperBounds",
+      "declarationName": "TauCeti.GeometricSatake.integralParahoricProperBounds",
       "prototypeNotes": "Only topological properness is typed; spaces/map must be a closed parahoric bound over the integral base. Spatial-diamond representability is omitted."
     },
     {
@@ -2615,7 +2615,7 @@
         }
       ],
       "implementationStatus": "unchecked",
-      "declarationName": "TauCeti.Suggested.GeometricSatake.canonicalWittModel",
+      "declarationName": "TauCeti.GeometricSatake.canonicalWittModel",
       "uses": [
         {
           "where": "Zhu Appendix B",
@@ -2628,34 +2628,34 @@
       ],
       "api": [
         {
-          "name": "TauCeti.Suggested.GeometricSatake.canonicalWittModel_transition",
+          "name": "TauCeti.GeometricSatake.canonicalWittModel_transition",
           "role": "functoriality",
           "statement": "A sufficiently deep finite-jet level has a transition to a shallower canonical model; compatibility can require a Frobenius twist."
         },
         {
-          "name": "TauCeti.Suggested.GeometricSatake.canonicalWittModel_normalized_quotient",
+          "name": "TauCeti.GeometricSatake.canonicalWittModel_normalized_quotient",
           "role": "compatibility",
           "statement": "The canonical model is identified with the normalized jet quotient, not an arbitrary scheme having the same perfection."
         },
         {
-          "name": "TauCeti.Suggested.GeometricSatake.canonicalWittModel_perfection",
+          "name": "TauCeti.GeometricSatake.canonicalWittModel_perfection",
           "role": "compatibility",
           "statement": "Its scheme perfection is the specified Witt Schubert bound."
         }
       ],
       "tests": [
         {
-          "name": "TauCeti.Suggested.GeometricSatake.canonical_model_zero",
+          "name": "TauCeti.GeometricSatake.canonical_model_zero",
           "kind": "degenerate",
           "statement": "The N=0 canonical bound is Spec k, over the specified perfect coefficient field."
         },
         {
-          "name": "TauCeti.Suggested.GeometricSatake.canonical_model_rank_one",
+          "name": "TauCeti.GeometricSatake.canonical_model_rank_one",
           "kind": "computation",
           "statement": "For GL₁ and N<h, the canonical bound is Spec k: the prescribed lattice p^N W(k) is unique."
         },
         {
-          "name": "TauCeti.Suggested.GeometricSatake.canonical_model_not_choice",
+          "name": "TauCeti.GeometricSatake.canonical_model_not_choice",
           "kind": "non-example",
           "statement": "In the dual-number F₂ algebra, the nonzero nilpotent squares to zero. Its perfection forgets the nilpotent, so sharing a perfection cannot specify a canonical finite model."
         }
@@ -2701,11 +2701,11 @@
         }
       ],
       "implementationStatus": "unchecked",
-      "declarationName": "TauCeti.Suggested.GeometricSatake.rankTwoConeClosedOrbit",
+      "declarationName": "TauCeti.GeometricSatake.rankTwoConeClosedOrbit",
       "prototypeNotes": "Only the closed-orbit equation and a finite-ring regression are typed. The perfect cone open immersion and the corrected truncated-Witt/jet-torsor interface remain a gap. The adjugate argument proves right-factor integrality; it does not make the factor unique or independent of the chosen lift.",
       "tests": [
         {
-          "name": "TauCeti.Suggested.GeometricSatake.rank_two_right_factor_not_unique",
+          "name": "TauCeti.GeometricSatake.rank_two_right_factor_not_unique",
           "kind": "non-example",
           "statement": "Over Z/27Z, corresponding to W₃(F₃), A=3·Id and g=Id+9E₁₂ satisfy Ag=A, det(g)=1 and g≠Id. Thus the right factor in X=Ag need not be unique; the chart representative A is the unique datum asserted by Zhu B.11."
         }
@@ -2746,7 +2746,7 @@
         }
       ],
       "implementationStatus": "unchecked",
-      "declarationName": "TauCeti.Suggested.GeometricSatake.normalizedDeterminant",
+      "declarationName": "TauCeti.GeometricSatake.normalizedDeterminant",
       "uses": [
         {
           "where": "BS 10.1",
@@ -2759,34 +2759,34 @@
       ],
       "api": [
         {
-          "name": "TauCeti.Suggested.GeometricSatake.normalizedDeterminant_trivial",
+          "name": "TauCeti.GeometricSatake.normalizedDeterminant_trivial",
           "role": "simp",
           "statement": "At the standard lattice, the normalized determinant line is the tensor unit."
         },
         {
-          "name": "TauCeti.Suggested.GeometricSatake.normalizedDeterminant_comparison",
+          "name": "TauCeti.GeometricSatake.normalizedDeterminant_comparison",
           "role": "compatibility",
           "statement": "Normalization retains the inverse standard-lattice determinant factor."
         },
         {
-          "name": "TauCeti.Suggested.GeometricSatake.normalizedDeterminant_translation",
+          "name": "TauCeti.GeometricSatake.normalizedDeterminant_translation",
           "role": "relation",
           "statement": "Translation gives a line from the base tensored with the original line; the compatible lines form a central extension rather than an honest action on the line."
         }
       ],
       "tests": [
         {
-          "name": "TauCeti.Suggested.GeometricSatake.normalized_standard",
+          "name": "TauCeti.GeometricSatake.normalized_standard",
           "kind": "degenerate",
           "statement": "The standard lattice has normalized determinant R."
         },
         {
-          "name": "TauCeti.Suggested.GeometricSatake.normalized_zero_quotient",
+          "name": "TauCeti.GeometricSatake.normalized_zero_quotient",
           "kind": "computation",
           "statement": "Two zero truncation quotients have the unit determinant."
         },
         {
-          "name": "TauCeti.Suggested.GeometricSatake.normalized_tensor_carrier",
+          "name": "TauCeti.GeometricSatake.normalized_tensor_carrier",
           "kind": "compatibility",
           "statement": "Tensor products and determinant duals use existing ModuleCat and TensorProduct."
         }
@@ -2831,7 +2831,7 @@
         }
       ],
       "implementationStatus": "unchecked",
-      "declarationName": "TauCeti.Suggested.GeometricSatake.determinantSectionsRestriction",
+      "declarationName": "TauCeti.GeometricSatake.determinantSectionsRestriction",
       "prototypeNotes": "The modules/map must be determinant global sections and restriction to the specified proper bound. Serre vanishing/Frobenius section-colimit hypotheses are omitted."
     },
     {
@@ -2874,7 +2874,7 @@
         }
       ],
       "implementationStatus": "unchecked",
-      "declarationName": "TauCeti.Suggested.GeometricSatake.admissibleFlagLocus",
+      "declarationName": "TauCeti.GeometricSatake.admissibleFlagLocus",
       "uses": [
         {
           "where": "GLX 3.4",
@@ -2887,34 +2887,34 @@
       ],
       "api": [
         {
-          "name": "TauCeti.Suggested.GeometricSatake.admissibleFlagLocus_mem",
+          "name": "TauCeti.GeometricSatake.admissibleFlagLocus_mem",
           "role": "characterisation",
           "statement": "A flag lies in the admissible locus precisely when it is in one of the finitely many admissible Schubert strata."
         },
         {
-          "name": "TauCeti.Suggested.GeometricSatake.admissibleFlagLocus_mono",
+          "name": "TauCeti.GeometricSatake.admissibleFlagLocus_mono",
           "role": "functoriality",
           "statement": "Increasing the admissible label set enlarges the locus."
         },
         {
-          "name": "TauCeti.Suggested.GeometricSatake.admissibleFlagLocus_map",
+          "name": "TauCeti.GeometricSatake.admissibleFlagLocus_map",
           "role": "compatibility",
           "statement": "An ambient flag morphism whose local-model comparison sends all admissible strata into the target locus restricts to the admissible locus."
         }
       ],
       "tests": [
         {
-          "name": "TauCeti.Suggested.GeometricSatake.admissible_empty",
+          "name": "TauCeti.GeometricSatake.admissible_empty",
           "kind": "degenerate",
           "statement": "The empty label set gives the empty locus."
         },
         {
-          "name": "TauCeti.Suggested.GeometricSatake.admissible_singleton",
+          "name": "TauCeti.GeometricSatake.admissible_singleton",
           "kind": "computation",
           "statement": "A singleton label gives exactly its Schubert stratum."
         },
         {
-          "name": "TauCeti.Suggested.GeometricSatake.admissible_nonlabel",
+          "name": "TauCeti.GeometricSatake.admissible_nonlabel",
           "kind": "non-example",
           "statement": "A point belonging to no admissible stratum is excluded, even when it lies in a different connected component."
         }
@@ -2960,7 +2960,7 @@
         }
       ],
       "implementationStatus": "unchecked",
-      "declarationName": "TauCeti.Suggested.GeometricSatake.flagIncidence",
+      "declarationName": "TauCeti.GeometricSatake.flagIncidence",
       "uses": [
         {
           "where": "He 5.6",
@@ -2973,34 +2973,34 @@
       ],
       "api": [
         {
-          "name": "TauCeti.Suggested.GeometricSatake.flagIncidence_points",
+          "name": "TauCeti.GeometricSatake.flagIncidence_points",
           "role": "characterisation",
           "statement": "Two-step incidence consists of (x,z,y) with (x,z) in the first relative-position orbit and (z,y) in the second."
         },
         {
-          "name": "TauCeti.Suggested.GeometricSatake.flagIncidence_projection",
+          "name": "TauCeti.GeometricSatake.flagIncidence_projection",
           "role": "projection",
           "statement": "The product projection forgets z and returns (x,y)."
         },
         {
-          "name": "TauCeti.Suggested.GeometricSatake.flagIncidence_fibre",
+          "name": "TauCeti.GeometricSatake.flagIncidence_fibre",
           "role": "characterisation",
           "statement": "The fibre over (x,y) is the set of middle flags satisfying both relative-position conditions."
         }
       ],
       "tests": [
         {
-          "name": "TauCeti.Suggested.GeometricSatake.incidence_identity_left",
+          "name": "TauCeti.GeometricSatake.incidence_identity_left",
           "kind": "computation",
           "statement": "If the first relation is the diagonal, z is uniquely x."
         },
         {
-          "name": "TauCeti.Suggested.GeometricSatake.incidence_empty",
+          "name": "TauCeti.GeometricSatake.incidence_empty",
           "kind": "degenerate",
           "statement": "An empty first relation gives empty incidence."
         },
         {
-          "name": "TauCeti.Suggested.GeometricSatake.incidence_no_unrestricted_middle",
+          "name": "TauCeti.GeometricSatake.incidence_no_unrestricted_middle",
           "kind": "non-example",
           "statement": "For both diagonal relations, a middle flag different from x cannot occur."
         }
@@ -3047,7 +3047,7 @@
         }
       ],
       "implementationStatus": "unchecked",
-      "declarationName": "TauCeti.Suggested.GeometricSatake.flagConvolutionFibreBound",
+      "declarationName": "TauCeti.GeometricSatake.flagConvolutionFibreBound",
       "prototypeNotes": "Only the ordinary-product length/dimension inequality is typed; the bounded nonempty geometric fibre and length interpretations are omitted. The Demazure-product factor differs and is stated in the document."
     },
     {
@@ -3090,7 +3090,7 @@
         }
       ],
       "implementationStatus": "unchecked",
-      "declarationName": "TauCeti.Suggested.GeometricSatake.divisorLengthUpperSemicontinuous",
+      "declarationName": "TauCeti.GeometricSatake.divisorLengthUpperSemicontinuous",
       "prototypeNotes": "Signature omitted under §13, reserving the exact name divisorLengthUpperSemicontinuous until the actual affinoid-perfectoid space, ordered O_E-untilts, completed Cartier rings and geometric fibre maps exist. Its intended conclusion is ∀ m:ℕ, IsOpen {s∈|S| | length_{B_s⁺}(B_s⁺/(f_s))≤m}, with length in ℕ∪{∞}. An arbitrary topological space and arbitrary length function are not a substitute. The RF2 integral geometric-DVR extension is requested explicitly; the existing geometric-divisor-complete-dvr target covers generic E-untilts.",
       "addedBy": "BP-GeometricSatakeAndFusion--GS0~2"
     },
@@ -3136,7 +3136,7 @@
         }
       ],
       "implementationStatus": "unchecked",
-      "declarationName": "TauCeti.Suggested.GeometricSatake.latticeRelativePositionUpperSemicontinuous",
+      "declarationName": "TauCeti.GeometricSatake.latticeRelativePositionUpperSemicontinuous",
       "prototypeNotes": "Signature omitted under §13, reserving the exact name latticeRelativePositionUpperSemicontinuous until the genuine completed Cartier-ring family and its fibrewise submodule images and relative positions can be stated. Its single named mathematical contract includes both the closed loci ⋃_{m′≥m}S_{m′} and the implication S_m=|S| ⇒ L finite projective of rank one. Do not assume L projective in order to state the result, replace finite generation by arbitrary lattice data, or substitute a proposition-valued placeholder. The RF2 integral geometric-DVR and RF4 fibre-detection extensions remain requests.",
       "addedBy": "BP-GeometricSatakeAndFusion--GS0~2"
     },
@@ -3189,7 +3189,7 @@
       "planet": {
         "name": "Constant term functor"
       },
-      "declarationName": "TauCeti.Suggested.GeometricSatake.constantTerm",
+      "declarationName": "TauCeti.GeometricSatake.constantTerm",
       "uses": [
         {
           "where": "FS VI.6.1",
@@ -3202,34 +3202,34 @@
       ],
       "api": [
         {
-          "name": "TauCeti.Suggested.GeometricSatake.constantTerm_formula",
+          "name": "TauCeti.GeometricSatake.constantTerm_formula",
           "role": "characterisation",
           "statement": "The plus constant-term functor is q-plus pullback followed by p-plus shriek pushforward."
         },
         {
-          "name": "TauCeti.Suggested.GeometricSatake.constantTerm_minus_comparison",
+          "name": "TauCeti.GeometricSatake.constantTerm_minus_comparison",
           "role": "equivalence",
           "statement": "On bounded monodromic complexes the plus formula is naturally isomorphic to q-minus exceptional pullback followed by p-minus star pushforward."
         },
         {
-          "name": "TauCeti.Suggested.GeometricSatake.constantTerm_map_comp",
+          "name": "TauCeti.GeometricSatake.constantTerm_map_comp",
           "role": "functoriality",
           "statement": "Constant term preserves composition of morphisms as a genuine functor."
         }
       ],
       "tests": [
         {
-          "name": "TauCeti.Suggested.GeometricSatake.ct_torus",
+          "name": "TauCeti.GeometricSatake.ct_torus",
           "kind": "degenerate",
           "statement": "For G=T with identity correspondence, constant term is the identity functor."
         },
         {
-          "name": "TauCeti.Suggested.GeometricSatake.ct_point_evaluation",
+          "name": "TauCeti.GeometricSatake.ct_point_evaluation",
           "kind": "computation",
           "statement": "The plus formula evaluates to p-shriek of q-star on every object."
         },
         {
-          "name": "TauCeti.Suggested.GeometricSatake.ct_order",
+          "name": "TauCeti.GeometricSatake.ct_order",
           "kind": "compatibility",
           "statement": "Composition agrees with Mathlib Functor.comp in pullback-then-pushforward order."
         }
@@ -3275,7 +3275,7 @@
         }
       ],
       "implementationStatus": "unchecked",
-      "declarationName": "TauCeti.Suggested.GeometricSatake.semiInfiniteBoundAffine",
+      "declarationName": "TauCeti.GeometricSatake.semiInfiniteBoundAffine",
       "prototypeNotes": "X must be the specified bounded semi-infinite intersection on its pfp model. Affineness also holds for the empty intersection; nonemptiness is required only for the dimension equality. General perfect-space affineness requires the SF model interface."
     },
     {
@@ -3315,7 +3315,7 @@
       "planet": {
         "name": "Mirković–Vilonen cycles"
       },
-      "declarationName": "TauCeti.Suggested.GeometricSatake.mvCycleDimension",
+      "declarationName": "TauCeti.GeometricSatake.mvCycleDimension",
       "prototypeNotes": "Only the normalized dimension equality is typed; the nonempty Schubert/semi-infinite intersection, MV components and rational trace model are omitted."
     },
     {
@@ -3365,7 +3365,7 @@
         }
       ],
       "implementationStatus": "unchecked",
-      "declarationName": "TauCeti.Suggested.GeometricSatake.prounipotentEquivariance",
+      "declarationName": "TauCeti.GeometricSatake.prounipotentEquivariance",
       "prototypeNotes": "D/DEq are the actual finite-quotient and full filtered-equivariant derived categories. The closed filtration, factorized action, spatial continuity and prime-to-p coefficient hypotheses are supplied by VS1 and omitted from this equivalence signature."
     },
     {
@@ -3401,7 +3401,7 @@
         }
       ],
       "implementationStatus": "unchecked",
-      "declarationName": "TauCeti.Suggested.GeometricSatake.constantTermConservative",
+      "declarationName": "TauCeti.GeometricSatake.constantTermConservative",
       "prototypeNotes": "CT must be the geometric torus constant term on the bounded-support category; its geometric hypotheses are omitted."
     },
     {
@@ -3442,7 +3442,7 @@
       "planet": {
         "name": "ULA Hecke complexes"
       },
-      "declarationName": "TauCeti.Suggested.GeometricSatake.ulaHeckeCategory",
+      "declarationName": "TauCeti.GeometricSatake.ulaHeckeCategory",
       "uses": [
         {
           "where": "FS VI.6.1–VI.6.5",
@@ -3455,34 +3455,34 @@
       ],
       "api": [
         {
-          "name": "TauCeti.Suggested.GeometricSatake.ulaHeckeCategory_finite_action",
+          "name": "TauCeti.GeometricSatake.ulaHeckeCategory_finite_action",
           "role": "compatibility",
           "statement": "The typed equivariant-object core is Action DU H, where DU is the supplied ULA category and H is a finite jet group on the chosen bound."
         },
         {
-          "name": "TauCeti.Suggested.GeometricSatake.ulaHeckeCategory_forget",
+          "name": "TauCeti.GeometricSatake.ulaHeckeCategory_forget",
           "role": "projection",
           "statement": "Forget positive-loop equivariance to the underlying ULA object, keeping its intertwining morphisms."
         },
         {
-          "name": "TauCeti.Suggested.GeometricSatake.ulaHeckeCategory_trivial_action",
+          "name": "TauCeti.GeometricSatake.ulaHeckeCategory_trivial_action",
           "role": "constructor",
           "statement": "A ULA object has the trivial finite-jet action whenever this is the desired equivariance."
         }
       ],
       "tests": [
         {
-          "name": "TauCeti.Suggested.GeometricSatake.ula_trivial_group",
+          "name": "TauCeti.GeometricSatake.ula_trivial_group",
           "kind": "degenerate",
           "statement": "For the trivial group, an equivariant object has no additional automorphism labels."
         },
         {
-          "name": "TauCeti.Suggested.GeometricSatake.ula_intertwining",
+          "name": "TauCeti.GeometricSatake.ula_intertwining",
           "kind": "non-example",
           "statement": "A morphism between equivariant ULA objects must intertwine every group element; an arbitrary underlying morphism is insufficient."
         },
         {
-          "name": "TauCeti.Suggested.GeometricSatake.ula_action_identity",
+          "name": "TauCeti.GeometricSatake.ula_action_identity",
           "kind": "compatibility",
           "statement": "The finite-jet action obeys the existing Action identity law."
         }
@@ -3537,11 +3537,11 @@
         }
       ],
       "implementationStatus": "unchecked",
-      "declarationName": "TauCeti.Suggested.GeometricSatake.ulaConstantTermPerfect",
+      "declarationName": "TauCeti.GeometricSatake.ulaConstantTermPerfect",
       "prototypeNotes": "The typed coefficient core states that a geometric CT stalk admits a bounded cochain model of finite projective terms representing that derived object. Those terms are a strict perfect model, not the individual cohomology modules. The identification with the actual CT stalk, étale local constancy and ULA hypotheses require the supplied sheaf carriers and are omitted.",
       "tests": [
         {
-          "name": "TauCeti.Suggested.GeometricSatake.perfect_complex_cohomology_not_projective",
+          "name": "TauCeti.GeometricSatake.perfect_complex_cohomology_not_projective",
           "kind": "non-example",
           "statement": "For R=Z/4Z, the quotient R/(2) is not a projective R-module. It occurs as cohomology of the two-term perfect complex R → R with differential multiplication by 2, so perfect constant-term stalks do not imply projectivity of their individual cohomology modules."
         }
@@ -3584,7 +3584,7 @@
         }
       ],
       "implementationStatus": "unchecked",
-      "declarationName": "TauCeti.Suggested.GeometricSatake.oneLegULAComparison",
+      "declarationName": "TauCeti.GeometricSatake.oneLegULAComparison",
       "prototypeNotes": "The supplied categories must be the one-leg ULA categories with compatible finite supports. Arbitrary multi-leg collisions are excluded in the document."
     },
     {
@@ -3631,7 +3631,7 @@
       "planet": {
         "name": "Relative perverse t-structure"
       },
-      "declarationName": "TauCeti.Suggested.GeometricSatake.relativePerverse",
+      "declarationName": "TauCeti.GeometricSatake.relativePerverse",
       "uses": [
         {
           "where": "FS VI.7.7–VI.7.8",
@@ -3644,34 +3644,34 @@
       ],
       "api": [
         {
-          "name": "TauCeti.Suggested.GeometricSatake.relativePerverse_le",
+          "name": "TauCeti.GeometricSatake.relativePerverse_le",
           "role": "characterisation",
           "statement": "On ULA complexes, the nonpositive aisle is detected by the normalized torus constant term in nonpositive ordinary degrees."
         },
         {
-          "name": "TauCeti.Suggested.GeometricSatake.relativePerverse_ge",
+          "name": "TauCeti.GeometricSatake.relativePerverse_ge",
           "role": "characterisation",
           "statement": "On ULA complexes, the nonnegative aisle is detected by normalized torus constant term in nonnegative ordinary degrees."
         },
         {
-          "name": "TauCeti.Suggested.GeometricSatake.relativePerverse_existing_heart",
+          "name": "TauCeti.GeometricSatake.relativePerverse_existing_heart",
           "role": "compatibility",
           "statement": "Its heart is the intersection of the two degree-zero aisles, using Mathlib TStructure.heart."
         }
       ],
       "tests": [
         {
-          "name": "TauCeti.Suggested.GeometricSatake.perverse_torus",
+          "name": "TauCeti.GeometricSatake.perverse_torus",
           "kind": "degenerate",
           "statement": "For a torus, normalized constant term is the identity and the relative perverse structure is the ordinary one."
         },
         {
-          "name": "TauCeti.Suggested.GeometricSatake.perverse_zero",
+          "name": "TauCeti.GeometricSatake.perverse_zero",
           "kind": "computation",
           "statement": "The zero object belongs to the relative perverse heart."
         },
         {
-          "name": "TauCeti.Suggested.GeometricSatake.perverse_shifted_cell",
+          "name": "TauCeti.GeometricSatake.perverse_shifted_cell",
           "kind": "compatibility",
           "statement": "A smooth d-dimensional cell uses the normalization Λ[d], and on a normalized torus constant term its degree is zero."
         }
@@ -3719,7 +3719,7 @@
         }
       ],
       "implementationStatus": "unchecked",
-      "declarationName": "TauCeti.Suggested.GeometricSatake.perverseConstantTermExact",
+      "declarationName": "TauCeti.GeometricSatake.perverseConstantTermExact",
       "prototypeNotes": "CT must include the root-degree shift, and D the geometric ULA category. Smooth finite-jet stack descent and that identification are omitted."
     },
     {
@@ -3761,7 +3761,7 @@
       "planet": {
         "name": "Flat perversity"
       },
-      "declarationName": "TauCeti.Suggested.GeometricSatake.flatPerverse",
+      "declarationName": "TauCeti.GeometricSatake.flatPerverse",
       "uses": [
         {
           "where": "FS VI.7.7–VI.7.8",
@@ -3774,34 +3774,34 @@
       ],
       "api": [
         {
-          "name": "TauCeti.Suggested.GeometricSatake.flatPerverse_iff",
+          "name": "TauCeti.GeometricSatake.flatPerverse_iff",
           "role": "characterisation",
           "statement": "An object is flat perverse when it is in the heart and remains there after derived coefficient tensor with every R-module."
         },
         {
-          "name": "TauCeti.Suggested.GeometricSatake.flatPerverse_module",
+          "name": "TauCeti.GeometricSatake.flatPerverse_module",
           "role": "compatibility",
           "statement": "On the one-point torus, coefficient flatness is Module.Flat: tensoring any injective linear map stays injective."
         },
         {
-          "name": "TauCeti.Suggested.GeometricSatake.flatPerverse_heart",
+          "name": "TauCeti.GeometricSatake.flatPerverse_heart",
           "role": "projection",
           "statement": "A flat-perverse object belongs to the Mathlib t-structure heart."
         }
       ],
       "tests": [
         {
-          "name": "TauCeti.Suggested.GeometricSatake.flat_perverse_zero",
+          "name": "TauCeti.GeometricSatake.flat_perverse_zero",
           "kind": "degenerate",
           "statement": "The zero object is flat perverse when coefficient tensors preserve zero."
         },
         {
-          "name": "TauCeti.Suggested.GeometricSatake.flat_module_field",
+          "name": "TauCeti.GeometricSatake.flat_module_field",
           "kind": "computation",
           "statement": "Every vector space over a coefficient field is flat, agreeing with the point-torus test."
         },
         {
-          "name": "TauCeti.Suggested.GeometricSatake.flat_module_integral_nonexample",
+          "name": "TauCeti.GeometricSatake.flat_module_integral_nonexample",
           "kind": "non-example",
           "statement": "Z/2 as a Z-module is not flat; being concentrated in perverse degree zero does not suffice."
         }
@@ -3853,7 +3853,7 @@
       "planet": {
         "name": "Standard Satake objects"
       },
-      "declarationName": "TauCeti.Suggested.GeometricSatake.standardCostandard",
+      "declarationName": "TauCeti.GeometricSatake.standardCostandard",
       "uses": [
         {
           "where": "FS VI.7.5",
@@ -3866,34 +3866,34 @@
       ],
       "api": [
         {
-          "name": "TauCeti.Suggested.GeometricSatake.standardCostandard_formula",
+          "name": "TauCeti.GeometricSatake.standardCostandard_formula",
           "role": "characterisation",
           "statement": "The standard and costandard objects are perverse H⁰ of j-shriek and j-star of the shifted constant local system Λ[d], respectively."
         },
         {
-          "name": "TauCeti.Suggested.GeometricSatake.standardCostandard_map",
+          "name": "TauCeti.GeometricSatake.standardCostandard_map",
           "role": "data",
           "statement": "Adjunction gives the standard-to-costandard map; its perverse image is the IC object."
         },
         {
-          "name": "TauCeti.Suggested.GeometricSatake.standardCostandard_restriction",
+          "name": "TauCeti.GeometricSatake.standardCostandard_restriction",
           "role": "compatibility",
           "statement": "Both restrict to the same normalized local system on the open cell."
         }
       ],
       "tests": [
         {
-          "name": "TauCeti.Suggested.GeometricSatake.standard_zero_cell",
+          "name": "TauCeti.GeometricSatake.standard_zero_cell",
           "kind": "degenerate",
           "statement": "For a point cell with identity inclusions the pair is the same constant object."
         },
         {
-          "name": "TauCeti.Suggested.GeometricSatake.standard_open_restriction",
+          "name": "TauCeti.GeometricSatake.standard_open_restriction",
           "kind": "computation",
           "statement": "The costandard object restricts to Λ[d] on its own cell."
         },
         {
-          "name": "TauCeti.Suggested.GeometricSatake.standard_h0_normalization",
+          "name": "TauCeti.GeometricSatake.standard_h0_normalization",
           "kind": "non-example",
           "statement": "The construction takes perverse H⁰ and the geometric dimension shift before forming the standard-to-costandard map; unshifted ordinary H⁰ is not substituted."
         }
@@ -3944,7 +3944,7 @@
         }
       ],
       "implementationStatus": "unchecked",
-      "declarationName": "TauCeti.Suggested.GeometricSatake.standardCostandardBoundedTorsion",
+      "declarationName": "TauCeti.GeometricSatake.standardCostandardBoundedTorsion",
       "prototypeNotes": "R is explicitly a ℤ_ℓ-algebra, ℓ is prime, and the bound is ℓ^a. M must be the specified standard-to-costandard kernel or cokernel. The source supplies one a(μ) independent of R; this single-module core omits the geometric μ/family identification, not the coefficient algebra or the nonvacuous power bound."
     },
     {
@@ -3982,7 +3982,7 @@
         }
       ],
       "implementationStatus": "unchecked",
-      "declarationName": "TauCeti.Suggested.GeometricSatake.rationalWeightsFinite",
+      "declarationName": "TauCeti.GeometricSatake.rationalWeightsFinite",
       "prototypeNotes": "W must be the concentrated rational weight module of the specified IC object. Its MV basis and the degree-vanishing assertions require enhanced cohomology interfaces and are omitted."
     },
     {
@@ -4024,7 +4024,7 @@
       "planet": {
         "name": "Satake category"
       },
-      "declarationName": "TauCeti.Suggested.GeometricSatake.satakeCategory",
+      "declarationName": "TauCeti.GeometricSatake.satakeCategory",
       "uses": [
         {
           "where": "FS VI.8",
@@ -4037,34 +4037,34 @@
       ],
       "api": [
         {
-          "name": "TauCeti.Suggested.GeometricSatake.satakeCategory_full_subcategory",
+          "name": "TauCeti.GeometricSatake.satakeCategory_full_subcategory",
           "role": "compatibility",
           "statement": "Satake is the full subcategory of the supplied bounded ULA category whose underlying object is flat perverse."
         },
         {
-          "name": "TauCeti.Suggested.GeometricSatake.satakeCategory_inclusion",
+          "name": "TauCeti.GeometricSatake.satakeCategory_inclusion",
           "role": "projection",
           "statement": "The full-subcategory inclusion forgets only the Satake flat-perverse condition and is fully faithful."
         },
         {
-          "name": "TauCeti.Suggested.GeometricSatake.satakeCategory_morphisms",
+          "name": "TauCeti.GeometricSatake.satakeCategory_morphisms",
           "role": "characterisation",
           "statement": "A Satake morphism is the same underlying ULA morphism; no separate morphism condition is imposed."
         }
       ],
       "tests": [
         {
-          "name": "TauCeti.Suggested.GeometricSatake.satake_zero",
+          "name": "TauCeti.GeometricSatake.satake_zero",
           "kind": "degenerate",
           "statement": "A zero ULA object whose underlying object is zero belongs to Satake."
         },
         {
-          "name": "TauCeti.Suggested.GeometricSatake.satake_inclusion_fully_faithful",
+          "name": "TauCeti.GeometricSatake.satake_inclusion_fully_faithful",
           "kind": "compatibility",
           "statement": "Morphisms agree with those in the existing Mathlib ObjectProperty full-subcategory construction."
         },
         {
-          "name": "TauCeti.Suggested.GeometricSatake.satake_wrong_degree",
+          "name": "TauCeti.GeometricSatake.satake_wrong_degree",
           "kind": "non-example",
           "statement": "A ULA object outside the relative perverse heart is excluded from Satake."
         }
@@ -4119,7 +4119,7 @@
       "planet": {
         "name": "Satake cohomology functor"
       },
-      "declarationName": "TauCeti.Suggested.GeometricSatake.satakeFibre",
+      "declarationName": "TauCeti.GeometricSatake.satakeFibre",
       "uses": [
         {
           "where": "FS VI.7.10–VI.7.11",
@@ -4132,49 +4132,49 @@
       ],
       "api": [
         {
-          "name": "TauCeti.Suggested.GeometricSatake.satakeFibre_cohomology",
+          "name": "TauCeti.GeometricSatake.satakeFibre_cohomology",
           "role": "characterisation",
           "statement": "The fibre at A is the direct sum of all integer-degree cohomology modules; bounded support makes only finitely many degrees nonzero."
         },
         {
-          "name": "TauCeti.Suggested.GeometricSatake.satakeFibre_finite_projective",
+          "name": "TauCeti.GeometricSatake.satakeFibre_finite_projective",
           "role": "structure",
           "statement": "The total cohomology module is finite and projective over the coefficient ring."
         },
         {
-          "name": "TauCeti.Suggested.GeometricSatake.satakeFibre_faithful",
+          "name": "TauCeti.GeometricSatake.satakeFibre_faithful",
           "role": "structure",
           "statement": "FS VI.7.10’s split-kernel lifting together with conservativity proves faithfulness; do not infer faithfulness from conservativity alone in an exact category."
         },
         {
-          "name": "TauCeti.Suggested.GeometricSatake.satakeFibre_kernel",
+          "name": "TauCeti.GeometricSatake.satakeFibre_kernel",
           "role": "universal-property",
           "statement": "If ker F(f)→F(A) is a split inclusion, f has a Satake kernel and F carries its universal cone to the module kernel."
         },
         {
-          "name": "TauCeti.Suggested.GeometricSatake.satakeFibre_cokernel",
+          "name": "TauCeti.GeometricSatake.satakeFibre_cokernel",
           "role": "universal-property",
           "statement": "If F(B)→coker F(f) is a split projection, f has a Satake cokernel and F carries its universal cocone to the module cokernel."
         }
       ],
       "tests": [
         {
-          "name": "TauCeti.Suggested.GeometricSatake.fibre_torus_rank_one",
+          "name": "TauCeti.GeometricSatake.fibre_torus_rank_one",
           "kind": "computation",
           "statement": "A torus skyscraper with one rank-one cohomology module has total cohomology R."
         },
         {
-          "name": "TauCeti.Suggested.GeometricSatake.fibre_zero",
+          "name": "TauCeti.GeometricSatake.fibre_zero",
           "kind": "degenerate",
           "statement": "If all cohomology modules vanish, total cohomology is the zero module."
         },
         {
-          "name": "TauCeti.Suggested.GeometricSatake.fibre_existing_module",
+          "name": "TauCeti.GeometricSatake.fibre_existing_module",
           "kind": "compatibility",
           "statement": "The fibre functor targets existing ModuleCat, and projectivity is the existing Module.Projective predicate."
         },
         {
-          "name": "TauCeti.Suggested.GeometricSatake.fibre_unbounded_nonexample",
+          "name": "TauCeti.GeometricSatake.fibre_unbounded_nonexample",
           "kind": "non-example",
           "statement": "One copy of ℚ in every integer degree has infinite-dimensional direct sum: finite projectivity in each degree does not imply finite total cohomology without a boundedness hypothesis."
         }
@@ -4227,7 +4227,7 @@
         }
       ],
       "implementationStatus": "unchecked",
-      "declarationName": "TauCeti.Suggested.GeometricSatake.satakeVerdierBiduality",
+      "declarationName": "TauCeti.GeometricSatake.satakeVerdierBiduality",
       "prototypeNotes": "S must be Satake and dual the relative Verdier duality. Levi normalization and geometric coefficient hypotheses are omitted."
     },
     {
@@ -4279,7 +4279,7 @@
       "planet": {
         "name": "Hecke convolution"
       },
-      "declarationName": "TauCeti.Suggested.GeometricSatake.heckeConvolution",
+      "declarationName": "TauCeti.GeometricSatake.heckeConvolution",
       "uses": [
         {
           "where": "FS VI.8.1",
@@ -4292,39 +4292,39 @@
       ],
       "api": [
         {
-          "name": "TauCeti.Suggested.GeometricSatake.heckeConvolution_obj",
+          "name": "TauCeti.GeometricSatake.heckeConvolution_obj",
           "role": "characterisation",
           "statement": "A⋆B is b-star of a-pullback of the derived external product of A and B, with b proper on the chosen bounds."
         },
         {
-          "name": "TauCeti.Suggested.GeometricSatake.heckeConvolution_associator",
+          "name": "TauCeti.GeometricSatake.heckeConvolution_associator",
           "role": "structure",
           "statement": "The coherent correspondence calculus supplies the associator for convolution."
         },
         {
-          "name": "TauCeti.Suggested.GeometricSatake.heckeConvolution_unit",
+          "name": "TauCeti.GeometricSatake.heckeConvolution_unit",
           "role": "structure",
           "statement": "The unit is the identity-modification kernel and its left and right unit maps are isomorphisms."
         },
         {
-          "name": "TauCeti.Suggested.GeometricSatake.torusConvolutionLabels",
+          "name": "TauCeti.GeometricSatake.torusConvolutionLabels",
           "role": "data",
           "statement": "On a torus, convolution support is the Minkowski sum of the two finite coweight supports."
         }
       ],
       "tests": [
         {
-          "name": "TauCeti.Suggested.GeometricSatake.convolution_unit",
+          "name": "TauCeti.GeometricSatake.convolution_unit",
           "kind": "degenerate",
           "statement": "Convolving with the identity kernel returns the other kernel."
         },
         {
-          "name": "TauCeti.Suggested.GeometricSatake.convolution_torus_labels",
+          "name": "TauCeti.GeometricSatake.convolution_torus_labels",
           "kind": "computation",
           "statement": "For a torus, two skyscraper labels convolve to the skyscraper at their sum."
         },
         {
-          "name": "TauCeti.Suggested.GeometricSatake.convolution_twisted_diagram",
+          "name": "TauCeti.GeometricSatake.convolution_twisted_diagram",
           "kind": "compatibility",
           "statement": "The typed object formula keeps both a-star descent and b-star pushforward; substituting the external product alone does not satisfy it."
         }
@@ -4373,7 +4373,7 @@
         }
       ],
       "implementationStatus": "unchecked",
-      "declarationName": "TauCeti.Suggested.GeometricSatake.convolutionPentagon",
+      "declarationName": "TauCeti.GeometricSatake.convolutionPentagon",
       "prototypeNotes": "Only the standard monoidal pentagon is typed; the ambient convolution monoidal instance must be supplied by the enhanced correspondence calculus."
     },
     {
@@ -4412,7 +4412,7 @@
         }
       ],
       "implementationStatus": "unchecked",
-      "declarationName": "TauCeti.Suggested.GeometricSatake.rationalConvolutionSemismall",
+      "declarationName": "TauCeti.GeometricSatake.rationalConvolutionSemismall",
       "prototypeNotes": "These dimensions must come from the bounded rational Witt convolution map and a target stratum. Properness and coefficient restrictions are omitted."
     },
     {
@@ -4457,7 +4457,7 @@
         }
       ],
       "implementationStatus": "unchecked",
-      "declarationName": "TauCeti.Suggested.GeometricSatake.convolutionULAKernelDual",
+      "declarationName": "TauCeti.GeometricSatake.convolutionULAKernelDual",
       "prototypeNotes": "The algebraic core composes two individually right-dualizable proper relative ULA kernels. It does not assume the entire ambient category is rigid; the geometric ULA/kernel identification requires VS1."
     },
     {
@@ -4497,7 +4497,7 @@
         }
       ],
       "implementationStatus": "unchecked",
-      "declarationName": "TauCeti.Suggested.GeometricSatake.convolutionPerverseNonpositive",
+      "declarationName": "TauCeti.GeometricSatake.convolutionPerverseNonpositive",
       "prototypeNotes": "D/conv denote the full bounded-support Hecke derived category and its convolution, with the stated geometric perverse t-structure. The devissage, two-leg family and geometric identities are omitted. Inputs need not be ULA; only the reduced generators are ULA. GS3 fusion and ambient rigidity are not assumed."
     },
     {
@@ -4538,7 +4538,7 @@
       "planet": {
         "name": "Satake convolution closure"
       },
-      "declarationName": "TauCeti.Suggested.GeometricSatake.convolutionFlatPerverse",
+      "declarationName": "TauCeti.GeometricSatake.convolutionFlatPerverse",
       "prototypeNotes": "D/conv/tensor must be the ULA Hecke category, geometric convolution and derived coefficient tensors. Those supplier conditions are omitted."
     },
     {
@@ -4581,7 +4581,7 @@
       "planet": {
         "name": "Satake rigidity"
       },
-      "declarationName": "TauCeti.Suggested.GeometricSatake.satakeRigid",
+      "declarationName": "TauCeti.GeometricSatake.satakeRigid",
       "prototypeNotes": "S must be the actual Satake category with its convolution structure. Both duals are asserted; the switch-pullback Verdier formula is in the document."
     },
     {
@@ -4622,7 +4622,7 @@
         }
       ],
       "implementationStatus": "unchecked",
-      "declarationName": "TauCeti.Suggested.GeometricSatake.oneLegSatakeComparison",
+      "declarationName": "TauCeti.GeometricSatake.oneLegSatakeComparison",
       "prototypeNotes": "These are the indicated one-leg flat-perverse ULA categories; the base change geometry and diagram compatibility are omitted."
     }
   ],
@@ -5105,6 +5105,14 @@
         "ReductiveGroupsPartII"
       ],
       "detail": "Refine existing supplier directions by the exact requests in this packet. In particular Scheme and stack foundations, Part II: perfect models, pinching and integral local-model functoriality extends SF0/SF1/SF4; Relative Fargues–Fontaine, Part II: punctured A_inf torsors extends RF4; V-stack sheaves and lisse categories, Part II: hyperbolic localization and proper relative ULA kernels extends VS1; Enhanced derived sheaves, Part II: coherent kernel correspondences extends E3/E5; Reductive groups, Part II already owns parahoric/affine-root and adjoint comparisons. These are extensions of the named owners, not new GS-owned general theories."
+    },
+    {
+      "action": "sublayers",
+      "roadmaps": [
+        "GeometricSatakeAndFusion"
+      ],
+      "detail": "GS0:loop-geometry/affine-flag-demazure uses GS0:Witt-geometry/parahoric-ind-projectivity, while GS0:Witt-geometry/integral-family-bounded-properness uses GS0:loop-geometry/ordered-leg-base-change and schubert-bounds-and-properness, so the induced layer edges GS0:loop-geometry -> GS0:Witt-geometry -> GS0:loop-geometry form a cycle. The affine flag declaration is used only by GS1 (ULA-sheaves-on-the-hecke-stack, rational-weight-concentration).",
+      "proposal": "Give GS0:loop-geometry/affine-flag-demazure the aggregate GS0 as parent layer, keeping its identifier and its planet \"Demazure spaces\" (GS0 has no planets; GS0:Witt-geometry and GS1 already have six each). The layer edges then run GS0:loop-geometry -> GS0:Witt-geometry -> GS0 -> GS1."
     }
   ],
   "upstreamNotes": [
@@ -8204,7 +8212,7 @@
       "disposition": "other-part",
       "coveredBy": [
         "GeometricSatakeAndFusion:GS4:rational-reductivity",
-        "GeometricSatakeAndFusion:GS4:dual-group-reconstruction"
+        "GeometricSatakeAndFusion:GS4:integral-dual-group"
       ],
       "reason": "Rational semisimplicity, Tannakian reductivity and the dual root datum/geometric Satake equivalence belong to the GS3 part’s GS4 targets. They are not prerequisites of GS0 geometry or VI.8 closure."
     },
@@ -8215,7 +8223,7 @@
       "disposition": "other-part",
       "coveredBy": [
         "GeometricSatakeAndFusion:GS4:rational-reductivity",
-        "GeometricSatakeAndFusion:GS4:dual-group-reconstruction"
+        "GeometricSatakeAndFusion:GS4:integral-dual-group"
       ],
       "reason": "Rational semisimplicity, Tannakian reductivity and the dual root datum/geometric Satake equivalence belong to the GS3 part’s GS4 targets. They are not prerequisites of GS0 geometry or VI.8 closure."
     },
@@ -8236,7 +8244,7 @@
       "disposition": "other-part",
       "coveredBy": [
         "GeometricSatakeAndFusion:GS4:rational-reductivity",
-        "GeometricSatakeAndFusion:GS4:dual-group-reconstruction"
+        "GeometricSatakeAndFusion:GS4:integral-dual-group"
       ],
       "reason": "Rational semisimplicity, Tannakian reductivity and the dual root datum/geometric Satake equivalence belong to the GS3 part’s GS4 targets. They are not prerequisites of GS0 geometry or VI.8 closure."
     },
@@ -8247,7 +8255,7 @@
       "disposition": "other-part",
       "coveredBy": [
         "GeometricSatakeAndFusion:GS4:rational-reductivity",
-        "GeometricSatakeAndFusion:GS4:dual-group-reconstruction"
+        "GeometricSatakeAndFusion:GS4:integral-dual-group"
       ],
       "reason": "Rational semisimplicity, Tannakian reductivity and the dual root datum/geometric Satake equivalence belong to the GS3 part’s GS4 targets. They are not prerequisites of GS0 geometry or VI.8 closure."
     },
@@ -8258,7 +8266,7 @@
       "disposition": "other-part",
       "coveredBy": [
         "GeometricSatakeAndFusion:GS4:rational-reductivity",
-        "GeometricSatakeAndFusion:GS4:dual-group-reconstruction"
+        "GeometricSatakeAndFusion:GS4:integral-dual-group"
       ],
       "reason": "Rational semisimplicity, Tannakian reductivity and the dual root datum/geometric Satake equivalence belong to the GS3 part’s GS4 targets. They are not prerequisites of GS0 geometry or VI.8 closure."
     },
