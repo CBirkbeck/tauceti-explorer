@@ -28,14 +28,13 @@ and signatures. All packet implementation statuses are unchecked.
 
 Pinned baseline: Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174;
 Tau Ceti f790474821cf4256814db967cb154e7af3d0c369.
-REV-SpecialValuesBirchTate (codex-CTuEhy, 2026-10-06) reported a successful pinned
-Mathlib check of the active native signatures and arithmetic examples below, with
-exactly three admitted-proof warnings. This revision did not run Lean: there is no
-existing pinned build here and available memory is below WORKERS.md's threshold.
-The executable text is unchanged. Higher signatures are explicit comments: their
-actual K/cohomology, Iwasawa and motivic objects have not landed. No replacement
-carriers are defined. The prior run did not build the three cited Tau Ceti modules;
-their declarations are source-level inputs at the pinned commit.
+REV-SpecialValuesBirchTate~2 (Codex codex-Bb98NE, 2026-10-08) checked the active
+native signatures and arithmetic examples with lean-check in the shared build at
+this exact Mathlib commit: exit 0, exactly three admitted-proof warnings.
+Higher signatures remain explicit comments on actual supplier objects that have
+not landed. The check did not build the three cited Tau Ceti modules; their
+declarations were independently read as source-level inputs at the Tau Ceti pin.
+Earlier run provenance remains in the prior review and revision handoff.
 
 Existing source imports for the quadratic and finite Euler-product adapters:
   import TauCeti.NumberTheory.ArithmeticDirichletSeries.Trivial
@@ -136,10 +135,17 @@ def BirchTateFormula : Prop :=
   dedekindZetaCont F (-1) =
     (-1 : ℂ) ^ Module.finrank ℚ F * (Nat.card (K2 (𝓞 F)) : ℂ) / (wInvariant 2 F : ℂ)
 
+-- Two explicit L2 actions: Kolster's covariant dual (γφ)(x)=φ(γx)
+-- on the dual of 𝒯⊗A has compact action u*γ and series f(u⁻¹(1+T)-1).
+-- For ordinary contragredient Hom_cts(X,Qp/Zp(n)), the compact dual is X(-n),
+-- with action κ(γ)^(-n)*γ and series f(κ(γ)^n(1+T)-1).
+-- The supplier must identify each actual module and finite evaluation separately.
+-- B.1/birch-tate-iff-mul (promoted API lemma).
 theorem birchTateFormula_iff_mul :
     BirchTateFormula F ↔ (wInvariant 2 F : ℂ) * dedekindZetaCont F (-1) =
       (-1 : ℂ) ^ Module.finrank ℚ F * (Nat.card (K2 (𝓞 F)) : ℂ) := by sorry
 
+-- B.1/formula-implies-zeta-nonzero (promoted API lemma).
 theorem BirchTateFormula.zeta_ne_zero {F : Type*} [Field F] [NumberField F]
     (h : BirchTateFormula F) : dedekindZetaCont F (-1) ≠ 0 := by sorry
 
@@ -645,14 +651,20 @@ theorem federerMainConjecture_mul_unit [IsTotallyReal F]
       {(2 : PowerSeries ℤ_[2]) ^ Module.finrank ℚ F * ((ε : PowerSeries ℤ_[2]) * minusCharSeries F)})
         ↔ FedererMainConjecture F := by sorry
 
--- Apply to I.2's coordinate isomorphism γ' = γ^c; the pole-factor correction
--- is a unit and is absorbed by federerMainConjecture_mul_unit.
+-- For γ' = γ^c, I.2 transports OLD T to (1 + T')^(c⁻¹) - 1 in NEW coordinates.
+-- Put u' = u^c. The new numerator is ε * φ(G), where the pole-clearing unit
+-- ε = ((1 + T') - u^c) / ((1 + T')^(c⁻¹) - u) is formed after cancelling
+-- the common root T' = u^c - 1. Its root value is c * u^(c-1).
+-- This prototype is the principal-ideal transport step; the actual supplier
+-- coordinate and numerator identifications are required before it is applied.
 theorem federerMainConjecture_change_generator [IsTotallyReal F]
-    (φ : PowerSeries ℤ_[2] ≃+* PowerSeries ℤ_[2]) :
-    (Ideal.span {φ (twoAdicZetaSeries F)} = Ideal.span
+    (φ : PowerSeries ℤ_[2] ≃+* PowerSeries ℤ_[2])
+    (ε : (PowerSeries ℤ_[2])ˣ) :
+    (Ideal.span {(ε : PowerSeries ℤ_[2]) * φ (twoAdicZetaSeries F)} = Ideal.span
       {(2 : PowerSeries ℤ_[2]) ^ Module.finrank ℚ F * φ (minusCharSeries F)})
         ↔ FedererMainConjecture F := by sorry
 
+-- B.8/h-invariant-primary-valuation (promoted API lemma).
 theorem padicValNat_hInvariant (n : ℕ) (hn : 2 ≤ n) (ℓ : ℕ) [Fact ℓ.Prime] :
     padicValNat ℓ (hInvariant F n) =
       padicValNat ℓ (Nat.card (MotivicEtaleKTheory.arithmeticEtaleH2 F ℓ n)) := by sorry
