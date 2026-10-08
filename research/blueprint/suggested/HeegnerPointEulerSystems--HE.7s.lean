@@ -168,6 +168,9 @@ theorem universalNormFamily_level_zero (i : I) :
       Φ i (point i) := by
   sorry
 
+/- HeegnerPointEulerSystems:HE.8/universal-norm-auxiliary-trace
+Auxiliary constraint of the same chosen family, shared with the construction API.
+Howard Lemma 2.3.3, PDF pp.29–30; CGLS Theorem 4.1.1, PDF pp.27–28. -/
 theorem universalNormFamily_trace (j : J) :
     tr j (universalNormFamily source target Φ point π tr a hπ htr hfinite (target j)) =
       a j • universalNormFamily source target Φ point π tr a hπ htr hfinite (source j) := by
@@ -722,23 +725,23 @@ theorem near_trivial_bottom_nonvanishing {C : Type*} [AddCommGroup C] (κ : ℕ 
   sorry
 
 /- HeegnerPointEulerSystems:HE.8/optimal-lattice-isogeny-comparison
-Mathematical statement: For E₀ optimal on X₀(N), E₁ optimal on X₁(N), and the distinguished E_• with T_f identified integrally with T_pE_•, the prescribed isogeny E₀→E_• is étale at odd p. For sufficiently near-trivial α, I_•(α)C_•(α)=I₀(α)C₀(α), where I is the bottom-class index and C the finite-cokernel local index modulo torsion. Neither factor is individually asserted equal under arbitrary isogeny.
-Hypotheses: E/ℚ is modular with conductor N, K imaginary quadratic, all primes dividing N split in K, signed discriminant D_K<0 odd and not −3; p is odd and prime to ND_K, and E has good ordinary reduction at p. T=T_pE, Γ=Gal(K∞/K)≃ℤ_p, Λ=ℤ_p⟦Γ⟧, ι(γ)=γ⁻¹; imported continuous cohomology and propagated self-dual local conditions are used. E(K)[p]=0. p splits as v v̄ in K.
+Mathematical statement: For E₀ optimal on X₀(N), E₁ optimal on X₁(N), and the distinguished E_• with T_f identified integrally with T_pE_•, the prescribed isogeny E₀→E_• is étale at odd p. For crystalline α as in BCGS Lemma 1.2.3 with L_BDP(α⁻¹)≠0 and α sufficiently near1, I_•(α)C_•(α)=I₀(α)C₀(α), where I is the bottom-class index and C the finite-cokernel local index modulo torsion. Neither factor is individually asserted equal under arbitrary isogeny.
+Hypotheses: E/ℚ is modular with conductor N, K imaginary quadratic, all primes dividing N split in K, signed discriminant D_K<0 odd and not −3; p is odd and prime to ND_K, and E has good ordinary reduction at p. T=T_pE, Γ=Gal(K∞/K)≃ℤ_p, Λ=ℤ_p⟦Γ⟧, ι(γ)=γ⁻¹; imported continuous cohomology and propagated self-dual local conditions are used. E(K)[p]=0. p splits as v v̄ in K. α is crystalline at both primes above p and comes from a Hecke character of infinity type (n,−n), with n≥0 and n divisible by p−1, as in BCGS Theorem 1.2.1 and Lemma 1.2.3. Assume L_BDP(α⁻¹)≠0; for the displayed near-identity formulas take α≡1 modulo p^m with m sufficiently large.
 The actual arithmetic identifications and hypotheses above are omitted in this prototype. Supplied maps, modules, ideals and indices must be those of the stated arithmetic suppliers; this is an admitted interface, not a formal proof. -/
 theorem optimal_lattice_isogeny_comparison (Ibullet Cbullet I0 C0 : ℕ) :
     Ibullet * Cbullet = I0 * C0 := by
   sorry
 
 /- HeegnerPointEulerSystems:HE.8/twisted-logarithm-index-formula
-Mathematical statement: With E_• and α sufficiently close to1, L_BDP(α⁻¹)≠0 and κ_1^•(α)≠0, let t_α=length_(ℤ_p^ur)(ℤ_p^ur/L_BDP(α⁻¹)), q_•=#H⁰(ℚ_p,E_•[p∞]), I_•=#(S_α/ℤ_pκ_1^•(α)), and C_•=#coker(loc_v) modulo torsion. Then p^tα q_•=I_•C_•. Use the source’s coefficient extension and square-root BDP normalization.
-Hypotheses: E/ℚ is modular with conductor N, K imaginary quadratic, all primes dividing N split in K, signed discriminant D_K<0 odd and not −3; p is odd and prime to ND_K, and E has good ordinary reduction at p. T=T_pE, Γ=Gal(K∞/K)≃ℤ_p, Λ=ℤ_p⟦Γ⟧, ι(γ)=γ⁻¹; imported continuous cohomology and propagated self-dual local conditions are used. E(K)[p]=0. p splits as v v̄ in K.
+Mathematical statement: With E_• and crystalline α as in BCGS Lemma 1.2.3 sufficiently close to1, L_BDP(α⁻¹)≠0 and κ_1^•(α)≠0, let t_α=length_(ℤ_p^ur)(ℤ_p^ur/L_BDP(α⁻¹)), q_•=#H⁰(ℚ_p,E_•[p∞]), I_•=#(S_α/ℤ_pκ_1^•(α)), and C_•=#coker(loc_v) modulo torsion. Then p^tα q_•=I_•C_•. Use the source’s coefficient extension and square-root BDP normalization.
+Hypotheses: E/ℚ is modular with conductor N, K imaginary quadratic, all primes dividing N split in K, signed discriminant D_K<0 odd and not −3; p is odd and prime to ND_K, and E has good ordinary reduction at p. T=T_pE, Γ=Gal(K∞/K)≃ℤ_p, Λ=ℤ_p⟦Γ⟧, ι(γ)=γ⁻¹; imported continuous cohomology and propagated self-dual local conditions are used. E(K)[p]=0. p splits as v v̄ in K. α is crystalline at both primes above p and comes from a Hecke character of infinity type (n,−n), with n≥0 and n divisible by p−1, as in BCGS Theorem 1.2.1 and Lemma 1.2.3. Assume L_BDP(α⁻¹)≠0; for the displayed near-identity formulas take α≡1 modulo p^m with m sufficiently large.
 The actual arithmetic identifications and hypotheses above are omitted in this prototype. Supplied maps, modules, ideals and indices must be those of the stated arithmetic suppliers; this is an admitted interface, not a formal proof. -/
 theorem twisted_logarithm_index_formula (p t q I C : ℕ) : p^t * q = I * C := by
   sorry
 
 /- HeegnerPointEulerSystems:HE.8/twisted-anticyclotomic-control
-Mathematical statement: For m≫0 and α=α_m, a characteristic generator F_E of the strict-at-v, unrestricted-at-v̄ Greenberg dual satisfies #(ℤ_p/F_E(α⁻¹))=#Sha(W_α⁻¹/K)·C_α²·∏_(w|N)c_w^(p)(α⁻¹)·q_E². The finite Sha is the source’s propagated Selmer quotient. The formula is integral and uses all K-primes over N and the finite/torsion local cokernel.
-Hypotheses: E/ℚ is modular with conductor N, K imaginary quadratic, all primes dividing N split in K, signed discriminant D_K<0 odd and not −3; p is odd and prime to ND_K, and E has good ordinary reduction at p. T=T_pE, Γ=Gal(K∞/K)≃ℤ_p, Λ=ℤ_p⟦Γ⟧, ι(γ)=γ⁻¹; imported continuous cohomology and propagated self-dual local conditions are used. E(K)[p]=0. p splits as v v̄ in K.
+Mathematical statement: For m≫0, crystalline α=α_m and L_BDP(α⁻¹)≠0, a characteristic generator F_E of the strict-at-v, unrestricted-at-v̄ Greenberg dual satisfies #(ℤ_p/F_E(α⁻¹))=#Sha(W_α⁻¹/K)·C_α²·∏_(w|N)c_w^(p)(α⁻¹)·q_E². The finite Sha is the source’s propagated Selmer quotient. The formula is integral and uses all K-primes over N and the finite/torsion local cokernel.
+Hypotheses: E/ℚ is modular with conductor N, K imaginary quadratic, all primes dividing N split in K, signed discriminant D_K<0 odd and not −3; p is odd and prime to ND_K, and E has good ordinary reduction at p. T=T_pE, Γ=Gal(K∞/K)≃ℤ_p, Λ=ℤ_p⟦Γ⟧, ι(γ)=γ⁻¹; imported continuous cohomology and propagated self-dual local conditions are used. E(K)[p]=0. p splits as v v̄ in K. α is crystalline at both primes above p and comes from a Hecke character of infinity type (n,−n), with n≥0 and n divisible by p−1, as in BCGS Theorem 1.2.1 and Lemma 1.2.3. Assume L_BDP(α⁻¹)≠0; for the displayed near-identity formulas take α≡1 modulo p^m with m sufficiently large.
 The actual arithmetic identifications and hypotheses above are omitted in this prototype. Supplied maps, modules, ideals and indices must be those of the stated arithmetic suppliers; this is an admitted interface, not a formal proof. -/
 theorem twisted_anticyclotomic_control (fIndex sha C tam q : ℕ) :
     fIndex = sha * C^2 * tam * q^2 := by
@@ -752,8 +755,8 @@ theorem near_trivial_tamagawa_stability (twisted untwisted : ℕ) : twisted = un
   sorry
 
 /- HeegnerPointEulerSystems:HE.8/arithmetic-rescaled-kolyvagin-bound
-Mathematical statement: There exist M and E depending only on T_pE such that, for α≡1 modulo p^m with m≥M and a permitted deep-prime Kolyvagin system κ̃ for T_α with κ̃₁≠0, the dual Selmer group is ℚ_p/ℤ_p⊕M_α⊕M_α and length M_α≤ind(κ̃₁)+E. The constant does not grow with m, the deep-prime set or common p-rescaling. Under the source’s surjectivity hypothesis E=0.
-Hypotheses: E/ℚ is modular with conductor N, K imaginary quadratic, all primes dividing N split in K, signed discriminant D_K<0 odd and not −3; p is odd and prime to ND_K, and E has good ordinary reduction at p. T=T_pE, Γ=Gal(K∞/K)≃ℤ_p, Λ=ℤ_p⟦Γ⟧, ι(γ)=γ⁻¹; imported continuous cohomology and propagated self-dual local conditions are used. E(K)[p]=0.
+Mathematical statement: There exist M and E depending only on T_pE such that, for α≡1 modulo p^m with m≥M and a collection κ̃_n∈H¹(K,T_α/I_nT_α) on a permitted prime set containing every sufficiently deep L_e, with κ̃₁≠0 and one fixed t≥0 for which {p^tκ̃_n}_n is an ordinary Kolyvagin system, H¹_Ford(K,T_α) has ℤ_p-rank one and the discrete ordinary Selmer group H¹_Ford(K,W_α⁻¹) is ℚ_p/ℤ_p⊕M_α⊕M_α, with length M_α≤ind(κ̃₁)+E. The constants are independent of m, the prime set and t. The divided collection itself need not be an integral Kolyvagin system. Under the source’s surjectivity hypothesis E=0.
+Hypotheses: E/ℚ is modular with conductor N, K imaginary quadratic, all primes dividing N split in K, signed discriminant D_K<0 odd and not −3; p is odd and prime to ND_K, and E has good ordinary reduction at p. T=T_pE, Γ=Gal(K∞/K)≃ℤ_p, Λ=ℤ_p⟦Γ⟧, ι(γ)=γ⁻¹; imported continuous cohomology and propagated self-dual local conditions are used. E(K)[p]=0. The allowed prime set contains L_e for all sufficiently large e. The collection has nonzero bottom class and one common multiple p^tκ̃ satisfying every Kolyvagin-system relation, with t independent of n.
 The actual arithmetic identifications and hypotheses above are omitted in this prototype. Supplied maps, modules, ideals and indices must be those of the stated arithmetic suppliers; this is an admitted interface, not a formal proof. -/
 theorem arithmetic_rescaled_kolyvagin_bound {R Sel DP M : Type*} [CommRing R]
     [AddCommGroup Sel] [AddCommGroup DP] [AddCommGroup M]
@@ -770,8 +773,8 @@ theorem heegner_exact_sha_length (shaLength M0 Minfty : ℕ) :
   sorry
 
 /- HeegnerPointEulerSystems:HE.8/integral-main-conjecture-index-square
-Mathematical statement: Assume the integral anticyclotomic Greenberg main conjecture in Λ^ur with the BCGS square-root convention. For α_m sufficiently close to1, the p-optimal curve satisfies I₀(α)²=#Sha(W_α⁻¹/K)·∏_(w|N)c_w^(p)(α⁻¹)·q₀⁴. A rational main conjecture supplies only a bounded p-power error; it does not supply this exact equality.
-Hypotheses: E/ℚ is modular with conductor N, K imaginary quadratic, all primes dividing N split in K, signed discriminant D_K<0 odd and not −3; p is odd and prime to ND_K, and E has good ordinary reduction at p. T=T_pE, Γ=Gal(K∞/K)≃ℤ_p, Λ=ℤ_p⟦Γ⟧, ι(γ)=γ⁻¹; imported continuous cohomology and propagated self-dual local conditions are used. E(K)[p]=0. p splits as v v̄ in K. Integral anticyclotomic Greenberg main conjecture and the p-optimal lattice.
+Mathematical statement: Assume the integral anticyclotomic Greenberg main conjecture in Λ^ur with the BCGS square-root convention. For crystalline α_m sufficiently close to1 with L_BDP(α_m⁻¹)≠0, the p-optimal curve satisfies I₀(α)²=#Sha(W_α⁻¹/K)·∏_(w|N)c_w^(p)(α⁻¹)·q₀⁴. A rational main conjecture supplies only a bounded p-power error; it does not supply this exact equality.
+Hypotheses: E/ℚ is modular with conductor N, K imaginary quadratic, all primes dividing N split in K, signed discriminant D_K<0 odd and not −3; p is odd and prime to ND_K, and E has good ordinary reduction at p. T=T_pE, Γ=Gal(K∞/K)≃ℤ_p, Λ=ℤ_p⟦Γ⟧, ι(γ)=γ⁻¹; imported continuous cohomology and propagated self-dual local conditions are used. E(K)[p]=0. p splits as v v̄ in K. Integral anticyclotomic Greenberg main conjecture and the p-optimal lattice. α is crystalline at both primes above p and comes from a Hecke character of infinity type (n,−n), with n≥0 and n divisible by p−1, as in BCGS Theorem 1.2.1 and Lemma 1.2.3. Assume L_BDP(α⁻¹)≠0; for the displayed near-identity formulas take α≡1 modulo p^m with m sufficiently large.
 The actual arithmetic identifications and hypotheses above are omitted in this prototype. Supplied maps, modules, ideals and indices must be those of the stated arithmetic suppliers; this is an admitted interface, not a formal proof. -/
 theorem integral_main_conjecture_index_square (I sha tam q : ℕ) :
     I^2 = sha * tam * q^4 := by

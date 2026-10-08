@@ -2,7 +2,7 @@
 
 This planning pass covers HE.7s, HE.8, HE.8b and HE.8c. It constructs the ordinary anticyclotomic arithmetic example, proves the geometric nonvanishing input, and separates three return paths: Howard’s one-sided divisibility, BCGS’s finite-system nonvanishing and divisibility defect, and Castella–Sano’s determinant formulation. The main-conjecture proof belongs to HE.8b. Its early input is the actual family constructed in HE.8; that family never assumes a completed main conjecture.
 
-The pass is **complete as a plan**, with 61 nodes at target level. HE.8 and HE.8b are `planned`, with their exact open contracts recorded. HE.7s and HE.8c are `source_decomposed`: they account for source boundaries and hypotheses rather than defining mathematical objects. No stage is mathematically closed. The packet, this document and the [suggested file](../suggested/HeegnerPointEulerSystems--HE.7s.lean) record the same declarations. The [handoff](../handoff/BP-HeegnerPointEulerSystems--HE.7s~2.md) records the checks and remaining work.
+The pass is **complete as a plan**, with 62 nodes at target level. HE.8 and HE.8b are `planned`, with their exact open contracts recorded. HE.7s and HE.8c are `source_decomposed`: they account for source boundaries and hypotheses rather than defining mathematical objects. No stage is mathematically closed. The packet, this document and the [suggested file](../suggested/HeegnerPointEulerSystems--HE.7s.lean) record the same declarations. The [review handoff](../handoff/REV-HeegnerPointEulerSystems--HE.7s~2.md) records the checks and remaining work.
 
 ## Ground already supplied
 
@@ -10,7 +10,7 @@ The accepted RS-04 restructuring leaves actual Heegner geometry and arithmetic h
 
 EulerSystemsAndKolyvaginSystems owns the general derivative and Kolyvagin-system structures, finite/singular comparison, prime-restriction rigidity, stub modules, error-tolerant descent and Iwasawa specialization. SelmerIwasawaCohomology owns continuous cohomology, ordinary/finite local conditions and derived tower comparison. ArithmeticGaloisDuality owns duality and cochain machinery. GrossZagierAndArithmeticHeights owns Waldspurger, Gross–Zagier and BDP identities. No generic inverse limit, derived category, Selmer complex or main-conjecture formulation is rebuilt as a Heegner-specific substitute.
 
-The baseline is Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369` with Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`. Every positive citation was read in its source at that pin. Mathlib supplies the actual p-adic integer ring, finite group-ring basis elements, bundled module maps, monoid homomorphisms, submodule spans, tensor products, finite rank and extended natural numbers. These give algebraic interfaces for the prototype. A finite monoid algebra is not the completed arithmetic Λ; a general measure construction is not integral Selmer control. The name searches also find group-theoretic Iwasawa criteria and numerical Heegner numbers, which do not supply this theory.
+The baseline is Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369` with Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`. Every positive citation was read in its source at that pin. Mathlib supplies the actual p-adic integer ring, finite group-ring basis elements, bundled module maps, monoid homomorphisms, submodule spans, tensor products, finite rank and extended natural numbers. These give algebraic interfaces for the prototype. A finite monoid algebra is not the completed arithmetic Λ; a general measure construction is not integral Selmer control. The name searches also find group-theoretic Iwasawa criteria and numerical Heegner numbers. Tau Ceti contains classical explicit 2-Selmer groups, and Dedekind multiplicative Selmer groups also exist; these do not supply the ordinary Λ-adic Selmer groups in this plan.
 
 ## Conventions and dependency order
 
@@ -502,7 +502,7 @@ For each squarefree allowed n, apply the imported derivative operator to Q[n] (o
 2. Prove torsion invariants vanish under the stated tor/image hypotheses, then apply inflation–restriction.
 3. Apply the imported continuous Iwasawa comparison; no algebraic discrete-cohomology replacement.
 
-**Dependencies:** `HeegnerPointEulerSystems:HE.8/universal-norm-heegner-family`, `HeegnerPointEulerSystems:HE.8/anticyclotomic-heegner-class`, `HeegnerPointEulerSystems:HE.4/kolyvagin-derivative-classes-and-descent-to-K`, `HeegnerPointEulerSystems:HE.4/generator-tensor-choice-independence`, `EulerSystemsAndKolyvaginSystems:ES.3`, `EulerSystemsAndKolyvaginSystems:ES.8`.
+**Dependencies:** `HeegnerPointEulerSystems:HE.8/universal-norm-heegner-family`, `HeegnerPointEulerSystems:HE.8/anticyclotomic-heegner-class`, `HeegnerPointEulerSystems:HE.4/kolyvagin-derivative-classes-and-descent-to-K`, `HeegnerPointEulerSystems:HE.4/generator-tensor-choice-independence`, `EulerSystemsAndKolyvaginSystems:ES.3`, `EulerSystemsAndKolyvaginSystems:ES.8`, `HeegnerPointEulerSystems:HE.8/universal-norm-auxiliary-trace`.
 
 **Source:** [howard](https://arxiv.org/pdf/1202.6340), §2.3, construction following Lemma 2.3.3; PDF pp.30. The actual norm family is differentiated at auxiliary primes and descended using the coefficient ideal, restriction comparison and cyclic-Galois tensor.
 
@@ -561,7 +561,7 @@ The corrected Λ-adic derivative system satisfies the generic finite/singular co
 2. Use the inherited global χ localization square; retain its unresolved supplier gap explicitly.
 3. Construct the corrected system, rather than claiming the raw derivatives already satisfy stronger relations.
 
-**Dependencies:** `HeegnerPointEulerSystems:HE.8/lambda-heegner-derivative-class`, `HeegnerPointEulerSystems:HE.8/lambda-heegner-local-conditions`, `HeegnerPointEulerSystems:HE.5/local-heegner-chi-automorphism`, `HeegnerPointEulerSystems:HE.5/finite-singular-comparison-and-the-corrected-kolyvagin-system`, `EulerSystemsAndKolyvaginSystems:ES.3`, `HeegnerPointEulerSystems:HE.8/lambda-derivative-restriction`.
+**Dependencies:** `HeegnerPointEulerSystems:HE.8/lambda-heegner-derivative-class`, `HeegnerPointEulerSystems:HE.8/lambda-heegner-local-conditions`, `HeegnerPointEulerSystems:HE.5/local-heegner-chi-automorphism`, `HeegnerPointEulerSystems:HE.5/finite-singular-comparison-and-the-corrected-kolyvagin-system`, `EulerSystemsAndKolyvaginSystems:ES.3`, `HeegnerPointEulerSystems:HE.8/lambda-derivative-restriction`, `HeegnerPointEulerSystems:HE.8/universal-norm-auxiliary-trace`.
 
 **Source:** [howard](https://arxiv.org/pdf/1202.6340), Lemmas2.3.5–2.3.6; PDF pp.32–34. The reciprocity/reduction comparison retains the Frobenius correction and coefficient depth needed by the finite-singular relation.
 
@@ -741,20 +741,20 @@ For the actual finite Heegner derivative system define M_r=min_(ν(n)=r) ind(κ_
 
 **Declaration:** `optimal_lattice_isogeny_comparison`. **Packet identity:** `HeegnerPointEulerSystems:HE.8/optimal-lattice-isogeny-comparison`.
 
-For E₀ optimal on X₀(N), E₁ optimal on X₁(N), and the distinguished E_• with T_f identified integrally with T_pE_•, the prescribed isogeny E₀→E_• is étale at odd p. For sufficiently near-trivial α, I_•(α)C_•(α)=I₀(α)C₀(α), where I is the bottom-class index and C the finite-cokernel local index modulo torsion. Neither factor is individually asserted equal under arbitrary isogeny.
+For E₀ optimal on X₀(N), E₁ optimal on X₁(N), and the distinguished E_• with T_f identified integrally with T_pE_•, the prescribed isogeny E₀→E_• is étale at odd p. For crystalline α as in BCGS Lemma 1.2.3 with L_BDP(α⁻¹)≠0 and α sufficiently near1, I_•(α)C_•(α)=I₀(α)C₀(α), where I is the bottom-class index and C the finite-cokernel local index modulo torsion. Neither factor is individually asserted equal under arbitrary isogeny.
 
-**Hypotheses:** E/ℚ is modular with conductor N, K imaginary quadratic, all primes dividing N split in K, signed discriminant D_K<0 odd and not −3; p is odd and prime to ND_K, and E has good ordinary reduction at p. T=T_pE, Γ=Gal(K∞/K)≃ℤ_p, Λ=ℤ_p⟦Γ⟧, ι(γ)=γ⁻¹; imported continuous cohomology and propagated self-dual local conditions are used. E(K)[p]=0. p splits as v v̄ in K.
+**Hypotheses:** E/ℚ is modular with conductor N, K imaginary quadratic, all primes dividing N split in K, signed discriminant D_K<0 odd and not −3; p is odd and prime to ND_K, and E has good ordinary reduction at p. T=T_pE, Γ=Gal(K∞/K)≃ℤ_p, Λ=ℤ_p⟦Γ⟧, ι(γ)=γ⁻¹; imported continuous cohomology and propagated self-dual local conditions are used. E(K)[p]=0. p splits as v v̄ in K. α is crystalline at both primes above p and comes from a Hecke character of infinity type (n,−n), with n≥0 and n divisible by p−1, as in BCGS Theorem 1.2.1 and Lemma 1.2.3. Assume L_BDP(α⁻¹)≠0; for the displayed near-identity formulas take α≡1 modulo p^m with m sufficiently large.
 
 **Proof or construction:**
 
 1. Use the modular-symbol lattice and étale isogeny to identify Fil⁺ lattices.
 2. Track the global index of the isogeny and cancel it against the localization-cokernel index.
 
-**Dependencies:** `HeegnerPointEulerSystems:HE.8/anticyclotomic-heegner-class`, `KatoEulerSystems:L4`, `GrossZagierAndArithmeticHeights:GZ.9/isogeny-and-differential-compatibility`.
+**Dependencies:** `HeegnerPointEulerSystems:HE.8/anticyclotomic-heegner-class`, `KatoEulerSystems:L4`, `GrossZagierAndArithmeticHeights:GZ.9/isogeny-and-differential-compatibility`, `HeegnerPointEulerSystems:HE.8/crystalline-near-trivial-character`.
 
 **Source:** [bcgs](https://arxiv.org/pdf/2312.09301v2), §1.2.2 and Lemma 1.2.5; PDF pp.12. The distinguished modular-symbol lattice comparison preserves the global isogeny index and finite local cokernel.
 
-**Source:** [wuthrich](https://www.maths.tcd.ie/EMIS/journals/DMJDMV/vol-19/12.pdf), Theorem 4, published p.385, proof pp.386–387. Distinguished modular-symbol lattice at odd semistable primes only. E₀→E_• at odd p is used in BCGS Lemma 1.2.5; arbitrary-isogeny or dyadic equality is not supplied.
+**Source:** [wuthrich](https://www.maths.tcd.ie/EMIS/journals/DMJDMV/vol-19/12.pdf), Theorem 4, published p.384 (PDF p.4), proof pp.386–387. Distinguished modular-symbol lattice at odd semistable primes only. E₀→E_• at odd p is used in BCGS Lemma 1.2.5; arbitrary-isogeny or dyadic equality is not supplied.
 
 **Required boundary:** Retain every coefficient, local condition and arithmetic hypothesis stated here; compare the source locator before using the declaration.
 
@@ -762,16 +762,16 @@ For E₀ optimal on X₀(N), E₁ optimal on X₁(N), and the distinguished E_�
 
 **Declaration:** `twisted_logarithm_index_formula`. **Packet identity:** `HeegnerPointEulerSystems:HE.8/twisted-logarithm-index-formula`.
 
-With E_• and α sufficiently close to1, L_BDP(α⁻¹)≠0 and κ_1^•(α)≠0, let t_α=length_(ℤ_p^ur)(ℤ_p^ur/L_BDP(α⁻¹)), q_•=#H⁰(ℚ_p,E_•[p∞]), I_•=#(S_α/ℤ_pκ_1^•(α)), and C_•=#coker(loc_v) modulo torsion. Then p^tα q_•=I_•C_•. Use the source’s coefficient extension and square-root BDP normalization.
+With E_• and crystalline α as in BCGS Lemma 1.2.3 sufficiently close to1, L_BDP(α⁻¹)≠0 and κ_1^•(α)≠0, let t_α=length_(ℤ_p^ur)(ℤ_p^ur/L_BDP(α⁻¹)), q_•=#H⁰(ℚ_p,E_•[p∞]), I_•=#(S_α/ℤ_pκ_1^•(α)), and C_•=#coker(loc_v) modulo torsion. Then p^tα q_•=I_•C_•. Use the source’s coefficient extension and square-root BDP normalization.
 
-**Hypotheses:** E/ℚ is modular with conductor N, K imaginary quadratic, all primes dividing N split in K, signed discriminant D_K<0 odd and not −3; p is odd and prime to ND_K, and E has good ordinary reduction at p. T=T_pE, Γ=Gal(K∞/K)≃ℤ_p, Λ=ℤ_p⟦Γ⟧, ι(γ)=γ⁻¹; imported continuous cohomology and propagated self-dual local conditions are used. E(K)[p]=0. p splits as v v̄ in K.
+**Hypotheses:** E/ℚ is modular with conductor N, K imaginary quadratic, all primes dividing N split in K, signed discriminant D_K<0 odd and not −3; p is odd and prime to ND_K, and E has good ordinary reduction at p. T=T_pE, Γ=Gal(K∞/K)≃ℤ_p, Λ=ℤ_p⟦Γ⟧, ι(γ)=γ⁻¹; imported continuous cohomology and propagated self-dual local conditions are used. E(K)[p]=0. p splits as v v̄ in K. α is crystalline at both primes above p and comes from a Hecke character of infinity type (n,−n), with n≥0 and n divisible by p−1, as in BCGS Theorem 1.2.1 and Lemma 1.2.3. Assume L_BDP(α⁻¹)≠0; for the displayed near-identity formulas take α≡1 modulo p^m with m sufficiently large.
 
 **Proof or construction:**
 
 1. Apply the family explicit reciprocity law with its integral regulator cokernel.
 2. Use local duality to compute the H²/H⁰ correction and quotient the localization torsion.
 
-**Dependencies:** `HeegnerPointEulerSystems:HE.8/near-trivial-bottom-nonvanishing`, `HeegnerPointEulerSystems:HE.8/optimal-lattice-isogeny-comparison`, `GrossZagierAndArithmeticHeights:GZ.9/bloch-kato-logarithm-of-heegner-class`, `PadicHodgeRegulators:L3`, `SelmerIwasawaCohomology:L3/semilocal-cohomology`.
+**Dependencies:** `HeegnerPointEulerSystems:HE.8/near-trivial-bottom-nonvanishing`, `HeegnerPointEulerSystems:HE.8/optimal-lattice-isogeny-comparison`, `GrossZagierAndArithmeticHeights:GZ.9/bloch-kato-logarithm-of-heegner-class`, `PadicHodgeRegulators:L3`, `SelmerIwasawaCohomology:L3/semilocal-cohomology`, `HeegnerPointEulerSystems:HE.8/crystalline-near-trivial-character`.
 
 **Source:** [bcgs](https://arxiv.org/pdf/2312.09301v2), Lemma 1.2.3; PDF pp.11–12. The regulator index formula retains the chosen lattice, local invariant factor and specialization normalization.
 
@@ -781,9 +781,9 @@ With E_• and α sufficiently close to1, L_BDP(α⁻¹)≠0 and κ_1^•(α)≠
 
 **Declaration:** `twisted_anticyclotomic_control`. **Packet identity:** `HeegnerPointEulerSystems:HE.8/twisted-anticyclotomic-control`.
 
-For m≫0 and α=α_m, a characteristic generator F_E of the strict-at-v, unrestricted-at-v̄ Greenberg dual satisfies #(ℤ_p/F_E(α⁻¹))=#Sha(W_α⁻¹/K)·C_α²·∏_(w|N)c_w^(p)(α⁻¹)·q_E². The finite Sha is the source’s propagated Selmer quotient. The formula is integral and uses all K-primes over N and the finite/torsion local cokernel.
+For m≫0, crystalline α=α_m and L_BDP(α⁻¹)≠0, a characteristic generator F_E of the strict-at-v, unrestricted-at-v̄ Greenberg dual satisfies #(ℤ_p/F_E(α⁻¹))=#Sha(W_α⁻¹/K)·C_α²·∏_(w|N)c_w^(p)(α⁻¹)·q_E². The finite Sha is the source’s propagated Selmer quotient. The formula is integral and uses all K-primes over N and the finite/torsion local cokernel.
 
-**Hypotheses:** E/ℚ is modular with conductor N, K imaginary quadratic, all primes dividing N split in K, signed discriminant D_K<0 odd and not −3; p is odd and prime to ND_K, and E has good ordinary reduction at p. T=T_pE, Γ=Gal(K∞/K)≃ℤ_p, Λ=ℤ_p⟦Γ⟧, ι(γ)=γ⁻¹; imported continuous cohomology and propagated self-dual local conditions are used. E(K)[p]=0. p splits as v v̄ in K.
+**Hypotheses:** E/ℚ is modular with conductor N, K imaginary quadratic, all primes dividing N split in K, signed discriminant D_K<0 odd and not −3; p is odd and prime to ND_K, and E has good ordinary reduction at p. T=T_pE, Γ=Gal(K∞/K)≃ℤ_p, Λ=ℤ_p⟦Γ⟧, ι(γ)=γ⁻¹; imported continuous cohomology and propagated self-dual local conditions are used. E(K)[p]=0. p splits as v v̄ in K. α is crystalline at both primes above p and comes from a Hecke character of infinity type (n,−n), with n≥0 and n divisible by p−1, as in BCGS Theorem 1.2.1 and Lemma 1.2.3. Assume L_BDP(α⁻¹)≠0; for the displayed near-identity formulas take α≡1 modulo p^m with m sufficiently large.
 
 **Proof or construction:**
 
@@ -819,21 +819,21 @@ For α≡1 modulo p^m the twisted local Tamagawa p-factor c_w^(p)(α) is congrue
 
 **Declaration:** `arithmetic_rescaled_kolyvagin_bound`. **Packet identity:** `HeegnerPointEulerSystems:HE.8/arithmetic-rescaled-kolyvagin-bound`.
 
-There exist M and E depending only on T_pE such that, for α≡1 modulo p^m with m≥M and a permitted deep-prime Kolyvagin system κ̃ for T_α with κ̃₁≠0, the dual Selmer group is ℚ_p/ℤ_p⊕M_α⊕M_α and length M_α≤ind(κ̃₁)+E. The constant does not grow with m, the deep-prime set or common p-rescaling. Under the source’s surjectivity hypothesis E=0.
+There exist M and E depending only on T_pE such that, for α≡1 modulo p^m with m≥M and a collection κ̃_n∈H¹(K,T_α/I_nT_α) on a permitted prime set containing every sufficiently deep L_e, with κ̃₁≠0 and one fixed t≥0 for which {p^tκ̃_n}_n is an ordinary Kolyvagin system, H¹_Ford(K,T_α) has ℤ_p-rank one and the discrete ordinary Selmer group H¹_Ford(K,W_α⁻¹) is ℚ_p/ℤ_p⊕M_α⊕M_α, with length M_α≤ind(κ̃₁)+E. The constants are independent of m, the prime set and t. The divided collection itself need not be an integral Kolyvagin system. Under the source’s surjectivity hypothesis E=0.
 
-**Hypotheses:** E/ℚ is modular with conductor N, K imaginary quadratic, all primes dividing N split in K, signed discriminant D_K<0 odd and not −3; p is odd and prime to ND_K, and E has good ordinary reduction at p. T=T_pE, Γ=Gal(K∞/K)≃ℤ_p, Λ=ℤ_p⟦Γ⟧, ι(γ)=γ⁻¹; imported continuous cohomology and propagated self-dual local conditions are used. E(K)[p]=0.
+**Hypotheses:** E/ℚ is modular with conductor N, K imaginary quadratic, all primes dividing N split in K, signed discriminant D_K<0 odd and not −3; p is odd and prime to ND_K, and E has good ordinary reduction at p. T=T_pE, Γ=Gal(K∞/K)≃ℤ_p, Λ=ℤ_p⟦Γ⟧, ι(γ)=γ⁻¹; imported continuous cohomology and propagated self-dual local conditions are used. E(K)[p]=0. The allowed prime set contains L_e for all sufficiently large e. The collection has nonzero bottom class and one common multiple p^tκ̃ satisfying every Kolyvagin-system relation, with t independent of n.
 
 **Proof or construction:**
 
 1. Import generic error-tolerant descent from ES.4.
-2. Verify the actual Tate representation/dual local conditions and uniform image/evaluation constants.
-3. Check rescaled Heegner classes retain every transverse and finite/singular relation.
+2. Verify the actual Tate representation/dual local conditions and uniform image/evaluation constants. The narrower HE.7 integral-Tate-image statement is not applicable without its non-torsion untwisted-point hypothesis; the precise weak-torsion extension is recorded in the inherited arithmetic gap.
+3. Verify that the fixed common multiple is a Kolyvagin system. Pass to primes of depth larger than t plus the chosen coefficient depth, as in BCGS Theorem 1.3.1, to remove the scalar in the finite descent bound; do not assume the divided collection itself satisfies integral relations.
 
-**Dependencies:** `HeegnerPointEulerSystems:HE.8/lambda-heegner-local-conditions`, `HeegnerPointEulerSystems:HE.8/lambda-finite-singular-relation`, `EulerSystemsAndKolyvaginSystems:ES.4`, `HeegnerPointEulerSystems:HE.7/integral-tate-image-errors`, `HeegnerPointEulerSystems:HE.8/near-trivial-character-congruence`.
+**Dependencies:** `HeegnerPointEulerSystems:HE.8/lambda-heegner-local-conditions`, `HeegnerPointEulerSystems:HE.8/lambda-finite-singular-relation`, `EulerSystemsAndKolyvaginSystems:ES.4`, `HeegnerPointEulerSystems:HE.8/near-trivial-character-congruence`.
 
 **Source:** [bcgs](https://arxiv.org/pdf/2312.09301v2), Theorem 1.3.1 and its cited CGS proof; PDF pp.15. A common rescaling of the derivative collection permits the Kolyvagin bound with an error uniform in the scalar; the rescaling contract remains explicit.
 
-**Required boundary:** Retain every coefficient, local condition and arithmetic hypothesis stated here; compare the source locator before using the declaration.
+**Required boundary:** Retain every coefficient, local condition and arithmetic hypothesis stated here; compare the source locator before using the declaration. The error bound applies to the unscaled collection whenever a fixed common multiple is a system; its error is independent of that multiplier. The group with divisible summand is the discrete ordinary Selmer group, not its Pontryagin dual.
 
 ### Exact paired Selmer length for a Heegner system
 
@@ -858,16 +858,16 @@ For p>3, a surjective residual representation and the generic self-dual rank-one
 
 **Declaration:** `integral_main_conjecture_index_square`. **Packet identity:** `HeegnerPointEulerSystems:HE.8/integral-main-conjecture-index-square`.
 
-Assume the integral anticyclotomic Greenberg main conjecture in Λ^ur with the BCGS square-root convention. For α_m sufficiently close to1, the p-optimal curve satisfies I₀(α)²=#Sha(W_α⁻¹/K)·∏_(w|N)c_w^(p)(α⁻¹)·q₀⁴. A rational main conjecture supplies only a bounded p-power error; it does not supply this exact equality.
+Assume the integral anticyclotomic Greenberg main conjecture in Λ^ur with the BCGS square-root convention. For crystalline α_m sufficiently close to1 with L_BDP(α_m⁻¹)≠0, the p-optimal curve satisfies I₀(α)²=#Sha(W_α⁻¹/K)·∏_(w|N)c_w^(p)(α⁻¹)·q₀⁴. A rational main conjecture supplies only a bounded p-power error; it does not supply this exact equality.
 
-**Hypotheses:** E/ℚ is modular with conductor N, K imaginary quadratic, all primes dividing N split in K, signed discriminant D_K<0 odd and not −3; p is odd and prime to ND_K, and E has good ordinary reduction at p. T=T_pE, Γ=Gal(K∞/K)≃ℤ_p, Λ=ℤ_p⟦Γ⟧, ι(γ)=γ⁻¹; imported continuous cohomology and propagated self-dual local conditions are used. E(K)[p]=0. p splits as v v̄ in K. Integral anticyclotomic Greenberg main conjecture and the p-optimal lattice.
+**Hypotheses:** E/ℚ is modular with conductor N, K imaginary quadratic, all primes dividing N split in K, signed discriminant D_K<0 odd and not −3; p is odd and prime to ND_K, and E has good ordinary reduction at p. T=T_pE, Γ=Gal(K∞/K)≃ℤ_p, Λ=ℤ_p⟦Γ⟧, ι(γ)=γ⁻¹; imported continuous cohomology and propagated self-dual local conditions are used. E(K)[p]=0. p splits as v v̄ in K. Integral anticyclotomic Greenberg main conjecture and the p-optimal lattice. α is crystalline at both primes above p and comes from a Hecke character of infinity type (n,−n), with n≥0 and n divisible by p−1, as in BCGS Theorem 1.2.1 and Lemma 1.2.3. Assume L_BDP(α⁻¹)≠0; for the displayed near-identity formulas take α≡1 modulo p^m with m sufficiently large.
 
 **Proof or construction:**
 
 1. Evaluate the integral characteristic ideal identity.
 2. Substitute the logarithm and control equations, square the former, and cancel the nonzero local cokernel index.
 
-**Dependencies:** `HeegnerPointEulerSystems:HE.8/twisted-logarithm-index-formula`, `HeegnerPointEulerSystems:HE.8/twisted-anticyclotomic-control`, `HeegnerPointEulerSystems:HE.8/near-trivial-tamagawa-stability`, `HeegnerPointEulerSystems:HE.8/optimal-lattice-isogeny-comparison`, `ModularIwasawaMainConjectures:L0`.
+**Dependencies:** `HeegnerPointEulerSystems:HE.8/twisted-logarithm-index-formula`, `HeegnerPointEulerSystems:HE.8/twisted-anticyclotomic-control`, `HeegnerPointEulerSystems:HE.8/near-trivial-tamagawa-stability`, `HeegnerPointEulerSystems:HE.8/optimal-lattice-isogeny-comparison`, `ModularIwasawaMainConjectures:L0`, `HeegnerPointEulerSystems:HE.8/crystalline-near-trivial-character`.
 
 **Source:** [bcgs](https://arxiv.org/pdf/2312.09301v2), Corollary 1.2.12; Remark 1.2.11; PDF pp.14. Integral characteristic equality gives the exact specialization index square with the local torsion and Tamagawa factors; rational equality is insufficient.
 
@@ -883,8 +883,8 @@ Under (Heeg),(disc),(tor), p odd good ordinary and split in K, the rational anti
 
 **Proof or construction:**
 
-1. Assume all finite derivative classes vanish. Choose m deep enough and rescale specialized classes by p^(t+v_p(C_p)).
-2. Apply the uniform error bound to the rescaled system.
+1. Assume all finite derivative classes vanish. Choose m deep enough and divide the specialized classes by p^(t+v_p(C_p)) on the deep-prime coefficient quotients. The common multiple recovers the actual specialized system.
+2. Apply the uniform error bound to the divided collection with that fixed common multiple; no integral Kolyvagin-system claim for the divided collection is required.
 3. Compare with logarithm/control and the rational main-conjecture p-error; choose t exceeding half the Tamagawa length plus all fixed errors to contradict the bounds.
 
 **Dependencies:** `HeegnerPointEulerSystems:HE.8/near-trivial-heegner-specialization`, `HeegnerPointEulerSystems:HE.8/near-trivial-bottom-nonvanishing`, `HeegnerPointEulerSystems:HE.8/twisted-logarithm-index-formula`, `HeegnerPointEulerSystems:HE.8/twisted-anticyclotomic-control`, `HeegnerPointEulerSystems:HE.8/near-trivial-tamagawa-stability`, `HeegnerPointEulerSystems:HE.8/arithmetic-rescaled-kolyvagin-bound`, `HeegnerPointEulerSystems:HE.8/heegner-divisibility-profile`.
@@ -1182,6 +1182,26 @@ For the CV relative CM tower K[P^∞]/K and an abelian variety A/K, A(K[P^∞])_
 
 **Required boundary:** Use the actual relative ring-class extension and residue fields; no Faltings/Tate semisimplicity theorem or general open-image assumption substitutes for this argument.
 
+### Universal-norm auxiliary trace relation
+
+**Declaration:** `universalNormFamily_trace`. **Packet identity:** `HeegnerPointEulerSystems:HE.8/universal-norm-auxiliary-trace`.
+
+For the family chosen with fixed projections, permitted auxiliary traces and simultaneous finite solvability, tr[j](Q[target j])=a[j]Q[source j] for every supplied edge j. In the actual Heegner tower this is Cor_(K∞[nℓ]/K∞[n])Q[nℓ]=a_ℓQ[n]. It uses exactly universalNormFamily_trace from the construction API.
+
+**Hypotheses:** E/ℚ is modular with conductor N, K imaginary quadratic, all primes dividing N split in K, signed discriminant D_K<0 odd and not −3; p is odd and prime to ND_K, and E has good ordinary reduction at p. T=T_pE, Γ=Gal(K∞/K)≃ℤ_p, Λ=ℤ_p⟦Γ⟧, ι(γ)=γ⁻¹; imported continuous cohomology and propagated self-dual local conditions are used. E(K)[p]=0. The conductor index I and permitted auxiliary-edge index J, their source/target maps, actual compact Hausdorff inverse-limit groups L[n], initial groups P[n], continuous bottom projections π[n], Artin-factor actions Φ[n], points P[n], continuous auxiliary traces tr[j], and scalars a[j] are fixed before choosing the family. Every finite list of bottom and auxiliary constraints has a simultaneous solution, as established by the common free-presentation argument; no uniqueness or surjectivity of arbitrary projections is assumed.
+
+**Proof or construction:**
+
+1. Take the auxiliary equation of the chosen point in the common closed constraint intersection, with the same fixed trace maps, scalars and finite-solvability witness as the construction.
+
+**Dependencies:** `HeegnerPointEulerSystems:HE.8/universal-norm-heegner-family`.
+
+**Source:** [howard](https://arxiv.org/pdf/1202.6340), Lemmas2.3.2–2.3.3; PDF pp.29–30. The proof lifts the initial Artin-factor multiple in a common free presentation, obtains coherent finite conductor families, and chooses a global family by compactness.
+
+**Source:** [cgls](https://web.math.ucsb.edu/~castella/Eisenstein.pdf), Theorem 4.1.1, proof and class-number-shift/local-condition adaptation; PDF pp.27–28. Supplies the weaker E(K)[p]=0 construction and local verification; Howard’s strong image/class-number assumptions are retained only by Howard’s divisibility theorem.
+
+**Required boundary:** The map and its coefficient/tower/local-condition identifications are exactly those in the parent API; the signature is shared with that API item.
+
 ## HE.8b declaration inventory
 
 ### BDP square-root convention comparison
@@ -1261,7 +1281,7 @@ Under p odd ordinary, (Heeg),(disc) and E[p] irreducible over G_K, the actual He
 
 **Dependencies:** `HeegnerPointEulerSystems:HE.8/anticyclotomic-heegner-class`, `HeegnerPointEulerSystems:HE.8/lambda-bottom-class-nontorsion`, `HeegnerPointEulerSystems:HE.8/lambda-finite-singular-relation`, `HeegnerPointEulerSystems:HE.8/arithmetic-rescaled-kolyvagin-bound`, `EulerSystemsAndKolyvaginSystems:ES.8`, `HeegnerPointEulerSystems:HE.8b/anticyclotomic-formulation-comparison`.
 
-**Source:** [bcs](https://arxiv.org/pdf/2405.00270v2), Theorem 4.2.1 (using CGS Theorem 5.5.2); PDF pp.8–9. The two-variable Euler-system bound is imported at the source’s precise local conditions and then used in the anticyclotomic return.
+**Source:** [bcs](https://arxiv.org/pdf/2405.00270v2), Theorem 4.2.1 (using CGS Theorem 5.5.2); PDF pp.8–9. The anticyclotomic Euler-system bound has rational coefficients under (irr_K) and integral coefficients under (sur); the two-variable comparison is instead BCS Theorem 4.1.3/Corollary 4.1.4.
 
 **Required boundary:** Retain every coefficient, local condition and arithmetic hypothesis stated here; compare the source locator before using the declaration.
 
@@ -1456,7 +1476,7 @@ Each request is an open proof/interface boundary. The named arithmetic export mu
 - **`PadicMeasuresIwasawaAlgebras:L0a`:** Continuous arithmetic anticyclotomic character spaces and evaluation with the chosen γ,u,h; the crystalline algebraic-Hecke characters α_m must retain infinity type (h(p−1)p^(m−1),−h(p−1)p^(m−1)). Separately export continuous nontrivial Γ≃ℤ_p characters tending to 1, with α≡1 modulo p^m, for CS §3.3–§3.4 at every unramified p. This sequence does not assert algebraic-Hecke origin or crystallinity at inert p.
 - **`PadicHodgeRegulators:L3`:** Ordinary filtration and unit root; integral family big logarithm with explicit finite cokernel and CH2018 Theorem 5.7 Heegner reciprocity, at the exact anticyclotomic coefficients and chosen lattice. Do not infer the full family law from a finite point formula. Certify the BCGS local invariant/unit-root normalization on the distinguished lattice, distinguishing full T/A invariants from the ordinary unramified quotient and reduction torsion.
 - **`EulerSystemsAndKolyvaginSystems:ES.3`:** The general Λ-adic derivative/finite-singular system with cyclic Galois tensor, actual coefficient quotients and change-of-generator functoriality. HE supplies the arithmetic family and verifies the relations.
-- **`EulerSystemsAndKolyvaginSystems:ES.4`:** BCGS Proposition 2.2.1 prime-restriction rigidity, Lemma 2.2.4 uniform stub structure and Theorem 2.2.2 exact paired Sha length, with finite DVR, p>3 for the Lemma 2.2.4/exact-length proof; Proposition 2.2.1 separately states p≥3, residual surjectivity and self-dual/cartesian hypotheses; also the rescaling-stable bounded-error variant used in Theorem 1.3.1. These generic proofs are owned here, not copied into HE.
+- **`EulerSystemsAndKolyvaginSystems:ES.4`:** BCGS Proposition 2.2.1 prime-restriction rigidity, Lemma 2.2.4 uniform stub structure and Theorem 2.2.2 exact paired Sha length, with finite DVR, p>3 for the Lemma 2.2.4/exact-length proof; Proposition 2.2.1 separately states p≥3, residual surjectivity and self-dual/cartesian hypotheses; also the Theorem 1.3.1 bound for a collection whose fixed common p^t-multiple is a Kolyvagin system, with error independent of t and no integral-system assumption on the divided collection. These generic proofs are owned here, not copied into HE.
 - **`EulerSystemsAndKolyvaginSystems:ES.8`:** Height-one Λ-adic Kolyvagin specialization and uniform control errors, paired torsion and anticyclotomic functional equation. Export distinct clean Howard and weaker CGS/BCS residual branches; the latter has rational p-errors unless surjectivity gives integral control.
 - **`HilbertModularVarietiesAndShimuraCurves:R18.1`:** Admissible quaternionic CM moduli and component maps in CV-dynamics §§2.1–2.2, including the definite/indefinite datum and exact reciprocity action.
 - **`HilbertModularVarietiesAndShimuraCurves:R18.2`:** Quaternionic CM reduction maps at the actual auxiliary supersingular places and compatibility with component/reciprocity maps in CV-dynamics Theorem 2.9.
@@ -1489,7 +1509,7 @@ The acquired Wüthrich published text gives the exact distinguished-lattice stat
 
 ## Source versions and findings
 
-The following acquisition scopes come from the original pass and its independent review. Revision 2 re-fetched all twelve cited public PDFs on 8 October 2026; every content hash matches the reviewed packet. It re-read the Howard/CGLS norm construction, CV tower-torsion argument, BCGS exact-length proof scope, CS cone and specialization lattice, BCK integral comparison, and CGS Theorem C at the locators above. Other accepted source targets are retained.
+The following acquisition scopes come from the original pass and its independent reviews. Independent revision-2 review re-read every node’s source locator and all eleven positive baseline statements on 8 October 2026. Revision 2 re-fetched all twelve cited public PDFs on 8 October 2026; every content hash matches the reviewed packet. It re-read the Howard/CGLS norm construction, CV tower-torsion argument, BCGS exact-length proof scope, CS cone and specialization lattice, BCK integral comparison, and CGS Theorem C at the locators above. Other accepted source targets are retained.
 
 - [The Heegner point Kolyvagin system](https://arxiv.org/pdf/1202.6340), Benjamin Howard. arXiv:1202.6340v1, 28 February 2012; Compositio Math.140 (2004),1439–1472. **Read:** Introduction; §§2.1–2.3, including the height-one control/error proof, the universal-norm construction, local verification and augmentation argument. Finite-level material in Chapter 1 is imported from the reviewed HE.0 part.
 - [Mazur’s conjecture on higher Heegner points](https://webusers.imj-prg.fr/~christophe.cornut/papers/mcinv.pdf), Christophe Cornut. Invent. Math.148 (2002),495–523; author manuscript. **Read:** Introduction and the modular CM-trace non-torsion statement used by Howard2.3.7. The more general dynamical proof is read in the companion distribution paper; no claim to have read every proof here.
@@ -1507,11 +1527,11 @@ The following acquisition scopes come from the original pass and its independent
 
 The BCGS publisher request was refused with HTTP 403. The author copy and arXiv v2 are recorded separately, with content hashes; no journal-text collation is claimed. Castella–Sano’s result is scoped to its January 2026 preprint. Rubin 1987 and the missing elliptic-unit proofs remain unacquired.
 
-**HeegnerPointEulerSystems/E1 — misprint.** Introduction(disc), arXiv v2 p.1; same text in linked author copy dated 2 January 2026 p.1; journal wording unverified. Here discriminant is −D_K<0, so the positive D_K should be excluded from 3. Equivalently use signed discriminant D_K<0 and exclude −3 consistently. The preceding line declares −D_K<0; D_K=3 otherwise passes the printed exclusion although the six-unit field Q(√−3) is the excluded exceptional case. Later sections switch to signed discriminant notation. Impact: nothing. The existing independent review confirmed this finding; the acquired copies and correction-search history are recorded in the packet.
+**HeegnerPointEulerSystems/E1 — misprint.** Introduction(disc), arXiv v2 p.1; same text in linked author copy dated 2 January 2026 p.1; journal wording unverified. Here discriminant is −D_K<0, so the positive D_K should be excluded from 3. Equivalently use signed discriminant D_K<0 and exclude −3 consistently. The preceding line declares −D_K<0; D_K=3 otherwise passes the printed exclusion although the six-unit field Q(√−3) is the excluded exceptional case. Later sections switch to signed discriminant notation. Impact: nothing. The independent revision-2 review confirms this finding in the acquired versions; the acquired copies and correction-search history are recorded in the packet.
 
-**HeegnerPointEulerSystems/E2 — misprint.** Lemma 3.1.1, author manuscript20 January 2026 / arXiv2601.14504v1, §3.1. Require I_n ⊂ p^mℤ_p, equivalently M(n)≥m, so the finite coefficient class reduces to modulo p^m. I_n=(p^M(n)). The quotient map ℤ_p/I_n→ℤ_p/p^m exists exactly when M(n)≥m. For M(n)=3,m=1 the printed membership fails although the map exists; for M(n)=1,m=3 membership holds but the required quotient map does not exist. Compare BCGS Lemma 1.1.5. Impact: nothing. The existing independent review confirmed this finding; the acquired copies and correction-search history are recorded in the packet.
+**HeegnerPointEulerSystems/E2 — misprint.** Lemma 3.1.1, author manuscript20 January 2026 / arXiv2601.14504v1, §3.1. Require I_n ⊂ p^mℤ_p, equivalently M(n)≥m, so the finite coefficient class reduces to modulo p^m. I_n=(p^M(n)). The quotient map ℤ_p/I_n→ℤ_p/p^m exists exactly when M(n)≥m. For M(n)=3,m=1 the printed membership fails although the map exists; for M(n)=1,m=3 membership holds but the required quotient map does not exist. Compare BCGS Lemma 1.1.5. Impact: nothing. The independent revision-2 review confirms this finding in the acquired versions; the acquired copies and correction-search history are recorded in the packet.
 
-**HeegnerPointEulerSystems/E3 — gap.** Theorem 2.2.2, Proposition 2.2.1, Lemma 2.2.4 and proof, arXiv2312.09301v2 pp.17–19; same mismatch in linked author copy; publisher text unverified. Supply the uniform stub lemma at p=3, or restrict this proof route to p>3. No counterexample to Theorem 2.2.2 at p=3 is claimed. Theorem 2.2.2 imports the setting of Proposition 2.2.1. Its proof invokes Lemma 2.2.4 twice to identify the uniform stub index, without disposing of p=3. The cited lemma has an explicit stronger prime assumption. Impact: the proof. The existing independent review confirmed this finding; the acquired copies and correction-search history are recorded in the packet.
+**HeegnerPointEulerSystems/E3 — gap.** Theorem 2.2.2, Proposition 2.2.1, Lemma 2.2.4 and proof, arXiv2312.09301v2 pp.17–19; same mismatch in linked author copy; publisher text unverified. Supply the uniform stub lemma at p=3, or restrict this proof route to p>3. No counterexample to Theorem 2.2.2 at p=3 is claimed. Theorem 2.2.2 imports the setting of Proposition 2.2.1. Its proof invokes Lemma 2.2.4 twice to identify the uniform stub index, without disposing of p=3. The cited lemma has an explicit stronger prime assumption. Impact: the proof. The independent revision-2 review confirms this finding in the acquired versions; the acquired copies and correction-search history are recorded in the packet.
 
 ## Coverage, planets and prototype limits
 
@@ -1529,15 +1549,15 @@ Remaining contracts: Certify BCS Wan/Fujiwara period/μ/control contracts at the
 
 HE.8 has six planets: the anticyclotomic Heegner class, joint CM equidistribution, Howard’s divisibility theorem, BCGS nonvanishing, refined Kolyvagin divisibility and the Castella–Sano equivalence. HE.8b has five: rational and integral Heegner main conjectures, rational and integral Greenberg–BDP theorems, and the anticyclotomic Eisenstein main conjecture. Their names are definitions, constructions or named theorems; source locators do not serve as planet names. The process notes have no planets.
 
-The suggested file imports individual Mathlib modules and contains 92 distinct named declarations and 29 admitted examples. Its 37 API items include six promoted lemma nodes. The native compactness statements are used rather than planned again. The norm-family construction chooses from the admitted compact-lift lemma; the remaining prototype definitions, theorem proofs and examples are admitted. All 61 packet declarations remain implementation-unchecked. Elaboration checks these interfaces with the stated algebraic hypotheses and does not certify the arithmetic suppliers or source results.
+The suggested file imports individual Mathlib modules and contains 92 distinct named declarations and 29 admitted examples. Its 37 API items include seven promoted lemma nodes. The native compactness statements are used rather than planned again. The norm-family construction chooses from the admitted compact-lift lemma; the remaining prototype definitions, theorem proofs and examples are admitted. All 62 packet declarations remain implementation-unchecked. Elaboration checks these interfaces with the stated algebraic hypotheses and does not certify the arithmetic suppliers or source results.
 
 The actual arithmetic identities of the supplied modules, maps, characters and ideals, continuous Galois cohomology, completed Λ-characteristic-ideal assignment, CM geometry and Selmer determinant identifications remain explicit supplier conditions. The norm-family signatures retain continuity, compactness, Hausdorff separation, finite solvability and transition squares; stabilized norm compatibility retains its algebraic recurrence. Production declarations must use the actual supplier objects and discharge their arithmetic hypotheses.
 
-The prior independent `needs_changes` review is preserved in the packet. Revision 2 addresses R1 and synchronizes its corrections here; only the next independent review can replace that verdict.
+The [independent revision-2 review](../reviews/REV-HeegnerPointEulerSystems--HE.7s~2.md) accepts this completed target-level pass after resolving R1 and correcting the crystalline-character and divided-collection applications. The earlier review report is retained as history. Acceptance certifies this plan’s statements and recorded boundaries; the listed supplier gaps remain open.
 
 ## Retained gaps
 
-**Inherited global χ and arithmetic source gaps.** The reviewed HE.0 part leaves an exact global change-of-group/localization square for χ_ℓ unresolved. This Λ-adic extension imports that mathematical construction and preserves its gap. Reviewed HE.7 supplies bounded CM/dyadic error plans, not formal proofs; its image/arithmetic requests remain dependencies.
+**Inherited global χ and arithmetic source gaps.** The reviewed HE.0 part leaves an exact global change-of-group/localization square for χ_ℓ unresolved. This Λ-adic extension imports that mathematical construction and preserves its gap. Reviewed HE.7 supplies bounded CM/dyadic error plans, not formal proofs; its image/arithmetic requests remain dependencies. For BCGS Theorem 1.3.1, independently certify the uniform restriction/image/evaluation estimates for the actual T_pE and near-identity twists under E(K)[p]=0, with the common-multiple constant separated from the error. HE.7/integral-tate-image-errors assumes a non-torsion untwisted CM trace and cannot discharge this branch with no analytic-rank hypothesis; that direct prerequisite is removed. The BCGS/CGS weak-torsion extension remains an explicit arithmetic proof obligation, rather than an application of the narrower classical theorem.
 
 **S-arithmetic dynamics supplier missing.** RT-AREA-iwasawa-1/1 is retained: GN.4 current Ratner nodes are over real Lie groups and cannot prove CV’s SL₂(F_P) product theorem. Request the S-arithmetic extension. For F_P=Q_p the source cites Ratner precisely; its general-F_P Lemma 2.30 appeals to expert knowledge/Shah notes, whose exact matching theorem has not been acquired here. General-F statements remain planned with that explicit gap.
 
