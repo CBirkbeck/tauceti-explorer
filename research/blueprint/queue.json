@@ -37484,8 +37484,9 @@
    ],
    "revisionOf": "BP-AInfCohomology--AI.6",
    "prompt": "research/blueprint/prompts/BP-AInfCohomology--AI.6~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6916"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6916",
+   "finishedAt": "2026-10-08T12:09:07Z"
   },
   {
    "priority": 2,
@@ -41542,7 +41543,8 @@
     "BP-ComplexMultiplicationAndExplicitReciprocity~2"
    ],
    "prompt": "research/blueprint/prompts/REV-ComplexMultiplicationAndExplicitReciprocity~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7059"
   },
   {
    "kind": "blueprint",
@@ -42417,8 +42419,9 @@
     "BP-ArithmeticKTheory--N.6~2"
    ],
    "prompt": "research/blueprint/prompts/REV-ArithmeticKTheory--N.6~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6988"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6988",
+   "finishedAt": "2026-10-08T12:09:09Z"
   },
   {
    "kind": "blueprint",
