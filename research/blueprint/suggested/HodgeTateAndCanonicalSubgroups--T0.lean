@@ -420,16 +420,13 @@ theorem isogenyDivisor_kernel_not_finite (O : Type u) [CommRing O] (p : ℕ) :
 example (O : Type u) [CommRing O] (p : ℕ) :
     Ideal.span {deltaSection O 1 ((p : O) • LinearMap.id)} = Ideal.span {(p : O)} := sorry
 
--- Omitted: H is split multiplicative, α is its dual character map.
-def multiplicativeHodgeTateIso (R : Type u) [CommRing R] (H W : ModuleCat R)
-    (α : H ⟶ W) : H ≅ W := sorry
-
--- Work on the integral Z_p Tate module before tensoring with O_C.
--- Omitted: fT is the injective Tate map of the specified multiplicative isogeny.
-theorem normalizedMultiplicativePullback (p : ℕ) [Fact p.Prime] (g : ℕ)
-    (fT : (Fin g → PadicInt p) →ₗ[PadicInt p] (Fin g → PadicInt p)) :
-    Ideal.span {LinearMap.det fT} • (⊤ : Submodule (PadicInt p) (Fin g → PadicInt p)) ≤
-      LinearMap.range fT := sorry
+-- On a split chart the source is the constant character lattice tensor the base.
+-- Global points of the constant sheaf on a disconnected ring are a different module.
+-- Omitted: W is ω of μ_(p^n)^r, and α is its actual character map.
+def multiplicativeHodgeTateIso (R : Type u) [CommRing R] (p n r : ℕ)
+    (W : Type u) [AddCommGroup W] [Module R W]
+    (α : (R ⊗[ℤ] (Fin r → ZMod (p^n))) →ₗ[R] W) :
+    (R ⊗[ℤ] (Fin r → ZMod (p^n))) ≃ₗ[R] W := sorry
 
 /-! T0: semi-abelian boundary. There is no dual of an arbitrary semi-abelian
 scheme here: finite Cartier duals and the separate full one-motive are used. -/
@@ -750,9 +747,92 @@ example (R : Type u) [Field R] :
     Submodule.span R {![(1 : R),0]} ≠
       Submodule.span R {![(0 : R),1]} := sorry
 
--- B1 supplies the common tensor-preserving Tate-trivialization torsor and its M-equivariant maps.
-def deRhamHodgeTateLeviComparison (PdR PHT : Sheaf J (Type u)) : PdR ≅ PHT := sorry
+-- B1 supplies the central-μ contracted product and the tensor-compatible comparison.
+-- Omitted: PdRTate is the central-μ contracted product of PdR with the
+-- Tate-basis torsor. The comparison is not an untwisted isomorphism PdR ≅ PHT.
+def deRhamHodgeTateLeviComparison (PdR PdRTate PHT : Sheaf J (Type u)) :
+    PdRTate ≅ PHT := sorry
 end Torsors
+
+/-! T2 owns the open-tower map before perfectoid representability. S0 supplies
+Tower, D6 supplies Flag as v-sheaves on the marked-untilt perfectoid site.
+P9 supplies relative tensor-filtration pullback and descent on all test objects;
+R09.1/B0 supply the universal flag and homogeneous Levi torsor. These
+conditions are omitted from the schematic declarations, not assumed proved.
+S3 imports this map for its perfectoid incarnation and compactified extension.
+-/
+section OpenTower
+variable {Site : Type u} [Category Site] (J : GrothendieckTopology Site)
+
+def openTowerHodgeTateMap (Tower Flag : Sheaf J (Type u)) : Tower ⟶ Flag := sorry
+
+theorem openTowerHodgeTateMap_ext {Tower Flag : Sheaf J (Type u)}
+    (f g : Tower ⟶ Flag) (h : ∀ U : Siteᵒᵖ, f.hom.app U = g.hom.app U) :
+    f = g := sorry
+
+-- Omitted: q is the relative type-μ filtration quotient on the test untilt U.
+theorem openTowerHodgeTateMap_eval {Tower Flag : Sheaf J (Type u)}
+    (π : Tower ⟶ Flag) (U : Siteᵒᵖ)
+    (q : Tower.obj.obj U ⟶ Flag.obj.obj U) : π.hom.app U = q := sorry
+
+-- U is a marked geometric untilt; flagPoint is the pointwise quotient construction.
+theorem openTowerHodgeTateMap_point {Tower Flag : Sheaf J (Type u)}
+    (π : Tower ⟶ Flag) (U : Siteᵒᵖ)
+    (flagPoint : Tower.obj.obj U ⟶ Flag.obj.obj U) :
+    π.hom.app U = flagPoint := sorry
+
+-- aTower and aFlag are the matching G(Q_p) actions with the fixed right/left dictionary.
+theorem openTowerHodgeTateMap_equivariant {Tower Flag : Sheaf J (Type u)}
+    (π : Tower ⟶ Flag) (aTower : Tower ⟶ Tower) (aFlag : Flag ⟶ Flag) :
+    aTower ≫ π = π ≫ aFlag := sorry
+
+-- t is a prime-to-p Hecke translation between tame levels, not an arbitrary map.
+theorem openTowerHodgeTateMap_hecke {Tower Tower' Flag : Sheaf J (Type u)}
+    (π : Tower ⟶ Flag) (π' : Tower' ⟶ Flag) (t : Tower ⟶ Tower') : t ≫ π' = π := sorry
+
+-- b is the supplier's common-base transfer, and π' the map for the base-extended family.
+theorem openTowerHodgeTateMap_baseChange {Tower Flag : Sheaf J (Type u)}
+    (π : Tower ⟶ Flag) (b : Sheaf J (Type u) ⥤ Sheaf J (Type u))
+    (π' : b.obj Tower ⟶ b.obj Flag) : b.map π = π' := sorry
+
+-- The two embeddings come from one Hodge-type embedding; embedding independence is a
+-- tensor-idempotent argument, not a claim that every two flag maps agree.
+theorem openTowerHodgeTateMap_embedding {Tower Tower' Flag Flag' : Sheaf J (Type u)}
+    (π : Tower ⟶ Flag) (π' : Tower' ⟶ Flag')
+    (iTower : Tower ⟶ Tower') (iFlag : Flag ⟶ Flag') :
+    iTower ≫ π' = π ≫ iFlag := sorry
+
+-- PullbackLevi is the actual pullback of the homogeneous Levi torsor along π.
+-- Its associated bundles retain the μ-weight Tate twists of PdRTate.
+def openTowerLeviPullback (PullbackLevi PHT : Sheaf J (Type u)) :
+    PullbackLevi ≅ PHT := sorry
+
+-- Modular test: the quotient O(1) module, not the tautological subline, is ω_E.
+def openTowerHodgeTateMap_modular (O : Sheaf J RingCat)
+    (quotientO1 omega : SheafOfModules O) : quotientO1 ≅ omega := sorry
+example (O : Sheaf J RingCat) (quotientO1 omega : SheafOfModules O) :
+    quotientO1 ≅ omega := sorry
+
+-- Central μ gives a terminal flag; no perfectoid representative of Tower is required.
+theorem openTowerHodgeTateMap_torus {Tower Flag : Sheaf J (Type u)}
+    (π : Tower ⟶ Flag) (hFlag : Limits.IsTerminal Flag) : π = hFlag.from Tower := sorry
+example {Tower Flag : Sheaf J (Type u)} (π : Tower ⟶ Flag)
+    (hFlag : Limits.IsTerminal Flag) : π = hFlag.from Tower := sorry
+
+-- Omitted: G* is the Hodge-type Hilbert datum and ResFlag the unsplit generic Res P¹.
+def openTowerHodgeTateMap_hilbertUnsplit (Flag ResFlag : Sheaf J (Type u)) :
+    Flag ≅ ResFlag := sorry
+example (Flag ResFlag : Sheaf J (Type u)) : Flag ≅ ResFlag := sorry
+
+-- The algebraic chart check fixes which object is the kernel; the quotient line
+-- carries the complementary object and the reader specifies its bundle/twist.
+theorem openTowerHodgeTateMap_kernelQuotient (R : Type u) [Field R] :
+    LinearMap.ker (LinearMap.proj 0 : (Fin 2 → R) →ₗ[R] R) =
+      Submodule.span R {![(0 : R), 1]} := sorry
+example (R : Type u) [Field R] :
+    LinearMap.ker (LinearMap.proj 0 : (Fin 2 → R) →ₗ[R] R) =
+      Submodule.span R {![(0 : R), 1]} := sorry
+end OpenTower
 
 /-! The generic strict filtered category is imported conceptually from the proposed
 ReductiveGroups Part II extension. This is its HT application on an actual
@@ -790,6 +870,7 @@ example (n r : ℕ) (hr : r ≤ n) (FiltrationsOfType : Type u) :
     FiltrationsOfType ≃ Module.Grassmannian R (Fin n → R) (n-r) := sorry
 
 -- Omitted: μ is central; FiltrationsOfType is the actual set for its fixed fiber functor.
+-- This does not assert that the underlying unframed G-torsor is trivial.
 theorem trivial (FiltrationsOfType : Type u) : Subsingleton FiltrationsOfType := sorry
 example (FiltrationsOfType : Type u) : Subsingleton FiltrationsOfType := sorry
 
@@ -932,6 +1013,14 @@ theorem canonicalSubgroup_points_strict (P : Type u) (Cpoints nearZero : Set P) 
     s ∈ Cpoints ∧ s ∉ nearZero := sorry
 example (P : Type u) (Cpoints nearZero : Set P) (s : P) : s ∈ Cpoints ∧ s ∉ nearZero := sorry
 
+-- Added review lemma: G is the supplied BT2, C is a supplied Frobenius-congruent
+-- finite flat subgroup, E is the supplied BT1 quotient p^(-1)C/C. No existence theorem
+-- is used here. Omitted: the quotient/conormal reduction identification modulo p^(1-w),
+-- w=Ha(G), wE=Ha(E), and the R07.2 Hasse/Frobenius tensor-power compatibility.
+theorem pointwiseQuotientHasse (S : Scheme) (G E : Grp (Over S)) (C : Subobject G)
+    (p : ℕ) [Fact p.Prime] (hp : p ≠ 2) (w wE : ℝ) (hw : 0 ≤ w ∧ w < 1) :
+    min wE (1-w) = min ((p : ℝ)*w) (1-w) := sorry
+
 -- Existence/uniqueness is the preceding finite-flat lifting theorem, in the weak range.
 theorem canonicalSubgroup_theorem (S Sbar : Scheme) (G : Grp (Over S))
     (Gbar : Grp (Over Sbar)) (p n : ℕ) (red : Subobject G → Subobject Gbar)
@@ -983,11 +1072,12 @@ theorem anticanonicalLocus_forget (X' : Type u) (q : X' → X)
 def canonicalLocus_section (Base : Type u) (C D : X → AddSubgroup P) :
     Base ≃ ↥(canonicalLocus X P C D) := sorry
 
--- Omitted: C is the connected multiplicative part on the ordinary locus, and E its étale complement.
-theorem anticanonicalLocus_ordinary (C D E : X → AddSubgroup P) (x : X)
-    (hx : x ∈ anticanonicalLocus X P C D) : D x = E x := sorry
-example (C D E : X → AddSubgroup P) (x : X)
-    (hx : x ∈ anticanonicalLocus X P C D) : D x = E x := sorry
+-- Omitted: C is A[p^n]^0 on the ordinary locus, D has the full level-n rank,
+-- Dp is D[p]. The p-torsion disjointness and rank imply a complement, with no chosen E.
+theorem anticanonicalLocus_ordinary (C D Dp : X → AddSubgroup P) (x : X)
+    (hx : x ∈ anticanonicalLocus X P C Dp) : IsCompl (C x) (D x) := sorry
+example (C D Dp : X → AddSubgroup P) (x : X)
+    (hx : x ∈ anticanonicalLocus X P C Dp) : IsCompl (C x) (D x) := sorry
 
 -- Omitted: Cfiber/Afiber are the fibers over an ordinary elliptic point at level one.
 theorem canonicalLocus_modularCurve (Cfiber Afiber : Type u) [Fintype Cfiber]
@@ -1297,7 +1387,9 @@ def modifiedMinimalModel (Xmin : Scheme)
     (coefficientIdeal : SheafOfModules.Submodule (SheafOfModules.unit Xmin.ringCatSheaf)) :
     Over Xmin := sorry
 
--- GSp4/F: b_det=2[F:Q]/(p-1), n>b_det; norm/restriction of scalars forms the determinant line.
+-- D=g*b and n>D: b=1/(p-1) at odd p, b=2 conditionally at p=2.
+-- GSp4/F has g=2[F:Q], hence D=4[F:Q] for the conditional p=2 variant.
+-- powerLattice is p^D times detω; I below is the reduction ideal p^(n-D).
 theorem modifiedDetHodge_bounds (X : Scheme.{u}) (detω : SheafOfModules.{u} X.ringCatSheaf)
     (F powerLattice : SheafOfModules.Submodule detω) : powerLattice ≤ F ∧ F ≤ ⊤ := sorry
 
@@ -1315,13 +1407,17 @@ example (X : Scheme.{u}) (detω : SheafOfModules.{u} X.ringCatSheaf) (F : SheafO
 theorem modifiedDetHodge_factor : Nat.choose 4 2 = 6 ∧ Nat.choose 4 2 ≠ 1 := sorry
 example : Nat.choose 4 2 = 6 ∧ Nat.choose 4 2 ≠ 1 := sorry
 
--- The minimal determinant line descends even when the vector bundle itself does not.
--- Omitted: these are the normal minimal/toroidal models of the reader's GSp4/F example.
+-- The modified determinant line pulls back from the minimal modification;
+-- this does not imply descent of the full Hodge bundle at finite level.
+-- Omitted: f and the sheaves are the compatible GSp4/F models of the reader's example.
 theorem modifiedMinimalModel_not_toroidal (Xmin Xtor : Scheme) (f : Xtor ⟶ Xmin)
-    (ωtor : Xtor.Modules) : ¬ ∃ ωmin : Xmin.Modules,
-      Nonempty ((Scheme.Modules.pullback f).obj ωmin ≅ ωtor) := sorry
-example (Xmin Xtor : Scheme) (f : Xtor ⟶ Xmin) (ωtor : Xtor.Modules) :
-    ¬ ∃ ωmin : Xmin.Modules, Nonempty ((Scheme.Modules.pullback f).obj ωmin ≅ ωtor) := sorry
+    (Lmin : Xmin.Modules) (Ltor ωtor : Xtor.Modules) :
+    Nonempty ((Scheme.Modules.pullback f).obj Lmin ≅ Ltor) ∧
+      ¬ ∃ ωmin : Xmin.Modules, Nonempty ((Scheme.Modules.pullback f).obj ωmin ≅ ωtor) := sorry
+example (Xmin Xtor : Scheme) (f : Xtor ⟶ Xmin)
+    (Lmin : Xmin.Modules) (Ltor ωtor : Xtor.Modules) :
+    Nonempty ((Scheme.Modules.pullback f).obj Lmin ≅ Ltor) ∧
+      ¬ ∃ ωmin : Xmin.Modules, Nonempty ((Scheme.Modules.pullback f).obj ωmin ≅ ωtor) := sorry
 
 /-! The étale plus sheaf is an actual O⁺-submodule sheaf, with effective descent
 supplied by P9. Etale and analytic sites are different categories. -/
@@ -1427,13 +1523,16 @@ theorem aip_automorphyFactor (B : Type u) [CommRing B] (C : Type u) [Field C]
       algebraMap B C (u.val : B) = automorphyFactor C γ z := sorry
 
 -- O5 independently constructs the two coefficient sheaves; P9 supplies effective integral
--- base-change/pro-etale descent. κ is bounded smooth, m=k+r-1 (r=3 or 5).
+-- base-change/pro-etale descent and a local generator with unit HT pullback.
+-- Omitted: a common actual AIP coordinate/level/radius and analytic-character domain.
+-- The printed supremum and analytic-radius formulas, or an index repair alone, do not supply it.
 -- Finite n uses the correctly scaled AL_n and AIPH 6.7(3); infinity uses structural pullback.
 def aipHodgeTate_comparison {C : Type u} [Category C] (J : GrothendieckTopology C)
     (Oplus : Sheaf J RingCat) (aipWeight perfectoidWeight : SheafOfModules Oplus) :
     aipWeight ≅ perfectoidWeight := sorry
 
--- Normalization of the determinant line, with division first on the Z_p character lattice.
+-- Boundary application of R07.2 normalization, with division first on the character
+-- determinant Z_p line; det fT=p^r*u does not mean fT=p*u. C4 supplies the charts.
 -- Omitted: L',L are the two conormal determinant lines and fω is det of λ*.
 theorem normalizedMultiplicativePullback_det (p : ℕ) [Fact p.Prime]
     (O : Type u) [CommRing O] [Algebra (PadicInt p) O] (g r : ℕ)
