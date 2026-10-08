@@ -395,7 +395,7 @@ Unit tests:
 
 Uses: General elliptic application: Names the precise integral subspace with the asserted regulator line. Rational descent: Performs Galois descent after pushforward on E, using the exact E.7 supplier.
 
-Acceptance: Constant algebraic maps in the prototype have zero image; geometric nonconstancy is indispensable for the elliptic theorem.
+Acceptance: The zero Q-linear push map in the prototype has zero image. The elliptic theorem separately requires a nonconstant finite proper parametrization; the prototype does not define pushforward for a constant geometric map.
 
 Source: SS.1988, 1.2.9 (adjointness), 1.1.2 applied to an elliptic quotient; author-copy pp.3,5.
 
@@ -475,7 +475,7 @@ Parity/conductor distinction audited. Merel Corollary 2 follows from Theorem A, 
 
 ### `EllipticRegulators:ER.7/prime-level-L-value-formula`
 
-Proof normalization gap retained. Read all of Merel §§2–5, including Theorem A’s translation/Atkin–Lehner calculation, Theorem C’s Stokes/Haberland proof and Theorem D’s substitution. The accepted E15 factor-four, E16 even-sign and E17 pi correction remain authoritative imported findings, not new unproved global formulas. An analytic derivation locating E15/E16 is still required. Petersson is first-linear and divided by [SL2(Z):Γ] here, whereas Tau Ceti conjugates the first variable and has no index division.
+Proof normalization gap retained. Read all of Merel §§2–5, including Theorem A’s translation/Atkin–Lehner calculation, Theorem C’s Stokes/Haberland proof and Theorem D’s substitution. The accepted E15 factor-four, E16 even-sign and E17 pi correction remain authoritative imported findings, not new unproved global formulas. An analytic derivation locating E15/E16 is still required. Petersson is first-linear and divided by [SL2(Z):Γ] here, whereas Tau Ceti conjugates the first variable and has no index division. In the local twist recurrence use the defining R_p polynomial: for a_p=0 and r=v_p(m/mω)>0, R_p=−conjugate(ω(p)) at r=1 and R_p=0 at r>1 (E25; appendix §2.c p.147). The explanatory cases are swapped in both inspected public texts.
 
 ### `EllipticRegulators:ER.7/regulator-under-finite-pushforward`
 
@@ -514,7 +514,13 @@ Other inherited ER.7 nodes remain imported under these exact IDs:
 
 SS 3.0.1 (author-copy p.8) defines q_w=exp(2πiz/w). Thus log|q_w|=−2πy/w. SS 3.1.7 (p.9) says E_φ is asymptotic to −2πyφ; its logarithmic singularity is therefore wφ log|q_w|. Since η_φ=2∂E_φ, its residue is wφ. Both the public author copy and the published-pagination mirror print φ/w in 3.1.8 (author-copy p.9; published p.286). This is incompatible with the stated q-coordinate and with 3.5.0–3.5.1 (author-copy p.11), where div(u)=ord(u)/w and η_div(u)=dlog(u).
 
-The new finding is `EllipticRegulators/E24`, with rendered-page checks and the correction searches recorded in the packet. No published correction was located. Width two with φ=1 gives residue two, whereas the printed inverse-width formula gives one half. This test prevents the typo from entering the algebraic divisor adapter. The main modular theorem is not rejected because of this local typo; its unit realization uses the consistent product convention.
+The independently confirmed finding is `EllipticRegulators/E24`, with rendered-page checks and the correction searches recorded in the packet. No published correction was located. Width two with φ=1 gives residue two, whereas the printed inverse-width formula gives one half. This test prevents the typo from entering the algebraic divisor adapter. The main modular theorem is not rejected because of this local typo; its unit realization uses the consistent product convention.
+
+## Local twist polynomial and source issue E25
+
+Merel’s appendix §2.c (arXiv:math/0602186v1, p.147) defines R_p(X)=(conjugate(a_p)p^(1−k/2)X)^(r−1)(conjugate(a_p)p^(1−k/2)X−conjugate(ω(p))), where r=v_p(m/mω)>0. At a_p=0, this is the constant −conjugate(ω(p)) when r=1 and the zero polynomial when r>1. The following explanatory list reverses these cases. For an unramified ω with ω(p)=1, the two correct values are −1 and 0. The later exceptional case with v_p(m)=1 and v_p(mω)=0 uses the correct value.
+
+The public author final manuscript repeats the case-list typo in §2.3, its own printed p.284. Both rendered pages were checked. `EllipticRegulators/E25` is confirmed against these two public texts; the published chapter was not collated. No correction was located in the version history, author page or searches recorded in the packet. The ModularForms Part II adapter must derive the local cases from the polynomial. Theorem A and the retained analytic normalization gap G3 are unchanged by this correction.
 
 ## Supplier contracts and acyclic boundaries
 
@@ -548,7 +554,7 @@ Likewise, rational Galois descent is an assertion about invariant classes. If a 
 
 **`MotivicEtaleKTheory:M.8`:** Accepted early real Deligne cycle-map prefix only: compact/open projection, proper covariance with supports for rational weight-two K2 of curves, real structure and Poincaré duality. Fix the identification of the canonical r_D pairing (1/(2πi))∫log|u|conjugate(dlog(v))∧ω with the inherited Brunault r_N convention, including the factor-two comparison in ER.2. Do not activate the whole late M.8 stage, whose D.2/R.7 dependencies can close a cycle.
 
-**`tauceti:TauCetiRoadmap/ModularForms#layer-8-modular-symbols-the-integral-hecke-algebra-and-coefficient-fields`:** Use the existing modular-symbol period maps, parity injectivity and rational Hecke algebra. A ModularForms Part II adapter must supply Merel appendix Theorem A (§§1–3): its finite multiplicative Fourier expansion for ξ_f(u,v)=−i∫_{g0}^{g∞}f(z)dz, exact conductor N′, the conditions m_{χ,S},m_{ψχ,Sbar}|N′, Euler corrections P_p,Q_p, partial Atkin–Lehner pseudo-eigenvalues and completed Mellin values. Include the parity argument of Corollary 2 and the first-linear/index-normalized Petersson conversion of Theorem C. The prime-level specializations must use the corrected E15/E16/E17 statements and locate the sign and factor-four errors analytically before claiming proof closure.
+**`tauceti:TauCetiRoadmap/ModularForms#layer-8-modular-symbols-the-integral-hecke-algebra-and-coefficient-fields`:** Use the existing modular-symbol period maps, parity injectivity and rational Hecke algebra. A ModularForms Part II adapter must supply Merel appendix Theorem A (§§1–3): its finite multiplicative Fourier expansion for ξ_f(u,v)=−i∫_{g0}^{g∞}f(z)dz, exact conductor N′, the conditions m_{χ,S},m_{ψχ,Sbar}|N′, Euler corrections P_p,Q_p, partial Atkin–Lehner pseudo-eigenvalues and completed Mellin values. Include the parity argument of Corollary 2 and the first-linear/index-normalized Petersson conversion of Theorem C. The prime-level specializations must use the corrected E15/E16/E17 statements and locate the sign and factor-four errors analytically before claiming proof closure. In the local twist recurrence use the defining R_p polynomial: for a_p=0 and r=v_p(m/mω)>0, R_p=−conjugate(ω(p)) at r=1 and R_p=0 at r>1 (E25; appendix §2.c p.147). The explanatory cases are swapped in both inspected public texts.
 
 ## Remaining proof closure and acceptance
 
@@ -576,6 +582,8 @@ The two new planets are **Beilinson subspace** and **Integral Beilinson subspace
 
 ## Public sources and reading record
 
+Independent revision-2 review (Codex, `codex-WCEM3h`, 2026-10-08) checked all sixteen fresh nodes, all twelve declarations at the pins, all direct supplier statements, and the reader corrections above. It accepts this planning pass with six explicit proof gaps; it does not claim implementation or proof closure. The review independently read the whole SS author copy, all three cited Siegel proof routes, the complete Merel appendix, DS’s stated proper functoriality and cycle-map construction, Brunault’s introductory theorem hypotheses, and Shimura’s pp.211–214 page images. Historical complete-reading claims for other documents remain attributed to the earlier workers.
+
 The following source list retains the original worker’s and independent reviewer’s reading records. Revision 2 (Codex, `codex-XTusmX`, 2026-10-08) reread the SS period, regulator and arithmetic-model passages, DS proper covariance/descent and supports construction, and the three Siegel proof routes. Exact revision pages are listed below; other source records remain inherited.
 
 The upstream ModularForms and Completed/ContourIntegration documents were read in full. Their vocabulary and library-building order guide the interfaces here. The first supplies period maps, Hecke modules and analytic modular-form conventions; the second supplies improper-integral foundations. Their existing mathematics is imported. The reviewed library audit, stage descriptions, all relevant link-map entries and the original accepted packet were checked before assigning ownership.
@@ -587,12 +595,16 @@ The upstream ModularForms and Completed/ContourIntegration documents were read i
 
 - Revision 2, 2026-10-08: reread 1.0–1.3 (pp.2–6), 2.2–2.3 (pp.6–7), 3.0–3.1 (pp.8–9), 3.4–3.5 (p.11), 4.5–6.1 (pp.14–17), and 7.2–7.4 (pp.19–20). Rechecked the rendered residue formula 3.1.8 on author-copy p.9; the published scan comparison remains the independent reviewer’s record.
 
+- Independent revision-2 review, 2026-10-08: entire author copy §§0–7, pp.1–21, including the proofs at all sixteen fresh-node locators; rendered 3.1.8 on author p.9 and published p.286 independently compared. The published copy was collated at that formula, not read in full in this review.
+
 **DS.1991 — The Beilinson conjectures**, Christopher Deninger and Anthony J. Scholl. 1991 survey; author public preprint, section locators [Public copy](https://www.dpmms.cam.ac.uk/~ajs1005/preprints/d-s.pdf). Read 2026-10-06. SHA-256 `f4a31e86abb2e80a1b3a07a6158fa19ff4f8110a75c7db491890877b12dfcb27`.
 
 - (1.3)(1),(6): proper functoriality and finite Galois descent.
 - (2.6)–(2.8): regulator functoriality and construction of cycle maps with supports; degrees and weights checked.
 
 - Revision 2, 2026-10-08: (1.3)(1),(6), p.2; (2.6)–(2.8), pp.6–8, including the supports construction and its degree shifts.
+
+- Independent revision-2 review, 2026-10-08: (1.3)(1),(6), p.2, and (2.6)–(2.8), pp.6–8, checked for proper degree/weight shifts, cycle maps with supports and rational invariant descent.
 
 **Siegel.1965 — Lectures on advanced analytic number theory**, Carl Ludwig Siegel; notes by S. Raghavan. Tata Institute lecture notes 23 (1965), reprint hosted by P. Garrett. Reprint pagination differs from the edition inherited by the original packet. [Public copy](https://www-users.cse.umn.edu/~garrett/m/mfms/notes_2013-14/Siegel_AdvAnNoTh.pdf). Read 2026-10-06. SHA-256 `97db8ec4f8477bea009f9264d17dfd4b76e9d6bd529c31316df4a07499f88643`.
 
@@ -601,18 +613,30 @@ The upstream ModularForms and Completed/ContourIntegration documents were read i
 
 - Revision 2, 2026-10-08: §1 Theorem 1 p.13 and proof pp.5–13; §3 Theorem 2 p.28 and proof pp.21–28; §5 Theorem 3 p.47 and proof pp.41–47. These are printed reprint pages, respectively PDF pages 17,32,51 for the theorem statements.
 
+- Independent revision-2 review, 2026-10-08: §1 pp.5–13, §3 pp.21–28 and §5 pp.41–47, including the three theorem proofs; power-kernel Poisson/contour, Abel–Liouville/product, and Gaussian–Mellin routes remain distinct.
+
 **Brunault.2005 — Valeur en 2 de fonctions L de courbes elliptiques**, François Brunault; appendix by Loïc Merel. arXiv:math/0602186v1, 155 pages; appendix printed and PDF pp.143–155 [Public copy](https://arxiv.org/pdf/math/0602186v1). Read 2026-10-06. SHA-256 `8fd73faba5db08328c2884d9f35b79bc528145428766444f3eb8097f3b494fb7`.
 
 - Merel appendix pp.143–155 in full: definitions, Theorem A, Corollary 2, formulaire §2, Proposition B, Mellin calculation §3, Petersson Theorem C and proof, Theorem D and proof.
 - Brunault chapter 3 is inherited from the accepted packet; the present pass uses that packet’s declaration statements rather than claiming a new complete reading of chapter 3.
 
+- Independent revision-2 review, 2026-10-08: complete Merel appendix pp.143–155; rendered §2.c p.147 independently checked for E25. Brunault chapter 3 remains inherited, without a new full-reading claim.
+
 **Brunault.2007 — Valeur en 2 de fonctions L de formes modulaires de poids 2 : théorème de Beilinson explicite**, François Brunault. Bull. Soc. Math. France 135 (2007), 215–246; version of record [Public copy](https://www.numdam.org/item/10.24033/bsmf.2532.pdf). Read 2026-10-06. SHA-256 `58f538cb38704615de15dee95a688dd576cd44513c118a41e434bde7e3a21b73`.
 
 - Introduction pp.215–218: regulator conventions, Theorem 1.1, Remark 1.2, Question 1.3, Theorem 1.4. Bars lost in extracted text are read using the inherited corrected statement.
+
+- Independent revision-2 review, 2026-10-08: introduction, Theorems 1.1 and 1.4, and Remark 1.2, pp.215–218, checked against the conditional inherited formula and original-conductor gap; no new complete proof reading claimed.
 
 **Shimura.1977 — On the periods of modular forms**, Goro Shimura. Mathematische Annalen 229 (1977), 211–221, DOI 10.1007/BF01391466. Göttingen GDZ page scans, pp.211–214 read. SHA256 below identifies the volume IIIF manifest, not an article PDF. [Public copy](https://gdz.sub.uni-goettingen.de/dms/resolveppn/?PPN=GDZPPN002314584). Read 2026-10-06. SHA-256 `9527f45f13c9a0fd66ec49fd8b1b252bceaa3a129c6ddf19e07ab30fc978a132`.
 
 - pp.211–214: Theorem 1 period algebraicity; Lemma 1 modular-symbol generators; Theorem 2, complete Fourier/period contradiction argument; the following two-prime even-character remark.
 - Manifest: https://manifests.sub.uni-goettingen.de/iiif/presentation/PPN235181684_0229/manifest?version=29486bf2; article scans are volume sequence positions 217–220. Theorem 1 and Lemma 1 invoke the earlier 1976 paper, whose proofs were not read here.
+
+- Independent revision-2 review, 2026-10-08: public GDZ page images pp.211–214, Theorems 1–2 and the two-prime remark, including the nonvanishing argument; the underlying 1976 proofs were not read.
+
+**Merel.final — Symboles de Manin et valeurs de fonctions L**, Loïc Merel. Public author final manuscript for the Manin Festschrift, 26 pages with its own printed pagination 277–302. This pagination is distinct from the published chapter; the version of record was not collated. [Public author copy](https://math.nyu.edu/~tschinke/.manin/final/merel/merel.pdf). Read 2026-10-08. SHA-256 `76aa5ce4a5a3dc9f03586ed6278278ab633127bbcc8e81c5a11ef4963ef3db34`.
+
+- §§2.3–2.4, own printed pp.283–285, including rendered p.284: local twist polynomial and its zero-eigenvalue cases checked for E25. No complete reading of this later manuscript claimed.
 
 Not publicly read in this pass: Bloch’s Chapter VIII Lemma 5.2 used for the general version of SS 1.3.1, and Shimura’s earlier 1976 proofs behind his 1977 Theorem 1 and generator lemma. The former is avoided by the explicit full-level correction; the latter remains within the PS.1 period adapter recorded in G6. The regular-model and supersingular comparison statements are extracted from SS and requested from their owners; their underlying Deligne–Rapoport/Katz–Mazur/Carayol proofs are not claimed newly read here.
