@@ -37047,8 +37047,8 @@
    ],
    "revisionOf": "DESIGN-PotentialAutomorphyInfrastructurePartII",
    "prompt": "research/blueprint/prompts/DESIGN-PotentialAutomorphyInfrastructurePartII~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #6895"
+   "state": "external",
+   "note": "claimed on GitHub issue #6895"
   },
   {
    "priority": 2,
@@ -39366,8 +39366,9 @@
    ],
    "revisionOf": "BP-HodgeTateAndCanonicalSubgroups--T0",
    "prompt": "research/blueprint/prompts/BP-HodgeTateAndCanonicalSubgroups--T0~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7304"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7304",
+   "finishedAt": "2026-10-08T11:20:01Z"
   },
   {
    "priority": 2,
