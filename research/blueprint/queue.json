@@ -41304,8 +41304,9 @@
     "BP-VStackSheavesAndLisseCategories~2"
    ],
    "prompt": "research/blueprint/prompts/REV-VStackSheavesAndLisseCategories~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7096"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7096",
+   "finishedAt": "2026-10-08T11:07:45Z"
   },
   {
    "kind": "blueprint",
