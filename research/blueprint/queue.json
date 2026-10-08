@@ -38802,8 +38802,9 @@
     "BP-ExcursionOperatorsAndSpectralAction--ES7~2"
    ],
    "prompt": "research/blueprint/prompts/REV-ExcursionOperatorsAndSpectralAction--ES7~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7049"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7049",
+   "finishedAt": "2026-10-08T14:23:07Z"
   },
   {
    "kind": "blueprint",
@@ -38857,7 +38858,8 @@
     "BP-GL2ModularityLifting--R32.3~2"
    ],
    "prompt": "research/blueprint/prompts/REV-GL2ModularityLifting--R32.3~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7050"
   },
   {
    "kind": "blueprint",
