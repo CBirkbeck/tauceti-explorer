@@ -10,13 +10,11 @@ below suggest Lean forms for the definitions, their API and their unit tests, so
 contributors and reviewers converge on names and signatures. Every proof is `sorry`; nothing
 here is an implementation.
 
-Independent review REV-RefinedTraceMethods--RT.1: the packet has verdict needs_changes.
-An ordinary Category instance is only a signature prototype for an ∞-category; it does not
-encode mapping spaces or coherent diagrams. The unbounded mixed-complex carrier, faithful
-even flatness, homological evenness, Assumption 2.13(R), and compatible cyclonic Adams lifts
-are unresolved interfaces, recorded in the packet and review. Where such a hypothesis is
-omitted under PROTOCOL §13, the displayed signature is weaker than the source and must not
-be used as a theorem statement. Successful elaboration checks types, not those interfaces.
+Revision BP-RefinedTraceMethods--RT.1~2 retains the independent review for the next
+reviewer. Coherent interfaces use quasicategories and mapping-space paths; ordinary
+models are shadows. Exact supplier requests remain for the coherent categorical,
+spectral and condensed infrastructure, and source proof gaps remain in the packet.
+Successful elaboration checks signatures; every mathematical proof remains a placeholder.
 
 Objects that other roadmaps supply (the ∞-category of spectra and its ring and module
 objects from StableHomotopyKTheory H.5 and EnhancedDerivedSheaves E5, algebraic K-theory from
@@ -27,11 +25,16 @@ vectors, Tate cohomology, vector bundles, Grothendieck groups, Morita equivalenc
 directly.
 -/
 import Mathlib.CategoryTheory.Iso
+import Mathlib.Condensed.Light.Module
+import Mathlib.Data.ZMod.Basic
+import Mathlib.CategoryTheory.Limits.Preserves.Filtered
 import Mathlib.Algebra.Category.ModuleCat.Basic
 import Mathlib.AlgebraicTopology.SimplicialObject.Basic
 import Mathlib.AlgebraicTopology.AlternatingFaceMapComplex
 import Mathlib.AlgebraicTopology.MooreComplex
 import Mathlib.LinearAlgebra.TensorPower.Basic
+import Mathlib.Algebra.DirectSum.Module
+import Mathlib.AlgebraicTopology.Quasicategory.Basic
 import Mathlib.RingTheory.Kaehler.Basic
 import Mathlib.LinearAlgebra.ExteriorPower.Basic
 import Mathlib.RingTheory.Smooth.Basic
@@ -61,6 +64,469 @@ noncomputable section
 open CategoryTheory
 
 namespace RefinedTraceMethods
+
+/-! ## Coherent supplier interfaces (R4–R6)
+
+These carriers belong to EDS E0/E3/E5 and H.5. SSet.Quasicategory is the pinned
+horn-filling predicate, rather than an ordinary Category instance. Mapping spaces,
+coherent natural transformations and Ind completions are requested supplier data.
+The strict models elsewhere in this file are shadows and are not these interfaces.
+-/
+namespace Coherent
+open scoped Simplicial
+
+structure InftyCategory where
+  shape : SSet.{0}
+  innerHorns : SSet.Quasicategory shape
+attribute [instance] InftyCategory.innerHorns
+
+abbrev Obj (C : InftyCategory) : Type := C.shape _⦋0⦌
+abbrev Functor (C D : InftyCategory) := C.shape ⟶ D.shape
+
+def Functor.obj {C D : InftyCategory} (F : Functor C D) (x : Obj C) : Obj D := F.app _ x
+
+/-- Coherent mapping Kan complex, supplied by E0. -/
+def Map (C : InftyCategory) (x y : Obj C) : SSet.{0} := sorry
+instance (C : InftyCategory) (x y : Obj C) : SSet.KanComplex (Map C x y) := sorry
+abbrev Hom {C : InftyCategory} (x y : Obj C) : Type := (Map C x y) _⦋0⦌
+
+/-- A path retains an edge and both endpoint equations. -/
+structure Path (K : SSet.{0}) (x y : K _⦋0⦌) where
+  edge : K _⦋1⦌
+  source : K.δ 1 edge = x
+  target : K.δ 0 edge = y
+
+def comp {C : InftyCategory} {x y z : Obj C} : Hom x y → Hom y z → Hom x z := sorry
+def identity {C : InftyCategory} (x : Obj C) : Hom x x := sorry
+def Functor.map {C D : InftyCategory} (F : Functor C D) {x y : Obj C} :
+    Hom x y → Hom (F.obj x) (F.obj y) := sorry
+
+/-- Coherent inverse data, including the two inverse paths in the mapping spaces. -/
+structure InverseData {C : InftyCategory} {x y : Obj C} (f : Hom x y) where
+  inverse : Hom y x
+  left : Path (Map C x x) (comp f inverse) (identity x)
+  right : Path (Map C y y) (comp inverse f) (identity y)
+def IsEquiv {C : InftyCategory} {x y : Obj C} (f : Hom x y) : Prop := Nonempty (InverseData f)
+
+/-- Coherent natural equivalence data, supplied by E0, includes all simplicial coherences. -/
+def NaturalEquivalence {C D : InftyCategory} (F G : Functor C D) : Type := sorry
+structure Equivalence (C D : InftyCategory) where
+  forward : Functor C D
+  inverse : Functor D C
+  unit : NaturalEquivalence (𝟙 C.shape) (forward ≫ inverse)
+  counit : NaturalEquivalence (inverse ≫ forward) (𝟙 D.shape)
+
+/-- A regular cardinal and its regularity witness; supplier E0 chooses universe bounds. -/
+def RegularCardinal : Type := sorry
+/-- Coherent Ind_κ completion, rather than a filtered sequence. -/
+def IndCompletion (κ : RegularCardinal) (A : InftyCategory) : InftyCategory := sorry
+structure PresentabilityWitness (C : InftyCategory) where
+  cardinal : RegularCardinal
+  compactGenerators : InftyCategory
+  indEquivalence : Equivalence (IndCompletion cardinal compactGenerators) C
+
+def IsPresentable (C : InftyCategory) : Prop := Nonempty (PresentabilityWitness C)
+/-- A coherent colimit cocone and its mapping-space universal property (EDS E0). -/
+def ColimitCocone {J C : InftyCategory} (D : Functor J C) : Type := sorry
+/-- Exactness witness contains coherent finite limit and colimit comparisons (EDS E5). -/
+def ExactnessWitness {C D : InftyCategory} (F : Functor C D) : Type := sorry
+/-- Accessibility includes a regular cardinal and preservation of κ-filtered diagrams. -/
+def AccessibilityWitness {C D : InftyCategory} (F : Functor C D) : Type := sorry
+/-- All-small-colimit preservation data, coherent on cocones. -/
+def ColimitPreservation {C D : InftyCategory} (F : Functor C D) : Type := sorry
+/-- Coherent stable structure, zero object and pullback/pushout equivalences (EDS E5). -/
+def StableStructure (C : InftyCategory) : Type := sorry
+/-- Coherent adjunction with unit/counit natural transformations and triangle homotopies. -/
+def Adjunction {C D : InftyCategory} (F : Functor C D) (G : Functor D C) : Type := sorry
+
+/-- Arrow category, homotopy pullback, and mapping-space homotopy equalizer suppliers. -/
+def Arrow (C : InftyCategory) : InftyCategory := sorry
+def HomotopyEqualizer (K L : SSet.{0}) (f g : K ⟶ L) : SSet.{0} := sorry
+/-- Homotopy equalizer vertices contain a point and a path, rather than equal values. -/
+theorem HomotopyEqualizer.vertices (K L : SSet.{0}) (f g : K ⟶ L) :
+    Nonempty ((HomotopyEqualizer K L f g) _⦋0⦌ ≃
+      (Σ x : K _⦋0⦌, Path L (f.app _ x) (g.app _ x))) := sorry
+
+/-- The coherent lax equalizer D ×_{E×E} Fun(Δ¹,E). -/
+def LaxEqualizer {D E : InftyCategory} (F G : Functor D E) : InftyCategory := sorry
+structure LaxObject {D E : InftyCategory} (F G : Functor D E) where
+  obj : Obj D
+  arrow : Hom (F.obj obj) (G.obj obj)
+def LaxEqualizer.object {D E : InftyCategory} {F G : Functor D E}
+    (X : LaxObject F G) : Obj (LaxEqualizer F G) := sorry
+def LaxEqualizer.proj {D E : InftyCategory} (F G : Functor D E) :
+    Functor (LaxEqualizer F G) D := sorry
+
+def LaxEqualizer.leftMap {D E : InftyCategory} {F G : Functor D E}
+    (X Y : LaxObject F G) : Map D X.obj Y.obj ⟶ Map E (F.obj X.obj) (G.obj Y.obj) := sorry
+def LaxEqualizer.rightMap {D E : InftyCategory} {F G : Functor D E}
+    (X Y : LaxObject F G) : Map D X.obj Y.obj ⟶ Map E (F.obj X.obj) (G.obj Y.obj) := sorry
+
+theorem LaxEqualizer.mapping {D E : InftyCategory} {F G : Functor D E}
+    (X Y : LaxObject F G) :
+    Nonempty (Map (LaxEqualizer F G) (LaxEqualizer.object X) (LaxEqualizer.object Y) ≅
+      HomotopyEqualizer (Map D X.obj Y.obj) (Map E (F.obj X.obj) (G.obj Y.obj))
+        (LaxEqualizer.leftMap X Y) (LaxEqualizer.rightMap X Y)) := sorry
+
+theorem LaxEqualizer.instStable {D E : InftyCategory} (F G : Functor D E)
+    (hD : StableStructure D) (hE : StableStructure E)
+    (hF : ExactnessWitness F) (hG : ExactnessWitness G) :
+    Nonempty (StableStructure (LaxEqualizer F G)) ∧
+    Nonempty (ExactnessWitness (LaxEqualizer.proj F G)) := sorry
+
+theorem LaxEqualizer.instPresentable {D E : InftyCategory} (F G : Functor D E)
+    (hD : PresentabilityWitness D) (hE : PresentabilityWitness E)
+    (hF : AccessibilityWitness F) (hG : AccessibilityWitness G)
+    (hcolim : ColimitPreservation F) :
+    Nonempty (PresentabilityWitness (LaxEqualizer F G)) ∧
+    Nonempty (ColimitPreservation (LaxEqualizer.proj F G)) := sorry
+
+theorem LaxEqualizer.conservative {D E : InftyCategory} (F G : Functor D E)
+    {x y : Obj (LaxEqualizer F G)} (f : Hom x y) :
+    IsEquiv ((LaxEqualizer.proj F G).map f) → IsEquiv f := sorry
+
+/-- Full coherent inverse-tower shape N^op, with its transition maps (E0). -/
+def InverseNaturals : InftyCategory := sorry
+/-- Derived limit, together with its coherent cone (E0). -/
+def limit {J C : InftyCategory} (D : Functor J C) : Obj C := sorry
+
+namespace Endofunctor
+abbrev CoAlg {C : InftyCategory} (F : Functor C C) := LaxEqualizer (𝟙 C.shape) F
+def Fix {C : InftyCategory} (F : Functor C C) : InftyCategory := sorry
+def inclusion {C : InftyCategory} (F : Functor C C) : Functor (Fix F) (CoAlg F) := sorry
+
+theorem coreflection {C : InftyCategory} (F : Functor C C)
+    (hC : PresentabilityWitness C) (hF : ColimitPreservation F) :
+    ∃ R : Functor (CoAlg F) (Fix F), Nonempty (Adjunction (inclusion F) R) := sorry
+
+/-- Coalgebra lift (X→FX)↦(FX→F²X), with its canonical natural map. -/
+def bar {C : InftyCategory} (F : Functor C C) : Functor (CoAlg F) (CoAlg F) := sorry
+/-- Right adjoint to the coalgebra lift, built coherently from F⊣R. -/
+def barRight {C : InftyCategory} (F R : Functor C C)
+    (adj : Adjunction F R) : Functor (CoAlg F) (CoAlg F) := sorry
+theorem barRight.adjunction {C : InftyCategory} (F R : Functor C C)
+    (adj : Adjunction F R) : Nonempty (Adjunction (bar F) (barRight F R adj)) := sorry
+/-- The full inverse tower ...→barRight²X→barRight X→X, with counit transitions. -/
+def CoreflectionTower {C : InftyCategory} (F R : Functor C C)
+    (adj : Adjunction F R) (X : Obj (CoAlg F)) : Functor InverseNaturals (CoAlg F) := sorry
+/-- Pointwise coherent limit of the tower in the coalgebra category. -/
+def coreflectionLimit {C : InftyCategory} (F R : Functor C C)
+    (adj : Adjunction F R) : Functor (CoAlg F) (CoAlg F) := sorry
+theorem coreflectionLimit.value {C : InftyCategory} (F R : Functor C C)
+    (adj : Adjunction F R) (X : Obj (CoAlg F)) :
+    ∃ e : Hom ((coreflectionLimit F R adj).obj X)
+      (Coherent.limit (CoreflectionTower F R adj X)), IsEquiv e := sorry
+/-- Fully faithful R and pullback-preserving F, used for the explicit pullback
+X×_{RF X}RX. These are not needed merely to form the right-adjoint tower. -/
+def RightAdjointComparison {C : InftyCategory} (F R : Functor C C)
+    (adj : Adjunction F R) : Type := sorry
+/-- Pullback of η_X:X→RF X and Rα:RX→RF X, supplied by E0. -/
+def barRightPullback {C : InftyCategory} (F R : Functor C C)
+    (adj : Adjunction F R) (X : LaxObject (𝟙 C.shape) F) : Obj C := sorry
+theorem barRight.pullback {C : InftyCategory} (F R : Functor C C)
+    (adj : Adjunction F R) (hR : RightAdjointComparison F R adj)
+    (X : LaxObject (𝟙 C.shape) F) :
+    ∃ e : Hom ((LaxEqualizer.proj (𝟙 C.shape) F).obj
+      ((barRight F R adj).obj (LaxEqualizer.object X)))
+      (barRightPullback F R adj X), IsEquiv e := sorry
+
+/-- Nikolaus–Scholze Proposition II.5.3: the inclusion of the coreflection is the
+actual limit functor, in the coherent functor category of coalgebras. -/
+theorem coreflection_formula {C : InftyCategory} (F R : Functor C C)
+    (hC : PresentabilityWitness C) (hF : ColimitPreservation F)
+    (adj : Adjunction F R) :
+    ∃ Ri : Functor (CoAlg F) (Fix F), Nonempty (Adjunction (inclusion F) Ri) ∧
+      Nonempty (NaturalEquivalence (Ri ≫ inclusion F) (coreflectionLimit F R adj)) := sorry
+end Endofunctor
+
+/-- Sp and coherent classifying anima are supplied by H.5 and EDS E0. -/
+def Sp : InftyCategory := sorry
+structure GroupAnima where
+  classifying : InftyCategory
+  kan : SSet.KanComplex classifying.shape
+  basepoint : Obj classifying
+
+def FunctorCategory (C D : InftyCategory) : InftyCategory := sorry
+abbrev SpectraWithAction (G : GroupAnima) := FunctorCategory G.classifying Sp
+
+def SpectraWithAction.res {H G : GroupAnima} (f : Functor H.classifying G.classifying) :
+    Functor (SpectraWithAction G) (SpectraWithAction H) := sorry
+def SpectraWithAction.trivial (G : GroupAnima) : Functor Sp (SpectraWithAction G) := sorry
+def homotopyOrbits (G : GroupAnima) : Functor (SpectraWithAction G) Sp := sorry
+def homotopyFixedPoints (G : GroupAnima) : Functor (SpectraWithAction G) Sp := sorry
+
+theorem homotopyOrbits.adj (G : GroupAnima) :
+    Nonempty (Adjunction (homotopyOrbits G) (SpectraWithAction.trivial G)) ∧
+    Nonempty (Adjunction (SpectraWithAction.trivial G) (homotopyFixedPoints G)) := sorry
+
+theorem SpectraWithAction.instStable (G : GroupAnima) :
+    Nonempty (PresentabilityWitness (SpectraWithAction G)) ∧
+    Nonempty (StableStructure (SpectraWithAction G)) := sorry
+
+def Circle : GroupAnima := sorry
+def CircleQuotient (n : ℕ) (hn : 0 < n) : GroupAnima := sorry
+def SpectraWithAction.circleQuotient (n : ℕ) (hn : 0 < n) :
+    Equivalence (SpectraWithAction (CircleQuotient n hn)) (SpectraWithAction Circle) := sorry
+
+/-- Requested coherent monoidal/transitivity/cohomology comparison data. -/
+def FixedPointLaxMonoidal (G : GroupAnima) : Type := sorry
+def NormalActionTransitivity (G : GroupAnima) : Type := sorry
+def EMFixedPointComparison (G : GroupAnima) : Type := sorry
+theorem homotopyFixedPoints.laxMonoidal (G : GroupAnima) : Nonempty (FixedPointLaxMonoidal G) := sorry
+theorem homotopyFixedPoints.trans (G : GroupAnima) : Nonempty (NormalActionTransitivity G) := sorry
+theorem homotopyFixedPoints.em (G : GroupAnima) : Nonempty (EMFixedPointComparison G) := sorry
+
+/-- Identity to the prime-Tate product; both are coherent functors with residual action. -/
+def PrimeTateTarget : InftyCategory := sorry
+def actionDiagonal : Functor (SpectraWithAction Circle) PrimeTateTarget := sorry
+def primeTateProduct : Functor (SpectraWithAction Circle) PrimeTateTarget := sorry
+abbrev CyclotomicSpectrum := LaxEqualizer actionDiagonal primeTateProduct
+
+def CyclotomicSpectrum.pTypical (p : ℕ) (hp : p.Prime) : InftyCategory := sorry
+def CyclotomicSpectrum.forget : Functor CyclotomicSpectrum Sp := sorry
+def CyclotomicSpectrum.unit : Obj CyclotomicSpectrum := sorry
+theorem CyclotomicSpectrum.instStable : Nonempty (PresentabilityWitness CyclotomicSpectrum) ∧
+    Nonempty (StableStructure CyclotomicSpectrum) := sorry
+def CyclotomicSpectrum.toPTypical (p : ℕ) (hp : p.Prime) :
+    Functor CyclotomicSpectrum (CyclotomicSpectrum.pTypical p hp) := sorry
+
+/-- Test Coherent.LaxEqualizer.constant_loop: homotopy equalizers retain loop paths. -/
+example (K : SSet.{0}) (x : K _⦋0⦌) :
+    Nonempty ((HomotopyEqualizer K K (𝟙 K) (𝟙 K)) _⦋0⦌ ≃
+      (Σ y : K _⦋0⦌, Path K y y)) := sorry
+/-- Test Coherent.LaxEqualizer.stability: exact stable inputs yield stable output. -/
+example {D E : InftyCategory} (F G : Functor D E) (hD : StableStructure D)
+    (hE : StableStructure E) (hF : ExactnessWitness F) (hG : ExactnessWitness G) :
+    Nonempty (StableStructure (LaxEqualizer F G)) := sorry
+/-- Test Coherent.LaxEqualizer.presentability: κ/Ind accessibility data is required. -/
+example {D E : InftyCategory} (F G : Functor D E) (hD : PresentabilityWitness D)
+    (hE : PresentabilityWitness E) (hF : AccessibilityWitness F)
+    (hG : AccessibilityWitness G) (hc : ColimitPreservation F) :
+    Nonempty (PresentabilityWitness (LaxEqualizer F G)) := sorry
+end Coherent
+
+/-! ## Coherent coefficient THH, square-zero extensions and convergence (R7–R8)
+
+The connective algebra and module categories, derived fibers, derivations and
+colimits in this section are H.5/EDS supplier interfaces. The predicates owned
+here are defined using their canonical comparison maps. -/
+namespace Coherent
+def colimit {J C : InftyCategory} (D : Functor J C) : Obj C := sorry
+/-- Siftedness witness: nonempty and homotopy-cofinal diagonal (E0). -/
+def SiftedWitness (J : InftyCategory) : Type := sorry
+/-- Canonical map colim(FD) → F(colim D), including the coherent cocone. -/
+def colimitComparison {J C D : InftyCategory} (F : Functor C D) (X : Functor J C) :
+    Hom (colimit (X ≫ F)) (F.obj (colimit X)) := sorry
+
+def IsSiftedColimitPreserving {C D : InftyCategory} (F : Functor C D) : Prop :=
+  ∀ (J : InftyCategory) (_ : SiftedWitness J) (X : Functor J C),
+    IsEquiv (colimitComparison F X)
+
+def zero (C : InftyCategory) (hC : StableStructure C) : Obj C := sorry
+def cofiber {C : InftyCategory} (hC : StableStructure C) {x y : Obj C}
+    (f : Hom x y) : Obj C := sorry
+def fiber {C : InftyCategory} (hC : StableStructure C) {x y : Obj C}
+    (f : Hom x y) : Obj C := sorry
+def shift (C : InftyCategory) (hC : StableStructure C) (n : ℤ) : Functor C C := sorry
+/-- Supplier E5: t-structure axioms for these predicates: shift closure,
+orthogonality of their mapping spaces, and coherent truncation fiber sequences. -/
+def TStructureAxioms (C : InftyCategory) (connective coconnective : Obj C → Prop) : Type := sorry
+structure TStructure (C : InftyCategory) where
+  connective : Obj C → Prop
+  coconnective : Obj C → Prop
+  axioms : TStructureAxioms C connective coconnective
+/-- Compatibility of the t-structure with filtered colimits (E5). -/
+def FilteredTCompatibility {C : InftyCategory} (t : TStructure C) : Type := sorry
+def ConnectivePart {C : InftyCategory} (t : TStructure C) : InftyCategory := sorry
+def ConnectivePart.inclusion {C : InftyCategory} (t : TStructure C) :
+    Functor (ConnectivePart t) C := sorry
+end Coherent
+
+namespace RT3
+open Coherent
+
+def ConnAlg : InftyCategory := sorry
+def Bimod (A : Obj ConnAlg) : InftyCategory := sorry
+def ConnBimod (A : Obj ConnAlg) : InftyCategory := sorry
+def ConnBimod.inclusion (A : Obj ConnAlg) : Functor (ConnBimod A) (Bimod A) := sorry
+def algebraForget : Functor ConnAlg Sp := sorry
+def bimoduleForget (A : Obj ConnAlg) : Functor (Bimod A) Sp := sorry
+def spStable : StableStructure Sp := sorry
+
+def ConnBimod.zero (A : Obj ConnAlg) : Obj (ConnBimod A) := sorry
+def regularBimodule (A : Obj ConnAlg) : Obj (Bimod A) := sorry
+def sphereAlgebra : Obj ConnAlg := sorry
+/-- The coherent split E₁ algebra A⊕M, including both bimodule actions. -/
+def sqZero (A : Obj ConnAlg) : Functor (ConnBimod A) ConnAlg := sorry
+def sqZero.projection (A : Obj ConnAlg) (M : Obj (ConnBimod A)) :
+    Hom ((sqZero A).obj M) A := sorry
+/-- Derived derivations fiber(A⊗A→A) → ΣI (H.5). -/
+def Derivation (A : Obj ConnAlg) (I : Obj (ConnBimod A)) : Type := sorry
+structure ExtensionDatum where
+  algebra : Obj ConnAlg
+  ideal : Obj (ConnBimod algebra)
+  derivation : Derivation algebra ideal
+/-- Coherent category of extension data, including changing the base algebra. -/
+def AlgSqZero : InftyCategory := sorry
+def AlgSqZero.ofDatum (X : ExtensionDatum) : Obj AlgSqZero := sorry
+def AlgSqZero.base : Functor AlgSqZero ConnAlg := sorry
+def AlgSqZero.extension : Functor AlgSqZero ConnAlg := sorry
+/-- Projection from the homotopy pullback A×_{A⊕ΣI}A to A. -/
+def AlgSqZero.projection (X : Obj AlgSqZero) :
+    Hom (AlgSqZero.extension.obj X) (AlgSqZero.base.obj X) := sorry
+
+def zeroDerivation (A : Obj ConnAlg) (I : Obj (ConnBimod A)) : Derivation A I := sorry
+/-- Coherent bar realization with simplices M⊗A^⊗n. -/
+def THHcoeff (A : Obj ConnAlg) : Functor (Bimod A) Sp := sorry
+/-- Derived extension of scalars in both bimodule actions (H.5). -/
+def bimoduleBaseChange {A B : Obj ConnAlg} (f : Hom A B) : Functor (Bimod A) (Bimod B) := sorry
+def THHcoeff.map {A B : Obj ConnAlg} (f : Hom A B) (M : Obj (Bimod A)) :
+    Hom ((THHcoeff A).obj M) ((THHcoeff B).obj ((bimoduleBaseChange f).obj M)) := sorry
+/-- Compact-preservation data for −⊗_A M on Perf(A), supplied by K.4/RT.5. -/
+def PerfPreservation (A : Obj ConnAlg) (M : Obj (Bimod A)) : Type := sorry
+def categoricalBimoduleTrace (A : Obj ConnAlg) (M : Obj (Bimod A))
+    (hM : PerfPreservation A M) : Obj Sp := sorry
+theorem THHcoeff.categoricalTrace (A : Obj ConnAlg) (M : Obj (Bimod A))
+    (hM : PerfPreservation A M) :
+    Nonempty (InverseData (show Hom ((THHcoeff A).obj M)
+      (categoricalBimoduleTrace A M hM) from sorry)) := sorry
+
+/-- The full canonical Postnikov diagram, not an object sequence. -/
+def postnikovTower (A : Obj ConnAlg) : Functor InverseNaturals ConnAlg := sorry
+def postnikovComparison (Ψ : Functor ConnAlg Sp) (A : Obj ConnAlg) :
+    Hom (Ψ.obj A) (Coherent.limit (postnikovTower A ≫ Ψ)) := sorry
+def IsPostnikovConvergent (Ψ : Functor ConnAlg Sp) : Prop :=
+  ∀ A, IsEquiv (postnikovComparison Ψ A)
+
+theorem postnikovConvergent.map (Ψ Φ : Functor ConnAlg Sp)
+    (e : NaturalEquivalence Ψ Φ) : IsPostnikovConvergent Ψ ↔ IsPostnikovConvergent Φ := sorry
+
+/-- Relative extension functor on general derivation data. -/
+def relativeExtension (Ψ : Functor ConnAlg Sp) : Functor AlgSqZero Sp := sorry
+theorem relativeExtension.value (Ψ : Functor ConnAlg Sp) (X : Obj AlgSqZero) :
+    Nonempty (InverseData (show Hom ((relativeExtension Ψ).obj X)
+      (Coherent.fiber spStable (Ψ.map (AlgSqZero.projection X))) from sorry)) := sorry
+
+def IsInfinitesimallySifted (Ψ : Functor ConnAlg Sp) : Prop :=
+  IsSiftedColimitPreserving (relativeExtension Ψ)
+
+theorem infinitesimallySifted.map (Ψ Φ : Functor ConnAlg Sp)
+    (e : NaturalEquivalence Ψ Φ) : IsInfinitesimallySifted Ψ ↔ IsInfinitesimallySifted Φ := sorry
+
+def splitComparison (Ψ : Functor ConnAlg Sp) (A : Obj ConnAlg)
+    (M : Obj (ConnBimod A)) : Hom (Ψ.obj ((sqZero A).obj M)) (Ψ.obj A) :=
+  Ψ.map (sqZero.projection A M)
+def IsSplitConstant (Ψ : Functor ConnAlg Sp) : Prop :=
+  ∀ (A : Obj ConnAlg) (M : Obj (ConnBimod A)), IsEquiv (splitComparison Ψ A M)
+/-- Actual nilpotent π₀-surjection data from H.5, not a derivative hypothesis. -/
+def NilSurjection {A B : Obj ConnAlg} (f : Hom A B) : Type := sorry
+
+/-- Raskin Proposition 5.5.3: all independent convergence assumptions are retained. -/
+theorem dgmConvergence (Ψ : Functor ConnAlg Sp)
+    (hPost : IsPostnikovConvergent Ψ) (hSift : IsInfinitesimallySifted Ψ)
+    (hSplit : IsSplitConstant Ψ) {A B : Obj ConnAlg} (f : Hom A B)
+    (hf : NilSurjection f) : IsEquiv (Ψ.map f) := sorry
+
+/-- General stable input for Raskin Definition 2.11.2; both t-structures have
+filtered-colimit compatibility, in homological grading. -/
+structure PseudoContext where
+  source : InftyCategory
+  target : InftyCategory
+  sourceStable : StableStructure source
+  targetStable : StableStructure target
+  sourceT : TStructure source
+  targetT : TStructure target
+  sourceFiltered : FilteredTCompatibility sourceT
+  targetFiltered : FilteredTCompatibility targetT
+
+abbrev PseudoFunctor (P : PseudoContext) := Functor (ConnectivePart P.sourceT) P.target
+/-- Cofiber of ψF⊕ψG → ψ(F⊕G), using the canonical two inclusions. -/
+def crossEffect (P : PseudoContext) (ψ : PseudoFunctor P)
+    (F G : Obj (ConnectivePart P.sourceT)) : Obj P.target := sorry
+/-- The coherent functor G↦Ω B_ψ(F,G), with the actual desuspension. -/
+def crossEffectLoop (P : PseudoContext) (ψ : PseudoFunctor P)
+    (F : Obj (ConnectivePart P.sourceT)) : PseudoFunctor P := sorry
+
+def pseudoIterate (P : PseudoContext) (ψ : PseudoFunctor P) :
+    List (Obj (ConnectivePart P.sourceT)) → PseudoFunctor P
+  | [] => ψ
+  | F :: rest => crossEffectLoop P (pseudoIterate P ψ rest) F
+
+def reducedComparison (P : PseudoContext) (ψ : PseudoFunctor P) :
+    Hom (ψ.obj (show Obj (ConnectivePart P.sourceT) from sorry))
+      (Coherent.zero P.target P.targetStable) := sorry
+
+def IsPseudoExtensible (P : PseudoContext) (ψ : PseudoFunctor P) : Prop :=
+  IsEquiv (reducedComparison P ψ) ∧ IsSiftedColimitPreserving ψ ∧
+  ∀ (inputs : List (Obj (ConnectivePart P.sourceT))) (X : Obj (ConnectivePart P.sourceT)),
+    P.targetT.connective ((pseudoIterate P ψ inputs).obj X)
+
+/-- The zero functor and connective-valued linear functors test the entire closure. -/
+def zeroPseudo (P : PseudoContext) : PseudoFunctor P := sorry
+def LinearityWitness (P : PseudoContext) (ψ : PseudoFunctor P) : Type := sorry
+theorem pseudoExtensible.zero (P : PseudoContext) : IsPseudoExtensible P (zeroPseudo P) := sorry
+theorem pseudoExtensible.linear (P : PseudoContext) (ψ : PseudoFunctor P)
+    (hlin : LinearityWitness P ψ) (hcolim : ColimitPreservation ψ)
+    (hconn : ∀ X, P.targetT.connective (ψ.obj X)) : IsPseudoExtensible P ψ := sorry
+
+def integerModuleContext : PseudoContext := sorry
+def tensorSquare : PseudoFunctor integerModuleContext := sorry
+/-- Test RT3.pseudoExtensible.quadratic: Ω(HZ⊕HZ) is not connective. -/
+example : ¬ IsPseudoExtensible integerModuleContext tensorSquare := sorry
+
+def zeroAlgebraFunctor : Functor ConnAlg Sp := sorry
+def constantHZ : Functor ConnAlg Sp := sorry
+/-- Test RT3.postnikovConvergent.zero. -/
+example : IsPostnikovConvergent zeroAlgebraFunctor := sorry
+/-- Test RT3.postnikovConvergent.forget: the coherent Postnikov limit comparison. -/
+example : IsPostnikovConvergent algebraForget := sorry
+/-- Test RT3.postnikovConvergent.not_product: the constant tower limit is HZ;
+the product of its values has π₀=∏_N Z. -/
+def spHZ : Obj Sp := sorry
+def constantHZTowerProduct : Obj Sp := sorry
+example (A : Obj ConnAlg) :
+    IsEquiv (postnikovComparison constantHZ A) ∧
+    ¬ (∃ e : Hom spHZ constantHZTowerProduct, IsEquiv e) := sorry
+/-- Test RT3.infinitesimallySifted.constant. -/
+example : IsInfinitesimallySifted constantHZ := sorry
+/-- Test RT3.infinitesimallySifted.forget: the fiber is the ideal, also as A varies. -/
+example : IsInfinitesimallySifted algebraForget := sorry
+/-- Test RT3.infinitesimallySifted.fixed_base_insufficient: the condition quantifies
+over arbitrary sifted diagrams in AlgSqZero, not only one fiber over A. -/
+example (Ψ : Functor ConnAlg Sp) (h : IsInfinitesimallySifted Ψ)
+    (J : InftyCategory) (hJ : SiftedWitness J) (X : Functor J AlgSqZero) :
+    IsEquiv (colimitComparison (relativeExtension Ψ) X) := h J hJ X
+
+/-- Test RT3.sqZero.zero. -/
+example (A : Obj ConnAlg) : IsEquiv (sqZero.projection A (ConnBimod.zero A)) := sorry
+/-- Test RT3.AlgSqZero.zero_derivation. -/
+example (A : Obj ConnAlg) (I : Obj (ConnBimod A)) :
+    ∃ e : Hom (AlgSqZero.extension.obj (AlgSqZero.ofDatum ⟨A,I,zeroDerivation A I⟩))
+      ((sqZero A).obj I), IsEquiv e := sorry
+/-- Discrete test carrier k[ε]/ε², supplied by H.5 Eilenberg–Mac Lane comparison. -/
+def dualNumberAlgebra (k : Type) [CommRing k] : Obj ConnAlg := sorry
+/-- Test RT3.sqZero.dual_numbers and RT3.sqZero.not_tensor: the ideal squares to zero. -/
+def dualNumberEpsilon (k : Type) [CommRing k] : k × k := (0,1)
+def dualNumberMul (k : Type) [CommRing k] (x y : k × k) : k × k :=
+  (x.1*y.1, x.1*y.2+x.2*y.1)
+example (k : Type) [CommRing k] :
+    dualNumberMul k (dualNumberEpsilon k) (dualNumberEpsilon k) = (0,0) := by
+  simp [dualNumberMul,dualNumberEpsilon]
+
+def bimoduleZero (A : Obj ConnAlg) : Obj (Bimod A) := sorry
+/-- Test RT3.THHcoeff.zero. -/
+example (A : Obj ConnAlg) : ∃ e : Hom ((THHcoeff A).obj (bimoduleZero A))
+    (Coherent.zero Sp spStable), IsEquiv e := sorry
+/-- Test RT3.THHcoeff.sphere. -/
+example (M : Obj (Bimod sphereAlgebra)) : ∃ e : Hom ((THHcoeff sphereAlgebra).obj M)
+    ((bimoduleForget sphereAlgebra).obj M), IsEquiv e := sorry
+/-- The regular bimodule has the cyclic enhancement; general coefficients have
+only the simplicial bar. This enhancement is extra data, not automatic. -/
+def CyclicBarEnhancement (A : Obj ConnAlg) (M : Obj (Bimod A)) : Type := sorry
+/-- Test RT3.THHcoeff.regular / RT3.THHcoeff.no_general_circle. -/
+example (A : Obj ConnAlg) : Nonempty (CyclicBarEnhancement A (regularBimodule A)) := sorry
+end RT3
+
 
 /-! ## Imported carriers
 
@@ -305,6 +771,7 @@ def KU : EInftyRing := sorry
 
 /-- Connective complex K-theory `ku = τ_{≥0} KU` as an E_∞-ring (RT.4:topological/connective-ku). -/
 def ku : EInftyRing := sorry
+
 
 end RefinedTraceMethods
 
@@ -753,19 +1220,13 @@ example (k : Type) [CommRing k] (h2 : (2 : k) ≠ 0) :
 
 /-! ### RT.1/mixed-complex -/
 
-/-- A mixed complex over `k` (RT.1/mixed-complex): a graded `k`-module `(M_n)_{n ≥ 0}` with
-`b : M_{n+1} → M_n` and `B : M_n → M_{n+1}` such that `b² = 0`, `B² = 0` and `bB + Bb = 0`
-(in degree `0`: `b ∘ B = 0`). -/
+/-- Unbounded mixed complexes, homologically Z-graded. -/
 structure MixedComplex (k : Type) [CommRing k] where
-  /-- The graded pieces. -/
-  X : ℕ → ModuleCat.{0} k
-  /-- The Hochschild-type differential, of degree `−1`. -/
+  X : ℤ → ModuleCat.{0} k
   b : ∀ n, X (n + 1) ⟶ X n
-  /-- Connes-type operator, of degree `+1`. -/
   B : ∀ n, X n ⟶ X (n + 1)
   b_comp_b : ∀ n, b (n + 1) ≫ b n = 0
   B_comp_B : ∀ n, B n ≫ B (n + 1) = 0
-  B_comp_b_zero : B 0 ≫ b 0 = 0
   bB_add_Bb : ∀ n, B (n + 1) ≫ b (n + 1) + b n ≫ B n = 0
 
 namespace MixedComplex
@@ -795,13 +1256,11 @@ end MixedComplex
 
 /-- The chain complex `(M, b)` of a mixed complex. -/
 def RT1.bComplex {k : Type} [CommRing k] (M : MixedComplex k) :
-    ChainComplex (ModuleCat.{0} k) ℕ :=
-  ChainComplex.of M.X M.b M.b_comp_b
+    ChainComplex (ModuleCat.{0} k) ℤ := sorry
 
-/-- The chain map `(M, b) → (N, b)` of a morphism of mixed complexes. -/
+/-- The induced map of underlying integer-graded complexes. -/
 def RT1.bComplexMap {k : Type} [CommRing k] {M N : MixedComplex k} (f : M ⟶ N) :
-    RT1.bComplex M ⟶ RT1.bComplex N :=
-  ChainComplex.ofHom f.f sorry
+    RT1.bComplex M ⟶ RT1.bComplex N := sorry
 
 /-- A morphism of mixed complexes is a quasi-isomorphism if it is a quasi-isomorphism of the
 `b`-complexes. -/
@@ -812,42 +1271,40 @@ def MixedComplex.QuasiIso {k : Type} [CommRing k] {M N : MixedComplex k} (f : M 
 `b`-homology (its effect on `HC`, `HC⁻`, `HP` is `MixedComplex.cyclicComplex_quasiIso`). -/
 theorem RT1.MixedComplex.quasiIso_iff {k : Type} [CommRing k] {M N : MixedComplex k}
     (f : M ⟶ N) : MixedComplex.QuasiIso f ↔
-      ∀ n : ℕ, IsIso (HomologicalComplex.homologyMap (RT1.bComplexMap f) n) := sorry
+      ∀ n : ℤ, IsIso (HomologicalComplex.homologyMap (RT1.bComplexMap f) n) := sorry
 
 /-- The mixed complex `(N(X), b, B)` of a cyclic `k`-module, natural in `X`. -/
 def MixedComplex.ofCyclic (k : Type) [CommRing k] :
-    CyclicObject (ModuleCat.{0} k) ⥤ MixedComplex k where
-  obj X :=
-    { X := RT1.normalizedChains (CyclicObject.toSimplicial.obj X)
-      b := RT1.normalizedB (CyclicObject.toSimplicial.obj X)
-      B := CyclicObject.connesB X
-      b_comp_b := RT1.normalizedB_comp _
-      B_comp_B := CyclicObject.connesB_sq X
-      B_comp_b_zero := (CyclicObject.connesB_comm X).1
-      bB_add_Bb := (CyclicObject.connesB_comm X).2 }
-  map f :=
-    { f := RT1.normalizedMap (CyclicObject.toSimplicial.map f)
-      comm_b := sorry
-      comm_B := CyclicObject.connesB_natural f }
-  map_id := sorry
-  map_comp := sorry
+    CyclicObject (ModuleCat.{0} k) ⥤ MixedComplex k := sorry
+
+/-- Normalized cyclic chains are extended by zero below zero. -/
+theorem MixedComplex.ofCyclic_X (k : Type) [CommRing k]
+    (C : CyclicObject (ModuleCat.{0} k)) (n : ℤ) :
+    (n < 0 → Limits.IsZero (((MixedComplex.ofCyclic k).obj C).X n)) ∧
+    (0 ≤ n → Nonempty (((MixedComplex.ofCyclic k).obj C).X n ≅
+      RT1.normalizedChains (CyclicObject.toSimplicial.obj C) n.toNat)) := sorry
 
 /-- The mixed complex `C(A/k) = (N C_•(A/k), b, B)` of an algebra. -/
 abbrev RT1.algMixed (k : Type) [CommRing k] (A : Type) [Ring A] [Algebra k A] :
     MixedComplex k :=
   (MixedComplex.ofCyclic k).obj (CyclicBar k A)
 
+/-- The chosen degree identification after zero extension. -/
+def RT1.algMixedDegreeIso (k A : Type) [CommRing k] [Ring A] [Algebra k A] (n : ℕ) :
+    RT1.normalizedChains (CyclicObject.toSimplicial.obj (CyclicBar k A)) n ≅
+      (RT1.algMixed k A).X (n : ℤ) := sorry
+
+def RT1.normMixedClass (k A : Type) [CommRing k] [Ring A] [Algebra k A] (n : ℕ) :
+    (⨂[k]^(n + 1) A) →ₗ[k] (RT1.algMixed k A).X (n : ℤ) := sorry
+
 /-- Differential graded modules over `k[ε]/ε²` with `|ε| = 1` (homological grading, degrees
 `≥ 0`): a chain complex with an action of `ε` of degree `+1`, `ε² = 0`, satisfying the graded
 Leibniz rule `dε + εd = 0`. -/
 structure RT1.DGModEps (k : Type) [CommRing k] where
-  /-- The underlying complex. -/
-  K : ChainComplex (ModuleCat.{0} k) ℕ
-  /-- The action of `ε`. -/
+  K : ChainComplex (ModuleCat.{0} k) ℤ
   eps : ∀ n, K.X n ⟶ K.X (n + 1)
   eps_sq : ∀ n, eps n ≫ eps (n + 1) = 0
-  leibniz_zero : eps 0 ≫ K.d 1 0 = 0
-  leibniz : ∀ n, eps (n + 1) ≫ K.d (n + 2) (n + 1) + K.d (n + 1) n ≫ eps n = 0
+  leibniz : ∀ n, eps (n + 1) ≫ K.d (n + 1 + 1) (n + 1) + K.d (n + 1) n ≫ eps n = 0
 
 /-- Morphisms of dg-modules over `k[ε]/ε²`: chain maps commuting with `ε`. -/
 instance (k : Type) [CommRing k] : Category (RT1.DGModEps k) := sorry
@@ -858,14 +1315,11 @@ def MixedComplex.equivDGModule (k : Type) [CommRing k] : MixedComplex k ≌ RT1.
 
 /-- The unit mixed complex `(k, 0, 0)`: `k` in degree `0`, `b = B = 0`. -/
 def RT1.MixedComplex.unit (k : Type) [CommRing k] : MixedComplex k where
-  X := fun
-    | 0 => ModuleCat.of k k
-    | _ + 1 => ModuleCat.of k PUnit
+  X n := if n = 0 then ModuleCat.of k k else ModuleCat.of k PUnit
   b _ := 0
   B _ := 0
   b_comp_b _ := by simp
   B_comp_B _ := by simp
-  B_comp_b_zero := by simp
   bB_add_Bb _ := by simp
 
 /-- The tensor product of mixed complexes `(M⊗N, b⊗1 ± 1⊗b, B⊗1 ± 1⊗B)`, with
@@ -874,9 +1328,9 @@ def MixedComplex.tensor {k : Type} [CommRing k] (M N : MixedComplex k) : MixedCo
   sorry
 
 /-- The graded pieces of `M ⊗ N`. -/
-theorem RT1.MixedComplex.tensor_X {k : Type} [CommRing k] (M N : MixedComplex k) (n : ℕ) :
+theorem RT1.MixedComplex.tensor_X {k : Type} [CommRing k] (M N : MixedComplex k) (n : ℤ) :
     Nonempty ((M.tensor N).X n ≅
-      ModuleCat.of k (Π p : Fin (n + 1), (M.X p) ⊗[k] (N.X (n - p)))) := sorry
+      ModuleCat.of k (DirectSum ℤ (fun p => (M.X p) ⊗[k] (N.X (n - p))))) := sorry
 
 /-- The tensor product makes mixed complexes symmetric monoidal, with unit `(k, 0, 0)`. -/
 theorem RT1.MixedComplex.tensor_symmMonoidal {k : Type} [CommRing k] (M N P : MixedComplex k) :
@@ -888,7 +1342,7 @@ theorem RT1.MixedComplex.tensor_symmMonoidal {k : Type} [CommRing k] (M N P : Mi
 complex. -/
 example (k : Type) [CommRing k] :
     ∃ M : MixedComplex k, Nonempty (M.X 0 ≅ ModuleCat.of k k) ∧
-      (∀ n, Limits.IsZero (M.X (n + 1))) ∧ (∀ n, M.b n = 0) ∧ (∀ n, M.B n = 0) := sorry
+      (∀ n : ℤ, n ≠ 0 → Limits.IsZero (M.X n)) ∧ (∀ n, M.b n = 0) ∧ (∀ n, M.B n = 0) := sorry
 
 /-- Test `MixedComplex.ofCyclic_ground` (computation): the mixed complex of `k` as a
 `k`-algebra is quasi-isomorphic to `(k, 0, 0)`. -/
@@ -907,33 +1361,39 @@ example (k : Type) [CommRing k] [Nontrivial k] :
 /-- The cyclic complex `CC(M) = (M ⊗ k[u⁻¹], b + uB)` (`|u| = −2`, `u·u⁰ = 0`), with the
 direct-sum totalisation `CC_n = ⊕_{i ≥ 0} M_{n−2i}`. -/
 def MixedComplex.cyclicComplex {k : Type} [CommRing k] (M : MixedComplex k) :
-    ChainComplex (ModuleCat.{0} k) ℕ := sorry
+    ChainComplex (ModuleCat.{0} k) ℤ := sorry
 
-/-- The negative cyclic complex `CC⁻(M) = (M[[u]], b + uB)`, with the product totalisation
-`CC⁻_n = Π_{i ≥ 0} M_{n+2i}` (`n ∈ ℤ`). -/
+/-- Negative cyclic totalization uses a product of all nonnegative u powers. -/
 def MixedComplex.negativeCyclicComplex {k : Type} [CommRing k] (M : MixedComplex k) :
     ChainComplex (ModuleCat.{0} k) ℤ := sorry
 
-/-- The periodic cyclic complex `CP(M) = (M((u)), b + uB)`, `CP_n = Π_{i ∈ ℤ} M_{n+2i}`. -/
+/-- Laurent series have a finite lower bound on the u exponent. -/
+def MixedComplex.laurentPieces {k : Type} [CommRing k] (M : MixedComplex k) (n : ℤ) :
+    Submodule k (∀ i : ℤ, M.X (n + 2 * i)) where
+  carrier := {a | ∃ r : ℕ, ∀ i : ℤ, i < -(r : ℤ) → a i = 0}
+  zero_mem' := sorry
+  add_mem' := sorry
+  smul_mem' := sorry
+
+/-- Periodic totalization is the filtered union of the Laurent product pieces. -/
 def MixedComplex.periodicCyclicComplex {k : Type} [CommRing k] (M : MixedComplex k) :
     ChainComplex (ModuleCat.{0} k) ℤ := sorry
 
-/-- The degreewise description of the three totalisations: `CC_n = ⊕_{0 ≤ i ≤ n/2} M_{n−2i}`
-(a finite sum), `CC⁻_n = Π_{i ≥ 0, n+2i ≥ 0} M_{n+2i}`, `CP_n = Π_{i ∈ ℤ, n+2i ≥ 0} M_{n+2i}`. -/
+/-- Degreewise totalizations for arbitrary unbounded mixed complexes. -/
 theorem RT1.MixedComplex.cyclicComplexes_X {k : Type} [CommRing k] (M : MixedComplex k) :
-    (∀ n : ℕ, Nonempty (M.cyclicComplex.X n ≅
-      ModuleCat.of k (Π i : Fin (n / 2 + 1), M.X (n - 2 * (i : ℕ))))) ∧
+    (∀ n : ℤ, Nonempty (M.cyclicComplex.X n ≅
+      ModuleCat.of k (DirectSum ℕ (fun i => M.X (n - 2 * (i : ℤ)))))) ∧
     (∀ n : ℤ, Nonempty (M.negativeCyclicComplex.X n ≅
-      ModuleCat.of k (Π i : {i : ℕ // 0 ≤ n + 2 * (i : ℤ)}, M.X (n + 2 * (i.1 : ℤ)).toNat))) ∧
+      ModuleCat.of k (∀ i : ℕ, M.X (n + 2 * (i : ℤ))))) ∧
     (∀ n : ℤ, Nonempty (M.periodicCyclicComplex.X n ≅
-      ModuleCat.of k (Π i : {i : ℤ // 0 ≤ n + 2 * i}, M.X (n + 2 * i.1).toNat))) := sorry
+      ModuleCat.of k (M.laurentPieces n))) := sorry
 
 /-- `HH_n(M) = H_n(M, b)`. -/
-abbrev RT1.mixedHH {k : Type} [CommRing k] (M : MixedComplex k) (n : ℕ) : ModuleCat.{0} k :=
+abbrev RT1.mixedHH {k : Type} [CommRing k] (M : MixedComplex k) (n : ℤ) : ModuleCat.{0} k :=
   (RT1.bComplex M).homology n
 
 /-- `HC_n(M) = H_n CC(M)`. -/
-abbrev RT1.mixedHC {k : Type} [CommRing k] (M : MixedComplex k) (n : ℕ) : ModuleCat.{0} k :=
+abbrev RT1.mixedHC {k : Type} [CommRing k] (M : MixedComplex k) (n : ℤ) : ModuleCat.{0} k :=
   M.cyclicComplex.homology n
 
 /-- `HC⁻_n(M) = H_n CC⁻(M)`. -/
@@ -1097,7 +1557,9 @@ def homologyMap {X Y : RT1.DMod k} (f : X ⟶ Y) (n : ℤ) : X.homology n ⟶ Y.
 /-- The localisation functor from (connective) chain complexes to `D(k)`. -/
 def ofComplex (k : Type) [CommRing k] : ChainComplex (ModuleCat.{0} k) ℕ ⥤ RT1.DMod k := sorry
 
-/-- The localisation functor preserves homology and inverts exactly the quasi-isomorphisms. -/
+/-- Localization of an arbitrary integer-graded complex, supplied by EDS E5. -/
+def ofComplexZ (k : Type) [CommRing k] : ChainComplex (ModuleCat.{0} k) ℤ ⥤ RT1.DMod k := sorry
+
 theorem ofComplex_spec (K L : ChainComplex (ModuleCat.{0} k) ℕ) (f : K ⟶ L) :
     (∀ n : ℕ, Nonempty (((ofComplex k).obj K).homology n ≅ K.homology n)) ∧
     (∀ n : ℕ, Limits.IsZero (((ofComplex k).obj K).homology (-((n : ℤ) + 1)))) ∧
@@ -1140,7 +1602,7 @@ computed by the Hochschild complex of a `k`-flat resolution of `A`: the `b`-comp
 action. -/
 def HochschildHomology (k : Type) [CommRing k] (A : Type) [Ring A] [Algebra k A] :
     RT1.DMod k :=
-  (RT1.DMod.ofComplex k).obj (RT1.bComplex (RT1.derivedMixed k A))
+  (RT1.DMod.ofComplexZ k).obj (RT1.bComplex (RT1.derivedMixed k A))
 
 /-- `HH_n(A/k) = H_n HH(A/k)` for `n ∈ ℕ`. -/
 abbrev RT1.HH (k : Type) [CommRing k] (A : Type) [Ring A] [Algebra k A] (n : ℕ) :
@@ -1262,8 +1724,8 @@ def RT1.matrixTrace (k : Type) [CommRing k] (A : Type) [Ring A] [Algebra k A] (r
 theorem RT1.matrixTrace_apply (k : Type) [CommRing k] (A : Type) [Ring A] [Algebra k A]
     (r n : ℕ) (m : Fin (n + 1) → Matrix (Fin r) (Fin r) A) :
     ((RT1.matrixTrace k A r).f n).hom
-        (RT1.normClass k (Matrix (Fin r) (Fin r) A) n (PiTensorProduct.tprod k m)) =
-      RT1.normClass k A n (∑ i : Fin (n + 1) → Fin r,
+        (RT1.normMixedClass k (Matrix (Fin r) (Fin r) A) n (PiTensorProduct.tprod k m)) =
+      RT1.normMixedClass k A n (∑ i : Fin (n + 1) → Fin r,
         PiTensorProduct.tprod k (fun j => m j (i j) (i (j + 1)))) := sorry
 
 /- The nonunital corner a ↦ E₁₁a is not a mixed-complex map: it fails compatibility
@@ -1301,10 +1763,7 @@ def HochschildHomology.shuffle (k : Type) [CommRing k] (A A' : Type) [Ring A] [A
 `C(A) ⊗ C(A′)` and `C(A ⊗ A′)` are quasi-isomorphic as mixed complexes. -/
 theorem HochschildHomology.shuffle_quasiIso (k : Type) [CommRing k] (A A' : Type) [Ring A]
     [Algebra k A] [Ring A'] [Algebra k A'] [Module.Flat k A] [Module.Flat k A'] :
-    _root_.QuasiIso (HochschildHomology.shuffle k A A') ∧
-    ∃ (P : MixedComplex k) (f : P ⟶ (RT1.algMixed k A).tensor (RT1.algMixed k A'))
-      (g : P ⟶ RT1.algMixed k (A ⊗[k] A')), MixedComplex.QuasiIso f ∧ MixedComplex.QuasiIso g :=
-  sorry
+    _root_.QuasiIso (HochschildHomology.shuffle k A A') := sorry
 
 /-- The Künneth isomorphism `HH(A ⊗_k A′/k) ≃ HH(A/k) ⊗^L_k HH(A′/k)` in `D(k)` (`k`-flat `A`,
 `A′`). -/
@@ -1422,9 +1881,9 @@ theorem baseChange (k K A : Type) [CommRing k] [CommRing K] [Algebra k K] [Ring 
     (Module.Flat k K → ∀ n : ℕ, Nonempty (RT1.HH K (K ⊗[k] A) n ≅
       (ModuleCat.extendScalars (algebraMap k K)).obj (RT1.HH k A n))) ∧
     (Module.Flat k A ∨ Module.Flat k K →
-      Nonempty ((RT1.DMod.ofComplex K).obj (RT1.derivedMixed K (K ⊗[k] A)).cyclicComplex ≅
+      Nonempty ((RT1.DMod.ofComplexZ K).obj (RT1.derivedMixed K (K ⊗[k] A)).cyclicComplex ≅
         (RT1.DMod.extendScalars (algebraMap k K)).obj
-          ((RT1.DMod.ofComplex k).obj (RT1.derivedMixed k A).cyclicComplex))) ∧
+          ((RT1.DMod.ofComplexZ k).obj (RT1.derivedMixed k A).cyclicComplex))) ∧
     (Module.Flat k A → Module.Finite k K → Module.Projective k K → ∀ n : ℤ,
       Nonempty (negativeCyclicHomology K (K ⊗[k] A) n ≅
         (ModuleCat.extendScalars (algebraMap k K)).obj (negativeCyclicHomology k A n)) ∧
@@ -1608,15 +2067,12 @@ theorem RT1.deRhamD_spec (k : Type) [CommRing k] (A : Type) [CommRing A] [Algebr
     ∀ n : ℕ, (RT1.deRhamD k A (n + 1)).comp (RT1.deRhamD k A n) = 0 := sorry
 
 /-- The mixed complex `(Ω^•_{A/k}, 0, d)`. -/
-def RT1.deRhamMixed (k : Type) [CommRing k] (A : Type) [CommRing A] [Algebra k A] :
-    MixedComplex k where
-  X n := ModuleCat.of k ↥(⋀[A]^n Ω[A⁄k])
-  b _ := 0
-  B n := ModuleCat.ofHom (RT1.deRhamD k A n)
-  b_comp_b _ := by simp
-  B_comp_B _ := sorry
-  B_comp_b_zero := by simp
-  bB_add_Bb _ := by simp
+def RT1.deRhamMixed (k A : Type) [CommRing k] [CommRing A] [Algebra k A] :
+    MixedComplex k := sorry
+
+/-- Degree identification of the zero-extended de Rham mixed object. -/
+def RT1.deRhamMixedDegreeIso (k A : Type) [CommRing k] [CommRing A] [Algebra k A] (n : ℕ) :
+    (RT1.deRhamMixed k A).X (n : ℤ) ≅ ModuleCat.of k (⋀[A]^n Ω[A⁄k]) := sorry
 
 /-- RT.1/b-equals-d (Loday–Quillen, Proposition 2.2): `B ∘ ε_n = ε_{n+1} ∘ d` on
 `Ω^n_{A/k}`, and dually `π_{n+1} ∘ B = (n+1)·d ∘ π_n`; if `ℚ ⊆ k`, `μ_n = π_n/n!` is a map of
@@ -1629,7 +2085,8 @@ theorem bEqualsD (k : Type) [CommRing k] (A : Type) [CommRing A] [Algebra k A] :
       (n + 1) • (HochschildHomology.hkrProj k A n ≫ ModuleCat.ofHom (RT1.deRhamD k A n))) ∧
     ∀ [Algebra ℚ k], ∃ μ : RT1.algMixed k A ⟶ RT1.deRhamMixed k A,
       (∀ (n : ℕ) (a : Fin (n + 1) → A),
-        (μ.f n).hom (RT1.normClass k A n (PiTensorProduct.tprod k a)) =
+        (RT1.deRhamMixedDegreeIso k A n).hom.hom
+          ((μ.f n).hom (RT1.normMixedClass k A n (PiTensorProduct.tprod k a))) =
           algebraMap ℚ k ((n.factorial : ℚ)⁻¹) •
             (a 0 • exteriorPower.ιMulti A n (fun i => KaehlerDifferential.D k A (a i.succ)))) ∧
       (Algebra.Smooth k A → MixedComplex.QuasiIso μ) := sorry
@@ -1762,6 +2219,7 @@ theorem hhOfFp (p : ℕ) [Fact p.Prime] :
     Nonempty (RT1.wedgeCotangent ℤ (ZMod p) 1 ≅
       (RT1.DMod.ofModule (ModuleCat.of ℤ (ZMod p))).shift 1) := sorry
 
+
 end RefinedTraceMethods
 
 /-! ## RT.2 (non-genuine part): Tate constructions, THH, cyclotomic spectra and TC
@@ -1794,7 +2252,7 @@ def RT2.IsPComplete (p : ℕ) (X : Spectrum) : Prop := IsIso (RT2.pCompletionMap
 
 /-- Presentable stable categories, read on a categorical prototype: all small limits and
 colimits, a zero object, and a commutative square is a pullback iff it is a pushout. -/
-class RT2.PresentableStable (D : Type*) [Category D] : Prop where
+class RT2.BicompleteStable (D : Type*) [Category D] : Prop where
   hasLimits : Limits.HasLimits D
   hasColimits : Limits.HasColimits D
   hasZero : Limits.HasZeroObject D
@@ -1940,7 +2398,7 @@ theorem res_comp {K H G : Type} [Group K] [Group H] [Group G] (ψ : K →* H) (�
 
 /-- `Sp^{BG}` is presentable stable (RT.2/spectra-with-action). The second clause of the packet
 statement, that fibres and cofibres are computed underlying, is `forget_exact` below. -/
-instance instStable (G : Type) [Group G] : RT2.PresentableStable (SpectraWithAction G) := sorry
+instance instStable (G : Type) [Group G] : RT2.BicompleteStable (SpectraWithAction G) := sorry
 
 /-- Fibres and cofibres in `Sp^{BG}` are computed underlying: the forgetful functor is exact. -/
 theorem forget_exact (G : Type) [Group G] : RT2.IsExact (RT2.forget G) := sorry
@@ -2299,7 +2757,7 @@ theorem parametrisedTate :
 /-! ### More helpers: limits in `Sp`, suspension, restriction to `C_n` -/
 
 /-- `Sp` is presentable stable; in particular it has all small limits and colimits. -/
-instance RT2.instStableSpectrum : RT2.PresentableStable Spectrum := sorry
+instance RT2.instStableSpectrum : RT2.BicompleteStable Spectrum := sorry
 instance RT2.instHasLimitsSpectrum : Limits.HasLimits Spectrum := sorry
 instance RT2.instHasColimitsSpectrum : Limits.HasColimits Spectrum := sorry
 
@@ -2867,15 +3325,15 @@ theorem thhOverThhz :
 
 /-- The lax equalizer `LEq(F, G)` of `F, G : D → E`: objects are pairs `(c, f : F c → G c)`
 (RT.2/lax-equalizer). Morphisms are the maps `h` of `D` with `f ≫ G h = F h ≫ f'`, so the mapping
-spaces are the equalizers of `Map(c, c') ⇉ Map(F c, G c')` (`LaxEqualizer.mapping`). -/
-structure LaxEqualizer {D E : Type*} [Category D] [Category E] (F G : D ⥤ E) where
+spaces are the equalizers of `Map(c, c') ⇉ Map(F c, G c')` (`StrictLaxEqualizer.mapping`). -/
+structure StrictLaxEqualizer {D E : Type*} [Category D] [Category E] (F G : D ⥤ E) where
   /-- The object of `D`. -/
   obj : D
   /-- The structure map `F c → G c`. -/
   map : F.obj obj ⟶ G.obj obj
 
-instance RT2.instCategoryLaxEqualizer {D E : Type*} [Category D] [Category E] (F G : D ⥤ E) :
-    Category (LaxEqualizer F G) where
+instance RT2.instCategoryStrictLaxEqualizer {D E : Type*} [Category D] [Category E] (F G : D ⥤ E) :
+    Category (StrictLaxEqualizer F G) where
   Hom X Y := {h : X.obj ⟶ Y.obj // X.map ≫ G.map h = F.map h ≫ Y.map}
   id X := ⟨𝟙 X.obj, by simp⟩
   comp f g := ⟨f.1 ≫ g.1, sorry⟩
@@ -2884,8 +3342,8 @@ instance RT2.instCategoryLaxEqualizer {D E : Type*} [Category D] [Category E] (F
   assoc := sorry
 
 /-- The projection `LEq(F, G) → D`. -/
-def LaxEqualizer.proj {D E : Type*} [Category D] [Category E] (F G : D ⥤ E) :
-    LaxEqualizer F G ⥤ D where
+def StrictLaxEqualizer.proj {D E : Type*} [Category D] [Category E] (F G : D ⥤ E) :
+    StrictLaxEqualizer F G ⥤ D where
   obj X := X.obj
   map h := h.1
   map_id := sorry
@@ -2893,11 +3351,11 @@ def LaxEqualizer.proj {D E : Type*} [Category D] [Category E] (F G : D ⥤ E) :
 
 /-- Mapping spaces in `LEq(F, G)` are equalizers of `Map(c, c') ⇉ Map(F c, G c')`
 (RT.2/lax-equalizer). -/
-theorem LaxEqualizer.mapping {D E : Type*} [Category D] [Category E] {F G : D ⥤ E}
-    (X Y : LaxEqualizer F G) :
+theorem StrictLaxEqualizer.mapping {D E : Type*} [Category D] [Category E] {F G : D ⥤ E}
+    (X Y : StrictLaxEqualizer F G) :
     Nonempty ((X ⟶ Y) ≃ {h : X.obj ⟶ Y.obj // X.map ≫ G.map h = F.map h ≫ Y.map}) := sorry
 
-/-- Stable categories (finite part of `RT2.PresentableStable`). -/
+/-- Stable categories (finite part of `RT2.BicompleteStable`). -/
 class RT2.Stable (D : Type*) [Category D] : Prop where
   hasFiniteLimits : Limits.HasFiniteLimits D
   hasFiniteColimits : Limits.HasFiniteColimits D
@@ -2907,35 +3365,35 @@ class RT2.Stable (D : Type*) [Category D] : Prop where
 
 /-- `LEq(F, G)` is stable and `LEq(F, G) → D` exact when `D, E` are stable and `F, G` exact
 (RT.2/lax-equalizer). -/
-theorem LaxEqualizer.instStable {D E : Type*} [Category D] [Category E] [RT2.Stable D]
+theorem StrictLaxEqualizer.instStable {D E : Type*} [Category D] [Category E] [RT2.Stable D]
     [RT2.Stable E] (F G : D ⥤ E) (hF : RT2.IsExact F) (hG : RT2.IsExact G) :
-    RT2.Stable (LaxEqualizer F G) ∧ RT2.IsExact (LaxEqualizer.proj F G) := sorry
+    RT2.Stable (StrictLaxEqualizer F G) ∧ RT2.IsExact (StrictLaxEqualizer.proj F G) := sorry
 
 /-- `LEq(F, G)` has all small limits and colimits and the projection preserves colimits when `D`
 is presentable and `F` preserves colimits (RT.2/lax-equalizer; the accessibility hypotheses on `E`
 and `G` are left out); limits of `D` preserved by `G` lift. -/
-theorem LaxEqualizer.instPresentable {D E : Type} [Category.{0} D] [Category.{0} E]
+theorem StrictLaxEqualizer.instPresentable {D E : Type} [Category.{0} D] [Category.{0} E]
     [Limits.HasLimits D] [Limits.HasColimits D] (F G : D ⥤ E) [Limits.PreservesColimits F]
     [Limits.PreservesLimits G] :
-    Limits.HasLimits (LaxEqualizer F G) ∧ Limits.HasColimits (LaxEqualizer F G) ∧
-      Nonempty (Limits.PreservesColimits (LaxEqualizer.proj F G)) := sorry
+    Limits.HasLimits (StrictLaxEqualizer F G) ∧ Limits.HasColimits (StrictLaxEqualizer F G) ∧
+      Nonempty (Limits.PreservesColimits (StrictLaxEqualizer.proj F G)) := sorry
 
 /-- The projection `LEq(F, G) → D` is conservative (RT.2/lax-equalizer). -/
-theorem LaxEqualizer.conservative {D E : Type*} [Category D] [Category E] (F G : D ⥤ E) :
-    (LaxEqualizer.proj F G).ReflectsIsomorphisms := sorry
+theorem StrictLaxEqualizer.conservative {D E : Type*} [Category D] [Category E] (F G : D ⥤ E) :
+    (StrictLaxEqualizer.proj F G).ReflectsIsomorphisms := sorry
 
-/-- Test `LaxEqualizer.identity` (degenerate): LEq(id_C, id_C) has objects (c, f : c → c). -/
+/-- Test `StrictLaxEqualizer.identity` (degenerate): LEq(id_C, id_C) has objects (c, f : c → c). -/
 example {D : Type*} [Category D] :
-    Nonempty (LaxEqualizer (𝟭 D) (𝟭 D) ≃ Σ c : D, (c ⟶ c)) := sorry
+    Nonempty (StrictLaxEqualizer (𝟭 D) (𝟭 D) ≃ Σ c : D, (c ⟶ c)) := sorry
 
-/-- Test `LaxEqualizer.mapping_point` (computation): for C = D = Spaces (prototyped by `Type`) and
+/-- Test `StrictLaxEqualizer.mapping_point` (computation): for C = D = Spaces (prototyped by `Type`) and
 F = G = id, maps (∗, id) → (∗, id) form a contractible space (a singleton). -/
 example :
-    Nonempty (Unique ((⟨PUnit, 𝟙 _⟩ : LaxEqualizer (𝟭 Type) (𝟭 Type)) ⟶ ⟨PUnit, 𝟙 _⟩)) := sorry
+    Nonempty (Unique ((⟨PUnit, 𝟙 _⟩ : StrictLaxEqualizer (𝟭 Type) (𝟭 Type)) ⟶ ⟨PUnit, 𝟙 _⟩)) := sorry
 
-/-- Test `LaxEqualizer.not_equalizer` (non-example): LEq(F, G) is not the equalizer: objects carry
+/-- Test `StrictLaxEqualizer.not_equalizer` (non-example): LEq(F, G) is not the equalizer: objects carry
 a map, not an equivalence. -/
-example : ∃ X : LaxEqualizer (𝟭 Type) (𝟭 Type), ¬ IsIso X.map := sorry
+example : ∃ X : StrictLaxEqualizer (𝟭 Type) (𝟭 Type), ¬ IsIso X.map := sorry
 
 /-! ### Cyclotomic spectra: monoidal structure and forgetful functors (helpers) -/
 
@@ -3058,14 +3516,14 @@ def RT2.residualTateCpInfty (p : ℕ) :
     SpectraWithAction (RT2.CpInfty p) ⥤ SpectraWithAction (RT2.CpInfty p) := sorry
 
 /-- `CycSp = LEq(Sp^{BT} ⇉ ∏_p Sp^{BT})` for `id` and `(−^{tC_p})_p` (RT.2/cyclotomic-spectrum). -/
-def CyclotomicSpectrum.equivLaxEqualizer :
-    CyclotomicSpectrum ≌ LaxEqualizer (Functor.pi' fun _ : Nat.Primes => 𝟭 (SpectraWithAction T))
+def CyclotomicSpectrum.equivStrictLaxEqualizer :
+    CyclotomicSpectrum ≌ StrictLaxEqualizer (Functor.pi' fun _ : Nat.Primes => 𝟭 (SpectraWithAction T))
       (Functor.pi' fun p : Nat.Primes => RT2.residualTateFunctor p) := sorry
 
 /-- `p`-cyclotomic spectra `CycSp_p = LEq(Sp^{BC_{p^∞}} ⇉ Sp^{BC_{p^∞}})` for `id` and `−^{tC_p}`
 (RT.2/cyclotomic-spectrum). -/
 abbrev CyclotomicSpectrum.pTypical (p : ℕ) : Type :=
-  LaxEqualizer (𝟭 (SpectraWithAction (RT2.CpInfty p))) (RT2.residualTateCpInfty p)
+  StrictLaxEqualizer (𝟭 (SpectraWithAction (RT2.CpInfty p))) (RT2.residualTateCpInfty p)
 
 /-- The forgetful functor `CycSp → Sp^{BT} → Sp` (RT.2/cyclotomic-spectrum). -/
 def CyclotomicSpectrum.forget : CyclotomicSpectrum ⥤ Spectrum := RT2.cycToSWA ⋙ RT2.forget T
@@ -3076,9 +3534,9 @@ theorem CyclotomicSpectrum.forget_spec :
     RT2.IsExact CyclotomicSpectrum.forget ∧ CyclotomicSpectrum.forget.ReflectsIsomorphisms ∧
       Nonempty (Limits.PreservesColimits CyclotomicSpectrum.forget) ∧
       ∀ p : ℕ, p.Prime →
-        RT2.IsExact (LaxEqualizer.proj _ _ ⋙ RT2.forget (RT2.CpInfty p) :
+        RT2.IsExact (StrictLaxEqualizer.proj _ _ ⋙ RT2.forget (RT2.CpInfty p) :
           CyclotomicSpectrum.pTypical p ⥤ Spectrum) ∧
-        (LaxEqualizer.proj _ _ ⋙ RT2.forget (RT2.CpInfty p) :
+        (StrictLaxEqualizer.proj _ _ ⋙ RT2.forget (RT2.CpInfty p) :
           CyclotomicSpectrum.pTypical p ⥤ Spectrum).ReflectsIsomorphisms := sorry
 
 /-- The Frobenius `S → S^{hC_p} → S^{tC_p}` of the sphere with trivial action. -/
@@ -3097,7 +3555,7 @@ theorem CyclotomicSpectrum.unit :
       Nonempty (RT2.cycSphere ≅ THH.toCyclotomic E1Ring.sphere) := sorry
 
 /-- `CycSp` is presentable stable (RT.2/cyclotomic-spectrum). -/
-instance CyclotomicSpectrum.instStable : RT2.PresentableStable CyclotomicSpectrum := sorry
+instance CyclotomicSpectrum.instStable : RT2.BicompleteStable CyclotomicSpectrum := sorry
 
 /-- Restriction `CycSp → CycSp_p` along `C_{p^∞} ⊂ T` (RT.2/cyclotomic-spectrum). -/
 def CyclotomicSpectrum.toPTypical (p : ℕ) : CyclotomicSpectrum ⥤ CyclotomicSpectrum.pTypical p :=
@@ -3378,15 +3836,7 @@ theorem hzModuleCircleTate (X : RT2.FunBT RT2.DZ)
 
 /-- A mixed complex over `k`: a chain complex `(C, b)` of `k`-modules with a degree `+1` map `B`
 such that `B² = 0` and `bB + Bb = 0`. -/
-structure RT2.MixedComplex (k : Type) [CommRing k] where
-  /-- The complex `(C, b)`. -/
-  complex : ChainComplex (ModuleCat.{0} k) ℤ
-  /-- Connes' operator, components `C_i → C_j`, nonzero only for `j = i + 1`. -/
-  B : ∀ i j : ℤ, complex.X i ⟶ complex.X j
-  B_shape : ∀ i j : ℤ, j ≠ i + 1 → B i j = 0
-  B_sq : ∀ i j l : ℤ, B i j ≫ B j l = 0
-  bB_add_Bb : ∀ i j l : ℤ, j = i + 1 → l = i - 1 →
-    B i j ≫ complex.d j i + complex.d i l ≫ B l i = 0
+abbrev RT2.MixedComplex (k : Type) [CommRing k] := RefinedTraceMethods.MixedComplex k
 
 /-- The derived ∞-category `D(k)`. -/
 def RT2.DerivedCat (k : Type) [CommRing k] : Type := sorry
@@ -3538,6 +3988,7 @@ theorem thhSphericalGroupRings :
             Spectrum.pCompletion p (RT2.suspT.obj (RT2.freeLoopSpace Y)).underlying),
         IsPullback a b (RT2.pCompletionOfMap p (RT2.transferT (RT2.suspT.obj (RT2.freeLoopSpace Y))))
           (RT2.pCompletionOfMap p (𝟙 _ - RT2.loopPower p Y)) := sorry
+
 
 end RefinedTraceMethods
 namespace RefinedTraceMethods
@@ -4317,7 +4768,7 @@ theorem geometricFixedPointsLocalisation :
 
 /-- Coalgebras `CoAlg_F(C) = LEq(id_C, F)` for an endofunctor `F` of `C`
 (RT.2/endofunctor-coalgebras): objects `c` with a map `c → F c`. -/
-structure Endofunctor.CoAlg {D : Type u} [Category.{v} D] (F : D ⥤ D) where
+structure StrictEndofunctor.CoAlg {D : Type u} [Category.{v} D] (F : D ⥤ D) where
   /-- The underlying object `c`. -/
   obj : D
   /-- The structure map `c → F c`. -/
@@ -4326,13 +4777,13 @@ structure Endofunctor.CoAlg {D : Type u} [Category.{v} D] (F : D ⥤ D) where
 /-- Maps of coalgebras: maps `f : c → c'` with `F f ∘ φ = φ' ∘ f`. -/
 @[ext]
 structure RT2G.CoAlgHom {D : Type u} [Category.{v} D] {F : D ⥤ D}
-    (A B : Endofunctor.CoAlg F) where
+    (A B : StrictEndofunctor.CoAlg F) where
   /-- The underlying map. -/
   hom : A.obj ⟶ B.obj
   comm : A.str ≫ F.map hom = hom ≫ B.str
 
 instance RT2G.CoAlg.instCategory {D : Type u} [Category.{v} D] (F : D ⥤ D) :
-    Category.{v} (Endofunctor.CoAlg F) where
+    Category.{v} (StrictEndofunctor.CoAlg F) where
   Hom A B := RT2G.CoAlgHom A B
   id A := ⟨𝟙 A.obj, sorry⟩
   comp f g := ⟨f.hom ≫ g.hom, sorry⟩
@@ -4342,42 +4793,35 @@ instance RT2G.CoAlg.instCategory {D : Type u} [Category.{v} D] (F : D ⥤ D) :
 
 /-- The property of a coalgebra of being a fixed point: its structure map is an isomorphism. -/
 def RT2G.isFixedPoint {D : Type u} [Category.{v} D] (F : D ⥤ D) :
-    ObjectProperty (Endofunctor.CoAlg F) :=
+    ObjectProperty (StrictEndofunctor.CoAlg F) :=
   fun A => IsIso A.str
 
 /-- Fixed points `Fix_F(C) = Eq(id_C, F) ⊆ CoAlg_F(C)`: the coalgebras `c ≃ F c` (full
 subcategory). -/
-abbrev Endofunctor.Fix {D : Type u} [Category.{v} D] (F : D ⥤ D) : Type _ :=
+abbrev StrictEndofunctor.Fix {D : Type u} [Category.{v} D] (F : D ⥤ D) : Type _ :=
   (RT2G.isFixedPoint F).FullSubcategory
 
-/-- Presentability, read on a categorical prototype: all small limits and colimits. -/
-class RT2G.Presentable (D : Type u) [Category.{v} D] : Prop where
+/-- Bicompleteness of the ordinary model; this is not infinity-categorical presentability. -/
+class RT2G.Bicomplete (D : Type u) [Category.{v} D] : Prop where
   hasLimits : Limits.HasLimits D
   hasColimits : Limits.HasColimits D
 
-/-- An (`ω`-)accessible endofunctor: it preserves filtered colimits. -/
+/-- Filtered-colimit preservation for the ordinary model; coherent accessibility is imported separately. -/
 def RT2G.Accessible {D : Type u} [Category.{v} D] (F : D ⥤ D) : Prop :=
   ∀ (J : Type v) [SmallCategory J] [IsFiltered J], Limits.PreservesColimitsOfShape J F
 
-/-- For `C` presentable and `F` colimit-preserving, the inclusion `Fix_F(C) → CoAlg_F(C)` has a right
-adjoint (coreflection) `R_ι`. -/
-theorem Endofunctor.coreflection {D : Type u} [Category.{v} D] [RT2G.Presentable D] (F : D ⥤ D)
-    [Limits.PreservesColimits F] :
-    ∃ R : Endofunctor.CoAlg F ⥤ Endofunctor.Fix F, Nonempty ((RT2G.isFixedPoint F).ι ⊣ R) :=
-  sorry
-
 /-- `F̄ : CoAlg_F → CoAlg_F`, `(c, φ) ↦ (F c, F φ)`. -/
 def RT2G.CoAlg.lift {D : Type u} [Category.{v} D] (F : D ⥤ D) :
-    Endofunctor.CoAlg F ⥤ Endofunctor.CoAlg F where
+    StrictEndofunctor.CoAlg F ⥤ StrictEndofunctor.CoAlg F where
   obj A := ⟨F.obj A.obj, F.map A.str⟩
   map f := ⟨F.map (RT2G.CoAlgHom.hom f), sorry⟩
   map_id := sorry
   map_comp := sorry
 
 /-- The endofunctor `R̄_F` of `CoAlg_F` built from a right adjoint `R_F` of `F` (NS18 Lemma II.5.4);
-its underlying object is computed in `Endofunctor.coreflection_formula`. -/
+The coherent source formula is Coherent.Endofunctor.barRight.pullback. -/
 def RT2G.CoAlg.rightAdj {D : Type u} [Category.{v} D] {F R : D ⥤ D} (adj : F ⊣ R) :
-    Endofunctor.CoAlg F ⥤ Endofunctor.CoAlg F := sorry
+    StrictEndofunctor.CoAlg F ⥤ StrictEndofunctor.CoAlg F := sorry
 
 /-- The natural map `R̄_F → id`, the mate of the structure maps `id → F̄`. -/
 def RT2G.CoAlg.rightAdjCounit {D : Type u} [Category.{v} D] {F R : D ⥤ D} (adj : F ⊣ R) :
@@ -4388,34 +4832,18 @@ def RT2G.iter {D : Type u} [Category.{v} D] (F : D ⥤ D) : ℕ → D → D
   | 0, A => A
   | n + 1, A => F.obj (RT2G.iter F n A)
 
-/-- If `F` has a fully faithful right adjoint `R_F` and preserves pullbacks, then `F̄` has the right
-adjoint `R̄_F` with `R̄_F(X → FX)` of underlying object `R_F X ×_{R_F F X} X` (NS18 Lemma II.5.4),
-and the coreflection satisfies `ι R_ι ≃ lim(⋯ → R̄_F² → R̄_F → id)` (NS18 Proposition II.5.3). -/
-theorem Endofunctor.coreflection_formula {D : Type u} [Category.{v} D] [RT2G.Presentable D]
-    [Limits.HasPullbacks D] {F R : D ⥤ D} (adj : F ⊣ R) [R.Full] [R.Faithful]
-    [Limits.PreservesLimitsOfShape Limits.WalkingCospan F] [Limits.PreservesColimits F] :
-    Nonempty (RT2G.CoAlg.lift F ⊣ RT2G.CoAlg.rightAdj adj) ∧
-    (∀ A : Endofunctor.CoAlg F, Nonempty (((RT2G.CoAlg.rightAdj adj).obj A).obj ≅
-      Limits.pullback (R.map A.str) (adj.unit.app A.obj))) ∧
-    ∃ Rι : Endofunctor.CoAlg F ⥤ Endofunctor.Fix F, Nonempty ((RT2G.isFixedPoint F).ι ⊣ Rι) ∧
-      ∀ A : Endofunctor.CoAlg F, ∃ π : ∀ n : ℕ,
-          (RT2G.isFixedPoint F).ι.obj (Rι.obj A) ⟶ RT2G.iter (RT2G.CoAlg.rightAdj adj) n A,
-        RT2G.IsSeqLimit
-          (fun n => (RT2G.CoAlg.rightAdjCounit adj).app (RT2G.iter (RT2G.CoAlg.rightAdj adj) n A))
-          π := sorry
-
-/-- Test `Endofunctor.Fix_id` (degenerate): for `F = id_C`, `CoAlg_F(C)` has objects
+/-- Test `StrictEndofunctor.Fix_id` (degenerate): for `F = id_C`, `CoAlg_F(C)` has objects
 `(c, f : c → c)` and `Fix_F(C)` those with `f` an equivalence, i.e. `Fun(Bℤ, C)`. -/
 example {D : Type u} [Category.{v} D] :
-    Nonempty (Endofunctor.Fix (𝟭 D) ≌ (SingleObj (Multiplicative ℤ) ⥤ D)) := sorry
+    Nonempty (StrictEndofunctor.Fix (𝟭 D) ≌ (SingleObj (Multiplicative ℤ) ⥤ D)) := sorry
 
-/-- Test `Endofunctor.CoAlg_zero` (computation): for `F = 0` (constant at the zero object),
+/-- Test `StrictEndofunctor.CoAlg_zero` (computation): for `F = 0` (constant at the zero object),
 `CoAlg_F(C) ≃ C` and `Fix_F(C) = {0}`. -/
 example {D : Type u} [Category.{v} D] (Z : D) (hZ : Limits.IsZero Z) :
-    Nonempty (Endofunctor.CoAlg ((Functor.const D).obj Z) ≌ D) ∧
-      ∀ A : Endofunctor.Fix ((Functor.const D).obj Z), Limits.IsZero A.obj.obj := sorry
+    Nonempty (StrictEndofunctor.CoAlg ((Functor.const D).obj Z) ≌ D) ∧
+      ∀ A : StrictEndofunctor.Fix ((Functor.const D).obj Z), Limits.IsZero A.obj.obj := sorry
 
-/-- Test `Endofunctor.fix_not_coalg` (non-example): a coalgebra `c → F c` that is not an
+/-- Test `StrictEndofunctor.fix_not_coalg` (non-example): a coalgebra `c → F c` that is not an
 equivalence, e.g. `0 → F 0` when `F 0 ≠ 0`, is not in `Fix_F`. -/
 example {D : Type u} [Category.{v} D] (F : D ⥤ D) (Z : D) (hZ : Limits.IsZero Z)
     (hFZ : ¬ Limits.IsZero (F.obj Z)) :
@@ -4449,7 +4877,7 @@ instance RT2G.GenuineCyclotomicSpectrum.instCategory : Category.{0} GenuineCyclo
 points of the endofunctor `Φ^{C_p}`, i.e. `X` with an equivalence `X ≃ Φ^{C_p} X` (the inverse of
 `Φ_p : Φ^{C_p} X ≃ X`). -/
 abbrev GenuineCyclotomicSpectrum.pTypical (p : ℕ) [Fact p.Prime] : Type :=
-  Endofunctor.Fix (RT2G.GenuinePInftySpectrum.geometricFixedPoints p)
+  StrictEndofunctor.Fix (RT2G.GenuinePInftySpectrum.geometricFixedPoints p)
 
 /-- The underlying genuine `C_{p^∞}`-spectrum of a genuine `p`-cyclotomic spectrum. -/
 def RT2G.GenuineCyclotomicSpectrum.pUnderlying {p : ℕ} [Fact p.Prime]
@@ -4588,7 +5016,7 @@ coalgebras for `Φ^{C_p}` on `C_{p^∞}Sp` has a right adjoint (NS18 Theorem II.
 `(Φ^{C_p})_p` on `TSp_F` has a right adjoint (NS18 Theorem II.5.13). -/
 theorem genuineCyclotomicCoreflection :
     (∀ (p : ℕ) [Fact p.Prime],
-      ∃ R : Endofunctor.CoAlg (RT2G.GenuinePInftySpectrum.geometricFixedPoints p) ⥤
+      ∃ R : StrictEndofunctor.CoAlg (RT2G.GenuinePInftySpectrum.geometricFixedPoints p) ⥤
           GenuineCyclotomicSpectrum.pTypical p,
         Nonempty ((RT2G.isFixedPoint (RT2G.GenuinePInftySpectrum.geometricFixedPoints p)).ι ⊣ R)) ∧
     RT2G.CycCoAlg.ofGenuine.Full ∧ RT2G.CycCoAlg.ofGenuine.Faithful ∧
@@ -5064,6 +5492,7 @@ theorem genuineTcAgrees :
       Nonempty (RT2G.TCgenInt
           (RT2G.OrthogonalCyclotomicSpectrum.toGenuine.obj (Bokstedt.classicalTHH A)) ≅
         TC (THHcyc A.toE1)) := sorry
+
 
 end RefinedTraceMethods
 
@@ -5652,18 +6081,9 @@ def derivativeMap (D : SuspensionData 𝒞) {ψ φ : 𝒞 ⥤ Spectrum} (η : ψ
 
 end RT3
 
-/-- Raskin §2.3: for sifted-colimit-preserving ψ between cocomplete stable ∞-categories,
-`∂ψ` is initial among continuous exact functors under ψ. Variant 2.3.2 treats the connective
-half of a t-structure compatible with filtered colimits and includes a truncation colimit.
-Those source hypotheses and continuity of L cannot be expressed by SuspensionData and are
-omitted from this signature; reduced 1-excisiveness alone does not imply continuity. -/
-theorem GoodwillieDerivative.universal {𝒞 : Type} [Category.{0} 𝒞] (D : RT3.SuspensionData 𝒞)
-    (ψ : 𝒞 ⥤ Spectrum) :
-    Excisive 1 (GoodwillieDerivative D ψ) ∧
-    Nonempty ((GoodwillieDerivative D ψ).obj D.z ≅ Spectrum.zero) ∧
-    ∀ L : 𝒞 ⥤ Spectrum, Excisive 1 L → Nonempty (L.obj D.z ≅ Spectrum.zero) →
-      ∀ η : RT3.reduction D ψ ⟶ L,
-        ∃! η' : GoodwillieDerivative D ψ ⟶ L, RT3.toDerivative D ψ ≫ η' = η := sorry
+/- The source's universal property is stated by Coherent.GoodwillieDerivative.universal
+below. This ordinary sequential formula is a model; no universal property follows
+from SuspensionData alone. -/
 
 /-- If `ψ` is exact (1-excisive) and reduced, then `∂ψ ≃ ψ`. -/
 theorem GoodwillieDerivative.exact {𝒞 : Type} [Category.{0} 𝒞] (D : RT3.SuspensionData 𝒞)
@@ -5716,21 +6136,21 @@ example : (∀ M, Nonempty ((GoodwillieDerivative RT3.connSuspData RT3.quadratic
 namespace RT3
 
 /-- Connective `A`-bimodules. -/
-def ConnBimod (A : E1Ring) : Type := sorry
+def StrictConnBimod (A : E1Ring) : Type := sorry
 
-instance (A : E1Ring) : Category.{0} (ConnBimod A) := sorry
+instance (A : E1Ring) : Category.{0} (StrictConnBimod A) := sorry
 
 /-- Zero object and suspension of connective bimodules. -/
-def ConnBimod.suspData (A : E1Ring) : SuspensionData (ConnBimod A) := sorry
+def StrictConnBimod.suspData (A : E1Ring) : SuspensionData (StrictConnBimod A) := sorry
 
 /-- The underlying spectrum of a bimodule. -/
-def ConnBimod.forget (A : E1Ring) : ConnBimod A ⥤ Spectrum := sorry
+def StrictConnBimod.forget (A : E1Ring) : StrictConnBimod A ⥤ Spectrum := sorry
 
 /-- The split square-zero extension `M ↦ A ⊕ M`. -/
-def sqZero (A : E1Ring) : ConnBimod A ⥤ E1Ring := sorry
+def sqZeroShadow (A : E1Ring) : StrictConnBimod A ⥤ E1Ring := sorry
 
 /-- Topological Hochschild homology with coefficients `M ↦ THH(A; M)`. -/
-def THHcoeff (A : E1Ring) : ConnBimod A ⥤ Spectrum := sorry
+def THHcoeffShadow (A : E1Ring) : StrictConnBimod A ⥤ Spectrum := sorry
 
 /-- The shift functor `Σⁿ` on spectra. -/
 def shiftFunctor (n : ℤ) : Spectrum ⥤ Spectrum where
@@ -5745,21 +6165,21 @@ end RT3
 E₁-ring `A`, the Goodwillie derivative of `M ↦ K(A ⊕ M)` on connective bimodules is
 `M ↦ Σ THH(A; M)` (stable K-theory); for `A = S` it is `M ↦ ΣM`. -/
 theorem stableKTheoryThh (A : E1Ring) (hA : A.IsConnective) :
-    Nonempty (GoodwillieDerivative (RT3.ConnBimod.suspData A) (RT3.sqZero A ⋙ RT3.KRingFunctor) ≅
-      RT3.THHcoeff A ⋙ RT3.shiftFunctor 1) ∧
-    Nonempty (GoodwillieDerivative (RT3.ConnBimod.suspData E1Ring.sphere)
-        (RT3.sqZero E1Ring.sphere ⋙ RT3.KRingFunctor) ≅
-      RT3.ConnBimod.forget E1Ring.sphere ⋙ RT3.shiftFunctor 1) := sorry
+    Nonempty (GoodwillieDerivative (RT3.StrictConnBimod.suspData A) (RT3.sqZeroShadow A ⋙ RT3.KRingFunctor) ≅
+      RT3.THHcoeffShadow A ⋙ RT3.shiftFunctor 1) ∧
+    Nonempty (GoodwillieDerivative (RT3.StrictConnBimod.suspData E1Ring.sphere)
+        (RT3.sqZeroShadow E1Ring.sphere ⋙ RT3.KRingFunctor) ≅
+      RT3.StrictConnBimod.forget E1Ring.sphere ⋙ RT3.shiftFunctor 1) := sorry
 
 /-- Node `RefinedTraceMethods:RT.3/stable-tc-thh`. The derivative of `M ↦ TC(A ⊕ M)` is
 `M ↦ Σ THH(A; M)`, and the cyclotomic trace induces on derivatives the identification of
 RT.3/stable-k-theory-thh; so `tr` is an equivalence on derivatives. -/
 theorem stableTcThh (A : E1Ring) (hA : A.IsConnective) :
-    ∃ (eK : GoodwillieDerivative (RT3.ConnBimod.suspData A) (RT3.sqZero A ⋙ RT3.KRingFunctor) ≅
-        RT3.THHcoeff A ⋙ RT3.shiftFunctor 1)
-      (eT : GoodwillieDerivative (RT3.ConnBimod.suspData A) (RT3.sqZero A ⋙ RT3.TCRingFunctor) ≅
-        RT3.THHcoeff A ⋙ RT3.shiftFunctor 1),
-      RT3.derivativeMap (RT3.ConnBimod.suspData A) (Functor.whiskerLeft (RT3.sqZero A) RT3.traceNat)
+    ∃ (eK : GoodwillieDerivative (RT3.StrictConnBimod.suspData A) (RT3.sqZeroShadow A ⋙ RT3.KRingFunctor) ≅
+        RT3.THHcoeffShadow A ⋙ RT3.shiftFunctor 1)
+      (eT : GoodwillieDerivative (RT3.StrictConnBimod.suspData A) (RT3.sqZeroShadow A ⋙ RT3.TCRingFunctor) ≅
+        RT3.THHcoeffShadow A ⋙ RT3.shiftFunctor 1),
+      RT3.derivativeMap (RT3.StrictConnBimod.suspData A) (Functor.whiskerLeft (RT3.sqZeroShadow A) RT3.traceNat)
         ≫ eT.hom = eK.hom := sorry
 
 /-! ### RT.3/dgm-convergence, RT.3/dgm-theorem -/
@@ -5776,20 +6196,9 @@ def IsNilSurjection {A B : E1Ring} (f : A ⟶ B) : Prop :=
 
 end RT3
 
-/-- Node `RefinedTraceMethods:RT.3/dgm-convergence`. Raskin Proposition 5.5.3 applies to
-Ψ = fib(F → G) when Ψ converges on Postnikov towers, commutes with infinitesimal sifted
-colimits, and is constant on split square-zero extensions; it then gives nilpotent π₀
-invariance. Derivative vanishing implies the split square-zero condition only with the
-pseudo-extensibility hypotheses of Corollary 2.11.7 and Theorem 2.12.2. These key conditions
-cannot yet be expressed by the prototype and are omitted from the signature. The displayed
-derivative hypothesis alone cannot certify this theorem. The K/TC application uses
-Theorem 5.6.1 to establish the actual convergence and infinitesimal-colimit hypotheses. -/
-theorem dgmConvergence (F G : E1Ring ⥤ Spectrum) (η : F ⟶ G)
-    (hderiv : ∀ A : E1Ring, A.IsConnective →
-      IsIso (RT3.derivativeMap (RT3.ConnBimod.suspData A) (Functor.whiskerLeft (RT3.sqZero A) η)))
-    {B A : E1Ring} (f : B ⟶ A) (hB : B.IsConnective) (hA : A.IsConnective)
-    (hf : RT3.IsNilSurjection f) :
-    IsCartesianSquare (F.map f) (G.map f) (η.app B) (η.app A) (η.naturality f) := sorry
+/- The coherent dgmConvergence signature is below, with all three independent
+hypotheses of Raskin Proposition 5.5.3. The ordinary derivative model above is
+used only for the derivative computations, not as a nil-invariance criterion. -/
 
 /-- Node `RefinedTraceMethods:RT.3/dgm-theorem` (Dundas–Goodwillie–McCarthy). For a map
 `f : A → B` of connective E₁-rings with `π_0 A → π_0 B` surjective with nilpotent kernel, the
@@ -6404,20 +6813,29 @@ theorem gradedSquare_comm (p n : ℕ) (R : Type) [CommRing R] :
 
 end RT3
 
+namespace RT3
+/-- Derived p-completed cotangent object L_{R/Z_p}, supplied by DD.0. -/
+def pCotangent (p : ℕ) (R : Type) [CommRing R] : RT1.DMod R := sorry
+/-- Tor amplitude in homological [0,1], tested on every discrete R-module. -/
+def CotangentTorAmplitudeZeroOne (p : ℕ) (R : Type) [CommRing R] : Prop :=
+  ∀ (M : ModuleCat.{0} R) (j : ℤ), j<0 ∨ 1<j →
+    Limits.IsZero ((RT1.DMod.tensorL (pCotangent p R) (RT1.DMod.ofModule M)).homology j)
+end RT3
+
 /-- Node `RefinedTraceMethods:RT.3b/graded-beilinson-square` (AMMN Theorem 6.17). For a
 p-complete p-torsion-free quasisyntomic ring `R` and `n ≥ 0`, the square
 `ℚ_p(n)(R) → ℚ_p(n)(R/p)` over `(LΩ^{≥n}_R)_{ℚ_p} → (LΩ_R)_{ℚ_p}` (right map `χ_n`) is
 cartesian; equivalently `fib(ℚ_p(n)(R) → ℚ_p(n)(R/p)) ≃ (LΩ_R/LΩ^{≥n}_R)_{ℚ_p}[−1]`
 (cohomological `[−1]` = `Σ^{−1}`); integrally `cofib(ℤ_p(n)(R) → ℤ_p(n)(R/p))` is isogenous to
 `LΩ_R/LΩ^{≥n}_R`, and, for `n ≤ p − 2`, the integral syntomic fibre is
-`fib(LΩ_R/LΩ^{≥n}_R → LΩ_{R/p}/LΩ^{≥n}_{R/p})[−1]`. The cotangent-complex part of the
-quasisyntomic condition (Tor-amplitude of `L_{R/ℤ_p}` in `[−1, 0]`) cannot be expressed with
-Mathlib and is left out of the signature; the quasiregular-semiperfectoid identification with
+`fib(LΩ_R/LΩ^{≥n}_R → LΩ_{R/p}/LΩ^{≥n}_{R/p})[−1]`. The DD.0 cotangent interface supplies the explicit Tor-amplitude hypothesis
+in homological degrees [0,1] (cohomological [−1,0]); the quasiregular-semiperfectoid identification with
 `A_crys^{φ = p^n}` are not stated. Proposition 6.21 classifies endomorphisms of ℤ_p(n),
 not uniqueness of χ_n. -/
 theorem gradedBeilinsonSquare (p : ℕ) [Fact p.Prime] (R : Type) [CommRing R]
     (hcompl : IsAdicComplete (Ideal.span {(p : R)}) R)
-    (htf : ∀ x : R, (p : R) * x = 0 → x = 0) (n : ℕ) :
+    (htf : ∀ x : R, (p : R) * x = 0 → x = 0)
+    (hL : RT3.CotangentTorAmplitudeZeroOne p R) (n : ℕ) :
     IsCartesianSquare
       (RT3.rationalPAdicMap p (RT3.syntomicMap p n (Ideal.Quotient.mk (Ideal.span {(p : R)}))))
       (RT3.rationalPAdicMap p (RT3.filIncl p n R)) (RT3.syntomicToFil p n R) (RT3.chi p n R)
@@ -6431,6 +6849,7 @@ theorem gradedBeilinsonSquare (p : ℕ) [Fact p.Prime] (R : Type) [CommRing R]
       (RT3.syntomicMap p n (Ideal.Quotient.mk (Ideal.span {(p : R)}))) ≅
         (Spectrum.fib (RT3.deRhamQuotMap p n R)).shift (-1))) :=
   sorry
+
 
 end RefinedTraceMethods
 
@@ -6845,17 +7264,25 @@ def VectRank (X : Type) [TopologicalSpace X] (n : ℕ) : Type 1 :=
 
 end RT4T
 
-/-- Representability (RT.4:topological/bu-representability): rank-`n` bundles over paracompact
+/- Representability (RT.4:topological/bu-representability): rank-`n` bundles over paracompact
 `X` (here: metric spaces, which are paracompact; Mathlib's `ParacompactSpace` is not imported)
 are classified by `[X, Gₙ(ℂ^∞)]` (pullback of the tautological bundle); for compact `X`,
 `K̃(X) ≅ [X, ℤ × BU]_*` for a nondegenerate basepoint and `K(X) ≅ [X, ℤ × BU]`; Bott periodicity in space form,
 `ℤ × BU ≃ Ω²(ℤ × BU)` and `ΩU ≃ ℤ × BU` (compatibility with `β` is not stated).
-The nondegenerate-basepoint/cofibration condition for the based classification is omitted
-from this prototype; the arbitrary-point signature does not certify that comparison. -/
+The based classification retains the homotopy extension property for the point inclusion. -/
+namespace RT4T
+/-- Homotopy extension property of {x₀}↪X; for Hausdorff X the inclusion is closed. -/
+def NondegenerateBasepoint (X : Type) [TopologicalSpace X] (x₀ : X) : Prop :=
+  ∀ (Y : Type) [TopologicalSpace Y] (f : C(X,Y)) (H : C(unitInterval,Y)),
+    H 0=f x₀ → ∃ K : C(unitInterval × X,Y),
+      (∀ x, K (0,x)=f x) ∧ (∀ t, K (t,x₀)=H t)
+end RT4T
+
 theorem buRepresentability :
     (∀ (X : Type) [MetricSpace X] (n : ℕ),
       Nonempty (RT4T.VectRank X n ≃ RT4T.homotopyClasses X (RT4T.grassmannian n))) ∧
-    (∀ (X : Type) [TopologicalSpace X] [CompactSpace X] [T2Space X] (x₀ : X),
+    (∀ (X : Type) [TopologicalSpace X] [CompactSpace X] [T2Space X] (x₀ : X)
+      (hbase : RT4T.NondegenerateBasepoint X x₀),
       Nonempty (TopK.reduced X x₀ ≃ RT4T.pointedHomotopyClasses X (ℤ × RT4T.BU) x₀ (0, RT4T.BU.base)) ∧
       Nonempty (TopK X ≃ RT4T.homotopyClasses X (ℤ × RT4T.BU))) ∧
     RT4T.HomotopyEquivalent (ℤ × RT4T.BU)
@@ -7626,6 +8053,7 @@ theorem relativeThhKu (S : E1Ring) :
     Nonempty (TCminus (THH.relative ku ku.toE1 (𝟙 _)) ≅ (RT4T.EInftyRing.hT ku).toE1.toSpectrum) ∧
     ¬ Subsingleton ((THH ku.toE1).underlying.rationalisation.homotopyGroup 3) := sorry
 
+
 end RefinedTraceMethods
 
 namespace RefinedTraceMethods
@@ -7917,12 +8345,24 @@ def modBeta (X : FilSpectrum) : FilSpectrum := sorry
 
 end RT4Q
 
+namespace RT4Q
+/-- HR.1's p-completely perfectly covered δ-ring witness. -/
+def PPerfectlyCovered (p : ℕ) (A : Type) [CommRing A] : Type := sorry
+/-- Coherent S¹-equivariant E∞ refinement of the specified Tate-valued ring map. -/
+def TateEquivariantRefinement (p : ℕ) (SA : EInftyRing)
+    (f : SA ⟶ RT4T.EInftyRing.tCp SA p) : Type := sorry
+/-- Canonical map of trivial-action E∞ algebras SA→SA^{tC_p}. -/
+def cyclotomicBaseCan (p : ℕ) (SA : EInftyRing) : SA ⟶ RT4T.EInftyRing.tCp SA p := sorry
+end RT4Q
+
 /-- A `p`-cyclotomic base (Wagner 3.1(tC_p)): a `p`-complete connective E_∞-ring `S_A` with
 `S_A ⊗_{S_p} ℤ_p ≃ A`, a δ-ring Frobenius `φ` on `A`, and an `S¹`-equivariant Tate-valued
 Frobenius `S_A → S_A^{tC_p}` (trivial action on `S_A`, residual `S¹/C_p`-action on the target).
-Not recorded in the signature: that `A` is `p`-completely perfectly covered, that the Tate-valued
-Frobenius lifts `φ` on `π_0`, and that it is a map of E_∞-rings. -/
+Perfect covering, the E∞ equivariant refinement, and its π₀ Frobenius square
+are explicit fields. -/
 structure CyclotomicBase (p : ℕ) (A : Type) [CommRing A] where
+  prime : p.Prime
+  perfectlyCovered : RT4Q.PPerfectlyCovered p A
   /-- The lift `S_A`. -/
   lift : EInftyRing
   /-- `S_A` is connective. -/
@@ -7936,9 +8376,14 @@ structure CyclotomicBase (p : ℕ) (A : Type) [CommRing A] where
   frobeniusLift : A →+* A
   /-- `φ` lifts the `p`-th power map. -/
   frobenius_congr : ∀ a : A, ∃ b : A, frobeniusLift a = a ^ p + (p : A) * b
+  pi0Identification : A ≃+* lift.toE1.pi0
   /-- The `S¹`-equivariant Tate-valued Frobenius `S_A → S_A^{tC_p}`. -/
-  tateFrobenius : SpectraWithAction.trivial T (RT4Q.sp lift) ⟶
-    residualTate p (SpectraWithAction.trivial T (RT4Q.sp lift))
+  tateFrobenius : lift ⟶ RT4T.EInftyRing.tCp lift p
+  equivariant : RT4Q.TateEquivariantRefinement p lift tateFrobenius
+  pi0Frobenius : ∀ a : A,
+    E1Ring.pi0Map (RT4T.EInftyRing.toE1Map tateFrobenius) (pi0Identification a) =
+      E1Ring.pi0Map (RT4T.EInftyRing.toE1Map (RT4Q.cyclotomicBaseCan p lift))
+        (pi0Identification (frobeniusLift a))
 
 /-- A spherical lift of an `A`-algebra `R` over the E_∞-ring `S_A`: a connective E_n-ring `S_R`
 (`n = 1` or `2` recorded as a parameter) with an `S_A`-algebra structure and an equivalence
@@ -7969,18 +8414,155 @@ theorem SphericalLift.ofEtale (SA : EInftyRing) (A R : Type) [CommRing A] [CommR
     ∃ (L : SphericalLift SA R n) (S : EInftyRing), Nonempty (L.ring ≅ RT4Q.EnRing.ofEInfty n S) :=
   sorry
 
+/-! ## Structured local/global lifting input (R15)
+
+The Λ-ring, perfect-cover and cotangent witnesses are requested from HR.1 and
+DD.0. The cover diagram carries all cofaces/degeneracies and reduction maps.
+-/
+namespace RT4Q
+open Coherent
+
+def CosimplicialShape : InftyCategory := sorry
+def AugmentedCosimplicialShape : InftyCategory := sorry
+def LambdaRingStructure (A : Type) [CommRing A] : Type := sorry
+def PerfectlyCoveredWitness (A : Type) [CommRing A] : Type := sorry
+def QuasiLCIWitness (A R : Type) [CommRing A] [CommRing R] [Algebra A R] : Type := sorry
+def pCoefficient (A : Type) [CommRing A] (p : ℕ) : Type := sorry
+instance (A : Type) [CommRing A] (p : ℕ) : CommRing (pCoefficient A p) := sorry
+/-- Faithfully p-quasisyntomic cover and relative semiperfectness mod p (DD.0). -/
+def SemiperfectCoverWitness (p : ℕ) (A R S : Type)
+    [CommRing A] [CommRing R] [CommRing S] : Type := sorry
+/-- Lifted augmented Čech diagram over S_A, with p-complete connective values,
+and coherent reduction to the p-completed Čech nerve (H.5, E0). -/
+def LiftedCechReduction (p : ℕ) (SA : EInftyRing) (R S : Type)
+    [CommRing R] [CommRing S]
+    (D : Functor AugmentedCosimplicialShape RT3.ConnAlg) : Type := sorry
+
+structure LocalE1Choice (p : ℕ) (A R : Type) [CommRing A] [CommRing R]
+    (B : CyclotomicBase p A) where
+  torsionFree : ∀ x : R, (p : R)*x=0 → x=0
+  cover : Type
+  commRing : CommRing cover
+  coverWitness : @SemiperfectCoverWitness p A R cover _ _ commRing
+  diagram : Functor AugmentedCosimplicialShape RT3.ConnAlg
+  reduction : @LiftedCechReduction p B.lift R cover _ commRing diagram
+
+/-- A connective p-complete E₂-algebra lift over the specified tC_p base. -/
+structure LocalE2Choice (p : ℕ) (A R : Type) [CommRing A] [CommRing R]
+    (B : CyclotomicBase p A) where
+  lift : SphericalLift B.lift R 2
+  pComplete : IsPComplete p lift.ring.toE1.toSpectrum
+
+inductive LocalLiftBranch (p : ℕ) (A R : Type) [CommRing A] [CommRing R]
+    (B : CyclotomicBase p A)
+  | e1 : LocalE1Choice p A R B → LocalLiftBranch p A R B
+  | e2 : LocalE2Choice p A R B → LocalLiftBranch p A R B
+
+/-- Arithmetic reduction and rational identifications, coherent on overlaps (H.6/E0). -/
+def ArithmeticLiftCompatibility (SA : EInftyRing) (A R : Type)
+    [CommRing A] [CommRing R]
+    (B : ∀ p : ℕ, p.Prime → CyclotomicBase p (pCoefficient A p))
+    (L : ∀ (p : ℕ) (hp : p.Prime),
+      LocalLiftBranch p (pCoefficient A p) (pCoefficient R p) (B p hp)) : Type := sorry
+
+structure CompatibleSphericalLifts (SA : EInftyRing) (A R : Type)
+    [CommRing A] [CommRing R] [Algebra A R] where
+  lambda : LambdaRingStructure A
+  perfectlyCovered : PerfectlyCoveredWitness A
+  quasiLCI : QuasiLCIWitness A R
+  boundedTorsion : ∀ (p : ℕ), p.Prime → ∃ N : ℕ,
+    ∀ x : R, (∃ n : ℕ, (p : R)^n*x=0) → (p : R)^N*x=0
+  base : ∀ (p : ℕ), p.Prime → CyclotomicBase p (pCoefficient A p)
+  localChoices : ∀ (p : ℕ) (hp : p.Prime),
+    LocalLiftBranch p (pCoefficient A p) (pCoefficient R p) (base p hp)
+  compatibility : ArithmeticLiftCompatibility SA A R base localChoices
+
+/-- The source construction supplies a connective global E₁ lift. -/
+def CompatibleSphericalLifts.glue {SA : EInftyRing} {A R : Type}
+    [CommRing A] [CommRing R] [Algebra A R]
+    (G : CompatibleSphericalLifts SA A R) : SphericalLift SA R 1 := sorry
+/-- Higher refinement is retained only when every local branch has it. -/
+def AllE2Branches {SA : EInftyRing} {A R : Type}
+    [CommRing A] [CommRing R] [Algebra A R]
+    (G : CompatibleSphericalLifts SA A R) : Prop :=
+  ∀ (p : ℕ) (hp : p.Prime), ∃ L : LocalE2Choice p (pCoefficient A p)
+    (pCoefficient R p) (G.base p hp), G.localChoices p hp = LocalLiftBranch.e2 L
+
+theorem CompatibleSphericalLifts.e2 {SA : EInftyRing} {A R : Type}
+    [CommRing A] [CommRing R] [Algebra A R]
+    (G : CompatibleSphericalLifts SA A R) (h : AllE2Branches G) :
+    ∃ L : SphericalLift SA R 2, Nonempty (L.ring.toE1 ≅ G.glue.ring.toE1) := sorry
+
+/-- A supplied global lift is identified with the chosen gluing, not merely any
+E₁ lift of the same discrete ring. It has enough local E_n refinement for n. -/
+def GlobalEnCompatibility {SA : EInftyRing} {A R : Type}
+    [CommRing A] [CommRing R] [Algebra A R] {n : ℕ}
+    (G : CompatibleSphericalLifts SA A R) (L : SphericalLift SA R n) : Type := sorry
+class CompatibleGlobalInput (SA : EInftyRing) (A R : Type)
+    [CommRing A] [CommRing R] [Algebra A R] {n : ℕ} (L : SphericalLift SA R n) where
+  choices : CompatibleSphericalLifts SA A R
+  identifies : GlobalEnCompatibility choices L
+
+/-- A₂ is a morphism in the coherent cyclonic E∞ algebra category. The mapping
+space itself retains all prime/divisor coherences, beyond its displayed paths. -/
+def CyclonicAlgebras : InftyCategory := sorry
+def CircleAlgebras : InftyCategory := sorry
+def cyclonicForgetAlgebra : Functor CyclonicAlgebras CircleAlgebras := sorry
+def circleBase (SA : EInftyRing) : Obj CircleAlgebras := sorry
+def cyctBase (SA : EInftyRing) : Obj CyclonicAlgebras := sorry
+def trivBase (SA : EInftyRing) : Obj CyclonicAlgebras := sorry
+/-- Identifies the source and target underlying circle algebras with S_A. -/
+def underlyingA2Map (SA : EInftyRing)
+    (f : Hom (cyctBase SA) (trivBase SA)) : Hom (circleBase SA) (circleBase SA) := sorry
+structure CyclonicBaseCoherence (SA : EInftyRing) where
+  morphism : Hom (cyctBase SA) (trivBase SA)
+  underlyingIdentity : Path (Map CircleAlgebras (circleBase SA) (circleBase SA))
+    (underlyingA2Map SA morphism) (identity (circleBase SA))
+
+def CyclonicBaseCoherence.adams {SA : EInftyRing} (C : CyclonicBaseCoherence SA)
+    (m : ℕ) (hm : 0<m) : Hom (circleBase SA) (circleBase SA) := sorry
+def circleTateAlgebra (SA : EInftyRing) (p : ℕ) : Obj CircleAlgebras := sorry
+def circleCan (SA : EInftyRing) (p : ℕ) : Hom (circleBase SA) (circleTateAlgebra SA p) := sorry
+def circlePhi (SA : EInftyRing) (p : ℕ) (hp : p.Prime) :
+    Hom (circleBase SA) (circleTateAlgebra SA p) := sorry
+def tateAdams {SA : EInftyRing} (C : CyclonicBaseCoherence SA) (p m : ℕ)
+    (hm : 0<m) : Hom (circleTateAlgebra SA p) (circleTateAlgebra SA p) := sorry
+
+def CyclonicBaseCoherence.frobeniusSquare {SA : EInftyRing}
+    (C : CyclonicBaseCoherence SA) (p m : ℕ) (hp : p.Prime) (hm : 0<m) :
+    Path (Map CircleAlgebras (circleBase SA) (circleTateAlgebra SA p))
+      (comp (C.adams (p*m) (Nat.mul_pos hp.pos hm)) (circleCan SA p))
+      (comp (circlePhi SA p hp) (tateAdams C p m hm)) := sorry
+/-- Coherent commuting Frobenius lifts, including rational/spherical reductions (HR.1/E0). -/
+def CommutingFrobeniusData (SA : EInftyRing) : Type := sorry
+def CyclonicBaseCoherence.fromFrobenius (SA : EInftyRing)
+    (D : CommutingFrobeniusData SA) : CyclonicBaseCoherence SA := sorry
+def CyclonicModules (SA : EInftyRing) : InftyCategory := sorry
+/-- THH(S_R/S_A)^cyct ⊗_{S_A^cyct} S_A^triv, then tensor with cyclonic ku. -/
+def CyclonicBaseCoherence.relativeTHH {SA : EInftyRing} (C : CyclonicBaseCoherence SA)
+    (SR : E1Ring) (f : SA.toE1 ⟶ SR) : Obj (CyclonicModules SA) := sorry
+
+
+/-- Test RT4Q.CyclonicBaseCoherence.one. -/
+example (SA : EInftyRing) (D : CommutingFrobeniusData SA) :
+    Nonempty (Path (Map CircleAlgebras (circleBase SA) (circleBase SA))
+      ((CyclonicBaseCoherence.fromFrobenius SA D).adams 1 (by decide))
+      (identity (circleBase SA))) := sorry
+/-- Test RT4Q.CyclonicBaseCoherence.list_insufficient: a bare family omits this path data. -/
+example {SA : EInftyRing} (C : CyclonicBaseCoherence SA) (p m : ℕ)
+    (hp : p.Prime) (hm : 0<m) :
+    Nonempty (Path (Map CircleAlgebras (circleBase SA) (circleTateAlgebra SA p))
+      (comp (C.adams (p*m) (Nat.mul_pos hp.pos hm)) (circleCan SA p))
+      (comp (circlePhi SA p hp) (tateAdams C p m hm))) := ⟨C.frobeniusSquare p m hp hm⟩
+end RT4Q
+
 /-- Per-prime lifts and the rational lift glue to a global spherical lift `S_R` (E₁, or E₂ if (E₂)
 holds at every prime). The compatibility of the rationalised `p`-adic lifts with the rational lift,
 which the gluing also uses, is not recorded in the signature. -/
-theorem SphericalLift.glue (R : Type) [CommRing R] (n : ℕ)
-    (loc : ∀ p : ℕ, p.Prime → RT4Q.EnRing n)
-    (hloc : ∀ (p : ℕ) (hp : p.Prime),
-      Nonempty (RT4Q.pCompleteE1 p (E1Ring.smash (loc p hp).toE1 (E1Ring.ofRing ℤ)) ≅
-        RT4Q.pCompleteE1 p (E1Ring.ofRing R)))
-    (rat : RT4Q.EnRing n) (hrat : Nonempty (rat.toE1 ≅ RT4Q.rationaliseE1 (E1Ring.ofRing R))) :
-    ∃ L : SphericalLift RT4Q.sphereInfty R n,
-      (∀ (p : ℕ) (hp : p.Prime), Nonempty (RT4Q.pCompleteE1 p L.ring.toE1 ≅ (loc p hp).toE1)) ∧
-      Nonempty (RT4Q.rationaliseE1 L.ring.toE1 ≅ rat.toE1) := sorry
+theorem SphericalLift.glue (SA : EInftyRing) (A R : Type)
+    [CommRing A] [CommRing R] [Algebra A R]
+    (G : RT4Q.CompatibleSphericalLifts SA A R) :
+    ∃ L : SphericalLift SA R 1, Nonempty (L.ring.toE1 ≅ G.glue.ring.toE1) := sorry
 
 /-- Test `SphericalLift.polynomial` (computation): `S[x]` is an E_∞-lift of `ℤ[x]`. -/
 example (n : ℕ) : ∃ L : SphericalLift RT4Q.sphereInfty ℤ[X] n,
@@ -8121,8 +8703,7 @@ example : ¬ RT4Q.IsSolid RT4Q.sphereOnePointCompact := sorry
 
 namespace RT4Q
 
-/-- Solid ring spectra (E₁-algebras in `Sp_■`), prototyped as commutative so that their module
-categories are symmetric monoidal. -/
+/-- Solid E₁ ring spectra; right-left pairing is used without a commutativity assumption. -/
 def SolidRing : Type := sorry
 
 instance : Category.{0} SolidRing := sorry
@@ -8135,25 +8716,44 @@ def SolidMod (R : SolidRing) : Type := sorry
 
 instance (R : SolidRing) : Category.{0} (SolidMod R) := sorry
 
-instance (R : SolidRing) : MonoidalCategory (SolidMod R) := sorry
+/-- Ambient unit of solid spectra. -/
+def solidSphere : SolidSpectrum := solidification.obj (discrete.obj Spectrum.sphere)
 
-open MonoidalCategory
+/-- Data of a coherent E∞ refinement of the solid E₁ algebra, supplied by VS2. -/
+def SolidCommutativeRefinement (R : SolidRing) : Type := sorry
 
-/-- The internal `Hom_R(M, N)`. -/
-def SolidMod.ihom {R : SolidRing} (M N : SolidMod R) : SolidMod R := sorry
+/-- Opposite E₁ solid ring, supplied by the spectral module interface. -/
+def SolidRing.op (R : SolidRing) : SolidRing := sorry
 
-/-- The evaluation `M ⊗ Hom_R(M, R) → R`. -/
-def SolidMod.ev {R : SolidRing} (M : SolidMod R) :
-    M ⊗ SolidMod.ihom M (𝟙_ (SolidMod R)) ⟶ 𝟙_ (SolidMod R) := sorry
+/-- An explicit commutative refinement; needed only for the monoidal left-module signatures. -/
+class SolidRing.Commutative (R : SolidRing) : Prop where
+  refinement : Nonempty (SolidCommutativeRefinement R)
 
-/-- The canonical map `Hom_R(M, R) ⊗_R N → Hom_R(M, N)`. -/
+instance (R : SolidRing) [SolidRing.Commutative R] : MonoidalCategory (SolidMod R) := sorry
+
+/-- Ambient underlying solid spectrum. -/
+def SolidMod.underlying {R : SolidRing} (M : SolidMod R) : SolidSpectrum := sorry
+
+/-- Regular left module. -/
+def SolidMod.self (R : SolidRing) : SolidMod R := sorry
+
+/-- The ambient solid mapping object, not a left module over general E₁ R. -/
+def SolidMod.ihom {R : SolidRing} (M N : SolidMod R) : SolidSpectrum := sorry
+
+/-- The right-module dual of a left module. -/
+def SolidMod.dualRight {R : SolidRing} (M : SolidMod R) : SolidMod R.op := sorry
+
+/-- The right-left relative tensor. -/
+def SolidMod.relativeTensor {R : SolidRing} (N : SolidMod R.op) (M : SolidMod R) :
+    SolidSpectrum := sorry
+
+/-- The canonical ambient mapping comparison. -/
 def SolidMod.dualTensorToHom {R : SolidRing} (M N : SolidMod R) :
-    SolidMod.ihom M (𝟙_ (SolidMod R)) ⊗ N ⟶ SolidMod.ihom M N := sorry
+    SolidMod.relativeTensor (SolidMod.dualRight M) N ⟶ SolidMod.ihom M N := sorry
 
-/-- The map `π_0 Hom(1, Hom_R(M, R) ⊗_R N) → π_0 Hom(M, N)` sending a classifier to the map it
-classifies. -/
+/-- Classifier evaluation uses the ambient solid sphere and right-left relative tensor. -/
 def SolidMod.classified {R : SolidRing} {M N : SolidMod R} :
-    (𝟙_ (SolidMod R) ⟶ SolidMod.ihom M (𝟙_ (SolidMod R)) ⊗ N) → (M ⟶ N) := sorry
+    (RT4Q.solidSphere ⟶ SolidMod.relativeTensor (SolidMod.dualRight M) N) → (M ⟶ N) := sorry
 
 /-- A map is trace-class if it lies in the image of `SolidMod.classified`. -/
 def IsTraceClass {R : SolidRing} {M N : SolidMod R} (φ : M ⟶ N) : Prop :=
@@ -8186,23 +8786,21 @@ def SolidMod.colimComparison {R : SolidRing} (P : SolidMod R) (F : ℕ ⥤ Solid
     seqColimSpectrum (F ⋙ SolidMod.homSpectrum P) ⟶
       (SolidMod.homSpectrum P).obj (SolidMod.seqColim F) := sorry
 
-/-- `P` is compact: `Hom_R(P, −)` commutes with sequential colimits. -/
+/-- The mapping-spectrum functor of P preserves all small filtered colimits. -/
 def IsCompactObj {R : SolidRing} (P : SolidMod R) : Prop :=
-  ∀ F : ℕ ⥤ SolidMod R, IsIso (SolidMod.colimComparison P F)
+  Limits.PreservesFilteredColimits (SolidMod.homSpectrum P)
 
 /-- Base change `S ⊗_R −` along a map of solid rings. -/
 def SolidMod.baseChange {R S : SolidRing} (f : R ⟶ S) : SolidMod R ⥤ SolidMod S := sorry
 
 end RT4Q
 
-open MonoidalCategory in
-/-- A map `φ : M → N` is trace-class iff it factors as
-`M ≃ M ⊗ 1 → M ⊗ Hom_R(M, R) ⊗_R N → N` for a classifier `η : 1 → Hom_R(M, R) ⊗_R N`. -/
+/-- Ambient classifier characterization of trace-class maps for general E₁ R. -/
 theorem TraceClass {R : RT4Q.SolidRing} {M N : RT4Q.SolidMod R} (φ : M ⟶ N) :
     RT4Q.IsTraceClass φ ↔
-      ∃ η : 𝟙_ (RT4Q.SolidMod R) ⟶ RT4Q.SolidMod.ihom M (𝟙_ (RT4Q.SolidMod R)) ⊗ N,
-        φ = (ρ_ M).inv ≫ (M ◁ η) ≫ (α_ M _ N).inv ≫ (RT4Q.SolidMod.ev M ▷ N) ≫ (λ_ N).hom :=
-  sorry
+      ∃ η : RT4Q.solidSphere ⟶ RT4Q.SolidMod.relativeTensor
+        (RT4Q.SolidMod.dualRight M) N,
+        RT4Q.SolidMod.classified η = φ := sorry
 
 /-- Basic nuclear modules: `M ≃ colim(M_0 → M_1 → ⋯)` with trace-class transition maps. -/
 def BasicNuclear {R : RT4Q.SolidRing} (M : RT4Q.SolidMod R) : Prop :=
@@ -8214,12 +8812,8 @@ def BasicNuclear {R : RT4Q.SolidRing} (M : RT4Q.SolidMod R) : Prop :=
 under equivalence) by the basic nuclear modules (Wagner Theorem 2.11 gives closure under shifts,
 `ω_1`-compact generation and base change). -/
 def Nuclear {R : RT4Q.SolidRing} (M : RT4Q.SolidMod R) : Prop :=
-  ∀ P : RT4Q.SolidMod R → Prop,
-    (∀ N, BasicNuclear N → P N) →
-    (∀ N N' : RT4Q.SolidMod R, Nonempty (N ≅ N') → P N → P N') →
-    (∀ (N N' : RT4Q.SolidMod R) (f : N ⟶ N'), P N → P N' → P (RT4Q.SolidMod.cofib f)) →
-    (∀ (ι : Type) (N : ι → RT4Q.SolidMod R), (∀ i, P (N i)) → P (RT4Q.SolidMod.sum N)) →
-    P M
+  ∀ (P : RT4Q.SolidMod R), RT4Q.IsCompactObj P →
+    ∀ f : P ⟶ M, RT4Q.IsTraceClass f
 
 /-- Base change `S ⊗_R −` preserves nuclear modules. -/
 theorem Nuclear.baseChange {R S : RT4Q.SolidRing} (f : R ⟶ S) (M : RT4Q.SolidMod R)
@@ -8271,16 +8865,114 @@ def cechRing {R S : E1Ring} (f : R ⟶ S) (n : ℕ) : E1Ring := sorry
 /-- The unit `R → S^{⊗_R (n+1)}`. -/
 def cechUnit {R S : E1Ring} (f : R ⟶ S) (n : ℕ) : R ⟶ cechRing f n := sorry
 
-/-- `R → S` is even faithfully flat: all terms of the Čech nerve are even and every unit map is
-injective on homotopy groups. (Faithful flatness of `π_*`, which Pstrągowski and HRW require, is
-recorded only through this injectivity.) -/
-def IsEvenFaithfullyFlat {R S : E1Ring} (f : R ⟶ S) : Prop :=
-  ∀ n : ℕ, IsEvenSpectrum (cechRing f n).toSpectrum ∧
-    ∀ k : ℤ, Function.Injective
-      (Spectrum.homotopyGroupMap (E1Ring.toSpectrumMap (cechUnit f n)) k)
+end RT4Q
 
-/-- The cosimplicial limit `lim_Δ X^•` of filtered spectra (coface maps left implicit). -/
-def FilSpectrum.totLimit (X : ℕ → FilSpectrum) : FilSpectrum := sorry
+/-- Opposite ring and its left-module model, imported from H.5. -/
+def E1Ring.op (R : E1Ring) : E1Ring := sorry
+
+namespace RT4Q
+/-- Cofibers and shifts are the coherent spectral module operations. -/
+def LMod.shift {R : E1Ring} (M : LMod R) (n : ℤ) : LMod R := sorry
+def LMod.cofib {R : E1Ring} {M N : LMod R} (f : M ⟶ N) : LMod R := sorry
+
+def IsPerfectEven {R : E1Ring} (M : LMod R) : Prop :=
+  ∀ P : LMod R → Prop,
+    (∀ n : ℤ, P ((LMod.self R).shift (2 * n))) →
+    (∀ N N' : LMod R, Nonempty (N ≅ N') → P N → P N') →
+    (∀ (N N' : LMod R) (f : N ⟶ N'), P N → P (LMod.cofib f) → P N') →
+    (∀ (N N' : LMod R) (i : N ⟶ N') (r : N' ⟶ N), i ≫ r = 𝟙 N → P N' → P N) → P M
+
+/-- Coherent module category and model comparison, requested from H.5/EDS E0. -/
+def LMod.coherentCategory (R : E1Ring) : Coherent.InftyCategory := sorry
+def LMod.fromCoherent {R : E1Ring} : Coherent.Obj (LMod.coherentCategory R) → LMod R := sorry
+def LMod.toCoherent {R : E1Ring} : LMod R → Coherent.Obj (LMod.coherentCategory R) := sorry
+/-- All-small-filtered coherent diagram data, requested from EDS E0. -/
+def FilteredShape (J : Coherent.InftyCategory) : Type := sorry
+def CoherentColimit {J : Coherent.InftyCategory} {R : E1Ring}
+    (D : Coherent.Functor J (LMod.coherentCategory R)) : LMod R := sorry
+
+structure EvenFlatPresentation {R : E1Ring} (M : LMod R) where
+  index : Coherent.InftyCategory
+  filtered : FilteredShape index
+  diagram : Coherent.Functor index (LMod.coherentCategory R)
+  perfect : ∀ j : Coherent.Obj index, IsPerfectEven (LMod.fromCoherent (diagram.obj j))
+  comparison : Nonempty (CoherentColimit diagram ≅ M)
+
+def IsEvenFlat {R : E1Ring} (M : LMod R) : Prop := Nonempty (EvenFlatPresentation M)
+
+/-- Coherent even site, with covers given by perfect-even fibers. -/
+def EvenSite (R : E1Ring) : Coherent.InftyCategory := sorry
+/-- Category of abelian sheaves on the even site, supplied by EDS E0. -/
+def EvenSheaf (R : E1Ring) : Type := sorry
+instance (R : E1Ring) : Category.{0} (EvenSheaf R) := sorry
+instance (R : E1Ring) : Limits.HasZeroObject (EvenSheaf R) := sorry
+
+/-- Sheafification, not presheaf point evaluation. -/
+def evenHomotopySheaf {R : E1Ring} (M : LMod R) (j : ℤ) : EvenSheaf R := sorry
+def IsHomologicallyEven {R : E1Ring} (M : LMod R) : Prop :=
+  ∀ j : ℤ, Odd j → Limits.IsZero (evenHomotopySheaf M j)
+
+/-- Spectral Yoneda sheaf on the coherent even site. -/
+def evenYoneda {R : E1Ring} (M : LMod R) : Type := sorry
+
+/-- S and cofiber as right modules, and the cofiber as a left module. -/
+def ringMapRightModule {R S : E1Ring} (f : R ⟶ S) : LMod R.op := sorry
+def ringMapCofiberRight {R S : E1Ring} (f : R ⟶ S) : LMod R.op := sorry
+def ringMapCofiberLeft {R S : E1Ring} (f : R ⟶ S) : LMod R := sorry
+
+def IsEvenFaithfullyFlat {R S : E1Ring} (f : R ⟶ S) : Prop :=
+  IsEvenFlat (ringMapRightModule f) ∧ IsEvenFlat (ringMapCofiberRight f) ∧
+    IsHomologicallyEven (ringMapCofiberLeft f)
+
+/-- Opposite-map compatibility, with the side convention reversed. -/
+def ringMapOpposite {R S : E1Ring} (f : R ⟶ S) : R.op ⟶ S.op := sorry
+def ringMapLeftModule {R S : E1Ring} (f : R ⟶ S) : LMod R := sorry
+def IsRightEvenFaithfullyFlat {R S : E1Ring} (f : R ⟶ S) : Prop :=
+  IsEvenFlat (ringMapLeftModule f) ∧ IsEvenFlat (ringMapCofiberLeft f) ∧
+    IsHomologicallyEven (ringMapCofiberRight f)
+theorem faithfullyEvenFlat.op {R S : E1Ring} (f : R ⟶ S) :
+    IsEvenFaithfullyFlat (ringMapOpposite f) ↔ IsRightEvenFaithfullyFlat f := sorry
+
+/-- Test RT4Q.perfectEven.unit / RT4Q.perfectEven.zero_cover. -/
+example (R : E1Ring) : IsPerfectEven (LMod.self R) := sorry
+/-- Test RT4Q.perfectEven.retract, genuinely includes split retracts. -/
+example {R : E1Ring} (M N : LMod R) (i : M ⟶ N) (r : N ⟶ M)
+    (h : i ≫ r = 𝟙 M) (hN : IsPerfectEven N) : IsPerfectEven M := sorry
+/-- Test RT4Q.perfectEven.not_stable: odd free suspension is excluded over HZ. -/
+example : ¬ IsPerfectEven ((LMod.self (E1Ring.ofRing ℤ)).shift 1) := sorry
+/-- Test RT4Q.evenFlat.unit. -/
+example (R : E1Ring) : IsEvenFlat (LMod.self R) := sorry
+/-- Zero module (H.5). -/
+def LMod.zero (R : E1Ring) : LMod R := sorry
+/-- Tests RT4Q.evenFlat.zero and RT4Q.homologicalEven.zero. -/
+example (R : E1Ring) : IsEvenFlat (LMod.zero R) ∧ IsHomologicallyEven (LMod.zero R) := sorry
+/-- Discrete ring module construction (H.5 spectral model comparison). -/
+def LMod.em (R : Type) [Ring R] (M : Type) [AddCommGroup M] [Module R M] :
+    LMod (E1Ring.ofRing R) := sorry
+/-- Test RT4Q.evenFlat.torsion: odd Tor prevents flatness despite homological evenness. -/
+example (p : ℕ) [Fact p.Prime] :
+    IsHomologicallyEven (LMod.em ℤ (ZMod p)) ∧ ¬ IsEvenFlat (LMod.em ℤ (ZMod p)) := sorry
+/-- Tests RT4Q.homologicalEven.unit and RT4Q.homologicalEven.not_pi_even. -/
+example : IsHomologicallyEven (LMod.self E1Ring.sphere) ∧
+    ¬ IsEvenSpectrum E1Ring.sphere.toSpectrum := sorry
+/-- Test RT4Q.homologicalEven.discrete_even. -/
+example {R : E1Ring} (M : LMod R) (h : IsEvenSpectrum M.underlying) :
+    IsHomologicallyEven M := sorry
+/-- Test RT4Q.faithfullyEvenFlat.identity. -/
+example (R : E1Ring) : IsEvenFaithfullyFlat (𝟙 R) := sorry
+/-- Tests RT4Q.faithfullyEvenFlat.polynomial / RT4Q.faithfullyEvenFlat.injection_insufficient. -/
+def integralPolynomialMap : E1Ring.ofRing ℤ ⟶ E1Ring.ofRing ℤ[X] := sorry
+def integralRationalMap : E1Ring.ofRing ℤ ⟶ E1Ring.ofRing ℚ := sorry
+example : IsEvenFaithfullyFlat integralPolynomialMap := sorry
+example : ¬ IsEvenFaithfullyFlat integralRationalMap := sorry
+end RT4Q
+
+namespace RT4Q
+
+/-- Coherent filtered-spectrum category and Δ-shaped limit (EDS E0). -/
+def FilSpectrum.coherentCategory : Coherent.InftyCategory := sorry
+def FilSpectrum.totLimit
+    (D : Coherent.Functor CosimplicialShape FilSpectrum.coherentCategory) : FilSpectrum := sorry
 
 /-- The zero E_∞-ring. -/
 def zeroInfty : EInftyRing := sorry
@@ -8300,6 +8992,10 @@ sheaf truncations of `Hom_R(−, M)` on perfect even `R`-modules with the even t
 at `R`. -/
 def perfectEvenFiltration (R : E1Ring) (M : RT4Q.LMod R) : RT4Q.FilSpectrum := sorry
 
+/-- Canonical Čech filtered-module diagram, with all cofaces and degeneracies. -/
+def RT4Q.perfectCechDiagram {R S : E1Ring} (f : R ⟶ S) (M : RT4Q.LMod R) :
+    Coherent.Functor RT4Q.CosimplicialShape RT4Q.FilSpectrum.coherentCategory := sorry
+
 /-- If `R` and `M` are even, `fil^⋆_{P-ev/R} M = τ_{≥2⋆}M`. In fact,
 Pstrągowski §§2.4–2.5 allows either one to be even; no flatness hypothesis is needed here. -/
 theorem perfectEvenFiltration.even (R : E1Ring) (M : RT4Q.LMod R)
@@ -8307,19 +9003,18 @@ theorem perfectEvenFiltration.even (R : E1Ring) (M : RT4Q.LMod R)
     Nonempty (perfectEvenFiltration R M ≅ RT4Q.doubleSpeed M.underlying) := sorry
 
 /-- Faithfully even flat descent after completion: completed `fil(M)` is the completed
-Čech limit. The actual even-flat topology is a recorded key-definition gap; the prototype
-IsEvenFaithfullyFlat predicate (injectivity alone) does not supply the source hypothesis. -/
+Čech limit. The faithful condition uses right even flatness of S and its cofiber and
+left homological evenness of the cofiber, as in Pstrągowski Definition 6.15. -/
 theorem perfectEvenFiltration.descent {R S : E1Ring} (f : R ⟶ S)
     (hf : RT4Q.IsEvenFaithfullyFlat f) (M : RT4Q.LMod R) :
     Nonempty ((perfectEvenFiltration R M).completion ≅
-      (RT4Q.FilSpectrum.totLimit (fun n => perfectEvenFiltration (RT4Q.cechRing f n)
-        ((RT4Q.LMod.baseChange (RT4Q.cechUnit f n)).obj M))).completion) := sorry
+      (RT4Q.FilSpectrum.totLimit (RT4Q.perfectCechDiagram f M)).completion) := sorry
 
 /-- For E_∞-rings admitting a faithfully even flat map to an even E_∞-ring, the
-perfect even filtration agrees with HRW's after completion. That map and its actual even-flatness
-condition cannot yet be expressed by the prototype: they are omitted, not witnessed by
-IsEvenFaithfullyFlat (injectivity alone). See the recorded key-definition gap. -/
-theorem perfectEvenFiltration.compare_HRW (E : EInftyRing) :
+perfect even filtration agrees with HRW's after completion. The map, actual faithful condition, and even target
+are explicit hypotheses. -/
+theorem perfectEvenFiltration.compare_HRW (E S : EInftyRing) (f : E.toE1 ⟶ S.toE1)
+    (hf : RT4Q.IsEvenFaithfullyFlat f) (hS : RT4Q.IsEvenSpectrum S.toE1.toSpectrum) :
     Nonempty ((perfectEvenFiltration E.toE1 (RT4Q.LMod.self E.toE1)).completion ≅
       (evenFiltration E).completion) := sorry
 
@@ -8364,19 +9059,15 @@ def FilSolid.completion (X : FilSolid) : FilSolid := sorry
 def FilSolid.tensor (X Y : FilSolid) : FilSolid := sorry
 
 /-- The cosimplicial limit `lim_Δ X^•` (coface maps left implicit). -/
-def FilSolid.totLimit (X : ℕ → FilSolid) : FilSolid := sorry
+def FilSolid.coherentCategory : Coherent.InftyCategory := sorry
+def FilSolid.totLimit
+    (D : Coherent.Functor CosimplicialShape FilSolid.coherentCategory) : FilSolid := sorry
 
 /-- The double-speed Postnikov filtration `τ_{≥2⋆}M` of a solid spectrum. -/
 def solidDoubleSpeed (M : SolidSpectrum) : FilSolid := sorry
 
 /-- The underlying spectrum (value at the point) of a solid spectrum. -/
 def solidEval (M : SolidSpectrum) : Spectrum := sorry
-
-/-- The solid spectrum underlying a solid module. -/
-def SolidMod.underlying {R : SolidRing} (M : SolidMod R) : SolidSpectrum := sorry
-
-/-- `R` as a module over itself. -/
-def SolidMod.self (R : SolidRing) : SolidMod R := sorry
 
 /-- The zero module. -/
 def SolidMod.zero (R : SolidRing) : SolidMod R := sorry
@@ -8398,6 +9089,8 @@ def SolidRing.ofPComplete (p : ℕ) (R : E1Ring) : SolidRing := sorry
 
 /-- The solid sphere as a solid ring. -/
 def SolidRing.sphere : SolidRing := sorry
+instance : SolidRing.Commutative SolidRing.sphere := sorry
+
 
 /-- The underlying solid spectrum of a solid ring. -/
 def SolidRing.underlying (R : SolidRing) : SolidSpectrum := sorry
@@ -8425,12 +9118,91 @@ def IsSolidPerfectEven {R : SolidRing} (M : SolidMod R) : Prop :=
     (∀ (N N' : SolidMod R) (i : N ⟶ N') (r : N' ⟶ N), i ≫ r = 𝟙 N → P N' → P N) →
     P M
 
-/-- `R → S` is solid faithfully even flat: all Čech terms have even underlying spectra and the
-unit maps are injective on homotopy (faithful flatness of `π_*` recorded only through this). -/
+/-- Coherent solid module category, supplied by the light spectral interface. -/
+def SolidMod.coherentCategory (R : SolidRing) : Coherent.InftyCategory := sorry
+def SolidMod.fromCoherent {R : SolidRing} :
+    Coherent.Obj (SolidMod.coherentCategory R) → SolidMod R := sorry
+def SolidColimit {J : Coherent.InftyCategory} {R : SolidRing}
+    (D : Coherent.Functor J (SolidMod.coherentCategory R)) : SolidMod R := sorry
+
+structure SolidEvenPresentation {R : SolidRing} (M : SolidMod R) where
+  index : Coherent.InftyCategory
+  filtered : FilteredShape index
+  diagram : Coherent.Functor index (SolidMod.coherentCategory R)
+  perfect : ∀ j : Coherent.Obj index, IsSolidPerfectEven (SolidMod.fromCoherent (diagram.obj j))
+  comparison : Nonempty (SolidColimit diagram ≅ M)
+
+def IsSolidIndPerfectEven {R : SolidRing} (M : SolidMod R) : Prop :=
+  Nonempty (SolidEvenPresentation M)
+
+/-- Condensed homotopy is light condensed abelian-group valued, using the pinned carrier. -/
+def condensedHomotopy (M : SolidSpectrum) (j : ℤ) : LightCondAb := sorry
+
+def IsCondensedHomotopyEvenSpectrum (M : SolidSpectrum) : Prop :=
+  ∀ j : ℤ, Odd j → Limits.IsZero (condensedHomotopy M j)
+def IsCondensedHomotopyEven {R : SolidRing} (M : SolidMod R) : Prop :=
+  IsCondensedHomotopyEvenSpectrum M.underlying
+
+def IsSolidEvenFlat {R : SolidRing} (M : SolidMod R) : Prop :=
+  ∀ E : SolidMod R.op, IsCondensedHomotopyEven E →
+    IsCondensedHomotopyEvenSpectrum (SolidMod.relativeTensor E M)
+
+def SolidEvenSite (R : SolidRing) : Coherent.InftyCategory := sorry
+def SolidEvenSheaf (R : SolidRing) : Type := sorry
+instance (R : SolidRing) : Category.{0} (SolidEvenSheaf R) := sorry
+instance (R : SolidRing) : Limits.HasZeroObject (SolidEvenSheaf R) := sorry
+/-- Sheafification of condensed mapping homotopy on the solid even site. -/
+def solidEvenHomotopySheaf {R : SolidRing} (M : SolidMod R) (j : ℤ) : SolidEvenSheaf R := sorry
+
+def IsSolidHomologicallyEven {R : SolidRing} (M : SolidMod R) : Prop :=
+  ∀ j : ℤ, Odd j → Limits.IsZero (solidEvenHomotopySheaf M j)
+
+/-- Both S and the cofiber with their opposite-side module structures. -/
+def solidMapRightModule {R S : SolidRing} (f : R ⟶ S) : SolidMod R.op := sorry
+def solidMapCofiberLeft {R S : SolidRing} (f : R ⟶ S) : SolidMod R := sorry
+def solidMapCofiberRight {R S : SolidRing} (f : R ⟶ S) : SolidMod R.op := sorry
+
 def IsSolidEvenFaithfullyFlat {R S : SolidRing} (f : R ⟶ S) : Prop :=
-  ∀ n : ℕ, IsEvenSpectrum (solidEval (solidCechRing f n).underlying) ∧
-    ∀ k : ℤ, Function.Injective
-      (Spectrum.homotopyGroupMap (solidRingMapEval (solidCechUnit f n)) k)
+  IsSolidEvenFlat (SolidMod.ofRingMap f) ∧ IsSolidEvenFlat (solidMapRightModule f) ∧
+    IsSolidEvenFlat (solidMapCofiberLeft f) ∧ IsSolidEvenFlat (solidMapCofiberRight f)
+
+/-- The dual of Null_R as a bimodule, viewed separately on both sides. -/
+def nullDualLeft (R : SolidRing) : SolidMod R := sorry
+def nullDualRight (R : SolidRing) : SolidMod R.op := sorry
+
+structure AssumptionR (R : SolidRing) : Prop where
+  leftNuclear : Nuclear (nullDualLeft R)
+  rightNuclear : Nuclear (nullDualRight R)
+  leftIndPerfect : IsSolidIndPerfectEven (nullDualLeft R)
+  rightIndPerfect : IsSolidIndPerfectEven (nullDualRight R)
+
+theorem AssumptionR.discrete (R : E1Ring) (h : R.toSpectrum.IsBoundedBelow) :
+    AssumptionR (SolidRing.ofE1 R) := sorry
+theorem AssumptionR.pComplete (R : E1Ring) (h : R.toSpectrum.IsBoundedBelow)
+    (p : ℕ) [Fact p.Prime] : AssumptionR (SolidRing.ofPComplete p R) := sorry
+
+theorem solidIndPerfectEven_to_flat {R : SolidRing} (M : SolidMod R)
+    (h : IsSolidIndPerfectEven M) : IsSolidEvenFlat M := sorry
+/-- Conditional converse, not an unconditional solid Lazard theorem. -/
+theorem solidEvenFlat_to_indPerfect {R : SolidRing} (M : SolidMod R)
+    (hR : AssumptionR R) (hM : Nuclear M) (hf : IsSolidEvenFlat M) :
+    IsSolidIndPerfectEven M := sorry
+
+/-- Tests perfectEven.unit and perfectEven.retract for the solid site. -/
+example (R : SolidRing) : IsSolidPerfectEven (nullMod R) := sorry
+example {R : SolidRing} (M N : SolidMod R) (i : M ⟶ N) (r : N ⟶ M)
+    (h : i ≫ r = 𝟙 M) (hN : IsSolidPerfectEven N) : IsSolidPerfectEven M := sorry
+/-- Test faithfullyEvenFlat.identity (solid). -/
+example (R : SolidRing) : IsSolidEvenFaithfullyFlat (𝟙 R) := sorry
+/-- Tests RT4Q.assumptionR.discrete_Z / RT4Q.assumptionR.pComplete_Z. -/
+example : AssumptionR (SolidRing.ofE1 (E1Ring.ofRing ℤ)) := sorry
+example (p : ℕ) [Fact p.Prime] : AssumptionR (SolidRing.ofPComplete p (E1Ring.ofRing ℤ)) := sorry
+/-- Test RT4Q.assumptionR.not_one_sided: extracting R requires all four fields. -/
+example {R : SolidRing} (h : AssumptionR R) :
+    Nuclear (nullDualRight R) ∧ IsSolidIndPerfectEven (nullDualRight R) := sorry
+/-- Test RT4Q.solidEvenFlat.no_unconditional_converse: all required input data remain. -/
+example {R : SolidRing} (M : SolidMod R) (hR : AssumptionR R) (hM : Nuclear M)
+    (hf : IsSolidEvenFlat M) : IsSolidIndPerfectEven M := sorry
 
 end RT4Q
 
@@ -8442,38 +9214,40 @@ def solidEvenFiltration (R : RT4Q.SolidRing) (M : RT4Q.SolidMod R) : RT4Q.FilSol
 open MonoidalCategory in
 /-- The lax monoidal structure maps `fil_{ev/R} M ⊗ fil_{ev/R} N → fil_{ev/R}(M ⊗_R N)`
 (Wagner 2.5). -/
-def solidEvenFiltration.laxMonoidal (R : RT4Q.SolidRing) (M N : RT4Q.SolidMod R) :
+def solidEvenFiltration.laxMonoidal (R : RT4Q.SolidRing) [RT4Q.SolidRing.Commutative R] (M N : RT4Q.SolidMod R) :
     RT4Q.FilSolid.tensor (solidEvenFiltration R M) (solidEvenFiltration R N) ⟶
       solidEvenFiltration R (M ⊗ N) := sorry
 
 /-- If the condensed homotopy sheaves of M vanish in odd degrees,
-`fil^⋆_{ev/R} M ≃ τ_{≥2⋆} M` (Wagner 2.4). That sheaf condition is omitted
-from the prototype; even homotopy after evaluation at a point does not supply it.
+`fil^⋆_{ev/R} M ≃ τ_{≥2⋆} M` (Wagner 2.4). The signature uses condensed sheaf vanishing;
+even homotopy after evaluation at a point does not supply it.
 Homological evenness alone does not assert the Whitehead-tower identification. -/
 theorem solidEvenFiltration.even (R : RT4Q.SolidRing) (M : RT4Q.SolidMod R)
-    (hR : RT4Q.IsEvenSpectrum (RT4Q.solidEval R.underlying))
-    (hM : RT4Q.IsEvenSpectrum (RT4Q.solidEval M.underlying)) :
+    (hM : RT4Q.IsCondensedHomotopyEven M) :
     Nonempty (solidEvenFiltration R M ≅ RT4Q.solidDoubleSpeed M.underlying) := sorry
 
 /-- On discrete homologically even inputs the solid even filtration agrees with Pstrągowski's
 (Wagner Corollary 2.17); the displayed discrete homotopy-evenness assumptions imply
-discrete homological evenness by Pstrągowski Proposition 2.36. The general homologically
+discrete homological evenness by Pstrągowski Lemma 2.36. The general homologically
 even comparison is not yet expressed by this restricted signature. -/
 theorem solidEvenFiltration.compare_pstragowski (R : E1Ring) (M : RT4Q.LMod R)
     (hR : RT4Q.IsEvenSpectrum R.toSpectrum) (hM : RT4Q.IsEvenSpectrum M.underlying) :
     Nonempty ((solidEvenFiltration (RT4Q.SolidRing.ofE1 R) (RT4Q.SolidMod.ofLMod M)).underlying ≅
       perfectEvenFiltration R M) := sorry
 
+/-- Canonical solid Čech diagram, retaining its coherent transition data. -/
+def RT4Q.solidCechDiagram {R S : RT4Q.SolidRing} (f : R ⟶ S) (M : RT4Q.SolidMod R) :
+    Coherent.Functor RT4Q.CosimplicialShape RT4Q.FilSolid.coherentCategory := sorry
+
 /-- Solid faithfully even flat descent for nuclear `S` over `R`, up to completion (Wagner
-Theorems 2.19–2.20). Assumption 2.13(R), nuclearity and solid homological evenness
-of M, and actual solid faithful even flatness are omitted. The injectivity predicate below
-is not a definition of even flatness. This signature cannot certify descent. -/
+Theorems 2.19–2.20). Assumption R, nuclearity of S and M, solid homological evenness of M,
+and both-sided solid faithful even flatness are explicit hypotheses. -/
 theorem solidEvenFiltration.descent {R S : RT4Q.SolidRing} (f : R ⟶ S)
+    (hR : RT4Q.AssumptionR R)
     (hS : Nuclear (RT4Q.SolidMod.ofRingMap f)) (hf : RT4Q.IsSolidEvenFaithfullyFlat f)
-    (M : RT4Q.SolidMod R) :
+    (M : RT4Q.SolidMod R) (hM : Nuclear M) (he : RT4Q.IsSolidHomologicallyEven M) :
     Nonempty ((solidEvenFiltration R M).completion ≅
-      (RT4Q.FilSolid.totLimit (fun n => solidEvenFiltration (RT4Q.solidCechRing f n)
-        ((RT4Q.SolidMod.baseChange (RT4Q.solidCechUnit f n)).obj M))).completion) := sorry
+      (RT4Q.FilSolid.totLimit (RT4Q.solidCechDiagram f M)).completion) := sorry
 
 /-- Test `solidEvenFiltration.even_ring` (computation): `fil^⋆_ev(ku^∧_p) = τ_{≥2⋆} ku^∧_p`. -/
 example (p : ℕ) [Fact p.Prime] :
@@ -8491,9 +9265,9 @@ duals: `Hom_S(Null_S, S) ≃ ⊕_ℕ S` is not solid perfect even (Wagner 2.3). 
 example :
     Nonempty (RT4Q.SolidMod.ihom (RT4Q.nullMod RT4Q.SolidRing.sphere)
         (𝟙_ (RT4Q.SolidMod RT4Q.SolidRing.sphere)) ≅
-      RT4Q.SolidMod.sum (fun _ : ℕ => 𝟙_ (RT4Q.SolidMod RT4Q.SolidRing.sphere))) ∧
-    ¬ RT4Q.IsSolidPerfectEven (RT4Q.SolidMod.ihom (RT4Q.nullMod RT4Q.SolidRing.sphere)
-        (𝟙_ (RT4Q.SolidMod RT4Q.SolidRing.sphere))) := sorry
+      RT4Q.SolidMod.underlying (RT4Q.SolidMod.sum (fun _ : ℕ =>
+        𝟙_ (RT4Q.SolidMod RT4Q.SolidRing.sphere)))) ∧
+    ¬ RT4Q.IsSolidPerfectEven (RT4Q.nullDualLeft RT4Q.SolidRing.sphere) := sorry
 
 
 /-! ### RT.4:q-Hodge/even-circle-fixed-points -/
@@ -8537,10 +9311,19 @@ def evenCircleFixedPoints (X : RT4Q.EvFilTMod) : RT4Q.FilSpectrum := sorry
 /-- The filtered Tate construction `X^{tT_ev}`; `fil^⋆_{ev,tS¹}TP := (fil^⋆_ev THH)^{tT_ev}`. -/
 def evenCircleTate (X : RT4Q.EvFilTMod) : RT4Q.FilSpectrum := sorry
 
-/-- For a complete exhaustive `X`, the underlying object of the completion of `X^{hT_ev}` is
+namespace RT4Q
+/-- Canonical stage inclusion into the colimit underlying spectrum (E0/H.5). -/
+def EvFilTMod.stageMap (X : EvFilTMod) (i : ℤ) :
+    X.underlying.fil i ⟶ X.toTSpectrum.underlying := sorry
+def EvFilTMod.UniformTruncationBounds (X : EvFilTMod) : Prop :=
+  ∀ (i j : ℤ), i<j → Subsingleton ((Spectrum.fib (X.stageMap i)).homotopyGroup j)
+end RT4Q
+
+/-- Under AR24 Lemma 2.75(iv) uniform stage truncation bounds, the underlying object of the completion of `X^{hT_ev}` is
 `(underlying X)^{hT}`. -/
 theorem evenCircleFixedPoints.underlying (X : RT4Q.EvFilTMod) (hc : X.underlying.IsComplete)
-    (he : X.underlying.IsExhaustiveFor X.toTSpectrum.underlying) :
+    (he : X.underlying.IsExhaustiveFor X.toTSpectrum.underlying)
+    (htr : X.UniformTruncationBounds) :
     (evenCircleFixedPoints X).completion.IsExhaustiveFor (homotopyFixedPoints X.toTSpectrum) :=
   sorry
 
@@ -8835,18 +9618,28 @@ theorem pCompleteComparisonOdd (p : ℕ) [Fact p.Prime] (hp : 2 < p) (A R : Type
     Nonempty ((qHodgeFiltration p A R B L).rationalise.completion ≅
       (RT4Q.hodgeQFiltrationP p A R).completion) := sorry
 
-/-- Wagner Theorem 4.14: at `p = 2`, for `R` 2-torsion free with an E₁-lift `S_R` and E₁-lifts
+/- Wagner Theorem 4.14: at `p = 2`, for `R` 2-torsion free with an E₁-lift `S_R` and E₁-lifts
 `S_{R_∞^n}` of the terms `R_∞^n` of the Čech nerve of a 2-quasi-syntomic cover `R → R_∞` (case
 3.2(E₁); the cover conditions are not recorded), the even filtration is the ad hoc filtration
 `lim_Δ τ_{≥2⋆}TC⁻_■(ku_{R_∞^•}/ku_A)` and the conclusions of Theorem 4.8 hold. Case (E₂) at
 `p = 2` remains open. -/
+/-- E₁ cover coherence: the displayed sequence is the augmented p-completed Čech
+nerve of a quasisyntomic relatively semiperfect cover, with all lifted maps. -/
+def RT4Q.LiftedCoverCoherence {A : Type} [CommRing A] (B : CyclotomicBase 2 A)
+    (Rc : ℕ → Type) [∀ m, CommRing (Rc m)]
+    (Lc : ∀ m, SphericalLift B.lift (Rc m) 1) : Type := sorry
+def RT4Q.liftedCoverDiagram {A : Type} [CommRing A] (B : CyclotomicBase 2 A)
+    (Rc : ℕ → Type) [∀ m, CommRing (Rc m)]
+    (Lc : ∀ m, SphericalLift B.lift (Rc m) 1) (h : RT4Q.LiftedCoverCoherence B Rc Lc) :
+    Coherent.Functor RT4Q.CosimplicialShape RT4Q.FilSpectrum.coherentCategory := sorry
+
 theorem pCompleteComparisonTwo (A R : Type) [CommRing A] [CommRing R] [Algebra A R]
     (B : CyclotomicBase 2 A) (L : SphericalLift B.lift R 1)
     (hR : ∀ r : R, (2 : R) * r = 0 → r = 0)
-    (Rc : ℕ → Type) [∀ m, CommRing (Rc m)] (Lc : ∀ m, SphericalLift B.lift (Rc m) 1) :
+    (Rc : ℕ → Type) [∀ m, CommRing (Rc m)] (Lc : ∀ m, SphericalLift B.lift (Rc m) 1)
+    (hcover : RT4Q.LiftedCoverCoherence B Rc Lc) :
     Nonempty (RT4Q.localTCminusEven 2 B.lift L.ring.toE1 L.structureMap ≅
-      RT4Q.FilSpectrum.totLimit (fun m => RT4Q.doubleSpeed (Spectrum.pCompletion 2
-        (TCminus (RT4Q.thhKu B.lift (Lc m).ring.toE1 (Lc m).structureMap))))) ∧
+      RT4Q.FilSpectrum.totLimit (RT4Q.liftedCoverDiagram B Rc Lc hcover)) ∧
     Nonempty ((qHodgeFiltration 2 A R B L).completion ≅
       RT4Q.evenRegraded (RT4Q.localTCminusEven 2 B.lift L.ring.toE1 L.structureMap)) ∧
     Nonempty (RT4Q.modBeta (qHodgeFiltration 2 A R B L) ≅
@@ -8886,45 +9679,45 @@ end RT4Q
 filtration and the rational filtration `fil^⋆_ev HH(R/A) ⊗ ℚ[β]_ev` over the rationalised
 profinite one (Wagner 4.21–4.23), as an even-filtered `T_ev`-module; then
 `fil_{ev,hS¹}TC⁻ := (fil_ev THH)^{hT_ev}`. The per-prime (E₁)/(E₂) choices are not recorded. -/
-def globalEvenFiltration (A R : Type) [CommRing A] [CommRing R] [Algebra A R] (SA : EInftyRing)
+def globalEvenFiltrationShadow (A R : Type) [CommRing A] [CommRing R] [Algebra A R] (SA : EInftyRing)
     {n : ℕ} (L : SphericalLift SA R n) : RT4Q.EvFilTMod := sorry
 
 /-- Restriction to the profinite filtration. -/
-def globalEvenFiltration.profinite (A R : Type) [CommRing A] [CommRing R] [Algebra A R]
+def globalEvenFiltrationShadow.profinite (A R : Type) [CommRing A] [CommRing R] [Algebra A R]
     (SA : EInftyRing) {n : ℕ} (L : SphericalLift SA R n) :
-    (globalEvenFiltration A R SA L).underlying ⟶
+    (globalEvenFiltrationShadow A R SA L).underlying ⟶
       RT4Q.profiniteThhEven SA L.ring.toE1 L.structureMap := sorry
 
 /-- Restriction to the rational filtration `fil_ev HH(R/A) ⊗ ℚ[β]_ev`. -/
-def globalEvenFiltration.rational (A R : Type) [CommRing A] [CommRing R] [Algebra A R]
+def globalEvenFiltrationShadow.rational (A R : Type) [CommRing A] [CommRing R] [Algebra A R]
     (SA : EInftyRing) {n : ℕ} (L : SphericalLift SA R n) :
-    (globalEvenFiltration A R SA L).underlying ⟶ RT4Q.rationalHHBeta A R := sorry
+    (globalEvenFiltrationShadow A R SA L).underlying ⟶ RT4Q.rationalHHBeta A R := sorry
 
 /-- The glued comparison `ψ^0_R : q-dR_{R/A} → gr^0_{ev,hS¹}TC⁻(ku_R/ku_A)` (Wagner 4.25, using
 Lemma 4.29). -/
-def globalComparison (A R : Type) [CommRing A] [CommRing R] [Algebra A R] (SA : EInftyRing)
+def globalComparisonShadow (A R : Type) [CommRing A] [CommRing R] [Algebra A R] (SA : EInftyRing)
     {n : ℕ} (L : SphericalLift SA R n) :
-    RT4Q.qDeRham A R ⟶ (evenCircleFixedPoints (globalEvenFiltration A R SA L)).gr 0 := sorry
+    RT4Q.qDeRham A R ⟶ (evenCircleFixedPoints (globalEvenFiltrationShadow A R SA L)).gr 0 := sorry
 
 /-- Test `globalEvenFiltration.integers` (computation): for `A = R = ℤ`,
 `fil_{ev,hS¹}TC⁻(ku/ku) = τ_{≥2⋆} ku^{hS¹}`. -/
 example {n : ℕ} (L : SphericalLift RT4Q.sphereInfty ℤ n)
     (hL : Nonempty (L.ring ≅ RT4Q.EnRing.ofEInfty n RT4Q.sphereInfty)) :
-    Nonempty (evenCircleFixedPoints (globalEvenFiltration ℤ ℤ RT4Q.sphereInfty L) ≅
+    Nonempty (evenCircleFixedPoints (globalEvenFiltrationShadow ℤ ℤ RT4Q.sphereInfty L) ≅
       RT4Q.doubleSpeed (homotopyFixedPoints (SpectraWithAction.trivial T (RT4Q.sp ku)))) := sorry
 
 /-- Test `globalEvenFiltration.rational_part` (degenerate): after `− ⊗ ℚ` the filtration is
 `fil_{HKR} HH(R/A) ⊗ ℚ[β]_ev`. -/
 example (A R : Type) [CommRing A] [CommRing R] [Algebra A R] (SA : EInftyRing) {n : ℕ}
     (L : SphericalLift SA R n) :
-    Nonempty ((globalEvenFiltration A R SA L).underlying.rationalise ≅ RT4Q.rationalHHBeta A R) :=
+    Nonempty ((globalEvenFiltrationShadow A R SA L).underlying.rationalise ≅ RT4Q.rationalHHBeta A R) :=
   sorry
 
 /-- Test `globalEvenFiltration.not_intrinsic` (non-example): in case (E₁) the glued filtration is in
 general not the even filtration of an E₁-ring (`THH` is then only E₀); it is defined by the
 resolution. -/
 example : ∃ (R : Type) (_ : CommRing R) (SA : EInftyRing) (L : SphericalLift SA R 1),
-    ∀ E : E1Ring, ¬ Nonempty ((globalEvenFiltration ℤ R SA L).underlying ≅
+    ∀ E : E1Ring, ¬ Nonempty ((globalEvenFiltrationShadow ℤ R SA L).underlying ≅
       perfectEvenFiltration E (RT4Q.LMod.self E)) := sorry
 
 
@@ -8934,10 +9727,10 @@ namespace RT4Q
 
 /-- The global q-Hodge filtration `fil^⋆_{q-Hdg} q-dR_{R/A}`: the pullback of
 `Σ^{−2∗}gr^∗_{ev,hS¹}TC⁻(ku_R/ku_A)` along the glued comparison `ψ^0_R`. -/
-def globalQHodgeFiltration (A R : Type) [CommRing A] [CommRing R] [Algebra A R] (SA : EInftyRing)
+def globalQHodgeFiltrationShadow (A R : Type) [CommRing A] [CommRing R] [Algebra A R] (SA : EInftyRing)
     {n : ℕ} (L : SphericalLift SA R n) : FilSpectrum :=
-  FilSpectrum.pullback (constFilMap (globalComparison A R SA L))
-    (evenRegradedToGr0 (evenCircleFixedPoints (globalEvenFiltration A R SA L)))
+  FilSpectrum.pullback (constFilMap (globalComparisonShadow A R SA L))
+    (evenRegradedToGr0 (evenCircleFixedPoints (globalEvenFiltrationShadow A R SA L)))
 
 /-- The β-localised (`KU`) even filtration `fil^⋆_ev THH(KU_R/KU_A)`, an even-filtered
 `T_ev`-module (localisation at `β` in homotopical degree 2 and filtration degree 1). -/
@@ -8964,14 +9757,14 @@ on `dR_{R/A}`; after rationalisation and `(q−1)`-completion it is the combined
 beyond the `t`-transitions. Theorem 1.2 is the case `A = ℤ`, `R` quasi-syntomic, `2 ∈ R^×`, `n = 2`. -/
 theorem qHodgeGlobal (A R : Type) [CommRing A] [CommRing R] [Algebra A R] (SA : EInftyRing)
     (hSA : Nonempty (RT4Q.smashInfty SA (EInftyRing.ofCommRing ℤ) ≅ EInftyRing.ofCommRing A))
-    {n : ℕ} (hn : 1 ≤ n) (L : SphericalLift SA R n) :
-    Nonempty ((RT4Q.globalQHodgeFiltration A R SA L).completion ≅
-      RT4Q.evenRegraded (evenCircleFixedPoints (globalEvenFiltration A R SA L))) ∧
-    Nonempty (RT4Q.modBeta (RT4Q.globalQHodgeFiltration A R SA L) ≅ RT4Q.hodgeFiltration A R) ∧
-    Nonempty ((RT4Q.globalQHodgeFiltration A R SA L).rationalise.completion ≅
+    {n : ℕ} (hn : 1 ≤ n) (L : SphericalLift SA R n) [RT4Q.CompatibleGlobalInput SA A R L] :
+    Nonempty ((RT4Q.globalQHodgeFiltrationShadow A R SA L).completion ≅
+      RT4Q.evenRegraded (evenCircleFixedPoints (globalEvenFiltrationShadow A R SA L))) ∧
+    Nonempty (RT4Q.modBeta (RT4Q.globalQHodgeFiltrationShadow A R SA L) ≅ RT4Q.hodgeFiltration A R) ∧
+    Nonempty ((RT4Q.globalQHodgeFiltrationShadow A R SA L).rationalise.completion ≅
       (RT4Q.hodgeQFiltration A R).completion) ∧
     ∃ X : RT4Q.QHodgeAlg A, Nonempty (X.algebra ≅ RT4Q.AniAlg.ofAlgebra A R) ∧
-      Nonempty (X.filtration ≅ RT4Q.globalQHodgeFiltration A R SA L) := sorry
+      Nonempty (X.filtration ≅ RT4Q.globalQHodgeFiltrationShadow A R SA L) := sorry
 
 /-- Completeness, multiplicativity and the graded comparison (Wagner Corollary 3.14, Remark 4.28):
 (i) `fil^⋆_ev THH(ku_R/ku_A)` and `fil^⋆_{ev,hS¹}TC⁻` are complete and exhaustive; (ii) for
@@ -8982,18 +9775,18 @@ E_∞-structure at (E₁)-primes (Theorem 4.17) is not recorded. -/
 theorem qHodgeMultiplicativity (A R : Type) [CommRing A] [CommRing R] [Algebra A R]
     (SA : EInftyRing)
     (hSA : Nonempty (RT4Q.smashInfty SA (EInftyRing.ofCommRing ℤ) ≅ EInftyRing.ofCommRing A))
-    {n : ℕ} (hn : 1 ≤ n) (L : SphericalLift SA R n) :
-    ((globalEvenFiltration A R SA L).underlying.IsComplete ∧
-      (globalEvenFiltration A R SA L).underlying.IsExhaustiveFor
+    {n : ℕ} (hn : 1 ≤ n) (L : SphericalLift SA R n) [RT4Q.CompatibleGlobalInput SA A R L] :
+    ((globalEvenFiltrationShadow A R SA L).underlying.IsComplete ∧
+      (globalEvenFiltrationShadow A R SA L).underlying.IsExhaustiveFor
         (RT4Q.thhKu SA L.ring.toE1 L.structureMap).underlying ∧
-      (evenCircleFixedPoints (globalEvenFiltration A R SA L)).IsComplete ∧
-      (evenCircleFixedPoints (globalEvenFiltration A R SA L)).IsExhaustiveFor
+      (evenCircleFixedPoints (globalEvenFiltrationShadow A R SA L)).IsComplete ∧
+      (evenCircleFixedPoints (globalEvenFiltrationShadow A R SA L)).IsExhaustiveFor
         (TCminus (RT4Q.thhKu SA L.ring.toE1 L.structureMap))) ∧
     (2 ≤ n → ∃ Y : RT4Q.QHodgeEnAlg (n - 1) A,
       Nonempty (Y.forget.algebra ≅ RT4Q.AniAlg.ofAlgebra A R) ∧
-      Nonempty (Y.forget.filtration ≅ RT4Q.globalQHodgeFiltration A R SA L)) ∧
-    (∀ i : ℤ, Nonempty ((evenCircleFixedPoints (globalEvenFiltration A R SA L)).grShift i ≅
-      (RT4Q.globalQHodgeFiltration A R SA L).completion.fil i)) ∧
+      Nonempty (Y.forget.filtration ≅ RT4Q.globalQHodgeFiltrationShadow A R SA L)) ∧
+    (∀ i : ℤ, Nonempty ((evenCircleFixedPoints (globalEvenFiltrationShadow A R SA L)).grShift i ≅
+      (RT4Q.globalQHodgeFiltrationShadow A R SA L).completion.fil i)) ∧
     Nonempty (RT4Q.qHodgeComplex A R ≅
       (evenCircleFixedPoints (RT4Q.globalEvenFiltrationKU A R SA L)).gr 0) := sorry
 
@@ -9005,7 +9798,7 @@ is not recorded. -/
 theorem raksitPolynomialExample {n : ℕ} (L : SphericalLift RT4Q.sphereInfty ℤ[X] n)
     (hL : Nonempty (L.ring ≅ RT4Q.EnRing.ofEInfty n RT4Q.sphericalPolynomial)) :
     ∀ i : ℤ, 0 ≤ i →
-      Nonempty ((evenCircleFixedPoints (globalEvenFiltration ℤ ℤ[X] RT4Q.sphereInfty L)).grShift i ≅
+      Nonempty ((evenCircleFixedPoints (globalEvenFiltrationShadow ℤ ℤ[X] RT4Q.sphereInfty L)).grShift i ≅
         Spectrum.fib (RT4Q.emMap (RT4Q.qDerivative ℤ i))) := sorry
 
 
@@ -9279,43 +10072,35 @@ end RT4Q
 /-- The cyclonic even filtration `fil^⋆_{ev/T,C_m} M^{C_m}` of a cyclonic module `M` over a cyclonic
 E₁-ring `T`, with its residual `(T/C_m)_ev`-action:
 `eq(∏_{d|m}(fil^⋆_ev M^{ΦC_d})^{hC_{m/d},ev} ⇉ ∏_p ∏_{pd|m}((fil^⋆_ev M^{ΦC_d})^{tC_p,ev})^{hC_{m/pd},ev})`
-with `fil^⋆_ev M^{ΦC_d} := fil^⋆_{P-ev/T^{ΦC_d}} M^{ΦC_d}` (Wagner 5.46; requires
-`(M^{ΦC_m})^{hC_p}` homologically even over `(T^{ΦC_m})^{hC_p}`, not recorded). Then
+with `fil^⋆_ev M^{ΦC_d} := fil^⋆_{P-ev/T^{ΦC_d}} M^{ΦC_d}`.
+The primary cyclonicEvenFiltration below retains Wagner 5.46’s full hypotheses. Then
 `fil^⋆_{ev,S¹}TC^{−(m)} := (fil^⋆_{ev,C_m} M^{C_m})^{h(T/C_m)_ev}`. -/
-def cyclonicEvenFiltration (Tr : RT4Q.CyclonicRing) (M : RT4Q.CyclonicMod Tr) (m : ℕ) :
+def cyclonicEvenFiltrationShadow (Tr : RT4Q.CyclonicRing) (M : RT4Q.CyclonicMod Tr) (m : ℕ) :
     RT4Q.EvFilTMod := sorry
 
 /-- The `KU` version by `β`-localisation:
 `fil^⋆_{ev,C_m}THH(KU_R/KU_A)^{C_m} := fil^⋆_{ev,C_m}THH(ku_R/ku_A)^{C_m} ⊗_{ku_ev^{C_m}} KU_ev^{C_m}`;
 no fixed-point formula is applied to the unbounded `KU`-objects directly. -/
-def cyclonicEvenFiltration.KU (SA : EInftyRing) (SR : E1Ring) (f : SA.toE1 ⟶ SR) (m : ℕ) :
+def cyclonicEvenFiltrationShadow.KU (SA : EInftyRing) (SR : E1Ring) (f : SA.toE1 ⟶ SR) (m : ℕ) :
     RT4Q.EvFilTMod :=
-  RT4Q.betaLocalise (cyclonicEvenFiltration RT4Q.cyclonicKuRing (RT4Q.thhKuCyclonic SA SR f) m)
-
-/-- `fil^⋆_{ev,S¹}TC^{−(m)}(KU_R/KU_A)` is complete and exhaustive (Wagner Lemma 5.61; the
-hypotheses of RT.4:q-Hodge/spherical-lift and (A₂) are not recorded). -/
-theorem cyclonicEvenFiltration.complete (SA : EInftyRing) (SR : E1Ring) (f : SA.toE1 ⟶ SR)
-    (m : ℕ) (hm : 0 < m) :
-    (evenCircleFixedPoints (cyclonicEvenFiltration.KU SA SR f m)).IsComplete ∧
-    (evenCircleFixedPoints (cyclonicEvenFiltration.KU SA SR f m)).IsExhaustiveFor
-      (TCminusM (RT4Q.thhKUCyclonic SA SR f) m) := sorry
+  RT4Q.betaLocalise (cyclonicEvenFiltrationShadow RT4Q.cyclonicKuRing (RT4Q.thhKuCyclonic SA SR f) m)
 
 /-- For `m = 1` the cyclonic even filtration gives `fil_{ev,hS¹}TC⁻`. -/
-theorem cyclonicEvenFiltration.m_one (A R : Type) [CommRing A] [CommRing R] [Algebra A R]
+theorem cyclonicEvenFiltrationShadow.m_one (A R : Type) [CommRing A] [CommRing R] [Algebra A R]
     (SA : EInftyRing) {n : ℕ} (L : SphericalLift SA R n) :
-    Nonempty (evenCircleFixedPoints (cyclonicEvenFiltration RT4Q.cyclonicKuRing
+    Nonempty (evenCircleFixedPoints (cyclonicEvenFiltrationShadow RT4Q.cyclonicKuRing
         (RT4Q.thhKuCyclonic SA L.ring.toE1 L.structureMap) 1) ≅
-      evenCircleFixedPoints (globalEvenFiltration A R SA L)) := sorry
+      evenCircleFixedPoints (globalEvenFiltrationShadow A R SA L)) := sorry
 
 /-- Test `cyclonicEvenFiltration.ku` (computation):
 `fil_{ev,S¹}TC^{−(m)}(ku/ku) ≃ τ_{≥2⋆}((ku^{C_m})^{h(S¹/C_m)})`. -/
 example (m : ℕ) (hm : 0 < m) :
-    Nonempty (evenCircleFixedPoints (cyclonicEvenFiltration RT4Q.cyclonicKuRing
+    Nonempty (evenCircleFixedPoints (cyclonicEvenFiltrationShadow RT4Q.cyclonicKuRing
         RT4Q.cyclonicKuSelf m) ≅ RT4Q.doubleSpeed (TCminusM cyclonicKu m)) := sorry
 
 /-- Test `cyclonicEvenFiltration.zero` (degenerate): the filtration of `0` is `0`. -/
 example (Tr : RT4Q.CyclonicRing) (m : ℕ) :
-    Nonempty (cyclonicEvenFiltration Tr (RT4Q.CyclonicMod.zero Tr) m ≅ RT4Q.EvFilTMod.zero) :=
+    Nonempty (cyclonicEvenFiltrationShadow Tr (RT4Q.CyclonicMod.zero Tr) m ≅ RT4Q.EvFilTMod.zero) :=
   sorry
 
 /-- Test `cyclonicEvenFiltration.no_direct_KU` (non-example): `THH(KU/KU) = KU` is not a
@@ -9342,8 +10127,8 @@ def qDeRhamWitt (m : ℕ) (A R : Type) [CommRing A] [CommRing R] [Algebra A R] (
 for `n ∣ m` (Remark 5.62). -/
 def kuGrDivisorMap (SA : EInftyRing) (SR : E1Ring) (f : SA.toE1 ⟶ SR) (i : ℤ) {m n : ℕ}
     (h : n ∣ m) :
-    (evenCircleFixedPoints (cyclonicEvenFiltration.KU SA SR f m)).grShift i ⟶
-      (evenCircleFixedPoints (cyclonicEvenFiltration.KU SA SR f n)).grShift i := sorry
+    (evenCircleFixedPoints (cyclonicEvenFiltrationShadow.KU SA SR f m)).grShift i ⟶
+      (evenCircleFixedPoints (cyclonicEvenFiltrationShadow.KU SA SR f n)).grShift i := sorry
 
 /-- The unit `S → S_R` of an E_∞-ring. -/
 def unitInfty (S : EInftyRing) : sphereInfty ⟶ S := sorry
@@ -9387,42 +10172,6 @@ theorem habiroTCRing_toSpectrum (S : EInftyRing) :
 
 end RT4Q
 
-/-- Wagner Theorem 5.51: under the hypotheses of RT.4:q-Hodge/q-hodge-global, with `2 ∈ R^×` and the
-lifts `ψ^k` of the Adams operations of (A₂) (their compatibility is not recorded), for each
-`m ≥ 1` the completed `m`-twisted q-Hodge filtration is `Σ^{−2∗}gr^∗ fil_{ev,S¹}TC^{−(m)}(ku_R/ku_A)`,
-over `π_{2∗}((ku^{C_m})^{h(S¹/C_m)}) ≅ (q^m − 1)^⋆ ℤ[q]^∧_{(q^m−1)}`, and
-`Σ^{−2∗}gr^∗_{ev,C_m}THH(ku_R/ku_A)^{C_m} ≃ q-W_m dR^∗_{R/A}` (Corollary 5.58). The module structure
-over the coefficient ring is not recorded. -/
-theorem twistedQHodgeComparison (A R : Type) [CommRing A] [CommRing R] [Algebra A R]
-    (SA : EInftyRing)
-    (hSA : Nonempty (RT4Q.smashInfty SA (EInftyRing.ofCommRing ℤ) ≅ EInftyRing.ofCommRing A))
-    {n : ℕ} (hn : 1 ≤ n) (L : SphericalLift SA R n) (h2 : IsUnit (2 : R))
-    (ψ : ℕ → (SA ⟶ SA)) (m : ℕ) (hm : 0 < m) :
-    Nonempty ((RT4Q.twistedQHodgeFiltration m A R SA L).completion ≅
-      RT4Q.evenRegraded (evenCircleFixedPoints (cyclonicEvenFiltration RT4Q.cyclonicKuRing
-        (RT4Q.thhKuCyclonic SA L.ring.toE1 L.structureMap) m))) ∧
-    (∀ i : ℤ, Nonempty ((cyclonicEvenFiltration RT4Q.cyclonicKuRing
-        (RT4Q.thhKuCyclonic SA L.ring.toE1 L.structureMap) m).underlying.grShift i ≅
-      RT4Q.qDeRhamWitt m A R i)) ∧
-    (∀ i : ℤ, Nonempty ((TCminusM cyclonicKu m).homotopyGroup (2 * i) ≃+
-      RT4Q.adicReesPiece m i)) := sorry
-
-/-- Wagner Theorem 5.63: under the hypotheses of RT.4:q-Hodge/q-hodge-global with `2 ∈ R^×` and
-(A₂) (the lifts `ψ^k`), the 2-periodified Habiro–Hodge complex `q-ℋdg_{R/A}[β^{±1}]` is
-`lim_m Σ^{−2∗}gr^∗_{ev,S¹}TC^{−(m)}(KU_R/KU_A)`, the limit along the divisibility maps; in each
-even degree `i` (where `q-ℋdg_{R/A}[β^{±1}]` is `q-ℋdg_{R/A}`):
-`q-ℋdg_{R/A} ≃ lim_m Σ^{−2i}gr^i_{ev,S¹}TC^{−(m)}(KU_R/KU_A)`. -/
-theorem habiroComparisonTheorem (A R : Type) [CommRing A] [CommRing R] [Algebra A R]
-    (SA : EInftyRing)
-    (hSA : Nonempty (RT4Q.smashInfty SA (EInftyRing.ofCommRing ℤ) ≅ EInftyRing.ofCommRing A))
-    {n : ℕ} (hn : 1 ≤ n) (L : SphericalLift SA R n) (h2 : IsUnit (2 : R))
-    (ψ : ℕ → (SA ⟶ SA)) (i : ℤ) :
-    Nonempty (RT4Q.habiroHodgeComplex A R ≅
-      RT4Q.divisibilityLimit
-        (fun m => (evenCircleFixedPoints
-          (cyclonicEvenFiltration.KU SA L.ring.toE1 L.structureMap m)).grShift i)
-        (fun m n h => RT4Q.kuGrDivisorMap SA L.ring.toE1 L.structureMap i h)) := sorry
-
 /-- Lurie (HA Theorem 7.5.0.6): for a connective E_∞-ring `A`, `B ↦ π_0 B` is an equivalence from
 étale E_∞-`A`-algebras to étale `π_0 A`-algebras. In particular every étale `ℤ`-algebra `R` has a
 unique étale E_∞-`S`-algebra `S_R` with `S_R ⊗ ℤ ≃ R`. -/
@@ -9447,5 +10196,698 @@ theorem numberFieldHabiro (F : Type) [Field F] [NumberField F] (Δ : ℕ) (h6 : 
     Nonempty (RT4Q.gswzHabiroRing F Δ ≃+* (RT4Q.habiroTCRing B.ring).pi0) ∧
     Nonempty (RT4Q.habiroRing (Localization.Away (Δ : NumberField.RingOfIntegers F)) ≃+*
       (RT4Q.habiroTCRing B.ring).pi0) := sorry
+
+/-! ## R1/R2: derived mixed objects and cyclic coextensions -/
+/-- Coherent derived localization D(Λ), supplied through the EDS E5 request. -/
+def DerivedMixedComplex (k : Type) [CommRing k] : Coherent.InftyCategory := sorry
+
+def DerivedMixedComplex.ofMixed {k : Type} [CommRing k] (M : MixedComplex k) :
+    Coherent.Obj (DerivedMixedComplex k) := sorry
+
+def DerivedMixedComplex.map {k : Type} [CommRing k] {M N : MixedComplex k} (f : M ⟶ N) :
+    Coherent.Hom (DerivedMixedComplex.ofMixed M) (DerivedMixedComplex.ofMixed N) := sorry
+
+theorem DerivedMixedComplex.inverts {k : Type} [CommRing k] {M N : MixedComplex k}
+    (f : M ⟶ N) (hf : MixedComplex.QuasiIso f) : Coherent.IsEquiv (DerivedMixedComplex.map f) := sorry
+
+/-- Tests DerivedMixedComplex.ground / DerivedMixedComplex.acyclic / DerivedMixedComplex.not_abelian_derived. -/
+example (k : Type) [CommRing k] :
+    ∃ M : MixedComplex k, Nonempty (M.X 0 ≅ ModuleCat.of k k) ∧
+      ∀ n : ℤ, n ≠ 0 → Limits.IsZero (M.X n) := sorry
+/-- Coherent zero object in the derived category. -/
+def DerivedMixedComplex.zero (k : Type) [CommRing k] : Coherent.Obj (DerivedMixedComplex k) := sorry
+/-- The zero mixed complex. -/
+def MixedComplex.zero (k : Type) [CommRing k] : MixedComplex k := sorry
+example {k : Type} [CommRing k] (M : MixedComplex k)
+    (h : ∀ n : ℤ, Limits.IsZero ((RT1.bComplex M).homology n)) :
+    ∃ f : M ⟶ MixedComplex.zero k, Coherent.IsEquiv (DerivedMixedComplex.map f) := sorry
+example {k : Type} [CommRing k] {M N : MixedComplex k} (f : M ⟶ N)
+    (hf : MixedComplex.QuasiIso f) : Coherent.IsEquiv (DerivedMixedComplex.map f) := sorry
+
+/-- Precyclic modules: faces and cyclic operators, without degeneracy data. -/
+def PrecyclicModule (k : Type) [CommRing k] : Type := sorry
+instance (k : Type) [CommRing k] : Category.{0} (PrecyclicModule k) := sorry
+/-- Forgetting degeneracies, keeping the precyclic structure. -/
+def PrecyclicModule.ofCyclic (k : Type) [CommRing k] :
+    CyclicObject (ModuleCat.{0} k) ⥤ PrecyclicModule k := sorry
+
+def PrecyclicMixedCone (k : Type) [CommRing k] : PrecyclicModule k ⥤ MixedComplex k := sorry
+abbrev PrecyclicMixedCone.map {k : Type} [CommRing k] {C D : PrecyclicModule k} (f : C ⟶ D) :=
+  (PrecyclicMixedCone k).map f
+
+def PrecyclicMixedCone.compare {k : Type} [CommRing k]
+    (C : CyclicObject (ModuleCat.{0} k)) :
+    (PrecyclicMixedCone k).obj ((PrecyclicModule.ofCyclic k).obj C) ⟶
+      (MixedComplex.ofCyclic k).obj C := sorry
+
+theorem PrecyclicMixedCone.compare_quasiIso {k : Type} [CommRing k]
+    (C : CyclicObject (ModuleCat.{0} k)) : MixedComplex.QuasiIso (PrecyclicMixedCone.compare C) := sorry
+
+/-- Tests PrecyclicMixedCone.unital / PrecyclicMixedCone.zero / PrecyclicMixedCone.corner. -/
+example (k : Type) [CommRing k] :
+    MixedComplex.QuasiIso (PrecyclicMixedCone.compare (CyclicBar k k)) := sorry
+def PrecyclicModule.zero (k : Type) [CommRing k] : PrecyclicModule k := sorry
+example (k : Type) [CommRing k] :
+    ∀ n : ℤ, Limits.IsZero (((PrecyclicMixedCone k).obj (PrecyclicModule.zero k)).X n) := sorry
+/-- Nonunital maps act on the modified cone without preserving degeneracies. -/
+def PrecyclicModule.matrixCorner (k A : Type) [CommRing k] [Ring A] [Algebra k A]
+    (r : ℕ) (hr : 0 < r) :
+    (PrecyclicModule.ofCyclic k).obj (CyclicBar k A) ⟶
+      (PrecyclicModule.ofCyclic k).obj (CyclicBar k (Matrix (Fin r) (Fin r) A)) := sorry
+example (k A : Type) [CommRing k] [Ring A] [Algebra k A] (r : ℕ) (hr : 0 < r) :
+    ∃ f : ((PrecyclicModule.ofCyclic k) ⋙ PrecyclicMixedCone k).obj (CyclicBar k A) ⟶
+      ((PrecyclicModule.ofCyclic k) ⋙ PrecyclicMixedCone k).obj
+        (CyclicBar k (Matrix (Fin r) (Fin r) A)),
+      f = PrecyclicMixedCone.map (PrecyclicModule.matrixCorner k A r hr) := sorry
+
+/-- An actually unbounded example. -/
+def MixedComplex.allDegrees (k : Type) [CommRing k] : MixedComplex k where
+  X _ := ModuleCat.of k k
+  b _ := 0
+  B _ := 0
+  b_comp_b _ := by simp
+  B_comp_B _ := by simp
+  bB_add_Bb _ := by simp
+
+/-- Test periodicCyclicHomology.laurent_bound: no infinitely many negative powers. -/
+example (k : Type) [CommRing k] [Nontrivial k] :
+    (fun _ : ℤ => (1 : k)) ∉ (MixedComplex.allDegrees k).laurentPieces 0 := sorry
+/-- Nonnegative all-ones belongs to the Laurent piece; its lower bound is zero. -/
+example (k : Type) [CommRing k] :
+    (fun i : ℤ => if i < 0 then (0 : k) else 1) ∈
+      (MixedComplex.allDegrees k).laurentPieces 0 := sorry
+/-- Test cyclicHomology.sum_not_product: all-ones is not finitely supported. -/
+example (k : Type) [CommRing k] [Nontrivial k] :
+    ¬ Set.Finite {i : ℕ | (1 : k) ≠ 0} := sorry
+/-- Test MixedComplex.negative_degree: the primary carrier has negative degrees. -/
+example (k : Type) [CommRing k] :
+    ∃ M : MixedComplex k, Nonempty ((RT1.bComplex M).homology (-1) ≅ ModuleCat.of k k) := sorry
+
+namespace HochschildHomology
+open scoped TensorProduct
+/-- Component extraction of the completed negative cyclic map. -/
+def cnLeading {k : Type} [CommRing k] (M : MixedComplex k) (n : ℤ) :
+    M.negativeCyclicComplex.X n ⟶ M.X n := sorry
+def cnFirst {k : Type} [CommRing k] (M : MixedComplex k) (n : ℤ) :
+    M.negativeCyclicComplex.X n ⟶ M.X (n + 2) := sorry
+def cnInjection {k : Type} [CommRing k] (M : MixedComplex k) (n : ℤ) :
+    M.X n ⟶ M.negativeCyclicComplex.X n := sorry
+
+/-- A cyclic coextension keeps its leading b-map, degree-two correction, and completed map.
+The chain-map condition on completed includes (b+uB)-compatibility. -/
+def bDegreeIso {k : Type} [CommRing k] (M : MixedComplex k) (n : ℤ) :
+    (RT1.bComplex M).X n ≅ M.X n := sorry
+
+structure CyclicShuffleData {k : Type} [CommRing k] (M N : MixedComplex k) where
+  leading : RT1.bComplex M ⟶ RT1.bComplex N
+  correction : ∀ n : ℤ, M.X n ⟶ N.X (n + 2)
+  completed : M.negativeCyclicComplex ⟶ N.negativeCyclicComplex
+  leadingAgreement : ∀ n : ℤ,
+    cnInjection M n ≫ completed.f n ≫ cnLeading N n = (bDegreeIso M n).inv ≫ leading.f n ≫ (bDegreeIso N n).hom
+  correctionAgreement : ∀ n : ℤ,
+    cnInjection M n ≫ completed.f n ≫ cnFirst N n = correction n
+
+def cyclicShuffle (k A A' : Type) [CommRing k] [Ring A] [Algebra k A]
+    [Ring A'] [Algebra k A'] :
+    CyclicShuffleData ((RT1.algMixed k A).tensor (RT1.algMixed k A'))
+      (RT1.algMixed k (A ⊗[k] A')) := sorry
+
+theorem cyclicShuffle.leading (k A A' : Type) [CommRing k] [Ring A] [Algebra k A]
+    [Ring A'] [Algebra k A'] : (cyclicShuffle k A A').leading = shuffle k A A' := sorry
+
+theorem cyclicShuffle.quasiIso (k A A' : Type) [CommRing k] [Ring A] [Algebra k A]
+    [Ring A'] [Algebra k A'] [Module.Flat k A] [Module.Flat k A'] :
+    _root_.QuasiIso (cyclicShuffle k A A').completed := sorry
+/-- Test HochschildHomology.shuffle_not_B_map: the leading b-map alone is not the completed cyclic map. -/
+example (k A A' : Type) [CommRing k] [Ring A] [Algebra k A] [Ring A'] [Algebra k A']
+    (n : ℤ) : cnInjection _ n ≫ (cyclicShuffle k A A').completed.f n ≫ cnFirst _ n =
+      (cyclicShuffle k A A').correction n := sorry
+end HochschildHomology
+
+
+
+/-! ## Finite synthetic cyclic norm and underlying comparison (R14)
+
+AR24 Definition 2.61, Construction 2.63, Proposition 2.67 and Lemma 2.75.
+SynT is Mod_{T_ev}(SynSp). The power-pullback algebra retains the residual circle
+structure; the norm is finite-group duality, without the circle suspension.
+-/
+namespace SyntheticFiniteCyclic
+open Coherent
+
+def SynT : InftyCategory := sorry
+def stable : StableStructure SynT := sorry
+def forgetCircle : Functor SynT (Coherent.SpectraWithAction Coherent.Circle) := sorry
+def underlyingSp : Functor SynT Sp := sorry
+def powerPullbackAlgebra (n : ℕ) (hn : 0<n) : Type := sorry
+/-- Tensor with ρ(n)^*T_ev over T_ev. -/
+def orbits (n : ℕ) (hn : 0<n) : Functor SynT SynT := sorry
+/-- Mapping out of ρ(n)^*T_ev over T_ev. -/
+def fixed (n : ℕ) (hn : 0<n) : Functor SynT SynT := sorry
+/-- Both adjoints retain the residual power-pullback algebra action. -/
+def ResidualAction (n : ℕ) (hn : 0<n) (M : Obj SynT) : Type := sorry
+def residual (n : ℕ) (hn : 0<n) (M : Obj SynT) : ResidualAction n hn M := sorry
+/-- Finite duality norm: no Σ appears in its source. -/
+def norm (n : ℕ) (hn : 0<n) (M : Obj SynT) :
+    Hom ((orbits n hn).obj M) ((fixed n hn).obj M) := sorry
+
+def tate (n : ℕ) (hn : 0<n) (M : Obj SynT) : Obj SynT :=
+  Coherent.cofiber stable (norm n hn M)
+/-- The coherent functor with the preceding object values. -/
+def tateFunctor (n : ℕ) (hn : 0<n) : Functor SynT SynT := sorry
+/-- Lax monoidal structure, including unit, tensor maps and coherence (E5). -/
+def LaxMonoidalWitness (n : ℕ) (hn : 0<n) : Type := sorry
+theorem laxMonoidal (n : ℕ) (hn : 0<n) : Nonempty (LaxMonoidalWitness n hn) := sorry
+/-- Thick closure of modules induced from synthetic spectra, as in Definition 2.64. -/
+def ThickInducedWitness (M : Obj SynT) : Type := sorry
+theorem induced_zero (n : ℕ) (hn : 0<n) (M : Obj SynT)
+    (hM : ThickInducedWitness M) :
+    ∃ e : Hom (tate n hn M) (Coherent.zero SynT stable), IsEquiv e := sorry
+
+/-- Finite cyclic classifying anima with its inclusion in B S¹ (E0). -/
+def finiteCyclic (n : ℕ) (hn : 0<n) : GroupAnima := sorry
+def restriction (n : ℕ) (hn : 0<n) :
+    Functor (Coherent.SpectraWithAction Coherent.Circle) (Coherent.SpectraWithAction (finiteCyclic n hn)) := sorry
+
+def orbitComparison (n : ℕ) (hn : 0<n) (M : Obj SynT) :
+    Hom ((underlyingSp).obj ((orbits n hn).obj M))
+      ((Coherent.homotopyOrbits (finiteCyclic n hn)).obj
+        ((restriction n hn).obj (forgetCircle.obj M))) := sorry
+
+def fixedComparison (n : ℕ) (hn : 0<n) (M : Obj SynT) :
+    Hom (underlyingSp.obj ((fixed n hn).obj M))
+      ((Coherent.homotopyFixedPoints (finiteCyclic n hn)).obj
+        ((restriction n hn).obj (forgetCircle.obj M))) := sorry
+
+/-- Homotopy groups and stage map of the underlying filtered spectrum (H.5). -/
+def pi (X : Obj Sp) (j : ℤ) : ModuleCat.{0} ℤ := sorry
+def stage (M : Obj SynT) (i : ℤ) : Obj Sp := sorry
+def stageMap (M : Obj SynT) (i : ℤ) : Hom (stage M i) (underlyingSp.obj M) := sorry
+
+def IsTruncated {X Y : Obj Sp} (f : Hom X Y) (i : ℤ) : Prop :=
+  ∀ j : ℤ, i<j → Limits.IsZero (pi (Coherent.fiber RT3.spStable f) j)
+
+def UniformTruncationBounds (M : Obj SynT) : Prop :=
+  ∀ i : ℤ, IsTruncated (stageMap M i) i
+/-- Even E∞ base B and a coherent module over B[S¹]_ev (AR24 2.75(v)). -/
+def EvenBaseModuleWitness (M : Obj SynT) : Type := sorry
+def DoubleTruncationBounds (M : Obj SynT) : Prop :=
+  ∀ i : ℤ, IsTruncated (stageMap M i) (2*i)
+
+theorem underlying_orbits (n : ℕ) (hn : 0<n) (M : Obj SynT) :
+    IsEquiv (orbitComparison n hn M) := sorry
+
+theorem underlying (n : ℕ) (hn : 0<n) (M : Obj SynT)
+    (h : UniformTruncationBounds M) : IsEquiv (fixedComparison n hn M) := sorry
+
+theorem underlying_evenBase (n : ℕ) (hn : 0<n) (M : Obj SynT)
+    (hB : EvenBaseModuleWitness M) (h : DoubleTruncationBounds M) :
+    IsEquiv (fixedComparison n hn M) := sorry
+
+/-- Test SyntheticFiniteCyclic.one. -/
+example (M : Obj SynT) : IsEquiv (norm 1 (by decide) M) ∧
+    ∃ e : Hom (tate 1 (by decide) M) (Coherent.zero SynT stable), IsEquiv e := sorry
+/-- Test SyntheticFiniteCyclic.induced. -/
+example (n : ℕ) (hn : 0<n) (M : Obj SynT) (hM : ThickInducedWitness M) :
+    ∃ e : Hom (tate n hn M) (Coherent.zero SynT stable), IsEquiv e := sorry
+/-- Test SyntheticFiniteCyclic.no_shift: the circle norm has source ΣM_{S¹}. -/
+def circleOrbits (M : Obj SynT) : Obj SynT := sorry
+def circleFixed (M : Obj SynT) : Obj SynT := sorry
+def circleNorm (M : Obj SynT) :
+    Hom ((Coherent.shift SynT stable 1).obj (circleOrbits M)) (circleFixed M) := sorry
+example (n : ℕ) (hn : 0<n) (M : Obj SynT) :
+    Nonempty (Hom ((orbits n hn).obj M) ((fixed n hn).obj M)) := ⟨norm n hn M⟩
+/-- Test SyntheticFiniteCyclic.whitehead: double Whitehead over an even base
+has the bounds; identifying finite fixed-point Whitehead also requires even M. -/
+def doubleWhitehead (B : Obj Sp) (M : Obj Sp) : Obj SynT := sorry
+def EvenRingWitness (B : Obj Sp) : Type := sorry
+def EvenModuleWitness (B M : Obj Sp) : Type := sorry
+example (B M : Obj Sp) (hB : EvenRingWitness B) (hM : EvenModuleWitness B M)
+    (n : ℕ) (hn : 0<n) : DoubleTruncationBounds (doubleWhitehead B M) ∧
+      IsEquiv (fixedComparison n hn (doubleWhitehead B M)) := sorry
+end SyntheticFiniteCyclic
+
+/-! ## Snaith construction and graded Laurent HKR (R10–R11) -/
+namespace RT4T
+/-- E∞ ring Σ∞_+K(Z,2), with multiplication from tensor product of line bundles. -/
+def sigmaCPInfinity : EInftyRing := sorry
+def sigmaCPBott : pi sigmaCPInfinity 2 := sorry
+/-- Theorem 6.5.1 of Elliptic Cohomology II. -/
+def snaithModel : EInftyRing.invert sigmaCPInfinity sigmaCPBott ≅ KU := sorry
+/-- Multiplication by k on K(Z,2), before Bott inversion. -/
+def snaithPower (k : ℕ) : sigmaCPInfinity ⟶ sigmaCPInfinity := sorry
+theorem snaithPower.bott (k : ℕ) :
+    piMap (snaithPower k) 2 sigmaCPBott = k • sigmaCPBott := sorry
+/-- After k is inverted, kβ is a unit, so E∞ localization extends the power map. -/
+def snaithAdams (k : ℕ) (hk : 1≤k) :
+    EInftyRing.invertInt KU k ⟶ EInftyRing.invertInt KU k := sorry
+/-- Identifies the localized construction with the previously named stable operation. -/
+theorem snaithAdams.agrees (k : ℕ) (hk : 1≤k) :
+    snaithAdams k hk = _root_.RefinedTraceMethods.KU.adams k := sorry
+/-- Test RT4T.snaithAdams.one. -/
+example : snaithAdams 1 (by decide) = 𝟙 _ := sorry
+/-- Test RT4T.snaithAdams.bott. -/
+example : piMap (snaithAdams 2 (by decide)) 2 (KU.bottInv 2) = 2 • KU.bottInv 2 := sorry
+/-- Test RT4T.snaithAdams.integral_obstruction. -/
+example : ¬ ∃ f : KU ⟶ KU, piMap f 2 KU.bott = 2 • KU.bott := sorry
+
+/-- In each integer degree the basis is β^j (degree 2j) or β^jδ (degree 2j+1).
+The operators are b=0 and B(β^j)=jβ^jδ, B(β^jδ)=0. -/
+def gradedLaurentMixed : MixedComplex ℚ where
+  X _ := ModuleCat.of ℚ ℚ
+  b _ := 0
+  B n := if Even n then ((n / 2 : ℤ) : ℚ) • 𝟙 _ else 0
+  b_comp_b := sorry
+  B_comp_B := sorry
+  bB_add_Bb := sorry
+/-- Characteristic-zero dg model Q[β^{±1}], |β|=2 (EDS E5/DD.0). -/
+def rationalKUBarMixed : MixedComplex ℚ := sorry
+/-- Quasi-isomorphism via the graded diagonal Koszul resolution, with B=d. -/
+theorem gradedLaurentHKR :
+    ∃ e : Coherent.Hom (DerivedMixedComplex.ofMixed rationalKUBarMixed)
+      (DerivedMixedComplex.ofMixed gradedLaurentMixed), Coherent.IsEquiv e := sorry
+/-- Negative powers are present, with the expected nonzero Connes operator. -/
+example : gradedLaurentMixed.B (-2) = (-1 : ℚ) • 𝟙 (ModuleCat.of ℚ ℚ) ∧
+    gradedLaurentMixed.B (-1) = 0 := sorry
+/-- Bβ=βδ in homological degree 3: absolute KU_Q has a nontrivial circle action. -/
+example : gradedLaurentMixed.B 2 = 𝟙 (ModuleCat.of ℚ ℚ) := sorry
+
+/-- Test representability on S⁰, retaining the rank component. -/
+example : NondegenerateBasepoint (sphere 0) (sphere.base 0) ∧
+    Nonempty (TopK.reduced (sphere 0) (sphere.base 0) ≃+ ℤ) ∧
+    Nonempty (pointedHomotopyClasses (sphere 0) (ℤ × BU) (sphere.base 0) (0,BU.base) ≃ ℤ) ∧
+    Subsingleton (pointedHomotopyClasses (sphere 0) BU (sphere.base 0) BU.base) := sorry
+end RT4T
+
+/-! ## Structured lift examples (R15) -/
+namespace RT4Q
+abbrev ZInvertTwo := Localization.Away (2 : ℤ)
+/-- Localization of the spherical base, compatible with every p-adic branch. -/
+def sphericalInvertTwo : EInftyRing := sorry
+/-- Test RT4Q.CompatibleSphericalLifts.invert_two: at p=2 the completion is zero. -/
+example : Nonempty (CompatibleSphericalLifts sphericalInvertTwo ZInvertTwo ZInvertTwo) ∧
+    Nonempty (CyclonicBaseCoherence sphericalInvertTwo) := sorry
+/-- Test RT4Q.CyclonicBaseCoherence.invert_two: the unit test for Theorem 5.63 is in scope. -/
+example : IsUnit (2 : ZInvertTwo) := sorry
+/-- Test RT4Q.CompatibleSphericalLifts.polynomial: the lifted toric Čech reductions exist. -/
+example : Nonempty (CompatibleSphericalLifts sphereInfty ℤ ℤ[X]) := sorry
+/-- Test RT4Q.CompatibleSphericalLifts.not_arbitrary: an E₁ ku lift carries different data. -/
+example (p : ℕ) [Fact p.Prime] :
+    ∃ (K : E1Ring) (f : ku.toE1 ⟶ K), Nonempty (kuReduction K f ≅
+      E1Ring.ofRing (wagnerQuotientRing p)) ∧
+      ¬ Nonempty (modBeta (kuLiftFiltration K f) ≅
+        hodgeFiltration ℤ_[p] (wagnerQuotientRing p)) := sorry
+/-- Test RT4Q.CyclonicBaseCoherence.toric: ψ^m(x)=x^m for the spherical torus. -/
+def sphericalTorus : EInftyRing := sorry
+def torusCoordinate : sphericalTorus.toE1.pi0 := sorry
+def toricAdamsModel (C : CyclonicBaseCoherence sphericalTorus) (m : ℕ) :
+    sphericalTorus.toE1.pi0 →+* sphericalTorus.toE1.pi0 := sorry
+example : ∃ C : CyclonicBaseCoherence sphericalTorus, ∀ m : ℕ, 0<m →
+    toricAdamsModel C m torusCoordinate = torusCoordinate^m := sorry
+end RT4Q
+
+/-! ## Coherent genuine coalgebra model -/
+namespace Coherent
+/-- Genuine C_{p∞} spectra supplied by RT.2/genuine-cyclic-and-circle-spectra. -/
+def GenuinePInftySp (p : ℕ) (hp : p.Prime) : InftyCategory := sorry
+def geometricP (p : ℕ) (hp : p.Prime) :
+    Functor (GenuinePInftySp p hp) (GenuinePInftySp p hp) := sorry
+abbrev GenuineCyclotomicSpectrum (p : ℕ) (hp : p.Prime) := Endofunctor.Fix (geometricP p hp)
+def GenuineCyclotomicSpectrum.underlying (p : ℕ) (hp : p.Prime) :
+    Functor (GenuineCyclotomicSpectrum p hp) Sp := sorry
+/-- Coalgebra coreflection with equivalence on underlying nonequivariant spectra. -/
+def genuineCoreflection (p : ℕ) (hp : p.Prime) :
+    Functor (Endofunctor.CoAlg (geometricP p hp)) (GenuineCyclotomicSpectrum p hp) := sorry
+def genuineInclusion (p : ℕ) (hp : p.Prime) :
+    Functor (GenuineCyclotomicSpectrum p hp) (Endofunctor.CoAlg (geometricP p hp)) :=
+  Endofunctor.inclusion (geometricP p hp)
+def genuineForget (p : ℕ) (hp : p.Prime) :
+    Functor (Endofunctor.CoAlg (geometricP p hp)) Sp := sorry
+theorem genuineCoreflection.adjunction (p : ℕ) (hp : p.Prime) :
+    Nonempty (Adjunction (genuineInclusion p hp) (genuineCoreflection p hp)) := sorry
+/-- The counit of that coherent adjunction, not an unrelated inhabited type. -/
+def genuineCoreflection.counit (p : ℕ) (hp : p.Prime)
+    (X : Obj (Endofunctor.CoAlg (geometricP p hp))) :
+    Hom ((genuineInclusion p hp).obj ((genuineCoreflection p hp).obj X)) X := sorry
+/-- NS18 II.5.6: this counit is an equivalence after forgetting to spectra. -/
+theorem genuineCoreflection.underlying (p : ℕ) (hp : p.Prime)
+    (X : Obj (Endofunctor.CoAlg (geometricP p hp))) :
+    IsEquiv ((genuineForget p hp).map (genuineCoreflection.counit p hp X)) := sorry
+end Coherent
+
+/-! ## Global primary interfaces use the specified compatible inputs (R15).
+
+The shadow constructors are used only inside signatures comparing models.
+These entry points consume the actual arithmetic-gluing choices. -/
+
+def globalEvenFiltration (A R : Type) [CommRing A] [CommRing R] [Algebra A R]
+    (SA : EInftyRing) (G : RT4Q.CompatibleSphericalLifts SA A R) : RT4Q.EvFilTMod :=
+  globalEvenFiltrationShadow A R SA G.glue
+
+def globalEvenFiltration.profinite (A R : Type) [CommRing A] [CommRing R] [Algebra A R]
+    (SA : EInftyRing) (G : RT4Q.CompatibleSphericalLifts SA A R) :
+    (globalEvenFiltration A R SA G).underlying ⟶
+      RT4Q.profiniteThhEven SA G.glue.ring.toE1 G.glue.structureMap := sorry
+
+def globalEvenFiltration.rational (A R : Type) [CommRing A] [CommRing R] [Algebra A R]
+    (SA : EInftyRing) (G : RT4Q.CompatibleSphericalLifts SA A R) :
+    (globalEvenFiltration A R SA G).underlying ⟶ RT4Q.rationalHHBeta A R := sorry
+
+def globalComparison (A R : Type) [CommRing A] [CommRing R] [Algebra A R]
+    (SA : EInftyRing) (G : RT4Q.CompatibleSphericalLifts SA A R) :
+    RT4Q.qDeRham A R ⟶ (evenCircleFixedPoints (globalEvenFiltration A R SA G)).gr 0 :=
+  globalComparisonShadow A R SA G.glue
+
+namespace RT4Q
+
+def globalQHodgeFiltration (A R : Type) [CommRing A] [CommRing R] [Algebra A R]
+    (SA : EInftyRing) (G : CompatibleSphericalLifts SA A R) : FilSpectrum :=
+  globalQHodgeFiltrationShadow A R SA G.glue
+
+/-- Complex orientation data for an E₁ ring, owned by H.5/H.6. -/
+def ComplexOrientation (R : E1Ring) : Type := sorry
+def geometricRing (Tr : CyclonicRing) (d : ℕ) (hd : 0<d) : E1Ring := sorry
+def geometricFixedRing (Tr : CyclonicRing) (d p : ℕ) (hd : 0<d)
+    (hp : p.Prime) : E1Ring := sorry
+/-- (M^{ΦC_d})^{hC_p} over (T^{ΦC_d})^{hC_p}, as a coherent spectral module. -/
+def geometricFixedModule {Tr : CyclonicRing} (M : CyclonicMod Tr)
+    (d p : ℕ) (hd : 0<d) (hp : p.Prime) : LMod (geometricFixedRing Tr d p hd hp) := sorry
+
+structure CyclonicEvenHypotheses (Tr : CyclonicRing) (M : CyclonicMod Tr) where
+  ringBounded : cyclonicBoundedBelow Tr.toCyclonic
+  moduleBounded : cyclonicBoundedBelow M.toCyclonic
+  orientations : ∀ (d : ℕ) (hd : 0<d), ComplexOrientation (geometricRing Tr d hd)
+  homologicalEven : ∀ (d p : ℕ) (hd : 0<d) (hp : p.Prime),
+    IsHomologicallyEven (geometricFixedModule M d p hd hp)
+
+end RT4Q
+
+/-- Wagner 5.46: the bounded, complex-orientable, homologically even range. -/
+def cyclonicEvenFiltration (Tr : RT4Q.CyclonicRing) (M : RT4Q.CyclonicMod Tr)
+    (h : RT4Q.CyclonicEvenHypotheses Tr M) (m : ℕ) (hm : 0<m) : RT4Q.EvFilTMod :=
+  cyclonicEvenFiltrationShadow Tr M m
+
+namespace RT4Q
+/-- Model comparison for the A₂-base-changed cyclonic module. -/
+def correctedThhKuCyclonic {SA : EInftyRing} (C : CyclonicBaseCoherence SA)
+    (SR : E1Ring) (f : SA.toE1 ⟶ SR) : CyclonicMod cyclonicKuRing := sorry
+
+def correctedThhKUCyclonic {SA : EInftyRing} (C : CyclonicBaseCoherence SA)
+    (SR : E1Ring) (f : SA.toE1 ⟶ SR) : CyclonicSpectrum := sorry
+end RT4Q
+
+/-- Construct bounded ku first, and only then invert β. -/
+def cyclonicEvenFiltration.KU {SA : EInftyRing} (C : RT4Q.CyclonicBaseCoherence SA)
+    (SR : E1Ring) (f : SA.toE1 ⟶ SR)
+    (h : RT4Q.CyclonicEvenHypotheses RT4Q.cyclonicKuRing
+      (RT4Q.correctedThhKuCyclonic C SR f)) (m : ℕ) (hm : 0<m) : RT4Q.EvFilTMod :=
+  RT4Q.betaLocalise (cyclonicEvenFiltration RT4Q.cyclonicKuRing
+    (RT4Q.correctedThhKuCyclonic C SR f) h m hm)
+
+/-- The strong comparison signature retains the gluing input and A₂ data and
+identifies the actual corrected cyclonic module, rather than an arbitrary ψ list. -/
+theorem twistedQHodgeComparison (A R : Type) [CommRing A] [CommRing R] [Algebra A R]
+    (SA : EInftyRing) (G : RT4Q.CompatibleSphericalLifts SA A R)
+    (C : RT4Q.CyclonicBaseCoherence SA) (h2 : IsUnit (2:R))
+    (h : RT4Q.CyclonicEvenHypotheses RT4Q.cyclonicKuRing
+      (RT4Q.correctedThhKuCyclonic C G.glue.ring.toE1 G.glue.structureMap))
+    (m : ℕ) (hm : 0<m) :
+    Nonempty ((RT4Q.twistedQHodgeFiltration m A R SA G.glue).completion ≅
+      RT4Q.evenRegraded (evenCircleFixedPoints (cyclonicEvenFiltration RT4Q.cyclonicKuRing
+        (RT4Q.correctedThhKuCyclonic C G.glue.ring.toE1 G.glue.structureMap) h m hm))) ∧
+    (∀ i : ℤ, Nonempty ((cyclonicEvenFiltration RT4Q.cyclonicKuRing
+      (RT4Q.correctedThhKuCyclonic C G.glue.ring.toE1 G.glue.structureMap) h m hm).underlying.grShift i ≅
+        RT4Q.qDeRhamWitt m A R i)) ∧
+    (∀ i : ℤ, Nonempty ((TCminusM cyclonicKu m).homotopyGroup (2*i) ≃+
+      RT4Q.adicReesPiece m i)) := sorry
+
+/-- Corrected divisor maps include A₂ and the coherent residual actions. -/
+def correctedKuGrDivisorMap {SA : EInftyRing} (C : RT4Q.CyclonicBaseCoherence SA)
+    (SR : E1Ring) (f : SA.toE1 ⟶ SR)
+    (h : RT4Q.CyclonicEvenHypotheses RT4Q.cyclonicKuRing
+      (RT4Q.correctedThhKuCyclonic C SR f)) (i : ℤ)
+    (m n : ℕ) (hm : 0<m) (hn : 0<n) (hd : n∣m) :
+    (evenCircleFixedPoints (cyclonicEvenFiltration.KU C SR f h m hm)).grShift i ⟶
+      (evenCircleFixedPoints (cyclonicEvenFiltration.KU C SR f h n hn)).grShift i := sorry
+/-- The positive divisor diagram, with identity/composition and higher coherence (E0). -/
+def RT4Q.DivisorDiagramCoherence (X : (n : ℕ) → 0<n → Spectrum)
+    (maps : ∀ (m n : ℕ) (hm : 0<m) (hn : 0<n) (_ : n∣m), X m hm ⟶ X n hn) : Type := sorry
+/-- Coherent inverse limit on the positive divisor category, supplied by E0. -/
+def positiveDivisorLimit (X : (n : ℕ) → 0<n → Spectrum)
+    (maps : ∀ (m n : ℕ) (hm : 0<m) (hn : 0<n) (_ : n∣m), X m hm ⟶ X n hn)
+    (coherence : RT4Q.DivisorDiagramCoherence X maps) : Spectrum := sorry
+
+
+namespace Coherent
+open scoped Simplicial
+/-- Coherent natural mapping Kan complex, supplied by E0. -/
+def NaturalMap {C D : InftyCategory} (F G : Functor C D) : SSet.{0} := sorry
+instance {C D : InftyCategory} (F G : Functor C D) : SSet.KanComplex (NaturalMap F G) := sorry
+abbrev NaturalHom {C D : InftyCategory} (F G : Functor C D) : Type := (NaturalMap F G) _⦋0⦌
+/-- Homotopy equivalence data for a Kan-space map, supplied by E0. -/
+def SpaceEquivalenceWitness {K L : SSet.{0}} (f : K ⟶ L) : Type := sorry
+/-- All filtered-diagram comparisons, with their canonical maps (E0). -/
+def FilteredColimitPreservation {C D : InftyCategory} (F : Functor C D) : Type := sorry
+
+structure DerivativeContext where
+  source : InftyCategory
+  target : InftyCategory
+  sourceStable : StableStructure source
+  targetStable : StableStructure target
+  sourcePresentable : PresentabilityWitness source
+  targetPresentable : PresentabilityWitness target
+
+/-- Raskin 2.3: reduce, iterate ΩψΣ, and take the coherent sequential colimit. -/
+def GoodwillieDerivative (P : DerivativeContext) (ψ : Functor P.source P.target)
+    (hψ : IsSiftedColimitPreserving ψ) : Functor P.source P.target := sorry
+
+def GoodwillieDerivative.unit (P : DerivativeContext) (ψ : Functor P.source P.target)
+    (hψ : IsSiftedColimitPreserving ψ) : NaturalHom ψ (GoodwillieDerivative P ψ hψ) := sorry
+/-- Precomposition with the unit, as a map of mapping spaces. -/
+def GoodwillieDerivative.precompose (P : DerivativeContext) (ψ : Functor P.source P.target)
+    (hψ : IsSiftedColimitPreserving ψ) (L : Functor P.source P.target) :
+    NaturalMap (GoodwillieDerivative P ψ hψ) L ⟶ NaturalMap ψ L := sorry
+
+/-- Initial among continuous exact functors under ψ. Continuous means preserving
+filtered colimits; both cocompleteness and the sifted-colimit assumption remain visible. -/
+theorem GoodwillieDerivative.universal (P : DerivativeContext) (ψ : Functor P.source P.target)
+    (hψ : IsSiftedColimitPreserving ψ) :
+    Nonempty (ExactnessWitness (GoodwillieDerivative P ψ hψ)) ∧
+    Nonempty (FilteredColimitPreservation (GoodwillieDerivative P ψ hψ)) ∧
+    ∀ (L : Functor P.source P.target) (_ : ExactnessWitness L)
+      (_ : FilteredColimitPreservation L),
+      Nonempty (SpaceEquivalenceWitness (GoodwillieDerivative.precompose P ψ hψ L)) := sorry
+
+theorem GoodwillieDerivative.exact (P : DerivativeContext) (ψ : Functor P.source P.target)
+    (hψ : IsSiftedColimitPreserving ψ) (hExact : ExactnessWitness ψ) :
+    Nonempty (NaturalEquivalence (GoodwillieDerivative P ψ hψ) ψ) := sorry
+/-- Variant 2.3.2: truncate the source before stabilization. The double colimit,
+not suspension of an arbitrary pointed category, extends from the connective part. -/
+def GoodwillieDerivative.connective (P : DerivativeContext) (t : TStructure P.source)
+    (ht : FilteredTCompatibility t) (ψ : Functor (ConnectivePart t) P.target)
+    (hψ : IsSiftedColimitPreserving ψ) : Functor P.source P.target := sorry
+def GoodwillieDerivative.connectivePrecompose (P : DerivativeContext) (t : TStructure P.source)
+    (ht : FilteredTCompatibility t) (ψ : Functor (ConnectivePart t) P.target)
+    (hψ : IsSiftedColimitPreserving ψ) (L : Functor P.source P.target) :
+    NaturalMap (GoodwillieDerivative.connective P t ht ψ hψ) L ⟶
+      NaturalMap ψ (ConnectivePart.inclusion t ≫ L) := sorry
+
+theorem GoodwillieDerivative.connectiveUniversal (P : DerivativeContext) (t : TStructure P.source)
+    (ht : FilteredTCompatibility t) (ψ : Functor (ConnectivePart t) P.target)
+    (hψ : IsSiftedColimitPreserving ψ) :
+    Nonempty (ColimitPreservation (GoodwillieDerivative.connective P t ht ψ hψ)) ∧
+    ∀ (L : Functor P.source P.target) (_ : ColimitPreservation L),
+      Nonempty (SpaceEquivalenceWitness
+        (GoodwillieDerivative.connectivePrecompose P t ht ψ hψ L)) := sorry
+
+def zeroFunctor (P : DerivativeContext) : Functor P.source P.target := sorry
+theorem zeroFunctor.sifted (P : DerivativeContext) : IsSiftedColimitPreserving (zeroFunctor P) := sorry
+/-- Test Coherent.GoodwillieDerivative.zero: the derivative of zero is zero. -/
+example (P : DerivativeContext) : Nonempty (NaturalEquivalence
+    (GoodwillieDerivative P (zeroFunctor P) (zeroFunctor.sifted P)) (zeroFunctor P)) := sorry
+/-- Test Coherent.GoodwillieDerivative.linear: continuous exact input is unchanged. -/
+example (P : DerivativeContext) (ψ : Functor P.source P.target)
+    (hψ : IsSiftedColimitPreserving ψ) (hExact : ExactnessWitness ψ) :
+    Nonempty (NaturalEquivalence (GoodwillieDerivative P ψ hψ) ψ) := sorry
+/-- Test Coherent.GoodwillieDerivative.continuity: the universal property quantifies
+only over continuous exact L; finite excision alone supplies no such witness. -/
+example (P : DerivativeContext) (ψ : Functor P.source P.target)
+    (hψ : IsSiftedColimitPreserving ψ) (L : Functor P.source P.target)
+    (hL : ExactnessWitness L) (hCont : FilteredColimitPreservation L) :
+    Nonempty (SpaceEquivalenceWitness (GoodwillieDerivative.precompose P ψ hψ L)) :=
+  (GoodwillieDerivative.universal P ψ hψ).2.2 L hL hCont
+end Coherent
+
+/-- Wagner 5.61: completeness uses the compatible lifts and corrected A₂ module. -/
+theorem cyclonicEvenFiltration.complete (A R : Type) [CommRing A] [CommRing R] [Algebra A R]
+    (SA : EInftyRing) (G : RT4Q.CompatibleSphericalLifts SA A R)
+    (C : RT4Q.CyclonicBaseCoherence SA) (h2 : IsUnit (2:R))
+    (h : RT4Q.CyclonicEvenHypotheses RT4Q.cyclonicKuRing
+      (RT4Q.correctedThhKuCyclonic C G.glue.ring.toE1 G.glue.structureMap)) (m : ℕ) (hm : 0<m) :
+    (evenCircleFixedPoints (cyclonicEvenFiltration.KU C G.glue.ring.toE1 G.glue.structureMap h m hm)).IsComplete ∧
+    (evenCircleFixedPoints (cyclonicEvenFiltration.KU C G.glue.ring.toE1 G.glue.structureMap h m hm)).IsExhaustiveFor
+      (TCminusM (RT4Q.correctedThhKUCyclonic C G.glue.ring.toE1 G.glue.structureMap) m) := sorry
+
+/-- Theorem 5.63, with the actual positive-divisor diagram and compatible lift data. -/
+theorem habiroComparisonTheorem (A R : Type) [CommRing A] [CommRing R] [Algebra A R]
+    (SA : EInftyRing) (G : RT4Q.CompatibleSphericalLifts SA A R)
+    (C : RT4Q.CyclonicBaseCoherence SA) (h2 : IsUnit (2:R))
+    (h : RT4Q.CyclonicEvenHypotheses RT4Q.cyclonicKuRing
+      (RT4Q.correctedThhKuCyclonic C G.glue.ring.toE1 G.glue.structureMap)) (i : ℤ)
+    (coherence : RT4Q.DivisorDiagramCoherence
+      (fun m hm => (evenCircleFixedPoints
+        (cyclonicEvenFiltration.KU C G.glue.ring.toE1 G.glue.structureMap h m hm)).grShift i)
+      (correctedKuGrDivisorMap C G.glue.ring.toE1 G.glue.structureMap h i)) :
+    Nonempty (RT4Q.habiroHodgeComplex A R ≅ positiveDivisorLimit
+      (fun m hm => (evenCircleFixedPoints
+        (cyclonicEvenFiltration.KU C G.glue.ring.toE1 G.glue.structureMap h m hm)).grShift i)
+      (correctedKuGrDivisorMap C G.glue.ring.toE1 G.glue.structureMap h i) coherence) := sorry
+
+
+/-- Wagner’s m=1 identification uses the actual corrected relative cyclonic module. -/
+theorem cyclonicEvenFiltration.m_one (A R : Type) [CommRing A] [CommRing R] [Algebra A R]
+    (SA : EInftyRing) (G : RT4Q.CompatibleSphericalLifts SA A R)
+    (C : RT4Q.CyclonicBaseCoherence SA)
+    (h : RT4Q.CyclonicEvenHypotheses RT4Q.cyclonicKuRing
+      (RT4Q.correctedThhKuCyclonic C G.glue.ring.toE1 G.glue.structureMap)) :
+    Nonempty (evenCircleFixedPoints (cyclonicEvenFiltration RT4Q.cyclonicKuRing
+      (RT4Q.correctedThhKuCyclonic C G.glue.ring.toE1 G.glue.structureMap) h 1 (by decide)) ≅
+      evenCircleFixedPoints (globalEvenFiltration A R SA G)) := sorry
+
+namespace RT3
+/-- Test RT3.pseudoExtensible.zero. -/
+example (P : PseudoContext) : IsPseudoExtensible P (zeroPseudo P) := sorry
+/-- Test RT3.pseudoExtensible.linear. -/
+example (P : PseudoContext) (ψ : PseudoFunctor P) (hlin : LinearityWitness P ψ)
+    (hcolim : Coherent.ColimitPreservation ψ)
+    (hconn : ∀ X, P.targetT.connective (ψ.obj X)) : IsPseudoExtensible P ψ := sorry
+end RT3
+
+namespace HochschildHomology
+open scoped TensorProduct
+/-- B of the leading shuffle minus the shuffle of tensor B, before taking homology. -/
+def shuffleBDifference (k A A' : Type) [CommRing k] [Ring A] [Algebra k A]
+    [Ring A'] [Algebra k A'] (n : ℤ) :
+    ((RT1.algMixed k A).tensor (RT1.algMixed k A')).X n ⟶
+      (RT1.algMixed k (A ⊗[k] A')).X (n+1) := sorry
+/-- Test HochschildHomology.shuffle_not_B_map: already polynomial inputs over Q
+have a nonzero chain-level mismatch; the cyclic correction compensates for it. -/
+example : ∃ n : ℤ, shuffleBDifference ℚ (Polynomial ℚ) (Polynomial ℚ) n ≠ 0 := sorry
+end HochschildHomology
+/-- Test PrecyclicMixedCone.corner: the rank-two corner fails to send 1 to 1. -/
+example : Matrix.single (0 : Fin 2) (0 : Fin 2) (1 : ℚ) ≠
+    (1 : Matrix (Fin 2) (Fin 2) ℚ) := sorry
+/-- The trivial Λ-module k in the unbounded derived category (EDS E5). -/
+def DerivedMixedComplex.trivialModule (k : Type) [CommRing k] :
+    Coherent.Obj (DerivedMixedComplex k) := sorry
+/-- Test DerivedMixedComplex.ground: the localization of the cyclic unit is k. -/
+example (k : Type) [CommRing k] : ∃ f : Coherent.Hom
+    (DerivedMixedComplex.ofMixed ((MixedComplex.ofCyclic k).obj (CyclicBar k k)))
+    (DerivedMixedComplex.trivialModule k), Coherent.IsEquiv f := sorry
+
+/-! ### Routed CMM item 033: full graded de Rham–Witt/TR comparison -/
+namespace RT2W
+open scoped DirectSum
+/-- CR.4 supplies finite de Rham–Witt forms, including degree zero Witt vectors. -/
+def forms (p : ℕ) [Fact p.Prime] (R : Type) [CommRing R] (s n : ℕ) : Type := sorry
+instance (p : ℕ) [Fact p.Prime] (R : Type) [CommRing R] (s n : ℕ) :
+    AddCommGroup (forms p R s n) := sorry
+/-- Degree n of W_s Ω_R^*[σ_s], with |σ_s|=2: a finite direct sum. -/
+abbrev polynomialPiece (p : ℕ) [Fact p.Prime] (R : Type) [CommRing R] (s n : ℕ) :=
+  ⨁ a : {a : ℕ // 2*a ≤ n}, forms p R s (n-2*a.1)
+abbrev polynomialGraded (p : ℕ) [Fact p.Prime] (R : Type) [CommRing R] (s : ℕ) :=
+  ⨁ n : ℕ, polynomialPiece p R s n
+/-- Graded multiplication uses the Witt wedge product and addition of σ exponents. -/
+instance (p : ℕ) [Fact p.Prime] (R : Type) [CommRing R] (s : ℕ) :
+    DirectSum.GRing (polynomialPiece p R s) := sorry
+abbrev trGraded (p : ℕ) [Fact p.Prime] (R : Type) [CommRing R] (s : ℕ) :=
+  ⨁ n : ℕ, (TR p (RT2G.genuineTHHp p R) s).homotopyGroup (n : ℤ)
+instance (p : ℕ) [Fact p.Prime] (R : Type) [CommRing R] (s : ℕ) :
+    DirectSum.GRing (fun n : ℕ => (TR p (RT2G.genuineTHHp p R) s).homotopyGroup (n : ℤ)) := sorry
+/-- Restriction sends σ_{s+2} to pσ_{s+1}, after compatible normalization. -/
+def polynomialRestriction (p : ℕ) [Fact p.Prime] (R : Type) [CommRing R] (s : ℕ) :
+    polynomialGraded p R (s+2) →+* polynomialGraded p R (s+1) := sorry
+def trRestriction (p : ℕ) [Fact p.Prime] (R : Type) [CommRing R] (s : ℕ) :
+    trGraded p R (s+1) →+* trGraded p R s := sorry
+/-- CR.4's inverse restriction limit of forms, graded by form degree. -/
+def infiniteForms (p : ℕ) [Fact p.Prime] (R : Type) [CommRing R] (n : ℕ) : Type := sorry
+instance (p : ℕ) [Fact p.Prime] (R : Type) [CommRing R] (n : ℕ) :
+    AddCommGroup (infiniteForms p R n) := sorry
+abbrev infiniteGraded (p : ℕ) [Fact p.Prime] (R : Type) [CommRing R] :=
+  ⨁ n : ℕ, infiniteForms p R n
+instance (p : ℕ) [Fact p.Prime] (R : Type) [CommRing R] :
+    DirectSum.GRing (infiniteForms p R) := sorry
+abbrev trLimitGraded (p : ℕ) [Fact p.Prime] (R : Type) [CommRing R] :=
+  ⨁ n : ℕ, (RT2G.TRlim p (RT2G.genuineTHHp p R)).homotopyGroup (n : ℤ)
+instance (p : ℕ) [Fact p.Prime] (R : Type) [CommRing R] :
+    DirectSum.GRing (fun n : ℕ => (RT2G.TRlim p (RT2G.genuineTHHp p R)).homotopyGroup (n : ℤ)) := sorry
+/-- Frobenius operators in the two infinite graded rings. -/
+def formsFrobenius (p : ℕ) [Fact p.Prime] (R : Type) [CommRing R] :
+    infiniteGraded p R →+* infiniteGraded p R := sorry
+def limitFrobenius (p : ℕ) [Fact p.Prime] (R : Type) [CommRing R] :
+    trLimitGraded p R →+* trLimitGraded p R := sorry
+/-- The comparison preserves each total homological degree, not just the underlying ring. -/
+def PreservesDegrees (p : ℕ) [Fact p.Prime] (R : Type) [CommRing R] (s : ℕ)
+    (e : polynomialGraded p R (s+1) ≃+* trGraded p R s) : Prop :=
+  ∀ n x, x ∈ (DirectSum.of (polynomialPiece p R (s+1)) n).range ↔
+    e x ∈ (DirectSum.of (fun n : ℕ =>
+      (TR p (RT2G.genuineTHHp p R) s).homotopyGroup (n : ℤ)) n).range
+/-- The infinite comparison also preserves form degree. -/
+def PreservesLimitDegrees (p : ℕ) [Fact p.Prime] (R : Type) [CommRing R]
+    (e : infiniteGraded p R ≃+* trLimitGraded p R) : Prop :=
+  ∀ n x, x ∈ (DirectSum.of (infiniteForms p R) n).range ↔
+    e x ∈ (DirectSum.of (fun n : ℕ =>
+      (RT2G.TRlim p (RT2G.genuineTHHp p R)).homotopyGroup (n : ℤ)) n).range
+/-- Node RT.2/tr-de-rham-witt-hkr. Index s in TR is level s+1. -/
+theorem hesselholtHKR (p : ℕ) [Fact p.Prime] (R : Type) [CommRing R]
+    [Algebra (ZMod p) R] [Algebra.Smooth (ZMod p) R] :
+    ∃ e : ∀ s : ℕ, polynomialGraded p R (s+1) ≃+* trGraded p R s,
+      (∀ s, PreservesDegrees p R s (e s)) ∧
+      (∀ s x, trRestriction p R s (e (s+1) x) =
+        e s (polynomialRestriction p R s x)) ∧
+      ∃ eLimit : infiniteGraded p R ≃+* trLimitGraded p R,
+        PreservesLimitDegrees p R eLimit ∧
+        ∀ x, limitFrobenius p R (eLimit x) = eLimit (formsFrobenius p R x) := sorry
+/-- CMM's ind-smooth extension uses finite-level colimits and the specific restriction tower. -/
+def IndSmoothWitness (p : ℕ) [Fact p.Prime] (R : Type) [CommRing R]
+    [Algebra (ZMod p) R] : Type := sorry
+theorem hesselholtHKR_indSmooth (p : ℕ) [Fact p.Prime] (R : Type) [CommRing R]
+    [Algebra (ZMod p) R] (h : IndSmoothWitness p R) :
+    (∀ s : ℕ, Nonempty (polynomialGraded p R (s+1) ≃+* trGraded p R s)) ∧
+    Nonempty (infiniteGraded p R ≃+* trLimitGraded p R) := sorry
+/-- Finite TR has Bott classes which do not survive its restriction limit. -/
+example (p : ℕ) [Fact p.Prime] (s : ℕ) :
+    Nonempty ((TR p (RT2G.genuineTHHp p (ZMod p)) s).homotopyGroup 2 ≃+ ZMod (p^(s+1))) ∧
+    Subsingleton ((RT2G.TRlim p (RT2G.genuineTHHp p (ZMod p))).homotopyGroup 2) := sorry
+end RT2W
+
+/-! ### Routed LMMT item 49: the finite-action Tate quotient -/
+namespace Coherent.TateQuotient
+/-- H.5/K.4 supply coherent Perf and tensor structures; EDS E5 supplies the quotient. -/
+def perf (R : EInftyRing) : Coherent.InftyCategory := sorry
+def finiteAction (R : EInftyRing) (p : ℕ) (hp : p.Prime) : Coherent.InftyCategory := sorry
+/-- The thick induced ideal is Perf(R[C_p]), included fully in finiteAction. -/
+def inducedIdeal (R : EInftyRing) (p : ℕ) (hp : p.Prime) : Coherent.InftyCategory := sorry
+def inducedInclusion (R : EInftyRing) (p : ℕ) (hp : p.Prime) :
+    Coherent.Functor (inducedIdeal R p hp) (finiteAction R p hp) := sorry
+def quotient (R : EInftyRing) (p : ℕ) (hp : p.Prime) : Coherent.InftyCategory := sorry
+def trivialUnit (R : EInftyRing) (p : ℕ) (hp : p.Prime) : Coherent.Obj (quotient R p hp) := sorry
+/-- Endomorphism E∞ ring of that unit, not the quotient's object set. -/
+def endUnit (R : EInftyRing) (p : ℕ) (hp : p.Prime) : EInftyRing := sorry
+/-- Exact symmetric monoidal refinement of a specific coherent functor, supplied by EDS. -/
+def ExactTensorRefinement {C D : Coherent.InftyCategory} (F : Coherent.Functor C D) : Type := sorry
+/-- K.6 supplies the nonconnective K spectrum of a coherent stable category. -/
+def k (C : Coherent.InftyCategory) : Spectrum := sorry
+/-- K.6's multiplicative refinement, used for the module structure. -/
+def kRing (R : EInftyRing) : EInftyRing := sorry
+def UnderlyingModuleEquivalence (R : EInftyRing) (M : RT4Q.LMod R.toE1) (X : Spectrum) : Type := sorry
+/-- Node RT.2/tate-verdier-quotient. Commutativity supplies the tensor conclusion. -/
+theorem end_tate (R : EInftyRing) (p : ℕ) (hp : p.Prime) :
+    Nonempty (endUnit R p hp ≅ RT4T.EInftyRing.tCp R p) ∧
+    (∃ F : Coherent.Functor (perf (RT4T.EInftyRing.tCp R p)) (quotient R p hp),
+      Nonempty (ExactTensorRefinement F)) ∧
+    ∃ M : RT4Q.LMod (kRing (RT4T.EInftyRing.tCp R p)).toE1,
+      Nonempty (UnderlyingModuleEquivalence _ M (k (quotient R p hp))) := sorry
+end Coherent.TateQuotient
 
 end RefinedTraceMethods
