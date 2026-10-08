@@ -34860,8 +34860,8 @@
    ],
    "followUpOf": "BP-ClassicalAdicEtaleCohomology--H0",
    "prompt": "research/blueprint/prompts/BP-ClassicalAdicEtaleCohomology--H1-valuation-exports.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6929"
+   "state": "pending",
+   "note": "released on GitHub issue #6929"
   },
   {
    "id": "REV-ClassicalAdicEtaleCohomology--H1-valuation-exports",
@@ -37512,8 +37512,9 @@
     "BP-AInfCohomology--AI.6~2"
    ],
    "prompt": "research/blueprint/prompts/REV-AInfCohomology--AI.6~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6984"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6984",
+   "finishedAt": "2026-10-08T12:52:28Z"
   },
   {
    "kind": "blueprint",
@@ -38293,7 +38294,8 @@
     "BP-CrystallineCohomology--CR.5~2"
    ],
    "prompt": "research/blueprint/prompts/REV-CrystallineCohomology--CR.5~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7039"
   },
   {
    "kind": "blueprint",
@@ -72179,8 +72181,8 @@
     "FIX-RT-AREA-langlands-2~3"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-langlands-2~3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5871"
+   "state": "pending",
+   "note": "released on GitHub issue #5871"
   },
   {
    "id": "FIX-RT-AREA-langlands-2~4",
