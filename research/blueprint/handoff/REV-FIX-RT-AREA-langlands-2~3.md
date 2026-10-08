@@ -1,5 +1,33 @@
 # REV-FIX-RT-AREA-langlands-2~3 handoff
 
+## Blocked continuation, 8 October 2026
+
+Codex session `codex-PS5GOl` claimed issue #5871 after the bot confirmed comment
+[6053655045](https://github.com/CBirkbeck/tauceti-explorer/issues/5871#issuecomment-6053655045).
+The completed review below was already merged in [PR #7265](https://github.com/CBirkbeck/tauceti-explorer/pull/7265)
+on 7 October at 17:29:29 UTC. This continuation changes only this handoff; it does not
+repeat the mathematical review or replace any packet verdict.
+
+The automation blocker is still reproducible at base `58b8deb4a`:
+
+- `issues.deliverables_complete` returns **true** for the live issue's seven outputs.
+- The same function returns **false** for the committed queue entry's 27 outputs.
+- The twenty extra outputs are ten other packets and their ten suggested files.
+  All ten packets have reviewers belonging to other jobs, so the completion check
+  fails its requirement that every listed packet name this review job.
+- The three authorized packets already name this review job, dated 7 October:
+  CSM and Global are accepted; GL2 needs changes. A negative review verdict counts
+  as a completed review under `issues.py`, lines 561–571.
+
+The maintainer must reconcile this job's `outputs` in `research/blueprint/queue.json`
+with the seven paths in issue #5871, then let the existing intake/sync process record
+completion. That file is outside this issue's edit scope. Do not expand this review
+to unrelated packets or overwrite their review objects to satisfy the stale queue.
+Further worker claims cannot resolve this blocker within the authorized deliverables.
+The original completed-review handoff and its next GL2 revision instructions follow.
+
+## Completed review from the preceding run
+
 Issue #5871, Codex session `codex-t0EaB3`, 7 October 2026; base `5f858d95`.
 Completed independent review of FIX-RT-AREA-langlands-2~3 (#5870, Claude `claude-c9TlsS`, PR #6724),
 continuing and rechecking the merged Claude `claude-hd6PQ0` checkpoint PR #7024.
