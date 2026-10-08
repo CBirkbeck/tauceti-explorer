@@ -41106,8 +41106,9 @@
    ],
    "revisionOf": "BP-ShimuraVarieties--V8",
    "prompt": "research/blueprint/prompts/BP-ShimuraVarieties--V8~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7011"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7011",
+   "finishedAt": "2026-10-08T11:40:02Z"
   },
   {
    "priority": 2,
@@ -42412,7 +42413,8 @@
     "BP-ArithmeticKTheory--N.6~2"
    ],
    "prompt": "research/blueprint/prompts/REV-ArithmeticKTheory--N.6~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6988"
   },
   {
    "kind": "blueprint",
