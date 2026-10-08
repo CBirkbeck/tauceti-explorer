@@ -38828,7 +38828,8 @@
    ],
    "revisionOf": "BP-GL2ModularityLifting--R32.3",
    "prompt": "research/blueprint/prompts/BP-GL2ModularityLifting--R32.3~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6963"
   },
   {
    "priority": 2,
@@ -40873,8 +40874,9 @@
     "BP-RelativeFarguesFontaine--RF4~2"
    ],
    "prompt": "research/blueprint/prompts/REV-RelativeFarguesFontaine--RF4~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7088"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7088",
+   "finishedAt": "2026-10-08T13:52:08Z"
   },
   {
    "kind": "blueprint",
