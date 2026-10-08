@@ -176,7 +176,7 @@ Let E be a CM FIELD and Φ a CM type. Let L/Q be a finite Galois CM closure cont
 
 **Direct dependencies:** [CM types of finite étale CM algebras](#cm-type); [Induced and primitive CM types](#induced-and-primitive-type); [Trace description of the CM reflex field](#trace-reflex-field); [CMType.reflexField_stabilizer](#trace-reflex-field-api-reflexField-stabilizer).
 
-**Sources:** [MilneCM](https://www.jmilne.org/math/CourseNotes/CM.pdf), Examples 1.19 and 1.28, pp.14,19. Reflex embeddings arise by inverting the extended type, with double reflex giving the primitive core.
+**Sources:** [MilneCM](https://www.jmilne.org/math/CourseNotes/CM.pdf), Examples 1.19 and 1.28, pp.14,18. Reflex embeddings arise by inverting the extended type, with double reflex giving the primitive core.
 
 **Planning API.**
 
@@ -284,7 +284,7 @@ For E=Q(i), O=Z+3Zi has conductor 3OE, discriminant −36, units {±1}, and |Pic
 
 **Direct dependencies:** tauceti:TauCetiRoadmap/GlobalNumberFields#layer-11-orders-and-picard-groups; [CM types of finite étale CM algebras](#cm-type); mathlib:ClassGroup; mathlib:ClassGroup.mk; mathlib:CommRing.Pic; mathlib:ClassGroup.equivPic.
 
-**Sources:** [MIT16](https://math.mit.edu/classes/18.783/2023/LectureNotes16.pdf), §16.3, Definition 16.9 and Theorem 16.12, pp.6–7. Use proper invertible ideals of the specified order, not all ideals of its maximal order.; [MilneCM](https://www.jmilne.org/math/CourseNotes/CM.pdf), §9 p.78, footnote 25. Integral Tate lattices over orders require the index-prime restriction.
+**Sources:** [MIT16](https://math.mit.edu/classes/18.783/2023/LectureNotes16.pdf), §16.4, Definition 16.9 and Theorem 16.12, pp.6–7. Use proper invertible ideals of the specified order, not all ideals of its maximal order.; [MilneCM](https://www.jmilne.org/math/CourseNotes/CM.pdf), §9 p.78, footnote 25. Integral Tate lattices over orders require the index-prime restriction.
 
 **Acceptance.** Reject a maximal-order class-group replacement: it gives cardinal one and extra units. Reject a rule declaring every nonzero ideal of O invertible.
 
@@ -440,7 +440,7 @@ For a negative discriminant D≡0 or 1 mod 4, primitive positive definite integr
 
 **Direct dependencies:** [Elliptic CM Picard classification](#picard-classification); tauceti:TauCetiRoadmap/GlobalNumberFields#layer-11-orders-and-picard-groups; ModularCurvesPartII:R12.1; mathlib:ClassGroup; mathlib:ClassGroup.mk; mathlib:CommRing.Pic; mathlib:ClassGroup.equivPic; GeometryOfNumbersAndQuadraticArithmetic:GN.3.
 
-**Sources:** [MIT16](https://math.mit.edu/classes/18.783/2023/LectureNotes16.pdf), §16.3, Definition 16.9 and Theorem 16.12, pp.6–7. The ideal/lattice dictionary yields the quadratic-form version used by Heegner-point consumers.; [CRT](https://arxiv.org/pdf/0903.2785v4), §5.2, polycyclic/reduced-form enumeration. Finite class enumeration uses reduced forms of the order discriminant.
+**Sources:** [MIT16](https://math.mit.edu/classes/18.783/2023/LectureNotes16.pdf), §16.4, Definition 16.9 and Theorem 16.12, pp.6–7. The ideal/lattice dictionary yields the quadratic-form version used by Heegner-point consumers.; [CRT](https://arxiv.org/pdf/0903.2785v4), §5.2, polycyclic/reduced-form enumeration. Finite class enumeration uses reduced forms of the order discriminant.
 
 **Acceptance.** For D=−36 the reduced classes [1,0,9] and [2,2,5] give the two proper classes. An imprimitive form describes a different order and must not enter H_D.
 
@@ -751,7 +751,7 @@ Let A/C have CM type (E,Φ), σ∈Aut(C/E*) and t∈A_{E*,f}× with arithmetic A
 
 **Declaration:** TauCeti.CM.polarizationReciprocityDictionary. **Kind:** comparison.
 
-With normalized σ,t,f=NΦ(t)⁻¹ as above, an E-linear comparison quasi-isogeny α has finite-adelic realization satisfying α(fx)=σx. Its pairing multiplier is (σEξ)(αx,αy)=[χ_cyc(σ)/(f f̄)]Eξ(x,y), with the compatible rational representative provided by V5. The natural Galois map x↦σx=α(fx) instead has multiplier χ_cyc(σ). The conjugate CM lattice/polarization has type (E,Φ; fI, ξ·χ_cyc(σ)/(f f̄)), interpreted on finite-adelic lattices and their rational comparison. Ideals change the lattice by NΦ(a)⁻¹ with the corresponding positive rational norm factor. Keep ordinary isomorphisms, polarized similitudes and finite-level equivalences distinct.
+With normalized σ,t,f=NΦ(t)⁻¹ as above, an E-linear comparison quasi-isogeny α has finite-adelic realization satisfying α(fx)=σx. Its pairing multiplier is (σEξ)(αx,αy)=[χ_cyc(σ)/(f f̄)]Eξ(x,y), with the compatible rational representative provided by V5. The natural Galois map x↦σx=α(fx) instead has multiplier χ_cyc(σ). The conjugate CM lattice/polarization has type (E,Φ; fI, ξ·χ_cyc(σ)/(f f̄)), interpreted on integral Zhat-lattices inside the finite-adelic Tate modules and their rational comparison. Ideals change the lattice by NΦ(a)⁻¹ with the corresponding positive rational norm factor. Keep ordinary isomorphisms, polarized similitudes and finite-level equivalences distinct.
 
 **Construction or proof.**
 
@@ -761,7 +761,7 @@ With normalized σ,t,f=NΦ(t)⁻¹ as above, an E-linear comparison quasi-isogen
 
 **Direct dependencies:** [Normalized idele and torsion dictionary](#normalized-idele-torsion-dictionary); [Polarized CM lattice data](#polarized-cm-lattice-data); ShimuraVarieties:V5; AbelianSchemesAndArithmeticModuli:A5; AbelianSchemesAndArithmeticModuli:A4.
 
-**Sources:** [MilneCM](https://www.jmilne.org/math/CourseNotes/CM.pdf), Remark 9.11(c) and Theorem 9.17, pp.79–81. The uniformization theorem changes both the lattice and its polarization parameter.
+**Sources:** [MilneCM](https://www.jmilne.org/math/CourseNotes/CM.pdf), Remark 9.11(c), p.78, and Theorem 9.17, pp.80–81. The uniformization theorem changes both the lattice and its polarization parameter.
 
 **Acceptance.** A formula changing I but keeping ξ without the norm/cyclotomic factor fails already for multiplication by an integer on a polarized surface.
 
@@ -867,7 +867,7 @@ For the fixed principally polarized primitive CM-action triple with maximal orde
 
 **Declaration:** TauCeti.CM.dimensionTwoCMExample. **Kind:** application.
 
-Let E₀:y²=x³−x over Q(i), with i acting by (x,y)↦(−x,iy), and A=E₀×E₀ with product principal polarization and CM algebra Q(i)×Q(i), type selecting the standard embedding on each factor. At P=(5,i−3), E₀ has arithmetic Frobenius π=−1+2i, so on prime-to-5 Tate modules A has diagonal CM action (π,π); on 3-torsion the same action is multiplication by π mod 3. The Weil pairing multiplier is 5 mod 3=2, and the Frobenius characteristic polynomial is (X²+2X+5)². The ideal isogeny on the product has degree 25. Separately, the non-Galois quartic example in CM.0 has reflex real subfield Q(√7), demonstrating that higher-dimensional reflex fields need not equal the original CM field.
+Let E₀:y²=x³−x over Q(i), with i acting by (x,y)↦(−x,iy), and A=E₀×E₀ with product principal polarization and CM algebra Q(i)×Q(i), type selecting the standard embedding on each factor. At P=(5,i−3), E₀ has arithmetic Frobenius π=−1+2i, so on prime-to-5 Tate modules A has diagonal CM action (π,π); on 3-torsion, (Z/3)^4, the same action is multiplication by π mod 3, represented in the (1,i) basis on each factor by [[2,1],[2,2]]. The Weil pairing multiplier is 5 mod 3=2, and the Frobenius characteristic polynomial is (X²+2X+5)². The ideal isogeny on the product has degree 25. Separately, the non-Galois quartic example in CM.0 has reflex real subfield Q(√7), demonstrating that higher-dimensional reflex fields need not equal the original CM field.
 
 **Construction or proof.**
 
@@ -1933,13 +1933,13 @@ Owners tauceti:TauCetiRoadmap/ModularForms, tauceti:TauCetiRoadmap/ModularCurves
 
 ## Source corrections and version limits
 
-The corrected statements above use these source findings. The descriptions are paraphrases; source passages are not reproduced.
+The corrected statements above use these source findings. All four were independently confirmed by REV-ComplexMultiplicationAndExplicitReciprocity~2 on 8 October 2026 at the versions and locators below. The descriptions are paraphrases; source passages are not reproduced.
 
 **E1 — Tsimerman, Published §5 p.386, norm in definition of H.** The source labels the absolute ideal norm as coming from K while its input is an ideal of K*. I is an ideal of K*, so use its positive rational absolute ideal norm N_{K*/Q}(I). Distinguish this rational number from the ideal N(I)O_K in the reflex-norm identity.
 
 Reason: The input I belongs to Cl(K*), not the ideal group of K. The corrected norm gives NΦ(I) overline(NΦ(I))=N_{K*/Q}(I) O_K, and the unit obstruction is a a-bar divided by this positive rational norm.
 
-Correction status: new; an independent blueprint review must confirm this published misprint. Finding scope: nothing.
+Correction status: new within the original bounded audit; independently confirmed by REV-ComplexMultiplicationAndExplicitReciprocity~2. Finding scope: nothing.
 
 **E2 — Tsimerman, Published Lemma 4.1 proof, p.384.** The source claims rigidity for A when a basis of A[3] is specified. Use a polarization-preserving full-level moduli problem. An unpolarized abelian variety with full level 3 need not have trivial automorphisms. For forgetting polarization, supply a separate bounded field-of-definition argument; CM.2 does not infer the absolute unmarked degree equality.
 
@@ -1951,7 +1951,7 @@ Correction status: Previously recorded as PAPER-TSIMERMAN-18/E10 in the existing
 
 Reason: For D=-23 the exact polynomial is X^3+3491750X^2-5151296875X+12771880859375. The prime 5 is inert in K=Q(sqrt(-23)); the K-ideal (5) is principal and splits completely in the Hilbert class field over K. Its primes therefore have norm q=25, coprime to D. Nevertheless H_{-23} mod 5 is X^3, with repeated roots. Coefficients were cross-checked against the Sage primary reference example https://doc.sagemath.org/html/en/reference/arithmetic_curves/sage/schemes/elliptic_curves/cm.html (hilbert_class_polynomial(-23)); the residue computation is exact.
 
-Correction status: new; the Fall 2025 OCW lecture repeats the missing hypothesis, rather than correcting it. Finding scope: a stated result.
+Correction status: independently confirmed in the Fall 2023 version by REV-ComplexMultiplicationAndExplicitReciprocity~2. The earlier bounded version search also recorded the same omission in the Fall 2025 OCW lecture; this review does not claim a fresh collation of that later text. Finding scope: a stated result.
 
 **E4 — Endo, arXiv:0902.4670v2, 17 March 2009, §3.2 p.7, Certify steps 1–4; compare §3.1 p.6 and §2.4 Corollary 4 pp.5–6.** The source ranges over every prime p dividing v/u. Either explicitly restrict the displayed prime-only Certify routine to the squarefree residual conductor used in the simplified Algorithm 1, or replace it by the prime-power separation of Corollary 4 and independently certify conductor valuations at 2 and 3. The packet uses the latter; this finding concerns the unqualified certificate-construction scope of the read preprint, not the published JNT version.
 
@@ -2071,7 +2071,7 @@ Passages read: Introduction pp.1–3, canonical characters and existence distinc
 
 **MIT16.** Andrew V. Sutherland, [18.783 Elliptic Curves, Lecture 16](https://math.mit.edu/classes/18.783/2023/LectureNotes16.pdf). Fall 2023 lecture notes. Read 2026-10-08.
 
-Passages read: Introduction p.1; Theorem 16.4 pp.4–5; §16.3, Definition 16.9 and Theorem 16.12 pp.6–7.
+Passages read: Introduction p.1; Theorem 16.4 pp.4–5; §16.4, Definition 16.9 and Theorem 16.12 pp.6–7.
 
 **MIT20.** Andrew V. Sutherland, [18.783 Elliptic Curves, Lecture 20](https://math.mit.edu/classes/18.783/2023/LectureNotes20.pdf). Fall 2023 lecture notes. Read 2026-10-08.
 
@@ -2087,4 +2087,4 @@ Passages read: §22.1 pp.1–3 (CM horizontal/ascending/descending isogenies).
 
 ## Suggested signatures
 
-The companion suggested file uses the pinned native field, order, scheme, morphism, module, representation, polynomial and interval carriers. Missing supplier identifications are stated next to each signature, including the actual End selectors, local modular-function rings, normalized realization and complete CN3/CN4 algorithms. The named conclusions retain the full target; some displayed native binders alone do not imply them until those identifications are supplied. Elaboration verifies syntax and types. It does not establish these conditions or implement any target.
+The companion suggested file uses the pinned native field, order, scheme, morphism, module, representation, polynomial and interval carriers. Its reciprocity lattice is an integral Zhat-submodule of the finite-adelic Tate module. The product surface uses four 3-torsion coordinates. Integer-polynomial descent, root reciprocity, ring-class degree and splitting, marked-orbit bijection, general level stabilizers and the finite-family generation criterion are explicit native conclusions. The ray-field equality for a maximal quadratic order is a separate specialization; the CM height signature includes the exact analytic root bound and coefficient ceiling. Missing supplier identifications are stated next to each signature, including the actual End selectors, local modular-function rings, normalized realization and complete CN3/CN4 algorithms. The named conclusions retain the full target; some displayed native binders alone do not imply them until those identifications are supplied. Elaboration verifies syntax and types. It does not establish these conditions or implement any target.

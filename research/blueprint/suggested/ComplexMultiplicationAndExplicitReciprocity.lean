@@ -904,15 +904,17 @@ theorem ideleTorsionDictionary
     (f : Afˣ) (sigmaTorsion : V → Vsigma) :
     ∃ alpha : V ≃ₗ[Af] Vsigma, ∀ x, alpha ((f : Af) • x) = sigmaTorsion x := by sorry
 /-- V5 supplies sigmaTorsion, the comparison, the extended Weil pairings,
-the transported lattice and cyclotomic unit. c is CM conjugation on Af.
+the transported integral lattice and cyclotomic unit. c is CM conjugation on Af.
+Rhat is Zhat, embedded in Af; an Af-submodule would lose the integral lattice.
 Their geometric and rational-representative identifications are omitted.
 Both multipliers and the changed lattice/polarization are conclusions. -/
 theorem polarizationReciprocityDictionary
-    {Af V Vsigma : Type*} [CommRing Af] [Algebra ℚ Af]
-    [AddCommGroup V] [Module Af V] [AddCommGroup Vsigma] [Module Af Vsigma]
+    {Rhat Af V Vsigma : Type*} [CommRing Rhat] [CommRing Af] [Algebra ℚ Af]
+    [Algebra Rhat Af] [AddCommGroup V] [Module Af V] [Module Rhat V]
+    [IsScalarTower Rhat Af V] [AddCommGroup Vsigma] [Module Af Vsigma]
     (c : Af ≃ₐ[ℚ] Af) (f cyclotomic xi : Afˣ)
     (pair : V → V → Af) (sigmaPair : Vsigma → Vsigma → Af)
-    (sigmaTorsion : V → Vsigma) (I sigmaI : Submodule Af V)
+    (sigmaTorsion : V → Vsigma) (I sigmaI : Submodule Rhat V)
     (sigmaXi : Af) :
     ∃ alpha : V ≃ₗ[Af] Vsigma,
       (∀ x, alpha ((f : Af) • x) = sigmaTorsion x) ∧
@@ -920,7 +922,7 @@ theorem polarizationReciprocityDictionary
         (cyclotomic : Af) * ((f⁻¹ : Afˣ) : Af) * c ((f⁻¹ : Afˣ) : Af) * pair x y) ∧
       (∀ x y, sigmaPair (sigmaTorsion x) (sigmaTorsion y) =
         (cyclotomic : Af) * pair x y) ∧
-      sigmaI = I.map (LinearMap.lsmul Af V (f : Af)) ∧
+      sigmaI = I.map ((LinearMap.lsmul Af V (f : Af)).restrictScalars Rhat) ∧
       sigmaXi = (xi : Af) * (cyclotomic : Af) *
         ((f⁻¹ : Afˣ) : Af) * c ((f⁻¹ : Afˣ) : Af) := by sorry
 /-- SC1/V8 supply the actual Siegel periods, symplectic row-basis comparison,
@@ -999,14 +1001,19 @@ theorem reflexClassMap_unitObstruction
     (∀ x : U ⧸ norms, x ^ 2 = 1) ∧ Nat.card (U ⧸ norms) ≤ 2 ^ g := by sorry
 /-- GAP CM2-moduli: the polarized-level stabilizer acts on its marked orbit
 by the actual Artin reciprocity action. CFT12 gives its quotient. The native
-quotient-action orbit identity is a fragment, not an absolute field-of-moduli
-degree assertion; it never identifies Q(A) with a marked polarized field. -/
+quotient-action orbit identity uses Orbit as the actual marked orbit and
+orbitMap as its canonical Artin orbit map. These supplier identifications
+are omitted. The conclusion concerns the relative field and marked orbit. -/
 theorem relativeCMModuliOrbit {K : Type*} [Field K] [Algebra K ℂ]
     (S : Set ℂ) {G : Type*} [CommGroup G] (H : Subgroup G)
     [FiniteDimensional K (IntermediateField.adjoin K S)]
     [IsGalois K (IntermediateField.adjoin K S)]
-    (Artin : G →* (IntermediateField.adjoin K S ≃ₐ[K] IntermediateField.adjoin K S))
-    (hsurjective : Function.Surjective Artin) (hkernel : Artin.ker = H) :
+    {Orbit : Type*} [MulAction G Orbit] (point : Orbit)
+    (orbitMap : G ⧸ H → Orbit)
+    (Artin : G →* (IntermediateField.adjoin K S ≃ₐ[K] IntermediateField.adjoin K S)) :
+    Function.Surjective Artin ∧ Artin.ker = H ∧
+    Function.Bijective orbitMap ∧
+    (∀ g, orbitMap (QuotientGroup.mk' H g) = g • point) ∧
     Module.finrank K (IntermediateField.adjoin K S) = Nat.card (G ⧸ H) := by sorry
 /-- A0/A2/A6/EC5 supply the actual product A=E0×E0, its product
 polarization, full End, Tate/torsion representations and ideal-isogeny degree.
@@ -1017,12 +1024,13 @@ theorem dimensionTwoCMExample
     {End V : Type*} [Ring End] [AddCommGroup V] [Module ℂ V]
     (rhoFrob : V →ₗ[ℂ] V) (characteristicPolynomial : (V →ₗ[ℂ] V) → ℤ[X])
     (idealIsogeny : A ⟶ A) (degree : (A ⟶ A) → ℕ)
-    (torsionFrob : (Fin 2 → ZMod 3) → (Fin 2 → ZMod 3))
-    (piMod : ZMod 3) (weilMultiplier : ZMod 3) :
+    (torsionFrob : (Fin 2 → Fin 2 → ZMod 3) → (Fin 2 → Fin 2 → ZMod 3))
+    (weilMultiplier : ZMod 3) :
     Nonempty (End ≃+* Matrix (Fin 2) (Fin 2) CMType.gaussianField) ∧
     characteristicPolynomial rhoFrob = (X ^ 2 + C 2 * X + C 5) ^ 2 ∧
     degree idealIsogeny = 25 ∧ weilMultiplier = 2 ∧
-    (∀ x, torsionFrob x = piMod • x) := by sorry
+    (∀ x k, torsionFrob x k 0 = -x k 0 - 2 * x k 1 ∧
+      torsionFrob x k 1 = 2 * x k 0 - x k 1) := by sorry
 
 /-! CM.3. Actual polynomial and intermediate-field carriers. GN11 supplies
 finite Pic(O), A5 supplies the well-defined normalized j function on classes.
@@ -1038,8 +1046,10 @@ lemma degree (classJ : ClassGroup R → ℂ) :
     (classPolynomial classJ).natDegree = Fintype.card (ClassGroup R) := by sorry
 /-- With the full CM classification supplying classJ, these are exactly the
 curves with full endomorphism order R. Injectivity controls multiplicity one. -/
-lemma roots (classJ : ClassGroup R → ℂ) (z : ℂ) :
-    (classPolynomial classJ).IsRoot z ↔ ∃ c, classJ c = z := by sorry
+lemma roots (classJ : ClassGroup R → ℂ) (hinjective : Function.Injective classJ)
+    (z : ℂ) :
+    ((classPolynomial classJ).IsRoot z ↔ ∃ c, classJ c = z) ∧
+    (classPolynomial classJ).Separable := by sorry
 lemma representatives (classJ classJ' : ClassGroup R → ℂ)
     (h : ∀ c, classJ c = classJ' c) : classPolynomial classJ = classPolynomial classJ' := by sorry
 /-- Test TauCeti.CM.classPolynomial.test_minus4: once GN11/A5 identifies the
@@ -1057,25 +1067,40 @@ end classPolynomial
 
 /-- GAP CM3-integrality: classJ is the normalized j of actual proper ideal
 lattices, supplied by A5/GN11, not an arbitrary function. The full input law is
-omitted here; the output asserts integrality over Z without pretending a
-complex polynomial already has integer coefficients. -/
-theorem classPolynomial.integral (classJ : ClassGroup R → ℂ) (k : ℕ) :
-    IsIntegral ℤ ((classPolynomial classJ).coeff k) := by sorry
+omitted here. Integer coefficient descent is an output, as are integrality
+of every singular value, separability and the order-specific class number. -/
+theorem classPolynomial.integral (classJ : ClassGroup R → ℂ) :
+    (∀ c, IsIntegral ℤ (classJ c)) ∧
+    ∃ P : ℤ[X], P.map (Int.castRingHom ℂ) = classPolynomial classJ ∧
+      P.Monic ∧ (classPolynomial classJ).Separable ∧
+      P.natDegree = Fintype.card (ClassGroup R) := by sorry
 /-- GAP CM3-reciprocity: the actual Artin element is supplied by CFT13/V5 and
-acts by a^-1 on ideal classes. Its effect on the finite product is recorded here. -/
+acts by a^-1 on ideal classes. classJ uses the identity class as its origin;
+Artin supplies extensions to C of the ring-class automorphisms, whose
+identification is omitted. All root-action conclusions remain explicit. -/
 theorem classPolynomial.galois (classJ : ClassGroup R → ℂ)
-    (σ : ℂ ≃ₐ[ℚ] ℂ) (a : ClassGroup R)
-    (h : ∀ c, σ (classJ c) = classJ (a⁻¹ * c)) :
-    (classPolynomial classJ).map σ.toAlgHom.toRingHom = classPolynomial classJ := by sorry
+    (Artin : ClassGroup R → (ℂ ≃ₐ[ℚ] ℂ)) :
+    (∀ a c, Artin a (classJ c) = classJ (a⁻¹ * c)) ∧
+    (∀ c, star (classJ c) = classJ (c⁻¹)) ∧
+    (∀ a c, Artin a (classJ c) = classJ c ↔ a = 1) ∧
+    (∀ a, (classPolynomial classJ).map (Artin a).toAlgHom.toRingHom =
+      classPolynomial classJ) := by sorry
 end ClassPolynomials
 
 /-- GAP CM3-CFT13: with K quadratic embedded in C, classJ the exact CM j,
 and H the corresponding ring class field, CFT13 supplies the field comparison.
 The primitive-generator equality is on native subfields; H is the actual
-CFT13 ring class field, and the CM/A5 identification of jValue is omitted. -/
+CFT13 ring class field. classJ, P and H have their actual order/class-polynomial
+identifications as omitted supplier conditions; the field, degree and
+splitting/irreducibility conclusions are retained. -/
 theorem classPolynomial.ringClassField (K : Type*) [Field K] [Algebra K ℂ]
-    (jValue : ℂ) (H : IntermediateField K ℂ) :
-    IntermediateField.adjoin K {jValue} = H := by sorry
+    {R : Type*} [CommRing R] [IsDomain R] [Fintype (ClassGroup R)]
+    (classJ : ClassGroup R → ℂ) (c : ClassGroup R) (P : K[X])
+    (H : IntermediateField K ℂ) [FiniteDimensional K H] :
+    IntermediateField.adjoin K {classJ c} = H ∧
+    IntermediateField.adjoin K (Set.range classJ) = H ∧
+    Module.finrank K H = Fintype.card (ClassGroup R) ∧
+    Irreducible P ∧ (P.map (algebraMap K H)).Splits := by sorry
 
 section CMValues
 variable {K FN Point : Type*} [Field K] [Algebra K ℂ] [Field FN]
@@ -1132,29 +1157,58 @@ example (ray3 : IntermediateField CMType.gaussianField ℂ)
 end cmValueField
 end CMValues
 
-/-- For maximal quadratic CM, CFT13/V8 identify rayField with the actual
-modulus-N ray class field and evaluation with all regular level-N functions.
-The field/type/modulus identifications are omitted supplier conditions.
-For general types use the polarized-level stabilizer, not this ray equality. -/
+/-- GAP CFT12/V8: G is the prime-to-NF reflex ideal group, H the actual
+polarized-level stabilizer, rayField the modulus-NF ray field, and Artin the
+restriction to M_N of action. Their arithmetic/moduli identifications are
+omitted. The general conclusion retains containment, the exact Artin quotient
+and the finite-family generation criterion. -/
 theorem cmValueField.rayClassField {K FN Point : Type*}
+    [Field K] [Algebra K ℂ] [Field FN]
+    (tau : Point) (regular : Point → Subring FN)
+    (evaluation : ∀ tau, regular tau →+* ℂ) (rayField : IntermediateField K ℂ)
+    {G : Type*} [CommGroup G] (H : Subgroup G)
+    (action : G →* (ℂ ≃ₐ[K] ℂ))
+    (Artin : G →* (cmValueField (K := K) tau regular evaluation ≃ₐ[K]
+      cmValueField (K := K) tau regular evaluation)) (family : Finset (regular tau)) :
+    cmValueField (K := K) tau regular evaluation ≤ rayField ∧
+    Function.Surjective Artin ∧ Artin.ker = H ∧
+    Nonempty ((G ⧸ H) ≃* (cmValueField (K := K) tau regular evaluation ≃ₐ[K]
+      cmValueField (K := K) tau regular evaluation)) ∧
+    (IntermediateField.adjoin K (evaluation tau '' (family : Set (regular tau))) =
+      cmValueField (K := K) tau regular evaluation ↔
+        ∀ g, (∀ f ∈ family, action g (evaluation tau f) = evaluation tau f) ↔ g ∈ H) := by sorry
+/-- Maximal quadratic specialization: CFT13 identifies rayField as the
+modulus-N ray field, and the type norm and polarized norm condition simplify
+H(N) to the ray principal subgroup. These identifications are omitted. -/
+theorem cmValueField.rayClassField_quadratic {K FN Point : Type*}
     [Field K] [Algebra K ℂ] [Field FN]
     (tau : Point) (regular : Point → Subring FN)
     (evaluation : ∀ tau, regular tau →+* ℂ) (rayField : IntermediateField K ℂ) :
     cmValueField tau regular evaluation = rayField := by sorry
 /-- Complete Gaussian example uses the lattice-to-curve constructor, actual
 proper classes, all level-3 values and the actual modulus-3 extension.
-GN11/A5/MO/CFT13 supply their identifications, omitted here. -/
+GN11/A5/MO/CFT13 supply their identifications, omitted here. primeFiveMap
+is the ideal isogeny of (2+i) on the constructed Gaussian curve; its degree
+function and Artin root action are the actual EC1/CFT13 data. -/
 theorem gaussianRingClassExample {FN Point : Type*} [Field FN]
     [Fintype (ClassGroup (NumberField.RingOfIntegers CMType.gaussianField))]
     (classJ : ClassGroup (NumberField.RingOfIntegers CMType.gaussianField) → ℂ)
     (tau : Point) (regular : Point → Subring FN)
     (evaluation : ∀ tau, regular tau →+* ℂ)
     (ray3 : IntermediateField CMType.gaussianField ℂ)
+    (A : Over (Spec (.of CMType.gaussianField)))
+    (primeFiveMap : A ⟶ A) (degree : (A ⟶ A) → ℕ)
+    (Artin : ClassGroup (NumberField.RingOfIntegers CMType.gaussianField) →
+      (ℂ ≃ₐ[ℚ] ℂ))
     [FiniteDimensional CMType.gaussianField ray3] :
     (idealLatticeCurve CMType.gaussianField.val
       (1 : (FractionalIdeal (NumberField.RingOfIntegers CMType.gaussianField)⁰ CMType.gaussianField)ˣ)).j = 1728 ∧
     classPolynomial classJ = X - C 1728 ∧
     Fintype.card (ClassGroup (NumberField.RingOfIntegers CMType.gaussianField)) = 1 ∧
+    Nat.card (NumberField.RingOfIntegers CMType.gaussianField)ˣ = 4 ∧
+    degree primeFiveMap = 5 ∧
+    (∀ a, Artin a (1728 : ℂ) = 1728) ∧
+    IntermediateField.adjoin CMType.gaussianField {(1728 : ℂ)} = ⊥ ∧
     cmValueField (K := CMType.gaussianField) tau regular evaluation = ray3 ∧
     Module.finrank CMType.gaussianField ray3 = 2 ∧
     IntermediateField.adjoin CMType.gaussianField {(1728 : ℂ)} < ray3 := by sorry
@@ -1192,10 +1246,13 @@ lemma frobenius (v : G) (F : Eˣ) : cmHeckeCharacter G A v = F := by sorry
 /-- The least conductor is GN9's ideal. U_m is GN7's actual principal-unit
 subgroup. GN9's admissibility condition is the principal infinity-type law. -/
 lemma conductor_minimal (conductor m : Ideal R) (norm : kˣ →* Eˣ)
-    (U_m : Subgroup kˣ)
+    (U_conductor U_m : Subgroup kˣ)
     (h : ∀ a : U_m, ∀ ha : toPrincipalIdeal R k (a : kˣ) ∈ G,
       cmHeckeCharacter (E := E) G A ⟨toPrincipalIdeal R k (a : kˣ), ha⟩ =
-        norm (a : kˣ)) : conductor ∣ m := by sorry
+        norm (a : kˣ)) :
+    (∀ a : U_conductor, ∀ ha : toPrincipalIdeal R k (a : kˣ) ∈ G,
+      cmHeckeCharacter (E := E) G A ⟨toPrincipalIdeal R k (a : kˣ), ha⟩ =
+        norm (a : kˣ)) ∧ conductor ∣ m := by sorry
 /-- GAP CM4-baseChange: the norm is the actual ideal norm for k'/k and ψ'
 is the character of A_k'. The least modulus is recalculated, not simply copied.
 Their equality has this native homomorphism shape once A0/EC5/GN9 are supplied. -/
@@ -1531,6 +1588,21 @@ This native polynomial coefficient inequality does not posit the algorithm outpu
 theorem classPolynomialHeightBound {J : Type*} [Fintype J]
     (roots : J → ℂ) (M : J → ℝ) (hM : ∀ i, ‖roots i‖ ≤ M i) (k : ℕ) :
     ‖(∏ i : J, (X - C (roots i))).coeff k‖ ≤ ∏ i : J, (1 + M i) := by sorry
+/-- The analytic part of the same height target. D<0 and (a,b,c) is the
+actual reduced primitive positive form of discriminant D, with a>0; j is
+the normalized modular j supplier. These unavailable form/evaluator
+identifications are omitted, while the exact constant and coefficient
+ceiling remain conclusions. No GRH input is used. -/
+theorem classPolynomialHeightBound.cm {J : Type*} [Fintype J]
+    (D : ℤ) (hD : D < 0) (a : J → ℕ) (ha : ∀ i, 0 < a i)
+    (b : J → ℤ) (j : ℂ → ℂ) (k : ℕ) :
+    let tau := fun i => ((-(b i : ℂ)) + Complex.I * (Real.sqrt |(D : ℝ)| : ℂ)) /
+      (2 * (a i : ℂ))
+    let M := fun i => Real.exp (Real.pi * Real.sqrt |(D : ℝ)| / (a i : ℝ)) +
+      (2114567 : ℝ) / 1000
+    (∀ i, ‖j (tau i)‖ ≤ M i) ∧
+    ‖(∏ i : J, (X - C (j (tau i)))).coeff k‖ ≤
+      (Int.ceil (∏ i : J, (1 + M i)) : ℝ) := by sorry
 
 /-- Denotation of CN4's existing complex-box carrier. No new interval type. -/
 def complexBoxSet (B : NonemptyInterval ℚ × NonemptyInterval ℚ) : Set ℂ :=

@@ -22,133 +22,133 @@
         "kind": "declaration",
         "module": "Mathlib/NumberTheory/NumberField/CMField.lean",
         "provides": "A totally complex field quadratic over its maximal real subfield; reuse rather than defining CM fields.",
-        "checked": "Actual statement read in the source at the recorded pinned commit; names searched in both libraries."
+        "checked": "Independently confirmed by REV-ComplexMultiplicationAndExplicitReciprocity~2: declaration and full statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 or Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 as appropriate; native carrier, hypotheses and citing use agree."
       },
       {
         "ref": "mathlib:NumberField.IsCMField.complexConj",
         "kind": "declaration",
         "module": "Mathlib/NumberTheory/NumberField/CMField.lean",
         "provides": "For K integral over Q, the nontrivial K⁺-algebra automorphism K→K.",
-        "checked": "Actual statement read in the source at the recorded pinned commit; names searched in both libraries."
+        "checked": "Independently confirmed by REV-ComplexMultiplicationAndExplicitReciprocity~2: declaration and full statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 or Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 as appropriate; native carrier, hypotheses and citing use agree."
       },
       {
         "ref": "mathlib:NumberField.IsCMField.complexEmbedding_complexConj",
         "kind": "declaration",
         "module": "Mathlib/NumberTheory/NumberField/CMField.lean",
         "provides": "For every complex ring embedding φ, φ(c(x))=conj(φ(x)).",
-        "checked": "Actual statement read in the source at the recorded pinned commit; names searched in both libraries."
+        "checked": "Independently confirmed by REV-ComplexMultiplicationAndExplicitReciprocity~2: declaration and full statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 or Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 as appropriate; native carrier, hypotheses and citing use agree."
       },
       {
         "ref": "mathlib:NumberField.IsCMField.complexConj_apply_apply",
         "kind": "declaration",
         "module": "Mathlib/NumberTheory/NumberField/CMField.lean",
         "provides": "For all x, c(c(x))=x.",
-        "checked": "Actual statement read in the source at the recorded pinned commit; names searched in both libraries."
+        "checked": "Independently confirmed by REV-ComplexMultiplicationAndExplicitReciprocity~2: declaration and full statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 or Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 as appropriate; native carrier, hypotheses and citing use agree."
       },
       {
         "ref": "mathlib:NumberField.IsCMField.complexConj_eq_self_iff",
         "kind": "declaration",
         "module": "Mathlib/NumberTheory/NumberField/CMField.lean",
         "provides": "c(x)=x iff x belongs to the maximal real subfield.",
-        "checked": "Actual statement read in the source at the recorded pinned commit; names searched in both libraries."
+        "checked": "Independently confirmed by REV-ComplexMultiplicationAndExplicitReciprocity~2: declaration and full statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 or Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 as appropriate; native carrier, hypotheses and citing use agree."
       },
       {
         "ref": "mathlib:FractionalIdeal",
         "kind": "declaration",
         "module": "Mathlib/RingTheory/FractionalIdeal/Basic.lean",
         "provides": "Native R-submodules of a localization with one denominator in S clearing all elements. Invertibility is additional, represented by units of this multiplicative carrier.",
-        "checked": "Actual statement read in the source at the recorded pinned commit; names searched in both libraries."
+        "checked": "Independently confirmed by REV-ComplexMultiplicationAndExplicitReciprocity~2: declaration and full statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 or Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 as appropriate; native carrier, hypotheses and citing use agree."
       },
       {
         "ref": "mathlib:IntermediateField.adjoin",
         "kind": "declaration",
         "module": "Mathlib/FieldTheory/IntermediateField/Adjoin/Defs.lean",
         "provides": "Smallest intermediate field over F containing a specified subset of E.",
-        "checked": "Actual statement read in the source at the recorded pinned commit; names searched in both libraries."
+        "checked": "Independently confirmed by REV-ComplexMultiplicationAndExplicitReciprocity~2: declaration and full statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 or Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 as appropriate; native carrier, hypotheses and citing use agree."
       },
       {
         "ref": "mathlib:IntermediateField.adjoin_le_iff",
         "kind": "declaration",
         "module": "Mathlib/FieldTheory/IntermediateField/Adjoin/Defs.lean",
         "provides": "adjoin F S≤T iff S⊆T.",
-        "checked": "Actual statement read in the source at the recorded pinned commit; names searched in both libraries."
+        "checked": "Independently confirmed by REV-ComplexMultiplicationAndExplicitReciprocity~2: declaration and full statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 or Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 as appropriate; native carrier, hypotheses and citing use agree."
       },
       {
         "ref": "tauceti:TauCeti.AlgebraicGeometry.AbelianVariety",
         "kind": "declaration",
         "module": "TauCeti/AlgebraicGeometry/AbelianVariety/Basic.lean",
         "provides": "Group object in schemes over Spec K, proper and geometrically integral.",
-        "checked": "Actual statement read in the source at the recorded pinned commit; names searched in both libraries."
+        "checked": "Independently confirmed by REV-ComplexMultiplicationAndExplicitReciprocity~2: declaration and full statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 or Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 as appropriate; native carrier, hypotheses and citing use agree."
       },
       {
         "ref": "tauceti:TauCeti.AlgebraicGeometry.AbelianVariety.End",
         "kind": "declaration",
         "module": "TauCeti/AlgebraicGeometry/AbelianVariety/End/Basic.lean",
         "provides": "Additive wrapper of A⟶A, with endomorphism composition as multiplication.",
-        "checked": "Actual statement read in the source at the recorded pinned commit; names searched in both libraries."
+        "checked": "Independently confirmed by REV-ComplexMultiplicationAndExplicitReciprocity~2: declaration and full statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 or Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 as appropriate; native carrier, hypotheses and citing use agree."
       },
       {
         "ref": "tauceti:TauCeti.Isogeny",
         "kind": "declaration",
         "module": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/Basic.lean",
         "provides": "Weierstrass affine isogeny as coordinate pullback into the source function field, satisfying the infinity condition.",
-        "checked": "Actual statement read in the source at the recorded pinned commit; names searched in both libraries."
+        "checked": "Independently confirmed by REV-ComplexMultiplicationAndExplicitReciprocity~2: declaration and full statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 or Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 as appropriate; native carrier, hypotheses and citing use agree."
       },
       {
         "ref": "tauceti:TauCeti.Isogeny.degree",
         "kind": "declaration",
         "module": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/Degree.lean",
         "provides": "Degree is the finrank of the source function field over the pulled-back target field.",
-        "checked": "Actual statement read in the source at the recorded pinned commit; names searched in both libraries."
+        "checked": "Independently confirmed by REV-ComplexMultiplicationAndExplicitReciprocity~2: declaration and full statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 or Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 as appropriate; native carrier, hypotheses and citing use agree."
       },
       {
         "ref": "mathlib:WeierstrassCurve.j",
         "kind": "declaration",
         "module": "Mathlib/AlgebraicGeometry/EllipticCurve/Weierstrass.lean",
         "provides": "For an elliptic equation with invertible discriminant, j=Δ⁻¹c₄³.",
-        "checked": "Actual statement read in the source at the recorded pinned commit; names searched in both libraries."
+        "checked": "Independently confirmed by REV-ComplexMultiplicationAndExplicitReciprocity~2: declaration and full statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 or Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 as appropriate; native carrier, hypotheses and citing use agree."
       },
       {
         "ref": "mathlib:ClassGroup",
         "kind": "declaration",
         "module": "Mathlib/RingTheory/ClassGroup/Basic.lean",
         "provides": "For any commutative domain R, invertible fractional ideals in FractionRing R modulo principal ideals; no Dedekind hypothesis, hence already covers nonmaximal quadratic orders.",
-        "checked": "Actual statement read in the source at the recorded pinned commit; names searched in both libraries."
+        "checked": "Independently confirmed by REV-ComplexMultiplicationAndExplicitReciprocity~2: declaration and full statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 or Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 as appropriate; native carrier, hypotheses and citing use agree."
       },
       {
         "ref": "mathlib:ClassGroup.mk",
         "kind": "declaration",
         "module": "Mathlib/RingTheory/ClassGroup/Basic.lean",
         "provides": "Class map from units of FractionalIdeal R⁰ K for a fraction field K of a domain R.",
-        "checked": "Actual statement read in the source at the recorded pinned commit; names searched in both libraries."
+        "checked": "Independently confirmed by REV-ComplexMultiplicationAndExplicitReciprocity~2: declaration and full statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 or Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 as appropriate; native carrier, hypotheses and citing use agree."
       },
       {
         "ref": "mathlib:CommRing.Pic",
         "kind": "declaration",
         "module": "Mathlib/RingTheory/PicardGroup.lean",
         "provides": "Native Picard group of a commutative semiring, invertible modules up to isomorphism.",
-        "checked": "Actual statement read in the source at the recorded pinned commit; names searched in both libraries."
+        "checked": "Independently confirmed by REV-ComplexMultiplicationAndExplicitReciprocity~2: declaration and full statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 or Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 as appropriate; native carrier, hypotheses and citing use agree."
       },
       {
         "ref": "mathlib:ClassGroup.equivPic",
         "kind": "declaration",
         "module": "Mathlib/RingTheory/PicardGroup.lean",
         "provides": "For every commutative domain R, a multiplicative equivalence ClassGroup R ≃ Pic R; no maximal-order assumption.",
-        "checked": "Actual statement read in the source at the recorded pinned commit; names searched in both libraries."
+        "checked": "Independently confirmed by REV-ComplexMultiplicationAndExplicitReciprocity~2: declaration and full statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 or Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 as appropriate; native carrier, hypotheses and citing use agree."
       },
       {
         "ref": "mathlib:CommRing.Pic.mapAlgebra",
         "kind": "declaration",
         "module": "Mathlib/RingTheory/PicardGroup.lean",
         "provides": "Base change Pic R→Pic A from tensoring invertible modules along any R-algebra A.",
-        "checked": "Actual statement read in the source at the recorded pinned commit; names searched in both libraries."
+        "checked": "Independently confirmed by REV-ComplexMultiplicationAndExplicitReciprocity~2: declaration and full statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 or Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 as appropriate; native carrier, hypotheses and citing use agree."
       },
       {
         "ref": "mathlib:NumberField.RingOfIntegers",
         "kind": "declaration",
         "module": "Mathlib/NumberTheory/NumberField/Basic.lean",
         "provides": "The integral closure of Z in K, implemented as integralClosure Z K; coerces injectively to K and has its canonical Z-algebra structure. Reuse for the maximal-order lattice, not a new CM order carrier.",
-        "checked": "Actual statement read in the source at the recorded pinned commit; names searched in both libraries."
+        "checked": "Independently confirmed by REV-ComplexMultiplicationAndExplicitReciprocity~2: declaration and full statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 or Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 as appropriate; native carrier, hypotheses and citing use agree."
       }
     ]
   },
@@ -370,7 +370,7 @@
       "sha256": "2fc781b22b32a88c0df711c20a5d8e1417610898ffbb526914049888a2d55677",
       "accessed": "2026-10-08",
       "readSections": [
-        "Introduction p.1; Theorem 16.4 pp.4–5; §16.3, Definition 16.9 and Theorem 16.12 pp.6–7"
+        "Introduction p.1; Theorem 16.4 pp.4–5; §16.4, Definition 16.9 and Theorem 16.12 pp.6–7"
       ],
       "versionKind": "author copy"
     },
@@ -727,7 +727,7 @@
       "sources": [
         {
           "sourceId": "MilneCM",
-          "locator": "Examples 1.19 and 1.28, pp.14,19",
+          "locator": "Examples 1.19 and 1.28, pp.14,18",
           "match": "Reflex embeddings arise by inverting the extended type, with double reflex giving the primitive core."
         }
       ],
@@ -979,7 +979,7 @@
       "sources": [
         {
           "sourceId": "MIT16",
-          "locator": "§16.3, Definition 16.9 and Theorem 16.12, pp.6–7",
+          "locator": "§16.4, Definition 16.9 and Theorem 16.12, pp.6–7",
           "match": "Use proper invertible ideals of the specified order, not all ideals of its maximal order."
         },
         {
@@ -1324,7 +1324,7 @@
       "sources": [
         {
           "sourceId": "MIT16",
-          "locator": "§16.3, Definition 16.9 and Theorem 16.12, pp.6–7",
+          "locator": "§16.4, Definition 16.9 and Theorem 16.12, pp.6–7",
           "match": "The ideal/lattice dictionary yields the quadratic-form version used by Heegner-point consumers."
         },
         {
@@ -1945,7 +1945,7 @@
       ],
       "title": "The polarization and lattice reciprocity formula",
       "kind": "comparison",
-      "statement": "With normalized σ,t,f=NΦ(t)⁻¹ as above, an E-linear comparison quasi-isogeny α has finite-adelic realization satisfying α(fx)=σx. Its pairing multiplier is (σEξ)(αx,αy)=[χ_cyc(σ)/(f f̄)]Eξ(x,y), with the compatible rational representative provided by V5. The natural Galois map x↦σx=α(fx) instead has multiplier χ_cyc(σ). The conjugate CM lattice/polarization has type (E,Φ; fI, ξ·χ_cyc(σ)/(f f̄)), interpreted on finite-adelic lattices and their rational comparison. Ideals change the lattice by NΦ(a)⁻¹ with the corresponding positive rational norm factor. Keep ordinary isomorphisms, polarized similitudes and finite-level equivalences distinct.",
+      "statement": "With normalized σ,t,f=NΦ(t)⁻¹ as above, an E-linear comparison quasi-isogeny α has finite-adelic realization satisfying α(fx)=σx. Its pairing multiplier is (σEξ)(αx,αy)=[χ_cyc(σ)/(f f̄)]Eξ(x,y), with the compatible rational representative provided by V5. The natural Galois map x↦σx=α(fx) instead has multiplier χ_cyc(σ). The conjugate CM lattice/polarization has type (E,Φ; fI, ξ·χ_cyc(σ)/(f f̄)), interpreted on integral Zhat-lattices inside the finite-adelic Tate modules and their rational comparison. Ideals change the lattice by NΦ(a)⁻¹ with the corresponding positive rational norm factor. Keep ordinary isomorphisms, polarized similitudes and finite-level equivalences distinct.",
       "hypotheses": [],
       "proofSteps": [
         "Translate Theorems 9.10–9.11(c) and 9.17 by s=t⁻¹, using the same comparison map α as the torsion dictionary.",
@@ -1965,7 +1965,7 @@
       "sources": [
         {
           "sourceId": "MilneCM",
-          "locator": "Remark 9.11(c) and Theorem 9.17, pp.79–81",
+          "locator": "Remark 9.11(c), p.78, and Theorem 9.17, pp.80–81",
           "match": "The uniformization theorem changes both the lattice and its polarization parameter."
         }
       ],
@@ -2219,7 +2219,7 @@
       ],
       "title": "A dimension-two torsion and polarization example",
       "kind": "application",
-      "statement": "Let E₀:y²=x³−x over Q(i), with i acting by (x,y)↦(−x,iy), and A=E₀×E₀ with product principal polarization and CM algebra Q(i)×Q(i), type selecting the standard embedding on each factor. At P=(5,i−3), E₀ has arithmetic Frobenius π=−1+2i, so on prime-to-5 Tate modules A has diagonal CM action (π,π); on 3-torsion the same action is multiplication by π mod 3. The Weil pairing multiplier is 5 mod 3=2, and the Frobenius characteristic polynomial is (X²+2X+5)². The ideal isogeny on the product has degree 25. Separately, the non-Galois quartic example in CM.0 has reflex real subfield Q(√7), demonstrating that higher-dimensional reflex fields need not equal the original CM field.",
+      "statement": "Let E₀:y²=x³−x over Q(i), with i acting by (x,y)↦(−x,iy), and A=E₀×E₀ with product principal polarization and CM algebra Q(i)×Q(i), type selecting the standard embedding on each factor. At P=(5,i−3), E₀ has arithmetic Frobenius π=−1+2i, so on prime-to-5 Tate modules A has diagonal CM action (π,π); on 3-torsion, (Z/3)^4, the same action is multiplication by π mod 3, represented in the (1,i) basis on each factor by [[2,1],[2,2]]. The Weil pairing multiplier is 5 mod 3=2, and the Frobenius characteristic polynomial is (X²+2X+5)². The ideal isogeny on the product has degree 25. Separately, the non-Galois quartic example in CM.0 has reflex real subfield Q(√7), demonstrating that higher-dimensional reflex fields need not equal the original CM field.",
       "hypotheses": [],
       "proofSteps": [
         "Count E₀(F₅): eight points, hence trace −2 and norm 5.",
@@ -4982,7 +4982,7 @@
       "correction": "I is an ideal of K*, so use its positive rational absolute ideal norm N_{K*/Q}(I). Distinguish this rational number from the ideal N(I)O_K in the reflex-norm identity.",
       "reason": "The input I belongs to Cl(K*), not the ideal group of K. The corrected norm gives NΦ(I) overline(NΦ(I))=N_{K*/Q}(I) O_K, and the unit obstruction is a a-bar divided by this positive rational norm.",
       "affects": "nothing",
-      "known": "new; an independent blueprint review must confirm this published misprint",
+      "known": "new within the original bounded audit; independently confirmed by REV-ComplexMultiplicationAndExplicitReciprocity~2",
       "searched": [
         "Published Annals PDF and article page https://annals.math.princeton.edu/2018/187-2/p02",
         "arXiv:1506.01466 version list",
@@ -4990,8 +4990,8 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Confirmed against the published Annals §5 p.386: I is an ideal of K*, so its positive absolute ideal norm has domain K*. The type-norm identity and unit obstruction in this packet use that corrected domain.",
-        "by": "REV-ComplexMultiplicationAndExplicitReciprocity"
+        "reason": "At published §5 p.386 the ideal I is a reflex-field ideal. Its absolute norm therefore has domain K*, and the corrected norm identity has the expected original-field principal ideal. Confirmed as a domain misprint.",
+        "by": "REV-ComplexMultiplicationAndExplicitReciprocity~2"
       }
     },
     {
@@ -5011,8 +5011,8 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Confirmed against the published Lemma 4.1 proof p.384. For a quartic CM field, an infinite-order integral unit has a power congruent to 1 modulo 3. Its action on a CM variety preserves the origin and A[3], yet is a nontrivial automorphism. A polarization is needed before the finite-automorphism/full-level rigidity argument. This confirms the existing E10 finding, not a published erratum.",
-        "by": "REV-ComplexMultiplicationAndExplicitReciprocity"
+        "reason": "The proof on p.384 invokes full-level rigidity without retaining polarization. A power of an infinite-order integral CM unit is 1 modulo 3 and still gives a nonidentity origin-preserving automorphism. Confirmed as a proof defect; this does not refute Lemma 4.1 itself.",
+        "by": "REV-ComplexMultiplicationAndExplicitReciprocity~2"
       }
     },
     {
@@ -5032,8 +5032,8 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Confirmed against the Fall 2023 Theorem 21.14 p.10. In the stated D=-23 example, reduction of every nonleading coefficient modulo 5 is zero. The inert principal prime (5) splits in H/K and has norm 25 there, satisfying the printed norm condition while H_D mod 5 has a repeated root. Ordinary split reduction is required; it is retained in the packet CM.5 contract.",
-        "by": "REV-ComplexMultiplicationAndExplicitReciprocity"
+        "reason": "Theorem 21.14 p.10 omits ordinary split reduction. The official Sage example confirms H_-23; its three nonleading coefficients vanish modulo 5. The inert principal K-prime (5) splits in H/K and has residue norm 25, so the printed norm/discriminant condition permits a repeated root.",
+        "by": "REV-ComplexMultiplicationAndExplicitReciprocity~2"
       }
     },
     {
@@ -5054,8 +5054,8 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "The two comparison discriminants coincide for v=25,u=5, so no strict relation separation exists in that step. The independent correction uses Corollary 4 for every r^k and treats r=2,3 by climbing. Scope is exactly the read arXiv v2 display; a journal-version collation remains a task for errata follow-up.",
-        "by": "REV-ComplexMultiplicationAndExplicitReciprocity"
+        "reason": "In the read arXiv v2 §3.2 display, v=25,u=5 makes both comparison discriminants 25 DK. No strict separating count can exist. Corollary 4 supplies the prime-power repair and small-prime climbing remains separate. Confirmed only for this preprint; the journal version has not been collated.",
+        "by": "REV-ComplexMultiplicationAndExplicitReciprocity~2"
       }
     }
   ],
@@ -5261,355 +5261,355 @@
     }
   ],
   "review": {
-    "status": "needs_changes",
-    "reviewer": "independent-review-REV-ComplexMultiplicationAndExplicitReciprocity",
-    "date": "2026-10-06",
-    "notes": "Independent review of all 69 nodes, 75 API items, 61 tests, 95 source excerpts in 20 hash-matched public documents, 19 exact-pin baseline declarations, coverage/ownership and 37 requests. Corrected field-only primitive/reflex scope, relative reflex-order discriminant, polarization comparison multiplier, local Euler duality, prime-power conductor verification/small-prime climbing, source locators and a direct CRT dependency. All four sourceIssues independently confirmed; the new certificate-scope finding is restricted to Endo arXiv v2. Lean elaborates with 211 warnings for admitted proofs only, in the existing Mathlib-pinned shared build; unavailable Tau Ceti imports remain commented. Needs changes because named conclusions and object-sensitive tests remain weaker than the packet, and the read-only reader still contradicts corrected statements. Recorded gaps do not alone cause rejection. See the review report and handoff for revision instructions.",
+    "status": "accepted",
+    "reviewer": "independent-review-REV-ComplexMultiplicationAndExplicitReciprocity~2",
+    "date": "2026-10-08",
+    "notes": "Independent revision review of all 69 nodes, 75 APIs, 61 tests, 29 planets, 19 exact-pin baseline statements, source locators/versions and supplier contracts. The previous 50 agreement failures are repaired; this review additionally corrects integral lattice and rank-four torsion carriers, omitted class-field/reciprocity/integrality conclusions, conductor admissibility, analytic height output and source locators. All four source findings are confirmed. Five explicit source/supplier refinements remain open; no stage is closed and no implementation is claimed. See the review report for scope and validation.",
     "checked": [
       {
         "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.0/cm-type",
         "verdict": "verified",
-        "note": "Embedding partition, complement, cardinality and three type-sensitive tests agree with Milne 1.2 and AGHMP 3.4; the finite-CM-algebra supplier condition is openly omitted in Lean."
+        "note": "The embedding partition, conjugation API and three CM-algebra tests agree with Milne 1.2 and AGHMP 3.4; the finite étale CM hypothesis remains an explicit supplier condition."
       },
       {
         "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.0/induced-and-primitive-type",
-        "verdict": "unverifiable",
-        "note": "Corrected primitive core to CM fields (Milne 1.8–1.9), retaining general algebra induction. Reader line 90 still asserts a unique core for CM algebras and line 260 asks to extend the field-only assertion; revise those statements."
+        "verdict": "verified",
+        "note": "The reader now restricts unique primitive cores to fields. The suggested induction and primitive-core equivalence retain that scope, including induced quadratic and nonprimitive quartic tests."
       },
       {
         "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.0/trace-reflex-field",
-        "verdict": "corrected",
-        "note": "Corrected common closure to contain factor images, not an embedding of a product algebra. The actual trace-adjoin definition and its quadratic/induced tests are appropriate; cocharacter identification is an explicit D3 refinement."
+        "verdict": "verified",
+        "note": "The common closure contains the images of every field factor. The trace-generated native field and its universal property agree with Milne 1.16–1.18; D3 owns the cocharacter comparison."
       },
       {
         "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.0/reflex-type",
-        "verdict": "unverifiable",
-        "note": "Corrected field scope and Examples 1.19/1.28 locators. Inverse-coset membership is appropriate, but doubleReflex_primitiveCore concludes only subfield inclusion rather than equality with the primitive core."
+        "verdict": "corrected",
+        "note": "Corrected Example 1.28 to p.18. The inverse-coset construction and double-reflex equality with the primitive core agree with the field-scoped packet."
       },
       {
         "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.0/type-product-identities",
-        "verdict": "corrected",
-        "note": "Corrected field scope and Proposition/Remark/Example locators. The algebraic product/conjugation norm follows from the inverse-coset type; V4 owns its idelic extension."
+        "verdict": "verified",
+        "note": "Milne 1.23–1.28 gives the product and conjugation norm identities with the stated field scope; the idelic extension remains a V4 import."
       },
       {
         "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.0/reflex-order",
-        "verdict": "unverifiable",
-        "note": "Corrected relative O_E*-discriminant and quadratic nonmaximal test; native tensor-image test now uses O_E⊗O. The fractionAlgebra API still concludes range=top under surjectivity, instead of identifying its fraction algebra with the selected étale factor. Reader test and carrier identifications require revision."
+        "verdict": "verified",
+        "note": "The tensor-image order and fraction-algebra API use the selected étale factor. The quadratic nonmaximal test correctly distinguishes the unit relative discriminant from absolute discriminant −36."
       },
       {
         "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.0/non-galois-quartic-example",
-        "verdict": "unverifiable",
-        "note": "The source-based D4/reflex computation has the stated correct polynomials and distinct real subfields. Lean records only polynomial identities, omitting field, primitivity and double-reflex conclusions."
+        "verdict": "verified",
+        "note": "The quartic and reflex polynomials, Q(sqrt(2))/Q(sqrt(7)) distinction, primitive types and double-reflex conclusion are now native field statements rather than polynomial identities alone."
       },
       {
         "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.0/nonmaximal-quadratic-example",
-        "verdict": "unverifiable",
-        "note": "Corrected MIT16 proper-order locator; D=-36 has two proper classes. Lean's numerical class-number expression neither constructs the nonmaximal order nor proves the ideal-class census."
+        "verdict": "verified",
+        "note": "The constructed Z+3Zi order has conductor 3, discriminant −36 and two proper classes; its native ClassGroup census does not substitute the maximal order."
       },
       {
         "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.1/ideal-lattice-curve",
-        "verdict": "unverifiable",
-        "note": "Corrected uniformization/proper-order locators. Native Weierstrass output is appropriate, but endomorphismRing gives only a multiplier-membership equivalence and the Gaussian/nonmaximal tests do not exercise the construction or its endomorphism ring."
+        "verdict": "corrected",
+        "note": "Corrected the proper-ideal source section to MIT16 §16.4. Algebraic End identification, uniformization and the Gaussian/nonmaximal tests now refer to the actual constructor."
       },
       {
         "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.1/ideal-action",
-        "verdict": "unverifiable",
-        "note": "Corrected MIT20 locator to §20.3, not Lemma 20.2. Inverse-ideal action and quotient-group kernel are appropriate arithmetic inputs; Gaussian-prime and conductor tests still omit actual isogeny/kernel/proper-ideal checks."
+        "verdict": "verified",
+        "note": "The inverse-ideal action, principal action and actual isogeny kernel are coherent with MIT20 §20.3. The conductor-prime test excludes the ideal from the native input subgroup."
       },
       {
         "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.1/picard-classification",
-        "verdict": "corrected",
-        "note": "Corrected MIT20 action/torsor locator. Exact proper invertible ideals, not maximal-order ideals, are used; j-equality is a valid elliptic observable for the specified oriented action once EC1 supplies the classification adapter."
+        "verdict": "verified",
+        "note": "The specified oriented elliptic objects form a proper invertible-class torsor. Native j-classification and End-order data preserve the nonmaximal order."
       },
       {
         "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.1/automorphism-factors",
         "verdict": "verified",
-        "note": "MIT22 Remark 22.2 gives the 6/4/2 stabilizer factors. The order-unit cardinal observable is sound under the stated omitted elliptic/order identification; generic automorphisms remain owned by EC1/A6."
+        "note": "The 6/4/2 order-unit counts have the stated characteristic-zero scope. Generic automorphisms and polarized level rigidity remain EC1/A6 imports."
       },
       {
         "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.1/quadratic-forms-dictionary",
-        "verdict": "unverifiable",
-        "note": "Corrected MIT16 §16.3 locator. Form sign and proper-ideal convention are right, but Lean supplies only a quadratic-root identity and not the SL2 quotient/proper ideal correspondence."
+        "verdict": "corrected",
+        "note": "Corrected MIT16 to §16.4. The suggested SL2-orbit/proper-ideal correspondence retains the sign and orientation convention, beyond the quadratic-root identity."
       },
       {
         "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.1/ideal-isogeny-degree",
-        "verdict": "corrected",
-        "note": "Corrected MIT20 §20.3 locator. Kernel index equals ideal norm, using characteristic-zero transfer and the actual Tau Ceti degree prerequisite; the geometry transfer is honestly recorded as a supplier refinement."
+        "verdict": "verified",
+        "note": "The characteristic-zero kernel index equals the proper ideal norm and the supplied function-field degree. No geometric-point count is asserted for inseparable maps."
       },
       {
         "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.1/rational-cm-self-twist",
-        "verdict": "unverifiable",
-        "note": "Kato §15.10 supplies the induced representation/self-twist; Lean assumes trace vanishing and concludes a scalar identity instead of the representation isomorphism."
+        "verdict": "verified",
+        "note": "The native statement gives the rational quadratic-twist isogeny and representation intertwiner; the trace consequence no longer replaces that conclusion."
       },
       {
         "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.1/cm-serre-tensor",
-        "verdict": "unverifiable",
-        "note": "Corrected ideal-action source locator. Projective modules and scheme tensor outputs have the correct scope, but the torsion-exclusion test is generic torsion-freeness and never tests the constructor's prohibited input."
+        "verdict": "verified",
+        "note": "The scheme-valued projective-module tensor, unit/association/base-change/Lie API and constructor-sensitive tests match KS §1.1. Generic sheaf tensoring remains requested from A0/A1."
       },
       {
         "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.1/cm-tensor-kernel-degree",
-        "verdict": "unverifiable",
-        "note": "KS §1.1.3 gives tensor kernel/cokernel and degree. Lean converts Fintype.card to Nat.card rather than stating the tensor isogeny kernel/degree comparison."
+        "verdict": "verified",
+        "note": "The actual tensor isogeny, finite kernel quotient and degree are retained, with projectivity and integral-ideal conditions; KS degree and ideal-inclusion conventions agree."
       },
       {
         "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.1/cm-hodge-eigenspaces",
-        "verdict": "unverifiable",
-        "note": "Corrected KS Definition 1.8 locator to §1.2 p9. Lean retains the Lie eigenspace dimension but lacks the differential inverse type and Hodge decomposition in the packet conclusion."
+        "verdict": "verified",
+        "note": "The Lie type, inverse differential action and dual Hodge decomposition retain the KS Proposition 1.11/Corollary 1.12 covariance convention."
       },
       {
         "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.1/cm-period-pairings",
-        "verdict": "unverifiable",
-        "note": "Corrected KS Definition 1.8 locator. Distinct integration and differential-dual pairings are required; Lean's generic injectivity/bijectivity lacks their typed CM eigenspace targets and comparison laws."
+        "verdict": "verified",
+        "note": "The typed integration and differential-dual pairings preserve their distinct CM eigenspaces and tensor comparison. They do not collapse to generic injectivity assertions."
       },
       {
         "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.2/polarized-cm-lattice-data",
-        "verdict": "unverifiable",
-        "note": "Trace sign/positivity, homothety and trace-dual criterion agree with Milne Example 2.9. All three named Lean tests are scalar computations independent of PolarizedCMLattice and its form/scale constructor."
+        "verdict": "verified",
+        "note": "The trace form, positivity, homothety and principal trace-dual criterion agree with Milne 2.9/3.17. All three tests invoke the lattice/form/scale constructors."
       },
       {
         "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.2/arbitrary-dimensional-classification",
-        "verdict": "unverifiable",
-        "note": "Milne 3.12–3.13/3.17 and A5 support the polarized classification and primitive endomorphism assertion; Lean concludes only degree=twice type cardinality."
+        "verdict": "verified",
+        "note": "The native polarized classification and primitive full-End assertion are present. Product CM types remain outside the primitive conclusion."
       },
       {
         "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.2/reflex-ideal-map",
-        "verdict": "unverifiable",
-        "note": "V4 norm is imported and GN11 owns contraction/extension to order ideals. The quadratic and conductor tests use a generic identity homomorphism or Nat.Coprime, rather than this map on actual ideals."
+        "verdict": "verified",
+        "note": "Streng §2.6 supplies the norm/extension-contraction description away from F. The quadratic, identity and conductor tests use that map on native ideals."
       },
       {
         "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.2/normalized-idele-torsion-dictionary",
-        "verdict": "unverifiable",
-        "note": "Milne 8.1, 9.10–9.11 and MilneFT §3 support arithmetic Artin inversion. Lean records multiplication by a unit and its inverse, rather than alpha(fx)=sigma(x) on actual torsion."
+        "verdict": "verified",
+        "note": "The conclusion alpha(fx)=sigma(x) on the supplied finite-adelic realization retains f=NΦ(t)^−1 after converting geometric to arithmetic Artin."
       },
       {
         "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.2/polarization-reciprocity-dictionary",
-        "verdict": "unverifiable",
-        "note": "Corrected multiplier of alpha to chi_cyc/(f*fbar), distinguishing the natural Galois map, and corrected 9.17 locator. Lean comment now pins the distinction; reader line 600 still assigns chi_cyc alone to alpha and the native theorem is only scalar cancellation."
+        "verdict": "corrected",
+        "note": "Corrected the lattice to a Zhat-submodule inside the adelic module and the Remark 9.11 locator to p.78. Both comparison/Galois multipliers and changed xi remain conclusions."
       },
       {
         "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.2/explicit-level-reciprocity",
-        "verdict": "unverifiable",
-        "note": "Streng 2.4–2.5 and proof §4.5 support the inverse norm and modular-function action; corrected the proof locator. Lean gives scalar cancellation instead of the CM function-value equality."
+        "verdict": "verified",
+        "note": "The inverse row-basis matrix, norm similitude and complete special-value equality agree with Streng 2.4/4.4. Modular-function and level actions remain supplied native data."
       },
       {
         "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.2/polarized-level-stabilizer",
-        "verdict": "unverifiable",
-        "note": "Streng 2.5 supports the simultaneous principal/norm/level conditions. Native subgroup membership is suitable, but the quadratic level-one test proves only one direction and the bad-generator test does not test subgroup membership or all generators."
+        "verdict": "verified",
+        "note": "The simultaneous principal, positive-norm and mod×-N conditions define the subgroup. Tests now compare membership and exclude every admissible bad generator."
       },
       {
         "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.2/class-map-and-unit-obstruction",
-        "verdict": "unverifiable",
-        "note": "Tsimerman §5 norm-domain misprint is corrected in sourceIssues. The packet retains the unit quotient; Lean gives scalar norm multiplication without the actual class-map/kernel obstruction."
+        "verdict": "verified",
+        "note": "The native class-map kernel injection, exponent-two unit quotient and cardinal bound agree with Streng 2.8/Tsimerman §5 after correcting the reflex norm domain."
       },
       {
         "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.2/relative-moduli-orbit",
-        "verdict": "verified",
-        "note": "Correctly limits the assertion to the marked polarized relative orbit. The absolute unmarked moduli-degree passage remains an explicit source/descent gap rather than an asserted equality; the Artin-kernel degree shape is appropriate."
+        "verdict": "corrected",
+        "note": "Restored the marked-orbit bijection and actual Artin surjectivity/kernel as conclusions. The relative degree remains separate from the recorded absolute unmarked-moduli gap."
       },
       {
         "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.2/dimension-two-example",
-        "verdict": "unverifiable",
-        "note": "Corrected Milne reciprocity page locator. E0 squared is a product/nonprimitive example with matrix endomorphisms; Lean gives only polynomial degree and constant term, not those CM structures."
+        "verdict": "corrected",
+        "note": "Corrected the torsion carrier to (Z/3)^4 with two copies of [[2,1],[2,2]]. Full End0=M2(Q(i)), the squared Frobenius polynomial, degree 25 and multiplier 2 are retained."
       },
       {
         "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.3/class-polynomial",
         "verdict": "corrected",
-        "note": "Corrected MIT20 defining-product locator. Native ClassGroup of arbitrary domain orders and finite product are suitable; Gaussian/Eisenstein/nonmaximal tests retain the relevant product/cardinality observables with supplier identifications openly omitted."
+        "note": "The native finite product uses ClassGroup of the exact order. Its roots API now explicitly includes separability under injectivity, alongside the three exact polynomial/order tests."
       },
       {
         "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.3/integrality",
-        "verdict": "verified",
-        "note": "MIT20 20.12 gives integral CM j and Galois descent gives integer coefficients. IsIntegral Z is the correct native target, with actual CM j inputs identified by the recorded A5/GN11 adapter."
+        "verdict": "corrected",
+        "note": "Restored singular-value integrality, descent to a monic polynomial in Z[X], separability and class-number degree. A complex coefficient being integral alone did not express integer descent."
       },
       {
         "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.3/class-polynomial-galois-action",
-        "verdict": "verified",
-        "note": "Inverse ideal action permutes the exact finite product and fixes its coefficients; the native polynomial equality and direct CM reciprocity prerequisites have the right convention."
+        "verdict": "corrected",
+        "note": "Restored inverse-class Artin action, conjugation inversion and trivial individual-root stabilizers as conclusions; they are no longer assumed to prove only polynomial invariance."
       },
       {
         "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.3/ring-class-generator",
-        "verdict": "verified",
-        "note": "Milne 8.2–8.3 and the proper-class action give H_f=K(j); native adjoin equality states that conclusion. Actual CFT13/A5 carrier identification is an explicit omitted condition."
+        "verdict": "corrected",
+        "note": "Restored all-root adjunction, class-number degree, irreducibility and splitting over the supplied ring class field, in addition to K(j)=H."
       },
       {
         "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.3/admissible-cm-value-field",
-        "verdict": "unverifiable",
-        "note": "Regular local evaluation, not meromorphic pole values, is required. Native adjoin uses supplied values, but no_poles/test_pole express ring-hom containment and zero-times-value arithmetic rather than regularity at the actual CM point."
+        "verdict": "verified",
+        "note": "The native adjoin uses the entire regular evaluation ring. The actual pole quotient and Gaussian level-3 tests now exercise this field and distinguish K(j) from the ray extension."
       },
       {
         "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.3/ray-class-values",
-        "verdict": "unverifiable",
-        "note": "Corrected Milne reflex-type Example locator. Full regular level values give the quadratic ray field, whereas general types use the smaller stabilizer field. Lean concludes only nonsurjectivity for an assumed degree-two extension."
+        "verdict": "corrected",
+        "note": "Restored general ray containment, exact Artin quotient and finite-family stabilizer criterion. The full ray-field equality is kept as the maximal quadratic specialization."
       },
       {
         "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.3/complete-elliptic-example",
-        "verdict": "unverifiable",
-        "note": "Corrected MIT20 product locator. Gaussian j/class/ray-degree data are mathematically right, but the Lean theorem proves polynomial arithmetic and (9-1)/4=2 without the actual ray extension or CM curve."
+        "verdict": "corrected",
+        "note": "Restored the Gaussian unit count, degree-five ideal map, trivial root action and K(j)=K in the native fixture; its actual level-3 ray field has degree two."
       },
       {
         "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.4/cm-hecke-character",
-        "verdict": "unverifiable",
-        "note": "Milne 8.1 and Kato 15.11 give the ideal-valued CM character. Native E-unit values and principal law are appropriate, but all named tests check scalars without evaluating the constructed character at any actual ideal."
+        "verdict": "corrected",
+        "note": "Restored admissibility at the least conductor alongside its divisibility property. Character tests evaluate the constructor, including the nonintegral coefficient-field unit at the Gaussian prime."
       },
       {
         "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.4/tate-coefficient-components",
-        "verdict": "unverifiable",
-        "note": "The rank-one E⊗Q_l module splits over its coefficient factors. Lean gives only a field finrank multiplication identity, omitting the product coefficient algebra and lambda-component representation comparison."
+        "verdict": "verified",
+        "note": "The actual E tensor Q_l algebra, rank-one module, coefficient components and character intertwiners retain the full realization conclusion."
       },
       {
         "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.4/frobenius-and-infinity-type",
-        "verdict": "unverifiable",
-        "note": "Corrected locator to Kato 15.10–15.11. Purity uses the full residue norm and ideal/idelic sign conventions; Lean assumes the purity equation and concludes normSq without the actual Frobenius or infinity-type law."
+        "verdict": "verified",
+        "note": "Actual arithmetic Frobenius and the positive ideal/negative idelic infinity-type laws are conclusions. Kato 15.10–15.11 supplies the sign convention."
       },
       {
         "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.4/full-elliptic-l-factorization",
-        "verdict": "unverifiable",
-        "note": "Corrected H1-dual/geometric versus covariant-Tate/arithmetic Frobenius conversion using CM finite inertia. All bad factors/conductor exponents stay in the packet; Lean gives only the unramified quadratic polynomial expansion."
+        "verdict": "verified",
+        "note": "All finite local factors and conductor exponents remain present. The finite-inertia dual/geometric-to-covariant/arithmetic adapter agrees with R11.5's actual local-polynomial statement."
       },
       {
         "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.4/cm-induction-comparison",
-        "verdict": "unverifiable",
-        "note": "Kato 15.10 and BT proof of 1.1 give induction and CM theta realization. Lean gives zero linear coefficient of a polynomial instead of the induced-representation/theta comparison."
+        "verdict": "verified",
+        "note": "The native representation induction intertwiner, CM theta realization and compatible-system comparison are stated. Frobenius recognition is requested with semisimplicity/common coefficients."
       },
       {
         "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.4/residual-cartan-normalizer",
-        "verdict": "unverifiable",
-        "note": "BS §6 supplies normalizer containment with the odd-prime/discriminant restrictions; Lean assumes exactly its desired containment and repeats it, with no CM representation input."
+        "verdict": "verified",
+        "note": "The normalizer containment is concluded for the CM residual representation under the odd-prime/discriminant hypotheses; it is not supplied as its own assumption."
       },
       {
         "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.4/canonical-gross-character",
-        "verdict": "unverifiable",
-        "note": "Yang Introduction/BKO 3.0.1 support conjugation, principal signs and ramified-only support. Primary existence is openly a gap; inert/even named tests are independent Nat arithmetic rather than the canonical predicate on supplied characters."
+        "verdict": "verified",
+        "note": "The canonical predicate retains conjugation, principal signs and ramified-prime conductor support. The inert/even tests use that predicate; primary existence remains the explicit recorded gap."
       },
       {
         "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.4/gross-curve-good-reduction",
-        "verdict": "unverifiable",
-        "note": "BKO 3.0.1 and eq3.8 retain the canonical Hilbert pullback and odd-discriminant/inert auxiliary hypotheses. Lean proves only a conductor-support divisibility implication, without the realized Gross curve or reduction conclusion."
+        "verdict": "verified",
+        "note": "The native good-model realization is concluded for the canonical Hilbert pullback and the odd-discriminant/inert-prime setting used in BKO §3.0.1 and (3.8)."
       },
       {
         "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.5/deuring-classification",
-        "verdict": "unverifiable",
-        "note": "Primary introduction and §8 realization preserve all-characteristic geometric End and p=2,3 scope; full proof/quaternion carrier is honestly a gap. Lean gives only discriminant arithmetic, not classification or realization."
+        "verdict": "verified",
+        "note": "The statement retains all-characteristic geometric End classification and realization, including p=2,3. The full primary proof and integral quaternion carrier remain explicitly unfinished refinements."
       },
       {
         "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.5/cm-reduction-dictionary",
-        "verdict": "unverifiable",
-        "note": "Split versus inert/ramified and p-primary conductor loss have the correct geometric scope. Lean proves p squared is not p, omitting every reduction and End assertion."
+        "verdict": "verified",
+        "note": "Potential good reduction, split/non-split ordinary/supersingular outcomes and the prime-to-p conductor part refer to actual reduction/End data; the source-proof gap is not concealed."
       },
       {
         "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.5/shimura-taniyama-specialization",
-        "verdict": "unverifiable",
-        "note": "V5 owns the general theorem; this node is a specialization to embedding-count slopes. Lean gives a rational number between zero and one, without equality to an actual Newton slope."
+        "verdict": "verified",
+        "note": "The actual Frobenius ideal and Newton slope equal the CM embedding counts, including residue degree. V5 owns the general theorem; this is its normalized specialization."
       },
       {
         "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.5/deuring-lifting",
-        "verdict": "unverifiable",
-        "note": "MIT21 21.15 states lifting of a specified endomorphism over F_q; primary §9.1 passage and finite-field refinement remain explicit proof work. Lean gives noninjectivity of a noncommutative ring map to C, rather than existence of the lift of the pair."
+        "verdict": "verified",
+        "note": "The supplied curve/endomorphism pair lifts after a finite mixed-characteristic base, with specialization of the chosen alpha. No simultaneous lift of the entire quaternion End ring is asserted."
       },
       {
         "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.5/cm-isogeny-graphs",
-        "verdict": "unverifiable",
-        "note": "Proper ideal horizontals, vertical edges and weights are required; EC3/CN3 own generic graphs. Lean gives only the possible integers 1+symbol and not the graph/action identification."
+        "verdict": "verified",
+        "note": "The native graph has the horizontal ideal bijection, 1+symbol count, three conductor changes and exceptional weights; EC3/CN3 own generic graph computations."
       },
       {
         "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.5/supersingular-curve-versus-level-pair",
-        "verdict": "unverifiable",
-        "note": "Gross–Zagier III §§3/7 distinguish maximal geometric End (disc p) from the level-pair Eichler order (disc Np); all excerpts visually checked. Lean concludes Np differs from p without identifying either actual order."
+        "verdict": "verified",
+        "note": "GZ III §7 p.261 was checked on the scan. Full geometric End is maximal of discriminant p; preserving cyclic prime-to-p level gives the Eichler order of discriminant Np."
       },
       {
         "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.5/class-polynomial-height-bound",
-        "verdict": "verified",
-        "note": "CRT Appendix 1 pp31–32 supplies exp(pi sqrt(abs D)/a)+2114.567. The product bound on coefficients follows by elementary symmetric sums; its native polynomial inequality is correct and CN4 owns certified analytic evaluations."
+        "verdict": "corrected",
+        "note": "Restored the explicit CM j-bound and coefficient ceiling with exact constant 2114567/1000. The elementary-symmetric product estimate and outward CN4 evaluation remain separate, without GRH."
       },
       {
         "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.5/complex-class-polynomial-certificate",
-        "verdict": "unverifiable",
-        "note": "CN4's existing enclosure/recovery carriers are imported correctly. The missing-class test is merely Fin1 not equivalent to Fin2, and integer-boundary tests do not exercise certificate acceptance; bind them to the verified proper-class census/constructor."
+        "verdict": "verified",
+        "note": "The certificate binds the full proper-class census to its actual j-values and propagated coefficient boxes. Integer uniqueness requires CM3 integrality; missing-class/boundary tests exercise acceptance."
       },
       {
         "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.5/complex-algorithm-soundness-termination",
-        "verdict": "unverifiable",
-        "note": "Telescoping product error and strict integer recovery are sound with the recorded shrinking evaluator contract. Lean proves P=H for a supplied certificate, without the precision estimate or finite termination conclusion."
+        "verdict": "verified",
+        "note": "The statement retains product-error control, strict precision and finite certified termination, conditioned on the explicitly requested shrinking evaluator and complete census."
       },
       {
         "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.5/crt-class-polynomial-certificate",
-        "verdict": "unverifiable",
-        "note": "Strict M>2B and distinct primes are correct. The endomorphism_check API still concludes u divides v implies a factorization, rather than validating the ordinary seed/order independently; seed/orbit adapters remain missing."
+        "verdict": "verified",
+        "note": "Distinct primes, strict M>2B, full ordinary order-checked orbit and exact residues are intrinsically bound. Its order API uses an independent ring certificate rather than root count."
       },
       {
         "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.5/crt-algorithm-soundness-termination",
-        "verdict": "unverifiable",
-        "note": "Added direct order-verification prerequisite and exhaustive prime-power relation search/climbing in proof sketch. Lean proves only P=H, lacking total search termination and validated ordinary full-order seeds."
+        "verdict": "verified",
+        "note": "The total-search statement uses Chebotarev, finite exhaustive curve search and independent order verification. No GRH or heuristic complexity assertion supplies termination."
       },
       {
         "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.5/endomorphism-ring-certificate",
-        "verdict": "unverifiable",
-        "note": "Corrected all prime-power comparisons using Corollary 4 and explicit certified climbing at 2/3. Added a fourth v25/u5 test and made forged-relation test use the certificate. Counts/valuations still need intrinsic CN3/GN11 binding and the reader retains the prime-only contradictory contract."
+        "verdict": "verified",
+        "note": "Every r^k divides v is tested via Endo v2 Corollary 4, with certified 2/3 climbing. The v=25,u=5 and forged-relation tests use actual indexed counts/curve data."
       },
       {
         "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.5/endomorphism-verification-sound-complete",
-        "verdict": "unverifiable",
-        "note": "Corrected valuation proof to every r^k|v and small-prime climbing, without squarefree or heuristic assumptions. Lean concludes only v=u*w, rather than Verify iff End_geom has the claimed order."
+        "verdict": "verified",
+        "note": "The native verifier equivalence identifies the full geometric endomorphism order. Prime-power comparisons and small-prime valuations determine the conductor without a residual-squarefree assumption."
       },
       {
         "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.0/trace-reflex-field-api-reflexField-stabilizer",
-        "verdict": "unverifiable",
-        "note": "Corrected CM-algebra ambient scope and reflex-field locator. Native theorem fixes type traces; packet requires the permutation stabilizer of the embedding type, with linear independence/descent identification still absent."
+        "verdict": "verified",
+        "note": "The actual embedding-type permutation stabilizer is now the fixed-field subgroup, not merely a trace-fixing fragment; the common closure and D3 comparison are explicit."
       },
       {
         "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.1/ideal-lattice-curve-api-endomorphismRing",
-        "verdict": "unverifiable",
-        "note": "Corrected proper-order/uniformization locator. Scalar multipliers determine the desired ring, but native conclusion is membership iff scalar from R and omits the algebraic End ring equivalence."
+        "verdict": "verified",
+        "note": "The native algebraic End-ring equivalence now identifies the exact order. Analytic multipliers and algebraic morphisms are compared through the requested uniformization adapter."
       },
       {
         "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.1/ideal-action-api-kernel",
-        "verdict": "corrected",
-        "note": "Corrected MIT20 norm/action locator. Native quotient-group kernel is exactly a^-1 I/I; the analytic/algebraic isogeny transfer and integral-ideal hypothesis are explicitly supplied by EC1/GN11."
+        "verdict": "verified",
+        "note": "The kernel is a^-1 I/I for an integral proper invertible ideal, transferred to the actual characteristic-zero scheme isogeny. Nonmaximal/conductor exclusions are retained."
       },
       {
         "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.1/cm-serre-tensor-api-lie",
-        "verdict": "corrected",
-        "note": "Corrected MIT20 action source locator. The native linear equivalence has the tensor comparison shape; actual Lie modules and CM actions are explicitly missing A0 inputs, rather than a new Lie carrier."
+        "verdict": "verified",
+        "note": "The supplied actual Lie modules are linearly equivalent to the tensor Lie module, with CM action and base change as requested A0/A4 interfaces."
       },
       {
         "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.2/reflex-ideal-map-api-principal",
         "verdict": "verified",
-        "note": "Product over actual reflex embeddings fixes the principal-ideal law and inverse Artin convention; V4 norm and GN11 contraction/extension are explicit supplier conditions."
+        "note": "The principal-ideal law uses the V4 norm on actual units and checks membership in the prime-to-conductor domain before evaluation."
       },
       {
         "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.3/class-polynomial-api-roots",
         "verdict": "corrected",
-        "note": "Corrected MIT20 defining-product locator. Finite product roots are the supplied class values; exact End order and multiplicity-one are carried by the CM classification/injectivity supplier condition."
+        "note": "Restored explicit separability to the native roots API. The classification/injective-j hypothesis makes the proper-class roots occur once and preserves the exact End order."
       },
       {
         "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.4/cm-hecke-character-api-frobenius",
         "verdict": "verified",
-        "note": "Good-place arithmetic Frobenius scalar agrees with the ideal character; EC5/GN9 identify the native scalar and actual curve realization, as the comment explicitly requires."
+        "note": "The ideal character equals the supplied E-linear arithmetic Frobenius scalar at a good unramified place, with EC5/GN9 realization identified openly."
       },
       {
         "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.5/complex-class-polynomial-certificate-api-coefficient-enclosure",
         "verdict": "verified",
-        "note": "The enclosure law is an actual certificate projection on CN4 box denotations; outward propagation is a precisely requested numeric supplier, not replanned here."
+        "note": "The actual certificate projection encloses the product coefficient in the CN4 box denotation. Generic outward propagation remains owned by CN4."
       },
       {
         "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.5/crt-class-polynomial-certificate-api-unique",
         "verdict": "verified",
-        "note": "Prime moduli are distinct and their product strictly exceeds twice the coefficient bound. Exact signed coefficient congruence implies equality; no floating or GRH assumption is used."
+        "note": "Distinct coprime prime moduli and M>2B give coefficientwise signed uniqueness. The strict-bound test rules out M=2B."
       },
       {
         "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.5/endomorphism-ring-certificate-api-valid-relations",
-        "verdict": "unverifiable",
-        "note": "Corrected coverage to every r^k and certified 2/3 valuations. Native inequalities/valuation equalities now agree at the fragment level; actual discriminant-indexed class-group counts and climbing outputs remain unbound."
+        "verdict": "verified",
+        "note": "The native API binds class counts to D1=(v/r^j)^2 DK, D2=r^(2k) DK and the actual curve, plus verified 2/3 valuations; generic integer inequalities alone are insufficient."
       },
       {
         "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.5/complex-class-polynomial-algorithm",
-        "verdict": "unverifiable",
-        "note": "CN4 evaluator/census are precise requests. Native construction returns a polynomial/certificate pair but its unvalidated-oracle test rejects a nonintegral root instead of an uncertified approximation to an integral CM root."
+        "verdict": "verified",
+        "note": "The native constructor returns its bound certificate/output and terminates under the explicit evaluator contract. The unvalidated-oracle test now rejects uncertified boxes for an integral CM root."
       },
       {
         "nodeId": "ComplexMultiplicationAndExplicitReciprocity:CM.5/crt-class-polynomial-algorithm",
-        "verdict": "unverifiable",
-        "note": "The complete finite prime/order/seed search is precisely requested from CN3. Native return shape records CRT residues, but supersingular/order-separation tests are integer arithmetic without an actual curve/order check."
+        "verdict": "verified",
+        "note": "The native constructor binds primes, intrinsic ordinary seeds, full End checks and complete class orbits. Its supersingular and wrong-order tests use actual curve/order data."
       }
     ]
   }
