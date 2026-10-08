@@ -34928,7 +34928,8 @@
    ],
    "avoidAccountOf": "BP-ClassicalAdicEtaleCohomology--H1-valuation-nearby-cycles",
    "prompt": "research/blueprint/prompts/REV-ClassicalAdicEtaleCohomology--H1-valuation-nearby-cycles.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7034"
   },
   {
    "id": "BP-ClassicalAdicEtaleCohomology--H3",
@@ -38730,8 +38731,8 @@
    ],
    "revisionOf": "BP-ExcursionOperatorsAndSpectralAction--ES5",
    "prompt": "research/blueprint/prompts/BP-ExcursionOperatorsAndSpectralAction--ES5~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6961"
+   "state": "pending",
+   "note": "released on GitHub issue #6961"
   },
   {
    "priority": 2,
@@ -41296,8 +41297,9 @@
     "BP-StableHomotopyKTheory~2"
    ],
    "prompt": "research/blueprint/prompts/REV-StableHomotopyKTheory~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7095"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7095",
+   "finishedAt": "2026-10-08T16:06:59Z"
   },
   {
    "kind": "blueprint",
