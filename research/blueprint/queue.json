@@ -38558,7 +38558,8 @@
    ],
    "revisionOf": "BP-EtaleDualityAndPerverseSheaves--EDC.4",
    "prompt": "research/blueprint/prompts/BP-EtaleDualityAndPerverseSheaves--EDC.4~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6958"
   },
   {
    "priority": 2,
@@ -40524,8 +40525,9 @@
    ],
    "revisionOf": "BP-PotentialModularityAndCompatibleSystems--R24.3",
    "prompt": "research/blueprint/prompts/BP-PotentialModularityAndCompatibleSystems--R24.3~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7000"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7000",
+   "finishedAt": "2026-10-08T14:29:31Z"
   },
   {
    "priority": 2,
@@ -41279,8 +41281,8 @@
     "BP-StableHomotopyKTheory~2"
    ],
    "prompt": "research/blueprint/prompts/REV-StableHomotopyKTheory~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7095"
+   "state": "pending",
+   "note": "released on GitHub issue #7095"
   },
   {
    "kind": "blueprint",
@@ -41627,7 +41629,8 @@
     "BP-OverconvergentAutomorphicForms--O0~2"
    ],
    "prompt": "research/blueprint/prompts/REV-OverconvergentAutomorphicForms--O0~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7100"
   },
   {
    "kind": "blueprint",
