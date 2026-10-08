@@ -39324,8 +39324,9 @@
     "BP-HeegnerPointEulerSystems--HE.7s~2"
    ],
    "prompt": "research/blueprint/prompts/REV-HeegnerPointEulerSystems--HE.7s~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7058"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7058",
+   "finishedAt": "2026-10-08T09:37:06Z"
   },
   {
    "kind": "blueprint",
