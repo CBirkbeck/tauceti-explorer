@@ -1,86 +1,21 @@
-# REV-StableHomotopyKTheory~2: handoff (checkpoint)
+# REV-StableHomotopyKTheory~2 — completed review handoff
 
-Issue #7095. Claude (Claude Code, model Opus 5.5), session `claude-qMTtSD`, 8 October 2026. Base commit
-`e6b4dd3e0`. This checkpoint changes the packet, the reader, the suggested file and the review report. It
-writes no verdict: the packet's `review` object is still the first review's (`needs_changes`). The next
-worker continues the same review job and may be anyone who did none of `BP-StableHomotopyKTheory`,
-`REV-StableHomotopyKTheory` or `BP-StableHomotopyKTheory~2`.
+Issue #7095. Codex, session `codex-YHBt4W`, 8 October 2026. This completes the independent revision-2 review begun by the merged earlier checkpoint. It is not a checkpoint, and no work on this review remains to be handed to another worker.
 
-Read the report first: `research/blueprint/reviews/REV-StableHomotopyKTheory~2.md`. It lists every
-correction made, the findings recorded but not applied, the fifteen source-issue verdicts and the state of
-each of the 213 nodes.
+The verdict is **needs_changes** for five suggested signature/test contracts. Read [the completed report](../reviews/REV-StableHomotopyKTheory~2.md) and the packet’s `review.checked` register. Every one of the 221 nodes is accounted for: 173 verified, 35 corrected, eight added, five unverifiable. Corrections were applied to 36 existing nodes, all 109 baseline citations were freshly confirmed, all 17 source issues have this review’s verdict, and all eight handed red-team findings were checked. The reader is regenerated from the packet; 9,398 packet strings were checked for inclusion.
 
-## Done
+All stages remain planned and all implementation statuses unchecked. The 45 honest proof/interface gaps and fourteen supplier requests remain in the packet. They are future proof work, not unfinished work on this review. Source statements and version boundaries are recorded without storing source passages.
 
-- **The first review's requirement.** The reader is regenerated from the packet, and that is verified. The
-  reader's node sections and tail follow a fixed format, rendered from the packet field by field: heading
-  with planet; kind-labelled statement; Hypotheses; Construction or proof outline; API; Unit tests; Uses;
-  Acceptance; Prerequisites; Sources; Suggested home. Regenerating them after any packet change keeps the
-  two in agreement. All 4,685 packet strings appear in the reader. The hand-written prose is corrected.
-- **Sources and source issues.** All fifteen SHA-256 values reproduced. E1–E15 are confirmed at their
-  locators. The verdict texts are in the report, ready to go into the `review` objects. Weibel's
-  published errata list was checked (Internet Archive copy) and has no entry for these passages.
-- **Library.** All 88 baseline names exist. Entries 1–59 were read against their citing nodes and
-  corrected; 21 entries were added. The checker passes with the pinned index (set `TAUCETI_BASELINE` to
-  the workers' baseline directory so that `declarations.tsv` is found).
-- **Requests.** Every `neededBy` is recomputed from the prerequisites. The orphan request to
-  AlgebraicTopology stage 3 is removed. Four needs are made precise.
-- **Nodes checked in full (29):** H.1/nerve-and-classifying-space, H.1/realisation-boundary-inclusion-disk,
-  H.1/coverings-fundamental-group-local-coefficients, thirteen nodes of H.2 (weak-homotopy-equivalence to
-  homotopy-cartesian-pasting and comma-category-to-homotopy-fibre), five of H.4 (group-completion-acyclic
-  to cofinality-projective-modules), H.5:spectra derived-smash-product, twist-sign and
-  homotopy-group-pairing, and H.6 moore-spectrum, p-complete-criteria, rationalisation,
-  rational-spectra-generalized-eilenberg-maclane and arithmetic-fracture-square. The report's last table
-  marks each node.
-- **Checks at this checkpoint.** check_blueprint: 0 errors, 0 warnings. No node-level cycle. Trial atlas
-  build succeeds. `lean-check` exit 0, with only `sorry` warnings.
+The next blueprint revision should handle these exact tasks:
 
-## Where to resume
+1. Give the natural derived-colimit comparison signature, separately naming the representable-vanishing helper.
+2. State the general maximal-tree presentation, retaining the SingleObj example as an example.
+3. State pi2(BG-plus_P) for an arbitrary perfect normal subgroup P, retaining the requested universe comparison and classical UCE dependency.
+4. Make segalGammaSpace_pi0_K0 test the group-completed Grothendieck group, rather than pre-completion components.
+5. Give actual proposed exact-couple test statements under the packet names; the current comment only lists names and refers elsewhere.
 
-1. **Node check.** 184 nodes are not yet checked in full; 33 of them were partly checked through the
-   baseline, reader or Lean passes. Untouched so far: most of H.1 (after the first three nodes), H.2 from
-   bisimplicial-realization-lemma to group-extension-fibration, all of H.3, H.4 up to
-   gl-telescope-plus-comparison and after cofinality-projective-modules, most of H.5:spectra, most of H.6,
-   and H.5:S-delooping. Check each against the issue's items 1–6: source at the locator, truth, closure at
-   lemma level, granularity, API, tests and planets.
-2. **Baseline entries 60–88.** In the base packet's order these run from CategoryTheory.Functor.Elements
-   to Matrix.vecMulLinear (all added by the first review). Read each statement against its citing nodes. The names are
-   already confirmed.
-3. **Findings recorded but not applied** (report table). Turn the six gaps added here into nodes:
-   - H.2/hurewicz-fibration (definition);
-   - relative homotopy lifting for Serre fibrations (lemma);
-   - relative homotopy groups of coverings (lemma, for H.3/relative-hurewicz-trivial-action);
-   - flat symmetric spectra, with Schwede I Prop. 5.50 and 5.54 (definition and two lemmas);
-   - H.6/first-stable-stems and π₂(S/2) ≅ ℤ/4 (theorem and lemma);
-   - the (p)-adic completion of ℤ as ℤ_p (lemma).
+Keep the corrected Carlsson construction: Sum_C(1) is Core C, and its natural-isomorphism groupoid cannot be iterated as a category with sums. Use Gamma-space delooping (E16). Keep the finite-type completion proof’s pro-zero bounded-torsion argument, not eventual Hom-group vanishing (E17). The coherent point-set filtered model, Kan requirement for strict loops, positive Waldhausen Omega range, corrected adjunction direction and complete tower filtration by fibres relative to its homotopy limit must also survive the next revision.
 
-   Then do the splits:
-   - H.6/p-complete-criteria into five lemmas, keeping the id for the holim criterion, because other
-     packets cite it;
-   - H.2/mapping-path-space-fibration into two declarations;
-   - exactness of the derived smash product into its own node.
+Validation: check_blueprint reports zero errors and warnings with the pinned baseline; the local prerequisite graph has no cycle. lean-check exits 0, with 607 sorry warnings only. The suggested file imports pinned Mathlib and documents compatibility stubs for the Tau Ceti modules unavailable in the shared build. No proof implementation is claimed.
 
-   Then the API work: rationalisation as S_ℚ ∧ᴸ E with functoriality and its universal property; the
-   orderComplex compatibility for posets; moving the CW-structure construction out of
-   H.1/realisation-boundary-inclusion-disk. Every new node gets `"addedBy": "REV-StableHomotopyKTheory~2"`,
-   at least three tests, and a Lean form.
-4. **Red-team findings (issue item 9a).** RT-AREA-ktheory-1/4, 1/5, 1/15, 1/16, 1/22, 1/23, 1/30 and 2/29
-   were not re-checked in this round. Check each against the packet and the reader, using the first
-   review's table and the BP~2 handoff as the record of earlier dispositions.
-5. **Library audit, restructure, upstream notes and gaps.** Not yet checked. This covers the AUDIT-30
-   layers, the two restructure proposals, the three upstream notes and the 35 older gaps (each must name an
-   exact missing input and its consumers).
-6. **Suggested file.** The H.1 part was checked, and its fixes are applied: canonical maps instead of bare
-   `Nonempty` statements, the missing covering-essential-surjectivity statement, the exactness of the
-   category-homology long exact sequence, and the loop and map lemmas of BG. Lines for H.2–H.6 (from the
-   H.2 header on) have not been checked against the packet. One deferred item: generalise
-   `classifyingSpace_homology_filtered_colimit` from ℤ to an arbitrary coefficient module.
-7. **Finish.**
-   - Write the source-issue verdicts (the report's texts, or your own) into the fifteen `review` objects,
-     by `REV-StableHomotopyKTheory~2`.
-   - Write the packet's `review` object, keeping the first review's object under `reviewHistory`, and its
-     `checked` list: every node's verdict and note, including the corrections listed in the report.
-   - Rewrite the report as the final report.
-
-The questions for the orchestrator are in the report: the register's handling of `known`, the declaration
-index's missing names, and the skipped K.4 link.
+Only the five issue deliverables changed: packet, suggested file, reader, review report and this handoff. No upstream roadmap, other packet, atlas content or library was edited. All source/working material was scratch-only and is removed after submission.
