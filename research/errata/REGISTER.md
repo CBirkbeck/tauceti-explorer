@@ -4,7 +4,7 @@ The atlas's workers read papers and books line by line to extract and plan their
 
 Collected by `scripts/errata.py` from the paper extractions and blueprint packets (research/blueprint/PROTOCOL.md, section 18); the data is in `data/source-issues.json`.
 
-8049 new mistakes confirmed · 1367 awaiting review · 2103 already corrected in print · 148 rejected on review · 5 extractions and packets not yet checked.
+8049 new mistakes confirmed · 1367 awaiting review · 2104 already corrected in print · 148 rejected on review · 5 extractions and packets not yet checked.
 
 ## New mistakes, confirmed
 
@@ -19666,6 +19666,7 @@ The cause is a leftover from HAL v3, where w and w' played swapped roles (𝔏^{
 - Pierre Deligne, Équations différentielles à points singuliers réguliers, Lecture Notes in Mathematics 163 (1970), IAS public scan; corrected by April 1971 erratum (`HodgeStructuresPartII`), II, Théorème 1.23 and Proposition 1.24; April 1971 erratum, p.1: corrected in Deligne, Erratum to LNM 163, April 1971, all three pages (source Del70Err)..
 - Carlos T. Simpson, Moduli of representations of the fundamental group of a smooth projective variety II, Publications Mathématiques de l’IHÉS 80 (1994), 5–79 (`HodgeStructuresPartII`), §6, Proposition 6.6, final sentence, published p.17: corrected in new; no existing correction found in the limited search recorded below.
 - Carlos T. Simpson, The Hodge filtration on nonabelian cohomology, arXiv alg-geom/9604005, v1, 4 April 1996; preprint pagination (`HodgeStructuresPartII`), §9, p.37, exponential gauge formula, arXiv alg-geom/9604005 v1 (4 April 1996); finding scoped to this preprint: corrected in new in the read preprint; published formula not checked.
+- Pierre Deligne, Théorie de Hodge II, Publications Mathématiques de l’IHÉS 40 (1971), 5–58, published scan (`HodgeStructuresPartII`), Published Théorie de Hodge II, Corollary 4.2.8(iii)(b) proof, p.48, paragraph immediately before Corollary 4.2.9; Numdam published scan: corrected in New to this packet; no published correction was located in the limited title/locator-specific searches on 2026-10-08. This does not assert novelty in the literature..
 - Hélène Esnault and Michael Groechenig, Rigid connections and F-isocrystals, Acta Mathematica 225 (2020), 103–158; published version (`HodgeStructuresPartII`), §2.1, published p.108: corrected in Already reported as PAPER-ESNAULT-GROECHENIG-20/E10 and HodgeStructuresPartII/EG20-E10-subset; no new discovery..
 - Hélène Esnault and Michael Groechenig, Rigid connections and F-isocrystals, Acta Mathematica 225 (2020), 103–158; published PDF (`HodgeStructuresPartII`), EG20 §2.1 printed p.108: corrected in already reported.
 - Benjamin Bakker, Bruno Klingler and Jacob Tsimerman, Tame topology of arithmetic quotients and algebraicity of Hodge loci, Journal of the American Mathematical Society 33 (2020), 917–939, published copy (`HodgeStructuresPartII`), Published JAMS 33 (2020), Theorem 1.1(1), p.919; compared with 2023 erratum §1.1: corrected in Bakker–Klingler–Tsimerman, 2023 published erratum; author copy https://benjamin-bakker.github.io/DefArithErr.pdf, §§1.1–1.5.
