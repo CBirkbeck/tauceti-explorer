@@ -2,7 +2,7 @@
 
 This part continues the existing pure, mixed and polarized Hodge theory toward tame period maps of **pure polarized integral variations**. Its base is a smooth connected quasi-projective complex variety. Its period target is a connected general Mumford–Tate Hodge manifold, with compatible arithmetic level and component choices. The target need not be Hermitian symmetric or algebraic. The two conclusions are definability of the period map in the real structure ℝ_an,exp and algebraicity of the exceptional Hodge locus as a countable union of proper closed irreducible algebraic subvarieties. There is no mixed-variation or real Noether–Lefschetz assertion.
 
-The plan contains 28 declaration-sized nodes: five definitions, three constructions and twenty theorems. Each definition or construction has an API and three discriminating tests. All 60 items in the reviewed BKT source route are accounted for below and in the packet's `sourceRouteAccounting`; items owned by H.3, H.6 or another roadmap are consumed through precise supplier contracts. H.7 is **planned**, rather than closed: its target chains reach eleven pinned declarations, existing supplier nodes, sixteen requests and seven explicit gaps. A complete target-level planning pass does not assert closure of the external proofs or implementation of the declarations.
+The plan contains 31 declaration-sized nodes: five definitions, three constructions, twenty theorems and three promoted API lemmas. Each definition or construction has an API and three discriminating tests. All 60 items in the reviewed BKT source route are accounted for below and in the packet's `sourceRouteAccounting`; items owned by H.3, H.6 or another roadmap are consumed through precise supplier contracts. H.7 is **planned**, rather than closed: its target chains reach eleven pinned declarations, existing supplier nodes, sixteen requests and seven explicit gaps. A complete target-level planning pass does not assert closure of the external proofs or implementation of the declarations.
 
 ## Conventions and ownership
 
@@ -166,7 +166,7 @@ For an integral polarized pure VHS with unipotent coordinate monodromies on a po
 2. Cover the compact q-buffer by finitely many algebraic compact-dual charts; Ψ is restricted analytic in these charts.
 3. Commuting nilpotent logarithms have polynomial exponential, and the group action is algebraic; compose definable maps.
 
-**Direct prerequisites:** [HodgeStructuresPartII:H.7/sector-uniformization](#sector-uniformization), `ShimuraData:D3/polarized-integral-variation`, `HodgeStructuresPartII:H.3`, `HodgeStructuresPartII:H.6`, `LogicAndDefinabilityInNumberTheory:LD.6`, `mathlib:Set.Definable`
+**Direct prerequisites:** [HodgeStructuresPartII:H.7/sector-uniformization](#sector-uniformization), `ShimuraData:D3/polarized-integral-variation`, `HodgeStructuresPartII:H.3`, `HodgeStructuresPartII:H.6`, `LogicAndDefinabilityInNumberTheory:LD.6`, `mathlib:Set.Definable`, [HodgeStructuresPartII:H.3/polarized-compact-dual](HodgeStructuresPartII--H.3.md), [HodgeStructuresPartII:H.3/represented-complex-orbit](HodgeStructuresPartII--H.3.md), [HodgeStructuresPartII:H.3/mt-orbit-open](HodgeStructuresPartII--H.3.md)
 
 **Source:** [BKT20](https://par.nsf.gov/servlets/purl/10200187), §4.2 Lemma 4.2 and complete proof, p.929. Uses its compact analytic buffer, polynomial nilpotent exponential and algebraic action.
 
@@ -201,6 +201,10 @@ On a fixed complexification V_C of a free integral local system, with a family o
 - `TauCeti.Hodge.Tame.hodgeFormFunction.diagonal` (compatibility): h(z,u,u)=P_z.hodgeForm u u.
 - `TauCeti.Hodge.Tame.hodgeFormFunction.hermitian` (relation): h(z,u,v)=conjugate(h(z,v,u)).
 - `TauCeti.Hodge.Tame.hodgeFormFunction.smul_left` (simp): h(z,a u,v)=a h(z,u,v).
+
+- `TauCeti.Hodge.Tame.hodgeFormFunction.add_left` (compatibility): h(s,u+u′,v)=h(s,u,v)+h(s,u′,v).
+- `TauCeti.Hodge.Tame.hodgeFormFunction.add_right` (compatibility): h(s,u,v+v′)=h(s,u,v)+h(s,u,v′).
+- `TauCeti.Hodge.Tame.hodgeFormFunction.smul_right` (compatibility): h(s,u,a·v)=conjugate(a)·h(s,u,v).
 
 **Unit tests.**
 
@@ -264,7 +268,7 @@ Let w be hodge-adapted-flag at F=Ψ(0), γ(z)=exp(Σz_iN_i)exp(v(q(z))) the H.6 
 3. Use h=i^{2p_j−k}B on each pure component and sum the orthogonal contributions.
 4. The nilpotent exponential is polynomial and the holomorphic big-cell correction is restricted analytic on a buffer, so the displayed numerators and minors lie in the coefficient Laurent-polynomial algebra.
 
-**Direct prerequisites:** [HodgeStructuresPartII:H.7/hodge-adapted-flag](#hodge-adapted-flag), [HodgeStructuresPartII:H.7/hodge-form-function](#hodge-form-function), `HodgeStructuresPartII:H.3`, `HodgeStructuresPartII:H.6`, `LogicAndDefinabilityInNumberTheory:LD.6`
+**Direct prerequisites:** [HodgeStructuresPartII:H.7/hodge-adapted-flag](#hodge-adapted-flag), [HodgeStructuresPartII:H.7/hodge-form-function](#hodge-form-function), `HodgeStructuresPartII:H.3`, `HodgeStructuresPartII:H.6`, `LogicAndDefinabilityInNumberTheory:LD.6`, [HodgeStructuresPartII:H.7/hodge-adapted-flag-refines-filtration](#hodge-adapted-flag-refines-filtration)
 
 **Source:** [BKT20](https://par.nsf.gov/servlets/purl/10200187), §4.4 equations (4.2)–(4.5), pp.931–932. Notation Δ is introduced here for the source’s exterior B-values; phases and complex conjugation are retained.
 
@@ -427,7 +431,7 @@ For the lifted period map Φ̃ into its general Mumford–Tate domain D=G/M, the
 2. Apply AA.3/orbit-map-siegel-preimage; its Cartan and forward-containment hypotheses are checked by H.3’s canonical Hodge metric.
 3. Lift the resulting Siegel sets from G/K_t to G/M: the compact fibre K_t/M is already included in the Siegel compact factor. Transport finite central quotients using the H.3 supplier.
 
-**Direct prerequisites:** [HodgeStructuresPartII:H.7/uniform-reducedness](#uniform-reducedness), `HodgeStructuresPartII:H.3`, `AdelicAlgebraicGroups:AA.3/reduction-siegel-dictionary`, `AdelicAlgebraicGroups:AA.3/orbit-map-siegel-preimage`, `AdelicAlgebraicGroups:AA.3/real-siegel-set`
+**Direct prerequisites:** [HodgeStructuresPartII:H.7/uniform-reducedness](#uniform-reducedness), `HodgeStructuresPartII:H.3`, `AdelicAlgebraicGroups:AA.3/reduction-siegel-dictionary`, `AdelicAlgebraicGroups:AA.3/orbit-map-siegel-preimage`, `AdelicAlgebraicGroups:AA.3/real-siegel-set`, [HodgeStructuresPartII:H.7/ordered-sector-permutation-cover](#ordered-sector-permutation-cover)
 
 **Source:** [BKT20](https://par.nsf.gov/servlets/purl/10200187), §4.5 first two paragraphs, pp.932–933. Uses the corrected inverse-image result, not the printed Borel–Harish-Chandra citation. [BKT23](https://benjamin-bakker.github.io/DefArithErr.pdf), §1.5, p.3. The erratum identifies the rational inverse-Siegel supplier.
 
@@ -451,7 +455,7 @@ For every R≥0 and η>0 whose closed q-buffer lies in the extension domain, Φ�
 3. For local boundary equations differing by nonvanishing analytic units, choose bounded logarithms on the buffer; the new real widths remain finite. Bounded-width lift choices differ by finitely many integral monodromy translates.
 4. Transport each local compact choice back through the same canonical metric projection; AA.3/real-siegel-translation handles the corresponding right-coordinate change and rational left monodromy translations. Union the finite families.
 
-**Direct prerequisites:** [HodgeStructuresPartII:H.7/deep-siegel-containment](#deep-siegel-containment), [HodgeStructuresPartII:H.7/bounded-sector](#bounded-sector), [HodgeStructuresPartII:H.7/sector-uniformization](#sector-uniformization), `HodgeStructuresPartII:H.3`, `HodgeStructuresPartII:H.6`, `AdelicAlgebraicGroups:AA.3/real-siegel-translation`
+**Direct prerequisites:** [HodgeStructuresPartII:H.7/deep-siegel-containment](#deep-siegel-containment), [HodgeStructuresPartII:H.7/bounded-sector](#bounded-sector), [HodgeStructuresPartII:H.7/sector-uniformization](#sector-uniformization), `HodgeStructuresPartII:H.3`, `HodgeStructuresPartII:H.6`, `AdelicAlgebraicGroups:AA.3/real-siegel-translation`, [HodgeStructuresPartII:H.7/ordered-sector-permutation-cover](#ordered-sector-permutation-cover)
 
 **Source:** [BKT20](https://par.nsf.gov/servlets/purl/10200187), Theorem 1.5, p.921; §4.5, pp.932–933. The positive-height statement needs this partial-boundary continuation in addition to the printed deep-sector proof.
 
@@ -477,7 +481,7 @@ Let a polarized integral pure VHS be defined on a neighbourhood of the closure o
 3. Choose half-open angular strips; the definable image of (q,πΦ̃) is exactly the local period graph. Finite union and graph-image calculus are supplied by LD.6.
 4. Descend the graph through the finite definable coordinate cover. Mixed interior coordinates are handled directly as analytic parameters; treating an interior disc as punctured alone would omit its centre.
 
-**Direct prerequisites:** [HodgeStructuresPartII:H.7/sector-lift-definable](#sector-lift-definable), [HodgeStructuresPartII:H.7/positive-height-siegel-cover](#positive-height-siegel-cover), `ShimuraData:D3/polarized-integral-variation`, `HodgeStructuresPartII:H.3`, `HodgeStructuresPartII:H.6`, `LogicAndDefinabilityInNumberTheory:LD.6`, `mathlib:Set.Definable`
+**Direct prerequisites:** [HodgeStructuresPartII:H.7/sector-lift-definable](#sector-lift-definable), [HodgeStructuresPartII:H.7/positive-height-siegel-cover](#positive-height-siegel-cover), `ShimuraData:D3/polarized-integral-variation`, `HodgeStructuresPartII:H.3`, `HodgeStructuresPartII:H.6`, `LogicAndDefinabilityInNumberTheory:LD.6`, `mathlib:Set.Definable`, [HodgeStructuresPartII:H.3/monodromy-descent](HodgeStructuresPartII--H.3.md), [HodgeStructuresPartII:H.7/sector-uniformization-half-open-surjective](#sector-uniformization-half-open-surjective)
 
 **Source:** [BKT20](https://par.nsf.gov/servlets/purl/10200187), §4.1–4.2 Theorem 4.1, Lemma 4.2 and proof, pp.928–929. This is the buffered form of the local statement, with the outer-boundary gap and angular seam repaired.
 
@@ -501,7 +505,7 @@ Let S be a smooth connected quasi-projective complex algebraic variety and V a p
 3. Apply local-period-definability on each mixed chart.
 4. Use LD.6 finite-atlas graph gluing and finite-cover descent to recover the original level and S.
 
-**Direct prerequisites:** [HodgeStructuresPartII:H.7/local-period-definability](#local-period-definability), `ShimuraData:D3/polarized-integral-variation`, `HodgeStructuresPartII:H.3`, `LogicAndDefinabilityInNumberTheory:LD.6`, `AlgebraicModuliForArithmeticGeometry:R09.7d`
+**Direct prerequisites:** [HodgeStructuresPartII:H.7/local-period-definability](#local-period-definability), `ShimuraData:D3/polarized-integral-variation`, `HodgeStructuresPartII:H.3`, `LogicAndDefinabilityInNumberTheory:LD.6`, `AlgebraicModuliForArithmeticGeometry:R09.7d`, [HodgeStructuresPartII:H.3/monodromy-descent](HodgeStructuresPartII--H.3.md)
 
 **Source:** [BKT20](https://par.nsf.gov/servlets/purl/10200187), Theorem 1.3, p.920; §4.1 complete reduction, p.928. Global definability follows from the finite buffered SNC cover, not from arbitrary analytic atlases.
 
@@ -607,7 +611,7 @@ On a simply connected flat trivialization U of a tensor construction T_Q of the 
 2. Take the inverse image under the rational embedding of that subspace, pointwise on U.
 3. Tate shifts use the native convention Z(m) of weight −2m; no new Tate structure is defined.
 
-**Direct prerequisites:** `tauceti:TauCeti.Hodge.HodgeStructureOn.piece`, `tauceti:TauCeti.Hodge.tate_piece`, `HodgeStructuresPartII:H.3`, `ShimuraData:D3/polarized-integral-variation`
+**Direct prerequisites:** `tauceti:TauCeti.Hodge.HodgeStructureOn.piece`, `tauceti:TauCeti.Hodge.tate_piece`, `HodgeStructuresPartII:H.3`, `ShimuraData:D3/polarized-integral-variation`, [HodgeStructuresPartII:H.3/orbit-hodge-tensors](HodgeStructuresPartII--H.3.md)
 
 **Source:** [BKT20](https://par.nsf.gov/servlets/purl/10200187), §1.4 definition of Hodge locus, pp.921–922. Uses exceptional type-zero tensors, with the native Tate convention pinned. [K17](https://arxiv.org/pdf/1711.09387v1), §2.4 tensor characterization and Lemma 2.5(a), p.8. The rational full-torus invariant convention, rather than the restricted norm-one torus.
 
@@ -683,7 +687,7 @@ On a simply connected complex chart with flat rational t, tensorHodgeLocus(t) is
 2. Pass to the holomorphic quotient bundle and its section; finite local holomorphic equations cut out the zero set.
 3. For other weights apply the weight-zero guard and injectivity of rational complexification.
 
-**Direct prerequisites:** [HodgeStructuresPartII:H.7/tensor-hodge-locus](#tensor-hodge-locus), `HodgeStructuresPartII:H.3`, `ComplexComparisonPartII:C0`
+**Direct prerequisites:** [HodgeStructuresPartII:H.7/tensor-hodge-locus](#tensor-hodge-locus), `HodgeStructuresPartII:H.3`, `ComplexComparisonPartII:C0`, [HodgeStructuresPartII:H.3/polarized-compact-dual](HodgeStructuresPartII--H.3.md), [HodgeStructuresPartII:H.3/mt-orbit-open](HodgeStructuresPartII--H.3.md)
 
 **Source:** [BKT20](https://par.nsf.gov/servlets/purl/10200187), §1.4 analytic locus sentence, p.921. This local proof supplies the fixed-tensor assertion without presupposing algebraicity. [K17](https://arxiv.org/pdf/1711.09387v1), §2.4 Hodge classes; §2.6, pp.8–9. For a real pure weight-zero tensor, membership in F⁰ implies membership in its conjugate.
 
@@ -800,7 +804,7 @@ Under the hypotheses of global-period-definability, if the arithmetic Hodge targ
 **Construction/proof.**
 
 1. Compactness of Γ\G/M with M compact implies compactness of Γ\G. Apply AA.3/cocompact-no-unipotents at the compatible congruence level.
-2. Quasi-unipotence and torsion-freeness then give trivial boundary monodromy. Apply the finite-monodromy extension case of H.6.
+2. At the compatible neat level, quasi-unipotence implies unipotence because the multiplicative group generated by eigenvalues contains no nontrivial root of unity. Cocompact-no-unipotents then forces boundary monodromy to be the identity. Apply the finite-monodromy extension case of H.6.
 3. Cover the compactification and compact target by finitely many buffered analytic charts, compare with the canonical atlases, and descend from the finite level using LD.6.
 
 **Direct prerequisites:** `ShimuraData:D3/polarized-integral-variation`, `HodgeStructuresPartII:H.3`, `HodgeStructuresPartII:H.6`, `AdelicAlgebraicGroups:AA.3/cocompact-no-unipotents`, `LogicAndDefinabilityInNumberTheory:LD.6`, `AlgebraicModuliForArithmeticGeometry:R09.7d`
@@ -810,13 +814,78 @@ Under the hypotheses of global-period-definability, if the arithmetic Hodge targ
 
 **Acceptance:** This statement uses R_an, not merely the expansion R_an,exp. A compact target does not allow arbitrary holomorphic maps with essential boundary singularities; the VHS monodromy and extension hypotheses remain essential.
 
+<a id="ordered-sector-permutation-cover"></a>
+
+### 29. Finite permutation cover by ordered sectors
+
+**Lemma:** `TauCeti.Hodge.Tame.orderedSector.permutation_cover`. Added by `REV-HodgeStructuresPartII--H.7` from the consumed API.
+
+For every z in boundedSector(n,R,Y), a permutation σ of the finite coordinates satisfies z∘σ in orderedSector(n,R,Y). The resulting finite union covers the entire sector, including tied heights.
+
+**Hypotheses:** n is finite; R≥0; Y>0; z belongs to boundedSector(n,R,Y).
+
+**Proof outline:**
+
+1. Sort the finite multiset of imaginary parts in descending order, retaining original indices.
+2. Use the resulting permutation; the absolute real-part and height inequalities are invariant under reindexing.
+3. Equal heights satisfy the weak ordering, so no genericity or strict-order assumption is needed.
+
+**Direct prerequisites:** [HodgeStructuresPartII:H.7/bounded-sector](#bounded-sector), [HodgeStructuresPartII:H.7/ordered-sector](#ordered-sector)
+
+**Source:** `BKT20`, §4.3 Definition 4.4, p.929; §4.5 opening, p.932.
+
+**Acceptance:** The corresponding API signature and discriminating object tests remain in the suggested file; the boundary and zero-dimensional cases are included.
+
+<a id="sector-uniformization-half-open-surjective"></a>
+
+### 30. Logarithms covering angular seams
+
+**Lemma:** `TauCeti.Hodge.Tame.sectorUniformization.halfOpen_surjective`. Added by `REV-HodgeStructuresPartII--H.7` from the consumed API.
+
+If η>0 and every q_i satisfies 0<|q_i|<exp(−2πη), there is z with 0≤Re z_i<1 and Im z_i>η such that sectorUniformization(z)=q. This covers positive real q as well as other arguments.
+
+**Hypotheses:** n is finite; η>0; every coordinate q_i is nonzero with |q_i|<exp(−2πη).
+
+**Proof outline:**
+
+1. Choose an argument of each nonzero coordinate in [0,2π), assigning argument zero to positive real coordinates.
+2. Put Re z_i=arg(q_i)/(2π) and Im z_i=−log|q_i|/(2π).
+3. The radius inequality implies Im z_i>η; the exponential identity recovers q_i coordinatewise.
+
+**Direct prerequisites:** [HodgeStructuresPartII:H.7/sector-uniformization](#sector-uniformization)
+
+**Source:** `BKT20`, §4.2 uniformizing diagram and Lemma 4.2, p.929.
+
+**Acceptance:** The corresponding API signature and discriminating object tests remain in the suggested file; the boundary and zero-dimensional cases are included.
+
+<a id="hodge-adapted-flag-refines-filtration"></a>
+
+### 31. Initial basis spans recover the Hodge filtration
+
+**Lemma:** `TauCeti.Hodge.Tame.hodgeAdaptedFlag.filtration`. Added by `REV-HodgeStructuresPartII--H.7` from the consumed API.
+
+For a basis b_i with antitone integer labels p_i and F^a=span{b_i:p_i≥a}, let j be the number of labels at least a. Then hodgeAdaptedFlag(b,j)=F^a. This identifies the H.6 homogeneous-basis flag with the limiting Hodge filtration used in the Gram proof.
+
+**Hypotheses:** b is a finite complex basis; p is antitone; the specified span equation for F holds; j counts labels at least a.
+
+**Proof outline:**
+
+1. Antitonicity makes the indices with p_i≥a an initial segment.
+2. Its cardinality j identifies that segment with the indices i<j.
+3. Substitute the equal generating sets into the span definitions. The homogeneous-basis and label assumptions are supplied by H.6.
+
+**Direct prerequisites:** [HodgeStructuresPartII:H.7/hodge-adapted-flag](#hodge-adapted-flag)
+
+**Source:** `BKT20`, §4.4 proof of Lemma 4.7, p.931.
+
+**Acceptance:** The corresponding API signature and discriminating object tests remain in the suggested file; the boundary and zero-dimensional cases are included.
+
 ## Pinned baseline and exact import boundary
 
 The baseline is Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`. The reviewed library audit has no HodgeStructuresPartII:H.7 entry. Its upstream pure/mixed Hodge evidence and two upstream reader documents were read before introducing the present declarations. Exact pinned sources were searched for period definability, exceptional Hodge loci, o-minimality, rough polynomiality and Siegel sets, and the following actual statements were read, rather than inferred from declaration names.
 
 | Declaration | What is already supplied |
 | --- | --- |
-
 | `mathlib:Set.Definable` | A subset of a finite Cartesian power of a first-order structure is given by a formula with parameters from A. This is a coordinate-level baseline, not an o-minimality or finite-atlas theorem. |
 | `mathlib:Complex.norm_exp` | For z complex, the norm of exp(z) is exp(Re z). Applied to 2πiz this bounds the punctured-disc coordinate away from its outer circle. |
 | `tauceti:TauCeti.Hodge.HodgeStructureOn` | A decreasing exhaustive opposed filtration on a complex module with specified conjugation, of integral weight n; separatedness is derived. |
@@ -837,9 +906,11 @@ The existing AA.3 real Siegel, reduction/metric dictionary, finite-permutation b
 
 ### Request 1: `HodgeStructuresPartII:H.3`
 
-Compact dual and connected Mumford–Tate orbit models with finite algebraic charts and holomorphic period maps for the existing ShimuraData:D3/polarized-integral-variation carrier. Supply real algebraic D⊂D-check, rational local trivializations, tensor/dual/Tate functor transport and local holomorphic quotient-bundle equations. Preserve all connected component choices; no full-isometry-domain identification for a proper Mumford–Tate group.
+Complete the existing H.3 compact-dual/orbit, holomorphic descent and tensor-transport plans with finite real algebraic charts, rational local trivializations, tensor/dual/Tate family transport and local holomorphic quotient-bundle equations. The availableInputs give the existing partial contracts; their implementation and source closure are not asserted. Preserve connected components and the distinction between the full polarized ambient domain and a proper Mumford–Tate orbit.
 
-Consumed by: [HodgeStructuresPartII:H.7/sector-lift-definable](#sector-lift-definable), [HodgeStructuresPartII:H.7/hodge-form-function](#hodge-form-function), [HodgeStructuresPartII:H.7/gram-determinant-formulas](#gram-determinant-formulas), [HodgeStructuresPartII:H.7/local-period-definability](#local-period-definability), [HodgeStructuresPartII:H.7/global-period-definability](#global-period-definability), [HodgeStructuresPartII:H.7/tensor-hodge-locus](#tensor-hodge-locus), [HodgeStructuresPartII:H.7/local-tensor-locus-analytic](#local-tensor-locus-analytic), [HodgeStructuresPartII:H.7/compact-target-period-definability](#compact-target-period-definability).
+Available partial plans: `HodgeStructuresPartII:H.3/polarized-compact-dual`, `HodgeStructuresPartII:H.3/represented-complex-orbit`, `HodgeStructuresPartII:H.3/mt-orbit-open`, `HodgeStructuresPartII:H.3/monodromy-descent`, `HodgeStructuresPartII:H.3/orbit-hodge-tensors`.
+
+**Needed by:** `HodgeStructuresPartII:H.7/sector-lift-definable`, `HodgeStructuresPartII:H.7/hodge-form-function`, `HodgeStructuresPartII:H.7/gram-determinant-formulas`, `HodgeStructuresPartII:H.7/local-period-definability`, `HodgeStructuresPartII:H.7/global-period-definability`, `HodgeStructuresPartII:H.7/tensor-hodge-locus`, `HodgeStructuresPartII:H.7/local-tensor-locus-analytic`, `HodgeStructuresPartII:H.7/compact-target-period-definability`.
 
 ### Request 2: `HodgeStructuresPartII:H.3`
 
@@ -933,7 +1004,7 @@ Consumed by: [HodgeStructuresPartII:H.7/global-period-definability](#global-peri
 
 ## Source corrections and version discipline
 
-The packet's 33 source-issue records carry precise printed passages, corrected statements, mathematical reasons and known-correction searches. These are the existing independently confirmed programme findings collated against this pass's source versions, not claims of new discoveries. `catalogueFinding` retains each original identifier. Published-versus-author-copy pagination is separated. The complete official erratum governs fixed compacts, Cartan-compatible functoriality and the corrected inverse-Siegel citation. The other records have no additional published correction established in the versions read; no new exhaustive arXiv/Crossref correction search is claimed.
+The packet's 33 source-issue records describe the source assertions in our own words, with precise locators, corrected statements, mathematical reasons and known-correction searches. Independent review on 8 October 2026 confirms every record with its own reason; no source passage is transcribed. These are the existing independently confirmed programme findings collated against this pass's source versions, not claims of new discoveries. `catalogueFinding` retains each original identifier. Published-versus-author-copy pagination is separated. The complete official erratum governs fixed compacts, Cartan-compatible functoriality and the corrected inverse-Siegel citation. The other records have no additional published correction established in the versions read; no new exhaustive arXiv/Crossref correction search is claimed.
 
 The corrections most directly affecting the proof are:
 
@@ -952,7 +1023,7 @@ Each corrected passage is used in the matching declaration's statement, proof st
 
 ## Suggested signatures: exact omissions and validation
 
-The suggested file imports individual native modules, reuses the existing Hodge forms and Tate structures, and gives all eight local objects, twenty named theorems, twenty-nine API lemmas and twenty-four labelled examples. It uses coordinate graphs, native submodules, bases, real matrices, complex determinants and native finite/countable set data. Received sets, subrings and maps are data boundaries for the actual suppliers; they do not define missing theories by arbitrary propositions.
+The suggested file imports individual native modules, reuses the existing Hodge forms and Tate structures, and gives all eight local objects, twenty named theorems, thirty-two API lemmas and twenty-four labelled examples. It uses coordinate graphs, native submodules, bases, real matrices, complex determinants and native finite/countable set data. Received sets, subrings and maps are data boundaries for the actual suppliers; they do not define missing theories by arbitrary propositions.
 
 | Suggested declaration family | Conditions or conclusions still unexpressed |
 | --- | --- |
@@ -978,9 +1049,9 @@ The packet checker passes with zero errors and zero warnings. The **full suggest
 
 The reviewed BKT extraction routes fixed-K structures on general Γ\G/M and corrected Cartan-compatible functoriality to ArithmeticQuotientDefinability, an extension of ArithmeticLocallySymmetricSpaces. No roadmap/stage/packet with that id exists in this clone. Required input: Γ torsion-free arithmetic, connected semisimple Q-group, connected compact M⊂K; finite definable Siegel chart refinement, π restricted to every same-K rational Siegel set R_alg-definable, and corrected functoriality (φ,g) with level, M, K and Cartan inclusions. Also finite central and level quotient descent. General M≠K cannot be silently supplied by ALS.2. The consuming H.7 nodes are conditional on this gap; no unknown supplier id is used as a fake resolved prerequisite.
 
-### G2: Unplanned H.3 period, metric and generic-tensor contracts
+### G2: Remaining H.3 tame-domain, metric and generic-tensor contracts
 
-No finer H.3 nodes exist in the parent or part packets. The four H.3 requests above must be replaced by exact nodes. Native pure Hodge structures, fibre polarizations and Tate structures are already available; general Mumford–Tate manifolds, canonical metric quotient adapters, Hodge-morphism image factorizations and generic tensor/subdatum classification are not supplied by those fibrewise declarations. K17 cites André/Pink for parts of these contracts; those proofs have not been reverified in this H.7 pass.
+The current H.3 part packet has exact compact-dual, represented-orbit, holomorphic-descent and orbit-tensor nodes; H.7 now names the applicable inputs. Those plans do not yet export the finite real algebraic atlas, canonical metric/Cartan and compact-fibre Siegel adapters, arithmetic Hodge-morphism image factorization, or generic strict-drop tensor/subdatum classification needed here. The four requests retain only this unclosed interface boundary. Fibrewise Hodge, polarization and Tate structures remain native. K17 cites André/Pink for some remaining statements; their proofs are not independently verified by this review.
 
 ### G3: H.6 degeneration estimates and parameter uniformity need exact suppliers
 
@@ -1005,3 +1076,18 @@ The suggested file gives exact native signatures for the eight local definitions
 The six planets are Rough polynomiality of Hodge forms, Finite Siegel containment, Definability of period maps, Hodge locus, Algebraicity of special pullbacks and Algebraicity of Hodge loci. They select the central mathematical objects and conclusions; none is a bookkeeping check. The packet proposes materializing the already routed tame-arithmetic-quotient Part II and extending the analytic image supplier in ComplexComparisonPartII. The current H.7 layer and its target scope remain unchanged.
 
 Closure requires replacing provisional stage dependencies by exact supplier nodes, closing the seven gaps, restoring the suggested file's omitted hypotheses and conclusions, and elaborating at the full pinned baseline. This target-level pass leaves no H.7 target unaccounted for; it leaves those supplier refinements explicitly open. The roadmap's other stages, its upstream fibrewise theory and Borel's arithmetic-variety theorem are outside this packet's scope.
+
+## Independent review, 8 October 2026
+
+Accepted by `REV-HodgeStructuresPartII--H.7` as a completed conditional target-level plan. The [review report](../reviews/REV-HodgeStructuresPartII--H.7.md) records every node, baseline and source-issue verdict. This pass links the applicable current H.3 plans, promotes three consumed API facts to lemma nodes, completes addition and conjugate-right scalar APIs for the Hodge form, corrects the neat-level boundary-monodromy proof step, and replaces inherited source quotations by authored descriptions. The 31 nodes, 32 API entries, 24 examples and six planets leave seven explicit gaps. The four untyped analytic/algebraic conclusions and other omitted supplier hypotheses in the suggested file remain obligations.
+
+All six public downloads matched their recorded hashes. The independent read boundaries below are separate from the historical author receipts above:
+
+- **BKT20**: Independent review 2026-10-08: §§1.3–1.4, §§2.1–3.2 and complete §§4.1–5 at published pp.920–934; rendered pp.931–933 collated for formulas and symbols. All H.7 locators checked; cited Schmid/CKS/reduction proofs remain supplier work.
+- **BKT-author**: Independent review 2026-10-08: bytes/hash verified and §§4–5 corresponding passages compared with publication; no claim to independently reread its entire Appendix A.
+- **BKT23**: Independent review 2026-10-08: complete four-page erratum, §§1.1–1.6 and examples.
+- **Ka85**: Independent review 2026-10-08: §§1.8–1.9 pp.859–861; Lemma 2.4.1 proof pp.863–864; Theorems 3.4.1–3.4.2 p.870 (rendered formulas), §4.1 and beginning §4.2 pp.870–873. Complete asymptotic proof not reverified.
+- **K17**: Independent review 2026-10-08: §§2.4–2.6 pp.8–9 and §§3.3–3.5 pp.11–13, including Definitions 3.12–3.13. Cited André/Pink proofs remain supplier obligations.
+- **PS09**: Independent review 2026-10-08: Theorem 4.4/Corollary 4.5 and their proofs, draft p.12; Theorem 6.1, remarks and proof, draft pp.16–18. Earlier analytic-geometric and projective Chow inputs not independently reverified.
+
+All eleven baseline statements were inspected at Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369` and Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`. The default declaration TSV is absent, so the packet checker validates baseline reference form; the independent exact-pin statement inspection supplies the declaration audit. A fresh Mathlib-only slice excluding Forms, TensorLoci, GramFormula, RoughForms and localTensorLocus_analytic elaborates with only proof-placeholder warnings. Full `lean-check` stops at the missing `TauCeti.Geometry.Hodge.HodgeForm` compiled import in the shared build. No full-file elaboration or mathematical proof check is claimed.
