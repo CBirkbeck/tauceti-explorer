@@ -32856,7 +32856,8 @@
    ],
    "avoidAccountOf": "BP-HodgeStructuresPartII--H.6",
    "prompt": "research/blueprint/prompts/REV-HodgeStructuresPartII--H.6.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7063"
   },
   {
    "id": "BP-HodgeStructuresPartII--H.7",
@@ -40339,7 +40340,8 @@
     "BP-PadicHodgeRegulators--D.1~2"
    ],
    "prompt": "research/blueprint/prompts/REV-PadicHodgeRegulators--D.1~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7078"
   },
   {
    "kind": "blueprint",
@@ -42401,8 +42403,9 @@
    ],
    "revisionOf": "BP-EllipticRegulators--ER.7",
    "prompt": "research/blueprint/prompts/BP-EllipticRegulators--ER.7~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6956"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6956",
+   "finishedAt": "2026-10-08T08:56:55Z"
   },
   {
    "priority": 2,
