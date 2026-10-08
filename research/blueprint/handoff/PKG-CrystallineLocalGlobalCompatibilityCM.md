@@ -1,6 +1,144 @@
 # PKG-CrystallineLocalGlobalCompatibilityCM — blocked checkpoint
 
-## Current continuation: codex-albCMF
+## Current continuation: codex-sLApBx
+
+Issue: [#7462](https://github.com/CBirkbeck/tauceti-explorer/issues/7462).
+Agent: Codex. Session: `codex-sLApBx`. Date: 2026-10-08.
+Input commit: `0c957eb3ee228afcbea9bf97e2c8ca14642b82be`.
+Branch: `codex-sLApBx-crystalline-package`.
+
+**Blocked checkpoint.** The inherited assembly is preserved. This run changes
+only this handoff, after independently checking the supplier gate. The missing
+interfaces still prevent completion within this issue's four authorized paths.
+This run also identifies a stale supplier assignment in the accepted plan:
+`REQ-TOWER` asks ALS.6 for completed constructions that the accepted RS-09
+restructuring explicitly places in `CompletedCohomologyPartII`.
+
+### New continuation finding: repair the tower request's ownership first
+
+The request `CrystallineLocalGlobalCompatibilityCM/REQ-TOWER` names
+`ArithmeticLocallySymmetricSpaces:ALS.6`. It asks for completed smooth
+cohomology, compact-open derived recovery, homotopy inverse limits in the
+coefficient exponent, coefficient descent, and the interior/boundary towers.
+Its consumers include CL.1/p-ordinary-completed, CL.3/lem-2-3-14,
+CL.5/boundary-coefficient-object, CL.5/lem-4-1-6, CL.5/prop-4-1-4,
+CL.8/pgl2-cohomology and CL.8/prop-5-5-3.
+
+That assignment conflicts with
+[RS-09.result.json](../restructure/RS-09.result.json), accepted by
+`independent-review-REV-RS-09~2` on 2026-09-30. Its `layers` entries and `owners`
+records move tower assembly and completed constructions out of ALS.6. The
+current arithmetic packet agrees: ALS.6 has four finite-level nodes, and its
+coverage explicitly puts completed level-system constructions outside ALS.6.
+The mathematical split to use when correcting the request is:
+
+| Needed input | Existing owner to inspect for an exact supplying declaration |
+|---|---|
+| Finite-level coefficient complexes and descent, with Hecke and support compatibility | ALS.1, ALS.3, ALS.4 and ALS.6; ALS.6 remains finite-level |
+| Coherent level-indexing, conjugation and tower assembly | `CompletedCohomologyPartII:CC.0` |
+| Smooth local-group action on the level colimit | `CompletedCohomologyPartII:CC.1` |
+| Completed objects, order of limits and Milnor/reduction corrections | `CompletedCohomologyPartII:CC.2` |
+| Completed equivariant chain models and derived finite-level recovery | `CompletedCohomologyPartII:CC.4` |
+| Continuous completed descent and compact-open derived-invariants comparison | `CompletedCohomologyPartII:CC.6` |
+| Passage of the boundary/support triangle through the derived tower | `CompletedCohomologyPartII:CC.7` |
+
+The nilmanifold-fibration and unipotent congruence-limit calculation requested
+for CL.5/lem-4-1-6 remains an arithmetic input; retain the ALS.2 fibration and
+its exact integral acyclicity obligation. The table does not certify that any
+owner's current statement proves that vanishing, nor supply an arbitrary
+coefficient-extension theorem. Match each subrequest to its actual statement
+before replacing prerequisites.
+
+No packet or suggested file for `CompletedCohomologyPartII` exists in this
+checkout. Its CC.0 planning issue [#701](https://github.com/CBirkbeck/tauceti-explorer/issues/701)
+was still `state:available` when inspected. Completing ALS.6 alone cannot
+satisfy `REQ-TOWER`; requiring ALS.6 to re-create CC's constructions would
+violate PROTOCOL section 15. An authorized blueprint correction should split
+this request, repair the consuming prerequisites/reader forms, and preserve
+all finite-level and integral-limit hypotheses. This package job cannot edit
+those files. No prerequisite or new stage id was invented here.
+
+For accuracy, the current arithmetic packet's review is `needs_changes`, dated
+2026-10-08, by `independent-review-REV-FIX-RT-AREA-automorphic-1~4`. Its remaining
+findings concern reader statements in other layers. This observation is not
+used to infer a new ALS.6 mathematical error: the narrow ALS.6 ownership is
+established by the accepted RS-09 and its actual node statements.
+
+### Supplier gate independently rechecked
+
+- **Smooth derived category:** the SR.0 packet, reader and suggested file are
+  absent; [#996](https://github.com/CBirkbeck/tauceti-explorer/issues/996) is
+  still available. At the Tau Ceti pin,
+  `TauCeti.IsSmoothDiscrete` is the genuine discrete/open-stabilizer predicate
+  (`SmoothDiscrete.lean`, lines 254-258), and `SmoothDiscreteTopRep` is its
+  full subcategory (lines 537-544). The pinned continuous-cohomology tree has
+  no abelian-category or enough-injectives interface satisfying `REQ-SMOOTH`.
+  The AUDIT-41 SR.0 and derived-extension entries distinguish these missing
+  structures from the available smoothness predicate. At the Mathlib pin,
+  `DerivedCategory` (Basic.lean, lines 65-87) requires an abelian input; it does
+  not construct the missing smooth open-monoid category or its derived
+  invariants/coinduction interface.
+- **Integral coefficients:** the parent's explicit integral highest-weight
+  gap still names `ReductiveGroupsIntegralRepresentationsPartII` as the owner,
+  without assigned stage ids. The parent has no complete typed exports for
+  the `REQ-INTEGRAL-WEYL` evaluation, reduction and Levi splitting contract.
+  At the Tau Ceti pin, `YoungTableau.weylModule` (WeylModule.lean, lines
+  114-124) assumes `Algebra ℚ k`; its rational-symmetrizer construction cannot
+  be substituted for a lattice over O or O/ϖ^m.
+- **Arithmetic tower:** the current ALS.6 suggested forms retain their
+  signatures as explicit omissions. Both the missing interfaces and the
+  request's ownership mismatch above must be resolved. The reviewed
+  `data/library-coverage.json` ALS.6 entry records that the arithmetic tower
+  is absent, despite the available generic limit machinery.
+
+These are sufficient blockers, not a new exhaustive audit of all 27 requests.
+The issue requires typed definitions, theorems, API and examples; PROTOCOL
+sections 13 and 15 require honest omissions and the existing owners' objects.
+Introducing assumed conclusions or constructing the suppliers inside this
+package would not meet that requirement. Time and memory were available.
+
+### Verification in this run
+
+- `python3 scripts/check_blueprint.py research/blueprint/packets/CrystallineLocalGlobalCompatibilityCM.json`:
+  **0 errors, 0 warnings**; 97 nodes, 103 API items, 104 tests, 37 planets,
+  nine baseline declarations, 27 requests, 40 gaps. All ten layers are
+  planned; none is closed. The packet was not edited.
+- `lean-check research/blueprint/packages/CrystallineLocalGlobalCompatibilityCM/Suggested.lean`:
+  **exit 0, no errors, 48 warnings, all `declaration uses sorry`**. Available
+  memory was 111 GB before the check. The command finished. Mathlib is exactly
+  `082e2d37e8b0463410cdb532e111cd43d5a66174`; the file imports only Mathlib,
+  so its compilation makes no claim about Tau Ceti imports at the older pin.
+  The Tau Ceti statements above were separately read at
+  `f790474821cf4256814db967cb154e7af3d0c369` with `git show`.
+- Read WORKERS, both protocols, UPSTREAM_GUIDE, the full issue, and the complete
+  upstream ReductiveGroups and Multiquadratic READMEs. No restricted source
+  was needed; no mathematical source passage is added.
+- `python3 research/blueprint/intake.py check-files` on this handoff:
+  **0 problems**. `git diff --check` passes. Only this authorized handoff path
+  changes; `issues.deliverables_complete` is **false**, confirming checkpoint
+  treatment with the missing metadata output.
+- The inherited README and suggested file are unchanged. Their previous
+  reconciliation records ten typed targets (seven cores and three full
+  theorems) and 87 missing target, 82 missing API and 83 missing test forms.
+  Compilation validates the typed forms, not those omissions.
+
+### Resume gate and submission
+
+First correct `REQ-TOWER` through an authorized plan revision and obtain the
+actual supplier exports listed above. Use the inherited omission catalogue
+for the remaining signatures, preserving its exact arithmetic hypotheses,
+normalizations and counterexamples. No further reader assembly is needed.
+Do not treat an accepted plan or a compiled generic core as a supplied
+arithmetic interface. The earlier continuations below retain the complete
+worklist and mathematical qualifications.
+
+`metadata.toml` remains absent as in the inherited checkpoint: the package is
+incomplete. Add `topic = "math.NT"` only with the complete package, since the
+intake uses the existence of every output path to recognize completion.
+This run takes no second claim and does not modify labels or the queue.
+All continuation information is in this note; scratch is disposable.
+
+## Previous continuation: codex-albCMF
 
 Issue: [#7462](https://github.com/CBirkbeck/tauceti-explorer/issues/7462).
 Agent: Codex. Session: `codex-albCMF`. Date: 2026-10-08.
