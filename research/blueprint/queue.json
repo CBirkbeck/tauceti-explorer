@@ -37870,8 +37870,9 @@
     "BP-AutomorphicGaloisRepresentationsPartII--AG2.0~2"
    ],
    "prompt": "research/blueprint/prompts/REV-AutomorphicGaloisRepresentationsPartII--AG2.0~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7296"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7296",
+   "finishedAt": "2026-10-08T18:59:29Z"
   },
   {
    "kind": "blueprint",
@@ -38180,7 +38181,8 @@
    ],
    "revisionOf": "BP-CohomologyComparisons",
    "prompt": "research/blueprint/prompts/BP-CohomologyComparisons~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6950"
   },
   {
    "priority": 2,
@@ -39136,7 +39138,8 @@
    ],
    "revisionOf": "BP-GrossZagierAndArithmeticHeights--GZ.8",
    "prompt": "research/blueprint/prompts/BP-GrossZagierAndArithmeticHeights--GZ.8~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6967"
   },
   {
    "priority": 2,
@@ -40980,8 +40983,9 @@
     "BP-SchemeKTheoryOperations~2"
    ],
    "prompt": "research/blueprint/prompts/REV-SchemeKTheoryOperations~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7089"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7089",
+   "finishedAt": "2026-10-08T18:59:32Z"
   },
   {
    "kind": "blueprint",
@@ -41869,7 +41873,8 @@
    ],
    "revisionOf": "BP-ArithmeticQuantumTopology",
    "prompt": "research/blueprint/prompts/BP-ArithmeticQuantumTopology~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6935"
   },
   {
    "priority": 2,
