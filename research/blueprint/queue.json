@@ -38296,8 +38296,9 @@
     "BP-CrystallineCohomology--CR.5~2"
    ],
    "prompt": "research/blueprint/prompts/REV-CrystallineCohomology--CR.5~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7039"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7039",
+   "finishedAt": "2026-10-08T13:42:40Z"
   },
   {
    "kind": "blueprint",
@@ -38799,7 +38800,8 @@
     "BP-ExcursionOperatorsAndSpectralAction--ES7~2"
    ],
    "prompt": "research/blueprint/prompts/REV-ExcursionOperatorsAndSpectralAction--ES7~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7049"
   },
   {
    "kind": "blueprint",
