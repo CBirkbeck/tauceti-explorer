@@ -3510,12 +3510,12 @@
     "declarationLevel": {
      "source": "blueprint",
      "reviewed": true,
-     "declarations": 792,
-     "missingDeclarations": 792,
+     "declarations": 823,
+     "missingDeclarations": 823,
      "depth": 25,
-     "layersCovered": 6,
+     "layersCovered": 7,
      "layers": 9,
-     "sourcePages": 318
+     "sourcePages": 357
     }
    },
    "measurement": 4.28,

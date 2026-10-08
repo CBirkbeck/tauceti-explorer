@@ -1387,6 +1387,18 @@
     "data/blueprints/roadmaps/HodgeStructuresPartII.json"
    ]
   },
+  "research/blueprint/packets/HodgeStructuresPartII--H.8.json": {
+   "promotedAt": "2026-10-08T08:57:13Z",
+   "review": "86e747f58250a126",
+   "reviewDate": "2026-10-08",
+   "reviewer": "independent-review-REV-HodgeStructuresPartII--H.8",
+   "sha256": "997e69c71af89b89a74da08413fa4daee6c4e662048d5e51a3b3f7c25066e051",
+   "to": [
+    "data/blueprints/HodgeStructuresPartII--H.8.json",
+    "data/blueprints/HodgeStructuresPartII--H.8.md",
+    "data/blueprints/roadmaps/HodgeStructuresPartII.json"
+   ]
+  },
   "research/blueprint/packets/HodgeStructuresPartII.json": {
    "promotedAt": "2026-10-07T02:51:19Z",
    "review": "dbcb90fe7b0fc7c0",
