@@ -1,8 +1,8 @@
 {
   "roadmaps": 236,
-  "stages": 4653,
+  "stages": 4673,
   "originalStages": 2160,
-  "sourceRefinements": 2493,
+  "sourceRefinements": 2513,
   "reviewedDecompositions": [
     {
       "roadmap": "AInfCohomology",
@@ -266,7 +266,7 @@
     {
       "roadmap": "VectorBundlesAndIsocrystals",
       "status": "partial",
-      "nodes": 23,
+      "nodes": 10,
       "review": "accepted",
       "deferredLinks": 0
     }
@@ -292,14 +292,14 @@
   "editedRoadmapSummaries": 181,
   "curatedStagePresentations": 339,
   "administrativeStages": 101,
-  "mathematicalStars": 4552,
+  "mathematicalStars": 4572,
   "plainTextPlanetLabels": 398,
   "hiddenPlanets": 600,
   "mappedStageStatuses": 350,
   "libraryAuditStatuses": 19,
   "bibliographicSources": 46,
-  "roadmapEdges": 2099,
-  "stageEdges": 11968,
+  "roadmapEdges": 2107,
+  "stageEdges": 12040,
   "reviewedLinkPackets": 25,
   "promotedBlueprints": [
     {
@@ -361,6 +361,12 @@
       "roadmap": "ArithmeticKTheory",
       "nodes": 5,
       "reviewer": "independent-review-REV-ArithmeticKTheory--N.2"
+    },
+    {
+      "file": "ArithmeticKTheory--N.3-finite-generation",
+      "roadmap": "ArithmeticKTheory",
+      "nodes": 5,
+      "reviewer": "independent-review-REV-ArithmeticKTheory--N.3-finite-generation~2"
     },
     {
       "file": "ArithmeticKTheory--N.5",
@@ -771,6 +777,12 @@
       "reviewer": "independent-review-REV-HabiroNumberFields--HB.1"
     },
     {
+      "file": "HabiroNumberFields--HB.2",
+      "roadmap": "HabiroNumberFields",
+      "nodes": 4,
+      "reviewer": "independent-review-REV-HabiroNumberFields--HB.2~2"
+    },
+    {
       "file": "HabiroNumberFields--HB.6",
       "roadmap": "HabiroNumberFields",
       "nodes": 5,
@@ -853,6 +865,18 @@
       "roadmap": "HodgeStructuresPartII",
       "nodes": 36,
       "reviewer": "independent-review-REV-HodgeStructuresPartII--H.1"
+    },
+    {
+      "file": "HodgeStructuresPartII--H.2",
+      "roadmap": "HodgeStructuresPartII",
+      "nodes": 33,
+      "reviewer": "independent-review-REV-HodgeStructuresPartII--H.2"
+    },
+    {
+      "file": "HodgeStructuresPartII--H.3",
+      "roadmap": "HodgeStructuresPartII",
+      "nodes": 43,
+      "reviewer": "independent-review-REV-HodgeStructuresPartII--H.3"
     },
     {
       "file": "HodgeStructuresPartII--H.5",
@@ -1101,6 +1125,12 @@
       "reviewer": "independent-review-REV-SpecialValuesBirchTate~2"
     },
     {
+      "file": "VectorBundlesAndIsocrystals--VB0",
+      "roadmap": "VectorBundlesAndIsocrystals",
+      "nodes": 51,
+      "reviewer": "independent-review-REV-VectorBundlesAndIsocrystals--VB0~2"
+    },
+    {
       "file": "WeightsInEtaleCohomology",
       "roadmap": "WeightsInEtaleCohomology",
       "nodes": 27,
@@ -1120,8 +1150,8 @@
     }
   ],
   "sourceDocuments": 296,
-  "htmlBytes": 35782277,
-  "htmlSha256": "867c1fb18b1e723a0174389c128feb4da58313554ba8b88b2a6aa78e6a641588",
+  "htmlBytes": 35729052,
+  "htmlSha256": "0e99b1828460a6188f765c2a915bee249c5e27d9f94ee8274003bf23aec20332",
   "networkDependencies": 0,
   "localProgressOverridesIncluded": false,
   "assets": {
@@ -1153,7 +1183,7 @@
     "data/roadmap-summaries.json": "c8bdd0a9105f5d3c4a858c8b635990729f8e94497dee784a71fae659b8c05b9f",
     "data/roadmap-classification.json": "2641dbc97eb2566c715162d011b46890d1635629181ef8126ac7aed9e24a3b13",
     "data/classification-estimates.json": "625d35fe6121bf099dc5de9e6a9111793596f9b664e3fbd439841434bb4a57d6",
-    "data/roadmap-distances.json": "ee29bda3e975ffefb4be31ae946297091d829f8b822cbcfe0bcea48d873d6d4c",
+    "data/roadmap-distances.json": "c7ede4aadcde4f21fe99fde847b333121df38fdbeb9bafa3de00996234f33d1e",
     "data/galaxy-layout.json": "2c01bbf6e2083476a6b73f3d295c4d4c898d0be461c21fb0195da29a30469a03",
     "data/bibliography.json": "bef230a41fad22d6b790c7564061c4d05c2ae5b78cab53d005eb404afab2b122",
     "NOTICE": "a285b95d5adbf5c2bcc82db36e2a77b797f84a2c5cbb30292efd0bae17cc4f34",
@@ -1231,6 +1261,8 @@
     "data/blueprints/ArithmeticKTheory--N.1.md": "edda1f3cc5d29b969cb72bd343840816730703bcb47bd5448350acac97295a9f",
     "data/blueprints/ArithmeticKTheory--N.2.json": "1c7aa7a2cc0afad33f3700b24925f29ab533c66ead2053cdfc46eeac5952b248",
     "data/blueprints/ArithmeticKTheory--N.2.md": "d1a6dfdca62e65ccaae49d1d5eb2234b2828e1640377402a841c93bfbb968d83",
+    "data/blueprints/ArithmeticKTheory--N.3-finite-generation.json": "b2cae1f14dec5b5dc728a4603e724891edc7d66ae86e31fabe038f8df87b5127",
+    "data/blueprints/ArithmeticKTheory--N.3-finite-generation.md": "d98a57bff848abf9dfc914323d8f513103a6a00bf74ae73d88f2469550e31c15",
     "data/blueprints/ArithmeticKTheory--N.5.json": "c33f05d630b51b76d4f1466615b7c9fbf4d0d629fb423d9c77229a7f2b50af04",
     "data/blueprints/ArithmeticKTheory--N.5.md": "60c9c703947c064badfc6ad1eb4d9d522db1012f335f2d1e2c04476230479893",
     "data/blueprints/ArithmeticKTheory--N.7.json": "c8fa0e7bba9d9a6a0cbdf8340101e1b19b807bfa163da4e36c0989f7f3518a1f",
@@ -1367,6 +1399,8 @@
     "data/blueprints/HabiroNahmSeries.md": "57e69d599eabed639adfa0cd5958bb19f50385bc3b2737e77a60c045aacd4b23",
     "data/blueprints/HabiroNumberFields--HB.1.json": "b9e8645ec416d9bab4d124feb3892ff8322ab931004ca7dfb41eb448446a5585",
     "data/blueprints/HabiroNumberFields--HB.1.md": "ab922b9a8a55638a12973344013721ed5868a8d853907bc6c33dd7f01bf10567",
+    "data/blueprints/HabiroNumberFields--HB.2.json": "c7050d34d6a7955ad3290336df55cfcb10f666051db41b96e744b8f4f2132f68",
+    "data/blueprints/HabiroNumberFields--HB.2.md": "0ed2736e84807089a44b83c9d966371c68a228ad38e318165005465df01cf4fb",
     "data/blueprints/HabiroNumberFields--HB.6.json": "aafc40ae9627b7f139e36679b4aa4b7d3a20b0a44d12f65f667652f065e1dce5",
     "data/blueprints/HabiroNumberFields--HB.6.md": "6c0935185f18afa4df0234a6fcb8cecd3244aad6c312087bcb4e5ec107a85074",
     "data/blueprints/HabiroNumberFields--HB.7.json": "b553ee871fea7fdd9e2919dc3dbb1d3c9a18fd74db1382a9a8fea8c71cb7d0a6",
@@ -1395,6 +1429,10 @@
     "data/blueprints/HodgeStructuresPartII--H.0.md": "88d0b3f1e95aad39df5d30c2d9a2e92d7bb0c0d69cf65f2d4d5fe7165239f8cf",
     "data/blueprints/HodgeStructuresPartII--H.1.json": "75f8e501cbc1d0acafaadd28037c91b3837cf634910b8addf1ce98d4c526d7b5",
     "data/blueprints/HodgeStructuresPartII--H.1.md": "b39fef59fabb8294a8d185e9328fe40728fd500e6f4d72fbbc36bc4e4aca1b63",
+    "data/blueprints/HodgeStructuresPartII--H.2.json": "47f4db1562f4bdd8ff4ab4b72a5cc6c197d87d4e2e790f366952fc24092e4c07",
+    "data/blueprints/HodgeStructuresPartII--H.2.md": "7eea1db93ff4077e3dcc9a00fcf6ce5f93e72c5c6e99ca0da32410dfdcc72e59",
+    "data/blueprints/HodgeStructuresPartII--H.3.json": "24c60ec7558d14f641d57992ea0b9fde2904c611a75276760f90731cd6f9ba40",
+    "data/blueprints/HodgeStructuresPartII--H.3.md": "492c8db2975f361656bc8b5dfb4a5b53a922d0e5a4a6c83fbf12638172278bc8",
     "data/blueprints/HodgeStructuresPartII--H.5.json": "91ebe23648b4593e5c92ce53aa691d243031360383521e12871f893ccd5d9130",
     "data/blueprints/HodgeStructuresPartII--H.5.md": "9659dd521f70dd60d61841d632aec8d76f2d88af8e7c9bcf9d5d97206224e749",
     "data/blueprints/HodgeStructuresPartII--H.7.json": "3c300ca60de0a722132e69f5a9b69d4c2153afc38be300962907a424b0237940",
@@ -1477,6 +1515,8 @@
     "data/blueprints/SmallRamificationAndAbelianVarietyBaseCases.md": "bf5bb37e33b91d56f46879172730f6ced43c4f448c1ff01efeec27bc66d0141e",
     "data/blueprints/SpecialValuesBirchTate.json": "4f757c294cfa0a140e437995ab1486bf8d53560fa7f8461d4f8ab742684139aa",
     "data/blueprints/SpecialValuesBirchTate.md": "93437444f62052d2c2a0681d4f321c6b9ca026b233c3fc85c72224a10cdf323d",
+    "data/blueprints/VectorBundlesAndIsocrystals--VB0.json": "f2a4bae90b4976971bdbda0b8cc380630e95fa6511dcc9037a39bb97e42163e3",
+    "data/blueprints/VectorBundlesAndIsocrystals--VB0.md": "d4e71ea9c22507e3b27654cf2536d180dce123cb60247ca36745c3f92e96f734",
     "data/blueprints/WeightsInEtaleCohomology.json": "75c84694eb6b771712d8370c0a0efee07e34d3d90ae74fd1a5506eaae74c8a38",
     "data/blueprints/WeightsInEtaleCohomology.md": "07d92a72bd8c5c7ce17d94421c4bc82987d773295f130db135689702d21c11ba",
     "data/blueprints/WeilConjectures--WC.0.json": "9b6da7ceb78e676bda19a09126c201e769dc11e99a371a4fb42b54d0f95cd21d",

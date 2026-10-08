@@ -372,6 +372,17 @@
     "data/blueprints/ArithmeticKTheory--N.2.md"
    ]
   },
+  "research/blueprint/packets/ArithmeticKTheory--N.3-finite-generation.json": {
+   "promotedAt": "2026-10-08T06:39:46Z",
+   "review": "ecff0d5da59cd479",
+   "reviewDate": "2026-10-08",
+   "reviewer": "independent-review-REV-ArithmeticKTheory--N.3-finite-generation~2",
+   "sha256": "9705de959e0717b7df0f46093aa10e277afc127a17dcf56d2a8bdb107238927d",
+   "to": [
+    "data/blueprints/ArithmeticKTheory--N.3-finite-generation.json",
+    "data/blueprints/ArithmeticKTheory--N.3-finite-generation.md"
+   ]
+  },
   "research/blueprint/packets/ArithmeticKTheory--N.5.json": {
    "promotedAt": "2026-10-06T02:24:39Z",
    "review": "6b472195682a38ec",
@@ -1128,6 +1139,17 @@
     "data/blueprints/HabiroNumberFields--HB.1.md"
    ]
   },
+  "research/blueprint/packets/HabiroNumberFields--HB.2.json": {
+   "promotedAt": "2026-10-08T06:39:46Z",
+   "review": "3a20913b337d6923",
+   "reviewDate": "2026-10-08",
+   "reviewer": "independent-review-REV-HabiroNumberFields--HB.2~2",
+   "sha256": "8f97a70d68ae46dae21f87977ec735967c6960739213e812d959157f84ec156a",
+   "to": [
+    "data/blueprints/HabiroNumberFields--HB.2.json",
+    "data/blueprints/HabiroNumberFields--HB.2.md"
+   ]
+  },
   "research/blueprint/packets/HabiroNumberFields--HB.6.json": {
    "promotedAt": "2026-10-06T05:01:55Z",
    "review": "a56eab6f26c3af8e",
@@ -1281,6 +1303,30 @@
    "to": [
     "data/blueprints/HodgeStructuresPartII--H.1.json",
     "data/blueprints/HodgeStructuresPartII--H.1.md",
+    "data/blueprints/roadmaps/HodgeStructuresPartII.json"
+   ]
+  },
+  "research/blueprint/packets/HodgeStructuresPartII--H.2.json": {
+   "promotedAt": "2026-10-08T06:39:46Z",
+   "review": "aefa6785369eaa4e",
+   "reviewDate": "2026-10-08",
+   "reviewer": "independent-review-REV-HodgeStructuresPartII--H.2",
+   "sha256": "ff0146f6fcf0820cdf1af5887d75b92273a8af12ae412ec12e49a9923d89562f",
+   "to": [
+    "data/blueprints/HodgeStructuresPartII--H.2.json",
+    "data/blueprints/HodgeStructuresPartII--H.2.md",
+    "data/blueprints/roadmaps/HodgeStructuresPartII.json"
+   ]
+  },
+  "research/blueprint/packets/HodgeStructuresPartII--H.3.json": {
+   "promotedAt": "2026-10-08T06:39:46Z",
+   "review": "49a8e18df7b77700",
+   "reviewDate": "2026-10-08",
+   "reviewer": "independent-review-REV-HodgeStructuresPartII--H.3",
+   "sha256": "ffb429455ef1f36d7615ca92fe6ed8b6dfaad18c98bcc3375f6cfc0775ce825a",
+   "to": [
+    "data/blueprints/HodgeStructuresPartII--H.3.json",
+    "data/blueprints/HodgeStructuresPartII--H.3.md",
     "data/blueprints/roadmaps/HodgeStructuresPartII.json"
    ]
   },
@@ -1740,6 +1786,17 @@
    "to": [
     "data/blueprints/SpecialValuesBirchTate.json",
     "data/blueprints/SpecialValuesBirchTate.md"
+   ]
+  },
+  "research/blueprint/packets/VectorBundlesAndIsocrystals--VB0.json": {
+   "promotedAt": "2026-10-08T06:39:46Z",
+   "review": "59a892a6608c6d91",
+   "reviewDate": "2026-10-08",
+   "reviewer": "independent-review-REV-VectorBundlesAndIsocrystals--VB0~2",
+   "sha256": "a6b7898833a86f8dcdcd3f4effae3e9c70a8f1d37dfc2c93bd01dc3c6bb5671b",
+   "to": [
+    "data/blueprints/VectorBundlesAndIsocrystals--VB0.json",
+    "data/blueprints/VectorBundlesAndIsocrystals--VB0.md"
    ]
   },
   "research/blueprint/packets/WeightsInEtaleCohomology.json": {
