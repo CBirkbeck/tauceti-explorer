@@ -172,7 +172,8 @@ def canonicalModel {Γ : Type*} (rInf : Γ → Y → Y) (rf : Γ → TAf)
     (hcomm : ∀ σ (q : TQ) (y : Y), rInf σ (q • y) = q • rInf σ y) (E : Scheme.{u}) :
     Over E := by sorry
 
--- ZeroDimShimura.test_gl2_components: Sh_{1+Nℤ̂}(𝔾_m, {±1}) ≅ (ℤ/N)ˣ has φ(N) elements.
+-- ZeroDimShimura.test_gl2_components: for K = ker(ℤ̂ˣ → (ℤ/N)ˣ),
+-- Sh_K(𝔾_m, {±1}) ≅ (ℤ/N)ˣ has φ(N) elements.
 example (N : ℕ) [NeZero N] : Nat.card (ZMod N)ˣ = N.totient := by sorry
 -- ZeroDimShimura.test_strict_datum_halves: with one point instead of {±1} the set is
 -- (ℤ/N)ˣ/{±1}, with φ(N)/2 elements for N ≥ 3 (one point at N = 3).
@@ -227,7 +228,8 @@ theorem minimal_defined_over_reflex :
 theorem minimal_map_extension (compactM compactN : Over S)
     (jM : M ⟶ compactM) (jN : N ⟶ compactN) (f : M ⟶ N) :
     ∃! F : compactM ⟶ compactN, jM ≫ F = f ≫ jN := by sorry
--- V7 supplies every actual auxiliary pure model. The complex partial-extension,
+-- V7 supplies strict pure-datum models; any broader auxiliary models in Pink's sense
+-- are separate supplied hypotheses (the two-point torus is constructed here). The complex partial-extension,
 -- Baily–Borel functoriality and log-canonical section interfaces remain gaps.
 theorem general_minimal :
     ∃ (compact : Over S) (j : M ⟶ compact), IsOpenImmersion j.left ∧ IsProper compact.hom := by sorry
