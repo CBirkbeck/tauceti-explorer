@@ -77,7 +77,8 @@ and adelic/classical carriers must be imported through the recorded suppliers.
 No arbitrary Prop field or chosen isomorphism replaces these missing conditions.
 Distinct helper names identify the local lattice, supplied coefficient and GL2
 weight model without claiming the corresponding full arithmetic classification.
-The existing independent review is preserved for the next independent reviewer.
+Revision-2 independent review records the missing signatures as a section-13
+correspondence failure. Elaborating the present prototype does not discharge it.
 -/
 
 set_option linter.unusedSectionVars false
@@ -3869,7 +3870,27 @@ end TauCeti.RelativeLieCohomology
 namespace TauCeti.RealReductive.GL2
 abbrev WeightAmbient := ℤ →₀ ℂ
 
-/-- The full O(2) weight model has both rays, with the stated parity. -/
+/-- Compact-Cartan matrices for clockwise rotations. These replace the split
+H/X/Y of Getz's §6.4 in the weight formulas of §6.5 (source issue E17). -/
+def compactH : Matrix (Fin 2) (Fin 2) ℂ := !![0, -Complex.I; Complex.I, 0]
+def compactX : Matrix (Fin 2) (Fin 2) ℂ :=
+  !![1/2, Complex.I/2; Complex.I/2, -1/2]
+def compactY : Matrix (Fin 2) (Fin 2) ℂ :=
+  !![1/2, -Complex.I/2; -Complex.I/2, -1/2]
+
+theorem compactCartan_bracket :
+    ⁅compactH, compactX⁆ = (2 : ℂ) • compactX ∧
+    ⁅compactH, compactY⁆ = (-2 : ℂ) • compactY ∧
+    ⁅compactX, compactY⁆ = compactH := sorry
+
+-- test: weightModel_compact_generator. J is the clockwise circle generator.
+example : Complex.I • compactH =
+    (!![0, 1; -1, 0] : Matrix (Fin 2) (Fin 2) ℂ) := sorry
+-- test: weightModel_not_split_cartan. A split diagonal matrix is not H here.
+example : compactH ≠ (!![1, 0; 0, -1] : Matrix (Fin 2) (Fin 2) ℂ) := sorry
+
+/-- Both SO(2) weight rays, with the stated parity. An O(2) reflection action
+and the integrated discrete-series identification are separate targets. -/
 def WeightModel (k : ℕ) : Submodule ℂ WeightAmbient where
   carrier := {f | ∀ ell : ℤ, f ell≠0 → (k : ℤ)≤|ell| ∧ (ell-(k : ℤ))%2=0}
   zero_mem' := sorry

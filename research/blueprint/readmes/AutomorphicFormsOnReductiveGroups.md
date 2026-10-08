@@ -2,11 +2,15 @@
 
 This roadmap builds the analytic and representation-theoretic interfaces needed to pass between classical forms, functions on adelic quotients, local representations and cohomology. It starts from the existing Lie-group, compact-group, highest-weight, modular-form and number-field libraries. General adelic points, Haar normalization, heights and reduction theory belong to AdelicAlgebraicGroups; smooth representations of nonarchimedean groups belong to SmoothRepresentationsOfLocalGroups. The arithmetic spaces and their Betti cohomology belong to ArithmeticLocallySymmetricSpaces, and the Hilbert spectral decomposition belongs to AutomorphicSpectralTheory. These interfaces are imported through exact node references or explicit requests.
 
-The seven stages have a complete target-level plan: every target is specified and its prerequisite chain reaches a pinned declaration, another roadmap or an identified gap. Each stage is **planned**, none is **closed**. This distinction matters for the analytic classification and arithmetic comparisons: the mathematical specifications below do not assert that their suppliers or proofs have been implemented. Every node remains unchecked. The existing independent review is preserved; a new independent review must assess this revision.
+The seven stages have a complete target-level plan: every target is specified and its prerequisite chain reaches a pinned declaration, another roadmap or an identified gap. Each stage is **planned**, none is **closed**. This distinction matters for the analytic classification and arithmetic comparisons: the mathematical specifications below do not assert that their suppliers or proofs have been implemented. Every node remains unchecked. The independent review of revision 2 requires changes to the suggested Lean interface; its mathematical corrections are incorporated below. The prior reviews remain in the packet’s history.
 
-The catalogue contains 100 nodes (26 definitions, 25 constructions and 49 theorems), 306 API items, 207 specified tests and 30 planets. It preserves all ninety reviewed node identifiers and adds ten prerequisites or distinctly named helper constructions. There are 56 checked baseline declarations, 43 supplier requests and 22 gaps.
+The catalogue contains 100 nodes (26 definitions, 25 constructions and 49 theorems), 310 API items, 209 specified tests and 30 planets. It preserves all ninety reviewed node identifiers and adds ten prerequisites or distinctly named helper constructions. There are 56 checked baseline declarations, 43 supplier requests and 23 gaps.
 
 The [packet](../packets/AutomorphicFormsOnReductiveGroups.json) is the dependency graph; the [suggested file](../suggested/AutomorphicFormsOnReductiveGroups.lean) proposes native signatures. The per-node scope and omission records below are part of the specification. A named signature can express a generic construction without providing its arithmetic specialization or every assertion in a multi-part target. A name in a comment and a weaker helper are never counted as the original target.
+
+## Revision-2 review result
+
+The [completed independent review](../reviews/REV-AutomorphicFormsOnReductiveGroups~2.md) records **needs_changes**. The mathematical corrections below are incorporated, but PROTOCOL §13 still requires faithful signatures for every packet definition, API item, theorem and test. The current prototype represents 43 of 100 main names, 201 of 310 API occurrences and 104 of 209 specified examples; 256 distinct names remain absent across 82 nodes. Some present conditional helpers also express only part of their advertised contract. Elaboration passed at pinned Mathlib with only `sorry` warnings; the pinned Tau Ceti declarations were source-checked, not locally imported into that build. Honest original-proof and supplier gaps remain planned-stage refinements rather than a separate rejection reason.
 
 ## Conventions
 
@@ -213,7 +217,7 @@ For C ⊆ G(𝔸_f) compact and J ⊆ G(𝔸_f) compact open, S(G(𝔸), C, J) i
 
 Atlas planet: **Moderate growth**.
 
-Let ‖·‖ be a height on G(𝔸) (AdelicAlgebraicGroups:AA.3/adelic-height). A function φ : G(𝔸) → ℂ has moderate growth if there are C, N > 0 with \|φ(g)\| ≤ C‖g‖^N for all g ∈ G(𝔸). On G(F_∞), φ is slowly increasing if \|φ(x)\| ≤ C‖x‖^r for a norm ‖g‖ = tr(σ(g)*σ(g))^{1/2} attached to a finite-dimensional representation σ with finite kernel, closed image in End(E), and a K_∞-invariant Hermitian norm. If the image is only closed in GL(E), enlarge σ by its inverse-dual representation or by the inverse determinant. The notion is independent of the height (respectively of the norm).
+Let ‖·‖ be a height on G(𝔸) (AdelicAlgebraicGroups:AA.3/adelic-height). A function φ : G(𝔸) → ℂ has moderate growth if there are C > 0 and N ≥ 0 with \|φ(g)\| ≤ C‖g‖^N, for the normalized height ‖g‖≥1 for all g ∈ G(𝔸). On G(F_∞), φ is slowly increasing if \|φ(x)\| ≤ C‖x‖^r for a norm ‖g‖ = tr(σ(g)*σ(g))^{1/2} attached to a finite-dimensional representation σ with finite kernel, closed image in End(E), and a K_∞-invariant Hermitian norm. If the image is only closed in GL(E), enlarge σ by its inverse-dual representation or by the inverse determinant. The notion is independent of the height (respectively of the norm).
 
 **Hypotheses.** Heights as in AdelicAlgebraicGroups AA.3, satisfying ‖xy‖ ≤ ‖x‖‖y‖ and ‖x⁻¹‖ ≤ C₀‖x‖^{N₀}
 
@@ -231,7 +235,7 @@ Let ‖·‖ be a height on G(𝔸) (AdelicAlgebraicGroups:AA.3/adelic-height). 
 
 | Name | Role | Mathematical contract |
 |---|---|---|
-| `Automorphic.HasModerateGrowth` | data | The predicate ∃ C N, ∀ g, \|φ g\| ≤ C‖g‖^N. |
+| `Automorphic.HasModerateGrowth` | data | The predicate ∃ C>0, ∃ N≥0, ∀ g, \|φ g\| ≤ C‖g‖^N, with height at least one. |
 | `Automorphic.HasModerateGrowth.of_height` | characterisation | Independence of the height: moderate growth for ‖·‖ iff for ‖·‖'. |
 | `Automorphic.HasModerateGrowth.add` | structure | Moderate-growth functions form a subalgebra of functions G(𝔸) → ℂ. |
 | `Automorphic.HasModerateGrowth.comp_mul_right` | functoriality | If φ has moderate growth then so does g ↦ φ(gy), with the same exponent. |
@@ -705,7 +709,7 @@ For G a real Lie group with compact subgroup K and V a finite-dimensional smooth
 
 **Sources for this target.**
 
-- Christoph Wockel, [Topological group cohomology of Lie groups and Chern-Weil theory for compact symmetric spaces](https://arxiv.org/abs/1401.1037v1), §3, Lemma 3.2, p. 12. Cochains on G/K versus K-relative cochains on G; the evaluation at the identity coset.
+- Christoph Wockel, [Topological group cohomology of Lie groups and Chern-Weil theory for compact symmetric spaces](https://arxiv.org/abs/1401.1037v1), §3, Lemma 3.2, p. 12. This lemma compares homogeneous-space relative group cochains. It does not state the invariant differential-form/relative Lie-complex identification; that identification additionally needs the manifold differential-form construction and the Maurer–Cartan calculation recorded in the gap.
 
 ### The van Est isomorphism
 
@@ -1084,7 +1088,7 @@ Let Z(𝔤) be the centre of U(𝔤_ℂ). An infinitesimal character is a ℂ-al
 
 1. Harish-Chandra isomorphism for reductive 𝔤_ℂ: import from Tau Ceti LieHighestWeight Layers 7 and 9 (centre of U(L), Harish-Chandra projection, dot-invariants), extended to the reductive case through 𝔤_ℂ = 𝔷 ⊕ [𝔤,𝔤].
 2. χ_λ = χ_μ iff μ ∈ Wλ (Harish-Chandra), and the highest-weight normalisation from Tau Ceti vermaCentralCharacter: the centre acts on a highest weight vector of weight μ by χ_{μ+ρ}.
-3. Generalized eigenspaces are (𝔤, K)-submodules because Z(𝔤) is central and K-invariant (K acts on Z(𝔤) through Ad, trivially on Z(𝔤) for connected G and through outer automorphisms otherwise; for disconnected K the eigenspaces are permuted by K/K°, so we take the Z(𝔤)^K-generalized eigenspaces).
+3. Generalized eigenspaces are Lie submodules by centrality. In the stated connected reductive algebraic-group setting, every real point acts by an inner automorphism of the connected complex algebraic group, so the full enveloping centre is fixed even when K is disconnected. Thus V_χ is a (𝔤,K)-submodule. For a general abstract compatible pair, require χ to be K-invariant; otherwise K transports V_χ to V_{kχ}, and only the invariant-centre construction has automatic K-stability.
 
 **Direct prerequisites.** `AF.1/admissible-gk-module`, `tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-7-the-center-of-ul-harish-chandra-freudenthal-and-serres-relations`, `tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-9-reductive-lie-algebras-and-gl_n`, `tauceti:TauCeti.vermaCentralCharacter`, `mathlib:Subalgebra.center`, `mathlib:UniversalEnvelopingAlgebra`
 
@@ -1098,7 +1102,7 @@ Let Z(𝔤) be the centre of U(𝔤_ℂ). An infinitesimal character is a ℂ-al
 | `RealReductive.infCharOf` | constructor | χ_λ for λ ∈ 𝔥_ℂ^*, through the Harish-Chandra isomorphism. |
 | `RealReductive.infCharOf_eq_iff` | characterisation | χ_λ = χ_μ ↔ ∃ w ∈ W, μ = w λ. |
 | `RealReductive.HasInfChar` | data | V has infinitesimal character χ. |
-| `RealReductive.genEigenspace` | constructor | The generalized eigenspace V_χ as a sub-(𝔤, K°)-module. |
+| `RealReductive.genEigenspace` | constructor | The generalized eigenspace V_χ as a sub-(𝔤,K)-module for the stated connected reductive algebraic group, or for an abstract pair with K-invariant χ. |
 | `RealReductive.infChar_highestWeight` | compatibility | The irreducible finite-dimensional module of highest weight μ has infinitesimal character χ_{μ+ρ} (agrees with Tau Ceti vermaCentralCharacter μ). |
 | `RealReductive.infChar_casimir` | simp | χ_λ(Ω) = ⟨λ, λ⟩ − ⟨ρ, ρ⟩ for the Casimir Ω of an invariant form. |
 | `RealReductive.infCharOfHC` | constructor | For an irreducible Harish-Chandra module whose compact action commutes with the enveloping centre, Schur’s lemma constructs its scalar complex central character. This construction is distinct from the Cartan-parameter map infCharOf and requires no chosen residue-algebra isomorphism. |
@@ -1202,7 +1206,7 @@ Fix an Iwasawa decomposition G = NAK and the minimal parabolic P_min = MAN with 
 
 **Acceptance.**
 
-- For SL_2(ℝ) and W = e^{s}: I(W) has K-types e^{i2nθ} (or odd) each with multiplicity one; it is reducible exactly at the integral points s ∈ ℤ + parity.
+- For normalized SL_2(ℝ) induction I(ε,ν), the K-types have parity ε and multiplicity one. Reducibility holds exactly for integral ν with ν≡ε+1 modulo 2, including ν=0 in odd parity and the negative integral exponents.
 - For GL_1(ℝ) = ℝ^×, P_min = G and I^∞(χ) = χ is one-dimensional.
 
 **Signatures requiring supplier input.** `TauCeti.RealReductive.principalSeries`, `TauCeti.RealReductive.principalSeries_kFinite`, `TauCeti.RealReductive.principalSeries_restrictK`, `TauCeti.RealReductive.principalSeries_map`, `TauCeti.RealReductive.principalSeries_dual`, `principalSeries_GL1`, `principalSeries_SL2_ktypes`, `principalSeries_not_irreducible`, `principalSeries_hc_compat`. The actual minimal real parabolic M A N, its root-normalized characters and integrated compact picture require native reductive/Cartan exports. The separately named normalizedInduction carrier has explicit covariance for a supplied subgroup and realization. Owner/input: ArithmeticLocallySymmetricSpaces:ALS.0; ReductiveGroupsPartII.
@@ -1717,7 +1721,7 @@ For F = ℝ or ℂ, every irreducible generic unitary representation of GL_m(F) 
 
 **Sources for this target.**
 
-- Dihua Jiang, Lei Zhang, [Arthur parameters and cuspidal automorphic modules of classical groups](https://arxiv.org/abs/1508.03205v4), Appendix B, proof of Theorem B.2, arXiv p. 86. The generic unitary dual (B.5) with 1/2 > β_1 > … > β_t > 0.
+- Dihua Jiang, Lei Zhang, [Arthur parameters and cuspidal automorphic modules of classical groups](https://arxiv.org/abs/1508.03205v4), Appendix B, proof of Theorem B.2, arXiv p. 86. The GL_n generic unitary dual in (B.6), with 1/2 > β_1 > … > β_t > 0; (B.5) concerns the classical-group input.
 
 ### Normalized real parabolic induction
 
@@ -1775,7 +1779,7 @@ Let G be real reductive and P=M_PA_PN_P a real parabolic. Given an actual smooth
 
 **Construction** `AF.1/gl2-algebraic-weight-model`. Proposed declaration: `TauCeti.RealReductive.GL2.WeightModel`. Module: `TauCeti/Automorphic/Foundations`. Realises `AF.1`.
 
-For k≥1, take the subspace of finitely supported complex sequences indexed by integers ℓ with \|ℓ\|≥k and ℓ≡k modulo 2. On basis vectors set H v_ℓ=ℓv_ℓ, Xv_ℓ=(k+ℓ)v_{ℓ+2}/2 and Yv_ℓ=(k−ℓ)v_{ℓ−2}/2. These preserve the subspace, satisfy [H,X]=2X, [H,Y]=−2Y and [X,Y]=H, and give Δ=(H²+2XY+2YX)/4=k(k−2)/4. Circle rotation z acts by z^ℓ. This fixes the algebraic normalization; the O(2) extension, central parameter, irreducibility and analytic discrete-series identification are additional parts of the discreteSeries node.
+For the clockwise rotation r_θ=[[cos θ,sin θ],[-sin θ,cos θ]], let J=E_12−E_21, A=diag(1,−1) and B=E_12+E_21. The compact-Cartan triple is H=−iJ, X=(A+iB)/2, Y=(A−iB)/2. The following weight actions refer to this triple, rather than to the split diagonal/upper/lower basis (source issue E17). For k≥1, take the subspace of finitely supported complex sequences indexed by integers ℓ with \|ℓ\|≥k and ℓ≡k modulo 2. On basis vectors set H v_ℓ=ℓv_ℓ, Xv_ℓ=(k+ℓ)v_{ℓ+2}/2 and Yv_ℓ=(k−ℓ)v_{ℓ−2}/2. These preserve the subspace, satisfy [H,X]=2X, [H,Y]=−2Y and [X,Y]=H, and give Δ=(H²+2XY+2YX)/4=k(k−2)/4. Circle rotation z acts by z^ℓ. This fixes the algebraic normalization; the O(2) extension, central parameter, irreducibility and analytic discrete-series identification are additional parts of the discreteSeries node.
 
 **Hypotheses.** k≥1; finite support and both weight rays are part of the carrier.
 
@@ -1803,6 +1807,10 @@ For k≥1, take the subspace of finitely supported complex sequences indexed by 
 | `RealReductive.GL2.weightModel_casimir` | simp | Δ=k(k−2)/4 on the algebraic model. |
 | `RealReductive.GL2.weightCircle` | constructor | z v_ℓ=z^ℓv_ℓ. |
 | `RealReductive.GL2.weightCircle_apply` | simp | The circle action evaluated in one weight coordinate. |
+| `RealReductive.GL2.compactH` | constructor | H=−i(E_12−E_21) as an actual complex 2×2 matrix. |
+| `RealReductive.GL2.compactX` | constructor | X=(diag(1,−1)+i(E_12+E_21))/2 as a complex matrix. |
+| `RealReductive.GL2.compactY` | constructor | Y=(diag(1,−1)−i(E_12+E_21))/2 as a complex matrix. |
+| `RealReductive.GL2.compactCartan_bracket` | relation | The compact-Cartan matrices satisfy [H,X]=2X, [H,Y]=−2Y and [X,Y]=H. |
 
 **Specified tests.**
 
@@ -1813,6 +1821,8 @@ For k≥1, take the subspace of finitely supported complex sequences indexed by 
 | `weightModel_lowest` | degenerate | Yv_k=0 and Xv_{−k}=0. |
 | `weightModel_not_k2_minus_1` | non-example | At k=2, 3/4 is not the Casimir scalar. |
 | `weightModel_circle_derivative` | compatibility | Differentiating the actual circle action at angle zero gives iH on each weight vector, with the chosen angular convention. |
+| `weightModel_compact_generator` | compatibility | iH equals the clockwise circle generator E_12−E_21. |
+| `weightModel_not_split_cartan` | non-example | The compact H is not the split diagonal matrix diag(1,−1); SO(2) weights cannot silently use the split basis. |
 
 **Acceptance.**
 
@@ -1825,7 +1835,7 @@ For k≥1, take the subspace of finitely supported complex sequences indexed by 
 
 **Sources for this target.**
 
-- Jayce R. Getz, [An introduction to automorphic representations (course notes)](https://sites.math.duke.edu/~jgetz/aut_reps.pdf), §6.5, p.34, displayed actions (1)–(6). The explicit algebraic action and corrected Casimir scalar; identification with the discrete series is kept separate.
+- Jayce R. Getz, [An introduction to automorphic representations (course notes)](https://sites.math.duke.edu/~jgetz/aut_reps.pdf), §6.5, p.34, displayed actions (1)–(6). The abstract weight action is valid after replacing the split basis by the specified compact-Cartan triple. The notes do not make that replacement explicitly (E17). The corrected Casimir scalar is retained; integrated discrete-series identification remains separate.
 
 ## AF.2. Automorphic spaces and representations
 
@@ -2045,7 +2055,7 @@ A(G) is a (𝔤, K_∞)-module under the derived right action of U(𝔤) and rig
 **Construction or proof route.**
 
 1. Stability of A(G) under the actions (AF.2/automorphic-form steps).
-2. The archimedean Hecke algebra H(G(F_∞), K_∞): K_∞-finite distributions supported on K_∞ act through the (𝔤, K_∞)-structure; the fundamental idempotents 1_σ = d(σ)/vol(K_∞)·conj(χ_σ)dk project to K-types (Getz–Hahn Definition 3.6).
+2. The archimedean Hecke algebra of bi-K_∞-finite distributions supported on K_∞ acts through the compatible module. Its K-type projectors have density d(σ)·conj(χ_σ)/vol(K_∞), correcting the reciprocal-dimension and character convention in Getz–Hahn Definition 3.6 (source issue E16).
 3. Nondegeneracy: every φ is fixed by some e_{J_f} ⊗ 1_ξ.
 
 **Direct prerequisites.** `AF.2/automorphic-form`, `AF.0/finite-hecke-action`, `AF.1a/gk-module`, `AF.1/k-finite-vectors`
@@ -2068,7 +2078,7 @@ A(G) is a (𝔤, K_∞)-module under the derived right action of U(𝔤) and rig
 |---|---|---|
 | `automorphicModule_trivial` | degenerate | ℂ·1 ⊆ A(G) is a submodule on which 𝔤 acts by 0 and G(𝔸_f) trivially. |
 | `automorphicModule_gl1` | computation | For GL_1/ℚ and a Hecke character χ, ℂχ is a one-dimensional submodule on which 𝔸_f^× acts by χ_f. |
-| `automorphicModule_not_G_infty` | non-example | A(G) is not stable under right translation by G(F_∞) when G(F_∞) is noncompact: translates of K_∞-finite vectors are not K_∞-finite in general (only A^∞(G) carries the G(F_∞)-action). |
+| `automorphicModule_not_G_infty` | non-example | For GL_2(ℝ), translating a nonzero finite SO(2)-weight vector in a discrete-series realization by a suitable element outside K_∞ produces infinitely many K-types. Thus A(G) need not be stable under the full archimedean group. Noncompact tori do not furnish this obstruction. |
 
 **Acceptance.**
 
@@ -2096,7 +2106,7 @@ An automorphic representation of G(𝔸) is an irreducible admissible (𝔤, K_�
 
 **Construction or proof route.**
 
-1. Definition as irreducible subquotients; admissibility is automatic for subquotients of A(G) by AF.2/harish-chandra-finiteness.
+1. Admissibility applies to irreducible subquotients, not to every subquotient of the full union A(G). Borel–Jacquet §4.6, p.196, places each finitely generated cyclic Hecke module in an admissible finite-type piece using the finite level, K-type and cofinite central ideal; every irreducible subquotient is obtained from such a piece.
 2. Finite multiplicity: an embedding π → A(G) is determined by the image of the finite-dimensional space π^{J_f}(ξ), which lands in the finite-dimensional A(G, J_f, ξ, J_π).
 3. Comparison with Getz–Hahn Definition 5.18 (subquotients of L²): for subrepresentations of the discrete spectrum the K-finite smooth vectors are automorphic forms (AF.3/cuspidal-spectrum-discrete in the cuspidal case; AutomorphicSpectralTheory AS.4 for the residual case).
 4. Langlands' Proposition 2 (constituents of parabolic induction from cuspidal data) is recorded as a characterisation; its proof uses Eisenstein series and is AutomorphicSpectralTheory's (AS.1-AS.2).
@@ -2137,8 +2147,8 @@ An automorphic representation of G(𝔸) is an irreducible admissible (𝔤, K_�
 **Sources for this target.**
 
 - Jayce R. Getz, [An introduction to automorphic representations (course notes)](https://sites.math.duke.edu/~jgetz/aut_reps.pdf), §5.5, Definition 5.18, p. 29. The L² formulation; the Borel–Jacquet formulation uses subquotients of A(G).
-- Robert P. Langlands, [On the notion of an automorphic representation](https://publications.ias.edu/sites/default/files/notion-ps.pdf), Proposition 2, p. 2. Langlands' characterisation.
-- A. Borel and H. Jacquet, [Automorphic forms and automorphic representations](https://doi.org/10.1090/pspum/033.1/546598), §4.5–4.6, pp.196–197. Automorphy is a subquotient condition in the admissible Hecke/(g,K) category. The underlying object has a finite-adelic group action, without asserting an action of the entire archimedean group on K-finite vectors.
+- Robert P. Langlands, [On the notion of an automorphic representation](https://publications.ias.edu/sites/default/files/notion-ps.pdf), Proposition 2, public author note p.2 (Corvallis article pp.203–207). Langlands' characterisation.
+- A. Borel and H. Jacquet, [Automorphic forms and automorphic representations](https://doi.org/10.1090/pspum/033.1/546598), §4.5–4.6, p.196. Automorphy is a subquotient condition in the admissible Hecke/(g,K) category. The underlying object has a finite-adelic group action, without asserting an action of the entire archimedean group on K-finite vectors.
 
 ### Restricted tensor products
 
@@ -2279,7 +2289,7 @@ Let π be an irreducible admissible (𝔤, K_∞) × G(𝔸_f)-module (for examp
 
 **Definition** `AF.2/holomorphic-sl2-forms`. Proposed declaration: `TauCeti.Automorphic.SL2.HolomorphicForm`. Module: `TauCeti/Automorphic/AutomorphicForm`. Realises `AF.2`.
 
-Let F_0 be totally real, H = SL_2 and K ⊆ H(𝔸_{0,f}) compact open. A_hol(H(𝔸_0), K, k) is the space of smooth, left H(F_0)-invariant, right K-invariant functions of moderate growth on H(𝔸_0) of parallel weight k under SO(2)^{[F_0:ℚ]} and killed by the lowering operator ½(i 1; 1 −i) at every real place. It is finite-dimensional with a Q̄-structure given by q-expansions at i∞. For a Q̄-vector space W, A_hol(·)_L ⊗_L W is the space of formal Hilbert q-series indexed by the appropriate totally positive fractional ideal (q^{1/N}-series only when F_0=ℚ) with W-coefficients that are finite L-combinations of q-expansions. For φ of weight k and h_f ∈ H(𝔸_{0,f}), φ^♭_{h_f}(τ) = \|a_∞\|^{−k/2}φ(h_∞, h_f) defines a classical holomorphic form for h_fKh_f⁻¹ ∩ H(F_0).
+Let F_0 be totally real, H = SL_2 and K ⊆ H(𝔸_{0,f}) compact open. A_hol(H(𝔸_0), K, k) is the space of smooth, left H(F_0)-invariant, right K-invariant functions of moderate growth on H(𝔸_0) of parallel weight k under SO(2)^{[F_0:ℚ]} and killed by the lowering operator ½(i 1; 1 −i) at every real place. It is finite-dimensional with a Q̄-structure given by q-expansions at i∞. Choose L⊆Q̄ over which the q-expansion model is defined, and let W be an L-vector space. Then A_hol(·)_L ⊗_L W is the space of formal Hilbert q-series indexed by the appropriate totally positive fractional ideal (q^{1/N}-series only when F_0=ℚ) with W-coefficients that are finite L-combinations of q-expansions. For φ of weight k and h_f ∈ H(𝔸_{0,f}), φ^♭_{h_f}(τ) = \|a_∞\|^{−k/2}φ(h_∞, h_f) defines a classical holomorphic form for h_fKh_f⁻¹ ∩ H(F_0).
 
 **Hypotheses.** F_0 totally real; k ∈ ℤ; K compact open
 
@@ -2287,8 +2297,8 @@ Let F_0 be totally real, H = SL_2 and K ⊆ H(𝔸_{0,f}) compact open. A_hol(H(
 
 1. Specialise AF.2/automorphic-form to SL_2/F_0 with the K_∞-type of parallel weight k and the holomorphy condition (which implies Z(𝔤)-finiteness).
 2. Finite-dimensionality from AF.2/harish-chandra-finiteness.
-3. q-expansion and ℚ-structure: transport through φ ↦ φ^♭ to classical Hilbert modular forms and use the rationality of their q-expansion spaces (for F_0 = ℚ, Mathlib/Tau Ceti modular forms; in general imported from the Hilbert modular forms roadmap through AF.5/gl2-dictionary).
-4. Coefficient extension: A_hol(·)_ℚ ⊗_ℚ W ⊆ W[[q^{1/N}]].
+3. The classical Hilbert q-expansion comparison gives a Q̄-structure, as Zhang §1.2, p.6, states; rational coefficients over ℚ do not in general span the space at an arbitrary level. Choose a number field L over which the finite-dimensional q-expansion model is defined. The Hilbert comparison is requested through AF.5/gl2-dictionary.
+4. Coefficient extension: A_hol(·)_L ⊗_L W maps to W-valued Hilbert q-series with the fractional-ideal indexing of the chosen cusp; W[[q^{1/N}]] applies only to the F_0=ℚ case.
 
 **Direct prerequisites.** `AF.2/automorphic-form`, `AF.2/harish-chandra-finiteness`, `AF.2/adelic-classical-bijection`
 
@@ -2300,7 +2310,7 @@ Let F_0 be totally real, H = SL_2 and K ⊆ H(𝔸_{0,f}) compact open. A_hol(H(
 |---|---|---|
 | `Automorphic.SL2.HolomorphicForm` | data | A_hol(H(𝔸_0), K, k) as a finite-dimensional ℂ-vector space. |
 | `Automorphic.SL2.HolomorphicForm.qExpansion` | projection | The q-expansion at i∞ and its injectivity. |
-| `Automorphic.SL2.HolomorphicForm.rationalStructure` | structure | The ℚ-subspace of forms with rational q-expansion and A_hol ≅ A_hol,ℚ ⊗ ℂ. |
+| `Automorphic.SL2.HolomorphicForm.rationalStructure` | structure | The Q̄-subspace of forms with algebraic q-expansion spans A_hol over ℂ. A chosen number-field model A_hol,L gives A_hol,L⊗_Lℂ≅A_hol; an ℚ-model is asserted only when separately justified. |
 | `Automorphic.SL2.HolomorphicForm.flat` | compatibility | φ ↦ φ^♭_{h_f}, landing in classical holomorphic forms for h_fKh_f⁻¹ ∩ H(F_0). |
 | `Automorphic.SL2.HolomorphicForm.coefficient` | constructor | W-valued forms A_hol(·)_L ⊗_L W. |
 
@@ -2322,7 +2332,7 @@ Let F_0 be totally real, H = SL_2 and K ⊆ H(𝔸_{0,f}) compact open. A_hol(H(
 
 **Sources for this target.**
 
-- Wei Zhang, [Weil representation and arithmetic fundamental lemma](https://arxiv.org/abs/1909.02697), §1.2, (1.12)-(1.13), arXiv p. 7. Notation of §1.2: A_hol(H(𝔸_0), K, k), the Whittaker coefficients W_{φ,ξ} and the expansion (1.13).
+- Wei Zhang, [Weil representation and arithmetic fundamental lemma](https://arxiv.org/abs/1909.02697), §1.2, (1.9)–(1.13), arXiv pp.6–7. Notation of §1.2: A_hol(H(𝔸_0), K, k), the Whittaker coefficients W_{φ,ξ} and the expansion (1.13).
 
 ### Finite-corner tensor factorization
 
@@ -2769,7 +2779,7 @@ A cuspidal automorphic representation of G(𝔸) (with unitary central character
 
 **Acceptance.**
 
-- For GL_1, every Hecke character is cuspidal (no proper parabolics).
+- For GL_1, every unitary Hecke character is cuspidal in the stated Hilbert-space convention (there are no proper parabolics); nonunitary twists belong to the separate algebraic convention.
 - For GL_2/ℚ, the representation generated by the adelization of Δ is cuspidal with π_∞ ≅ D_12.
 
 **Signatures requiring supplier input.** `TauCeti.Automorphic.CuspidalRepresentation`, `TauCeti.Automorphic.CuspidalRepresentation.multiplicity`, `TauCeti.Automorphic.CuspidalRepresentation.toAutomorphic`, `TauCeti.Automorphic.CuspidalRepresentation.kFinite`, `cuspidalRep_gl1`, `cuspidalRep_delta`, `cuspidalRep_trivial_not`, `cuspidalRep_subquotient_not`. The native irreducible Hilbert summands of the actual discrete cuspidal spectrum, their smooth/K-finite realization and finite multiplicity are required. The generic automorphic subquotient class is a different carrier. Owner/input: AutomorphicSpectralTheory:AS.4; AF.3/cuspidal-spectrum-discrete; AF.1/casselman-wallach-globalization.
@@ -2949,7 +2959,7 @@ Let G be connected reductive over a number field F, E ⊆ ℂ a number field spl
 **Sources for this target.**
 
 - George Boxer, Vincent Pilloni, [Higher Hida theory for Siegel modular forms](https://www.imo.universite-paris-saclay.fr/~vincent.pilloni/higherhidaSiegel.pdf), §1.3.7, p. 4. Highest-weight representations attached to algebraic weights (here of K_∞ = M_μ(ℝ)).
-- Gaëtan Chenevier, Olivier Taïbi, [Discrete series multiplicities for classical groups over Z and level 1 algebraic cusp forms](https://arxiv.org/abs/1907.08783v1), §1.4, arXiv p. 11. Dominant weights of G(ℂ) indexing the coefficient representations V_λ.
+- Gaëtan Chenevier, Olivier Taïbi, [Discrete series multiplicities for classical groups over Z and level 1 algebraic cusp forms](https://arxiv.org/abs/1907.08783v1), §1.3, arXiv p.8. The coefficient modules and their dominant algebraic highest weights are defined in §1.3, p.8; the later §1.4 discussion is not the definition.
 
 ### Infinitesimal characters of algebraic weights and uniqueness of the weight
 
@@ -3029,7 +3039,7 @@ At every archimedean embedding, let μ represent the Harish-Chandra-normalized i
 
 - Gaëtan Chenevier, Olivier Taïbi, [Discrete series multiplicities for classical groups over Z and level 1 algebraic cusp forms](https://arxiv.org/abs/1907.08783v1), §2.1, arXiv p. 13. Algebraicity at infinity for GL_n(ℝ).
 - Gaëtan Chenevier, Olivier Taïbi, [Discrete series multiplicities for classical groups over Z and level 1 algebraic cusp forms](https://arxiv.org/abs/1907.08783v1), §1.2, arXiv p. 5. Algebraicity of cuspidal π of PGL_m (the PDF renders ½ℤ as '21 Z').
-- Kevin Buzzard; Toby Gee, [The conjectural connections between automorphic representations and Galois representations](https://arxiv.org/pdf/1009.0785v3), §5.2, Proposition 5.2.2, p.27. δ denotes the half-sum ρ; θ is the integral twisting element, and θ−δ is the central rational twist.
+- Kevin Buzzard; Toby Gee, [The conjectural connections between automorphic representations and Galois representations](https://arxiv.org/pdf/1009.0785v3), §5.2, Proposition 5.2.2, p.29. δ denotes the half-sum ρ; θ is the integral twisting element, and θ−δ is the central rational twist.
 
 ### Cohomological representations
 
@@ -3262,7 +3272,7 @@ Let Π be a cuspidal automorphic representation of GL_n(𝔸_F) which is algebra
 
 **Construction or proof route.**
 
-1. Π_∞ is unitary generic (cuspidal: Whittaker models exist for GL_n by Shalika–Piatetski-Shapiro; the global Whittaker expansion is AutomorphicLFunctionsAndLocalFactors AL.3's), hence of Vogan's form (AF.1/vogan-generic-unitary-dual) with complementary exponents 0 < β < 1/2.
+1. First remove the positive-real part of the global central character by a real power of the adelic norm, obtaining a unitary cuspidal normalization. Its archimedean components are unitary and generic by the GL_n Whittaker theorem requested from AL.3. Apply AF.1/vogan-generic-unitary-dual to that normalization; the remaining complementary exponents satisfy 0<β<1/2. Restore the common norm twist after proving essential temperedness and purity.
 2. Algebraicity forces the infinitesimal character exponents to lie in ½ℤ with integral differences, which excludes 0 < β < 1/2 shifts; hence all β = 0 and Π_∞ is essentially tempered; purity follows.
 3. Proof source Clozel, Motifs et formes automorphes, Lemme 4.9 (Ann Arbor 1988) not freely available (gap).
 
@@ -3548,7 +3558,7 @@ Let (G, X) be the Siegel Shimura datum for GSp_{2g}, μ its cocharacter with par
 
 **Sources for this target.**
 
-- George Boxer, Vincent Pilloni, [Higher Hida theory for Siegel modular forms](https://www.imo.universite-paris-saclay.fr/~vincent.pilloni/higherhidaSiegel.pdf), §1.3.7, Theorem 1.3.8, p. 4. Theorem 1.3.8 ([Har90], Thm. 3.4); existence used, the uniqueness clause corrected.
+- George Boxer, Vincent Pilloni, [Higher Hida theory for Siegel modular forms](https://www.imo.universite-paris-saclay.fr/~vincent.pilloni/higherhidaSiegel.pdf), §1.3.7, Theorem 1.3.8, p. 4. Theorem 1.3.8 supplies existence with full (κ,w) parameters. E8 is rejected; its alleged same-length GSp_4 counterexample does not justify deleting source uniqueness. Component and central-character hypotheses remain explicit.
 - George Boxer, Vincent Pilloni, [Higher Hida theory for Siegel modular forms](https://www.imo.universite-paris-saclay.fr/~vincent.pilloni/higherhidaSiegel.pdf), §1.3.3, p. 3. C(κ) (defined on p. 3 with X^*(T)^+, to be read in X^*(T)_ℚ as on p. 48).
 - Wushi Goldring; Jean-Stefan Koskivirta, [Strata Hasse invariants, Hecke algebras and Galois representations](https://link.springer.com/article/10.1007/s00222-019-00882-5), Theorem 10.1.2 and Remark 10.1.3. The warning concerns Harris’s extra vanishing-in-other-degrees claim; use the retained one-dimensional contributing degree only, and separately verify component conventions.
 
@@ -3577,7 +3587,7 @@ Let 𝒢 = Sp_{2n}/ℝ (resp. U(n,n)/ℝ) with maximal compact K ≅ U(n) (resp.
 
 **Sources for this target.**
 
-- Peter Scholze, [On torsion in the cohomology of locally symmetric varieties](https://arxiv.org/abs/1306.2070), §5.1, Proposition 5.1.1, arXiv p. 79. Proposition 5.1.1.
+- Peter Scholze, [On torsion in the cohomology of locally symmetric varieties](https://arxiv.org/abs/1306.2070), §V.1, Proposition V.1.1, arXiv p.79. Proposition V.1.1.
 
 ### Integral coefficient systems from algebraic representations
 
@@ -3625,7 +3635,7 @@ Let V be an algebraic representation of G over a number field E (for example V_�
 
 **Sources for this target.**
 
-- Yiwen Ding, [p-adic Hodge parameters in the crystabelline representations of GL_n](https://arxiv.org/abs/2407.21237), §4.2.2, arXiv p. 72. Lattices W_{ξ,τ} in locally algebraic representations stable under the level at p (the lattice must be in the tensor product over v ∈ S_p∖{℘}: sourceIssues E9).
+- Yiwen Ding, [p-adic Hodge parameters in the crystabelline representations of GL_n](https://arxiv.org/abs/2407.21237), §5.1.1, arXiv p. 72. Lattices W_{ξ,τ} in locally algebraic representations stable under the level at p (the lattice must be in the tensor product over v ∈ S_p∖{℘}: sourceIssues E9).
 - Atsushi Ichino, Kartik Prasanna, [Hodge classes and the Jacquet-Langlands correspondence](https://arxiv.org/abs/1806.10563), §2, arXiv p. 13. Algebraic representations over number fields giving local systems.
 
 ### Field of rationality and fields of definition
@@ -3697,7 +3707,7 @@ Let π be a cuspidal automorphic representation of GL_n(𝔸_F), F a number fiel
 
 **Acceptance.**
 
-- GL_2/ℚ: for a newform f of weight k ≥ 2, ℚ(π_f^∞) = ℚ(a_n(f)) is a number field (Tau Ceti ModularForms Layer 8).
+- For a weight-k normalized newform f on GL_2/ℚ, use π_f,coh=π_f,unit⊗|det|^{(2−k)/2}, with archimedean component D_k(2−k). Its finite-part rationality field is ℚ(a_n(f)). This assertion does not identify the rationality field of the unitary finite-part normalization, whose Hecke eigenvalues involve a_p/p^{(k−1)/2}.
 - Maass forms (non-cohomological) are excluded: their Hecke eigenvalues are not known to be algebraic.
 
 **Signatures requiring supplier input.** `TauCeti.Automorphic.clozelRationality`. The native characteristic-zero cuspidal Betti/relative-cohomology decomposition and finite-part smooth rational model are required. Field-of-rationality alone does not assert an E-model. Owner/input: ArithmeticLocallySymmetricSpaces:ALS.1/ALS.5; AutomorphicSpectralTheory:AS.5; SmoothRepresentationsOfLocalGroups:SR.0:abelian-category.
@@ -3838,7 +3848,7 @@ For a prime p, finite-dimensional coordinate space ℚ_p^n and compact subgroup 
 
 **Sources for this target.**
 
-- Yiwen Ding, [p-adic Hodge parameters in the crystabelline representations of GL_n](https://arxiv.org/abs/2407.21237), §4.2.2, arXiv p.72. The p-adic stable-coefficient-lattice use; the displayed compact-orbit construction is the local linear algebra supporting it.
+- Yiwen Ding, [p-adic Hodge parameters in the crystabelline representations of GL_n](https://arxiv.org/abs/2407.21237), §5.1.1, arXiv p.72. The p-adic stable-coefficient-lattice use; the displayed compact-orbit construction is the local linear algebra supporting it.
 
 ### Relative cohomology with a supplied coefficient
 
@@ -3904,7 +3914,7 @@ Algebraic modular forms are coefficient-valued double-coset functions, in both G
 
 Atlas planet: **GL₁ automorphic dictionary**.
 
-Let F be a number field. (i) The automorphic representations of GL_1(𝔸_F) are exactly the Hecke characters χ ∈ HeckeCharacter F = ContinuousMonoidHom(IdeleClassGroup F, ℂ^×) (Tau Ceti GlobalNumberFields Layer 9), viewed as (𝔤𝔩_1, K_∞) × 𝔸_f^×-modules ℂχ; each occurs with multiplicity one and is cuspidal. (ii) A(GL_1) = ⊕_χ A(GL_1)_{(χ)}, where A(GL_1)_{(χ)} = χ·ℂ[log\|·\|] (generalized eigenspaces). (iii) The infinity type of χ (ContinuousInfinityType: (s_w, ε_w) at real w, (s_w, k_w) at complex w, GlobalNumberFields Layer 10) is the archimedean component π_∞ under the identification of irreducible (𝔤𝔩_1, K_∞)-modules with characters of F_∞^×; the finite conductor of χ is the conductor of π^∞ (the minimal conductor ideal defined by triviality on the standard local principal-unit subgroups); the unitary twist χ\|·\|^{−shift χ} corresponds to the unitary normalisation of π. (iv) π is C-algebraic (= L-algebraic, ρ = 0) iff χ is algebraic of type A_0.
+Let F be a number field. (i) The automorphic representations of GL_1(𝔸_F) are exactly the Hecke characters χ ∈ HeckeCharacter F = ContinuousMonoidHom(IdeleClassGroup F, ℂ^×) (Tau Ceti GlobalNumberFields Layer 9), viewed as (𝔤𝔩_1, K_∞) × 𝔸_f^×-modules ℂχ; each occurs with multiplicity one in the cuspidal form module. Unitary characters give the Hilbert-space cuspidal representations of AF.3; nonunitary characters use the separately stated algebraic twist convention. (ii) A(GL_1) = ⊕_χ A(GL_1)_{(χ)}, where A(GL_1)_{(χ)} = χ·ℂ[log\|·\|] (generalized eigenspaces). (iii) The infinity type of χ (ContinuousInfinityType: (s_w, ε_w) at real w, (s_w, k_w) at complex w, GlobalNumberFields Layer 10) is the archimedean component π_∞ under the identification of irreducible (𝔤𝔩_1, K_∞)-modules with characters of F_∞^×; the finite conductor of χ is the conductor of π^∞ (the minimal conductor ideal defined by triviality on the standard local principal-unit subgroups); the unitary twist χ\|·\|^{−shift χ} corresponds to the unitary normalisation of π. (iv) π is C-algebraic (= L-algebraic, ρ = 0) iff χ is algebraic of type A_0.
 
 **Hypotheses.** F a number field; The finite conductor is the minimal ideal specified by triviality on the standard local principal-unit groups, not a largest arbitrary open subgroup.
 
@@ -3995,13 +4005,13 @@ With φ_f as in AF.5/gl2-classical-to-adelic: (i) f ↦ φ_f is an isomorphism f
 **Construction or proof route.**
 
 1. (i) Surjectivity: given φ of the stated type, f(z) = φ(g_z) j(g_z, i)^k det(g_z)^{−k/2} with g_z = (y^{1/2} xy^{−1/2}; 0 y^{−1/2}) recovers f; holomorphy ⇔ R(L)φ = 0 (Cauchy–Riemann in the coordinates of g_z).
-2. Casimir: write Δ = ¼(H² + 2H + 4YX) (using XY − YX = H) in the weight basis and evaluate on φ_f, of SO(2)-weight k and killed by L, to get k(k−2)/4; Getz–Hahn's Lemma 6.19 prints ¼(k² − 1), contradicted by their §6.5 (sourceIssues E1).
+2. Use the compact-Cartan triple H_c=−i(E_12−E_21), X_c=(H+i(X+Y))/2 and Y_c=(H−i(X+Y))/2 from AF.1/gl2-algebraic-weight-model. The same Casimir is Δ=¼(H_c²−2H_c+4X_cY_c). On φ_f, H_c acts by k and Y_c kills it, giving k(k−2)/4. The split diagonal matrix H is not itself the SO(2)-weight operator. This corrects the Casimir ideal in Getz–Hahn Lemma 6.19 (E1) and makes the compact-basis change explicit (E17).
 3. (ii) Constant term along B at g = n(x)a(y)k equals the 0-th Fourier coefficient of f\|_kγ at the cusp γ∞ (AF.3/constant-term), via the double coset decomposition GL_2(ℚ)\GL_2(𝔸)/B(𝔸)… over cusps of Γ_0(N).
 4. (iii) Moderate growth of φ_f gives polynomial growth of the holomorphic f at every cusp. Its Fourier expansion then has no negative terms, so f is bounded at the cusp (Mathlib bdd_at_cusps′); conversely bounded f yields polynomial growth of φ_f. The expression y^{k/2}\|f\| need not be bounded for a noncuspidal f.
 5. (iv) Lie action: compute R(X), R(Y), R(H) on φ_f in coordinates; translation by G(ℝ)^+ is the slash action.
 6. (v) Irreducibility and local components: π_{f,∞} has lowest weight k, Casimir k(k−2)/4, hence ≅ D_k(0) by the classification; unramified at p ∤ N by K_0(N)-invariance.
 
-**Direct prerequisites.** `AF.5/gl2-classical-to-adelic`, `AF.2/automorphic-form`, `AF.3/cusp-form`, `AF.3/constant-term`, `AF.1/gl2-real-discrete-series`, `AF.2/adelic-classical-bijection`, `mathlib:CuspForm`, `tauceti:TauCetiRoadmap/ModularForms#layer-0-diamond-operators-and-modular-forms-with-character-nebentypus`, `tauceti:TauCetiRoadmap/ModularForms#layer-4-eigenforms-newforms-primitive-forms-the-conductor`
+**Direct prerequisites.** `AF.5/gl2-classical-to-adelic`, `AF.2/automorphic-form`, `AF.3/cusp-form`, `AF.3/constant-term`, `AF.1/gl2-real-discrete-series`, `AF.2/adelic-classical-bijection`, `mathlib:CuspForm`, `tauceti:TauCetiRoadmap/ModularForms#layer-0-diamond-operators-and-modular-forms-with-character-nebentypus`, `tauceti:TauCetiRoadmap/ModularForms#layer-4-eigenforms-newforms-primitive-forms-the-conductor`, `AF.1/gl2-algebraic-weight-model`
 
 **Acceptance.**
 
@@ -4100,7 +4110,7 @@ Let G be connected reductive over a number field F with G(F ⊗ ℝ) compact mod
 **Sources for this target.**
 
 - George Boxer, Frank Calegari, Toby Gee, Vincent Pilloni, [Modularity theorems for abelian surfaces](https://arxiv.org/abs/2502.20645v1), §5.7.2, arXiv p. 131. Definition 5.7.2; the spaces S_λ(U, A) of §5.7 are functions with f(gu) = u⁻¹f(g).
-- Yiwen Ding, [p-adic Hodge parameters in the crystabelline representations of GL_n](https://arxiv.org/abs/2407.21237), §4.2.2, arXiv p. 72. Coefficient lattices with inertial types (the lattice should be in the tensor product over v ∈ S_p∖{℘}: sourceIssues E9).
+- Yiwen Ding, [p-adic Hodge parameters in the crystabelline representations of GL_n](https://arxiv.org/abs/2407.21237), §5.1.1, arXiv p. 72. Coefficient lattices with inertial types (the lattice should be in the tensor product over v ∈ S_p∖{℘}: sourceIssues E9).
 
 ### Finiteness and the automorphic comparison for algebraic modular forms
 
@@ -4140,7 +4150,7 @@ With G compact at infinity as in AF.5/algebraic-modular-forms: (i) G(F)\G(𝔸_f
 **Construction or proof route.**
 
 1. (i) Points of Weil restrictions (ReductiveGroupsPartII RG2.0a; AdelicAlgebraicGroups AA.1 base change of adelic points) and Lie algebras Lie(Res G)(ℝ) = Lie(G)(E ⊗ ℝ).
-2. (ii) Products: Z(𝔤_1 × 𝔤_2) = Z(𝔤_1) ⊗ Z(𝔤_2), K = K_1 × K_2; irreducible admissible modules of a product are exterior tensor products (Getz–Hahn Theorem 7.11); automorphy of each factor by restricting to G_i(𝔸) × {1}.
+2. For a product, split irreducible admissible modules through the finite-corner tensor-factorization and Flath inputs. To prove each factor automorphic, extract a nonzero constituent using finite-type slices and coefficient functionals in the other factor. Restriction to G_i(𝔸)×{1} alone does not identify an irreducible factor: a slice can vanish or contain several constituents. The automorphic constituent-extraction argument is recorded as a target-level proof gap.
 3. Fix a finite K-type projector ξ, a compact-open finite level J_f and a cofinite central ideal I killing φ. Central translations commute with ξ and preserve the J_f-invariance, I-annihilation and polynomial-growth conditions, so the entire central orbit lies in the finite-dimensional fixed-type space of AF.2/harish-chandra-finiteness. A commuting family on this finite-dimensional complex space has a joint generalized-character decomposition.
 4. Borel–Jacquet §4.3(iv), p.195, gives central-translation finiteness as a consequence of §4.3(i) and Theorem 1.7. This closes the formal deduction from the fixed-type theorem; the proof-closure gap is the analytic finiteness theorem itself, not an independent inference from finitely many differential operators.
 
@@ -4162,9 +4172,9 @@ With G compact at infinity as in AF.5/algebraic-modular-forms: (i) G(F)\G(𝔸_f
 
 **Construction** `AF.5/central-character-algebraic-modular-forms`. Proposed declaration: `TauCeti.Automorphic.CentralCharacterAlgebraicModularForm`. Module: `TauCeti/Automorphic/Foundations`. Realises `AF.5`.
 
-Let G(F_∞)/A_∞ be compact, Z_f=Z_G(𝔸_f), J⊂G(𝔸_f) compact open, M a finite coefficient module with a continuous J action, and ψ:Z_f→A^× a continuous character. Define S_ψ(J,M)={f:G(𝔸_f)→M : f(γgzu)=ψ(z)u⁻¹f(g)} for γ∈G(F),z∈Z_f,u∈J. Require ψ trivial on Z_G(F), and the J action on Z_f∩J to be multiplication by ψ⁻¹. The relevant class set is G(F)\G(𝔸_f)/(Z_fJ). For each class representative t the effective stabilizer consists of pairs (γ,z,u) with γtzu=t, modulo the central pairs acting trivially; its coefficient action is ψ(z)u⁻¹. Values give S_ψ(J,M)≅⊕_t M^{Γ_t^{eff}}. Class-number finiteness and finiteness of effective stabilizers require the stated compact-mod-centre arithmetic supplier theorem. This branch handles positive-unit-rank tori which the discrete-rational-centre construction excludes.
+Let G(F_∞)/Z_G(F_∞) be compact, Z_f=Z_G(𝔸_f), J⊂G(𝔸_f) compact open, M a finite coefficient module with a continuous J action, and ψ:Z_f→A^× a continuous character. Define S_ψ(J,M)={f:G(𝔸_f)→M : f(γgzu)=ψ(z)u⁻¹f(g)} for γ∈G(F),z∈Z_f,u∈J. Require ψ trivial on Z_G(F), and the J action on Z_f∩J to be multiplication by ψ⁻¹. The relevant class set is G(F)\G(𝔸_f)/(Z_fJ). For each class representative t the effective stabilizer consists of pairs (γ,z,u) with γtzu=t, modulo the central pairs acting trivially; its coefficient action is ψ(z)u⁻¹. Values give S_ψ(J,M)≅⊕_t M^{Γ_t^{eff}}. Class-number finiteness and finiteness of effective stabilizers require the stated compact-mod-centre arithmetic supplier theorem. This branch handles positive-unit-rank tori which the discrete-rational-centre construction excludes.
 
-**Hypotheses.** G(F_∞)/A_∞ is compact; the central character is compatible with rational centre and the coefficient action on Z_f∩J.; Use the central quotient class set and effective stabilizer action. Do not retain the unmodified G(F)\G(𝔸_f)/J finiteness or claim its infinite rational-central stabilizers are finite.; Hecke coefficient action must extend to the chosen semigroup and commute with ψ; integral base change is asserted when the effective stabilizer orders are invertible or they act trivially at small level.
+**Hypotheses.** G(F_∞)/Z_G(F_∞) is compact; supply finiteness of the central-quotient class set and effective stabilizers from AA.3 under its precise arithmetic hypotheses. The central character is compatible with rational centre and the coefficient action on Z_f∩J.; Use the central quotient class set and effective stabilizer action. Do not retain the unmodified G(F)\G(𝔸_f)/J finiteness or claim its infinite rational-central stabilizers are finite.; Hecke coefficient action must extend to the chosen semigroup and commute with ψ; integral base change is asserted when the effective stabilizer orders are invertible or they act trivially at small level.
 
 **Construction or proof route.**
 
@@ -4199,7 +4209,7 @@ Let G(F_∞)/A_∞ be compact, Z_f=Z_G(𝔸_f), J⊂G(𝔸_f) compact open, M a 
 
 - For G=G_m over a real quadratic field, Z_f=G(𝔸_f), ψ=1 and trivial coefficients, the central-quotient class set has one element and S_ψ=A despite positive rank of rational units.
 - When Z_f is trivial the carrier agrees with LevelAlgebraicModularForm.
-- For one-dimensional coefficients, if some z∈Z_f∩J acts by a scalar unequal to ψ(z), every compatible form vanishes; the unrestricted carrier must not be used.
+- For one-dimensional coefficients, if some z∈Z_f∩J acts by a scalar unequal to ψ(z)⁻¹, every compatible form vanishes; the unrestricted carrier must not be used.
 
 **Native signature scope.** Native ψ-weighted equivariance, overlap compatibility, stabilizer values, effective endomorphism units, central double-coset evaluation and tensor base-change. Arithmetic central-quotient class/stabilizer finiteness for positive-unit-rank centres is an AA request.
 
@@ -4254,7 +4264,7 @@ Tau Ceti commit: `f790474821cf4256814db967cb154e7af3d0c369`. Mathlib commit: `08
 | `tauceti:TauCeti.haarAverage` | [TauCeti/RepresentationTheory/Compact/Averaging.lean](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RepresentationTheory/Compact/Averaging.lean) | Normalized compact-group Haar average for the normed complete coefficient setting of the pinned file (finite-dimensional coefficients satisfy it); not an unrestricted locally convex integral. |
 | `tauceti:TauCeti.peterWeylBasis` | [TauCeti/RepresentationTheory/Compact/PeterWeyl.lean](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RepresentationTheory/Compact/PeterWeyl.lean) | The Peter–Weyl Hilbert basis of L²(G) by normalised matrix coefficients, for a skeleton of the unitary dual of a compact group. |
 | `tauceti:TauCeti.vermaCentralCharacter` | [TauCeti/Algebra/Lie/HighestWeight/CentralCharacter.lean](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Algebra/Lie/HighestWeight/CentralCharacter.lean) | Central character for the split Killing-semisimple Lie algebra under its PBW/Cartan hypotheses. The general reductive extension (including arbitrary central weights) is an imported LieHighestWeight Layer 9 target, not supplied by this declaration alone. |
-| `tauceti:lieMap` | [TauCeti/Geometry/Lie/Functor.lean](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Geometry/Lie/Functor.lean) | The Lie functor on smooth homomorphisms: the differential at 1 as a Lie algebra map between left-invariant derivations. |
+| `tauceti:lieMap` | [TauCeti/Geometry/Lie/Tangent/LieEquiv.lean](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Geometry/Lie/Tangent/LieEquiv.lean) | The Lie functor on smooth homomorphisms: the differential at 1 as a Lie algebra map between left-invariant derivations. |
 | `mathlib:PiTensorProduct` | [Mathlib/LinearAlgebra/PiTensorProduct/Basic.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/LinearAlgebra/PiTensorProduct/Basic.lean) | Tensor product of an indexed family of modules; use finite-place tensor factors with its tprod/lift/reindex API. |
 | `mathlib:Module.DirectLimit` | [Mathlib/Algebra/Colimit/Module.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Colimit/Module.lean) | Module colimit for linear transition maps, with of/lift/universal property; directed-system hypotheses are needed for the canonical union description. |
 | `mathlib:LieModule.Cohomology.oneCochain` | [Mathlib/Algebra/Lie/Cochain.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Lie/Cochain.lean) | Degree-one Lie cochains as linear maps; the complete all-degree complex remains new. |
@@ -4265,7 +4275,7 @@ Tau Ceti commit: `f790474821cf4256814db967cb154e7af3d0c369`. Mathlib commit: `08
 | `mathlib:LinearMap.bijective_or_eq_zero` | [Mathlib/RingTheory/SimpleModule/Basic.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/SimpleModule/Basic.lean) | Schur lemma for maps between simple modules; it alone does not identify a division algebra with the scalar field. |
 | `mathlib:Module.End.exists_eigenvalue` | [Mathlib/LinearAlgebra/Eigenspace/Triangularizable.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/LinearAlgebra/Eigenspace/Triangularizable.lean) | A nonzero finite-dimensional vector space over an algebraically closed field admits an eigenvalue for every endomorphism; combined with Schur to identify the commutant with scalars. |
 | `mathlib:IsIdempotentElem.Corner` | [Mathlib/RingTheory/Idempotents.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Idempotents.lean) | The eAe carrier for an idempotent in a ring, with its native ring structure and identity e; do not recreate this carrier. |
-| `tauceti:leftInvariantDerivationLieEquivGroupLieAlgebra` | [TauCeti/Geometry/Lie/Functor.lean](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Geometry/Lie/Functor.lean) | The pinned Lie equivalence between left-invariant derivations and the tangent Lie algebra. The automorphic differentiated actions import this equivalence instead of planning it again. |
+| `tauceti:leftInvariantDerivationLieEquivGroupLieAlgebra` | [TauCeti/Geometry/Lie/Tangent/LieEquiv.lean](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Geometry/Lie/Tangent/LieEquiv.lean) | The pinned Lie equivalence between left-invariant derivations and the tangent Lie algebra. The automorphic differentiated actions import this equivalence instead of planning it again. |
 | `mathlib:Finsupp.linearCombination` | [Mathlib/LinearAlgebra/Finsupp/LinearCombination.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/LinearAlgebra/Finsupp/LinearCombination.lean) | Linear map from finitely supported coefficients to an actual family of vectors; constructs the GL₂ H/X/Y operators. |
 | `mathlib:LinearMap.baseChange` | [Mathlib/LinearAlgebra/TensorProduct/Tower.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/LinearAlgebra/TensorProduct/Tower.lean) | Canonical A⊗M→A⊗N induced by an R-linear map, with the pure-tensor equation; used in algebraic-form base change. |
 | `mathlib:UpperHalfPlane.volume_def` | [Mathlib/Analysis/Complex/UpperHalfPlane/Measure.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Analysis/Complex/UpperHalfPlane/Measure.lean) | The native hyperbolic upper-half-plane measure dx dy/y². |
@@ -4446,7 +4456,7 @@ Consumers: `AF.4/rationality-field`, `AF.4/clozel-rationality`.
 
 Consumers: `AF.2/spherical-dimension-one`.
 
-**R42.** `AdelicAlgebraicGroups:AA.3`. For G(F_∞)/A_∞ compact, prove finiteness of G(F)\G(𝔸_f)/(Z_G(𝔸_f)J) and of its effective arithmetic stabilizers after quotienting the rational central subgroup; include the positive-unit-rank torus case.
+**R42.** `AdelicAlgebraicGroups:AA.3`. For G(F_∞)/Z_G(F_∞) compact, give precise arithmetic hypotheses proving finiteness of G(F)\G(𝔸_f)/(Z_G(𝔸_f)J) and of effective stabilizers modulo rational central pairs. Include the real-quadratic G_m case; compactness modulo the F-split A_∞ alone excludes that example.
 
 Consumers: `AF.5/central-character-algebraic-modular-forms`.
 
@@ -4499,6 +4509,8 @@ Retained preceding-plan/review locators: §1 recap of topological group cohomolo
 SHA-256: `ccaaf5ad243ccb85d3db629ff7677ca5b80b7e2d71e502d21fa1b773863b78a4`. Access/read metadata: 2026-10-06.
 
 Retained preceding-plan/review locators: §§2, 5-6: theta-stable parabolics, the modules A_q(lambda), Theorem 5.6 and Proposition 6.19 (as quoted in Ichino-Prasanna §7.1).
+
+Independent revision-2 source check: Theorems 5.5–5.6, pp.74–75, and Proposition 6.19, p.84. The primary statements were checked; full proof interiors remain refinements.
 
 **franke98.** Jens Franke, [Harmonic analysis in weighted L2-spaces](https://www.numdam.org/item/ASENS_1998_4_31_2_181_0.pdf). Ann. Sci. École Norm. Sup. (4) 31 (1998), 181-279; Numdam.
 
@@ -4622,7 +4634,7 @@ Retained preceding-plan/review locators: §1.8 (conventions); §5.7 (definite un
 
 SHA-256: `e15abf4e7ab3e400ecaae963e5ccd80b340919d8499ebfde5b55f2ceb83ab285`. Access/read metadata: 2026-10-06.
 
-Retained preceding-plan/review locators: §5.1, Proposition 5.1.1.
+Retained preceding-plan/review locators: §5.1, Proposition V.1.1.
 
 **knapp94.** Anthony W. Knapp, [Local Langlands correspondence: the archimedean case](https://www.math.stonybrook.edu/~aknapp/pdf-files/motives.pdf). Public version read by independent reviewer; see readSections.
 
@@ -4660,7 +4672,7 @@ This run’s reading locators: §§2.3.1–2.3.4, pp.13–15; §§3.1.4–3.1.5,
 
 Retained preceding-plan/review locators: §§2.3.1–2.3.4, pp.13–15: level/Hecke functoriality, coefficient extension and the GL_n inner-spectrum rationality field; §§3.1.4–3.1.5, pp.17–19: Wigner’s lemma, normalized induced D_λ and Proposition 3.11, including split-centre and component terms; §§4.2.1–4.2.3, pp.25–27: boundary fibration, Proposition 4.3 and Kostant (4.5).
 
-**borel-jacquet79.** A. Borel and H. Jacquet, [Automorphic forms and automorphic representations](https://doi.org/10.1090/pspum/033.1/546598). Proc. Sympos. Pure Math. 33, Part 1 (1979), pp.189–207; maintainer-cleared reading copy.
+**borel-jacquet79.** A. Borel and H. Jacquet, [Automorphic forms and automorphic representations](https://doi.org/10.1090/pspum/033.1/546598). Proc. Sympos. Pure Math. 33, Part 1 (1979), pp.189–202; maintainer-cleared reading copy.
 
 SHA-256: `2da78c21d85062b64a4c3b4370e2a145d5da8349ffe80cba9cd8cdb195cf593f`. Access/read metadata: 2026-10-08.
 
@@ -4686,95 +4698,115 @@ The cleared Corvallis volume was read in place for Borel–Jacquet and Flath. No
 
 ## Source corrections and limits
 
-The preceding independent review confirmed nine of E1–E10 and rejected E8. Those verdicts are preserved. E11–E15 are new, unreviewed findings from this run. Source-version scope and the searched-for correction metadata remain in the packet. The targets use corrected mathematics; the rejected E8 proposal is retained only as history and is not used to delete parameterized uniqueness.
+The independent review of revision 2 checked all eighteen findings in the recorded source versions: seventeen are confirmed and E8 is rejected. The rejected finding is retained as history with its false counterexample removed. These corrections state the mathematics in our own words.
 
 **E1.** confirmed; error. Source `getz-hahn`, §6.4, Lemma 6.19 and Remark 6.20 (p. 33), repeated in §6.5 (p. 34); notes version of 13 March 2015.
 
 Correction: With ∆ = (1/4)(H² + 2XY + 2YX), a weight-k form φ_f killed by the lowering operator satisfies ∆φ_f = (k(k−2)/4)φ_f; the ideal is ⟨∆ − k(k−2)/4, Z⟩.
 
-Reason: The notes' own §6.5 gives ∆v_ℓ = (k(k−2)/4)v_ℓ on the discrete series π_k generated by such forms. Check at k = 2: weight-2 holomorphic forms have the infinitesimal character of the trivial representation, on which ∆ acts by 0, whereas (k²−1)/4 = 3/4. With the printed ideal the target space of Lemma 6.19 is 0 for k ≥ 2, so the stated isomorphism is false as printed.
+Independent check: Getz–Hahn §6.4, p.33, is inconsistent with §6.5, p.34. At k=2 the correct Casimir is zero, while the printed expression gives 3/4; at k=12 the corrected value is 30.
 
 **E2.** confirmed; misprint. Source `getz-hahn`, §8, proof of Proposition 8.6, p. 40.
 
 Correction: dim(V^K) ≤ 1 for all irreducible admissible V (V^K may be 0).
 
-Reason: A supercuspidal representation of GL_2(ℚ_p) has no GL_2(ℤ_p)-fixed vectors, so dim V^K = 0; the Gelfand-pair criterion only needs ≤ 1.
+Independent check: The proof of Getz–Hahn Proposition 8.6, p.40, gives the bound at most one. Irreducibles without a spherical vector have invariant dimension zero; the existence hypothesis cannot be dropped.
 
 **E3.** confirmed; misprint. Source `cg20`, §2.2, p. 810 (arXiv:1907.08691v1 p. 8).
 
 Correction: Only the noncompact part Φ_n^+ is forced by the condition Φ_n^+ = roots of 𝔭^+; the compact positive root ±(1,−1;0) is a further choice.
 
-Reason: Both {(1,−1;0)} ∪ Φ_n^+ and {(−1,1;0)} ∪ Φ_n^+ are positive systems (each is the positive system of a regular element of the corresponding chamber) with the same noncompact part.
+Independent check: Calegari–Geraghty §2.2, arXiv p.8, fixes the noncompact positive roots but leaves a compact-Borel choice. Either compact-root sign is compatible with those noncompact roots.
 
 **E4.** confirmed; misprint. Source `cg20`, §5.3, p. 828 (arXiv:1907.08691v1 p. 21).
 
 Correction: There are four chambers C_0, …, C_3 (as listed immediately after), defined in §2.1.
 
-Reason: The list that follows contains exactly C_0, C_1, C_2, C_3; \|W_G/W_M\| = 4 for GSp_4.
+Independent check: Calegari–Geraghty §5.3, arXiv p.21, immediately enumerates four chambers C_0 through C_3. The extra chamber index and the back-reference are typographical errors.
 
 **E5.** confirmed; error. Source `pilloni20`, §5.1.6, p. 22, and §15.2.1, p. 107 (author's PDF).
 
 Correction: −λ_1 ≥ λ_2 > λ_1 in both places.
 
-Reason: λ_2 = λ_1 is a compact wall, which carries no (limit of) discrete series; the region −λ_1 ≥ λ_2 > −λ_1 printed on p. 107 is empty.
+Independent check: Pilloni §§5.1.6 and 15.2.1, pp.22 and 107, have incompatible regions. The later printed strict inequality is empty. The compact wall must be excluded, giving −λ_1≥λ_2>λ_1.
 
 **E6.** confirmed; misprint. Source `pilloni20`, §15.2.2, Theorem 15.2.2.1(2), p. 108 (author's PDF).
 
 Correction: −λ_1 ≥ R.
 
-Reason: The theorem concerns λ = (λ_1, 0; c) with λ_1 < 0, so λ_1 ≥ R > 0 is impossible; large weight means −λ_1 large.
+Independent check: Pilloni Theorem 15.2.2.1(2), p.108, applies to negative λ_1 and subsequently uses k=−λ_1−1 with k≥R−1. The intended threshold is −λ_1≥R.
 
 **E7.** confirmed; misprint. Source `boxer-pilloni`, §1.3.3, p. 3 (authors' preprint).
 
 Correction: The condition must be read in X^*(T)_ℚ (κ + ρ need not be integral), as in the definition on p. 48: w⁻¹w_{0,M}(κ + ρ) ∈ X^*(T)^−_ℚ.
 
-Reason: ρ is half-integral for GSp_{2g}, so −w⁻¹w_{0,M}(κ+ρ) is not in X^*(T) in general and the set as printed can be empty.
+Independent check: Boxer–Pilloni §1.3.3, p.3, places ρ in the integral lattice, although their parity lattice excludes it already for g=2. The rational character space used later is the appropriate ambient space.
 
 **E8.** rejected; error. Source `boxer-pilloni`, §1.3.7, Theorem 1.3.8, p. 4 (authors' preprint).
 
-The proposed correction is not adopted. The asserted GSp₄ counterexample is false: its four minimal Siegel Weyl representatives have lengths 0,1,2,3, so there are no two of length 1. The source labels the representation by full data (κ,w); same-degree representations with other parameter data do not disprove that parameterized uniqueness. Do not silently delete source uniqueness on this evidence. A stronger uniqueness-from-degree reading remains a stated gap.
+Correction: Retain the source theorem with its full parameter data (κ,w) and its stated component/central-character conventions. The rejected genus-two example provides no reason to remove its parameterized uniqueness. No uniqueness conclusion from cohomological degree alone is asserted.
+
+Independent check: Rejected: in genus two the minimal Siegel representatives have lengths 0,1,2,3. No two have length one. The source’s full (κ,w) parameters must be retained; this finding cannot refute its parameterized uniqueness.
 
 **E9.** confirmed; misprint. Source `ding25`, §4.2.2, arXiv:2407.21237 p. 72.
 
 Correction: W_{ξ,τ} should be a ∏_{v ∈ S_p∖{℘}} GL_n(O_{F_v^+})-invariant lattice in ⊗_{v ∈ S_p∖{℘}} σ(τ_v) ⊗ L(ξ_v).
 
-Reason: It is acted on by ∏_{v∈S_p∖{℘}} U_v in the definition of S_{ξ,τ} that follows.
+Independent check: Ding §5.1.1, p.72, needs the tensor product across every v in S_p other than the distinguished place. The next definition uses the corresponding product group and product-invariant lattice.
 
 **E10.** confirmed; error. Source `harris90-survey`, §3, Theorem 3.4, printed p.63 (PDF p.75).
 
 Correction: Retain the one-dimensional contributing degree with the source parameter convention. The general extra vanishing assertion fails for the full disconnected GL_2(ℝ); the connected semisimple case is a valid special case.
 
-Reason: Goldring–Koskivirta Remark 10.1.3 explicitly identifies this error. For the weight-one full GL_2 limit, the holomorphic and antiholomorphic components contribute degrees 0 and 1 with the same coefficient.
+Independent check: Harris Theorem 3.4, p.63, contains the stronger degree-vanishing assertion. Goldring–Koskivirta Theorem 10.1.2 and Remark 10.1.3 preserve the contributing degree and give the full GL_2 counterexample to concentration. Their connected semisimple qualification is essential.
 
-**E11.** unreviewed; error. Source `getz-hahn`, Definitions 6.7–6.8, pp.30–31; notes version of 13 March 2015.
+**E11.** confirmed; error. Source `getz-hahn`, Definitions 6.7–6.8, pp.30–31; notes version of 13 March 2015.
 
 Correction: Require the image to be closed in End(E), or enlarge by inverse-dual or inverse-determinant data; use two-sided polynomial height comparisons.
 
-Reason: On ℝ× the representations x↦x and x↦x⁻¹ both have finite kernel. The function x↦\|x\|⁻¹ is polynomially bounded in 1+\|x\|⁻¹ but not in 1+\|x\| near zero. Borel–Jacquet §1.2 explicitly gives the stronger closed-image-in-End hypothesis.
+Independent check: Getz–Hahn Definition 6.6, p.30, only requires closed image in GL(E). The faithful scalar representation of positive GL_1 approaches zero while escaping toward its inverse. Borel–Jacquet §1.2, pp.189–190, requires closed image in End(E), or the inverse-dual enlargement.
 
-**E12.** unreviewed; error. Source `getz-hahn`, §7.1, restricted tensor product definition, p.35; notes version of 13 March 2015.
+**E12.** confirmed; error. Source `getz-hahn`, §7.1, restricted tensor product definition, p.35; notes version of 13 March 2015.
 
 Correction: Take the vector-space direct limit of finite tensor products with transition maps tensoring the distinguished vectors; sums of pure tensors are included.
 
-Reason: Already for two two-dimensional factors, 1⊗1+x⊗x has coefficient matrix of rank two and is not pure. A set of restricted pure sequences is not closed under addition.
+Independent check: Getz–Hahn Definition 7.8, p.36, describes pure restricted tensors as sequences. Such sequences are not closed under addition: the sum of two independent elementary tensors need not be elementary. The algebraic tensor/colimit construction is required.
 
-**E13.** unreviewed; gap. Source `getz-hahn`, Proof of Proposition 7.9, pp.36–37; notes version of 13 March 2015.
+**E13.** confirmed; gap. Source `getz-hahn`, Proof of Proposition 7.9, pp.36–37; notes version of 13 March 2015.
 
 Correction: Start with any invariant subspace U of a nonzero corner, generate the full module from U, then recover U by the same idempotent.
 
-Reason: A proper invariant subspace need not have an invariant complement. Flath Theorem 1, pp.179–180, gives the generation argument and handles every submodule.
+Independent check: Getz–Hahn Lemma 7.10, p.37, assumes an arbitrary vector-space complement remains invariant. Irreducibility of a corner instead follows by generating with the ambient algebra and applying the idempotent to the resulting submodule; no invariant complement is available in general.
 
-**E14.** unreviewed; error. Source `getz-hahn`, Theorem 7.11, p.37; notes version of 13 March 2015.
+**E14.** confirmed; error. Source `getz-hahn`, Theorem 7.11, p.37; notes version of 13 March 2015.
 
 Correction: Require an irreducible admissible representation on both sides of the factorization theorem; reducible admissible objects can be sums or extensions.
 
-Reason: For C₂×C₂, the admissible module 1⊗1⊕sgn⊗sgn has a rank-two character matrix. Every single exterior tensor has a rank-one character matrix, so this module does not have the asserted form. Flath Theorem 1 states the irreducible hypothesis.
+Independent check: Getz–Hahn Theorem 7.11, p.37, omits irreducibility in its advertised admissible-product factorization. For C_2×C_2, a sum of the two diagonal characters has a rank-two multiplicity matrix, while a single exterior product has rank one. Flath’s irreducible admissible theorem is the usable version.
 
-**E15.** unreviewed; error. Source `cg20`, §2.0.1, arXiv:1907.08691v1 p.7, description of w₀.
+**E15.** confirmed; error. Source `cg20`, §2.0.1, arXiv:1907.08691v1 p.7, description of w₀.
 
 Correction: The swap is the longest element w_{0,M} of the Siegel Levi Weyl group. The full type-C₂ longest element is (a,b;c_T)↦(−a,−b;c_T+a+b). Use w_{0,M} in the compact-chamber contragredient formula.
 
-Reason: The swap sends the positive root (0,2;−1) to the positive root (2,0;−1), so it does not reverse all positive roots. The stated full longest element sends each of the four displayed positive roots to its negative.
+Independent check: Calegari–Geraghty §5.3, arXiv p.21, says full longest element although the transformation matches the Siegel-Levi longest element. On split torus coordinates the full type-C_2 element negates the derived weights and adjusts the determinant coordinate; the Levi element only swaps them.
+
+**E16.** confirmed; error. Source `getz-hahn`, §3.3, Definition 3.6, p.18.
+
+Correction: For probability Haar measure use d_σ·conj(χ_σ(k))dk, or d_σ·χ_σ(k⁻¹)dk; divide by vol(K) for an unnormalized Haar measure.
+
+Independent check: Compact-character orthogonality verifies both discrepancies. The native projector already uses the correct dimension and inverse character.
+
+**E17.** confirmed; error. Source `getz-hahn`, §6.4–6.5, pp.33–34, the basis declaration and actions (1)–(6).
+
+Correction: For the clockwise rotation r_θ=[[cos θ,sin θ],[-sin θ,cos θ]], let J=E_12−E_21, A=diag(1,−1) and B=E_12+E_21. The compact-Cartan triple is H=−iJ, X=(A+iB)/2, Y=(A−iB)/2. The following weight actions refer to this triple, rather than to the split diagonal/upper/lower basis (source issue E17).
+
+Independent check: Confirmed directly by the 2×2 matrices and compact generator; the published-book errata corroborates the basis problem but is a different edition.
+
+**E18.** confirmed; misprint. Source `knapp94`, §4, p.406, paragraph following (4.7).
+
+Correction: The epsilon factor of a direct sum is the product of the constituent epsilon factors, with the same additive character.
+
+Independent check: Confirmed in the public survey. The typo concerns the word identifying the factors in the product, not the displayed constituent formulas.
 
 ## Gaps that prevent closure
 
@@ -4798,7 +4830,7 @@ Needed by `AF.1/langlands-classification`, `AF.1/discrete-series`.
 
 Needed by `AF.1/archimedean-llc-gln`.
 
-**G6. Vogan's unitary dual not read.** Vogan, The unitary dual of GL(n) over an archimedean field, Invent. Math. 83 (1986) 449-505, was not read in this review; the node records the statement as Jiang–Zhang (B.5) use it.
+**G6. Vogan's unitary dual not read.** Vogan, The unitary dual of GL(n) over an archimedean field, Invent. Math. 83 (1986) 449-505, was not read in this review; the node records the statement as Jiang–Zhang (B.6) use it.
 
 Needed by `AF.1/vogan-generic-unitary-dual`.
 
@@ -4866,7 +4898,12 @@ Needed by `AF.4/kostant-parabolic-cohomology`.
 
 Needed by `AF.5/central-character-algebraic-modular-forms`.
 
-## Structure proposals and next review
+
+**G23. Automorphic constituent extraction for direct products.** The finite-corner and Flath factorization theorems identify abstract irreducible product modules. To deduce automorphy of both factors from a subquotient of A(G_1×G_2), construct nonzero finite-type slices/coefficient functionals and track subquotients, central ideals, levels and growth. Evaluation at the identity in the other factor is insufficient. The converse external product and its constant-term/cuspidality compatibility are separate elementary constructions.
+
+Needed by `AF.5/transport-compatibilities`.
+
+## Structure proposals and revision
 
 **Proposal 1: split.** AF.1 combines the algebraic and analytic foundations ((𝔤, K)-modules, Harish-Chandra modules, infinitesimal characters, Casselman–Wallach globalization, Dixmier–Malliavin) with the classification of irreducible representations (tempered and discrete series, Harish-Chandra parameters, Langlands classification, W_ℝ and Langlands' correspondence for GL_n(ℝ), GL_n(ℂ), Vogan's generic unitary dual). RT-AREA-automorphic-1/2 asks for the classification to be planned (archimedean local Langlands) and proposes AF.1b as one option.
 
@@ -4884,4 +4921,4 @@ Keep RS-04's direction AA.3 → AF.1: AA.3 proves the comparison ‖g‖_ι' ≤
 
 Export an early AF.4:local-weights prefix with algebraic-weight, coefficient-lattices, cohomological-representation, wigner-lemma and vogan-zuckerman. Its current fine-node inputs are AF.1/AF.1a, AA.1 integral models and the existing highest-weight/root suppliers; it imports no ALS or AS.5 result. Keep torsion-hecke-eigenclasses after ALS.1/ALS.3, and clozel-rationality after the actual ALS.5 comparison and AS.5 inputs, retaining its GL_n and explicitly conditional general-group scopes. ALS.5 and AS.5 comparison proofs may use the local prefix, never this rationality suffix. Coordinate with the existing ALS.5 comparison versus automorphic-applications split; preserve node ids until maintainer integration.
 
-The independent review should check the repaired conventions and source findings, the exact native hypotheses and the completeness of the omission inventory against the seven target sets. Closure work discharges the specified supplier exports and analytic proof gaps, implements the missing native signatures without weakening their names, and integrates the prefix splits before claiming that the combined stage graph is acyclic. The mathematical catalogue is complete at target level; its stages remain open for those exact obligations.
+The completed independent review checked the repaired conventions and source findings, the exact native hypotheses and the omission inventory against all seven target sets. The next revision must meet the signature correspondence requirement recorded in the review result above. Closure work discharges the specified supplier exports and analytic proof gaps, implements the missing native signatures without weakening their names, and integrates the prefix splits before claiming that the combined stage graph is acyclic. The mathematical catalogue is complete at target level; its stages remain open for those exact obligations.
