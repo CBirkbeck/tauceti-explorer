@@ -1,0 +1,8 @@
+{
+  "review": {
+    "status": "needs_changes",
+    "reviewer": "independent-review-REV-PKG-LocalGaloisDeformationRings",
+    "date": "2026-10-08",
+    "notes": "Completed independent package review against all six requirements. Compared all 157 reader targets and hypotheses, all 247 API names, ownership and prerequisites with the accepted plan; checked upstream form, own-word prose, source-page locators, process-free form and single-line math.NT metadata. Corrected omitted reader comparisons, the odd-parity mixed=unramified branch, coefficient finite-residue specialization, Hausdorff tame uniqueness and citation/process defects. Final README is 199608 bytes. Final lean-check exits 0 with 0 errors and 120 warnings, all for sorry, against pinned Mathlib; the file imports no Tau Ceti modules. Needs changes because whole definition/API/test interfaces remain comments, foundational carriers omit coefficient/residue/continuity/finiteness hypotheses, comparisons are weakened to dimension consequences, and ordinary/KW parameter data and carrier-level tests are incomplete. See REV-PKG-LocalGaloisDeformationRings.md for five required revision groups. Accepted plan and implementation statuses were not changed."
+  }
+}
