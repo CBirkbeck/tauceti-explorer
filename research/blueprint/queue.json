@@ -34905,8 +34905,9 @@
    ],
    "followUpOf": "BP-ClassicalAdicEtaleCohomology--H0",
    "prompt": "research/blueprint/prompts/BP-ClassicalAdicEtaleCohomology--H1-valuation-nearby-cycles.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6930"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6930",
+   "finishedAt": "2026-10-08T15:54:54Z"
   },
   {
    "id": "REV-ClassicalAdicEtaleCohomology--H1-valuation-nearby-cycles",
@@ -37079,7 +37080,8 @@
     "DESIGN-PotentialAutomorphyInfrastructurePartII~2"
    ],
    "prompt": "research/blueprint/prompts/REV-DESIGN-PotentialAutomorphyInfrastructurePartII~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7022"
   },
   {
    "kind": "design",
