@@ -1,4 +1,11 @@
 import Mathlib.Algebra.Module.LinearMap.Basic
+import Mathlib.Algebra.Module.Torsion.Basic
+import Mathlib.RingTheory.Finiteness.Defs
+import Mathlib.Topology.Instances.AddCircle.Defs
+import Mathlib.Topology.Algebra.InfiniteSum.Basic
+import Mathlib.LinearAlgebra.Dual.Defs
+import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Defs
+import Mathlib.Data.ZMod.Basic
 import Mathlib.LinearAlgebra.Span.Defs
 import Mathlib.LinearAlgebra.Quotient.Basic
 import Mathlib.LinearAlgebra.Basis.Defs
@@ -23,16 +30,13 @@ Unexpressible geometry, continuity and analytic hypotheses are OMITTED, with
 section-specific explanations, never replaced by opaque proposition fields.
 These conditional algebraic signatures do not establish geometric existence.
 
-Independent review REV-KatoEulerSystems: needs_changes. Several named theorem
-signatures below give only an algebraic consequence, not the packet's theorem.
-In particular integralZetaFiniteIndex omits finiteness; heckeDualTwistDictionary
-omits the operators and their transport. The two unconstrained complex-value
-formulas are false as universal statements (take all maps/classes zero and the
-right-hand value/vector one). Section 13 permits these omitted hypotheses;
-that omission alone is not a reason for rejection. Missing source conclusions
-and essential maps in the named signatures remain revision requirements.
-Integral full-level coefficients must be literal duals; symmetric-power
-self-duality is available only with (k-2)! invertible (source issue E7).
+Revision BP-KatoEulerSystems~2 retains the independent review unchanged in the
+packet. Each named signature now displays its source conclusion. These are
+planning targets with sorry proofs, not verified arithmetic theorems. Comments
+identify omitted geometry and supplier hypotheses; arbitrary carriers/maps must
+be instantiated by those suppliers before the arithmetic targets can be used.
+The integral full-level source is a literal module dual. Symmetric self-duality
+and the Hecke transport below use rational coefficients only (source issue E7).
 -/
 
 namespace TauCeti.KatoBlueprint
@@ -144,17 +148,64 @@ example : rationalSmoothing 5 (1 : ℚ) 1 ≠ rationalSmoothing 7 (1 : ℚ) 1 :=
 -- siegel_identity_pullback
 example (theta : Rˣ) : siegelUnit (RingHom.id R) theta = theta := by sorry
 
--- Distribution's analytic/geometric hypotheses are omitted; maps preserve its sum.
-theorem siegelGaloisDistribution {I : Type*} (s : Finset I) (g : I → U)
-    (i : I) (h : ∑ j ∈ s, g j = g i) (f : U →ₗ[ℚ] U) :
-    ∑ j ∈ s, f (g j) = f (g i) := by sorry
-theorem siegelDegeneracyProduct {I : Type*} (s : Finset I) (g : I → Sˣ)
-    (level : S →+* S') :
-    Units.map level.toMonoidHom (∏ i ∈ s, g i) =
-      ∏ i ∈ s, Units.map level.toMonoidHom (g i) := by sorry
+-- Kato 1.6–1.7, p.123. I is concretely the nonzero torsion pair;
+-- sigma is a GL₂(Z/N) matrix. Omitted: fine-moduli descent
+-- identifying act with its geometric pullback on units and constants.
+theorem siegelGaloisDistribution
+    (N a c : ℕ) (hN : 3 ≤ N) (ha : 0 < a)
+    (hc : Nat.Coprime c (6*a*N)) (hc2 : 2 ≤ c)
+    (g : (AddCircle (1 : ℚ) × AddCircle (1 : ℚ)) → Sˣ)
+    (sigma : Matrix.GeneralLinearGroup (Fin 2) (ZMod N))
+    (act : S →+* S) (root : S)
+    (alpha beta : AddCircle (1 : ℚ)) (hne : (alpha, beta) ≠ (0, 0))
+    (hAlpha : N • alpha = 0) (hBeta : N • beta = 0)
+    (fiber : Finset (AddCircle (1 : ℚ) × AddCircle (1 : ℚ)))
+    (hf : ∀ x, x ∈ fiber ↔ a • x.1 = alpha ∧ a • x.2 = beta) :
+    Units.map act (g (alpha, beta)) =
+      g ((sigma 0 0).val • alpha + (sigma 1 0).val • beta,
+         (sigma 0 1).val • alpha + (sigma 1 1).val • beta) ∧
+      act root = root^((Matrix.GeneralLinearGroup.det sigma : ZMod N).val) ∧
+      g (alpha, beta) = ∏ x ∈ fiber, g x := by sorry
+-- Kato 2.12, p.131. Omitted: identification of phi with tau ↦ A*tau
+-- on the analytic component; alpha is fixed, only beta is divided.
+theorem siegelDegeneracyProduct
+    (g : AddCircle (1 : ℚ) → AddCircle (1 : ℚ) → Sˣ)
+    (phi : S →+* S) (alpha beta : AddCircle (1 : ℚ))
+    (hne : (alpha, beta) ≠ (0, 0)) (A c N : ℕ) (hA : 1 ≤ A)
+    (hc : Nat.Coprime c (6*A*N)) (hc2 : 2 ≤ c)
+    (hAlpha : N • alpha = 0) (hBeta : N • beta = 0)
+    (fiber : Finset (AddCircle (1 : ℚ)))
+    (hf : ∀ b, b ∈ fiber ↔ A • b = beta) :
+    Units.map phi (g alpha beta) = ∏ b ∈ fiber, g alpha b := by sorry
 def siegelLeadingExponent (x : ℚ) : ℚ := by sorry
 -- Omitted: convergence, fractional q, cusp widths and algebraic comparison.
-theorem siegelAnalyticProduct : siegelLeadingExponent (2/5) = -11/300 := by sorry
+-- Kato 1.3(3), 1.9 and 3.10, pp.122,124,141. Omitted: convergence,
+-- algebraic/analytic comparison and identification of cusp/order maps.
+-- The exponential fixes fractional-q branches; tprod is an actual infinite
+-- product, not an opaque formal series. Integral c-g is represented by a Unit.
+theorem siegelAnalyticProduct
+    (N c : ℕ) (hN : 3 ≤ N) (hc : Nat.Coprime c (6*N)) (hc2 : 2 ≤ c)
+    (alpha beta : ℚ) (ha : 0 ≤ alpha) (ha' : alpha < 1)
+    (g : ℚ → ℚ → ℂ → ℂ) (algebraicUnit : Rˣ)
+    (realize : R →+* ℂ) (tau : ℂ) (ht : 0 < tau.im)
+    (cuspAlpha : ℚ) (hcusp : 0 ≤ cuspAlpha ∧ cuspAlpha < 1)
+    (hAlpha : ∃ a : ℤ, (N : ℚ)*alpha = a)
+    (hBeta : ∃ b : ℤ, (N : ℚ)*beta = b)
+    (hne : alpha ≠ 0 ∨ beta ∉ Set.range (Int.cast : ℤ → ℚ))
+    (cuspOrder : Rˣ → ℚ) :
+    siegelLeadingExponent alpha = (alpha^2-alpha+1/6)/2 ∧
+    g alpha beta tau =
+      Complex.exp (2*Real.pi*Complex.I*tau*((alpha : ℂ)^2-alpha+1/6)/2) *
+      (∏' n : ℕ, (1-Complex.exp (2*Real.pi*Complex.I*
+        (((n : ℂ)+alpha)*tau+beta)))) *
+      (∏' n : ℕ, (1-Complex.exp (2*Real.pi*Complex.I*
+        (((n : ℂ)+1-alpha)*tau-beta)))) ∧
+    realize algebraicUnit = g alpha beta tau^(c^2) /
+      g (c*alpha) (c*beta) tau ∧
+    cuspOrder algebraicUnit = (N : ℚ) *
+      ((c : ℚ)^2 * siegelLeadingExponent cuspAlpha -
+        siegelLeadingExponent ((c : ℚ)*cuspAlpha -
+          Int.floor ((c : ℚ)*cuspAlpha))) := by sorry
 end Siegel
 
 section Symbols
@@ -197,18 +248,44 @@ example (symbol : Rˣ → Rˣ → K)
     beilinsonElement symbol (u*u') v =
       beilinsonElement symbol u v + beilinsonElement symbol u' v := by sorry
 
+-- Kato 2.3 and 2.11, pp.126,131. Omitted: actual K₂ carriers, indexed
+-- units, geometric transfer and its distribution proof. The projection formula
+-- is a supplier hypothesis; the level norm identity is a conclusion.
 theorem k2NormProjection (symbol : Rˣ → Rˣ → K) (symbol' : R'ˣ → R'ˣ → K')
     (pull : R →+* R') (unitNorm : R'ˣ → Rˣ) (transfer : K' →ₗ[ℚ] K)
     (projection : ∀ u v, transfer (symbol' u (Units.map pull v)) = symbol (unitNorm u) v)
-    (u : R'ˣ) (v : Rˣ) :
-    transfer (beilinsonElement symbol' u (Units.map pull v)) =
+    (z : ℕ → ℕ → K) (zHigh : ℕ → ℕ → K')
+    (M N M' N' c d : ℕ) (hM : 2 ≤ M) (hN : 2 ≤ N) (hMN : 5 ≤ M+N)
+    (hMM : M ∣ M') (hNN : N ∣ N')
+    (hprM : ∀ ell, Nat.Prime ell → (ell ∣ M ↔ ell ∣ M'))
+    (hprN : ∀ ell, Nat.Prime ell → (ell ∣ N ↔ ell ∣ N'))
+    (hc : Nat.Coprime c (6*M)) (hd : Nat.Coprime d (6*N)) :
+    transfer (zHigh M' N') = z M N ∧
+    ∀ u v, transfer (beilinsonElement symbol' u (Units.map pull v)) =
       beilinsonElement symbol (unitNorm u) v := by sorry
-theorem k2AuxiliaryEulerFactor (ell : ℚ) (A B : K →ₗ[ℚ] K) (z : K) :
-    ((LinearMap.id : K →ₗ[ℚ] K) - A + ell • B) z = z - A z + ell • B z := by sorry
+-- Kato 2.4, p.126. Omitted: the three-step covering factorization
+-- identifying transfer, Tprime and diamonds on the geometric K₂ family.
+theorem k2AuxiliaryEulerFactor (M N ell c d : ℕ)
+    (hM : 2 ≤ M) (hN : 2 ≤ N) (hMN : 5 ≤ M+N)
+    (hell : Nat.Prime ell) (hnotM : ¬ ell ∣ M)
+    (hc : Nat.Coprime c (6*M*ell)) (hd : Nat.Coprime d (6*N*ell))
+    (z : ℕ → ℕ → K) (transfer : K →ₗ[ℚ] K)
+    (Tprime diamondFirst diamondBoth : K →ₗ[ℚ] K) :
+    (ell ∣ N → transfer (z (M*ell) (N*ell)) =
+      z M N - Tprime (diamondFirst (z M N))) ∧
+    (¬ ell ∣ N → transfer (z (M*ell) (N*ell)) =
+      z M N - Tprime (diamondFirst (z M N)) +
+        (ell : ℚ) • diamondBoth (z M N)) := by sorry
+-- Kato 8.4, pp.182–183, with the M.8 higher-Chern convention.
+-- Omitted: geometric Kummer/regulator comparison. Both Chern maps have
+-- explicit conclusions on ordered symbols; no factorial is inverted at weight 2.
 theorem chernSymbolNormalization {H : Type*} [AddCommGroup H]
-    (chern : K →+ H) (u v : Rˣ) (symbol : Rˣ → Rˣ → K) :
-    (-chern) (symbol u v) = -(chern (symbol u v)) := by sorry
--- The actual c_(2,2)=-cup and ch_(2,2)=cup comparison is omitted.
+    (c22 ch22 : K →+ H) (cup : Rˣ → Rˣ → H)
+    (u v : Rˣ) (symbol : Rˣ → Rˣ → K) :
+    c22 (symbol u v) = -cup u v ∧
+    ch22 (symbol u v) = cup u v ∧
+    (-c22) (symbol u v) = ch22 (symbol u v) := by sorry
+
 end Symbols
 
 section Moment
@@ -249,9 +326,29 @@ theorem chernHeckeDiamond (Ch : K →ₗ[F] H) (A : K →ₗ[F] K)
     (z : K) : B (Ch z) = scalar • Ch (A z) := by sorry
 -- Omitted: the inertia/residue-field duality and cohomological-dimension theorem.
 -- Original inverse corestriction is dual to the following direct restriction.
-theorem cyclotomicLimitIntegral {A B : Type*} [AddCommGroup A] [AddCommGroup B]
-    (restriction : A →+ B) (h : ∀ x, restriction x = 0)
-    (dual : B →+ ℚ) (x : A) : dual (restriction x) = 0 := by sorry
+-- Kato 8.5, pp.183–184. Omitted: Galois/continuous cohomology,
+-- local duality and the residue-field cohomological-dimension argument.
+-- T is finite p-primary first; lattices follow by a separate coefficient limit.
+theorem cyclotomicLimitIntegral {SInt Global : Type*}
+    [AddCommGroup SInt] [AddCommGroup Global]
+    (tower : ℕ → Type*) [towerGroup : ∀ n, AddCommGroup (tower n)]
+    (cor : ∀ n, tower (n+1) →+ tower n)
+    (integralMap : SInt →+ Global) (atZero : tower 0 → Global)
+    (x : ∀ n, tower n) (coherent : ∀ n, cor n (x (n+1)) = x n) :
+    Function.Injective integralMap ∧ ∃ y : SInt, integralMap y = atZero (x 0) := by sorry
+
+-- Separate local algebra check: Q/Z is the Pontryagin-dual value group, not Q.
+-- inverse corestriction is paired with direct restriction, with eventual zero
+-- in that direct system. This hypothesis is proved by cd_p=0 away from p.
+theorem cyclotomicDualLimitVanishes {A B : Type*}
+    [AddCommGroup A] [AddCommGroup B]
+    (cor : A →+ A) (res : B →+ B) (pair : A → B → AddCircle (1 : ℚ))
+    (adjoint : ∀ a b, pair (cor a) b = pair a (res b))
+    (separates : ∀ a, (∀ b, pair a b = 0) → a = 0)
+    (pairZero : ∀ a, pair a 0 = 0)
+    (eventuallyZero : ∀ b, ∃ n, (res : B → B)^[n] b = 0)
+    (x : ℕ → A) (coherent : ∀ n, cor (x (n+1)) = x n) :
+    x 0 = 0 := by sorry
 end Moment
 
 section Zeta
@@ -333,40 +430,65 @@ end EulerAdapter
 section FullLevel
 variable {F V H : Type*} [CommRing F] [AddCommGroup V] [AddCommGroup H]
 variable [Module F V] [Module F H]
--- Omitted: symmetric moments, torsion-scheme Shapiro and continuous limits.
-def fullLevelZeta (Ch : H →ₗ[F] H) (symbolMoment : V →ₗ[F] H) : V →ₗ[F] H := by sorry
-theorem fullLevelZeta_moment (Ch : H →ₗ[F] H) (symbolMoment : V →ₗ[F] H) (v : V) :
+-- V is the symmetric-power moment module. Its literal dual is retained
+-- integrally. Omitted: sheaf realization, Shapiro and continuous limits.
+def fullLevelZeta (Ch : H →ₗ[F] H) (symbolMoment : Module.Dual F V →ₗ[F] H) : Module.Dual F V →ₗ[F] H := by sorry
+theorem fullLevelZeta_moment (Ch : H →ₗ[F] H) (symbolMoment : Module.Dual F V →ₗ[F] H) (v : Module.Dual F V) :
     fullLevelZeta Ch symbolMoment v = Ch (symbolMoment v) := by sorry
-theorem fullLevelZeta_ext (Ch : H →ₗ[F] H) (symbolMoment : V →ₗ[F] H)
-    (other : V →ₗ[F] H) (h : ∀ v, other v = Ch (symbolMoment v)) :
+theorem fullLevelZeta_ext (Ch : H →ₗ[F] H) (symbolMoment : Module.Dual F V →ₗ[F] H)
+    (other : Module.Dual F V →ₗ[F] H) (h : ∀ v, other v = Ch (symbolMoment v)) :
     other = fullLevelZeta Ch symbolMoment := by sorry
-theorem fullLevelZeta_hecke (Ch : H →ₗ[F] H) (symbolMoment : V →ₗ[F] H)
-    (A : V →ₗ[F] V) (B : H →ₗ[F] H)
+theorem fullLevelZeta_hecke (Ch : H →ₗ[F] H) (symbolMoment : Module.Dual F V →ₗ[F] H)
+    (A : Module.Dual F V →ₗ[F] Module.Dual F V) (B : H →ₗ[F] H)
     (hCh : B.comp Ch = Ch.comp B) (hs : B.comp symbolMoment = symbolMoment.comp A) :
     B.comp (fullLevelZeta Ch symbolMoment) = (fullLevelZeta Ch symbolMoment).comp A := by sorry
-theorem fullLevelZeta_corestriction (high low : V →ₗ[F] H)
+theorem fullLevelZeta_corestriction (high low : Module.Dual F V →ₗ[F] H)
     (cor A B : H →ₗ[F] H) (ell : F)
-    (h : cor.comp high = (LinearMap.id - A + ell • B).comp low) (v : V) :
+    (h : cor.comp high = (LinearMap.id - A + ell • B).comp low) (v : Module.Dual F V) :
     cor (high v) = low v - A (low v) + ell • B (low v) := by sorry
 -- fullLevel_zero
-example (Ch : H →ₗ[F] H) (symbolMoment : V →ₗ[F] H) :
+example (Ch : H →ₗ[F] H) (symbolMoment : Module.Dual F V →ₗ[F] H) :
     fullLevelZeta Ch symbolMoment 0 = 0 := by sorry
 -- fullLevel_add
-example (Ch : H →ₗ[F] H) (symbolMoment : V →ₗ[F] H) (v w : V) :
+example (Ch : H →ₗ[F] H) (symbolMoment : Module.Dual F V →ₗ[F] H) (v w : Module.Dual F V) :
     fullLevelZeta Ch symbolMoment (v+w) =
       fullLevelZeta Ch symbolMoment v + fullLevelZeta Ch symbolMoment w := by sorry
 -- fullLevel_new_prime
-example (ChHigh ChLow : H →ₗ[F] H) (momentHigh momentLow : V →ₗ[F] H)
+example (ChHigh ChLow : H →ₗ[F] H) (momentHigh momentLow : Module.Dual F V →ₗ[F] H)
     (cor A B : H →ₗ[F] H) (ell : F)
     (h : cor.comp (fullLevelZeta ChHigh momentHigh) =
-      (LinearMap.id - A + ell • B).comp (fullLevelZeta ChLow momentLow)) (v : V) :
+      (LinearMap.id - A + ell • B).comp (fullLevelZeta ChLow momentLow)) (v : Module.Dual F V) :
     cor (fullLevelZeta ChHigh momentHigh v) = fullLevelZeta ChLow momentLow v -
       A (fullLevelZeta ChLow momentLow v) + ell • B (fullLevelZeta ChLow momentLow v) := by sorry
 -- fullLevel_identity_moment
-example : fullLevelZeta (LinearMap.id : ℚ →ₗ[ℚ] ℚ) LinearMap.id 1 = 1 := by sorry
+example (evaluate : Module.Dual ℚ ℚ →ₗ[ℚ] ℚ)
+    (hEvaluate : ∀ v, evaluate v = v 1) :
+    fullLevelZeta (LinearMap.id : ℚ →ₗ[ℚ] ℚ) evaluate
+      (LinearMap.id : ℚ →ₗ[ℚ] ℚ) = 1 := by sorry
 -- Omitted: full-level dual sheaf and Γ₁ Poincaré transport.
-theorem heckeDualTwistDictionary (ell : ℚ) (k : ℤ) :
-    ell^(2*(k-2)) = ell^(k-2) * ell^(k-2) := by sorry
+-- Nakamura 3.1, pp.205–206; A.3, p.268. Rational coefficients only.
+-- Vdual is literally Module.Dual E V; transport is the geometric twisted
+-- self-duality, NOT an integral symmetric-power identification. Omitted:
+-- sheaf realizations, central correspondences and the Γ₁ quotient.
+-- The eigenquotient realizes V₁(f)*; BettiStar realizes V₁(f*). The
+-- Poincaré conclusion forgets the source Galois twist 1-k (unexpressible here).
+theorem heckeDualTwistDictionary {E V BettiStar : Type*} [Field E] [CharZero E]
+    [AddCommGroup V] [Module E V] [AddCommGroup BettiStar] [Module E BettiStar]
+    (ell : ℕ) (hell : Nat.Prime ell) (k : ℤ) (hk : 2 ≤ k)
+    (transport : Module.Dual E V ≃ₗ[E] V)
+    (T S Sinv : V →ₗ[E] V)
+    (Tprime Sprime : Module.Dual E V →ₗ[E] Module.Dual E V)
+    (hInv : S.comp Sinv = LinearMap.id)
+    (eigenquotient : Module.Dual E V →ₗ[E] (Fin 2 → E))
+    (a epsilon : E) :
+    transport.toLinearMap.comp Tprime =
+      (ell : E)^(k-2) • ((T.comp Sinv).comp transport.toLinearMap) ∧
+    transport.toLinearMap.comp Sprime =
+      (ell : E)^(2*(k-2)) • (Sinv.comp transport.toLinearMap) ∧
+    (∀ v, eigenquotient (Tprime v) = a • eigenquotient v) ∧
+    (∀ v, eigenquotient (Sprime v) =
+      ((ell : E)^(k-2)*epsilon) • eigenquotient v) ∧
+    Nonempty ((Fin 2 → E) ≃ₗ[E] BettiStar) := by sorry
 end FullLevel
 
 section RationalMap
@@ -417,9 +539,13 @@ example {I V' H' : Type*} [AddCommGroup V'] [AddCommGroup H']
 -- katoMap_generator_one
 example (h : ∃! z : ℚ →ₗ[ℚ] ℚ, ∀ _i : Unit, z 1 = 1) :
     katoZetaMap (fun _ : Unit => (1 : ℚ)) (fun _ => (1 : ℚ)) h 1 = 1 := by sorry
--- Omitted: lattice comparison and finite quotient; the inclusion part is typed.
-theorem integralZetaFiniteIndex (Z ZT : Submodule Λ H) (inclusion : Z ≤ ZT) :
-    ∀ x, x ∈ Z → x ∈ ZT := by sorry
+-- Kato 12.6 and 13.10–13.12, pp.222,230–232. Omitted: the two
+-- indexed geometric smoothed generating families, their canonical-generator
+-- expansions, and height-one equality/finite-support theorem over the full
+-- semilocal cyclotomic algebra (including primes above 2). Neither inclusion
+-- nor finiteness is an input. Z.comap ZT.subtype is the copy of Z inside ZT.
+theorem integralZetaFiniteIndex (Z ZT : Submodule Λ H) :
+    Z ≤ ZT ∧ Finite (ZT ⧸ Z.comap ZT.subtype) := by sorry
 end RationalMap
 
 section Filtration
@@ -452,10 +578,26 @@ example (M : Submodule F D) : modularFiltration 4 M 4 = ⊥ := by sorry
 -- filtration_weight_two
 example (M : Submodule F D) : modularFiltration 2 M 1 = M := by sorry
 -- Omitted: [KK3], the big local field and §11 reciprocity comparison.
-theorem generalizedExplicitReciprocity (p : ℚ) (r : ℤ) (A : D →ₗ[F] D)
-    (x : D) (scalar : ℚ →+* F) :
-    ((LinearMap.id : D →ₗ[F] D) - scalar (p^(-r)) • A) x =
-      x - scalar (p^(-r)) • A x := by sorry
+-- Kato 9.5–9.7, pp.188–189. Omitted: de Rham/local realizations,
+-- the actual modular-form zeta product, prime-set compatibility and [KK3].
+-- The source-side exceptional condition and ALL three Euler factors remain.
+theorem generalizedExplicitReciprocity
+    (p M N : ℕ) (hp : Nat.Prime p) (k r r' : ℤ)
+    (hk : 2 ≤ k) (hr : 1 ≤ r) (hr' : r ≤ k-1)
+    (hedge : r = k-1 ∨ r' = k-1)
+    (hexception : r = k-2 ∧ r' = k-1 → 2 ≤ M)
+    (primeInclusion : ∀ ell, Nat.Prime ell → ell ∣ M → ell ∣ N)
+    (localize : H →ₗ[F] H) (expStar : H →ₗ[F] D)
+    (zPadic : H) (eisensteinProduct : D)
+    (Tprime diamondFirst diamondBoth : D →ₗ[F] D) (scalar : ℚ →+* F) :
+    (p ∣ M → expStar (localize zPadic) = eisensteinProduct) ∧
+    (¬ p ∣ M → p ∣ N → expStar (localize zPadic) =
+      eisensteinProduct - scalar ((p : ℚ)^(-r)) •
+        Tprime (diamondFirst eisensteinProduct)) ∧
+    (¬ p ∣ M → ¬ p ∣ N → expStar (localize zPadic) =
+      eisensteinProduct - scalar ((p : ℚ)^(-r)) •
+        Tprime (diamondFirst eisensteinProduct) +
+      scalar ((p : ℚ)^(k-1-2*r)) • diamondBoth eisensteinProduct) := by sorry
 -- Omitted: geometric zeta inputs, period realization, analytic continuation,
 -- rational eigenspaces, character/parity and critical-range hypotheses.
 -- The formula below records the type of the character sum and its scalar.
@@ -477,8 +619,21 @@ theorem zetaCriticalInterpolation {Iw Tw Fin Loc Betti : Type*}
     expStarPeriod (localize (specialize (twist (k-r) z))) =
       ((2*Real.pi*Complex.I)^(k-r-1) * dualLValue) • gammaSign := by sorry
 -- Omitted: Deligne regulator and analytic continuation. Z'(0) is not Z(0).
-theorem beilinsonArchimedeanRegulator (Z0 Zderivative : ℂ) (h : Z0 = 0)
-    (hn : Zderivative ≠ 0) : Z0 ≠ Zderivative := by sorry
+-- Kato 2.6–2.7, pp.127–128; 6.6(2), p.163. Omitted: Deligne
+-- regulator, operator-valued analytic continuation and relative-cusp Betti
+-- class. Zderivative is Z′(0), dualLDerivative is lim s⁻¹L_S(f*,chi,s).
+theorem beilinsonArchimedeanRegulator {K2 Betti : Type*}
+    [AddCommGroup K2] [AddCommGroup Betti] [Module ℂ Betti]
+    (regulator : K2 →+ Betti) (zK2 : K2)
+    (Zzero Zderivative : Betti →ₗ[ℂ] Betti) (delta : Betti)
+    (M N : ℕ) (hM : 2 ≤ M) (hN : 2 ≤ N) (hMN : 5 ≤ M+N)
+    (primeInclusion : ∀ ell, Nat.Prime ell → ell ∣ M → ell ∣ N)
+    (s : Finset ℕ) (chi : ℕ → ℂ) (characterClasses : ℕ → K2)
+    (projectSign : Betti →ₗ[ℂ] Betti) (deltaSign : Betti)
+    (dualLDerivative : ℂ) :
+    Zzero = 0 ∧ regulator zK2 = Zderivative delta ∧
+    ∑ b ∈ s, chi b • projectSign (regulator (characterClasses b)) =
+      (2*Real.pi*Complex.I*dualLDerivative) • deltaSign := by sorry
 end Filtration
 
 section Twisted
@@ -563,10 +718,10 @@ example (regulator : H →ₗ[F] D) (projection : D →ₗ[F] Dist) :
 example (regulator : H →ₗ[F] D) (projection : D →ₗ[F] Dist) (x y : H) :
     katoScalarRegulator regulator projection (x+y) =
       katoScalarRegulator regulator projection x + katoScalarRegulator regulator projection y := by sorry
--- scalar_period_scale
+-- scalar_period_scale: doubling the differential halves the projection.
 example (regulator : H →ₗ[F] D) (projection : D →ₗ[F] Dist) (x : H) :
-    katoScalarRegulator regulator ((2 : F) • projection) ((3 : F) • x) =
-      (6 : F) • katoScalarRegulator regulator projection x := by sorry
+    katoScalarRegulator regulator ((2 : F)⁻¹ • projection) ((3 : F) • x) =
+      ((2 : F)⁻¹*3) • katoScalarRegulator regulator projection x := by sorry
 -- scalar_identity_maps
 example : katoScalarRegulator (LinearMap.id : ℚ →ₗ[ℚ] ℚ) LinearMap.id 1 = 1 := by sorry
 -- Omitted: interpolation/growth uniqueness; R10 supplies the separated evaluations.
@@ -585,17 +740,47 @@ section Divisibility
 variable {Λ H : Type*} [CommRing Λ] [AddCommGroup H] [Module Λ H]
 -- These are algebraic consequences, not substitutes for unavailable Galois,
 -- L-function, cohomology, Selmer and characteristic-ideal carriers/hypotheses.
-theorem nonCmLargeImage (x : ℚ) (hx : x ≠ 0) (b : ℚ) : x*b = 0 ↔ b = 0 := by sorry
+-- Kato 12.8.1–12.8.2, pp.222–223; Rubin III.5.8–5.10, p.50.
+-- Omitted: non-CM modular representation, stable lattice, Serre/Ribet/Momose
+-- open-image theorem, topology and cyclotomic determinant. rho is its
+-- cyclotomic restriction on the rational rank-two realization. No CM claim.
+theorem nonCmLargeImage {G E : Type*} [Group G] [Field E] [CharZero E]
+    (rho : G →* Module.End E (Fin 2 → E)) :
+    (∃ tau : G, ∃ x : E, x ≠ 0 ∧
+      (∀ v, rho tau v = ![v 0+x*v 1, v 1]) ∧
+      Nonempty (((Fin 2 → E) ⧸ LinearMap.range
+        (rho tau - LinearMap.id)) ≃ₗ[E] E)) ∧
+    (∀ W : Submodule E (Fin 2 → E),
+      (∀ g v, v ∈ W → rho g v ∈ W) → W = ⊥ ∨ W = ⊤) := by sorry
+
+-- The stronger integral hypothesis is full SL₂ image, omitted here along
+-- with the integral realization. An open subgroup alone cannot supply x=1.
+theorem nonCmIntegralRankOne {O G : Type*} [CommRing O] [Group G]
+    (rho : G →* Module.End O (Fin 2 → O)) :
+    ∃ tau : G, (∀ v, rho tau v = ![v 0+v 1, v 1]) ∧
+      Nonempty (((Fin 2 → O) ⧸ LinearMap.range
+        (rho tau - LinearMap.id)) ≃ₗ[O] O) := by sorry
 theorem analyticTwistNonvanishing {I : Type*} [Infinite I] (exceptional : Finset I)
     (values : I → ℂ) (hn : ∀ i, i ∉ exceptional → values i ≠ 0) :
     ∃ i, i ∉ exceptional ∧ values i ≠ 0 := by sorry
 theorem modularEulerSystemBound (global strict localIndex zetaIndex : ℕ)
     (bound : strict ≤ zetaIndex) (exactSequence : global = strict+localIndex) :
     global ≤ zetaIndex+localIndex := by sorry
--- The rank-one basis is an INPUT here. Its arithmetic existence, including the
--- CM all-prime supplier, is NOT proved by this algebraic signature.
-theorem rationalIwasawaStructure (basis : Module.Basis Unit Λ H) :
-    Nonempty (H ≃ₗ[Λ] Λ) := by sorry
+-- Kato 12.4, p.221; Burungale–Tian v2 2.3, p.4. Omitted:
+-- arithmetic H¹/H², integral/rational base change and the early all-prime
+-- CM elliptic-unit supplier (NOT obtained by assuming the Kato map).
+-- Residual irreducibility is the explicit invariant-subspace condition.
+theorem rationalIwasawaStructure {ΛQ H1 H2 H1Q H2Q G Res Fp : Type*}
+    [CommRing ΛQ] [AddCommGroup H1] [AddCommGroup H2]
+    [AddCommGroup H1Q] [AddCommGroup H2Q]
+    [Module Λ H1] [Module Λ H2] [Module ΛQ H1Q] [Module ΛQ H2Q]
+    [Group G] [Field Fp] [AddCommGroup Res] [Module Fp Res]
+    (p : ℕ) (hp : Nat.Prime p) (residual : G →* Module.End Fp Res) :
+    Module.IsTorsion Λ H2 ∧ Module.IsTorsionFree Λ H1 ∧
+    Module.IsTorsion ΛQ H2Q ∧ Nonempty (H1Q ≃ₗ[ΛQ] ΛQ) ∧
+    (p ≠ 2 → (∀ W : Submodule Fp Res,
+      (∀ g v, v ∈ W → residual g v ∈ W) → W = ⊥ ∨ W = ⊤) →
+      Nonempty (H1 ≃ₗ[Λ] Λ)) := by sorry
 theorem zetaSubmoduleNonvanishing (z : H) (hz : z ≠ 0) :
     Submodule.span Λ {z} ≠ ⊥ := by sorry
 theorem cohomologicalDivisibility (global strict localIndex zetaIndex : ℕ)
@@ -606,20 +791,74 @@ theorem ordinarySelmerDivisibility (selmer global localIndex regulatorIndex : �
     (regulatorBound : global+localIndex ≤ regulatorIndex) :
     selmer ≤ regulatorIndex := by sorry
 -- Omitted: elliptic exp*, minimal differential and formal logarithm at odd p.
-theorem ellipticLocalLattice (localIndex p : ℚ) (hp : p ≠ 0) :
-    localIndex*p⁻¹*p = localIndex := by sorry
+-- Rubin III.5.1–5.3, pp.48–49. Omitted: elliptic integral singular
+-- cohomology, Tate adjointness, Néron differential, periods and actual Kato
+-- classes. Take F=Q_p and O=Z_p. At 2 retain the ACTUAL total logarithm
+-- lattice; its annihilator is the exp* lattice, not the odd-prime formula.
+theorem ellipticLocalLattice {F Hs : Type*} [Field F] [CharZero F]
+    [AddCommGroup Hs] (O : Subring F) (expStar : Hs →+ F)
+    (p index rE : ℕ) (hp : Nat.Prime p) (hrE : 0 < rE)
+    (hindex : 0 < index) (logTotal : AddSubgroup F) (cQ : Hs)
+    (LRemoved period : F) (hperiod : period ≠ 0)
+    (s : Finset ℕ) (chi : ℕ → F) (conjugateClasses : ℕ → Hs)
+    (twistedLRemoved : F) :
+    (p ≠ 2 → Set.range expStar =
+      {x | ∃ a : O, x = (index : F)/(p : F)*(a : F)}) ∧
+    (p = 2 → Set.range expStar =
+      {y | ∀ x ∈ logTotal, y*x ∈ O}) ∧
+    expStar cQ = (rE : F)*LRemoved/period ∧
+    ∑ g ∈ s, chi g * expStar (conjugateClasses g) =
+      (rE : F)*twistedLRemoved/period := by sorry
 -- Omitted: actual Mordell–Weil theorem, finite torsion and rank stabilization.
+-- Rubin III.5.6,5.8–5.11, pp.49–51. Omitted: the arithmetic proof
+-- that rank stabilizes and torsion is finite from Rohrlich/Serre/ES.4.
+-- sigma generates the remaining procyclic action after rank stabilization.
+-- Eventual p-power invariance expresses pointwise continuity; finite torsion
+-- and its being fixed upgrade it to UNIFORM descent to a finite MW layer.
 theorem ellipticCyclotomicFiniteGeneration {E : Type*} [AddCommGroup E]
-    (fixedLayer : AddSubgroup E) (descend : fixedLayer = ⊤) :
-    ∀ x : E, x ∈ fixedLayer := by sorry
+    (p : ℕ) (hp : Nat.Prime p) (sigma : E →+ E)
+    (torsion : AddSubgroup E) [Finite torsion]
+    (fixedTorsion : ∀ x ∈ torsion, sigma x = x)
+    (rankStable : ∀ x, sigma x-x ∈ torsion)
+    (continuousPoints : ∀ x, ∃ n : ℕ, (sigma : E → E)^[p^n] x = x)
+    (layer : ℕ → AddSubgroup E)
+    (layerFixed : ∀ n x, x ∈ layer n ↔ (sigma : E → E)^[p^n] x = x)
+    (mordellWeil : ∀ n, Module.Finite ℤ (layer n)) :
+    (∃ n, ∀ x : E, x ∈ layer n) ∧ Module.Finite ℤ E := by sorry
 -- Omitted: Coleman, ES image hypotheses and characteristic ideals.
 -- J is the augmentation generator in the split case; it is not canceled.
-theorem ellipticOrdinaryMultiplicativeDivisibility (J characteristic L : Λ)
-    (splitBound : J*characteristic ∣ L) : ∃ a : Λ, L = (J*characteristic)*a := by sorry
+-- Rubin III.5.14–5.16, pp.52–53. Omitted: ordinary/multiplicative
+-- elliptic realization, Coleman interpolation and actual Kato system, ES.8
+-- and the full integral image package. ΛQ=Λ[1/p], not a field. Integral
+-- characteristic generator and split augmentation generator live in Λ;
+-- LRemoved can be fractional. p^t is a rational scalar, t may be negative.
+theorem ellipticOrdinaryMultiplicativeDivisibility {ΛQ Local Selmer : Type*}
+    [CommRing ΛQ] [AddCommGroup Local] [AddCommGroup Selmer]
+    [Module Λ Selmer] (scalar : ℚ →+* ΛQ) (coefficientMap : Λ →+* ΛQ)
+    (coleman : Local →+ ΛQ) (katoClass : Local)
+    (p rE badFactor : ℕ) (hp : Nat.Prime p)
+    (split : Bool) (augmentation characteristic LFull : Λ) (LRemoved : ΛQ)
+    (factor : Λ) (hfactor : factor = if split then augmentation else 1) :
+    coleman katoClass = (rE : ΛQ)*LRemoved ∧
+    Module.Finite Λ Selmer ∧ Module.IsTorsion Λ Selmer ∧
+    (∃ t : ℤ, ∃ a : Λ,
+      scalar ((p : ℚ)^t)*LRemoved = coefficientMap (factor*characteristic*a)) ∧
+    (p ≠ 2 → Nat.Coprime p (rE*badFactor) →
+      factor*characteristic ∣ LFull) := by sorry
 -- Omitted: Greenberg criterion, weak Leopoldt, norm-freeness and bad local torsion.
-theorem ellipticNoFiniteSubmodule (M : Submodule Λ H)
-    (criterion : ∀ N : Submodule Λ H, N ≤ M → Finite N → N = ⊥)
-    (N : Submodule Λ H) (hNM : N ≤ M) [Finite N] : N = ⊥ := by sorry
+-- Rubin III.5.17, p.53. Omitted: good ordinary elliptic Selmer
+-- realization, exact dual Poitou–Tate sequence and Greenberg's supplier
+-- theorem. The norm-limit and weak-Leopoldt inputs are typed explicitly;
+-- the desired no-finite-submodule conclusion is NOT assumed as a criterion.
+theorem ellipticNoFiniteSubmodule {I H2 Norm : Type*}
+    [AddCommGroup H2] [AddCommGroup Norm] [Module Λ H2] [Module Λ Norm]
+    (p : ℕ) (hp : Nat.Prime p) (badPlaces : Finset I)
+    (localTorsion : I → Type*) [localGroups : ∀ q, AddCommGroup (localTorsion q)]
+    (noLocalPTorsion : ∀ q ∈ badPlaces, ∀ x : localTorsion q,
+      p • x = 0 → x = 0)
+    (normFree : Nonempty (Norm ≃ₗ[Λ] Λ))
+    (weakLeopoldt : Module.IsTorsion Λ H2)
+    (N : Submodule Λ H) [Finite N] : N = ⊥ := by sorry
 -- Omitted: Sha finiteness, image, bad unit factors and control. The conclusion
 -- retains the upper-bound direction and cancels the ordinary control factor.
 theorem ellipticRankZeroPPartUpperBound (shaIndex eulerIndex LIndex : ℕ)
