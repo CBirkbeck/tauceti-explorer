@@ -32833,8 +32833,9 @@
    ],
    "followUpOf": "DESIGN-HodgeStructuresPartII",
    "prompt": "research/blueprint/prompts/BP-HodgeStructuresPartII--H.6.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6945"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6945",
+   "finishedAt": "2026-10-08T08:42:08Z"
   },
   {
    "id": "REV-HodgeStructuresPartII--H.6",
@@ -40310,8 +40311,9 @@
    ],
    "revisionOf": "BP-PadicHodgeRegulators--D.1",
    "prompt": "research/blueprint/prompts/BP-PadicHodgeRegulators--D.1~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6997"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6997",
+   "finishedAt": "2026-10-08T08:42:09Z"
   },
   {
    "priority": 2,
@@ -40720,7 +40722,8 @@
     "BP-RefinedTraceMethods--RT.1~2"
    ],
    "prompt": "research/blueprint/prompts/REV-RefinedTraceMethods--RT.1~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7086"
   },
   {
    "kind": "blueprint",
@@ -41193,7 +41196,8 @@
    ],
    "revisionOf": "BP-StableHomotopyKTheory",
    "prompt": "research/blueprint/prompts/BP-StableHomotopyKTheory~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7013"
   },
   {
    "priority": 2,
@@ -42396,7 +42400,8 @@
    ],
    "revisionOf": "BP-EllipticRegulators--ER.7",
    "prompt": "research/blueprint/prompts/BP-EllipticRegulators--ER.7~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6956"
   },
   {
    "priority": 2,
