@@ -484,6 +484,18 @@ in the order-six completion, an example treated in HC.6. Habiro's
 Conjecture 7.1 about the full integral unit group, H, p. 1142, must remain
 distinct from the established inversion formula.
 
+For every odd \(m\geq3\), prove the further established unit example
+\(\sum_{i=0}^{m-1}(-1)^iq^i\) in
+\(\mathbb Z[q]^{\{n>0:\gcd(n,2m)=1\}}\).
+Its cyclotomic factors are \(\Phi_{2d}\) for \(d\mid m\), \(d>1\).
+Each order \(2d\) has at least two distinct prime factors and is coprime
+to every admitted order, so their ratios cannot be nontrivial prime
+powers. Thus the polynomial is coprime to every finite cyclotomic index
+in this set, and its finite quotient inverses are compatible. This restricted-order
+example does not determine the full integral unit group.
+**Source:** H, §7.1, Remark 7.1, p. 1142.
+**Prerequisites:** HC.1 finite projections and HC.4 cyclotomic comaximality.
+
 ## HC.3 — Values, Taylor expansions, and p-adic translation
 
 ### Root evaluation and additive Taylor coefficients
