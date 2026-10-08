@@ -46498,8 +46498,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-EllipticCurveModularityImaginaryQuadratic.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7470"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7470",
+   "finishedAt": "2026-10-08T21:05:03Z"
   },
   {
    "id": "REV-PKG-EllipticCurveModularityImaginaryQuadratic",
@@ -47171,7 +47172,8 @@
     "PKG-IntegralHeckeAndGaloisDeterminants"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-IntegralHeckeAndGaloisDeterminants.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7484"
   },
   {
    "id": "PKG-JacobianChallengePartII",
