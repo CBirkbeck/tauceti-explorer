@@ -12,7 +12,9 @@ about arbitrary schemes. They must be rebound to the actual supplier constructio
 and given ALL hypotheses of the packet before proving them. They do not assume an
 existence/uniqueness conclusion or introduce Prop-valued placeholder structures.
 
-The two constructors show only categorical assembly on genuine Scheme/Over carriers.
+The tower and Hecke constructors show only categorical assembly on genuine Scheme/Over carriers.
+The third construction exposes the zero-dimensional quotient set; its finite étale
+canonical model still needs the supplier equivalence and actual reciprocity action.
 Input transition laws for ofLevelMaps are obtained by canonical descent in the roadmap.
 They are not a substitute for that descent. HEq expresses map projection equalities
 when constructor object projections are only propositionally equal.
@@ -200,7 +202,8 @@ theorem translation_defined_over_reflex
 -- The fixed complex comparison is part of the conclusion; arbitrary model automorphisms are excluded.
 theorem unique_iso (eC : (Over.pullback b).obj M ≅ (Over.pullback b).obj N) :
     ∃! e : M ≅ N, (Over.pullback b).mapIso e = eC := by sorry
--- S is the specified compositum base, and M,N are the scalar-extended canonical models.
+-- S is Spec E(D), since E(D′) is contained in E(D); N is the scalar-extended target model.
+-- The historical declaration name is retained: the reflex-field compositum is E(D).
 -- Missing pure datum map, reflex-norm compatibility, level inclusion and canonical conditions.
 theorem datum_map_defined_over_compositum
     (fC : (Over.pullback b).obj M ⟶ (Over.pullback b).obj N) :
@@ -224,7 +227,8 @@ theorem minimal_defined_over_reflex :
 theorem minimal_map_extension (compactM compactN : Over S)
     (jM : M ⟶ compactM) (jN : N ⟶ compactN) (f : M ⟶ N) :
     ∃! F : compactM ⟶ compactN, jM ≫ F = f ≫ jN := by sorry
--- V7 supplies every actual auxiliary pure model; it does not replace the S+ supplier gap.
+-- V7 supplies every actual auxiliary pure model. The complex partial-extension,
+-- Baily–Borel functoriality and log-canonical section interfaces remain gaps.
 theorem general_minimal :
     ∃ (compact : Over S) (j : M ⟶ compact), IsOpenImmersion j.left ∧ IsProper compact.hom := by sorry
 end CanonicalModel
@@ -236,7 +240,7 @@ variable {S : Scheme.{u}}
 theorem translation_comp {G : Type v} [Group G] (T : G → (S ⟶ S)) (g h : G) :
     T (g * h) = T g ≫ T h := by sorry
 -- Missing actual level inclusion and analytic finite covering; restore surjectivity,
--- certified neat étaleness and effective quotient statement from the packet.
+-- étaleness when the target level is neat, and the effective quotient statement.
 theorem level_map_finite {M N : Over S} (f : M ⟶ N) : IsFinite f.left := by sorry
 -- V6, respectively V7, supplies the ACTUAL models and transitions; no new construction.
 theorem abelian_type {I : Type v} [Category I] (M : I → Over S)
