@@ -24,7 +24,7 @@ The reviewed audit labels the old R34.3 and R34.4 import-only prose as process. 
 
 ## Pinned baseline and prototype boundary
 
-The checked commits are Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`. Each declaration below was read at the Mathlib pin. Tau Ceti's elliptic Hasse bound and cohomological trace are reached through DWP.1 and the SF.2 supplier contract; no missing advanced weight theorem is attributed to a similarly named library declaration.
+The prescribed baseline commits are Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`. Each declaration below was read at the Mathlib pin. Tau Ceti's elliptic Hasse bound and cohomological trace are reached through DWP.1 and the SF.2 supplier contract; no missing advanced weight theorem is attributed to a similarly named library declaration.
 
 | Existing declaration | What it provides |
 | --- | --- |
@@ -38,7 +38,7 @@ The checked commits are Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and T
 | `mathlib:LinearMap.charpoly` | Characteristic polynomial on finite free finite modules, using the chosen basis; applied to the Frobenius action. |
 | `mathlib:Matrix.charpoly` | For a square matrix over a commutative ring with a finite decidable index, det(XI−M). Used in inverse-companion and induced-representation prototypes. |
 
-The [suggested file](../suggested/WeightsInEtaleCohomology.lean) uses actual Mathlib representation, polynomial and matrix carriers. The completed independent review reported successful elaboration of its 17 definition API items and nine named tests against the Mathlib pin on 2026-10-06. This authoring revision did not compile: no existing pinned Lean build is available, and the recorded 9 GB available memory is below WORKERS.md’s 20 GB minimum. This revision changes only explanatory comments in the suggestion; its imports, declarations and examples are unchanged. Inertia, a Frobenius lift and residue cardinality are supplied parameters, so the definitions are root-level prototypes; the full continuous Galois/local-place carrier belongs to R01.1–R01.2. The rank-one tests use the scalar units action at q=3, the elliptic test uses the inverse companion matrix, and the zero-rank test includes every weight and polynomial 1 with integrality. The 24 omitted full geometric or continuous-arithmetic signatures are enumerated in the signature gap and suggested-file comments. Numerical cores accompanying a theorem do not constitute a signature of its geometric statement.
+The [suggested file](../suggested/WeightsInEtaleCohomology.lean) uses actual Mathlib representation, polynomial and matrix carriers. The second independent review successfully elaborated the unchanged declarations, including all 17 definition API items and nine named tests, at the Mathlib pin on 2026-10-08; its only warnings are admitted proofs using `sorry`. Inertia, a Frobenius lift and residue cardinality are supplied parameters, so the definitions are root-level prototypes; the full continuous Galois/local-place carrier belongs to R01.1–R01.2. The rank-one tests use the scalar units action at q=3, the elliptic test uses the inverse companion matrix, and the zero-rank test includes every weight and polynomial 1 with integrality. The 24 omitted full geometric or continuous-arithmetic signatures are enumerated in the signature gap and suggested-file comments. Numerical cores accompanying a theorem do not constitute a signature of its geometric statement.
 
 ## R34.1 Frobenius, algebraicity and representation weights
 
@@ -96,7 +96,7 @@ For a finite field k = 𝔽_q with algebraic closure k̄, the arithmetic Frobeni
 
 **Planet:** Arithmetic and geometric Frobenius.
 
-**Source passages.**
+**Sources and locators.**
 
 - [La conjecture de Weil. I](https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf), §1, (1.15), p. 279. The geometric Frobenius is the inverse of the substitution x ↦ x^q.
 - [La conjecture de Weil. II](https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf), §1.1, (1.1.13), p. 152. The Frobenius at a point of degree d maps to the d-th power.
@@ -158,7 +158,7 @@ Let K be a number field, T a finite set of finite places, and ρ : G_K → GL(V)
 
 **Planet:** Pure Galois representations.
 
-**Source passages.**
+**Sources and locators.**
 
 - [Diophantine problems and p-adic period mappings](https://arxiv.org/abs/1807.02721), §2.3, Lemma 2.3, p. 9. Pure of weight w: all roots of the Frobenius polynomial are algebraic of absolute value q_℘^{w/2}.
 - [Diophantine problems and p-adic period mappings](https://arxiv.org/abs/1807.02721), §2.3, Lemma 2.3, p. 9. Unramified outside a finite set.
@@ -189,7 +189,7 @@ Let ρ and ρ′ be finite-dimensional continuous E-adic representations, unrami
 - det H¹(E) = ℚ_p(−1): weight 2 = 1·2, integral.
 - Over Q(√2), diag(√2,−√2) has integer polynomial X²−2, but either invariant line has polynomial X∓√2, which is not in Z[X].
 
-**Source passages.**
+**Sources and locators.**
 
 - [La conjecture de Weil. II](https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf), §1.2, Stabilités (1.2.5)(ii), p. 154. Weights add under tensor product.
 - [La conjecture de Weil. II](https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf), §1.2, Stabilités (1.2.5)(ii), p. 154. The dual of a pure object of weight n has weight −n.
@@ -218,7 +218,7 @@ Let L/K be a finite extension of number fields and T a finite set of places of K
 
 - K = ℚ, L = ℚ(i), ρ the trivial character of G_L: Ind ρ = 1 ⊕ χ_{−4}, pure of weight 0 outside {2}. At p ≡ 3 mod 4, P_p = T² − 1 = P_u(1, T²), with one place u of degree 2.
 
-**Source passages.**
+**Sources and locators.**
 
 - [La conjecture de Weil. II](https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf), §1.2, Stabilités (1.2.5)(i), p. 154. Stability under inverse image and finite direct image: restriction and induction.
 - [Diophantine problems and p-adic period mappings](https://arxiv.org/abs/1807.02721), §2.5, proof of Lemma 2.10, p. 14. Purity used for an induced representation.
@@ -247,7 +247,7 @@ Let k = 𝔽_q and ℓ ∤ q. For every u ∈ ℤ_ℓ^× there is a unique conti
 
 - u = 1 + ℓ is algebraic (rational) and has ι-weight 2 log_q(1 + ℓ) for every ι; it is pure of no weight unless 1 + ℓ is a power of √q.
 
-**Source passages.**
+**Sources and locators.**
 
 - [La conjecture de Weil. II](https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf), §1.2, (1.2.6), p. 154. Algebraicity is a consequence of purity at every ι, and fails without it.
 - [La conjecture de Weil. II](https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf), §1.2, Variante (1.2.3), p. 154. The weight terminology for representations of Gal(k̄/k).
@@ -276,7 +276,7 @@ Let ρ be as in pure-and-integral-galois-representations, with coefficients in �
 - For H¹ of an elliptic curve with CM by E = ℚ(i), P_v has coefficients in ℚ ⊂ E, and the check over the two embeddings of E reduces to one.
 - The irreducible polynomial X⁴−X³−X²−X+1 has both a unit-circle root and a root of norm greater than 1. A single chosen embedding can therefore give weight zero while all-embeddings purity fails.
 
-**Source passages.**
+**Sources and locators.**
 
 - [La conjecture de Weil. II](https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf), §1.2, (1.2.6), p. 154. Purity for every ι gives algebraicity and all-embeddings purity.
 
@@ -305,7 +305,7 @@ For a normal connected model U over Z[1/p] of a number field K, let a continuous
 
 **Planet:** Representation and sheaf weights.
 
-**Source passages.**
+**Sources and locators.**
 
 - [La conjecture de Weil. II](https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf), §1.1 (1.1.13), p. 152; §1.2 (1.2.2)–(1.2.3), pp. 153–154. The representation and sheaf weight terminology agrees under Frobenius stalks.
 
@@ -335,7 +335,7 @@ Let X₀ be smooth of dimension d over F_q and K a bounded constructible adic co
 
 **Planet:** Shifted cohomological weights.
 
-**Source passages.**
+**Sources and locators.**
 
 - [La conjecture de Weil. II](https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf), §6.2 (6.2.1)–(6.2.5)(b), p. 247. On smooth X, complexes with lisse cohomology are pure iff their H^i have pointwise weight w+i.
 
@@ -373,7 +373,7 @@ Let A be an abelian variety of dimension g over 𝔽_q, π_A its q-Frobenius end
 
 **Planet:** Tate module versus H¹.
 
-**Source passages.**
+**Sources and locators.**
 
 - [Abelian Varieties](https://www.jmilne.org/math/CourseNotes/AV.pdf), Chapter II, §1, p. 75. The source defines the q-power Frobenius morphism: identity on the space and q-th power on functions; on geometric points it is arithmetic Frobenius.
 - [Abelian Varieties](https://www.jmilne.org/math/CourseNotes/AV.pdf), Chapter II, §1, proof of Theorem 1.1, p. 76. The roots of P_π are the eigenvalues of π on T_ℓA.
@@ -383,7 +383,7 @@ Let A be an abelian variety of dimension g over 𝔽_q, π_A its q-Frobenius end
 
 Node `WeightsInEtaleCohomology:R34.2/purity-of-tate-modules-with-good-reduction`.
 
-Let A be an abelian variety of dimension g over a number field K with good reduction outside a finite set T of finite places, and p a prime. Then ρ = H¹(A_K̄, ℚ_p) = (V_pA)^∨ is pure of weight 1 outside T ∪ {v | p} with integral Frobenius polynomials. At v ∉ T ∪ {v | p}, P_v(ρ, X) = P_{π_{A_v}}(X), the characteristic polynomial of the Frobenius endomorphism of the reduction A_v, independently of p. V_pA itself is pure of weight −1 there; if g>0 its geometric Frobenius polynomial is not integral, since its constant coefficient has absolute rational denominator q_v^g. For g=0 the polynomial is 1 and is integral. For 0 ≤ i ≤ 2g, H^i(A_K̄, ℚ_p) = ∧^i H¹ is pure of weight i and integral, with P_v the characteristic polynomial of π_{A_v} on ∧^i. The same holds for H¹ of a smooth projective geometrically connected curve over K with good reduction outside T, through its Jacobian.
+Let A be an abelian variety of dimension g over a number field K with good reduction outside a finite set T of finite places, and p a prime. Then ρ = H¹(A_K̄, ℚ_p) = (V_pA)^∨ is pure of weight 1 outside T ∪ {v | p} with integral Frobenius polynomials. At v ∉ T ∪ {v | p}, P_v(ρ, X) = P_{π_{A_v}}(X), the characteristic polynomial of the Frobenius endomorphism of the reduction A_v, independently of p. V_pA itself is pure of weight −1 there; if g>0 its geometric Frobenius polynomial is not integral, since its constant coefficient has absolute rational denominator q_v^g. For g=0 the polynomial is 1 and is integral. For 0 ≤ i ≤ 2g, H^i(A_K̄, ℚ_p) = ∧^i H¹ is pure of weight i and integral, with P_v the characteristic polynomial of π_{A_v} on ∧^i. The same holds for H¹ of a smooth projective geometrically connected curve over K with good reduction outside T, through the Jacobian of its residue curve after smooth proper base change.
 
 **Hypotheses and conventions.**
 
@@ -399,7 +399,7 @@ Let A be an abelian variety of dimension g over a number field K with good reduc
 3. So the geometric Frobenius on H¹ has characteristic polynomial P_{π_{A_v}} ∈ ℤ[X] (AbelianSchemesAndArithmeticModuli A6/characteristic-polynomial-of-an-endomorphism), whose roots are Weil q_v-numbers of weight 1 (DeligneWeightsAndPurity DWP.1/weil-estimate-for-abelian-varieties). It is independent of p, since P_{π_{A_v}} is defined without p.
 4. V_pA=(H¹)∨ has weight −1. For g>0 its geometric characteristic polynomial has constant coefficient q_v^(−g), which is not an integer. For g=0 the polynomial is 1.
 5. A4 cup-product gives H^i(A)=∧^iH¹, pure of weight i by tensor/subquotient weight arithmetic. Its characteristic polynomial is an integer symmetric polynomial expression in the integer characteristic polynomial of H¹, so rationality and integrality both hold.
-6. Curves: H¹(C) = H¹(J) Galois-equivariantly, and J has good reduction outside T when C does (DeligneWeightsAndPurity DWP.1/weights-of-the-cohomology-of-curves).
+6. Curves: apply SF.2 smooth proper base change directly to the smooth proper model of C, identifying H¹(C_K̄) with H¹(C_v over the algebraic closure of k_v). DWP.1/weights-of-the-cohomology-of-curves compares the latter Frobenius action with H¹ of the Jacobian of C_v and supplies its weight-one integer polynomial. No good-reduction theorem for the generic Jacobian is needed in this route.
 
 **Direct prerequisites.** `WeightsInEtaleCohomology:R34.2/frobenius-on-tate-modules-and-first-cohomology`, `WeightsInEtaleCohomology:R34.1/pure-and-integral-galois-representations`, `WeightsInEtaleCohomology:R34.1/purity-under-linear-algebra-operations`, `DeligneWeightsAndPurity:DWP.1/weil-estimate-for-abelian-varieties`, `DeligneWeightsAndPurity:DWP.1/weights-of-the-cohomology-of-curves`, `AbelianSchemesAndArithmeticModuli:A6/characteristic-polynomial-of-an-endomorphism`, `NeronModelsAndSemistableAbelianVarieties:R11.5/neron-ogg-shafarevich`, `AbelianSchemesAndArithmeticModuli:A4`, `SchemeAndStackFoundations:SF.2`, `ArithmeticGaloisRepresentations:R01.6/specialisation-of-torsion-at-good-reduction`.
 
@@ -410,7 +410,7 @@ Let A be an abelian variety of dimension g over a number field K with good reduc
 
 **Planet:** Purity of Tate modules.
 
-**Source passages.**
+**Sources and locators.**
 
 - [Diophantine problems and p-adic period mappings](https://arxiv.org/abs/1807.02721), §3.1, (3.2), p. 16. The Galois representation on the étale cohomology of a fibre.
 - [Abelian Varieties](https://www.jmilne.org/math/CourseNotes/AV.pdf), Chapter I, Theorem 12.1(b), p. 55; Remark 12.5, p. 56; Chapter II, Corollary 1.5 and Remark 1.6(a), p. 78. The Galois-equivariant exterior-power description of H^i and the product eigenvalues of Frobenius supply the higher-degree weight calculation. The polynomial P_r(t) on p. 78 uses the reciprocal Euler-factor variable; distinguish it from det(X−F).
@@ -439,7 +439,7 @@ Let A/K and T be as in purity-of-tate-modules-with-good-reduction, v ∉ T ∪ {
 
 - E/ℚ: y² = x³ − x at ℓ = 5: #E(𝔽_5) = 8, so a_5 = −2 and |−2| ≤ 2√5.
 
-**Source passages.**
+**Sources and locators.**
 
 - [Abelian Varieties](https://www.jmilne.org/math/CourseNotes/AV.pdf), Chapter II, proof of Theorem 1.1, p. 76. The bound on #A(𝔽_{q^m}).
 
@@ -456,7 +456,7 @@ Let C/K be smooth projective geometrically connected of genus g with smooth prop
 
 **Construction/proof contract.**
 
-1. Apply smooth proper base change to C and its Jacobian, importing H¹ comparison from DWP.1’s Jacobian suppliers.
+1. Apply SF.2 smooth proper base change directly to C. Then use DWP.1/weights-of-the-cohomology-of-curves to identify the Frobenius action on H¹ of the residue curve with H¹ of its Jacobian; no smooth proper model of the generic Jacobian is needed.
 2. Apply the imported fixed-point trace formula to F^m; the top-degree Tate line has eigenvalue q^m.
 3. Use the Weil estimate for curves for each α_i, and Cayley–Hamilton in rank two for the recurrence.
 
@@ -469,7 +469,7 @@ Let C/K be smooth projective geometrically connected of genus g with smooth prop
 
 **Planet:** Curve traces.
 
-**Source passages.**
+**Sources and locators.**
 
 - [La conjecture de Weil. I](https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf), §1 (1.5.1), p. 275; (1.13)–(1.15), pp. 278–279. The fixed-point formula and the q-power Frobenius yield point counts over every finite extension.
 
@@ -506,7 +506,7 @@ Let S=Spec O_L be an excellent henselian trait with mixed-characteristic fractio
 
 **Planet:** Arithmetic specialization.
 
-**Source passages.**
+**Sources and locators.**
 
 - [Sur les représentations l-adiques associées aux formes modulaires de Hilbert](https://www.numdam.org/article/ASENS_1986_4_19_3_409_0.pdf), §4.1–§4.3, pp. 423–424. The actual arithmetic-model vanishing-cycle sequence is Weil equivariant; §4.1 constructs compatible finite-level sheaves.
 
@@ -538,7 +538,7 @@ For a proper semistable curve C/O_L with geometrically reduced nodal special fib
 
 **Planet:** Nodal arithmetic fibres.
 
-**Source passages.**
+**Sources and locators.**
 
 - [Sur les représentations l-adiques associées aux formes modulaires de Hilbert](https://www.numdam.org/article/ASENS_1986_4_19_3_409_0.pdf), §4.2–§4.5, pp. 423–425. The cuspidal residual term is absent; the normalized special fibre supplies the second filtration.
 - [Hilbert modular forms and p-adic Hodge theory](https://arxiv.org/pdf/math/0612077v2), §8 Claim 5, pp. 37–38. Normalization and intersections of the semistable curve give the graph incidence calculation; Claim 5 identifies its kernel and cokernel.
@@ -570,7 +570,7 @@ Let a proper flat family over a henselian arithmetic trait have exactly one ordi
 
 **Planet:** Arithmetic Picard–Lefschetz.
 
-**Source passages.**
+**Sources and locators.**
 
 - [La conjecture de Weil. I](https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf), §4 (4.2)–(4.3), pp. 288–289. The source replaces the complex disk by a henselian trait and treats the odd and even formulas separately.
 
@@ -603,7 +603,7 @@ In Saito §6 Lemma 3’s Hilbert modular realization, choose sufficiently small 
 
 **Planet:** Semistable comparison model.
 
-**Source passages.**
+**Sources and locators.**
 
 - [Hilbert modular forms and p-adic Hodge theory](https://arxiv.org/pdf/math/0612077v2), §7 Lemma 4, pp. 32–34; §8 Claim 4(1), pp. 35–36. The abelian scheme and prime-to-p maps extend to the actual minimal semistable model; trace comparison uses its strata.
 
@@ -640,7 +640,7 @@ Let X₀/F_q be smooth projective geometrically connected of dimension n+1 with 
 
 **Planet:** Finite-field pencils.
 
-**Source passages.**
+**Sources and locators.**
 
 - [La conjecture de Weil. I](https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf), §5 (5.6)–(5.7), pp. 291–292; §6 (6.1), pp. 294–295. The Veronese reembedding gives a geometric Lefschetz pencil; §6.1 works with a finite-field-defined pencil. A closed point in the parameter open and finite presentation supply the extension used here.
 
@@ -671,7 +671,7 @@ For the descended pencil f:X̃₀→P¹₀ with smooth locus U₀, put H=H^n(X_u
 
 **Planet:** Vanishing quotient.
 
-**Source passages.**
+**Sources and locators.**
 
 - [La conjecture de Weil. I](https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf), §5 (5.8)–(5.9), pp. 292–293. The symplectic or symmetric representation is on the quotient by the radical, with a separate zero-cycle branch.
 
@@ -702,7 +702,7 @@ For odd n and the Q_l-model V=E/(E∩E⊥) of the preceding node, geometric mono
 
 **Planet:** Symplectic monodromy.
 
-**Source passages.**
+**Sources and locators.**
 
 - [La conjecture de Weil. I](https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf), §3 (3.1)–(3.2), pp. 283–284; §5 (5.10), p. 293. The estimate requires an open symplectic image and rational local factors; the pencil’s original Q_l-model supplies the open image.
 
@@ -739,7 +739,7 @@ Let S₀/F_q be a smooth curve, h:A₀→S₀ an elliptic scheme, l∤q and r=k�
 
 **Planet:** Parabolic purity.
 
-**Source passages.**
+**Sources and locators.**
 
 - [La conjecture de Weil. II](https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf), §3 (3.3.6), p. 206; (3.7.1), p. 215. The parabolic image for Sym^k R¹ of an elliptic family is pure of weight k+1.
 - [Formes modulaires et représentations l-adiques](https://www.numdam.org/item/SB_1968-1969__11__139_0.pdf), §5 Theorem (5.1) and Lemma (5.3), pp. 168–169. The modular parabolic realization has total degree r+1, conditional on the usual Weil conjecture in this 1969 reduction; Weil II (3.7.1) supplies the unconditional theorem.
@@ -772,7 +772,7 @@ For a fine modular curve Y(M) with M≥3 and universal elliptic curve A→Y(M), 
 
 **Planet:** Kuga–Sato weights.
 
-**Source passages.**
+**Sources and locators.**
 
 - [Formes modulaires et représentations l-adiques](https://www.numdam.org/item/SB_1968-1969__11__139_0.pdf), §5 Lemmas (5.2)–(5.4), pp. 168–170. The fibre product and its compactification realize the parabolic local-system image in total degree r+1.
 - [Hilbert modular forms and p-adic Hodge theory](https://arxiv.org/pdf/math/0612077v2), §6 Lemma 3, p. 30. The Hilbert Kuga–Sato projector has the stated total-degree shift and Hecke/Galois-compatible isomorphism.
@@ -804,9 +804,9 @@ For a modular Jacobian J and the abelian quotient A_f attached to a weight-two n
 
 **Planet:** Modular Jacobian weights.
 
-**Source passages.**
+**Sources and locators.**
 
-- [The adjoint motive of a modular form and the Tamagawa number conjecture](https://arxiv.org/pdf/2512.02348v2), §5.4 Lemma 5.7, pp. 58–59. The rank-two eigensummand is over its coefficient field, rather than automatically over Q.
+- [Adjoint motives of modular forms and the Tamagawa number conjecture](https://arxiv.org/pdf/2512.02348v2), §5.4 Lemma 5.7, pp. 58–59. The rank-two eigensummand is over its coefficient field, rather than automatically over Q.
 - [Abelian Varieties](https://www.jmilne.org/math/CourseNotes/AV.pdf), Chapter I Remark 12.5, p. 56. H¹ is the Galois-equivariant dual of the Tate module.
 
 ### Theorem: Hard Lefschetz with arithmetic twists
@@ -836,7 +836,7 @@ Let X₀/F_q be smooth projective pure of dimension d, L ample and defined over 
 
 **Planet:** Arithmetic hard Lefschetz.
 
-**Source passages.**
+**Sources and locators.**
 
 - [La conjecture de Weil. II](https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf), §4.1 Theorem (4.1.1), p. 217. The source suppresses twists after choosing Z_l≅Z_l(1) over the algebraic closure; the arithmetic map restores them.
 
@@ -879,7 +879,7 @@ Let f be a normalized cuspidal newform of integer weight k≥2, level N and nebe
 
 **Planet:** Eigenform purity.
 
-**Source passages.**
+**Sources and locators.**
 
 - [Formes modulaires et représentations l-adiques](https://www.numdam.org/item/SB_1968-1969__11__139_0.pdf), §5 Theorems (5.1) and (5.6), pp. 168, 170–171. The geometric realization’s weight and congruence relation give the Fourier-coefficient bound.
 - [La conjecture de Weil. II](https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf), §3 (3.7.1), p. 215. Weil II supplies the unconditional parabolic purity used in this export.
@@ -917,9 +917,9 @@ For the same f and a fixed good prime p∤N, P_{f,p}∈K_f[X] is independent of 
 
 **Planet:** Eigenform compatibility.
 
-**Source passages.**
+**Sources and locators.**
 
-- [The adjoint motive of a modular form and the Tamagawa number conjecture](https://arxiv.org/pdf/2512.02348v2), §1.1–§1.3, pp. 6–13; §5.4 Lemma 5.7 and §5.5, pp. 58–60. Rank-two parabolic realization and the character-twisted Hecke/Frobenius comparison; all-λ étale modules are distinguished from restricted integral crystalline data. The actual independent geometric comparison and coefficient descent remain required.
+- [Adjoint motives of modular forms and the Tamagawa number conjecture](https://arxiv.org/pdf/2512.02348v2), §1.1–§1.3, pp. 6–13; §5.4 Lemma 5.7 and §5.5, pp. 58–60. Rank-two parabolic realization and the character-twisted Hecke/Frobenius comparison; all-λ étale modules are distinguished from restricted integral crystalline data. The actual independent geometric comparison and coefficient descent remain required.
 
 ### Theorem: Transport through arithmetic realization comparisons
 
@@ -948,7 +948,7 @@ Suppose two finite-dimensional realizations at a good residue place are identifi
 
 **Planet:** Arithmetic weight transport.
 
-**Source passages.**
+**Sources and locators.**
 
 - [Diophantine problems and p-adic period mappings](https://arxiv.org/abs/1807.02721), §2.3 Lemma 2.3, pp. 9–10. Faltings’ finiteness separately requires semisimplicity, purity and integer Frobenius coefficients.
 - [La conjecture de Weil. II](https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf), §1.2 (1.2.5)(i), p. 154. Purity passes to subobjects and quotients under the specified comparison.
@@ -987,7 +987,7 @@ Let F be totally real of degree g>1 and f a cuspidal Hilbert eigen-newform of mu
 
 **Planet:** Local monodromy weights.
 
-**Source passages.**
+**Sources and locators.**
 
 - [Hilbert modular forms and p-adic Hodge theory](https://arxiv.org/pdf/math/0612077v2), §2 Theorem 1, Claim 1 and Theorem 2, pp. 12–13. The rank-two l-adic and p-adic WD graded pieces have weights w−1+i; the proof needs trace comparison and N agreement separately.
 - [Hilbert modular forms and p-adic Hodge theory](https://arxiv.org/pdf/math/0612077v2), §8 Claims 4–5 and §9 Proposition 1′, pp. 35–39. The projected spectral sequence and constant/nonconstant coefficient calculations establish this restricted local theorem.
@@ -1068,7 +1068,7 @@ Used by: `WeightsInEtaleCohomology:R34.6/eigenform-purity-and-ramanujan-bound`, 
 | `WeightsInEtaleCohomology:R34.5` | planned | Supply the actual classical/Hilbert compactification and correspondence data needed by the existing Scholl/DWP fine targets, including good-prime extension and the separate k=2 Jacobian comparison. |
 | `WeightsInEtaleCohomology:R34.6` | planned | Supply the independent geometric Eichler-congruence and DFG character-normalization comparison without the AGR return through R34.6; retain coefficient-descent and actual Hilbert projector obligations, including q₀ and the auxiliary twist. The imported R06.6 theorem still needs Saito §9 crystalline vanishing. Resolve Saito model descent and retain the R24.5 fine carrier/predicate and R19.3 fixed-source consumer boundaries. |
 
-The pass stops at target coverage under PROTOCOL §0. The completed independent review checked the arithmetic hypotheses and source normalization and required the reader synchronization carried out in this revision. Its verdict remains preserved for the next independent reviewer. The following gaps prevent any claim of closure.
+The pass stops at target coverage under PROTOCOL §0. The second independent review accepts all 27 targets after checking the prior reader synchronization and correcting two curve proof routes to use base change on the curve directly. Acceptance is of the planning contracts; the following gaps prevent any claim of closure.
 
 ### Arithmetic integral-to-adic specialization comparison
 
@@ -1108,7 +1108,9 @@ Affected nodes: `WeightsInEtaleCohomology:R34.3/saito-semistable-comparison-mode
 
 ## Source and library audit ledger
 
-All eight public PDFs were downloaded again on 2026-10-07, and their complete SHA-256 hashes match the recorded editions. The fresh reading scope is listed below; the packet separately retains the earlier author and independent-review read records. These are passage checks, not claims to have audited every proof in each paper. Mathematical OCR glyphs are checked against page images where needed.
+The second independent review re-fetched all eight public PDFs on 2026-10-08 and confirmed their recorded hashes. Its fresh reading scopes are recorded separately in the packet, including Weil I §4 pp. 288–289, Carayol pp. 409–410 and 423–425, and the source locators of all 27 nodes. The page images of Saito p. 12 and DFG p. 24 were independently checked. Saito E1 is confirmed for the preprint. DFG Theorem 2.4 reverses the divisibility sign in S_N: §2 p. 13 and §1.2 pp. 9–10 require the primes dividing Nk!, where crystalline data are not required. This independently confirms the p. 24 part of the already recorded AGR/E3 finding; no duplicate source issue is added, and no claim about the differently numbered 2004 journal text follows. The inspected 2025 long preprint has the title used below. All nine baseline declarations and 83 distinct direct fine supplier statements were inspected; nine exact requests and six gaps remain.
+
+The authoring revision’s earlier audit follows. All eight public PDFs were downloaded again on 2026-10-07, and their complete SHA-256 hashes match the recorded editions. The fresh reading scope is listed below; the packet separately retains the earlier author and independent-review read records. These are passage checks, not claims to have audited every proof in each paper. Mathematical OCR glyphs are checked against page images where needed.
 
 The Saito preprint sign is the existing confirmed E1/E50 finding; its journal version and crystalline argument on pp. 40–43 remain unverified. DFG’s exceptional-set typo on p. 24 is already recorded as AutomorphicGaloisRepresentations/E3, so this revision does not duplicate that finding or assign a verdict. The Scholl primary PDF could not be freshly retrieved (timeout/HTTP 502); only the current supplier’s reviewed target and retained construction gaps are used here. No fresh reading of the missing SGA7 or Illusie algebraic Picard–Lefschetz proof is claimed.
 
@@ -1160,7 +1162,7 @@ SHA-256: `fb5b69b76d2257ce20f47366c4bd165ccdb571333e7f25a4ed6e92dbb4b55df7`. Acc
 
 **Fresh reading.** First-page version stamp and pp. 1–2, 10–13; splitting discussion p. 19; §6 Lemma 3, §7 Lemma 4 and §8–§9 l-adic argument, pp. 30–39. Images of pp. 12 and 32 checked for the recorded sign and completed-unramified base. Crystalline proof pp. 40–43 and the journal version were not read.
 
-### Fred Diamond, Matthias Flach and Li Guo: The adjoint motive of a modular form and the Tamagawa number conjecture
+### Fred Diamond, Matthias Flach and Li Guo: Adjoint motives of modular forms and the Tamagawa number conjecture
 
 [arXiv:2512.02348v2 (December 2025 revision); manuscript page = PDF page.](https://arxiv.org/pdf/2512.02348v2)
 
