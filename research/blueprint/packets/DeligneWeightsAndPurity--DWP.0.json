@@ -236,9 +236,10 @@
         "cc-fb70e5, 2026-09-29 (part DWP.0, checkpoint 2): §3 (3.1)–(3.9) in full, pp. 283–287, and Scholie (2.10), p. 282",
         "cc-fb70e5, 2026-09-29 (part DWP.0, checkpoint 4): (5.12)–(5.13) and §6 (6.1)–(6.13), pp. 294–298, in full",
         "codex-ibFXG8, 2026-10-06: checked §1–§3 conventions and §5.12–§7.3 pp. 294–300; all §6 and §7 cases read.",
-        "Codex codex-fH0uPG, independent review 2026-10-06: Cited passages in §§1–3, §§5.12–7.3, printed pp. 275–301, including all pencil rationality, half-unit induction and tensor-power cases."
+        "Codex codex-fH0uPG, independent review 2026-10-06: Cited passages in §§1–3, §§5.12–7.3, printed pp. 275–301, including all pencil rationality, half-unit induction and tensor-power cases.",
+        "Codex codex-aflhpc, revision 2026-10-08: rechecked Scholie (2.10) p. 282, (3.5)–(3.9) pp. 285–287, (5.12)–(5.13), §6 and every §7 induction/tensor-power case, pp. 295–301, against the corrected proof and supplier contracts."
       ],
-      "accessed": "2026-10-06"
+      "accessed": "2026-10-08"
     },
     {
       "id": "deligne-weil-ii",
@@ -250,9 +251,10 @@
       "readSections": [
         "cc-fb70e5, 2026-09-29 (part DWP.0, checkpoint 1): (1.1.11)–(1.1.15), pp. 152–153; §1.2 (1.2.1)–(1.2.14), pp. 153–156; the opening of §1.3, pp. 156–157",
         "codex-ibFXG8, 2026-10-06: §1.1–§1.11, §2.1–§2.2, §3.1–§3.5 read in full, with §1.6/§1.7 imported from LPV.1, §1.9 recorded as an unused source boundary and §3.3/§3.4 owned by the companion packet; §6.1.13/§6.2.7 are companion-node imports.",
-        "Codex codex-fH0uPG, independent review 2026-10-06: Cited passages of §§1.1–1.5, 1.7–1.8, 1.10–1.11, §§2.1–2.2, §§3.1–3.3 and 3.5, plus 6.1.13 p. 246 and 6.2.7 p. 248; erratum page images checked."
+        "Codex codex-fH0uPG, independent review 2026-10-06: Cited passages of §§1.1–1.5, 1.7–1.8, 1.10–1.11, §§2.1–2.2, §§3.1–3.3 and 3.5, plus 6.1.13 p. 246 and 6.2.7 p. 248; erratum page images checked.",
+        "Codex codex-aflhpc, revision 2026-10-08: rechecked (1.1.6)–(1.2.9) pp. 150–155; §1.3 pp. 156–162; §1.5 pp. 164–165; §1.7–§1.8 pp. 170–179; §1.10–§1.11 pp. 182–186; §2.1–§2.2 pp. 187–196; (3.2.1)–(3.2.15) pp. 200–204; (3.3.7)–(3.3.8) pp. 206–207; §3.5 pp. 211–212; (6.1.13) p. 246 and (6.2.7) p. 248. These are checks of corrected targets and imported interfaces, not a new plan for the companion part."
       ],
-      "accessed": "2026-10-06"
+      "accessed": "2026-10-08"
     },
     {
       "id": "milne-abelian-varieties",
@@ -263,9 +265,10 @@
       "sha256": "f5ca4e63e5092a4b102daad1470e4cbed5fe8f82115e3a28c8881e3f67f6aaef",
       "readSections": [
         "cc-fb70e5, 2026-09-29 (part DWP.0, checkpoint 3): Chapter II §1, pp. 75–78, in full; Chapter III §§9–11, pp. 113–119 (Corollary 9.6, Theorem 11.1, Proposition 11.2 with its proof, Lemma 11.3, Corollary 11.4, Remark 11.5); the author's errata page for v2.00",
-        "Codex codex-fH0uPG, independent review 2026-10-06: Chapter II §1 pp. 75–78 and Chapter III trace/Jacobian passages pp. 113–119, including the marked unfinished proof."
+        "Codex codex-fH0uPG, independent review 2026-10-06: Chapter II §1 pp. 75–78 and Chapter III trace/Jacobian passages pp. 113–119, including the marked unfinished proof.",
+        "Codex codex-aflhpc, revision 2026-10-08: Chapter II §1 pp. 75–78 and Chapter III §11 pp. 118–119 rechecked, including the differential of 1−π, exterior products, the Hasse specialization and the unfinished proof warning."
       ],
-      "accessed": "2026-10-06"
+      "accessed": "2026-10-08"
     },
     {
       "id": "yu-local-systems",
@@ -274,10 +277,11 @@
       "edition": "arXiv:1807.04659v5, 18 July 2022; supplied lead: Annals of Mathematics 197 (2023), no. 2; locators refer to the public author preprint",
       "url": "https://arxiv.org/pdf/1807.04659v5",
       "sha256": "9383bcdee14777ec647ba2658da3319d7d43864f9481b07c7d9550f1a454de1c",
-      "accessed": "2026-10-06",
+      "accessed": "2026-10-08",
       "readSections": [
         "§1 pp. 2–3 (Weil roots and reciprocal pairing); §2.1 (Weil/étale conventions); §6.1 Proposition 6.1.1 and proof pp. 42–43; §7.1 pp. 64–65 (the numeric inputs of routed items 041–042). Automorphic arguments and Hall-algebra targets are outside this part.",
-        "Codex codex-fH0uPG, independent review 2026-10-06: Weight-facing passages §§1–2, 6.1 pp. 42–43 and 7.1 pp. 64–65, in public arXiv v5 only."
+        "Codex codex-fH0uPG, independent review 2026-10-06: Weight-facing passages §§1–2, 6.1 pp. 42–43 and 7.1 pp. 64–65, in public arXiv v5 only.",
+        "Codex codex-aflhpc, revision 2026-10-08: public v5 Proposition 6.1.1 and (6.1.1)–(6.1.2) pp. 42–43, and §7.1 p. 64 rechecked for tensor–Hom order and reciprocal spectra; no journal-version comparison or new automorphic plan."
       ]
     },
     {
@@ -287,10 +291,11 @@
       "edition": "Annals of Mathematics 183 (2016), 297–362; published Proposition 4.7 and Appendix B; compared arXiv:1406.3839v2 Proposition 4.8",
       "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v183-n1-p06-p.pdf",
       "sha256": "8e486963410368afe461a6f2a848eb7ddb618aa48fda7db2c0bd51710286c7a5",
-      "accessed": "2026-10-06",
+      "accessed": "2026-10-08",
       "readSections": [
         "Published Proposition 4.7 p. 321, Appendix B pp. 357–358 and bibliography p. 359; preprint v2 Appendix B pp. 35–36 and bibliography [D1]. Only routed equidistribution/density inputs are in this scope.",
-        "Codex codex-fH0uPG, independent review 2026-10-06: Published Proposition 4.7, Appendix B and bibliography compared with arXiv v2 Proposition 4.8, Appendix B and bibliography; analytic supplier, half twist and density-owner distinctions checked."
+        "Codex codex-fH0uPG, independent review 2026-10-06: Published Proposition 4.7, Appendix B and bibliography compared with arXiv v2 Proposition 4.8, Appendix B and bibliography; analytic supplier, half twist and density-owner distinctions checked.",
+        "Codex codex-aflhpc, revision 2026-10-08: published Appendix B pp. 357–358 compared with arXiv v2 Appendix B pp. 35–36 and the cited bibliography entries, for the half-weight normalization and the analytic/geometric supplier boundary."
       ]
     }
   ],
@@ -4791,7 +4796,7 @@
         "DeligneWeightsAndPurity:DWP.10/weight-acceptance-suite",
         "DeligneWeightsAndPurity:DWP.5/determinantal-weight-functoriality"
       ],
-      "detail": "The pinned libraries lack the actual constructible ℓ-adic/Weil coefficient categories, closed-stalk descent, compact-support cohomology, vanishing-cycle objects and algebraic-by-discrete Weil-monodromy realization interfaces used by the geometric and representation-Euler-family statements. Their precise theorem/API/test specifications are in the corrected packet; the review requests synchronization of the reader; suggested-file entries that require these carriers are explicitly omitted with names and supplier blockers, as PROTOCOL §13 requires. They are not replaced by opaque proposition parameters or fabricated cohomology fields. The file elaborates numerical definitions and genuine subgroup, stalk-family and valuation cores; instantiation as schemes/sheaves or the compact Weil representation category is an owner-interface obligation. Standalone positivity, multiset and error-removal lemmas elaborate without those interfaces."
+      "detail": "The pinned libraries lack the actual constructible ℓ-adic/Weil coefficient categories, closed-stalk descent, compact-support cohomology, vanishing-cycle objects and algebraic-by-discrete Weil-monodromy realization interfaces used by the geometric and representation-Euler-family statements. Their precise theorem/API/test specifications are in the packet and synchronized reader; suggested-file entries that require these carriers are explicitly omitted with names and supplier blockers, as PROTOCOL §13 requires. They are not replaced by opaque proposition parameters or fabricated cohomology fields. The file elaborates numerical definitions and genuine subgroup, stalk-family and valuation cores; instantiation as schemes/sheaves or the compact Weil representation category is an owner-interface obligation. Standalone positivity, multiset and error-removal lemmas elaborate without those interfaces."
     }
   ],
   "sourceIssues": [
@@ -4802,7 +4807,7 @@
       "locator": "Chapter III, proof of Proposition 11.2, p. 119 (footnote 6)",
       "printed": "Footnote 6 marks the displayed identity for pullback degrees as requiring repair.",
       "correction": "The pullback-degree/intersection calculation is explicitly unfinished as printed. No repaired theta-divisor calculation is certified here. The curve-bound node requests the fixed-point formula from its trace/Jacobian supplier and does not use this incomplete proof as a supplied theorem.",
-      "reason": "The author marks the displayed identity with a footnote reading \"Needs fixing\"; the degree computation it records is not justified in the printed proof.",
+      "reason": "The author explicitly flags the displayed identity as unfinished in a footnote; the degree computation it records is not justified in the printed proof.",
       "affects": "the proof",
       "known": "Flagged by the author in the text (footnote 6); not on the author's errata page for v2.00.",
       "searched": [
@@ -4811,7 +4816,7 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "The author marks the displayed identity with a footnote reading \"Needs fixing\"; the degree computation it records is not justified in the printed proof. Independently compared at the stated public-version locator on 2026-10-06; no formalization claim follows from this erratum.",
+        "reason": "The author explicitly flags the displayed identity as unfinished in a footnote; the degree computation it records is not justified in the printed proof. Independently compared at the stated public-version locator on 2026-10-06; no formalization claim follows from this erratum.",
         "by": "REV-DeligneWeightsAndPurity--DWP.0"
       }
     },
