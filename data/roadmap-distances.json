@@ -10,7 +10,7 @@
  },
  "bases": {
   "judged": 203,
-  "measured": 15,
+  "measured": 16,
   "built": 7,
   "children": 1
  },
@@ -68,7 +68,7 @@
   },
   "splitHalfShiftSpearman": 0.483,
   "splitHalfRoadmaps": 136,
-  "distanceVsClassification": 0.857,
+  "distanceVsClassification": 0.845,
   "distanceVsMissingTargets": 0.963,
   "distanceVsMissingLayers": 0.965,
   "distanceVsDepth": 0.949,
@@ -78,7 +78,7 @@
    "tauceti:Completed/IntegralLattices": 0.0,
    "tauceti:Completed/OrthogonalL2Bases": 0.0
   },
-  "declarationsVsDistance": -0.093
+  "declarationsVsDistance": -0.064
  },
  "roadmaps": {
   "AInfCohomology": {
@@ -745,7 +745,7 @@
     },
     {
      "galaxy": "automorphic",
-     "roadmaps": 6
+     "roadmaps": 7
     },
     {
      "galaxy": "etale",
@@ -2222,12 +2222,12 @@
    "basis": "judged",
    "usedBy": [
     {
-     "galaxy": "iwasawa",
+     "galaxy": "automorphic",
      "roadmaps": 3
     },
     {
-     "galaxy": "automorphic",
-     "roadmaps": 2
+     "galaxy": "iwasawa",
+     "roadmaps": 3
     },
     {
      "galaxy": "ktheory",
@@ -2260,6 +2260,34 @@
    "distance": 7.67,
    "low": 6.51,
    "high": 8.82,
+   "basis": "measured",
+   "usedBy": []
+  },
+  "EllipticCurveModularityPartII": {
+   "classification": 10,
+   "structure": {
+    "layers": 6,
+    "missingOwn": 6.0,
+    "missingLayers": 9.0,
+    "missingTargets": 36.3,
+    "depth": 4,
+    "suppliers": 1,
+    "declarationLevel": {
+     "source": "blueprint",
+     "reviewed": true,
+     "declarations": 0,
+     "missingDeclarations": 0,
+     "depth": 0,
+     "layersCovered": 0,
+     "layers": 6,
+     "sourcePages": 0
+    }
+   },
+   "measurement": 2.75,
+   "judgements": 0,
+   "distance": 2.75,
+   "low": 1.6,
+   "high": 3.91,
    "basis": "measured",
    "usedBy": []
   },
@@ -8530,8 +8558,8 @@
    "upstreamOnly": false
   },
   "automorphic": {
-   "distance": 6.14,
-   "roadmaps": 19,
+   "distance": 5.97,
+   "roadmaps": 20,
    "supplies": [
     {
      "galaxy": "iwasawa",
@@ -10257,7 +10285,7 @@
    "supplies": [
     {
      "galaxy": "automorphic",
-     "links": 27,
+     "links": 29,
      "examples": [
       {
        "supplier": "ArithmeticGaloisRepresentations",

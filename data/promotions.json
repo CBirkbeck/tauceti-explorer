@@ -739,6 +739,18 @@
     "data/blueprints/roadmaps/EllipticCurveModularityImaginaryQuadratic.json"
    ]
   },
+  "research/blueprint/packets/EllipticCurveModularityPartII.json": {
+   "promotedAt": "2026-10-08T10:59:32Z",
+   "review": "add7ed5d52b29761",
+   "reviewDate": "2026-10-08",
+   "reviewer": "independent-review-REV-DESIGN-EllipticCurveModularityPartII~2",
+   "sha256": "0dca437503da1dc520fe35ecc3c84f1527a38804db2fcb834ef523998d79ee2e",
+   "to": [
+    "data/blueprints/EllipticCurveModularityPartII.json",
+    "data/blueprints/EllipticCurveModularityPartII.md",
+    "data/blueprints/roadmaps/EllipticCurveModularityPartII.json"
+   ]
+  },
   "research/blueprint/packets/EllipticKTheory--E.5.json": {
    "promotedAt": "2026-10-06T03:50:36Z",
    "review": "699bceb00a988101",

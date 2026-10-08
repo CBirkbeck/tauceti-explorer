@@ -1,0 +1,142 @@
+{
+ "id": "EllipticCurveModularityPartII",
+ "title": "Modularity and modular parametrisations of elliptic curves over Q, Part II: effective residual comparisons",
+ "area": "automorphic",
+ "parent": "EllipticCurveModularity",
+ "summary": "This continuation of elliptic modularity over ℚ states no mathematics of its own. Its six layers name the effective residual comparisons of the modular method: Kraus's thresholds and Martin's sharp weight-two newspace bound, the exponent bound at a removed multiplicative prime, Kraus's comparison curves of exact residual conductor with full rational two-torsion, uniform irreducibility for curves with rational two-torsion, and Lemos's surjectivity theorem for curves without complex multiplication that have a rational cyclic isogeny. These targets are planned, declaration by declaration, in the roadmap EllipticModularityEffectiveComparisons, which has the same title and extends the same parent; the layers here import its declarations and plan nothing again. One input of the last layer, Chen's isogeny theorem for Cartan modular curves, is a declaration of neither roadmap: the owner records it as a gap.",
+ "readme": "The definitive document is research/blueprint/readmes/EllipticCurveModularityPartII.md.\n\n**Purpose.** Elliptic modularity over ℚ gives a weight-two newform for every elliptic curve. The modular method needs the effective statements that follow it: how large a residual characteristic can be when a multiplicative prime leaves the level, when the newform at the residual conductor is rational, when the comparison curve keeps full rational two-torsion, and when the residual representation is irreducible or surjective uniformly in the curve.\n\n**Scope.** None of this is planned here. It is planned in `EllipticModularityEffectiveComparisons`, a roadmap with the same title and the same parent, in its layers EC.0 to EC.5; one input of the last layer, Chen's isogeny theorem, is recorded there as a gap. The six layers of this roadmap are an index into that plan: each names its targets, imported declarations, baseline consequences and recorded gap routes. No layer is mathematically closed.\n\n**Conventions.** Those of the owner: μ(N) is the index of Γ₀(N) in SL₂(ℤ); g⁺(N) is the dimension of the weight-two newspace of Γ₀(N) with trivial character; N(E[ℓ]) is the prime-to-ℓ Artin conductor; M₀ is the deletion level of SerreWeightAndLevelOptimisation R20.6, a different number in general; a curve has no complex multiplication when its endomorphism ring over an algebraic closure is ℤ. Mixed modular fibre products denote smooth projective normalizations; X₀⁺(rp²) uses w_{p²}. The formal-immersion target uses the specified winding quotient over ℚ(ζ_p)⁺, the smooth integral locus at a prime above q and the Néron model.\n\n**Layers.** EC.1 thresholds and Martin's bound (owner EC.0, EC.2); EC.2 the removed-prime bound (owner EC.1, with one norm estimate in EC.3); EC.3 and EC.4 Kraus's two realization theorems (owner EC.3); EC.5 uniform irreducibility with two-torsion (owner EC.4, with one statement in EC.5); EC.6 Lemos's theorem (owner EC.5).\n\n**Norm consequence.** The general all-embeddings upper bound uses the pinned Mathlib declarations Algebra.norm_eq_prod_embeddings and AlgHom.card, in addition to the owner’s integral norm lower bound.\n\n**Non-goals.** No definition, theorem, API item, unit test or planet belongs to this roadmap. The packet proposes merging it into `EllipticModularityEffectiveComparisons`.",
+ "prerequisites": [
+  "EllipticCurveModularity",
+  "EllipticModularityEffectiveComparisons",
+  "ArithmeticGaloisRepresentations"
+ ],
+ "stages": [
+  {
+   "key": "EC.1",
+   "title": "Thresholds and sharp newspace dimensions",
+   "description": "**Import only.** This layer names Kraus's thresholds F, G and H and Martin's bound 12·g⁺(N) ≤ N + 1. Every target is a declaration of `EllipticModularityEffectiveComparisons`, or follows from the declarations listed, and nothing is planned here.\n\n- Kraus's rationality threshold F: `EllipticModularityEffectiveComparisons:EC.2/kraus-f`.\n- Kraus's two-torsion threshold G: `EllipticModularityEffectiveComparisons:EC.2/kraus-g`.\n- Kraus's comparison threshold H: `EllipticModularityEffectiveComparisons:EC.2/kraus-h`.\n- Martin's sharp weight-two newspace bound: `EllipticModularityEffectiveComparisons:EC.0/martin-bound`, `EllipticModularityEffectiveComparisons:EC.0/dimension-comparison`.",
+   "requires": [
+    "EllipticModularityEffectiveComparisons:EC.0",
+    "EllipticModularityEffectiveComparisons:EC.2"
+   ]
+  },
+  {
+   "key": "EC.2",
+   "title": "Removed-prime exponent bounds",
+   "description": "**Import only.** This layer names the bound ℓ ≤ (√p + 1)^((M₀+1)/6) at a removed multiplicative prime, and the norm inequalities it rests on. Every target is a declaration of `EllipticModularityEffectiveComparisons`, or follows from the declarations listed, and nothing is planned here.\n\n- The norm bound behind a congruence: `EllipticModularityEffectiveComparisons:EC.1/prime-divides-integral-norm`, `EllipticModularityEffectiveComparisons:EC.1/trace-norm`, `EllipticModularityEffectiveComparisons:EC.3/bounded-integer-trace-norm`.\n- The removed-prime exponent bound: `EllipticModularityEffectiveComparisons:EC.1/removed-prime-bound`, `EllipticModularityEffectiveComparisons:EC.1/removed-prime-degree-bound`, `EllipticModularityEffectiveComparisons:EC.1/coefficient-orbit-degree`, `EllipticModularityEffectiveComparisons:EC.1/real-exponent-bound`, `EllipticModularityEffectiveComparisons:EC.1/trace-gap`.",
+   "requires": [
+    "EllipticModularityEffectiveComparisons:EC.1",
+    "EllipticModularityEffectiveComparisons:EC.3"
+   ]
+  },
+  {
+   "key": "EC.3",
+   "title": "Rationality and exact-conductor realization",
+   "description": "**Import only.** This layer names Kraus's Théorème 3: above F(N) the weight-two newform at the exact residual conductor is rational and gives a comparison curve of conductor N. Every target is a declaration of `EllipticModularityEffectiveComparisons`, or follows from the declarations listed, and nothing is planned here.\n\n- Rationality from finitely many prime coefficients: `EllipticModularityEffectiveComparisons:EC.3/rationality-from-small-primes`.\n- Integrality of the small prime coefficients above F(N): `EllipticModularityEffectiveComparisons:EC.3/rational-coefficient-forcing`, `EllipticModularityEffectiveComparisons:EC.3/exact-weight-two-lift`, `EllipticModularityEffectiveComparisons:EC.3/nonrational-witness`, `EllipticModularityEffectiveComparisons:EC.3/small-prime-below-f`, `EllipticModularityEffectiveComparisons:EC.3/bounded-integer-trace-norm`.\n- The elliptic curve of a rational newform: `EllipticModularityEffectiveComparisons:EC.3/rational-form-elliptic-realization`.\n- Kraus's rational comparison theorem: `EllipticModularityEffectiveComparisons:EC.3/kraus-rational-realization`.",
+   "requires": [
+    "EllipticModularityEffectiveComparisons:EC.3"
+   ]
+  },
+  {
+   "key": "EC.4",
+   "title": "Full rational two-torsion realization",
+   "description": "**Import only.** This layer names Kraus's Théorème 4: above H(N) the comparison curve can be taken with full rational two-torsion; and the passage from the deletion level M₀ to the residual conductor. Every target is a declaration of `EllipticModularityEffectiveComparisons`, or follows from the declarations listed, and nothing is planned here.\n\n- Finite recognition of point counts modulo four: `EllipticModularityEffectiveComparisons:EC.3/finite-four-count-witness`, `EllipticModularityEffectiveComparisons:EC.3/prime-power-ideal-sturm`, `EllipticModularityEffectiveComparisons:EC.3/filtered-coefficients`, `EllipticModularityEffectiveComparisons:EC.3/odd-eisenstein-series`, `EllipticModularityEffectiveComparisons:EC.3/local-mod-four-filters`.\n- Transfer of the point counts to the comparison curve: `EllipticModularityEffectiveComparisons:EC.3/mod-four-trace-transfer`, `EllipticModularityEffectiveComparisons:EC.3/small-prime-below-g`.\n- Repair of rational two-torsion by a two-isogeny: `EllipticModularityEffectiveComparisons:EC.3/four-count-rational-two`, `EllipticModularityEffectiveComparisons:EC.3/four-count-square-classes`, `EllipticModularityEffectiveComparisons:EC.3/four-count-full-two-selection`, `EllipticModularityEffectiveComparisons:EC.3/kraus-full-two-realization`.\n- Kraus's full two-torsion realization: `EllipticModularityEffectiveComparisons:EC.3/kraus-full-two-realization`.\n- From the deletion level to the residual conductor: `EllipticModularityEffectiveComparisons:EC.3/deletion-conductor-away`, `EllipticModularityEffectiveComparisons:EC.3/deletion-level-exact-adapter`.",
+   "requires": [
+    "EllipticModularityEffectiveComparisons:EC.3"
+   ]
+  },
+  {
+   "key": "EC.5",
+   "title": "Uniform two-torsion irreducibility",
+   "description": "**Import only.** This layer names Mazur's theorem, the degrees of rational cyclic isogenies, and irreducibility of E[ℓ] for ℓ ≥ 7 with full rational two-torsion and for ℓ ≥ 11 with a rational point of order two. Every target is a declaration of `EllipticModularityEffectiveComparisons`, or follows from the declarations listed, and nothing is planned here.\n\n- Mazur's theorem on isogenies of prime degree: `EllipticModularityEffectiveComparisons:EC.4/mazur-prime-isogeny-classification`, `EllipticModularityEffectiveComparisons:EC.5/large-prime-isogeny-cm`.\n- No cyclic isogenies of degree 2ℓ or 4ℓ: `EllipticModularityEffectiveComparisons:EC.4/mazur-kenku-cyclic-degrees`.\n- From two-torsion and an invariant line to a cyclic isogeny: `EllipticModularityEffectiveComparisons:EC.4/rational-two-times-prime`, `EllipticModularityEffectiveComparisons:EC.4/full-two-cyclic-four`, `EllipticModularityEffectiveComparisons:EC.4/full-two-times-prime`.\n- Irreducibility with full rational two-torsion: `EllipticModularityEffectiveComparisons:EC.4/irreducible-full-two`, `ArithmeticGaloisRepresentations:R01.4/odd-irreducible-implies-absolutely-irreducible`.\n- Irreducibility with a rational point of order two: `EllipticModularityEffectiveComparisons:EC.4/irreducible-one-two`, `ArithmeticGaloisRepresentations:R01.4/odd-irreducible-implies-absolutely-irreducible`.",
+   "requires": [
+    "EllipticModularityEffectiveComparisons:EC.4",
+    "EllipticModularityEffectiveComparisons:EC.5",
+    "ArithmeticGaloisRepresentations:R01.4"
+   ]
+  },
+  {
+   "key": "EC.6",
+   "title": "Rational-isogeny uniformity",
+   "description": "**Import only.** This layer names Lemos's theorem that a curve without complex multiplication and with a rational cyclic isogeny has surjective mod-p representation for every p > 37, with the integrality of j, the winding quotient and the finite lists of j-values it rests on. Every target is a declaration of `EllipticModularityEffectiveComparisons`, or follows from the declarations listed, and nothing is planned here. One input of this layer is a declaration of no roadmap: Chen's theorem that the Cartan correspondence induces an isogeny on the p-new quotient. `EllipticModularityEffectiveComparisons` uses it, records it in its gap on Chen's isogeny and the winding quotient, and assigns it to a continuation of ModularCurvesPartII; it is general theory of modular curves and is not planned here either.\n\n- Potential good reduction under a nonsplit Cartan image: `EllipticModularityEffectiveComparisons:EC.5/nonsplit-potential-multiplicative`.\n- The Cartan correspondence and Chen's isogeny: `EllipticModularityEffectiveComparisons:EC.5/cartan-correspondence-kills-old`.\n- The winding quotient of rank zero: `EllipticModularityEffectiveComparisons:EC.5/finite-winding-quotient`, `EllipticModularityEffectiveComparisons:EC.5/winding-period-component`, `EllipticModularityEffectiveComparisons:EC.5/winding-class-nonzero`.\n- Formal immersion at a cusp, and the torsion image of a rational point: `EllipticModularityEffectiveComparisons:EC.5/cartan-cusp-formal-immersion`, `EllipticModularityEffectiveComparisons:EC.5/cartan-point-torsion`, `EllipticModularityEffectiveComparisons:EC.5/cartan-cusp-residue`.\n- Integrality of j away from p: `EllipticModularityEffectiveComparisons:EC.5/cartan-denominator-exclusion`.\n- Integrality of j: `EllipticModularityEffectiveComparisons:EC.5/integral-j-forcing`.\n- Integral j-values at the five genus-zero levels: `EllipticModularityEffectiveComparisons:EC.5/genus-zero-j-numerators`, `EllipticModularityEffectiveComparisons:EC.5/genus-zero-j-map`, `EllipticModularityEffectiveComparisons:EC.5/integral-parameter-divisibility`, `EllipticModularityEffectiveComparisons:EC.5/finite-integral-j`, `EllipticModularityEffectiveComparisons:EC.5/integral-j-characterisation`.\n- A proper image for p > 37 is of nonsplit Cartan type: `EllipticModularityEffectiveComparisons:EC.5/proper-image-nonsplit`, `EllipticModularityEffectiveComparisons:EC.5/exceptional-projective-exclusion`, `EllipticModularityEffectiveComparisons:EC.5/projective-inertia-order`, `EllipticModularityEffectiveComparisons:EC.5/split-cartan-exclusion`.\n- Surjectivity is a property of the j-invariant: `EllipticModularityEffectiveComparisons:EC.5/quadratic-twist-surjectivity`.\n- Surjectivity at the finitely many rational j-values: `EllipticModularityEffectiveComparisons:EC.5/large-isogeny-j-table`, `EllipticModularityEffectiveComparisons:EC.5/large-isogeny-image-certificates`, `EllipticModularityEffectiveComparisons:EC.5/small-isogeny-image-certificates`.\n- Lemos's theorem: `EllipticModularityEffectiveComparisons:EC.5/lemos-surjectivity`.",
+   "requires": [
+    "EllipticModularityEffectiveComparisons:EC.5"
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "id": "BS",
+   "title": "A conjecture of Erdős, supersingular primes and short character sums",
+   "authors": "Michael A. Bennett and Samir Siksek",
+   "edition": "Annals of Mathematics 191 (2020), 355–392; published PDF",
+   "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v191-n2-p02-s.pdf",
+   "sha256": "3920a7524a37870942fe3591ac858db23cb604f4331bccd2a6dc5f11a1671fbf",
+   "accessed": "2026-10-07",
+   "readSections": [
+    "§2, pp. 358–360; §3, pp. 361–364; §6, p. 373; references"
+   ]
+  },
+  {
+   "id": "Kraus",
+   "title": "Majorations effectives pour l’équation de Fermat généralisée",
+   "authors": "Alain Kraus",
+   "edition": "Canadian Journal of Mathematics 49 (1997), 1139–1161; published PDF",
+   "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/FEF2CCCEC964C8D0AAD3EE8F40875A4D/S0008414X00034258a.pdf/majorations-effectives-pour-l-equation-de-fermat-generalisee.pdf",
+   "sha256": "d235ed8bba1c21618ade20f3e4a387846c641e730c3e981936056b10cfdc4ab6",
+   "accessed": "2026-10-07",
+   "readSections": [
+    "§1 notation; §3.1–3.3, pp. 1142–1146; Appendix I dimension formula; Appendix II, pp. 1158–1160"
+   ]
+  },
+  {
+   "id": "Martin",
+   "title": "Dimensions of the spaces of cusp forms and newforms on Γ₀(N) and Γ₁(N)",
+   "authors": "Greg Martin",
+   "edition": "arXiv math/0306128v1, 6 June 2003; published J. Number Theory 112 (2005), 298–331; preprint read",
+   "url": "https://arxiv.org/pdf/math/0306128",
+   "sha256": "844017dec299d575ee49f731b7ae6ec27be03d76bf6463bc428b9e9b49c0a8d4",
+   "accessed": "2026-10-07",
+   "readSections": [
+    "Theorems 1–2 and definitions 1A–1F; §4, Lemmas 16–22 and proof of Theorem 2, pp. 14–16 (v1)"
+   ]
+  },
+  {
+   "id": "Mazur",
+   "title": "Rational isogenies of prime degree",
+   "authors": "Barry Mazur; appendix by Dorian Goldfeld",
+   "edition": "Inventiones mathematicae 44 (1978), 129–162; published scan",
+   "url": "https://www.math.columbia.edu/~goldfeld/Mazur-Goldfeld1978.pdf",
+   "sha256": "f3da9ef0d3d184225c4799951897be7b90d8b25050c5d508b69aeff70fd2ead3",
+   "accessed": "2026-10-07",
+   "readSections": [
+    "Introduction, pp. 129–133; §7, pp. 153–155; proof inputs located in §§1,4–6"
+   ]
+  },
+  {
+   "id": "Lemos",
+   "title": "Serre’s uniformity conjecture for elliptic curves with rational cyclic isogenies",
+   "authors": "Pedro Lemos",
+   "edition": "arXiv:1702.01985v2, 8 March 2017; published Trans. AMS 371 (2019), 137–146, DOI 10.1090/tran/7198; preprint read",
+   "url": "https://arxiv.org/pdf/1702.01985v2",
+   "sha256": "ce889428aa4d6cbe1f30fcb504591063927fdaa96baa1bdf598596bbc02bd043",
+   "accessed": "2026-10-07",
+   "readSections": [
+    "Entire v2, pp. 1–11: Theorems 1.1–1.4; §2; §3; references"
+   ]
+  },
+  {
+   "id": "DarmonMerel",
+   "title": "Winding quotients and some variants of Fermat’s Last Theorem",
+   "authors": "Henri Darmon and Loïc Merel",
+   "edition": "Author copy dated 5 January 2001; published J. reine angew. Math. 490 (1997), 81–100; author-copy pagination",
+   "url": "https://perso.imj-prg.fr/loic-merel/wp-content/uploads/merel-pub/winding.pdf",
+   "sha256": "89c4a7a8563c35f6124279b883075c40b7aa8fcb485385098896e003d80e9aa7",
+   "accessed": "2026-10-07",
+   "readSections": [
+    "§6 notation/Theorem 6.1; §7, Propositions 7.1–7.2, pp. 18–21; §8, Theorem 8.1 and Lemmas 8.2–8.3, pp. 21–23"
+   ]
+  }
+ ],
+ "status": "draft"
+}
