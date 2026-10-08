@@ -394,6 +394,17 @@
     "data/blueprints/ArithmeticKTheory--N.5.md"
    ]
   },
+  "research/blueprint/packets/ArithmeticKTheory--N.6.json": {
+   "promotedAt": "2026-10-08T12:09:30Z",
+   "review": "055ebaf42611965e",
+   "reviewDate": "2026-10-08",
+   "reviewer": "independent-review-REV-ArithmeticKTheory--N.6~2",
+   "sha256": "438ea345b691602988bffed61df3e12ea57e7656ccace9a16a737557d0a51787",
+   "to": [
+    "data/blueprints/ArithmeticKTheory--N.6.json",
+    "data/blueprints/ArithmeticKTheory--N.6.md"
+   ]
+  },
   "research/blueprint/packets/ArithmeticKTheory--N.7.json": {
    "promotedAt": "2026-09-28T15:05:04Z",
    "review": "14157099068371d4",
@@ -626,6 +637,17 @@
    "to": [
     "data/blueprints/DeligneWeightsAndPurity--DWP.7.json",
     "data/blueprints/DeligneWeightsAndPurity--DWP.7.md"
+   ]
+  },
+  "research/blueprint/packets/DerivedDeRhamCohomology.json": {
+   "promotedAt": "2026-10-08T12:09:30Z",
+   "review": "6c9b9ad754608fc2",
+   "reviewDate": "2026-10-08",
+   "reviewer": "independent-review-REV-DerivedDeRhamCohomology~2",
+   "sha256": "146a591348fccd8af4605020dd796a905c508ca12ebe52753302c6b08517673b",
+   "to": [
+    "data/blueprints/DerivedDeRhamCohomology.json",
+    "data/blueprints/DerivedDeRhamCohomology.md"
    ]
   },
   "research/blueprint/packets/DiamondEtaleCohomology--C0.json": {

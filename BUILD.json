@@ -1,8 +1,8 @@
 {
   "roadmaps": 237,
-  "stages": 4862,
+  "stages": 4896,
   "originalStages": 2166,
-  "sourceRefinements": 2696,
+  "sourceRefinements": 2730,
   "reviewedDecompositions": [
     {
       "roadmap": "AInfCohomology",
@@ -69,13 +69,6 @@
     },
     {
       "roadmap": "CrystallineCohomology",
-      "status": "partial",
-      "nodes": 7,
-      "review": "accepted",
-      "deferredLinks": 0
-    },
-    {
-      "roadmap": "DerivedDeRhamCohomology",
       "status": "partial",
       "nodes": 7,
       "review": "accepted",
@@ -250,14 +243,14 @@
   "editedRoadmapSummaries": 181,
   "curatedStagePresentations": 339,
   "administrativeStages": 101,
-  "mathematicalStars": 4761,
+  "mathematicalStars": 4795,
   "plainTextPlanetLabels": 398,
   "hiddenPlanets": 600,
   "mappedStageStatuses": 350,
   "libraryAuditStatuses": 19,
   "bibliographicSources": 46,
-  "roadmapEdges": 2169,
-  "stageEdges": 12643,
+  "roadmapEdges": 2176,
+  "stageEdges": 12714,
   "reviewedLinkPackets": 25,
   "promotedBlueprints": [
     {
@@ -331,6 +324,12 @@
       "roadmap": "ArithmeticKTheory",
       "nodes": 6,
       "reviewer": "independent-review-REV-ArithmeticKTheory--N.5"
+    },
+    {
+      "file": "ArithmeticKTheory--N.6",
+      "roadmap": "ArithmeticKTheory",
+      "nodes": 28,
+      "reviewer": "independent-review-REV-ArithmeticKTheory--N.6~2"
     },
     {
       "file": "ArithmeticKTheory--N.7",
@@ -457,6 +456,12 @@
       "roadmap": "DeligneWeightsAndPurity",
       "nodes": 52,
       "reviewer": "independent-review-REV-DeligneWeightsAndPurity--DWP.7"
+    },
+    {
+      "file": "DerivedDeRhamCohomology",
+      "roadmap": "DerivedDeRhamCohomology",
+      "nodes": 132,
+      "reviewer": "independent-review-REV-DerivedDeRhamCohomology~2"
     },
     {
       "file": "DiamondEtaleCohomology--C0",
@@ -1204,8 +1209,8 @@
     }
   ],
   "sourceDocuments": 296,
-  "htmlBytes": 35534444,
-  "htmlSha256": "b338cc9b415c73621e05343d6c1743cdb29492d62935f2d19e60b809b808764b",
+  "htmlBytes": 35588770,
+  "htmlSha256": "f8c3cbf5e050cfe6c814200d9ae72bb37d0e0641785bb9a65badb753d98a20a2",
   "networkDependencies": 0,
   "localProgressOverridesIncluded": false,
   "assets": {
@@ -1237,7 +1242,7 @@
     "data/roadmap-summaries.json": "c8bdd0a9105f5d3c4a858c8b635990729f8e94497dee784a71fae659b8c05b9f",
     "data/roadmap-classification.json": "2641dbc97eb2566c715162d011b46890d1635629181ef8126ac7aed9e24a3b13",
     "data/classification-estimates.json": "625d35fe6121bf099dc5de9e6a9111793596f9b664e3fbd439841434bb4a57d6",
-    "data/roadmap-distances.json": "41100229302c248ed1f812b8b073b21bbca384440da7dd8b85d9879feb3bb416",
+    "data/roadmap-distances.json": "96aa715c058bde70ad7a24a9627b5acf7966219e3db7236f03fc36768ed7b66c",
     "data/galaxy-layout.json": "7489487a2143484a355b36026c2f7d3dd9384ac5c58ac90d8b061b8dfcab6088",
     "data/bibliography.json": "bef230a41fad22d6b790c7564061c4d05c2ae5b78cab53d005eb404afab2b122",
     "NOTICE": "a285b95d5adbf5c2bcc82db36e2a77b797f84a2c5cbb30292efd0bae17cc4f34",
@@ -1319,6 +1324,8 @@
     "data/blueprints/ArithmeticKTheory--N.3-finite-generation.md": "d98a57bff848abf9dfc914323d8f513103a6a00bf74ae73d88f2469550e31c15",
     "data/blueprints/ArithmeticKTheory--N.5.json": "c33f05d630b51b76d4f1466615b7c9fbf4d0d629fb423d9c77229a7f2b50af04",
     "data/blueprints/ArithmeticKTheory--N.5.md": "60c9c703947c064badfc6ad1eb4d9d522db1012f335f2d1e2c04476230479893",
+    "data/blueprints/ArithmeticKTheory--N.6.json": "dbd3d511c073db2f5cf996df20a0fbed195077bb54e82f9a2d43abd257552e7d",
+    "data/blueprints/ArithmeticKTheory--N.6.md": "9d2ba61bcac514cf074ae367fbd266605b1a82c080af339166cc41a322e87c44",
     "data/blueprints/ArithmeticKTheory--N.7.json": "c8fa0e7bba9d9a6a0cbdf8340101e1b19b807bfa163da4e36c0989f7f3518a1f",
     "data/blueprints/ArithmeticKTheory--N.7.md": "35ccec306ac1e5a26abaebbf240c9643df611fb6bd35d2bab67411f06206ceb0",
     "data/blueprints/ArithmeticLocallySymmetricSpaces.json": "b5ec41541aaed3bdff250982f023a62f6add166d744c030e78b20548186da0c5",
@@ -1361,6 +1368,8 @@
     "data/blueprints/DeligneWeightsAndPurity--DWP.0.md": "a4fcfa605ce03ae775f002bd0b0c944ac2d0f7e16324211dc99f60820ae61e50",
     "data/blueprints/DeligneWeightsAndPurity--DWP.7.json": "f33c6ce8f20f136d8ebed8f41916c085e8d3d6167e224a0dca9b65db2dc31832",
     "data/blueprints/DeligneWeightsAndPurity--DWP.7.md": "ae5f5743868613d9bfe9487219e4595591694b60ac985dac3756a61f9b2a1e90",
+    "data/blueprints/DerivedDeRhamCohomology.json": "ac27dcc85af3aa4b3a7ba6a67aed8c0e53e3fccba25c1df9815d5daf4066e838",
+    "data/blueprints/DerivedDeRhamCohomology.md": "61d082b6d0b92a8c1f5285e2c2ad622d19baf645ec68aaedcf2a0f7cdb18d9dc",
     "data/blueprints/DiamondEtaleCohomology--C0.json": "c04d585fa637c065eb3aadf35bb3c210558c4c325df18498e679736755cc276f",
     "data/blueprints/DiamondEtaleCohomology--C0.md": "7045ad4ad27a6124997adda21b34f8e931ae345d60bfe8eb728049ac6ea53760",
     "data/blueprints/DiamondEtaleCohomology--C8.json": "de42843a35ee3e89578fda764ac23c26870dd55d8dacabbe5242cf695c908046",
