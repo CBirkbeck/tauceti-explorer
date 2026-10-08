@@ -41549,8 +41549,9 @@
     "BP-ComplexMultiplicationAndExplicitReciprocity~2"
    ],
    "prompt": "research/blueprint/prompts/REV-ComplexMultiplicationAndExplicitReciprocity~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7059"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7059",
+   "finishedAt": "2026-10-08T12:46:32Z"
   },
   {
    "kind": "blueprint",
@@ -42296,7 +42297,8 @@
    ],
    "revisionOf": "BP-ArithmeticKTheory--N.3",
    "prompt": "research/blueprint/prompts/BP-ArithmeticKTheory--N.3~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6920"
   },
   {
    "priority": 2,
@@ -72177,8 +72179,8 @@
     "FIX-RT-AREA-langlands-2~3"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-langlands-2~3.md",
-   "state": "pending",
-   "note": "released on GitHub issue #5871"
+   "state": "external",
+   "note": "claimed on GitHub issue #5871"
   },
   {
    "id": "FIX-RT-AREA-langlands-2~4",
