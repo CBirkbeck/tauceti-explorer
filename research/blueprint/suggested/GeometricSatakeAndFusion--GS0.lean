@@ -2,7 +2,11 @@
 This file is not the roadmap and is not exhaustive. The synchronized roadmap
 document GeometricSatakeAndFusion--GS0.md is definitive; its companion packet
 records the same mathematical contracts, APIs, tests and remaining obligations.
-This revision has not been compiled: no existing build at the pins is available.
+The full file has not been compiled: no existing build has both recorded pins.
+On 2026-10-08 a Mathlib-only projection of this revision passed lean-check with
+only sorry warnings. It removed the Tau Ceti import and the entire
+geometric-determinant-line and h-descent-and-fibral-criterion node blocks.
+That check validates neither those blocks nor the full file or omitted geometry.
 These statements suggest Lean forms so contributors and reviewers converge on
 names and signatures. They claim no implementation; implementationStatus is
 unchecked throughout. Proofs and unfinished constructions use `sorry`.
@@ -285,6 +289,7 @@ example (B : Type u) [CommRing B] (n : ℕ) (π : B) : (1 : Matrix (Fin n) (Fin 
 example (K : Type u) [Field K] : (0 : Matrix (Fin 1) (Fin 1) K) ∉ jetDeterminantLocus K 1 0 0 := by sorry
 
 /-! GeometricSatakeAndFusion:GS0:Witt-geometry/witt-demazure-resolution
+Construction clarification (BS 7.11, pp.29–30): choose Q/pQ→G of rank n_lam(0) and recurse on ker(Q→G). Q/pQ itself can have larger rank on lower-type fibres; for lam=(2,1,0), Q=k³ gives the P² family of rank-two quotients.
 For Q of type ≤lam, Dem_lam(Q) classifies Q=Q₀⊃Q₁⊃⋯⊃0 with Q_i/Q_{i+1} locally free over R of rank n_lam(i). The global resolution Gr̃_lam classifies a lattice together with such a filtration of W(R)^n/Λ. It is a proper pfp perfect scheme obtained by successive perfected Grassmannian bundles. Its image is Gr_{≤lam}; over exact type the filtration is the p-adic filtration and the map is an isomorphism.
 Prototype boundary: The submodule-chain core omits prescribed locally free quotient ranks, annihilation by p, perfect-scheme representability and its lattice map. These conditions are written in the packet, not replaced by unknown proposition fields. -/
 def wittFiltration (R : Type u) [CommRing R] (M : Type u) [AddCommGroup M] [Module R M] (r : ℕ) : Type u :=
@@ -476,7 +481,8 @@ is omitted rather than assuming L projective or inventing a Prop field.
 This is local rank-one projectivity, not a chosen global generator. -/
 
 /-! GeometricSatakeAndFusion:GS1/semi-infinite-orbits-and-hyperbolic-localization
-For a parabolic P⁺⊂G with Levi M and opposite P⁻, Hck_{P±}→Hck_G and Hck_{P±}→Hck_M give CT_P=R(p⁺)_!(q⁺)*. On bounded monodromic objects it identifies with R(p⁻)_*R(q⁻)!. For a Borel the geometric strata are S_lam=L U·lam(ξ), and the union of strata with cocenter weight ν′≤ν is closed as in VI.3.1; for a Borel this is the coroot order on all coweights, without requiring dominance; the attracting and repelling decompositions come from a regular central cocharacter of M.
+Degree convention (E24; FS pp.202–204): sum the combined local cocharacters once over distinct supports. Two coincident G_m legs labelled (1,0) give tB⁺ of position one, although ξ=t². Do not weight that local position by the multiplicity a second time.
+For a parabolic P⁺⊂G with Levi M and opposite P⁻, Hck_{P±}→Hck_G and Hck_{P±}→Hck_M give CT_P=R(p⁺)_!(q⁺)*. On bounded monodromic objects it identifies with R(p⁻)_*R(q⁻)!. For a Borel, on a one-leg geometric fibre with primitive equation t, the local strata are S_lam=L U·lam(t). A general total-weight stratum is the union of products over distinct supports whose local labels sum to ν. The union of total-weight strata with ν′≤ν is closed as in VI.3.1; for a Borel this is the coroot order on all coweights, without requiring dominance; the attracting and repelling decompositions come from a regular central cocharacter of M.
 Prototype boundary: The plus/minus comparison omits monodromicity and the geometric correspondence hypotheses. The functor type and plus composition are concrete; hyperbolic localization is imported from VS1. -/
 def constantTerm (D DP DM : Type u) [Category.{v} D] [Category.{v} DP] [Category.{v} DM] (qstar : D ⥤ DP) (pshriek : DP ⥤ DM) : D ⥤ DM :=
   qstar ⋙ pshriek
