@@ -37841,8 +37841,9 @@
    ],
    "revisionOf": "BP-AutomorphicGaloisRepresentationsPartII--AG2.0",
    "prompt": "research/blueprint/prompts/BP-AutomorphicGaloisRepresentationsPartII--AG2.0~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7301"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7301",
+   "finishedAt": "2026-10-08T16:42:03Z"
   },
   {
    "priority": 2,
@@ -40152,7 +40153,8 @@
    ],
    "revisionOf": "BP-MetaplecticAutomorphicForms--MP.0",
    "prompt": "research/blueprint/prompts/BP-MetaplecticAutomorphicForms--MP.0~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6993"
   },
   {
    "priority": 2,
@@ -40490,8 +40492,9 @@
    ],
    "revisionOf": "BP-PotentialModularityAndCompatibleSystems--R23.1",
    "prompt": "research/blueprint/prompts/BP-PotentialModularityAndCompatibleSystems--R23.1~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6999"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6999",
+   "finishedAt": "2026-10-08T16:42:05Z"
   },
   {
    "priority": 2,
@@ -40935,7 +40938,8 @@
    ],
    "revisionOf": "BP-SchemeKTheoryOperations",
    "prompt": "research/blueprint/prompts/BP-SchemeKTheoryOperations~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7007"
   },
   {
    "priority": 2,
@@ -72229,8 +72233,8 @@
     "FIX-RT-AREA-langlands-2~3"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-langlands-2~3.md",
-   "state": "pending",
-   "note": "released on GitHub issue #5871"
+   "state": "external",
+   "note": "claimed on GitHub issue #5871"
   },
   {
    "id": "FIX-RT-AREA-langlands-2~4",
