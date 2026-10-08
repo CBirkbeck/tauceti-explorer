@@ -32857,8 +32857,9 @@
    ],
    "avoidAccountOf": "BP-HodgeStructuresPartII--H.6",
    "prompt": "research/blueprint/prompts/REV-HodgeStructuresPartII--H.6.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7063"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7063",
+   "finishedAt": "2026-10-08T09:32:00Z"
   },
   {
    "id": "BP-HodgeStructuresPartII--H.7",
@@ -39353,7 +39354,8 @@
    ],
    "revisionOf": "BP-HodgeTateAndCanonicalSubgroups--T0",
    "prompt": "research/blueprint/prompts/BP-HodgeTateAndCanonicalSubgroups--T0~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7304"
   },
   {
    "priority": 2,
@@ -42437,8 +42439,9 @@
     "BP-EllipticRegulators--ER.7~2"
    ],
    "prompt": "research/blueprint/prompts/REV-EllipticRegulators--ER.7~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7043"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7043",
+   "finishedAt": "2026-10-08T09:32:03Z"
   },
   {
    "kind": "blueprint",
