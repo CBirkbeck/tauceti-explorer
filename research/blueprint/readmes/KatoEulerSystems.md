@@ -4,9 +4,9 @@ This roadmap builds the modular classes used by Euler-system arguments. It begin
 
 The construction has several distinct outputs. The integral geometric classes retain both auxiliary integers. The rational Kato morphism is obtained only after its rational-membership and Iwasawa-module arguments. Nakamura’s full-level Hecke-linear classes retain the entire modular cohomology before an eigenform quotient. His twist-one morphism uses the dual form and two genuine representation twists. The scalar regulator also requires a refinement and a normalized differential. A useful library provides these objects and their comparison maps separately: knowing an abstract norm-compatible family, a one-dimensional period line, or a generic local regulator does not construct any of them.
 
-The five layers below form a complete pass at the level of their targets. Every declaration has a statement, hypotheses, proof outline and direct suppliers. Constructions have an API derived from their uses and at least three discriminating tests. All five layers have status **planned**; none is **closed**. Twelve proof-closure gaps and twenty-nine requested exports are recorded at the end. Every implementation status is unchecked. This is a mathematical library plan, and no existence or formalization claim follows from the suggested signatures.
+The five layers below form a complete pass at the level of their targets. Every declaration has a statement, hypotheses, proof outline and direct suppliers. Constructions have an API derived from their uses and at least three discriminating tests. All five layers have status **planned**; none is **closed**. Fourteen proof-closure gaps and thirty-one requested exports are recorded at the end. Every implementation status is unchecked. This is a mathematical library plan, and no existence or formalization claim follows from the suggested signatures.
 
-The core source is Kato’s published Astérisque paper. The additional scope includes the exact all-prime rational inputs used by Burungale–Tian, Nakamura’s §3 and Appendix A normalization and characterization, and the elliptic-curve applications in Rubin’s public AWS draft, Chapter III §5. Universal deformation theory is supplied by AutomorphicCongruences, reverse CM divisibility by the separate CM direction, and generic Euler-system descent and Selmer machinery by their owners. The all-prime CM module-structure input must precede the rational Kato map; it cannot be proved using an equality that already contains that map.
+The core source is Kato’s published Astérisque paper. The additional scope includes the exact all-prime rational inputs used by Burungale–Tian, Nakamura’s §3 and Appendix A normalization and characterization, and the elliptic-curve applications in Rubin’s public AWS draft, Chapter III §5. Universal deformation theory is supplied by AutomorphicCongruences, reverse CM divisibility by the separate CM direction, and generic Euler-system descent and Selmer machinery by their owners. The all-prime CM module-structure input must precede the rational Kato map; it cannot be proved using an equality that already contains that map. The remaining nonsplit non-CM image comparison is a separate proof gap. The checked split-place unipotent argument does not certify the every-place attribution in Kato 12.8.2.
 
 The [packet](../packets/KatoEulerSystems.json) contains the dependency graph, and the [suggested file](../suggested/KatoEulerSystems.lean) proposes names and types. The document is definitive. The prototypes use the existing units, linear maps, polynomials, submodules and module carriers. Where geometry, continuous cohomology, periods or analytic conditions cannot be expressed at the baseline, those conditions are explicitly omitted and the signatures show only the expressible part. The rational map’s generator-realization input and the numerical length bounds are conditional algebraic prototypes. The Iwasawa structure signature separately concludes rank-one freeness without assuming a basis. Arithmetic existence and the omitted geometric hypotheses remain targets of the document.
 
@@ -61,7 +61,7 @@ SelmerIwasawaCohomology supplies continuous cohomology, local conditions, Poitou
 
 ## Public sources and access record
 
-The locators below identify material read and the limits of verification. Mathematical results are stated in our own words in the node entries. Historical reading records remain distinct from this revision’s rechecks.
+The locators identify material read and the limits of verification. Results are stated in our own words below. Historical access records remain distinct from this independent revision-round review.
 
 ### p-adic Hodge theory and values of zeta functions of modular forms
 
@@ -84,10 +84,11 @@ SHA-256: `3c6e14b11fa60262db8aff782ce3cf4d83e9100c0be83621a7e4ce502cec605d`.
 - Additional page-image verification: pp.142–143, the explicit Eisenstein-product definition, weight-two regularization and piecewise smoothing exponents of 4.2.4; compared again with 6.6 on p.163.
 - Independent review: all forty node locators and mathematical statements collated, including §§13.9–13.14 and 17.11–17.13. Further page-image checks: pp.126, 131–132, 141, 222, 227, 234, 273–274. Full [KK3] and the unstaged all-prime CM supplier proofs remain unverified.
 - Revision 2, 8 October 2026: rechecked §§1.3/1.7/1.9, 2.3/2.4/2.6/2.12, 8.5, 9.5, 12.4/12.6, 13.8–13.12 and 15.13–15.16 for the repaired signatures. Page images pp.124,222,273 rechecked. These are statement and proof-interface checks, not complete proof closure of [KK3] or the CM supplier.
+- REV-KatoEulerSystems~2, 8 October 2026: independently collated all forty node statements and their locators, including §§13.9–13.14, 15.12–15.17 and 17.9–17.13. Page images pp.124,141–143,163,222,234,273–274 checked. The every-place image attribution in 12.8.2 was compared with Ribet §3 pp.190–192; the remaining nonsplit proof input is E12. Complete [KK3] and the early all-prime CM supplier proofs remain gaps.
 
 ### Euler systems (author's course draft of the Annals of Mathematics Studies 147 monograph)
 
-Karl Rubin. Public author draft distributed with the 1999 Arizona Winter School notes; inspected independently 6 October 2026. No line-by-line collation with the published AMS 147 book is claimed.. [Public text](https://swc-math.github.io/notes/files/99RubinES.pdf), accessed 2026-10-08.
+Karl Rubin. Public author draft distributed with the 1999 Arizona Winter School notes; inspected independently 6 October 2026. No line-by-line collation with the published AMS 147 book is claimed. [Public text](https://swc-math.github.io/notes/files/99RubinES.pdf), accessed 2026-10-08.
 
 SHA-256: `de47655dc35066fd01f2e76a37076ad03dee62e816130586c7674e520be73d50`.
 
@@ -96,6 +97,7 @@ SHA-256: `de47655dc35066fd01f2e76a37076ad03dee62e816130586c7674e520be73d50`.
 - Chapter II, Sec. 3 'Results over K_infinity', pp. 26-29 (Hyp(K_infinity/K), Hyp(K_infinity,T), Hyp(K_infinity,V), Def. 3.1, Thms. 3.2, 3.3, 3.4, Prop. 3.7)
 - Chapter III §5, pp. 47–54: the elliptic-curve application, including Props. 5.1, 5.8, 5.14(b), Cors. 5.6, 5.17, 5.18, and their proofs. The public draft is the source read, not the unavailable Festschrift article.
 - Revision 2, 8 October 2026: rechecked III.5.1–5.6 and III.5.14–5.18 for the local lattice, period, uniform descent, Coleman and no-finite-submodule interfaces; reproduced the GL₂(Z/4) countercheck for the III.5.8 dyadic vanishing claim.
+- REV-KatoEulerSystems~2, 8 October 2026: independently checked II.1 pp.21–22, II.2–3 pp.23–29, III.5 pp.47–54 and IX.6.1 pp.141–143. The public-draft Euler-factor-change locator is IX.6.1. Recomputed the dyadic GL₂(Z/4) cocycle dimensions and checked the odd-prime logarithm restriction; no published-book collation is claimed.
 
 ### Zeta morphisms for rank two universal deformations
 
@@ -107,6 +109,7 @@ SHA-256: `47682f856244439d8cc3d3e6e0a4e1f804e6a710ec1a2dde8fad76f94aea20e4`.
 - Independent review: §2.3 Lemma 2.10 (completed Borel–Moore to classical coefficients), §3.1.2 pp.205–206 (literal dual lattice), §3.1.3–3.2 and Appendix A displays checked against page images.
 - §5.1, Theorem 5.2 pp.253–254 checked separately: odd p, residual absolute irreducibility and free rank-one τ quotient. Its two erroneous cross-reference indices are recorded in E10.
 - Revision 2, 8 October 2026: rechecked §3.1.2–3.1.3 and Appendix A, pp.205–207 and 265–268, for literal duals, rational central operators, smoothing and Γ₁ Poincaré transport; rechecked the p.254 image for the cross-reference corrections.
+- REV-KatoEulerSystems~2, 8 October 2026: checked Lemma 2.10 pp.200–202, §3.1.2–3.2 pp.205–222, §5.1 pp.253–254 and Appendix A pp.265–269. The parabolic inverse-limit injectivity is separately requested. The integral symmetric-dual issue recurs in §3.1.5; the Appendix A map reference is also included in E10.
 
 ### A rank zero p-converse to a theorem of Gross–Zagier, Kolyvagin and Rubin
 
@@ -116,6 +119,15 @@ SHA-256: `cbb8284a13ed40bd15df9713001485724bc4d2a3b5c38d8fd83f9b6f3f3e4664`.
 
 - §2.2, Theorems 2.3–2.4 and Remark 2.5; §3.1 sign specialization. Annals publication metadata checked; no claim of line-by-line collation with the publisher PDF. The CM equality is a supplier result, not an L4 endpoint.
 - Revision 2, 8 October 2026: rechecked Theorems 2.3–2.4 and the §3.1 specialization argument in arXiv v2; rational input includes p=2. No publisher collation is claimed.
+- REV-KatoEulerSystems~2, 8 October 2026: independently read arXiv v2 §2 and the §3.1 specialization, including the arbitrary-prime rational theorem and the CM scope boundary. Publisher collation remains unclaimed.
+
+### On ℓ-adic representations attached to modular forms. II
+
+Kenneth A. Ribet. Glasgow Mathematical Journal 27 (1985), 185–194; author-hosted scan of the published article. [Public text](https://math.berkeley.edu/~ribet/Articles/rankin.pdf), accessed 2026-10-08.
+
+SHA-256: `88adbb7f4a931e5c8705a4773453315c06a98b52c434ce57e54336f8dc9353f8`.
+
+- §3, pp.190–192: inner-twist fixed field, quaternion algebra, reduced-norm open image and the almost-all-prime theorem/proof, read from page images. No source passage is reproduced.
 
 ## Layer coverage
 
@@ -386,14 +398,14 @@ Uses determining the API:
 
 Unit tests (suggested `example` signatures with admitted proofs):
 
-- `beilinson_order` (characterisation): The Chern image is Kummer(c-g_{1/M,0}) cup Kummer(d-g_{0,1/N}), in that order.
+- `beilinson_order` (characterisation): The étale Chern character ch_(2,2), equivalently −c_(2,2) on this symbol, gives Kummer(c-g_{1/M,0}) cup Kummer(d-g_{0,1/N}), in that order.
 - `beilinson_identity_entry` (degenerate): If either unit entry is 1, the symbol is zero.
 - `beilinson_bilinearity` (compatibility): Replacing the first unit by u*u′ gives the sum of the two symbols.
 
 Acceptance checks:
 
 - Check that the element is genuinely a symbol of two units on the same affine curve, so that no localisation or relative K-theory is needed at this stage.
-- Check that the two auxiliary smoothing operators commute and that each is invertible after inverting a single explicitly named integer, so that the passage between c,d-z and z is a controlled denominator and not an unrecorded rationalisation.
+- The two auxiliary smoothing operators commute. When |c|,|d|>1 and the respective diamond operators have finite orders h_c,h_d, invert the nonzero integer (c^(2h_c)−1)(d^(2h_d)−1): a finite geometric series gives both inverse operators. Do not assert invertibility for auxiliary values ±1; the defining symbol and smoothing identity still make sense there.
 - Check the M + N >= 5 boundary: for (M,N) = (1,N) or (M,1) the moduli description of 2.1 is not asserted, and Kato treats those levels through 2.8 only.
 
 Source correspondence:
@@ -558,8 +570,8 @@ Direct prerequisites: `KatoEulerSystems:L1/etale-chern-moment-map-into-modular-l
 
 Acceptance checks:
 
-- Check the exponent bookkeeping: setting a = b = n in (2) should be consistent with (1) via the relation between T'(n) and the diamond operators.
-- Check that the scalars vanish no information when r' = k-1 (the case used in the reciprocity theorems 9.5-9.7).
+- For a=b=n the diamond intertwining scalar is n^(k−2−2r); the T′(n) scalar is n^(r−1). These are distinct operators and their scalars must not be identified.
+- At r′=k−1 the monomial contributes a^(k−2), while the determinant twist still contributes (ab)^(−r). The b monomial exponent is zero, but the total b dependence is not removed.
 - Check that this lemma, together with Props. 2.3 and 2.4, is exactly what yields the p-adic norm relations of Prop. 8.7, so that no additional geometric input enters at that point.
 
 Source correspondence:
@@ -744,7 +756,7 @@ Acceptance checks:
 Source correspondence:
 
 - `kato-2004-asterisque-295`, 13.1 and Example 13.3, pp.224–225: P_ell(t)=det(1−Fr_ell t:T) is evaluated at ell^(−1)σ_ell^(−1), giving the explicitly displayed moment polynomial.
-- `rubin-euler-systems-draft`, Definition II.1.1; Lemma IX.1.1: The imported ES.2 convention adapter is used, not a redefinition of the carrier.
+- `rubin-euler-systems-draft`, Public AWS author draft, Definition II.1.1, pp.21–22; Lemma IX.6.1, pp.141–143: Definition II.1.1 supplies the conductor-indexed Euler-system carrier. Lemma IX.6.1 changes congruent Euler factors while preserving the components unramified outside the fixed bad set. IX.1.1 is an example in this draft, not the lemma: no locator in the uncollated published book is asserted.
 
 ### The integral zeta submodule Z and its finite index in Z(f,T)
 
@@ -1188,14 +1200,15 @@ Hypotheses and domain:
 
 - v∈Sym^(k−2)(Z²)^* for the rational period characterization.
 - The splitting is rational and Hecke/Galois equivariant; integral splitting is not claimed.
+- Lemma 3.4’s global parabolic inverse-limit torsion-freeness and exponential injectivity are an exact requested R07 L3 export. They do not follow from the cohomology constructor or a generic local dual exponential; this proof dependency remains a gap until supplied.
 
 Construction or proof outline:
 
 1. Import the actual rational splitting and its full-level comparison.
-2. Use Nakamura Lemma 3.4 (attributed to [20], Proposition 3.1.3 and Lemma 3.1.4); this parabolic injectivity input is not inferred from generic local exp*.
+2. Import the precise parabolic statement of Nakamura Lemma 3.4, attributed to [20], Proposition 3.1.3 and Lemma 3.1.4, through the R07 L3 request. Its proof is an open supplier dependency, not a consequence of generic local exp*.
 3. Apply Theorem 3.2 to the L2 class and its split image. Injectivity proves Corollary 3.6’s uniqueness.
 
-Direct prerequisites: `KatoEulerSystems:L2/full-level-hecke-linear-zeta-classes`, `ModularSymbolsPadicLFunctions:L0/drinfeld-manin-splitting`, `KatoEulerSystems:L3/dual-exponential-map-on-the-modular-local-system`, `SelmerIwasawaCohomology:L3/iwasawa-cohomology`.
+Direct prerequisites: `KatoEulerSystems:L2/full-level-hecke-linear-zeta-classes`, `ModularSymbolsPadicLFunctions:L0/drinfeld-manin-splitting`, `KatoEulerSystems:L3/dual-exponential-map-on-the-modular-local-system`, `SelmerIwasawaCohomology:L3/iwasawa-cohomology`, `SelmerIwasawaCohomology:L3`.
 
 Acceptance checks:
 
@@ -1373,6 +1386,7 @@ Hypotheses and domain:
 - The integral package includes residual irreducibility and the FREE rank-one τ quotient; x≠0 alone does not give it.
 - The Poitou–Tate and evaluation-index comparison is localized as stated, retaining the local H² correction.
 - Kato 13.4(ii) is dim(V⁺)=dim(V⁻)=1 (oddness); purity is (iii), irreducibility (iv), and the rational rank-one τ quotient (v). Use the R19.1 newform realization for parity, not purity in its place.
+- The rational image package is verified by the explicit split-place argument in the large-image node; remaining nonsplit places require the alternative argument named in the supplier gap. Rational Zariski density alone does not verify Rubin’s τ hypothesis.
 
 Construction or proof outline:
 
@@ -1447,18 +1461,19 @@ Hypotheses and domain:
 - (12.5.2) is a large-image condition on the restriction to Gal(Qbar/Q(zeta_{p^infinity})); by Ribet's theorem it holds for almost all lambda when f has no CM, and Kato notes that if it holds for one stable lattice it holds for all
 - the exceptional configuration (12.5.1) is genuinely present and contributes a local length 1; it occurs only in weight 2 with f not potentially of good reduction at p
 - the conclusion is an inequality of lengths at each height-one prime, equivalent to a divisibility of characteristic ideals; Conjecture 12.10 asserts the corresponding equality and remains a conjecture in Kato's text
-- The non-CM Euler-system proof is supplied here. For CM, part (a) additionally requires the elliptic-unit local-length comparison of Kato 15.13–15.17, beyond H² torsion and H¹ freeness; this is part of the unstaged supplier gap. No reverse divisibility is concluded.
+- For non-CM, part (a) uses the rational rank-one image input on the verified split-quaternion branch; at nonsplit places the exact alternative input remains a supplier gap. For CM it requires the elliptic-unit local-length comparison of Kato 15.13–15.17, beyond H² torsion and H¹ freeness. Both proof limits are explicit; no reverse divisibility is concluded.
 - For Nakamura’s twist-one lattice formulation (Theorem 5.2), retain p odd, residual ABSOLUTE irreducibility and a τ with free rank-one quotient; the bound is for the global-to-local H² kernel.
 
 Construction or proof outline:
 
-1. For non-CM f apply the modular ES.8 bound after verifying the rational or integral image conditions. For CM the separate elliptic-unit comparison of 15.13–15.17 is a supplier gap; module structure alone does not imply this bound.
+1. For non-CM f apply ES.8 only after verifying its rational or integral image conditions. The remaining nonsplit-quaternion rational case needs the recorded alternative supplier input. For CM the separate elliptic-unit comparison of 15.13–15.17 is a supplier gap; module structure alone does not imply this bound.
 2. Compare the geometric zeta span and the Kato map’s span using 12.6 and its finite-index smoothing theorem.
 3. The localized exact sequence 0→H²_0→H²→H²_loc adds the local length. Kato 12.2/13.13 identifies the exceptional local rank-one term in configuration 12.5.1.
 4. Use characteristic-ideal multiplicativity to translate lengths: length H²≤length(H¹/Z)+length H²_loc. Under full integral conditions obtain the exact inequality off the exceptional prime; otherwise retain the p-power error at primes over p.
 5. Transport the argument by Appendix A’s twists for Nakamura 5.2; do not enlarge its residual-absolute-irreducibility hypothesis.
+6. For integral membership in 13.14 use the finite-index zeta-span comparison and H¹(T) freeness from 12.4(3), valid here because p is odd and full SL₂ image implies residual irreducibility. The printed reference to 12.4(2) supplies rational freeness only and is corrected in E11.
 
-Direct prerequisites: `KatoEulerSystems:L4/imported-euler-system-bound-over-the-cyclotomic-iwasawa-algebra`, `KatoEulerSystems:L4/nonvanishing-of-the-zeta-submodule-at-height-zero`, `KatoEulerSystems:L2/integral-zeta-submodule-and-finite-index`, `SelmerIwasawaCohomology:L2/selmer-structure-poitou-tate`, `PadicMeasuresIwasawaAlgebras:L4/characteristic-ideal`, `PadicMeasuresIwasawaAlgebras:L4/characteristic-ideal-api-2`.
+Direct prerequisites: `KatoEulerSystems:L4/imported-euler-system-bound-over-the-cyclotomic-iwasawa-algebra`, `KatoEulerSystems:L4/nonvanishing-of-the-zeta-submodule-at-height-zero`, `KatoEulerSystems:L2/integral-zeta-submodule-and-finite-index`, `SelmerIwasawaCohomology:L2/selmer-structure-poitou-tate`, `PadicMeasuresIwasawaAlgebras:L4/characteristic-ideal`, `PadicMeasuresIwasawaAlgebras:L4/characteristic-ideal-api-2`, `KatoEulerSystems:L4/rational-iwasawa-module-structure`.
 
 Acceptance checks:
 
@@ -1475,7 +1490,8 @@ Source correspondence:
 - `kato-2004-asterisque-295`, Chapter III, Thm. 12.5(4) and (12.5.2), printed p. 222: The displayed inequality uses rational coefficients. Proof 13.14 instead applies the integral bound 13.4(3); E8 records the intended lattice formulation.
 - `kato-2004-asterisque-295`, Chapter III, Conjecture 12.10, printed pp. 223-224: Confirms that equality is the conjecture and that Kato proves only the inequality; this is the basis for the node's final sentence.
 - `nakamura-2023-published`, Theorem 5.2, pp.253–254: The twist-one integral restatement bounds the H² kernel with the additional residual and τ hypotheses.
-- `kato-2004-asterisque-295`, 13.14, p.234: The printed display uses rational V, while the proof uses H¹(T), Z(f,T) and the integral bound 13.4(3). The node follows the lattice statement justified by that proof, as recorded in E8.
+- `kato-2004-asterisque-295`, 13.14, p.234: Proof 13.14 uses lattice H¹(T), Z(f,T) and integral 13.4(3). Its reference to freeness must be 12.4(3) rather than rational 12.4(2) (E11). The rational display of 12.5(4), p.222, is the separate contextual misprint E8.
+- `kato-2004-asterisque-295`, Theorem 12.4(3), p.221; proof 13.14, p.234: Odd p and residual irreducibility supply the integral free rank-one module needed for the lattice membership argument.
 
 ### The good-ordinary Selmer divisibility against the p-adic zeta function
 
@@ -1523,22 +1539,24 @@ Source correspondence:
 
 Node `KatoEulerSystems:L4/cm-exclusion-and-the-separate-treatment`; lemma; proposed declaration `nonCmLargeImage`. Implementation status: **unchecked**.
 
-For non-CM f, Kato 12.8.2 supplies, for every λ|p, a stable lattice whose image contains an open subgroup of SL₂(Z_p). In the cyclotomic kernel choose a nontrivial unipotent τ=[[1,x],[0,1]], x≠0, in that subgroup: det τ=1, the cyclotomic character is trivial, and dim_E V/(τ−1)V=1. Rational irreducibility over the cyclotomic tower follows from this open SL₂ subgroup. Thus the rank-one and irreducibility clauses of Hyp(Q_∞,V) hold at every p. If the image contains all SL₂(Z_p), take x=1; then T/(τ−1)T is free of rank one and the residual representation is irreducible. The stronger condition is guaranteed only at almost all λ by 12.8.1. For a CM representation, the torus/normalizer image has no such nontrivial unipotent; this Euler-system bound does not supply its rational H² input. That input must come first from the all-prime elliptic-unit layer, including p=2 and Q(i), before importing the Kato map; the reverse CM divisibility remains outside this packet.
+Assume the cyclotomic restriction of the non-CM cohomological representation has an open SL₂ subgroup in a chosen rank-two realization. Its upper unipotents contain τ=[[1,x],[0,1]] with x≠0, so dim_E V/(τ−1)V=1; the upper and lower unipotents also give rational irreducibility over the cyclotomic tower. Ribet’s quaternion-valued openness supplies this argument when the associated quaternion algebra is split at the coefficient place, after restricting to the determinant-one cyclotomic image. If the integral image contains all SL₂(Z_p), take x=1: T/(τ−1)T is free of rank one and the residual representation is irreducible. This stronger package is available at almost all places. Kato 12.8.2 asserts open SL₂ at every place, but the cited quaternion openness does not establish its unipotent assertion at a division place; the remaining rational application is a recorded proof gap, not an inference from Zariski density. For a CM representation the torus/normalizer image has no such nontrivial unipotent. Its early all-prime H² input must instead come from elliptic units, including p=2 and Q(i), before constructing the Kato map; reverse CM divisibility remains outside this packet.
 
 Hypotheses and domain:
 
 - Weight k≥2; the image statement concerns the cohomological representation and its cyclotomic restriction.
 - The rational x may be divisible by p: an open subgroup does not imply x=1 integrally.
 - For K=Q the extra unit and Hilbert-class-field restrictions in Rubin’s τ condition are automatic after working in the cyclotomic kernel.
+- The open SL₂ premise is checked on the split local quaternion branch. At a division place no nonzero nilpotent belongs to the division algebra, so the quaternion-valued image has no nontrivial unipotent; an alternative rational weak-Leopoldt/divisibility argument is requested. No explicit counterexample to the all-prime Iwasawa theorem is asserted.
 
 Construction or proof outline:
 
-1. Import the representation and determinant dictionary from R19.1; use the precise two statements quoted in Kato 12.8.
+1. Import R19.1’s representation/determinant dictionary and R19.3’s precise quaternion-valued image theorem. In the split local case, the norm-one subgroup is SL₂ over the inner-twist fixed local field; finite-index determinant/cyclotomic restriction preserves openness, giving an open SL₂(Z_p) subgroup after a basis change.
 2. An open SL₂ subgroup contains upper and lower unipotents with parameter p^a; their common invariant lines show irreducibility after extension to E. Pick the upper unipotent for the rank-one quotient.
 3. Full SL₂ gives parameter 1 and the standard residual irreducibility; only then invoke the integral generic hypothesis package.
 4. Compare Rubin III.5.8 and Remark 5.10. At p=2 do not use the false integral H¹(GL₂(Z₂),W)=0 claim in the public draft.
+5. At nonsplit places stop this argument: a unipotent would give a nonzero nilpotent in a division algebra, even after taking a power into the inner-twist kernel. Keep Kato’s all-prime cohomological targets conditional on the exact alternative proof input, as recorded in E12 and the image-comparison gap.
 
-Direct prerequisites: `AutomorphicGaloisRepresentations:R19.1/newform-rank-two-realisation`, `EulerSystemsAndKolyvaginSystems:ES.8/iwasawa-large-image-hypotheses`, `EulerSystemsAndKolyvaginSystems:ES.8/leopoldt-tower-hypothesis`.
+Direct prerequisites: `AutomorphicGaloisRepresentations:R19.1/newform-rank-two-realisation`, `EulerSystemsAndKolyvaginSystems:ES.8/iwasawa-large-image-hypotheses`, `EulerSystemsAndKolyvaginSystems:ES.8/leopoldt-tower-hypothesis`, `AutomorphicGaloisRepresentations:R19.3/ribet-momose-classical-large-image`, `AutomorphicGaloisRepresentations:R19.3`.
 
 Acceptance checks:
 
@@ -1546,12 +1564,14 @@ Acceptance checks:
 - With x=1 the integral quotient is free of rank one.
 - The CM elliptic-unit supplier cannot depend on the Kato map whose construction uses its H² result.
 - The suggested signature must exhibit a nontrivial unipotent in the cyclotomic representation image, a rational rank-one cokernel and irreducibility. The separate integral companion requires full SL₂ image and has the primitive x=1 conclusion; the open-image result cannot supply that integral hypothesis.
+- Neither Zariski SL₂ closure nor openness in the reduced-norm group of a division quaternion algebra supplies a unipotent. Distinguish the split-place rational conclusion, the almost-all-place integral conclusion and the unresolved every-place comparison.
 
 Source correspondence:
 
 - `kato-2004-asterisque-295`, Chapter III, after Thm. 13.4, printed p. 226: The generic large-image argument excludes CM forms; the separate elliptic-unit treatment is in §15.
-- `kato-2004-asterisque-295`, Chapter III, Remark 12.8 and (12.8.1), (12.8.2), printed pp. 222-223: Gives the definition of CM and the two distinct large-image statements, with 'almost all lambda' in the first and 'open subgroup' in the second, as recorded in the hypotheses.
+- `kato-2004-asterisque-295`, Chapter III, Remark 12.8 and (12.8.1), (12.8.2), printed pp. 222-223: 12.8.1 gives an almost-all-place integral image assertion. The every-place open SL₂ assertion of 12.8.2 exceeds what the cited quaternion-valued openness proves directly at nonsplit places; E12 scopes the proof gap.
 - `rubin-euler-systems-draft`, III.5.8–5.10, p.50: The concrete unipotent verifies the distinct rational and integral packages; the draft cohomology assertion needs E3.
+- `ribet-1985-large-image`, §3, pp.190–192, especially the reduced-norm open-image statement p.191 and Theorem 3.1: The inner-twist kernel acts through a quaternion algebra D over its fixed field. Its image is open in the group with rational reduced norm at every prime; the almost-all-prime theorem uses the split matrix description. Only the split local case supplies the unipotents used here.
 
 ### Analytic twists detect the modular zeta classes
 
@@ -1596,11 +1616,12 @@ Hypotheses and domain:
 
 - For CM the graph is conditional on the missing all-prime supplier; this is explicit proof-closure information, not a p≠2 alteration of the theorem.
 - The geometric smoothed classes exist before the rational zeta morphism.
+- For non-CM the displayed source theorem still includes every place; the currently checked ES.8 proof covers the split local quaternion branch. An alternative rational input at nonsplit places is a separate recorded gap. The theorem’s scope is retained without claiming that missing proof is verified.
 
 Construction or proof outline:
 
 1. Use the geometric L2 conductor family and archimedean nonvanishing to prove its inverse-limit component is non-torsion; this step does not require the already-constructed canonical map.
-2. For non-CM apply ES.8/weak-leopoldt-from-an-euler-system and the rational bound. R07’s Euler characteristic and integral Iwasawa-complex structure give H¹ rank one and the lattice torsion-freeness; localize to Λ_Q.
+2. For non-CM on the verified split local quaternion branch apply ES.8/weak-leopoldt-from-an-euler-system and the rational bound. At the remaining places first obtain the alternative input in the image-comparison gap. R07’s Euler characteristic and integral Iwasawa-complex structure then give H¹ rank one and lattice torsion-freeness; localize to Λ_Q.
 3. For CM import the early elliptic-unit torsion/rank statement once staged, including the p=2 and Q(i) branch of Kato 15.14. Then use the same rational/integral module structure passage.
 4. Use residual irreducibility and p odd only for the additional integral freeness assertion of 12.4(3).
 
@@ -1628,6 +1649,7 @@ Hypotheses and domain:
 
 - E is modular and has no CM; the CM elliptic-unit argument belongs to the separate supplier.
 - The twisted finite-level bound uses the actual twisted conductor system and the nonzero local reciprocity value.
+- Use the elliptic Serre export requested from R19.3: open GL₂ image at every p, almost-all-p surjectivity, and finite cyclotomic torsion. A general modular quaternion image theorem alone does not supply these three elliptic consequences.
 
 Construction or proof outline:
 
@@ -1635,7 +1657,7 @@ Construction or proof outline:
 2. Apply the imported finite-level rational bound to each χ after the actual twist of the conductor family; use the elliptic period formula to show the singular localization is nonzero.
 3. Rohrlich bounds the rank, and Serre gives finite torsion T₀. Choose a finite layer spanning E(Q∞)⊗Q and containing T₀. For σ in its procyclic Galois group and any P, σP−P belongs to T₀ and is a continuous homomorphism in σ because T₀ is fixed. If e annihilates T₀, every such homomorphism kills eΓ. Thus all points are fixed in one uniformly enlarged finite layer, where the imported Mordell–Weil theorem gives finite generation. Bounded rank and finite torsion alone, without this uniform descent, would not suffice.
 
-Direct prerequisites: `KatoEulerSystems:L3/elliptic-dual-exponential-and-kato-period`, `KatoEulerSystems:L4/cm-exclusion-and-the-separate-treatment`, `KatoEulerSystems:L4/analytic-twist-nonvanishing`, `EulerSystemsAndKolyvaginSystems:ES.4/rubin-bound`, `EulerSystemsAndKolyvaginSystems:ES.4/rubin-hypotheses`, `tauceti:TauCetiRoadmap/EllipticCurves#layer-6-the-mordellweil-theorem-aec-viii`, `SelmerIwasawaCohomology:L2/elliptic-selmer-instance`.
+Direct prerequisites: `KatoEulerSystems:L3/elliptic-dual-exponential-and-kato-period`, `KatoEulerSystems:L4/cm-exclusion-and-the-separate-treatment`, `KatoEulerSystems:L4/analytic-twist-nonvanishing`, `EulerSystemsAndKolyvaginSystems:ES.4/rubin-bound`, `EulerSystemsAndKolyvaginSystems:ES.4/rubin-hypotheses`, `tauceti:TauCetiRoadmap/EllipticCurves#layer-6-the-mordellweil-theorem-aec-viii`, `SelmerIwasawaCohomology:L2/elliptic-selmer-instance`, `AutomorphicGaloisRepresentations:R19.3`.
 
 Acceptance checks:
 
@@ -1659,6 +1681,7 @@ Hypotheses and domain:
 - α is the unit root at good ordinary p, 1 at split multiplicative p and −1 at nonsplit multiplicative p; β=p/α.
 - Use the cyclotomic Γ-component and the minimal differential/real period of the elliptic local node.
 - The public draft Theorem 5.16 is stated without excluding p=2 in its stronger clause; this packet uses the supplier’s complete integral package and makes no unsupported p=2 integral claim.
+- The fixed integral parametrization factor r_E is a positive integer, independent of p; it is the same factor as in the elliptic local reciprocity node.
 
 Construction or proof outline:
 
@@ -1723,6 +1746,7 @@ Hypotheses and domain:
 - The nonzero L-value is added explicitly to ensure a finite cardinality conclusion; a divisibility by zero gives no such conclusion.
 - At supersingular p the local cardinality assertion is for odd p; the hypotheses exclude 2.
 - The ordinary control theorem and exact local correction factors are requested from R07 L3.
+- The almost-all-prime surjectivity and each-prime elliptic open-image consequences are requested explicitly from R19.3; their owner statement must distinguish them from general modular quaternion-valued openness.
 
 Construction or proof outline:
 
@@ -1731,7 +1755,7 @@ Construction or proof outline:
 3. At ordinary p specialize the characteristic-ideal bound using absence of finite submodules, then compare the restriction cokernel and cancel the two ordinary Euler factors exactly as in Corollary 5.18.
 4. Use Serre’s almost-all-prime surjectivity and the finite bad-prime/denominator list to deduce global Sha finiteness. No lower bound or equality is deduced.
 
-Direct prerequisites: `KatoEulerSystems:L3/elliptic-dual-exponential-and-kato-period`, `KatoEulerSystems:L4/elliptic-ordinary-and-multiplicative-divisibility`, `KatoEulerSystems:L4/elliptic-no-finite-iwasawa-submodule`, `KatoEulerSystems:L4/elliptic-cyclotomic-mordell-weil-finiteness`, `EulerSystemsAndKolyvaginSystems:ES.4/rubin-bound`, `SelmerIwasawaCohomology:L3`, `SelmerIwasawaCohomology:L2/elliptic-selmer-instance`, `PadicMeasuresIwasawaAlgebras:L4/characteristic-ideal`.
+Direct prerequisites: `KatoEulerSystems:L3/elliptic-dual-exponential-and-kato-period`, `KatoEulerSystems:L4/elliptic-ordinary-and-multiplicative-divisibility`, `KatoEulerSystems:L4/elliptic-no-finite-iwasawa-submodule`, `KatoEulerSystems:L4/elliptic-cyclotomic-mordell-weil-finiteness`, `EulerSystemsAndKolyvaginSystems:ES.4/rubin-bound`, `SelmerIwasawaCohomology:L3`, `SelmerIwasawaCohomology:L2/elliptic-selmer-instance`, `PadicMeasuresIwasawaAlgebras:L4/characteristic-ideal`, `AutomorphicGaloisRepresentations:R19.3`.
 
 Acceptance checks:
 
@@ -1743,9 +1767,9 @@ Source correspondence:
 
 - `rubin-euler-systems-draft`, III.5.11(ii), p.51; Corollary 5.18, pp.53–54: The final good-reduction upper bound removes the ordinary local factors via control; no BSD equality is supplied.
 
-## Exact supplier exports
+## Requested supplier exports
 
-These requests identify precise exports needed from their owners; they do not re-plan those owners’ mathematics.
+The following requests specify extensions needed from existing owners. They do not assert that a stage title already supplies the required theorem.
 
 ### Export 1: tauceti:TauCetiRoadmap/ModularForms#layer-0-diamond-operators-and-modular-forms-with-character-nebentypus
 
@@ -1921,9 +1945,21 @@ For Λ=O_λ[[Gal(Q(ζ_p∞)/Q)]], including its semilocal full tame part at p=2,
 
 Consumers: `KatoEulerSystems:L2/integral-zeta-submodule-and-finite-index`, `KatoEulerSystems:L2/rational-kato-zeta-morphism`.
 
+### Export 30: AutomorphicGaloisRepresentations:R19.3
+
+R19.3/ribet-momose-classical-large-image supplies quaternion-valued openness and almost-all-prime residual largeness, not an unconditional unipotent at every coefficient place. Export the determinant/cyclotomic restriction and local splitting dictionary, proving open SL₂ in the split case and full integral SL₂ at almost all places. At a division place the unipotent argument cannot apply: supply the exact alternative rational weak-Leopoldt and cohomological-divisibility input needed for Kato’s all-prime assertions. No counterexample to those assertions is claimed; their proof remains conditional there. This is distinct from the CM elliptic-unit gap. Also export Serre’s elliptic E/Q specialization: open GL₂(Z_p) image for every p, surjectivity at almost all p, and finiteness of E(Q(ζ_p∞))_tors for modular non-CM E. These support the rational finite-level elliptic argument, uniform descent and final almost-all-prime Sha vanishing.
+
+Consumers: `KatoEulerSystems:L4/cm-exclusion-and-the-separate-treatment`, `KatoEulerSystems:L4/imported-euler-system-bound-over-the-cyclotomic-iwasawa-algebra`, `KatoEulerSystems:L4/cohomological-divisibility-one-direction`, `KatoEulerSystems:L4/rational-iwasawa-module-structure`, `KatoEulerSystems:L4/elliptic-cyclotomic-mordell-weil-finiteness`, `KatoEulerSystems:L4/elliptic-rank-zero-p-part-upper-bound`.
+
+### Export 31: SelmerIwasawaCohomology:L3
+
+Export Nakamura Lemma 3.4, p.221, on X(N),j_*V_k for N≥3,k≥2, Σ=prime(Np), n prime to Np: Λ_n-torsion-freeness of the global conductor Iwasawa H¹ for every twist i∈Z, and injectivity of its twist-one inverse-limit loc_p/exp* into the trace-compatible cusp-form system. Supply the all-weight/full-level extension of the [20] Proposition 3.1.3 and Lemma 3.1.4 argument. The R07 cohomology constructor and R09 local exp* do not prove this; no analogous injectivity is asserted on the open curve.
+
+Consumers: `KatoEulerSystems:L3/parabolic-full-level-characterisation`, `KatoEulerSystems:L2/nakamura-twisted-zeta-morphism`.
+
 ## Proof-closure gaps
 
-These twelve gaps prevent a closed status. Their consumers remain planned because the missing inputs and their owners or unstaged supplier are specified.
+These fourteen gaps prevent a closed status. Their consumers remain planned because each missing input is recorded precisely.
 
 ### Big-local-field reciprocity proof closure
 
@@ -1997,13 +2033,25 @@ For Λ=O_λ[[Gal(Q(ζ_p∞)/Q)]], including its semilocal full tame part at p=2,
 
 Affected nodes: `KatoEulerSystems:L2/integral-zeta-submodule-and-finite-index`, `KatoEulerSystems:L2/rational-kato-zeta-morphism`.
 
+### Cyclotomic large-image comparison
+
+R19.3/ribet-momose-classical-large-image supplies quaternion-valued openness and almost-all-prime residual largeness, not an unconditional unipotent at every coefficient place. Export the determinant/cyclotomic restriction and local splitting dictionary, proving open SL₂ in the split case and full integral SL₂ at almost all places. At a division place the unipotent argument cannot apply: supply the exact alternative rational weak-Leopoldt and cohomological-divisibility input needed for Kato’s all-prime assertions. No counterexample to those assertions is claimed; their proof remains conditional there. This is distinct from the CM elliptic-unit gap.
+
+Affected nodes: `KatoEulerSystems:L4/cm-exclusion-and-the-separate-treatment`, `KatoEulerSystems:L4/imported-euler-system-bound-over-the-cyclotomic-iwasawa-algebra`, `KatoEulerSystems:L4/cohomological-divisibility-one-direction`, `KatoEulerSystems:L4/rational-iwasawa-module-structure`.
+
+### Parabolic inverse-limit exponential comparison
+
+Export Nakamura Lemma 3.4, p.221, on X(N),j_*V_k for N≥3,k≥2, Σ=prime(Np), n prime to Np: Λ_n-torsion-freeness of the global conductor Iwasawa H¹ for every twist i∈Z, and injectivity of its twist-one inverse-limit loc_p/exp* into the trace-compatible cusp-form system. Supply the all-weight/full-level extension of the [20] Proposition 3.1.3 and Lemma 3.1.4 argument. The R07 cohomology constructor and R09 local exp* do not prove this; no analogous injectivity is asserted on the open curve.
+
+Affected nodes: `KatoEulerSystems:L3/parabolic-full-level-characterisation`, `KatoEulerSystems:L2/nakamura-twisted-zeta-morphism`.
+
 ## Source findings and version limits
 
-All ten findings carry the existing independent confirmation. They apply only to the source versions actually inspected; in particular the Rubin findings concern the AWS author draft, without a collation against the published AMS book. Their bounded correction searches do not establish exhaustive novelty. The source observations below are paraphrases, and formulas describe the proposed corrected mathematics.
+All twelve findings were independently checked in REV-KatoEulerSystems~2 and carry its own confirmation and reason. E12 records a gap in the nonsplit-place deduction, without a demonstrated counterexample to the all-prime theorem. The Rubin findings concern only the AWS author draft; no collation against the published AMS book is claimed. Bounded searches do not establish exhaustive novelty. Observations and corrected results below are stated in our own words.
 
 ### KatoEulerSystems/E1 — misprint
 
-Source `kato-2004-asterisque-295`, Published Astérisque 295 (2004), 1.9 p.124 and repeated in 3.10.
+Source `kato-2004-asterisque-295`, Published Astérisque 295 (2004), 1.9 p.124 and repeated after 3.10 p.141.
 
 Published/draft observation: The exponent in 1.9 uses a linear numerator a in its final a/(2N²) term; the same defect recurs in 3.10.
 
@@ -2018,7 +2066,7 @@ Correction search:
 - Numdam published PDF, printed pp.124 and the Bernoulli explanation in §3.10, read 6 October 2026.
 - Bounded web search for Kato 2004 Siegel-unit/1.9 errata on 6 October 2026 found no correction; no claim of exhaustive novelty.
 
-Recorded independent verdict: **confirmed**, `REV-KatoEulerSystems`. Independently checked the page images at 1.9 p.124 and after 3.10 p.141; the theta product requires B₂/2. The rational computation gives −11/300 versus −23/300 at 2/5.
+Recorded independent verdict: **confirmed**, `REV-KatoEulerSystems~2`. Re-read both published displays, pp.124 and 141. The theta product gives B₂(a/N)/2; at a=2,N=5 direct rational evaluation is −11/300, unlike the missing-square value −23/300.
 
 ### KatoEulerSystems/E2 — error
 
@@ -2037,7 +2085,7 @@ Correction search:
 - Public AWS 1999 draft, III.5.1 proof, read 6 October 2026.
 - Bounded web search for Rubin Euler Systems Proposition 5.1 and p=2 errata, 6 October 2026; no standalone erratum found.
 
-Recorded independent verdict: **confirmed**, `REV-KatoEulerSystems`. Independently checked the AWS p.48 display and formal-logarithm proof. For y²+xy=x³+1, Δ=−433 and log(2u)∈4Z₂, while log(E₂)=4Z₂, so E₁ has image 4Z₂. This finding is restricted to the downloaded public draft.
+Recorded independent verdict: **confirmed**, `REV-KatoEulerSystems~2`. The draft p.48 uses log(E₁)=pZ_p without excluding two. For the good-reduction curve y²+xy=x³+1, log(2u) has first terms 2u+2u² in 4Z₂, and its integral tail also lies there. Since log(E₂)=4Z₂, the actual E₁ image is 4Z₂. The correction is scoped to this draft.
 
 ### KatoEulerSystems/E3 — error
 
@@ -2056,7 +2104,7 @@ Correction search:
 - Public AWS 1999 draft, III.5.8 proof, read 6 October 2026.
 - Bounded web search for Rubin Proposition 5.8 dyadic cohomology correction, 6 October 2026; no standalone erratum found.
 
-Recorded independent verdict: **confirmed**, `REV-KatoEulerSystems`. Independently read AWS p.50 and reproduced the finite GL₂(Z/4) cocycle calculation: group order 96, Z¹ dimension 3, B¹ dimension 2. Inflation and the multiplication-by-two sequence give a nonzero class in H¹(GL₂(Z₂),(Q₂/Z₂)²). Only the asserted integral vanishing at two is rejected.
+Recorded independent verdict: **confirmed**, `REV-KatoEulerSystems~2`. Re-read draft p.50. Independent enumeration of the 96 matrices of GL₂(Z/4) gives cocycle-relation rank 189 on 192 coordinates and coboundary rank two, hence nonzero H¹. Inflation followed by the multiplication-by-two exact sequence embeds it in the claimed vanishing group. The rational image hypothesis is unaffected.
 
 ### KatoEulerSystems/E4 — misprint
 
@@ -2075,7 +2123,7 @@ Correction search:
 - Kato published Proposition 1.3 p.121 compared with Nakamura published §3.1.3 p.207 on 6 October 2026.
 - Bounded web search Nakamura zeta morphisms erratum theta divisor, 6 October 2026; no correction notice found.
 
-Recorded independent verdict: **confirmed**, `REV-KatoEulerSystems`. Independently compared published Nakamura p.207 with Kato 1.3: the divisor is reversed. Bilinearity gives {u⁻¹,v⁻¹}={u,v}, so the equal-auxiliary symbol is unaffected.
+Recorded independent verdict: **confirmed**, `REV-KatoEulerSystems~2`. The published p.207 divisor is the negative of Kato 1.3 p.121. Both individual units become inverses; bilinearity cancels the two signs in the symbol. Adopt Kato’s divisor convention without altering the equal-auxiliary K₂ class.
 
 ### KatoEulerSystems/E5 — misprint
 
@@ -2095,7 +2143,7 @@ Correction search:
 - arXiv 2006.13647: v1 (24 June 2020) and v2 (2 July 2020) only, both earlier than the published version and sharing the recorded passages
 - The article page on Springer Link, 23 September 2026: no correction or erratum notice
 
-Recorded independent verdict: **confirmed**, `REV-KatoEulerSystems`. Independently inspected the published p.267 image: μ₁ has d² and μ_n loses that square although only the conductor algebra changes. Confirmed without relying on the prior extraction verdict.
+Recorded independent verdict: **confirmed**, `REV-KatoEulerSystems~2`. In the published p.267 image the second scalar is squared in μ₁ and unsquared in μ_n. Passing from conductor one to conductor n changes σ actions and the coefficient algebra, not this scalar exponent. The intended d² is determined independently of the earlier extraction.
 
 ### KatoEulerSystems/E6 — misprint
 
@@ -2115,11 +2163,11 @@ Correction search:
 - arXiv 2006.13647: v1 (24 June 2020) and v2 (2 July 2020) only, both earlier than the published version and sharing the recorded passages
 - The article page on Springer Link, 23 September 2026: no correction or erratum notice
 
-Recorded independent verdict: **confirmed**, `REV-KatoEulerSystems`. Independently checked published p.268, Appendix A setup and §3.3: the two-dimensional Γ₁ quotient requires Y₁(N_f). The full-level eigenspace includes the finite-level automorphic multiplicity.
+Recorded independent verdict: **confirmed**, `REV-KatoEulerSystems~2`. Published Appendix A p.265 defines the rank-two quotient at Γ₁ level. The full-level Y(N_f) expression on p.268 retains automorphic multiplicity and cannot describe that same two-dimensional object. The Poincaré comparison must use Y₁(N_f).
 
 ### KatoEulerSystems/E7 — error
 
-Source `nakamura-2023-published`, Published Invent. Math. 234 (2023), §3.1.2 pp.205–206, equation (7) and preceding symmetric-power pairing.
+Source `nakamura-2023-published`, Published Invent. Math. 234 (2023), §3.1.2 pp.205–206, equation (7) and preceding symmetric-power pairing; repeated in §3.1.5 pp.215–216 and Remark 3.3 p.218.
 
 Published/draft observation: The ordinary symmetric power of A² is claimed to be its literal dual tensored with det^(k−2), without inverting a factorial in A.
 
@@ -2134,7 +2182,7 @@ Correction search:
 - Published pp.205–206 and the coefficient conventions in §3.1.1 checked on 6 October 2026.
 - Bounded searches on Springer Link for the exact DOI with correction/erratum and arXiv for Nakamura symmetric dual zeta morphisms, 6 October 2026, found no applicable correction; no exhaustive novelty claim.
 
-Recorded independent verdict: **confirmed**, `REV-KatoEulerSystems`. Take p=2,k=4,A=Z₂ and the ordinary quotient Sym² with basis x²,xy,y². Equivariance under diag(3,1) forces B to have antidiagonal entries a,b,c. The unipotent matrix U=[[1,1,1],[0,1,2],[0,0,1]] forces UᵗBU=B, hence a=c=−2b. Its determinant is −4b³, never a unit of Z₂. Thus no such perfect equivariant pairing exists. This invalidates the arbitrary integral identification used in the proof, but not the rational dictionary or a theorem restated using literal duals.
+Recorded independent verdict: **confirmed**, `REV-KatoEulerSystems~2`. In ordinary Sym²(Z₂²), diagonal equivariance forces an antidiagonal pairing and upper-unipotent equivariance forces its outer entries to be −2 times the middle entry. The determinant is −4b³, never a unit. The integral claims on pp.205–206 and their repetitions on pp.215–216/218 fail; rational transport and literal duals remain available.
 
 ### KatoEulerSystems/E8 — misprint
 
@@ -2153,7 +2201,7 @@ Correction search:
 - Numdam published pp.222 and 234 inspected independently, 6 October 2026.
 - Bounded Numdam/Kato searches for 12.5 and errata on 6 October 2026 found no applicable correction; no exhaustive novelty claim.
 
-Recorded independent verdict: **confirmed**, `REV-KatoEulerSystems`. The clause first establishes Z(f,T)⊂H¹(T) and quantifies every height-one prime, including those over p. Rational modules make the latter inequality vacuous over p. Proof 13.14 reduces T to a scalar multiple of V_Oλ(f), proves integral membership using finite index and integral freeness, and invokes integral Theorem 13.4(3). This fixes the intended lattice statement without claiming that the weaker printed rational inequality itself is false.
+Recorded independent verdict: **confirmed**, `REV-KatoEulerSystems~2`. Checked the rational display p.222 and the lattice argument p.234 separately. Rational coefficients lose height-one information over p; the proof invokes integral 13.4(3) after establishing lattice membership. This identifies an intended stronger lattice statement, rather than disproving the weaker printed rational inequality.
 
 ### KatoEulerSystems/E9 — misprint
 
@@ -2172,17 +2220,17 @@ Correction search:
 - Numdam published pp.273–274 and 279–280 inspected, 6 October 2026.
 - Bounded Numdam/Kato searches for 17.4 good lattice errata, 6 October 2026, found no applicable correction; no exhaustive novelty claim.
 
-Recorded independent verdict: **confirmed**, `REV-KatoEulerSystems`. In 17.4(2), ω∈S(f*) and γ∈V_F(f*). Definition 17.5 for f cannot apply to those vectors. Conjecture 17.6 explicitly puts goodness in V(f*) and identifies its lattice with T*(1−k); proof 17.13 starts with a lattice U in V(f*) and concludes for X(U*(1−k)). Thus the f in the goodness condition is a dual-form/lattice misprint.
+Recorded independent verdict: **confirmed**, `REV-KatoEulerSystems~2`. The period and differential in 17.4 are for f*, and 17.6 plus proof 17.13 place the good lattice in V(f*), identifying it with T*(1−k). The f-only goodness reference on p.273 is therefore inconsistent with its own inputs and is corrected to the dual-form lattice.
 
 ### KatoEulerSystems/E10 — misprint
 
-Source `nakamura-2023-published`, Published Invent. Math. 234 (2023), §5.1 p.254, proof of Theorem 5.2 and paragraph before Conjecture 5.3.
+Source `nakamura-2023-published`, Published Invent. Math. 234 (2023), §5.1 p.254, proof of Theorem 5.2 and paragraph before Conjecture 5.3; proof of Theorem A.1 pp.266–267.
 
-Published/draft observation: The integral large-image bound is referred to as Kato 12.4(4), and the equality being decomposed into character components is referred to as Conjecture 5.2.
+Published/draft observation: The integral large-image bound is referred to as Kato 12.4(4), and the equality being decomposed into character components is referred to as Conjecture 5.2. Appendix A also cites Kato 12.4 for the existence of the canonical zeta morphism.
 
-Correction: Theorem 12.5(4) of Kato; Conjecture 5.1 is decomposed into its η-components.
+Correction: Theorem 12.5(4) of Kato; Conjecture 5.1 is decomposed into its η-components. For the Appendix A existence reference use Kato Theorem 12.5(1); 12.4 supplies the preceding module structure, not the morphism.
 
-Reason: Theorem 12.4 has clauses (1)–(3), while the large-image integral inequality is 12.5(4), and §5.1 labels the global characteristic-ideal equality Conjecture 5.1. Theorem 5.2 is the one-direction bound, not a conjecture. These are cross-reference slips with uniquely identifiable intended statements.
+Reason: Theorem 12.4 has clauses (1)–(3), while the large-image integral inequality is 12.5(4), and §5.1 labels the global characteristic-ideal equality Conjecture 5.1. Theorem 5.2 is the one-direction bound, not a conjecture. These are cross-reference slips with uniquely identifiable intended statements. The unique morphism with the stated interpolation property is introduced by 12.5(1), whereas 12.4 concerns Iwasawa H¹ and H².
 
 Scope affected: nothing. Search classification: new.
 
@@ -2190,8 +2238,47 @@ Correction search:
 
 - Published p.254 compared with Kato pp.221–222 and Nakamura p.253, 6 October 2026.
 - Bounded Springer/arXiv correction searches for the article on 6 October 2026 found no applicable correction notice; no exhaustive novelty claim.
+- Published Appendix A pp.266–267 and Kato 12.4/12.5 pp.221–222 compared on 8 October 2026; the bounded correction search found no applicable publisher notice.
 
-Recorded independent verdict: **confirmed**, `REV-KatoEulerSystems`. Theorem 12.4 has clauses (1)–(3), while the large-image integral inequality is 12.5(4), and §5.1 labels the global characteristic-ideal equality Conjecture 5.1. Theorem 5.2 is the one-direction bound, not a conjecture. These are cross-reference slips with uniquely identifiable intended statements.
+Recorded independent verdict: **confirmed**, `REV-KatoEulerSystems~2`. On p.254, 12.4 has no clause (4) and the equality is Conjecture 5.1; the uniquely matching integral inequality is 12.5(4). In Appendix A pp.266–267, the canonical morphism is 12.5(1), not the module-structure theorem 12.4. All three are reference slips.
+
+### KatoEulerSystems/E11 — misprint
+
+Source `kato-2004-asterisque-295`, Published Astérisque 295 (2004), proof 13.14 p.234; compare Theorem 12.4(2)–(3) p.221.
+
+Published/draft observation: The lattice membership argument cites 12.4(2) to obtain freeness of integral H¹(T).
+
+Correction: Cite 12.4(3): p odd and residual irreducibility give integral H¹(T) free of rank one. The full SL₂ hypothesis used here supplies residual irreducibility.
+
+Reason: Clause (2) provides freeness only after inverting p; this cannot justify the integral membership step. Clause (3) is exactly the needed lattice theorem and its hypotheses hold in 13.14.
+
+Scope affected: nothing. Search classification: The needed clause is also identified in [Skinner, Pacific J. Math. 283 (2016), p.188](https://msp.org/pjm/2016/283-1/pjm-v283-n1-p10-p.pdf), after Theorem 2.5.2; this is corroboration rather than a formal Kato erratum.
+
+Correction search:
+
+- Numdam published pp.221 and 234 and Skinner published p.188 compared on 8 October 2026.
+- Bounded searches for Kato 12.4/13.14 errata and the Numdam source record on 8 October 2026 found no formal correction notice.
+
+Recorded independent verdict: **confirmed**, `REV-KatoEulerSystems~2`. The p.234 argument concerns H¹(T), whereas 12.4(2) on p.221 concerns H¹(T)⊗Q_p. Clause (3) gives the integral free module under precisely the odd/residually irreducible hypotheses available here.
+
+### KatoEulerSystems/E12 — gap
+
+Source `kato-2004-asterisque-295`, Published Astérisque 295 (2004), 12.8.2 p.223 and its use after 13.4 p.226; compare Ribet §3 pp.190–192.
+
+Published/draft observation: The Ribet attribution is used to assert an open SL₂(Z_p) subgroup in the cyclotomic image at every coefficient place, hence a nontrivial unipotent for the rational Euler-system hypothesis.
+
+Correction: Use the cited quaternion-valued theorem with its local splitting condition. It supplies the unipotent argument at split places and the integral package at almost all places. At nonsplit places obtain a separate rational argument; do not infer a unipotent from quaternion openness or Zariski closure.
+
+Reason: Ribet p.191 states openness in the reduced-norm group of a quaternion algebra over the inner-twist fixed field. At a division place a nontrivial unipotent would yield a nonzero nilpotent, impossible in a division algebra; taking a power into the finite-index inner-twist kernel does not remove that obstruction. The citation alone therefore leaves the every-place deduction unjustified. No specific modular counterexample or falsity of the all-prime Iwasawa conclusion is claimed.
+
+Scope affected: the proof. Search classification: new.
+
+Correction search:
+
+- Kato published 12.8.2 p.223 and Ribet’s author-hosted published scan §3 pp.190–192, including Theorem 3.1, compared on 8 October 2026.
+- Bounded searches for Kato 12.8.2 with quaternion, unipotent, Ribet and erratum on 8 October 2026 found no applicable correction or alternative all-place proof; no exhaustive novelty claim.
+
+Recorded independent verdict: **confirmed**, `REV-KatoEulerSystems~2`. The cited local image group is quaternion-valued, and its matrix/unipotent argument requires local splitting. At a division place nilpotents are zero, including after finite-index restriction. This confirms a gap in the cited deduction, with the remaining all-prime theorem kept as a conditional proof target.
 
 ## Atlas handoffs and continuation
 
@@ -2205,6 +2292,6 @@ PAPER-BURUNGALE-TIAN-26 route 7 needs an early all-prime elliptic-unit stage bef
 
 ### Revision synchronization and supplier ownership
 
-BP-KatoEulerSystems~2 synchronizes all forty node statements, sixty API items, forty-one construction tests, twelve gaps, twenty-nine requests and ten source findings into the reader. The independent review object remains historical and unchanged. Generic open/log comparison, completed Borel–Moore evaluation, dyadic regulators and full-cyclotomic finite-support algebra remain with their named owners.
+REV-KatoEulerSystems~2 synchronizes all forty nodes, sixty API items, forty-one construction tests, fourteen gaps, thirty-one requests and twelve source findings into the reader. Its current independent review replaces the historical packet verdict; the earlier report remains unchanged. The added R19.3 and R07 L3 requests retain supplier ownership and make no implementation claim.
 
-The packet is a complete target-level planning pass. The five stages remain planned, and all implementations remain unchecked. Source proof closure and supplier export work resumes at the explicit gaps above.
+The independent review accepts this complete target-level planning pass. All five stages remain planned and all implementations unchecked. Proof closure and supplier export work resumes at the fourteen gaps above.
