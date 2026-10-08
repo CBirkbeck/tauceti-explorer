@@ -10,7 +10,7 @@
     "ExcursionOperatorsAndSpectralAction:ES7:parabolic"
   ],
   "status": "complete",
-  "summary": "All five ES7 stages are planned at target level, retaining the 24 inherited node ids and adding the missing function-field, corrected-duality and equal-characteristic interfaces. The stratum factorization and unnormalized/normalized induction conventions are explicit. Classical towers and generic adeles are imported from their owners. The independent equal-characteristic route uses selected proven transfer-image globalizations and Kaiser’s exact correction. This is a completed planning pass with named supplier and proof gaps, not a closed implementation.",
+  "summary": "This part plans the stratum Bernstein maps, twisted Levi compatibility and classical GL_n agreement for both characteristics. Characteristic-zero tower comparison is imported downstream from ET.6a; equal characteristic uses division-algebra automorphic input and D-elliptic geometry with the corrected Kaiser argument. The two realizations feed one trace calculation. Revision 2 preserves the independent review’s 50 nodes and migrations, reconciles the reader, records universal coefficient base change and the switched-kernel constant-term comparison as explicit gaps, and fixes level-module action conventions. Every stage is planned; none is closed or claimed implemented. Two additional errors in intermediate Hausberger proof assertions are recorded as E10–E11, with corrected semisimple-block and finite-index proof routes; they await independent verification.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -20,210 +20,210 @@
         "module": "Mathlib/RepresentationTheory/Basic.lean",
         "provides": "The abbreviation G→* (V→ₗ[R]V), with algebraic action laws; smoothness, admissibility and Weil continuity are additional supplier data.",
         "kind": "abbrev",
-        "checked": "Actual declaration and standing parameters read at the pinned commit on 2026-10-07; declaration index used only for discovery."
+        "checked": "Actual declaration and standing parameters re-read at the pinned commit on 2026-10-08 in revision 2; the prior independent review is retained in the packet."
       },
       {
         "ref": "mathlib:MonoidHom",
         "module": "Mathlib/Algebra/Group/Hom/Defs.lean",
         "provides": "Bundled monoid/group homomorphisms. Degree and inclusion are homomorphisms; a nontrivial-action 1-cocycle itself is not a group homomorphism.",
         "kind": "structure",
-        "checked": "Actual declaration and standing parameters read at the pinned commit on 2026-10-07; declaration index used only for discovery."
+        "checked": "Actual declaration and standing parameters re-read at the pinned commit on 2026-10-08 in revision 2; the prior independent review is retained in the packet."
       },
       {
         "ref": "mathlib:RootPairing",
         "module": "Mathlib/LinearAlgebra/RootSystem/Defs.lean",
         "provides": "Root pairing data; it does not construct a pinned dual algebraic group or its Weil action.",
         "kind": "structure",
-        "checked": "Actual declaration and standing parameters read at the pinned commit on 2026-10-07; declaration index used only for discovery."
+        "checked": "Actual declaration and standing parameters re-read at the pinned commit on 2026-10-08 in revision 2; the prior independent review is retained in the packet."
       },
       {
         "ref": "mathlib:Subgroup",
         "module": "Mathlib/Algebra/Group/Subgroup/Defs.lean",
         "provides": "Algebraic subgroups. Compactness, openness and the parabolic algebraic-group interpretation require additional data.",
         "kind": "structure",
-        "checked": "Actual declaration and standing parameters read at the pinned commit on 2026-10-07; declaration index used only for discovery."
+        "checked": "Actual declaration and standing parameters re-read at the pinned commit on 2026-10-08 in revision 2; the prior independent review is retained in the packet."
       },
       {
         "ref": "mathlib:MonoidAlgebra",
         "module": "Mathlib/Algebra/MonoidAlgebra/Defs.lean",
         "provides": "Finite-support algebraic convolution on a monoid; it is not the locally profinite Hecke algebra or its completed inverse-limit centre.",
         "kind": "structure",
-        "checked": "Actual declaration and standing parameters read at the pinned commit on 2026-10-07; declaration index used only for discovery."
+        "checked": "Actual declaration and standing parameters re-read at the pinned commit on 2026-10-08 in revision 2; the prior independent review is retained in the packet."
       },
       {
         "ref": "mathlib:Module.End",
         "module": "Mathlib/Algebra/Module/LinearMap/End.lean",
         "provides": "The linear endomorphism type M→ₗ[R]M and its composition ring.",
         "kind": "abbrev",
-        "checked": "Actual declaration and standing parameters read at the pinned commit on 2026-10-07; declaration index used only for discovery."
+        "checked": "Actual declaration and standing parameters re-read at the pinned commit on 2026-10-08 in revision 2; the prior independent review is retained in the packet."
       },
       {
         "ref": "mathlib:CommRing",
         "module": "Mathlib/Algebra/Ring/Defs.lean",
         "provides": "Commutative ring structure used for coefficient and central rings.",
         "kind": "class",
-        "checked": "Actual declaration and standing parameters read at the pinned commit on 2026-10-07; declaration index used only for discovery."
+        "checked": "Actual declaration and standing parameters re-read at the pinned commit on 2026-10-08 in revision 2; the prior independent review is retained in the packet."
       },
       {
         "ref": "mathlib:CategoryTheory.Adjunction",
         "module": "Mathlib/CategoryTheory/Adjunction/Basic.lean",
         "provides": "Adjunctions of ordinary categories; this alone does not supply stable/lisse infinity-categories.",
         "kind": "structure",
-        "checked": "Actual declaration and standing parameters read at the pinned commit on 2026-10-07; declaration index used only for discovery."
+        "checked": "Actual declaration and standing parameters re-read at the pinned commit on 2026-10-08 in revision 2; the prior independent review is retained in the packet."
       },
       {
         "ref": "mathlib:CategoryTheory.MonoidalCategory",
         "module": "Mathlib/CategoryTheory/Monoidal/Category.lean",
         "provides": "Ordinary monoidal-category coherence, used as a boundary for Satake/fusion interfaces.",
         "kind": "class",
-        "checked": "Actual declaration and standing parameters read at the pinned commit on 2026-10-07; declaration index used only for discovery."
+        "checked": "Actual declaration and standing parameters re-read at the pinned commit on 2026-10-08 in revision 2; the prior independent review is retained in the packet."
       },
       {
         "ref": "mathlib:CategoryTheory.Functor",
         "module": "Mathlib/CategoryTheory/Functor/Basic.lean",
         "provides": "Ordinary functors, used for the algebraic moduli functor; no representability follows automatically.",
         "kind": "structure",
-        "checked": "Actual declaration and standing parameters read at the pinned commit on 2026-10-07; declaration index used only for discovery."
+        "checked": "Actual declaration and standing parameters re-read at the pinned commit on 2026-10-08 in revision 2; the prior independent review is retained in the packet."
       },
       {
         "ref": "mathlib:DirectSum",
         "module": "Mathlib/Algebra/DirectSum/Basic.lean",
         "provides": "Algebraic finite-support direct sums, appropriate to the component-indexed cohomology description.",
         "kind": "def",
-        "checked": "Actual declaration and standing parameters read at the pinned commit on 2026-10-07; declaration index used only for discovery."
+        "checked": "Actual declaration and standing parameters re-read at the pinned commit on 2026-10-08 in revision 2; the prior independent review is retained in the packet."
       },
       {
         "ref": "mathlib:LinearMap.trace",
         "module": "Mathlib/LinearAlgebra/Trace.lean",
         "provides": "Algebraic trace of a linear endomorphism (finite free specialization used here); no infinite-dimensional automorphic trace is inferred.",
         "kind": "def",
-        "checked": "Actual declaration and standing parameters read at the pinned commit on 2026-10-07; declaration index used only for discovery."
+        "checked": "Actual declaration and standing parameters re-read at the pinned commit on 2026-10-08 in revision 2; the prior independent review is retained in the packet."
       },
       {
         "ref": "mathlib:Module.Free",
         "module": "Mathlib/LinearAlgebra/FreeModule/Basic.lean",
         "provides": "Free modules over a ring. Scheme-local freeness and coherent sheaves require the geometric supplier.",
         "kind": "class",
-        "checked": "Actual declaration and standing parameters read at the pinned commit on 2026-10-07; declaration index used only for discovery."
+        "checked": "Actual declaration and standing parameters re-read at the pinned commit on 2026-10-08 in revision 2; the prior independent review is retained in the packet."
       },
       {
         "ref": "mathlib:AlgebraicGeometry.Scheme",
         "module": "Mathlib/AlgebraicGeometry/Scheme.lean",
         "provides": "The native scheme carrier. Formal schemes, diamonds, moduli representability and étale cohomology are not supplied by this definition.",
         "kind": "structure",
-        "checked": "Actual declaration and standing parameters read at the pinned commit on 2026-10-07; declaration index used only for discovery."
+        "checked": "Actual declaration and standing parameters re-read at the pinned commit on 2026-10-08 in revision 2; the prior independent review is retained in the packet."
       },
       {
         "ref": "mathlib:MeasureTheory.Measure.modularCharacter",
         "module": "Mathlib/MeasureTheory/Group/ModularCharacter.lean",
         "provides": "Locally compact group modular character valued in ℝ≥0; compare its right-translation convention before identifying the parabolic modulus. It supplies no normalized-induction functor.",
         "kind": "def",
-        "checked": "Actual declaration and standing parameters read at the pinned commit on 2026-10-07; declaration index used only for discovery."
+        "checked": "Actual declaration and standing parameters re-read at the pinned commit on 2026-10-08 in revision 2; the prior independent review is retained in the packet."
       },
       {
         "ref": "tauceti:TauCeti.Cocharacter.parabolic",
         "module": "TauCeti/Algebra/AlgebraicGroup/Dynamic/Parabolic.lean",
         "provides": "The dynamic parabolic attached to a cocharacter in the Hopf-algebra/WithConv formulation, with its stated group-scheme assumptions.",
         "kind": "def",
-        "checked": "Actual declaration and standing parameters read at the pinned commit on 2026-10-07; declaration index used only for discovery."
+        "checked": "Actual declaration and standing parameters re-read at the pinned commit on 2026-10-08 in revision 2; the prior independent review is retained in the packet."
       },
       {
         "ref": "tauceti:TauCeti.Cocharacter.levi",
         "module": "TauCeti/Algebra/AlgebraicGroup/Dynamic/Parabolic.lean",
         "provides": "The dynamic Levi attached to that cocharacter; it is not already the dual pinned Levi or a constant-term functor.",
         "kind": "def",
-        "checked": "Actual declaration and standing parameters read at the pinned commit on 2026-10-07; declaration index used only for discovery."
+        "checked": "Actual declaration and standing parameters re-read at the pinned commit on 2026-10-08 in revision 2; the prior independent review is retained in the packet."
       },
       {
         "ref": "tauceti:TauCeti.IsSmoothDiscrete",
         "module": "TauCeti/RepresentationTheory/Homological/ContCohomology/SmoothDiscrete.lean",
         "provides": "For a TopRep, discrete topology on the underlying module and open stabilizers. It does not encode continuous ℓ-adic Weil action.",
         "kind": "structure",
-        "checked": "Actual declaration and standing parameters read at the pinned commit on 2026-10-07; declaration index used only for discovery."
+        "checked": "Actual declaration and standing parameters re-read at the pinned commit on 2026-10-08 in revision 2; the prior independent review is retained in the packet."
       },
       {
         "ref": "mathlib:MulAut",
         "module": "Mathlib/Algebra/Group/End.lean",
         "kind": "abbrev",
         "provides": "Multiplicative automorphisms M≃*M; bundled group actions used to state the twisted cocycle identity.",
-        "checked": "Actual declaration read at the pinned Mathlib commit on 2026-10-07; MulAut lines 630–633 and Matrix.trace lines 39–46."
+        "checked": "Actual declaration and standing parameters re-read at the pinned commit on 2026-10-08 in revision 2; the prior independent review is retained in the packet."
       },
       {
         "ref": "mathlib:Matrix.trace",
         "module": "Mathlib/LinearAlgebra/Matrix/Trace.lean",
         "kind": "def",
         "provides": "For a finite index type, the sum of matrix diagonal entries; this is the finite-dimensional basis form of the two-leg evaluation computation.",
-        "checked": "Actual declaration read at the pinned Mathlib commit on 2026-10-07; MulAut lines 630–633 and Matrix.trace lines 39–46."
+        "checked": "Actual declaration and standing parameters re-read at the pinned commit on 2026-10-08 in revision 2; the prior independent review is retained in the packet."
       },
       {
         "ref": "mathlib:CategoryTheory.CatCenter",
         "kind": "abbrev",
         "module": "Mathlib/CategoryTheory/Center/Basic.lean",
         "provides": "The centre End(𝟭 C) of a category, commutative (IsMulCommutative), a ring for preadditive C; the target of Ψ_G^b before the smooth-centre identification.",
-        "checked": "Statement read at the pinned commit by REV-ExcursionOperatorsAndSpectralAction--ES7 (line 31)."
+        "checked": "Actual declaration and standing parameters re-read at the pinned commit on 2026-10-08 in revision 2; the prior independent review is retained in the packet."
       },
       {
         "ref": "mathlib:CategoryTheory.Functor.FullyFaithful",
         "kind": "structure",
         "module": "Mathlib/CategoryTheory/Functor/FullyFaithful.lean",
         "provides": "Fully faithful functor data with preimage; restriction of central endomorphisms along the stratum embedding uses the preimage.",
-        "checked": "Statement read at the pinned commit by REV-ExcursionOperatorsAndSpectralAction--ES7 (line 130)."
+        "checked": "Actual declaration and standing parameters re-read at the pinned commit on 2026-10-08 in revision 2; the prior independent review is retained in the packet."
       },
       {
         "ref": "mathlib:coevaluation",
         "kind": "def",
         "module": "Mathlib/LinearAlgebra/Coevaluation.lean",
         "provides": "coevaluation K → V ⊗ Dual V for finite-dimensional V; with LinearMap.trace this gives ev ∘ (ρ(γ₁) ⊗ ρ^∨(γ₂)) ∘ coev = tr ρ(γ₁γ₂^{-1}).",
-        "checked": "Statement read at the pinned commit by REV-ExcursionOperatorsAndSpectralAction--ES7 (line 43)."
+        "checked": "Actual declaration and standing parameters re-read at the pinned commit on 2026-10-08 in revision 2; the prior independent review is retained in the packet."
       },
       {
         "ref": "mathlib:Representation.ind",
         "kind": "def",
         "module": "Mathlib/RepresentationTheory/Induced.lean",
-        "provides": "Algebraic induction along a group homomorphism; for the inclusion of an open subgroup of a locally profinite group it is compact induction c-Ind, as used for P_d ⊂ GL_d(K) × D_K^× × W_K.",
-        "checked": "Statement read at the pinned commit by REV-ExcursionOperatorsAndSpectralAction--ES7 (line 77)."
+        "provides": "Algebraic induction through coinvariants (k[H]⊗A)_G. For the open subgroup P_d, compare it explicitly with smooth compact induction using the finite-support coset model; topology and continuity of the local representation are extra conditions.",
+        "checked": "Actual declaration and standing parameters re-read at the pinned commit on 2026-10-08 in revision 2; the prior independent review is retained in the packet."
       },
       {
         "ref": "mathlib:Algebra.IsCentral",
         "kind": "class",
         "module": "Mathlib/Algebra/Central/Defs.lean",
         "provides": "Central algebras (centre equals the base field); with IsSimpleRing and finite dimension, the central simple algebra D/F of the order data.",
-        "checked": "Statement read at the pinned commit by REV-ExcursionOperatorsAndSpectralAction--ES7 (line 67)."
+        "checked": "Actual declaration and standing parameters re-read at the pinned commit on 2026-10-08 in revision 2; the prior independent review is retained in the packet."
       },
       {
         "ref": "mathlib:Submodule.IsLattice",
         "kind": "class",
         "module": "Mathlib/Algebra/Module/Lattice.lean",
         "provides": "R-lattices: finitely generated R-submodules spanning the vector space over Frac R; an O_x-order is a subalgebra whose underlying submodule is a lattice. Mathlib has no named (maximal) order.",
-        "checked": "Statement read at the pinned commit by REV-ExcursionOperatorsAndSpectralAction--ES7 (line 67)."
+        "checked": "Actual declaration and standing parameters re-read at the pinned commit on 2026-10-08 in revision 2; the prior independent review is retained in the packet."
       },
       {
         "ref": "mathlib:Module.Invertible",
         "kind": "class",
         "module": "Mathlib/RingTheory/PicardGroup.lean",
         "provides": "Invertible modules (Mᵛ ⊗ M → R bijective): exactly the condition that Lie H is an invertible O_d ⊗_O B-module.",
-        "checked": "Statement read at the pinned commit by REV-ExcursionOperatorsAndSpectralAction--ES7 (line 77)."
+        "checked": "Actual declaration and standing parameters re-read at the pinned commit on 2026-10-08 in revision 2; the prior independent review is retained in the packet."
       },
       {
         "ref": "mathlib:CategoryTheory.Injective",
         "kind": "class",
         "module": "Mathlib/CategoryTheory/Preadditive/Injective/Basic.lean",
         "provides": "Injective objects of a category; the degeneration argument needs injectivity of finite (compact) representations in the smooth category, not projectivity of modules.",
-        "checked": "Statement read at the pinned commit by REV-ExcursionOperatorsAndSpectralAction--ES7 (line 32)."
+        "checked": "Actual declaration and standing parameters re-read at the pinned commit on 2026-10-08 in revision 2; the prior independent review is retained in the packet."
       },
       {
         "ref": "mathlib:CategoryTheory.Abelian.Ext",
         "kind": "def",
         "module": "Mathlib/Algebra/Homology/DerivedCategory/Ext/Basic.lean",
         "provides": "Ext groups in an abelian category with HasExt; the E₂ term Ext^i in the smooth category is an instance once SR.0 supplies the abelian category.",
-        "checked": "Statement read at the pinned commit by REV-ExcursionOperatorsAndSpectralAction--ES7 (line 118)."
+        "checked": "Actual declaration and standing parameters re-read at the pinned commit on 2026-10-08 in revision 2; the prior independent review is retained in the packet."
       },
       {
         "ref": "mathlib:MeasureTheory.Measure.haar",
         "kind": "abbrev",
         "module": "Mathlib/MeasureTheory/Measure/Haar/Basic.lean",
         "provides": "A Haar measure on a locally compact group; the local volumes vol(P_I⁰), formal degrees and orbital-integral measures are normalisations of it.",
-        "checked": "Statement read at the pinned commit by REV-ExcursionOperatorsAndSpectralAction--ES7 (line 584)."
+        "checked": "Actual declaration and standing parameters re-read at the pinned commit on 2026-10-08 in revision 2; the prior independent review is retained in the packet."
       }
     ]
   },
@@ -235,12 +235,13 @@
       "edition": "Author-hosted 356-page PDF; printed page equals PDF page. Version is identified by this hash, without asserting byte identity with an arXiv version.",
       "url": "https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf",
       "sha256": "9ab9efbd0df251bfa3b610d1d1d88a8dfb1bdf7c397bd04f4c277280d98ae905",
-      "accessed": "2026-10-07",
+      "accessed": "2026-10-08",
       "readSections": [
         "IX.7, pp. 334–338, read in full, including all four proofs/formulas, coefficient and z-embedding reductions and the two-leg trace calculation.",
         "VI.11 duality, pp. 235–239, and VI.12, p. 239: passages used for the dual-Levi/cyclotomic conventions. The remaining general Satake proof is imported from GS4.",
-        "IX.3/IX.5/IX.6 statements and source locators inspected through the existing HS and ES supplier packets; these sections are not claimed read in full in this run.",
-        "REV-ExcursionOperatorsAndSpectralAction--ES7 read IX.7 (pp. 334–338) in full, Theorem IX.6.1 (p. 330) and Corollary III.4.3 (p. 101)."
+        "IX.3/IX.5/IX.6 statements and source locators inspected through the existing HS and ES supplier packets; these sections are not claimed read in full in the original planning run.",
+        "REV-ExcursionOperatorsAndSpectralAction--ES7 read IX.7 (pp. 334–338) in full, Theorem IX.6.1 (p. 330) and Corollary III.4.3 (p. 101).",
+        "Revision 2 (2026-10-08): IX.7, pp. 334–338; IX.5.2, p. 329, and VIII.3.6, p. 288 (original centre versus dual fundamental group); IX.6.1, p. 330, and III.4.3, p. 101. Page image of IX.5.2 checked."
       ]
     },
     {
@@ -250,14 +251,15 @@
       "edition": "Ann. Inst. Fourier 55(4) (2005), 1285–1371; journal PDF with cover. French text layer.",
       "url": "https://aif.centre-mersenne.org/item/AIF_2005__55_4_1285_0.pdf",
       "sha256": "d51dc22168dcd4831726197b1cef252ea784cc9abbce4cf521465423638daf48",
-      "accessed": "2026-10-07",
+      "accessed": "2026-10-08",
       "readSections": [
         "§§1.1–1.3, pp. 1291–1293: order data, Definition 1.1, normalization/index shift and level structures.",
         "§3.1, Definition 3.1 and Theorem 3.4, pp. 1302–1304: definition and isogeny classification; the source itself refers out for complete coordinate-module proofs.",
         "Theorems 6.1/6.4, pp. 1311–1313, §7.2–7.3, pp. 1317–1319, and Theorems 8.1/8.3 with the D̄ double coset setup, pp. 1321–1323: statements and adjacent proof discussion read. The full uniformization proof is not claimed expanded.",
         "§§9.1–9.3, pp. 1333–1338: local transfer, independent LLC, Res′, triple stabilizer, Definition 9.3, the admissibility caveat and Theorem 9.5.",
         "§10.1–10.2, pp. 1338–1342, and §§10.3.2–10.3.3, pp. 1352–1356: selected transfers, spectral sequence, Ext finiteness, cuspidal degeneration and final proof.",
-        "Appendix A.9–A.12, pp. 1363–1365: analytic quotient spectral-sequence application. Earlier Berkovich foundational references are not claimed read."
+        "Appendix A.9–A.12, pp. 1363–1365: analytic quotient spectral-sequence application. Earlier Berkovich foundational references are not claimed read.",
+        "Revision 2 (2026-10-08): definition/order/level conventions §§1.1–1.3, pp. 1291–1293; special modules and deformation §§3,6–8; classical local inputs and Res′ §§9–10; analytic Appendix A.12. These checks cover the review corrections, without claiming new closure of imported proofs."
       ]
     },
     {
@@ -267,12 +269,13 @@
       "edition": "Invent. Math. 113 (1993), 217–338; published journal scan, 124 PDF pages; printed page = PDF page + 215. OCR used for navigation; crucial displayed formulas checked against page images.",
       "url": "https://gdz.sub.uni-goettingen.de/download/pdf/PPN356556735_0113/LOG_0019.pdf",
       "sha256": "05ea7ab8cb64577f5d421f37255a7cfd58b6fc763294038cd2e87475d80ab87e",
-      "accessed": "2026-10-07",
+      "accessed": "2026-10-08",
       "readSections": [
         "Introduction pp. 217–218 and statements/proof passages in §§4–6, pp. 236–246: smooth stack, fixed-degree level scheme, division properness. Full Lemma-level moduli closure remains listed.",
         "§13, pp. 289–293, read throughout: facet sum, EP identities, compact spectrum and trace formula. §13.8’s expressly unproved general assertions are excluded.",
         "§14, pp. 293–309: cohomology/isotypes, trace 14.9, Corollary 14.11, Theorem 14.12 and its genericity remark, graded local representations 14.13–14.17 and the unpublished ample-class discussion 14.19. Read with Kaiser, not as a self-dual isotype theorem.",
-        "§15.10–15.17, pp. 314–319: selected globalizations/transfer, selected global representation, independence, pair constants and numerical-surjectivity statement. Numerical proof §§15.18–15.20 and quoted Henniart inputs remain a source/proof refinement."
+        "§15.10–15.17, pp. 314–319: selected globalizations/transfer, selected global representation, independence, pair constants and numerical-surjectivity statement. Numerical proof §§15.18–15.20 and quoted Henniart inputs remain a source/proof refinement.",
+        "Revision 2 (2026-10-08): page images for §13 EP/quotient formulas, pp. 290–291; Corollary 14.11, p. 299; chain identity, pp. 302,306; selected globalization, transfer, cohomology, independence and local constants, pp. 314–319. Earlier moduli readings remain prior-worker provenance."
       ]
     },
     {
@@ -282,9 +285,10 @@
       "edition": "Two-page author-hosted erratum; undated. Both pages inspected visually.",
       "url": "https://www.math.uni-bonn.de/people/rapoport/myalggeom/preprints/ErratumvonChrKaiser.pdf",
       "sha256": "6aa9e01d3551e3f0e3d8ca3d98acba98a1e163e723d342f9ccd719ae4dc02c54",
-      "accessed": "2026-10-07",
+      "accessed": "2026-10-08",
       "readSections": [
-        "Both pages in full: Corollary 14.11 replacement (dual AND q^{-1}); Lemma 14.14′, Proposition 14.17′, and induction proof. Neither self-duality nor integrality retained as amended-lemma assumptions."
+        "Both pages in full: Corollary 14.11 replacement (dual AND q^{-1}); Lemma 14.14′, Proposition 14.17′, and induction proof. Neither self-duality nor integrality retained as amended-lemma assumptions.",
+        "Revision 2 (2026-10-08): both pages read visually in full, including the induction proof and amended multiplicity/duality hypotheses."
       ]
     },
     {
@@ -294,9 +298,10 @@
       "edition": "J. Eur. Math. Soc. 20 (2018), 61–101; publisher PDF.",
       "url": "https://ems.press/content/serial-article-files/32267",
       "sha256": "cfd4f90fd84806dcb328840e620d7934772d86439514e73c1bb060c222b6a030",
-      "accessed": "2026-10-07",
+      "accessed": "2026-10-08",
       "readSections": [
-        "§§5.1.1–5.1.2, pp. 78–80: Definition 5.1, Proposition 5.2, Corollary 5.3, Facts 5.4–5.5 and their proofs. The paper’s standing p-adic hypothesis is retained; the equal-characteristic use needs an explicit extension."
+        "§§5.1.1–5.1.2, pp. 78–80: Definition 5.1, Proposition 5.2, Corollary 5.3, Facts 5.4–5.5 and their proofs. The paper’s standing p-adic hypothesis is retained; the equal-characteristic use needs an explicit extension.",
+        "Revision 2 (2026-10-08): standing hypothesis §2, p. 64, and §§5.1.1–5.1.2, pp. 78–80, definitions and proofs."
       ]
     },
     {
@@ -306,9 +311,10 @@
       "edition": "arXiv:1401.5728 author text; source identified by URL/hash, not an inferred version number.",
       "url": "https://arxiv.org/pdf/1401.5728",
       "sha256": "37c9980b749d315d014c5046f486ea9d8bac1acc3753fe766ae45ac7907f12a4",
-      "accessed": "2026-10-07",
+      "accessed": "2026-10-08",
       "readSections": [
-        "§10.1 and §10.10, Proposition 10.4 and Lemma 10.5, p. 50 (valid for any local or global field); Proposition 13.1, pp. 65–66 (κ on basic classes)."
+        "§10.1 and §10.10, Proposition 10.4 and Lemma 10.5, p. 50 (valid for any local or global field); Proposition 13.1, pp. 65–66 (κ on basic classes).",
+        "Revision 2 (2026-10-08): Proposition 10.4 and Lemma 10.5, pp. 50–51; Proposition 13.1 and proof, pp. 65–66."
       ]
     },
     {
@@ -318,9 +324,10 @@
       "edition": "Author copy dated 27 March 2020.",
       "url": "https://people.mpim-bonn.mpg.de/scholze/Berkeley.pdf",
       "sha256": "225505171ef809aa0070c023c881ff1da844923775f2d631474c0b42eea4bffc",
-      "accessed": "2026-10-07",
+      "accessed": "2026-10-08",
       "readSections": [
-        "Lecture 24: Theorem 24.2.5, p. 227 (p-divisible groups over ℤ_p, E = ℚ_p) and Corollary 24.3.5, p. 231 (EL/PEL data), read by REV-ExcursionOperatorsAndSpectralAction--ES7; the O_E case is the EL instance Res_{E/ℚ_p}GL_n of 24.3.5, requested from ET.6a."
+        "Lecture 24: Theorem 24.2.5, p. 227 (p-divisible groups over ℤ_p, E = ℚ_p) and Corollary 24.3.5, p. 231 (EL/PEL data), read by REV-ExcursionOperatorsAndSpectralAction--ES7; the O_E case is the EL instance Res_{E/ℚ_p}GL_n of 24.3.5, requested from ET.6a.",
+        "Revision 2 (2026-10-08): Theorem 24.2.5 and proof, pp. 227–228, and EL/PEL comparison Corollary 24.3.5, pp. 230–231; the restriction-of-scalars/action comparison is still an ET.6a request."
       ]
     }
   ],
@@ -337,7 +344,7 @@
       "hypotheses": [
         "E a nonarchimedean local field with residue field of cardinality q = p^f; ℓ ≠ p prime; G connected reductive over E; b ∈ B(G).",
         "Λ a ℤ_ℓ[√q]-algebra (p is then invertible in Λ).",
-        "Spectral-centre form: |π₀Z(G)| invertible in Λ (the hypothesis of FS IX.5.2); the excursion-algebra form has no condition on Λ."
+        "Spectral-centre form: |π₀Z(G)| invertible in Λ (the hypothesis of FS IX.5.2); the excursion-algebra form has no condition on Λ. This is the centre of G, equivalently the order of the torsion subgroup of π₁(Ĝ), not π₀Z(Ĝ)."
       ],
       "proofSteps": [
         "Use VS4 to identify the stratum category and its fully faithful embedding.",
@@ -365,6 +372,11 @@
           "sourceId": "FS-geometrization",
           "locator": "Definition IX.7.1, p. 334",
           "match": "Definition IX.7.1 defines the fully faithful stratum restrictions; the excursion replacement is in the proof of IX.7.2."
+        },
+        {
+          "sourceId": "FS-geometrization",
+          "locator": "Theorem IX.5.2, p. 329; Theorem VIII.3.6, p. 288",
+          "match": "The invariant-coordinate comparison imposes the original-centre condition, expressed equivalently by torsion in the dual fundamental group."
         }
       ],
       "implementationStatus": "unchecked",
@@ -451,7 +463,7 @@
       "statement": "Write M̂=Ĝ_b⊂Ĝ for the dual Levi and j for its pinned inclusion. Let deg:W_E→ℤ send geometric Frobenius to 1 and let t=(2ρ_Ĝ−2ρ_M̂)(√q). The Satake inclusion sends a continuous cocycle φ to cφ(w)=t^{deg(w)}j(φ(w)), using the fixed usual pinned Weil actions on both sides. The cocharacter difference is Weil invariant and central in M̂; hence t is invariant and centralizes j(M̂). These properties, together with equivariance of j, prove the cocycle identity. The map is conjugation equivariant and induces pullback on invariant functions.",
       "hypotheses": [
         "G quasi-split-pinned dual data: Ĝ with its pinned Weil action, M̂ = Ĝ_b the dual of the Levi attached to b, j : M̂ → Ĝ the pinned inclusion.",
-        "A a ℤ[√q]-algebra (so (2ρ_Ĝ − 2ρ_M̂)(√q) is defined); deg : W_E → ℤ sends geometric Frobenius to 1."
+        "A a ℤ_ℓ[√q]-algebra with ℓ ≠ p; the chosen √q is a unit since q is a unit. Thus evaluating the cocharacter and its negative powers is defined. The degree W_E→ℤ sends geometric Frobenius to 1."
       ],
       "proofSteps": [
         "Import the dual Levi, invariant cocharacter difference and pinned actions from GS4/RG2.5.",
@@ -554,12 +566,12 @@
       "statement": "To prove the stratum triangle or the induction square for arbitrary Λ, prove the universal statement over Z_ℓ[√q], reduce modulo ℓ^r, and use ℓ-adic separatedness of the integral Bernstein centre. The centre is lim_K Z(e_KH_Λe_K) over a cofinal system of pro-p compact open K; p is invertible in Λ. Extend scalars from the universal action. Separatedness is asserted for Z_ℓ[√q], not for arbitrary Λ. Replace spectral functions by excursion generators when the centre-order condition fails.",
       "hypotheses": [
         "E a nonarchimedean local field with residue field of cardinality q = p^f; ℓ ≠ p prime; G connected reductive over E; b ∈ B(G).",
-        "Λ a ℤ_ℓ[√q]-algebra (p is then invertible in Λ); when ℓ divides |π₀Z(Ĝ)| the spectral centre is replaced by the excursion algebra.",
+        "Λ a ℤ_ℓ[√q]-algebra (p is then invertible in Λ); when ℓ divides |π₀Z(G)| the spectral centre is replaced by the excursion algebra.",
         "Separatedness is used only for Λ = ℤ_ℓ[√q]."
       ],
       "proofSteps": [
         "Use the SR.1 corner-centre identification and integral separatedness.",
-        "Equality modulo every ℓ^r implies equality in the integral centre. Naturality of the universal excursion action gives base change."
+        "Equality modulo every ℓ^r implies equality in the integral centre. Apply the requested universal excursion-action scalar-extension comparison to pass to Λ. This last implication is ES7/gap/coefficient-base-change, not a consequence of the existence of an excursion action alone."
       ],
       "acceptance": [
         "No use of separatedness of a field or of arbitrary torsion coefficients."
@@ -571,7 +583,8 @@
         "mathlib:MonoidAlgebra",
         "mathlib:Module.End",
         "VStackSheavesAndLisseCategories:VS3/lisse-comparisons",
-        "VStackSheavesAndLisseCategories:VS4/compact-generation-and-compact-objects"
+        "VStackSheavesAndLisseCategories:VS4/compact-generation-and-compact-objects",
+        "ExcursionOperatorsAndSpectralAction:ES1:spectral-center"
       ],
       "sources": [
         {
@@ -665,7 +678,6 @@
         "N depends on V; one uniform N for all Hecke types is not asserted."
       ],
       "prerequisites": [
-        "ExcursionOperatorsAndSpectralAction:ES7:parabolic/basic-case-and-quasisplit-reduction",
         "ExcursionOperatorsAndSpectralAction:ES7:parabolic/twisted-levi-inclusion",
         "BunGAndNewtonStrata:BG1",
         "BunGAndNewtonStrata:BG4",
@@ -673,7 +685,8 @@
         "tauceti:TauCeti.Cocharacter.parabolic",
         "tauceti:TauCeti.Cocharacter.levi",
         "GeometricSatakeAndFusion:GS4:integral-dual-group/normalized-satake-equivalence",
-        "HeckeStacksAndLocalShtukas:HS2/framed-bundle-fibres"
+        "HeckeStacksAndLocalShtukas:HS2/framed-bundle-fibres",
+        "ExcursionOperatorsAndSpectralAction:ES7:parabolic/stratum-maps"
       ],
       "sources": [
         {
@@ -696,15 +709,15 @@
       ],
       "title": "Factorization of the stratum centre map",
       "kind": "theorem",
-      "statement": "For every b∈B(G), Ψ_G^b = Ψ_{G_b}∘c_b^*, with c_b the twisted Levi cocycle inclusion. Use spectral centres under the centre-order condition and excursion algebras otherwise. In the proof the HN-preserving Hecke diagram maps through P and its Levi M, with G_b=M_{b_M} for basic b_M. The pushforward of the Satake sheaf is CT_P(S_V), agreeing with dual-Levi restriction with the cyclotomic twist and degree shift [deg_P]. Excursion creation and annihilation meet only the degree-zero component, so this shift disappears there.",
+      "statement": "For every b∈B(G), Ψ_G^b = Ψ_{G_b}∘c_b^*, with c_b the twisted Levi cocycle inclusion. Use spectral centres under the centre-order condition and excursion algebras otherwise. In the proof the HN-preserving Hecke diagram maps through P and its Levi M, with G_b=M_{b_M} for basic b_M. In FS’s convention the kernel is described by CT_P(S_V), with dual-Levi restriction, cyclotomic twist and degree shift [deg_P]. The HS4 interface uses the position of the first bundle relative to the second and explicitly switches the kernel; its opposite-parabolic twist must be combined with the compact-support character in B_N=Rπ_!A′_N before identifying the action on the original representation. Excursion creation and annihilation meet only the degree-zero component, so this shift disappears there.",
       "hypotheses": [
         "E a nonarchimedean local field with residue field of cardinality q = p^f; ℓ ≠ p prime; G connected reductive over E; b ∈ B(G).",
         "Λ a ℤ_ℓ[√q]-algebra (p is then invertible in Λ).",
-        "Spectral centres when |π₀Z(Ĝ)| and |π₀Z(Ĝ_b)| are invertible in Λ; excursion algebras otherwise."
+        "Spectral centres when |π₀Z(G)| and |π₀Z(G_b)| are invertible in Λ; excursion algebras otherwise."
       ],
       "proofSteps": [
         "Apply coefficient and group reductions. Replace b by b_N and use the HN-preserving P/Levi diagram.",
-        "Apply base change and the GS4 constant-term comparison, with the twisted inclusion rather than the ordinary pinned inclusion.",
+        "Apply base change and GS4 constant-term naturality. Transport HS4/levi-compatibility’s switched-kernel convention, including the opposite twist, and compute the character and shift in Rπ_!Λ on the stratum. Establish that their combined effect is the specified positive twisted inclusion on the original representation. The convention/character comparison is part of ES7/gap/HN.",
         "Restrict creation/annihilation to degree zero and compare every excursion generator."
       ],
       "acceptance": [
@@ -1581,7 +1594,7 @@
         {
           "sourceId": "Hausberger-2005",
           "locator": "Lemmas 10.2–10.3 and Theorem 10.4(2), p. 1340",
-          "match": "Theorem 10.4(2) (the printed condition reads “v ∉ S”; the text layer renders ∉ as ∈) puts the auxiliary cuspidal place outside S, a finite set outside which D splits; Lemma 10.3 adds Π_v ≃ JL(Π̃_v) at o, o′."
+          "match": "Theorem 10.4(2) (the page image has v ∉ S, whereas the text extraction loses the negation) puts the auxiliary cuspidal place outside S, a finite set outside which D splits; Lemma 10.3 adds Π_v ≃ JL(Π̃_v) at o, o′."
         },
         {
           "sourceId": "LRS-1993",
@@ -1757,7 +1770,7 @@
         {
           "name": "DEllipticLevel.unitAction",
           "role": "structure",
-          "statement": "The finite group 𝒟_I^× = (𝒟 ⊗ O_I)^× acts on level-I structures by ι ↦ ι ∘ (right multiplication by g); its elements are τ-fixed, so t∘τι = ι is preserved (a general unit of 𝒟_I ⊗ O_S is not), and forgetting the level is a torsor under this group."
+          "statement": "The finite group 𝒟_I^× = (𝒟 ⊗ O_I)^× acts on the right by ι·g = ι ∘ L_g, where L_g(x)=gx is an automorphism of the right regular module. Its elements are τ-fixed, so t∘τι=ι is preserved; a general unit after extension to O_S need not preserve it. Forgetting the level gives the corresponding torsor. Right multiplication is not right-𝒟_I-linear for a noncentral g."
         }
       ],
       "tests": [
@@ -1775,6 +1788,11 @@
           "name": "DEllipticLevel.zero_test",
           "kind": "non-example",
           "statement": "If the zero meets I the t map need not be invertible on I, so the level functor’s stated domain excludes that case."
+        },
+        {
+          "name": "DEllipticLevel.right_module_test",
+          "kind": "non-example",
+          "statement": "In M₂(F₃), g=diag(1,2) is a unit. For x=E₁₂, right multiplication gives xg=2E₁₂ while g x=E₁₂, so it is not a right-module map. Left multiplication satisfies L_g(xa)=L_g(x)a and is the operation used on levels."
         }
       ],
       "uses": [
@@ -2727,7 +2745,7 @@
       ],
       "title": "Hochschild–Serre for the geometric quotient",
       "kind": "theorem",
-      "statement": "For the uniformized finite-level quotient and 0≤j≤2(d−1), there is a convergent spectral sequence E₂^{i,j}=Ext^i_{GL_d(K),sm}(H_c^{2(d−1)−j}((Res′Σ_n^d)_K̄,Q̄_ℓ)(d−1),A_{D̄}^{∞,level})⇒H^{i+j}(E_{I,K̄},Q̄_ℓ). A_{D̄}^{∞,level} is the space of automorphic forms on the D̄ double-coset space Z_{I^o} of uniformization, trivial at ∞ (Hausberger: “formes automorphes sur Z_{I^o} triviales à l’infini”). The system is compatible with levels, original D away-o and D_o^× actions and W_K. Import the general continuous Hochschild–Serre/derived invariants construction from R02.2; the properly discontinuous analytic quotient, compact-support duality and finite stabilizers are proved for this application here.",
+      "statement": "For the uniformized finite-level quotient and 0≤j≤2(d−1), there is a convergent spectral sequence E₂^{i,j}=Ext^i_{GL_d(K),sm}(H_c^{2(d−1)−j}((Res′Σ_n^d)_K̄,Q̄_ℓ)(d−1),A_{D̄}^{∞,level})⇒H^{i+j}(E_{I,K̄},Q̄_ℓ). A_{D̄}^{∞,level} is the space of automorphic forms on the D̄ double-coset space Z_{I^o} of uniformization, trivial at ∞. The system is compatible with levels, original D away-o and D_o^× actions and W_K. Import the general continuous Hochschild–Serre/derived invariants construction from R02.2; the properly discontinuous analytic quotient, compact-support duality and finite stabilizers are proved for this application here.",
       "hypotheses": [
         "Uniformized finite-level quotient of E_I at o (level away from ∞, cover level n at o); 0 ≤ j ≤ 2(d − 1); ℓ ≠ p."
       ],
@@ -2777,7 +2795,7 @@
       ],
       "proofSteps": [
         "Apply Frobenius reciprocity from the component stabilizer to GL_d(K)^0.",
-        "Use compact matrix coefficients and the SR.3 characteristic-zero finite-representation injectivity theorem.",
+        "Use compact matrix coefficients and the SR.3 characteristic-zero finite-representation injectivity theorem. Prove the isotypic lift by semisimple splitting, rather than Hausberger 10.15’s false zero-kernel claim (E10).",
         "Track subquotient multiplicities across the spectral sequence and use the selected cohomology calculation."
       ],
       "acceptance": [
@@ -2795,7 +2813,7 @@
         {
           "sourceId": "Hausberger-2005",
           "locator": "Lemma 10.14, Lemma 10.15, Remark 10.16, Proposition 10.17, pp. 1353–1356",
-          "match": "The proof uses the restriction to the determinant-unit subgroup and the finite-representation projective/injective argument."
+          "match": "The proof uses the restriction to the determinant-unit subgroup and the finite-representation projective/injective argument. Use the corrected semisimple-block lifting argument recorded in E10."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2819,7 +2837,8 @@
       "proofSteps": [
         "Choose the selected globalization and transfer for π.",
         "Compare its degree-d−1 isotype with the spectral sequence’s Hom term and selected global σ_d.",
-        "Pass through the cover/level colimits and finite-order central quotient; use the normalization |·|^{(1−d)/2}."
+        "Pass through the cover/level colimits and finite-order central quotient; use the normalization |·|^{(1−d)/2}.",
+        "For the Hom duality in the fixed-central-character category, use semisimple-block lifting and the finite-index subgroup Z(K)·GL_d(K)^0, of index d, followed by characteristic-zero averaging; the two invalid intermediate assertions in Hausberger’s printed argument are recorded as E10–E11."
       ],
       "acceptance": [
         "For d=1 the twist is zero.",
@@ -2836,7 +2855,7 @@
         {
           "sourceId": "Hausberger-2005",
           "locator": "§9.3 and Theorem 9.5 (p. 1337); final proof in §10.4 (pp. 1356–1357)",
-          "match": "The finite-order central character was fixed immediately before the theorem; the isotype is Hom, not an unexplained subspace."
+          "match": "The finite-order central character was fixed immediately before the theorem; the isotype is Hom, not an unexplained subspace. The fixed-central-character projectivity route uses the finite-index correction in E11."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3347,7 +3366,7 @@
     },
     {
       "supplier": "SmoothRepresentationsOfLocalGroups:SR.3",
-      "need": "Extend the stated complex results through finite coefficient fields to Q̄_ℓ: supercuspidal support and GL_n segment classification, compact matrix coefficients, finite-representation projectivity/injectivity on GL_d(K)^0, local character distributions and the strict unitary-generic Satake bound. Each requires a source-qualified coefficient comparison; complex-only results are not silently applied over Q̄_ℓ.",
+      "need": "Extend the stated complex results through finite coefficient fields to Q̄_ℓ: supercuspidal support and GL_n segment classification, compact matrix coefficients, finite-representation projectivity/injectivity on GL_d(K)^0, local character distributions and the strict unitary-generic Satake bound. Each requires a source-qualified coefficient comparison; complex-only results are not silently applied over Q̄_ℓ. For the fixed-central-character Hom pairing, provide semisimple-block lifting and finite-index averaging for Z(K)·GL_d(K)^0 (index d); the printed zero-kernel and generation assertions are invalid (source issues E10–E11).",
       "neededBy": [
         "ExcursionOperatorsAndSpectralAction:ES7:GLn-comparison/all-irreducible-representations",
         "ExcursionOperatorsAndSpectralAction:ES7:function-field-automorphic/discrete-spectrum",
@@ -3362,7 +3381,8 @@
         "ExcursionOperatorsAndSpectralAction:ES7:function-field-automorphic/local-character-identity",
         "ExcursionOperatorsAndSpectralAction:ES7:equal-characteristic/hochschild-serre-and-degeneration",
         "ExcursionOperatorsAndSpectralAction:ES7:equal-characteristic/equal-characteristic-agreement",
-        "ExcursionOperatorsAndSpectralAction:ES7:function-field-automorphic/cuspidal-local-selector"
+        "ExcursionOperatorsAndSpectralAction:ES7:function-field-automorphic/cuspidal-local-selector",
+        "ExcursionOperatorsAndSpectralAction:ES7:equal-characteristic/drinfeld-carayol"
       ]
     },
     {
@@ -3389,6 +3409,13 @@
       "neededBy": [
         "ExcursionOperatorsAndSpectralAction:ES7:equal-characteristic/local-correspondence-independence"
       ]
+    },
+    {
+      "supplier": "ExcursionOperatorsAndSpectralAction:ES1:spectral-center",
+      "need": "Scalar-extension compatibility of the universal excursion action for every ℤ_ℓ[√q]-algebra Λ, including nonflat Λ and primes dividing |π₀Z(G)|. For Λ→Λ′ and compatible coefficient data, identify the scalar extension of each operator S_D with S_{D⊗ΛΛ′}; carry this through the stratum restriction. This extends the ES0 excursion construction and the ES1 coefficient-condition-free action; the cited ES1 node states existence but does not state this base-change theorem. FS IX.7.2, p. 335, uses it to pass from integral coefficients to arbitrary Λ.",
+      "neededBy": [
+        "ExcursionOperatorsAndSpectralAction:ES7:parabolic/coefficient-reduction"
+      ]
     }
   ],
   "gaps": [
@@ -3406,7 +3433,7 @@
       "neededBy": [
         "ExcursionOperatorsAndSpectralAction:ES7:parabolic/basic-case-and-quasisplit-reduction"
       ],
-      "detail": "Kaletha’s consulted text is p-adic (§2: “F will denote a p-adic field”). For E of characteristic p the construction cannot simply be extended: if Z(G) is not smooth (e.g. G = SL_p, Z(G) = μ_p), then for every embedding G ↪ G′ with torus quotient C and Z(G′) a torus, the cokernel of Z(G′)(E) → C(E) injects into ker(H¹_fppf(E, Z(G)) → H¹(E, Z(G′))), and H¹_fppf(E, μ_p) = E^×/E^{×p} is infinite while H¹(E, Z(G′)) is finite, so Fact 5.5’s surjectivity fails. For smooth Z(G) extend Definition 5.1/Fact 5.5 to equal characteristic; for non-smooth Z(G) a different reduction to quasi-split G (or a different proof of B(G) ↪ B(G′) and of centre detection) is needed. Then prove the Bun fibre identity, B-injectivity and centre detection as in FS. Kottwitz’s B(G_ad)-to-H¹ bridge is a BG1 request. Recorded as source issue ExcursionOperatorsAndSpectralAction/E2. Cross-part interface: ES6:functoriality/isogenies already covers adjoint-isomorphism maps, and ES6:functoriality/z-embedding supplies the full p-adic conditions and central surjectivity. Those exact nodes are prerequisites of the consuming reduction. The remaining equal-characteristic input has no supplying node in ES5; it is this explicit gap, with the residual ES6:functoriality supplier request, rather than a claimed consequence of the whole stage."
+      "detail": "Kaletha’s standing field is p-adic (§2, p. 64). For E of characteristic p the construction cannot simply be extended: already for G = SL_p with Z(G) = μ_p, for every embedding G ↪ G′ with torus quotient C and Z(G′) a torus, the cokernel of Z(G′)(E) → C(E) is isomorphic to ker(H¹_fppf(E, Z(G)) → H¹(E, Z(G′))), and H¹_fppf(E, μ_p) = E^×/E^{×p} is infinite while H¹(E, Z(G′)) is finite, so Fact 5.5’s surjectivity fails. For smooth Z(G) extend Definition 5.1/Fact 5.5 to equal characteristic; for non-smooth Z(G) a different reduction to quasi-split G (or a different proof of B(G) ↪ B(G′) and of centre detection) is needed. Then prove the Bun fibre identity, B-injectivity and centre detection as in FS. Kottwitz’s B(G_ad)-to-H¹ bridge is a BG1 request. Recorded as source issue ExcursionOperatorsAndSpectralAction/E2. Cross-part interface: ES6:functoriality/isogenies already covers adjoint-isomorphism maps, and ES6:functoriality/z-embedding supplies the full p-adic conditions and central surjectivity. Those exact nodes are prerequisites of the consuming reduction. The remaining equal-characteristic input has no supplying node in ES5; it is this explicit gap, with the residual ES6:functoriality supplier request, rather than a claimed consequence of the whole stage."
     },
     {
       "id": "ExcursionOperatorsAndSpectralAction:ES7/gap/HN",
@@ -3416,7 +3443,7 @@
         "ExcursionOperatorsAndSpectralAction:ES7:parabolic/constant-term-computation",
         "ExcursionOperatorsAndSpectralAction:ES7:parabolic/parabolic-induction"
       ],
-      "detail": "Expand the BG4 bounded-modification estimate and verify every arrow/support hypothesis of the P/Levi constant-term diagram. For IX.7.3 the Hodge–Newton modification calculation referenced as GI16 Theorem 4.26 remains to be read. Keep b=μ(π^{-1}), T_{μ^{-1}} and (−d/2)[−d]."
+      "detail": "Expand the BG4 bounded-modification estimate and verify every arrow/support hypothesis of the P/Levi constant-term diagram. For IX.7.3 the Hodge–Newton modification calculation referenced as GI16 Theorem 4.26 remains to be read. Keep b=μ(π^{-1}), T_{μ^{-1}} and (−d/2)[−d]. The present HS4/levi-compatibility statement tracks a bundle switch and inverse root twist, and B_N=Rπ_!A′_N includes the generally nontrivial character Rπ_!Λ of G_b(E). Compute that character, transport modification conventions and prove the combined formula on the original smooth representation; cancelling the degree-zero shift alone is insufficient. The positive FS target remains a target with this gap, rather than an asserted direct consequence of HS4."
     },
     {
       "id": "ExcursionOperatorsAndSpectralAction:ES7/gap/mixed-tower",
@@ -3511,7 +3538,7 @@
         "ExcursionOperatorsAndSpectralAction:ES7:equal-characteristic/hochschild-serre-and-degeneration",
         "ExcursionOperatorsAndSpectralAction:ES7:equal-characteristic/drinfeld-carayol"
       ],
-      "detail": "The profinite discrete-module R02.2 node is insufficient for the locally profinite analytic quotient. Supply the general derived machinery and prove the properly discontinuous Berkovich quotient application using Hausberger Appendix A.12. Expand finite-type/admissibility and the characteristic-zero injective finite-representation proof on GL_d(K)^0; generic module projectivity at the pins is insufficient."
+      "detail": "The profinite discrete-module R02.2 node is insufficient for the locally profinite analytic quotient. Supply the general derived machinery and prove the properly discontinuous Berkovich quotient application using Hausberger Appendix A.12. Expand finite-type/admissibility and the characteristic-zero injective finite-representation proof on GL_d(K)^0; generic module projectivity at the pins is insufficient. Use semisimple-isotypic splitting in place of the false zero-kernel step of Hausberger 10.15 (E10), and a finite-index/averaging argument for Z(K)·GL_d(K)^0 ⊂ GL_d(K) (index d), rather than the generation claim in §10.4 (E11)."
     },
     {
       "id": "ExcursionOperatorsAndSpectralAction:ES7/gap/equal-transport",
@@ -3525,7 +3552,7 @@
     },
     {
       "id": "ExcursionOperatorsAndSpectralAction:ES7/gap/prototypes",
-      "title": "Native signatures missing for geometric and smooth objects",
+      "title": "Supplier carriers and geometric conditions in prototypes",
       "neededBy": [
         "ExcursionOperatorsAndSpectralAction:ES7:parabolic/stratum-maps",
         "ExcursionOperatorsAndSpectralAction:ES7:parabolic/twisted-levi-inclusion",
@@ -3539,7 +3566,15 @@
         "ExcursionOperatorsAndSpectralAction:ES7:equal-characteristic/fundamental-local-representation",
         "ExcursionOperatorsAndSpectralAction:ES7:function-field-automorphic/cuspidal-local-selector"
       ],
-      "detail": "The suggested Lean file states every node over opaque placeholder carriers named for their owning layers (reductive groups and Kottwitz sets, smooth derived categories, D_lis(Bun_G), spectral centres, adelic units of D, vector bundles with right 𝒟-action on X × S, formal O-modules, rigid compact-support cohomology). Conditions that need a missing carrier (cokernel supports and Euler characteristics of D-elliptic chains, gluing of the maximal-order sheaf, analytic properness) are omitted and named in the docstrings. Replace each carrier by its owner’s declaration when it exists."
+      "detail": "The suggested Lean file states every node over opaque supplier carriers named for their owning layers (reductive groups and Kottwitz sets, smooth derived categories, D_lis(Bun_G), spectral centres, adelic units of D, vector bundles with right 𝒟-action on X × S, formal O-modules, rigid compact-support cohomology). Conditions that need a missing carrier (cokernel supports and Euler characteristics of D-elliptic chains, gluing of the maximal-order sheaf, analytic properness) are omitted and named in the docstrings. Replace each carrier by its owner’s declaration when it exists. All 50 node signatures, all 53 API entries and the named tests are present; these omissions concern full carrier/condition fidelity, not missing node signatures. The ordinary CatCenter model must be related to the enhanced π₀End(id) supplied by SR.1/ES0. The algebraic Representation.ind model also requires its smooth compact-induction comparison for the open subgroup P_d."
+    },
+    {
+      "id": "ExcursionOperatorsAndSpectralAction:ES7/gap/coefficient-base-change",
+      "title": "Universal excursion action under coefficient extension",
+      "neededBy": [
+        "ExcursionOperatorsAndSpectralAction:ES7:parabolic/coefficient-reduction"
+      ],
+      "detail": "Prove the requested ES1:spectral-center comparison S_D⊗ΛΛ′ = S_{D⊗ΛΛ′}, with the appropriate derived tensor product on sheaves, for arbitrary coefficient morphisms preserving √q. Check creation, Weil action, annihilation and stratum restriction under coefficient change. Integral Bernstein-centre separatedness alone does not imply the arbitrary-Λ comparison. The suggested coefficientReduction signature states separatedness only; its docstring names the unstated base-change obligation."
     }
   ],
   "coverage": [
@@ -3567,7 +3602,7 @@
         "classical-local: Independent local correspondence and constants",
         "analytic-HS: Analytic quotient spectral sequence and Ext degeneration",
         "equal-transport: Equal-characteristic transport and second operation",
-        "prototypes: Native signatures missing for geometric and smooth objects"
+        "prototypes: Materialize supplier carriers and omitted geometric conditions"
       ]
     },
     {
@@ -3578,7 +3613,7 @@
         "EP: Building EP orbital/character proof sources",
         "simple-transfer: Simple trace formula and selected transfer proofs",
         "classical-local: Badulescu’s equal-characteristic local character identity",
-        "prototypes: Native signatures missing for geometric and smooth objects"
+        "prototypes: Materialize supplier carriers and omitted geometric conditions"
       ]
     },
     {
@@ -3586,9 +3621,10 @@
       "status": "planned",
       "remaining": [
         "normalization: Root/modulus convention comparison",
-        "z-embedding: Quasi-split reduction in equal characteristic (no z-embedding when Z(G) is not smooth; the GL_n targets do not use it)",
+        "z-embedding: Equal-characteristic quasi-split reduction; SL_p obstructs the torus-centre surjectivity route, requiring a different argument for non-smooth centres; GL_n does not use this reduction",
         "HN: Quantitative modification and constant-term closure",
-        "prototypes: Native signatures missing for geometric and smooth objects"
+        "prototypes: Materialize supplier carriers and omitted geometric conditions",
+        "ExcursionOperatorsAndSpectralAction:ES7/gap/coefficient-base-change"
       ]
     }
   ],
@@ -3609,7 +3645,7 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Checked on the page images: Corollary 14.11(iii) (p. 299) has L_x(V•,q_x^{−d}T^{−1}); its proof (pp. 299–300) invokes “the dual representation … is canonically isomorphic to V^{2d−2−n}(d−1) (Poincaré duality)”, and §14.16 (p. 306) prints “selfdual by Poincaré duality”. Kaiser’s erratum replaces the factor by L_x(V•∨,q_x^{−1}T^{−1}) in statement and proof and drops integrality and self-duality from Lemma 14.14′. The locator should read Corollary 14.11 on p. 299 with its proof on pp. 299–300.",
+        "reason": "The independent review checked Corollary 14.11(iii), p. 299, the duality step of its proof, pp. 299–300, and §14.16, p. 306, against their page images. The original second factor is L_x(V•,q_x^{−d}T^{−1}); the proof treats a single isotype as self-dual. Kaiser replaces it by L_x(V•∨,q_x^{−1}T^{−1}) and removes integrality and self-duality assumptions in Lemma 14.14′.",
         "by": "REV-ExcursionOperatorsAndSpectralAction--ES7"
       }
     },
@@ -3619,8 +3655,8 @@
       "kind": "gap",
       "locator": "Proof of Theorem IX.7.2, p. 335, author-hosted manuscript (SHA-256 9ab9efbd…); reduction to quasi-split G",
       "printed": "The source chooses a z-embedding G ,→ G′ following [Kal18, Section 5], with torus quotient D and connected center Z(G′ ).",
-      "correction": "The step is justified for E of characteristic 0 (Kaletha’s §5 assumes F p-adic). For E of characteristic p and Z(G) not smooth (e.g. G = SL_p), no embedding G ↪ G′ with torus quotient D and Z(G′) a torus has Z(G′)(E) → D(E) surjective, so the deduction of B(G) ↪ B(G′) and of centre detection via [Kal18, Fact 5.5] needs another argument there.",
-      "reason": "From 1 → Z(G) → Z(G′) → D → 1 (fppf), coker(Z(G′)(E) → D(E)) ≅ ker(H¹_fppf(E, Z(G)) → H¹(E, Z(G′))). For Z(G) = μ_p in characteristic p, H¹_fppf(E, μ_p) = E^×/E^{×p} is infinite, while H¹(E, T) is finite for a torus T over a local field; so the kernel is infinite. Fact 5.5’s proof uses exactly this injectivity. In characteristic p “Z(G′) connected” does not force a torus (μ_p is connected; SL_p ↪ SL_p × G_m has connected centre μ_p × G_m and surjective Z(G′)(E) → D(E)), but the next step, a basic b₀ with G_{b₀} quasi-split via Kottwitz 10.4, needs a central torus, and for SL_p × G_m the inner form SL₁(D) is not reached.",
+      "correction": "The step is justified for E of characteristic 0 (Kaletha’s §5 assumes F p-adic). It cannot be applied uniformly in characteristic p: for G = SL_p, no embedding G ↪ G′ with torus quotient D and Z(G′) a torus has Z(G′)(E) → D(E) surjective. Thus the deduction of B(G) ↪ B(G′) and of centre detection via Kaletha Fact 5.5 requires another argument for this case and for the general non-smooth-centre range.",
+      "reason": "From 1 → Z(G) → Z(G′) → D → 1 (fppf), coker(Z(G′)(E) → D(E)) ≅ ker(H¹_fppf(E, Z(G)) → H¹(E, Z(G′))). For Z(G) = μ_p in characteristic p, H¹_fppf(E, μ_p) = E^×/E^{×p} is infinite, while H¹(E, T) is finite for a torus T over a local field; so the kernel is infinite. Fact 5.5’s proof uses exactly this injectivity. In characteristic p connectedness of Z(G′) does not force a torus (μ_p is connected; SL_p ↪ SL_p × G_m has connected centre μ_p × G_m and surjective Z(G′)(E) → D(E)), but the next step, a basic b₀ with G_{b₀} quasi-split via Kottwitz 10.4, needs a central torus, and for SL_p × G_m the inner form SL₁(D) is not reached.",
       "affects": "the proof",
       "known": "new",
       "searched": [
@@ -3641,7 +3677,7 @@
       "locator": "§13 (paragraph (13.3)–(13.5)), p. 291, published scan",
       "printed": "The source declares the coset space F^×\\𝔸^×/ϖ_∞^ℤ to be finite.",
       "correction": "The coset space is compact (an extension of a finite group by the compact, infinite group of degree-zero idele classes), not finite.",
-      "reason": "The degree-zero part F^×\\𝔸^1 surjects onto Pic⁰(X)(F_q) with kernel containing ∏_x O_x^×/F_q^×, which is infinite. Compactness is what the admissibility argument uses (LRS p. 299 itself writes “F^×\\𝔸^×/F_∞^× is compact”).",
+      "reason": "The degree-zero part F^×\\𝔸^1 surjects onto Pic⁰(X)(F_q) with kernel containing ∏_x O_x^×/F_q^×, which is infinite. Compactness is what the admissibility argument uses (LRS p. 299 correctly uses compactness of F^×\\𝔸^×/F_∞^×).",
       "affects": "nothing",
       "known": "new",
       "searched": [
@@ -3757,7 +3793,7 @@
       "locator": "§7.2, p. 1317",
       "printed": "The source invokes proposition 3.4 to say that all special formal OD -modules over κ of height d2 are isogenous.",
       "correction": "Théorème 3.4.",
-      "reason": "The isogeny statement is Théorème 3.4 (p. 1303); p. 1321 cites it correctly as “théorème 3.4”.",
+      "reason": "The isogeny statement is Théorème 3.4 (p. 1303); p. 1321 cites it correctly as a theorem.",
       "affects": "nothing",
       "known": "new",
       "searched": [
@@ -3768,6 +3804,36 @@
         "reason": "Added by this review; checked in the text layer.",
         "by": "REV-ExcursionOperatorsAndSpectralAction--ES7"
       }
+    },
+    {
+      "id": "ExcursionOperatorsAndSpectralAction/E10",
+      "source": "Hausberger-2005",
+      "kind": "error",
+      "locator": "Proof of Lemma 10.15, p. 1354, published article",
+      "printed": "The lifting argument asserts ker(u) ∩ im(p_{π′}) = {0} for the arbitrary surjection u : E′ → E between smooth representations and the natural isotypic projector p_{π′}.",
+      "correction": "Replace that assertion by a splitting of the surjection on the semisimple V-isotypic summands. Naturality of the projectors makes the restricted map surjective, and complete reducibility permits a G-equivariant lift. This repairs the proof route without changing the projectivity statement.",
+      "reason": "Take the trivial group and its one-dimensional representation V over a characteristic-zero field, E′ = V ⊕ V, E = V and u(x,y)=x. Both isotypic projectors are identities, but ker(u) ∩ im(p_{π′}) = {0} ⊕ V ≠ {0}. Thus commutation with the projectors does not imply the claimed zero kernel.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Published AIF article page https://aif.centre-mersenne.org/item/AIF_2005__55_4_1285_0/ (no correction listed, 2026-10-08)",
+        "Public searches for Hausberger, Lemma 10.15, erratum/correction (2026-10-08; no correction found)"
+      ]
+    },
+    {
+      "id": "ExcursionOperatorsAndSpectralAction/E11",
+      "source": "Hausberger-2005",
+      "kind": "error",
+      "locator": "§10.4, p. 1357, projectivity argument after the displayed Hom formula, published article",
+      "printed": "The argument says GL_d(K) is generated by its centre and GL_d(K)^0 = {g : v(det g)=0}.",
+      "correction": "Their product H is the subgroup with determinant valuation in dℤ, so it has index d for d>0. Transfer the fixed-central-character projectivity/injectivity statement from H to GL_d(K) using finite-index induction/restriction and averaging in characteristic zero; an actual comparison of the fixed-central-character categories is required.",
+      "reason": "For d=2, diag(ϖ,1) has determinant valuation 1, whereas zI_2 has valuation 2v(z) and every element of GL_2(K)^0 has valuation zero. The asserted generated subgroup therefore cannot contain diag(ϖ,1). In general, the determinant-valuation map identifies GL_d(K)/H with ℤ/dℤ.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Published AIF article page https://aif.centre-mersenne.org/item/AIF_2005__55_4_1285_0/ (no correction listed, 2026-10-08)",
+        "Public searches for Hausberger, §10.4, erratum/correction (2026-10-08; no correction found)"
+      ]
     }
   ],
   "sourceVersions": [
@@ -3775,49 +3841,49 @@
       "kind": "author copy",
       "url": "https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf",
       "citation": "Author-hosted 356-page PDF; printed page equals PDF page. Version is identified by this hash, without asserting byte identity with an arXiv version.",
-      "read": "2026-10-07",
+      "read": "2026-10-08",
       "sha256": "9ab9efbd0df251bfa3b610d1d1d88a8dfb1bdf7c397bd04f4c277280d98ae905"
     },
     {
       "kind": "published",
       "url": "https://aif.centre-mersenne.org/item/AIF_2005__55_4_1285_0.pdf",
       "citation": "Ann. Inst. Fourier 55(4) (2005), 1285–1371; journal PDF with cover. French text layer.",
-      "read": "2026-10-07",
+      "read": "2026-10-08",
       "sha256": "d51dc22168dcd4831726197b1cef252ea784cc9abbce4cf521465423638daf48"
     },
     {
       "kind": "published",
       "url": "https://gdz.sub.uni-goettingen.de/download/pdf/PPN356556735_0113/LOG_0019.pdf",
       "citation": "Invent. Math. 113 (1993), 217–338; published journal scan, 124 PDF pages; printed page = PDF page + 215. OCR used for navigation; crucial displayed formulas checked against page images.",
-      "read": "2026-10-07",
+      "read": "2026-10-08",
       "sha256": "05ea7ab8cb64577f5d421f37255a7cfd58b6fc763294038cd2e87475d80ab87e"
     },
     {
       "kind": "author copy",
       "url": "https://www.math.uni-bonn.de/people/rapoport/myalggeom/preprints/ErratumvonChrKaiser.pdf",
       "citation": "Two-page author-hosted erratum; undated. Both pages inspected visually.",
-      "read": "2026-10-07",
+      "read": "2026-10-08",
       "sha256": "6aa9e01d3551e3f0e3d8ca3d98acba98a1e163e723d342f9ccd719ae4dc02c54"
     },
     {
       "kind": "published",
       "url": "https://ems.press/content/serial-article-files/32267",
       "citation": "J. Eur. Math. Soc. 20 (2018), 61–101; publisher PDF.",
-      "read": "2026-10-07",
+      "read": "2026-10-08",
       "sha256": "cfd4f90fd84806dcb328840e620d7934772d86439514e73c1bb060c222b6a030"
     },
     {
       "kind": "preprint",
       "url": "https://arxiv.org/pdf/1401.5728",
       "citation": "arXiv:1401.5728 author text; source identified by URL/hash, not an inferred version number.",
-      "read": "2026-10-07",
+      "read": "2026-10-08",
       "sha256": "37c9980b749d315d014c5046f486ea9d8bac1acc3753fe766ae45ac7907f12a4"
     },
     {
       "kind": "author copy",
       "url": "https://people.mpim-bonn.mpg.de/scholze/Berkeley.pdf",
       "citation": "Author copy dated 27 March 2020.",
-      "read": "2026-10-07",
+      "read": "2026-10-08",
       "sha256": "225505171ef809aa0070c023c881ff1da844923775f2d631474c0b42eea4bffc"
     }
   ],

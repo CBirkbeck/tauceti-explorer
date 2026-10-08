@@ -69,12 +69,13 @@ This file is not the roadmap and is not exhaustive. The roadmap document
 (`research/blueprint/readmes/ExcursionOperatorsAndSpectralAction--ES7.md`) and the
 packet are definitive. The statements below suggest Lean forms so that contributors
 and reviewers converge on names and signatures. Nothing here is implemented: every
-node keeps `implementationStatus = unchecked`, and every proof is `sorry`.
+node keeps `implementationStatus = unchecked`. The file contains admitted carriers and proofs;
+elaboration checks signatures and elementary compatibility calculations only.
 
 ## Carriers
 
-The pinned libraries (Mathlib 082e2d3, Tau Ceti f790474) have no connected reductive
-groups over local fields, Kottwitz sets, Weil groups, smooth derived categories,
+The pinned libraries (Mathlib 082e2d3, Tau Ceti f790474) do not supply the combined
+local-field reductive-group interfaces used here, Kottwitz sets, Weil groups, smooth derived categories,
 `D_lis(Bun_G, Λ)`, spectral centres, adelic points of division algebras over function
 fields, vector bundles on curves, formal `O_D`-modules or compact-support cohomology
 of rigid-analytic spaces. Each such object is introduced once below as an opaque,
@@ -916,7 +917,8 @@ an element of `Z(G(E), Λ) = lim_K Z(e_K H_Λ e_K)` whose image in `Z(G(E), Λ/�
 for every `r` is zero. Separatedness is asserted only for `ℤ_ℓ[√q]`. The reduction itself
 (prove the triangle and the induction square over `ℤ_ℓ[√q]`, reduce modulo `ℓ^r`, extend
 scalars from the universal action) needs base change of `Ψ` along `ℤ_ℓ[√q] → Λ`, which is not
-stated here. -/
+stated here. This is requested from ES1:spectral-center and recorded as
+`ExcursionOperatorsAndSpectralAction:ES7/gap/coefficient-base-change`. -/
 theorem coefficientReduction (G : ReductiveGroup E) (ℓ : ℕ) [Fact ℓ.Prime]
     (hℓ : ¬ ℓ ∣ residueCard E) (z : BernsteinCentre G (integralSqrtQ ℓ (residueCard E)))
     (hz : ∀ r : ℕ, bernsteinBaseChange G
@@ -938,7 +940,10 @@ variable {ℓ : ℕ} [Fact ℓ.Prime] {Λ : Type} [CommRing Λ] [Algebra ℤ_[�
 /-- Node `ExcursionOperatorsAndSpectralAction:ES7:parabolic/basic-case-and-quasisplit-reduction`.
 (1) The basic case: for basic `b₀` the stratum map factors through the (untwisted, since
 `t = 1`) Levi pullback, from the Hecke-equivariant identification `Bun_G ≃ Bun_{G_{b₀}}`;
-(2) for E of characteristic zero and the z-embedding `G ↪ G′`, `B(G) → B(G′)` is injective and `Z(G′)` is connected. In equal characteristic no z-embedding exists when `Z(G)` is not smooth (packet source issue E2), so the carrier takes `[CharZero E]`.
+(2) for E of characteristic zero and the z-embedding `G ↪ G′`, `B(G) → B(G′)` is injective and `Z(G′)` is connected. For `SL_p` in characteristic `p`, a torus-centre embedding with torus quotient
+cannot have the central-point surjectivity used here (packet source issue E2).
+Connectedness of the centre alone does not repair the inner-form lifting step.
+The supplier here is p-adic, so the carrier takes `[CharZero E]`.
 Stated in the excursion form (no centre-order condition). Not stated: the fibre identity
 `Bun_G ≃ Bun_{G′} ×_{Bun_C} {1}`, surjectivity `Z(G′)(E) → C(E)`, detection of the centre of
 `G_b` by restrictions from `G′_{b′}`, and the choice of a basic `b₀` with `G_{b₀}` quasi-split
@@ -973,7 +978,9 @@ theorem increasinglyUnstableSequence (G : ReductiveGroup E) (b : KottwitzSet G)
 
 /-- Node `ExcursionOperatorsAndSpectralAction:ES7:parabolic/constant-term-computation`.
 For every `b ∈ B(G)`, `Ψ_G^b = Ψ_{G_b} ∘ c_b^*` with `c_b` the twisted Levi inclusion
-(FS Theorem IX.7.2): in the excursion form without condition, and in the spectral form
+(FS Theorem IX.7.2). The packet records the convention comparison of HS4’s switched
+kernel and the character `Rπ_!Λ` as `ES7/gap/HN`; degree-zero shift cancellation alone
+does not establish this identity. In the excursion form without condition, and in the spectral form
 when `|π₀ Z(G)|` and `|π₀ Z(G_b)|` are invertible in `Λ`. -/
 theorem constantTermComputation (G : ReductiveGroup E) (b : KottwitzSet G)
     (c : ExcCoeff E ℓ Λ) :
@@ -2818,7 +2825,8 @@ def pullback {I : X.Place →₀ ℕ} {S' : X.BaseScheme} (f : S' ⟶ S) (L : DE
   compat := sorry
 
 /-- API `DEllipticLevel.unitAction`: the right action of `𝒟_I^×` on level-`I` structures by
-precomposition `ι ↦ ι ∘ (u ·)`. A unit of `(𝒟_I ⊗ O_S)^×` preserves the Frobenius compatibility
+precomposition `ι ↦ ι ∘ L_u`, where `L_u(x) = ux` is right-module linear.
+Right multiplication by a noncentral unit is not right-module linear. A unit of `(𝒟_I ⊗ O_S)^×` preserves the Frobenius compatibility
 exactly when it is `τ`-fixed, i.e. (for connected `S`) lies in the finite group `𝒟_I^×`; with
 this group, forgetting the level is a Galois covering. -/
 instance unitAction {I : X.Place →₀ ℕ} :
@@ -2859,6 +2867,14 @@ example (K : Type) [Field K] [Fintype K] (k : Type) [Field k] [Algebra K k]
 example {infty : X.Place} {S : X.BaseScheme} {E : DEllipticSheaf X D infty S}
     {I I' I'' : X.Place →₀ ℕ} (h₁ : I ≤ I') (h₂ : I' ≤ I'') (L : DEllipticLevel X D I'' E) :
     (L.restrict h₂).restrict h₁ = L.restrict (h₁.trans h₂) := by
+  sorry
+
+-- DEllipticLevel.right_module_test: left multiplication is right-module linear, whereas
+-- right multiplication by diag(1,2) fails that condition on E₁₂ over F₃.
+example :
+    let g : Matrix (Fin 2) (Fin 2) (ZMod 3) := !![1, 0; 0, 2]
+    let x : Matrix (Fin 2) (Fin 2) (ZMod 3) := !![0, 1; 0, 0]
+    IsUnit g ∧ x * g ≠ g * x := by
   sorry
 
 -- DEllipticLevel.zero_test: a level structure forces t_I to be invertible on I × S, which fails where the zero meets I; hence the domain requires z(S) ∩ I = ∅.
@@ -3734,6 +3750,9 @@ character `ξ`: `Hom_{GL_d(K)}(π, U_d^i(ξ)) = 0` for `i ≠ d − 1`, and
 `Hom_{GL_d(K)}(π, U_d^{d−1}(ξ)) ≅ JL(π) ⊗ (σ_d(π) ⊗ |·|^{(1−d)/2})` as
 `D_K^× × W_K`-representations (Hausberger Thm 9.5; finite-order range only, arbitrary central
 characters need the twisting comparison). -/
+/- Proof obligations E10–E11: use semisimple-isotypic splitting, not the false
+zero-kernel assertion of Hausberger 10.15; Z(K) · GL_d(K)^0 has index d in
+GL_d(K), so the fixed-central-character argument needs finite-index averaging. -/
 theorem drinfeldCarayol (d ℓ : ℕ) [NeZero d] [Fact ℓ.Prime] (hℓ : (ℓ : K) ≠ 0)
     (s : SqrtQ (QlBar ℓ) (residueCard K)) (ξ : Kˣ →* (QlBar ℓ)ˣ) (hξ : IsOfFinOrder ξ)
     (π : SupercuspidalRep (ReductiveGroup.GL K d) (QlBar ℓ))
