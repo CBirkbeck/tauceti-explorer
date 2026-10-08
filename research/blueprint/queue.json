@@ -37182,8 +37182,9 @@
     "DESIGN-EllipticCurveModularityPartII~2"
    ],
    "prompt": "research/blueprint/prompts/REV-DESIGN-EllipticCurveModularityPartII~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7021"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7021",
+   "finishedAt": "2026-10-08T10:54:21Z"
   },
   {
    "kind": "design",
@@ -38404,7 +38405,8 @@
     "BP-DerivedDeRhamCohomology~2"
    ],
    "prompt": "research/blueprint/prompts/REV-DerivedDeRhamCohomology~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7041"
   },
   {
    "kind": "blueprint",
@@ -43958,8 +43960,9 @@
     "REV-RefinedTraceMethods--RT.5"
    ],
    "prompt": "research/blueprint/prompts/ASM-RefinedTraceMethods.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #256"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #256",
+   "finishedAt": "2026-10-08T10:54:26Z"
   },
   {
    "id": "ASM-RelativeFarguesFontaine",
