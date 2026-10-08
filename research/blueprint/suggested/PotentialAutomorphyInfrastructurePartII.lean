@@ -17,9 +17,10 @@ the pin contain none of the objects used here.
 * Mathlib's own objects are used wherever the pin has them: `Field.absoluteGaloisGroup` with its
   Krull topology, `IsNonarchimedeanLocalField` with `𝒪[K]` and `𝓀[K]`, `NumberField.IsCMField`,
   `NumberField.IsTotallyReal`, continuous homomorphisms `→ₜ*` into `GL (Fin n) E`,
-  `Ideal.minimalPrimes`, `ringKrullDim`, `Representation.ind`, power series rings. A coefficient
-  field `E`, an `l`-adic local field taken large enough, stands for `Q̄_l`; lattices are valued in
-  `𝒪[E]` and residual representations in `𝓀[E]`. A finite place of a number field with its
+  `Ideal.minimalPrimes`, `ringKrullDim`, `Representation.ind`, power series rings. A finite coefficient
+  field `E` is used for lattices in `𝒪[E]` and residual representations in `𝓀[E]`.
+  Realizing Q̄_l-valued automorphic and auxiliary data over E requires explicit enlargement;
+  the total fixed-E imported interfaces below do not yet supply that input. A finite place of a number field with its
   completion is a `Place`: a local field with a dense embedding of the number field.
 * The section "Imported interfaces", and the blocks "Imported interfaces used by PL.N" at the head
   of each layer, hold what other roadmaps own and this one consumes. Each declaration there is an
@@ -37,9 +38,9 @@ the pin contain none of the objects used here.
   pseudodeformation rings) are given by their signatures.
 * Each node of the packet has a section headed by its id. A definition or construction is followed
   by its API items, under the packet's names, and by its unit tests as `example`s, each preceded by
-  `-- test: <name>`. A theorem node is one theorem, or one per part, with every hypothesis of the
-  node in its signature. No theorem is stated over arbitrary rings or groups in place of the
-  arithmetic objects it concerns.
+  `-- test: <name>`. The theorem signatures use the arithmetic objects of their nodes, with one declaration per
+  part where appropriate. The unresolved interfaces listed here and in the review mean that
+  not every proposed signature is yet a faithful realization of its packet statement.
 
 **What the file leaves out or states differently.** The problem `D_C` of PL.1/connects-relation
 (`componentDeformationProblem`) is given for `l ≠ p`; its form for `l = p`, on components of the
@@ -49,7 +50,7 @@ PL.2/ordinary-forms-free-over-lambda has no Lean form: the deformation data of N
 `Gal(F/F⁺)`-equivariance of the trace map modulo `ϖ^m` and the input Proposition 2.7 of
 Newton–Thorne 2023 are not stated. In PL.9/generic-local-domain-lifting the Hodge–Tate weights are
 written in the convention of this file, `HT(ε) = {-1}`, where the source normalises `ε` to have
-weight `1`. PL.9/generic-change-of-weight-lifting uses `Lifting.definiteUnitaryAutomorphic`, a
+weight `1`; the labelled weight, polynomial and K-type conversion remains unresolved. PL.9/generic-change-of-weight-lifting uses `Lifting.definiteUnitaryAutomorphic`, a
 stand-in without an owner in the atlas; it belongs to the roadmap's gap on the generic Serre weight
 theorem. Where a hypothesis was added to make a statement well formed (the coefficient field large
 enough, `Fact l.Prime`, characteristic zero), the docstring says so.
@@ -389,6 +390,8 @@ def component (π : RACP F n) (v : Place F) : SmoothIrrep v.Fv n := π.toRegAlg.
 
 /-- AG2.2 (stand-in): the Galois representation `r_{l,ι}(π)`, for `ι : E → ℂ` and `E` large enough
 to contain its field of definition. -/
+-- REVIEW: a finite extension realizing this representation is not supplied by
+-- IsLargeForF. This total fixed-E interface remains unresolved (AG2.2/AG2.7).
 def galoisRep (π : RACP F n) (ι : E →+* ℂ) : Gal F →ₜ* GL (Fin n) E := sorry
 
 /-- AG2.0/galois-character-of-an-algebraic-hecke-character (stand-in): `r_{l,ι}(χ)`, a character
@@ -567,6 +570,8 @@ characteristics of `E` and `K`): a common irreducible component of `Spec R^□[1
 both are potentially crystalline with the same labelled Hodge–Tate weights `H` and lie on a common
 irreducible component of the `K'`-crystalline quotient of Hodge type `H`, for some finite `K'/K`.
 `E` is large enough that these components are geometrically irreducible (BLGGT14 take `Q̄_l`). -/
+/- REVIEW: finite-E minimal primes must be compared with geometric components
+over Q̄_l after compatible enlargement; the packet records this unresolved interface. -/
 def ConnectsLift {p l : ℕ} [ResChar K p] [ResChar E l] {ρbar : Gal K →* GL (Fin n) 𝓀[E]}
     (ρ₁ ρ₂ : Lift ρbar) : Prop :=
   (p ≠ l → OnCommonComponent ⊥ l ρ₁.prime ρ₂.prime) ∧
@@ -629,7 +634,7 @@ variable {n : ℕ}
 `λ ∈ (ℤ^n_+)^{Hom(F, E)}` if its restriction to every place above `l` is. -/
 def IsOrdinaryOfWeight (l : ℕ) (ρ : Gal F →ₜ* GL (Fin n) E) (lam : (F →+* E) → Fin n → ℤ) :
     Prop :=
-  ∀ v : Place F, v.Above l →
+  (∀ τ, Antitone (lam τ)) ∧ ∀ v : Place F, v.Above l →
     IsOrdinaryOfWeightAt (resPlace ρ v) (fun τ => lam (τ.comp v.emb))
 
 /-- `(r, μ) ≅ (r_{l,ι}(π), r_{l,ι}(χ) ε_l^{1-n})`: the pair is automorphic through `π`. -/
@@ -694,10 +699,15 @@ structure CMData where
   [cm : IsCMField L]
   /-- The rank `n`. -/
   n : ℕ
+  n_pos : 0 < n
   unramified : Algebra.FormallyUnramified (𝓞 (maximalRealSubfield L)) (𝓞 L)
   /-- The chosen places `ṽ` above `S(B)`. -/
   SB : Set (Place L)
   SB_finite : SB.Finite
+  SB_split : ∀ w ∈ SB, DenseRange (w.emb.comp (algebraMap (maximalRealSubfield L) L))
+  SB_unique : ∀ w ∈ SB, ∀ w' ∈ SB,
+    (∃ e : w.Fv ≃+* w'.Fv, Continuous e ∧ ∀ x : maximalRealSubfield L,
+      e (w.emb (x : L)) = w'.emb (x : L)) → w = w'
   SB_even : Even n → Even (Nat.card SB)
 
 attribute [instance] CMData.field CMData.numberField CMData.cm
@@ -705,13 +715,25 @@ attribute [instance] CMData.field CMData.numberField CMData.cm
 /-- The maximal totally real subfield `L⁺`. -/
 abbrev CMData.Lplus (D : CMData) : Type := maximalRealSubfield D.L
 
+/-- The place `w` of `L` is split over `L⁺`: `L⁺` is dense in `L_w`. -/
+def CMData.IsSplit (D : CMData) (w : Place D.L) : Prop :=
+  DenseRange (w.emb.comp (algebraMap D.Lplus D.L))
+
+/-- The places `w`, `w'` of `L` induce the same place of `L⁺`. -/
+def CMData.SameBelow (D : CMData) (w w' : Place D.L) : Prop :=
+  ∃ e : w.Fv ≃+* w'.Fv, Continuous e ∧ ∀ x : D.Lplus, e (w.emb (x : D.L)) = w'.emb (x : D.L)
+
+/-- The place `w` of `L` lies above the place `v` of `L⁺`. -/
+def CMData.LiesAbove (D : CMData) (w : Place D.L) (v : Place D.Lplus) : Prop :=
+  ∃ f : v.Fv →+* w.Fv, Continuous f ∧ ∀ x : D.Lplus, f (v.emb x) = w.emb (x : D.L)
+
 /-- The finite adeles `𝔸^∞_{L⁺}`. -/
 abbrev CMData.finiteAdeles (D : CMData) : Type :=
   IsDedekindDomain.FiniteAdeleRing (𝓞 D.Lplus) D.Lplus
 
 /-- **`PL.2/definite-unitary-group`.** The points `G(R)` of the definite unitary group over
-`𝒪_{L⁺}` attached to `(M_n(L), *, 𝒪_B)`: quasi-split at every finite place and compact at every
-infinite place (Thorne 2012 §6). -/
+`𝒪_{L⁺}` attached to `(B, *, 𝒪_B)`: quasi-split at finite places outside `S(B)` and compact at
+every infinite place (Thorne 2012 §6 and Thorne 2015 §4.1). -/
 def unitaryGroup (D : CMData) (R : Type) [CommRing R] [Algebra (𝓞 D.Lplus) R] : Type := sorry
 
 instance (D : CMData) (R : Type) [CommRing R] [Algebra (𝓞 D.Lplus) R] :
@@ -738,7 +760,7 @@ structure HeckeDatum where
   /-- The finite set `T̃` of places of `L` above the split places `T ⊇ S_l ∪ R` of `L⁺`. -/
   T : Set (Place toCMData.L)
   T_finite : T.Finite
-  above_l_mem : ∀ v : Place toCMData.L, v.Above l → ∃ w ∈ T, v.IsEquivTo w
+  above_l_mem : ∀ v : Place toCMData.L, v.Above l → ∃ w ∈ T, toCMData.SameBelow v w
   /-- The subset `R̃ ⊂ T̃`. -/
   R : Set (Place toCMData.L)
   R_subset : R ⊆ T
@@ -1717,6 +1739,8 @@ characters of `G_{F_v}`, de Rham for `v | l`, with `(ψ_v ψ_{cv}^c)|I_{F_v} = �
 element of `S` is unramified over `F⁺` and `χ(c_v)` is independent of `v | ∞`, there is a
 continuous character `θ` of `G_F` with `θ θ^c = χ|G_F` and `θ|I_{F_v} = ψ_v|I_{F_v}` for
 `v ∈ S`. -/
+/- REVIEW: A.2.5 may enlarge coefficients; this fixed-E output is still
+an unresolved proposed signature, not a proved finite-field realization. -/
 theorem auxiliary_characters_1 [IsCMField F] (S : Set (Place F)) (hS : S.Finite)
     (hSl : ∀ v : Place F, v.Above l → ∃ w ∈ S, v.IsEquivTo w)
     (hSc : ∀ w ∈ S, ∃ v ∈ S, ∃ e : v.Fv →+* w.Fv,
@@ -2093,7 +2117,7 @@ theorem generic_smooth_points_2 (hpl : p ≠ l) (ρbar : Gal K →* GL (Fin n) �
     (∀ x : LiftingRing K E ρbar,
         (∀ P : Ideal (LiftingRing K E ρbar), IsClosedPointAway l P →
           IsRobustlySmoothAt ρbar P → x ∈ P) →
-        IsNilpotent ((l : LiftingRing K E ρbar) * x)) ∧
+        ∃ k m : ℕ, 0 < m ∧ (l : LiftingRing K E ρbar) ^ k * x ^ m = 0) ∧
       ∀ Q ∈ minimalPrimes (LiftingRing K E ρbar), (l : LiftingRing K E ρbar) ∉ Q →
         ∃ f : LiftingRing K E ρbar, f ∉ Q ∧
           ∀ (P : Ideal (LiftingRing K E ρbar)) [P.IsPrime], IsClosedPointAway l P → Q ≤ P →
@@ -2281,18 +2305,6 @@ instance CMData.algPlacePlus (D : CMData) (v : Place D.Lplus) : Algebra (𝓞 D.
 instance CMData.algPlacePlusInt (D : CMData) (v : Place D.Lplus) : Algebra (𝓞 D.Lplus) 𝒪[v.Fv] :=
   ((algebraMap (𝓞 D.Lplus) v.Fv).codRestrict 𝒪[v.Fv] (by sorry)).toAlgebra
 
-/-- The place `w` of `L` is split over `L⁺`: `L⁺` is dense in `L_w`. -/
-def CMData.IsSplit (D : CMData) (w : Place D.L) : Prop :=
-  DenseRange (w.emb.comp (algebraMap D.Lplus D.L))
-
-/-- The places `w`, `w'` of `L` induce the same place of `L⁺`. -/
-def CMData.SameBelow (D : CMData) (w w' : Place D.L) : Prop :=
-  ∃ e : w.Fv ≃+* w'.Fv, Continuous e ∧ ∀ x : D.Lplus, e (w.emb (x : D.L)) = w'.emb (x : D.L)
-
-/-- The place `w` of `L` lies above the place `v` of `L⁺`. -/
-def CMData.LiesAbove (D : CMData) (w : Place D.L) (v : Place D.Lplus) : Prop :=
-  ∃ f : v.Fv →+* w.Fv, Continuous f ∧ ∀ x : D.Lplus, f (v.emb x) = w.emb (x : D.L)
-
 /-- The place `w` of `L` does not lie above `S(B)`. -/
 def CMData.OutsideSB (D : CMData) (w : Place D.L) : Prop := ∀ u ∈ D.SB, ¬ D.SameBelow u w
 
@@ -2330,19 +2342,20 @@ completion `L⁺_v`. -/
 def adeleToPlacePlus (D : CMData) (v : Place D.Lplus) : D.finiteAdeles →ₐ[𝓞 D.Lplus] v.Fv :=
   sorry
 
-/-- AdelicAlgebraicGroups AA.0 (stand-in): the hyperspecial maximal compact subgroups of
+/-- AdelicAlgebraicGroups AA.1 (stand-in): the hyperspecial maximal compact subgroups of
 `G(L⁺_v)`. -/
 def hyperspecial (D : CMData) (v : Place D.Lplus) : Imported (Subgroup (unitaryGroup D v.Fv)) :=
   sorry
 
-/-- AdelicAlgebraicGroups AA.0 (stand-in): the groups of `L⁺_v`-points of the Borel subgroups of
+/-- AdelicAlgebraicGroups AA.1 (stand-in): the groups of `L⁺_v`-points of the Borel subgroups of
 `G` defined over `L⁺_v`. One exists exactly when `G` is quasi-split at `v`. -/
 def borelPoints (D : CMData) (v : Place D.Lplus) : Imported (Subgroup (unitaryGroup D v.Fv)) :=
   sorry
 
-/-- AdelicAlgebraicGroups AA.0 (stand-in): the invertible hermitian matrices `H ∈ M_n(L)`, for a
-CM field `L`, whose unitary group is quasi-split over the completion of `L⁺` below `w`. Every
-involution of the second kind on `M_n(L)` is `g ↦ H⁻¹ ᵗḡ H` for such an `H`. -/
+/-- PL.2 construction interface: the invertible hermitian matrices `H ∈ M_n(L)` whose
+unitary group is quasi-split over the completion of `L⁺` below `w`. Involutions of the second
+kind on `M_n(L)` arise from hermitian matrices; quasi-splitness is an additional condition.
+AA.1 supplies local points after the unitary model has been constructed here. -/
 def quasiSplitHermitian (L : Type) [Field L] [NumberField L] [IsCMField L] (n : ℕ)
     (w : Place L) : Imported (Matrix (Fin n) (Fin n) L) := sorry
 
@@ -2586,6 +2599,7 @@ structure HeckeDatum.Standing (D : HeckeDatum E) (lam : (D.L →+* E) → Fin D.
   l_odd : Odd D.l
   large : IsLargeFor D.L E
   T_split : ∀ v ∈ D.T, D.toCMData.IsSplit v
+  T_unique : ∀ w ∈ D.T, ∀ w' ∈ D.T, D.toCMData.SameBelow w w' → w = w'
   R_outside : ∀ v ∈ D.R, D.toCMData.OutsideSB v
   l_outside : ∀ v : Place D.L, v.Above D.l → D.toCMData.OutsideSB v
   dominant : ∀ (τ : D.L →+* E) (i j : Fin D.n), i ≤ j → lam τ j ≤ lam τ i
@@ -2826,7 +2840,10 @@ theorem heckeOperator_apply (hlev : D.SphericalOutsideT) (A : Type) [AddCommGrou
     [Module 𝒪[E] A] (w : Place D.L) (hw : D.IsHeckePlace w) (j : ℕ) (hj : 1 ≤ j ∧ j ≤ D.n)
     (ϖ : (w.Fv)ˣ) (hϖ : IsUniformizer w.Fv ϖ) (α : D.G)
     (hα : IsLocalAt D.toCMData w hw.2.2 (diagBlock w.Fv D.n j ϖ) α) (s : Finset D.G)
-    (hs : IsCosetDecomposition D.level α s) (f : AlgebraicModularForm D lam A) (g : D.G) :
+    (hs : IsCosetDecomposition D.level α s)
+    (hsupport : ∀ x ∈ s, ∀ v : Place D.toCMData.Lplus,
+      ¬ D.toCMData.LiesAbove w v → localProjPlus D.toCMData v x = 1)
+    (f : AlgebraicModularForm D lam A) (g : D.G) :
     (heckeOperator D lam A w j f).1 g = ∑ x ∈ s, f.1 (g * x) := by
   sorry
 
@@ -4942,7 +4959,7 @@ theorem twLevel1_le : twLevel1 Q ≤ twLevel0 Q := by
   sorry
 
 /-- `U₁(Q) ⊴ U₀(Q)` with `U₀(Q)/U₁(Q) ≅ Δ_Q = ∏_{v ∈ Q} k(ṽ)^×(l)`. -/
-theorem twLevel_quotient :
+theorem twLevel_quotient (hlev : D.MinimalLevel) :
     ((twLevel1 Q).subgroupOf (twLevel0 Q)).Normal ∧
       ∃ φ : twLevel0 Q →* ((v : Q.Q) → lQuot (𝓀[v.1.Fv])ˣ D.l),
         Function.Surjective φ ∧ φ.ker = (twLevel1 Q).subgroupOf (twLevel0 Q) := by
@@ -5004,6 +5021,8 @@ def twV (v : Place D.L) (j : ℕ) : Module.End 𝒪[E] (AlgebraicModularForm Q.d
 theorem twV_apply (v : Place D.L) (hv : v ∈ Q.Q) (j : ℕ) (hj : 1 ≤ j ∧ j ≤ Q.d v) (a : D.G)
     (ha : IsLocalAt D.toCMData v (Q.hecke v hv).2.2 (diagMid v.Fv D.n (Q.d v) j (Q.ϖ v)) a)
     (s : Finset D.G) (hs : IsCosetDecomposition (twLevel1 Q) a s)
+    (hsupport : ∀ x ∈ s, ∀ u : Place D.toCMData.Lplus,
+      ¬ D.toCMData.LiesAbove v u → localProjPlus D.toCMData u x = 1)
     (f : AlgebraicModularForm Q.datum1 lam 𝒪[E]) (g : D.G) :
     (twV Q v j f).1 g = ∑ x ∈ s, f.1 (g * x) := by
   sorry
@@ -5394,7 +5413,7 @@ def DefProblem.univChar (S : DefProblem F E n Λ) (l : ℕ) (v : Place F) (i : F
 
 end GlobalD
 
-/-- AdelicAlgebraicGroups AA.0 (stand-in): the open compact subgroup `U = ∏_v U_v` of
+/-- AdelicAlgebraicGroups AA.1 (stand-in): the open compact subgroup `U = ∏_v U_v` of
 `G(𝔸^∞_{L⁺})` of Allen–Newton–Thorne §4.2 for the decomposition `T = S_l ⊔ S(B) ⊔ R ⊔ S_a`:
 `U_v = G(𝒪_{L⁺_v})` at the split places outside `T` and at the places above `l`, a hyperspecial
 maximal compact subgroup at the inert places, the maximal compact subgroup at `S(B)`, an Iwahori
@@ -8383,13 +8402,16 @@ theorem charPolySubring_etale (S : DefProblem F E n Λ) (hl : Odd l) {d : ℕ}
   sorry
 
 /-- Thorne 2015, Lemma 3.28: for `q ≥ 0` there is `C = C(q, r̄, S)` such that for every
-deformation problem `𝒮'` with residual representation `r̄`, unramified outside a set `S' ⊃ S` of
+deformation problem `𝒮'` over the ordinary coefficient algebra of §3.2, with residual
+representation `r̄`, unramified outside a set `S' ⊃ S` of
 places split in `F` with `|S' - S| ≤ q`, the ring `P_{𝒮'}` is a quotient of a power series ring
 over `𝒪` in `C` variables. -/
 theorem charPolySubring_generators (hl : Odd l)
     (rbar : Gal (maximalRealSubfield F) →* CHT n 𝓀[E]) (hcont : IsContinuousResidual rbar)
     (hS : IsSchur rbar) (S₀ : Set (Place F)) (hS₀ : S₀.Finite) (q : ℕ) :
-    ∃ C : ℕ, ∀ S' : DefProblem F E n Λ, S'.resid = rbar → S₀ ⊆ S'.places →
+    ∃ C : ℕ, ∀ S' : DefProblem F E n Λ,
+      (ordinaryCoefficients F E n Λ l).Holds S' →
+      S'.resid = rbar → S₀ ⊆ S'.places →
       (S'.places \ S₀).ncard ≤ q →
       ∃ f : MvPowerSeries (Fin C) 𝒪[E] →+* charPolySubring S', Function.Surjective f ∧
         ∀ a : 𝒪[E], f (MvPowerSeries.C a) =
@@ -9435,7 +9457,7 @@ theorem generic_prime_r_equals_t (D : HeckeDatum E) (Sa : Set (Place D.L))
     (h3SB : ∀ v ∈ D.toCMData.SB,
       IsUnramified (resFieldHom (CHT.glRes (S₁.liftMod 𝔭)) v.emb) ∧
         IsScalarGL (CHT.glRes (S₁.liftMod 𝔭) v.frob))
-    (h4 : IsPrimitive (CHT.glRes S₁.resid))
+    (h4 : IsStronglyPrimitive (CHT.glRes S₁.resid))
     (h5ζ : ∀ ζ : D.L, ¬ IsPrimitiveRoot ζ D.l)
     (h5Schur : IsSchur (resFieldHom S₁.resid (algebraMap (maximalRealSubfield D.L)
       (CyclotomicField D.l (maximalRealSubfield D.L)))))
@@ -9459,7 +9481,7 @@ theorem generic_prime_r_equals_t_scalar (D : HeckeDatum E) (Sa : Set (Place D.L)
     (h3R : ∀ v ∈ D.R, IsUnramified (resFieldHom (CHT.glRes (S₁.liftMod 𝔭)) v.emb) ∧
       IsScalarGL (CHT.glRes (S₁.liftMod 𝔭) v.frob) ∧
       ∃ N : ℕ, D.n < D.l ^ N ∧ D.l ^ N ∣ v.norm - 1 ∧ ¬ D.l ^ (N + 1) ∣ v.norm - 1)
-    (h4 : IsPrimitive (CHT.glRes S₁.resid))
+    (h4 : IsStronglyPrimitive (CHT.glRes S₁.resid))
     (h5ζ : ∀ ζ : D.L, ¬ IsPrimitiveRoot ζ D.l)
     (h5Schur : IsSchur (resFieldHom S₁.resid (algebraMap (maximalRealSubfield D.L)
       (CyclotomicField D.l (maximalRealSubfield D.L)))))
@@ -12017,6 +12039,8 @@ for `π` at the places dividing `p`. Then `r ≅ r_ι(π')` for a RACSDC `π'` o
 `σ(τ)` a `K`-type at the places dividing `p`. The source does not define "`K`-type" and "weight
 `λ`" for `π`; they are read as: `π_w|GL_n(𝒪_{F_w})` contains `σ(τ_w)` for each `w | p`
 (`Lifting.kType`), and `r_ι(π)` has Hodge–Tate weights `λ + η` (`RACP.HasWeight`). -/
+/- REVIEW: the LLHLM source has HT(ε) = +1. The common-convention λ
+and genericity indices here still need the explicit conversion in the packet gap. -/
 theorem generic_local_domain_lifting {F : Type} [Field F] [NumberField F] [IsCMField F]
     {E : Type} [Field E] [ValuativeRel E] [TopologicalSpace E] [IsNonarchimedeanLocalField E]
     [IsLargeFor F E] {n : ℕ} {p : ℕ} [ResChar E p] (hp : p.Prime) (ι : E →+* ℂ)
