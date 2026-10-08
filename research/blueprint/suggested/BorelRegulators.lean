@@ -61,7 +61,8 @@ namespace TauCeti.Borel
 
 /-! ## R.1 Arithmetic groups and finiteness infrastructure -/
 
-/-- Proper nonzero subspaces of a module over a division ring, ordered by inclusion. -/
+/-- Proper nonzero subspaces of a left module over a division ring, ordered by inclusion.
+Arithmetic right `D`-spaces use this construction with the opposite ring `Dᵐᵒᵖ`. -/
 abbrev ProperSubspace (D V : Type*) [DivisionRing D] [AddCommGroup V] [Module D V] :=
   {W : Submodule D V // W ≠ ⊥ ∧ W ≠ ⊤}
 
@@ -84,8 +85,9 @@ theorem divisionBuilding_simplex (σ : Finset (ProperSubspace D V)) :
       σ.Nonempty ∧ IsChain (· ≤ ·) (σ : Set (ProperSubspace D V)) := by sorry
 
 theorem divisionBuilding_edge [DecidableEq (ProperSubspace D V)] (W W' : ProperSubspace D V) :
-    ({W, W'} : Finset (ProperSubspace D V)) ∈ (divisionBuilding D V).faces ↔
-      W ≤ W' ∨ W' ≤ W := by sorry
+    (({W, W'} : Finset (ProperSubspace D V)).card = 2 ∧
+      ({W, W'} : Finset (ProperSubspace D V)) ∈ (divisionBuilding D V).faces) ↔
+      W ≠ W' ∧ (W ≤ W' ∨ W' ≤ W) := by sorry
 
 /-- A linear equivalence carries proper nonzero subspaces to proper nonzero subspaces. -/
 def divisionBuilding_map (e : V ≃ₗ[D] V') : ProperSubspace D V ≃o ProperSubspace D V' := by sorry
@@ -115,6 +117,11 @@ example (D : Type*) [DivisionRing D] [DecidableEq (ProperSubspace D (Fin 3 → D
     (hP : (P : Submodule D (Fin 3 → D)) = Submodule.span D {Pi.single 0 1, Pi.single 1 1}) :
     ({L, P} : Finset _) ∈ (divisionBuilding D (Fin 3 → D)).faces ∧
       ({L, L'} : Finset _) ∉ (divisionBuilding D (Fin 3 → D)).faces := by sorry
+-- TauCeti.Borel.divisionBuilding_repeated_vertex
+example (D V : Type*) [DivisionRing D] [AddCommGroup V] [Module D V]
+    [DecidableEq (ProperSubspace D V)] (W : ProperSubspace D V) :
+    ({W, W} : Finset (ProperSubspace D V)).card = 1 ∧
+      ({W, W} : Finset (ProperSubspace D V)) ∈ (divisionBuilding D V).faces := by sorry
 -- TauCeti.Borel.divisionBuilding_not_order_submodules
 example : ¬ ∃ W : Submodule ℚ (Fin 2 → ℚ),
     (W : Set (Fin 2 → ℚ)) = Set.range (fun v : Fin 2 → ℤ => fun i => (v i : ℚ)) := by sorry
@@ -621,25 +628,27 @@ above. The remaining entries are mathematical signatures; they are not Lean decl
 
 TauCeti.Borel.orderArithmeticSystem
   node BorelRegulators:R.1/order-arithmetic-system, construction
-  Statement: Let F be a number field, D a finite-dimensional central division F-algebra of degree e, and O a ℤ-order in D in the sense of ClassicalArithmeticCompletion CA.7 (a subring containing 1 that is a full ℤ-lattice). For n≥2 put G_n=Res_{F/ℚ} SL_n(D), the group of elements of M_n(D) of reduced norm one, and Γ_n=SL_n(O)=G_n(ℚ)∩M_n(O). For a projective O-lattice P of rank n≥1 spanning V=D^n put Γ_P=Aut_O(P)⊂GL_D(V). The construction makes Γ_n and Γ_P arithmetic subgroups of Res_{F/ℚ}SL_n(D) and Res_{F/ℚ}GL_D(V), records the real Lie group G_n(ℝ)=∏_{v|∞}SL_n(D⊗_F F_v) with each factor SL_{ne}(ℝ), SL_{ne/2}(ℍ) or SL_{ne}(ℂ), and records the block maps g↦diag(g,1) from Γ_n to Γ_{n+1} and from G_n to G_{n+1}.
+  Statement: Let F be a number field, D a finite-dimensional central division F-algebra of degree e, and O a ℤ-order in D in the sense of ClassicalArithmeticCompletion CA.7 (a subring containing 1 that is a full ℤ-lattice). For n≥2 put G_n=Res_{F/ℚ} SL_n(D), the group of elements of M_n(D) of reduced norm one, and Γ_n=SL_n(O)=G_n(ℚ)∩M_n(O). For a projective right O-lattice P of rank n≥1, put V=P⊗_O D, a right D-space isomorphic to D^n, and put Γ_P=Aut_O(P)⊂GL_D(V). The construction makes Γ_n and Γ_P arithmetic subgroups of Res_{F/ℚ}SL_n(D) and Res_{F/ℚ}GL_D(V), records the real Lie group G_n(ℝ)=∏_{v|∞}SL_n(D⊗_F F_v) with each factor SL_{ne}(ℝ), SL_{ne/2}(ℍ) or SL_{ne}(ℂ), and records the block maps g↦diag(g,1) from Γ_n to Γ_{n+1} and from G_n to G_{n+1}.
   Hypothesis: O is a subring of D containing 1 which is finitely generated as a ℤ-module and spans D over ℚ; D is a division algebra with centre F.
-  Hypothesis: Mathlib's modules are left modules: V is a left D-module and subspaces are left D-subspaces. A right D-space is a left module over the opposite algebra, which is again a central division F-algebra.
+  Hypothesis: In the arithmetic application P is a right O-module and V=P⊗_O D is a right D-space; matrices act on columns by left multiplication. In Mathlib this is a left Module Dᵐᵒᵖ V. The generic building and Steinberg constructions apply to that opposite division algebra, and GL_D(V) here denotes right-D-linear automorphisms. In arithmetic statements Δ_D(V) and St_D(V) mean the right-subspace constructions, implemented by the generic building and Steinberg module over Dᵐᵒᵖ.
   API TauCeti.Borel.orderArithmeticSystem_block (functoriality): The block inclusion Γ_n→Γ_{n+1} agrees with diag(g,1) on matrices and composes to diag(g,I_r).
   API TauCeti.Borel.orderArithmeticSystem_archimedean (projection): The real Lie group of G_n is the product of the factors SL_{ne}(R), SL_{ne/2}(H) at ramified real places, and SL_{ne}(C) at complex places.
   API TauCeti.Borel.orderArithmeticSystem_rank (characterisation): For n≥2, rank_Q G_n=n−1.
   API TauCeti.Borel.orderArithmeticSystem_equiv (compatibility): An order algebra isomorphism induces the corresponding isomorphism of matrix groups and commutes with every block inclusion.
-  API TauCeti.Borel.orderArithmeticSystem_projective (data): For a projective O-lattice P of rank n≥1 spanning V, Aut_O(P) is an arithmetic subgroup of Res_{F/ℚ}GL_D(V), commensurable with GL_n(O) after a choice of D-basis of V.
+  API TauCeti.Borel.orderArithmeticSystem_projective (data): For a projective right O-lattice P of rank n≥1 spanning V, Aut_O(P) is an arithmetic subgroup of Res_{F/ℚ}GL_D(V), commensurable with GL_n(O) after a choice of D-basis of V.
   Test TauCeti.Borel.orderArithmeticSystem_split (compatibility): For D=F and O=O_F, Γ_n=SL_n(O_F).
   Test TauCeti.Borel.orderArithmeticSystem_rank_two (computation): For n=2 and any central division D, rank_Q G_2=1.
   Test TauCeti.Borel.orderArithmeticSystem_norm_one (non-example): For F=Q, diag(2,1) lies in GL_2(Q) but not in Γ_2 for O=Z, and not in SL_2(Q).
+  Acceptance: For D=F and O=O_F obtain the ordinary SL_n(O_F), not GL_n or norm-one units of O_F.
+  Acceptance: The Q-rank of G_n is n−1 independently of the degree of D.
 
 TauCeti.Borel.divisionBuilding  [Part 1]
   node BorelRegulators:R.1/division-building, definition
   Statement: For a division ring D and a D-module V of finite dimension n, let S(V) be the type of proper nonzero D-subspaces of V, ordered by inclusion. The building Δ(V) is the order complex of S(V), in the sense of Tau Ceti's AbstractSimplicialComplex.orderComplex: its vertices are the elements of S(V) and its faces are the nonempty finite chains. A D-linear equivalence V≃W induces an isomorphism Δ(V)≅Δ(W) by taking images of subspaces, so Aut_D(V) acts simplicially on Δ(V). For n≤1 the type S(V) is empty and Δ(V) is the empty complex; reduced homology in degree −1 is fixed in the Steinberg module, not here.
-  Hypothesis: D is a division ring, not necessarily commutative; V is a D-module of finite dimension.
+  Hypothesis: D is a division ring, not necessarily commutative; V is a D-module of finite dimension. This is a left module in Mathlib; for an arithmetic right D-space use the scalar ring Dᵐᵒᵖ.
   API TauCeti.Borel.divisionBuilding_vertices (data)  [Part 1]: The vertex type of Δ(V) is S(V), the proper nonzero D-subspaces of V.
   API TauCeti.Borel.divisionBuilding_simplex (characterisation)  [Part 1]: A finite set of vertices is a face iff it is nonempty and totally ordered by inclusion.
-  API TauCeti.Borel.divisionBuilding_edge (characterisation)  [Part 1]: Two vertices W, W′ span an edge iff W≤W′ or W′≤W.
+  API TauCeti.Borel.divisionBuilding_edge (characterisation)  [Part 1]: Two vertices W, W′ span an edge iff W≠W′ and (W≤W′ or W′≤W); an edge is a face with two distinct vertices.
   API TauCeti.Borel.divisionBuilding_map (functoriality)  [Part 1]: A D-linear equivalence V≃W induces a simplicial isomorphism Δ(V)≅Δ(W), with identity and composition laws.
   API TauCeti.Borel.divisionBuilding_action (structure)  [Part 1]: Aut_D(V) acts on Δ(V) by simplicial automorphisms; every subgroup, in particular Aut_O(P), acts by restriction.
   API TauCeti.Borel.divisionBuilding_dim (characterisation)  [Part 1]: Every face has at most n−1 vertices, and a maximal chain has exactly n−1; so Δ(V) has dimension n−2 for n≥2.
@@ -647,6 +656,10 @@ TauCeti.Borel.divisionBuilding  [Part 1]
   Test TauCeti.Borel.divisionBuilding_rank_two (computation)  [Part 1]: For dim V=2 every face of Δ(V) is a single vertex: two distinct lines are incomparable, so there is no edge.
   Test TauCeti.Borel.divisionBuilding_rank_three_edge (computation)  [Part 1]: For V=D³ with basis e₁,e₂,e₃, the line De₁ and the plane De₁+De₂ span an edge, and De₁ and De₂ do not.
   Test TauCeti.Borel.divisionBuilding_not_order_submodules (non-example)  [Part 1]: For V=ℚ², neither ℤ² nor 2ℤ² is a vertex: they are not ℚ-subspaces, and the subspace each spans is the excluded V.
+  Test TauCeti.Borel.divisionBuilding_repeated_vertex (non-example)  [Part 1]: For any proper nonzero subspace W, {W,W}={W} is a face with one vertex and is not an edge, despite W≤W.
+  Acceptance: Vertices are subspaces over D; lattices over an order are not vertices.
+  Acceptance: The definition is the Tau Ceti order complex of a subtype of Mathlib's Submodule D V; no second simplicial-complex structure is introduced.
+  Acceptance: Distinguish a pair that is a face from an edge: a repeated vertex produces a singleton face.
 
 TauCeti.Borel.steinbergModule
   node BorelRegulators:R.1/steinberg-module, definition
@@ -659,7 +672,9 @@ TauCeti.Borel.steinbergModule
   API TauCeti.Borel.steinbergModule_apartment (constructor): An ordered D-basis gives the oriented apartment class; permutations act by their sign and replacing any basis vector by a nonzero multiple leaves the apartment unchanged.
   Test TauCeti.Borel.steinbergModule_one (degenerate): St_D(D)=Z, not zero.
   Test TauCeti.Borel.steinbergModule_two (computation): For D=F_q, rank_Z St_D(D²)=q.
-  Test TauCeti.Borel.steinbergModule_rational_lines (non-example): For D=Q and n=2 the underlying abelian group has infinite rank, despite the arithmetic group having a finite classifying-space model.
+  Test TauCeti.Borel.steinbergModule_rational_lines (non-example): For D=Q and n=2 the underlying abelian group has infinite rank, although a torsion-free subgroup of finite index in GL₂(ℤ) has a finite classifying-space model.
+  Acceptance: For n=2 it is the kernel of the augmentation ℤ[lines of V]→ℤ, not H₀ of the set of lines.
+  Acceptance: For n=1 it is ℤ, so that the rank-one term of the rank filtration is the homology of the unit group with constant coefficients.
 
 TauCeti.Borel.solomonTits
   node BorelRegulators:R.1/solomon-tits, theorem
@@ -670,12 +685,14 @@ TauCeti.Borel.solomonTits
 
 TauCeti.Borel.steinbergHomology_finitelyGenerated
   node BorelRegulators:R.1/steinberg-duality-finiteness, theorem
-  Statement: Let O be an order in a central division algebra D over a number field F, P a projective O-lattice of rank n≥1, V=P⊗_O D, and Γ a subgroup of Aut_D(V) commensurable with Aut_O(P). Then H_i(Γ;St_D(V)) is a finitely generated abelian group for every i≥0. More precisely, let X̄ be the Borel–Serre bordification for G=Res_{F/ℚ}GL_D(V), of dimension d, and let Γ′⊂Γ be a torsion-free subgroup of finite index that acts on X̄ preserving orientation. Then, with ν=d−(n−1), H_i(Γ′;St_D(V)⊗M)≅H^{ν−i}(Γ′;M) for all i and every ℤ[Γ′]-module M that is finitely generated and free over ℤ, in particular for M=ℤ. For a torsion-free Γ′ that does not preserve orientation, St_D(V) is replaced by its twist by the orientation character; for D=F and Γ′⊂GL_n(O_F) that character is the (n−1)-st power of g↦sign N_{F/ℚ}(det g).
+  Statement: Let O be an order in a central division algebra D over a number field F, P a projective right O-lattice of rank n≥1, V=P⊗_O D, and Γ a subgroup of Aut_D(V) commensurable with Aut_O(P). Then H_i(Γ;St_D(V)) is a finitely generated abelian group for every i≥0. More precisely, let G=Res_{F/ℚ}GL_D(V), let A_G be its maximal ℚ-split central torus, and let X̄ be the Borel–Serre bordification of X=G(ℝ)/(K·A_G(ℝ)°), of dimension d, and let Γ′⊂Γ be a torsion-free subgroup of finite index that acts on X̄ preserving orientation. Then, with ν=d−(n−1), H_i(Γ′;St_D(V)⊗M)≅H^{ν−i}(Γ′;M) for all i and every ℤ[Γ′]-module M that is finitely generated and free over ℤ, in particular for M=ℤ. For a torsion-free Γ′ that does not preserve orientation, St_D(V) is replaced by its twist by the orientation character; for D=F and Γ′⊂GL_n(O_F) that character is the (n−1)-st power of g↦sign N_{F/ℚ}(det g).
   Hypothesis: Γ is commensurable with Aut_O(P); for D=F and O=O_F this is every subgroup of GL_n(F) commensurable with GL_n(O_F).
   Hypothesis: The duality statement is integral and needs Γ′ torsion-free; a finite CW model of BΓ′ alone does not bound H_*(Γ′;St), since St is not finitely generated over ℤ.
+  Hypothesis: Remove the connected real points of the maximal ℚ-split central torus before defining d. For D=F, d=r₁n(n+1)/2+r₂n²−1 and ν=d−(n−1)=r₁n(n+1)/2+r₂n²−n (Putman–Studenmund, Proposition 2.1, p.8).
   Acceptance: For F=ℚ, n=2 and Γ′ torsion-free of finite index in SL₂(ℤ): ν=1, H¹(Γ′;ℤ)≅H₀(Γ′;St) and H⁰(Γ′;ℤ)≅H₁(Γ′;St).
   Acceptance: For n even and O_F with a unit of norm −1, the dualizing module of GL_n(O_F) is the twist of St by the sign of the norm of the determinant and is not St itself; the statement keeps the twist.
   Acceptance: For n=1 the statement is finite generation of the homology of a group commensurable with O^×.
+  Acceptance: For F=ℚ, D=F and n=2, d=2 and ν=1; retaining the positive scalar centre would incorrectly give d=3.
 
 ## R.2 Continuous and relative Lie-algebra cohomology
 
@@ -691,34 +708,42 @@ TauCeti.Borel.arithmeticRestriction  [Part 1]
   Test TauCeti.Borel.arithmeticRestriction_degree_zero (computation): For trivial coefficients, the degree-zero restriction R→R is identity.
   Test TauCeti.Borel.arithmeticRestriction_trivial_group (degenerate)  [Part 1]: For Γ={1} and q>0, restriction has zero target.
   Test TauCeti.Borel.arithmeticRestriction_degree_two (compatibility): The degree-two discrete comparison agrees with TauCeti.ContCohomology.explicitH2IsoGroupCohomology on a cocycle class.
+  Acceptance: The source is the continuous cohomology of the topological group G, not the cohomology of G as a discrete group.
+  Acceptance: The continuous part of the declaration is the Mathlib map; only the comparison with group cohomology of the discrete group is new.
 
 TauCeti.Borel.arithmeticInvariantFormMap
   node BorelRegulators:R.2/arithmetic-invariant-form-map, construction
-  Statement: Let G be a connected semisimple ℚ-group, K a maximal compact subgroup of G(ℝ), X=K\G(ℝ), g=k⊕p the Cartan decomposition and Γ an arithmetic subgroup of G(ℚ). Let I_G^{Γ,q} be the space of q-forms on X invariant under G(ℝ)° and under Γ; such forms are closed, and I_G^{Γ,q} is the space of invariants of H^q(g,k;ℝ)=(∧^q p^*)^{K°} under the image of Γ in K/K°=π₀(G(ℝ)). The map j_Γ:I_G^{Γ,q}→H^q(Γ;ℝ) sends a form to its de Rham class on X/Γ′ for a torsion-free normal subgroup Γ′ of finite index, which lies in H^q(Γ′;ℝ)^{Γ/Γ′}=H^q(Γ;ℝ). In the relative Lie algebra description of the cohomology of X/Γ′ it is induced by the inclusion of the constant functions into C^∞(Γ′\G(ℝ)), and under van Est it is arithmeticRestriction. If Γ meets every component of G(ℝ) the source is H^q(g,K;ℝ), the cohomology of the pair with the full group K; if G(ℝ) is connected, as for G_n, it is H^q(g,k;ℝ).
+  Statement: Let G be a connected semisimple ℚ-group, K a maximal compact subgroup of G(ℝ), X=K\G(ℝ), g=k⊕p the Cartan decomposition and Γ an arithmetic subgroup of G(ℚ). Put G_Γ=G(ℝ)°Γ and K_Γ=K∩G_Γ, so X≅K_Γ\G_Γ. Let I_G^{Γ,q} be the space of q-forms on X invariant under G(ℝ)° and under Γ; such forms are closed. This is H^q(g,K_Γ;ℝ), equivalently the invariants of H^q(g,k;ℝ)=(∧^q p^*)^{K°} under the image of Γ in K/K°. Choose a torsion-free normal subgroup Γ′ of finite index contained in G(ℝ)°. The map j_Γ:I_G^{Γ,q}→H^q(Γ;ℝ) sends a form to its de Rham class on X/Γ′ and then descends through H^q(Γ′;ℝ)^{Γ/Γ′}=H^q(Γ;ℝ). Before descent, j_{Γ′} is induced by the constants in C^∞(Γ′\G(ℝ)°). Under van Est for (G_Γ,K_Γ), j_Γ is restriction along Γ→G_Γ. If Γ meets every real component, G_Γ=G(ℝ) and the source is H^q(g,K;ℝ); if Γ⊂G(ℝ)°, the source is H^q(g,k;ℝ).
   Hypothesis: G connected semisimple over ℚ; Γ arithmetic. The Betti, de Rham and relative Lie algebra descriptions of H^*(X/Γ′) are those of ALS.5/de-rham-comparison, which uses no automorphic input.
   Hypothesis: Real coefficients are used for the descent from Γ′ to Γ.
-  API TauCeti.Borel.arithmeticInvariantFormMap_vanEst (compatibility): j_Γ=res_Γ∘vanEst⁻¹ on H^q(g,K;ℝ), for the van Est isomorphism of AF.1a/van-est-isomorphism.
+  Hypothesis: Intersect a neat normal finite-index subgroup with G(ℝ)° when choosing Γ′. The coefficient module for its relative Lie algebra description uses Γ′\G(ℝ)°, rather than the disconnected full real group.
+  API TauCeti.Borel.arithmeticInvariantFormMap_vanEst (compatibility): j_Γ=res_{Γ→G_Γ}∘vanEst⁻¹ on H^q(g,K_Γ;ℝ), using van Est for (G_Γ,K_Γ). It is the full-group formula with K only when Γ meets every real component.
   API TauCeti.Borel.arithmeticInvariantFormMap_descent (characterisation): Its pullback to a torsion-free finite-index Γ′ equals the invariant form on X/Γ′.
-  API TauCeti.Borel.arithmeticInvariantFormMap_component (projection): The source is the space of invariants of H^q(g,k;ℝ) under the image of Γ in K/K°; it equals H^q(g,K;ℝ) when Γ meets every component of G(ℝ), and H^q(g,k;ℝ) when G(ℝ) is connected.
+  API TauCeti.Borel.arithmeticInvariantFormMap_component (projection): The source H^q(g,K_Γ;ℝ) is the space of invariants of H^q(g,k;ℝ) under the image of Γ in K/K°; it is H^q(g,K;ℝ) when Γ meets every real component and H^q(g,k;ℝ) when Γ⊂G(ℝ)°.
   API TauCeti.Borel.arithmeticInvariantFormMap_cup (compatibility): jΓ sends wedge products of invariant forms to cup products.
   API TauCeti.Borel.arithmeticInvariantFormMap_coeff (functoriality): Extension R→C commutes with the map and with Betti/de Rham comparison.
-  API TauCeti.Borel.arithmeticInvariantFormMap_constants (characterisation): Under ALS.5/de-rham-comparison, j_{Γ′} is the map on (g,K°)-cohomology induced by the inclusion ℝ→C^∞(Γ′\G(ℝ)) of the constant functions.
+  API TauCeti.Borel.arithmeticInvariantFormMap_constants (characterisation): For Γ′⊂G(ℝ)° as above, j_{Γ′} is the map on (g,K°)-cohomology induced by ℝ→C^∞(Γ′\G(ℝ)°); it descends to j_Γ by finite-quotient invariants.
   Test TauCeti.Borel.arithmeticInvariantFormMap_unit (computation): The constant invariant 0-form 1 maps to the unit cohomology class.
   Test TauCeti.Borel.arithmeticInvariantFormMap_point (degenerate): If X/Γ is a point then every positive-degree class maps to zero.
   Test TauCeti.Borel.arithmeticInvariantFormMap_component_invariants (non-example): For G=PGL₂ over ℚ, K=PO₂ and Γ=PGL₂(ℤ): the non-identity component of K reverses the orientation of the two-dimensional space p, so it acts by −1 on H²(g,k;ℝ)=ℝ, and Γ meets that component. The degree-two source of j_Γ is therefore zero; a definition with source H²(g,k;ℝ) would be wrong.
+  Test TauCeti.Borel.arithmeticInvariantFormMap_missing_components (non-example): For G=PGL₂ over ℚ and Γ=PGL₂(ℤ)∩G(ℝ)°, the degree-two invariant-form source is ℝ, whereas for PGL₂(ℤ) it is zero. This tests the source of the map, without asserting that its degree-two image is nonzero.
+  Acceptance: Constructing the map uses no automorphic decomposition and no Matsushima formula.
+  Acceptance: For G=PGL₂ and Γ=PGL₂(ℤ) the degree-two source is zero, although H²(g,k;ℝ) is one-dimensional.
+  Acceptance: When Γ misses real components, use G_Γ in the continuous-cohomology comparison and G(ℝ)° before finite descent; the full real group gives the wrong source.
 
 TauCeti.Borel.arithmeticComparison_block_natural
   node BorelRegulators:R.2/block-comparison-naturality, theorem
   Statement: For an injective real algebraic homomorphism f:G→G′ taking Γ into Γ′, choose K′ containing f(K). The invariant-form restriction, relative Lie pullback, continuous-cohomology pullback and arithmetic-group pullback form commuting squares with jΓ and jΓ′. In the order system this holds for every diag(g,I_r) and commutes with coefficient extension R→C. The induced compact-dual pullback is independent of compatible maximal-compact choices up to the canonical conjugacy identifications.
-  Hypothesis: Groups, arithmetic subgroups and compact duals satisfy the R.2 comparison hypotheses.
+  Hypothesis: Groups, arithmetic subgroups and compact duals satisfy the R.2 comparison hypotheses. For disconnected real groups use f:G_Γ→G′_{Γ′} and compatible maximal compact subgroups K_Γ,K′_{Γ′}, as in arithmeticInvariantFormMap.
   Acceptance: Composing two block inclusions gives the same comparison square as their single block inclusion.
 
 TauCeti.Borel.stableComparison_hopf
   node BorelRegulators:R.2/stable-hopf-compatibility, theorem
   Statement: For an order O as in R.1, block sum SL_m(O)×SL_n(O)→SL_{m+n}(O) makes H_*(SL(O);ℝ)=colim_n H_*(SL_n(O);ℝ) a connected graded commutative and cocommutative Hopf algebra, and H^*(SL(O);ℝ), taken degree by degree, its dual. The stable comparison with invariant forms, equivalently with the cohomology of the compact duals with their block-sum maps, is a morphism of Hopf algebras: it preserves unit, product, coproduct and augmentation. Hence it preserves primitive elements and induces a map on indecomposables QH^i=H^i/(decomposables), and in each degree in which cohomology is finite-dimensional the primitive part of H_i is the dual of QH^i, not of all of H^i.
   Hypothesis: Cohomology is taken in a range of degrees where it has stabilised and is finite-dimensional over ℝ.
-  Hypothesis: The block-sum product on homology is the Pontryagin product of the H-space BGL(O)⁺ restricted along SL(O)→GL(O).
+  Hypothesis: Define the product directly on the filtered colimit of SL homology by finite block sums and Künneth; define the coproduct by the group diagonal. The map to GL homology and then BGL(O)⁺ preserves these products, but no product is transported backwards along SL→GL.
   Acceptance: An exterior product of two positive-degree generators is excluded from the indecomposable quotient.
+  Acceptance: The SL Hopf structure is defined before the E/SL comparison and does not require injectivity of H_*(SL)→H_*(GL).
 
 ## R.3 The stable cohomology calculation
 
@@ -744,18 +769,20 @@ TauCeti.Borel.compactDual_stable_in_degree
 
 TauCeti.Borel.invariantForms_bijective_of_squareIntegrable
   node BorelRegulators:R.3/matsushima-garland-criterion, theorem
-  Statement: Let G be a real semisimple Lie group with finitely many components and finite centre, K a maximal compact subgroup, X=K\G with a G-invariant metric, Γ a discrete subgroup with X/Γ of finite volume and Γ′⊂Γ a torsion-free normal subgroup of finite index. Write Ω^Γ for the complex of Γ-invariant forms on X, I^Γ for its subspace of forms also invariant under G°, and j^q:I^{Γ,q}→H^q(Γ;ℝ) for the map of R.2. For a connected simple noncompact group G₁ with Cartan decomposition k₁⊕p₁, Matsushima's constant m(G₁) is the largest q for which the quadratic form (A/q)(ξ,ξ)+P(ξ,ξ) on the symmetric square of p₁ is positive definite; here (ξ,ξ) comes from the Killing form, P(ξ,η)=Σ R_{ikjl}ξ_{ij}η_{kl} is built from the curvature tensor of X and A is Matsushima's constant attached to the Killing form on k₁. Put m(G)=min m(G₁) over the simple noncompact factors of G°. Then: (a) if G/Γ is compact, j^q is injective for all q and surjective for q≤m(G); (b) if Γ is torsion-free, q≤m(G) and every class in H^q(Ω^Γ) has a square-integrable representative, then j^q is surjective; (c) if C⊂Ω^{Γ′} is a subcomplex stable under Γ/Γ′ and m′ is a positive integer such that C→Ω^{Γ′} is an isomorphism on cohomology in degrees ≤m′, C^q consists of square-integrable forms for q≤m′, and I^{Γ′,q}⊂C^q for q≤m′, then j^q:I^{Γ,q}→H^q(Γ;ℝ) is injective for q≤m′ and bijective for q≤min(m(G),m′).
+  Statement: Let G be a real semisimple Lie group with finitely many components and finite centre, K a maximal compact subgroup, X=K\G with a G-invariant metric, Γ a discrete subgroup with X/Γ of finite volume and Γ′⊂Γ a torsion-free normal subgroup of finite index. Write Ω^Γ for the complex of Γ-invariant forms on X, I^Γ for its subspace of forms also invariant under G°, and j^q:I^{Γ,q}→H^q(Γ;ℝ) for the map of R.2. For a connected simple noncompact group G₁ with Cartan decomposition k₁⊕p₁, Matsushima's constant m(G₁) is the largest positive integer q for which the quadratic form (A/q)(ξ,ξ)+P(ξ,ξ) on the symmetric square of p₁ is positive definite; here (ξ,ξ) comes from the Killing form, P(ξ,η)=Σ R_{ikjl}ξ_{ij}η_{kl} is built from the curvature tensor of X and A is Matsushima's constant attached to the Killing form on k₁. Set m(G₁)=0 if there is no such positive q; degree zero is handled by constants. Put m(G)=min m(G₁) over the simple noncompact factors of G°, with the minimum of an empty set equal to ∞. Then: (a) if G/Γ is compact, j^q is injective for all q and surjective for q≤m(G); (b) if Γ is torsion-free, q≤m(G) and every class in H^q(Ω^Γ) has a square-integrable representative, then j^q is surjective; (c) if C⊂Ω^{Γ′} is a subcomplex stable under Γ/Γ′ and m′ is a positive real number such that C→Ω^{Γ′} is an isomorphism on cohomology in degrees ≤m′, C^q consists of square-integrable forms for q≤m′, and I^{Γ′,q}⊂C^q for q≤m′, then j^q:I^{Γ,q}→H^q(Γ;ℝ) is injective for q≤m′ and bijective for q≤min(m(G),m′).
   Hypothesis: G real semisimple with finitely many components and finite centre; X/Γ of finite volume for (c).
   Hypothesis: Square integrability is with respect to the invariant metric on X/Γ′.
+  Hypothesis: The real cutoff m′ is positive, as in Borel 3.6, p.244; only integer cohomological degrees q≤m′ are involved. The expression A/q defining m(G₁) is used only for positive q.
   Acceptance: For G/Γ compact, (c) with C=Ω^{Γ′} recovers (a).
   Acceptance: For G=SL₂(ℝ) and Γ a cocompact surface group, I^1=0 and H¹(Γ;ℝ)≠0, so j¹ is not surjective: m(SL₂(ℝ))=0.
   Acceptance: The criterion gives no information in degrees above min(m(G),m′).
 
 TauCeti.Borel.logGrowthForms_quasiIso
   node BorelRegulators:R.3/logarithmic-growth-complex, theorem
-  Statement: Let G be a connected semisimple ℚ-group, P a minimal parabolic ℚ-subgroup, A_P the identity component of the real points of a maximal ℚ-split torus of P, with simple roots α₁,…,α_s, and ρ_P the character with a^{2ρ_P}=det Ad(a) on the Lie algebra of the unipotent radical U of P. Write λ≫0 if λ is a combination of the α_i with strictly positive coefficients. For q≥0 and a character λ of A_P, condition c(P,q,λ) is: ρ_P+λ−ν≫0 for every weight ν of A_P on ⊕_{i≤q}∧^i Lie(U(ℝ)). Put c(G,λ)=max{q : c(P,q,λ) holds}, c(G)=c(G,0), and c(G)=∞ when G is anisotropic; for an almost direct product, c is the minimum over the factors. Let Γ be a torsion-free arithmetic subgroup and X̄/Γ the Borel–Serre compactification of X/Γ. A form on X/Γ has logarithmic growth near the boundary if every boundary point has a neighbourhood, pulled back from a Siegel set, on which its coefficients in the frame adapted to the horospherical decomposition are bounded by a polynomial in the log a^{α_i}. Let C be the complex of Γ-invariant forms on X which, together with their exterior derivatives, have logarithmic growth near the boundary. Then: (a) the inclusion of C into Ω^Γ is an isomorphism on cohomology; (b) for q≤c(G) every element of C^q is square integrable on X/Γ; (c) every form invariant under G(ℝ)° lies in C.
+  Statement: Let G be a connected semisimple ℚ-group, P a minimal parabolic ℚ-subgroup, A_P the identity component of the real points of a maximal ℚ-split torus of P, with simple roots α₁,…,α_s, and ρ_P the character with a^{2ρ_P}=det Ad(a) on the Lie algebra of the unipotent radical U of P. Write λ≫0 if λ is a combination of the α_i with strictly positive coefficients. For q≥0 and a character λ of A_P, condition c(P,q,λ) is: ρ_P+λ−ν≫0 for every weight ν of A_P on ⊕_{i≤q}∧^i Lie(U(ℝ)). Put c(G,λ)=max{q : c(P,q,λ) holds}, c(G)=c(G,0), and c(G)=∞ when G is anisotropic; for an almost direct product, c is the minimum over the factors. Let Γ be a torsion-free arithmetic subgroup and X̄/Γ the Borel–Serre compactification of X/Γ. A form on X/Γ has logarithmic growth near the boundary if every boundary point has a neighbourhood, pulled back from a Siegel set, on which its coefficients in the frame adapted to the horospherical decomposition are bounded by a polynomial in |log a_B^{α_i}| in the right-quotient convention described below. Let C be the complex of Γ-invariant forms on X which, together with their exterior derivatives, have logarithmic growth near the boundary. Then: (a) the inclusion of C into Ω^Γ is an isomorphism on cohomology; (b) for q≤c(G) every element of C^q is square integrable on X/Γ; (c) every form invariant under G(ℝ)° lies in C.
   Hypothesis: G connected semisimple over ℚ; Γ torsion-free arithmetic. Siegel sets, the horospherical decomposition and the corners are those of AA.3 and ALS.2.
   Hypothesis: The condition c(P,q,λ) does not depend on the choice of minimal parabolic.
+  Hypothesis: Use Borel’s right arithmetic quotient K\G(ℝ)/Γ and boundary coordinates a_B with a_B^{α_i}→0. AA.3 uses the left quotient Γ\G(ℝ)/K and a_AA^{α_i}→∞. Quotient inversion identifies the charts by a_B=a_AA⁻¹; transport the adapted frame and metric as well as the coordinate, rather than mixing the two conventions.
   Acceptance: For G anisotropic over ℚ the quotient is compact, C is the whole complex and c(G)=∞.
   Acceptance: For G=Res_{F/ℚ}SL₂ with [F:ℚ]=d, a minimal parabolic has one simple root α with multiplicity d and ρ_P=(d/2)α, so c(G) is the greatest integer strictly smaller than d/2 (Borel 7.7); for F=ℚ it is 0.
   Acceptance: The complex contains the invariant forms; the smaller complex of forms locally lifted from the boundary does not (Borel 8.2).
@@ -786,7 +813,7 @@ TauCeti.Borel.arithmeticCohomology_stableExterior
 
 TauCeti.Borel.stableGL_SL_primitiveComparison
   node BorelRegulators:R.3/gl-sl-primitive-comparison, theorem
-  Statement: For an order O as in R.1 and i≥2, K_i(O)⊗ℝ is the space of primitive elements of degree i in the Hopf algebra H_*(SL(O);ℝ) of R.2. In more detail: E(O)=[GL(O),GL(O)] is perfect, BE(O)⁺ is the universal cover of BGL(O)⁺, so K_i(O)=π_i(BE(O)⁺) for i≥2; and the inclusion E(O)⊂SL(O) induces an isomorphism of Hopf algebras H_*(E(O);ℝ)≅H_*(SL(O);ℝ), because SL(O)/E(O)=H₁(SL(O);ℤ) is a torsion group acting trivially on H_*(E(O);ℝ). The quotient GL(O)/E(O)=K₁(O) contributes only to π₁ and to degree-one classes; nothing is asserted for i=1, and the full cohomology rings of GL(O) and SL(O) are not claimed to agree.
+  Statement: For an order O as in R.1 and i≥2, K_i(O)⊗ℝ is the space of primitive elements of degree i in the Hopf algebra H_*(SL(O);ℝ) of R.2. In more detail: E(O)=[GL(O),GL(O)] is perfect, BE(O)⁺ is the universal cover of BGL(O)⁺, so K_i(O)=π_i(BE(O)⁺) for i≥2; and the inclusion E(O)⊂SL(O) induces an isomorphism of Hopf algebras H_*(E(O);ℝ)≅H_*(SL(O);ℝ), because SL(O)/E(O)=H₁(SL(O);ℤ) is a torsion group acting trivially on H_*(E(O);ℝ). The quotient GL(O)/E(O)=K₁(O) contributes to π₁ and degree-one primitive generators and their products; nothing is asserted for i=1, and the full cohomology rings of GL(O) and SL(O) are not claimed to agree.
   Hypothesis: K_i(O) is the K-group of the ring O in the early ring model of GeneralAlgebraicKTheory K.2, identified with π_i(BGL(O)⁺) by the plus-equals-Q theorem.
   Hypothesis: The stable cohomology of R.3 is used in degree one: H¹(SL_n(O);ℝ)=0 for n>5.
   Acceptance: For i=1 nothing is asserted: K₁(O) has the rank of the unit group of the centre, which the stable cohomology of SL does not see.
@@ -819,6 +846,9 @@ TauCeti.Borel.borelRankTheorem
   Test TauCeti.Borel.borelRankTheorem_imaginary_quadratic (computation): For [F:Q]=2, r1=0 and j≥2, the odd K-group rank is one.
   Test TauCeti.Borel.borelRankTheorem_units_excluded (non-example): The theorem cannot be applied at j=1: rank K1(O_F)=r1+r2−1.
   Test TauCeti.Borel.borelRankTheorem_even_degrees (degenerate): dim_ℚ(K₂(ℤ)⊗ℚ)=0 and dim_ℚ(K₄(O_F)⊗ℚ)=0 for every number field F.
+  Acceptance: For F=ℚ, j=2 gives rank zero and j=3 gives rank one.
+  Acceptance: For an imaginary quadratic F, every j≥2 gives rank one.
+  Acceptance: The rank of K_i of a ring of S-integers is not stated here: it is ArithmeticKTheory:N.3:ranks/borel-rank-theorem, which consumes this theorem.
 
 ## R.4 Regulator classes and maps
 
@@ -835,6 +865,8 @@ TauCeti.Borel.archimedeanTarget  [Part 1]
   Test TauCeti.Borel.archimedeanTarget_fixed_weight_two (degenerate)  [Part 1]: On a one-point embedding set with identity involution and j=2, the target is zero.
   Test TauCeti.Borel.archimedeanTarget_pair_weight_two (computation)  [Part 1]: On a two-point exchanged pair at j=2, the function (1,−1) is in the target and (1,1) is not.
   Test TauCeti.Borel.archimedeanTarget_fixed_weight_three (computation)  [Part 1]: On a fixed point at j=3, the constant function 1 belongs to the target.
+  Acceptance: A real embedding contributes only if j is odd.
+  Acceptance: Counting complex embeddings independently would double the target dimension.
 
 TauCeti.Borel.targetCoordinates  [Part 1]
   node BorelRegulators:R.4/target-coordinates, construction
@@ -849,6 +881,7 @@ TauCeti.Borel.targetCoordinates  [Part 1]
   Test TauCeti.Borel.targetCoordinates_pair_two (computation)  [Part 1]: At weight two one exchanged pair has coordinate a and reconstruction (a,−a).
   Test TauCeti.Borel.targetCoordinates_empty (degenerate)  [Part 1]: For F=Q and j=2 the coordinate space is R^0 and the reference lattice has covolume one.
   Test TauCeti.Borel.targetCoordinates_representative_switch (characterisation)  [Part 1]: Switching the embedding of an imaginary quadratic field at j=2 multiplies the single coordinate by −1 and preserves its absolute covolume.
+  Acceptance: Each conjugate pair has reference covolume one, not √2.
 
 TauCeti.Borel.archimedeanTarget_finrank  [Part 1]
   node BorelRegulators:R.4/target-dimension, theorem
@@ -865,11 +898,13 @@ TauCeti.Borel.universalBorelClass
   API TauCeti.Borel.universalBorelClass_primitive (structure): Block sum pulls Bo_j back to pr1*Bo_j+pr2*Bo_j.
   API TauCeti.Borel.universalBorelClass_conjugation (compatibility): Complex conjugation and the Tate generator yield component parity (−1)^{j−1} on regulator values.
   API TauCeti.Borel.universalBorelClass_vanEst (characterisation): Van Est sends Bo_j to the relative class obtained from the suspended normalized ch_j.
-  API TauCeti.Borel.universalBorelClass_bott (compatibility): The primitive compact-unitary pairing uses the Bott integral generator with ch_j, including its (j−1)! Hurewicz factor.
+  API TauCeti.Borel.universalBorelClass_bott (compatibility): With compatible Bott orientation, ⟨s(ch_j),ε_j⟩=(2πi)^j. The Hurewicz image of ε_j is ±(j−1)! times an integral primitive homology generator, on which s(ch_j) has the reciprocal factorial; the homotopy pairing is one Tate unit.
   API TauCeti.Borel.universalBorelClass_representation (functoriality): For an algebraic representation ρ:GL_N→GL_M over ℂ, ρ^*Bo_{j,M}∈H_cont^{2j−1}(GL_N(ℂ);ℝ(j−1)) is the image of ch_j of the bundle associated with ρ on BGL_N(ℂ) under the same chain of maps; it is additive in ρ, so it is defined on the representation ring.
   Test TauCeti.Borel.universalBorelClass_stable_two (characterisation): At j=2, block pullback from GL_11(C) to GL_9(C) gives the same degree-three class.
   Test TauCeti.Borel.universalBorelClass_abelian_two (degenerate): Restriction to GL_1(C) has zero degree-three continuous class.
   Test TauCeti.Borel.universalBorelClass_chern_factor (non-example): On indecomposables ch_3=(2πi)^3 c_3/2, so using c_3 without its factor cannot satisfy the normalization.
+  Test TauCeti.Borel.universalBorelClass_bott_three (non-example): For j=3 the pairing of suspended ch₃ with the compatibly oriented Bott generator, divided by (2πi)³, is 1; the Hurewicz factorial is 2 and must not be substituted for that pairing.
+  Acceptance: Replacing ch_j by the Chern class c_j changes the normalization by the nontrivial factorial/sign on indecomposables.
 
 TauCeti.Borel.traceCocycle  [Part 1]
   node BorelRegulators:R.4/trace-cocycle, construction
@@ -884,6 +919,7 @@ TauCeti.Borel.traceCocycle  [Part 1]
   Test TauCeti.Borel.traceCocycle_scalar_two (degenerate)  [Part 1]: For N=1 and j=2 the form vanishes on every triple.
   Test TauCeti.Borel.traceCocycle_pauli_two (computation)  [Part 1]: For the Hermitian Pauli matrices X,Y,Z with [Y,Z]=2iX and Tr(X²)=2, Φ3(X,Y,Z)=−2i.
   Test TauCeti.Borel.traceCocycle_repeat (characterisation)  [Part 1]: Φ3(X,X,Z)=0, ruling out the unalternated trace product.
+  Acceptance: At j=2, Φ3(X,Y,Z)=−Tr(X[Y,Z])/2.
 
 TauCeti.Borel.borelRegulator
   node BorelRegulators:R.4/borel-regulator, construction
@@ -900,6 +936,7 @@ TauCeti.Borel.borelRegulator
   Test TauCeti.Borel.borelRegulator_Q_two (degenerate): r_Bo:K3(Z)→V2(Q) is zero because the target is zero.
   Test TauCeti.Borel.borelRegulator_torsion (characterisation): For any nonzero integer a with a·x=0, r_Bo(x)=0.
   Test TauCeti.Borel.borelRegulator_imaginary_conjugate (computation): At weight two over an imaginary quadratic F the two components are (a,−a), not (a,a).
+  Acceptance: This construction alone does not assert a lattice or finite generation.
 
 TauCeti.Borel.embeddingPullTrace  [Part 1]
   node BorelRegulators:R.4/embedding-pull-trace, construction
@@ -914,6 +951,7 @@ TauCeti.Borel.embeddingPullTrace  [Part 1]
   Test TauCeti.Borel.embeddingPullTrace_identity (degenerate): For f=id both maps are identity in every weight.
   Test TauCeti.Borel.embeddingPullTrace_quadratic_odd (computation): For Q⊂Q(i) at j=3, the one-coordinate pull matrix is (1) and the trace matrix is (2).
   Test TauCeti.Borel.embeddingPullTrace_quadratic_even (computation): For Q⊂Q(i) at j=2 the trace to the zero target V2(Q) is zero; summing the pair (a,−a) gives zero.
+  Acceptance: For Q⊂an imaginary quadratic field at j=3, coordinate pullback is 1 and coordinate trace is 2.
 
 TauCeti.Borel.borelRegulator_transfer
   node BorelRegulators:R.4/regulator-transfer, theorem
@@ -954,6 +992,7 @@ TauCeti.Borel.regulatorMatrix  [Part 1]
   Test TauCeti.Borel.regulatorMatrix_rank_zero (degenerate)  [Part 1]: The determinant at rank zero is 1.
   Test TauCeti.Borel.regulatorMatrix_swap (computation)  [Part 1]: Swapping two integral basis vectors negates the determinant and preserves its absolute value.
   Test TauCeti.Borel.regulatorMatrix_double_two (computation)  [Part 1]: For d=2, doubling every regulator component multiplies the determinant by 4, not by 2.
+  Acceptance: Changing either basis can change the signed determinant, but not its absolute value.
 
 TauCeti.Borel.regulatorCovolume  [Part 1]
   node BorelRegulators:R.4/regulator-covolume, construction
@@ -967,6 +1006,7 @@ TauCeti.Borel.regulatorCovolume  [Part 1]
   Test TauCeti.Borel.regulatorCovolume_zero_rank (degenerate)  [Part 1]: For F=Q and j=2 the covolume is 1.
   Test TauCeti.Borel.regulatorCovolume_rank_one_sign (computation)  [Part 1]: For a rank-one matrix (a), the covolume is |a| and is unchanged by a↦−a.
   Test TauCeti.Borel.regulatorCovolume_reference (compatibility)  [Part 1]: The reference lattice Z^{I_j} has covolume 1 for the coordinate measure; no √2 per complex pair occurs.
+  Acceptance: The convention includes the real-place correction 2^{r1} at j≡3 mod4 when comparing with Borel’s original covolume.
 
 ## R.5 Dedekind zeta functions and leading terms
 
@@ -995,6 +1035,8 @@ TauCeti.Borel.normalizedLeadingCoefficient  [Part 1]
   Test TauCeti.Borel.normalizedLeadingCoefficient_square (computation)  [Part 1]: For f(z)=z² at s0=0 and d=2 the coefficient is 1, whereas f″(0)=2.
   Test TauCeti.Borel.normalizedLeadingCoefficient_constant (degenerate)  [Part 1]: For f(z)=7 and d=0 the coefficient is 7.
   Test TauCeti.Borel.normalizedLeadingCoefficient_wrong_order (non-example)  [Part 1]: For f(z)=z³ at 0, the coefficient with d=2 is zero, so d=2 fails the exact-order nonzero test.
+  Acceptance: When d=0 it equals ζ_F(s0).
+  Acceptance: The factorial cannot be dropped in exact comparison statements.
 
 TauCeti.Borel.zetaLeading_functionalEquation
   node BorelRegulators:R.5/leading-term-functional-equation, theorem
@@ -1071,6 +1113,7 @@ TauCeti.Borel.restrictionScalarsForm
   Test TauCeti.Borel.restrictionScalarsForm_Q (degenerate)  [Part 1]: For F=Q with integral basis (1), δ=1 and Rη=η.
   Test TauCeti.Borel.restrictionScalarsForm_Qi (computation)  [Part 1]: For F=Q(i), basis (1,i) and embeddings (id,conj), δ=−2i and D=−4; at q=1 the scalar is i/2.
   Test TauCeti.Borel.restrictionScalarsForm_absolute_wrong (non-example)  [Part 1]: In that Q(i) case the scalar 1/2 from |D|½ gives a different algebraic form and fails δ²=D.
+  Acceptance: At an imaginary quadratic field δ is imaginary whereas |D|½ is positive; replacing one by the other loses an orientation phase.
 
 TauCeti.Borel.compactPeriodCycle
   node BorelRegulators:R.6/compact-period-cycles, construction
@@ -1085,6 +1128,7 @@ TauCeti.Borel.compactPeriodCycle
   Test TauCeti.Borel.compactPeriodCycle_degree_two (computation): For e=2, left regular representation has F-dimension 4 and the weight-two primitive pullback factor is 2.
   Test TauCeti.Borel.compactPeriodCycle_finite_cover (computation): An index-two neat subgroup doubles the top period.
   Test TauCeti.Borel.compactPeriodCycle_split_algebra_wrong (non-example): Replacing division D by M_e(F) gives an isotropic group and does not supply the compact quotient used here.
+  Acceptance: A compact quotient without a nonzero primitive restriction would not prove the period theorem.
 
 TauCeti.Borel.adelicPeriodPairing
   node BorelRegulators:R.6/adelic-period-pairing, construction
@@ -1100,6 +1144,7 @@ TauCeti.Borel.adelicPeriodPairing
   Test TauCeti.Borel.adelicPeriodPairing_sign (computation): Replacing η by −η negates I_D but leaves its absolute volume unchanged.
   Test TauCeti.Borel.adelicPeriodPairing_rescale (characterisation): Doubling one finite local measure doubles the finite product; the normalization equation cannot stay unchanged without its compensating global conversion.
   Test TauCeti.Borel.adelicPeriodPairing_double_form (computation): With all Tamagawa measures fixed, replacing nonzero η by 2η doubles I_D and halves c_η; the unconverted equation |I_D|vol_f(U)=τ(H) cannot hold for both forms.
+  Acceptance: Rational proportionality allows exceptional-place and commensurability factors; it does not allow losing a π or a discriminant square-root factor.
 
 TauCeti.Borel.bloch_borelPairingComparison
   node BorelRegulators:R.6/bloch-borel-interface, comparison
@@ -1137,9 +1182,10 @@ TauCeti.Borel.borelRegulator_eq_two_beilinsonRegulator
 
 TauCeti.Borel.borelRegulator_blochWigner_exact
   node BorelRegulators:R.7/weight-two-bloch-wigner, comparison
-  Statement: At j=2, compare r_Bo with the Bloch–Wigner homomorphism of Polylogarithms P.2 composed with Suslin's map K₃(F)→B(F), and with the measurable homogeneous cocycle D(r(g₀x,g₁x,g₂x,g₃x)), where r is the cross-ratio with r(∞,0,1,z)=z. The statement is that there is a nonzero rational number λ_BW, independent of F and of the place, such that at every complex place the coordinate of r_Bo(x) in targetCoordinates is λ_BW·D(Suslin(x)). Its value and sign are determined by comparing Goncharov's formulas (61) and (64) and Theorem 5.7 with Φ₃, including the projection from complex to real coefficients and the division by 2πi. No value of λ_BW is asserted in this plan; proportionality by some nonzero rational number is the statement of Polylogarithms P.2.
+  Statement: At j=2, compare r_Bo with the Bloch–Wigner homomorphism of Polylogarithms P.2 composed with Suslin’s map K₃(F)→B(F), and with its measurable cocycle D(r(g₀x,g₁x,g₂x,g₃x)), where r(∞,0,1,z)=z. There is a nonzero real scalar λ_BW, independent of F and the complex place, such that the coordinate of r_Bo(x) in targetCoordinates is λ_BW·D(Suslin(x)). This scalar comes from comparison of universal weight-two classes. Its exact value, sign and rational and π factors require matching Goncharov’s equations (61), (64), Theorems 5.7 and 5.11 and Corollary 5.10 with Φ₃, the real Tate projection and division by 2πi. No rationality of λ_BW in these coordinates is asserted. P.2 supplies the Bloch–Wigner homomorphism and cocycle; it does not supply this Borel comparison.
   Hypothesis: The factor two between the Borel and Beilinson classes is fixed in every weight by borelClass_eq_two_beilinsonClass and does not depend on λ_BW.
   Acceptance: The Pauli test Φ3=−2i detects a trace normalization error, but does not by itself identify the Suslin/Bloch–Wigner scalar.
+  Acceptance: Only real proportionality is claimed before the exact coefficient conversion; P.2 is not cited as a theorem of rational Borel proportionality.
 
 TauCeti.Borel.borelRegulator_smallFields
   node BorelRegulators:R.7/number-field-small-cases, application
@@ -1163,4 +1209,6 @@ TauCeti.Borel.embeddingMatrices  [Part 1]
   Test TauCeti.Borel.embeddingMatrices_quadratic_odd (computation)  [Part 1]: For Q→Q(i),j=3, the one-by-one pull/trace matrices are (1) and (2).
   Test TauCeti.Borel.embeddingMatrices_Q_weight_two (degenerate)  [Part 1]: For Q→Q(i),j=2, the pull matrix has one row and zero columns, and the trace matrix has zero rows and one column.
   Test TauCeti.Borel.embeddingMatrices_switch_pair (characterisation)  [Part 1]: Switching the selected Q(i) embedding at j=2 negates its coordinate maps, preserving the coordinate-free square.
+  Acceptance: For Q⊂Q(i),j=3, P=(1), T=(2) and TP=(2).
+
 -/
