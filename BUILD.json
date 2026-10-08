@@ -1,8 +1,8 @@
 {
   "roadmaps": 242,
-  "stages": 5092,
+  "stages": 5109,
   "originalStages": 2191,
-  "sourceRefinements": 2901,
+  "sourceRefinements": 2918,
   "reviewedDecompositions": [
     {
       "roadmap": "AInfCohomology",
@@ -236,14 +236,14 @@
   "editedRoadmapSummaries": 181,
   "curatedStagePresentations": 339,
   "administrativeStages": 101,
-  "mathematicalStars": 4991,
+  "mathematicalStars": 5008,
   "plainTextPlanetLabels": 398,
   "hiddenPlanets": 600,
   "mappedStageStatuses": 350,
   "libraryAuditStatuses": 19,
   "bibliographicSources": 46,
-  "roadmapEdges": 2217,
-  "stageEdges": 13267,
+  "roadmapEdges": 2221,
+  "stageEdges": 13320,
   "reviewedLinkPackets": 25,
   "promotedBlueprints": [
     {
@@ -1183,6 +1183,12 @@
       "reviewer": "independent-review-REV-PotentialAutomorphyInfrastructure~2"
     },
     {
+      "file": "PotentialModularityAndCompatibleSystems--R23.1",
+      "roadmap": "PotentialModularityAndCompatibleSystems",
+      "nodes": 49,
+      "reviewer": "independent-review-REV-PotentialModularityAndCompatibleSystems--R23.1~2"
+    },
+    {
       "file": "PotentialModularityAndCompatibleSystems--R24.3",
       "roadmap": "PotentialModularityAndCompatibleSystems",
       "nodes": 43,
@@ -1280,8 +1286,8 @@
     }
   ],
   "sourceDocuments": 296,
-  "htmlBytes": 36463437,
-  "htmlSha256": "8b8f4e38bd6267a3eadaf4238211be277c0b02710d47183962002a4d16e1175b",
+  "htmlBytes": 36542582,
+  "htmlSha256": "18058c5adee62c523a1f584b95b61ecaa2ba86a34fff173cd45135a084ec92f7",
   "networkDependencies": 0,
   "localProgressOverridesIncluded": false,
   "assets": {
@@ -1313,7 +1319,7 @@
     "data/roadmap-summaries.json": "c8bdd0a9105f5d3c4a858c8b635990729f8e94497dee784a71fae659b8c05b9f",
     "data/roadmap-classification.json": "2641dbc97eb2566c715162d011b46890d1635629181ef8126ac7aed9e24a3b13",
     "data/classification-estimates.json": "625d35fe6121bf099dc5de9e6a9111793596f9b664e3fbd439841434bb4a57d6",
-    "data/roadmap-distances.json": "e6054012740fc71c59d3ba8135dbc62449849136ce9d3429faf3785e6a417781",
+    "data/roadmap-distances.json": "0833db6bf47e6bb9940925170a9236446efda9b934428d788409a70f9c346370",
     "data/galaxy-layout.json": "7489487a2143484a355b36026c2f7d3dd9384ac5c58ac90d8b061b8dfcab6088",
     "data/bibliography.json": "bef230a41fad22d6b790c7564061c4d05c2ae5b78cab53d005eb404afab2b122",
     "NOTICE": "a285b95d5adbf5c2bcc82db36e2a77b797f84a2c5cbb30292efd0bae17cc4f34",
@@ -1683,6 +1689,8 @@
     "data/blueprints/Polylogarithms.md": "1d28e812ddc1cdf712e71814d4ba70a913d2107cd694003639dd5cc7ea08cf43",
     "data/blueprints/PotentialAutomorphyInfrastructure.json": "eb472418e07c0614e6ee0a0b34e57306c769ff2444e5891ab1858cd924303650",
     "data/blueprints/PotentialAutomorphyInfrastructure.md": "10ee61f30ef0c9093e185e7f45d41044f1df91f23c7808802767b016a9f2d3a9",
+    "data/blueprints/PotentialModularityAndCompatibleSystems--R23.1.json": "594e9901124fdeca5a15c74ea078e4e06eb29b625754043230311e4d91d7df83",
+    "data/blueprints/PotentialModularityAndCompatibleSystems--R23.1.md": "f7a5f39730a8df6116bec36b4547575a25ff7307682f6641f554960268cab566",
     "data/blueprints/PotentialModularityAndCompatibleSystems--R24.3.json": "a7a13460a3861c20be1d309cea4527d6727c14ad972eb60429f9712a90a53fc1",
     "data/blueprints/PotentialModularityAndCompatibleSystems--R24.3.md": "a99b9c7405251273789a93380ff98968869a28edc8bd900c49ca394af755af5a",
     "data/blueprints/ProbabilisticAndMetricNumberTheory.json": "346d5d5e4a371a85d3d7a9d7fb12143b76f51bf224b91fb3879814ceae009089",

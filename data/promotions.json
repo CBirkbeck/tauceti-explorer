@@ -2000,6 +2000,17 @@
     "data/blueprints/PotentialAutomorphyInfrastructure.md"
    ]
   },
+  "research/blueprint/packets/PotentialModularityAndCompatibleSystems--R23.1.json": {
+   "promotedAt": "2026-10-08T17:37:00Z",
+   "review": "29f7da7013b79321",
+   "reviewDate": "2026-10-08",
+   "reviewer": "independent-review-REV-PotentialModularityAndCompatibleSystems--R23.1~2",
+   "sha256": "4743e07a99bb9f5d65cd6b81305a27a2e5ab0c9426adb993b4d978434662256e",
+   "to": [
+    "data/blueprints/PotentialModularityAndCompatibleSystems--R23.1.json",
+    "data/blueprints/PotentialModularityAndCompatibleSystems--R23.1.md"
+   ]
+  },
   "research/blueprint/packets/PotentialModularityAndCompatibleSystems--R24.3.json": {
    "promotedAt": "2026-10-08T15:33:10Z",
    "review": "2bc797479bbf07f6",
