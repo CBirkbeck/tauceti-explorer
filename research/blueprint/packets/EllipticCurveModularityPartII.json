@@ -11,11 +11,26 @@
   "EllipticCurveModularityPartII:EC.6"
  ],
  "status": "complete",
- "summary": "An import record with no nodes. The definitions and theorems that the six layers of this roadmap name are declarations of EllipticModularityEffectiveComparisons (stages EC.0–EC.5), a roadmap with the same title, the same parent and the same source route, whose 100-node plan an independent review has accepted; the one exception, Chen's isogeny theorem, is an input the owner records as a gap. To plan them here would plan them twice, so this packet plans nothing: targetCoverage gives, for each of the 31 targets, the owning declarations and how their statements cover it; imports lists the declarations that were read; restructure proposes merging this roadmap into its owner. Nothing is formalised and no layer is mathematically closed: the owner's layers are planned, with their own gaps and requests.",
+ "summary": "An import record with no nodes. The definitions and theorems that the six layers of this roadmap name are declarations of EllipticModularityEffectiveComparisons (stages EC.0–EC.5), a roadmap with the same title, the same parent and the same source route, whose 100-node plan an independent review has accepted; the one exception, Chen's isogeny theorem, is an input the owner records as a gap. To plan them here would plan them twice, so this packet plans nothing: targetCoverage gives, for each of the 31 targets, the imported declarations, baseline consequences and recorded gap routes; imports lists the declarations that were read; restructure proposes merging this roadmap into its owner. Nothing is formalised and no layer is mathematically closed: the owner's layers are planned, with their own gaps and requests.",
  "baseline": {
   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
-  "declarations": []
+  "declarations": [
+   {
+    "ref": "mathlib:Algebra.norm_eq_prod_embeddings",
+    "kind": "theorem",
+    "module": "Mathlib/RingTheory/Norm/Transitivity.lean",
+    "provides": "For a finite separable extension L/K and an algebraically closed extension E/K, algebraMap K E (Algebra.norm K x) is the product of σ x over all K-algebra embeddings L → E.",
+    "checked": "Full declaration and ambient field, algebra, finite-dimensionality and separability hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-08."
+   },
+   {
+    "ref": "mathlib:AlgHom.card",
+    "kind": "theorem",
+    "module": "Mathlib/FieldTheory/PrimitiveElement.lean",
+    "provides": "For a finite separable extension E/F and an algebraically closed extension K/F, Fintype.card (E →ₐ[F] K) equals Module.finrank F E.",
+    "checked": "Full declaration and ambient field, algebra, finite-dimensionality and separability hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-08."
+   }
+  ]
  },
  "sources": [
   {
@@ -97,397 +112,397 @@
    "nodeId": "EllipticModularityEffectiveComparisons:EC.2/kraus-f",
    "packet": "research/blueprint/packets/EllipticModularityEffectiveComparisons.json",
    "role": "definition",
-   "checked": "Statement, hypotheses, proof steps and prerequisites read in the owner's packet on 2026-10-08; the packet was accepted by independent-review-REV-DESIGN-EllipticModularityEffectiveComparisons on 2026-10-06. Cited, not restated."
+   "checked": "Statement, hypotheses, proof outline and role in targetCoverage independently read on 2026-10-08; this is an import of a planned declaration, not a formalization claim."
   },
   {
    "nodeId": "EllipticModularityEffectiveComparisons:EC.2/kraus-g",
    "packet": "research/blueprint/packets/EllipticModularityEffectiveComparisons.json",
    "role": "definition",
-   "checked": "Statement, hypotheses, proof steps and prerequisites read in the owner's packet on 2026-10-08; the packet was accepted by independent-review-REV-DESIGN-EllipticModularityEffectiveComparisons on 2026-10-06. Cited, not restated."
+   "checked": "Statement, hypotheses, proof outline and role in targetCoverage independently read on 2026-10-08; this is an import of a planned declaration, not a formalization claim."
   },
   {
    "nodeId": "EllipticModularityEffectiveComparisons:EC.2/kraus-h",
    "packet": "research/blueprint/packets/EllipticModularityEffectiveComparisons.json",
    "role": "definition",
-   "checked": "Statement, hypotheses, proof steps and prerequisites read in the owner's packet on 2026-10-08; the packet was accepted by independent-review-REV-DESIGN-EllipticModularityEffectiveComparisons on 2026-10-06. Cited, not restated."
+   "checked": "Statement, hypotheses, proof outline and role in targetCoverage independently read on 2026-10-08; this is an import of a planned declaration, not a formalization claim."
   },
   {
    "nodeId": "EllipticModularityEffectiveComparisons:EC.0/martin-bound",
    "packet": "research/blueprint/packets/EllipticModularityEffectiveComparisons.json",
    "role": "theorem",
-   "checked": "Statement, hypotheses, proof steps and prerequisites read in the owner's packet on 2026-10-08; the packet was accepted by independent-review-REV-DESIGN-EllipticModularityEffectiveComparisons on 2026-10-06. Cited, not restated."
+   "checked": "Statement, hypotheses, proof outline and role in targetCoverage independently read on 2026-10-08; this is an import of a planned declaration, not a formalization claim."
   },
   {
    "nodeId": "EllipticModularityEffectiveComparisons:EC.0/dimension-comparison",
    "packet": "research/blueprint/packets/EllipticModularityEffectiveComparisons.json",
    "role": "comparison",
-   "checked": "Statement, hypotheses, proof steps and prerequisites read in the owner's packet on 2026-10-08; the packet was accepted by independent-review-REV-DESIGN-EllipticModularityEffectiveComparisons on 2026-10-06. Cited, not restated."
+   "checked": "Statement, hypotheses, proof outline and role in targetCoverage independently read on 2026-10-08; this is an import of a planned declaration, not a formalization claim."
   },
   {
    "nodeId": "EllipticModularityEffectiveComparisons:EC.1/prime-divides-integral-norm",
    "packet": "research/blueprint/packets/EllipticModularityEffectiveComparisons.json",
    "role": "lemma",
-   "checked": "Statement, hypotheses, proof steps and prerequisites read in the owner's packet on 2026-10-08; the packet was accepted by independent-review-REV-DESIGN-EllipticModularityEffectiveComparisons on 2026-10-06. Cited, not restated."
+   "checked": "Statement, hypotheses, proof outline and role in targetCoverage independently read on 2026-10-08; this is an import of a planned declaration, not a formalization claim."
   },
   {
    "nodeId": "EllipticModularityEffectiveComparisons:EC.1/trace-norm",
    "packet": "research/blueprint/packets/EllipticModularityEffectiveComparisons.json",
    "role": "lemma",
-   "checked": "Statement, hypotheses, proof steps and prerequisites read in the owner's packet on 2026-10-08; the packet was accepted by independent-review-REV-DESIGN-EllipticModularityEffectiveComparisons on 2026-10-06. Cited, not restated."
+   "checked": "Statement, hypotheses, proof outline and role in targetCoverage independently read on 2026-10-08; this is an import of a planned declaration, not a formalization claim."
   },
   {
    "nodeId": "EllipticModularityEffectiveComparisons:EC.3/bounded-integer-trace-norm",
    "packet": "research/blueprint/packets/EllipticModularityEffectiveComparisons.json",
    "role": "lemma",
-   "checked": "Statement, hypotheses, proof steps and prerequisites read in the owner's packet on 2026-10-08; the packet was accepted by independent-review-REV-DESIGN-EllipticModularityEffectiveComparisons on 2026-10-06. Cited, not restated."
+   "checked": "Statement, hypotheses, proof outline and role in targetCoverage independently read on 2026-10-08; this is an import of a planned declaration, not a formalization claim."
   },
   {
    "nodeId": "EllipticModularityEffectiveComparisons:EC.1/removed-prime-bound",
    "packet": "research/blueprint/packets/EllipticModularityEffectiveComparisons.json",
    "role": "theorem",
-   "checked": "Statement, hypotheses, proof steps and prerequisites read in the owner's packet on 2026-10-08; the packet was accepted by independent-review-REV-DESIGN-EllipticModularityEffectiveComparisons on 2026-10-06. Cited, not restated."
+   "checked": "Statement, hypotheses, proof outline and role in targetCoverage independently read on 2026-10-08; this is an import of a planned declaration, not a formalization claim."
   },
   {
    "nodeId": "EllipticModularityEffectiveComparisons:EC.1/removed-prime-degree-bound",
    "packet": "research/blueprint/packets/EllipticModularityEffectiveComparisons.json",
    "role": "lemma",
-   "checked": "Statement, hypotheses, proof steps and prerequisites read in the owner's packet on 2026-10-08; the packet was accepted by independent-review-REV-DESIGN-EllipticModularityEffectiveComparisons on 2026-10-06. Cited, not restated."
+   "checked": "Statement, hypotheses, proof outline and role in targetCoverage independently read on 2026-10-08; this is an import of a planned declaration, not a formalization claim."
   },
   {
    "nodeId": "EllipticModularityEffectiveComparisons:EC.1/coefficient-orbit-degree",
    "packet": "research/blueprint/packets/EllipticModularityEffectiveComparisons.json",
    "role": "lemma",
-   "checked": "Statement, hypotheses, proof steps and prerequisites read in the owner's packet on 2026-10-08; the packet was accepted by independent-review-REV-DESIGN-EllipticModularityEffectiveComparisons on 2026-10-06. Cited, not restated."
+   "checked": "Statement, hypotheses, proof outline and role in targetCoverage independently read on 2026-10-08; this is an import of a planned declaration, not a formalization claim."
   },
   {
    "nodeId": "EllipticModularityEffectiveComparisons:EC.1/real-exponent-bound",
    "packet": "research/blueprint/packets/EllipticModularityEffectiveComparisons.json",
    "role": "lemma",
-   "checked": "Statement, hypotheses, proof steps and prerequisites read in the owner's packet on 2026-10-08; the packet was accepted by independent-review-REV-DESIGN-EllipticModularityEffectiveComparisons on 2026-10-06. Cited, not restated."
+   "checked": "Statement, hypotheses, proof outline and role in targetCoverage independently read on 2026-10-08; this is an import of a planned declaration, not a formalization claim."
   },
   {
    "nodeId": "EllipticModularityEffectiveComparisons:EC.1/trace-gap",
    "packet": "research/blueprint/packets/EllipticModularityEffectiveComparisons.json",
    "role": "lemma",
-   "checked": "Statement, hypotheses, proof steps and prerequisites read in the owner's packet on 2026-10-08; the packet was accepted by independent-review-REV-DESIGN-EllipticModularityEffectiveComparisons on 2026-10-06. Cited, not restated."
+   "checked": "Statement, hypotheses, proof outline and role in targetCoverage independently read on 2026-10-08; this is an import of a planned declaration, not a formalization claim."
   },
   {
    "nodeId": "EllipticModularityEffectiveComparisons:EC.3/rationality-from-small-primes",
    "packet": "research/blueprint/packets/EllipticModularityEffectiveComparisons.json",
    "role": "lemma",
-   "checked": "Statement, hypotheses, proof steps and prerequisites read in the owner's packet on 2026-10-08; the packet was accepted by independent-review-REV-DESIGN-EllipticModularityEffectiveComparisons on 2026-10-06. Cited, not restated."
+   "checked": "Statement, hypotheses, proof outline and role in targetCoverage independently read on 2026-10-08; this is an import of a planned declaration, not a formalization claim."
   },
   {
    "nodeId": "EllipticModularityEffectiveComparisons:EC.3/rational-coefficient-forcing",
    "packet": "research/blueprint/packets/EllipticModularityEffectiveComparisons.json",
    "role": "lemma",
-   "checked": "Statement, hypotheses, proof steps and prerequisites read in the owner's packet on 2026-10-08; the packet was accepted by independent-review-REV-DESIGN-EllipticModularityEffectiveComparisons on 2026-10-06. Cited, not restated."
+   "checked": "Statement, hypotheses, proof outline and role in targetCoverage independently read on 2026-10-08; this is an import of a planned declaration, not a formalization claim."
   },
   {
    "nodeId": "EllipticModularityEffectiveComparisons:EC.3/exact-weight-two-lift",
    "packet": "research/blueprint/packets/EllipticModularityEffectiveComparisons.json",
    "role": "lemma",
-   "checked": "Statement, hypotheses, proof steps and prerequisites read in the owner's packet on 2026-10-08; the packet was accepted by independent-review-REV-DESIGN-EllipticModularityEffectiveComparisons on 2026-10-06. Cited, not restated."
+   "checked": "Statement, hypotheses, proof outline and role in targetCoverage independently read on 2026-10-08; this is an import of a planned declaration, not a formalization claim."
   },
   {
    "nodeId": "EllipticModularityEffectiveComparisons:EC.3/nonrational-witness",
    "packet": "research/blueprint/packets/EllipticModularityEffectiveComparisons.json",
    "role": "lemma",
-   "checked": "Statement, hypotheses, proof steps and prerequisites read in the owner's packet on 2026-10-08; the packet was accepted by independent-review-REV-DESIGN-EllipticModularityEffectiveComparisons on 2026-10-06. Cited, not restated."
+   "checked": "Statement, hypotheses, proof outline and role in targetCoverage independently read on 2026-10-08; this is an import of a planned declaration, not a formalization claim."
   },
   {
    "nodeId": "EllipticModularityEffectiveComparisons:EC.3/small-prime-below-f",
    "packet": "research/blueprint/packets/EllipticModularityEffectiveComparisons.json",
    "role": "lemma",
-   "checked": "Statement, hypotheses, proof steps and prerequisites read in the owner's packet on 2026-10-08; the packet was accepted by independent-review-REV-DESIGN-EllipticModularityEffectiveComparisons on 2026-10-06. Cited, not restated."
+   "checked": "Statement, hypotheses, proof outline and role in targetCoverage independently read on 2026-10-08; this is an import of a planned declaration, not a formalization claim."
   },
   {
    "nodeId": "EllipticModularityEffectiveComparisons:EC.3/rational-form-elliptic-realization",
    "packet": "research/blueprint/packets/EllipticModularityEffectiveComparisons.json",
    "role": "lemma",
-   "checked": "Statement, hypotheses, proof steps and prerequisites read in the owner's packet on 2026-10-08; the packet was accepted by independent-review-REV-DESIGN-EllipticModularityEffectiveComparisons on 2026-10-06. Cited, not restated."
+   "checked": "Statement, hypotheses, proof outline and role in targetCoverage independently read on 2026-10-08; this is an import of a planned declaration, not a formalization claim."
   },
   {
    "nodeId": "EllipticModularityEffectiveComparisons:EC.3/kraus-rational-realization",
    "packet": "research/blueprint/packets/EllipticModularityEffectiveComparisons.json",
    "role": "theorem",
-   "checked": "Statement, hypotheses, proof steps and prerequisites read in the owner's packet on 2026-10-08; the packet was accepted by independent-review-REV-DESIGN-EllipticModularityEffectiveComparisons on 2026-10-06. Cited, not restated."
+   "checked": "Statement, hypotheses, proof outline and role in targetCoverage independently read on 2026-10-08; this is an import of a planned declaration, not a formalization claim."
   },
   {
    "nodeId": "EllipticModularityEffectiveComparisons:EC.3/finite-four-count-witness",
    "packet": "research/blueprint/packets/EllipticModularityEffectiveComparisons.json",
    "role": "lemma",
-   "checked": "Statement, hypotheses, proof steps and prerequisites read in the owner's packet on 2026-10-08; the packet was accepted by independent-review-REV-DESIGN-EllipticModularityEffectiveComparisons on 2026-10-06. Cited, not restated."
+   "checked": "Statement, hypotheses, proof outline and role in targetCoverage independently read on 2026-10-08; this is an import of a planned declaration, not a formalization claim."
   },
   {
    "nodeId": "EllipticModularityEffectiveComparisons:EC.3/prime-power-ideal-sturm",
    "packet": "research/blueprint/packets/EllipticModularityEffectiveComparisons.json",
    "role": "theorem",
-   "checked": "Statement, hypotheses, proof steps and prerequisites read in the owner's packet on 2026-10-08; the packet was accepted by independent-review-REV-DESIGN-EllipticModularityEffectiveComparisons on 2026-10-06. Cited, not restated."
+   "checked": "Statement, hypotheses, proof outline and role in targetCoverage independently read on 2026-10-08; this is an import of a planned declaration, not a formalization claim."
   },
   {
    "nodeId": "EllipticModularityEffectiveComparisons:EC.3/filtered-coefficients",
    "packet": "research/blueprint/packets/EllipticModularityEffectiveComparisons.json",
    "role": "lemma",
-   "checked": "Statement, hypotheses, proof steps and prerequisites read in the owner's packet on 2026-10-08; the packet was accepted by independent-review-REV-DESIGN-EllipticModularityEffectiveComparisons on 2026-10-06. Cited, not restated."
+   "checked": "Statement, hypotheses, proof outline and role in targetCoverage independently read on 2026-10-08; this is an import of a planned declaration, not a formalization claim."
   },
   {
    "nodeId": "EllipticModularityEffectiveComparisons:EC.3/odd-eisenstein-series",
    "packet": "research/blueprint/packets/EllipticModularityEffectiveComparisons.json",
    "role": "lemma",
-   "checked": "Statement, hypotheses, proof steps and prerequisites read in the owner's packet on 2026-10-08; the packet was accepted by independent-review-REV-DESIGN-EllipticModularityEffectiveComparisons on 2026-10-06. Cited, not restated."
+   "checked": "Statement, hypotheses, proof outline and role in targetCoverage independently read on 2026-10-08; this is an import of a planned declaration, not a formalization claim."
   },
   {
    "nodeId": "EllipticModularityEffectiveComparisons:EC.3/local-mod-four-filters",
    "packet": "research/blueprint/packets/EllipticModularityEffectiveComparisons.json",
    "role": "definition",
-   "checked": "Statement, hypotheses, proof steps and prerequisites read in the owner's packet on 2026-10-08; the packet was accepted by independent-review-REV-DESIGN-EllipticModularityEffectiveComparisons on 2026-10-06. Cited, not restated."
+   "checked": "Statement, hypotheses, proof outline and role in targetCoverage independently read on 2026-10-08; this is an import of a planned declaration, not a formalization claim."
   },
   {
    "nodeId": "EllipticModularityEffectiveComparisons:EC.3/mod-four-trace-transfer",
    "packet": "research/blueprint/packets/EllipticModularityEffectiveComparisons.json",
    "role": "lemma",
-   "checked": "Statement, hypotheses, proof steps and prerequisites read in the owner's packet on 2026-10-08; the packet was accepted by independent-review-REV-DESIGN-EllipticModularityEffectiveComparisons on 2026-10-06. Cited, not restated."
+   "checked": "Statement, hypotheses, proof outline and role in targetCoverage independently read on 2026-10-08; this is an import of a planned declaration, not a formalization claim."
   },
   {
    "nodeId": "EllipticModularityEffectiveComparisons:EC.3/small-prime-below-g",
    "packet": "research/blueprint/packets/EllipticModularityEffectiveComparisons.json",
    "role": "lemma",
-   "checked": "Statement, hypotheses, proof steps and prerequisites read in the owner's packet on 2026-10-08; the packet was accepted by independent-review-REV-DESIGN-EllipticModularityEffectiveComparisons on 2026-10-06. Cited, not restated."
+   "checked": "Statement, hypotheses, proof outline and role in targetCoverage independently read on 2026-10-08; this is an import of a planned declaration, not a formalization claim."
   },
   {
    "nodeId": "EllipticModularityEffectiveComparisons:EC.3/four-count-rational-two",
    "packet": "research/blueprint/packets/EllipticModularityEffectiveComparisons.json",
    "role": "lemma",
-   "checked": "Statement, hypotheses, proof steps and prerequisites read in the owner's packet on 2026-10-08; the packet was accepted by independent-review-REV-DESIGN-EllipticModularityEffectiveComparisons on 2026-10-06. Cited, not restated."
+   "checked": "Statement, hypotheses, proof outline and role in targetCoverage independently read on 2026-10-08; this is an import of a planned declaration, not a formalization claim."
   },
   {
    "nodeId": "EllipticModularityEffectiveComparisons:EC.3/four-count-square-classes",
    "packet": "research/blueprint/packets/EllipticModularityEffectiveComparisons.json",
    "role": "lemma",
-   "checked": "Statement, hypotheses, proof steps and prerequisites read in the owner's packet on 2026-10-08; the packet was accepted by independent-review-REV-DESIGN-EllipticModularityEffectiveComparisons on 2026-10-06. Cited, not restated."
+   "checked": "Statement, hypotheses, proof outline and role in targetCoverage independently read on 2026-10-08; this is an import of a planned declaration, not a formalization claim."
   },
   {
    "nodeId": "EllipticModularityEffectiveComparisons:EC.3/four-count-full-two-selection",
    "packet": "research/blueprint/packets/EllipticModularityEffectiveComparisons.json",
    "role": "lemma",
-   "checked": "Statement, hypotheses, proof steps and prerequisites read in the owner's packet on 2026-10-08; the packet was accepted by independent-review-REV-DESIGN-EllipticModularityEffectiveComparisons on 2026-10-06. Cited, not restated."
+   "checked": "Statement, hypotheses, proof outline and role in targetCoverage independently read on 2026-10-08; this is an import of a planned declaration, not a formalization claim."
   },
   {
    "nodeId": "EllipticModularityEffectiveComparisons:EC.3/kraus-full-two-realization",
    "packet": "research/blueprint/packets/EllipticModularityEffectiveComparisons.json",
    "role": "theorem",
-   "checked": "Statement, hypotheses, proof steps and prerequisites read in the owner's packet on 2026-10-08; the packet was accepted by independent-review-REV-DESIGN-EllipticModularityEffectiveComparisons on 2026-10-06. Cited, not restated."
+   "checked": "Statement, hypotheses, proof outline and role in targetCoverage independently read on 2026-10-08; this is an import of a planned declaration, not a formalization claim."
   },
   {
    "nodeId": "EllipticModularityEffectiveComparisons:EC.3/deletion-conductor-away",
    "packet": "research/blueprint/packets/EllipticModularityEffectiveComparisons.json",
    "role": "lemma",
-   "checked": "Statement, hypotheses, proof steps and prerequisites read in the owner's packet on 2026-10-08; the packet was accepted by independent-review-REV-DESIGN-EllipticModularityEffectiveComparisons on 2026-10-06. Cited, not restated."
+   "checked": "Statement, hypotheses, proof outline and role in targetCoverage independently read on 2026-10-08; this is an import of a planned declaration, not a formalization claim."
   },
   {
    "nodeId": "EllipticModularityEffectiveComparisons:EC.3/deletion-level-exact-adapter",
    "packet": "research/blueprint/packets/EllipticModularityEffectiveComparisons.json",
    "role": "lemma",
-   "checked": "Statement, hypotheses, proof steps and prerequisites read in the owner's packet on 2026-10-08; the packet was accepted by independent-review-REV-DESIGN-EllipticModularityEffectiveComparisons on 2026-10-06. Cited, not restated."
+   "checked": "Statement, hypotheses, proof outline and role in targetCoverage independently read on 2026-10-08; this is an import of a planned declaration, not a formalization claim."
   },
   {
    "nodeId": "EllipticModularityEffectiveComparisons:EC.4/mazur-prime-isogeny-classification",
    "packet": "research/blueprint/packets/EllipticModularityEffectiveComparisons.json",
    "role": "theorem",
-   "checked": "Statement, hypotheses, proof steps and prerequisites read in the owner's packet on 2026-10-08; the packet was accepted by independent-review-REV-DESIGN-EllipticModularityEffectiveComparisons on 2026-10-06. Cited, not restated."
+   "checked": "Statement, hypotheses, proof outline and role in targetCoverage independently read on 2026-10-08; this is an import of a planned declaration, not a formalization claim."
   },
   {
    "nodeId": "EllipticModularityEffectiveComparisons:EC.5/large-prime-isogeny-cm",
    "packet": "research/blueprint/packets/EllipticModularityEffectiveComparisons.json",
    "role": "lemma",
-   "checked": "Statement, hypotheses, proof steps and prerequisites read in the owner's packet on 2026-10-08; the packet was accepted by independent-review-REV-DESIGN-EllipticModularityEffectiveComparisons on 2026-10-06. Cited, not restated."
+   "checked": "Statement, hypotheses, proof outline and role in targetCoverage independently read on 2026-10-08; this is an import of a planned declaration, not a formalization claim."
   },
   {
    "nodeId": "EllipticModularityEffectiveComparisons:EC.4/mazur-kenku-cyclic-degrees",
    "packet": "research/blueprint/packets/EllipticModularityEffectiveComparisons.json",
    "role": "theorem",
-   "checked": "Statement, hypotheses, proof steps and prerequisites read in the owner's packet on 2026-10-08; the packet was accepted by independent-review-REV-DESIGN-EllipticModularityEffectiveComparisons on 2026-10-06. Cited, not restated."
+   "checked": "Statement, hypotheses, proof outline and role in targetCoverage independently read on 2026-10-08; this is an import of a planned declaration, not a formalization claim."
   },
   {
    "nodeId": "EllipticModularityEffectiveComparisons:EC.4/rational-two-times-prime",
    "packet": "research/blueprint/packets/EllipticModularityEffectiveComparisons.json",
    "role": "lemma",
-   "checked": "Statement, hypotheses, proof steps and prerequisites read in the owner's packet on 2026-10-08; the packet was accepted by independent-review-REV-DESIGN-EllipticModularityEffectiveComparisons on 2026-10-06. Cited, not restated."
+   "checked": "Statement, hypotheses, proof outline and role in targetCoverage independently read on 2026-10-08; this is an import of a planned declaration, not a formalization claim."
   },
   {
    "nodeId": "EllipticModularityEffectiveComparisons:EC.4/full-two-cyclic-four",
    "packet": "research/blueprint/packets/EllipticModularityEffectiveComparisons.json",
    "role": "lemma",
-   "checked": "Statement, hypotheses, proof steps and prerequisites read in the owner's packet on 2026-10-08; the packet was accepted by independent-review-REV-DESIGN-EllipticModularityEffectiveComparisons on 2026-10-06. Cited, not restated."
+   "checked": "Statement, hypotheses, proof outline and role in targetCoverage independently read on 2026-10-08; this is an import of a planned declaration, not a formalization claim."
   },
   {
    "nodeId": "EllipticModularityEffectiveComparisons:EC.4/full-two-times-prime",
    "packet": "research/blueprint/packets/EllipticModularityEffectiveComparisons.json",
    "role": "lemma",
-   "checked": "Statement, hypotheses, proof steps and prerequisites read in the owner's packet on 2026-10-08; the packet was accepted by independent-review-REV-DESIGN-EllipticModularityEffectiveComparisons on 2026-10-06. Cited, not restated."
+   "checked": "Statement, hypotheses, proof outline and role in targetCoverage independently read on 2026-10-08; this is an import of a planned declaration, not a formalization claim."
   },
   {
    "nodeId": "EllipticModularityEffectiveComparisons:EC.4/irreducible-full-two",
    "packet": "research/blueprint/packets/EllipticModularityEffectiveComparisons.json",
    "role": "theorem",
-   "checked": "Statement, hypotheses, proof steps and prerequisites read in the owner's packet on 2026-10-08; the packet was accepted by independent-review-REV-DESIGN-EllipticModularityEffectiveComparisons on 2026-10-06. Cited, not restated."
+   "checked": "Statement, hypotheses, proof outline and role in targetCoverage independently read on 2026-10-08; this is an import of a planned declaration, not a formalization claim."
   },
   {
    "nodeId": "ArithmeticGaloisRepresentations:R01.4/odd-irreducible-implies-absolutely-irreducible",
    "packet": "research/blueprint/packets/ArithmeticGaloisRepresentations.json",
    "role": "theorem",
-   "checked": "Statement read in research/blueprint/packets/ArithmeticGaloisRepresentations.json on 2026-10-08: an irreducible two-dimensional representation of the Galois group of a field with a real place, odd at that place, over a field of characteristic different from 2, is absolutely irreducible. Cited, not restated."
+   "checked": "Statement, hypotheses, proof outline and role in targetCoverage independently read on 2026-10-08; this is an import of a planned declaration, not a formalization claim."
   },
   {
    "nodeId": "EllipticModularityEffectiveComparisons:EC.4/irreducible-one-two",
    "packet": "research/blueprint/packets/EllipticModularityEffectiveComparisons.json",
    "role": "theorem",
-   "checked": "Statement, hypotheses, proof steps and prerequisites read in the owner's packet on 2026-10-08; the packet was accepted by independent-review-REV-DESIGN-EllipticModularityEffectiveComparisons on 2026-10-06. Cited, not restated."
+   "checked": "Statement, hypotheses, proof outline and role in targetCoverage independently read on 2026-10-08; this is an import of a planned declaration, not a formalization claim."
   },
   {
    "nodeId": "EllipticModularityEffectiveComparisons:EC.5/nonsplit-potential-multiplicative",
    "packet": "research/blueprint/packets/EllipticModularityEffectiveComparisons.json",
    "role": "lemma",
-   "checked": "Statement, hypotheses, proof steps and prerequisites read in the owner's packet on 2026-10-08; the packet was accepted by independent-review-REV-DESIGN-EllipticModularityEffectiveComparisons on 2026-10-06. Cited, not restated."
+   "checked": "Statement, hypotheses, proof outline and role in targetCoverage independently read on 2026-10-08; this is an import of a planned declaration, not a formalization claim."
   },
   {
    "nodeId": "EllipticModularityEffectiveComparisons:EC.5/cartan-correspondence-kills-old",
    "packet": "research/blueprint/packets/EllipticModularityEffectiveComparisons.json",
    "role": "lemma",
-   "checked": "Statement, hypotheses, proof steps and prerequisites read in the owner's packet on 2026-10-08; the packet was accepted by independent-review-REV-DESIGN-EllipticModularityEffectiveComparisons on 2026-10-06. Cited, not restated."
+   "checked": "Statement, hypotheses, proof outline and role in targetCoverage independently read on 2026-10-08; this is an import of a planned declaration, not a formalization claim."
   },
   {
    "nodeId": "EllipticModularityEffectiveComparisons:EC.5/finite-winding-quotient",
    "packet": "research/blueprint/packets/EllipticModularityEffectiveComparisons.json",
    "role": "theorem",
-   "checked": "Statement, hypotheses, proof steps and prerequisites read in the owner's packet on 2026-10-08; the packet was accepted by independent-review-REV-DESIGN-EllipticModularityEffectiveComparisons on 2026-10-06. Cited, not restated."
+   "checked": "Statement, hypotheses, proof outline and role in targetCoverage independently read on 2026-10-08; this is an import of a planned declaration, not a formalization claim."
   },
   {
    "nodeId": "EllipticModularityEffectiveComparisons:EC.5/winding-period-component",
    "packet": "research/blueprint/packets/EllipticModularityEffectiveComparisons.json",
    "role": "lemma",
-   "checked": "Statement, hypotheses, proof steps and prerequisites read in the owner's packet on 2026-10-08; the packet was accepted by independent-review-REV-DESIGN-EllipticModularityEffectiveComparisons on 2026-10-06. Cited, not restated."
+   "checked": "Statement, hypotheses, proof outline and role in targetCoverage independently read on 2026-10-08; this is an import of a planned declaration, not a formalization claim."
   },
   {
    "nodeId": "EllipticModularityEffectiveComparisons:EC.5/winding-class-nonzero",
    "packet": "research/blueprint/packets/EllipticModularityEffectiveComparisons.json",
    "role": "lemma",
-   "checked": "Statement, hypotheses, proof steps and prerequisites read in the owner's packet on 2026-10-08; the packet was accepted by independent-review-REV-DESIGN-EllipticModularityEffectiveComparisons on 2026-10-06. Cited, not restated."
+   "checked": "Statement, hypotheses, proof outline and role in targetCoverage independently read on 2026-10-08; this is an import of a planned declaration, not a formalization claim."
   },
   {
    "nodeId": "EllipticModularityEffectiveComparisons:EC.5/cartan-cusp-formal-immersion",
    "packet": "research/blueprint/packets/EllipticModularityEffectiveComparisons.json",
    "role": "lemma",
-   "checked": "Statement, hypotheses, proof steps and prerequisites read in the owner's packet on 2026-10-08; the packet was accepted by independent-review-REV-DESIGN-EllipticModularityEffectiveComparisons on 2026-10-06. Cited, not restated."
+   "checked": "Statement, hypotheses, proof outline and role in targetCoverage independently read on 2026-10-08; this is an import of a planned declaration, not a formalization claim."
   },
   {
    "nodeId": "EllipticModularityEffectiveComparisons:EC.5/cartan-point-torsion",
    "packet": "research/blueprint/packets/EllipticModularityEffectiveComparisons.json",
    "role": "lemma",
-   "checked": "Statement, hypotheses, proof steps and prerequisites read in the owner's packet on 2026-10-08; the packet was accepted by independent-review-REV-DESIGN-EllipticModularityEffectiveComparisons on 2026-10-06. Cited, not restated."
+   "checked": "Statement, hypotheses, proof outline and role in targetCoverage independently read on 2026-10-08; this is an import of a planned declaration, not a formalization claim."
   },
   {
    "nodeId": "EllipticModularityEffectiveComparisons:EC.5/cartan-cusp-residue",
    "packet": "research/blueprint/packets/EllipticModularityEffectiveComparisons.json",
    "role": "lemma",
-   "checked": "Statement, hypotheses, proof steps and prerequisites read in the owner's packet on 2026-10-08; the packet was accepted by independent-review-REV-DESIGN-EllipticModularityEffectiveComparisons on 2026-10-06. Cited, not restated."
+   "checked": "Statement, hypotheses, proof outline and role in targetCoverage independently read on 2026-10-08; this is an import of a planned declaration, not a formalization claim."
   },
   {
    "nodeId": "EllipticModularityEffectiveComparisons:EC.5/cartan-denominator-exclusion",
    "packet": "research/blueprint/packets/EllipticModularityEffectiveComparisons.json",
    "role": "theorem",
-   "checked": "Statement, hypotheses, proof steps and prerequisites read in the owner's packet on 2026-10-08; the packet was accepted by independent-review-REV-DESIGN-EllipticModularityEffectiveComparisons on 2026-10-06. Cited, not restated."
+   "checked": "Statement, hypotheses, proof outline and role in targetCoverage independently read on 2026-10-08; this is an import of a planned declaration, not a formalization claim."
   },
   {
    "nodeId": "EllipticModularityEffectiveComparisons:EC.5/integral-j-forcing",
    "packet": "research/blueprint/packets/EllipticModularityEffectiveComparisons.json",
    "role": "lemma",
-   "checked": "Statement, hypotheses, proof steps and prerequisites read in the owner's packet on 2026-10-08; the packet was accepted by independent-review-REV-DESIGN-EllipticModularityEffectiveComparisons on 2026-10-06. Cited, not restated."
+   "checked": "Statement, hypotheses, proof outline and role in targetCoverage independently read on 2026-10-08; this is an import of a planned declaration, not a formalization claim."
   },
   {
    "nodeId": "EllipticModularityEffectiveComparisons:EC.5/genus-zero-j-numerators",
    "packet": "research/blueprint/packets/EllipticModularityEffectiveComparisons.json",
    "role": "definition",
-   "checked": "Statement, hypotheses, proof steps and prerequisites read in the owner's packet on 2026-10-08; the packet was accepted by independent-review-REV-DESIGN-EllipticModularityEffectiveComparisons on 2026-10-06. Cited, not restated."
+   "checked": "Statement, hypotheses, proof outline and role in targetCoverage independently read on 2026-10-08; this is an import of a planned declaration, not a formalization claim."
   },
   {
    "nodeId": "EllipticModularityEffectiveComparisons:EC.5/genus-zero-j-map",
    "packet": "research/blueprint/packets/EllipticModularityEffectiveComparisons.json",
    "role": "lemma",
-   "checked": "Statement, hypotheses, proof steps and prerequisites read in the owner's packet on 2026-10-08; the packet was accepted by independent-review-REV-DESIGN-EllipticModularityEffectiveComparisons on 2026-10-06. Cited, not restated."
+   "checked": "Statement, hypotheses, proof outline and role in targetCoverage independently read on 2026-10-08; this is an import of a planned declaration, not a formalization claim."
   },
   {
    "nodeId": "EllipticModularityEffectiveComparisons:EC.5/integral-parameter-divisibility",
    "packet": "research/blueprint/packets/EllipticModularityEffectiveComparisons.json",
    "role": "lemma",
-   "checked": "Statement, hypotheses, proof steps and prerequisites read in the owner's packet on 2026-10-08; the packet was accepted by independent-review-REV-DESIGN-EllipticModularityEffectiveComparisons on 2026-10-06. Cited, not restated."
+   "checked": "Statement, hypotheses, proof outline and role in targetCoverage independently read on 2026-10-08; this is an import of a planned declaration, not a formalization claim."
   },
   {
    "nodeId": "EllipticModularityEffectiveComparisons:EC.5/finite-integral-j",
    "packet": "research/blueprint/packets/EllipticModularityEffectiveComparisons.json",
    "role": "definition",
-   "checked": "Statement, hypotheses, proof steps and prerequisites read in the owner's packet on 2026-10-08; the packet was accepted by independent-review-REV-DESIGN-EllipticModularityEffectiveComparisons on 2026-10-06. Cited, not restated."
+   "checked": "Statement, hypotheses, proof outline and role in targetCoverage independently read on 2026-10-08; this is an import of a planned declaration, not a formalization claim."
   },
   {
    "nodeId": "EllipticModularityEffectiveComparisons:EC.5/integral-j-characterisation",
    "packet": "research/blueprint/packets/EllipticModularityEffectiveComparisons.json",
    "role": "lemma",
-   "checked": "Statement, hypotheses, proof steps and prerequisites read in the owner's packet on 2026-10-08; the packet was accepted by independent-review-REV-DESIGN-EllipticModularityEffectiveComparisons on 2026-10-06. Cited, not restated."
+   "checked": "Statement, hypotheses, proof outline and role in targetCoverage independently read on 2026-10-08; this is an import of a planned declaration, not a formalization claim."
   },
   {
    "nodeId": "EllipticModularityEffectiveComparisons:EC.5/proper-image-nonsplit",
    "packet": "research/blueprint/packets/EllipticModularityEffectiveComparisons.json",
    "role": "lemma",
-   "checked": "Statement, hypotheses, proof steps and prerequisites read in the owner's packet on 2026-10-08; the packet was accepted by independent-review-REV-DESIGN-EllipticModularityEffectiveComparisons on 2026-10-06. Cited, not restated."
+   "checked": "Statement, hypotheses, proof outline and role in targetCoverage independently read on 2026-10-08; this is an import of a planned declaration, not a formalization claim."
   },
   {
    "nodeId": "EllipticModularityEffectiveComparisons:EC.5/exceptional-projective-exclusion",
    "packet": "research/blueprint/packets/EllipticModularityEffectiveComparisons.json",
    "role": "lemma",
-   "checked": "Statement, hypotheses, proof steps and prerequisites read in the owner's packet on 2026-10-08; the packet was accepted by independent-review-REV-DESIGN-EllipticModularityEffectiveComparisons on 2026-10-06. Cited, not restated."
+   "checked": "Statement, hypotheses, proof outline and role in targetCoverage independently read on 2026-10-08; this is an import of a planned declaration, not a formalization claim."
   },
   {
    "nodeId": "EllipticModularityEffectiveComparisons:EC.5/projective-inertia-order",
    "packet": "research/blueprint/packets/EllipticModularityEffectiveComparisons.json",
    "role": "lemma",
-   "checked": "Statement, hypotheses, proof steps and prerequisites read in the owner's packet on 2026-10-08; the packet was accepted by independent-review-REV-DESIGN-EllipticModularityEffectiveComparisons on 2026-10-06. Cited, not restated."
+   "checked": "Statement, hypotheses, proof outline and role in targetCoverage independently read on 2026-10-08; this is an import of a planned declaration, not a formalization claim."
   },
   {
    "nodeId": "EllipticModularityEffectiveComparisons:EC.5/split-cartan-exclusion",
    "packet": "research/blueprint/packets/EllipticModularityEffectiveComparisons.json",
    "role": "theorem",
-   "checked": "Statement, hypotheses, proof steps and prerequisites read in the owner's packet on 2026-10-08; the packet was accepted by independent-review-REV-DESIGN-EllipticModularityEffectiveComparisons on 2026-10-06. Cited, not restated."
+   "checked": "Statement, hypotheses, proof outline and role in targetCoverage independently read on 2026-10-08; this is an import of a planned declaration, not a formalization claim."
   },
   {
    "nodeId": "EllipticModularityEffectiveComparisons:EC.5/quadratic-twist-surjectivity",
    "packet": "research/blueprint/packets/EllipticModularityEffectiveComparisons.json",
    "role": "lemma",
-   "checked": "Statement, hypotheses, proof steps and prerequisites read in the owner's packet on 2026-10-08; the packet was accepted by independent-review-REV-DESIGN-EllipticModularityEffectiveComparisons on 2026-10-06. Cited, not restated."
+   "checked": "Statement, hypotheses, proof outline and role in targetCoverage independently read on 2026-10-08; this is an import of a planned declaration, not a formalization claim."
   },
   {
    "nodeId": "EllipticModularityEffectiveComparisons:EC.5/large-isogeny-j-table",
    "packet": "research/blueprint/packets/EllipticModularityEffectiveComparisons.json",
    "role": "lemma",
-   "checked": "Statement, hypotheses, proof steps and prerequisites read in the owner's packet on 2026-10-08; the packet was accepted by independent-review-REV-DESIGN-EllipticModularityEffectiveComparisons on 2026-10-06. Cited, not restated."
+   "checked": "Statement, hypotheses, proof outline and role in targetCoverage independently read on 2026-10-08; this is an import of a planned declaration, not a formalization claim."
   },
   {
    "nodeId": "EllipticModularityEffectiveComparisons:EC.5/large-isogeny-image-certificates",
    "packet": "research/blueprint/packets/EllipticModularityEffectiveComparisons.json",
    "role": "lemma",
-   "checked": "Statement, hypotheses, proof steps and prerequisites read in the owner's packet on 2026-10-08; the packet was accepted by independent-review-REV-DESIGN-EllipticModularityEffectiveComparisons on 2026-10-06. Cited, not restated."
+   "checked": "Statement, hypotheses, proof outline and role in targetCoverage independently read on 2026-10-08; this is an import of a planned declaration, not a formalization claim."
   },
   {
    "nodeId": "EllipticModularityEffectiveComparisons:EC.5/small-isogeny-image-certificates",
    "packet": "research/blueprint/packets/EllipticModularityEffectiveComparisons.json",
    "role": "lemma",
-   "checked": "Statement, hypotheses, proof steps and prerequisites read in the owner's packet on 2026-10-08; the packet was accepted by independent-review-REV-DESIGN-EllipticModularityEffectiveComparisons on 2026-10-06. Cited, not restated."
+   "checked": "Statement, hypotheses, proof outline and role in targetCoverage independently read on 2026-10-08; this is an import of a planned declaration, not a formalization claim."
   },
   {
    "nodeId": "EllipticModularityEffectiveComparisons:EC.5/lemos-surjectivity",
    "packet": "research/blueprint/packets/EllipticModularityEffectiveComparisons.json",
    "role": "theorem",
-   "checked": "Statement, hypotheses, proof steps and prerequisites read in the owner's packet on 2026-10-08; the packet was accepted by independent-review-REV-DESIGN-EllipticModularityEffectiveComparisons on 2026-10-06. Cited, not restated."
+   "checked": "Statement, hypotheses, proof outline and role in targetCoverage independently read on 2026-10-08; this is an import of a planned declaration, not a formalization claim."
   }
  ],
  "targetCoverage": [
@@ -499,7 +514,13 @@
    "suppliedBy": [
     "EllipticModularityEffectiveComparisons:EC.2/kraus-f"
    ],
-   "comparison": "The same definition on the same carriers: the native index, and the trivial-character part of the Γ₁(N) newspace. The owner's API (krausF_eq, one_le_krausF, krausF_of_dimension_zero) and its tests at levels 1, 11 and 35 cover what the threshold is used for; 3 + 2√2 = (√2 + 1)²."
+   "comparison": "The same definition on the same carriers: the native index, and the trivial-character part of the Γ₁(N) newspace. The owner's API (krausF_eq, one_le_krausF, krausF_of_dimension_zero) and its tests at levels 1, 11 and 35 cover what the threshold is used for; 3 + 2√2 = (√2 + 1)².",
+   "sources": [
+    {
+     "sourceId": "Kraus",
+     "locator": "§3.1, equation (7), p. 1143"
+    }
+   ]
   },
   {
    "stageId": "EllipticCurveModularityPartII:EC.1",
@@ -509,7 +530,13 @@
    "suppliedBy": [
     "EllipticModularityEffectiveComparisons:EC.2/kraus-g"
    ],
-   "comparison": "The same definition. The owner tests levels 1, 4 and 11, and 13 + 4√3 = (√12 + 1)². The value G(2) = 4 and the invariance of G under lcm(N, 4) = lcm(M, 4) follow from its formula krausG_eq."
+   "comparison": "The same definition. The owner tests levels 1, 4 and 11, and 13 + 4√3 = (√12 + 1)². The value G(2) = 4 and the invariance of G under lcm(N, 4) = lcm(M, 4) follow from its formula krausG_eq.",
+   "sources": [
+    {
+     "sourceId": "Kraus",
+     "locator": "§3.1, equation (8), p. 1144"
+    }
+   ]
   },
   {
    "stageId": "EllipticCurveModularityPartII:EC.1",
@@ -519,7 +546,13 @@
    "suppliedBy": [
     "EllipticModularityEffectiveComparisons:EC.2/kraus-h"
    ],
-   "comparison": "The same definition, with krausF_le_krausH, krausG_le_krausH and krausH_lt_iff. That F cannot replace H is visible at level 11: F(11) = 3 + 2√2 < 13 + 4√3 = H(11), the owner's tests krausF_eleven and krausH_eleven."
+   "comparison": "The same definition, with krausF_le_krausH, krausG_le_krausH and krausH_lt_iff. That F cannot replace H is visible at level 11: F(11) = 3 + 2√2 < 13 + 4√3 = H(11), the owner's tests krausF_eleven and krausH_eleven.",
+   "sources": [
+    {
+     "sourceId": "Kraus",
+     "locator": "§3.1, equation (9), p. 1144"
+    }
+   ]
   },
   {
    "stageId": "EllipticCurveModularityPartII:EC.1",
@@ -530,7 +563,13 @@
     "EllipticModularityEffectiveComparisons:EC.0/martin-bound",
     "EllipticModularityEffectiveComparisons:EC.0/dimension-comparison"
    ],
-   "comparison": "The same statement with the same equality cases. The owner also plans the proof: Martin's prime-power table, the identification of his arithmetic expression with the actual newspace dimension, and the estimates and finite checks of his §4 (EC.0/local-factors to EC.0/bounded-family)."
+   "comparison": "The same statement with the same equality cases. The owner also plans the proof: Martin's prime-power table, the identification of his arithmetic expression with the actual newspace dimension, and the estimates and finite checks of his §4 (EC.0/local-factors to EC.0/bounded-family).",
+   "sources": [
+    {
+     "sourceId": "Martin",
+     "locator": "Theorem 2, p. 3; §4, Lemmas 16–22 and its proof, pp. 14–16 (v1)"
+    }
+   ]
   },
   {
    "stageId": "EllipticCurveModularityPartII:EC.2",
@@ -540,9 +579,17 @@
    "suppliedBy": [
     "EllipticModularityEffectiveComparisons:EC.1/prime-divides-integral-norm",
     "EllipticModularityEffectiveComparisons:EC.1/trace-norm",
-    "EllipticModularityEffectiveComparisons:EC.3/bounded-integer-trace-norm"
+    "EllipticModularityEffectiveComparisons:EC.3/bounded-integer-trace-norm",
+    "mathlib:Algebra.norm_eq_prod_embeddings",
+    "mathlib:AlgHom.card"
    ],
-   "comparison": "The lower bound ℓ ≤ |Norm(x)| is EC.1/prime-divides-integral-norm, with the Mathlib declarations on ideal norms it rests on. The owner states the upper bound for the two elements to which it is applied, p + 1 ∓ c_p (EC.1/trace-norm) and b − a_q(f) (EC.3/bounded-integer-trace-norm). The general inequality |Norm(x)| ≤ B^d is the product formula over embeddings in Mathlib and is not a target of its own."
+   "comparison": "The lower bound ℓ ≤ |Norm(x)| is EC.1/prime-divides-integral-norm, with the Mathlib declarations on ideal norms it rests on. The owner states the upper bound for the two elements to which it is applied, p + 1 ∓ c_p (EC.1/trace-norm) and b − a_q(f) (EC.3/bounded-integer-trace-norm). The general inequality |Norm(x)| ≤ B^d is the product formula over embeddings in Mathlib and is not a target of its own. Precisely, mathlib:Algebra.norm_eq_prod_embeddings gives the product, and mathlib:AlgHom.card gives exactly d complex embeddings. Taking absolute values and multiplying the d bounds gives B^d. Nonzero x and an embedding force B > 0; no extra assumption B ≥ 1 is used. This is a consequence of these baseline declarations and the imported lower bound, not a separately owned theorem.",
+   "sources": [
+    {
+     "sourceId": "BS",
+     "locator": "§2, proof of Lemma 2.2, p. 359; general consequence of the cited Mathlib product formula"
+    }
+   ]
   },
   {
    "stageId": "EllipticCurveModularityPartII:EC.2",
@@ -556,7 +603,13 @@
     "EllipticModularityEffectiveComparisons:EC.1/real-exponent-bound",
     "EllipticModularityEffectiveComparisons:EC.1/trace-gap"
    ],
-   "comparison": "The same statement and hypotheses (Bennett–Siksek, Lemma 2.2), with M₀ the deletion level of SerreWeightAndLevelOptimisation R20.6 and ord the valuation exponent. The owner splits the proof into the nonvanishing of p + 1 ∓ c_p, the bound by the degree of the coefficient field, the bound of that degree by g⁺(M₀), and the comparison of real powers."
+   "comparison": "The same statement and hypotheses (Bennett–Siksek, Lemma 2.2), with M₀ the deletion level of SerreWeightAndLevelOptimisation R20.6 and ord the valuation exponent. The owner splits the proof into the nonvanishing of p + 1 ∓ c_p, the bound by the degree of the coefficient field, the bound of that degree by g⁺(M₀), and the comparison of real powers.",
+   "sources": [
+    {
+     "sourceId": "BS",
+     "locator": "§2, Lemmas 2.1–2.2 and proof, p. 359"
+    }
+   ]
   },
   {
    "stageId": "EllipticCurveModularityPartII:EC.3",
@@ -566,7 +619,13 @@
    "suppliedBy": [
     "EllipticModularityEffectiveComparisons:EC.3/rationality-from-small-primes"
    ],
-   "comparison": "The same statement (Kraus, Lemme 1), with the additional conclusion that the coefficient field is ℚ."
+   "comparison": "The same statement (Kraus, Lemme 1), with the additional conclusion that the coefficient field is ℚ.",
+   "sources": [
+    {
+     "sourceId": "Kraus",
+     "locator": "§3.2, Lemma 1 and proof, pp. 1144–1145"
+    }
+   ]
   },
   {
    "stageId": "EllipticCurveModularityPartII:EC.3",
@@ -580,7 +639,13 @@
     "EllipticModularityEffectiveComparisons:EC.3/small-prime-below-f",
     "EllipticModularityEffectiveComparisons:EC.3/bounded-integer-trace-norm"
    ],
-   "comparison": "The owner states the stronger conclusion that the coefficient field of f is ℚ, with the same contradiction with ℓ > F(N): a non-integral coefficient at a prime q ≤ μ(N)/6 with q ∤ N differs from an integer trace, or from ±(q + 1), by a nonzero element of the prime above ℓ whose norm is at most F(N). The existence of f is EC.3/exact-weight-two-lift."
+   "comparison": "The owner states the stronger conclusion that the coefficient field of f is ℚ, with the same contradiction with ℓ > F(N): a non-integral coefficient at a prime q ≤ μ(N)/6 with q ∤ N differs from an integer trace, or from ±(q + 1), by a nonzero element of the prime above ℓ whose norm is at most F(N). The existence of f is EC.3/exact-weight-two-lift.",
+   "sources": [
+    {
+     "sourceId": "Kraus",
+     "locator": "§3.2, proof of Theorem 3, p. 1145"
+    }
+   ]
   },
   {
    "stageId": "EllipticCurveModularityPartII:EC.3",
@@ -590,7 +655,13 @@
    "suppliedBy": [
     "EllipticModularityEffectiveComparisons:EC.3/rational-form-elliptic-realization"
    ],
-   "comparison": "The same statement, from the one-dimensional quotient of J₀(N) (ModularCurvesPartII R14.5) and the conductor theorem (AutomorphicGaloisRepresentations R19.4)."
+   "comparison": "The same statement, from the one-dimensional quotient of J₀(N) (ModularCurvesPartII R14.5) and the conductor theorem (AutomorphicGaloisRepresentations R19.4).",
+   "sources": [
+    {
+     "sourceId": "Kraus",
+     "locator": "§3.1, rational-coefficient paragraph before equation (7), p. 1143"
+    }
+   ]
   },
   {
    "stageId": "EllipticCurveModularityPartII:EC.3",
@@ -600,7 +671,13 @@
    "suppliedBy": [
     "EllipticModularityEffectiveComparisons:EC.3/kraus-rational-realization"
    ],
-   "comparison": "The same statement (Kraus, Théorème 3); the modularity of E that Kraus assumes is EllipticCurveModularity:R29.6/modularity-theorem."
+   "comparison": "The same statement (Kraus, Théorème 3); the modularity of E that Kraus assumes is EllipticCurveModularity:R29.6/modularity-theorem.",
+   "sources": [
+    {
+     "sourceId": "Kraus",
+     "locator": "§3.1, Theorem 3, p. 1144"
+    }
+   ]
   },
   {
    "stageId": "EllipticCurveModularityPartII:EC.4",
@@ -614,7 +691,13 @@
     "EllipticModularityEffectiveComparisons:EC.3/odd-eisenstein-series",
     "EllipticModularityEffectiveComparisons:EC.3/local-mod-four-filters"
    ],
-   "comparison": "The owner states the contrapositive: a failure of the divisibility at some prime q ∤ 2N occurs at such a prime below the bound (Kraus, Appendice II, Corollaire). It also plans what the proof rests on: Kraus's congruence criterion modulo a power of a prime, his local filters, and the comparison with the Eisenstein series Σ_{n odd} σ₁(n)qⁿ on Γ₀(4)."
+   "comparison": "The owner states the contrapositive: a failure of the divisibility at some prime q ∤ 2N occurs at such a prime below the bound (Kraus, Appendice II, Corollaire). It also plans what the proof rests on: Kraus's congruence criterion modulo a power of a prime, his local filters, and the comparison with the Eisenstein series Σ_{n odd} σ₁(n)qⁿ on Γ₀(4).",
+   "sources": [
+    {
+     "sourceId": "Kraus",
+     "locator": "Appendix II (§8), Proposition 2 and Corollary, pp. 1158–1159"
+    }
+   ]
   },
   {
    "stageId": "EllipticCurveModularityPartII:EC.4",
@@ -625,7 +708,13 @@
     "EllipticModularityEffectiveComparisons:EC.3/mod-four-trace-transfer",
     "EllipticModularityEffectiveComparisons:EC.3/small-prime-below-g"
    ],
-   "comparison": "The owner's lemma has this conclusion, for every prime q ∤ 2N, and argues by contradiction from a small prime at which the divisibility fails. Kraus's argument passes through two intermediate facts at the primes q ≤ μ(lcm(N, 4))/6, good reduction of E and the equality a_q(E) = a_q(C); the owner does not state them as conclusions."
+   "comparison": "The owner's lemma has this conclusion, for every prime q ∤ 2N, and argues by contradiction from a small prime at which the divisibility fails. Kraus's argument passes through two intermediate facts at the primes q ≤ μ(lcm(N, 4))/6, good reduction of E and the equality a_q(E) = a_q(C); the owner does not state them as conclusions.",
+   "sources": [
+    {
+     "sourceId": "Kraus",
+     "locator": "§3.3, equations (10)–(11) and trace comparison, p. 1146"
+    }
+   ]
   },
   {
    "stageId": "EllipticCurveModularityPartII:EC.4",
@@ -638,7 +727,13 @@
     "EllipticModularityEffectiveComparisons:EC.3/four-count-full-two-selection",
     "EllipticModularityEffectiveComparisons:EC.3/kraus-full-two-realization"
    ],
-   "comparison": "The owner plans three nodes: the existence of the rational point of order two, the square-class dichotomy on the model y² = x(x² + ax + b), and the selection of a curve with full two-torsion by an isogeny of degree at most two. The transport of the conductor and of the ℓ-torsion along that isogeny is the last step of EC.3/kraus-full-two-realization. The owner's hypothesis is at every odd prime of good reduction, which is what the application provides; Kraus allows finitely many exceptional primes, and that form is not planned."
+   "comparison": "The owner plans three nodes: the existence of the rational point of order two, the square-class dichotomy on the model y² = x(x² + ax + b), and the selection of a curve with full two-torsion by an isogeny of degree at most two. The transport of the conductor and of the ℓ-torsion along that isogeny is the last step of EC.3/kraus-full-two-realization. The owner's hypothesis is at every odd prime of good reduction, which is what the application provides; Kraus allows finitely many exceptional primes, and that form is not planned.",
+   "sources": [
+    {
+     "sourceId": "Kraus",
+     "locator": "§3.3, final two-isogeny paragraph, p. 1146"
+    }
+   ]
   },
   {
    "stageId": "EllipticCurveModularityPartII:EC.4",
@@ -648,7 +743,13 @@
    "suppliedBy": [
     "EllipticModularityEffectiveComparisons:EC.3/kraus-full-two-realization"
    ],
-   "comparison": "The same statement (Kraus, Théorème 4). Bennett and Siksek quote it, as their Theorem 4, at the level M₀ of their Theorem 3; the passage from M₀ to N(E[ℓ]) is the next target."
+   "comparison": "The same statement (Kraus, Théorème 4). Bennett and Siksek quote it, as their Theorem 4, at the level M₀ of their Theorem 3; the passage from M₀ to N(E[ℓ]) is the next target.",
+   "sources": [
+    {
+     "sourceId": "Kraus",
+     "locator": "§3.1, Theorem 4, p. 1144; §3.3, pp. 1145–1146"
+    }
+   ]
   },
   {
    "stageId": "EllipticCurveModularityPartII:EC.4",
@@ -659,7 +760,13 @@
     "EllipticModularityEffectiveComparisons:EC.3/deletion-conductor-away",
     "EllipticModularityEffectiveComparisons:EC.3/deletion-level-exact-adapter"
    ],
-   "comparison": "The owner states N(E[ℓ]) = M₀ for ℓ ≥ 5 when E has good reduction at ℓ, or multiplicative reduction at ℓ with ℓ | ord_ℓ(Δ) (EC.3/deletion-level-exact-adapter); the case ℓ ∤ M is its good-reduction case. It rests on the comparison of conductor exponents away from ℓ (EC.3/deletion-conductor-away), whose full local form the owner requests from ArithmeticGaloisRepresentations R01.3. For ℓ ≥ 11 the owner attributes to Kraus the deduction of the reduction alternative from Serre weight 2 and requests that local theorem; for ℓ = 5, 7 it keeps the alternative as a hypothesis."
+   "comparison": "The owner states N(E[ℓ]) = M₀ for ℓ ≥ 5 when E has good reduction at ℓ, or multiplicative reduction at ℓ with ℓ | ord_ℓ(Δ) (EC.3/deletion-level-exact-adapter); the case ℓ ∤ M is its good-reduction case. It rests on the comparison of conductor exponents away from ℓ (EC.3/deletion-conductor-away), whose full local form the owner requests from ArithmeticGaloisRepresentations R01.3. For ℓ ≥ 11 the owner attributes to Kraus the deduction of the reduction alternative from Serre weight 2 and requests that local theorem; for ℓ = 5, 7 it keeps the alternative as a hypothesis.",
+   "sources": [
+    {
+     "sourceId": "BS",
+     "locator": "§2, Theorems 3–4, pp. 359–360; application adapter with separate local-conductor and weight hypotheses"
+    }
+   ]
   },
   {
    "stageId": "EllipticCurveModularityPartII:EC.5",
@@ -670,7 +777,13 @@
     "EllipticModularityEffectiveComparisons:EC.4/mazur-prime-isogeny-classification",
     "EllipticModularityEffectiveComparisons:EC.5/large-prime-isogeny-cm"
    ],
-   "comparison": "The list of twelve primes is EC.4/mazur-prime-isogeny-classification, with Mazur's argument planned in the nodes it cites (the Eisenstein quotient, the formal immersion, the isogeny character and its three cases). The list of eight primes for curves without complex multiplication is EC.5/large-prime-isogeny-cm."
+   "comparison": "The list of twelve primes is EC.4/mazur-prime-isogeny-classification, with Mazur's argument planned in the nodes it cites (the Eisenstein quotient, the formal immersion, the isogeny character and its three cases). The list of eight primes for curves without complex multiplication is EC.5/large-prime-isogeny-cm.",
+   "sources": [
+    {
+     "sourceId": "Mazur",
+     "locator": "Theorem 1, pp. 129–130; introduction table and CM discussion, p. 129; §7, Theorem 7.1, pp. 153–155"
+    }
+   ]
   },
   {
    "stageId": "EllipticCurveModularityPartII:EC.5",
@@ -680,7 +793,13 @@
    "suppliedBy": [
     "EllipticModularityEffectiveComparisons:EC.4/mazur-kenku-cyclic-degrees"
    ],
-   "comparison": "The owner plans the whole list of degrees of rational cyclic isogenies, {1, …, 19, 21, 25, 27, 37, 43, 67, 163}. It contains no even number above 18, hence no 2ℓ with ℓ ≥ 11 and no 4ℓ with ℓ ≥ 5."
+   "comparison": "The owner plans the whole list of degrees of rational cyclic isogenies, {1, …, 19, 21, 25, 27, 37, 43, 67, 163}. It contains no even number above 18, hence no 2ℓ with ℓ ≥ 11 and no 4ℓ with ℓ ≥ 5.",
+   "sources": [
+    {
+     "sourceId": "BS",
+     "locator": "§3, irreducibility applications in Lemmas 3.3 and 3.5, pp. 361–363; the composite-degree exclusions are imported from the owner’s separate Mazur–Kenku node"
+    }
+   ]
   },
   {
    "stageId": "EllipticCurveModularityPartII:EC.5",
@@ -692,7 +811,13 @@
     "EllipticModularityEffectiveComparisons:EC.4/full-two-cyclic-four",
     "EllipticModularityEffectiveComparisons:EC.4/full-two-times-prime"
    ],
-   "comparison": "The same three arguments: the sum of the coprime kernels; the cyclic kernel of order 4 of the composite E/T → E → E/T′ for distinct rational subgroups T, T′ of order 2; and the sum of that kernel with the transported line."
+   "comparison": "The same three arguments: the sum of the coprime kernels; the cyclic kernel of order 4 of the composite E/T → E → E/T′ for distinct rational subgroups T, T′ of order 2; and the sum of that kernel with the transported line.",
+   "sources": [
+    {
+     "sourceId": "BS",
+     "locator": "§3, Lemmas 3.3 and 3.5, pp. 361–363; derived coprime-kernel and dual-isogeny argument, not a separately stated source lemma"
+    }
+   ]
   },
   {
    "stageId": "EllipticCurveModularityPartII:EC.5",
@@ -703,7 +828,13 @@
     "EllipticModularityEffectiveComparisons:EC.4/irreducible-full-two",
     "ArithmeticGaloisRepresentations:R01.4/odd-irreducible-implies-absolutely-irreducible"
    ],
-   "comparison": "Irreducibility is the owner's theorem (Bennett–Siksek, proof of Lemma 3.3). Absolute irreducibility follows from the cited node of ArithmeticGaloisRepresentations R01.4, because E[ℓ] is odd."
+   "comparison": "Irreducibility is the owner's theorem (Bennett–Siksek, proof of Lemma 3.3). Absolute irreducibility follows from the cited node of ArithmeticGaloisRepresentations R01.4, because E[ℓ] is odd.",
+   "sources": [
+    {
+     "sourceId": "BS",
+     "locator": "§3, Lemma 3.3 proof, p. 362; absolute irreducibility uses the separately imported oddness lemma"
+    }
+   ]
   },
   {
    "stageId": "EllipticCurveModularityPartII:EC.5",
@@ -714,7 +845,13 @@
     "EllipticModularityEffectiveComparisons:EC.4/irreducible-one-two",
     "ArithmeticGaloisRepresentations:R01.4/odd-irreducible-implies-absolutely-irreducible"
    ],
-   "comparison": "Irreducibility is the owner's theorem (Bennett–Siksek, proof of Lemma 3.5); absolute irreducibility follows as in the preceding target."
+   "comparison": "Irreducibility is the owner's theorem (Bennett–Siksek, proof of Lemma 3.5); absolute irreducibility follows as in the preceding target.",
+   "sources": [
+    {
+     "sourceId": "BS",
+     "locator": "§3, Lemma 3.5 proof, p. 363; absolute irreducibility uses the separately imported oddness lemma"
+    }
+   ]
   },
   {
    "stageId": "EllipticCurveModularityPartII:EC.6",
@@ -724,7 +861,13 @@
    "suppliedBy": [
     "EllipticModularityEffectiveComparisons:EC.5/nonsplit-potential-multiplicative"
    ],
-   "comparison": "The same statement (Lemos, Proposition 2.2) in contrapositive form: a prime of potentially multiplicative reduction is different from p and congruent to ±1 modulo p."
+   "comparison": "The same statement (Lemos, Proposition 2.2) in contrapositive form: a prime of potentially multiplicative reduction is different from p and congruent to ±1 modulo p.",
+   "sources": [
+    {
+     "sourceId": "Lemos",
+     "locator": "§2, Proposition 2.2 and proof, pp. 4–5 (v2)"
+    }
+   ]
   },
   {
    "stageId": "EllipticCurveModularityPartII:EC.6",
@@ -734,7 +877,13 @@
    "suppliedBy": [
     "EllipticModularityEffectiveComparisons:EC.5/cartan-correspondence-kills-old"
    ],
-   "comparison": "The owner plans the homomorphism, its Hecke equivariance and its vanishing on the p-old part (Lemos, Lemma 3.2), with the quotient by w_{p²} that keeps the level structure at r. That the induced map is an isogeny (Chen; Lemos, Theorem 3.3), and its use in EC.5/finite-winding-quotient, are in the owner's gap “Chen isogeny and higher-dimensional winding quotient” and in its proposal of a continuation of ModularCurvesPartII for Cartan correspondences. The case r = 1, which no target uses, is not planned."
+   "comparison": "The owner plans the homomorphism, its Hecke equivariance and its vanishing on the p-old part (Lemos, Lemma 3.2), with the quotient by w_{p²} that keeps the level structure at r. That the induced map is an isogeny (Chen; Lemos, Theorem 3.3), and its use in EC.5/finite-winding-quotient, are in the owner's gap “Chen isogeny and higher-dimensional winding quotient” and in its proposal of a continuation of ModularCurvesPartII for Cartan correspondences. The case r = 1, which no target uses, is not planned.",
+   "sources": [
+    {
+     "sourceId": "Lemos",
+     "locator": "§3, correspondence and Lemma 3.2, p. 9; Theorem 3.3, p. 9 (v2), for the separate isogeny input"
+    }
+   ]
   },
   {
    "stageId": "EllipticCurveModularityPartII:EC.6",
@@ -746,19 +895,31 @@
     "EllipticModularityEffectiveComparisons:EC.5/winding-period-component",
     "EllipticModularityEffectiveComparisons:EC.5/winding-class-nonzero"
    ],
-   "comparison": "The same statement (Lemos, Theorem 3.4). The owner separates the nonvanishing of the winding class, proved by Darmon and Merel for r = 2, 3 and recorded as a gap for r = 5, 7, 13, from the nonvanishing of the central values of the surviving newforms and from the rank-zero theorem for their abelian varieties."
+   "comparison": "The same statement (Lemos, Theorem 3.4). The owner separates the nonvanishing of the winding class, proved by Darmon and Merel for r = 2, 3 and recorded as a gap for r = 5, 7, 13, from the nonvanishing of the central values of the surviving newforms and from the rank-zero theorem for their abelian varieties.",
+   "sources": [
+    {
+     "sourceId": "Lemos",
+     "locator": "§3, Theorem 3.4 and proof sketch, p. 10 (v2)"
+    }
+   ]
   },
   {
    "stageId": "EllipticCurveModularityPartII:EC.6",
    "formerNode": "EllipticCurveModularityPartII:EC.6/cuspidal-formal-immersion",
    "target": "Formal immersion at a cusp, and the torsion image of a rational point",
-   "statement": "Let p > 37, let A be as in the preceding target and q a prime with q ≡ ±1 mod p. The map from the smooth model of X₀(r) ×_{X(1)} X_ns⁺(p) to the Néron model of A that sends a point P to the class of (P) − (∞) is a formal immersion at the cusp ∞ in characteristic q. For every prime p outside {2, 3, 5, 7, 13}, the image in A(ℚ(ζ_p)⁺) of a rational point of the curve is torsion.",
+   "statement": "For r ∈ {2, 3, 5, 7, 13}, prime p > 37 and prime q ≡ ±1 mod p, let A be the specified optimal winding quotient of the preceding target, K = ℚ(ζ_p)⁺, and ∞ a cusp defined over K. The Abel–Jacobi map P ↦ [(P) − (∞)], followed by projection to A, extends from the smooth locus of the canonical integral model of the normalized mixed curve X₀(r) ×_{X(1)} X_ns⁺(p) over the localization of the integers of K at a prime above q to the Néron model of A, and is a formal immersion at ∞ in characteristic q. For the same r and A and any prime p outside {2, 3, 5, 7, 13}, the image in A(K) of each ℚ-rational point of the mixed curve is torsion.",
    "suppliedBy": [
     "EllipticModularityEffectiveComparisons:EC.5/cartan-cusp-formal-immersion",
     "EllipticModularityEffectiveComparisons:EC.5/cartan-point-torsion",
     "EllipticModularityEffectiveComparisons:EC.5/cartan-cusp-residue"
    ],
-   "comparison": "The owner states the formal immersion for p > 37, the range the exported theorem uses; Lemos states it for every prime p outside {2, 3, 5, 7, 13}, following Darmon and Merel's Lemma 8.2 for r = 2, 3. The torsion statement is EC.5/cartan-point-torsion (Darmon–Merel, Lemma 8.3), and the field of definition of the cusps is EC.5/cartan-cusp-residue."
+   "comparison": "The owner states the formal immersion for p > 37, the range the exported theorem uses; Lemos states it for every prime p outside {2, 3, 5, 7, 13}, following Darmon and Merel's Lemma 8.2 for r = 2, 3. The torsion statement is EC.5/cartan-point-torsion (Darmon–Merel, Lemma 8.3), and the field of definition of the cusps is EC.5/cartan-cusp-residue. The quotient is the specified winding quotient, not an arbitrary quotient with finite rational points. The real cyclotomic base, chosen cusp, smooth integral locus and Néron target are part of the statement (Darmon–Merel §8, pp. 22–23). The extension to r = 5, 7, 13 remains subject to the owner’s recorded gap.",
+   "sources": [
+    {
+     "sourceId": "DarmonMerel",
+     "locator": "§8, Lemmas 8.2–8.3, pp. 22–23 (author copy); Lemos §3 conclusion, p. 10 (v2), for the extended range"
+    }
+   ]
   },
   {
    "stageId": "EllipticCurveModularityPartII:EC.6",
@@ -768,7 +929,13 @@
    "suppliedBy": [
     "EllipticModularityEffectiveComparisons:EC.5/cartan-denominator-exclusion"
    ],
-   "comparison": "The owner states this for p > 37. Lemos's Theorem 1.4 states it for every prime p outside {2, 3, 5, 7, 13}; the exported theorem needs only p > 37."
+   "comparison": "The owner states this for p > 37. Lemos's Theorem 1.4 states it for every prime p outside {2, 3, 5, 7, 13}; the exported theorem needs only p > 37.",
+   "sources": [
+    {
+     "sourceId": "Lemos",
+     "locator": "Theorem 1.4, p. 3; §3 conclusion, p. 10 (v2); indexed range restricted to p > 37"
+    }
+   ]
   },
   {
    "stageId": "EllipticCurveModularityPartII:EC.6",
@@ -778,7 +945,13 @@
    "suppliedBy": [
     "EllipticModularityEffectiveComparisons:EC.5/integral-j-forcing"
    ],
-   "comparison": "The owner's statement. Lemos's Proposition 2.1 assumes an image in the normalizer of a nonsplit Cartan subgroup, for every prime p outside {2, 3, 5, 7, 13}, and no hypothesis on complex multiplication; the owner assumes a proper image for p > 37 and no complex multiplication, which by EC.5/proper-image-nonsplit is the same hypothesis in that range, and combines EC.5/cartan-denominator-exclusion with potential good reduction at p."
+   "comparison": "The owner's statement. Lemos's Proposition 2.1 assumes an image in the normalizer of a nonsplit Cartan subgroup, for every prime p outside {2, 3, 5, 7, 13}, and no hypothesis on complex multiplication; the owner assumes a proper image for p > 37 and no complex multiplication, which by EC.5/proper-image-nonsplit is the same hypothesis in that range, and combines EC.5/cartan-denominator-exclusion with potential good reduction at p.",
+   "sources": [
+    {
+     "sourceId": "Lemos",
+     "locator": "§2, Proposition 2.1, p. 4; Theorem 2.3, p. 6 (v2); indexed range restricted to p > 37"
+    }
+   ]
   },
   {
    "stageId": "EllipticCurveModularityPartII:EC.6",
@@ -792,7 +965,13 @@
     "EllipticModularityEffectiveComparisons:EC.5/finite-integral-j",
     "EllipticModularityEffectiveComparisons:EC.5/integral-j-characterisation"
    ],
-   "comparison": "The same five polynomials and the same divisibility argument. The owner also defines the finite sets of integral j-values, of cardinalities 25, 13, 8, 6 and 4, and states (EC.5/integral-j-characterisation) that they are exactly the integral j-values of noncuspidal rational points; the identification of f_r(t)/t with the j-map is in its gap on exact j-maps."
+   "comparison": "The same five polynomials and the same divisibility argument. The owner also defines the finite sets of integral j-values, of cardinalities 25, 13, 8, 6 and 4, and states (EC.5/integral-j-characterisation) that they are exactly the integral j-values of noncuspidal rational points; the identification of f_r(t)/t with the j-map is in its gap on exact j-maps.",
+   "sources": [
+    {
+     "sourceId": "Lemos",
+     "locator": "§2, numerator table and integral-parameter proof, pp. 6–7 (v2)"
+    }
+   ]
   },
   {
    "stageId": "EllipticCurveModularityPartII:EC.6",
@@ -805,7 +984,13 @@
     "EllipticModularityEffectiveComparisons:EC.5/projective-inertia-order",
     "EllipticModularityEffectiveComparisons:EC.5/split-cartan-exclusion"
    ],
-   "comparison": "The same statement (Lemos, Theorem 2.3). The owner plans its three inputs as nodes: Mazur's theorem for the Borel case, Serre's bound on projective inertia for the exceptional images, and the theorem of Bilu, Parent and Rebolledo for the split Cartan case."
+   "comparison": "The same statement (Lemos, Theorem 2.3). The owner plans its three inputs as nodes: Mazur's theorem for the Borel case, Serre's bound on projective inertia for the exceptional images, and the theorem of Bilu, Parent and Rebolledo for the split Cartan case.",
+   "sources": [
+    {
+     "sourceId": "Lemos",
+     "locator": "§2, Theorem 2.3, p. 6 (v2)"
+    }
+   ]
   },
   {
    "stageId": "EllipticCurveModularityPartII:EC.6",
@@ -815,7 +1000,13 @@
    "suppliedBy": [
     "EllipticModularityEffectiveComparisons:EC.5/quadratic-twist-surjectivity"
    ],
-   "comparison": "The owner's statement, for every pair of quadratic twists. The case p = 3 is not stated and is not used, since the exported theorem concerns p > 37."
+   "comparison": "The owner's statement, for every pair of quadratic twists. The case p = 3 is not stated and is not used, since the exported theorem concerns p > 37.",
+   "sources": [
+    {
+     "sourceId": "Lemos",
+     "locator": "§2, proof of Theorem 1.1, p. 5 (v2); universal quadratic-twist statement is the owner’s derived group argument"
+    }
+   ]
   },
   {
    "stageId": "EllipticCurveModularityPartII:EC.6",
@@ -827,7 +1018,13 @@
     "EllipticModularityEffectiveComparisons:EC.5/large-isogeny-image-certificates",
     "EllipticModularityEffectiveComparisons:EC.5/small-isogeny-image-certificates"
    ],
-   "comparison": "The same statements, with the same requirement that the proof be a certified bound valid for all primes and not a finite sample; the seventh rational j-value at these three levels, −2¹⁵, has complex multiplication."
+   "comparison": "The same statements, with the same requirement that the proof be a certified bound valid for all primes and not a finite sample; the seventh rational j-value at these three levels, −2¹⁵, has complex multiplication.",
+   "sources": [
+    {
+     "sourceId": "Lemos",
+     "locator": "§2, proof of Theorem 1.1 and finite j-lists, pp. 5–7 (v2); certification remains an owner gap"
+    }
+   ]
   },
   {
    "stageId": "EllipticCurveModularityPartII:EC.6",
@@ -837,7 +1034,13 @@
    "suppliedBy": [
     "EllipticModularityEffectiveComparisons:EC.5/lemos-surjectivity"
    ],
-   "comparison": "The same statement (Lemos, Theorem 1.1)."
+   "comparison": "The same statement (Lemos, Theorem 1.1).",
+   "sources": [
+    {
+     "sourceId": "Lemos",
+     "locator": "Theorem 1.1, p. 2; §2 proof, pp. 5–7 (v2)"
+    }
+   ]
   }
  ],
  "requests": [],
@@ -859,7 +1062,7 @@
    "stageId": "EllipticCurveModularityPartII:EC.2",
    "status": "source_decomposed",
    "remaining": [],
-   "note": "Import only: 2 targets, each a declaration of EllipticModularityEffectiveComparisons:EC.1 and EllipticModularityEffectiveComparisons:EC.3 or a consequence of the declarations listed (see targetCoverage). No node, API item, unit test or planet is planned here. This is not mathematical closure: the owner's layers are planned, not closed, and keep their own gaps and requests. The layer leaves the atlas with the roadmap under the merge proposed in restructure.",
+   "note": "Import only: 2 targets, each a declaration of EllipticModularityEffectiveComparisons:EC.1 and EllipticModularityEffectiveComparisons:EC.3 or a consequence of the declarations listed (see targetCoverage). No node, API item, unit test or planet is planned here. This is not mathematical closure: the owner's layers are planned, not closed, and keep their own gaps and requests. The layer leaves the atlas with the roadmap under the merge proposed in restructure. The general norm-product consequence also cites the two pinned Mathlib declarations in baseline.declarations.",
    "imports": [
     "EllipticModularityEffectiveComparisons:EC.1/prime-divides-integral-norm",
     "EllipticModularityEffectiveComparisons:EC.1/trace-norm",
@@ -966,8 +1169,8 @@
     "EllipticCurveModularityPartII",
     "EllipticModularityEffectiveComparisons"
    ],
-   "detail": "These two roadmaps are one roadmap planned twice. Both extend EllipticCurveModularity, both have the title “Modularity and modular parametrisations of elliptic curves over Q, Part II: effective residual comparisons”, and both plan the Part II route of the Bennett–Siksek extraction that continues EllipticCurveModularity (research/blueprint/papers/PAPER-BENNETT-SIKSEK-20.result.json, items 08, 09, 10, 57, 59, 60 and 82), which names EllipticModularityEffectiveComparisons as its roadmap. The packet of EllipticModularityEffectiveComparisons has 100 nodes over its stages EC.0–EC.5, was accepted by independent-review-REV-DESIGN-EllipticModularityEffectiveComparisons on 2026-10-06 and is live in the atlas; ErdosProgressionPowers, ArithmeticGaloisRepresentations and the document of EllipticCurveModularity cite it. The first version of this packet restated 31 of its declarations under new identifiers. Each of them is matched with its owner in targetCoverage. One statement of the first version is a declaration of neither roadmap: Chen's theorem that the Cartan correspondence is an isogeny on the p-new quotient. The owner uses it, records it in a gap and assigns it to a continuation of ModularCurvesPartII; the first version also left it as a gap awaiting a shared owner. Where the two plans differed in substance, the owner is the more careful: it keeps the reduction alternative at ℓ = 5, 7 in the passage from the deletion level to the residual conductor, and it records as a mistake of the source the claim in Lemos's preprint that the Jacobian of X₀(37) has rank zero. In five places the first version stated more than the owner does: the formal immersion and the two integrality statements for every prime p outside {2, 3, 5, 7, 13} where the owner has p > 37; Chen's isogeny, as above; finitely many exceptional primes in the repair of two-torsion; the norm inequality for a general element; and invariance of surjectivity under twist at p = 3. The exported theorems use none of these wider forms; they are described in targetCoverage and notesForOwner. Of the other continuations of EllipticCurveModularity, modularity over imaginary quadratic fields and abelian varieties of GL₂-type have roadmaps of their own, and the wild 3-adic route has a design job of its own (research/blueprint/splits.json), so no direction is left for the identifier EllipticCurveModularityPartII. Its stage ids are cited outside its own files only by EllipticCurveModularityImaginaryQuadratic, which lists the stage EC.6 as a user of two of its nodes (IQ.2/symplectic-twist and IQ.4/cartan-curves), in its packet and in the matching lines of its document. The roadmap id is also named in that packet's proposal on Cartan compactifications, in research/blueprint/focus.json and in research/blueprint/splits.json.",
-   "proposal": "Keep one roadmap. Recommended: EllipticModularityEffectiveComparisons stays the single owner of the effective residual comparisons, with its stages EC.0–EC.5 and its node identifiers unchanged, and EllipticCurveModularityPartII is retired: its definition, packet, document and suggested file leave the atlas, and its stages map to the owner's as EC.1 → EC.0 and EC.2; EC.2 → EC.1; EC.3 and EC.4 → EC.3; EC.5 → EC.4; EC.6 → EC.5. The mentions of EllipticCurveModularityPartII:EC.6 in EllipticCurveModularityImaginaryQuadratic become EllipticModularityEffectiveComparisons:EC.5, and the owner takes this roadmap's place among the parties of that packet's proposal on Cartan compactifications. In research/blueprint/splits.json, EllipticModularityEffectiveComparisons joins the directions split off from the combined Part II design of EllipticCurveModularity, so that the Bennett–Siksek route is designed by the job that has planned it and no combined design remains. If the identifier EllipticCurveModularityPartII is preferred for the surviving roadmap, the owner's files and identifiers are renamed to it instead. In either case the surviving plan is the owner's packet, and this packet contributes no declaration to it."
+   "detail": "These two roadmaps are one roadmap planned twice. Both extend EllipticCurveModularity, both have the title “Modularity and modular parametrisations of elliptic curves over Q, Part II: effective residual comparisons”, and both plan the Part II route of the Bennett–Siksek extraction that continues EllipticCurveModularity (research/blueprint/papers/PAPER-BENNETT-SIKSEK-20.result.json, items 08, 09, 10, 57, 59, 60 and 82), which names EllipticModularityEffectiveComparisons as its roadmap. The packet of EllipticModularityEffectiveComparisons has 100 nodes over its stages EC.0–EC.5, was accepted by independent-review-REV-DESIGN-EllipticModularityEffectiveComparisons on 2026-10-06 and is live in the atlas; ErdosProgressionPowers, ArithmeticGaloisRepresentations and the document of EllipticCurveModularity cite it. The first version of this packet restated 31 of its declarations under new identifiers. Each of them is matched with its owner in targetCoverage. One statement of the first version is a declaration of neither roadmap: Chen's theorem that the Cartan correspondence is an isogeny on the p-new quotient. The owner uses it, records it in a gap and assigns it to a continuation of ModularCurvesPartII; the first version also left it as a gap awaiting a shared owner. Where the two plans differed in substance, the owner is the more careful: it keeps the reduction alternative at ℓ = 5, 7 in the passage from the deletion level to the residual conductor, and it records as a mistake of the source the claim in Lemos's preprint that the Jacobian of X₀(37) has rank zero. In several places the first version stated more than the owner does: the formal immersion and the two integrality statements for every prime p outside {2, 3, 5, 7, 13} where the owner has p > 37; Chen's isogeny, as above; finitely many exceptional primes in the repair of two-torsion; the norm inequality for a general element; and invariance of surjectivity under twist at p = 3. The exported theorems use none of these wider forms; they are described in targetCoverage and notesForOwner. Of the other continuations of EllipticCurveModularity, modularity over imaginary quadratic fields and abelian varieties of GL₂-type have roadmaps of their own, and the wild 3-adic route has a design job of its own (research/blueprint/splits.json), so no direction is left for the identifier EllipticCurveModularityPartII. Its stage ids are cited outside its own files only by EllipticCurveModularityImaginaryQuadratic, which lists the stage EC.6 as a user of two of its nodes (IQ.2/symplectic-twist and IQ.4/cartan-curves), in its packet and in the matching lines of its document. The roadmap id is also named in that packet's proposal on Cartan compactifications, in research/blueprint/focus.json and in research/blueprint/splits.json.",
+   "proposal": "Keep one roadmap. Recommended: EllipticModularityEffectiveComparisons stays the single owner of the effective residual comparisons, with its stages EC.0–EC.5 and its node identifiers unchanged, and EllipticCurveModularityPartII is retired: its definition, packet, document and suggested file leave the atlas, and its stages map to the owner's as EC.1 → EC.0 and EC.2; EC.2 → EC.1 and EC.3; EC.3 and EC.4 → EC.3; EC.5 → EC.4 and EC.5 (the non-CM prime-isogeny restriction); the absolute-irreducibility consequences also retain ArithmeticGaloisRepresentations:R01.4; EC.6 → EC.5. The mentions of EllipticCurveModularityPartII:EC.6 in EllipticCurveModularityImaginaryQuadratic become EllipticModularityEffectiveComparisons:EC.5, and the owner takes this roadmap's place among the parties of that packet's proposal on Cartan compactifications. In research/blueprint/splits.json, EllipticModularityEffectiveComparisons joins the directions split off from the combined Part II design of EllipticCurveModularity, so that the Bennett–Siksek route is designed by the job that has planned it and no combined design remains. If the identifier EllipticCurveModularityPartII is preferred for the surviving roadmap, the owner's files and identifiers are renamed to it instead. In either case the surviving plan is the owner's packet, and this packet contributes no declaration to it."
   },
   {
    "action": "split",
@@ -1142,7 +1345,7 @@
     "EllipticModularityEffectiveComparisons:EC.4/mazur-kenku-cyclic-degrees",
     "EllipticModularityEffectiveComparisons:EC.4/full-two-times-prime"
    ],
-   "note": "With full rational two-torsion, E[ℓ] is irreducible already for ℓ = 5: a reducible E[5] would give, by EC.4/full-two-times-prime, a rational cyclic isogeny of degree 20 on an isogenous curve, and 20 is not in the list of EC.4/mazur-kenku-cyclic-degrees. The range ℓ ≥ 7 is the one the route asks for. At ℓ = 3 the statement fails: the torsion group ℤ/2 × ℤ/6 occurs over ℚ, and such a curve has full rational two-torsion and a rational point of order 3."
+   "note": "With full rational two-torsion, E[ℓ] is irreducible already for ℓ = 5: a reducible E[5] would give, by EC.4/full-two-times-prime, a rational cyclic isogeny of degree 20 on an isogenous curve, and 20 is not in the list of EC.4/mazur-kenku-cyclic-degrees. The range ℓ ≥ 7 is the one the route asks for. At ℓ = 3 the statement fails: y² = x(x + 5)(x + 32) has three distinct rational roots and P = (4, 36). The tangent slope is 7 and 2P = (4, −36) = −P, so P has order three. This is an explicit counterexample, without invoking a torsion-classification supplier."
   },
   {
    "about": [
@@ -1169,6 +1372,13 @@
     "EllipticModularityEffectiveComparisons:EC.3/odd-eisenstein-series"
    ],
    "note": "A supplier. The weight-two Eisenstein combinations E₂(z) − t·E₂(tz) with t > 1, from which the series Σ_{n odd} σ₁(n)qⁿ on Γ₀(4) is built (t = 2 and t = 4), are specified in the upstream layer tauceti:TauCetiRoadmap/ModularForms#layer-0-diamond-operators-and-modular-forms-with-character-nebentypus, in its treatment of Eisenstein series with character at the exceptional weight 2. The owner's node cites Layer 10 and AlgebraicModularFormsAndSerreWeights:R15.2 and has no request for the series; Layer 0 is the layer whose stated scope covers its construction."
+  },
+  {
+   "about": [
+    "EllipticModularityEffectiveComparisons:EC.5/cartan-cusp-formal-immersion",
+    "EllipticModularityEffectiveComparisons:EC.5/cartan-point-torsion"
+   ],
+   "note": "Pagination: in the linked Darmon–Merel author copy, Lemma 8.2 begins on p. 22 and its proof continues on p. 23; Lemma 8.3 is on p. 23. The owner’s locators pp. 23–24 and p. 24 are one page late. This index gives author-copy page numbers without editing the owner."
   }
  ],
  "sourceIssues": [],
@@ -1239,169 +1449,339 @@
    "AUDIT-16 (ModularForms)",
    "AUDIT-13 (algebraic modular forms)"
   ],
-  "conclusions": "No baseline declaration is cited, because no node is planned. The pinned declarations behind the targets are cited, and were checked by its review, in the owner's packet (20 declarations)."
+  "conclusions": "The imported owner retains its 20 pinned baseline citations. This index additionally cites two Mathlib declarations, independently read at the pin, for the general norm-product consequence in targetCoverage; no new node is planned."
  },
  "upstreamNotes": [],
+ "reviewHistory": [
+  {
+   "status": "needs_changes",
+   "reviewer": "independent-review-REV-DESIGN-EllipticCurveModularityPartII",
+   "date": "2026-10-07",
+   "notes": "Completed independent target-level review of all 31 nodes, 13 pinned baseline citations, 37 source excerpts, supplier contracts, APIs/tests, suggested signatures and scope. Clear packet/roadmap fixes applied. The nine explicit gaps and six planned stages are legitimate open follow-up work, not reasons to reject the pass. A revision is required because the definitive reader still contradicts the corrected supplier boundaries and source scope; its path is not an allowed deliverable of this review. Synchronize the exact passages listed in the report before acceptance. Suggested Lean file was not compiled: lean-check stopped at an unavailable imported isogeny .olean.",
+   "checked": [
+    {
+     "nodeId": "EllipticCurveModularityPartII:EC.1/krausF",
+     "verdict": "corrected",
+     "note": "Equation (7) defines the real square-root threshold with exponent twice the newspace dimension; the existing index and trivial-character newspace are used."
+    },
+    {
+     "nodeId": "EllipticCurveModularityPartII:EC.1/krausG",
+     "verdict": "corrected",
+     "note": "Equation (8) uses the index at lcm(4,N), followed by the square root and exponent two."
+    },
+    {
+     "nodeId": "EllipticCurveModularityPartII:EC.1/krausH",
+     "verdict": "corrected",
+     "note": "Equation (9) takes the maximum of the two preceding thresholds; neither branch is discarded."
+    },
+    {
+     "nodeId": "EllipticCurveModularityPartII:EC.1/martin-bound",
+     "verdict": "corrected",
+     "note": "Theorem 2 gives the bound and precisely the prime 11 mod 12 and N=35 equality cases; §4 proves it using Lemmas 16–22 and the finite calculation."
+    },
+    {
+     "nodeId": "EllipticCurveModularityPartII:EC.2/norm-bound",
+     "verdict": "corrected",
+     "note": "The norm step in Lemma 2.2 motivates this number-field adapter; the all-embeddings product and the separate integral/field-norm gap justify its stated generality."
+    },
+    {
+     "nodeId": "EllipticCurveModularityPartII:EC.2/removed-prime-bound",
+     "verdict": "corrected",
+     "note": "Lemma 2.2 retains p≠ℓ, p∥M and ℓ|ord_p(Δ); its proof combines the removed-prime congruence, all-embeddings norm and Martin bound."
+    },
+    {
+     "nodeId": "EllipticCurveModularityPartII:EC.3/finite-rationality",
+     "verdict": "corrected",
+     "note": "Lemma 1 reconstructs the small composite coefficients from prime coefficients and then uses characteristic-zero Sturm equality and Galois conjugation."
+    },
+    {
+     "nodeId": "EllipticCurveModularityPartII:EC.3/small-prime-integrality",
+     "verdict": "corrected",
+     "note": "Theorem 3 proof bounds the norm of a nonintegral coefficient difference, treating good and removed multiplicative primes separately; ℓ≥5, weight two and exact residual conductor remain explicit."
+    },
+    {
+     "nodeId": "EllipticCurveModularityPartII:EC.3/rational-newform-curve",
+     "verdict": "corrected",
+     "note": "The rational-coefficient paragraph identifies a curve of exact conductor, then invokes residual irreducibility to obtain an isomorphism; the quotient and Galois comparisons are supplied separately."
+    },
+    {
+     "nodeId": "EllipticCurveModularityPartII:EC.3/kraus-rational",
+     "verdict": "corrected",
+     "note": "Theorem 3 requires modularity, irreducibility, weight two and ℓ≥5; unconditional parent modularity supplies its modularity hypothesis."
+    },
+    {
+     "nodeId": "EllipticCurveModularityPartII:EC.4/finite-mod-four",
+     "verdict": "corrected",
+     "note": "The corollary is exactly finite recognition of good odd point counts modulo four at lcm(4,N); its bad-prime condition is automatic for elliptic multiplicative coefficients ±1."
+    },
+    {
+     "nodeId": "EllipticCurveModularityPartII:EC.4/small-trace-transfer",
+     "verdict": "corrected",
+     "note": "§3.3 proves good reduction at each tested odd prime and equality of the integral traces using the strict G threshold and Hasse bound."
+    },
+    {
+     "nodeId": "EllipticCurveModularityPartII:EC.4/two-isogeny-repair",
+     "verdict": "corrected",
+     "note": "The final §3.3 paragraph invokes Serre IV-6 to produce an isogeny of degree one or two; the subgroup argument and finite-torsion Chebotarev step remain a recorded gap."
+    },
+    {
+     "nodeId": "EllipticCurveModularityPartII:EC.4/kraus-full-two",
+     "verdict": "corrected",
+     "note": "Theorem 4 combines the F and G bounds, retains irreducibility and Serre weight two, and repairs full rational two-torsion through a two-isogeny."
+    },
+    {
+     "nodeId": "EllipticCurveModularityPartII:EC.4/quotient-conductor-adapter",
+     "verdict": "corrected",
+     "note": "This is an application adapter, not a verbatim Bennett–Siksek theorem: equality with the quotient level needs the local conductor theorem and ℓ∤M; the weight-two hypothesis remains separate."
+    },
+    {
+     "nodeId": "EllipticCurveModularityPartII:EC.5/mazur-prime-isogenies",
+     "verdict": "corrected",
+     "note": "Theorem 1 gives the prime list; Theorem 7.1 identifies the CM-only degrees. The arithmetic proof inputs remain explicit gaps rather than consequences of moduli geometry."
+    },
+    {
+     "nodeId": "EllipticCurveModularityPartII:EC.5/two-torsion-isogeny-exclusions",
+     "verdict": "corrected",
+     "note": "Bennett–Siksek state the irreducibility consequences. The stronger intermediate composite-degree exclusions require the separately recorded Mazur–Kenku classification input; they are not quoted as a theorem of this passage."
+    },
+    {
+     "nodeId": "EllipticCurveModularityPartII:EC.5/two-torsion-kernel-transport",
+     "verdict": "corrected",
+     "note": "This is the kernel argument explaining the two-torsion irreducibility applications, not a verbatim source lemma: coprime cyclic kernels give 2ℓ; distinct rational two-points and dual isogeny give cyclic 4ℓ on an isogenous curve."
+    },
+    {
+     "nodeId": "EllipticCurveModularityPartII:EC.5/irreducible-full-two",
+     "verdict": "corrected",
+     "note": "Lemma 3.3 uses the full-two-torsion irreducibility threshold ℓ≥7. This node isolates that reusable conclusion; oddness supplies absolute irreducibility."
+    },
+    {
+     "nodeId": "EllipticCurveModularityPartII:EC.5/irreducible-one-two",
+     "verdict": "corrected",
+     "note": "Lemma 3.5 uses the one-two-point threshold ℓ≥11. This node isolates that reusable conclusion; oddness supplies absolute irreducibility."
+    },
+    {
+     "nodeId": "EllipticCurveModularityPartII:EC.6/nonsplit-potential-good",
+     "verdict": "corrected",
+     "note": "Proposition 2.2 proves the criterion by squaring Tate eigencharacters; its proof includes q=p via surjectivity of the local cyclotomic character."
+    },
+    {
+     "nodeId": "EllipticCurveModularityPartII:EC.6/chen-correspondence",
+     "verdict": "corrected",
+     "note": "Theorem 3.3 and Lemma 3.2 identify the p-new quotient and away-from-p Hecke equivariance. Lemos’s X₀⁺(rp²) means the quotient by w_{p²}, preserving the r-level."
+    },
+    {
+     "nodeId": "EllipticCurveModularityPartII:EC.6/rank-zero-quotient",
+     "verdict": "corrected",
+     "note": "Lemos Theorem 3.4 states all five auxiliary levels. Darmon–Merel Proposition 7.1 verifies the original r=2,3 winding route; extending its nonvanishing calculation is a recorded gap."
+    },
+    {
+     "nodeId": "EllipticCurveModularityPartII:EC.6/cuspidal-formal-immersion",
+     "verdict": "corrected",
+     "note": "Lemos §3 states the formal-immersion step for all five levels. Darmon–Merel Lemmas 8.2–8.3 specify the real-cyclotomic base and smooth-locus-to-Néron-model map for r=2,3; the extension to r=5,7,13 is not independently verified."
+    },
+    {
+     "nodeId": "EllipticCurveModularityPartII:EC.6/j-prime-integrality",
+     "verdict": "corrected",
+     "note": "Theorem 1.4 concludes membership in ℤ[1/p], with an r-isogeny for r in Σ and prime p outside Σ. Integrality at p is deliberately a different node."
+    },
+    {
+     "nodeId": "EllipticCurveModularityPartII:EC.6/j-integrality",
+     "verdict": "corrected",
+     "note": "Proposition 2.1 upgrades to integral j using Proposition 2.2 at p. The retained non-CM assumption is stronger than the proposition needs and harmless for the final use."
+    },
+    {
+     "nodeId": "EllipticCurveModularityPartII:EC.6/integral-isogeny-j-values",
+     "verdict": "corrected",
+     "note": "The table gives the five monic j-map numerators. Its rational-root argument forces nonzero integral t dividing the constant term, conditional on the intrinsic j-map identification."
+    },
+    {
+     "nodeId": "EllipticCurveModularityPartII:EC.6/large-proper-image",
+     "verdict": "corrected",
+     "note": "Theorem 2.3 is an arithmetic exclusion theorem for non-CM E and p>37. Finite-subgroup classification is only one input; Serre and Bilu–Parent–Rebolledo remain separate gaps."
+    },
+    {
+     "nodeId": "EllipticCurveModularityPartII:EC.6/surjectivity-twist",
+     "verdict": "corrected",
+     "note": "The proof states j-invariance of surjectivity. For odd p a quadratic central twist preserves full determinant and SL₂; geometric non-CM excludes exceptional quartic/sextic twists."
+    },
+    {
+     "nodeId": "EllipticCurveModularityPartII:EC.6/finite-image-certificates",
+     "verdict": "corrected",
+     "note": "The proof checks finite rational-j lists via LMFDB/Sutherland computations. It does not ship complete universal certificates; the node’s certificate route and this missing data are kept explicit."
+    },
+    {
+     "nodeId": "EllipticCurveModularityPartII:EC.6/lemos-surjectivity",
+     "verdict": "corrected",
+     "note": "Theorem 1.1 is exactly the non-CM, rational nontrivial cyclic-isogeny result for every prime p>37; it is not unrestricted Serre uniformity."
+    }
+   ]
+  }
+ ],
+ "conventions": [
+  "Mixed modular fibre products denote smooth projective normalizations. X₀⁺(rp²) is the quotient by w_{p²}, preserving the r-level.",
+  "Norm bounds use the field norm after embedding an algebraic integer in K; B is real and complex absolute values are used. Nonzero x forces B>0.",
+  "A formal-immersion target uses the specified optimal winding quotient, a cusp over ℚ(ζ_p)⁺, the smooth locus of the canonical integral model localized at a prime above q, and the Néron model."
+ ],
  "review": {
-  "status": "needs_changes",
-  "reviewer": "independent-review-REV-DESIGN-EllipticCurveModularityPartII",
-  "date": "2026-10-07",
-  "notes": "Completed independent target-level review of all 31 nodes, 13 pinned baseline citations, 37 source excerpts, supplier contracts, APIs/tests, suggested signatures and scope. Clear packet/roadmap fixes applied. The nine explicit gaps and six planned stages are legitimate open follow-up work, not reasons to reject the pass. A revision is required because the definitive reader still contradicts the corrected supplier boundaries and source scope; its path is not an allowed deliverable of this review. Synchronize the exact passages listed in the report before acceptance. Suggested Lean file was not compiled: lean-check stopped at an unavailable imported isogeny .olean.",
+  "status": "accepted",
+  "reviewer": "independent-review-REV-DESIGN-EllipticCurveModularityPartII~2",
+  "date": "2026-10-08",
+  "notes": "Completed independent review of the revision as an import index and merger proposal: all 31 target mappings, 66 imported declarations, seven Bennett–Siksek route items, six layer scopes, prior-review corrections and inherited source-issue references checked. Added two pinned Mathlib citations for the general norm consequence, precise normalized-curve/formal-immersion conventions, per-target source locators and a complete stage merger map; synchronized reader and suggested comments. The packet owns zero nodes and asserts zero closed layers. Its owner’s nine gaps and requests remain open; acceptance is of this index, not new proof closure or a completed merger. Suggested Lean file elaborated cleanly at the pinned Mathlib. Prior verdict preserved in reviewHistory.",
   "checked": [
    {
     "nodeId": "EllipticCurveModularityPartII:EC.1/krausF",
-    "verdict": "corrected",
-    "note": "Equation (7) defines the real square-root threshold with exponent twice the newspace dimension; the existing index and trivial-character newspace are used."
+    "verdict": "verified",
+    "note": "The real square root precedes the power 2g⁺(N); the owner uses the trivial-character Γ₁ newspace part, not its full dimension."
    },
    {
     "nodeId": "EllipticCurveModularityPartII:EC.1/krausG",
-    "verdict": "corrected",
-    "note": "Equation (8) uses the index at lcm(4,N), followed by the square root and exponent two."
+    "verdict": "verified",
+    "note": "The level is lcm(N,4), and the final exponent is two. The owner’s definition and examples match."
    },
    {
     "nodeId": "EllipticCurveModularityPartII:EC.1/krausH",
-    "verdict": "corrected",
-    "note": "Equation (9) takes the maximum of the two preceding thresholds; neither branch is discarded."
+    "verdict": "verified",
+    "note": "The maximum retains both branches and the strict-threshold API."
    },
    {
     "nodeId": "EllipticCurveModularityPartII:EC.1/martin-bound",
-    "verdict": "corrected",
-    "note": "Theorem 2 gives the bound and precisely the prime 11 mod 12 and N=35 equality cases; §4 proves it using Lemmas 16–22 and the finite calculation."
+    "verdict": "verified",
+    "note": "Martin Theorem 2 has precisely the prime 11 modulo 12 and N=35 equality cases; its proof is §4, not §5."
    },
    {
     "nodeId": "EllipticCurveModularityPartII:EC.2/norm-bound",
     "verdict": "corrected",
-    "note": "The norm step in Lemma 2.2 motivates this number-field adapter; the all-embeddings product and the separate integral/field-norm gap justify its stated generality."
+    "note": "The lower bound is imported. Added the exact pinned norm-product and embedding-cardinality declarations to justify the general upper bound beyond the owner’s two specializations."
    },
    {
     "nodeId": "EllipticCurveModularityPartII:EC.2/removed-prime-bound",
-    "verdict": "corrected",
-    "note": "Lemma 2.2 retains p≠ℓ, p∥M and ℓ|ord_p(Δ); its proof combines the removed-prime congruence, all-embeddings norm and Martin bound."
+    "verdict": "verified",
+    "note": "Bennett–Siksek Lemma 2.2 keeps p≠ℓ, p∥M and ℓ dividing the valuation exponent. The deletion level is not silently replaced by the residual conductor."
    },
    {
     "nodeId": "EllipticCurveModularityPartII:EC.3/finite-rationality",
-    "verdict": "corrected",
-    "note": "Lemma 1 reconstructs the small composite coefficients from prime coefficients and then uses characteristic-zero Sturm equality and Galois conjugation."
+    "verdict": "verified",
+    "note": "Kraus Lemma 1 uses coefficient recurrences, characteristic-zero Sturm equality and Galois conjugation; the owner records these prerequisites."
    },
    {
     "nodeId": "EllipticCurveModularityPartII:EC.3/small-prime-integrality",
-    "verdict": "corrected",
-    "note": "Theorem 3 proof bounds the norm of a nonintegral coefficient difference, treating good and removed multiplicative primes separately; ℓ≥5, weight two and exact residual conductor remain explicit."
+    "verdict": "verified",
+    "note": "The proof retains ℓ≥5, weight two, exact residual conductor and bounds on all coefficient conjugates; good and removed primes are separate cases."
    },
    {
     "nodeId": "EllipticCurveModularityPartII:EC.3/rational-newform-curve",
-    "verdict": "corrected",
-    "note": "The rational-coefficient paragraph identifies a curve of exact conductor, then invokes residual irreducibility to obtain an isomorphism; the quotient and Galois comparisons are supplied separately."
+    "verdict": "verified",
+    "note": "The rational newform yields exact conductor N; residual irreducibility is needed to upgrade the trace comparison to a representation isomorphism."
    },
    {
     "nodeId": "EllipticCurveModularityPartII:EC.3/kraus-rational",
-    "verdict": "corrected",
-    "note": "Theorem 3 requires modularity, irreducibility, weight two and ℓ≥5; unconditional parent modularity supplies its modularity hypothesis."
+    "verdict": "verified",
+    "note": "Kraus Theorem 3 retains weight two, ℓ≥5 and irreducibility. Parent modularity supplies the source’s modularity hypothesis."
    },
    {
     "nodeId": "EllipticCurveModularityPartII:EC.4/finite-mod-four",
-    "verdict": "corrected",
-    "note": "The corollary is exactly finite recognition of good odd point counts modulo four at lcm(4,N); its bad-prime condition is automatic for elliptic multiplicative coefficients ±1."
+    "verdict": "verified",
+    "note": "Kraus Appendix II proves the finite mod-four criterion. The imported ideal-valued Sturm obligation remains open; ordinary characteristic-zero Sturm is insufficient."
    },
    {
     "nodeId": "EllipticCurveModularityPartII:EC.4/small-trace-transfer",
-    "verdict": "corrected",
-    "note": "§3.3 proves good reduction at each tested odd prime and equality of the integral traces using the strict G threshold and Hasse bound."
+    "verdict": "verified",
+    "note": "Kraus §3.3 first proves good reduction at the tested primes and then exact equality of integral traces using the strict G threshold."
    },
    {
     "nodeId": "EllipticCurveModularityPartII:EC.4/two-isogeny-repair",
-    "verdict": "corrected",
-    "note": "The final §3.3 paragraph invokes Serre IV-6 to produce an isogeny of degree one or two; the subgroup argument and finite-torsion Chebotarev step remain a recorded gap."
+    "verdict": "verified",
+    "note": "The degree-one-or-two repair is imported, with a finite-torsion Chebotarev step still owed by the owner. Conductor and odd-primary torsion compatibility use its elliptic suppliers."
    },
    {
     "nodeId": "EllipticCurveModularityPartII:EC.4/kraus-full-two",
-    "verdict": "corrected",
-    "note": "Theorem 4 combines the F and G bounds, retains irreducibility and Serre weight two, and repairs full rational two-torsion through a two-isogeny."
+    "verdict": "verified",
+    "note": "Kraus Theorem 4 combines F and G, retains weight two and irreducibility, and keeps full rational two-torsion by the repair."
    },
    {
     "nodeId": "EllipticCurveModularityPartII:EC.4/quotient-conductor-adapter",
-    "verdict": "corrected",
-    "note": "This is an application adapter, not a verbatim Bennett–Siksek theorem: equality with the quotient level needs the local conductor theorem and ℓ∤M; the weight-two hypothesis remains separate."
+    "verdict": "verified",
+    "note": "This is an application adapter, not a quoted theorem: exact deletion-conductor equality and weight two are separate conditions, including the owner’s small-ℓ reduction alternative."
    },
    {
     "nodeId": "EllipticCurveModularityPartII:EC.5/mazur-prime-isogenies",
     "verdict": "corrected",
-    "note": "Theorem 1 gives the prime list; Theorem 7.1 identifies the CM-only degrees. The arithmetic proof inputs remain explicit gaps rather than consequences of moduli geometry."
+    "note": "The prime list is Mazur’s. The non-CM restriction also imports EC.5’s CM exclusion; added that layer to the proposed merge map."
    },
    {
     "nodeId": "EllipticCurveModularityPartII:EC.5/two-torsion-isogeny-exclusions",
-    "verdict": "corrected",
-    "note": "Bennett–Siksek state the irreducibility consequences. The stronger intermediate composite-degree exclusions require the separately recorded Mazur–Kenku classification input; they are not quoted as a theorem of this passage."
+    "verdict": "verified",
+    "note": "The composite-degree exclusions use the separate Mazur–Kenku classification node, not merely Mazur’s prime-degree theorem or finite subgroup classification."
    },
    {
     "nodeId": "EllipticCurveModularityPartII:EC.5/two-torsion-kernel-transport",
-    "verdict": "corrected",
-    "note": "This is the kernel argument explaining the two-torsion irreducibility applications, not a verbatim source lemma: coprime cyclic kernels give 2ℓ; distinct rational two-points and dual isogeny give cyclic 4ℓ on an isogenous curve."
+    "verdict": "verified",
+    "note": "Coprime kernels give 2ℓ; a two-isogeny, its dual and the other rational two-point produce a cyclic 4ℓ kernel on an isogenous curve. No second kernel theory is planned."
    },
    {
     "nodeId": "EllipticCurveModularityPartII:EC.5/irreducible-full-two",
-    "verdict": "corrected",
-    "note": "Lemma 3.3 uses the full-two-torsion irreducibility threshold ℓ≥7. This node isolates that reusable conclusion; oddness supplies absolute irreducibility."
+    "verdict": "verified",
+    "note": "The source application uses ℓ≥7. Absolute irreducibility additionally imports R01.4 and elliptic oddness; R01.4 does not supply the rational-isogeny classification."
    },
    {
     "nodeId": "EllipticCurveModularityPartII:EC.5/irreducible-one-two",
-    "verdict": "corrected",
-    "note": "Lemma 3.5 uses the one-two-point threshold ℓ≥11. This node isolates that reusable conclusion; oddness supplies absolute irreducibility."
+    "verdict": "verified",
+    "note": "The one-two-point threshold is ℓ≥11; the same separate oddness/absolute-irreducibility supplier is retained."
    },
    {
     "nodeId": "EllipticCurveModularityPartII:EC.6/nonsplit-potential-good",
-    "verdict": "corrected",
-    "note": "Proposition 2.2 proves the criterion by squaring Tate eigencharacters; its proof includes q=p via surjectivity of the local cyclotomic character."
+    "verdict": "verified",
+    "note": "Lemos Proposition 2.2 includes the place q=p and uses the local cyclotomic character there, not only unramified Frobenius at other primes."
    },
    {
     "nodeId": "EllipticCurveModularityPartII:EC.6/chen-correspondence",
-    "verdict": "corrected",
-    "note": "Theorem 3.3 and Lemma 3.2 identify the p-new quotient and away-from-p Hecke equivariance. Lemos’s X₀⁺(rp²) means the quotient by w_{p²}, preserving the r-level."
+    "verdict": "verified",
+    "note": "The indexed correspondence, Hecke action and old-part vanishing match Lemos Lemma 3.2. Chen’s isogeny on the p-new quotient remains an external gap. Normalization and w_{p²} are explicit."
    },
    {
     "nodeId": "EllipticCurveModularityPartII:EC.6/rank-zero-quotient",
-    "verdict": "corrected",
-    "note": "Lemos Theorem 3.4 states all five auxiliary levels. Darmon–Merel Proposition 7.1 verifies the original r=2,3 winding route; extending its nonvanishing calculation is a recorded gap."
+    "verdict": "verified",
+    "note": "Lemos Theorem 3.4 states all five r. Darmon–Merel §7 verifies r=2,3; the owner’s extended nonvanishing input remains a gap."
    },
    {
     "nodeId": "EllipticCurveModularityPartII:EC.6/cuspidal-formal-immersion",
     "verdict": "corrected",
-    "note": "Lemos §3 states the formal-immersion step for all five levels. Darmon–Merel Lemmas 8.2–8.3 specify the real-cyclotomic base and smooth-locus-to-Néron-model map for r=2,3; the extension to r=5,7,13 is not independently verified."
+    "note": "Corrected the prime/r hypotheses, specified winding quotient, real cyclotomic base, cusp and smooth integral/Néron models. Author-copy Lemmas 8.2–8.3 are on pp.22–23; extension to r=5,7,13 is not independently closed."
    },
    {
     "nodeId": "EllipticCurveModularityPartII:EC.6/j-prime-integrality",
-    "verdict": "corrected",
-    "note": "Theorem 1.4 concludes membership in ℤ[1/p], with an r-isogeny for r in Σ and prime p outside Σ. Integrality at p is deliberately a different node."
+    "verdict": "verified",
+    "note": "The indexed p>37 specialization is an import of the owner. The broader range of Lemos Theorem 1.4 is explicitly a note, not a new export."
    },
    {
     "nodeId": "EllipticCurveModularityPartII:EC.6/j-integrality",
-    "verdict": "corrected",
-    "note": "Proposition 2.1 upgrades to integral j using Proposition 2.2 at p. The retained non-CM assumption is stronger than the proposition needs and harmless for the final use."
+    "verdict": "verified",
+    "note": "The non-surjective assumption is used together with p>37 and non-CM to reach the nonsplit case. Lemos Proposition 2.1 alone assumes a nonsplit image."
    },
    {
     "nodeId": "EllipticCurveModularityPartII:EC.6/integral-isogeny-j-values",
-    "verdict": "corrected",
-    "note": "The table gives the five monic j-map numerators. Its rational-root argument forces nonzero integral t dividing the constant term, conditional on the intrinsic j-map identification."
+    "verdict": "verified",
+    "note": "The five numerator formulas and signed-divisor cardinalities were independently recomputed. The intrinsic j-map identification remains the owner’s recorded gap."
    },
    {
     "nodeId": "EllipticCurveModularityPartII:EC.6/large-proper-image",
-    "verdict": "corrected",
-    "note": "Theorem 2.3 is an arithmetic exclusion theorem for non-CM E and p>37. Finite-subgroup classification is only one input; Serre and Bilu–Parent–Rebolledo remain separate gaps."
+    "verdict": "verified",
+    "note": "Lemos Theorem 2.3 requires geometric non-CM and p>37; exceptional and split-Cartan arithmetic exclusions are separate inputs, not supplied by R01.4 alone."
    },
    {
     "nodeId": "EllipticCurveModularityPartII:EC.6/surjectivity-twist",
-    "verdict": "corrected",
-    "note": "The proof states j-invariance of surjectivity. For odd p a quadratic central twist preserves full determinant and SL₂; geometric non-CM excludes exceptional quartic/sextic twists."
+    "verdict": "verified",
+    "note": "The imported quadratic-twist group argument has p≥5. No p=3 export is asserted or needed for Lemos’s p>37 theorem."
    },
    {
     "nodeId": "EllipticCurveModularityPartII:EC.6/finite-image-certificates",
-    "verdict": "corrected",
-    "note": "The proof checks finite rational-j lists via LMFDB/Sutherland computations. It does not ship complete universal certificates; the node’s certificate route and this missing data are kept explicit."
+    "verdict": "verified",
+    "note": "The six non-CM j-values match the source; −2¹⁵ is excluded as CM. The claimed all-primes certificate endpoints remain planned, with universal certificate data missing explicitly."
    },
    {
     "nodeId": "EllipticCurveModularityPartII:EC.6/lemos-surjectivity",
-    "verdict": "corrected",
-    "note": "Theorem 1.1 is exactly the non-CM, rational nontrivial cyclic-isogeny result for every prime p>37; it is not unrestricted Serre uniformity."
+    "verdict": "verified",
+    "note": "Lemos Theorem 1.1 is restricted to geometric non-CM curves with a nontrivial rational cyclic isogeny and p>37; it is not unrestricted uniformity."
    }
   ]
  }
