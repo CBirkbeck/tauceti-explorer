@@ -11,7 +11,7 @@ rational fibre object, also over a point. Constant-family constructions are
 explicitly labelled. No global variation theorem is asserted for these objects.
 
 The native library lacks the supplier analytic/global carriers, real mixed
-objects and algebraic monodromy groups listed in packet gaps G1–G18. Their
+objects and algebraic monodromy groups listed in packet gaps G1–G19. Their
 signatures are omitted, with each planned name and exact reason recorded at the
 end. No unknown condition is represented by an opaque proposition or fake field.
 -/
@@ -51,6 +51,12 @@ structure ComplexPVHS (n : ℤ) where
     0 < ((p.negOnePow : ℂ) * hermitianForm x x).re
 
 variable {V} {n : ℤ}
+
+/-- Pointwise extensionality: the grading and Hermitian form are the object data. -/
+theorem ComplexPVHS.ext (A B : ComplexPVHS V n)
+    (hpiece : ∀ p, A.piece p = B.piece p)
+    (hform : A.hermitianForm = B.hermitianForm) : A = B := by
+  sorry
 
 /-- Pointwise F, using the actual direct-sum grading. -/
 def ComplexPVHS.hodgeFiltration (A : ComplexPVHS V n) (a : ℤ) : Submodule ℂ V :=
@@ -136,8 +142,10 @@ def ComplexPVHS.realificationMap {A : ComplexPVHS V n} {B : ComplexPVHS V' n}
       ∀ p, ((A.realification).F p).map g ≤ (B.realification).F p} := by
   sorry
 
-/-- RealificationTest.rankOne -/
-example : Module.finrank ℝ ℂ = 2 := by
+/-- RealificationTest.rankOne: inspect the actual realification constructor. -/
+example : Module.finrank ℂ ((complexLine 0 1).realification.piece 1) = 1 ∧
+    Module.finrank ℂ ((complexLine 0 1).realification.piece (-1)) = 1 ∧
+    Module.finrank ℂ (ℂ ⊗[ℝ] ℂ) = 2 := by
   sorry
 
 /-- RealificationTest.typeSwap -/
@@ -145,8 +153,11 @@ example : ((complexLine 0 1).realification).piece 1 ≠ ⊥ ∧
     ((complexLine 0 1).realification).piece (-1) ≠ ⊥ := by
   sorry
 
-/-- RealificationTest.alreadyReal: realifying C = R tensor C doubles its real model. -/
-example : Module.finrank ℂ (ℂ ⊗[ℝ] ℂ) = 2 := by
+/-- RealificationTest.alreadyReal: constructor-sensitive type-(0,0) shadow.
+The full comparison with two copies of an arbitrary real model is omitted (G2). -/
+example : Module.finrank ℂ ((complexLine 0 0).realification.piece 0) = 2 ∧
+    (complexLine 0 0).realification.F 0 = ⊤ ∧
+    (complexLine 0 0).realification.F 1 = ⊥ := by
   sorry
 end Complex
 
@@ -200,8 +211,8 @@ theorem MixedVariation.gradedFiber (A : MixedVariation hQ hC) (k : ℤ) :
   sorry
 
 def MixedVariation.gradedMap {A B : MixedVariation hQ hC} (f : A.hom B) (k : ℤ) :
-    HodgeStructure.Hom (A.graded k) (B.graded k) := by
-  sorry
+    HodgeStructure.Hom (A.graded k) (B.graded k) :=
+  f.gradedHom k
 
 /-- GradedVariationTest.pure -/
 example {n : ℤ} (A : HodgeStructure hC n) :
@@ -299,7 +310,8 @@ def AdmissibleDisc.relativeWeight (A : AdmissibleDisc V) := A.M
 
 /-- Only the necessary algebraic data are ramified here. The admissibility
 invariance theorem is omitted (G5), and not asserted for this partial carrier. -/
-def AdmissibleDisc.finiteCover (A : AdmissibleDisc V) (e : ℕ) : AdmissibleDisc V := by
+def AdmissibleDisc.finiteCover (A : AdmissibleDisc V) (e : ℕ) (_he : 0 < e) :
+    AdmissibleDisc V := by
   sorry
 
 /-- Necessary boundary data for the constant real weight-zero line. -/
@@ -313,7 +325,8 @@ example : constantDiscLine.N = 0 ∧ constantDiscLine.M 0 = ⊤ ∧
   sorry
 
 /-- AdmissibleDiscTest.ramification: the explicitly retained algebraic part. -/
-example (A : AdmissibleDisc V) (e : ℕ) : (A.finiteCover e).N = e • A.N := by
+example (A : AdmissibleDisc V) (e : ℕ) (he : 0 < e) :
+    (A.finiteCover e he).N = e • A.N := by
   sorry
 
 /-- AdmissibleDiscTest.noRelative: exact linear obstruction, no variation assumed. -/
@@ -477,7 +490,7 @@ For commuting unipotent boundary T_1,T_2, the arc (s^a,s^b) has N=aN_1+bN_2 and 
 AdmissibleDisc.limitMixedHodgeStructure (declaration; G2/G3/G4)
 For an admissible unipotent punctured-disc mixed variation, (V_R,M(N,W),F_∞) is a real MHS, N is a morphism to its Tate twist by −1 (equivalently type (−1,−1)), and the induced pure-graded limits agree with the imported monodromy filtrations centred at their original weights. This is a consequence of the two admissibility conditions, not a third independent axiom.
 
-AdmissibleVariation.tensorHom (declaration; G1/G2/G5)
+AdmissibleVariation.tensorHom (declaration; G1/G2/G3/G5; LPV.1 operations)
 Admissible graded-polarizable real/rational variations are closed under tensor product, dual and internal Hom. Tensor W and F are convolution filtrations, N=N_V⊗1+1⊗N_U and relative M is the convolution of the relative filtrations; dual/Hom use the corresponding dual weight shifts and commutator N. The flat evaluation Hom(V,U)⊗V→U is a mixed-variation morphism. All statements are in the quasi-unipotent convention of this packet.
 
 CanonicalExtension.restrict (api; G1/G7)
@@ -520,10 +533,10 @@ FilteredExtensionTest.noEssential (test; G1/G5/G8)
 The period coordinate exp(1/s) Hodge–Tate example cannot be supplied as an admissible input.
 
 canonicalLogComparison (declaration; G7; C5/E1 suppliers)
-For U=X\D as above and its canonical extension, the analytic logarithmic complex DR_log(Ebar)=[Ebar→Ebar⊗Ω¹_X(log D)→…] is quasi-isomorphic to Rj_*L. Thus H^q(X,DR_log(Ebar))≅H^q(U,L). The strip excludes positive integer residue eigenvalues, as required by Del70 II.6.10. The coefficient/log comparison engine belongs to ComplexComparisonPartII:C5; this node is its canonical-strip adapter, not a new generic de Rham comparison theory.
+For U=X\D as above and its canonical analytic extension, the analytic logarithmic complex DR_log(Ebar)=[Ebar→Ebar⊗Ω¹_X(log D)→…] is quasi-isomorphic to Rj_*L. Thus H^q(X,DR_log(Ebar))≅H^q(U,L). The strip excludes positive integer residue eigenvalues, the hypothesis of the local comparison used in Del70 II.6.9–6.10. For an algebraic de Rham comparison one additionally supplies an algebraic regular-singular connection realizing L; II.6.2 does not cover an arbitrary irregular algebraic connection. The coefficient/log comparison engine belongs to ComplexComparisonPartII:C5; this node is its canonical-strip adapter.
 
 GaussManin.deRhamEquiv (api; G1/G7; C5 relative-cohomology supplier)
-Its associated holomorphic bundle is the relative (logarithmic) de Rham hypercohomology bundle, carrying the compared connection.
+Its associated holomorphic bundle is the relative analytic logarithmic de Rham hypercohomology bundle with the compared connection; algebraic analytification comparison additionally requires the specified regular-singular algebraic realization.
 
 geometricPureVariation (declaration; G1/G9)
 If f:X→S is smooth projective of relative dimension d over a smooth complex algebraic base with a relative ample class, the torsion-free degree-q integral cohomology local system with Hodge filtration induced from relative de Rham cohomology is a polarized integral VHS of weight q. Use the primitive Lefschetz decomposition and its signed cup-product forms to polarize the full cohomology. The fibre is the imported cohomological pure Hodge structure, the connection is Gauss–Manin, and Griffiths transversality holds. Projectivity/relative polarization is explicit; smooth proper complex fibres are not automatically treated as projective polarized ones.
@@ -606,8 +619,8 @@ The geometric identity component with its K-form in characteristic zero.
 AlgebraicMonodromy.transport (api; G18; RG0/RG3)
 Path transport conjugates closures; composites give coherent conjugacies.
 
-AlgebraicMonodromy.finiteCover (api; G18; RG0/RG3)
-Finite connected covers leave the identity component unchanged.
+AlgebraicMonodromy.finiteCover (api promoted to /monodromy-finite-cover; G18; RG3/UniversalCovers Stage 2)
+For a finite connected covering p:S′→S of connected locally path-connected spaces, finite-dimensional K-local-system pullback has the same geometric connected algebraic monodromy as L, after identifying the chosen fibres through p. K is Q,R or C. More generally any finite-index subgroup of the native monodromy group has Zariski closure with the same geometric identity component. No algebraic realization of an arbitrary cover is asserted.
 
 AlgebraicMonodromy.invariants (api; G18; RG0/RG3)
 A vector/tensor is fixed by the closure iff fixed by every native monodromy element.
@@ -627,7 +640,7 @@ For the complex rank-one Z character m↦exp(2πiθm), θ irrational, the closur
 finiteDeterminant (declaration; G1/G16)
 For a polarizable integral VHS on a smooth connected quasiprojective complex variety, every irreducible complex constituent of its underlying local system has finite-order determinant character. A merely complex or rational polarized variation without a preserved lattice does not satisfy this conclusion in general.
 
-connectedMonodromySemisimple (declaration; G1/G14/G16/G18)
+connectedMonodromySemisimple (declaration; G1/G14/G16/G18/G19)
 For a polarizable integral VHS on a connected smooth quasiprojective complex variety, the geometric connected algebraic monodromy group G_mon° is semisimple. In particular this holds for the torsion-free cohomology local systems of smooth projective polarized families. Without a preserved lattice only reductivity follows from complex PVHS semisimplicity; an irrational unitary line has G_mon°=G_m.
 
 mixedMonodromyRadical (declaration; G1/G17/G18)
