@@ -11,7 +11,7 @@
     "GeometricSatakeAndFusion:GS4:rational-reductivity"
   ],
   "status": "complete",
-  "summary": "Target-level plan of all six GS3/GS4 stages: integral fusion and finite-set coherence; relative Tannaka applied to the existing Satake fibre functor; geometric rational reductivity; torus/rank-one and Prasad–Yu integral recovery; canonical Weil normalization, naturality, Chevalley duality and perfect-complex export; and the downstream classical trace comparison. Existing geometric Satake nodes and the foundational MC.6 relative reconstruction chain are imported exactly. All stages are planned, with explicit supplier and signature gaps; none is claimed closed or implemented.",
+  "summary": "Target-level plan of all six GS3/GS4 stages: integral fusion and finite-set coherence; relative Tannaka applied to the existing Satake fibre functor; geometric rational reductivity and the rational Witt Satake category of Zhu as a neutral Tannakian category; torus/rank-one and Prasad–Yu integral recovery, with the ℓ = 2 rank-one step corrected; canonical Weil normalization, naturality, Chevalley duality and perfect-complex export; Zhu's rational Witt vector geometric Satake equivalence through the FS degeneration; and the downstream classical trace comparison. Existing geometric Satake nodes and the foundational MC.6 relative reconstruction chain are imported exactly. All stages are planned, with explicit supplier and signature gaps; none is claimed closed or implemented.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -188,12 +188,14 @@
       "url": "https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf",
       "sha256": "9ab9efbd0df251bfa3b610d1d1d88a8dfb1bdf7c397bd04f4c277280d98ae905",
       "readSections": [
+        "Remark I.2.14 p17 (the Witt degeneration reproves Zhu's theorem)",
         "IV.7 pp164–166, full locally constant perfect Drinfeld equivalence and its proof",
         "VI introduction pp187–190",
         "VI.6.5–VI.6.8 pp214–215; VI.7.5, VI.7.7, VI.7.10, VI.7.12–13 pp219–224",
         "VI.8–VI.12 pp224–242, full proofs of closure, fusion, reconstruction, dual identification and involution",
         "IX.2 p321: relative Perf(BG) base change and A ↦ D(A)^∨ into the enhanced local Hecke category",
-        "IX.6.1–IX.6.3 pp330–332: adjoint-isomorphism maps, products and Weil restriction; IX.7.1 pp334–335: normalization of Levi inclusion"
+        "IX.6.1–IX.6.3 pp330–332: adjoint-isomorphism maps, products and Weil restriction; IX.7.1 pp334–335: normalization of Levi inclusion",
+        "VI.7 p219, after the proof of Proposition VI.7.4: perverse sheaves on the local Hecke stack over Spd k are the L⁺G-equivariant perverse sheaves on the Witt vector affine Grassmannian considered by Zhu"
       ],
       "accessed": "2026-10-07"
     },
@@ -205,8 +207,12 @@
       "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v185-n2-p02-p.pdf",
       "sha256": "5d50b415048f3a5ad14bccf1c8da83fc5a680fcf13b60911ca269daa474431a7",
       "readSections": [
-        "§2.1 pp429–433: semisimplicity, convolution and semismallness",
-        "§2.2 pp434–436: IC weight cohomology and classical Satake equations (2.2.7)–(2.2.10); rational coefficients only"
+        "§0.2 pp407–409: Theorem 0.3 and its setting (read with PAPER-ZHU-17/E35)",
+        "§0.5 pp411–412: notation, dominance order, the dual group with B̂ ⊃ T̂, V_μ and V_μ(λ)",
+        "§2 opening and §2.1 pp429–433: standing hypotheses, the category P_{L⁺G}(Gr_G), semisimplicity, convolution and semismallness",
+        "§2.2 pp433–436: weight functors, Corollary 2.10 (read with PAPER-ZHU-17/E51) and IC weight cohomology; classical Satake equations (2.2.7)–(2.2.10); rational coefficients only",
+        "§§2.3–2.4 pp440–444, statements of Lemma 2.18, Proposition 2.20, Proposition 2.21 and Corollary 2.22 only: the source of the monoidal structure on H* and of the commutativity constraint, routed to the Part II design",
+        "§2.5 pp454–455: Tannakian structure, torus case, Proposition 2.36 (tensor constant term) and identification with the dual group"
       ],
       "accessed": "2026-10-07"
     },
@@ -246,7 +252,7 @@
       "url": "https://www.math.columbia.edu/~dejong/tannakian/Deligne-Milne-Tannakian-Categories.pdf",
       "sha256": "48f8af5249081217fc4a806414a764d9d69d66eff9092ddd8e2cf0ea078579e8",
       "readSections": [
-        "§2 pp24–27, Proposition 2.20, Corollary 2.22 and Proposition 2.23 and proofs: finite type, connectedness, proreductivity"
+        "§2 pp24–27, Proposition 2.20, Corollary 2.22 (characteristic zero hypothesis) and Proposition 2.23 and proofs: finite type, connectedness, proreductivity"
       ],
       "accessed": "2026-10-07"
     }
@@ -779,6 +785,11 @@
           "sourceId": "FS",
           "locator": "Proposition VI.9.6 p230; VI.7.13 pp223–224",
           "match": "Precise shifted constant-term compatibility, proved after restriction to disjoint legs."
+        },
+        {
+          "sourceId": "Zhu",
+          "locator": "Proposition 2.36 and the following paragraph, p454",
+          "match": "States, for the rational Witt category, that the weight functor has a unique monoidal structure compatible with the isomorphism of Corollary 2.10 and is then a tensor functor. Zhu indicates that existence follows from the torus-equivariant cohomology argument of his earlier work, relative to his own monoidal structure on H*; this packet obtains the statement by transporting this node, in the rational Witt equivalence node."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1237,6 +1248,11 @@
           "sourceId": "DM",
           "locator": "Propositions 2.20, 2.22, 2.23 pp24–27",
           "match": "General criteria are imported from their single owners, and used with characteristic zero."
+        },
+        {
+          "sourceId": "Zhu",
+          "locator": "§2.5 p454, first paragraph",
+          "match": "For the rational Witt category Zhu obtains a connected reductive Tannakian group by the same finite-type, connectedness and semisimplicity argument; the rational Witt node below identifies his group with this generic fibre."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1249,6 +1265,62 @@
       }
     },
     {
+      "id": "GeometricSatakeAndFusion:GS4:rational-reductivity/witt-rational-tannakian-category",
+      "parentStageId": "GeometricSatakeAndFusion:GS4:rational-reductivity",
+      "realises": [
+        "GeometricSatakeAndFusion:GS4:rational-reductivity",
+        "GeometricSatakeAndFusion:GS4"
+      ],
+      "title": "Rational Witt Satake category as a neutral Tannakian category",
+      "kind": "comparison",
+      "statement": "Let Sat^Witt_G be Zhu's category P_{L⁺G}(Gr_G) of L⁺G-equivariant perverse Q̄_ℓ-sheaves with bounded support on the Witt vector affine Grassmannian of G over k, with convolution ⋆, unit IC_0 and total cohomology H*. (i) The one-leg comparison over Spd k identifies Sat^Witt_G, compatibly with ⋆ and H*, with the Q̄_ℓ-linear idempotent completion of the rationalization Sat_G(Hck_{Spd k}, Z_ℓ) ⊗ Q̄_ℓ (Hom groups tensored with Q̄_ℓ). (ii) Transporting the parity-corrected fusion symmetry and the Satake duals through (i) makes Sat^Witt_G a semisimple rigid symmetric monoidal abelian category with End(IC_0) = Q̄_ℓ, and H* an exact faithful symmetric monoidal functor to finite-dimensional Q̄_ℓ-vector spaces with the ordinary flip; thus (Sat^Witt_G, H*) is a neutral Tannakian category. (iii) Its Tannakian group Aut^⊗(H*) is canonically the base change to Q̄_ℓ of the generic fibre of the Satake group of Spd k, and so is a connected reductive group of finite type. The monoidal structure on H* is the one transported from fusion; it is not identified with the structure of Zhu's Proposition 2.20.",
+      "hypotheses": [
+        "E is a finite extension of Q_p with residue field F_q; k is an algebraic closure of F_q; O = W(k) ⊗_{W(F_q)} O_E, the integers of the completed maximal unramified extension of E, which is totally ramified over W(k).",
+        "G is a split connected reductive group over O_E, and also denotes its base change to O. ℓ ≠ p, and Q̄_ℓ is the union of the finite extensions of Q_ℓ.",
+        "Zhu allows any algebraically closed k and any finite totally ramified F over W(k)[1/p]. For k an algebraic closure of F_p every such F is the completed maximal unramified extension of a finite extension E of Q_p (finite extensions of the completion of the henselian field Q_p^ur come from finite extensions of Q_p^ur), and every reductive group over the strictly henselian ring O is split, so the comparison route covers Zhu's setting for this k. For a larger algebraically closed k it is not covered here (gap \"Zhu's equivalence outside the FS comparison\")."
+      ],
+      "prerequisites": [
+        "GeometricSatakeAndFusion:GS2:Satake-closure/one-leg-satake-comparison",
+        "GeometricSatakeAndFusion:GS1/integral-family-comparison",
+        "AdicCoefficientsAndComparisons:L0/rational-constructible-coefficients",
+        "GeometricSatakeAndFusion:GS2:correspondences/satake-fibre-functor",
+        "GeometricSatakeAndFusion:GS2:Satake-closure/satake-rigidity",
+        "GeometricSatakeAndFusion:GS3:fusion/fusion-product-and-sign-rule",
+        "GeometricSatakeAndFusion:GS4:rational-reductivity/rational-semisimplicity",
+        "GeometricSatakeAndFusion:GS4:rational-reductivity/generic-fibre-reductivity",
+        "GeometricSatakeAndFusion:GS4:integral-dual-group/multileg-and-coefficient-reconstruction",
+        "MotivesAndAlgebraicCycles:MC.6/neutral-tannaka-reconstruction"
+      ],
+      "proofSteps": [
+        "Zhu's ring W_O(R) = W(R) ⊗_{W(k)} O equals W(R) ⊗_{W(F_q)} O_E, so his Gr_G is the Witt vector affine Grassmannian of G over k. Over Spd k the local Hecke stack has the Witt Grassmannian as its underlying diamond, and Scholze's full embedding of étale sheaves on perfect schemes identifies its perverse objects with Zhu's L⁺G-equivariant perverse sheaves (FS p219). Compatibility with convolution, the unit and duals comes from the one-leg comparison node, and with total cohomology from the Satake cohomology functor.",
+        "Pass to rational coefficients through the rational lattice category, whose Hom groups are the integral Hom groups tensored with Q_ℓ; the perverse t-structure passes to this localisation, so rationalised Satake objects are perverse and their Hom groups in the heart are the integral ones tensored with Q_ℓ. Then pass to Q̄_ℓ as a colimit over finite extensions. Every simple IC_μ is in the image: the rational standard object of μ has simple top IC_μ and no maps to objects supported on smaller strata, so by geometric semisimplicity it equals IC_μ.",
+        "Transport the corrected fusion braiding, the unit and the Satake duals sw*D through (i). Semisimplicity and End(IC_0) = Q̄_ℓ come from geometric rational semisimplicity; exactness and faithfulness of H* from the Satake fibre functor. Apply neutral Tannaka reconstruction.",
+        "The bounded left adjoints commute with change of coefficients, so the coordinate Hopf algebra of (Sat^Witt_G, H*) is the scalar extension of the integral Satake Hopf algebra of Spd k. Its group is the generic fibre of the integral Satake group, which is connected reductive by the generic reductivity node. Zhu reaches the same conclusion through the argument of Mirković–Vilonen §7 applied to his own constraint; that route belongs to the Part II design."
+      ],
+      "acceptance": [
+        "For a split torus T: Gr_T is discrete with points X_*(T); an object of Sat^Witt_T is a finitely supported family (V_λ) of finite-dimensional Q̄_ℓ-spaces, H* sends it to ⊕_λ V_λ, and Aut^⊗(H*) = T̂.",
+        "For G = PGL₂ the minuscule object is Q̄_ℓ[1] on P¹, and H* of it is two-dimensional, in degrees −1 and 1.",
+        "Without the parity correction two odd objects would be exchanged with a Koszul sign under H*, and the reconstruction would be a super-Tannakian category rather than a neutral Tannakian one."
+      ],
+      "sources": [
+        {
+          "sourceId": "Zhu",
+          "locator": "§2 opening p429; §2.1.1 p430; §2.5 p454, first paragraph",
+          "match": "Standing hypotheses (k algebraically closed, G connected reductive over O), the definition of the Satake category as a colimit over bounded pieces, and the statement that it is a neutral Tannakian category with fibre functor H* whose group is connected reductive."
+        },
+        {
+          "sourceId": "FS",
+          "locator": "VI.7 p219 after the proof of Proposition VI.7.4; Remark I.2.14 p17",
+          "match": "Identifies perverse sheaves on the local Hecke stack over Spd k with Zhu's equivariant perverse sheaves on the Witt Grassmannian, and notes that the degeneration gives a new proof of Zhu's theorem."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/GeometricSatake/Witt",
+        "namespace": "TauCeti.GeometricSatake"
+      }
+    },
+    {
       "id": "GeometricSatakeAndFusion:GS4:integral-dual-group/torus-and-rank-one-identification",
       "parentStageId": "GeometricSatakeAndFusion:GS4:integral-dual-group",
       "realises": [
@@ -1257,7 +1329,7 @@
       ],
       "title": "Torus and rank-one identification",
       "kind": "theorem",
-      "statement": "For a split torus T, Sat_T is the category of finitely supported X_*(T)-graded finite projective Weil representations and G^∨_T is its dual torus. Constant terms give a closed immersion of this torus into G^∨_G. For G=PGL₂ the minuscule Schubert variety is P¹, its fibre is Z_ℓ⊕Z_ℓ(-1), and the reconstructed group is SL₂ with geometric root line Z_ℓ(1). The special-fibre image is SL₂ by VI.11.2 (torus containment and dominant highest weights); VI.11.3 lifts the integral isomorphism. For general semisimple rank one recover the central/component grading by the diagonalizable group with character group π₁(G), which can have torsion.",
+      "statement": "For a split torus T, Sat_T is the category of finitely supported X_*(T)-graded finite projective Weil representations and G^∨_T is its dual torus. Constant terms give a closed immersion of this torus into G^∨_G. For G=PGL₂ the minuscule Schubert variety is P¹, its fibre is Z_ℓ⊕Z_ℓ(-1) with torus weights ±1, and the generic fibre G^∨_{Q_ℓ} is SL(Q_ℓ⊕Q_ℓ(-1)) with geometric root line Q_ℓ(1). The integral and special-fibre statement is the separate node rank-one-integral-identification. For general semisimple rank one recover the central/component grading by the diagonalizable group with character group π₁(G), which can have torsion.",
       "hypotheses": [
         "E is a nonarchimedean local field with residue field F_q of characteristic p; G/E is connected reductive.",
         "For torsion coefficients Λ is killed by an integer prime to p. The ℓ-adic extension uses a fixed prime ℓ ≠ p and its compatible reductions.",
@@ -1274,19 +1346,76 @@
       ],
       "proofSteps": [
         "The torus calculation is the character grading and group-algebra Hopf computation. For each top Schubert weight its rank-one weight quotient gives the closed torus immersion.",
-        "For PGL₂ use H⁰/H² of P¹, evaluation and determinant to obtain the SL₂ representation and geometric root pinning. Prove the mod-ℓ subgroup image via VI.11.2 even when ℓ=2, and apply the flat-module injection lemma VI.11.3.",
+        "For PGL₂ use H⁰/H² of P¹, evaluation and determinant: the torus acts with weights ±1, so G^∨ maps to SL(Z_ℓ⊕Z_ℓ(-1)). The generic fibre is connected reductive of rank one, the minuscule object tensor-generates, so this representation is faithful, and the group is not a torus because the representation is irreducible of dimension two. So G^∨_{Q_ℓ} → SL₂ is a closed immersion of a three-dimensional connected group, hence an isomorphism, with geometric root pinning.",
         "The map to G_ad is componentwise an isomorphism on Grassmannians; refinement of π₁(G_ad)-grading to π₁(G)-grading recovers the central diagonalizable factor."
       ],
       "acceptance": [
         "For G=G_m the weight n gives the character z↦z^n.",
-        "For PGL₂ at ℓ=2 the result is still SL₂; the rank-one direct calculation precedes Prasad–Yu.",
+        "For G=PGL₂ the generic group is SL₂, not PGL₂: the minuscule representation is two-dimensional with weights ±1.",
         "For G=PGL₂ the component group Z/2 corresponds to μ₂, which is diagonalizable and not a torus."
       ],
       "sources": [
         {
           "sourceId": "FS",
-          "locator": "VI.11.1 proof pp235–238; Lemmas VI.11.2–VI.11.3 pp237–238",
-          "match": "Explicit torus/rank-one integral calculation and its special-fibre test; the component-grading statement uses the correction recorded below."
+          "locator": "VI.11.1 proof pp235–237",
+          "match": "Torus case and generic rank-one calculation; the component-grading statement uses source issue E1."
+        },
+        {
+          "sourceId": "Zhu",
+          "locator": "§2.5 p454, second paragraph",
+          "match": "The rational Witt torus case: the Grassmannian of a torus is the discrete set of coweights, its Satake category is graded vector spaces and the Tannakian group is the dual torus."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/GeometricSatake/DualGroup",
+        "namespace": "TauCeti.GeometricSatake"
+      }
+    },
+    {
+      "id": "GeometricSatakeAndFusion:GS4:integral-dual-group/rank-one-integral-identification",
+      "parentStageId": "GeometricSatakeAndFusion:GS4:integral-dual-group",
+      "realises": [
+        "GeometricSatakeAndFusion:GS4:integral-dual-group",
+        "GeometricSatakeAndFusion:GS4"
+      ],
+      "title": "Integral rank-one identification",
+      "kind": "theorem",
+      "statement": "For G = PGL₂ and every ℓ ≠ p, the representation on the fibre Z_ℓ⊕Z_ℓ(-1) of the minuscule object is an isomorphism G^∨_{Z_ℓ} ≅ SL(Z_ℓ⊕Z_ℓ(-1)). Its special fibre G^∨_{F_ℓ} → SL₂ is surjective. The image H contains the diagonal torus T and its irreducibles are separated by highest weights in Z≥0; for ℓ odd this forces H = SL₂ (VI.11.2). For ℓ = 2 these properties leave the case that the reduced subgroup of H is the normalizer N(T), with H inside a Frobenius preimage of N(T). That case is excluded because Hom(1, B₁^{⋆n}) over F₂ has the characteristic-zero dimension for every n, while a Frobenius preimage of N(T) has more invariants in a suitable V^{⊗n}. For a split G of semisimple rank one the integral identification follows through G → G_ad ≅ PGL₂ and the component grading.",
+      "hypotheses": [
+        "E is a nonarchimedean local field with residue field F_q of characteristic p; G/E is connected reductive.",
+        "For torsion coefficients Λ is killed by an integer prime to p. The ℓ-adic extension uses a fixed prime ℓ ≠ p and its compatible reductions.",
+        "Satake objects have bounded support, are universally locally acyclic over the leg base, and are flat perverse; representation objects have finite projective coefficient modules."
+      ],
+      "prerequisites": [
+        "GeometricSatakeAndFusion:GS4:integral-dual-group/torus-and-rank-one-identification",
+        "GeometricSatakeAndFusion:GS4:integral-dual-group/multileg-and-coefficient-reconstruction",
+        "GeometricSatakeAndFusion:GS4:integral-dual-group/geometric-coordinate-hopf-algebra",
+        "GeometricSatakeAndFusion:GS3:fusion/fusion-product-and-sign-rule",
+        "GeometricSatakeAndFusion:GS2:correspondences/convolution-diagram",
+        "GeometricSatakeAndFusion:GS2:correspondences/rational-special-fibre-convolution",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-3-subgroups-quotients-components",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory",
+        "LanglandsParameterStacks:LP3",
+        "mathlib:Module.Flat"
+      ],
+      "proofSteps": [
+        "Reduce G^∨ modulo ℓ and let H be the image of G^∨_{F_ℓ} in SL₂. Every irreducible representation of G^∨_{F_ℓ} is a simple Satake object B_μ of highest weight μ, so the irreducibles of H are separated by highest weights in Z≥0. Replace H by its image H′ under a high power r of the Frobenius isogeny: H′ is reduced, contains T and is a quotient of H, so its irreducibles pull back to irreducibles of H with highest weights multiplied by ℓ^r; and H′ = SL₂ forces H = SL₂ by dimension.",
+        "The identity component of the smooth group H′ is T, a Borel or SL₂ by the structure theory of SL₂. T and the Borels have irreducibles of negative highest weight; if H′° = T then H′ ⊂ N(T). For ℓ odd the sign character of N(T) is a second irreducible of highest weight 0, so H′ = SL₂.",
+        "For ℓ = 2, if H′ = N(T) then H lies in H_a, the preimage of N(T) under the a-th Frobenius power, for some a. Put n = 6·2^a − 2. By Donkin's tensor product formula T(n) ≅ T(2^{a+1} − 2) ⊗ T(4)^{[a]}, and T(2^{a+1} − 2) restricted to the a-th Frobenius kernel is the injective hull of the trivial module, so T(n)^{H_a} ≅ T(4)^{N(T)}. This is nonzero, because w is an involution of the two-dimensional weight-zero space of T(4). But T(n)^{SL₂} = 0, because T(4) has no ∇(0) in a good filtration. T(n) is a summand of the tilting module V^{⊗n}, so dim (V^{⊗n})^H > dim (V^{⊗n})^{SL₂}, which is the characteristic-zero multiplicity of the trivial representation.",
+        "On the Satake side (V^{⊗n})^{G^∨} = Hom(1, B₁^{⋆n}). Here B₁ is the shifted constant sheaf on P¹ and B₁^{⋆n} is the pushforward of the shifted constant sheaf along the semismall n-step convolution map from a smooth source, so this Hom is the top Borel–Moore homology of the fibre over the base point. It is free on its components of top dimension, whatever the coefficients, so its dimension over F₂ is the characteristic-zero count. Since G^∨ acts through H, this contradicts the previous step, and H′ = SL₂ also for ℓ = 2 (this replaces the ℓ = 2 case of VI.11.2, source issue E8).",
+        "The map G^∨_{Z_ℓ} → SL₂ is an isomorphism on generic fibres and surjective on special fibres, so on coordinate rings it is injective modulo ℓ and an isomorphism after inverting ℓ; the flat-module lemma VI.11.3 makes it an isomorphism. For semisimple rank one use G → G_ad ≅ PGL₂ and refine the component grading."
+      ],
+      "acceptance": [
+        "The normalizer of the diagonal torus in SL₂ over F₂, and its preimage under the Frobenius isogeny, both have irreducibles of highest weights 0, 1, 2, …, each once; torus containment and injectivity of highest weights cannot tell them from SL₂ at ℓ = 2.",
+        "For a = 0 the count is n = 4: (V^{⊗4})^{N(T)} is three-dimensional (w permutes the six weight-zero basis tensors freely), against two SL₂-invariants and two characteristic-zero invariants.",
+        "A map of flat Z_ℓ-modules that is injective modulo ℓ and an isomorphism after inverting ℓ is an isomorphism; injectivity modulo ℓ alone is not enough."
+      ],
+      "sources": [
+        {
+          "sourceId": "FS",
+          "locator": "VI.11.1 proof pp236–237; Lemmas VI.11.2–VI.11.3 p237",
+          "match": "Special-fibre image and its lift by the flat-module lemma; the ℓ = 2 case of Lemma VI.11.2 is replaced as in source issue E8."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1332,6 +1461,11 @@
           "sourceId": "FS",
           "locator": "VI.11.1 proof p238",
           "match": "The rank-one Levi and weight-bound argument identifies the complete generic root datum."
+        },
+        {
+          "sourceId": "Zhu",
+          "locator": "§2.5 pp454–455, after Proposition 2.36",
+          "match": "Rational Witt version: the dual torus is a maximal torus of the Tannakian group, the filtration on H* defines a Borel containing it, and the group is the dual group by the argument of Mirković–Vilonen §7."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1358,6 +1492,7 @@
       "prerequisites": [
         "GeometricSatakeAndFusion:GS4:integral-dual-group/generic-root-datum",
         "GeometricSatakeAndFusion:GS4:integral-dual-group/torus-and-rank-one-identification",
+        "GeometricSatakeAndFusion:GS4:integral-dual-group/rank-one-integral-identification",
         "GeometricSatakeAndFusion:GS4:integral-dual-group/multileg-and-coefficient-reconstruction",
         "ReductiveGroupsPartII:RG2.3",
         "ReductiveGroupsPartII:RG2.0",
@@ -1391,9 +1526,6 @@
       "library": {
         "module": "TauCeti/GeometricSatake/DualGroup",
         "namespace": "TauCeti.GeometricSatake"
-      },
-      "planet": {
-        "name": "Integral Satake recovery"
       }
     },
     {
@@ -1441,6 +1573,68 @@
       },
       "planet": {
         "name": "Pinned geometric dual group"
+      }
+    },
+    {
+      "id": "GeometricSatakeAndFusion:GS4:integral-dual-group/witt-rational-satake-equivalence",
+      "parentStageId": "GeometricSatakeAndFusion:GS4:integral-dual-group",
+      "realises": [
+        "GeometricSatakeAndFusion:GS4:integral-dual-group",
+        "GeometricSatakeAndFusion:GS4"
+      ],
+      "title": "Rational Witt vector geometric Satake equivalence",
+      "kind": "theorem",
+      "statement": "In the setting of the rational Witt Tannakian category, let Ĝ be the split dual group over Q̄_ℓ with the dual Borel B̂ ⊃ T̂ of its pinned dual root datum. There is an equivalence of Q̄_ℓ-linear symmetric monoidal categories S: Sat^Witt_G → Rep_{Q̄_ℓ}(Ĝ) onto finite-dimensional algebraic representations, with an isomorphism of tensor functors H* ≅ (forget ∘ S). Under S: (a) the weight functor CT = ⊕_λ CT_λ, viewed as a functor to Sat^Witt_T, has a unique monoidal structure for which the isomorphism H*_T ∘ CT ≅ H* is monoidal; it is then symmetric and corresponds to restriction to T̂, CT_λ(A) being the λ-weight space of S(A); (b) the filtration of H* by semi-infinite orbits corresponds to the B̂-stable filtration by weights; (c) IC_μ corresponds to the irreducible representation V_μ of highest weight μ, so dim CT_λ(IC_μ) = dim V_μ(λ); (d) for a torus, S is the grading equivalence with Rep(T̂). This is Zhu's Theorem 0.3, with Corollary 2.22 and §2.5, for the monoidal structure on H* transported from fusion; its agreement with the structure of Zhu's Proposition 2.20 is not asserted.",
+      "hypotheses": [
+        "E is a finite extension of Q_p with residue field F_q; k is an algebraic closure of F_q; O = W(k) ⊗_{W(F_q)} O_E, the integers of the completed maximal unramified extension of E, which is totally ramified over W(k).",
+        "G is a split connected reductive group over O_E, and also denotes its base change to O. ℓ ≠ p, and Q̄_ℓ is the union of the finite extensions of Q_ℓ.",
+        "Zhu allows any algebraically closed k and any finite totally ramified F over W(k)[1/p]. For k an algebraic closure of F_p every such F is the completed maximal unramified extension of a finite extension E of Q_p (finite extensions of the completion of the henselian field Q_p^ur come from finite extensions of Q_p^ur), and every reductive group over the strictly henselian ring O is split, so the comparison route covers Zhu's setting for this k. For a larger algebraically closed k it is not covered here (gap \"Zhu's equivalence outside the FS comparison\").",
+        "Dominance on coweights uses nonnegative integer combinations of positive coroots (source issue E10); Rep_{Q̄_ℓ}(Ĝ) means algebraic representations on finite-dimensional Q̄_ℓ-vector spaces, with no Weil action."
+      ],
+      "prerequisites": [
+        "GeometricSatakeAndFusion:GS4:rational-reductivity/witt-rational-tannakian-category",
+        "GeometricSatakeAndFusion:GS4:integral-dual-group/generic-root-datum",
+        "GeometricSatakeAndFusion:GS4:integral-dual-group/torus-and-rank-one-identification",
+        "GeometricSatakeAndFusion:GS3:fusion/symmetric-constant-term",
+        "GeometricSatakeAndFusion:GS2:Satake-closure/one-leg-satake-comparison",
+        "GeometricSatakeAndFusion:GS0:Witt-geometry/semi-infinite-intersections-and-MV-cycles",
+        "GeometricSatakeAndFusion:GS1/rational-weight-concentration",
+        "MotivesAndAlgebraicCycles:MC.6/neutral-tannaka-reconstruction",
+        "ReductiveGroupsPartII:RG2.5",
+        "LanglandsParameterStacks:LP3",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ"
+      ],
+      "proofSteps": [
+        "The generic root datum node identifies the root datum of the Tannakian group of the rational Witt category with the dual root datum, with its torus, Borel and simple root lines; the isomorphism theorem for pinned split groups gives Aut^⊗(H*) ≅ Ĝ over Q̄_ℓ. Neutral Tannaka reconstruction turns this into S with forget ∘ S ≅ H*. Only the generic fibre is used: the integral rank-one identification, integral recovery and the ℓ = 2 input are not prerequisites.",
+        "For (a): transport the symmetric constant term for B through the one-leg comparison and to Q̄_ℓ; it commutes with the fibre functors. Uniqueness: H*_T is faithful, so the monoidal structure on CT is determined by the monoidal isomorphism H*_T ∘ CT ≅ H*. Symmetry: the commutativity constraints on both sides are detected by H*, as in the uniqueness part of Zhu's Proposition 2.21. The torus case identifies Rep(T̂) with graded spaces, so CT is restriction to T̂.",
+        "For (b) and (c): the stabilizer of the cohomological filtration is B̂ by the generic root datum node. The weights of IC_μ lie in the convex hull of Wμ and μ occurs once, since S_μ ∩ Gr_{≤μ} is irreducible of dimension ⟨2ρ, μ⟩ by the Mirković–Vilonen count; so S(IC_μ) is the irreducible module of highest weight μ by the characteristic-zero highest-weight classification. For (b): the semi-infinite filtration is split by the weight functors (Zhu Corollary 2.10, with its proof as corrected in source issue E11, or the Satake fibre functor node), so by (a) it corresponds to the sums of the weight spaces V(λ′) over λ′ ≥ λ, which are B̂-stable because the root groups of B̂ raise weights by positive coroots of G.",
+        "Zhu's own route to the same identification (torus case, Proposition 2.36 by torus-equivariant cohomology, then the maximal torus and Borel argument of Mirković–Vilonen §7) uses his monoidal structure on H* and his Gelfand commutativity constraint (§§2.3–2.4). That proof is routed to the Part II design and is not used here."
+      ],
+      "acceptance": [
+        "For a split torus T, S is the equivalence between X_*(T)-graded spaces and representations of T̂, with CT the identity.",
+        "For G = PGL₂ the minuscule object goes to the standard representation of SL₂, with CT_{±μ} one-dimensional.",
+        "For G = GL_n and μ = (1,0,…,0) the closed Schubert variety is P^{n−1}; S(IC_μ) is the standard representation, with the n coordinate weights each of multiplicity one.",
+        "With the Koszul-signed symmetry instead of the parity-corrected one, the reconstruction would give a supergroup, not Ĝ."
+      ],
+      "sources": [
+        {
+          "sourceId": "Zhu",
+          "locator": "Theorem 0.3 p408 (with source issue E9); Corollary 2.22 p444; §2.5 pp454–455; §0.5 p412",
+          "match": "The mixed characteristic geometric Satake equivalence with Q̄_ℓ coefficients, its symmetric monoidal form, the identification with the dual group through the torus case, the tensor constant term and the Borel, and the notation Ĝ ⊃ B̂ ⊃ T̂, V_μ, V_μ(λ)."
+        },
+        {
+          "sourceId": "FS",
+          "locator": "Remark I.2.14 p17; VI introduction pp188–189",
+          "match": "Fargues and Scholze note that their theorem, through the Witt degeneration, reproves Zhu's equivalence, and that the Satake categories over Spd O_C, Spd C and Spd k agree."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/GeometricSatake/Witt",
+        "namespace": "TauCeti.GeometricSatake"
+      },
+      "planet": {
+        "name": "Witt vector geometric Satake"
       }
     },
     {
@@ -1916,9 +2110,10 @@
         "The half twist supplies r^{-d_μ}, and the perverse shift supplies (-1)^{d_μ}; the parity factor cancels the latter."
       ],
       "acceptance": [
-        "The zero-weight object gives the characteristic function of K. These formulas use the canonical constant-sheaf/IC Frobenius descent; scaling that descent scales the trace.",
-        "For a split torus weight μ the function is the characteristic function of μ(π)K. These formulas use the canonical constant-sheaf/IC Frobenius descent; scaling that descent scales the trace.",
-        "For odd minuscule d, the uncorrected alternating trace is negative; the normalized function has leading coefficient r^{-d}. These formulas use the canonical constant-sheaf/IC Frobenius descent; scaling that descent scales the trace."
+        "The zero-weight object gives the characteristic function of K.",
+        "For a split torus weight μ the function is the characteristic function of μ(π)K.",
+        "For odd minuscule d, the uncorrected alternating trace is negative; the normalized function has leading coefficient r^{-d}.",
+        "These formulas use the canonical constant-sheaf/IC Frobenius descent; scaling that descent scales the trace."
       ],
       "sources": [
         {
@@ -2166,7 +2361,7 @@
     },
     {
       "supplier": "ReductiveGroupsPartII:RG2.5",
-      "need": "Pinned integral dual group/root datum, simple Levi and central-isogeny dual maps, finite pinned Weil action, product/Weil-restriction dual data, half-sum cocharacters and import the characteristic-zero highest-weight convex-hull bounds from the existing ReductiveGroups representation theory. Expose that upstream supplier rather than duplicate it in RG2.5. This is RG2.5, not the buildings or double-coset stage.",
+      "need": "Pinned integral dual group/root datum, simple Levi and central-isogeny dual maps, finite pinned Weil action, product/Weil-restriction dual data, half-sum cocharacters and import the characteristic-zero highest-weight convex-hull bounds from the existing ReductiveGroups representation theory. Expose that upstream supplier rather than duplicate it in RG2.5. This is RG2.5, not the buildings or double-coset stage. Also the pinned split dual group over a characteristic-zero field with its dual Borel B̂ ⊃ T̂, as used by Zhu's §0.5 notation.",
       "neededBy": [
         "GeometricSatakeAndFusion:GS3:fusion/support-parity",
         "GeometricSatakeAndFusion:GS3:fusion/symmetric-constant-term",
@@ -2179,7 +2374,8 @@
         "GeometricSatakeAndFusion:GS4:integral-dual-group/adjoint-isomorphism-naturality",
         "GeometricSatakeAndFusion:GS4:integral-dual-group/product-naturality",
         "GeometricSatakeAndFusion:GS4:integral-dual-group/weil-restriction-naturality",
-        "GeometricSatakeAndFusion:GS4:classical-Satake-comparison/trace-constant-term"
+        "GeometricSatakeAndFusion:GS4:classical-Satake-comparison/trace-constant-term",
+        "GeometricSatakeAndFusion:GS4:integral-dual-group/witt-rational-satake-equivalence"
       ]
     },
     {
@@ -2212,12 +2408,13 @@
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ",
-      "need": "Pinned integral Chevalley–Demazure groups and isomorphism classification by based root datum, rank-one root maps and the pinned Chevalley involution; cite the existing upstream construction.",
+      "need": "Pinned integral Chevalley–Demazure groups and isomorphism classification by based root datum, rank-one root maps and the pinned Chevalley involution; cite the existing upstream construction. By base change, also the isomorphism theorem for pinned split reductive groups over a field of characteristic zero, used by the rational Witt equivalence.",
       "neededBy": [
         "GeometricSatakeAndFusion:GS4:integral-dual-group/torus-and-rank-one-identification",
         "GeometricSatakeAndFusion:GS4:integral-dual-group/generic-root-datum",
         "GeometricSatakeAndFusion:GS4:integral-dual-group/integral-recovery-and-adjoint-reduction",
-        "GeometricSatakeAndFusion:GS4:integral-dual-group/chevalley-involution"
+        "GeometricSatakeAndFusion:GS4:integral-dual-group/chevalley-involution",
+        "GeometricSatakeAndFusion:GS4:integral-dual-group/witt-rational-satake-equivalence"
       ]
     },
     {
@@ -2280,6 +2477,34 @@
       "neededBy": [
         "GeometricSatakeAndFusion:GS4:integral-dual-group/enhanced-perfect-satake-extension"
       ]
+    },
+    {
+      "supplier": "LanglandsParameterStacks:LP3",
+      "need": "Characteristic-zero specialization of the highest-weight theory: for a split connected reductive group over a field of characteristic zero, the irreducible finite-dimensional representations are the V_μ, one for each dominant weight μ, and V_μ has highest weight μ with multiplicity one; over such a field the Weyl module of μ is V_μ. The convex-hull bound on weights is the RG2.5 import used by generic-root-datum, not requested here.",
+      "neededBy": [
+        "GeometricSatakeAndFusion:GS4:integral-dual-group/witt-rational-satake-equivalence"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-3-subgroups-quotients-components",
+      "need": "For an affine algebraic group H over a field, the identity component H° is a normal subgroup with finite étale quotient π₀(H), trivial exactly when H is connected. For a closed subgroup scheme H of an affine algebraic group over a perfect field of characteristic p, the image of H under a sufficiently high power of the relative Frobenius is reduced, equals the Frobenius twist of the reduced subgroup of H, and is a quotient of H, so its representations pull back to H. Used in characteristic ℓ, including ℓ = 2.",
+      "neededBy": [
+        "GeometricSatakeAndFusion:GS4:integral-dual-group/rank-one-integral-identification"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory",
+      "need": "Smooth connected closed subgroups of SL₂ over a field that contain the diagonal torus T are T, the two Borel subgroups containing T and SL₂; each Borel is its own normalizer; N(T)/T ≅ Z/2, generated by the class of w with w² = −1, and the extension splits exactly in characteristic two.",
+      "neededBy": [
+        "GeometricSatakeAndFusion:GS4:integral-dual-group/rank-one-integral-identification"
+      ]
+    },
+    {
+      "supplier": "LanglandsParameterStacks:LP3",
+      "need": "Tilting modules of SL₂ over a field of characteristic p, used at p = 2: indecomposable tilting modules T(n) and their characters; Donkin's tensor product formula T(2p^a − 2 + p^a λ) ≅ T(2p^a − 2) ⊗ T(λ)^{[a]}; the restriction of T(2p^a − 2) to the a-th Frobenius kernel is the injective hull of the trivial module; tensor powers of the natural representation are tilting; and for a module with a good filtration the dimension of the invariants is its ∇(0)-multiplicity, equal to the characteristic-zero multiplicity of the trivial representation.",
+      "neededBy": [
+        "GeometricSatakeAndFusion:GS4:integral-dual-group/rank-one-integral-identification"
+      ]
     }
   ],
   "coverage": [
@@ -2312,7 +2537,9 @@
         "Classical comparison on unramified nonsplit groups",
         "Finite-model Frobenius trace handoff",
         "Weil-restriction local tensor comparison",
-        "Integral-point supplier refinement"
+        "Integral-point supplier refinement",
+        "Rank-one special-fibre image at ℓ = 2",
+        "Zhu's equivalence outside the FS comparison"
       ]
     },
     {
@@ -2335,14 +2562,17 @@
         "General relative Perf(BG) suppliers at all primes",
         "Enhanced convolution and coefficient duality adapter",
         "Weil-restriction local tensor comparison",
-        "Integral-point supplier refinement"
+        "Integral-point supplier refinement",
+        "Rank-one special-fibre image at ℓ = 2",
+        "Zhu's equivalence outside the FS comparison"
       ]
     },
     {
       "stageId": "GeometricSatakeAndFusion:GS4:rational-reductivity",
       "status": "planned",
       "remaining": [
-        "Formal geometric and enhanced carriers in the suggested signatures"
+        "Formal geometric and enhanced carriers in the suggested signatures",
+        "Zhu's equivalence outside the FS comparison"
       ]
     }
   ],
@@ -2378,7 +2608,10 @@
         "GeometricSatakeAndFusion:GS4:classical-Satake-comparison/normalized-frobenius-function",
         "GeometricSatakeAndFusion:GS4:classical-Satake-comparison/trace-convolution",
         "GeometricSatakeAndFusion:GS4:classical-Satake-comparison/trace-constant-term",
-        "GeometricSatakeAndFusion:GS4:classical-Satake-comparison/classical-satake-comparison"
+        "GeometricSatakeAndFusion:GS4:classical-Satake-comparison/classical-satake-comparison",
+        "GeometricSatakeAndFusion:GS4:rational-reductivity/witt-rational-tannakian-category",
+        "GeometricSatakeAndFusion:GS4:integral-dual-group/witt-rational-satake-equivalence",
+        "GeometricSatakeAndFusion:GS4:integral-dual-group/rank-one-integral-identification"
       ],
       "detail": "Pinned libraries lack Div¹ local Hecke diamonds, flat-perverse ULA Satake categories, continuous Weil local systems, affine root-pinned integral dual identification and the stable enhanced D■/Perf(BG) carriers. The suggested file uses the imported carriers as category/type parameters, with every missing geometric or enhanced hypothesis explicitly omitted and named in comments. It gives no replacement Prop certificate. Actual formal carrier and condition signatures remain a refinement for each node; the numerical locus/parity/trace conventions can already be expressed."
     },
@@ -2453,6 +2686,23 @@
         "GeometricSatakeAndFusion:GS4:integral-dual-group/integral-recovery-and-adjoint-reduction"
       ],
       "detail": "RG2.0 supplies local/integral point topology and RG2.4 supplies Iwasawa/Cartan decompositions, but their present stage text does not explicitly give lattice preservation, hyperspecial maximal boundedness and torus/rank-one generation over the completed maximal unramified coefficient DVR used in VI.11.1 p238. The existing requests identify the stronger exact contract; these remain scope additions or imported upstream consequences to expose, not an already matching node."
+    },
+    {
+      "title": "Rank-one special-fibre image at ℓ = 2",
+      "neededBy": [
+        "GeometricSatakeAndFusion:GS4:integral-dual-group/rank-one-integral-identification",
+        "GeometricSatakeAndFusion:GS4:integral-dual-group/integral-recovery-and-adjoint-reduction",
+        "GeometricSatakeAndFusion:GS4:integral-dual-group/dual-group-identification"
+      ],
+      "detail": "FS Lemma VI.11.2 does not exclude, at ℓ = 2, a special-fibre image whose reduced subgroup is the normalizer of the diagonal torus (source issue E8). The replacement argument counts invariants in tensor powers. Its group-theoretic inputs are requested from LP3 (tilting modules of SL₂ in characteristic two) and from the Tau Ceti ReductiveGroups layers 3 and 7. Its geometric input is isolated by no supplier node: with F₂ coefficients, Hom(1, B₁^{⋆n}) is the top Borel–Moore homology of the fibre over the base point of the semismall n-step convolution map, computed on the Witt special fibre and transported through the one-leg comparison. The rational Witt equivalence uses only the generic fibre and is not affected."
+    },
+    {
+      "title": "Zhu's equivalence outside the FS comparison",
+      "neededBy": [
+        "GeometricSatakeAndFusion:GS4:rational-reductivity/witt-rational-tannakian-category",
+        "GeometricSatakeAndFusion:GS4:integral-dual-group/witt-rational-satake-equivalence"
+      ],
+      "detail": "Zhu states his equivalence for any algebraically closed k and any finite totally ramified F over W(k)[1/p], and for his own monoidal structure on H*. The comparison planned here covers k an algebraic closure of F_p, with the monoidal structure transported from fusion. A larger algebraically closed k needs either the invariance of these equivariant perverse categories under extension of algebraically closed base field, which no supplier node states, or Zhu's own Gelfand proof, routed to the Part II design (DESIGN-GeometricSatakeAndFusionPartII). That design must also state its rational equivalence for its own monoidal structure, or prove that the two monoidal structures on H* agree."
     }
   ],
   "restructure": [
@@ -2473,6 +2723,15 @@
       ],
       "detail": "RT-AREA-geomlanglands/16 and /19 identify inputs not covered by the present supplier statements.",
       "proposal": "Add general Prasad–Yu Cor5.2 (author preprint Cor1.3) to RG2.3 alongside PY02/Bruhat–Tits. Add general classifying-stack highest-weight base change to LP3 and free stable exact representation completion to LP4, separately from their restricted parameter-stack generation. GS4 retains only the Satake applications; HS1 imports its enhanced kernel export."
+    },
+    {
+      "action": "rescope",
+      "roadmaps": [
+        "GeometricSatakeAndFusion",
+        "GeometricSatakeAndFusionPartII"
+      ],
+      "detail": "The Zhu route (PAPER-ZHU-17 route 18) sends Zhu's Gelfand symmetry proof to a Part II and asks it to export that symmetry to the GS4 rational equivalence. GS4 now plans the rational Witt equivalence (GS4:integral-dual-group/witt-rational-satake-equivalence) with the monoidal structure on H* transported from fusion. Zhu's monoidal structure (Proposition 2.20, from equivariant bimodules) and his constraint (Proposition 2.21) are a different construction; Zhu states without proof that the three known monoidal structures agree in equal characteristic (§2.3.1), and neither source proves that the mixed-characteristic structures agree.",
+      "proposal": "The Part II design states its rational Witt equivalence for its own monoidal structure on H* and imports the GS4 node only for comparison, or plans the agreement of the two monoidal structures as a theorem of its own; it does not feed its symmetry into GS4 as a prerequisite. GS4 keeps the transported statement and the FS degeneration proof. The Part II also owns Zhu's equivalence for algebraically closed k larger than an algebraic closure of F_p, unless the invariance of these categories under extension of algebraically closed base field is planned elsewhere."
     }
   ],
   "upstreamNotes": [
@@ -2510,8 +2769,8 @@
       "kind": "misprint",
       "affects": "nothing",
       "printed": "Under rigidity of 𝒞, the source claims that 𝒜 has an inverse. It gives F(X_i)^∨ ≅ F(X_i^∨) ≅ ℋom(X_i, X_i^∨) ≅ ℋom(X_i ⊗ X_i, 1); swapping the factors is said to supply the required involution of 𝒜.",
-      "correction": "If 𝒞 is rigid, one also sees that ℋ admits an inverse … defines the desired involution on ℋ.",
-      "reason": "𝒜 is the base symmetric monoidal category. The object being built is the bialgebra/Hopf algebra ℋ = colim F(X_i)^∨ (previous sentences: 'which turns ℋ into a commutative algebra', 'makes ℋ into a Hopf algebra'). The antipode (inverse) is an involution of ℋ, induced on each F(X_i)^∨ by the displayed isomorphisms.",
+      "correction": "The antipode belongs to the reconstructed algebra ℋ, not to the base category 𝒜: under rigidity of 𝒞 the displayed chain of identifications for F(X_i)^∨, followed by exchanging the two factors, gives an involution of each F(X_i)^∨, and these assemble to the antipode of ℋ.",
+      "reason": "𝒜 is the base symmetric monoidal category and is not inverted anywhere. The object under construction is ℋ = colim F(X_i)^∨: the two preceding sentences of the proof give it a commutative multiplication and then call it a Hopf algebra. The inverse that is needed is the antipode of ℋ, induced on each F(X_i)^∨ by the displayed isomorphisms.",
       "id": "GeometricSatakeAndFusion/E2",
       "source": "FS",
       "locator": "Chapter VI, §VI.10, proof of Proposition VI.10.2, p. 234 (author-hosted 356-page copy, same passage as arXiv v4)",
@@ -2529,8 +2788,8 @@
       "kind": "misprint",
       "affects": "nothing",
       "printed": "The source claims that unpacking the definitions gives ℋ a Hopf algebra structure, with 𝒞 precisely its symmetric monoidal representation category in 𝒜.",
-      "correction": "It is a matter of unraveling definitions that this makes ℋ into a bialgebra whose symmetric monoidal category of representations in 𝒜 is exactly 𝒞.",
-      "reason": "Proposition VI.10.2 asserts in general only 'a natural structure as a bialgebra (with commutative multiplication and associative comultiplication)', and a Hopf algebra only 'If 𝒞 is rigid'; the proof supplies the antipode in the next sentence, under that hypothesis. Without rigidity ℋ need not be Hopf: with 𝒜 = Vect_k and 𝒞 the finite-dimensional comodules of the bialgebra 𝒪(M_n) of the matrix monoid (a filtered union of comodule categories of finite-dimensional subcoalgebras, each represented by the dual algebra), ℋ = 𝒪(M_n) has no antipode. The next sentence carries PAPER-FARGUES-SCHOLZE-21/E46; the two could be merged.",
+      "correction": "Unwinding the definitions gives ℋ only a bialgebra structure, with 𝒞 equal to its symmetric monoidal category of representations in 𝒜; ℋ becomes a Hopf algebra once the antipode is obtained from rigidity in the next step.",
+      "reason": "In general Proposition VI.10.2 asserts only a bialgebra structure on ℋ, with commutative multiplication and associative comultiplication; it asserts a Hopf structure only under the additional hypothesis that 𝒞 is rigid, and the proof produces the antipode in the next sentence from that hypothesis. Without rigidity ℋ need not be Hopf: with 𝒜 = Vect_k and 𝒞 the finite-dimensional comodules of the bialgebra 𝒪(M_n) of the matrix monoid (a filtered union of comodule categories of finite-dimensional subcoalgebras, each represented by the dual algebra), ℋ = 𝒪(M_n) has no antipode. The next sentence carries PAPER-FARGUES-SCHOLZE-21/E46; the two could be merged.",
       "id": "GeometricSatakeAndFusion/E3",
       "source": "FS",
       "locator": "Chapter VI, §VI.10, proof of Proposition VI.10.2, p. 234, first sentence of the page's second paragraph (author-hosted 356-page copy, same passage as arXiv v4)",
@@ -2547,8 +2806,8 @@
     {
       "kind": "misprint",
       "affects": "nothing",
-      "printed": "The source deduces injectivity of f : M → N from flatness of M. It then claims that each x ∈ N admits a minimal k for which ℓ^k n = f(m) belongs to the image of M.",
-      "correction": "… for any x ∈ N there is some minimal k such that ℓ^k x = f(m) lies in the image of M.",
+      "printed": "In the proof the element of N to be divided by a power of ℓ is introduced as x, but the equation is then written ℓ^k n = f(m), with n never defined.",
+      "correction": "The element to be divided is x itself: for x ∈ N choose the least k such that ℓ^k·x lies in f(M), say ℓ^k·x = f(m). The letter n in the printed sentence should be x.",
       "reason": "The element of N is named x in the same sentence; n is never introduced.",
       "id": "GeometricSatakeAndFusion/E4",
       "source": "FS",
@@ -2566,9 +2825,9 @@
     {
       "kind": "misprint",
       "affects": "nothing",
-      "printed": "The source considers the associated minimal Levi subgroups M_a ⊂ G that properly contain T, together with parabolic P_a ⊂ B.",
-      "correction": "… with parabolic P_a ⊃ B.",
-      "reason": "A parabolic with Levi M_a ⊋ T strictly contains a Borel, so P_a ⊂ B is impossible. Page 239 writes it correctly: 'the corresponding parabolic P_a ⊃ B, with Levi M_a'.",
+      "printed": "In the step for a simple coroot a, the parabolic attached to the minimal Levi M_a is written as a subgroup of B (P_a ⊂ B).",
+      "correction": "The parabolic attached to M_a contains the Borel: P_a ⊃ B, not P_a ⊂ B.",
+      "reason": "A parabolic whose Levi M_a strictly contains T strictly contains a Borel, so P_a ⊂ B is impossible. On p239, in the canonical-pinning argument, the source has the containment the right way round (P_a contains B, with Levi M_a).",
       "id": "GeometricSatakeAndFusion/E5",
       "source": "FS",
       "locator": "Chapter VI, §VI.11, proof of Theorem VI.11.1, p. 237, last paragraph (author-hosted 356-page copy, same passage as arXiv v4)",
@@ -2604,8 +2863,8 @@
     {
       "kind": "misprint",
       "affects": "nothing",
-      "printed": "For an algebraically closed field Λ = L, the source takes Schur-irreducible A₁, A₂ ∈ D_lis(Bun_G, L). If A occurs as a Schur-irreducible constituent in A₁ ⊠ A₂, it asserts φ_A = (φ_{A₁}, φ_{A₂}) : W_E → Ĝ(L) ≅ Ĝ₁(L) × Ĝ₂(L).",
-      "correction": "A₁ ∈ D_lis(Bun_{G₁}, L), A₂ ∈ D_lis(Bun_{G₂}, L)",
+      "printed": "In the consequence stated after the diagram, A₁ and A₂ are both taken in D_lis(Bun_G, L) for the product group G, while the conclusion assigns to a constituent of A₁ ⊠ A₂ the parameter (φ_{A₁}, φ_{A₂}) into Ĝ₁(L) × Ĝ₂(L).",
+      "correction": "The two objects live over the two factors: A₁ is an object of D_lis(Bun_{G₁}, L) and A₂ an object of D_lis(Bun_{G₂}, L), so that A₁ ⊠ A₂ lies over Bun_{G₁} × Bun_{G₂} = Bun_G.",
       "reason": "A₁ ⊠ A₂ lies on Bun_G = Bun_{G₁} × Bun_{G₂}, and φ_{A_i} has values in Ĝ_i. So A_i must be a sheaf on Bun_{G_i}, as in Proposition VII.7.10.",
       "id": "GeometricSatakeAndFusion/E7",
       "source": "FS",
@@ -2619,14 +2878,78 @@
         "reason": "Independently checked the printed passage at the stated page and the correction against the surrounding proof/diagram. Reuses PAPER-FARGUES-SCHOLZE-21/E67.",
         "by": "REV-GeometricSatakeAndFusion--GS3"
       }
+    },
+    {
+      "id": "GeometricSatakeAndFusion/E8",
+      "source": "FS",
+      "kind": "error",
+      "locator": "Chapter VI, §VI.11, Lemma VI.11.2 and its proof, p. 237 (author-hosted 356-page copy, same text as arXiv v4)",
+      "printed": "The lemma says that a closed subgroup H of SL₂ over F_ℓ which contains the diagonal torus, and whose irreducible representations are told apart by their highest weights (all in Z≥0), is all of SL₂. The proof reduces to reduced H and then deduces that H is connected from Deligne–Milne, Corollary 2.22, and highest weights.",
+      "correction": "The lemma holds for ℓ odd. For ℓ = 2 its hypotheses give only that H = SL₂ or that the reduced subgroup of H is N(T), the normalizer of the diagonal torus T: N(T) and its preimages under powers of the Frobenius isogeny satisfy them. In the proof of Theorem VI.11.1 for G = PGL₂ the second case can be excluded by counting invariants. If H lies in the a-th Frobenius preimage of N(T), put n = 6·2^a − 2: the tilting module T(n), a summand of V^{⊗n}, has nonzero H-invariants but no SL₂-invariants, so V^{⊗n} would have more invariants than in characteristic zero. But Hom(1, B₁^{⋆n}) with F₂ coefficients has exactly the characteristic-zero dimension, since it is the top Borel–Moore homology of the fibre over the base point of the n-step convolution map.",
+      "reason": "For ℓ = 2, N(T) = T ⋊ Z/2 is a closed subgroup of SL₂ over F₂ containing T. Its irreducible representations are the trivial one and, for each n ≥ 1, the two-dimensional induced representation with weights ±n: a weight-zero irreducible is a representation of Z/2, and in characteristic two only the trivial one is irreducible. The highest weights 0, 1, 2, … are distinct, so N(T) satisfies the hypothesis, but N(T) ≠ SL₂. The non-reduced preimage of N(T) under the Frobenius isogeny is a second counterexample: its irreducibles also have highest weights 0, 1, 2, … once each. The proof fails at the connectedness step: Deligne–Milne Corollary 2.22 assumes characteristic zero, and for ℓ = 2 the component group of N(T) contributes no second irreducible of highest weight zero. For ℓ odd its sign character does, and after replacing H by its reduced image under a high power of Frobenius the remaining cases (T, the two Borels) have irreducibles of negative highest weight, so the lemma is true for ℓ odd. With the invariant count above, which uses the tilting theory of SL₂ in characteristic two, Theorem VI.11.1 survives at ℓ = 2.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "arXiv 2102.13459 version history, checked 8 October 2026: v4 (27 November 2024) is the latest version; the author-hosted copy read here (SHA-256 9ab9efbd…) has the same lemma and proof.",
+        "The atlas errata for this paper (PAPER-FARGUES-SCHOLZE-21, entries near §§VI.10–VI.11: E45–E49, E108, E109) and research/errata/REGISTER.md contain no entry for Lemma VI.11.2.",
+        "A web search on 8 October 2026 for a correction of this lemma found none. The published version (Astérisque 466, 2026) was not read, and no claim is made about it."
+      ]
+    },
+    {
+      "id": "GeometricSatakeAndFusion/E9",
+      "source": "Zhu",
+      "kind": "misprint",
+      "locator": "§0.2 pp407–408, setting of Theorem 0.3 (publisher PDF)",
+      "printed": "The introduction states the Satake equivalence of Theorem 0.3 for a reductive group over O without requiring the residue field k to be algebraically closed.",
+      "correction": "Assume that k is algebraically closed and G connected reductive, as Section 2 does on p429; equivalently, base change the affine Grassmannian to an algebraic closure of k.",
+      "reason": "Over a finite k the equivariant perverse sheaves supported at the base point are the continuous Galois representations; this category is not semisimple (Frobenius can act by a unipotent block), and H* forgets the Galois action, so it is not full and cannot be an equivalence onto Rep(Ĝ). The body proves the theorem only over an algebraically closed field. The nodes of this packet carry the hypothesis.",
+      "affects": "nothing",
+      "known": "PAPER-ZHU-17/E35 (already recorded in the extraction of this paper and confirmed by its independent review; reused here, not newly discovered)",
+      "searched": [
+        "The PAPER-ZHU-17 extraction and its review (searches of arXiv 1407.8519 versions, the Annals page and the Crossref record). Rechecked against the publisher PDF on 8 October 2026 (SHA-256 5d50b415…)."
+      ]
+    },
+    {
+      "id": "GeometricSatakeAndFusion/E10",
+      "source": "Zhu",
+      "kind": "misprint",
+      "locator": "§0.5 p412, the dominance order on coweights",
+      "printed": "The order λ ≤ μ on coweights is defined using nonnegative combinations of positive roots.",
+      "correction": "Use nonnegative integer combinations of positive coroots; the order lives on X_•.",
+      "reason": "λ and μ are coweights, so μ − λ lies in the coweight lattice, where roots do not live. The coroot order is the one used in the rest of the paper, and the highest-weight statements of this packet use it.",
+      "affects": "nothing",
+      "known": "PAPER-ZHU-17/E2 (already recorded in the extraction of this paper and confirmed by its independent review; reused here, not newly discovered)",
+      "searched": [
+        "The PAPER-ZHU-17 extraction and its review; rechecked in the publisher PDF on 8 October 2026."
+      ]
+    },
+    {
+      "id": "GeometricSatakeAndFusion/E11",
+      "source": "Zhu",
+      "kind": "error",
+      "locator": "proof of Corollary 2.10, p436 (publisher PDF)",
+      "printed": "The proof splits H* into the weight pieces using a second filtration defined from cohomology with supports in the boundary of the opposite semi-infinite orbits, and asserts that it is complementary to the first.",
+      "correction": "Use the images of cohomology with supports in the closures of the opposite semi-infinite orbits, as Mirković–Vilonen do; with that filtration the two are complementary and Corollary 2.10 follows.",
+      "reason": "The printed second filtration vanishes in the degree of the λ-piece and consists of pieces for larger weights, which lie inside the first filtration. Corollary 2.10 itself is right, and Proposition 2.36, used by the rational Witt equivalence node, is stated through its isomorphism.",
+      "affects": "the proof",
+      "known": "PAPER-ZHU-17/E51 (already recorded in the extraction of this paper and confirmed by its independent review; reused here, not newly discovered)",
+      "searched": [
+        "The PAPER-ZHU-17 extraction and its review; rechecked in the publisher PDF on 8 October 2026."
+      ]
     }
   ],
   "sourceVersions": [
     {
       "kind": "author copy",
       "url": "https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf",
-      "read": "2026-10-07",
+      "read": "2026-10-07; reread 2026-10-08 for Lemma VI.11.2, Remark I.2.14 and p219",
       "sha256": "9ab9efbd0df251bfa3b610d1d1d88a8dfb1bdf7c397bd04f4c277280d98ae905"
+    },
+    {
+      "kind": "published",
+      "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v185-n2-p02-p.pdf",
+      "read": "2026-10-08",
+      "sha256": "5d50b415048f3a5ad14bccf1c8da83fc5a680fcf13b60911ca269daa474431a7"
     }
   ],
   "review": {
