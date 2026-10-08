@@ -1869,6 +1869,17 @@
     "data/blueprints/KTheoryLowDegrees--Z.3.md"
    ]
   },
+  "research/blueprint/packets/KatoEulerSystems.json": {
+   "promotedAt": "2026-10-08T22:54:14Z",
+   "review": "41ae7bf3a24a9210",
+   "reviewDate": "2026-10-08",
+   "reviewer": "independent-review-REV-KatoEulerSystems~2",
+   "sha256": "6ed1534d238b1b2318af806b6568e37c7bf631de62381baa038dd2b189663f36",
+   "to": [
+    "data/blueprints/KatoEulerSystems.json",
+    "data/blueprints/KatoEulerSystems.md"
+   ]
+  },
   "research/blueprint/packets/LefschetzPencilsAndVanishingCycles--LPV.7.json": {
    "promotedAt": "2026-10-06T17:42:36Z",
    "review": "7355d2cc6afaf854",
