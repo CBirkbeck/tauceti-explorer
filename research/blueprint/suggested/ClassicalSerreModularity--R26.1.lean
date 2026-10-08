@@ -10,9 +10,8 @@ import Mathlib.Algebra.Order.Floor.Semiring
 /-!
 # Suggested Lean forms: ClassicalSerreModularity, part R26.1
 
-This file is not exhaustive. The independently reviewed packet supplies the mathematical
-statements; the reader document awaits the synchronization recorded in the review.
-These signatures suggest names and
+This file is not the roadmap and is not exhaustive. The reader document is definitive;
+the packet records the same mathematical statements. These signatures suggest names and
 interfaces; every theorem and example is deliberately unproved. No implementation is claimed.
 Pinned Mathlib: 082e2d37e8b0463410cdb532e111cd43d5a66174; Tau Ceti:
 f790474821cf4256814db967cb154e7af3d0c369. Only Mathlib declarations are imported.

@@ -71,7 +71,8 @@
       "readSections": [
         "2026-09-29 (cc-39fac3, part R26.1 checkpoint 1): §§1–7 in full (Propositions 2.1–2.2, 3.1, §4, Lemmas 5.1–5.4, Corollary 5.5, §6.1 small weights, §6.2, §7.1).",
         "2026-10-06, Codex codex-uGlOi6: re-fetched the stated hash and read the scoped statements and proofs; locators refer to this version, not inferred published numbering.",
-        "2026-10-06, Codex codex-sHhOXz independent review: re-fetched the exact recorded SHA256; read and compared the scoped node locators and statements. See the independent review report for precise boundaries; published Khare and Savitt editions were not obtained."
+        "2026-10-06, Codex codex-sHhOXz independent review: re-fetched the exact recorded SHA256; read and compared the scoped node locators and statements. See the independent review report for precise boundaries; published Khare and Savitt editions were not obtained.",
+        "2026-10-08, Codex codex-vmLqNQ: re-fetched and SHA256-checked the registered public file. Preprint pp.1–3, 8, 11–28: scoped theorem statements, lifting and compatible-system contracts, §4 comparison, local lemmas/corollary and the complete conductor-one induction and terminal rows. Published Duke text not obtained."
       ]
     },
     {
@@ -84,7 +85,8 @@
       "readSections": [
         "2026-09-29 (cc-39fac3, part R26.1 checkpoint 1): §§2–3, 6–8 for the carried R27 nodes (Definition 2.1, (L_r)–(D_r), Lemmas 6.1–6.3, §7, §8.2–8.3); the excerpts were re-selected from this extraction.",
         "2026-10-06, Codex codex-uGlOi6: re-fetched the stated hash and read the scoped statements and proofs; locators refer to this version, not inferred published numbering.",
-        "2026-10-06, Codex codex-sHhOXz independent review: re-fetched the exact recorded SHA256; read and compared the scoped node locators and statements. See the independent review report for precise boundaries; published Khare and Savitt editions were not obtained."
+        "2026-10-06, Codex codex-sHhOXz independent review: re-fetched the exact recorded SHA256; read and compared the scoped node locators and statements. See the independent review report for precise boundaries; published Khare and Savitt editions were not obtained.",
+        "2026-10-08, Codex codex-vmLqNQ: re-fetched and SHA256-checked the registered public file. Preprint pp.2–6, 10–16: S-type and modularity conventions, Definition 2.1, L/W/D hypotheses, Theorem 5.1 local contracts, Lemmas 6.1–6.3, §7 estimates, §8.2 weight recursion and §8.3 corrected corollaries. Later conductor/dyadic induction belongs to the sibling packet."
       ]
     },
     {
@@ -97,7 +99,8 @@
       "readSections": [
         "2026-09-29 (cc-39fac3, part R26.1 checkpoint 1): pp. 1–3 (Theorem 1, Proposition 1 with proof).",
         "2026-10-06, Codex codex-uGlOi6: re-fetched the stated hash and read the scoped statements and proofs; locators refer to this version, not inferred published numbering.",
-        "2026-10-06, Codex codex-sHhOXz independent review: re-fetched the exact recorded SHA256; read and compared the scoped node locators and statements. See the independent review report for precise boundaries; published Khare and Savitt editions were not obtained."
+        "2026-10-06, Codex codex-sHhOXz independent review: re-fetched the exact recorded SHA256; read and compared the scoped node locators and statements. See the independent review report for precise boundaries; published Khare and Savitt editions were not obtained.",
+        "2026-10-08, Codex codex-vmLqNQ: re-fetched and SHA256-checked the registered public file. Appendix pp.1–6: presentation, local tangent-space counts, finite flat complete-intersection criterion and minimal R=T argument; bibliography is not a further proof input."
       ]
     },
     {
@@ -109,7 +112,8 @@
       "sha256": "e161ac6498c1a75fc8f981c25edd5e9390b19ceb40f174a25a1f6491390c115c",
       "readSections": [
         "2026-10-06, codex-uGlOi6: Remark 1.7; Theorem 6.11; Corollary 6.15(1),(2), proof and Remark 6.17 (printed pp.34–39).",
-        "2026-10-06, Codex codex-sHhOXz independent review: re-fetched the exact recorded SHA256; read and compared the scoped node locators and statements. See the independent review report for precise boundaries; published Khare and Savitt editions were not obtained."
+        "2026-10-06, Codex codex-sHhOXz independent review: re-fetched the exact recorded SHA256; read and compared the scoped node locators and statements. See the independent review report for precise boundaries; published Khare and Savitt editions were not obtained.",
+        "2026-10-08, Codex codex-vmLqNQ: re-fetched and SHA256-checked the registered public file. Corrected arXiv v3 p.4 Remark 1.7; pp.34–35 Theorem 6.11 and proof; pp.38–39 Corollary 6.15, proof and Remark 6.17. Older published Theorem 6.12 was not obtained."
       ]
     },
     {
@@ -121,7 +125,8 @@
       "sha256": "0c6850dafda032f7a4008947c519b5aef8cc13762207bb67c36810170a8eebe6",
       "readSections": [
         "2026-10-06, codex-uGlOi6: Definition 1.12, Lemmas 1.13–1.15 and proofs, pp.7–10.",
-        "2026-10-06, Codex codex-sHhOXz independent review: re-fetched the exact recorded SHA256; read and compared the scoped node locators and statements. See the independent review report for precise boundaries; published Khare and Savitt editions were not obtained."
+        "2026-10-06, Codex codex-sHhOXz independent review: re-fetched the exact recorded SHA256; read and compared the scoped node locators and statements. See the independent review report for precise boundaries; published Khare and Savitt editions were not obtained.",
+        "2026-10-08, Codex codex-vmLqNQ: re-fetched and SHA256-checked the registered public file. arXiv v2 pp.7–10: Definition 1.12 and Lemmas 1.13–1.15 with their proofs, in particular the normalized bad-dihedral weight split without a conductor-one assumption."
       ]
     },
     {
@@ -133,7 +138,8 @@
       "sha256": "6d37cace879b9abdff0817709db114c93a186db0f2165aaeba443c48bb102443",
       "readSections": [
         "2026-10-06, codex-uGlOi6: §2, Lemma 2.1, Proposition 2.2 and proof, Corollary 2.3, pp.278–280.",
-        "2026-10-06, Codex codex-sHhOXz independent review: re-fetched the exact recorded SHA256; read and compared the scoped node locators and statements. See the independent review report for precise boundaries; published Khare and Savitt editions were not obtained."
+        "2026-10-06, Codex codex-sHhOXz independent review: re-fetched the exact recorded SHA256; read and compared the scoped node locators and statements. See the independent review report for precise boundaries; published Khare and Savitt editions were not obtained.",
+        "2026-10-08, Codex codex-vmLqNQ: re-fetched and SHA256-checked the registered public file. PDF pp.2–4, printed pp.278–280: standing semistability/cyclotomic-determinant assumptions, Lemma 2.1 and Proposition 2.2 with the dihedral argument. No extension to arbitrary residual representations."
       ]
     },
     {
@@ -145,7 +151,8 @@
       "sha256": "8e37b06f82e09421bceb2502578c47b61469141f0287e6acedb70e01765ab556",
       "readSections": [
         "2026-10-06, codex-uGlOi6: Theorems 1–2, Corollary 1 (3.5),(3.6), p.69; the underlying analytic proof is an explicit source boundary.",
-        "2026-10-06, Codex codex-sHhOXz independent review: re-fetched the exact recorded SHA256; read and compared the scoped node locators and statements. See the independent review report for precise boundaries; published Khare and Savitt editions were not obtained."
+        "2026-10-06, Codex codex-sHhOXz independent review: re-fetched the exact recorded SHA256; read and compared the scoped node locators and statements. See the independent review report for precise boundaries; published Khare and Savitt editions were not obtained.",
+        "2026-10-08, Codex codex-vmLqNQ: re-fetched and SHA256-checked the registered public file. Printed p.69 (PDF p.6): Theorem 2 and Corollary 1, inequalities (3.3)–(3.6) and domains. Analytic proof and published finite verification tables not read."
       ]
     },
     {
@@ -157,7 +164,8 @@
       "sha256": "cbbdc24c26cdfcbd77f0e084194643e8804a724f004eb02e431ead9d932c498d",
       "readSections": [
         "2026-10-06, codex-uGlOi6: Introduction pp.1–2: attached representations, residual semisimplification, modular versus strongly modular.",
-        "2026-10-06, Codex codex-sHhOXz independent review: re-fetched the exact recorded SHA256; read and compared the scoped node locators and statements. See the independent review report for precise boundaries; published Khare and Savitt editions were not obtained."
+        "2026-10-06, Codex codex-sHhOXz independent review: re-fetched the exact recorded SHA256; read and compared the scoped node locators and statements. See the independent review report for precise boundaries; published Khare and Savitt editions were not obtained.",
+        "2026-10-08, Codex codex-vmLqNQ: re-fetched and SHA256-checked the registered public file. Author-copy introduction pp.1–2, published pp.843–845: residual modularity and strong modularity conventions and the stated equivalence range ell≥3. The remaining proof is outside this job."
       ]
     },
     {
@@ -169,7 +177,8 @@
       "sha256": "154c0c2a2245e50cb2be3c82705f9176fe0e9b597424236ddca11299d38cdb22",
       "readSections": [
         "2026-10-06, codex-uGlOi6: published Theorem5.2(ii) p.247; §6.2 killing ramification pp.250–251. These correspond to the older Theorem4.1(ii)/§5.2 locators used in Khare v1; the semistable hypothesis is retained. Definition4.1 and Theorem4.2(ii) statement were also checked; their realization proof is consumed from the R24/R25 suppliers.",
-        "2026-10-06, Codex codex-sHhOXz independent review: re-fetched the exact recorded SHA256; read and compared the scoped node locators and statements. See the independent review report for precise boundaries; published Khare and Savitt editions were not obtained."
+        "2026-10-06, Codex codex-sHhOXz independent review: re-fetched the exact recorded SHA256; read and compared the scoped node locators and statements. See the independent review report for precise boundaries; published Khare and Savitt editions were not obtained.",
+        "2026-10-08, Codex codex-vmLqNQ: re-fetched and SHA256-checked the registered public file. Printed pp.235, 237, 239, 243–244, 247, 250–251: Theorem 3.3, Definition 4.1, Theorem 4.2 lifting/compatible-system statements and the relevant proof boundary, Theorem 5.2(ii) and proof, and §6.2. The full proof of Theorem 4.2 is imported from R24, not certified by this reading."
       ]
     },
     {
@@ -180,7 +189,8 @@
       "url": "https://www.imo.universite-paris-saclay.fr/m/~breuil/PUBLICATIONS/multiplicite.pdf",
       "sha256": "ec42c9a450a7f7368a72670a3e9c54b75cad77802f18ac08d4dac6078bf7fa02",
       "readSections": [
-        "2026-10-06, Codex codex-sHhOXz independent review: Introduction p.2 odd-prime convention; introduction to §6 p.67 and §6.1 pp.67–68 including Propositions 6.1.1–6.1.3. The computations omitted by the authors were not reconstructed. Also read §4.1 Proposition 4.1.1 and its proof, pp.30–31, for the separate scalar crystalline ordinary criterion."
+        "2026-10-06, Codex codex-sHhOXz independent review: Introduction p.2 odd-prime convention; introduction to §6 p.67 and §6.1 pp.67–68 including Propositions 6.1.1–6.1.3. The computations omitted by the authors were not reconstructed. Also read §4.1 Proposition 4.1.1 and its proof, pp.30–31, for the separate scalar crystalline ordinary criterion.",
+        "2026-10-08, Codex codex-vmLqNQ: re-fetched and SHA256-checked the registered public file. Printed pp.2, 30–31, 67–68: odd-prime convention, Proposition 4.1.1 and proof, §6.1 setup and Proposition 6.1.1 with its references to 6.1.2–6.1.3. The integral calculations in §6 beyond that boundary were not read and remain R07.5 work."
       ]
     }
   ],
@@ -254,7 +264,7 @@
       ],
       "title": "Corollary 1.2 (conductor a prime, weight 2) and the correction of its proof in KW I",
       "kind": "theorem",
-      "statement": "Khare's Corollary 1.2: if rho-bar is an irreducible, odd, 2-dimensional mod p representation of G_Q with k(rho-bar) = 2 and N(rho-bar) = q a prime, and p > 2, then it arises from S_2(Gamma_1(q)). KW I restate this as Corollary 8.1(i) WITHOUT the hypothesis p > 2 ('Note that p = 2 is included'), treating q = 2 by the earlier Annals paper, and explicitly correct the reference given for the proof: 'the reference to 3 of Theorem 5.1 of [24] is not enough as p may not divide q-1'. The corrected argument uses Theorem 5.1(1) to build an almost strictly compatible weight-2 system with unramified Weil-Deligne parameter away from q and with rho_p minimal at q; at a place above q the Weil-Deligne parameter r_q is either semistable with nontrivial monodromy (so rho_q is semistable of weight 2) or unramified after restriction to Q_q(mu_q) (so rho_q is geometric of weight 2, crystalline over Q_q(mu_q)); the level-one theorem gives modularity of rho-bar_q, possibly reducible, and then part (2) of Theorem 6.1 of [24] - Khare's level-one paper in its published Duke numbering, NOT the Annals paper - concludes, with its Skinner-Wiles references [39], [40] augmented by the correction [41]. The semistable case uses [36] = T. Saito, Modular forms and p-adic Hodge theory, and the other case the proof of Theorem 5.1(3 ii) of [24].",
+      "statement": "For an odd irreducible two-dimensional residual representation of G_Q of Serre weight 2 and prime conductor q, Khare Corollary 1.2 gives an attached form in S_2(Gamma_1(q)) when p>2. KW I Corollary 8.1(i) includes p=2 as well. Its corrected proof first disposes of dihedral projective image by Lemma 6.2 and of q=2 using the earlier Annals result. For the remaining cases, Khare’s published Theorem 5.1(1) supplies an almost strictly compatible weight-two system, minimal at q and with unramified Weil–Deligne parameters away from q. At the q-adic member the relevant local alternatives are semistability with nonzero monodromy, or crystallinity over Q_q(mu_q). Apply the level-one theorem to its residual representation, allowing the source’s reducible modularity convention, then the published Theorem 6.1(2) and transfer back. The semistable comparison uses T. Saito; the other local comparison uses the proof of published Theorem 5.1(3 ii). Theorem 5.1(3) alone does not cover p not dividing q−1. These are Duke-numbered locators, unavailable in arXiv v1; the ordinary dihedral lifting branch also retains Skinner’s unread correction as a supplier gap.",
       "hypotheses": [
         "rho-bar irreducible and odd with k(rho-bar) = 2 and N(rho-bar) = q prime",
         "Khare's version additionally assumes p > 2; KW I's Corollary 8.1(i) does not, and its proof imports the case q = 2 from [22] = the KW Annals paper",
@@ -1303,9 +1313,9 @@
       ],
       "title": "Lemma 6.3: a locally good-dihedral representation has non-solvable, non-A_5 image, and the property propagates through a compatible system",
       "kind": "lemma",
-      "statement": "Let rho-bar be locally good-dihedral for a prime q. (i) The image of rho-bar is not solvable and its projective image is not isomorphic to A_5. (ii) Let (rho_iota) be any compatible system lifting rho-bar whose ramified primes are contained in the prime divisors of N(rho-bar)p, and such that rho_p restricted to D_q is a minimal lift of rho-bar restricted to D_q. Then for any prime r <= max(Q(N(rho-bar)/q^2), p), any mod r representation rho-bar_r arising from (rho_iota) is again locally good-dihedral for the prime q, and hence has non-solvable image with projective image not A_5.",
+      "statement": "Let rho-bar be locally good-dihedral for a prime q. (i) The image of rho-bar is not solvable and its projective image is not isomorphic to A_5. (ii) Let (rho_iota) be any compatible system lifting rho-bar whose fixed Weil–Deligne ramification support is contained in the prime divisors of N(rho-bar)p, allowing each member also to ramify at its own coefficient prime, and such that rho_p restricted to D_q is a minimal lift of rho-bar restricted to D_q. Then for any prime r <= max(Q(N(rho-bar)/q^2), p), any mod r representation rho-bar_r arising from (rho_iota) is again locally good-dihedral for the prime q, and hence has non-solvable image with projective image not A_5.",
       "hypotheses": [
-        "in (ii) the two hypotheses on the system are essential: the ramification set must be contained in the primes dividing N(rho-bar)p, and rho_p must be MINIMAL at q",
+        "In (ii) fixed Weil–Deligne ramification support is contained in the primes dividing N(rho-bar)p, and rho_p is minimal at q. A member of coefficient characteristic r may additionally ramify at r; it is not asserted that every member has actual ramification contained in N(rho-bar)p.",
         "the range of r is bounded by max(Q(N(rho-bar)/q^2), p), exactly the bound built into Definition 2.1",
         "the argument for (i) uses t > 5 twice: to exclude A_5, and to force the projective image to be dihedral in the solvable case via Dickson"
       ],
@@ -1664,7 +1674,7 @@
         {
           "sourceId": "rosser-schoenfeld",
           "locator": "Theorem 2 and Corollary 1, p.69",
-          "match": "The excerpt transcribes the displayed fractions into inline notation; Theorem 2 (3.5),(3.6) are on published p.69. Corollary 1 on the same page supplies the two sharper denominator bounds. All four exact domains were independently read."
+          "match": "Theorem 2 gives the sharper denominator bounds (3.3) and (3.4); Corollary 1 gives the simpler bounds (3.5) and (3.6), all on printed p.69. The four statements and their domains were checked; the analytic proofs and finite verification tables remain outside the reading boundary."
         },
         {
           "sourceId": "khare-level-one",
@@ -2448,9 +2458,9 @@
       "source": "savitt-cdt",
       "kind": "error",
       "affects": "nothing",
-      "locator": "Author correction quoted from v3 Remark1.7, p.4, describing the published Theorem6.12(4), i=1; the old published text was not obtained",
+      "locator": "Author correction reported in v3 Remark 1.7, p.4, concerning published Theorem 6.12(4), i=1; the older published text was not obtained",
       "printed": "The source identifies both the formulation and the proof of the published Theorem 6.12(4) as containing the mistake.",
-      "correction": "They coincide and are niveau one; the reduction is split. Use the corrected v3 lattice statement.",
+      "correction": "In the exceptional case m=1+(p+1)j, the two characters omega_2^(m+p) and omega_2^(pm+1) agree and have niveau one. The residual representation is split. Use the corrected v3 lattice statement.",
       "reason": "Savitt’s author correction explicitly repairs the exceptional lattice classification without changing the principal results. Our tame ordinary/weight contract uses Theorem6.11 and Corollary6.15 with Remark6.17; it does not invoke the erroneous old corner.",
       "known": "Known author correction, arXiv v3 Remark1.7 (2010).",
       "searched": [
@@ -2508,76 +2518,76 @@
       "kind": "preprint",
       "url": "https://arxiv.org/pdf/math/0504080v1",
       "citation": "Khare, On Serre's modularity conjecture for 2-dimensional mod p representations of Gal(Q̄/Q) unramified outside p, arXiv:math/0504080v1 (Duke Math. J. 134 (2006))",
-      "read": "2026-09-29",
+      "read": "2026-10-08",
       "sha256": "3012a51759ad10695792bc8a2d1af75890f38d6ebacd37fb61e01bfdb89c9c2f"
     },
     {
       "kind": "author copy",
       "url": "https://www.math.ucla.edu/~shekhar/papers/results.pdf",
       "citation": "Serre's modularity conjecture (I); Author's preprint (results.pdf) of the paper published as Invent. Math. 178 (2009), 485-504. Locators give the preprint's own running page numbers (2-21), which are NOT the Invent. Math. pages",
-      "read": "2026-10-06",
+      "read": "2026-10-08",
       "sha256": "3c389dc33e09fe847f5d8189ffd8915b5c1a73424e64e4fed6769829883bad82"
     },
     {
       "kind": "author copy",
       "url": "https://arith-geom.github.io/ag-comp-arith-geom/assets/img/fileadmin/groups/arithgeo/templates/data/Gebhard_Boeckle/KhareAppboeckleNew2.pdf",
       "citation": "Appendix 1: On the isomorphism R_empty -> T_empty; Appendix to Chandrashekhar Khare, 'On isomorphisms between deformation rings and Hecke rings', Invent. Math. 154 (2003). Locators give that file's own page numbers 1-7 (mathematics on pp.1–6, references p.7)",
-      "read": "2026-10-06",
+      "read": "2026-10-08",
       "sha256": "67de08f6a1958d6c350d6de0ad70839cc737cc14c9c3636ab68fb1bd638202de"
     },
     {
       "kind": "preprint",
       "url": "https://arxiv.org/pdf/math/0404327v3",
       "citation": "On a conjecture of Conrad, Diamond, and Taylor; arXiv:math/0404327v3, 15 September 2010; corrected author version of Duke Math. J. 128 (2005)",
-      "read": "2026-10-06",
+      "read": "2026-10-08",
       "sha256": "e161ac6498c1a75fc8f981c25edd5e9390b19ceb40f174a25a1f6491390c115c"
     },
     {
       "kind": "preprint",
       "url": "https://arxiv.org/pdf/2108.07577v2",
       "citation": "A simplified proof of Serre’s conjecture; arXiv:2108.07577v2, 3 May 2022",
-      "read": "2026-10-06",
+      "read": "2026-10-08",
       "sha256": "0c6850dafda032f7a4008947c519b5aef8cc13762207bb67c36810170a8eebe6"
     },
     {
       "kind": "published",
       "url": "https://msp.org/pjm/1997/181-3/pjm-v181-n3-p15-p.pdf",
       "citation": "Images of semistable Galois representations; Pacific J. Math. 1997, special issue, 277–297",
-      "read": "2026-10-06",
+      "read": "2026-10-08",
       "sha256": "6d37cace879b9abdff0817709db114c93a186db0f2165aaeba443c48bb102443"
     },
     {
       "kind": "published",
       "url": "https://denisevellachemla.eu/Rosser-Schoenfeld-1962.pdf",
       "citation": "Approximate formulas for some functions of prime numbers; Illinois J. Math. 6 (1962), 64–94; scan of published article",
-      "read": "2026-10-06",
+      "read": "2026-10-08",
       "sha256": "8e37b06f82e09421bceb2502578c47b61469141f0287e6acedb70e01765ab556"
     },
     {
       "kind": "author copy",
       "url": "https://www.imo.universite-paris-saclay.fr/~breuil/PUBLICATIONS/STW.pdf",
       "citation": "On the modularity of elliptic curves over Q: wild 3-adic exercises; Breuil author copy, 80 PDF pages; Introduction printed pp.1–2 corresponds to published pp.843–845",
-      "read": "2026-10-06",
+      "read": "2026-10-08",
       "sha256": "cbbdc24c26cdfcbd77f0e084194643e8804a724f004eb02e431ead9d932c498d"
     },
     {
       "kind": "published",
       "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v169-n1-p05.pdf",
       "citation": "On Serre’s conjecture for 2-dimensional mod p representations of Gal(Qbar/Q); Annals of Mathematics 169 (2009), 229–253",
-      "read": "2026-10-06",
+      "read": "2026-10-08",
       "sha256": "154c0c2a2245e50cb2be3c82705f9176fe0e9b597424236ddca11299d38cdb22"
     },
     {
       "kind": "author copy",
       "url": "https://www.imo.universite-paris-saclay.fr/m/~breuil/PUBLICATIONS/multiplicite.pdf",
       "citation": "Breuil–Mézard, Multiplicités modulaires; 82-page author copy. §6.1 Proposition 6.1.1 is on running p.68, with setup p.67; published Duke pagination is not asserted.",
-      "read": "2026-10-06",
+      "read": "2026-10-08",
       "sha256": "ec42c9a450a7f7368a72670a3e9c54b75cad77802f18ac08d4dac6078bf7fa02"
     }
   ],
   "baselineAudit": {
     "reviewedAudit": "data/library-coverage.json, scoped R26/R27 stage records",
-    "confirmation": "Read Mathlib MaxPrimeFac and GeneralLinearGroup/Defs at 082e2d37; inspected Tau Ceti sources at f790474 using commit-qualified reads. The libraries supply matrix groups, prime factors, modular-form carriers and abelian-variety carriers. They do not supply the residual G_Q representation with canonical conductor/Serre-weight/modular-newform witness needed to type the headline statements. R26.1 process bookkeeping is excluded while its mathematical theorem/contracts remain. R26.5 consumes R25 arithmetic results rather than rebuilding the existing abelian-variety carrier. Read Nat.primeCounting at the exact Mathlib pin: its value counts primes ≤n, which fixes the floor adapter for real x. Independent reviewer codex-sHhOXz read all seven original declarations at Mathlib 082e2d3 and added the already existing Nat.exists_prime_lt_and_le_two_mul from Bertrand.lean, with n≠0. Checked all eight scoped reviewed-audit records; no built carrier or generic supplier theorem is newly planned. Full Chebotarev and GlobalNumberFields upstream documents were read; Chebotarev Layer 10 remains an upstream supplier, not a new plan."
+    "confirmation": "Read Mathlib MaxPrimeFac and GeneralLinearGroup/Defs at 082e2d37; inspected Tau Ceti sources at f790474 using commit-qualified reads. The libraries supply matrix groups, prime factors, modular-form carriers and abelian-variety carriers. They do not supply the residual G_Q representation with canonical conductor/Serre-weight/modular-newform witness needed to type the headline statements. R26.1 process bookkeeping is excluded while its mathematical theorem/contracts remain. R26.5 consumes R25 arithmetic results rather than rebuilding the existing abelian-variety carrier. Read Nat.primeCounting at the exact Mathlib pin: its value counts primes ≤n, which fixes the floor adapter for real x. Independent reviewer codex-sHhOXz read all seven original declarations at Mathlib 082e2d3 and added the already existing Nat.exists_prime_lt_and_le_two_mul from Bertrand.lean, with n≠0. Checked all eight scoped reviewed-audit records; no built carrier or generic supplier theorem is newly planned. Full Chebotarev and GlobalNumberFields upstream documents were read; Chebotarev Layer 10 remains an upstream supplier, not a new plan. Revision 2, codex-vmLqNQ: independently rechecked all eight Mathlib declarations at the exact pin, including their nonzero/strict-range premises; inspected the pinned Tau Ceti absolute Galois and abelian-variety carriers and modular-form uses. An absolute Galois carrier exists; the missing interface is its assembled residual-representation/conductor/weight/attached-newform package. The suggested file continues to import Mathlib only."
   },
   "paperRouteAlignment": [
     {
