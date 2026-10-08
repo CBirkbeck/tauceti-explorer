@@ -260,6 +260,18 @@
     "data/links/tauceti_TauCetiRoadmap_ZigzagPreprojective.json"
    ]
   },
+  "research/blueprint/packages/IntegralHeckeAndGaloisDeterminants/review.json": {
+   "promotedAt": "2026-10-08T21:34:12Z",
+   "review": "174a182332191321",
+   "reviewDate": "2026-10-08",
+   "reviewer": "independent-review-REV-PKG-IntegralHeckeAndGaloisDeterminants",
+   "sha256": "1b0be481f061a39d6f47ce3ad0cd071174825049e32b441ee502359ab95b2a2d",
+   "to": [
+    "roadmaps/IntegralHeckeAndGaloisDeterminants/README.md",
+    "roadmaps/IntegralHeckeAndGaloisDeterminants/Suggested.lean",
+    "roadmaps/IntegralHeckeAndGaloisDeterminants/metadata.toml"
+   ]
+  },
   "research/blueprint/packets/AInfCohomology--AI.6.json": {
    "promotedAt": "2026-10-08T12:52:49Z",
    "review": "087a4fb6c17aa571",
@@ -460,6 +472,17 @@
     "data/blueprints/ArithmeticLocallySymmetricSpaces.md"
    ]
   },
+  "research/blueprint/packets/ArithmeticQuantumTopology.json": {
+   "promotedAt": "2026-10-08T21:34:12Z",
+   "review": "b857c8d26ef4b095",
+   "reviewDate": "2026-10-08",
+   "reviewer": "independent-review-REV-ArithmeticQuantumTopology~2",
+   "sha256": "161dc9ce320280e75c2c5ebf1923d8bd0529dabbccc013ad3b9d547cc1ead951",
+   "to": [
+    "data/blueprints/ArithmeticQuantumTopology.json",
+    "data/blueprints/ArithmeticQuantumTopology.md"
+   ]
+  },
   "research/blueprint/packets/ArithmeticStatistics.json": {
    "promotedAt": "2026-10-05T07:13:01Z",
    "review": "dcb0b752fbc30e8f",
@@ -524,6 +547,17 @@
    "to": [
     "data/blueprints/AutomorphicGaloisRepresentationsPartII--AG2.6.json",
     "data/blueprints/AutomorphicGaloisRepresentationsPartII--AG2.6.md"
+   ]
+  },
+  "research/blueprint/packets/AutomorphicLFunctionsAndLocalFactors.json": {
+   "promotedAt": "2026-10-08T21:34:12Z",
+   "review": "302b1a36c4569656",
+   "reviewDate": "2026-10-08",
+   "reviewer": "independent-review-REV-AutomorphicLFunctionsAndLocalFactors~2",
+   "sha256": "7653771c9d2c47341f2e206fce7cbbb99bc275fb1c8b782a2eaee9ed946c2c39",
+   "to": [
+    "data/blueprints/AutomorphicLFunctionsAndLocalFactors.json",
+    "data/blueprints/AutomorphicLFunctionsAndLocalFactors.md"
    ]
   },
   "research/blueprint/packets/BorelRegulators.json": {
@@ -602,6 +636,17 @@
    "to": [
     "data/blueprints/ClassicalSerreModularity--R33.5.json",
     "data/blueprints/ClassicalSerreModularity--R33.5.md"
+   ]
+  },
+  "research/blueprint/packets/CohomologyComparisons.json": {
+   "promotedAt": "2026-10-08T21:34:12Z",
+   "review": "c68c6a3d0c2e2c87",
+   "reviewDate": "2026-10-08",
+   "reviewer": "independent-review-REV-CohomologyComparisons~2",
+   "sha256": "982f583409307932ac19aada2a968a7d5c81d27cb0f9233b668920e9b22733fe",
+   "to": [
+    "data/blueprints/CohomologyComparisons.json",
+    "data/blueprints/CohomologyComparisons.md"
    ]
   },
   "research/blueprint/packets/ColemanIntegration.json": {

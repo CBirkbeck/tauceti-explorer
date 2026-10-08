@@ -1,8 +1,8 @@
 {
   "roadmaps": 242,
-  "stages": 5190,
+  "stages": 5267,
   "originalStages": 2191,
-  "sourceRefinements": 2999,
+  "sourceRefinements": 3076,
   "reviewedDecompositions": [
     {
       "roadmap": "AInfCohomology",
@@ -38,13 +38,6 @@
       "nodes": 18,
       "review": "accepted",
       "deferredLinks": 4
-    },
-    {
-      "roadmap": "CohomologyComparisons",
-      "status": "partial",
-      "nodes": 20,
-      "review": "accepted",
-      "deferredLinks": 0
     },
     {
       "roadmap": "CompletedCohomologyAndLocalGlobalCompatibility",
@@ -222,14 +215,14 @@
   "editedRoadmapSummaries": 181,
   "curatedStagePresentations": 339,
   "administrativeStages": 101,
-  "mathematicalStars": 5089,
+  "mathematicalStars": 5166,
   "plainTextPlanetLabels": 398,
   "hiddenPlanets": 600,
   "mappedStageStatuses": 350,
   "libraryAuditStatuses": 19,
   "bibliographicSources": 46,
-  "roadmapEdges": 2248,
-  "stageEdges": 13594,
+  "roadmapEdges": 2272,
+  "stageEdges": 13760,
   "reviewedLinkPackets": 25,
   "promotedBlueprints": [
     {
@@ -341,6 +334,12 @@
       "reviewer": "independent-review-REV-ArithmeticLocallySymmetricSpaces~2"
     },
     {
+      "file": "ArithmeticQuantumTopology",
+      "roadmap": "ArithmeticQuantumTopology",
+      "nodes": 106,
+      "reviewer": "independent-review-REV-ArithmeticQuantumTopology~2"
+    },
+    {
       "file": "ArithmeticStatistics",
       "roadmap": "ArithmeticStatistics",
       "nodes": 415,
@@ -375,6 +374,12 @@
       "roadmap": "AutomorphicGaloisRepresentationsPartII",
       "nodes": 43,
       "reviewer": "independent-review-REV-AutomorphicGaloisRepresentationsPartII--AG2.6~2"
+    },
+    {
+      "file": "AutomorphicLFunctionsAndLocalFactors",
+      "roadmap": "AutomorphicLFunctionsAndLocalFactors",
+      "nodes": 124,
+      "reviewer": "independent-review-REV-AutomorphicLFunctionsAndLocalFactors~2"
     },
     {
       "file": "BorelRegulators",
@@ -417,6 +422,12 @@
       "roadmap": "ClassicalSerreModularity",
       "nodes": 8,
       "reviewer": "independent-review-REV-FIX-RT-BP-ClassicalSerreModularity--R33.5"
+    },
+    {
+      "file": "CohomologyComparisons",
+      "roadmap": "CohomologyComparisons",
+      "nodes": 83,
+      "reviewer": "independent-review-REV-CohomologyComparisons~2"
     },
     {
       "file": "ColemanIntegration",
@@ -1290,8 +1301,8 @@
     }
   ],
   "sourceDocuments": 296,
-  "htmlBytes": 36659492,
-  "htmlSha256": "64c750515e84f0511a6ee4a2dc79277ca281dcc7410499048582fee6f3e2168f",
+  "htmlBytes": 36612107,
+  "htmlSha256": "d3f67e7b298c51057559f6bd1edb60550920a8647ea4e79d929146ab1fc76f80",
   "networkDependencies": 0,
   "localProgressOverridesIncluded": false,
   "assets": {
@@ -1323,7 +1334,7 @@
     "data/roadmap-summaries.json": "c8bdd0a9105f5d3c4a858c8b635990729f8e94497dee784a71fae659b8c05b9f",
     "data/roadmap-classification.json": "2641dbc97eb2566c715162d011b46890d1635629181ef8126ac7aed9e24a3b13",
     "data/classification-estimates.json": "625d35fe6121bf099dc5de9e6a9111793596f9b664e3fbd439841434bb4a57d6",
-    "data/roadmap-distances.json": "85b83a484faa485fbdf296f7d7fe44c38c76232c93aa2c1889d41ae0d9593c1c",
+    "data/roadmap-distances.json": "5dc951a40db1cb7049922a26a7ec026dd62901523d3a433643eb07a1ce61c790",
     "data/galaxy-layout.json": "7489487a2143484a355b36026c2f7d3dd9384ac5c58ac90d8b061b8dfcab6088",
     "data/bibliography.json": "bef230a41fad22d6b790c7564061c4d05c2ae5b78cab53d005eb404afab2b122",
     "NOTICE": "a285b95d5adbf5c2bcc82db36e2a77b797f84a2c5cbb30292efd0bae17cc4f34",
@@ -1417,6 +1428,8 @@
     "data/blueprints/ArithmeticKTheory--N.7.md": "35ccec306ac1e5a26abaebbf240c9643df611fb6bd35d2bab67411f06206ceb0",
     "data/blueprints/ArithmeticLocallySymmetricSpaces.json": "b5ec41541aaed3bdff250982f023a62f6add166d744c030e78b20548186da0c5",
     "data/blueprints/ArithmeticLocallySymmetricSpaces.md": "a7e5a444b889c258c55a32cc13182d1bc61b9b40882d96286f02ab9c91bf3c02",
+    "data/blueprints/ArithmeticQuantumTopology.json": "448a47764f4ebafcf5b290bf048f5827397f093eb2ea8c566eac0070986ac4a8",
+    "data/blueprints/ArithmeticQuantumTopology.md": "d388b2865ee239a4f174ed7bfa7231ccdf510e052c289f41861d8e14eeaf17d1",
     "data/blueprints/ArithmeticStatistics.json": "1348b3041911cda253924ebae74139c95ad12fdbcf410e4f87201ad772e707bf",
     "data/blueprints/ArithmeticStatistics.md": "e2be6e0549ffb4b934b0616427c897a098b8e7db0164dc134619dfa22de65ed4",
     "data/blueprints/AutomorphicBundles--B0.json": "b0161ceb1b7790b2936e5c06ef22211b891afbba2a9ace14b32806e50f894902",
@@ -1429,6 +1442,8 @@
     "data/blueprints/AutomorphicGaloisRepresentationsPartII--AG2.0.md": "10408f2d93aac0f117aa20cb8ba9496385955e011279c71c17b71a1831d5af3e",
     "data/blueprints/AutomorphicGaloisRepresentationsPartII--AG2.6.json": "285ace845df972f862257756af77137d3fe2d6bdc8358eb46a67c561e668c592",
     "data/blueprints/AutomorphicGaloisRepresentationsPartII--AG2.6.md": "90bf042687f2e683c79931526fe09f0062466d8eee1ac5dd5564e002f460b086",
+    "data/blueprints/AutomorphicLFunctionsAndLocalFactors.json": "d29507cdd8610d029faa44438f04f8f2868cacdb8c633969a61dc5c18cd7dfa3",
+    "data/blueprints/AutomorphicLFunctionsAndLocalFactors.md": "4ed406b134a1c3a759d05d53540a5e0768a740ae68bb7e32c4f57ef48cc79f99",
     "data/blueprints/BorelRegulators.json": "0db5afd8caf537c2bb641834f9e6f34bd1bd5972101f6dfccbf6e0712ed1929b",
     "data/blueprints/BorelRegulators.md": "af26308ddd8367c99df9c1636903574f4b68042c041d700b18abf03236c78259",
     "data/blueprints/ClassicalAdicEtaleCohomology--H1-valuation-nearby-cycles.json": "1d997f9d4e41b1cfb689e02c9f442b315110361d8659ca205401703f020096e2",
@@ -1443,6 +1458,8 @@
     "data/blueprints/ClassicalSerreModularity--R27.3.md": "864dc2351c1de7f6765c8d8cc2b8d8d91c2fa7b55bf8131b92e059a1224239b4",
     "data/blueprints/ClassicalSerreModularity--R33.5.json": "263c823041a3dff54a66d11c203e6d871d0f68177f5430300d9f492ecb43157d",
     "data/blueprints/ClassicalSerreModularity--R33.5.md": "99edb64836667376d2ab5f016e2103f7025733514c844da969a0f8f37f816756",
+    "data/blueprints/CohomologyComparisons.json": "2a7b1eca938b1fc4d22ec2df9edd6e3d6827084d278b0a3b691526f97757c2cc",
+    "data/blueprints/CohomologyComparisons.md": "6be566187658e32f2ede5a65e87c9c2d9337f6840281472e37a268e0322e69cc",
     "data/blueprints/ColemanIntegration.json": "1f22db642f4e76e396846113499c050bce64bdfaaf7b7db3e297adc433a24bf3",
     "data/blueprints/ColemanIntegration.md": "9c291cb68cac3f1b3894e7d5c3837a6997e8816c01a8071ef7762c24c9fd6996",
     "data/blueprints/ColemanPowerSeries.json": "7fad9a74527497ea632e71444c17a361954f523806944bf27b2ebc5de9eeb220",
