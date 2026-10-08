@@ -23,203 +23,203 @@
         "kind": "theorem",
         "module": "Mathlib/FieldTheory/Minpoly/Basic.lean",
         "provides": "minpoly A (f x) = minpoly A x for an injective A-algebra map f: the Weil-number predicate, defined through the minimal polynomial over ℚ, is invariant under field homomorphisms.",
-        "checked": "Declaration, surrounding hypotheses and provides contract independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by REV-DeligneWeightsAndPurity--DWP.0, 2026-10-06."
+        "checked": "Declaration, enclosing hypotheses and provides contract independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by REV-DeligneWeightsAndPurity--DWP.0~2, 2026-10-08."
       },
       {
         "ref": "mathlib:IsAlgClosed.lift",
         "kind": "definition",
         "module": "Mathlib/FieldTheory/IsAlgClosed/Basic.lean",
         "provides": "For algebraic torsion-free domain R-algebras S and an algebraically closed field M carrying a torsion-free R-algebra structure, constructs an R-algebra homomorphism S→M. It extends the chosen base algebra map, not an arbitrary embedding without first installing that algebra structure.",
-        "checked": "Declaration, surrounding hypotheses and provides contract independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by REV-DeligneWeightsAndPurity--DWP.0, 2026-10-06."
+        "checked": "Declaration, enclosing hypotheses and provides contract independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by REV-DeligneWeightsAndPurity--DWP.0~2, 2026-10-08."
       },
       {
         "ref": "mathlib:NumberField.Embeddings.pow_eq_one_of_norm_eq_one",
         "kind": "theorem",
         "module": "Mathlib/NumberTheory/NumberField/InfinitePlace/Embeddings.lean",
         "provides": "Kronecker: an algebraic integer of a number field all of whose complex embeddings have norm 1 is a root of unity (integral Weil numbers of weight 0).",
-        "checked": "Declaration, surrounding hypotheses and provides contract independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by REV-DeligneWeightsAndPurity--DWP.0, 2026-10-06."
+        "checked": "Declaration, enclosing hypotheses and provides contract independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by REV-DeligneWeightsAndPurity--DWP.0~2, 2026-10-08."
       },
       {
         "ref": "mathlib:IsAlgClosed.cardinal_eq_cardinal_transcendence_basis_of_aleph0_lt",
         "kind": "theorem",
         "module": "Mathlib/FieldTheory/IsAlgClosed/Classification.lean",
         "provides": "An uncountable algebraically closed field has a transcendence basis (over a countable ring) of its own cardinality: trdeg(ℂ/σ(k)) = 𝔠.",
-        "checked": "Declaration, surrounding hypotheses and provides contract independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by REV-DeligneWeightsAndPurity--DWP.0, 2026-10-06."
+        "checked": "Declaration, enclosing hypotheses and provides contract independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by REV-DeligneWeightsAndPurity--DWP.0~2, 2026-10-08."
       },
       {
         "ref": "mathlib:Cardinal.mk_complex",
         "kind": "theorem",
         "module": "Mathlib/Analysis/Complex/Cardinality.lean",
         "provides": "#ℂ = 𝔠.",
-        "checked": "Declaration, surrounding hypotheses and provides contract independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by REV-DeligneWeightsAndPurity--DWP.0, 2026-10-06."
+        "checked": "Declaration, enclosing hypotheses and provides contract independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by REV-DeligneWeightsAndPurity--DWP.0~2, 2026-10-08."
       },
       {
         "ref": "mathlib:IsAlgClosed.equivOfTranscendenceBasis",
         "kind": "definition",
         "module": "Mathlib/FieldTheory/IsAlgClosed/Classification.lean",
         "provides": "A ring equivalence between algebraically closed R-algebras from equipotent transcendence bases. The declaration returns a ring equivalence and does not state compatibility with a prescribed embedding of R; that compatibility is a separate obligation in the DWP.0 extension lemma.",
-        "checked": "Declaration, surrounding hypotheses and provides contract independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by REV-DeligneWeightsAndPurity--DWP.0, 2026-10-06."
+        "checked": "Declaration, enclosing hypotheses and provides contract independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by REV-DeligneWeightsAndPurity--DWP.0~2, 2026-10-08."
       },
       {
         "ref": "mathlib:IsAlgClosed.ringEquiv_of_equiv_of_charZero",
         "kind": "theorem",
         "module": "Mathlib/FieldTheory/IsAlgClosed/Classification.lean",
         "provides": "Two uncountable algebraically closed fields of characteristic 0 of the same cardinality are isomorphic: ℚ̄_ℓ ≅ ℂ.",
-        "checked": "Declaration, surrounding hypotheses and provides contract independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by REV-DeligneWeightsAndPurity--DWP.0, 2026-10-06."
+        "checked": "Declaration, enclosing hypotheses and provides contract independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by REV-DeligneWeightsAndPurity--DWP.0~2, 2026-10-08."
       },
       {
         "ref": "mathlib:Algebra.IsAlgebraic.cardinalMk_le_max",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/Algebraic/Cardinality.lean",
         "provides": "#L ≤ max #R ℵ₀ for L algebraic over R: #ℚ̄_ℓ = #ℚ_ℓ.",
-        "checked": "Declaration, surrounding hypotheses and provides contract independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by REV-DeligneWeightsAndPurity--DWP.0, 2026-10-06."
+        "checked": "Declaration, enclosing hypotheses and provides contract independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by REV-DeligneWeightsAndPurity--DWP.0~2, 2026-10-08."
       },
       {
         "ref": "mathlib:LinearMap.charpoly_baseChange",
         "kind": "theorem",
         "module": "Mathlib/LinearAlgebra/Charpoly/BaseChange.lean",
         "provides": "For a finite free module over a commutative ring R and any commutative R-algebra A, the base-changed characteristic polynomial is the coefficient image under R→A.",
-        "checked": "Declaration, surrounding hypotheses and provides contract independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by REV-DeligneWeightsAndPurity--DWP.0, 2026-10-06."
+        "checked": "Declaration, enclosing hypotheses and provides contract independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by REV-DeligneWeightsAndPurity--DWP.0~2, 2026-10-08."
       },
       {
         "ref": "mathlib:Module.End.hasEigenvalue_iff_isRoot_charpoly",
         "kind": "theorem",
         "module": "Mathlib/LinearAlgebra/Eigenspace/Charpoly.lean",
         "provides": "Over a domain, f has eigenvalue μ iff μ is a root of f.charpoly.",
-        "checked": "Declaration, surrounding hypotheses and provides contract independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by REV-DeligneWeightsAndPurity--DWP.0, 2026-10-06."
+        "checked": "Declaration, enclosing hypotheses and provides contract independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by REV-DeligneWeightsAndPurity--DWP.0~2, 2026-10-08."
       },
       {
         "ref": "mathlib:LinearMap.finrank_maxGenEigenspace_eq",
         "kind": "theorem",
         "module": "Mathlib/LinearAlgebra/Eigenspace/Zero.lean",
         "provides": "finrank (maxGenEigenspace φ μ) = rootMultiplicity μ φ.charpoly: multiplicities are dimensions of generalized eigenspaces.",
-        "checked": "Declaration, surrounding hypotheses and provides contract independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by REV-DeligneWeightsAndPurity--DWP.0, 2026-10-06."
+        "checked": "Declaration, enclosing hypotheses and provides contract independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by REV-DeligneWeightsAndPurity--DWP.0~2, 2026-10-08."
       },
       {
         "ref": "mathlib:Module.End.iSup_maxGenEigenspace_eq_top",
         "kind": "theorem",
         "module": "Mathlib/LinearAlgebra/Eigenspace/Triangularizable.lean",
         "provides": "Over an algebraically closed field, the maximal generalized eigenspaces of an endomorphism of a finite-dimensional space span it.",
-        "checked": "Declaration, surrounding hypotheses and provides contract independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by REV-DeligneWeightsAndPurity--DWP.0, 2026-10-06."
+        "checked": "Declaration, enclosing hypotheses and provides contract independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by REV-DeligneWeightsAndPurity--DWP.0~2, 2026-10-08."
       },
       {
         "ref": "mathlib:Module.End.independent_maxGenEigenspace",
         "kind": "theorem",
         "module": "Mathlib/LinearAlgebra/Eigenspace/Basic.lean",
         "provides": "The maximal generalized eigenspaces for distinct eigenvalues are independent.",
-        "checked": "Declaration, surrounding hypotheses and provides contract independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by REV-DeligneWeightsAndPurity--DWP.0, 2026-10-06."
+        "checked": "Declaration, enclosing hypotheses and provides contract independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by REV-DeligneWeightsAndPurity--DWP.0~2, 2026-10-08."
       },
       {
         "ref": "mathlib:Matrix.charpoly_fromBlocks_zero₂₁",
         "kind": "theorem",
         "module": "Mathlib/LinearAlgebra/Matrix/Charpoly/Basic.lean",
         "provides": "The characteristic polynomial of a block triangular matrix with a zero lower-left block is the product of those of the diagonal blocks.",
-        "checked": "Declaration, surrounding hypotheses and provides contract independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by REV-DeligneWeightsAndPurity--DWP.0, 2026-10-06."
+        "checked": "Declaration, enclosing hypotheses and provides contract independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by REV-DeligneWeightsAndPurity--DWP.0~2, 2026-10-08."
       },
       {
         "ref": "mathlib:LinearMap.charpoly_prodMap",
         "kind": "theorem",
         "module": "Mathlib/LinearAlgebra/Charpoly/ToMatrix.lean",
         "provides": "(f₁.prodMap f₂).charpoly = f₁.charpoly * f₂.charpoly.",
-        "checked": "Declaration, surrounding hypotheses and provides contract independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by REV-DeligneWeightsAndPurity--DWP.0, 2026-10-06."
+        "checked": "Declaration, enclosing hypotheses and provides contract independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by REV-DeligneWeightsAndPurity--DWP.0~2, 2026-10-08."
       },
       {
         "ref": "mathlib:Matrix.reverse_charpoly",
         "kind": "theorem",
         "module": "Mathlib/LinearAlgebra/Matrix/Charpoly/Coeff.lean",
         "provides": "M.charpoly.reverse = M.charpolyRev = det(1 − X·M): the characteristic power series det(1 − tF).",
-        "checked": "Declaration, surrounding hypotheses and provides contract independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by REV-DeligneWeightsAndPurity--DWP.0, 2026-10-06."
+        "checked": "Declaration, enclosing hypotheses and provides contract independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by REV-DeligneWeightsAndPurity--DWP.0~2, 2026-10-08."
       },
       {
         "ref": "mathlib:Matrix.trace_eq_sum_roots_charpoly",
         "kind": "theorem",
         "module": "Mathlib/LinearAlgebra/Matrix/Charpoly/Eigs.lean",
         "provides": "Over an algebraically closed field, the trace is the sum of the roots of the characteristic polynomial.",
-        "checked": "Declaration, surrounding hypotheses and provides contract independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by REV-DeligneWeightsAndPurity--DWP.0, 2026-10-06."
+        "checked": "Declaration, enclosing hypotheses and provides contract independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by REV-DeligneWeightsAndPurity--DWP.0~2, 2026-10-08."
       },
       {
         "ref": "mathlib:Matrix.charpoly_inv",
         "kind": "theorem",
         "module": "Mathlib/LinearAlgebra/Matrix/Charpoly/Coeff.lean",
         "provides": "A⁻¹.charpoly = (−1)^n · C(det A)⁻¹ · A.charpolyRev for invertible A: the characteristic polynomial of the inverse through the reversed polynomial.",
-        "checked": "Declaration, surrounding hypotheses and provides contract independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by REV-DeligneWeightsAndPurity--DWP.0, 2026-10-06."
+        "checked": "Declaration, enclosing hypotheses and provides contract independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by REV-DeligneWeightsAndPurity--DWP.0~2, 2026-10-08."
       },
       {
         "ref": "mathlib:Matrix.det_kronecker",
         "kind": "theorem",
         "module": "Mathlib/LinearAlgebra/Matrix/Kronecker.lean",
         "provides": "det (A ⊗ₖ B) = det A ^ card n * det B ^ card m.",
-        "checked": "Declaration, surrounding hypotheses and provides contract independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by REV-DeligneWeightsAndPurity--DWP.0, 2026-10-06."
+        "checked": "Declaration, enclosing hypotheses and provides contract independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by REV-DeligneWeightsAndPurity--DWP.0~2, 2026-10-08."
       },
       {
         "ref": "mathlib:LinearMap.trace_tensorProduct'",
         "kind": "theorem",
         "module": "Mathlib/LinearAlgebra/Trace.lean",
         "provides": "For the surrounding finite-free commutative-ring module hypotheses, the trace of the tensor-product map is the product of traces; the field case suffices here.",
-        "checked": "Declaration, surrounding hypotheses and provides contract independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by REV-DeligneWeightsAndPurity--DWP.0, 2026-10-06."
+        "checked": "Declaration, enclosing hypotheses and provides contract independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by REV-DeligneWeightsAndPurity--DWP.0~2, 2026-10-08."
       },
       {
         "ref": "mathlib:LinearMap.det_dualMap",
         "kind": "theorem",
         "module": "Mathlib/LinearAlgebra/Determinant.lean",
         "provides": "For a finite free module the determinant of the ordinary transpose dual map equals the original determinant. The inverse dual needed for a Frobenius contragredient requires an inverse first.",
-        "checked": "Declaration, surrounding hypotheses and provides contract independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by REV-DeligneWeightsAndPurity--DWP.0, 2026-10-06."
+        "checked": "Declaration, enclosing hypotheses and provides contract independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by REV-DeligneWeightsAndPurity--DWP.0~2, 2026-10-08."
       },
       {
         "ref": "mathlib:Polynomial.isCoprime_iff_aeval_ne_zero_of_isAlgClosed",
         "kind": "theorem",
         "module": "Mathlib/FieldTheory/IsAlgClosed/Basic.lean",
         "provides": "p, q ∈ k[X] are coprime iff they have no common root in an algebraically closed extension K.",
-        "checked": "Declaration, surrounding hypotheses and provides contract independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by REV-DeligneWeightsAndPurity--DWP.0, 2026-10-06."
+        "checked": "Declaration, enclosing hypotheses and provides contract independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by REV-DeligneWeightsAndPurity--DWP.0~2, 2026-10-08."
       },
       {
         "ref": "mathlib:LinearMap.aeval_self_charpoly",
         "kind": "theorem",
         "module": "Mathlib/LinearAlgebra/Charpoly/Basic.lean",
         "provides": "Cayley–Hamilton: aeval f f.charpoly = 0.",
-        "checked": "Declaration, surrounding hypotheses and provides contract independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by REV-DeligneWeightsAndPurity--DWP.0, 2026-10-06."
+        "checked": "Declaration, enclosing hypotheses and provides contract independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by REV-DeligneWeightsAndPurity--DWP.0~2, 2026-10-08."
       },
       {
         "ref": "mathlib:Polynomial.sup_ker_aeval_eq_ker_aeval_mul_of_coprime",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/Polynomial/Basic.lean",
         "provides": "For coprime p, q: ker p(f) ⊔ ker q(f) = ker (pq)(f).",
-        "checked": "Declaration, surrounding hypotheses and provides contract independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by REV-DeligneWeightsAndPurity--DWP.0, 2026-10-06."
+        "checked": "Declaration, enclosing hypotheses and provides contract independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by REV-DeligneWeightsAndPurity--DWP.0~2, 2026-10-08."
       },
       {
         "ref": "mathlib:AddValuation",
         "kind": "definition",
         "module": "Mathlib/RingTheory/Valuation/Basic.lean",
         "provides": "For a ring R and a linearly ordered additive commutative monoid with top Γ, AddValuation R Γ is Valuation R with multiplicative order-dual value group; it has v(0)=∞, v(1)=0, v(xy)=v(x)+v(y) and v(x+y)≥min(v(x),v(y)). It supplies the existing valuation object, not a new Newton-polygon definition.",
-        "checked": "Declaration, surrounding hypotheses and provides contract independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by REV-DeligneWeightsAndPurity--DWP.0, 2026-10-06."
+        "checked": "Declaration, enclosing hypotheses and provides contract independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by REV-DeligneWeightsAndPurity--DWP.0~2, 2026-10-08."
       },
       {
         "ref": "mathlib:Multiset.sort",
         "kind": "definition",
         "module": "Mathlib/Data/Multiset/Sort.lean",
         "provides": "For a decidable transitive antisymmetric total relation, sort turns a multiset into its sorted list. The accompanying pairwise_sort and sort_eq statements identify its order and underlying multiset; cumulative normalized slopes use this existing operation.",
-        "checked": "Declaration, surrounding hypotheses and provides contract independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by REV-DeligneWeightsAndPurity--DWP.0, 2026-10-06."
+        "checked": "Declaration, enclosing hypotheses and provides contract independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by REV-DeligneWeightsAndPurity--DWP.0~2, 2026-10-08."
       },
       {
         "ref": "mathlib:MonoidHom.eqLocus",
         "kind": "definition",
         "module": "Mathlib/Algebra/Group/Subgroup/Ker.lean",
         "provides": "The equalizer subgroup of two monoid homomorphisms from a group to a monoid. The Weil-group pullback core is the equality locus of the two projected arithmetic-degree homomorphisms.",
-        "checked": "Declaration, surrounding hypotheses and provides contract independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by REV-DeligneWeightsAndPurity--DWP.0, 2026-10-06."
+        "checked": "Declaration, enclosing hypotheses and provides contract independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by REV-DeligneWeightsAndPurity--DWP.0~2, 2026-10-08."
       },
       {
         "ref": "mathlib:exteriorPower.map",
         "kind": "definition",
         "module": "Mathlib/LinearAlgebra/ExteriorPower/Basic.lean",
         "provides": "For a linear map f:M→ₗ[R]N over a commutative ring, the induced map on nth exterior powers, with map_apply_ιMulti and map_comp. It supplies the construction, not its characteristic polynomial.",
-        "checked": "Declaration, surrounding hypotheses and provides contract independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by REV-DeligneWeightsAndPurity--DWP.0, 2026-10-06."
+        "checked": "Declaration, enclosing hypotheses and provides contract independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by REV-DeligneWeightsAndPurity--DWP.0~2, 2026-10-08."
       },
       {
         "ref": "mathlib:Module.Basis.exteriorPower",
         "kind": "definition",
         "module": "Mathlib/LinearAlgebra/ExteriorPower/Basis.lean",
         "provides": "From a basis indexed by a linearly ordered type, constructs the exterior basis indexed by n-element finsets. It supplies the wedge basis for the triangular-matrix argument, not the spectral theorem.",
-        "checked": "Declaration, surrounding hypotheses and provides contract independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by REV-DeligneWeightsAndPurity--DWP.0, 2026-10-06."
+        "checked": "Declaration, enclosing hypotheses and provides contract independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by REV-DeligneWeightsAndPurity--DWP.0~2, 2026-10-08."
       }
     ]
   },
@@ -237,7 +237,8 @@
         "cc-fb70e5, 2026-09-29 (part DWP.0, checkpoint 4): (5.12)–(5.13) and §6 (6.1)–(6.13), pp. 294–298, in full",
         "codex-ibFXG8, 2026-10-06: checked §1–§3 conventions and §5.12–§7.3 pp. 294–300; all §6 and §7 cases read.",
         "Codex codex-fH0uPG, independent review 2026-10-06: Cited passages in §§1–3, §§5.12–7.3, printed pp. 275–301, including all pencil rationality, half-unit induction and tensor-power cases.",
-        "Codex codex-aflhpc, revision 2026-10-08: rechecked Scholie (2.10) p. 282, (3.5)–(3.9) pp. 285–287, (5.12)–(5.13), §6 and every §7 induction/tensor-power case, pp. 295–301, against the corrected proof and supplier contracts."
+        "Codex codex-aflhpc, revision 2026-10-08: rechecked Scholie (2.10) p. 282, (3.5)–(3.9) pp. 285–287, (5.12)–(5.13), §6 and every §7 induction/tensor-power case, pp. 295–301, against the corrected proof and supplier contracts.",
+        "Codex codex-cujRop, independent review 2026-10-08: Cited numerical, duality and fundamental-estimate passages §§1–3 pp. 275–287, and pencil rationality/induction §§5.12–7.3 pp. 294–301; all source hypotheses and three pencil cases compared independently."
       ],
       "accessed": "2026-10-08"
     },
@@ -252,7 +253,8 @@
         "cc-fb70e5, 2026-09-29 (part DWP.0, checkpoint 1): (1.1.11)–(1.1.15), pp. 152–153; §1.2 (1.2.1)–(1.2.14), pp. 153–156; the opening of §1.3, pp. 156–157",
         "codex-ibFXG8, 2026-10-06: §1.1–§1.11, §2.1–§2.2, §3.1–§3.5 read in full, with §1.6/§1.7 imported from LPV.1, §1.9 recorded as an unused source boundary and §3.3/§3.4 owned by the companion packet; §6.1.13/§6.2.7 are companion-node imports.",
         "Codex codex-fH0uPG, independent review 2026-10-06: Cited passages of §§1.1–1.5, 1.7–1.8, 1.10–1.11, §§2.1–2.2, §§3.1–3.3 and 3.5, plus 6.1.13 p. 246 and 6.2.7 p. 248; erratum page images checked.",
-        "Codex codex-aflhpc, revision 2026-10-08: rechecked (1.1.6)–(1.2.9) pp. 150–155; §1.3 pp. 156–162; §1.5 pp. 164–165; §1.7–§1.8 pp. 170–179; §1.10–§1.11 pp. 182–186; §2.1–§2.2 pp. 187–196; (3.2.1)–(3.2.15) pp. 200–204; (3.3.7)–(3.3.8) pp. 206–207; §3.5 pp. 211–212; (6.1.13) p. 246 and (6.2.7) p. 248. These are checks of corrected targets and imported interfaces, not a new plan for the companion part."
+        "Codex codex-aflhpc, revision 2026-10-08: rechecked (1.1.6)–(1.2.9) pp. 150–155; §1.3 pp. 156–162; §1.5 pp. 164–165; §1.7–§1.8 pp. 170–179; §1.10–§1.11 pp. 182–186; §2.1–§2.2 pp. 187–196; (3.2.1)–(3.2.15) pp. 200–204; (3.3.7)–(3.3.8) pp. 206–207; §3.5 pp. 211–212; (6.1.13) p. 246 and (6.2.7) p. 248. These are checks of corrected targets and imported interfaces, not a new plan for the companion part.",
+        "Codex codex-cujRop, independent review 2026-10-08: Cited coefficient, monodromy, analytic and curve passages §§1.1–1.5 pp. 150–165, §§1.7–1.8 pp. 170–179, §§1.10–1.11 pp. 182–186, §§2.1–2.2 pp. 187–196, §§3.1–3.2 pp. 197–204, §§3.3/3.5 pp. 206–207, 210–212, plus 6.1.13 p. 246 and 6.2.7 p. 248; source-issue page images independently inspected."
       ],
       "accessed": "2026-10-08"
     },
@@ -266,7 +268,8 @@
       "readSections": [
         "cc-fb70e5, 2026-09-29 (part DWP.0, checkpoint 3): Chapter II §1, pp. 75–78, in full; Chapter III §§9–11, pp. 113–119 (Corollary 9.6, Theorem 11.1, Proposition 11.2 with its proof, Lemma 11.3, Corollary 11.4, Remark 11.5); the author's errata page for v2.00",
         "Codex codex-fH0uPG, independent review 2026-10-06: Chapter II §1 pp. 75–78 and Chapter III trace/Jacobian passages pp. 113–119, including the marked unfinished proof.",
-        "Codex codex-aflhpc, revision 2026-10-08: Chapter II §1 pp. 75–78 and Chapter III §11 pp. 118–119 rechecked, including the differential of 1−π, exterior products, the Hasse specialization and the unfinished proof warning."
+        "Codex codex-aflhpc, revision 2026-10-08: Chapter II §1 pp. 75–78 and Chapter III §11 pp. 118–119 rechecked, including the differential of 1−π, exterior products, the Hasse specialization and the unfinished proof warning.",
+        "Codex codex-cujRop, independent review 2026-10-08: II §1 pp. 75–78 and III §§9–11 pp. 113–119, including Corollary 9.6, the Frobenius degree/count signs and III.11.2 footnote 6; public errata index rechecked."
       ],
       "accessed": "2026-10-08"
     },
@@ -281,7 +284,8 @@
       "readSections": [
         "§1 pp. 2–3 (Weil roots and reciprocal pairing); §2.1 (Weil/étale conventions); §6.1 Proposition 6.1.1 and proof pp. 42–43; §7.1 pp. 64–65 (the numeric inputs of routed items 041–042). Automorphic arguments and Hall-algebra targets are outside this part.",
         "Codex codex-fH0uPG, independent review 2026-10-06: Weight-facing passages §§1–2, 6.1 pp. 42–43 and 7.1 pp. 64–65, in public arXiv v5 only.",
-        "Codex codex-aflhpc, revision 2026-10-08: public v5 Proposition 6.1.1 and (6.1.1)–(6.1.2) pp. 42–43, and §7.1 p. 64 rechecked for tensor–Hom order and reciprocal spectra; no journal-version comparison or new automorphic plan."
+        "Codex codex-aflhpc, revision 2026-10-08: public v5 Proposition 6.1.1 and (6.1.1)–(6.1.2) pp. 42–43, and §7.1 p. 64 rechecked for tensor–Hom order and reciprocal spectra; no journal-version comparison or new automorphic plan.",
+        "Codex codex-cujRop, independent review 2026-10-08: Public v5 Proposition 6.1.1 and its proof pp. 42–43, with tensor–Hom ordering and the imported purity/pole bounds compared."
       ]
     },
     {
@@ -295,7 +299,8 @@
       "readSections": [
         "Published Proposition 4.7 p. 321, Appendix B pp. 357–358 and bibliography p. 359; preprint v2 Appendix B pp. 35–36 and bibliography [D1]. Only routed equidistribution/density inputs are in this scope.",
         "Codex codex-fH0uPG, independent review 2026-10-06: Published Proposition 4.7, Appendix B and bibliography compared with arXiv v2 Proposition 4.8, Appendix B and bibliography; analytic supplier, half twist and density-owner distinctions checked.",
-        "Codex codex-aflhpc, revision 2026-10-08: published Appendix B pp. 357–358 compared with arXiv v2 Appendix B pp. 35–36 and the cited bibliography entries, for the half-weight normalization and the analytic/geometric supplier boundary."
+        "Codex codex-aflhpc, revision 2026-10-08: published Appendix B pp. 357–358 compared with arXiv v2 Appendix B pp. 35–36 and the cited bibliography entries, for the half-weight normalization and the analytic/geometric supplier boundary.",
+        "Codex codex-cujRop, independent review 2026-10-08: Published Appendix B pp. 357–358 and bibliography p. 359 compared with v2 Appendix B pp. 35–36 and bibliography p. 37 for analytic ownership, family monodromy, half twist and the Weil II citation."
       ]
     }
   ],
@@ -386,7 +391,7 @@
       "tests": [
         {
           "name": "TauCeti.Weights.isWeilNumber_roots_T2_sub_T_add_two",
-          "kind": "value",
+          "kind": "computation",
           "statement": "The roots of T² − T + 2 are Weil 2-numbers of weight 1: the discriminant is −7, so the roots (1 ± i√7)/2 are complex conjugate with product 2."
         },
         {
@@ -610,7 +615,7 @@
       "tests": [
         {
           "name": "TauCeti.Weights.iotaWeight_q",
-          "kind": "value",
+          "kind": "computation",
           "statement": "For q ∈ ℚ with q > 1 and every ι: w_{ι,q}(q) = 2 and w_{ι,q}(q⁻¹) = −2. So ℚ_ℓ(1), on which geometric Frobenius acts by q⁻¹, has weight −2."
         },
         {
@@ -834,12 +839,12 @@
       "tests": [
         {
           "name": "TauCeti.Weights.isPure_jordanBlock",
-          "kind": "value",
+          "kind": "computation",
           "statement": "F = [[q, 1], [0, q]] on E² is pure of weight 2 relative to q and is not semisimple: purity does not see Jordan blocks."
         },
         {
           "name": "TauCeti.Weights.eigenvalues_rotation",
-          "kind": "value",
+          "kind": "computation",
           "statement": "F = [[0, −q], [1, 0]] on ℚ² has characteristic polynomial T² + q, no eigenvalue in ℚ, eigenvalues ±i√q in ℚ̄, and is pure of weight 1."
         },
         {
@@ -1238,7 +1243,7 @@
       "tests": [
         {
           "name": "TauCeti.Weights.tateTwist_weight",
-          "kind": "value",
+          "kind": "computation",
           "statement": "ℚ_ℓ(1) = E^{(q⁻¹)} is pure of weight −2, and ℚ_ℓ(r) of weight −2r."
         },
         {
@@ -1450,7 +1455,7 @@
         "ℚ_ℓ(1) on 𝔾_m has weight −2, and Z(𝔾_m, ℚ_ℓ(1), t) = Z(𝔾_m, ℚ_ℓ, t/q) = (1 − t/q)/(1 − t).",
         "ℚ_ℓ(r) on U₀ has weight −2r: F_x acts by q_x^{−r}.",
         "The constant sheaf ℚ_ℓ has weight 0, and the zero sheaf has every weight.",
-        "For q = p odd, the geometrically constant rank-one sheaf on which F_x acts by 2^{deg x} has no weight, since 2 = p^{β/2} has no integer solution β. It is ι-pure of the real weight 2 log_p 2.",
+        "For q = p odd and ℓ≠2,p, the geometrically constant rank-one sheaf on which F_x acts by 2^{deg x} has no weight, since 2 = p^{β/2} has no integer solution β. It is ι-pure of the real weight 2 log_p 2.",
         "Z(𝔸¹, ℚ_ℓ, t) = 1/(1 − qt)."
       ],
       "prerequisites": [
@@ -1910,7 +1915,7 @@
       "tests": [
         {
           "name": "TauCeti.Weights.frobeniusEndo_projectiveLine_fixed",
-          "kind": "value",
+          "kind": "computation",
           "statement": "The fixed points of π on ℙ¹(𝔽̄_q) are the q + 1 points of ℙ¹(𝔽_q)."
         },
         {
@@ -1925,7 +1930,7 @@
         },
         {
           "name": "TauCeti.Weights.deg_frobenius_elliptic",
-          "kind": "value",
+          "kind": "computation",
           "statement": "For an elliptic curve over 𝔽_q, deg π_E = q."
         }
       ],
@@ -2013,7 +2018,7 @@
         "For every σ : ℚ[α] → ℂ, σ(α†) = conj(σ(α)), so r = σ(α†α) = |σ(α)|². So the roots of the minimal polynomial of α have |·|² = r, and by AbelianSchemesAndArithmeticModuli A6/trace-and-degree-on-a-subfield (10.24) the roots of P_α are among them."
       ],
       "acceptance": [
-        "α = [n] on any A: [n]†[n] = n², and P_{[n]} = (X − n)^{2g} has roots of absolute value n."
+        "For n ∈ ℤ with n≠0, α = [n] on any A: [n]†[n] = n², and P_{[n]} = (X − n)^{2g} has roots of absolute value |n|."
       ],
       "prerequisites": [
         "AbelianSchemesAndArithmeticModuli:A6/rosati-positivity",
@@ -2145,7 +2150,7 @@
       "statement": "Let C be a smooth projective geometrically connected curve of genus g over 𝔽_q, J its Jacobian, and P_{π_J}(X) = ∏(X − a_i). Then #C(𝔽_{q^m}) = 1 − Σ_i a_i^m + q^m for all m ≥ 1, the a_i are Weil q-numbers of weight 1, |#C(𝔽_{q^m}) − q^m − 1| ≤ 2g·q^{m/2}, and Z(C, t) = P_{π_J}^{rev}(t)/((1 − t)(1 − qt)) with P^{rev}(t) = ∏(1 − a_i t).",
       "hypotheses": [
         "Geometric connectedness is needed. If C has components defined only over 𝔽_{q^d}, permuted by the Frobenius, the counts change: two conjugate copies of ℙ¹ over 𝔽_{q²} give #C(𝔽_{q^m}) = 0 for m odd and 2(q^m + 1) for m even. RS-17 keeps these component permutations.",
-        "The fixed-point formula (Γ_α · Δ) = 1 − Tr(α′) + deg α is imported (RS-17: the curve and Jacobian trace comparison of TraceFormula Layer 8, requested from SchemeAndStackFoundations SF.2). The source's own proof of it has a step that the author marks \"Needs fixing\" (recorded in sourceIssues)."
+        "The fixed-point formula (Γ_α · Δ) = 1 − Tr(α′) + deg α is imported (RS-17: the curve and Jacobian trace comparison of TraceFormula Layer 8, requested from SchemeAndStackFoundations SF.2). The source's own proof has a degree calculation that the author explicitly marks unfinished (recorded in sourceIssues)."
       ],
       "proofSteps": [
         "Import the Abel–Jacobi morphism after choosing a geometric base point P, and its étale H¹ comparison. Frobenius need not fix P: f_P∘π_C and π_J∘f_P differ by a translation, whose action on H¹ is trivial. Thus the comparison on H¹ and on the Jacobian Tate module is Frobenius-equivariant. A rational base point is obtained after finite extension wherever the upstream pointed construction requires it; the base-point-free Jacobian descent is an explicit Part II contract.",
@@ -2520,7 +2525,8 @@
         "ℱ of rank 2 and δ = 1: the set of g ∈ SL₂(ℤ_ℓ) with eigenvalue 1 (unipotent-type) is a proper analytic subset of measure 0."
       ],
       "prerequisites": [
-        "DeligneWeightsAndPurity:DWP.3/open-image-in-the-symplectic-similitude-group"
+        "DeligneWeightsAndPurity:DWP.3/open-image-in-the-symplectic-similitude-group",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups#layer-6-characters-of-compact-groups"
       ],
       "sources": [
         {
@@ -2669,7 +2675,8 @@
         "DeligneWeightsAndPurity:DWP.3/zeta-of-the-fibres-and-the-pencil-factorization",
         "DeligneWeightsAndPurity:DWP.3/denominators-away-from-the-exceptional-set",
         "DeligneWeightsAndPurity:DWP.3/divisibility-criterion",
-        "DeligneWeightsAndPurity:DWP.3/powers-of-a-family-determine-the-family"
+        "DeligneWeightsAndPurity:DWP.3/powers-of-a-family-determine-the-family",
+        "DeligneWeightsAndPurity:DWP.3/exceptional-frobenius-set-has-density-zero"
       ],
       "sources": [
         {
@@ -3155,7 +3162,7 @@
       ],
       "title": "Totally real and ι-real sheaves",
       "kind": "definition",
-      "statement": "A sheaf is totally real when every closed-point local characteristic polynomial has algebraic totally real coefficients; it is ι-real when those coefficients map into ℝ under the fixed ι. These are coefficient conditions, not assertions that every eigenvalue is real. A pure sheaf of integer weight n is a direct summand of the totally real sheaf ℱ⊕ℱ∨(−n); for real ι-weight β use a rank-one Weil twist of weight 2β in place of the integer Tate normalization.",
+      "statement": "A lisse sheaf is totally real when every closed-point local characteristic polynomial has algebraic totally real coefficients; it is ι-real when those coefficients map into ℝ under the fixed ι. These are coefficient conditions, not assertions that every eigenvalue is real. A punctually pure lisse sheaf of integer weight n is a direct summand of the totally real sheaf ℱ⊕ℱ∨(−n); for real ι-weight β use a rank-one Weil twist of weight 2β in place of the integer Tate normalization.",
       "hypotheses": [],
       "proofSteps": [
         "Complex conjugation sends a weight-n eigenvalue α to N(x)ⁿ/α. Add the reciprocal-normalized dual spectrum to obtain conjugation-invariant local polynomials for every embedding.",
@@ -3196,7 +3203,7 @@
         {
           "name": "TauCeti.Weights.pure_real_envelope",
           "role": "constructor",
-          "statement": "The reciprocal-normalized dual direct sum of a pure sheaf is real and contains the original as a direct summand."
+          "statement": "The reciprocal-normalized dual direct sum of a punctually pure lisse sheaf is real and contains the original as a direct summand."
         }
       ],
       "tests": [
@@ -3375,7 +3382,7 @@
         "Schur gives a central scalar on each irreducible; the determinant determines its absolute value. For étale descent use the compact normalizer modulo the semisimple geometric group (1.3.15), and normalize the degree scalar to an ℓ-adic unit."
       ],
       "acceptance": [
-        "Arithmetic Frobenius semisimplicity is a hypothesis here, and is not inferred from purity.",
+        "The semisimple clause assumes semisimplicity of the Weil representation. It does not assume or prove that every individual arithmetic Frobenius operator is semisimple, and purity supplies neither assertion.",
         "G is an extension by ℤ, not a finite-type algebraic group with infinitely many components."
       ],
       "prerequisites": [
@@ -3459,7 +3466,8 @@
         "LefschetzPencilsAndVanishingCycles:LPV.5",
         "DeligneWeightsAndPurity:DWP.0/eigenvalues-of-exterior-powers",
         "DeligneWeightsAndPurity:DWP.5/determinantal-weight-functoriality",
-        "EtaleDualityAndPerverseSheaves:EDC.2:pairings/extreme-degree-cohomology"
+        "EtaleDualityAndPerverseSheaves:EDC.2:pairings/extreme-degree-cohomology",
+        "SchemeAndStackFoundations:SF.2"
       ],
       "sources": [
         {
@@ -3728,7 +3736,7 @@
         "ArithmeticGaloisRepresentations:R01.6",
         "InverseGaloisAndArithmeticFundamentalGroups:IG.1",
         "SchemeAndStackFoundations:SF.2",
-        "LefschetzPencilsAndVanishingCycles:LPV.5/bertini-surjectivity-on-fundamental-groups"
+        "LefschetzPencilsAndVanishingCycles:LPV.5"
       ],
       "sources": [
         {
@@ -4219,8 +4227,13 @@
       "sources": [
         {
           "sourceId": "deligne-weil-i",
-          "locator": "Weil I §1 (1.6)–(1.8), pp. 275–277; Weil II §3.3 (3.3.9), p. 207",
-          "match": "The stated result and proof, with the conventions and supplier boundaries specified here."
+          "locator": "§1 (1.6)–(1.8), pp. 275–277",
+          "match": "Degree factors and the smooth-projective Weil conclusions, imported here through WC.3 and WC.5."
+        },
+        {
+          "sourceId": "deligne-weil-ii",
+          "locator": "§3.3 (3.3.9), p. 207",
+          "match": "Independence of the smooth proper degree factors; compatible subquotient factors still require their own rational factor input."
         }
       ],
       "implementationStatus": "unchecked"
@@ -4457,7 +4470,8 @@
         "DeligneWeightsAndPurity:DWP.5/strict-initial-h1-bound",
         "DeligneWeightsAndPurity:DWP.6/real-cohomological-factors",
         "DeligneWeightsAndPurity:DWP.6/square-improvement",
-        "DeligneWeightsAndPurity:DWP.10/frobenius-equidistribution"
+        "DeligneWeightsAndPurity:DWP.10/frobenius-equidistribution",
+        "DeligneWeightsAndPurity:DWP.5/generalized-majoration"
       ]
     },
     {
@@ -4607,7 +4621,8 @@
         "DeligneWeightsAndPurity:DWP.5/compact-weil-form",
         "DeligneWeightsAndPurity:DWP.5/abstract-degree-equidistribution",
         "DeligneWeightsAndPurity:DWP.10/finite-field-sato-tate",
-        "DeligneWeightsAndPurity:DWP.3/exceptional-frobenius-set-has-density-zero"
+        "DeligneWeightsAndPurity:DWP.3/exceptional-frobenius-set-has-density-zero",
+        "DeligneWeightsAndPurity:DWP.3/haar-null-exceptional-eigenvalue-locus"
       ]
     },
     {
@@ -4665,7 +4680,8 @@
       "need": "LPV, Part II: the existing projective-pencil incidence-complement Bertini theorem is insufficient here. For a normal geometrically connected finite-type X over a finite field and a fixed finite ℓ-adic model/lattice, choose a dense smooth quasiprojective open and a relative smooth curve whose geometric generic restriction has the same monodromy image (or surjective geometric π₁); spread and specialize with uniform lattice monodromy. Include reduction of the rank-one abelian quotient to curves. This is the general normal-scheme curve-reduction contract of Weil II (1.3.1), (1.3.4) and (1.11.4), pp. 156–158, 185–186, independent of purity.",
       "neededBy": [
         "DeligneWeightsAndPurity:DWP.5/rank-one-normalization",
-        "DeligneWeightsAndPurity:DWP.5/generalized-majoration"
+        "DeligneWeightsAndPurity:DWP.5/generalized-majoration",
+        "DeligneWeightsAndPurity:DWP.5/specialization-of-monodromy"
       ]
     }
   ],
@@ -4812,12 +4828,13 @@
       "known": "Flagged by the author in the text (footnote 6); not on the author's errata page for v2.00.",
       "searched": [
         "the author's errata page for Abelian Varieties v2.00, https://www.jmilne.org/math/CourseNotes/errata.html, read 2026-09-29",
-        "Author’s public v2.00 errata page https://www.jmilne.org/math/CourseNotes/errata.html independently rechecked 2026-10-06: no separate entry repairing III.11.2 p. 119."
+        "Author’s public v2.00 errata page https://www.jmilne.org/math/CourseNotes/errata.html independently rechecked 2026-10-06: no separate entry repairing III.11.2 p. 119.",
+        "Main public Abelian Varieties v2.00 errata index https://www.jmilne.org/math/CourseNotes/errata.html independently read 2026-10-08; no III.11.2 entry."
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "The author explicitly flags the displayed identity as unfinished in a footnote; the degree computation it records is not justified in the printed proof. Independently compared at the stated public-version locator on 2026-10-06; no formalization claim follows from this erratum.",
-        "by": "REV-DeligneWeightsAndPurity--DWP.0"
+        "reason": "Confirmed the author-marked unfinished degree calculation in III.11.2 p. 119, footnote 6. The main public v2.00 errata page, read 2026-10-08, has no separate III.11.2 repair; the packet requests the trace formula rather than certifying that calculation.",
+        "by": "REV-DeligneWeightsAndPurity--DWP.0~2"
       }
     },
     {
@@ -4835,8 +4852,8 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "The volume and theorem locator identify Weil II; Weil I has no §3.5.3 equidistribution theorem. Independently compared at the stated public-version locator on 2026-10-06; no formalization claim follows from this erratum.",
-        "by": "REV-DeligneWeightsAndPurity--DWP.0"
+        "reason": "The v2 Appendix B pp. 35–36 and bibliography p. 37 point to §3.5.3 with incorrect Weil bibliographic data. Published Appendix B p. 357 still cites Weil I, while §3.5.3 is the equidistribution theorem of Weil II pp. 211–212.",
+        "by": "REV-DeligneWeightsAndPurity--DWP.0~2"
       }
     },
     {
@@ -4854,8 +4871,8 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "H¹ has weight 1; an ordinary (−1) twist gives weight 3, whereas the displayed normalized spectrum has weight 0. Independently compared at the stated public-version locator on 2026-10-06; no formalization claim follows from this erratum.",
-        "by": "REV-DeligneWeightsAndPurity--DWP.0"
+        "reason": "The v2 p. 35 integer twist (−1) raises the weight of H¹ from 1 to 3. The displayed q^(−n/2) spectrum instead requires a chosen half twist of weight −1; published p. 357 uses (1/2).",
+        "by": "REV-DeligneWeightsAndPurity--DWP.0~2"
       }
     },
     {
@@ -4873,8 +4890,8 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "The printed measure has mass 1/4; normalized Haar pushforward has mass 1. Independently compared at the stated public-version locator on 2026-10-06; no formalization claim follows from this erratum.",
-        "by": "REV-DeligneWeightsAndPurity--DWP.0"
+        "reason": "The printed p. 212 angle density integrates to 1/4 on [0,π]. Haar probability requires (2/π)sin²θ, whose mass is 1; independently inspected the page image.",
+        "by": "REV-DeligneWeightsAndPurity--DWP.0~2"
       }
     },
     {
@@ -4892,8 +4909,8 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "The cohomological trace formula subtracts the H¹ trace. Independently compared at the stated public-version locator on 2026-10-06; no formalization claim follows from this erratum.",
-        "by": "REV-DeligneWeightsAndPurity--DWP.0"
+        "reason": "Printed p. 212 gives the wrong sign for the indicated H¹ eigenvalues. The alternating cohomological trace formula gives 1+q^n−2q^(n/2)cosθ; independently inspected the page image.",
+        "by": "REV-DeligneWeightsAndPurity--DWP.0~2"
       }
     },
     {
@@ -4911,8 +4928,8 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "The tensor–Hom identification fixes the order; the self-pair and absence-of-common-constituent uses are symmetric, so this changes no weight input or pole count. Independently compared at the stated public-version locator on 2026-10-06; no formalization claim follows from this erratum.",
-        "by": "REV-DeligneWeightsAndPurity--DWP.0"
+        "reason": "In Yu v5 pp. 42–43, F₁⊗F₂∨ identifies with Hom(F₂,F₁), and duality puts Hom(F₁,F₂)∨(−1) in H². The printed order is reversed; the self-pair and no-common-constituent applications are symmetric. No verdict is asserted for an uncollated journal version.",
+        "by": "REV-DeligneWeightsAndPurity--DWP.0~2"
       }
     },
     {
@@ -4930,8 +4947,8 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "A finite subgroup of ℤ is zero, contradicting the positive-degree central element used immediately in (1.3.12); the proof constructs a nonzero degree and thus a finite-index image.",
-        "by": "REV-DeligneWeightsAndPurity--DWP.0"
+        "reason": "The finite subgroup wording at printed p. 160 is contradicted by the positive-degree central element constructed in (1.3.12). Its nonzero subgroup of ℤ has finite index; independently inspected the page image.",
+        "by": "REV-DeligneWeightsAndPurity--DWP.0~2"
       }
     },
     {
@@ -4949,8 +4966,8 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "In (2.1.1), |r(z)|=ω₁(z)^Re(r)=q^(−deg(z)Re(r)); purity therefore gives weight −2Re(r). Taking r=ω₁ gives q⁻¹ and weight −2, while Re(r)=1.",
-        "by": "REV-DeligneWeightsAndPurity--DWP.0"
+        "reason": "With ω₁=q^(−deg) from (2.1.1) p. 187, a norm exponent Re(r) gives modulus q^(−deg·Re(r)) and weight −2Re(r). The plus sign on pp. 195 and 211 is contradicted already by the Tate norm character; independently inspected both page images.",
+        "by": "REV-DeligneWeightsAndPurity--DWP.0~2"
       }
     }
   ],
@@ -5070,425 +5087,425 @@
     }
   ],
   "review": {
-    "status": "needs_changes",
-    "reviewer": "independent-review-REV-DeligneWeightsAndPurity--DWP.0",
-    "date": "2026-10-06",
-    "notes": "Completed independent target-level review: all 83 nodes, all 29 pinned baseline declarations, 81 API items, 44 tests, 27 planets, 120 source passages, 28 remaining supplier requests and all 8 sourceIssues checked. Applied 34 node corrections and added 2 justified nodes. The corrected packet is a sound complete planning pass with 8 planned stages and 2 explicit gaps; nothing is formalized. The reader, outside this review issue’s edit paths, still contradicts the corrected packet (notably the DWP.4 induction and DWP.5 norm-exponent sign), so PROTOCOL §8 agreement prevents acceptance. A blueprint revision must synchronize that reader; this is a finished review, not a checkpoint.",
+    "status": "accepted",
+    "reviewer": "independent-review-REV-DeligneWeightsAndPurity--DWP.0~2",
+    "date": "2026-10-08",
+    "notes": "Independent full target-level review of all 83 nodes, 29 pinned baseline declarations, 28 supplier requests, 81 API items, 44 tests, 27 planets and eight source issues. Verified the previous review corrections and synchronized reader. Corrected 15 existing nodes for test-kind vocabulary, two examples, lisse/semisimplicity scope, four direct dependency contracts and one mixed source-id locator and one source-quotation paraphrase; no nodes or baseline citations added/removed. All source issues confirmed from the public versions. Packet complete, eight stages planned; the two explicit embedding/signature gaps remain honest. lean-check elaborated with 89 expected proof-placeholder warnings only; packet checker has zero errors/warnings. Acceptance certifies the plan, not geometric formalization or discharged supplier contracts.",
     "checked": [
       {
         "nodeId": "DeligneWeightsAndPurity:DWP.0/weil-q-number",
-        "verdict": "verified",
-        "note": "Checked the cited passages, hypotheses, proof sketch and direct inputs at target level; retained the stated conventions and explicit owner-interface or embedding gaps where applicable."
+        "verdict": "corrected",
+        "note": "Algebraicity, all minimal-polynomial conjugates, nonvanishing and q>1 prevent the vacuity and uniqueness failures tested here. Correction: Normalized a small-value test to the computation kind required by PROTOCOL §12. Source check: deligne-weil-ii §1.2, Définition (1.2.1), p. 153; deligne-weil-i §1, Lemme (1.7), p. 276; yu-local-systems §1 pp. 2–3; §7.1 p. 64."
       },
       {
         "nodeId": "DeligneWeightsAndPurity:DWP.0/weil-number-arithmetic",
         "verdict": "verified",
-        "note": "Checked the cited passages, hypotheses, proof sketch and direct inputs at target level; retained the stated conventions and explicit owner-interface or embedding gaps where applicable."
+        "note": "Embedding extension gives products and reciprocal conjugates; the integer norm argument needs integrality only for nonnegative weight and Kronecker. Source check: deligne-weil-ii §1.2, Définition (1.2.12), p. 156; deligne-weil-ii §1.2, Remarque (1.2.14), p. 156."
       },
       {
         "nodeId": "DeligneWeightsAndPurity:DWP.0/weil-number-base-extension",
         "verdict": "verified",
-        "note": "Checked the cited passages, hypotheses, proof sketch and direct inputs at target level; retained the stated conventions and explicit owner-interface or embedding gaps where applicable."
+        "note": "Positive powers preserve the common conjugate modulus with base q^r; r=0 is correctly excluded. Source check: deligne-weil-i §1, (1.5.1), p. 275; deligne-weil-ii §1.1, (1.1.13), p. 152."
       },
       {
         "nodeId": "DeligneWeightsAndPurity:DWP.0/iota-weight",
-        "verdict": "verified",
-        "note": "Checked the cited passages, hypotheses, proof sketch and direct inputs at target level; retained the stated conventions and explicit owner-interface or embedding gaps where applicable."
+        "verdict": "corrected",
+        "note": "The real logarithmic weight is defined for nonzero scalars; the fixed embedding and integer Weil purity are distinguished. Correction: Normalized a small-value test to the computation kind required by PROTOCOL §12. Source check: deligne-weil-ii §1.2, (1.2.6), p. 154; deligne-weil-ii §1.2, Remarque (1.2.8), p. 155."
       },
       {
         "nodeId": "DeligneWeightsAndPurity:DWP.0/embeddings-into-the-complex-numbers",
         "verdict": "verified",
-        "note": "Checked the cited passages, hypotheses, proof sketch and direct inputs at target level; retained the stated conventions and explicit owner-interface or embedding gaps where applicable."
+        "note": "Countable-base transcendence bases give the stated embeddings/cardinal classification; extending a prescribed base map by an isomorphism remains an explicit proof obligation. Source check: deligne-weil-ii §1.2, Remarque (1.2.11), p. 156; deligne-weil-ii §1.2, Remarque (1.2.11), p. 156."
       },
       {
         "nodeId": "DeligneWeightsAndPurity:DWP.0/weil-number-iff-iota-pure-for-every-iota",
         "verdict": "verified",
-        "note": "Checked the cited passages, hypotheses, proof sketch and direct inputs at target level; retained the stated conventions and explicit owner-interface or embedding gaps where applicable."
+        "note": "A transcendental element can be moved to incompatible moduli; only the all-embedding condition forces algebraicity. Uses the preceding recorded extension obligation. Source check: deligne-weil-ii §1.2, (1.2.6), p. 154; deligne-weil-ii §1.2, (1.2.6), p. 154."
       },
       {
         "nodeId": "DeligneWeightsAndPurity:DWP.0/endomorphism-weights",
         "verdict": "corrected",
-        "note": "Added the singular-zero-operator regression test: the total logarithm core does not admit additive weight translation at zero."
+        "note": "Characteristic roots count algebraic multiplicity in a closure, including nonsemisimple operators and the zero-dimensional case. Correction: Normalized both small-value tests to the computation kind required by PROTOCOL §12. Source check: deligne-weil-i §2, (2.6), p. 282; deligne-weil-ii §1.2, Variante (1.2.4), p. 154; deligne-weil-ii §1.2, (1.2.6), p. 154."
       },
       {
         "nodeId": "DeligneWeightsAndPurity:DWP.0/characteristic-polynomial-in-short-exact-sequences",
         "verdict": "verified",
-        "note": "Checked the cited passages, hypotheses, proof sketch and direct inputs at target level; retained the stated conventions and explicit owner-interface or embedding gaps where applicable."
+        "note": "An adapted basis gives a block triangular matrix and the product of subspace and quotient characteristic polynomials. Source check: deligne-weil-i §1, (1.5.3), p. 276."
       },
       {
         "nodeId": "DeligneWeightsAndPurity:DWP.0/purity-under-subquotients-and-extensions",
         "verdict": "verified",
-        "note": "Checked the cited passages, hypotheses, proof sketch and direct inputs at target level; retained the stated conventions and explicit owner-interface or embedding gaps where applicable."
+        "note": "The characteristic-root multiset is additive in an exact sequence; extensions need no eigenbasis or splitting. Source check: deligne-weil-ii §1.2, Stabilités (1.2.5)(i), p. 154."
       },
       {
         "nodeId": "DeligneWeightsAndPurity:DWP.0/characteristic-power-series-and-traces",
-        "verdict": "corrected",
-        "note": "Separated the characteristic-independent quotient −tD′/D from the formal logarithm, which needs characteristic zero."
+        "verdict": "verified",
+        "note": "The determinant series, signed logarithmic derivative and Newton power sums have the stated characteristic-zero conventions. Source check: deligne-weil-i §1, (1.5.3), p. 275."
       },
       {
         "nodeId": "DeligneWeightsAndPurity:DWP.0/spectra-of-polynomials-in-an-endomorphism",
         "verdict": "verified",
-        "note": "Checked the cited passages, hypotheses, proof sketch and direct inputs at target level; retained the stated conventions and explicit owner-interface or embedding gaps where applicable."
+        "note": "Triangularization gives P(α) with algebraic multiplicity; the inverse clause requires invertibility. Source check: deligne-weil-i §1, (1.5.1), p. 275."
       },
       {
         "nodeId": "DeligneWeightsAndPurity:DWP.0/finite-field-base-extension-of-weights",
         "verdict": "verified",
-        "note": "Checked the cited passages, hypotheses, proof sketch and direct inputs at target level; retained the stated conventions and explicit owner-interface or embedding gaps where applicable."
+        "note": "Replacing Frobenius by its mth power and q by q^m preserves the weight rather than multiplying it. Source check: deligne-weil-ii §1.1, (1.1.13), p. 152."
       },
       {
         "nodeId": "DeligneWeightsAndPurity:DWP.0/spectra-of-tensor-products-and-duals",
         "verdict": "verified",
-        "note": "Checked the cited passages, hypotheses, proof sketch and direct inputs at target level; retained the stated conventions and explicit owner-interface or embedding gaps where applicable."
+        "note": "Tensor products give pairwise products; contragredients give inverses, while the ordinary transpose preserves the original spectrum. Source check: deligne-weil-ii §1.2, Stabilités (1.2.5)(ii), p. 154; deligne-weil-ii §1.2, Stabilités (1.2.5)(ii), p. 154."
       },
       {
         "nodeId": "DeligneWeightsAndPurity:DWP.0/eigenvalues-of-exterior-powers",
-        "verdict": "added",
-        "note": "Added distinct-position exterior spectra, including multiplicities, nonsplit Jordan blocks, the empty wedge and out-of-range degrees, using the actual Mathlib exterior construction and basis."
+        "verdict": "verified",
+        "note": "The wedge basis yields products over k distinct slots, including k=0 and k>dim V; Mathlib supplies the construction, not this new spectrum theorem. Source check: milne-abelian-varieties Chapter II, Corollary 1.5 and Remark 1.6(a), p. 78; deligne-weil-ii §1.5, proof (1.5.3), pp. 164–165."
       },
       {
         "nodeId": "DeligneWeightsAndPurity:DWP.0/twisting-by-rank-one-characters",
         "verdict": "corrected",
-        "note": "Qualified the weight-translation API by invertibility and cited the existing finite-coefficient Tate construction directly; retained the rational-realization request."
+        "note": "Nonzero scalar twists multiply the spectrum; the real-weight translation requires invertible Frobenius and Tate twists subtract 2r. Correction: Normalized a small-value test to the computation kind required by PROTOCOL §12. Source check: deligne-weil-ii §1.2, (1.2.7), p. 154; deligne-weil-ii §1.2, Stabilités (1.2.5)(iv), p. 154."
       },
       {
         "nodeId": "DeligneWeightsAndPurity:DWP.0/reciprocal-pairing-of-eigenvalues",
         "verdict": "verified",
-        "note": "Checked the cited passages, hypotheses, proof sketch and direct inputs at target level; retained the stated conventions and explicit owner-interface or embedding gaps where applicable."
+        "note": "A perfect equivariant pairing into the Tate line pairs α with q^d/α with multiplicities. Source check: deligne-weil-i §2, (2.5), p. 281; deligne-weil-i §2, (2.5), p. 281; yu-local-systems §1 pp. 2–3; §7.1 p. 64."
       },
       {
         "nodeId": "DeligneWeightsAndPurity:DWP.0/disjoint-spectra-no-intertwiner",
         "verdict": "verified",
-        "note": "Checked the cited passages, hypotheses, proof sketch and direct inputs at target level; retained the stated conventions and explicit owner-interface or embedding gaps where applicable."
+        "note": "Coprime characteristic polynomials and Cayley–Hamilton kill an intertwiner; distinct weights give disjoint spectra for q>1. Source check: deligne-weil-i §1, preuve de (1.7) ⇒ (1.6), p. 277."
       },
       {
         "nodeId": "DeligneWeightsAndPurity:DWP.0/weight-decomposition",
         "verdict": "verified",
-        "note": "Checked the cited passages, hypotheses, proof sketch and direct inputs at target level; retained the stated conventions and explicit owner-interface or embedding gaps where applicable."
+        "note": "Galois-stable weight factors descend to E, their polynomial kernels decompose V, and generalized eigenspaces give purity without semisimplicity. Source check: deligne-weil-i §1, preuve de (1.7) ⇒ (1.6), p. 277."
       },
       {
         "nodeId": "DeligneWeightsAndPurity:DWP.2/weights-and-l-functions-of-lisse-sheaves-on-curves",
-        "verdict": "verified",
-        "note": "Checked the cited passages, hypotheses, proof sketch and direct inputs at target level; retained the stated conventions and explicit owner-interface or embedding gaps where applicable."
+        "verdict": "corrected",
+        "note": "The shared punctual predicate is specialized to the fixed Q_ell model and the supplied sheaf Euler product, without a second coefficient category. Correction: The constant scalar 2 is an ℓ-adic unit only for ℓ≠2; that hypothesis is required for the stated lisse étale line. Source check: deligne-weil-i §3, (3.1), p. 284; deligne-weil-i §3, (3.1), p. 283."
       },
       {
         "nodeId": "DeligneWeightsAndPurity:DWP.2/open-subgroups-of-symplectic-groups-are-zariski-dense",
-        "verdict": "corrected",
-        "note": "Corrected the connectedness rationale: an open subgroup of O can have closure SO. The full-dimension argument gives Sp because Sp is connected."
+        "verdict": "verified",
+        "note": "Full analytic dimension and connected Sp imply density; the missing analytic dimension comparison is explicitly requested from ReductiveGroups Part II. Source check: deligne-weil-i §3, (3.7), p. 285."
       },
       {
         "nodeId": "DeligneWeightsAndPurity:DWP.2/symplectic-coinvariants-of-even-tensor-powers",
         "verdict": "verified",
-        "note": "Checked the cited passages, hypotheses, proof sketch and direct inputs at target level; retained the stated conventions and explicit owner-interface or embedding gaps where applicable."
+        "note": "The complex Brauer invariant theorem descends through rational equations to Q_ell; contraction coinvariants retain the kβ Tate exponent. Source check: deligne-weil-i §3, (3.7), p. 285."
       },
       {
         "nodeId": "DeligneWeightsAndPurity:DWP.2/compact-cohomology-of-even-tensor-powers",
-        "verdict": "corrected",
-        "note": "Replaced the coarse EDC.2 input by its exact extreme-degree cohomology node, retaining the affine and rational-coefficient hypotheses."
+        "verdict": "verified",
+        "note": "Affine H⁰_c vanishes and exact top-degree coinvariants yield Q_ell(−kβ−1); the resulting denominator is the stated one. Source check: deligne-weil-i §3, (3.7), p. 285; deligne-weil-i §2, Scholie (2.10), p. 282."
       },
       {
         "nodeId": "DeligneWeightsAndPurity:DWP.2/positivity-of-even-tensor-power-traces",
         "verdict": "verified",
-        "note": "Checked the cited passages, hypotheses, proof sketch and direct inputs at target level; retained the stated conventions and explicit owner-interface or embedding gaps where applicable."
+        "note": "Rational local polynomials give rational traces, whose even tensor powers are nonnegative; the log-derivative sign is correct. Source check: deligne-weil-i §3, Lemme (3.3), p. 284."
       },
       {
         "nodeId": "DeligneWeightsAndPurity:DWP.2/positive-local-factors",
         "verdict": "verified",
-        "note": "Checked the cited passages, hypotheses, proof sketch and direct inputs at target level; retained the stated conventions and explicit owner-interface or embedding gaps where applicable."
+        "note": "Exponentiating the zero-constant logarithmic series with nonnegative coefficients gives nonnegative local Euler factors in characteristic zero. Source check: deligne-weil-i §3, Lemme (3.4), p. 284."
       },
       {
         "nodeId": "DeligneWeightsAndPurity:DWP.2/radius-of-convergence-of-positive-products",
         "verdict": "verified",
-        "note": "Checked the cited passages, hypotheses, proof sketch and direct inputs at target level; retained the stated conventions and explicit owner-interface or embedding gaps where applicable."
+        "note": "Locally finite formal products dominate each nonnegative coefficient; this is the power-series comparison owned here. Source check: deligne-weil-i §3, Lemme (3.5), p. 284."
       },
       {
         "nodeId": "DeligneWeightsAndPurity:DWP.2/poles-of-positive-products",
         "verdict": "verified",
-        "note": "Checked the cited passages, hypotheses, proof sketch and direct inputs at target level; retained the stated conventions and explicit owner-interface or embedding gaps where applicable."
+        "note": "Meromorphic Taylor functions and nonnegative coefficients identify the first singularity with a positive-real pole and give the factor radius inequality. Source check: deligne-weil-i §3, Lemme (3.6), p. 284."
       },
       {
         "nodeId": "DeligneWeightsAndPurity:DWP.2/fundamental-estimate-theorem-3-2",
         "verdict": "verified",
-        "note": "Checked the cited passages, hypotheses, proof sketch and direct inputs at target level; retained the stated conventions and explicit owner-interface or embedding gaps where applicable."
+        "note": "Open symplectic image, alternating Tate pairing and rational local factors are all retained; even tensors remove the 1/k error and the pairing gives the lower bound. Source check: deligne-weil-i §3, Théorème (3.2), p. 284; deligne-weil-i §3, Théorème (3.2), p. 284; deligne-weil-i §3, proof of (3.2), p. 285."
       },
       {
         "nodeId": "DeligneWeightsAndPurity:DWP.2/coarse-bound-on-compact-cohomology",
-        "verdict": "corrected",
-        "note": "Replaced the coarse EDC.2 input by the exact affine/extreme-degree formula."
+        "verdict": "verified",
+        "note": "The fundamental estimate and closed-point counting give Euler-product convergence and the coarse H¹_c upper bound. Source check: deligne-weil-i §3, Corollaire (3.8), p. 286."
       },
       {
         "nodeId": "DeligneWeightsAndPurity:DWP.2/coarse-bound-on-cohomology-of-the-projective-line",
-        "verdict": "corrected",
-        "note": "Cited the existing j_* curve Poincaré-duality node rather than its coarse stage."
+        "verdict": "verified",
+        "note": "The boundary exact sequence gives the upper bound and exact j_* curve duality gives the lower bound; the half-unit interval is retained. Source check: deligne-weil-i §3, Corollaire (3.9), p. 286; deligne-weil-i §3, Corollaire (3.9), p. 287."
       },
       {
         "nodeId": "DeligneWeightsAndPurity:DWP.1/frobenius-endomorphism-over-a-finite-field",
         "verdict": "corrected",
-        "note": "Used naturality and products for the group law and requested the independent étale-local finite-flat degree q^g theorem; removed reliance on later point counts."
+        "note": "The q-power scheme map is distinguished from absolute p-Frobenius and the contravariant cohomological action; its degree comes from SF.0 independently of weights. Correction: Normalized both small-value tests to the computation kind required by PROTOCOL §12. Source check: milne-abelian-varieties Chapter II, §1, p. 75; milne-abelian-varieties Chapter II, §1, p. 75."
       },
       {
         "nodeId": "DeligneWeightsAndPurity:DWP.1/rosati-of-the-frobenius-endomorphism",
         "verdict": "verified",
-        "note": "Checked the cited passages, hypotheses, proof sketch and direct inputs at target level; retained the stated conventions and explicit owner-interface or embedding gaps where applicable."
+        "note": "A polarization defined over the finite field gives π†π=q, with the dual/Frobenius comparison imported from A2. Source check: milne-abelian-varieties Chapter II, Lemma 1.2, p. 76."
       },
       {
         "nodeId": "DeligneWeightsAndPurity:DWP.1/absolute-values-from-the-rosati-involution",
-        "verdict": "verified",
-        "note": "Checked the cited passages, hypotheses, proof sketch and direct inputs at target level; retained the stated conventions and explicit owner-interface or embedding gaps where applicable."
+        "verdict": "corrected",
+        "note": "Rosati positivity eliminates nilpotents and forces conjugation on the complex factors; the A6 characteristic polynomial gives every root modulus. Correction: The multiplication example requires n≠0 and has modulus |n|, also for negative n; Milne II.1.3 p. 77 assumes r>0. Source check: milne-abelian-varieties Chapter II, Lemma 1.3, p. 77; milne-abelian-varieties Chapter II, Lemma 1.3, p. 77."
       },
       {
         "nodeId": "DeligneWeightsAndPurity:DWP.1/weil-estimate-for-abelian-varieties",
         "verdict": "verified",
-        "note": "Checked the cited passages, hypotheses, proof sketch and direct inputs at target level; retained the stated conventions and explicit owner-interface or embedding gaps where applicable."
+        "note": "The Rosati modulus and integral Tate characteristic polynomial give all-conjugates weight 1, and exterior cohomology gives weight i. Source check: milne-abelian-varieties Chapter II, Theorem 1.1(b), p. 75; milne-abelian-varieties Chapter II, Remark 1.4, p. 78."
       },
       {
         "nodeId": "DeligneWeightsAndPurity:DWP.1/point-counts-of-abelian-varieties",
-        "verdict": "corrected",
-        "note": "Corrected d(1−π^m) to +1, explained finite surjective étale isogeny and multiplicity-one kernel count, added exterior spectra, and cited Milne II.1.5–1.6."
+        "verdict": "verified",
+        "note": "The differential of 1−π^m is +1, so the isogeny is separable and its degree counts points; the product bounds include all extensions. Source check: milne-abelian-varieties Chapter II, Theorem 1.1(a), p. 75; milne-abelian-varieties Chapter II, proof of Theorem 1.1, p. 76; milne-abelian-varieties Chapter II, Corollary 1.5 and Remark 1.6(a), p. 78."
       },
       {
         "nodeId": "DeligneWeightsAndPurity:DWP.1/weil-estimate-for-curves",
-        "verdict": "verified",
-        "note": "Checked the cited passages, hypotheses, proof sketch and direct inputs at target level; retained the stated conventions and explicit owner-interface or embedding gaps where applicable."
+        "verdict": "corrected",
+        "note": "The base-point-free Jacobian/H¹ comparison is an explicit Part II request; its fixed-point trace supplier avoids the unfinished theta calculation. Correction: Rephrased the author-marked degree-calculation gap in our own words; the trace-formula supplier obligation is unchanged. Source check: milne-abelian-varieties Chapter III, Theorem 11.1, p. 118; milne-abelian-varieties Chapter III, Corollary 11.4, p. 119."
       },
       {
         "nodeId": "DeligneWeightsAndPurity:DWP.1/weights-of-the-cohomology-of-curves",
         "verdict": "verified",
-        "note": "Checked the cited passages, hypotheses, proof sketch and direct inputs at target level; retained the stated conventions and explicit owner-interface or embedding gaps where applicable."
+        "note": "Geometric connectedness gives weights 0,1,2 in degrees 0,1,2, with H¹ supplied by the Jacobian comparison. Source check: milne-abelian-varieties Chapter III, Remark 11.5, p. 119; yu-local-systems §1 pp. 2–3; §7.1 p. 64."
       },
       {
         "nodeId": "DeligneWeightsAndPurity:DWP.1/compatibility-with-the-hasse-bound",
-        "verdict": "corrected",
-        "note": "Corrected the Milne excerpt against the actual course-note text."
+        "verdict": "verified",
+        "note": "The genus-one specialization agrees with the existing Hasse supplier and fixes the minus sign in the trace count. Source check: milne-abelian-varieties Chapter III, Theorem 11.1, p. 118."
       },
       {
         "nodeId": "DeligneWeightsAndPurity:DWP.1/the-frobenius-and-points-over-extensions",
         "verdict": "verified",
-        "note": "Checked the cited passages, hypotheses, proof sketch and direct inputs at target level; retained the stated conventions and explicit owner-interface or embedding gaps where applicable."
+        "note": "The mth Frobenius powers produce every extension point-count bound, and the weight base changes simultaneously. Source check: milne-abelian-varieties Chapter II, proof of Theorem 1.1, p. 76."
       },
       {
         "nodeId": "DeligneWeightsAndPurity:DWP.3/radical-quotient-of-the-vanishing-system",
         "verdict": "verified",
-        "note": "Checked the cited passages, hypotheses, proof sketch and direct inputs at target level; retained the stated conventions and explicit owner-interface or embedding gaps where applicable."
+        "note": "The arithmetic-stable radical quotient carries the nondegenerate alternating pairing; LPV owns its geometry and open image. Source check: deligne-weil-i §6, (6.1), p. 295; deligne-weil-i §6, (6.1), p. 295; deligne-weil-i §6, (6.1), p. 295."
       },
       {
         "nodeId": "DeligneWeightsAndPurity:DWP.3/geometrically-constant-lisse-sheaves",
-        "verdict": "corrected",
-        "note": "Required geometric connectedness for the arithmetic/geometric π₁ quotient and added the explicit IG.1 dependency."
+        "verdict": "verified",
+        "note": "For a geometrically connected base the arithmetic/geometric exact sequence identifies constant geometric systems with representations over the finite field. Source check: deligne-weil-i §6, Lemme (6.4), p. 295; deligne-weil-i §6, proof of (6.4), p. 296."
       },
       {
         "nodeId": "DeligneWeightsAndPurity:DWP.3/zeta-of-the-fibres-and-the-pencil-factorization",
         "verdict": "verified",
-        "note": "Checked the cited passages, hypotheses, proof sketch and direct inputs at target level; retained the stated conventions and explicit owner-interface or embedding gaps where applicable."
+        "note": "Proper base change and the fibre trace formula isolate constant alpha/beta factors from the radical quotient, with odd middle parity. Source check: deligne-weil-i §6, (6.4), p. 296; deligne-weil-i §1, (1.5.4), p. 276."
       },
       {
         "nodeId": "DeligneWeightsAndPurity:DWP.3/powers-of-a-family-determine-the-family",
         "verdict": "verified",
-        "note": "Checked the cited passages, hypotheses, proof sketch and direct inputs at target level; retained the stated conventions and explicit owner-interface or embedding gaps where applicable."
+        "note": "Multiset powers in sufficiently large degrees avoiding the finite set K determine the original family; K excludes 1. Source check: deligne-weil-i §6, proof of (6.7), p. 297."
       },
       {
         "nodeId": "DeligneWeightsAndPurity:DWP.3/open-image-in-the-symplectic-similitude-group",
         "verdict": "verified",
-        "note": "Checked the cited passages, hypotheses, proof sketch and direct inputs at target level; retained the stated conventions and explicit owner-interface or embedding gaps where applicable."
+        "note": "Geometric open Sp image plus the degree quotient gives open arithmetic image; arithmetic coordinate −e gives multiplier q^(de). Source check: deligne-weil-i §6, (6.10), p. 297; deligne-weil-i §6, (6.10), p. 298."
       },
       {
         "nodeId": "DeligneWeightsAndPurity:DWP.3/haar-null-exceptional-eigenvalue-locus",
-        "verdict": "verified",
-        "note": "Checked the cited passages, hypotheses, proof sketch and direct inputs at target level; retained the stated conventions and explicit owner-interface or embedding gaps where applicable."
+        "verdict": "corrected",
+        "note": "At each arithmetic degree the determinant equation is a proper algebraic subset of a symplectic coset; fibre nullity, not just global nullity, is used. Correction: Added the explicit CompactGroups Part II analytic-nullity/disintegration contract used by the fibrewise Haar argument of Weil I (6.12), p. 298. Source check: deligne-weil-i §6, Lemme (6.12), p. 298; deligne-weil-i §6, proof of (6.12), p. 298."
       },
       {
         "nodeId": "DeligneWeightsAndPurity:DWP.3/exceptional-frobenius-set-has-density-zero",
-        "verdict": "corrected",
-        "note": "Added the Haar-disintegration/continuous conditional-mass supplier already needed by the proof and listed this consumer in its precise request."
+        "verdict": "verified",
+        "note": "Conditional clopen fibre masses, Dini uniformity and finite-quotient Chebotarev give decay in each large degree with the constant-field congruence retained. Source check: deligne-weil-i §6, (6.13), p. 298."
       },
       {
         "nodeId": "DeligneWeightsAndPurity:DWP.3/denominators-away-from-the-exceptional-set",
         "verdict": "verified",
-        "note": "Checked the cited passages, hypotheses, proof sketch and direct inputs at target level; retained the stated conventions and explicit owner-interface or embedding gaps where applicable."
+        "note": "The nonexceptional degree restrictions prevent alpha/beta cancellation and exceptional quotient roots, giving the reduced denominator. Source check: deligne-weil-i §6, Proposition (6.6), p. 296; deligne-weil-i §6, (6.13), p. 298."
       },
       {
         "nodeId": "DeligneWeightsAndPurity:DWP.3/divisibility-criterion",
         "verdict": "verified",
-        "note": "Checked the cited passages, hypotheses, proof sketch and direct inputs at target level; retained the stated conventions and explicit owner-interface or embedding gaps where applicable."
+        "note": "The intrinsic divisibility/lcm characterization recovers the constant gamma multiset; candidate roots are units at a supplied positive-degree point. Source check: deligne-weil-i §6, Proposition (6.8), p. 297."
       },
       {
         "nodeId": "DeligneWeightsAndPurity:DWP.3/rationality-of-pencil-local-factors",
-        "verdict": "verified",
-        "note": "Checked the cited passages, hypotheses, proof sketch and direct inputs at target level; retained the stated conventions and explicit owner-interface or embedding gaps where applicable."
+        "verdict": "corrected",
+        "note": "The per-degree density input yields enough powers for Galois descent of beta; the intrinsic lcm then descends alpha and every quotient local factor. Correction: Added the directly invoked exceptional-density theorem; it supplies points in every sufficiently large permitted degree in the (6.9) Galois argument, p. 297. Source check: deligne-weil-i §6, Théorème (6.2), p. 295; deligne-weil-i §6, (6.9), p. 297."
       },
       {
         "nodeId": "DeligneWeightsAndPurity:DWP.3/coarse-bound-for-the-pencil",
-        "verdict": "corrected",
-        "note": "Replaced coarse LPV.5 by the existing fixed-ℚ_ℓ Kazhdan–Margulis open-image node."
+        "verdict": "verified",
+        "note": "The rationality theorem and the actual LPV open-image quotient fulfill all hypotheses of the Weil I fundamental estimate. Source check: deligne-weil-i §6, Corollaire (6.3), p. 295."
       },
       {
         "nodeId": "DeligneWeightsAndPurity:DWP.4/middle-cohomology-half-unit-bound",
-        "verdict": "corrected",
-        "note": "Corrected the induction: outer terms inherit the half-unit interval after twist, not exact purity. Split geometric components and descend after finite base extension."
+        "verdict": "verified",
+        "note": "The three pencil cases and Leray subquotients keep a half-unit bound in both outer terms; blowup injectivity transfers it to the original variety. Source check: deligne-weil-i Weil I §7, Lemme (7.1) and (7.1.1)–(7.1.5), pp. 298–300."
       },
       {
         "nodeId": "DeligneWeightsAndPurity:DWP.4/middle-cohomology-purity",
-        "verdict": "corrected",
-        "note": "Corrected the source to Weil I Lemma 7.2, pp. 300–301, with its actual Cartesian-power passage."
+        "verdict": "verified",
+        "note": "Even product powers turn |α| into |α|^(2k) while the error remains 1/2, and taking roots removes it. Source check: deligne-weil-i Weil I §7, Lemme (7.2), pp. 300–301; proof (7.3), p. 301."
       },
       {
         "nodeId": "DeligneWeightsAndPurity:DWP.4/smooth-projective-purity",
-        "verdict": "corrected",
-        "note": "Corrected the reference to Weil I Lemma 7.2 and §7.3, pp. 300–301."
+        "verdict": "verified",
+        "note": "The mutual dimension induction closes every degree with weak Lefschetz, Gysin/duality and the product middle-degree step, before hard Lefschetz or Weil II. Source check: deligne-weil-i Weil I §1, Lemme (1.7), p. 276; §7, Lemme (7.2) and proof (7.3), pp. 300–301."
       },
       {
         "nodeId": "DeligneWeightsAndPurity:DWP.5/weil-group",
         "verdict": "verified",
-        "note": "Checked the cited passages, hypotheses, proof sketch and direct inputs at target level; retained the stated conventions and explicit owner-interface or embedding gaps where applicable."
+        "note": "The topological pullback uses geometric degree +1 and its degree-zero geometric kernel; the suggested algebraic subgroup core is explicitly only that core. Source check: deligne-weil-ii §1.1 (1.1.7)–(1.1.13.1), pp. 150–153."
       },
       {
         "nodeId": "DeligneWeightsAndPurity:DWP.5/weil-sheaf",
-        "verdict": "corrected",
-        "note": "Restricted the arithmetic π₁ characterization of descent to lisse sheaves; constructible non-lisse sheaves require sheaf descent data."
+        "verdict": "verified",
+        "note": "Constructible Weil descent and the lisse representation criterion are distinct; nonunit degree scalars give Weil lines without étale descent. Source check: deligne-weil-ii §1.1 (1.1.6), (1.1.10)–(1.1.14), pp. 150–153."
       },
       {
         "nodeId": "DeligneWeightsAndPurity:DWP.5/punctual-purity-and-mixedness",
         "verdict": "verified",
-        "note": "Checked the cited passages, hypotheses, proof sketch and direct inputs at target level; retained the stated conventions and explicit owner-interface or embedding gaps where applicable."
+        "note": "Pointwise root predicates and finite actual subsheaf filtrations are specified; strictness and canonical weight filtration are companion theorems. Source check: deligne-weil-ii §1.2 (1.2.2)–(1.2.8), pp. 153–155."
       },
       {
         "nodeId": "DeligneWeightsAndPurity:DWP.5/real-sheaves",
-        "verdict": "verified",
-        "note": "Checked the cited passages, hypotheses, proof sketch and direct inputs at target level; retained the stated conventions and explicit owner-interface or embedding gaps where applicable."
+        "verdict": "corrected",
+        "note": "Total reality is a polynomial coefficient condition; the reciprocal normalized dual gives the lisse pure real envelope, with a Weil scalar twist for real weights. Correction: Restored the lisse hypothesis in Weil II (1.2.12)–(1.2.14), pp. 155–156, including the real-envelope API. Source check: deligne-weil-ii §1.2 (1.2.12)–(1.2.14), pp. 155–156."
       },
       {
         "nodeId": "DeligneWeightsAndPurity:DWP.5/rank-one-normalization",
-        "verdict": "corrected",
-        "note": "Replaced a too-narrow incidence-complement Bertini node by a precise normal-scheme curve-reduction request to LPV, Part II; corrected pp. 156–158 and 185–186."
+        "verdict": "verified",
+        "note": "The finite prime-to-p geometric abelianization and a pro-p unit argument give finite rank-one geometric image, independently of purity. Source check: deligne-weil-ii §1.3 (1.3.1), (1.3.4), (1.3.6), pp. 156–158; §1.11 (1.11.4), pp. 185–186."
       },
       {
         "nodeId": "DeligneWeightsAndPurity:DWP.5/determinantal-weights",
-        "verdict": "corrected",
-        "note": "Added exterior spectra and component/finite-field base-extension comparison, and corrected the determinant-definition and functoriality locators to pp. 158 and 161."
+        "verdict": "verified",
+        "note": "Irreducible positive rank divides the determinant weight; constituent multisets, exact sequences and scalar twists are specified without assuming arbitrary constituent purity. Source check: deligne-weil-ii §1.3 Définition (1.3.5), p. 158; Corollaire (1.3.12) and Proposition (1.3.13), p. 161."
       },
       {
         "nodeId": "DeligneWeightsAndPurity:DWP.5/geometric-monodromy-and-central-degree",
         "verdict": "corrected",
-        "note": "Corrected the central-degree and radical passages to pp. 158–162 and used an excerpt present in the source."
+        "note": "Rank-one normalization kills the radical torus; semisimple Weil representations give semisimple connected geometric monodromy and finite-index central degree. Correction: Separated semisimplicity of the Weil representation from semisimplicity of each Frobenius operator; the source (1.3.8) p. 159 uses the former. Source check: deligne-weil-ii §1.3 (1.3.7)–(1.3.15), pp. 158–162."
       },
       {
         "nodeId": "DeligneWeightsAndPurity:DWP.5/determinantal-weight-functoriality",
-        "verdict": "added",
-        "note": "Added dominant normal pullback, tensor weights and exterior-weight sums with rank capacities n(β), not constituent multiplicities, from Weil II 1.3.13. Its direct inputs include central-degree monodromy and the precise finite-index π₁ request."
+        "verdict": "verified",
+        "note": "Dominant normal pullback preserves connected monodromy, and exterior sums use rank capacities n(β), not just constituent counts. Source check: deligne-weil-ii §1.3, Corollaire (1.3.12) and Proposition (1.3.13)(i)–(iii), p. 161."
       },
       {
         "nodeId": "DeligneWeightsAndPurity:DWP.5/generalized-majoration",
         "verdict": "corrected",
-        "note": "Added both missing exterior/determinantal functoriality inputs, made the descending-induction argument explicit, used the exact H²_c supplier and requested general normal-scheme curve reduction. Corrected 1.5.1–1.5.3 to pp. 164–165."
+        "note": "Even-tensor positivity bounds the largest determinant weight; descending exterior induction then gives equality for each irreducible constituent. Correction: Added the direct SF.2 trace-formula input used to bound the poles of the general even-tensor Euler product in (1.5.2)–(1.5.3), pp. 164–165. Source check: deligne-weil-ii §1.5 Théorème (1.5.1), Lemme (1.5.2), proof (1.5.3), pp. 164–165."
       },
       {
         "nodeId": "DeligneWeightsAndPurity:DWP.5/initial-curve-and-boundary-bounds",
-        "verdict": "corrected",
-        "note": "Corrected Lemma 1.8.1 and Remark 1.8.2 to p. 175 and used the exact extreme-degree supplier."
+        "verdict": "verified",
+        "note": "Smooth-curve Euler convergence and the boundary comparison give the stated initial estimates, without using the later sharp direct-image theorem. Source check: deligne-weil-ii §1.8 Lemme (1.8.1) and Remarque (1.8.2), p. 175."
       },
       {
         "nodeId": "DeligneWeightsAndPurity:DWP.5/local-monodromy-purity",
-        "verdict": "corrected",
-        "note": "Corrected §1.7 and Theorem 1.8.4 to pp. 170–176; removed a coarse cohomological-duality dependency unused in this local linear-algebra proof."
+        "verdict": "verified",
+        "note": "Quasi-unipotent reduction, primitive strings and tensor/dual compatibility identify monodromy graded weights β+i; the Frobenius–N convention is retained. Source check: deligne-weil-ii §1.7 (1.7.1)–(1.7.12), pp. 170–174; §1.8 Théorème (1.8.4), pp. 175–176."
       },
       {
         "nodeId": "DeligneWeightsAndPurity:DWP.5/local-weight-corollaries",
-        "verdict": "corrected",
-        "note": "Added the existing finite-coefficient Tate supplier while keeping the actual rational realization as an owner request."
+        "verdict": "verified",
+        "note": "The local theorem yields boundary mixedness, invariant-weight intervals and the relative filtration statement; actual coefficient realization remains supplied. Source check: deligne-weil-ii §1.8 Corollaires (1.8.5)–(1.8.12), pp. 176–179."
       },
       {
         "nodeId": "DeligneWeightsAndPurity:DWP.5/stalk-newton-polygon",
-        "verdict": "corrected",
-        "note": "Added exterior spectra for cumulative products and corrected the local Newton theorem to 1.10.6, p. 183."
+        "verdict": "verified",
+        "note": "Sorted normalized root valuations define cumulative vertices, with finite positive v(q); exterior spectra, Tate shifts and degree-base extension give its API. Source check: deligne-weil-ii §1.10 (1.10.6), p. 183."
       },
       {
         "nodeId": "DeligneWeightsAndPurity:DWP.5/nonarchimedean-boundary-bounds",
-        "verdict": "corrected",
-        "note": "Added exterior spectra and corrected §1.10 to pp. 182–184."
+        "verdict": "verified",
+        "note": "The local valuation estimate applied to exterior powers controls cumulative slopes at the boundary; the N-index bound follows from endpoint width. Source check: deligne-weil-ii §1.10 (1.10.1)–(1.10.9), pp. 182–184."
       },
       {
         "nodeId": "DeligneWeightsAndPurity:DWP.5/specialization-of-monodromy",
         "verdict": "corrected",
-        "note": "Corrected §1.11 and its uniform-model specialization proof to pp. 184–186."
+        "note": "One common open works for every lattice level, with tame inertia specialization; the general finite-type reduction needs the broader LPV Part II contract. Correction: Used the existing general LPV Part II curve-reduction request; the inspected incidence-complement Bertini theorem cannot supply (1.11.4)–(1.11.5), pp. 185–186. Source check: deligne-weil-ii §1.11 (1.11.1)–(1.11.5), pp. 184–186."
       },
       {
         "nodeId": "DeligneWeightsAndPurity:DWP.5/hadamard-de-la-vallee-poussin",
-        "verdict": "corrected",
-        "note": "Corrected §2.1–§2.2 analytic and corollary references to pp. 187–191 and 195–196."
+        "verdict": "verified",
+        "note": "The norm-character translation and actual meromorphic representation-family pole hypotheses are explicit; the one possible quadratic exception is separately excluded for curves. Source check: deligne-weil-ii §2.1 (2.1.1)–(2.1.9), pp. 187–191; §2.2 Corollaire (2.2.9), pp. 195–196."
       },
       {
         "nodeId": "DeligneWeightsAndPurity:DWP.5/compact-weil-form",
-        "verdict": "corrected",
-        "note": "Corrected pure weight to −2Re(r) for ω₁=q^(−deg), added the norm-exponent API and Tate-character sign test, and corrected pp. 192–195."
+        "verdict": "verified",
+        "note": "The compact degree-zero group retains central weight scalars; semisimple Frobenius classes and weight −2Re(r) use the source norm-character convention. Source check: deligne-weil-ii §2.2 (2.2.1)–(2.2.8), pp. 192–195; corrected sign in (2.2.8)(i), p. 195."
       },
       {
         "nodeId": "DeligneWeightsAndPurity:DWP.5/strict-initial-h1-bound",
-        "verdict": "corrected",
-        "note": "Corrected Corollaries 2.2.9–2.2.10 to pp. 195–196 (2.2.9 is not a theorem) and cited exact extreme-degree cohomology."
+        "verdict": "verified",
+        "note": "After weight-zero twisting, the analytic nonvanishing theorem removes roots of weight 2, giving strict H¹ weight <β+2. Source check: deligne-weil-ii §2.2 Corollaire (2.2.9), pp. 195–196; Corollaire (2.2.10), p. 196."
       },
       {
         "nodeId": "DeligneWeightsAndPurity:DWP.5/abstract-degree-equidistribution",
-        "verdict": "corrected",
-        "note": "Corrected §2.2.1–2.2.3 to pp. 191–192."
+        "verdict": "verified",
+        "note": "Character averages decay away from the degree quotient; class-function density gives convergence to Haar probability on the appropriate degree fibres. Source check: deligne-weil-ii §2.1 (2.1.10)–(2.1.13), pp. 191–192."
       },
       {
         "nodeId": "DeligneWeightsAndPurity:DWP.6/coefficient-specific-vanishing-cycles",
         "verdict": "verified",
-        "note": "Checked the cited passages, hypotheses, proof sketch and direct inputs at target level; retained the stated conventions and explicit owner-interface or embedding gaps where applicable."
+        "note": "The node, tangency and crossing cases use actual LPV triangles with unipotent coefficients; coefficient-specific weights are computed here. Source check: deligne-weil-ii §3.1 (3.1.1)–(3.1.5), pp. 197–200."
       },
       {
         "nodeId": "DeligneWeightsAndPurity:DWP.6/real-cohomological-factors",
-        "verdict": "corrected",
-        "note": "Replaced coarse EDC.2 by the exact extreme-degree and adic/rational duality nodes."
+        "verdict": "verified",
+        "note": "Strict separation of H¹_c from weight-β+2 H²_c prevents cancellation and makes the individual curve factors real. Source check: deligne-weil-ii §3.2 Proposition (3.2.1), Remarque (3.2.2), p. 200."
       },
       {
         "nodeId": "DeligneWeightsAndPurity:DWP.6/square-improvement",
-        "verdict": "corrected",
-        "note": "Said finite surjective cover by a smooth curve, avoiding a false smooth-morphism claim for ramified covers, and cited exact extreme-degree and j_* curve duality."
+        "verdict": "verified",
+        "note": "Finite surjective covers between smooth curves give a rational trace summand; a product pencil halves the error, and finite integer iteration reaches the sharp limit. Source check: deligne-weil-ii §3.2 (3.2.4)–(3.2.14), pp. 201–204."
       },
       {
         "nodeId": "DeligneWeightsAndPurity:DWP.6/sharp-curve-purity",
         "verdict": "verified",
-        "note": "Checked the cited passages, hypotheses, proof sketch and direct inputs at target level; retained the stated conventions and explicit owner-interface or embedding gaps where applicable."
+        "note": "Square improvement gives the upper bound and exact j_* duality gives equality w+i; real fixed-ι and all-embedding integer statements remain separate. Source check: deligne-weil-ii §3.2 Théorème (3.2.3), (3.2.5), (3.2.15), pp. 200–204; yu-local-systems Proposition 6.1.1 and proof, pp. 42–43."
       },
       {
         "nodeId": "DeligneWeightsAndPurity:DWP.6/compact-support-curve-bound",
         "verdict": "verified",
-        "note": "Checked the cited passages, hypotheses, proof sketch and direct inputs at target level; retained the stated conventions and explicit owner-interface or embedding gaps where applicable."
+        "note": "The boundary exact sequence transfers parabolic purity to H¹_c, with H⁰_c and H²_c from the exact extreme-degree supplier. Source check: deligne-weil-ii §3.2 (3.2.3); §3.3 proof of (3.3.1), pp. 200, 204–205."
       },
       {
         "nodeId": "DeligneWeightsAndPurity:DWP.10/weight-transport-to-stable-subquotients",
         "verdict": "verified",
-        "note": "Checked the cited passages, hypotheses, proof sketch and direct inputs at target level; retained the stated conventions and explicit owner-interface or embedding gaps where applicable."
+        "note": "Only Frobenius-stable subquotients inherit weights; no arbitrary Hecke eigenspace is asserted to be stable or to have a compatible rational factor. Source check: deligne-weil-ii Weil II §1.2 (1.2.2), (1.2.3), (1.2.6)–(1.2.8), pp. 153–155."
       },
       {
         "nodeId": "DeligneWeightsAndPurity:DWP.10/compatible-realization-export",
-        "verdict": "verified",
-        "note": "Checked the cited passages, hypotheses, proof sketch and direct inputs at target level; retained the stated conventions and explicit owner-interface or embedding gaps where applicable."
+        "verdict": "corrected",
+        "note": "Canonical degree factors and all-extension bounds remain WC imports; a stable subquotient requires its own common rational factor and components are tracked. Correction: Split a mixed Weil I/Weil II locator into two entries with the correct source ids; the rational subquotient-factor hypothesis is retained. Source check: deligne-weil-i §1 (1.6)–(1.8), pp. 275–277; deligne-weil-ii §3.3 (3.3.9), p. 207."
       },
       {
         "nodeId": "DeligneWeightsAndPurity:DWP.10/finite-residue-semistable-curve-weights",
         "verdict": "verified",
-        "note": "Checked the cited passages, hypotheses, proof sketch and direct inputs at target level; retained the stated conventions and explicit owner-interface or embedding gaps where applicable."
+        "note": "The supplied normalization/graph monodromy filtration has weights 0,1,2 only at finite residue fields, retaining can/var and branch-sign conventions. Source check: deligne-weil-ii Weil II §1.8 (1.8.4), pp. 175–176; the LPV.7 semistable-curve supplier identifies the three pieces."
       },
       {
         "nodeId": "DeligneWeightsAndPurity:DWP.10/mixed-nearby-and-newton-exports",
-        "verdict": "corrected",
-        "note": "Separated the actual companion sources: Newton couples pp. 206–207, nearby-cycle mixedness Theorem 6.1.13 p. 246, and the ℤ[1/ℓ] variant 6.2.7 p. 248."
+        "verdict": "verified",
+        "note": "Nearby mixedness and proper purity over Z[1/ell] are exact companion imports, separate from the normalized Newton-couple/triangle restrictions. Source check: deligne-weil-ii Weil II §3.3 (3.3.7)–(3.3.8), pp. 206–207; deligne-weil-ii Théorème (6.1.13), p. 246; deligne-weil-ii Variante (6.2.7), p. 248."
       },
       {
         "nodeId": "DeligneWeightsAndPurity:DWP.10/frobenius-equidistribution",
         "verdict": "verified",
-        "note": "Checked the cited passages, hypotheses, proof sketch and direct inputs at target level; retained the stated conventions and explicit owner-interface or embedding gaps where applicable."
+        "note": "Normality, geometric semisimplicity and weight-zero irreducible cohomological decay give the precise q^(−N(nd+i)) degree-fibre Haar limit. Source check: deligne-weil-ii §3.5 (3.5.1)–(3.5.3), pp. 210–211."
       },
       {
         "nodeId": "DeligneWeightsAndPurity:DWP.10/finite-field-sato-tate",
         "verdict": "verified",
-        "note": "Checked the cited passages, hypotheses, proof sketch and direct inputs at target level; retained the stated conventions and explicit owner-interface or embedding gaps where applicable."
+        "note": "The nonconstant-j full SL₂ supplier needs prime-to-p level n≥3; SU(2) Haar has density (2/π)sin²θ and point counts subtract the H¹ trace. Source check: deligne-weil-ii §3.5 (3.5.4)–(3.5.7), pp. 211–212."
       },
       {
         "nodeId": "DeligneWeightsAndPurity:DWP.10/weight-acceptance-suite",
         "verdict": "verified",
-        "note": "Checked the cited passages, hypotheses, proof sketch and direct inputs at target level; retained the stated conventions and explicit owner-interface or embedding gaps where applicable."
+        "note": "Projective, Tate, Jordan, curve and nonproper examples reject the principal convention errors while reusing their WC/EDC owners. Source check: yu-local-systems Yu §1 pp. 2–3, Proposition 6.1.1 pp. 42–43, §7.1 p. 64; Weil II (3.2.3)."
       }
     ]
   }
