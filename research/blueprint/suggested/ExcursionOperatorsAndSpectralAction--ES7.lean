@@ -1204,8 +1204,10 @@ For an abstract two-operation package over a field of characteristic zero (`ρ`
 finite-dimensional of dimension `n > 0`, creation `a · coev`, annihilation `b · ev`) whose
 identity-tuple excursion is `n`, the excursion scalar at `(γ₁, γ₂)` is `tr ρ(γ₁ γ₂⁻¹)`. Only
 the product `a · b = 1` is determined. That the realized maps are scalar multiples of
-`coev`/`ev` (Schur, `ρ` irreducible) is the input from either characteristic's
-realization. -/
+`coev`/`ev` is an external realization input: the fusion maps use the diagonal
+Weil action, and scalar endomorphism rings of both `σ` and `ρ` justify Schur.
+Their equivariance is not with respect to two independent Weil factors. The realization
+in either characteristic supplies this input. -/
 theorem twoLegExcursionIsATrace [CharZero k] (ρ : Representation k W V) (a b : k)
     (hpos : 0 < Module.finrank k V)
     (hid : twoLegExcursionScalar ρ a b 1 1 = Module.finrank k V) (γ₁ γ₂ : W) :
@@ -1529,17 +1531,17 @@ end Orders
 
 section MaximalOrders
 
-variable {q : ℕ} (X : FFCurve q) (D : Type) [DivisionRing D] [Algebra X.functionField D]
+variable {q : ℕ} (X : FFCurve q) (D : Type) [Ring D] [IsSimpleRing D] [Algebra X.functionField D]
   [Algebra.IsCentral X.functionField D] [FiniteDimensional X.functionField D]
 
 /-- The completed algebra `D_x = F_x ⊗_F D`, a central simple `F_x`-algebra. -/
-abbrev localDivisionAlgebra {q : ℕ} (X : FFCurve q) (D : Type) [DivisionRing D]
+abbrev localCentralSimpleAlgebra {q : ℕ} (X : FFCurve q) (D : Type) [Ring D] [IsSimpleRing D]
     [Algebra X.functionField D] [Algebra.IsCentral X.functionField D]
     [FiniteDimensional X.functionField D] (x : X.Place) : Type :=
   x.completion ⊗[X.functionField] D
 
 /-- `D_x` carries its natural (finite-dimensional vector space) topology over `F_x`. -/
-instance (x : X.Place) : TopologicalSpace (localDivisionAlgebra X D x) :=
+instance (x : X.Place) : TopologicalSpace (localCentralSimpleAlgebra X D x) :=
   moduleTopology x.completion _
 
 /-- Node `ExcursionOperatorsAndSpectralAction:ES7:function-field-automorphic/maximal-orders`.
@@ -1550,34 +1552,34 @@ imposed; `D`-elliptic consumers choose a rational `∞` at which `D` splits.
 Omitted: the gluing of the `𝒟_x` into a coherent locally free `O_X`-algebra with generic fibre
 `D` (Hausberger Definition 1.1); it needs coherent sheaves of algebras on the curve
 (`SchemeAndStackFoundations:SF.0`, `SF.2/sheaf-algebra`), which have no carrier here. -/
-structure DOrder {q : ℕ} (X : FFCurve q) (D : Type) [DivisionRing D]
+structure DOrder {q : ℕ} (X : FFCurve q) (D : Type) [Ring D] [IsSimpleRing D]
     [Algebra X.functionField D] [Algebra.IsCentral X.functionField D]
     [FiniteDimensional X.functionField D] where
   /-- The completed local order `𝒟_x ⊆ D_x`. -/
-  localOrder : ∀ x : X.Place, Subalgebra 𝒪[x.completion] (localDivisionAlgebra X D x)
+  localOrder : ∀ x : X.Place, Subalgebra 𝒪[x.completion] (localCentralSimpleAlgebra X D x)
   /-- Each `𝒟_x` is a maximal `O_x`-order. -/
   isMaximal : ∀ x : X.Place,
-    IsMaximalOrder 𝒪[x.completion] x.completion (localDivisionAlgebra X D x) (localOrder x)
+    IsMaximalOrder 𝒪[x.completion] x.completion (localCentralSimpleAlgebra X D x) (localOrder x)
 
 variable {X D}
 
 /-- API `DOrder.local`: the completed local order `𝒟_x ⊆ D_x` (its unit group is
 `DOrder.localUnits`). -/
 def DOrder.local (𝒟 : DOrder X D) (x : X.Place) :
-    Subalgebra 𝒪[x.completion] (localDivisionAlgebra X D x) :=
+    Subalgebra 𝒪[x.completion] (localCentralSimpleAlgebra X D x) :=
   𝒟.localOrder x
 
 /-- The unit group `𝒟_x^× ⊆ D_x^×` of the local order (`DOrder.local`, unit-group part). -/
 def DOrder.localUnits (𝒟 : DOrder X D) (x : X.Place) :
-    Subgroup (localDivisionAlgebra X D x)ˣ :=
-  (Units.map ((𝒟.local x).val : ↥(𝒟.local x) →* localDivisionAlgebra X D x)).range
+    Subgroup (localCentralSimpleAlgebra X D x)ˣ :=
+  (Units.map ((𝒟.local x).val : ↥(𝒟.local x) →* localCentralSimpleAlgebra X D x)).range
 
 /-- API `DOrder.ramification`: the set `R` of places where `D_x` is not split, i.e. not
 isomorphic to a matrix algebra over `F_x`. (A split pole `∞` is chosen outside `R` in the
 `D`-elliptic setup.) -/
 def DOrder.ramification (𝒟 : DOrder X D) : Set X.Place :=
   {x | ∀ n : ℕ,
-    IsEmpty (localDivisionAlgebra X D x ≃ₐ[x.completion] Matrix (Fin n) (Fin n) x.completion)}
+    IsEmpty (localCentralSimpleAlgebra X D x ≃ₐ[x.completion] Matrix (Fin n) (Fin n) x.completion)}
 
 /-- The ramification set `R` is finite. -/
 theorem DOrder.ramification_finite (𝒟 : DOrder X D) : 𝒟.ramification.Finite := by
@@ -1587,21 +1589,28 @@ theorem DOrder.ramification_finite (𝒟 : DOrder X D) : 𝒟.ramification.Finit
 `(M_d(F_x), M_d(O_x))`. -/
 theorem DOrder.split_equiv (𝒟 : DOrder X D) {d : ℕ}
     (hd : Module.finrank X.functionField D = d ^ 2) (x : X.Place) (hx : x ∉ 𝒟.ramification) :
-    ∃ e : localDivisionAlgebra X D x ≃ₐ[x.completion] Matrix (Fin d) (Fin d) x.completion,
-      e '' (𝒟.local x : Set (localDivisionAlgebra X D x)) =
+    ∃ e : localCentralSimpleAlgebra X D x ≃ₐ[x.completion] Matrix (Fin d) (Fin d) x.completion,
+      e '' (𝒟.local x : Set (localCentralSimpleAlgebra X D x)) =
         {M | ∀ i j, M i j ∈ 𝒪[x.completion]} := by
   sorry
 
 /-- API `DOrder.units_isCompactOpen`: each local unit group `𝒟_x^×` is a compact open subgroup
 of `D_x^×`. -/
 theorem DOrder.units_isCompactOpen (𝒟 : DOrder X D) (x : X.Place) :
-    IsCompact (𝒟.localUnits x : Set (localDivisionAlgebra X D x)ˣ) ∧
-      IsOpen (𝒟.localUnits x : Set (localDivisionAlgebra X D x)ˣ) := by
+    IsCompact (𝒟.localUnits x : Set (localCentralSimpleAlgebra X D x)ˣ) ∧
+      IsOpen (𝒟.localUnits x : Set (localCentralSimpleAlgebra X D x)ˣ) := by
   sorry
 
 -- DOrder.rank_one_test: for `D = F` every local maximal order `𝒟_x` is `O_x`
 example (𝒟 : DOrder X X.functionField) (x : X.Place) : 𝒟.local x = ⊥ := by
   sorry
+
+/-- Split central simple algebras are admitted by the order interface. -/
+example (n : ℕ) (𝒟 : DOrder X (Matrix (Fin (n + 1)) (Fin (n + 1)) X.functionField))
+    (x : X.Place) :
+    Subalgebra 𝒪[x.completion]
+      (localCentralSimpleAlgebra X (Matrix (Fin (n + 1)) (Fin (n + 1)) X.functionField) x) :=
+  𝒟.local x
 
 end MaximalOrders
 
@@ -2152,7 +2161,7 @@ theorem CuspidalSelector.value_one (π : SupercuspidalRep (ReductiveGroup.GL K d
       CuspidalSelector π K₀ 1 ≠ 0 := by
   sorry
 
-/-- API `CuspidalSelector.trace`: `tr π(f_π) ≠ 0`, and `tr σ(f_π) = 0` for every supercuspidal
+/-- API `CuspidalSelector.trace`: `tr π(f_π) ≠ 0`, and `tr σ(f_π) = 0` for every irreducible admissible
 `σ ≇ π` with the same central character. -/
 theorem CuspidalSelector.trace (π : SupercuspidalRep (ReductiveGroup.GL K d) ℂ)
     (K₀ : Subgroup (GL (Fin d) K)) (hK₀o : IsOpen (K₀ : Set (GL (Fin d) K)))
@@ -2160,9 +2169,9 @@ theorem CuspidalSelector.trace (π : SupercuspidalRep (ReductiveGroup.GL K d) �
     [MeasurableSpace (GL (Fin d) K)] [BorelSpace (GL (Fin d) K)]
     (μ : Measure (GL (Fin d) K)) [μ.IsHaarMeasure] :
     glTrace K d π.toIrr μ (CuspidalSelector π K₀) ≠ 0 ∧
-      ∀ σ : SupercuspidalRep (ReductiveGroup.GL K d) ℂ, σ.toIrr ≠ π.toIrr →
-        σ.toIrr.centralCharacter = π.toIrr.centralCharacter →
-        glTrace K d σ.toIrr μ (CuspidalSelector π K₀) = 0 := by
+      ∀ σ : IrrSmoothRep (ReductiveGroup.GL K d) ℂ, σ ≠ π.toIrr →
+        σ.centralCharacter = π.toIrr.centralCharacter →
+        glTrace K d σ μ (CuspidalSelector π K₀) = 0 := by
   sorry
 
 /-- API `CuspidalSelector.support`: `f_π` is bi-`K₀`-invariant and its support is compact
@@ -2179,12 +2188,16 @@ theorem CuspidalSelector.support (π : SupercuspidalRep (ReductiveGroup.GL K d) 
 
 -- CuspidalSelector.value_test: for `dim π^{K₀} = 1` and `c = 1`, `f_π(1) = 1`
 example (π : SupercuspidalRep (ReductiveGroup.GL K d) ℂ) (K₀ : Subgroup (GL (Fin d) K))
+    (hK₀o : IsOpen (K₀ : Set (GL (Fin d) K)))
+    (hK₀c : IsCompact (K₀ : Set (GL (Fin d) K)))
     (h1 : Module.finrank ℂ (π.fixedVectors K₀) = 1) (hc : π.selectorScalar K₀ = 1) :
     CuspidalSelector π K₀ 1 = 1 := by
   sorry
 
 -- CuspidalSelector.central_test: `f_π(z g) = ω_π(z)⁻¹ f_π(g)` (inverse central character)
 example (π : SupercuspidalRep (ReductiveGroup.GL K d) ℂ) (K₀ : Subgroup (GL (Fin d) K))
+    (hK₀o : IsOpen (K₀ : Set (GL (Fin d) K)))
+    (hK₀c : IsCompact (K₀ : Set (GL (Fin d) K)))
     (z : Kˣ) (g : GL (Fin d) K) :
     CuspidalSelector π K₀ (Matrix.GeneralLinearGroup.scalar (Fin d) z * g) =
       ((π.toIrr.centralCharacter z : ℂˣ) : ℂ)⁻¹ * CuspidalSelector π K₀ g := by
@@ -3254,7 +3267,8 @@ instance (d : ℕ) : FiniteDimensional K (LocalInvDivAlg K d) := sorry
 instance (d : ℕ) : TopologicalSpace (LocalInvDivAlg K d) := sorry
 
 /-- `[D_K : K] = d²`. -/
-lemma LocalInvDivAlg.finrank (d : ℕ) : Module.finrank K (LocalInvDivAlg K d) = d ^ 2 := by
+lemma LocalInvDivAlg.finrank (d : ℕ) [NeZero d] :
+    Module.finrank K (LocalInvDivAlg K d) = d ^ 2 := by
   sorry
 
 /-- The reduced norm `Nrd : D_K^× → K^×`. -/
@@ -3670,7 +3684,7 @@ supercuspidal and `i > 0`, `Ext^i_{GL_d(K)}(H_c^j((Res′Σ_n^d)_{K̄}), π) = 0
 use Frobenius reciprocity for the compact induction). Hence a selected transfer with
 supercuspidal `π_o` has multiplicity zero in `E₂^{i,j}`, `i > 0`, and
 `E₂^{0,j}[Π^{∞,o}] ≅ (H^j)^{ss}[Π^{∞,o}]` with its `D_o^×` and Weil actions; that isotypic
-bookkeeping uses the carriers of `function-field-automorphic/selected-isotypic-cohomology` and is
+bookkeeping uses the carriers of `equal-characteristic/selected-isotypic-cohomology` and is
 not restated here. Not a full degeneration for arbitrary automorphic constituents. -/
 theorem hochschildSerreAndDegeneration (d ℓ : ℕ) [Fact ℓ.Prime] (hℓ : (ℓ : K) ≠ 0) (n j i : ℕ)
     (hi : 0 < i) (π : SupercuspidalRep (ReductiveGroup.GL K d) (QlBar ℓ)) :
@@ -3679,7 +3693,7 @@ theorem hochschildSerreAndDegeneration (d ℓ : ℕ) [Fact ℓ.Prime] (hℓ : (�
   sorry
 
 /-- The Jacquet–Langlands transfer `JL(π)` of a supercuspidal `π` to `D_K^×` (owned by
-`equal-characteristic/local-character-identity`; merge with that part's carrier). -/
+`function-field-automorphic/local-character-identity`; merge with that part's carrier). -/
 def eqCharJLSpace {d ℓ : ℕ} [Fact ℓ.Prime] (π : SupercuspidalRep (ReductiveGroup.GL K d) (QlBar ℓ)) :
     Type := sorry
 
@@ -4598,14 +4612,30 @@ def SupercuspidalRep.pairEpsilon {d d' : ℕ} (π : SupercuspidalRep (ReductiveG
     (π' : SupercuspidalRep (ReductiveGroup.GL K d') k) (ψ : AddChar K k) :
     LaurentPolynomial k := sorry
 
+/-- A fixed global setup of LRS 15.9: curve, `o,o′,∞`, identification `F_o ≅ K`, and
+degree-`d` algebra `D`. Owned by FA.6 and `function-field-automorphic/globalisation`. -/
+def SelectedGlobalSetup (K : Type u) [Field K] [ValuativeRel K] [TopologicalSpace K]
+    [IsNonarchimedeanLocalField K] (ℓ : ℕ) [Fact ℓ.Prime] (d : ℕ) : Type u := sorry
+
 variable (K) in
-/-- The selected globalisation data of LRS 15.10–15.11 for a supercuspidal `π` of `GL_d(K)`:
-a curve `X/F_q`, places `o, o′, ∞, x₂, x₃` with an identification `F_o ≅ K`, a cuspidal `Π̃` with
+/-- One chosen setup for the local construction. No comparison between different setups
+is asserted by `localCorrespondenceIndependence`. -/
+def selectedGlobalSetup (ℓ : ℕ) [Fact ℓ.Prime] (d : ℕ) : SelectedGlobalSetup K ℓ d := sorry
+
+variable (K) in
+/-- The selected globalisations in one fixed setup: auxiliary `x₂,x₃`, a cuspidal `Π̃` with
 `Π̃_o ≅ π`, `Π̃_∞ ≅ St`, supercuspidal at `o′, x₂`, the division algebra `D` with invariants
 `±1/d` at `o, o′`, and its selected transfer `Π` (nodes `.../globalisation` and
 `.../jacquet-langlands-transfer`), as an opaque carrier type. -/
-def SelectedGlobalisation (ℓ : ℕ) [Fact ℓ.Prime] {d : ℕ}
+def GlobalisationInSetup (ℓ : ℕ) [Fact ℓ.Prime] {d : ℕ}
+    (setup : SelectedGlobalSetup K ℓ d)
     (π : SupercuspidalRep (ReductiveGroup.GL K d) (QlBar ℓ)) : Type u := sorry
+
+variable (K) in
+/-- Globalisations in the chosen fixed setup of the classical local construction. -/
+abbrev SelectedGlobalisation (ℓ : ℕ) [Fact ℓ.Prime] {d : ℕ}
+    (π : SupercuspidalRep (ReductiveGroup.GL K d) (QlBar ℓ)) : Type u :=
+  GlobalisationInSetup K ℓ (selectedGlobalSetup K ℓ d) π
 
 /-- The semisimple restriction `Σ(Π)|_{W_K}` (via `F_o ≅ K`) of the selected global Galois
 representation `Σ(Π) = V_Π^{d−1}((d−1)/2)` of `selectedIsotypicCohomology`. -/
@@ -4627,13 +4657,15 @@ variable (K) in
 /-- Node `ExcursionOperatorsAndSpectralAction:ES7:equal-characteristic/local-correspondence-independence`.
 LRS 15.13–15.14. Let `K` be a local field of characteristic `p`, `ℓ ≠ p`, and `π` a supercuspidal
 representation of `GL_d(K)` with finite-order central character. The restrictions
-`Σ(Π)|_{W_K}` from any two selected globalisations are isomorphic (independent of curve,
-auxiliary places and transfer); their determinant is `ω_π ∘ rec`; globalisations of `π^∨` and of
+`Σ(Π)|_{W_K}` from any two selected globalisations in the chosen fixed global setup are
+isomorphic (the auxiliary places and transfer may vary; the curve, `o,o′,∞,D` are fixed).
+Their determinant is `ω_π ∘ rec`; globalisations of `π^∨` and of
 finite-order twists `π ⊗ χ∘det` give the contragredient and the twist by `χ ∘ rec`; and for
 `π′` of `GL_{d′}(K)` with finite-order central character the Rankin–Selberg `L`- and
 `ε`-factors equal the Galois tensor-product factors, for every nontrivial locally constant
 additive character `ψ` (geometric reciprocity). The local-constant uniqueness input (Henniart
-4.1/4.4/4.5) is a retained source gap. -/
+4.1/4.4/4.5) is a retained source gap. The compact-support lisse functional equation and
+local ε-factor product formula are separately requested from WC.2. -/
 theorem localCorrespondenceIndependence (p : ℕ) [Fact p.Prime] [CharP K p] (ℓ : ℕ)
     [Fact ℓ.Prime] (hℓ : ℓ ≠ p) (d : ℕ) (hd : 1 ≤ d)
     (π : SupercuspidalRep (ReductiveGroup.GL K d) (QlBar ℓ))
