@@ -37257,7 +37257,8 @@
    ],
    "revisionOf": "DESIGN-EllipticCurveModularityPartIIGL2TypeAbelianVarieties",
    "prompt": "research/blueprint/prompts/DESIGN-EllipticCurveModularityPartIIGL2TypeAbelianVarieties~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7447"
   },
   {
    "priority": 2,
@@ -38027,8 +38028,9 @@
     "BP-AutomorphicLFunctionsAndLocalFactors~2"
    ],
    "prompt": "research/blueprint/prompts/REV-AutomorphicLFunctionsAndLocalFactors~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7030"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7030",
+   "finishedAt": "2026-10-08T20:25:16Z"
   },
   {
    "kind": "blueprint",
@@ -38255,8 +38257,9 @@
     "BP-CohomologyComparisons~2"
    ],
    "prompt": "research/blueprint/prompts/REV-CohomologyComparisons~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7037"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7037",
+   "finishedAt": "2026-10-08T20:25:20Z"
   },
   {
    "kind": "blueprint",
@@ -40097,8 +40100,9 @@
    ],
    "revisionOf": "BP-KatoEulerSystems",
    "prompt": "research/blueprint/prompts/BP-KatoEulerSystems~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6976"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6976",
+   "finishedAt": "2026-10-08T20:25:24Z"
   },
   {
    "priority": 2,
@@ -46235,7 +46239,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-CrystallineLocalGlobalCompatibilityCM.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7462"
   },
   {
    "id": "REV-PKG-CrystallineLocalGlobalCompatibilityCM",
@@ -47138,7 +47143,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-IntegralHeckeAndGaloisDeterminants.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7478"
   },
   {
    "id": "REV-PKG-IntegralHeckeAndGaloisDeterminants",
@@ -47224,7 +47230,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-LocalGaloisDeformationRings.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7479"
   },
   {
    "id": "REV-PKG-LocalGaloisDeformationRings",
