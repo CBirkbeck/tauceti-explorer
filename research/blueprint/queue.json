@@ -37182,7 +37182,8 @@
     "DESIGN-EllipticCurveModularityPartII~2"
    ],
    "prompt": "research/blueprint/prompts/REV-DESIGN-EllipticCurveModularityPartII~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7021"
   },
   {
    "kind": "design",
@@ -41504,7 +41505,8 @@
    ],
    "revisionOf": "BP-ComplexMultiplicationAndExplicitReciprocity",
    "prompt": "research/blueprint/prompts/BP-ComplexMultiplicationAndExplicitReciprocity~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6978"
   },
   {
    "priority": 2,
