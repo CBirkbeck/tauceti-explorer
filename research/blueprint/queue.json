@@ -37805,7 +37805,8 @@
     "BP-AutomorphicFormsOnReductiveGroups~2"
    ],
    "prompt": "research/blueprint/prompts/REV-AutomorphicFormsOnReductiveGroups~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6989"
   },
   {
    "kind": "blueprint",
@@ -47492,8 +47493,9 @@
     "PKG-PotentialAutomorphyInfrastructure"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-PotentialAutomorphyInfrastructure.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7486"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7486",
+   "finishedAt": "2026-10-08T22:16:58Z"
   },
   {
    "id": "PKG-PotentialModularityAndCompatibleSystems",
