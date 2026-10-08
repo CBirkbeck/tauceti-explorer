@@ -494,6 +494,17 @@
     "data/blueprints/roadmaps/ClassicalGroupsPartII.json"
    ]
   },
+  "research/blueprint/packets/ClassicalSerreModularity--R26.1.json": {
+   "promotedAt": "2026-10-08T10:34:19Z",
+   "review": "fc2384210aa6bc7b",
+   "reviewDate": "2026-10-08",
+   "reviewer": "independent-review-REV-ClassicalSerreModularity--R26.1~2",
+   "sha256": "97f2637e8f0e831fe320685e5caea287fe1c1101bbdedd48fc8602ed8b40c246",
+   "to": [
+    "data/blueprints/ClassicalSerreModularity--R26.1.json",
+    "data/blueprints/ClassicalSerreModularity--R26.1.md"
+   ]
+  },
   "research/blueprint/packets/ClassicalSerreModularity--R27.3.json": {
    "promotedAt": "2026-10-07T13:32:52Z",
    "review": "3257ead41b40fce9",
