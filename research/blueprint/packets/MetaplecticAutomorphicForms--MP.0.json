@@ -485,6 +485,14 @@
         "agent": "Codex — codex-dURHND",
         "fetch": "hash matched the recorded source version",
         "readSections": "I.1–I.3, PDF3,5–14: actual Heisenberg/Schrödinger data, character and Leray corrections."
+      },
+      "independentReviewReading": {
+        "date": "2026-10-08",
+        "agent": "Codex — codex-2XfYcg",
+        "readSections": "I.1–3 PDF3–13; I.4 PDF17–26; II PDF29–33,35–39; III PDF44–49; IV PDF52–53; V PDF59–66,70–74. Scoped definitions, cocycles, local categories, tensor twists and target statements; referenced original Rao/MVW and unscoped proofs remain gates.",
+        "fetch": "Public PDF fetched; SHA-256 matched the historical receipt",
+        "url": "https://www.math.toronto.edu/skudla/castle.pdf",
+        "sha256": "800ed01b22fa6104a3292a8b2ef124cd69781a6904f626f71fcf2a30a9af8cdd"
       }
     },
     {
@@ -503,6 +511,14 @@
         "agent": "Codex — codex-dURHND",
         "fetch": "hash matched the recorded source version",
         "readSections": "No new paper-reading claim. Historical readSections and independent-review source findings are retained as provenance."
+      },
+      "independentReviewReading": {
+        "date": "2026-10-08",
+        "agent": "Codex — codex-2XfYcg",
+        "readSections": "PDF6–7,15,18–20,27–28,30–57: II §§24–30, III §§31–41 and IV §§42–44, plus the relevant introductory/local setup. Local/global index and normalizer conventions checked; no full-paper proof closure claim.",
+        "fetch": "Public PDF fetched; SHA-256 matched the historical receipt",
+        "url": "https://webhomes.maths.ed.ac.uk/~v1ranick/papers/weil2.pdf",
+        "sha256": "22df47cb98307aa77c46028cf5575eeb1d3524950dbdadb9c0c21890966039d2"
       }
     },
     {
@@ -521,6 +537,14 @@
         "agent": "Codex — codex-dURHND",
         "fetch": "hash matched the recorded source version",
         "readSections": "No new paper-reading claim. Historical readSections and independent-review source findings are retained as provenance."
+      },
+      "independentReviewReading": {
+        "date": "2026-10-08",
+        "agent": "Codex — codex-2XfYcg",
+        "readSections": "PDF1–4: the real Stone–von Neumann construction, Claim0.7 and multiplicity conclusion. Fourier-density justification remains a proof gate.",
+        "fetch": "Public PDF fetched; SHA-256 matched the historical receipt",
+        "url": "https://www-users.cse.umn.edu/~garrett/m/mfms/SSW/06_svn_theorem.pdf",
+        "sha256": "7fed4ade4126aa2acfbf59901acc33253d6f38eeedbbe812d3a2f377c7a9903f"
       }
     },
     {
@@ -539,6 +563,14 @@
         "agent": "Codex — codex-dURHND",
         "fetch": "hash matched the recorded source version",
         "readSections": "§§2.1–2.5, PDF7–13; §7.1–§8.2, PDF33–35: action, measure and evaluation data and ordinary, exceptional boundary and quotient-valued second-term statements. No complete induction proof claim."
+      },
+      "independentReviewReading": {
+        "date": "2026-10-08",
+        "agent": "Codex — codex-2XfYcg",
+        "readSections": "PDF5–6,11–18,25,28,33–35,52–57: measures, (2.2), regularization and Siegel–Weil ranges, doubling §11.3, local zeta §11.6, Theorems11.4/11.7. Intervening induction and original local doubling proofs remain gates.",
+        "fetch": "Public PDF fetched; SHA-256 matched the historical receipt",
+        "url": "https://arxiv.org/pdf/1207.4709v3",
+        "sha256": "cde6b7ad22b974d4159f8cedd1e14a00bf4b05ec977ab750b54fdceb067adac5"
       }
     },
     {
@@ -557,6 +589,14 @@
         "agent": "Codex — codex-dURHND",
         "fetch": "hash matched the recorded source version",
         "readSections": "No new paper-reading claim. Historical readSections and independent-review source findings are retained as provenance."
+      },
+      "independentReviewReading": {
+        "date": "2026-10-08",
+        "agent": "Codex — codex-2XfYcg",
+        "readSections": "PDF1–3,7–9: characteristic-zero local Howe-duality statement and its categories. The main proof is not independently reconstructed.",
+        "fetch": "Public PDF fetched; SHA-256 matched the historical receipt",
+        "url": "https://arxiv.org/pdf/1407.1995v4",
+        "sha256": "89972dcc033e93feb2a483d44a5c03569fecb026079c0f2152f05c90f6f6a561"
       }
     },
     {
@@ -575,6 +615,14 @@
         "agent": "Codex — codex-dURHND",
         "fetch": "hash matched the recorded source version",
         "readSections": "No new paper-reading claim. Historical readSections and independent-review source findings are retained as provenance."
+      },
+      "independentReviewReading": {
+        "date": "2026-10-08",
+        "agent": "Codex — codex-2XfYcg",
+        "readSections": "PDF11–15,19–20: unitary trace pairing, δ-independence, character restrictions, local theta and see-saw. Original Kudla unitary splitting proof remains a gate.",
+        "fetch": "Public PDF fetched; SHA-256 matched the historical receipt",
+        "url": "https://arxiv.org/pdf/1409.6824v2",
+        "sha256": "4aaf7bd6281dd8726cdfca2de32b6f515924a8277865684fc9e011770ec0be5e"
       }
     },
     {
@@ -593,6 +641,14 @@
         "agent": "Codex — codex-dURHND",
         "fetch": "hash matched the recorded source version",
         "readSections": "No new paper-reading claim. Historical readSections and independent-review source findings are retained as provenance."
+      },
+      "independentReviewReading": {
+        "date": "2026-10-08",
+        "agent": "Codex — codex-2XfYcg",
+        "readSections": "PDF5–10,43–46: source first-occurrence conventions and nonarchimedean/archimedean conservation statements.",
+        "fetch": "Public PDF fetched; SHA-256 matched the historical receipt",
+        "url": "https://arxiv.org/pdf/1204.2969v3",
+        "sha256": "dbd11f450840ecf3b33cec57b22b9bc37ff80d11da000c55743429a43c402676"
       }
     },
     {
@@ -611,6 +667,14 @@
         "agent": "Codex — codex-dURHND",
         "fetch": "hash matched the recorded source version",
         "readSections": "No new paper-reading claim. Historical readSections and independent-review source findings are retained as provenance."
+      },
+      "independentReviewReading": {
+        "date": "2026-10-08",
+        "agent": "Codex — codex-2XfYcg",
+        "readSections": "PDF12–16: resolvent, Fourier/Dirichlet and theta-trace targets in the scope of the MP.7 comparisons.",
+        "fetch": "Public PDF fetched; SHA-256 matched the historical receipt",
+        "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v173-n2-p08-p.pdf",
+        "sha256": "8f2b8ed3518fe69f08a72ef0ed3311d30523042335d4bd0e1ffd82d84459a010"
       }
     },
     {
@@ -629,6 +693,14 @@
         "agent": "Codex — codex-dURHND",
         "fetch": "HTTP403; no independent rereading in this run",
         "readSections": "No new paper-reading claim. Historical readSections and independent-review source findings are retained as provenance."
+      },
+      "independentReviewReading": {
+        "date": "2026-10-08",
+        "agent": "Codex — codex-2XfYcg",
+        "readSections": "PDF3–4 and26–27 (printed105–106,128–129): Theorem1 coefficients, general level, spectral rescaling and the Vitali passage. Full trace/Kuznetsov proof remains a gate.",
+        "fetch": "Publisher HTTP403; author-hosted public PDF fetched with SHA-256 matching the historical receipt",
+        "url": "https://users.renyi.hu/~biroand/pdfs/Cycle.pdf",
+        "sha256": "d1a49be2d88fb60164b11783d444256fdcb0e1e8678476a325c077322a4572a4"
       }
     },
     {
@@ -647,6 +719,14 @@
         "agent": "Codex — codex-dURHND",
         "fetch": "hash matched the recorded source version",
         "readSections": "No new paper-reading claim. Historical readSections and independent-review source findings are retained as provenance."
+      },
+      "independentReviewReading": {
+        "date": "2026-10-08",
+        "agent": "Codex — codex-2XfYcg",
+        "readSections": "Published scan PDF6,8,10–12, including page images: genus-two and ramified-kernel interfaces; original FH95 construction was not read.",
+        "fetch": "Public PDF fetched; SHA-256 matched the historical receipt",
+        "url": "https://www.wstein.org/papers/bib/bump-friedberg-hoffstein-nonvanishing.pdf",
+        "sha256": "d50ad2f11c992591de90f2cea59489ac436cce455e140e6eebf5053f49819f2c"
       }
     },
     {
@@ -665,6 +745,14 @@
         "agent": "Codex — codex-dURHND",
         "fetch": "hash matched the recorded source version",
         "readSections": "No new paper-reading claim. Historical readSections and independent-review source findings are retained as provenance."
+      },
+      "independentReviewReading": {
+        "date": "2026-10-08",
+        "agent": "Codex — codex-2XfYcg",
+        "readSections": "PDF62–63,75–77: omega_L finite Weil convention and theta coefficient interfaces; no arithmetic intersection proof is claimed.",
+        "fetch": "Public PDF fetched; SHA-256 matched the historical receipt",
+        "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v187-n2-p03-p.pdf",
+        "sha256": "e1274468312566b3b062e9612cd89818349e9c98cf9e58a728f85704b740c6bb"
       }
     },
     {
@@ -683,6 +771,14 @@
         "agent": "Codex — codex-dURHND",
         "fetch": "hash matched the recorded source version",
         "readSections": "No new paper-reading claim. Historical readSections and independent-review source findings are retained as provenance."
+      },
+      "independentReviewReading": {
+        "date": "2026-10-08",
+        "agent": "Codex — codex-2XfYcg",
+        "readSections": "PDF50,54–55: relevant real discrete-series/theta interfaces; the surrounding classification proof is outside this review.",
+        "fetch": "Public PDF fetched; SHA-256 matched the historical receipt",
+        "url": "https://arxiv.org/pdf/1907.08783v1",
+        "sha256": "81b7fe2c31d0ab4ac7465c7d5209611638fa0d8c7c4ff11f7f4746866491742c"
       }
     },
     {
@@ -701,6 +797,14 @@
         "agent": "Codex — codex-dURHND",
         "fetch": "hash matched the recorded source version",
         "readSections": "No new paper-reading claim. Historical readSections and independent-review source findings are retained as provenance."
+      },
+      "independentReviewReading": {
+        "date": "2026-10-08",
+        "agent": "Codex — codex-2XfYcg",
+        "readSections": "PDF39–42: relevant local unitary dichotomy, trace/coefficient rationality interfaces and their hypotheses.",
+        "fetch": "Public PDF fetched; SHA-256 matched the historical receipt",
+        "url": "https://arxiv.org/pdf/2204.09239v3",
+        "sha256": "1f759774cdbf8700c5978b6ea45c1bf63c99b993136a82a45a907320fef53bfa"
       }
     },
     {
@@ -719,6 +823,14 @@
         "agent": "Codex — codex-dURHND",
         "fetch": "hash matched the recorded source version",
         "readSections": "Published §5, pp.964–965 (PDF16–17) and §§8–10, pp.975–982 (PDF27–34): source normalization, operators, two-sign coefficient series, cycle and trace ranges. Original cited spectral/Hecke proofs remain source gaps."
+      },
+      "independentReviewReading": {
+        "date": "2026-10-08",
+        "agent": "Codex — codex-2XfYcg",
+        "readSections": "Published PDF16–21,27–34, with formula images at PDF17,28–29,33–34: Theorem4, (6.6), cycles, §9 unfolding and §10 Shimura/Hecke inputs. Original Fay, Kohnen, Baruch–Mao and the local Weyl-law argument remain gates.",
+        "fetch": "Public PDF fetched; SHA-256 matched the historical receipt",
+        "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n3-p08-p.pdf",
+        "sha256": "a67de7157f76ee700bc2e6a0034a920adc390022d4ff528aa80084f829f35f61"
       }
     },
     {
@@ -737,6 +849,14 @@
         "agent": "Codex — codex-dURHND",
         "fetch": "hash matched the recorded source version",
         "readSections": "No new paper-reading claim. Historical readSections and independent-review source findings are retained as provenance."
+      },
+      "independentReviewReading": {
+        "date": "2026-10-08",
+        "agent": "Codex — codex-2XfYcg",
+        "readSections": "PDF8,18–21,25–28: odd-orthogonal/metaplectic local theta and unramified interfaces; smaller induction proofs remain source gates.",
+        "fetch": "Public PDF fetched; SHA-256 matched the historical receipt",
+        "url": "https://arxiv.org/pdf/1705.10106v3",
+        "sha256": "5d1408c5f8bc15a5ceec04a465ceb80cb7265da218138d5a746418ee8b4b291d"
       }
     },
     {
@@ -755,6 +875,14 @@
         "agent": "Codex — codex-dURHND",
         "fetch": "hash matched the recorded source version",
         "readSections": "No new paper-reading claim. Historical readSections and independent-review source findings are retained as provenance."
+      },
+      "independentReviewReading": {
+        "date": "2026-10-08",
+        "agent": "Codex — codex-2XfYcg",
+        "readSections": "PDF26–28,40–41,50–51,54: rank-one, exceptional and division-ternary instances, including the corrected ψ-conjugation and anisotropic input.",
+        "fetch": "Public PDF fetched; SHA-256 matched the historical receipt",
+        "url": "https://arxiv.org/pdf/2102.00372v1",
+        "sha256": "8b3b6702909a6a936e5984f46a3c2fbfe629b63db4ba0ae9bd4356286508c6e5"
       }
     },
     {
@@ -773,6 +901,14 @@
         "agent": "Codex — codex-dURHND",
         "fetch": "hash matched the recorded source version",
         "readSections": "No new paper-reading claim. Historical readSections and independent-review source findings are retained as provenance."
+      },
+      "independentReviewReading": {
+        "date": "2026-10-08",
+        "agent": "Codex — codex-2XfYcg",
+        "readSections": "PDF17–18,34–35: the selected exceptional local theta/dichotomy interfaces and source categories.",
+        "fetch": "Public PDF fetched; SHA-256 matched the historical receipt",
+        "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/2479D805B0F248C91A33671F3A03752E/S2050508623000276a.pdf/local_langlands_conjecture_for_g2.pdf",
+        "sha256": "6fc3979d78510fb094e50de9bdd162dfaad43f51fe9b6b8a82ab3d84e0c93389"
       }
     },
     {
@@ -791,6 +927,14 @@
         "agent": "Codex — codex-dURHND",
         "fetch": "hash matched the recorded source version",
         "readSections": "Published IV.§2, pp.273–275 (PDF50–52), read from page images: odd-discriminant scope, matrix lift and integer exponential modulus. This reading does not establish the cited all-discriminant Hecke proof."
+      },
+      "independentReviewReading": {
+        "date": "2026-10-08",
+        "agent": "Codex — codex-2XfYcg",
+        "readSections": "Published scan PDF6,47,50–52 with page images: I.1 definitions and IV.1–2 ideal-class theta/Poisson, SL₂ lift and integer-modulus conventions.",
+        "fetch": "Public PDF fetched; SHA-256 matched the historical receipt",
+        "url": "https://wstein.org/papers/bib/Gross-Zagier_Heegner_points_and_derivatives_of_Lseries.pdf",
+        "sha256": "a9a52cb8662e03f19ace81dcfbf24bf873bf9c46ba89a8c890727b9541abdbf5"
       }
     },
     {
@@ -809,6 +953,14 @@
         "agent": "Codex — codex-dURHND",
         "fetch": "hash matched the recorded source version",
         "readSections": "No new paper-reading claim. Historical readSections and independent-review source findings are retained as provenance."
+      },
+      "independentReviewReading": {
+        "date": "2026-10-08",
+        "agent": "Codex — codex-2XfYcg",
+        "readSections": "PDF41–42,50–53,87–115: quaternionic similitude setup and Appendix A splittings, μ correction, norm-lift descent and Periods-I calculations. Referenced original comparison proofs remain gates.",
+        "fetch": "Public PDF fetched; SHA-256 matched the historical receipt",
+        "url": "https://arxiv.org/pdf/1806.10563v2",
+        "sha256": "058fda94ad08d245dcdf01672e5915beacb8458e6b49498b7e15debbf828aad5"
       }
     },
     {
@@ -827,6 +979,14 @@
         "agent": "Codex — codex-dURHND",
         "fetch": "hash matched the recorded source version",
         "readSections": "No new paper-reading claim. Historical readSections and independent-review source findings are retained as provenance."
+      },
+      "independentReviewReading": {
+        "date": "2026-10-08",
+        "agent": "Codex — codex-2XfYcg",
+        "readSections": "PDF169–173 §14: ordinary function-field spectral input; no metaplectic shtuka theorem is claimed supplied.",
+        "fetch": "Public PDF fetched; SHA-256 matched the historical receipt",
+        "url": "https://arxiv.org/pdf/1209.5352v10",
+        "sha256": "b37715f9c42862b7560d8b71da07924376e3cbbbe862ef9e89a57d8c91a64295"
       }
     },
     {
@@ -845,6 +1005,14 @@
         "agent": "Codex — codex-dURHND",
         "fetch": "hash matched the recorded source version",
         "readSections": "No new paper-reading claim. Historical readSections and independent-review source findings are retained as provenance."
+      },
+      "independentReviewReading": {
+        "date": "2026-10-08",
+        "agent": "Codex — codex-2XfYcg",
+        "readSections": "PDF15–17,31–32,49–50: relevant unitary splittings, sections and global normalization interfaces.",
+        "fetch": "Public PDF fetched; SHA-256 matched the historical receipt",
+        "url": "https://www.math.columbia.edu/~chaoli/AIPF.pdf",
+        "sha256": "6ef2d63ea2cf55d8a2648f71ed7ac84e4d32f77e9e7eaeb62b47e584e4e5e566"
       }
     },
     {
@@ -863,6 +1031,14 @@
         "agent": "Codex — codex-dURHND",
         "fetch": "hash matched the recorded source version",
         "readSections": "No new paper-reading claim. Historical readSections and independent-review source findings are retained as provenance."
+      },
+      "independentReviewReading": {
+        "date": "2026-10-08",
+        "agent": "Codex — codex-2XfYcg",
+        "readSections": "PDF11,43–45: extended Schwartz and unitary theta restriction interfaces; original analytic extension proof remains a gate.",
+        "fetch": "Public PDF fetched; SHA-256 matched the historical receipt",
+        "url": "https://arxiv.org/pdf/2101.09485v2",
+        "sha256": "6cf5b238a14dfea7761133b0437cd5a671db1266bc0dd9806163cfdd3bc20990"
       }
     },
     {
@@ -881,6 +1057,14 @@
         "agent": "Codex — codex-dURHND",
         "fetch": "hash matched the recorded source version",
         "readSections": "No new paper-reading claim. Historical readSections and independent-review source findings are retained as provenance."
+      },
+      "independentReviewReading": {
+        "date": "2026-10-08",
+        "agent": "Codex — codex-2XfYcg",
+        "readSections": "PDF8–9,56–58,78–79: positive-dimensional quadratic/Hermitian uncertainty, half-trace and operator conventions; full local Fourier carrier remains a supplier gate.",
+        "fetch": "Public PDF fetched; SHA-256 matched the historical receipt",
+        "url": "https://arxiv.org/pdf/1908.01701v3",
+        "sha256": "7db1843f90c3e79741f8d58d92b6bb42b0a3b7ae001c8f9419f43b08c2119d49"
       }
     },
     {
@@ -899,6 +1083,14 @@
         "agent": "Codex — codex-dURHND",
         "fetch": "hash matched the recorded source version",
         "readSections": "No new paper-reading claim. Historical readSections and independent-review source findings are retained as provenance."
+      },
+      "independentReviewReading": {
+        "date": "2026-10-08",
+        "agent": "Codex — codex-2XfYcg",
+        "readSections": "PDF46–50: unit-quotiented theta and source normalization interfaces; no surrounding height formula proof claim.",
+        "fetch": "Public PDF fetched; SHA-256 matched the historical receipt",
+        "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v187-n2-p04-p.pdf",
+        "sha256": "29dfd5f19dec401116f1eaf0305305acf5f2fc68aa3c90d4eb6e5222de50d507"
       }
     },
     {
@@ -917,6 +1109,14 @@
         "agent": "Codex — codex-dURHND",
         "fetch": "hash matched the recorded source version",
         "readSections": "No new paper-reading claim. Historical readSections and independent-review source findings are retained as provenance."
+      },
+      "independentReviewReading": {
+        "date": "2026-10-08",
+        "agent": "Codex — codex-2XfYcg",
+        "readSections": "PDF70–71,108–109: even Weil/theta and Hermitian index interfaces; AFL transfer and intersection proofs are outside MP.",
+        "fetch": "Public PDF fetched; SHA-256 matched the historical receipt",
+        "url": "https://archive.ymsc.tsinghua.edu.cn/pacm_download/21/12000-annals.2021.193.3.5.pdf",
+        "sha256": "6f8ac537b4f95cf26ba907dc1d25c1b9d9157a3a4006a311b114a522177d3b45"
       }
     },
     {
@@ -935,6 +1135,33 @@
         "agent": "Codex — codex-dURHND",
         "fetch": "HTTP403; no independent rereading in this run",
         "readSections": "No new paper-reading claim. Historical readSections and independent-review source findings are retained as provenance."
+      },
+      "independentReviewReading": {
+        "date": "2026-10-08",
+        "agent": "Codex — codex-2XfYcg",
+        "readSections": "Cached public author-draft text in §§2.1,2.2.1,2.3–2.4, including Proposition2.2.1 and its nonsplit proof. Direct download returned HTTP403, so the inherited SHA-256 was not independently checked. Physical-page offsets were not newly certified. The referenced split Waldspurger proof and the 2013 book were not read.",
+        "fetch": "Cached public PDF text inspected; direct HTTP403; historical byte hash unverified in this run",
+        "url": "https://www.researchgate.net/profile/Xinyi-Yuan-11/publication/267551160_Gross-Zagier_Formula_On_Shimura_Curves/links/548e842c0cf225bf66a5ff13/Gross-Zagier-Formula-On-Shimura-Curves.pdf?origin=publication_detail"
+      }
+    },
+    {
+      "id": "Duke88",
+      "title": "Hyperbolic distribution problems and half-integral weight Maass forms",
+      "authors": "William Duke",
+      "edition": "Inventiones Mathematicae 92 (1988), 73–90; public scan on the author’s UCLA page",
+      "url": "https://www.math.ucla.edu/~wdduke/preprints/hyperbolic.pdf",
+      "sha256": "3c468d0c0d79ec2ab29f96dcdda6094a4ceb6603a4caaae947c0bef443f9005f",
+      "read": "2026-10-08",
+      "readSections": [
+        "§2 spectral normalization, PDF5–6; Theorem5, printed85–86/PDF13–14. Unit Petersson normalization and cosh(πt/2) were checked; the full coefficient-estimate proof was not reconstructed."
+      ],
+      "independentReviewReading": {
+        "date": "2026-10-08",
+        "agent": "Codex — codex-2XfYcg",
+        "fetch": "Public scan fetched; SHA-256 recorded",
+        "url": "https://www.math.ucla.edu/~wdduke/preprints/hyperbolic.pdf",
+        "sha256": "3c468d0c0d79ec2ab29f96dcdda6094a4ceb6603a4caaae947c0bef443f9005f",
+        "readSections": "§2 spectral normalization, PDF5–6; Theorem5, printed85–86/PDF13–14. Unit Petersson normalization and cosh(πt/2) were checked; the full coefficient-estimate proof was not reconstructed."
       }
     }
   ],
@@ -1129,6 +1356,22 @@
       "citation": "Kudla, 1996 author notes. Fresh narrow checks I.4 pp.17–18, II.2 pp.31–33 andII.4 pp.36–37 for local categories, Weil/Hilbert normalization and central twists. Same bytes as the inherited castle.pdf.",
       "read": "2026-10-07",
       "sha256": "800ed01b22fa6104a3292a8b2ef124cd69781a6904f626f71fcf2a30a9af8cdd"
+    },
+    {
+      "sourceId": "Biro00",
+      "kind": "author copy",
+      "url": "https://users.renyi.hu/~biroand/pdfs/Cycle.pdf",
+      "citation": "Biró, published Acta Arithmetica 94 (2000) public author-hosted scan. Theorem1 printed105–106 and the Vitali passage printed128–129 independently checked; same bytes as the historical publisher receipt.",
+      "read": "2026-10-08",
+      "sha256": "d1a49be2d88fb60164b11783d444256fdcb0e1e8678476a325c077322a4572a4"
+    },
+    {
+      "sourceId": "Duke88",
+      "kind": "author copy",
+      "url": "https://www.math.ucla.edu/~wdduke/preprints/hyperbolic.pdf",
+      "citation": "Duke, published scan, §2 and Theorem5 printed85–86/PDF13–14; coefficient normalization and exponential factor independently checked.",
+      "read": "2026-10-08",
+      "sha256": "3c468d0c0d79ec2ab29f96dcdda6094a4ceb6603a4caaae947c0bef443f9005f"
     }
   ],
   "nodes": [
@@ -1221,19 +1464,19 @@
           "name": "TauCeti.Metaplectic.Heisenberg.bilinearFactorSet_zero",
           "kind": "degenerate",
           "statement": "For B=0 on W=C=Z, the coefficient coordinate of pq is t+s.",
-          "prototypeStatus": "omitted until the node’s actual source carrier and maps can be stated"
+          "prototypeStatus": "native adapter; full target boundary stated on the node"
         },
         {
           "name": "TauCeti.Metaplectic.Heisenberg.bilinearFactorSet_cross",
           "kind": "computation",
           "statement": "For W=Z² and B(x,y)=x₀y₁, α_B(e₀,e₁)=1 in additive coefficient coordinates.",
-          "prototypeStatus": "omitted until the node’s actual source carrier and maps can be stated"
+          "prototypeStatus": "native adapter; full target boundary stated on the node"
         },
         {
           "name": "TauCeti.Metaplectic.Heisenberg.bilinearFactorSet_reversed",
           "kind": "non-example",
           "statement": "For the same native matrix form, α_B(e₁,e₀)=0. Replacing B by its transpose fails the two ordered tests.",
-          "prototypeStatus": "omitted until the node’s actual source carrier and maps can be stated"
+          "prototypeStatus": "native adapter; full target boundary stated on the node"
         }
       ],
       "sourceItems": [],
@@ -1262,17 +1505,17 @@
         {
           "name": "TauCeti.Metaplectic.Heisenberg.bilinearFactorSet_zero",
           "role": "tests",
-          "status": "omitted-carrier"
+          "status": "native-signature"
         },
         {
           "name": "TauCeti.Metaplectic.Heisenberg.bilinearFactorSet_cross",
           "role": "tests",
-          "status": "omitted-carrier"
+          "status": "native-signature"
         },
         {
           "name": "TauCeti.Metaplectic.Heisenberg.bilinearFactorSet_reversed",
           "role": "tests",
-          "status": "omitted-carrier"
+          "status": "native-signature"
         }
       ]
     },
@@ -1620,19 +1863,19 @@
           "name": "TauCeti.Metaplectic.Heisenberg.extensionIsometry_identity",
           "kind": "computation",
           "statement": "The identity isometry of the zero form on Z fixes (3,4).",
-          "prototypeStatus": "omitted until the node’s actual source carrier and maps can be stated"
+          "prototypeStatus": "native adapter; full target boundary stated on the node"
         },
         {
           "name": "TauCeti.Metaplectic.Heisenberg.extensionIsometry_negation",
           "kind": "computation",
           "statement": "Negation preserves any scalar bilinear form on Z and sends (3,4) to (3,−4), preserving the coefficient 3.",
-          "prototypeStatus": "omitted until the node’s actual source carrier and maps can be stated"
+          "prototypeStatus": "native adapter; full target boundary stated on the node"
         },
         {
           "name": "TauCeti.Metaplectic.Heisenberg.extensionIsometry_inverse",
           "kind": "compatibility",
           "statement": "Extension of the native inverse isometry undoes extension of e, including when the underlying modules differ.",
-          "prototypeStatus": "omitted until the node’s actual source carrier and maps can be stated"
+          "prototypeStatus": "native adapter; full target boundary stated on the node"
         }
       ],
       "sourceItems": [],
@@ -1666,17 +1909,17 @@
         {
           "name": "TauCeti.Metaplectic.Heisenberg.extensionIsometry_identity",
           "role": "tests",
-          "status": "omitted-carrier"
+          "status": "native-signature"
         },
         {
           "name": "TauCeti.Metaplectic.Heisenberg.extensionIsometry_negation",
           "role": "tests",
-          "status": "omitted-carrier"
+          "status": "native-signature"
         },
         {
           "name": "TauCeti.Metaplectic.Heisenberg.extensionIsometry_inverse",
           "role": "tests",
-          "status": "omitted-carrier"
+          "status": "native-signature"
         }
       ]
     },
@@ -1760,19 +2003,19 @@
           "name": "TauCeti.Metaplectic.Heisenberg.extensionIsometryAction_identity",
           "kind": "computation",
           "statement": "The native group identity for the zero form on Z fixes (3,4).",
-          "prototypeStatus": "omitted until the node’s actual source carrier and maps can be stated"
+          "prototypeStatus": "native adapter; full target boundary stated on the node"
         },
         {
           "name": "TauCeti.Metaplectic.Heisenberg.extensionIsometryAction_negation",
           "kind": "non-example",
           "statement": "The negation element of the native isometry group of the zero form on Z sends (3,4) to (3,−4); a constant identity action fails.",
-          "prototypeStatus": "omitted until the node’s actual source carrier and maps can be stated"
+          "prototypeStatus": "native adapter; full target boundary stated on the node"
         },
         {
           "name": "TauCeti.Metaplectic.Heisenberg.extensionIsometryAction_center",
           "kind": "compatibility",
           "statement": "Every native isometry-group element fixes the native coefficient injection, for all t.",
-          "prototypeStatus": "omitted until the node’s actual source carrier and maps can be stated"
+          "prototypeStatus": "native adapter; full target boundary stated on the node"
         }
       ],
       "sourceItems": [],
@@ -1801,17 +2044,17 @@
         {
           "name": "TauCeti.Metaplectic.Heisenberg.extensionIsometryAction_identity",
           "role": "tests",
-          "status": "omitted-carrier"
+          "status": "native-signature"
         },
         {
           "name": "TauCeti.Metaplectic.Heisenberg.extensionIsometryAction_negation",
           "role": "tests",
-          "status": "omitted-carrier"
+          "status": "native-signature"
         },
         {
           "name": "TauCeti.Metaplectic.Heisenberg.extensionIsometryAction_center",
           "role": "tests",
-          "status": "omitted-carrier"
+          "status": "native-signature"
         }
       ]
     },
@@ -1945,19 +2188,19 @@
           "name": "TauCeti.Metaplectic.Heisenberg.polarizationEquiv_zero",
           "kind": "degenerate",
           "statement": "For B=0 on Q, the equivalence fixes (3,4).",
-          "prototypeStatus": "omitted until the node’s actual source carrier and maps can be stated"
+          "prototypeStatus": "native adapter; full target boundary stated on the node"
         },
         {
           "name": "TauCeti.Metaplectic.Heisenberg.polarizationEquiv_cross",
           "kind": "computation",
           "statement": "For B(x,y)=x₀y₁ on Q², the image of (0,(2,3)) is (3,(2,3)).",
-          "prototypeStatus": "omitted until the node’s actual source carrier and maps can be stated"
+          "prototypeStatus": "native adapter; full target boundary stated on the node"
         },
         {
           "name": "TauCeti.Metaplectic.Heisenberg.polarizationEquiv_sign",
           "kind": "non-example",
           "statement": "For the same B, the inverse image of (0,(2,3)) is (−3,(2,3)); using a plus sign for both directions fails.",
-          "prototypeStatus": "omitted until the node’s actual source carrier and maps can be stated"
+          "prototypeStatus": "native adapter; full target boundary stated on the node"
         }
       ],
       "sourceItems": [],
@@ -1986,17 +2229,17 @@
         {
           "name": "TauCeti.Metaplectic.Heisenberg.polarizationEquiv_zero",
           "role": "tests",
-          "status": "omitted-carrier"
+          "status": "native-signature"
         },
         {
           "name": "TauCeti.Metaplectic.Heisenberg.polarizationEquiv_cross",
           "role": "tests",
-          "status": "omitted-carrier"
+          "status": "native-signature"
         },
         {
           "name": "TauCeti.Metaplectic.Heisenberg.polarizationEquiv_sign",
           "role": "tests",
-          "status": "omitted-carrier"
+          "status": "native-signature"
         }
       ]
     },
@@ -2137,19 +2380,19 @@
           "name": "TauCeti.Metaplectic.Heisenberg.centralCharacter_value",
           "kind": "computation",
           "statement": "For B=0 on Z and χ the identity of Multiplicative Z, the value at (3,4) is additive 3.",
-          "prototypeStatus": "omitted until the node’s actual source carrier and maps can be stated"
+          "prototypeStatus": "native adapter; full target boundary stated on the node"
         },
         {
           "name": "TauCeti.Metaplectic.Heisenberg.centralCharacter_trivial",
           "kind": "degenerate",
           "statement": "For every bilinear B, the trivial character into Multiplicative Z gives the trivial homomorphism on E_B.",
-          "prototypeStatus": "omitted until the node’s actual source carrier and maps can be stated"
+          "prototypeStatus": "native adapter; full target boundary stated on the node"
         },
         {
           "name": "TauCeti.Metaplectic.Heisenberg.centralCharacter_zero",
           "kind": "compatibility",
           "statement": "For B=0 on Z and χ the native identity homomorphism, the value at the native extension identity is one.",
-          "prototypeStatus": "omitted until the node’s actual source carrier and maps can be stated"
+          "prototypeStatus": "native adapter; full target boundary stated on the node"
         }
       ],
       "sourceItems": [],
@@ -2183,17 +2426,17 @@
         {
           "name": "TauCeti.Metaplectic.Heisenberg.centralCharacter_value",
           "role": "tests",
-          "status": "omitted-carrier"
+          "status": "native-signature"
         },
         {
           "name": "TauCeti.Metaplectic.Heisenberg.centralCharacter_trivial",
           "role": "tests",
-          "status": "omitted-carrier"
+          "status": "native-signature"
         },
         {
           "name": "TauCeti.Metaplectic.Heisenberg.centralCharacter_zero",
           "role": "tests",
-          "status": "omitted-carrier"
+          "status": "native-signature"
         }
       ]
     },
@@ -2205,9 +2448,9 @@
       ],
       "title": "Topological Heisenberg extension",
       "kind": "construction",
-      "statement": "Give the existing bilinear FactorSet.Extension E_B the topology transported from C×W by its coordinate equivalence. If C,W are Hausdorff topological modules and B is continuous, multiplication and inversion are continuous. For finite-dimensional modules over a nondiscrete local field it is locally compact and second countable. For B=½ω, the native isometry action is jointly continuous.",
+      "statement": "Give the existing bilinear FactorSet.Extension E_B the topology transported from C×W by its coordinate equivalence. If C,W are Hausdorff topological modules and B is continuous, multiplication and inversion are continuous. For finite-dimensional modules over a nondiscrete local field it is locally compact and second countable. For B=½ω, the native isometry action is jointly continuous provided evaluation on W is jointly continuous; in the finite-dimensional local-field case give isometries their subspace topology in GL(W).",
       "hypotheses": [
-        "The local-field specialization has characteristic different from two; W is finite dimensional and ω is alternating. Continuity of B is required in the general topological-module case."
+        "The local-field specialization has characteristic different from two; W is finite dimensional and ω is alternating. Continuity of B is required in the general topological-module case; joint continuity of the isometry evaluation is a separate hypothesis for the action."
       ],
       "proofSteps": [
         "Use the inherited coordinate multiplication and inverse formulas; sums, B and negation are continuous.",
@@ -3048,13 +3291,13 @@
       ],
       "title": "Unitary dual-pair splittings",
       "kind": "construction",
-      "statement": "For E/F quadratic, an ε-Hermitian V and a −ε-Hermitian W, construct their commuting actions on the F-symplectic tensor space with trace pairing. A pair of characters χV,χW of E× with χV|F×=ωE/F^dim V and χW|F×=ωE/F^dim W gives the two compatible scalar-cover splittings and the Weil representation ωψ,χV,χW. Record dependence on those characters and on the trace-zero δ used to write the pairing.",
+      "statement": "For E/F quadratic, an ε-Hermitian V and a −ε-Hermitian W, construct their commuting actions on the F-symplectic tensor space with trace pairing. A pair of characters χV,χW of E× with χV|F×=ωE/F^dim V and χW|F×=ωE/F^dim W gives the two compatible scalar-cover splittings and the Weil representation ωψ,χV,χW. Record dependence on ψ and the auxiliary characters. With the trace symplectic pairing fixed, the splitting is independent of the trace-zero δ used to express the construction.",
       "hypotheses": [
         "Characteristic zero local F; E/F quadratic field or split étale algebra. Hermitian forms nondegenerate. Each splitting uses the matching dimension and character restriction."
       ],
       "proofSteps": [
-        "Form the trace pairing and import the Hermitian group carriers from the classical-group supplier.",
-        "Apply Kudla’s unitary splitting construction with the dimension characters; identify coordinate changes in δ by the explicit isometry."
+        "Form the trace pairing after obtaining the requested ClassicalGroups Part-II Hermitian carriers over the general quadratic E/F; the existing complex-group roadmap alone does not supply them.",
+        "Apply Kudla’s unitary splitting construction with the dimension characters; verify δ-independence on the same fixed trace symplectic space, as specified in Gan–Ichino §4."
       ],
       "acceptance": [
         "The resulting correspondence depends on ψ only through its norm-class orbit; dependence on arbitrary choices is not silently suppressed."
@@ -3092,13 +3335,13 @@
         {
           "name": "TauCeti.Metaplectic.unitarySplitting_character_change",
           "role": "functoriality",
-          "statement": "Replacing an auxiliary character by a character trivial on F× twists by the corresponding determinant character.",
+          "statement": "If χ is replaced by χη with η|F×=1, transport η to η̃:E¹→C× by η̃(x/xᶜ)=η(x). Changing χV twists the W-factor by η̃∘det; changing χW twists the V-factor by η̃∘det.",
           "prototypeStatus": "omitted until the node’s actual source carrier and maps can be stated"
         },
         {
           "name": "TauCeti.Metaplectic.unitarySplitting_delta",
           "role": "compatibility",
-          "statement": "Changing δ gives the transported trace symplectic space and its intertwining equivalence.",
+          "statement": "For the fixed trace symplectic space and ψ,χV,χW, changing the auxiliary trace-zero δ leaves the splitting unchanged.",
           "prototypeStatus": "omitted until the node’s actual source carrier and maps can be stated"
         }
       ],
@@ -3118,7 +3361,7 @@
         {
           "name": "TauCeti.Metaplectic.unitarySplitting_twist",
           "kind": "compatibility",
-          "statement": "Two valid characters differing by ξ produce the determinant twist ξ∘det on the relevant unitary factor.",
+          "statement": "Two valid characters differing by η trivial on F× produce η̃∘det, where η̃(x/xᶜ)=η(x). Testing ξ directly on det∈E¹ would miss the Hilbert-90 transport.",
           "prototypeStatus": "omitted until the node’s actual source carrier and maps can be stated"
         }
       ],
@@ -3131,7 +3374,7 @@
       "planet": {
         "name": "Unitary Weil representation"
       },
-      "prototypeBoundary": "No target theorem is emitted against arbitrary independent data. Required source construction or proof input: The cited papers invoke Kudla’s unitary splitting formula; its original proof and exact δ convention must be collated. The generic Hermitian-space carrier belongs to upstream ClassicalGroups, not to this packet.",
+      "prototypeBoundary": "No target theorem is emitted against arbitrary independent data. Required source construction or proof input: The cited papers invoke Kudla’s unitary splitting formula; its original proof must be collated. Gan–Ichino §4 fixes the trace pairing and asserts δ-independence. General E/F Hermitian-space and quaternionic group carriers are requested ClassicalGroups Part-II inputs; the existing complex classical-group carriers do not provide them.",
       "sourceItems": [],
       "prototypeInventory": [
         {
@@ -4615,7 +4858,7 @@
       ],
       "title": "Scalar ambiguity and composition of intertwiners",
       "kind": "theorem",
-      "statement": "For each g∈Sp(W), the smooth intertwiner space between ρ and its g-twist is a one-dimensional C vector space; its nonzero operators are invertible. Choosing A_g with A_1=1 yields A_gA_h=c(g,h)A_{gh}, where c is a normalized scalar factor set. Rescaling A_g by b(g) changes c by b(g)b(h)/b(gh). In the unitary model these scalars have norm one.",
+      "statement": "For each g∈Sp(W), the smooth intertwiner space between ρ and its g-twist is a one-dimensional C vector space; its nonzero operators are invertible. Choosing A_g with A_1=1 yields A_gA_h=c(g,h)A_{gh}, where c is a normalized scalar factor set. Rescaling A_g by b(g) changes c by b(g)b(h)/b(gh). If the chosen A_g are unitary operators, the resulting cocycle scalars have norm one; arbitrary nonzero intertwiners need not have that normalization.",
       "hypotheses": [
         "Nontrivial ψ; the exact smooth or strongly continuous unitary category is fixed. No global continuity of the chosen A_g is assumed."
       ],
@@ -4648,7 +4891,7 @@
         }
       ],
       "implementationStatus": "unchecked",
-      "prototypeBoundary": "No target theorem is emitted against arbitrary independent data. Required source construction or proof input: Construct the source objects in the stated categories and identify the maps in the mathematical target: For each g∈Sp(W), the smooth intertwiner space between ρ and its g-twist is a one-dimensional C vector space; its nonzero operators are invertible. Choosing A_g with A_1=1 yields A_gA_h=c(g,h)A_{gh}, where c is a normalized scalar factor set. Rescaling A_g by b(g) changes c by b(g)b(h)/b(gh). In the unitary model these scalars have norm one.",
+      "prototypeBoundary": "No target theorem is emitted against arbitrary independent data. Required source construction or proof input: Construct the source objects in the stated categories and identify the maps in the mathematical target: For each g∈Sp(W), the smooth intertwiner space between ρ and its g-twist is a one-dimensional C vector space; its nonzero operators are invertible. Choosing A_g with A_1=1 yields A_gA_h=c(g,h)A_{gh}, where c is a normalized scalar factor set. Rescaling A_g by b(g) changes c by b(g)b(h)/b(gh). If the chosen A_g are unitary operators, the resulting cocycle scalars have norm one; arbitrary nonzero intertwiners need not have that normalization.",
       "sourceItems": [],
       "prototypeInventory": [
         {
@@ -5551,7 +5794,7 @@
         }
       ],
       "implementationStatus": "unchecked",
-      "prototypeBoundary": "Emitted: unit identities showing that weight-two corrections return tensor and dual scalar weights to weight one. Missing: the actual λ-character, representation tensor/dual objects and their smooth category comparisons; the unit identities alone are not those equivalences.",
+      "prototypeBoundary": "Emitted: unit identities showing tensor weight 2−2=0 after λ₂⁻¹ and dual weight −1+2=1 after λ₂. Missing: the actual λ-character, representation tensor/dual objects and their smooth category comparisons; the unit identities alone are not those equivalences.",
       "sourceItems": [],
       "prototypeInventory": [
         {
@@ -5919,7 +6162,7 @@
       ],
       "title": "Sharp splitting and norm-one descent",
       "kind": "comparison",
-      "statement": "On G^sharp={(g,h,α,α):ν(g)=ν(h)=Nα}, set ŝ^sharp=χ(α)^{−m}ŝ₁(ι(gα⁻¹,1))ŝ₂(ι(hα⁻¹,1))z_{V△}(ι(gα⁻¹,1),ι(hα⁻¹,1)). With μ(σ)=z_Y(σ₀,σ)⁻¹z_Y(σ₀σσ₀⁻¹,σ₀), z_Y=z_{V△}δμ. Descend s(g,h)=s^sharp(g,h,α,α)/s₂(ι(1,[α,α])). A.9 proves norm-one invariance and A.12 cancels auxiliary χ.",
+      "statement": "On G^sharp={(g,h,α,α):ν(g)=ν(h)=Nα}, set ŝ^sharp=χ(α)^{−m}ŝ₁(ι(gα⁻¹,1))ŝ₂(ι(hα⁻¹,1))z_{V△}(ι(gα⁻¹,1),ι(hα⁻¹,1)). Define μ(σ)=z_{Y□}(σ₀,σ)⁻¹z_{Y□}(σ₀σσ₀⁻¹,σ₀), so z_{Y□}=z_{V△}δμ. Put s^sharp=ŝ^sharp·μ and s₂=ŝ₂·μ on their respective embedded groups. Descend s(g,h)=s^sharp(g,h,α,α)/s₂(ι(1,[α,α])). LemmaA.10 proves independence of the norm lift using LemmaA.9; LemmaA.12 cancels auxiliary χ.",
       "hypotheses": [
         "Exact α lift of the common norm multiplier and polarization σ₀."
       ],
@@ -5952,7 +6195,7 @@
         "PAPER-ICHINO-PRASANNA-23/065",
         "PAPER-ICHINO-PRASANNA-23/066"
       ],
-      "prototypeBoundary": "No target theorem is emitted against arbitrary independent data. Required source construction or proof input: Construct the source objects in the stated categories and identify the maps in the mathematical target: On G^sharp={(g,h,α,α):ν(g)=ν(h)=Nα}, set ŝ^sharp=χ(α)^{−m}ŝ₁(ι(gα⁻¹,1))ŝ₂(ι(hα⁻¹,1))z_{V△}(ι(gα⁻¹,1),ι(hα⁻¹,1)). With μ(σ)=z_Y(σ₀,σ)⁻¹z_Y(σ₀σσ₀⁻¹,σ₀), z_Y=z_{V△}δμ. Descend s(g,h)=s^sharp(g,h,α,α)/s₂(ι(1,[α,α])). A.9 proves norm-one invariance and A.12 cancels auxiliary χ.",
+      "prototypeBoundary": "No target theorem is emitted against arbitrary independent data. Required source construction or proof input: Construct the source objects in the stated categories and identify the maps in the mathematical target: On G^sharp={(g,h,α,α):ν(g)=ν(h)=Nα}, set ŝ^sharp=χ(α)^{−m}ŝ₁(ι(gα⁻¹,1))ŝ₂(ι(hα⁻¹,1))z_{V△}(ι(gα⁻¹,1),ι(hα⁻¹,1)). Define μ(σ)=z_{Y□}(σ₀,σ)⁻¹z_{Y□}(σ₀σσ₀⁻¹,σ₀), so z_{Y□}=z_{V△}δμ. Put s^sharp=ŝ^sharp·μ and s₂=ŝ₂·μ on their respective embedded groups. Descend s(g,h)=s^sharp(g,h,α,α)/s₂(ι(1,[α,α])). LemmaA.10 proves independence of the norm lift using LemmaA.9; LemmaA.12 cancels auxiliary χ.",
       "prototypeInventory": [
         {
           "name": "TauCeti.Metaplectic.quaternionSplitting_sharpDescent",
@@ -6072,7 +6315,7 @@
       ],
       "title": "First scalar splitting calculation",
       "kind": "theorem",
-      "statement": "For α=a+bi with a,b≠0, tilde s(1,α,α)=γ_F(J₁,ψ/2)(−2abJ₂,J₁)_F; ŝ₂(ι([α,α],1))=χ(α)⁻⁴(u,J₁)_F; μ on that matrix is γ_F(J₁,ψ/2)(−2abuJ₂,J₁)_F. Together these give s=tilde s on the first E× embedding.",
+      "statement": "For α=a+bi with a,b≠0, tilde s(1,α,α)=γ_F(J₁,ψ/2)(−2abJ₂,J₁)_F; ŝ₂(ι([α,α],1))=χ(α)⁻²(u,J₁)_F; μ on that matrix is γ_F(J₁,ψ/2)(−2abuJ₂,J₁)_F. Together these give s=tilde s on the first E× embedding.",
       "hypotheses": [
         "Rank-two Periods-I datum and exact embeddings."
       ],
@@ -6106,7 +6349,7 @@
       "sourceItems": [
         "PAPER-ICHINO-PRASANNA-23/070"
       ],
-      "prototypeBoundary": "No target theorem is emitted against arbitrary independent data. Required source construction or proof input: Construct the source objects in the stated categories and identify the maps in the mathematical target: For α=a+bi with a,b≠0, tilde s(1,α,α)=γ_F(J₁,ψ/2)(−2abJ₂,J₁)_F; ŝ₂(ι([α,α],1))=χ(α)⁻⁴(u,J₁)_F; μ on that matrix is γ_F(J₁,ψ/2)(−2abuJ₂,J₁)_F. Together these give s=tilde s on the first E× embedding.",
+      "prototypeBoundary": "No target theorem is emitted against arbitrary independent data. Required source construction or proof input: Construct the source objects in the stated categories and identify the maps in the mathematical target: For α=a+bi with a,b≠0, tilde s(1,α,α)=γ_F(J₁,ψ/2)(−2abJ₂,J₁)_F; ŝ₂(ι([α,α],1))=χ(α)⁻²(u,J₁)_F; μ on that matrix is γ_F(J₁,ψ/2)(−2abuJ₂,J₁)_F. Together these give s=tilde s on the first E× embedding.",
       "prototypeInventory": [
         {
           "name": "TauCeti.Metaplectic.quaternionSplitting_scalarA9",
@@ -9532,7 +9775,7 @@
       "kind": "construction",
       "statement": "Identify the doubled oscillator space for W⊕W⁻ with the tensor of the ψ and ψ⁻¹ oscillator models. Define δ:S(V^n)⊗conjugate(S(V^n))→S(V^n⊕V^n) by the source partial Fourier/polarization transform. Normalize it so δ(φ₁⊗conjugate φ₂)(0)=⟨φ₁,φ₂⟩. Under G×G its action is the two commuting Weil actions with the explicit χV determinant twist in the doubled embedding.",
       "hypotheses": [
-        "Compatible self-dual measures, doubled polarization and GQT §11.2 splitting convention."
+        "Compatible self-dual measures, doubled polarization and GQT §11.3 splitting convention."
       ],
       "proofSteps": [
         "Take the tensor oscillator representation and correct its scalar-cover weight as in MP.2.",
@@ -9556,7 +9799,7 @@
       "sources": [
         {
           "sourceId": "GQT",
-          "locator": "§11.2, (11.4)–(11.6), PDF52–53",
+          "locator": "§11.3, unnumbered doubled-space and δ displays, PDF52",
           "match": "The doubled map and evaluation inner-product normalization."
         }
       ],
@@ -9682,7 +9925,7 @@
       "sources": [
         {
           "sourceId": "GQT",
-          "locator": "§11.3, (11.7)–(11.9), PDF53–54",
+          "locator": "§11.6, local integral and normalized unramified displays, PDF54; global factorization (11.3), PDF53",
           "match": "Local integral, normalized factor and unramified denominator."
         }
       ],
@@ -9832,13 +10075,13 @@
       ],
       "title": "Rallis inner product formula",
       "kind": "theorem",
-      "statement": "In the GQT second-term range d(n)<m≤2d(n), r≤n, for cuspidal π whose lower theta lifts vanish, the theta inner product is [E:F]·Val_{s=s_{m,n}} L(s+1/2,π⊗χV)·Z*(s,Φ,f₁,f₂), with the exact normalized doubled section and global measures. If every relevant local theta lift is nonzero, the stated L-factor is holomorphic at that point and the formula uses its value. The lower-lift vanishing is essential to the cuspidal and residual-term elimination.",
+      "statement": "In the GQT positive range d(n)<m≤2d(n), r≤n, allowing both its second-term and convergent cases, for cuspidal π whose lower theta lifts vanish, the theta inner product is [E:F]·Val_{s=s_{m,n}} L(s+1/2,π⊗χV)·Z*(s,Φ,f₁,f₂), with the exact normalized doubled section and global measures. If every relevant local theta lift is nonzero, the stated L-factor is holomorphic at that point and the formula uses its value. The lower-lift vanishing is essential to the cuspidal and residual-term elimination.",
       "hypotheses": [
         "GQT Theorem11.4 hypotheses; first-occurrence theta lift; s_{m,n}=(m−d(n))/2>0; good sections and local/global normalization."
       ],
       "proofSteps": [
         "Use the doubled Schwartz map to express the theta pairing via Proposition11.1.",
-        "Apply the second-term identity, using lower-lift vanishing to eliminate the complementary correction and residual image.",
+        "Use the second-term identity or the convergent Siegel–Weil identity according to the Witt index, with lower-lift vanishing eliminating the complementary correction and residual image where present.",
         "Unfold and apply the normalized local factor theorem."
       ],
       "acceptance": [
@@ -9861,7 +10104,7 @@
         {
           "sourceId": "GQT",
           "locator": "Theorem11.4, PDF54",
-          "match": "Source-qualified Rallis formula in its positive second-term range."
+          "match": "Source-qualified Rallis formula in its positive range, including the convergent case."
         }
       ],
       "implementationStatus": "unchecked",
@@ -13791,8 +14034,13 @@
       "sources": [
         {
           "sourceId": "PAPER-DUKE-IMAMOGLU-TOTH-16",
-          "locator": "Duke88 Theorem5 pp85–86; DIT16 (6.6)",
-          "match": "Read DIT16 passage, using its reviewed normalization corrections and the stated supplier boundaries."
+          "locator": "§6, (6.6), printed968–969/PDF20–21",
+          "match": "The inverse-norm-squared trace bound requires the separately sourced Duke coefficient normalization and its missing exponential factors."
+        },
+        {
+          "sourceId": "Duke88",
+          "locator": "§2 spectral normalization, printed77–78/PDF5–6; Theorem5 printed85–86/PDF13–14",
+          "match": "Unit Petersson coefficient bound with cosh(πt/2); no unproved r^ε symmetric-square estimate."
         }
       ],
       "implementationStatus": "unchecked",
@@ -14421,7 +14669,7 @@
         {
           "name": "TauCeti.Metaplectic.biroLift_coeff",
           "role": "simp",
-          "statement": "The source-normalized divisor expression is used in the explicit positive-index series; actual Fourier coefficient extraction requires the analytic carrier.",
+          "statement": "The source-normalized divisor expression is used in the series over all k≠0, with positive-D inputs b_f(DQ²); actual Fourier coefficient extraction requires the analytic carrier.",
           "sourceStatement": "The positive k coefficient is the displayed divisor expression.",
           "prototypeStatus": "native adapter; full target boundary stated on the node"
         },
@@ -14470,7 +14718,7 @@
           "how": "Supply the original theorem and its normalization comparison."
         }
       ],
-      "prototypeBoundary": "Emitted: the positive-index Fourier series with |Q|^(1/2)/P divisor coefficient, complex spectral parameter, kernel/zero and coefficient2=1/2 tests. Missing: actual general-level Maass carrier, Fourier extraction, Whittaker W, eigen-equation, trace identity(14), convergence and corrected analytic proof. The spectral API is omitted instead of replacing a Laplace theorem by an arithmetic equality.",
+      "prototypeBoundary": "Emitted: the Fourier series over all nonzero positive and negative indices with |Q|^(1/2)/P divisor coefficient and positive-D inputs, complex spectral parameter, kernel/zero and coefficient2=1/2 tests. Missing: actual general-level Maass carrier, Fourier extraction, Whittaker W, eigen-equation, trace identity(14), convergence and corrected analytic proof. The spectral API is omitted instead of replacing a Laplace theorem by an arithmetic equality.",
       "sourceItems": [],
       "prototypeInventory": [
         {
@@ -15226,7 +15474,7 @@
         "Unitary normalizer extension proof/signature boundary: Strong operator topology and the local-chart proof must be supplied on native unitary automorphisms; native ContRepresentation supplies only continuous linear operators, not continuity in g.",
         "Rao factor set proof/signature boundary: Bruhat x(g), j(g), Leray rank and t-integrality still require their full sourced definitions/proofs; the formula specifies the target but does not conceal those data as arbitrary functions.",
         "Metaplectic double cover proof/signature boundary: The continuous character λ₂ and big-cell gluing proof must be turned into a concrete native topological-group signature; a raw FactorSet extension alone supplies only the algebraic group.",
-        "Scalar ambiguity and composition of intertwiners actual carrier and prototype scope: No target theorem is emitted against arbitrary independent data. Required source construction or proof input: Construct the source objects in the stated categories and identify the maps in the mathematical target: For each g∈Sp(W), the smooth intertwiner space between ρ and its g-twist is a one-dimensional C vector space; its nonzero operators are invertible. Choosing A_g with A_1=1 yields A_gA_h=c(g,h)A_{gh}, where c is a normalized scalar factor set. Rescaling A_g by b(g) changes c by b(g)b(h)/b(gh). In the unitary model these scalars have norm one.",
+        "Scalar ambiguity and composition of intertwiners actual carrier and prototype scope: No target theorem is emitted against arbitrary independent data. Required source construction or proof input: Construct the source objects in the stated categories and identify the maps in the mathematical target: For each g∈Sp(W), the smooth intertwiner space between ρ and its g-twist is a one-dimensional C vector space; its nonzero operators are invertible. Choosing A_g with A_1=1 yields A_gA_h=c(g,h)A_{gh}, where c is a normalized scalar factor set. Rescaling A_g by b(g) changes c by b(g)b(h)/b(gh). If the chosen A_g are unitary operators, the resulting cocycle scalars have norm one; arbitrary nonzero intertwiners need not have that normalization.",
         "Genuine Weil representation actual carrier and prototype scope: Emitted: restriction of the supplied unitary normalizer action to ker lambda2 and its identity test. Missing: identification of the distinguished central −1, its action on the actual nonzero oscillator, zero-dimensional sign carrier and model-change intertwiner. An arbitrary element z, particularly z=1, cannot be assigned action −id."
       ]
     },
@@ -15242,7 +15490,7 @@
         "Hermitian oscillator normalizations proof/signature boundary: The γ_V=−1 assertion for the specific nonsplit Hermitian datum in Li–Zhang Lemma6.3.1 and Zhang’s Deligne epsilon-factor input need original proof closure. General Fourier theory stays with AL.0/AL.2.",
         "Weil index and Hilbert symbol actual carrier and prototype scope: No target theorem is emitted against arbitrary independent data. Required source construction or proof input: Construct the source objects in the stated categories and identify the maps in the mathematical target: The index is multiplicative under orthogonal sums, invariant under isometry and trivial on hyperbolic planes, with γψ(−q)=γψ(q)⁻¹. For η=ψ/2 define γ(a,η)=γ(η a x²)/γ(η x²). Then γ(ab,η)=(a,b)F γ(a,η)γ(b,η), γ(a,ηb)=(a,b)F γ(a,η), γ(a,η)²=(−1,a)F and γ(a,η)⁴=1. If q=Σa_ix_i², γψ(q)=γ(det q,ψ)γψ(x²)^d∏_{i<j}(a_i,a_j)F; det q means ∏a_i, not det Bq=2^d∏a_i.",
         "Weil operators on generators actual carrier and prototype scope: No target theorem is emitted against arbitrary independent data. Required source construction or proof input: Construct the source objects in the stated categories and identify the maps in the mathematical target: In the polarized nonarchimedean model, the scalar-normalized integral operators satisfy r(m(a))φ(x)=|det a|^{1/2}φ(xa), r(n(b))φ(x)=ψ(½x bᵗx)φ(x), and r(w) is the self-dual Fourier operator for the explicitly chosen w. The double-cover action is εβ(g)r(g), hence the Levi acquires the Weil-index character and Fourier the corresponding Weil factor. For an orthogonal space V of dimension m, ω(m(a),ε)φ(x)=χV,ψ(det a,ε)|det a|^{m/2}φ(xa), ω(n(b))φ(x)=ψ(½tr(b·Gram(x)))φ(x), and ω(w)φ=γ(ψ∘V)^{−n} times the negative-kernel Fourier transform for Kudla’s w. Supplier categories: AutomorphicLFunctionsAndLocalFactors:AL.0/local-fourier-inversion.",
-        "Character change and dual Weil models actual carrier and prototype scope: Emitted: unit identities showing that weight-two corrections return tensor and dual scalar weights to weight one. Missing: the actual λ-character, representation tensor/dual objects and their smooth category comparisons; the unit identities alone are not those equivalences.",
+        "Character change and dual Weil models actual carrier and prototype scope: Emitted: unit identities showing tensor weight 2−2=0 after λ₂⁻¹ and dual weight −1+2=1 after λ₂. Missing: the actual λ-character, representation tensor/dual objects and their smooth category comparisons; the unit identities alone are not those equivalences.",
         "Hermitian uncertainty principle actual carrier and prototype scope: No target theorem is emitted against arbitrary independent data. Required source construction or proof input: Construct the source objects in the stated categories and identify the maps in the mathematical target: For a positive-dimensional nondegenerate Hermitian space V over E/F with conjugation c, set q(x)=½Tr_E/F⟨x,x⟩=⟨x,x⟩∈F. Use the Fourier kernel ψ(Tr_E/F⟨x,y⟩) and its self-dual measure. If supp φ⊆{x | val_F⟨x,x⟩>0} and supp φ̂⊆{x | val_F⟨x,x⟩≥0}, then φ=0 by the quadratic uncertainty principle. The half-trace form is the Hermitian norm, not its unscaled trace 2⟨x,x⟩. Supplier categories: AutomorphicLFunctionsAndLocalFactors:AL.0/local-fourier-inversion."
       ]
     },
@@ -15250,7 +15498,7 @@
       "stageId": "MetaplecticAutomorphicForms:MP.3",
       "status": "planned",
       "remaining": [
-        "Unitary dual-pair splittings proof/signature boundary: The cited papers invoke Kudla’s unitary splitting formula; its original proof and exact δ convention must be collated. The generic Hermitian-space carrier belongs to upstream ClassicalGroups, not to this packet.",
+        "Unitary dual-pair splittings proof/signature boundary: The cited papers invoke Kudla’s unitary splitting formula; its original proof must be collated. Gan–Ichino §4 fixes the trace pairing and asserts δ-independence. General E/F Hermitian-space and quaternionic group carriers are requested ClassicalGroups Part-II inputs; the existing complex classical-group carriers do not provide them.",
         "Finite length of theta modules proof/signature boundary: The generic SR criteria are requested; the exact archimedean finite-generation proof and its globalization/automatic-continuity bridge remain unverified.",
         "Howe duality proof/signature boundary: Gan–Takeda proof continuation PDF11–21 and its type-II/MVW inputs need complete proof closure; the full quaternionic Gan–Sun theorem and archimedean Howe/automatic-continuity sources remain requested.",
         "Local see-saw identity proof/signature boundary: Kudla IV.1 pp59–66 has been read. Its common oscillator, sum tensorization and specialized application supply the route; a general native smooth tensor–Hom/dual adjunction, with the exact infinite-dimensional dual and admissibility conditions, remains to be supplied from SR and the unread original references.",
@@ -15287,8 +15535,8 @@
         "Nonarchimedean conservation relations actual carrier and prototype scope: No target theorem is emitted against arbitrary independent data. Required source construction or proof input: Construct the source objects in the stated categories and identify the maps in the mathematical target: For the two enhanced Witt towers differing by the anti-split class in Sun–Zhu, the dimension first-occurrence indices satisfy n_t₁(π)+n_t₂(π)=2 dim_D U+d_{D,ε}. Here d is 4 for orthogonal, 2 for unitary, 1 for quaternionic Hermitian, 3 for quaternionic skew-Hermitian and 0 for symplectic U. In particular an Sp_{2n} representation in the two even-orthogonal towers has dimension sum 4n+4, and for O(V) the symplectic rank indices of π and π⊗det sum dim V. Supplier categories: SmoothRepresentationsOfLocalGroups:SR.3.",
         "First doubled quaternionic splitting actual carrier and prototype scope: No target theorem is emitted against arbitrary independent data. Required source construction or proof input: Construct the source objects in the stated categories and identify the maps in the mathematical target: On U(V⊕V⁻), ŝ₁ is1 for split B and (−1)^j on a Bruhat stratum for division B. It cancels z_{V△}, is invariant under E× conjugation, and on the norm-one scalar embedding α has value1 if α=1 and (−1)^m otherwise in the division case.",
         "Second doubled quaternionic splitting actual carrier and prototype scope: No target theorem is emitted against arbitrary independent data. Required source construction or proof input: Construct the source objects in the stated categories and identify the maps in the mathematical target: For the doubled unitary W-model, ŝ₂(h)=χ(x(h))^mγ^{−j(h)}, γ=(u,det V)_F γ_F(−u,ψ/2)^mγ_F(−1,ψ/2)^{−m}. It is invariant under E× conjugation. The diagonal norm-one scalar gives χ(α)^{−2m}; the mixed embedding of A.7 gives χ(α)^{−m} times1 for split B and (−1)^m for division B.",
-        "Sharp splitting and norm-one descent actual carrier and prototype scope: No target theorem is emitted against arbitrary independent data. Required source construction or proof input: Construct the source objects in the stated categories and identify the maps in the mathematical target: On G^sharp={(g,h,α,α):ν(g)=ν(h)=Nα}, set ŝ^sharp=χ(α)^{−m}ŝ₁(ι(gα⁻¹,1))ŝ₂(ι(hα⁻¹,1))z_{V△}(ι(gα⁻¹,1),ι(hα⁻¹,1)). With μ(σ)=z_Y(σ₀,σ)⁻¹z_Y(σ₀σσ₀⁻¹,σ₀), z_Y=z_{V△}δμ. Descend s(g,h)=s^sharp(g,h,α,α)/s₂(ι(1,[α,α])). A.9 proves norm-one invariance and A.12 cancels auxiliary χ.",
-        "First scalar splitting calculation actual carrier and prototype scope: No target theorem is emitted against arbitrary independent data. Required source construction or proof input: Construct the source objects in the stated categories and identify the maps in the mathematical target: For α=a+bi with a,b≠0, tilde s(1,α,α)=γ_F(J₁,ψ/2)(−2abJ₂,J₁)_F; ŝ₂(ι([α,α],1))=χ(α)⁻⁴(u,J₁)_F; μ on that matrix is γ_F(J₁,ψ/2)(−2abuJ₂,J₁)_F. Together these give s=tilde s on the first E× embedding.",
+        "Sharp splitting and norm-one descent actual carrier and prototype scope: No target theorem is emitted against arbitrary independent data. Required source construction or proof input: Construct the source objects in the stated categories and identify the maps in the mathematical target: On G^sharp={(g,h,α,α):ν(g)=ν(h)=Nα}, set ŝ^sharp=χ(α)^{−m}ŝ₁(ι(gα⁻¹,1))ŝ₂(ι(hα⁻¹,1))z_{V△}(ι(gα⁻¹,1),ι(hα⁻¹,1)). Define μ(σ)=z_{Y□}(σ₀,σ)⁻¹z_{Y□}(σ₀σσ₀⁻¹,σ₀), so z_{Y□}=z_{V△}δμ. Put s^sharp=ŝ^sharp·μ and s₂=ŝ₂·μ on their respective embedded groups. Descend s(g,h)=s^sharp(g,h,α,α)/s₂(ι(1,[α,α])). LemmaA.10 proves independence of the norm lift using LemmaA.9; LemmaA.12 cancels auxiliary χ.",
+        "First scalar splitting calculation actual carrier and prototype scope: No target theorem is emitted against arbitrary independent data. Required source construction or proof input: Construct the source objects in the stated categories and identify the maps in the mathematical target: For α=a+bi with a,b≠0, tilde s(1,α,α)=γ_F(J₁,ψ/2)(−2abJ₂,J₁)_F; ŝ₂(ι([α,α],1))=χ(α)⁻²(u,J₁)_F; μ on that matrix is γ_F(J₁,ψ/2)(−2abuJ₂,J₁)_F. Together these give s=tilde s on the first E× embedding.",
         "Second scalar splitting calculation actual carrier and prototype scope: No target theorem is emitted against arbitrary independent data. Required source construction or proof input: Construct the source objects in the stated categories and identify the maps in the mathematical target: For α=a+bi with a,b≠0, tilde s(α,α⁻¹,1)=γ_F(J,ψ/2)(−2abJ₁,J)_F; ŝ₁(ι([α,α⁻¹],1))=(u,J)_F; μ is γ_F(J,ψ/2)(−2abuJ₁,J)_F. Together these give s=tilde s on the second E× embedding.",
         "Square quaternion splitting calculation actual carrier and prototype scope: No target theorem is emitted against arbitrary independent data. Required source construction or proof input: Construct the source objects in the stated categories and identify the maps in the mathematical target: When J_i=t_i², the normalized generators j_i^natural=j_i/t_i have both splittings equal to1 on the matrices of A.21–A.23. Combined with the scalar calculations and the negative real generator, this gives (A.11).",
         "Harris–Kudla splitting comparison actual carrier and prototype scope: No target theorem is emitted against arbitrary independent data. Required source construction or proof input: Construct the source objects in the stated categories and identify the maps in the mathematical target: For split B and idempotent e, V^dagger=Ve and W^dagger=eW have dimensions2m and2; V^dagger has symmetric diagonal (κ_i u/2,−κ_i/2). Set s^dagger(h)=ξE(x(h))^m(γ′)^{−j(h)}, γ′=γ_F(ψ/2)^{2m}γ_F(det V^dagger,ψ/2)Hasse(V^dagger). Extend to similitudes by h↦h d(ν(h))⁻¹. The polarization correction gives s₀=s^daggerμ₀=s.",
@@ -15458,7 +15706,7 @@
       "neededBy": [
         "MetaplecticAutomorphicForms:MP.3/unitary-splitting"
       ],
-      "detail": "The cited papers invoke Kudla’s unitary splitting formula; its original proof and exact δ convention must be collated. The generic Hermitian-space carrier belongs to upstream ClassicalGroups, not to this packet."
+      "detail": "The cited papers invoke Kudla’s unitary splitting formula; its original proof must be collated. Gan–Ichino §4 fixes the trace pairing and asserts δ-independence. General E/F Hermitian-space and quaternionic group carriers are requested ClassicalGroups Part-II inputs; the existing complex classical-group carriers do not provide them."
     },
     {
       "title": "Finite length of theta modules proof/signature boundary",
@@ -16269,7 +16517,7 @@
       "neededBy": [
         "MetaplecticAutomorphicForms:MP.1/intertwiner-lines"
       ],
-      "detail": "No target theorem is emitted against arbitrary independent data. Required source construction or proof input: Construct the source objects in the stated categories and identify the maps in the mathematical target: For each g∈Sp(W), the smooth intertwiner space between ρ and its g-twist is a one-dimensional C vector space; its nonzero operators are invertible. Choosing A_g with A_1=1 yields A_gA_h=c(g,h)A_{gh}, where c is a normalized scalar factor set. Rescaling A_g by b(g) changes c by b(g)b(h)/b(gh). In the unitary model these scalars have norm one."
+      "detail": "No target theorem is emitted against arbitrary independent data. Required source construction or proof input: Construct the source objects in the stated categories and identify the maps in the mathematical target: For each g∈Sp(W), the smooth intertwiner space between ρ and its g-twist is a one-dimensional C vector space; its nonzero operators are invertible. Choosing A_g with A_1=1 yields A_gA_h=c(g,h)A_{gh}, where c is a normalized scalar factor set. Rescaling A_g by b(g) changes c by b(g)b(h)/b(gh). If the chosen A_g are unitary operators, the resulting cocycle scalars have norm one; arbitrary nonzero intertwiners need not have that normalization."
     },
     {
       "title": "Weil index and Hilbert symbol actual carrier and prototype scope",
@@ -16297,7 +16545,7 @@
       "neededBy": [
         "MetaplecticAutomorphicForms:MP.2/character-and-dual"
       ],
-      "detail": "Emitted: unit identities showing that weight-two corrections return tensor and dual scalar weights to weight one. Missing: the actual λ-character, representation tensor/dual objects and their smooth category comparisons; the unit identities alone are not those equivalences."
+      "detail": "Emitted: unit identities showing tensor weight 2−2=0 after λ₂⁻¹ and dual weight −1+2=1 after λ₂. Missing: the actual λ-character, representation tensor/dual objects and their smooth category comparisons; the unit identities alone are not those equivalences."
     },
     {
       "title": "First doubled quaternionic splitting actual carrier and prototype scope",
@@ -16318,14 +16566,14 @@
       "neededBy": [
         "MetaplecticAutomorphicForms:MP.3/quaternionic-sharp-descent"
       ],
-      "detail": "No target theorem is emitted against arbitrary independent data. Required source construction or proof input: Construct the source objects in the stated categories and identify the maps in the mathematical target: On G^sharp={(g,h,α,α):ν(g)=ν(h)=Nα}, set ŝ^sharp=χ(α)^{−m}ŝ₁(ι(gα⁻¹,1))ŝ₂(ι(hα⁻¹,1))z_{V△}(ι(gα⁻¹,1),ι(hα⁻¹,1)). With μ(σ)=z_Y(σ₀,σ)⁻¹z_Y(σ₀σσ₀⁻¹,σ₀), z_Y=z_{V△}δμ. Descend s(g,h)=s^sharp(g,h,α,α)/s₂(ι(1,[α,α])). A.9 proves norm-one invariance and A.12 cancels auxiliary χ."
+      "detail": "No target theorem is emitted against arbitrary independent data. Required source construction or proof input: Construct the source objects in the stated categories and identify the maps in the mathematical target: On G^sharp={(g,h,α,α):ν(g)=ν(h)=Nα}, set ŝ^sharp=χ(α)^{−m}ŝ₁(ι(gα⁻¹,1))ŝ₂(ι(hα⁻¹,1))z_{V△}(ι(gα⁻¹,1),ι(hα⁻¹,1)). Define μ(σ)=z_{Y□}(σ₀,σ)⁻¹z_{Y□}(σ₀σσ₀⁻¹,σ₀), so z_{Y□}=z_{V△}δμ. Put s^sharp=ŝ^sharp·μ and s₂=ŝ₂·μ on their respective embedded groups. Descend s(g,h)=s^sharp(g,h,α,α)/s₂(ι(1,[α,α])). LemmaA.10 proves independence of the norm lift using LemmaA.9; LemmaA.12 cancels auxiliary χ."
     },
     {
       "title": "First scalar splitting calculation actual carrier and prototype scope",
       "neededBy": [
         "MetaplecticAutomorphicForms:MP.3/periods-i-first-scalar-calculation"
       ],
-      "detail": "No target theorem is emitted against arbitrary independent data. Required source construction or proof input: Construct the source objects in the stated categories and identify the maps in the mathematical target: For α=a+bi with a,b≠0, tilde s(1,α,α)=γ_F(J₁,ψ/2)(−2abJ₂,J₁)_F; ŝ₂(ι([α,α],1))=χ(α)⁻⁴(u,J₁)_F; μ on that matrix is γ_F(J₁,ψ/2)(−2abuJ₂,J₁)_F. Together these give s=tilde s on the first E× embedding."
+      "detail": "No target theorem is emitted against arbitrary independent data. Required source construction or proof input: Construct the source objects in the stated categories and identify the maps in the mathematical target: For α=a+bi with a,b≠0, tilde s(1,α,α)=γ_F(J₁,ψ/2)(−2abJ₂,J₁)_F; ŝ₂(ι([α,α],1))=χ(α)⁻²(u,J₁)_F; μ on that matrix is γ_F(J₁,ψ/2)(−2abuJ₂,J₁)_F. Together these give s=tilde s on the first E× embedding."
     },
     {
       "title": "Second scalar splitting calculation actual carrier and prototype scope",
@@ -16640,9 +16888,16 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Read I.1 PDF5: the map has inputs w₁∈W₁ and w₂∈W₂ and sends them to w₁+w₂. Its orthogonal direct-sum target must be W₁+W₂.",
-        "by": "REV-MetaplecticAutomorphicForms--MP.0"
-      }
+        "reason": "I.1 PDF5: the map adds w₁∈W₁ and w₂∈W₂, so its orthogonal-sum target uses both summands; the repeated W₁ cannot describe that map.",
+        "by": "REV-MetaplecticAutomorphicForms--MP.0~2"
+      },
+      "reviewHistory": [
+        {
+          "verdict": "confirmed",
+          "reason": "Read I.1 PDF5: the map has inputs w₁∈W₁ and w₂∈W₂ and sends them to w₁+w₂. Its orthogonal direct-sum target must be W₁+W₂.",
+          "by": "REV-MetaplecticAutomorphicForms--MP.0"
+        }
+      ]
     },
     {
       "id": "MetaplecticAutomorphicForms/E-MP0-2",
@@ -16661,9 +16916,16 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Read I.2 PDF6. On an isotropic line the extensions ψ(t) and ψ(t+ℓ(y)) have the same central restriction but differ for nonzero ℓ. Uniqueness requires triviality on the specified section.",
-        "by": "REV-MetaplecticAutomorphicForms--MP.0"
-      }
+        "reason": "I.2 PDF6: on an isotropic line ψ(t) and ψ(t+ℓ(y)) have the same central restriction for nonzero ℓ. Uniqueness needs the specified section-trivial normalization.",
+        "by": "REV-MetaplecticAutomorphicForms--MP.0~2"
+      },
+      "reviewHistory": [
+        {
+          "verdict": "confirmed",
+          "reason": "Read I.2 PDF6. On an isotropic line the extensions ψ(t) and ψ(t+ℓ(y)) have the same central restriction but differ for nonzero ℓ. Uniqueness requires triviality on the specified section.",
+          "by": "REV-MetaplecticAutomorphicForms--MP.0"
+        }
+      ]
     },
     {
       "id": "MetaplecticAutomorphicForms/E-MP0-3",
@@ -16682,9 +16944,16 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Read I.2 PDF6. For the conductor-Z₂ character on Q₂², Z₂² is ψω-self-dual, but the half-form product of e₀,e₁ has central coordinate 1/2 and ψ-value −1. The proposed character values multiply to +1. The printed formula needs its extra splitting condition.",
-        "by": "REV-MetaplecticAutomorphicForms--MP.0"
-      }
+        "reason": "I.2 PDF6: for the conductor-Z₂ character, the product of the two lattice basis lifts has central phase ψ(1/2)=−1 although their proposed values multiply to1. Character-self-duality does not imply the required half-cocycle condition.",
+        "by": "REV-MetaplecticAutomorphicForms--MP.0~2"
+      },
+      "reviewHistory": [
+        {
+          "verdict": "confirmed",
+          "reason": "Read I.2 PDF6. For the conductor-Z₂ character on Q₂², Z₂² is ψω-self-dual, but the half-form product of e₀,e₁ has central coordinate 1/2 and ψ-value −1. The proposed character values multiply to +1. The printed formula needs its extra splitting condition.",
+          "by": "REV-MetaplecticAutomorphicForms--MP.0"
+        }
+      ]
     },
     {
       "id": "MetaplecticAutomorphicForms/E-MP0-4",
@@ -16703,9 +16972,16 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Read I.2 PDF9: the immediately defined integral operator is I_{Y₁,Y₂}; A in its equivariance display has no definition there.",
-        "by": "REV-MetaplecticAutomorphicForms--MP.0"
-      }
+        "reason": "I.2 PDF9: the integral operator immediately defined is I_{Y₁,Y₂}; the equivariance statement must use that same map on both sides.",
+        "by": "REV-MetaplecticAutomorphicForms--MP.0~2"
+      },
+      "reviewHistory": [
+        {
+          "verdict": "confirmed",
+          "reason": "Read I.2 PDF9: the immediately defined integral operator is I_{Y₁,Y₂}; A in its equivariance display has no definition there.",
+          "by": "REV-MetaplecticAutomorphicForms--MP.0"
+        }
+      ]
     },
     {
       "kind": "error",
@@ -16724,9 +17000,16 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Read published Theorem4 PDF17/printed965. Multiplication of F and all b(n) by a unit u preserves both the Petersson norm and b(d′)conj(b(d)). Thus the normalized vector is not unique; the eigenline is.",
-        "by": "REV-MetaplecticAutomorphicForms--MP.0"
-      }
+        "reason": "Theorem4 printed965/PDF17: multiplying a normalized F by −1 preserves its norm and every b(d′)conj(b(d)). The theorem determines the eigenline with its normalization identity, not a unique phase-fixed vector.",
+        "by": "REV-MetaplecticAutomorphicForms--MP.0~2"
+      },
+      "reviewHistory": [
+        {
+          "verdict": "confirmed",
+          "reason": "Read published Theorem4 PDF17/printed965. Multiplication of F and all b(n) by a unit u preserves both the Petersson norm and b(d′)conj(b(d)). Thus the normalized vector is not unique; the eigenline is.",
+          "by": "REV-MetaplecticAutomorphicForms--MP.0"
+        }
+      ]
     },
     {
       "kind": "misprint",
@@ -16745,9 +17028,16 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Read printed966 and981–982. With r=13.77975135, 1/4+r²=190.13154727…, whereas 1/2+r²=190.38154727…. The former matches the printed eigenvalue and the Laplacian convention.",
-        "by": "REV-MetaplecticAutomorphicForms--MP.0"
-      }
+        "reason": "Printed966/PDF18 and981–982/PDF33–34: independently evaluated r=13.77975135, giving 1/4+r²=190.13154726782682 and 1/2+r²=190.38154726782682. The former agrees with the stated spectral convention.",
+        "by": "REV-MetaplecticAutomorphicForms--MP.0~2"
+      },
+      "reviewHistory": [
+        {
+          "verdict": "confirmed",
+          "reason": "Read printed966 and981–982. With r=13.77975135, 1/4+r²=190.13154727…, whereas 1/2+r²=190.38154727…. The former matches the printed eigenvalue and the Laplacian convention.",
+          "by": "REV-MetaplecticAutomorphicForms--MP.0"
+        }
+      ]
     },
     {
       "kind": "error",
@@ -16766,9 +17056,16 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Read published (6.6) and its proof, and Duke1988 Theorem5 printed85/PDF13: its cosh(πt/2), at t=r/2, occurs in each of the two half-weight coefficients. The quoted source therefore gives cosh²(πr/4) for the inverse-norm-squared normalization. Passing to a unit vector removes this exponential factor. This confirms the normalization error; I did not reproduce the separate local Weyl-law argument in the original reason.",
-        "by": "REV-MetaplecticAutomorphicForms--MP.0"
-      }
+        "reason": "DIT16 (6.6), printed968–969/PDF20–21, and Duke88 Theorem5 printed85–86/PDF13–14: unit half-weight coefficients carry cosh(πt/2). With t=r/2 the product carries cosh²(πr/4), omitted in the inverse-norm-squared bound. This confirms the normalization error; the separate local Weyl-law disproof in the inherited reason was not repeated.",
+        "by": "REV-MetaplecticAutomorphicForms--MP.0~2"
+      },
+      "reviewHistory": [
+        {
+          "verdict": "confirmed",
+          "reason": "Read published (6.6) and its proof, and Duke1988 Theorem5 printed85/PDF13: its cosh(πt/2), at t=r/2, occurs in each of the two half-weight coefficients. The quoted source therefore gives cosh²(πr/4) for the inverse-norm-squared normalization. Passing to a unit vector removes this exponential factor. This confirms the normalization error; I did not reproduce the separate local Weyl-law argument in the original reason.",
+          "by": "REV-MetaplecticAutomorphicForms--MP.0"
+        }
+      ]
     },
     {
       "kind": "misprint",
@@ -16787,9 +17084,16 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Read Proposition6 and printed981–982 against (5.16)/Proposition5. The CM branch has D<0, so the real discriminant factor is |D|^{3/4}; the opening D>1 restriction also excludes a branch the theorem states.",
-        "by": "REV-MetaplecticAutomorphicForms--MP.0"
-      }
+        "reason": "Proposition6 printed981–982/PDF33–34 compared with Theorem4/Proposition5: the negative-D CM case requires |D|^{3/4}. The proof’s positive-D opening does not cover all its stated cases.",
+        "by": "REV-MetaplecticAutomorphicForms--MP.0~2"
+      },
+      "reviewHistory": [
+        {
+          "verdict": "confirmed",
+          "reason": "Read Proposition6 and printed981–982 against (5.16)/Proposition5. The CM branch has D<0, so the real discriminant factor is |D|^{3/4}; the opening D>1 restriction also excludes a branch the theorem states.",
+          "by": "REV-MetaplecticAutomorphicForms--MP.0"
+        }
+      ]
     },
     {
       "kind": "error",
@@ -16800,7 +17104,7 @@
       "id": "MetaplecticAutomorphicForms/E-DUKE-IMAMOGLU-TOTH-16-E22",
       "source": "PAPER-DUKE-IMAMOGLU-TOTH-16",
       "originFinding": "PAPER-DUKE-IMAMOGLU-TOTH-16/E22",
-      "reason": "Imported correction from REV-PAPER-DUKE-IMAMOGLU-TOTH-16; this packet uses the corrected statements. The residue claim is right (checked from the constant term Λ(2−2s)2^{1−s}y^{3/4−s/2} and b(m²,s)). For the norm: g(z)=|θ(z)|² is Γ_0(4)-invariant (checked), and ⟨θ,θ⟩=Σ_{i=1}^{6}∫_F g(γ_i z)dµ over coset representatives I, S, ST, ST², ST³, ST²S (bottom rows exhausting P¹(Z/4Z)). Gauss–Legendre quadrature up to y=Y plus the exact cusp tail 3·∫_Y^∞ y^{−3/2}dy = 6Y^{−1/2} gives 6.283185307180 for Y=12 and for Y=20, i.e. 2π to 12 digits; the same code with g≡1 returns area 2π. So ⟨½θ,½θ⟩ = π/2 ≈ 1.571, not 6, and the claimed match between the norm-6 normalization of F and ½θ fails. Defence: the remark is explicitly heuristic ('Perhaps not coincidentally'), and [7] (Chiera, J. Number Theory 122 (2007), which I could not access) may use a normalized Petersson product; even so, no normalization gives ⟨½θ,½θ⟩=6, only ⟨θ,θ⟩=6 with the product divided by π/3. Nothing in the proofs uses it; extraction item 80 repeats the false value.",
+      "reason": "The correction concerns the unscaled Petersson measure dμ=dxdy/y². Its invariant theta-norm integrand is sqrt(y)|θ(z)|². Summing over six Γ₀(4) cosets and including the cusp tail gives 2π at both GL60/Y12 and GL90/Y20; the area control also gives 2π. Thus the norm squared of θ/2 is π/2, rather than 6. This numerical check supports the normalization correction, but is not a formal proof of the exact integral. The separate Chiera convention was not read; no correction to that source is asserted. The remark is unused in the paper’s proofs.",
       "known": "Already recorded and independently confirmed in the atlas extraction; no external author erratum is claimed.",
       "searched": [
         "Earlier extraction records its correction search at research/blueprint/papers/PAPER-DUKE-IMAMOGLU-TOTH-16.result.json. Those searches are provenance, not claimed repeated by this worker.",
@@ -16808,9 +17112,16 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Read printed965 and the defined Petersson measure. Independently integrated the invariant integrand sqrt(y)|theta(z)|² over six cosets, with cusp tail, at GL60/Y12 and GL90/Y20: 6.283185307179583 and6.2831853071795924. The area control gives2π as well. Hence the quarter norm is π/2, not6. The invariant integrand includes sqrt(y); |theta|² alone is not invariant. Chiera was not read and no claim is made about its own convention.",
-        "by": "REV-MetaplecticAutomorphicForms--MP.0"
-      }
+        "reason": "Printed965/PDF17 and the unscaled Petersson convention: an independent six-coset quadrature of sqrt(y)|θ|², with cusp tail, gives 6.283185307179599 at GL60/Y12 and6.2831853071796075 at GL90/Y20. The area control gives2π. The quarter norm is consistent with π/2, contradicting6. This is numerical corroboration, not a formal integral proof; Chiera was not read.",
+        "by": "REV-MetaplecticAutomorphicForms--MP.0~2"
+      },
+      "reviewHistory": [
+        {
+          "verdict": "confirmed",
+          "reason": "Read printed965 and the defined Petersson measure. Independently integrated the invariant integrand sqrt(y)|theta(z)|² over six cosets, with cusp tail, at GL60/Y12 and GL90/Y20: 6.283185307179583 and6.2831853071795924. The area control gives2π as well. Hence the quarter norm is π/2, not6. The invariant integrand includes sqrt(y); |theta|² alone is not invariant. Chiera was not read and no claim is made about its own convention.",
+          "by": "REV-MetaplecticAutomorphicForms--MP.0"
+        }
+      ]
     },
     {
       "kind": "error",
@@ -16829,9 +17140,16 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Read Lemmas5–7, (9.2)–(9.3), (2.11) and footnote8. Parametrizing the semicircle clockwise for z→γ_Qz gives −it rather than the printed +it. This agrees with the sign of i∂F=−P/2 in (9.2); flipping both the kernel and the orientation sign would undo the repair. The packet node required that additional correction.",
-        "by": "REV-MetaplecticAutomorphicForms--MP.0"
-      }
+        "reason": "§9 Lemmas5–7 and (9.2)–(9.3), PDF27–29, compared with (2.11): i∂F=−P/2, and the clockwise source cycle gives the opposite semicircle kernel sign from the printed unfolding display. The corrected −it kernel and its orientation convention must be kept together. The inherited full numerical trace experiment was not repeated.",
+        "by": "REV-MetaplecticAutomorphicForms--MP.0~2"
+      },
+      "reviewHistory": [
+        {
+          "verdict": "confirmed",
+          "reason": "Read Lemmas5–7, (9.2)–(9.3), (2.11) and footnote8. Parametrizing the semicircle clockwise for z→γ_Qz gives −it rather than the printed +it. This agrees with the sign of i∂F=−P/2 in (9.2); flipping both the kernel and the orientation sign would undo the repair. The packet node required that additional correction.",
+          "by": "REV-MetaplecticAutomorphicForms--MP.0"
+        }
+      ]
     },
     {
       "kind": "gap",
@@ -16850,9 +17168,16 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Read the hypotheses before Lemma6 and the Whittaker substitution in Lemma5. M_{sgn(m),s−1/2}(y) behaves as y^s, hence the substituted phi behaves as y^{s−1}; the printed y^{1+ε} bound requires Re(s)>2. The weaker bound or continuation from that smaller half-plane repairs the step.",
-        "by": "REV-MetaplecticAutomorphicForms--MP.0"
-      }
+        "reason": "§9 PDF27–29: the substituted Whittaker M has leading y^s, so the test function behaves as y^{s−1}. The printed stronger small-y hypothesis only covers Re(s)>2; a weaker weight-two estimate or continuation is needed for Re(s)>1.",
+        "by": "REV-MetaplecticAutomorphicForms--MP.0~2"
+      },
+      "reviewHistory": [
+        {
+          "verdict": "confirmed",
+          "reason": "Read the hypotheses before Lemma6 and the Whittaker substitution in Lemma5. M_{sgn(m),s−1/2}(y) behaves as y^s, hence the substituted phi behaves as y^{s−1}; the printed y^{1+ε} bound requires Re(s)>2. The weaker bound or continuation from that smaller half-plane repairs the step.",
+          "by": "REV-MetaplecticAutomorphicForms--MP.0"
+        }
+      ]
     },
     {
       "kind": "gap",
@@ -16871,9 +17196,16 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Read §10 printed980–981: only odd-prime eigenvalues are introduced, while the product includes2. Its Euler factor needs the separate plus-space operator. With the full square-index recurrence, vanishing of every fundamental b(d) would force every discriminant-index coefficient to vanish.",
-        "by": "REV-MetaplecticAutomorphicForms--MP.0"
-      }
+        "reason": "§10 printed980–981/PDF32–33: the text introduces odd-prime eigenvalues but uses an Euler product including2. A separate plus-space dyadic operator and full square-index recurrence are necessary before the series and fundamental-coefficient nonvanishing argument are defined.",
+        "by": "REV-MetaplecticAutomorphicForms--MP.0~2"
+      },
+      "reviewHistory": [
+        {
+          "verdict": "confirmed",
+          "reason": "Read §10 printed980–981: only odd-prime eigenvalues are introduced, while the product includes2. Its Euler factor needs the separate plus-space operator. With the full square-index recurrence, vanishing of every fundamental b(d) would force every discriminant-index coefficient to vanish.",
+          "by": "REV-MetaplecticAutomorphicForms--MP.0"
+        }
+      ]
     },
     {
       "kind": "misprint",
@@ -16884,7 +17216,7 @@
       "id": "MetaplecticAutomorphicForms/E-GROSS-ZAGIER-86-E30",
       "source": "PAPER-GROSS-ZAGIER-86",
       "originFinding": "PAPER-GROSS-ZAGIER-86/E30",
-      "reason": "Imported correction from REV-PAPER-GROSS-ZAGIER-86; this packet uses the corrected statements. In odd weight 1, θ_𝒜|₁(−γ) = −θ_𝒜|₁γ, so the left side is not a function of the image of γ in PSL₂(ℤ). The right side also changes sign under γ ↦ −γ: ε_{D₁}(−1)ε_{D₂}(−1) = ε(−1) = −1 because exactly one of D₁, D₂ is negative, and c*d is unchanged. So the identity holds for every matrix of SL₂(ℤ) (either lift). This is what the proof uses ('an arbitrary element of SL₂(ℤ)') and what (2.2) states.",
+      "reason": "Imported correction from REV-PAPER-GROSS-ZAGIER-86; this packet uses the corrected statements. In odd weight 1, θ_𝒜|₁(−γ) = −θ_𝒜|₁γ, so the left side is not a function of the image of γ in PSL₂(ℤ). The right side also changes sign under γ ↦ −γ: ε_{D₁}(−1)ε_{D₂}(−1) = ε(−1) = −1 because exactly one of D₁, D₂ is negative, and c*d is unchanged. So the identity holds for every matrix of SL₂(ℤ) (either lift). This is what the proof uses (a matrix in SL₂(ℤ)) and what (2.2) states.",
       "known": "Already recorded and independently confirmed in the atlas extraction; no external author erratum is claimed.",
       "searched": [
         "Earlier extraction records its correction search at research/blueprint/papers/PAPER-GROSS-ZAGIER-86.result.json. Those searches are provenance, not claimed repeated by this worker.",
@@ -16892,9 +17224,16 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Read the published scan PDF51/printed274 and the SL₂ statement immediately preceding it. Weight1 slash changes sign under γ→−γ; since −I represents the identity in PSL₂, the formula needs an SL₂ matrix lift.",
-        "by": "REV-MetaplecticAutomorphicForms--MP.0"
-      }
+        "reason": "GZ IV.2 printed274/PDF51: weight-one slash changes sign under γ↦−γ. The formula therefore requires a matrix lift in SL₂, even when the underlying geometric action factors through PSL₂.",
+        "by": "REV-MetaplecticAutomorphicForms--MP.0~2"
+      },
+      "reviewHistory": [
+        {
+          "verdict": "confirmed",
+          "reason": "Read the published scan PDF51/printed274 and the SL₂ statement immediately preceding it. Weight1 slash changes sign under γ→−γ; since −I represents the identity in PSL₂, the formula needs an SL₂ matrix lift.",
+          "by": "REV-MetaplecticAutomorphicForms--MP.0"
+        }
+      ]
     },
     {
       "kind": "misprint",
@@ -16913,9 +17252,16 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Read the published scan PDF52/printed275: the second exponential prints the ideal symbol 𝔡₂, but the definition of e_n and the immediately following C(ν) display use the integer modulus δ₂. The next line fixes the intended notation.",
-        "by": "REV-MetaplecticAutomorphicForms--MP.0"
-      }
+        "reason": "GZ IV.2 printed275/PDF52: the exponential convention takes an integer modulus, and the next completed-square expression uses δ₂. The ideal symbol in the preceding display cannot be its modulus.",
+        "by": "REV-MetaplecticAutomorphicForms--MP.0~2"
+      },
+      "reviewHistory": [
+        {
+          "verdict": "confirmed",
+          "reason": "Read the published scan PDF52/printed275: the second exponential prints the ideal symbol 𝔡₂, but the definition of e_n and the immediately following C(ν) display use the integer modulus δ₂. The next line fixes the intended notation.",
+          "by": "REV-MetaplecticAutomorphicForms--MP.0"
+        }
+      ]
     },
     {
       "id": "MetaplecticAutomorphicForms/E-Kudla-Leray-quotient",
@@ -16933,9 +17279,16 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Read I.3 PDF12. With Y₀=Y₁=L and Y₂ transverse, R=L but Y₂∩Rperp=0, so quotienting that intersection by R is undefined. Its image ((Y₂∩Rperp)+R)/R is defined.",
-        "by": "REV-MetaplecticAutomorphicForms--MP.0"
-      }
+        "reason": "Kudla I.3 PDF12: take Y₀=Y₁=L and Y₂ transverse. Then R=L and Y₂∩R⊥=0, so R is not a subspace of that intersection. Its image ((Y₂∩R⊥)+R)/R is well defined.",
+        "by": "REV-MetaplecticAutomorphicForms--MP.0~2"
+      },
+      "reviewHistory": [
+        {
+          "verdict": "confirmed",
+          "reason": "Read I.3 PDF12. With Y₀=Y₁=L and Y₂ transverse, R=L but Y₂∩Rperp=0, so quotienting that intersection by R is undefined. Its image ((Y₂∩Rperp)+R)/R is defined.",
+          "by": "REV-MetaplecticAutomorphicForms--MP.0"
+        }
+      ]
     },
     {
       "id": "MetaplecticAutomorphicForms/E-Kudla-genuine-twists",
@@ -16953,9 +17306,16 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Read II.4 PDF36–37, including λ(z)=z². Two genuine weight-one factors have weight2; multiplying by λ⁻¹ gives weight0, while λ⁻² gives−2. The dual has weight−1 and needs λ, yielding1.",
-        "by": "REV-MetaplecticAutomorphicForms--MP.0"
-      }
+        "reason": "Kudla II.4 pp.36–37: λ₂(z)=z². Two weight-one factors have weight2 and require λ₂^−1 to descend with weight0; the dual has weight−1 and requires λ₂ for weight1.",
+        "by": "REV-MetaplecticAutomorphicForms--MP.0~2"
+      },
+      "reviewHistory": [
+        {
+          "verdict": "confirmed",
+          "reason": "Read II.4 PDF36–37, including λ(z)=z². Two genuine weight-one factors have weight2; multiplying by λ⁻¹ gives weight0, while λ⁻² gives−2. The dual has weight−1 and needs λ, yielding1.",
+          "by": "REV-MetaplecticAutomorphicForms--MP.0"
+        }
+      ]
     },
     {
       "id": "MetaplecticAutomorphicForms/E-Kudla-Rao-known-sign",
@@ -16973,9 +17333,16 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Read Remark4.6 PDF21: Kudla explicitly instructs t(t−1)/2 instead of t(t+1)/2. Confirmed as an already printed correction in Kudla; Rao93 itself was not independently collated.",
-        "by": "REV-MetaplecticAutomorphicForms--MP.0"
-      }
+        "reason": "Kudla I.4 Remark4.6 PDF21 explicitly records the corrected quadratic exponent t(t−1)/2. Confirmed as an already printed correction; Rao93 itself was not independently read.",
+        "by": "REV-MetaplecticAutomorphicForms--MP.0~2"
+      },
+      "reviewHistory": [
+        {
+          "verdict": "confirmed",
+          "reason": "Read Remark4.6 PDF21: Kudla explicitly instructs t(t−1)/2 instead of t(t+1)/2. Confirmed as an already printed correction in Kudla; Rao93 itself was not independently collated.",
+          "by": "REV-MetaplecticAutomorphicForms--MP.0"
+        }
+      ]
     },
     {
       "id": "MetaplecticAutomorphicForms/E-Garrett-inner-product",
@@ -16993,9 +17360,16 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Read Claim0.7 and tensor-norm calculation PDF4. The multiplicity-space inner product is on x₁,x₂, unchanged by the oscillator action on the other tensor factor. The printed πh_i x_i may not lie in that multiplicity space.",
-        "by": "REV-MetaplecticAutomorphicForms--MP.0"
-      }
+        "reason": "Garrett Claim0.7 PDF4: the tensor multiplicity-space pairing uses the unchanged x₁,x₂. The oscillator action belongs to the other factor, and πh_i x_i need not lie in the multiplicity space.",
+        "by": "REV-MetaplecticAutomorphicForms--MP.0~2"
+      },
+      "reviewHistory": [
+        {
+          "verdict": "confirmed",
+          "reason": "Read Claim0.7 and tensor-norm calculation PDF4. The multiplicity-space inner product is on x₁,x₂, unchanged by the oscillator action on the other tensor factor. The printed πh_i x_i may not lie in that multiplicity space.",
+          "by": "REV-MetaplecticAutomorphicForms--MP.0"
+        }
+      ]
     },
     {
       "id": "MetaplecticAutomorphicForms/E-Garrett-multiplicity-space",
@@ -17013,9 +17387,16 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Read the last paragraph PDF4 against Y≃X⊗X⁰. X⁰=0 would give Y=0; for nonzero irreducible Y the multiplicity space is a line.",
-        "by": "REV-MetaplecticAutomorphicForms--MP.0"
-      }
+        "reason": "Garrett final paragraph PDF4: a zero multiplicity space would make X⊗X⁰ zero. For the nonzero irreducible representation in the argument the multiplicity is one-dimensional.",
+        "by": "REV-MetaplecticAutomorphicForms--MP.0~2"
+      },
+      "reviewHistory": [
+        {
+          "verdict": "confirmed",
+          "reason": "Read the last paragraph PDF4 against Y≃X⊗X⁰. X⁰=0 would give Y=0; for nonzero irreducible Y the multiplicity space is a line.",
+          "by": "REV-MetaplecticAutomorphicForms--MP.0"
+        }
+      ]
     },
     {
       "id": "MetaplecticAutomorphicForms/E-Biro-Vitali",
@@ -17033,9 +17414,16 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Read the published PDF26/printed128. The sequence (−1)^n z on the unit disk is locally bounded and converges at0 but not at1/2, disproving the stated one-point version. The preceding interval of positive real parameters supplies an accumulation set for the correct argument.",
-        "by": "REV-MetaplecticAutomorphicForms--MP.0"
-      }
+        "reason": "Biró printed128/PDF26: f_n(z)=(−1)^n z is locally bounded on the unit disk and converges at0, but not at1/2. The preceding interval of large positive parameters supplies the accumulation set needed for the valid Vitali step.",
+        "by": "REV-MetaplecticAutomorphicForms--MP.0~2"
+      },
+      "reviewHistory": [
+        {
+          "verdict": "confirmed",
+          "reason": "Read the published PDF26/printed128. The sequence (−1)^n z on the unit disk is locally bounded and converges at0 but not at1/2, disproving the stated one-point version. The preceding interval of positive real parameters supplies an accumulation set for the correct argument.",
+          "by": "REV-MetaplecticAutomorphicForms--MP.0"
+        }
+      ]
     },
     {
       "kind": "misprint",
@@ -17054,9 +17442,16 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Read arXiv v1 PDF54. The division-quaternion inner form is anisotropic, and the representation introduced in this paragraph is ρ, not τ. The corrected JL(ρ) follows the displayed definition of sigma_ρ.",
-        "by": "REV-MetaplecticAutomorphicForms--MP.0"
-      }
+        "reason": "Gan–Savin v1 §15.1 PDF54: the division-quaternion ternary inner form is anisotropic, and the representation introduced in that paragraph is ρ. Its theta input must use JL(ρ).",
+        "by": "REV-MetaplecticAutomorphicForms--MP.0~2"
+      },
+      "reviewHistory": [
+        {
+          "verdict": "confirmed",
+          "reason": "Read arXiv v1 PDF54. The division-quaternion inner form is anisotropic, and the representation introduced in this paragraph is ρ, not τ. The corrected JL(ρ) follows the displayed definition of sigma_ρ.",
+          "by": "REV-MetaplecticAutomorphicForms--MP.0"
+        }
+      ]
     },
     {
       "kind": "misprint",
@@ -17075,9 +17470,16 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Read arXiv v1 PDF27 and its displayed coinvariant decomposition. The objects there are Θ(ρ^±_{ψ̄}), so the ensuing identifications must retain those bars. This check is scoped to that passage, not a claim that changing ψ never twists a theta lift.",
-        "by": "REV-MetaplecticAutomorphicForms--MP.0"
-      }
+        "reason": "Gan–Savin v1 Proposition8.4 proof PDF27: the displayed SL₂-coinvariants use the ψ-conjugate oscillator constituents. The ensuing lift labels must keep that conjugation; no character-independent theta assertion is inferred.",
+        "by": "REV-MetaplecticAutomorphicForms--MP.0~2"
+      },
+      "reviewHistory": [
+        {
+          "verdict": "confirmed",
+          "reason": "Read arXiv v1 PDF27 and its displayed coinvariant decomposition. The objects there are Θ(ρ^±_{ψ̄}), so the ensuing identifications must retain those bars. This check is scoped to that passage, not a claim that changing ψ never twists a theta lift.",
+          "by": "REV-MetaplecticAutomorphicForms--MP.0"
+        }
+      ]
     },
     {
       "kind": "misprint",
@@ -17096,9 +17498,16 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Read v2 PDF88 PropositionA.1(i). The local cochain is s_v throughout this construction; the second denominator alone loses its subscript. The global s is introduced later. Confirmed against v2, not independently against the published page101.",
-        "by": "REV-MetaplecticAutomorphicForms--MP.0"
-      }
+        "reason": "Ichino–Prasanna arXiv v2 PropositionA.1(i), PDF88: both denominator factors use the local cochain s_v. Global s appears only later; the published page101 was not independently collated.",
+        "by": "REV-MetaplecticAutomorphicForms--MP.0~2"
+      },
+      "reviewHistory": [
+        {
+          "verdict": "confirmed",
+          "reason": "Read v2 PDF88 PropositionA.1(i). The local cochain is s_v throughout this construction; the second denominator alone loses its subscript. The global s is introduced later. Confirmed against v2, not independently against the published page101.",
+          "by": "REV-MetaplecticAutomorphicForms--MP.0"
+        }
+      ]
     }
   ],
   "restructure": [
@@ -17181,13 +17590,904 @@
       "signatures": "Every primary declaration, API and test has an explicit native-signature or omitted-carrier inventory entry. A native signature is not a claim that the full source target or supplier exists.",
       "source": "23 recorded public PDFs fetched with matching hashes; Biró00 and the YZZ2011 draft returned403. New reading is recorded separately on four source versions; historical reading is not claimed repeated.",
       "validation": "The Mathlib-only portion elaborates at the pinned shared build. The complete suggested file is not certified: its TauCeti projective-extension import has no available olean. No build or cache operation was run."
+    },
+    "independentReview": {
+      "job": "REV-MetaplecticAutomorphicForms--MP.0~2",
+      "date": "2026-10-08",
+      "agent": "Codex — codex-2XfYcg",
+      "baseline": "All64 declaration statements and claimed uses read at the two packet-pinned commits in25 modules; no baseline citation removed or replaced.",
+      "sourceBoundary": "Fresh scoped reading receipts are recorded per source. The YZZ author-draft cache was readable but its inherited SHA-256 was not independently certified. Original proof and missing supplier gates remain explicit.",
+      "suggestedLean": "Full lean-check blocked at the missing Tau Ceti Extension.olean import. Temporarily excluding Tau Ceti imports and Heisenberg, Algebra, LocalTheta at the same authorized path allowed 46 targets, 98 API signatures, 116 examples plus helpers to elaborate, with proof placeholders as the only warnings. The complete file was restored.",
+      "statusMeaning": "Accepted is a source-faithful, qualified planning pass; all implementation statuses remain unchecked and no stage is closed."
     }
   },
   "review": {
-    "status": "needs_changes",
-    "reviewer": "independent-review-REV-FIX-RT-AREA-automorphic-1~4",
+    "status": "accepted",
+    "reviewer": "independent-review-REV-MetaplecticAutomorphicForms--MP.0~2",
     "date": "2026-10-08",
-    "notes": "Independent review of FIX-RT-AREA-automorphic-1~4 (issue #7280, PR #7314, Codex codex-Z0ErNN) by Claude session claude-95TvAO, following REV-FIX-RT-AREA-automorphic-1~3 and, for this packet, REV-MetaplecticAutomorphicForms--MP.0 (needs_changes). Findings /19, /20, /21 and /23 are correctly fixed (Gan–Qiu–Takeda and Skoruppa locators checked; MP.3 imports SR.0, SR.2, SR.3 and AF.1; MP.5 imports the AA.3 and AF.2/AF.3 nodes). Corrected for /22: MP.2/weil-index-identities and the QFI6C request credited the real-place Hilbert symbol laws to Quadratic Form Invariants 6C, which assumes a nonarchimedean local field; the real place now uses Global Quadratic Forms 4.4 (prerequisite and request added). Global Hermitian existence was still routed to QFI in MP.6/pi-coherence-parity, two coverage entries and a gap; it is now a separately sourced Hermitian input. MP.6/jacobi-theta-decomposition-interface no longer describes MP.8 as its supplier (/20 direction). Status stays needs_changes because this packet's own blueprint review (REV-MetaplecticAutomorphicForms--MP.0) did not accept it and its revision BP-MetaplecticAutomorphicForms--MP.0~2 is pending: accepting a narrow fix would promote the whole packet. The suggested file keeps the broad review's false signatures in these regions (see the report). The reader still contradicts the packet at ~4151, ~4203/4208, ~6795, ~4577 and ~4811–4823 (including a GZ.5 prerequisite the packet removed)."
+    "notes": "Independent round-two review by Codex — codex-2XfYcg (#7074). All 176 qualified targets, 64 pinned baseline declarations, 186 API items, 180 tests, 42 planets, 23 source issues and supplier/closure routes checked. Corrected hypotheses, Hilbert-90 character transport, δ-independence, quaternionic scalar/μ conventions, doubling locators/range descriptions, Biró signed-index scope, 15 emitted test inventory entries and source provenance. There are 159 verified and 17 corrected node records; no nodes added or unresolved contradiction. Acceptance concerns the finished target-level planning pass: eight stages planned, zero closed, 168 explicit proof/carrier gaps and 31 supplier requests remain. Full Lean elaboration unavailable because the shared build lacks the Tau Ceti import; the scoped Mathlib-only portion of 260 named signatures/examples elaborated with proof placeholders as its only warnings. Historical reviews and source receipts remain provenance.",
+    "checked": [
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.0/bilinear-factor-set",
+        "verdict": "corrected",
+        "note": "The native FactorSet extension is reused; zero and ordered triangular-form tests are emitted and their names are now fully qualified."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.0/inverse",
+        "verdict": "verified",
+        "note": "The inverse has −t+B(x,x), agreeing with the coefficient-first multiplication; no alternation is assumed."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.0/commutator",
+        "verdict": "verified",
+        "note": "The central commutator is B(x,y)−B(y,x), with the native coefficient injection."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.0/center-criterion",
+        "verdict": "verified",
+        "note": "Centrality is exactly membership in the antisymmetric radical; the vector coordinate is not silently required to vanish."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.0/half-form-commutator",
+        "verdict": "verified",
+        "note": "The half-form commutator uses alternating B and invertible 2, including characteristic-zero dyadic fields."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.0/half-form-center",
+        "verdict": "verified",
+        "note": "Nondegeneracy identifies the center with the native coefficient subgroup; the theorem does not assert this for a degenerate form."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.0/isometry-extension",
+        "verdict": "corrected",
+        "note": "Extension transport uses actual native bilinear isometries, including inverse transport across different modules; three emitted examples were wrongly marked omitted."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.0/isometry-action",
+        "verdict": "corrected",
+        "note": "The action comes from the native isometry group and fixes the coefficient injection; identity, negation and center examples are now inventoried as emitted."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.0/polarization-cocycle",
+        "verdict": "verified",
+        "note": "The quadratic coordinate correction has the correct coboundary direction and depends on invertibility of 2."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.0/polarization-equivalence",
+        "verdict": "corrected",
+        "note": "The equivalence uses opposite quadratic corrections in its two directions; the zero, cross and inverse-sign examples are now inventoried as emitted."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.0/central-character-criterion",
+        "verdict": "verified",
+        "note": "A section-trivial central-character extension requires the character to annihilate the factor set; this condition handles the dyadic lattice obstruction."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.0/central-character",
+        "verdict": "corrected",
+        "note": "The character construction requires its actual cocycle-annihilation hypothesis; three existing native examples were reconciled with the inventory."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.0/topological-heisenberg",
+        "verdict": "corrected",
+        "note": "Added joint-continuous evaluation to the target and specified the local-field isometry topology, matching the already-qualified API and signature."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.0/heisenberg-haar",
+        "verdict": "verified",
+        "note": "The emitted product-measure invariance assumes additive invariance and the required measurability hypotheses; right Haar and self-dual normalization remain gaps."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.0/schroedinger-model",
+        "verdict": "verified",
+        "note": "Translation and the ψ-dependent phase are the same operators in the group-law and norm formulas; Schwartz preservation is an explicit supplier gate."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.0/induced-schroedinger",
+        "verdict": "verified",
+        "note": "The section covariance and translation are constructed from the same Schrödinger formula; compact induction and the full Q₂ conductor test remain open."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.0/hilbert-schroedinger",
+        "verdict": "verified",
+        "note": "The L² adapter includes ψ, continuity and unitarity on the real line, with an a.e. formula; it does not assert a character-independent Hilbert model."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.0/smooth-vectors",
+        "verdict": "verified",
+        "note": "The real Schwartz-to-L² comparison is qualified; smooth nonarchimedean vectors and archimedean smooth-vector identification are not claimed supplied by algebraic representations."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.3/orthogonal-symplectic-dual-pair",
+        "verdict": "verified",
+        "note": "Tensor actions use actual isometries; nontrivial tensor factors are required for the scalar-kernel criterion, while the zero-factor test has its larger kernel."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.3/orthogonal-cover-restriction",
+        "verdict": "verified",
+        "note": "The orthogonal cover restriction is a sourced planned theorem; its actual cover and splitting are omitted rather than asserted for arbitrary groups."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.3/unitary-splitting",
+        "verdict": "corrected",
+        "note": "Corrected δ-independence, Hilbert-90 transport of character ratios and the unsupplied general E/F Hermitian carrier; the nontrivial zero-dimensional determinant line is retained."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.3/big-theta-module",
+        "verdict": "verified",
+        "note": "The algebraic coinvariant quotient is a native adapter; its smooth admissible theta-module realization and category comparison remain explicit SR gates."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.3/small-theta-module",
+        "verdict": "verified",
+        "note": "The irreducible quotient is sourced and depends on Howe duality; no arbitrary quotient is asserted irreducible."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.3/theta-finite-length",
+        "verdict": "verified",
+        "note": "Finite length is a theorem about the exact smooth theta module, with SR category prerequisites; the false arbitrary-representation signature is omitted."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.3/howe-duality",
+        "verdict": "verified",
+        "note": "The characteristic-zero local Howe-duality hypotheses and category are retained; the proof is a target route rather than a claim about an arbitrary carrier."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.3/local-see-saw",
+        "verdict": "verified",
+        "note": "The local see-saw uses the stated restricted Weil modules and invariant Hom spaces; Frobenius reciprocity alone is not treated as the comparison theorem."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.3/persistence-and-stable-range",
+        "verdict": "verified",
+        "note": "Persistence and stable-range bounds retain the source tower/type conventions; their exact Jacquet/smooth inputs are explicit."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.3/first-occurrence",
+        "verdict": "verified",
+        "note": "First occurrence is defined within fixed Witt towers and actual theta nonvanishing; zero and tower-change tests distinguish the definition."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.3/supercuspidal-first-occurrence",
+        "verdict": "verified",
+        "note": "Supercuspidal first occurrence is qualified by the nonarchimedean category and irreducible input; the source proof is not replaced by an arbitrary index function."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.3/kudla-jacquet-filtration",
+        "verdict": "verified",
+        "note": "The Kudla filtration route names its parabolic and smaller theta pieces; the graded-piece carrier remains an explicit omitted obligation."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.3/doubling-filtration",
+        "verdict": "verified",
+        "note": "The doubling filtration keeps the normalized induction and graded-piece requirements; endpoints alone are not presented as the filtration theorem."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.3/type-ii-theta",
+        "verdict": "verified",
+        "note": "Type-II theta retains the GL pair, rank and contragredient conventions; no general equivalence of unrelated modules is emitted."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.3/mvw-and-cover-induction",
+        "verdict": "verified",
+        "note": "MVW and cover induction are source-qualified comparison targets; the missing native anti-involution and induction compatibility are recorded."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.3/nonarchimedean-conservation",
+        "verdict": "verified",
+        "note": "The nonarchimedean conservation relations use the source normalized first-occurrence conventions and tower parameters."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.3/archimedean-conservation",
+        "verdict": "verified",
+        "note": "The real/complex conservation cases and category are separate from the nonarchimedean theorem; the exact bounds are retained."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.3/unitary-equal-almost-equal-rank",
+        "verdict": "verified",
+        "note": "The equal/almost-equal unitary ranks use the stated character, sign and root-number conventions; the actual local packet objects are supplier gates."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.3/unitary-doubling-dichotomy",
+        "verdict": "verified",
+        "note": "The unitary doubling dichotomy is a planned source theorem with its rank and character restrictions, rather than two independent arbitrary spaces."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.3/mp-odd-orthogonal-unramified",
+        "verdict": "verified",
+        "note": "The metaplectic/odd-orthogonal unramified correspondence retains genuine and spherical conventions and the actual Satake-carrier gap."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.3/rallis-unramified-satake",
+        "verdict": "verified",
+        "note": "The unramified Rallis Satake comparison is scoped to the designated spherical data and rank shift; an arbitrary Hecke map is not emitted."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.3/unitary-hecke-compatibility",
+        "verdict": "verified",
+        "note": "Unitary Hecke compatibility uses the specified hyperspecial data and source normalization; the Satake identification remains to be supplied."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.1/smooth-stone-von-neumann",
+        "verdict": "verified",
+        "note": "Smooth Stone–von Neumann fixes nontrivial ψ, the polarization character and irreducible smooth category; the dyadic unsplit character is excluded."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.1/unitary-stone-von-neumann",
+        "verdict": "verified",
+        "note": "The unitary uniqueness theorem uses a nonzero irreducible strongly continuous Heisenberg representation and its actual Hilbert model."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.1/scalar-normalizer-extension",
+        "verdict": "verified",
+        "note": "The covariance subgroup and two projections are native constructions; scalar-kernel Schur and strong topology remain gaps, while nonsplitting is scoped to the real μ₂ cover."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.1/intertwiner-lines",
+        "verdict": "corrected",
+        "note": "Qualified norm-one cocycle scalars by unitary choices of A_g; nonzero intertwiners alone only give invertibility and scalar ambiguity."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.2/weil-index",
+        "verdict": "verified",
+        "note": "The native real Gaussian fragment and nondegenerate/source Weil index are distinguished; empty sums and unrelated local indices are not asserted to coincide."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.2/weil-index-identities",
+        "verdict": "verified",
+        "note": "Hilbert/Hasse identities reuse QFI for nonarchimedean places and GlobalQuadraticForms for real places, with explicit Weil-index normalization gates."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.2/leray-form",
+        "verdict": "verified",
+        "note": "The emitted graph quadratic form is distinct from the full Leray quotient; the corrected image ((L∩R⊥)+R)/R and its nondegeneracy remain to be constructed."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.2/leray-cocycle",
+        "verdict": "verified",
+        "note": "The Leray cocycle is sourced from the actual triple form and index, with coboundary convention stated; no arbitrary factor-set equality is emitted."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.1/rao-factor-set",
+        "verdict": "verified",
+        "note": "Rao's normalized factor set remains a source construction; the known corrected exponent is preserved without claiming to have collated Rao93."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.1/metaplectic-double-cover",
+        "verdict": "verified",
+        "note": "The normalized μ₂ restriction is distinguished from the scalar-circle normalizer; local charts and real nonsplitting require the genuine cover."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.1/genuine-oscillator",
+        "verdict": "verified",
+        "note": "The central −1, rather than an arbitrary scalar z, acts by −id in the actual genuine oscillator representation; missing carrier signatures are omitted."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.2/generator-operators",
+        "verdict": "verified",
+        "note": "Generator formulas use a fixed self-dual Fourier convention, determinant scaling and Weil phase; arbitrary FT data are no longer treated as the Fourier operator."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.2/operator-relations",
+        "verdict": "verified",
+        "note": "Operator relations use the same normalized generators and cover; their metaplectic comparison and Fourier-square proof remain gates."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.2/character-and-dual",
+        "verdict": "corrected",
+        "note": "Reconciled the boundary with tensor scalar weight 0 and normalized dual scalar weight 1; the emitted unit identities are expressly weaker than model equivalences."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.3/quaternionic-similitude-datum",
+        "verdict": "verified",
+        "note": "Quaternionic similitude groups, common norm multiplier and symplectic tensor pairing retain the source assumptions and Part-II group-carrier gate."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.3/quaternionic-splitting",
+        "verdict": "verified",
+        "note": "The quaternionic splitting theorem names the actual cocycle and embeddings; equality of unrelated cochains is no longer emitted."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.3/quaternionic-first-doubled-splitting",
+        "verdict": "verified",
+        "note": "The first doubled splitting retains the general χ(α)^−2m scalar, its dimension and designated embedding; it is distinct from the later rank-two A.16 calculation."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.3/quaternionic-second-doubled-splitting",
+        "verdict": "verified",
+        "note": "The second doubled splitting uses its specific polarization and induced group; the formula and matrix normalization are sourced to Appendix A."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.3/quaternionic-sharp-descent",
+        "verdict": "corrected",
+        "note": "Specified the doubled Y□ cocycle, both μ-corrected cochains and Lemma A.10 for independence of the norm lift; A.9 is the prerequisite calculation."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.3/quaternionic-see-saw-compatibility",
+        "verdict": "verified",
+        "note": "The quaternionic see-saw comparison uses the actual compatible splittings and embeddings; no equality of independently selected maps is emitted."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.3/periods-i-comparison",
+        "verdict": "verified",
+        "note": "The Periods-I comparison follows the three scalar calculations and doubled splittings, preserving the repaired proof direction."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.3/periods-i-first-scalar-calculation",
+        "verdict": "corrected",
+        "note": "Corrected the A.16 scalar on ι([α,α],1) to χ(α)^−2; the Hilbert and μ factors were checked at Appendix A pp.101–102."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.3/periods-i-second-scalar-calculation",
+        "verdict": "verified",
+        "note": "The second E× embedding uses the matching A.18–A.20 calculation; its Hilbert/index factors are not confused with the first embedding."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.3/periods-i-square-quaternion-calculation",
+        "verdict": "verified",
+        "note": "The square-quaternion calculation retains the exact auxiliary square and split cases; its specialized matrices remain source proof input."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.3/harris-kudla-morita-comparison",
+        "verdict": "verified",
+        "note": "The Harris–Kudla/Morita comparison retains its subgroup and polarization hypotheses; original comparison proofs are explicitly outside the current closure."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.3/similitude-theta-howe",
+        "verdict": "verified",
+        "note": "Similitude theta uses matched multipliers and its restricted groups, rather than unrestricted products; Howe compatibility is an explicit target."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.3/real-discrete-series-theta",
+        "verdict": "verified",
+        "note": "Real discrete-series theta is scoped to the read representation parameters and source category; it is not a generic Hilbert equivalence."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.3/quaternionic-unramified-theta",
+        "verdict": "verified",
+        "note": "The quaternionic unramified instance retains good-place data and its local group carrier; the Satake proof remains a supplier gate."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.3/rank-one-oscillator-constituents",
+        "verdict": "verified",
+        "note": "The rank-one oscillator constituents use the ψ-conjugation convention read in Gan–Savin and the exact even/odd constituents."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.3/gl2-gso4-theta",
+        "verdict": "verified",
+        "note": "The GL₂–GSO₄ theta instance keeps its central character and quotient conventions; the local packet and similitude-category carriers remain explicit."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.3/minimal-orthogonal-theta",
+        "verdict": "verified",
+        "note": "The minimal orthogonal theta construction uses the designated exceptional representation, not a generic Weil module or arbitrary quotient."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.3/division-ternary-theta",
+        "verdict": "verified",
+        "note": "The division ternary inner form is anisotropic and uses JL(ρ); the source typo does not change its group or representation input."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.3/pgsp6-pgso8-similitude-theta",
+        "verdict": "verified",
+        "note": "The PGSp₆–PGSO₈ similitude theta target retains the source similitude and representation hypotheses, with exceptional carriers requested once."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.3/pgsp6-theta-dichotomy",
+        "verdict": "verified",
+        "note": "The PGSp₆ dichotomy is tied to the actual exceptional theta modules and source nonvanishing criteria; arbitrary independent carriers are omitted."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.3/relevant-unitary-dichotomy",
+        "verdict": "verified",
+        "note": "Relevant unitary dichotomy keeps the specified rank, root-number and relevance conditions read in Disegni–Liu."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.3/theta-coefficient-rationality",
+        "verdict": "verified",
+        "note": "Theta coefficient rationality separates its number-field/model input from archimedean analytic realization; native algebraic objects alone do not prove the comparison."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.2/quadratic-uncertainty",
+        "verdict": "verified",
+        "note": "The support theorem excludes dimension zero and fixes the exact valuation cones and self-dual Fourier convention; its actual Fourier/support carrier is a gap."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.2/hermitian-uncertainty",
+        "verdict": "verified",
+        "note": "The Hermitian quadratic form is half the trace of the norm, with positive dimension and the exact support cones; it is not twice that form."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.2/hermitian-operator-normalizations",
+        "verdict": "verified",
+        "note": "The Hermitian operator normalizations keep local character, measures and source actions aligned; the native support comparison remains requested."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.4/unramified-compact-splittings",
+        "verdict": "verified",
+        "note": "Good-place compact splittings are distinguished from arbitrary compact subgroup splittings, including the dyadic qualification."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.4/adelic-metaplectic-cover",
+        "verdict": "verified",
+        "note": "The adelic cover uses restricted products and distinguished local splittings modulo product-one signs; a generic product of groups is not its construction."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.4/global-weil-index-product",
+        "verdict": "verified",
+        "note": "Global Weil-index reciprocity is sourced for compatible local data and one global character, rather than arbitrary independent indices."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.4/rational-symplectic-splitting",
+        "verdict": "verified",
+        "note": "Rational symplectic splitting depends on reciprocity and Poisson, with the exact global normalizations and source proof gate."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.4/adelic-weil-representation",
+        "verdict": "verified",
+        "note": "The adelic Weil action uses compatible local oscillator models and joint Schwartz data; completed archimedean and restricted-product adapters remain open."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.4/adelic-choice-compatibility",
+        "verdict": "verified",
+        "note": "Global choice compatibility names the character, polarization and measure transports on the same actual global cover."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.4/finite-weil-representation",
+        "verdict": "verified",
+        "note": "The finite operators act on the actual finite functions with nondegenerate pairing; omega_L has negative T phase and positive S phase, conjugate to rho_L."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.4/function-field-metaplectic-programme",
+        "verdict": "verified",
+        "note": "The function-field metaplectic programme is explicitly conditional; ordinary shtuka and excursion suppliers are not claimed to provide a metaplectic theorem."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.5/theta-kernel",
+        "verdict": "verified",
+        "note": "The theta sum is on the native function carrier; absolute convergence, Schwartz realization and automorphic descent remain source/AA/AF gates."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.5/theta-growth-transfer",
+        "verdict": "verified",
+        "note": "Height/growth transfer uses the requested cover and Schwartz estimates, with AF rapid decay and AA Siegel geometry as genuine qualified inputs."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.5/genuine-automorphic-spaces",
+        "verdict": "verified",
+        "note": "Genuine automorphic spaces require central sign, smoothness, finite behavior and growth conditions in AF's category, beyond an arbitrary function space."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.5/unipotent-splitting",
+        "verdict": "verified",
+        "note": "Unipotent splitting is a theorem about the actual cover with its canonical local/global construction; arbitrary group extensions need not split."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.5/metaplectic-constant-and-whittaker",
+        "verdict": "verified",
+        "note": "Constant-term and Whittaker operators retain the quotient measure and character conventions; cover-specific Fourier and convergence arguments remain explicit."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.5/global-theta-lift",
+        "verdict": "verified",
+        "note": "Global theta lifting retains its two groups, automorphic inputs and quotient integration hypotheses; a plain integral is only its native fragment."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.5/theta-integral-convergence",
+        "verdict": "verified",
+        "note": "The convergence criterion keeps m=m₀+2r and r=0 or m−r>d(n); disconnected O(1,1) and growth inputs are qualified."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.5/regularized-theta-integral",
+        "verdict": "verified",
+        "note": "Regularization uses the source Hecke/zeta and Laurent conventions; arbitrary regularizers and residues are no longer asserted to agree."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.5/extended-schwartz-weil",
+        "verdict": "verified",
+        "note": "The extended Schwartz–Weil space names the exact source distribution/category extension and its requested AL finite-dimensional adapter."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.5/unit-quotiented-theta",
+        "verdict": "verified",
+        "note": "Unit-quotiented theta distinguishes actual quotient orbits and measures from a raw sum; unit action and convergence remain source prerequisites."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.5/extended-restriction-comparison",
+        "verdict": "verified",
+        "note": "Restriction comparison uses the source embeddings and normalized extended spaces; an unrelated pullback is not presented as its theorem."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.6/theta-measure-normalizations",
+        "verdict": "verified",
+        "note": "Tamagawa and κ conventions include O(1) and split O(1,1) with τ=1/2; AA's connected-group contracts require the recorded disconnected extension."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.6/siegel-weil-section",
+        "verdict": "verified",
+        "note": "The Siegel–Weil section is generated from the actual oscillator evaluation and normalized induction, with the local/global carrier gate."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.6/ikeda-map",
+        "verdict": "verified",
+        "note": "The Ikeda map is the designated partial integration/evaluation transform with matching measures and tower dimensions; its actual induced comparison remains open."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.6/anisotropic-siegel-weil",
+        "verdict": "verified",
+        "note": "Anisotropic Siegel–Weil uses its convergent range and exact constants, keeping exceptional orthogonal behavior separate."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.6/first-term-identity",
+        "verdict": "verified",
+        "note": "The first-term and boundary identities keep r>0 and 0<m≤d(n); split O(1,1) uses the corrected zero coefficients and A₁=B₀."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.6/second-term-identity",
+        "verdict": "verified",
+        "note": "The second-term identity retains d(n)<m≤2d(n) and its complementary correction modulo the stated image, rather than equality of arbitrary Laurent coefficients."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.6/coherent-incoherent-sections",
+        "verdict": "verified",
+        "note": "Coherent/incoherent sections use the local discriminant and sign data and distinguish global quadratic from separately sourced Hermitian existence."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.6/unitary-siegel-weil-measure",
+        "verdict": "verified",
+        "note": "The unitary Siegel–Weil measure comparison uses the source field-degree and local/global normalizations, with no general connected-AA shortcut."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.6/pi-coherence-parity",
+        "verdict": "verified",
+        "note": "The parity/coherence criterion requests the exact global Hermitian theorem; quadratic QFI or GlobalQuadraticForms classification is not silently reused for Hermitian spaces."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.6/doubling-schwartz-map",
+        "verdict": "corrected",
+        "note": "Corrected the doubled δ map's locator and hypotheses to GQT §11.3, PDF52; the quoted equation numbers belonged elsewhere."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.6/local-doubling-integral",
+        "verdict": "corrected",
+        "note": "Corrected the local integral locator to GQT §11.6 and retained Z*=Z/L with unscaled good-place value d_v^−1; the native integral is explicitly weaker."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.6/theta-integral-factorization",
+        "verdict": "verified",
+        "note": "Global factorization requires compatible restricted-product data and joint integrability; its Fubini fragment states that hypothesis explicitly."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.6/rallis-inner-product",
+        "verdict": "corrected",
+        "note": "Corrected the range description to include both the second-term and convergent cases allowed by Theorem11.4, and matched the proof route to the Witt index."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.6/global-theta-nonvanishing",
+        "verdict": "verified",
+        "note": "The nonvanishing theorem keeps its local nonvanishing and holomorphic global L-value conditions, with lower-lift/first-occurrence hypotheses."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.6/global-see-saw-and-projection",
+        "verdict": "verified",
+        "note": "Global see-saw and projection use actual theta kernels and quotient measures; projection orthogonality assumes invariant data rather than Dirac at an arbitrary point."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.6/quadratic-quaternionic-norm-instances",
+        "verdict": "verified",
+        "note": "Binary/ternary quaternionic norm instances export MP's identities; the independent norm/orbit arithmetic is requested without importing the GZ consumer theorem."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.6/jacobi-group",
+        "verdict": "verified",
+        "note": "The Jacobi semidirect product uses the actual symplectic action; its zero-factor direct-product test assumes that action is trivial."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.6/jacobi-spaces",
+        "verdict": "verified",
+        "note": "Jacobi spaces retain index, central character, multiplier and Fourier/cusp conventions; the elementary invariance subtype is qualified as a fragment."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.6/fourier-jacobi-extraction",
+        "verdict": "verified",
+        "note": "Fourier–Jacobi extraction depends on the matching central character and measure, with nonintegrability and wrong-character tests as genuine exclusions."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.6/jacobi-theta-decomposition-interface",
+        "verdict": "verified",
+        "note": "The Jacobi producer owns QM.1 items(a)–(e), with MP.8 as a consumer and a separately sourced L2s instance; the existing adelic fragments are not sufficient outputs."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.5/ideal-class-theta",
+        "verdict": "verified",
+        "note": "Ideal-class theta requires the independent ideal/norm arithmetic, not GN's consuming theta interface; the native sum is explicitly partial."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.5/ideal-class-theta-modularity",
+        "verdict": "verified",
+        "note": "Weight-one ideal-class modularity cites GZ IV.§1 at printed270/PDF47 and keeps its character and level conventions."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.5/ideal-class-theta-conjugation",
+        "verdict": "verified",
+        "note": "Conjugation/reflection retains the inverse-class arithmetic law as an independent requested input and uses the same theta coefficients."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.6/ideal-lattice-poisson",
+        "verdict": "verified",
+        "note": "Lattice Poisson uses the source trace-dual and partial Fourier conventions, with AL/GN arithmetic and analytic adapters separately requested."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.5/ideal-class-theta-general-transform",
+        "verdict": "verified",
+        "note": "The general ideal-class transform uses an SL₂ matrix lift in odd weight and an integer exponential modulus; the source corrections are retained."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.7/theta-multiplier",
+        "verdict": "verified",
+        "note": "The native theta quotient multiplier is fixed on Γ₀(4), with branch and denominator conditions; a trivial multiplier fails the transform tests."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.7/half-weight-maass-space",
+        "verdict": "verified",
+        "note": "The half-weight Maass space keeps the native upper half plane, exact Laplace convention, cusp behavior and multiplier; smoothness and spectral carriers remain gaps."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.7/half-weight-fourier-expansion",
+        "verdict": "verified",
+        "note": "The Fourier expansion retains Whittaker index sgn(n)/4 and parameter ir/2, together with the source cusp and normalization hypotheses."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.7/half-weight-eisenstein",
+        "verdict": "verified",
+        "note": "The Eisenstein series uses designated cusp data and its convergence chamber; analytic continuation and the exact Fourier expansion remain source gates."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.7/fundamental-eisenstein-coefficient",
+        "verdict": "verified",
+        "note": "Fundamental Eisenstein coefficients keep the Gamma factors, discriminant sign and source normalized Dirichlet series."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.7/eisenstein-divisor-coefficients",
+        "verdict": "verified",
+        "note": "Divisor coefficients retain all-prime conventions and the actual input coefficient function; the Hecke/Fourier theorem is distinguished from a divisor-sum definition."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.7/eisenstein-product-normalization",
+        "verdict": "verified",
+        "note": "The Eisenstein product normalization keeps its Gamma and completed L factors; arithmetic equality alone is not a spectral comparison."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.7/theta-residue-normalization",
+        "verdict": "corrected",
+        "note": "The residue target and quarter theta norm use the unscaled Petersson measure; the norm check includes sqrt(y)|θ|², with a separate correction to the source issue's stale invariant claim."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.7/kohnen-plus-space",
+        "verdict": "verified",
+        "note": "Plus support n≡0,1 mod4 is a Fourier condition on the actual carrier, not a condition imposed through an arbitrary zero coefficient map."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.7/plus-operators",
+        "verdict": "verified",
+        "note": "The U,W operators retain √2 and the WU order on the same native functions, with explicit analytic and group-action gaps."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.7/plus-projection",
+        "verdict": "verified",
+        "note": "The projection is the stated operator combination on the actual Maass space; idempotence and range identification are omitted until the source carrier exists."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.7/half-weight-kloosterman",
+        "verdict": "verified",
+        "note": "Half-weight Kloosterman sums keep modulus, multiplier and square-root conventions; the finite sum is not asserted to satisfy an arbitrary spectral formula."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.7/plus-kloosterman",
+        "verdict": "verified",
+        "note": "The plus Kloosterman sum keeps the dyadic factor and congruence support, with three concrete finite-sum tests."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.7/plus-kloosterman-symmetry",
+        "verdict": "verified",
+        "note": "The symmetry is derived for the designated normalized plus sum and corrected character conventions, rather than an arbitrary sum functional."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.7/half-weight-resolvent",
+        "verdict": "verified",
+        "note": "The resolvent is source-qualified by spectral parameter and analytic continuation, with original Fay proof and native spectral carrier still open."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.7/half-weight-poincare",
+        "verdict": "verified",
+        "note": "The Poincaré series and Gamma prefactor use Re(s)>1 for cancellation, with the stronger source residue computation a recorded obligation."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.7/poincare-residues",
+        "verdict": "verified",
+        "note": "Poincaré residues require r>0 and an orthonormal Petersson basis; arbitrary residue maps are not emitted as the theorem."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.7/plus-bessel-coefficient",
+        "verdict": "verified",
+        "note": "The Bessel coefficient uses the same plus Kloosterman sum and exact special-function normalization; uniformity and continuation remain gates."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.7/projected-poincare-expansion",
+        "verdict": "verified",
+        "note": "The projected expansion depends on the actual Poincaré and plus projection operators, not a separately chosen coefficient function."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.7/plus-coefficient-residue",
+        "verdict": "verified",
+        "note": "The source residue conversion keeps its change-of-spectral-coordinate factor and positive spectral parameter."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.7/quadratic-root-weyl-sum",
+        "verdict": "verified",
+        "note": "The quadratic-root sum has its actual finite congruence roots and genus character; the binary character laws are independent GN Part-II inputs."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.7/kohnen-salie-identity",
+        "verdict": "verified",
+        "note": "Kohnen–Salié is a source finite-sum theorem for those designated sums, with original proof and p=2 convention explicitly open."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.7/weight-two-cycle-unfolding",
+        "verdict": "verified",
+        "note": "The clockwise z→γ_Qz convention uses the corrected −it kernel with the corresponding orientation sign; both are not flipped simultaneously."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.7/cm-poincare-sum",
+        "verdict": "verified",
+        "note": "The CM Poincaré identity retains stabilizer weights and negative fundamental discriminants, with independent CM arithmetic requested."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.7/positive-cycle-poincare-sum",
+        "verdict": "verified",
+        "note": "The positive-cycle identity retains oriented closed cycles and the source square/nonsquare distinctions; raw traces remain arithmetic/analytic inputs."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.7/negative-cycle-poincare-sum",
+        "verdict": "verified",
+        "note": "The negative-factor cycle case uses the corrected Whittaker decay or continuation from Re(s)>2, preserving the intended Re(s)>1 result as a target."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.7/three-case-poincare-identity",
+        "verdict": "verified",
+        "note": "The three-case identity keeps its CM, positive-cycle and negative-factor branches and the exact period normalizations."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.7/plus-hecke-basis",
+        "verdict": "verified",
+        "note": "The plus Hecke basis requires commuting normal operators in the actual spectral space and the prime-2 operator; a generic Jordan block is not admitted."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.7/shimura-eigenline-lift",
+        "verdict": "verified",
+        "note": "The Shimura eigenline construction follows recurrence/nonzero fundamental coefficient, including prime 2, and states eigenline rather than phase-fixed vector uniqueness."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.7/shimura-coefficient-relation",
+        "verdict": "verified",
+        "note": "The all-prime coefficient relation supplies the lift construction and retains b(d′)conj(b(d)); its actual Hecke/Fourier extraction is a gate."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.7/spectral-residue-substitution",
+        "verdict": "verified",
+        "note": "Spectral residue substitution uses the genuine Poincaré/resolvent poles and orthonormal basis, not unrelated residue data."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.7/spectral-trace-identity",
+        "verdict": "verified",
+        "note": "The trace identity retains coefficient conjugation, |D| powers and the three geometric cases; the exact native spectral comparison remains open."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.7/shimura-series-automorphy",
+        "verdict": "verified",
+        "note": "Automorphy of the Shimura series is the source theorem using the preceding analytic/Hecke inputs, not a property of an arbitrary series."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.7/shimura-eigenline-bijection",
+        "verdict": "verified",
+        "note": "The eigenline bijection retains the genuine plus-space and level-one Hecke categories; an arbitrary carrier equivalence is omitted."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.7/extended-shimura-trace",
+        "verdict": "verified",
+        "note": "The extended trace is qualified by actual lift and geometric data, with paired inverse-norm versus unit normalization distinguished."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.7/negative-factor-trace",
+        "verdict": "verified",
+        "note": "The negative-factor trace includes the CM/negative-discriminant absolute value and source sign conventions."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.7/positive-factor-trace",
+        "verdict": "verified",
+        "note": "Positive-factor traces retain the oriented-cycle and square-discriminant qualifications and the actual paired trace formula."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.7/cm-trace",
+        "verdict": "verified",
+        "note": "CM traces keep stabilizer weights and parity cancellation; the emitted pairing uses the same raw trace rather than assuming an unrelated trace is zero."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.7/duke-coefficient-bound",
+        "verdict": "corrected",
+        "note": "Added a direct Duke88 bibliography/version receipt and source citation for Theorem5; its cosh(πt/2) and unit norm remain explicit."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.7/plus-normalization-conjugation",
+        "verdict": "verified",
+        "note": "Unit-phase changes preserve the paired coefficient and norm identities; vector uniqueness is not asserted from eigenline uniqueness."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.7/positive-fourier-kernel",
+        "verdict": "verified",
+        "note": "The common positive-coefficient kernel is defined using the actual input coefficient function; identification with the source Maass kernel remains a gap."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.7/finite-fourier-certificate",
+        "verdict": "verified",
+        "note": "The finite coefficient certificate assumes injectivity on W₁ and excludes W₀, distinguishing finite linear algebra from the Biró trace theorem."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.7/finite-fourier-automorphy",
+        "verdict": "verified",
+        "note": "Finite-Fourier automorphy uses the conditional separation argument only after Biró Lemma10/(14) and analytic gates, with no unnamed identity183."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.7/dit11-eisenstein-comparison",
+        "verdict": "verified",
+        "note": "The DIT11 Eisenstein comparison includes the designated Fourier/plus and normalization dependencies, with independent arithmetic data requested."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.7/resolvent-fourier-comparison",
+        "verdict": "verified",
+        "note": "Resolvent/Fourier comparison imports the exact resolvent, Poincaré and residue constructions and keeps analytic continuation explicit."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.7/shimura-dirichlet-series",
+        "verdict": "verified",
+        "note": "The Shimura Dirichlet series includes its all-prime Euler factor and dyadic operator, rather than inferring p=2 from odd-prime eigenvalues."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.7/geometric-trace",
+        "verdict": "verified",
+        "note": "Geometric traces use the source CM/cycle cases, quotient and stabilizer measures; actual arithmetic dictionaries and convergence remain explicit inputs."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.7/biro-shintani-lift",
+        "verdict": "corrected",
+        "note": "Reconciled the native series and boundary to all nonzero signed indices with positive-D coefficient inputs; Biró's divisor formula, general level and complementary parameter remain intact."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.7/adelic-classical-half-weight",
+        "verdict": "verified",
+        "note": "The adelic/classical half-weight comparison is source-qualified by cover, multiplier, level and all three cusps; its native comparison is still to be constructed."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.7/bfh-kernel-import",
+        "verdict": "verified",
+        "note": "The genus-two BFH kernel stays with MP.8; the unary MP.7 work imports its exact contract without duplicating its kernel."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.7/ramified-quadratic-twist-kernel-inputs",
+        "verdict": "verified",
+        "note": "The ramified quadratic-twist adapter no longer imports its BSD consumer; original FH95 local/source input remains an independent explicit gate."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.5/genuine-eisenstein-family",
+        "verdict": "verified",
+        "note": "Genuine Eisenstein families use AF's inducing/constant-term categories with the cover-specific section and intertwining comparison still required."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicForms:MP.6/toric-theta-pairing-interface",
+        "verdict": "verified",
+        "note": "The normalized toric pairing exports to GZ, with independent orbit/character dictionary and YZZ draft local nonsplit norm formula; the unavailable split proof stays a gate."
+      }
+    ]
   },
   "reviewHistory": [
     {
@@ -18083,13 +19383,19 @@
       "reviewer": "independent-review-REV-FIX-RT-AREA-automorphic-1~3",
       "date": "2026-10-07",
       "notes": "Independent scoped review of RT-AREA-automorphic-1/19–23, following REV-FIX-RT-AREA-automorphic-1~2 and the archived REV-MetaplecticAutomorphicForms--MP.0. Corrected GQT boundary/second-term locators, explicit binary/ternary rank hypotheses, YZZ nonsplit/split proof boundary and the scalar range prototype. Routed local Hilbert/Hasse invariants to QFI6C and actual global quadratic realization/classification to GlobalQuadraticForms Layers3/7/8, retaining rank/discriminant/real/dyadic constraints. Verified early SR/AF/AA inputs and independent fine I/J/MW carrier closures, without asserting global atlas acyclicity. Added version-qualified YZZ draft evidence and repaired the exact-hash Kudla host. Existing arbitrary-representation theta/finite-length/growth signatures and reader contradictions still block whole-packet acceptance; the reader even retains a removed GZ consumer prerequisite. Remaining original proofs and requested analytic extensions are explicit. Only the listed five relevant Mathlib files were freshly blob-verified, not all baseline entries. Lean was not compiled."
+    },
+    {
+      "status": "needs_changes",
+      "reviewer": "independent-review-REV-FIX-RT-AREA-automorphic-1~4",
+      "date": "2026-10-08",
+      "notes": "Independent review of FIX-RT-AREA-automorphic-1~4 (issue #7280, PR #7314, Codex codex-Z0ErNN) by Claude session claude-95TvAO, following REV-FIX-RT-AREA-automorphic-1~3 and, for this packet, REV-MetaplecticAutomorphicForms--MP.0 (needs_changes). Findings /19, /20, /21 and /23 are correctly fixed (Gan–Qiu–Takeda and Skoruppa locators checked; MP.3 imports SR.0, SR.2, SR.3 and AF.1; MP.5 imports the AA.3 and AF.2/AF.3 nodes). Corrected for /22: MP.2/weil-index-identities and the QFI6C request credited the real-place Hilbert symbol laws to Quadratic Form Invariants 6C, which assumes a nonarchimedean local field; the real place now uses Global Quadratic Forms 4.4 (prerequisite and request added). Global Hermitian existence was still routed to QFI in MP.6/pi-coherence-parity, two coverage entries and a gap; it is now a separately sourced Hermitian input. MP.6/jacobi-theta-decomposition-interface no longer describes MP.8 as its supplier (/20 direction). Status stays needs_changes because this packet's own blueprint review (REV-MetaplecticAutomorphicForms--MP.0) did not accept it and its revision BP-MetaplecticAutomorphicForms--MP.0~2 is pending: accepting a narrow fix would promote the whole packet. The suggested file keeps the broad review's false signatures in these regions (see the report). The reader still contradicts the packet at ~4151, ~4203/4208, ~6795, ~4577 and ~4811–4823 (including a GZ.5 prerequisite the packet removed)."
     }
   ],
   "prototypeSummary": {
     "nativeTargets": 64,
     "nativeApi": 130,
-    "nativeTests": 132,
-    "omittedNames": 216,
+    "nativeTests": 147,
+    "omittedNames": 201,
     "totalNamedTargetsApiTests": 542,
     "interpretation": "Counts distinguish signatures from missing source carriers, not checked mathematical proofs. Extra native helpers are not counted as target closure."
   }

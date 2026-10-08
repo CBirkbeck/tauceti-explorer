@@ -12,11 +12,11 @@ Global covers use restricted products with distinguished good-place splittings a
 
 For weight½ use Γ₀(4), the native theta quotient multiplier, all three cusps, Whittaker index (sgn(n)/4,ir/2), and plus support n≡0,1 mod4. Keep the √2 in U, the WU order, the dyadic K⁺ factor, the prime2 Euler factor and |D| in fractional powers. The normalized form is unique at the eigenline level; coefficient products use complex conjugation.
 
-This revision newly rereads the source slices listed below; earlier read dates and independent findings remain provenance. Of 25 recorded public PDFs, 23 were fetched with matching hashes. Biró00 and the YZZ2011 draft returned HTTP403. No copy of an uncleared book was used. No quoted passage or source-by-source summary is reproduced. Source results are given as mathematical targets with section/theorem/page locators.
+The round-two revision recorded its own fetches below; those earlier receipts remain provenance. This independent review read scoped passages for all 27 source records. Twenty-six unique public PDFs were fetched and hashed, including the author-hosted Biró scan and the added Duke88 source. The YZZ2011 author draft was inspected through cached public text after direct HTTP403; its inherited byte hash was not independently certified. No copy of an uncleared book was used. No quoted passage or source-by-source summary is reproduced. Source results are given as mathematical targets with section/theorem/page locators.
 
 ## Inventory and prototype scope
 
-Complete describes this planning pass. Every scoped stage is planned; none is closed. The retained needs_changes review belongs to the earlier submission and is evidence for the next independent review, not a verdict on this revision.
+Complete describes this planning pass. Every scoped stage is planned; none is closed. The current independent round-two review accepts this qualified planning pass. Earlier needs_changes reviews remain historical evidence in reviewHistory; they do not imply proof closure or erase the remaining gaps.
 
 | Stage | Targets | Coverage | Planets |
 |---|---:|---|---:|
@@ -29,9 +29,9 @@ Complete describes this planning pass. Every scoped stage is planned; none is cl
 | MP.6 | 22 | planned | 6 |
 | MP.7 | 51 | planned | 6 |
 
-The 176 targets have 186 named API items and 180 tests, 64 baseline references, 168 explicit gaps and 31 supplier requests. All 111 distinct source-item routes remain. The suggested file emits 64 target signatures, 130 API signatures and 132 examples. Its omission inventory records 216 named obligations whose actual source carrier or maps cannot yet be stated. Helper signatures do not count as closure.
+The 176 targets have 186 named API items and 180 tests, 64 baseline references, 168 explicit gaps and 31 supplier requests. All 111 distinct source-item routes remain. The suggested file emits 64 target signatures, 130 API signatures and 147 examples. Its omission inventory records 201 named obligations whose actual source carrier or maps cannot yet be stated. Helper signatures do not count as closure.
 
-The real-line L² oscillator, finite Fourier operators, invariant-measure/Fubini adapters and inverse-norm paired trace tests use actual native carriers. Other source categories still require the exact suppliers named per node. An emitted partial adapter is deliberately distinguished from its full source target. The whole file was not compiled: the shared pinned build lacks the Tau Ceti projective-extension import. A separately selected Mathlib-only portion elaborated with proof placeholders as its only warnings.
+The real-line L² oscillator, finite Fourier operators, invariant-measure/Fubini adapters and inverse-norm paired trace tests use actual native carriers. Other source categories still require the exact suppliers named per node. An emitted partial adapter is deliberately distinguished from its full source target. The full independent lean-check stopped at the missing Tau Ceti projective-extension import. A scoped Mathlib-only portion containing 46 targets, 98 API signatures and 116 examples elaborated with only sorry warnings; the complete file was restored. The Heisenberg, Algebra and LocalTheta sections were excluded from that scoped check. No full-file elaboration or checked proof is claimed.
 
 ## Ownership and supplier direction
 
@@ -97,9 +97,9 @@ Construct α_B(x,y)=B(x,y), viewed multiplicatively, as a native normalized fact
 - `TauCeti.Metaplectic.Heisenberg.bilinearFactorSet_apply` (api): native-signature.
 - `TauCeti.Metaplectic.Heisenberg.bilinearFactorSet_mul_left` (api): native-signature.
 - `TauCeti.Metaplectic.Heisenberg.bilinearFactorSet_mul_right` (api): native-signature.
-- `TauCeti.Metaplectic.Heisenberg.bilinearFactorSet_zero` (tests): omitted-carrier.
-- `TauCeti.Metaplectic.Heisenberg.bilinearFactorSet_cross` (tests): omitted-carrier.
-- `TauCeti.Metaplectic.Heisenberg.bilinearFactorSet_reversed` (tests): omitted-carrier.
+- `TauCeti.Metaplectic.Heisenberg.bilinearFactorSet_zero` (tests): native-signature.
+- `TauCeti.Metaplectic.Heisenberg.bilinearFactorSet_cross` (tests): native-signature.
+- `TauCeti.Metaplectic.Heisenberg.bilinearFactorSet_reversed` (tests): native-signature.
 
 Proposed module: `TauCeti/RepresentationTheory/Metaplectic/Heisenberg`. Implementation: unchecked.
 
@@ -352,9 +352,9 @@ For scalar forms B on W and D on W′ and a native isometry e:B≃D, construct t
 - `TauCeti.Metaplectic.Heisenberg.extensionIsometry_refl` (api): native-signature.
 - `TauCeti.Metaplectic.Heisenberg.extensionIsometry_trans` (api): native-signature.
 - `TauCeti.Metaplectic.Heisenberg.extensionIsometry_inl` (api): native-signature.
-- `TauCeti.Metaplectic.Heisenberg.extensionIsometry_identity` (tests): omitted-carrier.
-- `TauCeti.Metaplectic.Heisenberg.extensionIsometry_negation` (tests): omitted-carrier.
-- `TauCeti.Metaplectic.Heisenberg.extensionIsometry_inverse` (tests): omitted-carrier.
+- `TauCeti.Metaplectic.Heisenberg.extensionIsometry_identity` (tests): native-signature.
+- `TauCeti.Metaplectic.Heisenberg.extensionIsometry_negation` (tests): native-signature.
+- `TauCeti.Metaplectic.Heisenberg.extensionIsometry_inverse` (tests): native-signature.
 
 Proposed module: `TauCeti/RepresentationTheory/Metaplectic/Heisenberg`. Implementation: unchecked.
 
@@ -413,9 +413,9 @@ For a scalar form B, construct a group homomorphism from the native TauCeti.Bili
 - `TauCeti.Metaplectic.Heisenberg.extensionIsometryAction_apply` (api): native-signature.
 - `TauCeti.Metaplectic.Heisenberg.extensionIsometryAction_inl` (api): native-signature.
 - `TauCeti.Metaplectic.Heisenberg.extensionIsometryAction_injective` (api): native-signature.
-- `TauCeti.Metaplectic.Heisenberg.extensionIsometryAction_identity` (tests): omitted-carrier.
-- `TauCeti.Metaplectic.Heisenberg.extensionIsometryAction_negation` (tests): omitted-carrier.
-- `TauCeti.Metaplectic.Heisenberg.extensionIsometryAction_center` (tests): omitted-carrier.
+- `TauCeti.Metaplectic.Heisenberg.extensionIsometryAction_identity` (tests): native-signature.
+- `TauCeti.Metaplectic.Heisenberg.extensionIsometryAction_negation` (tests): native-signature.
+- `TauCeti.Metaplectic.Heisenberg.extensionIsometryAction_center` (tests): native-signature.
 
 Proposed module: `TauCeti/RepresentationTheory/Metaplectic/Heisenberg`. Implementation: unchecked.
 
@@ -514,9 +514,9 @@ For scalar B and invertible 2, construct E_{½(B−Bᵀ)}≃E_B by (t,x)↦(t+½
 - `TauCeti.Metaplectic.Heisenberg.polarizationEquiv_apply` (api): native-signature.
 - `TauCeti.Metaplectic.Heisenberg.polarizationEquiv_symm_apply` (api): native-signature.
 - `TauCeti.Metaplectic.Heisenberg.polarizationEquiv_inl` (api): native-signature.
-- `TauCeti.Metaplectic.Heisenberg.polarizationEquiv_zero` (tests): omitted-carrier.
-- `TauCeti.Metaplectic.Heisenberg.polarizationEquiv_cross` (tests): omitted-carrier.
-- `TauCeti.Metaplectic.Heisenberg.polarizationEquiv_sign` (tests): omitted-carrier.
+- `TauCeti.Metaplectic.Heisenberg.polarizationEquiv_zero` (tests): native-signature.
+- `TauCeti.Metaplectic.Heisenberg.polarizationEquiv_cross` (tests): native-signature.
+- `TauCeti.Metaplectic.Heisenberg.polarizationEquiv_sign` (tests): native-signature.
 
 Proposed module: `TauCeti/RepresentationTheory/Metaplectic/Heisenberg`. Implementation: unchecked.
 
@@ -617,9 +617,9 @@ Given χ:Multiplicative C→A with χ(B(x,y))=1 for all x,y, construct the group
 - `TauCeti.Metaplectic.Heisenberg.centralCharacter_inl` (api): native-signature.
 - `TauCeti.Metaplectic.Heisenberg.centralCharacter_canonicalSection` (api): native-signature.
 - `TauCeti.Metaplectic.Heisenberg.centralCharacter_unique` (api): native-signature.
-- `TauCeti.Metaplectic.Heisenberg.centralCharacter_value` (tests): omitted-carrier.
-- `TauCeti.Metaplectic.Heisenberg.centralCharacter_trivial` (tests): omitted-carrier.
-- `TauCeti.Metaplectic.Heisenberg.centralCharacter_zero` (tests): omitted-carrier.
+- `TauCeti.Metaplectic.Heisenberg.centralCharacter_value` (tests): native-signature.
+- `TauCeti.Metaplectic.Heisenberg.centralCharacter_trivial` (tests): native-signature.
+- `TauCeti.Metaplectic.Heisenberg.centralCharacter_zero` (tests): native-signature.
 
 Proposed module: `TauCeti/RepresentationTheory/Metaplectic/Heisenberg`. Implementation: unchecked.
 
@@ -629,11 +629,11 @@ Proposed module: `TauCeti/RepresentationTheory/Metaplectic/Heisenberg`. Implemen
 
 Node: `MetaplecticAutomorphicForms:MP.0/topological-heisenberg`.
 
-Give the existing bilinear FactorSet.Extension E_B the topology transported from C×W by its coordinate equivalence. If C,W are Hausdorff topological modules and B is continuous, multiplication and inversion are continuous. For finite-dimensional modules over a nondiscrete local field it is locally compact and second countable. For B=½ω, the native isometry action is jointly continuous.
+Give the existing bilinear FactorSet.Extension E_B the topology transported from C×W by its coordinate equivalence. If C,W are Hausdorff topological modules and B is continuous, multiplication and inversion are continuous. For finite-dimensional modules over a nondiscrete local field it is locally compact and second countable. For B=½ω, the native isometry action is jointly continuous provided evaluation on W is jointly continuous; in the finite-dimensional local-field case give isometries their subspace topology in GL(W).
 
 **Hypotheses.**
 
-- The local-field specialization has characteristic different from two; W is finite dimensional and ω is alternating. Continuity of B is required in the general topological-module case.
+- The local-field specialization has characteristic different from two; W is finite dimensional and ω is alternating. Continuity of B is required in the general topological-module case; joint continuity of the isometry evaluation is a separate hypothesis for the action.
 
 **Construction or proof route.**
 
@@ -1079,7 +1079,7 @@ Proposed module: `TauCeti/RepresentationTheory/Metaplectic/Stage1`. Implementati
 
 Node: `MetaplecticAutomorphicForms:MP.1/intertwiner-lines`.
 
-For each g∈Sp(W), the smooth intertwiner space between ρ and its g-twist is a one-dimensional C vector space; its nonzero operators are invertible. Choosing A_g with A_1=1 yields A_gA_h=c(g,h)A_{gh}, where c is a normalized scalar factor set. Rescaling A_g by b(g) changes c by b(g)b(h)/b(gh). In the unitary model these scalars have norm one.
+For each g∈Sp(W), the smooth intertwiner space between ρ and its g-twist is a one-dimensional C vector space; its nonzero operators are invertible. Choosing A_g with A_1=1 yields A_gA_h=c(g,h)A_{gh}, where c is a normalized scalar factor set. Rescaling A_g by b(g) changes c by b(g)b(h)/b(gh). If the chosen A_g are unitary operators, the resulting cocycle scalars have norm one; arbitrary nonzero intertwiners need not have that normalization.
 
 **Hypotheses.**
 
@@ -1100,7 +1100,7 @@ For each g∈Sp(W), the smooth intertwiner space between ρ and its g-twist is a
 
 - [Kudla96](https://www.math.toronto.edu/skudla/castle.pdf), I.1, PDF3–5, irreducibility and intertwiners. Scalar ambiguity is derived from uniqueness, not chosen as an axiom.
 
-**Prototype boundary.** No target theorem is emitted against arbitrary independent data. Required source construction or proof input: Construct the source objects in the stated categories and identify the maps in the mathematical target: For each g∈Sp(W), the smooth intertwiner space between ρ and its g-twist is a one-dimensional C vector space; its nonzero operators are invertible. Choosing A_g with A_1=1 yields A_gA_h=c(g,h)A_{gh}, where c is a normalized scalar factor set. Rescaling A_g by b(g) changes c by b(g)b(h)/b(gh). In the unitary model these scalars have norm one.
+**Prototype boundary.** No target theorem is emitted against arbitrary independent data. Required source construction or proof input: Construct the source objects in the stated categories and identify the maps in the mathematical target: For each g∈Sp(W), the smooth intertwiner space between ρ and its g-twist is a one-dimensional C vector space; its nonzero operators are invertible. Choosing A_g with A_1=1 yields A_gA_h=c(g,h)A_{gh}, where c is a normalized scalar factor set. Rescaling A_g by b(g) changes c by b(g)b(h)/b(gh). If the chosen A_g are unitary operators, the resulting cocycle scalars have norm one; arbitrary nonzero intertwiners need not have that normalization.
 
 **Named signature inventory.**
 
@@ -1573,7 +1573,7 @@ For ψa(t)=ψ(at), compare the oscillator model with the one for the scaled symp
 
 - [Kudla96](https://www.math.toronto.edu/skudla/castle.pdf), I.1 p.5; II.4 Remark4.1 p.37. Character/dual conversion and corrected scalar-circle tensor twists.
 
-**Prototype boundary.** Emitted: unit identities showing that weight-two corrections return tensor and dual scalar weights to weight one. Missing: the actual λ-character, representation tensor/dual objects and their smooth category comparisons; the unit identities alone are not those equivalences.
+**Prototype boundary.** Emitted: unit identities showing tensor weight 2−2=0 after λ₂⁻¹ and dual weight −1+2=1 after λ₂. Missing: the actual λ-character, representation tensor/dual objects and their smooth category comparisons; the unit identities alone are not those equivalences.
 
 **Named signature inventory.**
 
@@ -1789,7 +1789,7 @@ Proposed module: `TauCeti/RepresentationTheory/Metaplectic/Stage3`. Implementati
 
 Node: `MetaplecticAutomorphicForms:MP.3/unitary-splitting`. Planet: **Unitary Weil representation**.
 
-For E/F quadratic, an ε-Hermitian V and a −ε-Hermitian W, construct their commuting actions on the F-symplectic tensor space with trace pairing. A pair of characters χV,χW of E× with χV|F×=ωE/F^dim V and χW|F×=ωE/F^dim W gives the two compatible scalar-cover splittings and the Weil representation ωψ,χV,χW. Record dependence on those characters and on the trace-zero δ used to write the pairing.
+For E/F quadratic, an ε-Hermitian V and a −ε-Hermitian W, construct their commuting actions on the F-symplectic tensor space with trace pairing. A pair of characters χV,χW of E× with χV|F×=ωE/F^dim V and χW|F×=ωE/F^dim W gives the two compatible scalar-cover splittings and the Weil representation ωψ,χV,χW. Record dependence on ψ and the auxiliary characters. With the trace symplectic pairing fixed, the splitting is independent of the trace-zero δ used to express the construction.
 
 **Hypotheses.**
 
@@ -1797,8 +1797,8 @@ For E/F quadratic, an ε-Hermitian V and a −ε-Hermitian W, construct their co
 
 **Construction or proof route.**
 
-1. Form the trace pairing and import the Hermitian group carriers from the classical-group supplier.
-2. Apply Kudla’s unitary splitting construction with the dimension characters; identify coordinate changes in δ by the explicit isometry.
+1. Form the trace pairing after obtaining the requested ClassicalGroups Part-II Hermitian carriers over the general quadratic E/F; the existing complex-group roadmap alone does not supply them.
+2. Apply Kudla’s unitary splitting construction with the dimension characters; verify δ-independence on the same fixed trace symplectic space, as specified in Gan–Ichino §4.
 
 **Uses determining the API.**
 
@@ -1807,14 +1807,14 @@ For E/F quadratic, an ε-Hermitian V and a −ε-Hermitian W, construct their co
 **API.**
 
 - `TauCeti.Metaplectic.unitarySplitting_cocycle` (characterisation): Each splitting cochain cancels the pulled-back scalar cocycle.
-- `TauCeti.Metaplectic.unitarySplitting_character_change` (functoriality): Replacing an auxiliary character by a character trivial on F× twists by the corresponding determinant character.
-- `TauCeti.Metaplectic.unitarySplitting_delta` (compatibility): Changing δ gives the transported trace symplectic space and its intertwining equivalence.
+- `TauCeti.Metaplectic.unitarySplitting_character_change` (functoriality): If χ is replaced by χη with η|F×=1, transport η to η̃:E¹→C× by η̃(x/xᶜ)=η(x). Changing χV twists the W-factor by η̃∘det; changing χW twists the V-factor by η̃∘det.
+- `TauCeti.Metaplectic.unitarySplitting_delta` (compatibility): For the fixed trace symplectic space and ψ,χV,χW, changing the auxiliary trace-zero δ leaves the splitting unchanged.
 
 **Discriminating tests.**
 
 - `TauCeti.Metaplectic.unitarySplitting_zero` (degenerate): For V=0 the oscillator carrier is the line ℂ. On the unitary W factor its action is χV∘ι⁻¹∘det, where ι:E×/F×→E¹ sends x to x/xᶜ. For χV=1 this line is trivial; a valid nontrivial character trivial on F× need not act trivially.
 - `TauCeti.Metaplectic.unitarySplitting_restriction` (non-example): A character whose restriction to F× is not ωE/F^dim V is rejected as splitting data.
-- `TauCeti.Metaplectic.unitarySplitting_twist` (compatibility): Two valid characters differing by ξ produce the determinant twist ξ∘det on the relevant unitary factor.
+- `TauCeti.Metaplectic.unitarySplitting_twist` (compatibility): Two valid characters differing by η trivial on F× produce η̃∘det, where η̃(x/xᶜ)=η(x). Testing ξ directly on det∈E¹ would miss the Hilbert-90 transport.
 
 **Acceptance.**
 
@@ -1827,7 +1827,7 @@ For E/F quadratic, an ε-Hermitian V and a −ε-Hermitian W, construct their co
 - [GanIchino16](https://arxiv.org/pdf/1409.6824v2), §4 local theta setup, arXiv-v2 PDF11–12. The character restrictions in the unitary setup.
 - [GQT](https://arxiv.org/pdf/1207.4709v3), §2.9, equation(2.2), PDF13. In zero Hermitian dimension the remaining unitary group acts by the auxiliary determinant character, not necessarily trivially.
 
-**Prototype boundary.** No target theorem is emitted against arbitrary independent data. Required source construction or proof input: The cited papers invoke Kudla’s unitary splitting formula; its original proof and exact δ convention must be collated. The generic Hermitian-space carrier belongs to upstream ClassicalGroups, not to this packet.
+**Prototype boundary.** No target theorem is emitted against arbitrary independent data. Required source construction or proof input: The cited papers invoke Kudla’s unitary splitting formula; its original proof must be collated. Gan–Ichino §4 fixes the trace pairing and asserts δ-independence. General E/F Hermitian-space and quaternionic group carriers are requested ClassicalGroups Part-II inputs; the existing complex classical-group carriers do not provide them.
 
 **Named signature inventory.**
 
@@ -2770,7 +2770,7 @@ Proposed module: `TauCeti/RepresentationTheory/Metaplectic/Stage3`. Implementati
 
 Node: `MetaplecticAutomorphicForms:MP.3/quaternionic-sharp-descent`.
 
-On G^sharp={(g,h,α,α):ν(g)=ν(h)=Nα}, set ŝ^sharp=χ(α)^{−m}ŝ₁(ι(gα⁻¹,1))ŝ₂(ι(hα⁻¹,1))z_{V△}(ι(gα⁻¹,1),ι(hα⁻¹,1)). With μ(σ)=z_Y(σ₀,σ)⁻¹z_Y(σ₀σσ₀⁻¹,σ₀), z_Y=z_{V△}δμ. Descend s(g,h)=s^sharp(g,h,α,α)/s₂(ι(1,[α,α])). A.9 proves norm-one invariance and A.12 cancels auxiliary χ.
+On G^sharp={(g,h,α,α):ν(g)=ν(h)=Nα}, set ŝ^sharp=χ(α)^{−m}ŝ₁(ι(gα⁻¹,1))ŝ₂(ι(hα⁻¹,1))z_{V△}(ι(gα⁻¹,1),ι(hα⁻¹,1)). Define μ(σ)=z_{Y□}(σ₀,σ)⁻¹z_{Y□}(σ₀σσ₀⁻¹,σ₀), so z_{Y□}=z_{V△}δμ. Put s^sharp=ŝ^sharp·μ and s₂=ŝ₂·μ on their respective embedded groups. Descend s(g,h)=s^sharp(g,h,α,α)/s₂(ι(1,[α,α])). LemmaA.10 proves independence of the norm lift using LemmaA.9; LemmaA.12 cancels auxiliary χ.
 
 **Hypotheses.**
 
@@ -2791,7 +2791,7 @@ On G^sharp={(g,h,α,α):ν(g)=ν(h)=Nα}, set ŝ^sharp=χ(α)^{−m}ŝ₁(ι(gα
 
 - [PAPER-ICHINO-PRASANNA-23](https://arxiv.org/pdf/1806.10563v2), AppendixA LemmasA.8–A.12, PDF93–96. Sharp cochain, polarization correction and descent.
 
-**Prototype boundary.** No target theorem is emitted against arbitrary independent data. Required source construction or proof input: Construct the source objects in the stated categories and identify the maps in the mathematical target: On G^sharp={(g,h,α,α):ν(g)=ν(h)=Nα}, set ŝ^sharp=χ(α)^{−m}ŝ₁(ι(gα⁻¹,1))ŝ₂(ι(hα⁻¹,1))z_{V△}(ι(gα⁻¹,1),ι(hα⁻¹,1)). With μ(σ)=z_Y(σ₀,σ)⁻¹z_Y(σ₀σσ₀⁻¹,σ₀), z_Y=z_{V△}δμ. Descend s(g,h)=s^sharp(g,h,α,α)/s₂(ι(1,[α,α])). A.9 proves norm-one invariance and A.12 cancels auxiliary χ.
+**Prototype boundary.** No target theorem is emitted against arbitrary independent data. Required source construction or proof input: Construct the source objects in the stated categories and identify the maps in the mathematical target: On G^sharp={(g,h,α,α):ν(g)=ν(h)=Nα}, set ŝ^sharp=χ(α)^{−m}ŝ₁(ι(gα⁻¹,1))ŝ₂(ι(hα⁻¹,1))z_{V△}(ι(gα⁻¹,1),ι(hα⁻¹,1)). Define μ(σ)=z_{Y□}(σ₀,σ)⁻¹z_{Y□}(σ₀σσ₀⁻¹,σ₀), so z_{Y□}=z_{V△}δμ. Put s^sharp=ŝ^sharp·μ and s₂=ŝ₂·μ on their respective embedded groups. Descend s(g,h)=s^sharp(g,h,α,α)/s₂(ι(1,[α,α])). LemmaA.10 proves independence of the norm lift using LemmaA.9; LemmaA.12 cancels auxiliary χ.
 
 **Named signature inventory.**
 
@@ -2875,7 +2875,7 @@ Proposed module: `TauCeti/RepresentationTheory/Metaplectic/Stage3`. Implementati
 
 Node: `MetaplecticAutomorphicForms:MP.3/periods-i-first-scalar-calculation`.
 
-For α=a+bi with a,b≠0, tilde s(1,α,α)=γ_F(J₁,ψ/2)(−2abJ₂,J₁)_F; ŝ₂(ι([α,α],1))=χ(α)⁻⁴(u,J₁)_F; μ on that matrix is γ_F(J₁,ψ/2)(−2abuJ₂,J₁)_F. Together these give s=tilde s on the first E× embedding.
+For α=a+bi with a,b≠0, tilde s(1,α,α)=γ_F(J₁,ψ/2)(−2abJ₂,J₁)_F; ŝ₂(ι([α,α],1))=χ(α)⁻²(u,J₁)_F; μ on that matrix is γ_F(J₁,ψ/2)(−2abuJ₂,J₁)_F. Together these give s=tilde s on the first E× embedding.
 
 **Hypotheses.**
 
@@ -2896,7 +2896,7 @@ For α=a+bi with a,b≠0, tilde s(1,α,α)=γ_F(J₁,ψ/2)(−2abJ₂,J₁)_F; �
 
 - [PAPER-ICHINO-PRASANNA-23](https://arxiv.org/pdf/1806.10563v2), AppendixA LemmasA.15–A.17, PDF100–104. Three calculations for (A.9).
 
-**Prototype boundary.** No target theorem is emitted against arbitrary independent data. Required source construction or proof input: Construct the source objects in the stated categories and identify the maps in the mathematical target: For α=a+bi with a,b≠0, tilde s(1,α,α)=γ_F(J₁,ψ/2)(−2abJ₂,J₁)_F; ŝ₂(ι([α,α],1))=χ(α)⁻⁴(u,J₁)_F; μ on that matrix is γ_F(J₁,ψ/2)(−2abuJ₂,J₁)_F. Together these give s=tilde s on the first E× embedding.
+**Prototype boundary.** No target theorem is emitted against arbitrary independent data. Required source construction or proof input: Construct the source objects in the stated categories and identify the maps in the mathematical target: For α=a+bi with a,b≠0, tilde s(1,α,α)=γ_F(J₁,ψ/2)(−2abJ₂,J₁)_F; ŝ₂(ι([α,α],1))=χ(α)⁻²(u,J₁)_F; μ on that matrix is γ_F(J₁,ψ/2)(−2abuJ₂,J₁)_F. Together these give s=tilde s on the first E× embedding.
 
 **Named signature inventory.**
 
@@ -4976,7 +4976,7 @@ Identify the doubled oscillator space for W⊕W⁻ with the tensor of the ψ and
 
 **Hypotheses.**
 
-- Compatible self-dual measures, doubled polarization and GQT §11.2 splitting convention.
+- Compatible self-dual measures, doubled polarization and GQT §11.3 splitting convention.
 
 **Construction or proof route.**
 
@@ -5008,7 +5008,7 @@ Identify the doubled oscillator space for W⊕W⁻ with the tensor of the ψ and
 
 **Source match.**
 
-- [GQT](https://arxiv.org/pdf/1207.4709v3), §11.2, (11.4)–(11.6), PDF52–53. The doubled map and evaluation inner-product normalization.
+- [GQT](https://arxiv.org/pdf/1207.4709v3), §11.3, unnumbered doubled-space and δ displays, PDF52. The doubled map and evaluation inner-product normalization.
 
 **Prototype boundary.** No target theorem is emitted against arbitrary independent data. Required source construction or proof input: The exact partial Fourier kernel and native completed/joint tensor comparison remain a finite-dimensional AL Part-II input. Supplier categories: AutomorphicLFunctionsAndLocalFactors:AL.0/local-fourier-inversion.
 
@@ -5067,7 +5067,7 @@ For local π and a section Φ_s of the doubled normalized induced representation
 
 **Source match.**
 
-- [GQT](https://arxiv.org/pdf/1207.4709v3), §11.3, (11.7)–(11.9), PDF53–54. Local integral, normalized factor and unramified denominator.
+- [GQT](https://arxiv.org/pdf/1207.4709v3), §11.6, local integral and normalized unramified displays, PDF54; global factorization (11.3), PDF53. Local integral, normalized factor and unramified denominator.
 
 **Prototype boundary.** Emitted: the integral of the same ContRepresentation matrix coefficient, native conjugate-first inner product, elementary normalization, zero, measure scaling and Unit-group integral=1 tests. Missing: actual doubling embedding, section/evaluation data, convergence chamber, zeta normalization and spherical L-factor theorem. An arbitrary scalar is no longer asserted to be an unramified ratio.
 
@@ -5125,7 +5125,7 @@ Proposed module: `TauCeti/RepresentationTheory/Metaplectic/Stage6`. Implementati
 
 Node: `MetaplecticAutomorphicForms:MP.6/rallis-inner-product`. Planet: **Rallis inner product formula**.
 
-In the GQT second-term range d(n)<m≤2d(n), r≤n, for cuspidal π whose lower theta lifts vanish, the theta inner product is [E:F]·Val_{s=s_{m,n}} L(s+1/2,π⊗χV)·Z*(s,Φ,f₁,f₂), with the exact normalized doubled section and global measures. If every relevant local theta lift is nonzero, the stated L-factor is holomorphic at that point and the formula uses its value. The lower-lift vanishing is essential to the cuspidal and residual-term elimination.
+In the GQT positive range d(n)<m≤2d(n), r≤n, allowing both its second-term and convergent cases, for cuspidal π whose lower theta lifts vanish, the theta inner product is [E:F]·Val_{s=s_{m,n}} L(s+1/2,π⊗χV)·Z*(s,Φ,f₁,f₂), with the exact normalized doubled section and global measures. If every relevant local theta lift is nonzero, the stated L-factor is holomorphic at that point and the formula uses its value. The lower-lift vanishing is essential to the cuspidal and residual-term elimination.
 
 **Hypotheses.**
 
@@ -5134,7 +5134,7 @@ In the GQT second-term range d(n)<m≤2d(n), r≤n, for cuspidal π whose lower 
 **Construction or proof route.**
 
 1. Use the doubled Schwartz map to express the theta pairing via Proposition11.1.
-2. Apply the second-term identity, using lower-lift vanishing to eliminate the complementary correction and residual image.
+2. Use the second-term identity or the convergent Siegel–Weil identity according to the Witt index, with lower-lift vanishing eliminating the complementary correction and residual image where present.
 3. Unfold and apply the normalized local factor theorem.
 
 **Acceptance.**
@@ -5145,7 +5145,7 @@ In the GQT second-term range d(n)<m≤2d(n), r≤n, for cuspidal π whose lower 
 
 **Source match.**
 
-- [GQT](https://arxiv.org/pdf/1207.4709v3), Theorem11.4, PDF54. Source-qualified Rallis formula in its positive second-term range.
+- [GQT](https://arxiv.org/pdf/1207.4709v3), Theorem11.4, PDF54. Source-qualified Rallis formula in its positive range, including the convergent case.
 
 **Prototype boundary.** No target theorem is emitted against arbitrary independent data. Required source construction or proof input: The referenced Yamana/PSR proof, holomorphy criterion and exact Val interpretation are not fully read; statement and ranges are checked but the proof chain remains open. Supplier categories: AutomorphicLFunctionsAndLocalFactors:AL.0.
 
@@ -7235,7 +7235,8 @@ For an L²-unit weight k=1/2 spectral cusp form on fixed Γ₀(4), eigenvalue1/4
 
 **Source match.**
 
-- [PAPER-DUKE-IMAMOGLU-TOTH-16](https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n3-p08-p.pdf), Duke88 Theorem5 pp85–86; DIT16 (6.6). Read DIT16 passage, using its reviewed normalization corrections and the stated supplier boundaries.
+- [PAPER-DUKE-IMAMOGLU-TOTH-16](https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n3-p08-p.pdf), §6, (6.6), printed968–969/PDF20–21. The inverse-norm-squared trace bound requires the separately sourced Duke coefficient normalization and its missing exponential factors.
+- [Duke88](https://www.math.ucla.edu/~wdduke/preprints/hyperbolic.pdf), §2 spectral normalization, printed77–78/PDF5–6; Theorem5 printed85–86/PDF13–14. Unit Petersson coefficient bound with cosh(πt/2); no unproved r^ε symmetric-square estimate.
 
 **Prototype boundary.** No target theorem is emitted against arbitrary independent data. Required source construction or proof input: The original projection/Fay resolvent, Kohnen finite-sum, p=2 Hecke, Baruch–Mao or Duke proof used by this target has not all been read. Its exact source and native spectral/Hecke carrier are required before closure; the read DIT statement is not itself proof closure.
 
@@ -7609,7 +7610,7 @@ For every positive level N, take f∈V*_{1/2}(4N), a cusp form with eigenvalue �
 
 **API.**
 
-- `TauCeti.Metaplectic.biroLift_coeff` (simp): The source-normalized divisor expression is used in the explicit positive-index series; actual Fourier coefficient extraction requires the analytic carrier.
+- `TauCeti.Metaplectic.biroLift_coeff` (simp): The source-normalized divisor expression is used in the series over all k≠0, with positive-D inputs b_f(DQ²); actual Fourier coefficient extraction requires the analytic carrier.
   Full source obligation: The positive k coefficient is the displayed divisor expression.
 - `TauCeti.Metaplectic.biroLift_spectral` (compatibility): Half-weight parameter t gives weight-zero parameter2t in the negative Laplacian convention.
 - `TauCeti.Metaplectic.biroLift_kernel` (characterisation): The positive-coefficient common kernel maps to zero for positive D.
@@ -7631,7 +7632,7 @@ For every positive level N, take f∈V*_{1/2}(4N), a cusp form with eigenvalue �
 
 - [Biro00](https://matwbn.icm.edu.pl/ksiazki/aa/aa94/aa9421.pdf), §1 and Theorem1, printed105–106, PDF3–4; proof128–129, PDF26–27. Lift, spectral rescaling and finite Fourier proof with repaired Vitali argument.
 
-**Prototype boundary.** Emitted: the positive-index Fourier series with |Q|^(1/2)/P divisor coefficient, complex spectral parameter, kernel/zero and coefficient2=1/2 tests. Missing: actual general-level Maass carrier, Fourier extraction, Whittaker W, eigen-equation, trace identity(14), convergence and corrected analytic proof. The spectral API is omitted instead of replacing a Laplace theorem by an arithmetic equality.
+**Prototype boundary.** Emitted: the Fourier series over all nonzero positive and negative indices with |Q|^(1/2)/P divisor coefficient and positive-D inputs, complex spectral parameter, kernel/zero and coefficient2=1/2 tests. Missing: actual general-level Maass carrier, Fourier extraction, Whittaker W, eigen-equation, trace identity(14), convergence and corrected analytic proof. The spectral API is omitted instead of replacing a Laplace theorem by an arithmetic equality.
 
 **Named signature inventory.**
 
@@ -7834,6 +7835,10 @@ SHA-256: `800ed01b22fa6104a3292a8b2ef124cd69781a6904f626f71fcf2a30a9af8cdd`. His
 - Historical reading: PDF3–84 read; I.1–6, II–III local statements/operators/filtrations and IV.1 see-saw examples/adjunction route checked. PDF85–110 unread. Referenced MVW and other original proofs remain unread.
 - Revision fetch: hash matched the recorded source version.
 - New revision reading: I.1–I.3, PDF3,5–14: actual Heisenberg/Schrödinger data, character and Leray corrections.
+Independent round-two reading (2026-10-08, Codex — codex-2XfYcg): I.1–3 PDF3–13; I.4 PDF17–26; II PDF29–33,35–39; III PDF44–49; IV PDF52–53; V PDF59–66,70–74. Scoped definitions, cocycles, local categories, tensor twists and target statements; referenced original Rao/MVW and unscoped proofs remain gates.
+
+Fetch: Public PDF fetched; SHA-256 matched the historical receipt.
+
 
 ### Weil64
 
@@ -7844,6 +7849,10 @@ SHA-256: `22df47cb98307aa77c46028cf5575eeb1d3524950dbdadb9c0c21890966039d2`. His
 - Historical reading: PDF1–63, printed143–205 read, including quadratic Fourier scalar, local charts, II.§30 product formula and III.§41 Theorem6. PDF64–69 unread; no full Chapter-V proof closure claimed.
 - Revision fetch: hash matched the recorded source version.
 - New revision reading: No new paper-reading claim. Historical readSections and independent-review source findings are retained as provenance.
+Independent round-two reading (2026-10-08, Codex — codex-2XfYcg): PDF6–7,15,18–20,27–28,30–57: II §§24–30, III §§31–41 and IV §§42–44, plus the relevant introductory/local setup. Local/global index and normalizer conventions checked; no full-paper proof closure claim.
+
+Fetch: Public PDF fetched; SHA-256 matched the historical receipt.
+
 
 ### Garrett20
 
@@ -7854,6 +7863,10 @@ SHA-256: `7fed4ade4126aa2acfbf59901acc33253d6f38eeedbbe812d3a2f377c7a9903f`. His
 - Historical reading: All PDF1–5 read. Real Stone–von Neumann proof checked with the two recorded textual corrections; its Schwartz Fourier-density step still needs its analytic justification.
 - Revision fetch: hash matched the recorded source version.
 - New revision reading: No new paper-reading claim. Historical readSections and independent-review source findings are retained as provenance.
+Independent round-two reading (2026-10-08, Codex — codex-2XfYcg): PDF1–4: the real Stone–von Neumann construction, Claim0.7 and multiplicity conclusion. Fourier-density justification remains a proof gate.
+
+Fetch: Public PDF fetched; SHA-256 matched the historical receipt.
+
 
 ### GQT
 
@@ -7864,6 +7877,10 @@ SHA-256: `cde6b7ad22b974d4159f8cedd1e14a00bf4b05ec977ab750b54fdceb067adac5`. His
 - Historical reading: PDF1–20,25–28,33–35,52–57 read. Measures, Ikeda maps, regularization, local/global Siegel–Weil sections, coherent data, first/boundary/second-term statements and §§11.6–11.9 nonvanishing checked. Intervening induction proof and referenced original theorems unread.
 - Revision fetch: hash matched the recorded source version.
 - New revision reading: §§2.1–2.5, PDF7–13; §7.1–§8.2, PDF33–35: action, measure and evaluation data and ordinary, exceptional boundary and quotient-valued second-term statements. No complete induction proof claim.
+Independent round-two reading (2026-10-08, Codex — codex-2XfYcg): PDF5–6,11–18,25,28,33–35,52–57: measures, (2.2), regularization and Siegel–Weil ranges, doubling §11.3, local zeta §11.6, Theorems11.4/11.7. Intervening induction and original local doubling proofs remain gates.
+
+Fetch: Public PDF fetched; SHA-256 matched the historical receipt.
+
 
 ### GanTakeda16
 
@@ -7874,6 +7891,10 @@ SHA-256: `89972dcc033e93feb2a483d44a5c03569fecb026079c0f2152f05c90f6f6a561`. His
 - Historical reading: PDF1–10 read: theorem, smooth big/small theta, Jacquet/doubling filtrations and boundary argument. PDF11–21 unread; cited Mínguez/MVW proofs unread.
 - Revision fetch: hash matched the recorded source version.
 - New revision reading: No new paper-reading claim. Historical readSections and independent-review source findings are retained as provenance.
+Independent round-two reading (2026-10-08, Codex — codex-2XfYcg): PDF1–3,7–9: characteristic-zero local Howe-duality statement and its categories. The main proof is not independently reconstructed.
+
+Fetch: Public PDF fetched; SHA-256 matched the historical receipt.
+
 
 ### GanIchino16
 
@@ -7884,6 +7905,10 @@ SHA-256: `4aaf7bd6281dd8726cdfca2de32b6f515924a8277865684fc9e011770ec0be5e`. His
 - Historical reading: PDF1–8,11–15,19–20 read: equal/almost-equal rank statements and their scoped uses. Other pages and cited semisimplicity proofs unread.
 - Revision fetch: hash matched the recorded source version.
 - New revision reading: No new paper-reading claim. Historical readSections and independent-review source findings are retained as provenance.
+Independent round-two reading (2026-10-08, Codex — codex-2XfYcg): PDF11–15,19–20: unitary trace pairing, δ-independence, character restrictions, local theta and see-saw. Original Kudla unitary splitting proof remains a gate.
+
+Fetch: Public PDF fetched; SHA-256 matched the historical receipt.
+
 
 ### SunZhu15
 
@@ -7894,6 +7919,10 @@ SHA-256: `dbd11f450840ecf3b33cec57b22b9bc37ff80d11da000c55743429a43c402676`. His
 - Historical reading: PDF1–10,43–46 read: nonarchimedean conservation and the three different archimedean assertions. Intermediate proofs and cited original inputs unread.
 - Revision fetch: hash matched the recorded source version.
 - New revision reading: No new paper-reading claim. Historical readSections and independent-review source findings are retained as provenance.
+Independent round-two reading (2026-10-08, Codex — codex-2XfYcg): PDF5–10,43–46: source first-occurrence conventions and nonarchimedean/archimedean conservation statements.
+
+Fetch: Public PDF fetched; SHA-256 matched the historical receipt.
+
 
 ### DIT11
 
@@ -7904,6 +7933,10 @@ SHA-256: `8f2b8ed3518fe69f08a72ef0ed3311d30523042335d4bd0e1ffd82d84459a010`. His
 - Historical reading: PDF12–16 read, including the U₄,W₄ normalization and coefficient formula. Remaining pages and cited Duke/Fay proofs unread.
 - Revision fetch: hash matched the recorded source version.
 - New revision reading: No new paper-reading claim. Historical readSections and independent-review source findings are retained as provenance.
+Independent round-two reading (2026-10-08, Codex — codex-2XfYcg): PDF12–16: resolvent, Fourier/Dirichlet and theta-trace targets in the scope of the MP.7 comparisons.
+
+Fetch: Public PDF fetched; SHA-256 matched the historical receipt.
+
 
 ### Biro00
 
@@ -7914,6 +7947,10 @@ SHA-256: `d1a49be2d88fb60164b11783d444256fdcb0e1e8678476a325c077322a4572a4`. His
 - Historical reading: PDF3–4,26–27 read: lift/Theorem1 and finite Fourier/Vitali proof argument. Intervening kernel calculations and referenced Iwaniec proof unread.
 - Revision fetch: HTTP403; no independent rereading in this run.
 - New revision reading: No new paper-reading claim. Historical readSections and independent-review source findings are retained as provenance.
+Independent round-two reading (2026-10-08, Codex — codex-2XfYcg): PDF3–4 and26–27 (printed105–106,128–129): Theorem1 coefficients, general level, spectral rescaling and the Vitali passage. Full trace/Kuznetsov proof remains a gate.
+
+Fetch: Publisher HTTP403; author-hosted public PDF fetched with SHA-256 matching the historical receipt. [Author-hosted public scan](https://users.renyi.hu/~biroand/pdfs/Cycle.pdf).
+
 
 ### BFH90Invent
 
@@ -7924,6 +7961,10 @@ SHA-256: `d50ad2f11c992591de90f2cea59489ac436cce455e140e6eebf5053f49819f2c`. His
 - Historical reading: Scanned PDF2–12, printed543–553 read visually: original genus-two Jacobi construction and theta components. PDF13–77 unread. MP.8 supplies its subsequent planned Whittaker/Euler/continuation nodes.
 - Revision fetch: hash matched the recorded source version.
 - New revision reading: No new paper-reading claim. Historical readSections and independent-review source findings are retained as provenance.
+Independent round-two reading (2026-10-08, Codex — codex-2XfYcg): Published scan PDF6,8,10–12, including page images: genus-two and ramified-kernel interfaces; original FH95 construction was not read.
+
+Fetch: Public PDF fetched; SHA-256 matched the historical receipt.
+
 
 ### PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18
 
@@ -7934,6 +7975,10 @@ SHA-256: `e1274468312566b3b062e9612cd89818349e9c98cf9e58a728f85704b740c6bb`. His
 - Historical reading: PDF62–63 (§4.7 finite Weil representation) and75–77 (§6.1 incoherent Eisenstein series) read. Referenced original incoherent Siegel–Weil proof unread.
 - Revision fetch: hash matched the recorded source version.
 - New revision reading: No new paper-reading claim. Historical readSections and independent-review source findings are retained as provenance.
+Independent round-two reading (2026-10-08, Codex — codex-2XfYcg): PDF62–63,75–77: omega_L finite Weil convention and theta coefficient interfaces; no arithmetic intersection proof is claimed.
+
+Fetch: Public PDF fetched; SHA-256 matched the historical receipt.
+
 
 ### PAPER-CHENEVIER-TAIBI-20
 
@@ -7944,6 +7989,10 @@ SHA-256: `81b7fe2c31d0ab4ac7465c7d5209611638fa0d8c7c4ff11f7f4746866491742c`. His
 - Historical reading: arXiv-v1 PDF44–55 read, including the Rallis Satake use and harmonic-polynomial theta application. Original Rallis theorem unread; explicit added Satake segments remain a gap.
 - Revision fetch: hash matched the recorded source version.
 - New revision reading: No new paper-reading claim. Historical readSections and independent-review source findings are retained as provenance.
+Independent round-two reading (2026-10-08, Codex — codex-2XfYcg): PDF50,54–55: relevant real discrete-series/theta interfaces; the surrounding classification proof is outside this review.
+
+Fetch: Public PDF fetched; SHA-256 matched the historical receipt.
+
 
 ### PAPER-DISEGNI-LIU-24
 
@@ -7954,6 +8003,10 @@ SHA-256: `1f759774cdbf8700c5978b6ea45c1bf63c99b993136a82a45a907320fef53bfa`. His
 - Historical reading: arXiv-v3 PDF39–42 read: §4.1(H1)–(H9), Lemma4.1, Definition4.2/Remark4.3 and Lemma4.5. Referenced local proof and other pages unread.
 - Revision fetch: hash matched the recorded source version.
 - New revision reading: No new paper-reading claim. Historical readSections and independent-review source findings are retained as provenance.
+Independent round-two reading (2026-10-08, Codex — codex-2XfYcg): PDF39–42: relevant local unitary dichotomy, trace/coefficient rationality interfaces and their hypotheses.
+
+Fetch: Public PDF fetched; SHA-256 matched the historical receipt.
+
 
 ### PAPER-DUKE-IMAMOGLU-TOTH-16
 
@@ -7964,6 +8017,10 @@ SHA-256: `a67de7157f76ee700bc2e6a0034a920adc390022d4ff528aa80084f829f35f61`. His
 - Historical reading: Published PDF16–17,19–21,27–34 read: multiplier/trace statements, spectral normalization and §§8–10 coefficient/residue/cycle/Shimura formulas. AppendixA PDF39–42 and cited original Fay/Kohnen/Baruch–Mao/Duke proofs unread.
 - Revision fetch: hash matched the recorded source version.
 - New revision reading: Published §5, pp.964–965 (PDF16–17) and §§8–10, pp.975–982 (PDF27–34): source normalization, operators, two-sign coefficient series, cycle and trace ranges. Original cited spectral/Hecke proofs remain source gaps.
+Independent round-two reading (2026-10-08, Codex — codex-2XfYcg): Published PDF16–21,27–34, with formula images at PDF17,28–29,33–34: Theorem4, (6.6), cycles, §9 unfolding and §10 Shimura/Hecke inputs. Original Fay, Kohnen, Baruch–Mao and the local Weyl-law argument remain gates.
+
+Fetch: Public PDF fetched; SHA-256 matched the historical receipt.
+
 
 ### PAPER-GAN-ICHINO-18
 
@@ -7974,6 +8031,10 @@ SHA-256: `5d1408c5f8bc15a5ceec04a465ceb80cb7265da218138d5a746418ee8b4b291d`. His
 - Historical reading: arXiv-v3 PDF7–12,19–21,25–28 read: smooth cover induction/MVW, conservation and unramified uses. Other pages and original referenced proofs unread.
 - Revision fetch: hash matched the recorded source version.
 - New revision reading: No new paper-reading claim. Historical readSections and independent-review source findings are retained as provenance.
+Independent round-two reading (2026-10-08, Codex — codex-2XfYcg): PDF8,18–21,25–28: odd-orthogonal/metaplectic local theta and unramified interfaces; smaller induction proofs remain source gates.
+
+Fetch: Public PDF fetched; SHA-256 matched the historical receipt.
+
 
 ### PAPER-GAN-SAVIN-23
 
@@ -7984,6 +8045,10 @@ SHA-256: `8b3b6702909a6a936e5984f46a3c2fbfe629b63db4ba0ae9bd4356286508c6e5`. His
 - Historical reading: arXiv-v1 PDF26–28,34–35,40–41,50–51,54 read: required classical theta inputs and see-saw uses. Rank-one/minimal-representation original proofs and other pages unread; exceptional construction imported to its separate proposed owner.
 - Revision fetch: hash matched the recorded source version.
 - New revision reading: No new paper-reading claim. Historical readSections and independent-review source findings are retained as provenance.
+Independent round-two reading (2026-10-08, Codex — codex-2XfYcg): PDF26–28,40–41,50–51,54: rank-one, exceptional and division-ternary instances, including the corrected ψ-conjugation and anisotropic input.
+
+Fetch: Public PDF fetched; SHA-256 matched the historical receipt.
+
 
 ### PAPER-GAN-SAVIN-23-B
 
@@ -7994,6 +8059,10 @@ SHA-256: `6fc3979d78510fb094e50de9bdd162dfaad43f51fe9b6b8a82ab3d84e0c93389`. His
 - Historical reading: Published PDF17–18,34–35 read: classical similitude and theta dichotomy inputs. Original local Langlands/epsilon-factor proofs and other pages unread.
 - Revision fetch: hash matched the recorded source version.
 - New revision reading: No new paper-reading claim. Historical readSections and independent-review source findings are retained as provenance.
+Independent round-two reading (2026-10-08, Codex — codex-2XfYcg): PDF17–18,34–35: the selected exceptional local theta/dichotomy interfaces and source categories.
+
+Fetch: Public PDF fetched; SHA-256 matched the historical receipt.
+
 
 ### PAPER-GROSS-ZAGIER-86
 
@@ -8004,6 +8073,10 @@ SHA-256: `a9a52cb8662e03f19ace81dcfbf24bf873bf9c46ba89a8c890727b9541abdbf5`. His
 - Historical reading: Scanned PDF6,44–47,50–52 (printed229,267–270,273–275) read visually: ideal-class theta, all-discriminant quoted modularity, odd-D Lemma2.3 and ideal Poisson. Other arithmetic results and the cited Hecke proof unread.
 - Revision fetch: hash matched the recorded source version.
 - New revision reading: Published IV.§2, pp.273–275 (PDF50–52), read from page images: odd-discriminant scope, matrix lift and integer exponential modulus. This reading does not establish the cited all-discriminant Hecke proof.
+Independent round-two reading (2026-10-08, Codex — codex-2XfYcg): Published scan PDF6,47,50–52 with page images: I.1 definitions and IV.1–2 ideal-class theta/Poisson, SL₂ lift and integer-modulus conventions.
+
+Fetch: Public PDF fetched; SHA-256 matched the historical receipt.
+
 
 ### PAPER-ICHINO-PRASANNA-23
 
@@ -8014,6 +8087,10 @@ SHA-256: `058fda94ad08d245dcdf01672e5915beacb8458e6b49498b7e15debbf828aad5`. His
 - Historical reading: arXiv-v2 PDF41–42,50–53,87–115 read; entire AppendixA splitting/comparison argument checked. PDF49 and cited original Periods-I/II/Kudla/Harris–Kudla proofs unread. Published135-page version not collated in this run.
 - Revision fetch: hash matched the recorded source version.
 - New revision reading: No new paper-reading claim. Historical readSections and independent-review source findings are retained as provenance.
+Independent round-two reading (2026-10-08, Codex — codex-2XfYcg): PDF41–42,50–53,87–115: quaternionic similitude setup and Appendix A splittings, μ correction, norm-lift descent and Periods-I calculations. Referenced original comparison proofs remain gates.
+
+Fetch: Public PDF fetched; SHA-256 matched the historical receipt.
+
 
 ### PAPER-LAFFORGUE-18
 
@@ -8024,6 +8101,10 @@ SHA-256: `b37715f9c42862b7560d8b71da07924376e3cbbbe862ef9e89a57d8c91a64295`. His
 - Historical reading: arXiv-v10 PDF169–173, entire §14 read. This is a conditional metaplectic programme; the ordinary excursion and Satake results are imported from their owners.
 - Revision fetch: hash matched the recorded source version.
 - New revision reading: No new paper-reading claim. Historical readSections and independent-review source findings are retained as provenance.
+Independent round-two reading (2026-10-08, Codex — codex-2XfYcg): PDF169–173 §14: ordinary function-field spectral input; no metaplectic shtuka theorem is claimed supplied.
+
+Fetch: Public PDF fetched; SHA-256 matched the historical receipt.
+
 
 ### PAPER-LI-LIU-21
 
@@ -8034,6 +8115,10 @@ SHA-256: `6ef2d63ea2cf55d8a2648f71ed7ac84e4d32f77e9e7eaeb62b47e584e4e5e566`. His
 - Historical reading: Author-final PDF15–17,31–32,49–50 read: local dichotomy/irreducibility, Hecke use and measure identity references. Original cited semisimplicity/Hecke/local Siegel–Weil proofs unread.
 - Revision fetch: hash matched the recorded source version.
 - New revision reading: No new paper-reading claim. Historical readSections and independent-review source findings are retained as provenance.
+Independent round-two reading (2026-10-08, Codex — codex-2XfYcg): PDF15–17,31–32,49–50: relevant unitary splittings, sections and global normalization interfaces.
+
+Fetch: Public PDF fetched; SHA-256 matched the historical receipt.
+
 
 ### PAPER-LI-LIU-22
 
@@ -8044,6 +8129,10 @@ SHA-256: `6cf5b238a14dfea7761133b0437cd5a671db1266bc0dd9806163cfdd3bc20990`. His
 - Historical reading: arXiv-v2 PDF11,42–48 read: ramified operators, spherical module and tempered theta application. Other pages and the precise original semisimplicity proof unread.
 - Revision fetch: hash matched the recorded source version.
 - New revision reading: No new paper-reading claim. Historical readSections and independent-review source findings are retained as provenance.
+Independent round-two reading (2026-10-08, Codex — codex-2XfYcg): PDF11,43–45: extended Schwartz and unitary theta restriction interfaces; original analytic extension proof remains a gate.
+
+Fetch: Public PDF fetched; SHA-256 matched the historical receipt.
+
 
 ### PAPER-LI-ZHANG-22-B
 
@@ -8054,6 +8143,10 @@ SHA-256: `7db1843f90c3e79741f8d58d92b6bb42b0a3b7ae001c8f9419f43b08c2119d49`. His
 - Historical reading: arXiv-v3 PDF8–9,36,56–58,78–79 read: quadratic/Hermitian Fourier conventions, support uncertainty and unitary evaluation section. Geometric local-density/arithmetic proofs not part of MP; original nonsplit index evaluation remains an input.
 - Revision fetch: hash matched the recorded source version.
 - New revision reading: No new paper-reading claim. Historical readSections and independent-review source findings are retained as provenance.
+Independent round-two reading (2026-10-08, Codex — codex-2XfYcg): PDF8–9,56–58,78–79: positive-dimensional quadratic/Hermitian uncertainty, half-trace and operator conventions; full local Fourier carrier remains a supplier gate.
+
+Fetch: Public PDF fetched; SHA-256 matched the historical receipt.
+
 
 ### PAPER-YUAN-ZHANG-18
 
@@ -8064,6 +8157,10 @@ SHA-256: `29dfd5f19dec401116f1eaf0305305acf5f2fc68aa3c90d4eb6e5222de50d507`. His
 - Historical reading: Published PDF46–50, with48 reread: extended Schwartz, unit quotient, convergence/automorphy and restriction. YZZ/Waldspurger action source and2023 arithmetic erratum not read in this run; no claim to reading the erratum.
 - Revision fetch: hash matched the recorded source version.
 - New revision reading: No new paper-reading claim. Historical readSections and independent-review source findings are retained as provenance.
+Independent round-two reading (2026-10-08, Codex — codex-2XfYcg): PDF46–50: unit-quotiented theta and source normalization interfaces; no surrounding height formula proof claim.
+
+Fetch: Public PDF fetched; SHA-256 matched the historical receipt.
+
 
 ### PAPER-ZHANG-21
 
@@ -8074,6 +8171,10 @@ SHA-256: `6f8ac537b4f95cf26ba907dc1d25c1b9d9157a3a4006a311b114a522177d3b45`. His
 - Historical reading: Published PDF70–71,108–109 read: even Weil/theta and Hermitian index formulas used here. Other pages and the AFL/transfer proofs not part of MP.
 - Revision fetch: hash matched the recorded source version.
 - New revision reading: No new paper-reading claim. Historical readSections and independent-review source findings are retained as provenance.
+Independent round-two reading (2026-10-08, Codex — codex-2XfYcg): PDF70–71,108–109: even Weil/theta and Hermitian index interfaces; AFL transfer and intersection proofs are outside MP.
+
+Fetch: Public PDF fetched; SHA-256 matched the historical receipt.
+
 
 ### yzz-gross-zagier-shimura-curves-2011-draft
 
@@ -8084,10 +8185,21 @@ SHA-256: `7a6b79df81cf5d88e8a4bfbad5a2a9502dcb7b4ac16631e3d270c69bb71a7235`. His
 - Historical reading: Independent narrow review of RT-AREA-automorphic-1/19: printed/PDF pp.20–23 and43–55, including §2.1.5 Theorem2.1.1, §2.1.6 nonzero-norm local formula, §2.2.1 Proposition2.2.1 and its nonsplit proof, §2.3 unfolding and §2.4 constants. The split proof referred to Waldspurger was not acquired; neither the 2013 book nor its inherited hash is certified by this draft.
 - Revision fetch: HTTP403; no independent rereading in this run.
 - New revision reading: No new paper-reading claim. Historical readSections and independent-review source findings are retained as provenance.
+Independent round-two reading (2026-10-08, Codex — codex-2XfYcg): Cached public author-draft text in §§2.1,2.2.1,2.3–2.4, including Proposition2.2.1 and its nonsplit proof. Direct download returned HTTP403, so the inherited SHA-256 was not independently checked. Physical-page offsets were not newly certified. The referenced split Waldspurger proof and the 2013 book were not read.
+
+Fetch: Cached public PDF text inspected; direct HTTP403; historical byte hash unverified in this run.
+
+### Duke88
+
+[Hyperbolic distribution problems and half-integral weight Maass forms](https://www.math.ucla.edu/~wdduke/preprints/hyperbolic.pdf) — William Duke. Inventiones Mathematicae 92 (1988), 73–90; public scan on the author’s UCLA page.
+
+SHA-256: `3c468d0c0d79ec2ab29f96dcdda6094a4ceb6603a4caaae947c0bef443f9005f`. Independent reading date: 2026-10-08.
+
+§2 spectral normalization, PDF5–6; Theorem5, printed85–86/PDF13–14. Unit Petersson normalization and cosh(πt/2) were checked; the full coefficient-estimate proof was not reconstructed.
 
 ## Source corrections
 
-These are own-word descriptions with exact locators and mathematical repairs. The earlier independent confirmation is preserved; this revision does not issue a new review verdict.
+These are own-word descriptions with exact locators and mathematical repairs. Every one of the 23 entries has a fresh confirmed verdict by REV-MetaplecticAutomorphicForms--MP.0~2. Earlier confirmations and correction searches are preserved as provenance; those searches and the inherited numerical experiments were not all repeated.
 
 ### MetaplecticAutomorphicForms/E-MP0-1
 
@@ -8101,6 +8213,9 @@ Reason: The immediately described map sends ((w₁,t₁),(w₂,t₂)) to (w₁+w
 
 Affects: the proof. new (no addressing correction located; independent review required)
 
+Independent round-two verdict: **confirmed**. I.1 PDF5: the map adds w₁∈W₁ and w₂∈W₂, so its orthogonal-sum target uses both summands; the repeated W₁ cannot describe that map.
+
+
 ### MetaplecticAutomorphicForms/E-MP0-2
 
 Source: `Kudla96`. error, 1996 author copy, I.2, p.6, character extension paragraph.
@@ -8112,6 +8227,9 @@ Correction: The displayed character, when multiplicative, is the distinguished e
 Reason: Take a nonzero isotropic F-line Y in a symplectic plane and nontrivial ψ. Since ω restricts to zero on Y, ψ(t) and ψ(t+ℓ(y)) are distinct characters of H(Y) extending the same central ψ, for any nonzero F-linear functional ℓ:Y→F. Thus uniqueness among all extensions is false even in the simplest polarized case.
 
 Affects: a stated result. new (no addressing correction located; independent review required)
+
+Independent round-two verdict: **confirmed**. I.2 PDF6: on an isotropic line ψ(t) and ψ(t+ℓ(y)) have the same central restriction for nonzero ℓ. Uniqueness needs the specified section-trivial normalization.
+
 
 ### MetaplecticAutomorphicForms/E-MP0-3
 
@@ -8125,6 +8243,9 @@ Reason: Let F=Q₂, W=F² with ω((x,y),(x′,y′))=xy′−yx′, Y=Z₂², an
 
 Affects: a stated result. new (no addressing correction located; independent review required)
 
+Independent round-two verdict: **confirmed**. I.2 PDF6: for the conductor-Z₂ character, the product of the two lattice basis lifts has central phase ψ(1/2)=−1 although their proposed values multiply to1. Character-self-duality does not imply the required half-cocycle condition.
+
+
 ### MetaplecticAutomorphicForms/E-MP0-4
 
 Source: `Kudla96`. misprint, 1996 author copy, I.2, p.9, equivariance display for I_{Y₁,Y₂}.
@@ -8136,6 +8257,9 @@ Correction: Use I_{Y₁,Y₂}(f) on the right side of the equivariance identity,
 Reason: The paragraph defines I_{Y₁,Y₂}:S_{Y₁}→S_{Y₂}, then asserts its H-equivariance. No operator A indexed by this pair has been defined; the same intertwining integral is required on both sides.
 
 Affects: the proof. new (no addressing correction located; independent review required)
+
+Independent round-two verdict: **confirmed**. I.2 PDF9: the integral operator immediately defined is I_{Y₁,Y₂}; the equivariance statement must use that same map on both sides.
+
 
 ### MetaplecticAutomorphicForms/E-DUKE-IMAMOGLU-TOTH-16-E2
 
@@ -8149,6 +8273,9 @@ Reason: Imported correction from REV-PAPER-DUKE-IMAMOGLU-TOTH-16; this packet us
 
 Affects: a stated result. Already recorded and independently confirmed in the atlas extraction; no external author erratum is claimed.
 
+Independent round-two verdict: **confirmed**. Theorem4 printed965/PDF17: multiplying a normalized F by −1 preserves its norm and every b(d′)conj(b(d)). The theorem determines the eigenline with its normalization identity, not a unique phase-fixed vector.
+
+
 ### MetaplecticAutomorphicForms/E-DUKE-IMAMOGLU-TOTH-16-E3
 
 Source: `PAPER-DUKE-IMAMOGLU-TOTH-16`. misprint, §5, numerical example after Theorem 4, p966 (also Proposition 6 on p981 twice and in its proof on p982 twice; those pages are outside range B).
@@ -8160,6 +8287,9 @@ Correction: p.966: λ = 190.13154731 · · · = ¼ + r² (the stray '=' before t
 Reason: Imported correction from REV-PAPER-DUKE-IMAMOGLU-TOTH-16; this packet uses the corrected statements. The substance of E3 is confirmed. Only the quote changes: the page image has '= · · · =' between the digits and ½ + r². With r = 2×6.889875675 = 13.77975135, 1/4+r² = 190.1315473 (the printed λ) and 1/2+r² = 190.3815473. Independent check: from Table 1 (a(p), p≤13), ⟨φ,φ⟩=7.26300636e−19, λ=1/4+r², a direct quadrature of λ⟨φ,φ⟩^{−1}∫_{F_I}φ dμ for D=12 gives 1.047598e10, matching 12^{7/4}√π b(−3)b(−4)=1.047599e10. With λ=1/2+r² it would be 1.04897e10. The text layer also shows '1/2 + r²' twice on p981 and twice on p982.
 
 Affects: nothing. Already recorded and independently confirmed in the atlas extraction; no external author erratum is claimed.
+
+Independent round-two verdict: **confirmed**. Printed966/PDF18 and981–982/PDF33–34: independently evaluated r=13.77975135, giving 1/4+r²=190.13154726782682 and 1/2+r²=190.38154726782682. The former agrees with the stated spectral convention.
+
 
 ### MetaplecticAutomorphicForms/E-DUKE-IMAMOGLU-TOTH-16-E6
 
@@ -8173,6 +8303,9 @@ Reason: Imported correction from REV-PAPER-DUKE-IMAMOGLU-TOTH-16; this packet us
 
 Affects: a stated result. Already recorded and independently confirmed in the atlas extraction; no external author erratum is claimed.
 
+Independent round-two verdict: **confirmed**. DIT16 (6.6), printed968–969/PDF20–21, and Duke88 Theorem5 printed85–86/PDF13–14: unit half-weight coefficients carry cosh(πt/2). With t=r/2 the product carries cosh²(πr/4), omitted in the inverse-norm-squared bound. This confirms the normalization error; the separate local Weyl-law disproof in the inherited reason was not repeated.
+
+
 ### MetaplecticAutomorphicForms/E-DUKE-IMAMOGLU-TOTH-16-E8
 
 Source: `PAPER-DUKE-IMAMOGLU-TOTH-16`. misprint, Proposition 6, p.981; also the proof: (10.4) and (10.5) on p.981, and the displays on p.982 including (10.6).
@@ -8185,6 +8318,9 @@ Reason: Imported correction from REV-PAPER-DUKE-IMAMOGLU-TOTH-16; this packet us
 
 Affects: nothing. Already recorded and independently confirmed in the atlas extraction; no external author erratum is claimed.
 
+Independent round-two verdict: **confirmed**. Proposition6 printed981–982/PDF33–34 compared with Theorem4/Proposition5: the negative-D CM case requires |D|^{3/4}. The proof’s positive-D opening does not cover all its stated cases.
+
+
 ### MetaplecticAutomorphicForms/E-DUKE-IMAMOGLU-TOTH-16-E22
 
 Source: `PAPER-DUKE-IMAMOGLU-TOTH-16`. error, §5, Remarks after Theorem 4, p965.
@@ -8193,9 +8329,12 @@ Problem: The theta-residue normalization assigns squared norm6 to half of the so
 
 Correction: '… and ⟨½θ(z), ½θ(z)⟩ = π/2', equivalently ⟨θ,θ⟩ = 2π = area(Γ_0(4)\H), for the product of Theorem 4. The value 6 = [Γ:Γ_0(4)] is ⟨θ,θ⟩, not ⟨½θ,½θ⟩, for the product normalized by 3/π = 1/area(Γ\H). In that normalization ⟨½θ,½θ⟩ = 3/2. Either way the claimed match with ⟨F,F⟩ = 6 does not hold.
 
-Reason: Imported correction from REV-PAPER-DUKE-IMAMOGLU-TOTH-16; this packet uses the corrected statements. The residue claim is right (checked from the constant term Λ(2−2s)2^{1−s}y^{3/4−s/2} and b(m²,s)). For the norm: g(z)=|θ(z)|² is Γ_0(4)-invariant (checked), and ⟨θ,θ⟩=Σ_{i=1}^{6}∫_F g(γ_i z)dµ over coset representatives I, S, ST, ST², ST³, ST²S (bottom rows exhausting P¹(Z/4Z)). Gauss–Legendre quadrature up to y=Y plus the exact cusp tail 3·∫_Y^∞ y^{−3/2}dy = 6Y^{−1/2} gives 6.283185307180 for Y=12 and for Y=20, i.e. 2π to 12 digits; the same code with g≡1 returns area 2π. So ⟨½θ,½θ⟩ = π/2 ≈ 1.571, not 6, and the claimed match between the norm-6 normalization of F and ½θ fails. Defence: the remark is explicitly heuristic ('Perhaps not coincidentally'), and [7] (Chiera, J. Number Theory 122 (2007), which I could not access) may use a normalized Petersson product; even so, no normalization gives ⟨½θ,½θ⟩=6, only ⟨θ,θ⟩=6 with the product divided by π/3. Nothing in the proofs uses it; extraction item 80 repeats the false value.
+Reason: The correction concerns the unscaled Petersson measure dμ=dxdy/y². Its invariant theta-norm integrand is sqrt(y)|θ(z)|². Summing over six Γ₀(4) cosets and including the cusp tail gives 2π at both GL60/Y12 and GL90/Y20; the area control also gives 2π. Thus the norm squared of θ/2 is π/2, rather than 6. This numerical check supports the normalization correction, but is not a formal proof of the exact integral. The separate Chiera convention was not read; no correction to that source is asserted. The remark is unused in the paper’s proofs.
 
 Affects: nothing. Already recorded and independently confirmed in the atlas extraction; no external author erratum is claimed.
+
+Independent round-two verdict: **confirmed**. Printed965/PDF17 and the unscaled Petersson convention: an independent six-coset quadrature of sqrt(y)|θ|², with cusp tail, gives 6.283185307179599 at GL60/Y12 and6.2831853071796075 at GL90/Y20. The area control gives2π. The quarter norm is consistent with π/2, contradicting6. This is numerical corroboration, not a formal integral proof; Chiera was not read.
+
 
 ### MetaplecticAutomorphicForms/E-DUKE-IMAMOGLU-TOTH-16-E28
 
@@ -8209,6 +8348,9 @@ Reason: Imported correction from REV-PAPER-DUKE-IMAMOGLU-TOTH-16; this packet us
 
 Affects: a stated result. Already recorded and independently confirmed in the atlas extraction; no external author erratum is claimed.
 
+Independent round-two verdict: **confirmed**. §9 Lemmas5–7 and (9.2)–(9.3), PDF27–29, compared with (2.11): i∂F=−P/2, and the clockwise source cycle gives the opposite semicircle kernel sign from the printed unfolding display. The corrected −it kernel and its orientation convention must be kept together. The inherited full numerical trace experiment was not repeated.
+
+
 ### MetaplecticAutomorphicForms/E-DUKE-IMAMOGLU-TOTH-16-E30
 
 Source: `PAPER-DUKE-IMAMOGLU-TOTH-16`. gap, Hypothesis before Lemma 6 (p.979) as applied in the proof of Lemma 5 (p.980).
@@ -8220,6 +8362,9 @@ Correction: State Lemma 6 for φ(y)≪y^{ε} as y→0. This suffices, because |f
 Reason: Imported correction from REV-PAPER-DUKE-IMAMOGLU-TOTH-16; this packet uses the corrected statements. M_{κ,μ}(x)~x^{μ+1/2} as x→0, so the φ used satisfies φ(y)≍y^{s−1}. That is ≪y^{1+ε} only when Re(s)>2, but Lemma 5 is claimed for Re(s)>1. The weight-2 series has an extra factor Im γτ/Im τ, so the hypothesis carried over from the weight-0 setting of DIT11 (φ=O(y^a), a>1) is stronger than needed. The repair is routine.
 
 Affects: the proof. Already recorded and independently confirmed in the atlas extraction; no external author erratum is claimed.
+
+Independent round-two verdict: **confirmed**. §9 PDF27–29: the substituted Whittaker M has leading y^s, so the test function behaves as y^{s−1}. The printed stronger small-y hypothesis only covers Re(s)>2; a weaker weight-two estimate or continuation is needed for Re(s)>1.
+
 
 ### MetaplecticAutomorphicForms/E-DUKE-IMAMOGLU-TOTH-16-E33
 
@@ -8233,6 +8378,9 @@ Reason: Imported correction from REV-PAPER-DUKE-IMAMOGLU-TOTH-16; this packet us
 
 Affects: the proof. Already recorded and independently confirmed in the atlas extraction; no external author erratum is claimed.
 
+Independent round-two verdict: **confirmed**. §10 printed980–981/PDF32–33: the text introduces odd-prime eigenvalues but uses an Euler product including2. A separate plus-space dyadic operator and full square-index recurrence are necessary before the series and fundamental-coefficient nonvanishing argument are defined.
+
+
 ### MetaplecticAutomorphicForms/E-GROSS-ZAGIER-86-E30
 
 Source: `PAPER-GROSS-ZAGIER-86`. misprint, Chapter IV, §2, (2.3) Lemma, p. 274; Invent. Math. 84 (1986), published version (GDZ scan; formulas read from the GDZ IIIF 1400px crops of the page images).
@@ -8241,9 +8389,12 @@ Problem: The weight-one transformation is phrased for the projective group altho
 
 Correction: γ = (a b; c d) ∈ SL₂(ℤ)
 
-Reason: Imported correction from REV-PAPER-GROSS-ZAGIER-86; this packet uses the corrected statements. In odd weight 1, θ_𝒜|₁(−γ) = −θ_𝒜|₁γ, so the left side is not a function of the image of γ in PSL₂(ℤ). The right side also changes sign under γ ↦ −γ: ε_{D₁}(−1)ε_{D₂}(−1) = ε(−1) = −1 because exactly one of D₁, D₂ is negative, and c*d is unchanged. So the identity holds for every matrix of SL₂(ℤ) (either lift). This is what the proof uses ('an arbitrary element of SL₂(ℤ)') and what (2.2) states.
+Reason: Imported correction from REV-PAPER-GROSS-ZAGIER-86; this packet uses the corrected statements. In odd weight 1, θ_𝒜|₁(−γ) = −θ_𝒜|₁γ, so the left side is not a function of the image of γ in PSL₂(ℤ). The right side also changes sign under γ ↦ −γ: ε_{D₁}(−1)ε_{D₂}(−1) = ε(−1) = −1 because exactly one of D₁, D₂ is negative, and c*d is unchanged. So the identity holds for every matrix of SL₂(ℤ) (either lift). This is what the proof uses (a matrix in SL₂(ℤ)) and what (2.2) states.
 
 Affects: nothing. Already recorded and independently confirmed in the atlas extraction; no external author erratum is claimed.
+
+Independent round-two verdict: **confirmed**. GZ IV.2 printed274/PDF51: weight-one slash changes sign under γ↦−γ. The formula therefore requires a matrix lift in SL₂, even when the underlying geometric action factors through PSL₂.
+
 
 ### MetaplecticAutomorphicForms/E-GROSS-ZAGIER-86-E31
 
@@ -8257,6 +8408,9 @@ Reason: Imported correction from REV-PAPER-GROSS-ZAGIER-86; this packet uses the
 
 Affects: nothing. Already recorded and independently confirmed in the atlas extraction; no external author erratum is claimed.
 
+Independent round-two verdict: **confirmed**. GZ IV.2 printed275/PDF52: the exponential convention takes an integer modulus, and the next completed-square expression uses δ₂. The ideal symbol in the preceding display cannot be its modulus.
+
+
 ### MetaplecticAutomorphicForms/E-Kudla-Leray-quotient
 
 Source: `Kudla96`. error, 1996 author copy I.3 p12, reduction of the triple.
@@ -8268,6 +8422,9 @@ Correction: Use the image ((Y_j∩R^⊥)+R)/R in R^⊥/R; R need not be containe
 Reason: Take Y₀=Y₁=L and Y₂ transverse to L. Then R=L, while Y₂∩R^⊥=0, so division of that intersection by R is undefined. Its image in the ambient quotient is defined.
 
 Affects: a stated result. new (no addressing correction located)
+
+Independent round-two verdict: **confirmed**. Kudla I.3 PDF12: take Y₀=Y₁=L and Y₂ transverse. Then R=L and Y₂∩R⊥=0, so R is not a subspace of that intersection. Its image ((Y₂∩R⊥)+R)/R is well defined.
+
 
 ### MetaplecticAutomorphicForms/E-Kudla-genuine-twists
 
@@ -8281,6 +8438,9 @@ Reason: The printed powers yield scalar weights 2−4=−2 and −1+4=3; the req
 
 Affects: a stated result. new (no addressing correction located)
 
+Independent round-two verdict: **confirmed**. Kudla II.4 pp.36–37: λ₂(z)=z². Two weight-one factors have weight2 and require λ₂^−1 to descend with weight0; the dual has weight−1 and requires λ₂ for weight1.
+
+
 ### MetaplecticAutomorphicForms/E-Kudla-Rao-known-sign
 
 Source: `Kudla96`. misprint, 1996 author copy I.4 Remark4.6 p21, note about Rao93.
@@ -8292,6 +8452,9 @@ Correction: Use t(t−1)/2 in the cited Rao formula, as Kudla’s remark explici
 Reason: This is a correction already printed in the source read, recorded to preserve the corrected cocycle convention. Rao’s original article was not read or independently collated.
 
 Affects: nothing. Kudla96 I.4 Remark4.6 already records this correction to Rao93
+
+Independent round-two verdict: **confirmed**. Kudla I.4 Remark4.6 PDF21 explicitly records the corrected quadratic exponent t(t−1)/2. Confirmed as an already printed correction; Rao93 itself was not independently read.
+
 
 ### MetaplecticAutomorphicForms/E-Garrett-inner-product
 
@@ -8305,6 +8468,9 @@ Reason: For x_i in the projector image, the proof computes the scalar oscillator
 
 Affects: the proof. new (no addressing correction located)
 
+Independent round-two verdict: **confirmed**. Garrett Claim0.7 PDF4: the tensor multiplicity-space pairing uses the unchanged x₁,x₂. The oscillator action belongs to the other factor, and πh_i x_i need not lie in the multiplicity space.
+
+
 ### MetaplecticAutomorphicForms/E-Garrett-multiplicity-space
 
 Source: `Garrett20`. misprint, Author notes March23 2020 final paragraph p4.
@@ -8316,6 +8482,9 @@ Correction: For a nonzero irreducible π the multiplicity space is one-dimension
 Reason: The established equivalence is Y≃X⊗X⁰. X⁰=0 would force Y=0, whereas irreducibility and the concluded π≃σ require nonzero dimension one.
 
 Affects: the proof. new (no addressing correction located)
+
+Independent round-two verdict: **confirmed**. Garrett final paragraph PDF4: a zero multiplicity space would make X⊗X⁰ zero. For the nonzero irreducible representation in the argument the multiplicity is one-dimensional.
+
 
 ### MetaplecticAutomorphicForms/E-Biro-Vitali
 
@@ -8329,6 +8498,9 @@ Reason: On the unit disk, f_n(z)=(−1)^n z is uniformly bounded and converges t
 
 Affects: the proof. new (no addressing correction located)
 
+Independent round-two verdict: **confirmed**. Biró printed128/PDF26: f_n(z)=(−1)^n z is locally bounded on the unit disk and converges at0, but not at1/2. The preceding interval of large positive parameters supplies the accumulation set needed for the valid Vitali step.
+
+
 ### MetaplecticAutomorphicForms/E-GAN-SAVIN-23-E17
 
 Source: `PAPER-GAN-SAVIN-23`. misprint, §15.1, before Lemma 15.4, p. 54 (arXiv v1); checked on the page image.
@@ -8340,6 +8512,9 @@ Correction: Identify PB^×=SO₃* as the anisotropic inner form and use JL(ρ), 
 Reason: Imported correction from REV-PAPER-GAN-SAVIN-23. For a division quaternion algebra B, PB^× is compact, so SO_3^* is anisotropic. τ is not defined in this passage.
 
 Affects: nothing. Already recorded and independently confirmed in the atlas extraction; no author erratum is claimed.
+
+Independent round-two verdict: **confirmed**. Gan–Savin v1 §15.1 PDF54: the division-quaternion ternary inner form is anisotropic, and the representation introduced in that paragraph is ρ. Its theta input must use JL(ρ).
+
 
 ### MetaplecticAutomorphicForms/E-GAN-SAVIN-23-E36
 
@@ -8353,6 +8528,9 @@ Reason: Imported correction from REV-PAPER-GAN-SAVIN-23. The coinvariant decompo
 
 Affects: nothing. Already recorded and independently confirmed in the atlas extraction; no author erratum is claimed.
 
+Independent round-two verdict: **confirmed**. Gan–Savin v1 Proposition8.4 proof PDF27: the displayed SL₂-coinvariants use the ψ-conjugate oscillator constituents. The ensuing lift labels must keep that conjugation; no character-independent theta assertion is inferred.
+
+
 ### MetaplecticAutomorphicForms/E-ICHINO-PRASANNA-23-E6
 
 Source: `PAPER-ICHINO-PRASANNA-23`. misprint, arXiv:1806.10563v2, PropositionA.1(i), PDF88; the earlier extraction locator p101 refers to its published version, not collated here.
@@ -8365,13 +8543,15 @@ Reason: Imported correction from REV-PAPER-ICHINO-PRASANNA-23. s_v is the local 
 
 Affects: nothing. Already recorded and independently confirmed in the atlas extraction; no author erratum is claimed.
 
+Independent round-two verdict: **confirmed**. Ichino–Prasanna arXiv v2 PropositionA.1(i), PDF88: both denominator factors use the local cochain s_v. Global s appears only later; the published page101 was not independently collated.
+
 ## Remaining proof and carrier gaps
 
 - **G1. Product Haar measure on the Heisenberg group proof/signature boundary.** AL.0 currently states Fourier inversion on the scalar local field. Its finite-dimensional vector-space extension, measure determinant law, and the symplectic determinant-one bridge must be supplied and checked before this signature is closed. Needed by `MetaplecticAutomorphicForms:MP.0/heisenberg-haar`.
 - **G2. Schrödinger representation proof/signature boundary.** The exact finite-dimensional and joint archimedean Schwartz carriers are an AL.0 Part II request; neither a formal function symbol nor the scalar supplier alone supplies them. Needed by `MetaplecticAutomorphicForms:MP.0/schroedinger-model`.
 - **G3. Hilbert Schrödinger model proof/signature boundary.** Native L² density and finite-dimensional local-field measure input must be instantiated; an abstract norm-preserving monoid homomorphism alone is not the required strongly continuous model. Needed by `MetaplecticAutomorphicForms:MP.0/hilbert-schroedinger`.
 - **G4. Smooth vectors of the oscillator model proof/signature boundary.** The nonarchimedean compact-open argument and the archimedean Sobolev/Fréchet comparison require a matching proof source and a native smooth-vector carrier from SR.0/AF.1. The source citation here does not establish the archimedean conclusion. Needed by `MetaplecticAutomorphicForms:MP.0/smooth-vectors`.
-- **G5. Unitary dual-pair splittings proof/signature boundary.** The cited papers invoke Kudla’s unitary splitting formula; its original proof and exact δ convention must be collated. The generic Hermitian-space carrier belongs to upstream ClassicalGroups, not to this packet. Needed by `MetaplecticAutomorphicForms:MP.3/unitary-splitting`.
+- **G5. Unitary dual-pair splittings proof/signature boundary.** The cited papers invoke Kudla’s unitary splitting formula; its original proof must be collated. Gan–Ichino §4 fixes the trace pairing and asserts δ-independence. General E/F Hermitian-space and quaternionic group carriers are requested ClassicalGroups Part-II inputs; the existing complex classical-group carriers do not provide them. Needed by `MetaplecticAutomorphicForms:MP.3/unitary-splitting`.
 - **G6. Finite length of theta modules proof/signature boundary.** The generic SR criteria are requested; the exact archimedean finite-generation proof and its globalization/automatic-continuity bridge remain unverified. Needed by `MetaplecticAutomorphicForms:MP.3/theta-finite-length`.
 - **G7. Howe duality proof/signature boundary.** Gan–Takeda proof continuation PDF11–21 and its type-II/MVW inputs need complete proof closure; the full quaternionic Gan–Sun theorem and archimedean Howe/automatic-continuity sources remain requested. Needed by `MetaplecticAutomorphicForms:MP.3/howe-duality`.
 - **G8. Local see-saw identity proof/signature boundary.** Kudla IV.1 pp59–66 has been read. Its common oscillator, sum tensorization and specialized application supply the route; a general native smooth tensor–Hom/dual adjunction, with the exact infinite-dimensional dual and admissibility conditions, remains to be supplied from SR and the unread original references. Needed by `MetaplecticAutomorphicForms:MP.3/local-see-saw`.
@@ -8484,15 +8664,15 @@ Affects: nothing. Already recorded and independently confirmed in the atlas extr
 - **G115. Kudla’s Jacquet filtration actual carrier and prototype scope.** No target theorem is emitted against arbitrary independent data. Required source construction or proof input: Construct the source objects in the stated categories and identify the maps in the mathematical target: For Q(X_a)⊂G(W_n), the normalized Jacquet module of ω has a finite filtration with kth quotient, 0≤k≤min(a,q_V), equal to normalized induction from Q(X_{a−k},X_a)×G(W_{n−2a})×P(Y_k) of χV|det X_{a−k}|^{s_{m,n}+(a−k)/2}⊗Cc∞(Isom_{E,c}(X_k,Y_k))⊗ω_{smaller}. Here s_{m,n}=(m−n−ε₀)/2 and (b,c) acts on f(g) by χV(det b)χW(det c)f(c⁻¹gb). Supplier categories: SmoothRepresentationsOfLocalGroups:SR.0:abelian-category, SmoothRepresentationsOfLocalGroups:SR.2, SmoothRepresentationsOfLocalGroups:SR.3. Needed by `MetaplecticAutomorphicForms:MP.3/kudla-jacquet-filtration`.
 - **G116. Doubling principal-series filtration actual carrier and prototype scope.** No target theorem is emitted against arbitrary independent data. Required source construction or proof input: Construct the source objects in the stated categories and identify the maps in the mathematical target: For I(s)=normalized Ind_{Siegel}^{G(W⊕W⁻)}χV|det|^s, its restriction to G(W)×G(W) has rank-t quotients induced from Q_t×Q_t with characters χV|det X_t|^{s+t/2} on both GL_t factors and χV(det W⁻_{n−2t})⊗Cc∞(G(W_{n−2t})) on the remaining factors. The open-orbit quotient R_0=χV(det W⁻)⊗Cc∞G(W) is independent of s. Supplier categories: SmoothRepresentationsOfLocalGroups:SR.2, SmoothRepresentationsOfLocalGroups:SR.3. Needed by `MetaplecticAutomorphicForms:MP.3/doubling-filtration`.
 - **G117. Nonarchimedean conservation relations actual carrier and prototype scope.** No target theorem is emitted against arbitrary independent data. Required source construction or proof input: Construct the source objects in the stated categories and identify the maps in the mathematical target: For the two enhanced Witt towers differing by the anti-split class in Sun–Zhu, the dimension first-occurrence indices satisfy n_t₁(π)+n_t₂(π)=2 dim_D U+d_{D,ε}. Here d is 4 for orthogonal, 2 for unitary, 1 for quaternionic Hermitian, 3 for quaternionic skew-Hermitian and 0 for symplectic U. In particular an Sp_{2n} representation in the two even-orthogonal towers has dimension sum 4n+4, and for O(V) the symplectic rank indices of π and π⊗det sum dim V. Supplier categories: SmoothRepresentationsOfLocalGroups:SR.3. Needed by `MetaplecticAutomorphicForms:MP.3/nonarchimedean-conservation`.
-- **G118. Scalar ambiguity and composition of intertwiners actual carrier and prototype scope.** No target theorem is emitted against arbitrary independent data. Required source construction or proof input: Construct the source objects in the stated categories and identify the maps in the mathematical target: For each g∈Sp(W), the smooth intertwiner space between ρ and its g-twist is a one-dimensional C vector space; its nonzero operators are invertible. Choosing A_g with A_1=1 yields A_gA_h=c(g,h)A_{gh}, where c is a normalized scalar factor set. Rescaling A_g by b(g) changes c by b(g)b(h)/b(gh). In the unitary model these scalars have norm one. Needed by `MetaplecticAutomorphicForms:MP.1/intertwiner-lines`.
+- **G118. Scalar ambiguity and composition of intertwiners actual carrier and prototype scope.** No target theorem is emitted against arbitrary independent data. Required source construction or proof input: Construct the source objects in the stated categories and identify the maps in the mathematical target: For each g∈Sp(W), the smooth intertwiner space between ρ and its g-twist is a one-dimensional C vector space; its nonzero operators are invertible. Choosing A_g with A_1=1 yields A_gA_h=c(g,h)A_{gh}, where c is a normalized scalar factor set. Rescaling A_g by b(g) changes c by b(g)b(h)/b(gh). If the chosen A_g are unitary operators, the resulting cocycle scalars have norm one; arbitrary nonzero intertwiners need not have that normalization. Needed by `MetaplecticAutomorphicForms:MP.1/intertwiner-lines`.
 - **G119. Weil index and Hilbert symbol actual carrier and prototype scope.** No target theorem is emitted against arbitrary independent data. Required source construction or proof input: Construct the source objects in the stated categories and identify the maps in the mathematical target: The index is multiplicative under orthogonal sums, invariant under isometry and trivial on hyperbolic planes, with γψ(−q)=γψ(q)⁻¹. For η=ψ/2 define γ(a,η)=γ(η a x²)/γ(η x²). Then γ(ab,η)=(a,b)F γ(a,η)γ(b,η), γ(a,ηb)=(a,b)F γ(a,η), γ(a,η)²=(−1,a)F and γ(a,η)⁴=1. If q=Σa_ix_i², γψ(q)=γ(det q,ψ)γψ(x²)^d∏_{i<j}(a_i,a_j)F; det q means ∏a_i, not det Bq=2^d∏a_i. Needed by `MetaplecticAutomorphicForms:MP.2/weil-index-identities`.
 - **G120. Genuine Weil representation actual carrier and prototype scope.** Emitted: restriction of the supplied unitary normalizer action to ker lambda2 and its identity test. Missing: identification of the distinguished central −1, its action on the actual nonzero oscillator, zero-dimensional sign carrier and model-change intertwiner. An arbitrary element z, particularly z=1, cannot be assigned action −id. Needed by `MetaplecticAutomorphicForms:MP.1/genuine-oscillator`.
 - **G121. Weil operators on generators actual carrier and prototype scope.** No target theorem is emitted against arbitrary independent data. Required source construction or proof input: Construct the source objects in the stated categories and identify the maps in the mathematical target: In the polarized nonarchimedean model, the scalar-normalized integral operators satisfy r(m(a))φ(x)=|det a|^{1/2}φ(xa), r(n(b))φ(x)=ψ(½x bᵗx)φ(x), and r(w) is the self-dual Fourier operator for the explicitly chosen w. The double-cover action is εβ(g)r(g), hence the Levi acquires the Weil-index character and Fourier the corresponding Weil factor. For an orthogonal space V of dimension m, ω(m(a),ε)φ(x)=χV,ψ(det a,ε)|det a|^{m/2}φ(xa), ω(n(b))φ(x)=ψ(½tr(b·Gram(x)))φ(x), and ω(w)φ=γ(ψ∘V)^{−n} times the negative-kernel Fourier transform for Kudla’s w. Supplier categories: AutomorphicLFunctionsAndLocalFactors:AL.0/local-fourier-inversion. Needed by `MetaplecticAutomorphicForms:MP.2/generator-operators`.
-- **G122. Character change and dual Weil models actual carrier and prototype scope.** Emitted: unit identities showing that weight-two corrections return tensor and dual scalar weights to weight one. Missing: the actual λ-character, representation tensor/dual objects and their smooth category comparisons; the unit identities alone are not those equivalences. Needed by `MetaplecticAutomorphicForms:MP.2/character-and-dual`.
+- **G122. Character change and dual Weil models actual carrier and prototype scope.** Emitted: unit identities showing tensor weight 2−2=0 after λ₂⁻¹ and dual weight −1+2=1 after λ₂. Missing: the actual λ-character, representation tensor/dual objects and their smooth category comparisons; the unit identities alone are not those equivalences. Needed by `MetaplecticAutomorphicForms:MP.2/character-and-dual`.
 - **G123. First doubled quaternionic splitting actual carrier and prototype scope.** No target theorem is emitted against arbitrary independent data. Required source construction or proof input: Construct the source objects in the stated categories and identify the maps in the mathematical target: On U(V⊕V⁻), ŝ₁ is1 for split B and (−1)^j on a Bruhat stratum for division B. It cancels z_{V△}, is invariant under E× conjugation, and on the norm-one scalar embedding α has value1 if α=1 and (−1)^m otherwise in the division case. Needed by `MetaplecticAutomorphicForms:MP.3/quaternionic-first-doubled-splitting`.
 - **G124. Second doubled quaternionic splitting actual carrier and prototype scope.** No target theorem is emitted against arbitrary independent data. Required source construction or proof input: Construct the source objects in the stated categories and identify the maps in the mathematical target: For the doubled unitary W-model, ŝ₂(h)=χ(x(h))^mγ^{−j(h)}, γ=(u,det V)_F γ_F(−u,ψ/2)^mγ_F(−1,ψ/2)^{−m}. It is invariant under E× conjugation. The diagonal norm-one scalar gives χ(α)^{−2m}; the mixed embedding of A.7 gives χ(α)^{−m} times1 for split B and (−1)^m for division B. Needed by `MetaplecticAutomorphicForms:MP.3/quaternionic-second-doubled-splitting`.
-- **G125. Sharp splitting and norm-one descent actual carrier and prototype scope.** No target theorem is emitted against arbitrary independent data. Required source construction or proof input: Construct the source objects in the stated categories and identify the maps in the mathematical target: On G^sharp={(g,h,α,α):ν(g)=ν(h)=Nα}, set ŝ^sharp=χ(α)^{−m}ŝ₁(ι(gα⁻¹,1))ŝ₂(ι(hα⁻¹,1))z_{V△}(ι(gα⁻¹,1),ι(hα⁻¹,1)). With μ(σ)=z_Y(σ₀,σ)⁻¹z_Y(σ₀σσ₀⁻¹,σ₀), z_Y=z_{V△}δμ. Descend s(g,h)=s^sharp(g,h,α,α)/s₂(ι(1,[α,α])). A.9 proves norm-one invariance and A.12 cancels auxiliary χ. Needed by `MetaplecticAutomorphicForms:MP.3/quaternionic-sharp-descent`.
-- **G126. First scalar splitting calculation actual carrier and prototype scope.** No target theorem is emitted against arbitrary independent data. Required source construction or proof input: Construct the source objects in the stated categories and identify the maps in the mathematical target: For α=a+bi with a,b≠0, tilde s(1,α,α)=γ_F(J₁,ψ/2)(−2abJ₂,J₁)_F; ŝ₂(ι([α,α],1))=χ(α)⁻⁴(u,J₁)_F; μ on that matrix is γ_F(J₁,ψ/2)(−2abuJ₂,J₁)_F. Together these give s=tilde s on the first E× embedding. Needed by `MetaplecticAutomorphicForms:MP.3/periods-i-first-scalar-calculation`.
+- **G125. Sharp splitting and norm-one descent actual carrier and prototype scope.** No target theorem is emitted against arbitrary independent data. Required source construction or proof input: Construct the source objects in the stated categories and identify the maps in the mathematical target: On G^sharp={(g,h,α,α):ν(g)=ν(h)=Nα}, set ŝ^sharp=χ(α)^{−m}ŝ₁(ι(gα⁻¹,1))ŝ₂(ι(hα⁻¹,1))z_{V△}(ι(gα⁻¹,1),ι(hα⁻¹,1)). Define μ(σ)=z_{Y□}(σ₀,σ)⁻¹z_{Y□}(σ₀σσ₀⁻¹,σ₀), so z_{Y□}=z_{V△}δμ. Put s^sharp=ŝ^sharp·μ and s₂=ŝ₂·μ on their respective embedded groups. Descend s(g,h)=s^sharp(g,h,α,α)/s₂(ι(1,[α,α])). LemmaA.10 proves independence of the norm lift using LemmaA.9; LemmaA.12 cancels auxiliary χ. Needed by `MetaplecticAutomorphicForms:MP.3/quaternionic-sharp-descent`.
+- **G126. First scalar splitting calculation actual carrier and prototype scope.** No target theorem is emitted against arbitrary independent data. Required source construction or proof input: Construct the source objects in the stated categories and identify the maps in the mathematical target: For α=a+bi with a,b≠0, tilde s(1,α,α)=γ_F(J₁,ψ/2)(−2abJ₂,J₁)_F; ŝ₂(ι([α,α],1))=χ(α)⁻²(u,J₁)_F; μ on that matrix is γ_F(J₁,ψ/2)(−2abuJ₂,J₁)_F. Together these give s=tilde s on the first E× embedding. Needed by `MetaplecticAutomorphicForms:MP.3/periods-i-first-scalar-calculation`.
 - **G127. Second scalar splitting calculation actual carrier and prototype scope.** No target theorem is emitted against arbitrary independent data. Required source construction or proof input: Construct the source objects in the stated categories and identify the maps in the mathematical target: For α=a+bi with a,b≠0, tilde s(α,α⁻¹,1)=γ_F(J,ψ/2)(−2abJ₁,J)_F; ŝ₁(ι([α,α⁻¹],1))=(u,J)_F; μ is γ_F(J,ψ/2)(−2abuJ₁,J)_F. Together these give s=tilde s on the second E× embedding. Needed by `MetaplecticAutomorphicForms:MP.3/periods-i-second-scalar-calculation`.
 - **G128. Square quaternion splitting calculation actual carrier and prototype scope.** No target theorem is emitted against arbitrary independent data. Required source construction or proof input: Construct the source objects in the stated categories and identify the maps in the mathematical target: When J_i=t_i², the normalized generators j_i^natural=j_i/t_i have both splittings equal to1 on the matrices of A.21–A.23. Combined with the scalar calculations and the negative real generator, this gives (A.11). Needed by `MetaplecticAutomorphicForms:MP.3/periods-i-square-quaternion-calculation`.
 - **G129. Harris–Kudla splitting comparison actual carrier and prototype scope.** No target theorem is emitted against arbitrary independent data. Required source construction or proof input: Construct the source objects in the stated categories and identify the maps in the mathematical target: For split B and idempotent e, V^dagger=Ve and W^dagger=eW have dimensions2m and2; V^dagger has symmetric diagonal (κ_i u/2,−κ_i/2). Set s^dagger(h)=ξE(x(h))^m(γ′)^{−j(h)}, γ′=γ_F(ψ/2)^{2m}γ_F(det V^dagger,ψ/2)Hasse(V^dagger). Extend to similitudes by h↦h d(ν(h))⁻¹. The polarization correction gives s₀=s^daggerμ₀=s. Needed by `MetaplecticAutomorphicForms:MP.3/harris-kudla-morita-comparison`.
@@ -8735,4 +8915,4 @@ Consumers: `MetaplecticAutomorphicForms:MP.2/weil-index-identities`.
 
 ## Review provenance
 
-The packet retains its existing `review` and `reviewHistory` without changing their verdicts or authors. This revision is work by Codex — codex-dURHND for #6993. It requires a new independent source/category/signature review. All source and carrier gates above remain visible for that reviewer.
+The revision was written by Codex — codex-dURHND for #6993. The current independent review is REV-MetaplecticAutomorphicForms--MP.0~2 (#7074), by Codex — codex-2XfYcg, dated 2026-10-08, with verdict **accepted**. It has 176 individual node records: 159 verified and 17 corrected; no nodes were added. Earlier broad and narrow reviews remain in reviewHistory with their authors and original verdicts. All source, supplier, proof and carrier gates remain visible. The review report records the changes, pinned baseline checks, reading boundaries and exact Lean-check limitations.
