@@ -24,9 +24,11 @@ VS2 is the generic solid owner used by HabiroRings HR.2. Its small-v-stack opera
 
 The five application nodes retain their historical VS2-prefixed identifiers and declaration names so existing consumers still resolve them. Their `parentStageId` and `realises` specify their VS3 or VS4 owner; the prefix is a stable identifier. The separate VII.2.6 node supplies generic invariance to VS4; existing HS1 solid Drinfeld consumers retain the old Drinfeld identifier.
 
-VS3 uses L0 adic coefficients. Its VII.5 constructible-embedding branch also needs the specific VS1 algebraic/analytic ULA comparison; it does not import L1/L3/L4–L6 scheme/v-sheaf comparisons or alterations. Those comparisons belong to the characteristic-p Satake consumers. VS5 supplies the lisse ULA and duality contracts to HS1. The Weil group is imported through the existing ClassFieldTheory prerequisite and exact object request, without proposing a new upstream atlas edge.
+VS3 uses L0 adic coefficients. Its VII.5 constructible-embedding branch also needs the specific VS1 algebraic/analytic ULA comparison; it does not import L1/L3/L4–L6 scheme/v-sheaf comparisons or alterations. Those comparisons belong to the characteristic-p Satake consumers. VS5 supplies the lisse ULA and duality contracts to HS1. The Weil group is imported from layer 9 of Tau Ceti’s ClassFieldTheory roadmap, as a direct prerequisite of the divisor-to-Weil node with an exact request; ClassFieldTheory is already among the ancestors of VS1, and the note on finding 31 below records the question of the drawn link.
 
 The generic solid foundations can be built independently of the Artin/ULA branch. The two meet in the VS3 coefficient comparisons, then feed VS4 stratum adjunctions and compact generators and VS5 duality/admissibility.
+
+The node prerequisites imply stage dependencies that the atlas does not yet record. Because the two VII.5 nodes realise VS3 and use the ULA results of VS1, VS3 requires VS1. This is acyclic, and every consumer of VS3 (VS4, HeckeStacksAndLocalShtukas HS1, and the two Satake layers whose edges finding 18 removes) already requires VS1, so no consumer gains an ancestor. The generic layer VS2 uses cohomologically smooth maps (DiamondSixOperations S4) for the proper smooth duality of VII.3 and the change of algebraically closed base field (DiamondEtaleCohomology C6) for VII.2.6, and its four coefficient applications import analytic rings and analytic stacks (SolidAnalyticRings SA.2–SA.4, AnalyticStacks AS.2–AS.3). None of these has an ancestor in this roadmap. The two nodes that HabiroRings HR.2 asks VS2 for, solid abelian groups and the derived solid tensor, depend only on Mathlib’s condensed carriers and on EnhancedDerivedSheaves; the proposed subdivision of VS2 below puts them in a sub-layer of their own.
 
 Representation comparison uses continuous torsor descent, because a point map to a nondiscrete classifying stack is not a smooth atlas. An infinite discrete group is an explicit smooth exception, recorded under source issue E4.
 
@@ -48,7 +50,7 @@ Targets covered:
 
 Packet identifier: `VStackSheavesAndLisseCategories:VS0/artin-v-stack-definition`. Proposed declaration: `TauCeti.Blueprint.VStack.ArtinVStack` (definition).
 
-A small v-stack X is Artin when its diagonal X→X×X is representable in locally spatial diamonds and it admits a surjective separated cohomologically smooth atlas U→X with U a locally spatial diamond. Cohomological smoothness is tested after geometric base change using the diamond supplier. The diagonal is quasiseparated; X itself need not be quasiseparated. The property is invariant under equivalence of small v-stacks.
+A small v-stack X is Artin when its diagonal X→X×X is representable in locally spatial diamonds and it admits a surjective separated cohomologically smooth atlas U→X with U a locally spatial diamond. Cohomological smoothness of the atlas is the supplier’s notion for separated maps representable in locally spatial diamonds, tested after every base change to a strictly totally disconnected perfectoid space. The diagonal is quasiseparated; X itself need not be quasiseparated. The property is invariant under equivalence of small v-stacks.
 
 Construction or proof:
 
@@ -176,7 +178,7 @@ Acceptance:
 
 Open interfaces: [Suggested-signature carriers for VS0](#g-prototype-vs0).
 
-Source: [FS-geometrization, IV.5, construction after Lemma IV.5.1, pp.151–153](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf).
+Source: [FS-geometrization, IV.5, construction after Lemma IV.5.1; Definition IV.5.2, pp.152–153](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf).
 
 <a id="VS0-partial-compactly-supported-vanishing"></a>
 
@@ -279,13 +281,14 @@ Source: [FS-geometrization, IV.1.11–IV.1.16, pp.110–112, including Remark IV
 
 Packet identifier: `VStackSheavesAndLisseCategories:VS0/stability-under-fibre-products-and-representable-maps`. Proposed declaration: `TauCeti.Blueprint.VStack.ArtinVStack.fibreProduct` (theorem).
 
-If X,Y,Z are Artin v-stacks then X×Z Y is Artin. If f:X→Y is representable in locally spatial diamonds and Y is Artin, then X is Artin: pull back an atlas of Y and use the representable diagonal. Cohomological smoothness of separated maps of Artin v-stacks is smooth-local on source and target, with the separation and eligibility conditions retained.
+(i) If X,Y,Z are Artin v-stacks then X×Z Y is Artin. (ii) If S→* is a pro-étale surjective, separated, cohomologically smooth map of v-sheaves representable in locally spatial diamonds, then a small v-stack X is Artin iff X×S is Artin; in particular the Artin property may be tested after base change to Spd E or to Spa F_q((t^(1/p^∞))). (iii) If f:X→Y is representable in locally spatial diamonds and Y is Artin, then X is Artin: pull back an atlas of Y and use the representable diagonal; in particular locally closed substacks of Artin v-stacks are Artin. Cohomological smoothness of maps of Artin v-stacks, defined through separated smooth charts, does not depend on the chart and is smooth-local on the source, with the separation and eligibility conditions retained.
 
 Construction or proof:
 
 1. Pull back the atlas of Z, then those of X and Y, obtaining a diamond atlas of the fibre product.
 2. Express the diagonal as a fibre product of the three representable diagonals.
-3. Use the supplier’s smooth descent for each chart comparison; representable maps use the pulled-back atlas directly.
+3. For (ii), compose an atlas of X×S with the projection to X, and test representability of the diagonal of X after the pro-étale surjection X×X×S→X×X, where it is the diagonal of X×S followed by a projection that is representable in locally spatial diamonds.
+4. Use the supplier’s smooth descent for each chart comparison; representable maps use the pulled-back atlas directly.
 
 Direct inputs: [VStackSheavesAndLisseCategories:VS0/artin-v-stack-definition](#VS0-artin-v-stack-definition); [DiamondSixOperations:S4/cohomologically-smooth](../packets/DiamondSixOperations.json); [DiamondSixOperations:S4/smooth-composition](../packets/DiamondSixOperations.json); [DiamondSixOperations:S4/smooth-stable-under-base-change](../packets/DiamondSixOperations.json); [DiamondSixOperations:S4/smooth-descent-along-smooth-surjection](../packets/DiamondSixOperations.json).
 
@@ -293,14 +296,15 @@ Acceptance:
 
 - The middle stack Z must be Artin in the fibre-product assertion.
 - A representable closed or open immersion into an Artin stack has Artin source.
+- Part (ii) is what reduces the classifying stack [*/H] to [Spd E/H] in Example IV.1.9(iv).
 
 Open interfaces: [Suggested-signature carriers for VS0](#g-prototype-vs0).
 
-Source: [FS-geometrization, Proposition IV.1.8; Definition IV.1.11, pp.109–110](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf).
+Source: [FS-geometrization, Proposition IV.1.8; Example IV.1.9(i)–(iii); Definition IV.1.11; Convention IV.1.12, pp.109–111](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf).
 
 ## VS1. ULA, Jacobian criterion and localization
 
-ULA includes the fibre-generization comparison and perfect-constructible supported images, universally after base change. The relative kernel criterion supplies adjoints and biduality; it is stronger than ordinary tensor rigidity. Formal smoothness lifts through closed perfectoid subspaces. The section-space criterion uses strictly positive slopes and the actual continuous differentials on sousperfectoid charts. Hyperbolic localization keeps the proper finite-dimensional and monodromic conditions. Drinfeld descent separates fully faithful arbitrary coefficients from the equivalence for locally constant perfect complexes. The geometric finite-étale input imports VB2's existing constant-algebra theorem and the Weil group, rather than restating either.
+ULA includes the fibre-generization comparison and perfect-constructible supported images, universally after base change. The relative kernel criterion supplies adjoints and biduality; it is stronger than ordinary tensor rigidity. Formal smoothness lifts through Zariski closed subspaces of affinoid perfectoid spaces; its basic examples, among them Banach–Colmez spaces of positive and negative slopes, are stated as a separate target because the proof of the Jacobian criterion uses them. The section-space criterion uses strictly positive slopes and the actual continuous differentials on sousperfectoid charts. Hyperbolic localization keeps the proper finite-dimensional and monodromic conditions. Drinfeld descent separates fully faithful arbitrary coefficients from the equivalence for locally constant perfect complexes. The geometric finite-étale input imports VB2's existing constant-algebra theorem and the Weil group, rather than restating either.
 
 Coverage: **planned**. Planets: Braden theorem, Drinfeld lemma, Hyperbolic localization, Jacobian criterion, Universal local acyclicity, ULA kernel duality.
 
@@ -318,7 +322,7 @@ Targets covered:
 
 Packet identifier: `VStackSheavesAndLisseCategories:VS1/braden-theorem`. Proposed declaration: `TauCeti.Blueprint.VStack.HyperbolicLocalization.braden` (theorem).
 
-In the preceding proper finite-dimensional setup, the canonical map L−A→L+A is an equivalence for every monodromic A. For the more general compactifiable local setup of IV.6.9 the source requires bounded-below A, unless finite relative dimension is imposed. The global finite-dimensional theorem has no additional bounded-below restriction.
+In the preceding proper finite-dimensional setup, for every A∈D_et(X/G_m,Λ), pulled back to X, the canonical map L−A→L+A is an equivalence; hence it is an equivalence for every monodromic A. More precisely, for A⁺∈D_et(X⁺/G_m,Λ) the map R(i⁺)!A⁺→R(p⁺)_!A⁺, and for A⁻∈D_et(X⁻/G_m,Λ) the map R(p⁻)_*A⁻→(i⁻)*A⁻, are equivalences, so that L−A≃(i⁻)*R(q⁻)!A≃R(i⁺)!(q⁺)*A≃L+A. For the more general compactifiable local setup of IV.6.9 the source requires bounded-below A, unless finite relative dimension is imposed. The global finite-dimensional theorem has no additional bounded-below restriction.
 
 Construction or proof:
 
@@ -326,7 +330,7 @@ Construction or proof:
 2. Use the local closed fixed-point square and the quotient qcqs/flow hypotheses to establish the comparison, with the correct boundedness in IV.6.9.
 3. Pass to finite colimits and retracts to obtain the monodromic theorem.
 
-Direct inputs: [VStackSheavesAndLisseCategories:VS1/hyperbolic-localization](#VS1-hyperbolic-localization); [VStackSheavesAndLisseCategories:VS0/partial-compactly-supported-vanishing](#VS0-partial-compactly-supported-vanishing); [DiamondSixOperations:S3/upper-shriek](../packets/DiamondSixOperations.json); [DiamondSixOperations:S3/adjunction-calculus](../packets/DiamondSixOperations.json); [DiamondSixOperations:S3/upper-shriek-pushforward-exchange](../packets/DiamondSixOperations.json).
+Direct inputs: [VStackSheavesAndLisseCategories:VS1/hyperbolic-localization](#VS1-hyperbolic-localization); [VStackSheavesAndLisseCategories:VS0/partial-compactly-supported-vanishing](#VS0-partial-compactly-supported-vanishing); [DiamondSixOperations:S3/upper-shriek](../packets/DiamondSixOperations.json); [DiamondSixOperations:S3/adjunction-calculus](../packets/DiamondSixOperations.json); [DiamondSixOperations:S3/upper-shriek-pushforward-exchange](../packets/DiamondSixOperations.json); [EnhancedDerivedSheaves:E2/unbounded-hypercover-descent](../packets/EnhancedDerivedSheaves--E0.json).
 
 Acceptance:
 
@@ -335,7 +339,7 @@ Acceptance:
 
 Open interfaces: [Suggested-signature carriers for VS1](#g-prototype-vs1).
 
-Source: [FS-geometrization, Theorem IV.6.5; Propositions IV.6.6–IV.6.9, pp.156–162](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf).
+Source: [FS-geometrization, Theorem IV.6.5; Proposition IV.6.6; Remark IV.6.7; Lemma IV.6.8; Proposition IV.6.9; Lemma IV.6.10, pp.158–162](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf).
 
 <a id="VS1-divisor-weil-map"></a>
 
@@ -437,11 +441,11 @@ Source: [FS-geometrization, Proposition IV.7.1; Corollary IV.7.2, pp.164–165](
 
 Packet identifier: `VStackSheavesAndLisseCategories:VS1/formal-smoothness`. Proposed declaration: `TauCeti.Blueprint.VStack.IsFormallySmooth` (definition).
 
-A map X→Y is formally smooth in the IV.3 sense if for every characteristic-p affinoid perfectoid S, closed perfectoid subspace S0⊂S, map S→Y and compatible S0→X, there are an étale map S′→S whose image contains all of |S0| and a lift S′→X over Y agreeing with the prescribed map after pullback to S′×S S0. This is lifting along closed perfectoid subspaces, not along nilpotent thickenings of schemes.
+A map X→Y is formally smooth in the IV.3 sense if for every characteristic-p affinoid perfectoid S, Zariski closed subspace S0⊂S, map S→Y and compatible S0→X, there are an étale map S′→S whose image contains all of |S0| and a lift S′→X over Y agreeing with the prescribed map after pullback to S′×S S0. This is lifting along Zariski closed subspaces of affinoid perfectoid spaces, not along nilpotent thickenings of schemes.
 
 Construction or proof:
 
-1. Use existing closed perfectoid embeddings and étale neighbourhoods.
+1. Use Zariski closed embeddings of affinoid perfectoid spaces and étale neighbourhoods.
 2. Define the lifting property by all such squares with the prescribed restriction on S0.
 3. Store it as a property of the actual stack morphism; formal smoothness is not replaced by an unspecified predicate.
 
@@ -449,7 +453,7 @@ Direct inputs: [DiamondsAndVStacks:D4/small-v-sheaves-and-small-v-stacks](../pac
 
 Planning API:
 
-- `TauCeti.Blueprint.VStack.IsFormallySmooth.lift` (universal-property): Every prescribed closed-perfectoid lifting square has an étale-local solution agreeing over S0.
+- `TauCeti.Blueprint.VStack.IsFormallySmooth.lift` (universal-property): Every prescribed Zariski-closed lifting square has an étale-local solution agreeing over S0.
 - `TauCeti.Blueprint.VStack.IsFormallySmooth.baseChange` (functoriality): Base change preserves the lifting property.
 - `TauCeti.Blueprint.VStack.IsFormallySmooth.comp` (functoriality): Composites of formally smooth maps are formally smooth.
 - `TauCeti.Blueprint.VStack.IsFormallySmooth.etale` (compatibility): Étale maps of perfectoid spaces are formally smooth.
@@ -487,10 +491,10 @@ Formal smoothness of small v-stack maps is stable under composition and base cha
 Construction or proof:
 
 1. Compose lift problems and pull them back to prove the formal identities.
-2. Use closed neighbourhoods and the source’s perfectoid approximation to show the image is open.
+2. Embed a test object as a Zariski closed subspace of a perfectoid ball over the base, extend the map to an étale neighbourhood by formal smoothness, descend that neighbourhood to a finite-dimensional ball by the source’s approximation, and use that cohomologically smooth maps are open.
 3. Apply the lifting property to a v-local section and descend through an étale neighbourhood, preserving the given closed lift.
 
-Direct inputs: [VStackSheavesAndLisseCategories:VS1/formal-smoothness](#VS1-formal-smoothness); [DiamondsAndVStacks:D4/small-v-sheaves-and-small-v-stacks](../packets/DiamondsAndVStacks.json).
+Direct inputs: [VStackSheavesAndLisseCategories:VS1/formal-smoothness](#VS1-formal-smoothness); [DiamondsAndVStacks:D4/small-v-sheaves-and-small-v-stacks](../packets/DiamondsAndVStacks.json); [DiamondSixOperations:S4/smooth-universally-open](../packets/DiamondSixOperations.json).
 
 Acceptance:
 
@@ -499,11 +503,37 @@ Acceptance:
 
 Open interfaces: [Suggested-signature carriers for VS1](#g-prototype-vs1).
 
-Source: [FS-geometrization, Observations following Definition IV.3.1; Propositions IV.3.2–IV.3.5; Corollary IV.3.6, pp.130–133](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf).
+Source: [FS-geometrization, Observations (i)–(iv) following Definition IV.3.1; Propositions IV.3.2 and IV.3.5; Corollary IV.3.6, pp.131–132](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf).
+
+<a id="VS1-formal-smoothness-examples"></a>
+
+### VS1.7. Formally smooth diamonds and Banach–Colmez spaces
+
+Packet identifier: `VStackSheavesAndLisseCategories:VS1/formal-smoothness-examples`. Proposed declaration: `TauCeti.Blueprint.VStack.IsFormallySmooth.examples` (theorem).
+
+On perfectoid spaces of characteristic p, the v-sheaves B=O⁺ and A¹=O are formally smooth over the point, and so is Spd O_E for a nonarchimedean local field E. If f:Y→X is a smooth morphism of analytic adic spaces over Z_p, then the associated map of diamonds is formally smooth. For a perfectoid space S and a map [E₁→E₀] of vector bundles on X_S with E₀ everywhere of positive and E₁ everywhere of negative Harder–Narasimhan slopes, BC([E₁→E₀])→S is formally smooth.
+
+Construction or proof:
+
+1. For a Zariski closed immersion of affinoid perfectoid spaces the map on functions R→R₀ is surjective, which lifts points of A¹; B is open in A¹. For Spd O_E, write an untilt of S₀ by a primitive element π+Σπ^i[r_i] with topologically nilpotent r_i, and lift the r_i along the surjection on topologically nilpotent elements.
+2. A smooth map of analytic adic spaces is locally étale over a finite-dimensional ball; combine the ball case with formal smoothness of étale maps and étale locality on source and target.
+3. Use the exact sequence 0→BC(E₀)→BC([E₁→E₀])→BC(E₁[1])→0 and étale-local surjectivity of its second map to reduce to the two outer terms. For E₀, choose étale locally a surjection from a sum of copies of O(1/r) with kernel of positive slopes and vanishing H¹ over affinoid perfectoid test objects, which reduces to the perfectoid open unit disc. For E₁, embed it in a sum of copies of O(d) with positive-slope cokernel G; then BC(G)→BC(E₁[1]) is a formally smooth surjection from a formally smooth source, and descent of formal smoothness through a formally smooth surjection finishes.
+
+Direct inputs: [VStackSheavesAndLisseCategories:VS1/formal-smoothness](#VS1-formal-smoothness); [VStackSheavesAndLisseCategories:VS1/formal-smoothness-calculus](#VS1-formal-smoothness-calculus); [RelativeFarguesFontaine:RF2:integral-divisors/ramified-primitive-untilt-equation](../packets/RelativeFarguesFontaine--RF0.json); `RelativeFarguesFontaine:RF2:integral-divisors`; [VectorBundlesAndIsocrystals:VB1/cohomology-of-twists](../packets/VectorBundlesAndIsocrystals--VB0.json); [VectorBundlesAndIsocrystals:VB2:ampleness/quantitative-global-generation](../packets/VectorBundlesAndIsocrystals--VB0.json); [VectorBundlesAndIsocrystals:VB3:general-BC/families-of-banach-colmez-spaces](../packets/VectorBundlesAndIsocrystals--VB3.json); [VectorBundlesAndIsocrystals:VB3:general-BC/strict-positive-etale-presentations](../packets/VectorBundlesAndIsocrystals--VB3.json); [VectorBundlesAndIsocrystals:VB4/relative-cohomology-vanishing](../packets/VectorBundlesAndIsocrystals--VB3.json); `AdicSpacesPartII:R5`.
+
+Acceptance:
+
+- For E₁=0 and E₀=O(1/r) the space is a perfectoid open unit disc over S, formally smooth by the ball case.
+- The lift for Spd O_E is an untilt over O_E, which may have characteristic p on part of the test object: the special fibre is included.
+- The proof of the Jacobian criterion uses the Banach–Colmez case in its presentation of projectivized Banach–Colmez spaces (FS Lemma IV.4.28).
+
+Open interfaces: [Suggested-signature carriers for VS1](#g-prototype-vs1).
+
+Source: [FS-geometrization, Propositions IV.3.3 and IV.3.8; Corollary IV.3.4, pp.131–133; used in the proof of Lemma IV.4.28, pp.147–148](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf).
 
 <a id="VS1-geometric-divisor-finite-etale"></a>
 
-### VS1.7. Geometric finite étale descent for divisors
+### VS1.8. Geometric finite étale descent for divisors
 
 Packet identifier: `VStackSheavesAndLisseCategories:VS1/geometric-divisor-finite-etale`. Proposed declaration: `TauCeti.Blueprint.VStack.DivisorWeilMap.finiteEtale` (theorem).
 
@@ -524,11 +554,11 @@ Acceptance:
 
 Open interfaces: [Suggested-signature carriers for VS1](#g-prototype-vs1).
 
-Source: [SW20, SW20 Lemma 16.3.2, pp.144–145; FS Lemma IV.7.3, pp.165–166](https://people.mpim-bonn.mpg.de/scholze/Berkeley.pdf).
+Source: [SW20, Lemma 16.3.2 and the paragraph after it, p.144; Theorem 13.5.7, p.114](https://people.mpim-bonn.mpg.de/scholze/Berkeley.pdf); [FS-geometrization, Proof of Proposition IV.7.3, p.166](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf).
 
 <a id="VS1-hyperbolic-base-change-duality-and-ula"></a>
 
-### VS1.8. Hyperbolic base change, duality and ULA
+### VS1.9. Hyperbolic base change, duality and ULA
 
 Packet identifier: `VStackSheavesAndLisseCategories:VS1/hyperbolic-base-change-duality-and-ula`. Proposed declaration: `TauCeti.Blueprint.VStack.HyperbolicLocalization.compatibilities` (theorem).
 
@@ -540,7 +570,7 @@ Construction or proof:
 2. Apply tensor-Hom adjunction to Rp+!q+*; its relative dual is the inverse-action L−.
 3. Prove the two ULA clauses after base change using the finite-dimensional proper fixed-point setup and the source’s local contraction argument.
 
-Direct inputs: [VStackSheavesAndLisseCategories:VS1/braden-theorem](#VS1-braden-theorem); [VStackSheavesAndLisseCategories:VS1/ula-dualizability-criterion](#VS1-ula-dualizability-criterion); [VStackSheavesAndLisseCategories:VS1/ula-descent-and-smooth-locality](#VS1-ula-descent-and-smooth-locality).
+Direct inputs: [VStackSheavesAndLisseCategories:VS1/braden-theorem](#VS1-braden-theorem); [VStackSheavesAndLisseCategories:VS1/ula-dualizability-criterion](#VS1-ula-dualizability-criterion); [VStackSheavesAndLisseCategories:VS1/ula-descent-and-smooth-locality](#VS1-ula-descent-and-smooth-locality); [VStackSheavesAndLisseCategories:VS1/perfect-rhom-and-la-characterisation](#VS1-perfect-rhom-and-la-characterisation).
 
 Acceptance:
 
@@ -549,11 +579,11 @@ Acceptance:
 
 Open interfaces: [Suggested-signature carriers for VS1](#g-prototype-vs1).
 
-Source: [FS-geometrization, Propositions IV.6.12–IV.6.14, pp.163–164](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf).
+Source: [FS-geometrization, Propositions IV.6.12–IV.6.14, p.163](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf).
 
 <a id="VS1-hyperbolic-localization"></a>
 
-### VS1.9. Hyperbolic localization and monodromic sheaves
+### VS1.10. Hyperbolic localization and monodromic sheaves
 
 Packet identifier: `VStackSheavesAndLisseCategories:VS1/hyperbolic-localization`. Proposed declaration: `TauCeti.Blueprint.VStack.HyperbolicLocalization` (construction).
 
@@ -595,11 +625,11 @@ Acceptance:
 
 Open interfaces: [Suggested-signature carriers for VS1](#g-prototype-vs1).
 
-Source: [FS-geometrization, Hypothesis IV.6.1; Proposition IV.6.2; Definition IV.6.11, pp.155–156,162](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf).
+Source: [FS-geometrization, Hypothesis IV.6.1; Proposition IV.6.2; Lemma IV.6.3; Definition IV.6.4; Definition IV.6.11, pp.155–157,162](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf).
 
 <a id="VS1-jacobian-criterion"></a>
 
-### VS1.10. Jacobian criterion for cohomological smoothness
+### VS1.11. Jacobian criterion for cohomological smoothness
 
 Packet identifier: `VStackSheavesAndLisseCategories:VS1/jacobian-criterion`. Proposed declaration: `TauCeti.Blueprint.VStack.SectionSpace.jacobian` (theorem).
 
@@ -607,11 +637,11 @@ Under the preceding smooth/quasiprojective section hypotheses, M_Z is a locally 
 
 Construction or proof:
 
-1. Locally on S, use the fixed closed immersion of Z into an open projective space supplied by the section-space node, and its relative normal-cone deformation; do not infer the theorem from arbitrary local embeddings on Z.
-2. Construct section lifts by successive Frobenius corrections with positive-slope estimates; étale retractions give constant-sheaf ULA.
+1. Locally on S, use the Zariski closed immersion of Z into an open subset of projective space supplied by the section-space node, and its relative normal-cone deformation; do not infer the theorem from arbitrary local embeddings on Z.
+2. Construct section lifts by successive Frobenius corrections with positive-slope estimates, which gives formal smoothness of the smooth locus. Cover the section space by charts that are formally smooth and Zariski closed in spaces étale over a perfectoid ball, using the presentation of projectivized Banach–Colmez spaces and their formal smoothness; étale retractions then give constant-sheaf ULA.
 3. Deform the section to its normal/tangent cone, use ULA and constructibility to stabilize the family, and identify the dualizing fibre with that of the positive BC tangent space.
 
-Direct inputs: [VStackSheavesAndLisseCategories:VS1/section-functor-and-positive-tangent](#VS1-section-functor-and-positive-tangent); [VStackSheavesAndLisseCategories:VS1/formal-smoothness-calculus](#VS1-formal-smoothness-calculus); [VStackSheavesAndLisseCategories:VS1/ula-dualizability-criterion](#VS1-ula-dualizability-criterion); [VStackSheavesAndLisseCategories:VS1/smooth-ula-criterion](#VS1-smooth-ula-criterion); [VectorBundlesAndIsocrystals:VB3:general-BC/families-of-banach-colmez-spaces](../packets/VectorBundlesAndIsocrystals--VB3.json); [VectorBundlesAndIsocrystals:VB3:general-BC/positive-slope-resolution](../packets/VectorBundlesAndIsocrystals--VB3.json); `AdicSpacesPartII:R5`.
+Direct inputs: [VStackSheavesAndLisseCategories:VS1/section-functor-and-positive-tangent](#VS1-section-functor-and-positive-tangent); [VStackSheavesAndLisseCategories:VS1/formal-smoothness-calculus](#VS1-formal-smoothness-calculus); [VStackSheavesAndLisseCategories:VS1/ula-dualizability-criterion](#VS1-ula-dualizability-criterion); [VStackSheavesAndLisseCategories:VS1/smooth-ula-criterion](#VS1-smooth-ula-criterion); [VectorBundlesAndIsocrystals:VB3:general-BC/families-of-banach-colmez-spaces](../packets/VectorBundlesAndIsocrystals--VB3.json); [VectorBundlesAndIsocrystals:VB3:general-BC/positive-slope-resolution](../packets/VectorBundlesAndIsocrystals--VB3.json); `AdicSpacesPartII:R5`; [VStackSheavesAndLisseCategories:VS1/formal-smoothness-examples](#VS1-formal-smoothness-examples).
 
 Acceptance:
 
@@ -620,11 +650,11 @@ Acceptance:
 
 Open interfaces: [Sousperfectoid deformation estimates](#g-jacobian); [Suggested-signature carriers for VS1](#g-prototype-vs1).
 
-Source: [FS-geometrization, Theorem IV.4.2; proof IV.4.22–IV.4.30, pp.134–151](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf).
+Source: [FS-geometrization, Theorem IV.4.2, p.134; Propositions IV.4.21–IV.4.22, IV.4.24, IV.4.27, IV.4.29 with Lemmas IV.4.23, IV.4.25–IV.4.26, IV.4.28, IV.4.30, pp.141–151](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf).
 
 <a id="VS1-kernel-correspondence-category"></a>
 
-### VS1.11. The category of cohomological kernels
+### VS1.12. The category of cohomological kernels
 
 Packet identifier: `VStackSheavesAndLisseCategories:VS1/kernel-correspondence-category`. Proposed declaration: `TauCeti.Blueprint.VStack.KernelCategory` (construction).
 
@@ -665,11 +695,11 @@ Acceptance:
 
 Open interfaces: [Suggested-signature carriers for VS1](#g-prototype-vs1).
 
-Source: [FS-geometrization, IV.2.3.3, pp.123–125](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf).
+Source: [FS-geometrization, IV.2.3.3, construction before Theorem IV.2.23, p.124](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf).
 
 <a id="VS1-perfect-local-systems"></a>
 
-### VS1.12. Perfect locally constant complexes
+### VS1.13. Perfect locally constant complexes
 
 Packet identifier: `VStackSheavesAndLisseCategories:VS1/perfect-local-systems`. Proposed declaration: `TauCeti.Blueprint.VStack.PerfectLocalSystem` (definition).
 
@@ -710,15 +740,15 @@ Acceptance:
 
 Open interfaces: [Suggested-signature carriers for VS1](#g-prototype-vs1).
 
-Source: [FS-geometrization, IV.7 before Proposition IV.7.3, p.165](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf).
+Source: [FS-geometrization, IV.7, definition of D_lc before Proposition IV.7.3, p.165; Proposition IV.2.6, p.116](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf).
 
 <a id="VS1-perfect-rhom-and-la-characterisation"></a>
 
-### VS1.13. Perfect internal Hom and local acyclicity
+### VS1.14. Perfect internal Hom and local acyclicity
 
 Packet identifier: `VStackSheavesAndLisseCategories:VS1/perfect-rhom-and-la-characterisation`. Proposed declaration: `TauCeti.Blueprint.VStack.IsULA.perfectRHom` (theorem).
 
-For a spatial diamond X, perfect-constructible A and any small-v-stack map g:Y→X, g*RHom(A,B)→RHom(g*A,g*B) is an isomorphism for all B, and RHom(A,Λ) is overconvergent. For an eligible f:X→S, universal local acyclicity implies D_X/S(A)⊗f*B≃RHom(A,f!B). Conversely this formula, together with overconvergence, characterizes LA under the local uniform bound on the cohomological dimension of separated qc étale neighborhoods of X. Universally on S it characterizes ULA with overconvergence retained. Affinoid perfectoid maps to spatial S admit the cofinal relative-ball neighborhoods of IV.2.16 used to prove the formula.
+For a spatial diamond X, perfect-constructible A and any small-v-stack map g:Y→X, g*RHom(A,B)→RHom(g*A,g*B) is an isomorphism for all B, and RHom(A,Λ) is overconvergent. For an eligible f:X→S and f-ULA A, the formation of RHom(A,f!B), and in particular of the relative Verdier dual D_X/S(A), commutes with every base change S′→S of locally spatial diamonds. For such A, D_X/S(A)⊗f*B≃RHom(A,f!B). Conversely this formula, together with overconvergence, characterizes LA under the local uniform bound on the cohomological dimension of separated qc étale neighborhoods of X. Universally on S it characterizes ULA with overconvergence retained. Affinoid perfectoid maps to spatial S admit the cofinal relative-ball neighborhoods of IV.2.16 used to prove the formula.
 
 Construction or proof:
 
@@ -735,15 +765,15 @@ Acceptance:
 
 Open interfaces: [Enhanced compactness and coherent descent interfaces](#g-neeman); [Suggested-signature carriers for VS1](#g-prototype-vs1).
 
-Source: [FS-geometrization, Lemmas IV.2.16–IV.2.18; Proposition IV.2.19; Remark IV.2.21, pp.119–123](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf).
+Source: [FS-geometrization, Proposition IV.2.15; Lemmas IV.2.16–IV.2.18; Proposition IV.2.19; Lemma IV.2.20; Remark IV.2.21, pp.119–123](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf).
 
 <a id="VS1-section-functor-and-positive-tangent"></a>
 
-### VS1.14. Relative section spaces and positive tangent locus
+### VS1.15. Relative section spaces and positive tangent locus
 
 Packet identifier: `VStackSheavesAndLisseCategories:VS1/section-functor-and-positive-tangent`. Proposed declaration: `TauCeti.Blueprint.VStack.SectionSpace` (construction).
 
-For a perfectoid S/F_q and smooth Z→X_S over the relative Fargues–Fontaine curve, assume, locally on S, a fixed closed immersion of Z into an open subset of a projective space over X_S. Define M_Z(T)=sections X_T→Z_T. Its subfunctor M_Z^sm consists of sections s for which s*T_Z/X_S has only strictly positive slopes at every geometric point. The source uses the candidate tangent/obstruction cohomology RΓ(X_T,s*T_Z/X_S): positive slopes kill H¹ and H⁰ is the supplied positive Banach–Colmez space. Its normal-cone construction identifies the zero-section fibre with BC(s*T_Z/X_S); it does not directly identify an infinitesimal deformation theory of M_Z. Smoothness and differentials on sousperfectoid charts are imported from AdicSpacesPartII.
+For a perfectoid S/F_q and smooth Z→X_S over the relative Fargues–Fontaine curve, assume, locally on S, a Zariski closed immersion (FS Definition IV.4.20) of Z into an open subset of the adic projective space Pⁿ over X_S; the source assumes it globally, and its conclusions are local on S. Define M_Z(T)=sections X_T→Z_T. Its open subfunctor M_Z^sm consists of sections s for which s*T_Z/X_S has only strictly positive slopes at every geometric point. The source uses the candidate tangent/obstruction cohomology RΓ(X_T,s*T_Z/X_S): positive slopes kill H¹ and H⁰ is the supplied positive Banach–Colmez space. Its normal-cone construction identifies the zero-section fibre with BC(s*T_Z/X_S); it does not directly identify an infinitesimal deformation theory of M_Z. Smoothness and differentials on sousperfectoid charts are imported from AdicSpacesPartII.
 
 Construction or proof:
 
@@ -781,11 +811,11 @@ Acceptance:
 
 Open interfaces: [Sousperfectoid deformation estimates](#g-jacobian); [Suggested-signature carriers for VS1](#g-prototype-vs1).
 
-Source: [FS-geometrization, IV.4 preamble; Definition IV.4.1; Theorem IV.4.2; Remark IV.4.6; Example IV.4.7, pp.134–136](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf).
+Source: [FS-geometrization, IV.4 preamble, p.133–134; Definition IV.4.1; Theorem IV.4.2; Remark IV.4.6; Example IV.4.7, pp.134–135; Definition IV.4.20, p.141](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf).
 
 <a id="VS1-smooth-spd-oe"></a>
 
-### VS1.15. Cohomological smoothness of Spd O_E
+### VS1.16. Cohomological smoothness of Spd O_E
 
 Packet identifier: `VStackSheavesAndLisseCategories:VS1/smooth-spd-oe`. Proposed declaration: `TauCeti.Blueprint.VStack.SpdOE.cohomologicallySmooth` (theorem).
 
@@ -810,7 +840,7 @@ Source: [FS-geometrization, Corollary IV.2.34, p.130](https://people.mpim-bonn.m
 
 <a id="VS1-smooth-ula-criterion"></a>
 
-### VS1.16. Smoothness and duality criteria
+### VS1.17. Smoothness and duality criteria
 
 Packet identifier: `VStackSheavesAndLisseCategories:VS1/smooth-ula-criterion`. Proposed declaration: `TauCeti.Blueprint.VStack.IsArtinULA.smoothCriterion` (theorem).
 
@@ -830,11 +860,11 @@ Acceptance:
 
 Open interfaces: [Suggested-signature carriers for VS1](#g-prototype-vs1).
 
-Source: [FS-geometrization, Propositions IV.2.32–IV.2.33, pp.129–130](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf).
+Source: [FS-geometrization, Propositions IV.2.32–IV.2.33, p.129](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf).
 
 <a id="VS1-ula-analytification"></a>
 
-### VS1.17. ULA and analytification
+### VS1.18. ULA and analytification
 
 Packet identifier: `VStackSheavesAndLisseCategories:VS1/ula-analytification`. Proposed declaration: `TauCeti.Blueprint.VStack.IsULA.analytification` (comparison).
 
@@ -859,11 +889,11 @@ Source: [FS-geometrization, Proposition IV.2.30 and footnote 2, p.128](https://p
 
 <a id="VS1-ula-definition-with-constructibility"></a>
 
-### VS1.18. Local acyclicity and universal local acyclicity
+### VS1.19. Local acyclicity and universal local acyclicity
 
 Packet identifier: `VStackSheavesAndLisseCategories:VS1/ula-definition-with-constructibility`. Proposed declaration: `TauCeti.Blueprint.VStack.IsULA` (definition).
 
-For a compactifiable f:X→S of locally spatial diamonds with locally finite transcendence dimension and nΛ=0, (n,p)=1, A∈D_et(X,Λ) is locally acyclic if (a) for every geometric x over s and generization t of s, RΓ(X_x,A)→RΓ(X_x×S_s S_t,A) is an equivalence, and (b) for every separated étale j:U→X with f∘j quasicompact, R(f∘j)_!(A|U) is perfect-constructible. It is ULA if both conditions hold after every locally spatial base change S′→S. Strict localizations and perfect-constructibility are the supplied geometric notions.
+For a compactifiable f:X→S of locally spatial diamonds with locally finite transcendence dimension and nΛ=0, (n,p)=1, A∈D_et(X,Λ) is locally acyclic if (a) for every geometric x over s and generization t of s, RΓ(X_x,A)→RΓ(X_x×S_s S_t,A) is an equivalence, and (b) for every separated étale j:U→X with f∘j quasicompact, R(f∘j)_!(A|U) is perfect-constructible. It is ULA if both conditions hold after every locally spatial base change S′→S. Strict localizations and perfect-constructibility are the supplied geometric notions. For a compactifiable map f:X→S of small v-stacks that is representable in locally spatial diamonds with locally finite transcendence dimension, A is f-ULA if for every map S′→S from a locally spatial diamond the pullback of A to X×S S′ is locally acyclic for the base change of f.
 
 Construction or proof:
 
@@ -881,6 +911,7 @@ Planning API:
 - `TauCeti.Blueprint.VStack.IsULA.baseChange` (functoriality): Pullback of a ULA object is ULA for the pulled-back map.
 - `TauCeti.Blueprint.VStack.IsULA.iso` (compatibility): Isomorphic complexes have the same ULA property.
 - `TauCeti.Blueprint.VStack.IsULA.schemes` (compatibility): For separated finite-type K-schemes and bounded constructible torsion complexes, ULA agrees with scheme ULA after analytification, using IV.2.30 and the supplied comparison operations.
+- `TauCeti.Blueprint.VStack.IsULA.overVStack` (characterisation): Over a base that is a small v-stack, ULA is local acyclicity after pullback to every locally spatial diamond over the base; for a locally spatial base this is the direct definition.
 
 Discriminating unit tests:
 
@@ -900,21 +931,22 @@ Acceptance:
 
 Open interfaces: [Suggested-signature carriers for VS1](#g-prototype-vs1).
 
-Source: [FS-geometrization, Definition IV.2.1; Remarks IV.2.2–IV.2.3, pp.114–116](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf).
+Source: [FS-geometrization, Definition IV.2.1; Remarks IV.2.2–IV.2.3, pp.114–115; Definition IV.2.22, p.123](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf).
 
 <a id="VS1-ula-descent-and-smooth-locality"></a>
 
-### VS1.19. ULA locality and proper pushforward
+### VS1.20. ULA locality and proper pushforward
 
 Packet identifier: `VStackSheavesAndLisseCategories:VS1/ula-descent-and-smooth-locality`. Proposed declaration: `TauCeti.Blueprint.VStack.IsULA.descent` (theorem).
 
-ULA descends under a v-cover of the base and is local under separated cohomologically smooth surjections of the source. For a proper representable map g:Y→X of locally finite relative dimension, g_* preserves ULA relative to S. Non-universal local acyclicity uses the source’s local uniform bound on étale cohomological dimension; the ULA statements require no extra uniform bound on the base.
+Clause (a) of local acyclicity holds after every base change iff A is overconvergent. Local acyclicity descends along v-covers of the base. On a spatial diamond a constructible sheaf is locally constant iff it is overconvergent, and a perfect-constructible complex is overconvergent iff it is locally a constant perfect complex; hence for f the identity, A is locally acyclic iff it is locally constant with perfect fibres. For separated f that is ell-cohomologically smooth for every ell dividing n, locally constant complexes with perfect fibres are f-ULA. For a proper map g:Y→X and compactifiable f:X→S, both of locally finite transcendence dimension, Rg_* carries complexes that are LA (respectively ULA) for f∘g to complexes that are LA (respectively ULA) for f; in particular for proper f, Rf_* of an f-LA complex is locally a constant perfect complex. For a separated map g:Y→X that is ell-cohomologically smooth for every ell dividing n, g* preserves LA and ULA, and detects them when g is surjective. The non-universal local acyclicity statements for smooth g assume that S is spatial with a uniform bound on the étale cohomological dimension of quasicompact separated étale U→S; the ULA statements require no extra uniform bound on the base.
 
 Construction or proof:
 
-1. Descent of clause (a) is stalkwise; proper base change and perfect-constructible descent prove clause (b).
-2. For smooth source descent use projection formulas and the smooth dualizing object; reduce universal assertions to strictly totally disconnected base changes.
-3. For proper representable g of locally finite relative dimension, proper base change and preservation of perfect constructibility prove the direct-image ULA clauses universally over the base.
+1. Descent of clause (a) is stalkwise; proper base change and perfect-constructible descent prove clause (b). Universal clause (a) is tested on the base change along a strict localization, which gives overconvergence.
+2. Constructible sheaves on a strict localization are the 2-colimit over étale neighbourhoods, where locally constant, constant and overconvergent coincide; this gives the spatial-diamond statements and the case of the identity.
+3. For smooth source descent use projection formulas and the smooth dualizing object; reduce universal assertions to strictly totally disconnected base changes.
+4. For proper representable g of locally finite relative dimension, proper base change and preservation of perfect constructibility prove the direct-image ULA clauses universally over the base.
 
 Direct inputs: [VStackSheavesAndLisseCategories:VS1/ula-definition-with-constructibility](#VS1-ula-definition-with-constructibility); [DiamondSixOperations:S4/cohomologically-smooth](../packets/DiamondSixOperations.json); [DiamondSixOperations:S4/smooth-composition](../packets/DiamondSixOperations.json); [DiamondSixOperations:S4/smooth-stable-under-base-change](../packets/DiamondSixOperations.json); [DiamondSixOperations:S4/smooth-descent-along-smooth-surjection](../packets/DiamondSixOperations.json); [DiamondSixOperations:S1/lower-shriek-quasicompact](../packets/DiamondSixOperations.json); [DiamondSixOperations:S1/qcqs-diamond-continuity](../packets/DiamondSixOperations.json).
 
@@ -925,11 +957,11 @@ Acceptance:
 
 Open interfaces: [Suggested-signature carriers for VS1](#g-prototype-vs1).
 
-Source: [FS-geometrization, Propositions IV.2.4–IV.2.6, IV.2.11–IV.2.13, pp.116–119](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf).
+Source: [FS-geometrization, Propositions IV.2.4–IV.2.6, IV.2.9–IV.2.11, IV.2.13; Corollary IV.2.12; Lemma IV.2.14, pp.115–119](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf).
 
 <a id="VS1-ula-dualizability-criterion"></a>
 
-### VS1.20. ULA as a kernel adjoint
+### VS1.21. ULA as a kernel adjoint
 
 Packet identifier: `VStackSheavesAndLisseCategories:VS1/ula-dualizability-criterion`. Proposed declaration: `TauCeti.Blueprint.VStack.IsULA.iffKernelAdjoint` (theorem).
 
@@ -954,7 +986,7 @@ Source: [FS-geometrization, Theorem IV.2.23; Proposition IV.2.24; Corollary IV.2
 
 <a id="VS1-ula-for-artin-v-stacks"></a>
 
-### VS1.21. ULA on Artin v-stacks
+### VS1.22. ULA on Artin v-stacks
 
 Packet identifier: `VStackSheavesAndLisseCategories:VS1/ula-for-artin-v-stacks`. Proposed declaration: `TauCeti.Blueprint.VStack.IsArtinULA` (definition).
 
@@ -998,7 +1030,7 @@ Source: [FS-geometrization, Definition IV.2.31, p.129](https://people.mpim-bonn.
 
 <a id="VS1-ula-relative-adjoints-and-calculus"></a>
 
-### VS1.22. Relative adjoints and ULA calculus
+### VS1.23. Relative adjoints and ULA calculus
 
 Packet identifier: `VStackSheavesAndLisseCategories:VS1/ula-relative-adjoints-and-calculus`. Proposed declaration: `TauCeti.Blueprint.VStack.IsULA.calculus` (theorem).
 
@@ -1083,7 +1115,7 @@ Acceptance:
 
 Open interfaces: [Suggested-signature carriers for VS2](#g-prototype-vs2).
 
-Source: [PQ26, Appendix A, affine construction; Lemma A.8, pp.88,90–91 (corrected by inherited E10)](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/2D7C5400C4BA7789C0E1CFF008D12E60/S2050508626100304a.pdf/div-class-title-on-local-galois-deformation-rings-generalised-reductive-groups-div.pdf).
+Source: [PQ26, Appendix A.1, opening paragraph, p.90; Lemma A.8, p.91 (corrected by source issue E3)](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/2D7C5400C4BA7789C0E1CFF008D12E60/S2050508626100304a.pdf/div-class-title-on-local-galois-deformation-rings-generalised-reductive-groups-div.pdf).
 
 <a id="VS2-breen-deligne-resolution"></a>
 
@@ -1108,7 +1140,7 @@ Acceptance:
 
 Open interfaces: [Stable homology input for Breen–Deligne](#g-breen); [Suggested-signature carriers for VS2](#g-prototype-vs2).
 
-Source: [Scholze-condensed, Theorems 4.5,4.10; Proposition 4.17; Appendix IV, pp.25,29–32](https://people.mpim-bonn.mpg.de/scholze/Condensed.pdf).
+Source: [Scholze-condensed, Theorem 4.5 and Remarks 4.6–4.7, pp.25–26; Appendix to Lecture IV: Theorem 4.10, Proposition 4.12, Theorem 4.14, Lemma 4.15, Theorem 4.16, Proposition 4.17, pp.29–32](https://people.mpim-bonn.mpg.de/scholze/Condensed.pdf).
 
 <a id="VS2-closed-affine-points-quasicompact"></a>
 
@@ -1133,7 +1165,7 @@ Acceptance:
 
 Open interfaces: [Suggested-signature carriers for VS2](#g-prototype-vs2).
 
-Source: [PQ26, Appendix A, Lemma A.8, pp.90–91](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/2D7C5400C4BA7789C0E1CFF008D12E60/S2050508626100304a.pdf/div-class-title-on-local-galois-deformation-rings-generalised-reductive-groups-div.pdf).
+Source: [PQ26, Appendix A, Lemma A.8 and proof, p.91](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/2D7C5400C4BA7789C0E1CFF008D12E60/S2050508626100304a.pdf/div-class-title-on-local-galois-deformation-rings-generalised-reductive-groups-div.pdf).
 
 <a id="VS2-condensed-cohomology"></a>
 
@@ -1191,7 +1223,7 @@ Source: [PQ26, Appendix A, Lemmas A.1–A.2,A.5–A.7, pp.88–90](https://www.c
 
 Packet identifier: `VStackSheavesAndLisseCategories:VS2/condensed-lca-rhom`. Proposed declaration: `TauCeti.Blueprint.VStack.CondensedLCA.rhom` (theorem).
 
-For any compact Hausdorff abelian group A, RHom(A,R)=0 in condensed groups. For a discrete abelian group M and a set I, RHom(product_I(R/Z),M)≃directSum_I M[-1]. In particular RHom(R,Z)=0 and RHom(product_I Z,Z)≃directSum_I Z, via 0→product Z→product R→product(R/Z)→0. These are condensed derived Hom statements, not ordinary abstract-group Hom computations.
+For A a product of copies of R/Z over any set, RHom(A,R)=0 in condensed groups; the source’s argument uses only that A is a compact Hausdorff abelian group, and gives the same vanishing for every such A. For a discrete abelian group M and a set I, RHom(product_I(R/Z),M)≃directSum_I M[-1]. In particular RHom(R,Z)=0 and RHom(product_I Z,Z)≃directSum_I Z, via 0→product Z→product R→product(R/Z)→0. These are condensed derived Hom statements, not ordinary abstract-group Hom computations.
 
 Construction or proof:
 
@@ -1208,7 +1240,7 @@ Acceptance:
 
 Open interfaces: [Compact-Hausdorff cohomology inputs](#g-topology); [Suggested-signature carriers for VS2](#g-prototype-vs2).
 
-Source: [Scholze-condensed, Theorem 4.3; Corollary 4.8; Proposition 5.7 proof, pp.24–28,35](https://people.mpim-bonn.mpg.de/scholze/Condensed.pdf).
+Source: [Scholze-condensed, Theorem 4.3, p.25, with its proof, pp.26–27; Corollary 4.8, p.26; proof of Proposition 5.7, p.35](https://people.mpim-bonn.mpg.de/scholze/Condensed.pdf).
 
 <a id="VS2-derived-solid-tensor"></a>
 
@@ -1297,7 +1329,7 @@ Acceptance:
 
 Open interfaces: [Regular-cardinal, pyknotic and light-site comparison](#g-cutoffs).
 
-Source: [Scholze-condensed, Lecture VII, Definition 7.1 footnote 14; Mathlib Condensed/Solid TODO, pp.45–47](https://people.mpim-bonn.mpg.de/scholze/Condensed.pdf).
+Source: [Scholze-condensed, Lecture VII: Definition 7.1; Examples 7.3(iii)–(iv) with footnote 14; Proposition 7.8; Remark 7.9, pp.45–48; the docstring of CondensedMod.IsSolid in the pinned Mathlib/Condensed/Solid.lean](https://people.mpim-bonn.mpg.de/scholze/Condensed.pdf).
 
 <a id="VS2-nonarchimedean-solid-coefficients"></a>
 
@@ -1366,7 +1398,7 @@ Acceptance:
 
 Open interfaces: [Suggested-signature carriers for VS2](#g-prototype-vs2).
 
-Source: [BCGP25, Remark 2.4.1; Examples 2.4.2–2.4.3, p.31](https://math.uchicago.edu/~fcale/papers/Modular.pdf).
+Source: [BCGP25, Remark 2.4.1; Example 2.4.2, pp.30–31](https://math.uchicago.edu/~fcale/papers/Modular.pdf).
 
 <a id="VS2-proper-smooth-solid-poincare"></a>
 
@@ -1435,7 +1467,7 @@ Acceptance:
 
 Open interfaces: [Regular-cardinal, pyknotic and light-site comparison](#g-cutoffs).
 
-Source: [PQ26, Appendix A, definitions preceding Lemmas A.3–A.4, pp.89–90](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/2D7C5400C4BA7789C0E1CFF008D12E60/S2050508626100304a.pdf/div-class-title-on-local-galois-deformation-rings-generalised-reductive-groups-div.pdf).
+Source: [PQ26, Appendix A, opening discussion and Lemmas A.3–A.4, pp.88–90](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/2D7C5400C4BA7789C0E1CFF008D12E60/S2050508626100304a.pdf/div-class-title-on-local-galois-deformation-rings-generalised-reductive-groups-div.pdf).
 
 <a id="VS2-relative-solid-homology"></a>
 
@@ -1443,7 +1475,7 @@ Source: [PQ26, Appendix A, definitions preceding Lemmas A.3–A.4, pp.89–90](h
 
 Packet identifier: `VStackSheavesAndLisseCategories:VS2/relative-solid-homology`. Proposed declaration: `TauCeti.Blueprint.VStack.SolidHomology` (construction).
 
-For every map f:Y→X of small v-stacks, solid pullback has a left adjoint f♯. It satisfies arbitrary Cartesian base change, coherent composition and the projection formula f♯(A⊗solid f*B)≃f♯A⊗solid B. Restriction and extension of algebra coefficients have the corresponding adjoint-compatible comparisons. This homology exists for all small-v-stack maps; it is a different construction from the original eligible torsion exceptional pushforward.
+For every map f:Y→X of small v-stacks, solid pullback has a left adjoint f♯. It satisfies arbitrary Cartesian base change, coherent composition and the projection formula f♯(A⊗solid f*B)≃f♯A⊗solid B, together with RHom(f♯A,B)≃Rf_*RHom(A,f*B). Restriction and extension of algebra coefficients have the corresponding adjoint-compatible comparisons. This homology exists for all small-v-stack maps; it is a different construction from the original eligible torsion exceptional pushforward.
 
 Construction or proof:
 
@@ -1536,7 +1568,7 @@ Source: [Scholze-condensed, Theorem 5.8(i); proof in Lecture VI, pp.35–41](htt
 
 Packet identifier: `VStackSheavesAndLisseCategories:VS2/solid-four-operations`. Proposed declaration: `TauCeti.Blueprint.VStack.SolidOperations` (construction).
 
-For every map f:Y→X of small v-stacks and solid Zhat^p-algebra Λ, f*, Rf*, closed derived solid tensor and internal RHom preserve the respective solid categories. Solid tensor is the solidification of ambient derived tensor. Internal Hom is already solid; pullback preserves it and tensor, and commutes with Rf* in arbitrary Cartesian base change in the solid formalism. The formalism is constructed at adequate compatible cutoffs. Properness alone does not give the pushforward projection formula.
+For every map f:Y→X of small v-stacks and solid Zhat^p-algebra Λ, f*, Rf*, closed derived solid tensor and internal RHom preserve the respective solid categories. Solid tensor is the solidification of ambient derived tensor. Internal Hom is already solid; pullback preserves it and tensor, and commutes with Rf* in arbitrary Cartesian base change in the solid formalism. For Λ=Zhat^p the solid tensor of two objects concentrated in degree 0 lies in degrees −1 and 0, and for finitely presented solid sheaves F=lim F_i and G=lim G_j it is the derived limit of the F_i⊗ᴸG_j. The formalism is constructed at adequate compatible cutoffs. Properness alone does not give the pushforward projection formula.
 
 Construction or proof:
 
@@ -1559,7 +1591,7 @@ Discriminating unit tests:
 
 - `TauCeti.Blueprint.VStack.SolidOperations.identity` (degenerate): Identity pullback and pushforward are identity.
 - `TauCeti.Blueprint.VStack.SolidOperations.point` (compatibility): On a point solid tensor agrees with the condensed solid tensor.
-- `TauCeti.Blueprint.VStack.SolidOperations.properProjectionFailure` (non-example): For the closed point in the open unit ball, the proper pushforward is not generally a module-linear projection-formula functor; VII.2.5 gives Zhat^p[-2] in the calculation.
+- `TauCeti.Blueprint.VStack.SolidOperations.properProjectionFailure` (non-example): For the inclusion j of a point Spa C in a perfectoid ball over C, which is proper and quasi-pro-étale, the projection map for A=j♯Zhat^p and B=Zhat^p is j♯Zhat^p→Rj_*Zhat^p; on global sections its source is Zhat^p[-2] and its target Zhat^p, so it is not an isomorphism.
 
 Producer–consumer uses:
 
@@ -1569,11 +1601,11 @@ Producer–consumer uses:
 Acceptance:
 
 - Identity maps give the identity functors with their unit/counit.
-- The proper point-into-open-ball example in VII.2.5 rejects unrestricted pushforward projection.
+- The point-in-a-perfectoid-ball example of Warning VII.2.5 rejects unrestricted pushforward projection.
 
 Open interfaces: [Suggested-signature carriers for VS2](#g-prototype-vs2).
 
-Source: [FS-geometrization, Propositions VII.2.1–VII.2.4; Warning VII.2.5, pp.252–254](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf).
+Source: [FS-geometrization, Propositions VII.2.1–VII.2.4; Warning VII.2.5, pp.252–255](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf).
 
 <a id="VS2-solid-free-structure"></a>
 
@@ -1611,8 +1643,8 @@ For a small v-stack X and a solid Zhat^p-algebra Λ, solid pullback is fully fai
 Construction or proof:
 
 1. Reduce coefficients to Zhat^p by restriction and use spatial-chart descent to test the adjunction unit. Postnikov truncations reduce to degree-zero finitely presented solid sheaves, which have cofiltered constructible torsion presentations.
-2. For valued-field extension, commute the controlled cofiltered torsion systems with qcqs pushforward and apply ECD Proposition 19.5(iii), retaining the surjectivity and valuation-subring hypotheses.
-3. For discrete-to-valued base change, work over the completed algebraic closure of k((t)) and use punctured-disc annuli and the torsion invariance proof of ECD Proposition 19.5(ii). Compatible cofiltered and filtered systems recover the solid unit.
+2. For valued-field extension, commute the controlled cofiltered torsion systems with qcqs pushforward and apply ECD Theorem 19.5(iii), retaining the surjectivity and valuation-subring hypotheses.
+3. For discrete-to-valued base change, work over the completed algebraic closure of k((t)) and use punctured-disc annuli and the torsion invariance proof of ECD Theorem 19.5(ii). Compatible cofiltered and filtered systems recover the solid unit.
 4. For discrete algebraically closed extensions, choose compatible complete algebraically closed nonarchimedean extensions of the two fields and reduce to the preceding cases. This uses only generic diamond cohomology and solid operations, without the divisor or ULA applications.
 
 Direct inputs: [VStackSheavesAndLisseCategories:VS2/solid-four-operations](#VS2-solid-four-operations); [VStackSheavesAndLisseCategories:VS2/solid-sheaf-structure-and-completion](#VS2-solid-sheaf-structure-and-completion); [DiamondEtaleCohomology:C6/invariance-discrete-extension](../packets/DiamondEtaleCohomology--C0.json); [DiamondEtaleCohomology:C6/invariance-discrete-to-complete](../packets/DiamondEtaleCohomology--C0.json); [DiamondEtaleCohomology:C6/invariance-complete-extension](../packets/DiamondEtaleCohomology--C0.json).
@@ -1649,7 +1681,7 @@ Acceptance:
 
 Open interfaces: [Suggested-signature carriers for VS2](#g-prototype-vs2).
 
-Source: [FS-geometrization, Theorem VII.1.3; Proposition VII.1.6; Propositions VII.1.12–VII.1.15, pp.245–252](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf).
+Source: [FS-geometrization, Theorem VII.1.3; Question VII.1.4; Proposition VII.1.6; Propositions VII.1.12–VII.1.15, pp.245–251](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf).
 
 <a id="VS2-solid-sheaves-on-v-stacks"></a>
 
@@ -1694,7 +1726,7 @@ Acceptance:
 
 Open interfaces: [Regular-cardinal, pyknotic and light-site comparison](#g-cutoffs); [Suggested-signature carriers for VS2](#g-prototype-vs2).
 
-Source: [FS-geometrization, Definitions VII.1.1,VII.1.9–VII.1.10,VII.1.17; Remark VII.1.18, pp.245,249–252](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf).
+Source: [FS-geometrization, Definition VII.1.1; Proposition VII.1.8; Definitions VII.1.9–VII.1.10 and VII.1.17; Remark VII.1.18, pp.245,249,252](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf).
 
 <a id="VS2-solidification"></a>
 
@@ -1992,7 +2024,7 @@ Acceptance:
 
 Open interfaces: [Suggested-signature carriers for VS3](#g-prototype-vs3).
 
-Source: [FS-geometrization, VII.6 coefficient convention; VII.3.1(v), pp.258,268](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf).
+Source: [FS-geometrization, VII.6, coefficient convention before Definition VII.6.1, p.268; proof of Proposition VII.6.3, p.269; Proposition VII.3.1(ii), pp.257–258](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf).
 
 <a id="VS3-lisse-comparisons"></a>
 
@@ -2075,7 +2107,7 @@ Construction or proof:
 2. Apply generic solid geometric field-extension invariance to the torsor charts, then descend the fully faithful unit. Essential surjectivity uses the separately stated geometric-pullback equivalence.
 3. Iterate the single-factor comparison for finite I and retain the full-faithfulness conclusion of Corollary VII.2.8.
 
-Direct inputs: [VStackSheavesAndLisseCategories:VS2/solid-geometric-base-change](#VS2-solid-geometric-base-change); [VStackSheavesAndLisseCategories:VS2/solid-four-operations](#VS2-solid-four-operations); [VStackSheavesAndLisseCategories:VS1/divisor-weil-map](#VS1-divisor-weil-map); [VStackSheavesAndLisseCategories:VS1/drinfeld-pullback](#VS1-drinfeld-pullback); [VStackSheavesAndLisseCategories:VS1/geometric-divisor-finite-etale](#VS1-geometric-divisor-finite-etale).
+Direct inputs: [VStackSheavesAndLisseCategories:VS2/solid-geometric-base-change](#VS2-solid-geometric-base-change); [VStackSheavesAndLisseCategories:VS2/solid-four-operations](#VS2-solid-four-operations); [VStackSheavesAndLisseCategories:VS1/divisor-weil-map](#VS1-divisor-weil-map); [VStackSheavesAndLisseCategories:VS1/drinfeld-pullback](#VS1-drinfeld-pullback).
 
 Acceptance:
 
@@ -2229,7 +2261,7 @@ Acceptance:
 
 Open interfaces: [Suggested-signature carriers for VS4](#g-prototype-vs4); [Integral solid unit homology for nonproper BC kernels](#g-bc-unit-homology).
 
-Source: [FS-geometrization, Proposition V.2.1; Proposition VII.7.1 proof, pp.171–172,271](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf).
+Source: [FS-geometrization, Proposition V.2.1, p.171; proof of Proposition VII.7.1, p.271](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf).
 
 <a id="VS4-hn-localization-and-geometric-invariance"></a>
 
@@ -2349,7 +2381,7 @@ Acceptance:
 
 Open interfaces: [Suggested-signature carriers for VS4](#g-prototype-vs4).
 
-Source: [FS-geometrization, Proposition V.4.2; Remarks V.4.3,V.4.5; Corollary V.4.4, pp.178–180](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf).
+Source: [FS-geometrization, Proposition V.4.2; Remarks V.4.3 and V.4.5; Corollary V.4.4, pp.178–179](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf).
 
 ## VS5. Duality and admissible objects
 
@@ -2432,7 +2464,7 @@ Acceptance:
 
 Open interfaces: [Perfect coefficient descent](#g-perfect-descent); [Suggested-signature carriers for VS5](#g-prototype-vs5).
 
-Source: [FS-geometrization, V.7 and VII.7 proofs on compact generators; VII.3.1(v); IX.2.2, pp.258,274–276,321–323](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf).
+Source: [FS-geometrization, Proposition VII.3.1(ii), pp.257–258; Propositions VII.7.4, VII.7.6 and VII.7.9, pp.273–276; consumer: Theorem IX.2.2 and proof, pp.322–323](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf).
 
 <a id="VS5-lisse-bernstein-zelevinsky-duality"></a>
 
@@ -2595,7 +2627,7 @@ Acceptance:
 
 Open interfaces: [Suggested-signature carriers for VS5](#g-prototype-vs5).
 
-Source: [FS-geometrization, Proposition VII.7.7, p.275; Proposition V.6.1 proof](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf).
+Source: [FS-geometrization, Proposition VII.7.7, p.275; Theorem V.6.1 and proof, p.182](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf).
 
 <a id="VS5-torsion-bun-homology-and-haar-dualizing"></a>
 
@@ -2639,7 +2671,7 @@ Acceptance:
 
 Open interfaces: [Global dualizing trivialization on Bun_G](#g-haar); [Suggested-signature carriers for VS5](#g-prototype-vs5).
 
-Source: [FS-geometrization, V.5 preceding Theorem V.5.1; footnote 3 and proof, pp.180–181](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf).
+Source: [FS-geometrization, V.5 preceding Theorem V.5.1, with footnote 3, p.180; first paragraph of the proof, p.181](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf).
 
 <a id="VS5-torsion-kunneth"></a>
 
@@ -2664,7 +2696,7 @@ Acceptance:
 
 Open interfaces: [Derived smooth duality beyond SR.2](#g-smooth-duality); [Suggested-signature carriers for VS5](#g-prototype-vs5).
 
-Source: [FS-geometrization, Proposition V.7.2; Remark V.7.3, pp.183–185](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf).
+Source: [FS-geometrization, Proposition V.7.2; Remark V.7.3, pp.183–184](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf).
 
 <a id="VS5-ula-equals-admissibility"></a>
 
@@ -2689,7 +2721,7 @@ Acceptance:
 
 Open interfaces: [Suggested-signature carriers for VS5](#g-prototype-vs5).
 
-Source: [FS-geometrization, Theorem V.7.1, pp.183–186](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf).
+Source: [FS-geometrization, Theorem V.7.1, pp.183–185](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf).
 
 <a id="VS5-verdier-biduality-and-reflexivity"></a>
 
@@ -2718,7 +2750,7 @@ Source: [FS-geometrization, Theorems V.6.1–V.6.2; Lemma V.6.3, pp.182–183](h
 
 ## Pinned declaration audit
 
-Each item was checked in the actual source at the pins on 2026-10-07. These are inputs, rather than declarations planned by this roadmap.
+Each item was checked in the actual source at the pins on 2026-10-07, and its existence and statement were confirmed again by the second independent review on 2026-10-08. These are inputs, rather than declarations planned by this roadmap.
 
 - [mathlib:Condensed](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Condensed/Basic.lean): Condensed objects of a category, the ambient setting of VS2. The pinned library already has them, so this packet plans solidity and not the condensed formalism.
 - [mathlib:CondensedMod](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Condensed/Module.lean): Condensed R-modules. Solid abelian groups are a full subcategory of these, so this is the carrier VS2's definition restricts.
@@ -2730,7 +2762,7 @@ Each item was checked in the actual source at the pins on 2026-10-07. These are 
 - [mathlib:CompHaus](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Category/CompHaus/Basic.lean): Compact Hausdorff spaces, the site underlying the condensed formalism.
 - [mathlib:CategoryTheory.Functor.rightKanExtension](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/CategoryTheory/Functor/KanExtension/Basic.lean): Right Kan extensions, the mechanism by which the pinned library defines the solid free functor; the structure theorem of VS2 is about what that extension is.
 - [mathlib:CategoryTheory.Abelian](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/CategoryTheory/Abelian/Basic.lean): Abelian categories. Theorem 5.8 (i) asserts that the solid objects form an abelian subcategory closed under limits, colimits and extensions, so this is the structure being claimed.
-- [mathlib:CategoryTheory.Sheaf](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/CategoryTheory/Sites/Sheaf.lean): Sheaves on a site, the carrier for the pro-etale and v-sheaves of every layer of this roadmap.
+- [mathlib:CategoryTheory.Sheaf](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/CategoryTheory/Sites/Sheaf.lean): Sheaves on a site, the carrier for the pro-etale and v-sheaves of every layer of this roadmap. At the pin it is an abbreviation for the full subcategory of presheaves on the sheaf property.
 - [mathlib:CategoryTheory.GrothendieckTopology](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/CategoryTheory/Sites/Grothendieck.lean): Grothendieck topologies, in which the v-topology and the quasi-pro-etale topology are expressed.
 - [mathlib:DerivedCategory](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Homology/DerivedCategory/Basic.lean): Ordinary localization of cochain complexes of an abelian category with HasDerivedCategory. Does not supply the stable infinity enhancement; EDS owns that.
 - [mathlib:CategoryTheory.Pretriangulated](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/CategoryTheory/Triangulated/Pretriangulated.lean): Pretriangulated categories, the level at which the localization triangles and the semiorthogonal decompositions of VS3 and VS4 are stated.
@@ -2790,9 +2822,9 @@ Direct consumers: [VStackSheavesAndLisseCategories:VS1/section-functor-and-posit
 
 ### RelativeFarguesFontaine:RF2:integral-divisors
 
-Formal Spd O_E, its open generic and closed special fibres, and the perfectoid formal-disc comparison required by FS IV.2.34. Do not substitute the Tate-pair Spd constructor.
+Formal Spd O_E, its open generic and closed special fibres, and the perfectoid formal-disc comparison required by FS IV.2.34. Do not substitute the Tate-pair Spd constructor. Also the description of untilts over O_E by primitive elements, used for formal smoothness of Spd O_E in FS IV.3.3.
 
-Direct consumers: [VStackSheavesAndLisseCategories:VS1/smooth-spd-oe](#VS1-smooth-spd-oe).
+Direct consumers: [VStackSheavesAndLisseCategories:VS1/smooth-spd-oe](#VS1-smooth-spd-oe); [VStackSheavesAndLisseCategories:VS1/formal-smoothness-examples](#VS1-formal-smoothness-examples).
 
 ### RelativeFarguesFontaine:RF3
 
@@ -2802,9 +2834,9 @@ Direct consumers: [VStackSheavesAndLisseCategories:VS1/section-functor-and-posit
 
 ### AdicSpacesPartII:R5
 
-Smooth morphisms and continuous differentials on sousperfectoid charts, relative tangent bundles, projective local embeddings and normal-cone deformation in FS IV.4. The existing sousperfectoid-space node supplies only the carrier; add this interface in that direction.
+Smooth morphisms and continuous differentials on sousperfectoid charts, relative tangent bundles, projective local embeddings and normal-cone deformation in FS IV.4. The existing sousperfectoid-space node supplies only the carrier; add this interface in that direction. Smooth morphisms of analytic adic spaces over Z_p are locally étale over a finite-dimensional ball (used in FS IV.3.4).
 
-Direct consumers: [VStackSheavesAndLisseCategories:VS1/jacobian-criterion](#VS1-jacobian-criterion).
+Direct consumers: [VStackSheavesAndLisseCategories:VS1/jacobian-criterion](#VS1-jacobian-criterion); [VStackSheavesAndLisseCategories:VS1/formal-smoothness-examples](#VS1-formal-smoothness-examples).
 
 ### EnhancedDerivedSheaves:E5:presentability
 
@@ -2956,7 +2988,7 @@ Identifier: `VStackSheavesAndLisseCategories/G-prototype-VS1`.
 
 The pinned libraries have no common enhanced v-stack/eligible-map, relative kernel 2-category, solid derived operations or lisse/Bun_G carrier supplying these exact signatures. The suggested file lists the declaration, API and test names with their source mathematical statements as explicitly omitted signatures; it never replaces them by uninterpreted propositions. Compile actual condensed abelian full-subcategory and restriction predicates now; replace each omission after the named supplier interfaces and this stage’s concrete carrier exist.
 
-Affected declarations: [VStackSheavesAndLisseCategories:VS1/ula-definition-with-constructibility](#VS1-ula-definition-with-constructibility); [VStackSheavesAndLisseCategories:VS1/ula-descent-and-smooth-locality](#VS1-ula-descent-and-smooth-locality); [VStackSheavesAndLisseCategories:VS1/kernel-correspondence-category](#VS1-kernel-correspondence-category); [VStackSheavesAndLisseCategories:VS1/ula-dualizability-criterion](#VS1-ula-dualizability-criterion); [VStackSheavesAndLisseCategories:VS1/ula-for-artin-v-stacks](#VS1-ula-for-artin-v-stacks); [VStackSheavesAndLisseCategories:VS1/smooth-ula-criterion](#VS1-smooth-ula-criterion); [VStackSheavesAndLisseCategories:VS1/formal-smoothness](#VS1-formal-smoothness); [VStackSheavesAndLisseCategories:VS1/formal-smoothness-calculus](#VS1-formal-smoothness-calculus); [VStackSheavesAndLisseCategories:VS1/section-functor-and-positive-tangent](#VS1-section-functor-and-positive-tangent); [VStackSheavesAndLisseCategories:VS1/jacobian-criterion](#VS1-jacobian-criterion); [VStackSheavesAndLisseCategories:VS1/hyperbolic-localization](#VS1-hyperbolic-localization); [VStackSheavesAndLisseCategories:VS1/braden-theorem](#VS1-braden-theorem); [VStackSheavesAndLisseCategories:VS1/hyperbolic-base-change-duality-and-ula](#VS1-hyperbolic-base-change-duality-and-ula); [VStackSheavesAndLisseCategories:VS1/divisor-weil-map](#VS1-divisor-weil-map); [VStackSheavesAndLisseCategories:VS1/drinfeld-pullback](#VS1-drinfeld-pullback); [VStackSheavesAndLisseCategories:VS1/perfect-local-systems](#VS1-perfect-local-systems); [VStackSheavesAndLisseCategories:VS1/geometric-divisor-finite-etale](#VS1-geometric-divisor-finite-etale); [VStackSheavesAndLisseCategories:VS1/drinfeld-local-systems](#VS1-drinfeld-local-systems); [VStackSheavesAndLisseCategories:VS1/perfect-rhom-and-la-characterisation](#VS1-perfect-rhom-and-la-characterisation); [VStackSheavesAndLisseCategories:VS1/ula-relative-adjoints-and-calculus](#VS1-ula-relative-adjoints-and-calculus); [VStackSheavesAndLisseCategories:VS1/ula-analytification](#VS1-ula-analytification); [VStackSheavesAndLisseCategories:VS1/smooth-spd-oe](#VS1-smooth-spd-oe).
+Affected declarations: [VStackSheavesAndLisseCategories:VS1/ula-definition-with-constructibility](#VS1-ula-definition-with-constructibility); [VStackSheavesAndLisseCategories:VS1/ula-descent-and-smooth-locality](#VS1-ula-descent-and-smooth-locality); [VStackSheavesAndLisseCategories:VS1/kernel-correspondence-category](#VS1-kernel-correspondence-category); [VStackSheavesAndLisseCategories:VS1/ula-dualizability-criterion](#VS1-ula-dualizability-criterion); [VStackSheavesAndLisseCategories:VS1/ula-for-artin-v-stacks](#VS1-ula-for-artin-v-stacks); [VStackSheavesAndLisseCategories:VS1/smooth-ula-criterion](#VS1-smooth-ula-criterion); [VStackSheavesAndLisseCategories:VS1/formal-smoothness](#VS1-formal-smoothness); [VStackSheavesAndLisseCategories:VS1/formal-smoothness-calculus](#VS1-formal-smoothness-calculus); [VStackSheavesAndLisseCategories:VS1/section-functor-and-positive-tangent](#VS1-section-functor-and-positive-tangent); [VStackSheavesAndLisseCategories:VS1/jacobian-criterion](#VS1-jacobian-criterion); [VStackSheavesAndLisseCategories:VS1/hyperbolic-localization](#VS1-hyperbolic-localization); [VStackSheavesAndLisseCategories:VS1/braden-theorem](#VS1-braden-theorem); [VStackSheavesAndLisseCategories:VS1/hyperbolic-base-change-duality-and-ula](#VS1-hyperbolic-base-change-duality-and-ula); [VStackSheavesAndLisseCategories:VS1/divisor-weil-map](#VS1-divisor-weil-map); [VStackSheavesAndLisseCategories:VS1/drinfeld-pullback](#VS1-drinfeld-pullback); [VStackSheavesAndLisseCategories:VS1/perfect-local-systems](#VS1-perfect-local-systems); [VStackSheavesAndLisseCategories:VS1/geometric-divisor-finite-etale](#VS1-geometric-divisor-finite-etale); [VStackSheavesAndLisseCategories:VS1/drinfeld-local-systems](#VS1-drinfeld-local-systems); [VStackSheavesAndLisseCategories:VS1/perfect-rhom-and-la-characterisation](#VS1-perfect-rhom-and-la-characterisation); [VStackSheavesAndLisseCategories:VS1/ula-relative-adjoints-and-calculus](#VS1-ula-relative-adjoints-and-calculus); [VStackSheavesAndLisseCategories:VS1/ula-analytification](#VS1-ula-analytification); [VStackSheavesAndLisseCategories:VS1/smooth-spd-oe](#VS1-smooth-spd-oe); [VStackSheavesAndLisseCategories:VS1/formal-smoothness-examples](#VS1-formal-smoothness-examples).
 
 <a id="g-prototype-vs2"></a>
 
@@ -2964,7 +2996,7 @@ Affected declarations: [VStackSheavesAndLisseCategories:VS1/ula-definition-with-
 
 Identifier: `VStackSheavesAndLisseCategories/G-prototype-VS2`.
 
-The pinned libraries have no common enhanced v-stack/eligible-map, relative kernel 2-category, solid derived operations or lisse/Bun_G carrier supplying these exact signatures. The suggested file lists the declaration, API and test names with their source mathematical statements as explicitly omitted signatures; it never replaces them by uninterpreted propositions. Compile actual condensed abelian full-subcategory and restriction predicates now; replace each omission after the named supplier interfaces and this stage’s concrete carrier exist. For SolidAb.generators the full cutoff-dependent compact-projective family signature remains omitted; for solidification_derived the enhanced derived reflection is omitted. The ordinary category and reflection signatures are present.
+The pinned libraries have no common enhanced v-stack/eligible-map, relative kernel 2-category, solid derived operations or lisse/Bun_G carrier supplying these exact signatures. The suggested file lists the declaration, API and test names with their source mathematical statements as explicitly omitted signatures; it never replaces them by uninterpreted propositions. Compile actual condensed abelian full-subcategory and restriction predicates now; replace each omission after the named supplier interfaces and this stage’s concrete carrier exist. For SolidAb.generators the full cutoff-dependent compact-projective family signature remains omitted; for solidification_derived the enhanced derived reflection is omitted. The ordinary category and reflection signatures are present. The free-structure theorem and the lemma on epimorphisms and filtered colimits are typed in the clauses that can be stated on ordinary condensed objects; their remaining clauses are omitted.
 
 Affected declarations: [VStackSheavesAndLisseCategories:VS2/condensed-cohomology](#VS2-condensed-cohomology); [VStackSheavesAndLisseCategories:VS2/breen-deligne-resolution](#VS2-breen-deligne-resolution); [VStackSheavesAndLisseCategories:VS2/condensed-lca-rhom](#VS2-condensed-lca-rhom); [VStackSheavesAndLisseCategories:VS2/solid-free-structure](#VS2-solid-free-structure); [VStackSheavesAndLisseCategories:VS2/derived-solid-tensor](#VS2-derived-solid-tensor); [VStackSheavesAndLisseCategories:VS2/nonarchimedean-solid-coefficients](#VS2-nonarchimedean-solid-coefficients); [VStackSheavesAndLisseCategories:VS2/z-solid-analytification](#VS2-z-solid-analytification); [VStackSheavesAndLisseCategories:VS2/principal-localization-and-formal-complement](#VS2-principal-localization-and-formal-complement); [VStackSheavesAndLisseCategories:VS2/condensed-epis-and-colimits](#VS2-condensed-epis-and-colimits); [VStackSheavesAndLisseCategories:VS2/affine-condensed-points](#VS2-affine-condensed-points); [VStackSheavesAndLisseCategories:VS2/closed-affine-points-quasicompact](#VS2-closed-affine-points-quasicompact); [VStackSheavesAndLisseCategories:VS2/solid-sheaves-on-v-stacks](#VS2-solid-sheaves-on-v-stacks); [VStackSheavesAndLisseCategories:VS2/solid-sheaf-structure-and-completion](#VS2-solid-sheaf-structure-and-completion); [VStackSheavesAndLisseCategories:VS2/solid-four-operations](#VS2-solid-four-operations); [VStackSheavesAndLisseCategories:VS2/relative-solid-homology](#VS2-relative-solid-homology); [VStackSheavesAndLisseCategories:VS2/proper-smooth-solid-poincare](#VS2-proper-smooth-solid-poincare); [VStackSheavesAndLisseCategories:VS2/torsion-solid-comparisons](#VS2-torsion-solid-comparisons); [VStackSheavesAndLisseCategories:VS2/solid-abelian-groups](#VS2-solid-abelian-groups); [VStackSheavesAndLisseCategories:VS2/solidification](#VS2-solidification); [VStackSheavesAndLisseCategories:VS2/solid-geometric-base-change](#VS2-solid-geometric-base-change).
 
@@ -3028,7 +3060,7 @@ The packet records edition-scoped public sources and SHA-256 hashes. Pagination 
 - **[Modularity theorems for abelian surfaces](https://math.uchicago.edu/~fcale/papers/Modular.pdf)**, George Boxer, Frank Calegari, Toby Gee, Vincent Pilloni. Author-hosted arXiv:2502.20645v1 copy, 230 pages. Recorded source coverage: §2.2.1, pp.18–20: solid E-vector spaces, tensor and derived Hom; §2.4.1, pp.30–31: Z-solid analytification and formal complement examples.
 - **[On local Galois deformation rings: generalised reductive groups](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/2D7C5400C4BA7789C0E1CFF008D12E60/S2050508626100304a.pdf/div-class-title-on-local-galois-deformation-rings-generalised-reductive-groups-div.pdf)**, Vytautas Paškūnas, Julian Quast. Published Forum of Mathematics, Pi (2026), 96-page PDF. Recorded source coverage: Published Appendix A, Lemmas A.1–A.8, pp.88–91, definitions and proofs.
 
-The source discrepancies below are described in our own words. Every entry has an independent confirmed review. Their bounded correction searches do not establish absence of an erratum.
+The source discrepancies below are described in our own words. Every entry carries the verdict of the second independent review, `REV-VStackSheavesAndLisseCategories~2`, which checked it at its locator, followed by the earlier review’s verdict; E6 was found by the second review. Their bounded correction searches do not establish absence of an erratum.
 
 ### VStackSheavesAndLisseCategories/E1
 
@@ -3042,7 +3074,9 @@ Reason: The source displays g₁,…,gᵣ; their simultaneous value is an r-tupl
 
 Correction status: new.
 
-Independent review: **confirmed**, `REV-VStackSheavesAndLisseCategories`. Confirmed at the published A.8 proof: the list of r equations has simultaneous values in A^r, not A. Arbitrary closed ideals also require the compact intersection argument, which the packet now states; no finite defining-ideal assumption is smuggled in.
+Independent review: **confirmed**, `REV-VStackSheavesAndLisseCategories~2`. Confirmed at Lemma A.8 and its proof, p.91 of the published paper. The proof takes polynomials g_1,…,g_r, calls them a map from the n-fold product of A to A and pulls back the zero section of A; for r equations the target has to be the r-fold product. The proof also assumes finitely many equations, which a closed immersion over an arbitrary commutative ring need not have; the node's intersection argument on each profinite source covers that case. The lemma is true as stated.
+
+Earlier review: **confirmed**, `REV-VStackSheavesAndLisseCategories`. Confirmed at the published A.8 proof: the list of r equations has simultaneous values in A^r, not A. Arbitrary closed ideals also require the compact intersection argument, which the packet now states; no finite defining-ideal assumption is smuggled in.
 
 - 2026-10-07: Cambridge DOI 10.1017/fmp.2026.10030 article/PDF and arXiv:2404.14622 version metadata; no correction listed in the opened notices.
 - 2026-10-07: author/publication and title-specific Lemma A.8 erratum searches; this is a bounded search, not proof of absence.
@@ -3059,7 +3093,9 @@ Reason: The functor domain, codomain and A_i,B_i hypotheses are lisse; the cited
 
 Correction status: new.
 
-Independent review: **confirmed**, `REV-VStackSheavesAndLisseCategories`. Confirmed at VII.7.10: the displayed functor, hypotheses and preceding paragraph are D_lis. The isolated D_et compactness sentence is a notation slip; it cannot supply the Q_ell target otherwise.
+Independent review: **confirmed**, `REV-VStackSheavesAndLisseCategories~2`. Confirmed at Proposition VII.7.10, p.276 of the hashed author copy; the arXiv version 4 has the same sentence. The statement takes A_i in the lisse categories and concludes that the exterior product, an object of the étale category as printed, is compact; the functor displayed two lines earlier has target the lisse category of Bun_G, and for rational coefficients no étale category is defined. A slip of notation with no mathematical consequence.
+
+Earlier review: **confirmed**, `REV-VStackSheavesAndLisseCategories`. Confirmed at VII.7.10: the displayed functor, hypotheses and preceding paragraph are D_lis. The isolated D_et compactness sentence is a notation slip; it cannot supply the Q_ell target otherwise.
 
 - 2026-10-07: author-hosted Geometrization PDF and arXiv:2102.13459 version listing (latest v4, 27 November 2024); the finding is scoped to the hashed author copy.
 - 2026-10-07: title/Proposition VII.7.10 erratum searches and author paper page; no separately listed correction found in the opened sources.
@@ -3076,7 +3112,9 @@ Reason: A constant two-element accessible functor sends the empty profinite set 
 
 Correction status: Recorded as PAPER-PASKUNAS-QUAST-26/E10 in the paper extraction and source-issue registry; no published correction was identified by that bounded search..
 
-Independent review: **confirmed**, `REV-VStackSheavesAndLisseCategories`. Confirmed independently against the published A.1 sentence and the registered PAPER-PASKUNAS-QUAST-26/E10 counterexample. A constant two-element accessible functor fails both the empty-cover singleton and the binary disjoint-union product condition. Representable affine Hom repairs the applications.
+Independent review: **confirmed**, `REV-VStackSheavesAndLisseCategories~2`. Confirmed at the first paragraph of Appendix A.1, p.90. It takes an arbitrary accessible presheaf on commutative rings and calls its composite with a condensed ring a condensed set. The composite of the constant presheaf with two values is not a sheaf: on the empty profinite set a condensed set has one element. Every use in the paper is for affine schemes, where the composite is a limit-preserving functor of the ring and the claim holds, so the applications stand; the generality of the sentence is what fails.
+
+Earlier review: **confirmed**, `REV-VStackSheavesAndLisseCategories`. Confirmed independently against the published A.1 sentence and the registered PAPER-PASKUNAS-QUAST-26/E10 counterexample. A constant two-element accessible functor fails both the empty-cover singleton and the binary disjoint-union product condition. Representable affine Hom repairs the applications.
 
 - Read the registered PAPER-PASKUNAS-QUAST-26/E10 correction and its 2 October 2026 Cambridge/arXiv/Crossref/author-page search provenance.
 - 2026-10-07: compared the accessible-presheaf passage and Lemma A.8 against the hashed published Cambridge PDF; use the registered counterexample and corrected affine construction.
@@ -3093,7 +3131,9 @@ Reason: Take H=π^Z, a closed infinite discrete subgroup of GL_1(E). The pullbac
 
 Correction status: new.
 
-Independent review: **confirmed**, `REV-VStackSheavesAndLisseCategories`. Confirmed at IV.1.10: the distribution obstruction applies to infinite compact open subgroups. The closed infinite discrete subgroup π^Z⊂E× has an étale point atlas, whose base change is a disjoint union of identities, so the finite-only parenthesis is false.
+Independent review: **confirmed**, `REV-VStackSheavesAndLisseCategories~2`. Confirmed at Remark IV.1.10, p.110. The remark says the point of [*/G] is not a cohomologically smooth chart unless G is finite, because the exceptional pullback of Λ along G→* is the sheaf of distributions on G. For a discrete group, finite or not, G→* is a disjoint union of copies of the point, hence étale and cohomologically smooth, and the sheaf of distributions is the constant sheaf. The correct exception is discrete G; for example the subgroup generated by a uniformizer in E^×, which is closed in GL_1(E). The remark's point, that G(E) and its open subgroups do not give smooth charts, is unaffected.
+
+Earlier review: **confirmed**, `REV-VStackSheavesAndLisseCategories`. Confirmed at IV.1.10: the distribution obstruction applies to infinite compact open subgroups. The closed infinite discrete subgroup π^Z⊂E× has an étale point atlas, whose base change is a disjoint union of identities, so the finite-only parenthesis is false.
 
 - 2026-10-07: reread the hashed author PDF IV.1.9(iv)–IV.1.11 and the recorded ECD étale/cohomological-smoothness statements.
 - 2026-10-07: author/arXiv version listing and exact Remark IV.1.10/discrete/finite correction searches; no correction identified in the accessible results. The finding is scoped to the author copy, not an unexamined edition.
@@ -3110,10 +3150,29 @@ Reason: The displayed map from T has not been chosen. For the filtered system X_
 
 Correction status: new.
 
-Independent review: **confirmed**, `REV-VStackSheavesAndLisseCategories`. Confirmed at the printed A.5 diagram: no map T→X_i×X_i has yet been chosen and quasicompactness of the colimit inclusion is asserted without an argument. Compact profinite evaluation plus filtered finite products supplies a suitable common i; monomorphy then makes the diagonal pullback Cartesian. This repairs the proof without changing its theorem.
+Independent review: **confirmed**, `REV-VStackSheavesAndLisseCategories~2`. Confirmed at the proof of Lemma A.5, pp.89–90. The proof takes a profinite T with a map to X×X and then draws a diagram in which T maps to X_i×X_i, without choosing i so that the map factors; for an arbitrary i it does not. By Lemma A.1 and the commutation of filtered colimits with finite products such an i exists, and then the two fibre products agree because X_i→X is a monomorphism. The quasi-compactness of X_i×X_i→X×X that the proof asserts is true under the lemma's hypotheses, again by Lemma A.1, so the only missing step is the choice of i. The lemma is true as stated.
+
+Earlier review: **confirmed**, `REV-VStackSheavesAndLisseCategories`. Confirmed at the printed A.5 diagram: no map T→X_i×X_i has yet been chosen and quasicompactness of the colimit inclusion is asserted without an argument. Compact profinite evaluation plus filtered finite products supplies a suitable common i; monomorphy then makes the diagonal pullback Cartesian. This repairs the proof without changing its theorem.
 
 - 2026-10-07: independently read the hashed published Cambridge Appendix A.5 and Lemma A.1; compared the registered PQ source issues, including E10.
 - 2026-10-07: searched the exact title/Appendix A.5/erratum, opened arXiv:2404.14622 and Julian Quast publication page; no separately indicated correction was found in these bounded checks.
+
+### VStackSheavesAndLisseCategories/E6
+
+FS-geometrization, 356-page author copy, Section IV.5, the two displays of the annuli before Definition IV.5.2, pp.152–153; the same in arXiv:2102.13459v4. Kind: misprint; affects nothing.
+
+Source discrepancy: The affinoid annuli exhausting Spa k((t))×Spa k((u)) are first given as {|u|^b ≤ |t| ≤ |u|^a} for rational 0<a≤b<∞, and five lines later the subsets Ũ_{a,b} are defined as the preimage of {|t|^b ≤ |u| ≤ |t|^a}.
+
+Correction: The second display should repeat the first: Ũ_{a,b} is the preimage of {|u|^b ≤ |t| ≤ |u|^a}. This is the convention the proof of Theorem IV.5.3 uses, where U_a={|t| ≤ |u|^a}.
+
+Reason: The two families of annuli are the same family with the indices exchanged ((a,b) goes to (1/b,1/a)), but the unions U_a over b and U_b over a are exchanged with them, so with the second display the functors Rβ_!+ and Rβ_!− of Definition IV.5.2 would trade places. On p.154 the proof of Theorem IV.5.3 takes U_a={|t| ≤ |u|^a}, which is the union over b of the annuli of the first display.
+
+Correction status: new.
+
+Independent review: **confirmed**, `REV-VStackSheavesAndLisseCategories~2`. Found by this review while checking the partial-support construction. Theorem IV.5.3 asserts the vanishing of both functors, so the slip changes no statement; a formaliser should fix the convention of the first display.
+
+- 2026-10-08: compared the hashed author copy with arXiv:2102.13459v4 (27 November 2024), which has the same two displays.
+- 2026-10-08: the authors' pages and the arXiv listing show no list of corrections for this passage; the published version was not available to this review, so the finding is scoped to the two texts read.
 
 ## Structure and external graph findings
 
@@ -3122,46 +3181,62 @@ The node ownership above is concrete in this packet. Atlas subdivisions and exte
 - **RT-AREA-geomlanglands/18**: Propose L1→GS1 and L3→GS1 for characteristic-p scheme/v-sheaf comparison; replace the mislabelled EDC.4 perversity/recollement edge by EDC.5. Remove VS3→GS2:correspondences and VS3→GS3:fusion: FS VI uses torsion D_et, with no named lisse input. These are external graph changes, not edits to GS files.
 - **RT-AREA-geomlanglands/28**: VS3 imports AdicCoefficients L0’s adic interfaces. Drop L1/L3/L4/L5/L6→VS3; add L1→GS0:loop-geometry and L3→GS1 at the actual ECD §27 consumers. Keep L4–L6 at EDC.6. VS3’s preparatory VII.5 constructible-embedding application also consumes the distinct VS1 algebraic/analytic ULA comparison and its H5 input; that dependency does not import the L1/L3/L4–L6 scheme/v-sheaf comparison chain.
 - **RT-AREA-geomlanglands/29**: VS5 now names VII.7.6 BZ, VII.7.7 Verdier exchange (without an additional lisse reflexivity criterion), VII.7.8 lisse ULA, VII.7.9 invariants and VII.7.10 Künneth; VII.7.2 stratum adjoint and VII.2.10 vanishing are direct prerequisite chains. Propose VS5→HS1, using the existing HS1 duality-exchange and coefficient-base-change nodes, in integral/rational coefficients.
-- **RT-AREA-geomlanglands/30**: Implement the verified generic-core alternative: VII.2.6 has its own VS2 field-extension node; the preserved Drinfeld identifier now realises VS4 and contains only VII.2.7–8; the preserved VII.2.9–10 identifiers also realise VS4. VII.4 stays generic after removing its unsupported VS1 ULA-Hom prerequisite. The actual VII.5 ULA applications realise VS3, before the lisse comparisons that consume them; placing that branch in VS4 would create a VS3/VS4 cycle. No VS0→VS2 or VS1→VS2 edge is proposed. Downstream generic-invariance consumers use the new VII.2.6 node; existing HS1 Drinfeld consumers keep the preserved identifier.
-- **RT-AREA-geomlanglands/31**: Import the actual VB2:classification/finite-etale-constant-algebras node supplying SW20 13.5.7 and use SW20 16.3.2 for the geometric divisor finite-étale comparison, without the 16.3.3/16.3.6 product theorem. The Weil object and its topology/degree map are existing ClassFieldTheory layer 9 work, accessed through the existing upstream prerequisite and exact object request; no additional ClassFieldTheory layer-9→VS1 atlas edge is proposed.
+- **RT-AREA-geomlanglands/30**: Implement the verified generic-core alternative: VII.2.6 has its own VS2 field-extension node; the preserved Drinfeld identifier now realises VS4 and contains only VII.2.7–8; the preserved VII.2.9–10 identifiers also realise VS4. VII.4 stays generic after removing its unsupported VS1 ULA-Hom prerequisite. The actual VII.5 ULA applications realise VS3, before the lisse comparisons that consume them; placing that branch in VS4 would create a VS3/VS4 cycle. No VS0→VS2 or VS1→VS2 edge is proposed. Downstream generic-invariance consumers use the new VII.2.6 node; existing HS1 Drinfeld consumers keep the preserved identifier. Because the two VII.5 nodes realise VS3 and use VS1’s ULA results, the node prerequisites imply the stage edge VS1→VS3, which the atlas does not yet record. It is acyclic, and every consumer of VS3 (VS4, HeckeStacksAndLocalShtukas:HS1, and GeometricSatakeAndFusion GS2:correspondences and GS3:fusion until finding 18 removes them) already requires VS1, so no consumer gains an ancestor. The generic layer VS2 also uses DiamondSixOperations:S4 (cohomologically smooth maps, in VII.3.2–VII.3.5) and DiamondEtaleCohomology:C6 (change of algebraically closed base field, in VII.2.6), which are not among the stage’s recorded requirements; neither has an ancestor in this roadmap.
+- **RT-AREA-geomlanglands/31**: Import the actual VB2:classification/finite-etale-constant-algebras node supplying SW20 13.5.7 and use SW20 16.3.2 for the geometric divisor finite-étale comparison, without the 16.3.3/16.3.6 product theorem. The map ψ:Div¹→[*/W_E] of FS IV.7 is the classifying map of a W_E-torsor, so the node VS1/divisor-weil-map uses the local Weil group with its Weil topology and degree map, which Tau Ceti’s ClassFieldTheory layer 9 owns; the node cites that layer as a direct prerequisite with an exact request and plans no Weil group of its own. The verifier of finding 31 asked the fix job not to add a layer-9→VS1 link, because VS1 already has the ClassFieldTheory roadmap among its ancestors and the accepted link map had judged the candidate weak after a search-level screen. The node-level prerequisite names the layer of that same ancestor; when the packet goes live it is drawn as a link from layer 9 to VS1. Whether to keep that drawn link is a question for the orchestrator.
 - **RS-05-boundary**: Accepted RS-05 owns BG geometry and SR representation constructions. VS4 plans only sheaf comparisons, connected-kernel invariance, chart cohomology and compact-generation applications. It imports BG3/BG4 and SR.0/SR.2, including the requested derived SR extension.
 - **new-analytic-owners**: Read SolidAnalyticRings SA.2–SA.4 and AnalyticStacks AS.2–AS.3 briefs. Import generic analytic rings, AnSpec and gluing; VS2 owns the regular-cutoff solid-sheaf application and coefficient specializations. Classical Banach/Smith/Fréchet/LS theory is an outgoing functional-analysis consumer, not an incoming dependency.
 - **point-atlas-correction**: The routed PAPER-FARGUES-SCHOLZE-21/c4a-point-to-BG-not-smooth-IV.1.10 target needs the discrete exception recorded in E4. The corrected VS0 node distinguishes infinite compact open groups from infinite discrete groups. No paper extraction is edited by this job.
+- **formal-smoothness-of-bun-g**: FS Proposition IV.3.7, p.132 (Bun_G→* is formally smooth) is stated by no packet. It concerns the geometry of Bun_G, which the accepted RS-05 gives to BunGAndNewtonStrata, so it is not planned here; this roadmap plans the definition of formal smoothness, its calculus and the examples the Jacobian criterion uses. No statement in this packet depends on IV.3.7.
+- **light-and-kappa-solid-foundations**: SolidAnalyticRings SA.1 plans the structure theorems for solid abelian groups on light condensed sets (abelian subcategory, solidification, tensor product, free objects), and VS2 plans the parallel theorems on the pinned Mathlib carrier for the regular-cutoff theory that Fargues–Scholze use; the accepted RS-05 makes VS2 the owner of the latter and the SolidAnalyticRings definition states the boundary. The only bridge is gap G-cutoffs. Whether the two developments should share one proof transported along that comparison is a question for a restructuring of the two roadmaps.
 
 ### Split condensed coefficients from solid sheaf operations
 
-Kind: split. VS2 contains the condensed/solid coefficient foundations and generic solid operations, including VII.2.1–6, VII.3 and the ULA-free VII.4 comparison. Readable subdivisions stay inside that generic owner; the divisor/support applications have VS4 ownership and the preparatory VII.5 ULA applications have VS3 ownership through parentStageId/realises. These are concrete ownership changes in this packet, while atlas subdivisions remain proposals.
+Kind: split. VS2 contains the condensed/solid coefficient foundations and generic solid operations, including VII.2.1–6, VII.3 and the ULA-free VII.4 comparison. Readable subdivisions stay inside that generic owner; the divisor/support applications have VS4 ownership and the preparatory VII.5 ULA applications have VS3 ownership through parentStageId/realises. These are concrete ownership changes in this packet, while atlas subdivisions remain proposals. The first sub-layer is what HabiroRings HR.2 asks VS2 for (solid abelian groups and the derived solid tensor); its nodes need only Mathlib’s condensed carriers and EnhancedDerivedSheaves. The general-ring criterion is placed with the coefficient applications because, like them, it imports analytic rings from SolidAnalyticRings; the third sub-layer is the one that needs cohomologically smooth maps and the change of algebraically closed base field from the diamond roadmaps.
 
-- **Condensed groups and solidification**: [VStackSheavesAndLisseCategories:VS2/solid-abelian-groups](#VS2-solid-abelian-groups); [VStackSheavesAndLisseCategories:VS2/condensed-cohomology](#VS2-condensed-cohomology); [VStackSheavesAndLisseCategories:VS2/breen-deligne-resolution](#VS2-breen-deligne-resolution); [VStackSheavesAndLisseCategories:VS2/condensed-lca-rhom](#VS2-condensed-lca-rhom); [VStackSheavesAndLisseCategories:VS2/solid-free-structure](#VS2-solid-free-structure); [VStackSheavesAndLisseCategories:VS2/solidification](#VS2-solidification); [VStackSheavesAndLisseCategories:VS2/derived-solid-tensor](#VS2-derived-solid-tensor); [VStackSheavesAndLisseCategories:VS2/general-ring-solidity](#VS2-general-ring-solidity).
-- **Coefficient applications and condensed points**: [VStackSheavesAndLisseCategories:VS2/nonarchimedean-solid-coefficients](#VS2-nonarchimedean-solid-coefficients); [VStackSheavesAndLisseCategories:VS2/z-solid-analytification](#VS2-z-solid-analytification); [VStackSheavesAndLisseCategories:VS2/principal-localization-and-formal-complement](#VS2-principal-localization-and-formal-complement); [VStackSheavesAndLisseCategories:VS2/qcqs-condensed-sets](#VS2-qcqs-condensed-sets); [VStackSheavesAndLisseCategories:VS2/condensed-epis-and-colimits](#VS2-condensed-epis-and-colimits); [VStackSheavesAndLisseCategories:VS2/affine-condensed-points](#VS2-affine-condensed-points); [VStackSheavesAndLisseCategories:VS2/closed-affine-points-quasicompact](#VS2-closed-affine-points-quasicompact).
+Proposal: Divide VS2 into three sub-layers inside the same roadmap: (1) condensed groups and solidification; (2) coefficient applications and condensed points, depending on (1) and on SolidAnalyticRings SA.2–SA.4 and AnalyticStacks AS.2–AS.3; (3) solid sheaves and homology on small v-stacks, depending on (1) and on DiamondSixOperations S0–S4 and DiamondEtaleCohomology C6. Consumers that need only the generic solid groups, such as HabiroRings HR.2, then depend on (1) alone.
+
+- **Condensed groups and solidification**: [VStackSheavesAndLisseCategories:VS2/solid-abelian-groups](#VS2-solid-abelian-groups); [VStackSheavesAndLisseCategories:VS2/condensed-cohomology](#VS2-condensed-cohomology); [VStackSheavesAndLisseCategories:VS2/breen-deligne-resolution](#VS2-breen-deligne-resolution); [VStackSheavesAndLisseCategories:VS2/condensed-lca-rhom](#VS2-condensed-lca-rhom); [VStackSheavesAndLisseCategories:VS2/solid-free-structure](#VS2-solid-free-structure); [VStackSheavesAndLisseCategories:VS2/solidification](#VS2-solidification); [VStackSheavesAndLisseCategories:VS2/derived-solid-tensor](#VS2-derived-solid-tensor).
+- **Coefficient applications and condensed points**: [VStackSheavesAndLisseCategories:VS2/general-ring-solidity](#VS2-general-ring-solidity); [VStackSheavesAndLisseCategories:VS2/nonarchimedean-solid-coefficients](#VS2-nonarchimedean-solid-coefficients); [VStackSheavesAndLisseCategories:VS2/z-solid-analytification](#VS2-z-solid-analytification); [VStackSheavesAndLisseCategories:VS2/principal-localization-and-formal-complement](#VS2-principal-localization-and-formal-complement); [VStackSheavesAndLisseCategories:VS2/qcqs-condensed-sets](#VS2-qcqs-condensed-sets); [VStackSheavesAndLisseCategories:VS2/condensed-epis-and-colimits](#VS2-condensed-epis-and-colimits); [VStackSheavesAndLisseCategories:VS2/affine-condensed-points](#VS2-affine-condensed-points); [VStackSheavesAndLisseCategories:VS2/closed-affine-points-quasicompact](#VS2-closed-affine-points-quasicompact).
 - **Solid sheaves and homology**: [VStackSheavesAndLisseCategories:VS2/solid-sheaves-on-v-stacks](#VS2-solid-sheaves-on-v-stacks); [VStackSheavesAndLisseCategories:VS2/solid-sheaf-structure-and-completion](#VS2-solid-sheaf-structure-and-completion); [VStackSheavesAndLisseCategories:VS2/solid-four-operations](#VS2-solid-four-operations); [VStackSheavesAndLisseCategories:VS2/relative-solid-homology](#VS2-relative-solid-homology); [VStackSheavesAndLisseCategories:VS2/solid-geometric-base-change](#VS2-solid-geometric-base-change); [VStackSheavesAndLisseCategories:VS2/proper-smooth-solid-poincare](#VS2-proper-smooth-solid-poincare); [VStackSheavesAndLisseCategories:VS2/torsion-solid-comparisons](#VS2-torsion-solid-comparisons).
 
 ### Keep ULA comparisons before lisse sheaves and support applications in VS4
 
-Kind: ownership. VS3 includes the preparatory VII.5 completed ULA and constructible-embedding branch feeding lisse comparisons. VS4 includes VII.2.7–10, followed by the lisse stratum adjoint and compact-generation applications. All five existing IDs and declaration names are preserved; parentStageId and realises determine ownership. The new VII.2.6 target separates generic field-extension invariance from the preserved Drinfeld target.
+Kind: ownership. VS3 includes the preparatory VII.5 completed ULA and constructible-embedding branch feeding lisse comparisons. VS4 includes VII.2.7–10, followed by the lisse stratum adjoint and compact-generation applications. All five existing IDs and declaration names are preserved; parentStageId and realises determine ownership. The new VII.2.6 target separates generic field-extension invariance from the preserved Drinfeld target. The two VII.5 nodes use VS1’s tensor-Hom and kernel-adjoint results, so this ownership adds the stage dependency VS1→VS3.
+
+Proposal: Record in the atlas: VS3 also contains the completed ULA duality and the constructible embedding of FS VII.5 and requires VS1; VS4 also contains the solid Drinfeld descent and the solid partial-support construction and vanishing of FS VII.2.7–VII.2.10; VS2 keeps VII.1, VII.2.1–VII.2.6, VII.3 and VII.4 and requires neither VS0 nor VS1. The five node identifiers keep their VS2 prefix.
 
 ### Derived smooth duality and compact invariants
 
 Kind: part-II. Extend the owned smooth representation enhancement with the compact generator, derived BZ, reflexivity and perfect-invariant contracts required by FS V and VII.7; use its existing c-Ind and invariants.
 
+Proposal: A roadmap "Smooth representations of local groups, Part II: derived duality and compact invariants", starting where SmoothRepresentationsOfLocalGroups SR.2 stops, owning the compact generators, the derived Bernstein–Zelevinsky involution, reflexivity and the perfect-invariant criterion that VS4 and VS5 import (gap G-smooth-duality).
+
 ### Stable Eilenberg–Mac Lane finiteness for Breen–Deligne
 
 Kind: part-II. Add the uniform stable-range pseudo-coherence input of CS Appendix 4.16 on the existing stable-homotopy carrier. H3’s Serre-class finiteness is insufficient.
+
+Proposal: A Part II of StableHomotopyKTheory owning the stable-range computation of the integral homology of Eilenberg–Mac Lane spaces of finite free abelian groups, functorially in the group and with finitely generated coefficients, as used in the appendix to Lecture IV of the Condensed notes (gap G-breen).
 
 ### Analytic foundations and coefficient applications
 
 Kind: ownership. SA.2/SA.3/SA.4 and AS.2/AS.3 own generic analytic rings/stacks; VS2 specializes them to topological E and discrete (A,Z)-solid modules. Compare light/regular-cutoff models before identifying categories. Preserve separate topology conventions.
 
+Proposal: Keep generic analytic rings in SolidAnalyticRings SA.2–SA.4 and analytic stacks in AnalyticStacks AS.2–AS.3; VS2 keeps only the specialisations to the topological field E and to discrete rings with solid underlying group, and the comparison of the light and regular-cutoff models stays an explicit interface (gap G-cutoffs).
+
 ### Apply confirmed geometric Langlands supplier edges
 
 Kind: edge-corrections. Apply the graph proposals in upstreamNotes RT18/28/29/30/31. No other roadmap packet or atlas data is modified by this job.
+
+Proposal: Stage edges to add: VS1→VS3; VS5→HeckeStacksAndLocalShtukas:HS1; AdicCoefficientsAndComparisons L1→GeometricSatakeAndFusion GS0:loop-geometry and L1, L3→GS1. Stage edges to remove: AdicCoefficientsAndComparisons L1, L3, L4, L5, L6→VS3; VS3→GS2:correspondences and VS3→GS3:fusion; EtaleDualityAndPerverseSheaves EDC.4→GS1 where perversity is meant (EDC.5 supplies it). No edge VS0→VS2 or VS1→VS2.
 
 ### Algebraic relative kernels and ULA
 
 Kind: part-II. The Lu–Zheng relative-kernel criterion used in FS IV.2.30 extends the existing exceptional-duality direction on EDC.1’s category; EDC.5 perversity is not a supplier for it. This is an explicit missing-owner interface, not a second scheme derived category.
 
+Proposal: A Part II of EtaleDualityAndPerverseSheaves, on the category of EDC.1, owning the characterisation of universal local acyclicity for schemes by dualizability in the 2-category of cohomological correspondences (Lu–Zheng), which FS IV.2.30 imports (gap G-algebraic-ula).
+
 ## Roadmap acceptance
 
 On a point, lisse coefficients recover the relative-discrete derived category while solid F_ell modules include nondiscrete objects. On [*/Z_p], exact open-pro-p invariants test the classifying equivalence, while its point map fails cohomological smoothness. On [*/π^Z], the infinite discrete point map is étale, testing source correction E4. A nonbasic GL_2 stratum retains and removes the connected kernel through the proved coefficient invariance. A compact induction gives a compact stratum generator; an infinite family of nonzero HN restrictions fails compactness. A perfect Z_ell complex satisfies the lisse ULA comparison; separate finite-dimensional cohomology groups do not substitute for perfect invariant complexes. Derived coefficient extension must preserve these formulas in its stated range.
 
-The plan has 79 target nodes, 182 API entries, 95 discriminating unit-test contracts, 30 planets, 39 pinned baseline references, 16 mathematical/carrier gaps and 15 supplier requests. All 78 prior nodes and all 21 integrated identifiers remain. All six stages are planned. The Mathlib-only typed condensed prototype elaborates at the recorded Mathlib pin; the omission ledger records every remaining contract and its carrier gaps.
+The plan has 80 target nodes, 183 API entries, 95 discriminating unit-test contracts, 30 planets, 39 pinned baseline references, 16 mathematical/carrier gaps and 15 supplier requests. All 79 nodes of the revision and all 21 integrated identifiers remain; the second independent review added one node, the formally smooth examples that the Jacobian criterion uses. All six stages are planned. The Mathlib-only typed condensed prototype elaborates at the recorded Mathlib pin; the omission ledger records every remaining contract and its carrier gaps.
