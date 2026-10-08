@@ -1,9 +1,9 @@
 /-
-This file is not the roadmap and is not exhaustive. The packet specifies the corrected plan. Its reader document
-`research/blueprint/readmes/ArithmeticQuantumTopology.md` still requires the
-synchronization listed in REV-ArithmeticQuantumTopology’s review report. These
-statements suggest Lean forms so that contributors and reviewers can converge on
-names and signatures. They claim no implementation.
+This file is not the roadmap and is not exhaustive. The definitive reader is
+`research/blueprint/readmes/ArithmeticQuantumTopology.md`, synchronized with the
+reviewed packet in BP-ArithmeticQuantumTopology~2. These statements suggest Lean
+forms so that contributors and reviewers can converge on names and signatures.
+They claim no implementation.
 
 BP-ArithmeticQuantumTopology: target-level plan, implementationStatus = unchecked.
 Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174;
