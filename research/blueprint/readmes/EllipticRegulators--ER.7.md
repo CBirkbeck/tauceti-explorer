@@ -68,7 +68,7 @@ Uses: SS 1.1.1 and 7.3.0: Forms the horizontally unramified subspace whose bad-f
 
 Acceptance: For X0(p), two cusps give one modular unit modulo constants; its same-level regulator image is zero, even for genus one. Residue cancellation is permitted in the span.
 
-Source: SS.1988, 1.1.1.
+Source: SS.1988, 1.1.1; author-copy p.3.
 
 ### The transfer Beilinson subspace
 
@@ -107,7 +107,7 @@ Uses: SS 1.2.9: Transfer at finer levels permits irreducibility to propagate non
 
 Acceptance: Check the statement with all its level, coefficient and covariance hypotheses; compare the cited passage.
 
-Source: SS.1988, 1.1.1–1.1.3.
+Source: SS.1988, 1.1.1–1.1.3; author-copy p.3.
 
 ### The Hecke separation in Manin–Drinfeld
 
@@ -128,7 +128,7 @@ Direct prerequisites: `ModularCurvesPartII:R12.5`, `ModularCurvesPartII:R14.6`.
 
 Acceptance: p=7 satisfies 6>2√7; the argument is not licensed at p=2. Matches the imported EllipticRegulators:ER.7/manin-drinfeld; it is a proof ingredient rather than a second statement of that declaration.
 
-Source: SS.1988, 3.4.0.
+Source: SS.1988, 3.4.0; author-copy p.11.
 
 ### Compact correction without changing the regulator
 
@@ -150,7 +150,7 @@ Direct prerequisites: `EllipticRegulators:ER.7/fixed-level-beilinson-subspace`, 
 
 Acceptance: The correction has tame vector −(t_P) at every cusp, including P0 by reciprocity. For nonrational cusps the norm-weighted relation cannot be replaced by an unweighted sum. Adding a constant symbol leaves the compact pairing with every holomorphic differential unchanged. Constants of F are units on the actual full-level component; this cannot be replaced by assuming they are Q-rational constants.
 
-Source: SS.1988, 1.3.0–1.3.1, 3.5.3; full-level specialization using Weil reciprocity.
+Source: SS.1988, 1.3.0–1.3.1, 3.5.3; full-level specialization using Weil reciprocity; author-copy pp.5,11.
 
 ### Algebraicity of the modular regulator period
 
@@ -172,7 +172,7 @@ Direct prerequisites: `EllipticRegulators:ER.7/real-analytic-eisenstein-series`,
 
 Acceptance: At s=1 the analytic prefactor is πi times the congruence index. Changing a period by a nonzero algebraic scalar leaves the line unchanged.
 
-Source: SS.1988, 1.3.2(i), 2.3, 4.5.3, 5.1.0 and 5.2.
+Source: SS.1988, 1.3.2(i), 2.3, 4.5.3, 5.1.0 and 5.2; author-copy pp.6–7,14–16.
 
 ### Nonvanishing with freely chosen auxiliary level
 
@@ -194,7 +194,7 @@ Direct prerequisites: `EllipticRegulators:ER.7/regulator-period-inclusion`, `Ell
 
 Acceptance: No primitivity at the fixed modulus N appears in the conclusion. For χ=ω_π⁻¹ the central-character cancellation step fails; exclude it.
 
-Source: SS.1988, 1.3.2(ii), 4.5.4 and 6.0–6.1.1, Shimura.1977, Theorem 2 pp.212–213 and following remark pp.213–214; Theorem 1 p.212.
+Source: SS.1988, 1.3.2(ii), 4.5.4 and 6.0–6.1.1; author-copy pp.6,14,17; Shimura.1977, Theorem 2 pp.212–213 and following remark pp.213–214; Theorem 1 p.212.
 
 ### The isotypic Beilinson regulator image
 
@@ -215,7 +215,7 @@ Direct prerequisites: `EllipticRegulators:ER.7/beilinson-subspace`, `EllipticReg
 
 Acceptance: A level where π has two independent oldvectors gets two-dimensional regulator image. The projector is π̌, not an untracked π-projector.
 
-Source: SS.1988, 1.2.6–1.2.9.
+Source: SS.1988, 1.2.6–1.2.9; author-copy p.5.
 
 ### The Beilinson rational structure
 
@@ -235,7 +235,7 @@ Direct prerequisites: `EllipticRegulators:ER.7/isotypic-regulator-image`, `Ellip
 
 Acceptance: For genus zero the image is the zero-dimensional rational structure. For X0(11), Q_K has zero regulator but P_K has a one-dimensional regulator image.
 
-Source: SS.1988, 1.1.2(i), 1.2.4–1.2.9.
+Source: SS.1988, 1.1.2(i), 1.2.4–1.2.9; author-copy pp.3–5.
 
 ### Beilinson’s modular determinant formula
 
@@ -256,7 +256,7 @@ Direct prerequisites: `EllipticRegulators:ER.7/beilinson-rational-structure`, `E
 
 Acceptance: For g=1 the derivative and leading coefficient coincide. For g=0 the empty determinant is Q and the L-value convention agrees.
 
-Source: SS.1988, 1.1.2(ii), 1.2.2–1.2.6.
+Source: SS.1988, 1.1.2(ii), 1.2.2–1.2.6; author-copy pp.3–5.
 
 ### Normalized reduction of a modular unit
 
@@ -295,7 +295,7 @@ Uses: SS 7.2.4–7.2.5: The ordinary unit has supersingular orders controlled by
 
 Acceptance: Account for ramification e_C at p. A tame-symbol sign convention change does not alter rational vanishing.
 
-Source: SS.1988, 7.2.3–7.2.4.
+Source: SS.1988, 7.2.3–7.2.4; author-copy p.19.
 
 ### Uniform supersingular orders
 
@@ -316,7 +316,7 @@ Direct prerequisites: `EllipticRegulators:ER.7/ordinary-unit-reduction`, `Modula
 
 Acceptance: Uniformity is on each component; equality between unrelated constant-field components is not asserted. The quotient by Q[S] cannot be omitted.
 
-Source: SS.1988, 7.1.1 and 7.2.5.
+Source: SS.1988, 7.1.1 and 7.2.5; author-copy pp.18–19.
 
 ### Integrality at full modular level
 
@@ -328,17 +328,17 @@ Hypotheses: Use a regular proper arithmetic-surface model and its weight-two K/G
 
 Construction or proof:
 
-1. At primes not dividing n, the vertical boundary target vanishes by smooth-fibre localization in the indicated weight; do not assert that each modular unit extends as a unit across the cusps.
+1. At p∤n, use the proper smooth special fibre in model localization: its weight-one K1 is its global units tensored with Q, hence zero over a finite constant field. Do not assert that the open-fibre K1 boundary target is zero or that modular units extend across cusps.
 2. At p|n, write n=mp^k with p∤m and m≥3. The horizontal/vertical residue compatibility square (7.3.0) makes the vertical boundary have zero cusp orders.
 3. The preceding theorem makes its supersingular orders uniform on each component; total divisor degree zero then forces all those orders to vanish.
 4. The boundary therefore extends to a unit on each complete normalized component. Its finite constant field makes it torsion; rationalize to get zero.
 5. Use arithmetic-surface localization including codimension-two terms and Adams weights to lift to the integral part. Killing only generic component orders without this comparison is insufficient.
 
-Direct prerequisites: `EllipticRegulators:ER.7/fixed-level-beilinson-subspace`, `EllipticRegulators:ER.7/supersingular-orders-of-modular-units`, `SchemeKTheoryOperations:S.3/arithmetic-surface-localisation`, `EllipticKTheory:E.6/the-integral-part`, `ModularCurvesPartII:R13.5`.
+Direct prerequisites: `EllipticRegulators:ER.7/fixed-level-beilinson-subspace`, `EllipticRegulators:ER.7/supersingular-orders-of-modular-units`, `SchemeKTheoryOperations:S.3/arithmetic-surface-localisation`, `ModularCurvesPartII:R13.5`, `SchemeKTheoryOperations:S.6/scheme-weight-decomposition`, `SchemeKTheoryOperations:S.6/residue-weight-shift`.
 
 Acceptance: The finite-field torsion argument is explicitly present; a zero divisor over a number field would not suffice. No assertion says every modular unit is integral at every bad prime.
 
-Source: SS.1988, 7.3.0–7.3.1.
+Source: SS.1988, 7.3.0–7.3.2, especially the proof of 7.3.1 printed after 7.3.2; author-copy pp.19–20.
 
 ### Integrality of the Beilinson subspace
 
@@ -346,20 +346,20 @@ Source: SS.1988, 7.3.0–7.3.1.
 
 For every open compact K, P_K⊂im(K2^(2)(X_K/Z)→K2^(2)(X_K))⊗Q, independently of the regular proper model. This is Schappacher–Scholl 1.1.2(iii); it is independent of the analytic determinant and nonvanishing proofs.
 
-Hypotheses: Every finite-level correspondence admits a resolved graph on regular proper arithmetic-surface models. Proper pushforward and pullback on the rational weight-two part are compatible with model localization.
+Hypotheses: Every finite-level correspondence admits a resolved graph on regular proper arithmetic-surface models. Proper pushforward and pullback on total K2 commute with restriction to the generic fibre. Rational Adams projectors commute with restriction; the generic-fibre finite transfer has the required weight-two compatibility.
 
 Construction or proof:
 
 1. Refine a finite-level witness to a full level satisfying the coprime-factor hypothesis and apply full-level integrality.
-2. Extend the level map using a resolved graph on the models; proper push/pull preserves integral weight-two classes (7.3.2).
-3. Transfer and divide by the rational covering degree; model independence in EllipticKTheory E.6 identifies the resulting integral parts.
+2. Extend the level map using a resolved regular graph on the models. Pull back a model K2 lift, then push it forward in total K2 (or G2 identified with K2 by regularity); flat generic-fibre base change identifies its restriction with the desired curve transfer. Project the target lift to weight two using S.6. No assertion that arbitrary model pushforward preserves pure Adams weight is needed.
+3. Transfer and divide by the rational covering degree. For two regular proper models choose a common regular model over them (R13.6 request). Pullback gives one inclusion of total K2 images, and proper G2 pushforward, Cartan equivalence and flat generic-fibre base change give the reverse inclusion. Apply the restriction-compatible weight-two projector to lifts. This proves the required general-curve model independence; the elliptic-only E.6 declaration is not its supplier.
 4. Use the actual vertical-residue proof. The false integral Manin–Drinfeld assertion, corrected in SS 7.4, is not a substitute.
 
-Direct prerequisites: `EllipticRegulators:ER.7/beilinson-subspace`, `EllipticRegulators:ER.7/full-level-modular-symbol-integrality`, `EllipticKTheory:E.6/model-independence`, `SchemeKTheoryOperations:S.2/k-theory-proper-pushforward`, `ModularCurvesPartII:R13.6`.
+Direct prerequisites: `EllipticRegulators:ER.7/beilinson-subspace`, `EllipticRegulators:ER.7/full-level-modular-symbol-integrality`, `SchemeKTheoryOperations:S.2/k-theory-proper-pushforward`, `ModularCurvesPartII:R13.6`, `SchemeKTheoryOperations:S.2/k-theory-pullback`, `SchemeKTheoryOperations:S.2/g-theory-proper-pushforward`, `SchemeKTheoryOperations:S.2/cartan-equivalence`, `SchemeKTheoryOperations:S.2/k-theory-base-change`, `SchemeKTheoryOperations:S.6/scheme-weight-decomposition`.
 
 Acceptance: A transfer of a full-level class remains integral after resolving the graph. The function Δ(pz)/Δ(z) prevents an all-bad-primes integral-unit Manin–Drinfeld assertion.
 
-Source: SS.1988, 1.1.2(iii), 7.3.2 and 7.4.
+Source: SS.1988, 1.1.2(iii), 7.3.2 (graph correspondence) and 7.4 (counterexample); author-copy pp.3,19–20.
 
 ### The elliptic image of Beilinson classes
 
@@ -397,7 +397,7 @@ Uses: General elliptic application: Names the precise integral subspace with the
 
 Acceptance: Constant algebraic maps in the prototype have zero image; geometric nonconstancy is indispensable for the elliptic theorem.
 
-Source: SS.1988, 1.2.9 (adjointness), 1.1.2 applied to an elliptic quotient.
+Source: SS.1988, 1.2.9 (adjointness), 1.1.2 applied to an elliptic quotient; author-copy pp.3,5.
 
 ### Regulator adjointness and rational descent on E
 
@@ -413,13 +413,13 @@ Construction or proof:
 2. Poincaré duality pairs cohomological pushforward with form pullback; ER.2 converts this canonical normalization to Brunault’s explicit pairing.
 3. Use EllipticKTheory E.7 rational Galois descent after pushing to E; Norm∘res=[F:Q] and res∘Norm=Σσ prove the formula for invariant β_F.
 4. Before using a character class, project or combine the coefficient representation so that an invariant class with a proved nonzero real regulator exists. Trace can otherwise vanish.
-5. For integral classes use resolved-graph pushforward, not an unjustified smooth morphism between models.
+5. For integral classes use a resolved regular graph: pull back a model K2 lift, push forward in total K2/G2 using Cartan comparison and generic-fibre base change, then apply the restriction-compatible target weight-two projector. The R13.6 regular-graph extension remains requested in G6.
 
-Direct prerequisites: `EllipticRegulators:ER.7/elliptic-beilinson-subspace`, `EllipticRegulators:ER.7/regulator-under-finite-pushforward`, `EllipticRegulators:ER.2/the-normalisation-factor`, `EllipticKTheory:E.5/pullback-and-pushforward`, `EllipticKTheory:E.7/rational-galois-descent`, `EllipticKTheory:E.7/transfer-of-certified-classes`, `SchemeKTheoryOperations:S.2/k-theory-proper-pushforward`.
+Direct prerequisites: `EllipticRegulators:ER.7/elliptic-beilinson-subspace`, `EllipticRegulators:ER.2/the-normalisation-factor`, `EllipticKTheory:E.5/pullback-and-pushforward`, `EllipticKTheory:E.7/rational-galois-descent`, `EllipticKTheory:E.7/transfer-of-certified-classes`, `SchemeKTheoryOperations:S.2/k-theory-proper-pushforward`, `ModularCurvesPartII:R13.6`, `SchemeKTheoryOperations:S.2/k-theory-pullback`, `SchemeKTheoryOperations:S.2/g-theory-proper-pushforward`, `SchemeKTheoryOperations:S.2/cartan-equivalence`, `SchemeKTheoryOperations:S.2/k-theory-base-change`, `SchemeKTheoryOperations:S.6/scheme-weight-decomposition`.
 
 Acceptance: Identity map gives equality without a factor of two or a degree. A non-invariant class with σβ=−β has trace zero; rational descent does not certify its nonvanishing.
 
-Source: DS.1991, (1.3)(1),(6); (2.6)–(2.8).
+Source: DS.1991, (1.3)(1),(6); (2.6) (functoriality), (2.7)–(2.8) (construction); author-copy pp.2,6–8.
 
 ### Beilinson’s theorem for a modular elliptic curve
 
@@ -434,14 +434,14 @@ Construction or proof:
 1. Apply the full isotypic regulator image to the rational newform component containing φ^*ω_E; this differential is nonzero.
 2. Regulator adjointness identifies the pushforward image with the nonzero elliptic period line. Pullback followed by pushforward on Betti cohomology multiplies by deg φ, a nonzero rational scalar.
 3. The elliptic motive factor and its rational Betti comparison identify the line as L′(E,0) times the Betti Q-line; an unspecified period representative cannot change a rational-line equality.
-4. The integral Beilinson theorem and resolved-graph proper covariance give the integral inclusion. Choose a rational multiple of a nonzero image class to get the prescribed generator b.
+4. The integral Beilinson theorem and resolved-graph proper transfer on total model K2, followed by the target weight-two projector, give the integral inclusion. Choose a rational multiple of a nonzero image class to get the prescribed generator b.
 5. Import EllipticCurveModularity R29.6 for the unconditional existence of f and R29.5 for φ. The primitive-even-same-level condition is never used.
 
-Direct prerequisites: `EllipticRegulators:ER.7/elliptic-beilinson-subspace`, `EllipticRegulators:ER.7/elliptic-regulator-adjointness`, `EllipticRegulators:ER.7/integral-beilinson-subspace`, `EllipticRegulators:ER.7/isotypic-regulator-image`, `EllipticRegulators:ER.7/beilinson-determinant-formula`, `EllipticCurveModularity:R29.5/modular-parametrisation`, `EllipticCurveModularity:R29.6/modularity-theorem`, `tauceti:HeckeRing.GL2.Newform`, `EllipticRegulators:ER.6/the-beilinson-statement`.
+Direct prerequisites: `EllipticRegulators:ER.7/elliptic-beilinson-subspace`, `EllipticRegulators:ER.7/elliptic-regulator-adjointness`, `EllipticRegulators:ER.7/integral-beilinson-subspace`, `EllipticRegulators:ER.7/isotypic-regulator-image`, `EllipticRegulators:ER.7/beilinson-determinant-formula`, `EllipticCurveModularity:R29.5/modular-parametrisation`, `EllipticCurveModularity:R29.6/modularity-theorem`, `tauceti:HeckeRing.GL2.Newform`, `EllipticRegulators:ER.6/the-beilinson-statement`, `SchemeKTheoryOperations:S.6/scheme-weight-decomposition`, `ModularCurvesPartII:R13.6`.
 
 Acceptance: For E=X0(11), same-level Q_K has zero regulator while P_E,φ gives the required nonzero line. Replacing ω_E by a rational multiple changes c_φ consistently and leaves the rational line unchanged. This is existence with transfers, not an explicit same-level formula for every conductor.
 
-Source: SS.1988, 1.1.2, 1.2.6–1.2.9; elliptic quotient specialization.
+Source: SS.1988, 1.1.2, 1.2.6–1.2.9; elliptic quotient specialization; author-copy pp.3,5.
 
 ## Inherited source proofs and the exact explicit formulas
 
@@ -451,7 +451,7 @@ These are normalized period adapters to the upstream modular-symbol theory, requ
 
 Theorem C calculates the Petersson form by Stokes’ theorem on a fundamental polygon, uses the σ and τ relations of Manin periods, and obtains the bilinear Haberland relation. The factor from quotient representatives and the first-linear convention must precede substitution of Theorem A. Theorem D applies that relation to the residue of the Dirichlet series Σa_n² n^(−s). This Dirichlet series is not, by definition, the complete tensor-product Euler L-function; the missing Euler denominators must be tracked separately. The original packet’s accepted E15 says its displayed coefficient is too small by four; E16 reverses the even-symbol sign; E17 corrects a π power in the derived ratio. Reading the printed proof does not constitute an analytic location of these discrepancies. Their corrected imported statements remain, and G3 records the exact calculation still required.
 
-Siegel’s first limit formula uses Q(m,n)=y⁻¹|m+nz|² and sums over both signs of (m,n). The residue is π, with finite term 2π(γ−log2−log(√y|η(z)|²)). The regulator application uses degree-zero combinations so the constant/pole terms cancel before differentiation. The second formula concerns nonintegral characteristics; the singular integral-characteristic case cannot be substituted into it. Its theta product, Bernoulli term and logarithmic absolute value must be converted to the imported Brunault definitions with the same q-parameter. The Mellin/Poisson continuation proof is read, but Lean closure still needs explicit Gaussian summability and interchange estimates. The pinned one-dimensional Poisson statement is not an unrestricted two-dimensional theorem.
+Siegel’s first limit formula uses Q(m,n)=y⁻¹|m+nz|² and sums over both signs of (m,n). The residue is π, with finite term 2π(γ−log2−log(√y|η(z)|²)). The regulator application uses degree-zero combinations so the constant/pole terms cancel before differentiation. The second formula concerns nonintegral characteristics; the singular integral-characteristic case cannot be substituted into it. Its theta product, Bernoulli term and logarithmic absolute value must be converted to the imported Brunault definitions with the same q-parameter. The first-limit adapter follows the power-kernel Poisson and contour proof; the second-limit adapter follows Abel summation and logarithmic products. Gaussian theta transformation with a split Mellin integral supplies the separate continuation theorem. Their exact theorem/page locators and the kernel-specific summability, contour, continuation and interchange obligations are recorded below. The pinned Poisson interface is one-dimensional.
 
 For Manin–Drinfeld, SS 3.4.0 gives a full proof, rather than a citation to the theorem’s name. On cusp divisors the good-prime Hecke eigenvalues are Eisenstein, of size at least p−1. On the Jacobian they are cuspidal, of size at most 2√p. A common annihilating polynomial and spectral separation force rational cusp classes to vanish. The resulting torsion statement is about the generic smooth curve. SS 7.4 explicitly corrects the false assertion that all modular units are a cyclotomic constant times a unit on the integral model. The unit Δ(pz)/Δ(z) provides the bad-prime obstruction. The vertical K₂ proof above replaces that false step.
 
@@ -463,7 +463,7 @@ The inherited declarations receive the following proof-closure records. They are
 
 ### `EllipticRegulators:ER.7/kronecker-limit-formulas`
 
-Source proof read; analytic adapter still requested. Siegel §1 Theorem 1: split the m=0 term, apply one-dimensional Gaussian Poisson summation to the m≠0 terms, use Mellin inversion, isolate the pole and identify the eta product. §3 Theorem 2: shift the lattice, use nonintegral (u,v) to remove the pole, sum the Fourier geometric series, and identify the Bernoulli/quasi-period terms and logarithmic product. §5 Theorem 3 supplies analytic continuation through the theta–Mellin transform. Translate Siegel’s Q=y⁻¹|u+vz|² and the sum over both signs to Brunault’s series before using a constant. The Mathlib Poisson declaration is one-dimensional and has explicit summability hypotheses; verify them for the Gaussian and its iterates, not an arbitrary kernel.
+Source proof read; analytic adapter still requested. For the first-limit adapter, use Siegel §1 Theorem 1 (p.13; proof pp.5–13): separate the n=0 lattice row, apply one-dimensional Poisson summation to the power kernel (x²+y²)^(−s), evaluate its nonzero Fourier integrals by branch-cut contour deformation and its zero Fourier integral by the beta function, use exponential bounds for locally uniform continuation, isolate the s=1 pole and sum the logarithmic eta product. For the second-limit adapter, use §3 Theorem 2 (p.28; proof pp.21–28): for nonintegral characteristics, Abel partial summation establishes locally uniform continuation to Re(s)>1/2; Liouville identifies the twisted partial fractions, geometric series give the logarithmic theta product and Bernoulli term, and quasi-periodicity extends to all nonintegral characteristics. The separate continuation adapter in §5 Theorem 3 (p.47; proof pp.41–47) uses the Gaussian theta transformation and a Mellin integral split at 1 for continuation and functional equation. Translate Q=y⁻¹|m+nz|² and summation over both signs to Brunault before using a constant. Mathlib Poisson requires locally uniform norm summability and summable Fourier integrals; prove these for the power kernel in §1 and for Gaussian iterations when following §5.
 
 ### `EllipticRegulators:ER.7/manin-drinfeld`
 
@@ -479,7 +479,7 @@ Proof normalization gap retained. Read all of Merel §§2–5, including Theorem
 
 ### `EllipticRegulators:ER.7/regulator-under-finite-pushforward`
 
-Proper-covariance proof supplied; convention interface open. Deninger–Scholl (2.6)–(2.8) gives proper functoriality of the real Deligne cycle map. For finite maps of curves, c=0 so no shift occurs. Pair against pullback forms using duality. This replaces the inherited proof’s invalid reduction of every norm to a projection-formula symbol, without changing its mathematical statement. The early M.8/ER.2 normalization interface is G2.
+Compact proper-covariance proof supplied; function-field extension and conventions open. Deninger–Scholl (2.6)–(2.8), author-copy pp.6–8, gives proper functoriality of the real Deligne cycle map. For finite maps of compact curves c=0, so no shift occurs, and duality pairs pushforward with pullback forms. The new adjointness node proves the compact-class case needed here independently of the inherited assertion. It repairs the invalid projection-formula-symbol proof only in that scope. The inherited assertion for arbitrary function-field symbols still requires a natural compact/open projection or a supports argument, recorded in G2; no complete proof of that stronger assertion is claimed.
 
 ### `EllipticRegulators:ER.7/the-pushforward-and-its-hypotheses`
 
@@ -512,13 +512,13 @@ Other inherited ER.7 nodes remain imported under these exact IDs:
 
 ## Cusp widths and source issue E24
 
-The source defines q_w=exp(2πiz/w). Thus log|q_w|=−2πy/w. SS 3.1.7 says E_φ is asymptotic to −2πyφ; its logarithmic singularity is therefore wφ log|q_w|. Since η_φ=2∂E_φ, its residue is wφ. Both the public author copy and the published-pagination mirror print φ/w in 3.1.8. This is incompatible with the stated q-coordinate and with 3.5.0–3.5.1, where div(u)=ord(u)/w and η_div(u)=dlog(u).
+SS 3.0.1 (author-copy p.8) defines q_w=exp(2πiz/w). Thus log|q_w|=−2πy/w. SS 3.1.7 (p.9) says E_φ is asymptotic to −2πyφ; its logarithmic singularity is therefore wφ log|q_w|. Since η_φ=2∂E_φ, its residue is wφ. Both the public author copy and the published-pagination mirror print φ/w in 3.1.8 (author-copy p.9; published p.286). This is incompatible with the stated q-coordinate and with 3.5.0–3.5.1 (author-copy p.11), where div(u)=ord(u)/w and η_div(u)=dlog(u).
 
 The new finding is `EllipticRegulators/E24`, with rendered-page checks and the correction searches recorded in the packet. No published correction was located. Width two with φ=1 gives residue two, whereas the printed inverse-width formula gives one half. This test prevents the typo from entering the algebraic divisor adapter. The main modular theorem is not rejected because of this local typo; its unit realization uses the consistent product convention.
 
 ## Supplier contracts and acyclic boundaries
 
-The new graph follows definitions and key theorems until it reaches pinned declarations, exact existing supplier nodes, precise requested stages or named proof gaps. A stage name is never treated as evidence that the full requested theorem is already present. Requests below specify what must be supplied. Already suitable nodes of EllipticKTheory E.3, E.5, E.6 and E.7 and SchemeKTheoryOperations S.2 and S.3 are imported directly rather than requested afresh.
+The new graph follows definitions and key theorems until it reaches pinned declarations, exact existing supplier nodes, precise requested stages or named proof gaps. A stage name is never treated as evidence that the full requested theorem is already present. Requests below specify what must be supplied. Suitable nodes of EllipticKTheory E.3, E.5 and E.7 and SchemeKTheoryOperations S.2, S.3 and S.6 are imported directly. General modular-curve model independence is proved using total K/G transfer, Cartan comparison, flat generic-fibre base change and restriction-compatible Adams projectors. Its common regular dominating model remains an R13.6 extension request. The E.6 model-independence declaration is scoped to elliptic curves.
 
 The general regulator covariance uses Deninger–Scholl’s cycle map with supports. It avoids the invalid argument that every norm of every K₂ symbol can be rewritten as a symbol {Nu,v}. The projection formula applies when one entry is pulled back from the target; it is not a generation theorem. Finite morphisms between compact curves have codimension zero, so proper covariance introduces no new weight or degree shift. A degree appears in norm–restriction, not in the basic pairing adjointness.
 
@@ -534,15 +534,15 @@ Likewise, rational Galois descent is an assertion about invariant classes. If a 
 
 **`ModularCurvesPartII:R13.5`:** The regular full-level model for n=mp^k, m≥3 and p∤m: reduced components indexed by constant-field components and P¹(Z/p^k), and their normalization maps to the prime-to-p special fibre with degree p^kφ(p^k), total supersingular ramification and the GZ/m action, as in SS 7.2.2–7.2.3. Include ordinary-locus unit reduction and the horizontal/vertical residue-content square of 7.3.0.
 
-**`ModularCurvesPartII:R13.6`:** Resolved graphs of finite modular level maps and of a finite Q-parametrization on regular proper arithmetic-surface models; proper pullback/pushforward must preserve the rational weight-two integral image even when no smooth map between chosen models exists.
+**`ModularCurvesPartII:R13.6`:** Resolved regular graphs of finite modular level maps and finite Q-parametrizations on regular proper arithmetic-surface models, and a common regular dominating model for any two regular proper models of the same smooth generic curve. This is an explicit surface-resolution extension of R13.6, not an assertion supplied by its existing bad-fibre graph description or by characteristic-zero R09.7 resolution. With SchemeKTheoryOperations S.2 proper K/G transfer, Cartan comparison and flat generic-fibre base change, these graphs must realize the generic-fibre transfer on total model K2. Use S.6 restriction-compatible rational Adams projectors to obtain weight-two lifts; do not require arbitrary arithmetic-model pushforward to preserve pure weights.
 
 **`GL2AutomorphicRepresentationsAndTransfer:R16.2`:** Local Kirillov/Whittaker test-vector statements SS 4.5.2–4.5.4 with ψ_p(p^−r)=exp(−2πip^−r), vol(Z_p×)=1, and arithmetic s-normalization: spherical Euler quotient at good primes; at bad primes compactly supported vectors can be chosen with I(1)=1 after shrinking their stabilizers. A fixed-level newvector nonvanishing assertion is insufficient.
 
 **`GL2AutomorphicRepresentationsAndTransfer:R16.4`:** The global modular tower Ω¹⊗Qbar=⊕πV_π, irreducibility of V_π^K under the finite-level Hecke algebra, semisimplicity and coefficient-Galois descent, with full oldvector multiplicities and contragredient duality. Use actual small-level/stabilizer degrees rather than blindly substituting an abstract group index.
 
-**`GL2AutomorphicRepresentationsAndTransfer:R16.5`:** Import the RankinSelbergAndAutomorphicLFunctions owner for the global finite-adelic Rankin–Selberg factorization in SS 4.5.3 and unfolding 5.1.0: algebraic local factor A times L(π,2)L(π⊗χ,1)/L(ωπχ,2), Haar vol(GL2(Zhat))=1, analytic prefactor πiΓ(s+1)/(4π)^(s−1) times [GL2(Zhat):±K]. This request consumes the general theory, and adds only its classical arithmetic normalization adapter.
+**`GL2AutomorphicRepresentationsAndTransfer:R16.5`:** Import AutomorphicLFunctionsAndLocalFactors:AL.3 (the Rankin–Selberg owner in the current R16.5 stage and RS-21) for the global finite-adelic Rankin–Selberg factorization in SS 4.5.3 and unfolding 5.1.0: algebraic local factor A times L(π,2)L(π⊗χ,1)/L(ωπχ,2), Haar vol(GL2(Zhat))=1, analytic prefactor πiΓ(s+1)/(4π)^(s−1) times [GL2(Zhat):±K]. This request consumes the general theory, and adds only its classical arithmetic normalization adapter.
 
-**`PeriodsAndSpecialValues:PS.1`:** SS 2.2.0–2.3 and Shimura 1977 pp.212–214 Theorems 1–2 plus the two-prime remark (read): even auxiliary χ of unrestricted conductor, excluding 1 and ωπ⁻¹, with all conjugate L(π⊗χ,1) nonzero; exact Shimura–Blasius algebraicity of L(π,2)L(π⊗χ,1)/L(ωπχ,2) in 2πic⁺(π)L′(π̌,0)·Qbar, tracking all embeddings, Gauss sums and arithmetic functional equations. Merel’s conductor-dividing-N corollary alone does not prove the finite-exception exclusion.
+**`PeriodsAndSpecialValues:PS.1`:** SS 2.2.0–2.3 and Shimura 1977 pp.212–214 Theorems 1–2 plus the two-prime remark (read): even auxiliary χ of unrestricted conductor, excluding 1 and ωπ⁻¹, with all conjugate L(π⊗χ,1) nonzero; exact Shimura–Blasius algebraicity of L(π,2)L(π⊗χ,1)/L(ωπχ,2) in c⁺(π)L′(π̌,0)·Qbar, tracking all embeddings, Gauss sums and arithmetic functional equations. Merel’s conductor-dividing-N corollary alone does not prove the finite-exception exclusion. The factor 2πi belongs to the regulator integral in SS 1.3.2 and 5.2, not to the L-value quotient in 2.3.
 
 **`KatoEulerSystems:L1`:** Extend the concrete early pair-symbol declaration to the bilinear rational symbol interface on Y_K, arbitrary pairs of the L0 Siegel units and their rational span, compatible with field extension and transfer. Supply its tame-symbol convention and bilinearity for rational constants from the full-level component field. The ER.7 correction proof uses cusp-unit realization from L0 and Weil reciprocity from SchemeKTheoryOperations S.3; no generic Bloch correction is replanned in L1. L1 owns this before any modular-parametrization/Iwasawa machinery; no whole L1 edge is activated until an accepted early-prefix boundary exists.
 
@@ -554,7 +554,7 @@ Likewise, rational Galois descent is an assertion about invariant classes. If a 
 
 **G1 — Early pair-symbol interface and full-level cusp adapters.** The concrete early Kato L1 node supplies its distinguished pair on Y(M,N), not the arbitrary rational pair span with fixed tame-symbol convention needed here. The correction node now gives a full-level proof of span membership using F-rational cusps, L0 principal cusp units and SchemeKTheoryOperations Weil reciprocity. Their precise component-field and unit-realization adapters, together with the accepted early L1 boundary, remain supplier obligations. Bloch Chapter VIII Lemma 5.2 was not read, and no general version is claimed. No arbitrary norm-generation or noncancelling trace argument is used.
 
-**G2 — Early regulator normalization and proper cycle-map prefix.** Canonical proper covariance was read in Deninger–Scholl, but the original ER.2 normalization node still requires the accepted early M.8 prefix. Spell out the compact/open projection and the factor comparing SS’s (1/(2πi))∫log|u|conjugate(dlog(v))∧ω and Brunault’s ∫η(u,v)∧ω with real Tate twists and orientation. No whole late M.8 edge is activated.
+**G2 — Early regulator normalization and proper cycle-map prefix.** Canonical proper covariance was read in Deninger–Scholl, but the original ER.2 normalization node still requires the accepted early M.8 prefix. Spell out the compact/open projection and the factor comparing SS’s (1/(2πi))∫log|u|conjugate(dlog(v))∧ω and Brunault’s ∫η(u,v)∧ω with real Tate twists and orientation. No whole late M.8 edge is activated. The new compact adjointness theorem does not close the stronger inherited arbitrary-function-field-symbol assertion; its compact/open functorial extension remains an obligation.
 
 **G3 — Merel composite-level Fourier adapter and analytic error location.** The complete appendix was read. Theorem A’s conductor filters and P_p/Q_p Euler corrections require a normalized period adapter supplied by ModularForms Part II. The accepted E15 (factor four) and E16 (even-sign) corrections are imported without upgrading their numerical verification to a proof. Derive both analytically from oriented Mellin periods and the first-linear/index-normalized Petersson/Haberland formula; distinguish Σa_n²/n^s from the full tensor-product Euler L-function. E17 follows algebraically after the corrected convention.
 
@@ -562,7 +562,7 @@ Likewise, rational Galois descent is an assertion about invariant classes. If a 
 
 **G5 — Primitive even twist at exactly the original modulus.** Brunault BSMF Remark 1.2 does not establish existence of a primitive even χ of conductor N avoiding 1 and ψbar with nonzero L(f,χ,1). Merel’s parity/conductor-dividing statement is weaker. Retain the explicit formula conditionally; use SS’s freely chosen auxiliary conductor and local level refinement for the general theorem. No assertion about the present research status of this question is made.
 
-**G6 — Imported analytic and special-fibre supplier proofs.** The exact R12.3, R12.5, R13.5, R13.6, R14.6, R16.2, R16.4, R16.5 and PS.1 contracts are requested stages rather than completed declaration-level suppliers. Shimura pp.212–214 were read: the two-prime argument resolves finite-exception avoidance at unrestricted auxiliary level. Its period algebraicity and modular-symbol generator results invoke earlier 1976 work, not read; the normalized all-conjugates PS.1 adapter is still requested. Siegel’s limit proofs were read, but the pinned Gaussian Poisson hypotheses and all interchanges/eta constants still need a Lean-level analytic adapter, building on Completed/ContourIntegration. These are recorded obligations, not missing target nodes.
+**G6 — Imported analytic and special-fibre supplier proofs.** The exact R12.3, R12.5, R13.5, R13.6, R14.6, R16.2, R16.4, R16.5 and PS.1 contracts are requested stages rather than completed declaration-level suppliers. Shimura pp.212–214 were read: the two-prime argument resolves finite-exception avoidance at unrestricted auxiliary level. Its period algebraicity and modular-symbol generator results invoke earlier 1976 work, not read; the normalized all-conjugates PS.1 adapter is still requested. Siegel’s limit proofs were read, but the pinned power-kernel Poisson hypotheses, branch-cut contour estimates, Abel summation bounds and the separate Gaussian theta/Mellin continuation and all interchanges/eta constants still need a Lean-level analytic adapter, building on Completed/ContourIntegration. These are recorded obligations, not missing target nodes. R13.6 must additionally supply resolution/common domination for regular mixed-characteristic arithmetic surfaces. Existing elliptic E.6 nodes do not quantify over general modular curves, and ordinary characteristic-zero resolution alone is insufficient. S.2 total K/G transfer and base change, with S.6 restriction-compatible weight projectors, are imported explicitly; the special-fibre localization/weight adapter remains open.
 
 The stage acceptance checks include: residue cancellation before imposing compactness; the failure of Q_K on X₀(11); full oldvector multiplicities after finer-level transfer; conductor and parity filters in Merel’s formulas; nonzero local test vectors after shrinking level; componentwise degrees and finite-field torsion in the vertical argument; the ramification exponent in u_C; proper covariance at codimension zero; the difference between invariant descent and arbitrary orbit sums; and the conditional-to-unconditional transition through a genuine Q-parametrization and the complete modularity theorem.
 
@@ -576,22 +576,30 @@ The two new planets are **Beilinson subspace** and **Integral Beilinson subspace
 
 ## Public sources and reading record
 
+The following source list retains the original worker’s and independent reviewer’s reading records. Revision 2 (Codex, `codex-XTusmX`, 2026-10-08) reread the SS period, regulator and arithmetic-model passages, DS proper covariance/descent and supports construction, and the three Siegel proof routes. Exact revision pages are listed below; other source records remain inherited.
+
 The upstream ModularForms and Completed/ContourIntegration documents were read in full. Their vocabulary and library-building order guide the interfaces here. The first supplies period maps, Hecke modules and analytic modular-form conventions; the second supplies improper-integral foundations. Their existing mathematics is imported. The reviewed library audit, stage descriptions, all relevant link-map entries and the original accepted packet were checked before assigning ownership.
 
-**SS.1988 — Beilinson’s theorem on modular curves**, Norbert Schappacher and Anthony J. Scholl. 1988, pp.273–304; author retypeset copy dated 2010, 21 pages. Published-pagination mirror separately compared; locators below use numbered sections. [Public copy](https://www.dpmms.cam.ac.uk/~ajs1005/preprints/RSS.pdf). Read 2026-10-06. SHA-256 `7c97475e330cd67c0de474e1d12096cec262f6ca1f045fe5d1e74b1dbfe8a10e`.
+**SS.1988 — Beilinson’s theorem on modular curves**, Norbert Schappacher and Anthony J. Scholl. 1988, pp.273–304; author retypeset copy dated 2010, 21 pages. Published-pagination mirror separately compared; node locators use sections and printed author-copy pages, distinct from published pagination. [Public copy](https://www.dpmms.cam.ac.uk/~ajs1005/preprints/RSS.pdf). Read 2026-10-06. SHA-256 `7c97475e330cd67c0de474e1d12096cec262f6ca1f045fe5d1e74b1dbfe8a10e`.
 
 - Entire author copy §§1–7 and bibliography; especially 1.1.1–1.3.2, 3.4.0, 4.5, 5.1, 6.1 and 7.1–7.4.
 - Published-pagination copy https://ncatlab.org/nlab/files/SchappacherScholl.pdf, SHA256 604efee0cc32f3a06e7915a3bd3f00cb7d2d218274f2d835ca93d6aa6964663e: pp.275–280, 284–289, 294–302. Page image of 3.1.8 checked in both copies.
+
+- Revision 2, 2026-10-08: reread 1.0–1.3 (pp.2–6), 2.2–2.3 (pp.6–7), 3.0–3.1 (pp.8–9), 3.4–3.5 (p.11), 4.5–6.1 (pp.14–17), and 7.2–7.4 (pp.19–20). Rechecked the rendered residue formula 3.1.8 on author-copy p.9; the published scan comparison remains the independent reviewer’s record.
 
 **DS.1991 — The Beilinson conjectures**, Christopher Deninger and Anthony J. Scholl. 1991 survey; author public preprint, section locators [Public copy](https://www.dpmms.cam.ac.uk/~ajs1005/preprints/d-s.pdf). Read 2026-10-06. SHA-256 `f4a31e86abb2e80a1b3a07a6158fa19ff4f8110a75c7db491890877b12dfcb27`.
 
 - (1.3)(1),(6): proper functoriality and finite Galois descent.
 - (2.6)–(2.8): regulator functoriality and construction of cycle maps with supports; degrees and weights checked.
 
+- Revision 2, 2026-10-08: (1.3)(1),(6), p.2; (2.6)–(2.8), pp.6–8, including the supports construction and its degree shifts.
+
 **Siegel.1965 — Lectures on advanced analytic number theory**, Carl Ludwig Siegel; notes by S. Raghavan. Tata Institute lecture notes 23 (1965), reprint hosted by P. Garrett. Reprint pagination differs from the edition inherited by the original packet. [Public copy](https://www-users.cse.umn.edu/~garrett/m/mfms/notes_2013-14/Siegel_AdvAnNoTh.pdf). Read 2026-10-06. SHA-256 `97db8ec4f8477bea009f9264d17dfd4b76e9d6bd529c31316df4a07499f88643`.
 
 - §1 Theorem 1 and proof, first Kronecker limit formula; §3 Theorem 2 and complete proof, second limit formula.
 - §5 Theorem 3 and its Mellin/Poisson proof. Use theorem/section locators rather than inherited pp.17,40,69.
+
+- Revision 2, 2026-10-08: §1 Theorem 1 p.13 and proof pp.5–13; §3 Theorem 2 p.28 and proof pp.21–28; §5 Theorem 3 p.47 and proof pp.41–47. These are printed reprint pages, respectively PDF pages 17,32,51 for the theorem statements.
 
 **Brunault.2005 — Valeur en 2 de fonctions L de courbes elliptiques**, François Brunault; appendix by Loïc Merel. arXiv:math/0602186v1, 155 pages; appendix printed and PDF pp.143–155 [Public copy](https://arxiv.org/pdf/math/0602186v1). Read 2026-10-06. SHA-256 `8fd73faba5db08328c2884d9f35b79bc528145428766444f3eb8097f3b494fb7`.
 

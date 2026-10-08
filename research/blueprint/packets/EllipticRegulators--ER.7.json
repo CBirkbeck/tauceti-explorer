@@ -16,84 +16,84 @@
         "kind": "def",
         "module": "Mathlib/Analysis/Complex/Periodic.lean",
         "provides": "qParam h z = exp(2πiz/h); with h = 1 this is q = exp(2πiτ).",
-        "checked": "Independently reread at the recorded pinned commit by REV-EllipticRegulators--ER.7 on 2026-10-06; existence, hypotheses and conventions confirmed. Lean compilation covers only the Mathlib imports."
+        "checked": "Independently reread at the recorded pinned commit by REV-EllipticRegulators--ER.7 on 2026-10-06; existence, hypotheses and conventions confirmed. Lean compilation covers only the Mathlib imports. Revision 2 reread the actual declaration statement at the same pin on 2026-10-08; no additional library coverage is claimed."
       },
       {
         "ref": "mathlib:Function.Periodic.norm_qParam",
         "kind": "theorem",
         "module": "Mathlib/Analysis/Complex/Periodic.lean",
         "provides": "‖qParam h z‖ = exp(−2π Im z / h).",
-        "checked": "Independently reread at the recorded pinned commit by REV-EllipticRegulators--ER.7 on 2026-10-06; existence, hypotheses and conventions confirmed. Lean compilation covers only the Mathlib imports."
+        "checked": "Independently reread at the recorded pinned commit by REV-EllipticRegulators--ER.7 on 2026-10-06; existence, hypotheses and conventions confirmed. Lean compilation covers only the Mathlib imports. Revision 2 reread the actual declaration statement at the same pin on 2026-10-08; no additional library coverage is claimed."
       },
       {
         "ref": "mathlib:ModularForm.eta",
         "kind": "def",
         "module": "Mathlib/NumberTheory/ModularForms/DedekindEta.lean",
         "provides": "The Dedekind eta function of Kronecker's first limit formula (3.10)-(3.11).",
-        "checked": "Independently reread at the recorded pinned commit by REV-EllipticRegulators--ER.7 on 2026-10-06; existence, hypotheses and conventions confirmed. Lean compilation covers only the Mathlib imports."
+        "checked": "Independently reread at the recorded pinned commit by REV-EllipticRegulators--ER.7 on 2026-10-06; existence, hypotheses and conventions confirmed. Lean compilation covers only the Mathlib imports. Revision 2 reread the actual declaration statement at the same pin on 2026-10-08; no additional library coverage is claimed."
       },
       {
         "ref": "mathlib:DirichletCharacter.IsPrimitive",
         "kind": "def",
         "module": "Mathlib/NumberTheory/DirichletCharacter/Basic.lean",
         "provides": "Primitivity of a Dirichlet character (conductor = level), the hypothesis of Théorème 4.",
-        "checked": "Independently reread at the recorded pinned commit by REV-EllipticRegulators--ER.7 on 2026-10-06; existence, hypotheses and conventions confirmed. Lean compilation covers only the Mathlib imports."
+        "checked": "Independently reread at the recorded pinned commit by REV-EllipticRegulators--ER.7 on 2026-10-06; existence, hypotheses and conventions confirmed. Lean compilation covers only the Mathlib imports. Revision 2 reread the actual declaration statement at the same pin on 2026-10-08; no additional library coverage is claimed."
       },
       {
         "ref": "mathlib:DirichletCharacter.LFunction",
         "kind": "def",
         "module": "Mathlib/NumberTheory/LSeries/DirichletContinuation.lean",
         "provides": "L(χ, s), equal to the Dirichlet series for Re s > 1 (LFunction_eq_LSeries); L(χ, 2) in Proposition 80 and Théorème 8.",
-        "checked": "Independently reread at the recorded pinned commit by REV-EllipticRegulators--ER.7 on 2026-10-06; existence, hypotheses and conventions confirmed. Lean compilation covers only the Mathlib imports."
+        "checked": "Independently reread at the recorded pinned commit by REV-EllipticRegulators--ER.7 on 2026-10-06; existence, hypotheses and conventions confirmed. Lean compilation covers only the Mathlib imports. Revision 2 reread the actual declaration statement at the same pin on 2026-10-08; no additional library coverage is claimed."
       },
       {
         "ref": "mathlib:Submodule.comap",
         "kind": "def",
         "module": "Mathlib/Algebra/Module/Submodule/Map.lean",
         "provides": "Line 172: inverse image of a submodule under a semilinear map; membership means its image lies in the submodule.",
-        "checked": "Independently reread at the recorded pinned commit by REV-EllipticRegulators--ER.7 on 2026-10-06; existence, hypotheses and conventions confirmed. Lean compilation covers only the Mathlib imports."
+        "checked": "Independently reread at the recorded pinned commit by REV-EllipticRegulators--ER.7 on 2026-10-06; existence, hypotheses and conventions confirmed. Lean compilation covers only the Mathlib imports. Revision 2 reread the actual declaration statement at the same pin on 2026-10-08; no additional library coverage is claimed."
       },
       {
         "ref": "mathlib:Submodule.map",
         "kind": "def",
         "module": "Mathlib/Algebra/Module/Submodule/Map.lean",
         "provides": "Line 53: image submodule under a semilinear map with surjective scalar homomorphism; over Q the scalar map is the identity.",
-        "checked": "Independently reread at the recorded pinned commit by REV-EllipticRegulators--ER.7 on 2026-10-06; existence, hypotheses and conventions confirmed. Lean compilation covers only the Mathlib imports."
+        "checked": "Independently reread at the recorded pinned commit by REV-EllipticRegulators--ER.7 on 2026-10-06; existence, hypotheses and conventions confirmed. Lean compilation covers only the Mathlib imports. Revision 2 reread the actual declaration statement at the same pin on 2026-10-08; no additional library coverage is claimed."
       },
       {
         "ref": "mathlib:Submodule.span_image",
         "kind": "theorem",
         "module": "Mathlib/LinearAlgebra/Span/Basic.lean",
         "provides": "Line 254: span of an image equals the image of the span, under the stated surjectivity hypothesis.",
-        "checked": "Independently reread at the recorded pinned commit by REV-EllipticRegulators--ER.7 on 2026-10-06; existence, hypotheses and conventions confirmed. Lean compilation covers only the Mathlib imports."
+        "checked": "Independently reread at the recorded pinned commit by REV-EllipticRegulators--ER.7 on 2026-10-06; existence, hypotheses and conventions confirmed. Lean compilation covers only the Mathlib imports. Revision 2 reread the actual declaration statement at the same pin on 2026-10-08; no additional library coverage is claimed."
       },
       {
         "ref": "mathlib:Submodule.mem_iSup_of_directed",
         "kind": "theorem",
         "module": "Mathlib/LinearAlgebra/Span/Defs.lean",
         "provides": "Line 358: for a nonempty directed family S, x belongs to its supremum iff x belongs to some S_i. Directedness is indispensable.",
-        "checked": "Independently reread at the recorded pinned commit by REV-EllipticRegulators--ER.7 on 2026-10-06; existence, hypotheses and conventions confirmed. Lean compilation covers only the Mathlib imports."
+        "checked": "Independently reread at the recorded pinned commit by REV-EllipticRegulators--ER.7 on 2026-10-06; existence, hypotheses and conventions confirmed. Lean compilation covers only the Mathlib imports. Revision 2 reread the actual declaration statement at the same pin on 2026-10-08; no additional library coverage is claimed."
       },
       {
         "ref": "mathlib:Real.tsum_eq_tsum_fourier",
         "kind": "theorem",
         "module": "Mathlib/Analysis/Fourier/PoissonSummation.lean",
         "provides": "One-dimensional Poisson formula for a continuous C-valued function with locally uniform norm summability of shifts and summable integer Fourier integrals. Power-kernel estimates in Siegel §1 and Gaussian verification/iteration for §5 remain required.",
-        "checked": "Independently reread at the recorded pinned commit by REV-EllipticRegulators--ER.7 on 2026-10-06; existence, hypotheses and conventions confirmed. Lean compilation covers only the Mathlib imports."
+        "checked": "Independently reread at the recorded pinned commit by REV-EllipticRegulators--ER.7 on 2026-10-06; existence, hypotheses and conventions confirmed. Lean compilation covers only the Mathlib imports. Revision 2 reread the actual declaration statement at the same pin on 2026-10-08; no additional library coverage is claimed."
       },
       {
         "ref": "tauceti:HeckeRing.GL2.Newform",
         "kind": "structure",
         "module": "TauCeti/NumberTheory/ModularForms/Newforms/Newform.lean",
         "provides": "Line 102: normalized new EigenformAwayFromLevel, including a character-space cusp form, newness and q coefficient 1. Bad-prime eigenvalues are not supplied by the away-from-level structure.",
-        "checked": "Independently reread at the recorded pinned commit by REV-EllipticRegulators--ER.7 on 2026-10-06; existence, hypotheses and conventions confirmed. Lean compilation covers only the Mathlib imports."
+        "checked": "Independently reread at the recorded pinned commit by REV-EllipticRegulators--ER.7 on 2026-10-06; existence, hypotheses and conventions confirmed. Lean compilation covers only the Mathlib imports. Revision 2 reread the actual declaration statement at the same pin on 2026-10-08; no additional library coverage is claimed."
       },
       {
         "ref": "tauceti:UpperHalfPlane.peterssonInner",
         "kind": "def",
         "module": "TauCeti/NumberTheory/ModularForms/Petersson/Basic.lean",
         "provides": "Line 107: integral over D of conj(f) times g times y^k against invariant hyperbolic volume. Conjugates the first variable; no division by the congruence index is built in.",
-        "checked": "Independently reread at the recorded pinned commit by REV-EllipticRegulators--ER.7 on 2026-10-06; existence, hypotheses and conventions confirmed. Lean compilation covers only the Mathlib imports."
+        "checked": "Independently reread at the recorded pinned commit by REV-EllipticRegulators--ER.7 on 2026-10-06; existence, hypotheses and conventions confirmed. Lean compilation covers only the Mathlib imports. Revision 2 reread the actual declaration statement at the same pin on 2026-10-08; no additional library coverage is claimed."
       }
     ]
   },
@@ -102,27 +102,29 @@
       "id": "SS.1988",
       "title": "Beilinson’s theorem on modular curves",
       "authors": "Norbert Schappacher and Anthony J. Scholl",
-      "edition": "1988, pp.273–304; author retypeset copy dated 2010, 21 pages. Published-pagination mirror separately compared; locators below use numbered sections.",
+      "edition": "1988, pp.273–304; author retypeset copy dated 2010, 21 pages. Published-pagination mirror separately compared; locators below use numbered sections and the author-copy page numbers, not the published pagination.",
       "url": "https://www.dpmms.cam.ac.uk/~ajs1005/preprints/RSS.pdf",
       "sha256": "7c97475e330cd67c0de474e1d12096cec262f6ca1f045fe5d1e74b1dbfe8a10e",
       "readSections": [
         "Entire author copy §§1–7 and bibliography; especially 1.1.1–1.3.2, 3.4.0, 4.5, 5.1, 6.1 and 7.1–7.4.",
-        "Published-pagination copy https://ncatlab.org/nlab/files/SchappacherScholl.pdf, SHA256 604efee0cc32f3a06e7915a3bd3f00cb7d2d218274f2d835ca93d6aa6964663e: pp.275–280, 284–289, 294–302. Page image of 3.1.8 checked in both copies."
+        "Published-pagination copy https://ncatlab.org/nlab/files/SchappacherScholl.pdf, SHA256 604efee0cc32f3a06e7915a3bd3f00cb7d2d218274f2d835ca93d6aa6964663e: pp.275–280, 284–289, 294–302. Page image of 3.1.8 checked in both copies.",
+        "Revision 2, 2026-10-08: reread 1.0–1.3 (pp.2–6), 2.2–2.3 (pp.6–7), 3.0–3.1 (pp.8–9), 3.4–3.5 (p.11), 4.5–6.1 (pp.14–17), and 7.2–7.4 (pp.19–20). Rechecked the rendered residue formula 3.1.8 on author-copy p.9; the published scan comparison remains the independent reviewer’s record."
       ],
-      "accessed": "2026-10-06"
+      "accessed": "2026-10-08"
     },
     {
       "id": "DS.1991",
       "title": "The Beilinson conjectures",
       "authors": "Christopher Deninger and Anthony J. Scholl",
-      "edition": "1991 survey; author public preprint, section locators",
+      "edition": "1991 survey; public author preprint, section locators with author-copy page numbers",
       "url": "https://www.dpmms.cam.ac.uk/~ajs1005/preprints/d-s.pdf",
       "sha256": "f4a31e86abb2e80a1b3a07a6158fa19ff4f8110a75c7db491890877b12dfcb27",
       "readSections": [
         "(1.3)(1),(6): proper functoriality and finite Galois descent.",
-        "(2.6)–(2.8): regulator functoriality and construction of cycle maps with supports; degrees and weights checked."
+        "(2.6)–(2.8): regulator functoriality and construction of cycle maps with supports; degrees and weights checked.",
+        "Revision 2, 2026-10-08: (1.3)(1),(6), p.2; (2.6)–(2.8), pp.6–8, including the supports construction and its degree shifts."
       ],
-      "accessed": "2026-10-06"
+      "accessed": "2026-10-08"
     },
     {
       "id": "Siegel.1965",
@@ -133,9 +135,10 @@
       "sha256": "97db8ec4f8477bea009f9264d17dfd4b76e9d6bd529c31316df4a07499f88643",
       "readSections": [
         "§1 Theorem 1 and proof, first Kronecker limit formula; §3 Theorem 2 and complete proof, second limit formula.",
-        "§5 Theorem 3 and its Mellin/Poisson proof. Use theorem/section locators rather than inherited pp.17,40,69."
+        "§5 Theorem 3 and its Mellin/Poisson proof. Use theorem/section locators rather than inherited pp.17,40,69.",
+        "Revision 2, 2026-10-08: §1 Theorem 1 p.13 and proof pp.5–13; §3 Theorem 2 p.28 and proof pp.21–28; §5 Theorem 3 p.47 and proof pp.41–47. These are printed reprint pages, respectively PDF pages 17,32,51 for the theorem statements."
       ],
-      "accessed": "2026-10-06"
+      "accessed": "2026-10-08"
     },
     {
       "id": "Brunault.2005",
@@ -210,7 +213,7 @@
       "sources": [
         {
           "sourceId": "SS.1988",
-          "locator": "1.1.1",
+          "locator": "1.1.1; author-copy p.3",
           "match": "SS 1.1.1 defines the span of all unit pairs before intersection with compact motivic cohomology; comap is its algebraic prototype."
         }
       ],
@@ -316,7 +319,7 @@
       "sources": [
         {
           "sourceId": "SS.1988",
-          "locator": "1.1.1–1.1.3",
+          "locator": "1.1.1–1.1.3; author-copy p.3",
           "match": "Exact target statement, with convention and gap qualifications given in the proof outline."
         }
       ],
@@ -433,7 +436,7 @@
       "sources": [
         {
           "sourceId": "SS.1988",
-          "locator": "3.4.0",
+          "locator": "3.4.0; author-copy p.11",
           "match": "SS 3.4.0 states cuspidal finiteness and proves it by disjoint good-prime spectra, p−1 > 2√p for p≥7. The node isolates that proof ingredient."
         }
       ],
@@ -483,7 +486,7 @@
       "sources": [
         {
           "sourceId": "SS.1988",
-          "locator": "1.3.0–1.3.1, 3.5.3; full-level specialization using Weil reciprocity",
+          "locator": "1.3.0–1.3.1, 3.5.3; full-level specialization using Weil reciprocity; author-copy pp.5,11",
           "match": "SS 1.3.1 gives the general finite-extension correction; 3.5.3 proves compact-pairing vanishing for constants. The node proves the stated full-level F-rational-cusp specialization using the separately named suppliers."
         }
       ],
@@ -532,7 +535,7 @@
       "sources": [
         {
           "sourceId": "SS.1988",
-          "locator": "1.3.2(i), 2.3, 4.5.3, 5.1.0 and 5.2",
+          "locator": "1.3.2(i), 2.3, 4.5.3, 5.1.0 and 5.2; author-copy pp.6–7,14–16",
           "match": "Exact target statement, with convention and gap qualifications given in the proof outline."
         }
       ],
@@ -576,7 +579,7 @@
       "sources": [
         {
           "sourceId": "SS.1988",
-          "locator": "1.3.2(ii), 4.5.4 and 6.0–6.1.1",
+          "locator": "1.3.2(ii), 4.5.4 and 6.0–6.1.1; author-copy pp.6,14,17",
           "match": "SS 1.3.2(ii), 4.5.4 and §6 give nonvanishing after choosing the level and local vectors, rather than at a prescribed initial level."
         },
         {
@@ -625,7 +628,7 @@
       "sources": [
         {
           "sourceId": "SS.1988",
-          "locator": "1.2.6–1.2.9",
+          "locator": "1.2.6–1.2.9; author-copy p.5",
           "match": "Exact target statement, with convention and gap qualifications given in the proof outline."
         }
       ],
@@ -665,7 +668,7 @@
       "sources": [
         {
           "sourceId": "SS.1988",
-          "locator": "1.1.2(i), 1.2.4–1.2.9",
+          "locator": "1.1.2(i), 1.2.4–1.2.9; author-copy pp.3–5",
           "match": "Exact target statement, with convention and gap qualifications given in the proof outline."
         }
       ],
@@ -707,7 +710,7 @@
       "sources": [
         {
           "sourceId": "SS.1988",
-          "locator": "1.1.2(ii), 1.2.2–1.2.6",
+          "locator": "1.1.2(ii), 1.2.2–1.2.6; author-copy pp.3–5",
           "match": "Exact target statement, with convention and gap qualifications given in the proof outline."
         }
       ],
@@ -747,7 +750,7 @@
       "sources": [
         {
           "sourceId": "SS.1988",
-          "locator": "7.2.3–7.2.4",
+          "locator": "7.2.3–7.2.4; author-copy p.19",
           "match": "Exact target statement, with convention and gap qualifications given in the proof outline."
         }
       ],
@@ -859,7 +862,7 @@
       "sources": [
         {
           "sourceId": "SS.1988",
-          "locator": "7.1.1 and 7.2.5",
+          "locator": "7.1.1 and 7.2.5; author-copy pp.18–19",
           "match": "Exact target statement, with convention and gap qualifications given in the proof outline."
         }
       ],
@@ -904,7 +907,7 @@
       "sources": [
         {
           "sourceId": "SS.1988",
-          "locator": "7.3.0–7.3.2, especially the proof of 7.3.1 printed after 7.3.2",
+          "locator": "7.3.0–7.3.2, especially the proof of 7.3.1 printed after 7.3.2; author-copy pp.19–20",
           "match": "SS 7.3.1 and its proof after 7.3.2 give full-level integrality under the coprime-factor hypothesis; 7.3.0 supplies the horizontal/vertical square."
         }
       ],
@@ -951,7 +954,7 @@
       "sources": [
         {
           "sourceId": "SS.1988",
-          "locator": "1.1.2(iii), 7.3.2 (graph correspondence) and 7.4 (counterexample)",
+          "locator": "1.1.2(iii), 7.3.2 (graph correspondence) and 7.4 (counterexample); author-copy pp.3,19–20",
           "match": "SS 1.1.2(iii) is deduced in 7.3.2 by graph correspondences on regular models. The 7.4 counterexample rules out an integral Manin–Drinfeld shortcut."
         }
       ],
@@ -993,7 +996,7 @@
       "sources": [
         {
           "sourceId": "SS.1988",
-          "locator": "1.2.9 (adjointness), 1.1.2 applied to an elliptic quotient",
+          "locator": "1.2.9 (adjointness), 1.1.2 applied to an elliptic quotient; author-copy pp.3,5",
           "match": "The image under an elliptic quotient is a consumer definition, using proper transfer in SS 1.2.9; it is not a separately named definition in SS."
         }
       ],
@@ -1110,7 +1113,7 @@
       "sources": [
         {
           "sourceId": "DS.1991",
-          "locator": "(1.3)(1),(6); (2.6) (functoriality), (2.7)–(2.8) (construction)",
+          "locator": "(1.3)(1),(6); (2.6) (functoriality), (2.7)–(2.8) (construction); author-copy pp.2,6–8",
           "match": "DS (1.3)(1),(6) gives proper shifts and rational Galois descent; (2.6) asserts regulator covariance, with construction in (2.8). Pairing against pullback forms gives the compact-curve specialization."
         }
       ],
@@ -1162,7 +1165,7 @@
       "sources": [
         {
           "sourceId": "SS.1988",
-          "locator": "1.1.2, 1.2.6–1.2.9; elliptic quotient specialization",
+          "locator": "1.1.2, 1.2.6–1.2.9; elliptic quotient specialization; author-copy pp.3,5",
           "match": "Elliptic-quotient consequence of SS 1.1.2 and 1.2.6–1.2.9, conditional on the explicitly imported parametrization and exact modularity theorem. SS does not itself prove modularity of every E/Q."
         }
       ],
@@ -1376,7 +1379,7 @@
       "id": "EllipticRegulators/E24",
       "source": "SS.1988",
       "kind": "misprint",
-      "locator": "SS 3.1.8, author retypeset p.8 and published-pagination mirror p.286; both checked from rendered page images.",
+      "locator": "SS 3.1.8, author retypeset p.9 and published-pagination mirror p.286; both checked from rendered page images.",
       "printed": "The source assigns φ(k)/w(k,K) as the residue of ηφ at cusp k.",
       "correction": "With 3.0.1 q_w=exp(2πiz/w), 3.1.7 Eφ=−2πyφ+O(1), and ηφ=2∂Eφ, the residue is w(k,K)φ(k), not φ(k)/w(k,K).",
       "reason": "Since log|q_w|=−2πy/w, Eφ=wφ log|q_w|+O(1). Thus 2∂Eφ=wφ dq_w/q_w plus a regular term. SS 3.5.0 defines div(u)=ord_c(u)/w(c), and 3.5.1 η_div(u)=dlog(u) confirms this product convention. For width w=2 and φ=1, the residue is 2 rather than 1/2.",
@@ -1398,7 +1401,7 @@
     {
       "nodeId": "EllipticRegulators:ER.7/kronecker-limit-formulas",
       "status": "Source proof read; analytic adapter still requested",
-      "detail": "Siegel §1 Theorem 1: separate the n=0 lattice row, apply one-dimensional Poisson summation to the power kernel (x²+y²)^(−s), evaluate its nonzero Fourier integrals by branch-cut contour deformation and its zero Fourier integral by the beta function, use exponential bounds for locally uniform continuation, isolate the s=1 pole and sum the logarithmic eta product. This is not the Gaussian/Mellin proof. §3 Theorem 2: for nonintegral characteristics, Abel partial summation establishes locally uniform continuation to Re(s)>1/2; Liouville identifies the twisted partial fractions, geometric series give the logarithmic theta product and Bernoulli term, and quasi-periodicity extends to all nonintegral characteristics. §5 Theorem 3 separately uses the Gaussian theta transformation and a Mellin integral split at 1 for continuation and functional equation. Translate Q=y⁻¹|m+nz|² and summation over both signs to Brunault before using a constant. Mathlib Poisson requires locally uniform norm summability and summable Fourier integrals; prove these for the power kernel in §1 and for Gaussian iterations when following §5.",
+      "detail": "For the first-limit adapter, use Siegel §1 Theorem 1 (p.13; proof pp.5–13): separate the n=0 lattice row, apply one-dimensional Poisson summation to the power kernel (x²+y²)^(−s), evaluate its nonzero Fourier integrals by branch-cut contour deformation and its zero Fourier integral by the beta function, use exponential bounds for locally uniform continuation, isolate the s=1 pole and sum the logarithmic eta product. For the second-limit adapter, use §3 Theorem 2 (p.28; proof pp.21–28): for nonintegral characteristics, Abel partial summation establishes locally uniform continuation to Re(s)>1/2; Liouville identifies the twisted partial fractions, geometric series give the logarithmic theta product and Bernoulli term, and quasi-periodicity extends to all nonintegral characteristics. The separate continuation adapter in §5 Theorem 3 (p.47; proof pp.41–47) uses the Gaussian theta transformation and a Mellin integral split at 1 for continuation and functional equation. Translate Q=y⁻¹|m+nz|² and summation over both signs to Brunault before using a constant. Mathlib Poisson requires locally uniform norm summability and summable Fourier integrals; prove these for the power kernel in §1 and for Gaussian iterations when following §5.",
       "sources": [
         "Siegel.1965"
       ],
@@ -1447,7 +1450,7 @@
     {
       "nodeId": "EllipticRegulators:ER.7/regulator-under-finite-pushforward",
       "status": "Compact proper-covariance proof supplied; function-field extension and conventions open",
-      "detail": "Deninger–Scholl (2.6)–(2.8) gives proper functoriality of the real Deligne cycle map. For finite maps of compact curves c=0, so no shift occurs, and duality pairs pushforward with pullback forms. The new adjointness node proves the compact-class case needed here independently of the inherited assertion. It repairs the invalid projection-formula-symbol proof only in that scope. The inherited assertion for arbitrary function-field symbols still requires a natural compact/open projection or a supports argument, recorded in G2; no complete proof of that stronger assertion is claimed.",
+      "detail": "Deninger–Scholl (2.6)–(2.8), author-copy pp.6–8, gives proper functoriality of the real Deligne cycle map. For finite maps of compact curves c=0, so no shift occurs, and duality pairs pushforward with pullback forms. The new adjointness node proves the compact-class case needed here independently of the inherited assertion. It repairs the invalid projection-formula-symbol proof only in that scope. The inherited assertion for arbitrary function-field symbols still requires a natural compact/open projection or a supports argument, recorded in G2; no complete proof of that stronger assertion is claimed.",
       "sources": [
         "DS.1991"
       ],
@@ -1715,5 +1718,13 @@
         "note": "Elliptic motive specialization checked against SS 1.1.2/1.2.6–1.2.9 and exact R29.5/R29.6 supplier statements. Added explicit graph/weight dependencies; no optimality, cφ=1, trace noncancellation or full-K2 rank assertion."
       }
     ]
+  },
+  "revisionNotes": {
+    "jobId": "BP-EllipticRegulators--ER.7~2",
+    "issue": 6956,
+    "agent": "Codex",
+    "session": "codex-XTusmX",
+    "date": "2026-10-08",
+    "detail": "Definitive reader synchronized with the independent review corrections: period quotient and Rankin–Selberg owner; targeted Siegel proof adapters; proper smooth-fibre units; total arithmetic-model K/G transfer and target Adams projection; general-curve model independence through requested regular common domination; compact-class covariance without importing its inherited repair target. The prior review object, all sixteen node IDs, 26 APIs, sixteen tests, six gaps, thirteen requests and E24 confirmation are retained. Source passages are expressed in our own words with theorem, section and page locators. E24’s author-copy locator is corrected from p.8 to the inspected p.9; its independent confirmation and published p.286 locator are preserved."
   }
 }
