@@ -833,7 +833,9 @@ theorem weight_two_dilogarithm_comparison {Presentation : Type*}
 theorem higher_weight_polylogarithm_comparison {NormalizedPresentation : Type*}
     (n : ℕ) (syn : Kgroup →+ K) (toK : NormalizedPresentation → Kgroup)
     (modifiedPolylogSum : NormalizedPresentation → K) (sign : K)
-    (ξ : NormalizedPresentation) : syn (toK ξ) = sign * modifiedPolylogSum ξ := by sorry
+    (hn : 2 ≤ n) (hs : sign = 1 ∨ sign = -1)
+    (ξ : NormalizedPresentation) :
+    syn (toK ξ) = sign * ((n - 1).factorial : K) * modifiedPolylogSum ξ := by sorry
 theorem gros_normalisation (syn gros : Kgroup →+ K) (φ : K →+ K) (p : K) (n : ℕ) (x : Kgroup) :
     gros x = syn x - (p^n)⁻¹ * φ (syn x) := by sorry
 end RigidSyntomic
@@ -885,10 +887,16 @@ theorem divided_small_twist_comparison (p r i : ℕ) (hir : i≤r) (hrp : r≤p-
 theorem undivided_bounded_comparison (p bound : ℕ) (αund : U1 →ₗ[R] E1) :
     (∀ x ∈ αund.ker, (p^bound) • x=0) ∧
     (∀ y : E1, ∃ x : U1, αund x=(p^bound) • y) := by sorry
-theorem syntomic_exponential {F Syn DR H1 : Type*} [Field F]
-    [AddCommGroup Syn] [Module F Syn] [AddCommGroup DR] [Module F DR]
-    [AddCommGroup H1] [Module F H1] (boundary : DR →ₗ[F] Syn)
-    (edge : Syn →ₗ[F] H1) (expBK : DR →ₗ[F] H1) : edge.comp boundary=expBK := by sorry
+-- The divided boundary is transported through the RATIONAL omega equivalence.
+-- A raw undivided quotient coordinate differs by p^r in the EN period convention.
+theorem syntomic_exponential {F SynU SynD DR H1 : Type*} [Field F]
+    [AddCommGroup SynU] [Module F SynU] [AddCommGroup SynD] [Module F SynD]
+    [AddCommGroup DR] [Module F DR] [AddCommGroup H1] [Module F H1]
+    (omegaQ : SynU ≃ₗ[F] SynD) (dividedBoundary : DR →ₗ[F] SynD)
+    (edgeU : SynU →ₗ[F] H1) (expBK : DR →ₗ[F] H1) :
+    edgeU.comp (omegaQ.symm.toLinearMap.comp dividedBoundary) = expBK := by sorry
+-- Normalization test at p=5, r=2; the geometric comparison remains unproved.
+example (x : ℚ) : ((5 : ℚ)^2)⁻¹ * (25*x) = x := by norm_num; ring
 end PeriodCohomology
 end TauCeti.PadicHodgeRegulators
 
@@ -922,6 +930,10 @@ example : (LinearMap.id - LinearMap.id : ℚ →ₗ[ℚ] ℚ).ker=⊤ := by sorr
 example {F Rigid MW : Type*} [Field F] [AddCommGroup Rigid] [Module F Rigid]
     [AddCommGroup MW] [Module F MW] (comparison : Rigid ≃ₗ[F] MW) :
     Function.Bijective comparison := by sorry
+-- TEST rigidSyntomic_filtration_complex: derivative is onto on A^1 over Q,
+-- while the degree-one term retained by F^1 is the nonzero polynomial module.
+example : Function.Surjective (Polynomial.derivative : Polynomial ℚ → Polynomial ℚ) ∧
+    ¬ Subsingleton (Polynomial ℚ) := by sorry
 -- TEST rigidSyntomic_not_de_rham: the positive-weight filtration term is zero.
 example (A : ℚ ≃ₗ[ℚ] ℚ) : ¬ Subsingleton (rigidPointCohomology A.toLinearMap) ∧
     Subsingleton (⊥ : Submodule ℚ ℚ) := by sorry
