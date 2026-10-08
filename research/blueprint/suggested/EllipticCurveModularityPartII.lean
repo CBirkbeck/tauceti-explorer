@@ -28,7 +28,9 @@ suggest correspond to the owner's as follows.
 * `krausG_eq_of_lcm_eq`: a consequence of `krausG_eq`.
 * `martin_bound`: `martin_bound`, proved there from `dimension_comparison`
   and the estimates `prime_case` to `bounded_family`.
-* `norm_bound`: `prime_divides_integral_norm` and `trace_norm`.
+* `norm_bound`: the owner’s `prime_divides_integral_norm` for the lower bound;
+  Mathlib’s `Algebra.norm_eq_prod_embeddings` and `AlgHom.card` for the general
+  upper bound. `trace_norm` specializes it to the coefficient difference.
 * `integral_isogeny_j_values`: the owner's node
   EC.5/integral-parameter-divisibility, on `lemosNumerator`.
 
@@ -37,8 +39,8 @@ the isogeny and irreducibility statements, Lemos's theorem) are statements of
 the owner's packet nodes named in the roadmap document.
 
 What follows is not part of any roadmap's plan. It is the arithmetic behind the
-acceptance tests of the roadmap document and behind its three remarks on the
-owner's statements, stated on Mathlib objects only, and proved.
+acceptance tests of the roadmap document, its residue-prime estimate and its
+finite-matrix remark, stated on Mathlib objects only, and proved.
 -/
 
 open Polynomial
