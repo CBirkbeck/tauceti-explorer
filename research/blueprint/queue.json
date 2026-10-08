@@ -37340,8 +37340,9 @@
     "BP-BorelRegulators~2"
    ],
    "prompt": "research/blueprint/prompts/REV-BorelRegulators~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7028"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7028",
+   "finishedAt": "2026-10-08T09:23:21Z"
   },
   {
    "kind": "blueprint",
@@ -38090,7 +38091,8 @@
    ],
    "revisionOf": "BP-ClassicalSerreModularity--R26.1",
    "prompt": "research/blueprint/prompts/BP-ClassicalSerreModularity--R26.1~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6949"
   },
   {
    "priority": 2,
