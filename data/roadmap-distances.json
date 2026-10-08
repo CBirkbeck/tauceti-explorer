@@ -78,7 +78,7 @@
    "tauceti:Completed/IntegralLattices": 0.0,
    "tauceti:Completed/OrthogonalL2Bases": 0.0
   },
-  "declarationsVsDistance": -0.125
+  "declarationsVsDistance": -0.111
  },
  "roadmaps": {
   "AInfCohomology": {
@@ -1200,7 +1200,17 @@
     "missingLayers": 140.5,
     "missingTargets": 738.0,
     "depth": 20,
-    "suppliers": 39
+    "suppliers": 39,
+    "declarationLevel": {
+     "source": "blueprint",
+     "reviewed": true,
+     "declarations": 56,
+     "missingDeclarations": 56,
+     "depth": 16,
+     "layersCovered": 7,
+     "layers": 7,
+     "sourcePages": 101
+    }
    },
    "measurement": 5.42,
    "judgements": 11,
@@ -2359,12 +2369,12 @@
     "declarationLevel": {
      "source": "blueprint",
      "reviewed": true,
-     "declarations": 135,
-     "missingDeclarations": 135,
+     "declarations": 151,
+     "missingDeclarations": 151,
      "depth": 16,
      "layersCovered": 8,
      "layers": 8,
-     "sourcePages": 126
+     "sourcePages": 139
     }
    },
    "measurement": 8.79,
@@ -3391,12 +3401,12 @@
     "declarationLevel": {
      "source": "blueprint",
      "reviewed": true,
-     "declarations": 78,
-     "missingDeclarations": 78,
+     "declarations": 140,
+     "missingDeclarations": 140,
      "depth": 18,
-     "layersCovered": 8,
+     "layersCovered": 10,
      "layers": 10,
-     "sourcePages": 154
+     "sourcePages": 214
     }
    },
    "measurement": 9.02,
@@ -3510,12 +3520,12 @@
     "declarationLevel": {
      "source": "blueprint",
      "reviewed": true,
-     "declarations": 823,
-     "missingDeclarations": 823,
+     "declarations": 885,
+     "missingDeclarations": 885,
      "depth": 25,
-     "layersCovered": 7,
+     "layersCovered": 9,
      "layers": 9,
-     "sourcePages": 357
+     "sourcePages": 501
     }
    },
    "measurement": 4.28,

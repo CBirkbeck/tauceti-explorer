@@ -460,6 +460,17 @@
     "data/blueprints/AutomorphicGaloisRepresentations.md"
    ]
   },
+  "research/blueprint/packets/BorelRegulators.json": {
+   "promotedAt": "2026-10-08T09:37:24Z",
+   "review": "330462f2ea339888",
+   "reviewDate": "2026-10-08",
+   "reviewer": "independent-review-REV-BorelRegulators~2",
+   "sha256": "ce537fee1896b69302e4c8181f9d01fb29ff2563b5c283954c4e372c33323e95",
+   "to": [
+    "data/blueprints/BorelRegulators.json",
+    "data/blueprints/BorelRegulators.md"
+   ]
+  },
   "research/blueprint/packets/ClassicalArithmeticCompletion.json": {
    "promotedAt": "2026-10-01T20:54:46Z",
    "review": "cee58cf39ff3ce8a",
@@ -838,6 +849,17 @@
    "to": [
     "data/blueprints/EllipticRegulators--ER.6.json",
     "data/blueprints/EllipticRegulators--ER.6.md"
+   ]
+  },
+  "research/blueprint/packets/EllipticRegulators--ER.7.json": {
+   "promotedAt": "2026-10-08T09:37:24Z",
+   "review": "1687429b4a9c37c8",
+   "reviewDate": "2026-10-08",
+   "reviewer": "independent-review-REV-EllipticRegulators--ER.7~2",
+   "sha256": "864eb0c7dfc7e3e6e14ace771588a9a637bf73facc90c1020a41a159673402d1",
+   "to": [
+    "data/blueprints/EllipticRegulators--ER.7.json",
+    "data/blueprints/EllipticRegulators--ER.7.md"
    ]
   },
   "research/blueprint/packets/EllipticRegulators--ER.8.json": {
@@ -1293,6 +1315,17 @@
     "data/blueprints/HeegnerPointEulerSystems--HE.0.md"
    ]
   },
+  "research/blueprint/packets/HeegnerPointEulerSystems--HE.7s.json": {
+   "promotedAt": "2026-10-08T09:37:24Z",
+   "review": "ca1a2576e30c495f",
+   "reviewDate": "2026-10-08",
+   "reviewer": "independent-review-REV-HeegnerPointEulerSystems--HE.7s~2",
+   "sha256": "a8c1389600561724d38e4e605604eabfa6ed091e34aa84c6f4e88c519988e20a",
+   "to": [
+    "data/blueprints/HeegnerPointEulerSystems--HE.7s.json",
+    "data/blueprints/HeegnerPointEulerSystems--HE.7s.md"
+   ]
+  },
   "research/blueprint/packets/HilbertModularVarietiesAndShimuraCurves--H0.json": {
    "promotedAt": "2026-10-07T06:32:04Z",
    "review": "ef3b99b04b982798",
@@ -1363,6 +1396,18 @@
     "data/blueprints/roadmaps/HodgeStructuresPartII.json"
    ]
   },
+  "research/blueprint/packets/HodgeStructuresPartII--H.4.json": {
+   "promotedAt": "2026-10-08T09:37:24Z",
+   "review": "1ce04287982b7ae7",
+   "reviewDate": "2026-10-08",
+   "reviewer": "independent-review-REV-HodgeStructuresPartII--H.4",
+   "sha256": "d91b110d58e91deb9c2167e3dba0d8bf13edaece3c15b1c0957b6bded1b0a898",
+   "to": [
+    "data/blueprints/HodgeStructuresPartII--H.4.json",
+    "data/blueprints/HodgeStructuresPartII--H.4.md",
+    "data/blueprints/roadmaps/HodgeStructuresPartII.json"
+   ]
+  },
   "research/blueprint/packets/HodgeStructuresPartII--H.5.json": {
    "promotedAt": "2026-10-08T06:11:19Z",
    "review": "8b2420c896ea5597",
@@ -1372,6 +1417,18 @@
    "to": [
     "data/blueprints/HodgeStructuresPartII--H.5.json",
     "data/blueprints/HodgeStructuresPartII--H.5.md",
+    "data/blueprints/roadmaps/HodgeStructuresPartII.json"
+   ]
+  },
+  "research/blueprint/packets/HodgeStructuresPartII--H.6.json": {
+   "promotedAt": "2026-10-08T09:37:24Z",
+   "review": "b8eb7c468e6a8250",
+   "reviewDate": "2026-10-08",
+   "reviewer": "independent-review-REV-HodgeStructuresPartII--H.6",
+   "sha256": "0ca8bda4e5cee2ea43c37f5dc2393145bf7e32e611897c11100fb08354e6e072",
+   "to": [
+    "data/blueprints/HodgeStructuresPartII--H.6.json",
+    "data/blueprints/HodgeStructuresPartII--H.6.md",
     "data/blueprints/roadmaps/HodgeStructuresPartII.json"
    ]
   },

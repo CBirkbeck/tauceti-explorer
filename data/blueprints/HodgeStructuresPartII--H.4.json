@@ -1,0 +1,3343 @@
+{
+ "roadmapId": "HodgeStructuresPartII",
+ "protocol": "blueprint-v1",
+ "part": "H.4",
+ "scope": [
+  "HodgeStructuresPartII:H.4"
+ ],
+ "status": "complete",
+ "summary": "Target-level parabolic bundle foundations and the Landesman–Litt Clifford, sub-local system rank and Artinian vanishing bounds. Real weights, the ℝ-filtration, normalized duals with their mixed-mark fibre description, twists, the coparabolic zero lattice and section-map rank are explicit; the parabolic structure of a logarithmic connection and the Mehta–Seshadri semistability of unitary canonical extensions are planned here. The trace pairing (H.3), the canonical extension, unitary curve VMHS and fixed part (H.2) and the moduli stack of curves (StableReductionPartII) are imported; vector Clifford/HN, the fibre-unitary decomposition, analytic versal-family interfaces, global Lean carriers, unrestricted admissibility and the open-curve Mehta–Seshadri comparison are gaps G1–G6.",
+ "baseline": {
+  "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+  "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+  "declarations": [
+   {
+    "ref": "mathlib:Submodule",
+    "kind": "declaration",
+    "module": "Mathlib/Algebra/Module/Submodule/Defs.lean",
+    "provides": "Native linear subspaces and submodules; finite fibre flags and local modification kernels use this carrier.",
+    "checked": "Actual source statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-07; re-read by REV-HodgeStructuresPartII--H.4 at the same commit on 2026-10-08."
+   },
+   {
+    "ref": "mathlib:Module.finrank",
+    "kind": "declaration",
+    "module": "Mathlib/LinearAlgebra/Dimension/Finrank.lean",
+    "provides": "Natural finite rank, used for finite-dimensional complex vector spaces and for the free rank-r ℂ⟦t⟧-lattice of coparabolic-rank. Infinite rank maps to zero by convention, so no infinite-rank claim is inferred.",
+    "checked": "Actual source statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-07; re-read by REV-HodgeStructuresPartII--H.4 at the same commit on 2026-10-08."
+   },
+   {
+    "ref": "mathlib:LinearMap.range",
+    "kind": "declaration",
+    "module": "Mathlib/Algebra/Module/Submodule/Range.lean",
+    "provides": "The image submodule of a linear map; its finrank measures the section-map rank.",
+    "checked": "Actual source statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-07; re-read by REV-HodgeStructuresPartII--H.4 at the same commit on 2026-10-08."
+   },
+   {
+    "ref": "mathlib:PowerSeries.coeff",
+    "kind": "declaration",
+    "module": "Mathlib/RingTheory/PowerSeries/Basic.lean",
+    "provides": "The coefficient linear map, in particular reduction modulo the parameter in the local coparabolic lattice.",
+    "checked": "Actual source statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-07; re-read by REV-HodgeStructuresPartII--H.4 at the same commit on 2026-10-08."
+   },
+   {
+    "ref": "mathlib:Representation",
+    "kind": "declaration",
+    "module": "Mathlib/RepresentationTheory/Basic.lean",
+    "provides": "Monoid homomorphisms into module endomorphisms; group actions give local-system monodromy carriers.",
+    "checked": "Actual source statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-07; re-read by REV-HodgeStructuresPartII--H.4 at the same commit on 2026-10-08."
+   },
+   {
+    "ref": "mathlib:Subrepresentation",
+    "kind": "declaration",
+    "module": "Mathlib/RepresentationTheory/Subrepresentation.lean",
+    "provides": "A native submodule stable under the group action; no new sub-local-system predicate is substituted.",
+    "checked": "Actual source statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-07; re-read by REV-HodgeStructuresPartII--H.4 at the same commit on 2026-10-08."
+   },
+   {
+    "ref": "mathlib:Representation.invariants",
+    "kind": "declaration",
+    "module": "Mathlib/RepresentationTheory/Invariants.lean",
+    "provides": "The native submodule consisting of vectors fixed by every group element.",
+    "checked": "Actual source statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-07; re-read by REV-HodgeStructuresPartII--H.4 at the same commit on 2026-10-08."
+   },
+   {
+    "ref": "mathlib:SheafOfModules.IsLocallyFree",
+    "kind": "declaration",
+    "module": "Mathlib/Algebra/Category/ModuleCat/Sheaf/LocallyFree.lean",
+    "provides": "Native local-free sheaf predicate; finite rank, curve degree, fibres and saturation still require the curve supplier.",
+    "checked": "Actual source statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-07; re-read by REV-HodgeStructuresPartII--H.4 at the same commit on 2026-10-08."
+   }
+  ]
+ },
+ "sources": [
+  {
+   "id": "LL24",
+   "title": "Canonical representations of surface groups",
+   "authors": "Aaron Landesman and Daniel Litt",
+   "edition": "arXiv:2205.15352v4, 23 February 2025; preprint page numbers. Version of record: Annals of Mathematics 199 (2024), 823–897.",
+   "url": "https://arxiv.org/pdf/2205.15352v4",
+   "sha256": "4cb511ba40675aa6899b351f2ee27eb9487b4a21f65ec8000c1f2cc1a5107ceb",
+   "accessed": "2026-10-07",
+   "readSections": [
+    "Theorem 1.7.1 and Notation 1.10.1, pp.6 and 10–11",
+    "§2.1 (Lemmas 2.1.4–2.1.5) and §2.4 (Lemmas 2.4.1–2.4.2), pp.13–20, decomposition proof and cited extension route",
+    "§§4.1–4.2, pp.24–27, VMHS and fixed-part interfaces",
+    "§§5.1–5.2, pp.27–31: Notation 5.1.1, Theorem 5.1.6, (5.5), §5.2.1, Remark 5.2.2, Propositions 5.2.3–5.2.4, Remark 5.2.5",
+    "§§6.1–6.2, pp.32–34, entire proofs; corrected by the author erratum"
+   ]
+  },
+  {
+   "id": "LL22",
+   "title": "Geometric local systems on very general curves and isomonodromy",
+   "authors": "Aaron Landesman and Daniel Litt",
+   "edition": "arXiv:2202.00039v3; preprint page numbers. Version of record: JAMS 37 (2024), 683–729.",
+   "url": "https://arxiv.org/pdf/2202.00039v3",
+   "sha256": "4f291599d8259d8084677c9f4325cc4329e7460d246ff0b311aa739da45763ab",
+   "accessed": "2026-10-07",
+   "readSections": [
+    "§§2.1–2.4, pp.10–14: Definitions 2.1.1–2.1.2, Example 2.2.4, Definitions 2.2.8–2.2.9, §2.3 induced structures, Definitions 2.4.1–2.4.2, Lemma 2.4.5",
+    "§2.6, p.15: Definition 2.6.1, Lemma 2.6.2 (parabolic dual), Definition 2.6.3 and Lemma 2.6.5 (tensor product and degrees)",
+    "Definition 3.3.1 and Proposition 3.3.2, pp.20–21, parabolic structure of a connection",
+    "§§6.1–6.3, pp.36–43: Definition 6.1.3, Lemmas 6.2.1–6.2.3, Proposition 6.3.1, Lemmas 6.3.3–6.3.5, Proposition 6.3.6 with complete proofs"
+   ]
+  },
+  {
+   "id": "BPGN97",
+   "title": "Geography of Brill-Noether loci for small slopes",
+   "authors": "L. Brambila-Paz, I. Grzegorczyk and P. E. Newstead",
+   "edition": "arXiv:alg-geom/9511003v1, 6 November 1995; J. Algebraic Geometry 6 (1997), 645–669",
+   "url": "https://arxiv.org/pdf/alg-geom/9511003v1",
+   "sha256": "49a54383e147457176491d81c822ea334504c8d16964e38fb7c5cdf155d03bf8",
+   "accessed": "2026-10-07",
+   "readSections": [
+    "§1 curve and characteristic conventions",
+    "Theorem 2.1 and entire induction proof, preprint p.9; Riemann–Roch line, p.10"
+   ]
+  },
+  {
+   "id": "MS80",
+   "title": "Moduli of vector bundles on curves with parabolic structures",
+   "authors": "V. B. Mehta and C. S. Seshadri",
+   "edition": "Mathematische Annalen 248 (1980), 205–239; journal page numbers. Read in the Indian Academy of Sciences repository copy of the published article.",
+   "url": "https://repository.ias.ac.in/20407/1/305.pdf",
+   "sha256": "f039f19dc7a507301572930bbc54e3a94cf7dac2449f7cdebed098a3ef7dd7b9",
+   "accessed": "2026-10-08",
+   "readSections": [
+    "§1, pp.208–216: Definitions 1.5–1.8, Proposition 1.9, Corollary 1.10, Definition 1.11, Propositions 1.12 and 1.15, Definition 1.13, Remark 1.16"
+   ]
+  },
+  {
+   "id": "AHL19",
+   "title": "Vanishing theorems for parabolic Higgs bundles",
+   "authors": "Donu Arapura, Feng Hao and Hongshan Li",
+   "edition": "arXiv:1801.02562v3; preprint page numbers. Version of record: Mathematical Research Letters 26 (2019), 1251–1279.",
+   "url": "https://arxiv.org/pdf/1801.02562v3",
+   "sha256": "311c64078d22ac5d34ff9754dfa529fa059af958ddf863e0346771a3e52ec5ea",
+   "accessed": "2026-10-08",
+   "readSections": [
+    "§4, Proposition 4.1, pp.7–8",
+    "§5, Definitions 5.1–5.2, Theorem 5.3, Proposition 5.4, Corollary 5.5, pp.10–12"
+   ]
+  },
+  {
+   "id": "LL-ERRATA",
+   "title": "Author-posted errata: Canonical representations of surface groups and Geometric local systems",
+   "authors": "Aaron Landesman and Daniel Litt; posted by Daniel Litt",
+   "edition": "Author erratum sections P04 and P05, accessed 7 October 2026. Audit/review text is not used as mathematical authority.",
+   "url": "https://www.daniellitt.com/published-paper-reviews.html",
+   "sha256": "c382f55815ca3e6f01a3b1abf60d8d06161f8734876e9aaf887c5dc4143a6032",
+   "accessed": "2026-10-07",
+   "readSections": [
+    "P04 author erratum: printed pp.844–845, Lemma 2.4.2; p.860 replacement proof of Lemma 6.1.1",
+    "P05 author erratum screened for corrections affecting §§2 and 6.2–6.3; none listed"
+   ]
+  },
+  {
+   "id": "MATHLIB",
+   "title": "Pinned Mathlib module and local-algebra source interfaces",
+   "authors": "The Mathlib community",
+   "edition": "Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
+   "url": "https://github.com/leanprover-community/mathlib4/tree/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib",
+   "accessed": "2026-10-08",
+   "readSections": [
+    "Submodule, finrank, range, Representation, Subrepresentation, invariants, locally free sheaves and power-series coefficients; see baseline.declarations for exact files"
+   ]
+  }
+ ],
+ "nodes": [
+  {
+   "id": "HodgeStructuresPartII:H.4/weighted-flag",
+   "parentStageId": "HodgeStructuresPartII:H.4",
+   "realises": [
+    "HodgeStructuresPartII:H.4"
+   ],
+   "title": "Weighted decreasing fibre flags",
+   "kind": "definition",
+   "declarationName": "TauCeti.ParabolicBounds.WeightedFlag",
+   "statement": "For a finite-dimensional complex vector space V, a weighted flag is an integer m≥0, a strictly decreasing filtration V=F₀⊋F₁⊋⋯⊋F_m=0 and weights α₀<⋯<α_{m−1} in [0,1). The weight αᵢ labels Fᵢ/Fᵢ₊₁. If V=0, m=0 and there are no weights. Isomorphisms transport subspaces and retain weights; this is a flag on the actual fibre, not a flag on its set of sections.",
+   "hypotheses": [],
+   "proofSteps": [
+    "Use finite families of native complex submodules; require the endpoints and strict inclusions.",
+    "Use real weights with the half-open normalization; quotient dimensions are dim Fᵢ−dim Fᵢ₊₁."
+   ],
+   "acceptance": [
+    "On ℂ²⊋ℂe₂⊋0 with weights 1/4<1/2 the contribution is 3/4, not 1.",
+    "The sum of graded ranks is dim V and the contribution is strictly below dim V for V≠0."
+   ],
+   "prerequisites": [
+    "mathlib:Submodule",
+    "mathlib:Module.finrank"
+   ],
+   "library": {
+    "module": "TauCeti/Geometry/ParabolicBounds/Bundles",
+    "namespace": "TauCeti.ParabolicBounds"
+   },
+   "sources": [
+    {
+     "sourceId": "LL22",
+     "locator": "§2.1, Definition 2.1.1, pp.10–11",
+     "match": "Defines a quasiparabolic structure as a strictly decreasing filtration of each marked fibre ending at zero, and a parabolic structure as adding strictly increasing weights in [0,1); the node is the fibrewise part of this."
+    },
+    {
+     "sourceId": "LL24",
+     "locator": "§5.2.1, p.30",
+     "match": "Recalls the same decreasing fibre filtration with increasing weights in [0,1), confirming the conventions used in the rank argument."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.ParabolicBounds.WeightedFlag.trivial",
+     "role": "constructor",
+     "statement": "For nonzero V and 0≤a<1, the single-step flag V⊋0 has weight a; zero V has the empty flag."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.WeightedFlag.gradedRank",
+     "role": "data",
+     "statement": "The i-th graded rank is dim Fᵢ−dim Fᵢ₊₁."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.WeightedFlag.gradedRank_sum",
+     "role": "relation",
+     "statement": "The sum of all graded ranks is dim V.",
+     "nodeId": "HodgeStructuresPartII:H.4/weighted-graded-rank-sum"
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.WeightedFlag.ext",
+     "role": "extensionality",
+     "statement": "Two flags with equal length, equal subspaces and equal weights are equal."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.WeightedFlag.transport",
+     "role": "functoriality",
+     "statement": "A linear equivalence transports each flag subspace; weights and graded ranks are unchanged."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.WeightedFlag.threshold",
+     "role": "data",
+     "statement": "For 0≤a<1, the part of weight at least a: the flag step F_β with β the least index whose weight is ≥a, and 0 if no weight is ≥a."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.WeightedFlag.threshold_antitone",
+     "role": "structure",
+     "statement": "a≤b implies threshold b ⊆ threshold a, and threshold 0 is the whole space."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.WeightedFlag.contribution",
+     "role": "data",
+     "statement": "The weighted contribution Σᵢ αᵢ·gradedRank i, a real number."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.WeightedFlag.contribution_le",
+     "role": "relation",
+     "statement": "If every weight is at most a then the contribution is at most a·dim V; in particular the contribution is below dim V when V≠0 (LL22 Lemma 6.3.3)."
+    }
+   ],
+   "tests": [
+    {
+     "name": "TauCeti.ParabolicBounds.WeightedFlag.one_step_half",
+     "kind": "computation",
+     "statement": "On V=ℂ with weight 1/2, the unique graded rank is 1 and its weighted contribution is 1/2."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.WeightedFlag.zero_empty",
+     "kind": "degenerate",
+     "statement": "The zero fibre has empty weights and total graded rank zero."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.WeightedFlag.weight_one_excluded",
+     "kind": "non-example",
+     "statement": "A purported one-step flag of weight 1 is excluded by α<1."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.WeightedFlag.transport_native",
+     "kind": "compatibility",
+     "statement": "Transport along the identity linear equivalence returns the native Submodule flag unchanged."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.WeightedFlag.two_step_contribution",
+     "kind": "computation",
+     "statement": "On ℂ²⊋ℂe₂⊋0 with weights 1/4<1/2 the graded ranks are 1 and 1 and the weighted contribution is 3/4 (weighting dim Fᵢ instead of dim Fᵢ/Fᵢ₊₁ would give 1)."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.WeightedFlag.multiplicity",
+     "kind": "computation",
+     "statement": "On ℂ²⊋0 with the single weight 1/3 the graded rank is 2 and the weighted contribution is 2/3 (counting each weight once would give 1/3)."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.WeightedFlag.not_increasing",
+     "kind": "non-example",
+     "statement": "No weighted flag on ℂ² has two steps with weights 1/2 and then 0: weights must increase along the decreasing flag."
+    }
+   ],
+   "uses": [
+    {
+     "where": "LL22 Definition 2.1.2, p.11",
+     "how": "the graded dimensions dim(Eⱼⁱ/Eⱼⁱ⁺¹), each multiplied by its weight, form the correction term of the parabolic degree"
+    },
+    {
+     "where": "LL22 §2.3, pp.13–14; LL24 §5.2.1, p.30",
+     "how": "induced sub- and quotient structures intersect (resp. push) the flag into the fibre of the subbundle (resp. quotient), delete repeated steps and keep the largest weight"
+    },
+    {
+     "where": "LL22 Lemma 6.3.3 and proof, p.40",
+     "how": "the normalised graded dimensions at a point sum to one, which bounds the weight contribution per point by the maximal weight"
+    },
+    {
+     "where": "LL24 §5.2.1, p.30 (packet node coparabolic-zero)",
+     "how": "at marks whose first weight is zero, the second flag step Eⱼ² is the target of the elementary modification defining Ê₀"
+    }
+   ]
+  },
+  {
+   "id": "HodgeStructuresPartII:H.4/parabolic-bundle",
+   "parentStageId": "HodgeStructuresPartII:H.4",
+   "realises": [
+    "HodgeStructuresPartII:H.4"
+   ],
+   "title": "Parabolic bundle on a marked complex curve",
+   "kind": "definition",
+   "declarationName": "TauCeti.ParabolicBounds.ParabolicBundle",
+   "statement": "Fix a smooth proper connected complex curve C and a reduced divisor D=Σ_{j∈J}xⱼ with distinct points and finite J. A parabolic bundle E⋆ is a finite locally free O_C-module E of constant rank together with a WeightedFlag on each complex fibre E(xⱼ). The zero bundle has empty flags. No rationality assumption is imposed on the weights. Morphisms preserve the corresponding real-filtered lattices, equivalently each weight threshold; an arbitrary map of underlying bundles need not be parabolic.",
+   "hypotheses": [],
+   "proofSteps": [
+    "Import the ordinary bundle, degree and fibre functor from the curve foundations.",
+    "Attach the finite weighted flags; identify equivalent trivializations by transporting native fibre submodules.",
+    "The trivial parabolic structure has the single weight zero at every mark. The parabolic structure attached to a logarithmic connection, in particular to a canonical extension, is the separate construction HodgeStructuresPartII:H.4/connection-parabolic-structure."
+   ],
+   "acceptance": [
+    "The trivial structure on E has E_α=E(−⌈α⌉D) and coparabolic zero lattice E(−D).",
+    "For residue diag(0,1/3) the structure is E_x⊋(1/3-eigenline)⊋0 with weights 0<1/3, and parDeg=deg E+1/3."
+   ],
+   "prerequisites": [
+    "HodgeStructuresPartII:H.4/weighted-flag",
+    "SchemeAndStackFoundations:SF.3",
+    "mathlib:SheafOfModules.IsLocallyFree"
+   ],
+   "library": {
+    "module": "TauCeti/Geometry/ParabolicBounds/Bundles",
+    "namespace": "TauCeti.ParabolicBounds"
+   },
+   "sources": [
+    {
+     "sourceId": "LL22",
+     "locator": "Definition 2.1.1, pp.10–11",
+     "match": "A parabolic bundle is a vector bundle with, at each marked point, a strictly decreasing fibre filtration and strictly increasing weights in [0,1); this is the node's data."
+    },
+    {
+     "sourceId": "LL22",
+     "locator": "Examples 2.2.4 and 2.2.6, p.12",
+     "match": "Turns the flag data into a left-continuous ℝ-filtered sheaf with E_{α+1}=E_α(−D), and defines the trivial structure as the one-step flag with weight zero; fixes the morphism and filtration conventions."
+    },
+    {
+     "sourceId": "LL22",
+     "locator": "Definition 3.3.1, p.20",
+     "match": "Weights from a logarithmic connection are fractional parts of real parts of residue eigenvalues; flag steps are sums of generalized eigenspaces above each threshold. Source of the residue compatibility item."
+    },
+    {
+     "sourceId": "LL24",
+     "locator": "§5.2.1, p.30",
+     "match": "Restates the same parabolic bundle data and conventions in the form used for Proposition 5.2.3."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.ParabolicBounds.ParabolicBundle.trivial",
+     "role": "constructor",
+     "statement": "Equip any E with its single weight-zero flags, or empty flags at rank zero."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.ParabolicBundle.rank",
+     "role": "projection",
+     "statement": "The rank of E⋆ equals the ordinary rank of E."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.ParabolicBundle.residueWeights",
+     "role": "compatibility",
+     "statement": "For a logarithmic connection, in particular the canonical extension, the parabolic structure is HodgeStructuresPartII:H.4/connection-parabolic-structure: weights are the normalized real parts of the residue eigenvalues and the flag is the sum of generalized eigenspaces above each threshold.",
+     "nodeId": "HodgeStructuresPartII:H.4/connection-parabolic-structure"
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.ParabolicBundle.ext",
+     "role": "extensionality",
+     "statement": "An equality of underlying bundles and transported fibre flags determines equality of the parabolic structures."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.ParabolicBundle.markedFlag",
+     "role": "projection",
+     "statement": "For j∈J, the WeightedFlag on the fibre E(xⱼ)."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.ParabolicBundle.toBundle",
+     "role": "projection",
+     "statement": "The underlying ordinary vector bundle E; ordinaryDegree is deg det E."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.ParabolicBundle.filtration",
+     "role": "data",
+     "statement": "The decreasing left-continuous ℝ-filtration E_α of LL22 Example 2.2.4: for 0≤α≤1, near xⱼ the sections whose value lies in the flag step of weight at least α (E_1=E(−D)), extended by E_{α+1}=E_α(−D)."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.ParabolicBundle.filtration_zero",
+     "role": "simp",
+     "statement": "E_0=E."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.ParabolicBundle.filtration_add_one",
+     "role": "relation",
+     "statement": "E_{α+1}=E_α(−D) for every real α."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.ParabolicBundle.filtration_antitone",
+     "role": "structure",
+     "statement": "α≤β implies E_β⊆E_α."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.ParabolicBundle.filtration_mem",
+     "role": "characterisation",
+     "statement": "For 0≤α≤1, a local section near xⱼ lies in E_α exactly when its value at xⱼ lies in the threshold step of weight ≥α of the flag."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.ParabolicBundle.ext_filtration",
+     "role": "extensionality",
+     "statement": "Two parabolic structures on the same E with the same filtration are equal: the weights are the jumps in [0,1) and the flags are the fibre images of the E_α."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.ParabolicBundle.Hom",
+     "role": "data",
+     "statement": "Parabolic morphisms E⋆→F⋆: bundle maps f with f(E_α)⊆F_α for every α; equivalently at each xⱼ the fibre map sends the threshold step of weight ≥a into that of F for 0≤a<1 (LL22 Definition 2.2.3, Remark 2.2.5)."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.ParabolicBundle.Hom.comp",
+     "role": "functoriality",
+     "statement": "Identity maps are parabolic and composites of parabolic morphisms are parabolic."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.ParabolicBundle.Hom.ofTrivial",
+     "role": "compatibility",
+     "statement": "Every ordinary map V→E is a parabolic morphism from V with the trivial structure to E⋆ (LL22 Remark 2.2.7)."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.ParabolicBundle.directSum",
+     "role": "constructor",
+     "statement": "E⋆⊕F⋆ with (E⊕F)_α=E_α⊕F_α; at xⱼ its weight-λ graded piece is the sum of the weight-λ graded pieces."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.ParabolicBundle.exists_adapted_frame",
+     "role": "characterisation",
+     "statement": "Near each xⱼ there is a local frame whose values at xⱼ span every flag step; locally E⋆ is a direct sum of parabolic line bundles."
+    }
+   ],
+   "tests": [
+    {
+     "name": "TauCeti.ParabolicBounds.ParabolicBundle.no_marks",
+     "kind": "degenerate",
+     "statement": "When J is empty the parabolic data is exactly the ordinary bundle, with no extra weights."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.ParabolicBundle.trivial_weights",
+     "kind": "compatibility",
+     "statement": "Every weight of a nonzero trivial parabolic structure is zero."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.ParabolicBundle.rank_two_weights",
+     "kind": "computation",
+     "statement": "For the diagonal residue with eigenvalues 0 and 1/3 in the frame e₁,e₂, the flag is E_x⊋ℂe₂⊋0 with weights 0 and 1/3 and graded multiplicities 1 and 1; the deep step is the 1/3-eigenline, not ℂe₁."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.ParabolicBundle.residue_sign",
+     "kind": "non-example",
+     "statement": "For a rank-one residue 1/3, continuing a flat section once counter-clockwise around x multiplies it by exp(−2πi/3), not exp(2πi/3) (the sign of HodgeStructuresPartII:H.2/residue-monodromy)."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.ParabolicBundle.trivial_filtration",
+     "kind": "compatibility",
+     "statement": "For the trivial structure, E_α=E(−⌈α⌉D) for all real α; in particular E_{1/2}=E(−D) and the coparabolic zero lattice is E(−D)."
+    }
+   ],
+   "uses": [
+    {
+     "where": "LL24 proof of Theorem 1.7.1, p.32",
+     "how": "the residues of the Deligne canonical extension of V restricted to a fibre make E a parabolic bundle (LL22 Def 3.3.1), which Mehta–Seshadri shows is semistable of parabolic degree zero"
+    },
+    {
+     "where": "LL24 Proposition 5.2.3, p.31 (packet node trace-rank-bound)",
+     "how": "the hypothesis is a semistable parabolic bundle of parabolic degree zero, and the pairing B_E is formed on its underlying bundle E"
+    },
+    {
+     "where": "LL22 Proposition 6.3.6, pp.41–42; LL24 Proposition 5.2.4, p.31 (packet node parabolic-clifford-rank)",
+     "how": "the Clifford-type rank inequality is stated for a nonzero parabolic bundle whose coparabolic bundle is semistable, with U inside Ê₀"
+    }
+   ],
+   "planet": {
+    "name": "Parabolic bundles"
+   }
+  },
+  {
+   "id": "HodgeStructuresPartII:H.4/induced-subbundle",
+   "parentStageId": "HodgeStructuresPartII:H.4",
+   "realises": [
+    "HodgeStructuresPartII:H.4"
+   ],
+   "title": "Induced parabolic subbundle",
+   "kind": "construction",
+   "declarationName": "TauCeti.ParabolicBounds.inducedSubbundle",
+   "statement": "For a saturated ordinary subbundle F⊂E, intersect each fibre flag with F(xⱼ), remove repeated subspaces and give each retained nonzero step the largest original weight with that intersection. This yields F⋆. The zero subbundle has an empty flag. Saturated means the ordinary quotient is locally free on the regular curve; mere injectivity with torsion quotient does not supply this fibrewise construction.",
+   "hypotheses": [],
+   "proofSteps": [
+    "Pull back each native fibre subspace along the injective fibre map.",
+    "Compress equal consecutive intersections and take the maximum attached weight; retain endpoint zero only as an endpoint."
+   ],
+   "acceptance": [
+    "In R4 (ℂ³ flag, F=⟨e₁+e₂,e₃⟩) the induced weights are 0 and 2/3.",
+    "(F⋆)_α=F∩E_α for all α."
+   ],
+   "prerequisites": [
+    "HodgeStructuresPartII:H.4/parabolic-bundle",
+    "mathlib:Submodule"
+   ],
+   "library": {
+    "module": "TauCeti/Geometry/ParabolicBounds/Bundles",
+    "namespace": "TauCeti.ParabolicBounds"
+   },
+   "sources": [
+    {
+     "sourceId": "LL22",
+     "locator": "§2.3, p.13",
+     "match": "Gives the induced structure on a subbundle: intersect the fibre flag with the subbundle fibre, delete repetitions, and attach to each step the largest weight among the ambient steps cutting it out."
+    },
+    {
+     "sourceId": "LL24",
+     "locator": "§5.2.1, p.30",
+     "match": "Repeats the same intersection-and-maximum rule and uses it in the definition of parabolic semistability."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.ParabolicBounds.inducedSubbundle.flag_comap",
+     "role": "characterisation",
+     "statement": "Before compression, the flag at x is the inverse image of the ambient flag under F(x)→E(x)."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.inducedSubbundle.repeated_max",
+     "role": "relation",
+     "statement": "Equal nonzero intersections receive the largest of their original weights."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.inducedSubbundle.self",
+     "role": "simp",
+     "statement": "The induced structure on E⊂E is E⋆."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.inducedSubbundle.trans",
+     "role": "functoriality",
+     "statement": "Inducing from E to F and then to G⊂F agrees with inducing directly from E to G."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.inducedSubbundle.rank",
+     "role": "projection",
+     "statement": "rank F⋆=rank F, and the inclusion F⋆→E⋆ is a parabolic morphism."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.inducedSubbundle.filtration_eq_inf",
+     "role": "characterisation",
+     "statement": "For a saturated F⊂E, the induced filtration is (F⋆)_α=F∩E_α for every real α; this is equivalent to the maximum-weight rule."
+    }
+   ],
+   "tests": [
+    {
+     "name": "TauCeti.ParabolicBounds.inducedSubbundle.zero",
+     "kind": "degenerate",
+     "statement": "The zero subbundle has rank and weighted contribution zero."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.inducedSubbundle.high_weight_line",
+     "kind": "computation",
+     "statement": "For flag ℂ²⊋ℂe₂⊋0 of weights 0 and 3/4, the induced flag on ℂe₂ has its single weight 3/4, not zero."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.inducedSubbundle.low_weight_line",
+     "kind": "computation",
+     "statement": "For the same flag the induced flag on ℂe₁ has its single weight zero."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.inducedSubbundle.identity_native",
+     "kind": "compatibility",
+     "statement": "Under the identity fibre map, every native Submodule in the flag is unchanged."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.inducedSubbundle.induced_two_dim",
+     "kind": "computation",
+     "statement": "For ℂ³⊋⟨e₂,e₃⟩⊋⟨e₃⟩⊋0 with weights 0,1/3,2/3 and F=⟨e₁+e₂,e₃⟩, the induced flag is F⊋⟨e₃⟩⊋0 with weights 0 and 2/3 (the minimum rule would give 0 and 1/3)."
+    }
+   ],
+   "uses": [
+    {
+     "where": "LL22 Definition 2.4.1, p.14; LL24 §5.2.1, p.30",
+     "how": "semistability compares μ⋆ of every subbundle with this induced structure against μ⋆(E⋆)"
+    },
+    {
+     "where": "LL22 Lemma 2.4.5, p.14",
+     "how": "with the induced quotient structure, parDeg is additive along 0→F⋆→E⋆→Q⋆→0, turning the subbundle criterion into the quotient criterion"
+    },
+    {
+     "where": "LL24 proof of Proposition 5.2.3, p.31 (packet node dual-twist-semistable)",
+     "how": "saturated subbundles of (E⋆)^∨⊗ω_C(D), with induced structure, are duals of induced quotients of E⋆ twisted by ω_C(D); their slopes give semistability"
+    }
+   ]
+  },
+  {
+   "id": "HodgeStructuresPartII:H.4/induced-quotient",
+   "parentStageId": "HodgeStructuresPartII:H.4",
+   "realises": [
+    "HodgeStructuresPartII:H.4"
+   ],
+   "title": "Induced parabolic quotient",
+   "kind": "construction",
+   "declarationName": "TauCeti.ParabolicBounds.inducedQuotient",
+   "statement": "For an ordinary locally free quotient q:E→Q with saturated kernel F, take at each marked point xⱼ the images q(Eⱼⁱ)=(Eⱼⁱ+F(xⱼ))/F(xⱼ) of the flag steps, remove repetitions and assign the maximum original weight to each retained nonzero step. This is the induced parabolic quotient Q⋆. Its graded multiplicities fit the exact sequence with those of F⋆ and E⋆, so parabolic degrees add.",
+   "hypotheses": [],
+   "proofSteps": [
+    "Map the fibre flags by the surjective native linear quotient map.",
+    "Compress repetitions with the same maximum-weight convention as for subbundles.",
+    "Exactness of the fibrewise associated gradeds gives degree additivity once ordinary degrees add."
+   ],
+   "acceptance": [
+    "In R4 the quotient weight is 1/3 and 0+2/3+1/3 equals the ambient contribution 1.",
+    "(Q⋆)_α=q(E_α) for all α."
+   ],
+   "prerequisites": [
+    "HodgeStructuresPartII:H.4/parabolic-bundle",
+    "HodgeStructuresPartII:H.4/induced-subbundle",
+    "SchemeAndStackFoundations:SF.3",
+    "mathlib:Submodule"
+   ],
+   "library": {
+    "module": "TauCeti/Geometry/ParabolicBounds/Bundles",
+    "namespace": "TauCeti.ParabolicBounds"
+   },
+   "sources": [
+    {
+     "sourceId": "LL22",
+     "locator": "§2.3, pp.13–14",
+     "match": "Gives the induced structure on a quotient: push each flag step to the quotient fibre, delete repetitions, and attach the largest ambient weight producing each step."
+    },
+    {
+     "sourceId": "LL22",
+     "locator": "Lemma 2.4.5, p.14",
+     "match": "States that parabolic degree is additive for a subbundle with induced structure and the corresponding quotient, the property the node records."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.ParabolicBounds.inducedQuotient.flag_map",
+     "role": "characterisation",
+     "statement": "Before compression, the quotient flag is the image of each ambient flag."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.inducedQuotient.degree_add",
+     "role": "relation",
+     "statement": "For 0→F⋆→E⋆→Q⋆→0 induced from a saturated sequence, parDeg E⋆=parDeg F⋆+parDeg Q⋆.",
+     "nodeId": "HodgeStructuresPartII:H.4/parabolic-degree-add"
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.inducedQuotient.identity",
+     "role": "simp",
+     "statement": "The quotient by the zero subbundle has the original parabolic structure."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.inducedQuotient.trans",
+     "role": "functoriality",
+     "statement": "Successive locally free quotients give the same structure as the composite quotient."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.inducedQuotient.rank_add",
+     "role": "relation",
+     "statement": "rank E=rank F+rank Q for the induced sequence."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.inducedQuotient.filtration_eq_map",
+     "role": "characterisation",
+     "statement": "For a locally free quotient q:E→Q with saturated kernel, the induced filtration is (Q⋆)_α=q(E_α) for every real α."
+    }
+   ],
+   "tests": [
+    {
+     "name": "TauCeti.ParabolicBounds.inducedQuotient.zero",
+     "kind": "degenerate",
+     "statement": "The zero quotient has no weights and degree zero."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.inducedQuotient.kill_high",
+     "kind": "computation",
+     "statement": "Quotienting flag ℂ²⊋ℂe₂⊋0 of weights 0,3/4 by ℂe₂ leaves a weight-zero line."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.inducedQuotient.kill_low",
+     "kind": "computation",
+     "statement": "Quotienting that flag by ℂe₁ leaves a line of weight 3/4, because repeated images use maximum weight."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.inducedQuotient.native_map",
+     "kind": "compatibility",
+     "statement": "The uncompressed fibre flag is precisely the native Submodule.map under q."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.inducedQuotient.induced_two_dim",
+     "kind": "computation",
+     "statement": "For ℂ³⊋⟨e₂,e₃⟩⊋⟨e₃⟩⊋0 with weights 0,1/3,2/3 and kernel F=⟨e₁+e₂,e₃⟩, the one-dimensional quotient has weight 1/3; with the induced weights 0,2/3 on F the contributions add to the ambient 1 (under the minimum rule they would not)."
+    }
+   ],
+   "uses": [
+    {
+     "where": "LL22 Lemma 2.4.5, p.14",
+     "how": "parDeg is additive along the induced sequence, so semistability is equivalent to μ⋆(E⋆)≤μ⋆(Q⋆) for all nonzero quotients"
+    },
+    {
+     "where": "LL22 Lemma 6.3.4 and proof, pp.40–41 (packet node ordinary-quotient-slope)",
+     "how": "an ordinary quotient Q of V (or the image Q_ε of W[ε]_0) is given the induced quotient structure; its μ⋆ is at least μ⋆(V⋆) and Lemma 6.3.3 bounds μ⋆(Q⋆)−μ(Q) by n"
+    },
+    {
+     "where": "packet node dual-twist-semistable (LL24 proof of Proposition 5.2.3, p.31)",
+     "how": "subbundles of the dual twist correspond to induced quotients of E⋆, so the quotient criterion yields its semistability"
+    }
+   ]
+  },
+  {
+   "id": "HodgeStructuresPartII:H.4/parabolic-degree",
+   "parentStageId": "HodgeStructuresPartII:H.4",
+   "realises": [
+    "HodgeStructuresPartII:H.4"
+   ],
+   "title": "Real parabolic degree",
+   "kind": "definition",
+   "declarationName": "TauCeti.ParabolicBounds.parabolicDegree",
+   "statement": "For E⋆ on (C,D), parDeg(E⋆)=deg(E)+ΣⱼΣᵢ αⱼᵢ dim(Fⱼᵢ/Fⱼᵢ₊₁), as a real number. The ordinary degree is the degree of det E, extended by deg(0)=0. Weights contribute with a plus sign. Coparabolic degree, when used, means the parabolic degree of its antecedent E⋆ and is not the degree of its zero lattice.",
+   "hypotheses": [],
+   "proofSteps": [
+    "Coerce the ordinary integer degree to the reals and sum the finite weighted graded dimensions.",
+    "The sum of graded dimensions at each mark equals rank E; exact sequences use induced flags."
+   ],
+   "acceptance": [
+    "A degree-0 rank-two bundle with weights 1/4<1/2 at one mark has parDeg 3/4; with the single weight 1/3 of multiplicity two it has parDeg 2/3.",
+    "deg E ≤ parDeg E⋆ ≤ deg E + n·rank E·α_max, with equality on the right iff every weight equals α_max (LL22 Lemma 6.3.3)."
+   ],
+   "prerequisites": [
+    "HodgeStructuresPartII:H.4/parabolic-bundle",
+    "SchemeAndStackFoundations:SF.3",
+    "mathlib:Module.finrank",
+    "HodgeStructuresPartII:H.4/weighted-graded-rank-sum"
+   ],
+   "library": {
+    "module": "TauCeti/Geometry/ParabolicBounds/Bundles",
+    "namespace": "TauCeti.ParabolicBounds"
+   },
+   "sources": [
+    {
+     "sourceId": "LL22",
+     "locator": "Definition 2.1.2, p.11",
+     "match": "Defines parabolic degree as the ordinary degree plus, at every mark, each weight times the dimension of its graded piece, and slope as degree over rank."
+    },
+    {
+     "sourceId": "LL22",
+     "locator": "Definition 2.2.9, p.13",
+     "match": "Defines the coparabolic degree and slope of Ê⋆ to be those of the parabolic bundle E⋆, which is the coparabolic convention the node fixes."
+    },
+    {
+     "sourceId": "LL24",
+     "locator": "§5.2.1, p.30",
+     "match": "Restates the same parabolic degree formula used in Proposition 5.2.3."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.ParabolicBounds.parabolicDegree.trivial",
+     "role": "simp",
+     "statement": "The trivial parabolic structure has degree deg E."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.parabolicDegree.bounds",
+     "role": "relation",
+     "statement": "For nonzero rank r, deg E≤parDeg E⋆<deg E+n r if n>0; if n=0 equality holds.",
+     "nodeId": "HodgeStructuresPartII:H.4/parabolic-degree-bounds"
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.parabolicDegree.twist",
+     "role": "compatibility",
+     "statement": "Twisting by an ordinary line bundle L with trivial parabolic structure adds rank(E) deg L to parDeg.",
+     "nodeId": "HodgeStructuresPartII:H.4/parabolic-twist-degree"
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.parabolicDegree.eq_deg_add_contribution",
+     "role": "characterisation",
+     "statement": "parDeg E⋆=deg E+Σⱼ contribution of the flag at xⱼ."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.parabolicDegree.directSum",
+     "role": "relation",
+     "statement": "parDeg(E⋆⊕F⋆)=parDeg E⋆+parDeg F⋆."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.ParabolicBundle.shift",
+     "role": "constructor",
+     "statement": "For 0<ε<1 the shifted parabolic bundle E[ε]⋆ with E[ε]_α=E_{α+ε} (LL22 Example 2.2.2); its underlying bundle is E_ε."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.parabolicDegree.shift",
+     "role": "relation",
+     "statement": "For 0<ε<1, parDeg E[ε]⋆=parDeg E⋆−ε·n·rank E: each of the n marks lowers the degree by ε·rank E."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.coparabolicDegree",
+     "role": "data",
+     "statement": "The coparabolic degree of Ê⋆ is parDeg E⋆ by definition (LL22 Definition 2.2.9), not the degree of Ê₀."
+    }
+   ],
+   "tests": [
+    {
+     "name": "TauCeti.ParabolicBounds.parabolicDegree.line_quarter",
+     "kind": "computation",
+     "statement": "An ordinary degree −1 line with one weight 1/4 has parabolic degree −3/4."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.parabolicDegree.zero",
+     "kind": "degenerate",
+     "statement": "The zero parabolic bundle has degree zero."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.parabolicDegree.unmarked",
+     "kind": "compatibility",
+     "statement": "Without marks, parabolic and ordinary degrees agree."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.parabolicDegree.real_weights",
+     "kind": "non-example",
+     "statement": "A degree-zero line with one weight √2/2 has real parabolic degree √2/2; rational weights are not required."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.parabolicDegree.rank_two_multiplicity",
+     "kind": "computation",
+     "statement": "A degree-0 rank-two bundle with the one-step flag E_x⊋0 of weight 1/3 at one mark has parabolic degree 2/3 (counting the weight once gives 1/3)."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.parabolicDegree.two_weights",
+     "kind": "computation",
+     "statement": "A degree-0 rank-two bundle with flag E_x⊋ℓ⊋0 and weights 1/4<1/2 has parabolic degree 3/4 (weighting the dimension of the flag step instead of the graded piece gives 1)."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.parabolicDegree.coparabolic_not_zero_lattice",
+     "kind": "non-example",
+     "statement": "For the trivial structure on a rank-r degree-d bundle with n marks, the coparabolic degree is d while the ordinary degree of the coparabolic zero lattice E(−D) is d−nr."
+    }
+   ],
+   "uses": [
+    {
+     "where": "LL24 Proposition 5.2.3, p.31 (packet node trace-rank-bound)",
+     "how": "the hypothesis parDeg E⋆=0 makes the dual twist (E⋆)^∨⊗ω_C(D) have slope exactly 2g−2+n, the boundary case of Proposition 5.2.4(II)"
+    },
+    {
+     "where": "LL22 Lemma 6.3.3, p.40 (packet node parabolic-degree-bounds)",
+     "how": "μ⋆(W⋆)−μ(W) is the weighted graded sum divided by rank, hence at most n times the largest weight"
+    },
+    {
+     "where": "LL22 Lemma 2.6.5, p.15 (packet nodes parabolic-dual-degree, parabolic-twist-degree)",
+     "how": "parabolic degree is negated by the parabolic dual and is additive in the expected way under parabolic tensor product"
+    },
+    {
+     "where": "LL22 Definition 2.2.9, p.13; LL24 Remark 5.2.5, p.31",
+     "how": "coparabolic degree and slope are by definition those of the antecedent parabolic bundle"
+    }
+   ]
+  },
+  {
+   "id": "HodgeStructuresPartII:H.4/parabolic-slope",
+   "parentStageId": "HodgeStructuresPartII:H.4",
+   "realises": [
+    "HodgeStructuresPartII:H.4"
+   ],
+   "title": "Parabolic slope with a nonzero-rank guard",
+   "kind": "definition",
+   "declarationName": "TauCeti.ParabolicBounds.parabolicSlope",
+   "statement": "For positive rank r, μ⋆(E⋆)=parDeg(E⋆)/r. A total numerical interface assigns μ⋆(0)=0, but all assertions about slope comparisons in this layer require the relevant bundle or quotient to have positive rank. Coparabolic slope is μ⋆ of the antecedent parabolic bundle. It is not deg(Ē₀)/r.",
+   "hypotheses": [],
+   "proofSteps": [
+    "Divide the real parabolic degree by the positive integer rank.",
+    "Separate the zero-rank convention from every use of slope division."
+   ],
+   "acceptance": [
+    "For a degree −1 rank-two bundle with weights 0,1/2 at one mark, μ⋆=−1/4.",
+    "μ⋆(E⋆^∨⊗L)=−μ⋆(E⋆)+deg L for positive rank."
+   ],
+   "prerequisites": [
+    "HodgeStructuresPartII:H.4/parabolic-degree"
+   ],
+   "library": {
+    "module": "TauCeti/Geometry/ParabolicBounds/Bundles",
+    "namespace": "TauCeti.ParabolicBounds"
+   },
+   "sources": [
+    {
+     "sourceId": "LL22",
+     "locator": "Definition 2.1.2, p.11",
+     "match": "Defines the parabolic slope as parabolic degree divided by rank."
+    },
+    {
+     "sourceId": "LL22",
+     "locator": "Definition 2.2.9, p.13",
+     "match": "Sets the coparabolic slope equal to the parabolic slope of the antecedent bundle, the convention the node states."
+    },
+    {
+     "sourceId": "LL24",
+     "locator": "Remark 5.2.5, p.31",
+     "match": "Notes that μ⋆(E⋆) and μ⋆(Ê⋆) coincide by definition when comparing Proposition 5.2.4 with the LL22 coparabolic formulation."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.ParabolicBounds.parabolicSlope.mul_rank",
+     "role": "characterisation",
+     "statement": "For r>0, μ⋆(E⋆) r=parDeg(E⋆)."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.parabolicSlope.twist",
+     "role": "compatibility",
+     "statement": "For E≠0, μ⋆(E⋆⊗L)=μ⋆(E⋆)+deg L."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.parabolicSlope.zero",
+     "role": "simp",
+     "statement": "The total numerical interface assigns slope zero at rank zero."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.parabolicSlope.dual",
+     "role": "relation",
+     "statement": "For positive rank, μ⋆(E⋆∨)=−μ⋆(E⋆)."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.parabolicSlope.shift",
+     "role": "relation",
+     "statement": "For 0<ε<1 and positive rank, μ⋆(E[ε]⋆)=μ⋆(E⋆)−nε."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.parabolicSlope.sub_ordinary_lt",
+     "role": "relation",
+     "statement": "For positive rank, 0≤μ⋆(E⋆)−μ(E), and μ⋆(E⋆)−μ(E)<n when n>0 (LL22 Lemma 6.3.3 and the proof of Lemma 6.3.4)."
+    }
+   ],
+   "tests": [
+    {
+     "name": "TauCeti.ParabolicBounds.parabolicSlope.rank_two",
+     "kind": "computation",
+     "statement": "An ordinary degree −1 rank-two bundle with weights 0 and 1/2 at one point has slope −1/4."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.parabolicSlope.rank_zero",
+     "kind": "degenerate",
+     "statement": "The zero-rank convention is zero and does not supply a nonzero quotient."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.parabolicSlope.trivial_native",
+     "kind": "compatibility",
+     "statement": "For positive rank and zero weights the slope is ordinary degree divided by rank."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.parabolicSlope.coparabolic_distinct",
+     "kind": "non-example",
+     "statement": "For a degree-zero line of weight zero at one point, coparabolic slope is zero although its zero lattice has ordinary degree −1."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.parabolicSlope.dual_twist_canonical",
+     "kind": "computation",
+     "statement": "With two marks, the degree −1 line with weight 1/2 at both marks has μ⋆=0; its parabolic dual is the degree −1 line with weights 1/2,1/2, and the twist by K_C(D) has μ⋆=2g=2g−2+n (dualizing only the ordinary line, of degree 1, with reflected weights would give 2g+2)."
+    }
+   ],
+   "uses": [
+    {
+     "where": "LL22 Proposition 6.3.6 (I),(II), p.41; LL24 Proposition 5.2.4, p.31 (packet node parabolic-clifford-rank)",
+     "how": "whether μ⋆ exceeds or equals 2g−2+n selects the strict or the nonstrict rank inequality"
+    },
+    {
+     "where": "LL22 Lemma 6.3.4, pp.40–41 (packet node ordinary-quotient-slope)",
+     "how": "a semistable (co)parabolic bundle of slope r+n has every ordinary quotient of slope at least r"
+    },
+    {
+     "where": "LL24 proof of Proposition 5.2.3, p.31 (packet node dual-twist-semistable)",
+     "how": "since μ⋆(E⋆)=0, the dual twist by ω_C(D) has slope 2g−2+n"
+    }
+   ]
+  },
+  {
+   "id": "HodgeStructuresPartII:H.4/parabolic-semistability",
+   "parentStageId": "HodgeStructuresPartII:H.4",
+   "realises": [
+    "HodgeStructuresPartII:H.4"
+   ],
+   "title": "Parabolic semistability",
+   "kind": "definition",
+   "declarationName": "TauCeti.ParabolicBounds.IsParabolicallySemistable",
+   "statement": "E⋆ is parabolically semistable if every nonzero proper saturated ordinary subbundle F⊂E, equipped with the induced parabolic structure, satisfies μ⋆(F⋆)≤μ⋆(E⋆). Declare the zero object semistable. For positive rank, this is equivalent to every nonzero locally free induced quotient Q having μ⋆(Q⋆)≥μ⋆(E⋆). Coparabolic semistability is inherited from the antecedent parabolic bundle, including its degree convention. Strict stability uses < and proper nonzero subbundles; it is not required by the rank bound.",
+   "hypotheses": [],
+   "proofSteps": [
+    "Use the induced-subbundle construction in the slope inequality, retaining saturation.",
+    "Use degree and rank additivity to pass between subbundle and quotient inequalities.",
+    "Rank-one bundles have no proper positive-rank saturated subbundles."
+   ],
+   "acceptance": [
+    "R5 (O⊕O on ℙ¹, weights 0,1/2 with a constant deep line) is not semistable.",
+    "R6 (O⊕O(−1) on ℙ¹, three marks, weights 0,1/3) is semistable of slope 0 although the underlying bundle is unstable."
+   ],
+   "prerequisites": [
+    "HodgeStructuresPartII:H.4/induced-subbundle",
+    "HodgeStructuresPartII:H.4/induced-quotient",
+    "HodgeStructuresPartII:H.4/parabolic-slope",
+    "HodgeStructuresPartII:H.4/parabolic-degree-add"
+   ],
+   "library": {
+    "module": "TauCeti/Geometry/ParabolicBounds/Bundles",
+    "namespace": "TauCeti.ParabolicBounds"
+   },
+   "sources": [
+    {
+     "sourceId": "LL22",
+     "locator": "Definitions 2.4.1–2.4.2, p.14",
+     "match": "Defines parabolic (semi)stability by comparing slopes of all subbundles with induced structure to the ambient slope, and coparabolic semistability through the antecedent parabolic bundle."
+    },
+    {
+     "sourceId": "LL22",
+     "locator": "Lemma 2.4.5, p.14",
+     "match": "Shows semistability is equivalently tested on quotient bundles with induced structure, the characterisation listed in the node."
+    },
+    {
+     "sourceId": "LL24",
+     "locator": "§5.2.1, p.30",
+     "match": "Restates parabolic semistability with the induced-subbundle maximum rule in the form used for Proposition 5.2.3."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.ParabolicBounds.IsParabolicallySemistable.rank_one",
+     "role": "example",
+     "statement": "Every rank-one parabolic bundle is semistable."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.IsParabolicallySemistable.quotient_iff",
+     "role": "characterisation",
+     "statement": "At positive rank, semistability is equivalent to the induced quotient slope inequality.",
+     "nodeId": "HodgeStructuresPartII:H.4/parabolic-quotient-criterion"
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.IsParabolicallySemistable.trivial_iff",
+     "role": "compatibility",
+     "statement": "For the trivial parabolic structure, parabolic semistability agrees with ordinary semistability."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.IsParabolicallySemistable.iso",
+     "role": "functoriality",
+     "statement": "A parabolic bundle isomorphism preserves semistability."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.IsParabolicallySemistable.slope_le",
+     "role": "projection",
+     "statement": "If E⋆ is semistable and F⊂E is a proper nonzero saturated subbundle, μ⋆(F⋆)≤μ⋆(E⋆)."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.IsParabolicallySemistable.dual_iff",
+     "role": "relation",
+     "statement": "E⋆∨ is semistable iff E⋆ is: saturated subbundles of the dual are the duals of induced quotients, with negated slopes."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.IsParabolicallySemistable.directSum",
+     "role": "relation",
+     "statement": "If E⋆ and F⋆ are semistable of the same slope, E⋆⊕F⋆ is semistable of that slope."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.IsCoparabolicallySemistable",
+     "role": "compatibility",
+     "statement": "Ê⋆ is coparabolically semistable iff E⋆ is parabolically semistable (LL22 Definition 2.4.2); no separate test on subsheaves of Ê₀ is made."
+    }
+   ],
+   "tests": [
+    {
+     "name": "TauCeti.ParabolicBounds.IsParabolicallySemistable.zero",
+     "kind": "degenerate",
+     "statement": "The zero parabolic bundle is semistable by convention."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.IsParabolicallySemistable.line",
+     "kind": "computation",
+     "statement": "A line of any degree and any allowed weights is semistable."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.IsParabolicallySemistable.split_unstable",
+     "kind": "non-example",
+     "statement": "With no marks, O(1)⊕O(−1) on ℙ¹ is not semistable: O(1) has slope 1>0."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.IsParabolicallySemistable.strict_not_needed",
+     "kind": "non-example",
+     "statement": "With no marks, O_C⊕O_C is semistable but not stable; it must remain eligible for the nonstrict Clifford bound."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.IsParabolicallySemistable.weight_destabilises",
+     "kind": "non-example",
+     "statement": "On ℙ¹ with one mark, O⊕O with flag E_x⊋ℂe₂⊋0 (e₂ a constant frame vector) and weights 0,1/2 is not parabolically semistable: the constant line O·e₂ has induced weight 1/2 and μ⋆=1/2>1/4. The minimum-weight rule and ordinary semistability both wrongly accept it."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.IsParabolicallySemistable.weights_stabilise",
+     "kind": "computation",
+     "statement": "On ℙ¹ with three marks, O⊕O(−1) with flag E_x⊋O(−1)_x⊋0 and weights 0,1/3 at each mark is parabolically semistable of parabolic slope 0 (O⊕0 and 0⊕O(−1) both have μ⋆=0, every other line subbundle less), although O⊕O(−1) is not semistable as a vector bundle."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.IsParabolicallySemistable.small_sub_allowed",
+     "kind": "computation",
+     "statement": "With no marks, O⊕O on ℙ¹ is semistable although its saturated subbundle O(−1)→O⊕O, (s,t) a basis of H⁰(O(1)), has smaller slope; this catches the reversed inequality."
+    }
+   ],
+   "uses": [
+    {
+     "where": "LL24 proof of Theorem 1.7.1, p.32; Remark 5.2.2, p.30",
+     "how": "the parabolic bundle of the Deligne extension of a unitary local system is semistable (sum of stable bundles, Mehta–Seshadri/Simpson), the input to Proposition 5.2.3"
+    },
+    {
+     "where": "LL24 proof of Proposition 5.2.3, p.31 (corrected to semistable; packet node dual-twist-semistable)",
+     "how": "the dual twist (E⋆)^∨⊗ω_C(D) of a semistable E⋆ is semistable, which is the hypothesis of Proposition 5.2.4(II)"
+    },
+    {
+     "where": "LL22 Definition 2.4.2, p.14 and Lemma 6.3.4, pp.40–41 (packet node ordinary-quotient-slope)",
+     "how": "coparabolic semistability means the antecedent is semistable; then every ordinary quotient of Ê₀ has slope at least μ⋆−n"
+    }
+   ]
+  },
+  {
+   "id": "HodgeStructuresPartII:H.4/connection-parabolic-structure",
+   "parentStageId": "HodgeStructuresPartII:H.4",
+   "realises": [
+    "HodgeStructuresPartII:H.4"
+   ],
+   "title": "Parabolic structure of a logarithmic connection",
+   "kind": "construction",
+   "declarationName": "TauCeti.ParabolicBounds.ParabolicBundle.ofLogConnection",
+   "statement": "Let C be a smooth proper connected complex curve, D=Σ_{j∈J}xⱼ a reduced divisor, E a vector bundle on C and ∇:E→E⊗Ω¹_C(log D) a connection with logarithmic poles along D. For a residue eigenvalue η of Res_{xⱼ}∇∈End E(xⱼ) put λ(η)=Re η−⌊Re η⌋∈[0,1). The parabolic bundle E⋆^∇ has underlying bundle E; at xⱼ its weights are the distinct values λ(η) in increasing order, and the flag step of weight λ is the sum of the generalized eigenspaces of Res_{xⱼ}∇ for the eigenvalues η with λ(η)≥λ. The graded multiplicity at λ is the total algebraic multiplicity of the eigenvalues with λ(η)=λ. For the Deligne canonical extension of a local system on C∖D every eigenvalue has 0≤Re η<1, so the weights are the real parts of the eigenvalues; for unitary local monodromy the eigenvalues are real and the weights are the eigenvalues themselves.",
+   "hypotheses": [
+    "∇ has logarithmic poles (regular singularities) along the reduced divisor D, whose points are distinct.",
+    "Generalized eigenspaces, not eigenspaces, define the flag; the weight uses the real part of the eigenvalue modulo the integers."
+   ],
+   "proofSteps": [
+    "The residue Res_{xⱼ}∇ is an endomorphism of the fibre E(xⱼ); for the canonical extension HodgeStructuresPartII:H.2/canonical-extension supplies it in a commuting local logarithmic frame.",
+    "The generalized eigenspaces of Res_{xⱼ}∇ decompose E(xⱼ). Summing those with λ(η)≥λ over the distinct values of λ gives a strictly decreasing flag from E(xⱼ) to 0, hence a WeightedFlag with weights in [0,1); attaching these flags to E gives a parabolic bundle.",
+    "On the canonical extension ⌊Re η⌋=0. If the local monodromy is unitary, its eigenvalues exp(−2πiη) (HodgeStructuresPartII:H.2/residue-monodromy) have modulus one, which forces Im η=0."
+   ],
+   "acceptance": [
+    "The trivial connection d on O_C gives the trivial parabolic structure: the single weight 0 at every mark.",
+    "A rank-one connection with residue 1/3 at x gives weight 1/3, and its local monodromy is exp(−2πi/3) with the sign of HodgeStructuresPartII:H.2/residue-monodromy."
+   ],
+   "prerequisites": [
+    "HodgeStructuresPartII:H.4/parabolic-bundle",
+    "HodgeStructuresPartII:H.4/weighted-flag",
+    "HodgeStructuresPartII:H.2/canonical-extension",
+    "HodgeStructuresPartII:H.2/residue-monodromy"
+   ],
+   "library": {
+    "module": "TauCeti/Geometry/ParabolicBounds/Bundles",
+    "namespace": "TauCeti.ParabolicBounds"
+   },
+   "sources": [
+    {
+     "sourceId": "LL22",
+     "locator": "Definition 3.3.1, p.20",
+     "match": "Defines the parabolic bundle of a connection with regular singularities: weights are the fractional parts of the real parts of the residue eigenvalues, flags are sums of generalized eigenspaces above each weight; the strip [0,1) is Deligne's canonical extension."
+    },
+    {
+     "sourceId": "LL24",
+     "locator": "Notation 5.1.1, pp.27–28; proof of Theorem 1.7.1, p.32",
+     "match": "Equips the canonical extension of the unitary system on each fibre with this parabolic structure, and applies Proposition 5.2.3 to it."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.ParabolicBounds.ParabolicBundle.ofLogConnection.weight_eq",
+     "role": "characterisation",
+     "statement": "The weights at xⱼ are exactly the distinct values λ(η) of the residue eigenvalues, in increasing order."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.ParabolicBundle.ofLogConnection.flag_eq",
+     "role": "characterisation",
+     "statement": "The flag step of weight λ is the sum of the generalized eigenspaces of the residue for the eigenvalues η with λ(η)≥λ."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.ParabolicBundle.ofLogConnection.gradedRank_eq",
+     "role": "characterisation",
+     "statement": "The graded multiplicity at weight λ is the sum of the algebraic multiplicities of the residue eigenvalues η with λ(η)=λ; in particular the multiplicities sum to rank E."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.ParabolicBundle.ofLogConnection.unitary_weights",
+     "role": "compatibility",
+     "statement": "For the canonical extension of a unitary local system the weights are the residue eigenvalues, which are real in [0,1), and exp(−2πiλ) runs over the local monodromy eigenvalues (HodgeStructuresPartII:H.2/residue-monodromy)."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.ParabolicBundle.ofLogConnection.directSum",
+     "role": "structure",
+     "statement": "For a direct sum of logarithmic connections the flag of each weight threshold is the direct sum of the flags, and the weights are the union of the weights."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.ParabolicBundle.ofLogConnection.trivial",
+     "role": "example",
+     "statement": "The trivial connection (O_C,d) gives the trivial parabolic structure on O_C."
+    }
+   ],
+   "tests": [
+    {
+     "name": "TauCeti.ParabolicBounds.ParabolicBundle.ofLogConnection.trivial_connection",
+     "kind": "degenerate",
+     "statement": "For E=O_C with ∇=d every residue is 0 and each mark carries the single weight 0 with multiplicity one."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.ParabolicBundle.ofLogConnection.two_eigenvalues",
+     "kind": "computation",
+     "statement": "Residue diag(0,1/3) on a rank-two fibre gives the flag ℂ²⊋ℂe₂⊋0 with weights 0 and 1/3, where e₂ spans the 1/3-eigenspace; an increasing flag of eigenspaces would wrongly put ℂe₁ at the second step."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.ParabolicBundle.ofLogConnection.nilpotent_residue",
+     "kind": "compatibility",
+     "statement": "A nonzero nilpotent residue on a rank-two fibre (unipotent local monodromy) gives the single weight 0 with graded multiplicity 2: generalized eigenspaces are used, so the one-dimensional kernel is not a flag step."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.ParabolicBundle.ofLogConnection.fractional_part",
+     "kind": "non-example",
+     "statement": "A rank-one logarithmic connection with residue 4/3 (not a canonical extension) has weight 1/3, not 4/3: weights are reduced modulo the integers and lie in [0,1)."
+    }
+   ],
+   "uses": [
+    {
+     "where": "LL24, proof of Theorem 1.7.1, p.32",
+     "how": "the residues of the canonical extension of V on the fibre C give the parabolic bundle E⋆ to which Proposition 5.2.3 is applied"
+    },
+    {
+     "where": "LL24, Notation 5.1.1, pp.27–28",
+     "how": "for each fibre of the family, the canonical extension with this structure is the semistable parabolic bundle of the unitary system"
+    },
+    {
+     "where": "HodgeStructuresPartII:H.4/unitary-parabolic-semistable",
+     "how": "the degree-zero and semistability theorem is stated for this structure"
+    },
+    {
+     "where": "LL22, Proposition 3.3.2, pp.20–21",
+     "how": "the connection factors through the parabolic Atiyah bundle of this structure, the setting of the isomonodromy argument"
+    }
+   ],
+   "addedBy": "REV-HodgeStructuresPartII--H.4"
+  },
+  {
+   "id": "HodgeStructuresPartII:H.4/coparabolic-zero",
+   "parentStageId": "HodgeStructuresPartII:H.4",
+   "realises": [
+    "HodgeStructuresPartII:H.4"
+   ],
+   "title": "Coparabolic zero lattice",
+   "kind": "construction",
+   "declarationName": "TauCeti.ParabolicBounds.coparabolicZero",
+   "statement": "For E⋆, let J₀ be the marks whose minimum weight is zero. Define Ē₀=ker(E→⊕_{j∈J₀}E(xⱼ)/Fⱼ₁), where Fⱼ₁ is the second flag subspace, or zero for a one-step flag. This is a locally free elementary modification of the same rank as E; its cokernel is supported at D and need not be locally free. It is the zero lattice of the right-continuous coparabolic filtration Ē_α=⋃_{β>α}E_β. Do not identify its inclusion with a saturated ordinary subbundle of E.",
+   "hypotheses": [],
+   "proofSteps": [
+    "Use fibre evaluation followed by quotient at exactly the zero-minimum-weight marks.",
+    "On a local coordinate t, the kernel consists of sections whose reduction modulo t lies in Fⱼ₁; this lattice is finite free of the same rank.",
+    "Glue kernels; its degree is deg E minus the sum of the zero-weight graded multiplicities."
+   ],
+   "acceptance": [
+    "Ê₀=E_ε for small ε>0 (agreement with LL22 Def 2.2.8), checked on the weights-0,1/4 example.",
+    "deg Ê₀=deg E−Σ_{j∈J₀}dim(E(x_j)/E_j²); for the trivial structure this is deg E−n·rank E."
+   ],
+   "prerequisites": [
+    "HodgeStructuresPartII:H.4/parabolic-bundle",
+    "SchemeAndStackFoundations:SF.3",
+    "mathlib:PowerSeries.coeff",
+    "mathlib:Submodule"
+   ],
+   "library": {
+    "module": "TauCeti/Geometry/ParabolicBounds/Bundles",
+    "namespace": "TauCeti.ParabolicBounds"
+   },
+   "sources": [
+    {
+     "sourceId": "LL24",
+     "locator": "§5.2.1, p.30",
+     "match": "Defines Ê₀ as the kernel of the map from E to the quotients E_x/E² at marks whose first weight is zero, noting it is the special case of the coparabolic notation needed in the paper."
+    },
+    {
+     "sourceId": "LL22",
+     "locator": "Definition 2.2.8, p.13",
+     "match": "Defines the coparabolic bundle by Ê_α = union of E_β over β>α; its value at α=0 is the lattice the node constructs."
+    },
+    {
+     "sourceId": "LL22",
+     "locator": "Example 2.2.4, p.12",
+     "match": "Gives the filtration E_α of a parabolic bundle by fibre conditions at the marks and the −D periodicity, from which Ê₀ is computed."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.ParabolicBounds.coparabolicZero.mem_local",
+     "role": "characterisation",
+     "statement": "In a local trivialization, a section lies in Ē₀ exactly when its value at each zero-weight mark lies in the second flag subspace."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.coparabolicZero.rank",
+     "role": "compatibility",
+     "statement": "rank Ē₀=rank E.",
+     "nodeId": "HodgeStructuresPartII:H.4/coparabolic-rank"
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.coparabolicZero.degree",
+     "role": "relation",
+     "statement": "deg Ē₀=deg E−Σ_{j∈J₀}dim(E(xⱼ)/Fⱼ₁)."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.coparabolicZero.factor",
+     "role": "universal-property",
+     "statement": "A bundle map T→E factors uniquely through Ē₀ precisely when all the indicated residue-value quotient maps vanish."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.coparabolicZero.eq_filtration",
+     "role": "characterisation",
+     "statement": "Ê₀=⋃_{β>0}E_β=E_ε for every 0<ε≤ε₀, where ε₀ is the least positive weight over all marks (ε₀=1 if every weight is zero) (LL22 Definition 2.2.8)."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.coparabolicZero.bounds",
+     "role": "relation",
+     "statement": "E(−D)⊆Ê₀⊆E, with E/Ê₀ a skyscraper of length Σ_{j∈J₀}dim(E(xⱼ)/Eⱼ²)."
+    }
+   ],
+   "tests": [
+    {
+     "name": "TauCeti.ParabolicBounds.coparabolicZero.trivial",
+     "kind": "compatibility",
+     "statement": "For trivial parabolic structure Ē₀=E(−D); locally every component has zero constant coefficient."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.coparabolicZero.positive",
+     "kind": "computation",
+     "statement": "At a mark with all weights positive the zero lattice is the whole original lattice."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.coparabolicZero.mixed",
+     "kind": "computation",
+     "statement": "For weights 0 and 1/2 on a two-dimensional fibre, in a frame adapted to the flag, only the weight-zero coordinate must be divisible by t."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.coparabolicZero.not_fibre_injective",
+     "kind": "non-example",
+     "statement": "The inclusion tℂ[[t]]→ℂ[[t]] has zero induced fibre map at t=0, although the two lattices have the same rank."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.coparabolicZero.three_step",
+     "kind": "computation",
+     "statement": "For ℂ³⊋⟨e₂,e₃⟩⊋⟨e₃⟩⊋0 with weights 0,1/3,2/3 at x, in an adapted frame, Ê₀ consists of the sections whose e₁-coordinate vanishes at x, so deg Ê₀=deg E−1 (killing the deepest step would give deg E−2)."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.coparabolicZero.eq_shift_example",
+     "kind": "compatibility",
+     "statement": "For the rank-two flag with weights 0,1/4 at x, Ê₀ equals E_ε for every 0<ε≤1/4 and differs from E_0=E (agreement with LL22 Definition 2.2.8)."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.coparabolicZero.dual_twist_line",
+     "kind": "computation",
+     "statement": "For a degree-d line with weight 0 at the single mark x, the coparabolic zero lattice of its parabolic dual twisted by K_C(x) is L∨⊗K_C, of degree −d+2g−2."
+    }
+   ],
+   "uses": [
+    {
+     "where": "LL22 Proposition 6.3.6, pp.41–43; LL24 Proposition 5.2.4, p.31 (packet node parabolic-clifford-rank)",
+     "how": "the subbundle U, the corank c and the section deficit δ=h⁰(Ê₀)−h⁰(U) are all taken inside Ê₀"
+    },
+    {
+     "where": "LL24 proof of Proposition 5.2.3, p.31 (packet node coparabolic-dual-twist)",
+     "how": "the zero lattice of the coparabolic bundle of (E⋆)^∨⊗ω_C(D) is E^∨⊗ω_C, so δ becomes the rank of the section map"
+    },
+    {
+     "where": "LL22 Lemma 6.3.4 proof, pp.40–41 (packet node ordinary-quotient-slope)",
+     "how": "an ordinary quotient Q of Ê₀ receives W[ε]_0 for small ε>0; the image is used to show μ(Q)≥μ⋆−n"
+    }
+   ],
+   "planet": {
+    "name": "Coparabolic bundles"
+   }
+  },
+  {
+   "id": "HodgeStructuresPartII:H.4/parabolic-dual",
+   "parentStageId": "HodgeStructuresPartII:H.4",
+   "realises": [
+    "HodgeStructuresPartII:H.4"
+   ],
+   "title": "Normalized parabolic dual",
+   "kind": "construction",
+   "declarationName": "TauCeti.ParabolicBounds.parabolicDual",
+   "statement": "The parabolic dual E⋆∨ is the parabolic internal Hom into O_C with the trivial structure (LL22 Definition 2.6.1). Its filtration is (E⋆∨)_α=(Ê_{−α})∨(−D) (LL22 Lemma 2.6.2), so its underlying bundle is (Ê₀)∨(−D). Its weights are 0 for an original zero weight and 1−α for an original positive weight α, with the same multiplicities. At xⱼ the fibre of (Ê₀)∨(−D) contains the canonical subspace (Eⱼᵏ)∨⊗T*_{xⱼ}C, where k=2 if the first weight at xⱼ is 0 and k=1 otherwise; it carries the weights 1−αⱼⁱ (i≥k), the step of weight 1−αⱼⁱ being the annihilator of Eⱼ^{i+1} in (Eⱼᵏ)∨ tensored with T*, and the quotient (E(xⱼ)/Eⱼᵏ)∨ carries weight 0. Only at marks whose weights are all positive, or all zero, is the dual fibre flag the annihilator flag of E(xⱼ)∨ (tensored with T*_{xⱼ}C at marks whose weights are all positive). At a positive-weight graded factor the underlying dual lattice is shifted down by one divisor; dualizing just the ordinary bundle with reflected weights is wrong. Rank is preserved and parDeg(E⋆∨)=−parDeg(E⋆). Twisting by an ordinary line bundle is the separate construction HodgeStructuresPartII:H.4/parabolic-twist.",
+   "hypotheses": [],
+   "proofSteps": [
+    "Construct the filtered internal Hom as in LL22 Definition 2.2.3.",
+    "Use annihilators of the fibre flags and the periodic lattice relation to normalize weights into [0,1).",
+    "Check the local line models: α=0 gives the ordinary dual; α>0 gives E∨(−x) and weight 1−α. Glue and use determinant degree additivity."
+   ],
+   "acceptance": [
+    "Rank-two mixed example R3: dual underlying O⊕O(−x), weights 0,3/4, parDeg −1/4.",
+    "(E⋆^∨)_0=(Ê₀)^∨(−D) and the coparabolic zero lattice of E⋆^∨ is E^∨(−D)."
+   ],
+   "prerequisites": [
+    "HodgeStructuresPartII:H.4/parabolic-bundle",
+    "HodgeStructuresPartII:H.4/parabolic-degree",
+    "SchemeAndStackFoundations:SF.3",
+    "mathlib:Submodule"
+   ],
+   "library": {
+    "module": "TauCeti/Geometry/ParabolicBounds/Bundles",
+    "namespace": "TauCeti.ParabolicBounds"
+   },
+   "sources": [
+    {
+     "sourceId": "LL22",
+     "locator": "Definition 2.6.1 and Lemma 2.6.2, p.15",
+     "match": "Defines the parabolic dual as the filtered internal Hom into the structure sheaf and identifies its α-term with the dual of the coparabolic (−α)-term twisted by −D, from which the weights and lattice shifts follow."
+    },
+    {
+     "sourceId": "LL22",
+     "locator": "Definition 2.2.3, pp.11–12",
+     "match": "Defines parabolic morphisms and the filtered internal Hom sheaf whose α-term is Hom into the α-shift, the construction used for the dual."
+    },
+    {
+     "sourceId": "LL22",
+     "locator": "Lemma 2.6.5, p.15",
+     "match": "States that the parabolic dual has the negative parabolic degree, as asserted in the node."
+    },
+    {
+     "sourceId": "LL24",
+     "locator": "Proof of Proposition 5.2.3, p.31",
+     "match": "Applies the Clifford-type bound to the dual twisted by ω_C(D), and records that its coparabolic zero lattice is E^∨⊗ω_C."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.ParabolicBounds.parabolicDual.rank",
+     "role": "projection",
+     "statement": "The parabolic dual has the same rank as E⋆."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.parabolicDual.degree",
+     "role": "relation",
+     "statement": "parDeg(E⋆∨)=−parDeg(E⋆).",
+     "nodeId": "HodgeStructuresPartII:H.4/parabolic-dual-degree"
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.parabolicDual.involutive",
+     "role": "equivalence",
+     "statement": "Double parabolic dual is canonically E⋆, preserving filtered lattices."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.parabolicDual.weight",
+     "role": "characterisation",
+     "statement": "A graded weight α is sent to 0 if α=0 and to 1−α otherwise."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.parabolicDual.underlying",
+     "role": "projection",
+     "statement": "The underlying bundle of E⋆∨ is (Ê₀)∨(−D); its degree is −deg E minus the number of positive weights counted with multiplicity."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.parabolicDual.filtration",
+     "role": "characterisation",
+     "statement": "(E⋆∨)_α=(Ê_{−α})∨(−D) for every real α (LL22 Lemma 2.6.2)."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.parabolicDual.fibre",
+     "role": "characterisation",
+     "statement": "At xⱼ the fibre of (Ê₀)∨(−D) has the canonical subspace (Eⱼᵏ)∨⊗T*_{xⱼ}C (k=2 if the first weight is 0, else k=1) carrying the weights 1−α on annihilator steps, with quotient (E(xⱼ)/Eⱼᵏ)∨ of weight 0."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.parabolicDual.map",
+     "role": "functoriality",
+     "statement": "A parabolic morphism f:E⋆→F⋆ induces f∨:F⋆∨→E⋆∨, with id∨=id and (g∘f)∨=f∨∘g∨."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.parabolicDual.induced_exact",
+     "role": "relation",
+     "statement": "For a saturated F⊂E with quotient Q and induced structures, 0→Q⋆∨→E⋆∨→F⋆∨→0 is exact, and its terms carry the induced subbundle and quotient structures."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.parabolicDual.twist",
+     "role": "compatibility",
+     "statement": "(E⋆⊗L)∨=E⋆∨⊗L⁻¹ for an ordinary line bundle L."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.parabolicDual.coparabolicZero",
+     "role": "relation",
+     "statement": "The coparabolic zero lattice of E⋆∨ is E∨(−D), of degree −deg E−n·rank E (LL24 proof of Proposition 5.2.3)."
+    }
+   ],
+   "tests": [
+    {
+     "name": "TauCeti.ParabolicBounds.parabolicDual.zero_weight",
+     "kind": "degenerate",
+     "statement": "An ordinary degree d line with a single zero weight has dual ordinary degree −d and weight zero."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.parabolicDual.positive_line",
+     "kind": "computation",
+     "statement": "A degree d line with a single weight 1/4 has dual degree −d−1 and weight 3/4."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.parabolicDual.degree_test",
+     "kind": "compatibility",
+     "statement": "For that line, dual parabolic degree equals −(d+1/4)."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.parabolicDual.no_weight_one",
+     "kind": "non-example",
+     "statement": "Dualizing zero weight keeps zero and never creates weight one."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.parabolicDual.mixed_rank_two",
+     "kind": "computation",
+     "statement": "For E=Oe₁⊕Oe₂ near x with flag E_x⊋ℂe₂⊋0 and weights 0,1/4, the dual has underlying Oe₁∨⊕O(−x)e₂∨ (degree drop one), weights 0 and 3/4 with deep step spanned by t·e₂∨, and parabolic degree −1/4."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.parabolicDual.trivial",
+     "kind": "compatibility",
+     "statement": "The dual of E with the trivial parabolic structure is E∨ with the trivial parabolic structure."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.parabolicDual.coparabolic_zero_line",
+     "kind": "computation",
+     "statement": "For a degree-d line with weight 1/4 at x, the coparabolic zero lattice of its dual is L∨(−x); for weight 0 it is also L∨(−x), as the identity (E⋆∨)^₀=E∨(−D) predicts."
+    }
+   ],
+   "uses": [
+    {
+     "where": "LL24 proof of Proposition 5.2.3, p.31 (packet nodes dual-twist-semistable, coparabolic-dual-twist)",
+     "how": "Proposition 5.2.4(II) is applied to (E⋆)^∨⊗ω_C(D); its semistability, slope 2g−2+n and coparabolic zero lattice E^∨⊗ω_C are read off from the dual"
+    },
+    {
+     "where": "LL22 Lemma 2.6.5, p.15 (packet node parabolic-dual-degree)",
+     "how": "parabolic dualisation negates parabolic degree"
+    },
+    {
+     "where": "LL22 Proposition 2.6.6, pp.15–16",
+     "how": "parabolic Serre duality pairs H^i(E⋆) with H^{1−i} of the coparabolic dual twisted by ω(D), which motivates the coparabolic zero lattice of the dual twist"
+    }
+   ]
+  },
+  {
+   "id": "HodgeStructuresPartII:H.4/parabolic-twist",
+   "parentStageId": "HodgeStructuresPartII:H.4",
+   "realises": [
+    "HodgeStructuresPartII:H.4"
+   ],
+   "title": "Twist of a parabolic bundle by a line bundle",
+   "kind": "construction",
+   "declarationName": "TauCeti.ParabolicBounds.ParabolicBundle.twist",
+   "statement": "For a parabolic bundle E⋆ on (C,D) and an ordinary line bundle L on C, the twist E⋆⊗L has underlying bundle E⊗L and, at each xⱼ, the flag Eⱼⁱ⊗L(xⱼ)⊂E(xⱼ)⊗L(xⱼ) with the same weights; equivalently (E⋆⊗L)_α=E_α⊗L for every real α. It is the parabolic tensor product of LL22 Definition 2.6.3 with L given the trivial parabolic structure. Rank, weights and graded multiplicities are unchanged, and parDeg(E⋆⊗L)=parDeg(E⋆)+rank(E)·deg L.",
+   "hypotheses": [
+    "L is an ordinary line bundle with the trivial parabolic structure: its only weight is zero."
+   ],
+   "proofSteps": [
+    "Tensor the underlying bundle with L and transport each marked flag along the canonical identification (E⊗L)(xⱼ)=E(xⱼ)⊗L(xⱼ).",
+    "On filtrations, the parabolic tensor product Σ_{β+γ=α}E_β⊗L_γ with L_γ=L(−⌈γ⌉D) reduces to E_α⊗L, because the trivial structure jumps only at integers and E_{β+1}=E_β(−D).",
+    "Determinant degree increases by rank(E)·deg L (SF.3) and the weighted multiplicities are unchanged, which gives the degree formula (LL22 Lemma 2.6.5)."
+   ],
+   "acceptance": [
+    "Twisting a degree d line with weight 1/4 at x by O_C(x) gives a degree d+1 line with weight 1/4, of parabolic degree d+5/4.",
+    "The trivially structured O_C twisted by K_C(D) has coparabolic zero lattice K_C(D)(−D)=K_C."
+   ],
+   "prerequisites": [
+    "HodgeStructuresPartII:H.4/parabolic-bundle",
+    "HodgeStructuresPartII:H.4/weighted-flag",
+    "SchemeAndStackFoundations:SF.3"
+   ],
+   "library": {
+    "module": "TauCeti/Geometry/ParabolicBounds/Bundles",
+    "namespace": "TauCeti.ParabolicBounds"
+   },
+   "sources": [
+    {
+     "sourceId": "LL22",
+     "locator": "Definition 2.6.3 and Lemma 2.6.5, p.15",
+     "match": "Defines the parabolic tensor product of parabolic bundles through the filtrations and states that parabolic degree is additive in the form deg(E⊗F)=deg E·rk F+deg F·rk E; the twist is the case of a trivially structured line."
+    },
+    {
+     "sourceId": "LL24",
+     "locator": "Proof of Proposition 5.2.3, p.31",
+     "match": "The Clifford estimate is applied to the parabolic dual of E⋆ twisted by ω_C(D), whose slope 2g−2+n is computed from this degree formula."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.ParabolicBounds.ParabolicBundle.twist_rank",
+     "role": "projection",
+     "statement": "rank(E⋆⊗L)=rank E⋆, and the marked flags of E⋆⊗L are those of E⋆ under E(xⱼ)⊗L(xⱼ)≅E(xⱼ) for a chosen trivialization of L(xⱼ)."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.ParabolicBundle.twist_zero",
+     "role": "simp",
+     "statement": "E⋆⊗O_C=E⋆."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.ParabolicBundle.twist_twist",
+     "role": "functoriality",
+     "statement": "(E⋆⊗L)⊗L′=E⋆⊗(L⊗L′), compatibly with the identifications of the fibres."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.parabolicDegree.twist",
+     "role": "relation",
+     "statement": "parDeg(E⋆⊗L)=parDeg(E⋆)+rank(E)·deg L.",
+     "nodeId": "HodgeStructuresPartII:H.4/parabolic-twist-degree"
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.ParabolicBundle.coparabolicZero_twist",
+     "role": "compatibility",
+     "statement": "The coparabolic zero lattice of E⋆⊗L is Ê₀⊗L; in particular its ordinary degree is deg Ê₀+rank(E)·deg L."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.ParabolicBundle.twist_inducedSubbundle",
+     "role": "compatibility",
+     "statement": "For a saturated F⊂E, the induced structure on F⊗L⊂E⊗L is F⋆⊗L; hence slopes of corresponding subbundles shift by deg L and E⋆⊗L is semistable exactly when E⋆ is."
+    }
+   ],
+   "tests": [
+    {
+     "name": "TauCeti.ParabolicBounds.ParabolicBundle.twist_line_quarter",
+     "kind": "computation",
+     "statement": "A degree d line with weight 1/4 at one point, twisted by a degree-one line, has ordinary degree d+1, weight 1/4 and parabolic degree d+5/4; realizing the twist as a shift of weights would change the weight."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.ParabolicBundle.twist_rank_two",
+     "kind": "computation",
+     "statement": "O_C⊕O_C with weights 0 and 1/2 at one point, twisted by a degree-three line, has parabolic degree 1/2+6=13/2; adding deg L only once would give 7/2."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.ParabolicBundle.twist_trivial_KD",
+     "kind": "compatibility",
+     "statement": "The trivially structured O_C twisted by K_C(D) (degree 2g−2+n) has coparabolic zero lattice of degree 2g−2, the degree of K_C; the rank-one case of the coparabolic dual-twist identification."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.ParabolicBundle.twist_by_trivial",
+     "kind": "degenerate",
+     "statement": "Twisting by O_C (degree zero) returns E⋆ with the same flags, weights and degree."
+    }
+   ],
+   "uses": [
+    {
+     "where": "LL24, proof of Proposition 5.2.3, p.31",
+     "how": "Proposition 5.2.4(II) is applied to (E⋆)∨⊗ω_C(D), a twist of the parabolic dual"
+    },
+    {
+     "where": "HodgeStructuresPartII:H.4/dual-twist-semistable",
+     "how": "the twist shifts every subbundle slope by deg L, so it preserves semistability and adds deg L to the slope"
+    },
+    {
+     "where": "HodgeStructuresPartII:H.4/coparabolic-dual-twist",
+     "how": "the coparabolic zero lattice of the twisted dual is computed as a twist of the dual's zero lattice"
+    },
+    {
+     "where": "LL22 Lemma 2.6.5, p.15",
+     "how": "the degree of a tensor product with a trivially structured line is the degree formula of this node"
+    }
+   ],
+   "addedBy": "REV-HodgeStructuresPartII--H.4"
+  },
+  {
+   "id": "HodgeStructuresPartII:H.4/trace-section-map",
+   "parentStageId": "HodgeStructuresPartII:H.4",
+   "realises": [
+    "HodgeStructuresPartII:H.4"
+   ],
+   "title": "Section multiplication map at a vector",
+   "kind": "construction",
+   "declarationName": "TauCeti.ParabolicBounds.traceSectionMap",
+   "statement": "For v∈H⁰(C,E⊗K_C(D)), let μ_v:H⁰(C,E∨⊗K_C)→H⁰(C,K_C²(D)) be u↦B_E(v,u), where B_E:(E⊗K_C(D))×(E∨⊗K_C)→K_C²(D) is the perfect trace pairing HodgeStructuresPartII:H.3/trace-multiplication (LL24 (5.5)); equivalently μ_v=μ_E(v⊗−) for the section map μ_E of that node. Its rank is dim_C im μ_v. This is the rank of a linear map on global sections, not the generic rank of the sheaf map. Its kernel is H⁰ of the sheaf kernel; when v≠0 that sheaf kernel is a saturated corank-one subbundle of E∨⊗K_C on the regular curve.",
+   "hypotheses": [],
+   "proofSteps": [
+    "Apply the trace pairing of HodgeStructuresPartII:H.3/trace-multiplication to global sections and fix v to obtain the native complex linear map.",
+    "Left exactness of sections identifies its kernel.",
+    "For v≠0, perfection of B_E (part of the H.3 node) makes the sheaf map B_E(v,−) generically a nonzero functional; its image is torsion-free rank one, so its kernel is a saturated corank-one locally free subbundle. Do not assert surjectivity onto the target line at zeros of v."
+   ],
+   "acceptance": [
+    "For E=O_C and v≠0, rank μ_v=g.",
+    "rank μ_v=h⁰(E^∨⊗K_C)−h⁰(ker f_v), and ker f_v has corank one for v≠0."
+   ],
+   "prerequisites": [
+    "HodgeStructuresPartII:H.3/trace-multiplication",
+    "SchemeAndStackFoundations:SF.3",
+    "mathlib:LinearMap.range",
+    "mathlib:Module.finrank"
+   ],
+   "library": {
+    "module": "TauCeti/Geometry/ParabolicBounds/Bundles",
+    "namespace": "TauCeti.ParabolicBounds"
+   },
+   "sources": [
+    {
+     "sourceId": "LL24",
+     "locator": "Proposition 5.2.3 and its proof, p.31",
+     "match": "States the rank bound in terms of the rank of u↦B_E(v,u) on global sections, and in the proof takes the kernel of the sheaf map as a corank-one subbundle with section deficit r."
+    },
+    {
+     "sourceId": "LL24",
+     "locator": "§5.2, equation (5.5), p.29",
+     "match": "Defines the pairing B_E as tensor product followed by trace, between E⊗ω_C(D) and E^∨⊗ω_C with values in ω_C²(D), and calls it perfect."
+    },
+    {
+     "sourceId": "LL24",
+     "locator": "Proof of Theorem 1.7.1, p.32",
+     "match": "Identifies the fibre of the Gauss–Manin map with v↦(u↦B_E(v,u)) and applies Proposition 5.2.3 to its rank."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.ParabolicBounds.traceSectionMap.apply",
+     "role": "simp",
+     "statement": "μ_v(u)=B_E(v,u)."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.traceSectionMap.linear",
+     "role": "structure",
+     "statement": "The association v↦μ_v is complex-linear."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.traceSectionMap.kernel_sections",
+     "role": "characterisation",
+     "statement": "ker μ_v=H⁰(C,ker B_E(v,−)).",
+     "nodeId": "HodgeStructuresPartII:H.4/trace-kernel-sections"
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.traceSectionMap.eq_traceMultiplication",
+     "role": "compatibility",
+     "statement": "μ_v(u)=μ_E(v⊗u), where μ_E is the section map of HodgeStructuresPartII:H.3/trace-multiplication."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.traceSectionMap.sheafMap",
+     "role": "data",
+     "statement": "The sheaf map f_v:E∨⊗K_C→K_C²(D), u↦B_E(v,u), whose map on global sections is μ_v."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.traceSectionMap.sheafKernel_corank_one",
+     "role": "relation",
+     "statement": "For v≠0, ker f_v is a saturated subbundle of E∨⊗K_C of rank rank E−1."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.traceSectionMap.rank_eq_deficit",
+     "role": "relation",
+     "statement": "rank μ_v=h⁰(E∨⊗K_C)−h⁰(ker f_v), by rank–nullity and kernel_sections."
+    }
+   ],
+   "tests": [
+    {
+     "name": "TauCeti.ParabolicBounds.traceSectionMap.zero",
+     "kind": "degenerate",
+     "statement": "At v=0 the section map has zero image and rank zero."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.traceSectionMap.scalar",
+     "kind": "compatibility",
+     "statement": "For a≠0, μ_{av}=aμ_v and its image rank equals that of μ_v."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.traceSectionMap.rank_one_model",
+     "kind": "computation",
+     "statement": "For scalar evaluation ℂ×ℂ→ℂ and v=1 the section map is the identity of rank one."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.traceSectionMap.kernel_model",
+     "kind": "non-example",
+     "statement": "For the pairing ℂ²×(ℂ²)∨→ℂ and v=e₁ the kernel is the one-dimensional annihilator; it is not the zero space."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.traceSectionMap.trivial_bundle_rank",
+     "kind": "computation",
+     "statement": "For E=O_C and nonzero v∈H⁰(C,K_C(D)), μ_v is multiplication by v from H⁰(K_C) to H⁰(K_C²(D)); it is injective, so its rank is g, whereas the sheaf map has generic rank one."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.traceSectionMap.split_kernel",
+     "kind": "computation",
+     "statement": "For E=O_C⊕O_C and v=(v₁,0) with v₁≠0, the sheaf kernel of B_E(v,−) is 0⊕K_C, saturated of corank one, ker μ_v=0⊕H⁰(K_C) and rank μ_v=g."
+    },
+    {
+     "name": "TauCeti.ParabolicBounds.traceSectionMap.rank_zero_possible",
+     "kind": "degenerate",
+     "statement": "On ℙ¹ with two marks, E=O and any nonzero v∈H⁰(K(D))=H⁰(O) give μ_v=0, because H⁰(K)=0: a nonzero v can have section rank zero."
+    }
+   ],
+   "uses": [
+    {
+     "where": "LL24 Proposition 5.2.3, p.31 (packet node trace-rank-bound)",
+     "how": "the rank r of this map is the quantity in the bound rk E ≥ g−r"
+    },
+    {
+     "where": "LL24 proof of Proposition 5.2.3, p.31",
+     "how": "U=ker f_v is a corank-one subbundle of E^∨⊗ω_C with h⁰(E^∨⊗ω_C)−h⁰(U)=r, so Proposition 5.2.4(II) applies with c=1, δ=r"
+    },
+    {
+     "where": "LL24 proof of Theorem 1.7.1, p.32 (packet node sublocal-system-rank)",
+     "how": "via Theorem 5.1.6, ∇_m(v) is u↦B_E(v,u); a low-rank sub-local system yields v whose map has rank at most rk L/2"
+    }
+   ]
+  },
+  {
+   "id": "HodgeStructuresPartII:H.4/ordinary-quotient-slope",
+   "parentStageId": "HodgeStructuresPartII:H.4",
+   "realises": [
+    "HodgeStructuresPartII:H.4"
+   ],
+   "title": "Underlying coparabolic quotient slope bound",
+   "kind": "theorem",
+   "declarationName": "TauCeti.ParabolicBounds.ordinaryQuotientSlope",
+   "statement": "Let E⋆ be nonzero parabolically semistable on (C,D), |D|=n. Every nonzero ordinary locally free quotient Q of Ē₀ satisfies μ(Q)≥μ⋆(E⋆)−n. For the ordinary underlying parabolic bundle E, the quotient inequality is strict when n>0: μ(Q)>μ⋆(E⋆)−n. Only the nonstrict coparabolic inequality is used in the Clifford proof.",
+   "hypotheses": [
+    "Q has positive rank."
+   ],
+   "proofSteps": [
+    "For quotients of E use induced quotient semistability and the strict upper bound parDeg Q⋆<deg Q+n rank Q when n>0.",
+    "For quotients of Ē₀ shift the filtered bundle by sufficiently small ε>0; it becomes a parabolic lattice whose slope converges to μ⋆(E⋆). Apply the ordinary parabolic inequality and take the limit."
+   ],
+   "acceptance": [
+    "With no marks, recover the standard quotient-slope criterion.",
+    "For a trivial degree-zero line and one mark, Ē₀=O_C(−x) attains equality −1; replacing ≥ by > is false."
+   ],
+   "prerequisites": [
+    "HodgeStructuresPartII:H.4/parabolic-semistability",
+    "HodgeStructuresPartII:H.4/induced-quotient",
+    "HodgeStructuresPartII:H.4/coparabolic-zero",
+    "HodgeStructuresPartII:H.4/parabolic-degree",
+    "HodgeStructuresPartII:H.4/parabolic-degree-bounds",
+    "HodgeStructuresPartII:H.4/parabolic-quotient-criterion"
+   ],
+   "library": {
+    "module": "TauCeti/Geometry/ParabolicBounds/RankVanishing",
+    "namespace": "TauCeti.ParabolicBounds"
+   },
+   "sources": [
+    {
+     "sourceId": "LL22",
+     "locator": "Lemma 6.3.4 and proof, pp.40–41",
+     "match": "For a semistable parabolic or coparabolic bundle of parabolic slope r+n, every quotient bundle of the underlying lattice has slope at least r, strictly in the parabolic case when n>0; the coparabolic case passes through small ε-shifts and a limit."
+    },
+    {
+     "sourceId": "LL22",
+     "locator": "Lemma 6.3.3 and proof, p.40",
+     "match": "The parabolic slope exceeds the ordinary slope by at most n times the largest weight, with equality only when all weights equal it; this gives the strict parabolic branch since weights are below 1."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "HodgeStructuresPartII:H.4/dual-twist-semistable",
+   "parentStageId": "HodgeStructuresPartII:H.4",
+   "realises": [
+    "HodgeStructuresPartII:H.4"
+   ],
+   "title": "Semistability under parabolic dual and ordinary twist",
+   "kind": "theorem",
+   "declarationName": "TauCeti.ParabolicBounds.dualTwistSemistable",
+   "statement": "For nonzero parabolically semistable E⋆ and an ordinary line bundle L, E⋆∨⊗L is parabolically semistable of slope −μ⋆(E⋆)+deg L. In particular, if parDeg E⋆=0 and L=K_C(D), its slope is 2g−2+n. No upgrade from semistable to stable is made.",
+   "hypotheses": [],
+   "proofSteps": [
+    "Duality exchanges saturated induced subbundles and quotients and negates their slopes. Apply the quotient criterion.",
+    "Twist preserves the subbundle order and shifts every slope by deg L.",
+    "Use the imported formula deg K_C=2g−2 and deg D=n."
+   ],
+   "acceptance": [
+    "O_C⊕O_C with trivial flags remains semistable and is an admissible input; stability is not inferred."
+   ],
+   "prerequisites": [
+    "HodgeStructuresPartII:H.4/parabolic-dual",
+    "HodgeStructuresPartII:H.4/parabolic-semistability",
+    "SchemeAndStackFoundations:SF.3",
+    "HodgeStructuresPartII:H.4/parabolic-twist-degree",
+    "HodgeStructuresPartII:H.4/parabolic-quotient-criterion",
+    "HodgeStructuresPartII:H.4/parabolic-dual-degree",
+    "HodgeStructuresPartII:H.4/parabolic-twist"
+   ],
+   "library": {
+    "module": "TauCeti/Geometry/ParabolicBounds/RankVanishing",
+    "namespace": "TauCeti.ParabolicBounds"
+   },
+   "sources": [
+    {
+     "sourceId": "LL24",
+     "locator": "Proof of Proposition 5.2.3, p.31",
+     "match": "Applies the Clifford estimate to the parabolic dual of E⋆ twisted by ω_C(D), whose slope is 2g−2+n because E⋆ has slope zero; the text calls it stable where only semistability follows (source issue E-H4-1)."
+    },
+    {
+     "sourceId": "LL22",
+     "locator": "Lemma 2.6.5, p.15; Lemma 2.4.5, p.14",
+     "match": "Parabolic degree is additive in tensor products and changes sign under parabolic duality; semistability is equivalent to the quotient-slope inequality, which duality turns into the subbundle inequality."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "HodgeStructuresPartII:H.4/coparabolic-dual-twist",
+   "parentStageId": "HodgeStructuresPartII:H.4",
+   "realises": [
+    "HodgeStructuresPartII:H.4"
+   ],
+   "title": "Coparabolic dual-twist identification",
+   "kind": "comparison",
+   "declarationName": "TauCeti.ParabolicBounds.coparabolicDualTwist",
+   "statement": "For every E⋆ on (C,D), the zero lattice of the coparabolic bundle associated to E⋆∨⊗K_C(D) is canonically E∨⊗K_C, where E is the original ordinary underlying bundle. The isomorphism respects the inclusion into the normalized dual lattice tensored by K_C(D), and rank is unchanged.",
+   "hypotheses": [],
+   "proofSteps": [
+    "At original positive weights, the dual underlying lattice already has a −x shift, cancelled by the D twist.",
+    "At original zero weights, the dual zero weight remains zero and the coparabolic elementary modification supplies the −x shift.",
+    "Use annihilator flags to check the two complementary graded pieces and glue the natural identifications."
+   ],
+   "acceptance": [
+    "Check separately a zero-weight line and a positive-weight line; both give E∨⊗K_C."
+   ],
+   "prerequisites": [
+    "HodgeStructuresPartII:H.4/parabolic-dual",
+    "HodgeStructuresPartII:H.4/coparabolic-zero",
+    "SchemeAndStackFoundations:SF.3",
+    "HodgeStructuresPartII:H.4/coparabolic-rank",
+    "HodgeStructuresPartII:H.4/parabolic-twist"
+   ],
+   "library": {
+    "module": "TauCeti/Geometry/ParabolicBounds/RankVanishing",
+    "namespace": "TauCeti.ParabolicBounds"
+   },
+   "sources": [
+    {
+     "sourceId": "LL24",
+     "locator": "Proof of Proposition 5.2.3, p.31",
+     "match": "Asserts, by unwinding definitions, that the coparabolic zero lattice of the dual of E⋆ twisted by ω_C(D) is E∨⊗ω_C, and uses it to compute the section deficit."
+    },
+    {
+     "sourceId": "LL22",
+     "locator": "Example 2.2.4, p.12; Definition 2.2.8, p.13; Lemma 2.6.2, p.15",
+     "match": "The filtered sheaf of a parabolic bundle, its right-continuous coparabolic hull, and the formula expressing the dual filtration through the dual of the coparabolic hull twisted by −D; the identification follows from these."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "HodgeStructuresPartII:H.4/parabolic-clifford-rank",
+   "parentStageId": "HodgeStructuresPartII:H.4",
+   "realises": [
+    "HodgeStructuresPartII:H.4"
+   ],
+   "title": "Landesman–Litt parabolic Clifford rank estimate",
+   "kind": "theorem",
+   "declarationName": "TauCeti.ParabolicBounds.parabolicCliffordRank",
+   "statement": "Let C be a smooth proper connected complex curve of genus g, D reduced of degree n, and E⋆≠0 parabolically semistable. For any ordinary saturated subbundle U⊂Ē₀, set c=rank E−rank U and δ=h⁰(Ē₀)−h⁰(U), both nonnegative integers. If μ⋆(E⋆)>2g−2+n, then rank E>g c−δ; if μ⋆(E⋆)=2g−2+n, then rank E≥g c−δ. Equivalently write rank E+δ>g c or ≥g c to avoid truncated natural subtraction. If Ē₀ is not generically globally generated and the slope inequality is strict, rank E≥g+1.",
+   "hypotheses": [],
+   "proofSteps": [
+    "For g=0 the inequalities are immediate. For g=1 use c≤rank E and δ≥0; the strict case with δ=0 follows from positive underlying slope and Riemann–Roch.",
+    "Replace U by the saturation of the image of its global sections. This retains h⁰(U) and increases c, so the new bound implies the original one.",
+    "Take the HN initial segment N of U with slopes >2g−2. Serre duality gives H¹(N)=0. Passing to V=Ē₀/N and U/N preserves c and δ.",
+    "Apply ordinaryQuotientSlope to obtain μ(V)≥2g−2, strictly in the strict case. The remaining HN slopes of U/N lie in [0,2g−2], using generic global generation.",
+    "Use vector-bundle Clifford: h⁰(W)≤deg(W)/2+rank W for semistable 0≤μ(W)≤2g−2; the HN version with slopes in [0,2g] follows by Riemann–Roch and H¹=0 on higher slopes. Combine with Riemann–Roch for V to obtain rank V+δ≥g c, with strictness at μ(V)>2g−2.",
+    "The vector HN/Clifford foundations are gap G1, not the existing line-bundle Clifford theorem. For the global generation consequence choose U as the saturated section image, giving δ=0 and c≥1."
+   ],
+   "acceptance": [
+    "The deficit δ must remain in both branches.",
+    "With U=Ē₀, c=δ=0 and the strict assertion requires only rank E>0.",
+    "When slope equals the threshold, no strict inequality is asserted."
+   ],
+   "prerequisites": [
+    "HodgeStructuresPartII:H.4/ordinary-quotient-slope",
+    "HodgeStructuresPartII:H.4/parabolic-semistability",
+    "HodgeStructuresPartII:H.4/coparabolic-zero",
+    "SchemeAndStackFoundations:SF.3",
+    "SchemeAndStackFoundations:SF.2/serre-proper",
+    "SchemeAndStackFoundations:SF.2/smooth-proper",
+    "HodgeStructuresPartII:H.4/coparabolic-rank"
+   ],
+   "library": {
+    "module": "TauCeti/Geometry/ParabolicBounds/RankVanishing",
+    "namespace": "TauCeti.ParabolicBounds"
+   },
+   "sources": [
+    {
+     "sourceId": "LL22",
+     "locator": "Proposition 6.3.6 and proof, pp.41–43",
+     "match": "For E⋆ with coparabolically semistable hull and a subbundle U of the zero lattice, rk E exceeds g·c−δ when the slope is above 2g−2+n and is at least g·c−δ at equality, with the non-generically-globally-generated corollary; the proof reduces to Lemma 6.2.3 after removing the HN part of slope above 2g−2."
+    },
+    {
+     "sourceId": "LL22",
+     "locator": "Definition 6.1.3, p.36; Lemmas 6.2.1–6.2.3, pp.36–38; Lemma 6.3.5, p.41",
+     "match": "Generic global generation; the bound h⁰≤deg/2+rk for HN slopes in [0,2g] via vector Clifford; the rank inequality for high-slope bundles with a section-deficit subbundle; vanishing of H¹ when all HN slopes exceed 2g−2."
+    },
+    {
+     "sourceId": "LL24",
+     "locator": "Proposition 5.2.4 and Remark 5.2.5, p.31",
+     "match": "Restates LL22 Proposition 6.3.6 with the hypothesis on E⋆ and its slope; the remark's word stable is a slip for semistable (source issue E-H4-1)."
+    },
+    {
+     "sourceId": "BPGN97",
+     "locator": "Theorem 2.1 and proof, p.9",
+     "match": "Clifford bound for a semistable bundle with slope between 0 and 2g−2 on a curve of genus at least 2 in characteristic zero: h⁰ is at most the rank plus half the degree, by induction on rank."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Parabolic Clifford bound"
+   }
+  },
+  {
+   "id": "HodgeStructuresPartII:H.4/trace-rank-bound",
+   "parentStageId": "HodgeStructuresPartII:H.4",
+   "realises": [
+    "HodgeStructuresPartII:H.4"
+   ],
+   "title": "Rank bound from a nonzero trace section",
+   "kind": "theorem",
+   "declarationName": "TauCeti.ParabolicBounds.traceRankBound",
+   "statement": "Let E⋆≠0 be parabolically semistable of parabolic degree zero on (C,D), with genus g. For nonzero v∈H⁰(C,E⊗K_C(D)), set r=dim im μ_v. Then rank E≥g−r, equivalently rank E+r≥g. The hypothesis is semistability, including strictly semistable bundles.",
+   "hypotheses": [],
+   "proofSteps": [
+    "Take F⋆=E⋆∨⊗K_C(D); dualTwistSemistable gives its semistability and slope 2g−2+n.",
+    "Use coparabolicDualTwist to identify its zero lattice with E∨⊗K_C.",
+    "The sheaf kernel U of B_E(v,−) is saturated corank one by traceSectionMap. Its section deficit equals dim im μ_v by rank-nullity, so c=1 and δ=r.",
+    "Apply the nonstrict branch of parabolicCliffordRank and retain semistability throughout."
+   ],
+   "acceptance": [
+    "The global-section rank r may be zero; the conclusion then reads rank E≥g.",
+    "v=0 is excluded because its sheaf kernel does not have corank one."
+   ],
+   "prerequisites": [
+    "HodgeStructuresPartII:H.4/dual-twist-semistable",
+    "HodgeStructuresPartII:H.4/coparabolic-dual-twist",
+    "HodgeStructuresPartII:H.4/trace-section-map",
+    "HodgeStructuresPartII:H.4/parabolic-clifford-rank",
+    "HodgeStructuresPartII:H.4/trace-kernel-sections"
+   ],
+   "library": {
+    "module": "TauCeti/Geometry/ParabolicBounds/RankVanishing",
+    "namespace": "TauCeti.ParabolicBounds"
+   },
+   "sources": [
+    {
+     "sourceId": "LL24",
+     "locator": "Proposition 5.2.3 and proof, p.31",
+     "match": "For a semistable parabolic bundle of parabolic degree zero and a nonzero section v of E⊗ω(D), the rank r of u↦B_E(v,u) on global sections satisfies rk E≥g−r; proof: the equality branch of the Clifford estimate with c=1 and δ=r for the dual twist."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Trace pairing rank bound"
+   }
+  },
+  {
+   "id": "HodgeStructuresPartII:H.4/unitary-parabolic-semistable",
+   "parentStageId": "HodgeStructuresPartII:H.4",
+   "realises": [
+    "HodgeStructuresPartII:H.4"
+   ],
+   "title": "Unitary local systems give semistable parabolic bundles of degree zero",
+   "kind": "theorem",
+   "declarationName": "TauCeti.ParabolicBounds.unitaryParabolicSemistable",
+   "statement": "Let C be a smooth proper connected complex curve, D⊂C a reduced divisor, V a finite-rank unitary complex local system on C∖D, (E,∇) the Deligne canonical extension of V⊗O (residue eigenvalues with real parts in [0,1)), and E⋆ its parabolic structure HodgeStructuresPartII:H.4/connection-parabolic-structure. Then parDeg(E⋆)=0 and E⋆ is parabolically semistable. More precisely, E⋆ is the direct sum of the parabolic bundles of the irreducible summands of V, and each of these is parabolically stable of parabolic degree zero. The degree statement holds for the canonical extension of every local system; semistability uses unitarity.",
+   "hypotheses": [
+    "C is a smooth proper connected complex curve and D a reduced divisor, possibly empty.",
+    "V is unitary: its monodromy preserves a positive definite Hermitian form.",
+    "E⋆ carries the canonical-extension weights in [0,1), not those of another logarithmic lattice."
+   ],
+   "proofSteps": [
+    "Residue theorem: for a logarithmic connection on a smooth proper curve, deg E=−Σⱼ tr Res_{xⱼ}∇ (apply it to the induced rank-one connection on det E, whose residues are the traces). On the canonical extension the weights are the real parts of the residue eigenvalues counted with algebraic multiplicity, so their weighted sum is Re Σⱼ tr Res_{xⱼ}∇=−deg E and parDeg(E⋆)=0. MS80 Proposition 1.9 and Corollary 1.10 prove the same identity in the Fuchsian model of C∖D.",
+    "A unitary representation is completely reducible (the orthogonal complement of an invariant subspace is invariant), so V=⊕ᵢVᵢ with Vᵢ irreducible unitary. Canonical extension, residues and the parabolic structure commute with direct sums (connection-parabolic-structure, directSum).",
+    "Each irreducible unitary Vᵢ gives a parabolically stable bundle of parabolic degree zero: MS80 Proposition 1.12 proves stability for the Mehta–Seshadri bundle (reduce to line subbundles by exterior powers; a line subbundle of positive parabolic degree would give, after tensor powers, a nonconstant section of a unitary bundle, whose sections are constant, and degree zero forces a decomposable invariant vector, contradicting irreducibility). LL24 Remark 5.2.2 notes that identifying that bundle with the canonical-extension parabolic structure is not immediate from MS80 and cites Simpson 1990 Theorem 5 for the semistability of the latter; AHL19 Proposition 5.4 and Corollary 5.5 state it for a complex polarized variation, here of a single Hodge type with zero Higgs field. That analytic identification is gap G6.",
+    "A direct sum of semistable parabolic bundles of the same slope μ is semistable: for a saturated F⊂E₁⊕E₂, the sequence 0→F∩E₁→F→Q→0 with Q=p₂(F) has F∩E₁ saturated in E₁, of slope at most μ; Q with the quotient structure from F⋆ maps parabolically and generically isomorphically to its saturation Q′⊂E₂ with the induced structure, so Q_α⊆Q′_α for all α and parDeg Q⋆≤parDeg Q′⋆≤μ·rank Q. Degree additivity (HodgeStructuresPartII:H.4/parabolic-degree-add) gives μ⋆(F⋆)≤μ. MS80 Proposition 1.15 (the semistable bundles of parabolic degree zero form an abelian category) is the related statement.",
+    "When D=∅ the statement is the compact case of the harmonic correspondence: a unitary flat bundle carries a flat harmonic metric with zero Higgs field, so its Higgs bundle is slope-polystable of degree zero (HodgeStructuresPartII:H.1/flat-metric-existence, harmonic-correspondence). Only the marked case needs the open-curve input of gap G6."
+   ],
+   "acceptance": [
+    "D=∅ and V trivial of rank r: E⋆=O_C^r, of degree zero, semistable and for r≥2 not stable.",
+    "A rank-one unitary local system on C∖{x,y} with local monodromies exp(−2πiα) and exp(2πiα), 0<α<1, has canonical extension of degree −1 with weights α at x and 1−α at y, so parabolic degree zero.",
+    "Unitarity cannot be dropped: the rank-two uniformizing local system of a compact curve of genus g≥2 (D=∅) has canonical extension of degree zero containing a line subbundle of degree g−1."
+   ],
+   "prerequisites": [
+    "HodgeStructuresPartII:H.4/connection-parabolic-structure",
+    "HodgeStructuresPartII:H.4/parabolic-degree",
+    "HodgeStructuresPartII:H.4/parabolic-semistability",
+    "HodgeStructuresPartII:H.4/parabolic-quotient-criterion",
+    "HodgeStructuresPartII:H.4/induced-subbundle",
+    "HodgeStructuresPartII:H.2/canonical-extension",
+    "HodgeStructuresPartII:H.2/residue-monodromy",
+    "SchemeAndStackFoundations:SF.3",
+    "mathlib:Representation",
+    "HodgeStructuresPartII:H.2",
+    "HodgeStructuresPartII:H.1/harmonic-correspondence",
+    "HodgeStructuresPartII:H.1/flat-metric-existence"
+   ],
+   "library": {
+    "module": "TauCeti/Geometry/ParabolicBounds/RankVanishing",
+    "namespace": "TauCeti.ParabolicBounds"
+   },
+   "sources": [
+    {
+     "sourceId": "LL24",
+     "locator": "§5.2.1 and Remark 5.2.2, p.30; proof of Theorem 1.7.1, p.32",
+     "match": "States that the parabolic bundle of the canonical extension of a unitary system is parabolically semistable, citing Mehta–Seshadri and Simpson 1990 Theorem 5; the proof of Theorem 1.7.1 uses it with parabolic degree zero."
+    },
+    {
+     "sourceId": "MS80",
+     "locator": "§1: Proposition 1.9, Corollary 1.10, Definition 1.11, Proposition 1.12 and Definition 1.13, pp.213–215; Proposition 1.15, p.216",
+     "match": "In the Fuchsian model of a hyperbolic punctured curve, a unitary Γ-bundle has parabolic degree zero and every proper nonzero parabolic subbundle coming from a Γ-subbundle has parabolic degree ≤0, <0 for an irreducible representation; so it is semistable, and stable when irreducible."
+    },
+    {
+     "sourceId": "AHL19",
+     "locator": "§5, pp.10–12: Theorem 5.3, Proposition 5.4 and Corollary 5.5, p.12",
+     "match": "A complex polarized variation is a tame harmonic bundle whose parabolic structure is Deligne's; it yields a polystable parabolic Higgs bundle with vanishing parabolic Chern classes. The proof of Proposition 5.4 is referred to Brunebarbe and was not read."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "addedBy": "REV-HodgeStructuresPartII--H.4"
+  },
+  {
+   "id": "HodgeStructuresPartII:H.4/fixed-part-vector",
+   "parentStageId": "HodgeStructuresPartII:H.4",
+   "realises": [
+    "HodgeStructuresPartII:H.4"
+   ],
+   "title": "Fixed-part vector with small period derivative",
+   "kind": "theorem",
+   "declarationName": "TauCeti.ParabolicBounds.fixedPartVector",
+   "statement": "In a punctured versal family π°:C°→M of hyperbolic (g,n)-curves over a connected complex variety with dominant étale classifying map, let V be a unitary complex local system on the total space, H=R¹π°_*V and L⊂H a nonzero irreducible sub-local system. At a point m, after possibly conjugating V and L, there is a sub-local system L′⊂H isomorphic to L and a nonzero v∈L′_m∩F¹H_m such that the map obtained by contracting the period derivative with v has rank at most rank L/2. The chosen vector need not lie in the original inclusion of L.",
+   "hypotheses": [],
+   "proofSteps": [
+    "Put H=R¹π°_*V and W_ℝ=R¹π°_*Ṽ for the realification Ṽ of V. W_ℝ is an admissible graded-polarizable real VMHS with Hodge types (1,0),(0,1),(1,1) and its complexification contains H as a direct summand (HodgeStructuresPartII:H.2/unitary-curve-family, unitary-curve-fiber, unitary-bigrading). H.2 states admissibility with quasi-unipotent boundary monodromy; the unrestricted unitary case is gap G5.",
+    "Do not identify W_ℝ with a minimal realification of H (source issue E-H4-3); follow the author replacement proof. The real form L̃ of the irreducible L (HodgeStructuresPartII:H.2/irreducible-real-form) and the fixed-part evaluation HodgeStructuresPartII:H.2/irreducible-evaluation give a nonzero constant real MHS Q_ℝ and a nonzero morphism ι:Q_ℝ⊗L̃→W_ℝ; the original inclusion L⊂H is among the evaluated constant homomorphisms, so p∘ι_ℂ is nonzero for the projection p to H.",
+    "Restrict to a Hodge component of Q and, after conjugating V and L if necessary, to the summand L of L̃_ℂ on which p∘ι_ℂ is nonzero. Choose a constant q in that component for which ℓ↦p∘ι_ℂ(q⊗ℓ) is nonzero; it is a morphism of local systems out of the irreducible L, hence injective; its image is L′≅L.",
+    "After regrading by opposite integral shifts on L and Q (HodgeStructuresPartII:H.2/isotypic-hodge) there are two cases. If L has the single type (0,0) and q has type (1,0) or (1,1) (conjugating once more when the component has type (0,1)), then v∈F¹H_m and the period map of L is zero, so the contracted derivative vanishes. If L has types (1,0),(0,1) and q type (0,0), conjugate so that dim L^{0,1}≤dim L^{1,0} and take ℓ∈L^{1,0}. Horizontality of p∘ι_ℂ and constancy of q bound the contracted derivative by the derivative of the period map of L, whose image lies in L_m/F¹L_m of dimension dim L^{0,1}≤rank L/2 (HodgeStructuresPartII:H.3/derivative-connection, curve-hodge-filtration)."
+   ],
+   "acceptance": [
+    "Record L′ as an isomorphic image, not equality with the original subspace L_m.",
+    "Apply the real VMHS to realification(V) before taking cohomology; the two realification functors do not commute as claimed in the preprint."
+   ],
+   "prerequisites": [
+    "HodgeStructuresPartII:H.2/unitary-curve-fiber",
+    "HodgeStructuresPartII:H.2/unitary-curve-family",
+    "HodgeStructuresPartII:H.2/unitary-bigrading",
+    "HodgeStructuresPartII:H.2/irreducible-real-form",
+    "HodgeStructuresPartII:H.2/irreducible-evaluation",
+    "HodgeStructuresPartII:H.2/isotypic-hodge",
+    "HodgeStructuresPartII:H.3/curve-hodge-filtration",
+    "HodgeStructuresPartII:H.3/derivative-connection",
+    "StableReductionPartII:key/moduli-curves",
+    "mathlib:Subrepresentation",
+    "mathlib:Module.finrank",
+    "mathlib:LinearMap.range",
+    "HodgeStructuresPartII:H.2"
+   ],
+   "library": {
+    "module": "TauCeti/Geometry/ParabolicBounds/RankVanishing",
+    "namespace": "TauCeti.ParabolicBounds"
+   },
+   "sources": [
+    {
+     "sourceId": "LL24",
+     "locator": "Lemma 6.1.1 and proof, p.33",
+     "match": "Claims a nonzero v in L_m∩F¹H_m, after conjugation, whose contracted Gauss–Manin derivative has rank at most rk L/2, via the fixed part and a two-case Hodge-type analysis; the membership in L_m and a realification identity are faulty (source issues E-H4-2, E-H4-3)."
+    },
+    {
+     "sourceId": "LL-ERRATA",
+     "locator": "P04 erratum, entry for printed p.860 (proof of Lemma 6.1.1)",
+     "match": "Replacement proof: apply the fixed part to R¹π°_* of the realified coefficients, project the evaluation to the complex summand H, choose a Hodge component, and bound the contracted derivative by dim L^{0,1}≤rk L/2."
+    },
+    {
+     "sourceId": "LL24",
+     "locator": "Theorem 4.1.1, Lemma 4.1.2 and Proposition 4.2.2, pp.24–26",
+     "match": "The real VMHS on the cohomology of a unitary system on a punctured curve family, its three Hodge types, and the nonzero fixed-part evaluation out of the real form of an irreducible constituent."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "HodgeStructuresPartII:H.4/sublocal-system-rank",
+   "parentStageId": "HodgeStructuresPartII:H.4",
+   "realises": [
+    "HodgeStructuresPartII:H.4"
+   ],
+   "title": "Rank bound for sub-local systems",
+   "kind": "theorem",
+   "declarationName": "TauCeti.ParabolicBounds.sublocalSystemRank",
+   "statement": "Let π:C→M be a smooth proper family of n-pointed geometrically connected genus g complex curves with disjoint sections, where M is a connected complex variety and M→M_{g,n} is dominant étale; require 2g−2+n>0. Let π° be its punctured family and V a finite-rank unitary complex local system on C°. Every nonzero sub-local system L⊂R¹π°_*V satisfies rank L≥2g−2 rank V. In particular, if rank V<g, H⁰(M,R¹π°_*V)=0. Unitarity here is on the total space.",
+   "hypotheses": [],
+   "proofSteps": [
+    "A nonzero sub-local system contains a nonzero irreducible one (finite rank); it suffices to bound the rank of an irreducible L.",
+    "HodgeStructuresPartII:H.4/fixed-part-vector gives, after possibly replacing V by its conjugate (same rank), a nonzero v∈F¹H_m whose contracted derivative has rank at most rank L/2.",
+    "On the fibre C=π⁻¹(m) let (E,∇) be the canonical extension of V|C° (HodgeStructuresPartII:H.2/canonical-extension) with its parabolic structure E⋆ (connection-parabolic-structure). By HodgeStructuresPartII:H.4/unitary-parabolic-semistable, E⋆ is semistable of parabolic degree zero, and F¹H_m=H⁰(C,E⊗K_C(D)) (HodgeStructuresPartII:H.3/curve-hodge-filtration).",
+    "By HodgeStructuresPartII:H.3/trace-period-derivative the dual of the derivative at m is c_m*∘μ_E, and since M→M_{g,n} is étale c_m* is an isomorphism (HodgeStructuresPartII:H.3/trace-derivative-rank); so the contracted derivative at v has the same rank r as the section map μ_v.",
+    "HodgeStructuresPartII:H.4/trace-rank-bound gives rank V=rank E≥g−r≥g−rank L/2, that is rank L≥2g−2 rank V.",
+    "If rank V<g, a nonzero invariant section would span a rank-one trivial sub-local system, while the bound gives rank at least 2g−2 rank V≥2. Hence H⁰(M,R¹π°_*V)=0."
+   ],
+   "acceptance": [
+    "For g=3 and rank V=1 every nonzero sub-local system has rank≥4.",
+    "For g=0 or 1 the rank conclusion can be vacuous; retain hyperbolicity of the marked family.",
+    "An isotrivial family C×M with constant V=ℂ has invariant H¹(C,ℂ); it violates the low-rank vanishing for g≥2 and is excluded by versality."
+   ],
+   "prerequisites": [
+    "HodgeStructuresPartII:H.4/fixed-part-vector",
+    "HodgeStructuresPartII:H.4/trace-rank-bound",
+    "HodgeStructuresPartII:H.4/unitary-parabolic-semistable",
+    "HodgeStructuresPartII:H.4/connection-parabolic-structure",
+    "HodgeStructuresPartII:H.2/canonical-extension",
+    "HodgeStructuresPartII:H.3/curve-hodge-filtration",
+    "HodgeStructuresPartII:H.3/trace-period-derivative",
+    "HodgeStructuresPartII:H.3/trace-derivative-rank",
+    "StableReductionPartII:key/moduli-curves",
+    "StableReductionPartII:MC.2/pointed-dm-theorem",
+    "mathlib:Subrepresentation",
+    "mathlib:Representation.invariants",
+    "HodgeStructuresPartII:H.2"
+   ],
+   "library": {
+    "module": "TauCeti/Geometry/ParabolicBounds/RankVanishing",
+    "namespace": "TauCeti.ParabolicBounds"
+   },
+   "sources": [
+    {
+     "sourceId": "LL24",
+     "locator": "Theorem 1.7.1, p.6; Notation 1.10.1, pp.10–11",
+     "match": "For a versal family of n-pointed genus-g curves (dominant étale to M_{g,n}, hyperbolic (g,n)) and unitary V on the punctured total space, every nonzero sub-local system of R¹π°_*V has rank at least 2g−2 rk V, so H⁰ vanishes when rk V<g."
+    },
+    {
+     "sourceId": "LL24",
+     "locator": "§6.1, proof of Theorem 1.7.1, p.32",
+     "match": "Combines Lemma 6.1.1, the trace description of the derivative (Theorem 5.1.6) and Proposition 5.2.3 for the semistable canonical parabolic extension on a fibre."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Sub-local system rank bound"
+   }
+  },
+  {
+   "id": "HodgeStructuresPartII:H.4/tensor-invariant-rank",
+   "parentStageId": "HodgeStructuresPartII:H.4",
+   "realises": [
+    "HodgeStructuresPartII:H.4"
+   ],
+   "title": "Tensor coefficient obstruction",
+   "kind": "theorem",
+   "declarationName": "TauCeti.ParabolicBounds.tensorInvariantRank",
+   "statement": "In the same punctured versal setting, let U be a nonzero unitary complex local system on C° and W a nonzero complex local system on M. If H⁰(M,(R¹π°_*U)⊗W)≠0, put a=rank U≥1 and b=rank W≥1. Then b≥2g−2a. If g≥2, this implies a b≥g. Consequently if a b<g the indicated invariant space vanishes. W need not be unitary.",
+   "hypotheses": [],
+   "proofSteps": [
+    "An invariant tensor is a nonzero monodromy-equivariant map W∨→R¹π°_*U. Its image is a nonzero sub-local system of rank at most b; injectivity of the map is not required.",
+    "Apply sublocalSystemRank to its image to obtain b+2a≥2g.",
+    "For positive integers, if a≥g then ab≥g. If a<g, b≥2(g−a) and 2a(g−a)≥g for g≥2 (minimum at the endpoints)."
+   ],
+   "acceptance": [
+    "For g=2 the obstruction excludes a=b=1.",
+    "For g=3, a=1 forces b≥4; a=2 forces b≥2.",
+    "W may be nonunitary; no total unitarity is required for U⊗π°*W."
+   ],
+   "prerequisites": [
+    "HodgeStructuresPartII:H.4/sublocal-system-rank",
+    "mathlib:Representation",
+    "mathlib:Subrepresentation",
+    "mathlib:Module.finrank",
+    "StableReductionPartII:key/moduli-curves",
+    "HodgeStructuresPartII:H.2"
+   ],
+   "library": {
+    "module": "TauCeti/Geometry/ParabolicBounds/RankVanishing",
+    "namespace": "TauCeti.ParabolicBounds"
+   },
+   "sources": [
+    {
+     "sourceId": "LL24",
+     "locator": "Proof of Theorem 6.2.1, final paragraph, p.34",
+     "match": "A nonzero invariant of R¹π°_*U⊗W gives a nonzero map W∨→R¹π°_*U, so Theorem 1.7.1 gives rk W≥2g−2 rk U and hence rk U·rk W≥g when g≥2."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "HodgeStructuresPartII:H.4/artinian-vanishing",
+   "parentStageId": "HodgeStructuresPartII:H.4",
+   "realises": [
+    "HodgeStructuresPartII:H.4"
+   ],
+   "title": "Vanishing for fibre-constant Artinian unitary deformations",
+   "kind": "theorem",
+   "declarationName": "TauCeti.ParabolicBounds.artinianVanishing",
+   "statement": "Let π°:C°→M be a punctured versal family as above. Let A be a commutative Artin local complex algebra with identified residue field ℂ, and V a locally constant sheaf of finite-rank free A-modules on C°. Suppose on one fibre C°_m there is a unitary complex local system V₀ and an A-linear local-system isomorphism V|C°_m≅V₀⊗_ℂ A. If rank_A V<g then H⁰(M,R¹π°_*V)=0 as an A-module. A=ℂ is included. A total-space unitary structure on V is not assumed; unitarity of the residual fibre alone does not replace the constant-deformation hypothesis.",
+   "hypotheses": [],
+   "proofSteps": [
+    "The zero-rank case is immediate. A nonzero input has g≥2.",
+    "Use the fibre-unitary decomposition of LL24 Lemma 2.4.2 after a dominant étale cover preserving a chosen fibre: V≅⊕ᵢ Uᵢ⊗π°*Wᵢ, where Uᵢ are total-space unitary with pairwise nonisomorphic irreducible fibres and Wᵢ are free A-local systems on the base. This is recorded as gap G2 until the routed mapping-class-group supplier has exact nodes.",
+    "Projection formula gives R¹π°_*(Uᵢ⊗π°*Wᵢ)≅(R¹π°_*Uᵢ)⊗Wᵢ. Each positive product rank Uᵢ rank_A Wᵢ≤rank_A V<g.",
+    "For A=ℂ apply tensorInvariantRank. For general A filter Wᵢ by powers of its nilpotent maximal ideal. Each graded quotient is a direct sum of copies of Wᵢ⊗_A ℂ because Wᵢ is A-free.",
+    "Every graded invariant space vanishes; left exactness of invariants inductively gives zero invariants for (R¹π°_*Uᵢ)⊗Wᵢ. A flat section on a connected base vanishing at one point vanishes everywhere, so invariants pull back injectively along the dominant étale cover; descend the vanishing to M."
+   ],
+   "acceptance": [
+    "At A=ℂ recover the fibre-unitary vanishing theorem, still weaker in total-space unitarity than Theorem 1.7.1.",
+    "For A=ℂ[ε]/(ε²), constant fibre deformation gives two successive copies of the residual W in its maximal-ideal filtration.",
+    "At rank_A V=g the theorem makes no assertion.",
+    "A nonconstant Artinian deformation of a unitary residual fibre is excluded."
+   ],
+   "prerequisites": [
+    "HodgeStructuresPartII:H.4/tensor-invariant-rank",
+    "HodgeStructuresPartII:H.2",
+    "mathlib:Representation.invariants",
+    "mathlib:Subrepresentation",
+    "StableReductionPartII:key/moduli-curves",
+    "HodgeStructuresPartII:H.2/gauss-manin"
+   ],
+   "library": {
+    "module": "TauCeti/Geometry/ParabolicBounds/RankVanishing",
+    "namespace": "TauCeti.ParabolicBounds"
+   },
+   "sources": [
+    {
+     "sourceId": "LL24",
+     "locator": "Theorem 6.2.1 and proof, p.34",
+     "match": "For a local Artin ℂ-algebra A and a free A-local system on the punctured total space that is a constant deformation of a unitary system on one fibre, rank below g forces H⁰(M,R¹π°_*V)=0; proof by base change, the decomposition lemma and the maximal-ideal filtration."
+    },
+    {
+     "sourceId": "LL24",
+     "locator": "Lemma 2.4.2 and proof, pp.19–20",
+     "match": "After a dominant étale base change, a constant unitary deformation on a fibre decomposes as a sum of total-space unitary systems tensored with free A-local systems pulled back from the base."
+    },
+    {
+     "sourceId": "LL-ERRATA",
+     "locator": "P04 erratum, entry for printed pp.844–845 (Lemma 2.4.2)",
+     "match": "Adds the hypothesis g≥1 to Lemma 2.4.2, needed by Corollary 2.3.5, and notes that Theorem 6.2.1 is nonvacuous only for g≥2."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Artinian deformation vanishing"
+   }
+  },
+  {
+   "id": "HodgeStructuresPartII:H.4/weighted-graded-rank-sum",
+   "parentStageId": "HodgeStructuresPartII:H.4",
+   "realises": [
+    "HodgeStructuresPartII:H.4"
+   ],
+   "title": "WeightedFlag — gradedRank_sum",
+   "kind": "lemma",
+   "declarationName": "TauCeti.ParabolicBounds.WeightedFlag.gradedRank_sum",
+   "statement": "The sum of all graded ranks is dim V.",
+   "hypotheses": [],
+   "proofSteps": [
+    "Finite-dimensional subspace ranks decrease along the flag. Sum their successive differences; the endpoints have ranks dim V and zero. This is the weighted flag’s graded-dimension identity."
+   ],
+   "acceptance": [
+    "For ℂ³⊋⟨e₂,e₃⟩⊋⟨e₃⟩⊋0 the graded ranks are 1,1,1 with sum 3; for ℂ²⊋0 the single graded rank is 2.",
+    "For V=0 the empty sum is 0."
+   ],
+   "prerequisites": [
+    "HodgeStructuresPartII:H.4/weighted-flag",
+    "mathlib:Module.finrank"
+   ],
+   "library": {
+    "module": "TauCeti/Geometry/ParabolicBounds/Bundles",
+    "namespace": "TauCeti.ParabolicBounds"
+   },
+   "sources": [
+    {
+     "sourceId": "LL22",
+     "locator": "Definition 2.1.1, pp.10–11",
+     "match": "The flag runs from the whole fibre down to zero, so the graded dimensions telescope to the rank."
+    },
+    {
+     "sourceId": "LL22",
+     "locator": "Proof of Lemma 6.3.3, p.40",
+     "match": "Uses that the graded dimensions at a mark, divided by the rank, sum to one, to bound the weight contribution by the largest weight."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "promotedFrom": "HodgeStructuresPartII:H.4/weighted-flag"
+  },
+  {
+   "id": "HodgeStructuresPartII:H.4/parabolic-degree-add",
+   "parentStageId": "HodgeStructuresPartII:H.4",
+   "realises": [
+    "HodgeStructuresPartII:H.4"
+   ],
+   "title": "inducedQuotient — degree_add",
+   "kind": "lemma",
+   "declarationName": "TauCeti.ParabolicBounds.inducedQuotient.degree_add",
+   "statement": "For 0→F⋆→E⋆→Q⋆→0 induced from a saturated sequence, parDeg E⋆=parDeg F⋆+parDeg Q⋆.",
+   "hypotheses": [],
+   "proofSteps": [
+    "Ordinary determinant degrees and ranks add in a saturated locally free exact sequence, supplied by SF.3.",
+    "At each weight threshold, intersect and map the fibre flag. The resulting associated graded sequence is exact at each original weight, with compressed repetitions using the maximum convention.",
+    "Add the weighted graded dimensions to the ordinary degree equality."
+   ],
+   "acceptance": [
+    "R4: the induced sub (weights 0,2/3) and quotient (weight 1/3) of ℂ³ with weights 0,1/3,2/3 add to 1; under the min-weight rule they would not.",
+    "R5: O·e₂ (parDeg 1/2) and its quotient O with weight 0 add to parDeg(O⊕O, weights 0,1/2)=1/2."
+   ],
+   "prerequisites": [
+    "HodgeStructuresPartII:H.4/induced-subbundle",
+    "HodgeStructuresPartII:H.4/induced-quotient",
+    "HodgeStructuresPartII:H.4/parabolic-degree",
+    "SchemeAndStackFoundations:SF.3",
+    "mathlib:LinearMap.range"
+   ],
+   "library": {
+    "module": "TauCeti/Geometry/ParabolicBounds/Bundles",
+    "namespace": "TauCeti.ParabolicBounds"
+   },
+   "sources": [
+    {
+     "sourceId": "LL22",
+     "locator": "Lemma 2.4.5, p.14",
+     "match": "States that parabolic degree of E⋆ is the sum of those of a subbundle with induced structure and the quotient with induced structure, citing Seshadri."
+    },
+    {
+     "sourceId": "LL22",
+     "locator": "§2.3, pp.13–14",
+     "match": "Supplies the induced subbundle and quotient structures entering the additivity."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "promotedFrom": "HodgeStructuresPartII:H.4/induced-quotient"
+  },
+  {
+   "id": "HodgeStructuresPartII:H.4/parabolic-degree-bounds",
+   "parentStageId": "HodgeStructuresPartII:H.4",
+   "realises": [
+    "HodgeStructuresPartII:H.4"
+   ],
+   "title": "parabolicDegree — bounds",
+   "kind": "lemma",
+   "declarationName": "TauCeti.ParabolicBounds.parabolicDegree.bounds",
+   "statement": "For a parabolic bundle E⋆ of rank r>0, deg E≤parDeg E⋆. If n>0, parDeg E⋆<deg E+n r; if n=0, parDeg E⋆=deg E.",
+   "hypotheses": [],
+   "proofSteps": [
+    "Every graded multiplicity is nonnegative and its coefficient lies in [0,1).",
+    "At each mark the sum of graded multiplicities is r by weighted-graded-rank-sum, so the contribution is strictly below r for r>0. Sum over the n marks; at n=0 there is no contribution."
+   ],
+   "acceptance": [
+    "A line with weight a at one mark has parDeg−deg=a∈[0,1); with n marks all of weight α the excess is exactly nrα (equality case of LL22 Lemma 6.3.3).",
+    "At rank zero the strict upper bound fails (0<0), so the positive-rank hypothesis is necessary."
+   ],
+   "prerequisites": [
+    "HodgeStructuresPartII:H.4/parabolic-degree",
+    "HodgeStructuresPartII:H.4/weighted-graded-rank-sum"
+   ],
+   "library": {
+    "module": "TauCeti/Geometry/ParabolicBounds/Bundles",
+    "namespace": "TauCeti.ParabolicBounds"
+   },
+   "sources": [
+    {
+     "sourceId": "LL22",
+     "locator": "Lemma 6.3.3 and proof, p.40",
+     "match": "Bounds the difference between parabolic and ordinary slope by n times the largest weight, with equality exactly when all weights coincide; since weights are below one this gives the node's bounds."
+    },
+    {
+     "sourceId": "LL22",
+     "locator": "Proof of Lemma 6.3.4, p.41",
+     "match": "Notes the difference is at most n and strictly less when n>0 because every weight is below one."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "promotedFrom": "HodgeStructuresPartII:H.4/parabolic-degree"
+  },
+  {
+   "id": "HodgeStructuresPartII:H.4/parabolic-twist-degree",
+   "parentStageId": "HodgeStructuresPartII:H.4",
+   "realises": [
+    "HodgeStructuresPartII:H.4"
+   ],
+   "title": "parabolicDegree — twist",
+   "kind": "lemma",
+   "declarationName": "TauCeti.ParabolicBounds.parabolicDegree.twist",
+   "statement": "Twisting by an ordinary line bundle L with trivial parabolic structure adds rank(E) deg L to parDeg.",
+   "hypotheses": [],
+   "proofSteps": [
+    "Ordinary tensoring with a line preserves each marked fibre flag up to its canonical fibre identification, hence preserves all weighted multiplicities.",
+    "Determinant degree increases by r deg L. Add the unchanged weight contribution."
+   ],
+   "acceptance": [
+    "A degree-d line with weight 1/4 twisted by O_C(x) has parDeg d+5/4.",
+    "A rank-two bundle twisted by L of degree 3 gains 6, not 3."
+   ],
+   "prerequisites": [
+    "HodgeStructuresPartII:H.4/parabolic-degree",
+    "SchemeAndStackFoundations:SF.3",
+    "HodgeStructuresPartII:H.4/parabolic-twist"
+   ],
+   "library": {
+    "module": "TauCeti/Geometry/ParabolicBounds/Bundles",
+    "namespace": "TauCeti.ParabolicBounds"
+   },
+   "sources": [
+    {
+     "sourceId": "LL22",
+     "locator": "Definition 2.6.3 and Lemma 2.6.5, p.15",
+     "match": "Defines the parabolic tensor product of filtered bundles and states its degree is deg E⋆·rk F⋆+deg F⋆·rk E⋆; for F⋆ a line bundle with trivial structure this is the node."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "promotedFrom": "HodgeStructuresPartII:H.4/parabolic-degree"
+  },
+  {
+   "id": "HodgeStructuresPartII:H.4/parabolic-quotient-criterion",
+   "parentStageId": "HodgeStructuresPartII:H.4",
+   "realises": [
+    "HodgeStructuresPartII:H.4"
+   ],
+   "title": "IsParabolicallySemistable — quotient_iff",
+   "kind": "lemma",
+   "declarationName": "TauCeti.ParabolicBounds.IsParabolicallySemistable.quotient_iff",
+   "statement": "Let E⋆ have positive rank. E⋆ is parabolically semistable if and only if every locally free quotient q:E→Q of positive rank (equivalently, with saturated kernel), with the induced quotient structure, satisfies μ⋆(Q⋆)≥μ⋆(E⋆).",
+   "hypotheses": [],
+   "proofSteps": [
+    "For an induced saturated sequence, use degree and rank additivity.",
+    "The inequality parDeg F/rank F≤parDeg E/rank E is equivalent, by multiplying the positive ranks, to parDeg E/rank E≤parDeg Q/rank Q.",
+    "Include the identity quotient as equality. Zero quotients are excluded from division."
+   ],
+   "acceptance": [
+    "R5: the quotient O⊕O→O killing O·e₂ has weight 0 and μ⋆=0<1/4, detecting non-semistability.",
+    "For a rank-one bundle the only nonzero quotient is the identity, and the criterion holds with equality."
+   ],
+   "prerequisites": [
+    "HodgeStructuresPartII:H.4/parabolic-semistability",
+    "HodgeStructuresPartII:H.4/parabolic-degree-add",
+    "HodgeStructuresPartII:H.4/parabolic-slope"
+   ],
+   "library": {
+    "module": "TauCeti/Geometry/ParabolicBounds/Bundles",
+    "namespace": "TauCeti.ParabolicBounds"
+   },
+   "sources": [
+    {
+     "sourceId": "LL22",
+     "locator": "Lemma 2.4.5 and proof, p.14",
+     "match": "Deduces from degree additivity that semistability (or stability) is equivalent to every quotient with induced structure having slope at least (or greater than) that of E⋆, by cross-multiplying ranks."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "promotedFrom": "HodgeStructuresPartII:H.4/parabolic-semistability"
+  },
+  {
+   "id": "HodgeStructuresPartII:H.4/parabolic-dual-degree",
+   "parentStageId": "HodgeStructuresPartII:H.4",
+   "realises": [
+    "HodgeStructuresPartII:H.4"
+   ],
+   "title": "parabolicDual — degree",
+   "kind": "lemma",
+   "declarationName": "TauCeti.ParabolicBounds.parabolicDual.degree",
+   "statement": "parDeg(E⋆∨)=−parDeg(E⋆).",
+   "hypotheses": [],
+   "proofSteps": [
+    "At weight zero, ordinary duality negates degree without a normalized divisor shift. At positive α with multiplicity m, normalization changes underlying dual degree by −m and supplies weight 1−α.",
+    "The net contribution at that factor is −m+(1−α)m=−αm. Add over the marked graded factors and use the negated determinant degree."
+   ],
+   "acceptance": [
+    "R3: the rank-two bundle with weights 0,1/4 (parDeg 1/4) has dual of parDeg −1/4 with underlying degree −1.",
+    "For the trivial structure the dual has parDeg −deg E."
+   ],
+   "prerequisites": [
+    "HodgeStructuresPartII:H.4/parabolic-dual",
+    "HodgeStructuresPartII:H.4/parabolic-degree",
+    "SchemeAndStackFoundations:SF.3"
+   ],
+   "library": {
+    "module": "TauCeti/Geometry/ParabolicBounds/Bundles",
+    "namespace": "TauCeti.ParabolicBounds"
+   },
+   "sources": [
+    {
+     "sourceId": "LL22",
+     "locator": "Lemma 2.6.5, p.15",
+     "match": "States that the parabolic degree of the parabolic dual is the negative of the parabolic degree."
+    },
+    {
+     "sourceId": "LL22",
+     "locator": "Definition 2.6.1 and Lemma 2.6.2, p.15",
+     "match": "Describe the dual's filtration via the coparabolic filtration twisted by −D, which is the local computation in the proof steps."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "promotedFrom": "HodgeStructuresPartII:H.4/parabolic-dual"
+  },
+  {
+   "id": "HodgeStructuresPartII:H.4/coparabolic-rank",
+   "parentStageId": "HodgeStructuresPartII:H.4",
+   "realises": [
+    "HodgeStructuresPartII:H.4"
+   ],
+   "title": "coparabolicZero — rank",
+   "kind": "lemma",
+   "declarationName": "TauCeti.ParabolicBounds.coparabolicZero.rank",
+   "statement": "rank Ē₀=rank E.",
+   "hypotheses": [],
+   "proofSteps": [
+    "On the formal disc, choose a basis adapted to the zero-weight flag. Replace its zero-weight basis vectors by t times themselves and leave the other basis vectors unchanged.",
+    "This is a free lattice of the original rank. Rank is unchanged away from D; glue with the local elementary-modification comparison supplied by SF.3."
+   ],
+   "acceptance": [
+    "For the trivial structure Ê₀=E(−D) has rank rank E.",
+    "Ê₀ restricted to C∖D equals E restricted to C∖D."
+   ],
+   "prerequisites": [
+    "HodgeStructuresPartII:H.4/coparabolic-zero",
+    "SchemeAndStackFoundations:SF.3",
+    "mathlib:Module.finrank"
+   ],
+   "library": {
+    "module": "TauCeti/Geometry/ParabolicBounds/Bundles",
+    "namespace": "TauCeti.ParabolicBounds"
+   },
+   "sources": [
+    {
+     "sourceId": "LL24",
+     "locator": "§5.2.1, p.30",
+     "match": "Defines Ê₀ as a kernel of E onto skyscraper quotients at the zero-weight marks; such a kernel agrees with E away from D, hence has the same rank."
+    },
+    {
+     "sourceId": "LL22",
+     "locator": "Definition 2.2.8, p.13",
+     "match": "Defines the coparabolic filtration as unions of the E_β, all of which agree with E away from D."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "promotedFrom": "HodgeStructuresPartII:H.4/coparabolic-zero"
+  },
+  {
+   "id": "HodgeStructuresPartII:H.4/trace-kernel-sections",
+   "parentStageId": "HodgeStructuresPartII:H.4",
+   "realises": [
+    "HodgeStructuresPartII:H.4"
+   ],
+   "title": "traceSectionMap — kernel_sections",
+   "kind": "lemma",
+   "declarationName": "TauCeti.ParabolicBounds.traceSectionMap.kernel_sections",
+   "statement": "ker μ_v=H⁰(C,ker B_E(v,−)).",
+   "hypotheses": [],
+   "proofSteps": [
+    "The section map is the global-section map of the sheaf morphism B_E(v,−).",
+    "Global sections preserve kernels by left exactness, so a global section maps to zero precisely when it is a section of the sheaf kernel. No surjectivity onto the target sheaf is required."
+   ],
+   "acceptance": [
+    "For E=O_C⊕O_C and v=(v₁,0), v₁≠0, ker μ_v=0⊕H⁰(K_C)=H⁰(ker f_v).",
+    "For E=O_C and v≠0 both sides are zero."
+   ],
+   "prerequisites": [
+    "HodgeStructuresPartII:H.4/trace-section-map",
+    "SchemeAndStackFoundations:SF.3"
+   ],
+   "library": {
+    "module": "TauCeti/Geometry/ParabolicBounds/Bundles",
+    "namespace": "TauCeti.ParabolicBounds"
+   },
+   "sources": [
+    {
+     "sourceId": "LL24",
+     "locator": "Proof of Proposition 5.2.3, p.31",
+     "match": "Sets U to be the kernel of the sheaf map induced by B_E(v,−) and uses that the section map's rank equals h⁰(E^∨⊗ω_C)−h⁰(U), which rests on this kernel identity."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "promotedFrom": "HodgeStructuresPartII:H.4/trace-section-map"
+  }
+ ],
+ "requests": [
+  {
+   "supplier": "SchemeAndStackFoundations:SF.3",
+   "need": "Finite locally free bundles on a smooth proper connected complex curve; determinant degree, rank/degree additivity for saturated exact sequences, fibrewise injectivity for saturated subbundles, local elementary modifications and their length-degree formula; the residue theorem deg E=−Σ tr Res for a logarithmic connection (equivalently for its determinant line). Coherent curve cohomology finiteness, genus h¹(O), deg K=2g−2, and vector-bundle Riemann–Roch h⁰(E)−h¹(E)=deg E+(1−g)rank E. Integrate the line-bundle route already owned by AlgebraicCurves/JacobianChallenge; do not equate line Clifford with vector Clifford.",
+   "neededBy": [
+    "HodgeStructuresPartII:H.4/parabolic-bundle",
+    "HodgeStructuresPartII:H.4/induced-quotient",
+    "HodgeStructuresPartII:H.4/parabolic-degree",
+    "HodgeStructuresPartII:H.4/coparabolic-zero",
+    "HodgeStructuresPartII:H.4/parabolic-dual",
+    "HodgeStructuresPartII:H.4/trace-section-map",
+    "HodgeStructuresPartII:H.4/dual-twist-semistable",
+    "HodgeStructuresPartII:H.4/coparabolic-dual-twist",
+    "HodgeStructuresPartII:H.4/parabolic-clifford-rank",
+    "HodgeStructuresPartII:H.4/parabolic-degree-add",
+    "HodgeStructuresPartII:H.4/parabolic-twist-degree",
+    "HodgeStructuresPartII:H.4/parabolic-dual-degree",
+    "HodgeStructuresPartII:H.4/coparabolic-rank",
+    "HodgeStructuresPartII:H.4/trace-kernel-sections",
+    "HodgeStructuresPartII:H.4/unitary-parabolic-semistable",
+    "HodgeStructuresPartII:H.4/parabolic-twist"
+   ]
+  },
+  {
+   "supplier": "HodgeStructuresPartII:H.2",
+   "need": "Extend HodgeStructuresPartII:H.2/gauss-manin (R^q f_* of a coefficient local system on the complement of a relative SNC boundary, as a local system) to coefficient systems carrying an action of a finite-dimensional commutative ℂ-algebra A (locally constant sheaves of finite free A-modules): R¹π°_* is again locally constant with an A-action, compatible with finite direct sums, and satisfies the projection formula R¹π°_*(U⊗π°*W)≅(R¹π°_*U)⊗W for a base local system W. Injectivity of the pullback of invariant sections along a dominant map from a connected base is elementary and is a proof step of artinian-vanishing, not part of this request.",
+   "neededBy": [
+    "HodgeStructuresPartII:H.4/artinian-vanishing"
+   ]
+  },
+  {
+   "supplier": "HodgeStructuresPartII:H.2",
+   "need": "Define unitary complex local systems: finite-rank local systems whose monodromy preserves a positive definite Hermitian form, equivalently has relatively compact image (LL24 Notation 1.10.2); independence of base point; closure under direct sums, duals, tensor products, pullback and sub-local systems; complete reducibility. H.2's unitary-curve-fiber, unitary-curve-family and unitary-bigrading already use the notion. H.4 and H.5 build on it, so the owner must precede H.4; HodgeStructuresPartII:H.5/unitary-representation, which comes after H.4, then imports the notion instead of defining it.",
+   "neededBy": [
+    "HodgeStructuresPartII:H.4/unitary-parabolic-semistable",
+    "HodgeStructuresPartII:H.4/fixed-part-vector",
+    "HodgeStructuresPartII:H.4/sublocal-system-rank",
+    "HodgeStructuresPartII:H.4/tensor-invariant-rank",
+    "HodgeStructuresPartII:H.4/artinian-vanishing"
+   ]
+  }
+ ],
+ "coverage": [
+  {
+   "stageId": "HodgeStructuresPartII:H.4",
+   "status": "planned",
+   "remaining": [
+    "G1: supply ordinary complex-curve vector-bundle HN and BPGN97 Clifford foundations in the proposed Algebraic curves Part II owner.",
+    "G2: import the corrected fibre-unitary decomposition (LL24 Lemma 2.4.2 with g≥1) from the MappingClassGroupsAndCanonicalRepresentations design once it has node ids.",
+    "G3: supply the analytic versal-family, classifying-map cotangent and homotopy-sequence interfaces on StableReductionPartII:key/moduli-curves.",
+    "G4: complete the global curve, sheaf, Hodge and Artinian signatures and geometry-level tests in the suggested file from supplier carriers.",
+    "G5: close H.2 gaps G6/G15 (admissibility for arbitrary unitary coefficients) or restrict the exported theorems to H.2's hypothesis.",
+    "G6: supply the canonical-extension identification of Mehta–Seshadri semistability (Simpson 1990 Theorem 5 or an algebraic proof).",
+    "Resolve the SF.3 curve-foundation request and the Artinian coefficient-cohomology request with exact nodes."
+   ]
+  }
+ ],
+ "gaps": [
+  {
+   "title": "G1 — Ordinary vector-bundle HN and Clifford foundations",
+   "neededBy": [
+    "HodgeStructuresPartII:H.4/parabolic-clifford-rank"
+   ],
+   "detail": "The curve roadmaps plan, but the libraries at the pinned baseline do not contain, line-bundle Riemann–Roch and Clifford (tauceti:TauCetiRoadmap/AlgebraicCurves layer 5; JacobianChallenge layer B, whose scheme-level Riemann–Roch the library audit marks partial). They do not plan the needed ordinary vector-bundle HN existence, saturated maximal-slope subbundles, semistable Hom vanishing, generic global generation (LL22 Definition 6.1.3) and its lower HN slope bound, or BPGN97 Theorem 2.1. The full primary Clifford induction was read: split a special semistable bundle by a maximal-slope proper subbundle and apply line Clifford by induction. These generic statements need an Algebraic curves Part II owner (proposal below), including the HN version h⁰(W)≤deg(W)/2+rank W for slopes in [0,2g]. Until it has stages/nodes, no invented supplier id is used. The same ordinary Harder–Narasimhan theory for bundles on a smooth projective curve over a finite field is routed to GlobalShtukasAndFunctionFieldLanglands:GS.0 (PAPER-YU-23 items 026 and 126, PAPER-SCHIFFMANN-16 item 14), and the abstract formalism (PAPER-FARGUES-FONTAINE-18 items 590–600) has no owner; the owner proposed here should plan Harder–Narasimhan existence, uniqueness, saturation and semistable Hom vanishing once, over an arbitrary base field, for both H.4 and GS.0 to import."
+  },
+  {
+   "title": "G2 — Fibre-unitary isotypic decomposition supplier",
+   "neededBy": [
+    "HodgeStructuresPartII:H.4/artinian-vanishing"
+   ],
+   "detail": "LL24 Lemma 2.4.2 with g≥1, after a dominant étale base change retaining a chosen fibre, supplies V≅⊕Uᵢ⊗π°*Wᵢ with total-space unitary Uᵢ and A-free Wᵢ. It uses finite-determinant irreducible fibre extensions (Corollary 2.3.5), Lemma 2.4.1(2), Schur evaluation and exact fundamental-group sequences. PAPER-LANDESMAN-LITT-24 routes this to MappingClassGroupsAndCanonicalRepresentations; no roadmap definition or exact stage/node exists in this checkout. Import its corrected statement once the design has supplied ids. Do not assume fibre unitarity implies total unitarity."
+  },
+  {
+   "title": "G3 — Analytic versal-family and classifying-map interface",
+   "neededBy": [
+    "HodgeStructuresPartII:H.4/fixed-part-vector",
+    "HodgeStructuresPartII:H.4/sublocal-system-rank",
+    "HodgeStructuresPartII:H.4/tensor-invariant-rank",
+    "HodgeStructuresPartII:H.4/artinian-vanishing"
+   ],
+   "detail": "The moduli stack of smooth n-pointed genus-g curves is the reserved key definition StableReductionPartII:key/moduli-curves, with the Deligne–Mumford theorem StableReductionPartII:MC.2/pointed-dm-theorem; those are cited, not rebuilt. Still unsupplied: the analytic realization of a family with a dominant étale classifying map M→M_{g,n}, the deformation/cotangent dictionary (T≅H¹(T_C(−D)), Ω¹≅H⁰(K²(D)), c_m* an isomorphism for étale c) which H.3 requests from StableReductionPartII:MC.2 for HodgeStructuresPartII:H.3/trace-period-derivative, and the exact homotopy sequence of a punctured versal family (LL24 Lemma 2.1.5) used with LL24 Lemma 2.4.2. These belong to the moduli and mapping-class-group owners; no private M_{g,n} is defined here."
+  },
+  {
+   "title": "G4 — Global supplier carriers in suggested signatures",
+   "neededBy": [
+    "HodgeStructuresPartII:H.4/parabolic-bundle",
+    "HodgeStructuresPartII:H.4/induced-subbundle",
+    "HodgeStructuresPartII:H.4/induced-quotient",
+    "HodgeStructuresPartII:H.4/parabolic-degree",
+    "HodgeStructuresPartII:H.4/parabolic-slope",
+    "HodgeStructuresPartII:H.4/parabolic-semistability",
+    "HodgeStructuresPartII:H.4/coparabolic-zero",
+    "HodgeStructuresPartII:H.4/parabolic-dual",
+    "HodgeStructuresPartII:H.4/trace-section-map",
+    "HodgeStructuresPartII:H.4/ordinary-quotient-slope",
+    "HodgeStructuresPartII:H.4/dual-twist-semistable",
+    "HodgeStructuresPartII:H.4/coparabolic-dual-twist",
+    "HodgeStructuresPartII:H.4/parabolic-clifford-rank",
+    "HodgeStructuresPartII:H.4/trace-rank-bound",
+    "HodgeStructuresPartII:H.4/fixed-part-vector",
+    "HodgeStructuresPartII:H.4/sublocal-system-rank",
+    "HodgeStructuresPartII:H.4/tensor-invariant-rank",
+    "HodgeStructuresPartII:H.4/artinian-vanishing",
+    "HodgeStructuresPartII:H.4/parabolic-degree-add",
+    "HodgeStructuresPartII:H.4/parabolic-degree-bounds",
+    "HodgeStructuresPartII:H.4/parabolic-twist-degree",
+    "HodgeStructuresPartII:H.4/parabolic-quotient-criterion",
+    "HodgeStructuresPartII:H.4/parabolic-dual-degree",
+    "HodgeStructuresPartII:H.4/coparabolic-rank",
+    "HodgeStructuresPartII:H.4/trace-kernel-sections",
+    "HodgeStructuresPartII:H.4/connection-parabolic-structure",
+    "HodgeStructuresPartII:H.4/unitary-parabolic-semistable",
+    "HodgeStructuresPartII:H.4/parabolic-twist"
+   ],
+   "detail": "The suggested file elaborates native finite fibre flags, normalized numerical degree/slope, supplied subbundle-catalogue inequalities, local formal-disc coparabolic kernels, evaluation/section maps, numerical rank consequences and finite-filtration invariant vanishing. It omits unavailable global curve/sheaf, degree/cohomology, canonical extension, VMHS, versal-family and isotypic-decomposition carriers and hypotheses. Each affected declaration is explicitly mapped to its local or numerical portion; neither omitted geometry nor unitarity is replaced by an arbitrary proposition. Full supplier-based signatures and geometry-level tests remain necessary; successful elaboration is not a formalization of the global theorems. The formal-disc filtration model covers α≥0 at one mark; the API items and tests listed in prototypeMap.omittedSignatures need global carriers and have no declaration in the suggested file."
+  },
+  {
+   "title": "G5 — Admissibility of the unitary curve VMHS without quasi-unipotence",
+   "neededBy": [
+    "HodgeStructuresPartII:H.4/fixed-part-vector",
+    "HodgeStructuresPartII:H.4/sublocal-system-rank",
+    "HodgeStructuresPartII:H.4/tensor-invariant-rank",
+    "HodgeStructuresPartII:H.4/artinian-vanishing"
+   ],
+   "detail": "LL24 Theorem 4.1.1 and Proposition 4.2.2 are used for an arbitrary unitary V, whose boundary monodromy on M need not be quasi-unipotent. HodgeStructuresPartII:H.2/unitary-curve-family and irreducible-evaluation state admissibility, and hence the fixed-part evaluation, only under quasi-unipotent boundary monodromy in H.2's finite-cover convention; the unrestricted statement is H.2 gaps G6 and G15 (real mixed Hodge modules). Until H.2 closes them, fixed-part-vector and the theorems built on it are planned for V satisfying H.2's hypothesis, and the full LL24 generality is this gap. No weaker admissibility is assumed silently."
+  },
+  {
+   "title": "G6 — Canonical-extension form of the Mehta–Seshadri semistability",
+   "neededBy": [
+    "HodgeStructuresPartII:H.4/unitary-parabolic-semistable",
+    "HodgeStructuresPartII:H.4/sublocal-system-rank"
+   ],
+   "detail": "Parabolic degree zero follows from the residue theorem (requested from SF.3). Semistability is proved in MS80 §1 for the parabolic bundle built from a unitary Fuchsian-group bundle; LL24 Remark 5.2.2 notes that identifying that bundle with the parabolic structure of the Deligne canonical extension is not immediate and cites Simpson 1990 Theorem 5; AHL19 Proposition 5.4 states the identification for complex polarized variations and refers its proof to Brunebarbe §7. Neither Simpson 1990 nor Brunebarbe is among the sources read for this layer. A formalization needs either that analytic comparison or a direct algebraic proof of semistability for the canonical-extension structure; its owner is the non-abelian Hodge development for open curves, which no layer plans. H.1 supplies the case D=∅ through its compact harmonic correspondence. The open-curve owner must come before H.4 in the roadmap order: HodgeStructuresPartII:H.5 depends on H.4, so placing the tame harmonic theory after H.4 would close a stage cycle."
+  }
+ ],
+ "sourceIssues": [
+  {
+   "id": "HodgeStructuresPartII/E-H4-1",
+   "source": "LL24",
+   "kind": "misprint",
+   "locator": "Proof of Proposition 5.2.3 and Remark 5.2.5, arXiv v4 p.31",
+   "printed": "The source describes the object as stable in the parabolic sense.",
+   "correction": "Use parabolically semistable and coparabolically semistable in these two passages.",
+   "reason": "Dualization and twisting of a semistable bundle preserve semistability, not necessarily stability. Proposition 5.2.4 needs only semistability; O⊕O shows the distinction.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "arXiv 2205.15352 version history, accessed 2026-10-07 (v4 latest)",
+    "Daniel Litt author erratum P04 at https://www.daniellitt.com/published-paper-reviews.html, re-read 2026-10-08",
+    "data/source-issues.json: recorded as PAPER-LANDESMAN-LITT-24/E12",
+    "The AI review reproduced on Litt's page flags the same slip; the adopted P04 erratum leaves it out as optional"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked at LL24 arXiv v4 p.31: Propositions 5.2.3–5.2.4 are stated for semistable bundles, while the proof of 5.2.3 calls the dual twist stable and Remark 5.2.5 speaks of stable/coparabolically stable. Dualizing and twisting preserve only semistability (O⊕O is semistable, not stable), and the argument needs only branch (II) for semistable bundles. The P04 author erratum lists no correction; the AI review reproduced on the same page flags the same slip, which is not an author correction.",
+    "by": "REV-HodgeStructuresPartII--H.4"
+   }
+  },
+  {
+   "id": "HodgeStructuresPartII/E-H4-2",
+   "source": "LL24",
+   "kind": "error",
+   "locator": "Lemma 6.1.1 statement, arXiv v4 p.33",
+   "printed": "v ∈ L_m",
+   "correction": "The proof gives v in a Hodge-homogeneous evaluation image L′ isomorphic to L, or simply a nonzero v∈F¹H_m, which is all Theorem 1.7.1 needs.",
+   "reason": "The evaluation q⊗L→H can select a different inclusion of the same irreducible factor; a non-Hodge-compatible original inclusion need not contain that Hodge-homogeneous vector.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "arXiv 2205.15352 version history, accessed 2026-10-07 (v4 latest)",
+    "Daniel Litt author erratum P04 at https://www.daniellitt.com/published-paper-reviews.html, re-read 2026-10-08",
+    "data/source-issues.json: recorded as PAPER-LANDESMAN-LITT-24/E13",
+    "The P04 replacement proof of Lemma 6.1.1 (printed p.860) leaves the statement unchanged"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked at LL24 p.33 and the P04 replacement proof: the vector produced is the image of q⊗ℓ under the projected fixed-part evaluation, which lies in an isomorphic copy L′ of L. If L sits diagonally in L⊗Q with Q having Hodge types (1,0) and (0,1), then L_m∩F¹H_m=0 and the same holds for the conjugate, so membership in the original L_m can fail. The proof of Theorem 1.7.1 uses only v∈F¹H_m, so the theorem is unaffected.",
+    "by": "REV-HodgeStructuresPartII--H.4"
+   }
+  },
+  {
+   "id": "HodgeStructuresPartII/E-H4-3",
+   "source": "LL24",
+   "kind": "error",
+   "locator": "Proof of Lemma 6.1.1, arXiv v4 p.33, displayed realification identity",
+   "printed": "The proof identifies R¹π°_* of the realification of V with the realification of H=R¹π°_*V.",
+   "correction": "Use W_R=R¹π°_* realification(V) and project its complexification to H, as in the author replacement proof. Do not identify it with the minimal realification of H.",
+   "reason": "If V has no real structure but its cohomology does, the minimal realification of cohomology has a different rank from the cohomology of the realification. The fixed-part argument must be applied to the latter.",
+   "affects": "the proof",
+   "known": "Daniel Litt P04 author erratum, printed p.860, replacement proof of Lemma 6.1.1",
+   "searched": [
+    "arXiv 2205.15352 version history, accessed 2026-10-07 (v4 latest)",
+    "Annals article landing page https://annals.math.princeton.edu/2024/199-2/p06, 2026-10-07; full print text unavailable",
+    "Daniel Litt author erratum P04/P05 at https://www.daniellitt.com/published-paper-reviews.html, 2026-10-07; read the author erratum separately from the automated reports"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked at LL24 p.33 against the P04 erratum entry for printed p.860, which states the same failure and gives the replacement proof through R¹π°_* of the realified coefficients; the packet's correction matches it.",
+    "by": "REV-HodgeStructuresPartII--H.4"
+   }
+  },
+  {
+   "id": "HodgeStructuresPartII/E-H4-4",
+   "source": "LL24",
+   "kind": "gap",
+   "locator": "Lemma 2.4.2, arXiv v4 p.19",
+   "printed": "Lemma 2.4.2 is stated without a lower bound on the genus g.",
+   "correction": "Add g≥1 to the decomposition lemma.",
+   "reason": "Its proof invokes Corollary 2.3.5 with that hypothesis. The present nonzero vanishing application has positive rank<g, hence g≥2.",
+   "affects": "a stated result",
+   "known": "Daniel Litt P04 author erratum, printed pp.844–845; previously PAPER-LANDESMAN-LITT-24/E10",
+   "searched": [
+    "arXiv 2205.15352 version history, accessed 2026-10-07 (v4 latest)",
+    "Annals article landing page https://annals.math.princeton.edu/2024/199-2/p06, 2026-10-07; full print text unavailable",
+    "Daniel Litt author erratum P04/P05 at https://www.daniellitt.com/published-paper-reviews.html, 2026-10-07; read the author erratum separately from the automated reports"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked at LL24 pp.19–20 and the P04 erratum entry for printed pp.844–845: the proof of Lemma 2.4.2 invokes Corollary 2.3.5, stated for g≥1, and the erratum adds g≥1; Theorem 6.2.1 is nonvacuous only for g≥2.",
+    "by": "REV-HodgeStructuresPartII--H.4"
+   }
+  },
+  {
+   "id": "HodgeStructuresPartII/E-H4-5",
+   "source": "LL22",
+   "kind": "misprint",
+   "locator": "Proof of Proposition 6.3.6, arXiv v3 p.42",
+   "printed": "> gc",
+   "correction": "In the intermediate goal use rank(V/N_t)>gc−δ (and ≥gc−δ for the nonstrict branch).",
+   "reason": "The stated proposition and final application on p.43 retain −δ; dropping it would be a stronger assertion not proved by Lemma 6.2.3.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "arXiv 2202.00039 version history and v3 §6.3 proof, 2026-10-07",
+    "Daniel Litt P05 author erratum, 2026-10-07; no §6.3.6 correction listed",
+    "Published JAMS text not collated; these two findings are scoped to the public preprint only.",
+    "Result of the search: no matching correction in arXiv v3 or in the P05 author erratum"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked at LL22 arXiv v3 p.42: the proof announces rk V/N^t>gc (≥gc) without the deficit δ, while Lemma 6.2.3 and the conclusion on p.43 give rk V/N^t≥gc−δ; the stronger intermediate claim is not proved. A slip in the proof; the statement of Proposition 6.3.6 is right.",
+    "by": "REV-HodgeStructuresPartII--H.4"
+   }
+  },
+  {
+   "id": "HodgeStructuresPartII/E-H4-6",
+   "source": "LL22",
+   "kind": "misprint",
+   "locator": "Proof of Proposition 6.3.6, arXiv v3 p.43",
+   "printed": "1 ≤ j ≤ t",
+   "correction": "The nonnegative HN slope conclusion holds for all 1≤j≤s, especially the residual indices t<j≤s.",
+   "reason": "The smallest HN slope is nonnegative by generic global generation; monotonicity gives every slope nonnegative. The printed range covers only the discarded initial segment.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "arXiv 2202.00039 version history and v3 §6.3 proof, 2026-10-07",
+    "Daniel Litt P05 author erratum, 2026-10-07; no §6.3.6 correction listed",
+    "Published JAMS text not collated; these two findings are scoped to the public preprint only.",
+    "Result of the search: no matching correction in arXiv v3 or in the P05 author erratum"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked at LL22 p.43: the inequality μ(N^j/N^{j−1})≥0 is asserted for 1≤j≤t, but hypothesis (2) of Lemma 6.2.3 concerns the graded pieces of U/N^t, that is t<j≤s. Since the last HN slope is nonnegative and HN slopes decrease, the inequality holds for all j, so only the printed range is wrong.",
+    "by": "REV-HodgeStructuresPartII--H.4"
+   }
+  },
+  {
+   "id": "HodgeStructuresPartII/E-H4-7",
+   "source": "LL22",
+   "kind": "misprint",
+   "locator": "Proof of Lemma 6.3.4, arXiv v3 p.41",
+   "printed": "The ε-shift W[ε]⋆ of a coparabolically semistable bundle of parabolic slope r+n is said to have parabolic slope r+n−ε.",
+   "correction": "Its parabolic slope is r+n−nε, since shifting by ε lowers the parabolic degree by ε·rank at each of the n marks; the next line then gives μ(Q_ε)≥r−nε.",
+   "reason": "With the left-continuous filtration and E_{α+1}=E_α(−D), the integral formula for parabolic degree gives par-deg(E[ε]⋆)=par-deg(E⋆)−ε·n·rank E; for one weight-zero line with two marks the shift has underlying O(−D) and weights 1−ε, parabolic degree −2ε. The argument only uses ε→0, so the conclusion stands.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 2202.00039 version history, v3 §6.3, 2026-10-08",
+    "Daniel Litt P05 author erratum, 2026-10-08: no entry for §6.3"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Found and checked by this review at the printed line of the proof of Lemma 6.3.4, p.41, with the two-mark line example.",
+    "by": "REV-HodgeStructuresPartII--H.4"
+   }
+  },
+  {
+   "id": "HodgeStructuresPartII/E-H4-8",
+   "source": "LL24",
+   "kind": "misprint",
+   "locator": "§5.2.1, arXiv v4 p.30, sentence after the definition of Ê₀",
+   "printed": "The lattice Ê₀ is called a subbundle of E.",
+   "correction": "Ê₀ is a locally free subsheaf of E of the same rank (an elementary modification); its cokernel is a skyscraper of length Σ_{j∈J}dim(E_{xⱼ}/Eⱼ²), so it is not a subbundle in the saturated sense used for U in Proposition 5.2.4.",
+   "reason": "For the trivial structure Ê₀=E(−D), whose inclusion into E is zero on the fibres over D. The rest of the argument uses only the local freeness of Ê₀.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 2205.15352 version history, accessed 2026-10-07 (v4 latest)",
+    "Daniel Litt author erratum P04 at https://www.daniellitt.com/published-paper-reviews.html, re-read 2026-10-08"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Found and checked by this review: the full-rank kernel of a surjection onto skyscrapers is not saturated whenever some first weight is zero and E≠0.",
+    "by": "REV-HodgeStructuresPartII--H.4"
+   }
+  }
+ ],
+ "restructure": [
+  {
+   "action": "rescope",
+   "roadmaps": [
+    "HodgeStructuresPartII",
+    "SchemeAndStackFoundations"
+   ],
+   "detail": "Generic ordinary vector-bundle HN and Clifford theory is absent from the line-bundle curve scope; Fargues–Fontaine HN in VectorBundlesAndIsocrystals is a different curve and cannot supply it.",
+   "proposal": "Design Algebraic curves, Part II: vector bundles, slopes and Clifford bounds, extending tauceti:TauCetiRoadmap/AlgebraicCurves and JacobianChallenge coherent comparison. It owns determinant degree, ordinary HN theory and BPGN97 vector Clifford plus the [0,2g] HN bound. H.4 owns only the parabolic estimate and its cohomological applications; SF.3 integrates the curve interfaces. This is a proposal, not a new supplier stage. The same ordinary Harder–Narasimhan theory for bundles on a smooth projective curve over a finite field is routed to GlobalShtukasAndFunctionFieldLanglands:GS.0 (PAPER-YU-23 items 026 and 126, PAPER-SCHIFFMANN-16 item 14), and the abstract formalism (PAPER-FARGUES-FONTAINE-18 items 590–600) has no owner; the owner proposed here should plan Harder–Narasimhan existence, uniqueness, saturation and semistable Hom vanishing once, over an arbitrary base field, for both H.4 and GS.0 to import."
+  }
+ ],
+ "sourceVersions": [
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/2205.15352v4",
+   "read": "2026-10-07",
+   "sha256": "4cb511ba40675aa6899b351f2ee27eb9487b4a21f65ec8000c1f2cc1a5107ceb"
+  },
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/2202.00039v3",
+   "read": "2026-10-07",
+   "sha256": "4f291599d8259d8084677c9f4325cc4329e7460d246ff0b311aa739da45763ab"
+  },
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/alg-geom/9511003v1",
+   "read": "2026-10-07",
+   "sha256": "49a54383e147457176491d81c822ea334504c8d16964e38fb7c5cdf155d03bf8"
+  },
+  {
+   "kind": "published",
+   "url": "https://repository.ias.ac.in/20407/1/305.pdf",
+   "read": "2026-10-08",
+   "sha256": "f039f19dc7a507301572930bbc54e3a94cf7dac2449f7cdebed098a3ef7dd7b9"
+  },
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/1801.02562v3",
+   "read": "2026-10-08",
+   "sha256": "311c64078d22ac5d34ff9754dfa529fa059af958ddf863e0346771a3e52ec5ea"
+  },
+  {
+   "kind": "author copy",
+   "url": "https://www.daniellitt.com/published-paper-reviews.html",
+   "read": "2026-10-07",
+   "sha256": "c382f55815ca3e6f01a3b1abf60d8d06161f8734876e9aaf887c5dc4143a6032"
+  },
+  {
+   "kind": "published",
+   "url": "https://annals.math.princeton.edu/2024/199-2/p06",
+   "read": "2026-10-07: article landing page only; full article not served. Findings below are scoped to arXiv v4, except author corrections explicitly referring to print. No print/preprint collation claimed."
+  }
+ ],
+ "baselineAudit": {
+  "date": "2026-10-07",
+  "detail": "Reviewed data/library-coverage.json has no HodgeStructuresPartII:H.4 record. Parent H.0 nodes and the H.1 part were checked for reuse; neither supplies these parabolic targets. Pinned TauCeti tree searched for parabolic bundle/semistability, HN and Clifford theorem, plus curve/cohomology paths. Matches concern Clifford algebras and representation Clifford theory; no matching parabolic or vector-Clifford declarations were found. Mathlib native sheaf/submodule/representation/power-series carriers are reused. Module.Grassmannian was read (quotient-rank convention, no charts); the period-map Grassmannian is H.3's concern (HodgeStructuresPartII:H.3/curve-hodge-filtration), so H.4 does not cite it. Review 2026-10-08: no library-coverage record mentions HodgeStructuresPartII; no audited layer marks parabolic bundles, Mehta–Seshadri, vector-bundle HN filtrations or vector Clifford as built."
+ },
+ "prototypeMap": {
+  "native": [
+   "weighted-flag",
+   "trace-section-map",
+   "weighted-graded-rank-sum"
+  ],
+  "local": [
+   "coparabolic-zero",
+   "coparabolic-rank"
+  ],
+  "numericalOrFibrePortions": [
+   "parabolic-bundle",
+   "induced-subbundle",
+   "induced-quotient",
+   "parabolic-degree",
+   "parabolic-slope",
+   "parabolic-semistability",
+   "parabolic-dual",
+   "ordinary-quotient-slope",
+   "dual-twist-semistable",
+   "coparabolic-dual-twist",
+   "parabolic-clifford-rank",
+   "trace-rank-bound",
+   "fixed-part-vector",
+   "sublocal-system-rank",
+   "tensor-invariant-rank",
+   "parabolic-degree-add",
+   "parabolic-degree-bounds",
+   "parabolic-twist-degree",
+   "parabolic-quotient-criterion",
+   "parabolic-dual-degree",
+   "trace-kernel-sections",
+   "parabolic-twist",
+   "connection-parabolic-structure",
+   "unitary-parabolic-semistable"
+  ],
+  "filteredRepresentationPortion": [
+   "artinian-vanishing"
+  ],
+  "fullGlobalSignatures": "G4; the names in omittedSignatures need the global curve, sheaf or section carriers and have no declaration in the suggested file. Definitive mathematical statements are in the packet and reader, and no implementation is claimed.",
+  "omittedSignatures": [
+   "ParabolicBundle.toBundle",
+   "ParabolicBundle.exists_adapted_frame",
+   "inducedSubbundle.filtration_eq_inf",
+   "inducedQuotient.filtration_eq_map",
+   "IsParabolicallySemistable.dual_iff",
+   "IsParabolicallySemistable.directSum",
+   "parabolicDual.filtration",
+   "parabolicDual.fibre",
+   "parabolicDual.map",
+   "parabolicDual.induced_exact",
+   "traceSectionMap.eq_traceMultiplication",
+   "traceSectionMap.sheafMap",
+   "traceSectionMap.sheafKernel_corank_one",
+   "traceSectionMap.trivial_bundle_rank",
+   "traceSectionMap.split_kernel",
+   "traceSectionMap.rank_zero_possible"
+  ]
+ },
+ "routeAccounting": [
+  {
+   "item": "PAPER-LANDESMAN-LITT-24/8",
+   "nodes": [
+    "HodgeStructuresPartII:H.4/sublocal-system-rank"
+   ],
+   "note": "Theorem 1.7.1."
+  },
+  {
+   "item": "PAPER-LANDESMAN-LITT-24/44",
+   "nodes": [
+    "HodgeStructuresPartII:H.3/trace-multiplication",
+    "HodgeStructuresPartII:H.4/trace-section-map",
+    "HodgeStructuresPartII:H.4/trace-kernel-sections"
+   ],
+   "note": "The pairing B_E is owned by H.3; H.4 owns the section map at a vector."
+  },
+  {
+   "item": "PAPER-LANDESMAN-LITT-24/45",
+   "nodes": [
+    "HodgeStructuresPartII:H.4/weighted-flag",
+    "HodgeStructuresPartII:H.4/parabolic-bundle",
+    "HodgeStructuresPartII:H.4/induced-subbundle",
+    "HodgeStructuresPartII:H.4/induced-quotient",
+    "HodgeStructuresPartII:H.4/parabolic-degree",
+    "HodgeStructuresPartII:H.4/parabolic-slope",
+    "HodgeStructuresPartII:H.4/parabolic-semistability",
+    "HodgeStructuresPartII:H.4/coparabolic-zero"
+   ],
+   "note": "Parabolic bundles, degree, slope, semistability and Ê₀ (§5.2.1)."
+  },
+  {
+   "item": "PAPER-LANDESMAN-LITT-24/46",
+   "nodes": [
+    "HodgeStructuresPartII:H.4/unitary-parabolic-semistable"
+   ],
+   "note": "Only the direction LL24 uses (unitary ⇒ semistable of parabolic degree zero, Remark 5.2.2) is planned; the converse of Mehta–Seshadri (stable of degree zero ⇒ unitary) is not used by any H.4 target and is not planned here."
+  },
+  {
+   "item": "PAPER-LANDESMAN-LITT-24/47",
+   "nodes": [
+    "HodgeStructuresPartII:H.4/trace-rank-bound"
+   ],
+   "note": "Proposition 5.2.3."
+  },
+  {
+   "item": "PAPER-LANDESMAN-LITT-24/48",
+   "nodes": [
+    "HodgeStructuresPartII:H.4/parabolic-clifford-rank",
+    "HodgeStructuresPartII:H.4/ordinary-quotient-slope"
+   ],
+   "note": "Proposition 5.2.4 = LL22 Proposition 6.3.6; vector Clifford and HN in G1."
+  },
+  {
+   "item": "PAPER-LANDESMAN-LITT-24/49",
+   "nodes": [
+    "HodgeStructuresPartII:H.4/fixed-part-vector"
+   ],
+   "note": "Lemma 6.1.1 with the P04 replacement proof."
+  },
+  {
+   "item": "PAPER-LANDESMAN-LITT-24/50",
+   "nodes": [
+    "HodgeStructuresPartII:H.4/artinian-vanishing",
+    "HodgeStructuresPartII:H.4/tensor-invariant-rank"
+   ],
+   "note": "Theorem 6.2.1; Lemma 2.4.2 in G2."
+  },
+  {
+   "item": "PAPER-LANDESMAN-LITT-24/121",
+   "nodes": [
+    "HodgeStructuresPartII:H.4/connection-parabolic-structure",
+    "HodgeStructuresPartII:H.4/unitary-parabolic-semistable"
+   ],
+   "note": "Assigned to H.2 by the H.0 route accounting; H.2 has no parabolic notions and precedes H.4, so H.4 owns it."
+  },
+  {
+   "item": "PAPER-LANDESMAN-LITT-24/122",
+   "nodes": [
+    "HodgeStructuresPartII:H.4/parabolic-dual",
+    "HodgeStructuresPartII:H.4/parabolic-twist",
+    "HodgeStructuresPartII:H.4/parabolic-dual-degree",
+    "HodgeStructuresPartII:H.4/parabolic-twist-degree",
+    "HodgeStructuresPartII:H.4/dual-twist-semistable",
+    "HodgeStructuresPartII:H.4/coparabolic-dual-twist"
+   ],
+   "note": "Parabolic dual, twist and the identity for the zero lattice of the dual twist."
+  }
+ ],
+ "review": {
+  "status": "accepted",
+  "reviewer": "independent-review-REV-HodgeStructuresPartII--H.4",
+  "date": "2026-10-08",
+  "notes": "Independent review of the H.4 blueprint, packet, reader and suggested file at fd3033287. Sources re-read at their recorded hashes (LL24 v4, LL22 v3, BPGN97, Litt errata P04/P05) plus MS80 and AHL19 §5. Every node was checked against its locator. Corrections: (1) trace-pairing and trace-pairing-perfect duplicated HodgeStructuresPartII:H.3/trace-multiplication and were removed; trace-section-map now cites the H.3 owner. (2) The semistability and degree zero of the canonical parabolic extension of a unitary system had been requested from H.2, which has no parabolic notions and precedes H.4; added connection-parabolic-structure (LL22 Def 3.3.1) and unitary-parabolic-semistable (residue theorem, MS80 §1, AHL19 §5, H.1 for D=∅) with gap G6 for the open-curve identification. (3) Added parabolic-twist, used in three theorem statements but never constructed. (4) Stage prerequisites H.2/H.3 replaced by exact node ids (canonical-extension, residue-monodromy, unitary-curve-*, irreducible-*, isotypic-hodge, gauss-manin; curve-hodge-filtration, derivative-connection, trace-period-derivative, trace-derivative-rank) and the moduli stack by StableReductionPartII:key/moduli-curves and MC.2/pointed-dm-theorem; four resolved requests removed; new requests for unitary local systems (H.2) and a re-scoped Artinian coefficient request (H.2/gauss-manin); new gaps G5 (H.2 admissibility only under quasi-unipotence) and G6. (5) parabolic-dual statement corrected at marks with both zero and positive weights; locators of the dual, degree, twist, additivity, quotient-criterion and bound lemmas corrected; every match, uses and acceptance field rewritten from boilerplate. (6) API and discriminating tests added (ℝ-filtration, morphisms, direct sums, shift, dual lattice, weighted semistability examples on ℙ¹, two-dimensional induced structures). (7) Six source issues confirmed, E-H4-1, E-H4-2, E-H4-5 and E-H4-6 marked new (none is corrected in print), two added (E-H4-7, E-H4-8). Baseline: eight Mathlib declarations re-read at 082e2d3; Module.evalEquiv and Module.Grassmannian removed as no longer cited. No cycle at node or stage level. The suggested file was repaired and extended and elaborates with lean-check at the pinned Mathlib, its only warnings marking unfinished proofs; sixteen names needing global carriers are listed as omitted. Stage H.4 stays planned with gaps G1–G6 and three requests recorded honestly.",
+  "checked": [
+   {
+    "nodeId": "HodgeStructuresPartII:H.4/weighted-flag",
+    "verdict": "corrected",
+    "note": "Checked against LL22 Definition 2.1.1; added tests that pin the graded-dimension weighting, multiplicities and increasing weights, and the threshold and contribution API used by the filtration and degree bounds."
+   },
+   {
+    "nodeId": "HodgeStructuresPartII:H.4/parabolic-bundle",
+    "verdict": "corrected",
+    "note": "Checked against LL22 Definitions 2.1.1, 3.3.1 and Examples 2.2.4, 2.2.6. The residue API item now points to the added connection-parabolic-structure node. Added the ℝ-filtration, morphisms, direct sums and adapted frames that the dual, coparabolic and twist constructions use; tests made discriminating."
+   },
+   {
+    "nodeId": "HodgeStructuresPartII:H.4/induced-subbundle",
+    "verdict": "corrected",
+    "note": "Maximum-weight rule checked against LL22 §2.3 and LL24 §5.2.1; equivalently (F⋆)_α=F∩E_α. Added a two-dimensional compression test."
+   },
+   {
+    "nodeId": "HodgeStructuresPartII:H.4/induced-quotient",
+    "verdict": "corrected",
+    "note": "Checked against LL22 §2.3 and Lemma 2.4.5; notation clash between flag steps and kernel fixed; added the filtration characterisation and a two-dimensional test."
+   },
+   {
+    "nodeId": "HodgeStructuresPartII:H.4/parabolic-degree",
+    "verdict": "corrected",
+    "note": "Checked against LL22 Definitions 2.1.2 and 2.2.9; added multiplicity and two-weight tests and the shift API with the correct factor n (LL22 prints the shifted slope without it, E-H4-7)."
+   },
+   {
+    "nodeId": "HodgeStructuresPartII:H.4/parabolic-slope",
+    "verdict": "corrected",
+    "note": "Checked against LL22 Definition 2.1.2 and LL24 Remark 5.2.5; added the dual, shift and ordinary-slope relations used by the Clifford chain."
+   },
+   {
+    "nodeId": "HodgeStructuresPartII:H.4/parabolic-semistability",
+    "verdict": "corrected",
+    "note": "Checked against LL22 Definitions 2.4.1–2.4.2 and Lemma 2.4.5. None of the original tests used a weight; added the ℙ¹ examples where weights destabilize O⊕O and stabilize O⊕O(−1), and a test that catches the reversed inequality."
+   },
+   {
+    "nodeId": "HodgeStructuresPartII:H.4/connection-parabolic-structure",
+    "verdict": "added",
+    "note": "Added by the review: the parabolic structure of a logarithmic connection (LL22 Definition 3.3.1) was only an API remark of parabolic-bundle, although sublocal-system-rank needs it through the Mehta–Seshadri input. Promoted to a construction node with API and tests."
+   },
+   {
+    "nodeId": "HodgeStructuresPartII:H.4/coparabolic-zero",
+    "verdict": "corrected",
+    "note": "Checked against LL24 §5.2.1 and LL22 Definition 2.2.8 (Ê₀=E_ε); LL24 calls Ê₀⊂E a subbundle, which is only a full-rank subsheaf (E-H4-8). Added the filtration bridge and three tests."
+   },
+   {
+    "nodeId": "HodgeStructuresPartII:H.4/parabolic-dual",
+    "verdict": "corrected",
+    "note": "The packet said the dual weights sit on dual annihilator flags; at marks with both zero and positive weights the dual fibre is an extension, corrected per LL22 Lemma 2.6.2 (worked rank-two example). Locator corrected from LL22 Lemma 6.3.3 to Definition 2.6.1 and Lemmas 2.6.2, 2.6.5; added the underlying-lattice, functoriality and exactness API its consumers need."
+   },
+   {
+    "nodeId": "HodgeStructuresPartII:H.4/parabolic-twist",
+    "verdict": "added",
+    "note": "Added by the review: E⋆⊗L appears in the statements of dual-twist-semistable, coparabolic-dual-twist and trace-rank-bound and in the degree API, but no node or API item constructed it. It is LL22 Definition 2.6.3 for a trivially structured line; tests distinguish it from a weight shift and check the rank factor in the degree."
+   },
+   {
+    "nodeId": "HodgeStructuresPartII:H.4/trace-section-map",
+    "verdict": "corrected",
+    "note": "The pairing B_E is HodgeStructuresPartII:H.3/trace-multiplication (same sheaf pairing, same source equation LL24 (5.5)); the H.4 duplicates trace-pairing and trace-pairing-perfect were removed and this node now cites the H.3 owner. Statement and proof steps checked against LL24 Proposition 5.2.3 and its proof, p.31."
+   },
+   {
+    "nodeId": "HodgeStructuresPartII:H.4/ordinary-quotient-slope",
+    "verdict": "corrected",
+    "note": "Locator and match rewritten from boilerplate. Statement, strictness and the equality example checked against LL22 Lemmas 6.3.3–6.3.4, pp.40–41; locators and match rewritten."
+   },
+   {
+    "nodeId": "HodgeStructuresPartII:H.4/dual-twist-semistable",
+    "verdict": "corrected",
+    "note": "Match rewritten; the added parabolic-twist node is now a prerequisite. Checked against LL24 proof of Proposition 5.2.3 (stable there is a slip, E-H4-1) and LL22 Lemmas 2.4.5, 2.6.5; semistability only, as required."
+   },
+   {
+    "nodeId": "HodgeStructuresPartII:H.4/coparabolic-dual-twist",
+    "verdict": "corrected",
+    "note": "Match rewritten; parabolic-twist added as prerequisite. Checked by the line models (weight 0 and positive weight) and LL22 Lemma 2.6.2: the dual hull is E∨(−D) before the twist, so the zero lattice is E∨⊗K_C. Locators added."
+   },
+   {
+    "nodeId": "HodgeStructuresPartII:H.4/parabolic-clifford-rank",
+    "verdict": "corrected",
+    "note": "Matches rewritten, LL22 Lemmas 6.2.1–6.2.3, 6.3.5 and BPGN97 Theorem 2.1 cited. Statement checked against LL22 Proposition 6.3.6 (both branches keep δ) and LL24 Proposition 5.2.4; proof sketch checked against Lemmas 6.2.1–6.2.3, 6.3.4–6.3.5 and BPGN97 Theorem 2.1. Vector HN/Clifford and generic global generation remain G1."
+   },
+   {
+    "nodeId": "HodgeStructuresPartII:H.4/trace-rank-bound",
+    "verdict": "corrected",
+    "note": "Match rewritten. Checked against LL24 Proposition 5.2.3 and its proof, p.31: c=1, δ=r, equality branch, semistability."
+   },
+   {
+    "nodeId": "HodgeStructuresPartII:H.4/unitary-parabolic-semistable",
+    "verdict": "added",
+    "note": "Added by the review: LL24 Proposition 5.2.3 is applied to the canonical-extension parabolic bundle of a unitary system, which needs parabolic degree zero and semistability (LL24 Remark 5.2.2; MS80 §1; AHL19 §5). The packet requested this from H.2, but H.2 has no parabolic notions and precedes H.4, so H.4 must own the statement. Degree zero follows from the residue theorem; the analytic identification of the Mehta–Seshadri bundle with the canonical extension is recorded as gap G6."
+   },
+   {
+    "nodeId": "HodgeStructuresPartII:H.4/fixed-part-vector",
+    "verdict": "corrected",
+    "note": "Statement checked against LL24 Lemma 6.1.1 and the P04 replacement proof (printed p.860). Stage prerequisites H.2/H.3 replaced by the exact H.2 nodes (unitary-curve-family, unitary-curve-fiber, unitary-bigrading, irreducible-real-form, irreducible-evaluation, isotypic-hodge) and H.3 nodes (curve-hodge-filtration, derivative-connection); proof steps follow the replacement proof. H.2 supplies admissibility only under quasi-unipotence: new gap G5."
+   },
+   {
+    "nodeId": "HodgeStructuresPartII:H.4/sublocal-system-rank",
+    "verdict": "corrected",
+    "note": "Statement checked against LL24 Theorem 1.7.1 and Notation 1.10.1. The step that the canonical parabolic bundle is semistable of degree zero had been requested from H.2, which cannot state it; it is now the added node unitary-parabolic-semistable. H.2/H.3 stage prerequisites replaced by canonical-extension, curve-hodge-filtration, trace-period-derivative and trace-derivative-rank; the moduli stack is StableReductionPartII:key/moduli-curves. The R09.1 Grassmannian prerequisite is H.3's (it requests R09.1 for the tangent identification) and was removed here."
+   },
+   {
+    "nodeId": "HodgeStructuresPartII:H.4/tensor-invariant-rank",
+    "verdict": "corrected",
+    "note": "Match rewritten; the moduli stack and the unitary-local-system request are now prerequisites. Checked against the last paragraph of the proof of LL24 Theorem 6.2.1, p.34; the integer argument (minimum at the endpoints, g≥2) verified by hand."
+   },
+   {
+    "nodeId": "HodgeStructuresPartII:H.4/artinian-vanishing",
+    "verdict": "corrected",
+    "note": "Matches rewritten (P04 g≥1 entry cited); stage prerequisite narrowed to H.2/gauss-manin plus the re-scoped Artinian request; the pullback-injectivity step now says why it holds. Statement checked against LL24 Theorem 6.2.1 (constant unitary deformation on one fibre, rank_A V<g); proof steps against its proof and Lemma 2.4.2 with the P04 g≥1 correction. Decomposition remains G2, versal-family interfaces G3, admissibility G5."
+   },
+   {
+    "nodeId": "HodgeStructuresPartII:H.4/weighted-graded-rank-sum",
+    "verdict": "corrected",
+    "note": "Statement true (checked by hand on the LL22 examples); locator corrected to the stating result and the boilerplate match and acceptance replaced by specific ones."
+   },
+   {
+    "nodeId": "HodgeStructuresPartII:H.4/parabolic-degree-add",
+    "verdict": "corrected",
+    "note": "Statement true (checked by hand on the LL22 examples); locator corrected to the stating result and the boilerplate match and acceptance replaced by specific ones."
+   },
+   {
+    "nodeId": "HodgeStructuresPartII:H.4/parabolic-degree-bounds",
+    "verdict": "corrected",
+    "note": "Statement true (checked by hand on the LL22 examples); locator corrected to the stating result and the boilerplate match and acceptance replaced by specific ones."
+   },
+   {
+    "nodeId": "HodgeStructuresPartII:H.4/parabolic-twist-degree",
+    "verdict": "corrected",
+    "note": "Statement true (checked by hand on the LL22 examples); locator corrected to the stating result and the boilerplate match and acceptance replaced by specific ones."
+   },
+   {
+    "nodeId": "HodgeStructuresPartII:H.4/parabolic-quotient-criterion",
+    "verdict": "corrected",
+    "note": "Statement true (checked by hand on the LL22 examples); locator corrected to the stating result and the boilerplate match and acceptance replaced by specific ones."
+   },
+   {
+    "nodeId": "HodgeStructuresPartII:H.4/parabolic-dual-degree",
+    "verdict": "corrected",
+    "note": "Statement true (checked by hand on the LL22 examples); locator corrected to the stating result and the boilerplate match and acceptance replaced by specific ones."
+   },
+   {
+    "nodeId": "HodgeStructuresPartII:H.4/coparabolic-rank",
+    "verdict": "corrected",
+    "note": "Statement true (checked by hand on the LL22 examples); locator corrected to the stating result and the boilerplate match and acceptance replaced by specific ones."
+   },
+   {
+    "nodeId": "HodgeStructuresPartII:H.4/trace-kernel-sections",
+    "verdict": "corrected",
+    "note": "Statement true (checked by hand on the LL22 examples); locator corrected to the stating result and the boilerplate match and acceptance replaced by specific ones."
+   }
+  ]
+ }
+}

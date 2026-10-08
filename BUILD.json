@@ -1,8 +1,8 @@
 {
   "roadmaps": 236,
-  "stages": 4773,
+  "stages": 4828,
   "originalStages": 2160,
-  "sourceRefinements": 2613,
+  "sourceRefinements": 2668,
   "reviewedDecompositions": [
     {
       "roadmap": "AInfCohomology",
@@ -152,13 +152,6 @@
       "deferredLinks": 0
     },
     {
-      "roadmap": "HeegnerPointEulerSystems",
-      "status": "partial",
-      "nodes": 2,
-      "review": "accepted",
-      "deferredLinks": 0
-    },
-    {
       "roadmap": "KatoEulerSystems",
       "status": "partial",
       "nodes": 22,
@@ -271,14 +264,14 @@
   "editedRoadmapSummaries": 181,
   "curatedStagePresentations": 339,
   "administrativeStages": 101,
-  "mathematicalStars": 4672,
+  "mathematicalStars": 4727,
   "plainTextPlanetLabels": 398,
   "hiddenPlanets": 600,
   "mappedStageStatuses": 350,
   "libraryAuditStatuses": 19,
   "bibliographicSources": 46,
-  "roadmapEdges": 2139,
-  "stageEdges": 12370,
+  "roadmapEdges": 2153,
+  "stageEdges": 12528,
   "reviewedLinkPackets": 25,
   "promotedBlueprints": [
     {
@@ -388,6 +381,12 @@
       "roadmap": "AutomorphicGaloisRepresentations",
       "nodes": 66,
       "reviewer": "independent-review-REV-AutomorphicGaloisRepresentations~2"
+    },
+    {
+      "file": "BorelRegulators",
+      "roadmap": "BorelRegulators",
+      "nodes": 56,
+      "reviewer": "independent-review-REV-BorelRegulators~2"
     },
     {
       "file": "ClassicalArithmeticCompletion",
@@ -592,6 +591,12 @@
       "roadmap": "EllipticRegulators",
       "nodes": 11,
       "reviewer": "independent-review-REV-EllipticRegulators--ER.6"
+    },
+    {
+      "file": "EllipticRegulators--ER.7",
+      "roadmap": "EllipticRegulators",
+      "nodes": 16,
+      "reviewer": "independent-review-REV-EllipticRegulators--ER.7~2"
     },
     {
       "file": "EllipticRegulators--ER.8",
@@ -840,6 +845,12 @@
       "reviewer": "independent-review-REV-HeegnerPointEulerSystems--HE.0~2"
     },
     {
+      "file": "HeegnerPointEulerSystems--HE.7s",
+      "roadmap": "HeegnerPointEulerSystems",
+      "nodes": 62,
+      "reviewer": "independent-review-REV-HeegnerPointEulerSystems--HE.7s~2"
+    },
+    {
       "file": "HilbertModularVarietiesAndShimuraCurves--H0",
       "roadmap": "HilbertModularVarietiesAndShimuraCurves",
       "nodes": 75,
@@ -876,10 +887,22 @@
       "reviewer": "independent-review-REV-HodgeStructuresPartII--H.3"
     },
     {
+      "file": "HodgeStructuresPartII--H.4",
+      "roadmap": "HodgeStructuresPartII",
+      "nodes": 30,
+      "reviewer": "independent-review-REV-HodgeStructuresPartII--H.4"
+    },
+    {
       "file": "HodgeStructuresPartII--H.5",
       "roadmap": "HodgeStructuresPartII",
       "nodes": 73,
       "reviewer": "independent-review-REV-HodgeStructuresPartII--H.5"
+    },
+    {
+      "file": "HodgeStructuresPartII--H.6",
+      "roadmap": "HodgeStructuresPartII",
+      "nodes": 32,
+      "reviewer": "independent-review-REV-HodgeStructuresPartII--H.6"
     },
     {
       "file": "HodgeStructuresPartII--H.7",
@@ -1171,8 +1194,8 @@
     }
   ],
   "sourceDocuments": 296,
-  "htmlBytes": 35654663,
-  "htmlSha256": "d0fc589856c75cab4b1c06cc70dd60dab02cd10b416c80c1b36c7427139597e6",
+  "htmlBytes": 35759468,
+  "htmlSha256": "cce47c3f57f8a88043db338ea118ad3d51a17c80b412329028a772e81bee7dd7",
   "networkDependencies": 0,
   "localProgressOverridesIncluded": false,
   "assets": {
@@ -1204,7 +1227,7 @@
     "data/roadmap-summaries.json": "c8bdd0a9105f5d3c4a858c8b635990729f8e94497dee784a71fae659b8c05b9f",
     "data/roadmap-classification.json": "2641dbc97eb2566c715162d011b46890d1635629181ef8126ac7aed9e24a3b13",
     "data/classification-estimates.json": "625d35fe6121bf099dc5de9e6a9111793596f9b664e3fbd439841434bb4a57d6",
-    "data/roadmap-distances.json": "3ed6f692f790374b982b2e2a37f6c343169bfac3861cf48fadd16bd10cdacabd",
+    "data/roadmap-distances.json": "837cbd79921e48b0e037098b979c2a300904c5a30f329132a19929d796dfd247",
     "data/galaxy-layout.json": "2c01bbf6e2083476a6b73f3d295c4d4c898d0be461c21fb0195da29a30469a03",
     "data/bibliography.json": "bef230a41fad22d6b790c7564061c4d05c2ae5b78cab53d005eb404afab2b122",
     "NOTICE": "a285b95d5adbf5c2bcc82db36e2a77b797f84a2c5cbb30292efd0bae17cc4f34",
@@ -1298,6 +1321,8 @@
     "data/blueprints/AutomorphicBundles--B5.md": "0bfed27f079e9112d55bba1fc7cd761527e424c7a4236b51c0c15d7a3d763eec",
     "data/blueprints/AutomorphicGaloisRepresentations.json": "2fc29e8c433b09943d2cf0c5af1a87e68aedf7f77369aa447a97ac9d24f69111",
     "data/blueprints/AutomorphicGaloisRepresentations.md": "f96f727cd9d6816f409a2fbfd8d5714a4d3ac4b5c00bec118b1559cd1c7c90f7",
+    "data/blueprints/BorelRegulators.json": "0db5afd8caf537c2bb641834f9e6f34bd1bd5972101f6dfccbf6e0712ed1929b",
+    "data/blueprints/BorelRegulators.md": "af26308ddd8367c99df9c1636903574f4b68042c041d700b18abf03236c78259",
     "data/blueprints/ClassicalArithmeticCompletion.json": "edada99f284e6d97094d2e7dea4951265e5bfc4f0b7278c588c8a38fc4991be2",
     "data/blueprints/ClassicalArithmeticCompletion.md": "eaa6512cd30fe16e148b6e2f8d6607297174066d96839eacf97b3cb427e41b7d",
     "data/blueprints/ClassicalGroupsPartII.json": "31b6a516f9a537c878ea3a652de0a1a1b559f3c9433879b08191c90183da8eb2",
@@ -1366,6 +1391,8 @@
     "data/blueprints/EllipticRegulators--ER.5.md": "4b609bad3d66b0b795fc1c0521f45a5ac860b276cb176ee61449645ba821b6d1",
     "data/blueprints/EllipticRegulators--ER.6.json": "22f106a15fff5f3fb23d71e250e4f35625e7095d5b0d6a8372c12f2e1c164062",
     "data/blueprints/EllipticRegulators--ER.6.md": "62bb68a227973532eab675422426a4e7ddf432b244a634570ac6446b83ac9224",
+    "data/blueprints/EllipticRegulators--ER.7.json": "ee97c2b73df4a5344064f52b6c68d5a99f14492ba7fcaead45c9195745a84b53",
+    "data/blueprints/EllipticRegulators--ER.7.md": "e7daad9042e3133dfdf070d1db1f5b50e17959ea18d6b1cd6363e55fd7ea01f2",
     "data/blueprints/EllipticRegulators--ER.8.json": "29d7d9bec2424f62ad1dbfb7607c846bfd5b5e021f799a71f8eafd5344b81fd7",
     "data/blueprints/EllipticRegulators--ER.8.md": "fae79fd708ba53a1299110a7de78502e8f0d5b33b6265acd76e7e28c597698ab",
     "data/blueprints/EllipticRegulators.json": "e82aabcef694cab8fb48806e885ef93319526d9b466e4ae92be77dd8a91e4224",
@@ -1448,6 +1475,8 @@
     "data/blueprints/HabiroRings.md": "160228b0864d6bc3f4ce34b83994e5cda0e423f1127f1b39d61e4fd735e0560c",
     "data/blueprints/HeegnerPointEulerSystems--HE.0.json": "9aad4965f675c85154b43a2271666985f8c083aece04cce55efecf30f0d859a4",
     "data/blueprints/HeegnerPointEulerSystems--HE.0.md": "7d5303017cfc58865957e91dba0f044491b693554de8f02fa3ec40bc69db8ce1",
+    "data/blueprints/HeegnerPointEulerSystems--HE.7s.json": "08e02eced6cd2a61971e5a0e7f99386c9b7bf0fc76e78a3f0b55caf9ba96e2ea",
+    "data/blueprints/HeegnerPointEulerSystems--HE.7s.md": "5a9b9987496e27262d63d4cdfe520d68561559005a6315969cd98ff7755dc0de",
     "data/blueprints/HilbertModularVarietiesAndShimuraCurves--H0.json": "14710e2a252e2a32c570fefe71d7f5dd7e5f1c1658a3a02fefe1ead5ecf90ba0",
     "data/blueprints/HilbertModularVarietiesAndShimuraCurves--H0.md": "f7a0a5cd964d960a45ccda52b2f99208f4769d5baef71c27fc3d716ee8c0197d",
     "data/blueprints/HilbertModularVarietiesAndShimuraCurves--R18.2.json": "afc3e17e51852dcfaf066fda96e9f054a40a49a30be9290c86353985b19ec06d",
@@ -1460,8 +1489,12 @@
     "data/blueprints/HodgeStructuresPartII--H.2.md": "7eea1db93ff4077e3dcc9a00fcf6ce5f93e72c5c6e99ca0da32410dfdcc72e59",
     "data/blueprints/HodgeStructuresPartII--H.3.json": "24c60ec7558d14f641d57992ea0b9fde2904c611a75276760f90731cd6f9ba40",
     "data/blueprints/HodgeStructuresPartII--H.3.md": "492c8db2975f361656bc8b5dfb4a5b53a922d0e5a4a6c83fbf12638172278bc8",
+    "data/blueprints/HodgeStructuresPartII--H.4.json": "6ed13f4605d253327e6ffec2cb755e8c96deafe0ebd77766d5f4159a7ea69f6d",
+    "data/blueprints/HodgeStructuresPartII--H.4.md": "f3b4a4e54722d89e14fb261837adf386ead317ea623d82b2c18785da0d6f6e82",
     "data/blueprints/HodgeStructuresPartII--H.5.json": "91ebe23648b4593e5c92ce53aa691d243031360383521e12871f893ccd5d9130",
     "data/blueprints/HodgeStructuresPartII--H.5.md": "9659dd521f70dd60d61841d632aec8d76f2d88af8e7c9bcf9d5d97206224e749",
+    "data/blueprints/HodgeStructuresPartII--H.6.json": "961a370265938fe30003765e2fc1bc1011d80a5373f5f80c4aa5839748804d04",
+    "data/blueprints/HodgeStructuresPartII--H.6.md": "f1c1e8facff47ce14dde659aff90b681f84592a2b32b4bc6b73a28eacc0dfe0b",
     "data/blueprints/HodgeStructuresPartII--H.7.json": "3c300ca60de0a722132e69f5a9b69d4c2153afc38be300962907a424b0237940",
     "data/blueprints/HodgeStructuresPartII--H.7.md": "d579d31341172b06071ec009df45ae4580300081bcee05114ac5360a7913172c",
     "data/blueprints/HodgeStructuresPartII--H.8.json": "a803c672ac4114a419abf9a747e831c7e0f249cbb7571d0a800c08a29ebed207",
