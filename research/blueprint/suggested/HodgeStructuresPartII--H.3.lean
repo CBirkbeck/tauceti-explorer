@@ -234,10 +234,14 @@ example {B : Type w} (D : PeriodDomain.Point hC n Qint h) (b : B) :
     markedPeriodMap hC n Qint h (fun _ : B => D.hs) D.htype_weight
       (fun _ => D.pol) (fun _ => D.hodge_numbers) b = D := by sorry
 -- markedPeriod_steps
-example {B : Type w} (hs : B → HodgeStructure hC n)
+example {B : Type w} (hs hs' : B → HodgeStructure hC n)
     (hw : h.weight = n) (pol : ∀ b, IsPolarization hC (hs b) Qint)
-    (hn : ∀ b p, (hs b).hodgeNumber p = h.h p) (b : B) (p : ℤ) :
-    (markedPeriodMap hC n Qint h hs hw pol hn b).hs.F p = (hs b).F p := by sorry
+    (pol' : ∀ b, IsPolarization hC (hs' b) Qint)
+    (hn : ∀ b p, (hs b).hodgeNumber p = h.h p)
+    (hn' : ∀ b p, (hs' b).hodgeNumber p = h.h p) (b : B) (p : ℤ)
+    (hne : (hs b).F p ≠ (hs' b).F p) :
+    markedPeriodMap hC n Qint h hs hw pol hn b ≠
+      markedPeriodMap hC n Qint h hs' hw pol' hn' b := by sorry
 end NativePoints
 
 def minusIdentity : ℂ ≃ₗ[ℂ] ℂ := by sorry
@@ -372,6 +376,23 @@ example (expG : (⊥ : Submodule ℂ (E →L[ℂ] E)) → G)
     (negativeOrbitMap ⊥ expG rho hexp F0 X).val = F0 := by sorry
 end ExponentialCoordinates
 
+/-- Continuous version of the explicit square-zero lowering operator. -/
+def lowerContinuous : Plane →L[ℂ] Plane := by sorry
+theorem lowerContinuous_apply (x : Plane) : lowerContinuous x = ![0, x 0] := by sorry
+
+-- negativeOrbit_shear: the representation and its action are supplied literally.
+example {G : Type v} [Group G] [MulAction G (CompactDualFlag weightOneType alternatingForm)]
+    (q : Submodule ℂ (Plane →L[ℂ] Plane)) (hN : lowerContinuous ∈ q)
+    (expG : q → G) (rho : G →* (Plane ≃ₗ[ℂ] Plane))
+    (hexp : ∀ X : q, ∀ x, rho (expG X) x = NormedSpace.exp (X : Plane →L[ℂ] Plane) x)
+    (ha : ∀ g (F : CompactDualFlag weightOneType alternatingForm) p,
+      (g • F).F p = (F.F p).map (rho g).toLinearMap) (t : ℂ) :
+    (negativeOrbitMap q expG rho hexp realLineFlag ⟨t • lowerContinuous, q.smul_mem t hN⟩).val.F 1 =
+      Submodule.span ℂ {e1 + t • e2} ∧
+    (t ≠ 0 →
+      (negativeOrbitMap q expG rho hexp realLineFlag ⟨t • lowerContinuous, q.smul_mem t hN⟩).val.F 1 ≠
+        realLineFlag.F 1) := by sorry
+
 /-- Filtration on the represented Lie subalgebra, with all integer indices. -/
 def lieFiltration {h : HodgeType} {Q : LinearMap.BilinForm ℂ W}
     (F : CompactDualFlag h Q) (g : LieSubalgebra ℂ (Module.End ℂ W)) (a : ℤ) : Submodule ℂ g := by
@@ -407,6 +428,10 @@ example (m : ℤ) :
       lieFiltration (tateFlag m) ⊤ 0 ∧
     (⟨LinearMap.id, by simp⟩ : (⊤ : LieSubalgebra ℂ (Module.End ℂ ℂ))) ∉
       lieFiltration (tateFlag m) ⊤ 1 := by sorry
+
+-- negativeOrbit_scalar (the actual Tate grading makes its negative complement zero)
+example (m a : ℤ) : lieFiltration (tateFlag m) (⊤ : LieSubalgebra ℂ (Module.End ℂ ℂ)) a =
+    if a ≤ 0 then ⊤ else ⊥ := by sorry
 
 /-- Fibre of the horizontal tangent distribution. -/
 def horizontalSubspace {h : HodgeType} {Q : LinearMap.BilinForm ℂ W}
@@ -448,6 +473,37 @@ example (m : ℤ) : horizontalSubspace (tateFlag m) ⊤ = ⊥ := by sorry
 example : horizontalSubspace realLineFlag ⊤ = ⊤ ∧
     Module.finrank ℂ ((⊤ : LieSubalgebra ℂ (Module.End ℂ Plane)) ⧸
       lieFiltration realLineFlag ⊤ 0) = 1 := by sorry
+
+/- A five-dimensional symmetric-form fixture separates grade −2 from horizontal
+grade −1. These are concrete linear-algebra data, with no manifold carrier. -/
+abbrev FiveSpace := Fin 5 → ℂ
+def fiveE1 : FiveSpace := ![1, 0, 0, 0, 0]
+def fiveE2 : FiveSpace := ![0, 1, 0, 0, 0]
+def fiveE3 : FiveSpace := ![0, 0, 1, 0, 0]
+def twoStepType : HodgeType where
+  weight := 2
+  h := fun p => if p = 0 ∨ p = 2 then 2 else if p = 1 then 1 else 0
+  finite_support := by sorry
+  symm := by sorry
+def twoStepForm : LinearMap.BilinForm ℂ FiveSpace := by sorry
+theorem twoStepForm_apply (x y : FiveSpace) :
+    twoStepForm x y = -(x 0 * y 3 + x 3 * y 0 + x 1 * y 4 + x 4 * y 1) + x 2 * y 2 := by sorry
+def twoStepFlag : CompactDualFlag twoStepType twoStepForm := by sorry
+theorem twoStepFlag_F (p : ℤ) : twoStepFlag.F p =
+    if p ≤ 0 then ⊤ else if p = 1 then Submodule.span ℂ {fiveE1, fiveE2, fiveE3}
+    else if p = 2 then Submodule.span ℂ {fiveE1, fiveE2} else ⊥ := by sorry
+def twoStepLie : LieSubalgebra ℂ (Module.End ℂ FiveSpace) := by sorry
+theorem twoStepLie_mem_iff (X : Module.End ℂ FiveSpace) :
+    X ∈ twoStepLie ↔ ∀ x y, twoStepForm (X x) y + twoStepForm x (X y) = 0 := by sorry
+def twoStepLowerEnd : Module.End ℂ FiveSpace := by sorry
+theorem twoStepLowerEnd_apply (x : FiveSpace) :
+    twoStepLowerEnd x = ![0, 0, 0, -x 1, x 0] := by sorry
+def twoStepLower : twoStepLie := ⟨twoStepLowerEnd, by sorry⟩
+-- horizontal_twoStep
+example :
+    let c := (lieFiltration twoStepFlag twoStepLie 0).mkQ twoStepLower;
+    c ≠ 0 ∧ c ∉ horizontalSubspace twoStepFlag twoStepLie ∧
+      twoStepLower ∈ lieFiltration twoStepFlag twoStepLie (-2) := by sorry
 
 /-- Quotient of a supplied lift jet. Geometry identifies this with dP. -/
 def periodSymbol {T : Type v} [AddCommGroup T] [Module ℂ T]
@@ -521,7 +577,7 @@ end TauCeti.Hodge.PeriodGeometry
 Omitted-signature ledger (Protocol §13).
 
 These entries are mathematical plans, not Lean declarations/examples. The
-packet and definitive reader retain their exact hypotheses, source passages,
+packet and definitive reader retain their exact hypotheses, source locators,
 supplier prerequisites and proof routes. The unavailable types are represented
 MT groups/components, analytic flag manifolds/universal subbundles, common
 holomorphic variations, coherent C-linear logarithmic cohomology, holomorphic
@@ -536,9 +592,6 @@ test signature omitted: TauCeti.Hodge.PeriodGeometry.realOrbit_CM
 test signature omitted: TauCeti.Hodge.PeriodGeometry.complexOrbit_CM
   The complexified CM elliptic torus fixes the reference Hodge line; its orbit is a point inside the ambient P¹ compact dual.
 
-test signature omitted: TauCeti.Hodge.PeriodGeometry.negativeOrbit_shear
-  For F¹=C e1 and N(e1)=e2,N(e2)=0, exp(tN) sends F¹ to C(e1+t e2); this is not the line C(e1) for t≠0.
-
 construction signature omitted: TauCeti.Hodge.PeriodGeometry.logCurveKS
   For a smooth proper connected complex curve family π:Cbar→B over a smooth analytic base, with disjoint marked sections D and b∈B, define logCurveKS_b:T_bB→H¹(C_b,T_Cb(−D_b)) as the connecting homomorphism of 0→T_Cb(−D_b)→T_Cbar(−log D)|Cb→O_Cb⊗T_bB→0 after the canonical H⁰ identification. Smoothness, connected proper fibres and disjoint sections are retained. It is the curve-family adapter of the supplied coherent connecting map, not a second general deformation theory.
 
@@ -549,7 +602,7 @@ API signature omitted: TauCeti.Hodge.PeriodGeometry.logCurveKS_lift
   A smooth tangent-to-D lift v gives logCurveKS(u)=[barpartial v].
 
 API signature omitted: TauCeti.Hodge.PeriodGeometry.logCurveKS_baseChange
-  Pullback of a smooth pointed family gives κ_new=κ_old∘d(base map), under the fibre cohomology identification.
+  For a holomorphic map between smooth analytic bases, pullback of a smooth pointed family gives κ_new=κ_old∘d(base map), under the canonical fibre cohomology identification.
 
 test signature omitted: TauCeti.Hodge.PeriodGeometry.logCurveKS_split
   For a product pointed family the logarithmic tangent sequence splits and κ=0.
@@ -588,7 +641,7 @@ theorem signature omitted: TauCeti.Hodge.PeriodGeometry.mtOrbit_open
   For the represented polarizable pure datum, RealPeriodOrbit is a connected complex manifold open in its own represented ComplexPeriodOrbit, and its inclusion into the full ambient domain is a holomorphic immersion and locally closed embedding. Its real homogeneous description is G(R)^+/Z_{G(R)^+}(h), with scalar centre acting trivially. This isotropy is compact only after quotienting the positive scalar centre, or on the normalized real isometry image. The full centralizer in MT(R) need not be compact. The complex-orbit tangent is g_C/F⁰g_C. These assertions are independent, by canonical isomorphism, of the faithful representation used to realize the same Hodge datum.
 
 theorem signature omitted: TauCeti.Hodge.PeriodGeometry.orbit_hodgeTensors
-  Import the Hodge tensor operations and a represented rational group G acting on them. If a rational tensor t in a finite tensor construction from V,V∨ and explicit Tate twists is fixed by G and is of type (0,0) at F0, then it is of type (0,0) at every flag in the chosen real G-orbit. Its period-symbol evaluation vanishes in normal directions that would violate t. Conversely a tensor-defined locus is identified with the orbit only after supplying its group-stabilizer theorem and selecting the required homogeneous component; no equality with the entire ambient domain is claimed. An untwisted type (p,p) tensor for p≠0 is not a type-(0,0) Hodge tensor.
+  Import the Hodge tensor operations and a represented rational group G acting on them. If a rational tensor t in a finite tensor construction from V,V∨ and explicit Tate twists is fixed by G and is of type (0,0) at F0, then it is of type (0,0) at every flag in the chosen real G-orbit. The derivative along the orbit satisfies the linearized Hodge-tensor equations, so its component normal to the tensor-defined locus is zero. Conversely a tensor-defined locus is identified with the orbit only after supplying its group-stabilizer theorem and selecting the required homogeneous component; no equality with the entire ambient domain is claimed. An untwisted type (p,p) tensor for p≠0 is not a type-(0,0) Hodge tensor.
 
 comparison signature omitted: TauCeti.Hodge.PeriodGeometry.fullIsometry_specialization
   When the represented normalized acting group is the full identity component of the real Q-isometry group and its complex group is the corresponding full isometry group with the components needed for the selected flag orbit, RealPeriodOrbit(F0) identifies with the ambient connected component through F0. The full ambient carrier is the union of these orbits over representatives of its connected components. For a general MT subgroup only the orbit inclusion is supplied; it is not asserted surjective or open in the full ambient domain.
@@ -632,6 +685,4 @@ application signature omitted: TauCeti.Hodge.PeriodGeometry.trace_derivativeRank
 comparison signature omitted: TauCeti.Hodge.PeriodGeometry.abelianPeriod_holomorphic
   For the principally polarized abelian family and local symplectic marking, Ω and τ are holomorphic; τ is symmetric and Im τ positive definite, so the weight-one period map is the corresponding holomorphic map to Siegel upper half space. Its graph plane is the marked F¹ in the row-period convention. For a changed symplectic cycle marking M with blocks a,b,c,d acting on the right on [I τ], the new normalized matrix is (a+τc)^(−1)(b+τd). A left column-plane convention instead gives the familiar (aτ+b)(cτ+d)^(−1); these are not mixed. General polarization type retains its elementary-divisor matrix rather than being forced to this principal convention.
 
-test signature omitted: TauCeti.Hodge.PeriodGeometry.horizontal_twoStep
-  For weight two with dimensions h(2)=h(0)=2,h(1)=1, choose basis e1,e2,e3,e4,e5, F²=span(e1,e2), F¹=span(e1,e2,e3), and Q(e1,e4)=Q(e2,e5)=−1,Q(e3,e3)=1. In the Q-skew Lie algebra, X(e1)=e5,X(e2)=−e4 and X(e3)=X(e4)=X(e5)=0 has grade −2. Its nonzero class in g/F⁰g is not horizontal.
 -/
