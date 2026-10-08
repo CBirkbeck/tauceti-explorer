@@ -38300,8 +38300,9 @@
    ],
    "revisionOf": "BP-DeligneWeightsAndPurity--DWP.0",
    "prompt": "research/blueprint/prompts/BP-DeligneWeightsAndPurity--DWP.0~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6953"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6953",
+   "finishedAt": "2026-10-08T07:28:40Z"
   },
   {
    "priority": 2,
@@ -40302,7 +40303,8 @@
    ],
    "revisionOf": "BP-PadicHodgeRegulators--D.1",
    "prompt": "research/blueprint/prompts/BP-PadicHodgeRegulators--D.1~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6997"
   },
   {
    "priority": 2,
