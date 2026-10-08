@@ -1,0 +1,39 @@
+# Independent package review: Igusa varieties and torsion concentration
+
+Job: REV-PKG-IgusaVarietiesAndTorsionConcentration, issue #7483. Reviewer: Codex (GPT-6), session codex-hTz2ER. Date: 2026-10-08. This reviewer did not produce the package.
+
+## Verdict
+
+**needs_changes.** The mathematical README meets the packaging requirements after the prose corrections below. The suggested file elaborates, but its Hecke compatibility interface does not use the implemented baseline it claims to compare with. This fails PROTOCOL.md §13 and UPSTREAM_GUIDE.md's requirement to prototype against existing Tau Ceti APIs, and hence package review item 5. This is a completed independent review, not a checkpoint.
+
+## Required change: express the Hecke compatibility in the types
+
+In `Suggested.lean`, `HeckeAlgebra` (line 196) is an opaque type with an independently supplied `CommRing` instance. `heckeDoubleCoset` (line 7548) is an opaque function into it. `heckeInvolution` (line 7554) is an endomorphism of that carrier. `heckeInvolution_compat_tauceti` (line 7607) only asserts the inversion rule on these proposed elements and uniqueness among endomorphisms satisfying that rule. Neither this signature nor its corresponding example mentions the existing Hecke datum, double-coset type or anti-involution. There is no algebra equivalence or other adapter tying the proposed carrier to them. All 72 imports are Mathlib imports.
+
+This is a substantive signature omission, rather than a missing proof. The signature could be satisfied using an unrelated ring and a function into it. Its uniqueness assertion cannot establish agreement with a construction absent from the statement. In particular, names and comments mentioning Tau Ceti do not supply the accepted plan's `heckeInvolution_compat_tauceti` API or `heckeInvolution_compat` test.
+
+The relevant implementations exist at the required Tau Ceti commit `f790474821cf4256814db967cb154e7af3d0c369`. I read `HeckeAntiInvolution.ofAmbient`, `onHeckeCoset`, `onHeckeCoset_mk` and `onHeckeCoset_onHeckeCoset` in `TauCeti/NumberTheory/HeckeRing/Commutativity.lean`, together with the double-coset carriers in pinned Mathlib's `Mathlib/NumberTheory/HeckeRing/Defs.lean`. The accepted baseline also identifies the convolution ring instance in `TauCeti/NumberTheory/HeckeRing/Associativity.lean`.
+
+Revision should import the individual baseline modules, specify the spherical Hecke datum and its `IsHeckeTriple` hypothesis, and either use the implemented carrier directly or provide a typed algebra identification preserving convolution and the double-coset generators. State the involution compatibility and its example through that identification and the actual `HeckeAntiInvolution.onHeckeCoset` construction. Retain the separate spherical commutativity input and the split-place restrictions on the operators. An unused import or another opaque endomorphism does not repair the omission.
+
+The supplied checker has no compiled versions of the required Tau Ceti Hecke modules. No build was started. A safe correction requires designing and checking the adapter, including the restricted prime set in the global algebra; it is not a clear local replacement of a name. I corrected the misleading Lean comments to identify the missing adapter, without weakening the README's mathematical requirement or changing any declaration.
+
+## Other review items
+
+1. **Form and density:** the final README is 198,000 UTF-8 bytes, below the conservative 200,000-byte limit. Its introduction, conventions, ownership boundaries, eight ordered layers, thematic groups, mathematical specifications, API and supplier contracts follow the upstream form. ClassFieldTheory, AdicSpaces and ReductiveGroups supplied the style comparisons. All internal links resolve and anchors are unique.
+2. **Plan fidelity:** compared all 123 target blocks with the accepted plan, including hypotheses, API requirements, source locators and prerequisites. All 234 API names occur. Condensed API descriptions are supported by their surrounding specifications and added compatibility paragraphs. The initial 12 nonidentical target statements remove historical source-correction commentary or restate the same qualified mathematics. The 47 supplier interfaces remain explicit; no gap is claimed discharged. The touching ClassFieldTheory link preserves geometric Artin normalization. No ownership transfer or duplicate general theory was introduced.
+3. **Own words and citations:** rephrased six introductions that followed source prose too closely: G-structure, integral models, splitting symplectic filtrations, semi-abelian Serre–Tate theory, constant Newton polygons over perfect rings, and the canonical compactification criterion. Formulas, quantifiers and hypotheses remain unchanged. No source excerpt or section-by-section source synopsis remains. Each target has its accepted section/result/page locators, with editions distinguished in the 20-reference bibliography. Public source checks included CSnc §2.4, Theorems 2.4.1–2.4.2, pp.20–21; §4.4, Lemma 4.4.2, p.50; CS17 §4.3, Lemma 4.3.15 and Remark 4.3.16, p.721; and Koshikawa Proposition 1.7, p.3, Corollary 8.2 and Lemma 8.3, pp.13–14, with §9, pp.14–16. These are targeted checks, not a new source review of every supplier theorem. No uncleared book was obtained or used.
+4. **No process in the roadmap:** no packet names, worker/session identifiers, review verdicts, checkpoint language or coverage statuses in the README. The supplier contracts describe mathematical prerequisites.
+5. **Lean:** elaboration passes, but the baseline integration defect above prevents acceptance. All 137 planned test names occur in the file. The explicitly documented limitations for unavailable supplier signatures remain limitations; they were not replaced by empty `Prop` placeholders.
+6. **Metadata:** exactly `topic = "math.NT"` with a trailing newline; appropriate for the subject.
+
+The delicate qualifications survive: general-leaf affineness is conditional on the stronger toroidal invariance input; partial compactifications need not be proper; finite-level minimal maps are finite and the inverse-limit map integral; the semi-abelian boundary uses connected and biconnected parts; weak genericity allows repeated eigenvalues; the dual residual system retains its twist and Frobenius convention; ordinary costalk, stalk and derived support limits are distinct; and the local vanishing route does not inherit the global residual-length hypothesis.
+
+## Validation
+
+- `python3 scripts/check_blueprint.py research/blueprint/packets/IgusaVarietiesAndTorsionConcentration.json`: exit 0, zero errors and warnings; 123 targets, 224 definition/construction API entries, 137 tests, 34 planets, 17 baseline declarations, eight planned layers, 18 gaps and 47 requests. The 234-name count includes theorem/lemma API entries.
+- `lean-check research/blueprint/packages/IgusaVarietiesAndTorsionConcentration/Suggested.lean`: exit 0, zero errors, 1,305 warnings, all “declaration uses `sorry`”. Memory exceeded the required threshold. No language server, build or cache command was used.
+- The checker's Mathlib is exactly `082e2d37e8b0463410cdb532e111cd43d5a66174`. Its Tau Ceti checkout is the newer `cf386627e9176a3827c1a5fe804989fd94a4d216`. Since the file imports only Mathlib, elaboration does not verify integration with either Tau Ceti checkout. The relevant baseline source statements were inspected at the required older commit.
+- After the comment corrections, stripping comments and normalizing whitespace gives identical Lean imports and declarations to the compiled input. README edits do not affect elaboration. Final size, links, anchors, API/test names, metadata, JSON and whitespace checks pass.
+
+Only the allowed package files, this review and this job's handoff were changed. The accepted plan, supplier packets, links, upstream roadmaps and atlas data were not edited.
