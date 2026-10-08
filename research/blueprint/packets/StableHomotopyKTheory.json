@@ -13,7 +13,7 @@
   "StableHomotopyKTheory:H.6"
  ],
  "status": "complete",
- "summary": "Blueprint for 'Algebraic topology of spaces and manifolds, Part II: homotopy foundations for algebraic K-theory' (RS-33). H.1 builds classifying spaces BC = |NC| from Mathlib's nerve and realisation, natural-transformation homotopies, contractibility, products, filtered colimits, coverings and π₁ via C[C⁻¹], local systems, homology of categories, BG as a K(G,1) and the bar/group-homology comparison. H.2 plans homotopy fibres and pullbacks with transport and the low-degree-correct long exact sequence, quasi-fibrations and the Dold–Lashof criteria, realisation of simplicial spaces (diagonal lemma, properness, levelwise equivalence and levelwise fibration theorems), Bousfield–Kan and Thomason homotopy colimits, and Quillen's Theorems A and B. H.3 plans acyclic maps, the plus construction (π₁, homology, acyclicity, universal property for abelian targets, uniqueness, functoriality, universal central extensions, relative forms), the obstruction theory for abelian spaces (K(G,n), representability, Postnikov towers, Hatcher 4.72–4.74), H-spaces, Serre classes and Cartan–Serre. H.4 plans S⁻¹S, Quillen's localisation theorem, group completions, cofinality and BGL⁺ comparisons, Segal's Γ-spaces and the Bhatt–Scholze E∞ model, and the hermitian applications of Calmès et al. H.5:spectra chooses symmetric spectra of simplicial sets (Schwede, Hovey–Shipley–Smith): homotopy groups, stable equivalences, the stable homotopy category as a triangulated category, smash product with its pairing and signs, ring and operadic algebra spectra, Eilenberg–Mac Lane spectra of groups, rings and chain complexes, cohomology representability, Postnikov sections, homotopy colimits and the comparison with deloopings and E∞-monoids. H.5:S-delooping assembles the K-theory symmetric spectrum from the deloopings of GeneralAlgebraicKTheory:K.4:construction. H.6 plans Moore spectra, coefficients, Bockstein and universal coefficient sequences, ℚ_p/ℤ_p coefficients, homotopy limits and the Milnor sequence, p-completion, rationalisation, the arithmetic square, filtered spectra, exact couples and their spectral sequences with convergence, the AHSS, and multiplicative Moore spectra. 170 nodes at lemma level.",
+ "summary": "Blueprint for 'Algebraic topology of spaces and manifolds, Part II: homotopy foundations for algebraic K-theory' (RS-33). H.1 builds classifying spaces BC = |NC| from Mathlib's nerve and realisation, natural-transformation homotopies, contractibility, products, filtered colimits, coverings and π₁ via C[C⁻¹], local systems, homology of categories, BG as a K(G,1) and the bar/group-homology comparison. H.2 plans homotopy fibres and pullbacks with transport and the low-degree-correct long exact sequence, quasi-fibrations and the Dold–Lashof criteria, realisation of simplicial spaces (diagonal lemma, properness, levelwise equivalence and levelwise fibration theorems), Bousfield–Kan and Thomason homotopy colimits, and Quillen's Theorems A and B. H.3 plans acyclic maps, the plus construction (π₁, homology, acyclicity, universal property for abelian targets, uniqueness, functoriality, universal central extensions, relative forms), the obstruction theory for abelian spaces (K(G,n), representability, Postnikov towers, Hatcher 4.72–4.74), H-spaces, Serre classes and Cartan–Serre. H.4 plans S⁻¹S, Quillen's localisation theorem, group completions, cofinality and BGL⁺ comparisons, Segal's Γ-spaces and the Bhatt–Scholze E∞ model, and the hermitian applications of Calmès et al. H.5:spectra chooses symmetric spectra of simplicial sets (Schwede, Hovey–Shipley–Smith): homotopy groups, stable equivalences, the stable homotopy category as a triangulated category, smash product with its pairing and signs, ring and operadic algebra spectra, Eilenberg–Mac Lane spectra of groups, rings and chain complexes, cohomology representability, Postnikov sections, homotopy colimits and the comparison with deloopings and E∞-monoids. H.5:S-delooping assembles the K-theory symmetric spectrum from the deloopings of GeneralAlgebraicKTheory:K.4:construction. H.6 plans Moore spectra, coefficients, Bockstein and universal coefficient sequences, ℚ_p/ℤ_p coefficients, homotopy limits and the Milnor sequence, p-completion, rationalisation, the arithmetic square, filtered spectra, exact couples and their spectral sequences with convergence, the AHSS, and multiplicative Moore spectra. 213 nodes at lemma level; all eight stages are planned, with proof gaps and supplier requests recorded explicitly.",
  "baseline": {
   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -23,616 +23,616 @@
     "kind": "def",
     "module": "Mathlib/Algebra/Module/Torsion/Basic.lean",
     "provides": "The m-torsion subgroup A[m] of an additive group.",
-    "checked": "statement read at the pinned commit; re-read by REV-StableHomotopyKTheory"
+    "checked": "statement read at the pinned commit; re-read by REV-StableHomotopyKTheory; statement checked again at the pinned commit on 2026-10-08"
    },
    {
     "ref": "mathlib:AdicCompletion.ofTensorProductEquivOfFiniteNoetherian",
     "kind": "def",
     "module": "Mathlib/RingTheory/AdicCompletion/AsTensorProduct.lean",
     "provides": "For a finite module M over a Noetherian ring, AdicCompletion I R ⊗ M ≃ AdicCompletion I M.",
-    "checked": "statement read at the pinned commit; re-read by REV-StableHomotopyKTheory"
+    "checked": "statement read at the pinned commit; re-read by REV-StableHomotopyKTheory; statement checked again at the pinned commit on 2026-10-08"
    },
    {
     "ref": "mathlib:Algebra.GrothendieckGroup",
     "kind": "abbrev",
     "module": "Mathlib/GroupTheory/MonoidLocalization/GrothendieckGroup.lean",
     "provides": "The Grothendieck group of a commutative monoid, Localization ⊤, with of and the universal property lift.",
-    "checked": "statement read at the pinned commit; re-read by REV-StableHomotopyKTheory"
+    "checked": "statement read at the pinned commit; re-read by REV-StableHomotopyKTheory; statement checked again at the pinned commit on 2026-10-08"
    },
    {
     "ref": "mathlib:Algebra.GrothendieckGroup.lift",
     "kind": "def",
     "module": "Mathlib/GroupTheory/MonoidLocalization/GrothendieckGroup.lean",
     "provides": "Universal property: (M →* G) ≃ (GrothendieckGroup M →* G) for a commutative group G.",
-    "checked": "statement read at the pinned commit; re-read by REV-StableHomotopyKTheory"
+    "checked": "statement read at the pinned commit; re-read by REV-StableHomotopyKTheory; statement checked again at the pinned commit on 2026-10-08"
    },
    {
     "ref": "mathlib:AlgebraicTopology.singularHomologyFunctor",
     "kind": "def",
     "module": "Mathlib/AlgebraicTopology/SingularHomology/Basic.lean",
     "provides": "Singular homology C ⥤ TopCat ⥤ C in degree n, for coefficients in a category with homology.",
-    "checked": "statement read at the pinned commit; re-read by REV-StableHomotopyKTheory"
+    "checked": "statement read at the pinned commit; re-read by REV-StableHomotopyKTheory; statement checked again at the pinned commit on 2026-10-08"
    },
    {
     "ref": "mathlib:CategoryTheory.Abelian.DoldKan.equivalence",
     "kind": "def",
     "module": "Mathlib/AlgebraicTopology/DoldKan/Equivalence.lean",
     "provides": "The Dold–Kan equivalence SimplicialObject A ≌ ChainComplex A ℕ for abelian A.",
-    "checked": "statement read at the pinned commit; re-read by REV-StableHomotopyKTheory"
+    "checked": "statement read at the pinned commit; re-read by REV-StableHomotopyKTheory; statement checked again at the pinned commit on 2026-10-08"
    },
    {
     "ref": "mathlib:CategoryTheory.Abelian.SpectralObject",
     "kind": "structure",
     "module": "Mathlib/Algebra/Homology/SpectralObject/Basic.lean",
     "provides": "Spectral objects in an abelian category, with pages, differentials and the induced spectral sequences (E₂ homological, first quadrant).",
-    "checked": "statement read at the pinned commit; re-read by REV-StableHomotopyKTheory"
+    "checked": "statement read at the pinned commit; re-read by REV-StableHomotopyKTheory; statement checked again at the pinned commit on 2026-10-08"
    },
    {
     "ref": "mathlib:CategoryTheory.Core",
     "kind": "structure",
     "module": "Mathlib/CategoryTheory/Core.lean",
     "provides": "The core of a category: the groupoid with the same objects and only the isomorphisms.",
-    "checked": "statement read at the pinned commit; re-read by REV-StableHomotopyKTheory"
+    "checked": "statement read at the pinned commit; re-read by REV-StableHomotopyKTheory; statement checked again at the pinned commit on 2026-10-08"
    },
    {
     "ref": "mathlib:CategoryTheory.CostructuredArrow",
     "kind": "def",
     "module": "Mathlib/CategoryTheory/Comma/StructuredArrow/Basic.lean",
     "provides": "The comma category F/d of pairs (c, F c ⟶ d) (costructured arrows).",
-    "checked": "statement read at the pinned commit; re-read by REV-StableHomotopyKTheory"
+    "checked": "statement read at the pinned commit; re-read by REV-StableHomotopyKTheory; statement checked again at the pinned commit on 2026-10-08"
    },
    {
     "ref": "mathlib:CategoryTheory.Functor.IsMittagLeffler",
     "kind": "def",
     "module": "Mathlib/CategoryTheory/CofilteredSystem.lean",
     "provides": "The Mittag-Leffler condition for cofiltered systems of sets.",
-    "checked": "statement read at the pinned commit; re-read by REV-StableHomotopyKTheory"
+    "checked": "statement read at the pinned commit; re-read by REV-StableHomotopyKTheory; statement checked again at the pinned commit on 2026-10-08"
    },
    {
     "ref": "mathlib:CategoryTheory.Functor.IsPreFibered",
     "kind": "class",
     "module": "Mathlib/CategoryTheory/FiberedCategory/Fibered.lean",
     "provides": "SGA 1 VI.6.1 prefibered functor: every arrow into the image of an object has a cartesian lift.",
-    "checked": "statement read at the pinned commit; re-read by REV-StableHomotopyKTheory"
+    "checked": "statement read at the pinned commit; re-read by REV-StableHomotopyKTheory; statement checked again at the pinned commit on 2026-10-08"
    },
    {
     "ref": "mathlib:CategoryTheory.Grothendieck",
     "kind": "structure",
     "module": "Mathlib/CategoryTheory/Grothendieck.lean",
     "provides": "The Grothendieck construction ∫ F of a functor F : C ⥤ Cat, with its projection to C.",
-    "checked": "statement read at the pinned commit; re-read by REV-StableHomotopyKTheory"
+    "checked": "statement read at the pinned commit; re-read by REV-StableHomotopyKTheory; statement checked again at the pinned commit on 2026-10-08"
    },
    {
     "ref": "mathlib:CategoryTheory.IsTriangulated",
     "kind": "class",
     "module": "Mathlib/CategoryTheory/Triangulated/Triangulated.lean",
     "provides": "Triangulated categories: pretriangulated categories satisfying the octahedral axiom.",
-    "checked": "statement read at the pinned commit; re-read by REV-StableHomotopyKTheory"
+    "checked": "statement read at the pinned commit; re-read by REV-StableHomotopyKTheory; statement checked again at the pinned commit on 2026-10-08"
    },
    {
     "ref": "mathlib:CategoryTheory.MorphismProperty.Localization",
     "kind": "def",
     "module": "Mathlib/CategoryTheory/Localization/Construction.lean",
     "provides": "The localisation of a category at a class of morphisms, with its universal property.",
-    "checked": "statement read at the pinned commit; re-read by REV-StableHomotopyKTheory"
+    "checked": "statement read at the pinned commit; re-read by REV-StableHomotopyKTheory; statement checked again at the pinned commit on 2026-10-08"
    },
    {
     "ref": "mathlib:CategoryTheory.Pretriangulated",
     "kind": "class",
     "module": "Mathlib/CategoryTheory/Triangulated/Pretriangulated.lean",
     "provides": "Pretriangulated categories: shift, distinguished triangles and the axioms TR1–TR4 minus the octahedron.",
-    "checked": "statement read at the pinned commit; re-read by REV-StableHomotopyKTheory"
+    "checked": "statement read at the pinned commit; re-read by REV-StableHomotopyKTheory; statement checked again at the pinned commit on 2026-10-08"
    },
    {
     "ref": "mathlib:CategoryTheory.SimplicialObject",
     "kind": "abbrev",
     "module": "Mathlib/AlgebraicTopology/SimplicialObject/Basic.lean",
     "provides": "Simplicial objects SimplexCategoryᵒᵖ ⥤ C; with C = SSet these are bisimplicial sets, with C = TopCat simplicial spaces.",
-    "checked": "statement read at the pinned commit; re-read by REV-StableHomotopyKTheory"
+    "checked": "statement read at the pinned commit; re-read by REV-StableHomotopyKTheory; statement checked again at the pinned commit on 2026-10-08"
    },
    {
     "ref": "mathlib:CategoryTheory.SpectralSequence",
     "kind": "structure",
     "module": "Mathlib/Algebra/Homology/SpectralSequence/Basic.lean",
     "provides": "Spectral sequences: pages of complexes with the identification of homology with the next page (no convergence theory).",
-    "checked": "statement read at the pinned commit; re-read by REV-StableHomotopyKTheory"
+    "checked": "statement read at the pinned commit; re-read by REV-StableHomotopyKTheory; statement checked again at the pinned commit on 2026-10-08"
    },
    {
     "ref": "mathlib:CategoryTheory.StructuredArrow",
     "kind": "def",
     "module": "Mathlib/CategoryTheory/Comma/StructuredArrow/Basic.lean",
     "provides": "The comma category d\\F of pairs (c, d ⟶ F c) (structured arrows).",
-    "checked": "statement read at the pinned commit; re-read by REV-StableHomotopyKTheory"
+    "checked": "statement read at the pinned commit; re-read by REV-StableHomotopyKTheory; statement checked again at the pinned commit on 2026-10-08"
    },
    {
     "ref": "mathlib:CategoryTheory.SymmetricCategory",
     "kind": "class",
     "module": "Mathlib/CategoryTheory/Monoidal/Braided/Basic.lean",
     "provides": "Symmetric monoidal categories: braided monoidal categories whose braiding is involutive.",
-    "checked": "statement read at the pinned commit; re-read by REV-StableHomotopyKTheory"
+    "checked": "statement read at the pinned commit; re-read by REV-StableHomotopyKTheory; statement checked again at the pinned commit on 2026-10-08"
    },
    {
     "ref": "mathlib:CategoryTheory.Triangulated.SpectralObject",
     "kind": "structure",
     "module": "Mathlib/CategoryTheory/Triangulated/SpectralObject.lean",
     "provides": "Spectral objects in a triangulated category; mapHomologicalFunctor turns them into abelian spectral objects.",
-    "checked": "statement read at the pinned commit; re-read by REV-StableHomotopyKTheory"
+    "checked": "statement read at the pinned commit; re-read by REV-StableHomotopyKTheory; statement checked again at the pinned commit on 2026-10-08"
    },
    {
     "ref": "mathlib:CategoryTheory.Triangulated.SpectralObject.mapHomologicalFunctor",
     "kind": "def",
     "module": "Mathlib/CategoryTheory/Triangulated/SpectralObject.lean",
     "provides": "A homological functor sends a triangulated spectral object to a spectral object in an abelian category.",
-    "checked": "statement read at the pinned commit; re-read by REV-StableHomotopyKTheory"
+    "checked": "statement read at the pinned commit; re-read by REV-StableHomotopyKTheory; statement checked again at the pinned commit on 2026-10-08"
    },
    {
     "ref": "mathlib:CategoryTheory.Triangulated.TStructure",
     "kind": "structure",
     "module": "Mathlib/CategoryTheory/Triangulated/TStructure/Basic.lean",
     "provides": "t-structures on a pretriangulated category.",
-    "checked": "statement read at the pinned commit; re-read by REV-StableHomotopyKTheory"
+    "checked": "statement read at the pinned commit; re-read by REV-StableHomotopyKTheory; statement checked again at the pinned commit on 2026-10-08"
    },
    {
     "ref": "mathlib:CategoryTheory.nerve",
     "kind": "def",
     "module": "Mathlib/AlgebraicTopology/SimplicialSet/Nerve.lean",
     "provides": "The nerve of a category: n-simplices are functors Fin (n+1) ⥤ C, i.e. strings of n composable arrows.",
-    "checked": "statement read at the pinned commit; re-read by REV-StableHomotopyKTheory"
+    "checked": "statement read at the pinned commit; re-read by REV-StableHomotopyKTheory; statement checked again at the pinned commit on 2026-10-08"
    },
    {
     "ref": "mathlib:CategoryTheory.nerveFunctor",
     "kind": "def",
     "module": "Mathlib/AlgebraicTopology/SimplicialSet/Nerve.lean",
     "provides": "The nerve as a functor Cat ⥤ SSet.",
-    "checked": "statement read at the pinned commit; re-read by REV-StableHomotopyKTheory"
+    "checked": "statement read at the pinned commit; re-read by REV-StableHomotopyKTheory; statement checked again at the pinned commit on 2026-10-08"
    },
    {
     "ref": "mathlib:CategoryTheory.nerveMap",
     "kind": "def",
     "module": "Mathlib/AlgebraicTopology/SimplicialSet/Nerve.lean",
     "provides": "The simplicial map nerve C ⟶ nerve D induced by a functor C ⥤ D.",
-    "checked": "statement read at the pinned commit; re-read by REV-StableHomotopyKTheory"
+    "checked": "statement read at the pinned commit; re-read by REV-StableHomotopyKTheory; statement checked again at the pinned commit on 2026-10-08"
    },
    {
     "ref": "mathlib:ContinuousMap.HomotopyEquiv",
     "kind": "structure",
     "module": "Mathlib/Topology/Homotopy/Equiv.lean",
     "provides": "Homotopy equivalences between topological spaces, with refl, symm, trans.",
-    "checked": "statement read at the pinned commit; re-read by REV-StableHomotopyKTheory"
+    "checked": "statement read at the pinned commit; re-read by REV-StableHomotopyKTheory; statement checked again at the pinned commit on 2026-10-08"
    },
    {
     "ref": "mathlib:DerivedCategory",
     "kind": "def",
     "module": "Mathlib/Algebra/Homology/DerivedCategory/Basic.lean",
     "provides": "The derived category of an abelian category, as a localisation of cochain complexes at quasi-isomorphisms.",
-    "checked": "statement read at the pinned commit; re-read by REV-StableHomotopyKTheory"
+    "checked": "statement read at the pinned commit; re-read by REV-StableHomotopyKTheory; statement checked again at the pinned commit on 2026-10-08"
    },
    {
     "ref": "mathlib:Group.IsPerfect",
     "kind": "class",
     "module": "Mathlib/GroupTheory/IsPerfect.lean",
     "provides": "A group is perfect if its commutator subgroup is ⊤.",
-    "checked": "statement read at the pinned commit; re-read by REV-StableHomotopyKTheory"
+    "checked": "statement read at the pinned commit; re-read by REV-StableHomotopyKTheory; statement checked again at the pinned commit on 2026-10-08"
    },
    {
     "ref": "mathlib:HSpace",
     "kind": "class",
     "module": "Mathlib/Topology/Homotopy/HSpaces.lean",
     "provides": "H-space structure: a continuous multiplication with a two-sided unit up to homotopy relative to the unit (no associativity or inverses).",
-    "checked": "statement read at the pinned commit; re-read by REV-StableHomotopyKTheory"
+    "checked": "statement read at the pinned commit; re-read by REV-StableHomotopyKTheory; statement checked again at the pinned commit on 2026-10-08"
    },
    {
     "ref": "mathlib:HomotopicalAlgebra.ModelCategory",
     "kind": "class",
     "module": "Mathlib/AlgebraicTopology/ModelCategory/Basic.lean",
     "provides": "Model categories (CM1–CM5) with fibrations, cofibrations and weak equivalences.",
-    "checked": "statement read at the pinned commit; re-read by REV-StableHomotopyKTheory"
+    "checked": "statement read at the pinned commit; re-read by REV-StableHomotopyKTheory; statement checked again at the pinned commit on 2026-10-08"
    },
    {
     "ref": "mathlib:HomotopyGroup.Pi",
     "kind": "abbrev",
     "module": "Mathlib/Topology/Homotopy/HomotopyGroup.lean",
     "provides": "The n-th homotopy group π_ n X x as homotopy classes of generalized loops (cubical model).",
-    "checked": "statement read at the pinned commit; re-read by REV-StableHomotopyKTheory"
+    "checked": "statement read at the pinned commit; re-read by REV-StableHomotopyKTheory; statement checked again at the pinned commit on 2026-10-08"
    },
    {
     "ref": "mathlib:LoopSpace",
     "kind": "abbrev",
     "module": "Mathlib/Topology/Homotopy/HomotopyGroup.lean",
     "provides": "The loop space Ω X x = Path x x.",
-    "checked": "statement read at the pinned commit; re-read by REV-StableHomotopyKTheory"
+    "checked": "statement read at the pinned commit; re-read by REV-StableHomotopyKTheory; statement checked again at the pinned commit on 2026-10-08"
    },
    {
     "ref": "mathlib:Matrix.GeneralLinearGroup",
     "kind": "abbrev",
     "module": "Mathlib/LinearAlgebra/Matrix/GeneralLinearGroup/Defs.lean",
     "provides": "The general linear group GL n R of invertible n × n matrices.",
-    "checked": "statement read at the pinned commit; re-read by REV-StableHomotopyKTheory"
+    "checked": "statement read at the pinned commit; re-read by REV-StableHomotopyKTheory; statement checked again at the pinned commit on 2026-10-08"
    },
    {
     "ref": "mathlib:PadicInt",
     "kind": "def",
     "module": "Mathlib/NumberTheory/Padics/PadicIntegers.lean",
     "provides": "The p-adic integers ℤ_p.",
-    "checked": "statement read at the pinned commit; re-read by REV-StableHomotopyKTheory"
+    "checked": "statement read at the pinned commit; re-read by REV-StableHomotopyKTheory; statement checked again at the pinned commit on 2026-10-08"
    },
    {
     "ref": "mathlib:Path",
     "kind": "structure",
     "module": "Mathlib/Topology/Path.lean",
     "provides": "Continuous paths between two points with the compact-open topology on the path space.",
-    "checked": "statement read at the pinned commit; re-read by REV-StableHomotopyKTheory"
+    "checked": "statement read at the pinned commit; re-read by REV-StableHomotopyKTheory; statement checked again at the pinned commit on 2026-10-08"
    },
    {
     "ref": "mathlib:SSet",
     "kind": "abbrev",
     "module": "Mathlib/AlgebraicTopology/SimplicialSet/Basic.lean",
     "provides": "Simplicial sets.",
-    "checked": "statement read at the pinned commit; re-read by REV-StableHomotopyKTheory"
+    "checked": "statement read at the pinned commit; re-read by REV-StableHomotopyKTheory; statement checked again at the pinned commit on 2026-10-08"
    },
    {
     "ref": "mathlib:SSet.KanComplex",
     "kind": "abbrev",
     "module": "Mathlib/AlgebraicTopology/SimplicialSet/KanComplex.lean",
     "provides": "Kan complexes: simplicial sets with the right lifting property against all horn inclusions.",
-    "checked": "statement read at the pinned commit; re-read by REV-StableHomotopyKTheory"
+    "checked": "statement read at the pinned commit; re-read by REV-StableHomotopyKTheory; statement checked again at the pinned commit on 2026-10-08"
    },
    {
     "ref": "mathlib:SSet.toTop",
     "kind": "def",
     "module": "Mathlib/AlgebraicTopology/SingularSet.lean",
     "provides": "Geometric realisation SSet ⥤ TopCat, the left Kan extension of the topological simplex along the Yoneda embedding.",
-    "checked": "statement read at the pinned commit; re-read by REV-StableHomotopyKTheory"
+    "checked": "statement read at the pinned commit; re-read by REV-StableHomotopyKTheory; statement checked again at the pinned commit on 2026-10-08"
    },
    {
     "ref": "mathlib:SimplexCategory.toTop",
     "kind": "def",
     "module": "Mathlib/AlgebraicTopology/TopologicalSimplex.lean",
     "provides": "The topological simplices as a cosimplicial space.",
-    "checked": "statement read at the pinned commit; re-read by REV-StableHomotopyKTheory"
+    "checked": "statement read at the pinned commit; re-read by REV-StableHomotopyKTheory; statement checked again at the pinned commit on 2026-10-08"
    },
    {
     "ref": "mathlib:Topology.RelCWComplex.closedCell",
     "kind": "def",
     "module": "Mathlib/Topology/CWComplex/Classical/Basic.lean",
     "provides": "Closed cells of a classical (relative) CW complex structure (classes Topology.RelCWComplex and Topology.CWComplex: characteristic maps, closure finiteness, weak topology).",
-    "checked": "statement read at the pinned commit; re-read by REV-StableHomotopyKTheory"
+    "checked": "statement read at the pinned commit; re-read by REV-StableHomotopyKTheory; statement checked again at the pinned commit on 2026-10-08"
    },
    {
     "ref": "mathlib:groupHomology",
     "kind": "def",
     "module": "Mathlib/RepresentationTheory/Homological/GroupHomology/Basic.lean",
     "provides": "Group homology H_n(G, A) of a representation, defined as the homology of the inhomogeneous chain complex.",
-    "checked": "statement read at the pinned commit; re-read by REV-StableHomotopyKTheory"
+    "checked": "statement read at the pinned commit; re-read by REV-StableHomotopyKTheory; statement checked again at the pinned commit on 2026-10-08"
    },
    {
     "ref": "mathlib:sSetTopAdj",
     "kind": "def",
     "module": "Mathlib/AlgebraicTopology/SingularSet.lean",
     "provides": "The adjunction SSet.toTop ⊣ TopCat.toSSet between realisation and the singular simplicial set.",
-    "checked": "statement read at the pinned commit; re-read by REV-StableHomotopyKTheory"
+    "checked": "statement read at the pinned commit; re-read by REV-StableHomotopyKTheory; statement checked again at the pinned commit on 2026-10-08"
    },
    {
     "ref": "tauceti:HomotopyGroup.mapHom",
     "kind": "def",
     "module": "TauCeti/Topology/Homotopy/HomotopyGroup/Map.lean",
     "provides": "The group homomorphism on homotopy groups induced by a based continuous map, with mapHom_id and mapHom_comp.",
-    "checked": "statement read at the pinned commit; re-read by REV-StableHomotopyKTheory"
+    "checked": "statement read at the pinned commit; re-read by REV-StableHomotopyKTheory; statement checked again at the pinned commit on 2026-10-08"
    },
    {
     "ref": "tauceti:HomotopyGroup.pathLoopSpaceMulEquiv",
     "kind": "def",
     "module": "TauCeti/Topology/Homotopy/HomotopyGroup/LoopSpace.lean",
     "provides": "The loop-space shift π_(m+1)(Ω X x) ≃* π_(m+2) X x.",
-    "checked": "statement read at the pinned commit; re-read by REV-StableHomotopyKTheory"
+    "checked": "statement read at the pinned commit; re-read by REV-StableHomotopyKTheory; statement checked again at the pinned commit on 2026-10-08"
    },
    {
     "ref": "tauceti:IsCoveringMap.homotopyGroupMulEquiv",
     "kind": "def",
     "module": "TauCeti/Topology/Homotopy/HomotopyGroup/Covering.lean",
     "provides": "A covering map p induces group isomorphisms HomotopyGroup N E e ≃* HomotopyGroup N X (p e) whenever the index type N is nontrivial (π_n for n ≥ 2).",
-    "checked": "statement read at the pinned commit; re-read by REV-StableHomotopyKTheory"
+    "checked": "statement read at the pinned commit; re-read by REV-StableHomotopyKTheory; statement checked again at the pinned commit on 2026-10-08"
    },
    {
     "ref": "tauceti:TauCeti.LocalCoefficientSystem",
     "kind": "abbrev",
     "module": "TauCeti/AlgebraicTopology/LocalCoefficient.lean",
     "provides": "A local coefficient system on a space: a functor from Mathlib's fundamental groupoid to ModuleCat R, with pullback, transport and monodromy.",
-    "checked": "statement read at the pinned commit; re-read by REV-StableHomotopyKTheory"
+    "checked": "statement read at the pinned commit; re-read by REV-StableHomotopyKTheory; statement checked again at the pinned commit on 2026-10-08"
    },
    {
     "ref": "tauceti:TauCeti.SplitK0.grothendieckAddGroupEquiv",
     "kind": "def",
     "module": "TauCeti/CategoryTheory/GrothendieckGroup/Split.lean",
     "provides": "Split K₀ of an additive category is the Grothendieck group of the monoid of isomorphism classes under biproduct.",
-    "checked": "statement read at the pinned commit; re-read by REV-StableHomotopyKTheory"
+    "checked": "statement read at the pinned commit; re-read by REV-StableHomotopyKTheory; statement checked again at the pinned commit on 2026-10-08"
    },
    {
     "ref": "tauceti:TauCeti.fundamentalGroupMulAut",
     "kind": "def",
     "module": "TauCeti/Topology/Homotopy/HomotopyGroup/FundamentalGroupAction.lean",
     "provides": "The action FundamentalGroup X x →* MulAut (HomotopyGroup N X x) of π₁ on π_n.",
-    "checked": "statement read at the pinned commit; re-read by REV-StableHomotopyKTheory"
+    "checked": "statement read at the pinned commit; re-read by REV-StableHomotopyKTheory; statement checked again at the pinned commit on 2026-10-08"
    },
    {
     "ref": "tauceti:TauCeti.homotopyGroupMulEquivOfPath",
     "kind": "def",
     "module": "TauCeti/Topology/Homotopy/HomotopyGroup/BasepointChange.lean",
     "provides": "Change of basepoint along a path: HomotopyGroup N X x ≃* HomotopyGroup N X y, depending only on the path class.",
-    "checked": "statement read at the pinned commit; re-read by REV-StableHomotopyKTheory"
+    "checked": "statement read at the pinned commit; re-read by REV-StableHomotopyKTheory; statement checked again at the pinned commit on 2026-10-08"
    },
    {
     "ref": "tauceti:TauCeti.IsEilenbergMacLaneSpaceOne",
     "kind": "def",
     "module": "TauCeti/AlgebraicTopology/EilenbergMacLane/Basic.lean",
     "provides": "The K(G,1) predicate on a based space: IsAspherical X x (path-connected, π_n = 0 for n ≥ 2) and FundamentalGroup X x ≃* G, with basepoint independence, products and homotopy invariance.",
-    "checked": "statement read at the pinned commit by REV-StableHomotopyKTheory"
+    "checked": "statement read at the pinned commit by REV-StableHomotopyKTheory; statement checked again at the pinned commit on 2026-10-08"
    },
    {
     "ref": "mathlib:SSet.relativeCellComplex",
     "kind": "abbrev",
     "module": "Mathlib/AlgebraicTopology/SimplicialSet/Skeleton.lean",
     "provides": "A simplicial set X is a relative cell complex for the boundary inclusions ∂Δ[n] → Δ[n], with one cell for each nondegenerate simplex (relativeCellComplexCellsEquiv).",
-    "checked": "statement read at the pinned commit by REV-StableHomotopyKTheory"
+    "checked": "statement read at the pinned commit by REV-StableHomotopyKTheory; statement checked again at the pinned commit on 2026-10-08"
    },
    {
     "ref": "mathlib:TopCat.CWComplex",
     "kind": "abbrev",
     "module": "Mathlib/Topology/CWComplex/Abstract/Basic.lean",
     "provides": "Categorical CW complexes: iterated pushouts of the disk boundary inclusions ∂𝔻ⁿ → 𝔻ⁿ in TopCat (comparison with the classical notion is a Mathlib TODO).",
-    "checked": "statement read at the pinned commit by REV-StableHomotopyKTheory"
+    "checked": "statement read at the pinned commit by REV-StableHomotopyKTheory; statement checked again at the pinned commit on 2026-10-08"
    },
    {
     "ref": "mathlib:TopCat.diskBoundaryInclusion",
     "kind": "def",
     "module": "Mathlib/Topology/Category/TopCat/Sphere.lean",
     "provides": "The inclusion ∂𝔻 n ⟶ 𝔻 n of the boundary sphere into the closed disk, in TopCat.",
-    "checked": "statement read at the pinned commit by REV-StableHomotopyKTheory"
+    "checked": "statement read at the pinned commit by REV-StableHomotopyKTheory; statement checked again at the pinned commit on 2026-10-08"
    },
    {
     "ref": "mathlib:SimplexCategory.toTopHomeo",
     "kind": "def",
     "module": "Mathlib/AlgebraicTopology/SimplicialSet/TopAdj.lean",
     "provides": "The homeomorphism between |Δ[n]| and the topological standard simplex, natural in n.",
-    "checked": "statement read at the pinned commit by REV-StableHomotopyKTheory"
+    "checked": "statement read at the pinned commit by REV-StableHomotopyKTheory; statement checked again at the pinned commit on 2026-10-08"
    },
    {
     "ref": "mathlib:SSet.opFunctor",
     "kind": "def",
     "module": "Mathlib/AlgebraicTopology/SimplicialSet/Op.lean",
     "provides": "The covariant involution X ↦ X.op of simplicial sets reversing the order of vertices (nerve Cᵒᵖ ≅ (nerve C).op and |X.op| ≅ |X| are TODOs there).",
-    "checked": "statement read at the pinned commit by REV-StableHomotopyKTheory"
+    "checked": "statement read at the pinned commit by REV-StableHomotopyKTheory; statement checked again at the pinned commit on 2026-10-08"
    },
    {
     "ref": "mathlib:SSet.Finite",
     "kind": "class",
     "module": "Mathlib/AlgebraicTopology/SimplicialSet/Finite.lean",
     "provides": "A simplicial set is finite if it has finitely many nondegenerate simplices.",
-    "checked": "statement read at the pinned commit by REV-StableHomotopyKTheory"
+    "checked": "statement read at the pinned commit by REV-StableHomotopyKTheory; statement checked again at the pinned commit on 2026-10-08"
    },
    {
     "ref": "mathlib:SSet.π₀",
     "kind": "def",
     "module": "Mathlib/AlgebraicTopology/SimplicialSet/PiZero.lean",
     "provides": "The set of connected components of a simplicial set: vertices modulo the relation generated by edges, functorial in X.",
-    "checked": "statement read at the pinned commit by REV-StableHomotopyKTheory"
+    "checked": "statement read at the pinned commit by REV-StableHomotopyKTheory; statement checked again at the pinned commit on 2026-10-08"
    },
    {
     "ref": "mathlib:Topology.IsQuotientMap.continuous_lift_prod_left",
     "kind": "theorem",
     "module": "Mathlib/Topology/CompactOpen.lean",
     "provides": "Whitehead's lemma: if f : X₀ → X is a quotient map and Y is locally compact, a map g : X × Y → Z is continuous once g ∘ (f × id) is.",
-    "checked": "statement read at the pinned commit by REV-StableHomotopyKTheory"
+    "checked": "statement read at the pinned commit by REV-StableHomotopyKTheory; statement checked again at the pinned commit on 2026-10-08"
    },
    {
     "ref": "mathlib:CategoryTheory.IsFiltered",
     "kind": "class",
     "module": "Mathlib/CategoryTheory/Filtered/Basic.lean",
     "provides": "Filtered categories: nonempty, every pair of objects has a cocone and every pair of parallel arrows is coequalised.",
-    "checked": "statement read at the pinned commit by REV-StableHomotopyKTheory"
+    "checked": "statement read at the pinned commit by REV-StableHomotopyKTheory; statement checked again at the pinned commit on 2026-10-08"
    },
    {
     "ref": "mathlib:CategoryTheory.Functor.Elements",
     "kind": "structure",
     "module": "Mathlib/CategoryTheory/Elements.lean",
     "provides": "The category of elements of a functor F : C ⥤ Type, with its projection Functor.Elements.π to C.",
-    "checked": "statement read at the pinned commit by REV-StableHomotopyKTheory"
+    "checked": "statement read at the pinned commit by REV-StableHomotopyKTheory; statement checked again at the pinned commit on 2026-10-08"
    },
    {
     "ref": "mathlib:IsCoveringMap",
     "kind": "def",
     "module": "Mathlib/Topology/Covering/Basic.lean",
     "provides": "Covering maps: every point of the base has an evenly covered open neighbourhood.",
-    "checked": "statement read at the pinned commit by REV-StableHomotopyKTheory"
+    "checked": "statement read at the pinned commit by REV-StableHomotopyKTheory; statement checked again at the pinned commit on 2026-10-08"
    },
    {
     "ref": "mathlib:CategoryTheory.FreeGroupoid",
     "kind": "def",
     "module": "Mathlib/CategoryTheory/Groupoid/FreeGroupoidOfCategory.lean",
     "provides": "The free groupoid C[C⁻¹] on a category: the free groupoid on the underlying quiver modulo [𝟙 X] = 1 and [f ≫ g] = [f][g], with FreeGroupoid.of.",
-    "checked": "statement read at the pinned commit by REV-StableHomotopyKTheory"
+    "checked": "statement read at the pinned commit by REV-StableHomotopyKTheory; statement checked again at the pinned commit on 2026-10-08"
    },
    {
     "ref": "mathlib:CategoryTheory.FreeGroupoid.lift",
     "kind": "def",
     "module": "Mathlib/CategoryTheory/Groupoid/FreeGroupoidOfCategory.lean",
     "provides": "Universal property of the free groupoid: a functor from C to a groupoid lifts to FreeGroupoid C.",
-    "checked": "statement read at the pinned commit by REV-StableHomotopyKTheory"
+    "checked": "statement read at the pinned commit by REV-StableHomotopyKTheory; statement checked again at the pinned commit on 2026-10-08"
    },
    {
     "ref": "mathlib:IsFreeGroupoid.SpanningTree.endIsFree",
     "kind": "theorem",
     "module": "Mathlib/GroupTheory/FreeGroup/NielsenSchreier.lean",
     "provides": "For a free groupoid with a spanning tree of its generating quiver, the vertex group at the root is free on the non-tree generators.",
-    "checked": "statement read at the pinned commit by REV-StableHomotopyKTheory"
+    "checked": "statement read at the pinned commit by REV-StableHomotopyKTheory; statement checked again at the pinned commit on 2026-10-08"
    },
    {
     "ref": "mathlib:CategoryTheory.ActionCategory",
     "kind": "def",
     "module": "Mathlib/CategoryTheory/Action.lean",
     "provides": "The translation (action) category of a monoid acting on a type, the category of elements of the action functor, with projection ActionCategory.π to SingleObj M.",
-    "checked": "statement read at the pinned commit by REV-StableHomotopyKTheory"
+    "checked": "statement read at the pinned commit by REV-StableHomotopyKTheory; statement checked again at the pinned commit on 2026-10-08"
    },
    {
     "ref": "mathlib:CategoryTheory.ActionCategory.stabilizerIsoEnd",
     "kind": "def",
     "module": "Mathlib/CategoryTheory/Action.lean",
     "provides": "The stabiliser of x is isomorphic to the endomorphism monoid of x in the action category.",
-    "checked": "statement read at the pinned commit by REV-StableHomotopyKTheory"
+    "checked": "statement read at the pinned commit by REV-StableHomotopyKTheory; statement checked again at the pinned commit on 2026-10-08"
    },
    {
     "ref": "mathlib:AlgebraicTopology.alternatingFaceMapComplex",
     "kind": "def",
     "module": "Mathlib/AlgebraicTopology/AlternatingFaceMapComplex.lean",
     "provides": "The alternating face map complex functor from simplicial objects in a preadditive category to chain complexes.",
-    "checked": "statement read at the pinned commit by REV-StableHomotopyKTheory"
+    "checked": "statement read at the pinned commit by REV-StableHomotopyKTheory; statement checked again at the pinned commit on 2026-10-08"
    },
    {
     "ref": "mathlib:AlgebraicTopology.DoldKan.homotopyEquivNormalizedMooreComplexAlternatingFaceMapComplex",
     "kind": "def",
     "module": "Mathlib/AlgebraicTopology/DoldKan/HomotopyEquivalence.lean",
     "provides": "The normalised Moore complex of a simplicial object is homotopy equivalent to its alternating face map complex.",
-    "checked": "statement read at the pinned commit by REV-StableHomotopyKTheory"
+    "checked": "statement read at the pinned commit by REV-StableHomotopyKTheory; statement checked again at the pinned commit on 2026-10-08"
    },
    {
     "ref": "mathlib:CategoryTheory.SimplicialObject.Augmented.ExtraDegeneracy.homotopyEquiv",
     "kind": "def",
     "module": "Mathlib/AlgebraicTopology/ExtraDegeneracy.lean",
     "provides": "An augmented simplicial object with an extra degeneracy has alternating face map complex homotopy equivalent to the augmentation target in degree 0.",
-    "checked": "statement read at the pinned commit by REV-StableHomotopyKTheory"
+    "checked": "statement read at the pinned commit by REV-StableHomotopyKTheory; statement checked again at the pinned commit on 2026-10-08"
    },
    {
     "ref": "mathlib:groupHomology.inhomogeneousChains",
     "kind": "abbrev",
     "module": "Mathlib/RepresentationTheory/Homological/GroupHomology/Basic.lean",
     "provides": "The inhomogeneous (bar) chain complex (Fin n → G) →₀ A of a representation, with d(single g a) = single (tail g) (ρ(g₀)⁻¹ a) + Σ_j (−1)^{j+1} single (contractNth j g) a.",
-    "checked": "statement read at the pinned commit by REV-StableHomotopyKTheory"
+    "checked": "statement read at the pinned commit by REV-StableHomotopyKTheory; statement checked again at the pinned commit on 2026-10-08"
    },
    {
     "ref": "mathlib:groupHomology.H1AddEquivOfIsTrivial",
     "kind": "def",
     "module": "Mathlib/RepresentationTheory/Homological/GroupHomology/LowDegree.lean",
     "provides": "For a trivial representation A, H₁(G, A) ≃+ Gᵃᵇ ⊗[ℤ] A.",
-    "checked": "statement read at the pinned commit by REV-StableHomotopyKTheory"
+    "checked": "statement read at the pinned commit by REV-StableHomotopyKTheory; statement checked again at the pinned commit on 2026-10-08"
    },
    {
     "ref": "mathlib:Action.functorCategoryEquivalence",
     "kind": "def",
     "module": "Mathlib/CategoryTheory/Action/Basic.lean",
     "provides": "Action V G ≌ (SingleObj G ⥤ V); the functor sends an action to the functor with map g = ρ g.",
-    "checked": "statement read at the pinned commit by REV-StableHomotopyKTheory"
+    "checked": "statement read at the pinned commit by REV-StableHomotopyKTheory; statement checked again at the pinned commit on 2026-10-08"
    },
    {
     "ref": "mathlib:Rep.RepToAction",
     "kind": "def",
     "module": "Mathlib/RepresentationTheory/Rep/Basic.lean",
     "provides": "The functor Rep k G ⥤ Action (ModuleCat k) G (an equivalence).",
-    "checked": "statement read at the pinned commit by REV-StableHomotopyKTheory"
+    "checked": "statement read at the pinned commit by REV-StableHomotopyKTheory; statement checked again at the pinned commit on 2026-10-08"
    },
    {
     "ref": "mathlib:CategoryTheory.Nerve.cosk₂Iso",
     "kind": "def",
     "module": "Mathlib/AlgebraicTopology/SimplicialSet/Coskeletal.lean",
     "provides": "The nerve functor is 2-coskeletal: nerveFunctor ≅ nerveFunctor₂ ⋙ Truncated.cosk 2.",
-    "checked": "statement read at the pinned commit by REV-StableHomotopyKTheory"
+    "checked": "statement read at the pinned commit by REV-StableHomotopyKTheory; statement checked again at the pinned commit on 2026-10-08"
    },
    {
     "ref": "mathlib:CategoryTheory.Nerve.quasicategory",
     "kind": "instance",
     "module": "Mathlib/AlgebraicTopology/Quasicategory/Nerve.lean",
     "provides": "The nerve of a category is a quasicategory (inner horns have fillers).",
-    "checked": "statement read at the pinned commit by REV-StableHomotopyKTheory"
+    "checked": "statement read at the pinned commit by REV-StableHomotopyKTheory; statement checked again at the pinned commit on 2026-10-08"
    },
    {
     "ref": "tauceti:HomotopyGroup.map_bijective_of_homotopyEquiv",
     "kind": "theorem",
     "module": "TauCeti/Topology/Homotopy/HomotopyGroup/HomotopyEquiv.lean",
     "provides": "A homotopy equivalence induces bijections on all homotopy groups, at every basepoint.",
-    "checked": "statement read at the pinned commit by REV-StableHomotopyKTheory"
+    "checked": "statement read at the pinned commit by REV-StableHomotopyKTheory; statement checked again at the pinned commit on 2026-10-08"
    },
    {
     "ref": "tauceti:TauCeti.SemilocallySimplyConnectedSpace.of_locallyContractibleSpace",
     "kind": "theorem",
     "module": "TauCeti/AlgebraicTopology/SemilocallySimplyConnected/Basic.lean",
     "provides": "A locally contractible space is semilocally simply connected.",
-    "checked": "statement read at the pinned commit by REV-StableHomotopyKTheory"
+    "checked": "statement read at the pinned commit by REV-StableHomotopyKTheory; statement checked again at the pinned commit on 2026-10-08"
    },
    {
     "ref": "tauceti:TauCeti.homotopyGroupTransport_map",
     "kind": "theorem",
     "module": "TauCeti/Topology/Homotopy/HomotopyGroup/HomotopyEquiv.lean",
     "provides": "A free homotopy H : f ≃ g conjugates the induced maps on homotopy groups by the change of basepoint along the track of H.",
-    "checked": "statement read at the pinned commit by REV-StableHomotopyKTheory"
+    "checked": "statement read at the pinned commit by REV-StableHomotopyKTheory; statement checked again at the pinned commit on 2026-10-08"
    },
    {
     "ref": "mathlib:Abelianization",
     "kind": "def",
     "module": "Mathlib/GroupTheory/Abelianization/Defs.lean",
     "provides": "The abelianization G ⧸ commutator G of a group, a commutative group.",
-    "checked": "statement read at the pinned commit by REV-StableHomotopyKTheory"
+    "checked": "statement read at the pinned commit by REV-StableHomotopyKTheory; statement checked again at the pinned commit on 2026-10-08"
    },
    {
     "ref": "mathlib:FundamentalGroup",
     "kind": "abbrev",
     "module": "Mathlib/AlgebraicTopology/FundamentalGroupoid/FundamentalGroup.lean",
     "provides": "The fundamental group of a space at a point, with FundamentalGroup.map f x : FundamentalGroup X x →* FundamentalGroup Y (f x).",
-    "checked": "statement read at the pinned commit by REV-StableHomotopyKTheory"
+    "checked": "statement read at the pinned commit by REV-StableHomotopyKTheory; statement checked again at the pinned commit on 2026-10-08"
    },
    {
     "ref": "mathlib:Rep.FiniteCyclicGroup.groupHomologyIsoOdd",
     "kind": "def",
     "module": "Mathlib/RepresentationTheory/Homological/GroupHomology/FiniteCyclic.lean",
     "provides": "For a finite cyclic group generated by g and odd i, H_i(G, A) is the homology of A at the norm and g − 1 maps (with groupHomologyIsoEven for even i).",
-    "checked": "statement read at the pinned commit by REV-StableHomotopyKTheory"
+    "checked": "statement read at the pinned commit by REV-StableHomotopyKTheory; statement checked again at the pinned commit on 2026-10-08"
    },
    {
     "ref": "tauceti:TauCeti.GenLoop.HomotopyAlong.homotopic_transport",
     "kind": "theorem",
     "module": "TauCeti/Topology/Homotopy/HomotopyGroup/Collar.lean",
     "provides": "A homotopy of generalized loops along a path γ (base points sweeping out γ) from f to g shows that g is homotopic rel boundary to the transport of f along γ.",
-    "checked": "statement read at the pinned commit by REV-StableHomotopyKTheory"
+    "checked": "statement read at the pinned commit by REV-StableHomotopyKTheory; statement checked again at the pinned commit on 2026-10-08"
    },
    {
     "ref": "mathlib:CategoryTheory.Skeleton",
     "kind": "def",
     "module": "Mathlib/CategoryTheory/Skeletal.lean",
     "provides": "The skeleton of a category; with Mathlib/CategoryTheory/Monoidal/Skeleton.lean it is a CommMonoid for braided C (Skeleton.instCommMonoid), functorial in monoidal functors (Skeleton.monoidHom).",
-    "checked": "statement read at the pinned commit by REV-StableHomotopyKTheory"
+    "checked": "statement read at the pinned commit by REV-StableHomotopyKTheory; statement checked again at the pinned commit on 2026-10-08"
    },
    {
     "ref": "mathlib:CategoryTheory.MonoidalCategory.MonoidalLeftAction",
     "kind": "class",
     "module": "Mathlib/CategoryTheory/Monoidal/Action/Basic.lean",
     "provides": "A left action of a monoidal category C on a category D: a bifunctor ⊙ₗ with natural associativity and unit isomorphisms satisfying coherence; selfLeftAction, curriedAction, actionLeft.",
-    "checked": "statement read at the pinned commit by REV-StableHomotopyKTheory"
+    "checked": "statement read at the pinned commit by REV-StableHomotopyKTheory; statement checked again at the pinned commit on 2026-10-08"
    },
    {
     "ref": "mathlib:CategoryTheory.Equivalence.inverseMonoidal",
     "kind": "def",
     "module": "Mathlib/CategoryTheory/Monoidal/Functor.lean",
     "provides": "For an equivalence e whose functor is strong monoidal, a strong monoidal structure on e.inverse.",
-    "checked": "statement read at the pinned commit by REV-StableHomotopyKTheory"
+    "checked": "statement read at the pinned commit by REV-StableHomotopyKTheory; statement checked again at the pinned commit on 2026-10-08"
    },
    {
     "ref": "mathlib:Matrix.fromBlocks",
     "kind": "def",
     "module": "Mathlib/Data/Matrix/Block.lean",
     "provides": "The block matrix with blocks A, B, C, D.",
-    "checked": "statement read at the pinned commit by REV-StableHomotopyKTheory"
+    "checked": "statement read at the pinned commit by REV-StableHomotopyKTheory; statement checked again at the pinned commit on 2026-10-08"
    },
    {
     "ref": "mathlib:finSumFinEquiv",
     "kind": "def",
     "module": "Mathlib/Logic/Equiv/Fin/Basic.lean",
     "provides": "The equivalence Fin m ⊕ Fin n ≃ Fin (m + n).",
-    "checked": "statement read at the pinned commit by REV-StableHomotopyKTheory"
+    "checked": "statement read at the pinned commit by REV-StableHomotopyKTheory; statement checked again at the pinned commit on 2026-10-08"
    },
    {
     "ref": "mathlib:Matrix.vecMulLinear",
     "kind": "abbrev",
     "module": "Mathlib/LinearAlgebra/Matrix/ToLin.lean",
     "provides": "The left R-linear map (m → R) → (n → R), v ↦ v ᵥ* M, of a matrix acting on row vectors.",
-    "checked": "statement read at the pinned commit by REV-StableHomotopyKTheory"
+    "checked": "statement read at the pinned commit by REV-StableHomotopyKTheory; statement checked again at the pinned commit on 2026-10-08"
    }
   ]
  },
@@ -649,7 +649,7 @@
     "§1 The classifying space of a small category, complete: coverings and π₁ (Prop. 1), homology (1)–(2), properties of the classifying space functor (Props. 2–3 and corollaries), Theorem A with its example, corollary and full proof including the bisimplicial realization lemma, the exact homotopy sequence, Theorem B with corollary, the quasi-fibration lemma and the proof of Theorem B, LNM pp. 89–99 (PDF 5–15)",
     "§2 opening (exact categories, definition of QM), LNM pp. 99–100 (PDF 15–16); the rest of §2 is read in the GeneralAlgebraicKTheory packet",
     "References, LNM pp. 146–147 (PDF 62–63), to identify the imported results of §1",
-    "Statements and locators of §1 relied on as verified by the integrated decomposition's review (REVIEW-EXT-01-EXT-15); not re-fetched for this packet"
+    "Public PDF fetched again on 2026-10-08; SHA-256 agrees with the version recorded here. This provenance check does not assert a fresh reading of every cited proof."
    ]
   },
   {
@@ -668,7 +668,8 @@
     "§6 Exercises 6.13–6.16 and §7 The + = Q theorem, complete, pp. IV.61–65",
     "§8 Waldhausen's wS. construction, Definitions 8.1–8.5, 8.5.1–8.5.5, Lemma 8.5.4 with proof, 8.6–8.11 and Exercises 8.1–8.15, pp. IV.66–75",
     "Checked by independent review: Theorem 1.12 and Corollary 1.13, p. IV.10 (used by the link to KTheoryFiniteLocalFields:L.1); Exercises 4.7–4.10, p. IV.46",
-    "Re-read for this packet on 2026-10-06 (same SHA-256): §1 pp. IV.2–17 (Definitions 1.1–1.4.1, Theorem 1.5, Lemma 1.6, Proposition 1.7, Theorem 1.8, Remark 1.8.1, Exercises 1.2–1.11), §2 pp. IV.18–22, §3 pp. IV.24–35 (3.1–3.10.2, Exercises 3.1–3.14), §4 pp. IV.36–46 (Definitions 4.1–4.7.1, Theorems 4.8–4.11, Exercises 4.1–4.10)"
+    "Re-read for this packet on 2026-10-06 (same SHA-256): §1 pp. IV.2–17 (Definitions 1.1–1.4.1, Theorem 1.5, Lemma 1.6, Proposition 1.7, Theorem 1.8, Remark 1.8.1, Exercises 1.2–1.11), §2 pp. IV.18–22, §3 pp. IV.24–35 (3.1–3.10.2, Exercises 3.1–3.14), §4 pp. IV.36–46 (Definitions 4.1–4.7.1, Theorems 4.8–4.11, Exercises 4.1–4.10)",
+    "Public PDF fetched again on 2026-10-08; SHA-256 agrees with the version recorded here. This provenance check does not assert a fresh reading of every cited proof."
    ]
   },
   {
@@ -679,7 +680,8 @@
    "url": "https://www.math.rutgers.edu/~weibel/Kbook/Kbook.V.pdf",
    "sha256": "52dcc8ee3a1764e5ea309c59f093ac8e2a1ea64f3b94bacc05e6a2b6125b1da8",
    "readSections": [
-    "Proposition 1.7 with proof and Remark 1.7.1, p. V.8 (read 2026-10-06)"
+    "Proposition 1.7 with proof and Remark 1.7.1, p. V.8 (read 2026-10-06)",
+    "Public PDF fetched again on 2026-10-08; SHA-256 agrees with the version recorded here. This provenance check does not assert a fresh reading of every cited proof."
    ]
   },
   {
@@ -689,10 +691,9 @@
    "edition": "Handbook of K-theory, Springer 2005, vol. 1, chapter I.1, pp. 3–37, as published; read as the 35-page PDF of the published chapter in Andrew Ranicki's archive (printed page = PDF page + 2), fetched 2026-10-06 by REV-StableHomotopyKTheory. Locators give printed pages.",
    "sha256": "ae8ea812f796a6491c557f50ece455d528634f33b684eaa28247fa8e2c3b7d10",
    "readSections": [
-    "Volume preface, pp. V–VIII (PDF 5–8), to identify chapter I.1",
-    "Chapter I.1 contents and §1.1 Introduction, printed pp. 3–5 (PDF 17–19)",
-    "§1.2 Generic deloopings using infinite loop space machines: Eilenberg–Mac Lane bar construction, Definition 1 (Γ-space), summing functors, Proposition 2 with proof, Theorem 3 (statement), Examples 4–5, Remark 6, Definition 7 (symmetric monoidal category), printed pp. 5–9 (PDF 19–23)",
-    "Not re-read for this packet (no public copy); locators inherited from the reviewed decomposition"
+    "Chapter contents and §1.1 Introduction, printed pp. 3–5 (chapter PDF 1–3), re-read 2026-10-08 in the public 35-page chapter.",
+    "§1.2: the bar construction, Definition 1 (Γ-space), summing functors, Proposition 2 and its proof, Theorem 3, Examples 4–5, Remark 6 and Definition 7, printed pp. 5–9 (chapter PDF 3–7), re-read 2026-10-08.",
+    "Public chapter PDF fetched again on 2026-10-08; SHA-256 agrees with the recorded version. All PDF locators here refer to this chapter file, not a full-volume PDF."
    ],
    "url": "https://webhomes.maths.ed.ac.uk/~v1ranick/papers/carldeloop.pdf"
   },
@@ -705,8 +706,10 @@
    "sha256": "bebb3032bf9021b956da3bd070eb6c67dc662cf849be9cdf6679f677560e5618",
    "readSections": [
     "§4.2, Lemma 4.39 and 'The Plus Construction': Proposition 4.40 with proof and the following construction for a perfect subgroup, printed pp. 373–374 (PDF 382–383)",
-    "§4.2 Exercise 23 (uniqueness of the plus construction for abelian targets), printed p. 420 (PDF 429); Corollary 4.73 cited there was not read",
-    "Read for this packet on 2026-10-06 (same SHA-256): §4.1 Whitehead's theorem (Theorem 4.5, printed p. 346) and abelian spaces (printed p. 342); §4.2 Hurewicz (Theorems 4.32, 4.37, Corollary 4.33), Eilenberg–MacLane spaces and Proposition 4.30 (printed pp. 365–366), Proposition 4.40 and the plus construction (printed pp. 373–374); §4.2 Theorem 4.41 (printed p. 376); §4.3 Theorem 4.57 (printed p. 393), Proposition 4.61, pathspace constructions Propositions 4.64–4.66 (printed pp. 405–408), Postnikov towers Theorems 4.69, 4.71 (printed pp. 412–414), obstruction theory Proposition 4.72, Corollary 4.73, Proposition 4.74 (printed pp. 417–418); §4.A Propositions 4A.1–4A.2 and Example 4A.3 (printed p. 422); §4.K quasifibrations and Lemma 4K.3 (printed pp. 479–480)"
+    "§4.3 Exercise 23 (uniqueness of the plus construction for abelian targets), printed p. 420 (PDF 429)",
+    "Read for this packet on 2026-10-06 (same SHA-256): §4.1 Whitehead's theorem (Theorem 4.5, printed p. 346) and abelian spaces (printed p. 342); §4.2 Hurewicz (Theorems 4.32, 4.37, Corollary 4.33), Eilenberg–MacLane spaces and Proposition 4.30 (printed pp. 365–366), Proposition 4.40 and the plus construction (printed pp. 373–374); §4.2 Theorem 4.41 (printed p. 376); §4.3 Theorem 4.57 (printed p. 393), Proposition 4.61, pathspace constructions Propositions 4.64–4.66 (printed pp. 405–408), Postnikov towers Theorems 4.69, 4.71 (printed pp. 412–414), obstruction theory Proposition 4.72, Corollary 4.73, Proposition 4.74 (printed pp. 417–418); §4.A Propositions 4A.1–4A.2 and Example 4A.3 (printed p. 422); §4.K quasifibrations and Lemma 4K.3 (printed pp. 479–480)",
+    "Public PDF fetched again on 2026-10-08; SHA-256 agrees with the version recorded here. This provenance check does not assert a fresh reading of every cited proof.",
+    "Re-read 2026-10-08: the plus construction, printed p. 374 (PDF 383); Postnikov towers, pp. 412–413 (PDF 421–422); Proposition 4.72, Corollary 4.73 and Proposition 4.74, pp. 417–418 (PDF 426–427); §4.3 Exercise 23, p. 420 (PDF 429)."
    ]
   },
   {
@@ -719,7 +722,9 @@
    "readSections": [
     "Read 2026-10-06: Chapter I §1 (Definitions 1.1, 1.3, 1.5, Examples 1.8, 1.11, 1.13, 1.14, Definition 1.15), §2 (Definition 2.1, §2.1, Propositions 2.6, 2.12, 2.17, 2.19), §3 (Definition 3.1, Examples 3.5, 3.9, 3.20, 3.50, Definition 3.14, Propositions 3.15–3.16), §5 (Construction 5.6, Theorem 5.10, Theorem 5.25), §6 (Definition 6.1, Theorem 6.2, Proposition 6.3)",
     "Chapter II §1 (Definition 1.1, Theorem 1.6, Corollary 1.13), §2 (Proposition 2.2, Theorem 2.9), §3 (Theorem 3.1), §4 (Propositions 4.4, 4.8, 4.11), §5 (Definition 5.3, Lemma 5.6, Remark 5.9, Proposition 5.22, Theorem 5.25, Remark 5.26), §6 (Proposition 6.23, Definition 6.33, Proposition 6.48, Remark 6.51), §8 (Theorems 8.1, 8.3 and proofs), §9 (Theorems 9.2, 9.6, §9.3, Theorem 9.9)",
-    "Chapter III §4 (Theorem 4.11), §5 (Definitions 5.3–5.4, Examples 5.6–5.12) — statements only"
+    "Chapter III §4 (Theorem 4.11), §5 (Definitions 5.3–5.4, Examples 5.6–5.12) — statements only",
+    "Public PDF fetched again on 2026-10-08; SHA-256 agrees with the version recorded here. This provenance check does not assert a fresh reading of every cited proof.",
+    "Re-read 2026-10-08: Chapter I §2.1 and Proposition 2.6, printed pp. 23–24 (PDF 24–25); Example 3.9 and (3.12), p. 37 (PDF 38); Chapter II Proposition 5.24 and Theorem 5.25, pp. 265–266 (PDF 266–267); Theorems 8.1 and 8.3 with proofs, pp. 295–297 (PDF 296–298)."
    ]
   },
   {
@@ -730,7 +735,8 @@
    "url": "https://arxiv.org/abs/math/9801077v2",
    "sha256": "09c2216d7a4605b5cb9f289a3b3f9b35664a98c972e26d5762f0ac2fb3f51036",
    "readSections": [
-    "Definition 1.2.2, Example 1.2.5, Definition 3.1.3, Theorem 3.4.4 — statements, read 2026-10-06"
+    "Definition 1.2.2, Example 1.2.5, Definition 3.1.3, Theorem 3.4.4 — statements, read 2026-10-06",
+    "Public PDF fetched again on 2026-10-08; SHA-256 agrees with the version recorded here. This provenance check does not assert a fresh reading of every cited proof."
    ]
   },
   {
@@ -741,7 +747,9 @@
    "url": "https://arxiv.org/abs/1707.01799",
    "sha256": "12b6cdbd0d8ebb506284bd13f183affe80e41cc8890fef5fa21c922c2f80cec3",
    "readSections": [
-    "Appendix C, Proposition C.1, Lemma C.2, Proposition C.3 with proofs, Definition C.4, Proposition C.5, pp. 160–162 (read 2026-10-06)"
+    "Appendix C, Proposition C.1, Lemma C.2, Proposition C.3 with proofs, Definition C.4, Proposition C.5, pp. 160–162 (read 2026-10-06)",
+    "Public PDF fetched again on 2026-10-08; SHA-256 agrees with the version recorded here. This provenance check does not assert a fresh reading of every cited proof.",
+    "Re-read 2026-10-08: Appendix C, Proposition C.1, Lemma C.2, Proposition C.3, Definition C.4 and Proposition C.5, pp. 160–162; the terminal-vertex indexing in C.4 is the recorded issue E3."
    ]
   },
   {
@@ -752,7 +760,9 @@
    "url": "https://arxiv.org/abs/1507.06490v3",
    "sha256": "b4d5a4e0a6591971c6b8521d790e5db6e61112f1350a0e4a05a8d98b6e0b961e",
    "readSections": [
-    "Appendix §12 'Determinants', pp. 54–58: Definition 12.1, Example 12.2, Proposition 12.3, Definitions 12.4, 12.7, 12.8, Construction 12.5, Remark 12.6, Theorem 12.9, Proposition 12.10, Remark 12.11 (read 2026-10-06); Proposition 12.15 and p. 59 taken from the reviewed extraction PAPER-BHATT-SCHOLZE-17"
+    "Appendix §12 'Determinants', pp. 54–58: Definition 12.1, Example 12.2, Proposition 12.3, Definitions 12.4, 12.7, 12.8, Construction 12.5, Remark 12.6, Theorem 12.9, Proposition 12.10, Remark 12.11 (read 2026-10-06); Proposition 12.15 and p. 59 taken from the reviewed extraction PAPER-BHATT-SCHOLZE-17",
+    "Public PDF fetched again on 2026-10-08; SHA-256 agrees with the version recorded here. This provenance check does not assert a fresh reading of every cited proof.",
+    "Re-read 2026-10-08: Definitions 12.4, 12.7–12.8, Construction 12.5, Remarks 12.6 and 12.11, Theorem 12.9, Proposition 12.10, Corollary 12.12 and Definitions 12.13–12.14 with Proposition 12.15, pp. 56–58."
    ]
   },
   {
@@ -764,7 +774,8 @@
    "sha256": "1e4b6720055ebdce0012f5780bfc7cdb5b853e32f29b17224a1be0bc676f770c",
    "readSections": [
     "Corollary 2.3.19 and Remark 2.3.20, pp. 48–49, read 2026-10-06",
-    "Section 3.2, pp. 54–55 (cases (1)-symmetric, (−1)-symmetric, (1)-quadratic) and p. 59 (topological variants in the proof of Lemma 3.2.11), read 2026-10-06; the (−1)-quadratic case taken from the reviewed extraction PAPER-CALMES-ETAL-26"
+    "Section 3.2, pp. 54–55 (cases (1)-symmetric, (−1)-symmetric, (1)-quadratic) and p. 59 (topological variants in the proof of Lemma 3.2.11), read 2026-10-06; the (−1)-quadratic case taken from the reviewed extraction PAPER-CALMES-ETAL-26",
+    "Public PDF fetched again on 2026-10-08; SHA-256 agrees with the version recorded here. This provenance check does not assert a fresh reading of every cited proof."
    ]
   },
   {
@@ -775,7 +786,9 @@
    "url": "https://arxiv.org/abs/2203.14787",
    "sha256": "22970ed6b856ce523e6682cc00c14f4875145b19c2923a2dbffff937f4eaf181",
    "readSections": [
-    "Introduction, Theorems 1.1–1.5 and Remark 1.6, pp. 1–2 (read 2026-10-06)"
+    "Introduction, Theorems 1.1–1.5 and Remark 1.6, pp. 1–2 (read 2026-10-06)",
+    "Public PDF fetched again on 2026-10-08; SHA-256 agrees with the version recorded here. This provenance check does not assert a fresh reading of every cited proof.",
+    "Re-read 2026-10-08: Theorems 1.1–1.5 and Remark 1.6, pp. 1–2, in the hash-matched public file."
    ]
   },
   {
@@ -786,7 +799,8 @@
    "url": "https://www.math.ias.edu/~lurie/papers/HA.pdf",
    "sha256": "112b145a95a62daefb8275851cac9ab6430004cfc8f751a33a8d981fd7ad68c3",
    "readSections": [
-    "§1.2.2 Filtered objects and spectral sequences, Definitions 1.2.2.2, 1.2.2.9, 1.2.2.12, Construction 1.2.2.6, Propositions 1.2.2.7 and 1.2.2.14 with proof, pp. 47–53"
+    "§1.2.2 Filtered objects and spectral sequences, Definitions 1.2.2.2, 1.2.2.9, 1.2.2.12, Construction 1.2.2.6, Propositions 1.2.2.7 and 1.2.2.14 with proof, pp. 47–53",
+    "Public PDF fetched again on 2026-10-08; SHA-256 agrees with the version recorded here. This provenance check does not assert a fresh reading of every cited proof."
    ]
   },
   {
@@ -797,7 +811,8 @@
    "url": "https://pi.math.cornell.edu/~hatcher/SSAT/SSch1.pdf",
    "sha256": "d34a09b4559eade18dac2c01f6718d4689c5f565d9dc252c3a67de0167520eca",
    "readSections": [
-    "'Serre Classes', Theorems 1.7 and 1.8, p. 14; 'Applications', Theorem 1.24 and the paragraph after its proof, pp. 38–39 (read 2026-10-06)"
+    "'Serre Classes', Theorems 1.7 and 1.8, p. 14; 'Applications', Theorem 1.24 and the paragraph after its proof, pp. 38–39 (read 2026-10-06)",
+    "Public PDF fetched again on 2026-10-08; SHA-256 agrees with the version recorded here. This provenance check does not assert a fresh reading of every cited proof."
    ]
   },
   {
@@ -808,7 +823,8 @@
    "url": "https://arxiv.org/abs/1108.2441v3",
    "sha256": "71b5da651ba9feca4c1abcc58f566afbf11019dda465cbc3a95aace7cb1e2406",
    "readSections": [
-    "§1.4: Theorem 1.4.3 (Thomason), 1.4.4, Lemma 1.4.5, Corollary 1.4.6, pp. 6–7 (read 2026-10-06)"
+    "§1.4: Theorem 1.4.3 (Thomason), 1.4.4, Lemma 1.4.5, Corollary 1.4.6, pp. 6–7 (read 2026-10-06)",
+    "Public PDF fetched again on 2026-10-08; SHA-256 agrees with the version recorded here. This provenance check does not assert a fresh reading of every cited proof."
    ]
   },
   {
@@ -819,7 +835,8 @@
    "url": "https://arxiv.org/abs/math/0209215",
    "sha256": "479f205a71f67e803321f9571fe758bae3007bb11c80f4780794ba7bbf4db15a",
    "readSections": [
-    "§1 (Theorem 1.1) and §2 opening through the definition of the functors H and Θ, pp. 1–6 (read 2026-10-06); Corollary 2.15 cited from the statement in §1"
+    "§1 (Theorem 1.1) and §2 opening through the definition of the functors H and Θ, pp. 1–6 (read 2026-10-06); Corollary 2.15 cited from the statement in §1",
+    "Public PDF fetched again on 2026-10-08; SHA-256 agrees with the version recorded here. This provenance check does not assert a fresh reading of every cited proof."
    ]
   }
  ],
@@ -838,7 +855,7 @@
     "No topology beyond Mathlib's TopCat is assumed; the compactly generated product enters only in H.1/classifying-space-prod."
    ],
    "proofSteps": [
-    "Define classifyingSpace C := SSet.toTop.obj (nerve C) and classifyingSpaceMap F := SSet.toTop.map (nerveMap F); functoriality is that of the composite functor SSet.toTop ⋙ (nerveFunctor restricted to small categories) (Weibel IV Characterization 3.1(1), Definition 3.1.4).",
+    "Define classifyingSpace C := SSet.toTop.obj (nerve C) and classifyingSpaceMap F := SSet.toTop.map (nerveMap F); functoriality is that of the composite functor (nerveFunctor restricted to small categories) ⋙ SSet.toTop (Weibel IV Characterization 3.1(1), Definition 3.1.4).",
     "The 0-cells are the objects of C and the 1-cells the non-identity morphisms; in general the n-cells are the strings of n composable non-identity morphisms (Recipe 3.1.1; the CW structure is the node H.1/classifying-space-cw-structure).",
     "Remark (no proof obligation): for a poset P the nerve is the simplicial complex of finite chains (Quillen §1, LNM p. 89); for a group G viewed as a one-object category the construction gives BG (H.1/classifying-space-of-group)."
    ],
@@ -857,7 +874,7 @@
     {
      "sourceId": "Quillen-HigherK-I-1973",
      "locator": "§1, LNM p. 89 (PDF 5)",
-     "match": "Quillen's definition of BC as the realisation of the nerve, taken verbatim as the construction."
+     "match": "The construction uses Quillen’s identification of the classifying space with the realisation of the nerve."
     },
     {
      "sourceId": "Weibel-KBook-IV",
@@ -14571,7 +14588,7 @@
    "source": "NikolausScholze-TC-2018",
    "kind": "misprint",
    "locator": "Appendix C, Definition C.4, p. 162, in arXiv:1707.01799",
-   "printed": "hocolim X := | ∐_{i0→...→in} X(in) |",
+   "printed": "For a covariant diagram, the displayed simplicial replacement uses the value at the terminal vertex of each composable string.",
    "correction": "For a covariant X : I → Top and strings i₀ → ⋯ → i_n the coefficient is X(i₀) (or the strings are written in the opposite direction).",
    "reason": "With X(i_n) the last face map d_n, which drops i_n, would need a map X(i_n) → X(i_{n−1}) against the arrow; the formula as printed is the one for contravariant diagrams.",
    "affects": "nothing",
@@ -14651,7 +14668,7 @@
    "source": "Weibel-KBook-IV",
    "kind": "misprint",
    "locator": "Proposition 2.7 and the last line of its proof, p. IV.21, in Kbook.IV.pdf (SHA-256 9f1c1b8c…)",
-   "printed": "πm (X; Z/q1 ) × πm (X; Z/q1 )",
+   "printed": "Both factors in the product of homotopy groups with coefficients are assigned the modulus q₁, although the surrounding decomposition distinguishes q₁ and q₂.",
    "correction": "π_m(X; ℤ/q₁) × π_m(X; ℤ/q₂).",
    "reason": "The displayed formula just before uses [P^m(ℤ/q₁), X] × [P^m(ℤ/q₂), X]; the repeated q₁ is a slip.",
    "affects": "nothing",
@@ -14691,7 +14708,7 @@
    "source": "Schwede-SymmetricSpectra-2012",
    "kind": "misprint",
    "locator": "Chapter II, proof of Theorem 8.3, printed p. 297 (PDF 298), in Symmetric spectra v3.0",
-   "printed": "0 −→ lim1n πk (ΣPn X) −→ πk (holimn Pn X) −→ limn πk (Pn X) −→ 0",
+   "printed": "The first term of the displayed Milnor sequence is lim¹ of π_k(ΣP_nX), rather than lim¹ of π_{k+1}(P_nX).",
    "correction": "0 → lim¹_n π_{k+1}(P_n X) → π_k(holim_n P_n X) → lim_n π_k(P_n X) → 0, i.e. lim¹ of π_k(Σ^{−1}P_n X), not of π_k(ΣP_n X) = π_{k−1}(P_n X).",
    "reason": "Applying [S^k, −] to the defining triangle holim X_n → ∏ X_n → ∏ X_n → Σ holim X_n gives the cokernel of 1 − shift on ∏ π_{k+1} X_n as the kernel term. Check: for the tower ⋯ →p S →p S the holim is F(S[1/p], S) (Schwede's own (5.8)), with π_{−1} = lim¹(⋯ →p ℤ) = ℤ_p/ℤ ≠ 0, whereas the printed index gives 0.",
    "affects": "nothing",
