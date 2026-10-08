@@ -26,6 +26,8 @@ Fifteen direct baseline declarations are recorded in this part. `Algebra.norm` i
 
 M.7 owns the generic dyadic spectral-sequence calculation. N.6 consumes its coefficient filtrations and integral comparison maps, then evaluates their arithmetic dimensions and finite orders. M.2 owns their arithmetic cohomology comparison diagrams; ArithmeticGaloisDuality supplies the already planned finite Kummer sequence, Poitou–Tate theorem and continuous inverse-limit theorem. L.6 owns the local integral and completed structures, while L.7 owns completion, restriction, transfer, boundary and Chern-class compatibility. I.1 supplies cyclotomic actions and decomposition groups, I.2 supplies the finite class-group systems, and SelmerIwasawaCohomology `L2/selmer-data`, `/selmer-kernel` and `/selmer-functoriality` supply the precise generic module maps, strict kernel and induced-map laws; they apply in degree two. `ArithmeticGaloisDuality:R02.3/h1-finite` supplies global H¹ finiteness for `R02.1/tate-inverse-limit`. The existing ClassFieldTheory roadmap supplies local reciprocity’s norm-kernel criterion at Layer 6 and generic finite-group Tate/homology, cyclic norm and transfer interfaces at Layer 0. N.6 evaluates the arithmetic diagrams on those interfaces. These requests concern precise missing interfaces and do not create second proof owners.
 
+The degree-two field carrier comes from T.2/matsumoto; T.5/real-sign-symbol supplies the real symbol, and T.5’s integer/rational K₂ nodes supply the concrete test classes. T.7/L.7 supply finite Hilbert-symbol maps. The finite-field twisted-residue norm test uses M.2 and ClassFieldTheory Layer 0; I.1 supplies the separate number-field tower inputs.
+
 ## Arithmetic ranks and finite-coefficient divisibility
 
 The first seven declarations extract arithmetic information from the imported coefficient theory. The order of a mod-two coefficient group is used through its exact filtration. It is not given a vector-space structure merely because the coefficient modulus is two: an extension of elementary two-groups can contain elements of order four. For the positive even degree n, the universal coefficient sequence relates this order to K_n(R)/2 and K_{n−1}(R)[2]. The preceding odd torsion group supplies the subtraction; for n=2 that group is K₁ and must be calculated from the units.
@@ -175,7 +177,7 @@ Hypotheses: F is a number field; i ≥ 1; S is finite whenever O_S occurs.
 
 Proof or construction. Use the real comparison maps supplied by M.7, zero outside i≡1 mod 4. Form their joint kernel and pull back along O_S→F.
 
-Direct inputs: `ArithmeticKTheory:N.5/the-real-case-modulo-eight`, `MotivicEtaleKTheory:M.7`.
+Direct inputs: `ArithmeticKTheory:N.5/the-real-case-modulo-eight`, `MotivicEtaleKTheory:M.7`, `K2SymbolsBrauer:T.5/real-sign-symbol`.
 
 Sources: Weibel author preprint Notation after Definition 0.2, preprint p. 2.
 
@@ -204,7 +206,7 @@ Hypotheses: F is a number field; i ≥ 1; S is finite whenever O_S occurs.
 
 Proof or construction. Compose completion with the finite-component comparison for every prime ℓ, including residue characteristic. Identify cyclic targets through local duality, not an unspecified canonical generator. Combine the maps with the real comparison. The kernel definition uses the product so it does not assume finite support before proving it.
 
-Direct inputs: `KTheoryFiniteLocalFields:L.7/completion-map`, `KTheoryFiniteLocalFields:L.7/etale-chern-class-completion`, `KTheoryFiniteLocalFields:L.6/even-integral-k-groups`, `KTheoryFiniteLocalFields:L.6/even-completed-k-groups-are-h2`, `ArithmeticKTheory:N.4/the-w-invariant`, `MotivicEtaleKTheory:M.7`.
+Direct inputs: `KTheoryFiniteLocalFields:L.7/completion-map`, `KTheoryFiniteLocalFields:L.7/etale-chern-class-completion`, `KTheoryFiniteLocalFields:L.6/even-integral-k-groups`, `KTheoryFiniteLocalFields:L.6/even-completed-k-groups-are-h2`, `ArithmeticKTheory:N.4/the-w-invariant`, `MotivicEtaleKTheory:M.7`, `K2SymbolsBrauer:T.2/matsumoto`, `K2SymbolsBrauer:T.5/real-sign-symbol`.
 
 Sources: Weibel author preprint Dwyer–Friedlander maps preceding Definition 0.2, preprint p. 2; K-book VI.2.3(c), Example VI.2.3.1 and Proposition VI.7.3, book pp. 471, 509, PDF pp. 479, 517.
 
@@ -237,7 +239,7 @@ Hypotheses: F is a number field; i ≥ 1; S is finite whenever O_S occurs.
 
 Proof or construction. Take the additive-homomorphism kernel of the joint symbol map. Expose membership as simultaneous vanishing; functoriality follows from the restriction and transfer formulas of the symbol family.
 
-Direct inputs: `ArithmeticKTheory:N.6/local-symbol-family`, `ArithmeticKTheory:N.6/positive-even-k-subgroup`.
+Direct inputs: `ArithmeticKTheory:N.6/local-symbol-family`, `ArithmeticKTheory:N.6/positive-even-k-subgroup`, `K2SymbolsBrauer:T.5/k2-of-the-integers`, `K2SymbolsBrauer:T.5/k2-of-the-rationals`.
 
 Sources: Weibel author preprint Definition 0.2, preprint p. 2.
 
@@ -599,7 +601,11 @@ Acceptance: Z/2 and Z/4 both have two-rank one, so a rank alone cannot certify e
 
 The signature defect after (8.2), preprint p.20, is the dimension of the **cokernel** of the real restriction map. For Q and Z[1/2] that cokernel has dimension zero, whereas its kernel has dimension one; thus j=ρ=0. The source already uses the cokernel convention. The packet retains `ArithmeticKTheory/E-N6-2` only as a rejected allegation with its independent verdict; it supplies no correction to a node and is not a source mistake.
 
-The confirmed E-N6-1 finding is scoped to the 23 July 2004 author preprint. The publication’s DOI returned a forbidden-access response; its text was not read or collated. The author archive and searches for the title with a corrigendum, Lemma 4.4 or signature correction produced no verified correction. The K-book’s errata link returned a missing-file response. These access facts do not identify the preprint with the version of record. The parent’s previously recorded error in the K-book’s unrestricted divisibility claim is retained through the parent import, rather than independently rediscovered or overwritten here.
+**E-N6-3 — degree index.** Example 1.1.1, preprint p.5, uses i=2 for the classical K₂ specialisation of a theorem indexed by K_{2i}. The intended index is i=1. This slip changes no intended theorem or node statement. The independent review confirms it for this preprint only.
+
+The local K-book claim before VI.7.1, book p.507/PDF515, must retain μ(E), including residue-characteristic roots, rather than only the residue-field unit group. For Q₂ the class {−1,−1} has order two while F₂ˣ is trivial. This is already the confirmed supplier finding `KTheoryFiniteLocalFields/E17`, whose record identifies an archived author erratum; no duplicate finding is created here. The source’s separate VI.9.12 proof index slip is already recorded by the parent packet and is outside this part’s certificate inputs.
+
+The confirmed E-N6-1 and E-N6-3 findings are scoped to the 23 July 2004 author preprint. The publication’s DOI returned a forbidden-access response; its text was not read or collated. The author archive and searches for the title with a corrigendum, Lemma 4.4 or signature correction produced no verified correction. The K-book’s errata link returned a missing-file response. These access facts do not identify the preprint with the version of record. The parent’s previously recorded error in the K-book’s unrestricted divisibility claim is retained through the parent import, rather than independently rediscovered or overwritten here.
 
 The public sources read were [Weibel’s combined K-book draft](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), dated 29 August 2013, and [the author’s wild-kernel preprint](https://sites.math.rutgers.edu/~weibel/archive/papers-dir/wildkernel.pdf), dated 23 July 2004. The source list and version records retain their hashes and the fresh read date 8 October 2026. K-book locators give book and PDF pages; preprint locators never claim journal pagination. The old font encoding prevents reliable extraction of the preprint’s text, so its rendered pages were read directly. The full proof input, §§1–8, was checked; secondary citations inside it that are not proved there remain the specifically named supplier interfaces.
 
@@ -616,3 +622,5 @@ The four other owned constructors have genuine generic interfaces on additive ho
 Twelve packet tests have active examples: four numerical, four special-field, three actual real local cohomology tests, and the generic degree-four positive-subgroup test. The real tests compute H² of C2 acting on the actual p-adic integers by the sign (-1)^(i+1). A finite group has the same ordinary and continuous cochains for these coefficients. Odd primes give zero; dyadic odd i gives Z/2; dyadic even i gives zero in the integral limit despite a nonzero finite-level sign term. These calculations test the local factor without introducing a missing global arithmetic cohomology carrier. The generic degree-four example tests the subgroup constructor; its K₄ instance still needs the real K comparison.
 
 The packet’s `suggestedCoverage` and the file’s omission register individually identify the other 21 named arithmetic statements, the homology conclusion of the decomposition theorem, and nine tests. Each needs an absent actual K/coefficient/cohomology carrier or a specified comparison map. A comment in that register is not a Lean signature or example. In particular a cyclic group of order 24 cannot substitute for the actual Q₂ quotient and its maps, and a chosen zero group cannot substitute for WK₂(Q). Completing the planned pass records these boundaries under PROTOCOL §13. Mathematical closure requires G1, G2 and the seven supplier requests, followed by the arithmetic instantiations and examples on their owners’ carriers.
+
+Independent round-2 review `REV-ArithmeticKTheory--N.6~2` accepts this planned pass on 8 October 2026. It confirms all 15 pinned baselines and the source locators, corrects only supplier/provenance metadata, and retains the stated proof and interface boundaries. See the [review report](../reviews/REV-ArithmeticKTheory--N.6~2.md). Acceptance supplies no implementation or proof closure.
