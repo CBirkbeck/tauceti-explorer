@@ -371,9 +371,17 @@
       "prerequisites": [
         "RefinedTraceMethods:RT.5/refined-ku-computation",
         "RefinedTraceMethods:RT.5/even-completed-tensor",
-        "RefinedTraceMethods:RT.4:topological",
-        "RefinedTraceMethods:RT.4:q-Hodge",
-        "RefinedTraceMethods:RT.4:Habiro-comparison"
+        "RefinedTraceMethods:RT.4:topological/homotopy-of-ku",
+        "RefinedTraceMethods:RT.4:topological/bott-localisation",
+        "RefinedTraceMethods:RT.4:topological/relative-thh-ku",
+        "RefinedTraceMethods:RT.4:topological/ku-circle-actions",
+        "RefinedTraceMethods:RT.4:q-Hodge/q-hodge-global",
+        "RefinedTraceMethods:RT.4:q-Hodge/p-complete-comparison-odd",
+        "RefinedTraceMethods:RT.4:q-Hodge/p-complete-comparison-two",
+        "RefinedTraceMethods:RT.4:q-Hodge/compatible-spherical-lifts",
+        "RefinedTraceMethods:RT.4:q-Hodge/cyclonic-even-filtrations",
+        "RefinedTraceMethods:RT.4:Habiro-comparison/twisted-q-hodge-comparison",
+        "RefinedTraceMethods:RT.4:Habiro-comparison/habiro-comparison-theorem"
       ],
       "sources": [
         {
@@ -530,8 +538,15 @@
       ],
       "prerequisites": [
         "RefinedTraceMethods:RT.5/refined-traces",
-        "RefinedTraceMethods:RT.4:q-Hodge",
-        "RefinedTraceMethods:RT.4:Habiro-comparison",
+        "RefinedTraceMethods:RT.4:q-Hodge/q-hodge-global",
+        "RefinedTraceMethods:RT.4:q-Hodge/q-hodge-multiplicativity",
+        "RefinedTraceMethods:RT.4:q-Hodge/cyclonic-ku",
+        "RefinedTraceMethods:RT.4:q-Hodge/cyclonic-base-coherence",
+        "RefinedTraceMethods:RT.4:q-Hodge/compatible-spherical-lifts",
+        "RefinedTraceMethods:RT.4:Habiro-comparison/twisted-q-hodge-comparison",
+        "RefinedTraceMethods:RT.4:Habiro-comparison/habiro-comparison-theorem",
+        "RefinedTraceMethods:RT.4:Habiro-comparison/etale-einfty-lift",
+        "RefinedTraceMethods:RT.4:Habiro-comparison/number-field-habiro",
         "HabiroCohomologyFoundations:HQ.3/q-hodge-filtrations",
         "HabiroCohomologyFoundations:HQ.3/the-q-hodge-complex",
         "HabiroCohomologyFoundations:HQ.4/the-arithmetic-fracture-squares-and-cyclotomic-descent",
@@ -1888,7 +1903,11 @@
       "prerequisites": [
         "RefinedTraceMethods:RT.5/refined-invariant-universality",
         "RefinedTraceMethods:RT.5/localization-tower-formula",
-        "RefinedTraceMethods:RT.2",
+        "RefinedTraceMethods:RT.2/relative-thh",
+        "RefinedTraceMethods:RT.2/thh-spectral-categories",
+        "RefinedTraceMethods:RT.2/thh-symmetric-monoidal",
+        "RefinedTraceMethods:RT.2/homotopy-orbits-fixed-points",
+        "RefinedTraceMethods:RT.2/tc-minus-and-tp",
         "EnhancedDerivedSheaves:E5:presentability",
         "RefinedTraceMethods:RT.5/smooth-proper-normalization",
         "RefinedTraceMethods:RT.5/circle-completion-equivalence"
@@ -2073,9 +2092,17 @@
       "prerequisites": [
         "RefinedTraceMethods:RT.5/high-powered",
         "StableHomotopyKTheory:H.6",
-        "RefinedTraceMethods:RT.4:topological",
-        "RefinedTraceMethods:RT.4:q-Hodge",
-        "RefinedTraceMethods:RT.4:Habiro-comparison",
+        "RefinedTraceMethods:RT.4:topological/homotopy-of-ku",
+        "RefinedTraceMethods:RT.4:topological/bott-localisation",
+        "RefinedTraceMethods:RT.4:topological/relative-thh-ku",
+        "RefinedTraceMethods:RT.4:topological/ku-circle-actions",
+        "RefinedTraceMethods:RT.4:q-Hodge/q-hodge-global",
+        "RefinedTraceMethods:RT.4:q-Hodge/p-complete-comparison-odd",
+        "RefinedTraceMethods:RT.4:q-Hodge/p-complete-comparison-two",
+        "RefinedTraceMethods:RT.4:q-Hodge/compatible-spherical-lifts",
+        "RefinedTraceMethods:RT.4:q-Hodge/cyclonic-even-filtrations",
+        "RefinedTraceMethods:RT.4:Habiro-comparison/twisted-q-hodge-comparison",
+        "RefinedTraceMethods:RT.4:Habiro-comparison/habiro-comparison-theorem",
         "HabiroCohomologyFoundations:HQ.3/q-hodge-filtrations",
         "HabiroCohomologyFoundations:HQ.3/the-q-hodge-complex",
         "HabiroCohomologyFoundations:HQ.3"
@@ -2114,7 +2141,7 @@
       ],
       "prerequisites": [
         "StableHomotopyKTheory:H.6",
-        "RefinedTraceMethods:RT.2",
+        "StableHomotopyKTheory:H.5:spectra",
         "EnhancedDerivedSheaves:E5:presentability"
       ],
       "sources": [
@@ -2187,8 +2214,9 @@
       ],
       "prerequisites": [
         "RefinedTraceMethods:RT.5/even-derived-hom",
-        "RefinedTraceMethods:RT.2",
-        "EnhancedDerivedSheaves:E5:presentability"
+        "StableHomotopyKTheory:H.5:spectra",
+        "EnhancedDerivedSheaves:E5:presentability",
+        "StableHomotopyKTheory:H.6"
       ],
       "sources": [
         {
@@ -2341,8 +2369,15 @@
         "TP descent is proved through the norm sequence, not by assuming Tate preserves arbitrary limits."
       ],
       "prerequisites": [
-        "RefinedTraceMethods:RT.1",
-        "RefinedTraceMethods:RT.2",
+        "RefinedTraceMethods:RT.1/hochschild-homology",
+        "RefinedTraceMethods:RT.1/cyclic-homology",
+        "RefinedTraceMethods:RT.1/hkr-filtration",
+        "RefinedTraceMethods:RT.2/thh-e1-ring",
+        "RefinedTraceMethods:RT.2/thh-over-thhz",
+        "RefinedTraceMethods:RT.2/homotopy-orbits-fixed-points",
+        "RefinedTraceMethods:RT.2/norm-map-tate",
+        "RefinedTraceMethods:RT.2/circle-tate",
+        "RefinedTraceMethods:RT.2/tc-minus-and-tp",
         "DerivedDeRhamCohomology:DD.0/cotangent-complex",
         "DerivedDeRhamCohomology:DD.5/completed-cotangent-descent",
         "DerivedDeRhamCohomology:DD.5/quasisyntomic-site",
@@ -2385,7 +2420,8 @@
         "DerivedDeRhamCohomology:DD.5/quasiregular-semiperfectoid-rings",
         "DerivedDeRhamCohomology:DD.0/cotangent-complex",
         "DerivedDeRhamCohomology:DD.0/derived-divided-powers",
-        "RefinedTraceMethods:RT.1"
+        "RefinedTraceMethods:RT.1/hochschild-homology",
+        "RefinedTraceMethods:RT.1/hkr-filtration"
       ],
       "sources": [
         {
@@ -2425,7 +2461,9 @@
         "RefinedTraceMethods:RT.6/trace-flat-descent",
         "DerivedDeRhamCohomology:DD.2/hodge-completed-derham",
         "DerivedDeRhamCohomology:DD.1/filtered-completion",
-        "RefinedTraceMethods:RT.1"
+        "RefinedTraceMethods:RT.1/mixed-complex",
+        "RefinedTraceMethods:RT.1/cyclic-homology",
+        "RefinedTraceMethods:RT.1/hkr-filtration"
       ],
       "sources": [
         {
@@ -2582,7 +2620,8 @@
       "prerequisites": [
         "AInfCohomology:AI.0",
         "KTheoryFiniteLocalFields:L.5",
-        "RefinedTraceMethods:RT.2",
+        "RefinedTraceMethods:RT.2/thh-e1-ring",
+        "RefinedTraceMethods:RT.2/thh-symmetric-monoidal",
         "DerivedDeRhamCohomology:DD.0/cotangent-complex",
         "DerivedDeRhamCohomology:DD.1/derived-completion"
       ],
@@ -2627,7 +2666,9 @@
         "RefinedTraceMethods:RT.6/uv-presentation",
         "AInfCohomology:AI.0",
         "KTheoryFiniteLocalFields:L.5",
-        "RefinedTraceMethods:RT.2"
+        "RefinedTraceMethods:RT.2/cyclotomic-frobenius-thh",
+        "RefinedTraceMethods:RT.2/tc-minus-and-tp",
+        "RefinedTraceMethods:RT.2/tc-fibre-sequence"
       ],
       "sources": [
         {
@@ -2663,7 +2704,9 @@
       ],
       "prerequisites": [
         "RefinedTraceMethods:RT.6/perfectoid-tc-maps",
-        "RefinedTraceMethods:RT.2"
+        "RefinedTraceMethods:RT.2/relative-thh",
+        "RefinedTraceMethods:RT.2/tate-multiplicativity",
+        "RefinedTraceMethods:RT.2/tc-minus-and-tp"
       ],
       "sources": [
         {
@@ -2699,8 +2742,14 @@
       ],
       "prerequisites": [
         "RefinedTraceMethods:RT.6/perfectoid-tc-maps",
-        "RefinedTraceMethods:RT.1",
-        "RefinedTraceMethods:RT.2"
+        "RefinedTraceMethods:RT.1/hochschild-homology",
+        "RefinedTraceMethods:RT.1/mixed-complex",
+        "RefinedTraceMethods:RT.1/cyclic-homology",
+        "RefinedTraceMethods:RT.2/relative-thh",
+        "RefinedTraceMethods:RT.2/thh-over-thhz",
+        "RefinedTraceMethods:RT.2/mixed-complexes-are-circle-modules",
+        "RefinedTraceMethods:RT.2/norm-sequence-hc",
+        "RefinedTraceMethods:RT.2/tc-minus-and-tp"
       ],
       "sources": [
         {
@@ -2736,7 +2785,8 @@
       ],
       "prerequisites": [
         "RefinedTraceMethods:RT.6/thh-hochschild-deformation",
-        "RefinedTraceMethods:RT.1",
+        "RefinedTraceMethods:RT.1/hkr-map",
+        "RefinedTraceMethods:RT.1/external-products",
         "DerivedDeRhamCohomology:DD.0/cotangent-complex",
         "DerivedDeRhamCohomology:DD.1/derived-completion"
       ],
@@ -3174,7 +3224,10 @@
         "DerivedDeRhamCohomology:DD.5/quasisyntomic-site",
         "DerivedDeRhamCohomology:DD.5/quasiregular-semiperfectoid-rings",
         "DerivedDeRhamCohomology:DD.1/filtered-completion",
-        "RefinedTraceMethods:RT.2"
+        "RefinedTraceMethods:RT.2/thh-e1-ring",
+        "RefinedTraceMethods:RT.2/cyclotomic-frobenius-thh",
+        "RefinedTraceMethods:RT.2/tc-minus-and-tp",
+        "RefinedTraceMethods:RT.2/tc-fibre-sequence"
       ],
       "sources": [
         {
@@ -3394,7 +3447,9 @@
         "RefinedTraceMethods:RT.6/trace-breuil-kisin-twist",
         "AInfCohomology:AI.0",
         "AInfCohomology:AI.4",
-        "RefinedTraceMethods:RT.2"
+        "RefinedTraceMethods:RT.2/tr-and-genuine-tc",
+        "RefinedTraceMethods:RT.2/genuine-tc-agrees",
+        "RefinedTraceMethods:RT.2/tc-minus-and-tp"
       ],
       "sources": [
         {
@@ -3433,7 +3488,9 @@
         "RefinedTraceMethods:RT.6/trace-breuil-kisin-twist",
         "RefinedTraceMethods:RT.6/qrsp-tc-nygaard",
         "PrismaticCohomology:PR.3/divided-frobenius",
-        "RefinedTraceMethods:RT.2"
+        "RefinedTraceMethods:RT.2/cyclotomic-frobenius-thh",
+        "RefinedTraceMethods:RT.2/tc-minus-and-tp",
+        "RefinedTraceMethods:RT.2/tc-fibre-sequence"
       ],
       "sources": [
         {
@@ -3560,7 +3617,9 @@
         "For A=F_p pointwise F−1 on Z_p is zero, so π_(−1)TC(F_p)=Z_p; local vanishing must not be mistaken for pointwise vanishing."
       ],
       "prerequisites": [
-        "RefinedTraceMethods:RT.2",
+        "RefinedTraceMethods:RT.2/tr-and-genuine-tc",
+        "RefinedTraceMethods:RT.2/genuine-tc-agrees",
+        "RefinedTraceMethods:RT.2/tc-fibre-sequence",
         "RefinedTraceMethods:RT.6/syntomic-graded-tc",
         "DerivedDeRhamCohomology:DD.5/quasiregular-semiperfectoid-rings",
         "DerivedDeRhamCohomology:DD.5/quasisyntomic-site"
@@ -3650,8 +3709,12 @@
         "DerivedDeRhamCohomology:DD.4/acrys-structure",
         "DerivedDeRhamCohomology:DD.4/qrsp-pd-derham",
         "KTheoryFiniteLocalFields:L.5",
-        "RefinedTraceMethods:RT.1",
-        "RefinedTraceMethods:RT.2"
+        "RefinedTraceMethods:RT.1/hochschild-homology",
+        "RefinedTraceMethods:RT.1/cyclic-homology",
+        "RefinedTraceMethods:RT.2/thh-spherical-group-rings",
+        "RefinedTraceMethods:RT.2/thh-over-thhz",
+        "RefinedTraceMethods:RT.2/hz-module-circle-tate",
+        "RefinedTraceMethods:RT.2/tc-minus-and-tp"
       ],
       "sources": [
         {
@@ -4214,7 +4277,11 @@
         "RefinedTraceMethods:RT.6/bms1-twist-comparison",
         "EnhancedDerivedSheaves:E5:abstract/symmetric-monoidal-infinity-category",
         "EnhancedDerivedSheaves:E5:presentability/coherent-group-actions",
-        "RefinedTraceMethods:RT.2"
+        "RefinedTraceMethods:RT.2/cyclic-realisation",
+        "RefinedTraceMethods:RT.2/cyclotomic-frobenius-thh",
+        "RefinedTraceMethods:RT.2/cyclotomic-spectrum",
+        "RefinedTraceMethods:RT.2/tc-minus-and-tp",
+        "RefinedTraceMethods:RT.2/tc-fibre-sequence"
       ],
       "sources": [
         {
@@ -4300,7 +4367,9 @@
       ],
       "prerequisites": [
         "EnhancedDerivedSheaves:E5:abstract/symmetric-monoidal-infinity-category",
-        "RefinedTraceMethods:RT.2",
+        "RefinedTraceMethods:RT.2/thh-spherical-group-rings",
+        "RefinedTraceMethods:RT.2/thh-symmetric-monoidal",
+        "RefinedTraceMethods:RT.2/cyclotomic-frobenius-thh",
         "StableHomotopyKTheory:H.5:spectra/operadic-algebras",
         "StableHomotopyKTheory:H.5:spectra/ring-spectrum"
       ],
@@ -4338,7 +4407,10 @@
       ],
       "prerequisites": [
         "RefinedTraceMethods:RT.6/sphere-polynomial-thh",
-        "RefinedTraceMethods:RT.2",
+        "RefinedTraceMethods:RT.2/relative-thh",
+        "RefinedTraceMethods:RT.2/tate-multiplicativity",
+        "RefinedTraceMethods:RT.2/cyclotomic-frobenius-thh",
+        "RefinedTraceMethods:RT.2/tc-minus-and-tp",
         "EnhancedDerivedSheaves:E5:abstract/symmetric-monoidal-infinity-category"
       ],
       "sources": [
@@ -4430,8 +4502,11 @@
       "prerequisites": [
         "RefinedTraceMethods:RT.6/relative-sphere-thh",
         "DerivedDeRhamCohomology:DD.0/cotangent-complex",
-        "RefinedTraceMethods:RT.1",
-        "RefinedTraceMethods:RT.2",
+        "RefinedTraceMethods:RT.1/base-change",
+        "RefinedTraceMethods:RT.2/relative-thh",
+        "RefinedTraceMethods:RT.2/thh-symmetric-monoidal",
+        "RefinedTraceMethods:RT.2/thh-over-thhz",
+        "RefinedTraceMethods:RT.2/cyclotomic-frobenius-thh",
         "AInfCohomology:AI.0"
       ],
       "sources": [
@@ -4595,7 +4670,9 @@
       "prerequisites": [
         "RefinedTraceMethods:RT.6/syntomic-graded-tc",
         "RefinedTraceMethods:RT.6/characteristic-p-tc-sheaf",
-        "RefinedTraceMethods:RT.3",
+        "RefinedTraceMethods:RT.3/cyclotomic-trace",
+        "RefinedTraceMethods:RT.3/dgm-theorem",
+        "RefinedTraceMethods:RT.3/kinv-truncating",
         "GeneralAlgebraicKTheory:K.4",
         "PrismaticCohomology:PR.4",
         "DerivedDeRhamCohomology:DD.5/quasisyntomic-site",
@@ -4640,7 +4717,9 @@
         "RefinedTraceMethods:RT.6/syntomic-graded-tc",
         "RefinedTraceMethods:RT.6/motivic-filtrations",
         "RefinedTraceMethods:RT.6/characteristic-p-tc-sheaf",
-        "RefinedTraceMethods:RT.3b",
+        "RefinedTraceMethods:RT.3b/qp-coefficients",
+        "RefinedTraceMethods:RT.3b/beilinson-fibre-sequence",
+        "RefinedTraceMethods:RT.3b/graded-beilinson-square",
         "DerivedDeRhamCohomology:DD.2/p-completed-derham",
         "DerivedDeRhamCohomology:DD.2/hodge-completed-derham",
         "DerivedDeRhamCohomology:DD.2/hodge-graded-pieces"
@@ -4682,7 +4761,9 @@
       "prerequisites": [
         "mathlib:ChainComplex",
         "mathlib:HomologicalComplex.Hom.comm",
-        "RefinedTraceMethods:RT.1"
+        "RefinedTraceMethods:RT.1/mixed-complex",
+        "RefinedTraceMethods:RT.1/cyclic-homology",
+        "RefinedTraceMethods:RT.1/derived-mixed-complex"
       ],
       "sources": [
         {
@@ -4860,7 +4941,9 @@
       "statement": "Let k be a complex orientable E∞ ring spectrum with trivial S¹ action, and choose t∈π_(−2)(k^hS¹) representing an orientation. Homotopy S¹ fixed points give a symmetric monoidal equivalence from coherent circle k-modules to derived t-complete k^hS¹-modules, whose tensor is t-completed. The left adjoint has underlying module reduction modulo t; no bounded-below hypothesis is imposed.",
       "hypotheses": [],
       "prerequisites": [
-        "RefinedTraceMethods:RT.2",
+        "RefinedTraceMethods:RT.2/spectra-with-action",
+        "RefinedTraceMethods:RT.2/homotopy-orbits-fixed-points",
+        "RefinedTraceMethods:RT.2/circle-tate",
         "DerivedDeRhamCohomology:DD.1/derived-completion",
         "EnhancedDerivedSheaves:E5:presentability"
       ],
@@ -5022,8 +5105,6 @@
       "need": "Supply the enhanced cyclotomic THH/TC⁻/TP/TC functors with coherent circle/finite-C_m Frobenius, weak-Postnikov/Tate comparison, classical TR/TC equivalence and Witt π₀TR. Include relative base-change and lax monoidal Tate maps; an ordinary circle action on homotopy groups is insufficient.",
       "neededBy": [
         "RefinedTraceMethods:RT.5/refined-traces",
-        "RefinedTraceMethods:RT.5/even-derived-hom",
-        "RefinedTraceMethods:RT.5/even-completed-tensor",
         "RefinedTraceMethods:RT.6/trace-flat-descent",
         "RefinedTraceMethods:RT.6/perfectoid-thh",
         "RefinedTraceMethods:RT.6/perfectoid-tc-maps",
@@ -5044,7 +5125,7 @@
     },
     {
       "supplier": "RefinedTraceMethods:RT.3",
-      "need": "Supply finite-coefficient cyclotomic-trace rigidity/excision and the square-zero relative K/TC comparison in the stated henselian/nilpotent ranges. For BM Example 1.6, provide the rigidity input separately from downstream GeneralK Part II identifications of even K-sheaves.",
+      "need": "Supply the finite-coefficient trace, nilpotent relative K/TC comparison and truncating invariant through RT.3/cyclotomic-trace, RT.3/dgm-theorem and RT.3/kinv-truncating. The henselian-pair rigidity needed for BM Example 1.6 is not supplied by these nodes: route it to the proposed RefinedTraceMethodsPartIIHenselianPairs, then specify the syntomic-to-etale site comparison separately. Keep this request open until that owner and exact supplier node are established; downstream even K-sheaf identifications are not an input to their own construction.",
       "neededBy": [
         "RefinedTraceMethods:RT.6/syntomic-k-sheaf"
       ],
@@ -5084,6 +5165,15 @@
         "RefinedTraceMethods:RT.5/refined-ku-periodic-computation",
         "RefinedTraceMethods:RT.6/habiro-trace-interface",
         "RefinedTraceMethods:RT.5/torsion-qhodge"
+      ],
+      "status": "open"
+    },
+    {
+      "supplier": "StableHomotopyKTheory:H.5:spectra",
+      "need": "Supply coherent modules over even E1/E-infinity ring spectra, graded homotopy modules, double-speed Whitehead filtrations and their filtered derived internal Hom/tensor with shearing. Combine E5 complete filtered derived categories with H.6 connectivity, coconnectivity and derived-completion estimates from MW Lemmas 3.9 and 3.11 (pp. 33–35). Existing model-category and Postnikov nodes do not by themselves supply this entire interface; these general types belong to H.5/E5/H.6, not to the RT.2 trace functors.",
+      "neededBy": [
+        "RefinedTraceMethods:RT.5/even-derived-hom",
+        "RefinedTraceMethods:RT.5/even-completed-tensor"
       ],
       "status": "open"
     }
@@ -5215,7 +5305,7 @@
     },
     {
       "title": "Compatible Moore and finite q-Hodge choices",
-      "detail": "The required Burklund multiplicative Moore tower is not supplied by the existing cofiber-only H.6 node. RT.4 and HQ.3 must verify the separate finite-torsion/p=2 extension of the q-Hodge comparison and its chosen transitions; the 2-invertible spherical-lift theorem alone does not justify every high-powered m. Keep these requests open for MW’s ku/KU computation.",
+      "detail": "The required Burklund multiplicative Moore tower is not supplied by the existing cofiber-only H.6 node. RT.4 and HQ.3 must verify the separate finite-torsion/p=2 extension of the q-Hodge comparison and its chosen transitions; the 2-invertible spherical-lift theorem alone does not justify every high-powered m. Keep these requests open for MW’s ku/KU computation. Exact RT.4:q-Hodge and RT.4:Habiro-comparison references identify the qualified comparison contracts only; they do not discharge the residual finite-torsion or p=2 hypotheses.",
       "neededBy": [
         "RefinedTraceMethods:RT.5/torsion-qhodge",
         "RefinedTraceMethods:RT.5/pro-qhodge-idempotence",
@@ -5226,7 +5316,7 @@
     },
     {
       "title": "BM announced K-sheaf comparison proof",
-      "detail": "Example 1.6 states without proof that the finite syntomic complex is the syntomic-to-étale derived pushforward of sheafified even K-groups. Supply the precise change-of-site/descent argument, the rigidity comparison in this site and finite-coefficient normalization from the requested owners. Neither BMS’s QRSP even TC computation nor abstract rigidity alone identifies these two sites.",
+      "detail": "Example 1.6 states without proof that the finite syntomic complex is the syntomic-to-étale derived pushforward of sheafified even K-groups. Supply the precise change-of-site/descent argument, the rigidity comparison in this site and finite-coefficient normalization from the requested owners. Neither BMS’s QRSP even TC computation nor abstract rigidity alone identifies these two sites. RT.3 proves the nilpotent comparison, not the required full henselian-pair rigidity. The latter is routed to the proposed henselian-pair Part II; the exact new supplier and site-level proof remain open.",
       "neededBy": [
         "RefinedTraceMethods:RT.6/syntomic-k-sheaf"
       ]
@@ -5250,10 +5340,12 @@
     },
     {
       "title": "Unbounded derived convergence implementation",
-      "detail": "The motivic filtration and the source’s bounded smooth specializations are planned with complete/exhaustive derived abutments. A coherent exact-couple and derived-limit implementation, including the precise obstruction to strong convergence when no boundedness is available, must come from H.6; no unconditional ordinary strong-convergence claim is used.",
+      "detail": "The motivic filtration and the source’s bounded smooth specializations are planned with complete/exhaustive derived abutments. A coherent exact-couple and derived-limit implementation, including the precise obstruction to strong convergence when no boundedness is available, must come from H.6; no unconditional ordinary strong-convergence claim is used. For RT.5/even-derived-hom and RT.5/even-completed-tensor, also supply the coherent filtered module categories, shearing and double-speed Whitehead operations requested from H.5/E5; no exact existing supplier covers that package.",
       "neededBy": [
         "RefinedTraceMethods:RT.6/motivic-convergence",
-        "RefinedTraceMethods:RT.6/motivic-filtrations"
+        "RefinedTraceMethods:RT.6/motivic-filtrations",
+        "RefinedTraceMethods:RT.5/even-derived-hom",
+        "RefinedTraceMethods:RT.5/even-completed-tensor"
       ]
     }
   ],
