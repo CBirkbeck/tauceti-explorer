@@ -1,16 +1,17 @@
 # REV-FIX-RT-AREA-langlands-2~3 handoff
 
-## Blocked continuation, 8 October 2026
+## Blocked continuation, 8 October 2026 — codex-VISQzt
 
-Codex session `codex-F7v0hD` claimed issue #5871 after the bot confirmed comment
-[6060152325](https://github.com/CBirkbeck/tauceti-explorer/issues/5871#issuecomment-6060152325).
+Codex session `codex-VISQzt` claimed issue #5871 after the bot confirmed comment
+[6060354884](https://github.com/CBirkbeck/tauceti-explorer/issues/5871#issuecomment-6060354884).
 The completed review below was already merged in [PR #7265](https://github.com/CBirkbeck/tauceti-explorer/pull/7265)
-on 7 October at 17:29:29 UTC. This continuation changes only this handoff; it does not
-repeat the mathematical review or replace any packet verdict.
+on 7 October at 17:29:29 UTC. This continuation updates the handoff with a fresh
+completion check; the completed mathematical review and packet verdicts remain its inputs.
 
-The automation blocker is still reproducible at base `d0b0c999b4d8f2bd89425ff95e3b0a0b11ba5317`,
-after the previous blocked checkpoint [PR #7346](https://github.com/CBirkbeck/tauceti-explorer/pull/7346)
-merged on 8 October at 06:22:06 UTC:
+The automation blocker is still reproducible at base `0ec6696c5f365f8fe67b813b8e81ac291df5ea59`,
+after blocked checkpoints [PR #7346](https://github.com/CBirkbeck/tauceti-explorer/pull/7346)
+and [PR #7397](https://github.com/CBirkbeck/tauceti-explorer/pull/7397), the latter
+merged on 8 October at 12:51:51 UTC:
 
 - `issues.deliverables_complete` returns **true** for the live issue's seven outputs.
 - The same function returns **false** for the committed queue entry's 27 outputs.
@@ -20,6 +21,22 @@ merged on 8 October at 06:22:06 UTC:
 - The three authorized packets already name this review job, dated 7 October:
   CSM and Global are accepted; GL2 needs changes. A negative review verdict counts
   as a completed review under `research/blueprint/issues.py`, lines 561–571.
+
+The current reviewers of the ten extra packets confirm that these are separate
+jobs. All identifiers below have the prefix `independent-review-` in their packets:
+
+| Extra packet | Its review job |
+| --- | --- |
+| ClassicalSerreModularity--R26.1 | REV-ClassicalSerreModularity--R26.1~2 |
+| AutomorphicGaloisRepresentations | REV-AutomorphicGaloisRepresentations~2 |
+| PotentialModularityAndCompatibleSystems--R23.1 | REV-PotentialModularityAndCompatibleSystems--R23.1 |
+| GL2AutomorphicRepresentationsAndTransfer--R17.3 | REV-FIX-RT-AREA-automorphic-1~4 |
+| ModularityAndLanglandsExtensions | REV-ModularityAndLanglandsExtensions |
+| PotentialModularityAndCompatibleSystems--R24.3 | REV-PotentialModularityAndCompatibleSystems--R24.3 |
+| WeightsInEtaleCohomology | REV-WeightsInEtaleCohomology~2 |
+| LocalGaloisDeformationRings | REV-LocalGaloisDeformationRings~2 |
+| HilbertModularVarietiesAndShimuraCurves--R18.2 | REV-FIX-RT-AREA-automorphic-1~4 |
+| GL2ModularityLifting--R32.3 | REV-GL2ModularityLifting--R32.3 |
 
 Re-ran `python3 scripts/check_blueprint.py` on all three authorized packets:
 zero errors and zero warnings for each. Confirmed that none contains an `excerpt`
@@ -42,8 +59,11 @@ completion. The exact authorized output list is:
 After that reconciliation, `deliverables_complete` already has all it needs to
 finish this review; GL2's negative verdict requires its own revision rather than
 continuation of this review. The queue file is outside this issue's edit scope.
-Do not expand this review
-to unrelated packets or overwrite their review objects to satisfy the stale queue.
+To reproduce the blocker, load the job from `queue.json`, call
+`issues.deliverables_complete(job)` and compare it with the same job whose
+`outputs` are the seven paths above: the results are false and true respectively.
+No file needs to be changed to perform this check. Do not expand this review
+to the ten other packets or replace their review objects to satisfy the stale queue.
 Further worker claims cannot resolve this blocker within the authorized deliverables.
 The original completed-review handoff and its next GL2 revision instructions follow.
 
