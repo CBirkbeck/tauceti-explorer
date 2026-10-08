@@ -1,52 +1,48 @@
 # REV-FIX-RT-AREA-langlands-2~3 handoff
 
-## Blocked continuation, 8 October 2026 — codex-VISQzt
+## Blocked intake continuation, 8 October 2026 — codex-FXDpCC
 
-Codex session `codex-VISQzt` claimed issue #5871 after the bot confirmed comment
-[6060354884](https://github.com/CBirkbeck/tauceti-explorer/issues/5871#issuecomment-6060354884).
-The completed review below was already merged in [PR #7265](https://github.com/CBirkbeck/tauceti-explorer/pull/7265)
-on 7 October at 17:29:29 UTC. This continuation updates the handoff with a fresh
-completion check; the completed mathematical review and packet verdicts remain its inputs.
+Codex session `codex-FXDpCC` claimed issue #5871 after GitHub Actions confirmed
+[comment 6064556880](https://github.com/CBirkbeck/tauceti-explorer/issues/5871#issuecomment-6064556880).
+Base commit: `4642101e10a075fc258ca4781e463e6b40e80112`.
 
-The automation blocker is still reproducible at base `0ec6696c5f365f8fe67b813b8e81ac291df5ea59`,
-after blocked checkpoints [PR #7346](https://github.com/CBirkbeck/tauceti-explorer/pull/7346)
-and [PR #7397](https://github.com/CBirkbeck/tauceti-explorer/pull/7397), the latter
-merged on 8 October at 12:51:51 UTC:
+The independent review was completed and merged in [PR #7265](https://github.com/CBirkbeck/tauceti-explorer/pull/7265).
+It has been released again after checkpoints #7346, #7397 and #7399. This run
+verified the existing deliverables and diagnosed the intake blocker; it did
+not repeat the mathematical review or replace its verdicts.
 
-- `issues.deliverables_complete` returns **true** for the live issue's seven outputs.
-- The same function returns **false** for the committed queue entry's 27 outputs.
-- The twenty extra outputs are ten other packets and their ten suggested files.
-  All ten packets have reviewers belonging to other jobs, so the completion check
-  fails its requirement that every listed packet name this review job.
-- The three authorized packets already name this review job, dated 7 October:
-  CSM and Global are accepted; GL2 needs changes. A negative review verdict counts
-  as a completed review under `research/blueprint/issues.py`, lines 561–571.
+The current packets, suggested files and review report are byte-for-byte identical
+to the completed-review commit `0ca7bd10c`. The report gives one disposition for
+each of the forty findings. Packet verdicts remain CSM **accepted**, Global
+**accepted**, GL2 **needs_changes**. The latter is a completed review outcome;
+its revision work belongs to a subsequent fix job.
 
-The current reviewers of the ten extra packets confirm that these are separate
-jobs. All identifiers below have the prefix `independent-review-` in their packets:
+### Reproduced blocker
 
-| Extra packet | Its review job |
+At this base, `issues.deliverables_complete` returns **false** for the committed
+queue entry (27 outputs), and **true** when only its `outputs` list is replaced
+in memory by the live issue's seven deliverables. The other job fields are unchanged.
+Every output exists. The failure comes from ten extra packets whose reviews
+correctly name other jobs; their ten suggested files are also outside this issue's scope.
+
+| Extra packet | Its current review job |
 | --- | --- |
-| ClassicalSerreModularity--R26.1 | REV-ClassicalSerreModularity--R26.1~2 |
 | AutomorphicGaloisRepresentations | REV-AutomorphicGaloisRepresentations~2 |
-| PotentialModularityAndCompatibleSystems--R23.1 | REV-PotentialModularityAndCompatibleSystems--R23.1 |
+| ClassicalSerreModularity--R26.1 | REV-ClassicalSerreModularity--R26.1~2 |
 | GL2AutomorphicRepresentationsAndTransfer--R17.3 | REV-FIX-RT-AREA-automorphic-1~4 |
-| ModularityAndLanglandsExtensions | REV-ModularityAndLanglandsExtensions |
-| PotentialModularityAndCompatibleSystems--R24.3 | REV-PotentialModularityAndCompatibleSystems--R24.3 |
-| WeightsInEtaleCohomology | REV-WeightsInEtaleCohomology~2 |
-| LocalGaloisDeformationRings | REV-LocalGaloisDeformationRings~2 |
+| GL2ModularityLifting--R32.3 | REV-GL2ModularityLifting--R32.3~2 |
 | HilbertModularVarietiesAndShimuraCurves--R18.2 | REV-FIX-RT-AREA-automorphic-1~4 |
-| GL2ModularityLifting--R32.3 | REV-GL2ModularityLifting--R32.3 |
+| LocalGaloisDeformationRings | REV-LocalGaloisDeformationRings~2 |
+| ModularityAndLanglandsExtensions | REV-ModularityAndLanglandsExtensions |
+| PotentialModularityAndCompatibleSystems--R23.1 | REV-PotentialModularityAndCompatibleSystems--R23.1 |
+| PotentialModularityAndCompatibleSystems--R24.3 | REV-PotentialModularityAndCompatibleSystems--R24.3~2 |
+| WeightsInEtaleCohomology | REV-WeightsInEtaleCohomology~2 |
 
-Re-ran `python3 scripts/check_blueprint.py` on all three authorized packets:
-zero errors and zero warnings for each. Confirmed that none contains an `excerpt`
-field. These are structural checks, not a new mathematical review. No suggested
-file changed, so no new Lean run was needed; the completed review's compilation
-receipts remain below.
 
-The maintainer must reconcile this job's `outputs` in `research/blueprint/queue.json`
-with the seven paths in issue #5871, then let the existing intake/sync process record
-completion. The exact authorized output list is:
+### Exact maintainer action
+
+Reconcile `REV-FIX-RT-AREA-langlands-2~3.outputs` in
+`research/blueprint/queue.json` to this list, preserving its other fields:
 
 - `research/blueprint/reviews/REV-FIX-RT-AREA-langlands-2~3.md`
 - `research/blueprint/packets/ClassicalSerreModularity--R27.3.json`
@@ -56,16 +52,56 @@ completion. The exact authorized output list is:
 - `research/blueprint/suggested/GL2ModularityLifting--R22.1.lean`
 - `research/blueprint/suggested/GlobalGaloisDeformations.lean`
 
-After that reconciliation, `deliverables_complete` already has all it needs to
-finish this review; GL2's negative verdict requires its own revision rather than
-continuation of this review. The queue file is outside this issue's edit scope.
-To reproduce the blocker, load the job from `queue.json`, call
-`issues.deliverables_complete(job)` and compare it with the same job whose
-`outputs` are the seven paths above: the results are false and true respectively.
-No file needs to be changed to perform this check. Do not expand this review
-to the ten other packets or replace their review objects to satisfy the stale queue.
-Further worker claims cannot resolve this blocker within the authorized deliverables.
-The original completed-review handoff and its next GL2 revision instructions follow.
+
+Then let the normal intake/sync process record completion. No new mathematical
+review, replacement of another job's reviewer, or acceptance of GL2 is required.
+
+Queue generation must preserve the reconciled round scope. In
+`research/blueprint/make_queue.py`, `fix_rounds` derives review outputs from the
+fix round's `current_outputs` (lines 1827–1831) and can add newly available
+blueprint paths when advancing rounds (lines 1852–1853). The committed parent
+`FIX-RT-AREA-langlands-2~3` is marked done but now lists 40 outputs, whereas its
+completed fix report explicitly restricts work to these three blueprints.
+Reconcile that historical fix scope too, and verify that regeneration retains
+the seven review outputs. This is the code path to investigate, not a claim
+that this run has tested a generator repair.
+
+The queue and generator are outside the issue's editable files. Additionally,
+`intake.ALLOWED` excludes `research/blueprint/queue.json`, so a queue repair needs
+maintainer handling rather than ordinary worker intake. Further checkpoints
+containing only unchanged mathematical deliverables cannot clear this blocker.
+
+### Reproduction and validation
+
+From the repository root, this read-only check reproduces the two results:
+
+```python
+import json, sys
+sys.path.insert(0, "research/blueprint")
+from issues import deliverables_complete
+queue = json.load(open("research/blueprint/queue.json"))
+job = next(j for j in queue["jobs"]
+           if j["id"] == "REV-FIX-RT-AREA-langlands-2~3")
+authorized = [
+    "research/blueprint/reviews/REV-FIX-RT-AREA-langlands-2~3.md",
+    "research/blueprint/packets/ClassicalSerreModularity--R27.3.json",
+    "research/blueprint/packets/GL2ModularityLifting--R22.1.json",
+    "research/blueprint/packets/GlobalGaloisDeformations.json",
+    "research/blueprint/suggested/ClassicalSerreModularity--R27.3.lean",
+    "research/blueprint/suggested/GL2ModularityLifting--R22.1.lean",
+    "research/blueprint/suggested/GlobalGaloisDeformations.lean",
+]
+assert not deliverables_complete(job)
+assert deliverables_complete({**job, "outputs": authorized})
+```
+
+Re-ran `scripts/check_blueprint.py` on all three packets: each has zero errors
+and zero warnings. Checked that all 177 nodes retain `implementationStatus:
+unchecked`, no packet has an `excerpt` field, and each of the forty findings
+has exactly one disposition in the report. No suggested file changed, so
+this run did not recompile Lean. The completed review's successful `lean-check`
+receipts remain below. Scratch is disposable; this note contains the reproduction
+and the next action.
 
 ## Completed review from the preceding run
 

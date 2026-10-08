@@ -237,3 +237,25 @@ queue, as it did for PR #7024. The same function returns true with the live issu
 This is a completed review of the authorized scope; automatic completion is blocked by the stale
 queue definition. A maintainer must reconcile that entry with issue #5871 before intake can mark
 this job complete. Editing other jobs' review objects or the queue is outside this issue's allowlist.
+
+
+## Intake continuation audit, 8 October 2026
+
+Codex session `codex-FXDpCC`, issue #5871, base `4642101e10a075fc258ca4781e463e6b40e80112`.
+The three packets, three suggested files and this report were identical to the
+completed-review commit `0ca7bd10c` before this audit was appended. This run
+rechecked completion and structural validity; it does not claim a new source
+review or change the mathematical verdicts above.
+
+All three packet checks again report zero errors and warnings. All 177 nodes
+remain unchecked, the packets contain no source excerpts, and the finding table
+covers 1–40 exactly once. Unchanged suggested files were not recompiled; the
+completed review's successful compilation receipts remain the applicable evidence.
+
+The completion function still returns false for the queue's 27 outputs and true
+for the live issue's seven. Ten extra packets correctly name other review jobs.
+The parent fix's queue entry is marked done but lists 40 outputs; queue generation
+derives the review list from that fix scope. The handoff now gives the exact
+seven-output correction, a read-only reproduction, the generation code to
+investigate, and the separate intake allowlist restriction on queue edits.
+Only the maintainer can reconcile those files within the current issue scope.
