@@ -513,8 +513,8 @@ example (p : ℕ) : TameGroup.φ p 1 * TameGroup.t p 1 = TameGroup.t p 1 * TameG
       = TameGroup.φ p 1 * TameGroup.t p 1 * (TameGroup.φ p 1)⁻¹ * TameGroup.φ p 1 := by group
     _ = TameGroup.t p 1 * TameGroup.φ p 1 := by rw [h]
 
-/-- `tameGroup_not_direct` (non-example): for `q ≢ 1 mod p`, `T_q` is not abelian. -/
-example (p q : ℕ) (hq : ¬ (q : ZMod p) = 1) :
+/-- `tameGroup_not_direct` (non-example): for `q ≥ 2`, `T_q` is not abelian (`t` has infinite order). -/
+example (p q : ℕ) (hq : 2 ≤ q) :
     TameGroup.φ p q * TameGroup.t p q ≠ TameGroup.t p q * TameGroup.φ p q := sorry
 
 /-- `tameGroup_abelianisation` (computation): `T_q^{ab} ≅ ℤ_p/(q − 1) × ℤ̂`; its torsion part has order
@@ -714,10 +714,13 @@ def flatClosure {R : Type*} [CommRing R] (ϖ : R) (I : Ideal R) : Ideal R where
   smul_mem' := sorry
 
 /-- **`R08.2/steinberg-ring-domain`**: for trivial `ρ̄` and `q ≡ 1 mod p`, the flat closure of the Steinberg
-condition is prime, i.e. the Steinberg ring is a domain (Taylor II, Proposition 3.1; Thorne). -/
+condition (with respect to a uniformiser `ϖ`) is prime, i.e. the Steinberg ring is a domain (Thorne,
+Proposition 3.17; Newton–Thorne, proof of Lemma 3.8). -/
 theorem steinbergRing_isPrime {𝒪 : Type} [CommRing 𝒪] [IsLocalRing 𝒪] [IsNoetherianRing 𝒪]
+    [IsDomain 𝒪] [IsDiscreteValuationRing 𝒪]
     {𝔽 : Type} [Field 𝔽] [Algebra 𝒪 𝔽] (p q : ℕ) [Fact p.Prime] (ρ₀ : TameGroup p q →* GL (Fin n) 𝔽)
-    (hρ₀ : ρ₀ = 1) (hq : (q : 𝔽) = 1) (ϖ : 𝒪) (Istein : Ideal (LiftingRing 𝒪 n ρ₀))
+    (hρ₀ : ρ₀ = 1) (hq : (q : 𝔽) = 1)
+    (ϖ : 𝒪) (hϖ : Irreducible ϖ) (Istein : Ideal (LiftingRing 𝒪 n ρ₀))
     (hI : ∀ {B : Type} [CommRing B] [Algebra 𝒪 B] (x : LiftingRing 𝒪 n ρ₀ →ₐ[𝒪] B),
       (∀ r ∈ Istein, x r = 0) ↔ SteinbergLifts q
         (pointRep x.toRingHom (TameGroup.φ p q) : Matrix (Fin n) (Fin n) B)
@@ -749,8 +752,9 @@ theorem iharaAvoidance_same_specialFibre {𝒪 : Type} [CommRing 𝒪] [IsLocalR
 `q ≡ 1 mod p`, trivial `ρ̄`), the flat closure of the distinct-character condition is prime. -/
 theorem iharaAvoidance_distinct_isPrime {𝒪 : Type} [CommRing 𝒪] [IsLocalRing 𝒪]
     [IsNoetherianRing 𝒪] {𝔽 : Type} [Field 𝔽] [Algebra 𝒪 𝔽] (p q : ℕ)
-    (ρ₀ : TameGroup p q →* GL (Fin n) 𝔽) (hρ₀ : ρ₀ = 1) (hq : (q : 𝔽) = 1) (ϖ : 𝒪) (ζ : Fin n → 𝒪)
-    (hζ : Function.Injective ζ) :
+    [IsDomain 𝒪] [IsDiscreteValuationRing 𝒪]
+    (ρ₀ : TameGroup p q →* GL (Fin n) 𝔽) (hρ₀ : ρ₀ = 1) (hq : (q : 𝔽) = 1) (ϖ : 𝒪) (hϖ : Irreducible ϖ)
+    (ζ : Fin n → 𝒪) (hζ1 : ∀ i, ζ i - 1 ∈ Ideal.span {ϖ}) (hζ : Function.Injective ζ) :
     (flatClosure (algebraMap 𝒪 _ ϖ)
       (charpolyIdeal p q ρ₀ (∏ i, (Polynomial.X - Polynomial.C (ζ i))))).IsPrime := sorry
 
@@ -797,8 +801,8 @@ example (k : Type*) [Field k] :
       {Ideal.map (Ideal.Quotient.mk _) (Ideal.span {MvPowerSeries.X 0}),
        Ideal.map (Ideal.Quotient.mk _) (Ideal.span {MvPowerSeries.X 1})} := sorry
 
-/-- `levelRaising_dims` (computation): the nodal model has Krull dimension `2` over a field
-(`3` over `𝒪`), i.e. one more than each component's relative dimension one. -/
+/-- `levelRaising_dims` (computation): the nodal model `k⟦x₀, x₁⟧/(x₀x₁)` has Krull dimension `1` over a
+field (`2` over `𝒪`); each of its two components is a line. -/
 example (k : Type*) [Field k] :
     ringKrullDim (MvPowerSeries (Fin 2) k ⧸
       Ideal.span {(MvPowerSeries.X 0 * MvPowerSeries.X 1 : MvPowerSeries (Fin 2) k)}) = 1 := sorry
@@ -912,6 +916,7 @@ theorem pst_equidimensional (I : Subgroup (Field.absoluteGaloisGroup K)) {E : Ty
 fibre: every localisation of `R^{□,τ,v,cris}[1/ϖ]` at a maximal ideal is regular. -/
 theorem pcris_genericFibre_regular (I : Subgroup (Field.absoluteGaloisGroup K)) {E : Type} [Field E]
     {r : ℕ} (τ : GaloisType I E r) (v : HodgeType (K →ₐ[ℚ_[p]] AlgebraicClosure ℚ_[p]) n) (ϖ : 𝒪)
+    (hϖ : Irreducible ϖ)
     (P : Ideal (GenericFibre ϖ (ConditionRing (pstIdeal (𝒪 := 𝒪) p K ρ₀ I τ v true)))) [P.IsMaximal] :
     IsRegularLocalRing (Localization.AtPrime P) := sorry
 
@@ -925,10 +930,14 @@ theorem pst_coefficientChange_krullDim (I : Subgroup (Field.absoluteGaloisGroup 
       ringKrullDim (ConditionRing (pstIdeal (𝒪 := 𝒪) p K ρ₀ I τ v cris)) := sorry
 
 /-- **`R08.3/fixed-determinant-pst-rings`** (Emerton–Gee 4.3.1, Caraiani–Newton 3.3.6): for `p ∤ n` and a
-crystalline `ψ` lifting `det ρ̄` of the right weight, `R ≅ R^ψ⟦X⟧`, recorded on Krull dimensions. -/
+crystalline `ψ` lifting `det ρ̄` of the right weight, `R ≅ R^ψ⟦X⟧`, recorded on Krull dimensions. That `ψ` is
+crystalline of the right weight is expressed by `R^ψ` being nonzero and `𝒪`-flat (it then has a
+characteristic-zero point, a crystalline lift of the type with determinant `ψ`). -/
 theorem fixedDet_pst_krullDim (I : Subgroup (Field.absoluteGaloisGroup K)) {E : Type} [Field E] {r : ℕ}
     (τ : GaloisType I E r) (v : HodgeType (K →ₐ[ℚ_[p]] AlgebraicClosure ℚ_[p]) n)
-    (ψ : Field.absoluteGaloisGroup K →* 𝒪ˣ) (hpn : ¬ p ∣ n) :
+    (ψ : Field.absoluteGaloisGroup K →* 𝒪ˣ) (hpn : ¬ p ∣ n)
+    [Nontrivial (ConditionRing (pstIdeal (𝒪 := 𝒪) p K ρ₀ I τ v true ⊔ detIdeal (n := n) (ρbar := ρ₀) ψ))]
+    [Module.Flat 𝒪 (ConditionRing (pstIdeal (𝒪 := 𝒪) p K ρ₀ I τ v true ⊔ detIdeal (n := n) (ρbar := ρ₀) ψ))] :
     ringKrullDim (ConditionRing (pstIdeal (𝒪 := 𝒪) p K ρ₀ I τ v true)) =
       ringKrullDim (ConditionRing (pstIdeal (𝒪 := 𝒪) p K ρ₀ I τ v true ⊔ detIdeal (n := n) (ρbar := ρ₀) ψ)) + 1 :=
   sorry
@@ -979,7 +988,7 @@ theorem savittNode_specialFibre (ϖ : 𝒪) :
 /-- **`R08.4/components-via-special-fibre`** (Kisin (2.4.10)), ring-theoretic shadow: a reduced, `𝒪`-flat
 complete local ring whose special fibre is reduced has as many connected components of its generic fibre as
 its special fibre has. Recorded as: if the special fibre is a domain, so is the ring. -/
-theorem domain_of_specialFibre_domain [IsAdicComplete (IsLocalRing.maximalIdeal 𝒪) 𝒪]
+theorem domain_of_specialFibre_domain [IsDomain 𝒪] [IsAdicComplete (IsLocalRing.maximalIdeal 𝒪) 𝒪]
     (R : Type) [CommRing R] [Algebra 𝒪 R] [IsLocalRing R] [IsNoetherianRing R] [Module.Flat 𝒪 R]
     (ϖ : 𝒪) (hϖ : Ideal.span {ϖ} = IsLocalRing.maximalIdeal 𝒪)
     (h : IsDomain (R ⧸ Ideal.span {algebraMap 𝒪 R ϖ})) : IsDomain R := sorry
@@ -1042,7 +1051,8 @@ theorem KWCondition.points_odd (ρ₀ : G →* GL (Fin 2) 𝔽) (c : G) (hc : �
 /-- API `KWCondition.ring_unique`: two reduced `𝒪`-flat quotients of `R^□` with the same
 characteristic-zero points coincide: their ideals are equal (both are the intersection of the kernels of
 those points). -/
-theorem KWCondition.ring_unique (ρ₀ : G →* GL (Fin 2) 𝔽) (I J : Ideal (LiftingRing 𝒪 2 ρ₀)) (ϖ : 𝒪)
+theorem KWCondition.ring_unique [IsDomain 𝒪] [IsDiscreteValuationRing 𝒪] [CharZero 𝒪]
+    (ρ₀ : G →* GL (Fin 2) 𝔽) (I J : Ideal (LiftingRing 𝒪 2 ρ₀)) (ϖ : 𝒪) (hϖ : Irreducible ϖ)
     (hI : flatClosure (algebraMap 𝒪 _ ϖ) I = I) (hJ : flatClosure (algebraMap 𝒪 _ ϖ) J = J)
     (hIr : I.IsRadical) (hJr : J.IsRadical)
     (hpts : ∀ (B : Type) [Field B] [CharZero B] [Algebra 𝒪 B] (x : LiftingRing 𝒪 2 ρ₀ →ₐ[𝒪] B),
@@ -1050,7 +1060,9 @@ theorem KWCondition.ring_unique (ρ₀ : G →* GL (Fin 2) 𝔽) (I J : Ideal (L
 
 /-- **`R08.6/export-archimedean`**: for `p` odd the odd ring at a real place is a power series ring in
 `2` variables (`n² − a² − b² = 4 − 1 − 1`). -/
-theorem export_archimedean (ρ₀ : G →* GL (Fin 2) 𝔽) (h2 : (2 : 𝔽) ≠ 0) :
+theorem export_archimedean (ρ₀ : G →* GL (Fin 2) 𝔽) (h2 : (2 : 𝔽) ≠ 0) (c : G)
+    (hc : ∀ g, g = 1 ∨ g = c) (hc2 : c * c = 1)
+    (hodd : ((ρ₀ c : GL (Fin 2) 𝔽) : Matrix (Fin 2) (Fin 2) 𝔽).det = -1) :
     IsPowerSeriesOver 𝒪 (KWCondition.ring ρ₀ (.odd : KWCondition G 𝒪)) 2 := sorry
 
 /-- `kwCondition_infinity` (computation): `diag(1, −1)` is an odd involution. -/
@@ -1195,7 +1207,7 @@ integrality of the universal characters (each `χ_i(g)` is a root of the charact
 theorem detOrd_char_isRoot (ρ : G →* GL (Fin n) A) (χ : Fin n → G →* Aˣ) (h : IsDetOrdinary ρ χ)
     (g : G) (i : Fin n) : ((ρ g : Matrix (Fin n) (Fin n) A).charpoly).IsRoot ((χ i g : Aˣ) : A) := sorry
 
-/-- **`L8/determinant-flag-comparison`** (ACC+ Proposition 6.2.11), the dimension inequality: with
+/-- **`L8/determinant-flag-comparison`** (ACC+ Proposition 6.2.12), the dimension inequality: with
 `m = [F_v:ℚ_p] > n(n+1)/2 + 1`, the locus where the characters collide has dimension at most
 `n² − 1 + n(n+1)/2·m`, smaller than `1 + n² + n(n+1)/2·m`. -/
 theorem detFlag_dimension_count (n m : ℕ) (hm : n * (n + 1) + 4 ≤ 2 * m) (hn : 1 ≤ n) :
@@ -1203,11 +1215,16 @@ theorem detFlag_dimension_count (n m : ℕ) (hm : n * (n + 1) + 4 ≤ 2 * m) (hn
   have : 1 ≤ n ^ 2 := Nat.one_le_pow _ _ hn
   omega
 
-/-- **`L8/doubling-equals-unramified`** (Calegari–Geraghty Lemma 3.22): in the rank-two trivial-residual
-case the doubling ideal `J = Ann(R̃†/R†)` equals the unramified ideal `I`; recorded as an equality of ideals
-of the universal ring, given as data. -/
-theorem doubling_eq_unramified {R : Type*} [CommRing R] (I J : Ideal R)
-    (hI : I = J) : J = I := hI.symm
+/-- **`L8/doubling-equals-unramified`** (Calegari–Geraghty Lemma 3.22), part (1): the eigenvalue algebra
+`R̃^unr = R^unr[β]/(β² − tβ − t)`, `t = φ₁ + φ₄`, is free of rank two over `R^unr` (basis `1, β`), for any
+commutative ring in place of `R^unr`. Hence `R^unr → R̃^unr` is injective and `R^unr` acts faithfully on the
+cokernel, which is what gives `J ⊆ I`. The equality `J = I` itself needs the rings `R†`, `R̃†` and is in the
+inventory. -/
+theorem doubling_quadratic_free {R : Type*} [CommRing R] (t : R) :
+    Module.Free R (Polynomial R ⧸ Ideal.span
+      {(Polynomial.X ^ 2 - Polynomial.C t * Polynomial.X - Polynomial.C t : Polynomial R)}) ∧
+    Function.Injective (algebraMap R (Polynomial R ⧸ Ideal.span
+      {(Polynomial.X ^ 2 - Polynomial.C t * Polynomial.X - Polynomial.C t : Polynomial R)})) := sorry
 
 /-- API `ordinaryWeightRing`: `Λ_v = 𝒪⟦𝒪_{F_v}^×(p)ⁿ⟧/𝔞` for a chosen set of minimal primes (data). -/
 def ordinaryWeightRing (𝒪 : Type) [CommRing 𝒪] (p : ℕ) (Fv : Type) [Field Fv] (n : ℕ) : Type := sorry
@@ -1254,7 +1271,9 @@ example (E : A) : HasHeightLE E !![E] 1 :=
 example (E : A) (X : Matrix (Fin n) (Fin n) A) : HasHeightLE E X 0 ↔ IsUnit X := sorry
 
 /-- `height_u_not_finite` (non-example): `u` never divides `f^h` when `f` has nonzero constant term (such as
-`E(u)`, with `E(0) = p·unit`), so `φ(e) = u·e` has no finite `E`-height. -/
+`E(u)`, with `E(0) = p·unit`), so for `φ(e) = u·e` the lattice `𝔖e` has no finite `E`-height. (That no other
+lattice has finite height either, for `K = ℚ_p` and `p` odd, is the argument through characters in the
+packet's test; for `p = 2` the lattice `𝔖·u⁻¹e` has height `0`.) -/
 theorem X_not_dvd_pow {R : Type*} [CommRing R] [IsDomain R] (f : PowerSeries R)
     (hf : PowerSeries.constantCoeff f ≠ 0) (h : ℕ) : ¬ (PowerSeries.X ∣ f ^ h) := by
   rw [PowerSeries.X_dvd_iff, map_pow]
@@ -1299,11 +1318,15 @@ theorem Connects.trans_of_smooth {R B : Type*} [CommRing R] [CommRing B] {x y z 
   subst this
   exact ⟨P, hP, hxP, hzQ⟩
 
-/-- `connects_restrict` (compatibility) and API `Connects.restrict`: a ring map `f : R' → R` along which
-both points factor carries a common component downstairs when `f` sends minimal primes into minimal primes;
-recorded for the identity. -/
-theorem Connects.restrict {R B : Type*} [CommRing R] [CommRing B] {x y : R →+* B} (h : Connects x y) :
-    Connects x y := h
+/-- `connects_restrict` (compatibility) and API `Connects.restrict`: for any ring map `f : R' → R` (in
+practice the map of lifting rings induced by restriction to `G_{K'}`), two points of `R` that connect give
+points of `R'` that connect: the preimage of a common minimal prime contains a minimal prime of `R'`. -/
+theorem Connects.restrict {R R' B : Type*} [CommRing R] [CommRing R'] [CommRing B] (f : R' →+* R)
+    {x y : R →+* B} (h : Connects x y) : Connects (x.comp f) (y.comp f) := by
+  obtain ⟨P, hP, hx, hy⟩ := h
+  have : P.IsPrime := hP.1.1
+  obtain ⟨Q, hQ, hQP⟩ := Ideal.exists_minimalPrimes_le (I := (⊥ : Ideal R')) (J := P.comap f) bot_le
+  exact ⟨Q, hQ, fun r hr => hx (hQP hr), fun r hr => hy (hQP hr)⟩
 
 /-- **`L7/local-model-rho-nm0`**, API `rhoNM0`: `ρ_{n,m,0} = ⊕_i ε₂^{m(n−i)} (ε₂′)^{m(i−1)}` for characters
 `e = ε₂`, `e' = ε₂′`. -/
@@ -1318,7 +1341,8 @@ def rhoNM0 {G : Type*} [Group G] (n m : ℕ) (e e' : G →* Aˣ) : G →* GL (Fi
 theorem rhoNM0.rank_one {G : Type*} [Group G] (m : ℕ) (e e' : G →* Aˣ) : rhoNM0 1 m e e' = 1 := sorry
 
 /-- API `rhoNM0.hodgeTate`: the exponent of `ε₂` is `m(n − 1 − i)` and of `ε₂′` is `mi`; with
-`HT(ε₂) = (0, 1)`-type labelled weights the weights are `{0, m, …, (n − 1)m}`. -/
+`HT(ε₂) = (0, 1)`-type labelled weights the weights are `{0, m, …, (n − 1)m}` (in the source's convention
+`HT(ε) = −1`; with `HT(ε) = +1` they are the negatives). -/
 def rhoNM0Weights (n m : ℕ) : List ℕ := (List.range n).map (· * m)
 
 /-- `rhoNM0_weights` (computation): `ρ_{3,2,0}` has weights `{0, 2, 4}`. -/
@@ -1357,6 +1381,15 @@ example (q : ℕ) (α : A) : SteinbergFrobRelation q !![α, 0; 0, (q : A) * α] 
 `q = 2`, `b = 5` it does not split into two chains of length two (no pair among `{1,2,4,5}` other than `(1,2)`,
 `(2,4)` is in ratio two, and these overlap). -/
 example : ¬ ((2 : ℚ) * 1 = 2 ∧ (2 : ℚ) * 4 = 5) := by norm_num
+
+/-- The same non-example for `IsInPol`: `(X − 1)(X − 2)(X − 4)(X − 5)` lies in `Pol₄((3, 1), 2)` and not in
+`Pol₄((2, 2), 2)`, although `(3, 1)` dominates `(2, 2)`. -/
+example : IsInPol (2 : ℚ) [3, 1]
+      ((Polynomial.X - Polynomial.C 1) * (Polynomial.X - Polynomial.C 2) *
+        (Polynomial.X - Polynomial.C 4) * (Polynomial.X - Polynomial.C 5)) ∧
+    ¬ IsInPol (2 : ℚ) [2, 2]
+      ((Polynomial.X - Polynomial.C 1) * (Polynomial.X - Polynomial.C 2) *
+        (Polynomial.X - Polynomial.C 4) * (Polynomial.X - Polynomial.C 5)) := sorry
 
 /-- **`L7/gsp4-siegel-ordinary-condition`**: the Siegel shape: `ρ(g)` stabilises the Lagrangian plane
 `⟨e₁, e₂⟩`, i.e. its lower-left `2 × 2` block vanishes. -/
@@ -1494,9 +1527,10 @@ theorem snowden_square (a b c : A) :
 minus six relations, gives `15`. -/
 example : Nat.choose 7 2 = 21 ∧ 21 - 6 = 15 := by decide
 
-/-- **`L7/discrete-series-smoothness`** (CHT Lemma 2.4.28): `m(n − m) + (n − m)² + (m² − 1) + (m(n − m) + 1) = n²`. -/
-theorem discreteSeries_dimension (n m : ℤ) :
-    m * (n - m) + (n - m) ^ 2 + (m ^ 2 - 1) + (m * (n - m) + 1) = n ^ 2 := by ring
+/-- **`L7/discrete-series-smoothness`** (CHT Lemma 2.4.28): `d(n − d) + (n − d)² + (d² − 1) + (d(n − d) + 1) = n²`,
+with `d` the rank of `r̃_v` (the source prints the four terms with `m`, source issue E8). -/
+theorem discreteSeries_dimension (n d : ℤ) :
+    d * (n - d) + (n - d) ^ 2 + (d ^ 2 - 1) + (d * (n - d) + 1) = n ^ 2 := by ring
 
 /-- **`L7/fontaine-laffaille-tangent-space-and-smoothness`**: at `n = 2`, `F_ṽ = ℚ_l`, the ring has
 `n² + [F_ṽ:ℚ_l]·n(n−1)/2 = 5` variables. -/
@@ -1646,14 +1680,14 @@ example (A B C m : ℕ) (hA : 1 ≤ A) (h : B + 4 ≤ 2 * m) :
     2 * (1 + A) + B + C ≤ 2 * (A - 1) + C + 2 * m := by
   omega
 
-/-! ### Checkpoint 7: CHT §§2.4.1, 2.4.2, 2.4.5 -/
+/-! ### CHT §§2.4.1, 2.4.2, 2.4.5 -/
 
 /-- `L7/fontaine-laffaille-tangent-space-and-smoothness`: at `n = 2`, `F_ṽ = ℚ_l`, the ring has
 `n² + [F_ṽ:ℚ_l]·n(n−1)/2 = 5` variables. -/
 example : 2 ^ 2 + 1 * (2 * (2 - 1) / 2) = 5 := by decide
 
-/-- `L7/discrete-series-smoothness` (Lemma 2.4.28): `m(n − m) + (n − m)² + (m² − 1) + (m(n − m) + 1) = n²`. -/
-example (n m : ℤ) : m * (n - m) + (n - m) ^ 2 + (m ^ 2 - 1) + (m * (n - m) + 1) = n ^ 2 := by
+/-- `L7/discrete-series-smoothness` (Lemma 2.4.28): `d(n − d) + (n − d)² + (d² − 1) + (d(n − d) + 1) = n²`. -/
+example (n d : ℤ) : d * (n - d) + (n - d) ^ 2 + (d ^ 2 - 1) + (d * (n - d) + 1) = n ^ 2 := by
   ring
 
 /-- Source issue E2: for `r̄ = ω ⊕ 1` with `ω` on the sub, the suitable first-order lifts have dimension
@@ -1662,7 +1696,7 @@ example : 1 + 1 + 3 = 5 ∧ 2 * (2 + 1) / 2 + 1 * (2 * (2 - 1) / 2) = 4 := by de
 
 end TauCeti.GaloisDeformation.Local.SuggestedTest
 
-/-! ## R08.5 (checkpoint 8): Kisin's 2-adic rings -/
+/-! ## R08.5: Kisin's 2-adic rings -/
 
 namespace TauCeti.GaloisDeformation.Local.R085Test
 
@@ -1778,7 +1812,7 @@ example : [11, 7, 5, 3].Pairwise (· > ·) := by decide
 /-- `R08.3/g-valued-pst-rings`, `G = GL₂`, regular weight: `dim G + [K:ℚ_p]·dim Fl = 4 + n`. -/
 example (n : ℕ) : 4 + n * 1 = 4 + n := by ring
 
-/-- `L7/local-model-rho-nm0`: the labelled Hodge–Tate weights `{0, m, …, (n − 1)m}`. -/
+/-- `L7/local-model-rho-nm0`: the labelled Hodge–Tate weights `{0, m, …, (n − 1)m}` (convention `HT(ε) = −1`). -/
 def rhoNM0Weights (n m : ℕ) : List ℕ := (List.range n).map (· * m)
 
 example : rhoNM0Weights 3 2 = [0, 2, 4] := by decide
@@ -1964,20 +1998,20 @@ a declaration or example, or here.
   - API `fixedTypeRing_n2` (compatibility): For n=2, after imposing the same compatible determinant, this closure definition agrees with R08.2/inertial-type-quotient.
   - API `fixedTypeRing.unique` (universal-property): The reduced flat closure quotient is uniquely characterized by the intersection of kernels of exact-type characteristic-zero points. Its ring maps agree if they agree after precomposing the quotient map from R^□_r̄.
   - example `inertialType_steinberg_vs_trivial` (non-example): The trivial type and Steinberg type Sp₂ differ by N. Their closure rings can meet at an N=0 specialization, for instance the family ρ_c(φ)=diag(q,1), ρ_c(t)=(1 c;0 1) with c=pt and q≡1 mod p.
-  - example `inertialType_unramified` (computation): For r̄ unramified and τ trivial with N = 0 the ring is the unramified-after-twist ring, formally smooth of relative dimension n² (R08.2/unramified-lifting-ring).
+  - example `inertialType_unramified` (computation): For r̄ unramified and τ trivial with N = 0 the ring is the unramified lifting ring, formally smooth of relative dimension n² (R08.2/unramified-lifting-ring).
   - example `inertialType_dimension` (characterisation): Each nonzero R^□_r̄(τ) is equidimensional of dimension 1 + n².
   - example `inertialType_empty` (degenerate): If the reductions of τ|P_K and ρ̄|P_K are incompatible after coefficient extension, the exact-type locus and its closure ring are empty. Compare characteristic-zero and characteristic-p representations through reduction, not literal equality.
 
-### `R08.2/fixed-type-rings-rank-n` (theorem). Its statement uses local inertia, Weil–Deligne or scheme-theoretic data of this roadmap's earlier nodes; not elaborated in this round.
+### `R08.2/fixed-type-rings-rank-n` (theorem). Its statement uses local inertia, Weil–Deligne or scheme-theoretic data of this roadmap's earlier nodes; not elaborated here.
   statement: Let K/ℚ_ℓ be finite, ℓ ≠ p, r̄ : G_K → GL_n(k). (1) For each inertial type τ, R^□_r̄(τ) is reduced, 𝒪-flat and equidimensional of dimension 1 + n², and R^□_r̄/ϖ is equidimensional of dimension n². (2) If two ℚ̄_p-points lie on the same irreducible component of Spec R^□_r̄[1/p] and neither lies on any other irreducible component, their Weil–Deligne representations restricted to I_K are conjugate; hence the conductor is constant on pure points of a component. (3) Spec R^□_r̄[1/p] has finitely many connected components, and there is a finite extension K′/K such that every lift of r̄ becomes unipotently ramified on G_{K′}.
 
-### `R08.2/dotto-division-algebra-cycles` (theorem). Its statement uses local inertia, Weil–Deligne or scheme-theoretic data of this roadmap's earlier nodes; not elaborated in this round.
+### `R08.2/dotto-division-algebra-cycles` (theorem). Its statement uses local inertia, Weil–Deligne or scheme-theoretic data of this roadmap's earlier nodes; not elaborated here.
   statement: Let K/ℚ_ℓ be finite (ℓ ≠ p), D a central division algebra of rank n over K, 𝒪_D^× its maximal compact subgroup, r̄ : G_K → GL_n(k), and E/ℚ_p large enough that every type τ of a lift of r̄, and all K-types for GL_n(K) and D^× attached to it, are defined over E, and that the irreducible components of Spec R^□_r̄[1/p] and of Spec R^□_r̄/ϖ are geometrically irreducible. For an inertial type with monodromy (τ, N) (R08.2/inertial-type-with-monodromy) let R^□_r̄(τ, N) be Shotton's fixed-type quotient (R08.2/fixed-type-rings-rank-n). (1) (Dotto §6, case ℓ ≠ p) The cycle maps cyc : R_E(GL_n(𝒪_K)) → Z^{n²}(R^□_r̄), σ ↦ Σ_{(τ,N)} dim Hom_{GL_n(𝒪_K)}(σ^∨ ⊗ ℚ̄_p, π_{τ,N})·[R^□_r̄(τ, N)], and cyc_{D^×} :
 
-### `R08.2/regular-unipotent-minimally-ramified` (theorem). Its statement uses local inertia, Weil–Deligne or scheme-theoretic data of this roadmap's earlier nodes; not elaborated in this round.
+### `R08.2/regular-unipotent-minimally-ramified` (theorem). Its statement uses local inertia, Weil–Deligne or scheme-theoretic data of this roadmap's earlier nodes; not elaborated here.
   statement: Let K/ℚ_ℓ be finite (ℓ ≠ p), σ a topological generator of tame inertia, r̄ : G_K → GL_n(k) with r̄(σ) unipotent with a single Jordan block, and r a lift to A ∈ C_𝒪 with characteristic polynomial of r(σ) equal to (X − 1)^n. Then for every j ≤ n the natural map ker((r(σ) − 1)^j) ⊗_A k → ker((r̄(σ) − 1)^j) is an isomorphism. Hence the unipotent problem R^1 (char r(σ) = (X − 1)^n) equals the minimally ramified problem of R08.2/minimally-ramified-condition under this hypothesis on r̄.
 
-### `R08.2/gsp4-ramification-types` (definition). Its statement uses local inertia, Weil–Deligne or scheme-theoretic data of this roadmap's earlier nodes; not elaborated in this round.
+### `R08.2/gsp4-ramification-types` (definition). Its statement uses local inertia, Weil–Deligne or scheme-theoretic data of this roadmap's earlier nodes; not elaborated here.
   - API `GSp4RamType.unipotent_rank` (characterisation): r̄ is of type U_i iff r̄(I_x) is generated by exp(N) with N ∈ sp₄ nilpotent of rank i.
   - API `GSp4RamType.exclusive` (other): The types U, P, H are mutually exclusive.
   - API `GSp4RamType.not_P` (other): A cyclotomic-power similitude excludes type P.
@@ -1987,22 +2021,22 @@ a declaration or example, or here.
 ### `R08.2/gsp4-taylor-wiles-lifts` (theorem). Needs: tauceti:TauCetiRoadmap.
   statement: Let v be a place with q_v ≡ 1 mod p, ρ̄ : G_{F_v} → GSp₄(k) unramified with multiplier ψ unramified, and ρ̄(Frob_v) with four distinct eigenvalues ᾱ₁, ᾱ₂, ᾱ₃ = ψ(Frob_v)/ᾱ₂, ᾱ₄ = ψ(Frob_v)/ᾱ₁. (1) Every lift ρ : G_{F_v} → GSp₄(A) with multiplier ψ is GSp₄(A)-conjugate to γ₁ ⊕ γ₂ ⊕ ψγ₂^{-1} ⊕ ψγ₁^{-1} for unique characters γ_i lifting the unramified γ̄_i with γ̄_i(Frob_v) = ᾱ_i. (2) With Δ_v = k(v)^×(p)², the characters γ_i∘Art_{F_v}|_{𝒪^×} give a local map 𝒪[Δ_v] → R^□_v, formally smooth of relative dimension 10, depending on the ordering of the eigenvalues.
 
-### `R08.2/gsp4-unipotent-local-models` (construction). Its statement uses local inertia, Weil–Deligne or scheme-theoretic data of this roadmap's earlier nodes; not elaborated in this round.
+### `R08.2/gsp4-unipotent-local-models` (construction). Its statement uses local inertia, Weil–Deligne or scheme-theoretic data of this roadmap's earlier nodes; not elaborated here.
   - API `GSp4.MSpace` (constructor): ℳ(x, y; q) ⊂ GSp₄², with ℳ(1, 1; q) ≅ 𝒩(q).
 
-### `R08.2/gsp4-ihara-avoidance-rings` (theorem). Its statement uses local inertia, Weil–Deligne or scheme-theoretic data of this roadmap's earlier nodes; not elaborated in this round.
+### `R08.2/gsp4-ihara-avoidance-rings` (theorem). Its statement uses local inertia, Weil–Deligne or scheme-theoretic data of this roadmap's earlier nodes; not elaborated here.
   statement: Let v be finite with q_v ≡ 1 mod p, ρ̄ : G_{F_v} → GSp₄(k) trivial, ψ unramified with trivial reduction, and χ = (χ₁, χ₂) continuous characters 𝒪_{F_v}^× → 𝒪^× trivial mod λ. 𝒟_v^χ is the problem of lifts with multiplier ψ such that for σ ∈ I_{F_v}, char ρ(σ) = (X − χ₁(Art^{-1}σ))(X − χ₂(Art^{-1}σ))(X − χ₂(Art^{-1}σ)^{-1})(X − χ₁(Art^{-1}σ)^{-1}), represented by R_v^χ. (1) If χ₁, χ₂ ≠ 1 and χ₁ ≠ χ₂^{±1}, every closed point of Spec R_v^χ[1/p] is smooth and Spec R_v^χ is irreducible of dimension 11. (2) For χ₁ = χ₂ = 1, Spec R_v^1 is equidimensional of dimension 11 with characteristic-zero generic points, and every generic point of Spec R_v^1/λ specialises from a unique generic point of Spec R
 
-### `R08.2/g-valued-generic-fibre-away-from-p` (theorem). Its statement uses local inertia, Weil–Deligne or scheme-theoretic data of this roadmap's earlier nodes; not elaborated in this round.
+### `R08.2/g-valued-generic-fibre-away-from-p` (theorem). Its statement uses local inertia, Weil–Deligne or scheme-theoretic data of this roadmap's earlier nodes; not elaborated here.
   statement: Let ℓ ≠ p, K/ℚ_ℓ finite (or a local field of characteristic ℓ), G a smooth affine group over 𝒪 with reductive G⁰, ρ̄ : G_K → G(k) and μ a fixed multiplier. (1) (Bellovin–Gee, Theorem 3.3.3) Spec R^{□,μ}_ρ̄[1/p] is equidimensional of dimension dim G^der, its components are covered by the closures of inertial-type loci, with possibly multiple components for one type up to G⁰-conjugacy, and it has an open dense regular subscheme; the Zariski closure of a component is a reduced 𝒪-flat quotient. (2) (Booher, Theorem 1.1, Corollary 6.16, Proposition 5.6) For G = GSp_{2n} with p > 2n (p ≠ 2), after enlarging 𝒪 so that the standing assumptions (A3)–(A4) hold (q a square, √−1 and √2 in 𝒪, a pure nilp
 
-### `R08.2/equal-characteristic-local-lifts` (theorem). Its statement uses local inertia, Weil–Deligne or scheme-theoretic data of this roadmap's earlier nodes; not elaborated in this round.
-  statement: Let F be a global function field of characteristic ℓ ≠ p and v a place. For p ≫_n 0 every ρ̄ : G_{F_v} → GL_n(k) has a p-adic lift; any character G_{F_v} → 1 + ϖ𝒪 has an n-th root when p ∤ n, so the determinant (or multiplier) of the lift can be matched to a prescribed global character μ. The generic-fibre analysis of R08.2/g-valued-generic-fibre-away-from-p (1) holds for R^{□,μ}_ρ̄.
+### `R08.2/equal-characteristic-local-lifts` (theorem). Its statement uses local inertia, Weil–Deligne or scheme-theoretic data of this roadmap's earlier nodes; not elaborated here.
+  statement: Let F be a global function field of characteristic ℓ ≠ p and v a place. Every ρ̄ : G_{F_v} → GL_n(k) has a p-adic lift (as in CHT Corollary 2.4.21; only ℓ ≠ p is used; the source works under p ≫_n 0 for its global theorem); any character G_{F_v} → 1 + ϖ𝒪 has an n-th root when p ∤ n, so the determinant (or multiplier) of the lift can be matched to a prescribed global character μ. The generic-fibre analysis of R08.2/g-valued-generic-fibre-away-from-p (1) holds for R^{□,μ}_ρ̄.
 
-### `R08.2/reducible-lifts-prescribed-determinant` (theorem). Its statement uses local inertia, Weil–Deligne or scheme-theoretic data of this roadmap's earlier nodes; not elaborated in this round.
+### `R08.2/reducible-lifts-prescribed-determinant` (theorem). Its statement uses local inertia, Weil–Deligne or scheme-theoretic data of this roadmap's earlier nodes; not elaborated here.
   statement: Let p ≥ 3, ρ̄ ∼ (χ̄ ∗; 0 1) a two-dimensional residual representation of G_{F,S} and μ = κ^{r−1}χ₀ a geometric lift of det ρ̄ (r ≥ 2, χ₀ of finite order). For v ∈ S not above p there is, after enlarging 𝒪, a lift ρ_v : G_{F_v} → GL₂(𝒪′) of ρ̄|G_{F_v} with determinant μ, lying on a formally smooth irreducible component of R^{□,μ}_{ρ̄|G_{F_v}}.
 
-### `R08.2/ihara-avoidance-rings-p2` (theorem). Its statement uses local inertia, Weil–Deligne or scheme-theoretic data of this roadmap's earlier nodes; not elaborated in this round.
+### `R08.2/ihara-avoidance-rings-p2` (theorem). Its statement uses local inertia, Weil–Deligne or scheme-theoretic data of this roadmap's earlier nodes; not elaborated here.
   statement: Let p = 2, v ∤ 2 a finite place, ρ̄ : G_{F_v} → GL_n(k). (1) There is a finite extension F′_v/F_v such that every lift of ρ̄ becomes unipotently ramified on G_{F′_v}. (2) If ρ̄ is unramified with ρ̄(Frob_v) regular semisimple (q_v odd), every lift is strictly equivalent to a direct sum of characters, and becomes unramified over a uniform finite extension. (3) For ρ̄ trivial and finite-order characters χ_{v,j} : 𝒪_{F_v}^× → 𝒪^× trivial mod ϖ, let R_v^χ classify lifts with char ρ(σ)(X) = Π_j (X − χ_{v,j}(Art^{-1}σ)^{-1}) for σ ∈ I_{F_v}. If all χ_{v,j} = 1, every component of R_v^1 has dimension n² + 1, every prime minimal over ϖ contains a unique minimal prime, and generic points have charact
 
 ### `R08.2/taylor-wiles-block-condition` (construction). Needs: GlobalGaloisDeformations:R04.3, tauceti:TauCetiRoadmap.
@@ -2010,13 +2044,13 @@ a declaration or example, or here.
   - API `TaylorWilesBlock.decomposition` (constructor): The lifted decomposition r = A_v ⊕ B_v.
   - API `TaylorWilesBlock.deltaAlgebra` (constructor): The canonical map 𝒪[Δ_v] → R^TW_v from ψ_v∘Art_{F_v}.
   - API `TaylorWilesBlock.isLocalDeformationProblem` (instance): 𝒟^TW_v is a local deformation problem.
-  - API `TaylorWilesBlock.rank2` (compatibility): For n=2,n₁=1, distinct eigenvalues and q_v≡1 mod p, impose the compatible unramified determinant to recover R08.2/taylor-wiles-local-ring.
+  - API `TaylorWilesBlock.rank2` (compatibility): For n = 2, n₁ = 1, p odd, distinct eigenvalues and q_v ≡ 1 mod p: fixing the unramified part of the determinant and twisting by ψ̃_v^{−1/2} identifies the block ring with the ring of R08.2/taylor-wiles-local-ring, compatibly with the 𝒪[Δ_v]-structures up to the automorphism δ ↦ δ² of Δ_v.
   - API `TaylorWilesBlock.decomposition_unique` (characterisation): The selected Frobenius block is the image of the idempotent obtained by Hensel separation of its residual eigenvalue from the complementary eigenvalues. This projector, its A_v⊕B_v decomposition and the imposed scalar inertia character commute with allowed coefficient maps.
-  - example `twBlock_rank2` (compatibility): For n=2,n₁=1 and distinct eigenvalues, the variable-determinant block ring is 𝒪[Δ_v][[x,y,B,C]]. After imposing the compatible unramified determinant it is 𝒪[Δ_v][[x,y,B]], as in R08.2/taylor-wiles-local-ring.
+  - example `twBlock_rank2` (compatibility): For n = 2, n₁ = 1 and distinct eigenvalues, the variable-determinant block ring is 𝒪[Δ_v]⟦x, y, B, C⟧. Fixing the unramified part of the determinant (det r = ψ̃_v·χ, χ a fixed unramified character) gives 𝒪[Δ_v]⟦x, y, B⟧; fixing an unramified determinant instead forces ψ_v = 1 and gives 𝒪⟦x, y, B⟧, the unramified lifts.
   - example `twBlock_full_block` (degenerate): n₁ = n: lifts are ψ_v·(unramified) on inertia, the ring is formally smooth over 𝒪[Δ_v].
   - example `twBlock_needs_semisimple` (non-example): A nonscalar residual Jordan block does not satisfy the semisimple-block hypothesis. The source condition does not impose A_v(Frob_v)=α_v I on lifts, so it does not force emptiness merely because a generalized eigenblock is nonsemisimple.
 
-### `R08.2/gsp4-minimal-conditions` (construction). Its statement uses local inertia, Weil–Deligne or scheme-theoretic data of this roadmap's earlier nodes; not elaborated in this round.
+### `R08.2/gsp4-minimal-conditions` (construction). Its statement uses local inertia, Weil–Deligne or scheme-theoretic data of this roadmap's earlier nodes; not elaborated here.
   - API `GSp4.MinimalAt` (data): The minimal condition at x ∈ S(r̄) according to its type.
   - API `GSp4.MinimalAt.unipotent_rank` (characterisation): At U_i the logarithm lifts the specified nilpotent orbit over the Artinian coefficient ring; require conjugacy to the chosen representative or equivalent free kernel/image conditions for every power, not just generic matrix rank.
   - API `GSp4.MinimalAt.rigid` (characterisation): At types P, H the reduction map is injective on r(I_x).
@@ -2028,10 +2062,12 @@ a declaration or example, or here.
   - example `gsp4Minimal_rank_jump` (non-example): Over an Artinian coefficient algebra, a nilpotent lifting N₁ whose square is a nonzero nilpotent matrix cannot be conjugate to N₁ (which squares to zero). It fails the U1 orbit condition even if its reduction has rank 1; a generic-rank label alone would miss this.
   - example `gsp4Minimal_unramified` (degenerate): At primes outside S(r̄) ∪ {p} the minimal condition is 'unramified'.
 
-### `R08.2/rigid-residual-conditions` (definition). Its statement uses local inertia, Weil–Deligne or scheme-theoretic data of this roadmap's earlier nodes; not elaborated in this round.
+### `R08.2/rigid-residual-conditions` (definition). Its statement uses local inertia, Weil–Deligne or scheme-theoretic data of this roadmap's earlier nodes; not elaborated here.
   - API `IsRigidFor` (data): The predicate on r̄ given by the local conditions (1)–(4) at Σ_min, Σ_lr, the places above p and the rest.
   - API `IsRigidFor.minimal` (projection): For v ∈ Σ_min every lift of r̄_v is minimally ramified.
   - API `IsRigidFor.levelRaising` (projection): For v ∈ Σ_lr the residual hypothesis of R08.2/level-raising-local-problems holds.
+  - API `IsRigidFor.fontaineLaffaille` (projection): For v | p, r̄^♮_v is regular Fontaine–Laffaille crystalline (clause (3)), in the sense of L7/fontaine-laffaille-deformation-condition.
+  - API `IsRigidFor.unramified` (projection): At every finite place outside Σ_min ∪ Σ_lr and not above p, r̄_v is unramified (clause (4)).
   - API `IsRigidFor.mono` (other): Rigid for (Σ_min, Σ_lr) and 𝔭 satisfying (2) ⟹ rigid for (Σ_min, Σ_lr ∪ {𝔭}). Require every added place to be outside the previous minimal, level-raising and p-adic sets and to satisfy the inert-place and q²−1 side conditions.
   - example `rigid_empty` (degenerate): Σ_min = Σ_lr = ∅: rigidity says r̄ is unramified away from p and regular Fontaine–Laffaille at p.
   - example `rigid_eigenvalue_pair_twice` (non-example): If r̄^♮_v(φ_w) has the pair {‖v‖^{−N}, ‖v‖^{−N+2}} twice, condition (2) fails and 𝒟^mix is not defined at v.
@@ -2047,7 +2083,7 @@ a declaration or example, or here.
 ### `R08.3/semistable-height-quotient` (theorem). Needs: FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4, PadicHodgeTheory:R06.1, PadicHodgeTheory:R06.2.
   statement: Let A° be a complete local Noetherian W(𝔽)-algebra, A = A°[1/p], V_{A°} finite free of rank r with continuous G_K-action, and h ≥ 0. There is a quotient A_{st,h} of A such that a map ζ : A → B to a finite ℚ_p-algebra factors through A_{st,h} if and only if V_B = V_A ⊗ B is semistable with Hodge–Tate weights in [0, h]. It carries a projective W_{A_{st,h}}-module D of rank r with semilinear φ and linear N, and for such ζ, D ⊗ B ≅ Hom_{B[G_K]}(V_B, B⁺_st ⊗ B) compatibly with φ and N.
 
-### `R08.3/hodge-type-components` (lemma). Its statement uses local inertia, Weil–Deligne or scheme-theoretic data of this roadmap's earlier nodes; not elaborated in this round.
+### `R08.3/hodge-type-components` (lemma). Its statement uses local inertia, Weil–Deligne or scheme-theoretic data of this roadmap's earlier nodes; not elaborated here.
   statement: Fix a p-adic Hodge type v over E and suppose A is an E-algebra. There is a quotient A_{st,v} of A_{st,h}, corresponding to a union of connected components of Spec A_{st,h}, such that ζ : A → B (B a finite E-algebra) factors through A_{st,v} exactly when V_B is semistable of p-adic Hodge type v.
 
 ### `R08.3/filtered-phi-N-deformations` (lemma). Needs: PadicHodgeTheory:R06.2, PadicHodgeTheory:R06.3, tauceti:TauCetiRoadmap.
@@ -2058,7 +2094,7 @@ a declaration or example, or here.
 
 ### `R08.3/weil-deligne-type-ring` (construction). Needs: GlobalGaloisDeformations:R04.1, PadicLocalLanglandsForGL2Qp:R30.5.
   - API `WDTypeRing` (data): R_{B,M} = R^{ps,δ_M}_B[1/p]/I_{B,M} and its integral model R^+_{B,M}.
-  - API `WDTypeRing.points` (characterisation): A maximal ideal of R^{ps,δ_M}_B[1/p] contains I_{B,M} iff the specialised pseudo-character is the trace of a de Rham representation of weights {0, 1} and Weil–Deligne type M.
+  - API `WDTypeRing.points` (characterisation): A maximal ideal of R^{ps,δ_M}_B[1/p] contains I_{B,M} iff the specialised pseudo-character is the trace of a de Rham representation of weights {0, 1}, Weil–Deligne type M and determinant δ_Mε. The direction "contains I_{B,M} ⟹ of type M" is not stated at CDN §5.2; it comes from the theorem of [19] quoted there and is to be proved with it.
   - API `WDTypeRing.reduced` (other): R_{B,M} is reduced and Jacobson.
   - API `WDTypeRing.pid` (structure): R_{B,M} is a finite product of principal ideal domains (bounded analytic functions on an open of ℙ¹).
   - API `WDTypeRing.universalRep` (constructor): The representation ρ_{B,M} with Tr ρ_{B,M} = the universal pseudo-character.
@@ -2077,7 +2113,7 @@ a declaration or example, or here.
   - API `heightLatticeFunctor.map` (functoriality): For B → B′, 𝔐_B ↦ 𝔐_B ⊗_B B′, with map_id and map_comp.
   - API `heightLatticeFunctor.ext` (extensionality): Two points of L^{≤h}_{V_A}(B) are equal iff their underlying 𝔖_B-submodules of M_B are equal; the projectivity, spanning and height conditions are properties.
   - API `heightLatticeFunctor_subsingleton` (characterisation): For B finite flat over ℤ_p, L^{≤h}_{V_A}(B) has at most one element (R07.4/finite-height-lattices (1)).
-  - API `heightLatticeFunctor_nonempty_iff` (compatibility): For B finite flat over ℤ_p, L^{≤h}_{V_A}(B) is nonempty iff V_A ⊗_A B has E-height ≤ h in the sense of R07.4/kisin-modules.
+  - API `heightLatticeFunctor_nonempty_iff` (compatibility): For B finite flat over ℤ_p, L^{≤h}_{V_A}(B) is nonempty iff V_A ⊗_A B has E-height ≤ h in the sense of R07.4/kisin-modules and its unique 𝔖-lattice of E-height ≤ h is a projective 𝔖_B-module. The projectivity is a real condition: for K ⊇ μ_p, B = {(a, b) ∈ ℤ_p² : a ≡ b mod p} and G_K acting on V_B = B by (1, χ_p), V_B has E-height ≤ 1 but the lattices of the two factors have different reductions, so L^{≤1}(B) = ∅.
 
 ### `L7/height-lattice-moduli` (theorem). Needs: AdicSpacesPartII:F0, AlgebraicModuliForArithmeticGeometry:R09.1.
   statement: Let A be a complete local Noetherian ring with finite residue field 𝔽 and V_A finite free of rank d with continuous G_{K_∞}-action. (1) On A-algebras B with 𝔪_A^i B = 0 for some i, B ↦ {𝔖_B-lattices of E-height ≤ h in M_B} is represented by a projective A-scheme Θ_A : 𝓛^{≤h}_{V_A} → Spec A, compatible with base change and carrying a canonical very ample line bundle. (2) Θ_A becomes a closed immersion after inverting p. (3) If A^{≤h} is the quotient of A cut out by the scheme-theoretic image of Θ_A, then for every finite W(𝔽)[1/p]-algebra B, A → B factors through A^{≤h} exactly when V_B has E-height ≤ h. (4) There is a finite 𝔖_{A^{≤h}}-module 𝔐 with φ*𝔐 → 𝔐 of cokernel killed by E(u)^h, loca
@@ -2092,10 +2128,10 @@ a declaration or example, or here.
 ### `L7/ordinary-flag-scheme-local-structure` (theorem). Needs: tauceti:TauCetiRoadmap.
   statement: Keep L7/ordinary-flag-scheme (F_w/ℚ_l finite, ρ̄ upper triangular with ordered diagonal χ̄, G = G_{Λ_w} ⊂ 𝓕 ×_𝒪 Spec R^□_{Λ_w} the scheme of pairs (ρ, Fil) with I_{F_w} acting on gr_j by χ_j^univ). Let x be a closed point of G[1/l] with residue field E, (ρ_x, Fil_x) the corresponding pair, g ∈ GL_n(𝒪_E) with Fil_x = g·Fil_std, V_x = E^n with G_{F_w} acting through ρ_x, and Fil^i ad V_x = {A : A Fil_{x,j} ⊆ Fil_{x,j−i}} (so Fil⁰ ad V_x ≅ 𝔟 as a G_{F_w}-module). (1) (Geraghty Lemma 3.5) The completed local ring 𝒪^∧_{G,x} pro-represents the functor of pairs (ρ, Fil) on Artinian local E-algebras lifting (ρ_x, Fil_x), with the prescribed inertial characters. (2) (Corollary 3.6) Let R^g_x pro-repr
 
-### `L7/geraghty-fixed-weight-ordinary-rings` (theorem). Its statement uses local inertia, Weil–Deligne or scheme-theoretic data of this roadmap's earlier nodes; not elaborated in this round.
+### `L7/geraghty-fixed-weight-ordinary-rings` (theorem). Its statement uses local inertia, Weil–Deligne or scheme-theoretic data of this roadmap's earlier nodes; not elaborated here.
   statement: Let F_w/ℚ_l be finite, K ⊃ all embeddings of F_w, λ_w ∈ (ℤ^n_+)^{Hom(F_w,K)}, and χ_j^{λ_w} : I_{F_w} → 𝒪^×, σ ↦ ε(σ)^{−(j−1)}·Π_τ τ(Art^{−1}_{F_w}(σ))^{−λ_{τ,n−j+1}} (Geraghty's normalisation). Let ρ̄ : G_{F_w} → GL_n(𝔽) be arbitrary, R^{v_{λ_w},st} and R^{v_{λ_w},cr} Kisin's semistable and crystalline quotients of Hodge type v_{λ_w} (R08.3/pst-deformation-ring), G^{λ_w} ⊂ 𝓕 ×_𝒪 Spec R^{v_{λ_w},st} the closed subscheme of G_{F_w}-stable full flags on whose graded pieces I_{F_w} acts by χ_j^{λ_w}, and R^{△λ_w,st}, R^{△λ_w,cr} the quotients cut out by the scheme-theoretic images of G^{λ_w}[1/l] and of its crystalline part. (1) (Lemma 3.10) A map ζ : R^{v_{λ_w},st} → B to a finite local K-alge
 
-### `L7/trivial-residual-flag-ring` (theorem). Its statement uses local inertia, Weil–Deligne or scheme-theoretic data of this roadmap's earlier nodes; not elaborated in this round.
+### `L7/trivial-residual-flag-ring` (theorem). Its statement uses local inertia, Weil–Deligne or scheme-theoretic data of this roadmap's earlier nodes; not elaborated here.
   statement: (ACC+ Proposition 6.2.10, from Thorne 2015, Lemma 3.11 and Proposition 3.14.) Let ρ̄|_{G_{F_v}} be trivial and [F_v : ℚ_p] > n(n − 1)/2 + 1, and let Λ_v be a quotient of 𝒪⟦𝒪_{F_v}^×(p)ⁿ⟧ by an intersection of minimal primes (L8/ordinary-coefficient-ring). (1) (Lemma 3.11) The ordinary flag scheme 𝒢_v of L7/ordinary-flag-scheme is 𝒪-flat and reduced; for each minimal prime Q_v of Λ_v, 𝒢_v ⊗_{Λ_v} Λ_v/Q_v is 𝒪-flat and integral of dimension 1 + [F_v:ℚ_p]·n(n+1)/2 + n², and 𝒢_v ⊗_{Λ_v} Λ_v/(Q_v, λ) is integral. Hence the scheme-theoretic image R^△_v of 𝒢_v is already 𝒪-flat and reduced, and the definitions 'image of R^□_v in H⁰(𝒢_v, 𝒪)' (ACC+) and 'maximal reduced 𝒪-flat quotient of the image' 
 
 ### `L7/residually-split-nearly-ordinary-ring` (theorem). Needs: DeformationAndDerivedPatchingAlgebra:R03.2, tauceti:TauCetiRoadmap.
@@ -2109,26 +2145,26 @@ a declaration or example, or here.
   - API `FLDeformation.liftable` (characterisation): CHT Lemma 2.4.1: under the multiplicity-one hypothesis, every point over R/I (𝔪_R I = 0) lifts to R.
   - API `FLDeformation.baseChange` (functoriality): A map of Artinian coefficient algebras carries a lift in 𝒟_ṽ to a lift in 𝒟_ṽ, via the coefficient-compatible realisation of R07.3.
   - example `fl_rank_one` (degenerate): For n = 1 the tangent space L_ṽ is the unramified classes H¹(G_{F_ṽ}/I_{F_ṽ}, ad r̄), of dimension 1 (CHT Corollary 2.4.4 with n = 1).
-  - example `fl_elliptic_curve` (computation): E[l] for E/ℚ_l with good reduction, l ≥ 3: Hodge–Tate weights {0, 1} lie in [0, l − 2] and are multiplicity-free, so r̄ = E[l] satisfies the hypotheses and T_l E is a point of 𝒟_ṽ.
+  - example `fl_elliptic_curve` (computation): E/ℚ_l with good reduction, l ≥ 3: with CHT's functor 𝐆_ṽ a rank-one object with jump i has inertial character ε^{−i}, so the lifts in 𝒟_ṽ with jumps {0, 1} have inertial characters {1, ε^{−1}}. The jumps {0, 1} lie in [0, l − 2] and are multiplicity-free, so r̄ = E[l]^∨ satisfies the hypotheses and the dual Tate module T_lE^∨ = H¹_ét(E_{ℚ̄_l}, ℤ_l) is a point of 𝒟_ṽ; T_lE itself would need the jumps {−1, 0}, outside the range.
   - example `fl_weight_out_of_range` (non-example): A crystalline character with Hodge–Tate weight l − 1 is not in 𝒟_ṽ: R07.3's objects satisfy Fil^{l−1}M = 0.
   - example `fl_repeated_weight` (non-example): r̄ = ε ⊕ ε violates the multiplicity-one hypothesis for n = 2, so Lemma 2.4.1 does not apply.
 
-### `L7/ordinary-condition-fixed-inertial-characters` (construction). Its statement uses local inertia, Weil–Deligne or scheme-theoretic data of this roadmap's earlier nodes; not elaborated in this round.
+### `L7/ordinary-condition-fixed-inertial-characters` (construction). Its statement uses local inertia, Weil–Deligne or scheme-theoretic data of this roadmap's earlier nodes; not elaborated here.
   - API `OrdinaryFixedInertia` (data): The condition 𝒟_v with its characters χ_{v,i}.
   - API `OrdinaryFixedInertia.filtration` (constructor): The filtration Fil^i of a lift in 𝒟_v.
   - API `OrdinaryFixedInertia.filtration_unique` (characterisation): Lemma 2.4.6(1).
   - API `OrdinaryFixedInertia.filtration_baseChange` (compatibility): Lemma 2.4.6(2).
   - API `OrdinaryFixedInertia.isLocalDeformationProblem` (instance): Lemma 2.4.6(3).
-  - API `OrdinaryFixedInertia.graded_character` (simp): For a lift satisfying the fixed-inertia ordinary condition, the action of σ∈I_v on gr^i of its unique filtration is multiplication by χ_{v,i}(σ); this statement is compatible with the source’s one-based ordering.
+  - API `OrdinaryFixedInertia.graded_character` (simp): For a lift satisfying the fixed-inertia ordinary condition, the action of σ ∈ I_v on gr^i of its unique filtration is multiplication by χ_{v,i}(σ), for i = 0, …, n − 1 (the source's zero-based indexing of a decreasing filtration: gr^{n−1} = Fil^{n−1} is the subrepresentation).
   - example `ord_n1` (degenerate): For n = 1, 𝒟_v is the lifts with inertial character χ_{v,0}.
   - example `ord_n2_distinct` (computation): For n=2 write ρ̄=(χ̄₁ *;0 χ̄₀) with χ̄₁/χ̄₀ ≠ 1,ω. The decreasing filtration has Fil¹ equal to the unique line carrying the prescribed χ̄₁; its quotient carries χ̄₀.
   - example `ord_cyclotomic_ratio_excluded` (non-example): r̄ = ω ⊕ 1 on G_{ℚ_l} with ω on the sub (χ̄_1 = ω, χ̄_0 = 1, l > 3) satisfies CHT's printed (2) but not (2′); there H²(G, k(ω)) ≠ 0 and the ring is not formally smooth (E2).
-  - example `ord_vs_flag_scheme` (compatibility): The lifts in 𝒟_v are the points of L7/ordinary-flag-scheme's image over the fixed characters.
+  - example `ord_vs_flag_scheme` (compatibility): The lifts in 𝒟_v are the lifts that admit a (unique, by Lemma 2.4.6) point of L7/ordinary-flag-scheme over the point of Λ_v given by χ_j^univ ↦ χ_{v,n−j}|_I.
 
 ### `L7/ordinary-fixed-inertial-characters-smoothness` (theorem). Needs: tauceti:TauCetiRoadmap.
   statement: Under (2′): (Lemma 2.4.7.) 𝒟_v is liftable. (Lemma 2.4.8.) R_v^{loc}/𝓘_v is a power series ring over 𝒪 in n² + [F_ṽ : ℚ_l]·n(n − 1)/2 variables, and dim_k L_v − dim_k H⁰(G_{F_ṽ}, ad r̄) = [F_ṽ : ℚ_l]·n(n − 1)/2.
 
-### `L7/discrete-series-deformation-condition` (construction). Its statement uses local inertia, Weil–Deligne or scheme-theoretic data of this roadmap's earlier nodes; not elaborated in this round.
+### `L7/discrete-series-deformation-condition` (construction). Its statement uses local inertia, Weil–Deligne or scheme-theoretic data of this roadmap's earlier nodes; not elaborated here.
   - API `DiscreteSeriesType` (structure): (m, d, r̃_v) with conditions (1)–(3).
   - API `IsDiscreteSeriesLift` (data): Definition 2.4.24: the filtration with gr^i ≅ gr⁰(i) and gr⁰|_I ≅ r̃_v|_I ⊗ R.
   - API `IsDiscreteSeriesLift.filtration_unique` (characterisation): Lemma 2.4.25.
@@ -2137,7 +2173,7 @@ a declaration or example, or here.
   - API `DiscreteSeriesType.filtration_baseChange` (functoriality): The unique direct-summand filtration of a discrete-series lift pulls back along every allowed coefficient map; its graded identifications and the fixed prime-to-p inertia representation pull back with it.
   - example `ds_steinberg` (compatibility): d = 1, m = n, r̃_v trivial: the unipotent-monodromy (Steinberg) lifts with Frobenius eigenvalues α, qα, …, q^{n−1}α.
   - example `ds_m1` (degenerate): m = 1: lifts with ρ|_I ≅ r̃_v|_I ⊗ R, i.e. minimally ramified type r̃_v.
-  - example `ds_condition3_fails` (non-example): If q ≡ 1 mod p then k(1) ≅ k and condition (3) fails for i = 1.
+  - example `ds_condition3_fails` (non-example): If q ≡ 1 mod l (l the coefficient characteristic) then k(1) ≅ k and condition (3) fails for i = 1.
   - example `ds_induced_type` (computation): d = 2 with r̃_v induced from the unramified quadratic extension (a supercuspidal type).
 
 ### `L7/ordinary-of-weight-lambda` (definition). Needs: PadicHodgeTheory:R06.4, tauceti:TauCetiRoadmap.
@@ -2153,23 +2189,23 @@ a declaration or example, or here.
   - example `ordinaryWeight_charpoly_not_enough` (non-example): For n=2, λ=(0,0), a nonsplit extension with subcharacter ε_p⁻¹ and quotient 1 has the same characteristic polynomials as 1⊕ε_p⁻¹ but lacks a stable subline carrying 1. It fails CN’s prescribed ordering despite the determinant equations.
   - example `ordinaryWeight_KW` (compatibility): For n=2, λ=(k−2,0), CN’s ordered inertia characters are 1 and ε_p^{−(k−1)}. Dualizing and reversing the flag gives KW’s higher-weight subline χ_p^{k−1} and weight-zero quotient. This is a duality comparison, not equality of the original ordered representations.
 
-### `L7/semistable-ordinary-quotient` (theorem). Its statement uses local inertia, Weil–Deligne or scheme-theoretic data of this roadmap's earlier nodes; not elaborated in this round.
+### `L7/semistable-ordinary-quotient` (theorem). Its statement uses local inertia, Weil–Deligne or scheme-theoretic data of this roadmap's earlier nodes; not elaborated here.
   statement: Let λ be dominant for (Res_{K/ℚ_p} GL_n)_E and ρ̄ : G_K → GL_n(k). (1) (Kisin) There are unique 𝒪-flat quotients R^{st,λ}_ρ̄ and R^{cris,λ}_ρ̄ of R^□_ρ̄ whose maps to finite E-algebras B are exactly the lifts that are semistable (resp. crystalline) of p-adic Hodge type v_λ; R^{st,λ}_ρ̄ is reduced (Bellovin–Gee) and R^{cris,λ}_ρ̄[1/p] is regular. (2) If B is a finite local E-algebra, ρ_B semistable of Hodge type v_λ and ρ_B ⊗ B/𝔪_B semistable-ordinary of weight λ, then ρ_B is semistable-ordinary of weight λ. (3) There is a unique 𝒪-flat quotient R^{△,λ}_ρ̄ whose B-points are the semistable-ordinary lifts of weight λ; Spec R^{△,λ}_ρ̄[1/p] is open and closed in Spec R^{st,λ}_ρ̄[1/p], so R^{△,λ}
 
 ### `L7/g-valued-ordinary-condition` (definition). Needs: tauceti:TauCetiRoadmap.
   - API `canonicalTorus` (data): T_G = B/R_u(B), canonically independent of B.
   - API `chiLambda` (constructor): χ_λ : I_{F_v} → T_G(𝒪) attached to cocharacters λ_τ.
   - API `IsGOrdinary` (data): ρ : G_{F_v} → G(A) is F′_v-ordinary of weight λ.
-  - API `IsGOrdinary.gl` (compatibility): For G = GL_n, IsGOrdinary is IsOrdinaryOfWeight of L7/ordinary-of-weight-lambda (with finite-order ambiguity absorbed by F′_v).
+  - API `IsGOrdinary.gl` (compatibility): For G = GL_n, IsGOrdinary of weight λ is IsOrdinaryOfWeight of L7/ordinary-of-weight-lambda for the weight λ′ with λ_{τ,j} = −(λ′_{τ,n+1−j} + j − 1) (with finite-order ambiguity absorbed by F′_v).
   - API `IsGOrdinary.map` (functoriality): Ordinarity is preserved by central isogenies G → G′ with the induced weight.
   - example `gOrdinary_torus` (degenerate): G = T a torus: B = T, T_G = T and ρ is F′_v-ordinary of weight λ iff ρ|I_{F′_v} = χ_λ.
-  - example `gOrdinary_GL2` (compatibility): G = GL₂: agrees with L7/ordinary-of-weight-lambda for n = 2.
+  - example `gOrdinary_GL2` (compatibility): G = GL₂: weight λ = (1, 0) here agrees with weight λ′ = (−1, −1) of L7/ordinary-of-weight-lambda (a stable line with inertia acting by ε, trivial inertia on the quotient, for F_v = ℚ_p), and λ′ = (0, 0) there is λ = (0, −1) here.
   - example `gOrdinary_GSp4` (computation): G = GSp₄, λ regular: ordinary means a stable symplectic full flag with graded characters (χ₁, χ₂, ε^{-1}χ₂^{-1}, ε^{-1}χ₁^{-1}) of the prescribed inertial weights (BCGP25 §1.8.10).
   - example `gOrdinary_not_residual` (non-example): The definition is for lifts to finite E-algebras; a residual ρ̄ with a stable Borel is not 'ordinary of weight λ' (χ_λ mod 𝔪 loses the weight).
 
 ### `L7/g-valued-ordinary-quotient` (construction). Needs: PadicHodgeTheory:R06.4.
   - API `gOrdinaryFlagScheme` (data): 𝒢_λ ⊂ Fl_G ×_𝒪 Spec R^{□,v_λ}_ρ̄.
-  - API `gOrdinaryFlagScheme.isClosed` (characterisation): 𝒢_λ is a closed subscheme, with the ideal of (1) including the central generators.
+  - API `gOrdinaryFlagScheme.isClosed` (characterisation): 𝒢_λ is a closed subscheme, with the ideal of (1) including the torus equations.
   - API `gOrdinaryFlagScheme.proper` (other): 𝒢_λ → Spec R^{□,v_λ}_ρ̄ is proper.
   - API `gOrdinaryRing` (constructor): R^{△λ}_ρ̄, the scheme-theoretic image of 𝒢_λ[1/p].
   - API `gOrdinaryRing_points` (characterisation): Point criterion (3).
@@ -2178,12 +2214,12 @@ a declaration or example, or here.
   - example `gOrdinaryRing_GL1` (degenerate): G = GL₁: R^{△λ}_ρ̄ = R_ρ̄/(ρ(σ) − χ_λ(σ) : σ ∈ I_{F′_v}) up to the p-torsion-free generic fibre (R08.1/rank-one-ring).
   - example `gOrdinaryRing_central_generators` (non-example): In the ambient unrestricted framed GL₁ ring there are no root generators. The torus equations ρ(σ)=χ_λ(σ) on I_{F′_v} must be imposed explicitly. Whether they are redundant after a particular fixed Hodge/semistable quotient is a separate assertion.
   - example `gOrdinaryRing_points_GL2` (computation): For G=GL₂, F_v=ℚ_p and λ=(1,0), the stated ordinary point has the form (ψ₁χ_p *;0 ψ₂) in the FKP convention and is semistable over F′_v. A nonzero Tate-curve extension can have N≠0 and need not be crystalline.
-  - example `gOrdinaryRing_compat` (compatibility): For G = GL_n and F′_v = F_v the points agree with those of L7/semistable-ordinary-quotient.
+  - example `gOrdinaryRing_compat` (compatibility): For G = GL_n and F′_v = F_v the points agree with those of L7/semistable-ordinary-quotient for the weight λ′ with λ_{τ,j} = −(λ′_{τ,n+1−j} + j − 1) (L7/g-valued-ordinary-condition).
 
 ### `L7/g-valued-ordinary-components` (theorem). Needs: tauceti:TauCetiRoadmap.
   statement: Keep L7/g-valued-ordinary-quotient with λ dominant regular. R^{△λ}_ρ̄ is a union of irreducible components of R^{□,v_λ}_ρ̄; hence R^{△λ}_ρ̄[1/p] has an open dense regular subscheme and all its components have dimension dim G + [F_v:ℚ_p]·dim Fl_G. With a fixed multiplier μ : G_{F_v} → (G/G^der)(𝒪), the same holds with dim G^der in place of dim G.
 
-### `L7/ordinary-ring-with-frobenius-eigenvalue` (construction). Its statement uses local inertia, Weil–Deligne or scheme-theoretic data of this roadmap's earlier nodes; not elaborated in this round.
+### `L7/ordinary-ring-with-frobenius-eigenvalue` (construction). Its statement uses local inertia, Weil–Deligne or scheme-theoretic data of this roadmap's earlier nodes; not elaborated here.
   - API `OrdinaryWithEigenvalue.forget` (projection): R† → R̃†, forgetting α; R† is the image.
   - API `OrdinaryWithEigenvalue.unr` (constructor): R^unr and R̃^unr = R̃† ⊗_{R†} R^unr.
   - API `OrdinaryWithEigenvalue.unramifiedIdeal` (constructor): I = ker(R^univ → R^unr).
@@ -2193,7 +2229,7 @@ a declaration or example, or here.
   - example `eigenvalueRing_rank_two` (characterisation): The unramified quotient has a rank-two eigenvalue algebra as a module, while its support is killed by a power of ϖ. After inverting p, I=J becomes the unit ideal and R̃†[1/p]=R†[1/p]; the ordinary eigenvalue map is generically degree one.
   - example `eigenvalueRing_not_flag_free` (non-example): R† ≠ R̃†: the ring with an eigenvalue is not the image ring; their difference is measured by J.
 
-### `L7/gsp4-siegel-ordinary-condition` (construction). Its statement uses local inertia, Weil–Deligne or scheme-theoretic data of this roadmap's earlier nodes; not elaborated in this round.
+### `L7/gsp4-siegel-ordinary-condition` (construction). Its statement uses local inertia, Weil–Deligne or scheme-theoretic data of this roadmap's earlier nodes; not elaborated here.
   - API `GSp4.SiegelOrdinary` (data): The local deformation problem of Siegel-ordinary lifts with multiplier ε^{−(a−1)}.
   - API `GSp4.SiegelOrdinary.plane` (constructor): The stable unramified Lagrangian plane of a lift in the condition.
   - API `GSp4.SiegelOrdinary.plane_unique` (characterisation): Under the genericity condition the plane is unique and lifts the residual one.
@@ -2209,7 +2245,7 @@ a declaration or example, or here.
   - API `GSp4.ParabolicOrdinary` (constructor): 𝒟^P_v over Λ_{v,1}, represented by R^P_v.
   - API `GSp4.partiallyFramed` (other): R^B and R^P are formally smooth over the B- and P-framed rings R^{B,◹}, R^{P,◹} (BCGP21 Lemma 7.3.12).
   - API `GSp4.BorelOrdinary.semistable` (compatibility): At the specified weight-two arithmetic specialization, the source’s ordinary finite-flat flag criterion gives a semistable lift. Arbitrary variable-weight points are not asserted semistable.
-  - API `BorelOrdinary.toParabolic` (functoriality): Forgetting the appropriate steps of the ordinary full flag and restricting its weight characters to Λ_{v,1} gives a parabolic-ordinary point. The induced map of representing rings follows the opposite direction and commutes with universal representations.
+  - API `ParabolicOrdinary.toBorel` (functoriality): A P-ordinary lift is (B, 𝔠̄)-ordinary for 𝔠̄ = ᾱ and for 𝔠̄ = β̄, with θ₁ = θ₂ = θ; this gives surjections R^{B,𝔠̄}_v ⊗̂_{Λ_{v,2}} Λ_{v,1} ↠ R^P_v commuting with the universal lifts. The converse fails: for a (B, 𝔠̄)-ordinary lift with θ₁ = θ₂ the plane Fil₂ can be a non-split (ramified) extension of χ₂ by χ₁, so the generic fibres have dimensions 15 and 14.
   - example `gsp4BorelOrdinary_weightAlgebra` (computation): Λ_{v,2} = 𝒪⟦(1 + pℤ_p)²⟧ ≅ 𝒪⟦x₁, x₂⟧ for p > 2.
   - example `gsp4BorelOrdinary_not_distinguished` (non-example): ᾱ = β̄ is excluded: the residual Lagrangian plane then carries a two-dimensional unramified isotypic piece and the flag is not unique.
   - example `gsp4BorelOrdinary_semistable_not_crystalline` (characterisation): When α² = 1, the rank-two subquotient on the first and fourth basis vectors may be the non-split extension of ε^{-1}λ_α^{-1} by λ_α given by the Kummer class of p in H¹(ℚ_p, E(ε)) = H¹(ℚ_p, E(ελ_α²)); such a lift is p-distinguished weight-2 ordinary and semistable but not crystalline, so the condition is not the crystalline condition.
@@ -2231,7 +2267,7 @@ a declaration or example, or here.
   - API `GSp4.ordinaryFlagScheme.points` (universal-property): A coefficient point consists of a fixed-similitude framed lift, an isotropic stable full flag and the ordered universal weight characters of its graded lines. This description and the incidence equations commute with coefficient base change.
   - example `gsp4Flag_weightAlgebra_p2` (computation): p = 2: Spec Λ_{GSp₄,v} has 4 irreducible components (from (ℤ/2)² ⊂ (ℤ₂^×)²) and regular generic fibre.
   - example `gsp4Flag_no_flat_closure` (non-example): R^△_v may have p-torsion; replacing it by its flat closure changes the ring when 𝒢_v is not 𝒪-flat.
-  - example `gsp4Flag_distinguished` (compatibility): For residually p-distinguished ρ̄, R^△_v is the ring of L7/gsp4-borel-ordinary-conditions.
+  - example `gsp4Flag_distinguished` (compatibility): For p > 2 and ρ̄ p-distinguished of weight 2 (unramified residual characters χ̄₁ ≠ χ̄₂), R^△_v is the ring R^{B,𝔠̄}_v of L7/gsp4-borel-ordinary-conditions.
 
 ### `L7/gsp4-ordinary-regularity` (theorem). Needs: tauceti:TauCetiRoadmap.
   statement: Keep L7/gsp4-ordinary-flag-incidence and let x be a closed point of 𝒢_v[1/p] with ρ_x. (1) If H²(G_{F_v}, Fil⁰ad⁰ρ_x) = 0, then x is a regular point of 𝒢_v[1/p], on a unique irreducible component, of dimension 16; and H²(G_{F_v}, Fil⁰ad⁰ρ_x) = 0 iff H⁰(G_{F_v}, (ad⁰ρ_x/Fil¹ad⁰ρ_x)(1)) = 0. (2) The conditions of (1) hold if (a) none of the specialisations at x of χ̃₁²ε, χ̃₂²ε, χ̃₁χ̃₂ε, χ̃₁χ̃₂^{-1} equals ε; or (b) ρ_x is pure and p-distinguished; or (c) ρ_x is pure and potentially crystalline. (3) If ρ_x is p-distinguished and (1) holds, the image of x in Spec R^△_v is a regular point on a unique irreducible component of relative 𝒪-dimension 16.
@@ -2240,16 +2276,16 @@ a declaration or example, or here.
   statement: Let p > 2, v | p with F_v⁺ = ℚ_p, ρ̄|_{G_{F_v⁺}} : G_{ℚ_p} → GSp₄(k) ordinary (L7/gsp4-ordinary-flag-incidence) with (ρ̄ ⊗ ε̄)|_{G_{F_v⁺}} finite flat, and let G_v → Spec R^□_v be the ordinary flag scheme of L7/gsp4-ordinary-flag-incidence. Let G_v^flat ⊆ G_v be the closed subscheme whose A-points are the pairs (Fil•, ρ) with ρ ⊗ ε finite flat (every finite quotient of ρ ⊗ ε is the generic fibre of a finite flat group scheme over ℤ_p) and G_{F_v⁺} acting on Fil₂ through unramified characters. Then the completion of G_v^flat at every k′-point (k′/k finite) is formally smooth over 𝒪; equivalently, the obstruction space H²_flat(Fil⁰ad⁰ρ̄) of the flat flag deformation problem vanishes. Consequen
 
 ### `L7/gsp4-ordinary-weight-two-components` (theorem). Needs: FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4.
-  statement: Keep L7/gsp4-ordinary-flag-incidence with p > 2. (1) If (ρ̄ ⊗ ε̄)|G_{F_v} is finite flat, then all ordinary pure weight-two crystalline lifts lie on a single irreducible component of Spec R^△_v, each on a unique component, of relative 𝒪-dimension 16. (2) If a component R^△_v/Q dominates Spec Λ_{GSp₄,v}, some minimal prime of the special fibre contains Q and no other minimal prime of R^△_v; this component has relative 𝒪-dimension 16. No claim is made that every component dominates Λ.
+  statement: Keep L7/gsp4-ordinary-flag-incidence with p > 2. (1) If (ρ̄ ⊗ ε̄)|G_{F_v} is finite flat, then all ordinary pure weight-two crystalline lifts lie on a single irreducible component of Spec R^△_v, each on a unique component, of relative 𝒪-dimension 16. (2) If Spec R^△_v/Q → Spec Λ_{GSp₄,v} is surjective, some minimal prime of R^△_v/(p) contains Q and no other minimal prime of R^△_v, and R^△_v/Q has relative 𝒪-dimension 16. No claim is made that every component surjects onto Spec Λ_{GSp₄,v}.
 
-### `L7/connects-relation` (definition). Its statement uses local inertia, Weil–Deligne or scheme-theoretic data of this roadmap's earlier nodes; not elaborated in this round.
+### `L7/connects-relation` (definition). Its statement uses local inertia, Weil–Deligne or scheme-theoretic data of this roadmap's earlier nodes; not elaborated here.
   - API `Connects.sum_tensor_dual` (functoriality): ∼ is compatible with direct sums, tensor products, duals, and twists by unramified characters with trivial reduction.
   - API `Connects.symPow` (functoriality): ∼ is compatible with Sym^{n−1} (components of these generic fibres are connected components and Sym^{n−1} induces a morphism of generic fibres).
   - example `connects_rank_one` (computation): n = 1: ψ₁ ∼ ψ₂ iff ψ̄₁ = ψ̄₂ and HT(ψ₁) = HT(ψ₂) (crystalline characters).
   - example `connects_ordinary_trivial` (characterisation): Two ordinary crystalline weight-0 lifts of the trivial representation connect (L7/weight-zero-crystalline-connectedness).
   - example `connects_different_weights` (non-example): Lifts with different labelled Hodge–Tate weights never connect, even if their reductions agree.
 
-### `L7/weight-zero-crystalline-connectedness` (theorem). Its statement uses local inertia, Weil–Deligne or scheme-theoretic data of this roadmap's earlier nodes; not elaborated in this round.
+### `L7/weight-zero-crystalline-connectedness` (theorem). Its statement uses local inertia, Weil–Deligne or scheme-theoretic data of this roadmap's earlier nodes; not elaborated here.
   statement: Let K/ℚ_p be finite. (1) Two ordinary crystalline weight-0 representations ρ₁, ρ₂ of G_K with ρ̄₁ = ρ̄₂ trivial connect: ρ₁ ∼ ρ₂ (the ordinary weight-0 crystalline lifting ring of the trivial representation is irreducible). (2) For ρ : G_K → GL_n(ℤ̄_p) crystalline of weight 0 there is c = c(K, ρ, n) such that every crystalline weight-0 t with t ≡ ρ mod p^c satisfies t ∼ ρ. (3) A crystalline representation of G_K with parallel Hodge–Tate weights {0, …, n − 1} is ordinary iff the roots of its Frobenius characteristic polynomial (on D_cris, φ^f with f the residue degree) have valuations 0, f, …, (n − 1)f. (4) Symmetric powers and tensor products of crystalline ordinary representations are cryst
 
 ### `L7/local-model-rho-nm0` (construction). Needs: ArithmeticGaloisRepresentations:R01.2, tauceti:TauCetiRoadmap.
@@ -2262,28 +2298,28 @@ a declaration or example, or here.
 ### `L7/kisin-modules-tame-descent` (construction). Needs: FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4.
   - API `GL3KisinChart` (structure): A rank-3 Kisin module with tame descent datum of type τ (R07.4) over R together with an eigenbasis: the data from which the partial Frobenius matrices are read.
   - API `GL3KisinChart.frobMatrix` (projection): A^{(j)} ∈ GL₃(R((v))) for j ∈ ℤ/f, the matrix of the j-th partial Frobenius in the eigenbasis.
-  - API `GL3KisinChart.changeBasis` (extensionality): Two eigenbases differ by (I^{(j)})_j in the Iwahori subgroup, and A^{(j)} ↦ (I^{(j)})^{−1}A^{(j)}φ(I^{(j−1)}); two charts of the same Kisin module are related in this way.
-  - API `GL3KisinChart.shape` (constructor): The shape (w̃_j) ∈ W̃^∨: the Iwahori double coset of A^{(j)} for 𝔐 over a field; independent of the eigenbasis by changeBasis.
-  - API `GL3KisinChart.unique` (characterisation): For 3-generic τ the Kisin module of type (η, τ) of ρ̄ is unique up to isomorphism (LLHLM18 Theorem 3.2), so w̃(ρ̄, τ) is well defined.
-  - example `kisinDescent_trivialType` (degenerate): τ trivial: Δ acts trivially on the eigenbasis, each A^{(j)} is the Frobenius matrix of an R07.4 Kisin module, and the chart is an ordinary basis.
+  - API `GL3KisinChart.changeBasis` (extensionality): Two eigenbases of the same Kisin module differ by a tuple (I^{(j)})_j in the Iwahori subgroup, and the matrices (A^{(j)})_j change by the φ-twisted conjugation of LLHLM18 Proposition 2.15 (twist by s_j* v^{μ_j*+η_j*}, Proposition 3.2.1); two charts of the same Kisin module are related in this way.
+  - API `GL3KisinChart.shape` (constructor): The shape (w̃_j) ∈ W̃^∨ of 𝔐̄ over a field: for a principal series type the Iwahori double coset of A^{(j)}, independent of the eigenbasis by changeBasis; in general after unramified base change.
+  - API `GL3KisinChart.unique` (characterisation): For 3-generic τ a Kisin module of type (η, τ) with T*_dd ≅ ρ̄|_{G_{K∞}} is unique up to isomorphism when it exists (LLHLM18 Theorem 3.2), so w̃(ρ̄, τ) is then well defined.
+  - example `kisinDescent_trivialType` (degenerate): Principal series type (r = 1): Δ is cyclic of order p^f − 1, each isotypic piece of 𝔐^{(j)} is free of rank one over (W(k) ⊗ R)⟦v⟧ up to the shift by a power of u′, and the chart is a basis adapted to the three characters. (Remark of the plan, outside the source's set-up: for the trivial type, with L′ = K, the chart is an ordinary basis of an R07.4 Kisin module.)
   - example `kisinDescent_shape_identity` (computation): For ρ̄ = T*_dd of the semisimple Kisin module of shape t_1 (A^{(j)} diagonal), the shape w̃(ρ̄, τ) is the identity at every j.
   - example `kisinDescent_shape_admissible` (characterisation): w̃(ρ̄, τ) lies in Adm^∨(η) whenever ρ̄ has a potentially crystalline lift of type (η, τ) (LLHLM Theorem 3.3.11).
-  - example `kisinDescent_nongeneric_not_empty` (non-example): Without 1-generic τ, Theorem 3.5.3 does not apply; it does not imply that the ring is zero. The trivial residual representation has a trivial-type, weight-zero crystalline lift, a concrete nonzero nongeneric case.
+  - example `kisinDescent_nongeneric_not_empty` (non-example): For ρ̄ 10-generic and semisimple and a tame type τ that is not 1-generic, there is no Kisin module of type (η, τ) lifting to a potentially crystalline lift: R^τ_ρ̄ = 0 (Theorem 3.5.3). Without genericity of ρ̄ this fails: the trivial residual representation has crystalline lifts with trivial type, so the hypothesis on ρ̄ cannot be dropped from the vanishing.
 
-### `L7/semisimple-kisin-modules-and-shapes` (theorem). Its statement uses local inertia, Weil–Deligne or scheme-theoretic data of this roadmap's earlier nodes; not elaborated in this round.
+### `L7/semisimple-kisin-modules-and-shapes` (theorem). Its statement uses local inertia, Weil–Deligne or scheme-theoretic data of this roadmap's earlier nodes; not elaborated here.
   statement: Keep L7/kisin-modules-tame-descent (GL₃, K/ℚ_p unramified). (1) A semisimple Kisin module of shape w̃ (Definition 3.3.4) gives a semisimple G_{K_∞}-representation, with the explicit normal form of Proposition 3.3.6 and étale φ-module 𝓜(w̃) (Definition 3.3.7); T*_dd of it and its inertial type are given by Proposition 3.3.8. (2) Semisimple Kisin modules of a fixed shape and inertial restriction are classified (Proposition 3.3.9). (3) If ρ̄ has a potentially crystalline lift of type (η, τ), then so does ρ̄^ss (Lemma 3.3.10). (4) (Theorem 3.3.11) If ρ̄ has a potentially crystalline lift of type (η, τ) with either τ a regular principal-series type and general effective λ, or λ=η and τ 3-generic,
 
 ### `L7/gl3-pcris-deformation-rings` (theorem). Needs: DeformationAndDerivedPatchingAlgebra:R03.3.
-  statement: Let K/ℚ_p be unramified of degree f, ρ̄ : G_K → GL₃(F) continuous, 10-generic and semisimple, τ a tame inertial type, and R^τ_ρ̄ the framed potentially crystalline deformation ring of type (η, τ) with η = (2, 1, 0) (R08.3/pst-deformation-ring). If τ is not 1-generic, R^τ_ρ̄ = 0. If τ is 1-generic and R^τ_ρ̄≠0: R^τ_ρ̄ is a normal Cohen–Macaulay domain; R̄^τ_ρ̄ := R^τ_ρ̄/ϖ is reduced, its irreducible components are formally smooth of the same dimension, and their number equals #W^?(ρ̄, τ) (the predicted Serre weights in the Jordan–Hölder factors of σ(τ)). For shapes w̃_j of length > 1 at every j (τ 5-generic), the same holds with R^τ_ρ̄ ≠ 0 (Lemma 3.5.4).
+  statement: Let K/ℚ_p be unramified of degree f, ρ̄ : G_K → GL₃(F) continuous, 10-generic and semisimple, τ a tame inertial type, and R^τ_ρ̄ the framed potentially crystalline deformation ring of type (η, τ) with η = (2, 1, 0) (R08.3/pst-deformation-ring). If τ is not 1-generic, R^τ_ρ̄ = 0. If τ is 1-generic and R^τ_ρ̄≠0: R^τ_ρ̄ is a normal Cohen–Macaulay domain; R̄^τ_ρ̄ := R^τ_ρ̄/ϖ is reduced, its irreducible components are formally smooth of the same dimension, and their number equals #W^?(ρ̄, τ) (the predicted Serre weights in the Jordan–Hölder factors of σ(τ)); moreover, for 1-generic τ, R^τ_ρ̄ ≠ 0 if and only if W^?(ρ̄, τ) ≠ ∅. For ρ̄ semisimple (no genericity of ρ̄), τ 5-generic and shapes w̃_j of length > 1 at every j, as in the hypothesis below, R^τ_ρ̄ ≠ 0 and the same conclusions hold, with Π_j 2^{4−ℓ(w̃_j)} components (Lemma 3.5.4).
 
-### `L7/gl3-explicit-rings` (construction). Its statement uses local inertia, Weil–Deligne or scheme-theoretic data of this roadmap's earlier nodes; not elaborated in this round.
+### `L7/gl3-explicit-rings` (construction). Its statement uses local inertia, Weil–Deligne or scheme-theoretic data of this roadmap's earlier nodes; not elaborated here.
   - API `GL3.explicitRing` (data): R̄^{expl,∇}_{𝔐̄,w̃} for each shape w̃ (three cases by length).
   - API `GL3.comparisonDiagram` (constructor): The diagram (3.9) relating R̄^τ_ρ̄, explicit rings and étale φ-modules.
-  - API `GL3.iotaPrime_mono` (characterisation): ι′_τ is a monomorphism.
-  - API `GL3.formallySmooth_over_explicit` (other): R̄^τ_ρ̄ is formally smooth over ⊗̂_i R̄^{expl,∇}_{𝔐̄,w̃_i}.
+  - API `GL3.iotaPrime_mono` (characterisation): For τ 3-generic and 𝔐̄ semisimple, ι′_τ : Ȳ^{η,τ}_{𝔐̄} → Φ-Mod^ét_{ℳ̄} is a monomorphism.
+  - API `GL3.formallySmooth_over_explicit` (other): R̄^{τ,β̄,□}_{𝔐̄,ρ̄} is a power series ring in 3f variables over R̄^τ_ρ̄ and is formally smooth of relative dimension 9 over ⊗̂_i R̄^{expl,∇}_{𝔐̄,w̃_i}.
   - API `GL3.irr_bijection` (equivalence): Irr(R̄^τ_ρ̄) ↔ Π_i Irr(R̄^{expl,∇}_{w̃_i}).
   - example `gl3Explicit_long_shape` (degenerate): For ℓ(w̃_i) = 4 the explicit ring is a power series ring over F (Table 4: the single relation, when present, is solved for one variable), and for ℓ(w̃_i) ≥ 2 the characteristic-zero explicit ring is formally smooth over R_N.
-  - example `gl3Explicit_not_epi` (non-example): ι′_τ is a monomorphism but not an isomorphism onto Φ-Mod^{ét,□}: étale φ-modules not coming from Kisin modules of type (η, τ) are not in the image.
+  - example `gl3Explicit_not_epi` (non-example): ι′_τ is a monomorphism but not an equivalence onto Φ-Mod^ét_{ℳ̄}: deformations of the étale φ-module ℳ̄ that do not come from Kisin modules of type (η, τ) are not in the image.
 
 ### `L7/partition-monodromy-rings` (construction). Needs: GlobalGaloisDeformations:R04.3.
   - API `partitionRing` (data): R^m_v for a partition m of n.
@@ -2292,10 +2328,10 @@ a declaration or example, or here.
   - API `partitionRing.coefficientMap` (functoriality): Composing a framed lift with a coefficient map preserves unipotent inertia and the defining Frobenius q-chain equations. A point of the reduced flat quotient R^m_v therefore pulls back as a point of that same quotient; no bound on the rank of N is inferred.
   - example `partitionRing_not_scalar` (non-example): R^m_v for m = (2, 1) is not the ring of lifts with scalar inertial semisimplification: it also constrains the Frobenius eigenvalues to contain a chain α, q_vα.
 
-### `L7/partition-ring-smooth-points` (theorem). Its statement uses local inertia, Weil–Deligne or scheme-theoretic data of this roadmap's earlier nodes; not elaborated in this round.
+### `L7/partition-ring-smooth-points` (theorem). Its statement uses local inertia, Weil–Deligne or scheme-theoretic data of this roadmap's earlier nodes; not elaborated here.
   statement: Keep L7/partition-monodromy-rings. Let x ∈ Spec R^m_v[1/l] be a closed point given by ρ : G_{L_ṽ} → GL_n(𝒪) with ρ ⊗ ℚ̄_l pure (Taylor–Yoshida, Lemma 1.4). Then Spec R^1_v[1/l] is formally smooth over K at x, there is a unique minimal prime Q_v of R^1_v in the kernel of R^1_v → 𝒪, and Q_v contains ker(R^1_v → R^m_v).
 
-### `L7/away-from-p-rank-n-interface` (comparison). Its statement uses local inertia, Weil–Deligne or scheme-theoretic data of this roadmap's earlier nodes; not elaborated in this round.
+### `L7/away-from-p-rank-n-interface` (comparison). Its statement uses local inertia, Weil–Deligne or scheme-theoretic data of this roadmap's earlier nodes; not elaborated here.
   statement: L7's rank-n semistable, Steinberg and minimally ramified conditions away from p are those of R08.2, cited and not rebuilt (RS-08 link R08.2 → L7): (1) minimally ramified lifts in rank n (R08.2/minimally-ramified-condition, R08.2/minimally-ramified-ring), which equal the unipotent lifts when r̄(σ) is a single Jordan block (R08.2/regular-unipotent-minimally-ramified); (2) Steinberg lifts with monodromy (R08.2/steinberg-condition, R08.2/steinberg-ring-domain) and their generalisations with Frobenius characteristic polynomial constrained by q-chains of a partition (L7/partition-monodromy-rings); (3) fixed inertial types with monodromy (R08.2/inertial-type-with-monodromy) with constancy on compon
 
 ### `L7/torsion-crystalline-representations` (definition). Needs: FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3, PadicHodgeTheory:R06.4.
@@ -2337,7 +2373,7 @@ a declaration or example, or here.
   - example `finiteFlatModels_closedFibre_models` (characterisation): Closed-fibre points are finite flat models.
   - example `finiteFlatModels_two_models_ramified` (non-example): Over ℚ_p(ζ_p), μ_p and ℤ/p are two models of one generic fibre.
 
-### `R08.4/hodge-type-resolution` (construction). Its statement uses local inertia, Weil–Deligne or scheme-theoretic data of this roadmap's earlier nodes; not elaborated in this round.
+### `R08.4/hodge-type-resolution` (construction). Its statement uses local inertia, Weil–Deligne or scheme-theoretic data of this roadmap's earlier nodes; not elaborated here.
   - API `flatHodgeTypeQuotient` (constructor): R^v, the Hodge-type-v part of the flat ring.
   - API `flatResolution` (constructor): 𝒢ℛ^{v,loc} with Θ^v : 𝒢ℛ^{v,loc} → Spec R^v projective.
   - API `flatResolution_generic_iso` (characterisation): Θ^v[1/p] is an isomorphism.
@@ -2346,57 +2382,57 @@ a declaration or example, or here.
   - example `flatResolution_generic_iso` (characterisation): Θ^v is an isomorphism after inverting p.
   - example `flatResolution_not_integral_iso` (non-example): Θ^v has positive-dimensional closed fibre in general.
 
-### `R08.4/resolution-local-structure` (theorem). Its statement uses local inertia, Weil–Deligne or scheme-theoretic data of this roadmap's earlier nodes; not elaborated in this round.
-  statement: 𝒢ℛ^{v,loc} is normal and Cohen–Macaulay, and its closed fibre 𝒢ℛ^{v,loc}_0 is reduced and normal with rational singularities. A closed point of 𝒢ℛ^v lies in 𝒢ℛ^{v,loc} exactly when, for each σ ∈ Gal(K₀/ℚ_p), the nilpotent endomorphism π of σ-part of φ*𝔐/E(u)𝔐 has Jordan type dominated by the dual partition of v_σ. If for each σ any two of the v_ψ with ψ|K₀ = σ differ by at most 1, and either every v_ψ ∈ {0, 1} or e ≤ 2, then 𝒢ℛ^{v,loc} = 𝒢ℛ^v.
+### `R08.4/resolution-local-structure` (theorem). Its statement uses local inertia, Weil–Deligne or scheme-theoretic data of this roadmap's earlier nodes; not elaborated here.
+  statement: 𝒢ℛ^{v,loc} is normal and Cohen–Macaulay, and its special fibre 𝒢ℛ^{v,loc} ⊗_{𝒪_F} 𝔽 (the reduction modulo a uniformiser of 𝒪_F, a scheme over R^v/π_F) is reduced and normal with rational singularities. Nothing is claimed about the fibre 𝒢ℛ^{v,loc}_0 over the closed point of Spec R^v, a smaller scheme, which can be reducible. A closed point of 𝒢ℛ^v lies in 𝒢ℛ^{v,loc} exactly when, for each σ ∈ Gal(K₀/ℚ_p), the nilpotent endomorphism π of σ-part of φ*𝔐/E(u)𝔐 has Jordan type dominated by the dual partition of v_σ. If for each σ any two of the v_ψ with ψ|K₀ = σ differ by at most 1, and either every v_ψ ∈ {0, 1} or e ≤ 2, then 𝒢ℛ^{v,loc} = 𝒢ℛ^v.
 
 ### `R08.4/ordinary-type-of-components` (lemma). Needs: FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4.
   statement: Every point 𝔐_A of the moduli has a maximal multiplicative subobject 𝔐^m_A and a maximal étale quotient 𝔐^ét_A, compatible with base change and exchanged by duality; their ranks d_m and d_ét are constant on each connected component of 𝒢ℛ^{v,loc}_0. For a pair d = (d_ét, d_m), an E-point x of Spec R^v lies on a connected component of Spec R^v[1/p] corresponding to a component of type d exactly when the maximal unramified subrepresentation of V_x(−1) has dimension d_m and the maximal unramified quotient of V_x has dimension d_ét.
 
-### `R08.4/rank-two-nonordinary-connected` (theorem). Its statement uses local inertia, Weil–Deligne or scheme-theoretic data of this roadmap's earlier nodes; not elaborated in this round.
+### `R08.4/rank-two-nonordinary-connected` (theorem). Its statement uses local inertia, Weil–Deligne or scheme-theoretic data of this roadmap's earlier nodes; not elaborated here.
   statement: Let d = 2, v_ψ = 1 for all ψ (so 𝒢ℛ^v = 𝒢ℛ^{v,loc}), and K₀ = ℚ_p. Any two non-ordinary 𝔽′-points of 𝒢ℛ^v_0 lie on the same connected component. So the non-ordinary locus of Spec R^v[1/p] is connected.
 
 ### `R08.4/rank-two-ordinary-locus` (theorem). Needs: FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1, tauceti:TauCetiRoadmap.
   statement: Let d = 2 and v_ψ = 1 for all ψ (K₀ arbitrary). The ordinary part 𝒢ℛ^{v,ord}_0 of the closed fibre, if non-empty, is a single point, unless V_𝔽 ≅ χ₁ ⊕ χ₂ with χ₁, χ₂ unramified. In that case it is two points (the models D(𝒢_{χ₁^{−1}ω}) ⊕ 𝒢_{χ₂} and D(𝒢_{χ₂^{−1}ω}) ⊕ 𝒢_{χ₁}) if χ₁ ≠ χ₂, and ℙ¹ if χ₁ = χ₂, all its models being isomorphic to D(𝒢_{χ₁^{−1}ω}) ⊕ 𝒢_{χ₁}.
 
-### `R08.4/rank-two-bt-components` (theorem). Its statement uses local inertia, Weil–Deligne or scheme-theoretic data of this roadmap's earlier nodes; not elaborated in this round.
+### `R08.4/rank-two-bt-components` (theorem). Its statement uses local inertia, Weil–Deligne or scheme-theoretic data of this roadmap's earlier nodes; not elaborated here.
   statement: Let d = 2, v_ψ = 1 for all ψ (Barsotti–Tate with cyclotomic-type determinant), R = R^{fl,□} ⊗ 𝒪_F and R^v its Hodge-type-v quotient. (1) R^v is flat over ℤ_p of pure relative dimension 4 + [K : ℚ_p], and R^v[1/p] is formally smooth; its irreducible components are its connected components. (2) If E-points x₁, x₂ lie on the same irreducible component, then V_{x₁} and V_{x₂} are both ordinary or both non-ordinary. Conversely they lie on the same component if (i) both are non-ordinary and K₀ = ℚ_p, or (ii) both are ordinary and the characters of G_K on the lines L_i ⊂ V_{x_i} where I_K acts cyclotomically have the same reduction mod π_E. The same holds for R^fl ⊗ 𝒪_F when End V_𝔽 = 𝔽, with relat
 
-### `R08.4/bt-ring-unique-generalisation` (theorem). Its statement uses local inertia, Weil–Deligne or scheme-theoretic data of this roadmap's earlier nodes; not elaborated in this round.
-  statement: Let p be odd, F_v/ℚ_p finite and R = R^{ε_p^{-1},BT}_v the fixed-determinant Barsotti–Tate lifting ring (crystalline of Hodge–Tate weights {0, 1}, determinant ε_p^{-1}) of ρ̄ : G_{F_v} → GL₂(k). Each generic point of Spec(R/ϖ) is the specialisation of a unique generic point of Spec R. Moreover, if ρ̄ is trivial, k_v ≠ 𝔽_p and R ≠ 0, Spec R has exactly two irreducible components, whose points are the ordinary and the non-ordinary lifts.
+### `R08.4/bt-ring-unique-generalisation` (theorem). Its statement uses local inertia, Weil–Deligne or scheme-theoretic data of this roadmap's earlier nodes; not elaborated here.
+  statement: Let p be odd, F_v/ℚ_p finite and R = R^{ε_p^{-1},BT}_v the fixed-determinant Barsotti–Tate lifting ring (crystalline with determinant ε_p^{-1}; its Hodge–Tate weights are {0, 1} in Caraiani–Newton's convention HT(ε_p) = −1, that is {0, −1} in this roadmap's convention HT(ε_p) = +1) of ρ̄ : G_{F_v} → GL₂(k). Each generic point of Spec(R/ϖ) is the specialisation of a unique generic point of Spec R. Moreover, if ρ̄ is trivial, k_v ≠ 𝔽_p and R ≠ 0, Spec R has exactly two irreducible components, whose points are the ordinary and the non-ordinary lifts.
 
 ## Layer R08.5
 
 ### `R08.5/connected-kisin-modules-with-coefficients` (construction). Needs: FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4.
-  - API `kisinGroupoid` (constructor): D_{𝔖,M_𝔽}: over (A, I), pairs (𝔐_A, ι) with 𝔐_A ∈ R07.4's (Mod/𝔖)_A and ι : 𝒪_ℰ ⊗ 𝔐_A ⊗_A 𝔽 ≅ M_𝔽; morphisms are isomorphisms compatible with ι.
+  - API `kisinGroupoid` (constructor): D_{𝔖,M_𝔽}: over (A, I), pairs (𝔐_A, ι) with 𝔐_A ∈ R07.4's (Mod/𝔖)_A and ι : 𝒪_ℰ ⊗_𝔖 𝔐_A ⊗_A A/I ≅ M_𝔽 ⊗_𝔽 A/I; morphisms are isomorphisms compatible with ι.
   - API `kisinGroupoid.connected` (constructor): D^c_{𝔖,M_𝔽} ⊆ D_{𝔖,M_𝔽}: the full subgroupoid of objects connected in R07.4's sense.
   - API `kisinGroupoid_toPhiModule` (functoriality): 𝔐_A ↦ 𝒪_ℰ ⊗ 𝔐_A, a morphism of groupoids D_{𝔖,M_𝔽} → D_{M_𝔽} (Lemma 2.1.7).
   - API `kisinGroupoid.baseChange` (functoriality): Along an admissible morphism of augmented coefficient algebras, tensor the Kisin module, keep connectedness (R07.4 base change) and transport ι; identity and composition laws hold up to the canonical isomorphisms.
   - API `kisinGroupoid.connected_iff_etalePart` (characterisation): For p = 2 an object over a finite field is in D^c iff its maximal étale quotient in R07.4's sense is zero; for p > 2 every object of height ≤ 1 is allowed and D^c is not used.
   - example `rank_one_etale` (computation): Rank one with φ(e) = E(u)e over 𝔽: the object is étale (R07.4) and lies in D_{𝔖,M_𝔽} but not in D^c_{𝔖,M_𝔽}.
   - example `rank_one_multiplicative` (computation): Rank one with φ(e) = e: multiplicative, hence connected, so it lies in D^c_{𝔖,M_𝔽}.
-  - example `rank_one_cyclotomic` (computation): The rank-one module with φ(e) = pE(u)/E(0)·e is étale because p/E(0) is a unit, so it is not in D^c. Use the source's fixed (1) twist in the Galois realisation when comparing characters.
+  - example `rank_one_cyclotomic` (computation): The rank-one module with φ(e) = pE(u)/E(0)·e is étale because p/E(0) is a unit, so it is not in D^c. (In the source's normalisation G_{K∞} acts on its φ-invariants by χ^{−1}, and after the fixed (1)-twist of the Galois realisation it gives the trivial character, an étale group scheme; the name of the test refers to the Frobenius pE(u)/E(0), not to the resulting character.)
   - example `p_odd_vs_two` (non-example): At p = 2 an étale rank-one object is not connected and still has a finite-flat étale model: D^c is the connected part only, and Kisin's connected equivalence does not exclude nonconnected finite-flat groups.
 
-### `R08.5/etale-multiplicative-parts` (lemma). Its statement uses local inertia, Weil–Deligne or scheme-theoretic data of this roadmap's earlier nodes; not elaborated in this round.
+### `R08.5/etale-multiplicative-parts` (lemma). Its statement uses local inertia, Weil–Deligne or scheme-theoretic data of this roadmap's earlier nodes; not elaborated here.
   statement: For (A, I) in 𝔄𝔲𝔤_{W(𝔽)} and 𝔐_A in D_{𝔖,M_𝔽}(A, I), 𝔐_A has a maximal étale quotient 𝔐^{ét}_A and a maximal multiplicative subobject 𝔐^m_A in (Mod/𝔖)_A, 𝔐_A/𝔐^m_A is in (Mod/𝔖)_A, and both constructions commute with base change (Lemma 2.1.8). 𝔐_A is connected iff 𝔐^{ét}_A = 0 (Lemma 2.1.9), and the inclusion D^c_{𝔖,M_𝔽} → D_{𝔖,M_𝔽} is open and closed (Proposition 2.1.10).
 
-### `R08.5/connected-model-moduli` (theorem). Its statement uses local inertia, Weil–Deligne or scheme-theoretic data of this roadmap's earlier nodes; not elaborated in this round.
+### `R08.5/connected-model-moduli` (theorem). Its statement uses local inertia, Weil–Deligne or scheme-theoretic data of this roadmap's earlier nodes; not elaborated here.
   statement: D_{𝔖,M_𝔽} → D_{M_𝔽} is relatively representable and projective: for a complete local R and ξ ∈ D_{M_𝔽}(R) there is a projective R-scheme 𝒢ℛ_{V_𝔽,ξ} with |D_{𝔖,M_𝔽,ξ}|(A, I) ≅ Hom_{Spec R}(Spec A, 𝒢ℛ_{V_𝔽,ξ}), and Θ_{V_𝔽,ξ} : 𝒢ℛ_{V_𝔽,ξ} → Spec R becomes a closed immersion after inverting p; the connected part is a closed and open subscheme 𝒢ℛ^c_{V_𝔽,ξ} (Proposition 2.1.12).
 
 ### `R08.5/flat-connected-deformation-ring` (theorem). Needs: FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1, FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4, tauceti:TauCetiRoadmap.
   statement: Let D^{fl,c}_{V_𝔽} ⊆ D^{fl}_{V_𝔽} ⊆ D_{V_𝔽} be the deformations that arise from finite flat connected (resp. finite flat) 𝒪_K-group schemes; D^{fl,c} → D_{M_𝔽} is fully faithful. Both inclusions are relatively representable and closed, and for the maximal quotient R^c of R over which ξ is flat connected, Spec R^c[1/p] → Spec R[1/p] is an open immersion (Lemma 2.2.2). If ξ → D^{fl,c} is formally smooth then R[1/p] is formally smooth over W(𝔽)[1/p] (Lemma 2.2.3). There is Θ_{V_𝔽} : D^c_{𝔖,M_𝔽} → D^{fl,c}_{V_𝔽} compatible with 𝒪_ℰ ⊗ − (Proposition 2.2.4), and for formally smooth ξ the projective morphism Θ : 𝒢ℛ^c_{V_𝔽,ξ} → Spec R becomes an isomorphism after inverting p (Proposition 2.2.7).
 
-### `R08.5/rank-two-type-v` (lemma). Its statement uses local inertia, Weil–Deligne or scheme-theoretic data of this roadmap's earlier nodes; not elaborated in this round.
+### `R08.5/rank-two-type-v` (lemma). Its statement uses local inertia, Weil–Deligne or scheme-theoretic data of this roadmap's earlier nodes; not elaborated here.
   statement: A Kisin module 𝔐_A of 𝔖_A-rank 2 is of type v if (1 ⊗ φ)(φ^*𝔐_A)/E(u)𝔐_A is maximal isotropic in 𝔐_A/E(u)𝔐_A (2.3.1). If 𝔐_A is free of type v with φ-matrix H, then det H = pE(u)/E(0)·w with w ∈ 𝔖_A^× (Lemma 2.3.2). If 𝔐_𝔽 is connected of type v, every deformation 𝔐_A is connected with 𝔐^m_A = 0 (Lemma 2.3.3). For V_A = Θ(𝔐_A), det V_A|_{I_K} ≅ χ, and det V_A ≅ χ on G_K iff det H = pE(u)/E(0)·w with w ↦ 1 in (W(k) ⊗ A)^× iff a basis can be chosen with det H = pE(u)/E(0) (Lemma 2.3.4).
 
-### `R08.5/rank-two-connected-components` (theorem). Its statement uses local inertia, Weil–Deligne or scheme-theoretic data of this roadmap's earlier nodes; not elaborated in this round.
+### `R08.5/rank-two-connected-components` (theorem). Its statement uses local inertia, Weil–Deligne or scheme-theoretic data of this roadmap's earlier nodes; not elaborated here.
   statement: For ξ ∈ D^{fl,c}_{V_𝔽}(R) with dim V_𝔽 = 2: the type-v locus 𝒢ℛ^{c,v}_{V_𝔽,ξ} ⊆ 𝒢ℛ^{fl,c}_{V_𝔽,ξ} is closed, Θ^v factors through Spec R^v (inertia acting on det by χ) and is an isomorphism after inverting p; and if ξ has determinant χ and ξ → D^{fl,c,χ} is formally smooth, the complete local rings of 𝒢ℛ^{c,v} are those of Hilbert modular varieties (Deligne–Pappas), so 𝒢ℛ^{c,v} is a normal local complete intersection over W(𝔽) with geometrically reduced special fibre and formally smooth generic fibre (Theorem 2.3.9). If det V_𝔽 = χ and V_𝔽 comes from a connected finite flat group scheme, the closed fibre 𝒢ℛ^{c,v}_{V_𝔽,0} is geometrically connected when k = 𝔽_p or G_K acts trivially on V_𝔽, an
 
 ### `R08.5/ordinary-deformations-p2` (theorem). Needs: tauceti:TauCetiRoadmap.
   statement: For a discrete ℤ_p[Γ_K]-module M with p nilpotent, H¹_f(G_K, M(χ)) (the classes whose inertial image lies in 𝒪^×_{K^ur} ⊗ M) is right exact in M (Lemma 2.4.2). The groupoid D^{ord,χ}_{V_𝔽} of triples (V_A, L_A, ι_A) with det V_A ≅ χ, L_A a G_K-stable line with I_K acting by χ, and extension class in H¹_f (2.4.3) is relatively representable and projective over D^χ_{V_𝔽}; Θ^{ord} becomes a closed embedding after inverting p, and is formally smooth when ξ is (Proposition 2.4.4). The scheme-theoretic image R^{ord}_ξ has as E-points the crystalline representations (χη ∗; 0 η^{−1}) with η unramified, R^{ord}_ξ[1/p] is formally smooth, and R^{ord}_ξ is a domain unless V_𝔽 ≅ χ₁ ⊕ χ₂ with χ₁ ≠ χ₂ and
 
 ### `R08.5/weight-p-crystalline-ordinarity` (comparison). Needs: PadicHodgeTheory:R06.4.
-  statement: Let p ≥ 3, F/ℚ_p finite unramified and ρ : G_F → GL₂(E) a lift of ρ̄ that is crystalline of weight k (Hodge–Tate weights {0, k − 1}) with 2 ≤ k ≤ p. If ρ̄ is ordinary (has a G_F-stable line with unramified quotient), ρ is ordinary. The endpoint k = p, where Fontaine–Laffaille modules of filtration length p − 1 occur but the torsion functor is not fully faithful, is included.
+  statement: Let p be any prime, F/ℚ_p finite unramified and ρ : G_F → GL₂(E) a lift of ρ̄ that is crystalline of weight k (Hodge–Tate weights {0, k − 1}) with 2 ≤ k ≤ p. If ρ̄ is ordinary (has a G_F-stable line with unramified quotient), ρ is ordinary. The endpoint k = p, where Fontaine–Laffaille modules of filtration length p − 1 occur but the torsion functor is not fully faithful, is included.
 
 ### `R08.5/dyadic-minimal-lifts` (construction). Needs: GlobalGaloisDeformations:R04.4.
   - API `DyadicMinimal.lift` (constructor): The lift ρ₀ = unramified twist of Ind(γ̂δ) in case (a), or the S₄-lift in case (b).
@@ -2404,35 +2440,35 @@ a declaration or example, or here.
   - API `DyadicMinimal.det_inertia` (simp): det ρ₀|I_v is the Teichmüller lift of det ρ̄_v|I_v.
   - API `DyadicMinimal.conductor` (compatibility): a(ρ₀) = a(ρ̄_v).
   - API `DyadicMinimal.problem` (constructor): Minimal lifts: the inertia-rigid problem attached to ρ₀ (GlobalGaloisDeformations R04.4).
-  - example `dyadicMinimal_det` (computation): For ρ̄_v = Ind(γ) with γ of order 3·2^a on a ramified quadratic L, det ρ₀|I_v = Teichmüller(det ρ̄_v|I_v).
+  - example `dyadicMinimal_det` (computation): For ρ̄_v = Ind(γ) with γ of odd order divisible by q (for example of order 3^a when q = 3; here p = 2) on a ramified quadratic L, det ρ₀|I_v = Teichmüller(det ρ̄_v|I_v).
   - example `dyadicMinimal_naive_fails` (non-example): The naive lift Ind(γ̂) without δ has det|I_v = ε_L·(γ̂∘t), which differs from the Teichmüller lift of det ρ̄|I_v by the ramified ε_L; δ corrects it.
   - example `dyadicMinimal_A4` (computation): q = 2, p = 3, G ≅ A₄: ρ₀ has projective image S₄ ⊂ PGL₂(ℤ₃) or its subgroup A₄.
-  - example `dyadicMinimal_tame` (degenerate): If #G is prime to p, ρ₀ is the unique lift with ρ₀(I_v) ≅ ρ̄_v(I_v) (KW II §3.3.1, first case).
+  - example `dyadicMinimal_tame` (degenerate): If #G is prime to p, the lift ρ_I of ρ̄_v|I_v with ρ_I(I_v) ≅ ρ̄_v(I_v) is unique up to conjugation (KW II §3.3.1, first case); the extension ρ₀ to D_v involves a choice and an unramified twist, and the lifts with this inertial behaviour form a ring of relative dimension 3.
 
 ### `R08.5/twisted-semistable-away-from-p` (theorem). Needs: tauceti:TauCetiRoadmap.
   statement: Let v ∤ p and ρ̄|D_v = (γ̄_vχ̄_p ∗; 0 γ̄_v). Fix a character γ_v of D_v lifting γ̄_v whose restriction to I_v is the Teichmüller lift, with γ_v²χ_p = φ, and consider lifts (γ_vχ_p ∗; 0 γ_v). For a finite 𝒪-algebra A, |Z¹(G_{F_v}, A(χ_p))| = |A|·|H⁰(G_{F_v}, A)| = |A|², and the moduli of such lifts with a stable line is a smooth resolution as in R08.5/semistable-weight-two-resolution with cocycle module of rank 2. If ρ̄_v is ramified, the conductor of such a lift equals the conductor of ρ̄_v.
 
-### `R08.5/kw1-endpoint-weight-rings` (theorem). Its statement uses local inertia, Weil–Deligne or scheme-theoretic data of this roadmap's earlier nodes; not elaborated in this round.
+### `R08.5/kw1-endpoint-weight-rings` (theorem). Its statement uses local inertia, Weil–Deligne or scheme-theoretic data of this roadmap's earlier nodes; not elaborated here.
   statement: KW I Theorem 4.1 (modularity lifting) needs, at p, local deformation rings of the following lifts of ρ̄|G_{ℚ_p}, each with a flat reduced framed fixed-determinant ring of relative dimension 3 + 1 = 4 with regular generic fibre (or formally smooth): (1) p = 2: crystalline of weight 2 (Kisin's 2-adic Barsotti–Tate rings, R08.5/flat-connected-deformation-ring and R08.5/rank-two-connected-components), or semistable of weight 2 when k(ρ̄) = 4 (R08.5/semistable-weight-two-resolution, homothety case included); (2) p > 2: crystalline of weight k with 2 ≤ k ≤ p + 1 — the Fontaine–Laffaille range k ≤ p − 1, the endpoint k = p (R08.5/weight-p-crystalline-ordinarity) and k = p + 1 (R08.5/weight-p-plus-o
 
 ## Layer R08.6
 
-### `R08.6/kw-local-conditions` (definition). Its statement uses local inertia, Weil–Deligne or scheme-theoretic data of this roadmap's earlier nodes; not elaborated in this round.
+### `R08.6/kw-local-conditions` (definition). Its statement uses local inertia, Weil–Deligne or scheme-theoretic data of this roadmap's earlier nodes; not elaborated here.
   - API `KWCondition.points` (characterisation): 𝒪′-points of the ring are exactly the X_v-lifts.
   - example `kwCondition_points` (characterisation): The ring classifies exactly the X_v-lifts on 𝒪′-points.
   - example `kwCondition_choice_needed` (non-example): For unramified ρ̄_v = η̄₁ ⊕ η̄₂ with η̄₁ ≠ η̄₂, the union over both choices of the unramified-quotient character has two components, so it is not a domain; KW II fix one choice.
 
-### `R08.6/export-fontaine-laffaille-irreducible` (theorem). Its statement uses local inertia, Weil–Deligne or scheme-theoretic data of this roadmap's earlier nodes; not elaborated in this round.
+### `R08.6/export-fontaine-laffaille-irreducible` (theorem). Its statement uses local inertia, Weil–Deligne or scheme-theoretic data of this roadmap's earlier nodes; not elaborated here.
   statement: Let F_v = ℚ_p and ρ̄_p be irreducible of weight k ≤ p. The ring of crystalline lifts of weight k with fixed determinant is formally smooth over 𝒪 of relative dimension 1, and the framed ring R̄^{□,ψ}_v is formally smooth of relative dimension 4 = 3 + [ℚ_p : ℚ_p]. The same holds for p = 2 (k = 2).
 
-### `R08.6/export-weight-two-irreducible` (theorem). Its statement uses local inertia, Weil–Deligne or scheme-theoretic data of this roadmap's earlier nodes; not elaborated in this round.
-  statement: Let p ≠ 2, F_v = ℚ_p and ρ̄_p irreducible. After enlarging 𝒪, the fixed-determinant ring of weight-two potentially semistable lifts of this nontrivial tame principal-series inertial type is 𝒪⟦T₁, T₂⟧/(T₁T₂ − p), and every 𝒪′-point is of the required type. The framed ring R̄^{□,ψ}_v ≅ 𝒪⟦T₁, …, T₅⟧/(T₁T₂ − p) is a domain, flat of relative dimension 4, with regular generic fibre, and it is not formally smooth.
+### `R08.6/export-weight-two-irreducible` (theorem). Its statement uses local inertia, Weil–Deligne or scheme-theoretic data of this roadmap's earlier nodes; not elaborated here.
+  statement: Let p ≠ 2, F_v = ℚ_p and ρ̄_p irreducible with 3 ≤ k(ρ̄_p) ≤ p. After enlarging 𝒪, the fixed-determinant ring of weight-two potentially semistable lifts of inertial type ω^{k(ρ̄_p)−2} ⊕ 1 (a non-trivial tame principal-series type) is 𝒪⟦T₁, T₂⟧/(T₁T₂ − p), and every 𝒪′-point is of the required type. The framed ring R̄^{□,ψ}_v ≅ 𝒪⟦T₁, …, T₅⟧/(T₁T₂ − p) is a domain, flat of relative dimension 4, with regular generic fibre, and it is not formally smooth.
 
 ### `R08.6/export-ordinary` (theorem). Needs: tauceti:TauCetiRoadmap.
   statement: Let F_v/ℚ_p be unramified, ρ̄_v ordinary with k(ρ̄_v) ≤ p, and X_v the low-weight crystalline or weight-two potentially Barsotti–Tate condition, with the chosen unramified character. Then R̄^{□,ψ}_v is a domain, flat over 𝒪 of relative dimension 3 + [F_v : ℚ_p], with regular generic fibre. It is formally smooth if ρ̄_v is ramified or ρ̄_v ≅ η₁ ⊕ η₂ with η₁ ≠ η₂ unramified. Every lift of this type is (χ₁η₁ ∗; 0 η₂) with η₁, η₂ unramified, where χ₁ = χ_p^{k−1} (crystalline) or χ_pω^{k−2} (weight two).
 
 ### `R08.6/export-semistable-weight-two-at-p` (theorem). Needs: tauceti:TauCetiRoadmap.
-  statement: Let ρ̄_v = (γ̄_vχ̄_p ∗; 0 γ̄_v) with γ̄_v unramified, and X_v the semistable weight-two lifts (γ_vχ_p ∗; 0 γ_v) with a fixed unramified γ_v lifting γ̄_v and γ_v²χ_p = φ. R̄^{□,ψ}_v is formally smooth over 𝒪 of relative dimension 3 + [F_v : ℚ_p], unless p = 2 and D_v acts by homotheties. In that case it is a domain, faithfully flat of relative dimension 3 + [F_v : ℚ_p], with regular generic fibre.
+  statement: Let F_v/ℚ_p be unramified and ρ̄_v = (γ̄_vχ̄_p ∗; 0 γ̄_v) with γ̄_v unramified, and X_v the semistable weight-two lifts (γ_vχ_p ∗; 0 γ_v) with a fixed unramified γ_v lifting γ̄_v and γ_v²χ_p = φ. R̄^{□,ψ}_v is formally smooth over 𝒪 of relative dimension 3 + [F_v : ℚ_p], unless p = 2 and D_v acts by homotheties. In that case it is a domain, faithfully flat of relative dimension 3 + [F_v : ℚ_p], with regular generic fibre.
 
 ### `R08.6/export-endpoint-weight` (theorem). Needs: tauceti:TauCetiRoadmap.
   statement: Let p>2, F_v=ℚ_p and k(ρ̄_v)=p+1 in the KW II §3.2.7 residual Serre-weight case, with its compatible fixed determinant. The framed ring of crystalline (hence ordinary) lifts of weight p+1 is formally smooth over 𝒪 of relative dimension 4. The map to the space of characters of the stable line is not formally smooth.
@@ -2443,19 +2479,19 @@ a declaration or example, or here.
 ### `R08.6/local-nonemptiness` (theorem). Needs: DeformationAndDerivedPatchingAlgebra:R03.3, tauceti:TauCetiRoadmap.
   statement: For every condition X_v of kw-local-conditions (with the hypotheses of KW II Theorem 3.1), R̄^{□,ψ}_v ≠ 0, and it has a point over the integers 𝒪′ of a finite extension of E, that is, a lift of ρ̄_v of type X_v. The same holds for their completed tensor product.
 
-### `R08.6/dyadic-weight-two-transition` (theorem). Its statement uses local inertia, Weil–Deligne or scheme-theoretic data of this roadmap's earlier nodes; not elaborated in this round.
+### `R08.6/dyadic-weight-two-transition` (theorem). Its statement uses local inertia, Weil–Deligne or scheme-theoretic data of this roadmap's earlier nodes; not elaborated here.
   statement: Let p = 2, F_v = ℚ₂ (or F_v/ℚ₂ unramified for reducible ρ̄_v), and φ = ψχ₂ a fixed determinant. The weight-two lifts used in KW I Theorem 5.1(2) and KW II §3.2.2(i) at p = 2 are: crystalline of weight 2 (equivalently Barsotti–Tate with det|I_v = χ₂) if k(ρ̄_v) = 2, and semistable of weight 2 with inertial Weil–Deligne parameter (id, N ≠ 0) if k(ρ̄_v) = 4. In the first case R̄^{□,ψ}_v is Kisin's 2-adic flat ring (R08.5/flat-connected-deformation-ring, R08.5/rank-two-connected-components), flat of relative dimension 3 + [F_v:ℚ₂] with regular generic fibre; in the second it is the semistable weight-two ring (γ_vχ₂ ∗; 0 γ_v) of R08.6/export-semistable-weight-two-at-p, formally smooth unless D_v 
 
 ### `R08.6/ordinary-pcris-lifts-reducible` (theorem). Needs: PadicHodgeTheory:R06.4, tauceti:TauCetiRoadmap.
   statement: Let p ≥ 3, ρ̄ ∼ (χ̄ ∗; 0 1) a two-dimensional residual representation of G_{F,S}, and μ = κ^{r−1}χ₀ (r ≥ 2, χ₀ of finite order) a geometric lift of det ρ̄. After enlarging 𝒪, for v | p there is an ordinary potentially crystalline lift ρ_v of ρ̄|G_{F_v} with Hodge–Tate weights {0, r − 1} and determinant μ; and there is always an ordinary potentially crystalline lift with Hodge–Tate weights {0, r − 1} having a non-trivial unramified quotient, possibly without det ρ_v = μ. Here a lift is ordinary when it is F′_v-ordinary of some weight in the sense of L7/g-valued-ordinary-condition (for GL₂: a stable line with the prescribed inertial characters).
 
 ### `R08.6/serre-weight-crystalline-lift` (theorem). Needs: PadicHodgeTheory:R06.4.
-  statement: Let ρ̄_p : G_{ℚ_p} → GL₂(k) (or G_{F_v} with F_v = ℚ_p at each v | p) and r = k(ρ̄_p) Serre's weight (Serre 1987 §2.3). After enlarging 𝒪 there is a crystalline lift ρ_p of ρ̄_p with Hodge–Tate weights {0, r − 1}; when ρ̄_p is reducible it may be chosen ordinary with an unramified quotient.
+  statement: Let p ≥ 3 and ρ̄_p : G_{ℚ_p} → GL₂(k) (or G_{F_v} with F_v = ℚ_p at each v | p) be of the form (χ̄ ∗; 0 1), and r = k(ρ̄_p) Serre's weight (Serre 1987 §2.3). After enlarging 𝒪 there is a crystalline lift ρ_p of ρ̄_p with Hodge–Tate weights {0, r − 1}; it may be chosen ordinary with unramified quotient (R08.6/ordinary-pcris-lifts-reducible).
 
-### `R08.6/newton-thorne-local-quotients` (application). Its statement uses local inertia, Weil–Deligne or scheme-theoretic data of this roadmap's earlier nodes; not elaborated in this round.
+### `R08.6/newton-thorne-local-quotients` (application). Its statement uses local inertia, Weil–Deligne or scheme-theoretic data of this roadmap's earlier nodes; not elaborated here.
   statement: Let r : G_F → GL₂(k) with det = ε^{-1} and R_v the fixed-determinant lifting ring at v. The local quotients R̄_v used in Newton–Thorne §4 are: (1) v | p, r_{π,ι}|G_{F_v} non-ordinary: the reduced 𝒪-torsion-free quotient of crystalline non-ordinary lifts of Hodge–Tate weights {0, 1}, a domain of dimension 4 + [F_v:ℚ_p] (Kisin, Corollary 2.3.13); (2) v | p, ordinary crystalline: the ordinary crystalline quotient, a domain of dimension 4 + [F_v:ℚ_p] (Kisin, Proposition 2.4.6); (3) v ∈ Σ_p (ordinary non-crystalline, p > 2): the semistable non-crystalline quotient, a domain of dimension 4 + [F_v:ℚ_p] (Snowden, Proposition 4.3.1); (4) v ∈ Σ^p: the extensions of ε^{-1} by 1, a domain of dimension 4
 
-### `R08.6/torsion-semistable-condition` (theorem). Its statement uses local inertia, Weil–Deligne or scheme-theoretic data of this roadmap's earlier nodes; not elaborated in this round.
+### `R08.6/torsion-semistable-condition` (theorem). Its statement uses local inertia, Weil–Deligne or scheme-theoretic data of this roadmap's earlier nodes; not elaborated here.
   statement: Let F_v/ℚ_p be finite and r̄ : G_{F_v} → GL₂(k). The condition on a lift r_B (B ∈ C_𝒪 Artinian) that B² be isomorphic, as ℤ_p[G_{F_v}]-module, to a subquotient of a lattice in a semistable ℚ_p[G_{F_v}]-representation with Hodge–Tate weights in {0, 1} is stable (closed under subobjects, quotients and finite direct sums in the sense of Ramakrishna), so it cuts out a quotient R′_v of the fixed-determinant lifting ring R_v. The semistable non-crystalline quotient of R08.6/newton-thorne-local-quotients (3) factors through R′_v.
 
 ### `R08.6/category-deformation-conditions` (construction). Needs: GlobalGaloisDeformations:R04.3.
@@ -2468,6 +2504,6 @@ a declaration or example, or here.
   - example `categoryCondition_all` (degenerate): S = S(ρ̄): R^S_{V,𝒪} = R_{V,𝒪}.
   - example `categoryCondition_flat` (compatibility): S = finite flat 𝒪[G_ℓ]-modules (ℓ = p): R^S is the flat deformation ring.
   - example `categoryCondition_not_closed` (non-example): The full subcategory consisting of 0 and a single copy of the residual object V is not closed under finite products: V⊕V is missing. It therefore fails the category-condition hypotheses. A category of semisimple sums is not a counterexample to subobject/quotient closure.
-  - example `categoryCondition_tangent_dim` (computation): For S = finite flat, ρ̄ peu ramifié of weight 2 over ℚ_p: dim H¹_S(G_p, ad⁰ρ̄) = 1 + dim H⁰(G_p, ad⁰ρ̄).
+  - example `categoryCondition_tangent_dim` (computation): For p odd, S = finite flat, ρ̄ peu ramifié of weight 2 over ℚ_p: dim H¹_S(G_p, ad⁰ρ̄) = 1 + dim H⁰(G_p, ad⁰ρ̄).
 
 -/
