@@ -39320,7 +39320,8 @@
     "BP-HeegnerPointEulerSystems--HE.7s~2"
    ],
    "prompt": "research/blueprint/prompts/REV-HeegnerPointEulerSystems--HE.7s~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7058"
   },
   {
    "kind": "blueprint",
@@ -41200,8 +41201,9 @@
    ],
    "revisionOf": "BP-StableHomotopyKTheory",
    "prompt": "research/blueprint/prompts/BP-StableHomotopyKTheory~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7013"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7013",
+   "finishedAt": "2026-10-08T09:08:34Z"
   },
   {
    "priority": 2,
