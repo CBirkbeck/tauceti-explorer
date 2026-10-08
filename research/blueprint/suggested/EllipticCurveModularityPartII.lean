@@ -1,303 +1,227 @@
-/-
-This file is not the roadmap and is not exhaustive. The definitive roadmap is
-research/blueprint/readmes/EllipticCurveModularityPartII.md. These signatures
-suggest Lean forms so contributors and reviewers converge on names and types.
-They claim no implementation; every planned proof is sorry and all packet nodes
-remain unchecked. Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174;
+import Mathlib.Algebra.Polynomial.AlgebraMap
+import Mathlib.Analysis.SpecialFunctions.Sqrt
+import Mathlib.Data.ZMod.Basic
+import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Defs
+import Mathlib.RingTheory.Polynomial.RationalRoot
+import Mathlib.Tactic
+
+/-!
+This file is not the roadmap and is not exhaustive. The roadmap document
+research/blueprint/readmes/EllipticCurveModularityPartII.md is definitive. These
+statements suggest Lean forms so that contributors and reviewers converge on
+names and signatures. Nothing here implements a target of the roadmap.
+Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174;
 Tau Ceti f790474821cf4256814db967cb154e7af3d0c369.
 
-Imported numerical and representation interfaces below belong to their named
-suppliers. They are typed data, never Prop-valued fields standing for conclusions.
-The EC.6 geometric theorems whose Cartan compactifications or local hypotheses
-cannot yet be faithfully stated are documented by node name below, without
-fabricating their predicates. Their mathematical statements are in the packet.
+EllipticCurveModularityPartII owns no definition and no theorem. The targets
+its layers name are declarations of EllipticModularityEffectiveComparisons
+(one input, Chen's isogeny theorem, is recorded there as a gap),
+whose suggested forms are in
+research/blueprint/suggested/EllipticModularityEffectiveComparisons.lean,
+namespace `TauCeti.EffectiveEllipticComparison`. The names this file used to
+suggest correspond to the owner's as follows.
+
+* `krausF`, `krausG`, `krausH`: the owner's `krausF`, `krausG`, `krausH`.
+* `krausF_eq`, `one_le_krausF`, `krausG_eq`, `one_le_krausG`,
+  `krausF_le_krausH`, `krausG_le_krausH`, `krausH_lt_iff`: the same names.
+* `krausF_eq_one_of_dim_zero`: `krausF_of_dimension_zero`.
+* `krausG_eq_of_lcm_eq`: a consequence of `krausG_eq`.
+* `martin_bound`: `martin_bound`, proved there from `dimension_comparison`
+  and the estimates `prime_case` to `bounded_family`.
+* `norm_bound`: `prime_divides_integral_norm` and `trace_norm`.
+* `integral_isogeny_j_values`: the owner's node
+  EC.5/integral-parameter-divisibility, on `lemosNumerator`.
+
+The other former signatures (the removed-prime bound, Kraus's two theorems,
+the isogeny and irreducibility statements, Lemos's theorem) are statements of
+the owner's packet nodes named in the roadmap document.
+
+What follows is not part of any roadmap's plan. It is the arithmetic behind the
+acceptance tests of the roadmap document and behind its three remarks on the
+owner's statements, stated on Mathlib objects only, and proved.
 -/
-import Mathlib.AlgebraicGeometry.EllipticCurve.LFunction
-import Mathlib.Analysis.SpecialFunctions.Pow.Real
-import Mathlib.FieldTheory.AbsoluteGaloisGroup
-import Mathlib.NumberTheory.NumberField.Basic
-import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Defs
-import Mathlib.NumberTheory.Padics.PadicVal.Basic
-import Mathlib.RepresentationTheory.Irreducible
-import Mathlib.RingTheory.Ideal.Norm.AbsNorm
-import Mathlib.RingTheory.Norm.Transitivity
-import TauCeti.AlgebraicGeometry.EllipticCurve.Isogeny.Hom.Add
-import TauCeti.NumberTheory.ModularForms.Newforms.Newform
 
-set_option autoImplicit false
-noncomputable section
-open scoped Classical
-open HeckeRing.GL2 (Newform)
-open NumberField
-namespace TauCeti.EllipticCurve.EffectiveModularity
+open Polynomial
 
-/-! Imported notation: Γ₀ index and trivial-character newspace. These are
-baseline expressions, not new definitions owned by this continuation. -/
-abbrev mu (N : ℕ) : ℝ := (CongruenceSubgroup.Gamma0 N).index
-abbrev gplus (N : ℕ+) : ℕ :=
-  Module.finrank ℂ ((TauCeti.cuspFormsNew (N : ℕ) 2) ⊓
-    cuspFormCharSpace (N := (N : ℕ)) 2 (1 : (ZMod (N : ℕ))ˣ →* ℂˣ))
-abbrev coeff {N : ℕ} [NeZero N] (f : Newform N 2) (n : ℕ) : ℂ :=
-  (UpperHalfPlane.qExpansion 1 f.toCuspForm).coeff n
+namespace EllipticCurveModularityPartIIAcceptance
 
-/-- EC.1/krausF. Real division, the square root, and the doubled dimension. -/
-def krausF (N : ℕ+) : ℝ := (Real.sqrt (mu N / 6) + 1) ^ (2 * gplus N)
-/-- EC.1/krausG. Full lcm level, not its radical. -/
-def krausG (N : ℕ+) : ℝ := (Real.sqrt (mu (Nat.lcm 4 N) / 6) + 1) ^ 2
-/-- EC.1/krausH. Both cutoffs are retained. -/
-def krausH (N : ℕ+) : ℝ := max (krausF N) (krausG N)
+/-! ### The thresholds at level 11 in the two notations
 
-theorem krausF_eq (N : ℕ+) :
-    krausF N = (Real.sqrt (mu N / 6) + 1) ^ (2 * gplus N) := by sorry
-theorem one_le_krausF (N : ℕ+) : 1 ≤ krausF N := by sorry
-theorem krausF_eq_one_of_dim_zero (N : ℕ+) (h : gplus N = 0) :
-    krausF N = 1 := by sorry
-theorem krausG_eq (N : ℕ+) :
-    krausG N = (Real.sqrt (mu (Nat.lcm 4 N) / 6) + 1) ^ 2 := by sorry
-theorem one_le_krausG (N : ℕ+) : 1 ≤ krausG N := by sorry
-theorem krausG_eq_of_lcm_eq (N M : ℕ+) (h : Nat.lcm 4 N = Nat.lcm 4 M) :
-    krausG N = krausG M := by sorry
-theorem krausF_le_krausH (N : ℕ+) : krausF N ≤ krausH N := by sorry
-theorem krausG_le_krausH (N : ℕ+) : krausG N ≤ krausH N := by sorry
-theorem krausH_lt_iff (N : ℕ+) (x : ℝ) :
-    krausH N < x ↔ krausF N < x ∧ krausG N < x := by sorry
+The owner writes `krausF 11 = 3 + 2 * √2` and `krausG 11 = 13 + 4 * √3`; the
+sources write `(√(μ/6) + 1) ^ 2` with `μ(11)/6 = 2` and `μ(44)/6 = 12`. -/
 
--- krausF_one
-example : krausF 1 = 1 := by sorry
--- krausF_eleven
-example : krausF 11 = (Real.sqrt 2 + 1) ^ 2 := by sorry
--- krausF_thirtyfive
-example : krausF 35 = (Real.sqrt 8 + 1) ^ 6 := by sorry
--- krausG_one
-example : krausG 1 = 4 := by sorry
--- krausG_two
-example : krausG 2 = 4 := by sorry
--- krausG_eleven
-example : krausG 11 = (Real.sqrt 12 + 1) ^ 2 := by sorry
--- krausH_one
-example : krausH 1 = 4 := by sorry
--- krausH_two
-example : krausH 2 = 4 := by sorry
--- krausH_not_F_eleven
-example : krausF 11 < krausH 11 := by sorry
+theorem sqrt_two_add_one_sq : (Real.sqrt 2 + 1) ^ 2 = 3 + 2 * Real.sqrt 2 := by
+  have h : Real.sqrt 2 ^ 2 = 2 := Real.sq_sqrt (by norm_num)
+  nlinarith [h]
 
-/-- EC.1/martin-bound: sharp inequality and equality classification. -/
-theorem martin_bound (N : ℕ+) :
-    12 * gplus N ≤ (N : ℕ) + 1 ∧
-    (12 * gplus N = (N : ℕ) + 1 ↔
-      (N : ℕ) = 35 ∨ ((N : ℕ).Prime ∧ (N : ℕ) % 12 = 11)) := by sorry
+theorem sqrt_twelve : Real.sqrt 12 = 2 * Real.sqrt 3 := by
+  rw [show (12 : ℝ) = (2 * Real.sqrt 3) ^ 2 by
+    have : Real.sqrt 3 ^ 2 = 3 := Real.sq_sqrt (by norm_num)
+    nlinarith [this]]
+  exact Real.sqrt_sq (by positivity)
 
-/-- EC.2/norm-bound. All embeddings and nonzero norm are essential. -/
-theorem norm_bound (K : Type*) [Field K] [NumberField K]
-    (x : 𝓞 K) (lam : Ideal (𝓞 K)) [lam.IsPrime]
-    (ell : ℕ) (hell : ell.Prime) (hlam : (ell : 𝓞 K) ∈ lam)
-    (hx : x ∈ lam) (hne : x ≠ 0) (B : ℝ) (hB : 0 ≤ B)
-    (hemb : ∀ s : K →ₐ[ℚ] ℂ, ‖s (x : K)‖ ≤ B) :
-    (ell : ℝ) ≤ |(Algebra.norm ℤ x : ℝ)| ∧
-      |(Algebra.norm ℤ x : ℝ)| ≤ B ^ Module.finrank ℚ K := by sorry
+theorem sqrt_twelve_add_one_sq : (Real.sqrt 12 + 1) ^ 2 = 13 + 4 * Real.sqrt 3 := by
+  rw [sqrt_twelve]
+  have : Real.sqrt 3 ^ 2 = 3 := Real.sq_sqrt (by norm_num)
+  nlinarith [this]
 
-/-! R01.6 and R20.6 imported interfaces. No local conductor or modularity
-carrier is owned here; replace these typed adapters with the supplier exports. -/
-abbrev GQ := Field.absoluteGaloisGroup ℚ
-abbrev GeometricPoints (E : WeierstrassCurve ℚ) :=
-  (E.baseChange (AlgebraicClosure ℚ)).toAffine.Point
-abbrev FullRationalTwo (E : WeierstrassCurve ℚ) [E.IsElliptic] : Prop :=
-  Nat.card {P : E.toAffine.Point // (2 : ℕ) • P = 0} = 4
-abbrev RationalTwoPoint (E : WeierstrassCurve ℚ) [E.IsElliptic] : Prop :=
-  ∃ P : E.toAffine.Point, P ≠ 0 ∧ (2 : ℕ) • P = 0
-abbrev GeometricEnd (E : WeierstrassCurve ℚ) :=
-  TauCeti.Isogeny.Hom (E.baseChange (AlgebraicClosure ℚ)).toAffine
-    (E.baseChange (AlgebraicClosure ℚ)).toAffine
-/-- EllipticCurves Layer 1: every geometric endomorphism is integer multiplication. -/
-abbrev NonCM (E : WeierstrassCurve ℚ) [E.IsElliptic] : Prop :=
-  ∀ f : GeometricEnd E, ∃ n : ℤ, f = n • (1 : GeometricEnd E)
-/-- Parent R29.1 notation, using the actual point action. -/
-abbrev RationalCyclic (E : WeierstrassCurve ℚ) [E.IsElliptic] (n : ℕ) : Prop :=
-  ∃ C : AddSubgroup (GeometricPoints E), IsAddCyclic C ∧ Finite C ∧
-    Nat.card C = n ∧ ∀ s : GQ,
-      C.map (WeierstrassCurve.Affine.Point.map (W' := E.toAffine) s.toAlgHom) = C
+/-- At level 11 the threshold `F` is smaller than `G`: the maximum `H` is not `F`. -/
+theorem krausF_eleven_lt_krausG_eleven :
+    (Real.sqrt 2 + 1) ^ 2 < (Real.sqrt 12 + 1) ^ 2 := by
+  have h : Real.sqrt 2 < Real.sqrt 12 := Real.sqrt_lt_sqrt (by norm_num) (by norm_num)
+  have h0 : (0 : ℝ) ≤ Real.sqrt 2 := Real.sqrt_nonneg 2
+  nlinarith [h, h0]
 
-namespace Imported
-/-- R01.6: the geometric p-torsion carrier; actual points, not free data. -/
-abbrev Torsion (E : WeierstrassCurve ℚ) [E.IsElliptic] (p : ℕ) :=
-  {P : GeometricPoints E // p • P = 0}
-instance (E : WeierstrassCurve ℚ) [E.IsElliptic] (p : ℕ) : AddCommGroup (Torsion E p) := by sorry
-instance (E : WeierstrassCurve ℚ) [E.IsElliptic] (p : ℕ) : Module (ZMod p) (Torsion E p) := by sorry
-/-- R01.6: induced continuous point action. -/
-def residualRep (E : WeierstrassCurve ℚ) [E.IsElliptic] (p : ℕ) :
-    Representation (ZMod p) GQ (Torsion E p) := by sorry
-/-- R01.6: after choosing a basis of the two-dimensional torsion module. -/
-def residualMatrix (E : WeierstrassCurve ℚ) [E.IsElliptic] (p : ℕ) [Fact p.Prime] :
-    GQ →* GL (Fin 2) (ZMod p) := by sorry
-/-- R01.6: positive Artin conductor of E. -/
-def conductor (E : WeierstrassCurve ℚ) [E.IsElliptic] : ℕ+ := by sorry
-/-- R01.6: prime-to-p residual conductor, not R20.6's quotient level. -/
-def residualConductor (E : WeierstrassCurve ℚ) [E.IsElliptic] (p : ℕ) : ℕ+ := by sorry
-/-- R15.4: source-scoped Serre weight of the residual representation. -/
-def serreWeight (E : WeierstrassCurve ℚ) [E.IsElliptic] (p : ℕ) : ℕ := by sorry
-/-- R20.6/reduced-level-of-elliptic-curve. -/
-def reducedLevel (E : WeierstrassCurve ℚ) [E.IsElliptic] (p : ℕ) : ℕ+ := by sorry
-/-- EllipticCurves Layer 4.5a: minimal discriminant over Q. -/
-def minimalDiscriminant (E : WeierstrassCurve ℚ) [E.IsElliptic] : ℤ := by sorry
-/-- R01.4: a representative normalizer of a nonsplit Cartan. -/
-def nonsplitNormalizer (p : ℕ) : Subgroup (GL (Fin 2) (ZMod p)) := by sorry
-end Imported
-open Imported
-abbrev ResiduallyIsomorphic (E F : WeierstrassCurve ℚ) [E.IsElliptic] [F.IsElliptic] (p : ℕ) : Prop :=
-  Nonempty ((residualRep E p).Equiv (residualRep F p))
-abbrev IntoNonsplit (E : WeierstrassCurve ℚ) [E.IsElliptic] (p : ℕ) [Fact p.Prime] : Prop :=
-  ∃ g : GL (Fin 2) (ZMod p), ∀ s : GQ,
-    g * residualMatrix E p s * g⁻¹ ∈ nonsplitNormalizer p
+/-! ### Residue characteristics in the formal immersion
 
-/-- EC.2/removed-prime-bound. Reduced level and discriminant adapter are imported. -/
-theorem removed_prime_bound (E : WeierstrassCurve ℚ) [E.IsElliptic]
-    (ell p : ℕ) [Fact ell.Prime] [Fact p.Prime] (hell : 3 ≤ ell)
-    (hirr : (residualRep E ell).IsIrreducible) (hne : p ≠ ell)
-    (hM : p ∣ (conductor E : ℕ)) (hM2 : ¬p ^ 2 ∣ (conductor E : ℕ))
-    (hdisc : ell ∣ padicValNat p (minimalDiscriminant E).natAbs) :
-    (ell : ℝ) ≤ Real.rpow (Real.sqrt p + 1)
-      (((reducedLevel E ell : ℕ) + 1 : ℝ) / 6) := by sorry
+A prime `q ≡ ±1 mod p`, for a prime `p ≥ 11`, is at least `2p - 1 ≥ 21`. So the
+conditions `q > 13 ≥ r` and `q > 3` of the owner's nodes
+EC.5/cartan-cusp-formal-immersion and EC.5/cartan-denominator-exclusion hold
+for every prime `p` outside `{2, 3, 5, 7, 13}`. -/
 
-/-- EC.3/finite-rationality: includes coefficients at bad primes. -/
-theorem finite_rationality (N : ℕ+) (f : Newform N 2) (hchar : f.χ = 1)
-    (hsmall : ∀ q : ℕ, q.Prime → (q : ℝ) ≤ mu N / 6 →
-      ∃ a : ℤ, coeff f q = a) : ∀ n : ℕ, ∃ a : ℤ, coeff f n = a := by sorry
+theorem two_mul_sub_one_le_of_mod_eq (p q : ℕ) (hp : p.Prime) (hq : q.Prime) (h11 : 11 ≤ p)
+    (h : q % p = 1 ∨ q % p = p - 1) : 2 * p - 1 ≤ q := by
+  by_contra hlt
+  have hodd : p % 2 = 1 := by
+    rcases hp.eq_two_or_odd with h2 | h2 <;> omega
+  have hk : q / p ≤ 1 := by
+    by_contra hk
+    have h2 : p * 2 ≤ p * (q / p) := Nat.mul_le_mul_left p (by omega)
+    have := Nat.div_add_mod q p
+    omega
+  have hdm := Nat.div_add_mod q p
+  have h2 : 2 ∣ q ∨ q = 1 := by
+    rcases h with h | h
+    · interval_cases hqp : q / p
+      · right; omega
+      · left; omega
+    · interval_cases hqp : q / p
+      · left; omega
+      · omega
+  rcases h2 with h2 | h2
+  · have hq2 : 2 = q := (Nat.prime_dvd_prime_iff_eq Nat.prime_two hq).mp h2
+    have hmod : 2 % p = 2 := Nat.mod_eq_of_lt (by omega)
+    rw [← hq2, hmod] at h
+    omega
+  · exact hq.one_lt.ne' h2
 
-/-- EC.3/small-prime-integrality. The exact residual-newform isomorphism
-requires extension of E[ell] to the residue field. It cannot yet be stated with
-this uncompleted supplier adapter, so this theorem is not seeded. Its proof and
-full hypotheses are definitive in the packet. Likewise EC.3/rational-newform-curve
-needs the modular-quotient/Tate-module comparison to state residual realization.
-Their names are small_prime_integrality and rational_newform_curve. -/
+/-! ### Integral values of `f(t)/t`
 
-/-- EC.3/kraus-rational. -/
-theorem kraus_rational (E : WeierstrassCurve ℚ) [E.IsElliptic]
-    (ell : ℕ) [Fact ell.Prime] (hell : 5 ≤ ell)
-    (hirr : (residualRep E ell).IsIrreducible) (hw : serreWeight E ell = 2)
-    (hbound : krausF (residualConductor E ell) < ell) :
-    ∃ (F : WeierstrassCurve ℚ) (hF : F.IsElliptic),
-      letI := hF
-      conductor F = residualConductor E ell ∧ ResiduallyIsomorphic E F ell := by sorry
+The divisibility step of the owner's node EC.5/integral-parameter-divisibility,
+for any monic integer polynomial of degree at least 2: a nonzero rational `t`
+with `f(t)/t` an integer is an integer dividing `f(0)`. Degree 1 is excluded:
+`f = X + 1`, `t = 1/2` gives `f(t)/t = 3`. -/
 
-/-- EC.4/finite-mod-four. E.LFunction supplies the actual good-prime coefficient. -/
-theorem finite_mod_four (E : WeierstrassCurve ℚ) [E.IsElliptic] :
-    (∀ q : ℕ, q.Prime → ¬q ∣ 2 * (conductor E : ℕ) →
-      (q : ℝ) ≤ mu (Nat.lcm 4 (conductor E)) / 6 →
-      (4 : ℤ) ∣ (q : ℤ) + 1 - E.LFunction q) ↔
-    (∀ q : ℕ, q.Prime → ¬q ∣ 2 * (conductor E : ℕ) →
-      (4 : ℤ) ∣ (q : ℤ) + 1 - E.LFunction q) := by sorry
+theorem int_of_eval_div_self_int (f : Polynomial ℤ) (hf : f.Monic) (hdeg : 2 ≤ f.natDegree)
+    (t : ℚ) (ht : t ≠ 0) (m : ℤ) (hm : eval t (f.map (Int.castRingHom ℚ)) / t = m) :
+    ∃ a : ℤ, t = a ∧ a ≠ 0 ∧ a ∣ f.coeff 0 := by
+  have hdegf : (1 : WithBot ℕ) < f.degree := by
+    rw [Polynomial.degree_eq_natDegree hf.ne_zero]
+    exact_mod_cast hdeg
+  have hlt : (C m * X : Polynomial ℤ).degree < f.degree :=
+    lt_of_le_of_lt (Polynomial.degree_C_mul_X_le m) hdegf
+  have hgm : (f - C m * X).Monic := hf.sub_of_left hlt
+  have hft : eval t (f.map (Int.castRingHom ℚ)) = m * t := by
+    field_simp at hm
+    linarith
+  have hroot : aeval t (f - C m * X) = 0 := by
+    simp only [map_sub, map_mul, aeval_C, aeval_X]
+    rw [aeval_def, eval₂_eq_eval_map]
+    simp only [eq_intCast, algebraMap_int_eq] at *
+    linarith
+  obtain ⟨a, ha⟩ := isInteger_of_is_root_of_monic hgm hroot
+  have hat : t = (a : ℚ) := by simpa using ha.symm
+  refine ⟨a, hat, ?_, ?_⟩
+  · rintro rfl
+    exact ht (by simpa using hat)
+  · have hfa : ((f.eval a : ℤ) : ℚ) = (m : ℚ) * (a : ℚ) := by
+      have : eval (a : ℚ) (f.map (Int.castRingHom ℚ)) = ((f.eval a : ℤ) : ℚ) := by
+        simp [eval_map, eval₂_at_intCast]
+      rw [← this, ← hat, hft]
+    have hfa' : f.eval a = m * a := by exact_mod_cast hfa
+    have h1 : a - 0 ∣ f.eval a - f.eval 0 := Polynomial.sub_dvd_eval_sub a 0 f
+    rw [sub_zero, hfa', ← Polynomial.coeff_zero_eq_eval_zero] at h1
+    have h2 : a ∣ m * a := Dvd.intro_left m rfl
+    simpa using dvd_sub h2 h1
 
-/-- EC.4/small-trace-transfer. -/
-theorem small_trace_transfer (E F : WeierstrassCurve ℚ) [E.IsElliptic] [F.IsElliptic]
-    (ell : ℕ) [Fact ell.Prime] (hell : 5 ≤ ell) (hfull : FullRationalTwo E)
-    (hirr : (residualRep E ell).IsIrreducible) (hw : serreWeight E ell = 2)
-    (hN : conductor F = residualConductor E ell) (hiso : ResiduallyIsomorphic E F ell)
-    (hbound : krausG (conductor F) < ell)
-    (q : ℕ) (hq : q.Prime) (hgood : ¬q ∣ 2 * (conductor F : ℕ))
-    (hsmall : (q : ℝ) ≤ mu (Nat.lcm 4 (conductor F)) / 6) :
-    ¬q ∣ (conductor E : ℕ) ∧ E.LFunction q = F.LFunction q ∧
-      (4 : ℤ) ∣ (q : ℤ) + 1 - F.LFunction q := by sorry
+example : eval (1 / 2 : ℚ) ((X + 1 : Polynomial ℤ).map (Int.castRingHom ℚ)) / (1 / 2) = (3 : ℤ) := by
+  norm_num
 
-/-- EC.4/two-isogeny-repair. The seed states the resulting curve and odd
-residual comparison. The degree-one-or-two isogeny is specified in the packet. -/
-theorem two_isogeny_repair (E : WeierstrassCurve ℚ) [E.IsElliptic]
-    (hcounts : ∀ᶠ q : ℕ in Filter.atTop, q.Prime → ¬q ∣ 2 * (conductor E : ℕ) →
-      (4 : ℤ) ∣ (q : ℤ) + 1 - E.LFunction q)
-    (ell : ℕ) [Fact ell.Prime] (hodd : ell ≠ 2) :
-    ∃ (F : WeierstrassCurve ℚ) (hF : F.IsElliptic),
-      letI := hF
-      FullRationalTwo F ∧ conductor F = conductor E ∧ ResiduallyIsomorphic E F ell := by sorry
+/-! ### The two-isogeny selection on `E[4]`
 
-/-- EC.4/kraus-full-two. -/
-theorem kraus_full_two (E : WeierstrassCurve ℚ) [E.IsElliptic]
-    (ell : ℕ) [Fact ell.Prime] (hell : 5 ≤ ell) (hfull : FullRationalTwo E)
-    (hirr : (residualRep E ell).IsIrreducible) (hw : serreWeight E ell = 2)
-    (hbound : krausH (residualConductor E ell) < ell) :
-    ∃ (F : WeierstrassCurve ℚ) (hF : F.IsElliptic),
-      letI := hF
-      conductor F = residualConductor E ell ∧ FullRationalTwo F ∧
-        ResiduallyIsomorphic E F ell := by sorry
+An argument for the owner's node EC.3/four-count-full-two-selection that uses
+only the image `G` of Galois in `GL₂(ℤ/4)`, in a basis `e₁, e₂` of `E[4]` with
+`P = 2 • e₁` the rational point of order two. The hypotheses are: every element
+has `det (1 - g) = 0` (point counts divisible by 4, by Chebotarev's theorem);
+every element fixes `P`; and some element is nontrivial modulo 2. The
+conclusion is that every element maps `e₁` into `⟨e₁⟩`, so that Galois acts
+trivially on the two-torsion `{Q : 2 • Q ∈ ⟨P⟩} / ⟨P⟩` of `E / ⟨P⟩`. -/
 
-/-- EC.4/quotient-conductor-adapter: the local weight hypothesis remains explicit. -/
-theorem quotient_conductor_adapter (E : WeierstrassCurve ℚ) [E.IsElliptic]
-    (ell : ℕ) [Fact ell.Prime] (hell : 5 ≤ ell)
-    (hgood : ¬ell ∣ (conductor E : ℕ)) :
-    residualConductor E ell = reducedLevel E ell := by sorry
+section GLTwoModFour
 
-/-- EC.5/mazur-prime-isogenies. -/
-theorem mazur_prime_isogenies (E : WeierstrassCurve ℚ) [E.IsElliptic]
-    (r : ℕ) (hr : r.Prime) (hC : RationalCyclic E r) :
-    r ∈ ({2,3,5,7,11,13,17,19,37,43,67,163} : Finset ℕ) := by sorry
-/-- The non-CM part of the same packet node. -/
-theorem mazur_prime_isogenies_nonCM (E : WeierstrassCurve ℚ) [E.IsElliptic]
-    (hcm : NonCM E) (r : ℕ) (hr : r.Prime) (hC : RationalCyclic E r) :
-    r ∈ ({2,3,5,7,11,13,17,37} : Finset ℕ) := by sorry
-/-- EC.5/two-torsion-isogeny-exclusions. -/
-theorem two_torsion_isogeny_exclusions (E : WeierstrassCurve ℚ) [E.IsElliptic]
-    (ell : ℕ) (hell : ell.Prime) :
-    (11 ≤ ell → ¬RationalCyclic E (2 * ell)) ∧
-      (7 ≤ ell → ¬RationalCyclic E (4 * ell)) := by sorry
-/-- EC.5/two-torsion-kernel-transport, one-point clause. The full-two clause
-needs a quotient isogeny interface and is recorded in the packet. -/
-theorem two_torsion_kernel_transport (E : WeierstrassCurve ℚ) [E.IsElliptic]
-    (ell : ℕ) (hell : ell.Prime) (hodd : ell ≠ 2)
-    (h2 : RationalTwoPoint E) (hC : RationalCyclic E ell) :
-    RationalCyclic E (2 * ell) := by sorry
-/-- EC.5/irreducible-full-two. Absolute irreducibility is the R01.4 export. -/
-theorem irreducible_full_two (E : WeierstrassCurve ℚ) [E.IsElliptic]
-    (ell : ℕ) [Fact ell.Prime] (hell : 7 ≤ ell) (h2 : FullRationalTwo E) :
-    (residualRep E ell).IsIrreducible := by sorry
-/-- EC.5/irreducible-one-two. -/
-theorem irreducible_one_two (E : WeierstrassCurve ℚ) [E.IsElliptic]
-    (ell : ℕ) [Fact ell.Prime] (hell : 11 ≤ ell) (h2 : RationalTwoPoint E) :
-    (residualRep E ell).IsIrreducible := by sorry
+private theorem eq_two_of_two_mul_eq_zero (c : ZMod 4) (h : 2 * c = 0) (hc : c ≠ 0) : c = 2 := by
+  revert c; decide
 
-/-- EC.6/nonsplit-potential-good. j-integrality is equivalent to potentially
-good reduction by the local elliptic supplier; the seed uses the actual denominator. -/
-theorem nonsplit_potential_good (E : WeierstrassCurve ℚ) [E.IsElliptic]
-    (p : ℕ) [Fact p.Prime] (hp : 5 ≤ p) (hns : IntoNonsplit E p) :
-    ¬p ∣ E.j.den ∧ ∀ q : ℕ, q.Prime → q % p ≠ 1 → q % p ≠ p - 1 → ¬q ∣ E.j.den := by sorry
+private theorem det_one_sub_ne_zero (a b c d : ZMod 4) (ha : 2 * a = 2) (hc : c = 2)
+    (hb : 2 * b ≠ 0) (hdet : 2 * (a * d - b * c) ≠ 0) : (1 - a) * (1 - d) - b * c ≠ 0 := by
+  revert a b c d; decide
 
-/-! EC.6/chen-correspondence (chen_correspondence), EC.6/rank-zero-quotient
-(rank_zero_quotient), EC.6/cuspidal-formal-immersion (cuspidal_formal_immersion)
-and EC.6/j-prime-integrality (j_prime_integrality) are not seeded: the Cartan-level
-compactification, the correct connected p-new quotient, and the integral local
-hypotheses are source gaps. In Chen’s statement, the quotient is by w_{p²},
-retaining the r-level, and the fiber-product notation denotes its smooth
-projective normalization. The formal-immersion map is from the canonical smooth
-locus over ℤ[1/p,ζp]⁺ to the Néron model. Darmon–Merel prove the r=2,3
-case; the Lemos extension to r=5,7,13 remains a proof obligation. Since p≥11
-and q≡±1 mod p, q=2,3 cannot occur here. No theorem is encoded as an arbitrary
-Prop field. -/
+private theorem two_mul_unit_ne_zero (u : (ZMod 4)ˣ) : 2 * (u : ZMod 4) ≠ 0 := by
+  revert u; decide
 
-/-- EC.6/j-integrality. -/
-theorem j_integrality (E : WeierstrassCurve ℚ) [E.IsElliptic]
-    (hcm : NonCM E) (r p : ℕ) [Fact p.Prime]
-    (hr : r ∈ ({2,3,5,7,13} : Finset ℕ)) (hp : p ∉ ({2,3,5,7,13} : Finset ℕ))
-    (hC : RationalCyclic E r) (hns : IntoNonsplit E p) :
-    ∃ a : ℤ, (a : ℚ) = E.j := by sorry
+private theorem two_mul_ne_zero_of_det (a b d c : ZMod 4) (hc : 2 * c = 0)
+    (h : 2 * (a * d - b * c) ≠ 0) : 2 * d ≠ 0 := by
+  revert a b c d; decide
 
-/-- EC.6/integral-isogeny-j-values: modular j-map identification is a supplier
-certificate. This seed isolates the exact rational-polynomial divisibility step. -/
-theorem integral_isogeny_j_values (f : Polynomial ℤ) (hf : f.Monic)
-    (hdeg : 2 ≤ f.natDegree) (t : ℚ) (ht : t ≠ 0)
-    (hint : ∃ a : ℤ, Polynomial.eval t (f.map (Int.castRingHom ℚ)) / t = a) :
-    ∃ a : ℤ, t = a ∧ a ≠ 0 ∧ a ∣ f.coeff 0 := by sorry
+private theorem mul_two_eq_two (d : ZMod 4) (h : 2 * d ≠ 0) : d * 2 = 2 := by
+  revert d; decide
 
-/-- EC.6/large-proper-image. -/
-theorem large_proper_image (E : WeierstrassCurve ℚ) [E.IsElliptic]
-    (hcm : NonCM E) (p : ℕ) [Fact p.Prime] (hp : 37 < p)
-    (hproper : ¬Function.Surjective (residualMatrix E p)) : IntoNonsplit E p := by sorry
+private theorem two_mul_add_ne_zero (a b b' d : ZMod 4) (hb : 2 * b = 0) (hb' : 2 * b' ≠ 0)
+    (hd : 2 * d ≠ 0) : 2 * (a * b + b' * d) ≠ 0 := by
+  revert a b b' d; decide
 
-/-! EC.6/surjectivity-twist (surjectivity_twist) needs the supplier's quadratic
-character/torsion matrix comparison. EC.6/finite-image-certificates
-(finite_image_certificates) needs the finite datasets and complete arithmetic
-certificates. Their signatures are omitted instead of assuming these outputs. -/
+/-- The matrix of an element of `GL₂(ℤ/4)`. -/
+abbrev mat (g : GL (Fin 2) (ZMod 4)) : Matrix (Fin 2) (Fin 2) (ZMod 4) := g
 
-/-- EC.6/lemos-surjectivity. The geometric non-CM hypothesis is retained. -/
-theorem lemos_surjectivity (E : WeierstrassCurve ℚ) [E.IsElliptic]
-    (hcm : NonCM E) (hC : ∃ n : ℕ, 1 < n ∧ RationalCyclic E n)
-    (p : ℕ) [Fact p.Prime] (hp : 37 < p) :
-    Function.Surjective (residualMatrix E p) := by sorry
+private theorem two_mul_det_ne_zero (g : GL (Fin 2) (ZMod 4)) :
+    2 * (mat g 0 0 * mat g 1 1 - mat g 0 1 * mat g 1 0) ≠ 0 := by
+  have h := two_mul_unit_ne_zero (Matrix.GeneralLinearGroup.det g)
+  rwa [Matrix.GeneralLinearGroup.val_det_apply, Matrix.det_fin_two] at h
 
-end TauCeti.EllipticCurve.EffectiveModularity
+private theorem det_one_sub (g : GL (Fin 2) (ZMod 4)) :
+    (1 - mat g).det = (1 - mat g 0 0) * (1 - mat g 1 1) - mat g 0 1 * mat g 1 0 := by
+  rw [Matrix.det_fin_two]
+  simp [Matrix.sub_apply]
+
+theorem lower_left_eq_zero_of_det_one_sub_eq_zero (G : Subgroup (GL (Fin 2) (ZMod 4)))
+    (hdet : ∀ g ∈ G, (1 - mat g).det = 0)
+    (hfix : ∀ g ∈ G, 2 * mat g 0 0 = 2 ∧ 2 * mat g 1 0 = 0)
+    (t : GL (Fin 2) (ZMod 4)) (ht : t ∈ G) (htb : 2 * mat t 0 1 ≠ 0) :
+    ∀ g ∈ G, mat g 1 0 = 0 := by
+  -- An element with lower-left entry 2 and odd upper-right entry has `det (1 - x) = 2`.
+  have key : ∀ x ∈ G, mat x 1 0 = 2 → 2 * mat x 0 1 ≠ 0 → False := by
+    intro x hx hc hb
+    have h1 := hdet x hx
+    rw [det_one_sub] at h1
+    exact det_one_sub_ne_zero _ _ _ _ (hfix x hx).1 hc hb (two_mul_det_ne_zero x) h1
+  have hct : mat t 1 0 = 0 := by
+    by_contra h
+    exact key t ht (eq_two_of_two_mul_eq_zero _ (hfix t ht).2 h) htb
+  intro g hg
+  by_contra h
+  have hcg : mat g 1 0 = 2 := eq_two_of_two_mul_eq_zero _ (hfix g hg).2 h
+  by_cases hb : 2 * mat g 0 1 = 0
+  · -- `g` is trivial modulo 2; then `t * g` is of the excluded kind.
+    have hdt : 2 * mat t 1 1 ≠ 0 := two_mul_ne_zero_of_det _ _ _ _ (hfix t ht).2 (two_mul_det_ne_zero t)
+    have hdg : 2 * mat g 1 1 ≠ 0 := two_mul_ne_zero_of_det _ _ _ _ (hfix g hg).2 (two_mul_det_ne_zero g)
+    have hmul : mat (t * g) = mat t * mat g := rfl
+    refine key (t * g) (G.mul_mem ht hg) ?_ ?_
+    · rw [hmul, Matrix.mul_apply, Fin.sum_univ_two, hct, hcg, zero_mul, zero_add]
+      exact mul_two_eq_two _ hdt
+    · rw [hmul, Matrix.mul_apply, Fin.sum_univ_two]
+      exact two_mul_add_ne_zero _ _ _ _ hb htb hdg
+  · exact key g hg hcg hb
+
+end GLTwoModFour
+
+end EllipticCurveModularityPartIIAcceptance
