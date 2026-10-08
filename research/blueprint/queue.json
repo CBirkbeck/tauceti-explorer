@@ -40837,7 +40837,8 @@
    ],
    "revisionOf": "BP-RelativeFarguesFontaine--RF4",
    "prompt": "research/blueprint/prompts/BP-RelativeFarguesFontaine--RF4~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7006"
   },
   {
    "priority": 2,
