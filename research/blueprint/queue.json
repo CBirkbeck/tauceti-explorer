@@ -34928,8 +34928,9 @@
    ],
    "avoidAccountOf": "BP-ClassicalAdicEtaleCohomology--H1-valuation-nearby-cycles",
    "prompt": "research/blueprint/prompts/REV-ClassicalAdicEtaleCohomology--H1-valuation-nearby-cycles.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7034"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7034",
+   "finishedAt": "2026-10-08T16:35:36Z"
   },
   {
    "id": "BP-ClassicalAdicEtaleCohomology--H3",
