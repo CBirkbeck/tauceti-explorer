@@ -46244,8 +46244,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-CrystallineLocalGlobalCompatibilityCM.md",
-   "state": "pending",
-   "note": "released on GitHub issue #7462"
+   "state": "external",
+   "note": "claimed on GitHub issue #7462"
   },
   {
    "id": "REV-PKG-CrystallineLocalGlobalCompatibilityCM",
@@ -47093,8 +47093,9 @@
     "PKG-IgusaVarietiesAndTorsionConcentration"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-IgusaVarietiesAndTorsionConcentration.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7483"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7483",
+   "finishedAt": "2026-10-08T22:07:27Z"
   },
   {
    "id": "PKG-InductionRestrictionPartII",
@@ -77466,7 +77467,8 @@
     "FIX-RT-AREA-langlands-2~3"
    ],
    "prompt": "research/blueprint/prompts/FIX-RT-AREA-langlands-2~4.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7450"
   },
   {
    "id": "REV-FIX-RT-AREA-langlands-2~4",
