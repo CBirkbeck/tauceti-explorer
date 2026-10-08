@@ -32710,8 +32710,9 @@
    ],
    "avoidAccountOf": "BP-HodgeStructuresPartII--H.3",
    "prompt": "research/blueprint/prompts/REV-HodgeStructuresPartII--H.3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7027"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7027",
+   "finishedAt": "2026-10-08T06:28:07Z"
   },
   {
    "id": "BP-HodgeStructuresPartII--H.4",
@@ -38919,7 +38920,8 @@
     "BP-GeometricSatakeAndFusion--GS0~2"
    ],
    "prompt": "research/blueprint/prompts/REV-GeometricSatakeAndFusion--GS0~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7297"
   },
   {
    "kind": "blueprint",
