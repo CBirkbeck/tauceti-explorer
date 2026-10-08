@@ -16,154 +16,154 @@
         "kind": "lemma",
         "module": "Mathlib/AlgebraicGeometry/ZariskisMainTheorem.lean",
         "provides": "A proper, locally quasi-finite morphism (separated, finite type) is finite.",
-        "checked": "Statement read in the source file at the pinned commit."
+        "checked": "Independently read the declaration and its hypotheses at the recorded pinned commit, 2026-10-08."
       },
       {
         "ref": "mathlib:AlgebraicGeometry.LocallyQuasiFinite",
         "kind": "class",
         "module": "Mathlib/AlgebraicGeometry/Morphisms/QuasiFinite.lean",
         "provides": "Morphisms whose affine-local ring maps are quasi-finite; discrete finite fibres for quasi-compact morphisms.",
-        "checked": "Statement read in the source file at the pinned commit."
+        "checked": "Independently read the declaration and its hypotheses at the recorded pinned commit, 2026-10-08."
       },
       {
         "ref": "mathlib:AlgebraicGeometry.Scheme.Hom.isOpen_quasiFiniteAt",
         "kind": "lemma",
         "module": "Mathlib/AlgebraicGeometry/ZariskisMainTheorem.lean",
         "provides": "If f is locally of finite type, {x | f.QuasiFiniteAt x} is open (consequence of Zariski's main theorem).",
-        "checked": "Statement read in the source file at the pinned commit."
+        "checked": "Independently read the declaration and its hypotheses at the recorded pinned commit, 2026-10-08."
       },
       {
         "ref": "mathlib:AlgebraicGeometry.Scheme.Hom.quasiFiniteAt_iff_isOpen_singleton_asFiber",
         "kind": "lemma",
         "module": "Mathlib/AlgebraicGeometry/Morphisms/QuasiFinite.lean",
         "provides": "For f locally of finite type, f is quasi-finite at x iff {x} is open in its fibre.",
-        "checked": "Statement read in the source file at the pinned commit."
+        "checked": "Independently read the declaration and its hypotheses at the recorded pinned commit, 2026-10-08."
       },
       {
         "ref": "mathlib:AlgebraicGeometry.Scheme.Hom.quasiFiniteLocus",
         "kind": "def",
         "module": "Mathlib/AlgebraicGeometry/ZariskisMainTheorem.lean",
         "provides": "For f: X ⟶ Y locally of finite type, the open subscheme of points at which f is quasi-finite: Esnault–Groechenig's X^rig.",
-        "checked": "Statement read in the source file at the pinned commit."
+        "checked": "Independently read the declaration and its hypotheses at the recorded pinned commit, 2026-10-08."
       },
       {
         "ref": "mathlib:AlgebraicGeometry.Scheme.exists_hom_comp_eq_comp_of_locallyOfFiniteType",
         "kind": "lemma",
         "module": "Mathlib/AlgebraicGeometry/AffineTransitionLimit.lean",
-        "provides": "For a cofiltered limit of schemes with affine transition maps and X locally of finite type over S, two morphisms D_i ⟶ X over S that agree on the limit agree at some stage k ⟶ i (EGA IV 8.8.2(i), equality part).",
-        "checked": "Statement read in the source file at the pinned commit."
+        "provides": "Equality descends to a later stage for two already given maps from one object of a cofiltered diagram of quasi-compact schemes with affine transition maps into a scheme locally of finite type over the base, when their composites with the limit projection agree. This declaration supplies equality only, not existence of a descended map or spreading of a family.",
+        "checked": "Independently read the declaration and its hypotheses at the recorded pinned commit, 2026-10-08."
       },
       {
         "ref": "mathlib:LieAlgebra.SpecialLinear.sl",
         "kind": "def",
         "module": "Mathlib/Algebra/Lie/Classical.lean",
         "provides": "The special linear Lie subalgebra of Matrix n n R: the kernel of the trace.",
-        "checked": "Statement read in the source file at the pinned commit."
+        "checked": "Independently read the declaration and its hypotheses at the recorded pinned commit, 2026-10-08."
       },
       {
         "ref": "mathlib:LinearMap.isNilpotent_iff_charpoly",
         "kind": "lemma",
         "module": "Mathlib/LinearAlgebra/Eigenspace/Zero.lean",
-        "provides": "An endomorphism of a finite free module over a nontrivial commutative ring is nilpotent iff its characteristic polynomial is X^(finrank).",
-        "checked": "Statement read in the source file at the pinned commit."
+        "provides": "For a finite free module over a commutative integral domain, an endomorphism is nilpotent iff its characteristic polynomial is X^(finrank). The domain hypothesis is essential; the complex-field consumers satisfy it.",
+        "checked": "Independently read the declaration and its hypotheses at the recorded pinned commit, 2026-10-08."
       },
       {
         "ref": "mathlib:Matrix.GeneralLinearGroup",
         "kind": "abbrev",
         "module": "Mathlib/LinearAlgebra/Matrix/GeneralLinearGroup/Defs.lean",
         "provides": "GL n R := (Matrix n n R)ˣ.",
-        "checked": "Statement read in the source file at the pinned commit."
+        "checked": "Independently read the declaration and its hypotheses at the recorded pinned commit, 2026-10-08."
       },
       {
         "ref": "mathlib:Matrix.trace",
         "kind": "def",
         "module": "Mathlib/LinearAlgebra/Matrix/Trace.lean",
         "provides": "The trace of a square matrix: the sum of its diagonal entries.",
-        "checked": "Statement read in the source file at the pinned commit."
+        "checked": "Independently read the declaration and its hypotheses at the recorded pinned commit, 2026-10-08."
       },
       {
         "ref": "mathlib:Matrix.unitaryGroup",
         "kind": "abbrev",
         "module": "Mathlib/LinearAlgebra/UnitaryGroup.lean",
         "provides": "The submonoid unitary (Matrix n n α) of matrices whose star-transpose is the inverse.",
-        "checked": "Statement read in the source file at the pinned commit."
+        "checked": "Independently read the declaration and its hypotheses at the recorded pinned commit, 2026-10-08."
       },
       {
         "ref": "mathlib:NumberField.Embeddings.finite_of_norm_le",
         "kind": "theorem",
         "module": "Mathlib/NumberTheory/NumberField/InfinitePlace/Embeddings.lean",
         "provides": "For a number field K, the set of algebraic integers x ∈ K with ‖φ x‖ ≤ B for every embedding φ: K →+* A is finite.",
-        "checked": "Statement read in the source file at the pinned commit."
+        "checked": "Independently read the declaration and its hypotheses at the recorded pinned commit, 2026-10-08."
       },
       {
         "ref": "mathlib:NumberField.Embeddings.pow_eq_one_of_norm_eq_one",
         "kind": "theorem",
         "module": "Mathlib/NumberTheory/NumberField/InfinitePlace/Embeddings.lean",
         "provides": "Kronecker: an algebraic integer all of whose conjugates have norm one is a root of unity.",
-        "checked": "Statement read in the source file at the pinned commit."
+        "checked": "Independently read the declaration and its hypotheses at the recorded pinned commit, 2026-10-08."
       },
       {
         "ref": "mathlib:Representation",
         "kind": "abbrev",
         "module": "Mathlib/RepresentationTheory/Basic.lean",
         "provides": "Representation k G V := G →* V →ₗ[k] V.",
-        "checked": "Statement read in the source file at the pinned commit."
+        "checked": "Independently read the declaration and its hypotheses at the recorded pinned commit, 2026-10-08."
       },
       {
         "ref": "mathlib:Representation.IsIrreducible",
         "kind": "abbrev",
         "module": "Mathlib/RepresentationTheory/Irreducible.lean",
         "provides": "A representation is irreducible if its lattice of subrepresentations is a simple order (nontrivial, no proper nonzero subrepresentation).",
-        "checked": "Statement read in the source file at the pinned commit."
+        "checked": "Independently read the declaration and its hypotheses at the recorded pinned commit, 2026-10-08."
       },
       {
         "ref": "mathlib:entry_norm_bound_of_unitary",
         "kind": "theorem",
         "module": "Mathlib/Analysis/CStarAlgebra/Matrix.lean",
         "provides": "Every entry of a unitary matrix over an RCLike field has norm at most 1 (root namespace).",
-        "checked": "Statement read in the source file at the pinned commit."
+        "checked": "Independently read the declaration and its hypotheses at the recorded pinned commit, 2026-10-08."
       },
       {
         "ref": "mathlib:groupCohomology.H1",
         "kind": "abbrev",
         "module": "Mathlib/RepresentationTheory/Homological/GroupCohomology/LowDegree.lean",
         "provides": "H¹(G, A) := groupCohomology A 1 for A : Rep k G, computed by inhomogeneous cocycles modulo coboundaries.",
-        "checked": "Statement read in the source file at the pinned commit."
+        "checked": "Independently read the declaration and its hypotheses at the recorded pinned commit, 2026-10-08."
       },
       {
         "ref": "mathlib:groupCohomology.H1InfRes",
         "kind": "def",
         "module": "Mathlib/RepresentationTheory/Homological/GroupCohomology/Functoriality.lean",
         "provides": "For a normal subgroup S ≤ G, the short complex H¹(G ⧸ S, A^S) ⟶ H¹(G, A) ⟶ H¹(S, A) (inflation and restriction), with the inflation a monomorphism.",
-        "checked": "Statement read in the source file at the pinned commit."
+        "checked": "Independently read the declaration and its hypotheses at the recorded pinned commit, 2026-10-08."
       },
       {
         "ref": "mathlib:groupCohomology.H1InfRes_exact",
         "kind": "lemma",
         "module": "Mathlib/RepresentationTheory/Homological/GroupCohomology/Functoriality.lean",
         "provides": "The inflation–restriction short complex for H¹ is exact.",
-        "checked": "Statement read in the source file at the pinned commit."
+        "checked": "Independently read the declaration and its hypotheses at the recorded pinned commit, 2026-10-08."
       },
       {
         "ref": "tauceti:TauCeti.LocalCoefficientSystem",
         "kind": "abbrev",
         "module": "TauCeti/AlgebraicTopology/LocalCoefficient.lean",
         "provides": "A module-valued local coefficient system on a topological space: a functor from its fundamental groupoid to ModuleCat R.",
-        "checked": "Statement read in the source file at the pinned commit."
+        "checked": "Independently read the declaration and its hypotheses at the recorded pinned commit, 2026-10-08."
       },
       {
         "ref": "tauceti:TauCeti.LocalCoefficientSystem.monodromyRepresentation",
         "kind": "def",
         "module": "TauCeti/AlgebraicTopology/LocalCoefficient.lean",
         "provides": "The monodromy representation of a local coefficient system at a base point, a Representation of the fundamental group on the fibre.",
-        "checked": "Statement read in the source file at the pinned commit."
+        "checked": "Independently read the declaration and its hypotheses at the recorded pinned commit, 2026-10-08."
       },
       {
         "ref": "tauceti:TauCeti.Matrix.isCompact_unitaryGroup",
         "kind": "theorem",
         "module": "TauCeti/Topology/Algebra/UnitaryGroup.lean",
         "provides": "The unitary group Matrix.unitaryGroup n 𝕜 over ℝ or ℂ is a compact subset of Matrix n n 𝕜.",
-        "checked": "Statement read in the source file at the pinned commit."
+        "checked": "Independently read the declaration and its hypotheses at the recorded pinned commit, 2026-10-08."
       }
     ]
   },
@@ -186,20 +186,22 @@
         "§7 pp.146–148: companions summary and the cohomological rigidity paragraph",
         "§8 pp.151–153: §§8.1–8.4 including Proposition 8.2 with proof"
       ],
-      "readingExtent": "The listed passages were read in full in the published text layer; §§2.2–2.6, 3.2–3.3, 4.1, 4.3–4.4, 5 after Definition 5.3, 7 after p.148 and the appendix were not reread for this layer."
+      "readingExtent": "The listed passages were read in full in the published text layer; §§2.2–2.6, 3.2–3.3, 4.1, 4.3–4.4, 5 after Definition 5.3, 7 after p.148 and the appendix were not reread for this layer.",
+      "independentReviewRead": "2026-10-08; the review report distinguishes checked locators from unexamined supplier proofs."
     },
     {
       "id": "EG18",
       "title": "Cohomologically rigid local systems and integrality",
       "authors": "Hélène Esnault and Michael Groechenig",
-      "edition": "arXiv:1711.06436v3 (29 January 2018); published in Selecta Mathematica 24 (2018), 4279–4292 (published version not read)",
+      "edition": "arXiv:1711.06436v3; published in Selecta Mathematica 24 (2018), 4279–4292. Selected published proof passages independently checked in the author offprint; see sourceVersions.",
       "url": "https://arxiv.org/pdf/1711.06436v3",
       "sha256": "622fb7b327b30b522b23c6d50f23e24b5e252d44f61c3684594a78362d5a64dc",
       "accessed": "2026-10-07",
       "readSections": [
         "Complete preprint, pp.1–13: §1 with the integrality criterion and proof outline, §2 Propositions 2.1, 2.3, Remarks 2.2, 2.4, §3 Proposition 3.1, Lemmas 3.2–3.4, proof of Theorem 1.1, Remark 3.5"
       ],
-      "readingExtent": "Whole preprint read; Drinfeld, Lafforgue, Saito and Deligne inputs are cited, not read."
+      "readingExtent": "Whole preprint read; Drinfeld, Lafforgue, Saito and Deligne inputs are cited, not read.",
+      "independentReviewRead": "2026-10-08; the review report distinguishes checked locators from unexamined supplier proofs."
     },
     {
       "id": "LL24",
@@ -215,7 +217,8 @@
         "§8.1–8.4: Definitions 8.1.1, 8.1.4, Remark 8.1.2, Lemma 8.1.3, Proposition 8.2.1, Definition 8.3.1, Lemmas 8.3.3–8.3.4, Proposition 8.4.1 with proofs",
         "§9.1 definition of geometric origin and Corollary 9.1.4 with proof"
       ],
-      "readingExtent": "Selected sections relevant to rigidity and integrality; §§4.1–4.2, 5–7 and the appendix belong to other layers and were not reread."
+      "readingExtent": "Selected sections relevant to rigidity and integrality; §§4.1–4.2, 5–7 and the appendix belong to other layers and were not reread.",
+      "independentReviewRead": "2026-10-08; the review report distinguishes checked locators from unexamined supplier proofs."
     },
     {
       "id": "KP20",
@@ -230,7 +233,8 @@
         "§3 Proposition 3.1",
         "§4 Definition 4.1, Propositions 4.4, 4.6, 4.7 and Remark 4.8"
       ],
-      "readingExtent": "Statements and the proof overview; §§5–6 (specialization, companions) were not read line by line."
+      "readingExtent": "Statements and the proof overview; §§5–6 (specialization, companions) were not read line by line.",
+      "independentReviewRead": "2026-10-08; the review report distinguishes checked locators from unexamined supplier proofs."
     },
     {
       "id": "LS18",
@@ -243,7 +247,8 @@
       "readSections": [
         "§1 pp.1–4: definition of geometric origin, Conjectures 1.1–1.2, Theorem 1.3, Corollary 1.4 and the outline of the proof"
       ],
-      "readingExtent": "Introduction only; the proof of Theorem 1.3 is recorded, not read."
+      "readingExtent": "Introduction only; the proof of Theorem 1.3 is recorded, not read.",
+      "independentReviewRead": "2026-10-08; the review report distinguishes checked locators from unexamined supplier proofs."
     },
     {
       "id": "BKT13",
@@ -257,7 +262,8 @@
         "Introduction pp.1–3: Theorem 0.1 and Remark 0.2",
         "§4 p.9: Theorem 4.1 (Arapura) and the definition of rigidity in M_B(X, GL(n)); start of the proof of Theorem 0.1"
       ],
-      "readingExtent": "Statements and the reduction step; the positivity and p-adic harmonic-map arguments were not read."
+      "readingExtent": "Statements and the reduction step; the positivity and p-adic harmonic-map arguments were not read.",
+      "independentReviewRead": "2026-10-08; the review report distinguishes checked locators from unexamined supplier proofs."
     },
     {
       "id": "LL22",
@@ -272,7 +278,8 @@
         "§7.2 Lemma 7.2.1 with proof and the proof of Theorem 1.2.5",
         "§7.3 proof of Corollary 1.2.7"
       ],
-      "readingExtent": "Statements and the §7 deductions; the isomonodromy and semistability analysis of §§3–6 belongs to layer H.4 and was not read."
+      "readingExtent": "Statements and the §7 deductions; the isomonodromy and semistability analysis of §§3–6 belongs to layer H.4 and was not read.",
+      "independentReviewRead": "2026-10-08; the review report distinguishes checked locators from unexamined supplier proofs."
     },
     {
       "id": "Langer14",
@@ -285,7 +292,8 @@
       "readSections": [
         "§1 pp.3–4: sheaves of rings of differential operators, Gieseker semistability, the moduli functor and Theorem 1.1"
       ],
-      "readingExtent": "Existence theorem and its setting; the boundedness inputs of Langer 2004 are cited, not read."
+      "readingExtent": "Existence theorem and its setting; the boundedness inputs of Langer 2004 are cited, not read.",
+      "independentReviewRead": "2026-10-08; the review report distinguishes checked locators from unexamined supplier proofs."
     },
     {
       "id": "S92",
@@ -299,7 +307,8 @@
         "Introduction pp.8–9 (rigidity, motivicity and integrality conjectures)",
         "§4 pp.44–57: variations of Hodge structure, systems of Hodge bundles, Lemma 4.1, Corollaries 4.2–4.3, Lemma 4.5, Theorem 3, rigid ℓ-adic representations (Theorem 4), ℚ-structure (Theorem 5 proof opening)"
       ],
-      "readingExtent": "§4 read in the scanned text layer (OCR); §§1–3 were read for layer H.1, not reread."
+      "readingExtent": "§4 read in the scanned text layer (OCR); §§1–3 were read for layer H.1, not reread.",
+      "independentReviewRead": "2026-10-08; the review report distinguishes checked locators from unexamined supplier proofs."
     },
     {
       "id": "S94II",
@@ -313,7 +322,8 @@
         "Introduction pp.8–9 (local structure and isosingularity)",
         "§10 pp.64–69: Goldman–Millson deformation diagrams, Theorem 10.4, Proposition 10.5, Theorem 10.6 (isosingularity) and the remarks between them"
       ],
-      "readingExtent": "§10 read in the scanned text layer (OCR); §§6–7 were read for layer H.1, not reread."
+      "readingExtent": "§10 read in the scanned text layer (OCR); §§6–7 were read for layer H.1, not reread.",
+      "independentReviewRead": "2026-10-08; the review report distinguishes checked locators from unexamined supplier proofs."
     },
     {
       "id": "Z15",
@@ -326,7 +336,8 @@
       "readSections": [
         "§1 pp.1–3: definitions of graded, filtered and splittable fibre functors; Theorems 1.2 and 1.3"
       ],
-      "readingExtent": "Statements only; the proofs (§4) were not read."
+      "readingExtent": "Statements only; the proofs (§4) were not read.",
+      "independentReviewRead": "2026-10-08; the review report distinguishes checked locators from unexamined supplier proofs."
     },
     {
       "id": "S96",
@@ -341,7 +352,8 @@
         "§9 pp.38–39 Theorem 9.1, Corollary 9.2, Conjecture 9.3",
         "§10 pp.41–43 Corollaries 10.2–10.3"
       ],
-      "readingExtent": "Selected statements; §9's local product argument was read for layer H.1 and not reread."
+      "readingExtent": "Selected statements; §9's local product argument was read for layer H.1 and not reread.",
+      "independentReviewRead": "2026-10-08; the review report distinguishes checked locators from unexamined supplier proofs."
     }
   ],
   "nodes": [
@@ -441,7 +453,8 @@
         {
           "name": "TraceFreeAdjoint.endSplitting",
           "role": "equivalence",
-          "statement": "If (r : K) ≠ 0, the Γ-representation M_r(K) by conjugation is isomorphic to rep ρ ⊕ (trivial K), via A ↦ (A − (tr A / r)·1, tr A / r)."
+          "statement": "If (r : K) ≠ 0, the Γ-representation M_r(K) by conjugation is isomorphic to rep ρ ⊕ (trivial K), via A ↦ (A − (tr A / r)·1, tr A / r).",
+          "nodeId": "HodgeStructuresPartII:H.5/trace-splitting"
         },
         {
           "name": "TraceFreeAdjoint.conjEquiv",
@@ -456,22 +469,26 @@
         {
           "name": "TraceFreeAdjoint.projectivization",
           "role": "compatibility",
-          "statement": "rep ρ depends only on the composite Γ → PGL_r(K) and, when r ∈ K^×, agrees with the adjoint representation on Lie(PGL_r) = pgl_r(K)."
+          "statement": "rep ρ depends only on the composite Γ → PGL_r(K) and, when r ∈ K^×, agrees with the adjoint representation on Lie(PGL_r) = pgl_r(K).",
+          "nodeId": "HodgeStructuresPartII:H.5/adjoint-projectivization"
         },
         {
           "name": "TraceFreeAdjoint.invariants_eq_bot",
           "role": "characterisation",
-          "statement": "If ρ is absolutely irreducible and r ∈ K^×, then the Γ-invariants of rep ρ are zero (Schur's lemma: commuting matrices are scalars, and the only trace-zero scalar is 0)."
+          "statement": "If ρ is absolutely irreducible and r ∈ K^×, then the Γ-invariants of rep ρ are zero (Schur's lemma: commuting matrices are scalars, and the only trace-zero scalar is 0).",
+          "nodeId": "HodgeStructuresPartII:H.5/adjoint-no-invariants"
         },
         {
           "name": "TraceFreeAdjoint.baseChange",
           "role": "compatibility",
-          "statement": "For a field embedding σ: K → L, rep (σ ∘ ρ) ≅ (rep ρ) ⊗_{K,σ} L, compatibly with the matrix entries."
+          "statement": "For a field embedding σ: K → L, rep (σ ∘ ρ) ≅ (rep ρ) ⊗_{K,σ} L, compatibly with the matrix entries.",
+          "nodeId": "HodgeStructuresPartII:H.5/adjoint-base-change"
         },
         {
           "name": "TraceFreeAdjoint.baseChange_H1",
           "role": "compatibility",
-          "statement": "For finitely generated Γ and a field embedding σ: K → L, H¹(Γ, rep(σ∘ρ)) ≅ H¹(Γ, rep ρ) ⊗_{K,σ} L, in particular the dimensions agree (the cocycle space is cut out by K-linear equations in finitely many generator values)."
+          "statement": "For finitely generated Γ and a field embedding σ: K → L, H¹(Γ, rep(σ∘ρ)) ≅ H¹(Γ, rep ρ) ⊗_{K,σ} L, in particular the dimensions agree (the cocycle space is cut out by K-linear equations in finitely many generator values).",
+          "nodeId": "HodgeStructuresPartII:H.5/adjoint-h1-base-change"
         },
         {
           "name": "TraceFreeAdjoint.flatBundle",
@@ -486,7 +503,7 @@
       "sources": [
         {
           "sourceId": "LL24",
-          "locator": "§1.10, Notation 1.10.2, p.10",
+          "locator": "§1.10, Notation 1.10.2, p.11",
           "match": "Pins ad ρ as Ad∘ρ on g^der, which for GL_r and PGL_r is the trace-free (pgl_r) coefficient system."
         },
         {
@@ -617,6 +634,11 @@
           "name": "IsRigidRepresentation.test_finite_group",
           "kind": "computation",
           "statement": "If Γ is finite, every absolutely irreducible ρ: Γ → GL_r(ℂ) is rigid, because H¹(Γ, ad⁰ρ) = 0 and the tangent space vanishes (by HodgeStructuresPartII:H.5/betti-tangent and HodgeStructuresPartII:H.5/coh-rigid-reduced-isolated, of which this test is a consumer)."
+        },
+        {
+          "name": "IsRigidRepresentation.test_reducible_excluded",
+          "kind": "non-example",
+          "statement": "The trivial rank-two representation of the trivial group over ℂ is reducible and is excluded from rigidity, although its point in the semistable quotient is isolated. This tests the stable/irreducible condition rather than isolation alone."
         }
       ],
       "planet": {
@@ -704,7 +726,9 @@
       "proofSteps": [
         "Absolute irreducibility is independent of the algebraically closed Ω because invariant subspaces are cut out by a constructible condition defined over A (irreducibility over Ω is irreducibility of the module over Ω[Γ]).",
         "Hom(Γ, PGL_r) is a closed subscheme of PGL_r^n for n generators, hence affine of finite type over ℤ; PGL_r acts by conjugation and the GIT quotient exists over ℤ.",
-        "Rigidity is isolation in the geometric fibre. Comparison with fixed-determinant GL_r rigidity (Esnault–Groechenig Lemma 5.5, K algebraically closed of characteristic zero, Γ finitely generated, ρ irreducible, any determinant χ): the map R_B(Γ, r, χ) → Hom(Γ, PGL_r) has fibres the twists by Hom(Γ, μ_r), so isolation of the projectivization implies isolation of ρ; conversely, a deformation of ρ_proj over a discrete valuation ring R with residue field K lifts to a deformation of ρ with determinant χ, because the lifting obstruction lies in H²(Γ, μ_r(R)) = H²(Γ, μ_r(K)) and vanishes on the residue field; so non-rigidity of ρ_proj gives non-rigidity of ρ."
+        "For algebraically closed K of characteristic zero and finitely generated Γ, fixed-determinant lifts of one projective representation differ by characters Γ → μ_r(K). There are finitely many such characters. Thus the induced map on irreducible conjugacy classes has finite fibres. A connected family whose projective class is constant cannot move between these finitely many fixed-determinant classes; isolation of the projective class implies isolation of a lift.",
+        "For the reverse direction, test a nonconstant projective deformation on a complete discrete valuation ring with residue field K, after a finite ramified base change if necessary. Lift each generator matrix from PGL_r(R) to GL_r(R), using Pic(R)=0, and correct its determinant to the fixed value using an r-th root of a unit congruent to 1. These roots exist by Hensel lifting because r is invertible and R is complete. Each relation then evaluates in μ_r(R); this group reduces isomorphically to μ_r(K), and the residual relation is the identity. The lifted matrices therefore satisfy every relation and give a fixed-determinant GL_r deformation. If the lift were constant up to conjugacy, so would be its projectivization.",
+        "The trace calculation in EG20 Lemma 5.5 does not force a scalar twisting character to be trivial: traces can vanish. Finiteness of the twisting characters is sufficient for the comparison. See source issue HodgeStructuresPartII/E-H5-7."
       ],
       "acceptance": [
         "For r = 1, M_B(Γ, PGL_1) is a point and every projective representation is rigid.",
@@ -745,6 +769,11 @@
           "name": "ProjectiveRepresentation.test_fixedDet_comparison",
           "kind": "compatibility",
           "statement": "For an irreducible ρ: Γ → GL_r(ℂ), IsRigidRepresentation ρ (with δ = det ρ) holds iff the projectivization of ρ is rigid in M_B(Γ, PGL_r) (Esnault–Groechenig Lemma 5.5)."
+        },
+        {
+          "name": "ProjectiveRepresentation.test_nontrivial_self_twist",
+          "kind": "non-example",
+          "statement": "For Q₈, let A=diag(i,−i), B=[[0,1],[−1,0]] in SL₂(ℂ), and let χ(A)=1, χ(B)=−1. The irreducible representation generated by A and B is conjugate by A to χ·ρ, while χ is nontrivial and χ²=1. All traces agree, so trace equality cannot imply χ=1."
         }
       ],
       "prerequisites": [
@@ -752,7 +781,8 @@
         "HodgeStructuresPartII:H.1/betti-coarse",
         "mathlib:Representation.IsIrreducible",
         "AlgebraicModuliForArithmeticGeometry:R09.5",
-        "HodgeStructuresPartII:H.5/rigid-representation"
+        "HodgeStructuresPartII:H.5/rigid-representation",
+        "HodgeStructuresPartII:H.5/adjoint-projectivization"
       ],
       "api": [
         {
@@ -875,7 +905,7 @@
         {
           "name": "IsCohomologicallyRigid.test_hypergeometric",
           "kind": "computation",
-          "statement": "On X = ℙ¹ ∖ {0, 1, ∞} with X̄ = ℙ¹, let V be irreducible of rank 2 with non-scalar local monodromies at 0, 1, ∞; then H¹(ℙ¹, j_* End⁰V) = −χ(X)·3 − Σ_i dim (sl_2)^{T_i} = 3 − 3 = 0."
+          "statement": "On X = ℙ¹ ∖ {0, 1, ∞} with X̄ = ℙ¹, let V be irreducible of rank 2 with non-scalar local monodromies at 0, 1, ∞; then dim H¹(ℙ¹, j_* End⁰V) = −χ(X)·3 − Σ_i dim (sl_2)^{T_i} = 3 − 3 = 0."
         },
         {
           "name": "IsCohomologicallyRigid.test_not_strong",
@@ -896,7 +926,9 @@
         "HodgeStructuresPartII:H.5/boundary-monodromy-data",
         "HodgeStructuresPartII:H.5/prescribed-monodromy-tangent",
         "HodgeStructuresPartII:H.5/intermediate-extension-h1",
-        "mathlib:groupCohomology.H1"
+        "mathlib:groupCohomology.H1",
+        "HodgeStructuresPartII:H.5/trace-splitting",
+        "HodgeStructuresPartII:H.5/adjoint-h1-base-change"
       ],
       "api": [
         {
@@ -1023,7 +1055,8 @@
       ],
       "prerequisites": [
         "HodgeStructuresPartII:H.5/trace-free-adjoint",
-        "mathlib:groupCohomology.H1"
+        "mathlib:groupCohomology.H1",
+        "HodgeStructuresPartII:H.5/trace-splitting"
       ],
       "api": [
         {
@@ -1079,10 +1112,10 @@
         "The moduli is of finite type, so its local rings are Noetherian."
       ],
       "proofSteps": [
-        "The Zariski tangent space at [ρ] is H¹(U, a_* ad⁰ρ) (HodgeStructuresPartII:H.5/prescribed-monodromy-tangent); in the projective case H¹(π₁, ad⁰ρ) (HodgeStructuresPartII:H.5/betti-tangent).",
+        "Use the prescribed-boundary tangent calculation on the moduli stack. For GL_r, irreducibility makes the stabilizer the scalar μ_r with trivial adjoint action, so this calculation also identifies the tangent space of the stable coarse space. For a general reductive group use the stack tangent statement, retaining any additional hypothesis on its centralizer.",
         "For a Noetherian local ring (O, m) with residue field K: m/m² = 0 implies m = 0 by Nakayama's lemma, so O = K is reduced of dimension zero; conversely O = K has zero tangent space. For GL_r with fixed determinant the coarse space is the μ_r-rigidification and μ_r acts trivially on deformations, so stack and coarse tangent spaces agree.",
         "General G: the coarse space is étale locally Spec(R^S) for the local ring R of the stack and the finite stabiliser S; R = K forces R^S = K, which gives the forward implication only.",
-        "Hence vanishing of H¹ is equivalent to [ρ] being an isolated reduced point."
+        "Hence vanishing of H¹ is equivalent to [ρ] being an isolated reduced point. The reduced-isolated coarse-space equivalence is used only in the GL_r/scalar-stabilizer setting; the general G implication is the stack statement with its stated hypotheses."
       ],
       "acceptance": [
         "For r = 1 every point is reduced and isolated.",
@@ -1331,7 +1364,7 @@
         },
         {
           "sourceId": "S94II",
-          "locator": "Introduction, p.9",
+          "locator": "Introduction, p.8",
           "match": "Same deformation theory on the de Rham and Dolbeault sides."
         }
       ],
@@ -1476,7 +1509,8 @@
         {
           "name": "RigidLocus.field_isClopen",
           "role": "characterisation",
-          "statement": "If S = Spec K for a field K and M is of finite type, RigidLocus f is closed and open, finite over K, and its complement has no isolated points."
+          "statement": "If S = Spec K for a field K and M is of finite type, RigidLocus f is closed and open, finite over K, and its complement has no isolated points.",
+          "nodeId": "HodgeStructuresPartII:H.5/rigid-locus-field-clopen"
         },
         {
           "name": "RigidLocus.comp_openImmersion",
@@ -1491,12 +1525,14 @@
         {
           "name": "RigidLocus.equivariant",
           "role": "functoriality",
-          "statement": "If a group acts on M and S compatibly with f, the action preserves RigidLocus f."
+          "statement": "If a group acts on M and S compatibly with f, the action preserves RigidLocus f.",
+          "nodeId": "HodgeStructuresPartII:H.5/rigid-locus-equivariant"
         },
         {
           "name": "RigidLocus.fibre",
           "role": "projection",
-          "statement": "For s ∈ S, the fibre of RigidLocus f over s is the rigid locus of the fibre M_s → Spec κ(s), i.e. the isolated points of M_s."
+          "statement": "For s ∈ S, the fibre of RigidLocus f over s is the rigid locus of the fibre M_s → Spec κ(s), i.e. the isolated points of M_s.",
+          "nodeId": "HodgeStructuresPartII:H.5/rigid-locus-fibre"
         }
       ],
       "library": {
@@ -1545,7 +1581,8 @@
         "HodgeStructuresPartII:H.5/boundary-monodromy-data",
         "HodgeStructuresPartII:H.1/betti-coarse",
         "HodgeStructuresPartII:H.1/derham-coarse",
-        "HodgeStructuresPartII:H.1/dolbeault-coarse"
+        "HodgeStructuresPartII:H.1/dolbeault-coarse",
+        "HodgeStructuresPartII:H.5/rigid-locus-field-clopen"
       ],
       "sources": [
         {
@@ -1587,7 +1624,8 @@
         "HodgeStructuresPartII:H.5/rigid-representation",
         "HodgeStructuresPartII:H.5/cohomological-rigidity",
         "HodgeStructuresPartII:H.5/strong-cohomological-rigidity",
-        "HodgeStructuresPartII:H.5/prescribed-monodromy-moduli"
+        "HodgeStructuresPartII:H.5/prescribed-monodromy-moduli",
+        "HodgeStructuresPartII:H.5/adjoint-h1-base-change"
       ],
       "sources": [
         {
@@ -2028,7 +2066,8 @@
       "prerequisites": [
         "HodgeStructuresPartII:H.5/rigid-connection",
         "HodgeStructuresPartII:H.1/hodge-scaling",
-        "HodgeStructuresPartII:H.1/dolbeault-coarse"
+        "HodgeStructuresPartII:H.1/dolbeault-coarse",
+        "HodgeStructuresPartII:H.5/rigid-locus-equivariant"
       ],
       "sources": [
         {
@@ -2107,7 +2146,8 @@
       ],
       "acceptance": [
         "A Higgs bundle with zero field is a system of Hodge bundles in a single degree.",
-        "The Higgs bundle K^{1/2} ⊕ K^{−1/2} with θ the identity K^{1/2} → K^{−1/2} ⊗ K on a curve of genus ≥ 2 is a system of Hodge bundles with two pieces."
+        "The Higgs bundle K^{1/2} ⊕ K^{−1/2} with θ the identity K^{1/2} → K^{−1/2} ⊗ K on a curve of genus ≥ 2 is a system of Hodge bundles with two pieces.",
+        "In the native module chart Ω is finite free. Under this hypothesis commuting contractions detect θ∧θ=0. Without it, over ℤ with Ω=(ℤ/2)², all dual contractions vanish: a degree-lowering field on ℤ³ with θ(e₂)=e₁⊗u, θ(e₁)=e₀⊗v has θ∧θ(e₂)=e₀⊗(v∧u)≠0. The sheaf definition always requires actual exterior-square integrability."
       ],
       "uses": [
         {
@@ -2175,7 +2215,8 @@
         {
           "name": "SystemOfHodgeBundles.scaleIso",
           "role": "constructor",
-          "statement": "For t ∈ ℂ^×, the isomorphism (E,tθ) → (E,θ) acting by t^p on E^p, i.e. (φ ⊗ id)(tθ(e)) = θ(φ(e))."
+          "statement": "For t ∈ ℂ^×, the isomorphism (E,tθ) → (E,θ) acting by t^p on E^p, i.e. (φ ⊗ id)(tθ(e)) = θ(φ(e)).",
+          "nodeId": "HodgeStructuresPartII:H.5/hodge-system-scaling"
         },
         {
           "name": "SystemOfHodgeBundles.shift",
@@ -2185,7 +2226,8 @@
         {
           "name": "SystemOfHodgeBundles.nilpotent",
           "role": "relation",
-          "statement": "θ is nilpotent with joint bound the number of nonzero degrees (HodgeStructuresPartII:H.0/joint-nilpotence)."
+          "statement": "θ is nilpotent with joint bound the number of nonzero degrees (HodgeStructuresPartII:H.0/joint-nilpotence).",
+          "nodeId": "HodgeStructuresPartII:H.5/hodge-system-nilpotent"
         },
         {
           "name": "SystemOfHodgeBundles.trace_eq_zero",
@@ -2250,7 +2292,8 @@
         "The non-nilpotent Higgs bundle (O ⊕ O, diag(ω, −ω)) satisfies the hypothesis for no t that is not a root of unity."
       ],
       "prerequisites": [
-        "HodgeStructuresPartII:H.5/system-of-hodge-bundles"
+        "HodgeStructuresPartII:H.5/system-of-hodge-bundles",
+        "HodgeStructuresPartII:H.5/hodge-system-scaling"
       ],
       "sources": [
         {
@@ -2295,7 +2338,9 @@
         "HodgeStructuresPartII:H.0/graded-higgs",
         "HodgeStructuresPartII:H.1/harmonic-bundle",
         "HodgeStructuresPartII:H.1/harmonic-correspondence",
-        "HodgeStructuresPartII:H.2"
+        "HodgeStructuresPartII:H.2/complex-pvhs",
+        "HodgeStructuresPartII:H.5/hodge-system-scaling",
+        "HodgeStructuresPartII:H.5/hodge-system-nilpotent"
       ],
       "sources": [
         {
@@ -2440,7 +2485,7 @@
         "HodgeStructuresPartII:H.5/strong-cohomological-rigidity",
         "HodgeStructuresPartII:H.5/deformation-to-cvhs",
         "HodgeStructuresPartII:H.5/trace-free-adjoint",
-        "HodgeStructuresPartII:H.2"
+        "HodgeStructuresPartII:H.2/complex-pvhs"
       ],
       "sources": [
         {
@@ -2469,7 +2514,7 @@
         "Γ any group; ℂ with its usual topology; the compact-closure and invariant-form definitions agree by averaging over the compact closure with Haar measure."
       ],
       "proofSteps": [
-        "If the closure H of ρ(Γ) is compact, average the standard Hermitian form over H with normalized Haar measure to obtain an invariant positive-definite form; an orthonormal basis for it conjugates ρ into U(r).",
+        "For compact closure H, import unitarizability by Haar averaging from Tau Ceti CompactGroups layer 1. Applied to the defining continuous representation of H, it gives an invariant positive-definite Hermitian form; an orthonormal basis conjugates the original representation into U(r). The Haar theorem is supplied by its owner, rather than planned again in this layer.",
         "Conversely U(r) is compact (TauCeti.Matrix.isCompact_unitaryGroup, from Mathlib's entry bound entry_norm_bound_of_unitary), and conjugation is a homeomorphism, so the closure of the image of a conjugate of a U(r)-valued representation is compact."
       ],
       "acceptance": [
@@ -2525,7 +2570,8 @@
         "mathlib:Matrix.unitaryGroup",
         "mathlib:entry_norm_bound_of_unitary",
         "tauceti:TauCeti.Matrix.isCompact_unitaryGroup",
-        "mathlib:Matrix.GeneralLinearGroup"
+        "mathlib:Matrix.GeneralLinearGroup",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups#layer-1-unitarizability-weyls-unitarian-trick"
       ],
       "api": [
         {
@@ -2536,17 +2582,20 @@
         {
           "name": "IsUnitaryRepresentation.iff_conj_unitaryGroup",
           "role": "characterisation",
-          "statement": "IsUnitaryRepresentation ρ ↔ ∃ P ∈ GL_r(ℂ), ∀ γ, P ρ(γ) P⁻¹ ∈ Matrix.unitaryGroup (Fin r) ℂ."
+          "statement": "IsUnitaryRepresentation ρ ↔ ∃ P ∈ GL_r(ℂ), ∀ γ, P ρ(γ) P⁻¹ ∈ Matrix.unitaryGroup (Fin r) ℂ.",
+          "nodeId": "HodgeStructuresPartII:H.5/unitary-conjugation"
         },
         {
           "name": "IsUnitaryRepresentation.iff_invariant_form",
           "role": "characterisation",
-          "statement": "IsUnitaryRepresentation ρ ↔ ρ preserves a positive-definite Hermitian form on ℂ^r."
+          "statement": "IsUnitaryRepresentation ρ ↔ ρ preserves a positive-definite Hermitian form on ℂ^r.",
+          "nodeId": "HodgeStructuresPartII:H.5/unitary-invariant-form"
         },
         {
           "name": "IsUnitaryRepresentation.semisimple",
           "role": "relation",
-          "statement": "A unitary representation is semisimple (orthogonal complements of subrepresentations are subrepresentations)."
+          "statement": "A unitary representation is semisimple (orthogonal complements of subrepresentations are subrepresentations).",
+          "nodeId": "HodgeStructuresPartII:H.5/unitary-semisimple"
         },
         {
           "name": "IsUnitaryRepresentation.of_finite",
@@ -2576,12 +2625,12 @@
       "sources": [
         {
           "sourceId": "LL24",
-          "locator": "§1.10, Notation 1.10.2, p.10",
+          "locator": "§1.10, Notation 1.10.2, p.11",
           "match": "Definition."
         },
         {
           "sourceId": "LL24",
-          "locator": "§1.10, Notation 1.10.2, p.10",
+          "locator": "§1.10, Notation 1.10.2, p.11",
           "match": "Equivalent characterizations."
         }
       ],
@@ -2614,7 +2663,10 @@
         "HodgeStructuresPartII:H.5/unitary-representation",
         "HodgeStructuresPartII:H.1/flat-metric-existence",
         "HodgeStructuresPartII:H.0/graded-higgs",
-        "HodgeStructuresPartII:H.2"
+        "HodgeStructuresPartII:H.2/complex-pvhs",
+        "HodgeStructuresPartII:H.5/hodge-system-nilpotent",
+        "HodgeStructuresPartII:H.5/unitary-invariant-form",
+        "HodgeStructuresPartII:H.5/unitary-semisimple"
       ],
       "sources": [
         {
@@ -2693,7 +2745,9 @@
         "HodgeStructuresPartII:H.5/rigid-locus",
         "HodgeStructuresPartII:H.5/rigid-connection",
         "HodgeStructuresPartII:H.1/hodge-coarse",
-        "HodgeStructuresPartII:H.1/hodge-scaling"
+        "HodgeStructuresPartII:H.1/hodge-scaling",
+        "HodgeStructuresPartII:H.5/rigid-locus-fibre",
+        "HodgeStructuresPartII:H.5/rigid-locus-equivariant"
       ],
       "api": [
         {
@@ -2719,7 +2773,8 @@
         {
           "name": "HodgeRigidLocus.nonzeroTrivialization",
           "role": "equivalence",
-          "statement": "M^rig_Hod ×_{𝔸¹} 𝔾_m ≅ M^rig_dR × 𝔾_m over 𝔾_m, (λ, E, D) ↦ ((E, λ⁻¹D), λ)."
+          "statement": "M^rig_Hod ×_{𝔸¹} 𝔾_m ≅ M^rig_dR × 𝔾_m over 𝔾_m, (λ, E, D) ↦ ((E, λ⁻¹D), λ).",
+          "nodeId": "HodgeStructuresPartII:H.5/rigid-hodge-nonzero"
         },
         {
           "name": "HodgeRigidLocus.mem_iff",
@@ -2782,7 +2837,8 @@
         "HodgeStructuresPartII:H.0/rees-specialization",
         "HodgeStructuresPartII:H.1/hodge-etale-product",
         "HodgeStructuresPartII:H.1/hodge-flatness",
-        "HodgeStructuresPartII:H.1/hodge-scaling"
+        "HodgeStructuresPartII:H.1/hodge-scaling",
+        "HodgeStructuresPartII:H.5/rigid-hodge-nonzero"
       ],
       "sources": [
         {
@@ -2821,7 +2877,7 @@
       ],
       "title": "Smooth arithmetic models of a pointed projective variety with torsion line bundle",
       "kind": "construction",
-      "statement": "Let X be a smooth connected projective complex variety, x ∈ X(ℂ) and L a line bundle of finite order d with a chosen isomorphism ι: L^{⊗d} ≅ O_X. An arithmetic model of (X, x, L, ι) consists of a finitely generated subring R̃ ⊂ ℂ with S = Spec R̃ smooth over Spec ℤ (so S is integral with generic point η and an embedding κ(η) ⊂ ℂ), a smooth projective morphism X_S → S with geometrically connected fibres, a section x_S, a line bundle L_S on X_S, an isomorphism ι_S: L_S^{⊗d} ≅ O_{X_S}, and an isomorphism Spec ℂ ×_S X_S ≅ X carrying x_S, L_S and ι_S to x, L and ι; moreover d is invertible on S. Every (X, x, L, ι) has an arithmetic model, any two are dominated by a common one (the finitely generated subrings of ℂ form a directed system with colimit ℂ), and the restriction of a model to a nonempty open S′ ⊂ S (inverting finitely many nonzero elements of R̃) is again a model. The model carries the canonical flat structure ∇_{L_S} on L_S determined by ι_S (relative connection whose d-th power is d), spreading the flat determinant (L, ∇_L) used in HodgeStructuresPartII:H.5/rigid-connection. When X is only quasi-projective with good compactification X̄ ⊃ D, the model also spreads X̄ and D to a smooth projective X̄_S with relative strict normal crossings divisor D_S.",
+      "statement": "Let X be a smooth connected projective complex variety, x ∈ X(ℂ) and L a line bundle of finite order d with a chosen isomorphism ι: L^{⊗d} ≅ O_X. An arithmetic model of (X, x, L, ι) consists of a finitely generated subring R̃ ⊂ ℂ with S = Spec R̃ smooth over Spec ℤ (so S is integral with generic point η and an embedding κ(η) ⊂ ℂ), a smooth projective morphism X_S → S with geometrically connected fibres, a section x_S, a line bundle L_S on X_S, an isomorphism ι_S: L_S^{⊗d} ≅ O_{X_S}, and an isomorphism Spec ℂ ×_S X_S ≅ X carrying x_S, L_S and ι_S to x, L and ι; moreover d is invertible on S. Every (X, x, L, ι) has an arithmetic model, any two are dominated by a common one (the finitely generated subrings of ℂ form a directed system with colimit ℂ), and the restriction of a model to a nonempty principal open S′ = Spec R̃[1/f], f ≠ 0 is again a model. The model carries the canonical flat structure ∇_{L_S} on L_S determined by ι_S (relative connection whose d-th power is d), spreading the flat determinant (L, ∇_L) used in HodgeStructuresPartII:H.5/rigid-connection. When X is only quasi-projective with good compactification X̄ ⊃ D, the model also spreads X̄ and D to a smooth projective X̄_S with relative strict normal crossings divisor D_S.",
       "hypotheses": [
         "X smooth connected projective over ℂ (or quasi-projective with a good compactification for the boundary version).",
         "The limit theorems of EGA IV §8 for finitely presented schemes, morphisms, quasi-coherent modules and the properties smooth, projective, geometrically connected, and openness of the smooth locus (EGA IV 17.7.8), are requested from SchemeAndStackFoundations:SF.0; Mathlib supplies the morphism part (Scheme.exists_hom_comp_eq_comp_of_locallyOfFiniteType)."
@@ -2901,7 +2957,7 @@
         {
           "name": "ArithmeticModel.restrict",
           "role": "functoriality",
-          "statement": "Restriction to a nonempty open subscheme of S (equivalently to R̃[1/f] ⊂ ℂ) is an arithmetic model."
+          "statement": "Restriction to a nonempty principal open Spec R̃[1/f], f ≠ 0, is again an arithmetic model with the same complex fibre. In any nonempty open one may choose such a principal open for subsequent shrinking; arbitrary opens of an affine scheme need not be affine."
         },
         {
           "name": "ArithmeticModel.dominate",
@@ -2911,7 +2967,8 @@
         {
           "name": "ArithmeticModel.spread_hom",
           "role": "universal-property",
-          "statement": "Morphisms, sections and isomorphisms of finitely presented objects over X extend over some restriction of S, uniquely after further shrinking (EGA IV 8.8.2(i), Mathlib Scheme.exists_hom_comp_eq_comp_of_locallyOfFiniteType)."
+          "statement": "Morphisms, sections and isomorphisms of finitely presented objects over X extend over some restriction of S, uniquely after further shrinking (EGA IV 8.8.2(i), Mathlib Scheme.exists_hom_comp_eq_comp_of_locallyOfFiniteType).",
+          "nodeId": "HodgeStructuresPartII:H.5/arithmetic-spread-morphisms"
         },
         {
           "name": "ArithmeticModel.genericFibreIso",
@@ -2960,7 +3017,7 @@
       ],
       "title": "Relative moduli of connections, Higgs bundles and λ-connections over arithmetic bases",
       "kind": "construction",
-      "statement": "Let (S, X_S, L_S) be an arithmetic model (HodgeStructuresPartII:H.5/smooth-arithmetic-model) and r ≥ 1. For Λ the split almost-polynomial sheaf of rings of differential operators on X_S/S of integrable connections (crystalline differential operators of order ≤ 1 generated in degree one), of Higgs fields (Sym T_{X_S/S}), or of λ-connections on X_S × 𝔸¹/S × 𝔸¹, there are quasi-projective S-schemes (respectively S × 𝔸¹-schemes) of finite type M_dR(X_S/S, r), M_Dol(X_S/S, r) and M_Hod(X_S/S, r) which uniformly corepresent the functors of families of Gieseker semistable Λ-modules with Hilbert polynomial r·P_O, with open subschemes M^s universally corepresenting the geometrically stable families (Langer Theorem 1.1). The fixed-determinant schemes M(X_S/S, L_S, r) are the fibres of the determinant morphism over the section (L_S, λ∇_{L_S}); on the stable opens they universally corepresent the geometrically stable families with that determinant, and in general their geometric points biject with S-equivalence classes on the geometric fibres. For every locally Noetherian S-scheme T there is a morphism φ_T: M(X_S/S) ×_S T → M(X_T/T), a bijection on points when T is a geometric point, and an isomorphism on the stable opens; in particular the base change of M^s along Spec ℂ → S is the stable fixed-determinant moduli of HodgeStructuresPartII:H.1/derham-coarse, HodgeStructuresPartII:H.1/dolbeault-coarse and HodgeStructuresPartII:H.1/hodge-coarse. The relative rigid loci are taken inside the stable opens: M^rig(X_S/S, L_S, r) := RigidLocus of M^s(X_S/S, L_S, r) → S (HodgeStructuresPartII:H.5/rigid-locus), and M^rig_Hod(X_S/S, L_S, r) := RigidLocus of M_Hod^s(X_S/S, L_S, r) → S × 𝔸¹. Isolated strictly polystable points of the semistable moduli (such as [O², d] on ℙ¹) are excluded. Notation M(X_S/S, L_S, ≤ r) = ⊔_{r′ ≤ r} M(X_S/S, L_S, r′).",
+      "statement": "Let (S, X_S, L_S) be an arithmetic model (HodgeStructuresPartII:H.5/smooth-arithmetic-model) and r ≥ 1. For Λ the split almost-polynomial sheaf of rings of differential operators on X_S/S of integrable connections (the full filtered algebra of crystalline differential operators, generated by its order-zero and order-one pieces), of Higgs fields (Sym T_{X_S/S}), or of λ-connections on X_S × 𝔸¹/S × 𝔸¹, there are quasi-projective S-schemes (respectively S × 𝔸¹-schemes) of finite type M_dR(X_S/S, r), M_Dol(X_S/S, r) and M_Hod(X_S/S, r) which uniformly corepresent the functors of families of Gieseker semistable Λ-modules with Hilbert polynomial r·P_O, with open subschemes M^s universally corepresenting the geometrically stable families (Langer Theorem 1.1). The fixed-determinant schemes M(X_S/S, L_S, r) are the fibres of the determinant morphism over the section (L_S, λ∇_{L_S}); on the stable opens they universally corepresent the geometrically stable families with that determinant, and in general their geometric points biject with S-equivalence classes on the geometric fibres. For every locally Noetherian S-scheme T there is a morphism φ_T: M(X_S/S) ×_S T → M(X_T/T), a bijection on points when T is a geometric point, and an isomorphism on the stable opens; in particular the base change of M^s along Spec ℂ → S is the stable fixed-determinant moduli of HodgeStructuresPartII:H.1/derham-coarse, HodgeStructuresPartII:H.1/dolbeault-coarse and HodgeStructuresPartII:H.1/hodge-coarse. The relative rigid loci are taken inside the stable opens: M^rig(X_S/S, L_S, r) := RigidLocus of M^s(X_S/S, L_S, r) → S (HodgeStructuresPartII:H.5/rigid-locus), and M^rig_Hod(X_S/S, L_S, r) := RigidLocus of M_Hod^s(X_S/S, L_S, r) → S × 𝔸¹. Isolated strictly polystable points of the semistable moduli (such as [O², d] on ℙ¹) are excluded. Notation M(X_S/S, L_S, ≤ r) = ⊔_{r′ ≤ r} M(X_S/S, L_S, r′).",
       "hypotheses": [
         "S of finite type over ℤ (a universally Japanese ring), X_S → S projective with geometrically connected fibres and a relatively very ample O(1).",
         "Boundedness of semistable Λ-modules in positive and mixed characteristic (Langer) and GIT over a universally Japanese base (Seshadri) are the inputs; the GIT part is requested from AlgebraicModuliForArithmeticGeometry:R09.5 and R09.2, and Langer's boundedness is recorded as a gap.",
@@ -3025,7 +3082,8 @@
         "HodgeStructuresPartII:H.1/dolbeault-coarse",
         "HodgeStructuresPartII:H.1/hodge-coarse",
         "AlgebraicModuliForArithmeticGeometry:R09.5",
-        "AlgebraicModuliForArithmeticGeometry:R09.2"
+        "AlgebraicModuliForArithmeticGeometry:R09.2",
+        "HodgeStructuresPartII:H.5/rigid-locus-fibre"
       ],
       "api": [
         {
@@ -3056,7 +3114,8 @@
         {
           "name": "RelativeModuli.stableGenericIso",
           "role": "compatibility",
-          "statement": "The stable open base-changes to the stable moduli of HodgeStructuresPartII:H.1/derham-coarse, HodgeStructuresPartII:H.1/dolbeault-coarse, HodgeStructuresPartII:H.1/hodge-coarse over ℂ."
+          "statement": "The stable open base-changes to the stable moduli of HodgeStructuresPartII:H.1/derham-coarse, HodgeStructuresPartII:H.1/dolbeault-coarse, HodgeStructuresPartII:H.1/hodge-coarse over ℂ.",
+          "nodeId": "HodgeStructuresPartII:H.5/relative-stable-complex-fibre"
         },
         {
           "name": "RelativeModuli.rigidLocus",
@@ -3119,7 +3178,9 @@
         "HodgeStructuresPartII:H.5/relative-moduli",
         "HodgeStructuresPartII:H.5/rigid-finite",
         "HodgeStructuresPartII:H.5/rigid-connection",
-        "SchemeAndStackFoundations:SF.0"
+        "SchemeAndStackFoundations:SF.0",
+        "HodgeStructuresPartII:H.5/arithmetic-spread-morphisms",
+        "HodgeStructuresPartII:H.5/relative-stable-complex-fibre"
       ],
       "sources": [
         {
@@ -3165,7 +3226,8 @@
         "HodgeStructuresPartII:H.5/rigid-higgs-nilpotent",
         "HodgeStructuresPartII:H.5/rigid-locus",
         "HodgeStructuresPartII:H.5/relative-moduli",
-        "SchemeAndStackFoundations:SF.0"
+        "SchemeAndStackFoundations:SF.0",
+        "HodgeStructuresPartII:H.5/arithmetic-spread-morphisms"
       ],
       "sources": [
         {
@@ -3198,7 +3260,7 @@
       "proofSteps": [
         "By construction ∪_i {s_i(η)} = M^rig_dR(X_S/S, L_S, ≤ r) ×_S η (the generic fibre's rigid points are exactly the N rigid connections, by the bijection on geometric points of HodgeStructuresPartII:H.5/relative-moduli).",
         "Zariski's main theorem factors (M^rig)_red → S as an open immersion into a scheme M̃ finite over S, with M^rig dense in M̃ (Esnault–Groechenig cite EGA IV 8.12.6; Mathlib's ZariskisMainTheorem).",
-        "Z = |M̃| ∖ ∪_i s_i(|S|) is open in M̃ (the s_i(S) are closed, M̃ → S being separated), so take its closure Z̄. Every point of the finite fibre M̃_η is a generic point of M̃ specializing from the dense open M^rig, so M̃_η = M^rig_η = {s_i(η)} and Z̄ ∩ M̃_η = ∅. Since M̃ is finite over S, h(Z̄) is closed and misses η; replace S by S ∖ h(Z̄) to get |M^rig| = ∪ s_i(|S|). (Esnault–Groechenig's printed step uses h(Z) for the open Z; see source issue HodgeStructuresPartII/E-H5-6.)",
+        "In the finite reduced compactification M̃ → S, the generic-fibre points are generic points of the horizontal irreducible components. Density of M^rig puts every such point in M^rig, so each is s_i(η). The corresponding horizontal component is the closure of this point and is exactly the closed image s_i(S). Thus the complement Z of the section images is contained in the finite union of the remaining, vertical components. Its closure Z̄ misses the generic fibre. The image h(Z̄) is closed by finiteness and misses η. Choose a nonempty principal open of S outside it; the sections then exhaust the rigid locus. Finiteness does not imply h(Z) closed when Z is open. See source issue HodgeStructuresPartII/E-H5-6.",
         "Disjointness: for i ≠ j the equalizer of s_i and s_j is closed in S (sections of a separated morphism) and does not contain η, since s_i(η) ≠ s_j(η); remove the finitely many equalizers."
       ],
       "acceptance": [
@@ -3210,7 +3272,8 @@
         "HodgeStructuresPartII:H.5/relative-moduli",
         "HodgeStructuresPartII:H.5/rigid-locus",
         "mathlib:AlgebraicGeometry.Scheme.Hom.quasiFiniteLocus",
-        "SchemeAndStackFoundations:SF.0"
+        "SchemeAndStackFoundations:SF.0",
+        "HodgeStructuresPartII:H.5/relative-stable-complex-fibre"
       ],
       "sources": [
         {
@@ -3264,7 +3327,8 @@
         "HodgeStructuresPartII:H.5/rigid-hodge-splitting",
         "HodgeStructuresPartII:H.5/relative-moduli",
         "HodgeStructuresPartII:H.5/rigid-correspondence",
-        "HodgeStructuresPartII:H.0/rees-parameter"
+        "HodgeStructuresPartII:H.0/rees-parameter",
+        "HodgeStructuresPartII:H.5/arithmetic-spread-morphisms"
       ],
       "sources": [
         {
@@ -3293,7 +3357,7 @@
       ],
       "title": "Integral representations and local systems",
       "kind": "definition",
-      "statement": "Let Γ be a group and G an affine group scheme of finite type over ℤ (GL_r, PGL_r or a split reductive group). A representation ρ: Γ → G(ℂ) is integral if there are a number field K ⊂ ℂ, with ring of integers 𝒪_K, and g ∈ G(ℂ) such that gρg⁻¹ factors through G(𝒪_K) ⊂ G(ℂ). An integral realization records the data (K, a flat affine model G_{𝒪_K} of G_K, the conjugator g, the 𝒪_K-valued representation); for G = GL_r it is equivalently a local system of projective 𝒪_K-modules W with W ⊗_{𝒪_K} ℂ ≅ V. A local system on a connected space is integral if its monodromy representation is. For finitely generated Γ and G = GL_r, ρ is integral iff it is conjugate to a representation into GL_r(ℤ̄), ℤ̄ the ring of algebraic integers in ℂ (Esnault–Groechenig's formulation). Integrality over the full ring 𝒪_K is required: integrality over a ring of S-integers 𝒪_{K,Σ} is a weaker, different notion. Integral is not strongly integral (HodgeStructuresPartII:H.5/strongly-integral).",
+      "statement": "Let Γ be a group and G an affine group scheme of finite type over ℤ (GL_r, PGL_r or a split reductive group). A representation ρ: Γ → G(ℂ) is integral if there are a number field K ⊂ ℂ, with ring of integers 𝒪_K, and g ∈ G(ℂ) such that gρg⁻¹ factors through G(𝒪_K) ⊂ G(ℂ). An integral realization records the data (K, the fixed base change G_{𝒪_K} = G ×_ℤ Spec 𝒪_K, the conjugator g, the 𝒪_K-valued representation); for G = GL_r it is equivalently a local system of projective 𝒪_K-modules W with W ⊗_{𝒪_K} ℂ ≅ V. A local system on a connected space is integral if its monodromy representation is. For finitely generated Γ and G = GL_r, ρ is integral iff it is conjugate to a representation into GL_r(ℤ̄), ℤ̄ the ring of algebraic integers in ℂ (Esnault–Groechenig's formulation). Integrality over the full ring 𝒪_K is required: integrality over a ring of S-integers 𝒪_{K,Σ} is a weaker, different notion. Integral is not strongly integral (HodgeStructuresPartII:H.5/strongly-integral).",
       "hypotheses": [
         "Γ any group (finitely generated for the GL_r(ℤ̄) reformulation and for the local criterion); G an affine group scheme over ℤ.",
         "The conjugator is in G(ℂ), not G(K); integrality is a property of the conjugacy class."
@@ -3370,7 +3434,7 @@
         {
           "name": "IntegralRealization",
           "role": "structure",
-          "statement": "The data (K, G_{𝒪_K}, g, ρ_{𝒪_K}) with ρ_{𝒪_K} ⊗_{𝒪_K} ℂ = gρg⁻¹; model changes and finite extensions K ⊂ K′ transport realizations."
+          "statement": "The data (K, G ×_ℤ Spec 𝒪_K, g, ρ_{𝒪_K}) with ρ_{𝒪_K} ⊗_{𝒪_K} ℂ = gρg⁻¹. The integral group model is fixed by the definition; compatible finite extensions K ⊂ K′ transport realizations by base change."
         },
         {
           "name": "IsIntegralRepresentation.iff_algebraicIntegers",
@@ -3380,7 +3444,8 @@
         {
           "name": "IsIntegralRepresentation.iff_projectiveLattice",
           "role": "equivalence",
-          "statement": "For G = GL_r, integral ↔ the local system comes by extension of scalars from a local system of finitely generated projective 𝒪_K-modules."
+          "statement": "For G = GL_r, integral ↔ the local system comes by extension of scalars from a local system of finitely generated projective 𝒪_K-modules.",
+          "nodeId": "HodgeStructuresPartII:H.5/integral-projective-lattice"
         },
         {
           "name": "IsIntegralRepresentation.of_finite",
@@ -3568,7 +3633,8 @@
       ],
       "prerequisites": [
         "HodgeStructuresPartII:H.5/strongly-integral",
-        "HodgeStructuresPartII:H.5/unitary-representation"
+        "HodgeStructuresPartII:H.5/unitary-representation",
+        "HodgeStructuresPartII:H.5/unitary-conjugation"
       ],
       "sources": [
         {
@@ -3605,7 +3671,8 @@
         "HodgeStructuresPartII:H.5/integral-representation",
         "mathlib:NumberField.Embeddings.finite_of_norm_le",
         "mathlib:entry_norm_bound_of_unitary",
-        "tauceti:TauCeti.Matrix.isCompact_unitaryGroup"
+        "tauceti:TauCeti.Matrix.isCompact_unitaryGroup",
+        "HodgeStructuresPartII:H.5/unitary-conjugation"
       ],
       "sources": [
         {
@@ -3755,7 +3822,8 @@
         "Fails if some λ ∈ Σ is not integral: ρ: ℤ → GL_1(ℤ[1/2]), 1 ↦ 2, at λ = 2."
       ],
       "prerequisites": [
-        "HodgeStructuresPartII:H.5/integral-representation"
+        "HodgeStructuresPartII:H.5/integral-representation",
+        "HodgeStructuresPartII:H.5/integral-projective-lattice"
       ],
       "sources": [
         {
@@ -3797,7 +3865,7 @@
         "The conclusion cannot be strengthened to strong integrality in general."
       ],
       "planet": {
-        "name": "Integrality of rigid local systems"
+        "name": "Integrality of cohomologically rigid local systems"
       },
       "prerequisites": [
         "HodgeStructuresPartII:H.5/cohomological-rigidity",
@@ -3944,10 +4012,12 @@
         }
       ],
       "prerequisites": [
-        "HodgeStructuresPartII:H.2",
         "ComplexComparisonPartII:C5",
         "LefschetzPencilsAndVanishingCycles:LPV.1",
-        "HodgeStructuresPartII:H.5/boundary-monodromy-data"
+        "HodgeStructuresPartII:H.5/boundary-monodromy-data",
+        "HodgeStructuresPartII:H.2/geometric-pure",
+        "HodgeStructuresPartII:H.2/complex-semisimple",
+        "HodgeStructuresPartII:H.2/isotypic-hodge"
       ],
       "api": [
         {
@@ -3958,12 +4028,13 @@
         {
           "name": "IsOfGeometricOrigin.iff_summand",
           "role": "characterisation",
-          "statement": "Equivalent with 'direct summand' in place of 'subquotient' (semisimplicity)."
+          "statement": "Equivalent with 'direct summand' in place of 'subquotient' (semisimplicity).",
+          "nodeId": "HodgeStructuresPartII:H.5/geometric-origin-summand"
         },
         {
           "name": "IsOfGeometricOrigin.restrict",
           "role": "functoriality",
-          "statement": "Pullback along a morphism X′ → X and restriction to dense opens preserve geometric origin."
+          "statement": "Restriction to a dense open preserves geometric origin. For a morphism h: X′ → X, pullback preserves the given geometric-origin witness when h⁻¹(U) is dense in X′ (in particular for a dominant morphism between irreducible varieties): pull back its smooth projective family to h⁻¹(U)."
         },
         {
           "name": "IsOfGeometricOrigin.sum_tensor_dual",
@@ -3973,7 +4044,8 @@
         {
           "name": "IsOfGeometricOrigin.quasiUnipotent",
           "role": "relation",
-          "statement": "Local systems of geometric origin have quasi-unipotent local monodromy at infinity (local monodromy theorem, LefschetzPencilsAndVanishingCycles:LPV.1)."
+          "statement": "Local systems of geometric origin have quasi-unipotent local monodromy at infinity (local monodromy theorem, LefschetzPencilsAndVanishingCycles:LPV.1).",
+          "nodeId": "HodgeStructuresPartII:H.5/geometric-origin-boundary"
         },
         {
           "name": "IsOfGeometricOrigin.integralPVHS",
@@ -4062,7 +4134,8 @@
       ],
       "prerequisites": [
         "HodgeStructuresPartII:H.5/integral-representation",
-        "HodgeStructuresPartII:H.2"
+        "HodgeStructuresPartII:H.2/complex-pvhs",
+        "HodgeStructuresPartII:H.5/integral-projective-lattice"
       ],
       "api": [
         {
@@ -4123,10 +4196,10 @@
         "Semisimplicity and isotypic decomposition of polarizable variations, and extension of variations across a codimension subset where the local system extends (Schmid's Corollary 4.11), are supplied by HodgeStructuresPartII:H.2."
       ],
       "proofSteps": [
-        "R^i f_* ℤ modulo torsion underlies a polarized ℤ-variation of Hodge structure, so R^i f_* ℂ is semisimple and its isotypic components carry sub-variations (Deligne; Landesman–Litt 2022 Proposition 4.1.4(2)).",
-        "A subquotient of R^i f_* ℂ is a direct summand; the summand is defined over a number field L and preserves a lattice, giving an 𝒪_L-local system W (Landesman–Litt 2022 §7.3: the 𝒪_K-structure comes from the ℤ-structure).",
-        "Each embedding ι gives a Galois-conjugate summand W^ι|_U of R^i f_* ℂ, which underlies a polarizable complex variation on U.",
-        "W^ι|_U extends as a local system to X, hence so does the variation (Schmid, Corollary 4.11, via HodgeStructuresPartII:H.2)."
+        "The torsion-free integral cohomology of the smooth projective family is a polarized integral variation. Its complex local system is semisimple by H.2/complex-semisimple. H.2/isotypic-hodge gives a variation on each irreducible support and a constant Hodge structure on its multiplicity space; a chosen local-system summand need not be a sub-variation of the originally chosen filtration.",
+        "Choose an isomorphic summand over a number field using the decomposition of the finite-dimensional rational algebra generated by the monodromy. Intersect its invariant subspace with the integral cohomology lattice after coefficient extension; this is a full, finite projective invariant lattice. Since the complex local system extends from U to X, the kernel of π₁(U) → π₁(X) acts trivially on this model and lattice as well.",
+        "Each field embedding gives another summand of the same integral geometric local system. Use H.2/isotypic-hodge to choose a polarizable complex variation on that summand over U.",
+        "Extend these variations to X using the separate Schmid-extension input recorded as a gap (Schmid Corollary 4.11, as used by LL22 Lemma 7.2.1). H.2 itself does not supply that extension theorem."
       ],
       "acceptance": [
         "Implies (3) ⇒ (4) of Landesman–Litt 2024 Corollary 9.1.4.",
@@ -4136,8 +4209,12 @@
         "HodgeStructuresPartII:H.5/geometric-origin",
         "HodgeStructuresPartII:H.5/integral-pvhs",
         "HodgeStructuresPartII:H.5/integral-representation",
-        "HodgeStructuresPartII:H.2",
-        "ComplexComparisonPartII:C5"
+        "ComplexComparisonPartII:C5",
+        "HodgeStructuresPartII:H.2/geometric-pure",
+        "HodgeStructuresPartII:H.2/complex-semisimple",
+        "HodgeStructuresPartII:H.2/isotypic-hodge",
+        "HodgeStructuresPartII:H.5/geometric-origin-summand",
+        "HodgeStructuresPartII:H.5/geometric-origin-boundary"
       ],
       "sources": [
         {
@@ -4183,8 +4260,10 @@
       "prerequisites": [
         "HodgeStructuresPartII:H.5/zero-higgs-unitary",
         "HodgeStructuresPartII:H.5/unitary-representation",
-        "HodgeStructuresPartII:H.4",
-        "HodgeStructuresPartII:H.2"
+        "HodgeStructuresPartII:H.2/complex-pvhs",
+        "HodgeStructuresPartII:H.2/complex-semisimple",
+        "HodgeStructuresPartII:H.4/parabolic-semistability",
+        "HodgeStructuresPartII:H.4/parabolic-clifford-rank"
       ],
       "sources": [
         {
@@ -4367,7 +4446,8 @@
         "mathlib:groupCohomology.H1InfRes_exact",
         "mathlib:groupCohomology.H1",
         "HodgeStructuresPartII:H.5/trace-free-adjoint",
-        "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-5-bundles-covers-products-and-finite-cover-descent"
+        "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-5-bundles-covers-products-and-finite-cover-descent",
+        "HodgeStructuresPartII:H.5/adjoint-no-invariants"
       ],
       "sources": [
         {
@@ -4407,7 +4487,9 @@
         "HodgeStructuresPartII:H.5/strong-implies-cohomological",
         "HodgeStructuresPartII:H.5/trace-free-adjoint",
         "HodgeStructuresPartII:H.5/unitary-representation",
-        "HodgeStructuresPartII:H.4"
+        "HodgeStructuresPartII:H.4/artinian-vanishing",
+        "HodgeStructuresPartII:H.5/adjoint-projectivization",
+        "HodgeStructuresPartII:H.5/adjoint-no-invariants"
       ],
       "sources": [
         {
@@ -4422,6 +4504,835 @@
         }
       ],
       "implementationStatus": "unchecked"
+    },
+    {
+      "id": "HodgeStructuresPartII:H.5/trace-splitting",
+      "parentStageId": "HodgeStructuresPartII:H.5",
+      "realises": [
+        "HodgeStructuresPartII:H.5"
+      ],
+      "title": "TraceFreeAdjoint.endSplitting",
+      "kind": "lemma",
+      "statement": "If (r : K) ≠ 0, the Γ-representation M_r(K) by conjugation is isomorphic to rep ρ ⊕ (trivial K), via A ↦ (A − (tr A / r)·1, tr A / r).",
+      "hypotheses": [
+        "r is invertible in K."
+      ],
+      "proofSteps": [
+        "Split the trace by A ↦ (A − (tr A/r)1, tr A/r); trace invariance proves equivariance."
+      ],
+      "acceptance": [
+        "Provides the named API fact for the consuming nodes without unfolding the parent definition."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.5/trace-free-adjoint"
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/NonabelianHodge/Rigid/TraceFreeAdjoint",
+        "namespace": "TauCeti.NonabelianHodge"
+      },
+      "sources": [
+        {
+          "sourceId": "LL24",
+          "locator": "§1.10, Notation 1.10.2, p.11",
+          "match": "Derived API consequence supporting TraceFreeAdjoint.endSplitting. Pins ad ρ as Ad∘ρ on g^der, which for GL_r and PGL_r is the trace-free (pgl_r) coefficient system."
+        },
+        {
+          "sourceId": "EG20",
+          "locator": "§7, p.148",
+          "match": "Derived API consequence supporting TraceFreeAdjoint.endSplitting. The trace-free endomorphisms End⁰(E,∇) are the coefficients of cohomological rigidity on the fixed-determinant moduli."
+        },
+        {
+          "sourceId": "KP20",
+          "locator": "§1, Definition 1.1, p.2",
+          "match": "Derived API consequence supporting TraceFreeAdjoint.endSplitting. General reductive G: the coefficient module is g^der with Ad∘ρ."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "addedBy": "REV-HodgeStructuresPartII--H.5"
+    },
+    {
+      "id": "HodgeStructuresPartII:H.5/adjoint-projectivization",
+      "parentStageId": "HodgeStructuresPartII:H.5",
+      "realises": [
+        "HodgeStructuresPartII:H.5"
+      ],
+      "title": "TraceFreeAdjoint.projectivization",
+      "kind": "lemma",
+      "statement": "rep ρ depends only on the composite Γ → PGL_r(K) and, when r ∈ K^×, agrees with the adjoint representation on Lie(PGL_r) = pgl_r(K).",
+      "hypotheses": [
+        "K is a field; Γ is any group; ρ is a group homomorphism into G(K).",
+        "The splitting End = End⁰ ⊕ (scalars) and the identification sl_r ≅ pgl_r require r to be invertible in K; neither is part of the definition.",
+        "For the flat-bundle and Higgs versions, E is a vector bundle on a complex manifold (or smooth variety) X and the trace is the fibrewise matrix trace."
+      ],
+      "proofSteps": [
+        "Scalar matrices act trivially by conjugation; identify sl_r with pgl_r when r is invertible."
+      ],
+      "acceptance": [
+        "Provides the named API fact for the consuming nodes without unfolding the parent definition."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.5/trace-free-adjoint"
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/NonabelianHodge/Rigid/TraceFreeAdjoint",
+        "namespace": "TauCeti.NonabelianHodge"
+      },
+      "sources": [
+        {
+          "sourceId": "LL24",
+          "locator": "§1.10, Notation 1.10.2, p.11",
+          "match": "Derived API consequence supporting TraceFreeAdjoint.projectivization. Pins ad ρ as Ad∘ρ on g^der, which for GL_r and PGL_r is the trace-free (pgl_r) coefficient system."
+        },
+        {
+          "sourceId": "EG20",
+          "locator": "§7, p.148",
+          "match": "Derived API consequence supporting TraceFreeAdjoint.projectivization. The trace-free endomorphisms End⁰(E,∇) are the coefficients of cohomological rigidity on the fixed-determinant moduli."
+        },
+        {
+          "sourceId": "KP20",
+          "locator": "§1, Definition 1.1, p.2",
+          "match": "Derived API consequence supporting TraceFreeAdjoint.projectivization. General reductive G: the coefficient module is g^der with Ad∘ρ."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "addedBy": "REV-HodgeStructuresPartII--H.5"
+    },
+    {
+      "id": "HodgeStructuresPartII:H.5/adjoint-no-invariants",
+      "parentStageId": "HodgeStructuresPartII:H.5",
+      "realises": [
+        "HodgeStructuresPartII:H.5"
+      ],
+      "title": "TraceFreeAdjoint.invariants_eq_bot",
+      "kind": "lemma",
+      "statement": "If ρ is absolutely irreducible and r ∈ K^×, then the Γ-invariants of rep ρ are zero (Schur's lemma: commuting matrices are scalars, and the only trace-zero scalar is 0).",
+      "hypotheses": [
+        "ρ is absolutely irreducible; r is invertible in K."
+      ],
+      "proofSteps": [
+        "Schur identifies the centralizer with scalars; invertibility of r kills a trace-zero scalar."
+      ],
+      "acceptance": [
+        "Provides the named API fact for the consuming nodes without unfolding the parent definition."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.5/trace-free-adjoint"
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/NonabelianHodge/Rigid/TraceFreeAdjoint",
+        "namespace": "TauCeti.NonabelianHodge"
+      },
+      "sources": [
+        {
+          "sourceId": "LL24",
+          "locator": "§1.10, Notation 1.10.2, p.11",
+          "match": "Derived API consequence supporting TraceFreeAdjoint.invariants_eq_bot. Pins ad ρ as Ad∘ρ on g^der, which for GL_r and PGL_r is the trace-free (pgl_r) coefficient system."
+        },
+        {
+          "sourceId": "EG20",
+          "locator": "§7, p.148",
+          "match": "Derived API consequence supporting TraceFreeAdjoint.invariants_eq_bot. The trace-free endomorphisms End⁰(E,∇) are the coefficients of cohomological rigidity on the fixed-determinant moduli."
+        },
+        {
+          "sourceId": "KP20",
+          "locator": "§1, Definition 1.1, p.2",
+          "match": "Derived API consequence supporting TraceFreeAdjoint.invariants_eq_bot. General reductive G: the coefficient module is g^der with Ad∘ρ."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "addedBy": "REV-HodgeStructuresPartII--H.5"
+    },
+    {
+      "id": "HodgeStructuresPartII:H.5/adjoint-base-change",
+      "parentStageId": "HodgeStructuresPartII:H.5",
+      "realises": [
+        "HodgeStructuresPartII:H.5"
+      ],
+      "title": "TraceFreeAdjoint.baseChange",
+      "kind": "lemma",
+      "statement": "For a field embedding σ: K → L, rep (σ ∘ ρ) ≅ (rep ρ) ⊗_{K,σ} L, compatibly with the matrix entries.",
+      "hypotheses": [
+        "K → L is an embedding of fields; ρ: Γ → GL_r(K)."
+      ],
+      "proofSteps": [
+        "The trace kernel commutes with flat extension of fields, and the matrix conjugation action commutes with applying the embedding entry by entry."
+      ],
+      "acceptance": [
+        "Provides the named API fact for the consuming nodes without unfolding the parent definition."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.5/trace-free-adjoint"
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/NonabelianHodge/Rigid/TraceFreeAdjoint",
+        "namespace": "TauCeti.NonabelianHodge"
+      },
+      "sources": [
+        {
+          "sourceId": "LL24",
+          "locator": "§1.10, Notation 1.10.2, p.11",
+          "match": "Derived API consequence supporting TraceFreeAdjoint.baseChange. Pins ad ρ as Ad∘ρ on g^der, which for GL_r and PGL_r is the trace-free (pgl_r) coefficient system."
+        },
+        {
+          "sourceId": "EG20",
+          "locator": "§7, p.148",
+          "match": "Derived API consequence supporting TraceFreeAdjoint.baseChange. The trace-free endomorphisms End⁰(E,∇) are the coefficients of cohomological rigidity on the fixed-determinant moduli."
+        },
+        {
+          "sourceId": "KP20",
+          "locator": "§1, Definition 1.1, p.2",
+          "match": "Derived API consequence supporting TraceFreeAdjoint.baseChange. General reductive G: the coefficient module is g^der with Ad∘ρ."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "addedBy": "REV-HodgeStructuresPartII--H.5"
+    },
+    {
+      "id": "HodgeStructuresPartII:H.5/adjoint-h1-base-change",
+      "parentStageId": "HodgeStructuresPartII:H.5",
+      "realises": [
+        "HodgeStructuresPartII:H.5"
+      ],
+      "title": "TraceFreeAdjoint.baseChange_H1",
+      "kind": "lemma",
+      "statement": "For finitely generated Γ and a field embedding σ: K → L, H¹(Γ, rep(σ∘ρ)) ≅ H¹(Γ, rep ρ) ⊗_{K,σ} L, in particular the dimensions agree (the cocycle space is cut out by K-linear equations in finitely many generator values).",
+      "hypotheses": [
+        "K → L is an embedding of fields; ρ: Γ → GL_r(K).",
+        "Γ is finitely generated; no finite-presentation hypothesis is required."
+      ],
+      "proofSteps": [
+        "Choose finitely many generators. Cocycle values lie in a finite-dimensional vector space and the relations impose linear equations. Their span has a finite basis even if the list of relations is infinite. Flat field extension preserves this kernel and the coboundary image; quotienting gives the tensor-product isomorphism."
+      ],
+      "acceptance": [
+        "Provides the named API fact for the consuming nodes without unfolding the parent definition."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.5/trace-free-adjoint",
+        "HodgeStructuresPartII:H.5/adjoint-base-change"
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/NonabelianHodge/Rigid/TraceFreeAdjoint",
+        "namespace": "TauCeti.NonabelianHodge"
+      },
+      "sources": [
+        {
+          "sourceId": "LL24",
+          "locator": "§1.10, Notation 1.10.2, p.11",
+          "match": "Derived API consequence supporting TraceFreeAdjoint.baseChange_H1. Pins ad ρ as Ad∘ρ on g^der, which for GL_r and PGL_r is the trace-free (pgl_r) coefficient system."
+        },
+        {
+          "sourceId": "EG20",
+          "locator": "§7, p.148",
+          "match": "Derived API consequence supporting TraceFreeAdjoint.baseChange_H1. The trace-free endomorphisms End⁰(E,∇) are the coefficients of cohomological rigidity on the fixed-determinant moduli."
+        },
+        {
+          "sourceId": "KP20",
+          "locator": "§1, Definition 1.1, p.2",
+          "match": "Derived API consequence supporting TraceFreeAdjoint.baseChange_H1. General reductive G: the coefficient module is g^der with Ad∘ρ."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "addedBy": "REV-HodgeStructuresPartII--H.5"
+    },
+    {
+      "id": "HodgeStructuresPartII:H.5/rigid-locus-field-clopen",
+      "parentStageId": "HodgeStructuresPartII:H.5",
+      "realises": [
+        "HodgeStructuresPartII:H.5"
+      ],
+      "title": "RigidLocus.field_isClopen",
+      "kind": "lemma",
+      "statement": "If S = Spec K for a field K and M is of finite type, RigidLocus f is closed and open, finite over K, and its complement has no isolated points.",
+      "hypotheses": [
+        "The scheme is of finite type over a field."
+      ],
+      "proofSteps": [
+        "For a finite-type scheme over a field, isolated points form its finitely many zero-dimensional irreducible components; each is open and closed, with its local scheme structure."
+      ],
+      "acceptance": [
+        "Provides the named API fact for the consuming nodes without unfolding the parent definition."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.5/rigid-locus"
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/NonabelianHodge/Rigid/Locus",
+        "namespace": "TauCeti.NonabelianHodge"
+      },
+      "sources": [
+        {
+          "sourceId": "EG20",
+          "locator": "§3.1, Definition 3.2, p.123",
+          "match": "Derived API consequence supporting RigidLocus.field_isClopen. The rigid locus is the quasi-finite locus."
+        },
+        {
+          "sourceId": "EG20",
+          "locator": "§3.1, p.121",
+          "match": "Derived API consequence supporting RigidLocus.field_isClopen. Over ℂ the rigid locus is the closed (and open) subscheme of isolated points."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "addedBy": "REV-HodgeStructuresPartII--H.5"
+    },
+    {
+      "id": "HodgeStructuresPartII:H.5/rigid-locus-fibre",
+      "parentStageId": "HodgeStructuresPartII:H.5",
+      "realises": [
+        "HodgeStructuresPartII:H.5"
+      ],
+      "title": "RigidLocus.fibre",
+      "kind": "lemma",
+      "statement": "For s ∈ S, the fibre of RigidLocus f over s is the rigid locus of the fibre M_s → Spec κ(s), i.e. the isolated points of M_s.",
+      "hypotheses": [
+        "f locally of finite type (Mathlib's openness theorem needs only this).",
+        "Over a field, M of finite type, so that the rigid locus is finite and closed as well as open."
+      ],
+      "proofSteps": [
+        "Use the baseline characterization by an open singleton in a fibre; over a geometric field quasi-finiteness is exactly isolation. Retain the open subscheme structure."
+      ],
+      "acceptance": [
+        "Provides the named API fact for the consuming nodes without unfolding the parent definition."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.5/rigid-locus"
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/NonabelianHodge/Rigid/Locus",
+        "namespace": "TauCeti.NonabelianHodge"
+      },
+      "sources": [
+        {
+          "sourceId": "EG20",
+          "locator": "§3.1, Definition 3.2, p.123",
+          "match": "Derived API consequence supporting RigidLocus.fibre. The rigid locus is the quasi-finite locus."
+        },
+        {
+          "sourceId": "EG20",
+          "locator": "§3.1, p.121",
+          "match": "Derived API consequence supporting RigidLocus.fibre. Over ℂ the rigid locus is the closed (and open) subscheme of isolated points."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "addedBy": "REV-HodgeStructuresPartII--H.5"
+    },
+    {
+      "id": "HodgeStructuresPartII:H.5/rigid-locus-equivariant",
+      "parentStageId": "HodgeStructuresPartII:H.5",
+      "realises": [
+        "HodgeStructuresPartII:H.5"
+      ],
+      "title": "RigidLocus.equivariant",
+      "kind": "lemma",
+      "statement": "If a group acts on M and S compatibly with f, the action preserves RigidLocus f.",
+      "hypotheses": [
+        "f locally of finite type (Mathlib's openness theorem needs only this).",
+        "Over a field, M of finite type, so that the rigid locus is finite and closed as well as open."
+      ],
+      "proofSteps": [
+        "An equivariant automorphism identifies the relevant fibres and preserves isolation, hence preserves the quasi-finite open subscheme."
+      ],
+      "acceptance": [
+        "Provides the named API fact for the consuming nodes without unfolding the parent definition."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.5/rigid-locus"
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/NonabelianHodge/Rigid/Locus",
+        "namespace": "TauCeti.NonabelianHodge"
+      },
+      "sources": [
+        {
+          "sourceId": "EG20",
+          "locator": "§3.1, Definition 3.2, p.123",
+          "match": "Derived API consequence supporting RigidLocus.equivariant. The rigid locus is the quasi-finite locus."
+        },
+        {
+          "sourceId": "EG20",
+          "locator": "§3.1, p.121",
+          "match": "Derived API consequence supporting RigidLocus.equivariant. Over ℂ the rigid locus is the closed (and open) subscheme of isolated points."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "addedBy": "REV-HodgeStructuresPartII--H.5"
+    },
+    {
+      "id": "HodgeStructuresPartII:H.5/hodge-system-scaling",
+      "parentStageId": "HodgeStructuresPartII:H.5",
+      "realises": [
+        "HodgeStructuresPartII:H.5"
+      ],
+      "title": "SystemOfHodgeBundles.scaleIso",
+      "kind": "lemma",
+      "statement": "For t ∈ ℂ^×, the isomorphism (E,tθ) → (E,θ) acting by t^p on E^p, i.e. (φ ⊗ id)(tθ(e)) = θ(φ(e)).",
+      "hypotheses": [
+        "θ is an integrable Higgs field (θ ∧ θ = 0), as in HodgeStructuresPartII:H.0/twisted-higgs with trivial twist.",
+        "The grading is by subbundles (locally free summands), not merely subsheaves."
+      ],
+      "proofSteps": [
+        "On degree p multiply by t^p. Since θ lowers degree by one, this intertwines tθ with θ; inverse multiplication gives an isomorphism."
+      ],
+      "acceptance": [
+        "Provides the named API fact for the consuming nodes without unfolding the parent definition."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.5/system-of-hodge-bundles"
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/NonabelianHodge/Rigid/HodgeBundles",
+        "namespace": "TauCeti.NonabelianHodge"
+      },
+      "sources": [
+        {
+          "sourceId": "S92",
+          "locator": "§4, p.44",
+          "match": "Derived API consequence supporting SystemOfHodgeBundles.scaleIso. Definition (θ printed as 6 in the scan)."
+        },
+        {
+          "sourceId": "S92",
+          "locator": "§4, p.45",
+          "match": "Derived API consequence supporting SystemOfHodgeBundles.scaleIso. Systems of Hodge bundles are scaling-fixed."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "addedBy": "REV-HodgeStructuresPartII--H.5"
+    },
+    {
+      "id": "HodgeStructuresPartII:H.5/hodge-system-nilpotent",
+      "parentStageId": "HodgeStructuresPartII:H.5",
+      "realises": [
+        "HodgeStructuresPartII:H.5"
+      ],
+      "title": "SystemOfHodgeBundles.nilpotent",
+      "kind": "lemma",
+      "statement": "θ is nilpotent with joint bound the number of nonzero degrees (HodgeStructuresPartII:H.0/joint-nilpotence).",
+      "hypotheses": [
+        "θ is an integrable Higgs field (θ ∧ θ = 0), as in HodgeStructuresPartII:H.0/twisted-higgs with trivial twist.",
+        "The grading is by subbundles (locally free summands), not merely subsheaves."
+      ],
+      "proofSteps": [
+        "Each application lowers the degree. Beyond the finite support interval every iterated component vanishes."
+      ],
+      "acceptance": [
+        "Provides the named API fact for the consuming nodes without unfolding the parent definition."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.5/system-of-hodge-bundles"
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/NonabelianHodge/Rigid/HodgeBundles",
+        "namespace": "TauCeti.NonabelianHodge"
+      },
+      "sources": [
+        {
+          "sourceId": "S92",
+          "locator": "§4, p.44",
+          "match": "Derived API consequence supporting SystemOfHodgeBundles.nilpotent. Definition (θ printed as 6 in the scan)."
+        },
+        {
+          "sourceId": "S92",
+          "locator": "§4, p.45",
+          "match": "Derived API consequence supporting SystemOfHodgeBundles.nilpotent. Systems of Hodge bundles are scaling-fixed."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "addedBy": "REV-HodgeStructuresPartII--H.5"
+    },
+    {
+      "id": "HodgeStructuresPartII:H.5/unitary-conjugation",
+      "parentStageId": "HodgeStructuresPartII:H.5",
+      "realises": [
+        "HodgeStructuresPartII:H.5"
+      ],
+      "title": "IsUnitaryRepresentation.iff_conj_unitaryGroup",
+      "kind": "lemma",
+      "statement": "IsUnitaryRepresentation ρ ↔ ∃ P ∈ GL_r(ℂ), ∀ γ, P ρ(γ) P⁻¹ ∈ Matrix.unitaryGroup (Fin r) ℂ.",
+      "hypotheses": [
+        "Γ any group; ℂ with its usual topology; the compact-closure and invariant-form definitions agree by averaging over the compact closure with Haar measure."
+      ],
+      "proofSteps": [
+        "Import compact-group unitarizability from CompactGroups layer 1 and choose an orthonormal basis; conversely use compactness of U(r) and conjugation as a homeomorphism."
+      ],
+      "acceptance": [
+        "Provides the named API fact for the consuming nodes without unfolding the parent definition."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.5/unitary-representation",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups#layer-1-unitarizability-weyls-unitarian-trick"
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/NonabelianHodge/Rigid/Unitary",
+        "namespace": "TauCeti.NonabelianHodge"
+      },
+      "sources": [
+        {
+          "sourceId": "LL24",
+          "locator": "§1.10, Notation 1.10.2, p.11",
+          "match": "Derived API consequence supporting IsUnitaryRepresentation.iff_conj_unitaryGroup. Definition."
+        },
+        {
+          "sourceId": "LL24",
+          "locator": "§1.10, Notation 1.10.2, p.11",
+          "match": "Derived API consequence supporting IsUnitaryRepresentation.iff_conj_unitaryGroup. Equivalent characterizations."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "addedBy": "REV-HodgeStructuresPartII--H.5"
+    },
+    {
+      "id": "HodgeStructuresPartII:H.5/unitary-invariant-form",
+      "parentStageId": "HodgeStructuresPartII:H.5",
+      "realises": [
+        "HodgeStructuresPartII:H.5"
+      ],
+      "title": "IsUnitaryRepresentation.iff_invariant_form",
+      "kind": "lemma",
+      "statement": "IsUnitaryRepresentation ρ ↔ ρ preserves a positive-definite Hermitian form on ℂ^r.",
+      "hypotheses": [
+        "Γ any group; ℂ with its usual topology; the compact-closure and invariant-form definitions agree by averaging over the compact closure with Haar measure."
+      ],
+      "proofSteps": [
+        "The compact-group owner supplies an invariant positive form. Conversely a preserved positive form gives conjugacy into U(r), hence compact closure."
+      ],
+      "acceptance": [
+        "Provides the named API fact for the consuming nodes without unfolding the parent definition."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.5/unitary-representation",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups#layer-1-unitarizability-weyls-unitarian-trick"
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/NonabelianHodge/Rigid/Unitary",
+        "namespace": "TauCeti.NonabelianHodge"
+      },
+      "sources": [
+        {
+          "sourceId": "LL24",
+          "locator": "§1.10, Notation 1.10.2, p.11",
+          "match": "Derived API consequence supporting IsUnitaryRepresentation.iff_invariant_form. Definition."
+        },
+        {
+          "sourceId": "LL24",
+          "locator": "§1.10, Notation 1.10.2, p.11",
+          "match": "Derived API consequence supporting IsUnitaryRepresentation.iff_invariant_form. Equivalent characterizations."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "addedBy": "REV-HodgeStructuresPartII--H.5"
+    },
+    {
+      "id": "HodgeStructuresPartII:H.5/unitary-semisimple",
+      "parentStageId": "HodgeStructuresPartII:H.5",
+      "realises": [
+        "HodgeStructuresPartII:H.5"
+      ],
+      "title": "IsUnitaryRepresentation.semisimple",
+      "kind": "lemma",
+      "statement": "A unitary representation is semisimple (orthogonal complements of subrepresentations are subrepresentations).",
+      "hypotheses": [
+        "Γ any group; ℂ with its usual topology; the compact-closure and invariant-form definitions agree by averaging over the compact closure with Haar measure."
+      ],
+      "proofSteps": [
+        "The orthogonal complement of every invariant subspace for an invariant positive form is invariant, yielding complete reducibility."
+      ],
+      "acceptance": [
+        "Provides the named API fact for the consuming nodes without unfolding the parent definition."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.5/unitary-representation",
+        "HodgeStructuresPartII:H.5/unitary-invariant-form"
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/NonabelianHodge/Rigid/Unitary",
+        "namespace": "TauCeti.NonabelianHodge"
+      },
+      "sources": [
+        {
+          "sourceId": "LL24",
+          "locator": "§1.10, Notation 1.10.2, p.11",
+          "match": "Derived API consequence supporting IsUnitaryRepresentation.semisimple. Definition."
+        },
+        {
+          "sourceId": "LL24",
+          "locator": "§1.10, Notation 1.10.2, p.11",
+          "match": "Derived API consequence supporting IsUnitaryRepresentation.semisimple. Equivalent characterizations."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "addedBy": "REV-HodgeStructuresPartII--H.5"
+    },
+    {
+      "id": "HodgeStructuresPartII:H.5/rigid-hodge-nonzero",
+      "parentStageId": "HodgeStructuresPartII:H.5",
+      "realises": [
+        "HodgeStructuresPartII:H.5"
+      ],
+      "title": "HodgeRigidLocus.nonzeroTrivialization",
+      "kind": "lemma",
+      "statement": "M^rig_Hod ×_{𝔸¹} 𝔾_m ≅ M^rig_dR × 𝔾_m over 𝔾_m, (λ, E, D) ↦ ((E, λ⁻¹D), λ).",
+      "hypotheses": [
+        "X smooth connected projective; stable fixed-determinant moduli on the vanishing-Chern-class component.",
+        "q is of finite type, so the quasi-finite locus is open (Mathlib)."
+      ],
+      "proofSteps": [
+        "Restrict the H.1 scaling trivialization of the Hodge moduli over 𝔾_m to the quasi-finite locus; equivariance identifies the rigid fibres."
+      ],
+      "acceptance": [
+        "Provides the named API fact for the consuming nodes without unfolding the parent definition."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.5/hodge-rigid-locus",
+        "HodgeStructuresPartII:H.5/rigid-locus-equivariant"
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/NonabelianHodge/Rigid/HodgeLocus",
+        "namespace": "TauCeti.NonabelianHodge"
+      },
+      "sources": [
+        {
+          "sourceId": "EG20",
+          "locator": "§4.2, p.132",
+          "match": "Derived API consequence supporting HodgeRigidLocus.nonzeroTrivialization. Definition."
+        },
+        {
+          "sourceId": "EG20",
+          "locator": "§4.2, proof of Lemma 4.9, p.132",
+          "match": "Derived API consequence supporting HodgeRigidLocus.nonzeroTrivialization. Nonzero trivialization of the Hodge moduli."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "addedBy": "REV-HodgeStructuresPartII--H.5"
+    },
+    {
+      "id": "HodgeStructuresPartII:H.5/arithmetic-spread-morphisms",
+      "parentStageId": "HodgeStructuresPartII:H.5",
+      "realises": [
+        "HodgeStructuresPartII:H.5"
+      ],
+      "title": "ArithmeticModel.spread_hom",
+      "kind": "lemma",
+      "statement": "Morphisms, sections and isomorphisms of finitely presented objects over X extend over some restriction of S, uniquely after further shrinking (EGA IV 8.8.2(i), Mathlib Scheme.exists_hom_comp_eq_comp_of_locallyOfFiniteType).",
+      "hypotheses": [
+        "X smooth connected projective over ℂ (or quasi-projective with a good compactification for the boundary version).",
+        "The limit theorems of EGA IV §8 for finitely presented schemes, morphisms, quasi-coherent modules and the properties smooth, projective, geometrically connected, and openness of the smooth locus (EGA IV 17.7.8), are requested from SchemeAndStackFoundations:SF.0; Mathlib supplies the morphism part (Scheme.exists_hom_comp_eq_comp_of_locallyOfFiniteType)."
+      ],
+      "proofSteps": [
+        "Import finite-presentation existence of descent from SF.0. For equalities between already descended maps use the pinned affine-transition equality theorem, verifying quasi-compactness; invert one nonzero element to make finitely many data and equalities hold simultaneously."
+      ],
+      "acceptance": [
+        "Provides the named API fact for the consuming nodes without unfolding the parent definition."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.5/smooth-arithmetic-model"
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/NonabelianHodge/Rigid/ArithmeticModel",
+        "namespace": "TauCeti.NonabelianHodge"
+      },
+      "sources": [
+        {
+          "sourceId": "EG20",
+          "locator": "§3.1, Lemma 3.1, p.122",
+          "match": "Derived API consequence supporting ArithmeticModel.spread_hom. Smoothness of the base."
+        },
+        {
+          "sourceId": "EG20",
+          "locator": "§3.1, proof of Lemma 3.1, p.122",
+          "match": "Derived API consequence supporting ArithmeticModel.spread_hom. Spreading smoothness and projectivity (EGA IV 8.8.2, 8.10.5)."
+        },
+        {
+          "sourceId": "EG18",
+          "locator": "§3, p.6",
+          "match": "Derived API consequence supporting ArithmeticModel.spread_hom. Models with compactification, boundary and base point."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "addedBy": "REV-HodgeStructuresPartII--H.5"
+    },
+    {
+      "id": "HodgeStructuresPartII:H.5/relative-stable-complex-fibre",
+      "parentStageId": "HodgeStructuresPartII:H.5",
+      "realises": [
+        "HodgeStructuresPartII:H.5"
+      ],
+      "title": "RelativeModuli.stableGenericIso",
+      "kind": "lemma",
+      "statement": "The stable open base-changes to the stable moduli of HodgeStructuresPartII:H.1/derham-coarse, HodgeStructuresPartII:H.1/dolbeault-coarse, HodgeStructuresPartII:H.1/hodge-coarse over ℂ.",
+      "hypotheses": [
+        "S of finite type over ℤ (a universally Japanese ring), X_S → S projective with geometrically connected fibres and a relatively very ample O(1).",
+        "Boundedness of semistable Λ-modules in positive and mixed characteristic (Langer) and GIT over a universally Japanese base (Seshadri) are the inputs; the GIT part is requested from AlgebraicModuliForArithmeticGeometry:R09.5 and R09.2, and Langer's boundedness is recorded as a gap.",
+        "Over geometric points of positive characteristic, M_dR is a moduli of Λ-modules for crystalline differential operators; it is not asserted to be related to M_Dol by a homeomorphism."
+      ],
+      "proofSteps": [
+        "Universal corepresentation of the geometrically stable family functor is compatible with base change; identify the complex fibre with the H.1 stable coarse moduli using uniqueness of corepresenting objects."
+      ],
+      "acceptance": [
+        "Provides the named API fact for the consuming nodes without unfolding the parent definition."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.5/relative-moduli"
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/NonabelianHodge/Rigid/RelativeModuli",
+        "namespace": "TauCeti.NonabelianHodge"
+      },
+      "sources": [
+        {
+          "sourceId": "Langer14",
+          "locator": "§1, Theorem 1.1, p.4",
+          "match": "Derived API consequence supporting RelativeModuli.stableGenericIso. Existence of relative moduli of Λ-modules."
+        },
+        {
+          "sourceId": "Langer14",
+          "locator": "§1, Theorem 1.1, p.4",
+          "match": "Derived API consequence supporting RelativeModuli.stableGenericIso. Geometric points."
+        },
+        {
+          "sourceId": "EG20",
+          "locator": "§3.1, p.122",
+          "match": "Derived API consequence supporting RelativeModuli.stableGenericIso. Use of Langer's moduli over arithmetic bases with geometric-point base change only."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "addedBy": "REV-HodgeStructuresPartII--H.5"
+    },
+    {
+      "id": "HodgeStructuresPartII:H.5/integral-projective-lattice",
+      "parentStageId": "HodgeStructuresPartII:H.5",
+      "realises": [
+        "HodgeStructuresPartII:H.5"
+      ],
+      "title": "IsIntegralRepresentation.iff_projectiveLattice",
+      "kind": "lemma",
+      "statement": "For G = GL_r, integral ↔ the local system comes by extension of scalars from a local system of finitely generated projective 𝒪_K-modules.",
+      "hypotheses": [
+        "Γ any group (finitely generated for the GL_r(ℤ̄) reformulation and for the local criterion); G an affine group scheme over ℤ.",
+        "The conjugator is in G(ℂ), not G(K); integrality is a property of the conjugacy class."
+      ],
+      "proofSteps": [
+        "An integral matrix realization gives a free lattice. Conversely a finite projective lattice over 𝒪_K becomes free after a finite extension that principalizes its Steinitz class; its stable action then gives an integral matrix realization."
+      ],
+      "acceptance": [
+        "Provides the named API fact for the consuming nodes without unfolding the parent definition."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.5/integral-representation"
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/NonabelianHodge/Integral/Basic",
+        "namespace": "TauCeti.NonabelianHodge"
+      },
+      "sources": [
+        {
+          "sourceId": "LL24",
+          "locator": "§8.3, Definition 8.3.1, p.39",
+          "match": "Derived API consequence supporting IsIntegralRepresentation.iff_projectiveLattice. Definition."
+        },
+        {
+          "sourceId": "EG18",
+          "locator": "§1, p.1",
+          "match": "Derived API consequence supporting IsIntegralRepresentation.iff_projectiveLattice. Projective-lattice formulation."
+        },
+        {
+          "sourceId": "EG20",
+          "locator": "§6, Remark 6.2, p.146",
+          "match": "Derived API consequence supporting IsIntegralRepresentation.iff_projectiveLattice. Formulation with the ring of all algebraic integers (bar lost in the text layer)."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "addedBy": "REV-HodgeStructuresPartII--H.5"
+    },
+    {
+      "id": "HodgeStructuresPartII:H.5/geometric-origin-summand",
+      "parentStageId": "HodgeStructuresPartII:H.5",
+      "realises": [
+        "HodgeStructuresPartII:H.5"
+      ],
+      "title": "IsOfGeometricOrigin.iff_summand",
+      "kind": "lemma",
+      "statement": "Equivalent with 'direct summand' in place of 'subquotient' (semisimplicity).",
+      "hypotheses": [
+        "X smooth connected over ℂ; f smooth projective (Esnault–Groechenig, Langer–Simpson) — Landesman–Litt allow smooth proper f; record which variant a consumer uses."
+      ],
+      "proofSteps": [
+        "The smooth projective cohomology variation from H.2 is semisimple. Its subquotients are therefore direct summands as local systems."
+      ],
+      "acceptance": [
+        "Provides the named API fact for the consuming nodes without unfolding the parent definition."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.5/geometric-origin",
+        "HodgeStructuresPartII:H.2/complex-semisimple"
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/NonabelianHodge/Integral/GeometricOrigin",
+        "namespace": "TauCeti.NonabelianHodge"
+      },
+      "sources": [
+        {
+          "sourceId": "LL24",
+          "locator": "§9.1, p.45",
+          "match": "Derived API consequence supporting IsOfGeometricOrigin.iff_summand. Landesman–Litt's definition (smooth proper)."
+        },
+        {
+          "sourceId": "LS18",
+          "locator": "§1, p.1",
+          "match": "Derived API consequence supporting IsOfGeometricOrigin.iff_summand. Langer–Simpson's definition (smooth projective, direct factor)."
+        },
+        {
+          "sourceId": "EG20",
+          "locator": "§1, p.104",
+          "match": "Derived API consequence supporting IsOfGeometricOrigin.iff_summand. Esnault–Groechenig's Gauss–Manin formulation."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "addedBy": "REV-HodgeStructuresPartII--H.5"
+    },
+    {
+      "id": "HodgeStructuresPartII:H.5/geometric-origin-boundary",
+      "parentStageId": "HodgeStructuresPartII:H.5",
+      "realises": [
+        "HodgeStructuresPartII:H.5"
+      ],
+      "title": "IsOfGeometricOrigin.quasiUnipotent",
+      "kind": "lemma",
+      "statement": "Local systems of geometric origin have quasi-unipotent local monodromy at infinity (local monodromy theorem, LefschetzPencilsAndVanishingCycles:LPV.1).",
+      "hypotheses": [
+        "X smooth connected over ℂ; f smooth projective (Esnault–Groechenig, Langer–Simpson) — Landesman–Litt allow smooth proper f; record which variant a consumer uses."
+      ],
+      "proofSteps": [
+        "Apply the local monodromy theorem from LPV.1 to the smooth projective family over the witness open, then pass to the subquotient. At divisors where the given local system extends, the monodromy is trivial."
+      ],
+      "acceptance": [
+        "Provides the named API fact for the consuming nodes without unfolding the parent definition."
+      ],
+      "prerequisites": [
+        "HodgeStructuresPartII:H.5/geometric-origin",
+        "LefschetzPencilsAndVanishingCycles:LPV.1"
+      ],
+      "library": {
+        "module": "TauCeti/Geometry/NonabelianHodge/Integral/GeometricOrigin",
+        "namespace": "TauCeti.NonabelianHodge"
+      },
+      "sources": [
+        {
+          "sourceId": "LL24",
+          "locator": "§9.1, p.45",
+          "match": "Derived API consequence supporting IsOfGeometricOrigin.quasiUnipotent. Landesman–Litt's definition (smooth proper)."
+        },
+        {
+          "sourceId": "LS18",
+          "locator": "§1, p.1",
+          "match": "Derived API consequence supporting IsOfGeometricOrigin.quasiUnipotent. Langer–Simpson's definition (smooth projective, direct factor)."
+        },
+        {
+          "sourceId": "EG20",
+          "locator": "§1, p.104",
+          "match": "Derived API consequence supporting IsOfGeometricOrigin.quasiUnipotent. Esnault–Groechenig's Gauss–Manin formulation."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "addedBy": "REV-HodgeStructuresPartII--H.5"
     }
   ],
   "requests": [
@@ -4541,6 +5452,13 @@
       "neededBy": [
         "HodgeStructuresPartII:H.5/prescribed-monodromy-tangent"
       ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups#layer-1-unitarizability-weyls-unitarian-trick",
+      "need": "Unitarizability of a finite-dimensional continuous complex representation of a compact group: an invariant positive-definite Hermitian form, obtained from normalized Haar measure, with change to an orthonormal basis conjugating the action into U(r).",
+      "neededBy": [
+        "HodgeStructuresPartII:H.5/unitary-representation"
+      ]
     }
   ],
   "coverage": [
@@ -4548,11 +5466,10 @@
       "stageId": "HodgeStructuresPartII:H.5",
       "status": "planned",
       "remaining": [
-        "Lemma-level decomposition when the roadmap comes near the front of the line: split the multi-part theorems (rigid-hodge-splitting (i)–(v), nice-hodge-models (a)–(c), no-symmetric-differentials (a)–(c), rigid-sl3-geometric (a)–(b)) and promote the API items used as prerequisites (Hitchin scaling, trace splitting, base change of H¹) to lemma nodes.",
-        "Resolve the recorded gaps: Mochizuki's tame theory, ℓ-adic companions and tame specialization (pending Part II roadmaps of GlobalShtukas and InverseGalois), Langer's mixed-characteristic boundedness, the analytic intermediate extension, the Tannakian inputs of the Hodge splitting, isomonodromy carriers, the Brunebarbe–Klingler–Totaro and Langer–Simpson inputs, and finite presentation of quasi-projective fundamental groups.",
-        "Replace the stage prerequisites HodgeStructuresPartII:H.2 (polarized complex variations, semisimplicity and uniqueness up to shift, Schmid extension) and HodgeStructuresPartII:H.4 (Landesman–Litt Theorem 6.2.1, parabolic semistability) by node ids once those layers are planned, and check that their statements match the uses recorded here.",
-        "Discharge the supplier requests (R09.1, R09.2, R09.4, R09.5, R09.7d, C5 with coefficients, EDC.5, LPV.1, SF.0, GS.6, DWP.7, IG.1, CA.6, Tau Ceti AlgebraicTopology stages 5–6).",
-        "Elaborate the omission-inventory signatures of the suggested file against native moduli carriers once H.1's carriers exist."
+        "Refine the multi-part target theorems only at lemma level: rigid-hodge-splitting (i)–(v), nice-hodge-models (a)–(c), no-symmetric-differentials (a)–(c), and rigid-sl3-geometric (a)–(b). The consumed H.5 API facts already have lemma nodes; H.1 should promote its consumed Hitchin scaling and nilpotent-fibre API at its owner.",
+        "Resolve the thirteen recorded gaps: tame non-abelian Hodge theory, higher-dimensional ℓ-adic companions and tame specialization, mixed-characteristic boundedness, analytic intermediate extension, Tannakian splitting, isomonodromy, symmetric-differential and rank-three geometric-origin inputs, quasi-projective finite presentation, native moduli carriers, Schmid extension, and API promotion at the Hitchin owner, and arithmetic lattice/strong-approximation inputs.",
+        "Discharge the precise supplier requests at the existing owners. H.2 and H.4 dependencies use matching fine nodes; they do not supply Schmid extension or the missing isomonodromy inputs.",
+        "Replace omission-inventory entries by native signatures when their carriers exist. Elaborated prototypes verify only the represented special cases; they provide no proofs or completed formalisation."
       ]
     }
   ],
@@ -4593,7 +5510,7 @@
       "neededBy": [
         "HodgeStructuresPartII:H.5/rigid-hodge-splitting"
       ],
-      "detail": "Part (iv) of HodgeStructuresPartII:H.5/rigid-hodge-splitting (the 𝔾_m-equivariant isomorphism M^rig_Hod ≅ M^rig_Dol × 𝔸¹ with non-reduced structure, Esnault–Groechenig Lemma 4.9) is proved from the étale-local triviality of (iii) by viewing the Isom-scheme as an Aut(A)-torsor on [𝔸¹/𝔾_m], i.e. a filtered fibre functor on Rep(Aut A), and splitting it by Ziegler's Theorem 1.3 (Aut(A) is smooth in characteristic 0). The Tannakian dictionary (torsors on [𝔸¹/𝔾_m] as filtered fibre functors; vector bundles on [𝔸¹/𝔾_m] as filtered vector spaces) and Ziegler's theorem are library inputs that no layer of the atlas plans. Recorded also as source issue HodgeStructuresPartII/E-H5-2 for the printed proof."
+      "detail": "Part (iv) of HodgeStructuresPartII:H.5/rigid-hodge-splitting (the 𝔾_m-equivariant isomorphism M^rig_Hod ≅ M^rig_Dol × 𝔸¹ with non-reduced structure, Esnault–Groechenig Lemma 4.9) has a planned proof from the étale-local triviality of (iii) by viewing the Isom-scheme as an Aut(A)-torsor on [𝔸¹/𝔾_m], i.e. a filtered fibre functor on Rep(Aut A), and splitting it by Ziegler's Theorem 1.3 (Aut(A) is smooth in characteristic 0). The Tannakian dictionary (torsors on [𝔸¹/𝔾_m] as filtered fibre functors; vector bundles on [𝔸¹/𝔾_m] as filtered vector spaces) and Ziegler's theorem are missing inputs that no layer of the atlas plans. Recorded also as source issue HodgeStructuresPartII/E-H5-2 for the printed proof."
     },
     {
       "title": "Isomonodromic deformations and analytically general curves",
@@ -4601,7 +5518,7 @@
         "HodgeStructuresPartII:H.5/low-rank-pvhs-unitary",
         "HodgeStructuresPartII:H.5/very-general-rank-bound"
       ],
-      "detail": "Landesman–Litt 2022 work on the universal cover T_{g,n} of M_{g,n}: isomonodromic deformations of flat bundles with regular singularities, analytically (very) general points, and the semistability of isomonodromic deformations (their Theorem 1.3.4 and Corollary 6.1.2). No layer plans these carriers; the parabolic semistability and Clifford bounds come from HodgeStructuresPartII:H.4, and mapping class groups and versal families from the proposed roadmap Mapping class groups and canonical representations of surface groups (DESIGN-MappingClassGroupsAndCanonicalRepresentations, pending)."
+      "detail": "Landesman–Litt 2022 work on the universal cover T_{g,n} of M_{g,n}: isomonodromic deformations of flat bundles with regular singularities, analytically (very) general points, and the semistability of isomonodromic deformations (their Theorem 1.3.4 and Corollary 6.1.2). No layer plans these carriers; the parabolic semistability and Clifford bounds come from HodgeStructuresPartII:H.4, and mapping class groups and versal families from the proposed roadmap Mapping class groups and canonical representations of surface groups (DESIGN-MappingClassGroupsAndCanonicalRepresentations, pending). The low-rank deduction also uses LL22 Lemma 7.1.1, pp.49–50, and its Lemma 4.1.5 input: the parabolic Deligne extension of a polarized variation, with the top Hodge piece forced to be horizontal by semistability. H.4 parabolic-semistability defines the predicate but does not supply this Hodge-theoretic implication; retain that input in this gap."
     },
     {
       "title": "Symmetric differentials, positivity and p-adic harmonic maps",
@@ -4635,6 +5552,30 @@
         "HodgeStructuresPartII:H.5/system-of-hodge-bundles"
       ],
       "detail": "The suggested file prototypes the group-theoretic, number-theoretic and scheme-theoretic (quasi-finite locus) parts natively; signatures that need the moduli spaces of H.1, line bundles with connections or polarized variations are listed in its omission inventory with their statements. They are to be replaced by native signatures once those carriers exist."
+    },
+    {
+      "title": "Extension of a polarized variation from a dense open",
+      "neededBy": [
+        "HodgeStructuresPartII:H.5/geometric-origin-integral-pvhs"
+      ],
+      "detail": "The geometric-origin proof also needs Schmid, Variation of Hodge structure (1973), Corollary 4.11: a polarized variation on a dense open extends when its underlying local system extends across the complement, with the applicable regularity hypotheses. H.2/geometric-pure, complex-semisimple and isotypic-hodge do not supply this extension theorem. Record the extension input separately, rather than attributing it to the entire H.2 stage. LL22 Lemma 7.2.1, pp.51–52, uses it explicitly."
+    },
+    {
+      "title": "Promoted Hitchin API at its existing H.1 owner",
+      "neededBy": [
+        "HodgeStructuresPartII:H.5/rigid-higgs-nilpotent",
+        "HodgeStructuresPartII:H.5/no-symmetric-differentials"
+      ],
+      "detail": "H.1/hitchin-map already specifies HitchinMorph.scale and HitchinMorph.nilpotent_iff. These consumed API facts should become lemma nodes in the H.1 packet under PROTOCOL §4. This review cannot edit that packet. H.5 continues to cite the existing owner and does not duplicate its mathematics."
+    },
+    {
+      "title": "Arithmetic lattice principalization and reductive strong approximation",
+      "neededBy": [
+        "HodgeStructuresPartII:H.5/integral-projective-lattice",
+        "HodgeStructuresPartII:H.5/integrality-local-criterion",
+        "HodgeStructuresPartII:H.5/geometric-origin-integral-pvhs"
+      ],
+      "detail": "The GL_r route uses gluing integral lattices over number-field completions, the Steinitz description of finite projective modules over a Dedekind ring, and principalization after a finite extension. The reductive route uses lifting to the simply connected derived group after a finite extension and strong approximation to combine the local conjugators (KP20 Proposition 3.1, p.5). EG18 §1, pp.1–2, and KP20 §3 explain these inputs, but they are not supplied by a recorded baseline declaration or fine node here. Their arithmetic owner must provide these statements; no inaccessible Bass or Platonov–Rapinchuk book was read or reproduced."
     }
   ],
   "sourceIssues": [
@@ -4652,7 +5593,12 @@
         "Atlas extraction PAPER-ESNAULT-GROECHENIG-20 and its review REV-PAPER-ESNAULT-GROECHENIG-20 (sourceIssues E1–E12), read 2026-10-07.",
         "Acta Mathematica 225 article page and published PDF (SHA-256 0d81a6d3…), read 2026-10-07; no erratum attached.",
         "arXiv:1707.00752v4 (1 June 2020), downloaded 2026-10-07 (SHA-256 bcc435b5…): Lemma 4.9 and its proof compared with the published text; same statement and proof."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed the missing determinant powers, affine-line parameter in the section domain, duplicate determinant endpoint and part-label mismatch at published p.133 and p.124. These are transcription errors; the corrected mathematical statements are retained.",
+        "by": "REV-HodgeStructuresPartII--H.5"
+      }
     },
     {
       "id": "HodgeStructuresPartII/E-H5-2",
@@ -4660,7 +5606,7 @@
       "kind": "gap",
       "locator": "Lemma 4.9 and its proof, published p.132",
       "printed": "Lemma 4.9 claims that M^rig_Hod(X/C, L, r) → A¹ is finite and flat and splits G_m-equivariantly as M^rig_Dol(X/C, L, r) ×_C A¹; its proof concludes from [Si4, Theorem 9.1], which makes M_Hod(X/C, L, r) étale-locally a product of M_Dol(X/C, L, r) with A¹ near a complex point of the λ = 0 fibre.",
-      "correction": "Finiteness needs the observation that every point of the rigid locus lies on the Rees section of a rigid variation (so the reduced locus is a finite disjoint union of sections); the global 𝔾_m-equivariant isomorphism including non-reduced structure needs, beyond étale-local triviality, the classification of 𝔾_m-equivariant étale-locally trivial finite flat families over 𝔸¹: the Isom-scheme is an Aut(A)-torsor on [𝔸¹/𝔾_m], a filtered fibre functor, split by a cocharacter in characteristic 0 (Ziegler, Theorem 1.3). Node HodgeStructuresPartII:H.5/rigid-hodge-splitting supplies these steps; the lemma as stated is correct.",
+      "correction": "Finiteness needs the observation that every point of the rigid locus lies on the Rees section of a rigid variation (so the reduced locus is a finite disjoint union of sections); the global 𝔾_m-equivariant isomorphism including non-reduced structure needs, beyond étale-local triviality, the classification of 𝔾_m-equivariant étale-locally trivial finite flat families over 𝔸¹: the Isom-scheme is an Aut(A)-torsor on [𝔸¹/𝔾_m], a filtered fibre functor, split by a cocharacter in characteristic 0 (Ziegler, Theorem 1.3). Node HodgeStructuresPartII:H.5/rigid-hodge-splitting records this conditional repair and its missing Tannakian input; no contradiction to the lemma statement was found.",
       "reason": "Simpson's Theorem 9.1 gives étale neighbourhoods U → M_Hod,0 × 𝔸¹ that are étale, not 𝔾_m-equivariant isomorphisms; combined with the trivialization over 𝔾_m it shows that each component of the rigid locus is étale locally Spec(A) × 𝔸¹, which does not by itself give a global equivariant product (an equivariant finite flat family can be étale locally trivial without the trivialization being equivariant), and the printed proof does not address finiteness at all. The isomorphism is used again on p.135 (before Claim 4.14) for W_i(k(s))-points of the arithmetic rigid loci, which also needs it to spread to the model of Proposition 4.10, whose part (c) is a bijection of underlying sets.",
       "affects": "the proof",
       "known": "new",
@@ -4669,7 +5615,12 @@
         "Acta Mathematica 225 article page and published PDF (SHA-256 0d81a6d3…), read 2026-10-07; no erratum attached.",
         "arXiv:1707.00752v4 (1 June 2020), downloaded 2026-10-07 (SHA-256 bcc435b5…): Lemma 4.9 and its proof compared with the published text; same statement and proof.",
         "Simpson 1996 §9 (Theorem 9.1, Corollary 9.2, Conjecture 9.3) for an equivariant form of the local product; none stated."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed a proof gap at published p.132: Simpson §9 gives an étale local product, which does not alone provide the global equivariant trivialization including nilpotents. The packet explicitly retains the filtered-fibre-functor/Ziegler input as a gap; this verdict does not claim a counterexample to the lemma.",
+        "by": "REV-HodgeStructuresPartII--H.5"
+      }
     },
     {
       "id": "HodgeStructuresPartII/E-H5-3",
@@ -4685,22 +5636,33 @@
         "Atlas extraction PAPER-ESNAULT-GROECHENIG-20 and its review REV-PAPER-ESNAULT-GROECHENIG-20 (sourceIssues E1–E12), read 2026-10-07.",
         "Acta Mathematica 225 article page and published PDF (SHA-256 0d81a6d3…), read 2026-10-07; no erratum attached.",
         "arXiv:1707.00752v4 (1 June 2020), downloaded 2026-10-07 (SHA-256 bcc435b5…): Lemma 4.9 and its proof compared with the published text; same statement and proof."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at published p.106 by comparison with §7 p.148. The scalar summand contributes H¹(X,ℂ); fixed-determinant tangent coefficients must be End⁰.",
+        "by": "REV-HodgeStructuresPartII--H.5"
+      }
     },
     {
       "id": "HodgeStructuresPartII/E-H5-4",
       "source": "EG18",
       "kind": "misprint",
-      "locator": "§3, proof of Theorem 1.1, arXiv v3 p.12",
+      "locator": "§3, proof of Theorem 1.1, arXiv v3 p.12; published p.4291",
       "printed": "In the proof of Theorem 1.1, the Betti–étale comparison is used to conclude H¹(U, a_* End(V_i^{σ top})) = 0, with End in place of the trace-free End⁰.",
       "correction": "H¹(U, a_* End⁰(V_i^{σ top})) = 0, the trace-free endomorphisms, as in the preceding sentences (H¹(U, a_* A^σ_i) = 0 with A^σ_i = End⁰(V^σ_{i,λ,s})).",
       "reason": "The vanishing is transported from A^σ_i = End⁰(·), defined on p.11; with End the group contains H¹(U, a_* ℂ), which need not vanish, and only the trace-free statement is cohomological rigidity.",
       "affects": "nothing",
       "known": "new",
       "searched": [
-        "arXiv:1711.06436 abstract page, checked 2026-10-07: versions v1–v3 listed, no erratum or corrigendum mentioned; v3 read in full.",
-        "Versions v1, v2 and the Selecta Mathematica 24 (2018) version were not read, so the misprint may be corrected there."
-      ]
+        "arXiv:1711.06436v3, checked independently on 2026-10-08 at the stated locators.",
+        "Author-hosted Selecta offprint https://page.mi.fu-berlin.de/esnault/preprints/helene/128_esn_gro.pdf, SHA-256 19f8cea47acd6c6762e1a53e67ac58fa2be3fa70a768ec3dd547cc77826ba129, checked 2026-10-08 at pp.4282–4283 and 4291; the slips persist.",
+        "Author publication list and arXiv abstract page checked 2026-10-08; no linked erratum found. Versions v1 and v2 were not checked."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in arXiv v3 p.12 and in the author-hosted published Selecta text p.4291. The preceding transport is for End⁰, while the final displayed comparison drops the superscript.",
+        "by": "REV-HodgeStructuresPartII--H.5"
+      }
     },
     {
       "id": "HodgeStructuresPartII/E-H5-6",
@@ -4708,7 +5670,7 @@
       "kind": "gap",
       "locator": "Proof of Proposition 3.3(e), published pp.124–125",
       "printed": "The proof of Proposition 3.3(e) sets Z = |M̃| ∖ ⋃_{i=1}^{N} s_i(|S|) and argues that, M̃ being finite over S, h(Z) ⊂ S is closed and, by (3.2), avoids η.",
-      "correction": "Z is open in M̃ (the sections s_i(S) of the separated M̃ → S are closed), so finiteness of M̃ does not make h(Z) closed. Use the closure Z̄: every point of the finite fibre M̃_η is a generic point of M̃ (it specializes from the dense open M^rig), so M̃_η = M^rig_η = {s_i(η)} and Z̄ misses M̃_η; h(Z̄) is closed and misses η, and S is replaced by S ∖ h(Z̄). Also, the rigid locus must be taken in the stable moduli (as EG20 does over ℂ on p.121), and Zariski's main theorem applies to its reduction. Node HodgeStructuresPartII:H.5/rigid-locus-exhaustion states the corrected argument.",
+      "correction": "In the finite reduced compactification M̃ → S, the generic-fibre points are generic points of the horizontal irreducible components. Density of M^rig puts every such point in M^rig, so each is s_i(η). The corresponding horizontal component is the closure of this point and is exactly the closed image s_i(S). Thus the complement Z of the section images is contained in the finite union of the remaining, vertical components. Its closure Z̄ misses the generic fibre. The image h(Z̄) is closed by finiteness and misses η. Choose a nonempty principal open of S outside it; the sections then exhaust the rigid locus. Finiteness does not imply h(Z) closed when Z is open. See source issue HodgeStructuresPartII/E-H5-6.",
       "reason": "A finite morphism maps closed sets to closed sets; Z is the complement of a closed set, so the printed inference needs the closure, and the closure must be shown to avoid the generic fibre.",
       "affects": "the proof",
       "known": "new",
@@ -4716,22 +5678,54 @@
         "Atlas extraction PAPER-ESNAULT-GROECHENIG-20 and its review REV-PAPER-ESNAULT-GROECHENIG-20 (sourceIssues E1–E12), read 2026-10-07.",
         "Acta Mathematica 225 article page and published PDF (SHA-256 0d81a6d3…), read 2026-10-07; no erratum attached.",
         "arXiv:1707.00752v4 (1 June 2020), downloaded 2026-10-07 (SHA-256 bcc435b5…): Lemma 4.9 and its proof compared with the published text; same statement and proof."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at published pp.124–125 and arXiv v4 pp.18–19. A finite map is closed on closed subsets, not arbitrary open subsets. For example Spec k[u,v,x]/(ux,x(x−v)) → Spec k[u,v] is finite, and the complement of the x=0 section has image {u=0,v≠0}, which is not closed. The horizontal/vertical component argument proves the closure avoids the generic fibre.",
+        "by": "REV-HodgeStructuresPartII--H.5"
+      }
     },
     {
       "id": "HodgeStructuresPartII/E-H5-5",
       "source": "EG18",
       "kind": "misprint",
-      "locator": "§2, proof of Proposition 2.1, arXiv v3 pp.4–5",
+      "locator": "§2, proof of Proposition 2.1, arXiv v3 pp.4–5; published pp.4282–4283",
       "printed": "The proof of Proposition 2.1 lets ρ act on the bundle π : ⊔_{k=0}^{r} Gr(W, k) → T, takes a presentation Γ ≃ ⟨r_1, …, r_e | s_1, …, s_f⟩ with L_1, …, L_e ∈ μ_r(K) so that r_i ↦ L_i gives the character χ_L, and imposes det(A_j) = L_i for j = 1, …, e.",
       "correction": "The Grassmannian union runs over 0 < k < r (for k = 0 and k = r every subspace is invariant, so T_0 as printed would be empty); the values L_j lie in μ_d(K), d the order of χ_L (μ_r only when d divides r); the relation is det(A_j) = L_j. Node HodgeStructuresPartII:H.5/prescribed-monodromy-moduli states the corrected construction.",
-      "reason": "The zero subspace and W itself are Γ-stable, so their Grassmannians lie in the fixed locus; χ_L takes values in μ_d by the setup of §2 (\"a rank 1 local system L of order d\"); the index i of L_i is the relation index of s_i, not the generator index j.",
+      "reason": "The zero subspace and the whole representation are always invariant. The determinant character in §2 has order d, so its generator values lie in μ_d. Each generator matrix must have the matching determinant value.",
       "affects": "nothing",
       "known": "new",
       "searched": [
-        "arXiv:1711.06436 abstract page, checked 2026-10-07: versions v1–v3, no erratum mentioned; v3 read in full.",
-        "Versions v1, v2 and the Selecta Mathematica 24 (2018) version were not read, so the misprints may be corrected there."
-      ]
+        "arXiv:1711.06436v3, checked independently on 2026-10-08 at the stated locators.",
+        "Author-hosted Selecta offprint https://page.mi.fu-berlin.de/esnault/preprints/helene/128_esn_gro.pdf, SHA-256 19f8cea47acd6c6762e1a53e67ac58fa2be3fa70a768ec3dd547cc77826ba129, checked 2026-10-08 at pp.4282–4283 and 4291; the slips persist.",
+        "Author publication list and arXiv abstract page checked 2026-10-08; no linked erratum found. Versions v1 and v2 were not checked."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed all three slips in arXiv v3 pp.4–5 and published Selecta pp.4282–4283. Zero and full Grassmannian fibres are invariant; determinant values have order dividing d rather than r; generator j must use its own determinant value L_j.",
+        "by": "REV-HodgeStructuresPartII--H.5"
+      }
+    },
+    {
+      "id": "HodgeStructuresPartII/E-H5-7",
+      "source": "EG20",
+      "kind": "gap",
+      "locator": "Lemma 5.5, proof, published p.140; arXiv:1707.00752v4 p.30",
+      "printed": "The final trace comparison is used to conclude that a twisting character χ with χ^r=1 is the trivial character.",
+      "correction": "Retain only finiteness of the group of μ_r-valued twists for finitely generated Γ. A deformation with constant projective class has fixed-determinant classes in a finite set; it need not have χ=1. Use a complete DVR and determinant-root lifting for the converse, as in projective-rigidity.",
+      "reason": "An irreducible representation can have a nontrivial self-twist with identical traces. The Q₈ matrices A=diag(i,−i), B=[[0,1],[−1,0]] and character χ(A)=1, χ(B)=−1 give an explicit example: conjugation by A intertwines ρ and χρ. Their traces are zero off the center.",
+      "affects": "the proof",
+      "known": "Already recorded as PAPER-ESNAULT-GROECHENIG-20/E12; added to this layer because it relies on Lemma 5.5.",
+      "searched": [
+        "Atlas PAPER-ESNAULT-GROECHENIG-20 result and review, independently inspected 2026-10-08.",
+        "Published Acta text p.140 and latest arXiv v4 p.30 checked 2026-10-08; the trace inference is present in both.",
+        "Author publication list and arXiv abstract checked 2026-10-08; no linked erratum found."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The printed inference fails on the explicit irreducible Q₈ self-twist above. This is a gap in the given argument; the fixed-determinant/projective rigidity equivalence is retained with a repaired proof sketch.",
+        "by": "REV-HodgeStructuresPartII--H.5"
+      }
     }
   ],
   "sourceVersions": [
@@ -4747,7 +5741,7 @@
       "url": "https://arxiv.org/pdf/1711.06436v3",
       "read": "2026-10-07",
       "sha256": "622fb7b327b30b522b23c6d50f23e24b5e252d44f61c3684594a78362d5a64dc",
-      "scope": "Esnault–Groechenig 2018, arXiv v3, read completely; the Selecta version was not read."
+      "scope": "Planner reading receipt for EG18 arXiv v3, 2026-10-07. The independent review also checked the cited preprint locators and the published proof passages registered separately below."
     },
     {
       "kind": "preprint",
@@ -4818,6 +5812,20 @@
       "read": "2026-10-07",
       "sha256": "2b2096f89734c40995f7a1f20ae2f4568cfed4dd00a5c0ca5df507dfe6ca88c8",
       "scope": "Simpson 1996, arXiv v1: Lemma 7.2, Theorem 9.1, Corollaries 9.2, 10.2–10.3."
+    },
+    {
+      "kind": "published",
+      "url": "https://page.mi.fu-berlin.de/esnault/preprints/helene/128_esn_gro.pdf",
+      "read": "2026-10-08",
+      "sha256": "19f8cea47acd6c6762e1a53e67ac58fa2be3fa70a768ec3dd547cc77826ba129",
+      "scope": "Esnault–Groechenig 2018 Selecta offprint: Proposition 2.1 proof pp.4282–4283 and end of Theorem 1.1 proof p.4291 independently checked; not a full reading of the published paper."
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/1707.00752v4",
+      "read": "2026-10-08",
+      "sha256": "bcc435b58bb2b1c06869413c1cd96018676d15da8003d21e5b507b114a63c4eb",
+      "scope": "EG20 latest arXiv v4, selected proof passages pp.18–19, 24, 29–30 compared with the published locators for E-H5-2, E-H5-6 and E-H5-7."
     }
   ],
   "restructure": [
@@ -4930,7 +5938,7 @@
         "TauCeti.NonabelianHodge.TraceFreeAdjoint.twist",
         "TauCeti.NonabelianHodge.TraceFreeAdjoint.projectivization",
         "TauCeti.NonabelianHodge.TraceFreeAdjoint.invariants_eq_bot",
-        "TauCeti.NonabelianHodge.TraceFreeAdjoint.baseChange",
+        "TauCeti.NonabelianHodge.TraceFreeAdjoint.baseChange_apply",
         "TauCeti.NonabelianHodge.TraceFreeAdjoint.baseChange_H1",
         "TauCeti.NonabelianHodge.TraceFreeAdjoint.test_rank_one",
         "TauCeti.NonabelianHodge.TraceFreeAdjoint.test_trivial_free_abelian",
@@ -4939,7 +5947,8 @@
         "TauCeti.NonabelianHodge.TraceFreeAdjoint.test_irreducible_no_invariants"
       ],
       "omitted": [
-        "TauCeti.NonabelianHodge.TraceFreeAdjoint.flatBundle"
+        "TauCeti.NonabelianHodge.TraceFreeAdjoint.flatBundle",
+        "TauCeti.NonabelianHodge.TraceFreeAdjoint.baseChange"
       ],
       "carriers": [
         "algebraic flat bundles, Higgs bundles and local systems on smooth complex varieties, with de Rham and Betti cohomology"
@@ -4968,7 +5977,8 @@
         "TauCeti.NonabelianHodge.IsRigidRepresentation.test_rank_one",
         "TauCeti.NonabelianHodge.IsRigidRepresentation.test_free_group",
         "TauCeti.NonabelianHodge.IsRigidRepresentation.test_unfixed_determinant",
-        "TauCeti.NonabelianHodge.IsRigidRepresentation.test_finite_group"
+        "TauCeti.NonabelianHodge.IsRigidRepresentation.test_finite_group",
+        "TauCeti.NonabelianHodge.IsRigidRepresentation.test_reducible_excluded"
       ],
       "omitted": [
         "TauCeti.NonabelianHodge.IsRigidRepresentation.iff_orbit_open",
@@ -4994,7 +6004,8 @@
         "TauCeti.NonabelianHodge.ProjectiveRepresentation.liftObstruction",
         "TauCeti.NonabelianHodge.ProjectiveRepresentation.test_rank_one",
         "TauCeti.NonabelianHodge.ProjectiveRepresentation.test_twist_same_class",
-        "TauCeti.NonabelianHodge.ProjectiveRepresentation.test_fixedDet_comparison"
+        "TauCeti.NonabelianHodge.ProjectiveRepresentation.test_fixedDet_comparison",
+        "TauCeti.NonabelianHodge.ProjectiveRepresentation.test_nontrivial_self_twist"
       ],
       "carriers": [
         "projective linear groups PGL_r and projective representations"
@@ -5432,7 +6443,8 @@
       ],
       "carriers": [
         "line bundles, projective morphisms, relative moduli over arithmetic bases and spreading of modules"
-      ]
+      ],
+      "reviewNote": "Native arithmetic model has smooth proper geometric data only. Projectivity, the torsion determinant and its flat connection remain in the omission inventory; this row is partial."
     },
     {
       "node": "HodgeStructuresPartII:H.5/relative-moduli",
@@ -5743,6 +6755,581 @@
       "carriers": [
         "Teichmüller space, versal families of pointed curves and isomonodromic deformations"
       ]
+    },
+    {
+      "node": "HodgeStructuresPartII:H.5/trace-splitting",
+      "status": "native",
+      "native": [
+        "TauCeti.NonabelianHodge.TraceFreeAdjoint.endSplitting"
+      ],
+      "omitted": [],
+      "carriers": []
+    },
+    {
+      "node": "HodgeStructuresPartII:H.5/adjoint-projectivization",
+      "status": "partial",
+      "native": [
+        "TauCeti.NonabelianHodge.TraceFreeAdjoint.projectivization"
+      ],
+      "omitted": [],
+      "carriers": [
+        "the full geometric or coefficient generality described in the review note"
+      ],
+      "reviewNote": "Native projectivization states invariance under pointwise scalar twists. The full Lie(PGL_r) comparison in this specification has no native PGL carrier and remains omitted."
+    },
+    {
+      "node": "HodgeStructuresPartII:H.5/adjoint-no-invariants",
+      "status": "partial",
+      "native": [
+        "TauCeti.NonabelianHodge.TraceFreeAdjoint.invariants_eq_bot"
+      ],
+      "omitted": [],
+      "carriers": [
+        "the full geometric or coefficient generality described in the review note"
+      ],
+      "reviewNote": "Native no-invariants has an algebraically closed coefficient field and irreducibility. The packet states the general absolutely irreducible version; that generality remains omitted."
+    },
+    {
+      "node": "HodgeStructuresPartII:H.5/adjoint-base-change",
+      "status": "omitted",
+      "native": [],
+      "omitted": [
+        "TauCeti.NonabelianHodge.TraceFreeAdjoint.baseChange"
+      ],
+      "carriers": [
+        "algebraic flat bundles, Higgs bundles and local systems on smooth complex varieties, with de Rham and Betti cohomology"
+      ]
+    },
+    {
+      "node": "HodgeStructuresPartII:H.5/adjoint-h1-base-change",
+      "status": "native",
+      "native": [
+        "TauCeti.NonabelianHodge.TraceFreeAdjoint.baseChange_H1"
+      ],
+      "omitted": [],
+      "carriers": []
+    },
+    {
+      "node": "HodgeStructuresPartII:H.5/rigid-locus-field-clopen",
+      "status": "native",
+      "native": [
+        "TauCeti.NonabelianHodge.RigidLocus.field_isClopen"
+      ],
+      "omitted": [],
+      "carriers": []
+    },
+    {
+      "node": "HodgeStructuresPartII:H.5/rigid-locus-fibre",
+      "status": "omitted",
+      "native": [],
+      "omitted": [
+        "TauCeti.NonabelianHodge.RigidLocus.fibre"
+      ],
+      "carriers": [
+        "line bundles, projective morphisms, relative moduli over arithmetic bases and spreading of modules"
+      ]
+    },
+    {
+      "node": "HodgeStructuresPartII:H.5/rigid-locus-equivariant",
+      "status": "native",
+      "native": [
+        "TauCeti.NonabelianHodge.RigidLocus.equivariant"
+      ],
+      "omitted": [],
+      "carriers": []
+    },
+    {
+      "node": "HodgeStructuresPartII:H.5/hodge-system-scaling",
+      "status": "partial",
+      "native": [
+        "TauCeti.NonabelianHodge.SystemOfHodgeBundles.scaleIso"
+      ],
+      "omitted": [],
+      "carriers": [
+        "the full geometric or coefficient generality described in the review note"
+      ],
+      "reviewNote": "Native scaling is for the finite-free cotangent module chart. The sheaf-valued system and its Higgs isomorphism remain omitted."
+    },
+    {
+      "node": "HodgeStructuresPartII:H.5/hodge-system-nilpotent",
+      "status": "partial",
+      "native": [
+        "TauCeti.NonabelianHodge.SystemOfHodgeBundles.nilpotent"
+      ],
+      "omitted": [],
+      "carriers": [
+        "the full geometric or coefficient generality described in the review note"
+      ],
+      "reviewNote": "Native nilpotence is for contractions in the finite-free cotangent module chart. The full sheaf-valued joint-nilpotence statement remains omitted."
+    },
+    {
+      "node": "HodgeStructuresPartII:H.5/unitary-conjugation",
+      "status": "native",
+      "native": [
+        "TauCeti.NonabelianHodge.IsUnitaryRepresentation.iff_conj_unitaryGroup"
+      ],
+      "omitted": [],
+      "carriers": []
+    },
+    {
+      "node": "HodgeStructuresPartII:H.5/unitary-invariant-form",
+      "status": "native",
+      "native": [
+        "TauCeti.NonabelianHodge.IsUnitaryRepresentation.iff_invariant_form"
+      ],
+      "omitted": [],
+      "carriers": []
+    },
+    {
+      "node": "HodgeStructuresPartII:H.5/unitary-semisimple",
+      "status": "native",
+      "native": [
+        "TauCeti.NonabelianHodge.IsUnitaryRepresentation.semisimple"
+      ],
+      "omitted": [],
+      "carriers": []
+    },
+    {
+      "node": "HodgeStructuresPartII:H.5/rigid-hodge-nonzero",
+      "status": "omitted",
+      "native": [],
+      "omitted": [
+        "TauCeti.NonabelianHodge.HodgeRigidLocus.nonzeroTrivialization"
+      ],
+      "carriers": [
+        "moduli spaces of H.1 (M_B, M_dR, M_Dol, M_Hod) as schemes with their points, tangent spaces and G_m-actions"
+      ]
+    },
+    {
+      "node": "HodgeStructuresPartII:H.5/arithmetic-spread-morphisms",
+      "status": "omitted",
+      "native": [],
+      "omitted": [
+        "TauCeti.NonabelianHodge.ArithmeticModel.spread_hom"
+      ],
+      "carriers": [
+        "line bundles, projective morphisms, relative moduli over arithmetic bases and spreading of modules"
+      ]
+    },
+    {
+      "node": "HodgeStructuresPartII:H.5/relative-stable-complex-fibre",
+      "status": "omitted",
+      "native": [],
+      "omitted": [
+        "TauCeti.NonabelianHodge.RelativeModuli.stableGenericIso"
+      ],
+      "carriers": [
+        "line bundles, projective morphisms, relative moduli over arithmetic bases and spreading of modules",
+        "moduli spaces of H.1 (M_B, M_dR, M_Dol, M_Hod) as schemes with their points, tangent spaces and G_m-actions"
+      ]
+    },
+    {
+      "node": "HodgeStructuresPartII:H.5/integral-projective-lattice",
+      "status": "omitted",
+      "native": [],
+      "omitted": [
+        "TauCeti.NonabelianHodge.IsIntegralRepresentation.iff_projectiveLattice"
+      ],
+      "carriers": [
+        "projective linear groups PGL_r and projective representations",
+        "completions of number fields at finite places, lattices over rings of integers and companions",
+        "general split reductive group schemes over ℤ and their adjoint representations"
+      ]
+    },
+    {
+      "node": "HodgeStructuresPartII:H.5/geometric-origin-summand",
+      "status": "omitted",
+      "native": [],
+      "omitted": [
+        "TauCeti.NonabelianHodge.IsOfGeometricOrigin.iff_summand"
+      ],
+      "carriers": [
+        "algebraic flat bundles, Higgs bundles and local systems on smooth complex varieties, with de Rham and Betti cohomology"
+      ]
+    },
+    {
+      "node": "HodgeStructuresPartII:H.5/geometric-origin-boundary",
+      "status": "omitted",
+      "native": [],
+      "omitted": [
+        "TauCeti.NonabelianHodge.IsOfGeometricOrigin.quasiUnipotent"
+      ],
+      "carriers": [
+        "algebraic flat bundles, Higgs bundles and local systems on smooth complex varieties, with de Rham and Betti cohomology"
+      ]
     }
-  ]
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-HodgeStructuresPartII--H.5",
+    "date": "2026-10-08",
+    "notes": "Independent target-level review by Codex, session codex-t2B5Hc. All original 54 nodes checked, 19 consumed API facts promoted, all 22 baseline declarations read at the pins, seven source issues independently confirmed. Corrected native rigidity, cotangent-chart hypotheses, integral models, baseline hypotheses, source locators and supplier ownership. Removed source excerpts and synchronized the reader and signature inventory. Accepted as a complete planning pass with planned H.5 coverage, thirteen explicit gaps and open supplier requests; not closed or formalised. The actual suggested file elaborates against pinned Mathlib with admitted-proof warnings only; no Tau Ceti imports remain and the omitted geometry has not been compiled.",
+    "checked": [
+      {
+        "nodeId": "HodgeStructuresPartII:H.5/trace-free-adjoint",
+        "verdict": "corrected",
+        "note": "Checked sl versus pgl and the invertible-r trace splitting; general G uses the derived Lie algebra. The native coefficient-change formula is a pointwise helper, while the full coefficient tensor equivalence remains omitted. Corrected LL24 Notation 1.10.2 to preprint p.11."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.5/betti-tangent",
+        "verdict": "verified",
+        "note": "Fixed determinant and prescribed boundary classes give trace-free H¹, with the scalar stabilizer condition for the coarse GL_r tangent. Checked the stated hypotheses, cited primary locator, direct dependencies, API/tests where applicable, and honest signature scope; supplier gaps remain explicit."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.5/rigid-representation",
+        "verdict": "corrected",
+        "note": "Stable irreducible orbit isolation is the intended condition. The native predicate now excludes reducible isolated semistable points. Added irreducibility to the native predicate and a reducible isolated-point non-example."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.5/projective-rigidity",
+        "verdict": "corrected",
+        "note": "Absolute irreducibility is geometric; fixed-determinant/projective rigidity uses finite μ_r-twisting fibres and complete-DVR lifting, with no finite-determinant assumption on the comparison. Repaired the lift argument using a complete DVR and determinant roots; replaced the invalid trace inference by finite twisting fibres and added a Q₈ self-twist test. Made consumed API prerequisite explicit: TraceFreeAdjoint.projectivization."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.5/cohomological-rigidity",
+        "verdict": "corrected",
+        "note": "The compactification kernel and a_* trace-free H¹ retain the boundary restrictions; the hypergeometric computation now states a dimension. Made the hypergeometric Euler-characteristic computation a dimension equation. Made consumed API prerequisite explicit: TraceFreeAdjoint.endSplitting. Made consumed API prerequisite explicit: TraceFreeAdjoint.baseChange_H1."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.5/strong-cohomological-rigidity",
+        "verdict": "corrected",
+        "note": "Ordinary group H¹ vanishing is stronger than the boundary-kernel vanishing; projective and punctured examples separate them. Made consumed API prerequisite explicit: TraceFreeAdjoint.endSplitting."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.5/coh-rigid-reduced-isolated",
+        "verdict": "corrected",
+        "note": "The reduced isolated coarse-point equivalence uses GL_r scalar inertia; general reductive G keeps the stack tangent implication. Kept the coarse tangent equivalence in the scalar-stabilizer setting and used the stack statement for general G."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.5/strong-implies-cohomological",
+        "verdict": "verified",
+        "note": "A zero domain gives an injective boundary restriction. No converse is asserted for an open variety. Checked the stated hypotheses, cited primary locator, direct dependencies, API/tests where applicable, and honest signature scope; supplier gaps remain explicit."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.5/rigid-connection",
+        "verdict": "verified",
+        "note": "The determinant is fixed as a flat line bundle and the Higgs determinant has zero field; fixing only its underlying line bundle would change the problem. Checked the stated hypotheses, cited primary locator, direct dependencies, API/tests where applicable, and honest signature scope; supplier gaps remain explicit."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.5/derham-betti-tangent",
+        "verdict": "corrected",
+        "note": "The cohomological tangent comparison is natural; the Goldman–Millson/isosingularity comparison is a completed-local statement with the harmonic and stable hypotheses. Corrected the S94II introductory isosingularity locator to printed p.8; §10 gives the actual comparison."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.5/rigid-correspondence",
+        "verdict": "verified",
+        "note": "Riemann–Hilbert and the non-abelian Hodge homeomorphism preserve isolation; the Dolbeault correspondence is not claimed to be an analytic isomorphism. Checked the stated hypotheses, cited primary locator, direct dependencies, API/tests where applicable, and honest signature scope; supplier gaps remain explicit."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.5/rigid-locus",
+        "verdict": "verified",
+        "note": "Reuses the pinned quasi-finite open subscheme, retaining nilpotents. Closedness is asserted over a field of finite type, not in an arbitrary family. Checked the stated hypotheses, cited primary locator, direct dependencies, API/tests where applicable, and honest signature scope; supplier gaps remain explicit."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.5/rigid-finite",
+        "verdict": "corrected",
+        "note": "The stable finite-type moduli has finitely many isolated points. The result concerns isomorphism classes with the fixed determinant and, where needed, fixed boundary data. Made consumed API prerequisite explicit: RigidLocus.field_isClopen."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.5/rigidity-conjugate",
+        "verdict": "corrected",
+        "note": "The fixed-boundary algebraic problem and trace-free H¹ transport along field automorphisms. This statement does not transport unitarity. Made consumed API prerequisite explicit: TraceFreeAdjoint.baseChange_H1."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.5/rigid-number-field",
+        "verdict": "verified",
+        "note": "Finite-type algebraic representation data plus an isolated moduli class descend to a number field, allowing a finite extension to choose a representation of that class. Checked the stated hypotheses, cited primary locator, direct dependencies, API/tests where applicable, and honest signature scope; supplier gaps remain explicit."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.5/boundary-monodromy-data",
+        "verdict": "verified",
+        "note": "Good compactifications, conjugacy of boundary loops and quasi-unipotence are distinguished from actual finite-order or trivial boundary matrices. Checked the stated hypotheses, cited primary locator, direct dependencies, API/tests where applicable, and honest signature scope; supplier gaps remain explicit."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.5/prescribed-monodromy-moduli",
+        "verdict": "verified",
+        "note": "The irreducible open is tested on proper nonzero Grassmannians. Determinant generator values lie in μ_d and use the matching generator index. Checked the stated hypotheses, cited primary locator, direct dependencies, API/tests where applicable, and honest signature scope; supplier gaps remain explicit."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.5/prescribed-monodromy-tangent",
+        "verdict": "verified",
+        "note": "The first-order deformation condition is the kernel of restriction to the boundary cyclic groups, with trace-free coefficients and the stack/coarse distinction. Checked the stated hypotheses, cited primary locator, direct dependencies, API/tests where applicable, and honest signature scope; supplier gaps remain explicit."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.5/intermediate-extension-h1",
+        "verdict": "verified",
+        "note": "The a_* and intermediate-extension degree-one comparison has the specified shifts; the complex-analytic carrier remains a gap separate from étale EDC.5. Checked the stated hypotheses, cited primary locator, direct dependencies, API/tests where applicable, and honest signature scope; supplier gaps remain explicit."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.5/rigid-higgs-gm-fixed",
+        "verdict": "corrected",
+        "note": "A connected scaling orbit through an isolated stable point is constant; only nonzero scaling is used. Made consumed API prerequisite explicit: RigidLocus.equivariant."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.5/rigid-higgs-nilpotent",
+        "verdict": "corrected",
+        "note": "Positive-weight Hitchin invariants of a fixed point vanish in characteristic zero. The pinned characteristic-polynomial lemma requires an integral domain. Corrected the characteristic-polynomial baseline hypothesis to IsDomain; all uses here are over ℂ."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.5/system-of-hodge-bundles",
+        "verdict": "corrected",
+        "note": "The finite grading lowers by one and the sheaf field satisfies actual integrability. The contraction-based module prototype now requires a finite free cotangent module. Restricted the module chart to finite free cotangent modules; explained the torsion counterexample to testing integrability by all dual contractions."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.5/gm-fixed-hodge-bundles",
+        "verdict": "corrected",
+        "note": "A stable scaling-fixed object gives the Hodge grading up to an overall shift; this is the projective Simpson setting. Made consumed API prerequisite explicit: SystemOfHodgeBundles.scaleIso."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.5/cvhs-hodge-bundles",
+        "verdict": "corrected",
+        "note": "Complex polarized variations carry the signed Hermitian form, with no built-in real or integral lattice. The stable/semisimple Hodge correspondence retains its projective setting. Replaced the broad H.2 stage reference by matching existing fine nodes; complex PVHS retains no rational or integral lattice by definition. Made consumed API prerequisite explicit: SystemOfHodgeBundles.scaleIso. Made consumed API prerequisite explicit: SystemOfHodgeBundles.nilpotent."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.5/rigid-underlies-cvhs",
+        "verdict": "verified",
+        "note": "Rigid stable projective local systems are scaling fixed and hence underlie complex polarized variations; this is not an integrality assertion. Checked the stated hypotheses, cited primary locator, direct dependencies, API/tests where applicable, and honest signature scope; supplier gaps remain explicit."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.5/deformation-to-cvhs",
+        "verdict": "verified",
+        "note": "The projective Hitchin-limit argument and the quasi-projective tame route remain distinguished; Mochizuki is a recorded missing input. Checked the stated hypotheses, cited primary locator, direct dependencies, API/tests where applicable, and honest signature scope; supplier gaps remain explicit."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.5/coh-rigid-semisimple-cvhs",
+        "verdict": "corrected",
+        "note": "Strong trace-free H¹ vanishing and semisimplicity give the variation conclusion; determinant and boundary refinements keep the hypotheses of LL24. Replaced the broad H.2 stage reference by matching existing fine nodes; complex PVHS retains no rational or integral lattice by definition. Made consumed API prerequisite explicit: IsUnitaryRepresentation.semisimple."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.5/unitary-representation",
+        "verdict": "corrected",
+        "note": "Compact closure, invariant positive form and conjugacy into U(r) agree. Haar averaging is imported from CompactGroups, and field-automorphism invariance is explicitly false. Corrected LL24 Notation 1.10.2 to preprint p.11. Imported Haar unitarizability from its existing CompactGroups owner."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.5/zero-higgs-unitary",
+        "verdict": "corrected",
+        "note": "The graded Higgs field of a polarized complex variation vanishes exactly in the unitary case, via its definite form and harmonic decomposition. Replaced the broad H.2 stage reference by matching existing fine nodes; complex PVHS retains no rational or integral lattice by definition. Made consumed API prerequisite explicit: SystemOfHodgeBundles.nilpotent. Made consumed API prerequisite explicit: IsUnitaryRepresentation.iff_invariant_form. Made consumed API prerequisite explicit: IsUnitaryRepresentation.semisimple."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.5/hodge-rigid-locus",
+        "verdict": "corrected",
+        "note": "The quasi-finite locus is relative to the λ-line. Its nonzero trivialization uses H.1 scaling; its zero and one fibres are the rigid Dolbeault and de Rham loci. Made consumed API prerequisite explicit: RigidLocus.fibre. Made consumed API prerequisite explicit: RigidLocus.equivariant."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.5/rigid-hodge-splitting",
+        "verdict": "corrected",
+        "note": "Rees sections, finiteness and local Artinian fibres are separated from the global equivariant product. The latter has an explicit Tannakian/Ziegler gap. Retained the Tannakian/Ziegler repair as a conditional proof plan with an explicit gap; no native equivariant splitting is claimed. Made consumed API prerequisite explicit: HodgeRigidLocus.nonzeroTrivialization."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.5/smooth-arithmetic-model",
+        "verdict": "corrected",
+        "note": "Smooth arithmetic coefficients, torsion determinant and pointed projective geometry are retained in the specification. Restrictions are principal affine opens; the native carrier is only smooth proper data. Distinguished existence of descent from the baseline equality lemma, including its quasi-compact diagram hypothesis. Restricted affine arithmetic models to nonempty principal opens; removed the false equivalence between arbitrary opens and localization at one element."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.5/relative-moduli",
+        "verdict": "corrected",
+        "note": "Langer’s universally Japanese-base, Hilbert-polynomial and stable-open hypotheses are retained. Differential operators form the full filtered algebra, not an order-one truncation. Corrected the differential-operator algebra: generated in degree one, with operators of all orders. Made consumed API prerequisite explicit: RigidLocus.fibre."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.5/simultaneous-spreading",
+        "verdict": "corrected",
+        "note": "Finitely many rigid objects and all their finite-presentation data spread after enlarging and localizing a common coefficient ring; limit equality alone does not prove existence. Made consumed API prerequisite explicit: ArithmeticModel.spread_hom. Made consumed API prerequisite explicit: RelativeModuli.stableGenericIso."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.5/nilpotent-rigid-models",
+        "verdict": "corrected",
+        "note": "Spread Higgs fields retain a bounded nilpotence exponent after shrinking, and relative rigidity is the quasi-finite locus of the stable moduli. Made consumed API prerequisite explicit: ArithmeticModel.spread_hom."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.5/rigid-locus-exhaustion",
+        "verdict": "corrected",
+        "note": "The finite reduced compactification separates horizontal section components from vertical components. The image of the closure of the remaining locus can be removed. Supplied the horizontal/vertical component argument ensuring the closure of the open complement misses the generic fibre. Made consumed API prerequisite explicit: RelativeModuli.stableGenericIso."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.5/nice-hodge-models",
+        "verdict": "corrected",
+        "note": "All determinant powers use a=0,…,d−1 and sections of the Hodge locus have domain S×𝔸¹. Nilpotence, disjointness and exhaustion retain the intended rank bounds. Made consumed API prerequisite explicit: ArithmeticModel.spread_hom."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.5/integral-representation",
+        "verdict": "corrected",
+        "note": "The integral model is the fixed ℤ-group base changed to 𝒪_K. Full rings of integers, inverses and stable projective lattices distinguish integrality from S-integrality. Fixed the integral G-model to the base change of the given ℤ-group; removed arbitrary model changes."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.5/strongly-integral",
+        "verdict": "verified",
+        "note": "A ℤ-lattice is stronger than an 𝒪_K-lattice; restriction of scalars changes rank and does not make the original single embedding strongly integral. Checked the stated hypotheses, cited primary locator, direct dependencies, API/tests where applicable, and honest signature scope; supplier gaps remain explicit."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.5/strong-integral-unitary-finite",
+        "verdict": "corrected",
+        "note": "A conjugate of the discrete GL_r(ℤ) image has compact closure and hence is finite; the definition is basis independent. Made consumed API prerequisite explicit: IsUnitaryRepresentation.iff_conj_unitaryGroup."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.5/unitary-embeddings-finite",
+        "verdict": "corrected",
+        "note": "Separate conjugators at finitely many embeddings yield a uniform bound on the original integral matrix entries. The pinned bounded-conjugate finiteness theorem applies. Made consumed API prerequisite explicit: IsUnitaryRepresentation.iff_conj_unitaryGroup."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.5/infinite-image-unitary-example",
+        "verdict": "verified",
+        "note": "The Salem unit-circle conjugate is integral, unitary and not a root of unity; another embedding is nonunitary, so it does not contradict all-embedding finiteness. Checked the stated hypotheses, cited primary locator, direct dependencies, API/tests where applicable, and honest signature scope; supplier gaps remain explicit."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.5/integrality-local-criterion",
+        "verdict": "corrected",
+        "note": "Local integral lattices glue in GL_r, and the reductive route uses simply connected lifting and strong approximation. Those arithmetic inputs are now explicit gaps. Made consumed API prerequisite explicit: IsIntegralRepresentation.iff_projectiveLattice."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.5/integrality-EG18",
+        "verdict": "corrected",
+        "note": "Irreducibility, finite determinant, quasi-unipotent boundary and cohomological rigidity are all retained. Higher-dimensional companions are not silently supplied by the curve Langlands stage. Named the planet with the cohomological hypothesis; ordinary rigid integrality remains a conjectural generality."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.5/integrality-KP",
+        "verdict": "verified",
+        "note": "General reductive G uses g^der and the stated finite abelianized monodromy conditions. Companion and specialization inputs remain recorded. Checked the stated hypotheses, cited primary locator, direct dependencies, API/tests where applicable, and honest signature scope; supplier gaps remain explicit."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.5/geometric-origin",
+        "verdict": "corrected",
+        "note": "The witness is over a dense open with a smooth projective family. The simple pullback API requires a dense inverse image; regular singularities are needed to compare connection witnesses. Specified density of the inverse image of the witness open for the elementary pullback argument. Replaced the broad H.2 stage reference by matching existing fine nodes; complex PVHS retains no rational or integral lattice by definition."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.5/integral-pvhs",
+        "verdict": "corrected",
+        "note": "A projective 𝒪_K-lattice with a polarizable complex variation at every embedding is required, not merely one variation with integral monodromy. Replaced the broad H.2 stage reference by matching existing fine nodes; complex PVHS retains no rational or integral lattice by definition. Made consumed API prerequisite explicit: IsIntegralRepresentation.iff_projectiveLattice."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.5/geometric-origin-integral-pvhs",
+        "verdict": "corrected",
+        "note": "Semisimple geometric summands have number-field lattices and chosen variations via isotypic support. A summand need not preserve the original filtration, and Schmid extension is separate. Replaced the broad H.2 stage reference by matching existing fine nodes; complex PVHS retains no rational or integral lattice by definition. Recorded Schmid extension as its own missing input rather than claiming H.2 supplies it. Made consumed API prerequisite explicit: IsOfGeometricOrigin.iff_summand. Made consumed API prerequisite explicit: IsOfGeometricOrigin.quasiUnipotent. Clarified that isotypic Hodge structures provide a chosen variation on a local-system summand, with a number-field lattice and the separately missing extension input."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.5/low-rank-pvhs-unitary",
+        "verdict": "corrected",
+        "note": "Analytically general isomonodromic deformations and the strict 2√(g+1) bound are retained. Parabolic Hodge and isomonodromy inputs are explicitly open. Replaced the broad H.2 stage reference by matching existing fine nodes; complex PVHS retains no rational or integral lattice by definition. Replaced the broad H.4 stage reference by its exact input nodes; the versal argument uses the A=ℂ case of fibrewise Artinian vanishing."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.5/very-general-rank-bound",
+        "verdict": "verified",
+        "note": "Countability of integral representations and the analytic Hodge loci give the very-general qualifier; finiteness uses variations at all embeddings. Checked the stated hypotheses, cited primary locator, direct dependencies, API/tests where applicable, and honest signature scope; supplier gaps remain explicit."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.5/rigid-sl3-geometric",
+        "verdict": "verified",
+        "note": "Langer–Simpson requires rigid integral irreducible SL₃; the cohomologically rigid consequence uses integrality first. Its geometric construction is recorded as an input gap. Checked the stated hypotheses, cited primary locator, direct dependencies, API/tests where applicable, and honest signature scope; supplier gaps remain explicit."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.5/no-symmetric-differentials",
+        "verdict": "verified",
+        "note": "The all-fields finite-image theorem has the full vanishing for every symmetric power. Arapura’s unfixed-determinant rigidity and fixed-determinant nilpotence are distinguished. Checked the stated hypotheses, cited primary locator, direct dependencies, API/tests where applicable, and honest signature scope; supplier gaps remain explicit."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.5/fibrewise-h1-vanishing",
+        "verdict": "corrected",
+        "note": "Inflation–restriction/Leray in degree one uses vanishing fibre invariants and base-invariant H¹, with the local-coefficient topology input requested from its owner. Made consumed API prerequisite explicit: TraceFreeAdjoint.invariants_eq_bot."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.5/versal-unitary-rigidity",
+        "verdict": "corrected",
+        "note": "The fibre adjoint has no invariants and rank r²−1<g. The H.4 Artinian theorem is used with A=ℂ; unitarity of the total-space representation is not assumed. Replaced the broad H.4 stage reference by its exact input nodes; the versal argument uses the A=ℂ case of fibrewise Artinian vanishing. Made consumed API prerequisite explicit: TraceFreeAdjoint.projectivization. Made consumed API prerequisite explicit: TraceFreeAdjoint.invariants_eq_bot."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.5/trace-splitting",
+        "verdict": "added",
+        "note": "Promoted the consumed API fact under PROTOCOL §4; justified by the parent and the listed inputs. Split the trace by A ↦ (A − (tr A/r)1, tr A/r); trace invariance proves equivariance."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.5/adjoint-projectivization",
+        "verdict": "added",
+        "note": "Promoted the consumed API fact under PROTOCOL §4; justified by the parent and the listed inputs. Scalar matrices act trivially by conjugation; identify sl_r with pgl_r when r is invertible. Native projectivization states invariance under pointwise scalar twists. The full Lie(PGL_r) comparison in this specification has no native PGL carrier and remains omitted."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.5/adjoint-no-invariants",
+        "verdict": "added",
+        "note": "Promoted the consumed API fact under PROTOCOL §4; justified by the parent and the listed inputs. Schur identifies the centralizer with scalars; invertibility of r kills a trace-zero scalar. Native no-invariants has an algebraically closed coefficient field and irreducibility. The packet states the general absolutely irreducible version; that generality remains omitted."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.5/adjoint-base-change",
+        "verdict": "added",
+        "note": "Promoted the consumed API fact under PROTOCOL §4; justified by the parent and the listed inputs. The trace kernel commutes with flat extension of fields, and the matrix conjugation action commutes with applying the embedding entry by entry."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.5/adjoint-h1-base-change",
+        "verdict": "added",
+        "note": "Promoted the consumed API fact under PROTOCOL §4; justified by the parent and the listed inputs. Choose finitely many generators. Cocycle values lie in a finite-dimensional vector space and the relations impose linear equations. Their span has a finite basis even if the list of relations is infinite. Flat field extension preserves this kernel and the coboundary image; quotienting gives the tensor-product isomorphism."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.5/rigid-locus-field-clopen",
+        "verdict": "added",
+        "note": "Promoted the consumed API fact under PROTOCOL §4; justified by the parent and the listed inputs. For a finite-type scheme over a field, isolated points form its finitely many zero-dimensional irreducible components; each is open and closed, with its local scheme structure."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.5/rigid-locus-fibre",
+        "verdict": "added",
+        "note": "Promoted the consumed API fact under PROTOCOL §4; justified by the parent and the listed inputs. Use the baseline characterization by an open singleton in a fibre; over a geometric field quasi-finiteness is exactly isolation. Retain the open subscheme structure."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.5/rigid-locus-equivariant",
+        "verdict": "added",
+        "note": "Promoted the consumed API fact under PROTOCOL §4; justified by the parent and the listed inputs. An equivariant automorphism identifies the relevant fibres and preserves isolation, hence preserves the quasi-finite open subscheme."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.5/hodge-system-scaling",
+        "verdict": "added",
+        "note": "Promoted the consumed API fact under PROTOCOL §4; justified by the parent and the listed inputs. On degree p multiply by t^p. Since θ lowers degree by one, this intertwines tθ with θ; inverse multiplication gives an isomorphism. Native scaling is for the finite-free cotangent module chart. The sheaf-valued system and its Higgs isomorphism remain omitted."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.5/hodge-system-nilpotent",
+        "verdict": "added",
+        "note": "Promoted the consumed API fact under PROTOCOL §4; justified by the parent and the listed inputs. Each application lowers the degree. Beyond the finite support interval every iterated component vanishes. Native nilpotence is for contractions in the finite-free cotangent module chart. The full sheaf-valued joint-nilpotence statement remains omitted."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.5/unitary-conjugation",
+        "verdict": "added",
+        "note": "Promoted the consumed API fact under PROTOCOL §4; justified by the parent and the listed inputs. Import compact-group unitarizability from CompactGroups layer 1 and choose an orthonormal basis; conversely use compactness of U(r) and conjugation as a homeomorphism."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.5/unitary-invariant-form",
+        "verdict": "added",
+        "note": "Promoted the consumed API fact under PROTOCOL §4; justified by the parent and the listed inputs. The compact-group owner supplies an invariant positive form. Conversely a preserved positive form gives conjugacy into U(r), hence compact closure."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.5/unitary-semisimple",
+        "verdict": "added",
+        "note": "Promoted the consumed API fact under PROTOCOL §4; justified by the parent and the listed inputs. The orthogonal complement of every invariant subspace for an invariant positive form is invariant, yielding complete reducibility."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.5/rigid-hodge-nonzero",
+        "verdict": "added",
+        "note": "Promoted the consumed API fact under PROTOCOL §4; justified by the parent and the listed inputs. Restrict the H.1 scaling trivialization of the Hodge moduli over 𝔾_m to the quasi-finite locus; equivariance identifies the rigid fibres."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.5/arithmetic-spread-morphisms",
+        "verdict": "added",
+        "note": "Promoted the consumed API fact under PROTOCOL §4; justified by the parent and the listed inputs. Import finite-presentation existence of descent from SF.0. For equalities between already descended maps use the pinned affine-transition equality theorem, verifying quasi-compactness; invert one nonzero element to make finitely many data and equalities hold simultaneously."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.5/relative-stable-complex-fibre",
+        "verdict": "added",
+        "note": "Promoted the consumed API fact under PROTOCOL §4; justified by the parent and the listed inputs. Universal corepresentation of the geometrically stable family functor is compatible with base change; identify the complex fibre with the H.1 stable coarse moduli using uniqueness of corepresenting objects."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.5/integral-projective-lattice",
+        "verdict": "added",
+        "note": "Promoted the consumed API fact under PROTOCOL §4; justified by the parent and the listed inputs. An integral matrix realization gives a free lattice. Conversely a finite projective lattice over 𝒪_K becomes free after a finite extension that principalizes its Steinitz class; its stable action then gives an integral matrix realization. The finite-extension principalization input is explicitly recorded in the arithmetic lattice gap."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.5/geometric-origin-summand",
+        "verdict": "added",
+        "note": "Promoted the consumed API fact under PROTOCOL §4; justified by the parent and the listed inputs. The smooth projective cohomology variation from H.2 is semisimple. Its subquotients are therefore direct summands as local systems."
+      },
+      {
+        "nodeId": "HodgeStructuresPartII:H.5/geometric-origin-boundary",
+        "verdict": "added",
+        "note": "Promoted the consumed API fact under PROTOCOL §4; justified by the parent and the listed inputs. Apply the local monodromy theorem from LPV.1 to the smooth projective family over the witness open, then pass to the subquotient. At divisors where the given local system extends, the monodromy is trivial."
+      }
+    ]
+  }
 }
