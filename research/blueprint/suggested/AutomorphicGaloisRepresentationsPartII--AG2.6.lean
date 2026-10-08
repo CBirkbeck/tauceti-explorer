@@ -11,30 +11,37 @@ Baseline: Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 and Tau Ceti
 f790474821cf4256814db967cb154e7af3d0c369. Only individual Mathlib modules are
  imported. No supplier's compatible-system carrier is redefined.
 
-The executable local prototypes take the group, inertia subgroup and Frobenius
- as parameters. The missing local-field/continuity constructors are omitted;
- they are not arbitrary proposition fields. Eigenvalues are units in an actual
- algebraic closure, with multiplicity retained by Fin n. The register following
- the prototypes specifies every remaining definition, API, test and named theorem.
- Independent review: this prose register does not meet section 13; revision must
- add actual declaration/API/example signatures with unavailable conditions
- honestly omitted, as recorded in the review report and packet gaps.
- It names the missing supplier types precisely; its entries are mathematical
- signatures, not elaborated declarations. Full dependent signatures require
- those types. In particular no fake automorphic representation or Hecke algebra
- type is introduced just to manufacture a compiling theorem.
+Section 13 fragments: mathematical statements and missing conditions are
+catalogued in the reader's “Prototype boundaries” table and in each packet node's
+suggestedCoverage. Parameters named System and its projections stand for the
+single external R24.5 data carrier, not an AG2 definition of that carrier.
+There is no invented automorphic representation or period-module type. Local
+matrices, actual Mathlib representations, filtrations and coefficient maps are
+used where those suppliers are unavailable. Consequently a theorem with omitted
+automorphic/geometric hypotheses is a proposed signature, not a theorem about
+arbitrary input matrices. Even an elaborated signature is implementation unchecked.
+Definitions below have concrete bodies; only proofs and constructions use sorry.
 -/
 
 import Mathlib.FieldTheory.IsAlgClosed.AlgebraicClosure
 import Mathlib.LinearAlgebra.Matrix.Charpoly.Basic
 import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Defs
 import Mathlib.Algebra.Field.ZMod
+import Mathlib.RepresentationTheory.Irreducible
+import Mathlib.RepresentationTheory.Semisimple
+import Mathlib.LinearAlgebra.Matrix.Rank
+import Mathlib.RingTheory.Ideal.Maps
+import Mathlib.Topology.Algebra.Module.FiniteDimension
+import Mathlib.FieldTheory.IntermediateField.Adjoin.Basic
+import Mathlib.Analysis.Complex.Basic
 import Mathlib.Algebra.BigOperators.Fin
 import Mathlib.Tactic.FinCases
 import Mathlib.Tactic.NormNum
 import Mathlib.Tactic.Ring
 
 namespace TauCeti.AutomorphicGalois
+
+set_option linter.unusedVariables false
 
 open scoped BigOperators
 open Polynomial
@@ -115,7 +122,7 @@ lemma strongGeneric_distinct {K : Type*} [Field K] {n : ℕ}
     Function.Injective α := h.2
 
 /-- On a diagonal matrix the eigenvalue product is Mathlib's charpoly. -/
-lemma isGeneric_matrix_diagonal {K : Type*} [Field K] {n : ℕ}
+lemma diagonal_charpoly {K : Type*} [Field K] {n : ℕ}
     (α : Fin n → Kˣ) :
     (Matrix.diagonal (fun i => (α i : K))).charpoly = ∏ i, (X - C (α i : K)) :=
   Matrix.charpoly_diagonal _
@@ -188,8 +195,7 @@ example : (4 : ZMod 3) = 1 ∧
     have hh := h.2 (a₁ := 0) (a₂ := 1) rfl
     exact (by decide : (0 : Fin 2) ≠ 1) hh
 
-/-- Test TauCeti.AutomorphicGalois.residualRep_diagonal_reduction and
-TauCeti.AutomorphicGalois.residualExport_diagonal_mod3: their matrix parts. -/
+/-- Test TauCeti.AutomorphicGalois.residualRep_diagonal_reduction: matrix part. -/
 example : (Matrix.diagonal ![(1 : ZMod 3), 2]).charpoly = X ^ 2 + C 2 :=
   sorry
 
@@ -202,17 +208,16 @@ example {O k : Type*} [CommRing O] [CommRing k] {n : ℕ}
 example (q T : ℤ) : (-1 : ℤ) ^ 1 * q ^ (1 * (1 - 1) / 2) * T = -T := by
   norm_num
 
-/-- Test TauCeti.AutomorphicGalois.compatibleSystem_weight_k: Hodge recipe
-arithmetic only; the supplier's Hodge multiset is not redefined here. -/
-example (k : ℤ) : (k - 2) + ((2 - 1 - 0 : ℕ) : ℤ) = k - 1 := by
-  norm_num
-  ring
 
 /-- The determinant Hodge sum, an acceptance check on the labelled recipe. -/
 theorem sum_expectedHodgeTate {n : ℕ} (a : Fin n → ℤ) :
     ∑ i : Fin n, (a i + ((n - 1 - i : ℕ) : ℤ)) =
     ∑ i : Fin n, a i + ((n * (n - 1) / 2 : ℕ) : ℤ) :=
   sorry
+
+/-- A determinant Hodge sum cannot recover the rank-two multiset. -/
+example : ({(0 : ℤ), 3} : Multiset ℤ).sum = ({(1 : ℤ), 2} : Multiset ℤ).sum ∧
+    ({(0 : ℤ), 3} : Multiset ℤ) ≠ {(1 : ℤ), 2} := by decide
 
 /-- CG and Pilloni's Hodge recipes agree under this parameter substitution.
 Equality of automorphic representations additionally needs ML.4. -/
@@ -227,451 +232,811 @@ example (a b : ℤ) (hab : b ≤ a) (hb : 3 ≤ b) :
     0 < b - 2 ∧ b - 2 < a - 1 ∧ a - 1 < a + b - 3 := by
   omega
 
+/-! Algebraic adapters use Mathlib's representation carrier and predicates.
+They are local notation for checking the interfaces, not new roadmap owners. -/
+abbrev GLn (n : ℕ) (K : Type*) [CommRing K] := Matrix.GeneralLinearGroup (Fin n) K
+
+abbrev coeffChange {G K L : Type*} [Group G] [CommRing K] [CommRing L] {n : ℕ}
+    (f : K →+* L) (r : G →* GLn n K) : G →* GLn n L :=
+  (Matrix.GeneralLinearGroup.map f).comp r
+
+def matrixRepresentation {G K : Type*} [Group G] [Field K] {n : ℕ}
+    (r : G →* GLn n K) : Representation K G (Fin n → K) :=
+  (Units.coeHom _).comp (Matrix.GeneralLinearGroup.toLin.toMonoidHom.comp r)
+
+abbrev Semisimple {G K : Type*} [Group G] [Field K] {n : ℕ} (r : G →* GLn n K) :=
+  Representation.IsSemisimpleRepresentation (matrixRepresentation r)
+
+abbrev AbsolutelyIrreducible {G k : Type*} [Group G] [Field k] {n : ℕ}
+    (r : G →* GLn n k) :=
+  Representation.IsIrreducible
+    (matrixRepresentation (coeffChange (algebraMap k (AlgebraicClosure k)) r))
+
+/-- Based expression of isomorphism; uniqueness never means equality of matrices. -/
+def Conjugate {G K : Type*} [Group G] [Field K] {n : ℕ}
+    (r s : G →* GLn n K) : Prop := ∃ b : GLn n K, ∀ g, s g = b * r g * b⁻¹
+
+abbrev expectedHodgeTate {n : ℕ} (a : Fin n → ℤ) : Multiset ℤ :=
+  (List.ofFn (fun i => a i + ((n - 1 - i.val : ℕ) : ℤ)) : Multiset ℤ)
+
+section Assembly
+variable {System Λ V T G K : Type*} [Group G] [Field K] {n : ℕ}
+
+/-- Import the R24.5 assembly operation. No compatible-system carrier is declared
+here. Its continuity, finite exceptional set and weak predicate are omitted. -/
+def compatibleSystem
+    (assemble : (Λ → (G →* GLn n K)) → (V → K[X]) → (T → Multiset ℤ) → System)
+    (r : Λ → (G →* GLn n K)) (P : V → K[X]) (H : T → Multiset ℤ) : System :=
+  assemble r P H
+
+lemma compatibleSystem_member
+    (assemble : (Λ → (G →* GLn n K)) → (V → K[X]) → (T → Multiset ℤ) → System)
+    (member : System → Λ → (G →* GLn n K))
+    (h : ∀ r P H, ∀ lam, Conjugate (member (assemble r P H) lam) (r lam))
+    (r : Λ → (G →* GLn n K)) (P : V → K[X]) (H : T → Multiset ℤ) (lam : Λ) :
+    Conjugate (member (compatibleSystem assemble r P H) lam) (r lam) := by
+  exact h r P H lam
+
+lemma compatibleSystem_goodPolynomial
+    (assemble : (Λ → (G →* GLn n K)) → (V → K[X]) → (T → Multiset ℤ) → System)
+    (polynomial : System → V → K[X]) (h : ∀ r P H, polynomial (assemble r P H) = P)
+    (r : Λ → (G →* GLn n K)) (P : V → K[X]) (H : T → Multiset ℤ) (v : V) :
+    polynomial (compatibleSystem assemble r P H) v = P v := by
+  exact congrFun (h r P H) v
+
+lemma compatibleSystem_hodgeTate
+    (assemble : (Λ → (G →* GLn n K)) → (V → K[X]) → (T → Multiset ℤ) → System)
+    (hodge : System → T → Multiset ℤ) (h : ∀ r P H, hodge (assemble r P H) = H)
+    (r : Λ → (G →* GLn n K)) (P : V → K[X]) (a : T → Fin n → ℤ) (τ : T) :
+    hodge (compatibleSystem assemble r P (fun τ => expectedHodgeTate (a τ))) τ =
+      expectedHodgeTate (a τ) := by
+  exact congrFun (h r P _) τ
+
+/-- Only the good-polynomial component of Weak: the supplier's period predicates
+cannot be stated at this baseline. The actual packet assertion is stronger. -/
+lemma compatibleSystem_weak
+    (assemble : (Λ → (G →* GLn n K)) → (V → K[X]) → (T → Multiset ℤ) → System)
+    (member : System → Λ → (G →* GLn n K))
+    (hm : ∀ r P H lam, Conjugate (member (assemble r P H) lam) (r lam))
+    (r : Λ → (G →* GLn n K)) (P : V → K[X]) (H : T → Multiset ℤ) (frob : V → G)
+    (hp : ∀ lam v, ((r lam (frob v)).val).charpoly = P v) :
+    ∀ lam v, ((member (compatibleSystem assemble r P H) lam (frob v)).val).charpoly = P v :=
+  sorry
+
+lemma compatibleSystem_embedding [CharZero K] (r s : G →* GLn n K)
+    (hr : Semisimple r) (hs : Semisimple s)
+    (h : ∀ g, (r g).val.charpoly = (s g).val.charpoly) :
+    Conjugate (coeffChange (algebraMap K (AlgebraicClosure K)) r)
+      (coeffChange (algebraMap K (AlgebraicClosure K)) s) := sorry
+
+/-- Test TauCeti.AutomorphicGalois.compatibleSystem_rank_one: the assembly
+preserves a supplied algebraic-character member; class-field construction omitted. -/
+example (assemble : (Λ → (G →* GLn 1 K)) → (V → K[X]) → (T → Multiset ℤ) → System)
+    (member : System → Λ → (G →* GLn 1 K))
+    (hm : ∀ r P H, member (assemble r P H) = r)
+    (ψ : Λ → (G →* GLn 1 K)) (P : V → K[X]) (H : T → Multiset ℤ) :
+    member (compatibleSystem assemble ψ P H) = ψ := sorry
+
+/-- Test TauCeti.AutomorphicGalois.compatibleSystem_weight_k. -/
+example (k : ℤ) : expectedHodgeTate ![k - 2, 0] = ({k - 1, 0} : Multiset ℤ) ∧
+    (expectedHodgeTate ![k - 2, 0]).sum = k - 1 := sorry
+
+/-- Test TauCeti.AutomorphicGalois.compatibleSystem_R19: attachment uniqueness
+after the supplier's dual/twist dictionary; that dictionary's construction omitted. -/
+example [CharZero K] (ag2 r19Dual : G →* GLn 2 K) (h₁ : Semisimple ag2) (h₂ : Semisimple r19Dual)
+    (hp : ∀ g, (ag2 g).val.charpoly = (r19Dual g).val.charpoly) :
+    Conjugate (coeffChange (algebraMap K (AlgebraicClosure K)) ag2)
+      (coeffChange (algebraMap K (AlgebraicClosure K)) r19Dual) := sorry
+
+/-- Test TauCeti.AutomorphicGalois.compatibleSystem_no_automatic_strictness:
+N=0 and N≠0 have the same semisimplified Weil action. -/
+example : (0 : Matrix (Fin 2) (Fin 2) ℚ) ≠ !![0, 1; 0, 0] ∧
+    (!![0, 1; 0, 0] : Matrix (Fin 2) (Fin 2) ℚ) ^ 2 = 0 := sorry
+end Assembly
+
+section StrongField
+variable {Λ G : Type*} [Group G] {n : ℕ}
+variable {E K : Λ → Type*} [∀ lam, Field (E lam)] [∀ lam, Field (K lam)]
+
+/-- The simultaneous based descent component. Λ is the actual coefficient-place
+index supplied externally; number-field finiteness/completions and continuity
+are omitted, rather than encoded as free proposition fields. -/
+def IsStrongCoefficientField (ι : ∀ lam, E lam →+* K lam) (r : ∀ lam, G →* GLn n (K lam)) : Prop :=
+  ∀ lam, ∃ s : G →* GLn n (E lam), Conjugate (coeffChange (ι lam) s) (r lam)
+
+noncomputable def strongCoefficientField_member
+    (ι : ∀ lam, E lam →+* K lam) (r : ∀ lam, G →* GLn n (K lam))
+    (h : IsStrongCoefficientField ι r) (lam : Λ) :
+    {s : G →* GLn n (E lam) // Conjugate (coeffChange (ι lam) s) (r lam)} :=
+  ⟨Classical.choose (h lam), Classical.choose_spec (h lam)⟩
+
+lemma strongCoefficientField_baseChange
+    {E' : Λ → Type*} [∀ lam, Field (E' lam)]
+    (ι : ∀ lam, E lam →+* K lam) (ι' : ∀ lam, E' lam →+* K lam)
+    (f : ∀ lam, E lam →+* E' lam) (hf : ∀ lam, (ι' lam).comp (f lam) = ι lam)
+    (r : ∀ lam, G →* GLn n (K lam)) (h : IsStrongCoefficientField ι r) :
+    IsStrongCoefficientField ι' r := sorry
+
+lemma strongCoefficientField_unique
+    (ι : ∀ lam, E lam →+* K lam) (r : ∀ lam, G →* GLn n (K lam))
+    (h : IsStrongCoefficientField ι r) (lam : Λ) (s t : G →* GLn n (E lam))
+    (hs : Conjugate (coeffChange (ι lam) s) (r lam))
+    (ht : Conjugate (coeffChange (ι lam) t) (r lam)) :
+    Conjugate s t := sorry
+
+/-- Test TauCeti.AutomorphicGalois.strongCoefficientField_character. -/
+example (ι : ∀ lam, E lam →+* K lam) (ψ : ∀ lam, G →* GLn 1 (E lam)) :
+    IsStrongCoefficientField ι (fun lam => coeffChange (ι lam) (ψ lam)) := sorry
+
+/-- Test TauCeti.AutomorphicGalois.strongCoefficientField_extension:
+the scalar-extension tower is tested on actual group homomorphisms. -/
+example {L M N : Type*} [Field L] [Field M] [Field N]
+    (f : L →+* M) (g : M →+* N) (r : G →* GLn n L) :
+    coeffChange g (coeffChange f r) = coeffChange (g.comp f) r := sorry
+
+/-- Test TauCeti.AutomorphicGalois.strongCoefficientField_not_rationality:
+the quaternionic two-dimensional character has rational traces but no Q model.
+The actual group representation is supplied, with its two quaternion generators;
+no invented automorphic carrier or assertion about a particular pi is used. -/
+example (r : G →* GLn 2 ℂ) (x y : G)
+    (hx : (r x).val = !![Complex.I, 0; 0, -Complex.I])
+    (hy : (r y).val = !![0, 1; -1, 0])
+    (ht : ∀ g, ∃ t : ℚ, Matrix.trace (r g).val = (t : ℂ)) :
+    ¬ ∃ s : G →* GLn 2 ℚ, Conjugate (coeffChange (Rat.castHom ℂ) s) r := sorry
+
+/-- Test TauCeti.AutomorphicGalois.strongCoefficientField_scalar_intertwiner. -/
+example {L : Type*} [Field L] (r s : G →* GLn n L)
+    (b : GLn n L) (hb : ∀ g, s g * b = b * r g) (c : Lˣ) :
+    ∀ g, s g * (Matrix.GeneralLinearGroup.scalar (Fin n) c * b) =
+      (Matrix.GeneralLinearGroup.scalar (Fin n) c * b) * r g := sorry
+end StrongField
+
+section Residual
+variable {G O k : Type*} [Group G] [CommRing O] [Field k] {n : ℕ}
+
+/-- Semisimplify the reduction in a basis of the supplied stable lattice.
+Finiteness of the residue field, continuity and construction of that lattice
+are omitted; the integral model is an actual homomorphism into GL_n(O). -/
+noncomputable def residualRep (rO : G →* GLn n O) (red : O →+* k) : G →* GLn n k := sorry
+
+lemma residualRep_semisimple (rO : G →* GLn n O) (red : O →+* k) :
+    Semisimple (residualRep rO red) := sorry
+
+lemma residualRep_goodPolynomial (rO : G →* GLn n O) (red : O →+* k) (g : G) :
+    (residualRep rO red g).val.charpoly = ((rO g).val.charpoly).map red := sorry
+
+/-- The common integral characteristic polynomials are the algebraic input of
+lattice independence. The actual lattice/spanning comparison is supplied by R01.1. -/
+lemma residualRep_indep_lattice [Finite k] (r₁ r₂ : G →* GLn n O) (red : O →+* k)
+    (h : ∀ g, (r₁ g).val.charpoly = (r₂ g).val.charpoly) :
+    Conjugate (coeffChange (algebraMap k (AlgebraicClosure k)) (residualRep r₁ red))
+      (coeffChange (algebraMap k (AlgebraicClosure k)) (residualRep r₂ red)) := sorry
+
+lemma residualRep_coeffExtension {k' : Type*} [Field k'] [Fintype k]
+    (rO : G →* GLn n O) (red : O →+* k) (f : k →+* k') :
+    Conjugate (coeffChange (algebraMap k' (AlgebraicClosure k'))
+      (coeffChange f (residualRep rO red)))
+      (coeffChange (algebraMap k' (AlgebraicClosure k')) (residualRep rO (f.comp red))) := sorry
+
+/-- Polarization-equation fragment: G_n, total oddness, CM conjugation and the
+extension across G_F⊂G_F+ are unavailable. This proves only coefficient transport
+of the actual matrix pairing, not construction of the missing group. -/
+lemma residualRep_extendGn {k' : Type*} [Field k']
+    (f : k →+* k') (A Ac J : Matrix (Fin n) (Fin n) k) (μ : k)
+    (h : Ac.transpose * J * A = μ • J) :
+    (Ac.map f).transpose * J.map f * A.map f = f μ • J.map f := sorry
+
+/-- Test TauCeti.AutomorphicGalois.residualRep_rank_one. -/
+example (rO : G →* GLn 1 O) (red : O →+* k) :
+    Conjugate (residualRep rO red) (coeffChange red rO) := sorry
+
+/-- Test TauCeti.AutomorphicGalois.residualRep_R19_dual:
+the already-normalized integral dual member is supplied, not rebuilt. -/
+example [Finite k] (ag2 r19Dual : G →* GLn 2 O) (red : O →+* k)
+    (h : ∀ g, (ag2 g).val.charpoly = (r19Dual g).val.charpoly) :
+    Conjugate (coeffChange (algebraMap k (AlgebraicClosure k)) (residualRep ag2 red))
+      (coeffChange (algebraMap k (AlgebraicClosure k)) (residualRep r19Dual red)) := sorry
+
+/-- Test TauCeti.AutomorphicGalois.residualRep_noncanonical_lattice:
+the two reductions of the stated Z_5 lattices at t=1 are unequal, with the
+same polynomial as their semisimple identity. The p-adic lattice is omitted. -/
+example : (!![1, 1; 0, 1] : Matrix (Fin 2) (Fin 2) (ZMod 5)) ≠ 1 ∧
+    (!![1, 1; 0, 1] : Matrix (Fin 2) (Fin 2) (ZMod 5)).charpoly =
+      (1 : Matrix (Fin 2) (Fin 2) (ZMod 5)).charpoly := sorry
+end Residual
+
+section Hecke
+variable {G V k : Type*} [Group G] [Field k] {n : ℕ}
+
+/-- Algebraic part of ACC+ Definition 2.3.6. P is the residue eigencharacter's
+actual normalized Hecke polynomial; its integral algebra/maximal ideal and
+continuity of G_F are omitted. Semisimplicity is Mathlib's predicate. -/
+def IsGaloisType (frob : V → G) (P : V → k[X]) : Prop :=
+  ∃ r : G →* GLn n k, Semisimple r ∧ ∀ v, (r (frob v)).val.charpoly = P v
+
+noncomputable def galoisType_rep (frob : V → G) (P : V → k[X])
+    (h : IsGaloisType (n := n) frob P) :
+    {r : G →* GLn n k // Semisimple r ∧ ∀ v, (r (frob v)).val.charpoly = P v} :=
+  ⟨Classical.choose h, Classical.choose_spec h⟩
+
+/-- Chebotarev supplies the upgrade from good Frobenius equality to every g.
+The fragment states that latter algebraic recognition input explicitly. -/
+lemma galoisType_rep_unique [Finite k] (frob : V → G) (P : V → k[X])
+    (r s : G →* GLn n k) (hr : Semisimple r) (hs : Semisimple s)
+    (hp : ∀ g, (r g).val.charpoly = (s g).val.charpoly) :
+    Conjugate (coeffChange (algebraMap k (AlgebraicClosure k)) r)
+      (coeffChange (algebraMap k (AlgebraicClosure k)) s) := sorry
+
+lemma galoisType_coeffExtension {k' : Type*} [Field k'] [Fintype k]
+    (f : k →+* k') (frob : V → G) (P : V → k[X])
+    (h : IsGaloisType (n := n) frob P) :
+    IsGaloisType (n := n) frob (fun v => (P v).map f) := sorry
+
+/-- The chosen Galois-type witness must remain irreducible over k-bar. -/
+def IsNonEisenstein (frob : V → G) (P : V → k[X]) : Prop :=
+  ∃ r : G →* GLn n k, Semisimple r ∧ AbsolutelyIrreducible r ∧
+    ∀ v, (r (frob v)).val.charpoly = P v
+
+lemma nonEisenstein_galoisType (frob : V → G) (P : V → k[X])
+    (h : IsNonEisenstein (n := n) frob P) : IsGaloisType (n := n) frob P := sorry
+
+lemma nonEisenstein_coeffExtension {k' : Type*} [Field k'] [Fintype k]
+    (f : k →+* k') (frob : V → G) (P : V → k[X])
+    (h : IsNonEisenstein (n := n) frob P) :
+    IsNonEisenstein (n := n) frob (fun v => (P v).map f) := sorry
+
+/-- Test TauCeti.AutomorphicGalois.galoisType_reducible. -/
+example (frob : V → G) : IsGaloisType (n := 2) frob
+    (fun _ => (X - 1) ^ 2 : V → k[X]) := sorry
+
+/-- Test TauCeti.AutomorphicGalois.galoisType_not_nonEisenstein:
+all group elements occur, so no different irreducible witness is possible. -/
+example : ¬ IsNonEisenstein (n := 2) (id : G → G)
+    (fun _ => (X - 1) ^ 2 : G → k[X]) := sorry
+
+/-- Test TauCeti.AutomorphicGalois.nonEisenstein_rank_one. -/
+example (frob : V → G) (P : V → k[X]) (h : IsGaloisType (n := 1) frob P) :
+    IsNonEisenstein (n := 1) frob P := sorry
+
+/-- Test TauCeti.AutomorphicGalois.nonEisenstein_not_trivial_rank_two. -/
+example : ¬ AbsolutelyIrreducible (1 : G →* GLn 2 k) := sorry
+
+/-- Test TauCeti.AutomorphicGalois.nonEisenstein_absolute_not_relative:
+rotation of order four over R is irreducible over R, and splits over C-bar. -/
+example (r : Multiplicative (ZMod 4) →* GLn 2 ℝ)
+    (hr : (r (Multiplicative.ofAdd 1)).val = !![0, -1; 1, 0]) :
+    Representation.IsIrreducible (matrixRepresentation r) ∧ ¬ AbsolutelyIrreducible r := sorry
+
+lemma residualHeckeIdealIndependence {T k' : Type*} [CommRing T] [Field k']
+    (θ : T →+* k) (f : k →+* k') : RingHom.ker (f.comp θ) = RingHom.ker θ := sorry
+
+/-- The Hecke-algebra involution and cyclotomic realization are omitted; this
+checks its reciprocal geometric eigenvalue formula and ordered ratio invariant. -/
+theorem dualAndTwistHeckeComparison (α : Fin n → kˣ) (q : kˣ) :
+    IsGenericEigenvalues (fun i => q ^ (n - 1) * (α i)⁻¹) (q : k) ↔
+      IsGenericEigenvalues α (q : k) := sorry
+end Hecke
+
+/-! Complete-splitting fragments use the externally supplied entire place fiber
+V p, inertia, Frobenius, ramification index and residue degree. No number-field
+place carrier is declared. Their identification with genuine places is omitted.
+Nonempty fibers prevent a vacuous all-place condition. -/
+section Decomposed
+variable {G k : Type*} [Group G] [Field k] {n ℓ : ℕ} [CharP k ℓ]
+variable (V : ℕ → Type*) [∀ p, Nonempty (V p)]
+variable (e f : ∀ p, V p → ℕ) (I : ∀ p, V p → Subgroup G) (frob : ∀ p, V p → G)
+
+def IsDecomposedGenericPrime (r : G →* GLn n k) (p : ℕ) : Prop :=
+  Nat.Prime p ∧ p ≠ ℓ ∧ ∀ v : V p,
+    e p v = 1 ∧ f p v = 1 ∧ IsGeneric (I p v) r (frob p v) (p : k)
+
+lemma decomposedGenericPrime_local (r : G →* GLn n k) (p : ℕ)
+    (h : IsDecomposedGenericPrime (ℓ := ℓ) V e f I frob r p) (v : V p) :
+    IsGeneric (I p v) r (frob p v) (p : k) := sorry
+
+lemma decomposedGenericPrime_coeffExtension {k' : Type*} [Field k'] [CharP k' ℓ]
+    (j : k →+* k') (r : G →* GLn n k) (p : ℕ) :
+    IsDecomposedGenericPrime (ℓ := ℓ) V e f I frob (coeffChange j r) p ↔
+      IsDecomposedGenericPrime (ℓ := ℓ) V e f I frob r p := sorry
+
+def IsDecomposedGeneric (r : G →* GLn n k) : Prop :=
+  ∃ p, IsDecomposedGenericPrime (ℓ := ℓ) V e f I frob r p
+
+lemma decomposedGeneric_witness (r : G →* GLn n k)
+    (h : IsDecomposedGeneric (ℓ := ℓ) V e f I frob r) :
+    ∃ p, Nat.Prime p ∧ p ≠ ℓ ∧ ∀ v : V p,
+      e p v = 1 ∧ f p v = 1 ∧ IsGeneric (I p v) r (frob p v) (p : k) := sorry
+
+lemma decomposedGeneric_coeffExtension {k' : Type*} [Field k'] [CharP k' ℓ]
+    (j : k →+* k') (r : G →* GLn n k) :
+    IsDecomposedGeneric (ℓ := ℓ) V e f I frob (coeffChange j r) ↔
+      IsDecomposedGeneric (ℓ := ℓ) V e f I frob r := sorry
+
+/-- Test TauCeti.AutomorphicGalois.decomposedGenericPrime_Q. -/
+example (r : G →* GLn n k) (p : ℕ) (hp : Nat.Prime p) (hℓ : p ≠ ℓ)
+    (J : Subgroup G) (g : G) (hg : IsGeneric J r g (p : k)) :
+    IsDecomposedGenericPrime (ℓ := ℓ) (fun _ => PUnit) (fun _ _ => 1)
+      (fun _ _ => 1) (fun _ _ => J) (fun _ _ => g) r p := sorry
+
+/-- Test TauCeti.AutomorphicGalois.decomposedGenericPrime_not_inert. -/
+example (r : G →* GLn n k) (p : ℕ) :
+    ¬ IsDecomposedGenericPrime (ℓ := ℓ) (fun _ => PUnit) (fun _ _ => 1)
+      (fun _ _ => 2) (fun _ _ => (⊥ : Subgroup G)) (fun _ _ => 1) r p := sorry
+
+/-- Test TauCeti.AutomorphicGalois.decomposedGenericPrime_not_ell. -/
+example (r : G →* GLn n k) :
+    ¬ IsDecomposedGenericPrime (ℓ := ℓ) V e f I frob r ℓ := sorry
+
+/-- Chebotarev's positive-density witness set is supplied by the owner.
+This fragment transports it and gives avoidance of any finite exceptional set;
+it does not prove Chebotarev for arbitrary fiber parameters. -/
+theorem infinitelyManyDecomposedGenericPrimes (r : G →* GLn n k)
+    (C : Set ℕ) (hC : C.Infinite)
+    (h : ∀ p ∈ C, IsDecomposedGenericPrime (ℓ := ℓ) V e f I frob r p) :
+    {p | IsDecomposedGenericPrime (ℓ := ℓ) V e f I frob r p}.Infinite ∧
+    ∀ S : Finset ℕ, ∃ p, p ∉ S ∧
+      IsDecomposedGenericPrime (ℓ := ℓ) V e f I frob r p := sorry
+end Decomposed
+
+/-- Test TauCeti.AutomorphicGalois.decomposedGeneric_trivial_F3. -/
+example : IsDecomposedGeneric (ℓ := 3) (fun _ => PUnit) (fun _ _ => 1)
+    (fun _ _ => 1) (fun _ _ => (⊥ : Subgroup PUnit)) (fun _ _ => 1)
+    (1 : PUnit →* GLn 2 (ZMod 3)) := sorry
+
+/-- Test TauCeti.AutomorphicGalois.decomposedGeneric_not_irreducible. -/
+example : IsDecomposedGeneric (ℓ := 3) (fun _ => PUnit) (fun _ _ => 1)
+    (fun _ _ => 1) (fun _ _ => (⊥ : Subgroup PUnit)) (fun _ _ => 1)
+    (1 : PUnit →* GLn 2 (ZMod 3)) ∧
+    ¬ AbsolutelyIrreducible (1 : PUnit →* GLn 2 (ZMod 3)) := sorry
+
+/-- Test TauCeti.AutomorphicGalois.decomposedGeneric_not_every_prime. -/
+example : ¬ IsDecomposedGenericPrime (ℓ := 3) (fun _ => PUnit) (fun _ _ => 1)
+    (fun _ _ => 1) (fun _ _ => (⊥ : Subgroup PUnit)) (fun _ _ => 1)
+    (1 : PUnit →* GLn 2 (ZMod 3)) 7 := sorry
+
+/-- Test TauCeti.AutomorphicGalois.isGeneric_matrix_diagonal. -/
+example {K : Type*} [Field K] {n : ℕ} (α : Fin n → Kˣ) :
+    (Matrix.diagonal (fun i => (α i : K))).charpoly = ∏ i, (X - C (α i : K)) := sorry
+
+/-- Dependence on the actual residue cardinality p^f, not just p.
+The local-field identification is omitted. -/
+lemma strongGeneric_arbitrary_local_field {G k : Type*} [Group G] [Field k] {n : ℕ}
+    (I : Subgroup G) (r : G →* GLn n k) (frob : G) (p f : ℕ) :
+    IsStrongGeneric I r frob (p ^ f : k) ↔
+      (∀ g ∈ I, r g = 1) ∧ ∃ α : Fin n → (AlgebraicClosure k)ˣ,
+      ((r frob).val.map (algebraMap k (AlgebraicClosure k))).charpoly =
+        ∏ i, (X - C (α i : AlgebraicClosure k)) ∧
+      IsGenericEigenvalues α (algebraMap k (AlgebraicClosure k) (p ^ f : k)) ∧
+      Function.Injective α := sorry
+
+/-- Only an unramified scalar twist is a local invariance operation. -/
+theorem genericityTransfer {G k : Type*} [Group G] [Field k] {n : ℕ}
+    (I : Subgroup G) (r s : G →* GLn n k) (χ : G →* kˣ)
+    (hs : ∀ g, s g = Matrix.GeneralLinearGroup.scalar (Fin n) (χ g) * r g)
+    (hχ : ∀ g ∈ I, χ g = 1) (frob : G) (q : k) :
+    IsGeneric I s frob q ↔ IsGeneric I r frob q := sorry
+
+/-- The algebraic exclusion step; finiteness of bad coefficient places and the
+subsequent local split-place Chebotarev theorem need the number-field supplier.
+This is not the stronger all-place rational-prime conclusion. -/
+theorem residualGenericityOutsideFiniteSet {O k : Type*} [CommRing O] [Field k]
+    {n : ℕ} (red : O →+* k) (α : Fin n → Oˣ) (q : O)
+    (h : ∀ i j, i ≠ j → red ((α i : O) - (α j : O)) ≠ 0 ∧
+      red ((α i : O) - q * (α j : O)) ≠ 0) :
+    IsStrongGenericEigenvalues (fun i => Units.map red.toMonoidHom (α i)) (red q) := sorry
+
+/-! Export fragments. System is universally quantified external R24.5 data.
+Members, Hodge multisets, Weil actions, monodromy and block lists below are
+projections of that supplier's realizations. Their geometric provenance, the
+period functors and complete WD/purity predicates are omitted. Proof fields
+are concrete equalities/inequalities about the data; no field has type Prop. -/
+section Exports
+variable {System Λ V T Ω G K : Type*} [Group G] [Field K] {n : ℕ}
+
+structure GoodPrimeExport (member : System → Λ → (G →* GLn n K))
+    (frob : V → G) (P : V → K[X]) (s : System) : Type _ where
+  goodPolynomial : ∀ lam v, (member s lam (frob v)).val.charpoly = P v
+
+lemma goodPrimeExport_member (member : System → Λ → (G →* GLn n K))
+    (frob : V → G) (P : V → K[X]) (s : System)
+    (x : GoodPrimeExport member frob P s) (lam : Λ) (v : V) :
+    (member s lam (frob v)).val.charpoly = P v := x.goodPolynomial lam v
+
+noncomputable def goodPrimeExport_coeffChange {System' L : Type*} [Field L]
+    (member : System → Λ → (G →* GLn n K))
+    (member' : System' → Λ → (G →* GLn n L)) (change : System → System')
+    (j : K →+* L) (hm : ∀ s lam, member' (change s) lam = coeffChange j (member s lam))
+    (frob : V → G) (P : V → K[X]) (s : System)
+    (x : GoodPrimeExport member frob P s) :
+    GoodPrimeExport member' frob (fun v => (P v).map j) (change s) := sorry
+
+structure NonselfdualComparisonExport
+    (member : System → Λ → (G →* GLn n K)) (frob : V → G) (P : V → K[X]) (s : System)
+    (HT : Λ → T → Multiset ℤ) (H : T → Multiset ℤ)
+    (wdWeil recWeil : Λ → V → (G →* GLn n K))
+    (wdBlocks recBlocks : Λ → V → Ω → List ℕ) where
+  good : GoodPrimeExport member frob P s
+  hodge : ∀ lam τ, HT lam τ = H τ
+  semisimplified : ∀ lam v, Conjugate (wdWeil lam v) (recWeil lam v)
+  monodromyBound : ∀ lam v ω t,
+    ((wdBlocks lam v ω).take t).sum ≤ ((recBlocks lam v ω).take t).sum
+
+abbrev nonselfdualExport_goodPrime
+    {member : System → Λ → (G →* GLn n K)} {frob : V → G} {P : V → K[X]} {s : System}
+    {HT : Λ → T → Multiset ℤ} {H : T → Multiset ℤ}
+    {wd rec : Λ → V → (G →* GLn n K)} {b c : Λ → V → Ω → List ℕ}
+    (x : NonselfdualComparisonExport member frob P s HT H wd rec b c) := x.good
+
+lemma nonselfdualExport_hodge
+    {member : System → Λ → (G →* GLn n K)} {frob : V → G} {P : V → K[X]} {s : System}
+    {HT : Λ → T → Multiset ℤ} {H : T → Multiset ℤ}
+    {wd rec : Λ → V → (G →* GLn n K)} {b c : Λ → V → Ω → List ℕ}
+    (x : NonselfdualComparisonExport member frob P s HT H wd rec b c) (lam : Λ) (τ : T) :
+    HT lam τ = H τ := x.hodge lam τ
+
+lemma nonselfdualExport_wdBound
+    {member : System → Λ → (G →* GLn n K)} {frob : V → G} {P : V → K[X]} {s : System}
+    {HT : Λ → T → Multiset ℤ} {H : T → Multiset ℤ}
+    {wd rec : Λ → V → (G →* GLn n K)} {b c : Λ → V → Ω → List ℕ}
+    (x : NonselfdualComparisonExport member frob P s HT H wd rec b c) (lam : Λ) (v : V) :
+    Conjugate (wd lam v) (rec lam v) ∧
+      ∀ ω t, ((b lam v ω).take t).sum ≤ ((c lam v ω).take t).sum := sorry
+
+/-- A full local map must intertwine both the Weil action and N with the SAME
+invertible matrix. The good-prime purity equation is included; monodromy-graded
+strict purity and total oddness are omitted pending the suppliers. -/
+structure PolarizedComparisonExport
+    (member : System → Λ → (G →* GLn n K)) (frob : V → G) (P : V → K[X]) (s : System)
+    (HT : Λ → T → Multiset ℤ) (H : T → Multiset ℤ)
+    (wdWeil recWeil : Λ → V → (G →* GLn n K))
+    (wdN recN : Λ → V → Matrix (Fin n) (Fin n) K)
+    (c : G ≃* G) (μ : Λ → (G →* Kˣ)) (j : K →+* ℂ) (q : V → ℕ) (W : ℤ) where
+  good : GoodPrimeExport member frob P s
+  hodge : ∀ lam τ, HT lam τ = H τ
+  pairing : Λ → GLn n K
+  polarized : ∀ lam g, (member s lam (c g)).val.transpose * (pairing lam).val *
+    (member s lam g).val = (μ lam g : K) • (pairing lam).val
+  localComparison : ∀ lam v, {u : GLn n K //
+    (∀ g, recWeil lam v g * u = u * wdWeil lam v g) ∧
+    recN lam v * u.val = u.val * wdN lam v}
+  goodPure : ∀ (v : V) (α : ℂ), ((P v).map j).IsRoot α → ‖α‖ ^ 2 = (q v : ℝ) ^ W
+
+abbrev polarizedExport_goodPrime
+    {member : System → Λ → (G →* GLn n K)} {frob : V → G} {P : V → K[X]} {s : System}
+    {HT : Λ → T → Multiset ℤ} {H : T → Multiset ℤ}
+    {wd rec : Λ → V → (G →* GLn n K)} {N M : Λ → V → Matrix (Fin n) (Fin n) K}
+    {c : G ≃* G} {μ : Λ → (G →* Kˣ)} {j : K →+* ℂ} {q : V → ℕ} {W : ℤ}
+    (x : PolarizedComparisonExport member frob P s HT H wd rec N M c μ j q W) := x.good
+
+lemma polarizedExport_local
+    {member : System → Λ → (G →* GLn n K)} {frob : V → G} {P : V → K[X]} {s : System}
+    {HT : Λ → T → Multiset ℤ} {H : T → Multiset ℤ}
+    {wd rec : Λ → V → (G →* GLn n K)} {N M : Λ → V → Matrix (Fin n) (Fin n) K}
+    {c : G ≃* G} {μ : Λ → (G →* Kˣ)} {j : K →+* ℂ} {q : V → ℕ} {W : ℤ}
+    (x : PolarizedComparisonExport member frob P s HT H wd rec N M c μ j q W)
+    (lam : Λ) (v : V) :
+    (∀ τ, HT lam τ = H τ) ∧ ∃ u : GLn n K,
+      (∀ g, rec lam v g * u = u * wd lam v g) ∧ M lam v * u.val = u.val * N lam v := sorry
+
+/-- Concrete pairing/purity projection of the future R24.5 predicate export;
+the unavailable full supplier predicates are not replaced by arbitrary Prop. -/
+lemma polarizedExport_supplier
+    {member : System → Λ → (G →* GLn n K)} {frob : V → G} {P : V → K[X]} {s : System}
+    {HT : Λ → T → Multiset ℤ} {H : T → Multiset ℤ}
+    {wd rec : Λ → V → (G →* GLn n K)} {N M : Λ → V → Matrix (Fin n) (Fin n) K}
+    {c : G ≃* G} {μ : Λ → (G →* Kˣ)} {j : K →+* ℂ} {q : V → ℕ} {W : ℤ}
+    (x : PolarizedComparisonExport member frob P s HT H wd rec N M c μ j q W) :
+    (∀ lam g, (member s lam (c g)).val.transpose * (x.pairing lam).val *
+      (member s lam g).val = (μ lam g : K) • (x.pairing lam).val) ∧
+    ∀ v α, ((P v).map j).IsRoot α → ‖α‖ ^ 2 = (q v : ℝ) ^ W := sorry
+
+/-- Test TauCeti.AutomorphicGalois.goodPrimeExport_character:
+a nonzero export inhabitant with rank-one trivial algebraic character. -/
+example (frob : V → G) (s : System) :
+    Nonempty (GoodPrimeExport (fun _ (_ : Λ) => (1 : G →* GLn 1 K))
+      frob (fun _ => X - 1) s) := sorry
+
+/-- Test TauCeti.AutomorphicGalois.goodPrimeExport_polynomial:
+actual exported polynomial; the modular-form normalization dictionary is omitted. -/
+example (member : System → Λ → (G →* GLn 2 K)) (frob : V → G) (s : System)
+    (a d : V → K) (x : GoodPrimeExport member frob
+      (fun v => X ^ 2 - C (a v) * X + C (d v)) s) (lam : Λ) (v : V) :
+    (member s lam (frob v)).val.charpoly = X ^ 2 - C (a v) * X + C (d v) := sorry
+
+/-- Test TauCeti.AutomorphicGalois.goodPrimeExport_not_fullWD:
+two genuine WD matrix pairs: F=diag(1,2), N=0 and N=E12;
+F N F^-1=(1/2)N holds in both, but no full intertwiner exists. -/
+example (F : GLn 2 ℚ) (hF : F.val = !![1, 0; 0, 2]) :
+    F.val * (!![0, 1; 0, 0] : Matrix (Fin 2) (Fin 2) ℚ) =
+      (1 / 2 : ℚ) • (!![0, 1; 0, 0] * F.val) ∧
+    ¬ ∃ u : GLn 2 ℚ, (!![0, 1; 0, 0] : Matrix (Fin 2) (Fin 2) ℚ) * u.val = u.val * 0 := sorry
+
+/-- Test TauCeti.AutomorphicGalois.nonselfdualExport_rank_one:
+inhabit the actual wrapper for a trivial rank-one member, its supplied Hodge
+weight and its size-one Weil block. Class-field and period realizations omitted. -/
+example (frob : V → G) (s : System) (h : T → ℤ) :
+    Nonempty (NonselfdualComparisonExport
+      (fun _ (_ : Λ) => (1 : G →* GLn 1 K)) frob (fun _ => X - 1) s
+      (fun _ τ => {h τ}) (fun τ => {h τ}) (fun _ _ => 1) (fun _ _ => 1)
+      (fun _ _ (_ : PUnit) => [1]) (fun _ _ (_ : PUnit) => [1])) := sorry
+
+/-- The rank-one monodromy component of the preceding test. -/
+example (N : Matrix (Fin 1) (Fin 1) K) (h : IsNilpotent N) : N = 0 := sorry
+
+/-- Test TauCeti.AutomorphicGalois.nonselfdualExport_good_crystalline:
+zero upper monodromy forces zero below; the period criterion is omitted. -/
+example (N : Matrix (Fin n) (Fin n) K)
+    (h : N.rank ≤ (0 : Matrix (Fin n) (Fin n) K).rank) : N = 0 := sorry
+
+/-- Test TauCeti.AutomorphicGalois.nonselfdualExport_not_polarized_fullWD:
+strict block dominance [1,1]≺[2] does not identify monodromy. -/
+example : (∀ t, (([1, 1] : List ℕ).take t).sum ≤ (([2] : List ℕ).take t).sum) ∧
+    ([1, 1] : List ℕ) ≠ [2] := sorry
+
+/-- Test TauCeti.AutomorphicGalois.polarizedExport_weight_k:
+the actual rank-two wrapper exposes the full Hodge multiset and its sum. -/
+example {member : System → Λ → (G →* GLn 2 K)} {frob : V → G} {P : V → K[X]} {s : System}
+    {HT : Λ → T → Multiset ℤ} {wd rec : Λ → V → (G →* GLn 2 K)}
+    {N M : Λ → V → Matrix (Fin 2) (Fin 2) K}
+    {c : G ≃* G} {μ : Λ → (G →* Kˣ)} {j : K →+* ℂ} {q : V → ℕ} {W : ℤ}
+    (k : ℤ) (x : PolarizedComparisonExport member frob P s HT
+      (fun _ => expectedHodgeTate ![k - 2, 0]) wd rec N M c μ j q W)
+    (lam : Λ) (τ : T) :
+    HT lam τ = ({k - 1, 0} : Multiset ℤ) ∧ (HT lam τ).sum = k - 1 := sorry
+
+/-- Test TauCeti.AutomorphicGalois.polarizedExport_forget:
+exercise the actual wrapper and keep the same carrier reference. -/
+example {member : System → Λ → (G →* GLn n K)} {frob : V → G} {P : V → K[X]} {s : System}
+    {HT : Λ → T → Multiset ℤ} {H : T → Multiset ℤ}
+    {wd rec : Λ → V → (G →* GLn n K)} {N M : Λ → V → Matrix (Fin n) (Fin n) K}
+    {c : G ≃* G} {μ : Λ → (G →* Kˣ)} {j : K →+* ℂ} {q : V → ℕ} {W : ℤ}
+    (x : PolarizedComparisonExport member frob P s HT H wd rec N M c μ j q W)
+    (lam : Λ) (v : V) :
+    (member s lam (frob v)).val.charpoly = P v := sorry
+
+/-- Test TauCeti.AutomorphicGalois.polarizedExport_nonselfdual_rejected:
+no invertible map can turn the zero operator into nonzero monodromy. -/
+example : ¬ ∃ u : GLn 2 ℚ,
+    (!![0, 1; 0, 0] : Matrix (Fin 2) (Fin 2) ℚ) * u.val = u.val * 0 := sorry
+end Exports
+
+section Unitary
+variable {G K : Type*} [Group G] [Field K] {n₁ n₂ : ℕ}
+
+/-- Direct-sum algebraic fragment. The two actual transferred constituents and
+parity characters are supplied. CS occurrence/parameter identification, good
+places and the away-ell local correspondence are omitted, never inferred. -/
+structure UnitaryDiscreteExport (r₁ : G →* GLn n₁ K) (r₂ : G →* GLn n₂ K)
+    (ε₁ ε₂ : G →* Kˣ) where
+  rep : G →* Matrix.GeneralLinearGroup (Fin n₁ ⊕ Fin n₂) K
+  block : ∀ g, (rep g).val = Matrix.fromBlocks
+    ((ε₁ g : K) • (r₁ g).val) 0 0 ((ε₂ g : K) • (r₂ g).val)
+
+lemma unitaryDiscreteExport_constituent (r₁ : G →* GLn n₁ K) (r₂ : G →* GLn n₂ K)
+    (ε₁ ε₂ : G →* Kˣ) (x : UnitaryDiscreteExport r₁ r₂ ε₁ ε₂) (g : G)
+    (v : Fin n₁ → K) :
+    (x.rep g).val.mulVec (Sum.elim v 0) =
+      Sum.elim (((ε₁ g : K) • (r₁ g).val).mulVec v) 0 := sorry
+
+lemma unitaryDiscreteExport_goodPolynomial (r₁ : G →* GLn n₁ K) (r₂ : G →* GLn n₂ K)
+    (ε₁ ε₂ : G →* Kˣ) (x : UnitaryDiscreteExport r₁ r₂ ε₁ ε₂) (g : G) :
+    (x.rep g).val.charpoly = (((ε₁ g : K) • (r₁ g).val).charpoly) *
+      (((ε₂ g : K) • (r₂ g).val).charpoly) := sorry
+
+/-- Test TauCeti.AutomorphicGalois.unitaryDiscreteExport_two_characters. -/
+example (r₁ r₂ : G →* GLn 1 K) (ε₁ ε₂ : G →* Kˣ)
+    (x : UnitaryDiscreteExport r₁ r₂ ε₁ ε₂) (g : G) :
+    (x.rep g).val.charpoly = (X - C ((ε₁ g : K) * (r₁ g).val 0 0)) *
+      (X - C ((ε₂ g : K) * (r₂ g).val 0 0)) := sorry
+
+/-- Test TauCeti.AutomorphicGalois.unitaryDiscreteExport_rank_additivity. -/
+example : Module.finrank K ((Fin n₁ ⊕ Fin n₂) → K) = n₁ + n₂ := sorry
+
+/-- Test TauCeti.AutomorphicGalois.unitaryDiscreteExport_not_cuspidal_irreducibility:
+an explicit invariant proper first summand is retained. -/
+example (r₁ r₂ : G →* GLn 1 K) (ε₁ ε₂ : G →* Kˣ)
+    (x : UnitaryDiscreteExport r₁ r₂ ε₁ ε₂) (g : G) (a : K) :
+    ((x.rep g).val.mulVec (Sum.elim (fun _ => a) (fun _ => 0))) (Sum.inr 0) = 0 ∧
+    ¬ Representation.IsIrreducible
+      (((Units.coeHom _).comp (Matrix.GeneralLinearGroup.toLin.toMonoidHom.comp x.rep)) :
+        Representation K G ((Fin 1 ⊕ Fin 1) → K)) := sorry
+end Unitary
+
+section ResidualExport
+variable {G O k T V : Type*} [Group G] [CommRing O] [Field k] [CommRing T] {n : ℕ}
+
+/-- The chosen integral model records the stable-lattice basis supplied by R01.1.
+The local field/lattice carrier and topological comparison are omitted.
+Both the raw reduction and the semisimple member remain visible. -/
+structure ResidualPolynomialExport (rO : G →* GLn n O) (red : O →+* k)
+    (θ : T →+* O) (frob : V → G) (P : V → k[X]) where
+  semisimpleRep : G →* GLn n k
+  semisimple : Semisimple semisimpleRep
+  reduction : ∀ g, (semisimpleRep g).val.charpoly = ((rO g).val.charpoly).map red
+  heckePolynomial : ∀ v, (semisimpleRep (frob v)).val.charpoly = P v
+
+lemma residualExport_compareLattice [Finite k] (r₁ r₂ : G →* GLn n O) (red : O →+* k)
+    (θ : T →+* O) (frob : V → G) (P : V → k[X])
+    (x : ResidualPolynomialExport r₁ red θ frob P)
+    (y : ResidualPolynomialExport r₂ red θ frob P)
+    (h : ∀ g, (r₁ g).val.charpoly = (r₂ g).val.charpoly) :
+    Conjugate (coeffChange (algebraMap k (AlgebraicClosure k)) x.semisimpleRep)
+      (coeffChange (algebraMap k (AlgebraicClosure k)) y.semisimpleRep) := sorry
+
+/-- Kernel is the actual reduced eigencharacter. Maximality needs the omitted
+surjectivity/finite-residue-field supplier, not just the polynomial comparison. -/
+lemma residualExport_maxIdeal (rO : G →* GLn n O) (red : O →+* k)
+    (θ : T →+* O) (frob : V → G) (P : V → k[X])
+    (x : ResidualPolynomialExport rO red θ frob P) :
+    IsGaloisType (n := n) frob P ∧
+    RingHom.ker (red.comp θ) = Ideal.comap θ (RingHom.ker red) := sorry
+
+lemma residualExport_charpoly (rO : G →* GLn n O) (red : O →+* k)
+    (θ : T →+* O) (frob : V → G) (P : V → k[X])
+    (x : ResidualPolynomialExport rO red θ frob P) (g : G) :
+    (coeffChange red rO g).val.charpoly = (x.semisimpleRep g).val.charpoly := sorry
+
+/-- Test TauCeti.AutomorphicGalois.residualExport_rank_one. -/
+example (rO : G →* GLn 1 O) (red : O →+* k) (θ : T →+* O)
+    (frob : V → G) (P : V → k[X]) (x : ResidualPolynomialExport rO red θ frob P) :
+    Conjugate x.semisimpleRep (coeffChange red rO) := sorry
+
+/-- Test TauCeti.AutomorphicGalois.residualExport_diagonal_mod3. -/
+example : ((Matrix.diagonal ![(1 : ℤ), 2]).charpoly).map (Int.castRingHom (ZMod 3)) =
+    X ^ 2 + C (2 : ZMod 3) := sorry
+
+/-- Test TauCeti.AutomorphicGalois.residualExport_unipotent_lattices:
+the raw reductions differ; the comparison uses semisimple identity instead. -/
+example : (!![1, 1; 0, 1] : Matrix (Fin 2) (Fin 2) (ZMod 5)) ≠ 1 ∧
+    (!![1, 1; 0, 1] : Matrix (Fin 2) (Fin 2) (ZMod 5)).charpoly =
+      (1 : Matrix (Fin 2) (Fin 2) (ZMod 5)).charpoly := sorry
+end ResidualExport
+
+/-! Named comparison signatures. Raw geometry and the automorphic representation
+carrier are not available at the pinned baseline. The missing hypotheses are
+listed per node in suggestedCoverage and in the reader; they have NOT been
+replaced by arbitrary predicates. In particular, signatures whose automorphic
+hypotheses are omitted are not valid assertions for arbitrary matrices.
+All actual geometric and arithmetic statements remain in the packet. -/
+
+/-- Restriction of a genuine supplied geometric comparison to the images of the
+raw projectors. AG2.1a supplies those projectors before period comparison. -/
+theorem geometricCoefficientPrimeComparison {K V W : Type*} [Field K]
+    [AddCommGroup V] [Module K V] [AddCommGroup W] [Module K W]
+    (u : V ≃ₗ[K] W) (e : Module.End K V) (f : Module.End K W)
+    (he : e.comp e = e) (hf : f.comp f = f)
+    (hu : u.toLinearMap.comp e = f.comp u.toLinearMap) :
+    Nonempty (LinearMap.range e ≃ₗ[K] LinearMap.range f) := sorry
+
+/-- Numeric descent part of the family/patching comparison; the bounded-family
+and cyclic descent constructors are omitted, not presumed for arbitrary limits. -/
+theorem coefficientHodgeComparisonThroughDescent {T T' : Type*}
+    (restrict : T' → T) (hs : Function.Surjective restrict)
+    (HT H : T → Multiset ℤ) (h : ∀ τ', HT (restrict τ') = H (restrict τ')) :
+    HT = H := sorry
+
+/-- Labelled weights component; polarized automorphic/geometric hypotheses and
+de Rham/crystalline/semistable predicates are omitted. -/
+theorem polarizedCoefficientPrimeAdmissibility {G K T : Type*}
+    [Group G] [Field K] {n : ℕ} (r : G →* GLn n K)
+    (HT : (G →* GLn n K) → T → Multiset ℤ) (a : T → Fin n → ℤ) :
+    ∀ τ, HT r τ = expectedHodgeTate (a τ) := sorry
+
+/-- Pure monodromy-graded eigenvalue output. The two-boundary sequence,
+projected closed strata and their diagonal concentration are omitted.
+Graded Frobenius matrices are supplied, not a new spectral-sequence carrier. -/
+theorem logCrystallineAutomorphicPurity {d : ℕ}
+    (gradedFrob : ℤ → Matrix (Fin d) (Fin d) ℂ) (q : ℕ) (W : ℤ) :
+    ∀ i α, (gradedFrob i).charpoly.IsRoot α → ‖α‖ ^ 2 = (q : ℝ) ^ (W + i) := sorry
+
+/-- Full map output, including N. Polarized automorphic and geometric/purity
+hypotheses and the actual WD construction are omitted. -/
+theorem fullPolarizedCoefficientPrimeComparison {G K : Type*} [Group G] [Field K]
+    {n : ℕ} (wd rec : G →* GLn n K) (N M : Matrix (Fin n) (Fin n) K) :
+    ∃ u : GLn n K, (∀ g, rec g * u = u * wd g) ∧ M * u.val = u.val * N := sorry
+
+/-- AHTW output components. The supplied wd/rec projections are semisimplified
+Weil actions. CM regular algebraic cuspidality, actual periods and the bounded
+cohomology/pseudodeformation hypotheses are omitted. No N intertwiner appears. -/
+theorem allCMCoefficientPrimeComparison {G W K T V : Type*}
+    [Group G] [Group W] [Field K] {n : ℕ} (r : G →* GLn n K)
+    (HT : (G →* GLn n K) → T → Multiset ℤ) (a : T → Fin n → ℤ)
+    (wd : (G →* GLn n K) → V → (W →* GLn n K)) (rec : V → (W →* GLn n K)) :
+    (∀ τ, HT r τ = expectedHodgeTate (a τ)) ∧ ∀ v, Conjugate (wd r v) (rec v) := sorry
+
+/-- AHTW's order component, indexed by irreducible Weil type modulo unramified
+twist. Actual Frobenius-semisimple WD→block extraction and automorphy are omitted.
+Equality of semisimplifications is separate and not part of this order. -/
+theorem nonselfdualCoefficientPrimeMonodromyBound {Ω : Type*}
+    (wdBlocks recBlocks : Ω → List ℕ) :
+    ∀ ω t, ((wdBlocks ω).take t).sum ≤ ((recBlocks ω).take t).sum := sorry
+
+/-- Algebraic zero-N inference in the spherical corollary. The actual WD inertia
+and period criteria, and the Iwahori semistability output, are omitted. -/
+theorem allCMCrystallineIwahoriAdmissibility {K : Type*} [Field K] {n : ℕ}
+    (N : Matrix (Fin n) (Fin n) K)
+    (h : N.rank ≤ (0 : Matrix (Fin n) (Fin n) K).rank) : N = 0 := sorry
+
+/-- Local completion is unchanged under a split CM extension. The base-change
+construction and totally-real polarized automorphic hypotheses are omitted. -/
+theorem totallyRealPolarizedCoefficientPrimeComparison {G K : Type*} [Group G]
+    [Field K] {n : ℕ} (r rec : G →* GLn n K)
+    (u : G ≃* G) (h : Conjugate (r.comp u.toMonoidHom) (rec.comp u.toMonoidHom)) :
+    Conjugate r rec := sorry
+
+/-- Chebotarev's density upgrade is omitted. The all-element algebraic
+recognition statement is typed against Mathlib's semisimplicity predicate. -/
+theorem coefficientEmbeddingIndependence {G K : Type*} [Group G] [Field K] [CharZero K]
+    {n : ℕ} (r s : G →* GLn n K) (hr : Semisimple r) (hs : Semisimple s)
+    (h : ∀ g, (r g).val.charpoly = (s g).val.charpoly) :
+    Conjugate (coeffChange (algebraMap K (AlgebraicClosure K)) r)
+      (coeffChange (algebraMap K (AlgebraicClosure K)) s) := sorry
+
+/-- Entrywise coefficient conjugation and inverse orientation. The automorphic
+σπ constructor is omitted. Neither coefficient change acts on G. -/
+theorem coefficientConjugation {G K : Type*} [Group G] [Field K] {n : ℕ}
+    (σ : K ≃+* K) (r : G →* GLn n K) :
+    coeffChange σ.symm.toRingHom (coeffChange σ.toRingHom r) = r := sorry
+
+/-- Algebraic CH descent component over one algebraically closed ambient field.
+The simultaneous number-field/completion construction at different ell is omitted.
+Two regular good polynomials are retained; each member uses one of them. -/
+theorem existsUniformStrongCoefficientField {Λ G E₀ K : Type*}
+    [Group G] [Field E₀] [CharZero E₀] [Field K] [Algebra E₀ K] [IsAlgClosed K]
+    {n : ℕ} (r : Λ → (G →* GLn n K)) (hs : ∀ lam, Semisimple (r lam))
+    (ht : ∀ lam g, ∃ t : E₀, Matrix.trace (r lam g).val = algebraMap E₀ K t)
+    (P₁ P₂ : E₀[X]) (h₁ : P₁.Monic ∧ P₁.natDegree = n ∧ P₁.Separable)
+    (h₂ : P₂.Monic ∧ P₂.natDegree = n ∧ P₂.Separable)
+    (hp : ∀ lam, ∃ g, (r lam g).val.charpoly = P₁.map (algebraMap E₀ K) ∨
+      (r lam g).val.charpoly = P₂.map (algebraMap E₀ K)) :
+    ∃ E : IntermediateField E₀ K, FiniteDimensional E₀ E ∧
+      IsStrongCoefficientField (E := fun _ : Λ => E) (K := fun _ : Λ => K)
+        (fun _ : Λ => E.subtype) r := sorry
+
+/-- Good-prime purity component; the polarized automorphic hypotheses and the
+full graded-WD strict-purity predicate are omitted. -/
+theorem polarizedSystemPurity {V K : Type*} [Field K] (P : V → K[X])
+    (j : K →+* ℂ) (q : V → ℕ) (w : ℤ) (n : ℕ) :
+    ∀ v α, ((P v).map j).IsRoot α → ‖α‖ ^ 2 = (q v : ℝ) ^ (w + n - 1) := sorry
+
+/-- Restriction to the density-one coefficient subset after the full Hodge
+comparison. Density and the unavailable weakening predicates are omitted. -/
+theorem veryWeakCompatibilityUnderDGI {Λ T : Type*} (D : Set Λ)
+    (HT : Λ → T → Multiset ℤ) (H : T → Multiset ℤ)
+    (h : ∀ lam τ, HT lam τ = H τ) : ∀ lam ∈ D, ∀ τ, HT lam τ = H τ := sorry
+
+/-- Identification component of tensor automorphy. Both tensor and automorphic
+realizations are supplied; their construction, initial automorphy/irreducibility
+and the good-prime Chebotarev upgrade are omitted. -/
+theorem tensorAutomorphyIndependentOfIota {G K : Type*} [Group G] [Field K] [CharZero K] {n : ℕ}
+    (tensorMember automorphicMember : G →* GLn n K)
+    (ht : Semisimple tensorMember) (ha : Semisimple automorphicMember)
+    (hp : ∀ g, (tensorMember g).val.charpoly = (automorphicMember g).val.charpoly) :
+    Conjugate (coeffChange (algebraMap K (AlgebraicClosure K)) tensorMember)
+      (coeffChange (algebraMap K (AlgebraicClosure K)) automorphicMember) := sorry
+
+/-- CG's Hodge and Frobenius polynomial components; the regular good-level
+GSp4 eigenform, crystalline periods and p-Hecke eigenform hypotheses are omitted. -/
+theorem gsp4CrystallineHodgeComparison {G K : Type*} [Group G] [Field K]
+    (r : G →* GLn 4 K) (HT : (G →* GLn 4 K) → Multiset ℤ)
+    (φ : Matrix (Fin 4) (Fin 4) K) (Qp : K[X]) (a b : ℤ)
+    (hab : b ≤ a) (hb : 3 ≤ b) :
+    HT r = ({0, b - 2, a - 1, a + b - 3} : Multiset ℤ) ∧ φ.charpoly = Qp := sorry
+
+/-- Upper-triangular output with the actual four diagonal characters supplied.
+Their cyclotomic/unramified realization, regular ordinary GSp4 form and unit
+Hecke eigenvalue hypotheses are omitted. -/
+theorem ordinaryGsp4CoefficientPrimeShape {G K : Type*} [Group G] [Field K]
+    (r : G →* GLn 4 K) (χ : Fin 4 → (G →* Kˣ)) :
+    ∃ u : GLn 4 K, ∀ g,
+      (∀ i j : Fin 4, j < i → (u⁻¹ * r g * u).val i j = 0) ∧
+      ∀ i, (u⁻¹ * r g * u).val i i = (χ i g : K) := sorry
+
+/-- Finite algebraic enlargement part of the Baire proof: finitely many coset
+representative entries generate a finite extension. The compact p-adic image,
+closed intersections and Baire open subgroup are omitted. F plays Q_ell here. -/
+theorem existsFinitePadicRealization {F K : Type*} [Field F] [Field K] [Algebra F K]
+    (entries : Finset K) (ha : ∀ x ∈ entries, IsAlgebraic F x) :
+    ∃ E : IntermediateField F K, FiniteDimensional F E ∧ ∀ x ∈ entries, x ∈ E := sorry
+
 end TauCeti.AutomorphicGalois
-
-
-
-
-/-! ## Mathematical signature register
-
-Full mathematical signatures below require the named supplier objects. They are
-not elaborated declarations; each omission is covered by the supplier-type gap
-in the packet. Executable algebraic prototypes above leave out the unavailable
-local continuity and number-field-place constructors, and do not certify them.
--/
-
-/-
-AutomorphicGaloisRepresentationsPartII:AG2.6/extremely-weakly-compatible-system
-Signature Weak, very weak and extremely weak automorphic data:
-Use the single arbitrary-rank carrier of R24.5:operations, with coefficient number field M, finite S, common good-prime P_v, continuous semisimple r_λ and labelled H_τ. Import its weak, very weak and extremely weak predicates without a second carrier. Weak implies very weak implies extremely weak. Extremely weak fixes only HT(det r_λ)=sum H_τ; very weak adds crystallinity and the full multiset at all coefficient-prime places for a density-one set of rational primes. No converse in rank greater than one is asserted.
-Missing full-signature inputs: PotentialModularityAndCompatibleSystems:R24.5/weakly-compatible-system-rank-n, PotentialModularityAndCompatibleSystems:R24.5/weakened-compatible-data.
--/
-
-/-
-AutomorphicGaloisRepresentationsPartII:AG2.6/geometric-coefficient-prime-comparison
-Signature TauCeti.AutomorphicGalois.geometricCoefficientPrimeComparison:
-For the smooth proper PEL/Kuga–Sato realization supplied by AG2.1a, after the stated Schur projector, automorphic isotypic projector and Tate twist, apply D_cris and D_dR to the actual cohomological summand. The comparison maps are restrictions of geometric comparison and commute with the projectors and cup products. At good reduction the summand is crystalline; its filtered de Rham realization gives HT_τ={a_{τ,i}+n−i : 1≤i≤n}. At strictly semistable reduction use the filtered (φ,N) comparison, with the same projectors. The passage is through a geometric realization, not an assumption that an arbitrary attached representation has period dimensions n.
-Missing full-signature inputs: AutomorphicGaloisRepresentationsPartII:AG2.1a/polarized-construction-inputs-shin-and-chenevier-harris, AutomorphicGaloisRepresentationsPartII:AG2.0/expected-hodge-tate-multiset, PadicHodgeTheory:R06.5/crystalline-comparison-good-reduction, PadicHodgeTheory:R06.2/ddr-exact-strict-tensor, PadicHodgeTheory:R06.5.
--/
-
-/-
-AutomorphicGaloisRepresentationsPartII:AG2.6/coefficient-hodge-comparison-through-families-and-descent
-Signature TauCeti.AutomorphicGalois.coefficientHodgeComparisonThroughDescent:
-For a conjugate-self-dual cohomological cuspidal Π over a CM field, the Chenevier–Harris construction passes de Rham, the prescribed regular Hodge multiset, crystallinity at spherical places and semistability at Iwahori places through their bounded family and cyclic patching. Theorem 2.3 varies weights at one chosen coefficient-prime place v_0 and establishes admissibility at the other coefficient-prime places. Theorem 3.2.3 removes this exclusion by solvable base change and descent, arranging at least two coefficient-prime places. A convergent sequence of de Rham representations with unbounded Hodge weights is not the statement.
-Missing full-signature inputs: AutomorphicGaloisRepresentationsPartII:AG2.6/geometric-coefficient-prime-comparison, AutomorphicGaloisRepresentationsPartII:AG2.3, LocallyAnalyticDistributions:L4/fredholm-determinant, LocallyAnalyticDistributions:L4/finite-slope-summands, LocallyAnalyticDistributions:L4/completed-base-change, PadicHodgeTheory:R06.2/de-rham-base-change, PadicHodgeTheory:R06.2/crystalline-semistable-base-change, EndoscopicTransferAndUnitaryTraceComparison:ET.7a, PadicHodgeTheory:R06.2.
--/
-
-/-
-AutomorphicGaloisRepresentationsPartII:AG2.6/polarized-branch-de-rham-and-crystalline
-Signature TauCeti.AutomorphicGalois.polarizedCoefficientPrimeAdmissibility:
-Let F be CM and (π,χ) regular algebraic cuspidal polarized of weight a. For every λ|ℓ and v|ℓ, r_{π,λ}|G_{F_v} is de Rham with HT_τ={a_{τ,i}+n−i}. If π_v is spherical it is crystalline; if π_v has Iwahori-fixed vectors it is semistable. In the Iwahori case BLGGT Theorem 2.1.1(4) gives full Frobenius-semisimple WD comparison with rec(π_v|det|^{(1−n)/2}). The full comparison for general π_v is the separate Caraiani theorem below.
-Missing full-signature inputs: AutomorphicGaloisRepresentationsPartII:AG2.6/coefficient-hodge-comparison-through-families-and-descent, AutomorphicGaloisRepresentationsPartII:AG2.0/expected-hodge-tate-multiset, AutomorphicGaloisRepresentationsPartII:AG2.0/polarized-galois-representation, PadicHodgeTheory:R06.3/weil-deligne-parameter.
--/
-
-/-
-AutomorphicGaloisRepresentationsPartII:AG2.6/log-crystalline-purity-on-the-automorphic-summand
-Signature TauCeti.AutomorphicGalois.logCrystallineAutomorphicPurity:
-In Caraiani’s two-boundary semistable PEL model and its Kuga–Sato projector, the Π-isotypic log-crystalline summand realizing the tensor-square representation is pure as a WD representation (Proposition 5.1). Use the two-index strata Y^(r,s) and Theorem 4.6’s generalized log-crystalline weight spectral sequence, with Frobenius, twists and the residue realization of N. Purity follows after proving the relevant projected stratum cohomology is concentrated on the required diagonal; neither semistability nor the existence of the spectral sequence alone implies purity.
-Missing full-signature inputs: AutomorphicGaloisRepresentationsPartII:AG2.6/geometric-coefficient-prime-comparison, CrystallineCohomology:CR.6, WeightsInEtaleCohomology:R34.6, AutomorphicGaloisRepresentationsPartII:AG2.1a.
--/
-
-/-
-AutomorphicGaloisRepresentationsPartII:AG2.6/full-polarized-comparison-at-the-coefficient-prime
-Signature TauCeti.AutomorphicGalois.fullPolarizedCoefficientPrimeComparison:
-For n≥2, a conjugate-self-dual cohomological cuspidal Π over CM F, any ℓ, ι and v|ℓ, WD(r_{Π,ℓ,ι}|G_{F_v})^{F-ss} ≅ ι⁻¹ rec(Π_v|det|^{(1−n)/2}) with monodromy. The algebraic-character twist of AG2.2 extends this to the stated polarized branch. The theorem has no Shin-regularity condition; it uses purity of the geometric summand, temperedness and the pure-parameter uniqueness theorem. Rank one is supplied by algebraic local class field theory.
-Missing full-signature inputs: AutomorphicGaloisRepresentationsPartII:AG2.6/polarized-branch-de-rham-and-crystalline, AutomorphicGaloisRepresentationsPartII:AG2.6/log-crystalline-purity-on-the-automorphic-summand, AutomorphicGaloisRepresentationsPartII:AG2.2, AutomorphicGaloisRepresentationsPartII:AG2.5/caraiani-upgrade-away-from-p-and-temperedness, AutomorphicGaloisRepresentationsPartII:AG2.5, EndoscopicTransferAndUnitaryTraceComparison:ET.7a.
--/
-
-/-
-AutomorphicGaloisRepresentationsPartII:AG2.6/all-cm-de-rham-and-semisimplified-coefficient-comparison
-Signature TauCeti.AutomorphicGalois.allCMCoefficientPrimeComparison:
-A’Campo–Hevesi–Thorne–Whitmore v1, Theorem 1.2.1: for every CM F, n≥1, regular algebraic cuspidal π of highest weight a, ℓ, ι and v|ℓ, r_{π,ℓ,ι}|G_{F_v} is de Rham, has HT_τ={a_{ιτ,i}+n−i}, and WD(r_{π,ℓ,ι}|G_{F_v})^{ss} ≅ ι⁻¹ rec^T(π_v)^{ss}. Here rec^T(π_v)=rec(π_v|det|^{(1−n)/2}). No conjugate self-duality, residual irreducibility or decomposed genericity hypothesis is imposed. This is the July 2026 preprint theorem, with its precise input chain recorded below.
-Missing full-signature inputs: AutomorphicGaloisRepresentationsPartII:AG2.0/galois-representation-attached-at-good-places, AutomorphicGaloisRepresentationsPartII:AG2.0/expected-hodge-tate-multiset, PadicHodgeTheory:R06.3/weil-deligne-parameter, AutomorphicGaloisRepresentationsPartII:AG2.4.
--/
-
-/-
-AutomorphicGaloisRepresentationsPartII:AG2.6/nonselfdual-coefficient-prime-monodromy-bound
-Signature TauCeti.AutomorphicGalois.nonselfdualCoefficientPrimeMonodromyBound:
-Under the preceding theorem, WD(r_{π,ℓ,ι}|G_{F_v})^{F-ss} ≺ ι⁻¹rec^T(π_v). Equality of the semisimplified Weil representations comes from the preceding comparison theorem, not from the definition of the order. The order compares, for each irreducible Weil representation up to unramified twist, the sums of the largest Jordan-block sizes: every first-i sum on the left is ≤ the corresponding sum on the right. It is Varma’s order of §8.2, used in AHTW Definition 6.0.2. Full equality of N is not asserted for a general nonselfdual ramified π_v.
-Missing full-signature inputs: AutomorphicGaloisRepresentationsPartII:AG2.6/all-cm-de-rham-and-semisimplified-coefficient-comparison, AutomorphicGaloisRepresentationsPartII:AG2.5/varma-semisimplified-comparison-and-monodromy-bound, AutomorphicGaloisRepresentationsPartII:AG2.5.
--/
-
-/-
-AutomorphicGaloisRepresentationsPartII:AG2.6/all-cm-crystalline-and-iwahori-corollary
-Signature TauCeti.AutomorphicGalois.allCMCrystallineIwahoriAdmissibility:
-For arbitrary regular algebraic cuspidal π over a CM field, r_{π,λ}|G_{F_v} is crystalline when v|ℓ and π_v is spherical, and is semistable when π_v has Iwahori-fixed vectors. In the spherical case its crystalline Frobenius polynomial is the rec^T Satake polynomial. Proof: de Rham implies potentially semistable; ss compatibility gives trivial WD inertia for Iwahori π_v, and the monodromy bound against N=0 forces N=0 in the spherical case. Iwahori semistability does not establish full monodromy equality.
-Missing full-signature inputs: AutomorphicGaloisRepresentationsPartII:AG2.6/all-cm-de-rham-and-semisimplified-coefficient-comparison, AutomorphicGaloisRepresentationsPartII:AG2.6/nonselfdual-coefficient-prime-monodromy-bound, PadicHodgeTheory:R06.3/p-adic-monodromy-theorem, PadicHodgeTheory:R06.3/weil-deligne-descent.
--/
-
-/-
-AutomorphicGaloisRepresentationsPartII:AG2.6/totally-real-polarized-coefficient-prime-descent
-Signature TauCeti.AutomorphicGalois.totallyRealPolarizedCoefficientPrimeComparison:
-For a regular algebraic essentially self-dual cuspidal π over a totally real F, the attached BLGGT representation has the stated labelled Hodge weights, is de Rham, is crystalline at spherical coefficient-prime places and semistable at Iwahori places. Full coefficient-prime WD comparison is obtained from the polarized CM theorem by choosing a quadratic CM extension split at the target finite place, retaining cuspidality, matching the base-changed Galois representation, and comparing that unchanged local completion. This also covers the totally-real members used by Newton–Thorne; no unrestricted nonpolarized totally-real assertion is added.
-Missing full-signature inputs: AutomorphicGaloisRepresentationsPartII:AG2.0/galois-representation-attached-at-good-places, AutomorphicGaloisRepresentationsPartII:AG2.0/expected-hodge-tate-multiset, AutomorphicGaloisRepresentationsPartII:AG2.6/full-polarized-comparison-at-the-coefficient-prime, AutomorphicGaloisRepresentationsPartII:AG2.6/coefficient-hodge-comparison-through-families-and-descent, EndoscopicTransferAndUnitaryTraceComparison:ET.7a.
--/
-
-/-
-AutomorphicGaloisRepresentationsPartII:AG2.6/coefficient-embedding-independence-and-semisimple-uniqueness
-Signature TauCeti.AutomorphicGalois.coefficientEmbeddingIndependence:
-Fix π, its coefficient field M_π, λ and the embedding M_π→Q̄_ℓ attached to λ. Any two continuous semisimple n-dimensional representations of G_F with the common good geometric Frobenius polynomials P_v for v outside a finite set are isomorphic over Q̄_ℓ. Thus r_{π,ℓ,ι} depends on ι only through its restriction to M_π, up to isomorphism. This determines an isomorphism class, not a preferred basis or unique intertwiner. Different λ are compared by the common M_π-polynomials, not by identifying their topological coefficient fields.
-Missing full-signature inputs: AutomorphicGaloisRepresentationsPartII:AG2.0/galois-representation-attached-at-good-places, AutomorphicGaloisRepresentationsPartII:AG2.0/frobenius-polynomial-and-conventions, ArithmeticGaloisRepresentations:R01.5.
--/
-
-/-
-AutomorphicGaloisRepresentationsPartII:AG2.6/compatible-system-of-pi
-Signature TauCeti.AutomorphicGalois.compatibleSystem:
-For a regular algebraic cuspidal π of GL_n(A_F), with F CM, or F totally real and π polarized, construct the instance R_π of the imported arbitrary-rank R24.5 carrier: M_π is the field fixed by σ∈Aut(C) preserving π^∞; S_π is the finite ramification set of π; P_v(X) is the common monic rec^T geometric Frobenius polynomial; r_λ is the attached continuous semisimple representation; H_τ={a_{τ,i}+n−i}. Populate weak compatibility using all-CM de Rham admissibility, or the totally-real polarized theorem, and crystallinity for v outside S_π above ℓ. Purity, polarization and all-place strict compatibility are separate branch predicates, not fields asserted for every π.
-API signatures (the executable algebraic parts, when present, are above):
-TauCeti.AutomorphicGalois.compatibleSystem : Map π to R_π in the supplier carrier.
-TauCeti.AutomorphicGalois.compatibleSystem_member : The λ-member after embedding is r_{π,ℓ,ι}, up to isomorphism.
-TauCeti.AutomorphicGalois.compatibleSystem_goodPolynomial : At v outside S_π, the common polynomial is P_v(X).
-TauCeti.AutomorphicGalois.compatibleSystem_hodgeTate : The labelled multiset is {a_{τ,i}+n−i}, including multiplicities.
-TauCeti.AutomorphicGalois.compatibleSystem_weak : R_π satisfies the R24.5 weak predicate, with explicit normalization conversion.
-TauCeti.AutomorphicGalois.compatibleSystem_embedding : Two ι inducing the same λ on M_π give isomorphic members.
-Test/example signatures:
-Test TauCeti.AutomorphicGalois.compatibleSystem_rank_one : For an algebraic Hecke character ψ, this is its class-field-theoretic compatible system.
-Test TauCeti.AutomorphicGalois.compatibleSystem_weight_k : At n=2, a=(k−2,0), the Hodge multiset is {k−1,0} and its sum is k−1.
-Test TauCeti.AutomorphicGalois.compatibleSystem_R19 : On the exact classical/Hilbert overlap, applying the stated dual/twist dictionary identifies each λ-member with the R19 fixed-form member.
-Test TauCeti.AutomorphicGalois.compatibleSystem_no_automatic_strictness : A weak instance with only good-place polynomials cannot supply an equality of monodromy at an unspecified bad place.
-Missing full-signature inputs: AutomorphicGaloisRepresentationsPartII:AG2.0/galois-representation-attached-at-good-places, AutomorphicGaloisRepresentationsPartII:AG2.0/frobenius-polynomial-and-conventions, AutomorphicGaloisRepresentationsPartII:AG2.0/expected-hodge-tate-multiset, AutomorphicGaloisRepresentationsPartII:AG2.0/field-of-rationality, PotentialModularityAndCompatibleSystems:R24.5/weakly-compatible-system-rank-n, AutomorphicGaloisRepresentationsPartII:AG2.6/coefficient-embedding-independence-and-semisimple-uniqueness, AutomorphicGaloisRepresentationsPartII:AG2.6/all-cm-crystalline-and-iwahori-corollary, AutomorphicGaloisRepresentationsPartII:AG2.6/totally-real-polarized-coefficient-prime-descent.
--/
-
-/-
-AutomorphicGaloisRepresentationsPartII:AG2.6/complex-and-local-coefficient-conjugation
-Signature TauCeti.AutomorphicGalois.coefficientConjugation:
-For RAESDC π over totally real F or RAECSDC π over CM F, σ∈Aut(C), r_{σπ,ι}≅r_{π,σ⁻¹ι}. If σ_ℓ∈Gal(Q̄_ℓ/Q_ℓ) and σ=ισ_ℓι⁻¹, then σ_ℓ(r_{π,ι})≅r_{π,ισ_ℓ⁻¹}≅r_{π,σ⁻¹ι}≅r_{σπ,ι}. Coefficient conjugation acts on matrix entries; the absolute Galois group G_F is unchanged. Twisted tensor products use the semilinear convention of NT footnote 4.
-Missing full-signature inputs: AutomorphicGaloisRepresentationsPartII:AG2.6/coefficient-embedding-independence-and-semisimple-uniqueness, AutomorphicGaloisRepresentationsPartII:AG2.0/field-of-rationality, AutomorphicFormsOnReductiveGroups:AF.4.
--/
-
-/-
-AutomorphicGaloisRepresentationsPartII:AG2.6/strong-coefficient-field
-Signature TauCeti.AutomorphicGalois.IsStrongCoefficientField:
-For Π regular cohomological cuspidal conjugate-self-dual (including Liu’s relevant specialization with archimedean principal series arg^{1−n},arg^{3−n},…,arg^{n−1}) and a number field E⊂C containing Q(Π), E is a strong coefficient field if for each finite λ of E there exists a continuous E_λ-linear ρ_{Π,λ} whose scalar extension to Q̄_ℓ is ρ_{Π,ι} for every ι inducing λ. Members are unique up to E_λ-conjugacy when descended by the semisimple realization theorem. This is a field of definition of the representations, stronger than the field of rationality of good polynomials. It includes a family of descended realizations, not canonical bases or canonical intertwiners. This generalizes Liu’s named definition beyond its relevant specialization, using the simultaneous realization condition justified by Chenevier–Harris Proposition 3.2.5; Liu’s conditional minimal-field assertion remains confined to his specialization and Hypothesis 3.2.10.
-API signatures (the executable algebraic parts, when present, are above):
-TauCeti.AutomorphicGalois.IsStrongCoefficientField : The preceding all-λ realization property.
-TauCeti.AutomorphicGalois.strongCoefficientField_member : Choose an E_λ-realization with its scalar-extension isomorphism.
-TauCeti.AutomorphicGalois.strongCoefficientField_baseChange : For E′/E finite, each λ′-member is E′_λ′⊗_{E_λ}ρ_{Π,λ}, with the identity and composition laws.
-TauCeti.AutomorphicGalois.strongCoefficientField_unique : Descended semisimple members are unique up to conjugacy, not as based homomorphisms.
-Test/example signatures:
-Test TauCeti.AutomorphicGalois.strongCoefficientField_character : A rank-one character whose values lie in E has the expected E_λ-realizations.
-Test TauCeti.AutomorphicGalois.strongCoefficientField_extension : Changing E to a finite extension gives exactly the supplier’s coefficient base-change operation at every λ′.
-Test TauCeti.AutomorphicGalois.strongCoefficientField_not_rationality : The definition does not identify rational Frobenius traces with a canonical E_λ-model; a nontrivial Schur obstruction must be split.
-Test TauCeti.AutomorphicGalois.strongCoefficientField_scalar_intertwiner : Nonzero scalar multiples of an intertwiner remain intertwiners, so uniqueness is of the isomorphism class.
-Missing full-signature inputs: AutomorphicGaloisRepresentationsPartII:AG2.6/coefficient-embedding-independence-and-semisimple-uniqueness, AutomorphicGaloisRepresentationsPartII:AG2.0/field-of-rationality, ArithmeticGaloisRepresentations:R01.5.
--/
-
-/-
-AutomorphicGaloisRepresentationsPartII:AG2.6/uniform-strong-realization-for-polarized-systems
-Signature TauCeti.AutomorphicGalois.existsUniformStrongCoefficientField:
-For a conjugate-self-dual cohomological cuspidal Π over CM F, there is one finite number field E⊂C which is a strong coefficient field for all λ. Chenevier–Harris Proposition 3.2.5 enlarges the coefficient field E_0 of good polynomials by roots of regular semisimple good Frobenius elements at two places of different residue characteristics. Each λ can use one place away from ℓ; a split regular Frobenius and E_0-valued traces split the semisimple descent obstruction. No assertion that the minimal rationality field itself is strong is included.
-Missing full-signature inputs: AutomorphicGaloisRepresentationsPartII:AG2.6/polarized-branch-de-rham-and-crystalline, AutomorphicGaloisRepresentationsPartII:AG2.6/strong-coefficient-field, ArithmeticGaloisRepresentations:R01.5.
--/
-
-/-
-AutomorphicGaloisRepresentationsPartII:AG2.6/polarized-compatible-system-strictly-pure
-Signature TauCeti.AutomorphicGalois.polarizedSystemPurity:
-For a regular algebraic polarized cuspidal (π,χ) with a_{τ,i}+a_{τc,n+1−i}=w, R_π is pure and BLGGT-strictly pure of weight W=w+n−1. Its polarization is r_λ^c≅r_λ^∨⊗μ_λ, μ_λ=ε_ℓ^{1−n}r_{χ,λ}; the χ-system has purity weight 2w. Total oddness uses μ_λ(c_v)=(−1)^{n−1+w}χ_v(−1), so the required sign is χ_v(−1)=(−1)^{n+w}. BLGGT strict purity describes pure common WD parameters away from the coefficient prime; all-place strict compatibility needs the separately proved coefficient-prime theorem, not a change of definition.
-Missing full-signature inputs: AutomorphicGaloisRepresentationsPartII:AG2.6/compatible-system-of-pi, AutomorphicGaloisRepresentationsPartII:AG2.6/full-polarized-comparison-at-the-coefficient-prime, AutomorphicGaloisRepresentationsPartII:AG2.0/polarized-galois-representation, AutomorphicGaloisRepresentationsPartII:AG2.0/sign-of-the-polarization-multiplier, AutomorphicGaloisRepresentationsPartII:AG2.5/caraiani-upgrade-away-from-p-and-temperedness, PotentialModularityAndCompatibleSystems:R24.5/compatible-system-predicates, PotentialModularityAndCompatibleSystems:R24.5/polarized-system, PotentialModularityAndCompatibleSystems:R24.5/character-system.
--/
-
-/-
-AutomorphicGaloisRepresentationsPartII:AG2.6/very-weak-compatibility-under-dgi
-Signature TauCeti.AutomorphicGalois.veryWeakCompatibilityUnderDGI:
-The constructed R_π is weakly compatible, hence very weakly compatible by the imported weakening map. This gives, in particular, the conclusions of ACC+ Lemmas 7.1.9–7.1.10. Lemma 7.1.9 originally assumes a density-one set of rational ℓ for which every residual member is absolutely irreducible and decomposed generic; Lemma 7.1.10 proves very weak compatibility in rank two through its constituent/image arguments. That Fontaine–Laffaille/degree-shifting proof is an arithmetic consumer in PA.1; it is not an input to the all-CM construction here. None of these statements gives residual irreducibility at every coefficient place.
-Missing full-signature inputs: AutomorphicGaloisRepresentationsPartII:AG2.6/compatible-system-of-pi, PotentialModularityAndCompatibleSystems:R24.5/weakened-compatible-data.
--/
-
-/-
-AutomorphicGaloisRepresentationsPartII:AG2.6/coefficient-prime-branch-and-what-it-does-not-give
-Signature Comparison strength at the coefficient prime:
-The polarized branch has de Rham admissibility and full pure WD comparison at every coefficient-prime place. The all-CM nonselfdual branch has de Rham admissibility, full labelled Hodge weights, ss compatibility and the monodromy upper bound of AHTW v1; spherical crystallinity and Iwahori semistability follow from WD criteria. Full N equality for general nonselfdual ramified places is not supplied by these statements. Fontaine–Laffaille, ordinary lifting and residual-image conclusions retain their separate consumer hypotheses.
-Missing full-signature inputs: AutomorphicGaloisRepresentationsPartII:AG2.6/full-polarized-comparison-at-the-coefficient-prime, AutomorphicGaloisRepresentationsPartII:AG2.6/all-cm-crystalline-and-iwahori-corollary, AutomorphicGaloisRepresentationsPartII:AG2.6/nonselfdual-coefficient-prime-monodromy-bound.
--/
-
-/-
-AutomorphicGaloisRepresentationsPartII:AG2.6/rank-two-comparison-with-r19
-Signature Rank-two comparison with R19:
-For a fixed classical newform of weight k≥2 or regular cohomological Hilbert eigenform in the exact R19.3/5 overlap, identify the AG2 λ-member with the R19 member after converting geometric/arithmetic Frobenius and the stated Tate twist. For the standard weight-k classical normalization this is r_AG2≅r_R19^∨, giving geometric polynomial X²−a_qX+ψ(q)q^{k−1}, HT_AG2={0,k−1}, and det=r_ψ ε^{1−k} where r_ψ(Frob_q^geom)=ψ(q). For Hilbert (k_τ,w) use Skinner’s explicit half-integer normalization before dualizing; parity is part of its hypotheses. Import R19’s full Skinner coefficient-prime theorem, not Kisin’s conditional theorem as unconditional.
-Missing full-signature inputs: AutomorphicGaloisRepresentationsPartII:AG2.6/coefficient-embedding-independence-and-semisimple-uniqueness, AutomorphicGaloisRepresentations:R19.3/fixed-eigenform-compatible-family, AutomorphicGaloisRepresentations:R19.5/skinner-full-hilbert-coefficient-prime, AutomorphicGaloisRepresentationsPartII:AG2.0/frobenius-polynomial-and-conventions.
--/
-
-/-
-AutomorphicGaloisRepresentationsPartII:AG2.6/tensor-automorphy-independent-of-coefficient-embedding
-Signature TauCeti.AutomorphicGalois.tensorAutomorphyIndependentOfIota:
-Let π_1 and σ be RAESDC over a totally real F. Suppose r_{π_1,ι}⊗r_{σ,ι} is irreducible and automorphic for one (ℓ,ι), in the RAESDC sense used by Newton–Thorne. Then r_{π_1,j}⊗r_{σ,j} is automorphic for every prime q and j:Q̄_q≅C. Match the automorphic realization’s good polynomial to the tensor-product polynomial using coefficient conjugation, then use semisimple uniqueness. This does not establish automorphy of an arbitrary tensor product; its initial automorphy and irreducibility are hypotheses.
-Missing full-signature inputs: AutomorphicGaloisRepresentationsPartII:AG2.6/complex-and-local-coefficient-conjugation, AutomorphicGaloisRepresentationsPartII:AG2.6/coefficient-embedding-independence-and-semisimple-uniqueness, PotentialModularityAndCompatibleSystems:R24.5/linear-algebra-operations-on-systems.
--/
-
-/-
-AutomorphicGaloisRepresentationsPartII:AG2.6/gsp4-crystalline-hodge-comparison
-Signature TauCeti.AutomorphicGalois.gsp4CrystallineHodgeComparison:
-In Calegari–Geraghty Proposition 6.8, for a cuspidal GSp4 eigenform f of good p-level and weight (a,b), a≥b≥3, the AG2.2 transferred r_f is crystalline at p with HT={0,b−2,a−1,W}, W=a+b−3. If f is also an eigenform for the Hecke operators at p, det(X−φ)=λ_f(Q_p(X)) in their monic convention. The eigenform-at-p condition specifies this polynomial; crystallinity in the proposition’s good-level setting does not depend on that additional condition.
-Missing full-signature inputs: AutomorphicGaloisRepresentationsPartII:AG2.2, ModularityAndLanglandsExtensions:ML.4, AutomorphicGaloisRepresentationsPartII:AG2.6/polarized-branch-de-rham-and-crystalline.
--/
-
-/-
-AutomorphicGaloisRepresentationsPartII:AG2.6/ordinary-gsp4-coefficient-prime-shape
-Signature TauCeti.AutomorphicGalois.ordinaryGsp4CoefficientPrimeShape:
-Under CG Proposition 6.8(4), assume f is a p-Hecke eigenform and ordinary: its T_{p,1} and Q_{p,2} eigenvalues are units. The roots α,β,γ,δ of λ_f(Q_p(X)) have valuations 0,b−2,a−1,W and are distinct. r_f|G_Qp has the upper-triangular diagonal unram(α), ε^{−(b−2)}unram(p^{−(b−2)}β), ε^{−(a−1)}unram(p^{−(a−1)}γ), ε^{−W}unram(p^{−W}δ). The parameters of the unramified characters are units. Distinctness follows from the four different valuations, not from ordinarity in an unspecified singular weight.
-Missing full-signature inputs: AutomorphicGaloisRepresentationsPartII:AG2.6/gsp4-crystalline-hodge-comparison, PadicHodgeTheory:R06.4/ordinary-representation, PadicHodgeTheory:R06.4, ModularityAndLanglandsExtensions:ML.4.
--/
-
-/-
-AutomorphicGaloisRepresentationsPartII:AG2.6/pilloni-gsp4-normalization-comparison
-Signature Pilloni GSp₄ normalization comparison:
-Pilloni Theorem 5.1.7.1 for cuspidal π with discrete-series π_∞ and parameter (λ_1,λ_2;−λ_1−λ_2+3) gives a de Rham representation with HT={0,−λ_2,−λ_1,−λ_1−λ_2}. At p outside the nonspherical set it is crystalline and det(1−Xφ)=Θ_π(Q_p(X)). Its geometric Frobenius and HT(ε)=−1 conventions require reciprocal conversion X^4Q_p(1/X) to the monic polynomial. The corrected similitude exponent is ε^{λ_1+λ_2}, as recorded in E27 of the paper extraction. Substitution λ_1=1−a, λ_2=2−b gives CG’s four Hodge numbers; identifying the automorphic representations also requires the ML.4 Harish–Chandra/Satake dictionary.
-Missing full-signature inputs: AutomorphicGaloisRepresentationsPartII:AG2.6/gsp4-crystalline-hodge-comparison, AutomorphicGaloisRepresentationsPartII:AG2.2, ModularityAndLanglandsExtensions:ML.4.
--/
-
-/-
-AutomorphicGaloisRepresentationsPartII:AG2.7/finite-p-adic-field-of-realization
-Signature TauCeti.AutomorphicGalois.existsFinitePadicRealization:
-For each continuous r_{π,ℓ,ι}:G_F→GL_n(Q̄_ℓ), there is a finite extension E/Q_ℓ over which its matrices are defined, after a change of basis if desired. Prove this before invoking a compact-local-field stable-lattice theorem. The compact image is covered by GL_n(E) for the countably many finite subextensions of Q̄_ℓ/Q_ℓ; Baire gives one such closed subgroup with open intersection, and finitely many coset representatives lie in a larger finite field. A uniform strong number field is available on the polarized branch, but is not needed for this local assertion.
-Missing full-signature inputs: AutomorphicGaloisRepresentationsPartII:AG2.6/compatible-system-of-pi, ArithmeticGaloisRepresentations:R01.1.
--/
-
-/-
-AutomorphicGaloisRepresentationsPartII:AG2.7/residual-representation-of-pi
-Signature TauCeti.AutomorphicGalois.residualRep:
-Choose a finite E/Q_ℓ realizing r_{π,λ}, an O_E-stable lattice L, and a basis of L. Define r̄_{π,λ} as the semisimplification of L/m_EL. Its isomorphism class over k̄_ℓ is independent of L, the basis and enlargement of E, for a fixed coefficient embedding λ. It descends to the finite field generated by the reductions of the common good polynomial coefficients. At good v away from ℓ it is unramified and has characteristic polynomial P_v reduced through λ. For F/F^+ CM in the totally odd polarized branch, the semisimple residual polarized representation admits the 𝒢_n-valued extension with multiplier ε̄^{1−n}r̄_χ supplied by the polarized representation API. An arbitrary lattice is not declared self-dual.
-API signatures (the executable algebraic parts, when present, are above):
-TauCeti.AutomorphicGalois.residualRep : The continuous semisimple residual member over its finite field of realization.
-TauCeti.AutomorphicGalois.residualRep_indep_lattice : Two lattice reductions have isomorphic semisimplifications over k̄_ℓ.
-TauCeti.AutomorphicGalois.residualRep_coeffExtension : Enlargement of E gives scalar extension of the same semisimple residual representation.
-TauCeti.AutomorphicGalois.residualRep_goodPolynomial : At good v away from ℓ the polynomial is the coefficient reduction of P_v.
-TauCeti.AutomorphicGalois.residualRep_extendGn : For F/F^+ CM, totally odd polarized residual members extend to 𝒢_n with the specified multiplier; the totally-real orthogonal/symplectic specialization is separate.
-Test/example signatures:
-Test TauCeti.AutomorphicGalois.residualRep_rank_one : For an integral character ψ, r̄ is its reduction and no semisimplification changes it.
-Test TauCeti.AutomorphicGalois.residualRep_diagonal_reduction : Reduction of diag(1,2) modulo 3 has polynomial (X−1)(X−2), the reduction of the characteristic-zero polynomial.
-Test TauCeti.AutomorphicGalois.residualRep_R19_dual : For the classical weight-k overlap at fixed λ, r̄_AG2≅r̄_R19^∨ under the same residue embedding.
-Test TauCeti.AutomorphicGalois.residualRep_noncanonical_lattice : For the Z_5-action r(t)=[[1,5t],[0,1]], lattices with bases (e1,e2) and (5e1,e2) give identity and nontrivial unipotent reductions; both semisimplify to 1⊕1.
-Missing full-signature inputs: AutomorphicGaloisRepresentationsPartII:AG2.7/finite-p-adic-field-of-realization, ArithmeticGaloisRepresentations:R01.1/continuity-descent-and-lattice-independence, ArithmeticGaloisRepresentations:R01.5/recognition-by-characteristic-polynomials-and-coefficient-descent, AutomorphicGaloisRepresentationsPartII:AG2.0/polarized-galois-representation, GlobalGaloisDeformations:G7/polarized-deformation-problem.
--/
-
-/-
-AutomorphicGaloisRepresentationsPartII:AG2.7/good-polynomial-reduction
-Signature TauCeti.AutomorphicGalois.goodPolynomialReduction:
-For a stable lattice realization A_v∈GL_n(O_E) of a good geometric Frobenius, Matrix.charpoly(A_v) has integral coefficients and maps under O_E→k_E to Matrix.charpoly(Ā_v); semisimplification leaves it unchanged. Thus the reduced polynomial is the reduction of ι⁻¹P_v. The constant term is a unit because A_v is invertible. This is ordinary characteristic-polynomial coefficient change, not a new determinant-law construction.
-Missing full-signature inputs: AutomorphicGaloisRepresentationsPartII:AG2.7/residual-representation-of-pi.
--/
-
-/-
-AutomorphicGaloisRepresentationsPartII:AG2.7/hecke-maximal-ideal-of-galois-type
-Signature TauCeti.AutomorphicGalois.IsGaloisType:
-For the unramified integral Hecke algebra T^S over O, a maximal ideal m with finite residue field k_m is of Galois type if there exists a continuous semisimple r_m:G_{F,S}→GL_n(k_m) such that at every v outside S its good geometric Frobenius polynomial is Σ_{i=0}^n(−1)^i q_v^{i(i−1)/2}T_{v,i}X^{n−i} modulo m (T_{v,0}=1). Include the coefficient prime in S for this unramified quotient statement. r_m is considered up to isomorphism; the condition does not itself require absolute irreducibility.
-API signatures (the executable algebraic parts, when present, are above):
-TauCeti.AutomorphicGalois.IsGaloisType : Existence of the stated semisimple realization over k_m.
-TauCeti.AutomorphicGalois.galoisType_rep : A chosen r_m together with the polynomial matching theorem.
-TauCeti.AutomorphicGalois.galoisType_rep_unique : Any two semisimple realizations are isomorphic after a common residue-field extension.
-TauCeti.AutomorphicGalois.galoisType_coeffExtension : The polynomial comparison commutes with the existing GL coefficient map.
-Test/example signatures:
-Test TauCeti.AutomorphicGalois.galoisType_rank_one_polynomial : For n=1 the constant term is −T_{v,1}.
-Test TauCeti.AutomorphicGalois.galoisType_reducible : A Hecke eigencharacter with r_m=1⊕1 can be of Galois type.
-Test TauCeti.AutomorphicGalois.galoisType_charpoly_map : Residue extension maps the matched polynomial exactly by Matrix.charpoly_map.
-Test TauCeti.AutomorphicGalois.galoisType_not_nonEisenstein : The reducible example cannot certify non-Eisensteinness.
-Missing full-signature inputs: IntegralHeckeAndGaloisDeterminants:IHG.3, AutomorphicGaloisRepresentationsPartII:AG2.0/frobenius-polynomial-and-conventions, ArithmeticGaloisRepresentations:R01.5.
--/
-
-/-
-AutomorphicGaloisRepresentationsPartII:AG2.7/non-eisenstein-maximal-ideal
-Signature TauCeti.AutomorphicGalois.IsNonEisenstein:
-A maximal ideal m of T^S is non-Eisenstein if it is of Galois type and its semisimple realization r_m is absolutely irreducible. The condition is independent of the chosen realization by semisimple uniqueness. It is a global condition, separate from local ACC+ genericity and from enormousness of the image after restriction to G_{F(ζ_ℓ)}.
-API signatures (the executable algebraic parts, when present, are above):
-TauCeti.AutomorphicGalois.IsNonEisenstein : Galois type plus absolute irreducibility.
-TauCeti.AutomorphicGalois.nonEisenstein_galoisType : Forget absolute irreducibility.
-TauCeti.AutomorphicGalois.nonEisenstein_coeffExtension : Absolute irreducibility persists under any residue-field extension and is detected over k̄.
-Test/example signatures:
-Test TauCeti.AutomorphicGalois.nonEisenstein_rank_one : Every rank-one Galois-type realization is absolutely irreducible.
-Test TauCeti.AutomorphicGalois.nonEisenstein_not_trivial_rank_two : The rank-two trivial representation cannot make its ideal non-Eisenstein.
-Test TauCeti.AutomorphicGalois.nonEisenstein_absolute_not_relative : An irreducible k_m-representation that splits over k̄_m does not satisfy the definition.
-Missing full-signature inputs: AutomorphicGaloisRepresentationsPartII:AG2.7/hecke-maximal-ideal-of-galois-type.
--/
-
-/-
-AutomorphicGaloisRepresentationsPartII:AG2.7/residual-hecke-ideal-independence
-Signature TauCeti.AutomorphicGalois.residualHeckeIdealIndependence:
-Fix π, λ and an integral eigencharacter θ_π:T^S→O_E at that coefficient place. Then m_{π,λ}=ker(T^S→O_E→k_E) is of Galois type with realization r̄_{π,λ}. Its kernel is independent of stable lattice, basis and finite extension of E inducing the same λ: the eigencharacter is defined by the same integral Hecke eigenvalues and the residue-field extension is injective. It is non-Eisenstein exactly when r̄_{π,λ} is absolutely irreducible. Independence across distinct λ is not asserted.
-Missing full-signature inputs: AutomorphicGaloisRepresentationsPartII:AG2.7/residual-representation-of-pi, AutomorphicGaloisRepresentationsPartII:AG2.7/good-polynomial-reduction, AutomorphicGaloisRepresentationsPartII:AG2.7/hecke-maximal-ideal-of-galois-type, AutomorphicGaloisRepresentationsPartII:AG2.7/non-eisenstein-maximal-ideal, IntegralHeckeAndGaloisDeterminants:IHG.3.
--/
-
-/-
-AutomorphicGaloisRepresentationsPartII:AG2.7/dual-and-character-twist-hecke-comparison
-Signature TauCeti.AutomorphicGalois.dualAndTwistHeckeComparison:
-For a Galois-type maximal ideal m of rank n, the contragredient Hecke ideal m^∨ is of Galois type with r_{m^∨}≅r_m^∨⊗ε̄^{1−n}. At good geometric Frobenius its eigenvalues are q_v^{n−1}/α_i. An integral unramified-at-v character ψ multiplies the eigenvalues by ψ(Frob_v), and its Hecke twist realizes r_m⊗ψ̄. In the rank-2n unitary Hecke algebra the reciprocal factor is q_v^{2n−1}. Residual nonratio conditions are transported only with their unramifiedness hypotheses.
-Missing full-signature inputs: AutomorphicGaloisRepresentationsPartII:AG2.7/hecke-maximal-ideal-of-galois-type, IntegralHeckeAndGaloisDeterminants:IHG.3, AutomorphicGaloisRepresentationsPartII:AG2.0/galois-character-of-an-algebraic-hecke-character, PotentialModularityAndCompatibleSystems:R24.5/linear-algebra-operations-on-systems.
--/
-
-/-
-AutomorphicGaloisRepresentationsPartII:AG2.7/the-residual-ratio-condition-for-taylor-wiles-primes
-Signature TauCeti.AutomorphicGalois.IsGeneric:
-Let L/Q_p be any finite extension with residue cardinality q, ℓ≠p, k a finite field of characteristic ℓ, and r:G_L→GL_n(k) continuous. It is ACC+-generic at L if inertia acts trivially and, over k̄, the eigenvalues α_i∈k̄× of r(Frob_L^geom), listed with multiplicity, satisfy α_i/α_j≠q for every i≠j. Arithmetic instead of geometric Frobenius gives the same predicate because inversion reverses the ordered pair. Repeated eigenvalues are permitted when q≠1 in k; pairwise distinctness alone is insufficient. The local condition has no global irreducibility, adequacy or enormousness clause.
-API signatures (the executable algebraic parts, when present, are above):
-TauCeti.AutomorphicGalois.IsGenericEigenvalues : For a list α:Fin n→k×, require α_i/α_j≠q for i≠j; list multiplicities are retained.
-TauCeti.AutomorphicGalois.IsGeneric : Trivial inertia together with the eigenvalue predicate over k̄.
-TauCeti.AutomorphicGalois.isGeneric_unramified : A locally generic representation kills inertia.
-TauCeti.AutomorphicGalois.isGeneric_frobenius_independent : For trivial inertia, changing the Frobenius lift preserves the matrix and predicate.
-TauCeti.AutomorphicGalois.isGenericEigenvalues_smul : Multiplication of every α_i by the same nonzero scalar preserves the eigenvalue predicate.
-TauCeti.AutomorphicGalois.isGenericEigenvalues_reindex : Reordering the list by a permutation leaves the predicate unchanged.
-TauCeti.AutomorphicGalois.isGenericEigenvalues_inverse : Inverting every eigenvalue preserves the predicate by exchanging ordered pairs.
-Test/example signatures:
-Test TauCeti.AutomorphicGalois.isGeneric_repeated_eigenvalue : Over F_3 with q=2, the list (1,1) is generic.
-Test TauCeti.AutomorphicGalois.not_isGeneric_distinct_ratio_q : Over F_5 with q=2, the distinct list (2,1) is not generic.
-Test TauCeti.AutomorphicGalois.isGeneric_rank_one : Every one-term nonzero list is generic.
-Test TauCeti.AutomorphicGalois.not_isGeneric_repeated_q_one : Over F_3 with q=1, (1,1) is not generic.
-Test TauCeti.AutomorphicGalois.isGeneric_matrix_diagonal : The list condition on α agrees with the characteristic-polynomial factorization of the diagonal matrix diag(α).
-Missing full-signature inputs: AutomorphicGaloisRepresentationsPartII:AG2.7/residual-representation-of-pi, ArithmeticGaloisRepresentations:R01.1.
--/
-
-/-
-AutomorphicGaloisRepresentationsPartII:AG2.7/completely-split-generic-prime
-Signature TauCeti.AutomorphicGalois.IsDecomposedGenericPrime:
-For a continuous residual r:G_F→GL_n(k), a rational prime p is a decomposed-generic prime if p≠ℓ, p is completely split in F, and r is unramified and ACC+-generic at every v|p. Complete splitting means e_v=f_v=1 at every v, so q_v=p. This is a property of the pair (r,p), distinct from local genericity at one arbitrary place and from existence of such a p.
-API signatures (the executable algebraic parts, when present, are above):
-TauCeti.AutomorphicGalois.IsDecomposedGenericPrime : The complete-splitting and all-v condition.
-TauCeti.AutomorphicGalois.decomposedGenericPrime_local : For every v|p, obtain unramifiedness and the local predicate with q=p.
-TauCeti.AutomorphicGalois.decomposedGenericPrime_coeffExtension : Any extension of the finite coefficient field preserves and reflects the condition.
-Test/example signatures:
-Test TauCeti.AutomorphicGalois.decomposedGenericPrime_Q : For F=Q there is exactly one place over p; the splitting clause is automatic.
-Test TauCeti.AutomorphicGalois.decomposedGenericPrime_not_inert : An inert prime in a quadratic F is not decomposed generic even when the local ratio condition holds.
-Test TauCeti.AutomorphicGalois.decomposedGenericPrime_not_ell : p=ℓ is excluded independently of eigenvalues.
-Missing full-signature inputs: AutomorphicGaloisRepresentationsPartII:AG2.7/the-residual-ratio-condition-for-taylor-wiles-primes, ArithmeticGaloisRepresentations:R01.1.
--/
-
-/-
-AutomorphicGaloisRepresentationsPartII:AG2.7/existential-decomposed-genericity
-Signature TauCeti.AutomorphicGalois.IsDecomposedGeneric:
-A continuous residual representation r:G_F→GL_n(k) is decomposed generic if there exists a rational prime p which is decomposed generic for r. This existential condition is the ACC+ hypothesis used by the torsion-concentration and potential-automorphy consumers. It does not mean every split prime is generic, nor is it equivalent to global absolute irreducibility or enormousness.
-API signatures (the executable algebraic parts, when present, are above):
-TauCeti.AutomorphicGalois.IsDecomposedGeneric : There exists p satisfying IsDecomposedGenericPrime(r,p).
-TauCeti.AutomorphicGalois.decomposedGeneric_witness : Extract the prime witness and all-v local conditions.
-TauCeti.AutomorphicGalois.decomposedGeneric_coeffExtension : The existential condition is preserved and reflected by finite residue-field extension.
-Test/example signatures:
-Test TauCeti.AutomorphicGalois.decomposedGeneric_trivial_F3 : For F=Q, k=F_3, r=1⊕1, the prime p=2 is a witness.
-Test TauCeti.AutomorphicGalois.decomposedGeneric_not_irreducible : The preceding decomposed-generic representation is reducible.
-Test TauCeti.AutomorphicGalois.decomposedGeneric_not_every_prime : For the same r, p=7 has q=1 mod 3 and is not a witness, although p=2 is.
-Missing full-signature inputs: AutomorphicGaloisRepresentationsPartII:AG2.7/completely-split-generic-prime.
--/
-
-/-
-AutomorphicGaloisRepresentationsPartII:AG2.7/strong-local-decomposed-genericity
-Signature TauCeti.AutomorphicGalois.IsStrongGeneric:
-For any finite extension L/Q_p, ℓ≠p, define the Caraiani–Scholze Definition 1.9 specialization: r is unramified and α_i/α_j∉{1,q} for all i≠j over k̄. Equivalently its eigenvalues are pairwise distinct and ACC+-generic. The local field need not be Q_p. This stronger predicate has its own name and implies the ACC+ local predicate. Liu Appendix D’s displayed distinctness is unnecessary for its later noncompact concentration input, as its footnote 37 explicitly records; the stronger definition is not silently substituted for ACC+.
-API signatures (the executable algebraic parts, when present, are above):
-TauCeti.AutomorphicGalois.IsStrongGenericEigenvalues : IsGenericEigenvalues(α,q) and α injective, equivalently ratios avoid {1,q}.
-TauCeti.AutomorphicGalois.IsStrongGeneric : Trivial inertia plus the stronger eigenvalue predicate over k̄.
-TauCeti.AutomorphicGalois.strongGeneric_generic : Forget the ratio-1 exclusion.
-TauCeti.AutomorphicGalois.strongGeneric_distinct : The Frobenius eigenvalues have no repeated roots.
-TauCeti.AutomorphicGalois.strongGeneric_arbitrary_local_field : The definition uses q=|k_L| and specializes to Definition 1.9 for every finite L/Q_p.
-Test/example signatures:
-Test TauCeti.AutomorphicGalois.strongGeneric_not_repeated : Over F_3, q=2, (1,1) is ACC+-generic but not strong-generic.
-Test TauCeti.AutomorphicGalois.strongGeneric_distinct_nonratio : Over F_7, q=2, (1,3) is strong-generic: the two ordered ratios are 3 and 5.
-Test TauCeti.AutomorphicGalois.strongGeneric_rank_one : Every single nonzero eigenvalue is strong-generic.
-Test TauCeti.AutomorphicGalois.strongGeneric_non_Qp : For an unramified quadratic L/Q_2 and ℓ=3, use q=4≡1; the ratio-1 clause remains explicit.
-Missing full-signature inputs: AutomorphicGaloisRepresentationsPartII:AG2.7/the-residual-ratio-condition-for-taylor-wiles-primes.
--/
-
-/-
-AutomorphicGaloisRepresentationsPartII:AG2.7/infinitely-many-decomposed-generic-primes
-Signature TauCeti.AutomorphicGalois.infinitelyManyDecomposedGenericPrimes:
-If r:G_F→GL_n(k) is continuous and decomposed generic, there are infinitely many such rational primes, and witnesses can avoid any specified finite set. Let K be a normal closure of F, the field cut out by r and Q(ζ_ℓ). A witness determines a conjugacy class in Gal(K/Q) whose restriction fixes F, fixes the all-place eigenvalue ratios and fixes p mod ℓ. Chebotarev gives a positive Dirichlet-density set of primes with this class. Every such unramified prime is again a witness.
-Missing full-signature inputs: AutomorphicGaloisRepresentationsPartII:AG2.7/existential-decomposed-genericity, ArithmeticGaloisRepresentations:R01.5.
--/
-
-/-
-AutomorphicGaloisRepresentationsPartII:AG2.7/genericity-transfer-and-projective-qualification
-Signature TauCeti.AutomorphicGalois.genericityTransfer:
-The eigenvalue nonratio predicate is invariant under permutation, nonzero scalar multiplication, inversion and coefficient-field extension. Local representation genericity is invariant under conjugacy, semisimplification of an already unramified representation, and unramified scalar twists. An arbitrary ramified scalar twist preserves the projective representation but can destroy local unramifiedness. The global existential decomposed-generic condition is invariant under finite residual-character twists: use infinitely many witnesses and avoid the finite ramification set of the character. Strong local genericity obeys the same rules with distinctness retained.
-Missing full-signature inputs: AutomorphicGaloisRepresentationsPartII:AG2.7/the-residual-ratio-condition-for-taylor-wiles-primes, AutomorphicGaloisRepresentationsPartII:AG2.7/strong-local-decomposed-genericity, AutomorphicGaloisRepresentationsPartII:AG2.7/infinitely-many-decomposed-generic-primes.
--/
-
-/-
-AutomorphicGaloisRepresentationsPartII:AG2.7/finite-exceptional-residual-genericity-for-relevant-pi
-Signature TauCeti.AutomorphicGalois.residualGenericityOutsideFiniteSet:
-For a relevant Π with a strong coefficient field E in Liu et al., choose the regular unramified place used in Chenevier–Harris’s argument, with distinct algebraic Satake roots α_i and α_i≠qα_j. After a finite extension of E containing these roots, exclude the finitely many coefficient places dividing denominators, roots, α_i−α_j or α_i−qα_j. Their reductions are distinct and nonratio. Liu Appendix D, Corollary D.1.4 then uses Chebotarev to obtain a place w split in F/F⁺ that is locally generic for the reduced Hecke eigencharacter outside this finite set. The cohomological concentration conclusion has its own F^+≠Q and level hypotheses and belongs to the Igusa/torsion consumer. This conclusion does not itself provide the completely split rational prime, generic at every v above it, required by the ACC+ global predicate; that stronger witness needs its separate Chebotarev hypotheses.
-Missing full-signature inputs: AutomorphicGaloisRepresentationsPartII:AG2.6/uniform-strong-realization-for-polarized-systems, AutomorphicGaloisRepresentationsPartII:AG2.7/residual-hecke-ideal-independence, AutomorphicGaloisRepresentationsPartII:AG2.7/strong-local-decomposed-genericity, ArithmeticGaloisRepresentations:R01.5.
--/
-
-/-
-AutomorphicGaloisRepresentationsPartII:AG2.7/good-prime-characteristic-zero-export
-Signature TauCeti.AutomorphicGalois.GoodPrimeExport:
-GoodPrimeExport(π) consists of the imported R_π carrier, its finite coefficient field and common S_π/P_v data, the chosen λ-member interfaces, and the proved good-Frobenius comparison maps. It forgets branch-specific admissibility/purity and contains no assertion of a full bad-place WD parameter. It is an interface wrapping the supplier carrier, not a new compatible-system definition.
-API signatures (the executable algebraic parts, when present, are above):
-TauCeti.AutomorphicGalois.GoodPrimeExport : Wrap R_π with its good comparison maps.
-TauCeti.AutomorphicGalois.goodPrimeExport_member : Retrieve the λ-member and good Frobenius theorem.
-TauCeti.AutomorphicGalois.goodPrimeExport_coeffChange : Use supplier coefficient change, with identity and composition laws.
-Test/example signatures:
-Test TauCeti.AutomorphicGalois.goodPrimeExport_character : At n=1 it is the algebraic-character good-prime package.
-Test TauCeti.AutomorphicGalois.goodPrimeExport_polynomial : For a weight-k classical overlap its polynomial is X²−a_qX+ψ(q)q^{k−1}.
-Test TauCeti.AutomorphicGalois.goodPrimeExport_not_fullWD : The package cannot supply N at a ramified place without branch evidence.
-Missing full-signature inputs: AutomorphicGaloisRepresentationsPartII:AG2.6/compatible-system-of-pi.
--/
-
-/-
-AutomorphicGaloisRepresentationsPartII:AG2.7/nonselfdual-hodge-and-monodromy-bound-export
-Signature TauCeti.AutomorphicGalois.NonselfdualComparisonExport:
-NonselfdualComparisonExport(π) for an arbitrary regular algebraic cuspidal π over CM F wraps GoodPrimeExport with the AHTW de Rham comparison, full labelled Hodge multiset, ss WD comparison and F-ss monodromy upper bound at every v|ℓ. It also exposes spherical crystallinity and Iwahori semistability with the stated local hypotheses. It does not contain a polarization, purity theorem or full ramified N equality. The output is the strongest nonselfdual coefficient-prime interface supplied by AHTW v1, rather than the good-prime interface alone.
-API signatures (the executable algebraic parts, when present, are above):
-TauCeti.AutomorphicGalois.NonselfdualComparisonExport : Combine the AHTW coefficient-prime maps with the common carrier.
-TauCeti.AutomorphicGalois.nonselfdualExport_goodPrime : Forget to GoodPrimeExport with the same members.
-TauCeti.AutomorphicGalois.nonselfdualExport_hodge : Retrieve de Rham comparison and the labelled multiset at every v|ℓ.
-TauCeti.AutomorphicGalois.nonselfdualExport_wdBound : Retrieve ss comparison and the F-ss monodromy upper bound, retaining their distinct strengths.
-Test/example signatures:
-Test TauCeti.AutomorphicGalois.nonselfdualExport_rank_one : For an algebraic character the Hodge multiset has one element and N=0.
-Test TauCeti.AutomorphicGalois.nonselfdualExport_good_crystalline : At a spherical coefficient-prime place the upper bound N=0 and trivial inertia recover the crystalline supplier criterion.
-Test TauCeti.AutomorphicGalois.nonselfdualExport_not_polarized_fullWD : The export supplies neither a polarized pairing nor full ramified WD equality from an ss comparison alone.
-Missing full-signature inputs: AutomorphicGaloisRepresentationsPartII:AG2.7/good-prime-characteristic-zero-export, AutomorphicGaloisRepresentationsPartII:AG2.6/all-cm-de-rham-and-semisimplified-coefficient-comparison, AutomorphicGaloisRepresentationsPartII:AG2.6/nonselfdual-coefficient-prime-monodromy-bound, AutomorphicGaloisRepresentationsPartII:AG2.6/all-cm-crystalline-and-iwahori-corollary.
--/
-
-/-
-AutomorphicGaloisRepresentationsPartII:AG2.7/polarized-hodge-and-wd-export
-Signature TauCeti.AutomorphicGalois.PolarizedComparisonExport:
-PolarizedComparisonExport(π,χ) wraps GoodPrimeExport with the actual polarization isomorphisms and multiplier, the corrected total-odd sign, the labelled Hodge comparison maps, and full F-ss WD comparison at all finite places, including coefficient-prime places. It supplies the proved pure/strict branch predicates. Forgetful maps return the good-prime package, the supplier’s polarized system and each local comparison; they do not insert residual enormousness or an ordinary refinement.
-API signatures (the executable algebraic parts, when present, are above):
-TauCeti.AutomorphicGalois.PolarizedComparisonExport : Combine the established polarized branch comparisons.
-TauCeti.AutomorphicGalois.polarizedExport_goodPrime : Forget to GoodPrimeExport, preserving all good polynomials.
-TauCeti.AutomorphicGalois.polarizedExport_local : Retrieve labelled Hodge and full WD comparison maps at a chosen finite place.
-TauCeti.AutomorphicGalois.polarizedExport_supplier : Return precisely the R24.5 pure/polarized predicates with normalization conversion.
-Test/example signatures:
-Test TauCeti.AutomorphicGalois.polarizedExport_weight_k : For a weight-k base-change form it returns H={0,k−1}, W=k−1 and determinant ε^{1−k}r_ψ.
-Test TauCeti.AutomorphicGalois.polarizedExport_forget : The forgotten good package has exactly the same λ-members and P_v.
-Test TauCeti.AutomorphicGalois.polarizedExport_nonselfdual_rejected : AHTW ss comparison plus an N bound does not fulfill a full-WD comparison field.
-Missing full-signature inputs: AutomorphicGaloisRepresentationsPartII:AG2.7/good-prime-characteristic-zero-export, AutomorphicGaloisRepresentationsPartII:AG2.6/full-polarized-comparison-at-the-coefficient-prime, AutomorphicGaloisRepresentationsPartII:AG2.6/totally-real-polarized-coefficient-prime-descent, AutomorphicGaloisRepresentationsPartII:AG2.6/polarized-compatible-system-strictly-pure.
--/
-
-/-
-AutomorphicGaloisRepresentationsPartII:AG2.7/unitary-discrete-parameter-export
-Signature TauCeti.AutomorphicGalois.UnitaryDiscreteExport:
-In the compact unitary setting of CS Corollary 5.5.5, export the semisimple representation r_{Π^S,ℓ}=⊕_{i=1}^2 r_i⊗ε_i attached to an endoscopic discrete parameter of ranks n_1+n_2=n, with each ε_i the algebraic character of |det|^{(n_i−n)/2}$(N_{F/𝒦}det)^{ε(n−n_i)}, and ε(m)≡m mod 2. The polynomial at every v over q∈Spl_{𝒦/Q} outside S∪{ℓ} is the explicit degree-n Hecke polynomial. Keep the constituent labels, algebraic twist maps, and the away-ℓ local comparison from Remark 5.5.6. This package need not be globally irreducible and carries no coefficient-prime comparison beyond what its constituents separately prove. Here F=F⁺·𝒦 with 𝒦 the imaginary quadratic field of CS §5.1; the printed F₀ in Corollary 5.5.5 is the already confirmed E11 misprint, not another splitting field.
-API signatures (the executable algebraic parts, when present, are above):
-TauCeti.AutomorphicGalois.UnitaryDiscreteExport : Build the labelled direct sum with explicit algebraic character twists.
-TauCeti.AutomorphicGalois.unitaryDiscreteExport_constituent : Retrieve r_i, ε_i and its inclusion into the direct sum.
-TauCeti.AutomorphicGalois.unitaryDiscreteExport_goodPolynomial : Its good polynomial is the product of the twisted constituent polynomials and the specialized degree-n Hecke polynomial.
-Test/example signatures:
-Test TauCeti.AutomorphicGalois.unitaryDiscreteExport_two_characters : For n_1=n_2=1, at good v with twisted values β_1,β_2 the polynomial is (X−β_1)(X−β_2).
-Test TauCeti.AutomorphicGalois.unitaryDiscreteExport_rank_additivity : The direct-sum dimension is n_1+n_2, with neither twist changing dimension.
-Test TauCeti.AutomorphicGalois.unitaryDiscreteExport_not_cuspidal_irreducibility : A two-character endoscopic sum cannot certify global irreducibility.
-Missing full-signature inputs: AutomorphicGaloisRepresentationsPartII:AG2.2, AutomorphicGaloisRepresentationsPartII:AG2.5, AutomorphicGaloisRepresentationsPartII:AG2.0/galois-character-of-an-algebraic-hecke-character, EndoscopicTransferAndUnitaryTraceComparison:ET.7a, PotentialModularityAndCompatibleSystems:R24.5/linear-algebra-operations-on-systems.
--/
-
-/-
-AutomorphicGaloisRepresentationsPartII:AG2.7/lattice-residual-polynomial-export
-Signature TauCeti.AutomorphicGalois.ResidualPolynomialExport:
-ResidualPolynomialExport(π,λ) contains a finite p-adic realization E, an explicitly chosen stable O_E-lattice, its continuous integral realization, the semisimple residual member, the coefficient-reduction maps on every good P_v and the comparison isomorphisms under another lattice or coefficient extension. It exports m_{π,λ} and its Galois-type evidence; non-Eisensteinness and decomposed genericity are additional hypotheses or projections only when proved. The chosen lattice is retained as data and never named canonical.
-API signatures (the executable algebraic parts, when present, are above):
-TauCeti.AutomorphicGalois.ResidualPolynomialExport : Assemble finite realization, chosen lattice and reduction maps.
-TauCeti.AutomorphicGalois.residualExport_compareLattice : Different chosen lattices give isomorphic semisimple residual members, not necessarily isomorphic reductions.
-TauCeti.AutomorphicGalois.residualExport_maxIdeal : Retrieve m_{π,λ} with Galois-type evidence.
-TauCeti.AutomorphicGalois.residualExport_charpoly : The integral/residual Frobenius square commutes by Matrix.charpoly_map.
-Test/example signatures:
-Test TauCeti.AutomorphicGalois.residualExport_rank_one : Reduction of an integral character is its residual character.
-Test TauCeti.AutomorphicGalois.residualExport_diagonal_mod3 : The diagonal integral test reduces X²−3X+2 to X²+2 modulo 3.
-Test TauCeti.AutomorphicGalois.residualExport_unipotent_lattices : The two Z_5-unipotent lattices have unequal reductions but equal semisimplifications; the package cannot identify the raw reductions.
-Missing full-signature inputs: AutomorphicGaloisRepresentationsPartII:AG2.7/residual-representation-of-pi, AutomorphicGaloisRepresentationsPartII:AG2.7/good-polynomial-reduction, AutomorphicGaloisRepresentationsPartII:AG2.7/residual-hecke-ideal-independence.
--/
-
-/-
-AutomorphicGaloisRepresentationsPartII:AG2.7/rank-two-residual-comparison-with-r19
-Signature Rank-two residual comparison with R19:
-For the regular classical/Hilbert exact overlap, fixed λ and the characteristic-zero dual/twist normalization of AG2.6, semisimple reduction commutes with the identification of the AG2 and R19 λ-members. In the classical normalization r̄_AG2≅r̄_R19^∨; the geometric good polynomial is X²−ā_qX+ψ̄(q)q^{k−1}. The associated maximal Hecke ideals agree under the normalized Hecke algebra identification. R19’s explicit geometry and lattice calculations remain supplier tools; only the semisimple isomorphism class, not a preferred lattice, is compared.
-Missing full-signature inputs: AutomorphicGaloisRepresentationsPartII:AG2.6/rank-two-comparison-with-r19, AutomorphicGaloisRepresentationsPartII:AG2.7/residual-representation-of-pi, AutomorphicGaloisRepresentationsPartII:AG2.7/residual-hecke-ideal-independence.
--/

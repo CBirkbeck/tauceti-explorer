@@ -58,11 +58,39 @@
         "module": "Mathlib/LinearAlgebra/Matrix/GeneralLinearGroup/Defs.lean",
         "provides": "coefficient change on GL_n as a group homomorphism; map_id and map_comp are available",
         "checked": "Full statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174. Independently re-read by REV-AutomorphicGaloisRepresentationsPartII--AG2.6; no name, domain or convention correction required."
+      },
+      {
+        "ref": "mathlib:Representation.IsSemisimpleRepresentation",
+        "kind": "abbrev",
+        "module": "Mathlib/RepresentationTheory/Semisimple.lean",
+        "provides": "Complemented lattice of subrepresentations; equivalent to semisimplicity of the corresponding group-algebra module",
+        "checked": "Full declaration statement and surrounding hypotheses read on 2026-10-08 at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174. Reused in the typed prototype; no new roadmap owner is proposed."
+      },
+      {
+        "ref": "mathlib:Representation.IsIrreducible",
+        "kind": "abbrev",
+        "module": "Mathlib/RepresentationTheory/Irreducible.lean",
+        "provides": "Simple order of subrepresentations; apply after coefficient extension to AlgebraicClosure for absolute irreducibility",
+        "checked": "Full declaration statement and surrounding hypotheses read on 2026-10-08 at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174. Reused in the typed prototype; no new roadmap owner is proposed."
+      },
+      {
+        "ref": "mathlib:Matrix.GeneralLinearGroup.toLin",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/Matrix/GeneralLinearGroup/Defs.lean",
+        "provides": "Multiplicative equivalence from matrix units to invertible linear endomorphisms, used to obtain a Mathlib Representation",
+        "checked": "Full declaration statement and surrounding hypotheses read on 2026-10-08 at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174. Reused in the typed prototype; no new roadmap owner is proposed."
+      },
+      {
+        "ref": "mathlib:Matrix.rank",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/Matrix/Rank.lean",
+        "provides": "Finite rank of the range of mulVecLin, used for the zero-monodromy algebraic inference",
+        "checked": "Full declaration statement and surrounding hypotheses read on 2026-10-08 at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174. Reused in the typed prototype; no new roadmap owner is proposed."
       }
     ]
   },
   "status": "complete",
-  "summary": "Automorphic applications of coefficient-prime comparison, the common R24.5 compatible-system carrier, finite realization and lattice reduction, precise residual genericity, and separate arithmetic export interfaces. Generic comparison theories are imported; the nonselfdual coefficient-prime theorem uses A’Campo–Hevesi–Thorne–Whitmore v1 with its monodromy bound. No implementation is asserted.",
+  "summary": "Target-level revision of coefficient-prime comparisons and arithmetic exports, with one conditional R24-owned data carrier, exact raw geometric supplier requests, and typed algebraic Lean prototypes for every named declaration, API and test. All 43 node IDs and the independent review are retained; both stages remain planned and implementation unchecked.",
   "sources": [
     {
       "id": "ahtw-coefficient-prime",
@@ -71,10 +99,15 @@
       "edition": "arXiv:2607.11763v1, 13 July 2026; unrefereed preprint",
       "url": "https://arxiv.org/pdf/2607.11763v1",
       "sha256": "a5a56b7917c387b24f717e31714675d2de183505250bbd3a3fae21bd1fa424bb",
-      "accessed": "2026-10-07",
+      "accessed": "2026-10-08",
       "readSections": [
         "§1.2 pp.5–7; §2.5 Theorem 2.5.7; §3.3 Theorem 3.3.6; §5.2 Proposition 5.2.8 and Theorem 5.2.9; §6 Definitions 6.0.1–4 and Corollary 6.0.6"
-      ]
+      ],
+      "revisionVerification": {
+        "date": "2026-10-08",
+        "locators": "Theorem 1.2.1 and Corollary 1.2.2 pp.5–6; §3 introduction and Theorem 3.2.4 pp.27–30; Theorem 3.3.6 p.34; Proposition 5.2.8/Theorem 5.2.9 pp.75–76; §6 Definitions 6.0.1–5 and Corollary 6.0.6 pp.111–112",
+        "method": "Downloaded the identified public PDF to disposable scratch, confirmed its SHA-256 against this packet, and read these source passages. Only paraphrased mathematical results and locators are retained."
+      }
     },
     {
       "id": "blggt-potential-automorphy",
@@ -83,10 +116,15 @@
       "edition": "arXiv:1010.2561v4; Annals 179 (2014)",
       "url": "https://arxiv.org/pdf/1010.2561v4",
       "sha256": "c953df6229ba8d8b4ae25b1a00cf11592864c74692859d324ff10d3eef645d24",
-      "accessed": "2026-10-07",
+      "accessed": "2026-10-08",
       "readSections": [
         "§2.1 pp.31–34; §5.1 pp.62–65"
-      ]
+      ],
+      "revisionVerification": {
+        "date": "2026-10-08",
+        "locators": "Theorem 2.1.1 pp.32–34; §5.1 definitions and normalization pp.62–65",
+        "method": "Downloaded the identified public PDF to disposable scratch, confirmed its SHA-256 against this packet, and read these source passages. Only paraphrased mathematical results and locators are retained."
+      }
     },
     {
       "id": "accplus-cm-potential-automorphy",
@@ -95,10 +133,15 @@
       "edition": "Author copy with Annals 197 (2023) pagination; printed page = PDF page + 896",
       "url": "https://www.math.uchicago.edu/~fcale/papers/Ramanujan.pdf",
       "sha256": "c5429e4f384384045dbb48502d71547bb21699783c0f77cce27b24e742467f02",
-      "accessed": "2026-10-07",
+      "accessed": "2026-10-08",
       "readSections": [
         "§2.2.5 pp.922,927; §2.3.6 p.938; §4.3 pp.972–974; §4.5; §6.2.29–30; §7.1 pp.1084–1094"
-      ]
+      ],
+      "revisionVerification": {
+        "date": "2026-10-08",
+        "locators": "(2.2.6)–(2.2.7) p.922; Definition 2.3.6 p.938; Definition 4.3.1 and Lemma 4.3.2 pp.972–973; §7.1.1–2 pp.1084–1085; Lemmas 7.1.9–10 pp.1093–1094",
+        "method": "Downloaded the identified public PDF to disposable scratch, confirmed its SHA-256 against this packet, and read these source passages. Only paraphrased mathematical results and locators are retained."
+      }
     },
     {
       "id": "chenevier-harris-II",
@@ -107,10 +150,15 @@
       "edition": "Author copy; Cambridge Mathematical Journal 1 (2013)",
       "url": "https://webusers.imj-prg.fr/~michael.harris/ConstructionII.pdf",
       "sha256": "9b5e76798f75273f53d1d4160f35815b1a3b656f04c965ad47fd4fa454840529",
-      "accessed": "2026-10-07",
+      "accessed": "2026-10-08",
       "readSections": [
         "§1.4–1.5; §2, Theorem 2.3; §3.1–3.2, Theorem 3.2.3, Proposition 3.2.5"
-      ]
+      ],
+      "revisionVerification": {
+        "date": "2026-10-08",
+        "locators": "Theorem 1.4 and §1.5/formula (1.6) pp.5–7; Theorem 2.3 p.8; §3.2, Theorem 3.2.3 and Proposition 3.2.5 pp.11–12",
+        "method": "Downloaded the identified public PDF to disposable scratch, confirmed its SHA-256 against this packet, and read these source passages. Only paraphrased mathematical results and locators are retained."
+      }
     },
     {
       "id": "caraiani-monodromy-at-p",
@@ -119,10 +167,15 @@
       "edition": "arXiv:1202.4683v1; Algebra & Number Theory 8 (2014)",
       "url": "https://arxiv.org/pdf/1202.4683v1",
       "sha256": "6ec698414d5d3ad03f3d1c98de178b39d69722699f4a08a059e8d14027df885e",
-      "accessed": "2026-10-07",
+      "accessed": "2026-10-08",
       "readSections": [
         "Theorem 1.1 pp.1–2; §§2–3; §4, Theorem 4.6 and Remark 4.7; §5, Proposition 5.1 pp.31–32"
-      ]
+      ],
+      "revisionVerification": {
+        "date": "2026-10-08",
+        "locators": "Theorem 1.1 pp.1–2; §2 pp.2–3; Proposition 4.4 p.29; Theorem 4.6/Remark 4.7 and Proposition 5.1 pp.31–32",
+        "method": "Downloaded the identified public PDF to disposable scratch, confirmed its SHA-256 against this packet, and read these source passages. Only paraphrased mathematical results and locators are retained."
+      }
     },
     {
       "id": "newton-thorne-26",
@@ -131,10 +184,15 @@
       "edition": "arXiv:2212.03595v2; Annals 203 (2026)",
       "url": "https://arxiv.org/pdf/2212.03595v2",
       "sha256": "6a156f7a5567226e0bd2209d5b237cbbc150dc10cfbd9ffd060a3245328cb82c",
-      "accessed": "2026-10-07",
+      "accessed": "2026-10-08",
       "readSections": [
         "Lemma 2.1 pp.9–10; Theorem 5.1 and Lemma 5.2 p.38; proof of Lemma 5.8 pp.42–44"
-      ]
+      ],
+      "revisionVerification": {
+        "date": "2026-10-08",
+        "locators": "Theorem 5.1/Lemma 5.2/footnote 4 p.38; proof of Lemma 5.8 pp.42–44",
+        "method": "Downloaded the identified public PDF to disposable scratch, confirmed its SHA-256 against this packet, and read these source passages. Only paraphrased mathematical results and locators are retained."
+      }
     },
     {
       "id": "liu-et-al-22",
@@ -143,10 +201,15 @@
       "edition": "Inventiones 228 (2022), 107–375; public journal copy",
       "url": "https://par.nsf.gov/servlets/purl/10323568",
       "sha256": "dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97",
-      "accessed": "2026-10-07",
+      "accessed": "2026-10-08",
       "readSections": [
         "§1.1; §3.2 Proposition 3.2.4, Definition 3.2.5, Remark 3.2.6, Hypothesis 3.2.10; Appendix D, Definition D.1.2 and Corollary D.1.4"
-      ]
+      ],
+      "revisionVerification": {
+        "date": "2026-10-08",
+        "locators": "Definition 3.2.5/Remark 3.2.6/Hypothesis 3.2.10 pp.145–146; Definition D.1.2 and footnote 37 p.365; Corollary D.1.4 and proof p.368",
+        "method": "Downloaded the identified public PDF to disposable scratch, confirmed its SHA-256 against this packet, and read these source passages. Only paraphrased mathematical results and locators are retained."
+      }
     },
     {
       "id": "calegari-geraghty-20",
@@ -155,10 +218,15 @@
       "edition": "Duke 169 (2020), 801–896; author copy",
       "url": "https://www.math.uchicago.edu/~fcale/papers/Siegel.pdf",
       "sha256": "fff305877c7e6b9d32ca9a8b4a56f7f3b343695fc737184d1a3a1b78f195cfa5",
-      "accessed": "2026-10-07",
+      "accessed": "2026-10-08",
       "readSections": [
         "Proposition 6.8 and its proof, author-copy pp.38–39; Lemma 6.9, author-copy pp.39–40"
-      ]
+      ],
+      "revisionVerification": {
+        "date": "2026-10-08",
+        "locators": "Proposition 6.8(3)–(4) and finite-field Baire proof, author-copy pp.38–39",
+        "method": "Downloaded the identified public PDF to disposable scratch, confirmed its SHA-256 against this packet, and read these source passages. Only paraphrased mathematical results and locators are retained."
+      }
     },
     {
       "id": "pilloni-20",
@@ -167,10 +235,15 @@
       "edition": "Author copy; Duke Mathematical Journal 169 (2020), no.9, 1647–1807",
       "url": "https://www.imo.universite-paris-saclay.fr/~pilloni/complexhidatheorygsp4.pdf",
       "sha256": "4c05724efeab1dbbb108f980ec9a722127d2a8cd2abf6e8c2a6a2251cf0f9f58",
-      "accessed": "2026-10-07",
+      "accessed": "2026-10-08",
       "readSections": [
         "Theorem 5.1.7.1 and Remark 5.1.7.1, author-copy pp.22–23"
-      ]
+      ],
+      "revisionVerification": {
+        "date": "2026-10-08",
+        "locators": "Theorem 5.1.7.1/Remark 5.1.7.1, author-copy pp.22–23",
+        "method": "Downloaded the identified public PDF to disposable scratch, confirmed its SHA-256 against this packet, and read these source passages. Only paraphrased mathematical results and locators are retained."
+      }
     },
     {
       "id": "caraiani-scholze-17",
@@ -179,10 +252,15 @@
       "edition": "Annals 186 (2017), 649–766; journal PDF",
       "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v186-n3-p01-p.pdf",
       "sha256": "4f9449e5ecfd8fb8b43a04acef73060f531be995babaa9f744f3db36aaa5e61a",
-      "accessed": "2026-10-07",
+      "accessed": "2026-10-08",
       "readSections": [
         "Definition 1.9 p.652; §5.5 Theorem 5.5.4, Corollary 5.5.5 and Remark 5.5.6 pp.744–747"
-      ]
+      ],
+      "revisionVerification": {
+        "date": "2026-10-08",
+        "locators": "§5.1 setup pp.730–731; Corollary 5.5.5 and Remark 5.5.6 pp.745–746",
+        "method": "Downloaded the identified public PDF to disposable scratch, confirmed its SHA-256 against this packet, and read these source passages. Only paraphrased mathematical results and locators are retained."
+      }
     }
   ],
   "nodes": [
@@ -194,11 +272,12 @@
       ],
       "title": "Weak, very weak and extremely weak automorphic data",
       "kind": "comparison",
-      "statement": "Use the single arbitrary-rank carrier of R24.5:operations, with coefficient number field M, finite S, common good-prime P_v, continuous semisimple r_λ and labelled H_τ. Import its weak, very weak and extremely weak predicates without a second carrier. Weak implies very weak implies extremely weak. Extremely weak fixes only HT(det r_λ)=sum H_τ; very weak adds crystallinity and the full multiset at all coefficient-prime places for a density-one set of rational primes. No converse in rank greater than one is asserted.",
+      "statement": "Conditional on the R24.5:operations owner separating data from admissibility, use its single arbitrary-rank data carrier: coefficient number field M, finite S, common good-prime polynomials P_v, continuous semisimple members r_λ and labelled Hodge metadata H_τ. The carrier does not intrinsically require the members to be de Rham, crystalline, pure or polarized. Weak, VeryWeak and ExtremelyWeak are predicates supplied by that owner. Weak requires full labelled Hodge multisets for all members and crystallinity at the specified good coefficient-prime places; VeryWeak retains the full coefficient-prime conditions on a density-one set of rational coefficient primes; ExtremelyWeak retains the determinant Hodge sums for all members. Prove Weak ⇒ VeryWeak ⇒ ExtremelyWeak on those same data. No higher-rank converse is asserted. The two current R24.5 supplier statements do not yet give this consistent interface, so this is a requested import, not a verified existing construction.",
       "hypotheses": [],
       "proofSteps": [
-        "Transport AG2 geometric Frobenius and HT(ε)=−1 conventions into the supplier’s explicit normalization parameter.",
-        "Reuse the weakening maps; a determinant sum alone cannot determine a higher-rank multiset."
+        "Obtain the owner’s corrected data/predicate interface before importing weakening maps; do not reuse the current carrier with full weak conditions built in as extremely weak data.",
+        "Transport AG2 geometric Frobenius and HT(ε)=−1 through the owner’s normalization parameter.",
+        "Use the supplied weakening implications. The labelled determinant sum forgets information in rank greater than one."
       ],
       "acceptance": [
         "For n=2 the lists {0,3} and {1,2} have the same determinant sum and are distinguished by weak compatibility.",
@@ -215,7 +294,18 @@
           "match": "These are imported predicates on one carrier."
         }
       ],
-      "implementationStatus": "unchecked"
+      "implementationStatus": "unchecked",
+      "suggestedCoverage": {
+        "form": "shared-component",
+        "declarations": [
+          "TauCeti.AutomorphicGalois.sum_expectedHodgeTate"
+        ],
+        "component": "The Hodge-sum acceptance calculation and the determinant-sum counterexample are typed; the data/predicate comparison stays a conditional supplier import.",
+        "omittedConditions": [
+          "R24 raw data and Weak/VeryWeak/ExtremelyWeak predicates; their density and local period conditions."
+        ],
+        "examples": []
+      }
     },
     {
       "id": "AutomorphicGaloisRepresentationsPartII:AG2.6/geometric-coefficient-prime-comparison",
@@ -226,9 +316,12 @@
       "title": "Comparison on the geometric automorphic summand",
       "kind": "theorem",
       "statement": "For the smooth proper PEL/Kuga–Sato realization supplied by AG2.1a, after the stated Schur projector, automorphic isotypic projector and Tate twist, apply D_cris and D_dR to the actual cohomological summand. The comparison maps are restrictions of geometric comparison and commute with the projectors and cup products. At good reduction the summand is crystalline; its filtered de Rham realization gives HT_τ={a_{τ,i}+n−i : 1≤i≤n}. At strictly semistable reduction use the filtered (φ,N) comparison, with the same projectors. The passage is through a geometric realization, not an assumption that an arbitrary attached representation has period dimensions n.",
-      "hypotheses": [],
+      "hypotheses": [
+        "AG2.1a first supplies the raw smooth proper PEL or Kuga–Sato realization, algebraic coefficient representation, cohomological degree, commuting Schur/isotypic idempotents, multiplicity and Tate twist. Its currently named attached-representation conclusion does not supply these data.",
+        "The claimed good or strictly semistable reduction belongs to that realization and the specified local model. Comparison is applied to its cohomology before any admissibility conclusion about the attached representation."
+      ],
       "proofSteps": [
-        "Invoke the AG2.1a realization and its exact Tate/Schur normalization.",
+        "Obtain the requested raw AG2.1a realization and projector/multiplicity/Tate dictionary independently of an attached-representation admissibility theorem.",
         "Restrict the functorial geometric comparison to projector images, using strict exactness of the period functors.",
         "Read each Hodge graded piece in the algebraic coefficient system; negate the supplier’s HT(ε)=+1 weights at this boundary."
       ],
@@ -237,7 +330,7 @@
         "Projector images commute with coefficient extension; dimension equals the cohomological multiplicity times n."
       ],
       "prerequisites": [
-        "AutomorphicGaloisRepresentationsPartII:AG2.1a/polarized-construction-inputs-shin-and-chenevier-harris",
+        "AutomorphicGaloisRepresentationsPartII:AG2.1a",
         "AutomorphicGaloisRepresentationsPartII:AG2.0/expected-hodge-tate-multiset",
         "PadicHodgeTheory:R06.5/crystalline-comparison-good-reduction",
         "PadicHodgeTheory:R06.2/ddr-exact-strict-tensor",
@@ -246,12 +339,23 @@
       "sources": [
         {
           "sourceId": "chenevier-harris-II",
-          "locator": "§1.4–1.5, Theorem 1.4 and formula (1.6)",
+          "locator": "§1.4–1.5, Theorem 1.4 and formula (1.6), pp.5–7",
           "match": "Geometric cases, including the dual convention."
         }
       ],
       "implementationStatus": "unchecked",
-      "declarationName": "TauCeti.AutomorphicGalois.geometricCoefficientPrimeComparison"
+      "declarationName": "TauCeti.AutomorphicGalois.geometricCoefficientPrimeComparison",
+      "suggestedCoverage": {
+        "form": "algebraic-fragment",
+        "declarations": [
+          "TauCeti.AutomorphicGalois.geometricCoefficientPrimeComparison"
+        ],
+        "component": "An actual linear equivalence commuting with supplied idempotents induces an equivalence of their ranges.",
+        "omittedConditions": [
+          "Raw PEL/Kuga–Sato geometry, period functors and Hodge filtration, cohomological multiplicity and Tate normalization."
+        ],
+        "examples": []
+      }
     },
     {
       "id": "AutomorphicGaloisRepresentationsPartII:AG2.6/coefficient-hodge-comparison-through-families-and-descent",
@@ -291,7 +395,18 @@
         }
       ],
       "implementationStatus": "unchecked",
-      "declarationName": "TauCeti.AutomorphicGalois.coefficientHodgeComparisonThroughDescent"
+      "declarationName": "TauCeti.AutomorphicGalois.coefficientHodgeComparisonThroughDescent",
+      "suggestedCoverage": {
+        "form": "algebraic-fragment",
+        "declarations": [
+          "TauCeti.AutomorphicGalois.coefficientHodgeComparisonThroughDescent"
+        ],
+        "component": "Equality of supplied labelled Hodge multisets descends along a surjective restriction of labels.",
+        "omittedConditions": [
+          "Bounded constant-Hodge-type family and its geometric dense locus; exceptional v₀; cyclic patching/local splitting and period descent."
+        ],
+        "examples": []
+      }
     },
     {
       "id": "AutomorphicGaloisRepresentationsPartII:AG2.6/polarized-branch-de-rham-and-crystalline",
@@ -329,7 +444,18 @@
       "planet": {
         "name": "Polarized coefficient-prime comparison"
       },
-      "declarationName": "TauCeti.AutomorphicGalois.polarizedCoefficientPrimeAdmissibility"
+      "declarationName": "TauCeti.AutomorphicGalois.polarizedCoefficientPrimeAdmissibility",
+      "suggestedCoverage": {
+        "form": "output-signature",
+        "declarations": [
+          "TauCeti.AutomorphicGalois.polarizedCoefficientPrimeAdmissibility"
+        ],
+        "component": "The representation-indexed Hodge projection has the full expected multiset, using one-based aᵢ translated to Fin n.",
+        "omittedConditions": [
+          "Polarized regular algebraic cuspidality and actual geometric realization; de Rham/crystalline/semistable predicates and Iwahori/spherical hypotheses. Necessary automorphic hypotheses are omitted, so this is not a universal assertion about arbitrary r or HT."
+        ],
+        "examples": []
+      }
     },
     {
       "id": "AutomorphicGaloisRepresentationsPartII:AG2.6/log-crystalline-purity-on-the-automorphic-summand",
@@ -340,7 +466,9 @@
       "title": "Log-crystalline purity of the automorphic summand",
       "kind": "theorem",
       "statement": "In Caraiani’s two-boundary semistable PEL model and its Kuga–Sato projector, the Π-isotypic log-crystalline summand realizing the tensor-square representation is pure as a WD representation (Proposition 5.1). Use the two-index strata Y^(r,s) and Theorem 4.6’s generalized log-crystalline weight spectral sequence, with Frobenius, twists and the residue realization of N. Purity follows after proving the relevant projected stratum cohomology is concentrated on the required diagonal; neither semistability nor the existence of the spectral sequence alone implies purity.",
-      "hypotheses": [],
+      "hypotheses": [
+        "The separate AG2.1a tensor-square realization includes the two distinguished coefficient-prime places, the closed two-index strata, cohomological multiplicity and coefficient-system projector/Tate twist. Its projected stratum concentration is proved before degeneration and purity are inferred."
+      ],
       "proofSteps": [
         "Use the actual tensor-square cohomological realization and projector in §§2 and 5.",
         "Apply the two-boundary log de Rham–Witt spectral sequence, including N realized by the residue operator.",
@@ -365,7 +493,18 @@
         }
       ],
       "implementationStatus": "unchecked",
-      "declarationName": "TauCeti.AutomorphicGalois.logCrystallineAutomorphicPurity"
+      "declarationName": "TauCeti.AutomorphicGalois.logCrystallineAutomorphicPurity",
+      "suggestedCoverage": {
+        "form": "output-signature",
+        "declarations": [
+          "TauCeti.AutomorphicGalois.logCrystallineAutomorphicPurity"
+        ],
+        "component": "The supplied monodromy-graded Frobenius matrices have squared root norm q^(W+i).",
+        "omittedConditions": [
+          "Two-boundary log de Rham–Witt complex, Frobenius/residue maps, closed-stratum projectors and diagonal concentration; monodromy filtration. These necessary geometric hypotheses are omitted."
+        ],
+        "examples": []
+      }
     },
     {
       "id": "AutomorphicGaloisRepresentationsPartII:AG2.6/full-polarized-comparison-at-the-coefficient-prime",
@@ -405,7 +544,18 @@
       "planet": {
         "name": "Full polarized local–global compatibility"
       },
-      "declarationName": "TauCeti.AutomorphicGalois.fullPolarizedCoefficientPrimeComparison"
+      "declarationName": "TauCeti.AutomorphicGalois.fullPolarizedCoefficientPrimeComparison",
+      "suggestedCoverage": {
+        "form": "output-signature",
+        "declarations": [
+          "TauCeti.AutomorphicGalois.fullPolarizedCoefficientPrimeComparison"
+        ],
+        "component": "A single invertible u intertwines both the Weil action and monodromy N.",
+        "omittedConditions": [
+          "Polarized automorphic/geometric hypotheses, de Rham/WD constructions and tensor-square purity with pure-WD uniqueness. Necessary hypotheses are omitted; arbitrary matrix pairs need not admit such u."
+        ],
+        "examples": []
+      }
     },
     {
       "id": "AutomorphicGaloisRepresentationsPartII:AG2.6/all-cm-de-rham-and-semisimplified-coefficient-comparison",
@@ -444,7 +594,18 @@
       "planet": {
         "name": "De Rham comparison over CM fields"
       },
-      "declarationName": "TauCeti.AutomorphicGalois.allCMCoefficientPrimeComparison"
+      "declarationName": "TauCeti.AutomorphicGalois.allCMCoefficientPrimeComparison",
+      "suggestedCoverage": {
+        "form": "output-signature",
+        "declarations": [
+          "TauCeti.AutomorphicGalois.allCMCoefficientPrimeComparison"
+        ],
+        "component": "Full labelled Hodge multisets and conjugacy of supplied semisimplified Weil projections are typed, with no N intertwiner.",
+        "omittedConditions": [
+          "Regular algebraic CM cuspidality; actual period/WD projections; AHTW quantitative cohomology and bounded pseudodeformations. These necessary hypotheses are omitted."
+        ],
+        "examples": []
+      }
     },
     {
       "id": "AutomorphicGaloisRepresentationsPartII:AG2.6/nonselfdual-coefficient-prime-monodromy-bound",
@@ -478,7 +639,18 @@
         }
       ],
       "implementationStatus": "unchecked",
-      "declarationName": "TauCeti.AutomorphicGalois.nonselfdualCoefficientPrimeMonodromyBound"
+      "declarationName": "TauCeti.AutomorphicGalois.nonselfdualCoefficientPrimeMonodromyBound",
+      "suggestedCoverage": {
+        "form": "output-signature",
+        "declarations": [
+          "TauCeti.AutomorphicGalois.nonselfdualCoefficientPrimeMonodromyBound"
+        ],
+        "component": "Partial-sum dominance of supplied Weil-type block lists is typed independently of semisimplified Weil equality.",
+        "omittedConditions": [
+          "Frobenius-semisimple WD construction, extraction of descending Jordan block lists by irreducible Weil type modulo unramified twist, automorphy and maximal-orbit hypotheses. Arbitrary lists do not satisfy this output without the omitted hypotheses."
+        ],
+        "examples": []
+      }
     },
     {
       "id": "AutomorphicGaloisRepresentationsPartII:AG2.6/all-cm-crystalline-and-iwahori-corollary",
@@ -514,7 +686,18 @@
         }
       ],
       "implementationStatus": "unchecked",
-      "declarationName": "TauCeti.AutomorphicGalois.allCMCrystallineIwahoriAdmissibility"
+      "declarationName": "TauCeti.AutomorphicGalois.allCMCrystallineIwahoriAdmissibility",
+      "suggestedCoverage": {
+        "form": "algebraic-fragment",
+        "declarations": [
+          "TauCeti.AutomorphicGalois.allCMCrystallineIwahoriAdmissibility"
+        ],
+        "component": "A monodromy matrix of rank at most zero is zero.",
+        "omittedConditions": [
+          "Actual WD inertia, crystalline/semistable period criteria, spherical and Iwahori hypotheses; the Iwahori semistability output."
+        ],
+        "examples": []
+      }
     },
     {
       "id": "AutomorphicGaloisRepresentationsPartII:AG2.6/totally-real-polarized-coefficient-prime-descent",
@@ -550,7 +733,18 @@
         }
       ],
       "implementationStatus": "unchecked",
-      "declarationName": "TauCeti.AutomorphicGalois.totallyRealPolarizedCoefficientPrimeComparison"
+      "declarationName": "TauCeti.AutomorphicGalois.totallyRealPolarizedCoefficientPrimeComparison",
+      "suggestedCoverage": {
+        "form": "algebraic-fragment",
+        "declarations": [
+          "TauCeti.AutomorphicGalois.totallyRealPolarizedCoefficientPrimeComparison"
+        ],
+        "component": "Conjugacy after a local group isomorphism implies conjugacy before that isomorphism.",
+        "omittedConditions": [
+          "Totally-real polarized automorphic branch, split CM base change, its local-completion identification and controlled descent."
+        ],
+        "examples": []
+      }
     },
     {
       "id": "AutomorphicGaloisRepresentationsPartII:AG2.6/coefficient-embedding-independence-and-semisimple-uniqueness",
@@ -585,7 +779,18 @@
         }
       ],
       "implementationStatus": "unchecked",
-      "declarationName": "TauCeti.AutomorphicGalois.coefficientEmbeddingIndependence"
+      "declarationName": "TauCeti.AutomorphicGalois.coefficientEmbeddingIndependence",
+      "suggestedCoverage": {
+        "form": "algebraic-fragment",
+        "declarations": [
+          "TauCeti.AutomorphicGalois.coefficientEmbeddingIndependence"
+        ],
+        "component": "For semisimple representations over a characteristic-zero field, equality of characteristic polynomials at every group element gives conjugacy over the algebraic closure.",
+        "omittedConditions": [
+          "Topology, genuine global Galois group and good Frobenius set; Chebotarev upgrade from good places to every element."
+        ],
+        "examples": []
+      }
     },
     {
       "id": "AutomorphicGaloisRepresentationsPartII:AG2.6/compatible-system-of-pi",
@@ -595,9 +800,10 @@
       ],
       "title": "Compatible system attached to π",
       "kind": "construction",
-      "statement": "For a regular algebraic cuspidal π of GL_n(A_F), with F CM, or F totally real and π polarized, construct the instance R_π of the imported arbitrary-rank R24.5 carrier: M_π is the field fixed by σ∈Aut(C) preserving π^∞; S_π is the finite ramification set of π; P_v(X) is the common monic rec^T geometric Frobenius polynomial; r_λ is the attached continuous semisimple representation; H_τ={a_{τ,i}+n−i}. Populate weak compatibility using all-CM de Rham admissibility, or the totally-real polarized theorem, and crystallinity for v outside S_π above ℓ. Purity, polarization and all-place strict compatibility are separate branch predicates, not fields asserted for every π.",
+      "statement": "For a regular algebraic cuspidal π of GL_n(A_F), with F CM, or F totally real and π polarized, once the R24.5 owner fulfills the data/predicate separation request, assemble R_π on that single imported carrier: M_π is the field fixed by σ∈Aut(C) preserving π^∞; S_π is the finite ramification set of π; P_v(X) is the common monic rec^T geometric Frobenius polynomial; r_λ is the attached continuous semisimple representation; H_τ={a_{τ,i}+n−i}. Populate weak compatibility using all-CM de Rham admissibility, or the totally-real polarized theorem, and crystallinity for v outside S_π above ℓ. Purity, polarization and all-place strict compatibility are separate branch predicates, not fields asserted for every π.",
       "hypotheses": [],
       "proofSteps": [
+        "Require the owner’s corrected raw-data assembly and projection laws; the current contradictory carrier statements are not treated as a completed import.",
         "Fix the finite rationality field and finite ramification set from AG2.0.",
         "Install every λ-member and P_v using good-place compatibility and embedding independence.",
         "Read the labelled Hodge multisets from the coefficient-prime theorem and prove the weak predicate."
@@ -637,54 +843,64 @@
         {
           "name": "TauCeti.AutomorphicGalois.compatibleSystem",
           "role": "constructor",
-          "statement": "Map π to R_π in the supplier carrier."
+          "statement": "Map π to R_π in the supplier carrier.",
+          "suggestedCoverage": "Actual typed declaration in the suggested file; the node’s component and omittedConditions describe its limits. The packet API statement is the full planned interface, not an assertion that all supplier conditions appear in Lean."
         },
         {
           "name": "TauCeti.AutomorphicGalois.compatibleSystem_member",
           "role": "projection",
-          "statement": "The λ-member after embedding is r_{π,ℓ,ι}, up to isomorphism."
+          "statement": "The λ-member after embedding is r_{π,ℓ,ι}, up to isomorphism.",
+          "suggestedCoverage": "Actual typed declaration in the suggested file; the node’s component and omittedConditions describe its limits. The packet API statement is the full planned interface, not an assertion that all supplier conditions appear in Lean."
         },
         {
           "name": "TauCeti.AutomorphicGalois.compatibleSystem_goodPolynomial",
           "role": "simp",
-          "statement": "At v outside S_π, the common polynomial is P_v(X)."
+          "statement": "At v outside S_π, the common polynomial is P_v(X).",
+          "suggestedCoverage": "Actual typed declaration in the suggested file; the node’s component and omittedConditions describe its limits. The packet API statement is the full planned interface, not an assertion that all supplier conditions appear in Lean."
         },
         {
           "name": "TauCeti.AutomorphicGalois.compatibleSystem_hodgeTate",
           "role": "data",
-          "statement": "The labelled multiset is {a_{τ,i}+n−i}, including multiplicities."
+          "statement": "The labelled multiset is {a_{τ,i}+n−i}, including multiplicities.",
+          "suggestedCoverage": "Actual typed declaration in the suggested file; the node’s component and omittedConditions describe its limits. The packet API statement is the full planned interface, not an assertion that all supplier conditions appear in Lean."
         },
         {
           "name": "TauCeti.AutomorphicGalois.compatibleSystem_weak",
           "role": "compatibility",
-          "statement": "R_π satisfies the R24.5 weak predicate, with explicit normalization conversion."
+          "statement": "R_π satisfies the R24.5 weak predicate, with explicit normalization conversion.",
+          "suggestedCoverage": "Actual typed declaration in the suggested file; the node’s component and omittedConditions describe its limits. The packet API statement is the full planned interface, not an assertion that all supplier conditions appear in Lean."
         },
         {
           "name": "TauCeti.AutomorphicGalois.compatibleSystem_embedding",
           "role": "extensionality",
-          "statement": "Two ι inducing the same λ on M_π give isomorphic members."
+          "statement": "Two ι inducing the same λ on M_π give isomorphic members.",
+          "suggestedCoverage": "Actual typed declaration in the suggested file; the node’s component and omittedConditions describe its limits. The packet API statement is the full planned interface, not an assertion that all supplier conditions appear in Lean."
         }
       ],
       "tests": [
         {
           "name": "TauCeti.AutomorphicGalois.compatibleSystem_rank_one",
           "kind": "degenerate",
-          "statement": "For an algebraic Hecke character ψ, this is its class-field-theoretic compatible system."
+          "statement": "For an algebraic Hecke character ψ, this is its class-field-theoretic compatible system.",
+          "suggestedCoverage": "The assembly/projection law retains an actual supplied rank-one homomorphism; algebraic-Hecke-character/class-field construction is omitted."
         },
         {
           "name": "TauCeti.AutomorphicGalois.compatibleSystem_weight_k",
           "kind": "computation",
-          "statement": "At n=2, a=(k−2,0), the Hodge multiset is {k−1,0} and its sum is k−1."
+          "statement": "At n=2, a=(k−2,0), the Hodge multiset is {k−1,0} and its sum is k−1.",
+          "suggestedCoverage": "Labelled typed Lean example under this exact test name; the node’s component and omittedConditions describe the algebraic portion and the omitted supplier realization."
         },
         {
           "name": "TauCeti.AutomorphicGalois.compatibleSystem_R19",
           "kind": "compatibility",
-          "statement": "On the exact classical/Hilbert overlap, applying the stated dual/twist dictionary identifies each λ-member with the R19 fixed-form member."
+          "statement": "On the exact classical/Hilbert overlap, applying the stated dual/twist dictionary identifies each λ-member with the R19 fixed-form member.",
+          "suggestedCoverage": "Characteristic-zero semisimple comparison assumes equality for every group element after the supplied dual/twist normalization; the actual R19 dictionary is omitted."
         },
         {
           "name": "TauCeti.AutomorphicGalois.compatibleSystem_no_automatic_strictness",
           "kind": "non-example",
-          "statement": "A weak instance with only good-place polynomials cannot supply an equality of monodromy at an unspecified bad place."
+          "statement": "A weak instance with only good-place polynomials cannot supply an equality of monodromy at an unspecified bad place.",
+          "suggestedCoverage": "Explicit distinct nilpotent N matrices test the missing monodromy data; no weak-system inhabitant is constructed."
         }
       ],
       "uses": [
@@ -696,7 +912,28 @@
           "where": "PotentialModularityAndCompatibleSystems:R24.5/linear-algebra-operations-on-systems",
           "how": "Allows tensor, dual and algebraic-character operations on the same carrier."
         }
-      ]
+      ],
+      "suggestedCoverage": {
+        "form": "algebraic-fragment",
+        "declarations": [
+          "TauCeti.AutomorphicGalois.compatibleSystem",
+          "TauCeti.AutomorphicGalois.compatibleSystem_member",
+          "TauCeti.AutomorphicGalois.compatibleSystem_goodPolynomial",
+          "TauCeti.AutomorphicGalois.compatibleSystem_hodgeTate",
+          "TauCeti.AutomorphicGalois.compatibleSystem_weak",
+          "TauCeti.AutomorphicGalois.compatibleSystem_embedding"
+        ],
+        "component": "The constructor calls an externally supplied assembly operation on actual homomorphisms, polynomials and Hodge multisets. Projection APIs use explicit supplier coherence laws. The weak API currently tests only common good polynomials.",
+        "omittedConditions": [
+          "The corrected R24 data carrier/assembly implementation and admissibility predicates; number field, varying completions/place indexing, finite S, continuity, automorphic pi, good-place and full weak period conditions."
+        ],
+        "examples": [
+          "TauCeti.AutomorphicGalois.compatibleSystem_rank_one",
+          "TauCeti.AutomorphicGalois.compatibleSystem_weight_k",
+          "TauCeti.AutomorphicGalois.compatibleSystem_R19",
+          "TauCeti.AutomorphicGalois.compatibleSystem_no_automatic_strictness"
+        ]
+      }
     },
     {
       "id": "AutomorphicGaloisRepresentationsPartII:AG2.6/complex-and-local-coefficient-conjugation",
@@ -730,7 +967,18 @@
         }
       ],
       "implementationStatus": "unchecked",
-      "declarationName": "TauCeti.AutomorphicGalois.coefficientConjugation"
+      "declarationName": "TauCeti.AutomorphicGalois.coefficientConjugation",
+      "suggestedCoverage": {
+        "form": "algebraic-fragment",
+        "declarations": [
+          "TauCeti.AutomorphicGalois.coefficientConjugation"
+        ],
+        "component": "Entrywise ring-automorphism change followed by its inverse returns the same group homomorphism; G itself is unchanged.",
+        "omittedConditions": [
+          "Clozel conjugate automorphic representation σπ and its weight/rationality construction; embedding conventions for ι and σ_ℓ."
+        ],
+        "examples": []
+      }
     },
     {
       "id": "AutomorphicGaloisRepresentationsPartII:AG2.6/strong-coefficient-field",
@@ -773,44 +1021,52 @@
         {
           "name": "TauCeti.AutomorphicGalois.IsStrongCoefficientField",
           "role": "characterisation",
-          "statement": "The preceding all-λ realization property."
+          "statement": "The preceding all-λ realization property.",
+          "suggestedCoverage": "Actual typed declaration in the suggested file; the node’s component and omittedConditions describe its limits. The packet API statement is the full planned interface, not an assertion that all supplier conditions appear in Lean."
         },
         {
           "name": "TauCeti.AutomorphicGalois.strongCoefficientField_member",
           "role": "data",
-          "statement": "Choose an E_λ-realization with its scalar-extension isomorphism."
+          "statement": "Choose an E_λ-realization with its scalar-extension isomorphism.",
+          "suggestedCoverage": "Actual typed declaration in the suggested file; the node’s component and omittedConditions describe its limits. The packet API statement is the full planned interface, not an assertion that all supplier conditions appear in Lean."
         },
         {
           "name": "TauCeti.AutomorphicGalois.strongCoefficientField_baseChange",
           "role": "functoriality",
-          "statement": "For E′/E finite, each λ′-member is E′_λ′⊗_{E_λ}ρ_{Π,λ}, with the identity and composition laws."
+          "statement": "For E′/E finite, each λ′-member is E′_λ′⊗_{E_λ}ρ_{Π,λ}, with the identity and composition laws.",
+          "suggestedCoverage": "Actual typed declaration in the suggested file; the node’s component and omittedConditions describe its limits. The packet API statement is the full planned interface, not an assertion that all supplier conditions appear in Lean."
         },
         {
           "name": "TauCeti.AutomorphicGalois.strongCoefficientField_unique",
           "role": "extensionality",
-          "statement": "Descended semisimple members are unique up to conjugacy, not as based homomorphisms."
+          "statement": "Descended semisimple members are unique up to conjugacy, not as based homomorphisms.",
+          "suggestedCoverage": "Actual typed declaration in the suggested file; the node’s component and omittedConditions describe its limits. The packet API statement is the full planned interface, not an assertion that all supplier conditions appear in Lean."
         }
       ],
       "tests": [
         {
           "name": "TauCeti.AutomorphicGalois.strongCoefficientField_character",
           "kind": "degenerate",
-          "statement": "A rank-one character whose values lie in E has the expected E_λ-realizations."
+          "statement": "A rank-one character whose values lie in E has the expected E_λ-realizations.",
+          "suggestedCoverage": "Labelled typed Lean example under this exact test name; the node’s component and omittedConditions describe the algebraic portion and the omitted supplier realization."
         },
         {
           "name": "TauCeti.AutomorphicGalois.strongCoefficientField_extension",
           "kind": "compatibility",
-          "statement": "Changing E to a finite extension gives exactly the supplier’s coefficient base-change operation at every λ′."
+          "statement": "Changing E to a finite extension gives exactly the supplier’s coefficient base-change operation at every λ′.",
+          "suggestedCoverage": "Labelled typed Lean example under this exact test name; the node’s component and omittedConditions describe the algebraic portion and the omitted supplier realization."
         },
         {
           "name": "TauCeti.AutomorphicGalois.strongCoefficientField_not_rationality",
           "kind": "non-example",
-          "statement": "The definition does not identify rational Frobenius traces with a canonical E_λ-model; a nontrivial Schur obstruction must be split."
+          "statement": "The definition does not identify rational Frobenius traces with a canonical E_λ-model; a nontrivial Schur obstruction must be split.",
+          "suggestedCoverage": "A supplied complex quaternionic representation has rational traces and two specified quaternion generators; its matrices cannot descend to GL₂(Q). This tests a nonsplit descent obstruction, beyond based-matrix inequality."
         },
         {
           "name": "TauCeti.AutomorphicGalois.strongCoefficientField_scalar_intertwiner",
           "kind": "characterisation",
-          "statement": "Nonzero scalar multiples of an intertwiner remain intertwiners, so uniqueness is of the isomorphism class."
+          "statement": "Nonzero scalar multiples of an intertwiner remain intertwiners, so uniqueness is of the isomorphism class.",
+          "suggestedCoverage": "Labelled typed Lean example under this exact test name; the node’s component and omittedConditions describe the algebraic portion and the omitted supplier realization."
         }
       ],
       "uses": [
@@ -822,7 +1078,26 @@
           "where": "AutomorphicGaloisRepresentationsPartII:AG2.7/residual-representation-of-pi",
           "how": "Uniform field of definition can precede every local lattice choice."
         }
-      ]
+      ],
+      "suggestedCoverage": {
+        "form": "algebraic-fragment",
+        "declarations": [
+          "TauCeti.AutomorphicGalois.IsStrongCoefficientField",
+          "TauCeti.AutomorphicGalois.strongCoefficientField_member",
+          "TauCeti.AutomorphicGalois.strongCoefficientField_baseChange",
+          "TauCeti.AutomorphicGalois.strongCoefficientField_unique"
+        ],
+        "component": "For every external coefficient-place index, a homomorphism over the supplied descended field becomes conjugate to the given member. Choice returns that model with its conjugacy evidence; tower and uniqueness APIs are typed.",
+        "omittedConditions": [
+          "A common number field E, finite places and completions E_λ, their relation to every inducing embedding, continuity and automorphic pi. The quaternionic non-example supplies its actual group representation and tests rational-trace failure of Q-descent."
+        ],
+        "examples": [
+          "TauCeti.AutomorphicGalois.strongCoefficientField_character",
+          "TauCeti.AutomorphicGalois.strongCoefficientField_extension",
+          "TauCeti.AutomorphicGalois.strongCoefficientField_not_rationality",
+          "TauCeti.AutomorphicGalois.strongCoefficientField_scalar_intertwiner"
+        ]
+      }
     },
     {
       "id": "AutomorphicGaloisRepresentationsPartII:AG2.6/uniform-strong-realization-for-polarized-systems",
@@ -861,7 +1136,18 @@
         }
       ],
       "implementationStatus": "unchecked",
-      "declarationName": "TauCeti.AutomorphicGalois.existsUniformStrongCoefficientField"
+      "declarationName": "TauCeti.AutomorphicGalois.existsUniformStrongCoefficientField",
+      "suggestedCoverage": {
+        "form": "algebraic-fragment",
+        "declarations": [
+          "TauCeti.AutomorphicGalois.existsUniformStrongCoefficientField"
+        ],
+        "component": "Semisimple characteristic-zero representations in one algebraically closed ambient field, with traces in E₀ and characteristic polynomial one of two monic separable degree-n polynomials, descend over a finite intermediate extension.",
+        "omittedConditions": [
+          "The simultaneous number-field/p-adic-completion setup; regular Hodge weights, Chebotarev construction of two good places of different residue characteristics and each member’s choice away from ell. This algebraic component retains two regular polynomials, but does not construct those places."
+        ],
+        "examples": []
+      }
     },
     {
       "id": "AutomorphicGaloisRepresentationsPartII:AG2.6/polarized-compatible-system-strictly-pure",
@@ -903,7 +1189,18 @@
       "planet": {
         "name": "Pure polarized compatible system"
       },
-      "declarationName": "TauCeti.AutomorphicGalois.polarizedSystemPurity"
+      "declarationName": "TauCeti.AutomorphicGalois.polarizedSystemPurity",
+      "suggestedCoverage": {
+        "form": "output-signature",
+        "declarations": [
+          "TauCeti.AutomorphicGalois.polarizedSystemPurity"
+        ],
+        "component": "At good places the root norm equation uses purity weight w+n−1.",
+        "omittedConditions": [
+          "Polarized automorphic hypotheses, monodromy-graded strict purity, Hodge conjugation, multiplier and total-oddness conditions. Necessary hypotheses are omitted; arbitrary P is not pure."
+        ],
+        "examples": []
+      }
     },
     {
       "id": "AutomorphicGaloisRepresentationsPartII:AG2.6/very-weak-compatibility-under-dgi",
@@ -913,7 +1210,7 @@
       ],
       "title": "Very weak compatibility and the density-one DGI route",
       "kind": "comparison",
-      "statement": "The constructed R_π is weakly compatible, hence very weakly compatible by the imported weakening map. This gives, in particular, the conclusions of ACC+ Lemmas 7.1.9–7.1.10. Lemma 7.1.9 originally assumes a density-one set of rational ℓ for which every residual member is absolutely irreducible and decomposed generic; Lemma 7.1.10 proves very weak compatibility in rank two through its constituent/image arguments. That Fontaine–Laffaille/degree-shifting proof is an arithmetic consumer in PA.1; it is not an input to the all-CM construction here. None of these statements gives residual irreducibility at every coefficient place.",
+      "statement": "After the R24.5 data/predicate separation request is fulfilled, the weak compatibility proved for the constructed R_π implies very weak compatibility through the owner’s weakening map on the same data. This gives, in particular, the conclusions of ACC+ Lemmas 7.1.9–7.1.10. Lemma 7.1.9 originally assumes a density-one set of rational ℓ for which every residual member is absolutely irreducible and decomposed generic; Lemma 7.1.10 proves very weak compatibility in rank two through its constituent/image arguments. That Fontaine–Laffaille/degree-shifting proof is an arithmetic consumer in PA.1; it is not an input to the all-CM construction here. None of these statements gives residual irreducibility at every coefficient place.",
       "hypotheses": [],
       "proofSteps": [
         "Apply the all-CM or totally-real polarized weak compatibility already proved for R_π.",
@@ -936,7 +1233,18 @@
         }
       ],
       "implementationStatus": "unchecked",
-      "declarationName": "TauCeti.AutomorphicGalois.veryWeakCompatibilityUnderDGI"
+      "declarationName": "TauCeti.AutomorphicGalois.veryWeakCompatibilityUnderDGI",
+      "suggestedCoverage": {
+        "form": "algebraic-fragment",
+        "declarations": [
+          "TauCeti.AutomorphicGalois.veryWeakCompatibilityUnderDGI"
+        ],
+        "component": "The full Hodge equality restricts to a specified subset of coefficient indices.",
+        "omittedConditions": [
+          "Density-one rational coefficient primes, DGI/image/Fontaine–Laffaille arguments, crystallinity and the owner’s weakened predicates. The subset is not asserted to have density one in Lean."
+        ],
+        "examples": []
+      }
     },
     {
       "id": "AutomorphicGaloisRepresentationsPartII:AG2.6/coefficient-prime-branch-and-what-it-does-not-give",
@@ -973,7 +1281,19 @@
           "match": "The polarized theorem identifies N."
         }
       ],
-      "implementationStatus": "unchecked"
+      "implementationStatus": "unchecked",
+      "suggestedCoverage": {
+        "form": "shared-component",
+        "declarations": [
+          "TauCeti.AutomorphicGalois.NonselfdualComparisonExport",
+          "TauCeti.AutomorphicGalois.PolarizedComparisonExport"
+        ],
+        "component": "The two export structures and their negative examples distinguish a monodromy bound from a map intertwining N.",
+        "omittedConditions": [
+          "Actual automorphic/period realizations and the unavailable full branch predicates."
+        ],
+        "examples": []
+      }
     },
     {
       "id": "AutomorphicGaloisRepresentationsPartII:AG2.6/rank-two-comparison-with-r19",
@@ -1007,7 +1327,18 @@
           "match": "Explicit dual-normalization comparison on the common domain."
         }
       ],
-      "implementationStatus": "unchecked"
+      "implementationStatus": "unchecked",
+      "suggestedCoverage": {
+        "form": "shared-component",
+        "declarations": [
+          "TauCeti.AutomorphicGalois.compatibleSystem_embedding"
+        ],
+        "component": "The rank-two assembly test identifies already-normalized semisimple members from every-element characteristic-polynomial equality; the full weight-k multiset is checked.",
+        "omittedConditions": [
+          "The R19 classical/Hilbert normalization constructor, Skinner local theorem and geometric-versus-arithmetic Frobenius dictionary."
+        ],
+        "examples": []
+      }
     },
     {
       "id": "AutomorphicGaloisRepresentationsPartII:AG2.6/tensor-automorphy-independent-of-coefficient-embedding",
@@ -1041,7 +1372,18 @@
         }
       ],
       "implementationStatus": "unchecked",
-      "declarationName": "TauCeti.AutomorphicGalois.tensorAutomorphyIndependentOfIota"
+      "declarationName": "TauCeti.AutomorphicGalois.tensorAutomorphyIndependentOfIota",
+      "suggestedCoverage": {
+        "form": "algebraic-fragment",
+        "declarations": [
+          "TauCeti.AutomorphicGalois.tensorAutomorphyIndependentOfIota"
+        ],
+        "component": "Two supplied characteristic-zero semisimple tensor/automorphic members with every-element polynomial equality become conjugate over the algebraic closure.",
+        "omittedConditions": [
+          "Tensor and automorphic constructions, initial irreducibility and RAESDC automorphy, and the good-prime Chebotarev transport. No general tensor automorphy is asserted by this algebraic component."
+        ],
+        "examples": []
+      }
     },
     {
       "id": "AutomorphicGaloisRepresentationsPartII:AG2.6/gsp4-crystalline-hodge-comparison",
@@ -1075,7 +1417,18 @@
         }
       ],
       "implementationStatus": "unchecked",
-      "declarationName": "TauCeti.AutomorphicGalois.gsp4CrystallineHodgeComparison"
+      "declarationName": "TauCeti.AutomorphicGalois.gsp4CrystallineHodgeComparison",
+      "suggestedCoverage": {
+        "form": "output-signature",
+        "declarations": [
+          "TauCeti.AutomorphicGalois.gsp4CrystallineHodgeComparison"
+        ],
+        "component": "CG’s four labelled weights and equality of supplied crystalline Frobenius/Hecke polynomials are typed in the range a≥b≥3.",
+        "omittedConditions": [
+          "Regular good-level GSp₄ eigenform, de Rham/crystalline period projections, and the additional p-Hecke-eigenform hypothesis for polynomial equality. These necessary hypotheses are omitted."
+        ],
+        "examples": []
+      }
     },
     {
       "id": "AutomorphicGaloisRepresentationsPartII:AG2.6/ordinary-gsp4-coefficient-prime-shape",
@@ -1110,7 +1463,18 @@
         }
       ],
       "implementationStatus": "unchecked",
-      "declarationName": "TauCeti.AutomorphicGalois.ordinaryGsp4CoefficientPrimeShape"
+      "declarationName": "TauCeti.AutomorphicGalois.ordinaryGsp4CoefficientPrimeShape",
+      "suggestedCoverage": {
+        "form": "output-signature",
+        "declarations": [
+          "TauCeti.AutomorphicGalois.ordinaryGsp4CoefficientPrimeShape"
+        ],
+        "component": "One basis makes the supplied rank-four member upper triangular with all four supplied diagonal characters.",
+        "omittedConditions": [
+          "Regular ordinary good-level GSp₄ form, both unit Hecke operator conditions, saturated filtration and cyclotomic/unramified character construction. These necessary hypotheses are omitted; arbitrary r and characters do not have this shape."
+        ],
+        "examples": []
+      }
     },
     {
       "id": "AutomorphicGaloisRepresentationsPartII:AG2.6/pilloni-gsp4-normalization-comparison",
@@ -1143,7 +1507,18 @@
           "match": "Hodge weights and the reciprocal polynomial in its stated convention."
         }
       ],
-      "implementationStatus": "unchecked"
+      "implementationStatus": "unchecked",
+      "suggestedCoverage": {
+        "form": "shared-component",
+        "declarations": [
+          "TauCeti.AutomorphicGalois.gsp4CrystallineHodgeComparison"
+        ],
+        "component": "The explicit CG/Pilloni substitution gives the same four Hodge entries; strict inequalities between ordinary valuation exponents are checked separately.",
+        "omittedConditions": [
+          "ML.4 Harish–Chandra/Satake identification and reciprocal det(1−Xφ) versus monic charpoly conversion; full Pilloni de Rham/crystalline theorem and corrected similitude."
+        ],
+        "examples": []
+      }
     },
     {
       "id": "AutomorphicGaloisRepresentationsPartII:AG2.7/finite-p-adic-field-of-realization",
@@ -1181,7 +1556,18 @@
         }
       ],
       "implementationStatus": "unchecked",
-      "declarationName": "TauCeti.AutomorphicGalois.existsFinitePadicRealization"
+      "declarationName": "TauCeti.AutomorphicGalois.existsFinitePadicRealization",
+      "suggestedCoverage": {
+        "form": "algebraic-fragment",
+        "declarations": [
+          "TauCeti.AutomorphicGalois.existsFinitePadicRealization"
+        ],
+        "component": "Finitely many supplied algebraic matrix entries lie in a finite intermediate extension.",
+        "omittedConditions": [
+          "Compact p-adic image, countability of finite local extensions, closed intersections, Baire interior/open subgroup and finite-coset reduction. The finite-entry step alone is not the finite p-adic realization theorem."
+        ],
+        "examples": []
+      }
     },
     {
       "id": "AutomorphicGaloisRepresentationsPartII:AG2.7/residual-representation-of-pi",
@@ -1209,7 +1595,8 @@
         "ArithmeticGaloisRepresentations:R01.5/recognition-by-characteristic-polynomials-and-coefficient-descent",
         "AutomorphicGaloisRepresentationsPartII:AG2.0/polarized-galois-representation",
         "GlobalGaloisDeformations:G7/polarized-deformation-problem",
-        "mathlib:Matrix.GeneralLinearGroup.map"
+        "mathlib:Matrix.GeneralLinearGroup.map",
+        "mathlib:Representation.IsSemisimpleRepresentation"
       ],
       "sources": [
         {
@@ -1232,49 +1619,58 @@
         {
           "name": "TauCeti.AutomorphicGalois.residualRep",
           "role": "constructor",
-          "statement": "The continuous semisimple residual member over its finite field of realization."
+          "statement": "The continuous semisimple residual member over its finite field of realization.",
+          "suggestedCoverage": "Actual typed declaration in the suggested file; the node’s component and omittedConditions describe its limits. The packet API statement is the full planned interface, not an assertion that all supplier conditions appear in Lean."
         },
         {
           "name": "TauCeti.AutomorphicGalois.residualRep_indep_lattice",
           "role": "extensionality",
-          "statement": "Two lattice reductions have isomorphic semisimplifications over k̄_ℓ."
+          "statement": "Two lattice reductions have isomorphic semisimplifications over k̄_ℓ.",
+          "suggestedCoverage": "Actual typed declaration in the suggested file; the node’s component and omittedConditions describe its limits. The packet API statement is the full planned interface, not an assertion that all supplier conditions appear in Lean."
         },
         {
           "name": "TauCeti.AutomorphicGalois.residualRep_coeffExtension",
           "role": "functoriality",
-          "statement": "Enlargement of E gives scalar extension of the same semisimple residual representation."
+          "statement": "Enlargement of E gives scalar extension of the same semisimple residual representation.",
+          "suggestedCoverage": "Actual typed declaration in the suggested file; the node’s component and omittedConditions describe its limits. The packet API statement is the full planned interface, not an assertion that all supplier conditions appear in Lean."
         },
         {
           "name": "TauCeti.AutomorphicGalois.residualRep_goodPolynomial",
           "role": "compatibility",
-          "statement": "At good v away from ℓ the polynomial is the coefficient reduction of P_v."
+          "statement": "At good v away from ℓ the polynomial is the coefficient reduction of P_v.",
+          "suggestedCoverage": "Actual typed declaration in the suggested file; the node’s component and omittedConditions describe its limits. The packet API statement is the full planned interface, not an assertion that all supplier conditions appear in Lean."
         },
         {
           "name": "TauCeti.AutomorphicGalois.residualRep_extendGn",
           "role": "constructor",
-          "statement": "For F/F^+ CM, totally odd polarized residual members extend to 𝒢_n with the specified multiplier; the totally-real orthogonal/symplectic specialization is separate."
+          "statement": "For F/F^+ CM, totally odd polarized residual members extend to 𝒢_n with the specified multiplier; the totally-real orthogonal/symplectic specialization is separate.",
+          "suggestedCoverage": "Actual typed declaration in the suggested file; the node’s component and omittedConditions describe its limits. The packet API statement is the full planned interface, not an assertion that all supplier conditions appear in Lean."
         }
       ],
       "tests": [
         {
           "name": "TauCeti.AutomorphicGalois.residualRep_rank_one",
           "kind": "degenerate",
-          "statement": "For an integral character ψ, r̄ is its reduction and no semisimplification changes it."
+          "statement": "For an integral character ψ, r̄ is its reduction and no semisimplification changes it.",
+          "suggestedCoverage": "Labelled typed Lean example under this exact test name; the node’s component and omittedConditions describe the algebraic portion and the omitted supplier realization."
         },
         {
           "name": "TauCeti.AutomorphicGalois.residualRep_diagonal_reduction",
           "kind": "computation",
-          "statement": "Reduction of diag(1,2) modulo 3 has polynomial (X−1)(X−2), the reduction of the characteristic-zero polynomial."
+          "statement": "Reduction of diag(1,2) modulo 3 has polynomial (X−1)(X−2), the reduction of the characteristic-zero polynomial.",
+          "suggestedCoverage": "The reduced diagonal matrix over ZMod 3 has the required polynomial; full integral reduction is additionally tested by residualExport_diagonal_mod3."
         },
         {
           "name": "TauCeti.AutomorphicGalois.residualRep_R19_dual",
           "kind": "compatibility",
-          "statement": "For the classical weight-k overlap at fixed λ, r̄_AG2≅r̄_R19^∨ under the same residue embedding."
+          "statement": "For the classical weight-k overlap at fixed λ, r̄_AG2≅r̄_R19^∨ under the same residue embedding.",
+          "suggestedCoverage": "Finite residue field and common integral every-element polynomials identify semisimplifications over the algebraic closure; construction of the R19 normalization is omitted."
         },
         {
           "name": "TauCeti.AutomorphicGalois.residualRep_noncanonical_lattice",
           "kind": "non-example",
-          "statement": "For the Z_5-action r(t)=[[1,5t],[0,1]], lattices with bases (e1,e2) and (5e1,e2) give identity and nontrivial unipotent reductions; both semisimplify to 1⊕1."
+          "statement": "For the Z_5-action r(t)=[[1,5t],[0,1]], lattices with bases (e1,e2) and (5e1,e2) give identity and nontrivial unipotent reductions; both semisimplify to 1⊕1.",
+          "suggestedCoverage": "At t=1 the identity and nontrivial unipotent matrices over ZMod 5 are unequal with equal charpoly; the actual Z₅-action and lattice bases are omitted."
         }
       ],
       "uses": [
@@ -1286,7 +1682,27 @@
           "where": "PotentialAutomorphyInfrastructure:PA.0",
           "how": "Supplies residual automorphic input, without adding irreducibility or enormous-image hypotheses."
         }
-      ]
+      ],
+      "suggestedCoverage": {
+        "form": "algebraic-fragment",
+        "declarations": [
+          "TauCeti.AutomorphicGalois.residualRep",
+          "TauCeti.AutomorphicGalois.residualRep_indep_lattice",
+          "TauCeti.AutomorphicGalois.residualRep_coeffExtension",
+          "TauCeti.AutomorphicGalois.residualRep_goodPolynomial",
+          "TauCeti.AutomorphicGalois.residualRep_extendGn"
+        ],
+        "component": "Construct a semisimple homomorphism from an actual integral model and residue map, with every-element reduced characteristic polynomial. Lattice independence assumes equal integral polynomials and finite residue field. The G_n API currently transports only the matrix pairing equation.",
+        "omittedConditions": [
+          "Finite local field and stable-lattice construction, continuous global Galois action, lattice spanning/comparison; G_n carrier, CM conjugation extension, multiplier and total oddness. The unequal unipotent reductions are typed at t=1; the full Z₅ lattices are omitted."
+        ],
+        "examples": [
+          "TauCeti.AutomorphicGalois.residualRep_rank_one",
+          "TauCeti.AutomorphicGalois.residualRep_diagonal_reduction",
+          "TauCeti.AutomorphicGalois.residualRep_R19_dual",
+          "TauCeti.AutomorphicGalois.residualRep_noncanonical_lattice"
+        ]
+      }
     },
     {
       "id": "AutomorphicGaloisRepresentationsPartII:AG2.7/good-polynomial-reduction",
@@ -1320,7 +1736,19 @@
         }
       ],
       "implementationStatus": "unchecked",
-      "declarationName": "TauCeti.AutomorphicGalois.goodPolynomialReduction"
+      "declarationName": "TauCeti.AutomorphicGalois.goodPolynomialReduction",
+      "suggestedCoverage": {
+        "form": "shared-component",
+        "declarations": [
+          "TauCeti.AutomorphicGalois.goodPolynomialReduction",
+          "TauCeti.AutomorphicGalois.residualRep_goodPolynomial"
+        ],
+        "component": "Matrix.charpoly_map and the residual polynomial API give the actual coefficient-reduction square.",
+        "omittedConditions": [
+          "Geometric good-place/integrality provenance and stable-lattice carrier; these are external to the matrix identity."
+        ],
+        "examples": []
+      }
     },
     {
       "id": "AutomorphicGaloisRepresentationsPartII:AG2.7/hecke-maximal-ideal-of-galois-type",
@@ -1344,7 +1772,8 @@
       "prerequisites": [
         "IntegralHeckeAndGaloisDeterminants:IHG.3",
         "AutomorphicGaloisRepresentationsPartII:AG2.0/frobenius-polynomial-and-conventions",
-        "ArithmeticGaloisRepresentations:R01.5"
+        "ArithmeticGaloisRepresentations:R01.5",
+        "mathlib:Representation.IsSemisimpleRepresentation"
       ],
       "sources": [
         {
@@ -1359,44 +1788,52 @@
         {
           "name": "TauCeti.AutomorphicGalois.IsGaloisType",
           "role": "characterisation",
-          "statement": "Existence of the stated semisimple realization over k_m."
+          "statement": "Existence of the stated semisimple realization over k_m.",
+          "suggestedCoverage": "Actual typed declaration in the suggested file; the node’s component and omittedConditions describe its limits. The packet API statement is the full planned interface, not an assertion that all supplier conditions appear in Lean."
         },
         {
           "name": "TauCeti.AutomorphicGalois.galoisType_rep",
           "role": "data",
-          "statement": "A chosen r_m together with the polynomial matching theorem."
+          "statement": "A chosen r_m together with the polynomial matching theorem.",
+          "suggestedCoverage": "Actual typed declaration in the suggested file; the node’s component and omittedConditions describe its limits. The packet API statement is the full planned interface, not an assertion that all supplier conditions appear in Lean."
         },
         {
           "name": "TauCeti.AutomorphicGalois.galoisType_rep_unique",
           "role": "extensionality",
-          "statement": "Any two semisimple realizations are isomorphic after a common residue-field extension."
+          "statement": "Any two semisimple realizations are isomorphic after a common residue-field extension.",
+          "suggestedCoverage": "Actual typed declaration in the suggested file; the node’s component and omittedConditions describe its limits. The packet API statement is the full planned interface, not an assertion that all supplier conditions appear in Lean."
         },
         {
           "name": "TauCeti.AutomorphicGalois.galoisType_coeffExtension",
           "role": "compatibility",
-          "statement": "The polynomial comparison commutes with the existing GL coefficient map."
+          "statement": "The polynomial comparison commutes with the existing GL coefficient map.",
+          "suggestedCoverage": "Actual typed declaration in the suggested file; the node’s component and omittedConditions describe its limits. The packet API statement is the full planned interface, not an assertion that all supplier conditions appear in Lean."
         }
       ],
       "tests": [
         {
           "name": "TauCeti.AutomorphicGalois.galoisType_rank_one_polynomial",
           "kind": "computation",
-          "statement": "For n=1 the constant term is −T_{v,1}."
+          "statement": "For n=1 the constant term is −T_{v,1}.",
+          "suggestedCoverage": "The signed n=1 constant coefficient is computed explicitly; construction of a Hecke eigencharacter is omitted."
         },
         {
           "name": "TauCeti.AutomorphicGalois.galoisType_reducible",
           "kind": "degenerate",
-          "statement": "A Hecke eigencharacter with r_m=1⊕1 can be of Galois type."
+          "statement": "A Hecke eigencharacter with r_m=1⊕1 can be of Galois type.",
+          "suggestedCoverage": "The actual existential IsGaloisType predicate is inhabited by the rank-two trivial semisimple homomorphism with polynomial (X−1)²."
         },
         {
           "name": "TauCeti.AutomorphicGalois.galoisType_charpoly_map",
           "kind": "compatibility",
-          "statement": "Residue extension maps the matched polynomial exactly by Matrix.charpoly_map."
+          "statement": "Residue extension maps the matched polynomial exactly by Matrix.charpoly_map.",
+          "suggestedCoverage": "The genuine Matrix.charpoly_map theorem checks arbitrary coefficient reduction; the Hecke quotient realization is omitted."
         },
         {
           "name": "TauCeti.AutomorphicGalois.galoisType_not_nonEisenstein",
           "kind": "non-example",
-          "statement": "The reducible example cannot certify non-Eisensteinness."
+          "statement": "The reducible example cannot certify non-Eisensteinness.",
+          "suggestedCoverage": "Taking the supplied Frobenius map to include every group element rules out a different absolutely irreducible witness with trivial characteristic polynomials."
         }
       ],
       "uses": [
@@ -1408,7 +1845,26 @@
           "where": "IgusaVarietiesAndTorsionConcentration:IG.5",
           "how": "Provides the residual representation on which genericity is imposed."
         }
-      ]
+      ],
+      "suggestedCoverage": {
+        "form": "algebraic-fragment",
+        "declarations": [
+          "TauCeti.AutomorphicGalois.IsGaloisType",
+          "TauCeti.AutomorphicGalois.galoisType_rep",
+          "TauCeti.AutomorphicGalois.galoisType_rep_unique",
+          "TauCeti.AutomorphicGalois.galoisType_coeffExtension"
+        ],
+        "component": "Galois type is existence of a Mathlib-semisimple homomorphism matching every supplied normalized polynomial. A chosen witness retains its matching evidence. Uniqueness assumes finite k and polynomial equality for every group element.",
+        "omittedConditions": [
+          "Integral unramified Hecke algebra, maximal ideal/residue quotient, finite field and continuity in the predicate, actual G_{F,S}, good Frobenius set and Chebotarev density."
+        ],
+        "examples": [
+          "TauCeti.AutomorphicGalois.galoisType_rank_one_polynomial",
+          "TauCeti.AutomorphicGalois.galoisType_reducible",
+          "TauCeti.AutomorphicGalois.galoisType_charpoly_map",
+          "TauCeti.AutomorphicGalois.galoisType_not_nonEisenstein"
+        ]
+      }
     },
     {
       "id": "AutomorphicGaloisRepresentationsPartII:AG2.7/non-eisenstein-maximal-ideal",
@@ -1429,7 +1885,9 @@
         "Local ratio genericity does not imply this condition."
       ],
       "prerequisites": [
-        "AutomorphicGaloisRepresentationsPartII:AG2.7/hecke-maximal-ideal-of-galois-type"
+        "AutomorphicGaloisRepresentationsPartII:AG2.7/hecke-maximal-ideal-of-galois-type",
+        "mathlib:Representation.IsSemisimpleRepresentation",
+        "mathlib:Representation.IsIrreducible"
       ],
       "sources": [
         {
@@ -1444,34 +1902,40 @@
         {
           "name": "TauCeti.AutomorphicGalois.IsNonEisenstein",
           "role": "characterisation",
-          "statement": "Galois type plus absolute irreducibility."
+          "statement": "Galois type plus absolute irreducibility.",
+          "suggestedCoverage": "Actual typed declaration in the suggested file; the node’s component and omittedConditions describe its limits. The packet API statement is the full planned interface, not an assertion that all supplier conditions appear in Lean."
         },
         {
           "name": "TauCeti.AutomorphicGalois.nonEisenstein_galoisType",
           "role": "projection",
-          "statement": "Forget absolute irreducibility."
+          "statement": "Forget absolute irreducibility.",
+          "suggestedCoverage": "Actual typed declaration in the suggested file; the node’s component and omittedConditions describe its limits. The packet API statement is the full planned interface, not an assertion that all supplier conditions appear in Lean."
         },
         {
           "name": "TauCeti.AutomorphicGalois.nonEisenstein_coeffExtension",
           "role": "compatibility",
-          "statement": "Absolute irreducibility persists under any residue-field extension and is detected over k̄."
+          "statement": "Absolute irreducibility persists under any residue-field extension and is detected over k̄.",
+          "suggestedCoverage": "Actual typed declaration in the suggested file; the node’s component and omittedConditions describe its limits. The packet API statement is the full planned interface, not an assertion that all supplier conditions appear in Lean."
         }
       ],
       "tests": [
         {
           "name": "TauCeti.AutomorphicGalois.nonEisenstein_rank_one",
           "kind": "degenerate",
-          "statement": "Every rank-one Galois-type realization is absolutely irreducible."
+          "statement": "Every rank-one Galois-type realization is absolutely irreducible.",
+          "suggestedCoverage": "Labelled typed Lean example under this exact test name; the node’s component and omittedConditions describe the algebraic portion and the omitted supplier realization."
         },
         {
           "name": "TauCeti.AutomorphicGalois.nonEisenstein_not_trivial_rank_two",
           "kind": "non-example",
-          "statement": "The rank-two trivial representation cannot make its ideal non-Eisenstein."
+          "statement": "The rank-two trivial representation cannot make its ideal non-Eisenstein.",
+          "suggestedCoverage": "Labelled typed Lean example under this exact test name; the node’s component and omittedConditions describe the algebraic portion and the omitted supplier realization."
         },
         {
           "name": "TauCeti.AutomorphicGalois.nonEisenstein_absolute_not_relative",
           "kind": "characterisation",
-          "statement": "An irreducible k_m-representation that splits over k̄_m does not satisfy the definition."
+          "statement": "An irreducible k_m-representation that splits over k̄_m does not satisfy the definition.",
+          "suggestedCoverage": "An actual order-four real rotation representation is irreducible over R and reducible over AlgebraicClosure R; it tests absolute versus relative irreducibility without a finite-residue-field realization."
         }
       ],
       "uses": [
@@ -1479,7 +1943,24 @@
           "where": "ACC+, Theorem 2.3.5 and Chapter 4",
           "how": "Separates irreducible localized Galois data from reducible Galois-type data."
         }
-      ]
+      ],
+      "suggestedCoverage": {
+        "form": "algebraic-fragment",
+        "declarations": [
+          "TauCeti.AutomorphicGalois.IsNonEisenstein",
+          "TauCeti.AutomorphicGalois.nonEisenstein_galoisType",
+          "TauCeti.AutomorphicGalois.nonEisenstein_coeffExtension"
+        ],
+        "component": "Non-Eisensteinness adds Mathlib irreducibility after coefficient extension to AlgebraicClosure to the same Galois-type witness. Tests separate reducible, rank-one and relatively-but-not-absolutely irreducible cases.",
+        "omittedConditions": [
+          "Maximal Hecke ideal, finite residue field/continuous Galois topology and Chebotarev recognition of its witness."
+        ],
+        "examples": [
+          "TauCeti.AutomorphicGalois.nonEisenstein_rank_one",
+          "TauCeti.AutomorphicGalois.nonEisenstein_not_trivial_rank_two",
+          "TauCeti.AutomorphicGalois.nonEisenstein_absolute_not_relative"
+        ]
+      }
     },
     {
       "id": "AutomorphicGaloisRepresentationsPartII:AG2.7/residual-hecke-ideal-independence",
@@ -1515,7 +1996,18 @@
         }
       ],
       "implementationStatus": "unchecked",
-      "declarationName": "TauCeti.AutomorphicGalois.residualHeckeIdealIndependence"
+      "declarationName": "TauCeti.AutomorphicGalois.residualHeckeIdealIndependence",
+      "suggestedCoverage": {
+        "form": "algebraic-fragment",
+        "declarations": [
+          "TauCeti.AutomorphicGalois.residualHeckeIdealIndependence"
+        ],
+        "component": "The kernel of an actual ring eigencharacter is invariant under an injective residue-field extension.",
+        "omittedConditions": [
+          "Surjectivity/finite residue field needed for maximality, normalized Hecke-algebra identification and integral stable-lattice/embedding comparison."
+        ],
+        "examples": []
+      }
     },
     {
       "id": "AutomorphicGaloisRepresentationsPartII:AG2.7/dual-and-character-twist-hecke-comparison",
@@ -1550,7 +2042,18 @@
         }
       ],
       "implementationStatus": "unchecked",
-      "declarationName": "TauCeti.AutomorphicGalois.dualAndTwistHeckeComparison"
+      "declarationName": "TauCeti.AutomorphicGalois.dualAndTwistHeckeComparison",
+      "suggestedCoverage": {
+        "form": "algebraic-fragment",
+        "declarations": [
+          "TauCeti.AutomorphicGalois.dualAndTwistHeckeComparison"
+        ],
+        "component": "The reciprocal q^(n−1)/α eigenvalue formula preserves the ordered noncyclotomic ratio predicate.",
+        "omittedConditions": [
+          "Actual dual/twist Hecke algebra involution, reciprocal degree-n polynomial identity and cyclotomic character; local unramifiedness is handled separately in genericityTransfer."
+        ],
+        "examples": []
+      }
     },
     {
       "id": "AutomorphicGaloisRepresentationsPartII:AG2.7/the-residual-ratio-condition-for-taylor-wiles-primes",
@@ -1593,64 +2096,76 @@
         {
           "name": "TauCeti.AutomorphicGalois.IsGenericEigenvalues",
           "role": "characterisation",
-          "statement": "For a list α:Fin n→k×, require α_i/α_j≠q for i≠j; list multiplicities are retained."
+          "statement": "For a list α:Fin n→k×, require α_i/α_j≠q for i≠j; list multiplicities are retained.",
+          "suggestedCoverage": "Actual typed declaration in the suggested file; the node’s component and omittedConditions describe its limits. The packet API statement is the full planned interface, not an assertion that all supplier conditions appear in Lean."
         },
         {
           "name": "TauCeti.AutomorphicGalois.IsGeneric",
           "role": "characterisation",
-          "statement": "Trivial inertia together with the eigenvalue predicate over k̄."
+          "statement": "Trivial inertia together with the eigenvalue predicate over k̄.",
+          "suggestedCoverage": "Actual typed declaration in the suggested file; the node’s component and omittedConditions describe its limits. The packet API statement is the full planned interface, not an assertion that all supplier conditions appear in Lean."
         },
         {
           "name": "TauCeti.AutomorphicGalois.isGeneric_unramified",
           "role": "projection",
-          "statement": "A locally generic representation kills inertia."
+          "statement": "A locally generic representation kills inertia.",
+          "suggestedCoverage": "Actual typed declaration in the suggested file; the node’s component and omittedConditions describe its limits. The packet API statement is the full planned interface, not an assertion that all supplier conditions appear in Lean."
         },
         {
           "name": "TauCeti.AutomorphicGalois.isGeneric_frobenius_independent",
           "role": "extensionality",
-          "statement": "For trivial inertia, changing the Frobenius lift preserves the matrix and predicate."
+          "statement": "For trivial inertia, changing the Frobenius lift preserves the matrix and predicate.",
+          "suggestedCoverage": "Actual typed declaration in the suggested file; the node’s component and omittedConditions describe its limits. The packet API statement is the full planned interface, not an assertion that all supplier conditions appear in Lean."
         },
         {
           "name": "TauCeti.AutomorphicGalois.isGenericEigenvalues_smul",
           "role": "functoriality",
-          "statement": "Multiplication of every α_i by the same nonzero scalar preserves the eigenvalue predicate."
+          "statement": "Multiplication of every α_i by the same nonzero scalar preserves the eigenvalue predicate.",
+          "suggestedCoverage": "Actual typed declaration in the suggested file; the node’s component and omittedConditions describe its limits. The packet API statement is the full planned interface, not an assertion that all supplier conditions appear in Lean."
         },
         {
           "name": "TauCeti.AutomorphicGalois.isGenericEigenvalues_reindex",
           "role": "compatibility",
-          "statement": "Reordering the list by a permutation leaves the predicate unchanged."
+          "statement": "Reordering the list by a permutation leaves the predicate unchanged.",
+          "suggestedCoverage": "Actual typed declaration in the suggested file; the node’s component and omittedConditions describe its limits. The packet API statement is the full planned interface, not an assertion that all supplier conditions appear in Lean."
         },
         {
           "name": "TauCeti.AutomorphicGalois.isGenericEigenvalues_inverse",
           "role": "compatibility",
-          "statement": "Inverting every eigenvalue preserves the predicate by exchanging ordered pairs."
+          "statement": "Inverting every eigenvalue preserves the predicate by exchanging ordered pairs.",
+          "suggestedCoverage": "Actual typed declaration in the suggested file; the node’s component and omittedConditions describe its limits. The packet API statement is the full planned interface, not an assertion that all supplier conditions appear in Lean."
         }
       ],
       "tests": [
         {
           "name": "TauCeti.AutomorphicGalois.isGeneric_repeated_eigenvalue",
           "kind": "computation",
-          "statement": "Over F_3 with q=2, the list (1,1) is generic."
+          "statement": "Over F_3 with q=2, the list (1,1) is generic.",
+          "suggestedCoverage": "Labelled typed Lean example under this exact test name; the node’s component and omittedConditions describe the algebraic portion and the omitted supplier realization."
         },
         {
           "name": "TauCeti.AutomorphicGalois.not_isGeneric_distinct_ratio_q",
           "kind": "non-example",
-          "statement": "Over F_5 with q=2, the distinct list (2,1) is not generic."
+          "statement": "Over F_5 with q=2, the distinct list (2,1) is not generic.",
+          "suggestedCoverage": "Labelled typed Lean example under this exact test name; the node’s component and omittedConditions describe the algebraic portion and the omitted supplier realization."
         },
         {
           "name": "TauCeti.AutomorphicGalois.isGeneric_rank_one",
           "kind": "degenerate",
-          "statement": "Every one-term nonzero list is generic."
+          "statement": "Every one-term nonzero list is generic.",
+          "suggestedCoverage": "Labelled typed Lean example under this exact test name; the node’s component and omittedConditions describe the algebraic portion and the omitted supplier realization."
         },
         {
           "name": "TauCeti.AutomorphicGalois.not_isGeneric_repeated_q_one",
           "kind": "non-example",
-          "statement": "Over F_3 with q=1, (1,1) is not generic."
+          "statement": "Over F_3 with q=1, (1,1) is not generic.",
+          "suggestedCoverage": "Labelled typed Lean example under this exact test name; the node’s component and omittedConditions describe the algebraic portion and the omitted supplier realization."
         },
         {
           "name": "TauCeti.AutomorphicGalois.isGeneric_matrix_diagonal",
           "kind": "compatibility",
-          "statement": "The list condition on α agrees with the characteristic-polynomial factorization of the diagonal matrix diag(α)."
+          "statement": "The list condition on α agrees with the characteristic-polynomial factorization of the diagonal matrix diag(α).",
+          "suggestedCoverage": "Labelled typed Lean example under this exact test name; the node’s component and omittedConditions describe the algebraic portion and the omitted supplier realization."
         }
       ],
       "uses": [
@@ -1662,7 +2177,30 @@
           "where": "IgusaVarietiesAndTorsionConcentration:IG.5",
           "how": "This is the condition exported by AG2.7 to the Hecke localization consumer."
         }
-      ]
+      ],
+      "suggestedCoverage": {
+        "form": "algebraic-fragment",
+        "declarations": [
+          "TauCeti.AutomorphicGalois.IsGeneric",
+          "TauCeti.AutomorphicGalois.IsGenericEigenvalues",
+          "TauCeti.AutomorphicGalois.isGeneric_unramified",
+          "TauCeti.AutomorphicGalois.isGeneric_frobenius_independent",
+          "TauCeti.AutomorphicGalois.isGenericEigenvalues_smul",
+          "TauCeti.AutomorphicGalois.isGenericEigenvalues_reindex",
+          "TauCeti.AutomorphicGalois.isGenericEigenvalues_inverse"
+        ],
+        "component": "Actual inertia, group homomorphism, Frobenius element and algebraic-closure charpoly factorization define local genericity with all ordered ratios and multiplicities. Frobenius-lift, scalar, inverse and reindex APIs are typed.",
+        "omittedConditions": [
+          "Identification with a genuine local Galois group/inertia and residue cardinality; finite coefficient field, ell≠p and topology. These local numerical parameters are supplied externally."
+        ],
+        "examples": [
+          "TauCeti.AutomorphicGalois.isGeneric_repeated_eigenvalue",
+          "TauCeti.AutomorphicGalois.not_isGeneric_distinct_ratio_q",
+          "TauCeti.AutomorphicGalois.isGeneric_rank_one",
+          "TauCeti.AutomorphicGalois.not_isGeneric_repeated_q_one",
+          "TauCeti.AutomorphicGalois.isGeneric_matrix_diagonal"
+        ]
+      }
     },
     {
       "id": "AutomorphicGaloisRepresentationsPartII:AG2.7/completely-split-generic-prime",
@@ -1699,34 +2237,40 @@
         {
           "name": "TauCeti.AutomorphicGalois.IsDecomposedGenericPrime",
           "role": "characterisation",
-          "statement": "The complete-splitting and all-v condition."
+          "statement": "The complete-splitting and all-v condition.",
+          "suggestedCoverage": "Actual typed declaration in the suggested file; the node’s component and omittedConditions describe its limits. The packet API statement is the full planned interface, not an assertion that all supplier conditions appear in Lean."
         },
         {
           "name": "TauCeti.AutomorphicGalois.decomposedGenericPrime_local",
           "role": "projection",
-          "statement": "For every v|p, obtain unramifiedness and the local predicate with q=p."
+          "statement": "For every v|p, obtain unramifiedness and the local predicate with q=p.",
+          "suggestedCoverage": "Actual typed declaration in the suggested file; the node’s component and omittedConditions describe its limits. The packet API statement is the full planned interface, not an assertion that all supplier conditions appear in Lean."
         },
         {
           "name": "TauCeti.AutomorphicGalois.decomposedGenericPrime_coeffExtension",
           "role": "functoriality",
-          "statement": "Any extension of the finite coefficient field preserves and reflects the condition."
+          "statement": "Any extension of the finite coefficient field preserves and reflects the condition.",
+          "suggestedCoverage": "Actual typed declaration in the suggested file; the node’s component and omittedConditions describe its limits. The packet API statement is the full planned interface, not an assertion that all supplier conditions appear in Lean."
         }
       ],
       "tests": [
         {
           "name": "TauCeti.AutomorphicGalois.decomposedGenericPrime_Q",
           "kind": "computation",
-          "statement": "For F=Q there is exactly one place over p; the splitting clause is automatic."
+          "statement": "For F=Q there is exactly one place over p; the splitting clause is automatic.",
+          "suggestedCoverage": "The whole externally supplied Q-place fiber is PUnit with e=f=1; the actual number-field place identification is omitted."
         },
         {
           "name": "TauCeti.AutomorphicGalois.decomposedGenericPrime_not_inert",
           "kind": "non-example",
-          "statement": "An inert prime in a quadratic F is not decomposed generic even when the local ratio condition holds."
+          "statement": "An inert prime in a quadratic F is not decomposed generic even when the local ratio condition holds.",
+          "suggestedCoverage": "A supplied nonempty fiber with residue degree 2 fails complete splitting; no quadratic number field is constructed."
         },
         {
           "name": "TauCeti.AutomorphicGalois.decomposedGenericPrime_not_ell",
           "kind": "degenerate",
-          "statement": "p=ℓ is excluded independently of eigenvalues."
+          "statement": "p=ℓ is excluded independently of eigenvalues.",
+          "suggestedCoverage": "Labelled typed Lean example under this exact test name; the node’s component and omittedConditions describe the algebraic portion and the omitted supplier realization."
         }
       ],
       "uses": [
@@ -1734,7 +2278,24 @@
           "where": "ACC+, Lemma 4.3.2",
           "how": "Provides the witness whose Frobenius class is reproduced by Chebotarev."
         }
-      ]
+      ],
+      "suggestedCoverage": {
+        "form": "algebraic-fragment",
+        "declarations": [
+          "TauCeti.AutomorphicGalois.IsDecomposedGenericPrime",
+          "TauCeti.AutomorphicGalois.decomposedGenericPrime_local",
+          "TauCeti.AutomorphicGalois.decomposedGenericPrime_coeffExtension"
+        ],
+        "component": "A rational prime p different from the characteristic ell, e=f=1 and genericity at EVERY member of an externally supplied nonempty full place fiber define the prime predicate. Coefficient extension retains CharP at ell.",
+        "omittedConditions": [
+          "Identification of the supplied entire fiber, e/f, inertia and Frobenius with number-field places; finite residual field, continuity and number-field splitting equivalence. No singleton fiber replaces an arbitrary number-field fiber."
+        ],
+        "examples": [
+          "TauCeti.AutomorphicGalois.decomposedGenericPrime_Q",
+          "TauCeti.AutomorphicGalois.decomposedGenericPrime_not_inert",
+          "TauCeti.AutomorphicGalois.decomposedGenericPrime_not_ell"
+        ]
+      }
     },
     {
       "id": "AutomorphicGaloisRepresentationsPartII:AG2.7/existential-decomposed-genericity",
@@ -1770,34 +2331,40 @@
         {
           "name": "TauCeti.AutomorphicGalois.IsDecomposedGeneric",
           "role": "characterisation",
-          "statement": "There exists p satisfying IsDecomposedGenericPrime(r,p)."
+          "statement": "There exists p satisfying IsDecomposedGenericPrime(r,p).",
+          "suggestedCoverage": "Actual typed declaration in the suggested file; the node’s component and omittedConditions describe its limits. The packet API statement is the full planned interface, not an assertion that all supplier conditions appear in Lean."
         },
         {
           "name": "TauCeti.AutomorphicGalois.decomposedGeneric_witness",
           "role": "data",
-          "statement": "Extract the prime witness and all-v local conditions."
+          "statement": "Extract the prime witness and all-v local conditions.",
+          "suggestedCoverage": "Actual typed declaration in the suggested file; the node’s component and omittedConditions describe its limits. The packet API statement is the full planned interface, not an assertion that all supplier conditions appear in Lean."
         },
         {
           "name": "TauCeti.AutomorphicGalois.decomposedGeneric_coeffExtension",
           "role": "compatibility",
-          "statement": "The existential condition is preserved and reflected by finite residue-field extension."
+          "statement": "The existential condition is preserved and reflected by finite residue-field extension.",
+          "suggestedCoverage": "Actual typed declaration in the suggested file; the node’s component and omittedConditions describe its limits. The packet API statement is the full planned interface, not an assertion that all supplier conditions appear in Lean."
         }
       ],
       "tests": [
         {
           "name": "TauCeti.AutomorphicGalois.decomposedGeneric_trivial_F3",
           "kind": "computation",
-          "statement": "For F=Q, k=F_3, r=1⊕1, the prime p=2 is a witness."
+          "statement": "For F=Q, k=F_3, r=1⊕1, the prime p=2 is a witness.",
+          "suggestedCoverage": "The actual existential predicate on the one-place fiber and trivial rank-two homomorphism over ZMod 3 has p=2 as a witness."
         },
         {
           "name": "TauCeti.AutomorphicGalois.decomposedGeneric_not_irreducible",
           "kind": "non-example",
-          "statement": "The preceding decomposed-generic representation is reducible."
+          "statement": "The preceding decomposed-generic representation is reducible.",
+          "suggestedCoverage": "The preceding actual existential witness coexists with failure of Mathlib absolute irreducibility."
         },
         {
           "name": "TauCeti.AutomorphicGalois.decomposedGeneric_not_every_prime",
           "kind": "characterisation",
-          "statement": "For the same r, p=7 has q=1 mod 3 and is not a witness, although p=2 is."
+          "statement": "For the same r, p=7 has q=1 mod 3 and is not a witness, although p=2 is.",
+          "suggestedCoverage": "The actual prime predicate fails at p=7 for the same one-place/trivial ZMod 3 representation."
         }
       ],
       "uses": [
@@ -1809,7 +2376,24 @@
           "where": "PotentialAutomorphyInfrastructure:PA.1",
           "how": "Genericity hypothesis for the Fontaine–Laffaille comparison."
         }
-      ]
+      ],
+      "suggestedCoverage": {
+        "form": "algebraic-fragment",
+        "declarations": [
+          "TauCeti.AutomorphicGalois.IsDecomposedGeneric",
+          "TauCeti.AutomorphicGalois.decomposedGeneric_witness",
+          "TauCeti.AutomorphicGalois.decomposedGeneric_coeffExtension"
+        ],
+        "component": "Existence quantifies exactly the preceding complete-splitting/all-place prime predicate. Actual F₃ examples distinguish existential genericity, irreducibility and a failed p=7 witness.",
+        "omittedConditions": [
+          "Number-field provenance/topology of the external place fiber; Chebotarev prime production is separate."
+        ],
+        "examples": [
+          "TauCeti.AutomorphicGalois.decomposedGeneric_trivial_F3",
+          "TauCeti.AutomorphicGalois.decomposedGeneric_not_irreducible",
+          "TauCeti.AutomorphicGalois.decomposedGeneric_not_every_prime"
+        ]
+      }
     },
     {
       "id": "AutomorphicGaloisRepresentationsPartII:AG2.7/strong-local-decomposed-genericity",
@@ -1850,49 +2434,58 @@
         {
           "name": "TauCeti.AutomorphicGalois.IsStrongGenericEigenvalues",
           "role": "characterisation",
-          "statement": "IsGenericEigenvalues(α,q) and α injective, equivalently ratios avoid {1,q}."
+          "statement": "IsGenericEigenvalues(α,q) and α injective, equivalently ratios avoid {1,q}.",
+          "suggestedCoverage": "Actual typed declaration in the suggested file; the node’s component and omittedConditions describe its limits. The packet API statement is the full planned interface, not an assertion that all supplier conditions appear in Lean."
         },
         {
           "name": "TauCeti.AutomorphicGalois.IsStrongGeneric",
           "role": "characterisation",
-          "statement": "Trivial inertia plus the stronger eigenvalue predicate over k̄."
+          "statement": "Trivial inertia plus the stronger eigenvalue predicate over k̄.",
+          "suggestedCoverage": "Actual typed declaration in the suggested file; the node’s component and omittedConditions describe its limits. The packet API statement is the full planned interface, not an assertion that all supplier conditions appear in Lean."
         },
         {
           "name": "TauCeti.AutomorphicGalois.strongGeneric_generic",
           "role": "projection",
-          "statement": "Forget the ratio-1 exclusion."
+          "statement": "Forget the ratio-1 exclusion.",
+          "suggestedCoverage": "Actual typed declaration in the suggested file; the node’s component and omittedConditions describe its limits. The packet API statement is the full planned interface, not an assertion that all supplier conditions appear in Lean."
         },
         {
           "name": "TauCeti.AutomorphicGalois.strongGeneric_distinct",
           "role": "projection",
-          "statement": "The Frobenius eigenvalues have no repeated roots."
+          "statement": "The Frobenius eigenvalues have no repeated roots.",
+          "suggestedCoverage": "Actual typed declaration in the suggested file; the node’s component and omittedConditions describe its limits. The packet API statement is the full planned interface, not an assertion that all supplier conditions appear in Lean."
         },
         {
           "name": "TauCeti.AutomorphicGalois.strongGeneric_arbitrary_local_field",
           "role": "compatibility",
-          "statement": "The definition uses q=|k_L| and specializes to Definition 1.9 for every finite L/Q_p."
+          "statement": "The definition uses q=|k_L| and specializes to Definition 1.9 for every finite L/Q_p.",
+          "suggestedCoverage": "Actual typed declaration in the suggested file; the node’s component and omittedConditions describe its limits. The packet API statement is the full planned interface, not an assertion that all supplier conditions appear in Lean."
         }
       ],
       "tests": [
         {
           "name": "TauCeti.AutomorphicGalois.strongGeneric_not_repeated",
           "kind": "non-example",
-          "statement": "Over F_3, q=2, (1,1) is ACC+-generic but not strong-generic."
+          "statement": "Over F_3, q=2, (1,1) is ACC+-generic but not strong-generic.",
+          "suggestedCoverage": "Labelled typed Lean example under this exact test name; the node’s component and omittedConditions describe the algebraic portion and the omitted supplier realization."
         },
         {
           "name": "TauCeti.AutomorphicGalois.strongGeneric_distinct_nonratio",
           "kind": "computation",
-          "statement": "Over F_7, q=2, (1,3) is strong-generic: the two ordered ratios are 3 and 5."
+          "statement": "Over F_7, q=2, (1,3) is strong-generic: the two ordered ratios are 3 and 5.",
+          "suggestedCoverage": "Labelled typed Lean example under this exact test name; the node’s component and omittedConditions describe the algebraic portion and the omitted supplier realization."
         },
         {
           "name": "TauCeti.AutomorphicGalois.strongGeneric_rank_one",
           "kind": "degenerate",
-          "statement": "Every single nonzero eigenvalue is strong-generic."
+          "statement": "Every single nonzero eigenvalue is strong-generic.",
+          "suggestedCoverage": "Labelled typed Lean example under this exact test name; the node’s component and omittedConditions describe the algebraic portion and the omitted supplier realization."
         },
         {
           "name": "TauCeti.AutomorphicGalois.strongGeneric_non_Qp",
           "kind": "compatibility",
-          "statement": "For an unramified quadratic L/Q_2 and ℓ=3, use q=4≡1; the ratio-1 clause remains explicit."
+          "statement": "For an unramified quadratic L/Q_2 and ℓ=3, use q=4≡1; the ratio-1 clause remains explicit.",
+          "suggestedCoverage": "The example checks q=4=1 in ZMod 3 and failure of the strong repeated-root predicate; construction of the unramified quadratic local field is omitted."
         }
       ],
       "uses": [
@@ -1904,7 +2497,27 @@
           "where": "Liu et al., Appendix D",
           "how": "States the distinction between the displayed strong condition and the relaxed concentration input."
         }
-      ]
+      ],
+      "suggestedCoverage": {
+        "form": "algebraic-fragment",
+        "declarations": [
+          "TauCeti.AutomorphicGalois.IsStrongGeneric",
+          "TauCeti.AutomorphicGalois.IsStrongGenericEigenvalues",
+          "TauCeti.AutomorphicGalois.strongGeneric_generic",
+          "TauCeti.AutomorphicGalois.strongGeneric_distinct",
+          "TauCeti.AutomorphicGalois.strongGeneric_arbitrary_local_field"
+        ],
+        "component": "Strong local genericity adds injectivity of the eigenvalue list. The arbitrary-local-field component uses q=p^f, and the q=4 mod 3 repeated-root failure is typed.",
+        "omittedConditions": [
+          "Construction of a finite local extension and proof of its residue cardinality, genuine inertia/Frobenius and continuity."
+        ],
+        "examples": [
+          "TauCeti.AutomorphicGalois.strongGeneric_not_repeated",
+          "TauCeti.AutomorphicGalois.strongGeneric_distinct_nonratio",
+          "TauCeti.AutomorphicGalois.strongGeneric_rank_one",
+          "TauCeti.AutomorphicGalois.strongGeneric_non_Qp"
+        ]
+      }
     },
     {
       "id": "AutomorphicGaloisRepresentationsPartII:AG2.7/infinitely-many-decomposed-generic-primes",
@@ -1940,7 +2553,18 @@
       "planet": {
         "name": "Generic primes by Chebotarev"
       },
-      "declarationName": "TauCeti.AutomorphicGalois.infinitelyManyDecomposedGenericPrimes"
+      "declarationName": "TauCeti.AutomorphicGalois.infinitelyManyDecomposedGenericPrimes",
+      "suggestedCoverage": {
+        "form": "algebraic-fragment",
+        "declarations": [
+          "TauCeti.AutomorphicGalois.infinitelyManyDecomposedGenericPrimes"
+        ],
+        "component": "An infinite supplier witness set contained in the decomposed-generic primes gives infinitude and avoidance of every finite exceptional set.",
+        "omittedConditions": [
+          "Finite Galois/splitting/cyclotomic extension and Chebotarev positive-density argument. Infinitude is a supplied hypothesis, not a result for arbitrary place parameters."
+        ],
+        "examples": []
+      }
     },
     {
       "id": "AutomorphicGaloisRepresentationsPartII:AG2.7/genericity-transfer-and-projective-qualification",
@@ -1976,7 +2600,18 @@
         }
       ],
       "implementationStatus": "unchecked",
-      "declarationName": "TauCeti.AutomorphicGalois.genericityTransfer"
+      "declarationName": "TauCeti.AutomorphicGalois.genericityTransfer",
+      "suggestedCoverage": {
+        "form": "algebraic-fragment",
+        "declarations": [
+          "TauCeti.AutomorphicGalois.genericityTransfer"
+        ],
+        "component": "Scalar-twist invariance of local genericity requires an actual character trivial on inertia, alongside the pointwise matrix twist equation.",
+        "omittedConditions": [
+          "Global projective transfer, semisimplified tensor/base-change hypotheses and the global Chebotarev argument avoiding the character’s finite ramification set."
+        ],
+        "examples": []
+      }
     },
     {
       "id": "AutomorphicGaloisRepresentationsPartII:AG2.7/finite-exceptional-residual-genericity-for-relevant-pi",
@@ -2012,7 +2647,18 @@
         }
       ],
       "implementationStatus": "unchecked",
-      "declarationName": "TauCeti.AutomorphicGalois.residualGenericityOutsideFiniteSet"
+      "declarationName": "TauCeti.AutomorphicGalois.residualGenericityOutsideFiniteSet",
+      "suggestedCoverage": {
+        "form": "algebraic-fragment",
+        "declarations": [
+          "TauCeti.AutomorphicGalois.residualGenericityOutsideFiniteSet"
+        ],
+        "component": "If reduction preserves nonzero root differences and nonratio differences, the actual reduced unit roots are strongly generic.",
+        "omittedConditions": [
+          "Number-field roots, finiteness of bad coefficient places, Liu’s split-local-place Chebotarev step and its concentration hypotheses. No completely split all-place rational-prime conclusion is encoded."
+        ],
+        "examples": []
+      }
     },
     {
       "id": "AutomorphicGaloisRepresentationsPartII:AG2.7/good-prime-characteristic-zero-export",
@@ -2048,34 +2694,40 @@
         {
           "name": "TauCeti.AutomorphicGalois.GoodPrimeExport",
           "role": "constructor",
-          "statement": "Wrap R_π with its good comparison maps."
+          "statement": "Wrap R_π with its good comparison maps.",
+          "suggestedCoverage": "Actual typed declaration in the suggested file; the node’s component and omittedConditions describe its limits. The packet API statement is the full planned interface, not an assertion that all supplier conditions appear in Lean."
         },
         {
           "name": "TauCeti.AutomorphicGalois.goodPrimeExport_member",
           "role": "projection",
-          "statement": "Retrieve the λ-member and good Frobenius theorem."
+          "statement": "Retrieve the λ-member and good Frobenius theorem.",
+          "suggestedCoverage": "Actual typed declaration in the suggested file; the node’s component and omittedConditions describe its limits. The packet API statement is the full planned interface, not an assertion that all supplier conditions appear in Lean."
         },
         {
           "name": "TauCeti.AutomorphicGalois.goodPrimeExport_coeffChange",
           "role": "functoriality",
-          "statement": "Use supplier coefficient change, with identity and composition laws."
+          "statement": "Use supplier coefficient change, with identity and composition laws.",
+          "suggestedCoverage": "Actual typed declaration in the suggested file; the node’s component and omittedConditions describe its limits. The packet API statement is the full planned interface, not an assertion that all supplier conditions appear in Lean."
         }
       ],
       "tests": [
         {
           "name": "TauCeti.AutomorphicGalois.goodPrimeExport_character",
           "kind": "degenerate",
-          "statement": "At n=1 it is the algebraic-character good-prime package."
+          "statement": "At n=1 it is the algebraic-character good-prime package.",
+          "suggestedCoverage": "An actual GoodPrimeExport wrapper is inhabited for the trivial rank-one character with polynomial X−1; its class-field provenance is omitted."
         },
         {
           "name": "TauCeti.AutomorphicGalois.goodPrimeExport_polynomial",
           "kind": "computation",
-          "statement": "For a weight-k classical overlap its polynomial is X²−a_qX+ψ(q)q^{k−1}."
+          "statement": "For a weight-k classical overlap its polynomial is X²−a_qX+ψ(q)q^{k−1}.",
+          "suggestedCoverage": "An actual rank-two wrapper exposes the quadratic polynomial; the modular-form nebentype/cyclotomic construction is omitted."
         },
         {
           "name": "TauCeti.AutomorphicGalois.goodPrimeExport_not_fullWD",
           "kind": "non-example",
-          "statement": "The package cannot supply N at a ramified place without branch evidence."
+          "statement": "The package cannot supply N at a ramified place without branch evidence.",
+          "suggestedCoverage": "Explicit F=diag(1,2) with N=0 or E₁₂ satisfies the WD Frobenius relation, while no invertible N-intertwiner exists."
         }
       ],
       "uses": [
@@ -2087,7 +2739,24 @@
           "where": "IntegralHeckeAndGaloisDeterminants:IHG.1",
           "how": "Provides dense classical comparisons for interpolation, whose nonreduced determinant construction is owned by IHG."
         }
-      ]
+      ],
+      "suggestedCoverage": {
+        "form": "algebraic-fragment",
+        "declarations": [
+          "TauCeti.AutomorphicGalois.GoodPrimeExport",
+          "TauCeti.AutomorphicGalois.goodPrimeExport_member",
+          "TauCeti.AutomorphicGalois.goodPrimeExport_coeffChange"
+        ],
+        "component": "GoodPrimeExport is evidence for all supplied member Frobenius polynomials on the external System. Supplier coefficient change with its projection law maps those polynomials.",
+        "omittedConditions": [
+          "R24 raw carrier implementation, finite ramification set, good-place identification, continuity, automorphic attachment and coefficient-place/completion dictionary. Identity/composition of System coefficient change require the omitted owner laws."
+        ],
+        "examples": [
+          "TauCeti.AutomorphicGalois.goodPrimeExport_character",
+          "TauCeti.AutomorphicGalois.goodPrimeExport_polynomial",
+          "TauCeti.AutomorphicGalois.goodPrimeExport_not_fullWD"
+        ]
+      }
     },
     {
       "id": "AutomorphicGaloisRepresentationsPartII:AG2.7/nonselfdual-hodge-and-monodromy-bound-export",
@@ -2130,39 +2799,46 @@
         {
           "name": "TauCeti.AutomorphicGalois.NonselfdualComparisonExport",
           "role": "constructor",
-          "statement": "Combine the AHTW coefficient-prime maps with the common carrier."
+          "statement": "Combine the AHTW coefficient-prime maps with the common carrier.",
+          "suggestedCoverage": "Actual typed declaration in the suggested file; the node’s component and omittedConditions describe its limits. The packet API statement is the full planned interface, not an assertion that all supplier conditions appear in Lean."
         },
         {
           "name": "TauCeti.AutomorphicGalois.nonselfdualExport_goodPrime",
           "role": "projection",
-          "statement": "Forget to GoodPrimeExport with the same members."
+          "statement": "Forget to GoodPrimeExport with the same members.",
+          "suggestedCoverage": "Actual typed declaration in the suggested file; the node’s component and omittedConditions describe its limits. The packet API statement is the full planned interface, not an assertion that all supplier conditions appear in Lean."
         },
         {
           "name": "TauCeti.AutomorphicGalois.nonselfdualExport_hodge",
           "role": "data",
-          "statement": "Retrieve de Rham comparison and the labelled multiset at every v|ℓ."
+          "statement": "Retrieve de Rham comparison and the labelled multiset at every v|ℓ.",
+          "suggestedCoverage": "Actual typed declaration in the suggested file; the node’s component and omittedConditions describe its limits. The packet API statement is the full planned interface, not an assertion that all supplier conditions appear in Lean."
         },
         {
           "name": "TauCeti.AutomorphicGalois.nonselfdualExport_wdBound",
           "role": "data",
-          "statement": "Retrieve ss comparison and the F-ss monodromy upper bound, retaining their distinct strengths."
+          "statement": "Retrieve ss comparison and the F-ss monodromy upper bound, retaining their distinct strengths.",
+          "suggestedCoverage": "Actual typed declaration in the suggested file; the node’s component and omittedConditions describe its limits. The packet API statement is the full planned interface, not an assertion that all supplier conditions appear in Lean."
         }
       ],
       "tests": [
         {
           "name": "TauCeti.AutomorphicGalois.nonselfdualExport_rank_one",
           "kind": "degenerate",
-          "statement": "For an algebraic character the Hodge multiset has one element and N=0."
+          "statement": "For an algebraic character the Hodge multiset has one element and N=0.",
+          "suggestedCoverage": "An actual NonselfdualComparisonExport wrapper is inhabited for the trivial rank-one member, singleton Hodge weights and size-one Weil block. A separate nilpotent rank-one example gives N=0; period/class-field construction is omitted."
         },
         {
           "name": "TauCeti.AutomorphicGalois.nonselfdualExport_good_crystalline",
           "kind": "compatibility",
-          "statement": "At a spherical coefficient-prime place the upper bound N=0 and trivial inertia recover the crystalline supplier criterion."
+          "statement": "At a spherical coefficient-prime place the upper bound N=0 and trivial inertia recover the crystalline supplier criterion.",
+          "suggestedCoverage": "The zero-rank upper bound forces the monodromy matrix to be zero; actual period/inertia criteria for crystallinity are omitted."
         },
         {
           "name": "TauCeti.AutomorphicGalois.nonselfdualExport_not_polarized_fullWD",
           "kind": "non-example",
-          "statement": "The export supplies neither a polarized pairing nor full ramified WD equality from an ss comparison alone."
+          "statement": "The export supplies neither a polarized pairing nor full ramified WD equality from an ss comparison alone.",
+          "suggestedCoverage": "Concrete strict dominance [1,1]≺[2] has unequal block lists. No polarized pairing is inferred."
         }
       ],
       "uses": [
@@ -2174,7 +2850,25 @@
           "where": "TorsionCohomologyInfrastructure",
           "how": "Keeps the unconditional characteristic-zero Hodge comparison distinct from residual concentration hypotheses."
         }
-      ]
+      ],
+      "suggestedCoverage": {
+        "form": "algebraic-fragment",
+        "declarations": [
+          "TauCeti.AutomorphicGalois.NonselfdualComparisonExport",
+          "TauCeti.AutomorphicGalois.nonselfdualExport_goodPrime",
+          "TauCeti.AutomorphicGalois.nonselfdualExport_hodge",
+          "TauCeti.AutomorphicGalois.nonselfdualExport_wdBound"
+        ],
+        "component": "The actual wrapper retains good polynomials, all supplied Hodge multisets, a separate conjugacy of semisimplified Weil actions and per-type block partial-sum bounds. A rank-one wrapper is inhabited in its labelled example.",
+        "omittedConditions": [
+          "Actual de Rham periods, WD semisimplification and normalized descending block extraction; underlying geometry/automorphy and R24 carrier. The wrapper does not supply a full N map or polarized pairing."
+        ],
+        "examples": [
+          "TauCeti.AutomorphicGalois.nonselfdualExport_rank_one",
+          "TauCeti.AutomorphicGalois.nonselfdualExport_good_crystalline",
+          "TauCeti.AutomorphicGalois.nonselfdualExport_not_polarized_fullWD"
+        ]
+      }
     },
     {
       "id": "AutomorphicGaloisRepresentationsPartII:AG2.7/polarized-hodge-and-wd-export",
@@ -2218,39 +2912,46 @@
         {
           "name": "TauCeti.AutomorphicGalois.PolarizedComparisonExport",
           "role": "constructor",
-          "statement": "Combine the established polarized branch comparisons."
+          "statement": "Combine the established polarized branch comparisons.",
+          "suggestedCoverage": "Actual typed declaration in the suggested file; the node’s component and omittedConditions describe its limits. The packet API statement is the full planned interface, not an assertion that all supplier conditions appear in Lean."
         },
         {
           "name": "TauCeti.AutomorphicGalois.polarizedExport_goodPrime",
           "role": "projection",
-          "statement": "Forget to GoodPrimeExport, preserving all good polynomials."
+          "statement": "Forget to GoodPrimeExport, preserving all good polynomials.",
+          "suggestedCoverage": "Actual typed declaration in the suggested file; the node’s component and omittedConditions describe its limits. The packet API statement is the full planned interface, not an assertion that all supplier conditions appear in Lean."
         },
         {
           "name": "TauCeti.AutomorphicGalois.polarizedExport_local",
           "role": "data",
-          "statement": "Retrieve labelled Hodge and full WD comparison maps at a chosen finite place."
+          "statement": "Retrieve labelled Hodge and full WD comparison maps at a chosen finite place.",
+          "suggestedCoverage": "Actual typed declaration in the suggested file; the node’s component and omittedConditions describe its limits. The packet API statement is the full planned interface, not an assertion that all supplier conditions appear in Lean."
         },
         {
           "name": "TauCeti.AutomorphicGalois.polarizedExport_supplier",
           "role": "compatibility",
-          "statement": "Return precisely the R24.5 pure/polarized predicates with normalization conversion."
+          "statement": "Return precisely the R24.5 pure/polarized predicates with normalization conversion.",
+          "suggestedCoverage": "Actual typed declaration in the suggested file; the node’s component and omittedConditions describe its limits. The packet API statement is the full planned interface, not an assertion that all supplier conditions appear in Lean."
         }
       ],
       "tests": [
         {
           "name": "TauCeti.AutomorphicGalois.polarizedExport_weight_k",
           "kind": "computation",
-          "statement": "For a weight-k base-change form it returns H={0,k−1}, W=k−1 and determinant ε^{1−k}r_ψ."
+          "statement": "For a weight-k base-change form it returns H={0,k−1}, W=k−1 and determinant ε^{1−k}r_ψ.",
+          "suggestedCoverage": "An actual PolarizedComparisonExport wrapper returns the full {k−1,0} multiset and determinant Hodge sum. The W=k−1 and multiplier/determinant character specialization are omitted."
         },
         {
           "name": "TauCeti.AutomorphicGalois.polarizedExport_forget",
           "kind": "compatibility",
-          "statement": "The forgotten good package has exactly the same λ-members and P_v."
+          "statement": "The forgotten good package has exactly the same λ-members and P_v.",
+          "suggestedCoverage": "Forgetting an actual polarized wrapper retains the identical external System member and good Frobenius polynomial."
         },
         {
           "name": "TauCeti.AutomorphicGalois.polarizedExport_nonselfdual_rejected",
           "kind": "non-example",
-          "statement": "AHTW ss comparison plus an N bound does not fulfill a full-WD comparison field."
+          "statement": "AHTW ss comparison plus an N bound does not fulfill a full-WD comparison field.",
+          "suggestedCoverage": "No invertible matrix intertwines zero N with nonzero E₁₂; thus an ss/bound-only comparison cannot fill the full-map requirement."
         }
       ],
       "uses": [
@@ -2262,7 +2963,25 @@
           "where": "Liu et al., §3.2",
           "how": "Supplies the polarized relevant members and local comparison maps."
         }
-      ]
+      ],
+      "suggestedCoverage": {
+        "form": "algebraic-fragment",
+        "declarations": [
+          "TauCeti.AutomorphicGalois.PolarizedComparisonExport",
+          "TauCeti.AutomorphicGalois.polarizedExport_goodPrime",
+          "TauCeti.AutomorphicGalois.polarizedExport_local",
+          "TauCeti.AutomorphicGalois.polarizedExport_supplier"
+        ],
+        "component": "The actual wrapper retains good polynomials/Hodge multisets, an invertible pairing with its matrix equation, one local u intertwining Weil and N, and good-prime root purity. Weight-k and forgetful tests use this wrapper.",
+        "omittedConditions": [
+          "Period/WD construction, cohomological/automorphic provenance, graded strict purity, total oddness and R24 full pure/polarized predicates. The supplier API currently projects pairing and good purity only; the weight-k test omits multiplier/determinant and W verification."
+        ],
+        "examples": [
+          "TauCeti.AutomorphicGalois.polarizedExport_weight_k",
+          "TauCeti.AutomorphicGalois.polarizedExport_forget",
+          "TauCeti.AutomorphicGalois.polarizedExport_nonselfdual_rejected"
+        ]
+      }
     },
     {
       "id": "AutomorphicGaloisRepresentationsPartII:AG2.7/unitary-discrete-parameter-export",
@@ -2310,34 +3029,40 @@
         {
           "name": "TauCeti.AutomorphicGalois.UnitaryDiscreteExport",
           "role": "constructor",
-          "statement": "Build the labelled direct sum with explicit algebraic character twists."
+          "statement": "Build the labelled direct sum with explicit algebraic character twists.",
+          "suggestedCoverage": "Actual typed declaration in the suggested file; the node’s component and omittedConditions describe its limits. The packet API statement is the full planned interface, not an assertion that all supplier conditions appear in Lean."
         },
         {
           "name": "TauCeti.AutomorphicGalois.unitaryDiscreteExport_constituent",
           "role": "projection",
-          "statement": "Retrieve r_i, ε_i and its inclusion into the direct sum."
+          "statement": "Retrieve r_i, ε_i and its inclusion into the direct sum.",
+          "suggestedCoverage": "Actual typed declaration in the suggested file; the node’s component and omittedConditions describe its limits. The packet API statement is the full planned interface, not an assertion that all supplier conditions appear in Lean."
         },
         {
           "name": "TauCeti.AutomorphicGalois.unitaryDiscreteExport_goodPolynomial",
           "role": "compatibility",
-          "statement": "Its good polynomial is the product of the twisted constituent polynomials and the specialized degree-n Hecke polynomial."
+          "statement": "Its good polynomial is the product of the twisted constituent polynomials and the specialized degree-n Hecke polynomial.",
+          "suggestedCoverage": "Actual typed declaration in the suggested file; the node’s component and omittedConditions describe its limits. The packet API statement is the full planned interface, not an assertion that all supplier conditions appear in Lean."
         }
       ],
       "tests": [
         {
           "name": "TauCeti.AutomorphicGalois.unitaryDiscreteExport_two_characters",
           "kind": "computation",
-          "statement": "For n_1=n_2=1, at good v with twisted values β_1,β_2 the polynomial is (X−β_1)(X−β_2)."
+          "statement": "For n_1=n_2=1, at good v with twisted values β_1,β_2 the polynomial is (X−β_1)(X−β_2).",
+          "suggestedCoverage": "Labelled typed Lean example under this exact test name; the node’s component and omittedConditions describe the algebraic portion and the omitted supplier realization."
         },
         {
           "name": "TauCeti.AutomorphicGalois.unitaryDiscreteExport_rank_additivity",
           "kind": "characterisation",
-          "statement": "The direct-sum dimension is n_1+n_2, with neither twist changing dimension."
+          "statement": "The direct-sum dimension is n_1+n_2, with neither twist changing dimension.",
+          "suggestedCoverage": "Labelled typed Lean example under this exact test name; the node’s component and omittedConditions describe the algebraic portion and the omitted supplier realization."
         },
         {
           "name": "TauCeti.AutomorphicGalois.unitaryDiscreteExport_not_cuspidal_irreducibility",
           "kind": "non-example",
-          "statement": "A two-character endoscopic sum cannot certify global irreducibility."
+          "statement": "A two-character endoscopic sum cannot certify global irreducibility.",
+          "suggestedCoverage": "The actual block-sum representation retains an invariant proper first summand and explicitly fails Mathlib irreducibility."
         }
       ],
       "uses": [
@@ -2349,7 +3074,24 @@
           "where": "TorsionCohomologyInfrastructure:TC.0",
           "how": "Supplies characteristic-zero summands, while torsion interpolation stays with IHG."
         }
-      ]
+      ],
+      "suggestedCoverage": {
+        "form": "algebraic-fragment",
+        "declarations": [
+          "TauCeti.AutomorphicGalois.UnitaryDiscreteExport",
+          "TauCeti.AutomorphicGalois.unitaryDiscreteExport_constituent",
+          "TauCeti.AutomorphicGalois.unitaryDiscreteExport_goodPolynomial"
+        ],
+        "component": "Two actual constituent homomorphisms and character twists give a labelled block-sum homomorphism. APIs test inclusion and product charpoly; the two-character example is explicitly not irreducible.",
+        "omittedConditions": [
+          "Literal CS endoscopic occurrence input, compact unitary field/group/level setup, auxiliary parity character construction, split-good-prime Hecke identification and away-ell full local comparison."
+        ],
+        "examples": [
+          "TauCeti.AutomorphicGalois.unitaryDiscreteExport_two_characters",
+          "TauCeti.AutomorphicGalois.unitaryDiscreteExport_rank_additivity",
+          "TauCeti.AutomorphicGalois.unitaryDiscreteExport_not_cuspidal_irreducibility"
+        ]
+      }
     },
     {
       "id": "AutomorphicGaloisRepresentationsPartII:AG2.7/lattice-residual-polynomial-export",
@@ -2373,7 +3115,8 @@
       "prerequisites": [
         "AutomorphicGaloisRepresentationsPartII:AG2.7/residual-representation-of-pi",
         "AutomorphicGaloisRepresentationsPartII:AG2.7/good-polynomial-reduction",
-        "AutomorphicGaloisRepresentationsPartII:AG2.7/residual-hecke-ideal-independence"
+        "AutomorphicGaloisRepresentationsPartII:AG2.7/residual-hecke-ideal-independence",
+        "mathlib:Representation.IsSemisimpleRepresentation"
       ],
       "sources": [
         {
@@ -2391,39 +3134,46 @@
         {
           "name": "TauCeti.AutomorphicGalois.ResidualPolynomialExport",
           "role": "constructor",
-          "statement": "Assemble finite realization, chosen lattice and reduction maps."
+          "statement": "Assemble finite realization, chosen lattice and reduction maps.",
+          "suggestedCoverage": "Actual typed declaration in the suggested file; the node’s component and omittedConditions describe its limits. The packet API statement is the full planned interface, not an assertion that all supplier conditions appear in Lean."
         },
         {
           "name": "TauCeti.AutomorphicGalois.residualExport_compareLattice",
           "role": "equivalence",
-          "statement": "Different chosen lattices give isomorphic semisimple residual members, not necessarily isomorphic reductions."
+          "statement": "Different chosen lattices give isomorphic semisimple residual members, not necessarily isomorphic reductions.",
+          "suggestedCoverage": "Actual typed declaration in the suggested file; the node’s component and omittedConditions describe its limits. The packet API statement is the full planned interface, not an assertion that all supplier conditions appear in Lean."
         },
         {
           "name": "TauCeti.AutomorphicGalois.residualExport_maxIdeal",
           "role": "projection",
-          "statement": "Retrieve m_{π,λ} with Galois-type evidence."
+          "statement": "Retrieve m_{π,λ} with Galois-type evidence.",
+          "suggestedCoverage": "Actual typed declaration in the suggested file; the node’s component and omittedConditions describe its limits. The packet API statement is the full planned interface, not an assertion that all supplier conditions appear in Lean."
         },
         {
           "name": "TauCeti.AutomorphicGalois.residualExport_charpoly",
           "role": "compatibility",
-          "statement": "The integral/residual Frobenius square commutes by Matrix.charpoly_map."
+          "statement": "The integral/residual Frobenius square commutes by Matrix.charpoly_map.",
+          "suggestedCoverage": "Actual typed declaration in the suggested file; the node’s component and omittedConditions describe its limits. The packet API statement is the full planned interface, not an assertion that all supplier conditions appear in Lean."
         }
       ],
       "tests": [
         {
           "name": "TauCeti.AutomorphicGalois.residualExport_rank_one",
           "kind": "degenerate",
-          "statement": "Reduction of an integral character is its residual character."
+          "statement": "Reduction of an integral character is its residual character.",
+          "suggestedCoverage": "The actual residual wrapper’s rank-one semisimple member is conjugate to the actual coefficient-reduced integral homomorphism."
         },
         {
           "name": "TauCeti.AutomorphicGalois.residualExport_diagonal_mod3",
           "kind": "computation",
-          "statement": "The diagonal integral test reduces X²−3X+2 to X²+2 modulo 3."
+          "statement": "The diagonal integral test reduces X²−3X+2 to X²+2 modulo 3.",
+          "suggestedCoverage": "Labelled typed Lean example under this exact test name; the node’s component and omittedConditions describe the algebraic portion and the omitted supplier realization."
         },
         {
           "name": "TauCeti.AutomorphicGalois.residualExport_unipotent_lattices",
           "kind": "non-example",
-          "statement": "The two Z_5-unipotent lattices have unequal reductions but equal semisimplifications; the package cannot identify the raw reductions."
+          "statement": "The two Z_5-unipotent lattices have unequal reductions but equal semisimplifications; the package cannot identify the raw reductions.",
+          "suggestedCoverage": "The identity and unipotent reductions at t=1 are unequal with equal charpoly; the full Z₅ lattice construction is omitted."
         }
       ],
       "uses": [
@@ -2435,7 +3185,25 @@
           "where": "IntegralHeckeAndGaloisDeterminants:IHG.1–IHG.3",
           "how": "Supplies classical integral polynomial comparisons, not a family over a nonreduced Hecke algebra."
         }
-      ]
+      ],
+      "suggestedCoverage": {
+        "form": "algebraic-fragment",
+        "declarations": [
+          "TauCeti.AutomorphicGalois.ResidualPolynomialExport",
+          "TauCeti.AutomorphicGalois.residualExport_compareLattice",
+          "TauCeti.AutomorphicGalois.residualExport_maxIdeal",
+          "TauCeti.AutomorphicGalois.residualExport_charpoly"
+        ],
+        "component": "An actual integral homomorphism/residue eigencharacter is retained alongside a semisimple residual member, every-element reduced polynomial and good Hecke matching. APIs compare finite-field semisimple members and identify the actual kernel.",
+        "omittedConditions": [
+          "Finite local coefficient field and stable lattice, global topology, surjectivity/maximality of the reduced eigencharacter and the integral Hecke polynomial provenance. The unipotent test includes unequal raw matrices, not a construction of the Z₅ lattices."
+        ],
+        "examples": [
+          "TauCeti.AutomorphicGalois.residualExport_rank_one",
+          "TauCeti.AutomorphicGalois.residualExport_diagonal_mod3",
+          "TauCeti.AutomorphicGalois.residualExport_unipotent_lattices"
+        ]
+      }
     },
     {
       "id": "AutomorphicGaloisRepresentationsPartII:AG2.7/rank-two-residual-comparison-with-r19",
@@ -2468,7 +3236,18 @@
           "match": "The dual convention descends to the residual comparison."
         }
       ],
-      "implementationStatus": "unchecked"
+      "implementationStatus": "unchecked",
+      "suggestedCoverage": {
+        "form": "shared-component",
+        "declarations": [
+          "TauCeti.AutomorphicGalois.residualRep_indep_lattice"
+        ],
+        "component": "The residual R19 dual test compares already-normalized integral members through their common polynomials and finite-field semisimple reduction.",
+        "omittedConditions": [
+          "Construction of the classical/Hilbert dual/twist and Hecke-algebra normalization dictionary; preferred lattices are not compared."
+        ],
+        "examples": []
+      }
     }
   ],
   "requests": [
@@ -2518,9 +3297,15 @@
     },
     {
       "supplier": "AutomorphicGaloisRepresentationsPartII:AG2.1a",
-      "need": "Actual projected PEL tensor-square/Kuga–Sato realization and the closed-stratum concentration used in Caraiani Proposition 5.1; supply the cohomological multiplicity and twist dictionary, not just a statement that an attached representation exists. Also supply the raw geometric realization, exact Schur/isotypic projector and Tate/multiplicity dictionary for the geometric coefficient-prime node: the current polarized-construction supplier states attached-representation conclusions and does not supply this raw interface.",
+      "need": "Raw geometric interface before period comparison: actual smooth proper PEL/Kuga–Sato cohomology with algebraic coefficients, degree, commuting Schur and automorphic isotypic idempotents, multiplicity, exact Tate twist, coefficient extension and cup-product compatibility; identify the normalized attached member inside that cohomology. CH §1.4–1.5, Theorem 1.4 and formula (1.6), pp.5–7 give the geometric route. The current polarized-construction-inputs-shin-and-chenevier-harris node states attached-representation conclusions and cannot replace these input data. No local admissibility may be assumed to construct this realization.",
       "neededBy": [
-        "AutomorphicGaloisRepresentationsPartII:AG2.6/geometric-coefficient-prime-comparison",
+        "AutomorphicGaloisRepresentationsPartII:AG2.6/geometric-coefficient-prime-comparison"
+      ]
+    },
+    {
+      "supplier": "AutomorphicGaloisRepresentationsPartII:AG2.1a",
+      "need": "Separate Caraiani tensor-square/closed-stratum interface: the semistable PEL/Kuga–Sato realization of the tensor square, its two boundary directions and distinguished local places, projected closed-stratum cohomology, multiplicity m_ξ and Tate twist t_ξ. Prove the diagonal degree concentration i=2n−2 used in Proposition 5.1, pp.31–32, after the geometric set-up of §2. This concentration is needed in addition to the reusable CR.6 two-boundary spectral sequence and is not supplied by the preceding smooth proper realization alone.",
+      "neededBy": [
         "AutomorphicGaloisRepresentationsPartII:AG2.6/log-crystalline-purity-on-the-automorphic-summand"
       ]
     },
@@ -2612,11 +3397,14 @@
     },
     {
       "supplier": "PotentialModularityAndCompatibleSystems:R24.5:operations",
-      "need": "Separate the common coefficient-place representation/good-polynomial/Hodge-metadata carrier from Weak, VeryWeak and ExtremelyWeak predicates. The current weakly-compatible-system-rank-n statement builds all-member de Rham/full Hodge/crystalline conditions into the claimed common carrier, contradicting weakened-compatible-data. Supply the weakening maps on the corrected single carrier; no AG2-owned replacement carrier.",
+      "need": "Correct the single shared data carrier so it contains the coefficient number field/place indexing, finite ramification set, continuous semisimple members, common good polynomials and labelled Hodge metadata without intrinsically imposing local de Rham/full-Hodge/crystalline, pure or polarized conditions. Supply separate Weak, VeryWeak, ExtremelyWeak, Pure and Polarized predicates with precise quantifiers, weakening maps, assembly/projection laws and coefficient change. The current weakly-compatible-system-rank-n and weakened-compatible-data statements contradict one another on this boundary. AG2 uses universally supplied data and operations conditionally; it neither edits this owner nor defines a replacement carrier.",
       "neededBy": [
         "AutomorphicGaloisRepresentationsPartII:AG2.6/extremely-weakly-compatible-system",
         "AutomorphicGaloisRepresentationsPartII:AG2.6/compatible-system-of-pi",
-        "AutomorphicGaloisRepresentationsPartII:AG2.6/very-weak-compatibility-under-dgi"
+        "AutomorphicGaloisRepresentationsPartII:AG2.6/very-weak-compatibility-under-dgi",
+        "AutomorphicGaloisRepresentationsPartII:AG2.7/good-prime-characteristic-zero-export",
+        "AutomorphicGaloisRepresentationsPartII:AG2.7/nonselfdual-hodge-and-monodromy-bound-export",
+        "AutomorphicGaloisRepresentationsPartII:AG2.7/polarized-hodge-and-wd-export"
       ]
     }
   ],
@@ -2636,8 +3424,8 @@
       ]
     },
     {
-      "title": "Supplier types absent from the pinned Lean baseline",
-      "detail": "The pinned libraries do not supply the atlas-compatible system, automorphic π/Hecke polynomial, labelled local Hodge/WD, number-field place/inertia or stable-lattice interfaces. The suggested file currently gives most names only in a prose register, not Lean signatures. This is a section 13 deliverable defect: revision must give honest algebraic signatures/examples with unavailable conditions omitted and omissions explained, while importing the intended supplier carrier. No arbitrary Prop fields, empty predicates, fake automorphic types or second compatible-system carrier may be used to force elaboration.",
+      "title": "Supplier types and complete predicates absent from the pinned Lean baseline",
+      "detail": "The suggested file now has actual declarations for all 38 unique main names and 58 unique API names, with all 49 packet tests as labelled typed examples. The missing automorphic, raw geometric, period/WD, number-field place and stable-lattice interfaces remain implementation gaps. Each node and partial example records its algebraic component and omitted conditions under section 13; output signatures with necessary hypotheses omitted are not universal matrix theorems. System is an external parameter for the single R24 data carrier. Semisimplicity/absolute irreducibility use Mathlib, and no arbitrary Prop fields, empty predicates, fake automorphic types or AG2 compatible-system carrier are introduced.",
       "neededBy": [
         "AutomorphicGaloisRepresentationsPartII:AG2.6/compatible-system-of-pi",
         "AutomorphicGaloisRepresentationsPartII:AG2.6/strong-coefficient-field",
@@ -2657,7 +3445,7 @@
     },
     {
       "title": "Common carrier and weakened predicates disagree in the supplier",
-      "detail": "R24.5/weakly-compatible-system-rank-n states full weak conditions as part of its object, while R24.5/weakened-compatible-data claims the same carrier permits determinant-only Hodge data without member de Rham conditions. The intended AG2.6 weakening import cannot be verified against both statements until the owner separates data and predicates. Supplier edits are outside this review.",
+      "detail": "R24.5/weakly-compatible-system-rank-n builds full weak conditions into its object while weakened-compatible-data claims the same object permits determinant-only Hodge data. The owner must separate raw data from Weak/VeryWeak/ExtremelyWeak and stronger predicates. The relevant statements and constructor/import here are conditional on that requested correction; the suggested file quantifies external data and projection laws. Supplier edits are outside this issue’s deliverables.",
       "neededBy": [
         "AutomorphicGaloisRepresentationsPartII:AG2.6/extremely-weakly-compatible-system",
         "AutomorphicGaloisRepresentationsPartII:AG2.6/compatible-system-of-pi",
@@ -2666,7 +3454,7 @@
     },
     {
       "title": "Raw projector-compatible geometric realization not supplied",
-      "detail": "AG2.1a/polarized-construction-inputs-shin-and-chenevier-harris currently packages attached-representation conclusions, rather than the exact raw PEL/Kuga–Sato realization, projector, multiplicity and Tate twist required to restrict geometric comparisons without circularly assuming local admissibility. The AG2.1a request covers this interface and Caraiani’s tensor-square/closed-stratum interface separately.",
+      "detail": "The current AG2.1a/polarized-construction-inputs-shin-and-chenevier-harris node states attached-representation conclusions. It does not supply the raw PEL/Kuga–Sato cohomology, commuting projectors, multiplicity and Tate twist needed before period comparison. The geometric node now depends on the AG2.1a stage’s exact raw-interface request rather than treating that named conclusion as a realization. A second, separate request supplies Caraiani’s tensor-square and projected closed-stratum concentration.",
       "neededBy": [
         "AutomorphicGaloisRepresentationsPartII:AG2.6/geometric-coefficient-prime-comparison",
         "AutomorphicGaloisRepresentationsPartII:AG2.6/log-crystalline-purity-on-the-automorphic-summand"
@@ -2681,7 +3469,7 @@
         "Close the precise geometric/family/solvable-descent supplier requests and CR.6 Part II spectral sequence gap.",
         "Design the AHTW quantitative-cohomology and arbitrary-multiplicity pseudodeformation supplier extensions; resolve the recorded gap without an IG consumer cycle.",
         "Refine the source-level proof chains to individual lemmas after the requested supplier interfaces exist.",
-        "Resolve the common-carrier predicate contradiction and the exact raw geometric realization request; complete actual suggested Lean signatures and examples under section 13."
+        "Resolve the R24 common-data/predicate contradiction and exact raw geometric supplier requests. Replace the documented algebraic signature fragments by complete supplier-typed statements when those interfaces exist; every named prototype/API/test is now present."
       ]
     },
     {
@@ -2689,7 +3477,7 @@
       "status": "planned",
       "remaining": [
         "Close the finite p-adic realization, arbitrary-rank recognition/Chebotarev, integral Hecke and unitary-transfer supplier requests.",
-        "Replace the prose-only signature register by honest elaborated declaration/API/example prototypes, with unavailable conditions explicitly omitted; the register alone does not satisfy section 13."
+        "Supply complete automorphic/Hecke/place/lattice and period/WD types and predicates, then refine the recorded algebraic fragments to the full statements. The actual suggested declarations and labelled tests are delivered and elaborate; implementation remains unchecked."
       ]
     }
   ],
@@ -2700,7 +3488,7 @@
       "kind": "misprint",
       "affects": "nothing",
       "locator": "§2.2.5, (2.2.6), p. 922; checked on the page image",
-      "printed": "Pv(X) = Xn −Tv,1Xn−1 + · · · + (−1)iqi(i−1)/2 v Tv,iXn−i + · · · · · · + qn(n−1)/2 v Tv,n",
+      "printed": "Paraphrase of the affected display: the final rank-n coefficient lacks the sign required in odd rank.",
       "correction": "The last term is (−1)^n q_v^{n(n−1)/2} T_{v,n}, the i = n case of the general term.",
       "reason": "For n = 1 the printed form gives X + T_{v,1} while the general term gives X − T_{v,1}, and the characteristic polynomial of the Frobenius on an unramified character χ is X − χ(ϖ_v). The proof of Theorem 2.3.5 (p. 938) prints the same polynomial with the last term (−1)^n q_v^{n(n−1)/2} T_{v,n}.",
       "known": "new: present in the journal-paginated copy (Annals 197 (2023)); no erratum found",
@@ -2721,7 +3509,7 @@
       "kind": "misprint",
       "affects": "nothing",
       "locator": "§2.2.5, (2.2.7) and the definition of P̃_{v,σ}, p. 922; Lemma 2.2.13(2), p. 927",
-      "printed": "The source prints (2.2.7) … + (−1)jqj(j−1)/2 v eTv,j + · · · and defines ‹Pv,σ(X) = P2n i=0(−1)iev,i(σ)Xn−i; Lemma 2.2.13(2) gives P2n i=0(−1)iev,i(σ, eπv)Xn−i.",
+      "printed": "Paraphrase of the affected displays: the degree-2n coefficient formula loses its monomial in (2.2.7), and the following sums use exponents indexed as though the degree were n.",
       "correction": "The general term of (2.2.7) is (−1)^j q_v^{j(j−1)/2} T̃_{v,j} X^{2n−j}, and both sums of degree 2n are Σ_{i=0}^{2n} (−1)^i e_{v,i} X^{2n−i}.",
       "reason": "P̃_v is monic of degree 2n (its leading term X^{2n} is printed), so the i-th term must carry X^{2n−i}; with X^{n−i} the sum has negative exponents for i > n.",
       "known": "new: present in the journal-paginated copy; no erratum found",
@@ -2741,7 +3529,7 @@
       "kind": "error",
       "affects": "a stated result",
       "locator": "Remark after Definition 4.3.1, printed p.972, local genericity reading",
-      "printed": "The source asserts that the projective representation is the same.",
+      "printed": "Paraphrase of the local reading: the remark treats projectivization as sufficient for genericity without separately retaining trivial inertia.",
       "correction": "The ratio predicate is projectively invariant. Local genericity is invariant under unramified scalar twists; an arbitrary scalar twist also requires checking unramifiedness. Global existential decomposed genericity is invariant under finite residual character twists after avoiding the twist’s ramification set via Lemma 4.3.2.",
       "reason": "At L=Q_2 with k=F_3, r=1⊕1 has q=2 and is generic. A ramified quadratic scalar twist χ⊕χ has the same projective representation and eigenvalue ratios but nontrivial inertia, so is not locally generic. This does not invalidate the global existential statement.",
       "known": "new local qualification; no public erratum located",
@@ -2762,81 +3550,81 @@
       "kind": "preprint",
       "url": "https://arxiv.org/pdf/2607.11763v1",
       "citation": "Local-global compatibility of automorphic Galois representations over CM fields at p; arXiv:2607.11763v1, 13 July 2026; unrefereed preprint",
-      "read": "2026-10-07",
+      "read": "2026-10-08",
       "sha256": "a5a56b7917c387b24f717e31714675d2de183505250bbd3a3fae21bd1fa424bb",
-      "note": "Identified public version read."
+      "note": "Identified public version read. Round-two revision re-read: Theorem 1.2.1 and Corollary 1.2.2 pp.5–6; §3 introduction and Theorem 3.2.4 pp.27–30; Theorem 3.3.6 p.34; Proposition 5.2.8/Theorem 5.2.9 pp.75–76; §6 Definitions 6.0.1–5 and Corollary 6.0.6 pp.111–112. SHA-256 matched the recorded version."
     },
     {
       "kind": "preprint",
       "url": "https://arxiv.org/pdf/1010.2561v4",
       "citation": "Potential automorphy and change of weight; arXiv:1010.2561v4; Annals 179 (2014)",
-      "read": "2026-10-07",
+      "read": "2026-10-08",
       "sha256": "c953df6229ba8d8b4ae25b1a00cf11592864c74692859d324ff10d3eef645d24",
-      "note": "Identified public version read."
+      "note": "Identified public version read. Round-two revision re-read: Theorem 2.1.1 pp.32–34; §5.1 definitions and normalization pp.62–65. SHA-256 matched the recorded version."
     },
     {
       "kind": "author copy",
       "url": "https://www.math.uchicago.edu/~fcale/papers/Ramanujan.pdf",
       "citation": "Potential automorphy over CM fields; Author copy with Annals 197 (2023) pagination; printed page = PDF page + 896",
-      "read": "2026-10-07",
+      "read": "2026-10-08",
       "sha256": "c5429e4f384384045dbb48502d71547bb21699783c0f77cce27b24e742467f02",
-      "note": "The publisher article page did not serve a PDF; the guessed public PDF URL returned HTTP 404. ACC+ findings are scoped to the identified journal-paginated author copy."
+      "note": "The publisher article page did not serve a PDF; the guessed public PDF URL returned HTTP 404. ACC+ findings are scoped to the identified journal-paginated author copy. Round-two revision re-read: (2.2.6)–(2.2.7) p.922; Definition 2.3.6 p.938; Definition 4.3.1 and Lemma 4.3.2 pp.972–973; §7.1.1–2 pp.1084–1085; Lemmas 7.1.9–10 pp.1093–1094. SHA-256 matched the recorded version."
     },
     {
       "kind": "author copy",
       "url": "https://webusers.imj-prg.fr/~michael.harris/ConstructionII.pdf",
       "citation": "Construction of automorphic Galois representations, II; Author copy; Cambridge Mathematical Journal 1 (2013)",
-      "read": "2026-10-07",
+      "read": "2026-10-08",
       "sha256": "9b5e76798f75273f53d1d4160f35815b1a3b656f04c965ad47fd4fa454840529",
-      "note": "Identified public version read."
+      "note": "Identified public version read. Round-two revision re-read: Theorem 1.4 and §1.5/formula (1.6) pp.5–7; Theorem 2.3 p.8; §3.2, Theorem 3.2.3 and Proposition 3.2.5 pp.11–12. SHA-256 matched the recorded version."
     },
     {
       "kind": "preprint",
       "url": "https://arxiv.org/pdf/1202.4683v1",
       "citation": "Monodromy and local-global compatibility for l = p; arXiv:1202.4683v1; Algebra & Number Theory 8 (2014)",
-      "read": "2026-10-07",
+      "read": "2026-10-08",
       "sha256": "6ec698414d5d3ad03f3d1c98de178b39d69722699f4a08a059e8d14027df885e",
-      "note": "Identified public version read."
+      "note": "Identified public version read. Round-two revision re-read: Theorem 1.1 pp.1–2; §2 pp.2–3; Proposition 4.4 p.29; Theorem 4.6/Remark 4.7 and Proposition 5.1 pp.31–32. SHA-256 matched the recorded version."
     },
     {
       "kind": "preprint",
       "url": "https://arxiv.org/pdf/2212.03595v2",
       "citation": "Symmetric power functoriality for Hilbert modular forms; arXiv:2212.03595v2; Annals 203 (2026)",
-      "read": "2026-10-07",
+      "read": "2026-10-08",
       "sha256": "6a156f7a5567226e0bd2209d5b237cbbc150dc10cfbd9ffd060a3245328cb82c",
-      "note": "Identified public version read."
+      "note": "Identified public version read. Round-two revision re-read: Theorem 5.1/Lemma 5.2/footnote 4 p.38; proof of Lemma 5.8 pp.42–44. SHA-256 matched the recorded version."
     },
     {
       "kind": "published",
       "url": "https://par.nsf.gov/servlets/purl/10323568",
       "citation": "On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives; Inventiones 228 (2022), 107–375; public journal copy",
-      "read": "2026-10-07",
+      "read": "2026-10-08",
       "sha256": "dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97",
-      "note": "Identified public version read."
+      "note": "Identified public version read. Round-two revision re-read: Definition 3.2.5/Remark 3.2.6/Hypothesis 3.2.10 pp.145–146; Definition D.1.2 and footnote 37 p.365; Corollary D.1.4 and proof p.368. SHA-256 matched the recorded version."
     },
     {
       "kind": "author copy",
       "url": "https://www.math.uchicago.edu/~fcale/papers/Siegel.pdf",
       "citation": "Minimal modularity lifting for nonregular symplectic representations; Duke 169 (2020), 801–896; author copy",
-      "read": "2026-10-07",
+      "read": "2026-10-08",
       "sha256": "fff305877c7e6b9d32ca9a8b4a56f7f3b343695fc737184d1a3a1b78f195cfa5",
-      "note": "Identified public version read."
+      "note": "Identified public version read. Round-two revision re-read: Proposition 6.8(3)–(4) and finite-field Baire proof, author-copy pp.38–39. SHA-256 matched the recorded version."
     },
     {
       "kind": "author copy",
       "url": "https://www.imo.universite-paris-saclay.fr/~pilloni/complexhidatheorygsp4.pdf",
       "citation": "Higher coherent cohomology and p-adic modular forms of singular weights; Author copy; Duke Mathematical Journal 169 (2020), no.9, 1647–1807",
-      "read": "2026-10-07",
+      "read": "2026-10-08",
       "sha256": "4c05724efeab1dbbb108f980ec9a722127d2a8cd2abf6e8c2a6a2251cf0f9f58",
-      "note": "Identified public version read."
+      "note": "Identified public version read. Round-two revision re-read: Theorem 5.1.7.1/Remark 5.1.7.1, author-copy pp.22–23. SHA-256 matched the recorded version."
     },
     {
       "kind": "published",
       "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v186-n3-p01-p.pdf",
       "citation": "On the generic part of the cohomology of compact unitary Shimura varieties; Annals 186 (2017), 649–766; journal PDF",
-      "read": "2026-10-07",
+      "read": "2026-10-08",
       "sha256": "4f9449e5ecfd8fb8b43a04acef73060f531be995babaa9f744f3db36aaa5e61a",
-      "note": "Identified public version read."
+      "note": "Identified public version read. Round-two revision re-read: §5.1 setup pp.730–731; Corollary 5.5.5 and Remark 5.5.6 pp.745–746. SHA-256 matched the recorded version."
     }
   ],
   "restructure": {
@@ -2867,6 +3655,14 @@
         "AutomorphicGaloisRepresentations"
       ],
       "note": "The accepted RS-12 title is Galois representations attached to regular algebraic automorphic representations of GL_n. AG2.6 retains applications; generic compatible data are imported from early R24.5 operations and exact rank-two comparison from R19."
+    },
+    {
+      "roadmaps": [
+        "AutomorphicGaloisRepresentationsPartII",
+        "ArithmeticGaloisRepresentations",
+        "tauceti:TauCetiRoadmap_Chebotarev"
+      ],
+      "note": "The existing Chebotarev link screen records AG2.7 only as a consumer of given split primes. This source-level packet also plans conditional infinitude of decomposed-generic rational primes via the R01-owned finite-extension/Chebotarev argument. The link screen is not used as a claim that this stronger prime-existence interface is already supplied; no upstream/link file is edited."
     }
   ],
   "review": {
