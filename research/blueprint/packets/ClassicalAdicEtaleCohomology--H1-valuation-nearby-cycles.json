@@ -1,0 +1,1085 @@
+{
+  "roadmapId": "ClassicalAdicEtaleCohomology",
+  "protocol": "blueprint-v1",
+  "part": "H1-valuation-nearby-cycles",
+  "scope": [
+    "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles"
+  ],
+  "status": "complete",
+  "summary": "Follow-up of the accepted H0 valuation package. Import its twenty declarations unchanged; supply arbitrary, including non-dominant, Cartesian valuation base change by the public modification route, distinguish finite-presentation constructibility from the inherited finite-type target, and package perfect-constructible generic extension over absolutely integrally closed valuation rings. The pass is a mathematical plan, not an implementation or a claim of proof closure.",
+  "baseline": {
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "declarations": [
+      {
+        "ref": "mathlib:AlgebraicGeometry.IsProper.eq_valuativeCriterion",
+        "kind": "lemma",
+        "module": "Mathlib/AlgebraicGeometry/ValuativeCriterion.lean",
+        "provides": "Properness implies existence and uniqueness of lifts from spectra of arbitrary valuation rings.",
+        "checked": "Read lines 330–338 at 082e2d3: IsProper = ValuativeCriterion intersect QuasiCompact intersect QuasiSeparated intersect LocallyOfFiniteType; the criterion quantifies over every ValuativeCommSq."
+      },
+      {
+        "ref": "mathlib:ValuationRing",
+        "kind": "class",
+        "module": "Mathlib/RingTheory/Valuation/ValuationRing.lean",
+        "provides": "The existing arbitrary valuation-ring predicate; no discreteness or rank restriction.",
+        "checked": "Read lines 56–68 at 082e2d3: for a commutative domain the predicate extends PreValuationRing, whose divisibility is total."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.Scheme.smallEtaleTopology",
+        "kind": "def",
+        "module": "Mathlib/AlgebraicGeometry/Sites/Etale.lean",
+        "provides": "The actual small étale topology of a Mathlib scheme.",
+        "checked": "Read lines 45–56 at 082e2d3: topology induced on X.Etale by the big étale topology."
+      },
+      {
+        "ref": "mathlib:DerivedCategory",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Homology/DerivedCategory/Basic.lean",
+        "provides": "Derived category of an abelian category, localized at quasi-isomorphisms.",
+        "checked": "Read lines 69–90 at 082e2d3; requires Abelian C and HasDerivedCategory C, uses ComplexShape.up over the integers."
+      },
+      {
+        "ref": "mathlib:HasDerivedCategory",
+        "kind": "abbrev",
+        "module": "Mathlib/Algebra/Homology/DerivedCategory/Basic.lean",
+        "provides": "Localization-existence predicate used by the prototype on actual module-valued étale sheaves.",
+        "checked": "Read lines 69–77 at 082e2d3: HasLocalization for the quasi-isomorphism morphism property."
+      },
+      {
+        "ref": "mathlib:DerivedCategory.Plus",
+        "kind": "abbrev",
+        "module": "Mathlib/Algebra/Homology/DerivedCategory/TStructure.lean",
+        "provides": "Bounded-below derived category as a full subcategory of the actual derived category.",
+        "checked": "Read lines 191–215 at 082e2d3: the plus full subcategory for the canonical t-structure, with its inclusion."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Equivalence",
+        "kind": "structure",
+        "module": "Mathlib/CategoryTheory/Equivalence.lean",
+        "provides": "Bundled equivalence with functor, inverse, unit/counit isomorphisms and triangle law.",
+        "checked": "Read lines 79–111 at 082e2d3. The generic-extension construction must identify these functors with restriction and Rj*, not merely choose an equivalence of categories."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "LZ-v7",
+      "title": "Duality and nearby cycles over general bases",
+      "authors": "Qing Lu and Weizhe Zheng",
+      "edition": "arXiv:1712.10216v7; printed pages of this version, accessed 2026-10-08",
+      "url": "https://arxiv.org/pdf/1712.10216v7",
+      "sha256": "065c028994922d853c020bc7cf1b9d286325e0d61c5ea350b50fa4fee5df2bda",
+      "accessed": "2026-10-08",
+      "readSections": [
+        "§4.1, Lemma 4.1 and Remarks 4.2–4.3, pp. 26–27; §4.5, Example 4.26(1)–(3), Theorem 4.27 and proof, pp. 37–38"
+      ]
+    },
+    {
+      "id": "Org-v1",
+      "title": "Modifications et cycles évanescents sur une base de dimension supérieure à un",
+      "authors": "Fabrice Orgogozo",
+      "edition": "arXiv:math/0507475v1 (2005); published 2006 under the title Modifications et cycles proches sur une base générale; all locators here use v1, accessed 2026-10-08",
+      "url": "https://arxiv.org/pdf/math/0507475v1",
+      "sha256": "10f18b77e877d376ba81a798a41465759923e10fb32b903a433961086f90903d",
+      "accessed": "2026-10-08",
+      "readSections": [
+        "§1, Theorem 1.1 and definitions, pp. 1–2; §2.1–2.3, approximation and uniform cohomological dimension, pp. 3–4",
+        "§3.1–3.4, proper hypercover descent, Gabber extension lemma, Proposition 3.3.1 and triple induction, pp. 4–11",
+        "§4, plurinodal curves and Remarks 4.4–4.5, pp. 11–13; §5, Theorem 5.1 and proof, pp. 14–15",
+        "§6, Theorem 6.1 and Remark 6.3, p. 16; §7.1–7.3, oriented-product site and points, pp. 17–18; §8.1–8.2, full constructibility proof, pp. 19–22"
+      ]
+    },
+    {
+      "id": "dJ97",
+      "title": "Families of curves and alterations",
+      "authors": "A. Johan de Jong",
+      "edition": "Annales de l’Institut Fourier 47 (1997), 599–621; published pagination, accessed 2026-10-08",
+      "url": "https://www.numdam.org/item/10.5802/aif.1575.pdf",
+      "sha256": "caf07fbacaea01f0fc9bba14aad435d23f2fe2b847f1607baf6f2a3f874e4854",
+      "accessed": "2026-10-08",
+      "readSections": [
+        "§5, Situation 5.8, Theorem 5.9 and proof, pp. 615–617; Corollary 5.10 and proof, p. 618"
+      ]
+    },
+    {
+      "id": "Ill06",
+      "title": "Vanishing cycles over general bases after P. Deligne, O. Gabber, G. Laumon and F. Orgogozo",
+      "authors": "Luc Illusie",
+      "edition": "Author PDF dated 9 April 2006; printed pages of the 19-page PDF, accessed 2026-10-08",
+      "url": "https://www.imo.universite-paris-saclay.fr/~luc.illusie/vanishing1b.pdf",
+      "sha256": "18bfa00248bae2e61eead6edbfa762f805cde11347b7e14347b19ffb83740780",
+      "accessed": "2026-10-08",
+      "readSections": [
+        "§3, Theorem 3.2 and Remark 3.3(c), pp. 6–7; §4.1–4.3, reductions and Lemmas 4.2.1–4.2.3, pp. 8–10"
+      ]
+    },
+    {
+      "id": "HS",
+      "title": "Relative perversity",
+      "authors": "David Hansen and Peter Scholze",
+      "edition": "Author-hosted 38-page PDF; settings (A)/(B) and the printed pagination of this version, accessed 2026-10-08",
+      "url": "https://people.mpim-bonn.mpg.de/scholze/RelativePerverse.pdf",
+      "sha256": "7fcca4cf382b20503f4f428b1268d2cd181488c96b362f34150c4f3daba9544e",
+      "accessed": "2026-10-08",
+      "readSections": [
+        "§2, settings (A)/(B) and perfect-constructible convention, pp. 7–9",
+        "§4, Theorem 4.1, Corollary 4.2 and complete proof, pp. 19–22; Lemma 4.3 and Theorem 4.4, pp. 21–22",
+        "§3, Proposition 3.4 and proof in settings (A)/(B), pp. 14–16; Lemma 3.5 and proof, p. 16"
+      ]
+    }
+  ],
+  "importedNodes": [
+    {
+      "id": "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/valuation-base-quadruple",
+      "from": "research/blueprint/packets/ClassicalAdicEtaleCohomology--H0.json",
+      "provides": "Valuation-base quadruples (X, S, η, s)"
+    },
+    {
+      "id": "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/strict-localisation-of-a-valuation-ring",
+      "from": "research/blueprint/packets/ClassicalAdicEtaleCohomology--H0.json",
+      "provides": "The strict localization of a valuation spectrum at a geometric point"
+    },
+    {
+      "id": "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/morphism-of-valuation-quadruples",
+      "from": "research/blueprint/packets/ClassicalAdicEtaleCohomology--H0.json",
+      "provides": "Morphisms of quadruples and the chosen map of strict localizations"
+    },
+    {
+      "id": "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/nearby-cycles-over-valuation-base",
+      "from": "research/blueprint/packets/ClassicalAdicEtaleCohomology--H0.json",
+      "provides": "The nearby-cycle functor RΨ_L = i^* Rj_* j^* of a quadruple"
+    },
+    {
+      "id": "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/galois-action-on-nearby-cycles",
+      "from": "research/blueprint/packets/ClassicalAdicEtaleCohomology--H0.json",
+      "provides": "The continuous action of Gal(L/k(η)) on RΨ_L"
+    },
+    {
+      "id": "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/milnor-tube-stalk-formula",
+      "from": "research/blueprint/packets/ClassicalAdicEtaleCohomology--H0.json",
+      "provides": "Henselian localization: stalks of RΨ_L are cohomology of Milnor tubes"
+    },
+    {
+      "id": "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/nearby-cycles-base-change-map",
+      "from": "research/blueprint/packets/ClassicalAdicEtaleCohomology--H0.json",
+      "provides": "The base-change map of nearby cycles for a morphism of quadruples"
+    },
+    {
+      "id": "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/nearby-cycles-equivariant-transport",
+      "from": "research/blueprint/packets/ClassicalAdicEtaleCohomology--H0.json",
+      "provides": "Independence of RΨ_L of the choices, up to equivariant transport, and localization at s"
+    },
+    {
+      "id": "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/nearby-cycles-locality-and-proper-pushforward",
+      "from": "research/blueprint/packets/ClassicalAdicEtaleCohomology--H0.json",
+      "provides": "Étale locality, proper push-forward and the projective reduction for RΨ_L"
+    },
+    {
+      "id": "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/radicial-invariance-of-nearby-cycles",
+      "from": "research/blueprint/packets/ClassicalAdicEtaleCohomology--H0.json",
+      "provides": "Radicial invariance: RΨ_L is unchanged by a purely inseparable extension of the valuation base"
+    },
+    {
+      "id": "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/nearby-cycles-commute-with-filtered-colimits",
+      "from": "research/blueprint/packets/ClassicalAdicEtaleCohomology--H0.json",
+      "provides": "RΨ_L commutes with filtered colimits; reduction to constructible coefficients"
+    },
+    {
+      "id": "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/comparison-with-geometric-generic-point",
+      "from": "research/blueprint/packets/ClassicalAdicEtaleCohomology--H0.json",
+      "provides": "Comparison with the geometric generic point: Milnor tube versus Milnor fibre"
+    },
+    {
+      "id": "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/nearby-cycles-cohomological-amplitude",
+      "from": "research/blueprint/packets/ClassicalAdicEtaleCohomology--H0.json",
+      "provides": "Cohomological amplitude of RΨ_L: vanishing above twice the generic-fibre dimension"
+    },
+    {
+      "id": "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/tame-quotient-of-a-henselian-valued-field",
+      "from": "research/blueprint/packets/ClassicalAdicEtaleCohomology--H0.json",
+      "provides": "Wild inertia is the pro-p Sylow subgroup; the tame quotient is Hom(Γ ⊗ ℤ_(p)/Γ, μ_(p))"
+    },
+    {
+      "id": "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/prime-to-p-cohomology-through-tame-quotient",
+      "from": "research/blueprint/packets/ClassicalAdicEtaleCohomology--H0.json",
+      "provides": "Prime-to-p Galois cohomology is computed on the tame quotient"
+    },
+    {
+      "id": "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/gauss-valuation",
+      "from": "research/blueprint/packets/ClassicalAdicEtaleCohomology--H0.json",
+      "provides": "The Gauss valuation ring V(T) of a valuation ring"
+    },
+    {
+      "id": "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/gauss-extension-tame-inertia-comparison",
+      "from": "research/blueprint/packets/ClassicalAdicEtaleCohomology--H0.json",
+      "provides": "Along a strictly henselized Gauss extension the tame quotients agree"
+    },
+    {
+      "id": "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/valuative-base-change-for-nearby-cycles",
+      "from": "research/blueprint/packets/ClassicalAdicEtaleCohomology--H0.json",
+      "provides": "Cartesian change of valuation base: the base-change map of nearby cycles is an isomorphism for prime-to-p torsion"
+    },
+    {
+      "id": "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/noetherian-coefficient-change-for-constructibility",
+      "from": "research/blueprint/packets/ClassicalAdicEtaleCohomology--H0.json",
+      "provides": "From ℤ/n to noetherian coefficient rings annihilated by n"
+    },
+    {
+      "id": "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/constructibility-of-nearby-cycles",
+      "from": "research/blueprint/packets/ClassicalAdicEtaleCohomology--H0.json",
+      "provides": "Constructibility of R^qΨ_L over a valuation base"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/oriented-shred-identification",
+      "parentStageId": "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles",
+      "realises": [
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles"
+      ],
+      "title": "Valuation nearby cycles are the specified oriented-product shred",
+      "kind": "comparison",
+      "statement": "For the inherited quadruple Q=(X,Spec V,η,s), chosen separable closure L of κ(η) and compatible specialization of geometric points, restrict the general oriented-product nearby-cycle object RΨ_f F to its (s,η)-shred. There is a canonical natural isomorphism with the inherited tube-defined i*Rj*j*F on X_s, where j is the base change of S_(η̄)→S, not of η̄→S. Under this isomorphism, the general nearby exchange map restricts to the inherited nearby-cycles-base-change-map for each Cartesian morphism of quadruples; automorphisms of L restrict to the inherited Galois action.",
+      "hypotheses": [
+        "F lies in D⁺(X_et,Λ). No torsion or finite-type hypothesis is required for this identification.",
+        "A geometric lift over s and a compatible geometric specialization η̄→s̄ are retained; when identifying with X_s, use that O_(S,s) is strictly henselian."
+      ],
+      "proofSteps": [
+        "Import H0’s quadruple, strict localization, morphism and tube construction without defining them again. The oriented-product site and its canonical derived-image functor are an early general-base supplier request, not a second trait nearby-cycle construction.",
+        "Use Lu–Zheng Lemma 4.1 to identify the s-slice with X_s times the strict localization at s; then Remark 4.2(a) identifies the η-shred with i*R(j_ηs)* applied to F on X_(η). The Milnor-tube stalk formula identifies this with H0’s j.",
+        "Compare the units and the pullback/direct-image exchange transformations, rather than comparing only the dimensions of stalk cohomology. Their mates are the same natural transformation; the chosen lift of strict localizations is essential.",
+        "Naturality for automorphisms of η̄ gives Galois equivariance. Remark 4.3 checks the identity specialization η=s."
+      ],
+      "acceptance": [
+        "For η=s, both sides are i*F and the unit is the identity after the canonical identification.",
+        "For rank two and an intermediate η, use S_(η̄); replacing it by η̄ is a separate comparison theorem, not this definition.",
+        "Changing the chosen embedding L→L′ conjugates the map by the inherited equivariant transport."
+      ],
+      "prerequisites": [
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/valuation-base-quadruple",
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/strict-localisation-of-a-valuation-ring",
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/morphism-of-valuation-quadruples",
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/nearby-cycles-over-valuation-base",
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/galois-action-on-nearby-cycles",
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/milnor-tube-stalk-formula",
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/nearby-cycles-base-change-map",
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/nearby-cycles-equivariant-transport",
+        "LefschetzPencilsAndVanishingCycles:LPV.0",
+        "SchemeAndStackFoundations:SF.2",
+        "mathlib:DerivedCategory.Plus"
+      ],
+      "sources": [
+        {
+          "sourceId": "LZ-v7",
+          "locator": "§4.1, Lemma 4.1, Remark 4.2(a) and Remark 4.3, pp. 26–27",
+          "match": "Identifies slices and shreds by actual derived restriction/direct-image functors; the identity shred is restriction."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Etale/NearbyCycles/ValuationExtension",
+        "namespace": "TauCeti.AlgebraicGeometry.ValuationNearby"
+      },
+      "implementationStatus": "unchecked",
+      "suggestedDeclaration": "orientedShred_identification"
+    },
+    {
+      "id": "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/valuation-universal-psi-goodness",
+      "parentStageId": "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles",
+      "realises": [
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles"
+      ],
+      "title": "Universal Ψ-goodness over an arbitrary valuation spectrum",
+      "kind": "theorem",
+      "statement": "Let S=Spec V for any valuation ring V, let n≥1 be a unit in V, let nΛ=0, and let f:X→S be a morphism of schemes. For F∈D⁺(X_et,Λ), the general oriented-product RΨ_f F commutes with every scheme base change h:T→S: the canonical exchange transformation h←*RΨ_f F→RΨ_(f_T)(h_X*F) is an isomorphism. No dominance, flatness, rank-one, discreteness, noetherianity or finite-presentation hypothesis on h or V is imposed. This is a valuation-specific theorem, not universal Ψ-goodness over arbitrary bases.",
+      "hypotheses": [
+        "A single n annihilates Λ and is invertible on S. For the stage’s hypothesis n invertible in κ(s), first replace S by Spec O_(S,s).",
+        "F is bounded below. The unbounded case is outside this declaration."
+      ],
+      "proofSteps": [
+        "Use the actual proper valuative criterion at the pinned Mathlib to extend the inverse on the generic point of any modification r:S′→S to a section σ:S→S′. Thus the identity S→S is a finite surjective morphism factoring through r, even when V has arbitrary rank.",
+        "Apply precisely Lu–Zheng Example 4.26(2). Its reduction takes finite-presentation models and constructible ℤ/n sheaves by standard limits; L2 supplies these limit and filtered-coefficient operations. This is not approximation by discrete valuation rings.",
+        "The finite-presentation input is Orgogozo v1 Theorem 1.1: after a modification, canonical nearby cycles commute with all base changes. Request the early general-base Part II supplier of LPV.0, with de Jong 1997 Corollary 5.10 and the remaining geometry requested from an early SF.4 prefix. The ownership proposal and supplier proofs are open, and are not silently imported from L5.",
+        "Transport the universal exchange theorem along σ using the coherent identity/composition laws for exchange maps. Lu–Zheng’s cited [O] Lemma 3.3 uses published numbering; do not identify it with arXiv v1 §3.3. If desired, split-retract descent along σ proves this specialization directly."
+      ],
+      "acceptance": [
+        "A quotient V→V/𝔭 with prime 𝔭 need not be injective or flat; the canonical exchange is still an isomorphism.",
+        "The identity of a rank-two valuation spectrum passes with no discrete uniformizer or DVR approximation.",
+        "If n is not a unit in V, this theorem supplies no isomorphism.",
+        "Use the canonical exchange map itself; existence of an unrelated isomorphism between the two objects is insufficient."
+      ],
+      "prerequisites": [
+        "LefschetzPencilsAndVanishingCycles:LPV.0",
+        "SchemeAndStackFoundations:SF.4",
+        "SchemeAndStackFoundations:SF.2",
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/nearby-cycles-commute-with-filtered-colimits",
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/radicial-invariance-of-nearby-cycles",
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/nearby-cycles-locality-and-proper-pushforward",
+        "mathlib:AlgebraicGeometry.IsProper.eq_valuativeCriterion",
+        "mathlib:ValuationRing",
+        "AdicCoefficientsAndComparisons:L2/noetherian-approximation",
+        "AdicCoefficientsAndComparisons:L2/fp-relative-diagram-descent",
+        "AdicCoefficientsAndComparisons:L2/etale-cohomology-continuity",
+        "AdicCoefficientsAndComparisons:L2/constructible-derived-continuity",
+        "AdicCoefficientsAndComparisons:L2/constructible-Hom-continuity",
+        "AdicCoefficientsAndComparisons:L2"
+      ],
+      "sources": [
+        {
+          "sourceId": "LZ-v7",
+          "locator": "§4.5, Example 4.26(2), p. 37",
+          "match": "States Ψ-goodness for all bounded-below complexes when each modification is dominated by a finite surjective morphism; valuation spectra have a section."
+        },
+        {
+          "sourceId": "Org-v1",
+          "locator": "Theorem 1.1, p. 2; Remark 4.4, p. 13",
+          "match": "Provides the modification theorem with arbitrary subsequent base change and distinguishes the dominant scope of Huber’s older proof."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Etale/NearbyCycles/ValuationExtension",
+        "namespace": "TauCeti.AlgebraicGeometry.ValuationNearby"
+      },
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Universal valuative base change"
+      },
+      "suggestedDeclaration": "valuation_universalPsiGoodness"
+    },
+    {
+      "id": "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/non-dominant-cartesian-base-change",
+      "parentStageId": "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles",
+      "realises": [
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles"
+      ],
+      "title": "Cartesian base change without dominance for valuation quadruples",
+      "kind": "theorem",
+      "statement": "For any Cartesian morphism φ=(g,h,ι):Q′→Q of the inherited valuation quadruples, let n≥1 be invertible in κ(s), nΛ=0 and F∈D⁺(X_et,Λ). Then the inherited map β_φ(F):g_s*RΨ_L(F)→RΨ_L′(g*F) is an isomorphism and is equivariant for the specified restriction homomorphism Gal(L′/κ(η′))→Gal(L/κ(η)). Neither injectivity of O_(S,s)→O_(S′,s′) nor dominance or flatness is required. This extends the dominant theorem imported from H0, using exactly its β, not a replacement comparison.",
+      "hypotheses": [
+        "h(η′)=η and h(s′)=s, and the embedding ι and local map of strict localizations belong to φ.",
+        "Localize both bases at s,s′ before applying universal Ψ-goodness; n is then a unit on the source base."
+      ],
+      "proofSteps": [
+        "Use valuation-universal-psi-goodness for the localized source and arbitrary h. Non-dominant maps are covered before any generic-fibre or Galois reduction.",
+        "Apply oriented-shred-identification to the source and target slices. Its comparison of adjunction mates identifies the restriction of the general exchange with H0’s β_φ.",
+        "Use naturality with respect to σ′∈Gal(L′/κ(η′)) and the chosen embedding ι to obtain equivariance. The identity and composition of β are inherited unchanged.",
+        "For dominant φ this recovers H0’s valuative-base-change-for-nearby-cycles; it does not depend on the unread Gauss induction or claim a new proof of the wild defectless calculation."
+      ],
+      "acceptance": [
+        "For η=s and the residue map V→κ(s), choose η′=s′ and the compatible separable closures: β is ordinary special-fibre pullback and is the identity on the constant coefficient stalk.",
+        "For a prime 𝔭⊊𝔪 of a strictly henselian rank-two V, h:Spec(V/𝔭)→Spec V is non-dominant; choose η=𝔭,s=𝔪 and matching generic/closed points upstairs. The map is covered.",
+        "When g,h are identities, β is the inherited identity transformation.",
+        "Two composable Cartesian maps, including a quotient followed by a residue-field extension, give the inherited composite β."
+      ],
+      "prerequisites": [
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/valuation-universal-psi-goodness",
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/oriented-shred-identification",
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/morphism-of-valuation-quadruples",
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/nearby-cycles-base-change-map",
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/galois-action-on-nearby-cycles"
+      ],
+      "sources": [
+        {
+          "sourceId": "LZ-v7",
+          "locator": "Example 4.26(2), p. 37; Remark 4.2(a), pp. 26–27",
+          "match": "Arbitrary base changes of the global object include base changes of its specified shreds."
+        },
+        {
+          "sourceId": "Org-v1",
+          "locator": "Remark 4.4, p. 13",
+          "match": "Explicitly contrasts arbitrary base change in the modification theorem with the dominant-valuative scope of the original proof."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Etale/NearbyCycles/ValuationExtension",
+        "namespace": "TauCeti.AlgebraicGeometry.ValuationNearby"
+      },
+      "implementationStatus": "unchecked",
+      "suggestedDeclaration": "valuation_cartesianBaseChange"
+    },
+    {
+      "id": "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/valuation-universal-milnor-fibre-comparison",
+      "parentStageId": "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles",
+      "realises": [
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles"
+      ],
+      "title": "Universal Milnor tube–fibre comparison from a valuation base",
+      "kind": "theorem",
+      "statement": "Let V be a valuation ring, n≥1 invertible in V, f:X→Spec V of finite presentation and F∈Dᵇ_c(X_et,ℤ/n). After every scheme base change T→Spec V, for every geometric point x of X_T over a geometric point a of T and every compatible geometric generization b of a, the canonical restriction RΓ((X_T)_(x)×_(T_(a))T_(b),F_T)→RΓ((X_T)_(x)×_(T_(a))b,F_T) is an isomorphism. T need not itself be a valuation spectrum. Restricting to the inherited quadruple gives the actual unit-induced tube–fibre comparison, not merely isomorphic cohomology groups.",
+      "hypotheses": [
+        "Finite presentation and bounded constructible ℤ/n input are retained from Orgogozo v1 Theorem 5.1.",
+        "The two strictly localized schemes and their map b→T_(b) are fixed by the compatible geometric specialization."
+      ],
+      "proofSteps": [
+        "Request Orgogozo v1 Theorem 5.1 with its uniform through-degree-N statement and every subsequent base change. It is supplied by the same early general-base Part II proof as Theorem 1.1, not by a valuation-as-trait reduction.",
+        "Apply the section of its modification over Spec V. Pullback along the section, and then along every T→Spec V, transfers the cohomological-properness conclusion to the original family with its canonical restriction map.",
+        "Do not promote an unbounded statement from one truncation. Proposition 2.3 gives a uniform bound 2d using a bound d for all fibre dimensions of the finite-presentation f; finite amplitude of F and the geometric-fibre cohomological bound reduce the isomorphism to finitely many degrees, to which the through-degree-N theorem applies.",
+        "The Milnor-tube stalk formula and oriented-shred-identification identify this map with H0’s comparison-with-geometric-generic-point in the finite-presentation, constructible ℤ/n case. Extending to the full locally finite type and arbitrary-coefficient H0 statement requires the separately recorded continuity/presentation bridge."
+      ],
+      "acceptance": [
+        "For b=a, both sides restrict to the same geometric stalk.",
+        "If b is a generic geometric point of a valuation spectrum, T_(b)=b and the restriction is already the identity.",
+        "At an intermediate prime of a rank-two valuation ring the comparison has nontrivial content; do not identify the schemes T_(b) and b.",
+        "A uniform bound on all fibre dimensions is used here; Proposition 2.3 is not cited as a bound in terms of the generic fibre alone."
+      ],
+      "prerequisites": [
+        "LefschetzPencilsAndVanishingCycles:LPV.0",
+        "SchemeAndStackFoundations:SF.4",
+        "SchemeAndStackFoundations:SF.2",
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/valuation-universal-psi-goodness",
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/oriented-shred-identification",
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/milnor-tube-stalk-formula",
+        "AdicCoefficientsAndComparisons:L2/noetherian-approximation",
+        "AdicCoefficientsAndComparisons:L2/fp-relative-diagram-descent",
+        "AdicCoefficientsAndComparisons:L2/etale-cohomology-continuity",
+        "AdicCoefficientsAndComparisons:L2/constructible-derived-continuity",
+        "AdicCoefficientsAndComparisons:L2/constructible-Hom-continuity",
+        "AdicCoefficientsAndComparisons:L2"
+      ],
+      "sources": [
+        {
+          "sourceId": "Org-v1",
+          "locator": "Theorem 5.1 and proof, pp. 14–15; Proposition 2.3, pp. 3–4",
+          "match": "Uniform local cohomological properness through each chosen degree after modification, for every further base change."
+        },
+        {
+          "sourceId": "Ill06",
+          "locator": "Theorem 3.2 and Remark 3.3(c), p. 7",
+          "match": "Publicly combines the canonical tube–fibre comparison and valuation-section specialization."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Etale/NearbyCycles/ValuationExtension",
+        "namespace": "TauCeti.AlgebraicGeometry.ValuationNearby"
+      },
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Milnor tube–fibre comparison"
+      },
+      "suggestedDeclaration": "valuation_universalMilnorComparison"
+    },
+    {
+      "id": "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/valuation-oriented-constructibility",
+      "parentStageId": "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles",
+      "realises": [
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles"
+      ],
+      "title": "Constructibility of oriented nearby cycles over valuation bases",
+      "kind": "theorem",
+      "statement": "Let V be any valuation ring, n≥1 invertible in V, B a noetherian ring with nB=0 and f:X→Spec V of finite presentation. For F∈D_c(X_et,B)∩D⁺(X_et,B), the general oriented-product RΨ_f F has constructible B-module cohomology: each stalk is finitely generated over B and, for each cohomology sheaf, there are finite constructible locally closed partitions of X and Spec V on whose oriented products it is locally constant. In particular its (s,η)-shred is constructible on X_s. If F is bounded, RΨ_f F is bounded constructible, using the uniform all-fibre cohomological-dimension bound. This declaration does not identify finite type with finite presentation.",
+      "hypotheses": [
+        "Noetherian B can be infinite, e.g. 𝔽_ℓ[t]; finite B-modules do not mean finite underlying abelian groups.",
+        "The bounded-below restriction agrees with this packet’s ambient derived carrier. The published source permits a larger D_c input."
+      ],
+      "proofSteps": [
+        "Use valuation-universal-psi-goodness with coefficients B. This gives Ψ-goodness without requiring B to be finite as an abelian group.",
+        "Apply Lu–Zheng Theorem 4.27(2) to this Ψ-good finite-presentation pair. Its proof on pp. 37–38 explicitly generalizes Orgogozo from ℤ/n to noetherian B by using constant constructible B-modules in place of the constant coefficient ring and by coherent conservative descent.",
+        "The supplier must include Orgogozo v1 §8.1 proper oriented pushforward and §8.2 induction: proper-hypercover descent reduces to plurinodal families; the smooth part is locally acyclic, the singular locus of a semistable curve is finite, and proper pushforward detects constructibility there.",
+        "Pull the constructible oriented object back to the specified shred via oriented-shred-identification. On the finite-type special fibre over κ(s), the induced constructible partition has finite, locally constant B-module stalks.",
+        "For bounded F use Proposition 2.3’s uniform all-fibre bound. Keep H0’s locally finite type constructibility target as imported, with its finite-type/presentation proof bridge recorded separately; finite-presentation general-base constructibility alone does not close that larger target."
+      ],
+      "acceptance": [
+        "For B=𝔽_ℓ[t], f=id, and F=B, the output stalk is B, which is constructible over B and is infinite as an abelian group.",
+        "For η=s the shred is i*F, with its inherited constructibility.",
+        "For a semistable curve, the smooth locus and the finite nodal locus must both be treated; local constancy on the smooth locus alone does not prove constructibility.",
+        "For a locally finite type morphism which is not finitely presented, the statement is not invoked; use the inherited target and its recorded bridge gap."
+      ],
+      "prerequisites": [
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/valuation-universal-psi-goodness",
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/oriented-shred-identification",
+        "LefschetzPencilsAndVanishingCycles:LPV.0",
+        "SchemeAndStackFoundations:SF.2",
+        "SchemeAndStackFoundations:SF.4",
+        "EtaleDualityAndPerverseSheaves:EDC.0",
+        "EtaleDualityAndPerverseSheaves:EDC.0/etale-derived-category",
+        "EtaleDualityAndPerverseSheaves:EDC.0/constructible-ctf-complexes"
+      ],
+      "sources": [
+        {
+          "sourceId": "LZ-v7",
+          "locator": "Theorem 4.27(2), definition and proof, pp. 37–38",
+          "match": "Constructibility for Ψ-good pairs over a base with finitely many irreducible components, with explicit noetherian-coefficient extension."
+        },
+        {
+          "sourceId": "Org-v1",
+          "locator": "Theorem 6.1, p. 16; §8.1–8.2, pp. 19–22",
+          "match": "The constructibility proof uses proper pushforward/descent and the finite singular locus of a semistable curve."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Etale/NearbyCycles/ValuationExtension",
+        "namespace": "TauCeti.AlgebraicGeometry.ValuationNearby"
+      },
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Constructible valuative nearby cycles"
+      },
+      "suggestedDeclaration": "valuation_orientedConstructibility"
+    },
+    {
+      "id": "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/aic-generic-extension-equivalence",
+      "parentStageId": "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles",
+      "realises": [
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles"
+      ],
+      "title": "Generic restriction and extension over an absolutely integrally closed valuation ring",
+      "kind": "construction",
+      "statement": "Let V be a valuation ring with algebraically closed fraction field K (hence V is absolutely integrally closed), let ℓ be a prime invertible in V, let r≥1 and Λ be a commutative noetherian ring with ℓʳΛ=0. For separated finitely presented f:X→Spec V and j:X_K→X, generic restriction is an equivalence from the full category of perfect-constructible universally locally acyclic complexes over Spec V to the category of perfect-constructible complexes on X_K. Its specified inverse is Rj*. In particular, Rj*F is constructible, has finite Tor-amplitude and is ULA over Spec V; these are separate conclusions. The unit A→Rj*j*A and counit j*Rj*F→F are the canonical adjunction maps. The construction uses the existing étale derived/coefficient carriers, extended to qcqs schemes, and the general scheme ULA predicate requested from SF.2.",
+      "hypotheses": [
+        "Perfect-constructible means a finite constructible stratification with locally constant perfect Λ-complexes on each stratum, as in Hansen–Scholze setting (B).",
+        "ULA is the scheme notion quantified over all base changes and geometric generizations; neither diamond ULA nor mere local acyclicity replaces it.",
+        "Finite presentation and separatedness of f are essential in this declaration. Generic inclusion j is not assumed to be an open immersion at arbitrary rank."
+      ],
+      "proofSteps": [
+        "For a ULA object A, Hansen–Scholze Proposition 3.4(iv) gives A→Rj*j*A an isomorphism. At arbitrary rank, Spec K→Spec V is a limit of quasi-compact opens rather than necessarily an open immersion; use the exact L2 continuity contracts to pass to this limit.",
+        "For essential surjectivity, follow Theorem 4.1’s induction on relative dimension. Project an affine chart to A¹_V and pass to a strictly henselized Gauss valuation W at a generic point of the special fibre. Import the arbitrary-value-group Gauss carrier and tame quotient from H0. Since Γ_V is divisible and the residue field of W is separably closed, its tame quotient is trivial and its absolute Galois group is pro-p (trivial in residue characteristic zero). This specialized argument does not establish Huber’s general defectless/Galois-surjectivity theorem.",
+        "Pass to an absolute integral closure of W, apply induction, and spread out from a finite p-power subextension. The needed assertion that this extension is the strict localization of a smooth curve over V, together with the finite cover and trace, is a precise SF.4 supplier request. Its full proof is not replaced by de Jong 5.10 alone. Prime-to-p coefficients make this p-power trace split; Orgogozo’s unrelated proper-hypercover descent did not require such degree invertibility.",
+        "The spreading argument gives ULA away from a closed subset with finite special fibre. Import the L2 finitely presented compactification and extend generic coefficients by zero; for a proper family the exceptional closed subset is finite over Spec V.",
+        "Apply Hansen–Scholze Lemma 4.3: the dualizability obstruction is supported on the finite product of exceptional loci; proper direct image is conservative there, and the pushforward is locally constant perfect. This general recognition lemma and the ULA stability/valuative criteria belong to SF.2. It proves ULA including the exceptional points and yields perfect constructibility. Here ambient ULA means dualizability in the cohomological-correspondence category of setting (A); a geometric ULA stalk test alone does not make an arbitrary ambient object perfect. Use Proposition 3.4(iii), with Lemma 3.5’s finite cohomological dimension and the descent/compactness argument, to obtain perfect constructibility.",
+        "Package restriction and Rj* with the actual unit/counit and triangle identities as a Mathlib Equivalence on homotopy categories; EDS supplies the enhancement for the source’s stable ∞-categorical equivalence. No new coefficient or ULA definition is introduced here."
+      ],
+      "acceptance": [
+        "The output is perfect-constructible on the total X, not just constructible after restricting to X_s.",
+        "For a field V=K algebraically closed, restriction and Rj* identify with identity on the perfect-constructible category.",
+        "ULA objects are recovered by the canonical unit; a complex supported only on the closed fibre cannot be ULA unless it is zero.",
+        "For Λ=ℤ/ℓ² the constructible constant ℤ/ℓ complex need not be perfect; it is not an admissible generic input merely because its stalks are finite."
+      ],
+      "prerequisites": [
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/gauss-valuation",
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/gauss-extension-tame-inertia-comparison",
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/tame-quotient-of-a-henselian-valued-field",
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/prime-to-p-cohomology-through-tame-quotient",
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/nearby-cycles-locality-and-proper-pushforward",
+        "SchemeAndStackFoundations:SF.2",
+        "SchemeAndStackFoundations:SF.4",
+        "EtaleDualityAndPerverseSheaves:EDC.0",
+        "EnhancedDerivedSheaves:E1/k-injective-and-k-flat-replacements",
+        "AdicCoefficientsAndComparisons:L2/fp-compactification",
+        "AdicCoefficientsAndComparisons:L2/etale-cohomology-continuity",
+        "AdicCoefficientsAndComparisons:L2/constructible-derived-continuity",
+        "AdicCoefficientsAndComparisons:L2/constructible-Hom-continuity",
+        "mathlib:CategoryTheory.Equivalence",
+        "mathlib:DerivedCategory",
+        "EtaleDualityAndPerverseSheaves:EDC.0/etale-derived-category",
+        "EtaleDualityAndPerverseSheaves:EDC.0/constructible-ctf-complexes"
+      ],
+      "sources": [
+        {
+          "sourceId": "HS",
+          "locator": "§2, setting (B), pp. 7–9; Theorem 4.1 and proof, pp. 19–21; Lemma 4.3, pp. 21–22",
+          "match": "The generic restriction equivalence has inverse Rj*, with full faithfulness by ULA and essential surjectivity by the Gauss/finite-exception induction."
+        },
+        {
+          "sourceId": "HS",
+          "locator": "Proposition 3.4(iii)–(iv) and proof, pp. 14–16; Lemma 3.5 and proof, p. 16",
+          "match": "The ambient dualizable-ULA recognition yields perfect constructibility using compactness, descent and finite cohomological dimension; ULA stalk tests by themselves do not supply perfectness."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Etale/NearbyCycles/ValuationExtension",
+        "namespace": "TauCeti.AlgebraicGeometry.ValuationNearby"
+      },
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Valuative generic-extension equivalence"
+      },
+      "suggestedDeclaration": "aicGenericExtensionEquivalence",
+      "uses": [
+        {
+          "where": "Hansen–Scholze Corollary 4.5; H1:valuation-exports/total-cohomology-valuation-invariance",
+          "how": "Extend generic perfect-constructible objects to ULA objects on the total scheme before deducing total-cohomology invariance."
+        },
+        {
+          "where": "PAPER-YANG-ZHAO-25/A07 and PAPER-ABE-25/A14–A15; GeneralBasesFourier brief",
+          "how": "A07 imports the valuation theorem; A14 must compare its general coherent-base extension with this theorem on AIC valuation test schemes."
+        }
+      ],
+      "api": [
+        {
+          "name": "aicGenericExtensionEquivalence_functor",
+          "role": "characterisation",
+          "statement": "The forward functor is the actual generic restriction j* on ULA complexes."
+        },
+        {
+          "name": "aicGenericExtensionEquivalence_inverse",
+          "role": "characterisation",
+          "statement": "The inverse is the ULA lift of the actual Rj* on perfect-constructible generic complexes; forgetting ULA gives Rj*."
+        },
+        {
+          "name": "aicGenericExtension_unit",
+          "role": "universal-property",
+          "statement": "On every ULA object A the unit A→Rj*j*A is an isomorphism, with the same unit as pullback/direct-image adjunction."
+        },
+        {
+          "name": "aicGenericExtension_counit",
+          "role": "universal-property",
+          "statement": "For every perfect-constructible generic F the counit j*Rj*F→F is an isomorphism; the unit and counit satisfy both triangle identities."
+        },
+        {
+          "name": "aicGenericExtension_perfectConstructible",
+          "role": "compatibility",
+          "statement": "The underlying total-scheme object of the inverse lies in the imported perfect-constructible category, giving constructible cohomology and finite Tor-amplitude separately."
+        }
+      ],
+      "tests": [
+        {
+          "name": "aicGenericExtension_zero",
+          "kind": "degenerate",
+          "statement": "Rj* of the zero generic object is the zero total object, also in the ULA category."
+        },
+        {
+          "name": "aicGenericExtension_field",
+          "kind": "compatibility",
+          "statement": "For V=K an algebraically closed field, the canonical adjunction unit is an isomorphism on every perfect-constructible X-complex, because j is the identity up to the canonical generic-fibre identification."
+        },
+        {
+          "name": "aicGenericExtension_recovery",
+          "kind": "characterisation",
+          "statement": "Generic restriction of the inverse applied to F is canonically isomorphic to F, through the actual adjunction counit."
+        },
+        {
+          "name": "aicGenericExtension_supported_ULA",
+          "kind": "non-example",
+          "statement": "If A is ULA and j*A is zero, then A is zero. This excludes a nonzero complex supported entirely on the special fibre from the domain."
+        }
+      ]
+    },
+    {
+      "id": "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/aic-generic-extension-flat-base-change",
+      "parentStageId": "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles",
+      "realises": [
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles"
+      ],
+      "title": "Flat AIC valuation base change for generic extension",
+      "kind": "theorem",
+      "statement": "In the hypotheses of aic-generic-extension-equivalence, let V→W be a flat map to another absolutely integrally closed valuation ring, let L=Frac W, X_W=X×_V W, and let g:X_W→X and g_K:X_L→X_K be the canonical maps. For F perfect-constructible on X_K, the canonical derived exchange g*Rj*F→Rj_W*(g_K*F) is an isomorphism on the total scheme X_W. Flatness, rather than faithful flatness, is sufficient here. The induced nearby-cycle comparison on the closed fibres additionally needs a local/faithfully flat map carrying the closed point to the closed point.",
+      "hypotheses": [
+        "Both valuation fraction fields are algebraically closed. The generic fibre maps exist by injectivity of the flat map of domains.",
+        "No claim of total-scheme generic-extension base change along arbitrary nonflat maps is made; the earlier arbitrary nearby-cycle theorem has a different target."
+      ],
+      "proofSteps": [
+        "ULA is stable under arbitrary scheme pullback, so g*Rj*F is ULA over Spec W. The generic restriction is g_K*F.",
+        "Apply the W generic-extension equivalence: the canonical unit identifies this object with Rj_W*g_K*F. Identify the unit-induced map with the exchange map by the adjunction-mate comparison requested from SF.2.",
+        "For closed-fibre nearby cycles, use the inherited fibre square only when the map preserves the specified special point. This separates flat base change of Rj* from faithful-flat closed-fibre transport."
+      ],
+      "acceptance": [
+        "For V=W the exchange is the identity.",
+        "A localization V→V_𝔭 is flat and is allowed on total schemes; it need not preserve the old closed point.",
+        "A quotient V→V/𝔭 is covered by arbitrary nearby base change but is not an input to this flat Rj* theorem."
+      ],
+      "prerequisites": [
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/aic-generic-extension-equivalence",
+        "SchemeAndStackFoundations:SF.2"
+      ],
+      "sources": [
+        {
+          "sourceId": "HS",
+          "locator": "Corollary 4.2(ii) and proof, pp. 19–20",
+          "match": "Flat maps between AIC valuation spectra preserve the generic-extension construction; the closed-fibre statement carries its extra point-preservation condition."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Etale/NearbyCycles/ValuationExtension",
+        "namespace": "TauCeti.AlgebraicGeometry.ValuationNearby"
+      },
+      "implementationStatus": "unchecked",
+      "suggestedDeclaration": "aicGenericExtension_flatBaseChange"
+    },
+    {
+      "id": "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/aic-generic-extension-relative-duality",
+      "parentStageId": "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles",
+      "realises": [
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles"
+      ],
+      "title": "Generic extension and relative Verdier duality",
+      "kind": "theorem",
+      "statement": "For the same separated finitely presented X over an AIC valuation V and perfect-constructible torsion coefficients Λ, let D_X/V(A)=RHom_Λ(A,Rf!Λ_V), using the common relative-duality supplier. For F on X_K, the canonical comparison D_X/V(Rj*F)≅Rj*(D_X_K/K F) is a natural isomorphism. Relative duality and its base-change comparison are those of the common scheme supplier. Passing to X_s gives the corresponding nearby-cycle duality comparison, with the specified relative-duality identifications; no arbitrary base-change compatibility of Verdier duality on non-ULA objects is asserted.",
+      "hypotheses": [
+        "Use perfect-constructible generic F, the prime-power coefficient hypotheses and AIC base of the equivalence.",
+        "This is relative duality over Spec V, not an absolute duality based on an unspecified dualizing complex."
+      ],
+      "proofSteps": [
+        "Import stability of perfect-constructible ULA objects under relative Verdier duality and its restriction/base-change formula from the scheme ULA/duality suppliers.",
+        "Both D_X/V(Rj*F) and Rj*(D_X_K/K F) are ULA and have canonically identified generic restrictions. Full faithfulness of generic restriction identifies them by the required natural comparison.",
+        "On the special fibre use the base-change formula for relative duality of a ULA object. The generic-extension equivalence alone does not supply that formula."
+      ],
+      "acceptance": [
+        "For X=Spec V the formula is derived Λ-module duality of a perfect complex.",
+        "The comparison preserves shifts and the supplier’s Tate-twist convention.",
+        "Finite stalks without finite Tor-amplitude do not satisfy the input convention."
+      ],
+      "prerequisites": [
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/aic-generic-extension-equivalence",
+        "SchemeAndStackFoundations:SF.2",
+        "EtaleDualityAndPerverseSheaves:EDC.1",
+        "EtaleDualityAndPerverseSheaves:EDC.0/derived-tensor-and-internal-hom"
+      ],
+      "sources": [
+        {
+          "sourceId": "HS",
+          "locator": "Corollary 4.2(iii) and proof, pp. 19–20",
+          "match": "The duality formula follows from ULA stability and the base-change formula for relative Verdier duals of ULA sheaves."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Etale/NearbyCycles/ValuationExtension",
+        "namespace": "TauCeti.AlgebraicGeometry.ValuationNearby"
+      },
+      "implementationStatus": "unchecked",
+      "suggestedDeclaration": "aicGenericExtension_relativeDuality"
+    },
+    {
+      "id": "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/aic-generic-extension-kunneth",
+      "parentStageId": "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles",
+      "realises": [
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles"
+      ],
+      "title": "Künneth formula for AIC generic extension",
+      "kind": "theorem",
+      "statement": "Let X,Y be separated finitely presented over the same AIC valuation V, with the same coefficient hypotheses, and let F,G be perfect-constructible on X_K,Y_K. On (X×_V Y), the canonical exterior-product map Rj_X*F ⊠^L_Λ Rj_Y*G→Rj_(X×Y)*(F⊠^L_Λ G) is an isomorphism. All exterior products use the imported derived tensor and the two scheme projections, and the product remains separated finitely presented.",
+      "hypotheses": [
+        "Perfect-constructible factors; derived tensor is used even when coefficients are not a field.",
+        "The product is over V on total schemes and over K on generic fibres."
+      ],
+      "proofSteps": [
+        "The scheme ULA supplier gives stability under exterior derived products, so the left side is ULA over V.",
+        "Generic restriction commutes with derived tensor and identifies the generic object with F⊠^L G.",
+        "The unit of the product’s generic-extension equivalence identifies the two objects; compare this unit map with the canonical Künneth transformation rather than choosing an unspecified product isomorphism."
+      ],
+      "acceptance": [
+        "One factor Spec V with generic coefficient unit gives the unit constraint.",
+        "If either generic factor is zero, both sides vanish.",
+        "With Λ=ℤ/ℓ² use derived tensor; replacing it by degreewise ordinary tensor can change the complex."
+      ],
+      "prerequisites": [
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/aic-generic-extension-equivalence",
+        "SchemeAndStackFoundations:SF.2",
+        "EtaleDualityAndPerverseSheaves:EDC.0/derived-tensor-and-internal-hom"
+      ],
+      "sources": [
+        {
+          "sourceId": "HS",
+          "locator": "Corollary 4.2(iv) and proof, pp. 19–20",
+          "match": "The exterior-product formula follows from ULA stability and uniqueness of generic extension."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Etale/NearbyCycles/ValuationExtension",
+        "namespace": "TauCeti.AlgebraicGeometry.ValuationNearby"
+      },
+      "implementationStatus": "unchecked",
+      "suggestedDeclaration": "aicGenericExtension_kunneth"
+    },
+    {
+      "id": "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/aic-nearby-extension-identification",
+      "parentStageId": "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles",
+      "realises": [
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles"
+      ],
+      "title": "AIC generic extension recovers the inherited valuation nearby object",
+      "kind": "comparison",
+      "statement": "For an AIC valuation V and separated finitely presented X/V, take the inherited quadruple with η the generic point and s the closed point. Then κ(η)=K is algebraically closed, its chosen separable closure can be identified with K, and S_(η̄)=Spec K. For a total-scheme perfect-constructible F, the inherited RΨ_L(F)=i*Rj*j*F identifies canonically with i* applied to the underlying total object of the generic-extension inverse evaluated on j*F. This comparison preserves the specialization unit, canonical base-change maps whenever their diagrams are defined, and the inherited (now trivial) Galois action. It reconciles the stronger Rj*/ULA theorem with special-fibre constructibility without identifying the two assertions.",
+      "hypotheses": [
+        "η is generic for this comparison; an intermediate η uses the separate Milnor tube–fibre comparison.",
+        "F is perfect-constructible, not just an arbitrary constructible B-module complex."
+      ],
+      "proofSteps": [
+        "Use the imported strict-localization and nearby-cycle definitions. Since K is algebraically closed, strict localization at the generic geometric point is Spec K.",
+        "Use aicGenericExtensionEquivalence_inverse to identify its underlying functor with Rj*; apply i* and the common coefficient inclusion.",
+        "Compare units, counits and exchange mates from the common SF.2 derived-functor supplier; all maps are canonical. The absence of Galois ambiguity here is a consequence of algebraic closedness.",
+        "Record the downstream contract: PAPER-YANG-ZHAO-25/A07 imports this total extension package. PAPER-ABE-25/A14 treats normalization of a general coherent integral base in a geometric generic field and must prove a comparison after pulling to AIC valuation test schemes; this H1 theorem alone does not prove A14 over a nonvaluation base. ABE/A10–A11 import the exact L2 continuity nodes."
+      ],
+      "acceptance": [
+        "For X=Spec V and F=Λ_X both constructions give Λ on the closed point and specialization fixes 1.",
+        "For V an algebraically closed field, η=s and this becomes identity restriction.",
+        "An AIC valuation of rank greater than one is allowed; its generic inclusion is not relabelled as an open immersion.",
+        "The H1→GeneralBasesFourier edge carries a comparison obligation on A14; it is not a claim that every absolute integral closure is a valuation ring."
+      ],
+      "prerequisites": [
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/aic-generic-extension-equivalence",
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/aic-generic-extension-flat-base-change",
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/oriented-shred-identification",
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/nearby-cycles-over-valuation-base",
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/galois-action-on-nearby-cycles",
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/strict-localisation-of-a-valuation-ring",
+        "SchemeAndStackFoundations:SF.2",
+        "EtaleDualityAndPerverseSheaves:EDC.0/etale-derived-category"
+      ],
+      "sources": [
+        {
+          "sourceId": "HS",
+          "locator": "Corollary 4.2, pp. 19–20",
+          "match": "Special restriction i* of the total generic extension gives nearby cycles, while its constructibility/ULA content is on the total scheme."
+        },
+        {
+          "sourceId": "LZ-v7",
+          "locator": "Remark 4.2(a), pp. 26–27",
+          "match": "Fixes the corresponding generic shred of the general nearby object."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Etale/NearbyCycles/ValuationExtension",
+        "namespace": "TauCeti.AlgebraicGeometry.ValuationNearby"
+      },
+      "implementationStatus": "unchecked",
+      "suggestedDeclaration": "aicNearby_extensionIdentification"
+    }
+  ],
+  "requests": [
+    {
+      "supplier": "SchemeAndStackFoundations:SF.4",
+      "need": "Give the general alteration geometry an early supplier prefix upstream of H1 and L5, without importing either consumer. Exact input: de Jong 1997 Corollary 5.10, p. 618, for dominant proper morphisms of integral excellent schemes: alterations of source and base producing a tower of projective semistable curve fibrations, with the stated finite-group/purely-inseparable function-field refinement. Quasi-splitness and finite dimensionality are not hypotheses of 5.10; do not substitute de Jong 1996 Theorems 4.1/6.5. Include modification/alteration carriers, proper valuative sections, Gabber’s modification-extension lemma (Org v1 3.2.1), flattening and the construction of truncated proper hypercovers with plurinodal or non-dominant components (Org v1 3.3.1). Separately, for the AIC generic-extension proof, provide the smooth-curve spreading assertion used in Hansen–Scholze Theorem 4.1, pp. 20–21, for finite p-power extensions of the strictly henselized Gauss valuation; 5.10 alone is not that assertion. Reuse upstream stable reduction of curves. The SF packet’s conflicting RT alteration-owner recommendations remain a recorded ownership gap.",
+      "neededBy": [
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/valuation-universal-psi-goodness",
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/valuation-universal-milnor-fibre-comparison",
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/valuation-oriented-constructibility",
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/aic-generic-extension-equivalence"
+      ]
+    },
+    {
+      "supplier": "LefschetzPencilsAndVanishingCycles:LPV.0",
+      "need": "Part II early extension of the existing trait owner, proposed below: provide the general oriented-product site, canonical derived nearby functor, slices/shreds and coherent exchange maps from Lu–Zheng §4.1. Supply Orgogozo v1 Theorems 1.1 (universal base change after modification), 5.1 (uniform through-degree cohomological properness after modification, every further base change), 6.1 (constructibility after modification), and Lu–Zheng Theorem 4.27’s noetherian-coefficient extension. Use the early SF.4 plurinodal supplier and SF.2 proper descent/finite-type cohomology; no H1 or L5 input to this early prefix. The current LPV.0 scope is trait-only and does not already promise these results. The request is an unaccepted Part II addition, not an assertion that LPV.0’s existing node proves them. GS.7’s broad downstream nearby node and EDC.6 are consumers, not early suppliers.",
+      "neededBy": [
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/oriented-shred-identification",
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/valuation-universal-psi-goodness",
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/valuation-universal-milnor-fibre-comparison",
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/valuation-oriented-constructibility"
+      ]
+    },
+    {
+      "supplier": "SchemeAndStackFoundations:SF.2",
+      "need": "Supply exact scheme-étale pullback, derived direct image, adjunction and coherent base-change mates on the imported derived carrier; conservative geometric stalks and strict-local stalk formulas; proper base change, smooth local acyclicity and proper-hypercover cohomological descent including truncation/spectral-sequence bounds; constructible cohomology finiteness and uniform geometric-fibre cohomological dimension used in Org v1 §§2–8. For generic extension, supply the general scheme ULA definition (Hansen–Scholze Theorem 4.4(iii), p. 22: every scheme base change, geometric x over a and generization b gives A_x→RΓ(X_(x)×_S_(a)b,A) an isomorphism), its valuative criterion, smooth/exterior-product/relative-duality stability, and the proper finite-exception recognition Lemma 4.3, pp. 21–22. Supply that lemma’s conservative pushforward for complexes supported on a finite morphism. Import coefficient categories and general derived enhancement from their owners; do not create a second ULA carrier in H1. Include the setting-(A) ambient dualizability/ULA recognition used in Lemma 4.3 and Proposition 3.4(iii), pp. 14–16, with its cohomological-correspondence duality criterion, compactness/descent proof of perfect constructibility, and Lemma 3.5 finite cohomological dimension. Do not infer perfectness from geometric ULA of an arbitrary constant infinite module. The perfect-constructible geometric ULA category and this ambient recognition interface must agree on their common domain.",
+      "neededBy": [
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/oriented-shred-identification",
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/valuation-universal-psi-goodness",
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/valuation-universal-milnor-fibre-comparison",
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/valuation-oriented-constructibility",
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/aic-generic-extension-equivalence",
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/aic-generic-extension-flat-base-change",
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/aic-generic-extension-relative-duality",
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/aic-generic-extension-kunneth",
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/aic-nearby-extension-identification"
+      ]
+    },
+    {
+      "supplier": "AdicCoefficientsAndComparisons:L2",
+      "need": "Import the existing noetherian-approximation, fp-relative-diagram-descent, etale-cohomology-continuity, constructible-Hom-continuity, constructible-derived-continuity and fp-compactification nodes. Additional precise need: filtered-constructible ℤ/n generation and degreewise passage through RΨ/local cohomology on coherent schemes used in Lu–Zheng Example 4.26(2), compatible with finite cohomological bounds; generic Spec K as an affine-transition limit of quasi-compact opens of Spec V; finite diagrams, adjunction units/exchange maps and perfectness must descend, not just objects. The existing finite-type-fp-factorisation is a closed immersion into a finitely presented scheme, not an isomorphism and not a constructible-sheaf extension theorem. The missing bridge for the full locally finite type H0 tube/constructibility statements stays an explicit gap.",
+      "neededBy": [
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/valuation-universal-psi-goodness",
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/valuation-universal-milnor-fibre-comparison"
+      ]
+    },
+    {
+      "supplier": "EtaleDualityAndPerverseSheaves:EDC.0",
+      "need": "Extend the existing etale-derived-category and constructible-ctf-complexes carriers to qcqs nonnoetherian schemes with the Hansen–Scholze setting (B) convention: a finite constructible stratification by locally constant perfect Λ-complexes. For this packet Λ is noetherian and killed by a prime power. Identify that perfect-constructible category with the existing constructible/finite-Tor carrier wherever both apply; retain the actual inclusion into D⁺ and its enhancement. The current constructible-ctf node is stated for noetherian schemes and is not silently used on an arbitrary valuation scheme. Ambient left-completion/pro-étale comparison on perfect-constructible objects is an enhancement interface, not a new coefficient category.",
+      "neededBy": [
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/valuation-oriented-constructibility",
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/aic-generic-extension-equivalence"
+      ]
+    },
+    {
+      "supplier": "EtaleDualityAndPerverseSheaves:EDC.1",
+      "need": "Supply relative Verdier duality D_X/S=RHom(-,Rf!Λ_S) on separated finitely presented qcqs scheme morphisms, with the exact ULA stability and base-change comparison used in Hansen–Scholze Corollary 4.2(iii). Compare with the existing finite-type/noetherian duality on its overlap. The generic-extension equivalence does not prove this input; do not import the later analytic/diamond comparison stage EDC.6.",
+      "neededBy": [
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/aic-generic-extension-relative-duality"
+      ]
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles",
+      "status": "planned",
+      "note": "Twenty inherited nodes, ten new declarations. All stage targets have exact inherited or new declarations and explicit proof frontiers. Non-dominant base change is now planned through the public arbitrary-valuation route, with an early supplier ownership proposal; perfect-constructible total Rj* extension and its separate compatibilities are specified. No closure or formalization is claimed.",
+      "remaining": [
+        "Accept/reconcile the early alteration and general-base Part II ownership proposals; supply de Jong 1997 Corollary 5.10 and the exact Orgogozo/Lu–Zheng interfaces without an L5/H1 cycle.",
+        "Establish the locally finite type/presentation and arbitrary-coefficient bridge for the full inherited tube/constructibility targets.",
+        "Verify the exact Hub96 conventions and original henselian/Gauss/defectless/controlling-submodule proof steps using a cleared source or faithful public proof.",
+        "Implement the precisely requested coherent derived-functor, qcqs perfect-constructible, general scheme ULA, smooth-curve spreading and relative-duality interfaces; then discharge the planned Lean declarations."
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "title": "Early alteration ownership is proposed, not accepted",
+      "neededBy": [
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/valuation-universal-psi-goodness",
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/valuation-universal-milnor-fibre-comparison",
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/valuation-oriented-constructibility",
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/aic-generic-extension-equivalence"
+      ],
+      "detail": "SF.4’s current packet explicitly records conflicting confirmed recommendations RT-AREA-algebraicgeometry/16 (SF.4 supplies L5) and RT-AREA-etale/21 (L5 supplies SF.4). No exact de Jong 1997 Corollary 5.10 node exists before H1. This packet requests an early SF.4 geometry prefix and proposes the node-level split; it cannot accept that ownership decision or edit either supplier. Accept/reconcile the proposal and provide the exact plurinodal theorem, rather than declaring the public route proof-closed."
+    },
+    {
+      "title": "Early general-base nearby supplier is an unaccepted Part II extension",
+      "neededBy": [
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/oriented-shred-identification",
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/valuation-universal-psi-goodness",
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/valuation-universal-milnor-fibre-comparison",
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/valuation-oriented-constructibility"
+      ],
+      "detail": "LPV.0 currently supplies excellent finite-type traits only. Its early general-base Part II prefix must supply the actual oriented functor and Orgogozo 1.1/5.1/6.1 with every stated finiteness/boundedness hypothesis. GS.7’s broad nearby node points downstream to EDC.6, which consumes L5 and cannot supply an early proof. The public source proof has been read, but the precise supplier declarations and an accepted ownership split are not present."
+    },
+    {
+      "title": "Locally finite type versus finite presentation bridge",
+      "neededBy": [
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/valuation-universal-milnor-fibre-comparison",
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/valuation-oriented-constructibility",
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/comparison-with-geometric-generic-point",
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/constructibility-of-nearby-cycles"
+      ],
+      "detail": "The new constructibility and universal tube–fibre statements retain finite presentation, unlike H0’s locally finite type targets. A closed embedding in an affine or projective finite-presentation scheme does not by itself extend a constructible sheaf to a constructible sheaf on the ambient nonnoetherian scheme. Establish that reduction for the specified shred, its exact canonical maps and arbitrary noetherian coefficients, or give a public direct finite-type proof. Do not equate finite type with finite presentation or claim this gap is removed by L2/finite-type-fp-factorisation alone."
+    },
+    {
+      "title": "Exact Huber source and the original Gauss/wild/curve proof remain unavailable",
+      "neededBy": [
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/comparison-with-geometric-generic-point",
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/valuative-base-change-for-nearby-cycles",
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/constructibility-of-nearby-cycles",
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/gauss-extension-tame-inertia-comparison"
+      ],
+      "detail": "The library index marks Huber 1996 as not cleared; it was not accessed. H0’s exact quadruple conventions and 4.2.1–4.2.3 wording, the original induction using Gauss valuations, the precise defectless hypotheses and full Galois-surjectivity in 4.2.10, and the controlling constructible submodule in the curve proof of 4.2.5 (pp. 249–250) are still unverified against that source. Public modification proofs establish their own qualified results, not those original proof substeps. Hansen–Scholze’s AIC/pro-p induction supplies a separate stronger-input theorem and does not settle the general wild-action claim. A cleared-source reviewer must check these points, or locate a faithful public treatment; use no uncleared copy."
+    },
+    {
+      "title": "Supplier implementation and exact enhancement interfaces",
+      "neededBy": [
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/oriented-shred-identification",
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/valuation-universal-psi-goodness",
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/non-dominant-cartesian-base-change",
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/valuation-universal-milnor-fibre-comparison",
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/valuation-oriented-constructibility",
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/aic-generic-extension-equivalence",
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/aic-generic-extension-flat-base-change",
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/aic-generic-extension-relative-duality",
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/aic-generic-extension-kunneth",
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/aic-nearby-extension-identification"
+      ],
+      "detail": "All new mathematical declarations are unchecked. Requests specify the missing derived-functor maps, coherent oriented-product sites, scheme ULA category, perfect-constructible qcqs coefficient extension, proper descent, smooth-curve spreading and ULA-relative-duality inputs. The suggested file uses labelled data-valued supplier stubs on the existing derived carrier; conditions which cannot yet be encoded are documented rather than hidden in arbitrary proposition fields. Elaborating these stubs does not implement or prove the supplier results."
+    }
+  ],
+  "sourceIssues": [],
+  "restructure": [
+    {
+      "action": "split",
+      "roadmaps": [
+        "SchemeAndStackFoundations",
+        "AdicCoefficientsAndComparisons",
+        "ClassicalAdicEtaleCohomology"
+      ],
+      "detail": "The general alteration strand has conflicting owner recommendations and L5 consumes H1. The specific plurinodal input is de Jong 1997 Corollary 5.10, distinct from L5’s 1996 theorems.",
+      "proposal": "Select an early geometric prefix of SF.4 as the single owner of source-qualified general alterations/modifications and de Jong 1997 5.10, importing existing stable reduction and early scheme foundations but no L5 or H1. Other SF.4 applications and L5 consume it. Keep current stage/node ids until the maintainer accepts the split. At node level the prefix may use SF.0 excellence, general morphisms and stable curve reduction; it must not inherit later application dependencies just from sharing SF.4."
+    },
+    {
+      "action": "extend",
+      "roadmaps": [
+        "LefschetzPencilsAndVanishingCycles",
+        "ClassicalAdicEtaleCohomology",
+        "AdicCoefficientsAndComparisons",
+        "GlobalShtukasAndFunctionFieldLanglands"
+      ],
+      "detail": "Trait LPV.0 does not supply the public general-base modification route, while GS.7/EDC.6 would import a downstream L5 dependency. The proposed GeneralBasesFourier brief combines this general-base direction with applications consuming H1.",
+      "proposal": "Extend LPV in its own direction as a Part II with an early general-base nearby prefix for oriented products and Orgogozo/Lu–Zheng modification theorems, using early SF.4 geometry, SF.2 cohomology and L2 continuity. H1’s valuation-specific results consume this prefix. Its GeneralBasesFourier application prefix then imports H1 and H1:valuation-exports as well as L2, satisfying RT-AREA-etale/15. Keep ABE/A10–A11 continuity owned by the exact L2 nodes and A07/A14’s valuation Rj* owned by H1; the general coherent-base extension in A14 must prove its comparison with H1 on AIC valuation tests. GS.7 imports the early general-base theory and retains its shtuka application. No edge from H1 to the whole later Fourier part is introduced."
+    },
+    {
+      "action": "rescope",
+      "roadmaps": [
+        "ClassicalAdicEtaleCohomology"
+      ],
+      "detail": "H0 already nominates six nearby-cycle planets; this follow-up nominates four more before assembly.",
+      "proposal": "During assembly select at most six: retain the inherited quadruple and nearby-cycle construction; replace the dominant-base-change nomination with valuation-universal-psi-goodness; replace the constructibility nomination by the source-qualified valuation-oriented-constructibility; replace the inherited tube comparison nomination by the universal Milnor comparison; add the AIC generic-extension equivalence and omit the Gauss-valuation planet in this star. This is six, not the union of both packets’ marks. No existing planet or H0 node is edited here."
+    }
+  ],
+  "confirmedFindings": [
+    {
+      "id": "RT-AREA-etale/15",
+      "status": "addressed within authorized supplier scope",
+      "detail": "Imports exact L2 Hom/derived/cohomological continuity and compactification nodes; supplies the valuation-specific total Rj*/perfect-constructible/ULA package; separates A07 import from A14’s general coherent-base comparison obligation. Proposes precise H1 and L2 imports to GeneralBasesFourier without editing that brief or claiming its general theorem."
+    }
+  ],
+  "baselineAudit": {
+    "acceptedAudit": "AUDIT-18 in data/library-coverage.json",
+    "verdict": "not built",
+    "read": "2026-10-08",
+    "confirmation": "At Mathlib 082e2d3 read proper valuative criterion, arbitrary valuation rings, small étale topology and actual derived/equivalence carriers. At Tau Ceti f790474 searched all TauCeti sources for plurinodal, Orgogozo, nearby cycles, ULA, absolute integral closure and declaration names for alteration/modification: no exact supplier found. Existing valuation/inertia/Gauss-norm primitives are imported through the accepted H0 nodes, not re-planned. SF.4 AUDIT-01 alterations target is absent; its rational/birational maps and native properness remain baseline."
+  },
+  "sourceLocatorCorrections": [
+    {
+      "where": "The issue and inherited public-route gap call dJ97 5.10 a theorem.",
+      "correction": "In the published 1997 source it is Corollary 5.10, p. 618. This is a locator correction in the roadmap evidence, not a published mathematical erratum."
+    },
+    {
+      "where": "Lu–Zheng Theorem 4.27 cites the published Orgogozo numbering.",
+      "correction": "Use arXiv v1 Theorems 1.1/5.1/6.1 and §§3/8 here; do not equate Lu–Zheng’s published [O] Lemma 3.3/10.5 with arXiv v1 sections of the same numbers."
+    }
+  ],
+  "targetInventory": [
+    {
+      "target": "Quadruple, strict localization, morphisms, continuous Galois action, equivariant transport, tube-defined RΨ and actual base-change map",
+      "imports": [
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/valuation-base-quadruple",
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/strict-localisation-of-a-valuation-ring",
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/morphism-of-valuation-quadruples",
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/nearby-cycles-over-valuation-base",
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/galois-action-on-nearby-cycles",
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/milnor-tube-stalk-formula",
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/nearby-cycles-base-change-map",
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/nearby-cycles-equivariant-transport"
+      ],
+      "refinement": [
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/oriented-shred-identification"
+      ]
+    },
+    {
+      "target": "Cartesian base change including non-dominant valuation maps",
+      "imports": [
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/valuative-base-change-for-nearby-cycles"
+      ],
+      "refinement": [
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/valuation-universal-psi-goodness",
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/non-dominant-cartesian-base-change"
+      ]
+    },
+    {
+      "target": "Tube–fibre, amplitude, noetherian coefficient change and locally finite type constructibility",
+      "imports": [
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/comparison-with-geometric-generic-point",
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/nearby-cycles-cohomological-amplitude",
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/noetherian-coefficient-change-for-constructibility",
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/constructibility-of-nearby-cycles"
+      ],
+      "refinement": [
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/valuation-universal-milnor-fibre-comparison",
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/valuation-oriented-constructibility"
+      ],
+      "boundary": "Public refinement is finite-presentation; the full finite-type bridge is a recorded gap."
+    },
+    {
+      "target": "Radicial invariance, filtered colimits and locality/projective/proper reduction",
+      "imports": [
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/radicial-invariance-of-nearby-cycles",
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/nearby-cycles-commute-with-filtered-colimits",
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/nearby-cycles-locality-and-proper-pushforward"
+      ]
+    },
+    {
+      "target": "Pro-p/tame, Gauss induction, full wild/defectless 4.2.10 and controlling constructible curve submodule",
+      "imports": [
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/tame-quotient-of-a-henselian-valued-field",
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/prime-to-p-cohomology-through-tame-quotient",
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/gauss-valuation",
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/gauss-extension-tame-inertia-comparison"
+      ],
+      "boundary": "Keep H0’s tame/general-wild distinction and inaccessible-source gaps; AIC HS induction is not substituted for the original full proof."
+    },
+    {
+      "target": "Rj* total extension requested by H1:valuation-exports and RT-AREA-etale/15",
+      "refinement": [
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/aic-generic-extension-equivalence",
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/aic-generic-extension-flat-base-change",
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/aic-generic-extension-relative-duality",
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/aic-generic-extension-kunneth",
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/aic-nearby-extension-identification"
+      ],
+      "boundary": "A07 is an import; A14 over a general coherent absolute-integral-closure base is a consumer extension with a comparison obligation."
+    }
+  ]
+}
