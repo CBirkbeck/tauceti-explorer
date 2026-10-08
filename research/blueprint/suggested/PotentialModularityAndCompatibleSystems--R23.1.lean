@@ -430,7 +430,7 @@ The complete mathematical contract is in the packet and reader. -/
 
 /- Omitted declaration: TauCeti.PotentialModularity.chtSolublePrescribedCompletions.
 Packet node: PotentialModularityAndCompatibleSystems:R23.1/cht-soluble-prescribed-completions.
-CHT Lemma 4.1.2, p. 117. Requires selected places, prescribed finite local Galois extensions and their completion isomorphisms. A trivial-field witness would omit the central conclusion.
+CHT Lemma 4.1.2, statement p. 116 and proof p. 117. Requires selected places, prescribed finite local Galois extensions and their completion isomorphisms. A trivial-field witness would omit the central conclusion.
 The complete mathematical contract is in the packet and reader. -/
 
 /- Omitted declaration: TauCeti.PotentialModularity.moretBaillyThreeLocalConditions.
@@ -650,3 +650,16 @@ example : ¬ Nonempty (ZMod 5 →+* ℚ) := by
   sorry
 
 end TauCeti.CompatibleSystems
+
+/-
+Repair contracts (/3, /26): KW II Theorem 6.1 and the auxiliary-field finiteness
+argument import GL2ModularityLifting:R22.1/theorem-8-2-minimal-modular-lifts,
+including the central character, Steinberg set, cases (a)–(c) and dyadic alternatives.
+CHT 4.1.1's character extension can have finite image: the open subgroup H of idele
+classes has finite index, its local character has finite image, and the quotient
+of all idele classes by that character's kernel is finite. Extend into all roots
+of unity, then take the p-primary component when the local data have p-power order.
+The global order may grow. CHT 4.1.2 has statement on p. 116 and proof on p. 117.
+These contracts require the named omitted arithmetic suppliers, so no replacement
+schema with arbitrary predicates is introduced here.
+-/

@@ -1751,7 +1751,7 @@
       "prerequisites": [
         "GL2ModularityLifting:R22.1/minimal-level-data",
         "GL2ModularityLifting:R22.1/allowable-base-change-existence",
-        "PotentialModularityAndCompatibleSystems:R23.1",
+        "PotentialModularityAndCompatibleSystems:R23.1/cht-soluble-prescribed-completions",
         "GL2AutomorphicRepresentationsAndTransfer:R17.4"
       ],
       "library": {
@@ -4339,7 +4339,7 @@
       ],
       "prerequisites": [
         "GL2ModularityLifting:R22.1/allowable-base-change",
-        "PotentialModularityAndCompatibleSystems:R23.1",
+        "PotentialModularityAndCompatibleSystems:R23.1/cht-soluble-prescribed-completions",
         "ArithmeticGaloisRepresentations:R01.4",
         "tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev"
       ],
@@ -4350,7 +4350,7 @@
       "sources": [
         {
           "sourceId": "CHT-2008",
-          "locator": "Lemma 4.1.2, p. 116",
+          "locator": "Lemma 4.1.2, statement p. 116 and proof p. 117",
           "match": "The existence theorem applied; S may contain real places."
         },
         {
@@ -4583,7 +4583,7 @@
       ],
       "prerequisites": [
         "GL2ModularityLifting:R22.1/determinant-character-kinds",
-        "PotentialModularityAndCompatibleSystems:R23.1",
+        "PotentialModularityAndCompatibleSystems:R23.1/cht-character-extension",
         "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-12-separate-arithmetic-global-existence-the-norm-index-and-the-global-correspondence",
         "ArithmeticGaloisRepresentations:R01.3"
       ],
@@ -5028,7 +5028,7 @@
         "GL2ModularityLifting:R22.5/solvable-base-change-reduction"
       ],
       "status": "open",
-      "note": "R23.1 has no ancestor in GL2ModularityLifting: its only stage requirement is AlgebraicModuliForArithmeticGeometry R09.3. On the stage edges of data/atlas.json it has three ancestors (R09.1–R09.3), and sixteen once the accepted restructuring links and the link maps are added; none is a consumer of R22.1, so the link R23.1 → R22.1 is acyclic. The R23.1 packet has not yet planned these lemmas; when it does, the stage prerequisite becomes their node ids."
+      "note": "R23.1 now plans these contracts in cht-character-extension and cht-soluble-prescribed-completions. The character node explicitly includes the finite-order and p-primary refinements. The consumer prerequisites name these fine nodes. They are planned, not formalised; the S-unit congruence, reciprocity and ray-class finiteness interfaces remain the supplier’s open requests. Quadratic local prescription remains the weak-approximation argument in allowable-base-change-existence."
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-12-separate-arithmetic-global-existence-the-norm-index-and-the-global-correspondence",

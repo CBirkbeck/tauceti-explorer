@@ -1150,7 +1150,7 @@ Kisin's Theorem 4.3 in this roadmap's normalisation: let π be a cuspidal automo
 
 **Acceptance.** A ramified totally real base field and a non-parallel cohomological weight are allowed. A residually reducible λ is not covered by this theorem merely because ρ_{π,λ} is irreducible in characteristic zero.
 
-**Direct inputs:** `AutomorphicGaloisRepresentations:R19.2/all-cohomological-hilbert-representation`, `AutomorphicGaloisRepresentations:R19.2/hilbert-normalisation-dictionary`, `AutomorphicGaloisRepresentations:R19.5/potential-semistability-and-compatibility-at-the-coefficient-prime`, `LocalGaloisDeformationRings:R08.3/semistable-height-quotient`, `LocalGaloisDeformationRings:R08.3`, `IntegralHeckeAndGaloisDeterminants:IHG.1`.
+**Direct inputs:** `AutomorphicGaloisRepresentations:R19.2/all-cohomological-hilbert-representation`, `AutomorphicGaloisRepresentations:R19.2/hilbert-normalisation-dictionary`, `AutomorphicGaloisRepresentations:R19.5/potential-semistability-and-compatibility-at-the-coefficient-prime`, `LocalGaloisDeformationRings:R08.3/semistable-height-quotient`, `LocalGaloisDeformationRings:R08.3/pst-quotient-in-families`, `IntegralHeckeAndGaloisDeterminants:IHG.1`.
 
 **Source anchors:** [Mark Kisin](https://www.ams.org/journals/jams/2008-21-02/S0894-0347-07-00576-0/S0894-0347-07-00576-0.pdf), Theorem 4.3 and proof, pp. 543–544; [Mark Kisin](https://www.ams.org/journals/jams/2008-21-02/S0894-0347-07-00576-0/S0894-0347-07-00576-0.pdf), Theorem 2.5.5, pp. 530–531; Theorem 2.7.6, p. 534; [Mark Kisin](https://www.ams.org/journals/jams/2008-21-02/S0894-0347-07-00576-0/S0894-0347-07-00576-0.pdf), §4.1, p. 542.
 
@@ -1286,7 +1286,7 @@ Let T_m be the complete local integral Hecke algebra, possibly nonreduced, and D
 
 **Acceptance.** Check that the residual determinant of the localized Hecke algebra is split and absolutely irreducible over its finite residue field; apply Chenevier Theorem 2.22(i), without the algebraically-closed-residue hypothesis of introductory Theorem B. Check on a nonreduced Hecke algebra that the determinant law is defined on the whole algebra and not only on its reduced characteristic-zero specializations
 
-**Direct inputs:** `IntegralHeckeAndGaloisDeterminants:IHG.1`, `AutomorphicGaloisRepresentations:R19.6/geometric-hecke-determinant`, `AutomorphicGaloisRepresentations:R19.6/residual-representation-of-a-newform`.
+**Direct inputs:** `IntegralHeckeAndGaloisDeterminants:IHG.1/henselian-irreducible`, `AutomorphicGaloisRepresentations:R19.6/geometric-hecke-determinant`, `AutomorphicGaloisRepresentations:R19.6/residual-representation-of-a-newform`.
 
 **Source anchors:** [Gaetan Chenevier](https://arxiv.org/pdf/0809.0415), Theorem 2.22(i), printed p. 34; split residual determinant definitions in §2.18–2.22.
 

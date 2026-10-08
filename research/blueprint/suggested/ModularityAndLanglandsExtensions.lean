@@ -7554,3 +7554,12 @@ theorem bianchi_massEquidistribution (hF : Module.finrank ℚ F = 2) (hF' : IsTo
 end SymmetricPower
 
 end TauCeti
+
+/-
+Repair ownership contract (/8): ML.1/odd-artin-modularity-over-q registers
+ClassicalSerreModularity:R27.6/odd-artin-weight-one-modularity together with
+GL2AutomorphicRepresentationsAndTransfer:R17.5/solvable-artin and
+AutomorphicGaloisRepresentations:R19.1/weight-one-artin-representation.
+The proof of the rational A5 case is the R27.6 export (KW I Corollary 10.2(ii), p. 21).
+ML.1's irregular-systems node is a separate consumer of R27.6's weight-one descent.
+-/

@@ -257,3 +257,11 @@ example : Nat.primeCounting 31 = 11 ∧ Nat.primeCounting 100 = 25 := by
   sorry
 
 end TauCeti.SerreConjecture
+
+/-
+Repair dependency contract (/12): R26.6/corollary-8-1-ii-and-the-statement-W1 and
+R27.2/theorem-3-2-weight-reduction import KW I Theorem 4.1 directly from
+GL2ModularityLifting:R22.5/kw-i-theorem-4-1-odd-prime and
+GL2ModularityLifting:R22.6/kw-i-theorem-4-1-dyadic. The R24.4 registry supplies
+no extra lifting theorem. KW I §8.2–§8.3, pp. 13–16; KW II §10.2, p. 92.
+-/
