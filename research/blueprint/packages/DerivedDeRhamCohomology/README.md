@@ -379,7 +379,7 @@ Tests:
 
 **Derived ideal completeness.** Let I=(f₁,…,f_r)⊂A be finitely generated. A complex M∈D(A) is derived I-complete if RHom_A(A[1/f_i],M)=0 for each i, equivalently Hom_D(A)(A[1/f_i][n],M)=0 for every integer n and i. This depends only on √I and is equivalent to each H^j(M) being a derived I-complete module. Completeness is a homotopical condition, not ordinary separatedness.
 
-[StacksMA], §93, Lemmas 93.1–93.4 and Definition 93.4; tags 091P,091S, pp.261–263.
+[StacksMA], §93, Lemmas 93.1–93.3 and Definition 93.4; tags 091P,091S, pp.261–263.
 
 Prerequisites: `EnhancedDerivedSheaves:E1/enhanced-derived-category`; `EnhancedDerivedSheaves:E1/presentability-and-derived-tensor`.
 
@@ -400,7 +400,7 @@ Tests:
 
 **The derived completion reflector.** For finite-generated I⊂A construct Λ_I:D(A)→D_I-comp(A) left adjoint to the inclusion, with natural unit η_M:M→Λ_I M. For I=(f_i), put C_I=⊗_i[A→A[1/f_i]] in cochain degrees 0,1 and Λ_I M=RHom_A(C_I,M). This is exact, independent of generators, idempotent and preserves colimits formed in the complete category. Derived Nakayama: if M is complete and M⊗^L_A A/I=0 then M=0.
 
-[StacksMA], §93, Lemmas 93.10, 93.18 and 93.20; tags 091V,0920,0G1U, pp.261–263.
+[StacksMA], §93, Lemmas 93.10, 93.18 and 93.20; tags 091V,0920,0G1U, pp.264,267–268.
 
 Prerequisites: DD.1: Derived ideal completeness; DD.1: The Koszul complex; `EnhancedDerivedSheaves:E1/presentability-and-derived-tensor`; `EnhancedDerivedSheaves:E3/adjoint-functor-theorem-and-localisations`; [`PadicInt`][lib-44].
 
@@ -1501,7 +1501,7 @@ Apply the imported proper-flat coherent-cohomology theorem to differential bundl
 
 **Proper smooth de Rham perfectness.** Let A be p-complete with bounded p-torsion and X a proper p-completely smooth formal A-scheme of finite presentation, with compatible proper smooth ordinary reductions X_n/A_n of bounded relative dimension d. Then the p-completed continuous de Rham global object is a perfect derived p-complete A-complex. Each RΓ(X_n,Ω^i_(X_n/A_n)) is perfect by the shared proper-flat coherent-cohomology theorem, its Hodge quotient is a finite extension of these pieces, and Ω^i=0 for i>d. No degeneration or finite-projective individual H^j is asserted. The same finite-filtration argument applies to an ordinary proper smooth finite-presentation A-scheme with its smooth ordinary/Hodge-completed comparison in the appropriate characteristic.
 
-[StacksProper], Tags 0A1G/0A1H, Lemma 36.30.1 and 36.30.4 with proof, pp.73–74 of Derived Categories of Schemes; [StacksProper], Lemmas 36.30.1 and 36.30.4, Tag 0A1G, pp.73–74 of Derived Categories of Schemes.
+[StacksProper], §36.30, Lemmas 36.30.1 and 36.30.4 with proof; tags 0A1H,0B91, pp.73–74 of Derived Categories of Schemes.
 
 Prerequisites: DD.2: The de Rham algebra of a completely smooth formal algebra; DD.2: Smooth ordinary and completed de Rham comparisons; DD.2: Derived de Rham on schemes and formal schemes; DD.5: Relative Tor-amplitude estimates; DD.5: Descent of Hodge quotients and completion; DD.1: Valid exchanges of completion and derived operations; `AlgebraicModuliForArithmeticGeometry:A0-extension`; `SchemeAndStackFoundations:SF.4`.
 
@@ -1918,7 +1918,7 @@ The integral resolution, power and crystalline arguments must respect the author
 
 - **StacksCt**: The Stacks Project Authors, *The cotangent complex*. PDF build 88ff78, 14 July 2026.
 
-- **StacksMA**: The Stacks Project Authors, *More on Algebra: Koszul complexes and derived completion*. PDF 2026 PDF.
+- **StacksMA**: The Stacks Project Authors, *More on Algebra: Koszul complexes and derived completion*. Chapter PDF build 88ff78, 14 July 2026.
 
 - **Prisms**: Bhargav Bhatt and Peter Scholze, *Prisms and prismatic cohomology*. arXiv:1905.08229v4.
 

@@ -560,12 +560,12 @@ def map (A B C : Type) [CommRing A] [CommRing B] [CommRing C]
 -- test_identity_algebra
 example (A : Type) [CommRing A] : Nonempty
     ((ofPolynomialResolution A A).underlying ≅ unit A) := by sorry
--- test_rational_laurent_boundary: uncompleted side only; the ordinary dt/t calculation stays in the packet.
+-- test_rational_laurent_boundary: uncompleted side only; the README also requires the ordinary dt/t calculation.
 example : Nonempty ((ofPolynomialResolution ℚ (LaurentPolynomial ℚ)).underlying ≅ unit ℚ) := by sorry
 
 /- DerivedDeRhamCohomology:DD.2/characteristic-zero-completion-boundary
-For a map of Q-algebras A→B the direct-sum (uncompleted) derived de Rham complex satisfies dR_(B/A)≃A (Corollary 2.5). Hence the uncompleted theory cannot be identified with ordinary de Rham cohomology of smooth Q-algebras: for B=Q[t,t^{−1}] over Q the ordinary de Rham complex has the nonzero class dt/t in degree one while dR_(B/Q)≃Q (the source states exactly this example in Remark 3.12, p.8). Remark 2.6 identifies the Hodge-completed complex (product totalisation) as the variant whose Hodge-to-de Rham spectral sequence converges and which agrees with classical de Rham cohomology for smooth maps; that completed comparison is asserted there, not proved in the inspected range. Hodge completion and p-adic completion are distinct operations. In characteristic p the uncompleted smooth comparison dR_(B/A)≃Ω*_(B/A) for smooth maps of Z/p^n-algebras is a separate theorem (Corollary 3.10, p.8; statement and proof read in review R2, imported inputs unread), not a consequence of this node.
-Typed boundary: Only uncompleted collapse for an actual tower of Q-algebras. The ordinary and Hodge-completed comparison interiors remain in the full contract and their recorded gap.
+For a map of Q-algebras A→B the direct-sum (uncompleted) derived de Rham complex satisfies dR_(B/A)≃A (Bhatt, Corollary 2.5, p.5). For B=Q[t,t^{−1}], ordinary de Rham has a nonzero degree-one class dt/t (Remark 3.12, p.8). Hodge completion uses the quotient inverse limit; its smooth comparison requires the convergence and filtered comparison in the README. Bhatt Remark 2.6, p.6, states this comparison without supplying that argument. Hodge and p-adic completion are separate operations. Corollary 3.10, p.8, proves the distinct uncompleted smooth comparison for Z/p^n-algebras.
+Typed boundary: Uncompleted collapse for an actual tower of Q-algebras. The ordinary Laurent calculation and the Hodge-completed filtered comparison require additional signatures.
 -/
 lemma rationalCollapse (A B : Type) [CommRing A] [CommRing B] [Algebra A B]
     [Algebra ℚ A] [Algebra ℚ B] [IsScalarTower ℚ A B] :
@@ -644,9 +644,9 @@ example (p : ℕ) [Fact p.Prime] :
     ¬ IsIso (crystallineComparisonMap p 1 (by omega)
       (ZMod (p^1)) (SquareZero2 (ZMod (p^1)))) := by sorry
 
-/- Full-contract omission inventory. These are mathematical names, not Lean
-declarations. They deliberately omit unavailable conditions under PROTOCOL §13.
-The complete statement, source route and tests remain in the packet and reader. -/
+/- Mathematical interfaces beyond the ordinary view. These comments give names
+and contracts for conditions requiring additional carriers or coherent structures.
+The README gives their complete statements, sources and tests. -/
 
 /-!
 ## Interfaces needing enhanced or neighbouring-roadmap carriers
@@ -861,8 +861,8 @@ For a field k of characteristic p with finite degree [k:k^p]=p^r, a p-basis b₁
 -/
 
 /- DD.0: Cotangent obstruction theory for square-zero lifts
-Boundary: The space of extensions with a specified ideal and its obstruction must be typed. Flat lifting assumes B flat over A and the additional ideal-identification/local-flatness theorem in the recorded gap; a zero cotangent morphism is not an obstruction classification.
-Required interface: The space of extensions with a specified ideal and its obstruction must be typed. Flat lifting assumes B flat over A and the additional ideal-identification/local-flatness theorem in the recorded gap; a zero cotangent morphism is not an obstruction classification.
+Boundary: The space of extensions with a specified ideal and its obstruction must be typed. Flat lifting assumes B flat over A and the additional ideal-identification/local-flatness theorem required by the README; a zero cotangent morphism is not an obstruction classification.
+Required interface: The space of extensions with a specified ideal and its obstruction must be typed. Flat lifting assumes B flat over A and the additional ideal-identification/local-flatness theorem required by the README; a zero cotangent morphism is not an obstruction classification.
 
 OMITTED declaration: TauCeti.DerivedDeRham.squareZeroDeformations
 Let A′→A be a square-zero extension with ideal J and let B be a flat ordinary A-algebra. The obstruction to a flat lift B′ over A′ with B′⊗_(A′)A≃B is a natural class in Ext²_B(L_(B/A),J⊗_A B). When it vanishes, isomorphism classes of lifts form a torsor under Ext¹ and automorphisms under Ext⁰. For smooth B/A, finite projectivity of L in degree zero gives existence and uniqueness up to the stated automorphisms. Derived lift spaces use the full module-valued square-zero extension, not just the Ext set.
@@ -1529,8 +1529,8 @@ For every quasiregular semiperfect F_p-algebra S, put S^♭=lim_φ S and I=ker(S
 -/
 
 /- DD.4: Derived de Rham–Witt with Nygaard filtration
-Boundary: CR.4 must provide the classical smooth Witt functor and its left Kan extension. The QRSP theorem takes an actual QRSP object (including a perfectoid source) and its canonical completed Witt value. No unrestricted higher-cohomology assertion or negation is retained.
-Required interface: CR.4 must provide the classical smooth Witt functor and its left Kan extension. The QRSP theorem takes an actual QRSP object (including a perfectoid source) and its canonical completed Witt value. No unrestricted higher-cohomology assertion or negation is retained.
+Boundary: CR.4 supplies the classical smooth Witt functor and Nygaard data; DD.4 constructs its left Kan extension using EnhancedDerivedSheaves:E3. The QRSP theorem takes an actual QRSP object (including a perfectoid source) and its canonical completed Witt value. No unrestricted higher-cohomology assertion or negation is retained.
+Required interface: CR.4 supplies the classical smooth Witt functor and Nygaard data; DD.4 constructs its left Kan extension using EnhancedDerivedSheaves:E3. The QRSP theorem takes an actual QRSP object (including a perfectoid source) and its canonical completed Witt value. No unrestricted higher-cohomology assertion or negation is retained.
 
 OMITTED declaration: TauCeti.DerivedDeRham.derivedDeRhamWitt
 Import the classical smooth F_p de Rham–Witt complex WΩ and its Nygaard filtration from the early CR.4 supplier. Define LWΩ on animated F_p-algebras by the common left Kan extension into p-complete filtered E∞ Z_p-algebras, using p-completed colimits. Extend the CR.4 divided Frobenius maps to obtain fiber sequences N^(≥i+1)LWΩ→N^(≥i)LWΩ --φ_i mod p→Fil_i^conj dR, and LWΩ/N^(≥i) --p→LWΩ/N^(≥i+1)→dR/Fil_H^(i+1). The source’s smooth WΩ and later derived comparison are different ownership steps.
@@ -1558,8 +1558,8 @@ For non-lci S, mod-p dR can have negative cohomology, so LWΩ is not asserted di
 -/
 
 /- DD.4: Quasiregular semiperfect derived Witt control
-Boundary: CR.4 must provide the classical smooth Witt functor and its left Kan extension. The QRSP theorem takes an actual QRSP object (including a perfectoid source) and its canonical completed Witt value. No unrestricted higher-cohomology assertion or negation is retained.
-Required interface: CR.4 must provide the classical smooth Witt functor and its left Kan extension. The QRSP theorem takes an actual QRSP object (including a perfectoid source) and its canonical completed Witt value. No unrestricted higher-cohomology assertion or negation is retained.
+Boundary: CR.4 supplies the classical smooth Witt functor and Nygaard data; DD.4 constructs its left Kan extension using EnhancedDerivedSheaves:E3. The QRSP theorem takes an actual QRSP object (including a perfectoid source) and its canonical completed Witt value. No unrestricted higher-cohomology assertion or negation is retained.
+Required interface: CR.4 supplies the classical smooth Witt functor and Nygaard data; DD.4 constructs its left Kan extension using EnhancedDerivedSheaves:E3. The QRSP theorem takes an actual QRSP object (including a perfectoid source) and its canonical completed Witt value. No unrestricted higher-cohomology assertion or negation is retained.
 
 OMITTED declaration: TauCeti.DerivedDeRham.qrspWittControl
 For quasiregular semiperfect S over F_p, LWΩ_S is degree zero and p-torsion-free, N^(≥i)LWΩ_S is a degree-zero submodule, φ_i mod p on gr_N^i LWΩ injects into dR_(S/F_p) with image Fil_i^conj, and LWΩ_S→S is a PD thickening. The injectivity is on the Nygaard graded term; it is not an injectivity claim for φ_i mod p on the entire level N^(≥i).

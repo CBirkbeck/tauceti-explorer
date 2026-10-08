@@ -1,0 +1,8 @@
+{
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-PKG-DerivedDeRhamCohomology",
+    "date": "2026-10-08",
+    "notes": "Completed independent package review by Codex (GPT-6), session codex-zY4L3n, issue #7511. Checked upstream form, all 132 targets and hypotheses, 191 API items, 151 tests, 608 prerequisites, 46 pinned library declarations, 24 matching public source receipts, supplier boundaries and mathematical source corrections. Corrected Stacks completion and proper-cohomology locators, removed process prose from Suggested.lean, and assigned Witt left Kan extension to DD.4 in four comments. README 184952 bytes; metadata is the fitting single line topic = \"math.AG\". Independent final lean-check passed with exit 0, no errors and exactly 133 sorry warnings only. Preserves the accepted plan's 133 typed names, 341 explicit mathematical omissions and 50 examples; acceptance is of the specification and admitted ordinary views, not proofs or enhanced implementations."
+  }
+}
