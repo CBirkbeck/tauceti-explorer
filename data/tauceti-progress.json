@@ -1,11 +1,11 @@
 {
  "collected_at": null,
- "cutoff": "2026-10-08T10:57:31Z",
- "exported_at": "2026-10-08T10:57:31Z",
+ "cutoff": "2026-10-08T19:08:58Z",
+ "exported_at": "2026-10-08T19:08:58Z",
  "global": {
   "first_merge": "2026-06-03T00:19:04Z",
-  "open": 339,
-  "recent": 6206,
+  "open": 318,
+  "recent": 6174,
   "total": 11527,
   "unattributed": {
    "no_label": 1300,
@@ -38,8 +38,8 @@
   {
    "activity": {
     "last": "2026-10-08T02:24:31Z",
-    "open": 5,
-    "recent": 150,
+    "open": 4,
+    "recent": 149,
     "since_report": 4,
     "total": 417,
     "weekly": [
@@ -258,8 +258,8 @@
   {
    "activity": {
     "last": "2026-10-07T22:35:10Z",
-    "open": 6,
-    "recent": 107,
+    "open": 7,
+    "recent": 106,
     "since_report": 3,
     "total": 163,
     "weekly": [
@@ -401,7 +401,7 @@
   {
    "activity": {
     "last": "2026-10-07T22:40:19Z",
-    "open": 2,
+    "open": 9,
     "recent": 89,
     "since_report": 6,
     "total": 89,
@@ -524,7 +524,7 @@
   {
    "activity": {
     "last": "2026-10-07T22:47:12Z",
-    "open": 0,
+    "open": 2,
     "recent": 61,
     "since_report": 1,
     "total": 61,
@@ -764,8 +764,8 @@
   {
    "activity": {
     "last": "2026-10-05T23:45:50Z",
-    "open": 3,
-    "recent": 93,
+    "open": 2,
+    "recent": 92,
     "since_report": 3,
     "total": 125,
     "weekly": [
@@ -885,8 +885,8 @@
   {
    "activity": {
     "last": "2026-10-07T21:07:31Z",
-    "open": 2,
-    "recent": 102,
+    "open": 5,
+    "recent": 101,
     "since_report": 1,
     "total": 102,
     "weekly": [
@@ -1034,7 +1034,7 @@
   {
    "activity": {
     "last": "2026-10-08T03:37:37Z",
-    "open": 4,
+    "open": 2,
     "recent": 79,
     "since_report": 2,
     "total": 165,
@@ -1150,7 +1150,7 @@
    "activity": {
     "last": "2026-10-05T09:28:43Z",
     "open": 3,
-    "recent": 74,
+    "recent": 72,
     "since_report": 0,
     "total": 98,
     "weekly": [
@@ -1282,7 +1282,7 @@
   {
    "activity": {
     "last": "2026-10-08T01:00:22Z",
-    "open": 12,
+    "open": 11,
     "recent": 258,
     "since_report": 8,
     "total": 263,
@@ -1434,7 +1434,7 @@
   {
    "activity": {
     "last": "2026-10-07T11:58:03Z",
-    "open": 5,
+    "open": 3,
     "recent": 124,
     "since_report": 4,
     "total": 217,
@@ -1545,7 +1545,7 @@
   {
    "activity": {
     "last": "2026-10-08T02:27:11Z",
-    "open": 2,
+    "open": 1,
     "recent": 93,
     "since_report": 0,
     "total": 274,
@@ -1660,7 +1660,7 @@
   {
    "activity": {
     "last": "2026-10-08T03:26:52Z",
-    "open": 3,
+    "open": 5,
     "recent": 85,
     "since_report": 4,
     "total": 109,
@@ -1799,7 +1799,7 @@
   {
    "activity": {
     "last": "2026-10-08T02:29:44Z",
-    "open": 1,
+    "open": 2,
     "recent": 72,
     "since_report": 1,
     "total": 111,
@@ -1932,7 +1932,7 @@
   {
    "activity": {
     "last": null,
-    "open": 1,
+    "open": 2,
     "recent": 0,
     "since_report": null,
     "total": 0,
@@ -2040,7 +2040,7 @@
    "activity": {
     "last": "2026-10-07T23:30:28Z",
     "open": 3,
-    "recent": 167,
+    "recent": 165,
     "since_report": 1,
     "total": 457,
     "weekly": [
@@ -2183,7 +2183,7 @@
   {
    "activity": {
     "last": "2026-10-08T03:27:51Z",
-    "open": 0,
+    "open": 2,
     "recent": 87,
     "since_report": 3,
     "total": 300,
@@ -2411,8 +2411,8 @@
   {
    "activity": {
     "last": "2026-10-08T03:38:23Z",
-    "open": 30,
-    "recent": 200,
+    "open": 23,
+    "recent": 198,
     "since_report": 0,
     "total": 278,
     "weekly": [
@@ -2555,8 +2555,8 @@
   {
    "activity": {
     "last": "2026-10-08T00:30:02Z",
-    "open": 1,
-    "recent": 110,
+    "open": 0,
+    "recent": 109,
     "since_report": 5,
     "total": 114,
     "weekly": [
@@ -2817,7 +2817,7 @@
   {
    "activity": {
     "last": "2026-10-07T23:04:03Z",
-    "open": 2,
+    "open": 3,
     "recent": 84,
     "since_report": 2,
     "total": 120,
@@ -2940,7 +2940,7 @@
    "activity": {
     "last": "2026-10-07T22:03:10Z",
     "open": 3,
-    "recent": 98,
+    "recent": 97,
     "since_report": 3,
     "total": 219,
     "weekly": [
@@ -3152,7 +3152,7 @@
   {
    "activity": {
     "last": "2026-10-08T00:37:39Z",
-    "open": 3,
+    "open": 5,
     "recent": 51,
     "since_report": 2,
     "total": 109,
@@ -3403,8 +3403,8 @@
   {
    "activity": {
     "last": "2026-10-08T02:07:55Z",
-    "open": 4,
-    "recent": 124,
+    "open": 3,
+    "recent": 123,
     "since_report": 3,
     "total": 124,
     "weekly": [
@@ -3508,7 +3508,7 @@
   {
    "activity": {
     "last": "2026-10-08T02:20:12Z",
-    "open": 4,
+    "open": 3,
     "recent": 63,
     "since_report": 0,
     "total": 63,
@@ -3635,7 +3635,7 @@
   {
    "activity": {
     "last": "2026-10-08T03:35:33Z",
-    "open": 4,
+    "open": 6,
     "recent": 18,
     "since_report": 5,
     "total": 18,
@@ -3767,8 +3767,8 @@
   {
    "activity": {
     "last": "2026-10-07T21:49:17Z",
-    "open": 4,
-    "recent": 197,
+    "open": 6,
+    "recent": 194,
     "since_report": 1,
     "total": 517,
     "weekly": [
@@ -3916,7 +3916,7 @@
   {
    "activity": {
     "last": "2026-10-04T18:02:22Z",
-    "open": 3,
+    "open": 1,
     "recent": 115,
     "since_report": 0,
     "total": 132,
@@ -4025,8 +4025,8 @@
   {
    "activity": {
     "last": "2026-10-07T11:34:06Z",
-    "open": 3,
-    "recent": 62,
+    "open": 2,
+    "recent": 61,
     "since_report": 0,
     "total": 186,
     "weekly": [
@@ -4110,7 +4110,31 @@
    "topic": "Analysis"
   },
   {
-   "activity": null,
+   "activity": {
+    "last": null,
+    "open": 4,
+    "recent": 0,
+    "since_report": null,
+    "total": 0,
+    "weekly": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ]
+   },
    "assessment": {
     "detail": null,
     "notes": {},
@@ -4515,7 +4539,7 @@
   {
    "activity": {
     "last": "2026-10-07T06:23:41Z",
-    "open": 2,
+    "open": 3,
     "recent": 71,
     "since_report": 2,
     "total": 106,
@@ -4676,7 +4700,7 @@
   {
    "activity": {
     "last": "2026-10-07T22:49:36Z",
-    "open": 5,
+    "open": 6,
     "recent": 88,
     "since_report": 2,
     "total": 88,
@@ -4780,7 +4804,7 @@
   {
    "activity": {
     "last": "2026-10-07T22:17:56Z",
-    "open": 6,
+    "open": 5,
     "recent": 111,
     "since_report": 4,
     "total": 205,
@@ -4998,8 +5022,8 @@
   {
    "activity": {
     "last": "2026-10-08T00:30:02Z",
-    "open": 3,
-    "recent": 88,
+    "open": 0,
+    "recent": 87,
     "since_report": 3,
     "total": 96,
     "weekly": [
@@ -5103,7 +5127,7 @@
   {
    "activity": {
     "last": "2026-10-06T02:00:48Z",
-    "open": 3,
+    "open": 0,
     "recent": 32,
     "since_report": 0,
     "total": 32,
@@ -5192,7 +5216,7 @@
   {
    "activity": {
     "last": "2026-10-07T23:56:33Z",
-    "open": 9,
+    "open": 7,
     "recent": 154,
     "since_report": 6,
     "total": 191,
@@ -5344,7 +5368,7 @@
   {
    "activity": {
     "last": "2026-10-07T22:51:20Z",
-    "open": 3,
+    "open": 2,
     "recent": 251,
     "since_report": 4,
     "total": 258,
@@ -5469,8 +5493,8 @@
   {
    "activity": {
     "last": "2026-10-08T03:40:40Z",
-    "open": 3,
-    "recent": 123,
+    "open": 6,
+    "recent": 122,
     "since_report": 3,
     "total": 126,
     "weekly": [
@@ -5603,7 +5627,7 @@
   {
    "activity": {
     "last": "2026-10-08T03:26:53Z",
-    "open": 14,
+    "open": 6,
     "recent": 103,
     "since_report": 0,
     "total": 103,
@@ -5725,8 +5749,8 @@
   {
    "activity": {
     "last": "2026-10-08T03:37:36Z",
-    "open": 28,
-    "recent": 391,
+    "open": 27,
+    "recent": 387,
     "since_report": 0,
     "total": 1138,
     "weekly": [
@@ -5856,8 +5880,8 @@
   {
    "activity": {
     "last": "2026-10-08T02:43:40Z",
-    "open": 53,
-    "recent": 605,
+    "open": 48,
+    "recent": 603,
     "since_report": 0,
     "total": 1347,
     "weekly": [
@@ -7201,7 +7225,7 @@
   {
    "activity": {
     "last": "2026-10-08T02:07:54Z",
-    "open": 6,
+    "open": 5,
     "recent": 76,
     "since_report": 5,
     "total": 76,
@@ -7330,7 +7354,7 @@
   {
    "activity": {
     "last": "2026-10-07T23:18:15Z",
-    "open": 3,
+    "open": 2,
     "recent": 83,
     "since_report": 1,
     "total": 83,
@@ -7471,7 +7495,7 @@
    "activity": {
     "last": "2026-09-29T23:49:41Z",
     "open": 0,
-    "recent": 100,
+    "recent": 98,
     "since_report": 0,
     "total": 180,
     "weekly": [
@@ -7571,7 +7595,7 @@
   {
    "activity": {
     "last": "2026-10-08T01:20:24Z",
-    "open": 6,
+    "open": 5,
     "recent": 87,
     "since_report": 2,
     "total": 118,
@@ -7996,7 +8020,7 @@
   {
    "activity": {
     "last": "2026-10-08T00:37:39Z",
-    "open": 3,
+    "open": 5,
     "recent": 51,
     "since_report": 22,
     "total": 109,
@@ -8379,7 +8403,7 @@
    "activity": {
     "last": "2026-10-04T15:17:44Z",
     "open": 3,
-    "recent": 24,
+    "recent": 23,
     "since_report": 0,
     "total": 121,
     "weekly": [

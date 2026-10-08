@@ -13,7 +13,7 @@
   "estimatedRoadmaps": 0,
   "distanceBases": {
     "judged": 203,
-    "measured": 16,
+    "measured": 17,
     "built": 7,
     "children": 1
   },
@@ -57,7 +57,7 @@
       "file": "AdelicAlgebraicGroups",
       "roadmap": "AdelicAlgebraicGroups",
       "nodes": 264,
-      "reviewer": "independent-review-REV-AdelicAlgebraicGroups~2"
+      "reviewer": "independent-review-REV-FIX-RT-AREA-automorphic-1~5"
     },
     {
       "file": "AdicCoefficientsAndComparisons",
@@ -141,7 +141,13 @@
       "file": "ArithmeticLocallySymmetricSpaces",
       "roadmap": "ArithmeticLocallySymmetricSpaces",
       "nodes": 66,
-      "reviewer": "independent-review-REV-ArithmeticLocallySymmetricSpaces~2"
+      "reviewer": "independent-review-REV-FIX-RT-AREA-automorphic-1~5"
+    },
+    {
+      "file": "ArithmeticQuantumTopology",
+      "roadmap": "ArithmeticQuantumTopology",
+      "nodes": 106,
+      "reviewer": "independent-review-REV-ArithmeticQuantumTopology~2"
     },
     {
       "file": "ArithmeticStatistics",
@@ -178,6 +184,12 @@
       "roadmap": "AutomorphicGaloisRepresentationsPartII",
       "nodes": 43,
       "reviewer": "independent-review-REV-AutomorphicGaloisRepresentationsPartII--AG2.6~2"
+    },
+    {
+      "file": "AutomorphicLFunctionsAndLocalFactors",
+      "roadmap": "AutomorphicLFunctionsAndLocalFactors",
+      "nodes": 124,
+      "reviewer": "independent-review-REV-FIX-RT-AREA-automorphic-1~5"
     },
     {
       "file": "BorelRegulators",
@@ -220,6 +232,12 @@
       "roadmap": "ClassicalSerreModularity",
       "nodes": 8,
       "reviewer": "independent-review-REV-FIX-RT-BP-ClassicalSerreModularity--R33.5"
+    },
+    {
+      "file": "CohomologyComparisons",
+      "roadmap": "CohomologyComparisons",
+      "nodes": 83,
+      "reviewer": "independent-review-REV-CohomologyComparisons~2"
     },
     {
       "file": "ColemanIntegration",
@@ -354,6 +372,12 @@
       "reviewer": "independent-review-REV-DESIGN-EllipticCurveModularityPartII~2"
     },
     {
+      "file": "EllipticCurveModularityPartIIGL2TypeAbelianVarieties",
+      "roadmap": "EllipticCurveModularityPartIIGL2TypeAbelianVarieties",
+      "nodes": 44,
+      "reviewer": "independent-review-REV-DESIGN-EllipticCurveModularityPartIIGL2TypeAbelianVarieties~2"
+    },
+    {
       "file": "EllipticKTheory--E.5",
       "roadmap": "EllipticKTheory",
       "nodes": 11,
@@ -477,13 +501,13 @@
       "file": "GL2AutomorphicRepresentationsAndTransfer--R16.1",
       "roadmap": "GL2AutomorphicRepresentationsAndTransfer",
       "nodes": 55,
-      "reviewer": "independent-review-REV-GL2AutomorphicRepresentationsAndTransfer--R16.1"
+      "reviewer": "independent-review-REV-FIX-RT-AREA-automorphic-1~5"
     },
     {
       "file": "GL2AutomorphicRepresentationsAndTransfer--R17.3",
       "roadmap": "GL2AutomorphicRepresentationsAndTransfer",
       "nodes": 57,
-      "reviewer": "independent-review-REV-GL2AutomorphicRepresentationsAndTransfer--R17.3"
+      "reviewer": "independent-review-REV-FIX-RT-AREA-automorphic-1~5"
     },
     {
       "file": "GL2ModularityLifting--R32.3",
@@ -711,7 +735,7 @@
       "file": "HilbertModularVarietiesAndShimuraCurves--R18.2",
       "roadmap": "HilbertModularVarietiesAndShimuraCurves",
       "nodes": 58,
-      "reviewer": "independent-review-REV-HilbertModularVarietiesAndShimuraCurves--R18.2"
+      "reviewer": "independent-review-REV-FIX-RT-AREA-automorphic-1~5"
     },
     {
       "file": "HodgeStructuresPartII--H.0",
@@ -795,7 +819,7 @@
       "file": "IntegralHeckeAndGaloisDeterminants",
       "roadmap": "IntegralHeckeAndGaloisDeterminants",
       "nodes": 253,
-      "reviewer": "independent-review-REV-FIX-RT-AREA-automorphic-1~4"
+      "reviewer": "independent-review-REV-FIX-RT-AREA-automorphic-1~5"
     },
     {
       "file": "JacobianChallengePartII",
@@ -870,6 +894,12 @@
       "reviewer": "independent-review-REV-KTheoryLowDegrees--Z.3~3"
     },
     {
+      "file": "KatoEulerSystems",
+      "roadmap": "KatoEulerSystems",
+      "nodes": 40,
+      "reviewer": "independent-review-REV-KatoEulerSystems~2"
+    },
+    {
       "file": "LefschetzPencilsAndVanishingCycles--LPV.7",
       "roadmap": "LefschetzPencilsAndVanishingCycles",
       "nodes": 36,
@@ -885,13 +915,13 @@
       "file": "MetaplecticAutomorphicForms--MP.0",
       "roadmap": "MetaplecticAutomorphicForms",
       "nodes": 176,
-      "reviewer": "independent-review-REV-MetaplecticAutomorphicForms--MP.0~2"
+      "reviewer": "independent-review-REV-FIX-RT-AREA-automorphic-1~5"
     },
     {
       "file": "MetaplecticAutomorphicForms--MP.8",
       "roadmap": "MetaplecticAutomorphicForms",
       "nodes": 85,
-      "reviewer": "independent-review-REV-MetaplecticAutomorphicForms--MP.8~2"
+      "reviewer": "independent-review-REV-FIX-RT-AREA-automorphic-1~5"
     },
     {
       "file": "MordellLawrenceVenkatesh",
@@ -1093,8 +1123,8 @@
     }
   ],
   "sourceDocuments": 296,
-  "htmlBytes": 12386690,
-  "htmlSha256": "40159c8976d1c44a1ba833f5c42d2b002135667d66eee877de08bd2ece4d3a19",
+  "htmlBytes": 12389273,
+  "htmlSha256": "b8e3d0b40ccbb7775cfe236ba672dbc76f64bf1a12b1a532fd3e7da5d12de7a1",
   "networkDependencies": 0,
   "localProgressOverridesIncluded": false,
   "assets": {
@@ -1114,7 +1144,7 @@
     "src/app.js": "bc9053ab6d0d4e9dfa19badbd9a59bfc3c55b2d7319682083387bbaddfc1dac1",
     "data/atlas.json": "62ab6c2ccb94ee9c4d99813da02b69656941721d30fc29384e2b7e6e86361c56",
     "data/status.json": "7b9fe0072201b427ed600ee7066bd729d34b2632450823e1f877a8d5d3f7ad2e",
-    "data/tauceti-progress.json": "6b64eb5c940cd3405b6f5d5571804018d944df264a92e4ce2c7bae5ce5bacd82",
+    "data/tauceti-progress.json": "b8423a1d7ce14115eaac8cc6d29eaa48e88638b7ae865a0b17a48c4e3075e35b",
     "data/tauceti-new-roadmaps.json": "7164381dd67cdd3c3a5577b0a0399b95d30584458f1e004653002b413e84120d",
     "data/galaxies.json": "90d5131f4073e762260faa5614e53cbe41f194012b424f81db67afac16610599",
     "data/roadmap-retirements.json": "d572bc6f66332331ea507db17f12bdad008f73228b2dc9b5197f7e4c86334c9f",
@@ -1126,8 +1156,8 @@
     "data/roadmap-summaries.json": "c8bdd0a9105f5d3c4a858c8b635990729f8e94497dee784a71fae659b8c05b9f",
     "data/roadmap-classification.json": "2641dbc97eb2566c715162d011b46890d1635629181ef8126ac7aed9e24a3b13",
     "data/classification-estimates.json": "625d35fe6121bf099dc5de9e6a9111793596f9b664e3fbd439841434bb4a57d6",
-    "data/roadmap-distances.json": "85b83a484faa485fbdf296f7d7fe44c38c76232c93aa2c1889d41ae0d9593c1c",
-    "data/galaxy-layout.json": "7489487a2143484a355b36026c2f7d3dd9384ac5c58ac90d8b061b8dfcab6088",
+    "data/roadmap-distances.json": "c636ab5d1c84632b0b9aa4d07f72264d7459025f30a5e234407d8c634508d010",
+    "data/galaxy-layout.json": "c4f41c53e501ae0cb94c10f730031eafef5ce9f4ac8c9802cf8d78dcb31c1ab7",
     "data/bibliography.json": "bef230a41fad22d6b790c7564061c4d05c2ae5b78cab53d005eb404afab2b122",
     "NOTICE": "a285b95d5adbf5c2bcc82db36e2a77b797f84a2c5cbb30292efd0bae17cc4f34",
     "LICENSE": "b40930bbcf80744c86c46a12bc9da056641d722716c378f5659b9e555ef833e1",
@@ -1190,7 +1220,7 @@
     "data/blueprints/AbelianSchemesAndArithmeticModuliPartII.md": "5653c26d4d6dec80f1fedb795d7f7a11b2e4f4c2257c0b671d9b8a6fe7e3d365",
     "data/blueprints/AbelianVarietiesIsogenousToNoJacobian.json": "ce67342f34746a08014bdb2aa0b384e373f03c1eb07fc326f2872cde976d1635",
     "data/blueprints/AbelianVarietiesIsogenousToNoJacobian.md": "9258a7772a96c3e40de4c254235abe86727cede0ae9d75feb41a06cd94580143",
-    "data/blueprints/AdelicAlgebraicGroups.json": "54f640b8d8ccaf0ec138572e501f791c64aa469c95ca0915e66e58bb73e61729",
+    "data/blueprints/AdelicAlgebraicGroups.json": "6ac3600831c8e4a5f5b2587740681f3d7c57a66dc737fcb34104773ec424758f",
     "data/blueprints/AdelicAlgebraicGroups.md": "1f4a6eec9c0ae0aa03e8d7dd01ba3b27d66fc2919fbacb8115b37eea7401b4d5",
     "data/blueprints/AdicCoefficientsAndComparisons.json": "18d3815a769195af192b6e822232d8ea99eab78961ee9a59ed3ba5147a4f0f42",
     "data/blueprints/AdicCoefficientsAndComparisons.md": "a0f8b9b0be2315107b504a25ddfd08481f018f1f2c2183979ec5d192cd10abc8",
@@ -1218,8 +1248,10 @@
     "data/blueprints/ArithmeticKTheory--N.6.md": "9d2ba61bcac514cf074ae367fbd266605b1a82c080af339166cc41a322e87c44",
     "data/blueprints/ArithmeticKTheory--N.7.json": "c8fa0e7bba9d9a6a0cbdf8340101e1b19b807bfa163da4e36c0989f7f3518a1f",
     "data/blueprints/ArithmeticKTheory--N.7.md": "35ccec306ac1e5a26abaebbf240c9643df611fb6bd35d2bab67411f06206ceb0",
-    "data/blueprints/ArithmeticLocallySymmetricSpaces.json": "b5ec41541aaed3bdff250982f023a62f6add166d744c030e78b20548186da0c5",
-    "data/blueprints/ArithmeticLocallySymmetricSpaces.md": "a7e5a444b889c258c55a32cc13182d1bc61b9b40882d96286f02ab9c91bf3c02",
+    "data/blueprints/ArithmeticLocallySymmetricSpaces.json": "d03fbbf249e474c6a66d79e92605db1f0f7f2f1fec3d5fac5505896a6df1c6b1",
+    "data/blueprints/ArithmeticLocallySymmetricSpaces.md": "c2daa95d64a32c61f37fbbcb236c8a4eea10e3b08a030664b29f4f72606b37a9",
+    "data/blueprints/ArithmeticQuantumTopology.json": "448a47764f4ebafcf5b290bf048f5827397f093eb2ea8c566eac0070986ac4a8",
+    "data/blueprints/ArithmeticQuantumTopology.md": "d388b2865ee239a4f174ed7bfa7231ccdf510e052c289f41861d8e14eeaf17d1",
     "data/blueprints/ArithmeticStatistics.json": "1348b3041911cda253924ebae74139c95ad12fdbcf410e4f87201ad772e707bf",
     "data/blueprints/ArithmeticStatistics.md": "e2be6e0549ffb4b934b0616427c897a098b8e7db0164dc134619dfa22de65ed4",
     "data/blueprints/AutomorphicBundles--B0.json": "b0161ceb1b7790b2936e5c06ef22211b891afbba2a9ace14b32806e50f894902",
@@ -1232,6 +1264,8 @@
     "data/blueprints/AutomorphicGaloisRepresentationsPartII--AG2.0.md": "10408f2d93aac0f117aa20cb8ba9496385955e011279c71c17b71a1831d5af3e",
     "data/blueprints/AutomorphicGaloisRepresentationsPartII--AG2.6.json": "285ace845df972f862257756af77137d3fe2d6bdc8358eb46a67c561e668c592",
     "data/blueprints/AutomorphicGaloisRepresentationsPartII--AG2.6.md": "90bf042687f2e683c79931526fe09f0062466d8eee1ac5dd5564e002f460b086",
+    "data/blueprints/AutomorphicLFunctionsAndLocalFactors.json": "027d276a86a22f4639b70de5b89178ae37aac422d47ef4ebd8484522e91733f8",
+    "data/blueprints/AutomorphicLFunctionsAndLocalFactors.md": "4ed406b134a1c3a759d05d53540a5e0768a740ae68bb7e32c4f57ef48cc79f99",
     "data/blueprints/BorelRegulators.json": "0db5afd8caf537c2bb641834f9e6f34bd1bd5972101f6dfccbf6e0712ed1929b",
     "data/blueprints/BorelRegulators.md": "af26308ddd8367c99df9c1636903574f4b68042c041d700b18abf03236c78259",
     "data/blueprints/ClassicalAdicEtaleCohomology--H1-valuation-nearby-cycles.json": "1d997f9d4e41b1cfb689e02c9f442b315110361d8659ca205401703f020096e2",
@@ -1246,6 +1280,8 @@
     "data/blueprints/ClassicalSerreModularity--R27.3.md": "864dc2351c1de7f6765c8d8cc2b8d8d91c2fa7b55bf8131b92e059a1224239b4",
     "data/blueprints/ClassicalSerreModularity--R33.5.json": "263c823041a3dff54a66d11c203e6d871d0f68177f5430300d9f492ecb43157d",
     "data/blueprints/ClassicalSerreModularity--R33.5.md": "99edb64836667376d2ab5f016e2103f7025733514c844da969a0f8f37f816756",
+    "data/blueprints/CohomologyComparisons.json": "2a7b1eca938b1fc4d22ec2df9edd6e3d6827084d278b0a3b691526f97757c2cc",
+    "data/blueprints/CohomologyComparisons.md": "6be566187658e32f2ede5a65e87c9c2d9337f6840281472e37a268e0322e69cc",
     "data/blueprints/ColemanIntegration.json": "1f22db642f4e76e396846113499c050bce64bdfaaf7b7db3e297adc433a24bf3",
     "data/blueprints/ColemanIntegration.md": "9c291cb68cac3f1b3894e7d5c3837a6997e8816c01a8071ef7762c24c9fd6996",
     "data/blueprints/ColemanPowerSeries.json": "7fad9a74527497ea632e71444c17a361954f523806944bf27b2ebc5de9eeb220",
@@ -1290,6 +1326,8 @@
     "data/blueprints/EllipticCurveModularityImaginaryQuadratic.md": "b73c551fa524462cb17ecbc4db3f72da558c4476704c9a3df009347b1b3a5fe1",
     "data/blueprints/EllipticCurveModularityPartII.json": "0dca437503da1dc520fe35ecc3c84f1527a38804db2fcb834ef523998d79ee2e",
     "data/blueprints/EllipticCurveModularityPartII.md": "aa433caffbd9501b577ac7ed73f10834b9aee1d7b7fa8c95b0cc67757592a97a",
+    "data/blueprints/EllipticCurveModularityPartIIGL2TypeAbelianVarieties.json": "0d4faac92e15760e8fca201c41f6df2e4b2856b9026db5f7f42a66d9bb14d13e",
+    "data/blueprints/EllipticCurveModularityPartIIGL2TypeAbelianVarieties.md": "c41af3a80afda5ba347d6ee23fdef6e179118509ccabe715e617f9fb65f64453",
     "data/blueprints/EllipticKTheory--E.5.json": "0bf263ad44741d264b5ddf0423d7ee414cb8d1a362dfa72f6d51f2a0bceff08d",
     "data/blueprints/EllipticKTheory--E.5.md": "25ac3cc0649b3b9237db6f2ac85b0fb0d8498f472aee212b0398abf3ad988365",
     "data/blueprints/EllipticKTheory--E.6.json": "36bb618e246be986ac89de10653ce403d3d8f5466f887a36fe0c31d72d454ee6",
@@ -1330,10 +1368,10 @@
     "data/blueprints/FiniteFieldsAndCharacterSums--FF.3.md": "5fc0e2a65c83aa28d33bacdf80329730db3a51e46cf0cfbfed1166714c87d98b",
     "data/blueprints/FiniteFieldsAndCharacterSums.json": "066fa7f044a4a5e06586773c402947f99b47e26b8e767f0fd257887093ce7cc0",
     "data/blueprints/FiniteFieldsAndCharacterSums.md": "280948019fed01a8fc773fc58a7eec61fd477cd2d5e59b93c83d430f4d9fda57",
-    "data/blueprints/GL2AutomorphicRepresentationsAndTransfer--R16.1.json": "3db225e4652ceb47ac25e7e44de3ef828c574e57efdeac38cfc3151a9e78fc05",
-    "data/blueprints/GL2AutomorphicRepresentationsAndTransfer--R16.1.md": "50526e38e7e53ddebace36b612fb6fd28c515c4aaec761380556e802b47b7528",
-    "data/blueprints/GL2AutomorphicRepresentationsAndTransfer--R17.3.json": "ba50805de324c40a5c18581106589b578a26557f8d1ef167deafd068b581c1f4",
-    "data/blueprints/GL2AutomorphicRepresentationsAndTransfer--R17.3.md": "9fd9a231c1e609034020ca69e533b1df2651e6e0a83a27d2bfebff357ed84e49",
+    "data/blueprints/GL2AutomorphicRepresentationsAndTransfer--R16.1.json": "7f92c7be4e2949ebe47d5fdfee082b5c91055c0f65637ecec75a22f260dfd149",
+    "data/blueprints/GL2AutomorphicRepresentationsAndTransfer--R16.1.md": "d277ecffb69ea9196de6ef189a3c9220abeff811de76df8354aef4954deebe0e",
+    "data/blueprints/GL2AutomorphicRepresentationsAndTransfer--R17.3.json": "ffeba4396f03a80f2118296a2e103d747432187dc69a68929b2a3872c7afc8f2",
+    "data/blueprints/GL2AutomorphicRepresentationsAndTransfer--R17.3.md": "dfcb711257aa8d8755270c9420385ac1dc2fdf67b57e87a54e14abbd130fb0e5",
     "data/blueprints/GL2ModularityLifting--R32.3.json": "aa82fe51286213eff11bb84efa1f1208c709b0e8923fe705b806b0c9392bcb7d",
     "data/blueprints/GL2ModularityLifting--R32.3.md": "8e74a7c0d6d717cd21c6a9f430eec0dd7f85d3d9c6085c3d718b03227d29cd8e",
     "data/blueprints/GeneralAlgebraicKTheory--K.1.json": "7ab04ad4de09aea84546bddbf425626c3ef5c03144590aedf236881174880b94",
@@ -1408,8 +1446,8 @@
     "data/blueprints/HeegnerPointEulerSystems--HE.7s.md": "5a9b9987496e27262d63d4cdfe520d68561559005a6315969cd98ff7755dc0de",
     "data/blueprints/HilbertModularVarietiesAndShimuraCurves--H0.json": "14710e2a252e2a32c570fefe71d7f5dd7e5f1c1658a3a02fefe1ead5ecf90ba0",
     "data/blueprints/HilbertModularVarietiesAndShimuraCurves--H0.md": "f7a0a5cd964d960a45ccda52b2f99208f4769d5baef71c27fc3d716ee8c0197d",
-    "data/blueprints/HilbertModularVarietiesAndShimuraCurves--R18.2.json": "afc3e17e51852dcfaf066fda96e9f054a40a49a30be9290c86353985b19ec06d",
-    "data/blueprints/HilbertModularVarietiesAndShimuraCurves--R18.2.md": "81d48de4514ac6dba529650c1d8c4162ac17c95cfd1c8838bb0a2e022885d358",
+    "data/blueprints/HilbertModularVarietiesAndShimuraCurves--R18.2.json": "7ae16f0697ebec70a185767f87fe77a4a9c3d75417dcbcddc20902e6832ffaa3",
+    "data/blueprints/HilbertModularVarietiesAndShimuraCurves--R18.2.md": "099c31cc42db9db2324c7626dc82870cab287f3ef7f5657e1f37dda554f82820",
     "data/blueprints/HodgeStructuresPartII--H.0.json": "d804353abe15dd6d7f8b0f25bdeb93edbad2cef31505ab80144fbcd45a67e00c",
     "data/blueprints/HodgeStructuresPartII--H.0.md": "88d0b3f1e95aad39df5d30c2d9a2e92d7bb0c0d69cf65f2d4d5fe7165239f8cf",
     "data/blueprints/HodgeStructuresPartII--H.1.json": "75f8e501cbc1d0acafaadd28037c91b3837cf634910b8addf1ce98d4c526d7b5",
@@ -1436,8 +1474,8 @@
     "data/blueprints/IgusaVarietiesAndTorsionConcentration.md": "cd118c16ddb3651709e26fffbf0e3febee0a160db83976f477aea882652faff1",
     "data/blueprints/InductionRestrictionPartII.json": "85af7815c4223c6b160f957e001598afb66ae1aaa84ddbea6995008ed72519c5",
     "data/blueprints/InductionRestrictionPartII.md": "62bab3a7d7a78e2b81f254fdb13b351108bd5ad2d51a12a409e8c8ff9eddb7e3",
-    "data/blueprints/IntegralHeckeAndGaloisDeterminants.json": "0a4a4e78c8120a14290734b914ee33506263a33192a42da1580aed68410c01f2",
-    "data/blueprints/IntegralHeckeAndGaloisDeterminants.md": "de36ce9822a774ad3d99186cc8ec0f510a5a989f6d30b9d90b830dba644c3863",
+    "data/blueprints/IntegralHeckeAndGaloisDeterminants.json": "14575f445702bdb53ce2652843e59cd2c050ef9876a4905fdca171b0636a1403",
+    "data/blueprints/IntegralHeckeAndGaloisDeterminants.md": "991e43498d76e0736cc69e222a4b548d6531b04dc85782c92322b0fd9b730ff2",
     "data/blueprints/JacobianChallengePartII.json": "2da73e3c0831882d8ce8aafb9ac0d468cfefdf784ef8e25b5651a5347d37f275",
     "data/blueprints/JacobianChallengePartII.md": "630fa6d551abfef4d0e916d091f7c82fd89e93f3db947ff3747dc84de0bf821c",
     "data/blueprints/K2SymbolsBrauer--T.3.json": "baa939a331fbc519af523b05286e8a1a12dd8e8672e3e2dd2b2d11e3f702b77f",
@@ -1462,13 +1500,15 @@
     "data/blueprints/KTheoryLowDegrees--U.1.md": "cadc9d079802557c2ec7ca52bed41fa8759247e16421b2bfa3dc0fd720d34d13",
     "data/blueprints/KTheoryLowDegrees--Z.3.json": "0a0df0d0da40ad33d96e6de2b05df68007adedb0dba640ecedb7a3a876e1e6c0",
     "data/blueprints/KTheoryLowDegrees--Z.3.md": "1de007c18a4159cf6bfc16149c6422ebf8f5f05c6d4fa9d4bef3f4fa400bcc86",
+    "data/blueprints/KatoEulerSystems.json": "2e20bb9c664e69676a7a7916bb051fffc7eb011efbfbb9b90409862b122816f6",
+    "data/blueprints/KatoEulerSystems.md": "29f96a8aae6d685c9edf38cda00a3fe0d6b8b09dfc210237a73645da1100a476",
     "data/blueprints/LefschetzPencilsAndVanishingCycles--LPV.7.json": "2094b25ba6edf1a354a117c28ec9e365def97ae9c533ca75da347cf4db5859a3",
     "data/blueprints/LefschetzPencilsAndVanishingCycles--LPV.7.md": "13091d41320605895a5f4d857dd9ce0df5caa88b68f4ea3e54effba78aab68cd",
     "data/blueprints/LocalGaloisDeformationRings.json": "b2f9fa6210210c97bc6f612363d33dad2c4eefc07a62ed92168143b6e4a809bc",
     "data/blueprints/LocalGaloisDeformationRings.md": "d142df583e6fcbc1a3d03c98c85b6b9a9d44f6fa7219130d70546c3506ea2d7c",
-    "data/blueprints/MetaplecticAutomorphicForms--MP.0.json": "2f9279ff60a9a42a8a90728131979bc8c92f775e851f0068ba65d30abeced9da",
+    "data/blueprints/MetaplecticAutomorphicForms--MP.0.json": "22f0fbe9e2fee15d58a6e0080fbed0bde384822e2876048c48e75482903129f0",
     "data/blueprints/MetaplecticAutomorphicForms--MP.0.md": "462441559210202500f41c0d22e13837c2f187e78fdeb48d79ae1b028b1c935a",
-    "data/blueprints/MetaplecticAutomorphicForms--MP.8.json": "9cb02ce48b176eb5375fff3694c06ab87ab3f1972be5a8beebb10470255488ab",
+    "data/blueprints/MetaplecticAutomorphicForms--MP.8.json": "58bc4c2bb30731a507bd3a0b05d06a7f859f2ced74b7906bb60b44c0b19a4ff3",
     "data/blueprints/MetaplecticAutomorphicForms--MP.8.md": "fb0d72292c3957526a4f37f2cfd5f2b03a7683858b92a3d9390114f5a8afb442",
     "data/blueprints/MordellLawrenceVenkatesh.json": "d96efada7b6f6bc81bbc54c93c73457ccb1f1ca6d15cfe46bb739e8a35a69c0d",
     "data/blueprints/MordellLawrenceVenkatesh.md": "7cb852d88f7868a343e38a95cc7799f16eb269e51d11c30f3ba875f9dc65f3c4",
@@ -1543,6 +1583,7 @@
     "data/blueprints/roadmaps/CrystallineLocalGlobalCompatibilityCM.json": "69e20eee2aadc47c32b45dfae4d6525d4cdf14980face2e87244052d3c1d3f05",
     "data/blueprints/roadmaps/EllipticCurveModularityImaginaryQuadratic.json": "6e64390574345ea126710e816d3db0f143ed0bd79eb8e383060f8cdcdeb1a933",
     "data/blueprints/roadmaps/EllipticCurveModularityPartII.json": "f6e510eb9d773795f91550213d8d5d826d1c5abb0b59832ab447bf30bdacbac8",
+    "data/blueprints/roadmaps/EllipticCurveModularityPartIIGL2TypeAbelianVarieties.json": "74d9ccf6e329d1b052fe1c980aa5596b21702cf574e80e2cbcefc7bd8aff32a1",
     "data/blueprints/roadmaps/EllipticLegendreCharacterInterfaces.json": "0085327d334155bb72d94f2990aba07409dad99584fe44b9af77aa8cb0ca0568",
     "data/blueprints/roadmaps/EllipticModularityEffectiveComparisons.json": "eb4db731fe7f417cc957ac93c0780bc678b4cbdbd6b3008645c09d06c5a24f25",
     "data/blueprints/roadmaps/ErdosProgressionPowers.json": "98585384723f4c1baf2746a8b245f602916b416f80aed06b20836a2d8c250c24",
@@ -1645,7 +1686,7 @@
     "data/restructure/RS-33.result.json": "f9e95d0edcb3f28b9821335eb9d879a57466bed358835b428b338deb97b4369f"
   },
   "taucetiProgress": {
-    "exportedAt": "2026-10-08T10:57:31Z",
+    "exportedAt": "2026-10-08T19:08:58Z",
     "roadmaps": 75,
     "unplaced": 4,
     "layers": {
