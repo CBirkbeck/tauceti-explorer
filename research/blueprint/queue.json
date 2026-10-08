@@ -32832,7 +32832,8 @@
    ],
    "followUpOf": "DESIGN-HodgeStructuresPartII",
    "prompt": "research/blueprint/prompts/BP-HodgeStructuresPartII--H.6.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6945"
   },
   {
    "id": "REV-HodgeStructuresPartII--H.6",
