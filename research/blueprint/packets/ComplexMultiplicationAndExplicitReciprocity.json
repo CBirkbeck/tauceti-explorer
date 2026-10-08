@@ -12,7 +12,7 @@
     "ComplexMultiplicationAndExplicitReciprocity:CM.6"
   ],
   "status": "complete",
-  "summary": "CM-specific type algebra, ideal actions, normalized reciprocity dictionaries, explicit class-field generators, CM realizations and certified reduction/computation, under the accepted RS-04 ownership contracts.",
+  "summary": "CM-specific type algebra, order-sensitive ideal actions, normalized torsion/polarization reciprocity, proved ring/ray value fields, actual CM realizations and certified reduction/computation, with complete target-shaped native signatures and object-sensitive tests under the accepted RS-04 ownership contracts.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -160,9 +160,9 @@
       "edition": "v0.10, 14 July 2020",
       "url": "https://www.jmilne.org/math/CourseNotes/CM.pdf",
       "sha256": "0ac337a885d72f6938f15724b897f568fe350d0d754d0b52370b8f3a01d2e2b5",
-      "accessed": "2026-10-06",
+      "accessed": "2026-10-08",
       "readSections": [
-        "§1 pp.11–19; §2.9 pp.25–26; §3.11–3.17 pp.29–31; §8.1–8.7 pp.66–70; §9 pp.74–84"
+        "§1 pp.11–19; Example 2.9 pp.25–26; §3.11–3.17 pp.29–31; §8.1–8.7 pp.66–70; §9 pp.74–84, especially Theorem 9.10, Remark 9.11(c) and Theorem 9.17"
       ],
       "versionKind": "author copy"
     },
@@ -173,7 +173,7 @@
       "edition": "arXiv:0705.3446v1, 2007",
       "url": "https://arxiv.org/pdf/0705.3446v1",
       "sha256": "a554ef5ebffc6bd971649281b79881863ad75bb6f68c9755630374bae3fa6e60",
-      "accessed": "2026-10-06",
+      "accessed": "2026-10-08",
       "readSections": [
         "Introduction pp.1–3; §3 pp.20–21 (Artin normalization)"
       ],
@@ -186,9 +186,9 @@
       "edition": "arXiv:1201.0020v4, 22 April 2024",
       "url": "https://arxiv.org/pdf/1201.0020v4",
       "sha256": "bc50c7f3d4a3c03d0e926b3cb20196b1eb83c73ac38a529fb3e1d7ca9f993d1c",
-      "accessed": "2026-10-06",
+      "accessed": "2026-10-08",
       "readSections": [
-        "§§2.5–2.8 pp.5–8, Theorems 2.4–2.5; §4.2 pp.13–14; §4.4 pp.15–16"
+        "§2.5–2.8 pp.5–8, Theorems 2.4–2.5; §4.2 pp.13–14; §4.4–4.5 pp.15–17"
       ],
       "versionKind": "preprint"
     },
@@ -199,7 +199,7 @@
       "edition": "arXiv:2506.03465v2, October 2025; published Annals 203 (2026), not collated",
       "url": "https://arxiv.org/pdf/2506.03465v2",
       "sha256": "cbb8284a13ed40bd15df9713001485724bc4d2a3b5c38d8fd83f9b6f3f3e4664",
-      "accessed": "2026-10-06",
+      "accessed": "2026-10-08",
       "readSections": [
         "Complete 7-page preprint; CM types §2.2.5 p.5 and the proof of Theorem 1.1 in §3.1 p.6"
       ],
@@ -212,9 +212,9 @@
       "edition": "arXiv:1912.03657v4, 14 September 2024; published Annals 202 (2025), not collated",
       "url": "https://arxiv.org/pdf/1912.03657v4",
       "sha256": "fab8e605123cf9c399753b7114c4fd65000e1863e3507abdd4129c8c940fbb72",
-      "accessed": "2026-10-06",
+      "accessed": "2026-10-08",
       "readSections": [
-        "§1.1.3–§1.3 pp.6–11; Proposition 1.11 and Corollaries 1.12–1.13, formula images checked"
+        "§1.1–1.2 pp.6–11; Definition 1.8 and Serre equation (1.2.3) p.9; Proposition 1.11 pp.10–11 and Corollaries 1.12–1.13 p.11"
       ],
       "versionKind": "preprint"
     },
@@ -225,7 +225,7 @@
       "edition": "Published Annals 194 (2021), 943–966, Caltech deposited copy",
       "url": "https://authors.library.caltech.edu/records/8svwt-jn031/files/annals.2021.194.3.8.pdf?download=1",
       "sha256": "77ff329057e17cbad573cc309fce3f69f4ba6b73619c4ca203a4ed79a1cb790e",
-      "accessed": "2026-10-06",
+      "accessed": "2026-10-08",
       "readSections": [
         "§3.0.1 pp.950–951; Theorem 3.4 proof p.953 and equation (3.8)"
       ],
@@ -238,7 +238,7 @@
       "edition": "Published Annals 191 (2020), 355–392",
       "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v191-n2-p02-s.pdf",
       "sha256": "3920a7524a37870942fe3591ac858db23cb604f4331bccd2a6dc5f11a1671fbf",
-      "accessed": "2026-10-06",
+      "accessed": "2026-10-08",
       "readSections": [
         "§6 pp.372–373 (CM Cartan normalizer exclusion)"
       ],
@@ -251,9 +251,9 @@
       "edition": "Published Annals 187 (2018), 379–390",
       "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v187-n2-p02-p.pdf",
       "sha256": "43259ca3cfedfb574bf1fe2f80e1023cb736ea299a76588536fd816340722abc",
-      "accessed": "2026-10-06",
+      "accessed": "2026-10-08",
       "readSections": [
-        "pp.379–383; §§4–5 pp.384–386 (CM classes, reflex map, polarized kernel)"
+        "§4 pp.384–385 and §5 pp.385–386; earlier pages are not a source of additional targets here"
       ],
       "versionKind": "published"
     },
@@ -264,7 +264,7 @@
       "edition": "Published Annals 187 (2018), 391–531",
       "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v187-n2-p03-p.pdf",
       "sha256": "e1274468312566b3b062e9612cd89818349e9c98cf9e58a728f85704b740c6bb",
-      "accessed": "2026-10-06",
+      "accessed": "2026-10-08",
       "readSections": [
         "§3.4 p.420 (CM types and total-reflex character restriction); §9.1 pp.508–509"
       ],
@@ -277,7 +277,7 @@
       "edition": "Published Annals 187 (2018), 533–638; §2.2 reflex data; 2022 author erratum introduction read separately, 2023 journal erratum not collated",
       "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v187-n2-p04-p.pdf",
       "sha256": "29dfd5f19dec401116f1eaf0305305acf5f2fc68aa3c90d4eb6e5222de50d507",
-      "accessed": "2026-10-06",
+      "accessed": "2026-10-08",
       "readSections": [
         "§2.2 p.546 (trace reflex field, reflex order); height comparisons outside scope"
       ],
@@ -290,9 +290,9 @@
       "edition": "Published Inventiones 84 (1986), 225–320; GDZ scan",
       "url": "https://wstein.org/papers/bib/Gross-Zagier_Heegner_points_and_derivatives_of_Lseries.pdf",
       "sha256": "a9a52cb8662e03f19ace81dcfbf24bf873bf9c46ba89a8c890727b9541abdbf5",
-      "accessed": "2026-10-06",
+      "accessed": "2026-10-08",
       "readSections": [
-        "Chapter III §4 p.257 and §7 p.261, page images; other chapters not read"
+        "Chapter III pp.256–257 and 260–261, visual page inspection; §4 p.257 and §7 p.261"
       ],
       "versionKind": "published"
     },
@@ -303,7 +303,7 @@
       "edition": "Published Abhandlungen Hamburg 14 (1941), 197–272; Mainz scan",
       "url": "https://download.uni-mainz.de/mathematik/Algebraische%20Geometrie/Lehre/WS23.Padische.1941.Deuring.pdf",
       "sha256": "f4845d096ce4ea1ea627f8384b8d798c508291f201f52c59dc10c5b9a8c81c7a",
-      "accessed": "2026-10-06",
+      "accessed": "2026-10-08",
       "readSections": [
         "Introduction pp.197–200; §9.1 pp.258–262 (lifting proof, partial); §8 conclusion p.258"
       ],
@@ -316,9 +316,9 @@
       "edition": "arXiv:0903.2785v4, 22 November 2013; published Math. Comp. 80 (2011)",
       "url": "https://arxiv.org/pdf/0903.2785v4",
       "sha256": "d0ef9ab1eeefd85cbd7e861eaa16f9f57171bab15a91b284793612b7e4b7e6e3",
-      "accessed": "2026-10-06",
+      "accessed": "2026-10-08",
       "readSections": [
-        "§5.2 (polycyclic enumeration); §6 pp.18–20; §7 correctness/termination passage; Appendix 1 Lemma 8 p.31"
+        "Introduction pp.1–2; §4.2–5.2 pp.13–17, Proposition 5 and unconditional class enumeration; §6–7 pp.18–22; Appendix 1 Lemma 8 pp.31–32"
       ],
       "versionKind": "preprint"
     },
@@ -329,9 +329,9 @@
       "edition": "arXiv:0902.4670v2, 17 March 2009",
       "url": "https://arxiv.org/pdf/0902.4670v2",
       "sha256": "7b29760f2faa8a63cb558c86b5cc87e1440a7223fcc08a2a09e80434a52aa422",
-      "accessed": "2026-10-06",
+      "accessed": "2026-10-08",
       "readSections": [
-        "§2.1 p.3; §3.2 pp.7–8 (certification and verification)"
+        "arXiv v2 §2.1 p.3; §2.4 Lemma 3, Corollary 4 and Proposition 5 pp.5–6; §3.1–3.3 pp.6–8"
       ],
       "versionKind": "preprint"
     },
@@ -342,7 +342,7 @@
       "edition": "Published Astérisque 295 (2004), 117–290",
       "url": "https://www.numdam.org/item/AST_2004__295__117_0/",
       "sha256": "3c6e14b11fa60262db8aff782ce3cf4d83e9100c0be83621a7e4ce502cec605d",
-      "accessed": "2026-10-06",
+      "accessed": "2026-10-08",
       "readSections": [
         "§§15.10–15.11 pp.260–262 (CM induction and type conventions)"
       ],
@@ -355,7 +355,7 @@
       "edition": "Author copy of Math. Ann. 329 (2004), 87–117",
       "url": "https://people.math.wisc.edu/~tonghaiyang/HKCM.pdf",
       "sha256": "ac53defa86ca64204e6ddca4475bf848048f2cf4ed18f127ce3acb77434dfc85",
-      "accessed": "2026-10-06",
+      "accessed": "2026-10-08",
       "readSections": [
         "Introduction pp.1–3, canonical characters and existence distinctions"
       ],
@@ -368,9 +368,9 @@
       "edition": "Fall 2023 lecture notes",
       "url": "https://math.mit.edu/classes/18.783/2023/LectureNotes16.pdf",
       "sha256": "2fc781b22b32a88c0df711c20a5d8e1417610898ffbb526914049888a2d55677",
-      "accessed": "2026-10-06",
+      "accessed": "2026-10-08",
       "readSections": [
-        "§16.1 ideal/lattice interpretation"
+        "Introduction p.1; Theorem 16.4 pp.4–5; §16.3, Definition 16.9 and Theorem 16.12 pp.6–7"
       ],
       "versionKind": "author copy"
     },
@@ -381,9 +381,9 @@
       "edition": "Fall 2023 lecture notes",
       "url": "https://math.mit.edu/classes/18.783/2023/LectureNotes20.pdf",
       "sha256": "e810087d556c2d0e1adc5905e635895fdab6ff0ee50467c3a2ab9b4de101455b",
-      "accessed": "2026-10-06",
+      "accessed": "2026-10-08",
       "readSections": [
-        "Complete lecture, 8 pages; Definition 20.1, Theorems 20.2 and 20.12, Lemma 20.9"
+        "Complete 8-page lecture; lattice/isogeny comparison pp.1–3; §20.3 pp.5–7, product, ideal action, Lemma 20.9, Theorems 20.11–20.12"
       ],
       "versionKind": "author copy"
     },
@@ -394,7 +394,7 @@
       "edition": "Fall 2023 lecture notes",
       "url": "https://math.mit.edu/classes/18.783/2023/LectureNotes21.pdf",
       "sha256": "81a501a312d04bf13cef6c37fd3beb7669015674a6e3b468675b360517ed5e12",
-      "accessed": "2026-10-06",
+      "accessed": "2026-10-08",
       "readSections": [
         "§21.1 pp.1–3; §21.6 p.10; §21.7 diagram p.11"
       ],
@@ -407,7 +407,7 @@
       "edition": "Fall 2023 lecture notes",
       "url": "https://math.mit.edu/classes/18.783/2023/LectureNotes22.pdf",
       "sha256": "c62eeddd16c3071a339d775cdd4e08fd11db2e61eb4333f30d02c96daec840fc",
-      "accessed": "2026-10-06",
+      "accessed": "2026-10-08",
       "readSections": [
         "§22.1 pp.1–3 (CM horizontal/ascending/descending isogenies)"
       ],
@@ -771,7 +771,7 @@
         {
           "name": "TauCeti.CM.CMType.test_closure_independence",
           "kind": "compatibility",
-          "statement": "Enlarging L does not change Φ* or its trace-defined field."
+          "statement": "Two extensions of the same reflex embedding give the same inverse-coset membership; enlarging the normal closure therefore preserves the embedded reflex pair."
         }
       ],
       "uses": [
@@ -1965,7 +1965,7 @@
       "sources": [
         {
           "sourceId": "MilneCM",
-          "locator": "Theorem 9.11(c) and Theorem 9.17, pp.79–81",
+          "locator": "Remark 9.11(c) and Theorem 9.17, pp.79–81",
           "match": "The uniformization theorem changes both the lattice and its polarization parameter."
         }
       ],
@@ -2101,7 +2101,7 @@
         {
           "name": "TauCeti.CM.polarizedLevelStabilizer.test_bad_generator",
           "kind": "non-example",
-          "statement": "A generator multiplied by a unit whose relative norm changes the prescribed positive rational norm cannot serve as a polarized witness."
+          "statement": "If every generator of the relevant principal reflex ideal has relative norm different from the prescribed positive rational norm, the ideal is outside the polarized stabilizer. Failure of only one generator does not exclude another witness."
         }
       ],
       "uses": [
@@ -2242,7 +2242,7 @@
       "sources": [
         {
           "sourceId": "MilneCM",
-          "locator": "Theorems 9.10–9.11 and 9.17, pp.78–81",
+          "locator": "Theorem 9.10, Remark 9.11 and Theorem 9.17, pp.78–81",
           "match": "Instantiate the dictionary with two explicit elliptic factors and keep the covariance multiplier."
         }
       ],
@@ -3098,7 +3098,7 @@
         {
           "name": "TauCeti.CM.IsCanonicalGrossCharacter.test_even_excluded",
           "kind": "non-example",
-          "statement": "For K of absolute fundamental discriminant D≡4 mod 8, no character satisfying these canonical conditions is supplied; it must not be identified with Yang’s simplest character."
+          "statement": "For the Gaussian field, an excluded D≡4 mod 8 case, the unit i generates the unit ideal but is neither 1 nor −1. The canonical principal-sign condition therefore cannot hold; a simplest character must not be relabeled canonical."
         }
       ],
       "uses": [
@@ -3534,17 +3534,17 @@
         {
           "name": "TauCeti.CM.ComplexClassPolynomialCertificate.test_unique",
           "kind": "computation",
-          "statement": "The rational interval [17279/10,17281/10] has unique integer 1728."
+          "statement": "An accepted Gaussian certificate whose constant-coefficient box has real interval [−17281/10,−17279/10] returns coefficient −1728."
         },
         {
           "name": "TauCeti.CM.ComplexClassPolynomialCertificate.test_boundary",
           "kind": "non-example",
-          "statement": "The interval [1727,1728] is rejected because its integer set has cardinal two."
+          "statement": "A coefficient box with real interval [−1728,−1727] cannot occur in an accepted certificate because it contains two integers."
         },
         {
           "name": "TauCeti.CM.ComplexClassPolynomialCertificate.test_missing_class",
           "kind": "non-example",
-          "statement": "A root list of length one for D=−36 is rejected even if its approximation is extremely accurate."
+          "statement": "No singleton root list can certify an order ring-isomorphic to Z+3Zi: the certificate’s own Picard census has two classes, irrespective of approximation accuracy."
         }
       ],
       "uses": [
@@ -3679,17 +3679,17 @@
         {
           "name": "TauCeti.CM.CRTClassPolynomialCertificate.test_strict_bound",
           "kind": "computation",
-          "statement": "With B=10 and M=21 there is at most one integer in [−10,10] for each residue."
+          "statement": "For an actual accepted certificate with B=10, every polynomial with coefficients in [−10,10] and the checked residues equals its output; the certificate carries the strict product modulus."
         },
         {
           "name": "TauCeti.CM.CRTClassPolynomialCertificate.test_equality_bound",
           "kind": "non-example",
-          "statement": "With M=20, integers −10 and 10 have the same residue; the non-strict bound fails."
+          "statement": "No accepted CRT certificate can have M=2B, even if boundary coefficients share residues; distinctness and the strict modulus are acceptance conditions."
         },
         {
           "name": "TauCeti.CM.CRTClassPolynomialCertificate.test_duplicate_prime",
           "kind": "non-example",
-          "statement": "Using p=5 twice does not give two coprime residue conditions or modulus 25 for integer CRT uniqueness."
+          "statement": "No two-index accepted certificate can assign p=5 to both indices. Repeating a congruence does not supply modulus 25."
         }
       ],
       "uses": [
@@ -4405,12 +4405,12 @@
         {
           "name": "TauCeti.CM.crtClassPolynomial.test_supersingular_rejected",
           "kind": "non-example",
-          "statement": "For K=Q(i), p=7 is inert and cannot be used as an ordinary split-prime seed by extending F₇."
+          "statement": "For the Gaussian supersingular seed at inert p=7, and any finite-field extension, the certified trace remains divisible by 7. The ordinary verifier on that actual curve returns failure, so it cannot supply a CRT seed."
         },
         {
           "name": "TauCeti.CM.crtClassPolynomial.test_order_separate",
           "kind": "compatibility",
-          "statement": "A residue root is admitted only after the independent End certificate, not merely because it matches a polynomial root."
+          "statement": "Even if the actual curve’s j is a root of the proposed residue, a relation whose independently computed class counts do not separate D1 and D2 makes the order verifier fail. Polynomial-root membership cannot substitute for that check."
         }
       ],
       "uses": [
@@ -4822,7 +4822,7 @@
       "stageId": "ComplexMultiplicationAndExplicitReciprocity:CM.0",
       "status": "planned",
       "remaining": [
-        "Match D3’s CM-algebra cocharacter/trace reflex-field comparison and GN11’s relative reflex-order discriminant; retain field hypotheses on primitive cores and the single inverse-coset reflex type, and replace weakened suggested API/test fragments with the specified contracts."
+        "Match D3’s CM-algebra cocharacter/trace reflex-field comparison and GN11’s selected-factor fraction algebra and relative reflex-order discriminant. Keep primitive cores and inverse-coset reflex pairs field-scoped."
       ]
     },
     {
@@ -4857,8 +4857,8 @@
       "stageId": "ComplexMultiplicationAndExplicitReciprocity:CM.5",
       "status": "planned",
       "remaining": [
-        "Complete full Deuring proof decomposition and the generic quaternion-order contract; match CN4 certified j-tail and CN3 order/seed-search APIs; replace suggested raw-data signatures by final supplier carriers.",
-        "Match the prime-power conductor relation tests and certified 2/3-adic climbing to CN3/GN11; repair suggested verification/termination conclusions and their unit tests. Collate Endo v2 §3.2 with the published version before extending the finding beyond that preprint."
+        "Complete the Deuring proof decomposition and generic quaternion-order contract; match CN4’s certified j-tail/precision interfaces and CN3’s finite complete seed/order/orbit search to the native typed prototypes.",
+        "Match every conductor prime-power relation and certified 2/3-adic climbing to actual CN3/GN11 computations. Collate Endo v2 §3.2 with the journal version before extending the certificate-scope source finding beyond that preprint."
       ]
     },
     {
@@ -4908,7 +4908,7 @@
     },
     {
       "title": "Suggested native-carrier and omitted-condition refinements",
-      "detail": "The suggested file is a signature prototype, not an implemented CM library. Its native Mathlib fragments omit finite-etale/CM-order, algebraization, CM-action, canonical-conductor, Galois-realization, integral j-census and finite search/evaluator adapters where those supplier signatures do not exist. In particular native quotient-group maps are not algebraic isogenies, raw Over S tensor outputs require A0/A1 abelian-scheme/CM-action packaging, character scalar parameters must be supplied actual Frobenius values, and numeric reconstruction records require the independently verified CM census/order/tail inputs. Replace these explicitly marked fragments by the full packet statements when the cited supplier APIs are available. The checked file does not establish these mathematical conditions or compile the absent TauCeti modules.",
+      "detail": "The native signatures retain the full named conclusions and use scheme objects, morphisms, actual End-ring selectors, typed representation intertwiners, indexed Hodge/period modules, order Picard censuses and intrinsically bound certificate computations. They still omit exact unavailable supplier identifications: finite étale CM algebras and selected reflex factors, analytic algebraization and CM actions, proper smooth/generic-fiber and good-model specialization functors, canonical least conductors, actual Frobenius/Hecke/theta realizations, modular-function local rings, and certified CN3/CN4 algorithm identities/completeness. Each omitted condition is stated beside its signature; the displayed binders alone need not imply the statement. Resolve these adapter contracts against the cited owning roadmaps, without weakening the conclusion or introducing new generic carriers. Type checking in the Mathlib-pinned build does not check these identifications or build the unavailable Tau Ceti modules.",
       "neededBy": [
         "ComplexMultiplicationAndExplicitReciprocity:CM.0/cm-type",
         "ComplexMultiplicationAndExplicitReciprocity:CM.0/induced-and-primitive-type",
@@ -4970,62 +4970,6 @@
         "ComplexMultiplicationAndExplicitReciprocity:CM.5/complex-class-polynomial-algorithm",
         "ComplexMultiplicationAndExplicitReciprocity:CM.5/crt-class-polynomial-algorithm"
       ]
-    },
-    {
-      "detail": "Section 13 requires agreement of packet and suggested signatures: multiple native fragments change the specified conclusion instead of only omitting unavailable supplier conditions. The per-node review identifies every affected theorem/API/test, including verification versus conductor divisibility, termination versus output equality, representation comparison versus scalar identities, and CM-object tests versus independent arithmetic. Replace these conclusions and bind the fixtures to their actual constructions. The reader still contains pre-correction primitive-core, polarization, prime-only conductor and reflex-discriminant statements; this review issue cannot edit its path. Its revision must have the reader as a deliverable. Compilation validates syntax/types only.",
-      "neededBy": [
-        "ComplexMultiplicationAndExplicitReciprocity:CM.0/induced-and-primitive-type",
-        "ComplexMultiplicationAndExplicitReciprocity:CM.0/reflex-type",
-        "ComplexMultiplicationAndExplicitReciprocity:CM.0/reflex-order",
-        "ComplexMultiplicationAndExplicitReciprocity:CM.0/non-galois-quartic-example",
-        "ComplexMultiplicationAndExplicitReciprocity:CM.0/nonmaximal-quadratic-example",
-        "ComplexMultiplicationAndExplicitReciprocity:CM.1/ideal-lattice-curve",
-        "ComplexMultiplicationAndExplicitReciprocity:CM.1/ideal-action",
-        "ComplexMultiplicationAndExplicitReciprocity:CM.1/quadratic-forms-dictionary",
-        "ComplexMultiplicationAndExplicitReciprocity:CM.1/rational-cm-self-twist",
-        "ComplexMultiplicationAndExplicitReciprocity:CM.1/cm-serre-tensor",
-        "ComplexMultiplicationAndExplicitReciprocity:CM.1/cm-tensor-kernel-degree",
-        "ComplexMultiplicationAndExplicitReciprocity:CM.1/cm-hodge-eigenspaces",
-        "ComplexMultiplicationAndExplicitReciprocity:CM.1/cm-period-pairings",
-        "ComplexMultiplicationAndExplicitReciprocity:CM.2/polarized-cm-lattice-data",
-        "ComplexMultiplicationAndExplicitReciprocity:CM.2/arbitrary-dimensional-classification",
-        "ComplexMultiplicationAndExplicitReciprocity:CM.2/reflex-ideal-map",
-        "ComplexMultiplicationAndExplicitReciprocity:CM.2/normalized-idele-torsion-dictionary",
-        "ComplexMultiplicationAndExplicitReciprocity:CM.2/polarization-reciprocity-dictionary",
-        "ComplexMultiplicationAndExplicitReciprocity:CM.2/explicit-level-reciprocity",
-        "ComplexMultiplicationAndExplicitReciprocity:CM.2/polarized-level-stabilizer",
-        "ComplexMultiplicationAndExplicitReciprocity:CM.2/class-map-and-unit-obstruction",
-        "ComplexMultiplicationAndExplicitReciprocity:CM.2/dimension-two-example",
-        "ComplexMultiplicationAndExplicitReciprocity:CM.3/admissible-cm-value-field",
-        "ComplexMultiplicationAndExplicitReciprocity:CM.3/ray-class-values",
-        "ComplexMultiplicationAndExplicitReciprocity:CM.3/complete-elliptic-example",
-        "ComplexMultiplicationAndExplicitReciprocity:CM.4/cm-hecke-character",
-        "ComplexMultiplicationAndExplicitReciprocity:CM.4/tate-coefficient-components",
-        "ComplexMultiplicationAndExplicitReciprocity:CM.4/frobenius-and-infinity-type",
-        "ComplexMultiplicationAndExplicitReciprocity:CM.4/full-elliptic-l-factorization",
-        "ComplexMultiplicationAndExplicitReciprocity:CM.4/cm-induction-comparison",
-        "ComplexMultiplicationAndExplicitReciprocity:CM.4/residual-cartan-normalizer",
-        "ComplexMultiplicationAndExplicitReciprocity:CM.4/canonical-gross-character",
-        "ComplexMultiplicationAndExplicitReciprocity:CM.4/gross-curve-good-reduction",
-        "ComplexMultiplicationAndExplicitReciprocity:CM.5/deuring-classification",
-        "ComplexMultiplicationAndExplicitReciprocity:CM.5/cm-reduction-dictionary",
-        "ComplexMultiplicationAndExplicitReciprocity:CM.5/shimura-taniyama-specialization",
-        "ComplexMultiplicationAndExplicitReciprocity:CM.5/deuring-lifting",
-        "ComplexMultiplicationAndExplicitReciprocity:CM.5/cm-isogeny-graphs",
-        "ComplexMultiplicationAndExplicitReciprocity:CM.5/supersingular-curve-versus-level-pair",
-        "ComplexMultiplicationAndExplicitReciprocity:CM.5/complex-class-polynomial-certificate",
-        "ComplexMultiplicationAndExplicitReciprocity:CM.5/complex-algorithm-soundness-termination",
-        "ComplexMultiplicationAndExplicitReciprocity:CM.5/crt-class-polynomial-certificate",
-        "ComplexMultiplicationAndExplicitReciprocity:CM.5/crt-algorithm-soundness-termination",
-        "ComplexMultiplicationAndExplicitReciprocity:CM.5/endomorphism-ring-certificate",
-        "ComplexMultiplicationAndExplicitReciprocity:CM.5/endomorphism-verification-sound-complete",
-        "ComplexMultiplicationAndExplicitReciprocity:CM.0/trace-reflex-field-api-reflexField-stabilizer",
-        "ComplexMultiplicationAndExplicitReciprocity:CM.1/ideal-lattice-curve-api-endomorphismRing",
-        "ComplexMultiplicationAndExplicitReciprocity:CM.5/endomorphism-ring-certificate-api-valid-relations",
-        "ComplexMultiplicationAndExplicitReciprocity:CM.5/complex-class-polynomial-algorithm",
-        "ComplexMultiplicationAndExplicitReciprocity:CM.5/crt-class-polynomial-algorithm"
-      ],
-      "title": "Independent review: signature and reader agreement"
     }
   ],
   "sourceIssues": [
@@ -5034,7 +4978,7 @@
       "source": "Tsimerman",
       "kind": "misprint",
       "locator": "Published §5 p.386, norm in definition of H",
-      "printed": "NormK/Q(I)",
+      "printed": "The source labels the absolute ideal norm as coming from K while its input is an ideal of K*.",
       "correction": "I is an ideal of K*, so use its positive rational absolute ideal norm N_{K*/Q}(I). Distinguish this rational number from the ideal N(I)O_K in the reflex-norm identity.",
       "reason": "The input I belongs to Cl(K*), not the ideal group of K. The corrected norm gives NΦ(I) overline(NΦ(I))=N_{K*/Q}(I) O_K, and the unit obstruction is a a-bar divided by this positive rational norm.",
       "affects": "nothing",
@@ -5099,7 +5043,7 @@
       "locator": "arXiv:0902.4670v2, 17 March 2009, §3.2 p.7, Certify steps 1–4; compare §3.1 p.6 and §2.4 Corollary 4 pp.5–6",
       "printed": "The source ranges over every prime p dividing v/u.",
       "correction": "Either explicitly restrict the displayed prime-only Certify routine to the squarefree residual conductor used in the simplified Algorithm 1, or replace it by the prime-power separation of Corollary 4 and independently certify conductor valuations at 2 and 3. The packet uses the latter; this finding concerns the unqualified certificate-construction scope of the read preprint, not the published JNT version.",
-      "reason": "For v=25 and claimed u=5, Certify step 2 sets D1=u²D_K=25D_K and D2=5²D_K=25D_K. It therefore asks FindRelation to separate the same class group by a strict count inequality, which is impossible. These conductor data are not excluded by ordinary trace arithmetic: p=q=641, t=8 and D_K=-4 give t²-4q=25²D_K, with p not dividing t. Section 3.1 explicitly assumes no large squared prime remains for Algorithm 1, but §3.2 allows a proposed conductor from other constructions and does not impose that restriction. Optional removal of small primes is not an unconditional restriction on this display. Corollary 4 supplies the general prime-power repair. This does not dispute conditional soundness of a correctly constructed valid certificate or the heuristically stated running-time results.",
+      "reason": "For v=25 and claimed u=5, Certify step 2 sets D1=u²D_K=25D_K and D2=5²D_K=25D_K. It therefore asks FindRelation to separate the same class group by a strict count inequality, which is impossible. These conductor data are not excluded by ordinary trace arithmetic: p=q=641, t=8 and D_K=-4 give t²-4q=25²D_K, with p not dividing t. Section 3.1 explicitly assumes no large squared prime remains for Algorithm 1, but §3.2 allows a proposed conductor from other constructions and does not impose that restriction. Removal of small primes is not an unconditional restriction on this display. Corollary 4 supplies the general prime-power repair. This does not dispute conditional soundness of a correctly constructed valid certificate or the heuristically stated running-time results.",
       "affects": "a stated result",
       "known": "new within this bounded audit; a squarefree simplification is explicit for Algorithm 1, but no applicable correction to the general §3.2 display was established",
       "searched": [
@@ -5123,7 +5067,10 @@
     "polarization": "Eξ(x,y)=Tr(E/Q)(ξxȳ), ξ̄=−ξ and Im φ(ξ)>0; Eξ(x,Jx)>0. When translating Streng’s E(Jx,y)>0 convention, negate the Riemann form and use its corresponding ξ convention.",
     "Tate": "Covariant H₁ and Tate module; arithmetic Frobenius has characteristic polynomial X²−a_vX+q. Idelic infinity type (−1,0) corresponds to positive ideal type (1,0).",
     "orders": "Generic orders, conductor ideals, proper/invertible ideals and Picard groups belong to GlobalNumberFields Layer 11; no higher-dimensional nonmaximal-order class-field theorem is inferred from elliptic CM.",
-    "localEuler": "Local Euler polynomials use R11.5’s H¹_et=V_l(A)∨ and geometric Frobenius. For CM potential good reduction, finite-inertia averaging identifies their determinant with arithmetic Frobenius on covariant Tate invariants. Keep this duality explicit."
+    "localEuler": "Local Euler polynomials use R11.5’s H¹_et=V_l(A)∨ and geometric Frobenius. For CM potential good reduction, finite-inertia averaging identifies their determinant with arithmetic Frobenius on covariant Tate invariants. Keep this duality explicit.",
+    "reflexScope": "Embedding-partition types and trace reflex fields work for finite products of CM fields. The unique primitive core and single inverse-coset reflex type are field statements. A common closure contains all factor images, rather than an embedding of a product algebra.",
+    "polarizationComparison": "For f=NΦ(t⁻¹), the E-linear comparison satisfies α(fx)=σ(x) and scales the form by χ_cyc(σ)/(f f̄); the natural Galois torsion map scales by χ_cyc(σ). Uniformization sends I to fI and ξ to ξ χ_cyc(σ)/(f f̄).",
+    "reflexDiscriminant": "The reflex-order discriminant is a relative ideal over O_{E*}. For E=Q(i), O=Z+3Zi, the selected reflex image is O_E and its relative discriminant is 1, while the input order’s absolute Z-discriminant is −36."
   },
   "restructure": [
     {
@@ -5156,11 +5103,11 @@
   "agent": {
     "name": "Codex",
     "model": "GPT-6",
-    "session": "codex-gkcxOO",
-    "issue": 1007
+    "session": "codex-gwrRMa",
+    "issue": 6978
   },
   "readiness": {
-    "meaning": "Complete target-level plan, with explicit open supplier and source-proof refinements. No stage is claimed source-closed or implemented.",
+    "meaning": "Complete target-level plan with matching reader and full target-shaped native signatures. Source-proof and supplier-identification refinements remain explicit; no mathematical stage is source-closed or implemented.",
     "reviewedAudit": "data/library-coverage.json, CM.0–CM.6 entries read; baseline CM fields reused, CM.6 process excluded.",
     "bindingRestructure": "RS-04.result.json accepted; CM.0 contains no V4/V5 dependency and CM.2 is not an input of V5."
   },
@@ -5168,147 +5115,147 @@
     {
       "kind": "author copy",
       "url": "https://www.jmilne.org/math/CourseNotes/CM.pdf",
-      "read": "2026-10-06",
+      "read": "2026-10-08",
       "sha256": "0ac337a885d72f6938f15724b897f568fe350d0d754d0b52370b8f3a01d2e2b5",
       "citation": "v0.10, 14 July 2020; Complex Multiplication"
     },
     {
       "kind": "preprint",
       "url": "https://arxiv.org/pdf/0705.3446v1",
-      "read": "2026-10-06",
+      "read": "2026-10-08",
       "sha256": "a554ef5ebffc6bd971649281b79881863ad75bb6f68c9755630374bae3fa6e60",
       "citation": "arXiv:0705.3446v1, 2007; The fundamental theorem of complex multiplication"
     },
     {
       "kind": "preprint",
       "url": "https://arxiv.org/pdf/1201.0020v4",
-      "read": "2026-10-06",
+      "read": "2026-10-08",
       "sha256": "bc50c7f3d4a3c03d0e926b3cb20196b1eb83c73ac38a529fb3e1d7ca9f993d1c",
       "citation": "arXiv:1201.0020v4, 22 April 2024; An explicit version of Shimura’s reciprocity law for Siegel modular functions"
     },
     {
       "kind": "preprint",
       "url": "https://arxiv.org/pdf/2506.03465v2",
-      "read": "2026-10-06",
+      "read": "2026-10-08",
       "sha256": "cbb8284a13ed40bd15df9713001485724bc4d2a3b5c38d8fd83f9b6f3f3e4664",
       "citation": "arXiv:2506.03465v2, October 2025; published Annals 203 (2026), not collated; A rank zero p-converse to a theorem of Gross–Zagier, Kolyvagin and Rubin"
     },
     {
       "kind": "preprint",
       "url": "https://arxiv.org/pdf/1912.03657v4",
-      "read": "2026-10-06",
+      "read": "2026-10-08",
       "sha256": "fab8e605123cf9c399753b7114c4fd65000e1863e3507abdd4129c8c940fbb72",
       "citation": "arXiv:1912.03657v4, 14 September 2024; published Annals 202 (2025), not collated; Eisenstein–Kronecker classes, integrality of critical values of Hecke L-functions and p-adic interpolation"
     },
     {
       "kind": "published",
       "url": "https://authors.library.caltech.edu/records/8svwt-jn031/files/annals.2021.194.3.8.pdf?download=1",
-      "read": "2026-10-06",
+      "read": "2026-10-08",
       "sha256": "77ff329057e17cbad573cc309fce3f69f4ba6b73619c4ca203a4ed79a1cb790e",
       "citation": "Published Annals 194 (2021), 943–966, Caltech deposited copy; Rubin’s conjecture on local units in the anticyclotomic tower at inert primes"
     },
     {
       "kind": "published",
       "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v191-n2-p02-s.pdf",
-      "read": "2026-10-06",
+      "read": "2026-10-08",
       "sha256": "3920a7524a37870942fe3591ac858db23cb604f4331bccd2a6dc5f11a1671fbf",
       "citation": "Published Annals 191 (2020), 355–392; A conjecture of Erdős, supersingular primes and short character sums"
     },
     {
       "kind": "published",
       "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v187-n2-p02-p.pdf",
-      "read": "2026-10-06",
+      "read": "2026-10-08",
       "sha256": "43259ca3cfedfb574bf1fe2f80e1023cb736ea299a76588536fd816340722abc",
       "citation": "Published Annals 187 (2018), 379–390; The André–Oort conjecture for A_g"
     },
     {
       "kind": "published",
       "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v187-n2-p03-p.pdf",
-      "read": "2026-10-06",
+      "read": "2026-10-08",
       "sha256": "e1274468312566b3b062e9612cd89818349e9c98cf9e58a728f85704b740c6bb",
       "citation": "Published Annals 187 (2018), 391–531; Faltings heights of abelian varieties with complex multiplication"
     },
     {
       "kind": "published",
       "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v187-n2-p04-p.pdf",
-      "read": "2026-10-06",
+      "read": "2026-10-08",
       "sha256": "29dfd5f19dec401116f1eaf0305305acf5f2fc68aa3c90d4eb6e5222de50d507",
       "citation": "Published Annals 187 (2018), 533–638; only §2.2 reflex data used; 2022 author erratum introduction read separately, 2023 journal erratum not collated"
     },
     {
       "kind": "published",
       "url": "https://wstein.org/papers/bib/Gross-Zagier_Heegner_points_and_derivatives_of_Lseries.pdf",
-      "read": "2026-10-06",
+      "read": "2026-10-08",
       "sha256": "a9a52cb8662e03f19ace81dcfbf24bf873bf9c46ba89a8c890727b9541abdbf5",
       "citation": "Published Inventiones 84 (1986), 225–320; GDZ scan; Heegner points and derivatives of L-series"
     },
     {
       "kind": "published",
       "url": "https://download.uni-mainz.de/mathematik/Algebraische%20Geometrie/Lehre/WS23.Padische.1941.Deuring.pdf",
-      "read": "2026-10-06",
+      "read": "2026-10-08",
       "sha256": "f4845d096ce4ea1ea627f8384b8d798c508291f201f52c59dc10c5b9a8c81c7a",
       "citation": "Published Abhandlungen Hamburg 14 (1941), 197–272; Mainz scan; Die Typen der Multiplikatorenringe elliptischer Funktionenkörper"
     },
     {
       "kind": "preprint",
       "url": "https://arxiv.org/pdf/0903.2785v4",
-      "read": "2026-10-06",
+      "read": "2026-10-08",
       "sha256": "d0ef9ab1eeefd85cbd7e861eaa16f9f57171bab15a91b284793612b7e4b7e6e3",
       "citation": "arXiv:0903.2785v4, 22 November 2013; published Math. Comp. 80 (2011); Computing Hilbert class polynomials with the Chinese Remainder Theorem"
     },
     {
       "kind": "preprint",
       "url": "https://arxiv.org/pdf/0902.4670v2",
-      "read": "2026-10-06",
+      "read": "2026-10-08",
       "sha256": "7b29760f2faa8a63cb558c86b5cc87e1440a7223fcc08a2a09e80434a52aa422",
       "citation": "arXiv:0902.4670v2, 17 March 2009; Computing the endomorphism ring of an ordinary elliptic curve over a finite field; published JNT 131 (2011), 815–831, not collated; DOI access and IACR download unsuccessful"
     },
     {
       "kind": "published",
       "url": "https://www.numdam.org/item/AST_2004__295__117_0/",
-      "read": "2026-10-06",
+      "read": "2026-10-08",
       "sha256": "3c6e14b11fa60262db8aff782ce3cf4d83e9100c0be83621a7e4ce502cec605d",
       "citation": "Published Astérisque 295 (2004), 117–290; p-adic Hodge theory and values of zeta functions of modular forms"
     },
     {
       "kind": "author copy",
       "url": "https://people.math.wisc.edu/~tonghaiyang/HKCM.pdf",
-      "read": "2026-10-06",
+      "read": "2026-10-08",
       "sha256": "ac53defa86ca64204e6ddca4475bf848048f2cf4ed18f127ce3acb77434dfc85",
       "citation": "Author copy of Math. Ann. 329 (2004), 87–117; On CM abelian varieties over imaginary quadratic fields"
     },
     {
       "kind": "author copy",
       "url": "https://math.mit.edu/classes/18.783/2023/LectureNotes16.pdf",
-      "read": "2026-10-06",
+      "read": "2026-10-08",
       "sha256": "2fc781b22b32a88c0df711c20a5d8e1417610898ffbb526914049888a2d55677",
       "citation": "Fall 2023 lecture notes; 18.783 Elliptic Curves, Lecture 16"
     },
     {
       "kind": "author copy",
       "url": "https://math.mit.edu/classes/18.783/2023/LectureNotes20.pdf",
-      "read": "2026-10-06",
+      "read": "2026-10-08",
       "sha256": "e810087d556c2d0e1adc5905e635895fdab6ff0ee50467c3a2ab9b4de101455b",
       "citation": "Fall 2023 lecture notes; 18.783 Elliptic Curves, Lecture 20"
     },
     {
       "kind": "author copy",
       "url": "https://math.mit.edu/classes/18.783/2023/LectureNotes21.pdf",
-      "read": "2026-10-06",
+      "read": "2026-10-08",
       "sha256": "81a501a312d04bf13cef6c37fd3beb7669015674a6e3b468675b360517ed5e12",
       "citation": "Fall 2023 lecture notes; 18.783 Elliptic Curves, Lecture 21"
     },
     {
       "kind": "author copy",
       "url": "https://math.mit.edu/classes/18.783/2023/LectureNotes22.pdf",
-      "read": "2026-10-06",
+      "read": "2026-10-08",
       "sha256": "c62eeddd16c3071a339d775cdd4e08fd11db2e61eb4333f30d02c96daec840fc",
       "citation": "Fall 2023 lecture notes; 18.783 Elliptic Curves, Lecture 22"
     },
     {
       "kind": "author copy",
       "url": "https://web.math.princeton.edu/~shouwu/publications/Erratum3.pdf",
-      "read": "2026-10-06",
+      "read": "2026-10-08",
       "sha256": "e3f3f5f8771858dd3c086c36e563b0afcfa0289e806522843a327dd17346c36c",
       "citation": "Yuan–Zhang, Erratum to On the Averaged Colmez Conjecture, 30 April 2022; introduction and corrected theorem pp.1–2 only. Error concerns original Theorem 2.7/Néron exactness, not the §2.2 trace-order definition used here; journal Annals 198 (2023), 867–878, not collated."
     }
