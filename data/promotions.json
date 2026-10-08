@@ -449,6 +449,17 @@
     "data/blueprints/AutomorphicBundles--B5.md"
    ]
   },
+  "research/blueprint/packets/AutomorphicGaloisRepresentations.json": {
+   "promotedAt": "2026-10-08T07:20:58Z",
+   "review": "4c3ff6266032a3f2",
+   "reviewDate": "2026-10-08",
+   "reviewer": "independent-review-REV-AutomorphicGaloisRepresentations~2",
+   "sha256": "b031225f2fb7f6217d8ccde213b20e801f6c44e5d71e66edb8ad79494f23ad2f",
+   "to": [
+    "data/blueprints/AutomorphicGaloisRepresentations.json",
+    "data/blueprints/AutomorphicGaloisRepresentations.md"
+   ]
+  },
   "research/blueprint/packets/ClassicalArithmeticCompletion.json": {
    "promotedAt": "2026-10-01T20:54:46Z",
    "review": "cee58cf39ff3ce8a",
@@ -961,6 +972,17 @@
     "data/blueprints/GenericDoublePointInterpolation.json",
     "data/blueprints/GenericDoublePointInterpolation.md",
     "data/blueprints/roadmaps/GenericDoublePointInterpolation.json"
+   ]
+  },
+  "research/blueprint/packets/GeometricSatakeAndFusion--GS0.json": {
+   "promotedAt": "2026-10-08T07:20:58Z",
+   "review": "0f511d6f28e97298",
+   "reviewDate": "2026-10-08",
+   "reviewer": "independent-review-REV-GeometricSatakeAndFusion--GS0~2",
+   "sha256": "ca9622e67e96055773c4cb16f63a1340ece423cea256602050784b5b4c277494",
+   "to": [
+    "data/blueprints/GeometricSatakeAndFusion--GS0.json",
+    "data/blueprints/GeometricSatakeAndFusion--GS0.md"
    ]
   },
   "research/blueprint/packets/GlobalGaloisDeformations.json": {

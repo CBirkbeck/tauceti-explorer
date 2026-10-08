@@ -1,8 +1,8 @@
 {
   "roadmaps": 236,
-  "stages": 4709,
+  "stages": 4737,
   "originalStages": 2160,
-  "sourceRefinements": 2549,
+  "sourceRefinements": 2577,
   "reviewedDecompositions": [
     {
       "roadmap": "AInfCohomology",
@@ -29,13 +29,6 @@
       "roadmap": "ArithmeticGaloisRepresentations",
       "status": "partial",
       "nodes": 9,
-      "review": "accepted",
-      "deferredLinks": 0
-    },
-    {
-      "roadmap": "AutomorphicGaloisRepresentations",
-      "status": "partial",
-      "nodes": 8,
       "review": "accepted",
       "deferredLinks": 0
     },
@@ -147,7 +140,7 @@
     {
       "roadmap": "GeometricSatakeAndFusion",
       "status": "partial",
-      "nodes": 23,
+      "nodes": 7,
       "review": "accepted",
       "deferredLinks": 0
     },
@@ -292,14 +285,14 @@
   "editedRoadmapSummaries": 181,
   "curatedStagePresentations": 339,
   "administrativeStages": 101,
-  "mathematicalStars": 4608,
+  "mathematicalStars": 4636,
   "plainTextPlanetLabels": 398,
   "hiddenPlanets": 600,
   "mappedStageStatuses": 350,
   "libraryAuditStatuses": 19,
   "bibliographicSources": 46,
-  "roadmapEdges": 2119,
-  "stageEdges": 12117,
+  "roadmapEdges": 2134,
+  "stageEdges": 12269,
   "reviewedLinkPackets": 25,
   "promotedBlueprints": [
     {
@@ -403,6 +396,12 @@
       "roadmap": "AutomorphicBundles",
       "nodes": 28,
       "reviewer": "independent-review-REV-AutomorphicBundles--B5"
+    },
+    {
+      "file": "AutomorphicGaloisRepresentations",
+      "roadmap": "AutomorphicGaloisRepresentations",
+      "nodes": 66,
+      "reviewer": "independent-review-REV-AutomorphicGaloisRepresentations~2"
     },
     {
       "file": "ClassicalArithmeticCompletion",
@@ -679,6 +678,12 @@
       "roadmap": "GenericDoublePointInterpolation",
       "nodes": 77,
       "reviewer": "independent-review-REV-DESIGN-GenericDoublePointInterpolation"
+    },
+    {
+      "file": "GeometricSatakeAndFusion--GS0",
+      "roadmap": "GeometricSatakeAndFusion",
+      "nodes": 62,
+      "reviewer": "independent-review-REV-GeometricSatakeAndFusion--GS0~2"
     },
     {
       "file": "GlobalGaloisDeformations",
@@ -1162,8 +1167,8 @@
     }
   ],
   "sourceDocuments": 296,
-  "htmlBytes": 35829457,
-  "htmlSha256": "8e60fdf386fbb0783f6562eb559d7a57219333c3fef943aae81c0e967853850c",
+  "htmlBytes": 35680430,
+  "htmlSha256": "ea305aba8cdee496e1ac57800bdf2d6b88cfc8f0b99afb23e4a9221fb267e7af",
   "networkDependencies": 0,
   "localProgressOverridesIncluded": false,
   "assets": {
@@ -1195,7 +1200,7 @@
     "data/roadmap-summaries.json": "c8bdd0a9105f5d3c4a858c8b635990729f8e94497dee784a71fae659b8c05b9f",
     "data/roadmap-classification.json": "2641dbc97eb2566c715162d011b46890d1635629181ef8126ac7aed9e24a3b13",
     "data/classification-estimates.json": "625d35fe6121bf099dc5de9e6a9111793596f9b664e3fbd439841434bb4a57d6",
-    "data/roadmap-distances.json": "ef6f48e49974f998c79c3d6b907cf93cd67a0018f22baece27dc6c79c89f5950",
+    "data/roadmap-distances.json": "e307e4dc69159a3ac0c124498da107196d9123ff39d68e5d4812b4fb109ad09d",
     "data/galaxy-layout.json": "2c01bbf6e2083476a6b73f3d295c4d4c898d0be461c21fb0195da29a30469a03",
     "data/bibliography.json": "bef230a41fad22d6b790c7564061c4d05c2ae5b78cab53d005eb404afab2b122",
     "NOTICE": "a285b95d5adbf5c2bcc82db36e2a77b797f84a2c5cbb30292efd0bae17cc4f34",
@@ -1287,6 +1292,8 @@
     "data/blueprints/AutomorphicBundles--B0.md": "b983489a5e7c2fe7195ade5e7017c29de8fa233d3e2464ec8abb7f0fe4900ddd",
     "data/blueprints/AutomorphicBundles--B5.json": "e52352b2d18479d2ec2fb89acfac944632157b736e7fae57f2facc53e7060d67",
     "data/blueprints/AutomorphicBundles--B5.md": "0bfed27f079e9112d55bba1fc7cd761527e424c7a4236b51c0c15d7a3d763eec",
+    "data/blueprints/AutomorphicGaloisRepresentations.json": "2fc29e8c433b09943d2cf0c5af1a87e68aedf7f77369aa447a97ac9d24f69111",
+    "data/blueprints/AutomorphicGaloisRepresentations.md": "f96f727cd9d6816f409a2fbfd8d5714a4d3ac4b5c00bec118b1559cd1c7c90f7",
     "data/blueprints/ClassicalArithmeticCompletion.json": "edada99f284e6d97094d2e7dea4951265e5bfc4f0b7278c588c8a38fc4991be2",
     "data/blueprints/ClassicalArithmeticCompletion.md": "eaa6512cd30fe16e148b6e2f8d6607297174066d96839eacf97b3cb427e41b7d",
     "data/blueprints/ClassicalGroupsPartII.json": "31b6a516f9a537c878ea3a652de0a1a1b559f3c9433879b08191c90183da8eb2",
@@ -1379,6 +1386,8 @@
     "data/blueprints/GeneralizedHeegnerCycles--GH.8.md": "86378323be2194b15d677548c2c9c031d79422f226c27a3f06d2782661f65ea3",
     "data/blueprints/GenericDoublePointInterpolation.json": "f45d5d1dd9f71817a69d6168f5cea23288ef6ef802f18b239c1d50be5bd6b5de",
     "data/blueprints/GenericDoublePointInterpolation.md": "6f2fe26ae4640d325cf3d0fb4606ac6a34fd9181552699655c4c22dc0009d454",
+    "data/blueprints/GeometricSatakeAndFusion--GS0.json": "b004f91785a7efef5f31da922be8b3de855bdaa8359cb1d2f25be6e17930f1fe",
+    "data/blueprints/GeometricSatakeAndFusion--GS0.md": "5ad4fdd2ecdea156005fe08f7bd77ca37f89a9402ffc7adb0d004ef07c10e37b",
     "data/blueprints/GlobalGaloisDeformations.json": "bc830f2181a6806d8161847e18508e4bccec98200e88abc49c9080f9962acdb5",
     "data/blueprints/GlobalGaloisDeformations.md": "4f917fe4c79aa4e3221ea7b4a2ffbaa562c8d034e3f66d80268642ae3e83fa02",
     "data/blueprints/HabiroCohomologyFoundations--HQ.1-2.json": "550d0db0a6700baa6a0235280bfcaf516dd59bb902c710b7ea2866bc57929e0b",
