@@ -38120,7 +38120,8 @@
     "BP-ClassicalSerreModularity--R26.1~2"
    ],
    "prompt": "research/blueprint/prompts/REV-ClassicalSerreModularity--R26.1~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7036"
   },
   {
    "kind": "blueprint",
@@ -44334,8 +44335,9 @@
     "REV-HodgeStructuresPartII--H.8"
    ],
    "prompt": "research/blueprint/prompts/ASM-HodgeStructuresPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6982"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6982",
+   "finishedAt": "2026-10-08T10:06:25Z"
   },
   {
    "id": "PLANETS-01",
