@@ -266,7 +266,7 @@
       "id": "ammn",
       "title": "On the Beilinson fiber square",
       "authors": "Benjamin Antieau, Akhil Mathew, Matthew Morrow, Thomas Nikolaus",
-      "edition": "arXiv:2003.12541v2 (2020), printed preprint pagination",
+      "edition": "arXiv:2003.12541v2 (29 September 2021), printed preprint pagination",
       "url": "https://arxiv.org/pdf/2003.12541v2",
       "sha256": "2a0224b2e8b7c5f19f326886b130f8be0158ba4cb602ba7eb5821990ca22b3fd",
       "accessed": "2026-10-08",
@@ -1189,7 +1189,7 @@
       ],
       "acceptance": [
         "For an elliptic curve E with good reduction over O_K, D_cris(H¹_ét(E_{K̄},Q_p)) is H¹_crys(E_k/W(k))[1/p] with Frobenius slopes {0,1} (ordinary) or {1/2,1/2} (supersingular) and Hodge filtration jumps at 0 and 1; it is weakly admissible.",
-        "For H⁰ the realization is K₀ with trivial Frobenius and filtration jump at 0."
+        "For geometrically connected H⁰ the crystalline realization is K₀ with Witt Frobenius σ and filtration jump at 0; Frobenius acts trivially on the Q_p étale factor."
       ],
       "prerequisites": [
         "CohomologyComparisons:CP.2/crystalline-comparison-over-discretely-valued-base",
@@ -1383,7 +1383,7 @@
         {
           "name": "InfinitesimalEnvelope.lift",
           "role": "universal-property",
-          "statement": "If S is a P-algebra that is J-adically complete for an ideal J of S containing the image of ker e, the structure map P→S extends uniquely to D(e)→S."
+          "statement": "If ker(e) is finitely generated and S is a P-algebra that is J-adically complete for an ideal J of S containing the image of ker e, the structure map P→S extends uniquely to D(e)→S."
         }
       ],
       "tests": [
@@ -1704,7 +1704,7 @@
         {
           "name": "CanonicalBdrCohomology.test_redundant_embedding",
           "kind": "compatibility",
-          "statement": "On a very small torus, adjoining a redundant unit to Σ induces the Lemma 13.13 quasi-isomorphism; no extra degree-one class is introduced."
+          "statement": "On a very small torus, adjoining a redundant unit to Σ induces the Lemma 13.13 quasi-isomorphism and isomorphisms in every cohomological degree; this test makes no finite-rank assertion for the affinoid de Rham groups."
         }
       ]
     },
@@ -2524,7 +2524,7 @@
       "statement": "For a proper p-adic O_K-formal scheme with the preceding semistable charts and perfect residue k₀, there is a natural G_K-equivariant quasi-isomorphism RΓ_ét(X_C,Z_p)⊗^L B_st≃RΓ_logcrys(X_{k₀}/W(k₀))⊗^L B_st, compatible with φ and N, where Nφ=pφN. Degreewise it gives semistable H_ét^i(X_C,Q_p). The right side uses the N→W(k₀),1↦0 log base.",
       "hypotheses": [],
       "proofSteps": [
-        "CK Theorem 9.5: compose Proposition 9.2 with the A_cris specialization from AI.6, then invert μ and use the proper étale comparison. Check φ on both factors, N as the total monodromy and the trivial étale-factor N."
+        "CK Theorem 9.5: compose Proposition 9.2 with the A_cris specialization from AI.6, then invert μ and use the proper étale comparison. Check φ on both factors, N as the total monodromy and the trivial étale-factor N. The diagonal monodromy descends to the balanced tensor because N_Bst is a derivation killing the coefficient field and N_HK is coefficient-linear; these hypotheses are explicit in the Lean adapter."
       ],
       "acceptance": [
         "In good reduction the comparison is the crystalline one of CP.2 with N=0.",
@@ -2739,7 +2739,9 @@
       "title": "Algebraic period comparison without smoothness",
       "kind": "theorem",
       "statement": "For any algebraic variety X_K over K and r≥0, CN Theorem 6.2 records Beilinson’s B_st-linear G_K-equivariant period isomorphism H_ét^r(X_{K̄},Q_p)⊗B_st≃H_HK^r(X_{K̄})⊗_{F^{nr}}B_st preserving φ,N and inducing the filtered B_dR isomorphism with H_dR^r(X_K). No smoothness or properness assumption is added; HK and de Rham use the h-descent/derived realizations for arbitrary varieties, not the smooth proper model definitions.",
-      "hypotheses": [],
+      "hypotheses": [
+        "Here an algebraic variety is separated and of finite type over K, as in CN Theorem 6.2; neither smoothness nor properness is required."
+      ],
       "proofSteps": [
         "Use R09.7 resolution together with a requested smooth h-hypercover construction. E2 supplies bounded-below hypercover descent once the h-derived HK and filtered de Rham realizations and their h-descent have been supplied by the CR.6 extension. CN Theorem 6.2 quotes Beilinson; the original algebraic comparison proof remains G-analytic-cst."
       ],
@@ -2783,7 +2785,9 @@
       "title": "Period recovery and Hom descriptions",
       "kind": "application",
       "statement": "For the algebraic comparison above, recover H_ét^r as (H_HK^r⊗B_st)^{φ=1,N=0}∩Fil⁰(H_dR^r⊗B_dR). The natural Hom^sm_{G_K}(H_ét^r,B_st)≃(H_HK^r)^* is an isomorphism of (φ,N,G_K)-modules and Hom_{G_K}(H_ét^r,B_dR)≃(H_dR^r)^* is filtered K-linear. The smooth-vector qualifier and the duals are essential; the theorem does not identify ordinary B_st Hom with undualized HK cohomology.",
-      "hypotheses": [],
+      "hypotheses": [
+        "Here an algebraic variety is separated and of finite type over K, as in CN Theorem 6.2; neither smoothness nor properness is required."
+      ],
       "proofSteps": [
         "Use CN Theorem 6.2 equation (6.3) and the R06.2 admissible period-module theorem. Dualize the comparison and apply the correct smooth-invariant period functor. Topological strictness is qualified by Remark 6.7."
       ],
@@ -2864,7 +2868,7 @@
       "statement": "For X proper smooth rigid over C, CN Theorem 6.8 gives a natural φ,N-compatible B_st comparison with H_HK^r(X)⊗_{F^{nr}}B_st, inducing a filtered B_dR comparison with H_dR^r(X/B_dR⁺)⊗B_dR. The latter filtration is Im[H^r(Fil^i K_dR⁺)→H^r(K_dR⁺)], not only the free B_dR⁺ lattice. No G_K action is asserted without descent. This is a separate filtered extension of BMS1 §13; the unfiltered finite-free lattice theorem by itself is not used as a filtered comparison theorem.",
       "hypotheses": [],
       "proofSteps": [
-        "Use the syntomic/étale comparison and the BC dimension proof in Theorem 6.8. Identify its canonical infinitesimal deformation with CP.3. Remark 6.10 explicitly says the earlier BMS1 Theorem 13.1 did not treat filtrations."
+        "Use the syntomic/étale comparison and the BC dimension proof in Theorem 6.8. Identify its canonical infinitesimal deformation with CP.3. Remark 6.10 explicitly says the earlier BMS1 Theorem 13.1 did not treat filtrations. The diagonal monodromy descends to the balanced tensor because N_Bst is a derivation killing the coefficient field and N_HK is coefficient-linear; these hypotheses are explicit in the Lean adapter."
       ],
       "acceptance": [
         "Retain the filtered complex; a choice of free cohomology lattice alone cannot encode this filtration."
@@ -3247,7 +3251,7 @@
       ],
       "title": "Normalized log de Rham torsion export",
       "kind": "application",
-      "statement": "Import CK Theorem 7.12 with v(p)=1: v_Zp(H_ét^i(Z_p)_tor/p^n)≤v_OC(H_logdR^i(𝔛/O_C)_tor/p^n), including the finite-coefficient log de Rham inequality. For a discrete O_K of absolute ramification e, normalized torsion length is ordinary O_K length divided by e; it is not unscaled module length. The definition via the valuation of Fitt₀ and its scalar-extension invariance belong to AI.5/AI.6.",
+      "statement": "Import CK Theorem 7.12 with v(p)=1: v_Zp(H_ét^i(Z_p)_tor/p^n)≤v_OC(H_logdR^i(𝔛/O_C)_tor/p^n), including the finite-coefficient log de Rham inequality. For a discrete O_K of absolute ramification e, normalized torsion length is ordinary O_K length divided by e; it is not unscaled module length. The definition via the valuation of Fitt₀ and its scalar-extension invariance belong to AI.5/AI.6. The normalized valuation length is real-valued; for a finitely presented cyclic module O_C/(a) it is v(a).",
       "hypotheses": [],
       "proofSteps": [
         "Use AI.6/de-rham-torsion and CK §7.10 normalization, which follows the valuation-ring structure theorem. The geometric bound uses the ξ-specialization sequence in degree i and i+1; import CK Lemma 7.11 from the generic linear-algebra owner."
@@ -4121,8 +4125,8 @@
       ],
       "review": {
         "scope": "partly",
-        "by": "REV-CohomologyComparisons",
-        "missing": "(1) The rational part of 'the natural ring maps' used by CohomologyComparisons:CP.0/ainf-specialization-dictionary — A→A_cris→B_dR⁺ identified with the canonical completion map, and A[1/μ]→B_cris→B_dR — is outside the integral prefix: by the stage split and RS-01 it is AI.0:period-comparison's ownership (with R06.1). That consumer cites only AI.0:integral, CR.0, R06.1 and should also cite AI.0:period-comparison (already in CP.0's atlas requires, so no ordering problem). (2) W(C^♭): the AI.0 text never mentions W(C^♭); the request's 'μ a unit after W(C^♭) extension' and the A_inf-flatness of A_inf→W(C^♭) used by CohomologyComparisons:CP.1/mu-inverted-etale-specialization ('Use AI.0’s coefficient flatness') are not stated outputs. μ being a unit is elementary; the flatness is not (it is the étale/Witt-specialization material of AI.2, 'the étale/Witt specializations', BMS1 Lemma 4.26, and is used in AI.5's Cor. 4.15)."
+        "by": "REV-CohomologyComparisons~2",
+        "note": "Integral coefficient maps and twist normalization belong here. Witt coherence is the §3 owner evidence; W(C♭) flatness additionally uses AI.2, and rational composites use the separate period prefix."
       }
     },
     {
@@ -4133,8 +4137,8 @@
       ],
       "review": {
         "scope": "partly",
-        "by": "REV-CohomologyComparisons",
-        "missing": "'The μ-inverted étale sheaf comparison, with its actual functorial maps and φ action' (request, for CohomologyComparisons:CP.1/mu-inverted-etale-specialization) is not period-ring comparison: it is AI.4 at sheaf level and AI.5 globally (BMS1 Thm 14.3(iv)). The consumer already gets it through CP.1/proper-ainf-input-package (AI.5). 'The difference between the two topologies/completions before rational scalar extension' is at most implicit in the comparison of coefficient presentations; no supplier text states it."
+        "by": "REV-CohomologyComparisons~2",
+        "note": "The coefficient-to-period composites use this prefix and R06.1. The μ-inverted geometric étale map comes from AI.4/AI.5, not the coefficient-ring identification alone; completed topologies stay explicit."
       }
     },
     {
@@ -4147,8 +4151,8 @@
       ],
       "review": {
         "scope": "partly",
-        "by": "REV-CohomologyComparisons",
-        "missing": "(a) 'Logarithmic Koszul coordinates' (request; CohomologyComparisons:CP.3/local-bdr-etale-map) means the exponential/log normalization ∂/∂log X_u versus γ_u−1 of BMS1 §12.2/Thm 13.1. This is not AI.1 material: AI.1 states only the generic Koszul calculation for commuting endomorphisms. The normalization belongs to AI.4 ('the all-coordinates construction', sources §§8,10–12), and the consumer itself says 'Use the actual exponential/Koszul normalization from AI.4 §12.2'. (b) 'Its multiplicative enhanced form' (CohomologyComparisons:CP.1/multiplicative-bockstein-coherence): AI.1 states a lax symmetric monoidal Lη, but not multiplicativity (dg-algebra form, BMS1 Lemma 6.13) of the Bockstein identification, and no E∞/enhanced structure. The consumer takes associativity from E4 and records any missing enhancement.",
+        "by": "REV-CohomologyComparisons~2",
+        "note": "Bockstein reduction and generic Koszul/Lη operations are supplied. All-coordinate logarithmic normalization uses AI.4; coherent multiplicative enhancement is still requested from the enhanced owners.",
         "candidateNodes": [
           "AInfCohomology:AI.1/bockstein-reduction",
           "AInfCohomology:AI.1/principal-complex"
@@ -4172,8 +4176,8 @@
       ],
       "review": {
         "scope": "partly",
-        "by": "REV-CohomologyComparisons",
-        "missing": "For CohomologyComparisons:CP.0/twist-frobenius-filtration-normalization: 'The BMS/Kisin map S=W(k)[[u]]→A_inf sends u↦[π^♭]^p … S→W(k) sends u↦0' (BMS1 §4.4) is not in AI.2's text or sources (Def. 4.22, Lemmas 4.26–27, Thm 4.28). Existing owners are FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/bk-coefficient-rings and PrismaticCohomology:PR.7/breuil-kisin-and-ainf-covers, and the exact map with c:S→W(k) is AInfCohomology:AI.7/coefficient-normalization, a late stage. The A_inf{1} twist of BMS1 Example 4.24 is AI.0:integral's ('Construct Breuil–Kisin twists'). For CohomologyComparisons:CP.5/dvr-lattice-recovery-via-breuil-kisin: Prop. 4.34 (BK(T)⊗_S A_inf ≅ BKF(T)) and Kisin's functor are also outside AI.2; the consumer itself records them as an external Kisin gap. AI.2 supplies only the Fargues full faithfulness and the Galois-action retention there."
+        "by": "REV-CohomologyComparisons~2",
+        "note": "Finite-free Fargues pairs and full faithfulness are in scope. The torsion decomposition remains AI.2 evidence; it is not assigned to CP or inferred for arbitrary torsion BKF modules."
       }
     },
     {
@@ -4186,8 +4190,8 @@
       ],
       "review": {
         "scope": "partly",
-        "by": "REV-CohomologyComparisons",
-        "missing": "For both CohomologyComparisons:CP.6/pan-bounded-torsion-inverse-limit and CP.6/pan-etale-site-truncated-comparison-map: (1) AI.3 constructs A_inf,X only on generic fibres of smooth p-adic formal schemes; Pan's X_{K^p} (infinite-level perfectoid modular curve) and deep-level modular curves are not of that form. (2) The truncated almost coefficients A_inf,X^a/(ker θ)^k and A_inf,X^a/((ker θ)^k,p^m), with bounded torsion and inverse-limit control, are not stated. (3) The finite-level truncated Witt projections φ_l:A_inf→W_l(O_C/p), the factorization of A_inf→A_inf/((ker θ)^k,p^m) through them and compatibility in (k,m) are not stated; AI.3's local tower is a toric cover of a framed affine. (4) The étale-site (not pro-étale) variant of Pan Lemma 7.2.4 is not stated."
+        "by": "REV-CohomologyComparisons~2",
+        "note": "The smooth formal pro-étale sheaves are supplied. The modular-curve infinite-level and finite-Witt analytic/étale almost adapters are extensions, retained in G-pan."
       }
     },
     {
@@ -4204,7 +4208,8 @@
       ],
       "review": {
         "scope": "covered",
-        "by": "REV-CohomologyComparisons"
+        "by": "REV-CohomologyComparisons~2",
+        "note": "Sheaf-level comparison maps and explicit-coordinate complexes are in scope. Additional Frobenius/product agreement is a target with its enhancement gap, not quoted from Theorem 14.1."
       }
     },
     {
@@ -4222,8 +4227,8 @@
       ],
       "review": {
         "scope": "partly",
-        "by": "REV-CohomologyComparisons",
-        "missing": "RS-01 moved to AI.5 only the generic §4.2 items tagged 'AI.5 supplier material' in data/decompositions/CohomologyComparisons.json. Checked item by item, the request's §4.2/supplierRecords package is in that move as follows. IN: Lemma 4.9 (perfectness-and-tor-bounds), Lemma 4.14 (specialization-length-inequality), Cor. 4.15 (witt-versus-tilt), Lemma 4.16 (derived-to-degreewise; 'adjacent-degree Tor'), Cor. 4.17 (finite-presentation-and-freeness-criterion), Lemma 4.19/Cor. 4.20 ('μ-inverted freeness'). NOT IN: (1) 'coherence of Witt vectors' — the CP.0 record coherence-of-witt-vectors-of-perfectoid-integers is BMS1 §3.3 (Prop. 3.24–Cor. 3.29), formerly CP.0 and not §4.2. RS-01 sent CP.0 material to AI.0:integral/CR.0/R06.1/AI.0:period-comparison; AI.0 (sources BMS1 §3) or the generic Witt carrier is the natural owner. (2) Lemmas 4.10–4.12/Prop. 4.13 (ainf-module-structure-theorem, inside 'Lemmas 4.9–4.20'). The decomposition tags it AI.2 ('torsion decompositions'), which RS-01 does not move, but the CP packet aliases it to AI.5 while its record text still says AI.2. (3) 'Valuation-length inequalities' = CK §7.10 normalized length v_O (Fitt₀ valuation, scalar-extension invariance) and CK Lemma 7.11, used by CohomologyComparisons:CP.5/semistable-normalized-de-rham-torsion-export. These are not BMS §4.2, not in AI.5's sources (BMS1 §§4,14), and not in RS-01; AI.6's own request calls them an extension of AI.5's smooth scope. (4) length-monotonicity-under-torsion-cokernel (aliased to AI.5; used by CP.5/integral-torsion-length-inequality-over-C) is an inline Thm 14.5(ii) observation, not §4.2. It was untagged in the decomposition, where it was a CP.5-owned node. BORDERLINE: Lemma 4.18 (used by CP.5/crystalline-de-rham-torsionfreeness-equivalence as 'AI.5 Lemma 4.18') was an untagged CP.5 node in the decomposition. It is generic §4.2 and fits AI.5's 'linear algebra controlling integral torsion' and RS-01.md's 'finite-presentation/freeness criteria', but it is not 'already tagged'."
+        "by": "REV-CohomologyComparisons~2",
+        "note": "Properness and the transferred generic §4.2 linear algebra are in scope; §3 coherence and AI.2 decompositions remain imports. Inline length monotonicity, normalized semistable valuation lengths and removing the draft CP.1 back edge remain owner work."
       }
     },
     {
@@ -4238,8 +4243,8 @@
       ],
       "review": {
         "scope": "partly",
-        "by": "REV-CohomologyComparisons",
-        "missing": "(1) \"derived sheaf cohomology\" (request) / \"induce the prescribed derived pullbacks and pushforwards\" (CP.0/site-and-geometric-point-compatibility) / RΓ(X_very-small, -) (CP.3/canonical-bdr-cohomology): A1 explicitly excludes this; the owner is ClassicalAdicEtaleCohomology:H0 (e.g. H0/derived-direct-image, H0/proetale-etale-comparison, H0/cartan-leray-spectral-sequence) or EnhancedDerivedSheaves:E4. (2) \"perfectoid bases\" (request; CP.0/site-and-geometric-point-compatibility: \"Corrected covers give the needed acyclic perfectoid basis\"; CP.3/local-bdr-etale-map: \"Perfectoid acyclicity\"): no A1 node treats affinoid perfectoid objects of X_proét or their acyclicity; Perf pro-étale is D2 per RS-05, and the acyclicity lives in PadicHodgeTheory:P8:local-rational (e.g. P8:local-rational/completed-structure-sheaf-on-affinoid-perfectoids) / PerfectoidSpaces P3 / AInfCohomology AI.3. (3) The \"formal scheme to its special fibres\" site morphism in CP.0/site-and-geometric-point-compatibility is ClassicalAdicEtaleCohomology:H1:formal-adic-comparison (specialization-morphism-of-sites-lambda, reduced-special-scheme-equivalence), which that consumer does not cite; the log→ordinary piece is CrystallineCohomology:CR.5 (cited). (4) \"base change on the explicitly specified formal/analytic objects\" (CP.3/relative-infinitesimal-site: X_C, Y_{B_dR⁺/I^e}, simultaneous analytic covers): A1 has only base change of étale/finite étale morphisms (A1/etale-base-change); completed base change/fibre products are AdicSpacesPartII:R0 and generic fibres of formal schemes R2, and that site uses the analytic topology, not A1's étale/pro-étale sites.",
+        "by": "REV-CohomologyComparisons~2",
+        "note": "Corrected ordinary/pro-étale sites and geometric points are supplied; existence of the site alone does not prove a cohomological acyclicity theorem.",
         "candidateNodes": [
           "AdicEtaleGeometry:A1/proetale-field-extension-slice",
           "AdicEtaleGeometry:A1/proetale-projection-nu",
@@ -4270,8 +4275,8 @@
       ],
       "review": {
         "scope": "partly",
-        "by": "REV-CohomologyComparisons",
-        "missing": "(1) BMS1 Lemma 13.4 / noetherianity and ξ-adic completeness of the ξ-completed Tate algebras P_Σ = lim_n (B_dR⁺/ξ^n)⟨X_u^{±1}⟩ and of rigid affinoids over B_dR⁺/ξ^n (CP.3/infinitesimal-envelope, CP.3/envelope-normal-form, CP.3/relative-infinitesimal-site with T over Y_{B_dR⁺/I^e}): no R0 node states that B_dR⁺/ξ^n is strongly noetherian (only fields, R0/nonarchimedean-field-strongly-noetherian), and ξ-adic inverse limits of Huber rings are outside R0's Huber-pair scope. (2) Flatness/completion along the finitely generated embedding ideal ker e (CP.3/infinitesimal-envelope): commutative algebra (Mathlib AdicCompletion, already cited); R0's analogue R0/noetherian-rod-module-completion-tensor needs a noetherian ring of definition, which B_dR⁺/ξ^n-algebras lack. (3) Smooth lift (BMS1 Lemma 13.11; CP.3/completed-smooth-lift): ξ-completeness, flatness and topological freeness mod ξ^n of R_A⊗̂_A B_dR⁺ are not R0 statements (R0's completed tensor is for Huber pairs along adic maps; B_dR⁺ is not a Huber ring), and the Raynaud–Gruson freeness input is AdicSpacesPartII:R2/rg-smooth-geometrically-integral-projective. (4) BMS1 Lemmas 13.7–13.10 approximation (CP.3/noetherian-approximation-interface) are not in R0's scope (see the R5 entry). (5) CP.3/embedding-independence-and-reduction uses only de Rham contractibility of formal disks and derived ξ-Nakayama; neither is R0 content (E4 is also cited there).",
+        "by": "REV-CohomologyComparisons~2",
+        "note": "Completed analytic products and presentations are supplied. BMS1 Lemma 13.4 for ξ-complete Tate algebras, noetherianity and ideal-closedness require the precise B_dR extension recorded in G-spreading-inputs.",
         "candidateNodes": [
           "AdicSpacesPartII:R0/differentials-unramified-smooth-etale",
           "AdicSpacesPartII:R0/smooth-toric-chart"
@@ -4298,8 +4303,8 @@
       ],
       "review": {
         "scope": "partly",
-        "by": "REV-CohomologyComparisons",
-        "missing": "(1) \"derived Nakayama/perfectness criterion\" (CP.3/canonical-bdr-cohomology, CP.3/relative-infinitesimal-perfectness; also the derived ξ-Nakayama in completed-smooth-lift): neither the R3 stage text nor any R3 node states it; it is derived-category algebra (EnhancedDerivedSheaves:E4 'Tor/ML and perfectness criteria', which these consumers also cite). (2) Perfectness of Rf_* for proper smooth f over an affinoid base (GR Corollary 10.9; CP.3/relative-infinitesimal-perfectness): R3 gives coherence of each Rⁱf_* (Kiehl) but no perfectness / cohomology-and-base-change node. (3) \"finite-projective base change on a smooth affinoid base\" as actually used: CP.3/hodge-de-rham-degeneration needs Rⁱf_*Ω^j locally free and commuting with base change to classical points after shrinking the spreading base; CP.3/bdr-cohomology-finite-freeness needs local freeness of relative de Rham cohomology via its integrable connection and base change along a lift A→B_dR⁺ (non-field, non-affinoid-over-K target). R3 base change covers only étale, finite flat, field-extension and affinoid-subdomain maps over a field K; no semicontinuity, Gauss–Manin local freeness or base change to B_dR⁺/ξ^n. (4) \"continuous formal/analytic GAGA\": R3/proper-gaga is algebraic/analytic (Köpf); formal↔generic-fibre coherent comparison is not in R3 (algebraic↔formal is F0/grothendieck-algebraization, formal models R2). (5) CP.3/completed-smooth-lift's \"Raynaud–Gruson freeness input from R0/R3\" is AdicSpacesPartII:R2/rg-smooth-geometrically-integral-projective, not R3.",
+        "by": "REV-CohomologyComparisons~2",
+        "note": "Proper coherent finiteness is supplied. Continuous GAGA, finite-projective base change and derived Nakayama in the B_dR setting remain precise extensions; they do not imply cohomology freeness alone.",
         "candidateNodes": [
           "AdicSpacesPartII:R3/proper-affinoid-cohomology-finite"
         ]
@@ -4321,8 +4326,8 @@
       ],
       "review": {
         "scope": "partly",
-        "by": "REV-CohomologyComparisons",
-        "missing": "For both CohomologyComparisons:CP.5/enriques-torsion-counterexample and CP.5/degenerating-group-torsion-counterexample, three items are missing. (1) The approximation of BG by projective quotients with bad stabilizer locus of codimension > 2: nothing in the R09.3 text or RS-27. (2) The singular Enriques surface over Z_2 with Pic^τ = μ₂ and its K3 double cover, used by enriques-torsion-counterexample: entirely outside R09.3, which has no surface theory, and it needs a routed source or owner. (3) Existence of finite-flat quotient spaces and torsors. After RS-27 these are owned by TauCeti ModularCurves 0C/0E and SF.1; R09.3 keeps only the quotient comparison and projective-object descent, and states nothing specific to E-torsors. The projective quotient and ample-section part is covered only through R09.3's retained \"effective fppf descent for projective schemes ... with a relatively ample invertible sheaf\"."
+        "by": "REV-CohomologyComparisons~2",
+        "note": "Quotient/descent infrastructure is in scope. The projective BG approximation, particular supersingular torsor and singular Enriques lift still need their source-specific existence proofs."
       }
     },
     {
@@ -4333,8 +4338,8 @@
       ],
       "review": {
         "scope": "partly",
-        "by": "REV-CohomologyComparisons",
-        "missing": "For CohomologyComparisons:CP.3/proper-formal-spreading, only \"algebraisation with effectivity\" (Grothendieck existence) is within R09.6. Three things are missing. (a) The deformation theory of an arbitrary proper flat formal scheme over complete noetherian local rings, with induction on artinian thickenings (BMS1 Prop. 13.15). R09.6 concerns deformation functors at points of constructed moduli stacks and algebraisation \"needed by R10/R13\". (b) The descent of a proper flat formal model over O_C along a filtered system of complete noetherian subrings (approximation). (c) Cor. 13.16: spreading into a proper smooth family over a smooth rigid base over a discretely valued K ⊂ C, with smooth neighbourhoods. Items (b) and (c) are rigid-analytic and approximation content absent from the R09.6 text."
+        "by": "REV-CohomologyComparisons~2",
+        "note": "Formal algebraization is in scope. The complete filtered noetherian-system spreading used in BMS1 13.15–13.16 is stronger and remains G-spreading-inputs."
       }
     },
     {
@@ -4347,8 +4352,8 @@
       ],
       "review": {
         "scope": "partly",
-        "by": "REV-CohomologyComparisons",
-        "missing": "Resolving an integral cycle Z in characteristic 0 (CohomologyComparisons:CP.6/duality-and-cycle-class-compatibility) is covered. Three items are not. (1) The finite-field Bertini statement: positive characteristic and outside the stage, as the request admits. (2) h-topology and proper hypercovers by smooth varieties for arbitrary algebraic varieties, needed by CohomologyComparisons:CP.4/algebraic-beilinson-period-comparison. R09.7 supplies resolution only, with neither hypercover construction nor h-descent, and its embedded-resolution scope assumes smooth ambient embeddings, with the global case only through Thm 13.2. (3) \"Common generically finite domination\" for CohomologyComparisons:CP.6/trace-normalized-tate-period: Chow's lemma, Noether-normalization or alteration-type dominations are not stated in R09.7."
+        "by": "REV-CohomologyComparisons~2",
+        "note": "Characteristic-zero resolution is supplied. Smooth h-hypercovers, domination in the needed cycle range and proof of h-descent for HK/de Rham require the separately requested realization adapters."
       }
     },
     {
@@ -4360,8 +4365,8 @@
       ],
       "review": {
         "scope": "partly",
-        "by": "REV-CohomologyComparisons",
-        "missing": "For CP.0/formal-algebraic-analytic-dictionary: (1) the \"Z_p/Q_p passage under finiteness\" — the stage is torsion-only (D⁺, torsion E) and has no ℓ-adic/p-adic limit statement; (2) the algebraic↔analytic proper comparison of étale cohomology of X_C is Hub96 3.7.2 (ClassicalAdicEtaleCohomology:H5/proper-comparison-3-7-2), not this stage; via this stage one gets only RΓ(d(X̂), a^*K) ≅ RΓ(Y, i^*Rj_*K), and reaching RΓ(X_C, K) needs the proper base change theorem for schemes, imported from elsewhere; (3) d(𝔛) ≅ X_C^ad for proper X is AdicSpacesPartII:R2/good-reduction-locus; (4) the de Rham/crystalline identifications in the same consumer are F0/R3/CR.3, not H1. Geometric points (specialization-morphism-of-sites-lambda (d)) and base-change naturality (completion-comparison-base-change-naturality) are covered."
+        "by": "REV-CohomologyComparisons~2",
+        "note": "The formal specialization morphism is supplied in its stated type-(S) and torsion ranges. Algebraic/analytic proper comparison is H5; the ordinary site prefix must avoid the whole CR.5 late dependency closure."
       }
     },
     {
@@ -4372,8 +4377,8 @@
       ],
       "review": {
         "scope": "partly",
-        "by": "REV-CohomologyComparisons",
-        "missing": "Only the 'proper cohomology' (algebraic/analytic proper comparison, torsion coefficients) item is in H5. Not in H5's text or nodes: derived scalar extension, Künneth and coefficient exact sequences (CP.6/naturality-base-change-and-cup-products, which needs the 'supplier Künneth statement'); the almost comparison of analytic and étale O⁺/p on an affinoid perfectoid basis and its truncated-Witt induction (CP.6/pan-etale-site-truncated-comparison-map), which is the content of the separate PerfectoidSpaces:P3 request ('Almost acyclicity of O⁺/p on affinoid perfectoid spaces, its finite Witt induction') and AInfCohomology:AI.3; and the pro-étale→étale, formal→special-fibre and log→ordinary site morphisms of CP.0/site-and-geometric-point-compatibility (AdicEtaleGeometry:A1, ClassicalAdicEtaleCohomology:H1:formal-adic-comparison, CrystallineCohomology:CR.5). The Z_p/Q_p passage is also absent (torsion only).",
+        "by": "REV-CohomologyComparisons~2",
+        "note": "Proper analytic/étale finiteness and cohomology comparison are supplied. Pan almost analytic/étale O⁺/p and truncated-Witt comparisons are additional exact requests, not global site identifications.",
         "candidateNodes": [
           "ClassicalAdicEtaleCohomology:H5/proper-comparison-3-7-2"
         ]
@@ -4392,8 +4397,8 @@
       ],
       "review": {
         "scope": "partly",
-        "by": "REV-CohomologyComparisons",
-        "missing": "CohomologyComparisons:CP.6/pan-bounded-torsion-inverse-limit (Pan Lemma 7.2.5) is a statement about the sheaf cohomology H^i(X_{K^p}, A_inf,X^a/(ker θ)^k) of the perfectoid modular curve, in the almost category: the Milnor/lim¹ argument is run on the system H^i(X_{K^p}, F_k/p^n) with transitions on H^{i+1}(X_{K^p},F_k)[p^n] given by multiplication by p, and then combined with [Pan22, Lemma 4.4.4] (a sheaf-level completeness lemma of Pan's first paper). CC.2 only states inverse limits, Milnor sequences and reduction comparisons for the completed tower modules lim_s colim_r H^i(X_r, O/p^s); it says nothing about cohomology of sheaves on X_{K^p}, almost modules, or Pan22 Lemma 4.4.4. After RS-33 the generic 'exact ML/lim¹ conditions' are owned by ArithmeticGaloisDuality:R02.1 (module level) and D7, not CC.2. What CC.2 does supply is the tower-side input of the k=1 case (p-adic completeness and the reduction/torsion comparison for H̃^i(K^p,Z_p)), but the bounded-exponent torsion of H̃^i⊗̂O_C used there also needs the CC.8/Pan22 Cor. 4.4.3 comparison."
+        "by": "REV-CohomologyComparisons~2",
+        "note": "Derived limits and ML/lim¹ infrastructure are supplied. Pan’s multiplication-p adjacent torsion transition and completeness/vanishing argument remain a modular-tower extension."
       }
     },
     {
@@ -4404,8 +4409,8 @@
       ],
       "review": {
         "scope": "partly",
-        "by": "REV-CohomologyComparisons",
-        "missing": "For CohomologyComparisons:CP.6/pan-completed-coefficient-and-flag-descent (Pan Lemma 7.2.6(1)): (i) the cohomological complex S̃ of p-adically complete p-torsion-free Z_p-modules with H^i(S̃)=H̃^i(K^p,Z_p) and H^i(S̃/p^m)=H̃^i(K^p,Z/p^m) (Pan cites Emerton 06b pp. 27–28). CC.4 states only the homological complex of finite free/projective O[[K₀]]-modules and finite-level recovery. Getting S̃ also needs the continuous dual (CC.3) and the derived-limit/Mittag–Leffler comparison (CC.2). (ii) Pan's coefficient interchange H̃^i(K^p,M)≅lim_m H̃^i(K^p,Z/p^m)⊗M for p-complete torsion-free M, via the universal-coefficient sequences with multiplication-by-p transitions on H̃^{i+1}[p^m]. Nothing in CC.4 states it, and coefficient change is assigned to ALS.1 at finite level. (iii) Functoriality of the chain model for Galois maps. A cellular model has no Galois action; CC.8 transports Galois actions only on completed cohomology. Tower-transition and refinement compatibility is covered; Hecke compatibility is covered through ALS.3."
+        "by": "REV-CohomologyComparisons~2",
+        "note": "Finite chain models are supplied in the stated finite-cell range. Pan’s p-complete torsion-free complex with both integral and mod-p^m cohomology, and coefficient interchange, are still requested explicitly."
       }
     },
     {
@@ -4419,8 +4424,8 @@
       ],
       "review": {
         "scope": "partly",
-        "by": "REV-CohomologyComparisons",
-        "missing": "(a) The infinite-level perfectoid modular curve X_{K^p}, π_HT: X_{K^p}→Fl and the basis B of affinoids with affinoid perfectoid preimages are not CC.8 outputs. CC.8 supplies the completed topological object and finite-level tower adapters. pan-completed-coefficient-and-flag-descent and pan-graded-analytic-decompletion need them, and all four consumers use them implicitly. (b) Pan22 Corollary 4.4.3, H̃^i(K^p,Z_p)⊗̂O_C^a ≅ H^i(X_{K^p},O^{+a}) and H̃^i(K^p,C) ≅ H^i(Fl,O_{K^p}), is ordinary (not compactly supported), p-adically completed over all exponents, and has C-coefficients. CC.8's only comparison is Scholze Thm 4.2.1: compactly supported, fixed exponent n, almost O_C/p^n, Hodge type. RS-09 says explicitly that it does not justify an inverse limit over exponents. pan-bounded-torsion-inverse-limit (k=1) and pan-truncated-period-isomorphism (k=1) need this. (c) The period sheaves OB_dR,k⁺(U), the locally analytic vectors O_{K^p}^{la} and decompletion used by pan-graded-analytic-decompletion are absent from CC.8; they come from HodgeTateAndCanonicalSubgroups:T6:comparison and Pan's own earlier sections. Covered: identification of completed cohomology with the modular-curve tower, and transport/continuity of Galois and Hecke actions."
+        "by": "REV-CohomologyComparisons~2",
+        "note": "Generic tower adapters are in scope. Pan 4.4.3 and flag-preimage comparisons need the S3 input and the named early modular-curve extension; CC.8’s title alone is insufficient."
       }
     },
     {
@@ -4433,8 +4438,8 @@
       ],
       "review": {
         "scope": "partly",
-        "by": "REV-CohomologyComparisons",
-        "missing": "Two parts of the request are not in CR.0's stated scope: the 'extension to B_cris/B_dR⁺, with compatibility of the canonical period completion' and 'Frobenius'. RS-01 assigns rational period rings and their structure maps to PadicHodgeTheory:R06.1, and compatibility with the integral θ/PD structures to AInfCohomology:AI.0:period-comparison. R06.1's stage text also owns the Frobenius properties. No CR.0 node mentions B_dR⁺, B_cris or a Frobenius on A_cris. Effects by consumer: (1) CP.0/ainf-specialization-dictionary is fine because it also cites R06.1. (2) CP.1/acris-specialization asserts φ-compatibility but cites only AI.4, CR.2 and CR.0; Frobenius on A_cris (R06.1/AI.0) and the crystalline Frobenius (CR.3/frobenius-map) are not cited. (3) CP.3/crystalline-to-infinitesimal-coefficients needs the PD-envelope-to-infinitesimal-envelope ring map D_pd,Σ→D_Σ (p-inversion followed by completion along the embedding ideal). Its base case is A_cris→B_dR⁺, which is R06.1's. Neither appears in CR.0.",
+        "by": "REV-CohomologyComparisons~2",
+        "note": "The common θ PD envelope and its completion are supplied by CR.0; R06.1 identifies its Fontaine presentation and rational maps. CP imports these constructions.",
         "candidateNodes": [
           "CrystallineCohomology:CR.0/fontaine-envelope"
         ]
@@ -4456,8 +4461,8 @@
       ],
       "review": {
         "scope": "partly",
-        "by": "REV-CohomologyComparisons",
-        "missing": "Crystals in perfect complexes, i.e. D_perf of the crystalline site, are not in CR.1's text or nodes, which cover only module crystals (quasi-coherent, finite locally free, isocrystals, F-crystals). CP.3/crystalline-to-infinitesimal-coefficients needs them for its functor D_perf(X_{p=0,crys})→D_perf(X/Y_B_dR⁺,inf). CR.1 sites are defined over p-locally-nilpotent PD bases. A p-adic base such as A_cris (or Z_p) is reached only through compatible finite levels, and CR.1/finite-witt-evaluation treats compatible families only over W(k). CR.1 also does not supply the transfer to the infinitesimal site (that is CP.3's own work) or the generic notion of a crystal on a non-crystalline ringed site, which CP.3/relative-infinitesimal-site attributes to 'the crystalline/sheaf owners'; the second fits EnhancedDerivedSheaves:E4, which is also cited.",
+        "by": "REV-CohomologyComparisons~2",
+        "note": "Crystalline sites and finite locally free crystals are supplied in their source conventions. Transfer to the analytic infinitesimal site additionally needs continuous evaluation on the specified thickenings.",
         "candidateNodes": [
           "CrystallineCohomology:CR.1/crystal"
         ]
@@ -4481,8 +4486,8 @@
       ],
       "review": {
         "scope": "partly",
-        "by": "REV-CohomologyComparisons",
-        "missing": "(a) The request's 'logarithmic differentials where admitted' belongs to CR.5, which owns the log PD envelope and log PD Poincaré lemma; no cited consumer uses a genuine log structure, since the dlog generators in CP.1 are ordinary torus forms. (b) CP.3/relative-cech-de-rham-comparison uses a non-PD infinitesimal Čech–de Rham comparison over B_dR⁺, including the formal power-series Poincaré lemma, which is outside CR.2's PD/crystalline scope. Calling it 'this generic computation' in the request's need text overstates CR.2. (c) CP.1/acris-specialization also claims φ-compatibility and BMS1 multiplicativity. Those come from CR.3/frobenius-map and CR.3/cup-product, not from the cited CR.0/CR.2.",
+        "by": "REV-CohomologyComparisons~2",
+        "note": "PD Čech–Alexander/de Rham computation and embedding independence are supplied. Analytic infinitesimal coefficient evaluation and completed base change keep their explicit topological hypotheses.",
         "candidateNodes": [
           "CrystallineCohomology:CR.2/embedding-computation",
           "CrystallineCohomology:CR.2/smooth-lift-filtration"
@@ -4517,8 +4522,8 @@
       ],
       "review": {
         "scope": "partly",
-        "by": "REV-CohomologyComparisons",
-        "missing": "(1) BMS1 Prop. 13.21 is not in CR.3's text or in any CR node. It is the rational comparison H^i_crys(Y/A_cris)[1/p]≅H^i_crys(X_k/W(k))⊗A_cris[1/p] via an auxiliary residue-field section, giving rational freeness, plus independence when descending from W(k). CR.3 is scoped to proper smooth X over a perfect field and to base change along PD-base maps with flat/perfect hypotheses, and the packet read only BMS1 §14.1 and Def. 3.22, not §13. Consumers affected: CP.2/residue-section-descent-adapter, CP.3/good-reduction-bdr-lattice-identification and CP.2/rational-crystalline-comparison-over-C. Its proof needs the smooth-affine Frobenius isogeny, which belongs to the subsequent substage CR.3:Frobenius-isogeny (requires CR.3 and CR.4). So it cannot be an early-CR.3 fact even after a scope extension; at the earliest it belongs to CR.3:Frobenius-isogeny. (2) Completed base change and perfectness over non-Noetherian A_cris-type bases (R_Acrys) are excluded by the Noetherian clauses; this affects CP.3/relative-crystalline-infinitesimal-base-change and CP.3/good-reduction-bdr-lattice-identification. (3) Illusie's singular-Enriques H²_crys torsion (CP.5/enriques-torsion-counterexample) has no node, and the packet marks BMS1 '2.1–2.7 geometric inputs' as a gate. (4) A general crystalline Leray spectral sequence is absent; it appears only inside the proof for torsion-and-models' Thm 2.10. (5) Crystalline Chern classes and the projective-bundle formula (CP.6/higher-chern-and-projective-bundle-comparison) are absent. (6) The request's 'proper smooth crystalline/de Rham comparison' is CR.2's (CR.2/smooth-lift-filtration, CR.2/formal-and-end0), not CR.3's.",
+        "by": "REV-CohomologyComparisons~2",
+        "note": "Proper crystalline finiteness/base change is supplied. BMS1 13.21 in smooth qcqs range, residue-section descent, the exact weak-Lefschetz range and counterexample crystalline calculations are extensions, not implied by proper finiteness.",
         "candidateNodes": [
           "CrystallineCohomology:CR.3/derived-base-change",
           "CrystallineCohomology:CR.3/kunneth",
@@ -4545,8 +4550,8 @@
       ],
       "review": {
         "scope": "partly",
-        "by": "REV-CohomologyComparisons",
-        "missing": "The request asks for Frobenius to be an isogeny on rational crystalline cohomology of smooth affine and smooth qcqs (non-proper) k-schemes. The substage's only rational statement, CR.3:Frobenius-isogeny/rational-frobenius, assumes 'X proper smooth'. The non-proper range is present only implicitly, through inseparable-control's integral bound for relative Frobenius of a smooth X/S₀, combined with base change along σ and CR.3/frobenius-map. The explicit affine/qcqs rational-isogeny statement needed for BMS1 Prop. 13.21 (consumer CP.2/residue-section-descent-adapter) is therefore missing. It is a short corollary, but not a restatement."
+        "by": "REV-CohomologyComparisons~2",
+        "note": "Frobenius-isogeny is the early crystalline supplier. The smooth affine and qcqs range needed by 13.21 must be proved here rather than using CP.2 as its own input."
       }
     },
     {
@@ -4558,8 +4563,8 @@
       ],
       "review": {
         "scope": "partly",
-        "by": "REV-CohomologyComparisons",
-        "missing": "(1) The '/de Rham' half of 'Crystalline/de Rham Poincaré duality and trace' is missing. Both CP.6 consumers work with de Rham cohomology of an arbitrary smooth proper X over a characteristic-zero K, and nothing assumes good reduction. CR.3:duality is crystalline over a perfect field k, and no atlas stage text claims algebraic de Rham trace or duality in characteristic zero; a search of stage descriptions found only CR.3:duality. (2) The 'degree formula under generically finite morphisms' (CP.6/trace-normalized-tate-period) is not stated in the stage or in any node. (3) 'Projective-bundle normalization' is missing: only projective-space normalization (Tr_(P^d)(h^d)=1) is stated. The regular-immersion Gysin adjunction is covered for crystalline cohomology (CR.3:duality/gysin)."
+        "by": "REV-CohomologyComparisons~2",
+        "note": "Trace/duality has its separate successor. Its source gate and Gysin normalization remain owner obligations; no finite-dimensional vector-space duality substitutes for the geometric trace."
       }
     },
     {
@@ -4570,7 +4575,8 @@
       ],
       "review": {
         "scope": "covered",
-        "by": "REV-CohomologyComparisons",
+        "by": "REV-CohomologyComparisons~2",
+        "note": "The actual de Rham–Witt crystalline comparison and degree-scaled Frobenius are supplied; the Witt specialization is not merely an isomorphism of graded form modules.",
         "candidateNodes": [
           "CrystallineCohomology:CR.4/crystalline-comparison",
           "CrystallineCohomology:CR.4/degree-scaled-frobenius",
@@ -4601,8 +4607,8 @@
       ],
       "review": {
         "scope": "partly",
-        "by": "REV-CohomologyComparisons",
-        "missing": "(1) Log-base descent from the AI.6 W(k̄), ℚ≥0 model to W(k₀), ℕ is missing (CP.4/hyodo-kato-log-base-adapter). No CR.6 node states log-crystalline base change along W(k₀)→W(k̄) or the change of log structure ℕ→ℚ≥0. (2) The 'B_st torsor map' is not CR.6's: the stage assigns B_st assembly to CP.4, and B_st itself belongs to R06.1. (3) h-descent algebraic HK (CP.4/algebraic-beilinson-period-comparison) and overconvergent/rigid HK for arbitrary proper smooth rigid spaces with finite-dimensionality (CP.4/proper-rigid-potential-semistable-comparison, CP.4/proper-rigid-c-period-comparison) are not in CR.6. The request itself concedes these need a 'CR Part II scope extension', and CP gap G-analytic-cst records them.",
+        "by": "REV-CohomologyComparisons~2",
+        "note": "Proper semistable HK and nilpotent monodromy are in scope. Algebraic h-derived and overconvergent rigid HK, F^{nr} smooth-vector descent, and the signed convention translation are explicit extensions.",
         "candidateNodes": [
           "CrystallineCohomology:CR.6/hk-good-reduction",
           "CrystallineCohomology:CR.6/hk-tate-curve",
@@ -4639,8 +4645,8 @@
       ],
       "review": {
         "scope": "partly",
-        "by": "REV-CohomologyComparisons",
-        "missing": "Need items outside E4's text: (1) 'filtered stable/enhanced symmetric monoidal cohomology' and 'map-level multiplicativity'. Filtered objects are DD.1's (DD.1/filtered-modules, DD.1/completed-filtered-tensor). Symmetric monoidal structure is E1 ('symmetric monoidal coherence') and E5:abstract. E4's own associativity/monoidal coherence of ⊗̂ is an open packet gap. Affected consumers: CP.1/multiplicative-bockstein-coherence, whose proof step says 'E4 supplies associativity and completion comparisons', and CP.6/naturality-base-change-and-cup-products (graded algebra map, Künneth). (2) 'sheaf hyperdescent' and 'completed envelope Čech systems'. Čech/hypercover descent and totalization are E2's (E2/hypercovers-and-cohomological-descent, E2/unbounded-hypercover-descent); exchange of completion with totalization and base change is DD.1/completion-exchanges. Affected: CP.3/relative-cech-de-rham-comparison and CP.3/relative-crystalline-infinitesimal-base-change. (3) 'perfectness criteria': no E4 node states that a derived I-complete complex with perfect reduction is perfect. E4/perfect-coefficient-change is a different statement. Affected: CP.3/canonical-bdr-cohomology and CP.3/relative-infinitesimal-perfectness. (4) module-level completed flat base change and ξ-completeness for R_A⊗̂_A B_dR⁺ (CP.3/completed-smooth-lift). These are DD.1 (DD.1/complete-flatness, DD.1/derived-completeness) and are not in E4's re-export list. (5) CP.3/relative-infinitesimal-site (definition of the site of thickenings) and CP.4/algebraic-beilinson-period-comparison (h-descent HK/de Rham realizations) use nothing E4 states. Those belong to AdicSpacesPartII R0/CrystallineCohomology CR.1, and to E2/CR.6/AlgebraicModuliForArithmeticGeometry R09.7, respectively. (6) 'proper comparison': no proper base change/Künneth in E4.",
+        "by": "REV-CohomologyComparisons~2",
+        "note": "DD.1 completion reexports and sheaf/enhanced operations are supplied with finite-generation/regular-sequence hypotheses. Stronger symmetric monoidal coherent comparison data are requested explicitly.",
         "candidateNodes": [
           "EnhancedDerivedSheaves:E4/mod-ideal-detection",
           "EnhancedDerivedSheaves:E4/the-imported-completion-interface"
@@ -4664,7 +4670,8 @@
       ],
       "review": {
         "scope": "covered",
-        "by": "REV-CohomologyComparisons",
+        "by": "REV-CohomologyComparisons~2",
+        "note": "Proper smooth étale Poincaré pairings in the prime-to-characteristic range are supplied; finite/derived integral duals are distinguished from rational perfect pairings.",
         "candidateNodes": [
           "EtaleDualityAndPerverseSheaves:EDC.2:pairings/adic-and-rational-poincare-duality",
           "EtaleDualityAndPerverseSheaves:EDC.2:pairings/cup-product-trace-pairing"
@@ -4687,8 +4694,8 @@
       ],
       "review": {
         "scope": "partly",
-        "by": "REV-CohomologyComparisons",
-        "missing": "For CohomologyComparisons:CP.6/trace-normalized-tate-period: (i) the trace with Q_p coefficients ('target Q_p(−d)'). Trace-purity nodes are stated only for torsion Λ (nΛ=0), and EDC.6's text assigns passing traces through adic systems to EDC.6. (ii) degree compatibility along a generically finite proper morphism or alteration (Tr_Y∘f^* = deg f·Tr_X), which the proof step needs. It is not in trace-purity. EDC.3/gysin-map gives Tr_X∘f_*=Tr_Y and f_*f^*=δ only for finite flat f. The generically finite case follows from EDC.3/cycle-class-map (proper pushforward) and the projection formula. (iii) the requested 'purity/Gysin interfaces' for the cycle comparison are EDC.3 (smooth-pair-purity, gysin-map), a subsequent stage, so the request puts them on the wrong stage. Covered here: torsion trace, P¹ normalization, Künneth for (P¹)^d, base change for finite extensions, and the Galois-module identification H^{2d}_c ≅ Λ(−d)."
+        "by": "REV-CohomologyComparisons~2",
+        "note": "The smooth trace and purity prefix supplies degree and P¹ normalization. Adic/rational passage uses its finite-type finiteness inputs."
       }
     },
     {
@@ -4700,8 +4707,8 @@
       ],
       "review": {
         "scope": "partly",
-        "by": "REV-CohomologyComparisons",
-        "missing": "(1) CohomologyComparisons:CP.6/first-chern-class-comparison also covers 'a smooth proper formal model in the common crystalline/prismatic range'. If the formal model is not algebraizable, its étale Kummer c₁ lives on the rigid/adic generic fibre. EDC.3 is a scheme theory over a field, and EDC.6 says \"This is transport of the scheme construction ... not ... an assertion that every analytic space has a model\", so that branch is outside EDC.3. (2) The request's 'regular-immersion Gysin' is broader than EDC.3's smooth pairs. The consumer statement restricts to 'the duality/purity range supplied by EDC.3', and in its setting (smooth X over char-0 K) a regular closed immersion is a smooth pair, so CP.6 itself is covered. The broader wording is not. (3) The Kummer c₁ node sits in EDC.2:trace-purity, not EDC.3; this is harmless because it is earlier.",
+        "by": "REV-CohomologyComparisons~2",
+        "note": "Kummer c₁, cycle classes, smooth-pair Gysin and self-intersection are supplied. The proper P(O⊕L) repair of Betts–Stix uses these exact interfaces, with de Rham counterparts requested separately.",
         "candidateNodes": [
           "EtaleDualityAndPerverseSheaves:EDC.2:trace-purity/first-chern-class",
           "EtaleDualityAndPerverseSheaves:EDC.3/cycle-class-map",
@@ -4729,8 +4736,8 @@
       ],
       "review": {
         "scope": "partly",
-        "by": "REV-CohomologyComparisons",
-        "missing": "(a) For CohomologyComparisons:CP.6/higher-chern-and-projective-bundle-comparison, the 'elementary-symmetric-polynomial construction of higher Chern classes' (Whitney formula and splitting principle) is EDC.3's, in EDC.3/chern-classes. EDC.4 only refines the projective-bundle decomposition. Complete flag-bundle splitting is stated only for a single projective bundle; iterating it is immediate. (b) For CohomologyComparisons:CP.6/first-chern-class-comparison, the explicit zero/infinity-section classes and the sign convention for P(O⊕L), which the request says are 'explicit', are not stated in any EDC.3 or EDC.4 node. They are derivable from projective-bundle-decomposition (b),(c) and EDC.3/self-intersection-formula, but no node records them.",
+        "by": "REV-CohomologyComparisons~2",
+        "note": "Projective-bundle decomposition and injective pullback are supplied in their qcqs finite-coefficient/finite-type adic ranges. The full flag and matched de Rham/prismatic Chern diagrams are still explicit extensions.",
         "candidateNodes": [
           "EtaleDualityAndPerverseSheaves:EDC.3/chern-classes",
           "EtaleDualityAndPerverseSheaves:EDC.4/projective-bundle-decomposition",
@@ -4756,8 +4763,8 @@
       ],
       "review": {
         "scope": "partly",
-        "by": "REV-CohomologyComparisons",
-        "missing": "For CohomologyComparisons:CP.5/degenerating-group-torsion-counterexample there are two gaps. First, R07.1 never states the specific facts G_C ≅ Z/p² and G_k = E_k[p] for the flat closure G of a p²-torsion point of a supersingular elliptic curve. It has only the general closure lemma and supersingular E[p] examples. Second, the closure lemma is stated over a Dedekind base, while the consumer's surface lives over O_C, a non-noetherian rank-one valuation ring. That is fine only if the construction is done over a DVR O_K and base-changed, or if the lemma is restated for valuation rings, as its own remark (\"uses only that torsion-free R-modules are flat\") suggests. For CohomologyComparisons:CP.5/enriques-torsion-counterexample, the degeneration Z/2 → μ₂ over Z_2 (a generic isomorphism that is zero on the special fibre) appears only implicitly, in the two-prolongations test and the raynaud-boundary-case acceptance. No node states the domination morphism and its vanishing mod 2. Quotient spaces by free finite-flat group actions, as in the BG approximation of BMS1 Lemma 2.7, are not R07.1 output: R07.1 quotients are group quotients 𝒢/ℋ. Scheme quotients by finite locally free relations are owned by TauCeti ModularCurves 0C under RS-02/RS-27 and are also requested from R09.3."
+        "by": "REV-CohomologyComparisons~2",
+        "note": "Finite-flat closure and quotient constructions are in scope. The specified degenerating groups and supersingular p²-point closure need actual source-specific existence, including the dyadic restrictions."
       }
     },
     {
@@ -4768,7 +4775,8 @@
       ],
       "review": {
         "scope": "covered",
-        "by": "REV-CohomologyComparisons",
+        "by": "REV-CohomologyComparisons~2",
+        "note": "FL exactness and full faithfulness use e=1 and the safe shifted [0,p−2] interval; restricted [0,p−1] endpoints and p=2 are explicit. No all-weight result is inferred.",
         "candidateNodes": [
           "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3/fl-full-faithfulness",
           "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3/fl-lattice-correspondence"
@@ -4792,8 +4800,8 @@
       ],
       "review": {
         "scope": "partly",
-        "by": "REV-CohomologyComparisons",
-        "missing": "For CohomologyComparisons:CP.5/dvr-lattice-recovery-via-breuil-kisin, five things are missing. (a) The R07.4 stage text promises only finite-flat and p-divisible classification; the request and CP gap G-kisin both say so. The all-weight lattice content (existence and uniqueness of finite E-height lattices, full faithfulness, O_E ↔ G_{K∞}, restriction full faithfulness) exists only as packet nodes beyond the stated scope. (b) BMS1 Prop. 4.34, BK(T) ⊗_S B_cris⁺ ≅ D_crys(V) ⊗ B_cris⁺, is not stated. The closest statement is semistable-finite-height's Hom_{𝔖,φ}(𝔐,𝔖^ur)⊗Q_p ≅ Hom(D,B_st⁺). (c) The BMS normalizations are absent: S → A_inf (u ↦ [π♭]^p, Frobenius on W(k)), S → W(k) (u ↦ 0), the covariant BK(T), and Thm 4.4's identification M(T)⊗_S W(C♭) ≅ T⊗W(C♭). R07.4 uses ι_K: u ↦ [π̃] and contravariant V_𝔖. (d) Uniformizer dependence is not stated. (e) Dyadic hypotheses for the lattice functor are absent: R07.4/dyadic-classification covers only p-divisible and finite flat groups. CohomologyComparisons:CP.5/small-weight-integral-interface (the Breuil–Kisin alternative in the finite-flat/BT range) is covered by R07.4/finite-flat-classification and R07.4/dyadic-classification."
+        "by": "REV-CohomologyComparisons~2",
+        "note": "All-weight Kisin classification and BMS1 4.34 are outside the present finite-flat/p-divisible stage statement. Keep G-kisin and the exact Frobenius-twisted S-specializations; rational admissibility is insufficient."
       }
     },
     {
@@ -4804,8 +4812,8 @@
       ],
       "review": {
         "scope": "partly",
-        "by": "REV-CohomologyComparisons",
-        "missing": "(1) Need item 2 is outside the stage text: 'LB-space analytic-vector exactness, χ̃_l isotypic and G_{K∞}-fixed/G_K-analytic decompletion hypotheses' for Pan Prop. 6.3.9. T6:comparison says nothing about GL₂(Q_p)-locally analytic vectors, isotypic parts or Sen-type decompletion (its scope is log period sheaves, log Riemann–Hilbert, canonical local systems, the Hodge–Tate filtration and BP 4.4.40). Needed by CP.6/pan-graded-analytic-decompletion. The CP gap CohomologyComparisons/G-pan already records this ('LB-space analytic exactness, χ̃_l decompletion'), so the request should not name T6:comparison as its supplier. (2) CP.6/pan-completed-coefficient-and-flag-descent and CP.6/pan-truncated-period-isomorphism take nothing identifiable from T6:comparison's stated outputs. Their real inputs are: π_HT on the perfectoid modular curve with affinoid perfectoid preimages π_HT^{-1}(U), which T6:comparison explicitly disclaims ('not an assertion that every such diamond is a perfectoid space') and which is owned by PerfectoidShimuraVarieties:S3/affinoid-perfectoid-basis-of-flag-variety; A_inf/(ker θ)^k almost acyclicity (AI.3/P3); and the flat non-log truncated sheaf B_dR,k⁺ (AI.3 / PadicHodgeTheory:P8:local-rational/period-sheaves-on-affinoid-perfectoids). None of these is a log period-sheaf statement."
+        "by": "REV-CohomologyComparisons~2",
+        "note": "Log structural periods and Poincaré theory are the late supplier for Pan’s graded analytic adapter. Ordinary truncated B_dR coefficients in §7.2 use the separate local-rational prefix."
       },
       "revisionResolution": "The former completed-coefficient and truncated-isomorphism consumers were removed: T6:comparison does not construct their ordinary Fl sheaf."
     },
@@ -4817,7 +4825,8 @@
       ],
       "review": {
         "scope": "covered",
-        "by": "REV-CohomologyComparisons"
+        "by": "REV-CohomologyComparisons~2",
+        "note": "The exact log-site projection node supplies analytic log projections. Its use stays in the late Pan adapter; an early prefix is proposed, and no whole T6:log-sites return to CP.0 is declared."
       }
     },
     {
@@ -4836,8 +4845,8 @@
       ],
       "review": {
         "scope": "partly",
-        "by": "REV-CohomologyComparisons",
-        "missing": "The request need itself is covered (corrected OB_dR⁺, local acyclicity, filtered strict Poincaré lemma, relative Poincaré lemma, all with no CP.3 or late-P8 dependence: checked over the full prerequisite closure of every P8:local-rational node). Several consumers use more than the early cut: (a) CP.3/filtered-de-rham-comparison (source sch13 Theorem 8.4) and CP.3/descended-de-rham-lattice ('agrees with the early local-period Poincaré comparison of Scholze/BMS1 Theorem 5.1'). Both need the global filtered Poincaré comparison for proper smooth X. In the supplier packet that is late P8: P8/coherent-cohomology-against-graded-structural-sheaf (Sch13 Lemma 7.13) and P8/proper-smooth-bdr-local-system-comparison (Thm 7.11), both placed under P8, not under local-rational. Scholze's global comparison itself (BMS1 Thm 5.1 = Sch13 Thm 8.4, P8/de-rham-comparison-for-de-rham-lisse-sheaves) is late P8 and depends on CP.3 through P8/etale-to-bdr-plus-comparison-for-lisse-sheaves, so calling it 'early' is circular. (b) CP.3/hodge-tate-degeneration ('Apply the supplied Hodge–Tate spectral sequence', X/C) needs R^jν_*Ô_X≅Ω^j_X(−j) over C. Local-rational states this only over a discretely valued k (with extra log χ terms), and the HT spectral sequence also needs the primitive comparison, which is the recorded gap G-primitive. (c) CP.3/canonical-bdr-etale-comparison needs the primitive identification RΓ(X_proét,B_dR⁺)≃RΓ_ét(X,Z_p)⊗B_dR⁺. This is outside local-rational (the CP packet records it correctly as gap G-primitive). (d) CP.3/relative-filtered-prismatic-agreement says GR's specialization 'equals the Hodge-filtered relative de Rham comparison'. If that means Sch13 Thm 8.8 (P8/relative-de-rham-comparison), it is late P8 and depends on CP.3 (via P8/relative-bdr-plus-local-system-comparison, which cites CohomologyComparisons:CP.3). Only the relative Poincaré lemma is early.",
+        "by": "REV-CohomologyComparisons~2",
+        "note": "The local-rational period sheaves, corrected integral completion order, rational acyclicity and filtered Poincaré lemma are supplied. Primitive finiteness and the proper-global comparison are separate; Pan’s flag pushforward is still an adapter.",
         "candidateNodes": [
           "PadicHodgeTheory:P8:local-rational/local-structure-of-structural-de-rham-sheaf",
           "PadicHodgeTheory:P8:local-rational/period-sheaves-on-profinite-products",
@@ -4873,8 +4882,8 @@
       ],
       "review": {
         "scope": "partly",
-        "by": "REV-CohomologyComparisons",
-        "missing": "Generality: R06.1 is stated for C = C_p ('Import C_p and its tilt'; nodes built on Mathlib ℂ_[p]) and K ⊆ C_p, with invariants for K/Q_p finite or K̂^ur. Several consumers state more. CP.0/ainf-specialization-dictionary is 'For C complete algebraically closed over Q_p'. CP.2/period-invariants-and-admissibility (with CP.2/crystalline-comparison-over-discretely-valued-base) has 'K complete discretely valued over Q_p with perfect residue field k'. CP.4/hyodo-kato-log-base-adapter and CP.4/semistable-period-comparison have an arbitrary perfect residue field k₀. B_cris^{G_K}=K_0, the B_dR⁺ DVR/topology and the B_st embeddings are not stated for C = Ĉ_K when the residue field of K is not algebraic over F_p. Only R06.1/bdr-plus-of-perfectoid-affinoid-algebras is general. 'Flatness' in the request is not named in the stage text or any R06.1 node; no consumer statement uses it explicitly.",
+        "by": "REV-CohomologyComparisons~2",
+        "note": "B_st torsor, field/DVR/flatness and period embeddings are owned here. The balanced monodromy adapter now explicitly requires Leibniz and zero on coefficient images; pinned BDeRham supplies no field theorem.",
         "candidateNodes": [
           "PadicHodgeTheory:R06.1/acris-embedding-into-bdr-plus",
           "PadicHodgeTheory:R06.1/algebraic-closure-in-bdr-plus",
@@ -4905,8 +4914,8 @@
       ],
       "review": {
         "scope": "partly",
-        "by": "REV-CohomologyComparisons",
-        "missing": "(1) D_pst and potentially semistable recovery are not in R06.2's scope, which defines only D_HT, D_dR, D_cris, D_st; 'potentially semistable' appears only as a definition in R06.2/admissible-representations. D_pst over K_0^nr/F^nr with smooth G_K-action, and recovery or Hom^sm for potentially semistable V, are in R06.3 (R06.3/potentially-semistable-dieudonne-module). Needed by CP.4/proper-curve-potential-period-interface ('D_pst(V)≃H_HK¹(X)'), CP.4/algebraic-period-recovery-and-duals ('Hom^sm_{G_K}(H_ét^r,B_st)≃(H_HK^r)^*') and implicitly CP.4/algebraic-beilinson-period-comparison (H_HK over F^nr, arbitrary X_K). (2) The Tate-curve period computation that CP.4/semistable-geometric-examples imports 'from CR.6 and R06.2' is not in R06.2. The atlas assigns 'Compute the Tate-curve extension class and its filtered (φ,N)-module' to R06.6, which requires R06.5, which requires CP.2/CP.3/CP.4, so importing it into CP.4 would be circular. R06.3/tate-curve-weil-deligne-example supplies only the abstract module D_q and leaves the identification with D_st(V_p(E_q)) to R06.6. (3) Generality: R06.2's regularity and invariants nodes are 'For K/Q_p finite' (plus K̂^ur descent). CP.2 consumers state K complete discretely valued with arbitrary perfect residue field.",
+        "by": "REV-CohomologyComparisons~2",
+        "note": "Rational invariant/admissibility statements are supplied in their finite-K range. Arbitrary perfect residue fields, D_pst/smooth-vector descent and geometric Tate-curve identification require the scoped extensions recorded in G-analytic-cst.",
         "candidateNodes": [
           "PadicHodgeTheory:R06.2/admissible-implies-weakly-admissible",
           "PadicHodgeTheory:R06.2/admissible-representations",
@@ -4930,8 +4939,8 @@
       ],
       "review": {
         "scope": "partly",
-        "by": "REV-CohomologyComparisons",
-        "missing": "(1) 'Compatible semilinear φ pullback and S-specialization normalizations' are not in R06.4's text or nodes: the display φ*M→M, S=W(k)[[u]]→A_inf with u↦[π^♭]^p, S→W(k) with u↦0, and the Breuil–Kisin twist {−j}. R06.4 only says branches 'need the appropriate Breuil–Kisin/local theorem'. These belong to Breuil–Kisin/BKF owners (FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4, AInfCohomology AI.2/AI.5 per RS-01). Needed by CP.0/twist-frobenius-filtration-normalization, and also used ('Frobenius-twisted S specialization') by CP.5/small-weight-integral-interface. (2) For CP.0/twist-frobenius-filtration-normalization, R06.4 is a late supplier used for an early fact. CP.0 uses only HT(χ_p)=+1, t=log[ε], φ(t)=pt and Fil^r B_dR=t^rB_dR⁺. These are R06.2/R06.1 outputs, while R06.4 requires R07.3/R07.4 integral classifications. RS-01's CP.0 supplier list omits R06.4. Citing R06.4 would make the base normalization stage CP.0 depend on R07.3/R07.4. There is no cycle (no CohomologyComparisons stage is upstream of R06.4, R07.3 or R07.4), but the dependency is unnecessarily late.",
+        "by": "REV-CohomologyComparisons~2",
+        "note": "FL sign/covariance translation is supplied. Kisin S-specialization and BK twists use R07.4/AI.2 rather than R06.4 as an early CP.0 prerequisite; CP.0 has no such late edge.",
         "candidateNodes": [
           "PadicHodgeTheory:R06.2/hodge-tate-weight-convention",
           "PadicHodgeTheory:R06.4/fontaine-laffaille-rational-consequences",
@@ -4957,8 +4966,8 @@
       ],
       "review": {
         "scope": "partly",
-        "by": "REV-CohomologyComparisons",
-        "missing": "(1) 'The actual perfectoid tower preimages used by Pan' is not in P3's scope. P3 has only the generic P3/strongly-finite-etale-maps-are-affinoid-over-affinoids. The statement that π_HT^{-1}(U) ⊆ 𝒳*_{Γ(p^∞)} is affinoid perfectoid for U in a basis of Fl, and is a preimage from finite level, is PerfectoidShimuraVarieties:S3/affinoid-perfectoid-basis-of-flag-variety (packet research/blueprint/packets/PerfectoidShimuraVarieties.json, complete; g=1 basis explicit). Needed by CP.6/pan-completed-coefficient-and-flag-descent ('π_HT^{-1}(U), which is affinoid perfectoid'). Caveat: S3 is downstream of CP.3 (S3→T2→T1→P8→CP.3), so it is usable only by CP.6-only nodes, not by nodes realising CP.0/CP.3. (2) 'Its finite Witt induction' (almost acyclicity of W_n(O⁺♭)/W_n(O⁺/p)) is not stated in P3. It is a dévissage from P3/etale-almost-acyclicity (d) and P3/etale-site-tilting-equivalence, and on the pro-étale site it is AInfCohomology AI.3's A_inf statement. Needed by CP.6/pan-etale-site-truncated-comparison-map. (3) Its finite-level step compares étale cohomology of the finite-level curves with the perfectoid limit. That is PerfectoidSpaces:P7/tilde-limits-and-etale-topos-comparison, not P3.",
+        "by": "REV-CohomologyComparisons~2",
+        "note": "Generic étale almost acyclicity is supplied. Finite-Witt induction, transition to the perfectoid limit and the modular π_HT preimages use AI.3, P7 and S3 respectively; these are late CP.6 inputs.",
         "candidateNodes": [
           "PerfectoidSpaces:P3/etale-almost-acyclicity"
         ]
@@ -4981,8 +4990,8 @@
       ],
       "review": {
         "scope": "partly",
-        "by": "REV-CohomologyComparisons",
-        "missing": "Only the syntomic first Chern class c_1^syn and its compatibility with the étale c_1 are supplied (as parts of PR.4/syntomic-low-weights (3), PR.4/syntomic-cohomology-schemes (g) and PR.4/syntomic-etale-comparison (1)). Missing for CohomologyComparisons:CP.6/first-chern-class-comparison: a stated prismatic first Chern class, the crystalline PD first Chern class as an output (BL Thm 7.3.5 occurs only inside a proof, per the coverage record), logarithmic boundary maps, and any compatibility of these with the de Rham dlog c_1 and the Frobenius-linearized comparisons. Missing for CohomologyComparisons:CP.6/higher-chern-and-projective-bundle-comparison: higher Chern classes, the prismatic/syntomic/crystalline projective-bundle formula and flag-bundle splitting. None of these appears in the PR.4 stage text or in any PR.4 node. The request itself flags this (\"flag the exact scope extension\")."
+        "by": "REV-CohomologyComparisons~2",
+        "note": "The syntomic fibre is supplied. AMMN 7.11 truncation before RΓ, Lemma 6.19 reduction invariance, Frobenius eigenspace realization and the full Chern/flag diagram are additional exact outputs, retained as gaps."
       }
     },
     {
@@ -4993,7 +5002,8 @@
       ],
       "review": {
         "scope": "covered",
-        "by": "REV-CohomologyComparisons",
+        "by": "REV-CohomologyComparisons~2",
+        "note": "The relative-site comparison has its bounded-prism and Tor-amplitude restrictions; no unconditional comparison for every singular animated scheme is inferred.",
         "candidateNodes": [
           "PrismaticCohomology:PR.5/relative-site-comparison"
         ]
@@ -5015,8 +5025,8 @@
       ],
       "review": {
         "scope": "partly",
-        "by": "REV-CohomologyComparisons",
-        "missing": "Three gaps. (1) The request item \"the crystalline ... Frobenius-twisted versus ordinary Hodge–Tate base changes\" is not covered. PR.6 states only the θ (de Rham) versus θ̃ (Hodge–Tate) square (PR.6/theta-theta-tilde-square) and the q-crystalline reduction mod q−1 (PR.6/q-crystalline-crystalline-comparison). No A_cris or W(k) crystalline specialization of the AΩ comparison is stated. This affects CohomologyComparisons:CP.1/crystalline-de-rham-overlap-square, which in practice takes these from CP.1/acris-specialization, CP.1/witt-crystalline-specialization, AI.5 and CR.2. (2) CohomologyComparisons:CP.1/prismatic-frobenius-pullback-comparison asserts that \"The crystalline, de Rham and étale specializations of this map agree with the BMS maps under the qualified uniqueness theorem of BS22 §18\". PR.6 explicitly does not supply this agreement: it assigns it to AI.7, and AI.7 records it as not in the sources. (3) CohomologyComparisons:CP.1/singular-and-completed-boundary gets nothing singular or animated from PR.6, which covers only p-completely smooth inputs.",
+        "by": "REV-CohomologyComparisons~2",
+        "note": "BS22 17.2’s Frobenius pullback and §18 uniqueness with the HT structure map are supplied. Agreement of all crystalline/étale realizations and singular extensions are separately requested, not automatic consequences of uniqueness.",
         "candidateNodes": [
           "PrismaticCohomology:PR.6/ainf-omega-comparison",
           "PrismaticCohomology:PR.6/comparison-uniqueness"
@@ -5039,8 +5049,8 @@
       ],
       "review": {
         "scope": "not covered",
-        "by": "REV-CohomologyComparisons",
-        "missing": "For CohomologyComparisons:CP.3/relative-filtered-prismatic-agreement both requested items are missing. (1) The Guo–Reinecke equivalence between crystalline Z_p-local systems on the generic fibre of a smooth formal scheme and analytic prismatic F-crystals. PR.7 proves an equivalence only for X = Spf(O_K) (BS Thm 5.6 = PR.7/crystalline-lattices-theorem), and no PR packet defines analytic prismatic F-crystals; only Vect^φ(X_Δ, O_Δ) and Laurent F-crystals are defined. (2) GR Theorem 9.15, the étale–crystalline comparison for proper smooth f with F-crystal coefficients, and its B_dR specialization GR Thm 10.13 for a perfect prism p-completely flat over (A_inf, [p]_q). Proper smooth pushforward appears in PR.7 only as an acceptance check for the structure sheaf. The request's \"subsequent PR.7 proper-pushforward application\" does not exist in PR.7. Only ingredients are in scope: the F-crystal notion and the étale and crystalline/de Rham realization functors for general X."
+        "by": "REV-CohomologyComparisons~2",
+        "note": "The GR relative crystalline-local-system/analytic-F-crystal equivalence and 9.15 proper pushforward are absent from present PR.7, which classifies over Spf O_K. The B_dR agreement consumer has actual parent CP.6 and remains an extension target."
       }
     },
     {
@@ -5048,21 +5058,36 @@
       "need": "Derived pullback/pushforward and global-sections functoriality for the corrected site morphisms; no perfectoid acyclicity follows merely from existence of a cover.",
       "neededBy": [
         "CohomologyComparisons:CP.0/site-and-geometric-point-compatibility"
-      ]
+      ],
+      "review": {
+        "scope": "partly",
+        "by": "REV-CohomologyComparisons~2",
+        "note": "Derived site functoriality is supplied; the smooth model, geometric point and coefficient realization are separate required inputs."
+      }
     },
     {
       "supplier": "EnhancedDerivedSheaves:E2",
       "need": "For bounded-below algebraic h-derived HK/de Rham realizations, import bounded-below hypercover descent with a uniform lower bound. This abstract descent theorem does not construct a smooth h-hypercover or prove that HK/de Rham are h-sheaves; those are the CR.6/R09.7 extension requests.",
       "neededBy": [
         "CohomologyComparisons:CP.4/algebraic-beilinson-period-comparison"
-      ]
+      ],
+      "review": {
+        "scope": "partly",
+        "by": "REV-CohomologyComparisons~2",
+        "note": "Bounded-below hypercover descent is supplied with a uniform lower bound. It neither constructs smooth h-hypercovers nor proves HK/de Rham to be h-sheaves."
+      }
     },
     {
       "supplier": "DerivedDeRhamCohomology:DD.2",
       "need": "For AMMN Construction 7.12 and Theorem 7.13, supply filtered p-completed derived de Rham Künneth for 𝔛₀⊗O_C, compatibility with the finite perfect smooth-proper Hodge filtration, and the Hodge-completed rational coefficient identification LΩ_{O_C/O_K}→B_dR^+ (Construction 7.6). p-completion is distinct from Hodge completion and from inverting p.",
       "neededBy": [
         "CohomologyComparisons:CP.2/nearby-cycle-crystalline-de-rham-pullback"
-      ]
+      ],
+      "review": {
+        "scope": "partly",
+        "by": "REV-CohomologyComparisons~2",
+        "note": "Derived filtered de Rham and Hodge completion are supplied. AMMN’s smooth-proper filtered Künneth and rational coefficient identification with B_dR⁺ are exact additional requests; p-completion, Hodge completion and rationalization remain distinct."
+      }
     }
   ],
   "gaps": [
@@ -5185,7 +5210,7 @@
     {
       "id": "CohomologyComparisons/G-lean-types",
       "title": "Missing geometric and enhanced Lean interfaces",
-      "detail": "The pinned libraries do not supply formal schemes, rigid spaces, crystalline/Hyodo–Kato theories, period maps, analytic infinitesimal sites or the modular-curve tower. The suggested file now has a typed declaration for every node, API item and test, including the Habiro/trace export and AMMN square, using owner-named carriers and specific imported-data values. Elaborating these admitted signatures does not supply the genuine enhanced types, coherent homotopies or proofs. Docstrings list the omitted mathematical clauses; owners must supply those types and the signatures must then be strengthened.",
+      "detail": "The pinned libraries do not supply formal schemes, rigid spaces, crystalline/Hyodo–Kato theories, period maps, analytic infinitesimal sites or the modular-curve tower. The suggested file now has a typed declaration for every node, API item and test, including the Habiro/trace export and AMMN square, using owner-named carriers and specific imported-data values. Elaborating these admitted signatures does not supply the genuine enhanced types, coherent homotopies or proofs. Docstrings list the omitted mathematical clauses; owners must supply those types and the signatures must then be strengthened. In particular the Fnr carrier is the completion F̂^{nr}; HK and D_pst values are scalar-extended to it, and original F^{nr} smooth-vector descent must be restored by the owner. Pan integral inverse-limit signatures represent almostified modules through the almost category’s right adjoint, not an ordinary integral isomorphism.",
       "neededBy": [
         "CohomologyComparisons:CP.0/formal-algebraic-analytic-dictionary",
         "CohomologyComparisons:CP.1/proper-ainf-input-package",
@@ -5218,7 +5243,7 @@
     {
       "id": "G-supplier-stage-order",
       "title": "External supplier stage ordering before promotion",
-      "detail": "The exact declaration graph reachable from CP has no cycle. The promotion-style stage graph formed from the current atlas, accepted restructuring links and all current supplier drafts does have cycles through CP.0–CP.4. In particular, the unaccepted AI.0 packet places a CP.1 prerequisite on AI.5/proper-perfectness, while CP.1 imports AI.5. The unaccepted CR.5 packet imports LPV.5 into CR.5:log-algebra, downstream of the arithmetic and rational comparison chain; H1:formal-adic-comparison imports the whole CR.5 stage and therefore carries that closure into CP.0. Replacing this revision by the HEAD packet while retaining the same suppliers gives the same five cyclic CP stages and the same outgoing-cycle counts (4,1,2,6,6); the source of these cycles is outside the four deliverables. The AI.5 perfectness proof must use the upstream crystalline Frobenius-isogeny input, and the ordinary formal-site prefix and elementary log-algebra prefix must be separated from subsequent comparison and Lefschetz-pencils consumers by their owners. The proposed CP.6 cut, P8 primitive cut and early T6 analytic log-site prefix remain proposals until structural review authorizes them. No global stage acyclicity or promotion readiness is claimed.",
+      "detail": "The exact declaration graph reachable from CP has no cycle. The promotion-style stage graph formed from the current atlas, accepted restructuring links and all current supplier drafts does have cycles through CP.0–CP.4. In particular, the unaccepted AI.0 packet places a CP.1 prerequisite on AI.5/proper-perfectness, while CP.1 imports AI.5. The unaccepted CR.5 packet imports LPV.5 into CR.5:log-algebra, downstream of the arithmetic and rational comparison chain; H1:formal-adic-comparison imports the whole CR.5 stage and therefore carries that closure into CP.0. Independent recomputation in REV-CohomologyComparisons~2 found no exact reachable declaration cycle and again found stage-union cycles through CP.0–CP.4. Their external supplier causes are outside this review’s editable scope. The AI.5 perfectness proof must use the upstream crystalline Frobenius-isogeny input, and the ordinary formal-site prefix and elementary log-algebra prefix must be separated from subsequent comparison and Lefschetz-pencils consumers by their owners. The proposed CP.6 cut, P8 primitive cut and early T6 analytic log-site prefix remain proposals until structural review authorizes them. No global stage acyclicity or promotion readiness is claimed.",
       "neededBy": [
         "CohomologyComparisons:CP.0/formal-algebraic-analytic-dictionary",
         "CohomologyComparisons:CP.0/site-and-geometric-point-compatibility",
@@ -5646,8 +5671,8 @@
       "status": "planned",
       "remaining": [
         "Pan early tower and analytic control: Supply the actual Pan22 Corollary 4.4.3 coefficient/flag comparison, complete torsion-free tower complex, LB-space analytic exactness, χ̃_l decompletion and the flat truncated period sheaf from the named modular/log suppliers. The general distribution roadmap L0 does not by itself supply analytic-vector exactness, so no incorrect distribution-stage prerequisite is used. Keep the Pan cohomological adapters after T6:comparison and the ordinary CP.3 core; the proposed stage refinement makes the routed extension explicit.",
-        "Missing geometric and enhanced Lean interfaces: The pinned libraries do not supply formal schemes, rigid spaces, crystalline/Hyodo–Kato theories, period maps, analytic infinitesimal sites or the modular-curve tower. The suggested file now has a typed declaration for every node, API item and test, including the Habiro/trace export and AMMN square, using owner-named carriers and specific imported-data values. Elaborating these admitted signatures does not supply the genuine enhanced types, coherent homotopies or proofs. Docstrings list the omitted mathematical clauses; owners must supply those types and the signatures must then be strengthened.",
-        "External supplier stage ordering before promotion: The exact declaration graph reachable from CP has no cycle. The promotion-style stage graph formed from the current atlas, accepted restructuring links and all current supplier drafts does have cycles through CP.0–CP.4. In particular, the unaccepted AI.0 packet places a CP.1 prerequisite on AI.5/proper-perfectness, while CP.1 imports AI.5. The unaccepted CR.5 packet imports LPV.5 into CR.5:log-algebra, downstream of the arithmetic and rational comparison chain; H1:formal-adic-comparison imports the whole CR.5 stage and therefore carries that closure into CP.0. Replacing this revision by the HEAD packet while retaining the same suppliers gives the same five cyclic CP stages and the same outgoing-cycle counts (4,1,2,6,6); the source of these cycles is outside the four deliverables. The AI.5 perfectness proof must use the upstream crystalline Frobenius-isogeny input, and the ordinary formal-site prefix and elementary log-algebra prefix must be separated from subsequent comparison and Lefschetz-pencils consumers by their owners. The proposed CP.6 cut, P8 primitive cut and early T6 analytic log-site prefix remain proposals until structural review authorizes them. No global stage acyclicity or promotion readiness is claimed."
+        "Missing geometric and enhanced Lean interfaces: The pinned libraries do not supply formal schemes, rigid spaces, crystalline/Hyodo–Kato theories, period maps, analytic infinitesimal sites or the modular-curve tower. The suggested file now has a typed declaration for every node, API item and test, including the Habiro/trace export and AMMN square, using owner-named carriers and specific imported-data values. Elaborating these admitted signatures does not supply the genuine enhanced types, coherent homotopies or proofs. Docstrings list the omitted mathematical clauses; owners must supply those types and the signatures must then be strengthened. In particular the Fnr carrier is the completion F̂^{nr}; HK and D_pst values are scalar-extended to it, and original F^{nr} smooth-vector descent must be restored by the owner. Pan integral inverse-limit signatures represent almostified modules through the almost category’s right adjoint, not an ordinary integral isomorphism.",
+        "External supplier stage ordering before promotion: The exact declaration graph reachable from CP has no cycle. The promotion-style stage graph formed from the current atlas, accepted restructuring links and all current supplier drafts does have cycles through CP.0–CP.4. In particular, the unaccepted AI.0 packet places a CP.1 prerequisite on AI.5/proper-perfectness, while CP.1 imports AI.5. The unaccepted CR.5 packet imports LPV.5 into CR.5:log-algebra, downstream of the arithmetic and rational comparison chain; H1:formal-adic-comparison imports the whole CR.5 stage and therefore carries that closure into CP.0. Independent recomputation in REV-CohomologyComparisons~2 found no exact reachable declaration cycle and again found stage-union cycles through CP.0–CP.4. Their external supplier causes are outside this review’s editable scope. The AI.5 perfectness proof must use the upstream crystalline Frobenius-isogeny input, and the ordinary formal-site prefix and elementary log-algebra prefix must be separated from subsequent comparison and Lefschetz-pencils consumers by their owners. The proposed CP.6 cut, P8 primitive cut and early T6 analytic log-site prefix remain proposals until structural review authorizes them. No global stage acyclicity or promotion readiness is claimed."
       ],
       "note": "Every target has a node or a preserved supplier interface at target granularity. Planned is a completed planning pass, not proof closure."
     },
@@ -5656,8 +5681,8 @@
       "status": "planned",
       "remaining": [
         "Early absolute and relative primitive comparison owner: Scholze Theorems 1.1, 1.3 and 5.1 give finite F_p local-system cohomology and absolute/relative almost O⁺/p comparison. FIX-RT-AREA-padic-1 settles the proposed P8:primitive after P8:local-rational, before CP.3. The proposed id is absent from the atlas and reserved registry. Request this early input in the local-rational owner prefix until that split is authorized; never import the CP.3-consuming proper P8 suffix. Retain corrected covers and the A_inf sheaf variant used by AI.5.",
-        "Missing geometric and enhanced Lean interfaces: The pinned libraries do not supply formal schemes, rigid spaces, crystalline/Hyodo–Kato theories, period maps, analytic infinitesimal sites or the modular-curve tower. The suggested file now has a typed declaration for every node, API item and test, including the Habiro/trace export and AMMN square, using owner-named carriers and specific imported-data values. Elaborating these admitted signatures does not supply the genuine enhanced types, coherent homotopies or proofs. Docstrings list the omitted mathematical clauses; owners must supply those types and the signatures must then be strengthened.",
-        "External supplier stage ordering before promotion: The exact declaration graph reachable from CP has no cycle. The promotion-style stage graph formed from the current atlas, accepted restructuring links and all current supplier drafts does have cycles through CP.0–CP.4. In particular, the unaccepted AI.0 packet places a CP.1 prerequisite on AI.5/proper-perfectness, while CP.1 imports AI.5. The unaccepted CR.5 packet imports LPV.5 into CR.5:log-algebra, downstream of the arithmetic and rational comparison chain; H1:formal-adic-comparison imports the whole CR.5 stage and therefore carries that closure into CP.0. Replacing this revision by the HEAD packet while retaining the same suppliers gives the same five cyclic CP stages and the same outgoing-cycle counts (4,1,2,6,6); the source of these cycles is outside the four deliverables. The AI.5 perfectness proof must use the upstream crystalline Frobenius-isogeny input, and the ordinary formal-site prefix and elementary log-algebra prefix must be separated from subsequent comparison and Lefschetz-pencils consumers by their owners. The proposed CP.6 cut, P8 primitive cut and early T6 analytic log-site prefix remain proposals until structural review authorizes them. No global stage acyclicity or promotion readiness is claimed."
+        "Missing geometric and enhanced Lean interfaces: The pinned libraries do not supply formal schemes, rigid spaces, crystalline/Hyodo–Kato theories, period maps, analytic infinitesimal sites or the modular-curve tower. The suggested file now has a typed declaration for every node, API item and test, including the Habiro/trace export and AMMN square, using owner-named carriers and specific imported-data values. Elaborating these admitted signatures does not supply the genuine enhanced types, coherent homotopies or proofs. Docstrings list the omitted mathematical clauses; owners must supply those types and the signatures must then be strengthened. In particular the Fnr carrier is the completion F̂^{nr}; HK and D_pst values are scalar-extended to it, and original F^{nr} smooth-vector descent must be restored by the owner. Pan integral inverse-limit signatures represent almostified modules through the almost category’s right adjoint, not an ordinary integral isomorphism.",
+        "External supplier stage ordering before promotion: The exact declaration graph reachable from CP has no cycle. The promotion-style stage graph formed from the current atlas, accepted restructuring links and all current supplier drafts does have cycles through CP.0–CP.4. In particular, the unaccepted AI.0 packet places a CP.1 prerequisite on AI.5/proper-perfectness, while CP.1 imports AI.5. The unaccepted CR.5 packet imports LPV.5 into CR.5:log-algebra, downstream of the arithmetic and rational comparison chain; H1:formal-adic-comparison imports the whole CR.5 stage and therefore carries that closure into CP.0. Independent recomputation in REV-CohomologyComparisons~2 found no exact reachable declaration cycle and again found stage-union cycles through CP.0–CP.4. Their external supplier causes are outside this review’s editable scope. The AI.5 perfectness proof must use the upstream crystalline Frobenius-isogeny input, and the ordinary formal-site prefix and elementary log-algebra prefix must be separated from subsequent comparison and Lefschetz-pencils consumers by their owners. The proposed CP.6 cut, P8 primitive cut and early T6 analytic log-site prefix remain proposals until structural review authorizes them. No global stage acyclicity or promotion readiness is claimed."
       ],
       "note": "Every target has a node or a preserved supplier interface at target granularity. Planned is a completed planning pass, not proof closure."
     },
@@ -5679,7 +5704,7 @@
         "Explicit map and homotopy agreement: BMS1 Theorem 14.5(i) says the maps agree on explicit complexes, while Proposition 13.23 gives the lattice comparison. The all-coordinate ring map X_u↦[u^♭], normalized logarithmic Koszul operators and degree-one/higher cup homotopies must be written as actual natural-transformation identities, including agreement with corrected P8 local sheaves. Their source sketches do not supply a named complete map API.",
         "Relative filtered and singular extensions: GR Theorem 10.13 specializes a PR.7 étale-crystalline comparison in the p-completely flat perfect-prism range with a compatible section; Remark 10.14 removes it only through OB_dR and Griffiths transversality. Complete the supplier map API and analytic éh/derived-de-Rham support before extending the smooth BMS/Guo agreement to singular spaces. The relative target nodes specify the comparison, but these type/proof foundations are not yet supplied. Review (REV-CohomologyComparisons): PR.7 does not supply either input. Its packet states the crystalline-lattice/F-crystal equivalence only for X=Spf O_K and has no analytic prismatic F-crystals and no GR Theorem 9.15; the relative GR equivalence is planned nowhere. The consumer node moved to CP.6 because PR.7 lies downstream of CP.2–CP.4 (CP.2/CP.3/CP.4 → R06.5 → PadicHodgeRegulators:L1 → PG.5 → PG.6 → P7 → PR.7).",
         "Pan early tower and analytic control: Supply the actual Pan22 Corollary 4.4.3 coefficient/flag comparison, complete torsion-free tower complex, LB-space analytic exactness, χ̃_l decompletion and the flat truncated period sheaf from the named modular/log suppliers. The general distribution roadmap L0 does not by itself supply analytic-vector exactness, so no incorrect distribution-stage prerequisite is used. Keep the Pan cohomological adapters after T6:comparison and the ordinary CP.3 core; the proposed stage refinement makes the routed extension explicit.",
-        "Missing geometric and enhanced Lean interfaces: The pinned libraries do not supply formal schemes, rigid spaces, crystalline/Hyodo–Kato theories, period maps, analytic infinitesimal sites or the modular-curve tower. The suggested file now has a typed declaration for every node, API item and test, including the Habiro/trace export and AMMN square, using owner-named carriers and specific imported-data values. Elaborating these admitted signatures does not supply the genuine enhanced types, coherent homotopies or proofs. Docstrings list the omitted mathematical clauses; owners must supply those types and the signatures must then be strengthened.",
+        "Missing geometric and enhanced Lean interfaces: The pinned libraries do not supply formal schemes, rigid spaces, crystalline/Hyodo–Kato theories, period maps, analytic infinitesimal sites or the modular-curve tower. The suggested file now has a typed declaration for every node, API item and test, including the Habiro/trace export and AMMN square, using owner-named carriers and specific imported-data values. Elaborating these admitted signatures does not supply the genuine enhanced types, coherent homotopies or proofs. Docstrings list the omitted mathematical clauses; owners must supply those types and the signatures must then be strengthened. In particular the Fnr carrier is the completion F̂^{nr}; HK and D_pst values are scalar-extended to it, and original F^{nr} smooth-vector descent must be restored by the owner. Pan integral inverse-limit signatures represent almostified modules through the almost category’s right adjoint, not an ordinary integral isomorphism.",
         "Approximation and spreading-out inputs of BMS1 §13: BMS1 Lemmas 13.7–13.10 and Proposition 13.15/Corollary 13.16 are routed to CP.3 and owned here. AdicSpacesPartII R5 was cited for them but its text, as narrowed by RS-05, and its 42 nodes state neither the noetherian approximation of very small affinoids nor the spreading out of proper smooth rigid spaces; R09.6 supplies only algebraization/effectivity. Still unsupplied: the descent of a smooth affinoid with its torus chart to a smooth affinoid over a discretely valued subfield, and the deformation theory of a proper flat formal scheme over a complete noetherian local ring used in Proposition 13.15’s induction on artinian thickenings. Assign these to AdicSpacesPartII (approximation) and to the deformation owner (R09.6 or A0-extension), or plan them as CP.3 lemma nodes when CP.3 is refined.",
         "Geometric transport and map agreement for the nearby-cycle square: Theorem 7.13 supplies the target square, but the PR.4 truncated nearby-cycle and reduction-invariance identifications and DD.2 filtered Künneth/completion interfaces remain requests. RT.3b supplies the graded Beilinson square only with its generic RT.6 filtration inputs, never the CP.6-consuming character suffix. Remark 7.9 does not establish unrestricted equality of trace-constructed maps with classical Fontaine comparison maps; transporting its commutativity homotopy and proving agreement with CP.2/CP.3’s explicit maps are refinements, not consequences of matching objects."
       ],
@@ -5693,8 +5718,8 @@
         "Hyodo–Kato log-base descent and signed transport: Read and supply CR.6’s exact descent from the W(k̄),Q_{≥0} log base to W(k₀),N and uniformizer-change formula with N=−d/dT. Determine the sign from the torsor coordinates and prove the cocycle; CP.4 states that qualified transport rather than guessing the sign.",
         "Log-prismatic agreement and semistable products: PR.8’s precise admitted log chart class and comparison map must be checked against CK. The full semistable A_cris comparison in CK is not claimed multiplicative; any tensor/cup enhancement needed by CP.6 requires a separate source/proof. Importing a smooth E∞ comparison does not prove it in the log case.",
         "Analytic and algebraic C_st proof suppliers: CN Theorem 6.2 quotes Beilinson’s h-descent algebraic comparison for arbitrary varieties; its original proof and the h-derived HK/de Rham realization are not provided by the semistable model theory. Theorems 6.4/6.8 use overconvergent syntomic/étale comparison in high twists, proper HK/de Rham finiteness and Banach–Colmez dimension theory. No suitable early BC/syntomic stage has been identified; R06.5/R06.6 consume CP.4 and cannot fill this gap. Propose a source-qualified Part II early prefix of rational p-adic Hodge theory/CR.6 and preserve filtered-complex cohomology in the over-C case.",
-        "Missing geometric and enhanced Lean interfaces: The pinned libraries do not supply formal schemes, rigid spaces, crystalline/Hyodo–Kato theories, period maps, analytic infinitesimal sites or the modular-curve tower. The suggested file now has a typed declaration for every node, API item and test, including the Habiro/trace export and AMMN square, using owner-named carriers and specific imported-data values. Elaborating these admitted signatures does not supply the genuine enhanced types, coherent homotopies or proofs. Docstrings list the omitted mathematical clauses; owners must supply those types and the signatures must then be strengthened.",
-        "External supplier stage ordering before promotion: The exact declaration graph reachable from CP has no cycle. The promotion-style stage graph formed from the current atlas, accepted restructuring links and all current supplier drafts does have cycles through CP.0–CP.4. In particular, the unaccepted AI.0 packet places a CP.1 prerequisite on AI.5/proper-perfectness, while CP.1 imports AI.5. The unaccepted CR.5 packet imports LPV.5 into CR.5:log-algebra, downstream of the arithmetic and rational comparison chain; H1:formal-adic-comparison imports the whole CR.5 stage and therefore carries that closure into CP.0. Replacing this revision by the HEAD packet while retaining the same suppliers gives the same five cyclic CP stages and the same outgoing-cycle counts (4,1,2,6,6); the source of these cycles is outside the four deliverables. The AI.5 perfectness proof must use the upstream crystalline Frobenius-isogeny input, and the ordinary formal-site prefix and elementary log-algebra prefix must be separated from subsequent comparison and Lefschetz-pencils consumers by their owners. The proposed CP.6 cut, P8 primitive cut and early T6 analytic log-site prefix remain proposals until structural review authorizes them. No global stage acyclicity or promotion readiness is claimed."
+        "Missing geometric and enhanced Lean interfaces: The pinned libraries do not supply formal schemes, rigid spaces, crystalline/Hyodo–Kato theories, period maps, analytic infinitesimal sites or the modular-curve tower. The suggested file now has a typed declaration for every node, API item and test, including the Habiro/trace export and AMMN square, using owner-named carriers and specific imported-data values. Elaborating these admitted signatures does not supply the genuine enhanced types, coherent homotopies or proofs. Docstrings list the omitted mathematical clauses; owners must supply those types and the signatures must then be strengthened. In particular the Fnr carrier is the completion F̂^{nr}; HK and D_pst values are scalar-extended to it, and original F^{nr} smooth-vector descent must be restored by the owner. Pan integral inverse-limit signatures represent almostified modules through the almost category’s right adjoint, not an ordinary integral isomorphism.",
+        "External supplier stage ordering before promotion: The exact declaration graph reachable from CP has no cycle. The promotion-style stage graph formed from the current atlas, accepted restructuring links and all current supplier drafts does have cycles through CP.0–CP.4. In particular, the unaccepted AI.0 packet places a CP.1 prerequisite on AI.5/proper-perfectness, while CP.1 imports AI.5. The unaccepted CR.5 packet imports LPV.5 into CR.5:log-algebra, downstream of the arithmetic and rational comparison chain; H1:formal-adic-comparison imports the whole CR.5 stage and therefore carries that closure into CP.0. Independent recomputation in REV-CohomologyComparisons~2 found no exact reachable declaration cycle and again found stage-union cycles through CP.0–CP.4. Their external supplier causes are outside this review’s editable scope. The AI.5 perfectness proof must use the upstream crystalline Frobenius-isogeny input, and the ordinary formal-site prefix and elementary log-algebra prefix must be separated from subsequent comparison and Lefschetz-pencils consumers by their owners. The proposed CP.6 cut, P8 primitive cut and early T6 analytic log-site prefix remain proposals until structural review authorizes them. No global stage acyclicity or promotion readiness is claimed."
       ],
       "note": "Every target has a node or a preserved supplier interface at target granularity. Planned is a completed planning pass, not proof closure."
     },
@@ -5718,7 +5743,7 @@
         "Chern class owners and proper compactification proof: PR.4 must explicitly construct prismatic/syntomic/crystalline Chern classes, twists and splitting before CP compares them. Betts–Stix Proposition 3.20’s last paragraph uses the nonproper total space of L after proving cycle compatibility only for proper spaces. Supply the proper P(O⊕L) section/Gysin/projective-bundle proof. Equality of its trace-normalized a with the canonical Fontaine period is separately unproved in Remark 3.21 and is not used.",
         "Pan early tower and analytic control: Supply the actual Pan22 Corollary 4.4.3 coefficient/flag comparison, complete torsion-free tower complex, LB-space analytic exactness, χ̃_l decompletion and the flat truncated period sheaf from the named modular/log suppliers. The general distribution roadmap L0 does not by itself supply analytic-vector exactness, so no incorrect distribution-stage prerequisite is used. Keep the Pan cohomological adapters after T6:comparison and the ordinary CP.3 core; the proposed stage refinement makes the routed extension explicit.",
         "Trace character and Habiro return interfaces: HQ.8 owns q-gluing and RT owns the cyclotomic Chern character; neither is reconstructed or assumed complete here. The consumer interfaces must take CP’s actual map and normalization, preserve all intersection hypotheses and record the p-adic/q=1 specialization square. The current RT stage text does not explicitly name every required character normalization; propose the scope clarification rather than replace it with an unnamed regulator.",
-        "Missing geometric and enhanced Lean interfaces: The pinned libraries do not supply formal schemes, rigid spaces, crystalline/Hyodo–Kato theories, period maps, analytic infinitesimal sites or the modular-curve tower. The suggested file now has a typed declaration for every node, API item and test, including the Habiro/trace export and AMMN square, using owner-named carriers and specific imported-data values. Elaborating these admitted signatures does not supply the genuine enhanced types, coherent homotopies or proofs. Docstrings list the omitted mathematical clauses; owners must supply those types and the signatures must then be strengthened."
+        "Missing geometric and enhanced Lean interfaces: The pinned libraries do not supply formal schemes, rigid spaces, crystalline/Hyodo–Kato theories, period maps, analytic infinitesimal sites or the modular-curve tower. The suggested file now has a typed declaration for every node, API item and test, including the Habiro/trace export and AMMN square, using owner-named carriers and specific imported-data values. Elaborating these admitted signatures does not supply the genuine enhanced types, coherent homotopies or proofs. Docstrings list the omitted mathematical clauses; owners must supply those types and the signatures must then be strengthened. In particular the Fnr carrier is the completion F̂^{nr}; HK and D_pst values are scalar-extended to it, and original F^{nr} smooth-vector descent must be restored by the owner. Pan integral inverse-limit signatures represent almostified modules through the almost category’s right adjoint, not an ordinary integral isomorphism."
       ],
       "note": "Every target has a node or a preserved supplier interface at target granularity. Planned is a completed planning pass, not proof closure."
     }
@@ -5740,7 +5765,7 @@
       "source": "sch13-erratum",
       "review": {
         "verdict": "confirmed",
-        "by": "REV-CohomologyComparisons",
+        "by": "REV-CohomologyComparisons~2",
         "reason": "The official erratum rejects the general splitting assertion using Ribes–Zalesskii Example 5.6.9 and proves a transfinite finite-surjection criterion instead; it does not change the main comparison results."
       }
     },
@@ -5759,7 +5784,7 @@
       "source": "sch13-erratum",
       "review": {
         "verdict": "confirmed",
-        "by": "REV-CohomologyComparisons",
+        "by": "REV-CohomologyComparisons~2",
         "reason": "Erratum (3), pp.1–2, replaces the structural period construction by integral p-completion, then p-inversion and kernel completion, and reproves its local description. The comparison results remain valid."
       }
     },
@@ -5781,7 +5806,7 @@
       "source": "bs",
       "review": {
         "verdict": "confirmed",
-        "by": "REV-CohomologyComparisons",
+        "by": "REV-CohomologyComparisons~2",
         "reason": "In the 29 April 2022 manuscript, Proposition 3.20(7) assumes a smooth proper variety. The proof of (8) applies it to the nonproper total space of a line bundle. A section of the proper smooth P(O⊕L), with normal bundle L, repairs this use through self-intersection. This check makes no assertion about an inaccessible published proof."
       }
     },
@@ -5800,7 +5825,7 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "by": "REV-CohomologyComparisons",
+        "by": "REV-CohomologyComparisons~2",
         "reason": "Checked on the text of p.76 of the v3 PDF (sha256 47000db5…): the proof describes N on the left side of (9.2.2) through RΓlog cris(𝒳k0/W(k0)) although that side is the 𝒴k0 complex."
       },
       "addedBy": "REV-CohomologyComparisons"
@@ -5820,7 +5845,7 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "by": "REV-CohomologyComparisons",
+        "by": "REV-CohomologyComparisons~2",
         "reason": "Checked in arXiv v1 (sha256 0873b61a…), §6.3.7 and Proposition 6.3.9, pp.100–101. CP.6/pan-graded-analytic-decompletion already carries k > i."
       },
       "addedBy": "REV-CohomologyComparisons"
@@ -5840,7 +5865,7 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "by": "REV-CohomologyComparisons",
+        "by": "REV-CohomologyComparisons~2",
         "reason": "Checked in the CN5 manuscript (sha256 bb1628cf…), p.40: Theorem 6.4 uses H^r_{dR,K}(X) and display (6.5) writes H^r_dR(X)^*."
       },
       "addedBy": "REV-CohomologyComparisons"
@@ -5861,7 +5886,7 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "by": "REV-CohomologyComparisons",
+        "by": "REV-CohomologyComparisons~2",
         "reason": "The Frobenius on W(k)[[T]] sends T to T^p, so T has no preimage. The §4.4 map is an endomorphism; its uses do not require surjectivity."
       },
       "addedBy": "REV-CohomologyComparisons"
@@ -5954,7 +5979,7 @@
       "finding": "RT-AREA-padic-1/24",
       "resolution": "G-primitive and restructure name the early absolute and DLLZ log-primitive owners; no late P8→CP.3 back edge. The stale “no owner” is replaced by a precisely scoped missing-stage input, not false closure.",
       "review": {
-        "by": "REV-CohomologyComparisons",
+        "by": "REV-CohomologyComparisons~2",
         "verdict": "handled, gap open",
         "note": "G-primitive now records FIX-RT-AREA-padic-1’s settled order (P8:primitive after P8:local-rational, edge to CP.3); the stage does not exist yet."
       }
@@ -5963,7 +5988,7 @@
       "finding": "RT-AREA-padic-2/3",
       "resolution": "The finite F_p local-system, absolute/relative almost comparison and A_inf variants remain in G-primitive with corrected covers. FIX-RT-AREA-padic-1 settles primitive after local-rational and before CP.3; the proposed id is not assumed to exist.",
       "review": {
-        "by": "REV-CohomologyComparisons",
+        "by": "REV-CohomologyComparisons~2",
         "verdict": "handled, gap open",
         "note": "The consumers (CP.1 input package via AI.5, CP.3 canonical comparison and Hodge–Tate degeneration, CP.4 semistable comparison) are in G-primitive’s neededBy; the ‘two incompatible orderings’ are resolved by FIX-RT-AREA-padic-1."
       }
@@ -5972,7 +5997,7 @@
       "finding": "RT-AREA-padic-2/4",
       "resolution": "R07.4 request and G-kisin retain all-weight integral crystalline lattices, Kummer restriction, S↦A_inf/W(k) Frobenius twist and the source uniqueness proof. Rational R06.2 is not treated as lattice classification.",
       "review": {
-        "by": "REV-CohomologyComparisons",
+        "by": "REV-CohomologyComparisons~2",
         "verdict": "handled",
         "note": "R07.4 request and G-kisin keep the all-weight Kummer-tower theory; the supplier check also finds PR.7/breuil-kisin-evaluation and PR.7/kisin-functor-comparison as candidate nodes, still lacking BMS1 Proposition 4.34’s B_cris⁺ comparison."
       }
@@ -5981,7 +6006,7 @@
       "finding": "RT-AREA-padic-2/23",
       "resolution": "PR.8 → CP.4, R07.3/R06.4 → CP.5 and PR.4/EDC.3 → CP.6 remain precisely scoped prerequisites. The CP.6 → R06.6 return is conditional on the explicitly proposed six-node successor split and is not a declared link. RT/HQ own character/gluing proofs.",
       "review": {
-        "by": "REV-CohomologyComparisons",
+        "by": "REV-CohomologyComparisons~2",
         "verdict": "partly handled",
         "note": "PR.8 → CP.4, R07.3/R06.4 → CP.5 and PR.4/EDC.3 → CP.6 are prerequisites. R06.4/R07.3 were removed from CP.0 (cycle through P7 → R06.3 → R06.4). The CP.6 → R06.6 return is cyclic while CP.6 holds the Pan and GR adapters, so the link was dropped and the restructure records the condition under which it can be added."
       }
@@ -6795,16 +6820,79 @@
     }
   ],
   "validation": {
-    "packetCheck": "python3 scripts/check_blueprint.py research/blueprint/packets/CohomologyComparisons.json: 0 errors, 0 warnings (2026-10-08); 83 nodes, 24 API items, 13 unit tests, 32 planets, 16 baseline declarations, 16 gaps, 48 requests; all seven stages planned. Preserved every existing node id and the top-level independent review object; all implementation statuses remain unchecked.",
+    "packetCheck": "python3 scripts/check_blueprint.py research/blueprint/packets/CohomologyComparisons.json: 0 errors, 0 warnings (2026-10-08); 83 nodes, 24 API items, 13 unit tests, 32 planets, 16 baseline declarations, 16 gaps, 48 requests; all seven stages planned. Preserved every existing node id; replaced the historical review with independent-review-REV-CohomologyComparisons~2; all implementation statuses remain unchecked.",
     "baselineSearch": "Read all 16 baseline declaration statements at the exact Mathlib pin on 2026-10-08. BDeRham does not supply field/DVR structure, completion uses its stated finite-generation hypotheses, and DerivedCategory provides only the ordinary triangulated shadow. Tau Ceti source search at f790474 is recorded in the handoff.",
-    "graph": "Exact declaration graph reachable from CP: no cycle. Promotion-style union of 1,968 atlas stages, accepted restructuring links and current supplier drafts: cycles through CP.0–CP.4, unchanged in affected stages and outgoing-cycle counts from the HEAD packet with the same suppliers. The external AI.5/CP.1 and CR.5:log-algebra/LPV.5 closures are recorded in G-supplier-stage-order. Actual parentStageId, not realises, places nodes. Conditional returns and proposed cuts are not inserted as edges.",
-    "lean": "lean-check succeeded against Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-08; 418 warnings, all admitted proofs. Every node, API item and unit test has a typed interface. The file imports no Tau Ceti module; it uses ordinary triangulated shadows and owner-named geometric carriers, whose stronger clauses are documented as missing interfaces."
+    "graph": "Independent recomputation (2026-10-08): 4,754 exact references reachable from the 83 CP nodes, no cycle. Stage-union stress check uses 1,968 atlas stages/3,508 atlas edges, accepted data/restructure links and current decomposition/blueprint/draft prerequisites mapped by actual parentStageId: cycles include CP.0–CP.4, with the AI.5/CP.1 and CR.5/LPV.5 causes recorded in G-supplier-stage-order. Conditional returns and proposed cuts are not inserted as edges. This is not a certification that all supplier drafts can be promoted together.",
+    "lean": "lean-check exited 0 at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-08; 423 warnings, all admitted proofs, and no errors. Every node, API item and unit test has a typed interface. The file imports no Tau Ceti module; ordinary triangulated shadows, completed HK coefficients and almost-module representatives retain the explicit G-lean-types limitations."
   },
   "links": [],
   "sourceVersions": [
     {
       "kind": "preprint",
-      "url": "https://arxiv.org/pdf/1205.3463",
+      "url": "https://arxiv.org/pdf/1602.03148v3",
+      "read": "2026-10-08",
+      "sha256": "285f7d2088607688365ca92222dcf44c0acd6c4788dd872fe6a6191b9c4e072a",
+      "citation": "arXiv:1602.03148v3 (2019), printed pagination"
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/1710.06145v3",
+      "read": "2026-10-08",
+      "sha256": "47000db58599c20831223f43df1d13466c913fdda617070f5cc3458631d36c57",
+      "citation": "arXiv:1710.06145v3, printed pagination"
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/2203.09490v3",
+      "read": "2026-10-08",
+      "sha256": "3c49a5f2aa6023c7b01a5ba83a370ddcb92642f4819f64446b7d93bf01b28d26",
+      "citation": "arXiv:2203.09490v3 (2023); source of published 2024 paper"
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/2112.14304v1",
+      "read": "2026-10-08",
+      "sha256": "718c048a52f16ac86d8590283bb12bc705be2cc1fa6d800bf2d7cc0dae0ea6cb",
+      "citation": "arXiv:2112.14304v1 (2021)"
+    },
+    {
+      "kind": "author copy",
+      "url": "https://webusers.imj-prg.fr/~wieslawa.niziol/CN5.pdf",
+      "read": "2026-10-08",
+      "sha256": "bb1628cf1f4321243e6070be2abae99f72a41e237e70a7eb1ec1fc03cc2cd52a",
+      "citation": "Author manuscript CN5, 24 November 2024, published 2025"
+    },
+    {
+      "kind": "author copy",
+      "url": "https://www.math.uni-frankfurt.de/~stix/research/preprints/BETTS_STIX-GaloisSectionsPadicPeriods20220429.pdf",
+      "read": "2026-10-08",
+      "sha256": "7aa79403eff72d06b481424ab4c1f34a8cde68edd62f0d0923ad89cca082f565",
+      "citation": "Author manuscript 29 April 2022, source of 2025 paper"
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/2209.06366v1",
+      "read": "2026-10-08",
+      "sha256": "0873b61a758c57a9c5567f8e9ed7d905adcb7b359013a24e680facd1027b31b4",
+      "citation": "arXiv:2209.06366v1 (2022), source of published 2026 paper"
+    },
+    {
+      "kind": "author copy",
+      "url": "https://webusers.imj-prg.fr/~wieslawa.niziol/GPW5.pdf",
+      "read": "2026-10-08",
+      "sha256": "2cdb1de25b5201ed46f8af6c06c19b72fdc5cbe1dd2037b4e1d24dee30155776",
+      "citation": "Author manuscript GPW5, source of 2020 paper"
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/1905.08229v4",
+      "read": "2026-10-08",
+      "sha256": "1d91a6eb85828feb73f84ab3b27ced17514f0855d61c3bff71ab9d8287891e4a",
+      "citation": "arXiv:1905.08229v4, 12 January 2022, printed pagination"
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/1205.3463v2",
       "read": "2026-10-08",
       "sha256": "ed9187b3269adb7e9964369470073ce8760ef56ef0c0b89538c0a1509f811959",
       "citation": "Public arXiv:1205.3463 PDF, read together with official erratum"
@@ -6817,463 +6905,433 @@
       "citation": "Official author PDF, 3 pages"
     },
     {
-      "kind": "author copy",
-      "url": "https://www.math.uni-frankfurt.de/~stix/research/preprints/BETTS_STIX-GaloisSectionsPadicPeriods20220429.pdf",
-      "read": "2026-10-08",
-      "sha256": "7aa79403eff72d06b481424ab4c1f34a8cde68edd62f0d0923ad89cca082f565",
-      "citation": "Author manuscript 29 April 2022, source of 2025 paper"
-    },
-    {
-      "kind": "preprint",
-      "url": "https://arxiv.org/pdf/1710.06145",
-      "read": "2026-10-08",
-      "sha256": "47000db58599c20831223f43df1d13466c913fdda617070f5cc3458631d36c57",
-      "citation": "arXiv:1710.06145v3, printed pagination"
-    },
-    {
-      "kind": "preprint",
-      "url": "https://arxiv.org/pdf/2209.06366v1",
-      "read": "2026-10-08",
-      "sha256": "0873b61a758c57a9c5567f8e9ed7d905adcb7b359013a24e680facd1027b31b4",
-      "citation": "arXiv:2209.06366v1 (2022), source of published 2026 paper"
-    },
-    {
-      "kind": "author copy",
-      "url": "https://webusers.imj-prg.fr/~wieslawa.niziol/CN5.pdf",
-      "read": "2026-10-08",
-      "sha256": "bb1628cf1f4321243e6070be2abae99f72a41e237e70a7eb1ec1fc03cc2cd52a",
-      "citation": "Author manuscript CN5, 24 November 2024, published 2025"
-    },
-    {
-      "kind": "preprint",
-      "url": "https://arxiv.org/pdf/1602.03148v3",
-      "read": "2026-10-08",
-      "sha256": "285f7d2088607688365ca92222dcf44c0acd6c4788dd872fe6a6191b9c4e072a",
-      "citation": "arXiv:1602.03148v3 (2019), printed pagination"
-    },
-    {
       "kind": "preprint",
       "url": "https://arxiv.org/pdf/2003.12541v2",
       "read": "2026-10-08",
       "sha256": "2a0224b2e8b7c5f19f326886b130f8be0158ba4cb602ba7eb5821990ca22b3fd",
-      "citation": "arXiv v2, printed pp.44–45 and 51–54; published numbering is not used"
+      "citation": "arXiv:2003.12541v2 (29 September 2021), printed preprint pagination"
     }
   ],
   "review": {
-    "status": "needs_changes",
-    "reviewer": "independent-review-REV-CohomologyComparisons",
-    "date": "2026-10-07",
-    "notes": "Independent review REV-CohomologyComparisons (issue #372) by Claude, session claude-0gMhNi, of BP-CohomologyComparisons by Codex, session codex-mCCbxV. Verdict needs_changes: the plan is sound at target level and every correction whose fix was clear has been made in this packet and in the suggested file, but 55 nodes, 4 gaps, 10 requests and 6 source issues changed in fields that the reader research/blueprint/readmes/CohomologyComparisons.md mirrors verbatim, and the reader is not a deliverable of this review. A revision round must regenerate the reader from this packet (the report lists every changed field) and settle the structural items below. Checked: all 11 sources downloaded, every hash matches; all 83 node citations read at their locators; 33 locators corrected; every excerpt (most were bare labels such as \"Theorem 14.3.\") replaced by a verified verbatim passage of at most 280 characters, and every boilerplate match by a specific one. Statement corrections: perfect residue field restored (CP.0 choice transport, CP.3 descended lattice); claims BMS1 does not make marked as targets (φ-compatibility in CP.1 A_cris, Witt and μ-inverted specializations; associativity coherence; the double-embedding and tower verifications in CP.3); Lemma 13.7's enlargement of Σ; GR Definition 10.1's nilpotent Zariski closed immersion; CK §7.1 equidimensionality; the CR.6/CK sign source of the uniformizer change; the Betts–Stix Gysin extension marked as packet-authored. 26 nodes whose only acceptance was a generic sentence received concrete instances. Baseline: all 14 declarations confirmed at Mathlib 082e2d37 (BDeRham, PadicInt and IsAdicComplete are cited by no node); DerivedCategory's provision corrected; WittVector.frobeniusEquiv and cyclotomicCharacter added. Graph: the submitted packet closed stage cycles through PR.7 → CP.3, R06.4 → CP.0 and the declared CP.6 → R06.6 link; fixed by moving CP.3/relative-filtered-prismatic-agreement to CP.6, removing R06.4/R07.3 from the CP.0 twist node, dropping the link and citing PR.8's comparison nodes; the cross-roadmap stage graph through CP is now acyclic. Suppliers: all 63 exist; 19 cover the need, 41 partly, 3 not at all (R5, CR.7, PR.7); each request carries a review note with the missing content and candidate exact nodes; R5, F0, CR.7, E5:animation and PR.8 requests removed, unused citations dropped, AI.0:period-comparison added where used; new gap G-spreading-inputs. Source issues: E1–E3 confirmed (E1 reason and E2 quote, locator and kind corrected); E4–E7 added and confirmed. API: SpecializationDictionary.ker_theta and .witt_frobenius, InfinitesimalEnvelope.map and .lift, and the Mathlib compatibility test test_mathlib_theta added; planet 'Hodge–Tate spectral sequence degeneration' added to CP.3 (six planets). Red-team findings RT-AREA-padic-1/24, 2/3, 2/4 and 2/23 checked; G-primitive records FIX-RT-AREA-padic-1's settled order (P8:primitive after P8:local-rational, edge to CP.3). check_blueprint: 0 errors, 0 warnings. Suggested file: completed in review from two typed adapters to 3,032 lines that type every definition, construction, API item, unit test and theorem of the packet except the CP.6 Habiro export interface (imported-data pattern of PrismaticCohomology.lean, owner-named placeholder carriers, no axioms, no Prop placeholders); lean-check at the pinned Mathlib reports admitted-proof warnings only.",
+    "status": "accepted",
+    "reviewer": "independent-review-REV-CohomologyComparisons~2",
+    "date": "2026-10-08",
+    "notes": "Independent review by Codex codex-KJUtkR, issue #7037. All 83 target-level nodes checked against the recorded public source locators, all 16 baseline statements read at the exact pins, all 48 requests and exact supplier prerequisites examined, seven source issues independently confirmed, four red-team obligations checked, four definition/construction APIs and 13 tests checked. Corrected Frobenius normalization, completion universality, balanced monodromy, nilpotent exponentiation, finite-type variety and finite Q_p-extension hypotheses, pure-dimensional semistable carrier, normalized valuation length, and the redundant-coordinate test. AMMN edition corrected. Reader synchronized. Complete means a finished target-level pass: all seven stages are planned, none closed, 16 gaps remain. External supplier stage cycles and conditional successor cuts are explicit promotion limitations; this review does not certify global acyclicity or implementation. See the review report for verification results. Final check_blueprint: 0 errors, 0 warnings. lean-check: exit 0, 423 admitted-proof warnings only; reader fields and allowed paths checked.",
     "checked": [
       {
         "nodeId": "CohomologyComparisons:CP.0/ainf-specialization-dictionary",
-        "verdict": "corrected",
-        "note": "Checked against bms1-2019 Example 3.16, p.25; Definition 3.22, p.27; §4.3, p.40. locator corrected: Example 3.16, pp.25–26; Definition 3.22, p.27; §4.3, p.40 → Example 3.16, p.25; Definition 3.22, p.27; §4.3, p.40; mathlib:WittVector.frobeniusEquiv cited for φ on A_inf=W(O_C^♭) and the Witt Frobenius of W(k) (new API item witt_frobenius); API items ker_theta and witt_frobenius and the Mathlib compatibility test test_mathlib_theta added; AI.0:period-comparison added: the composites A→A_cris→B_dR⁺ and A[1/μ]→B_cris→B_dR are its content under RS-01. Excerpt and match replaced by a verified verbatim passage."
+        "verdict": "verified",
+        "note": "Checked statement, hypotheses, direct prerequisites, proof outline and acceptance against bms1-2019 Example 3.16, p.25; Definition 3.22, p.27; §4.3, p.40. Source-qualified enhancements remain targets with their named supplier requests and gaps; no proof closure inferred from the typed shadow."
       },
       {
         "nodeId": "CohomologyComparisons:CP.0/formal-algebraic-analytic-dictionary",
-        "verdict": "corrected",
-        "note": "Checked against bms1-2019 Theorem 1.1 and Remarks 1.2–1.3, pp.2–4; §13.4, p.116. generic acceptance sentence replaced by node-specific instances; H5 stage replaced by the exact accepted node H5/proper-comparison-3-7-2 (Huber 3.7.2 proper algebraic/analytic comparison). Excerpt and match replaced by a verified verbatim passage."
+        "verdict": "verified",
+        "note": "Checked statement, hypotheses, direct prerequisites, proof outline and acceptance against bms1-2019 Theorem 1.1 and Remarks 1.2–1.3, pp.2–4; §13.4, p.116. Source-qualified enhancements remain targets with their named supplier requests and gaps; no proof closure inferred from the typed shadow."
       },
       {
         "nodeId": "CohomologyComparisons:CP.0/site-and-geometric-point-compatibility",
-        "verdict": "corrected",
-        "note": "Checked against sch13-erratum Erratum (1)–(3), pp.1–2. H5 removed: Huber 3.7.2/3.8.1/6.1.1 supply none of the inputs this node uses. Excerpt and match replaced by a verified verbatim passage."
+        "verdict": "verified",
+        "note": "Checked statement, hypotheses, direct prerequisites, proof outline and acceptance against sch13-erratum Erratum (1)–(3), pp.1–2. Source-qualified enhancements remain targets with their named supplier requests and gaps; no proof closure inferred from the typed shadow."
       },
       {
         "nodeId": "CohomologyComparisons:CP.0/twist-frobenius-filtration-normalization",
-        "verdict": "corrected",
-        "note": "Checked against bms1-2019 Example 4.24, p.41; §4.4, pp.43–44; introduction p.4. generic acceptance sentence replaced by node-specific instances; prerequisites R06.4 and R07.3 removed: R06.4 lies downstream of CP.2 (R06.5 → … → P7 → R06.3 → R06.4), and the stage text makes CP.0 the source of conventions for R07; mathlib:cyclotomicCharacter cited for χ_p; locator corrected: Example 4.24, p.40; §4.4, pp.43–44; introduction p.4 → Example 4.24, p.41; §4.4, pp.43–44; introduction p.4; R06.1 cited for t=log[ε] and Fil^r B_dR=t^r B_dR⁺, which BMS1 does not state. Excerpt and match replaced by a verified verbatim passage."
+        "verdict": "verified",
+        "note": "Checked statement, hypotheses, direct prerequisites, proof outline and acceptance against bms1-2019 Example 4.24, p.41; §4.4, pp.43–44; introduction p.4. Source-qualified enhancements remain targets with their named supplier requests and gaps; no proof closure inferred from the typed shadow."
       },
       {
         "nodeId": "CohomologyComparisons:CP.0/no-c-section-and-choice-transport",
-        "verdict": "corrected",
-        "note": "Checked against bms1-2019 Lemmas 13.11–13.13, pp.109–112; Remark 13.20, p.114; Remark 13.22, p.116. locator corrected: Lemmas 13.11–13.13, pp.108–110; Remark 13.20, p.114; Remark 13.22, p.116 → Lemmas 13.11–13.13, pp.109–112; Remark 13.20, p.114; Remark 13.22, p.116; perfect residue field added: uniqueness of the lift K→B_dR⁺ (Remark 13.20) fails for imperfect residue fields. Excerpt and match replaced by a verified verbatim passage."
+        "verdict": "verified",
+        "note": "Checked statement, hypotheses, direct prerequisites, proof outline and acceptance against bms1-2019 Lemmas 13.11–13.13, pp.109–112; Remark 13.20, p.114; Remark 13.22, p.116. Source-qualified enhancements remain targets with their named supplier requests and gaps; no proof closure inferred from the typed shadow."
       },
       {
         "nodeId": "CohomologyComparisons:CP.1/proper-ainf-input-package",
         "verdict": "verified",
-        "note": "Statement, hypotheses and locator checked against bms1-2019 Theorems 14.1 and 14.3, pp.118–120; excerpt and match replaced by a verified verbatim passage; prerequisites checked against the supplier statements (see the request review notes)."
+        "note": "Checked statement, hypotheses, direct prerequisites, proof outline and acceptance against bms1-2019 Theorems 14.1 and 14.3, pp.118–120. Source-qualified enhancements remain targets with their named supplier requests and gaps; no proof closure inferred from the typed shadow."
       },
       {
         "nodeId": "CohomologyComparisons:CP.1/theta-de-rham-specialization",
-        "verdict": "corrected",
-        "note": "Checked against bms1-2019 Theorem 14.1(ii), p.118; Theorem 14.3(ii), p.120. generic acceptance sentence replaced by node-specific instances; locator corrected: Theorem 14.1(ii), p.118; Theorem 14.3(ii), p.119 → Theorem 14.1(ii), p.118; Theorem 14.3(ii), p.120. Excerpt and match replaced by a verified verbatim passage."
+        "verdict": "verified",
+        "note": "Checked statement, hypotheses, direct prerequisites, proof outline and acceptance against bms1-2019 Theorem 14.1(ii), p.118; Theorem 14.3(ii), p.120. Source-qualified enhancements remain targets with their named supplier requests and gaps; no proof closure inferred from the typed shadow."
       },
       {
         "nodeId": "CohomologyComparisons:CP.1/hodge-tate-specialization",
-        "verdict": "corrected",
-        "note": "Checked against bms1-2019 Theorem 8.3, p.61; Theorem 9.2(i), p.69; Proposition 6.12, p.52; Theorem 14.1 proof, p.118. generic acceptance sentence replaced by node-specific instances; locator corrected: Theorem 1.8; §9; Theorem 14.1 proof, pp.118–119 → Theorem 8.3, p.61; Theorem 9.2(i), p.69; Proposition 6.12, p.52; Theorem 14.1 proof, p.118. Excerpt and match replaced by a verified verbatim passage."
+        "verdict": "verified",
+        "note": "Checked statement, hypotheses, direct prerequisites, proof outline and acceptance against bms1-2019 Theorem 8.3, p.61; Theorem 9.2(i), p.69; Proposition 6.12, p.52; Theorem 14.1 proof, p.118. Source-qualified enhancements remain targets with their named supplier requests and gaps; no proof closure inferred from the typed shadow."
       },
       {
         "nodeId": "CohomologyComparisons:CP.1/witt-crystalline-specialization",
-        "verdict": "corrected",
-        "note": "Checked against bms1-2019 Theorem 14.1(i), p.118; Theorem 14.3(i), p.120. generic acceptance sentence replaced by node-specific instances; locator corrected: Theorem 14.1(i), p.118; Theorem 14.3(i), p.119 → Theorem 14.1(i), p.118; Theorem 14.3(i), p.120; Frobenius compatibility marked as a target, not stated in Theorem 14.1(i)/14.3(i). Excerpt and match replaced by a verified verbatim passage."
+        "verdict": "verified",
+        "note": "Checked statement, hypotheses, direct prerequisites, proof outline and acceptance against bms1-2019 Theorem 14.1(i), p.118; Theorem 14.3(i), p.120. Source-qualified enhancements remain targets with their named supplier requests and gaps; no proof closure inferred from the typed shadow."
       },
       {
         "nodeId": "CohomologyComparisons:CP.1/acris-specialization",
-        "verdict": "corrected",
-        "note": "Checked against bms1-2019 Theorem 12.1, p.96; Theorem 14.3(iii), p.120. generic acceptance sentence replaced by node-specific instances; locator corrected: Theorem 12.1, p.96; Theorem 14.3(iii), p.119 → Theorem 12.1, p.96; Theorem 14.3(iii), p.120; φ-compatibility and multiplicativity qualified: BMS1 Theorem 12.1/14.3(iii) assert neither in the stated form. Excerpt and match replaced by a verified verbatim passage."
+        "verdict": "verified",
+        "note": "Checked statement, hypotheses, direct prerequisites, proof outline and acceptance against bms1-2019 Theorem 12.1, p.96; Theorem 14.3(iii), p.120. Source-qualified enhancements remain targets with their named supplier requests and gaps; no proof closure inferred from the typed shadow."
       },
       {
         "nodeId": "CohomologyComparisons:CP.1/mu-inverted-etale-specialization",
-        "verdict": "corrected",
-        "note": "Checked against bms1-2019 Theorem 14.3(iv), p.120; Lemma 4.26, p.41. generic acceptance sentence replaced by node-specific instances; locator corrected: Theorem 14.3(iv), p.119; Lemma 4.26, p.41 → Theorem 14.3(iv), p.120; Lemma 4.26, p.41; φ-equivariance and products marked as targets, not source claims (Theorem 14.3(iv) states neither); AI.0:period-comparison removed: no rational period ring is used (the comparison is AI.5’s Theorem 14.3(iv) with AI.0:integral’s flatness). Excerpt and match replaced by a verified verbatim passage."
+        "verdict": "verified",
+        "note": "Checked statement, hypotheses, direct prerequisites, proof outline and acceptance against bms1-2019 Theorem 14.3(iv), p.120; Lemma 4.26, p.41. Source-qualified enhancements remain targets with their named supplier requests and gaps; no proof closure inferred from the typed shadow."
       },
       {
         "nodeId": "CohomologyComparisons:CP.1/prismatic-frobenius-pullback-comparison",
-        "verdict": "corrected",
-        "note": "Checked against bs22 Theorem 17.2, p.117 (proof pp.117–121); Notation 18.1, Theorem 18.2 and Lemma 18.3, pp.122–123. locator corrected: Theorem 17.2; Notation 18.1, Theorem 18.2 and Lemma 18.3, pp.119–123 → Theorem 17.2, p.117 (proof pp.117–121); Notation 18.1, Theorem 18.2 and Lemma 18.3, pp.122–123. Excerpt and match replaced by a verified verbatim passage."
+        "verdict": "verified",
+        "note": "Checked statement, hypotheses, direct prerequisites, proof outline and acceptance against bs22 Theorem 17.2, p.117 (proof pp.117–121); Notation 18.1, Theorem 18.2 and Lemma 18.3, pp.122–123. Source-qualified enhancements remain targets with their named supplier requests and gaps; no proof closure inferred from the typed shadow."
       },
       {
         "nodeId": "CohomologyComparisons:CP.1/crystalline-de-rham-overlap-square",
         "verdict": "verified",
-        "note": "Statement, hypotheses and locator checked against bms1-2019 Theorem 14.1 proof, pp.118–119; §12.2; excerpt and match replaced by a verified verbatim passage; prerequisites checked against the supplier statements (see the request review notes)."
+        "note": "Checked statement, hypotheses, direct prerequisites, proof outline and acceptance against bms1-2019 Theorem 14.1 proof, pp.118–119; §12.2. Source-qualified enhancements remain targets with their named supplier requests and gaps; no proof closure inferred from the typed shadow."
       },
       {
         "nodeId": "CohomologyComparisons:CP.1/multiplicative-bockstein-coherence",
-        "verdict": "corrected",
-        "note": "Checked against bms1-2019 Theorem 14.1 opening and proof, pp.118–119. generic acceptance sentence replaced by node-specific instances; associativity/Frobenius coherence marked as packet targets beyond BMS1. Excerpt and match replaced by a verified verbatim passage."
+        "verdict": "verified",
+        "note": "Checked statement, hypotheses, direct prerequisites, proof outline and acceptance against bms1-2019 Theorem 14.1 opening and proof, pp.118–119. Source-qualified enhancements remain targets with their named supplier requests and gaps; no proof closure inferred from the typed shadow."
       },
       {
         "nodeId": "CohomologyComparisons:CP.1/singular-and-completed-boundary",
-        "verdict": "corrected",
-        "note": "Checked against bms1-2019 Lemma 4.16, p.38; Theorems 14.1–14.3. PR.6 removed: it covers only p-completely smooth inputs; the singular/animated comparison is PR.5’s. Excerpt and match replaced by a verified verbatim passage."
+        "verdict": "verified",
+        "note": "Checked statement, hypotheses, direct prerequisites, proof outline and acceptance against bms1-2019 Lemma 4.16, p.38; Theorems 14.1–14.3. Source-qualified enhancements remain targets with their named supplier requests and gaps; no proof closure inferred from the typed shadow."
       },
       {
         "nodeId": "CohomologyComparisons:CP.2/rational-crystalline-comparison-over-C",
         "verdict": "verified",
-        "note": "Statement, hypotheses and locator checked against bms1-2019 Theorem 14.5(i), pp.120–121; excerpt and match replaced by a verified verbatim passage; prerequisites checked against the supplier statements (see the request review notes)."
+        "note": "Checked statement, hypotheses, direct prerequisites, proof outline and acceptance against bms1-2019 Theorem 14.5(i), pp.120–121. Source-qualified enhancements remain targets with their named supplier requests and gaps; no proof closure inferred from the typed shadow."
       },
       {
         "nodeId": "CohomologyComparisons:CP.2/crystalline-comparison-over-discretely-valued-base",
         "verdict": "verified",
-        "note": "Statement, hypotheses and locator checked against bms1-2019 Theorem 14.6(i), pp.121–122; excerpt and match replaced by a verified verbatim passage; prerequisites checked against the supplier statements (see the request review notes)."
+        "note": "Checked statement, hypotheses, direct prerequisites, proof outline and acceptance against bms1-2019 Theorem 14.6(i), pp.121–122. Source-qualified enhancements remain targets with their named supplier requests and gaps; no proof closure inferred from the typed shadow."
       },
       {
         "nodeId": "CohomologyComparisons:CP.2/residue-section-descent-adapter",
-        "verdict": "corrected",
-        "note": "Checked against bms1-2019 Proposition 13.21 and Remark 13.22, p.116; Theorem 14.6 proof, p.122. generic acceptance sentence replaced by node-specific instances. Excerpt and match replaced by a verified verbatim passage."
+        "verdict": "verified",
+        "note": "Checked statement, hypotheses, direct prerequisites, proof outline and acceptance against bms1-2019 Proposition 13.21 and Remark 13.22, p.116; Theorem 14.6 proof, p.122. Source-qualified enhancements remain targets with their named supplier requests and gaps; no proof closure inferred from the typed shadow."
       },
       {
         "nodeId": "CohomologyComparisons:CP.2/rational-degreewise-comparison",
-        "verdict": "corrected",
-        "note": "Checked against bms1-2019 Theorems 14.3–14.5, pp.119–121; §1.2, p.6. generic acceptance sentence replaced by node-specific instances; locator corrected: Theorems 14.3–14.5, pp.119–121 → Theorems 14.3–14.5, pp.119–121; §1.2, p.6. Excerpt and match replaced by a verified verbatim passage."
+        "verdict": "verified",
+        "note": "Checked statement, hypotheses, direct prerequisites, proof outline and acceptance against bms1-2019 Theorems 14.3–14.5, pp.119–121; §1.2, p.6. Source-qualified enhancements remain targets with their named supplier requests and gaps; no proof closure inferred from the typed shadow."
       },
       {
         "nodeId": "CohomologyComparisons:CP.2/period-invariants-and-admissibility",
         "verdict": "corrected",
-        "note": "Checked against bms1-2019 Theorem 14.6(i), p.121. generic acceptance sentence replaced by node-specific instances. Excerpt and match replaced by a verified verbatim passage."
+        "note": "Checked statement, hypotheses, direct prerequisites, proof outline and acceptance against bms1-2019 Theorem 14.6(i), p.121. Corrected H⁰ Frobenius: σ on K₀, identity only on the étale Q_p factor."
       },
       {
         "nodeId": "CohomologyComparisons:CP.2/crystalline-geometric-examples",
-        "verdict": "corrected",
-        "note": "Checked against bms1-2019 Theorem 14.6, p.121. locator corrected: Theorem 14.6, p.121; Remarks 1.2–1.3, pp.3–4 → Theorem 14.6, p.121; Remarks 1.2–1.3, p.3; Remarks 1.2–1.3 dropped from the locator: they concern Enriques surfaces and support nothing in this node; CR.7 replaced by CR.3: CR.7 states no elliptic H¹ slope computation; CR.3’s acceptance (and its packet node CR.3/torsion-and-models) has the ordinary/supersingular elliptic curves; proof step re-pointed from CR.7 to CR.3. Excerpt and match replaced by a verified verbatim passage."
+        "verdict": "verified",
+        "note": "Checked statement, hypotheses, direct prerequisites, proof outline and acceptance against bms1-2019 Theorem 14.6, p.121. Source-qualified enhancements remain targets with their named supplier requests and gaps; no proof closure inferred from the typed shadow."
       },
       {
         "nodeId": "CohomologyComparisons:CP.3/very-small-affinoid-embedding",
-        "verdict": "corrected",
-        "note": "Checked against bms1-2019 Definition 13.5 and Construction 13.6, p.106. locator corrected: Definition 13.5 and Construction 13.6, pp.105–106 → Definition 13.5 and Construction 13.6, p.106. Excerpt and match replaced by a verified verbatim passage."
+        "verdict": "verified",
+        "note": "Checked statement, hypotheses, direct prerequisites, proof outline and acceptance against bms1-2019 Definition 13.5 and Construction 13.6, p.106. Source-qualified enhancements remain targets with their named supplier requests and gaps; no proof closure inferred from the typed shadow."
       },
       {
         "nodeId": "CohomologyComparisons:CP.3/infinitesimal-envelope",
         "verdict": "corrected",
-        "note": "Checked against bms1-2019 Construction 13.6, p.106; Lemma 13.4, pp.105–106. generic acceptance sentence replaced by node-specific instances; API items map (functoriality, used by the refinement maps and Čech nerves) and lift (universal property) added. Excerpt and match replaced by a verified verbatim passage."
+        "note": "Checked statement, hypotheses, direct prerequisites, proof outline and acceptance against bms1-2019 Construction 13.6, p.106; Lemma 13.4, pp.105–106. Restored finite generation in the completion universal property, matching lift_unique."
       },
       {
         "nodeId": "CohomologyComparisons:CP.3/noetherian-approximation-interface",
-        "verdict": "corrected",
-        "note": "Checked against bms1-2019 Lemmas 13.7–13.10, pp.106–109. locator corrected: Lemmas 13.7–13.10, pp.106–108 → Lemmas 13.7–13.10, pp.106–109; Lemma 13.7’s proviso \"at the expense of enlarging Σ\" restored; AdicSpacesPartII:R5 removed (neither its text nor its nodes state BMS1 Lemmas 13.7–13.10); étale toric charts cited at node level (R0/smooth-toric-chart). Excerpt and match replaced by a verified verbatim passage."
+        "verdict": "verified",
+        "note": "Checked statement, hypotheses, direct prerequisites, proof outline and acceptance against bms1-2019 Lemmas 13.7–13.10, pp.106–109. Source-qualified enhancements remain targets with their named supplier requests and gaps; no proof closure inferred from the typed shadow."
       },
       {
         "nodeId": "CohomologyComparisons:CP.3/completed-smooth-lift",
-        "verdict": "corrected",
-        "note": "Checked against bms1-2019 Lemma 13.11, pp.109–110. generic acceptance sentence replaced by node-specific instances; locator corrected: Lemma 13.11, p.108 → Lemma 13.11, pp.109–110. Excerpt and match replaced by a verified verbatim passage."
+        "verdict": "verified",
+        "note": "Checked statement, hypotheses, direct prerequisites, proof outline and acceptance against bms1-2019 Lemma 13.11, pp.109–110. Source-qualified enhancements remain targets with their named supplier requests and gaps; no proof closure inferred from the typed shadow."
       },
       {
         "nodeId": "CohomologyComparisons:CP.3/envelope-normal-form",
-        "verdict": "corrected",
-        "note": "Checked against bms1-2019 Lemma 13.12, pp.110–111. locator corrected: Lemma 13.12, pp.108–109 → Lemma 13.12, pp.110–111. Excerpt and match replaced by a verified verbatim passage."
+        "verdict": "verified",
+        "note": "Checked statement, hypotheses, direct prerequisites, proof outline and acceptance against bms1-2019 Lemma 13.12, pp.110–111. Source-qualified enhancements remain targets with their named supplier requests and gaps; no proof closure inferred from the typed shadow."
       },
       {
         "nodeId": "CohomologyComparisons:CP.3/embedding-independence-and-reduction",
-        "verdict": "corrected",
-        "note": "Checked against bms1-2019 Lemma 13.13 and Definition 13.14, pp.111–112. generic acceptance sentence replaced by node-specific instances; locator corrected: Lemma 13.13 and Definition 13.14, pp.109–110 → Lemma 13.13 and Definition 13.14, pp.111–112; double-embedding comparison marked as packet reconstruction (not in Lemma 13.13); triple-refinement clause replaced by the source’s strict-transition-map argument. Excerpt and match replaced by a verified verbatim passage."
+        "verdict": "verified",
+        "note": "Checked statement, hypotheses, direct prerequisites, proof outline and acceptance against bms1-2019 Lemma 13.13 and Definition 13.14, pp.111–112. Source-qualified enhancements remain targets with their named supplier requests and gaps; no proof closure inferred from the typed shadow."
       },
       {
         "nodeId": "CohomologyComparisons:CP.3/proper-formal-spreading",
-        "verdict": "corrected",
-        "note": "Checked against bms1-2019 Proposition 13.15 and Corollary 13.16, pp.112–113. locator corrected: Proposition 13.15 and Corollary 13.16, pp.110–113 → Proposition 13.15 and Corollary 13.16, pp.112–113; F0 replaced by the accepted R2 nodes that state formal models (Raynaud) and admissible blow-ups; R5 removed (it does not state BMS1 Proposition 13.15/Corollary 13.16). Excerpt and match replaced by a verified verbatim passage."
+        "verdict": "verified",
+        "note": "Checked statement, hypotheses, direct prerequisites, proof outline and acceptance against bms1-2019 Proposition 13.15 and Corollary 13.16, pp.112–113. Source-qualified enhancements remain targets with their named supplier requests and gaps; no proof closure inferred from the typed shadow."
       },
       {
         "nodeId": "CohomologyComparisons:CP.3/canonical-bdr-cohomology",
         "verdict": "corrected",
-        "note": "Checked against bms1-2019 Definition 13.18, p.114. generic acceptance sentence replaced by node-specific instances. Excerpt and match replaced by a verified verbatim passage."
+        "note": "Checked statement, hypotheses, direct prerequisites, proof outline and acceptance against bms1-2019 Definition 13.18, p.114. Removed unsupported rank-one affinoid H¹ assertion from the Lean test; retained refinement invariance."
       },
       {
         "nodeId": "CohomologyComparisons:CP.3/bdr-cohomology-finite-freeness",
-        "verdict": "corrected",
-        "note": "Checked against bms1-2019 Theorem 13.19, p.114. generic acceptance sentence replaced by node-specific instances. Excerpt and match replaced by a verified verbatim passage."
+        "verdict": "verified",
+        "note": "Checked statement, hypotheses, direct prerequisites, proof outline and acceptance against bms1-2019 Theorem 13.19, p.114. Source-qualified enhancements remain targets with their named supplier requests and gaps; no proof closure inferred from the typed shadow."
       },
       {
         "nodeId": "CohomologyComparisons:CP.3/local-bdr-etale-map",
         "verdict": "verified",
-        "note": "Statement, hypotheses and locator checked against bms1-2019 Theorem 13.1 proof, p.115; Proposition 12.9; excerpt and match replaced by a verified verbatim passage; prerequisites checked against the supplier statements (see the request review notes)."
+        "note": "Checked statement, hypotheses, direct prerequisites, proof outline and acceptance against bms1-2019 Theorem 13.1 proof, p.115; Proposition 12.9. Source-qualified enhancements remain targets with their named supplier requests and gaps; no proof closure inferred from the typed shadow."
       },
       {
         "nodeId": "CohomologyComparisons:CP.3/canonical-bdr-etale-comparison",
-        "verdict": "corrected",
-        "note": "Checked against bms1-2019 Theorem 13.1 and proof, pp.104,115. generic acceptance sentence replaced by node-specific instances; locator corrected: Theorem 13.1 and proof, pp.104–105,115 → Theorem 13.1 and proof, pp.104,115. Excerpt and match replaced by a verified verbatim passage."
+        "verdict": "verified",
+        "note": "Checked statement, hypotheses, direct prerequisites, proof outline and acceptance against bms1-2019 Theorem 13.1 and proof, pp.104,115. Source-qualified enhancements remain targets with their named supplier requests and gaps; no proof closure inferred from the typed shadow."
       },
       {
         "nodeId": "CohomologyComparisons:CP.3/descended-de-rham-lattice",
-        "verdict": "corrected",
-        "note": "Checked against bms1-2019 Remark 13.20, p.114; Theorem 13.1 proof diagram, p.115. perfect residue field added (BMS1 Theorem 13.1 and Remark 13.20). Excerpt and match replaced by a verified verbatim passage."
+        "verdict": "verified",
+        "note": "Checked statement, hypotheses, direct prerequisites, proof outline and acceptance against bms1-2019 Remark 13.20, p.114; Theorem 13.1 proof diagram, p.115. Source-qualified enhancements remain targets with their named supplier requests and gaps; no proof closure inferred from the typed shadow."
       },
       {
         "nodeId": "CohomologyComparisons:CP.3/filtered-de-rham-comparison",
-        "verdict": "corrected",
-        "note": "Checked against sch13 Theorem 8.4, p.48, and its proof, pp.47–48; BMS1 Theorem 5.1 and Theorem 13.1 proof. locator corrected: Theorem 8.4; BMS1 Theorem 5.1 and Theorem 13.1 proof → Theorem 8.4, p.48; BMS1 Theorem 5.1 and Theorem 13.1 proof; source of strictness located in the proof of Scholze Theorem 8.4. Excerpt and match replaced by a verified verbatim passage."
+        "verdict": "verified",
+        "note": "Checked statement, hypotheses, direct prerequisites, proof outline and acceptance against sch13 Theorem 8.4, p.48, and its proof, pp.47–48; BMS1 Theorem 5.1 and Theorem 13.1 proof. Source-qualified enhancements remain targets with their named supplier requests and gaps; no proof closure inferred from the typed shadow."
       },
       {
         "nodeId": "CohomologyComparisons:CP.3/hodge-de-rham-degeneration",
-        "verdict": "corrected",
-        "note": "Checked against bms1-2019 Theorem 13.3(i) and proof, pp.104,116. generic acceptance sentence replaced by node-specific instances. Excerpt and match replaced by a verified verbatim passage."
+        "verdict": "verified",
+        "note": "Checked statement, hypotheses, direct prerequisites, proof outline and acceptance against bms1-2019 Theorem 13.3(i) and proof, pp.104,116. Source-qualified enhancements remain targets with their named supplier requests and gaps; no proof closure inferred from the typed shadow."
       },
       {
         "nodeId": "CohomologyComparisons:CP.3/hodge-tate-degeneration",
-        "verdict": "corrected",
-        "note": "Checked against bms1-2019 Theorem 13.3(ii) and proof, pp.105,116. generic acceptance sentence replaced by node-specific instances; locator corrected: Theorem 13.3(ii) and proof, pp.104,116 → Theorem 13.3(ii) and proof, pp.105,116; planet added for the named theorem (BMS1 Theorem 13.3(ii)); CP.3 now has six planets. Excerpt and match replaced by a verified verbatim passage."
+        "verdict": "verified",
+        "note": "Checked statement, hypotheses, direct prerequisites, proof outline and acceptance against bms1-2019 Theorem 13.3(ii) and proof, pp.105,116. Source-qualified enhancements remain targets with their named supplier requests and gaps; no proof closure inferred from the typed shadow."
       },
       {
         "nodeId": "CohomologyComparisons:CP.3/good-reduction-bdr-lattice-identification",
         "verdict": "verified",
-        "note": "Statement, hypotheses and locator checked against bms1-2019 Proposition 13.23, p.117; excerpt and match replaced by a verified verbatim passage; prerequisites checked against the supplier statements (see the request review notes)."
+        "note": "Checked statement, hypotheses, direct prerequisites, proof outline and acceptance against bms1-2019 Proposition 13.23, p.117. Source-qualified enhancements remain targets with their named supplier requests and gaps; no proof closure inferred from the typed shadow."
       },
       {
         "nodeId": "CohomologyComparisons:CP.3/integral-rational-bdr-map-agreement",
-        "verdict": "corrected",
-        "note": "Checked against bms1-2019 Theorem 14.5(i) proof, p.121; Theorem 13.1 proof, p.115. locator corrected: Theorem 14.5(i) proof, p.120; Theorem 13.1 proof, p.115 → Theorem 14.5(i) proof, p.121; Theorem 13.1 proof, p.115; verification route marked as reconstruction (BMS1 does not display it). Excerpt and match replaced by a verified verbatim passage."
+        "verdict": "verified",
+        "note": "Checked statement, hypotheses, direct prerequisites, proof outline and acceptance against bms1-2019 Theorem 14.5(i) proof, p.121; Theorem 13.1 proof, p.115. Source-qualified enhancements remain targets with their named supplier requests and gaps; no proof closure inferred from the typed shadow."
       },
       {
         "nodeId": "CohomologyComparisons:CP.3/relative-infinitesimal-site",
-        "verdict": "corrected",
-        "note": "Checked against gr Definition 10.1, p.94. generic acceptance sentence replaced by node-specific instances; object definition aligned with GR Definition 10.1 (\"Zariski closed immersion defined by a nilpotent ideal\"); E4 removed: the site of thickenings uses nothing E4 states. Excerpt and match replaced by a verified verbatim passage."
+        "verdict": "verified",
+        "note": "Checked statement, hypotheses, direct prerequisites, proof outline and acceptance against gr Definition 10.1, p.94. Source-qualified enhancements remain targets with their named supplier requests and gaps; no proof closure inferred from the typed shadow."
       },
       {
         "nodeId": "CohomologyComparisons:CP.3/relative-cech-de-rham-comparison",
-        "verdict": "corrected",
-        "note": "Checked against gr Construction 10.6 and Theorem 10.7, pp.95–96; Corollary 10.8, p.97. locator corrected: Construction 10.6 and Theorem 10.7, pp.95–97; Corollary 10.8, p.97 → Construction 10.6 and Theorem 10.7, pp.95–96; Corollary 10.8, p.97. Excerpt and match replaced by a verified verbatim passage."
+        "verdict": "verified",
+        "note": "Checked statement, hypotheses, direct prerequisites, proof outline and acceptance against gr Construction 10.6 and Theorem 10.7, pp.95–96; Corollary 10.8, p.97. Source-qualified enhancements remain targets with their named supplier requests and gaps; no proof closure inferred from the typed shadow."
       },
       {
         "nodeId": "CohomologyComparisons:CP.3/relative-infinitesimal-perfectness",
-        "verdict": "corrected",
-        "note": "Checked against gr Corollaries 10.8–10.9, p.97. generic acceptance sentence replaced by node-specific instances. Excerpt and match replaced by a verified verbatim passage."
+        "verdict": "verified",
+        "note": "Checked statement, hypotheses, direct prerequisites, proof outline and acceptance against gr Corollaries 10.8–10.9, p.97. Source-qualified enhancements remain targets with their named supplier requests and gaps; no proof closure inferred from the typed shadow."
       },
       {
         "nodeId": "CohomologyComparisons:CP.3/crystalline-to-infinitesimal-coefficients",
         "verdict": "verified",
-        "note": "Statement, hypotheses and locator checked against gr Proposition 10.10 and proof, pp.97–98; excerpt and match replaced by a verified verbatim passage; prerequisites checked against the supplier statements (see the request review notes)."
+        "note": "Checked statement, hypotheses, direct prerequisites, proof outline and acceptance against gr Proposition 10.10 and proof, pp.97–98. Source-qualified enhancements remain targets with their named supplier requests and gaps; no proof closure inferred from the typed shadow."
       },
       {
         "nodeId": "CohomologyComparisons:CP.3/relative-crystalline-infinitesimal-base-change",
-        "verdict": "corrected",
-        "note": "Checked against gr Proposition 10.11, pp.98–99, equation (36). generic acceptance sentence replaced by node-specific instances. Excerpt and match replaced by a verified verbatim passage."
+        "verdict": "verified",
+        "note": "Checked statement, hypotheses, direct prerequisites, proof outline and acceptance against gr Proposition 10.11, pp.98–99, equation (36). Source-qualified enhancements remain targets with their named supplier requests and gaps; no proof closure inferred from the typed shadow."
       },
       {
         "nodeId": "CohomologyComparisons:CP.3/relative-filtered-prismatic-agreement",
-        "verdict": "corrected",
-        "note": "Checked against gr Theorem 10.13 and Remark 10.14, pp.99–100. generic acceptance sentence replaced by node-specific instances; parent moved from CP.3 to CP.6 (still realises the routed CP.3 target): its PR.7 input lies downstream of CP.2–CP.4 (CP.2/CP.3/CP.4 → R06.5 → PadicHodgeRegulators L1 → PG.5 (RS-26) → PG.6 → P7 → PR.7), so a CP.3 parent closed a stage cycle; PR.7 request restated as a scope extension: no PR.7 node supplies the relative GR equivalence or GR Theorem 9.15. Excerpt and match replaced by a verified verbatim passage."
+        "verdict": "verified",
+        "note": "Checked statement, hypotheses, direct prerequisites, proof outline and acceptance against gr Theorem 10.13 and Remark 10.14, pp.99–100. Source-qualified enhancements remain targets with their named supplier requests and gaps; no proof closure inferred from the typed shadow."
       },
       {
         "nodeId": "CohomologyComparisons:CP.3/absolute-relative-infinitesimal-agreement",
-        "verdict": "corrected",
-        "note": "Checked against guo Theorem 1.2.7 and Corollary 1.2.11, pp.5–6; guo Definition 2.2.1, Remarks 2.2.2–2.2.4, pp.12–13; Lemma 4.1.10, p.31. locator corrected: Definition 2.2.1, Remarks 2.2.2–2.2.4, pp.12–13; Lemma 4.1.10, pp.33–34 → Definition 2.2.1, Remarks 2.2.2–2.2.4, pp.12–13; Lemma 4.1.10, p.31; E5:animation removed: the stated theorem is for smooth X; the singular éh extension it supported stays in gap G-relative-filtration. Excerpt and match replaced by a verified verbatim passage."
+        "verdict": "verified",
+        "note": "Checked statement, hypotheses, direct prerequisites, proof outline and acceptance against guo Theorem 1.2.7 and Corollary 1.2.11, pp.5–6; guo Definition 2.2.1, Remarks 2.2.2–2.2.4, pp.12–13; Lemma 4.1.10, p.31. Source-qualified enhancements remain targets with their named supplier requests and gaps; no proof closure inferred from the typed shadow."
       },
       {
         "nodeId": "CohomologyComparisons:CP.4/logarithmic-integral-diagram",
         "verdict": "corrected",
-        "note": "Checked against ck §7.1–7.2, pp.68–69; Corollary 5.43, pp.58–59; Theorem 2.3, p.9. locator corrected: §7.2, pp.68–69; Corollary 5.43; Theorem 2.3 → §7.1–7.2, pp.68–69; Corollary 5.43, pp.58–59; Theorem 2.3, p.9; CK §7.1’s equidimensionality hypothesis added. Excerpt and match replaced by a verified verbatim passage."
+        "note": "Checked statement, hypotheses, direct prerequisites, proof outline and acceptance against ck §7.1–7.2, pp.68–69; Corollary 5.43, pp.58–59; Theorem 2.3, p.9. Restored pure-dimensional special fibre in the Lean carrier; the mathematical packet already required it."
       },
       {
         "nodeId": "CohomologyComparisons:CP.4/hyodo-kato-log-base-adapter",
-        "verdict": "corrected",
-        "note": "Checked against ck Proposition 9.2 and Remark 9.3, pp.75–76. generic acceptance sentence replaced by node-specific instances. Excerpt and match replaced by a verified verbatim passage."
+        "verdict": "verified",
+        "note": "Checked statement, hypotheses, direct prerequisites, proof outline and acceptance against ck Proposition 9.2 and Remark 9.3, pp.75–76. Source-qualified enhancements remain targets with their named supplier requests and gaps; no proof closure inferred from the typed shadow."
       },
       {
         "nodeId": "CohomologyComparisons:CP.4/semistable-period-comparison",
         "verdict": "corrected",
-        "note": "Checked against ck Theorem 9.5, p.76. generic acceptance sentence replaced by node-specific instances. Excerpt and match replaced by a verified verbatim passage."
+        "note": "Checked statement, hypotheses, direct prerequisites, proof outline and acceptance against ck Theorem 9.5, p.76. Balanced monodromy extension now requires the Leibniz rule, zero on coefficients, and linear HK monodromy."
       },
       {
         "nodeId": "CohomologyComparisons:CP.4/semistable-filtered-bdr-agreement",
-        "verdict": "corrected",
-        "note": "Checked against ck Remark 9.6, p.77; Proposition 6.8, pp.66–68. generic acceptance sentence replaced by node-specific instances; locator corrected: Remark 9.6, p.76; Proposition 6.8, pp.65–66 → Remark 9.6, p.77; Proposition 6.8, pp.66–68. Excerpt and match replaced by a verified verbatim passage."
+        "verdict": "verified",
+        "note": "Checked statement, hypotheses, direct prerequisites, proof outline and acceptance against ck Remark 9.6, p.77; Proposition 6.8, pp.66–68. Source-qualified enhancements remain targets with their named supplier requests and gaps; no proof closure inferred from the typed shadow."
       },
       {
         "nodeId": "CohomologyComparisons:CP.4/uniformizer-change-and-monodromy",
         "verdict": "corrected",
-        "note": "Checked against ck §9.1, p.75. sign source corrected: CK §9.1 treats only torsor trivializations; CR.6 states the uniformizer change in a different convention. Excerpt and match replaced by a verified verbatim passage."
+        "note": "Checked statement, hypotheses, direct prerequisites, proof outline and acceptance against ck §9.1, p.75. Lean exponential now takes a K-linear nilpotent operator; nilpotency is imported from CR.6."
       },
       {
         "nodeId": "CohomologyComparisons:CP.4/log-prismatic-agreement",
-        "verdict": "corrected",
-        "note": "Checked against ck §9 introduction and Theorem 9.5, pp.75–76. PR.8 stage replaced by its exact comparison nodes (log crystalline, log de Rham, étale over A_inf, semistable AΩ, log Hyodo–Kato), none of which depends on PR.7; this removes the stage chain CP.4 → … → PR.7 → PR.8 → CP.4. The map-agreement criterion stays in gap G-log-products. Excerpt and match replaced by a verified verbatim passage."
+        "verdict": "verified",
+        "note": "Checked statement, hypotheses, direct prerequisites, proof outline and acceptance against ck §9 introduction and Theorem 9.5, pp.75–76. Source-qualified enhancements remain targets with their named supplier requests and gaps; no proof closure inferred from the typed shadow."
       },
       {
         "nodeId": "CohomologyComparisons:CP.4/semistable-geometric-examples",
-        "verdict": "corrected",
-        "note": "Checked against ck §9 introduction, p.75; Theorem 9.5, p.76; §9.1, p.75. locator corrected: Theorem 9.5, p.76; §9.1 → §9 introduction, p.75; Theorem 9.5, p.76; §9.1, p.75. Excerpt and match replaced by a verified verbatim passage."
+        "verdict": "verified",
+        "note": "Checked statement, hypotheses, direct prerequisites, proof outline and acceptance against ck §9 introduction, p.75; Theorem 9.5, p.76; §9.1, p.75. Source-qualified enhancements remain targets with their named supplier requests and gaps; no proof closure inferred from the typed shadow."
       },
       {
         "nodeId": "CohomologyComparisons:CP.4/algebraic-beilinson-period-comparison",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and locator checked against cn Theorem 6.2 and footnote 17, p.40; excerpt and match replaced by a verified verbatim passage; prerequisites checked against the supplier statements (see the request review notes)."
+        "verdict": "corrected",
+        "note": "Checked statement, hypotheses, direct prerequisites, proof outline and acceptance against cn Theorem 6.2 and footnote 17, p.40. Finite-type separated variety hypotheses now explicit and required by Lean, replacing locally finite type."
       },
       {
         "nodeId": "CohomologyComparisons:CP.4/algebraic-period-recovery-and-duals",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and locator checked against cn Theorem 6.2, equation (6.3), p.40; Remark 6.7, p.41; excerpt and match replaced by a verified verbatim passage; prerequisites checked against the supplier statements (see the request review notes)."
+        "verdict": "corrected",
+        "note": "Checked statement, hypotheses, direct prerequisites, proof outline and acceptance against cn Theorem 6.2, equation (6.3), p.40; Remark 6.7, p.41. Finite-type separated variety hypotheses now explicit and required by Lean, replacing locally finite type."
       },
       {
         "nodeId": "CohomologyComparisons:CP.4/proper-rigid-potential-semistable-comparison",
-        "verdict": "corrected",
-        "note": "Checked against cn Theorem 6.4 and proof, pp.40–41. CR.7 removed: nothing in its scope is used by the CN Theorem 6.4 argument. Excerpt and match replaced by a verified verbatim passage."
+        "verdict": "verified",
+        "note": "Checked statement, hypotheses, direct prerequisites, proof outline and acceptance against cn Theorem 6.4 and proof, pp.40–41. Source-qualified enhancements remain targets with their named supplier requests and gaps; no proof closure inferred from the typed shadow."
       },
       {
         "nodeId": "CohomologyComparisons:CP.4/proper-rigid-c-period-comparison",
         "verdict": "corrected",
-        "note": "Checked against cn Theorem 6.8 and Remark 6.10, p.42. locator corrected: Theorem 6.8 and Remark 6.10, pp.42–43 → Theorem 6.8 and Remark 6.10, p.42. Excerpt and match replaced by a verified verbatim passage."
+        "note": "Checked statement, hypotheses, direct prerequisites, proof outline and acceptance against cn Theorem 6.8 and Remark 6.10, p.42. Balanced monodromy extension now requires the Leibniz rule, zero on coefficients, and linear HK monodromy."
       },
       {
         "nodeId": "CohomologyComparisons:CP.5/crystalline-de-rham-torsionfreeness-equivalence",
         "verdict": "verified",
-        "note": "Statement, hypotheses and locator checked against bms1-2019 Remarks 14.4 and 14.7, pp.120,122; supplier Lemma 4.18; excerpt and match replaced by a verified verbatim passage; prerequisites checked against the supplier statements (see the request review notes)."
+        "note": "Checked statement, hypotheses, direct prerequisites, proof outline and acceptance against bms1-2019 Remarks 14.4 and 14.7, pp.120,122; supplier Lemma 4.18. Source-qualified enhancements remain targets with their named supplier requests and gaps; no proof closure inferred from the typed shadow."
       },
       {
         "nodeId": "CohomologyComparisons:CP.5/integral-torsion-length-inequality-over-C",
         "verdict": "verified",
-        "note": "Statement, hypotheses and locator checked against bms1-2019 Theorem 14.5(ii), pp.120–121; excerpt and match replaced by a verified verbatim passage; prerequisites checked against the supplier statements (see the request review notes)."
+        "note": "Checked statement, hypotheses, direct prerequisites, proof outline and acceptance against bms1-2019 Theorem 14.5(ii), pp.120–121. Source-qualified enhancements remain targets with their named supplier requests and gaps; no proof closure inferred from the typed shadow."
       },
       {
         "nodeId": "CohomologyComparisons:CP.5/lattice-recovery-over-C",
         "verdict": "verified",
-        "note": "Statement, hypotheses and locator checked against bms1-2019 Theorem 14.5(iii), pp.120–121; excerpt and match replaced by a verified verbatim passage; prerequisites checked against the supplier statements (see the request review notes)."
+        "note": "Checked statement, hypotheses, direct prerequisites, proof outline and acceptance against bms1-2019 Theorem 14.5(iii), pp.120–121. Source-qualified enhancements remain targets with their named supplier requests and gaps; no proof closure inferred from the typed shadow."
       },
       {
         "nodeId": "CohomologyComparisons:CP.5/dvr-lattice-recovery-via-breuil-kisin",
         "verdict": "verified",
-        "note": "Statement, hypotheses and locator checked against bms1-2019 Theorem 14.6(iii) and proof, pp.121–122; excerpt and match replaced by a verified verbatim passage; prerequisites checked against the supplier statements (see the request review notes)."
+        "note": "Checked statement, hypotheses, direct prerequisites, proof outline and acceptance against bms1-2019 Theorem 14.6(iii) and proof, pp.121–122. Source-qualified enhancements remain targets with their named supplier requests and gaps; no proof closure inferred from the typed shadow."
       },
       {
         "nodeId": "CohomologyComparisons:CP.5/dvr-torsion-length-inequality",
         "verdict": "verified",
-        "note": "Statement, hypotheses and locator checked against bms1-2019 Theorem 14.6(ii), pp.121–122; excerpt and match replaced by a verified verbatim passage; prerequisites checked against the supplier statements (see the request review notes)."
+        "note": "Checked statement, hypotheses, direct prerequisites, proof outline and acceptance against bms1-2019 Theorem 14.6(ii), pp.121–122. Source-qualified enhancements remain targets with their named supplier requests and gaps; no proof closure inferred from the typed shadow."
       },
       {
         "nodeId": "CohomologyComparisons:CP.5/mod-p-de-rham-dimension-bound",
         "verdict": "verified",
-        "note": "Statement, hypotheses and locator checked against bms1-2019 Theorem 1.1 and inequality (1), pp.2–3; excerpt and match replaced by a verified verbatim passage; prerequisites checked against the supplier statements (see the request review notes)."
+        "note": "Checked statement, hypotheses, direct prerequisites, proof outline and acceptance against bms1-2019 Theorem 1.1 and inequality (1), pp.2–3. Source-qualified enhancements remain targets with their named supplier requests and gaps; no proof closure inferred from the typed shadow."
       },
       {
         "nodeId": "CohomologyComparisons:CP.5/semistable-crystalline-torsion-export",
         "verdict": "verified",
-        "note": "Statement, hypotheses and locator checked against ck Theorem 7.9 and proof, p.70; excerpt and match replaced by a verified verbatim passage; prerequisites checked against the supplier statements (see the request review notes)."
+        "note": "Checked statement, hypotheses, direct prerequisites, proof outline and acceptance against ck Theorem 7.9 and proof, p.70. Source-qualified enhancements remain targets with their named supplier requests and gaps; no proof closure inferred from the typed shadow."
       },
       {
         "nodeId": "CohomologyComparisons:CP.5/semistable-normalized-de-rham-torsion-export",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and locator checked against ck §7.10, Lemma 7.11 and Theorem 7.12, p.71; excerpt and match replaced by a verified verbatim passage; prerequisites checked against the supplier statements (see the request review notes)."
+        "verdict": "corrected",
+        "note": "Checked statement, hypotheses, direct prerequisites, proof outline and acceptance against ck §7.10, Lemma 7.11 and Theorem 7.12, p.71. Normalized length codomain changed from ℚ to ℝ to retain the general rank-one valuation convention."
       },
       {
         "nodeId": "CohomologyComparisons:CP.5/functorial-log-de-rham-lattice-export",
-        "verdict": "corrected",
-        "note": "Checked against ck §8.5–8.6, p.73; Theorem 8.7 and Remark 8.8, p.74. locator corrected: §8.5–8.6, pp.73–74; Theorem 8.7 and Remark 8.8, p.74 → §8.5–8.6, p.73; Theorem 8.7 and Remark 8.8, p.74. Excerpt and match replaced by a verified verbatim passage."
+        "verdict": "verified",
+        "note": "Checked statement, hypotheses, direct prerequisites, proof outline and acceptance against ck §8.5–8.6, p.73; Theorem 8.7 and Remark 8.8, p.74. Source-qualified enhancements remain targets with their named supplier requests and gaps; no proof closure inferred from the typed shadow."
       },
       {
         "nodeId": "CohomologyComparisons:CP.5/small-weight-integral-interface",
-        "verdict": "corrected",
-        "note": "Checked against bms1-2019 §4.4, pp.43–44; Theorem 14.6(iii), pp.121–122. locator corrected: §4.4, pp.43–44; Theorem 14.6(iii), p.121 → §4.4, pp.43–44; Theorem 14.6(iii), pp.121–122. Excerpt and match replaced by a verified verbatim passage."
+        "verdict": "verified",
+        "note": "Checked statement, hypotheses, direct prerequisites, proof outline and acceptance against bms1-2019 §4.4, pp.43–44; Theorem 14.6(iii), pp.121–122. Source-qualified enhancements remain targets with their named supplier requests and gaps; no proof closure inferred from the typed shadow."
       },
       {
         "nodeId": "CohomologyComparisons:CP.5/enriques-torsion-counterexample",
         "verdict": "verified",
-        "note": "Statement, hypotheses and locator checked against bms1-2019 Theorem 2.1 and Proposition 2.2 with proofs, pp.13–15; excerpt and match replaced by a verified verbatim passage; prerequisites checked against the supplier statements (see the request review notes)."
+        "note": "Checked statement, hypotheses, direct prerequisites, proof outline and acceptance against bms1-2019 Theorem 2.1 and Proposition 2.2 with proofs, pp.13–15. Source-qualified enhancements remain targets with their named supplier requests and gaps; no proof closure inferred from the typed shadow."
       },
       {
         "nodeId": "CohomologyComparisons:CP.5/degenerating-group-torsion-counterexample",
         "verdict": "verified",
-        "note": "Statement, hypotheses and locator checked against bms1-2019 Lemmas 2.5,2.7,2.9 and Theorem 2.10 proof, pp.15–17; excerpt and match replaced by a verified verbatim passage; prerequisites checked against the supplier statements (see the request review notes)."
+        "note": "Checked statement, hypotheses, direct prerequisites, proof outline and acceptance against bms1-2019 Lemmas 2.5,2.7,2.9 and Theorem 2.10 proof, pp.15–17. Source-qualified enhancements remain targets with their named supplier requests and gaps; no proof closure inferred from the typed shadow."
       },
       {
         "nodeId": "CohomologyComparisons:CP.5/special-fibre-does-not-determine-integral-etale",
         "verdict": "verified",
-        "note": "Statement, hypotheses and locator checked against bms1-2019 Remark 2.4, p.15; excerpt and match replaced by a verified verbatim passage; prerequisites checked against the supplier statements (see the request review notes)."
+        "note": "Checked statement, hypotheses, direct prerequisites, proof outline and acceptance against bms1-2019 Remark 2.4, p.15. Source-qualified enhancements remain targets with their named supplier requests and gaps; no proof closure inferred from the typed shadow."
       },
       {
         "nodeId": "CohomologyComparisons:CP.4/proper-curve-potential-period-interface",
         "verdict": "corrected",
-        "note": "Checked against cdn §3.3, Proposition 3.12 and first proof paragraph, p.36. locator corrected: §3.3, Proposition 3.12 and first proof paragraph, pp.35–36 → §3.3, Proposition 3.12 and first proof paragraph, p.36. Excerpt and match replaced by a verified verbatim passage."
+        "note": "Checked statement, hypotheses, direct prerequisites, proof outline and acceptance against cdn §3.3, Proposition 3.12 and first proof paragraph, p.36. Lean now explicitly assumes a finite Q_p-extension, as the packet and CDN Proposition 3.12 already do; D_pst is scalar-extended before using completed coefficients."
       },
       {
         "nodeId": "CohomologyComparisons:CP.6/naturality-base-change-and-cup-products",
         "verdict": "verified",
-        "note": "Statement, hypotheses and locator checked against bs Proposition 3.19, p.27; excerpt and match replaced by a verified verbatim passage; prerequisites checked against the supplier statements (see the request review notes)."
+        "note": "Checked statement, hypotheses, direct prerequisites, proof outline and acceptance against bs Proposition 3.19, p.27. Source-qualified enhancements remain targets with their named supplier requests and gaps; no proof closure inferred from the typed shadow."
       },
       {
         "nodeId": "CohomologyComparisons:CP.6/trace-normalized-tate-period",
         "verdict": "verified",
-        "note": "Statement, hypotheses and locator checked against bs Proposition 3.20(5) and proof; Remark 3.21, pp.27–28; excerpt and match replaced by a verified verbatim passage; prerequisites checked against the supplier statements (see the request review notes)."
+        "note": "Checked statement, hypotheses, direct prerequisites, proof outline and acceptance against bs Proposition 3.20(5) and proof; Remark 3.21, pp.27–28. Source-qualified enhancements remain targets with their named supplier requests and gaps; no proof closure inferred from the typed shadow."
       },
       {
         "nodeId": "CohomologyComparisons:CP.6/duality-and-cycle-class-compatibility",
-        "verdict": "corrected",
-        "note": "Checked against bs Proposition 3.20(6)–(7) and proof, pp.27–28. Gysin/pushforward clause marked as packet extension, not Betts–Stix. Excerpt and match replaced by a verified verbatim passage."
+        "verdict": "verified",
+        "note": "Checked statement, hypotheses, direct prerequisites, proof outline and acceptance against bs Proposition 3.20(6)–(7) and proof, pp.27–28. Source-qualified enhancements remain targets with their named supplier requests and gaps; no proof closure inferred from the typed shadow."
       },
       {
         "nodeId": "CohomologyComparisons:CP.6/first-chern-class-comparison",
         "verdict": "verified",
-        "note": "Statement, hypotheses and locator checked against bs Proposition 3.20(8), final proof paragraph, p.28; excerpt and match replaced by a verified verbatim passage; prerequisites checked against the supplier statements (see the request review notes)."
+        "note": "Checked statement, hypotheses, direct prerequisites, proof outline and acceptance against bs Proposition 3.20(8), final proof paragraph, p.28. Source-qualified enhancements remain targets with their named supplier requests and gaps; no proof closure inferred from the typed shadow."
       },
       {
         "nodeId": "CohomologyComparisons:CP.6/higher-chern-and-projective-bundle-comparison",
         "verdict": "verified",
-        "note": "Statement, hypotheses and locator checked against bs Proposition 3.20(8) and proof, p.28; excerpt and match replaced by a verified verbatim passage; prerequisites checked against the supplier statements (see the request review notes)."
+        "note": "Checked statement, hypotheses, direct prerequisites, proof outline and acceptance against bs Proposition 3.20(8) and proof, p.28. Source-qualified enhancements remain targets with their named supplier requests and gaps; no proof closure inferred from the typed shadow."
       },
       {
         "nodeId": "CohomologyComparisons:CP.6/geometric-arithmetic-export",
-        "verdict": "corrected",
-        "note": "Checked against cn Theorems 6.4, 6.8 and proof, pp.40–42. locator corrected: Theorems 6.4,6.8 and proof, pp.40–43 → Theorems 6.4, 6.8 and proof, pp.40–42. Excerpt and match replaced by a verified verbatim passage."
+        "verdict": "verified",
+        "note": "Checked statement, hypotheses, direct prerequisites, proof outline and acceptance against cn Theorems 6.4, 6.8 and proof, pp.40–42. Source-qualified enhancements remain targets with their named supplier requests and gaps; no proof closure inferred from the typed shadow."
       },
       {
         "nodeId": "CohomologyComparisons:CP.6/habiro-and-trace-specialization-export",
-        "verdict": "corrected",
-        "note": "Checked against bms1-2019 Theorem 14.1, p.118; specialization picture §1.2, p.6. locator corrected: Theorem 14.1, p.118; specialization diagram §1.2, pp.6–8 → Theorem 14.1, p.118; specialization picture §1.2, p.6. Excerpt and match replaced by a verified verbatim passage."
+        "verdict": "verified",
+        "note": "Checked statement, hypotheses, direct prerequisites, proof outline and acceptance against bms1-2019 Theorem 14.1, p.118; specialization picture §1.2, p.6. Source-qualified enhancements remain targets with their named supplier requests and gaps; no proof closure inferred from the typed shadow."
       },
       {
         "nodeId": "CohomologyComparisons:CP.6/pan-graded-analytic-decompletion",
-        "verdict": "corrected",
-        "note": "Checked against pan Proposition 6.3.9 and preceding paragraphs (§6.3.8), pp.100–101. locator corrected: Proposition 6.3.9 and preceding paragraph, pp.101–102 → Proposition 6.3.9 and preceding paragraphs (§6.3.8), pp.100–101. Excerpt and match replaced by a verified verbatim passage."
+        "verdict": "verified",
+        "note": "Checked statement, hypotheses, direct prerequisites, proof outline and acceptance against pan Proposition 6.3.9 and preceding paragraphs (§6.3.8), pp.100–101. Source-qualified enhancements remain targets with their named supplier requests and gaps; no proof closure inferred from the typed shadow."
       },
       {
         "nodeId": "CohomologyComparisons:CP.6/pan-bounded-torsion-inverse-limit",
-        "verdict": "verified",
-        "note": "Statement, hypotheses and locator checked against pan Lemma 7.2.5 and proof, p.119; excerpt and match replaced by a verified verbatim passage; prerequisites checked against the supplier statements (see the request review notes)."
+        "verdict": "corrected",
+        "note": "Checked statement, hypotheses, direct prerequisites, proof outline and acceptance against pan Lemma 7.2.5 and proof, p.119. Documented the almost-category underlying-module shadow; an exact ordinary integral comparison is not claimed."
       },
       {
         "nodeId": "CohomologyComparisons:CP.6/pan-completed-coefficient-and-flag-descent",
         "verdict": "verified",
-        "note": "Statement, hypotheses and locator checked against pan Lemma 7.2.6 and proof, p.120; excerpt and match replaced by a verified verbatim passage; prerequisites checked against the supplier statements (see the request review notes)."
+        "note": "Checked statement, hypotheses, direct prerequisites, proof outline and acceptance against pan Lemma 7.2.6 and proof, p.120. Source-qualified enhancements remain targets with their named supplier requests and gaps; no proof closure inferred from the typed shadow."
       },
       {
         "nodeId": "CohomologyComparisons:CP.6/pan-etale-site-truncated-comparison-map",
-        "verdict": "corrected",
-        "note": "Checked against pan Lemma 7.2.4 and proof, pp.118–120. H5 removed: Huber 3.7.2/3.8.1/6.1.1 supply none of the inputs this node uses. Excerpt and match replaced by a verified verbatim passage."
+        "verdict": "verified",
+        "note": "Checked statement, hypotheses, direct prerequisites, proof outline and acceptance against pan Lemma 7.2.4 and proof, pp.118–120. Source-qualified enhancements remain targets with their named supplier requests and gaps; no proof closure inferred from the typed shadow."
       },
       {
         "nodeId": "CohomologyComparisons:CP.6/pan-truncated-period-isomorphism",
         "verdict": "verified",
-        "note": "Statement, hypotheses and locator checked against pan Proposition 7.2.3 and proof, p.118; excerpt and match replaced by a verified verbatim passage; prerequisites checked against the supplier statements (see the request review notes)."
+        "note": "Checked statement, hypotheses, direct prerequisites, proof outline and acceptance against pan Proposition 7.2.3 and proof, p.118. Source-qualified enhancements remain targets with their named supplier requests and gaps; no proof closure inferred from the typed shadow."
+      },
+      {
+        "nodeId": "CohomologyComparisons:CP.2/nearby-cycle-crystalline-de-rham-pullback",
+        "verdict": "verified",
+        "note": "Checked statement, hypotheses, direct prerequisites, proof outline and acceptance against ammn Definition 7.10 and Theorem 7.11, p.52; Construction 7.12, Theorem 7.13 and proof, pp.53–54; Theorem 6.17, pp.44–45. Source-qualified enhancements remain targets with their named supplier requests and gaps; no proof closure inferred from the typed shadow."
       }
     ]
   }

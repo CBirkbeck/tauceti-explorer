@@ -2,7 +2,7 @@
 
 This roadmap compares cohomology theories through their actual maps. Its integral diagram starts with proper smooth A_inf cohomology and identifies its de Rham, Hodge–Tate, crystalline and étale specializations. Rational comparison then identifies the canonical B_dR⁺ lattice, proves filtered de Rham comparison, and transports semistable Frobenius and monodromy. Torsion inequalities, lattice recovery, products and characteristic classes are applications of those maps.
 
-The plan has 83 declarations at target level: 2 definitions, 2 constructions, 55 theorems, 18 applications and 6 comparisons. The four definitions and constructions have 24 API items and 13 unit tests. All seven stages are planned; none is closed. The remaining gaps and supplier extensions below are mathematical obligations, and no declaration is claimed to be implemented. The independent review object remains the historical review of the preceding attempt; this revision requires a new independent review.
+The plan has 83 declarations at target level: 2 definitions, 2 constructions, 55 theorems, 18 applications and 6 comparisons. The four definitions and constructions have 24 API items and 13 unit tests. All seven stages are planned; none is closed. The remaining gaps and supplier extensions below are mathematical obligations, and no declaration is claimed to be implemented. Independent review [REV-CohomologyComparisons~2](../reviews/REV-CohomologyComparisons~2.md) accepts this target-level pass after the corrections recorded in its report. Supplier requests and gaps remain open, and global promotion requires the external ordering repairs below.
 
 ## Scope and ownership
 
@@ -37,7 +37,7 @@ Baseline: Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`; Tau Ceti `f7904748
 - `mathlib:WittVector.frobeniusEquiv` (Mathlib/RingTheory/WittVector/Frobenius.lean): For a perfect ring R of characteristic p, WittVector.frobenius as a ring equivalence of W(R): the Frobenius φ of A_inf=W(O_C^♭) and of W(k).
 - `mathlib:cyclotomicCharacter` (Mathlib/NumberTheory/Cyclotomic/CyclotomicCharacter.lean): The p-adic cyclotomic character (L ≃+* L) →* ℤ_[p]ˣ of a domain L containing all p-power roots of unity (trivial otherwise): χ_p in the HT(χ_p)=+1 convention.
 
-The suggested file uses individual Mathlib imports and no Tau Ceti import. Each absent geometric object is an owner-named carrier, and each imported-data structure has a specific value for the geometric object under discussion. Theorems concern those specific values. The AMMN signature uses a distinguished triangle in the ordinary derived category as the shadow of a homotopy cartesian square; it does not use an ordinary categorical pullback. Docstrings identify clauses that require stronger enhanced carriers.
+The suggested file uses individual Mathlib imports and no Tau Ceti import. Each absent geometric object is an owner-named carrier, and each imported-data structure has a specific value for the geometric object under discussion. Theorems concern those specific values. The AMMN signature uses a distinguished triangle in the ordinary derived category as the shadow of a homotopy cartesian square; it does not use an ordinary categorical pullback. Docstrings identify clauses that require stronger enhanced carriers. The Lean Fnr carrier is F̂^{nr}; Hyodo–Kato and D_pst modules are first scalar-extended to it, while original F^{nr} smooth-vector descent remains an owner obligation. Pan’s integral inverse-limit declarations represent almostified modules using the almost category’s right adjoint. Balanced monodromy requires a coefficient-killing derivation and a coefficient-linear HK operator; the exponential requires nilpotency. The semistable carrier includes the pure-dimensional special fibre hypothesis.
 
 ## CP.0. Common objects, coefficient maps and normalization
 
@@ -561,7 +561,7 @@ For 𝔛₀/O_K proper smooth, V=H_ét^i(X_C,Q_p) is crystalline and D_cris(V) i
 **Acceptance.**
 
 - For an elliptic curve E with good reduction over O_K, D_cris(H¹_ét(E_{K̄},Q_p)) is H¹_crys(E_k/W(k))[1/p] with Frobenius slopes {0,1} (ordinary) or {1/2,1/2} (supersingular) and Hodge filtration jumps at 0 and 1; it is weakly admissible.
-- For H⁰ the realization is K₀ with trivial Frobenius and filtration jump at 0.
+- For geometrically connected H⁰ the crystalline realization is K₀ with Witt Frobenius σ and filtration jump at 0; Frobenius acts trivially on the Q_p étale factor.
 
 **Direct prerequisites.** `CohomologyComparisons:CP.2/crystalline-comparison-over-discretely-valued-base`, `PadicHodgeTheory:R06.1`, `PadicHodgeTheory:R06.2`, `PadicHodgeTheory:R06.2/admissible-representations`, `PadicHodgeTheory:R06.2/admissible-implies-weakly-admissible`.
 
@@ -676,7 +676,7 @@ For a very small R and Σ, put P_Σ=lim_n (B_dR⁺/ξ^n)⟨X_u^{±1}:u∈Σ⟩ a
 - `InfinitesimalEnvelope.ext` (extensionality): Two envelope elements agree if their projections agree at every m.
 - `InfinitesimalEnvelope.complete` (structure): If ker(e) is finitely generated, D_Σ is ker(e)-adically complete, using the P_Σ-module structure.
 - `InfinitesimalEnvelope.map` (functoriality): A ring map g:P→P′ with e′∘g=e induces D(e)→D(e′), compatible with the canonical maps, with identity and composition laws; for Σ⊂Σ′ it gives the refinement maps of BMS1 Lemma 13.13.
-- `InfinitesimalEnvelope.lift` (universal-property): If S is a P-algebra that is J-adically complete for an ideal J of S containing the image of ker e, the structure map P→S extends uniquely to D(e)→S.
+- `InfinitesimalEnvelope.lift` (universal-property): If ker(e) is finitely generated and S is a P-algebra that is J-adically complete for an ideal J of S containing the image of ker e, the structure map P→S extends uniquely to D(e)→S.
 
 **Unit tests.**
 
@@ -842,7 +842,7 @@ For a proper smooth adic X/C define K_dR⁺(X)=RΓ(X_very-small, Ω_X/B_dR⁺^�
 
 - `CanonicalBdrCohomology.test_point` (degenerate): K_dR⁺(Spa C)=B_dR⁺ concentrated in degree zero.
 - `CanonicalBdrCohomology.test_projective_line` (computation): For P¹_C, H⁰ and H² are free rank one over B_dR⁺ and H¹=0; their θ-reductions are the corresponding C de Rham groups.
-- `CanonicalBdrCohomology.test_redundant_embedding` (compatibility): On a very small torus, adjoining a redundant unit to Σ induces the Lemma 13.13 quasi-isomorphism; no extra degree-one class is introduced.
+- `CanonicalBdrCohomology.test_redundant_embedding` (compatibility): On a very small torus, adjoining a redundant unit to Σ induces the Lemma 13.13 quasi-isomorphism and isomorphisms in every cohomological degree; this test makes no finite-rank assertion for the affinoid de Rham groups.
 
 **Acceptance.**
 
@@ -1291,7 +1291,7 @@ For a proper p-adic O_K-formal scheme with the preceding semistable charts and p
 
 **Proof plan.**
 
-- CK Theorem 9.5: compose Proposition 9.2 with the A_cris specialization from AI.6, then invert μ and use the proper étale comparison. Check φ on both factors, N as the total monodromy and the trivial étale-factor N.
+- CK Theorem 9.5: compose Proposition 9.2 with the A_cris specialization from AI.6, then invert μ and use the proper étale comparison. Check φ on both factors, N as the total monodromy and the trivial étale-factor N. The diagonal monodromy descends to the balanced tensor because N_Bst is a derivation killing the coefficient field and N_HK is coefficient-linear; these hypotheses are explicit in the Lean adapter.
 
 **Acceptance.**
 
@@ -1403,6 +1403,8 @@ Suggested signature: `CP4.semistable_geometric_examples` is stated about specifi
 
 `CohomologyComparisons:CP.4/algebraic-beilinson-period-comparison` — theorem; declaration `CP4.algebraic_beilinson_period_comparison`.
 
+**Hypothesis.** Here an algebraic variety is separated and of finite type over K, as in CN Theorem 6.2; neither smoothness nor properness is required.
+
 For any algebraic variety X_K over K and r≥0, CN Theorem 6.2 records Beilinson’s B_st-linear G_K-equivariant period isomorphism H_ét^r(X_{K̄},Q_p)⊗B_st≃H_HK^r(X_{K̄})⊗_{F^{nr}}B_st preserving φ,N and inducing the filtered B_dR isomorphism with H_dR^r(X_K). No smoothness or properness assumption is added; HK and de Rham use the h-descent/derived realizations for arbitrary varieties, not the smooth proper model definitions.
 
 **Proof plan.**
@@ -1426,6 +1428,8 @@ Suggested signature: `CP4.algebraic_beilinson_period_comparison` is stated about
 ### Period recovery and Hom descriptions
 
 `CohomologyComparisons:CP.4/algebraic-period-recovery-and-duals` — application; declaration `CP4.algebraic_period_recovery_and_duals`.
+
+**Hypothesis.** Here an algebraic variety is separated and of finite type over K, as in CN Theorem 6.2; neither smoothness nor properness is required.
 
 For the algebraic comparison above, recover H_ét^r as (H_HK^r⊗B_st)^{φ=1,N=0}∩Fil⁰(H_dR^r⊗B_dR). The natural Hom^sm_{G_K}(H_ét^r,B_st)≃(H_HK^r)^* is an isomorphism of (φ,N,G_K)-modules and Hom_{G_K}(H_ét^r,B_dR)≃(H_dR^r)^* is filtered K-linear. The smooth-vector qualifier and the duals are essential; the theorem does not identify ordinary B_st Hom with undualized HK cohomology.
 
@@ -1477,7 +1481,7 @@ For X proper smooth rigid over C, CN Theorem 6.8 gives a natural φ,N-compatible
 
 **Proof plan.**
 
-- Use the syntomic/étale comparison and the BC dimension proof in Theorem 6.8. Identify its canonical infinitesimal deformation with CP.3. Remark 6.10 explicitly says the earlier BMS1 Theorem 13.1 did not treat filtrations.
+- Use the syntomic/étale comparison and the BC dimension proof in Theorem 6.8. Identify its canonical infinitesimal deformation with CP.3. Remark 6.10 explicitly says the earlier BMS1 Theorem 13.1 did not treat filtrations. The diagonal monodromy descends to the balanced tensor because N_Bst is a derivation killing the coefficient field and N_HK is coefficient-linear; these hypotheses are explicit in the Lean adapter.
 
 **Acceptance.**
 
@@ -1743,7 +1747,7 @@ Suggested signature: `CP5.semistable_crystalline_torsion_export` is stated about
 
 `CohomologyComparisons:CP.5/semistable-normalized-de-rham-torsion-export` — application; declaration `CP5.semistable_normalized_de_rham_torsion_export`.
 
-Import CK Theorem 7.12 with v(p)=1: v_Zp(H_ét^i(Z_p)_tor/p^n)≤v_OC(H_logdR^i(𝔛/O_C)_tor/p^n), including the finite-coefficient log de Rham inequality. For a discrete O_K of absolute ramification e, normalized torsion length is ordinary O_K length divided by e; it is not unscaled module length. The definition via the valuation of Fitt₀ and its scalar-extension invariance belong to AI.5/AI.6.
+Import CK Theorem 7.12 with v(p)=1: v_Zp(H_ét^i(Z_p)_tor/p^n)≤v_OC(H_logdR^i(𝔛/O_C)_tor/p^n), including the finite-coefficient log de Rham inequality. For a discrete O_K of absolute ramification e, normalized torsion length is ordinary O_K length divided by e; it is not unscaled module length. The definition via the valuation of Fitt₀ and its scalar-extension invariance belong to AI.5/AI.6. The normalized valuation length is real-valued; for a finitely presented cyclic module O_C/(a) it is v(a).
 
 **Proof plan.**
 
@@ -2249,7 +2253,7 @@ These preserved ids identify imported evidence records, not declarations owned b
 
 ## Supplier contracts
 
-A fine node is cited only for the portion of its statement inspected here. A remaining broad stage prerequisite is an explicit request for a stronger range, coefficient topology, enhancement or geometric extension; its presence does not assert supplier completion. The historical review scope notes remain in the packet.
+A fine node is cited only for the portion of its statement inspected here. A remaining broad stage prerequisite is an explicit request for a stronger range, coefficient topology, enhancement or geometric extension; its presence does not assert supplier completion. Every request carries the current independent supplier-scope review in the packet; the review report gives the same boundary check.
 
 ### AInfCohomology:AI.0:integral
 
@@ -2751,7 +2755,7 @@ Needed by `CohomologyComparisons:CP.6/habiro-and-trace-specialization-export`.
 
 ### Missing geometric and enhanced Lean interfaces
 
-`CohomologyComparisons/G-lean-types`. The pinned libraries do not supply formal schemes, rigid spaces, crystalline/Hyodo–Kato theories, period maps, analytic infinitesimal sites or the modular-curve tower. The suggested file now has a typed declaration for every node, API item and test, including the Habiro/trace export and AMMN square, using owner-named carriers and specific imported-data values. Elaborating these admitted signatures does not supply the genuine enhanced types, coherent homotopies or proofs. Docstrings list the omitted mathematical clauses; owners must supply those types and the signatures must then be strengthened.
+`CohomologyComparisons/G-lean-types`. The pinned libraries do not supply formal schemes, rigid spaces, crystalline/Hyodo–Kato theories, period maps, analytic infinitesimal sites or the modular-curve tower. The suggested file now has a typed declaration for every node, API item and test, including the Habiro/trace export and AMMN square, using owner-named carriers and specific imported-data values. Elaborating these admitted signatures does not supply the genuine enhanced types, coherent homotopies or proofs. Docstrings list the omitted mathematical clauses; owners must supply those types and the signatures must then be strengthened. In particular the Fnr carrier is the completion F̂^{nr}; HK and D_pst values are scalar-extended to it, and original F^{nr} smooth-vector descent must be restored by the owner. Pan integral inverse-limit signatures represent almostified modules through the almost category’s right adjoint, not an ordinary integral isomorphism.
 
 Needed by `CohomologyComparisons:CP.0/formal-algebraic-analytic-dictionary`, `CohomologyComparisons:CP.1/proper-ainf-input-package`, `CohomologyComparisons:CP.3/canonical-bdr-cohomology`, `CohomologyComparisons:CP.3/relative-infinitesimal-site`, `CohomologyComparisons:CP.4/semistable-period-comparison`, `CohomologyComparisons:CP.6/pan-truncated-period-isomorphism`.
 
@@ -2769,7 +2773,7 @@ Needed by `CohomologyComparisons:CP.2/nearby-cycle-crystalline-de-rham-pullback`
 
 ### External supplier stage ordering before promotion
 
-`G-supplier-stage-order`. The exact declaration graph reachable from CP has no cycle. The promotion-style stage graph formed from the current atlas, accepted restructuring links and all current supplier drafts does have cycles through CP.0–CP.4. In particular, the unaccepted AI.0 packet places a CP.1 prerequisite on AI.5/proper-perfectness, while CP.1 imports AI.5. The unaccepted CR.5 packet imports LPV.5 into CR.5:log-algebra, downstream of the arithmetic and rational comparison chain; H1:formal-adic-comparison imports the whole CR.5 stage and therefore carries that closure into CP.0. Replacing this revision by the HEAD packet while retaining the same suppliers gives the same five cyclic CP stages and the same outgoing-cycle counts (4,1,2,6,6); the source of these cycles is outside the four deliverables. The AI.5 perfectness proof must use the upstream crystalline Frobenius-isogeny input, and the ordinary formal-site prefix and elementary log-algebra prefix must be separated from subsequent comparison and Lefschetz-pencils consumers by their owners. The proposed CP.6 cut, P8 primitive cut and early T6 analytic log-site prefix remain proposals until structural review authorizes them. No global stage acyclicity or promotion readiness is claimed.
+`G-supplier-stage-order`. The exact declaration graph reachable from CP has no cycle. The promotion-style stage graph formed from the current atlas, accepted restructuring links and all current supplier drafts does have cycles through CP.0–CP.4. In particular, the unaccepted AI.0 packet places a CP.1 prerequisite on AI.5/proper-perfectness, while CP.1 imports AI.5. The unaccepted CR.5 packet imports LPV.5 into CR.5:log-algebra, downstream of the arithmetic and rational comparison chain; H1:formal-adic-comparison imports the whole CR.5 stage and therefore carries that closure into CP.0. Independent recomputation in REV-CohomologyComparisons~2 found no exact reachable declaration cycle and again found stage-union cycles through CP.0–CP.4. Their external supplier causes are outside this review’s editable scope. The AI.5 perfectness proof must use the upstream crystalline Frobenius-isogeny input, and the ordinary formal-site prefix and elementary log-algebra prefix must be separated from subsequent comparison and Lefschetz-pencils consumers by their owners. The proposed CP.6 cut, P8 primitive cut and early T6 analytic log-site prefix remain proposals until structural review authorizes them. No global stage acyclicity or promotion readiness is claimed.
 
 Needed by `CohomologyComparisons:CP.0/formal-algebraic-analytic-dictionary`, `CohomologyComparisons:CP.0/site-and-geometric-point-compatibility`, `CohomologyComparisons:CP.1/proper-ainf-input-package`, `CohomologyComparisons:CP.4/logarithmic-integral-diagram`.
 
@@ -2892,13 +2896,13 @@ Effect: nothing. Status: new; not among PAPER-BHATT-MORROW-SCHOLZE-18/E1–E22; 
 - **Prisms and prismatic cohomology**, Bhargav Bhatt, Peter Scholze. arXiv:1905.08229v4, 12 January 2022, printed pagination. [Public source](https://arxiv.org/pdf/1905.08229v4). SHA-256 `1d91a6eb85828feb73f84ab3b27ced17514f0855d61c3bff71ab9d8287891e4a`. §18 comparison of integral comparison maps; statements and uniqueness hypotheses checked, construction imported from PR.6.
 - **p-adic Hodge theory for rigid-analytic varieties**, Peter Scholze. Public arXiv:1205.3463 PDF, read together with official erratum. [Public source](https://arxiv.org/pdf/1205.3463v2). SHA-256 `ed9187b3269adb7e9964369470073ce8760ef56ef0c0b89538c0a1509f811959`. Theorems 1.1,1.3,5.1,8.4 and §6 local period sheaf comparison; primitive/global results are imports.
 - **Erratum to p-adic Hodge theory for rigid-analytic varieties**, Peter Scholze. Official author PDF, 3 pages. [Public source](https://people.mpim-bonn.mpg.de/scholze/pAdicHodgeErratum.pdf). SHA-256 `3cfa56b9e3875c04240d97739dccd58091e41f714c101d5470b95172f73cb235`. Entire erratum, corrected pro-étale covers, deletion of point descriptions, p-adic completion before ker θ completion.
-- **On the Beilinson fiber square**, Benjamin Antieau, Akhil Mathew, Matthew Morrow, Thomas Nikolaus. arXiv:2003.12541v2 (2020), printed preprint pagination. [Public source](https://arxiv.org/pdf/2003.12541v2). SHA-256 `2a0224b2e8b7c5f19f326886b130f8be0158ba4cb602ba7eb5821990ca22b3fd`. Theorem 6.17 and proof, pp.44–45; §§7.2–7.3, pp.51–54, especially Definition 7.10, Theorem 7.11, Construction 7.12 and Theorem 7.13 with proof.
+- **On the Beilinson fiber square**, Benjamin Antieau, Akhil Mathew, Matthew Morrow, Thomas Nikolaus. arXiv:2003.12541v2 (29 September 2021), printed preprint pagination. [Public source](https://arxiv.org/pdf/2003.12541v2). SHA-256 `2a0224b2e8b7c5f19f326886b130f8be0158ba4cb602ba7eb5821990ca22b3fd`. Theorem 6.17 and proof, pp.44–45; §§7.2–7.3, pp.51–54, especially Definition 7.10, Theorem 7.11, Construction 7.12 and Theorem 7.13 with proof.
 
 ## Validation and refinement
 
-- packetCheck: python3 scripts/check_blueprint.py research/blueprint/packets/CohomologyComparisons.json: 0 errors, 0 warnings (2026-10-08); 83 nodes, 24 API items, 13 unit tests, 32 planets, 16 baseline declarations, 16 gaps, 48 requests; all seven stages planned. Preserved every existing node id and the top-level independent review object; all implementation statuses remain unchecked.
+- packetCheck: python3 scripts/check_blueprint.py research/blueprint/packets/CohomologyComparisons.json: 0 errors, 0 warnings (2026-10-08); 83 nodes, 24 API items, 13 unit tests, 32 planets, 16 baseline declarations, 16 gaps, 48 requests; all seven stages planned. Preserved every existing node id; replaced the historical review with independent-review-REV-CohomologyComparisons~2; all implementation statuses remain unchecked.
 - baselineSearch: Read all 16 baseline declaration statements at the exact Mathlib pin on 2026-10-08. BDeRham does not supply field/DVR structure, completion uses its stated finite-generation hypotheses, and DerivedCategory provides only the ordinary triangulated shadow. Tau Ceti source search at f790474 is recorded in the handoff.
-- graph: Exact declaration graph reachable from CP: no cycle. Promotion-style union of 1,968 atlas stages, accepted restructuring links and current supplier drafts: cycles through CP.0–CP.4, unchanged in affected stages and outgoing-cycle counts from the HEAD packet with the same suppliers. The external AI.5/CP.1 and CR.5:log-algebra/LPV.5 closures are recorded in G-supplier-stage-order. Actual parentStageId, not realises, places nodes. Conditional returns and proposed cuts are not inserted as edges.
-- lean: lean-check succeeded against Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-08; 418 warnings, all admitted proofs. Every node, API item and unit test has a typed interface. The file imports no Tau Ceti module; it uses ordinary triangulated shadows and owner-named geometric carriers, whose stronger clauses are documented as missing interfaces.
+- graph: Independent recomputation (2026-10-08): 4,754 exact references reachable from the 83 CP nodes, no cycle. Stage-union stress check uses 1,968 atlas stages/3,508 atlas edges, accepted data/restructure links and current decomposition/blueprint/draft prerequisites mapped by actual parentStageId: cycles include CP.0–CP.4, with the AI.5/CP.1 and CR.5/LPV.5 causes recorded in G-supplier-stage-order. Conditional returns and proposed cuts are not inserted as edges. This is not a certification that all supplier drafts can be promoted together.
+- lean: lean-check exited 0 at the pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-08; 423 warnings, all admitted proofs, and no errors. Every node, API item and unit test has a typed interface. The file imports no Tau Ceti module; ordinary triangulated shadows, completed HK coefficients and almost-module representatives retain the explicit G-lean-types limitations.
 
-Refinement must supply the genuine owner interfaces, expand the explicitly reconstructed map and coherence proofs, implement the reviewed structural cuts, and discharge the attached gaps. The suggested file is a signature prototype with admitted proofs, not a cohomology implementation. A new independent review decides whether this target-level pass can be accepted.
+Refinement must supply the genuine owner interfaces, expand the explicitly reconstructed map and coherence proofs, implement the reviewed structural cuts, and discharge the attached gaps. The suggested file is a signature prototype with admitted proofs, not a cohomology implementation. Independent review REV-CohomologyComparisons~2 accepts the finished target-level pass with those implementation and promotion limitations recorded.
