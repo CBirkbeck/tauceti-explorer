@@ -42,6 +42,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from issues import STATE_LABELS, deliverables_complete, ready  # noqa: E402
 
 ALLOWED = re.compile(r"^research/(blueprint/(packets|readmes|suggested|restructure|reviews|links|handoff|roadmaps|plans|classify|audit|compare|papers|redteam|errata|sources|collation|attribution|keydefs)/[^/]+"
+                     r"|blueprint/packages/[^/]+/(?:README\.md|Suggested\.lean|metadata\.toml|review\.json)"
                      r"|expansion/reviews/[^/]+|expansion/naming/(?:NAME|PLANETS)-\d+\.result\.json)$")
 PRIVATE = re.compile(r"/Users/|/private/|/home/[a-z]+/|mcu22seu")
 TOKEN = re.compile(r"[A-Za-z0-9_.-]+")

@@ -377,6 +377,52 @@ Tasks:
 RULES: edit only the listed part packets, {README}, {SUGGESTED}, the handoff note and scratch files. Do not run git. No Lean code outside {SUGGESTED}. No private paths in the repository. Do not change a review verdict. If you change a reviewed node's mathematics, say so in the handoff note, so that the orchestrator can schedule a re-review.
 Finish with a summary under 200 words."""
 
+PACKAGE_TEMPLATE = HEADER + """
+JOB: write the roadmap package of {ROADMAP} ("{TITLE}"): the roadmap in Tau Ceti's own form (PROTOCOL.md section 20).
+Its plan is complete: every layer is planned in accepted packets{ASSEMBLED}. The plan is the source of truth:
+- packets: {PACKETS}
+- reader document: {READERS}
+- suggested Lean files: {LEAN}
+{REVISION}Write, in {PKGDIR}/:
+1. README.md: the roadmap as upstream writes one. First read research/blueprint/UPSTREAM_GUIDE.md and two upstream roadmaps in full, for example
+   https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ClassFieldTheory/README.md and
+   https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/DifferentialGeometry/README.md
+   (local copies of upstream READMEs are in content/tau-ceti/). Match their structure, style and density.
+   - Say what the roadmap builds and why, its boundaries against neighbouring roadmaps (research/blueprint/links/ and the packets' prerequisites), and its conventions.
+   - Then give its layers in order. For each target, give: the definitions, with the API they need; the theorems, with their exact hypotheses; the source, cited by theorem, section and page; and the prerequisites (Mathlib, Tau Ceti, an earlier layer, or another roadmap's layer by id).
+   - Everything is in your own words: no passage of a source, and no section-by-section summary of one.
+   - Nothing about this programme's process: no packet names, job ids, reviews, checkpoints or coverage statuses.
+   - Typically 50-150 KB, at most 200 KB: a roadmap, not the blueprint. Keep every target, and leave the node-by-node detail to the packets.
+2. Suggested.lean: one file in the form of upstream's Suggested.lean, for example
+   https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ClassFieldTheory/Suggested.lean.
+   - Join the suggested files above: the plan's definitions and theorems with `sorry` proofs, their API lemmas and their unit tests, with one header note, one import block and consistent names.
+   - It must elaborate against the pinned Mathlib and Tau Ceti with no errors, only `sorry` warnings. Run `lean-check {PKGDIR}/Suggested.lean`, fix every error, and put the final result in the handoff note.
+3. metadata.toml: one line, `topic = "<arXiv category>"`, for example `topic = "math.NT"`.
+RULES: edit only these three files, the handoff note research/blueprint/handoff/{JOB}.md and scratch files. Change no packet; if the plan has a mistake, describe it in the handoff note. Do not run git. No private paths in the repository.
+Finish with a summary under 200 words."""
+
+PACKAGE_REVIEW_TEMPLATE = """You are an independent reviewer for the Tau Ceti Atlas blueprint programme. You did not write the files you review. You run unattended in a tmux session as job {JOB}. Work in {REPO}. Your scratch directory is {WORKERS}/{JOB} (create it).
+
+READ FIRST (binding): research/blueprint/PROTOCOL.md, sections 5, 13 and 20, and research/blueprint/UPSTREAM_GUIDE.md.
+
+REVIEW: the roadmap package {PKGDIR}/ (README.md, Suggested.lean, metadata.toml) of {ROADMAP} ("{TITLE}"), against its accepted plan: {PACKETS}.
+{REVISION}Check each item, and correct it in place wherever the fix is clear:
+1. Upstream form. It follows UPSTREAM_GUIDE.md, and its structure, style and density match upstream roadmaps, for example https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ClassFieldTheory/README.md. It is at most 200 KB.
+2. Fidelity to the plan. Every target of the plan is in the README, with its exact statement and hypotheses. The README claims nothing the plan does not support. Its boundaries and prerequisites agree with the packets and the link maps.
+3. Own words. There is no passage of a source and no section-by-section summary of one. Every source is cited by theorem, section and page.
+4. No process. There are no packet names, job ids, reviews, checkpoints or coverage statuses.
+5. Suggested.lean. Run `lean-check {PKGDIR}/Suggested.lean`. It must elaborate with no errors, only `sorry` warnings, and its declarations must match the README's targets.
+6. metadata.toml is the single line `topic = "<arXiv category>"`, with a fitting category.
+Then write {PKGDIR}/review.json:
+{{"review": {{"status": "accepted" | "needs_changes", "reviewer": "independent-review-{JOB}", "date": "<today>", "notes": "<what was checked and corrected, with the lean-check result>"}}}}
+and your report research/blueprint/reviews/{JOB}.md. Use "accepted" only when items 1-6 all hold.
+RULES: edit only the package's files, review.json, your report and scratch files. Do not run git. No private paths in the repository.
+Finish with a summary under 250 words."""
+
+PACKAGE_REVISION = """REVISION ROUND {ROUND} of {BASE}. The independent review {REVIEW} did not accept the package: read its report, research/blueprint/reviews/{REVIEW}.md, and the "review" object in {PKGDIR}/review.json. Fix every problem they raise, then complete the job below. Leave review.json in place: the next reviewer replaces it.
+
+"""
+
 RESTRUCTURE_TEMPLATE = HEADER + """
 JOB: restructure the roadmap family {FAMILY} ("{NAME}") so that every piece of mathematics has exactly one owner and the roadmaps build on each other (PROTOCOL.md section 15).
 Family file: {FAMILYFILE} (its proposed roadmaps, the existing Tau Ceti roadmaps they overlap, and the evidence).
@@ -1016,6 +1062,20 @@ def new_roadmap(rid):
         return json.loads(path.read_text()) if path.exists() else {}
     except ValueError:
         return {}
+
+
+PACKAGES = "research/blueprint/packages"
+MAX_PACKAGE_ROUNDS = 3
+
+
+def roadmap_complete(stage_ids, packets, assembly_state):
+    """Whether a roadmap is complete (PROTOCOL.md section 20): every stage planned in an accepted packet, and its
+    assembly, if it has one, done. stage_ids: its layers (empty for a new roadmap, whose packets' coverage says
+    what they are); packets: its packets by file stem; assembly_state: the state of ASM-<roadmap>, or None."""
+    accepted = {c.get("stageId") for p in packets.values() if (p.get("review") or {}).get("status") == "accepted"
+                for c in p.get("coverage") or [] if isinstance(c, dict) and c.get("status") in PLANNED}
+    stages = set(stage_ids) or {c.get("stageId") for p in packets.values() for c in p.get("coverage") or [] if isinstance(c, dict)}
+    return bool(stages) and stages <= accepted and assembly_state in (None, "done")
 
 
 def open_stages(packet, scope):
@@ -1696,6 +1756,59 @@ def main():
     states = {j["id"]: j.get("state") for j in existing}
     previous_outputs = {j["id"]: j.get("outputs", []) for j in existing}
     previous_jobs = {j["id"]: j for j in existing}
+
+    # Roadmap packages (PROTOCOL.md section 20): each complete roadmap, in Tau Ceti's own form, and its review.
+    all_packets = {}
+    for path in sorted((BP / "packets").glob("*.json")):
+        try:
+            all_packets[path.stem] = json.loads(path.read_text())
+        except ValueError:
+            pass
+    stage_ids_of = defaultdict(set)
+    for s in atlas["stages"]:
+        stage_ids_of[s.get("roadmap") or s["id"].rsplit(":", 1)[0]].add(s["id"])
+    for rid in sorted({j["roadmapIds"][0] for j in jobs if j["kind"] in ("blueprint", "design") and j.get("roadmapIds")}):
+        if rid.startswith("tauceti:"):
+            continue
+        name = file_id(rid)
+        mine = {stem: p for stem, p in all_packets.items() if stem == name or stem.startswith(name + "--")}
+        if not mine or not roadmap_complete(stage_ids_of.get(rid, set()), mine, states.get(f"ASM-{name}")):
+            continue
+        pkgdir = f"{PACKAGES}/{name}"
+        whole = lambda folder, suffix: (f"research/blueprint/{folder}/{name}{suffix}" if (REPO / f"research/blueprint/{folder}/{name}{suffix}").exists()
+                                        else ", ".join(f"research/blueprint/{folder}/{stem}{suffix}" for stem in sorted(mine)
+                                                       if (REPO / f"research/blueprint/{folder}/{stem}{suffix}").exists()))
+        fields = dict(JOB=f"PKG-{name}", ROADMAP=rid, PKGDIR=pkgdir, REVISION="",
+                      TITLE=(roadmaps.get(rid) or {}).get("title") or new_roadmap(rid).get("title") or rid,
+                      PACKETS=", ".join(f"research/blueprint/packets/{stem}.json" for stem in sorted(mine)),
+                      READERS=whole("readmes", ".md") or "none", LEAN=whole("suggested", ".lean") or "none",
+                      ASSEMBLED=f", and ASM-{name} has joined its parts" if states.get(f"ASM-{name}") == "done" else "")
+        files = [f"{pkgdir}/README.md", f"{pkgdir}/Suggested.lean", f"{pkgdir}/metadata.toml"]
+        job_id, review_id, earlier = f"PKG-{name}", f"REV-PKG-{name}", []
+        for round_no in range(1, MAX_PACKAGE_ROUNDS + 1):
+            if round_no > 1:
+                # A package its review sent back is revised and reviewed again (as plans are).
+                job_id, previous_review = f"PKG-{name}~{round_no}", review_id
+                review_id = f"REV-PKG-{name}~{round_no}"
+                if job_id not in states:
+                    try:
+                        verdict = json.loads((REPO / pkgdir / "review.json").read_text()).get("review") or {}
+                    except (OSError, ValueError):
+                        break
+                    if (states.get(previous_review) != "done" or verdict.get("status") != "needs_changes"
+                            or verdict.get("reviewer") != f"independent-review-{previous_review}"):
+                        break
+                fields = dict(fields, REVISION=PACKAGE_REVISION.format(ROUND=round_no, BASE=f"PKG-{name}", REVIEW=previous_review, PKGDIR=pkgdir))
+            # The handoff note cannot exist before the job runs, so a revision is not finished by the files it inherits.
+            add({"id": job_id, "kind": "package", "priority": 2, "order": 4500, "roadmapIds": [rid],
+                 "outputs": files + [f"research/blueprint/handoff/{job_id}.md"],
+                 "after": [previous_review] if round_no > 1 else [], **({"revisionOf": f"PKG-{name}"} if round_no > 1 else {})},
+                PACKAGE_TEMPLATE.format(**fill, **dict(fields, JOB=job_id)))
+            earlier.append(job_id)
+            add({"id": review_id, "kind": "review", "priority": 2, "order": 4500, "roadmapIds": [rid],
+                 "outputs": [f"research/blueprint/reviews/{review_id}.md", f"{pkgdir}/review.json"] + files,
+                 "after": [job_id], "avoidAccountOf": job_id, "independentOf": list(earlier)},
+                PACKAGE_REVIEW_TEMPLATE.format(**fill, **dict(fields, JOB=review_id)))
 
     # Key definitions (PROTOCOL.md section 19): a survey of each area that
     # research/blueprint/keydefs/areas.json enables, in parts for a large area, each with its review.

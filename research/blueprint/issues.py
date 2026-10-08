@@ -30,7 +30,8 @@ BLOB = GITHUB + "/blob/main/"
 KIND_TITLE = {"blueprint": "Blueprint", "design": "New roadmap", "link": "Links", "review": "Review", "assembly": "Assembly",
               "restructure": "Restructure", "paper": "Paper", "redteam": "Red team", "fix": "Fix", "errata": "Errata",
               "plan": "Plan", "classify": "Classification", "naming": "Planet names", "status": "Status mapping",
-              "sources": "Sources", "collation": "Collation", "attribution": "Sources and credit", "keydef": "Key definitions"}
+              "sources": "Sources", "collation": "Collation", "attribution": "Sources and credit", "keydef": "Key definitions",
+              "package": "Roadmap package"}
 
 
 LOCAL_ONLY = {"PLAN-HABIRO", "REV-PLAN-HABIRO"}
@@ -330,6 +331,8 @@ def _title(job, roadmaps):
             return f"[Review] Links: {name or rid}"
         if target.startswith("ASM-"):
             return f"[Review] Assembly: {name or rid}"
+        if target.startswith("PKG-"):
+            return f"[Review] Roadmap package: {name or rid}"
         return f"[Review] Blueprint: {name or rid}{part}"
     if job["kind"] == "link":
         return f"[Links] {name or rid}"
@@ -360,9 +363,9 @@ def is_focus(job, focus=None):
     """Whether a job helps finish a focus roadmap: its plans, assembly and fixes, and their reviews. Red teams
     and their reviews check finished work, so they keep their turn."""
     focus = focus_roadmaps() if focus is None else focus
-    if job["kind"] not in ("blueprint", "design", "assembly", "fix", "review"):
+    if job["kind"] not in ("blueprint", "design", "assembly", "fix", "review", "package"):
         return False
-    if job["kind"] == "review" and not (job.get("after") or [""])[0].startswith(("BP-", "DESIGN-", "FIX-", "ASM-")):
+    if job["kind"] == "review" and not (job.get("after") or [""])[0].startswith(("BP-", "DESIGN-", "FIX-", "ASM-", "PKG-")):
         return False
     return any(rid in focus for rid in job.get("roadmapIds") or [])
 

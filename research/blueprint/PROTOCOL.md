@@ -985,3 +985,45 @@ An accepted survey goes live by the rule of section 8, into
 - an index of every promoted key definition, by area and number of papers;
 - each entry, with its papers, owners, library status, dependencies, size and
   sample API.
+
+## 20. Roadmap packages
+
+A roadmap is complete when every layer is planned in accepted packets and, if it
+has several parts, its assembly is done. Its last step turns the blueprint into
+a roadmap in Tau Ceti's own form: the form of the roadmaps in
+[TauCetiProject/TauCetiRoadmap](https://github.com/TauCetiProject/TauCetiRoadmap),
+a folder with a README, a `Suggested.lean` and a metadata file.
+
+A package job (`PKG-<roadmap>`) writes `research/blueprint/packages/<Name>/`:
+- `README.md`: the roadmap, in upstream's style and density (`UPSTREAM_GUIDE.md`).
+  It says what the roadmap builds and why, its boundaries against neighbouring
+  roadmaps, and its conventions. Then come its layers in order, each with its
+  targets:
+  - the definitions, with the API they need;
+  - the theorems, with their exact hypotheses;
+  - for each target, its source, cited by theorem, section and page;
+  - for each target, its prerequisites: Mathlib, Tau Ceti, an earlier layer,
+    or another roadmap's layer by id.
+  Write everything in your own words (section 5). Say nothing about this
+  programme's process: no packet names, job ids, reviews, checkpoints or
+  coverage statuses. Typically 50–150 KB, at most 200 KB.
+- `Suggested.lean`: one file in the form of upstream's `Suggested.lean`
+  (section 13), joined from the roadmap's suggested files. It holds the plan's
+  definitions and theorems with `sorry` proofs, their API lemmas and their unit
+  tests. It must elaborate against the pinned Mathlib and Tau Ceti with no
+  errors, only `sorry` warnings. Check this with `lean-check` and record the
+  result in the handoff note.
+- `metadata.toml`: `topic = "<arXiv category>"`, for example
+  `topic = "math.NT"`, as upstream writes it.
+
+An independent review (`REV-PKG-<roadmap>`) checks the package:
+- against `UPSTREAM_GUIDE.md`;
+- against the accepted plan: every target of the plan is in the README, and
+  the README claims nothing the plan does not support;
+- by running `lean-check` again.
+It writes its verdict in `research/blueprint/packages/<Name>/review.json`, as
+`{"review": {"status": "accepted" | "needs_changes", "reviewer": ..., "date": ..., "notes": ...}}`.
+A package sent back is revised, for at most three rounds. An accepted package
+is copied to `roadmaps/<Name>/` at the top of the repository, laid out as
+upstream lays out its roadmaps, and the atlas links to it. Nothing goes to
+Tau Ceti's own repository from here: that is the maintainer's decision.
