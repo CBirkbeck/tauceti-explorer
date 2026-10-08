@@ -19,127 +19,127 @@
         "ref": "mathlib:RingTheory.Sequence.IsRegular",
         "module": "Mathlib/RingTheory/Regular/RegularSequence",
         "provides": "regular sequences on a module (Böckle's Lemma 2 uses a regular system of parameters)",
-        "checked": "2026-10-08 at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; exact declaration statement re-read"
+        "checked": "2026-10-08, independent REV-PotentialModularityAndCompatibleSystems--R24.3~2: exact declaration at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 re-read."
       },
       {
         "ref": "mathlib:IsLocalRing",
         "module": "Mathlib/RingTheory/LocalRing/Defs",
         "provides": "local rings (complete noetherian local 𝒪-algebras)",
-        "checked": "2026-10-08 at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; exact declaration statement re-read"
+        "checked": "2026-10-08, independent REV-PotentialModularityAndCompatibleSystems--R24.3~2: exact declaration at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 re-read."
       },
       {
         "ref": "mathlib:ringKrullDim",
         "module": "Mathlib/RingTheory/KrullDimension/Basic",
         "provides": "Krull dimension, for the height count in Lemma 2",
-        "checked": "2026-10-08 at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; exact declaration statement re-read"
+        "checked": "2026-10-08, independent REV-PotentialModularityAndCompatibleSystems--R24.3~2: exact declaration at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 re-read."
       },
       {
         "ref": "mathlib:Module.Flat",
         "module": "Mathlib/RingTheory/Flat/Basic",
         "provides": "flatness over 𝒪 (torsion-freeness over a DVR)",
-        "checked": "2026-10-08 at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; exact declaration statement re-read"
+        "checked": "2026-10-08, independent REV-PotentialModularityAndCompatibleSystems--R24.3~2: exact declaration at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 re-read."
       },
       {
         "ref": "mathlib:Complex.Gammaℝ",
         "module": "Mathlib/Analysis/SpecialFunctions/Gamma/Deligne",
         "provides": "Deligne's real archimedean Gamma factor Γ_ℝ(s) = π^{−s/2}Γ(s/2) (BLGGT's Γ_ℝ)",
-        "checked": "2026-10-08 at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; exact declaration statement re-read"
+        "checked": "2026-10-08, independent REV-PotentialModularityAndCompatibleSystems--R24.3~2: exact declaration at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 re-read."
       },
       {
         "ref": "mathlib:Complex.Gammaℂ",
         "module": "Mathlib/Analysis/SpecialFunctions/Gamma/Deligne",
         "provides": "Deligne's complex archimedean Gamma factor Γ_ℂ(s) = 2(2π)^{−s}Γ(s) (BLGGT's Γ_ℂ)",
-        "checked": "2026-10-08 at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; exact declaration statement re-read"
+        "checked": "2026-10-08, independent REV-PotentialModularityAndCompatibleSystems--R24.3~2: exact declaration at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 re-read."
       },
       {
         "ref": "mathlib:Complex.Gammaℝ_mul_Gammaℝ_add_one",
         "module": "Mathlib/Analysis/SpecialFunctions/Gamma/Deligne",
         "provides": "Γ_ℝ(s)Γ_ℝ(s + 1) = Γ_ℂ(s), the identity BLGGT use in §5.1",
-        "checked": "2026-10-08 at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; exact declaration statement re-read"
+        "checked": "2026-10-08, independent REV-PotentialModularityAndCompatibleSystems--R24.3~2: exact declaration at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 re-read."
       },
       {
         "ref": "mathlib:Field.absoluteGaloisGroup",
         "module": "Mathlib/FieldTheory/AbsoluteGaloisGroup",
         "provides": "Automorphisms of AlgebraicClosure F over F, with Group and Krull topology; use this actual group.",
-        "checked": "2026-10-08 at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; exact declaration statement re-read"
+        "checked": "2026-10-08, independent REV-PotentialModularityAndCompatibleSystems--R24.3~2: exact declaration at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 re-read."
       },
       {
         "ref": "mathlib:Representation",
         "module": "Mathlib/RepresentationTheory/Basic",
         "provides": "A monoid homomorphism G →* Module.End k V; continuity of the group action is a separate condition.",
-        "checked": "2026-10-08 at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; exact declaration statement re-read"
+        "checked": "2026-10-08, independent REV-PotentialModularityAndCompatibleSystems--R24.3~2: exact declaration at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 re-read."
       },
       {
         "ref": "mathlib:Representation.IsSemisimpleRepresentation",
         "module": "Mathlib/RepresentationTheory/Semisimple",
         "provides": "ComplementedLattice (Subrepresentation ρ); it does not assert arithmetic continuity or finite ramification.",
-        "checked": "2026-10-08 at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; exact declaration statement re-read"
+        "checked": "2026-10-08, independent REV-PotentialModularityAndCompatibleSystems--R24.3~2: exact declaration at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 re-read."
       },
       {
         "ref": "mathlib:Representation.IsIrreducible",
         "module": "Mathlib/RepresentationTheory/Irreducible",
         "provides": "IsSimpleOrder (Subrepresentation ρ), equivalent to simplicity of the group-algebra module.",
-        "checked": "2026-10-08 at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; exact declaration statement re-read"
+        "checked": "2026-10-08, independent REV-PotentialModularityAndCompatibleSystems--R24.3~2: exact declaration at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 re-read."
       },
       {
         "ref": "mathlib:Representation.dual",
         "module": "Mathlib/RepresentationTheory/Basic",
         "provides": "The contragredient action on Module.Dual k V, using inverse group elements.",
-        "checked": "2026-10-08 at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; exact declaration statement re-read"
+        "checked": "2026-10-08, independent REV-PotentialModularityAndCompatibleSystems--R24.3~2: exact declaration at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 re-read."
       },
       {
         "ref": "mathlib:NumberField.FinitePlace",
         "module": "Mathlib/NumberTheory/NumberField/Completion/FinitePlace",
         "provides": "Finite places as adic absolute values; equivHeightOneSpectrum identifies them with nonzero prime ideals of 𝓞 F.",
-        "checked": "2026-10-08 at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; exact declaration statement re-read"
+        "checked": "2026-10-08, independent REV-PotentialModularityAndCompatibleSystems--R24.3~2: exact declaration at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 re-read."
       },
       {
         "ref": "mathlib:NumberField.FinitePlace.embedding",
         "module": "Mathlib/NumberTheory/NumberField/Completion/FinitePlace",
         "provides": "Embedding K into v.adicCompletion K for a height-one prime v of a Dedekind coefficient ring.",
-        "checked": "2026-10-08 at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; exact declaration statement re-read"
+        "checked": "2026-10-08, independent REV-PotentialModularityAndCompatibleSystems--R24.3~2: exact declaration at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 re-read."
       },
       {
         "ref": "mathlib:LinearMap.charpoly",
         "module": "Mathlib/LinearAlgebra/Charpoly/Basic",
         "provides": "Characteristic polynomial of an endomorphism of a finite-dimensional vector space.",
-        "checked": "2026-10-08 at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; exact declaration statement re-read"
+        "checked": "2026-10-08, independent REV-PotentialModularityAndCompatibleSystems--R24.3~2: exact declaration at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 re-read."
       },
       {
         "ref": "mathlib:Representation.ind",
         "module": "Mathlib/RepresentationTheory/Induced",
-        "provides": "Algebraic induction along a monoid homomorphism via coinvariants; arithmetic topology/finiteness are imported from R01.1/G7.",
-        "checked": "2026-10-08 at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; exact declaration statement re-read"
+        "provides": "Algebraic induction for groups along a group homomorphism (represented by G →* H) via coinvariants; arithmetic topology/finiteness are imported from R01.1/G7.",
+        "checked": "2026-10-08, independent REV-PotentialModularityAndCompatibleSystems--R24.3~2: exact declaration at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 re-read."
       },
       {
         "ref": "mathlib:Rep.indResAdjunction",
         "module": "Mathlib/RepresentationTheory/Induced",
         "provides": "Categorical Frobenius reciprocity Ind ⊣ Res; not the arithmetic Brauer genuineness argument.",
-        "checked": "2026-10-08 at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; exact declaration statement re-read"
+        "checked": "2026-10-08, independent REV-PotentialModularityAndCompatibleSystems--R24.3~2: exact declaration at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 re-read."
       },
       {
         "ref": "mathlib:MvPowerSeries",
         "module": "Mathlib/RingTheory/MvPowerSeries/Basic",
         "provides": "Multivariate formal power series, with coefficients indexed by finitely supported exponent vectors.",
-        "checked": "2026-10-08 at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; exact declaration statement re-read"
+        "checked": "2026-10-08, independent REV-PotentialModularityAndCompatibleSystems--R24.3~2: exact declaration at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 re-read."
       },
       {
         "ref": "mathlib:IsDiscreteValuationRing",
         "module": "Mathlib/RingTheory/DiscreteValuationRing/Basic",
         "provides": "A local principal ideal domain with nonzero maximal ideal; it is not a field.",
-        "checked": "2026-10-08 at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; exact declaration statement re-read"
+        "checked": "2026-10-08, independent REV-PotentialModularityAndCompatibleSystems--R24.3~2: exact declaration at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 re-read."
       },
       {
         "ref": "mathlib:IsAdicComplete",
         "module": "Mathlib/RingTheory/AdicCompletion/Basic",
         "provides": "Ideal-adic Hausdorffness and precompleteness of a module.",
-        "checked": "2026-10-08 at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; exact declaration statement re-read"
+        "checked": "2026-10-08, independent REV-PotentialModularityAndCompatibleSystems--R24.3~2: exact declaration at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 re-read."
       },
       {
         "ref": "mathlib:Finsupp",
         "module": "Mathlib/Data/Finsupp/Defs",
         "provides": "Finite-support coefficient functions; only the additive irreducible multiplicity lattice is used, not pointwise multiplication as tensor product.",
-        "checked": "2026-10-08 at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; exact declaration statement re-read"
+        "checked": "2026-10-08, independent REV-PotentialModularityAndCompatibleSystems--R24.3~2: exact declaration at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 re-read."
       }
     ],
     "audit": {
@@ -159,7 +159,8 @@
       "readSections": [
         "2026-09-29 (cc-39fac3, part R24.3): contents; §6 (Theorem 6.1 and proof, pp. 53–57); §8 (Lemma 8.1, §8.2 with Theorem 8.2, §8.3 lifting data, Theorem 8.4 and proof, pp. 69–78); §9.2 (Theorem 9.7, pp. 89–90); §10 (Theorem 10.1, §§10.2–10.3, pp. 90–94); the bibliography.",
         "2026-10-06 (REV-PotentialModularityAndCompatibleSystems--R24.3, claude-7ftfvb): §8.1–8.2 pp. 69–72, §9.2 pp. 89–90, §10 pp. 90–94, bibliography; statements and excerpts checked against the text layer.",
-        "2026-10-08 (Codex codex-rUUBpt): §8.1–8.2 pp. 69–72, §9.2–10 pp. 89–94, and bibliography p. 96; statements and the cited proof steps for lifting, finiteness and Brauer families."
+        "2026-10-08 (Codex codex-rUUBpt): §8.1–8.2 pp. 69–72, §9.2–10 pp. 89–94, and bibliography p. 96; statements and the cited proof steps for lifting, finiteness and Brauer families.",
+        "2026-10-08 (Codex codex-OPHCdW, REV-PotentialModularityAndCompatibleSystems--R24.3~2): §8.2 p.70; §10.2–10.3 pp.92–94; bibliography p.96."
       ],
       "accessed": "2026-10-08"
     },
@@ -173,7 +174,8 @@
       "readSections": [
         "2026-09-29 (cc-39fac3, part R24.3): §§4–5 (Theorems 4.1 and 5.1, the definitions of compatible systems and minimal lifts, the Remarks, pp. 6–10), §8.2 (p. 15), §10.1 (p. 20).",
         "2026-10-06 (REV-PotentialModularityAndCompatibleSystems--R24.3, claude-7ftfvb): §§4–5 pp. 6–10, §6 Lemma 6.2 p. 11, §8 pp. 12–18, §9 pp. 18–19, §10.1 p. 20; statements and excerpts checked against the text layer.",
-        "2026-10-08 (Codex codex-rUUBpt): §§4–5 pp. 7–11, including the compatibility contracts and Theorems 4.1 and 5.1; §6 Lemma 6.2(ii) p. 11; §8.2 pp. 13–15, §8.4 p. 17, §9.1 p. 19 and §10.1 p. 20."
+        "2026-10-08 (Codex codex-rUUBpt): §§4–5 pp. 7–11, including the compatibility contracts and Theorems 4.1 and 5.1; §6 Lemma 6.2(ii) p. 11; §8.2 pp. 13–15, §8.4 p. 17, §9.1 p. 19 and §10.1 p. 20.",
+        "2026-10-08 (Codex codex-OPHCdW, REV-PotentialModularityAndCompatibleSystems--R24.3~2): §1 p.2; Theorems 4.1/5.1 pp.7–10, Lemma 6.2 p.11, §8.2 pp.13–15, §8.4 p.17, Theorem 9.1 p.19 and §10.1 p.20."
       ],
       "accessed": "2026-10-08"
     },
@@ -187,7 +189,8 @@
       "readSections": [
         "2026-09-29 (cc-39fac3, part R24.3): §1 (pp. 229–233), §2 (Theorem 2.1, pp. 234–237), §3.1–3.2 (Definition 3.1, Theorem 3.3, Propositions 3.4–3.5, Lemma 3.6, Theorem 3.7, pp. 237–241).",
         "2026-10-06 (REV-PotentialModularityAndCompatibleSystems--R24.3, claude-7ftfvb): Introduction p. 231, §3.1–3.2 pp. 239–242; statements and excerpts checked against the text layer.",
-        "2026-10-08 (Codex codex-rUUBpt): Introduction p. 231 and §3.1–3.2 pp. 239–242, including Theorem 3.3, Propositions 3.4–3.5, Lemma 3.6 Theorem 3.7 and the proof of Proposition 3.8."
+        "2026-10-08 (Codex codex-rUUBpt): Introduction p. 231 and §3.1–3.2 pp. 239–242, including Theorem 3.3, Propositions 3.4–3.5, Lemma 3.6 Theorem 3.7 and the proof of Proposition 3.8.",
+        "2026-10-08 (Codex codex-OPHCdW, REV-PotentialModularityAndCompatibleSystems--R24.3~2): Introduction p.231; §3.1–3.2 pp.239–242, Theorems 3.3/3.7 and dimension/finiteness proof; bibliography p.252."
       ],
       "accessed": "2026-10-08"
     },
@@ -201,7 +204,8 @@
       "readSections": [
         "2026-09-29 (cc-39fac3, part R24.3): the whole appendix (Theorem 1, Proposition 1, Lemma 1, Corollaries 1–2, Lemma 2, the proof of Theorem 1).",
         "2026-10-06 (REV-PotentialModularityAndCompatibleSystems--R24.3, claude-7ftfvb): the whole appendix; statements and excerpts checked against the text layer.",
-        "2026-10-08 (Codex codex-rUUBpt): p. 5, Lemma 2 and proof, Corollary 2 and the opening of the proof of Theorem 1; the finite-over-𝒪 hypothesis is checked explicitly."
+        "2026-10-08 (Codex codex-rUUBpt): p. 5, Lemma 2 and proof, Corollary 2 and the opening of the proof of Theorem 1; the finite-over-𝒪 hypothesis is checked explicitly.",
+        "2026-10-08 (Codex codex-OPHCdW, REV-PotentialModularityAndCompatibleSystems--R24.3~2): Theorem 1/Proposition 1 pp.1–2 and Lemma 2/application pp.5–6."
       ],
       "accessed": "2026-10-08"
     },
@@ -215,7 +219,8 @@
       "readSections": [
         "2026-09-29 (cc-39fac3, part R24.3): §1.3–1.4 (Theorem 1.9, Definition 1.10, Theorem 1.11, Remark 4, pp. 5–7) and Paso 5 (p. 14).",
         "2026-10-06 (REV-PotentialModularityAndCompatibleSystems--R24.3, claude-7ftfvb): §1.3–1.4 pp. 5–7, §2 Pasos 1–6 pp. 10–14 (arXiv v2 and the authors' copy); statements and excerpts checked against the text layer.",
-        "2026-10-08 (Codex codex-rUUBpt): §1.3–1.4 pp. 5–7, and §2 Paso 1 p. 10 and Pasos 5–6 p. 14; actual local nonemptiness and the scope of the cited family theorem."
+        "2026-10-08 (Codex codex-rUUBpt): §1.3–1.4 pp. 5–7, and §2 Paso 1 p. 10 and Pasos 5–6 p. 14; actual local nonemptiness and the scope of the cited family theorem.",
+        "2026-10-08 (Codex codex-OPHCdW, REV-PotentialModularityAndCompatibleSystems--R24.3~2): arXiv v2 Theorem 1.9 pp.6–7, Definition 1.10/Theorem 1.11 p.7, Lemma 1.14 p.9, Paso 1 p.10 and Paso 5 p.14. Published Theorem 1.11 p.7 and references pp.15–16 also collated."
       ],
       "accessed": "2026-10-08"
     },
@@ -229,7 +234,8 @@
       "readSections": [
         "2026-09-29 (cc-39fac3, part R24.3): §7 (lifting problems, Theorems 7.2.1 and 7.6.1, Proposition 7.7.1, pp. 20–23) and the conditions (A1), (A2) of §3.",
         "2026-10-06 (REV-PotentialModularityAndCompatibleSystems--R24.3, claude-7ftfvb): §1.4 notation, §3.1 (A1)–(A7), §7 pp. 20–23; statements and excerpts checked against the text layer.",
-        "2026-10-08 (Codex codex-rUUBpt): §1.4 p. 3, §3.1 (A1)–(A2) p. 6, and §7.1–7.7 pp. 20–23, including the local solution definition, Propositions 7.3.1/7.4.1, Theorems 7.2.1/7.6.1 and Proposition 7.7.1."
+        "2026-10-08 (Codex codex-rUUBpt): §1.4 p. 3, §3.1 (A1)–(A2) p. 6, and §7.1–7.7 pp. 20–23, including the local solution definition, Propositions 7.3.1/7.4.1, Theorems 7.2.1/7.6.1 and Proposition 7.7.1.",
+        "2026-10-08 (Codex codex-OPHCdW, REV-PotentialModularityAndCompatibleSystems--R24.3~2): Notation p.3, assumptions p.6, §7 pp.20–23 (actual local solutions and prescribed-type theorem)."
       ],
       "accessed": "2026-10-08"
     },
@@ -244,7 +250,8 @@
         "2026-09-29 (cc-39fac3, part R24.3 checkpoint 3): §5.1 in full and §5.2 through Lemma 5.2.1 and Proposition 5.2.2, pp. 51–55.",
         "2026-09-29 (cc-39fac3, checkpoint 4): §5.1 pp. 52–54, §5.2 (Lemmas 5.2.1, 5.2.3, Proposition 5.2.2) pp. 54–59, §5.3 pp. 59–61 and §5.4 pp. 61–66, read in full.",
         "2026-10-06 (REV-PotentialModularityAndCompatibleSystems--R24.3, claude-7ftfvb): §5.1 pp. 51–53, Corollary 5.3.2 p. 60, Lemma 5.2.3 pp. 58–59, §5.4 items (1)–(9) pp. 61–63; statements and excerpts checked against the text layer.",
-        "2026-10-08 (Codex codex-rUUBpt): §5.1 pp. 51–53 and Corollary 5.3.2 p. 60; weak-family predicates and the odd-weight Gamma-factor defect."
+        "2026-10-08 (Codex codex-rUUBpt): §5.1 pp. 51–53 and Corollary 5.3.2 p. 60; weak-family predicates and the odd-weight Gamma-factor defect.",
+        "2026-10-08 (Codex codex-OPHCdW, REV-PotentialModularityAndCompatibleSystems--R24.3~2): arXiv v1 §§5.1–5.2 pp.51–59, Corollary 5.3.2 continuation p.60 and §5.4 pp.61–63; definitions, residual theorem and pairing formalism."
       ],
       "accessed": "2026-10-08"
     },
@@ -258,7 +265,8 @@
       "readSections": [
         "2026-09-29 (cc-39fac3, part R24.3 checkpoint 3): §6, pp. 771–775 (Theorem 6.1, Corollaries 6.2–6.4, rank d weakly compatible systems, Lemma 6.5, Theorem 6.6 with proof), on the page images.",
         "2026-10-06 (REV-PotentialModularityAndCompatibleSystems--R24.3, claude-7ftfvb): §6 pp. 771–775; statements and excerpts checked against the text layer.",
-        "2026-10-08 (Codex codex-rUUBpt): §6 pp. 773–774, the weak-family definition, Lemma 6.5 and the statement/opening proof of Theorem 6.6."
+        "2026-10-08 (Codex codex-rUUBpt): §6 pp. 773–774, the weak-family definition, Lemma 6.5 and the statement/opening proof of Theorem 6.6.",
+        "2026-10-08 (Codex codex-OPHCdW, REV-PotentialModularityAndCompatibleSystems--R24.3~2): §6 pp.773–774, rank-d carrier and Lemma 6.5."
       ],
       "accessed": "2026-10-08"
     },
@@ -275,7 +283,8 @@
         "2026-10-06 (Codex codex-Hpnayd): §2.1 polarization definition and §§5.1–5.4 statements/proof outlines, including Lemma 5.3.1 and Lemma 5.4.5; Appendix A.2 character interface. External citations named in gaps are not claimed as read.",
         "2026-10-06: §2.1 Theorem 2.1.1 pp.33–34 and Appendix A.2 p.87 read as purity/character imports. These are supplied by their owners, rather than re-proved here.",
         "2026-10-06 (REV-PotentialModularityAndCompatibleSystems--R24.3, claude-7ftfvb): §2.1 pp. 31–34, §§5.1–5.3 pp. 62–74, Lemma 5.4.5 pp. 76–77, Lemma A.1.5 p. 85, Appendix A.2 p. 87; statements and excerpts checked against the text layer.",
-        "2026-10-08 (Codex codex-rUUBpt): §2.1 p. 31 and Theorem 2.1.1 pp. 33–34; §§5.1–5.3 pp. 62–72; §5.4 Lemma 5.4.5 p. 76 and Proposition 5.4.6 pp. 76–77; §5.5 pp. 77–78; Lemma A.1.5 p. 85 and Appendix A.2 p. 87. External monodromy/density proofs remain the named unread leaves."
+        "2026-10-08 (Codex codex-rUUBpt): §2.1 p. 31 and Theorem 2.1.1 pp. 33–34; §§5.1–5.3 pp. 62–72; §5.4 Lemma 5.4.5 p. 76 and Proposition 5.4.6 pp. 76–77; §5.5 pp. 77–78; Lemma A.1.5 p. 85 and Appendix A.2 p. 87. External monodromy/density proofs remain the named unread leaves.",
+        "2026-10-08 (Codex codex-OPHCdW, REV-PotentialModularityAndCompatibleSystems--R24.3~2): §2.1 pp.31,33–34 (Theorem 2.1.1); §§5.1–5.3 pp.62–74, Lemma 5.4.5 p.76, Lemma A.1.5 p.85 and Appendix A.2 p.87. Published pp.572,576,578–580 collated for E2/E3."
       ]
     },
     {
@@ -288,7 +297,8 @@
       "readSections": [
         "2026-10-06 (Codex codex-Hpnayd): Introduction and Theorem 1 with conventions and proof synopsis, printed pp.241–243; §2 opening pp.244–245. The full proof is not claimed as independently verified.",
         "2026-10-06 (REV-PotentialModularityAndCompatibleSystems--R24.3, claude-7ftfvb): Introduction and Theorem 1, pp. 241–243; statements and excerpts checked against the text layer.",
-        "2026-10-08 (Codex codex-rUUBpt): Introduction, conventions and Theorem 1 with its proof synopsis, printed pp. 241–243. The complete proof is not claimed as independently verified."
+        "2026-10-08 (Codex codex-rUUBpt): Introduction, conventions and Theorem 1 with its proof synopsis, printed pp. 241–243. The complete proof is not claimed as independently verified.",
+        "2026-10-08 (Codex codex-OPHCdW, REV-PotentialModularityAndCompatibleSystems--R24.3~2): Theorem 1 and conventions pp.241–243; proof §2.3.3 continuation p.251. Full proof remains an owner import; its normalization correction is supplied by reviewed R19.2/R19.5."
       ],
       "sha256": "4a2a489aa1401431b5b8279c5a246bfa147debba10698764fd6612ef37d0928d"
     },
@@ -302,7 +312,8 @@
       "readSections": [
         "2026-10-06 (Codex codex-Hpnayd): author version §7.1 pp.188–190 and 196–197, then collated against the published journal-layout text §7.1 pp.1084–1086 and 1092. Read the weak/very weak/extremely weak definitions, Lemma 7.1.1 and Artin-up-to-twist definition, and the purity paragraph. The higher-rank automorphy applications are outside this packet.",
         "2026-10-06 (REV-PotentialModularityAndCompatibleSystems--R24.3, claude-7ftfvb): published §7.1 pp. 1084–1086, 1092–1096; statements and excerpts checked against the text layer.",
-        "2026-10-08 (Codex codex-rUUBpt): Published §7.1 pp. 1084–1086 and 1092–1093, the weak variants, rank-one classification and Artin-twist purity observation."
+        "2026-10-08 (Codex codex-rUUBpt): Published §7.1 pp. 1084–1086 and 1092–1093, the weak variants, rank-one classification and Artin-twist purity observation.",
+        "2026-10-08 (Codex codex-OPHCdW, REV-PotentialModularityAndCompatibleSystems--R24.3~2): Published §7.1 pp.1084–1086,1092, including the Artin-twist condition and purity remark."
       ],
       "sha256": "c5429e4f384384045dbb48502d71547bb21699783c0f77cce27b24e742467f02"
     },
@@ -316,7 +327,8 @@
       "readSections": [
         "2026-10-06 (Codex codex-Hpnayd): the Brauer construction and its inner-product criterion, pp.16–18 (recorded as '§5 Theorem 5.1'; in the arXiv v1 read it is §3, Proposition 3.1 and its proof).",
         "2026-10-06 (REV-PotentialModularityAndCompatibleSystems--R24.3, claude-7ftfvb): §3, pp. 16–18, rechecked; section numbering corrected.",
-        "2026-10-08 (Codex codex-rUUBpt): §3, Proposition 3.1 and the inner-product argument, pp. 16–17 of arXiv math/0504080v1; these are the arXiv locators, not the Duke §5 numbering."
+        "2026-10-08 (Codex codex-rUUBpt): §3, Proposition 3.1 and the inner-product argument, pp. 16–17 of arXiv math/0504080v1; these are the arXiv locators, not the Duke §5 numbering.",
+        "2026-10-08 (Codex codex-OPHCdW, REV-PotentialModularityAndCompatibleSystems--R24.3~2): arXiv v1 §3 Proposition 3.1 pp.16–17, Brauer pairing argument."
       ],
       "sha256": "3012a51759ad10695792bc8a2d1af75890f38d6ebacd37fb61e01bfdb89c9c2f"
     },
@@ -330,7 +342,8 @@
       "accessed": "2026-10-08",
       "readSections": [
         "2026-10-06 (REV-PotentialModularityAndCompatibleSystems--R24.3, claude-7ftfvb): §1, Theorem 1.1 and its remark, pp. 1–2.",
-        "2026-10-08 (Codex codex-rUUBpt): Theorem 1.1 and the following remark, pp. 1–2 of arXiv math/0304433v1; the odd-prime, small odd crystalline-weight hypotheses. The Crelle version was not obtained."
+        "2026-10-08 (Codex codex-rUUBpt): Theorem 1.1 and the following remark, pp. 1–2 of arXiv math/0304433v1; the odd-prime, small odd crystalline-weight hypotheses. The Crelle version was not obtained.",
+        "2026-10-08 (Codex codex-OPHCdW, REV-PotentialModularityAndCompatibleSystems--R24.3~2): arXiv v1 Theorem 1.1 pp.1–2; Crelle text not obtained."
       ]
     },
     {
@@ -341,7 +354,8 @@
       "url": "http://gaetan.chenevier.perso.math.cnrs.fr/GT/swinnerton_dyer.pdf",
       "sha256": "2e291a7d66fae845eeffef0789353b8b1b85bb236b5b8c1a3d44a46de831a727",
       "readSections": [
-        "2026-10-08 (Codex codex-rUUBpt): §2 pp. 10–12, 14–15 (image classification and Corollary 1), and §4 pp. 29–33 (Theorem 4, its corollary and the weight-12 congruences)."
+        "2026-10-08 (Codex codex-rUUBpt): §2 pp. 10–12, 14–15 (image classification and Corollary 1), and §4 pp. 29–33 (Theorem 4, its corollary and the weight-12 congruences).",
+        "2026-10-08 (Codex codex-OPHCdW, REV-PotentialModularityAndCompatibleSystems--R24.3~2): §2 Corollary 1 p.15 and §4 pp.31–33, weight-12 reducible and dihedral exceptional primes."
       ],
       "accessed": "2026-10-08"
     }
@@ -1156,7 +1170,7 @@
         "these are exactly the residual inputs of GL2ModularityLifting R22.5/R22.6 (Theorem 9.7)"
       ],
       "proofSteps": [
-        "Bind the residual-weight/base-change and lifting exports of GL2ModularityLifting to the displayed KW I Theorem 4.1 hypotheses. Do not construct a new lifting proof in R24.4.",
+        "Import R22.5/alpha-beta-from-modularity-over-q, including its separate α and β witnesses and allowable base-change hypotheses. R24.4 binds that export to the displayed residual input; it constructs no second weight or lifting proof.",
         "The consumer passes a supplied lift to the owner’s theorem; no R24.1, R24.2 or R24.3 theorem is an input."
       ],
       "acceptance": [
@@ -1168,7 +1182,9 @@
         "SerreWeightAndLevelOptimisation:R20.6",
         "AlgebraicModularFormsAndSerreWeights:R15.4",
         "GL2AutomorphicRepresentationsAndTransfer:R17.4",
-        "GL2ModularityLifting:R22.5/solvable-base-change-reduction"
+        "GL2ModularityLifting:R22.5/solvable-base-change-reduction",
+        "GL2ModularityLifting:R22.5/alpha-beta-from-modularity-over-q",
+        "GL2ModularityLifting:R22.5/kw-residual-modularity-beta"
       ],
       "library": {
         "module": "TauCeti/NumberTheory/CompatibleSystems/LiftingInterface",
@@ -1206,14 +1222,14 @@
       ],
       "title": "KW I Theorem 4.1: modularity lifting over ℚ",
       "kind": "comparison",
-      "statement": "Let ρ̄ : G_ℚ → GL₂(𝔽) be modular, with non-solvable image if p = 2 and ρ̄|_{ℚ(µ_p)} absolutely irreducible if p > 2. (1) (p = 2) An odd, finitely ramified 2-adic lift ρ that is crystalline of weight 2 at 2, or semistable of weight 2 at 2 (only when k(ρ̄) = 4), is modular. (2) (p > 2) A finitely ramified p-adic lift that is (i) crystalline of weight k with 2 ≤ k ≤ p + 1, or (ii) potentially semistable of weight 2 at p, is modular. Proof: (α), (β) from R24.4/alpha-beta-from-residual-modularity; after an allowable base change F/ℚ, ρ|_{G_F} satisfies the lifting data (A), (B) or (C) and Theorem 9.7 (GL2ModularityLifting R22.5 for p > 2, R22.6 for p = 2) makes it modular; solvable descent (Langlands) returns to ℚ.",
+      "statement": "Let ρ̄ : G_ℚ → GL₂(𝔽) be modular, with non-solvable image if p = 2 and ρ̄|_{ℚ(µ_p)} absolutely irreducible if p > 2. (1) (p = 2) An odd, finitely ramified 2-adic lift ρ that is crystalline of weight 2 at 2, or semistable of weight 2 at 2 (only when k(ρ̄) = 4), is modular. (2) (p > 2) A finitely ramified p-adic lift that is (i) crystalline of weight k with 2 ≤ k ≤ p + 1, or (ii) potentially semistable of weight 2 at p, is modular. Import the full Theorem 4.1 exports from GL2ModularityLifting R22.5 and R22.6. Their proof combines residual weight witnesses, allowable base change, the cases of Theorem 9.7, the additional lifting results needed beyond those cases, and solvable descent. Theorem 9.7 alone does not cover the complete odd-prime statement.",
       "hypotheses": [
         "p = 2: non-solvable image, and the semistable case only in residual weight 4",
         "p > 2: cyclotomic absolute irreducibility, and the crystalline weight interval 2 ≤ k ≤ p + 1 or potentially semistable weight 2",
         "several cases were known before (Diamond–Flach–Guo for k ≤ p − 1; Kisin for k = p + 1 non-ordinary and for potentially Barsotti–Tate; Diamond, Wiles and Taylor–Wiles for semistable weight 2; Dickinson partially at p = 2); KW II need only 4.1(1) and 4.1(2)(i) at k = p"
       ],
       "proofSteps": [
-        "Bind the residual-weight/base-change and lifting exports of GL2ModularityLifting to the displayed KW I Theorem 4.1 hypotheses. Do not construct a new lifting proof in R24.4.",
+        "Bind the full R22.5/kw-i-theorem-4-1-odd-prime and R22.6/kw-i-theorem-4-1-dyadic exports to KW I Theorem 4.1. Carry the odd-prime supplier’s non-ordinary endpoint proof gap; do not infer the full result from its narrower Theorem 9.7 node.",
         "The consumer passes a supplied lift to the owner’s theorem; no R24.1, R24.2 or R24.3 theorem is an input."
       ],
       "acceptance": [
@@ -1223,8 +1239,8 @@
       ],
       "prerequisites": [
         "PotentialModularityAndCompatibleSystems:R24.4/alpha-beta-from-residual-modularity",
-        "GL2ModularityLifting:R22.5/kw-odd-prime-lifting",
-        "GL2ModularityLifting:R22.6/kw-dyadic-lifting",
+        "GL2ModularityLifting:R22.5/kw-i-theorem-4-1-odd-prime",
+        "GL2ModularityLifting:R22.6/kw-i-theorem-4-1-dyadic",
         "GL2ModularityLifting:R22.5/solvable-base-change-reduction",
         "GL2AutomorphicRepresentationsAndTransfer:R17.4"
       ],
@@ -1236,7 +1252,7 @@
         {
           "sourceId": "kw-serre-modularity-I",
           "locator": "Theorem 4.1, p. 7 of the preprint",
-          "match": "Case (2)."
+          "match": "The odd-prime and dyadic cases, with the lift oddness hypothesis explicit at p=2."
         },
         {
           "sourceId": "kw-serre-modularity-II",
@@ -1284,7 +1300,7 @@
       ],
       "acceptance": [
         "Check that a newform of weight k ≥ 2 gives a strictly compatible system (Deligne, Carayol, Saito)",
-        "Check that the almost strict predicate is strictly weaker: it says nothing at 𝔮 = ℓ when ρ̄_ι is reducible and r_𝔮 is ramified"
+        "Compare the definition obligations: almost strictness omits the q=ℓ WD comparison when the residual member is reducible and the parameter ramified. This does not exhibit an actual arithmetic family failing strictness."
       ],
       "prerequisites": [
         "PadicHodgeTheory:R06.3/weil-deligne-parameter",
@@ -1428,7 +1444,7 @@
           },
           {
             "name": "almost_strict_not_strict",
-            "status": "example-fragment"
+            "status": "omitted"
           },
           {
             "name": "hodge_tate_weights_convention",
@@ -1617,7 +1633,9 @@
         "AutomorphicGaloisRepresentations:R19.3",
         "AutomorphicGaloisRepresentations:R19.4",
         "GL2AutomorphicRepresentationsAndTransfer:R17.6",
-        "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-6-the-virtual-character-ring-artin-and-brauer-induction"
+        "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-6-the-virtual-character-ring-artin-and-brauer-induction",
+        "AutomorphicGaloisRepresentations:R19.3/fixed-eigenform-compatible-family",
+        "AutomorphicGaloisRepresentations:R19.2/hilbert-normalisation-dictionary"
       ],
       "library": {
         "module": "TauCeti/NumberTheory/CompatibleSystems/Basic",
@@ -1767,7 +1785,7 @@
       ],
       "proofSteps": [
         "(a) Carayol and Taylor's local-global compatibility over F(q) (AutomorphicGaloisRepresentations R19.2, R19.4).",
-        "(b) Breuil and Berger at an unramified coefficient prime. In the atlas (b) and (c) are both instances of the full coefficient-prime theorem requested from AutomorphicGaloisRepresentations R19.5 (Skinner 2009): the existing R19.5 node keeps Carayol's parity hypothesis, which KW's fields of even degree with no finite discrete-series place do not satisfy.",
+        "(b) Breuil and Berger give the historical unramified coefficient-prime case. The modern route imports R19.5/skinner-full-hilbert-coefficient-prime and the R19.2 normalization dictionary, which cover the even-degree Hilbert fields without a finite discrete-series place as well as the restricted Saito cases.",
         "(c) Kisin, with F′ from potential modularity chosen linearly disjoint from ker ρ̄_ι (KW II Theorem 6.1(iii)(d), R23.5)."
       ],
       "acceptance": [
@@ -1781,7 +1799,10 @@
         "AutomorphicGaloisRepresentations:R19.3",
         "AutomorphicGaloisRepresentations:R19.4",
         "PotentialModularityAndCompatibleSystems:R23.5",
-        "AutomorphicGaloisRepresentations:R19.5"
+        "AutomorphicGaloisRepresentations:R19.5",
+        "AutomorphicGaloisRepresentations:R19.5/skinner-full-hilbert-coefficient-prime",
+        "AutomorphicGaloisRepresentations:R19.4/all-hilbert-local-global-compatibility",
+        "AutomorphicGaloisRepresentations:R19.2/hilbert-normalisation-dictionary"
       ],
       "library": {
         "module": "TauCeti/NumberTheory/CompatibleSystems/Basic",
@@ -1974,23 +1995,24 @@
       ],
       "title": "Residual members of a compatible system",
       "kind": "lemma",
-      "statement": "Let (ρ_ι) be an E-rational almost strictly compatible, irreducible, odd two-dimensional system of G_ℚ with weights (a, b), and ρ̄_ι the semisimplified reductions. (i) det ρ̄_ι is the reduction of det ρ_ι, and ρ̄_ι is odd. (ii) ρ̄_ι is absolutely irreducible for every ι above all but finitely many primes ℓ (KW I, proof of Theorem 10.1, which uses that the conductor of ρ_ι is bounded independently of ι and that the Hodge–Tate weights are fixed; KW I §8.4 uses it). If moreover a ≠ b, then for all but finitely many ℓ also ρ̄_ι|_{G_{ℚ(ζ_ℓ)}} is absolutely irreducible: for ℓ outside the ramification set with ℓ > 2(a − b) + 1, (v) gives k(ρ̄_ι) = a − b + 1 up to twist, while KW I Lemma 6.2(ii) would force a − b + 1 ∈ {(ℓ + 1)/2, (ℓ + 3)/2} if the restriction were reducible. For regular weakly compatible systems of any rank over any number field, R24.5/residual-irreducibility-density-one gives the restriction statement for every irreducible constituent, but only on a Dirichlet-density-one set of ℓ. (iii) For q ≠ ℓ, the Artin conductor of ρ̄_ι at q divides that of r_q, so N(ρ̄_ι) divides the prime-to-ℓ conductor of the system; the prime divisors of N(ρ̄_ι) are among the ramified primes of the system other than ℓ. (iv) If ρ(I_q) is finite of order prime to ℓ (for instance a dihedral group of order 2t^a with ℓ∤2t), reduction is injective on it, so ρ̄_ι|_{I_q} has the same shape. (v) If ℓ is outside the ramification set, ℓ ≠ 2 and 0≤a−b≤ℓ−2, then ρ_ι is crystalline at ℓ and k(ρ̄_ι) = a − b + 1 up to twist (Fontaine–Laffaille).",
+      "statement": "Let (ρ_ι) be an E-rational almost strictly compatible, irreducible, odd two-dimensional system of G_ℚ with weights (a, b), and ρ̄_ι the semisimplified reductions. (i) det ρ̄_ι is the reduction of det ρ_ι, and ρ̄_ι is odd. (ii) ρ̄_ι is absolutely irreducible for every ι above all but finitely many primes ℓ (KW I, proof of Theorem 10.1, which uses that the conductor of ρ_ι is bounded independently of ι and that the Hodge–Tate weights are fixed; KW I §8.4 uses it). If moreover a ≠ b, then for all but finitely many ℓ also ρ̄_ι|_{G_{ℚ(ζ_ℓ)}} is absolutely irreducible: for ℓ outside the ramification set with ℓ > 2(a − b) + 1, (v) gives k(ρ̄_ι) = a − b + 1 up to twist, while KW I Lemma 6.2(ii) would force a − b + 1 ∈ {(ℓ + 1)/2, (ℓ + 3)/2} if the restriction were reducible. For regular weakly compatible systems of any rank over any number field, R24.5/residual-irreducibility-density-one gives the restriction statement for every irreducible constituent, but only on a Dirichlet-density-one set of ℓ. (iii) For q ≠ ℓ, the Artin conductor of ρ̄_ι at q divides that of r_q, so N(ρ̄_ι) divides the prime-to-ℓ conductor of the system; the prime divisors of N(ρ̄_ι) are among the ramified primes of the system other than ℓ. (iv) If ρ(I_q) is finite of order prime to ℓ (for instance a dihedral group of order 2t^a with ℓ∤2t), reduction is injective on it, so ρ̄_ι|_{I_q} has the same shape. (v) If ℓ is outside the ramification set and ℓ ≠ 2, then ρ_ι is crystalline at ℓ. If additionally ρ̄_ι is of S-type and 1≤a−b≤ℓ−2, its normalized Serre weight is a−b+1 after twisting (Fontaine–Laffaille). Equal weights are excluded from this formula: an odd absolutely irreducible Artin member unramified at ℓ has normalized residual Serre weight ℓ, rather than 1.",
       "hypotheses": [
         "(ii) is the argument KW I give at the start of the proof of Theorem 10.1; its restriction clause uses KW I Lemma 6.2(ii) and (v), and is a statement about this rank-two setting. The BLGGT density-one theorem is the general-rank statement and is not needed for (ii)",
         "(iv) is the reduction step in the proof of KW I Lemma 6.3",
-        "(v) needs the Fontaine–Laffaille range; at the endpoint weights one uses the endpoint arguments instead"
+        "(v) requires a positive Hodge–Tate difference in the Fontaine–Laffaille range and an S-type residual representation for the Serre-weight assertion. The zero difference and endpoint cases require their separate local recipes."
       ],
       "proofSteps": [
         "(i), (iii): reduction of a lattice; conductors only drop under reduction (ArithmeticGaloisRepresentations R01.3).",
         "(ii): for ℓ ≫ 0 the member at ℓ is crystalline with Hodge–Tate weights (a, b) in the Fontaine–Laffaille range (plain compatibility), so a reducible ρ̄_ι^ss is a sum of two characters whose restrictions to I_ℓ are the powers of the cyclotomic character attached to a and b and whose prime-to-ℓ conductors divide the fixed conductor of the system. Only finitely many pairs of Dirichlet characters occur, so if infinitely many ι were residually reducible, one pair would give a congruence of all good Frobenius traces modulo infinitely many λ, hence an equality of traces in E, and Brauer–Nesbitt with Chebotarev (ArithmeticGaloisRepresentations R01.5) would make ρ_ι reducible. The restriction to G_{ℚ(ζ_ℓ)} follows from (v) and KW I Lemma 6.2(ii).",
         "(iv): the kernel of GL₂(𝒪) → GL₂(𝔽) is pro-ℓ.",
-        "(v): almost strict compatibility at ℓ and Fontaine–Laffaille."
+        "(v): almost strict compatibility gives crystallinity outside the fixed ramification set for odd ℓ. The positive-difference Fontaine–Laffaille comparison is R15.4/fontaine-laffaille-weight-comparison; its extension-sensitive local input remains the R07 supplier obligation. For zero difference, use the unramified branch of Serre’s recipe, which assigns weight ℓ."
       ],
       "acceptance": [
         "Check (iii) on a system with a Steinberg prime q whose reduction mod ℓ becomes unramified at q (level lowering)",
         "Check (iv) on a dihedral inertia image of order 2·7 reduced modulo 3",
         "For a dihedral group of even order at ℓ=2, prime-to-ℓ injectivity cannot be used; verify the separate dyadic local input.",
-        "Check (ii) on the Δ family (a − b = 11): ρ̄_ℓ is reducible exactly for ℓ ∈ {2, 3, 5, 7, 691} (Serre, Swinnerton-Dyer), a finite set; ρ̄_23 is irreducible but induced from ℚ(√−23) ⊂ ℚ(ζ_23), so it is reducible on G_{ℚ(ζ_23)}: this is the boundary case ℓ = 2(a − b) + 1 of the restriction clause, with weight 12 = (ℓ + 1)/2 as in KW I Lemma 6.2(ii)."
+        "Check (ii) on the Δ family (a − b = 11): ρ̄_ℓ is reducible exactly for ℓ ∈ {2, 3, 5, 7, 691} (Serre, Swinnerton-Dyer), a finite set; ρ̄_23 is irreducible but induced from ℚ(√−23) ⊂ ℚ(ζ_23), so it is reducible on G_{ℚ(ζ_23)}: this is the boundary case ℓ = 2(a − b) + 1 of the restriction clause, with weight 12 = (ℓ + 1)/2 as in KW I Lemma 6.2(ii).",
+        "Use the standard two-dimensional rational S₃ representation of the splitting field of X³−2 over ℚ: it is odd and has Hodge–Tate weights (0,0). For ℓ>3 its reduction is absolutely irreducible and unramified at ℓ, so the normalized Serre weight is ℓ. The positive-difference formula must not return 1."
       ],
       "prerequisites": [
         "PotentialModularityAndCompatibleSystems:R24.5/compatible-system",
@@ -2001,7 +2023,9 @@
         "PotentialModularityAndCompatibleSystems:R24.5/residual-irreducibility-density-one",
         "PotentialModularityAndCompatibleSystems:R24.5/strict-brauer-system",
         "ArithmeticGaloisRepresentations:R01.1",
-        "ArithmeticGaloisRepresentations:R01.5"
+        "ArithmeticGaloisRepresentations:R01.5",
+        "AlgebraicModularFormsAndSerreWeights:R15.4/fontaine-laffaille-weight-comparison",
+        "AlgebraicModularFormsAndSerreWeights:R15.4/serre-weight-tame-cases"
       ],
       "library": {
         "module": "TauCeti/NumberTheory/CompatibleSystems/ChangeOfPrime",
@@ -2029,6 +2053,18 @@
           "sourceId": "swinnerton-dyer-1973",
           "locator": "§2, Corollary 1, p. 15; §4, corollary to Theorem 4 and the weight-12 congruences, pp. 31–33",
           "match": "The Δ row distinguishes reducible image (type (i), primes 2, 3, 5, 7, 691) from irreducible dihedral image (type (ii), prime 23); the latter splits over ℚ(√−23)."
+        },
+        {
+          "sourceId": "kw-serre-modularity-I",
+          "locator": "§1, p. 2 of the preprint; §10.1, p. 20",
+          "match": "Serre weights are normalized to be at least 2; weight-one Artin members are an irregular characteristic-zero case, not residual Serre weight 1.",
+          "addedBy": "REV-PotentialModularityAndCompatibleSystems--R24.3~2"
+        },
+        {
+          "sourceId": "dieulefait-pacetti",
+          "locator": "Lemma 1.14, proof, p. 9 of arXiv:2108.07577v2",
+          "match": "The unramified residual-inertia case has Serre weight p.",
+          "addedBy": "REV-PotentialModularityAndCompatibleSystems--R24.3~2"
         }
       ],
       "implementationStatus": "unchecked",
@@ -2053,8 +2089,8 @@
       "kind": "theorem",
       "statement": "For an arbitrary KW almost-strict system and ι above ℓ, the definition gives full WD comparison at q=ℓ if the residual member is irreducible; if ℓ≠2 and r_ℓ is unramified it gives crystallinity and the prescribed Hodge weights. In the other cases its contract alone gives neither de Rham nor WD comparison. For the specific motivic Hilbert/Brauer systems constructed here, strict-brauer-system instead gives de Rham/potential semistability and full WD comparison at every coefficient prime, even for reducible residual members and ℓ=2; unramified r_ℓ then implies crystalline. These assertions are local input lemmas. Application of residually reducible de Rham modularity lifting belongs to GL2ModularityLifting R32.6 and is imported there.",
       "hypotheses": [
-        "this enumerates the hypotheses under which local compatibility is valid when the new coefficient prime was already ramified: only (a) and (b)",
-        "silently restoring the Weil–Deligne assertion in case (c) would prove strict compatibility, which KW II withdraw"
+        "For an arbitrary almost-strict system, use only the residual-irreducible coefficient-prime clause or the odd unramified-parameter clause. The excluded residual-reducible ramified case has no WD assertion from that contract.",
+        "Full coefficient-prime comparison for the constructed Hilbert/Brauer families uses strict-brauer-system and Skinner’s theorem; it does not restore the withdrawn assertion to the historical KW proof."
       ],
       "proofSteps": [
         "Read the two conditional clauses of KW’s almost-strict definition; do not infer a condition in the excluded cases.",
@@ -2070,7 +2106,8 @@
         "PotentialModularityAndCompatibleSystems:R24.5/almost-strict-compatibility",
         "PotentialModularityAndCompatibleSystems:R24.5/strict-brauer-system",
         "AutomorphicGaloisRepresentations:R19.5",
-        "PadicHodgeTheory:R06.3/weil-deligne-descent"
+        "PadicHodgeTheory:R06.3/weil-deligne-descent",
+        "AutomorphicGaloisRepresentations:R19.5/skinner-full-hilbert-coefficient-prime"
       ],
       "library": {
         "module": "TauCeti/NumberTheory/CompatibleSystems/ChangeOfPrime",
@@ -2202,7 +2239,7 @@
         {
           "sourceId": "blggt-2014",
           "locator": "§5.1, definition of a weakly compatible system, p. 51 (arXiv v1; printed page = PDF page)",
-          "match": "The 5-tuple (M, S, {Q_v}, {r_λ}, {H_τ}), displayed above this sentence."
+          "match": "Actual semisimple coefficient-place members, common good-place polynomials, a finite exceptional set and labeled Hodge multisets, with the stated de Rham and crystalline conditions."
         },
         {
           "sourceId": "taylor-2006-meromorphic-continuation",
@@ -2459,7 +2496,7 @@
         {
           "name": "pred_strict_vs_almost_strict",
           "kind": "non-example",
-          "statement": "BLGGT strict compatibility only compares λ∤v and is implied by KW almost-strictness away from coefficient primes when the family is weakly compatible; it does not assert KW all-place strictness at v|ℓ. An unconstrained exceptional coefficient prime is a counterexample to inference from the contract."
+          "statement": "BLGGT strict compatibility compares only λ∤v. For a weakly compatible family, KW almost strictness supplies these comparisons but omits some comparisons at v|ℓ. Check the missing obligation without asserting the existence of an arithmetic family that violates all-place strictness."
         }
       ],
       "suggestedName": "TauCeti.CompatibleSystems.WeaklyCompatibleSystem.IsRegular",
@@ -2510,7 +2547,7 @@
           },
           {
             "name": "pred_strict_vs_almost_strict",
-            "status": "example-fragment"
+            "status": "omitted"
           }
         ]
       }
@@ -3472,7 +3509,7 @@
       "hypotheses": [],
       "proofSteps": [
         "For a prime q choose F(q), the fixed field of its decomposition subgroup in Gal(F/ℚ). That subgroup is solvable, so the descended member over F(q) is supplied by solvable descent. The chosen completion F(q)_v is ℚ_q, allowing its local representation to be identified with the original D_q representation.",
-        "Away from ℓ apply full Hilbert local–global compatibility; at q=ℓ apply Skinner Theorem 1 to the descended motivic Hilbert form. No residual condition appears in Skinner’s hypotheses.",
+        "Away from ℓ apply R19.4/all-hilbert-local-global-compatibility; at q=ℓ apply R19.5/skinner-full-hilbert-coefficient-prime to the descended motivic Hilbert form. Transport both through R19.2/hilbert-normalisation-dictionary to the KW arithmetic member. Skinner’s theorem has no residual condition; the supplier also corrects its printed Hodge-degree shift (AutomorphicGaloisRepresentations/E4).",
         "Potential semistability plus an unramified WD parameter (including N=0) gives crystallinity. The Hilbert eigenvalues/Hodge weights yield global purity; local monodromy purity is a separate R34.6/R19.4 supplier, not inferred merely from good primes."
       ],
       "acceptance": [
@@ -3483,7 +3520,10 @@
         "AutomorphicGaloisRepresentations:R19.5",
         "AutomorphicGaloisRepresentations:R19.4",
         "WeightsInEtaleCohomology:R34.6",
-        "PadicHodgeTheory:R06.3/weil-deligne-descent"
+        "PadicHodgeTheory:R06.3/weil-deligne-descent",
+        "AutomorphicGaloisRepresentations:R19.5/skinner-full-hilbert-coefficient-prime",
+        "AutomorphicGaloisRepresentations:R19.4/all-hilbert-local-global-compatibility",
+        "AutomorphicGaloisRepresentations:R19.2/hilbert-normalisation-dictionary"
       ],
       "library": {
         "module": "TauCeti/NumberTheory/CompatibleSystems/Basic",
@@ -4432,7 +4472,7 @@
     },
     {
       "supplier": "AlgebraicModularFormsAndSerreWeights:R15.4",
-      "need": "Serre weights of residual representations for the weight bookkeeping of KW I Theorem 5.1(3),(4), with Savitt's computation of the reductions of potentially Barsotti–Tate representations of tame type (Duke 128 (2005), Corollary 6.15 and Remark 6.17).",
+      "need": "Serre weights of residual representations for the weight bookkeeping of KW I Theorem 5.1(3),(4), with Savitt's computation of the reductions of potentially Barsotti–Tate representations of tame type (Duke 128 (2005), Corollary 6.15 and Remark 6.17). For residual-members(v), also consume the positive-difference Fontaine–Laffaille comparison (1≤a−b≤ℓ−2), including the ordered wild-extension/finite-flat input requested from R07; for zero difference use the unramified Serre-weight-ℓ branch, not weight 1.",
       "neededBy": [
         "PotentialModularityAndCompatibleSystems:R24.4/alpha-beta-from-residual-modularity",
         "PotentialModularityAndCompatibleSystems:R24.5/kw-theorem-5-1-systems",
@@ -4520,7 +4560,7 @@
     },
     {
       "supplier": "GL2ModularityLifting:R22.5",
-      "need": "Export the full odd-prime KW I Theorem 4.1(2), as proved in KW II §10.2: cyclotomic absolute irreducibility, modular residual input, finite ramification, crystalline weights 2≤k≤p+1 (including k=p+1 with residual weight 2) or potentially semistable weight two. The current kw-odd-prime-lifting node only states narrower Theorem 9.7 data. Include the weight/solvable-base-change reductions without finiteness Theorem 10.1, potential modularity, or lift-existence inputs.",
+      "need": "Consume the existing planned R22.5/kw-i-theorem-4-1-odd-prime export of the full odd-prime KW I Theorem 4.1(2), with cyclotomic absolute irreducibility, modular residual input, finite ramification, crystalline weights 2≤k≤p+1 or potentially semistable weight two. Its non-ordinary k=p+1 case with residual weight 2 remains an explicit Kisin Durham proof gap in the supplier; this request stays open for that leaf and signature realization. The narrower Theorem 9.7 export alone is insufficient. The proof uses no finiteness Theorem 10.1, potential modularity or lift-existence input.",
       "neededBy": [
         "PotentialModularityAndCompatibleSystems:R24.4/kw-theorem-4-1"
       ],
@@ -4552,7 +4592,7 @@
     },
     {
       "supplier": "AutomorphicGaloisRepresentations:R19.3",
-      "need": "Supply compatible Hilbert modular eigenform families for every holomorphic cuspidal GL₂ form over totally real F used in KW II §10.3.2, including parallel weight two with [F:ℚ] even and no finite discrete-series place. Prove every member absolutely irreducible (Taylor’s irreducibility result) and family base-change/overlap compatibility. The current R19.2 Carayol Theorem A node has a parity/discrete-series restriction and does not suffice. This construction imports the early R24.5:operations carrier, avoiding a reverse definition dependency.",
+      "need": "Consume R19.3/fixed-eigenform-compatible-family and R19.2/all-cohomological-hilbert-representation for the holomorphic cuspidal GL₂ forms used in KW II §10.3.2, including parallel weight two over even-degree totally real fields with no finite discrete-series place. Use R19.2/hilbert-normalisation-dictionary to obtain KW arithmetic members. Supply the exact absolute-irreducibility and overlap/base-change comparisons for Brauer descent; those proof interfaces and realization remain open. The family imports the early R24.5:operations carrier, avoiding a reverse definition dependency.",
       "neededBy": [
         "PotentialModularityAndCompatibleSystems:R24.5/brauer-induction-system",
         "PotentialModularityAndCompatibleSystems:R24.5/almost-strict-compatibility",
@@ -4562,7 +4602,7 @@
     },
     {
       "supplier": "AutomorphicGaloisRepresentations:R19.4",
-      "need": "Export away-coefficient local–global compatibility with full monodromy for the general Hilbert modular families of R19.3, including the Taylor/Blasius–Rogawski cases outside the current Carayol parity scope; match the KW and geometric-BLGGT Frobenius/duality normalizations.",
+      "need": "Consume R19.4/all-hilbert-local-global-compatibility with full monodromy for the general R19.3 Hilbert families, including cases outside the historical Carayol parity scope. Transport its geometric coefficient representation to the KW arithmetic member via R19.2/hilbert-normalisation-dictionary. Keep the realization of this comparison and its overlap use explicit; importing good-place traces alone would lose monodromy.",
       "neededBy": [
         "PotentialModularityAndCompatibleSystems:R24.5/brauer-induction-system",
         "PotentialModularityAndCompatibleSystems:R24.5/almost-strict-compatibility",
@@ -4580,7 +4620,7 @@
     },
     {
       "supplier": "AutomorphicGaloisRepresentations:R19.5",
-      "need": "Add Skinner, Documenta Math. 14 (2009), Theorem 1, pp.241–243: for every motivic holomorphic cuspidal Hilbert form π over a totally real F, with k_τ≥2 and k_τ≡w mod 2, all coefficient-prime restrictions are potentially semistable of Hodge type ((w−k_τ)/2,(w+k_τ−2)/2) in Skinner’s convention and WD(ρ_π|D_v)^Fss≅ι Rec_v(π_v⊗|.|_v^−1/2). There is no residual-irreducibility assumption, no parity/[F:ℚ] restriction, and no finite discrete-series requirement; this completes Saito/Blasius–Rogawski. Current R19.5 has only the narrower Saito/Carayol route. Translate to the KW all-place local convention explicitly.",
+      "need": "Consume the reviewed planned R19.5/skinner-full-hilbert-coefficient-prime export of Skinner, Documenta Math. 14 (2009), Theorem 1, pp.241–243. Every motivic holomorphic cuspidal Hilbert form has potentially semistable coefficient-prime restrictions and the full WD comparison, without residual irreducibility, degree parity or a finite discrete-series place. Use R19.2/hilbert-normalisation-dictionary for the actual coefficient representation and KW arithmetic dual, including the Hodge-degree shift corrected in AutomorphicGaloisRepresentations/E4; do not identify the printed Skinner degrees with the supplier carrier without this conversion. The arithmetic signature realization remains open.",
       "neededBy": [
         "PotentialModularityAndCompatibleSystems:R24.5/strict-brauer-system",
         "PotentialModularityAndCompatibleSystems:R24.6/local-compatibility-at-the-coefficient-prime",
@@ -4679,7 +4719,7 @@
       "stageId": "PotentialModularityAndCompatibleSystems:R24.4",
       "status": "planned",
       "remaining": [
-        "Obtain the full KW I Theorem 4.1(2) export from R22.5, including endpoint residual-weight-two and general potentially semistable weight-two cases; residual Serre-weight supplier requests remain."
+        "Realize the existing full KW I Theorem 4.1 exports from R22.5/R22.6 and discharge the R22.5 non-ordinary crystalline endpoint (k=p+1, residual weight 2) proof gap; residual Serre-weight supplier requests remain."
       ],
       "notes": "Consumer/import layer only. R22.5/R22.6 own the proof. The R24.3→R24.4 chronological edge must not become a lift-existence/finiteness proof dependency (confirmed RT /12)."
     },
@@ -4687,7 +4727,7 @@
       "stageId": "PotentialModularityAndCompatibleSystems:R24.5",
       "status": "planned",
       "remaining": [
-        "Obtain general Hilbert eigenform/irreducibility and overlap-pairing exports, full Skinner coefficient-prime compatibility, and eigenform purity from their owners.",
+        "Realize the reviewed general Hilbert family, normalization and full Skinner coefficient-prime exports; supply the exact overlap/absolute-irreducibility pairing interfaces and eigenform purity from their owners.",
         "Verify Savitt’s exact residual weights; the historical almost-strict variant and the strict Brauer refinement are both planned.",
         "Potential modularity of weight-two lifts of other potentially Barsotti–Tate types and of general regular de Rham lifts, for the full scope of DP Theorem 1.11 (gap recorded by the review)."
       ],
@@ -4824,12 +4864,13 @@
       "known": "new: present in the author's preprint; the Inventiones version was not obtained",
       "searched": [
         "The author's preprint proofs.pdf (the version read)",
-        "Invent. Math. 178 (2009) 505–586: not obtained"
+        "Invent. Math. 178 (2009) 505–586: not obtained",
+        "2026-10-08: KW II preprint bibliography p.96 compared with the published DP reference 12 p.16; no KW II version-of-record claim."
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Confirmed. The preprint's bibliography entry [33] reads 'Duke Math. J. 134 (3) (2006), 534–567'; Project Euclid lists Khare's paper as Duke Math. J. 134 (2006), no. 3, 557–589, as does Dieulefait–Pacetti's [Kha06]. The Inventiones text was not obtained, so the finding is scoped to the preprint.",
-        "by": "REV-PotentialModularityAndCompatibleSystems--R24.3"
+        "reason": "Confirmed in KW II author preprint p.96. The published DP bibliography, reference 12 p.16, gives Duke 134(3), 557–589, agreeing with the correction. No claim is made about the unobtained Inventiones KW II text.",
+        "by": "REV-PotentialModularityAndCompatibleSystems--R24.3~2"
       }
     },
     {
@@ -4841,33 +4882,35 @@
       "correction": "Use v4's factors: L_v = Γ_ℝ(s − w/2)^{d+}Γ_ℝ(s + 1 − w/2)^{d−}∏_{h<w/2}Γ_ℂ(s − h)/Γ_ℂ(s − w/2) at real v (and the analogue at complex v), with no separate Hodge factor.",
       "reason": "The product (s − w/2)⋯(s + |h − w/2| − 1 − w/2) has |h − w/2| factors, which is not an integer when w is odd, although v1 states the definition for every pure regular strictly compatible ℛ. For an elliptic curve over ℚ (n = 2, w = 1, H = {0, 1}) v1's real factor is Γ_ℂ(s − 1/2) and no polynomial Hodge factor turns it into the standard Γ_ℂ(s); v4 gives Γ_ℝ(s − 1/2)Γ_ℝ(s + 1/2)Γ_ℂ(s)/Γ_ℂ(s − 1/2) = Γ_ℂ(s). So v1's Corollary 5.3.2(2) (the functional equation of Λ) is not defined for odd-weight systems.",
       "affects": "a stated result",
-      "known": "Corrected in arXiv v4 (9 December 2013), §5.1 pp. 63–64",
+      "known": "Corrected in arXiv v4 (9 December 2013), §5.1 pp.63–64, and in published Annals §5.1 p.572.",
       "searched": [
-        "2026-09-29: arXiv versions v1 and v4 compared; the Annals version was not collated."
+        "2026-09-29: arXiv versions v1 and v4 compared; the Annals version was not collated.",
+        "2026-10-08: v1/v4 compared and published Annals DOI 10.4007/annals.2014.179.2.3 PDF p.572 collated."
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Confirmed at arXiv v1 §5.1, pp. 52–53: L({H_τ}, s) is a product of |h − w/2| linear factors, which is not an integer when w is odd, and Corollary 5.3.2(2) states Λ(ıR, s) = ε(ıR, s)Λ(ıR^∨, 1 − s) for every system satisfying Theorem 5.3.1. For an elliptic curve (w = 1, H = {0, 1}) v1's real factor Γ_ℂ(s − 1/2) would need the non-polynomial Γ_ℂ(s)/Γ_ℂ(s − 1/2). arXiv v4 §5.1, pp. 63–64, uses Γ-quotient factors with no separate Hodge factor and gives Γ_ℂ(s).",
-        "by": "REV-PotentialModularityAndCompatibleSystems--R24.3"
+        "reason": "Confirmed by comparing arXiv v1 pp.52–53 with v4 pp.63–64 and the published Annals p.572. For w=1 and H={0,1}, a product with |h−w/2| linear factors is undefined as a finite polynomial product; the later Gamma quotients give Γℂ(s) using Γℝ(s)Γℝ(s+1)=Γℂ(s). This checks the normalization without assuming a functional equation.",
+        "by": "REV-PotentialModularityAndCompatibleSystems--R24.3~2"
       }
     },
     {
       "id": "PotentialModularityAndCompatibleSystems/E3",
       "source": "blggt-2014-v4",
       "kind": "misprint",
-      "locator": "arXiv v4, §5.2, proofs of Lemma 5.2.1(3) (p. 67) and Proposition 5.2.2 (pp. 69–70)",
+      "locator": "arXiv v4, §5.2, proofs of Lemma 5.2.1(3) (p. 67) and Proposition 5.2.2 (pp. 69–70); also published Annals §5.2 pp.576,578–580",
       "printed": "The source identifies −mµ,σ as the σ-Hodge–Tate number attached to (A(n)µ) ◦ (rl mod G0l(Q̄l)). It also gives (γG̃l)(Zl) = γ(G̃l(Zl)) = G̃l(Zl) and the intersection ⋂_{i≠j} ker(Λ′ → VΛ,i).",
       "correction": "r_l mod G^der_l(Q̄_l) (the map to C_l = G⁰_l/G^der_l); G̃^sc_l in place of G̃_l; V_{λ,i} in place of V_{Λ,i}.",
       "reason": "A(n)µ is a character of C_l, which is the quotient by G^der_l (modding out by G⁰_l would leave the finite component group); the argument concerns the simply connected group scheme G̃^sc_l just introduced; V_{λ,i} are the isotypic parts of V_l ⊗ M_λ.",
       "affects": "nothing",
-      "known": "new (arXiv v4 read; the Annals version was not collated)",
+      "known": "new: all three slips persist in arXiv v4 and the published Annals text read on 2026-10-08",
       "searched": [
-        "2026-09-29: arXiv listing for 1010.2561 (v1–v4); a web search for BLGGT errata found none."
+        "2026-09-29: arXiv listing for 1010.2561 (v1–v4); a web search for BLGGT errata found none.",
+        "2026-10-08: published Annals PDF, pp.576,578–580; title/errata searches and Annals landing page found no matching correction."
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Confirmed at arXiv v4: p. 67 prints 'mod G0l(Ql)' where θ_l and A(n)µ ∈ X*(C_l) require G^der_l; p. 69 prints (γG̃_l)(Z_l) = γ(G̃_l(Z_l)) = G̃_l(Z_l) in an argument about the group scheme G̃^sc_l just introduced; p. 70 prints ker(Λ′ → V_{Λ,i}) for the isotypic parts V_{λ,i}. All three are slips of notation; the arguments are unaffected.",
-        "by": "REV-PotentialModularityAndCompatibleSystems--R24.3"
+        "reason": "Confirmed independently in arXiv v4 pp.67,69–70 and the published Annals pp.576,578–580. The character must be evaluated on the quotient by the derived group; the conjugated integral model is the simply connected model; the projection targets are the λ-isotypic spaces. All three are notation slips, not proof gaps.",
+        "by": "REV-PotentialModularityAndCompatibleSystems--R24.3~2"
       }
     },
     {
@@ -4879,17 +4922,18 @@
       "correction": "For extremely weak systems, this implies purity of the good Frobenius eigenvalues. Full purity, including H_{cτ}={w−h:h∈H_τ}, requires the canonical Hodge multisets of the Artin tensor character family (or a very weak realization, which forces those multisets). The roadmap uses this qualified statement.",
       "reason": "Take F=ℚ(i), and the standard irreducible two-dimensional rational representation of Gal(LF/F)=S₃, where L is the splitting field of X³−2 over ℚ. Its finite-image family has good roots of unity, determinant Hodge weight zero at every λ, and is Artin up to twist with trivial character. Assign H_τ={−1,1} and H_{cτ}={0,0} at the two embeddings of F. Both sums are zero, so all extremely weak conditions hold. The good roots force w=0, but H_{cτ}≠−H_τ. The Artin-up-to-twist definition compares members only and imposes no H-multiset equality. This does not affect the canonical Artin constructor or the subsequent applications to very weak systems.",
       "affects": "a stated result",
-      "known": "new (no correction located in the sources searched; independent review required)",
+      "known": "new: independently confirmed in the published text; no matching correction located in the recorded searches",
       "searched": [
         "2026-10-06: Annals DOI landing page 10.4007/annals.2023.197.3.2; no correction listed there.",
         "2026-10-06: published journal-layout PDF on Frank Calegari’s research page, §7.1 pp.1085–1086,1092; the observation and definitions agree with the Scholze-hosted author copy.",
         "2026-10-06: arXiv:1812.09999 submission history (v1 December 2018, v2 June 2022; no subsequent version listed).",
-        "2026-10-06: Calegari’s research listing and searches for the exact title with erratum, purity, and extremely weak Artin; no matching correction found."
+        "2026-10-06: Calegari’s research listing and searches for the exact title with erratum, purity, and extremely weak Artin; no matching correction found.",
+        "2026-10-08: published §7.1 definitions and purity observation compared; title/erratum/purity search returned no matching correction."
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Confirmed at the published §7.1, pp. 1085–1086 and 1092. An extremely weakly compatible system constrains H_τ only through HT_τ(det r_λ) = Σ H_τ, and 'Artin up to twist' compares members only (r_λ ≃ ρ ⊗ χ_λ). The S₃ family over ℚ(i) (LF/F has group S₃ because L ∩ ℚ(i) = ℚ) with H_τ = {−1, 1}, H_cτ = {0, 0} is extremely weak and Artin up to twist with trivial χ, its good roots are roots of unity so w = 0, and H_cτ ≠ {−h}. The paragraph's claim is an unnumbered remark; ACC's main results in §7.1 (Theorem 7.1.11, Corollaries 7.1.12–7.1.13) concern very weakly compatible systems with H_τ = {0, 1}, where the issue does not arise.",
-        "by": "REV-PotentialModularityAndCompatibleSystems--R24.3"
+        "reason": "Confirmed in the published ACC §7.1 pp.1085–1086,1092. Extremely weak data constrain only the sums of the chosen Hodge multisets. The rational S₃ Artin family over ℚ(i) with multisets {−1,1} and {0,0} has those determinant sums and roots of unity but fails weight-zero multiset symmetry. Comparing members up to an Artin twist does not force the missing symmetry. Canonical Artin families and very weak systems retain the intended purity.",
+        "by": "REV-PotentialModularityAndCompatibleSystems--R24.3~2"
       }
     },
     {
@@ -4897,21 +4941,22 @@
       "source": "dieulefait-pacetti",
       "kind": "gap",
       "affects": "the proof",
-      "locator": "Theorem 1.11 and its proof, p. 7 of arXiv:2108.07577v2 (identical in the authors' copy dated 1 May 2022); the RACSAM version (117 (2023), article 153) was not obtained",
+      "locator": "Theorem 1.11 and its proof, p.7 of arXiv:2108.07577v2; published RACSAM 117 (2023), article 153, p.7, reference 4 p.15",
       "printed": "Theorem 1.11 takes an odd, irreducible and continuous ρ : GalQ → GL2(Kλ), ramified at only finitely many places, de Rham at p, with Hodge-Tate weights {0, k − 1} and k > 1, with absolutely irreducible residual restriction to G_{ℚ(ζ_p)}; for p = 2 it also assumes nonsolvable residual image. It asserts that ρ belongs to a rank 2 system of Galois representations that is almost strictly compatible. The proof cites [Die04, Theorem 1.1].",
       "correction": "The cited theorem does not prove the statement. [Die04, Theorem 1.1] (arXiv math/0304433v1) assumes ρ crystalline at an odd prime q with Hodge–Tate weights {0, w}, w odd, and q ≥ 2w + 1. Within the scope planned here, the family construction uses KW II §10.3.2 (potential modularity of lifts of KW types (A), (B), (C) and the Brauer construction) for the lifts of Theorem 1.9(1)–(3). For Theorem 1.9(4), Snowden supplies weight-two lift existence subject to actual local solutions, but embedding lifts of other potentially Barsotti–Tate types in a compatible family requires potential modularity beyond R23.4; that supplier gap is recorded separately. The general de Rham statement needs potential modularity of arbitrary regular de Rham lifts and should cite it, or be restricted to the lifts used.",
       "reason": "DP apply Theorem 1.11 in §2 to the minimal crystalline lifts of Theorem 1.9(3), whose weight k ≤ p + 1 can violate q ≥ 2w + 1 (p = 3, k = 4 gives w = 3) or have w = k − 1 even, and to the weight-two lifts of Paso 1, whose crystallinity at the coefficient prime is not guaranteed. Neither class is within [Die04, Theorem 1.1].",
-      "known": "new",
+      "known": "new: citation gap persists in the published RACSAM text read on 2026-10-08",
       "searched": [
         "2026-10-06: arXiv:2108.07577 versions v1 (17 August 2021) and v2 (3 May 2022); the authors' copy at sweet.ua.pt/apacetti/papers/Serre.pdf (1 May 2022), which agrees with v2 here",
         "2026-10-06: the RACSAM landing page (doi 10.1007/s13398-023-01478-8); the publisher returned a client challenge, so the published text was not read",
         "2026-10-06: arXiv:math/0304433 (only v1 exists) for [Die04]; the Crelle 577 (2004) text was not obtained",
-        "2026-10-06: web searches for an erratum or correction of the paper; none found"
+        "2026-10-06: web searches for an erratum or correction of the paper; none found",
+        "2026-10-08: publisher HTML/PDF and University of Barcelona repository version of record (doi 10.1007/s13398-023-01478-8), Theorem 1.11 p.7 and reference 4 p.15; theorem and citation are unchanged. Title/erratum search found no matching correction."
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Added by the review after reading DP p. 7 and §2 and Dieulefait arXiv math/0304433v1 Theorem 1.1. Scoped to the versions read.",
-        "by": "REV-PotentialModularityAndCompatibleSystems--R24.3"
+        "reason": "Confirmed in arXiv v2 p.7 and now in the published RACSAM 117:153 Theorem 1.11 and proof, p.7. The published proof still cites reference 4, Dieulefait 2004 Theorem 1.1. The arXiv version of that cited theorem, pp.1–2, assumes an odd coefficient prime, crystallinity, odd positive weight difference w and q≥2w+1, so it does not justify the stated arbitrary regular de Rham input. The Crelle text itself remains unread; this is a citation-scope gap, not a counterexample to the family theorem.",
+        "by": "REV-PotentialModularityAndCompatibleSystems--R24.3~2"
       }
     }
   ],
@@ -4942,7 +4987,7 @@
       "url": "https://arxiv.org/pdf/1010.2561v4",
       "read": "2026-10-08",
       "sha256": "c953df6229ba8d8b4ae25b1a00cf11592864c74692859d324ff10d3eef645d24",
-      "citation": "BLGGT arXiv v4, the last arXiv version before the Annals publication (not collated)."
+      "citation": "BLGGT arXiv v4, the last arXiv version before the Annals publication; published §5.1–5.2 collated separately on 2026-10-08."
     },
     {
       "url": "https://ems.press/content/serial-article-files/26055?nt=1",
@@ -4975,7 +5020,7 @@
     {
       "kind": "preprint",
       "url": "https://arxiv.org/pdf/2108.07577v2",
-      "citation": "Dieulefait and Pacetti, A simplified proof of Serre's conjecture, arXiv:2108.07577v2 (published in RACSAM 117 (2023), 153; not obtained)",
+      "citation": "Dieulefait and Pacetti, A simplified proof of Serre's conjecture, arXiv:2108.07577v2 (published in RACSAM 117 (2023), 153; published Theorem 1.11 collated separately on 2026-10-08)",
       "read": "2026-10-08",
       "sha256": "0c6850dafda032f7a4008947c519b5aef8cc13762207bb67c36810170a8eebe6"
     },
@@ -5027,6 +5072,20 @@
       "citation": "H. P. F. Swinnerton-Dyer, On ℓ-adic representations and congruences for coefficients of modular forms; Modular functions of one variable III, Lecture Notes in Mathematics 350 (1973), pp. 1–55; scan of the published chapter (printed page = PDF page)",
       "read": "2026-10-08",
       "sha256": "2e291a7d66fae845eeffef0789353b8b1b85bb236b5b8c1a3d44a46de831a727"
+    },
+    {
+      "kind": "published",
+      "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v179-n2-p03-p.pdf",
+      "citation": "BLGGT, Ann. of Math. 179 (2014), 501–609; §5.1 p.572 and §5.2 pp.576,578–580 collated for E2/E3",
+      "read": "2026-10-08",
+      "sha256": "c9d6c7107bcde7fb26f9388abea5209f28457076bae59d70ccb6c34bbe1d621b"
+    },
+    {
+      "kind": "published",
+      "url": "https://diposit.ub.edu/bitstreams/2e30a20d-5dd2-48e5-a27e-28c3f5fc241e/download",
+      "citation": "Dieulefait–Pacetti, RACSAM 117 (2023), article 153; Theorem 1.11 p.7 and references 4/12 pp.15–16 collated for E1/E5",
+      "read": "2026-10-08",
+      "sha256": "2a133808911a1819ea9480bea0bfc18846035f961e866ddec4d05d69b093e0f8"
     }
   ],
   "upstreamNotes": [
@@ -5082,229 +5141,229 @@
         "GL2ModularityLifting"
       ],
       "detail": "Confirmed RT-AREA-langlands-2/30 and /21: full Skinner coefficient-prime compatibility supplies strict Brauer families, while modern ramified residually reducible transfer is owned by R32.6.",
-      "proposal": "Extend the proposed AutomorphicGaloisRepresentations R19.5 scope to Skinner 2009 Theorem 1, including the Blasius–Rogawski Hilbert families outside the Saito/Carayol parity restriction. R24.5 imports that theorem for strictness at every coefficient prime, including ℓ=2 and reducible residual members; retain KW almost strictness as its historical variant. R24.6 consumes strict local compatibility and retains reduction/local-hypothesis lemmas, importing the modern de Rham transfer solely from GL2ModularityLifting R32.6. These proposals change no upstream Tau Ceti roadmap."
+      "proposal": "The reviewed AutomorphicGaloisRepresentations packet now exports Skinner 2009 Theorem 1 at R19.5/skinner-full-hilbert-coefficient-prime, including Hilbert families outside Saito/Carayol’s parity scope. R24.5 imports it and the R19.2 normalization dictionary for strictness at every coefficient prime, including ℓ=2 and reducible residual members; retain KW almost strictness as its historical variant. R24.6 retains reduction/local-hypothesis lemmas and imports modern de Rham transfer solely from GL2ModularityLifting R32.6. Carry this ownership into the campaign graph without changing any upstream Tau Ceti roadmap."
     }
   ],
   "review": {
-    "status": "needs_changes",
-    "reviewer": "independent-review-REV-PotentialModularityAndCompatibleSystems--R24.3",
-    "date": "2026-10-06",
-    "notes": "Independent review of all 43 nodes (23 verified, 20 corrected, 0 added), the 21 Mathlib baseline declarations (all confirmed at 082e2d3), every source excerpt (all literal; four locators or excerpts fixed), the 26 requests and their supplier nodes, the four confirmed red-team findings, the source issues and the suggested file. Main corrections: residual-members (ii) wrongly denied KW's cofinite residual irreducibility; dieulefait-families claimed DP Theorem 1.11 in a generality its prerequisites do not reach, now scoped to R23.4 with a recorded gap and new source issue E5 (DP's citation of Dieulefait 2004 does not prove it); almost-strict-compatibility lacked R23.5 and the R19.5 coefficient-prime input; two nodes cited a weight-two crystalline criterion for all weights; 25 request/prerequisite mismatches were reconciled, including two that would have made R24.5:operations depend on R19.3 and R34.6. E1–E4 confirmed. Stage statuses (all planned) are honest. The suggested file elaborates at the pinned Mathlib with only proof-placeholder warnings. The verdict is needs_changes only because the reader document, which is not a deliverable of this review, still carries the uncorrected text; the report lists the required synchronisation. The plan itself needs no further revision.",
+    "status": "accepted",
+    "reviewer": "independent-review-REV-PotentialModularityAndCompatibleSystems--R24.3~2",
+    "date": "2026-10-08",
+    "notes": "Independent Codex review (codex-OPHCdW): 43 nodes, 21 exact-pinned Mathlib declarations, supplier contracts, 26 requests, all five target-level stages, API/tests/planets, red-team /10 /12 /21 /30 and source findings E1–E5 checked. Corrected 10 nodes in place, chiefly the zero-difference Serre-weight formula and current full R22/R19 supplier bindings; synchronized the reader and omission catalogue. Removed two artificial Lean test surrogates, retaining their arithmetic obligations as omissions. Added published BLGGT/DP collation receipts. Packet and errata checks pass without errors; Lean elaborates with only 77 proof-placeholder warnings. The complete target pass is accepted with seven recorded gaps, five planned stages and proofClosed=false; this is not proof closure or implementation.",
     "checked": [
       {
         "nodeId": "PotentialModularityAndCompatibleSystems:R24.3/bockle-presentation",
         "verdict": "verified",
-        "note": "Matches Böckle's Proposition 1 (hypotheses (a), (b), d, Ad_X, Δ) and Corollary 1, and KW Annals Proposition 3.4. The R04.3 presentation and tangent-space nodes and the R08.6 conditions were read and supply the inputs."
+        "note": "Böckle Proposition 1 p.2 and KW Annals Proposition 3.4 p.240 match the fixed/variable determinant dimension count. The presentation and local-condition inputs are supplied by R04/R08, not proved again here."
       },
       {
         "nodeId": "PotentialModularityAndCompatibleSystems:R24.3/finite-presentation-complete-intersection",
-        "verdict": "corrected",
-        "note": "Lemma 2 and its proof checked (height n + 1, m = n, regular sequence, flatness). The hypothesis illustrating finiteness was wrong: 𝒪⟦x⟧ is a flat complete intersection; what fails without finiteness is m = n. The Lean fragment is a true algebraic signature."
+        "verdict": "verified",
+        "note": "Böckle Lemma 2 p.5 requires a nonzero finite quotient and at most n relations over the n-variable DVR power-series ring. Its parameter-system regularity input is explicitly requested from R03.3; the earlier review’s nonzeroness correction is preserved."
       },
       {
         "nodeId": "PotentialModularityAndCompatibleSystems:R24.3/bockle-minimal-r-equals-t",
         "verdict": "verified",
-        "note": "Theorem 1 and its proof (diagrams (1)–(2), reducedness of T_Q, Carayol's conductor theorem) checked. The R19.4 Carayol node supplies compatibility away from p; the integral auxiliary R = T is correctly requested from R22.3."
+        "note": "Böckle Theorem 1 p.1 assumes the auxiliary finite-flat R_Q=T_Q comparison. The R22.3 request carries that precise hypothesis; this is not an unconditional lift-existence theorem."
       },
       {
         "nodeId": "PotentialModularityAndCompatibleSystems:R24.3/kw-annals-minimal-lifts",
-        "verdict": "corrected",
-        "note": "Theorem 3.3, Propositions 3.4–3.5, Lemma 3.6, Theorem 3.7 and the attribution to [27] checked. Added the second reason weight p is excluded: the R = T inputs of Proposition 3.8 (p. 242)."
+        "verdict": "verified",
+        "note": "KW Annals Theorem 3.3 pp.239–242 has p>2, cyclotomic absolute irreducibility, 2≤k≤p+1 and k≠p. The dimension, finiteness and finite-flat conclusions and the corrected Khare–Ramakrishna bibliography locator agree."
       },
       {
         "nodeId": "PotentialModularityAndCompatibleSystems:R24.3/required-lift-types",
-        "verdict": "corrected",
-        "note": "Types (1)–(4), minimality and the Remarks (Savitt, parity, automatic minimality, level-two characters, Diamond's list) checked against KW I pp. 8–10. Clarified that KW's upper-triangular form in type (4) splits on I_q. Tests checked."
+        "verdict": "verified",
+        "note": "KW I Theorem 5.1 pp.9–10 gives the four local types, auxiliary characters and dyadic parity restrictions. The genuine level-two and automatic-minimality qualifications are retained; R08/R04 own the local conditions and point recognition."
       },
       {
         "nodeId": "PotentialModularityAndCompatibleSystems:R24.3/theorem-5-1-part-1-minimal-crystalline",
         "verdict": "verified",
-        "note": "KW I Theorem 5.1(1); existence as in KW II §10.3.1 (Theorem 10.1, Corollary 4.7). Supplier nodes read."
+        "note": "KW I Theorem 5.1(1) p.9 and KW II §10.3.1 p.92 give minimal crystalline lifts, with k=2 in the dyadic branch. Local nonemptiness, global dimension, finiteness and characteristic-zero-point inputs remain separate."
       },
       {
         "nodeId": "PotentialModularityAndCompatibleSystems:R24.3/theorem-5-1-part-2-weight-two",
         "verdict": "verified",
-        "note": "KW I Theorem 5.1(2), including the (id, N) case; existence as in KW II §10.3.1."
+        "note": "KW I Theorem 5.1(2) p.9 and KW II §10.3.1 p.92 give weight-two lifts, with nonzero monodromy at the endpoint and the distinct dyadic weight-four branch."
       },
       {
         "nodeId": "PotentialModularityAndCompatibleSystems:R24.3/theorem-5-1-part-3-level-one-type-at-q",
         "verdict": "verified",
-        "note": "KW I Theorem 5.1(3) with its weight remark; R08.6/export-away-from-p (b) supplies the local condition at q."
+        "note": "KW I Theorem 5.1(3) p.9 has q∥N, p|(q−1) and a specified lifting character with the dyadic parity condition. The residual-weight conclusion for the new coefficient member belongs to the separate systems node and Savitt request."
       },
       {
         "nodeId": "PotentialModularityAndCompatibleSystems:R24.3/theorem-5-1-part-4-level-two-type-at-q",
         "verdict": "verified",
-        "note": "KW I Theorem 5.1(4); the level-two condition at q is R08.6/export-away-from-p (b)."
+        "note": "KW I Theorem 5.1(4) p.10 has the level-two p-power character and p|(q+1); its local nonemptiness is imported. No good-dihedral condition is inferred solely from the numerical divisibility."
       },
       {
         "nodeId": "PotentialModularityAndCompatibleSystems:R24.3/theorem-5-1-application-table",
-        "verdict": "corrected",
-        "note": "Added the type (2) and (1) lifts used in the sub-cases of the mod 5 and inductive steps of KW I §8.2 (pp. 14–15), and stated which cases of KW I Theorem 5.1 DP Theorem 1.9 (1)–(3) are. The rest checked against KW I §§8–9."
+        "verdict": "verified",
+        "note": "KW I §8.2 pp.13–15 confirms both lift choices in the linked-system induction. DP Theorem 1.9 p.6 separates the classical KW branches from the modern prescribed-type branch. The revision retains the earlier review’s restored cases."
       },
       {
         "nodeId": "PotentialModularityAndCompatibleSystems:R24.3/modern-prescribed-type-lifts",
-        "verdict": "corrected",
-        "note": "Snowden Theorems 7.2.1, 7.6.1 and Propositions 7.3.1, 7.4.1, 7.7.1 checked. Added Snowden's standing hypothesis that p is odd (§1.4), and recorded that DP's inertia-only compatibility is weaker on its face than Snowden's local solution."
+        "verdict": "verified",
+        "note": "Snowden §1.4 p.3, §3.1 p.6 and Theorems 7.2.1/7.6.1 pp.21–23 require actual local solutions and the specified extension of types. The plan correctly excludes arbitrary nonempty-looking type labels and the dyadic case."
       },
       {
         "nodeId": "PotentialModularityAndCompatibleSystems:R24.4/alpha-beta-from-residual-modularity",
-        "verdict": "verified",
-        "note": "(α) and (β) as defined in KW II §8.2 (p. 70) and verified in §10.2 (p. 92). Imports R22.5 and R20.6, as RT-AREA-langlands-2/12 requires."
+        "verdict": "corrected",
+        "note": "KW II §10.2 p.92 is a consumer of residual weight witnesses and earlier lifting. Added direct bindings to R22.5/alpha-beta-from-modularity-over-q and kw-residual-modularity-beta; no R24 lift-existence theorem enters the proof."
       },
       {
         "nodeId": "PotentialModularityAndCompatibleSystems:R24.4/kw-theorem-4-1",
-        "verdict": "verified",
-        "note": "KW I Theorem 4.1 (p. 7) and KW II §10.2 checked. The node imports R22.5/R22.6 and uses no R24.1–R24.3 input (RT /12); the request for the full odd-prime 4.1(2) export is precise."
+        "verdict": "corrected",
+        "note": "KW I Theorem 4.1 p.7 is broader than the odd-prime Theorem 9.7 export. Replaced the narrow lifting dependencies with the full R22.5/R22.6 exports and carried the odd-prime non-ordinary endpoint gap in coverage and its request."
       },
       {
         "nodeId": "PotentialModularityAndCompatibleSystems:R24.5/compatible-system",
         "verdict": "corrected",
-        "note": "KW I §5 (pp. 7–8) checked. Clarified that an almost strictly compatible system is a plain compatible system satisfying the coefficient-place clauses, and that DP's version adds a de Rham condition. Replaced the p. 8 excerpt, which repeated the p. 7 one. Removed the node from the R19.3 request: R24.5:operations precedes R19.3 (RS-12, RT /10)."
+        "note": "KW I §5 pp.7–8 and DP Definition 1.10 p.7 distinguish plain, almost strict and strict contracts. Removed the unsupported claim of strict logical separation by an actual arithmetic family, and omitted its finite-slot Lean surrogate."
       },
       {
         "nodeId": "PotentialModularityAndCompatibleSystems:R24.5/system-operations",
         "verdict": "verified",
-        "note": "Memberwise operations as in BLGGT §5.1; WD and Hodge transport and the induction/restriction formulas are right. Request lists completed (R01.1, G7)."
+        "note": "KW II §10.3.2 p.93 uses twisting, restriction and finite-index induction of actual representations. The general continuous representation operations remain imports from R01.1/G7; preservation conditions and four tests are explicit."
       },
       {
         "nodeId": "PotentialModularityAndCompatibleSystems:R24.5/brauer-induction-system",
         "verdict": "corrected",
-        "note": "KW II §10.3.2 (p. 93) and Khare's proof checked. The norm-one argument (Mackey, Frobenius reciprocity, overlap Hom characters, BLGGT §5.4(4)) is sound with the R17.6 request. Corrected the Khare locator: in arXiv v1 it is §3, Proposition 3.1 (KW II cite the Duke numbering). Added the Brauer induction prerequisite the construction uses."
+        "note": "KW II §10.3.2 p.93 and Khare arXiv Proposition 3.1 pp.16–17 require norm one, not degree two alone, for Brauer genuineness. Bound the current R19.3 family and R19.2 normalization exports; the overlap-character proof leaf remains requested from R17.6."
       },
       {
         "nodeId": "PotentialModularityAndCompatibleSystems:R24.5/almost-strict-compatibility",
         "verdict": "corrected",
-        "note": "(a)–(c) and the KW II correction checked (pp. 93–94). Added R23.5 (linear disjointness, KW II Theorem 6.1(iii)(d)) for (c) and the R19.5 stage: the cited R19.5 node keeps Carayol's parity hypothesis and covers neither Breuil–Berger nor Kisin for KW's fields, while the requested Skinner theorem covers both."
+        "note": "KW II pp.93–94 retains its historical residual-irreducibility restriction. Replaced stale supplier commentary by explicit current full Skinner, away-coefficient and normalization imports for the modern route; preserved R23.5 disjointness and the historical proof distinction."
       },
       {
         "nodeId": "PotentialModularityAndCompatibleSystems:R24.5/kw-theorem-5-1-systems",
-        "verdict": "corrected",
-        "note": "KW I Theorem 5.1 and its Remarks checked. The Savitt hypothesis now names the missing case correctly: residual characteristic q = 2 (KW I p. 19), not p = 2. Replaced the Remark excerpt, which repeated the theorem's."
+        "verdict": "verified",
+        "note": "KW I Theorem 5.1 pp.9–10, Theorem 9.1 p.19 and KW II p.94 support the family construction and dyadic branch. Savitt’s exact residual-weight calculations remain an honestly unread R15.4 supplier leaf."
       },
       {
         "nodeId": "PotentialModularityAndCompatibleSystems:R24.5/dieulefait-families",
-        "verdict": "corrected",
-        "note": "DP Theorem 1.11 checked against DP §2 and Dieulefait arXiv math/0304433v1. R23.4 covers only lifts of KW types (A), (B), (C), so the node now plans that scope, which contains the lifts DP Theorem 1.9(1)–(3) produce and those of 1.9(4) that are crystalline, Steinberg or of type (B) at p; the rest is a recorded gap, and DP's citation is source issue E5."
+        "verdict": "verified",
+        "note": "DP Theorem 1.11 p.7 is quoted only as a source assertion; the planned family theorem is restricted to the R23.4 KW types. Dieulefait 2004 Theorem 1.1 pp.1–2 is narrower, and the extra potentially Barsotti–Tate/general de Rham scope remains a recorded gap."
       },
       {
         "nodeId": "PotentialModularityAndCompatibleSystems:R24.6/residual-members",
         "verdict": "corrected",
-        "note": "(ii) contradicted the source and its own proof step. KW I prove that ρ̄_ι is absolutely irreducible for all but finitely many ℓ (proof of Theorem 10.1; §8.4). Restored that statement with its proof, and the cofinite restriction to ℚ(ζ_ℓ) for a ≠ b via KW I Lemma 6.2(ii); kept the density-one statement for general regular systems. Added R01.1 and R01.5 and a Δ acceptance check. (i) and (iii)–(v) verified."
+        "note": "Preserved KW I §8.4 p.17 and Theorem 10.1 p.20 cofinite rank-two irreducibility and Lemma 6.2 p.11 cyclotomic bound. Corrected (v) to positive Fontaine–Laffaille weight difference and S-type residual input; added the unramified equal-weight Artin branch of Serre weight ℓ, explicit R15.4 inputs and an S₃ acceptance check."
       },
       {
         "nodeId": "PotentialModularityAndCompatibleSystems:R24.6/local-compatibility-at-the-coefficient-prime",
         "verdict": "corrected",
-        "note": "Checked against KW I p. 8 and DP Paso 5 (p. 14). Replaced the weight-two Barsotti–Tate criterion by PadicHodgeTheory R06.3/weil-deligne-descent, which gives crystallinity from an unramified WD parameter with N = 0 in every weight."
+        "note": "KW I §5 p.8 and DP Paso 5 p.14 do not give a WD assertion for an arbitrary residual-reducible ramified coefficient member. Clarified those clauses and bound full Skinner only for the constructed strict Hilbert/Brauer families; the all-weight crystalline criterion is R06.3."
       },
       {
         "nodeId": "PotentialModularityAndCompatibleSystems:R24.6/linked-systems-modularity-transfer",
         "verdict": "verified",
-        "note": "Linking as in KW I §§8.2–8.4 and DP Remark 4. The transfer is imported from R32.6 (RT /21); its three nodes were read and the edge R32.6 → R24.6 is acyclic. Request lists completed."
+        "note": "KW I §8.2 p.15 and DP Remark 4 p.7 support memberwise recognition/classical transfer. The modern ramified residual-reducible de Rham branches are imported from the three R32.6 nodes, without a second lifting theorem in R24.6."
       },
       {
         "nodeId": "PotentialModularityAndCompatibleSystems:R24.5/weakly-compatible-system-rank-n",
-        "verdict": "verified",
-        "note": "Matches BLGGT v4 §5.1 (p. 62) and Taylor 2006 §6 (p. 773). Tests checked, including Q₂ = X² + 24X + 2048 for Δ."
+        "verdict": "corrected",
+        "note": "BLGGT v1 §5.1 p.51 and Taylor §6 p.773 require actual semisimple members, common polynomials and labeled Hodge data. Replaced the stale source-match wording by a direct description; carrier and recognition scope are otherwise verified."
       },
       {
         "nodeId": "PotentialModularityAndCompatibleSystems:R24.5/compatible-system-predicates",
         "verdict": "corrected",
-        "note": "Checked against BLGGT v1 pp. 51–53 and v4 pp. 62–64. Added the Hodge-symmetry clause of 'strictly pure'. Removed the node from the R34.6 request: a predicate needs no eigenform purity theorem."
+        "note": "BLGGT v1 pp.51–53 and v4 pp.62–63 distinguish regularity, purity with Hodge symmetry and away-coefficient strictness. Clarified the missing KW coefficient obligation and omitted its artificial finite-slot Lean example; no arithmetic counterfamily is asserted."
       },
       {
         "nodeId": "PotentialModularityAndCompatibleSystems:R24.5/linear-algebra-operations-on-systems",
-        "verdict": "corrected",
-        "note": "Dual polynomial X^n Q(0)⁻¹Q(1/X), Hodge multisets and purity rules checked; tests checked. Added PadicHodgeTheory R06.2, which its request already names, for the Hodge multiset formulas."
+        "verdict": "verified",
+        "note": "BLGGT v1 §5.1 pp.51,53 gives the system operations. Tensor, dual, powers and restriction carry the stated polynomial/Hodge formulas, while irreducibility, regularity and polarization require their own hypotheses. The five tests detect these failures."
       },
       {
         "nodeId": "PotentialModularityAndCompatibleSystems:R24.5/rank-two-reducibility-independent-of-lambda",
-        "verdict": "corrected",
-        "note": "Taylor Lemma 6.5 (p. 774) checked. The title no longer promises the component group (monodromy-component-field plans it), the conclusion is absolute reducibility, and the unrelated Larsen–Pink hypothesis and BLGGT sources were removed."
+        "verdict": "verified",
+        "note": "Taylor Lemma 6.5 and surrounding discussion pp.773–774 concern absolute reducibility of rank-two systems over ℚ and the character decomposition alternatives. The earlier review’s absolute qualifier and scope restrictions remain synchronized."
       },
       {
         "nodeId": "PotentialModularityAndCompatibleSystems:R24.5/system-l-functions",
         "verdict": "verified",
-        "note": "All v4 formulas (pp. 63–64) checked, including d± and ε_v; the tests were recomputed (ζ, cyclotomic, elliptic curve: Γ_ℂ(s) and ε_∞ = −1)."
+        "note": "BLGGT v1 pp.52–53 and v4 pp.63–64 were compared. The plan uses the corrected Gamma quotients and d± signs, imports finite-place constants from ET.6, and keeps analytic continuation/functional equations out of the carrier definition."
       },
       {
         "nodeId": "PotentialModularityAndCompatibleSystems:R24.5/galois-grothendieck-ring",
         "verdict": "verified",
-        "note": "Matches BLGGT v1 §5.4 items (1)–(9), pp. 61–63. The norm-one criterion and tests (pairings 5, 1, 10) checked."
+        "note": "BLGGT v1 §5.4 pp.61–63 gives the irreducible multiplicity lattice, tensor multiplication and Hom pairing. The norm-one positive-dimension criterion is the genuine Brauer step; Finsupp pointwise multiplication is not used for tensor product."
       },
       {
         "nodeId": "PotentialModularityAndCompatibleSystems:R24.5/residual-irreducibility-density-one",
         "verdict": "verified",
-        "note": "Matches v4 Proposition 5.3.2 (p. 71) and its proof (pp. 71–74)."
+        "note": "BLGGT v1 Proposition 5.2.2 pp.54–58 and v4 Proposition 5.3.2 pp.71–74 give density-one irreducibility of cyclotomic restrictions of constituents. The plan retains regularity and does not upgrade this general-rank conclusion to cofinite."
       },
       {
         "nodeId": "PotentialModularityAndCompatibleSystems:R24.5/constituents-essentially-self-dual",
-        "verdict": "corrected",
-        "note": "Matches v4 Lemma 5.4.5 (F imaginary CM). The hypothesis line now agrees with the statement instead of v1's 'CM or totally real'."
+        "verdict": "verified",
+        "note": "BLGGT v4 Lemma 5.4.5 p.76 has a pure extremely regular polarized system over imaginary CM F and a finite extension. The actual polarization pairing/sign import and the intermediate CM-field conclusion are retained; abstract self-duality alone is insufficient."
       },
       {
         "nodeId": "PotentialModularityAndCompatibleSystems:R24.5/larsen-rational-system-groups",
-        "verdict": "corrected",
-        "note": "Matches the v4 §5.2 set-up (pp. 65–66). Added G7, which its request names, for Zariski closures. The test 'not_uniform_without_regular' did not match its name or test anything; it is replaced by 'theta_bound_depends_on_system' (ℛ = ε^k)."
+        "verdict": "verified",
+        "note": "BLGGT v4 §5.2 pp.65–66 defines the restriction-of-scalars member, Zariski closure and its center/derived/simply connected/torus groups. The construction imports G7 geometry and does not silently assume connected monodromy."
       },
       {
         "nodeId": "PotentialModularityAndCompatibleSystems:R24.5/serre-theta-uniform-bounds",
         "verdict": "verified",
-        "note": "Matches v4 Lemma 5.2.1 and its proof (pp. 66–67); E3 confirmed."
+        "note": "BLGGT v4 Lemma 5.2.1 pp.66–67 gives the lattice-index and Hodge-character bounds after the specified finite extension. The constant depends on the system; the cyclotomic-power test correctly rejects a bound uniform over all systems."
       },
       {
         "nodeId": "PotentialModularityAndCompatibleSystems:R24.5/larsen-good-primes",
         "verdict": "verified",
-        "note": "Matches v4 Proposition 5.2.2 (1)–(6) and its proof (pp. 68–70)."
+        "note": "BLGGT v4 Proposition 5.2.2 pp.68–70 isolates the density-one good-prime and integral-model conclusions. The original Larsen/Larsen–Pink/Bruhat–Tits/Serre inputs remain named unread leaves, rather than being claimed proved."
       },
       {
         "nodeId": "PotentialModularityAndCompatibleSystems:R24.5/strict-brauer-system",
         "verdict": "corrected",
-        "note": "KW II's decomposition-field argument and Skinner Theorem 1 (all v | p, k_i ≥ 2, k_i ≡ w mod 2, any p, no residual hypothesis) checked: strict compatibility follows (RT /30). Replaced the Barsotti–Tate criterion by R06.3/weil-deligne-descent for crystallinity in all weights."
+        "note": "Skinner Theorem 1 pp.241–243 supplies full coefficient-prime compatibility; BLGGT Theorem 2.1.1 pp.33–34 alone does not. Bound full R19.4/R19.5 exports and the R19.2 normalization dictionary, including its reviewed printed Hodge-degree correction; retained decomposition-field descent and separate purity ownership."
       },
       {
         "nodeId": "PotentialModularityAndCompatibleSystems:R24.5/monodromy-component-field",
         "verdict": "verified",
-        "note": "Matches v4 Lemma 5.3.1 (pp. 70–71) and Lemma A.1.5 (p. 85)."
+        "note": "BLGGT v4 Lemma 5.3.1 pp.70–71 and Lemma A.1.5 p.85 require the connected-component field and split-eigenvalue coefficient-descent criterion. Trace descent alone would have a Schur-index obstruction. The Sen/Larsen–Pink proof leaves remain recorded."
       },
       {
         "nodeId": "PotentialModularityAndCompatibleSystems:R24.5/polarized-system",
         "verdict": "verified",
-        "note": "Matches v4 §2.1 (p. 31): symmetry sign ε_v, covariance, ε_v = −μ(c_v) for imaginary F, totally odd iff ε_v = 1. Tests checked."
+        "note": "BLGGT v4 §2.1 p.31 and §5.1 p.62 require an actual perfect pairing with multiplier and sign. G7 supplies representation-level polarization; the system-level construction and tests retain the zero-pairing exclusion and the distinct CM/TR cases."
       },
       {
         "nodeId": "PotentialModularityAndCompatibleSystems:R24.5/polarized-operations",
         "verdict": "verified",
-        "note": "Re-derived: tensor needs μμ′δ with sign εε′, the dual keeps the sign, Sym^k and ∧^k give μ^k δ^{k−1} and ε^k, and twisting uses the transfer of χ, which is 1 at c_v. Tests checked."
+        "note": "BLGGT’s pairing convention and the read G7 export give the CM quadratic correction for tensor/power multipliers. The unit, tensor sign and common-multiplier direct-sum tests agree; regularity and irreducibility are not automatically preserved."
       },
       {
         "nodeId": "PotentialModularityAndCompatibleSystems:R24.5/character-system",
         "verdict": "verified",
-        "note": "Matches v4 Appendix A.2 (p. 87) and ACC p. 1085; ownership by GlobalNumberFields and ClassFieldTheory is right."
+        "note": "BLGGT v4 Appendix A.2 p.87 and ACC §7.1 pp.1085,1092 use algebraic Hecke characters and their actual ℓ-adic members. GlobalNumberFields Layers 9–10 own the characters; the reciprocity realization/classification refinement remains ClassFieldTheory Part II."
       },
       {
         "nodeId": "PotentialModularityAndCompatibleSystems:R24.5/rank-one-purity",
-        "verdict": "corrected",
-        "note": "Re-derived from A.2 items (1) and (8). Added the ClassFieldTheory prerequisite its request already names."
+        "verdict": "verified",
+        "note": "BLGGT Appendix A.2 p.87 relates conjugate infinity exponents and good Frobenius weight. The plan imports the global character purity and reciprocity dictionary rather than re-proving them; cyclotomic sign and finite-order examples agree."
       },
       {
         "nodeId": "PotentialModularityAndCompatibleSystems:R24.5/induced-character-purity",
         "verdict": "verified",
-        "note": "Root computation β^f = α correct; the canonical-metadata qualification matches E4."
+        "note": "ACC §7.1 p.1092 and BLGGT v4 pp.62–63 support induced character purity when every conjugate branch has the common weight. Mackey/Frobenius reciprocity are upstream imports, and the mixed-weight negative example is necessary."
       },
       {
         "nodeId": "PotentialModularityAndCompatibleSystems:R24.5/artin-system",
         "verdict": "verified",
-        "note": "Correct; tests checked."
+        "note": "ACC §7.1 pp.1086,1092 constructs the family of an actual finite-image representation with canonical zero Hodge data. Its conductor, induction and weight-zero tests are meaningful; arbitrary metadata are not substituted for the Artin constructor."
       },
       {
         "nodeId": "PotentialModularityAndCompatibleSystems:R24.5/artin-twist-purity",
         "verdict": "verified",
-        "note": "Correct with canonical Hodge metadata (E4)."
+        "note": "ACC’s Artin-twist observation is valid for the canonical Artin tensor character constructor with its actual Hodge multisets. The plan explicitly excludes the extremely weak metadata inference refuted by E4."
       },
       {
         "nodeId": "PotentialModularityAndCompatibleSystems:R24.5/weakened-compatible-data",
-        "verdict": "corrected",
-        "note": "Definitions match ACC §7.1 (pp. 1084–1085). Its 'uses' list was copied from the rank-n carrier; it now lists the actual uses (ACC Lemma 7.1.1 and Theorem 7.1.11, and the purity nodes)."
+        "verdict": "verified",
+        "note": "ACC §7.1 pp.1084–1085 separates very weak de Rham/Hodge data from extremely weak determinant-only data. Its forgetful maps, genuine uses and the E4 multiset counterexample match the revised source contract."
       }
     ]
   }

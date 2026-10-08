@@ -438,9 +438,8 @@ example : ¬ ({0, 0} : Multiset ℤ).Nodup := by
   sorry
 
 /- almost_strict_not_strict — The almost-strict contract permits no WD conclusion at q=ℓ with reducible residual member and ramified r_q. This is a logical nonimplication of the contract, not a claim that the particular geometrically constructed systems fail strictness. -/
--- Baseline-expressible portion; the arithmetic system identification is omitted where needed.
-example : ∃ comparison : Fin 2 → Bool, comparison 0 = true ∧ comparison 1 = false := by
-  sorry
+-- OMITTED example: the arithmetic comparison carrier is not exported at the pinned baseline.
+-- Check the planned definition obligations once its supplier signatures are available.
 
 /- hodge_tate_weights_convention — weight a + 1 when b = 0: a newform of weight k gives (a, b) = (k − 1, 0) -/
 -- Baseline-expressible portion; the arithmetic system identification is omitted where needed.
@@ -532,10 +531,9 @@ example : ¬ ({-1, -1} : Multiset ℤ).Nodup := by
 example (w h : ℤ) (hconj : h = w - h) : Even w := by
   sorry
 
-/- pred_strict_vs_almost_strict — BLGGT strict compatibility only compares λ∤v and is implied by KW almost-strictness away from coefficient primes when the family is weakly compatible; it does not assert KW all-place strictness at v|ℓ. An unconstrained exceptional coefficient prime is a counterexample to inference from the contract. -/
--- Baseline-expressible portion; the arithmetic system identification is omitted where needed.
-example : ¬ ((∀ slot : Fin 2, slot ≠ 1 → slot = 0) → ∀ slot : Fin 2, slot = 0) := by
-  sorry
+/- pred_strict_vs_almost_strict — BLGGT strict compatibility compares only λ∤v. For a weakly compatible family, KW almost strictness supplies these comparisons but omits some comparisons at v|ℓ. Check the missing obligation without asserting the existence of an arithmetic family that violates all-place strictness. -/
+-- OMITTED example: the arithmetic comparison carrier is not exported at the pinned baseline.
+-- Check the planned definition obligations once its supplier signatures are available.
 
 /- dual_rank_two — X²−aX+b with b≠0 becomes X²−(a/b)X+1/b. -/
 -- Baseline-expressible portion; the arithmetic system identification is omitted where needed.
@@ -860,15 +858,15 @@ Packet node: PotentialModularityAndCompatibleSystems:R24.4/alpha-beta-from-resid
 * TauCeti.CompatibleSystems.alpha_beta_from_residual_modularity — OMITTED FULL SIGNATURE
   Let ρ̄ : G_ℚ → GL₂(𝔽) be of S-type and modular, with KW I Theorem 4.1's image hypotheses. Then ρ̄ arises from S_{k(ρ̄)}(Γ₁(N)) for some N prime to p and from S₂(Γ₁(Np)) (weight part of Serre's conjecture: Gross's Theorem 13.10, Coleman–Voloch, and Gross's Propositions 8.13 and 8.18); so after an allowable base change F/ℚ (solvable, totally real, unramified or split at p as required), ρ̄|_{G_F} satisfies (α) and (β) for p > 2, and (α) when p = k(ρ̄) = 2 and (β) for p = 2.
 
-Supplier routes: GL2ModularityLifting:R22.5/kw-residual-modularity; SerreWeightAndLevelOptimisation:R20.6; AlgebraicModularFormsAndSerreWeights:R15.4; GL2AutomorphicRepresentationsAndTransfer:R17.4; GL2ModularityLifting:R22.5/solvable-base-change-reduction
+Supplier routes: GL2ModularityLifting:R22.5/kw-residual-modularity; SerreWeightAndLevelOptimisation:R20.6; AlgebraicModularFormsAndSerreWeights:R15.4; GL2AutomorphicRepresentationsAndTransfer:R17.4; GL2ModularityLifting:R22.5/solvable-base-change-reduction; GL2ModularityLifting:R22.5/alpha-beta-from-modularity-over-q; GL2ModularityLifting:R22.5/kw-residual-modularity-beta
 
 ### KW I Theorem 4.1: modularity lifting over ℚ
 Packet node: PotentialModularityAndCompatibleSystems:R24.4/kw-theorem-4-1
 
 * TauCeti.CompatibleSystems.kw_theorem_4_1 — OMITTED FULL SIGNATURE
-  Let ρ̄ : G_ℚ → GL₂(𝔽) be modular, with non-solvable image if p = 2 and ρ̄|_{ℚ(µ_p)} absolutely irreducible if p > 2. (1) (p = 2) An odd, finitely ramified 2-adic lift ρ that is crystalline of weight 2 at 2, or semistable of weight 2 at 2 (only when k(ρ̄) = 4), is modular. (2) (p > 2) A finitely ramified p-adic lift that is (i) crystalline of weight k with 2 ≤ k ≤ p + 1, or (ii) potentially semistable of weight 2 at p, is modular. Proof: (α), (β) from R24.4/alpha-beta-from-residual-modularity; after an allowable base change F/ℚ, ρ|_{G_F} satisfies the lifting data (A), (B) or (C) and Theorem 9.7 (GL2ModularityLifting R22.5 for p > 2, R22.6 for p = 2) makes it modular; solvable descent (Langlands) returns to ℚ.
+  Let ρ̄ : G_ℚ → GL₂(𝔽) be modular, with non-solvable image if p = 2 and ρ̄|_{ℚ(µ_p)} absolutely irreducible if p > 2. (1) (p = 2) An odd, finitely ramified 2-adic lift ρ that is crystalline of weight 2 at 2, or semistable of weight 2 at 2 (only when k(ρ̄) = 4), is modular. (2) (p > 2) A finitely ramified p-adic lift that is (i) crystalline of weight k with 2 ≤ k ≤ p + 1, or (ii) potentially semistable of weight 2 at p, is modular. Import the full Theorem 4.1 exports from GL2ModularityLifting R22.5 and R22.6. Their proof combines residual weight witnesses, allowable base change, the cases of Theorem 9.7, the additional lifting results needed beyond those cases, and solvable descent. Theorem 9.7 alone does not cover the complete odd-prime statement.
 
-Supplier routes: PotentialModularityAndCompatibleSystems:R24.4/alpha-beta-from-residual-modularity; GL2ModularityLifting:R22.5/kw-odd-prime-lifting; GL2ModularityLifting:R22.6/kw-dyadic-lifting; GL2ModularityLifting:R22.5/solvable-base-change-reduction; GL2AutomorphicRepresentationsAndTransfer:R17.4
+Supplier routes: PotentialModularityAndCompatibleSystems:R24.4/alpha-beta-from-residual-modularity; GL2ModularityLifting:R22.5/kw-i-theorem-4-1-odd-prime; GL2ModularityLifting:R22.6/kw-i-theorem-4-1-dyadic; GL2ModularityLifting:R22.5/solvable-base-change-reduction; GL2AutomorphicRepresentationsAndTransfer:R17.4
 
 ### Compatible systems: strict, almost strict, and plain
 Packet node: PotentialModularityAndCompatibleSystems:R24.5/compatible-system
@@ -890,7 +888,7 @@ Supplier routes: PadicHodgeTheory:R06.3/weil-deligne-parameter; ArithmeticGalois
 
 * test newform_is_strict — OMITTED FULL SIGNATURE
 * test weight_one_irregular — EXAMPLE FRAGMENT
-* test almost_strict_not_strict — EXAMPLE FRAGMENT
+* test almost_strict_not_strict — OMITTED FULL SIGNATURE
 * test hodge_tate_weights_convention — EXAMPLE FRAGMENT
 
 ### Twisting, restriction and induction of compatible systems
@@ -928,7 +926,7 @@ Packet node: PotentialModularityAndCompatibleSystems:R24.5/brauer-induction-syst
 * TauCeti.CompatibleSystems.brauerSystem_restrict — OMITTED FULL SIGNATURE
   restriction to G_{F′} with F/F′ solvable is automorphic
 
-Supplier routes: PotentialModularityAndCompatibleSystems:R24.5/compatible-system; PotentialModularityAndCompatibleSystems:R24.5/system-operations; GL2AutomorphicRepresentationsAndTransfer:R17.4; PotentialModularityAndCompatibleSystems:R23.4; ArithmeticGaloisRepresentations:R01.5; PotentialModularityAndCompatibleSystems:R24.5/galois-grothendieck-ring; AutomorphicGaloisRepresentations:R19.3; AutomorphicGaloisRepresentations:R19.4; GL2AutomorphicRepresentationsAndTransfer:R17.6; tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-6-the-virtual-character-ring-artin-and-brauer-induction
+Supplier routes: PotentialModularityAndCompatibleSystems:R24.5/compatible-system; PotentialModularityAndCompatibleSystems:R24.5/system-operations; GL2AutomorphicRepresentationsAndTransfer:R17.4; PotentialModularityAndCompatibleSystems:R23.4; ArithmeticGaloisRepresentations:R01.5; PotentialModularityAndCompatibleSystems:R24.5/galois-grothendieck-ring; AutomorphicGaloisRepresentations:R19.3; AutomorphicGaloisRepresentations:R19.4; GL2AutomorphicRepresentationsAndTransfer:R17.6; tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-6-the-virtual-character-ring-artin-and-brauer-induction; AutomorphicGaloisRepresentations:R19.3/fixed-eigenform-compatible-family; AutomorphicGaloisRepresentations:R19.2/hilbert-normalisation-dictionary
 
 * test brauer_trivial_F — EXAMPLE FRAGMENT
 * test brauer_quadratic_coefficients — EXAMPLE FRAGMENT
@@ -941,7 +939,7 @@ Packet node: PotentialModularityAndCompatibleSystems:R24.5/almost-strict-compati
 * TauCeti.CompatibleSystems.almost_strict_compatibility — OMITTED FULL SIGNATURE
   The system (ρ_ι) of R24.5/brauer-induction-system is almost strictly compatible. For a prime q, let F(q) ⊆ F be the decomposition field at a prime Q | q, π_q the local component at Q of the form attached to ρ|_{G_{F(q)}}, and r_q its Frobenius-semisimple Weil–Deligne parameter. (a) For q ≠ ℓ, the Weil–Deligne parameter of ρ_ι|_{D_q} is r_q (Carayol, Taylor). (b) For q = ℓ ≠ 2 with r_q unramified, it is r_q and ρ_ι|_{D_q} is crystalline (Breuil, Berger). (c) For q = ℓ with ρ̄_ι irreducible, it is r_q (Kisin's potentially semistable deformation rings, after moving to a field F′ linearly disjoint from the kernel of ρ̄_ι). Strict compatibility would follow from Kisin's result without the irreducibility hypothesis; KW II correct an earlier claim of strictness on this point. This records exactly the 2009 KW proof. Its residual-irreducibility restriction is not a present-day impossibility: the strict result below uses Skinner’s full theorem in place of that restricted coefficient-prime input.
 
-Supplier routes: PotentialModularityAndCompatibleSystems:R24.5/brauer-induction-system; AutomorphicGaloisRepresentations:R19.5/potential-semistability-and-compatibility-at-the-coefficient-prime; PotentialModularityAndCompatibleSystems:R24.5/compatible-system; AutomorphicGaloisRepresentations:R19.3; AutomorphicGaloisRepresentations:R19.4; PotentialModularityAndCompatibleSystems:R23.5; AutomorphicGaloisRepresentations:R19.5
+Supplier routes: PotentialModularityAndCompatibleSystems:R24.5/brauer-induction-system; AutomorphicGaloisRepresentations:R19.5/potential-semistability-and-compatibility-at-the-coefficient-prime; PotentialModularityAndCompatibleSystems:R24.5/compatible-system; AutomorphicGaloisRepresentations:R19.3; AutomorphicGaloisRepresentations:R19.4; PotentialModularityAndCompatibleSystems:R23.5; AutomorphicGaloisRepresentations:R19.5; AutomorphicGaloisRepresentations:R19.5/skinner-full-hilbert-coefficient-prime; AutomorphicGaloisRepresentations:R19.4/all-hilbert-local-global-compatibility; AutomorphicGaloisRepresentations:R19.2/hilbert-normalisation-dictionary
 
 ### KW I Theorem 5.1: almost strictly compatible systems through prescribed lifts
 Packet node: PotentialModularityAndCompatibleSystems:R24.5/kw-theorem-5-1-systems
@@ -963,9 +961,9 @@ Supplier routes: PotentialModularityAndCompatibleSystems:R23.4; PotentialModular
 Packet node: PotentialModularityAndCompatibleSystems:R24.6/residual-members
 
 * TauCeti.CompatibleSystems.residual_members — OMITTED FULL SIGNATURE
-  Let (ρ_ι) be an E-rational almost strictly compatible, irreducible, odd two-dimensional system of G_ℚ with weights (a, b), and ρ̄_ι the semisimplified reductions. (i) det ρ̄_ι is the reduction of det ρ_ι, and ρ̄_ι is odd. (ii) ρ̄_ι is absolutely irreducible for every ι above all but finitely many primes ℓ (KW I, proof of Theorem 10.1, which uses that the conductor of ρ_ι is bounded independently of ι and that the Hodge–Tate weights are fixed; KW I §8.4 uses it). If moreover a ≠ b, then for all but finitely many ℓ also ρ̄_ι|_{G_{ℚ(ζ_ℓ)}} is absolutely irreducible: for ℓ outside the ramification set with ℓ > 2(a − b) + 1, (v) gives k(ρ̄_ι) = a − b + 1 up to twist, while KW I Lemma 6.2(ii) would force a − b + 1 ∈ {(ℓ + 1)/2, (ℓ + 3)/2} if the restriction were reducible. For regular weakly compatible systems of any rank over any number field, R24.5/residual-irreducibility-density-one gives the restriction statement for every irreducible constituent, but only on a Dirichlet-density-one set of ℓ. (iii) For q ≠ ℓ, the Artin conductor of ρ̄_ι at q divides that of r_q, so N(ρ̄_ι) divides the prime-to-ℓ conductor of the system; the prime divisors of N(ρ̄_ι) are among the ramified primes of the system other than ℓ. (iv) If ρ(I_q) is finite of order prime to ℓ (for instance a dihedral group of order 2t^a with ℓ∤2t), reduction is injective on it, so ρ̄_ι|_{I_q} has the same shape. (v) If ℓ is outside the ramification set, ℓ ≠ 2 and 0≤a−b≤ℓ−2, then ρ_ι is crystalline at ℓ and k(ρ̄_ι) = a − b + 1 up to twist (Fontaine–Laffaille).
+  Let (ρ_ι) be an E-rational almost strictly compatible, irreducible, odd two-dimensional system of G_ℚ with weights (a, b), and ρ̄_ι the semisimplified reductions. (i) det ρ̄_ι is the reduction of det ρ_ι, and ρ̄_ι is odd. (ii) ρ̄_ι is absolutely irreducible for every ι above all but finitely many primes ℓ (KW I, proof of Theorem 10.1, which uses that the conductor of ρ_ι is bounded independently of ι and that the Hodge–Tate weights are fixed; KW I §8.4 uses it). If moreover a ≠ b, then for all but finitely many ℓ also ρ̄_ι|_{G_{ℚ(ζ_ℓ)}} is absolutely irreducible: for ℓ outside the ramification set with ℓ > 2(a − b) + 1, (v) gives k(ρ̄_ι) = a − b + 1 up to twist, while KW I Lemma 6.2(ii) would force a − b + 1 ∈ {(ℓ + 1)/2, (ℓ + 3)/2} if the restriction were reducible. For regular weakly compatible systems of any rank over any number field, R24.5/residual-irreducibility-density-one gives the restriction statement for every irreducible constituent, but only on a Dirichlet-density-one set of ℓ. (iii) For q ≠ ℓ, the Artin conductor of ρ̄_ι at q divides that of r_q, so N(ρ̄_ι) divides the prime-to-ℓ conductor of the system; the prime divisors of N(ρ̄_ι) are among the ramified primes of the system other than ℓ. (iv) If ρ(I_q) is finite of order prime to ℓ (for instance a dihedral group of order 2t^a with ℓ∤2t), reduction is injective on it, so ρ̄_ι|_{I_q} has the same shape. (v) If ℓ is outside the ramification set and ℓ ≠ 2, then ρ_ι is crystalline at ℓ. If additionally ρ̄_ι is of S-type and 1≤a−b≤ℓ−2, its normalized Serre weight is a−b+1 after twisting (Fontaine–Laffaille). Equal weights are excluded from this formula: an odd absolutely irreducible Artin member unramified at ℓ has normalized residual Serre weight ℓ, rather than 1.
 
-Supplier routes: PotentialModularityAndCompatibleSystems:R24.5/compatible-system; ArithmeticGaloisRepresentations:R01.3; ArithmeticGaloisRepresentations:R01.4; PadicHodgeTheory:R06.4/fontaine-laffaille-rational-consequences; AlgebraicModularFormsAndSerreWeights:R15.4; PotentialModularityAndCompatibleSystems:R24.5/residual-irreducibility-density-one; PotentialModularityAndCompatibleSystems:R24.5/strict-brauer-system; ArithmeticGaloisRepresentations:R01.1; ArithmeticGaloisRepresentations:R01.5
+Supplier routes: PotentialModularityAndCompatibleSystems:R24.5/compatible-system; ArithmeticGaloisRepresentations:R01.3; ArithmeticGaloisRepresentations:R01.4; PadicHodgeTheory:R06.4/fontaine-laffaille-rational-consequences; AlgebraicModularFormsAndSerreWeights:R15.4; PotentialModularityAndCompatibleSystems:R24.5/residual-irreducibility-density-one; PotentialModularityAndCompatibleSystems:R24.5/strict-brauer-system; ArithmeticGaloisRepresentations:R01.1; ArithmeticGaloisRepresentations:R01.5; AlgebraicModularFormsAndSerreWeights:R15.4/fontaine-laffaille-weight-comparison; AlgebraicModularFormsAndSerreWeights:R15.4/serre-weight-tame-cases
 
 ### What an almost strict system says at its own coefficient prime
 Packet node: PotentialModularityAndCompatibleSystems:R24.6/local-compatibility-at-the-coefficient-prime
@@ -973,7 +971,7 @@ Packet node: PotentialModularityAndCompatibleSystems:R24.6/local-compatibility-a
 * TauCeti.CompatibleSystems.local_compatibility_at_the_coefficient_prime — OMITTED FULL SIGNATURE
   For an arbitrary KW almost-strict system and ι above ℓ, the definition gives full WD comparison at q=ℓ if the residual member is irreducible; if ℓ≠2 and r_ℓ is unramified it gives crystallinity and the prescribed Hodge weights. In the other cases its contract alone gives neither de Rham nor WD comparison. For the specific motivic Hilbert/Brauer systems constructed here, strict-brauer-system instead gives de Rham/potential semistability and full WD comparison at every coefficient prime, even for reducible residual members and ℓ=2; unramified r_ℓ then implies crystalline. These assertions are local input lemmas. Application of residually reducible de Rham modularity lifting belongs to GL2ModularityLifting R32.6 and is imported there.
 
-Supplier routes: PotentialModularityAndCompatibleSystems:R24.5/compatible-system; PotentialModularityAndCompatibleSystems:R24.5/almost-strict-compatibility; PotentialModularityAndCompatibleSystems:R24.5/strict-brauer-system; AutomorphicGaloisRepresentations:R19.5; PadicHodgeTheory:R06.3/weil-deligne-descent
+Supplier routes: PotentialModularityAndCompatibleSystems:R24.5/compatible-system; PotentialModularityAndCompatibleSystems:R24.5/almost-strict-compatibility; PotentialModularityAndCompatibleSystems:R24.5/strict-brauer-system; AutomorphicGaloisRepresentations:R19.5; PadicHodgeTheory:R06.3/weil-deligne-descent; AutomorphicGaloisRepresentations:R19.5/skinner-full-hilbert-coefficient-prime
 
 ### Linked systems and modularity transfer
 Packet node: PotentialModularityAndCompatibleSystems:R24.6/linked-systems-modularity-transfer
@@ -1029,7 +1027,7 @@ Supplier routes: PotentialModularityAndCompatibleSystems:R24.5/weakly-compatible
 * test pred_newform — EXAMPLE FRAGMENT
 * test pred_regular_fails — EXAMPLE FRAGMENT
 * test pred_odd_purity — EXAMPLE FRAGMENT
-* test pred_strict_vs_almost_strict — EXAMPLE FRAGMENT
+* test pred_strict_vs_almost_strict — OMITTED FULL SIGNATURE
 
 ### Linear-algebra operations on weakly compatible systems and what they preserve
 Packet node: PotentialModularityAndCompatibleSystems:R24.5/linear-algebra-operations-on-systems
@@ -1178,7 +1176,7 @@ Packet node: PotentialModularityAndCompatibleSystems:R24.5/strict-brauer-system
 * TauCeti.CompatibleSystems.strict_brauer_system — OMITTED FULL SIGNATURE
   For the rank-two Brauer system of R24.5/brauer-induction-system arising from holomorphic cuspidal Hilbert modular forms of motivic weights k_τ≥2, the members are geometric of the same Hodge–Tate weights and WD(ρ_ι|D_q)^Fss is the fixed r_q at every finite q, including q=ℓ and reducible residual members. Hence it is KW strictly compatible. For q=ℓ unramified r_q, every member is crystalline of the common weights (a de Rham representation is crystalline iff inertia acts trivially on its WD parameter and N = 0, PadicHodgeTheory R06.3). If the Hilbert modular families are pure of weight w in the geometric convention, the descended system is pure of weight w; local strict purity is transported through the same local comparison and local–global purity supplier.
 
-Supplier routes: PotentialModularityAndCompatibleSystems:R24.5/brauer-induction-system; AutomorphicGaloisRepresentations:R19.5; AutomorphicGaloisRepresentations:R19.4; WeightsInEtaleCohomology:R34.6; PadicHodgeTheory:R06.3/weil-deligne-descent
+Supplier routes: PotentialModularityAndCompatibleSystems:R24.5/brauer-induction-system; AutomorphicGaloisRepresentations:R19.5; AutomorphicGaloisRepresentations:R19.4; WeightsInEtaleCohomology:R34.6; PadicHodgeTheory:R06.3/weil-deligne-descent; AutomorphicGaloisRepresentations:R19.5/skinner-full-hilbert-coefficient-prime; AutomorphicGaloisRepresentations:R19.4/all-hilbert-local-global-compatibility; AutomorphicGaloisRepresentations:R19.2/hilbert-normalisation-dictionary
 
 ### The common component field of a compatible system
 Packet node: PotentialModularityAndCompatibleSystems:R24.5/monodromy-component-field
