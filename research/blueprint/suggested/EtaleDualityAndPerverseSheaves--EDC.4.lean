@@ -8,7 +8,10 @@ Pins: Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174;
 Tau Ceti f790474821cf4256814db967cb154e7af3d0c369. This file imports only Mathlib.
 This file is not the roadmap and is not exhaustive. The reader document is definitive;
 the signatures are provisional and converge with the roadmap.
-The independent needs_changes review is preserved in the packet. The handoff records each repair.
+The round-two independent review remains needs_changes. In particular, the bounded
+tensor/RHom and level-reduction stand-ins below require an ambient unbounded-category
+repair; elaboration does not establish their mathematical validity. The review report
+also identifies the missing compatible descent and general recollement/semismall forms.
 -/
 import Mathlib.RingTheory.Regular.RegularSequence
 import Mathlib.RingTheory.MvPolynomial.Homogeneous
@@ -435,7 +438,7 @@ integral coefficients, or a finite extension of Q_ell, over the specified perfec
 class PerverseContext (Λ : Type u) [CommRing Λ] : Prop where
   [perfect : PerfectField k]
   existsRegime : ∃ ell : ℕ, ell.Prime ∧ IsUnit (ell : k) ∧
-    ((Finite Λ ∧ ∃ n : ℕ, 0 < n ∧ (ell ^ n : Λ) = 0) ∨
+    ((Finite Λ ∧ IsField Λ ∧ ∃ n : ℕ, 0 < n ∧ (ell ^ n : Λ) = 0) ∨
      (∃ O : Type u, ∃ _ : CommRing O, ∃ D : IntegralDatum (k := k) O,
        D.ell = ell ∧ ∃ n : ℕ, 0 < n ∧ Nonempty (O ⧸ Ideal.span {D.uniformizer ^ n} ≃+* Λ)) ∨
      (BBDBase (k := k) ell ∧ ∃ D : IntegralDatum (k := k) Λ, D.ell = ell) ∨
@@ -458,6 +461,10 @@ lemma fiberProduct_square {X Y Z : Geo k} (f : X ⟶ Z) (g : Y ⟶ Z) :
 /-- Native universal-property identification, fixing the meaning of the imported carrier. -/
 lemma fiberProduct_native {X Y Z : Geo k} (f : X ⟶ Z) (g : Y ⟶ Z) :
     Nonempty ((fiberProduct f g).space ≅ pullback f.hom.left g.hom.left) := sorry
+/-- The chosen projections themselves satisfy the native universal property. -/
+lemma fiberProduct_isPullback {X Y Z : Geo k} (f : X ⟶ Z) (g : Y ⟶ Z) :
+    IsPullback (fiberProductFst f g).hom.left (fiberProductSnd f g).hom.left
+      f.hom.left g.hom.left := sorry
 
 section Imported
 variable {Λ : Type u} [CommRing Λ]
@@ -852,6 +859,10 @@ theorem affine_perverse_artin_vanishing {X Y : Geo k} (f : X ⟶ Y) [IsAffineHom
     Functor.IsRightTExact (pushforward (Λ := Λ) f) (perverseTStructure Λ X) (perverseTStructure Λ Y) := sorry
 theorem affine_perverse_artin_vanishing_shriek {X Y : Geo k} (f : X ⟶ Y) [IsAffineHom f.hom.left] :
     Functor.IsLeftTExact (lowerShriek (Λ := Λ) f) (perverseTStructure Λ X) (perverseTStructure Λ Y) := sorry
+lemma affine_quasiFinite_perverse_tExact {X Y : Geo k} (f : X ⟶ Y)
+    [IsAffineHom f.hom.left] [LocallyQuasiFinite f.hom.left] :
+    Functor.IsTExact (pushforward (Λ := Λ) f) (perverseTStructure Λ X) (perverseTStructure Λ Y) ∧
+    Functor.IsTExact (lowerShriek (Λ := Λ) f) (perverseTStructure Λ X) (perverseTStructure Λ Y) := sorry
 lemma affine_perverse_cohomology [IsSepClosed k] {X : Geo k} [IsAffine X.space]
     (P : PerverseSheaf Λ X) (i : ℤ) :
     (0 < i → IsZero (cohomology i P.obj)) ∧ (i < 0 → IsZero (compactCohomology i P.obj)) := sorry
@@ -948,6 +959,15 @@ lemma perverse_le_perversePlus_le {X : Geo k} (K : Dbc O X) :
     ((perversePlus X).IsLE K 0 → (perverseIntegral X).IsLE K 1) := sorry
 /-- EDC.6 coefficient extension, derived rather than underived. -/
 def extendCoefficients {E : Type u} [CommRing E] (a : O →+* E) (X : Geo k) : Dbc O X ⥤ Dbc E X := sorry
+/-- BBD 3.3.4: derived residue reduction has opposite one-sided bounds for p and p-plus. -/
+lemma residueReduction_perverse_exactness
+    [PerverseContext (k := k) (O ⧸ IsLocalRing.maximalIdeal O)] (X : Geo k) :
+    Functor.IsRightTExact
+      (extendCoefficients (Ideal.Quotient.mk (IsLocalRing.maximalIdeal O)) X)
+      (perverseIntegral X) (perverseTStructure (O ⧸ IsLocalRing.maximalIdeal O) X) ∧
+    Functor.IsLeftTExact
+      (extendCoefficients (Ideal.Quotient.mk (IsLocalRing.maximalIdeal O)) X)
+      (perversePlus X) (perverseTStructure (O ⧸ IsLocalRing.maximalIdeal O) X) := sorry
 lemma rationalize_tExact [PerverseContext (k := k) (FractionRing O)] (X : Geo k) :
     Functor.IsTExact (extendCoefficients (algebraMap O (FractionRing O)) X)
       (perverseIntegral X) (perverseTStructure (FractionRing O) X) ∧
