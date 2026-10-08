@@ -39169,7 +39169,8 @@
     "BP-GrossZagierAndArithmeticHeights--GZ.8~2"
    ],
    "prompt": "research/blueprint/prompts/REV-GrossZagierAndArithmeticHeights--GZ.8~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7054"
   },
   {
    "kind": "blueprint",
