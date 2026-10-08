@@ -37882,7 +37882,8 @@
    ],
    "revisionOf": "BP-AutomorphicGaloisRepresentationsPartII--AG2.6",
    "prompt": "research/blueprint/prompts/BP-AutomorphicGaloisRepresentationsPartII--AG2.6~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6925"
   },
   {
    "priority": 2,
@@ -38771,8 +38772,9 @@
    ],
    "revisionOf": "BP-ExcursionOperatorsAndSpectralAction--ES7",
    "prompt": "research/blueprint/prompts/BP-ExcursionOperatorsAndSpectralAction--ES7~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6962"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6962",
+   "finishedAt": "2026-10-08T13:26:19Z"
   },
   {
    "priority": 2,
@@ -42330,7 +42332,8 @@
     "BP-ArithmeticKTheory--N.3~2"
    ],
    "prompt": "research/blueprint/prompts/REV-ArithmeticKTheory--N.3~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6987"
   },
   {
    "kind": "blueprint",
