@@ -12,7 +12,7 @@
   "ArithmeticGaloisRepresentations:R01.6"
  ],
  "status": "complete",
- "summary": "Budgeted revision of the reviewed blueprint for R01.1–R01.6 and G7: the input pass reached 300 declaration nodes, including 110 additions obtained by splitting 44 theorem bundles. This independent review retains 300 nodes after replacing unit-group compactness by its pinned Mathlib baseline and adding the missing symplectic conjugator-lifting lemma. Other original identifiers and all applicable reviewer corrections are retained. Brauer–Nesbitt is proved by the classical image-algebra argument in R01.1; determinant reconstruction imports it rather than supplying it. Recognition uses continuous embeddings into a common Hausdorff coefficient field. Conductors retain wild contributions at two and three and exact-sequence inequalities; Ogg’s formula counts geometric components of the minimal regular model. All seven stages remain partial with explicit source, proof and declaration-splitting work. Complete denotes a finished pass under the 300-node budget, not gap-free stage closure or formalisation. The independent review REV-ArithmeticGaloisRepresentations~2 requests changes for the RS-17 monodromy-filtration owner and typed API/test parity.",
+ "summary": "Revision 3 of the 300-node budgeted plan for R01.1–R01.6 and G7. The canonical nilpotent monodromy filtration is imported conditionally from LPV.1 under accepted RS-17 O20; its construction, uniqueness, primitive and tensor/dual theory are no longer planned here. Arithmetic retains Weil–Deligne stability and the rank-sum application in the pure-graded argument. The 92 API entries and 51 tests identified by the previous review now have typed prototypes on actual representation, ramification and geometric abelian-variety carriers, with explicit requested data interfaces where the pinned libraries do not provide them. All seven stages remain partial with the inherited source/proof work and exact supplier requests. Complete denotes a finished revision pass under the node budget; every implementation status remains unchecked and the historical independent-review object awaits replacement by the next reviewer.",
  "baseline": {
   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -4273,6 +4273,13 @@
    "read": "2026-10-08",
    "sha256": "7c882c4dc7208e08a0b1f4b3ce6e5c5234c9815f139a4c3a372898378a24d08c",
    "scope": "Allen et al. v2: Definition 6.2.28 (PDF p. 148), Lemma 7.1.6 (PDF p. 195) and Theorem 6.1.2 (PDF p. 133) checked for E769."
+  },
+  {
+   "kind": "author copy",
+   "url": "https://virtualmath1.stanford.edu/~rltaylor/twugfin.pdf",
+   "read": "2026-10-08",
+   "sha256": "622e51ed167c35a05cdd002f867f6ba0d116da40f35386571c17a7b2fb60d7a2",
+   "scope": "CHT §2.1, printed pp. 9–10: the group/triple correspondence (Lemma 2.1.1), and the χ-polarized induction construction following Lemma 2.1.2. The induction construction is not assigned a lemma number here."
   }
  ],
  "nodes": [
@@ -9170,7 +9177,7 @@
     {
      "sourceId": "deligne73-constantes",
      "locator": "2.2.2(b), Del-22, printed p. 522 (read on the page image)",
-     "match": "The ℓ-adic tame character is the ℓ-component of Deligne's t : I → Ẑ(1)(k̄), whose kernel is P (2.2.2 b, Del-21: 'Le morphisme équivariant t : I → Ẑ(1)(k̄), de noyau P'). Deligne's Ẑ(1)(k̄) = lim μ_n(k̄) has no p-part because k̄ has characteristic p, so it is the group Ẑ^{(p')}(1) of this node, read in the residue field."
+     "match": "The ℓ-adic tame character is the ℓ-component of Deligne's t : I → Ẑ(1)(k̄), whose kernel is P (2.2.2(b), printed p. 521). Deligne's Ẑ(1)(k̄) = lim μ_n(k̄) has no p-part because k̄ has characteristic p, so it is the group Ẑ^{(p')}(1) of this node, read in the residue field."
     },
     {
      "sourceId": "fsy22",
@@ -9714,7 +9721,7 @@
     {
      "sourceId": "deligne73-constantes",
      "locator": "proof of Lemme 8.4.3, Del-69, printed p. 569 (read on the page image)",
-     "match": "The rescaling lemma (r,N) ≅ (r,aN); 'tout a ∈ E' must be read as a ≠ 0."
+     "match": "The rescaling lemma (r,N) ≅ (r,aN); the stated rescaling parameter must be nonzero."
     },
     {
      "sourceId": "fsy22",
@@ -9735,7 +9742,7 @@
    "kind": "lemma",
    "statement": "Let K be a nonarchimedean local field with residue cardinality q, Ω a field of characteristic 0 and (V, r, N) a Weil–Deligne representation of W_K over Ω (weil-deligne-representation). For every a ∈ Ω^× there is A ∈ GL(V) that commutes with r(W_K) and satisfies A∘N = (aN)∘A; that is, A is an isomorphism of Weil–Deligne representations (V, r, N) → (V, r, aN). So the isomorphism class of (V, r, aN) does not depend on a ∈ Ω^×. For a = 0 and N ≠ 0 the two objects are not isomorphic.",
    "hypotheses": [
-    "a ≠ 0 (Deligne prints 'tout a ∈ E')",
+    "a ≠ 0 (Deligne prints the unrestricted rescaling parameter)",
     "the proof uses that r(I_K) is finite (open kernel on the compact group I_K) and that q ≥ 2 is not a root of unity in Ω; without either the statement fails: if N commuted with r (the case 'q = 1') and r(F) = 1 + N on Ω², every A commuting with r(F) commutes with N"
    ],
    "proofSteps": [
@@ -9792,7 +9799,7 @@
     "the nilpotent N of Theorem 8.2 lies in End(V)(−1), i.e. it is Tate-twisted; the untwisted N' of 8.4.2 depends on the choice of T, and changing T to aT replaces N' by a^{-1}N'",
     "quasi-unipotence is only on a subgroup of finite index of inertia; ρ itself need not be unipotent on all of I",
     "the construction 8.4.2 depends on choosing a GEOMETRIC Frobenius F and a trivialization T of Z_ℓ(1); Lemme 8.4.3 removes the dependence only up to isomorphism",
-    "Lemme 8.4.3 is proved in two steps: a change of F conjugates ρ' by an exponential of a multiple of N (the constants printed in the source are not right as they stand; the correct ones are in the statement), and a change of T to aT replaces N' by a^{-1}N' (printed as aN' in the source), which gives an isomorphic pair for every a ≠ 0 by the rescaling lemma (decompose V into the generalised eigenspaces V^α of a central power F^n, with N V^α ⊂ V^{q^{−n}α}; the source prints 'tout a ∈ E')",
+    "Lemme 8.4.3 is proved in two steps: a change of F conjugates ρ' by an exponential of a multiple of N (the constants printed in the source are not right as they stand; the correct ones are in the statement), and a change of T to aT replaces N' by a^{-1}N' (printed as aN' in the source), which gives an isomorphic pair for every a ≠ 0 by the rescaling lemma (decompose V into the generalised eigenspaces V^α of a central power F^n, with N V^α ⊂ V^{q^{−n}α}; the source prints the unrestricted rescaling parameter)",
     "the bijection is for representations of W_K; Weil–Deligne representations whose Frobenius has non-unit eigenvalues come from representations of W_K that do not extend to G_K"
    ],
    "proofSteps": [
@@ -10012,7 +10019,7 @@
     {
      "sourceId": "deligne73-constantes",
      "locator": "(8.3.7), Del-68, printed p. 568 (read on the page image)",
-     "match": "The bijection whose inverse direction this node constructs; in the elementary form 8.4 a representation of 'W is a pair (ρ', N')."
+     "match": "The bijection whose inverse direction this node constructs; §8.4 encodes this through a Weil representation together with its nilpotent operator."
     }
    ],
    "parentStageId": "ArithmeticGaloisRepresentations:R01.2",
@@ -10397,7 +10404,7 @@
    "kind": "lemma",
    "statement": "Let A be a commutative ring, V a finite free A-module, φ ∈ End_A(V) and n ≥ 1. Let φ_n be the endomorphism of V^n = V ⊗ A^n (basis e_0, …, e_{n−1} of A^n) with φ_n(v ⊗ e_i) = v ⊗ e_{i+1} for 0 ≤ i < n − 1 and φ_n(v ⊗ e_{n−1}) = φ(v) ⊗ e_0. Then det(1 − X·φ_n) = det(1 − X^n·φ) in A[X]; equivalently the characteristic polynomial of φ_n is charpoly(φ)(X^n).",
    "hypotheses": [
-    "Deligne states the lemma for vector spaces over a field and proves it by reduction to φ diagonal ('principe de prolongement des identités algébriques'); the identity holds over every commutative ring, with the direct proof below",
+    "Deligne states the lemma for vector spaces over a field and proves it by reduction to φ diagonal (extension of polynomial identities from integers to coefficient scalars); the identity holds over every commutative ring, with the direct proof below",
     "n ≥ 1; for n = 1, φ_1 = φ"
    ],
    "proofSteps": [
@@ -10476,134 +10483,45 @@
   },
   {
    "id": "ArithmeticGaloisRepresentations:R01.2/monodromy-filtration",
-   "title": "The monodromy filtration of a nilpotent endomorphism",
-   "kind": "definition",
-   "statement": "Let k be a field, V a finite-dimensional k-vector space and N a nilpotent endomorphism of V. The monodromy filtration of N is the unique family of subspaces (M_a)_{a ∈ Z} of V with: M_a ⊂ M_{a+1}; M_a = 0 for a ≪ 0 and M_a = V for a ≫ 0; N·M_a ⊂ M_{a−2}; and, for every a ≥ 0, N^a induces an isomorphism gr^M_a V → gr^M_{−a} V, where gr^M_a = M_a/M_{a−1}. It exists, it is unique, and M_a = Σ_{i − j = a; i, j ≥ 0} (ker N^{i+1} ∩ im N^j). Properties. (1) If N^{d+1} = 0 then M_d = V and M_{−d−1} = 0. (2) g·M_a = M_a for every g ∈ GL(V) with gNg^{-1} ∈ k^×·N, and N and cN (c ∈ k^×) have the same monodromy filtration. (3) A linear map f : V → V' with f∘N = N'∘f maps M_a(N) into M_a(N'); the filtration of N ⊕ N' is the direct sum. (4) Primitive decomposition: for a ≥ 0 let P_a = ker(N^{a+1} : gr^M_a → gr^M_{−a−2}); then gr^M_b = ⊕_{j ≥ max(0, −b)} N^j·P_{b+2j} for every b, dim P_a is the number of Jordan blocks of N of size a + 1, and Σ_a a²·dim gr^M_a = 2·Σ_{k ≥ 1} k·rank(N^k). (5) Dual: M_a(N^∨) is the annihilator of M_{−a−1}(N) in the dual of V. (6) Tensor product, for k of characteristic 0: M_a(N ⊗ 1 + 1 ⊗ N') = Σ_{b + c = a} M_b(N) ⊗ M_c(N'). For a Weil–Deligne representation (V, r, N) the filtration is r(W_K)-stable by (2), so W_K acts on the graded pieces.",
+   "title": "Weil–Deligne stability of the imported monodromy filtration",
+   "kind": "lemma",
+   "statement": "Let (V, r, N) be a Weil–Deligne representation over a field k, with r(w)Nr(w)⁻¹ = c(w)N and c(w) ∈ k×. Let M be the increasing filtration supplied by LPV.1, with M_a = Σ_{i−j=a; i,j≥0}(ker N^{i+1} ∩ im N^j). Then r(w)M_a = M_a for every w and every integer a. Thus r induces actions on M_a and on M_a/M_{a−1}. This node proves only the Weil–Deligne stability application: construction, uniqueness, scalar invariance, primitive decomposition and tensor/dual formulas belong to LefschetzPencilsAndVanishingCycles:LPV.1 under accepted RS-17 O20.",
    "hypotheses": [
-    "k is any field for existence, uniqueness and (1)–(5)",
-    "(6) needs characteristic 0: over F_2, for N = N' a Jordan block of size 2, N ⊗ 1 + 1 ⊗ N' has square 0 and Jordan type (2, 2), with graded pieces of dimension 2 in degrees ±1, whereas the convolution has dimensions 1, 2, 1 in degrees 2, 0, −2",
-    "indexing as in FSY §5.3.2 and Deligne, Weil II 1.6: N lowers the index by 2"
+    "V is finite-dimensional over a field k; N is nilpotent.",
+    "The Weil–Deligne relation has a nonzero multiplier c(w).",
+    "M is supplied with the displayed kernel/image formula; its canonical existence and other linear-algebra properties are the LPV.1 supplier interface, not definitions of this roadmap."
    ],
    "proofSteps": [
-    "Uniqueness and existence by induction on the nilpotency order: if N^{d+1} = 0, the conditions force M_d = V and M_{−d−1} = 0, then M_{d−1} = ker N^d and M_{−d} = im N^d (N^d kills M_{d−1} and induces an isomorphism V/M_{d−1} → M_{−d}); N induces a nilpotent endomorphism of ker N^d/im N^d with d-th power 0, whose monodromy filtration, pulled back to ker N^d, is forced to be (M_a) for −d ≤ a ≤ d − 1; conversely these subspaces satisfy the conditions.",
-    "Formula: for a single Jordan block with basis v, Nv, …, N^dv give N^jv the weight d − 2j; the span of the vectors of weight ≤ a satisfies the conditions, and equals Σ_{i − j = a}(ker N^{i+1} ∩ im N^j), since ker N^{i+1} is spanned by the last i + 1 basis vectors and im N^j by those of index ≥ j. The conditions and the formula are compatible with direct sums, and V is a direct sum of Jordan blocks for N (structure of a finitely generated torsion module over k[X]; any field).",
-    "(1) is in the first step. (2): g·M_•(N) satisfies the conditions for gNg^{-1}, and the conditions for cN are those for N; conclude by uniqueness. (3): from the formula, because f maps ker N^{i+1} ∩ im N^j into ker N'^{i+1} ∩ im N'^j.",
-    "(4) and (5) for one Jordan block by inspection (the primitive part is the class of v in degree d; the dual basis vector of a vector of weight x has weight −x for N^∨), then by direct sums. The rank identity: a block of size s contributes Σ_{j=0}^{s−1}(s − 1 − 2j)² = (s³ − s)/3 to the left side and 2·Σ_{k=1}^{s−1}k(s − k) = (s³ − s)/3 to the right side.",
-    "(6): in characteristic 0 a Jordan block of size s is the irreducible representation of sl_2 of dimension s with N the lowering operator and the weight the eigenvalue of H; for every finite-dimensional representation of sl_2 (completely reducible in characteristic 0) the filtration by the sums of H-eigenspaces of eigenvalue ≤ a satisfies the defining conditions for the lowering operator. On V ⊗ V' the operators N ⊗ 1 + 1 ⊗ N' and H ⊗ 1 + 1 ⊗ H' belong to the tensor product representation, and the eigenspaces of H ⊗ 1 + 1 ⊗ H' are the sums of tensor products of eigenspaces; uniqueness gives the convolution formula (Deligne, Weil II 1.6.9)."
+    "Iterate r(w)N = c(w)Nr(w): r(w)N^j = c(w)^jN^jr(w). Since c(w) is a unit, r(w) maps each ker N^{i+1} and im N^j onto itself.",
+    "An invertible linear map preserves intersections and sums. Apply this to the displayed expression for M_a to obtain equality; restrict r(w) to M_a and pass to the quotient M_a/M_{a−1}. No existence, uniqueness, primitive-decomposition or SL₂ tensor argument is proved here."
    ],
    "acceptance": [
-    "For a single Jordan block of size n (the space of Sp(n)), gr^M_a is one-dimensional for a ∈ {n − 1, n − 3, …, 1 − n} and zero otherwise.",
-    "For N of Jordan type (2, 1): M_{−2} = 0, M_{−1} = im N, M_0 = ker N, M_1 = V; the rank identity reads 1 + 0 + 1 = 2·1."
+    "For the special block Sp(2), M₋₁ = im N = k·e₁; the arithmetic Frobenius diag(1,q) preserves this line.",
+    "When N=0 the supplied filtration is concentrated in degree zero, and every Weil operator preserves it."
    ],
    "uses": [
     {
      "where": "ArithmeticGaloisRepresentations:R01.2/purity-of-weil-deligne-representations",
-     "how": "purity is a condition on the Frobenius eigenvalues of the graded pieces of the monodromy filtration"
+     "how": "defines the geometric Frobenius actions on the imported filtration and its graded pieces"
     },
     {
      "where": "ArithmeticGaloisRepresentations:R01.2/purity-from-a-pure-graded",
-     "how": "the primitive decomposition and the rank identity Σ a²·dim gr_a = 2Σ k·rank N^k"
-    },
-    {
-     "where": "ArithmeticGaloisRepresentations:R01.2/frobenius-semisimplification",
-     "how": "the classification of Frobenius-semisimple indecomposable objects (a recorded gap) is stated through the primitive parts"
-    },
-    {
-     "where": "Fresán–Sabbah–Yu 2022, §5.3.2",
-     "how": "the filtration V^{⩽•} attached to N, with N V^{⩽a} ⊂ V^{⩽a−2} and N^a : gr_a ≅ gr_{−a}"
-    }
-   ],
-   "api": [
-    {
-     "name": "TauCeti.MonodromyFiltration.ofNilpotent",
-     "role": "constructor",
-     "statement": "M_•(N) : Z → Submodule k V for an endomorphism N of a finite-dimensional vector space, given by the formula Σ_{i − j = a}(ker N^{i+1} ∩ im N^j); it is the monodromy filtration when N is nilpotent."
-    },
-    {
-     "name": "TauCeti.MonodromyFiltration.ofNilpotent_unique",
-     "role": "characterisation",
-     "statement": "an increasing exhaustive separated filtration M with N·M_a ⊂ M_{a−2} and N^a : gr_a ≅ gr_{−a} for a ≥ 0 equals ofNilpotent N."
-    },
-    {
-     "name": "TauCeti.MonodromyFiltration.map_le",
-     "role": "relation",
-     "statement": "N·M_a ⊂ M_{a−2}, and M is monotone, with M_a = 0 for a < −d and M_a = V for a ≥ d when N^{d+1} = 0."
-    },
-    {
-     "name": "TauCeti.MonodromyFiltration.iterate_bijective",
-     "role": "relation",
-     "statement": "for a ≥ 0, N^a induces a bijection M_a/M_{a−1} → M_{−a}/M_{−a−1}."
-    },
-    {
-     "name": "TauCeti.MonodromyFiltration.ofNilpotent_conj",
-     "role": "functoriality",
-     "statement": "if gNg^{-1} = cN with g invertible and c ≠ 0 then g·M_a(N) = M_a(N); M_a(cN) = M_a(N)."
-    },
-    {
-     "name": "TauCeti.MonodromyFiltration.map_le_of_comm",
-     "role": "functoriality",
-     "statement": "if f∘N = N'∘f then f(M_a(N)) ⊂ M_a(N')."
-    },
-    {
-     "name": "TauCeti.MonodromyFiltration.primitivePart",
-     "role": "data",
-     "statement": "P_a ⊂ gr_a for a ≥ 0, with gr_b = ⊕_j N^j P_{b+2j} and dim P_a the number of Jordan blocks of size a + 1."
-    },
-    {
-     "name": "TauCeti.MonodromyFiltration.sum_sq_finrank_gr",
-     "role": "relation",
-     "statement": "Σ_a a²·dim gr_a = 2·Σ_{k ≥ 1} k·rank(N^k)."
-    },
-    {
-     "name": "TauCeti.MonodromyFiltration.ofNilpotent_dual",
-     "role": "compatibility",
-     "statement": "M_a(N^∨) is the annihilator of M_{−a−1}(N)."
-    },
-    {
-     "name": "TauCeti.MonodromyFiltration.ofNilpotent_tensor",
-     "role": "compatibility",
-     "statement": "in characteristic 0, M_a(N ⊗ 1 + 1 ⊗ N') = Σ_{b + c = a} M_b(N) ⊗ M_c(N')."
-    }
-   ],
-   "tests": [
-    {
-     "name": "TauCeti.MonodromyFiltration.ofNilpotent_zero",
-     "kind": "degenerate",
-     "statement": "For N = 0: M_a = 0 for a < 0 and M_a = V for a ≥ 0."
-    },
-    {
-     "name": "TauCeti.MonodromyFiltration.ofNilpotent_jordanBlock_two",
-     "kind": "computation",
-     "statement": "For V = k² with Ne_0 = e_1, Ne_1 = 0: M_{−2} = 0, M_{−1} = M_0 = k·e_1, M_1 = V."
-    },
-    {
-     "name": "TauCeti.MonodromyFiltration.ofNilpotent_ne_kernelFiltration",
-     "kind": "non-example",
-     "statement": "For the same N, M_{−1} = k·e_1 ≠ 0 = ker N^0 and M_0 = k·e_1 ≠ V = im N^0: neither the kernel filtration a ↦ ker N^{a+1} nor the image filtration a ↦ im N^{−a} is the monodromy filtration."
-    },
-    {
-     "name": "TauCeti.MonodromyFiltration.ofNilpotent_tensor_jordanBlock_two",
-     "kind": "computation",
-     "statement": "Over a field of characteristic 0, for two Jordan blocks of size 2 the graded pieces of the monodromy filtration of N ⊗ 1 + 1 ⊗ N' have dimensions 1, 2, 1 in degrees 2, 0, −2 (Jordan type (3, 1))."
-    },
-    {
-     "name": "TauCeti.MonodromyFiltration.not_ofNilpotent_tensor_char_two",
-     "kind": "non-example",
-     "statement": "Over F_2, for two Jordan blocks of size 2, (N ⊗ 1 + 1 ⊗ N')² = 0 and the graded pieces have dimension 2 in degrees 1 and −1: the tensor formula fails in characteristic 2."
+     "how": "permits Frobenius to act on the supplier’s primitive pieces; the rank-sum calculation is retained in that application"
     }
    ],
    "prerequisites": [
+    "ArithmeticGaloisRepresentations:R01.2/weil-deligne-representation",
     "mathlib:Module.finrank"
    ],
    "library": {
-    "module": "TauCeti/LinearAlgebra/MonodromyFiltration",
-    "namespace": "TauCeti.MonodromyFiltration"
+    "module": "TauCeti/Galois/WeilDeligne/Monodromy",
+    "namespace": "TauCeti.WeilDeligneRep"
    },
    "sources": [
     {
      "sourceId": "fsy22",
      "locator": "§5.3.2, arXiv v5 p. 57 (text layer)",
-     "match": "The definition and the existence and uniqueness statement; the proof, the formula and properties (2)–(6) are supplied by the node (FSY give none; Deligne, Weil II 1.6, was not consulted)."
+     "match": "The filtration convention and its use for a Weil–Deligne object. Stability follows directly from the displayed Weil–Deligne relation and the supplied kernel/image formula; no generic filtration construction is attributed to this passage."
     }
    ],
    "parentStageId": "ArithmeticGaloisRepresentations:R01.2",
@@ -10627,7 +10545,7 @@
     "purity depends only on the Frobenius semisimplification"
    ],
    "proofSteps": [
-    "The monodromy filtration and its r(W_K)-stability are monodromy-filtration (existence, uniqueness, and property (2) applied to g = r(w), for which r(w)Nr(w)^{-1} is a nonzero multiple of N). The behaviour of purity under tensor products and duals (api isPure_tensor) is properties (5) and (6) of that node.",
+    "LPV.1 supplies the canonical nilpotent filtration, uniqueness, scalar invariance, primitive decomposition and tensor/dual formulas. R01.2/monodromy-filtration proves its Weil–Deligne stability from the supplied kernel/image formula. Tensor and dual purity use the requested LPV.1 formulas, with the characteristic-zero SL₂ supplier explicitly separated from the geometric logarithm.",
     "The Weil-number condition does not depend on the choice of F: for σ ∈ I_K the endomorphisms r(Fσ) and r(F) have a common power (r(Fσ)^{mk} = r(F)^{mk} when r(F)^m is central in r(W_K) and r(I_K) has exponent dividing k; this is the computation in frobenius-semisimplification, independence of F), and both preserve every M_a. So their eigenvalues on gr^M_a differ by roots of unity, which changes neither algebraicity nor the complex absolute values of the conjugates."
    ],
    "acceptance": [
@@ -10752,8 +10670,8 @@
    ],
    "proofSteps": [
     "rank N̄^k ≤ rank N^k: the image of N̄^k is ⊕_i (N^kV_i + V_{i−1})/V_{i−1}, and Σ_i dim (N^kV_i + V_{i−1})/V_{i−1} ≤ Σ_i dim (N^kV ∩ V_i + V_{i−1})/V_{i−1} = dim N^kV.",
-    "φ preserves the flag, so φ and φ̄ have the same characteristic polynomial and every eigenvalue of φ is a q-Weil number. Let S = Σ (x − w)², the sum over the eigenvalues of φ with multiplicity, x the weight. By purity of the graded and monodromy-filtration (4), S = Σ_a a²·dim gr^{M(N̄)}_a = 2·Σ_{k ≥ 1} k·rank N̄^k.",
-    "Strings: the monodromy filtration of N is φ-stable (monodromy-filtration (2), since φ^{-1}Nφ = qN) and φ acts on the primitive parts P_a; as N^jφ = q^jφN^j, the eigenvalues of φ on N^jP_a are q^{-j} times those on P_a. By the primitive decomposition the eigenvalues of φ on V are the union, over a ≥ 0 and the eigenvalues α of φ on P_a, of the strings α, q^{-1}α, …, q^{-a}α, of weights x, x − 2, …, x − 2a. Writing x − a = w + c, the string contributes Σ_{j=0}^{a}(c + a − 2j)² = (a + 1)c² + Σ_{j=0}^{a}(a − 2j)² to S, so S = Σ_{strings}(a + 1)c² + Σ_a a²·dim gr^{M(N)}_a = Σ_{strings}(a + 1)c² + 2·Σ_{k ≥ 1} k·rank N^k.",
+    "φ preserves the flag, so φ and φ̄ have the same characteristic polynomial and every eigenvalue of φ is a q-Weil number. Let S = Σ (x − w)², the sum over the eigenvalues of φ with multiplicity, x the weight. By purity of the graded and the rank-sum identity applied to the LPV.1 kernel/image formula, S = Σ_a a²·dim gr^{M(N̄)}_a = 2·Σ_{k ≥ 1} k·rank N̄^k.",
+    "Strings: the monodromy filtration of N is φ-stable (R01.2/monodromy-filtration, since φ^{-1}Nφ = qN) and φ acts on the primitive parts P_a; as N^jφ = q^jφN^j, the eigenvalues of φ on N^jP_a are q^{-j} times those on P_a. By the primitive decomposition the eigenvalues of φ on V are the union, over a ≥ 0 and the eigenvalues α of φ on P_a, of the strings α, q^{-1}α, …, q^{-a}α, of weights x, x − 2, …, x − 2a. Writing x − a = w + c, the string contributes Σ_{j=0}^{a}(c + a − 2j)² = (a + 1)c² + Σ_{j=0}^{a}(a − 2j)² to S, so S = Σ_{strings}(a + 1)c² + Σ_a a²·dim gr^{M(N)}_a = Σ_{strings}(a + 1)c² + 2·Σ_{k ≥ 1} k·rank N^k.",
     "Comparison: 2Σ k·rank N̄^k = S ≥ 2Σ k·rank N^k ≥ 2Σ k·rank N̄^k. Equality holds throughout: every c is 0, which is the purity of (V, φ, N) in weight w, and rank N^k = rank N̄^k for all k ≥ 1.",
     "(iii): (ker N ∩ V_i + V_{i−1})/V_{i−1} ⊂ ker(N̄ | V_i/V_{i−1}) for each i, and the two sides have total dimension dim ker N = dim V − rank N = dim V̄ − rank N̄ = dim ker N̄."
    ],
@@ -11021,6 +10939,11 @@
      "sourceId": "deligne73-constantes",
      "locator": "2.3, Del-23, printed p. 523 (read on the page image)",
      "match": "Deligne normalises local class field theory so that uniformisers go to GEOMETRIC Frobenius elements; the Tau Ceti artinMap normalisation must be converted."
+    },
+    {
+     "sourceId": "deligne73-constantes",
+     "locator": "§5.5.3, §5.6.1 and §5.7.1, printed p. 549 (PDF page image 49)",
+     "match": "The unramified-twist formula uses the Artin conductor plus the additive-character conductor times dimension. Induction is a virtual dimension-zero statement. The duality identity pairs the contragredient tensored with the norm character with the negated additive character and the dual Haar measure."
     }
    ],
    "implementationStatus": "unchecked"
@@ -11076,7 +10999,7 @@
     {
      "sourceId": "deligne73-constantes",
      "locator": "proof of Lemme 8.4.3, Del-69, printed p. 569 (read on the page image)",
-     "match": "The rescaling lemma (r,N) ≅ (r,aN); 'tout a ∈ E' must be read as a ≠ 0."
+     "match": "The rescaling lemma (r,N) ≅ (r,aN); the stated rescaling parameter must be nonzero."
     }
    ],
    "implementationStatus": "unchecked"
@@ -11147,7 +11070,7 @@
     {
      "name": "TauCeti.Conductor.swanConductor_unweighted_fails",
      "kind": "non-example",
-     "statement": "Computed over L = Q_2(ζ_8), the unweighted sum Σ_{i≥1} codim χ_8^{G_i} equals 3, while Sw(χ_8) = 2: dropping the weights |G_i|/|G_0| (or using lower numbering of the absolute group) gives a value that depends on L."
+     "statement": "For the quadratic character χ₈ of G_{Q₂} cutting out Q₂(√2), compute its lower sum over Q₂(ζ₈): |G₀|=4 and the positive nontrivial lower-group sizes are 4,2,2, with codimension one at each level. The weighted Swan conductor is 1+1/2+1/2=2; the unweighted sum is 3 and therefore fails."
     },
     {
      "name": "TauCeti.Conductor.swanConductor_eq_lowerSum_any",
@@ -12332,7 +12255,7 @@
     {
      "sourceId": "brumer-kramer94",
      "locator": "§2 (Preliminaries on conductors), after (2.1), printed p. 229 (PDF p. 4)",
-     "match": "Source context for Swan additivity in exact sequences. Brumer–Kramer call the conductor exponent (2.1) 'an additive function of V', for F of characteristic 0 or l ≠ p, and note that it is unchanged by extension of F (part (e)). Additivity holds on direct sums, and on exact sequences only when |G_0| is invertible in F (source issue E351); part (a) therefore states an inequality with its equality criterion. Their Lemma 2.4, on the same page, is the additivity of sw on exact sequences of part (a). The exact extracted statement and any generalisation are justified by this node’s proof plan, not by treating the source’s other bundle clauses as this declaration."
+     "match": "Source context for Swan additivity in exact sequences. Brumer–Kramer state direct-sum additivity for the conductor exponent (2.1), for F of characteristic 0 or l ≠ p, and note that it is unchanged by extension of F (part (e)). Additivity holds on direct sums, and on exact sequences only when |G_0| is invertible in F (source issue E351); part (a) therefore states an inequality with its equality criterion. Their Lemma 2.4, on the same page, is the additivity of sw on exact sequences of part (a). The exact extracted statement and any generalisation are justified by this node’s proof plan, not by treating the source’s other bundle clauses as this declaration."
     }
    ],
    "implementationStatus": "unchecked"
@@ -12367,7 +12290,7 @@
     {
      "sourceId": "brumer-kramer94",
      "locator": "§2 (Preliminaries on conductors), after (2.1), printed p. 229 (PDF p. 4)",
-     "match": "Source context for Artin conductor inequality for exact sequences. Brumer–Kramer call the conductor exponent (2.1) 'an additive function of V', for F of characteristic 0 or l ≠ p, and note that it is unchanged by extension of F (part (e)). Additivity holds on direct sums, and on exact sequences only when |G_0| is invertible in F (source issue E351); part (a) therefore states an inequality with its equality criterion. Their Lemma 2.4, on the same page, is the additivity of sw on exact sequences of part (a). The exact extracted statement and any generalisation are justified by this node’s proof plan, not by treating the source’s other bundle clauses as this declaration."
+     "match": "Source context for Artin conductor inequality for exact sequences. Brumer–Kramer state direct-sum additivity for the conductor exponent (2.1), for F of characteristic 0 or l ≠ p, and note that it is unchanged by extension of F (part (e)). Additivity holds on direct sums, and on exact sequences only when |G_0| is invertible in F (source issue E351); part (a) therefore states an inequality with its equality criterion. Their Lemma 2.4, on the same page, is the additivity of sw on exact sequences of part (a). The exact extracted statement and any generalisation are justified by this node’s proof plan, not by treating the source’s other bundle clauses as this declaration."
     }
    ],
    "implementationStatus": "unchecked"
@@ -12410,7 +12333,7 @@
     {
      "sourceId": "brumer-kramer94",
      "locator": "§2 (Preliminaries on conductors), after (2.1), printed p. 229 (PDF p. 4)",
-     "match": "Source context for Conductors of dual representations. Brumer–Kramer call the conductor exponent (2.1) 'an additive function of V', for F of characteristic 0 or l ≠ p, and note that it is unchanged by extension of F (part (e)). Additivity holds on direct sums, and on exact sequences only when |G_0| is invertible in F (source issue E351); part (a) therefore states an inequality with its equality criterion. Their Lemma 2.4, on the same page, is the additivity of sw on exact sequences of part (a). The exact extracted statement and any generalisation are justified by this node’s proof plan, not by treating the source’s other bundle clauses as this declaration."
+     "match": "Source context for Conductors of dual representations. Brumer–Kramer state direct-sum additivity for the conductor exponent (2.1), for F of characteristic 0 or l ≠ p, and note that it is unchanged by extension of F (part (e)). Additivity holds on direct sums, and on exact sequences only when |G_0| is invertible in F (source issue E351); part (a) therefore states an inequality with its equality criterion. Their Lemma 2.4, on the same page, is the additivity of sw on exact sequences of part (a). The exact extracted statement and any generalisation are justified by this node’s proof plan, not by treating the source’s other bundle clauses as this declaration."
     }
    ],
    "implementationStatus": "unchecked"
@@ -12446,7 +12369,7 @@
     {
      "sourceId": "brumer-kramer94",
      "locator": "§2 (Preliminaries on conductors), after (2.1), printed p. 229 (PDF p. 4)",
-     "match": "Source context for Unramified and tame character twists. Brumer–Kramer call the conductor exponent (2.1) 'an additive function of V', for F of characteristic 0 or l ≠ p, and note that it is unchanged by extension of F (part (e)). Additivity holds on direct sums, and on exact sequences only when |G_0| is invertible in F (source issue E351); part (a) therefore states an inequality with its equality criterion. Their Lemma 2.4, on the same page, is the additivity of sw on exact sequences of part (a). The exact extracted statement and any generalisation are justified by this node’s proof plan, not by treating the source’s other bundle clauses as this declaration."
+     "match": "Source context for Unramified and tame character twists. Brumer–Kramer state direct-sum additivity for the conductor exponent (2.1), for F of characteristic 0 or l ≠ p, and note that it is unchanged by extension of F (part (e)). Additivity holds on direct sums, and on exact sequences only when |G_0| is invertible in F (source issue E351); part (a) therefore states an inequality with its equality criterion. Their Lemma 2.4, on the same page, is the additivity of sw on exact sequences of part (a). The exact extracted statement and any generalisation are justified by this node’s proof plan, not by treating the source’s other bundle clauses as this declaration."
     }
    ],
    "implementationStatus": "unchecked"
@@ -12588,7 +12511,7 @@
     {
      "sourceId": "brumer-kramer94",
      "locator": "§2 (Preliminaries on conductors), after (2.1), printed p. 229 (PDF p. 4)",
-     "match": "Source context for Extension of conductor coefficients. Brumer–Kramer call the conductor exponent (2.1) 'an additive function of V', for F of characteristic 0 or l ≠ p, and note that it is unchanged by extension of F (part (e)). Additivity holds on direct sums, and on exact sequences only when |G_0| is invertible in F (source issue E351); part (a) therefore states an inequality with its equality criterion. Their Lemma 2.4, on the same page, is the additivity of sw on exact sequences of part (a). The exact extracted statement and any generalisation are justified by this node’s proof plan, not by treating the source’s other bundle clauses as this declaration."
+     "match": "Source context for Extension of conductor coefficients. Brumer–Kramer state direct-sum additivity for the conductor exponent (2.1), for F of characteristic 0 or l ≠ p, and note that it is unchanged by extension of F (part (e)). Additivity holds on direct sums, and on exact sequences only when |G_0| is invertible in F (source issue E351); part (a) therefore states an inequality with its equality criterion. Their Lemma 2.4, on the same page, is the additivity of sw on exact sequences of part (a). The exact extracted statement and any generalisation are justified by this node’s proof plan, not by treating the source’s other bundle clauses as this declaration."
     }
    ],
    "implementationStatus": "unchecked"
@@ -13279,7 +13202,7 @@
     {
      "sourceId": "deligne74-weil1",
      "locator": "§8, Lemme (8.13), printed p. 306 (PDF p. 35)",
-     "match": "Source context for Artin–Schreier conductors. Deligne's statement of the Artin–Schreier conductor; the conclusion 'conducteur d+1' is on the same page (text layer garbled, read on the page image). The exact extracted statement and any generalisation are justified by this node’s proof plan, not by treating the source’s other bundle clauses as this declaration."
+     "match": "Source context for Artin–Schreier conductors. Deligne's statement of the Artin–Schreier conductor; the conclusion conductor exponent d+1 is on the same page (text layer garbled, read on the page image). The exact extracted statement and any generalisation are justified by this node’s proof plan, not by treating the source’s other bundle clauses as this declaration."
     },
     {
      "sourceId": "serre61-corps-locaux",
@@ -13354,7 +13277,7 @@
     {
      "sourceId": "deligne74-weil1",
      "locator": "§8, Lemme (8.13), printed p. 306 (PDF p. 35)",
-     "match": "Source context for Artin–Schreier ramification at infinity. Deligne's statement of the Artin–Schreier conductor; the conclusion 'conducteur d+1' is on the same page (text layer garbled, read on the page image). The exact extracted statement and any generalisation are justified by this node’s proof plan, not by treating the source’s other bundle clauses as this declaration."
+     "match": "Source context for Artin–Schreier ramification at infinity. Deligne's statement of the Artin–Schreier conductor; the conclusion conductor exponent d+1 is on the same page (text layer garbled, read on the page image). The exact extracted statement and any generalisation are justified by this node’s proof plan, not by treating the source’s other bundle clauses as this declaration."
     },
     {
      "sourceId": "deligne74-weil1",
@@ -17911,7 +17834,7 @@
     {
      "sourceId": "cg20",
      "locator": "Appendix §A.4, proof of Lemma A.8, published p. 890 (author copy Siegel.pdf)",
-     "match": "The Haar-measure form of Chebotarev used for the ℓ-adic image GSp_4(ℤ_ℓ), cited only as 'By Chebotarev'. This node extracts only the clause stated here from the reviewed bundle ArithmeticGaloisRepresentations:R01.5/haar-measure-chebotarev. Other clauses are separate nodes; the cited source scope is unchanged."
+     "match": "The Haar-measure form of Chebotarev used for the ℓ-adic image GSp_4(ℤ_ℓ), attributed to Chebotarev without a numbered reference. This node extracts only the clause stated here from the reviewed bundle ArithmeticGaloisRepresentations:R01.5/haar-measure-chebotarev. Other clauses are separate nodes; the cited source scope is unchanged."
     },
     {
      "sourceId": "serre81-chebotarev",
@@ -17965,7 +17888,7 @@
     {
      "sourceId": "cg20",
      "locator": "Appendix §A.4, proof of Lemma A.8, published p. 890 (author copy Siegel.pdf)",
-     "match": "The Haar-measure form of Chebotarev used for the ℓ-adic image GSp_4(ℤ_ℓ), cited only as 'By Chebotarev'. This node extracts only the clause stated here from the reviewed bundle ArithmeticGaloisRepresentations:R01.5/haar-measure-chebotarev. Other clauses are separate nodes; the cited source scope is unchanged."
+     "match": "The Haar-measure form of Chebotarev used for the ℓ-adic image GSp_4(ℤ_ℓ), attributed to Chebotarev without a numbered reference. This node extracts only the clause stated here from the reviewed bundle ArithmeticGaloisRepresentations:R01.5/haar-measure-chebotarev. Other clauses are separate nodes; the cited source scope is unchanged."
     },
     {
      "sourceId": "serre81-chebotarev",
@@ -18015,7 +17938,7 @@
     {
      "sourceId": "cg20",
      "locator": "Appendix §A.4, proof of Lemma A.8, published p. 890 (author copy Siegel.pdf)",
-     "match": "The Haar-measure form of Chebotarev used for the ℓ-adic image GSp_4(ℤ_ℓ), cited only as 'By Chebotarev'. This node extracts only the clause stated here from the reviewed bundle ArithmeticGaloisRepresentations:R01.5/haar-measure-chebotarev. Other clauses are separate nodes; the cited source scope is unchanged."
+     "match": "The Haar-measure form of Chebotarev used for the ℓ-adic image GSp_4(ℤ_ℓ), attributed to Chebotarev without a numbered reference. This node extracts only the clause stated here from the reviewed bundle ArithmeticGaloisRepresentations:R01.5/haar-measure-chebotarev. Other clauses are separate nodes; the cited source scope is unchanged."
     },
     {
      "sourceId": "serre81-chebotarev",
@@ -18065,7 +17988,7 @@
     {
      "sourceId": "cg20",
      "locator": "Appendix §A.4, proof of Lemma A.8, published p. 890 (author copy Siegel.pdf)",
-     "match": "The Haar-measure form of Chebotarev used for the ℓ-adic image GSp_4(ℤ_ℓ), cited only as 'By Chebotarev'. This node extracts only the clause stated here from the reviewed bundle ArithmeticGaloisRepresentations:R01.5/haar-measure-chebotarev. Other clauses are separate nodes; the cited source scope is unchanged."
+     "match": "The Haar-measure form of Chebotarev used for the ℓ-adic image GSp_4(ℤ_ℓ), attributed to Chebotarev without a numbered reference. This node extracts only the clause stated here from the reviewed bundle ArithmeticGaloisRepresentations:R01.5/haar-measure-chebotarev. Other clauses are separate nodes; the cited source scope is unchanged."
     },
     {
      "sourceId": "serre81-chebotarev",
@@ -18669,7 +18592,7 @@
    ],
    "title": "Recognition of lisse sheaves on a curve over a finite field from a dense open subset",
    "kind": "application",
-   "statement": "Let F_q be a finite field of characteristic p, C a smooth geometrically connected curve over F_q, U ⊂ C a nonempty (hence dense) open subscheme, ℓ ≠ p, and E a field of characteristic 0 that is a finite extension of ℚ_ℓ (or Q̄_ℓ). Let V_1, V_2 be lisse E-sheaves of rank n on C, i.e. continuous representations of π_1(C, c̄) on n-dimensional E-vector spaces. If det(1 − Frob_x t | V_{1,x̄}) = det(1 − Frob_x t | V_{2,x̄}) in E[t] for every closed point x ∈ |U| (geometric or arithmetic Frobenius, the same for both), then V_1^ss ≅ V_2^ss as representations of π_1(C); if V_1, V_2 are semisimple, V_1 ≅ V_2. This is the step 'by the Chebotarev density Theorem, the semisimplifications … are isomorphic' in the proof of Kisin–Zhou Proposition 5.3.5.",
+   "statement": "Let F_q be a finite field of characteristic p, C a smooth geometrically connected curve over F_q, U ⊂ C a nonempty (hence dense) open subscheme, ℓ ≠ p, and E a field of characteristic 0 that is a finite extension of ℚ_ℓ (or Q̄_ℓ). Let V_1, V_2 be lisse E-sheaves of rank n on C, i.e. continuous representations of π_1(C, c̄) on n-dimensional E-vector spaces. If det(1 − Frob_x t | V_{1,x̄}) = det(1 − Frob_x t | V_{2,x̄}) in E[t] for every closed point x ∈ |U| (geometric or arithmetic Frobenius, the same for both), then V_1^ss ≅ V_2^ss as representations of π_1(C); if V_1, V_2 are semisimple, V_1 ≅ V_2. Kisin–Zhou use this recognition step in the proof of Proposition 5.3.5.",
    "hypotheses": [
     "C normal and connected (smooth geometrically connected), U dense open; equality at every closed point of U.",
     "Common coefficient field E of characteristic 0 (for different ℓ the comparison is of polynomials with coefficients in a number field, after which a single ℓ is used).",
@@ -20208,7 +20131,7 @@
     {
      "sourceId": "masser-zannier20",
      "locator": "§1, p. 637",
-     "match": "Names the property and refers to Pink [36] for it; Masser–Zannier do not write out the definition. The adelic definition of this node (image open in GSp_{2g}(Ẑ)) is the one their sentence on p. 658 presupposes (\"this implies Galois generic\", with Cadoret's adelic open image theorem as reference); the definition is not quoted from Pink's paper, which is not a source of this roadmap."
+     "match": "Names the property and refers to Pink [36] for it; Masser–Zannier do not write out the definition. The adelic definition of this node (image open in GSp_{2g}(Ẑ)) is the one their sentence on p. 658 presupposes (the implication from the preceding image assertion is attributed to Cadoret's adelic open-image theorem); the definition is not quoted from Pink's paper, which is not a source of this roadmap."
     }
    ],
    "implementationStatus": "unchecked"
@@ -22329,7 +22252,7 @@
     {
      "sourceId": "cg20-arxiv-v1",
      "locator": "§4, p. 10 (arXiv:1907.08691v1)",
-     "match": "The same sentence in the arXiv text (which prints 'a 11-dimensional'), literal in its text layer."
+     "match": "The arXiv text gives the eleven-dimensional adjoint representation on the symplectic similitude Lie algebra; its central line needs the trivial action recorded here."
     },
     {
      "sourceId": "cg20-arxiv-v1",
@@ -22874,7 +22797,7 @@
    "proofSteps": [
     "(1), existence: take a lift ρ_0 of P, unramified almost everywhere (G7/lifting-projective-representations). By G7/roots-of-characters-up-to-finite-order with m = 2, det ρ_0 = ψ^2χ_0 with χ_0 of finite order; put ρ = ρ_0 ⊗ ψ^{−1}, so det ρ = χ_0. In rank two and characteristic 0, Sym^2 ρ ≅ ad⁰ ρ ⊗ det ρ (G7/adjoint-representations) and ρ ⊗ ρ ≅ Sym^2 ρ ⊕ det ρ (G7/symmetric-and-exterior-powers), so ρ ⊗ ρ is de Rham, in particular Hodge–Tate, at each v | ℓ. Sen's operator of ρ ⊗ ρ is Θ ⊗ 1 + 1 ⊗ Θ (requested from PadicHodgeTheory), so for the eigenvalues a, b of Θ_ρ at an embedding, 2a, a + b and 2b are integers: a, b ∈ (1/2)Z. This route does not use the theorem of Wintenberger and Conrad (Patrikis, Theorem 2.1.6), to which Patrikis appeals.",
     "(1), every lift with weights in (1/2)Z: ad⁰ ρ is Hodge–Tate, so a − b ∈ Z and then a + b = (a − b) + 2b ∈ Z. The character det ρ has integral Hodge–Tate–Sen weight, so it is Hodge–Tate, hence de Rham (PadicHodgeTheory:R06.2/hodge-tate-characters-are-de-rham), and Sym^2 ρ ≅ ad⁰ ρ ⊗ det ρ is de Rham. Both are unramified almost everywhere because ρ is (G7/lifting-projective-representations (3)).",
-    "(2): P is geometric, because ad⁰ of a lift of P restricts on G_{F′} to ad⁰ s and being de Rham or unramified can be tested on an open subgroup. Take r̃ as in (1); r̃|_{G_{F′}} and s have the same projectivisation, so r̃|_{G_{F′}} = s ⊗ ψ for a continuous character ψ of G_{F′}, whose Hodge–Tate–Sen weights lie in (1/2)Z. For an embedding τ′ of F′ above an embedding τ of F, the weights of r̃ at τ are those of s ⊗ ψ at τ′, namely {x_{τ′} − 1, x_{τ′}} with x_{τ′} the weight of ψ at τ′; so x_{τ′} = x_τ depends only on τ, and the character det r̃ of G_F has weight 2x_τ − 1 at τ. By Patrikis Lemma 2.3.17 (F totally real) these weights are all equal, so x_τ = x ∈ (1/2)Z for every τ. There is a character θ of G_F with all Hodge–Tate–Sen weights −x (G7/roots-of-characters-up-to-finite-order with m = 2 applied to χ_ℓ^{−2x}); replace r̃ by r̃ ⊗ θ. Now ψ has all weights 0, so r̃|_{G_{F′}} is Hodge–Tate with the weights of s, and so is r̃ (finite extension). A character with Sen operator 0 has finite image on inertia at the places above ℓ (PadicHodgeTheory:R06.2/hodge-tate-characters-are-de-rham) and ψ is unramified almost everywhere, so ψ has finite order by class field theory (BCGP21 p. 254: 'Since ψ is Hodge–Tate of weight 0, it has finite order')."
+    "(2): P is geometric, because ad⁰ of a lift of P restricts on G_{F′} to ad⁰ s and being de Rham or unramified can be tested on an open subgroup. Take r̃ as in (1); r̃|_{G_{F′}} and s have the same projectivisation, so r̃|_{G_{F′}} = s ⊗ ψ for a continuous character ψ of G_{F′}, whose Hodge–Tate–Sen weights lie in (1/2)Z. For an embedding τ′ of F′ above an embedding τ of F, the weights of r̃ at τ are those of s ⊗ ψ at τ′, namely {x_{τ′} − 1, x_{τ′}} with x_{τ′} the weight of ψ at τ′; so x_{τ′} = x_τ depends only on τ, and the character det r̃ of G_F has weight 2x_τ − 1 at τ. By Patrikis Lemma 2.3.17 (F totally real) these weights are all equal, so x_τ = x ∈ (1/2)Z for every τ. There is a character θ of G_F with all Hodge–Tate–Sen weights −x (G7/roots-of-characters-up-to-finite-order with m = 2 applied to χ_ℓ^{−2x}); replace r̃ by r̃ ⊗ θ. Now ψ has all weights 0, so r̃|_{G_{F′}} is Hodge–Tate with the weights of s, and so is r̃ (finite extension). A character with Sen operator 0 has finite image on inertia at the places above ℓ (PadicHodgeTheory:R06.2/hodge-tate-characters-are-de-rham) and ψ is unramified almost everywhere, so ψ has finite order by class field theory (the character argument used in BCGP21, printed p. 254)."
    ],
    "acceptance": [
     "BCGP21, Proposition 9.2.1, type E[D_n]: s = s_l is a member of a weakly compatible system with s^σ ≅ s ⊗ δ; Proj s extends to G_F by Schur's lemma and (2) gives r̃ with r̃|_{G_{F′}} = s ⊗ ψ.",
@@ -23374,7 +23297,7 @@
     {
      "sourceId": "ddt-fermat",
      "locator": "proof of Lemma 2.48, PDF p. 82",
-     "match": "The source passes from B to its normal subgroup U of index prime to ℓ ('Hⁱ(B, M) ≅ Hⁱ(U, M)^{B/U}'); this node states the part of that isomorphism that Mathlib's carrier gives directly, for modules with trivial U-action."
+     "match": "The source passes from B to its normal subgroup U of index prime to ℓ (the cohomology comparison with the quotient-invariant part); this node states the part of that isomorphism that Mathlib's carrier gives directly, for modules with trivial U-action."
     }
    ],
    "implementationStatus": "unchecked",
@@ -23861,7 +23784,7 @@
     {
      "sourceId": "accplus-cm-potential-automorphy",
      "locator": "proof of Lemma 6.2.30, printed p. 1044",
-     "match": "The use: a submodule stable under H and Gal(k′/k) 'thus (by descent) has the form W ⊗_k k′' (the text layer renders the primes as 0)."
+     "match": "The use: a submodule stable under H and Gal(k′/k) descends to a subspace over k whose scalar extension is the given subspace (the text layer renders the primes as 0)."
     }
    ],
    "implementationStatus": "unchecked",
@@ -24849,8 +24772,8 @@
     "p > 2, so that 𝔤𝔰𝔭₄ = 𝔰𝔭₄ ⊕ k·1",
     "(H2) asks for one σ that works for all irreducible constituents at once, for every m",
     "(H1) is a condition on the field cut out by ad⁰(r̄), not on the image group",
-    "Reading of (H3). Assumption 4.1 begins 'The restriction of r̄ to G_{Q(ζ_p)} satisfies the following conditions', which suggests (H3′) (Γ the image of G_{Q(ζ_p)}); but (H1) is a condition on r̄ itself, as the source says, and the second clause of (H3), about ad⁰(r̄)(1), would be redundant on G_{Q(ζ_p)}, where ε̄ is trivial, which suggests (H3) (Γ the image of G_Q). (H3′) ⇒ (H3): a homomorphism from ad⁰r̄(G_Q) or ad⁰r̄(1)(G_Q) onto Z/p restricts non-trivially to the image of G_{Q(ζ_p)}, a normal subgroup of index dividing p − 1. The converse fails for abstract groups (Z/p ⋊ (Z/p)^× has no quotient of order p). Which reading the proof of Calegari–Geraghty's Proposition 4.10 uses is not determined by the source: that proposition is stated without proof ('follows from the previous proposition and the proof of [Pil12a, Prop. 5.6]'). Both examples of G7/cg20-big-image-examples satisfy (H3′).",
-    "Reading of (H2): 'each irreducible representation of ad⁰(r̄) over G_{Q(ζ_{p^m})}' is read as each irreducible constituent after extension of scalars to k̄; the proof of Example 4.11 says 'every irreducible constituent'."
+    "Reading of (H3). The introductory sentence of Assumption 4.1 attaches its conditions to the cyclotomic restriction, which suggests (H3′) (Γ the image of G_{Q(ζ_p)}); but (H1) is a condition on r̄ itself, as the source says, and the second clause of (H3), about ad⁰(r̄)(1), would be redundant on G_{Q(ζ_p)}, where ε̄ is trivial, which suggests (H3) (Γ the image of G_Q). (H3′) ⇒ (H3): a homomorphism from ad⁰r̄(G_Q) or ad⁰r̄(1)(G_Q) onto Z/p restricts non-trivially to the image of G_{Q(ζ_p)}, a normal subgroup of index dividing p − 1. The converse fails for abstract groups (Z/p ⋊ (Z/p)^× has no quotient of order p). Which reading the proof of Calegari–Geraghty's Proposition 4.10 uses is not determined by the source: that proposition is stated without proof (its justification refers to the preceding proposition and Pilloni's Proposition 5.6). Both examples of G7/cg20-big-image-examples satisfy (H3′).",
+    "Reading of (H2): the irreducible representations meant here are the constituents of ad⁰(r̄) after extension to k̄; Example 4.11 uses that interpretation."
    ],
    "proofSteps": [
     "Form ad and ad⁰ from G7/adjoint-representations restricted along GSp₄ ⊆ GL₄; the splitting 𝔤𝔰𝔭₄ = 𝔰𝔭₄ ⊕ k·I₄ holds for p > 2 (if XᵀJ + JX = cJ then X − (c/2)I ∈ 𝔰𝔭₄) and the adjoint action fixes I₄ (E759).",
@@ -25767,7 +25690,7 @@
   },
   {
    "supplier": "AbelianSchemesAndArithmeticModuli:A3",
-   "need": "For an abelian scheme of relative dimension g over a base S: [n] finite locally free of rank n^{2g}, étale over S[1/n]; the kernel of an isogeny is a finite locally free group scheme whose order is the degree and which is killed by its order; quotient isogenies A → A/G by finite locally free subgroups and quasi-inverses ψφ = [m]; the perfect Weil pairing A[n] × A^∨[n] → μ_n, compatible in n (e_{mn}(a, a′)^n = e_m(na, na′)), Galois and base-change equivariant, given on geometric points over a field by e_n(a, a′) = g/(g∘t_a) (Milne AV §13), so that its sign can be compared with the elliptic pairing of Tau Ceti; the alternating polarization pairing e^λ_n with its perfectness criterion; and the adjunction e_n(αx, y) = e_n(x, α^∨y). A3's stage text also speaks of the corresponding Tate-module pairings with the Tate twist in their target: R01.6/weil-pairing-on-tate-modules forms the limit on the Tate module of R01.6, and asks A3 for the compatible finite-level system only.",
+   "need": "For an abelian scheme of relative dimension g over a base S: [n] finite locally free of rank n^{2g}, étale over S[1/n]; the kernel of an isogeny is a finite locally free group scheme whose order is the degree and which is killed by its order; quotient isogenies A → A/G by finite locally free subgroups and quasi-inverses ψφ = [m]; the perfect Weil pairing A[n] × A^∨[n] → μ_n, compatible in n (e_{mn}(a, a′)^n = e_m(na, na′)), Galois and base-change equivariant, given on geometric points over a field by e_n(a, a′) = g/(g∘t_a) (Milne AV §13), so that its sign can be compared with the elliptic pairing of Tau Ceti; the alternating polarization pairing e^λ_n with its perfectness criterion; and the adjunction e_n(αx, y) = e_n(x, α^∨y). A3's stage text also speaks of the corresponding Tate-module pairings with the Tate twist in their target: R01.6/weil-pairing-on-tate-modules forms the limit on the Tate module of R01.6, and asks A3 for the compatible finite-level system only. R01.6 forms the integral and rational limits from these finite pairings. Integral perfectness requires ℓ not dividing the polarization degree; rational perfectness holds for every polarization. The dual and polarization carrier are imported from JacobianChallenge layer E, and the rational Rosati involution from the existing A2/rosati-involution node.",
    "neededBy": [
     "ArithmeticGaloisRepresentations:R01.6/tate-module-of-an-abelian-variety",
     "ArithmeticGaloisRepresentations:R01.6/functoriality-products-and-isogenies",
@@ -25850,9 +25773,11 @@
   },
   {
    "supplier": "LefschetzPencilsAndVanishingCycles:LPV.1",
-   "need": "Accepted RS-17 O20 assigns the canonical nilpotent monodromy filtration to LPV.1. Export the pure finite-dimensional nilpotent filtration, uniqueness, scalar/conjugation invariance, primitive decomposition and tensor/dual formulas from LPV.1/monodromy-filtration, primitive-decomposition-and-strictness and tensor-dual-and-symmetric-monodromy without depending on finite-monodromy-logarithm or Arithmetic R01.2. Supply the characteristic-zero SL₂ complete-reducibility/weight interface used by the tensor proof, from LieHighestWeight, Part II. Bridge the lower primitive convention of LPV to the upper primitive convention used here. Arithmetic can then import it and retain only its Weil–Deligne stability and rank-sum identity; do not add the reverse stage edge before this separation.",
+   "need": "Accepted RS-17 O20 assigns the canonical nilpotent monodromy filtration to LPV.1. Export the pure finite-dimensional nilpotent filtration, uniqueness, scalar/conjugation invariance, primitive decomposition and tensor/dual formulas from LPV.1/monodromy-filtration, primitive-decomposition-and-strictness and tensor-dual-and-symmetric-monodromy without depending on finite-monodromy-logarithm or Arithmetic R01.2. Supply the characteristic-zero SL₂ complete-reducibility/weight interface used by the tensor proof, from LieHighestWeight, Part II. Bridge the lower primitive convention of LPV to the upper primitive convention used here. Arithmetic has removed its canonical-filtration definition and keeps only Weil–Deligne stability and the rank-sum computation inside its purity application. The consuming purity/classification nodes remain conditional on this export. Do not install a reverse stage edge until the supplier separation is applied: the present LPV logarithm edge would produce a cycle.",
    "neededBy": [
-    "ArithmeticGaloisRepresentations:R01.2/monodromy-filtration"
+    "ArithmeticGaloisRepresentations:R01.2/purity-of-weil-deligne-representations",
+    "ArithmeticGaloisRepresentations:R01.2/purity-from-a-pure-graded",
+    "ArithmeticGaloisRepresentations:R01.2/frobenius-semisimplification"
    ]
   }
  ],
@@ -25986,7 +25911,7 @@
     "Compare the published Duke Math. J. text of Fresán–Sabbah–Yu at (5.32) and in the proof of Lemma 5.40 with arXiv v5, to scope the source issues E252 and E253 to the version of record.",
     "Replace the stage-level prerequisites of R01.2 by node ids when the suppliers export them: tauceti:TauCetiRoadmap/LocalFieldsRamification layers 2 (Gal(K^{ur}/K) ≅ Ẑ, unramified extensions of each degree) and 4 (I_K, P_K, the tame character with its equivariance and finite-level form, Frobenius lifts); tauceti:TauCetiRoadmap/ClassFieldTheory layers 7 (artinMap normalisations, conductors), 9 (W_K, weilDegree, weilTransfer) and 13 (Kronecker–Weber); tauceti:TauCetiRoadmap/NumberFieldArithmetic layers 2 (Frobenius elements, cyclotomic examples) and 5 (completions, decompositionHom); tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction layer 6 (Brauer induction); tauceti:TauCetiRoadmap/EllipticCurves layer 4 (the Tate curve and the Kummer description of its Tate module); tauceti:TauCetiRoadmap/LocalFieldsRamification layer 0 for ArithmeticGaloisRepresentations:R01.2/local-epsilon-factor (globalisation of local extensions, Deligne's Lemme 4.13).",
     "Instantiate the abstract (W,deg,q) prototypes on the genuine local Weil group exported by ClassFieldTheory, with the Weil topology, inertia identification and residue cardinality. The monodromy and choice-independence signatures carry the explicit full IsTameCharacter hypotheses; formal supplier instantiation remains to be written.",
-    "Check the two citations of Deligne, Weil II, in monodromy-filtration (1.6 for the indexing convention, hypothesis 2; 1.6.9 for the convolution formula, proof step 4) against the text when it is acquired; the proofs written in the node do not depend on it."
+    "LPV.1 owns the canonical nilpotent filtration and its tensor/dual formulas under RS-17 O20. Resolve the recorded pure linear-algebra export and index-convention bridge; R01.2 owns only the Weil–Deligne stability and the rank-sum application."
    ]
   },
   {
@@ -26098,7 +26023,7 @@
     "Gap: the Mumford–Tate containment U ⊆ M(Ẑ) of Richard–Yafaev Theorem 4.9 (3) (Deligne's theorem on absolute Hodge cycles), to be planned downstream of ShimuraData D1 and AutomorphicBundles B1.",
     "State Noot Proposition 1.3 (for each ℓ a closed point with the same ℓ-adic Galois image) as a node once InverseGaloisAndArithmeticFundamentalGroups IG.2 states Hilbert irreducibility in the ℓ-adic Lie form (Serre, Lectures on the Mordell–Weil theorem, 10.6); Noot Corollary 1.5 belongs to FaltingsFinitenessAndIsogenyTheorems.",
     "Replace stage-level prerequisites by node ids when the suppliers export them: AbelianSchemesAndArithmeticModuli A3 ([n] finite étale, kernels of isogenies, the finite Weil pairing with its formula on points, the polarization pairing) and A1 (Weierstrass curves as one-dimensional abelian varieties); Tau Ceti EllipticCurves Layer 1 (point map of an isogeny, dual isogeny, Vélu quotient), Layer 2 (E[N], Weil pairing, T_ℓW, determinant), Layer 3 (point maps of π and 1 − π), Layer 4 (Néron–Ogg–Shafarevich (i), (ii), j-integrality, Tate curve and ATAEC V.5.3), Layer 5 (twists for j ≠ 0, 1728; nonsplit to split); JacobianChallenge layer E (dual, φ_L, polarizations); LocalFieldsRamification Layer 2; NumberFieldArithmetic layer 5.",
-    "Elaborate the exact geometry comment blocks against TauCeti.AlgebraicGeometry.AbelianVariety once the genuine torsion-point, dual, pairing and model suppliers and their compiled imports are available. This revision removes the old point/torsion stand-in carrier; the Mathlib-only check does not elaborate these mathematical comments."
+    "Elaborate the typed geometric interfaces against the actual pinned TauCeti.AlgebraicGeometry.AbelianVariety carrier when a build containing both pins is available. Every API and test in the previous review’s Appendix B now has a typed counterpart; the Mathlib-only slice check does not elaborate the geometric section or establish its supplier constructions."
    ]
   }
  ],
@@ -26297,7 +26222,7 @@
    "neededBy": [
     "ArithmeticGaloisRepresentations:R01.2/frobenius-semisimplification"
    ],
-   "detail": "Statement: over an algebraically closed field Ω of characteristic 0, every Frobenius-semisimple indecomposable Weil–Deligne representation of W_K is isomorphic to r_0 ⊗ Sp(n) with r_0 an irreducible representation of W_K with open kernel on inertia and n ≥ 1, and a Frobenius-semisimple object is a direct sum of such, uniquely up to order. Missing, exactly: (1) a source. None of the packet's sources states it: Deligne 1973 has Proposition 8.9 (compatibility of two representations through the characters of the graded pieces) and nothing on indecomposables; the standard references, Deligne, Formes modulaires et représentations de GL(2), 3.1.3 (ii), Tate, Number theoretic background, (4.1.5), and Rohrlich, Elliptic curves and the Weil–Deligne group, §5, are not on disk. (2) Three proof steps that are not written: (a) if (V, r, N) is Frobenius-semisimple then r is a semisimple representation of W_K (r(F) semisimple, r(I_K) finite, a power of r(F) central); (b) the primitive parts P_a of the monodromy filtration (monodromy-filtration (4)) lift to r(W_K)-stable subspaces of V, compatibly with N, giving V ≅ ⊕_a P_a ⊗ Sp(a + 1) up to the twists by powers of ω (this needs a W_K-equivariant splitting of the monodromy filtration, which exists because r is semisimple and N is an eigenvector of conjugation); (c) Krull–Schmidt in the finite-length category WD_Ω(K) for the uniqueness. The statement is not a target of the stage; it is used by the `uses` entry for EndoscopicTransferAndUnitaryTraceComparison ET.6 and by the API item indecomposable_iso_tensor_special."
+   "detail": "Statement: over an algebraically closed field Ω of characteristic 0, every Frobenius-semisimple indecomposable Weil–Deligne representation of W_K is isomorphic to r_0 ⊗ Sp(n) with r_0 an irreducible representation of W_K with open kernel on inertia and n ≥ 1, and a Frobenius-semisimple object is a direct sum of such, uniquely up to order. Missing, exactly: (1) a source. None of the packet's sources states it: Deligne 1973 has Proposition 8.9 (compatibility of two representations through the characters of the graded pieces) and nothing on indecomposables; the standard references, Deligne, Formes modulaires et représentations de GL(2), 3.1.3 (ii), Tate, Number theoretic background, (4.1.5), and Rohrlich, Elliptic curves and the Weil–Deligne group, §5, are not on disk. (2) Three proof steps that are not written: (a) if (V, r, N) is Frobenius-semisimple then r is a semisimple representation of W_K (r(F) semisimple, r(I_K) finite, a power of r(F) central); (b) the primitive parts P_a of the monodromy filtration (the primitive decomposition requested from LPV.1) lift to r(W_K)-stable subspaces of V, compatibly with N, giving V ≅ ⊕_a P_a ⊗ Sp(a + 1) up to the twists by powers of ω (this needs a W_K-equivariant splitting of the monodromy filtration, which exists because r is semisimple and N is an eigenvector of conjugation); (c) Krull–Schmidt in the finite-length category WD_Ω(K) for the uniqueness. The statement is not a target of the stage; it is used by the `uses` entry for EndoscopicTransferAndUnitaryTraceComparison ET.6 and by the API item indecomposable_iso_tensor_special."
   },
   {
    "title": "Saito's conductor–discriminant theorem and its inputs",
@@ -26391,9 +26316,11 @@
   {
    "title": "Canonical monodromy-filtration ownership and characteristic-zero SL₂ input",
    "neededBy": [
-    "ArithmeticGaloisRepresentations:R01.2/monodromy-filtration"
+    "ArithmeticGaloisRepresentations:R01.2/purity-of-weil-deligne-representations",
+    "ArithmeticGaloisRepresentations:R01.2/purity-from-a-pure-graded",
+    "ArithmeticGaloisRepresentations:R01.2/frobenius-semisimplification"
    ],
-   "detail": "Accepted RS-17 O20 assigns the canonical nilpotent monodromy filtration to LPV.1. Export the pure finite-dimensional nilpotent filtration, uniqueness, scalar/conjugation invariance, primitive decomposition and tensor/dual formulas from LPV.1/monodromy-filtration, primitive-decomposition-and-strictness and tensor-dual-and-symmetric-monodromy without depending on finite-monodromy-logarithm or Arithmetic R01.2. Supply the characteristic-zero SL₂ complete-reducibility/weight interface used by the tensor proof, from LieHighestWeight, Part II. Bridge the lower primitive convention of LPV to the upper primitive convention used here. Arithmetic can then import it and retain only its Weil–Deligne stability and rank-sum identity; do not add the reverse stage edge before this separation."
+   "detail": "Accepted RS-17 O20 assigns the canonical nilpotent monodromy filtration to LPV.1. Export the pure finite-dimensional nilpotent filtration, uniqueness, scalar/conjugation invariance, primitive decomposition and tensor/dual formulas from LPV.1/monodromy-filtration, primitive-decomposition-and-strictness and tensor-dual-and-symmetric-monodromy without depending on finite-monodromy-logarithm or Arithmetic R01.2. Supply the characteristic-zero SL₂ complete-reducibility/weight interface used by the tensor proof, from LieHighestWeight, Part II. Bridge the lower primitive convention of LPV to the upper primitive convention used here. Arithmetic has removed its canonical-filtration definition and keeps only Weil–Deligne stability and the rank-sum computation inside its purity application. The consuming purity/classification nodes remain conditional on this export. Do not install a reverse stage edge until the supplier separation is applied: the present LPV logarithm edge would produce a cycle."
   }
  ],
  "sourceIssues": [
@@ -27084,7 +27011,7 @@
    "locator": "proof of Lemma 5.40, p. 58, in the version read (arXiv:1810.06454v5; the Duke Math. J. text was not compared)",
    "printed": "The proof uses purity of (ρ̄,N̄) together with det(1−ϕT) = det(1−ϕ̄T) to infer equal dimensions in every graded piece of the monodromy filtrations for (ρ,N) and (ρ̄,N̄), and also purity of (ρ,N).",
    "correction": "Missing argument: (i) rank N̄^k ≤ rank N^k for all k, because N̄ is the graded of N for the flag (V_i); (ii) the eigenvalues of ϕ form a string α, αp^{-1}, …, αp^{-a} for each Jordan block of N of size a + 1, and those of ϕ̄ form strings centred at weight w; (iii) with S the sum of (weight − w)² over the eigenvalues, S = 2Σ_k k·rank N̄^k by purity of the graded and S = Σ_{strings}(a+1)c² + 2Σ_k k·rank N^k for N (c the offset of the centre of a string from w), so every c is 0 and rank N^k = rank N̄^k.",
-   "reason": "The authors present the proof as a sketch supplied by a referee ('sketching a proof, which we include for lack of an appropriate reference'). The two facts stated before the quoted sentence (the string property for N; purity of N̄ with equal characteristic polynomials) do not imply the conclusion without using that N̄ is induced by N: N = 0 satisfies the string property for any set of Frobenius eigenvalues and is not pure when N̄ ≠ 0.",
+   "reason": "The authors present the proof as a sketch supplied by a referee because they do not cite a proof of that step. The two facts stated before the quoted sentence (the string property for N; purity of N̄ with equal characteristic polynomials) do not imply the conclusion without using that N̄ is induced by N: N = 0 satisfies the string property for any set of Frobenius eigenvalues and is not pure when N̄ ≠ 0.",
    "affects": "the proof",
    "known": "new",
    "searched": [
@@ -27417,8 +27344,8 @@
     "LefschetzPencilsAndVanishingCycles",
     "DeligneWeightsAndPurity"
    ],
-   "detail": "Statements planned here that another roadmap's packet or stage text also plans (PROTOCOL.md section 15, one owner): (1) the similitude group GSp of a perfect alternating form with its multiplier: G7/similitude-groups, and ArithmeticStatistics:ST.5/symplectic-similitude-group and PELModuli:M0/similitude-group; (2) polarized Galois representations: G7/polarized-representation, restated by AutomorphicGaloisRepresentationsPartII:AG2.0/polarized-galois-representation without citing it; (3) Dickson's classification with its dyadic refinement and the quadratic–cyclotomic irreducibility criterion: R01.4 nodes, restated by ClassicalSerreModularity:R27.1/dickson-and-the-dyadic-solvable-refinement and GL2ModularityLifting:R32.1/quadratic-cyclotomic-irreducibility; (4) Frobenius on Tate modules and the local Euler polynomial: R01.6/good-reduction-frobenius-polynomial and R01.6/local-euler-factor-of-an-abelian-variety, restated by WeightsInEtaleCohomology:R34.2/frobenius-on-tate-modules-and-first-cohomology and NeronModelsAndSemistableAbelianVarieties:R11.5/local-euler-polynomial; (5) the Brauer–Nesbitt theorem: R01.1/brauer-nesbitt, which the uniqueness clause of the reconstruction theorem of IntegralHeckeAndGaloisDeterminants IHG.1 (Chenevier, Theorem 2.12) quotes; (6) the monodromy filtration of a nilpotent endomorphism: R01.2/monodromy-filtration, planned again by LefschetzPencilsAndVanishingCycles:LPV.1/monodromy-filtration, whose layer is downstream of R01.2; (7) the statement that a closed analytic subset with empty interior of a compact ℓ-adic Lie group is Haar-null, an unproved input both of R01.5/haar-measure-chebotarev and of DeligneWeightsAndPurity:DWP.3/haar-null-exceptional-eigenvalue-locus.",
-   "proposal": "The layer of this roadmap supplies cases (1)–(5), subject to their recorded ownership checks; the other node cites it and keeps only what it adds (ST.5 and M0 the arithmetic-statistics and PEL structure on the group; AG2.0 the automorphic polarisation data; R27.1 and R32.1 their applications; R34.2 and R11.5 the cohomological and Néron-model statements; IHG.1 cites R01.1/brauer-nesbitt-algebraically-closed for uniqueness; case (6) follows accepted RS-17 O20: LPV.1 owns the canonical nilpotent monodromy filtration. First detach its pure linear-algebra filtration/primitive/tensor/dual interface from finite-monodromy-logarithm and its Arithmetic R01.2 input, then import that interface here. Arithmetic keeps Weil–Deligne stability and the rank-sum identity. Until that supplier is narrowed, the present duplicate remains a review blocker, rather than adding a cyclic import). For (7), plan the statement once, in the roadmap that owns p-adic analytic groups, and let both consumers cite it."
+   "detail": "Statements planned here that another roadmap's packet or stage text also plans (PROTOCOL.md section 15, one owner): (1) the similitude group GSp of a perfect alternating form with its multiplier: G7/similitude-groups, and ArithmeticStatistics:ST.5/symplectic-similitude-group and PELModuli:M0/similitude-group; (2) polarized Galois representations: G7/polarized-representation, restated by AutomorphicGaloisRepresentationsPartII:AG2.0/polarized-galois-representation without citing it; (3) Dickson's classification with its dyadic refinement and the quadratic–cyclotomic irreducibility criterion: R01.4 nodes, restated by ClassicalSerreModularity:R27.1/dickson-and-the-dyadic-solvable-refinement and GL2ModularityLifting:R32.1/quadratic-cyclotomic-irreducibility; (4) Frobenius on Tate modules and the local Euler polynomial: R01.6/good-reduction-frobenius-polynomial and R01.6/local-euler-factor-of-an-abelian-variety, restated by WeightsInEtaleCohomology:R34.2/frobenius-on-tate-modules-and-first-cohomology and NeronModelsAndSemistableAbelianVarieties:R11.5/local-euler-polynomial; (5) the Brauer–Nesbitt theorem: R01.1/brauer-nesbitt, which the uniqueness clause of the reconstruction theorem of IntegralHeckeAndGaloisDeterminants IHG.1 (Chenevier, Theorem 2.12) quotes; (6) the monodromy filtration of a nilpotent endomorphism: LPV.1/monodromy-filtration is its accepted owner; Arithmetic R01.2 keeps only the Weil–Deligne stability application and requests an export independent of the geometric logarithm; (7) the statement that a closed analytic subset with empty interior of a compact ℓ-adic Lie group is Haar-null, an unproved input both of R01.5/haar-measure-chebotarev and of DeligneWeightsAndPurity:DWP.3/haar-null-exceptional-eigenvalue-locus.",
+   "proposal": "The layer of this roadmap supplies cases (1)–(5), subject to their recorded ownership checks; the other node cites it and keeps only what it adds (ST.5 and M0 the arithmetic-statistics and PEL structure on the group; AG2.0 the automorphic polarisation data; R27.1 and R32.1 their applications; R34.2 and R11.5 the cohomological and Néron-model statements; IHG.1 cites R01.1/brauer-nesbitt-algebraically-closed for uniqueness; case (6) follows accepted RS-17 O20: LPV.1 owns the canonical nilpotent monodromy filtration. First detach its pure linear-algebra filtration/primitive/tensor/dual interface from finite-monodromy-logarithm and its Arithmetic R01.2 input, then import that interface here. Arithmetic keeps Weil–Deligne stability and the rank-sum identity. The duplicate canonical definition is removed in revision 3; the retained Arithmetic node is only the direct Weil–Deligne stability application. Purity and classification explicitly retain the supplier gap until the separation is applied). For (7), plan the statement once, in the roadmap that owns p-adic analytic groups, and let both consumers cite it."
   }
  ],
  "upstreamNotes": [

@@ -11,6 +11,10 @@ and a jointly continuous action; Frobenius is arithmetic unless named `Geom`; th
 Weil–Deligne relation is `r(w) ∘ N = q^{deg w} • (N ∘ r(w))` with `deg` of an
 arithmetic Frobenius lift equal to `1`.
 -/
+import TauCeti.AlgebraicGeometry.AbelianVariety.Hom.BaseChange
+import TauCeti.AlgebraicGeometry.AbelianVariety.Product
+import TauCeti.AlgebraicGeometry.AbelianVariety.End.Basic
+import TauCeti.AlgebraicGeometry.AbelianVariety.Isogeny
 import Mathlib.RepresentationTheory.Basic
 import Mathlib.RepresentationTheory.Irreducible
 import Mathlib.RepresentationTheory.Continuous.Basic
@@ -61,6 +65,7 @@ import Mathlib.FieldTheory.Minpoly.Basic
 import Mathlib.Analysis.Complex.Basic
 import Mathlib.LinearAlgebra.Matrix.Notation
 import Mathlib.LinearAlgebra.Matrix.ToLin
+import Mathlib.LinearAlgebra.Matrix.Kronecker
 import Mathlib.RingTheory.IntegralClosure.IsIntegralClosure.Basic
 import Mathlib.NumberTheory.Cyclotomic.Basic
 import Mathlib.RingTheory.Ideal.Norm.AbsNorm
@@ -109,6 +114,7 @@ import Mathlib.LinearAlgebra.Matrix.IsDiag
 import Mathlib.RingTheory.Norm.Basic
 import Mathlib.RingTheory.Trace.Basic
 import Mathlib.RingTheory.HopfAlgebra.Basic
+import Mathlib.RingTheory.HopfAlgebra.Convolution
 import Mathlib.FieldTheory.Minpoly.Field
 import Mathlib.FieldTheory.Separable
 import Mathlib.Algebra.MvPolynomial.Basic
@@ -1827,7 +1833,7 @@ variable {Γ : Type uΓ} [Group Γ] [TopologicalSpace Γ]
 -- (if they hold for one lattice of `V`, the second holds for every lattice of `V`); without them
 -- the action on `Λ/ϖΛ` need not be continuous.
 
-/-- The reduction `ρ̄_Λ := Λ/ϖΛ = k_E ⊗_{O_E} Λ`, a continuous representation over the residue
+/-- The reduction `rhoBar_Λ := Λ/ϖΛ = k_E ⊗_{O_E} Λ`, a continuous representation over the residue
 field (discrete). -/
 def reduction (Λ : IntegralModel O ρ) [IsModuleTopology O Λ.lattice]
     [TopologicalSpace (IsLocalRing.ResidueField O ⊗[O] Λ.lattice)]
@@ -1838,8 +1844,8 @@ def reduction (Λ : IntegralModel O ρ) [IsModuleTopology O Λ.lattice]
       map_one' := sorry
       map_mul' := sorry }, by have _ := hVtop; sorry⟩
 
-/-- The residual semisimplification `ρ̄_Λ^ss` attached to `Λ`. (Over `Q̄_ℓ` the residual
-representation `(ρ̄_Λ ⊗ F̄_ℓ)^ss` is obtained after descent to a coefficient field; it is not
+/-- The residual semisimplification `rhoBar_Λ^ss` attached to `Λ`. (Over `Q̄_ℓ` the residual
+representation `(rhoBar_Λ ⊗ F̄_ℓ)^ss` is obtained after descent to a coefficient field; it is not
 restated here.) -/
 def residualSS (Λ : IntegralModel O ρ) [IsModuleTopology O Λ.lattice]
     [TopologicalSpace (IsLocalRing.ResidueField O ⊗[O] Λ.lattice)]
@@ -1851,20 +1857,15 @@ variable (Λ : IntegralModel O ρ) [IsModuleTopology O Λ.lattice]
   [TopologicalSpace (IsLocalRing.ResidueField O ⊗[O] Λ.lattice)]
   [IsModuleTopology (IsLocalRing.ResidueField O) (IsLocalRing.ResidueField O ⊗[O] Λ.lattice)]
 
-/-- `charpoly ρ̄_Λ(g)` is the reduction of `charpoly ρ(g) ∈ (Polynomial O)`. -/
+/-- `charpoly rhoBar_Λ(g)` is the reduction of `charpoly ρ(g) ∈ (Polynomial O)`. -/
 theorem charpoly_reduction (g : Γ) :
     Λ.reduction.charpoly g =
       (Λ.toContinuousRep.charpoly g).map (IsLocalRing.residue O) := by
   sorry
 
-/- TauCeti.GaloisLattice.IntegralModel.reduction_baseChange: for coefficient fields
-`E ⊂ E'` and the integral model `Λ ⊗ O_{E'}` of `V ⊗ E'`, its reduction is
-`ρ̄_Λ ⊗_{k_E} k_{E'}`. (Comment only: stating it needs the residue-field extension
-`k_E → k_{E'}` and the lattice `Λ ⊗ O_{E'}` inside `E' ⊗_E V`.) -/
 
-/- TauCeti.GaloisLattice.IntegralModel.reduction_tensor: reduction commutes with `⊗`, duals
-(`Λ^∨/ϖΛ^∨ ≅ (Λ/ϖΛ)^∨`), twists, restriction and `⊕`. (Comment only: each needs the
-corresponding integral model of the construction, which is not built here.) -/
+
+
 
 /-- The reduction has open kernel and finite image (finite residue field). -/
 theorem finite_image_reduction [Finite (IsLocalRing.ResidueField O)] :
@@ -2001,18 +2002,14 @@ theorem charpoly_coeffTwist (σ : A ≃+* A) (hσ : Continuous σ) {n : ℕ}
         σ (ρ g : Matrix (Fin n) (Fin n) A).det := by
   sorry
 
-/-- The residual coefficient Frobenius twist `ρ̄^{(p)} := ρ̄^{Frob_p}` over a perfect field of
+/-- The residual coefficient Frobenius twist `rhoBar^{(p)} := rhoBar^{Frob_p}` over a perfect field of
 characteristic `p` with the discrete topology (`frobeniusEquiv`). -/
 def frobTwist (p : ℕ) [Fact p.Prime] {k : Type uA} [Field k] [CharP k p] [PerfectRing k p]
     [TopologicalSpace k] [DiscreteTopology k] {n : ℕ}
     (ρ : Γ →ₜ* Matrix.GeneralLinearGroup (Fin n) k) : Γ →ₜ* Matrix.GeneralLinearGroup (Fin n) k :=
   coeffTwist (frobeniusEquiv k p) continuous_of_discreteTopology ρ
 
-/- TauCeti.ContinuousRep.residual_coeffTwist: for `γ ∈ G_{ℚ_ℓ}` acting on `Q̄_ℓ` and `V` over
-`Q̄_ℓ`, `residual (V^γ) ≅ (residual V)^{γ̄}` with `γ̄ ∈ Gal(F̄_ℓ/F_ℓ)` the image of `γ`;
-`residual_coeffTwist_of_mem_inertia`, `residual_coeffTwist_frobeniusLift`. (Comment only: the
-residual representation over `F̄_ℓ` of a representation over `Q̄_ℓ` is not constructed in this
-file.) -/
+
 
 variable (p : ℕ) [Fact p.Prime] {k : Type uA} [Field k] [CharP k p] [PerfectRing k p]
   [TopologicalSpace k] [DiscreteTopology k]
@@ -2049,9 +2046,7 @@ example (σ : A ≃+* A) (hσ : Continuous σ) {n : ℕ}
       (ρ g : Matrix (Fin n) (Fin n) A).charpoly.map (σ : A →+* A) :=
   (charpoly_coeffTwist σ hσ ρ g).1
 
-/- Unit test: TauCeti.ContinuousRep.residual_coeffTwist_inertia: for `γ ∈ I_{ℚ_ℓ}`,
-`residual (V^γ) ≅ residual V`; for `γ` an arithmetic Frobenius lift,
-`residual (V^γ) ≅ (residual V)^{(ℓ)}`. (Comment only, as for `residual_coeffTwist`.) -/
+
 
 end CoeffTwist
 
@@ -2387,10 +2382,7 @@ theorem map_inertia_localEmbeddingMap [NumberField F] (hK : DenseRange (algebraM
       (localWildInertiaGroup K).map (localEmbeddingMap F K).toMonoidHom =
         wildInertiaGroup F (placeOfEmbedding F K) := by sorry
 
-/- TauCeti.GaloisRep.localEmbeddingMap_comp: (ι∘σ)^* = σ^{-1}·ι^*·σ for σ ∈ G_F, and
-(τ_0∘ι)^* = ι^*∘(conj τ_0^{-1}) for τ_0 ∈ G_{F_v}. (Comment-block fallback: the embedding `ι` is
-an instance argument of `localEmbeddingMap`, so comparing two embeddings needs instance surgery;
-the conjugated forms are used directly in `localRestrictionIsoOfConj`/`OfLocal` below.) -/
+
 
 /-- Unit test: TauCeti.GaloisRep.decompositionGroup_gaussian. -/
 example (L : IntermediateField ℚ (AlgebraicClosure ℚ)) [FiniteDimensional ℚ L] [IsGalois ℚ L]
@@ -2524,18 +2516,11 @@ theorem localRestriction_tensor {N : Type*} [AddCommGroup N] [Module A N] [Modul
     (localRestriction F K ρ).toRepresentation.dual =
       ρ.toRepresentation.dual.comp (localEmbeddingMap F K).toMonoidHom := by sorry
 
-/- TauCeti.GaloisRep.localRestriction_restrict: (ρ|_{G_L})_ι = (ρ_ι)|_{G_{L_w}} for L/F finite and
-w = w̄(ι) ∩ O_L. (Comment-block fallback: needs a commuting square of four closure embeddings as
-instance data.) -/
 
-/- TauCeti.GaloisRep.localRestriction_induced: (Ind_{G_L}^{G_F} ρ)_ι ≅ ⊕_{w|v}
-Ind_{G_{L_w}}^{G_{F_v}} ρ_{ι_w}. (Comment-block fallback: continuous induction is R01.1's
-carrier and the index set is the set of places of L above v.) -/
 
-/- TauCeti.GaloisRep.localRestriction_kernelField: for finite image, ρ_ι factors through an
-injective Gal(K_{ρ,𝔭}/F_v) → Aut_A(M) carrying inertia and wild inertia onto ρ(I_{w̄}) and
-ρ(P_{w̄}). (Comment-block fallback: the completion of the kernel field at 𝔭 is not a Mathlib
-object.) -/
+
+
+
 
 /-- Unit test: TauCeti.GaloisRep.localRestriction_cyclotomic. -/
 example (ℓ p : ℕ) [Fact ℓ.Prime] [Fact p.Prime] (hpℓ : p ≠ ℓ)
@@ -2720,9 +2705,7 @@ below (cyclotomic-and-dirichlet-characters), which it uses. -/
 example : ramificationSet F (Representation.trivial A (Field.absoluteGaloisGroup F) V) = ∅ := by
   sorry
 
-/- TauCeti.GaloisRep.isUnramifiedAt_not_of_reduction: there are ρ and v with ρ̄ unramified at v
-and ρ ramified at v (Tate curve at a split multiplicative prime with ℓ | v(q)). (Comment-block
-fallback: the Tate curve's Tate module is owned by EllipticCurves layer 4 / R01.6.) -/
+
 
 /-- Unit test: TauCeti.GaloisRep.isUnramifiedAt_iff_kernelField. -/
 example (L : IntermediateField F (AlgebraicClosure F)) [FiniteDimensional F L] [IsGalois F L]
@@ -3101,9 +3084,7 @@ theorem tameCharacter_factor_of_proEll (hℓ : (ℓ : 𝓀[K]) ≠ 0) (P : Type*
     ∃! g : rootsOfUnityTateModule (AlgebraicClosure K) ℓ →* P, f = g.comp (tameCharacter K ℓ) := by
   sorry
 
-/- TauCeti.GaloisRep.tameCharacter_restrict: t_{ℓ,K}|_{I_L} = e(L/K)·t_{ℓ,L}. (Comment-block
-fallback: the two characters land in the Tate modules of different algebraic closures, compared
-through the closure embedding K̄ → L̄, and e(L/K) is a LocalFieldsRamification invariant.) -/
+
 
 /-- `T ∘ t_ℓ : I_K → ℤ_ℓ` for a trivialisation `T : ℤ_ℓ(1) ≅ ℤ_ℓ`. -/
 def tameCharacterTriv (T : rootsOfUnityTateModule (AlgebraicClosure K) ℓ ≃* Multiplicative ℤ_[ℓ]) :
@@ -3115,9 +3096,7 @@ theorem tameCharacterTriv_smul
     ∃ a : ℤ_[ℓ]ˣ, ∀ σ, Multiplicative.toAdd (tameCharacterTriv K ℓ T' σ) =
       a * Multiplicative.toAdd (tameCharacterTriv K ℓ T σ) := by sorry
 
-/- TauCeti.GaloisRep.tameCharacter_eq_tame: t_ℓ is the ℓ-component of LocalFieldsRamification
-layer 4's I_K/P_K ≅ Ẑ^{(p')}(1). (Comment-block fallback: that isomorphism is a Tau Ceti
-declaration outside the Mathlib-only build.) -/
+
 
 /-- Unit test: TauCeti.GaloisRep.tameCharacter_mod_ell_Qp. -/
 example (p : ℕ) [Fact p.Prime] (hℓp : ℓ ≠ p) (r : AlgebraicClosure ℚ_[p])
@@ -3142,8 +3121,7 @@ example (hℓ : (ℓ : 𝓀[K]) ≠ 0) (f : inertiaGroup K →* Multiplicative (
       ((rootsOfUnityTateModule (AlgebraicClosure K) ℓ).subtype.comp (tameCharacter K ℓ))).ker := by
   sorry
 
-/- TauCeti.GaloisRep.tameCharacter_restrict_ramified: for L = K(π^{1/e}) with p ∤ e,
-t_{ℓ,K}|_{I_L} = e·t_{ℓ,L}. (Comment-block fallback, as for tameCharacter_restrict.) -/
+
 
 end TameCharacter
 
@@ -3208,9 +3186,7 @@ theorem level_dvd_iff_factors (hp : ringChar 𝓀[K] = p) (k₁ : Type*) [Field 
     level K p k₁ χ ∣ m ↔ ∃ f : rootsOfUnity (p ^ m - 1) (AlgebraicClosure K) →* k₁ˣ,
       χ = f.comp (fundamentalCharacter K p m) := by sorry
 
-/- TauCeti.GaloisRep.fundamentalCharacter_one_eq_cyclotomic: θ_{p−1}^{e(K/Q_p)} = χ̄_p|_{I_K}.
-(Comment-block fallback: comparing μ_{p−1}(K̄) with F_p^× needs the reduction map of 𝒪_{K̄} and the
-absolute ramification index, LocalFieldsRamification data.) -/
+
 
 /-- For `K = ℚ_p`: `ω₂ · ω₂^p = ω` (stated for every `K`, where it is the norm relation from
 level 2 to level 1). -/
@@ -3219,9 +3195,7 @@ theorem fundamentalCharacter_two_mul_pow (hp : ringChar 𝓀[K] = p) (σ : inert
         (fundamentalCharacter K p 2 σ : (AlgebraicClosure K)ˣ) ^ p =
       (fundamentalCharacter K p 1 σ : (AlgebraicClosure K)ˣ) := by sorry
 
-/- TauCeti.GaloisRep.fundamentalCharacter_restrict: for L/K finite with ramification index e, θ^K
-restricted along I_{t,L} → I_{t,K} is (θ^L)^e. (Comment-block fallback: as for
-tameCharacter_restrict, the values live in μ(K̄) and μ(L̄).) -/
+
 
 /-- The Teichmüller lift `[θ_{p^n−1}] : I_K → μ_{p^n−1}(W(F_{p^n})) ⊂ W(F_{p^n})^×` (the unit
 group of the Witt vectors is larger than the roots of unity), a declaration distinct from
@@ -3244,12 +3218,9 @@ example (hp : ringChar 𝓀[K] = p) (hk : Nat.card 𝓀[K] = p) :
     ¬ ∃ χ : Field.absoluteGaloisGroup K →* (AlgebraicClosure K)ˣ,
       ∀ σ : inertiaGroup K, χ σ = fundamentalCharacter K p 2 σ := by sorry
 
-/- TauCeti.GaloisRep.fundamentalCharacter_one_Qp: for K = Q_p, θ_{p−1} = χ̄_p|_{I_{Q_p}}.
-(Comment-block fallback, as for fundamentalCharacter_one_eq_cyclotomic.) -/
 
-/- TauCeti.GaloisRep.fundamentalCharacter_teichmuller: reducing [θ_{p^n−1}] modulo p gives
-θ_{p^n−1} (TauCeti.residue_teichmuller). (Comment-block fallback: TauCeti.residue_teichmuller and
-the identification μ_{p^n−1}(K̄) ≅ F_{p^n}^× are outside the Mathlib-only build.) -/
+
+
 
 end Fundamental
 
@@ -3693,12 +3664,9 @@ theorem ofEllAdic_tensor
     Nonempty (Iso (ofEllAdic (q := q) σ F hF t)
       (tensor (ofEllAdic (q := q) ρ F hF t) (ofEllAdic (q := q) ρ' F hF t))) := by sorry
 
-/- TauCeti.WeilDeligneRep.ofEllAdic_restrict: WD(ρ|_{W_L}) ≅ WD(ρ)|_{W_L}. (Comment-block
-fallback: relating the tame characters t_{ℓ,K}|_{I_L} = e·t_{ℓ,L} and the Frobenius lifts of K and L
-needs the ramification index and residue degree of L/K as data on the abstract Weil groups.) -/
 
-/- TauCeti.WeilDeligneRep.ofEllAdic_induced: WD(Ind_{W_L}^{W_K} ρ) ≅ Ind WD(ρ). (Comment-block
-fallback, as for ofEllAdic_restrict, plus continuous induction from R01.1.) -/
+
+
 
 theorem ofEllAdic_invariants (ρ : ContinuousRep W E V) (F : W)
     (hF : deg F = Multiplicative.ofAdd (-1)) (t : deg.ker →* Multiplicative ℤ_[ℓ])
@@ -3740,9 +3708,7 @@ example (χ : W →ₜ* ℚ_[ℓ]ˣ)
       ∀ w, (ofEllAdic (q := q) (ContinuousRep.ofCharacter χ) F hF t).r w =
         ((q : ℚ_[ℓ]) ^ Multiplicative.toAdd (deg w)) • LinearMap.id := by sorry
 
-/- TauCeti.WeilDeligneRep.ofEllAdic_tateCurve: WD(V_ℓE_q) ≅ Sp(2) for a Tate curve over K, and
-≅ Sp(2) ⊗ η for the non-split twist. (Comment-block fallback: the Tate curve's Tate module is
-owned by EllipticCurves layer 4 / R01.6.) -/
+
 
 /-- Unit test: TauCeti.WeilDeligneRep.ofEllAdic_unramified. -/
 example (ρ : ContinuousRep W E V) (F : W) (hF : deg F = Multiplicative.ofAdd (-1))
@@ -3751,8 +3717,7 @@ example (ρ : ContinuousRep W E V) (F : W) (hF : deg F = Multiplicative.ofAdd (-
     (ofEllAdic (q := q) ρ F hF t).N = 0 ∧
       (ofEllAdic (q := q) ρ F hF t).r = ρ.toRepresentation := by sorry
 
-/- TauCeti.WeilDeligneRep.ofEllAdic_not_semisimplification: WD(V_ℓE_q) is not
-WD((V_ℓE_q)^{ss}) = (1 ⊕ ω, 0). (Comment-block fallback, as for ofEllAdic_tateCurve.) -/
+
 
 /-- Unit test: TauCeti.WeilDeligneRep.ofEllAdic_finite_image. -/
 example (ρ : ContinuousRep W E V) (F : W) (hF : deg F = Multiplicative.ofAdd (-1))
@@ -3880,11 +3845,7 @@ theorem charpoly_frobeniusSemisimplification (D : WeilDeligneRep W deg q Ω V) (
     (hF : deg F = Multiplicative.ofAdd (-1)) :
     ((frobeniusSemisimplification D F hF).r F).charpoly = (D.r F).charpoly := by sorry
 
-/- TauCeti.WeilDeligneRep.indecomposable_iso_tensor_special: over algebraically closed Ω, an
-F-semisimple indecomposable object is r_0 ⊗ Sp(n) with r_0 irreducible. (Comment-block fallback:
-the statement quantifies over the carrier type of r_0 and needs indecomposability in the abelian
-category WD_Ω(K), which is not built here. The statement is a recorded gap of the packet: none of the
-cited sources states it, and its proof is not planned.) -/
+
 
 /-- Unit test: TauCeti.WeilDeligneRep.frobeniusSemisimplification_jordan. -/
 example (D : WeilDeligneRep W deg q Ω (Fin 2 → Ω)) (F : W)
@@ -3902,9 +3863,7 @@ example (hq : (q : Ω) ≠ 0) :
     ¬ Nonempty (Iso (special (W := W) (deg := deg) 2 hq) (semisimplification (special 2 hq))) := by
   sorry
 
-/- TauCeti.WeilDeligneRep.three_objects_differ: for Sp(2) ⊕ (unramified Jordan block), the full
-object, its Frobenius semisimplification and its semisimplification are pairwise non-isomorphic.
-(Comment-block fallback: needs an explicit unramified Jordan-block object on the abstract `W`.) -/
+
 
 /-- Unit test: TauCeti.WeilDeligneRep.frobeniusSemisimplification_eq_jordanDecomposition. -/
 example (D : WeilDeligneRep W deg q Ω V) (hfin : (Set.range fun σ : deg.ker => D.r σ).Finite)
@@ -4082,145 +4041,43 @@ through a choice of coset representatives and has no function model here, and th
 of the abstract `W'` inside `W` is `ker deg'`, whose comparison with `ker deg` needs the residue
 degree as data. The determinant consequence is `localFactor_induced` above.) -/
 
-/-! ### The monodromy filtration of a nilpotent endomorphism (ArithmeticGaloisRepresentations:R01.2/monodromy-filtration) -/
+/-! ### Supplier interface: canonical nilpotent filtration (LPV.1)
 
-section MonodromyFiltration
-
+RS-17 O20 assigns this object to LefschetzPencilsAndVanishingCycles:LPV.1.
+The following data stub names the requested external export; it is not an
+Arithmetic construction or a claimed available library declaration. No generic
+filtration proofs or tests are planned here. The packet records the missing
+acyclic export and the primitive/tensor/dual interfaces used by purity.
+-/
+section MonodromySupplier
 variable {k : Type*} [Field k] {V : Type*} [AddCommGroup V] [Module k V]
-  {V' : Type*} [AddCommGroup V'] [Module k V']
 
-/-- `M_a(N) = Σ_{i − j = a} (ker N^{i+1} ∩ im N^j)`: the monodromy filtration of `N` when `N` is a
-nilpotent endomorphism of a finite-dimensional space (any field). -/
-/- Review REV-ArithmeticGaloisRepresentations~2: RS-17 O20 assigns the canonical
-filtration to LPV.1. These prototypes expose the duplicate pending a narrowed
-linear-algebra supplier independent of Arithmetic R01.2. Keep the WD-stability
-and rank-sum application here; coordinate the precise packet request before
-adding the reverse import. -/
-def _root_.TauCeti.MonodromyFiltration.ofNilpotent (N : Module.End k V) (a : ℤ) : Submodule k V :=
-  ⨆ (i : ℕ) (j : ℕ) (_ : (i : ℤ) - (j : ℤ) = a),
-    LinearMap.ker (N ^ (i + 1)) ⊓ LinearMap.range (N ^ j)
+/-- Requested LPV.1 data: the canonical nilpotent monodromy filtration. -/
+def _root_.TauCeti.MonodromyFiltration.ofNilpotent (N : Module.End k V) (a : ℤ) :
+    Submodule k V := sorry
 
-/-- Uniqueness: an increasing exhaustive separated filtration with `N M_a ⊆ M_{a−2}` and
-`N^a : gr_a ≅ gr_{−a}` for `a ≥ 0` is the monodromy filtration. -/
-theorem _root_.TauCeti.MonodromyFiltration.ofNilpotent_unique [FiniteDimensional k V]
-    (N : Module.End k V) (hN : IsNilpotent N) (M : ℤ → Submodule k V)
-    (hmono : Monotone M) (hbot : ∃ a, M a = ⊥) (htop : ∃ a, M a = ⊤)
-    (hN2 : ∀ a, (M a).map N ≤ M (a - 2))
-    (hinj : ∀ a : ℕ, M a ⊓ (M (-(a : ℤ) - 1)).comap (N ^ a) ≤ M ((a : ℤ) - 1))
-    (hsurj : ∀ a : ℕ, M (-(a : ℤ)) ≤ (M a).map (N ^ a) ⊔ M (-(a : ℤ) - 1)) :
-    M = TauCeti.MonodromyFiltration.ofNilpotent N := by sorry
+/-- ArithmeticGaloisRepresentations:R01.2/monodromy-filtration.
+The direct WD application uses a supplied kernel/image formula, and proves
+stability without reconstructing the canonical filtration. -/
+theorem monodromyFiltration_stable_of_formula
+    {W : Type*} [Group W] [TopologicalSpace W]
+    {deg : W →* Multiplicative ℤ} {q : ℕ} [FiniteDimensional k V]
+    (D : WeilDeligneRep W deg q k V) (M : ℤ → Submodule k V)
+    (hM : ∀ a, M a = ⨆ (i : ℕ) (j : ℕ) (_ : (i : ℤ) - j = a),
+      LinearMap.ker (D.N ^ (i + 1)) ⊓ LinearMap.range (D.N ^ j)) (w : W) (a : ℤ) :
+    (M a).map (D.r w) = M a := by sorry
 
-/-- The filtration is increasing, exhaustive, separated, and `N M_a ⊆ M_{a−2}`. -/
-theorem _root_.TauCeti.MonodromyFiltration.map_le [FiniteDimensional k V]
-    (N : Module.End k V) (hN : IsNilpotent N) :
-    Monotone (TauCeti.MonodromyFiltration.ofNilpotent N) ∧
-      (∃ a, TauCeti.MonodromyFiltration.ofNilpotent N a = ⊥) ∧
-      (∃ a, TauCeti.MonodromyFiltration.ofNilpotent N a = ⊤) ∧
-      ∀ a, (TauCeti.MonodromyFiltration.ofNilpotent N a).map N ≤
-        TauCeti.MonodromyFiltration.ofNilpotent N (a - 2) := by sorry
-
-/-- For `a ≥ 0`, `N^a` induces a bijection `gr_a → gr_{−a}` (injectivity and surjectivity on the
-graded pieces, written with submodules). -/
-theorem _root_.TauCeti.MonodromyFiltration.iterate_bijective [FiniteDimensional k V]
-    (N : Module.End k V) (hN : IsNilpotent N) (a : ℕ) :
-    TauCeti.MonodromyFiltration.ofNilpotent N a ⊓
-        (TauCeti.MonodromyFiltration.ofNilpotent N (-(a : ℤ) - 1)).comap (N ^ a) ≤
-          TauCeti.MonodromyFiltration.ofNilpotent N ((a : ℤ) - 1) ∧
-      TauCeti.MonodromyFiltration.ofNilpotent N (-(a : ℤ)) ≤
-        (TauCeti.MonodromyFiltration.ofNilpotent N a).map (N ^ a) ⊔
-          TauCeti.MonodromyFiltration.ofNilpotent N (-(a : ℤ) - 1) := by sorry
-
-/-- Property (2): the filtration is stable under every `g` with `g N g⁻¹ = c N`, `c ≠ 0`, and
-`N`, `cN` have the same filtration. -/
-theorem _root_.TauCeti.MonodromyFiltration.ofNilpotent_conj (N : Module.End k V) (g : V ≃ₗ[k] V)
-    (c : k) (hc : c ≠ 0) (h : (g : V →ₗ[k] V) ∘ₗ N = (c • N) ∘ₗ (g : V →ₗ[k] V)) (a : ℤ) :
-    (TauCeti.MonodromyFiltration.ofNilpotent N a).map (g : V →ₗ[k] V) =
-        TauCeti.MonodromyFiltration.ofNilpotent N a ∧
-      TauCeti.MonodromyFiltration.ofNilpotent (c • N) a =
-        TauCeti.MonodromyFiltration.ofNilpotent N a := by sorry
-
-/-- Property (3): functoriality for maps commuting with the nilpotent operators. -/
-theorem _root_.TauCeti.MonodromyFiltration.map_le_of_comm (N : Module.End k V)
-    (N' : Module.End k V') (f : V →ₗ[k] V') (h : f ∘ₗ N = N' ∘ₗ f) (a : ℤ) :
-    (TauCeti.MonodromyFiltration.ofNilpotent N a).map f ≤
-      TauCeti.MonodromyFiltration.ofNilpotent N' a := by sorry
-
-/-- Property (4): the primitive part in degree `a ≥ 0`, as the preimage in `M_a` of
-`P_a = ker(N^{a+1} : gr_a → gr_{−a−2})`; its dimension modulo `M_{a−1}` is the number of Jordan
-blocks of size `a + 1`, and `gr_b = ⊕_j N^j P_{b+2j}`. -/
-def _root_.TauCeti.MonodromyFiltration.primitivePart (N : Module.End k V) (a : ℕ) :
-    Submodule k V :=
-  TauCeti.MonodromyFiltration.ofNilpotent N a ⊓
-    (TauCeti.MonodromyFiltration.ofNilpotent N (-(a : ℤ) - 3)).comap (N ^ (a + 1))
-
-/-- Property (4), the rank identity: `Σ_a a² dim gr_a = 2 Σ_{j ≥ 1} j · rank(N^j)`. -/
-theorem _root_.TauCeti.MonodromyFiltration.sum_sq_finrank_gr [FiniteDimensional k V]
-    (N : Module.End k V) (d : ℕ) (hN : N ^ (d + 1) = 0) :
+/-- Arithmetic rank-sum application used in the pure-graded proof. LPV supplies
+its filtration formula; the identity follows by summing single Jordan strings. -/
+theorem monodromyFiltration_sum_sq_of_formula [FiniteDimensional k V]
+    (N : Module.End k V) (M : ℤ → Submodule k V)
+    (hM : ∀ a, M a = ⨆ (i : ℕ) (j : ℕ) (_ : (i : ℤ) - j = a),
+      LinearMap.ker (N ^ (i + 1)) ⊓ LinearMap.range (N ^ j))
+    (d : ℕ) (hN : N ^ (d + 1) = 0) :
     ∑ a ∈ Finset.Icc (-(d : ℤ)) d, a ^ 2 *
-        ((Module.finrank k (TauCeti.MonodromyFiltration.ofNilpotent N a) : ℤ) -
-          Module.finrank k (TauCeti.MonodromyFiltration.ofNilpotent N (a - 1))) =
+        ((Module.finrank k (M a) : ℤ) - Module.finrank k (M (a - 1))) =
       2 * ∑ j ∈ Finset.Icc 1 d, (j : ℤ) * Module.finrank k (LinearMap.range (N ^ j)) := by sorry
-
-/-- Property (5): the filtration of the dual operator is the annihilator filtration. -/
-theorem _root_.TauCeti.MonodromyFiltration.ofNilpotent_dual [FiniteDimensional k V]
-    (N : Module.End k V) (hN : IsNilpotent N) (a : ℤ) :
-    TauCeti.MonodromyFiltration.ofNilpotent N.dualMap a =
-      (TauCeti.MonodromyFiltration.ofNilpotent N (-a - 1)).dualAnnihilator := by sorry
-
-/-- Property (6), characteristic `0`: the filtration of `N ⊗ 1 + 1 ⊗ N'` is the convolution. -/
-theorem _root_.TauCeti.MonodromyFiltration.ofNilpotent_tensor [CharZero k]
-    [FiniteDimensional k V] [FiniteDimensional k V'] (N : Module.End k V) (N' : Module.End k V')
-    (hN : IsNilpotent N) (hN' : IsNilpotent N') (a : ℤ) :
-    TauCeti.MonodromyFiltration.ofNilpotent
-        (TensorProduct.map N LinearMap.id + TensorProduct.map LinearMap.id N') a =
-      ⨆ (b : ℤ) (c : ℤ) (_ : b + c = a), LinearMap.range (TensorProduct.map
-        (TauCeti.MonodromyFiltration.ofNilpotent N b).subtype
-        (TauCeti.MonodromyFiltration.ofNilpotent N' c).subtype) := by sorry
-
-/-- Unit test: TauCeti.MonodromyFiltration.ofNilpotent_zero. -/
-example (a : ℤ) : TauCeti.MonodromyFiltration.ofNilpotent (0 : Module.End k V) a =
-    if a < 0 then ⊥ else ⊤ := by sorry
-
-/-- Unit test: TauCeti.MonodromyFiltration.ofNilpotent_jordanBlock_two. `N e_0 = e_1`,
-`N e_1 = 0`. -/
-example : TauCeti.MonodromyFiltration.ofNilpotent (Matrix.toLin' !![(0 : k), 0; 1, 0]) (-2) = ⊥ ∧
-    TauCeti.MonodromyFiltration.ofNilpotent (Matrix.toLin' !![(0 : k), 0; 1, 0]) (-1) =
-      Submodule.span k {![0, 1]} ∧
-    TauCeti.MonodromyFiltration.ofNilpotent (Matrix.toLin' !![(0 : k), 0; 1, 0]) 0 =
-      Submodule.span k {![0, 1]} ∧
-    TauCeti.MonodromyFiltration.ofNilpotent (Matrix.toLin' !![(0 : k), 0; 1, 0]) 1 = ⊤ := by
-  sorry
-
-/-- Unit test: TauCeti.MonodromyFiltration.ofNilpotent_ne_kernelFiltration. Neither the kernel
-filtration `a ↦ ker N^{a+1}` nor the image filtration `a ↦ im N^{−a}` is the monodromy
-filtration. -/
-example : TauCeti.MonodromyFiltration.ofNilpotent (Matrix.toLin' !![(0 : k), 0; 1, 0]) (-1) ≠
-      LinearMap.ker ((Matrix.toLin' !![(0 : k), 0; 1, 0]) ^ 0) ∧
-    TauCeti.MonodromyFiltration.ofNilpotent (Matrix.toLin' !![(0 : k), 0; 1, 0]) 0 ≠
-      LinearMap.range ((Matrix.toLin' !![(0 : k), 0; 1, 0]) ^ 0) := by sorry
-
-/-- Unit test: TauCeti.MonodromyFiltration.ofNilpotent_tensor_jordanBlock_two. In characteristic
-`0` the tensor square of a Jordan block of size `2` has graded dimensions `1, 2, 1` in degrees
-`2, 0, −2`. -/
-example [CharZero k] (T : Module.End k ((Fin 2 → k) ⊗[k] (Fin 2 → k)))
-    (hT : T = TensorProduct.map (Matrix.toLin' !![(0 : k), 0; 1, 0]) LinearMap.id +
-      TensorProduct.map LinearMap.id (Matrix.toLin' !![(0 : k), 0; 1, 0])) :
-    Module.finrank k (TauCeti.MonodromyFiltration.ofNilpotent T 2) = 4 ∧
-      Module.finrank k (TauCeti.MonodromyFiltration.ofNilpotent T 1) = 3 ∧
-      Module.finrank k (TauCeti.MonodromyFiltration.ofNilpotent T 0) = 3 ∧
-      Module.finrank k (TauCeti.MonodromyFiltration.ofNilpotent T (-1)) = 1 ∧
-      Module.finrank k (TauCeti.MonodromyFiltration.ofNilpotent T (-2)) = 1 ∧
-      Module.finrank k (TauCeti.MonodromyFiltration.ofNilpotent T (-3)) = 0 := by sorry
-
-/-- Unit test: TauCeti.MonodromyFiltration.not_ofNilpotent_tensor_char_two. Over `𝔽₂` the same
-operator has square `0` and `M_0` of dimension `2`, not `3`: the tensor formula fails. -/
-example (T : Module.End (ZMod 2) ((Fin 2 → ZMod 2) ⊗[ZMod 2] (Fin 2 → ZMod 2)))
-    (hT : T = TensorProduct.map (Matrix.toLin' !![(0 : ZMod 2), 0; 1, 0]) LinearMap.id +
-      TensorProduct.map LinearMap.id (Matrix.toLin' !![(0 : ZMod 2), 0; 1, 0])) :
-    T ^ 2 = 0 ∧ Module.finrank (ZMod 2) (TauCeti.MonodromyFiltration.ofNilpotent T 0) = 2 := by
-  sorry
-
-end MonodromyFiltration
+end MonodromySupplier
 
 /-! ### The monodromy filtration and purity of Weil–Deligne representations (ArithmeticGaloisRepresentations:R01.2/purity-of-weil-deligne-representations) -/
 
@@ -4232,18 +4089,9 @@ variable {W : Type*} [Group W] [TopologicalSpace W] {deg : W →* Multiplicative
   {V' : Type*} [AddCommGroup V'] [Module Ω V'] [FiniteDimensional Ω V']
 
 /-- The monodromy filtration `M_•` of the nilpotent `N`: `TauCeti.MonodromyFiltration.ofNilpotent`
-of the monodromy operator (ArithmeticGaloisRepresentations:R01.2/monodromy-filtration). -/
+of the monodromy operator, requested from LPV.1; Arithmetic owns only the stability application. -/
 def monodromyFiltration (D : WeilDeligneRep W deg q Ω V) : ℤ → Submodule Ω V :=
   TauCeti.MonodromyFiltration.ofNilpotent D.N
-
-/-- `M_•` is the unique increasing exhaustive separated filtration with `N M_a ⊆ M_{a−2}` and
-`N^a : gr_a ≅ gr_{−a}` for `a ≥ 0`. -/
-theorem monodromyFiltration_unique (D : WeilDeligneRep W deg q Ω V) (M : ℤ → Submodule Ω V)
-    (hmono : Monotone M) (hbot : ∃ a, M a = ⊥) (htop : ∃ a, M a = ⊤)
-    (hN : ∀ a, (M a).map D.N ≤ M (a - 2))
-    (hinj : ∀ a : ℕ, M a ⊓ (M (-(a : ℤ) - 1)).comap (D.N ^ a) ≤ M ((a : ℤ) - 1))
-    (hsurj : ∀ a : ℕ, M (-(a : ℤ)) ≤ (M a).map (D.N ^ a) ⊔ M (-(a : ℤ) - 1)) :
-    M = monodromyFiltration D := by sorry
 
 theorem monodromyFiltration_stable (D : WeilDeligneRep W deg q Ω V) (w : W) (a : ℤ) :
     (monodromyFiltration D a).map (D.r w) ≤ monodromyFiltration D a := by sorry
@@ -4310,7 +4158,9 @@ example (hq : (q : Ω) ≠ 0) (hq1 : 1 < q) (h h₁) (F : W) (hF : deg F = Multi
     ¬ IsPure (prod (ofCharacter (deg := deg) (q := q) (1 : W →* Ωˣ) h₁)
       (ofCharacter (deg := deg) (q := q) (omega deg hq) h)) w F := by sorry
 
-/-- Unit test: TauCeti.WeilDeligneRep.monodromyFiltration_special. -/
+/-- Unit test: TauCeti.WeilDeligneRep.monodromyFiltration_special.
+This tests the imported LPV filtration on the Arithmetic special WD object;
+it does not construct or prove the generic filtration in this roadmap. -/
 example (n : ℕ) (hq : (q : Ω) ≠ 0) (a : ℤ) :
     Module.finrank Ω (monodromyFiltration (special (W := W) (deg := deg) n hq) a) =
       Module.finrank Ω (monodromyFiltration (special (W := W) (deg := deg) n hq) (a - 1)) +
@@ -4409,15 +4259,9 @@ theorem epsilonWeil_smul_measure (ψ : AddChar K ℂ) (μ : MeasureTheory.Measur
     (epsilonWeil K ψ ((a : ENNReal) • μ) r : ℂ) =
       ((a : ℝ) : ℂ) ^ Module.finrank ℂ V * epsilonWeil K ψ μ r := by sorry
 
-/- TauCeti.WeilDeligneRep.epsilonWeil_induced: ε(Ind V_L, ψ) = ε(V_L, ψ ∘ Tr_{L/K}) for virtual
-V_L of dimension 0. (Comment-block fallback: virtual representations and Tr_{L/K} on the abstract
-Weil groups are not available.) -/
 
-/- TauCeti.WeilDeligneRep.epsilonWeil_character: for dim V = 1, given through Art_K by the
-quasi-character χ = ωω_s of K^× (ω a character, s ∈ ℂ), ε(V, ψ, dx_ψ) = ε(s, ω, ψ) of
-AL.1/local-epsilon-gamma-factors, where dx_ψ is the Haar measure self-dual for ψ; for a·dx_ψ
-multiply by a. (Comment-block fallback: Tate's local constant and Art_K are Tau Ceti declarations
-outside the Mathlib-only build.) -/
+
+
 
 /-- TauCeti.WeilDeligneRep.epsilonWeil_character_explicit, unramified case. Normalisations: `π` a
 uniformiser, `ν = n(ψ)` the largest integer with `ψ` trivial on `π^{−ν} 𝒪` (hypotheses `hψ₀`,
@@ -4437,8 +4281,7 @@ theorem epsilonWeil_character_explicit (ψ : AddChar K ℂ) (μ : MeasureTheory.
     (epsilonWeil K ψ μ (ofCharacter (deg := deg) (q := q) χ h).r : ℂ) =
       (χ F : ℂ) ^ ν * (((Nat.card 𝓀[K] : ℝ) ^ ((ν : ℝ) / 2) : ℝ) : ℂ) := by sorry
 
-/- TauCeti.WeilDeligneRep.epsilonWeil_unique: any function satisfying (1)–(4) equals epsilonWeil.
-(Comment-block fallback: condition (4) is the comparison with Tate's constant above.) -/
+
 
 /-- `ε((V, r, N), ψ, dx) = ε(r, ψ, dx) · det(−r(F) | V^{I}/(ker N)^{I})`, `F` geometric. -/
 def epsilon (ψ : AddChar K ℂ) (μ : MeasureTheory.Measure K) (D : WeilDeligneRep W deg q ℂ V)
@@ -4449,13 +4292,9 @@ theorem epsilon_frobeniusSemisimplification (ψ : AddChar K ℂ) (μ : MeasureTh
     epsilon ψ μ (frobeniusSemisimplification D F hF) F hF = epsilon ψ μ D F hF ∧
       epsilonWeil K ψ μ (semisimplification D).r = epsilonWeil K ψ μ D.r := by sorry
 
-/- TauCeti.WeilDeligneRep.epsilon_unramified_twist: ε(V ⊗ ω_s, ψ, dx) =
-q^{−(a(V) + n(ψ) dim V)s} ε(V, ψ, dx), a(V) the Artin conductor of R01.3. (Comment-block fallback:
-the conductor `wdConductor` is declared later, in R01.3, and n(ψ) needs the conductor of ψ.) -/
 
-/- TauCeti.WeilDeligneRep.epsilon_dual: ε(V, ψ, dx) ε(V^∨ ⊗ ω, ψ(−x), dx') = 1 for dual Haar
-measures dx, dx' (Deligne 5.7). (Comment-block fallback: the self-duality relation between dx and
-dx' with respect to ψ is a Fourier-analytic notion not typed here.) -/
+
+
 
 /-- Unit test: TauCeti.WeilDeligneRep.epsilon_unramified_character. -/
 example (ψ : AddChar K ℂ) (μ : MeasureTheory.Measure K) (χ : W →* ℂˣ) (h)
@@ -4484,12 +4323,7 @@ example (ψ : AddChar K ℂ) (μ : MeasureTheory.Measure K) (hq : (q : ℂ) ≠ 
       epsilon ψ μ (prod (ofCharacter (deg := deg) (q := q) (1 : W →* ℂˣ) h₁)
         (ofCharacter (deg := deg) (q := q) (omega deg hq) h)) F hF := by sorry
 
-/- TauCeti.WeilDeligneRep.epsilon_eq_tate: for a ramified character ω of K^× with conductor
-exponent c, s ∈ ℂ, ν = n(ψ) and dx_ψ the Haar measure self-dual for ψ, epsilonWeil of the
-one-dimensional representation given by ωω_s through Art_K equals
-ω(ϖ^{ν+c}) q^{(1/2−s)(ν+c)} 𝔤(ω, ψ), 𝔤(ω, ψ) = q^{(ν+c)/2} ∫_{O^×} ω⁻¹(y) ψ(ϖ^{−ν−c} y) dy_ψ
-(AL.1/explicit-epsilon-factors (ii), AL.1/local-gauss-sum). (Comment-block fallback, as for
-epsilonWeil_character: quasi-characters of K^× and Art_K are outside the Mathlib-only build.) -/
+
 
 end Epsilon
 
@@ -4545,10 +4379,7 @@ def absUpperRamificationGroup (u : ℝ) : Subgroup (Field.absoluteGaloisGroup K)
 
 theorem absUpperRamificationGroup_antitone : Antitone (absUpperRamificationGroup K) := by sorry
 
-/- TauCeti.Conductor.map_absUpperRamificationGroup: for finite Galois L/K the image of G_K^u in
-Gal(L/K) is Gal(L/K)^u (upperRamificationGroup of LocalFieldsRamification). (Comment-block
-fallback: the finite-level upper numbering is a Tau Ceti declaration outside the Mathlib-only
-build.) -/
+
 
 theorem absUpperRamificationGroup_zero :
     absUpperRamificationGroup K 0 = GaloisRep.inertiaGroup K ∧
@@ -4593,10 +4424,7 @@ theorem swanConductor_eq_integral (ρ : ContinuousRep (Field.absoluteGaloisGroup
         Module.finrank F (invariants ρ.toRepresentation (absUpperRamificationGroup K u))) := by
   sorry
 
-/- TauCeti.Conductor.swanConductor_eq_lowerSum: Sw(V) = Σ_{i≥1} (|G_i|/|G_0|) codim V^{G_i} for
-every finite Galois L/K with ρ trivial on Gal(K^sep/L) ∩ P_K. (Comment-block fallback: the lower
-ramification groups of a finite Galois extension of local fields are LocalFieldsRamification
-layer 3 declarations, outside the Mathlib-only build.) -/
+
 
 theorem swanConductor_eq_zero_iff (ρ : ContinuousRep (Field.absoluteGaloisGroup K) F V)
     (hF : ringChar F ≠ ringChar 𝓀[K])
@@ -4637,10 +4465,7 @@ theorem swanConductor_le (ρ : ContinuousRep (Field.absoluteGaloisGroup K) F V)
       (swanConductor ρ = highestBreak ρ * Module.finrank F V ↔
         breaks ρ ⊆ {highestBreak ρ}) := by sorry
 
-/- TauCeti.Conductor.lowerRamificationGroup_completion: for a place of a function field over a
-finite field, the lower groups of the completed extension agree with TauCeti.Place.ramificationGroup
-(AlgebraicCurves layer 8). (Comment-block fallback: TauCeti.Place is outside the Mathlib-only
-build.) -/
+
 
 /-- Unit test: TauCeti.Conductor.swanConductor_trivial. -/
 example (ρ : ContinuousRep (Field.absoluteGaloisGroup K) F V) (h : GaloisRep.IsTamelyRamified ρ) :
@@ -4654,12 +4479,9 @@ example (χ χ' : Field.absoluteGaloisGroup ℚ_[2] →ₜ* ℚˣ) (i s : Algebr
       breaks (ContinuousRep.ofCharacter χ') = {2} ∧
       swanConductor (ContinuousRep.ofCharacter χ') = 2 := by sorry
 
-/- TauCeti.Conductor.swanConductor_unweighted_fails: over L = Q_2(ζ_8) the unweighted sum
-Σ_{i≥1} codim χ_8^{G_i} is 3, while Sw(χ_8) = 2. (Comment-block fallback: lower ramification
-groups, as for swanConductor_eq_lowerSum.) -/
 
-/- TauCeti.Conductor.swanConductor_eq_lowerSum_any: for χ_8 the weighted lower-numbering sums over
-Q_2(√2) and over Q_2(ζ_8) agree (both 2). (Comment-block fallback, as above.) -/
+
+
 
 /-- Unit test: TauCeti.Conductor.absUpperRamificationGroup_zero. -/
 example : absUpperRamificationGroup K 0 = GaloisRep.inertiaGroup K ∧
@@ -4725,9 +4547,7 @@ def artinConductorNat (ρ : ContinuousRep (Field.absoluteGaloisGroup K) F V) : �
 theorem artinConductor_eq_tame_add_swan (ρ : ContinuousRep (Field.absoluteGaloisGroup K) F V) :
     artinConductor ρ = tameConductor ρ + swanConductor ρ := by sorry
 
-/- TauCeti.Conductor.artinConductor_eq_lowerSum: for finite inertia image,
-a(V) = Σ_{i≥0} (|G_i|/|G_0|) codim V^{G_i} (Serre (1.2.1)). (Comment-block fallback: lower
-ramification groups, as for swanConductor_eq_lowerSum.) -/
+
 
 theorem artinConductor_congr {V' : Type*} [AddCommGroup V'] [Module F V'] [Module.Finite F V']
     [TopologicalSpace V'] [IsModuleTopology F V']
@@ -4770,19 +4590,14 @@ theorem invariants_inertia_eq_ker_monodromy {W : Type*} [Group W] [TopologicalSp
       LinearMap.ker (WeilDeligneRep.ofEllAdic (q := q) (ρ.res ι) F hF t).N ⊓
         invariants (WeilDeligneRep.ofEllAdic (q := q) (ρ.res ι) F hF t).r deg.ker := by sorry
 
-/- TauCeti.Conductor.artinConductor_eq_characterConductorExp: for K/Q_p finite and a continuous
-finite-order character χ of G_K, a(χ) = ClassFieldTheory.characterConductorExp(χ ∘ artinMap).
-(Comment-block fallback: artinMap and characterConductorExp are ClassFieldTheory declarations
-outside the Mathlib-only build.) -/
+
 
 /-- Unit test: TauCeti.Conductor.artinConductor_unramified. -/
 example (ρ : ContinuousRep (Field.absoluteGaloisGroup K) F V) [Module.Projective F V] :
     (GaloisRep.IsUnramified ρ → artinConductor ρ = 0) ∧
       (Subsingleton V → artinConductor ρ = 0) := by sorry
 
-/- TauCeti.Conductor.artinConductor_tateCurve: for the Tate curve E_q over K and ℓ ≠ p,
-a(V_ℓ E_q) = 1. (Comment-block fallback: the Tate curve's Tate module is owned by EllipticCurves
-layer 4 / R01.6.) -/
+
 
 /-- Unit test: TauCeti.Conductor.artinConductor_dyadicQuadratic. -/
 example (χ χ' : Field.absoluteGaloisGroup ℚ_[2] →ₜ* ℚˣ) (i s : AlgebraicClosure ℚ_[2])
@@ -4791,10 +4606,7 @@ example (χ χ' : Field.absoluteGaloisGroup ℚ_[2] →ₜ* ℚˣ) (i s : Algebr
     artinConductor (ContinuousRep.ofCharacter χ) = 2 ∧
       artinConductor (ContinuousRep.ofCharacter χ') = 3 := by sorry
 
-/- TauCeti.Conductor.artinConductor_lift_fails: for the ℓ-adic Steinberg representation (a = 1)
-and the stable lattice Λ = O_E e_1 ⊕ ℓ O_E e_2 (N e_2 = e_1), the residual Λ/ℓΛ is unramified, so
-a(ρ̄_Λ) = 0 ≠ a(ρ). (Comment-block fallback: the Steinberg representation of G_K is built from the
-Tate curve or the tame character, R01.6.) -/
+
 
 /-- Unit test: TauCeti.Conductor.artinConductor_tameOnly_fails. -/
 example (χ : Field.absoluteGaloisGroup ℚ_[2] →ₜ* ℚˣ) (s : AlgebraicClosure ℚ_[2])
@@ -4978,12 +4790,11 @@ example (hι : Function.Injective ι)
         ((Module.finrank Ω (invariants D.r deg.ker) : ℚ) -
           Module.finrank Ω (LinearMap.ker D.N)) = 1 := by sorry
 
-/- TauCeti.Conductor.artinConductor_eq_wdConductor_tate: for the Tate curve,
-a(V_ℓ E_q) = a(WD(V_ℓ E_q)) = 1. (Comment-block fallback, as for artinConductor_tateCurve.) -/
+
 
 end WeilDeligne
 
-/-! ### Global conductors and the prime-to-p conductor N(ρ̄) (ArithmeticGaloisRepresentations:R01.3/global-conductor-and-prime-to-p-conductor) -/
+/-! ### Global conductors and the prime-to-p conductor N(rhoBar) (ArithmeticGaloisRepresentations:R01.3/global-conductor-and-prime-to-p-conductor) -/
 
 section Global
 
@@ -5013,7 +4824,7 @@ def globalConductor (ρ : ContinuousRep (Field.absoluteGaloisGroup F) C V)
     (S : Set (HeightOneSpectrum (𝓞 F))) : Ideal (𝓞 F) :=
   ∏ᶠ (v : HeightOneSpectrum (𝓞 F)) (_ : v ∉ S), v.asIdeal ^ localConductorExponent F ρ v
 
-/-- The prime-to-`p` conductor `N(ρ̄) = N^{{v | p}}(ρ̄)` of a representation over a finite field of
+/-- The prime-to-`p` conductor `N(rhoBar) = N^{{v | p}}(rhoBar)` of a representation over a finite field of
 characteristic `p`. -/
 def primeToPConductor (p : ℕ) [CharP C p] [Finite C]
     (ρ : ContinuousRep (Field.absoluteGaloisGroup F) C V) : Ideal (𝓞 F) :=
@@ -5113,8 +4924,7 @@ example (p : ℕ) [Fact p.Prime] (hp : p ≠ 2) (k : Type*) [Field k] [Finite k]
       ∀ v : HeightOneSpectrum (𝓞 ℚ), (p : 𝓞 ℚ) ∈ v.asIdeal →
         ¬ GaloisRep.IsUnramifiedAt ℚ (ContinuousRep.ofCharacter χ).toRepresentation v := by sorry
 
-/- TauCeti.Conductor.primeToPConductor_11a1: for E = 11a1, N(ρ̄_{E,5}) = 1 while N(ρ̄_{E,3}) = 11.
-(Comment-block fallback: the mod-ℓ representations E[ℓ] are owned by R01.6.) -/
+
 
 end Global
 
@@ -5326,9 +5136,9 @@ theorem swanConductor_induced {K : Type*} [Field K] [ValuativeRel K] [Topologica
 
 /-- ArithmeticGaloisRepresentations:R01.3/reduction-does-not-increase-the-conductor (local part,
 (a) and (b)): for a `G_K`-stable lattice `Λ` over the discrete valuation ring `O` with fraction field
-`E` and residue field `k` (`hk`), and the residual representation `ρ̄_Λ` on `Λ/𝔪Λ` (given with the
-equivariant reduction map `π`): `Sw(ρ̄_Λ) = Sw(ρ)`, `a(ρ̄_Λ) ≤ a(ρ)`, and exactly
-`a(ρ̄_Λ) + dim ρ̄_Λ^{I_K} = a(ρ) + dim V^{I_K}` (`ℓ ≠ p`; `ρ(P_K)` finite, `hP`, which is automatic
+`E` and residue field `k` (`hk`), and the residual representation `rhoBar_Λ` on `Λ/𝔪Λ` (given with the
+equivariant reduction map `π`): `Sw(rhoBar_Λ) = Sw(ρ)`, `a(rhoBar_Λ) ≤ a(ρ)`, and exactly
+`a(rhoBar_Λ) + dim rhoBar_Λ^{I_K} = a(ρ) + dim V^{I_K}` (`ℓ ≠ p`; `ρ(P_K)` finite, `hP`, which is automatic
 for `E` finite over `ℚ_ℓ` but not for the arbitrary topological field typed here). Without `O` a
 discrete valuation ring with fraction field `E`, or with `k` larger than the residue field, the
 dimensions of `V` and of `Λ/𝔪Λ` differ and the statement is false. Part (c) (the semisimplification) and the global divisibility
@@ -5585,7 +5395,7 @@ lattice `T_ℓ E`, R01.6), `Sw(E[ℓ]) = δ(E)`, `a(E[ℓ]) ≤ f(E)`, `a(E[ℓ]
 `a(E[ℓ]) = f(E)` unless `E` has multiplicative reduction with `ℓ | v_K(Δ_min)`, in which case
 `a(E[ℓ]) = 0`. For `ℓ ∈ {2, 3}` the reduction `E[ℓ]` can acquire inertia invariants at places of
 additive potentially good reduction, so `a(E[ℓ]) < f(E)` is possible; hence `ℓ ≥ 5` here. The global
-form (`N(ρ̄_{E,ℓ}) = N_E^{(ℓ)}/∏ q`) follows place by place and is not typed. -/
+form (`N(rhoBar_{E,ℓ}) = N_E^{(ℓ)}/∏ q`) follows place by place and is not typed. -/
 theorem residual_ellipticConductor {K : Type*} [Field K] [ValuativeRel K] [TopologicalSpace K]
     [IsNonarchimedeanLocalField K] (E : WeierstrassCurve K) [E.IsElliptic] (ℓ : ℕ) [Fact ℓ.Prime]
     (hℓ : (ℓ : 𝓀[K]) ≠ 0) (hℓ5 : 5 ≤ ℓ) (π : 𝒪[K]) (hπ : Irreducible π) (n : ℕ) (u : (𝒪[K])ˣ)
@@ -5826,8 +5636,8 @@ example {F : Type*} [Field F] [NumberField F] (hF : ∀ v : InfinitePlace F, ¬ 
 /-! ### Odd irreducible residual representations are absolutely irreducible (odd p), and the characteristic-two case (ArithmeticGaloisRepresentations:R01.4/odd-irreducible-implies-absolutely-irreducible) -/
 
 /-- ArithmeticGaloisRepresentations:R01.4/odd-irreducible-implies-absolutely-irreducible.
-(b) Over a field of characteristic `≠ 2`, a rank-two `ρ̄` odd at some real place and irreducible
-over `k` is absolutely irreducible. (c) In characteristic two the same holds when `ρ̄(c_v) ≠ 1`.
+(b) Over a field of characteristic `≠ 2`, a rank-two `rhoBar` odd at some real place and irreducible
+over `k` is absolutely irreducible. (c) In characteristic two the same holds when `rhoBar(c_v) ≠ 1`.
 (The rationality lemma (a) and the cubic counterexample in (c) are not restated.) -/
 theorem isAbsolutelyIrreducible_of_isOddAt_of_isIrreducible
     {F : Type*} [Field F] [NumberField F] {k : Type*} [Field k] [TopologicalSpace k]
@@ -6284,13 +6094,13 @@ variable {F : Type*} [Field F] {k : Type*} [Field k] [TopologicalSpace k]
   {M : Type*} [AddCommGroup M] [Module k M] [Module.Finite k M] [Module.Projective k M]
   [TopologicalSpace M] [IsModuleTopology k M]
 
-/-- `ρ̄` is bad dihedral (at `p`) if it is absolutely irreducible while its restriction to
+/-- `rhoBar` is bad dihedral (at `p`) if it is absolutely irreducible while its restriction to
 `G_{F'}` is not (Dieulefait–Pacetti Definition 1.12 for `F = ℚ`). -/
 def IsBadDihedral (p : ℕ) (ρ : ContinuousRep (Field.absoluteGaloisGroup F) k M) : Prop :=
   ρ.IsAbsolutelyIrreducible ∧
     ¬ (resFixingSubgroup (cyclotomicSquareSubfield F p) ρ).IsAbsolutelyIrreducible
 
-/-- Bad dihedral iff absolutely irreducible with `ρ̄|_{G_{F(ζ_p)}}` not absolutely irreducible. -/
+/-- Bad dihedral iff absolutely irreducible with `rhoBar|_{G_{F(ζ_p)}}` not absolutely irreducible. -/
 theorem isBadDihedral_iff_cyclotomic [NumberField F] {p : ℕ} [Fact p.Prime] (hp : p ≠ 2)
     [Finite k] [CharP k p] (hM : Module.finrank k M = 2)
     (ρ : ContinuousRep (Field.absoluteGaloisGroup F) k M) :
@@ -6320,7 +6130,7 @@ theorem isBadDihedral_baseChange [NumberField F] {p : ℕ} [Fact p.Prime] (hp : 
 
 namespace IsBadDihedral
 
-/-- For `F = ℚ`, a bad dihedral `ρ̄` has projective inertia image `π(ρ̄(I_p))` of order `≤ 2`
+/-- For `F = ℚ`, a bad dihedral `rhoBar` has projective inertia image `π(rhoBar(I_p))` of order `≤ 2`
 (`I_p` read in `G_ℚ` through a chosen embedding `ℚ̄ → ℚ̄_p`). This is the bound of the source
 (Dieulefait–Pacetti, proof of Lemma 1.14); the order is in fact exactly `2`, because `ℚ(√p*)` is
 ramified at `p`. -/
@@ -6334,7 +6144,7 @@ theorem projInertia_card_le_two {p : ℕ} [Fact p.Prime] (hp : p ≠ 2)
         (QuotientGroup.mk' (Subgroup.center (LinearMap.GeneralLinearGroup k M)))) ≤ 2 := by
   sorry
 
-/-- A bad dihedral `ρ̄` has `[F' : F] = 2`, is induced from `G_{F'}` (over `k̄`, a `G_{F'}`-stable
+/-- A bad dihedral `rhoBar` has `[F' : F] = 2`, is induced from `G_{F'}` (over `k̄`, a `G_{F'}`-stable
 line moved by `G_F ∖ G_{F'}`) and has image of order prime to `p`. -/
 theorem isInduced [NumberField F] {p : ℕ} [Fact p.Prime] (hp : p ≠ 2)
     [Finite k] [CharP k p] (hM : Module.finrank k M = 2)
@@ -6399,10 +6209,10 @@ example {M : Type*} [AddCommGroup M] [Module (ZMod 3) M] [Module.Finite (ZMod 3)
         ¬ (resFixingSubgroup (cyclotomicSubfield ℚ 3) ρ).IsAbsolutelyIrreducible) := by
   sorry
 
-/-- Unit test: TauCeti.GaloisRep.isBadDihedral_iff_induced. `ρ̄` is bad dihedral iff
-`[F' : F] = 2` and `ρ̄ ⊗ F̄_p ≅ Ind_{G_{F'}}^{G_F} χ` with `χ ≠ χ^σ`: a `G_{F'}`-stable line moved
+/-- Unit test: TauCeti.GaloisRep.isBadDihedral_iff_induced. `rhoBar` is bad dihedral iff
+`[F' : F] = 2` and `rhoBar ⊗ F̄_p ≅ Ind_{G_{F'}}^{G_F} χ` with `χ ≠ χ^σ`: a `G_{F'}`-stable line moved
 by some element outside `G_{F'}` (so `F' ≠ F`), with `G_{F'}` not acting by scalars. When
-`F' = F` no `ρ̄` is bad dihedral. -/
+`F' = F` no `rhoBar` is bad dihedral. -/
 example {F : Type*} [Field F] [NumberField F] {p : ℕ} [Fact p.Prime] (hp : p ≠ 2)
     [Finite k] [CharP k p] (hM : Module.finrank k M = 2)
     (ρ : ContinuousRep (Field.absoluteGaloisGroup F) k M) :
@@ -6446,7 +6256,7 @@ end BadDihedral
 
 /-- ArithmeticGaloisRepresentations:R01.4/bad-dihedral-representations-and-the-oddness-criterion,
 part (b): for `p` odd, `k` finite of characteristic `p` and `m ≥ 1`, absolute irreducibility of
-`ρ̄` restricted to `G_{F'}`, to `G_{F(ζ_p)}` and to `G_{F(ζ_{p^m})}` are equivalent (no oddness
+`rhoBar` restricted to `G_{F'}`, to `G_{F(ζ_p)}` and to `G_{F(ζ_{p^m})}` are equivalent (no oddness
 hypothesis). Parts (a), (c), (d) are not restated. -/
 theorem isAbsolutelyIrreducible_res_cyclotomic_iff {F : Type*} [Field F] [NumberField F]
     {p : ℕ} [Fact p.Prime] (hp : p ≠ 2) (m : ℕ) (hm : 1 ≤ m)
@@ -6494,7 +6304,7 @@ theorem normal_subgroups_GL2 {k : Type*} [Field k] [Finite k] (hq : 4 ≤ Nat.ca
 /-! ### Residual images under restriction to cyclotomic fields (ArithmeticGaloisRepresentations:R01.4/restriction-to-the-cyclotomic-field) -/
 
 /-- ArithmeticGaloisRepresentations:R01.4/restriction-to-the-cyclotomic-field, parts (b) and
-(g): if `ρ̄` is irreducible and `ρ̄|_{G_{F(ζ_p)}}` is not absolutely irreducible, the image of `ρ̄`
+(g): if `rhoBar` is irreducible and `rhoBar|_{G_{F(ζ_p)}}` is not absolutely irreducible, the image of `rhoBar`
 lies in the normaliser of a Cartan subgroup; and for `l ≥ 3` a normal subgroup `Δ ⊴ GL_2(F_l)`
 with `det Δ = F_lˣ` is all of `GL_2(F_l)`. Parts (a), (c)–(f), (h) are not restated. -/
 theorem image_normalizer_cartan_of_res_cyclotomic {F : Type*} [Field F] [NumberField F]
@@ -7406,66 +7216,11 @@ point/torsion modules. The packet, including its exact prerequisite IDs, is the
 definitive specification.
 -/
 
-/- ArithmeticGaloisRepresentations:R01.6/tate-module-of-an-abelian-variety
 
-Throughout: K is a field, K̄ = AlgebraicClosure K with separable closure K^sep ⊆ K̄, and G_K = Field.absoluteGaloisGroup K = Aut(K̄/K) with its Krull topology (restriction to K^sep identifies it, as a topological group, with Gal(K^sep/K): Tau Ceti absoluteGaloisGroupRestrictEquiv; Mathlib gives Field.absoluteGaloisGroup only its group and topological-group structure, and compactness is obtained through this isomorphism); σ ∈ G_K acts on a point x ∈ A(K̄) by acting on its coordinates (for a Weierstrass curve this is Mathlib's WeierstrassCurve.Affine.Point.map along σ). A is an abelian variety over K in Tau Ceti's sense (TauCeti.AlgebraicGeometry.AbelianVariety: proper geometrically integral group scheme over Spec K) of dimension g, and ℓ is a prime number with ℓ ≠ char K. For n ≥ 0 put A[ℓ^n] := ker([ℓ^n] : A → A) ([ℓ^n] is Tau Ceti AbelianVariety.mulBy), a finite étale K-group scheme of order ℓ^{2gn} (AbelianSchemesAndArithmeticModuli A3), and A[ℓ^n](K^sep) = A[ℓ^n](K̄) its group of geometric points, with the transition maps [ℓ] : A[ℓ^{n+1}](K^sep) → A[ℓ^n](K^sep). Define T_ℓA := lim_n A[ℓ^n](K^sep), with the inverse-limit topology of the discrete finite groups, V_ℓA := T_ℓA ⊗_{Z_ℓ} Q_ℓ, and the prime-to-char K adelic module T̂A := lim_N A[N](K^sep) (N invertible in K) = ∏_{ℓ ≠ char K} T_ℓA. Then: (a) each A[ℓ^n](K^sep) is a free Z/ℓ^n-module of rank 2g, the transition maps are surjective, and T_ℓA is a free Z_ℓ-module (Z_ℓ is Mathlib's PadicInt ℓ) of rank 2g whose inverse-limit topology is the ℓ-adic topology (equivalently Mathlib's module topology, IsModuleTopology Z_ℓ); (b) the projection induces a canonical G_K-equivariant isomorphism T_ℓA/ℓ^n T_ℓA ≅ A[ℓ^n](K^sep); (c) G_K acts Z_ℓ-linearly on T_ℓA through its coordinatewise action on A[ℓ^n](K̄), the action map G_K × T_ℓA → T_ℓA is jointly continuous, and so (T_ℓA, ρ_{A,ℓ}) is an object of ContinuousRep G_K Z_ℓ (ArithmeticGaloisRepresentations:R01.1/continuous-representation) of rank 2g, with V_ℓA its coefficient extension to Q_ℓ; (d) the kernel of G_K → Aut(A[ℓ^n](K^sep)) is the open subgroup G_{K(A[ℓ^n])} fixing the finite Galois extension K(A[ℓ^n]) generated by the coordinates of the ℓ^n-torsion points, and ρ_{A,ℓ} factors through Gal(K(A[ℓ^∞])/K); (e) the construction is made for every algebraic closure of K, and a K-isomorphism ι : K̄ → K̄′ of algebraic closures induces the group isomorphism G_K ≅ Aut(K̄′/K), σ ↦ ισι^{−1}, and a Z_ℓ-isomorphism T_ℓA ≅ T′_ℓA intertwining the two actions; this isomorphism is not canonical: replacing ι by ι∘τ with τ ∈ G_K composes it with x ↦ τx and the group isomorphism with conjugation by τ, so (T_ℓA, ρ_{A,ℓ}) is determined up to the inner automorphisms of G_K. A choice of Z_ℓ-basis gives the framed form ρ_{A,ℓ} : G_K → GL_{2g}(Z_ℓ) (R01.1/framed-representation), well defined up to GL_{2g}(Z_ℓ)-conjugacy. The Tate module is covariant in A. It is not defined for ℓ = char K (there A[ℓ](K^sep) has order at most ℓ^g).
-
-API signatures on the actual geometric carrier:
-
-TauCeti.AlgebraicGeometry.AbelianVariety.torsionPoints : A[N](K^sep) for N invertible in K: the N-torsion Submodule.torsionBy ℤ (A(K^sep)) N of the K^sep-points, a finite Z/N-module with its G_K-action.
-
-TauCeti.AlgebraicGeometry.AbelianVariety.tateModule : T_ℓA := lim_n A[ℓ^n](K^sep) along [ℓ], as a Z_ℓ-module with the inverse-limit topology.
-
-TauCeti.AlgebraicGeometry.AbelianVariety.tateModule.toTorsion : The projection T_ℓA → A[ℓ^n](K^sep), G_K-equivariant and Z_ℓ-linear (Z_ℓ acting through Z/ℓ^n).
-
-TauCeti.AlgebraicGeometry.AbelianVariety.tateModule_free : T_ℓA is a free Z_ℓ-module of rank 2g; Module.finrank Z_ℓ T_ℓA = 2·dim A.
-
-TauCeti.AlgebraicGeometry.AbelianVariety.tateModule.modPowEquiv : T_ℓA/ℓ^n T_ℓA ≃ A[ℓ^n](K^sep), G_K-equivariant.
-
-TauCeti.AlgebraicGeometry.AbelianVariety.tateModule.ext : Two elements of T_ℓA are equal iff their images in A[ℓ^n](K^sep) agree for every n.
-
-TauCeti.AlgebraicGeometry.AbelianVariety.tateModuleRep : (T_ℓA, ρ_{A,ℓ}) as a ContinuousRep G_K Z_ℓ (R01.1/continuous-representation); its underlying Mathlib ContRepresentation is obtained by forgetting joint continuity.
-
-TauCeti.AlgebraicGeometry.AbelianVariety.rationalTateModule : V_ℓA := T_ℓA ⊗_{Z_ℓ} Q_ℓ as the coefficient extension of tateModuleRep to Q_ℓ (R01.1/coefficient-extension).
-
-TauCeti.AlgebraicGeometry.AbelianVariety.tateModule.map : A homomorphism α : A → B over K induces T_ℓα : T_ℓA → T_ℓB, (x_n) ↦ (α(x_n)), with map_id, map_comp, and map_add for the group structure of Hom(A, B).
-
-TauCeti.AlgebraicGeometry.AbelianVariety.tateModule.baseChange : For a field extension L/K and a K-embedding j : K̄ → L̄ of algebraic closures, j induces a Z_ℓ-isomorphism T_ℓA ≅ T_ℓ(A_L) (A_L is Tau Ceti AbelianVariety.baseChange) which intertwines ρ_{A_L,ℓ} with ρ_{A,ℓ} ∘ res_j, where res_j : G_L → G_K is restriction along j. For L ⊆ K̄ algebraic over K this reads T_ℓ(A_L) = T_ℓA with ρ_{A_L,ℓ} the restriction of ρ_{A,ℓ} to G_L; for a completion L = F_v of a number field F it gives the restriction of ρ_{A,ℓ} to a decomposition group.
-
-TauCeti.AlgebraicGeometry.AbelianVariety.tateModule.kernel_mod_pow : ker(ρ_{A,ℓ} mod ℓ^n) = G_{K(A[ℓ^n])}, an open normal subgroup of finite index.
-
-TauCeti.AlgebraicGeometry.AbelianVariety.adelicTateModule : T̂A := lim_N A[N](K^sep) over N invertible in K, canonically ∏_{ℓ ≠ char K} T_ℓA, with the product action of G_K.
-
-TauCeti.AlgebraicGeometry.AbelianVariety.torsionPoints_card : For N invertible in K, A[N](K^sep) has N^{2g} elements and is (noncanonically) isomorphic to (Z/N)^{2g}; [N] : A[MN](K^sep) → A[M](K^sep) is surjective.
-
-TauCeti.AlgebraicGeometry.AbelianVariety.tateModule_isModuleTopology : The inverse-limit topology on T_ℓA is the ℓ-adic topology and is the module topology: IsModuleTopology Z_ℓ (T_ℓA).
-
-
-Unit-test examples (same names as the packet):
-
-TauCeti.AlgebraicGeometry.AbelianVariety.tateModule_rank_eq : For E : y² = x³ − x over Q (g = 1) and ℓ = 5, T_5E is free of rank 2 over Z_5 and T_5E/5T_5E has exactly 25 elements.
-
-TauCeti.AlgebraicGeometry.AbelianVariety.tateModule_of_dim_zero : If A is the zero abelian variety Spec K (g = 0), then T_ℓA = 0 and ρ_{A,ℓ} is the zero representation, for every ℓ ≠ char K.
-
-TauCeti.AlgebraicGeometry.AbelianVariety.tateModule_ne_limit_rational_torsion : The tempting definition lim_n A[ℓ^n](K) using K-rational points is wrong: for E : y² = x³ − x over Q, E(Q)[ℓ^∞] is finite for every ℓ, so lim_n E[ℓ^n](Q) = 0, whereas T_ℓE ≅ Z_ℓ².
-
-TauCeti.AlgebraicGeometry.AbelianVariety.tateModule_char_p_excluded : For a supersingular elliptic curve E over F̄_p (e.g. y² = x³ + 1 over F̄_5) one has E[p^n](F̄_p) = 0, so the formula lim E[p^n] would give 0 at ℓ = p = char K; the construction requires ℓ ≠ char K.
-
-TauCeti.AlgebraicGeometry.AbelianVariety.tateModule_mod_pow_equiv_galois : For every n, the reduction map T_ℓA/ℓ^n T_ℓA → A[ℓ^n](K^sep) is a G_K-equivariant isomorphism; for n = 1 it identifies ρ_{A,ℓ} mod ℓ with the pointwise Galois action on A[ℓ](K^sep).
-
-
-Proof obligations:
-Order and étaleness: AbelianSchemesAndArithmeticModuli A3 proves [n] finite locally free of rank n^{2g} and étale when n is invertible on the base; over K with ℓ ≠ char K, A[ℓ^n] is finite étale of order ℓ^{2gn}, so #A[ℓ^n](K^sep) = ℓ^{2gn} and the K^sep- and K̄-points agree (Milne AV, Remark 7.3, p. 34).
-Structure: applying the count to every m | ℓ^n and the structure theorem for finite abelian groups gives A[ℓ^n](K^sep) ≅ (Z/ℓ^n)^{2g} (Milne AV, Remark 7.3, p. 34).
-Surjective transitions: [ℓ] : A → A is a finite étale surjective isogeny (A3), so every K^sep-point of A[ℓ^n] lifts to a K^sep-point of A[ℓ^{n+1}]; the inverse limit of free Z/ℓ^n-modules of rank 2g along surjections reducing compatibly is free of rank 2g over Z_ℓ with T_ℓA/ℓ^n ≅ A[ℓ^n](K^sep) (Milne AV, Proposition 10.5, p. 45).
-Galois action: σ ∈ G_K acts on A(K̄) through the functoriality of points along the K-automorphism σ (coordinates); it commutes with [ℓ^n], so preserves A[ℓ^n](K̄) and commutes with the transition maps; hence it acts Z_ℓ-linearly on T_ℓA.
-Continuity: each A[ℓ^n](K^sep) is finite and pointwise defined over the finite Galois extension K(A[ℓ^n]), so the action on it factors through the finite quotient Gal(K(A[ℓ^n])/K) and is continuous for the discrete topology (R01.1/finite-coefficients-and-finite-quotients); joint continuity on the inverse limit follows level by level, and the module topology on the finite free Z_ℓ-module T_ℓA is its inverse-limit topology.
-Independence of choices: an isomorphism of algebraic closures over K transports torsion points and Galois actions compatibly; this is the transport-of-structure argument of R01.1/restriction-dual-tensor-twist applied to the isomorphism of profinite groups it induces.
--/
 
 /- ArithmeticGaloisRepresentations:R01.6/torsion-and-residual-representation
 
-Throughout: K is a field, K̄ = AlgebraicClosure K with separable closure K^sep ⊆ K̄, and G_K = Field.absoluteGaloisGroup K = Aut(K̄/K) with its Krull topology (restriction identifies it with Gal(K^sep/K)); σ ∈ G_K acts on a point x ∈ A(K̄) by acting on its coordinates (for a Weierstrass curve this is Mathlib's WeierstrassCurve.Affine.Point.map along σ). A is an abelian variety over K in Tau Ceti's sense (TauCeti.AlgebraicGeometry.AbelianVariety: proper geometrically integral group scheme over Spec K) of dimension g, and ℓ is a prime number with ℓ ≠ char K. (a) For every n ≥ 1 the G_K-module T_ℓA/ℓ^nT_ℓA is canonically isomorphic to A[ℓ^n](K^sep) with its pointwise action; in particular the residual representation ρ̄_{A,ℓ} := T_ℓA ⊗_{Z_ℓ} F_ℓ (R01.1/reduction-and-residual-semisimplification) is the G_K-module A[ℓ](K^sep) of dimension 2g over F_ℓ. (b) For every G_K-stable Z_ℓ-lattice Λ ⊂ V_ℓA, (Λ/ℓΛ)^ss ≅ A[ℓ](K^sep)^ss as F_ℓ[G_K]-modules (R01.1/continuity-descent-and-lattice-independence). (c) Let E be an elliptic curve over K (Weierstrass, IsElliptic). The G_K-stable F_ℓ-lines L ⊂ E[ℓ](K^sep) are exactly the K-rational cyclic subgroups of order ℓ, i.e. the kernels of the cyclic K-rational isogenies of degree ℓ out of E (the quotient E → E/L of the Weierstrass curve by a finite Galois-stable subgroup of points, given by Vélu's formulas in Tau Ceti EllipticCurves Layer 1); so ρ̄_{E,ℓ} is reducible over F_ℓ iff E admits a K-rational isogeny of degree ℓ. On such a line G_K acts through a character ψ : G_K → F_ℓ^×, and on the quotient E[ℓ]/L through χ̄_ℓ ψ^{−1} (node determinant-and-oddness); For ℓ odd ψ need not be trivial, so reducibility of ρ̄_{E,ℓ} does not imply that E has a K-rational point of order ℓ. For ℓ = 2 the group F_2^× is trivial, so every G_K-stable line in E[2](K^sep) is generated by a K-rational point of order 2, and ρ̄_{E,2} is reducible iff E has a K-rational point of order 2.
+Throughout: K is a field, K̄ = AlgebraicClosure K with separable closure K^sep ⊆ K̄, and G_K = Field.absoluteGaloisGroup K = Aut(K̄/K) with its Krull topology (restriction identifies it with Gal(K^sep/K)); σ ∈ G_K acts on a point x ∈ A(K̄) by acting on its coordinates (for a Weierstrass curve this is Mathlib's WeierstrassCurve.Affine.Point.map along σ). A is an abelian variety over K in Tau Ceti's sense (TauCeti.AlgebraicGeometry.AbelianVariety: proper geometrically integral group scheme over Spec K) of dimension g, and ℓ is a prime number with ℓ ≠ char K. (a) For every n ≥ 1 the G_K-module T_ℓA/ℓ^nT_ℓA is canonically isomorphic to A[ℓ^n](K^sep) with its pointwise action; in particular the residual representation rhoBar_{A,ℓ} := T_ℓA ⊗_{Z_ℓ} F_ℓ (R01.1/reduction-and-residual-semisimplification) is the G_K-module A[ℓ](K^sep) of dimension 2g over F_ℓ. (b) For every G_K-stable Z_ℓ-lattice Λ ⊂ V_ℓA, (Λ/ℓΛ)^ss ≅ A[ℓ](K^sep)^ss as F_ℓ[G_K]-modules (R01.1/continuity-descent-and-lattice-independence). (c) Let E be an elliptic curve over K (Weierstrass, IsElliptic). The G_K-stable F_ℓ-lines L ⊂ E[ℓ](K^sep) are exactly the K-rational cyclic subgroups of order ℓ, i.e. the kernels of the cyclic K-rational isogenies of degree ℓ out of E (the quotient E → E/L of the Weierstrass curve by a finite Galois-stable subgroup of points, given by Vélu's formulas in Tau Ceti EllipticCurves Layer 1); so rhoBar_{E,ℓ} is reducible over F_ℓ iff E admits a K-rational isogeny of degree ℓ. On such a line G_K acts through a character ψ : G_K → F_ℓ^×, and on the quotient E[ℓ]/L through χ̄_ℓ ψ^{−1} (node determinant-and-oddness); For ℓ odd ψ need not be trivial, so reducibility of rhoBar_{E,ℓ} does not imply that E has a K-rational point of order ℓ. For ℓ = 2 the group F_2^× is trivial, so every G_K-stable line in E[2](K^sep) is generated by a K-rational point of order 2, and rhoBar_{E,2} is reducible iff E has a K-rational point of order 2.
 
 API signatures on the actual geometric carrier:
 
@@ -7476,7 +7231,7 @@ Unit-test examples (same names as the packet):
 Proof obligations:
 (a) is part (b) of node tate-module-of-an-abelian-variety, restated for consumers; n = 1 is the comparison of the residual representation with the existing pointwise action requested by the stage.
 (b) Λ and T_ℓA are both G_K-stable lattices in V_ℓA; R01.1/continuity-descent-and-lattice-independence gives (Λ/ℓΛ)^ss ≅ (T_ℓA/ℓT_ℓA)^ss, and (a) identifies the latter.
-(c) E[ℓ](K̄) has ℓ² elements (already in the pinned library: TauCeti.Isogeny.card_ker_mulByIntIsogeny over the algebraically closed K̄, with mem_ker_mulByIntIsogeny_iff identifying the kernel of [ℓ] with the ℓ-torsion), and Layer 2 gives its structure (Z/ℓ)². A G_K-stable line L is a finite G_K-stable subgroup of E(K^sep); Tau Ceti EllipticCurves Layer 1 constructs the quotient isogeny E → E/L by Vélu's formulas, defined over K, separable of degree ℓ with kernel L. Conversely an isogeny of degree ℓ defined over K is separable (ℓ ≠ char K) and its kernel is a subgroup of order ℓ of E(K^sep) stable under G_K (Layer 1), i.e. a G_K-stable line of E[ℓ](K^sep). The character ψ is the action on L ≅ F_ℓ; the quotient character follows from det ρ̄_{E,ℓ} = χ̄_ℓ (node determinant-and-oddness).
+(c) E[ℓ](K̄) has ℓ² elements (already in the pinned library: TauCeti.Isogeny.card_ker_mulByIntIsogeny over the algebraically closed K̄, with mem_ker_mulByIntIsogeny_iff identifying the kernel of [ℓ] with the ℓ-torsion), and Layer 2 gives its structure (Z/ℓ)². A G_K-stable line L is a finite G_K-stable subgroup of E(K^sep); Tau Ceti EllipticCurves Layer 1 constructs the quotient isogeny E → E/L by Vélu's formulas, defined over K, separable of degree ℓ with kernel L. Conversely an isogeny of degree ℓ defined over K is separable (ℓ ≠ char K) and its kernel is a subgroup of order ℓ of E(K^sep) stable under G_K (Layer 1), i.e. a G_K-stable line of E[ℓ](K^sep). The character ψ is the action on L ≅ F_ℓ; the quotient character follows from det rhoBar_{E,ℓ} = χ̄_ℓ (node determinant-and-oddness).
 Non-triviality of ψ (ℓ odd): let L/K be a separable quadratic extension with quadratic character ε_L (Tau Ceti Algebra.IsQuadraticExtension.quadraticCharacter) and E^L = WeierstrassCurve.quadraticTwist E L. Tau Ceti's quadraticTwistPointEquiv gives an additive isomorphism E^L(K̄) ≅ E(K̄), and quadraticTwistPointEquiv_map_eq_quadraticCharacter_smul_map says that it carries the action of σ ∈ G_K to ε_L(σ|_L)·σ. Restricting to ℓ-torsion: E^L[ℓ] ≅ E[ℓ] ⊗ ε_L, so E and E^L have the same stable lines and ψ is replaced by ψ·ε_L. A rational point of order ℓ on E (ψ = 1) gives ψ = ε_L ≠ 1 on E^L. For ℓ = 2 the character ε_L is trivial mod 2 and nothing changes. The library twists by a separable quadratic extension, in every characteristic, not by an element d.
 -/
 
@@ -7516,59 +7271,7 @@ The quasi-inverse: the kernel G of φ is killed by its order m = d (a finite com
 (d) and (e) are transport of structure, using R01.1/restriction-dual-tensor-twist for the restricted and conjugated representations.
 -/
 
-/- ArithmeticGaloisRepresentations:R01.6/weil-pairing-on-tate-modules
 
-Throughout: K is a field, K̄ = AlgebraicClosure K with separable closure K^sep ⊆ K̄, and G_K = Field.absoluteGaloisGroup K = Aut(K̄/K) with its Krull topology (restriction identifies it with Gal(K^sep/K)); σ ∈ G_K acts on a point x ∈ A(K̄) by acting on its coordinates (for a Weierstrass curve this is Mathlib's WeierstrassCurve.Affine.Point.map along σ). A is an abelian variety over K in Tau Ceti's sense (TauCeti.AlgebraicGeometry.AbelianVariety: proper geometrically integral group scheme over Spec K) of dimension g, and ℓ is a prime number with ℓ ≠ char K. Let A^∨ be the dual abelian variety and Z_ℓ(1) = lim μ_{ℓ^n}(K̄) the Tate twist (R01.1/tate-twist; μ_{ℓ^n}(K̄) is Mathlib's rootsOfUnity (ℓ^n) K̄, and it lies in K^sep because ℓ ≠ char K), on which G_K acts through χ_ℓ = cyclotomicCharacter K̄ ℓ. From A3's perfect Weil pairings e_{ℓ^n} : A[ℓ^n] × A^∨[ℓ^n] → μ_{ℓ^n}, which satisfy e_{ℓ^{n+1}}(a, a′)^ℓ = e_{ℓ^n}(ℓa, ℓa′), define e_ℓ : T_ℓA × T_ℓA^∨ → Z_ℓ(1), e_ℓ((a_n), (a′_n)) := (e_{ℓ^n}(a_n, a′_n))_n. Then e_ℓ is Z_ℓ-bilinear, perfect (it induces an isomorphism T_ℓA^∨ ≅ Hom_{Z_ℓ}(T_ℓA, Z_ℓ(1)) = (T_ℓA)^∨(1) of continuous representations, R01.1/restriction-dual-tensor-twist) and Galois-equivariant: e_ℓ(σx, σy) = χ_ℓ(σ)·e_ℓ(x, y) for σ ∈ G_K, writing Z_ℓ(1) additively. For a homomorphism λ : A → A^∨ put e^λ_ℓ(x, y) := e_ℓ(x, T_ℓλ(y)). Properties: (i) adjunction e_ℓ(x, T_ℓα^∨(y)) = e_ℓ(T_ℓα(x), y) for α : A → B, x ∈ T_ℓA, y ∈ T_ℓB^∨; (ii) if λ = φ_L for a line bundle L (in particular if λ is a polarization), e^λ_ℓ is alternating; (iii) for a polarization λ of degree d, e^λ_ℓ ⊗ Q_ℓ is nondegenerate, and e^λ_ℓ is perfect over Z_ℓ iff ℓ ∤ d (always when λ is principal); (iv) for α ∈ End(A) ⊗ Q and the Rosati involution α ↦ α^† of λ (AbelianSchemesAndArithmeticModuli:A2/rosati-involution, which states this adjunction; it is cited, not planned again), e^λ_ℓ(αx, y) = e^λ_ℓ(x, α^†y) on V_ℓA; (v) for polarizations λ, μ of A, B, e^{λ×μ}_ℓ is the orthogonal sum on T_ℓA ⊕ T_ℓB; (vi) consequently every ρ_{A,ℓ}(σ) preserves e^λ_ℓ up to the scalar χ_ℓ(σ): e^λ_ℓ(ρ_{A,ℓ}(σ)x, ρ_{A,ℓ}(σ)y) = χ_ℓ(σ)·e^λ_ℓ(x, y) for all x, y in T_ℓA, and likewise on V_ℓA. So G_K acts on the nondegenerate alternating space (V_ℓA, e^λ_ℓ) by similitudes with similitude character (multiplier) χ_ℓ, and on the lattice T_ℓA, on which e^λ_ℓ is perfect exactly when ℓ ∤ deg λ (in particular for principal λ). Reducing mod ℓ^n recovers A3's pairings e_{ℓ^n} and e^λ_{ℓ^n}.
-
-API signatures on the actual geometric carrier:
-
-TauCeti.AlgebraicGeometry.AbelianVariety.weilPairing : e_ℓ : T_ℓA × T_ℓA^∨ → Z_ℓ(1), a Z_ℓ-bilinear map, the limit of A3's e_{ℓ^n}.
-
-TauCeti.AlgebraicGeometry.AbelianVariety.weilPairing_mod_pow : e_ℓ reduces mod ℓ^n to A3's e_{ℓ^n} on A[ℓ^n](K^sep) × A^∨[ℓ^n](K^sep).
-
-TauCeti.AlgebraicGeometry.AbelianVariety.weilPairing_perfect : T_ℓA^∨ ≅ (T_ℓA)^∨(1) as continuous Z_ℓ[G_K]-modules via y ↦ e_ℓ(·, y).
-
-TauCeti.AlgebraicGeometry.AbelianVariety.weilPairing_galois : e_ℓ(σx, σy) = χ_ℓ(σ)·e_ℓ(x, y).
-
-TauCeti.AlgebraicGeometry.AbelianVariety.weilPairing_map_dual : e_ℓ(x, T_ℓα^∨ y) = e_ℓ(T_ℓα x, y) for α : A → B.
-
-TauCeti.AlgebraicGeometry.AbelianVariety.polarizationPairing : e^λ_ℓ(x, y) := e_ℓ(x, T_ℓλ y) for λ : A → A^∨.
-
-TauCeti.AlgebraicGeometry.AbelianVariety.polarizationPairing_alternating : e^{φ_L}_ℓ(x, x) = 0 for every line bundle L; hence e^λ_ℓ is alternating for a polarization λ.
-
-TauCeti.AlgebraicGeometry.AbelianVariety.polarizationPairing_perfect_iff : For a polarization λ of degree d, e^λ_ℓ is perfect over Z_ℓ iff ℓ ∤ d; it is nondegenerate over Q_ℓ always.
-
-TauCeti.AlgebraicGeometry.AbelianVariety.polarizationPairing_rosati : On V_ℓA: e^λ_ℓ(αx, y) = e^λ_ℓ(x, α^†y) for α ∈ End(A) ⊗ Q; this is weilPairing_rosati of AbelianSchemesAndArithmeticModuli:A2/rosati-involution read for the pairing of this node.
-
-TauCeti.AlgebraicGeometry.AbelianVariety.polarizationPairing_prod : e^{λ×μ}_ℓ on T_ℓ(A × B) = T_ℓA ⊕ T_ℓB is e^λ_ℓ ⊥ e^μ_ℓ.
-
-TauCeti.AlgebraicGeometry.AbelianVariety.image_le_GSp : For a polarization λ defined over K, ρ_{A,ℓ}(G_K) is contained in the group of similitudes of (V_ℓA, e^λ_ℓ), with multiplier χ_ℓ; when ℓ ∤ deg λ it is contained in the group of similitudes of the lattice (T_ℓA, e^λ_ℓ), which a symplectic basis identifies with GSp_{2g}(Z_ℓ). In the notation of G7/similitude-groups: ρ_{A,ℓ}(G_K) ⊆ GSp(V_ℓA, e^λ_ℓ), and ρ_{A,ℓ}(G_K) ⊆ GSp(T_ℓA, e^λ_ℓ) ≅ GSp_{2g}(Z_ℓ) when ℓ ∤ deg λ. It is polarizationPairing_galois read in that group.
-
-TauCeti.AlgebraicGeometry.AbelianVariety.polarizationPairing_galois : e^λ_ℓ(σx, σy) = χ_ℓ(σ)·e^λ_ℓ(x, y) for σ ∈ G_K and λ : A → A^∨ defined over K.
-
-
-Unit-test examples (same names as the packet):
-
-TauCeti.AlgebraicGeometry.AbelianVariety.weilPairing_galois : For σ ∈ G_K, x ∈ T_ℓA, y ∈ T_ℓA^∨: e_ℓ(σx, σy) = χ_ℓ(σ)·e_ℓ(x, y) in Z_ℓ(1).
-
-TauCeti.AlgebraicGeometry.AbelianVariety.polarizationPairing_elliptic_det : For an elliptic curve E with its canonical principal polarization and any basis (P, Q) of T_ℓE, e_ℓ(P, Q) generates Z_ℓ(1) and det ρ_{E,ℓ}(σ) = χ_ℓ(σ) for all σ ∈ G_K.
-
-TauCeti.AlgebraicGeometry.AbelianVariety.polarizationPairing_zero_dim : For A = 0 the pairings are the zero pairing on the zero module (perfect).
-
-TauCeti.AlgebraicGeometry.AbelianVariety.polarizationPairing_not_perfect : For E an elliptic curve and λ = [ℓ]∘λ_E, e^λ_ℓ = ℓ·e_ℓ is not perfect over Z_ℓ; a definition demanding perfectness for every polarization is wrong.
-
-TauCeti.AlgebraicGeometry.AbelianVariety.weilPairing_target_twist : The pairing is not Galois-invariant with values in Z_ℓ: for complex conjugation c on Q̄ ⊂ C, e_ℓ(cx, cy) = −e_ℓ(x, y) ≠ e_ℓ(x, y) whenever e_ℓ(x, y) ≠ 0, because χ_ℓ(c) = −1.
-
-
-Proof obligations:
-Compatibility of levels: e_{ℓ^{n+1}}(a, a′)^ℓ = e_{ℓ^n}(ℓa, ℓa′) (Milne AV Lemma 13.1, p. 57; A3 for the scheme-theoretic pairing), so the sequence (e_{ℓ^n}(a_n, a′_n)) is an element of lim μ_{ℓ^n} = Z_ℓ(1).
-Perfectness: each e_{ℓ^n} is perfect (A3, Cartier duality A^∨[n] = A[n]^D), and a compatible system of perfect pairings of free Z/ℓ^n-modules of rank 2g gives a perfect pairing of the limits.
-Galois equivariance: A3's pairing is a morphism of K-group schemes, so e_{ℓ^n}(σa, σa′) = σ(e_{ℓ^n}(a, a′)) = e_{ℓ^n}(a, a′)^{χ_ℓ(σ) mod ℓ^n} by Mathlib cyclotomicCharacter.spec, whose instance hypothesis (K̄ has enough ℓ^i-th roots of unity for every i) is Mathlib's AlgebraicClosure.hasEnoughRootsOfUnity_pow, available because ℓ ≠ char K.
-(i), (ii), (iv): Milne AV Proposition 13.2 (a)–(d), p. 58; (iv) is the adjunction stated by AbelianSchemesAndArithmeticModuli:A2/rosati-involution (from (i) and α^† = λ^{−1}α^∨λ: e(αx, λy) = e(x, α^∨λy) = e(x, λα^†y)). For (ii) at ℓ = 2: Proposition 13.2(d) gives a homomorphism to Hom(∧²T_ℓA, Z_ℓ(1)), i.e. e^L_ℓ(x, x) = 0; skew-symmetry alone gives 2e(x, x) = 0, which suffices because Z_ℓ(1) is torsion-free.
-(iii): ker(T_ℓλ ⊗ Q_ℓ) = 0 because λ is an isogeny (node functoriality-products-and-isogenies (c)); over Z_ℓ the discriminant of e^λ_ℓ is #coker T_ℓλ = d_ℓ.
-(vi): from equivariance, e^λ_ℓ(σx, σy) = χ_ℓ(σ) e^λ_ℓ(x, y), which is the definition of a similitude with multiplier χ_ℓ(σ).
-(v): under (A × B)^∨ = A^∨ × B^∨ the pairing e_ℓ of A × B is the orthogonal sum of those of A and B, by (i) applied to the two inclusions and the two projections; node functoriality-products-and-isogenies (b) identifies T_ℓ(A × B), and λ × μ is the product homomorphism.
--/
 
 /- ArithmeticGaloisRepresentations:R01.6/determinant-of-a-symplectic-similitude
 
@@ -7589,7 +7292,7 @@ Case μ a unit: in the ring R′ = R[t]/(t² − μ), which is free over R with 
 
 /- ArithmeticGaloisRepresentations:R01.6/determinant-and-oddness
 
-Throughout: K is a field, K̄ = AlgebraicClosure K with separable closure K^sep ⊆ K̄, and G_K = Field.absoluteGaloisGroup K = Aut(K̄/K) with its Krull topology (restriction identifies it with Gal(K^sep/K)); σ ∈ G_K acts on a point x ∈ A(K̄) by acting on its coordinates (for a Weierstrass curve this is Mathlib's WeierstrassCurve.Affine.Point.map along σ). A is an abelian variety over K in Tau Ceti's sense (TauCeti.AlgebraicGeometry.AbelianVariety: proper geometrically integral group scheme over Spec K) of dimension g, and ℓ is a prime number with ℓ ≠ char K. Let λ be a polarization of A (abelian varieties over a field are projective, so one exists). (a) det_{Z_ℓ} ρ_{A,ℓ} = det_{Q_ℓ} ρ_{V_ℓA} = χ_ℓ^g for every ℓ ≠ char K (the determinant of an automorphism of the lattice T_ℓA is its determinant on V_ℓA), hence ∧^{2g}_{Z_ℓ} T_ℓA ≅ Z_ℓ(g) as Z_ℓ[G_K]-modules (every Z_ℓ-isomorphism between these free modules of rank one is G_K-equivariant), with no condition on deg λ. (b) For an elliptic curve E: ∧²T_ℓE ≅ Z_ℓ(1) and det ρ_{E,ℓ} = χ_ℓ. For a Weierstrass curve this is the determinant theorem of Tau Ceti EllipticCurves Layer 2 for its T_ℓW; it is cited, not proved again (node elliptic-tate-module-comparison (iii) matches it with (a) for g = 1). What this node adds is the residual statement det ρ̄_{E,ℓ} = χ̄_ℓ = modularCyclotomicCharacter (the mod-ℓ cyclotomic character) on E[ℓ](K^sep). (c) Oddness: suppose ι : K → R is a real place, extend ι to K̄ → C, and let c ∈ G_K be the induced complex conjugation (c² = 1, χ_ℓ(c) = −1). Then for every prime ℓ (including ℓ = 2) the ±1-eigenspaces V^± of ρ_{V_ℓA}(c) are Lagrangian for e^λ_ℓ ⊗ Q_ℓ, both of dimension g; hence tr ρ_{V_ℓA}(c) = 0 and det ρ_{V_ℓA}(c) = (−1)^g. The eigenlattices T_ℓA^± := T_ℓA ∩ V^± are saturated and free of rank g; T_ℓA = T_ℓA^+ ⊕ T_ℓA^− when ℓ is odd, while for ℓ = 2 one only has 2T_2A ⊆ T_2A^+ ⊕ T_2A^− ⊆ T_2A, and the second inclusion can be strict. For an elliptic curve, det ρ_{E,ℓ}(c) = −1; when K is a number field this says that ρ_{E,ℓ} is odd at that real place in the sense of R01.4/odd-representation; and for ℓ odd ρ̄_{E,ℓ}(c) is conjugate to diag(1, −1). For ℓ = 2, det ρ̄_{E,2}(c) = 1 = −1 holds automatically and ρ̄_{E,2}(c) may be trivial. (d) Over a number field K, det ρ_{E,ℓ}(Frob_v) = q_v for every place v ∤ ℓ at which ρ_{E,ℓ} is unramified (R01.2/cyclotomic-and-dirichlet-characters: χ_ℓ(arithmetic Frob_v) = q_v).
+Throughout: K is a field, K̄ = AlgebraicClosure K with separable closure K^sep ⊆ K̄, and G_K = Field.absoluteGaloisGroup K = Aut(K̄/K) with its Krull topology (restriction identifies it with Gal(K^sep/K)); σ ∈ G_K acts on a point x ∈ A(K̄) by acting on its coordinates (for a Weierstrass curve this is Mathlib's WeierstrassCurve.Affine.Point.map along σ). A is an abelian variety over K in Tau Ceti's sense (TauCeti.AlgebraicGeometry.AbelianVariety: proper geometrically integral group scheme over Spec K) of dimension g, and ℓ is a prime number with ℓ ≠ char K. Let λ be a polarization of A (abelian varieties over a field are projective, so one exists). (a) det_{Z_ℓ} ρ_{A,ℓ} = det_{Q_ℓ} ρ_{V_ℓA} = χ_ℓ^g for every ℓ ≠ char K (the determinant of an automorphism of the lattice T_ℓA is its determinant on V_ℓA), hence ∧^{2g}_{Z_ℓ} T_ℓA ≅ Z_ℓ(g) as Z_ℓ[G_K]-modules (every Z_ℓ-isomorphism between these free modules of rank one is G_K-equivariant), with no condition on deg λ. (b) For an elliptic curve E: ∧²T_ℓE ≅ Z_ℓ(1) and det ρ_{E,ℓ} = χ_ℓ. For a Weierstrass curve this is the determinant theorem of Tau Ceti EllipticCurves Layer 2 for its T_ℓW; it is cited, not proved again (node elliptic-tate-module-comparison (iii) matches it with (a) for g = 1). What this node adds is the residual statement det rhoBar_{E,ℓ} = χ̄_ℓ = modularCyclotomicCharacter (the mod-ℓ cyclotomic character) on E[ℓ](K^sep). (c) Oddness: suppose ι : K → R is a real place, extend ι to K̄ → C, and let c ∈ G_K be the induced complex conjugation (c² = 1, χ_ℓ(c) = −1). Then for every prime ℓ (including ℓ = 2) the ±1-eigenspaces V^± of ρ_{V_ℓA}(c) are Lagrangian for e^λ_ℓ ⊗ Q_ℓ, both of dimension g; hence tr ρ_{V_ℓA}(c) = 0 and det ρ_{V_ℓA}(c) = (−1)^g. The eigenlattices T_ℓA^± := T_ℓA ∩ V^± are saturated and free of rank g; T_ℓA = T_ℓA^+ ⊕ T_ℓA^− when ℓ is odd, while for ℓ = 2 one only has 2T_2A ⊆ T_2A^+ ⊕ T_2A^− ⊆ T_2A, and the second inclusion can be strict. For an elliptic curve, det ρ_{E,ℓ}(c) = −1; when K is a number field this says that ρ_{E,ℓ} is odd at that real place in the sense of R01.4/odd-representation; and for ℓ odd rhoBar_{E,ℓ}(c) is conjugate to diag(1, −1). For ℓ = 2, det rhoBar_{E,2}(c) = 1 = −1 holds automatically and rhoBar_{E,2}(c) may be trivial. (d) Over a number field K, det ρ_{E,ℓ}(Frob_v) = q_v for every place v ∤ ℓ at which ρ_{E,ℓ} is unramified (R01.2/cyclotomic-and-dirichlet-characters: χ_ℓ(arithmetic Frob_v) = q_v).
 
 API signatures on the actual geometric carrier:
 
@@ -7599,9 +7302,9 @@ Unit-test examples (same names as the packet):
 
 Proof obligations:
 (a) By node weil-pairing-on-tate-modules (vi), ρ(σ) preserves the nondegenerate alternating form e^λ_ℓ ⊗ Q_ℓ on V_ℓA up to the scalar χ_ℓ(σ); node determinant-of-a-symplectic-similitude gives det ρ_{V_ℓA}(σ) = χ_ℓ(σ)^g. A Z_ℓ-basis of T_ℓA is a Q_ℓ-basis of V_ℓA, so det_{Z_ℓ} ρ_{A,ℓ}(σ) is the same element of Z_ℓ^×. G_K acts on the free rank-one module ∧^{2g}T_ℓA through det = χ_ℓ^g, as it does on Z_ℓ(g) (R01.1/tate-twist), so any Z_ℓ-isomorphism between them is equivariant.
-(b) is (a) for g = 1 with the canonical principal polarization; reduction mod ℓ gives det ρ̄ = χ̄_ℓ (Mathlib cyclotomicCharacter.toZModPow identifies χ_ℓ mod ℓ^n with modularCyclotomicCharacter; the hypothesis of the latter, that K̄ has exactly ℓ^n roots of unity of order dividing ℓ^n, is HasEnoughRootsOfUnity.natCard_rootsOfUnity, available because ℓ ≠ char K). Tau Ceti EllipticCurves Layer 2 states the same determinant theorem for its T_ℓW (node elliptic-tate-module-comparison).
+(b) is (a) for g = 1 with the canonical principal polarization; reduction mod ℓ gives det rhoBar = χ̄_ℓ (Mathlib cyclotomicCharacter.toZModPow identifies χ_ℓ mod ℓ^n with modularCyclotomicCharacter; the hypothesis of the latter, that K̄ has exactly ℓ^n roots of unity of order dividing ℓ^n, is HasEnoughRootsOfUnity.natCard_rootsOfUnity, available because ℓ ≠ char K). Tau Ceti EllipticCurves Layer 2 states the same determinant theorem for its T_ℓW (node elliptic-tate-module-comparison).
 (c) c acts on roots of unity by inversion; cyclotomicCharacter.spec at a primitive ℓ^n-th root of unity gives χ_ℓ(c) ≡ −1 mod ℓ^n for every n, and PadicInt.ext_of_toZModPow gives χ_ℓ(c) = −1 (the instance hypothesis of spec is AlgebraicClosure.hasEnoughRootsOfUnity_pow). For x, y ∈ V^+: e(x, y) = e(cx, cy) = χ_ℓ(c)e(x, y) = −e(x, y), so 2e(x, y) = 0 and e(x, y) = 0 since Q_ℓ(1) is torsion-free; likewise for V^−. Since c² = 1 and char Q_ℓ = 0, V = V^+ ⊕ V^−; an isotropic subspace W of a 2g-dimensional nondegenerate alternating space lies in its orthogonal, of dimension 2g − dim W (Mathlib LinearMap.BilinForm.finrank_orthogonal), so dim W ≤ g; hence both eigenspaces are Lagrangian of dimension g. Hence tr = g − g = 0 and det = (−1)^g. For ℓ odd the same argument works on E[ℓ] over F_ℓ (2 is invertible), giving eigenvalues 1, −1.
-ℓ = 2 caveat: over F_2, −1 = 1 and the argument shows nothing; for y² = x³ − x every 2-torsion point is real, so ρ̄_{E,2}(c) = 1.
+ℓ = 2 caveat: over F_2, −1 = 1 and the argument shows nothing; for y² = x³ − x every 2-torsion point is real, so rhoBar_{E,2}(c) = 1.
 (d) is (b) evaluated at a Frobenius element, using R01.2/frobenius-characteristic-polynomial (well defined at unramified places).
 Eigenlattices: T_ℓA^± are the kernels of c ∓ 1 on T_ℓA, hence saturated of rank dim V^± = g. For ℓ odd, x = (x + cx)/2 + (x − cx)/2 splits T_ℓA. For ℓ = 2, 2x = (x + cx) + (x − cx) gives 2T_2A ⊆ T_2A^+ ⊕ T_2A^−; if the sum were all of T_2A, c would act on T_2A/2T_2A through diag(1, −1) ≡ 1, so the splitting fails whenever c acts non-trivially on A[2](K^sep).
 -/
@@ -7692,139 +7395,11 @@ Proof obligations:
 (d) By the trichotomy of reduction types (Mathlib hasGoodReduction_or_hasMultiplicativeReduction_or_hasAdditiveReduction), (a)–(c) cover every prime. Mathlib's LFunction is the Euler product over all primes of WeierstrassCurve.localEulerFactor, the arithmetic function of the power series 1/localPolynomial, so its factors away from ℓ are those of V_ℓE^∨. For each individual place one may choose another coefficient prime; this proof does not compare the ordinary inertia-invariant factor of V_ℓE at a place above ℓ.
 -/
 
-/- ArithmeticGaloisRepresentations:R01.6/local-euler-factor-of-an-abelian-variety
-
-Let F_v be a nonarchimedean local field with residue field F_{q_v} of characteristic p (or a number field F with a finite place v, through R01.2/local-restriction), A an abelian variety over F_v of dimension g, and ℓ ≠ p. Put H¹_ℓ(A) := V_ℓA^∨ = Hom_{Q_ℓ}(V_ℓA, Q_ℓ) with the dual action (R01.1/restriction-dual-tensor-twist). Define L_v(A, T) := det(1 − T·Φ_v | H¹_ℓ(A)^{I_v}) ∈ Q_ℓ[T], Φ_v a geometric Frobenius (R01.2/local-euler-factor applied to the ℓ-adic representation H¹_ℓ(A), equivalently to its Weil–Deligne representation through R01.2/grothendieck-monodromy-and-the-weil-deligne-functor, where (ker N)^{I_v} = H¹_ℓ(A)^{I_v}). Equivalently L_v(A, T) = det(1 − T·Frob_v | (V_ℓA)_{I_v}) with the arithmetic Frobenius on inertia coinvariants. Properties: (a) well defined: independent of the choice of Φ_v and of the decomposition group; (b) at a place of good reduction (ℓ ≠ p), L_v(A, T) = T^{2g}P_v(1/T) = det(1 − T·π_v | V_ℓA_v) with P_v of node good-reduction-frobenius-polynomial; for elliptic curves it lies in Z[T] and is independent of ℓ; for general g this holds under statement (f) of that node, which is not proved in this layer; (c) isogeny invariance: if A and B are F_v-isogenous then L_v(A, T) = L_v(B, T); (d) multiplicativity: L_v(A × B, T) = L_v(A, T)L_v(B, T); (e) degree ≤ 2g, with equality iff V_ℓA is unramified. For a number field F, the partial L-function of A outside a finite set S ⊇ {bad places, places above ℓ} is the formal Euler product ∏_{v ∉ S} L_v(A, q_v^{−s})^{−1}. Independence of ℓ at places of bad reduction, and integrality there, are not asserted: they are NeronModelsAndSemistableAbelianVarieties R11.5 (semistable reduction and the Néron model), which consumes this stage.
-
-API signatures on the actual geometric carrier:
-
-TauCeti.AlgebraicGeometry.AbelianVariety.firstCohomologyRep : H¹_ℓ(A) := V_ℓA^∨ as a continuous Q_ℓ-representation of G_K (dual, R01.1).
-
-TauCeti.AlgebraicGeometry.AbelianVariety.localEulerFactor : L_v(A, T) := det(1 − T·Φ_v | H¹_ℓ(A)^{I_v}) ∈ Q_ℓ[T].
-
-TauCeti.AlgebraicGeometry.AbelianVariety.localEulerFactor_eq_coinvariants : L_v(A, T) = det(1 − T·Frob_v | (V_ℓA)_{I_v}) with the arithmetic Frobenius.
-
-TauCeti.AlgebraicGeometry.AbelianVariety.localEulerFactor_of_goodReduction : At good reduction, L_v(A, T) = T^{2g}P_v(1/T) = det(1 − T·π_v | V_ℓA_v).
-
-TauCeti.AlgebraicGeometry.AbelianVariety.localEulerFactor_isogeny : Isogenous abelian varieties have the same local Euler factors.
-
-TauCeti.AlgebraicGeometry.AbelianVariety.localEulerFactor_prod : L_v(A × B, T) = L_v(A, T)·L_v(B, T).
-
-TauCeti.AlgebraicGeometry.AbelianVariety.localEulerFactor_natDegree_le : deg L_v(A, T) ≤ 2g, with equality iff V_ℓA is unramified at v.
-
-TauCeti.AlgebraicGeometry.AbelianVariety.localEulerFactor_eq_weilDeligne : L_v(A, T) equals R01.2's local Euler factor of the Weil–Deligne representation WD(H¹_ℓ(A)).
 
 
-Unit-test examples (same names as the packet):
-
-TauCeti.AlgebraicGeometry.AbelianVariety.localEulerFactor_goodReduction : For E : y² = x³ − x over Q and v = 5, localEulerFactor E 5 = 1 + 2T + 5T² for every ℓ ≠ 5.
-
-TauCeti.AlgebraicGeometry.AbelianVariety.localEulerFactor_zero : For A = 0, L_v(A, T) = 1.
-
-TauCeti.AlgebraicGeometry.AbelianVariety.localEulerFactor_compare_localPolynomial : For an elliptic Weierstrass curve W over a number field with good or multiplicative reduction at p, localEulerFactor (E_W) p = WeierstrassCurve.localPolynomial (p.adicCompletionIntegers F) (W.baseChange (p.adicCompletion F)) under Z[T] ⊂ Q_ℓ[T].
-
-TauCeti.AlgebraicGeometry.AbelianVariety.localEulerFactor_not_on_V : Using V_ℓA with the geometric Frobenius instead of H¹ = V_ℓA^∨ gives det(1 − TΦ_5 | V_ℓE) = 1 + (2/5)T + (1/5)T² for y² = x³ − x at 5, which is not the Euler factor (not in Z[T]).
-
-TauCeti.AlgebraicGeometry.AbelianVariety.localEulerFactor_tate_curve : For a Tate curve E_q over Q_p (split multiplicative), L_p(E_q, T) = 1 − T: the inertia invariants of H¹ are one-dimensional with trivial Frobenius.
 
 
-Proof obligations:
-Definition: R01.2/local-euler-factor gives det(1 − T·r(Φ_v) | (ker N)^{I_v}) for a Weil–Deligne representation and, for an ℓ-adic representation with ℓ ≠ p, the Grothendieck monodromy functor identifies (ker N)^{I_v} with the inertia invariants (R01.2/grothendieck-monodromy-and-the-weil-deligne-functor).
-Coinvariant form: (V^∨)^{I} = ((V)_{I})^∨ and the geometric Frobenius acting on V^∨ by f ↦ f ∘ Φ_v^{−1} is the transpose of the arithmetic Frobenius on V, so the determinants agree.
-(b): V_ℓA is unramified (node good-reduction-frobenius-polynomial (a)), so the invariants are all of H¹ and det(1 − TΦ_v | V^∨) = det(1 − T Frob_v | V) = T^{2g}P_v(1/T).
-(c): an isogeny induces an isomorphism V_ℓA ≅ V_ℓB of Q_ℓ[G_{F_v}]-modules (node functoriality-products-and-isogenies (c)); (d): node functoriality (b); (e): dim H¹^{I} ≤ 2g with equality iff I acts trivially on V^∨, i.e. on V.
--/
 
-/- ArithmeticGaloisRepresentations:R01.6/tate-module-with-endomorphism-coefficients
-
-Throughout: K is a field, K̄ = AlgebraicClosure K with separable closure K^sep ⊆ K̄, and G_K = Field.absoluteGaloisGroup K = Aut(K̄/K) with its Krull topology (restriction identifies it with Gal(K^sep/K)); σ ∈ G_K acts on a point x ∈ A(K̄) by acting on its coordinates (for a Weierstrass curve this is Mathlib's WeierstrassCurve.Affine.Point.map along σ). A is an abelian variety over K in Tau Ceti's sense (TauCeti.AlgebraicGeometry.AbelianVariety: proper geometrically integral group scheme over Spec K) of dimension g, and ℓ is a prime number with ℓ ≠ char K. Let E ⊆ End⁰_K(A) := End_K(A) ⊗ Q (End_K(A) is Tau Ceti AbelianVariety.End) be a number field (a Q-subalgebra that is a field, same unit) of degree d, and O := E ∩ End_K(A) its order. (a) O ⊗ Z_ℓ acts on T_ℓA and E ⊗ Q_ℓ on V_ℓA through node functoriality-products-and-isogenies (a), commuting with ρ_{A,ℓ}(G_K) because the endomorphisms are defined over K. (b) E ⊗_Q Q_ℓ = ∏_{λ|ℓ} E_λ via the idempotents e_λ, so V_ℓA = ⊕_{λ|ℓ} V_λA with V_λA := V_ℓA ⊗_{E⊗Q_ℓ} E_λ = e_λV_ℓA, each a continuous E_λ-linear representation ρ_{A,λ} : G_K → Aut_{E_λ}(V_λA) (R01.1/continuous-representation over the coefficient field E_λ). (c) If V_ℓA is free over E ⊗ Q_ℓ (this is Milne AV Proposition 10.23, with rank 2g/d; it is a hypothesis of the statements that use it and is not proved in this layer), each V_λA has E_λ-dimension 2g/d; GL₂-type (d = g): dim 2; CM type (d = 2g): dim 1. (d) If O_E ⊆ End_K(A), T_λA := T_ℓA ⊗_{O_E⊗Z_ℓ} O_{E,λ} is a G_K-stable O_{E,λ}-lattice in V_λA and its reduction T_λA/λT_λA is isomorphic, as a G_K-module over O_E/λ, to the λ-torsion A[λ](K^sep) := {x ∈ A[ℓ](K^sep) : αx = 0 for all α ∈ λ} (the residual λ-adic representation): canonically, as the summand e_λA[ℓ](K^sep), when λ is unramified over ℓ, and in general through x ↦ ϖ^{e−1}x mod ℓ for a uniformiser ϖ of O_{E,λ} and its ramification index e, an isomorphism defined up to a scalar of (O_E/λ)^×. Since O_{E,λ} is a discrete valuation ring and T_λA is finitely generated and torsion-free, T_λA is free over O_{E,λ} of rank dim_{E_λ}V_λA; hence T_ℓA = ⊕_{λ|ℓ} T_λA is projective over O_E ⊗ Z_ℓ, and free of rank 2g/d under (c). For a non-maximal order O = E ∩ End_K(A), freeness of T_ℓA over O ⊗ Z_ℓ is not asserted at the primes ℓ dividing the index [O_E : O] (for elliptic curves with complex multiplication it holds for every order: Serre 1972, §4.5). (e) Determinant and oddness of λ-components: if E is totally real and the Rosati involution of a polarization λ_0 is the identity on E, then e^{λ_0}_ℓ is E-balanced (e(αx, y) = e(x, αy)), V_λA ⊥ V_λ′A for λ ≠ λ′, each V_λA carries a nondegenerate E_λ-bilinear alternating form with similitude character χ_ℓ, so for GL₂-type det_{E_λ}ρ_{A,λ} = χ_ℓ, and at a real place each V_λA is odd: det_{E_λ}ρ_{A,λ}(c) = −1. For a primitive abelian variety of GL₂-type over Q with E = End⁰_Q(A), totally real or a CM field, the determinant is εχ_ℓ with ε of finite order (Ribet 1992, Lemma 3.1); that refinement uses Hodge–Tate theory and is not asserted here. (f) Frobenius (K a number field): at a place v ∤ ℓ of good reduction, E acts on the reduction A_v through the reduction homomorphism End_K(A) → End_{k_v}(A_v) (a homomorphism between the generic fibres of abelian schemes over O_v extends uniquely: NeronModelsAndSemistableAbelianVarieties:R11.1/abelian-scheme-model and R11.1/group-law), compatibly with the specialisation isomorphism of node good-reduction-frobenius-polynomial (b); ρ_{A,λ}(Frob_v) is the E_λ-linear map induced by π_v, which commutes with E acting on A_v. That its E_λ-characteristic polynomial is the image of a polynomial with coefficients in E independent of λ (strict compatibility of the system (ρ_λ), quoted by Ribet 1992, §3, p. 4, from Shimura's book) is not a consequence of Milne AV Proposition 10.23 and is not asserted here. (g) Over a smaller field: if E ⊆ End⁰_L(A) for a finite Galois extension L/K and E is stable under the action of Gal(L/K) on End⁰_L(A), then V_ℓA is an E ⊗ Q_ℓ[G_L]-module and G_K acts semilinearly through Gal(L/K) → Aut(E).
-
-API signatures on the actual geometric carrier:
-
-TauCeti.AlgebraicGeometry.AbelianVariety.tateModule.endAction : Module (O ⊗ Z_ℓ) T_ℓA and Module (E ⊗ Q_ℓ) V_ℓA, commuting with ρ_{A,ℓ}.
-
-TauCeti.AlgebraicGeometry.AbelianVariety.lambdaTateModule : V_λA := V_ℓA ⊗_{E⊗Q_ℓ} E_λ as a continuous E_λ-representation of G_K.
-
-TauCeti.AlgebraicGeometry.AbelianVariety.lambdaTateModule.decomposition : V_ℓA ≃ ⊕_{λ|ℓ} V_λA as E ⊗ Q_ℓ[G_K]-modules.
-
-TauCeti.AlgebraicGeometry.AbelianVariety.lambdaTateModule_finrank : If V_ℓA is free over E ⊗ Q_ℓ (Milne AV Proposition 10.23), dim_{E_λ} V_λA = 2g/[E : Q] for every λ | ℓ.
-
-TauCeti.AlgebraicGeometry.AbelianVariety.integralLambdaTateModule : T_λA := T_ℓA ⊗_{O_E⊗Z_ℓ} O_{E,λ}, a G_K-stable lattice when O_E ⊆ End_K(A).
-
-TauCeti.AlgebraicGeometry.AbelianVariety.lambdaTorsion : A[λ](K^sep) = {x ∈ A[ℓ](K^sep) : λx = 0}, an O_E/λ[G_K]-module isomorphic to T_λA/λT_λA; the isomorphism is canonical (A[λ] = e_λA[ℓ]) when λ is unramified over ℓ.
-
-TauCeti.AlgebraicGeometry.AbelianVariety.lambdaTateModule_det : For totally real E with Rosati-fixed action and GL₂-type: det_{E_λ}ρ_{A,λ} = χ_ℓ.
-
-TauCeti.AlgebraicGeometry.AbelianVariety.lambdaTateModule_odd : Under the same hypotheses, det_{E_λ}ρ_{A,λ}(c) = −1 for every complex conjugation c.
-
-TauCeti.AlgebraicGeometry.AbelianVariety.lambdaTateModule_frobenius : At good v ∤ ℓ, ρ_{A,λ}(Frob_v) is induced by the E-linear Frobenius endomorphism π_v of A_v.
-
-TauCeti.AlgebraicGeometry.AbelianVariety.lambdaTateModule.coefficientExtension : For an embedding E_λ → Q̄_ℓ, V_λA ⊗ Q̄_ℓ is the corresponding summand of V_ℓA ⊗_{Q_ℓ} Q̄_ℓ = ⊕_{ι:E→Q̄_ℓ} V_ι (R01.1/coefficient-extension).
-
-TauCeti.AlgebraicGeometry.AbelianVariety.integralLambdaTateModule_free : When O_E ⊆ End_K(A), T_λA is a free O_{E,λ}-module of rank dim_{E_λ}V_λA and T_ℓA = ⊕_{λ|ℓ} T_λA.
-
-
-Unit-test examples (same names as the packet):
-
-TauCeti.AlgebraicGeometry.AbelianVariety.lambdaTateModule_cm_rank_one : For E : y² = x³ − x over Q(i) with End = Z[i] and ℓ = 5, V_5E = V_λE ⊕ V_λ̄E with each summand one-dimensional over Q_5.
-
-TauCeti.AlgebraicGeometry.AbelianVariety.lambdaTateModule_rationals : For E = Q ⊆ End⁰_K(A), there is one λ = ℓ and V_λA = V_ℓA.
-
-TauCeti.AlgebraicGeometry.AbelianVariety.lambdaTateModule_not_over_smaller_field : For E : y² = x³ − x over Q, V_ℓE is not a Q(i) ⊗ Q_ℓ[G_Q]-module: complex conjugation anticommutes with [i], so ρ_{E,ℓ}(c) is not Q(i)-linear; the coefficient action requires the endomorphisms to be defined over K.
-
-TauCeti.AlgebraicGeometry.AbelianVariety.lambdaTateModule_sum : V_ℓA = ⊕_{λ|ℓ} V_λA as Q_ℓ[G_K]-modules and dim_{Q_ℓ}V_λA = [E_λ : Q_ℓ]·dim_{E_λ}V_λA.
-
-
-Proof obligations:
-(a) Functoriality of T_ℓ in endomorphisms (node functoriality-products-and-isogenies (a)), extended Q_ℓ-linearly; Galois commutation because α ∈ End_K(A) commutes with the coordinate action of G_K.
-(b) Chinese remainder decomposition E ⊗ Q_ℓ = ∏ E_λ; each summand e_λV_ℓA is G_K-stable because e_λ commutes with ρ.
-(c) Rank: V_ℓA is free over E ⊗ Q_ℓ of rank 2g/d (Milne AV Prop. 10.23; Ribet 1992, §2 for GL₂-type: 'free of rank two over E ⊗ Q_ℓ').
-(e) For α ∈ E, α^† = α gives e(αx, y) = e(x, αy) (node weil-pairing-on-tate-modules (iv)); then e(e_λx, e_λ′y) = e(x, e_λe_λ′y) = 0 for λ ≠ λ′. A Q_ℓ-bilinear E-balanced form e on V_λ is Tr_{E_λ/Q_ℓ} ∘ ψ for a unique E_λ-bilinear form ψ, characterised by Tr(a·ψ(x, y)) = e(ax, y) for a ∈ E_λ: this is the nondegeneracy of the trace form of the separable extension E_λ/Q_ℓ (Mathlib traceForm_nondegenerate). ψ is alternating because e(ax, x) = e(x, ax) = −e(ax, x), nondegenerate since e is, and the similitude property passes to it by uniqueness. On the 2-dimensional space V_λ the matrix A of ρ_λ(σ) in a symplectic basis satisfies AᵀJA = χ_ℓ(σ)·J, so det A = χ_ℓ(σ) by Tau Ceti's Matrix.det_eq_of_transpose_mul_J_mul_eq_smul. Oddness: the argument of node determinant-and-oddness (c) applied inside each V_λ (c commutes with E) gives V_λ^± isotropic of E_λ-dimension 1.
-(d) O_E ⊗ Z_ℓ = ∏_{λ|ℓ} O_{E,λ}, so T_ℓA = ⊕ T_λA with T_λA = e_λT_ℓA a lattice in V_λA, and a finitely generated torsion-free module over the discrete valuation ring O_{E,λ} is free. λ-torsion: A[ℓ](K^sep) = T_ℓA/ℓT_ℓA = ⊕_λ T_λA/ϖ_λ^{e_λ}T_λA; the elements killed by λ form ϖ^{e−1}T_λA/ϖ^{e}T_λA, which multiplication by ϖ^{e−1} identifies with T_λA/ϖT_λA; for e = 1 this is the summand e_λA[ℓ](K^sep) = A[ℓ](K^sep) ⊗_{O_E/ℓ} O_E/λ. All maps commute with G_K because the endomorphisms are defined over K.
-(f) An endomorphism of A over K extends uniquely to the abelian scheme over O_v (R11.1/abelian-scheme-model: an abelian scheme is the Néron model of its generic fibre; R11.1/group-law: homomorphisms extend) and restricts to A_v; the extension commutes with the specialisation of torsion points, so the action of E on V_ℓA corresponds under r to its action on V_ℓA_v. By node good-reduction-frobenius-polynomial (c) Frob_v acts as π_v, which commutes with every endomorphism of A_v defined over k_v.
--/
-
-/- ArithmeticGaloisRepresentations:R01.6/galois-generic-abelian-varieties
-
-Let k be a number field and (A, λ) a principally polarized abelian variety over k of dimension g ≥ 1. For a prime p write GSp(T_pA, e^λ_p) for the group of Z_p-linear automorphisms g of T_pA for which there is ν(g) ∈ Z_p^× with e^λ_p(gx, gy) = ν(g)·e^λ_p(x, y) for all x, y; it is a closed subgroup of Aut_{Z_p}(T_pA), a symplectic Z_p-basis identifies it with GSp_{2g}(Z_p), uniquely up to conjugation, and it is the group of Z_p-points of the similitude group of G7/similitude-groups (not needed for the definition). By node weil-pairing-on-tate-modules (vi) the action ρ_{A,p} of G_k on the p-power torsion has image in it. A is p-Galois generic if ρ_{A,p}(G_k) is open in GSp(T_pA, e^λ_p) (equivalently, being closed, of finite index). Let ρ̂_A : G_k → ∏_p GSp(T_pA, e^λ_p) = GSp(T̂A, e^λ) ≅ GSp_{2g}(Ẑ) be the action on all torsion (adelic Tate module, node tate-module-of-an-abelian-variety). A is Galois generic if ρ̂_A(G_k) is open in GSp_{2g}(Ẑ). Both notions are independent of the choice of symplectic basis, and of the principal polarization: if ρ_{A,p}(G_k) is open in GSp(T_pA, e^λ_p), every G_k-equivariant alternating form V_pA × V_pA → Q_p(1) is invariant under an open subgroup of Sp(V_pA, e^λ_p) and hence a multiple of e^λ_p, so every polarization of A defines the same similitude group. Galois generic implies p-Galois generic for every p (projection to a factor is open); the converse implication (Cadoret) and isogeny/conjugation invariance are statements of AbelianVarietiesIsogenousToNoJacobian G0, which consumes this definition.
-
-API signatures on the actual geometric carrier:
-
-TauCeti.AlgebraicGeometry.AbelianVariety.pAdicImage : ρ_{A,p}(G_k) ⊆ GSp(T_pA, e^λ_p)(Z_p), a closed subgroup.
-
-TauCeti.AlgebraicGeometry.AbelianVariety.IsPGaloisGeneric : The predicate: ρ_{A,p}(G_k) is open in GSp(T_pA, e^λ_p)(Z_p).
-
-TauCeti.AlgebraicGeometry.AbelianVariety.IsGaloisGeneric : The predicate: ρ̂_A(G_k) is open in GSp(T̂A, e^λ)(Ẑ) ≅ GSp_{2g}(Ẑ).
-
-TauCeti.AlgebraicGeometry.AbelianVariety.isPGaloisGeneric_iff_finiteIndex : Open iff of finite index (closed subgroups of profinite groups).
-
-TauCeti.AlgebraicGeometry.AbelianVariety.IsGaloisGeneric.isPGaloisGeneric : Galois generic ⇒ p-Galois generic for every p.
-
-TauCeti.AlgebraicGeometry.AbelianVariety.isPGaloisGeneric_baseChange_iff : Invariance under finite extension of k.
-
-TauCeti.AlgebraicGeometry.AbelianVariety.isPGaloisGeneric_iff_framed : For any symplectic basis, A is p-Galois generic iff the framed image is open in GSp_{2g}(Z_p).
-
-TauCeti.AlgebraicGeometry.AbelianVariety.isPGaloisGeneric_polarization_indep : For two principal polarizations λ, λ′ of A: A is p-Galois generic with respect to λ iff it is with respect to λ′, and then e^{λ′}_p is a Z_p^×-multiple of e^λ_p.
-
-
-Unit-test examples (same names as the packet):
-
-TauCeti.AlgebraicGeometry.AbelianVariety.isPGaloisGeneric_cm : For E : y² = x³ − x over Q (g = 1), E is not p-Galois generic for any p: ρ_{E,p}(G_Q) is contained in the normaliser of a Cartan subgroup of GL_2(Z_p), a closed subgroup of infinite index.
-
-TauCeti.AlgebraicGeometry.AbelianVariety.isPGaloisGeneric_iff_finiteIndex : A is p-Galois generic iff ρ_{A,p}(G_k) has finite index in GSp(T_pA, e^λ_p)(Z_p).
-
-TauCeti.AlgebraicGeometry.AbelianVariety.not_open_in_Sp : The definition must use GSp and not Sp: ρ_{A,p}(G_k) is never contained in Sp(T_pA, e^λ_p), since its multiplier χ_p has infinite image on G_k; a definition 'open in Sp_{2g}(Z_p)' is never satisfied.
-
-TauCeti.AlgebraicGeometry.AbelianVariety.isGaloisGeneric_baseChange : For a finite extension k′/k, A is (p-)Galois generic over k iff A_{k′} is (p-)Galois generic over k′.
-
-
-Proof obligations:
-The images are compact (G_k is profinite and ρ continuous), hence closed; a closed subgroup of a profinite group is open iff of finite index.
-Basis independence: two symplectic bases differ by an element of GSp_{2g}(Z_p) (resp. GSp_{2g}(Ẑ)), and conjugation preserves openness.
-Galois generic ⇒ p-Galois generic: the projection GSp_{2g}(Ẑ) → GSp_{2g}(Z_p) is a continuous open surjective homomorphism, and the image of an open subgroup under an open map is open.
-Base change: for a finite extension k′/k, G_{k′} is open of finite index in G_k, so (p-)Galois genericity over k and over k′ are equivalent.
-Independence of the polarization, by transvections. Fix a generator of Z_p(1), so that e := e^λ_p has values in Z_p. The image U = ρ_{A,p}(G_k) is open in GSp(T_pA, e), so U ∩ Sp(T_pA, e) contains every element of Sp(T_pA, e) congruent to 1 modulo p^n for some n; in particular it contains the transvections τ_{v,a} : x ↦ x + a·e(x, v)·v for v ∈ T_pA and a ∈ p^nZ_p, a ≠ 0 (they preserve e because e is alternating). Let e′ be a G_k-equivariant alternating form on V_pA with values in Q_p(1). If ρ_{A,p}(σ) = τ_{v,a}, then χ_p(σ) is the multiplier of τ_{v,a} for e, which is 1, so e′ is invariant under τ_{v,a}; expanding e′(τ_{v,a}x, τ_{v,a}y) = e′(x, y) and using e′(v, v) = 0 gives e(y, v)·e′(x, v) = e(x, v)·e′(y, v) for all x, y, first for v ∈ T_pA and then for all v ∈ V_pA since both sides are quadratic in v. For v ≠ 0 choose y with e(y, v) = 1: e′(x, v) = c(v)·e(x, v) with c(v) = e′(y, v). For linearly independent v, w the forms e(·, v), e(·, w) are linearly independent, and additivity of e′(·, v + w) gives c(v) = c(v + w) = c(w); c(tv) = c(v) for t ≠ 0; since dim V_pA = 2g ≥ 2, c is constant and e′ = c·e. Applied to e′ = e^{λ′}_p for a polarization λ′ this gives e^{λ′}_p = c·e^λ_p with c ∈ Q_p^× (c ∈ Z_p^× if both are principal), so GSp(V_pA, e^{λ′}_p) = GSp(V_pA, e^λ_p) and GSp(T_pA, e^{λ′}_p) = GSp(T_pA, e^λ_p). If the image is not open for λ, it is not open for λ′ either, by symmetry.
--/
 
 /- ArithmeticGaloisRepresentations:R01.6/serre-independence-and-connectedness
 
@@ -8128,14 +7703,7 @@ example (ρ : ContinuousRep Γ A M) (d : ℕ) (g : Γ) (v : Fin d → M) :
       exteriorPower.ιMulti A d (fun i => ρ g (v i)) := by
   sorry
 
-/- TauCeti.ContinuousRep.symPower_not_dual_char_p (unit test, comment fallback): over `F_3`, for
-`V` the standard representation of `GL_2(F_3)`, `Sym^3 V` is not isomorphic to
-`(Sym^3 V)^∨ ⊗ det^3`: `V ≅ V^∨ ⊗ det` is a quotient of the right-hand side (dual to the
-subrepresentation `⟨x^3, y^3⟩ ≅ V` of `Sym^3 V`), while `Hom_{GL_2(F_3)}(Sym^3 V, V) = 0`. Since
-`(Sym^3 V)^∨ ⊗ det^3 ≅ Γ^3 V`, a definition of `Sym^d` as symmetric invariant tensors (or as the
-divided power) fails. (Over `F_2` the analogous statement for `Sym^2` is false:
-`Sym^2 V = ⟨x^2, y^2⟩ ⊕ ⟨x^2 + xy + y^2⟩`.) Needs the dual and twist of R01.1, owned by another
-section. -/
+
 
 end Powers
 
@@ -8191,9 +7759,7 @@ theorem tensorInd_rank [Module.Free A V] [Module.Finite A V] [Nontrivial A] (H :
     Module.finrank A (⨂[A] _ : Γ ⧸ H, V) = Module.finrank A V ^ H.index := by
   sorry
 
-/- TauCeti.ContinuousRep.tensorInd_tprod (comment fallback): `⊗-Ind(ρ ⊗ ρ') ≅ ⊗-Ind ρ ⊗ ⊗-Ind ρ'`;
-the tensor product of two continuous representations is the R01.1 construction of another
-section. -/
+
 
 /-- For `H` normal, `(⊗-Ind_H^Γ ρ)|_H ≅ ⊗_q ρ^{t_q}` with `ρ^t(h) = ρ(t⁻¹ h t)`. -/
 theorem tensorInd_restrict_normal (H : Subgroup Γ) [Fintype (Γ ⧸ H)] (hN : H.Normal)
@@ -8203,9 +7769,7 @@ theorem tensorInd_restrict_normal (H : Subgroup Γ) [Fintype (Γ ⧸ H)] (hN : H
       ⨂ₜ[A] q, ρ ⟨(t q)⁻¹ * h * t q, hN.conj_mem' _ h.2 _⟩ (v q) := by
   sorry
 
-/- TauCeti.ContinuousRep.trace_tensorInd (comment fallback): for `g` with cycles `C_1, …, C_r`
-of lengths `ℓ_j` on `Γ/H` starting at `t_{i_j} H`,
-`tr(⊗-Ind ρ)(g) = ∏_j tr ρ(t_{i_j}⁻¹ g^{ℓ_j} t_{i_j})`. -/
+
 
 /-- `TauCeti.ContinuousRep.tensorInd_apply_tprod`: the action on pure tensors. With
 `g t_q = t_{gq} h_q(g)`, the slot `q` of `g · ⊗ v` is `ρ(h_{g⁻¹q}(g)) v_{g⁻¹q}`, where
@@ -8216,18 +7780,11 @@ theorem tensorInd_apply_tprod (H : Subgroup Γ) [Fintype (Γ ⧸ H)] (t : Γ ⧸
       ⨂ₜ[A] q, ρ ⟨(t q)⁻¹ * g * t (g⁻¹ • q), sorry⟩ (v (g⁻¹ • q)) := by
   sorry
 
-/- TauCeti.ContinuousRep.tensorInd_baseChange (comment fallback):
-`(⊗-Ind_H^Γ ρ) ⊗_A B ≅ ⊗-Ind_H^Γ(ρ ⊗_A B)` for a continuous `A → B` (coefficient extension is the
-R01.1 construction of another section). -/
 
-/- TauCeti.ContinuousRep.charpoly_tensorInd (comment fallback): for `V` free, `det(X − (⊗-Ind ρ)(g))`
-is the universal polynomial in the coefficients of the `det(X − ρ(t_{i_j}⁻¹ g^{ℓ_j} t_{i_j}))`, `j`
-over the cycles of `g` on `Γ/H`, whose roots are the products over `j` of the roots of
-`C_{n,ℓ_j}` (ArithmeticGaloisRepresentations:G7/charpoly-of-cyclically-permuted-tensor-product).
-The index-two case is `charpoly_asai` below. -/
 
-/- TauCeti.ContinuousRep.tensorInd_trans (comment fallback): transitivity
-`⊗-Ind_K^Γ ⊗-Ind_H^K ≅ ⊗-Ind_H^Γ` for `H ≤ K ≤ Γ` open, and functoriality in `Γ`-maps. -/
+
+
+
 
 /-- The Asai representation `As(ρ) := ⊗-Ind_H^Γ ρ` for `[Γ : H] = 2` (e.g. `H = G_K ⊂ G_F = Γ`,
 `K/F` quadratic) with transversal `{1, σ}`; `As(ρ) ⊗ η_{K/F}` is a second extension of
@@ -8264,13 +7821,9 @@ example [IsTopologicalRing A] (H : Subgroup Γ) [Fintype (Γ ⧸ H)] [H.FiniteIn
     tensorInd H t ht (ofCharacter ψ) g x = ((MonoidHom.transfer ψ.toMonoidHom g : Aˣ) : A) • x := by
   sorry
 
-/- TauCeti.ContinuousRep.asai_restrict (unit test, comment fallback): for `[Γ : H] = 2` and
-`σ ∈ Γ ∖ H`, `As(ρ)|_H ≅ ρ ⊗ ρ^σ`, of rank `n^2` (needs the R01.1 tensor product). -/
 
-/- TauCeti.ContinuousRep.tensorInd_ne_ind (unit test, comment fallback): for `Γ = Z/2`, `H = 1`,
-`A` a ring in which `2 ≠ 0` and `V = A^2` with trivial action, `⊗-Ind V = V ⊗ V` has rank 4 and
-the generator acts by the swap, of trace 2, while `Ind V` has rank 4 and the generator has trace 0
-(needs R01.1 induction). -/
+
+
 
 /-- Unit test: TauCeti.ContinuousRep.charpoly_asai_outside_rank_two. -/
 example [Module.Free A V] (H : Subgroup Γ) [Fintype (Γ ⧸ H)] [Module.Free A (⨂[A] _ : Γ ⧸ H, V)]
@@ -8380,9 +7933,7 @@ def resScalars_map [Module A M] [IsScalarTower A B M] [Module.Finite A M] [Modul
     (resScalars (A := A) ρ).Hom (resScalars (A := A) σ) :=
   ⟨f.toLinearMap.restrictScalars A, sorry⟩
 
-/- TauCeti.ContinuousRep.resScalarsBaseChangeEquiv (comment fallback): when `A'` splits the étale
-`A`-algebra `B` (`B ⊗_A A' ≅ ∏_{σ ∈ Hom_A(B, A')} A'`),
-`(Res_{B/A} ρ) ⊗_A A' ≅ ⊕_σ ρ ⊗_{B,σ} A'` (coefficient extension is the R01.1 construction). -/
+
 
 /-- Transitivity `Res_{C/A} = Res_{B/A} ∘ Res_{C/B}`. -/
 theorem resScalars_trans [Module A M] [IsScalarTower A B M] [Module.Finite A M]
@@ -8405,14 +7956,9 @@ example [IsTopologicalRing B] [Module.Free A B] [Module.Finite A B] [IsModuleTop
       X ^ 2 - C (Algebra.trace A B (ψ g : B)) * X + C (Algebra.norm A (ψ g : B)) := by
   sorry
 
-/- TauCeti.ContinuousRep.resScalars_baseChange_split (unit test, comment fallback): if
-`B ⊗_A A' ≅ A' × A'` then `(Res_{B/A} ρ) ⊗_A A' ≅ ρ ⊗_{σ_1} A' ⊕ ρ ⊗_{σ_2} A'`. -/
 
-/- TauCeti.ContinuousRep.resScalars_ne_ind (unit test, comment fallback): for `B = A × A` and `ρ`
-the trivial character of `Γ` on `B`, `Res_{B/A} ρ` is the trivial representation of `Γ` on `A^2`;
-for an open subgroup `H` of index 2, `Ind_H^Γ` of the trivial character is `A[Γ/H]`, on which `Γ`
-permutes the two basis vectors non-trivially: restriction of scalars of the coefficients is not
-induction along the group (needs R01.1 induction). -/
+
+
 
 end RestrictionOfScalars
 
@@ -8974,9 +8520,7 @@ theorem restrict_pairing (P : PolarizedRep Δ ρ c) (Γ' : Subgroup Γ) (hc : c 
       (P.restrict Γ' hc φ hφ).pairing = P.pairing ∧ (P.restrict Γ' hc φ hφ).sign = P.sign := by
   sorry
 
-/- TauCeti.PolarizedRep.baseChange (comment fallback): coefficient extension
-`(ρ ⊗_A B, μ ⊗ B, ⟨ , ⟩ ⊗ B)` along continuous `A → B`, with `map_id`, `map_comp` (the
-coefficient extension of a continuous representation is the R01.1 construction). -/
+
 
 /-- The orthogonal sum of two polarizations with the same multiplier and sign at the same `c`. -/
 def sum {N : Type*} [AddCommGroup N] [Module A N] [Module.Finite A N] [Module.Projective A N]
@@ -9252,12 +8796,7 @@ def extendOfAbsIrred {k : Type*} [Field k] {Γ : Type*} [Group Γ] (Δ : Subgrou
     Γ →* CHTGroup n k :=
   sorry
 
-/- TauCeti.CHTGroup.ind (comment fallback): CHT's induction `Ind^{Γ,Δ,χ}_{Γ',Δ'} r'` from
-`Γ' ≤ Γ` of finite index not contained in `Δ`, with `Δ' = Δ ∩ Γ'`, `χ : Γ → Rˣ`, `γ₀ ∈ Γ' ∖ Δ'`
-and `r' : Γ' → 𝒢_n(R)` corresponding to `(ρ', χ|_{Γ'}, ⟨ , ⟩')`: the homomorphism
-`Γ → 𝒢_{n[Γ:Γ']}(R)` corresponding to `(ρ, χ, ⟨ , ⟩)`, where `ρ` is right translation on the
-functions `f : Δ → R^n` with `f(δ'δ) = ρ'(δ') f(δ)` and
-`⟨f, f'⟩ = Σ_{δ ∈ Δ'\Δ} χ(δ)⁻¹ ⟨f(δ), f'(γ₀ δ γ₀⁻¹)⟩'`; independent of `γ₀`, with `ν = χ`. -/
+
 
 /-- Unit test: TauCeti.CHTGroup.nu_j. -/
 example : nu n R (SemidirectProduct.inr (Multiplicative.ofAdd (1 : ZMod 2))) = -1 ∧
@@ -9283,9 +8822,7 @@ example (J : Matrix n n R) (hJ : Jᵀ = (-1 : R) ^ (Fintype.card n + 1) • J)
 example : ∀ x : CHTGroup n (ZMod 2), ad n (ZMod 2) x 1 = 1 := by
   sorry
 
-/- TauCeti.CHTGroup.equivTriple_trivial (unit test, comment fallback): for `Δ = {1}`, `Γ = Z/2`,
-homomorphisms `r` are the elements `(A, −μ) j` with square `1`, i.e. `Aᵀ = −μ A`: perfect
-pairings with symmetry `−μ`. -/
+
 
 end CHTGroup
 
@@ -9389,12 +8926,7 @@ theorem symplecticInd_toGL4 {L : Type*} [Field L] (H : Subgroup Γ) (hN : H.Norm
     ∀ g ∉ H, (G7.gsp4Mat (symplecticInd H hH σ hσ ρ χ hχ s g)).trace = 0 := by
   sorry
 
-/- TauCeti.GSp4Rep.adZero_symplecticInd (comment fallback): in characteristic `≠ 2`, for the
-symplectic induction with similitude `ν ∈ {χ, χ η_{K/F}}`,
-`ad⁰(Ind ρ) ≅ As(ρ) ⊗ ν⁻¹ ⊕ Ind ad⁰ ρ`, with `As(ρ)` the tensor induction for the transversal
-`{1, σ}` (the summand `V·σV` of `Sym^2(V ⊕ σV)` is `As(ρ)` itself, and `V ∧ σV ⊂ ∧^2` is
-`As(ρ) ⊗ η_{K/F}`), and `ad⁰(Ind ρ)|_{G_K} ≅ (ρ ⊗ ρ^σ) ⊗ χ⁻¹ ⊕ ad⁰ ρ ⊕ ad⁰ ρ^σ` (needs R01.1
-induction and tensor products). -/
+
 
 /-- The explicit isomorphism between `GSp_4` for `J_4 = (0, 1; −1, 0)` (BLGGT) and `GSp_4` for the
 antidiagonal `J = (0, s; −s, 0)`, `s = (0 1; 1 0)`, which BCGP21 and CG20 both use:
@@ -9420,8 +8952,7 @@ example [Invertible (2 : A)] (_r : GSp4Rep Γ A) :
         (Submodule.span A {(1 : Matrix (Fin 2 ⊕ Fin 2) (Fin 2 ⊕ Fin 2) A)}) := by
   sorry
 
-/- TauCeti.GSp4Rep.ad_not_adZero_add_nu (unit test, comment fallback): for odd `r` with `p > 2`,
-`ad r ≇ ad⁰ r ⊕ (ν ∘ r)`: `ad r / ad⁰ r` is trivial while `ν(r(c)) = −1` (sourceIssues E701). -/
+
 
 /-- Unit test: TauCeti.GSp4Rep.symplecticInd_similitudes. -/
 example {L : Type*} [Field L] (H : Subgroup Γ) [DecidablePred (· ∈ H)] (hH : H.index = 2)
@@ -9495,14 +9026,9 @@ theorem isStronglyIrreducible_iff_finiteExt {F : Type} [Field F]
       (ρ.res (localEmbeddingMap F L)).toRepresentation.IsIrreducible := by
   sorry
 
-/- TauCeti.GaloisRep.IsStronglyIrreducible.baseChange_iff (comment fallback): absolute strong
-irreducibility is invariant under extension of the coefficient field (needs the R01.1 coefficient
-extension of a continuous representation). -/
 
-/- TauCeti.GaloisRep.isAbsStronglyIrreducible_iff_identityComponent (comment fallback):
-characteristic `0`, `ρ` semisimple: absolutely strongly irreducible iff the identity component
-`G_ρ^0` of the monodromy group acts irreducibly on `V ⊗ K̄` (needs the identity component of an
-algebraic group, Tau Ceti ReductiveGroups layer 3). -/
+
+
 
 /-- Unit test: TauCeti.GaloisRep.IsStronglyIrreducible.restrict. -/
 example (ρ : ContinuousRep Γ K V) (_h : IsStronglyIrreducible ρ) (Γ' : Subgroup Γ)
@@ -9510,17 +9036,13 @@ example (ρ : ContinuousRep Γ K V) (_h : IsStronglyIrreducible ρ) (Γ' : Subgr
     IsStronglyIrreducible (ρ.res ⟨Γ'.subtype, continuous_subtype_val⟩) := by
   sorry
 
-/- TauCeti.GaloisRep.not_stronglyIrreducible_induced (unit test, comment fallback):
-`Ind_{G_K}^{G_F} ψ` with `ψ ≠ ψ^σ` is irreducible and not strongly irreducible (needs R01.1
-induction). -/
+
 
 /-- Unit test: TauCeti.GaloisRep.stronglyIrreducible_dim_one. -/
 example (ρ : ContinuousRep Γ K V) (_h : Module.finrank K V = 1) : IsStronglyIrreducible ρ := by
   sorry
 
-/- TauCeti.GaloisRep.stronglyIrreducible_iff_identityComponent (unit test, comment fallback): in
-characteristic `0` for semisimple `ρ`, absolutely strongly irreducible iff `G_ρ^0` acts
-irreducibly. -/
+
 
 end Strong
 
@@ -9542,9 +9064,7 @@ theorem zariskiClosure_le_iff (S : Set (O →ₐ[K] K)) (I : Ideal O) :
     I ≤ zariskiClosure S ↔ ∀ σ ∈ S, ∀ f ∈ I, σ f = 0 := by
   sorry
 
-/- TauCeti.AlgebraicGroup.zariskiClosure_commutator (comment fallback): the closure of the
-commutator subgroup `[Σ, Σ]` is the derived group `D(Σ̄)` ([Bor91, I.2.4]); needs the group
-structure on points and derived subgroups of algebraic groups. -/
+
 
 end AlgebraicGroup
 
@@ -9601,17 +9121,14 @@ theorem monodromyGroup_baseChange {ι : Type*} [Fintype ι] [DecidableEq ι] {K'
     monodromyGroup ρ' b' = Ideal.map (MvPolynomial.map (algebraMap K K')) (monodromyGroup ρ b) := by
   sorry
 
-/- TauCeti.GaloisRep.isReductive_identityComponent_of_semisimple (comment fallback):
-characteristic `0`, `ρ` semisimple ⇒ `G_ρ^0` is reductive (Tau Ceti ReductiveGroups layer 6;
-Mathlib has no reductive groups). -/
+
 
 /-- Unit test: TauCeti.GaloisRep.monodromyGroup_finiteImage. -/
 example (ρ : ContinuousRep Γ K V) (_h : (Set.range fun g : Γ => ρ g).Finite) :
     (monodromyIdentityComponent ρ).toSubgroup = MonoidHom.ker ρ.toRepresentation := by
   sorry
 
-/- TauCeti.GaloisRep.monodromyGroup_cyclotomic (unit test, comment fallback): for
-`ρ = χ_ℓ : G_ℚ → GL_1(ℚ_ℓ)`, `G_ρ = G_m` (the image is open in `ℤ_ℓ^×`, hence infinite). -/
+
 
 /-- Unit test: TauCeti.GaloisRep.zariskiClosure_map. -/
 example {L : Type*} [Field L] [IsAlgClosed L] {O O' : Type*} [CommRing O] [CommRing O']
@@ -10218,10 +9735,7 @@ example {k : Type} [Field k] (p : ℕ) [Fact p.Prime] [Algebra (ZMod p) k]
     IsEnormous H := by
   sorry
 
-/- TauCeti.ResidualImage.not_isEnormous_Q8_tensor_Q8 (unit test, comment fallback): for `p` odd the
-image of `Q₈ × Q₈` in `GL_4(F̄_p)` on the tensor product of the two-dimensional representations is
-adequate but not enormous (no regular semisimple element acts with a fixed vector on every simple
-constituent of `ad⁰`); needs an explicit model of `Q₈ ⊗ Q₈`. -/
+
 
 /-- Unit test: TauCeti.ResidualImage.isEnormous_baseChange_iff. -/
 example [Fact (Nat.Prime 7)] :
@@ -10277,16 +9791,9 @@ theorem IsEnormousCharZero.mono {O : Type*} [CommRing O] {E : Type*} [Field E] [
     (_h : IsEnormousCharZero (E := E) H') : IsEnormousCharZero (E := E) H := by
   sorry
 
-/- TauCeti.ResidualImage.isEnormousCharZero_of_zariskiClosure (comment fallback): Lemma 2.28(2):
-if `H` has split characteristic polynomials and the identity component `G°` of its Zariski closure
-contains regular semisimple elements and acts absolutely irreducibly on `E^n`, then `H` is
-enormous (needs identity components of algebraic groups). §2.5 of the source also takes `H`
-compact; the proof (Zariski density of the regular semisimple elements of `H`) does not use it,
-and it is dropped here as in `IsEnormousCharZero.mono`. -/
 
-/- TauCeti.ResidualImage.isEnormousCharZero_of_derived (comment fallback): Newton–Thorne 2026,
-Lemma 4.7 form: if the derived subgroup `G¹` of `G°` contains regular semisimple elements, acts
-absolutely irreducibly, and lies in the Zariski closure of `H`, then `H` is enormous. -/
+
+
 
 /-- `TauCeti.ResidualImage.IsEnormousCharZero.baseChange`: Enormity is preserved by enlarging `E` to a finite extension `E'`. -/
 theorem IsEnormousCharZero.baseChange {O : Type*} [CommRing O] {E : Type*} [Field E] [Algebra O E]
@@ -10491,8 +9998,8 @@ def IsTidy (H : Subgroup (SimilitudeGroup.GSp 2 k)) : Prop :=
       ∀ b ∈ ((G7.gsp4Mat h).map (algebraMap k (AlgebraicClosure k))).charpoly.roots,
         a ≠ algebraMap k (AlgebraicClosure k) (G7.gsp4Nu h : k) * b
 
-/-- Vast (BCGP21 7.5.6): `ρ̄(G_{F(ζ_{p^N})})` is enormous for all large `N`, or weakly enormous for
-all large `N` with `ζ_p` not in the field cut out by `ad⁰ ρ̄`. -/
+/-- Vast (BCGP21 7.5.6): `rhoBar(G_{F(ζ_{p^N})})` is enormous for all large `N`, or weakly enormous for
+all large `N` with `ζ_p` not in the field cut out by `ad⁰ rhoBar`. -/
 def IsVast {F : Type} [Field F] (ρ : Field.absoluteGaloisGroup F →* SimilitudeGroup.GSp 2 k) :
     Prop :=
   (∀ᶠ N in Filter.atTop, IsEnormous ((G7.cyclotomicSubgroup F (ringChar k ^ N)).map ρ)) ∨
@@ -10510,7 +10017,7 @@ theorem IsWeaklyEnormous.mono {H H' : Subgroup (SimilitudeGroup.GSp 2 k)} (_hle 
     (IsWeaklyEnormous H' → IsWeaklyEnormous H) ∧ (IsTidy H' → IsTidy H) := by
   sorry
 
-/-- Lemma 7.5.5: `ρ̄(G_{F(ζ_{p^N})})` is independent of `N` for `N ≥ 1 + δ` (`p ≥ 5`) or
+/-- Lemma 7.5.5: `rhoBar(G_{F(ζ_{p^N})})` is independent of `N` for `N ≥ 1 + δ` (`p ≥ 5`) or
 `N ≥ 2 + δ` (`p = 3`), with `δ` depending only on `F` (and `δ = 1` if `p` is unramified in `F`,
 not stated here). -/
 theorem image_cyclotomic_stabilises [Finite k] (_hp : 3 ≤ ringChar k) (F : Type) [Field F]
@@ -10521,7 +10028,7 @@ theorem image_cyclotomic_stabilises [Finite k] (_hp : 3 ≤ ringChar k) (F : Typ
           (G7.cyclotomicSubgroup F (ringChar k ^ (N + 1))).map ρ := by
   sorry
 
-/-- Remark 7.5.8: `ρ̄` is vast iff `ρ̄ ⊗ χ` is vast. -/
+/-- Remark 7.5.8: `rhoBar` is vast iff `rhoBar ⊗ χ` is vast. -/
 theorem isVast_twist_iff {F : Type} [Field F]
     (ρ ρ' : Field.absoluteGaloisGroup F →* SimilitudeGroup.GSp 2 k)
     (χ : Field.absoluteGaloisGroup F →* kˣ)
@@ -10540,13 +10047,9 @@ example [Fact (Nat.Prime 7)] :
     IsEnormous (SimilitudeGroup.multiplier (G7.J4 (ZMod 7)) (ZMod 7)).ker := by
   sorry
 
-/- TauCeti.ResidualImage.GSp4.isWeaklyEnormous_not_isEnormous_wreath_ZMod5 (unit test, comment
-fallback): `SL₂(ZMod 5) ≀ Z/2Z ⊆ Sp₄(ZMod 5)` is weakly enormous but not enormous; needs an
-explicit model of the wreath product inside `Sp_4`. -/
 
-/- TauCeti.ResidualImage.GSp4.isEnormous_SL2wr_ZMod3 (unit test, comment fallback):
-`SL₂(ZMod 3) ≀ Z/2Z ⊆ Sp₄(ZMod 3)` is enormous in the `GSp_4` sense although it has a quotient of
-order 3. -/
+
+
 
 /-- Unit test: TauCeti.ResidualImage.GSp4.isTidy_of_center. -/
 example (H : Subgroup (SimilitudeGroup.GSp 2 k))
@@ -10576,8 +10079,8 @@ theorem isEnormous_Sp4_and_isTidy_GSp4 (p : ℕ) [Fact p.Prime] (_hp : 3 ≤ p) 
 unit tests on wreath products above). Let `G = SL₂(F_3) ≀ Z/2Z ⊆ Sp_4(F_3)` and `Γ ⊆ GSp_4(F_3)`
 with `Γ ⊆ {(A, B)σ^e : det A = det B}`, `Γ ∩ Sp_4(F_3) = G` and `ν(Γ) = {±1}`. If `N ⊴ Γ`,
 `N ⊆ G`, `G/N` is a 3-group and `Γ/N` is abelian, then `N = G`. Consequently, for
-`ρ̄ : G_F → GSp_4(F_3)` with image `Γ`, similitude character `ε̄⁻¹` and `ρ̄(G_{F(ζ_3)}) = G`, the
-image `ρ̄(G_{F(ζ_{3^M})})` is `G` for every `M ≥ 1`. -/
+`rhoBar : G_F → GSp_4(F_3)` with image `Γ`, similitude character `ε̄⁻¹` and `rhoBar(G_{F(ζ_3)}) = G`, the
+image `rhoBar(G_{F(ζ_{3^M})})` is `G` for every `M ≥ 1`. -/
 
 /-! ### The big image assumption (H1)–(H3) for GSp₄-valued residual representations of G_Q (ArithmeticGaloisRepresentations:G7/cg20-big-image-assumption) -/
 
@@ -11167,22 +10670,22 @@ Hypotheses: Let Γ be profinite, H open, D closed normal, and U a continuous fin
 /- ArithmeticGaloisRepresentations:R01.3/swan-conductor-of-reduction
 Prototype section: ArithmeticGaloisRepresentations:R01.3/reduction-does-not-increase-the-conductor
 Suggested auxiliary name: swan_conductor_of_reduction
-In the local setting let ℓ≠p, E/Q_ℓ finite, ρ on an E-space V continuous, Λ a stable O_E-lattice, and ρ̄_Λ=Λ/m_EΛ. Sw(ρ̄_Λ)=Sw(ρ)=Sw(ρ̄_Λˢˢ).
-Hypotheses: In the local setting let ℓ≠p, E/Q_ℓ finite, ρ on an E-space V continuous, Λ a stable O_E-lattice, and ρ̄_Λ=Λ/m_EΛ.
+In the local setting let ℓ≠p, E/Q_ℓ finite, ρ on an E-space V continuous, Λ a stable O_E-lattice, and rhoBar_Λ=Λ/m_EΛ. Sw(rhoBar_Λ)=Sw(ρ)=Sw(rhoBar_Λˢˢ).
+Hypotheses: In the local setting let ℓ≠p, E/Q_ℓ finite, ρ on an E-space V continuous, Λ a stable O_E-lattice, and rhoBar_Λ=Λ/m_EΛ.
 -/
 
 /- ArithmeticGaloisRepresentations:R01.3/conductor-of-residual-semisimplification
 Prototype section: ArithmeticGaloisRepresentations:R01.3/reduction-does-not-increase-the-conductor
 Suggested auxiliary name: conductor_of_residual_semisimplification
-In the local setting let ℓ≠p, E/Q_ℓ finite, ρ on an E-space V continuous, Λ a stable O_E-lattice, and ρ̄_Λ=Λ/m_EΛ. a(ρ̄_Λˢˢ)≤a(ρ̄_Λ)≤a(ρ), and a(ρ̄_Λˢˢ) is independent of Λ.
-Hypotheses: In the local setting let ℓ≠p, E/Q_ℓ finite, ρ on an E-space V continuous, Λ a stable O_E-lattice, and ρ̄_Λ=Λ/m_EΛ.
+In the local setting let ℓ≠p, E/Q_ℓ finite, ρ on an E-space V continuous, Λ a stable O_E-lattice, and rhoBar_Λ=Λ/m_EΛ. a(rhoBar_Λˢˢ)≤a(rhoBar_Λ)≤a(ρ), and a(rhoBar_Λˢˢ) is independent of Λ.
+Hypotheses: In the local setting let ℓ≠p, E/Q_ℓ finite, ρ on an E-space V continuous, Λ a stable O_E-lattice, and rhoBar_Λ=Λ/m_EΛ.
 -/
 
 /- ArithmeticGaloisRepresentations:R01.3/global-conductor-of-reduction
 Prototype section: ArithmeticGaloisRepresentations:R01.3/reduction-does-not-increase-the-conductor
 Suggested auxiliary name: global_conductor_of_reduction
-In the local setting let ℓ≠p, E/Q_ℓ finite, ρ on an E-space V continuous, Λ a stable O_E-lattice, and ρ̄_Λ=Λ/m_EΛ. For a global ℓ-adic ρ of finite ramification, N^{(ℓ)}(ρ̄_Λ) divides N^{(ℓ)}(ρ), with quotient ∏_{v∤ℓ}p_v^{dimρ̄_Λ^{I_v}−dimV^{I_v}}; the residual semisimplification conductor also divides it.
-Hypotheses: In the local setting let ℓ≠p, E/Q_ℓ finite, ρ on an E-space V continuous, Λ a stable O_E-lattice, and ρ̄_Λ=Λ/m_EΛ.
+In the local setting let ℓ≠p, E/Q_ℓ finite, ρ on an E-space V continuous, Λ a stable O_E-lattice, and rhoBar_Λ=Λ/m_EΛ. For a global ℓ-adic ρ of finite ramification, N^{(ℓ)}(rhoBar_Λ) divides N^{(ℓ)}(ρ), with quotient ∏_{v∤ℓ}p_v^{dimrhoBar_Λ^{I_v}−dimV^{I_v}}; the residual semisimplification conductor also divides it.
+Hypotheses: In the local setting let ℓ≠p, E/Q_ℓ finite, ρ on an E-space V continuous, Λ a stable O_E-lattice, and rhoBar_Λ=Λ/m_EΛ.
 -/
 
 /- ArithmeticGaloisRepresentations:R01.3/tame-two-dimensional-conductor
@@ -11576,8 +11079,8 @@ Hypotheses: Let R be a complete Noetherian local ring with finite residue field 
 /- ArithmeticGaloisRepresentations:R01.5/carayol-gluing
 Prototype section: ArithmeticGaloisRepresentations:R01.5/carayol-lifts-recognition
 Suggested auxiliary name: carayol_gluing
-Let R be a complete Noetherian local ring with finite residue field k and maximal ideal m, Γ profinite, and ρ̄:Γ→GL_d(k) absolutely irreducible with d≥1. Let a_j⊆m be decreasing open ideals forming a neighbourhood basis of zero, and fix monic polynomials P_γ∈R[X] of degree d on a dense subset of Γ. Suppose for every j there is a continuous lift r_j:Γ→GL_d(R/a_j) of ρ̄ with characteristic polynomial P_γ mod a_j on that subset. Strict conjugations can make these lifts a compatible system, which glues to a continuous lift over R, unique up to strict conjugacy. For GSp_{2a}, require d=2a, a fixed perfect alternating form and a fixed multiplier ν:Γ→R^×, reduced at every level.
-Hypotheses: Every r_j lifts the same absolutely irreducible ρ̄, and the prescribed characteristic polynomials come from R and therefore agree under all transition maps. The ideals are open, decreasing and cofinal in the m-adic topology. For the symplectic case, d=2a≥2 and all quotient representations use the reductions of the same perfect alternating form and multiplier.
+Let R be a complete Noetherian local ring with finite residue field k and maximal ideal m, Γ profinite, and rhoBar:Γ→GL_d(k) absolutely irreducible with d≥1. Let a_j⊆m be decreasing open ideals forming a neighbourhood basis of zero, and fix monic polynomials P_γ∈R[X] of degree d on a dense subset of Γ. Suppose for every j there is a continuous lift r_j:Γ→GL_d(R/a_j) of rhoBar with characteristic polynomial P_γ mod a_j on that subset. Strict conjugations can make these lifts a compatible system, which glues to a continuous lift over R, unique up to strict conjugacy. For GSp_{2a}, require d=2a, a fixed perfect alternating form and a fixed multiplier ν:Γ→R^×, reduced at every level.
+Hypotheses: Every r_j lifts the same absolutely irreducible rhoBar, and the prescribed characteristic polynomials come from R and therefore agree under all transition maps. The ideals are open, decreasing and cofinal in the m-adic topology. For the symplectic case, d=2a≥2 and all quotient representations use the reductions of the same perfect alternating form and multiplier.
 -/
 
 /- ArithmeticGaloisRepresentations:R01.5/frobenius-annihilation-extends
@@ -11628,3 +11131,2658 @@ Suggested auxiliary name: potentially_abelian_scalar_case
 Let F be a field, E algebraically closed of characteristic zero, ρ:G_F→GL_n(E) continuous irreducible, and L/F finite Galois with abelian ρ(G_L). For the given L, b=1 iff ρ(G_L) consists of scalars, which implies finite projective image. Conversely finite projective image gives b=1 for L chosen as the fixed field of its kernel.
 Hypotheses: Let F be a field, E algebraically closed of characteristic zero, ρ:G_F→GL_n(E) continuous irreducible, and L/F finite Galois with abelian ρ(G_L).
 -/
+
+/-! ## Typed interfaces completing the arithmetic API
+
+Each declaration below uses explicit embeddings, residue maps and comparison
+isomorphisms. These are data with the displayed laws, rather than unnamed
+propositions or hypotheses asserting the conclusion.
+-/
+namespace TauCeti
+noncomputable section
+open scoped TensorProduct
+
+namespace GaloisRep
+
+/-- Composition of the continuous maps induced by compatible embeddings of
+algebraic closures. The scalar-tower hypotheses pin the embeddings. -/
+theorem localEmbeddingMap_comp_tower (F K L : Type*) [Field F] [Field K] [Field L]
+    [Algebra F K] [Algebra K L] [Algebra F L] [IsScalarTower F K L]
+    [Algebra (AlgebraicClosure F) (AlgebraicClosure K)]
+    [Algebra (AlgebraicClosure K) (AlgebraicClosure L)]
+    [Algebra (AlgebraicClosure F) (AlgebraicClosure L)]
+    [IsScalarTower (AlgebraicClosure F) (AlgebraicClosure K) (AlgebraicClosure L)]
+    [IsScalarTower F (AlgebraicClosure F) (AlgebraicClosure K)]
+    [IsScalarTower K (AlgebraicClosure K) (AlgebraicClosure L)]
+    [IsScalarTower F (AlgebraicClosure F) (AlgebraicClosure L)] :
+    (localEmbeddingMap F K).comp (localEmbeddingMap K L) = localEmbeddingMap F L := by sorry
+
+/-- Local restriction commutes with global restriction, after choosing a
+commuting square of closure embeddings. -/
+theorem localRestriction_restrict
+    {GF GExt GK GM A V : Type*}
+    [Group GF] [Group GExt] [Group GK] [Group GM]
+    [TopologicalSpace GF] [TopologicalSpace GExt] [TopologicalSpace GK] [TopologicalSpace GM]
+    [CommRing A] [TopologicalSpace A]
+    [AddCommGroup V] [Module A V] [Module.Finite A V] [Module.Projective A V]
+    [TopologicalSpace V] [IsModuleTopology A V]
+    (global : GExt →ₜ* GF) (loc : GM →ₜ* GK)
+    (atF : GK →ₜ* GF) (atL : GM →ₜ* GExt)
+    (hsquare : global.comp atL = atF.comp loc) (ρ : ContinuousRep GF A V) :
+    (ρ.res global).res atL = (ρ.res atF).res loc := by sorry
+
+/-- Finite-image local restriction descends to the quotient by its kernel;
+the resulting faithful action carries the named inertia subgroups to their
+actual images. -/
+theorem localRestriction_kernelField
+    {G H A V : Type*} [Group G] [Group H]
+    [TopologicalSpace G] [TopologicalSpace H] [CommRing A] [TopologicalSpace A]
+    [AddCommGroup V] [Module A V] [Module.Finite A V] [Module.Projective A V]
+    [TopologicalSpace V] [IsModuleTopology A V]
+    (ι : H →ₜ* G) (ρ : ContinuousRep G A V) (I P : Subgroup H)
+    (hfinite : (Set.range fun h => ρ (ι h)).Finite) :
+    ∃ s : H ⧸ ((ρ.toRepresentation.comp ι.toMonoidHom).ker) →*
+        (Module.End A V)ˣ,
+      Function.Injective s ∧
+      (∀ h, (s (QuotientGroup.mk h) : Module.End A V) = ρ (ι h)) ∧
+      (I.map (QuotientGroup.mk' _)).map s =
+        I.map ((ρ.toRepresentation.comp ι.toMonoidHom).toHomUnits) ∧
+      (P.map (QuotientGroup.mk' _)).map s =
+        P.map ((ρ.toRepresentation.comp ι.toMonoidHom).toHomUnits) := by sorry
+
+/-- Unit test: TauCeti.GaloisRep.isUnramifiedAt_not_of_reduction.
+The explicit nonzero unipotent entry lies in the kernel of the residue map. -/
+example {G O k : Type*} [Group G] [CommRing O] [Field k]
+    (red : O →+* k) (I : Subgroup G) (a : G → O)
+    (ρ : Representation O G (Fin 2 → O))
+    (ρbar : Representation k G (Fin 2 → k))
+    (hmatrix : ∀ g ∈ I, LinearMap.toMatrix' (ρ g) = !![1, a g; 0, 1])
+    (hred : ∀ g, LinearMap.toMatrix' (ρbar g) = (LinearMap.toMatrix' (ρ g)).map red)
+    (hzero : ∀ g ∈ I, red (a g) = 0) (hnonzero : ∃ g ∈ I, a g ≠ 0) :
+    (∀ g ∈ I, ρbar g = LinearMap.id) ∧ ¬ (∀ g ∈ I, ρ g = LinearMap.id) := by sorry
+
+end GaloisRep
+end
+end TauCeti
+
+namespace TauCeti
+noncomputable section
+open scoped TensorProduct
+
+namespace GaloisLattice.IntegralModel
+
+/-- The carrier comparison for reduction of a coefficient-extended lattice.
+Apply this to `Λ.toContinuousRep`; the specified scalar towers include the
+commutative square of integral and residue-field maps. -/
+theorem reduction_baseChange
+    {Γ O O' k k' M : Type*} [Group Γ] [TopologicalSpace Γ]
+    [CommRing O] [TopologicalSpace O] [IsTopologicalRing O]
+    [CommRing O'] [TopologicalSpace O'] [IsTopologicalRing O'] [Algebra O O']
+    [Field k] [TopologicalSpace k] [IsTopologicalRing k] [Algebra O k]
+    [Field k'] [TopologicalSpace k'] [IsTopologicalRing k'] [Algebra O k'] [Algebra O' k'] [Algebra k k']
+    [IsScalarTower O O' k'] [IsScalarTower O k k']
+    [ContinuousSMul O O'] [ContinuousSMul O k] [ContinuousSMul O' k']
+    [ContinuousSMul k k']
+    [AddCommGroup M] [Module O M] [Module.Finite O M] [Module.Projective O M]
+    [TopologicalSpace M] [IsModuleTopology O M]
+    [TopologicalSpace (O' ⊗[O] M)] [IsModuleTopology O' (O' ⊗[O] M)]
+    [TopologicalSpace (k ⊗[O] M)] [IsModuleTopology k (k ⊗[O] M)]
+    [TopologicalSpace (k' ⊗[O'] (O' ⊗[O] M))]
+    [IsModuleTopology k' (k' ⊗[O'] (O' ⊗[O] M))]
+    [TopologicalSpace (k' ⊗[k] (k ⊗[O] M))]
+    [IsModuleTopology k' (k' ⊗[k] (k ⊗[O] M))]
+    (ρ : ContinuousRep Γ O M) :
+    ∃ e : ContinuousRep.Iso ((ρ.baseChange (B := O')).baseChange (B := k'))
+        ((ρ.baseChange (B := k)).baseChange (B := k')),
+      ∀ (a : k') (b : O') (m : M),
+        e.toLinearEquiv (a ⊗ₜ[O'] (b ⊗ₜ[O] m)) =
+          (a * algebraMap O' k' b) ⊗ₜ[k] (1 ⊗ₜ[O] m) := by sorry
+
+/-- Reduction of the tensor lattice: the isomorphism is specified on pure tensors.
+Dual, restriction, twist and sum companions use their canonical carrier maps. -/
+theorem reduction_tensor
+    {Γ O k M N : Type*} [Group Γ] [TopologicalSpace Γ]
+    [CommRing O] [TopologicalSpace O] [IsTopologicalRing O]
+    [Field k] [TopologicalSpace k] [IsTopologicalRing k] [Algebra O k]
+    [ContinuousSMul O k]
+    [AddCommGroup M] [Module O M] [Module.Finite O M] [Module.Projective O M]
+    [TopologicalSpace M] [IsModuleTopology O M]
+    [AddCommGroup N] [Module O N] [Module.Finite O N] [Module.Projective O N]
+    [TopologicalSpace N] [IsModuleTopology O N]
+    [TopologicalSpace (M ⊗[O] N)] [IsModuleTopology O (M ⊗[O] N)]
+    [TopologicalSpace (k ⊗[O] M)] [IsModuleTopology k (k ⊗[O] M)]
+    [TopologicalSpace (k ⊗[O] N)] [IsModuleTopology k (k ⊗[O] N)]
+    [TopologicalSpace (k ⊗[O] (M ⊗[O] N))]
+    [IsModuleTopology k (k ⊗[O] (M ⊗[O] N))]
+    [TopologicalSpace ((k ⊗[O] M) ⊗[k] (k ⊗[O] N))]
+    [IsModuleTopology k ((k ⊗[O] M) ⊗[k] (k ⊗[O] N))]
+    (ρ : ContinuousRep Γ O M) (σ : ContinuousRep Γ O N) :
+    ∃ e : ContinuousRep.Iso ((ρ.tensor σ).baseChange (B := k))
+        ((ρ.baseChange (B := k)).tensor (σ.baseChange (B := k))),
+      ∀ (a : k) (m : M) (n : N),
+        e.toLinearEquiv (a ⊗ₜ[O] (m ⊗ₜ[O] n)) =
+          (a ⊗ₜ[O] m) ⊗ₜ[k] (1 ⊗ₜ[O] n) := by sorry
+
+end GaloisLattice.IntegralModel
+
+namespace ContinuousRep
+
+/-- Residual coefficient twisting in an integral frame. The commutative residue
+square makes the coefficient automorphism on the residual representation explicit;
+applying semisimplification gives the unframed residual comparison. -/
+theorem residual_coeffTwist
+    {Γ O k : Type*} [Group Γ] [TopologicalSpace Γ]
+    [CommRing O] [TopologicalSpace O] [Field k] [TopologicalSpace k]
+    (red : O →+* k) (hred : Continuous red)
+    (γ : O ≃+* O) (hγ : Continuous γ) (γbar : k ≃+* k)
+    (hγbar : Continuous γbar) (hsquare : ∀ x, red (γ x) = γbar (red x))
+    {n : ℕ} (ρ : Γ →ₜ* Matrix.GeneralLinearGroup (Fin n) O) :
+    Framed.map red hred (coeffTwist γ hγ ρ) =
+      coeffTwist γbar hγbar (Framed.map red hred ρ) := by sorry
+
+/-- Unit test: TauCeti.ContinuousRep.residual_coeffTwist_inertia.
+An integral coefficient automorphism acting trivially on the residue field
+leaves the residual action unchanged. -/
+example {Γ O k : Type*} [Group Γ] [TopologicalSpace Γ]
+    [CommRing O] [TopologicalSpace O] [Field k] [TopologicalSpace k]
+    (red : O →+* k) (hred : Continuous red)
+    (γ : O ≃+* O) (hγ : Continuous γ) (hinertia : ∀ x, red (γ x) = red x)
+    {n : ℕ} (ρ : Γ →ₜ* Matrix.GeneralLinearGroup (Fin n) O) :
+    Framed.map red hred (coeffTwist γ hγ ρ) = Framed.map red hred ρ := by sorry
+
+/-- Coefficient Frobenius lifts induce the residue-field Frobenius, so the
+comparison is independent of the lift. LocalFieldsRamification supplies these
+residue-square hypotheses for actual coefficient-Galois elements. -/
+theorem residual_coeffTwist_frobeniusLift
+    {Γ O k : Type*} [Group Γ] [TopologicalSpace Γ]
+    [CommRing O] [TopologicalSpace O] [Field k] [TopologicalSpace k]
+    [DiscreteTopology k] (ℓ : ℕ) [Fact ℓ.Prime] [CharP k ℓ] [PerfectRing k ℓ]
+    (red : O →+* k) (hred : Continuous red)
+    (γ γ' : O ≃+* O) (hγ : Continuous γ) (hγ' : Continuous γ')
+    (hF : ∀ x, red (γ x) = (red x) ^ ℓ)
+    (hF' : ∀ x, red (γ' x) = (red x) ^ ℓ)
+    {n : ℕ} (ρ : Γ →ₜ* Matrix.GeneralLinearGroup (Fin n) O) :
+    Framed.map red hred (coeffTwist γ hγ ρ) =
+        frobTwist ℓ (Framed.map red hred ρ) ∧
+      Framed.map red hred (coeffTwist γ hγ ρ) =
+        Framed.map red hred (coeffTwist γ' hγ' ρ) := by sorry
+
+/-- Unit test: TauCeti.ContinuousRep.residual_coeffTwist_inertia (Frobenius clause).
+This supplements the inertia computation above with the different residue action. -/
+example {Γ O k : Type*} [Group Γ] [TopologicalSpace Γ]
+    [CommRing O] [TopologicalSpace O] [Field k] [TopologicalSpace k]
+    [DiscreteTopology k] (ℓ : ℕ) [Fact ℓ.Prime] [CharP k ℓ] [PerfectRing k ℓ]
+    (red : O →+* k) (hred : Continuous red)
+    (γ : O ≃+* O) (hγ : Continuous γ)
+    (hF : ∀ x, red (γ x) = (red x) ^ ℓ)
+    {n : ℕ} (ρ : Γ →ₜ* Matrix.GeneralLinearGroup (Fin n) O) :
+    Framed.map red hred (coeffTwist γ hγ ρ) =
+      frobTwist ℓ (Framed.map red hred ρ) := by sorry
+
+section ResidualTwistSS
+attribute [local instance] Bundled.isAddCommGroup Bundled.isModule Bundled.isFinite
+  Bundled.isProjective Bundled.isTopologicalSpace Bundled.isModuleTopology
+
+/-- The integral-frame comparison descends to the unframed residual
+semisimplifications. Lattice and coefficient descent independence then apply. -/
+theorem residual_coeffTwist_semisimplification
+    {Γ O k : Type*} [Group Γ] [TopologicalSpace Γ]
+    [CommRing O] [TopologicalSpace O] [Field k] [TopologicalSpace k] [IsTopologicalRing k]
+    (red : O →+* k) (hred : Continuous red)
+    (γ : O ≃+* O) (hγ : Continuous γ) (γbar : k ≃+* k)
+    (hγbar : Continuous γbar) (hsquare : ∀ x, red (γ x) = γbar (red x))
+    {n : ℕ} (ρ : Γ →ₜ* Matrix.GeneralLinearGroup (Fin n) O) :
+    Nonempty (Iso
+      (ofFramed (Framed.map red hred (coeffTwist γ hγ ρ))).semisimplification.rep
+      (ofFramed (coeffTwist γbar hγbar (Framed.map red hred ρ))).semisimplification.rep) := by sorry
+end ResidualTwistSS
+
+end ContinuousRep
+
+namespace GaloisRep
+
+/-- Local Mackey decomposition, in the specified decomposition subgroup.
+The double cosets correspond to the places above the chosen place. -/
+theorem localRestriction_induced
+    {Γ A U : Type*} [Group Γ] [TopologicalSpace Γ] [IsTopologicalGroup Γ]
+    [CompactSpace Γ] [CommRing A] [TopologicalSpace A] [IsTopologicalRing A]
+    [AddCommGroup U] [Module A U] [Module.Finite A U] [Module.Projective A U]
+    [TopologicalSpace U] [IsModuleTopology A U]
+    (H : OpenSubgroup Γ) (D : Subgroup Γ) (hD : IsClosed (D : Set Γ))
+    [CompactSpace D] (σ : ContinuousRep H A U)
+    (s : DoubleCoset.Quotient (H : Set Γ) (D : Set Γ) → Γ)
+    (hs : ∀ q, DoubleCoset.mk (H : Subgroup Γ) D (s q) = q) :
+    ∃ e : ContinuousRep.IndV H σ ≃ₗ[A]
+        ((q : DoubleCoset.Quotient (H : Set Γ) (D : Set Γ)) →
+          ContinuousRep.IndV (ContinuousRep.mackeySubgroup H D (s q))
+            (σ.res (ContinuousRep.mackeyConj H D (s q)))),
+      ∀ (d : D) (f : ContinuousRep.IndV H σ) q,
+        e (ContinuousRep.ind H σ (d : Γ) f) q =
+          ContinuousRep.ind (ContinuousRep.mackeySubgroup H D (s q))
+            (σ.res (ContinuousRep.mackeyConj H D (s q))) d (e f q) := by sorry
+
+section TameRestriction
+variable (K L : Type*) [Field K] [ValuativeRel K] [TopologicalSpace K]
+  [IsNonarchimedeanLocalField K] [Field L] [ValuativeRel L] [TopologicalSpace L]
+  [IsNonarchimedeanLocalField L] [Algebra K L] [FiniteDimensional K L]
+  [Algebra (AlgebraicClosure K) (AlgebraicClosure L)]
+  [IsScalarTower K (AlgebraicClosure K) (AlgebraicClosure L)]
+
+/-- Restriction of tame characters with compatible roots: uniformizers satisfy
+`π_K = u π_L^e`. The common closure embeds the two roots-of-unity modules. -/
+theorem tameCharacter_restrict (ℓ : ℕ) [Fact ℓ.Prime] (hℓ : (ℓ : 𝓀[K]) ≠ 0)
+    (e : ℕ) (he : 0 < e) (πK : 𝒪[K]) (πL : 𝒪[L])
+    (hK : Irreducible πK) (hL : Irreducible πL) (u : 𝒪[L]ˣ)
+    (hπ : algebraMap K L (πK : K) = ((u : 𝒪[L]) : L) * (πL : L) ^ e)
+    (σ : inertiaGroup L) (hσ : localEmbeddingMap K L σ ∈ inertiaGroup K) (n : ℕ) :
+    algebraMap (AlgebraicClosure K) (AlgebraicClosure L)
+        (((tameCharacter K ℓ ⟨_, hσ⟩ : ℕ → (AlgebraicClosure K)ˣ) n :
+          AlgebraicClosure K)) =
+      (((tameCharacter L ℓ σ : ℕ → (AlgebraicClosure L)ˣ) n :
+          AlgebraicClosure L)) ^ e := by sorry
+
+/-- The finite-coordinate form of the tame-inertia comparison: projection to
+the `ℓ^n` coordinate is the ratio of Galois translates of a uniformizer root. -/
+theorem tameCharacter_eq_rootRatio (ℓ : ℕ) [Fact ℓ.Prime] (hℓ : (ℓ : 𝓀[K]) ≠ 0)
+    (π : 𝒪[K]) (hπ : Irreducible π) (n : ℕ) (r : AlgebraicClosure K)
+    (hr : r ^ (ℓ ^ n) = algebraMap K _ (π : K)) (σ : inertiaGroup K) :
+    (((tameCharacter K ℓ σ : ℕ → (AlgebraicClosure K)ˣ) n : AlgebraicClosure K)) =
+      ((σ : Field.absoluteGaloisGroup K) • r) / r := by sorry
+
+/-- Unit test: TauCeti.GaloisRep.tameCharacter_restrict_ramified.
+For a tame root extension `π_L^e = π_K`, the restriction multiplies by `e`. -/
+example (ℓ : ℕ) [Fact ℓ.Prime] (hℓ : (ℓ : 𝓀[K]) ≠ 0)
+    (e : ℕ) (he : 0 < e) (hetame : e.Coprime (ringChar 𝓀[K]))
+    (πK : 𝒪[K]) (πL : 𝒪[L]) (hK : Irreducible πK) (hL : Irreducible πL)
+    (hπ : algebraMap K L (πK : K) = (πL : L) ^ e)
+    (σ : inertiaGroup L) (hσ : localEmbeddingMap K L σ ∈ inertiaGroup K) :
+    ∀ n, algebraMap (AlgebraicClosure K) (AlgebraicClosure L)
+        (((tameCharacter K ℓ ⟨_, hσ⟩ : ℕ → (AlgebraicClosure K)ˣ) n :
+          AlgebraicClosure K)) =
+      (((tameCharacter L ℓ σ : ℕ → (AlgebraicClosure L)ˣ) n :
+          AlgebraicClosure L)) ^ e := by sorry
+
+/-- Fundamental characters restrict with the same ramification exponent. -/
+theorem fundamentalCharacter_restrict (p : ℕ) [Fact p.Prime]
+    (hp : ringChar 𝓀[K] = p) (e : ℕ) (he : 0 < e)
+    (πK : 𝒪[K]) (πL : 𝒪[L]) (hK : Irreducible πK) (hL : Irreducible πL)
+    (u : 𝒪[L]ˣ) (hπ : algebraMap K L (πK : K) = ((u : 𝒪[L]) : L) * (πL : L) ^ e)
+    (n : ℕ) (hn : 0 < n) (σ : inertiaGroup L)
+    (hσ : localEmbeddingMap K L σ ∈ inertiaGroup K) :
+    algebraMap (AlgebraicClosure K) (AlgebraicClosure L)
+        ((fundamentalCharacter K p n ⟨_, hσ⟩ : (AlgebraicClosure K)ˣ) : AlgebraicClosure K) =
+      (((fundamentalCharacter L p n σ : (AlgebraicClosure L)ˣ) : AlgebraicClosure L)) ^ e := by sorry
+end TameRestriction
+end GaloisRep
+end
+end TauCeti
+
+namespace TauCeti.GaloisRep
+noncomputable section
+
+/-- Conjugating a closure embedding changes its pullback by the displayed
+conjugation. The intertwining conditions specify pullback maps without choosing
+an inverse of a nonsurjective local closure embedding. -/
+theorem localEmbeddingMap_comp
+    (F K : Type*) [Field F] [Field K]
+    (j : AlgebraicClosure F →+* AlgebraicClosure K)
+    (i iσ iτ : Field.absoluteGaloisGroup K →* Field.absoluteGaloisGroup F)
+    (σ : Field.absoluteGaloisGroup F) (τ : Field.absoluteGaloisGroup K)
+    (hi : ∀ g x, j ((i g) • x) = g • j x)
+    (hiσ : ∀ g x, j (σ • ((iσ g) • x)) = g • j (σ • x))
+    (hiτ : ∀ g x, τ • j ((iτ g) • x) = g • (τ • j x)) :
+    (∀ g, iσ g = σ⁻¹ * i g * σ) ∧
+      (∀ g, iτ g = i (τ⁻¹ * g * τ)) := by sorry
+
+/-- Comparison with the residual cyclotomic character. A residue map on the
+ring generated by the `(p−1)`-st roots of unity is fixed; its valuation-kernel
+condition specifies reduction at the local place. -/
+theorem fundamentalCharacter_one_eq_cyclotomic
+    (K : Type*) [Field K] [ValuativeRel K] [TopologicalSpace K]
+    [IsNonarchimedeanLocalField K] (p : ℕ) [Fact p.Prime]
+    [Algebra ℚ_[p] K] [FiniteDimensional ℚ_[p] K]
+    (e : ℕ) (he : 0 < e) (π : 𝒪[K]) (hπ : Irreducible π) (u : 𝒪[K]ˣ)
+    (hp : (p : K) = ((u : 𝒪[K]) : K) * (π : K) ^ e)
+    (red : Subring.closure {x : AlgebraicClosure K | x ^ (p - 1) = 1} →+* ZMod p)
+    (hred : ∀ x : Subring.closure {x : AlgebraicClosure K | x ^ (p - 1) = 1},
+      ¬ IsIntegral 𝒪[K] ((x : AlgebraicClosure K)⁻¹) → red x = 0)
+    (σ : inertiaGroup K)
+    (hmem : ((fundamentalCharacter K p 1 σ : (AlgebraicClosure K)ˣ) : AlgebraicClosure K) ∈
+      Subring.closure {x : AlgebraicClosure K | x ^ (p - 1) = 1}) :
+    red ⟨_, hmem⟩ ^ e = PadicInt.toZMod
+      (cyclotomicCharacter K p σ : ℤ_[p]) := by sorry
+
+/-- Unit test: TauCeti.GaloisRep.fundamentalCharacter_one_Qp. -/
+example (p : ℕ) [Fact p.Prime]
+    (red : Subring.closure {x : AlgebraicClosure ℚ_[p] | x ^ (p - 1) = 1} →+* ZMod p)
+    (hred : ∀ x : Subring.closure {x : AlgebraicClosure ℚ_[p] | x ^ (p - 1) = 1},
+      ¬ IsIntegral ℤ_[p] ((x : AlgebraicClosure ℚ_[p])⁻¹) → red x = 0)
+    (σ : inertiaGroup ℚ_[p])
+    (hmem : ((fundamentalCharacter ℚ_[p] p 1 σ : (AlgebraicClosure ℚ_[p])ˣ) :
+        AlgebraicClosure ℚ_[p]) ∈
+      Subring.closure {x : AlgebraicClosure ℚ_[p] | x ^ (p - 1) = 1}) :
+    red ⟨_, hmem⟩ = PadicInt.toZMod (cyclotomicCharacter ℚ_[p] p σ : ℤ_[p]) := by sorry
+
+/-- Unit test: TauCeti.GaloisRep.fundamentalCharacter_teichmuller.
+The zeroth Witt coordinate is reduction; it recovers the chosen residual
+fundamental character, and the lifted character has prime-to-p order. -/
+example (K : Type*) [Field K] [ValuativeRel K] [TopologicalSpace K]
+    [IsNonarchimedeanLocalField K] (p : ℕ) [Fact p.Prime]
+    (hp : ringChar 𝓀[K] = p) (n : ℕ) (hn : 0 < n)
+    (red : Subring.closure {x : AlgebraicClosure K | x ^ (p ^ n - 1) = 1} →+*
+      GaloisField p n)
+    (hred : ∀ x : Subring.closure {x : AlgebraicClosure K | x ^ (p ^ n - 1) = 1},
+      ¬ IsIntegral 𝒪[K] ((x : AlgebraicClosure K)⁻¹) → red x = 0)
+    (σ : inertiaGroup K)
+    (hmem : ((fundamentalCharacter K p n σ : (AlgebraicClosure K)ˣ) : AlgebraicClosure K) ∈
+      Subring.closure {x : AlgebraicClosure K | x ^ (p ^ n - 1) = 1}) :
+    ((teichmullerFundamentalCharacter K p n σ : WittVector p (GaloisField p n)).coeff 0 =
+      red ⟨_, hmem⟩) ∧ teichmullerFundamentalCharacter K p n σ ^ (p ^ n - 1) = 1 := by sorry
+
+end
+end TauCeti.GaloisRep
+
+namespace TauCeti.WeilDeligneRep
+noncomputable section
+open scoped TensorProduct
+
+section FunctorComparisons
+variable {W W' : Type*} [Group W] [TopologicalSpace W] [IsTopologicalGroup W]
+  [Group W'] [TopologicalSpace W'] [IsTopologicalGroup W']
+  {deg : W →* Multiplicative ℤ} {deg' : W' →* Multiplicative ℤ} {q ℓ : ℕ}
+  [Fact ℓ.Prime] {E : Type*} [Field E] [CharZero E] [TopologicalSpace E]
+  [Algebra ℚ_[ℓ] E] [FiniteDimensional ℚ_[ℓ] E] [IsModuleTopology ℚ_[ℓ] E]
+  {V : Type*} [AddCommGroup V] [Module E V] [Module.Finite E V]
+  [TopologicalSpace V] [IsModuleTopology E V]
+
+/-- Restriction of WD, up to the rescaling isomorphism caused by
+`t_K|_{I_L} = e t_L`. The coefficient of monodromy in the local trivialization
+changes by `e`; the isomorphism class is unchanged. -/
+theorem ofEllAdic_restrict
+    (φ : W' →ₜ* W) (hφ : Function.Injective φ)
+    (hopen : IsOpen (φ.toMonoidHom.range : Set W))
+    (f e : ℕ) (hf : 0 < f) (he : 0 < e)
+    (hdeg : ∀ w, deg (φ w) = deg' w ^ f)
+    (t : deg.ker →* Multiplicative ℤ_[ℓ])
+    (t' : deg'.ker →* Multiplicative ℤ_[ℓ])
+    (ht : IsTameCharacter deg q t) (ht' : IsTameCharacter deg' (q ^ f) t')
+    (hker : ∀ σ : deg'.ker, φ σ ∈ deg.ker)
+    (htcompat : ∀ σ : deg'.ker,
+      Multiplicative.toAdd (t ⟨φ σ, hker σ⟩) = e * Multiplicative.toAdd (t' σ))
+    (ρ : ContinuousRep W E V) (F : W) (F' : W')
+    (hF : deg F = Multiplicative.ofAdd (-1))
+    (hF' : deg' F' = Multiplicative.ofAdd (-1)) :
+    Nonempty (Iso (ofEllAdic (q := q ^ f) (ρ.res φ) F' hF' t')
+      ((ofEllAdic (q := q) ρ F hF t).restrict φ f hdeg)) := by sorry
+
+/-- WD commutes with induction from an open Weil subgroup. The induced
+continuous representation is given with its equivariant function-model
+identification, so the signature does not hide an induction convention. -/
+theorem ofEllAdic_induced
+    (φ : W' →ₜ* W) (hφ : Function.Injective φ)
+    (hopen : IsOpen (φ.toMonoidHom.range : Set W))
+    (f m : ℕ) (hf : 0 < f) (hm : φ.toMonoidHom.range.index = m)
+    (hdeg : ∀ w, deg (φ w) = deg' w ^ f)
+    (t : deg.ker →* Multiplicative ℤ_[ℓ])
+    (t' : deg'.ker →* Multiplicative ℤ_[ℓ])
+    (ht : IsTameCharacter deg q t) (ht' : IsTameCharacter deg' (q ^ f) t')
+    (e : ℕ) (he : 0 < e) (hker : ∀ σ : deg'.ker, φ σ ∈ deg.ker)
+    (htcompat : ∀ σ : deg'.ker,
+      Multiplicative.toAdd (t ⟨φ σ, hker σ⟩) = e * Multiplicative.toAdd (t' σ))
+    [TopologicalSpace (Fin m → V)] [IsModuleTopology E (Fin m → V)]
+    (ρ : ContinuousRep W' E V) (σ : ContinuousRep W E (Fin m → V))
+    (a : Representation.coindV φ.toMonoidHom ρ.toRepresentation ≃ₗ[E] (Fin m → V))
+    (ha : ∀ w, (a : _ →ₗ[E] _) ∘ₗ Representation.coind φ.toMonoidHom ρ.toRepresentation w =
+      σ w ∘ₗ a) (F : W) (F' : W')
+    (hF : deg F = Multiplicative.ofAdd (-1))
+    (hF' : deg' F' = Multiplicative.ofAdd (-1)) :
+    Nonempty (Iso (ofEllAdic (q := q) σ F hF t)
+      (induced (q := q) φ m hm (ofEllAdic (q := q ^ f) ρ F' hF' t'))) := by sorry
+end FunctorComparisons
+
+section Indecomposables
+variable {W : Type*} [Group W] [TopologicalSpace W]
+  {deg : W →* Multiplicative ℤ} {q : ℕ}
+  {Ω : Type*} [Field Ω] [CharZero Ω] {V : Type*}
+  [AddCommGroup V] [Module Ω V] [FiniteDimensional Ω V]
+
+/-- Explicit indecomposability: the object is nonzero and its commuting
+endomorphism algebra has no idempotents except zero and identity. -/
+def IsIndecomposable (D : WeilDeligneRep W deg q Ω V) : Prop :=
+  0 < Module.finrank Ω V ∧ ∀ p : Module.End Ω V, p * p = p →
+    (∀ w, p * D.r w = D.r w * p) → p * D.N = D.N * p → p = 0 ∨ p = 1
+
+/-- Proposed classification interface; its lemma-level proof remains a
+recorded gap. Finite inertia, a surjective degree and `q>1` are explicit. -/
+theorem indecomposable_iso_tensor_special [IsAlgClosed Ω]
+    (hq : 1 < q) (hdeg : Function.Surjective deg)
+    (D : WeilDeligneRep W deg q Ω V)
+    (hfin : (Set.range fun σ : deg.ker => D.r σ).Finite)
+    (hss : IsFrobeniusSemisimple D) (hD : IsIndecomposable D)
+    (hqΩ : (q : Ω) ≠ 0) :
+    ∃ (d n : ℕ) (_hd : 0 < d) (_hn : 0 < n)
+      (D₀ : WeilDeligneRep W deg q Ω (Fin d → Ω)),
+      D₀.N = 0 ∧ D₀.r.IsIrreducible ∧
+        Nonempty (Iso D (tensor D₀ (special (W := W) (deg := deg) n hqΩ))) := by sorry
+
+/-- Unit test: TauCeti.WeilDeligneRep.three_objects_differ.
+A special block plus an explicit unramified Jordan block distinguishes all
+three operations by monodromy and by the Frobenius Jordan form. -/
+example (hq : 1 < q) (hqΩ : (q : Ω) ≠ 0) (F : W)
+    (hF : deg F = Multiplicative.ofAdd (-1))
+    (J : WeilDeligneRep W deg q Ω (Fin 2 → Ω))
+    (hN : J.N = 0) (hI : ∀ σ ∈ deg.ker, J.r σ = 1)
+    (hJ : J.r F = Matrix.toLin' !![1, 1; 0, 1]) :
+    let D := prod (special (W := W) (deg := deg) 2 hqΩ) J
+    ¬ Nonempty (Iso D (frobeniusSemisimplification D F hF)) ∧
+      ¬ Nonempty (Iso D (semisimplification D)) ∧
+      ¬ Nonempty (Iso (frobeniusSemisimplification D F hF) (semisimplification D)) := by sorry
+end Indecomposables
+
+section TateNormalForm
+variable {W : Type*} [Group W] [TopologicalSpace W]
+  {deg : W →* Multiplicative ℤ} {q ℓ : ℕ} [Fact ℓ.Prime]
+
+/-- Unit test: TauCeti.WeilDeligneRep.ofEllAdic_tateCurve.
+Tate uniformization supplies this upper-triangular action and a nonzero tame
+extension parameter. Reversing the basis gives the special-block convention. -/
+example (hq : (q : ℚ_[ℓ]) ≠ 0)
+    (ρ : ContinuousRep W ℚ_[ℓ] (Fin 2 → ℚ_[ℓ])) (F : W)
+    (hF : deg F = Multiplicative.ofAdd (-1))
+    (t : deg.ker →* Multiplicative ℤ_[ℓ]) (ht : IsTameCharacter deg q t)
+    (b : ℚ_[ℓ]) (hb : b ≠ 0)
+    (hFmatrix : ρ F = Matrix.toLin' (Matrix.diagonal ![(q : ℚ_[ℓ])⁻¹, 1]))
+    (hI : ∀ σ : deg.ker, ρ σ =
+      Matrix.toLin' !![1, b * ((Multiplicative.toAdd (t σ) : ℤ_[ℓ]) : ℚ_[ℓ]); 0, 1]) :
+    Nonempty (Iso (ofEllAdic (q := q) ρ F hF t) (special (W := W) (deg := deg) 2 hq)) := by sorry
+
+/-- Unit test: TauCeti.WeilDeligneRep.ofEllAdic_not_semisimplification.
+The same explicit Tate action has nonzero monodromy; its semisimple action has
+zero monodromy, even though their characteristic polynomials agree. -/
+example (ρ : ContinuousRep W ℚ_[ℓ] (Fin 2 → ℚ_[ℓ])) (F : W)
+    (hF : deg F = Multiplicative.ofAdd (-1))
+    (t : deg.ker →* Multiplicative ℤ_[ℓ]) (ht : IsTameCharacter deg q t)
+    (b : ℚ_[ℓ]) (hb : b ≠ 0)
+    (hI : ∀ σ : deg.ker, ρ σ =
+      Matrix.toLin' !![1, b * ((Multiplicative.toAdd (t σ) : ℤ_[ℓ]) : ℚ_[ℓ]); 0, 1]) :
+    letI := ρ.semisimplification.isAddCommGroup
+    letI := ρ.semisimplification.isModule
+    letI := ρ.semisimplification.isFinite
+    letI := ρ.semisimplification.isProjective
+    letI := ρ.semisimplification.isTopologicalSpace
+    letI := ρ.semisimplification.isModuleTopology
+    ¬ Nonempty (Iso (ofEllAdic (q := q) ρ F hF t)
+      (ofEllAdic (q := q) ρ.semisimplification.rep F hF t)) := by sorry
+end TateNormalForm
+end
+end TauCeti.WeilDeligneRep
+
+namespace TauCeti.Conductor
+noncomputable section
+open Polynomial
+
+section FiniteRamificationComparison
+variable {K : Type*} [Field K] [ValuativeRel K] [TopologicalSpace K]
+  [IsNonarchimedeanLocalField K]
+  {F V : Type*} [Field F] [TopologicalSpace F]
+  [AddCommGroup V] [Module F V] [Module.Finite F V]
+  [TopologicalSpace V] [IsModuleTopology F V]
+
+/-- Finite lower groups are supplied by LocalFieldsRamification. Their valuation
+formula is an explicit contract, not a new ramification-group construction. -/
+theorem swanConductor_eq_lowerSum
+    (L : IntermediateField K (AlgebraicClosure K)) [FiniteDimensional K L] [IsGalois K L]
+    (res : Field.absoluteGaloisGroup K →* (L ≃ₐ[K] L))
+    (hres : ∀ σ x, ((res σ x : L) : AlgebraicClosure K) = σ • (x : AlgebraicClosure K))
+    (ν : Valuation L (WithZero (Multiplicative ℤ))) (hnormalized : ∃ x : L, ν x = ↑(Multiplicative.ofAdd (-1 : ℤ)))
+    (hνBase : ∀ x : K, ν (algebraMap K L x) ≤ 1 ↔ x ∈ 𝒪[K])
+    (G : ℕ → Subgroup (L ≃ₐ[K] L))
+    (hG : ∀ i σ, σ ∈ G i ↔ ∀ x : L, ν x ≤ 1 →
+      ν (σ x - x) ≤ ↑(Multiplicative.ofAdd (-(i : ℤ) - 1)))
+    (hzero : (GaloisRep.inertiaGroup K).map res = G 0)
+    (b : ℕ) (hb : ∀ i, b < i → G i = ⊥)
+    (ρ : ContinuousRep (Field.absoluteGaloisGroup K) F V)
+    (hF : ringChar F ≠ ringChar 𝓀[K])
+    (hkill : GaloisRep.localWildInertiaGroup K ⊓ res.ker ≤ ρ.toRepresentation.ker) :
+    swanConductor ρ = ∑ i ∈ Finset.Icc 1 b,
+      (Nat.card (G i) : ℚ) / Nat.card (G 0) *
+        (Module.finrank F V - Module.finrank F
+          (invariants ρ.toRepresentation
+            (GaloisRep.localWildInertiaGroup K ⊓ (G i).comap res)) : ℕ) := by sorry
+
+/-- Artin's weighted lower sum uses finite *inertia* image and starts at zero. -/
+theorem artinConductor_eq_lowerSum
+    (L : IntermediateField K (AlgebraicClosure K)) [FiniteDimensional K L] [IsGalois K L]
+    (res : Field.absoluteGaloisGroup K →* (L ≃ₐ[K] L))
+    (hres : ∀ σ x, ((res σ x : L) : AlgebraicClosure K) = σ • (x : AlgebraicClosure K))
+    (ν : Valuation L (WithZero (Multiplicative ℤ))) (hnormalized : ∃ x : L, ν x = ↑(Multiplicative.ofAdd (-1 : ℤ)))
+    (hνBase : ∀ x : K, ν (algebraMap K L x) ≤ 1 ↔ x ∈ 𝒪[K])
+    (G : ℕ → Subgroup (L ≃ₐ[K] L))
+    (hG : ∀ i σ, σ ∈ G i ↔ ∀ x : L, ν x ≤ 1 →
+      ν (σ x - x) ≤ ↑(Multiplicative.ofAdd (-(i : ℤ) - 1)))
+    (hzero : (GaloisRep.inertiaGroup K).map res = G 0)
+    (b : ℕ) (hb : ∀ i, b < i → G i = ⊥)
+    (ρ : ContinuousRep (Field.absoluteGaloisGroup K) F V)
+    (hF : ringChar F ≠ ringChar 𝓀[K])
+    (hkill : GaloisRep.inertiaGroup K ⊓ res.ker ≤ ρ.toRepresentation.ker) :
+    artinConductor ρ = ∑ i ∈ Finset.Icc 0 b,
+      (Nat.card (G i) : ℚ) / Nat.card (G 0) *
+        (Module.finrank F V - Module.finrank F
+          (invariants ρ.toRepresentation
+            (GaloisRep.inertiaGroup K ⊓ (G i).comap res)) : ℕ) := by sorry
+
+/-- Upper finite-quotient compatibility, through its defining inverse-limit
+contract. The finite upper groups are given by Herbrand reindexing of the
+supplied lower groups. -/
+theorem map_absUpperRamificationGroup
+    (L : IntermediateField K (AlgebraicClosure K)) [FiniteDimensional K L] [IsGalois K L]
+    (res : Field.absoluteGaloisGroup K →* (L ≃ₐ[K] L))
+    (hres : ∀ σ x, ((res σ x : L) : AlgebraicClosure K) = σ • (x : AlgebraicClosure K))
+    (lower : ℕ → Subgroup (L ≃ₐ[K] L)) (ν : Valuation L (WithZero (Multiplicative ℤ)))
+    (hnormalized : ∃ x : L, ν x = ↑(Multiplicative.ofAdd (-1 : ℤ)))
+    (hνBase : ∀ x : K, ν (algebraMap K L x) ≤ 1 ↔ x ∈ 𝒪[K])
+    (hlower : ∀ i σ, σ ∈ lower i ↔ ∀ x : L, ν x ≤ 1 →
+      ν (σ x - x) ≤ ↑(Multiplicative.ofAdd (-(i : ℤ) - 1)))
+    (hzero : (GaloisRep.inertiaGroup K).map res = lower 0)
+    (herbrand : ℝ → ℝ)
+    (hherbrand : ∀ t : ℝ, 0 ≤ t → herbrand t =
+      ∫ s in (0 : ℝ)..t, (Nat.card (lower ⌈s⌉₊) : ℝ) / Nat.card (lower 0))
+    (u t : ℝ) (hu : 0 ≤ u) (ht : 0 ≤ t) (hut : herbrand t = u) :
+    (absUpperRamificationGroup K u).map res = lower ⌈t⌉₊ := by sorry
+end FiniteRamificationComparison
+
+/-- Completion bridge for lower groups: an isometric embedding with dense
+integral image transports the valuation displacement test defining the groups.
+The actual place/completion suppliers instantiate these data. -/
+theorem lowerRamificationGroup_completion
+    {L Lhat G Ghat : Type*} [Field L] [Field Lhat] [Group G] [Group Ghat]
+    [TopologicalSpace Lhat] [IsTopologicalRing Lhat]
+    (ν : Valuation L (WithZero (Multiplicative ℤ))) (νhat : Valuation Lhat (WithZero (Multiplicative ℤ)))
+    (j : L →+* Lhat) (hj : ∀ x, νhat (j x) = ν x)
+    (hclosed : ∀ c : WithZero (Multiplicative ℤ), IsClosed {x : Lhat | νhat x ≤ c})
+    (hdense : {x : Lhat | νhat x ≤ 1} ⊆ closure (j '' {x : L | ν x ≤ 1}))
+    (a : G →* (L ≃+* L)) (ahat : Ghat →* (Lhat ≃+* Lhat)) (e : G ≃* Ghat)
+    (hcont : ∀ σ, Continuous (ahat σ))
+    (he : ∀ σ x, ahat (e σ) (j x) = j (a σ x))
+    (lower : ℕ → Subgroup G) (lowerhat : ℕ → Subgroup Ghat)
+    (hlower : ∀ i σ, σ ∈ lower i ↔ ∀ x : L, ν x ≤ 1 →
+      ν (a σ x - x) ≤ ↑(Multiplicative.ofAdd (-(i : ℤ) - 1)))
+    (hlowerhat : ∀ i σ, σ ∈ lowerhat i ↔ ∀ x : Lhat, νhat x ≤ 1 →
+      νhat (ahat σ x - x) ≤ ↑(Multiplicative.ofAdd (-(i : ℤ) - 1))) :
+    ∀ i, (lower i).map e.toMonoidHom = lowerhat i := by sorry
+
+/-- Numerical check supporting the dyadic ramification test below.
+For χ₈ over Q₂(ζ₈), the three positive lower levels have sizes 4,2,2,
+inertia has size 4 and every nontrivial character codimension is one. -/
+example : (∑ i : Fin 3, (1 : ℚ)) = 3 ∧
+    (∑ i : Fin 3, (![4, 2, 2] i : ℚ) / 4) = 2 ∧ (3 : ℚ) ≠ 2 := by sorry
+
+/-- Numerical check supporting independence of the dyadic lower sum below.
+Over Q₂(√2) the two positive lower levels have size 2. The weighted sum
+agrees with the larger cyclotomic extension, though the unweighted sum differs. -/
+example : (∑ i : Fin 2, (![2, 2] i : ℚ) / 2) =
+    (∑ i : Fin 3, (![4, 2, 2] i : ℚ) / 4) ∧
+    (∑ i : Fin 2, (1 : ℚ)) ≠ ∑ i : Fin 3, (1 : ℚ) := by sorry
+
+/-- Character conductor comparison using the local Artin map supplied by
+ClassFieldTheory. Its unit filtration and density contract is explicit. -/
+theorem artinConductor_eq_characterConductorExp
+    (K : Type*) [Field K] [ValuativeRel K] [TopologicalSpace K]
+    [IsNonarchimedeanLocalField K] (p : ℕ) [Fact p.Prime]
+    [Algebra ℚ_[p] K] [FiniteDimensional ℚ_[p] K]
+    {F : Type*} [Field F] [TopologicalSpace F] [IsTopologicalRing F]
+    (hF : ringChar F ≠ p) (χ : Field.absoluteGaloisGroup K →ₜ* Fˣ)
+    (hfinite : (Set.range χ).Finite)
+    (artχ : Kˣ →ₜ* Fˣ)
+    (hunits : ∀ n : ℕ,
+      closure ((fun u : Kˣ => artχ u) ''
+        {u | ∃ a : 𝒪[K]ˣ, (u : K) = ((a : 𝒪[K]) : K) ∧
+          (n = 0 ∨ ∃ π : 𝒪[K], Irreducible π ∧ π ^ n ∣ (a : 𝒪[K]) - 1)}) =
+      closure (χ '' (absUpperRamificationGroup K n : Set (Field.absoluteGaloisGroup K)))) :
+    artinConductor (ContinuousRep.ofCharacter χ) =
+      (sInf {n : ℕ | ∀ u : Kˣ,
+        (∃ a : 𝒪[K]ˣ, (u : K) = ((a : 𝒪[K]) : K) ∧
+          (n = 0 ∨ ∃ π : 𝒪[K], Irreducible π ∧ π ^ n ∣ (a : 𝒪[K]) - 1)) →
+        artχ u = 1} : ℕ) := by sorry
+end
+end TauCeti.Conductor
+
+
+namespace TauCeti.ContinuousRep
+noncomputable section
+open Polynomial
+
+/-- Unit test: TauCeti.ContinuousRep.symPower_not_dual_char_p.
+Standard GL₂(F₃) action; this tests the quotient symmetric power, rather than
+invariant tensors or divided powers, in the modular characteristic. -/
+example (ρ : ContinuousRep (GL (Fin 2) (ZMod 3)) (ZMod 3) (Fin 2 → ZMod 3))
+    (hstd : ∀ g, ρ g = Matrix.toLin' (g : Matrix (Fin 2) (Fin 2) (ZMod 3)))
+    (χ : GL (Fin 2) (ZMod 3) →ₜ* (ZMod 3)ˣ)
+    (hχ : ∀ g, χ g = (ρ.det g) ^ 3) :
+    ¬ Nonempty (Iso (ρ.symPower 3) ((ρ.symPower 3).dual.twist χ)) := by sorry
+
+section TensorIndRevision
+variable {Γ : Type*} [Group Γ] [TopologicalSpace Γ] [IsTopologicalGroup Γ]
+  {A : Type*} [CommRing A] [TopologicalSpace A] [IsTopologicalRing A]
+  {V V' : Type*} [AddCommGroup V] [Module A V] [Module.Finite A V] [Module.Projective A V]
+  [TopologicalSpace V] [IsModuleTopology A V]
+  [AddCommGroup V'] [Module A V'] [Module.Finite A V'] [Module.Projective A V']
+  [TopologicalSpace V'] [IsModuleTopology A V']
+
+def tensorInd_tprod (H : Subgroup Γ) [Fintype (Γ ⧸ H)]
+    (hopen : IsOpen (H : Set Γ)) (t : Γ ⧸ H → Γ)
+    (ht : ∀ q, (t q : Γ ⧸ H) = q)
+    (ρ : ContinuousRep H A V) (σ : ContinuousRep H A V') :
+    Iso (tensorInd H t ht (ρ.tensor σ))
+      ((tensorInd H t ht ρ).tensor (tensorInd H t ht σ)) := sorry
+
+theorem tensorInd_tprod_apply (H : Subgroup Γ) [Fintype (Γ ⧸ H)]
+    (hopen : IsOpen (H : Set Γ)) (t : Γ ⧸ H → Γ)
+    (ht : ∀ q, (t q : Γ ⧸ H) = q)
+    (ρ : ContinuousRep H A V) (σ : ContinuousRep H A V')
+    (x : Γ ⧸ H → V) (y : Γ ⧸ H → V') :
+    (tensorInd_tprod H hopen t ht ρ σ).toLinearEquiv
+      (⨂ₜ[A] q, x q ⊗ₜ[A] y q) = (⨂ₜ[A] q, x q) ⊗ₜ[A] (⨂ₜ[A] q, y q) := by sorry
+
+/-- Each orbit is enumerated once, starting at base c and with positive length.
+This avoids both arbitrary overlapping cycles and division by their lengths. -/
+theorem trace_tensorInd [Module.Free A V] (H : Subgroup Γ) [Fintype (Γ ⧸ H)]
+    (hopen : IsOpen (H : Set Γ)) (t : Γ ⧸ H → Γ) (ht : ∀ q, (t q : Γ ⧸ H) = q)
+    (ρ : ContinuousRep H A V) (g : Γ)
+    {Cy : Type*} [Fintype Cy] (base : Cy → Γ ⧸ H) (len : Cy → ℕ)
+    (hpos : ∀ c, 0 < len c) (hreturn : ∀ c, g ^ len c • base c = base c)
+    (hpartition : Function.Bijective (fun z : Σ c, Fin (len c) => g ^ z.2.val • base z.1)) :
+    LinearMap.trace A (⨂[A] _ : Γ ⧸ H, V) (tensorInd H t ht ρ g) =
+      ∏ c, LinearMap.trace A V (ρ ⟨(t (base c))⁻¹ * g ^ len c * t (base c), by sorry⟩) := by sorry
+
+/-- Universal cycle operator: the return map is placed in slot zero and the
+other slots are cyclically shifted. Its characteristic polynomial is the
+C_{n,l} building block of the packet. -/
+def _root_.TauCeti.G7.cyclicTensor {R M : Type*} [CommRing R] [AddCommGroup M]
+    [Module R M] (l : ℕ) (hl : 0 < l) (B : M →ₗ[R] M) :
+    (⨂[R] _ : Fin l, M) →ₗ[R] (⨂[R] _ : Fin l, M) := sorry
+
+theorem _root_.TauCeti.G7.cyclicTensor_tprod {R M : Type*} [CommRing R] [AddCommGroup M]
+    [Module R M] (l : ℕ) (hl : 0 < l) (B : M →ₗ[R] M) (v : Fin l → M) :
+    TauCeti.G7.cyclicTensor l hl B (⨂ₜ[R] i, v i) =
+      ⨂ₜ[R] i, if i.val = 0 then B (v ⟨l - 1, by omega⟩)
+        else v ⟨i.val - 1, by omega⟩ := by sorry
+
+/-- Splitting form of the universal characteristic-polynomial formula. The
+α's are the roots of the individual cycle operators, and the global roots are
+all their products. No diagonalisation of ρ(g) is assumed. -/
+theorem charpoly_tensorInd [Module.Free A V] (H : Subgroup Γ) [Fintype (Γ ⧸ H)]
+    (hopen : IsOpen (H : Set Γ)) (t : Γ ⧸ H → Γ) (ht : ∀ q, (t q : Γ ⧸ H) = q)
+    (ρ : ContinuousRep H A V) (g : Γ)
+    {Cy : Type*} [Fintype Cy] [DecidableEq Cy] (base : Cy → Γ ⧸ H) (len : Cy → ℕ)
+    (hpos : ∀ c, 0 < len c) (hreturn : ∀ c, g ^ len c • base c = base c)
+    (hpartition : Function.Bijective (fun z : Σ c, Fin (len c) => g ^ z.2.val • base z.1))
+    [Module.Free A (⨂[A] _ : Γ ⧸ H, V)]
+    [∀ c : Cy, Module.Free A (⨂[A] _ : Fin (len c), V)]
+    (α : (c : Cy) → Fin (Module.finrank A V ^ len c) → A)
+    (hα : ∀ c, (G7.cyclicTensor (len c) (hpos c)
+      (ρ ⟨(t (base c))⁻¹ * g ^ len c * t (base c), by sorry⟩)).charpoly =
+        ∏ j, (X - C (α c j))) :
+    (tensorInd H t ht ρ g).charpoly =
+      ∏ j : ((c : Cy) → Fin (Module.finrank A V ^ len c)), (X - C (∏ c, α c (j c))) := by sorry
+
+/-- Coefficient extension is expressed through its pure-tensor action, so no
+choice of topology on scalar tensor products is silently assumed. -/
+def tensorInd_baseChange {B : Type*} [CommRing B] [TopologicalSpace B] [Algebra A B]
+    {M : Type*} [AddCommGroup M] [Module B M] [Module.Finite B M] [Module.Projective B M]
+    [TopologicalSpace M] [IsModuleTopology B M]
+    (H : Subgroup Γ) [Fintype (Γ ⧸ H)] (hopen : IsOpen (H : Set Γ))
+    (t : Γ ⧸ H → Γ) (ht : ∀ q, (t q : Γ ⧸ H) = q)
+    (ρ : ContinuousRep H A V) (σ : ContinuousRep H B M)
+    (e : B ⊗[A] V ≃ₗ[B] M)
+    (he : ∀ g b v, σ g (e (b ⊗ₜ[A] v)) = e (b ⊗ₜ[A] (ρ g v))) :
+    B ⊗[A] (⨂[A] _ : Γ ⧸ H, V) ≃ₗ[B] (⨂[B] _ : Γ ⧸ H, M) := sorry
+
+theorem tensorInd_baseChange_equivariant {B : Type*} [CommRing B] [TopologicalSpace B] [Algebra A B]
+    {M : Type*} [AddCommGroup M] [Module B M] [Module.Finite B M] [Module.Projective B M]
+    [TopologicalSpace M] [IsModuleTopology B M]
+    (H : Subgroup Γ) [Fintype (Γ ⧸ H)] (hopen : IsOpen (H : Set Γ))
+    (t : Γ ⧸ H → Γ) (ht : ∀ q, (t q : Γ ⧸ H) = q)
+    (ρ : ContinuousRep H A V) (σ : ContinuousRep H B M)
+    (e : B ⊗[A] V ≃ₗ[B] M)
+    (he : ∀ g b v, σ g (e (b ⊗ₜ[A] v)) = e (b ⊗ₜ[A] (ρ g v)))
+    (g : Γ) (x : B ⊗[A] (⨂[A] _ : Γ ⧸ H, V)) :
+    tensorInd_baseChange H hopen t ht ρ σ e he
+      ((tensorInd H t ht ρ g).baseChange B x) =
+      tensorInd H t ht σ g (tensorInd_baseChange H hopen t ht ρ σ e he x) := by sorry
+
+/-- Subgroups are nested by taking H inside K and mapping it into Γ. -/
+theorem tensorInd_trans (K : Subgroup Γ) (H : Subgroup K)
+    [Fintype (Γ ⧸ K)] [Fintype (K ⧸ H)]
+    [Fintype (Γ ⧸ H.map K.subtype)]
+    (hK : IsOpen (K : Set Γ)) (hH : IsOpen (H : Set K))
+    (tK : Γ ⧸ K → Γ) (htK : ∀ q, (tK q : Γ ⧸ K) = q)
+    (tH : K ⧸ H → K) (htH : ∀ q, (tH q : K ⧸ H) = q)
+    (t : Γ ⧸ H.map K.subtype → Γ) (ht : ∀ q, (t q : Γ ⧸ H.map K.subtype) = q)
+    (ρ : ContinuousRep H A V) (σ : ContinuousRep (H.map K.subtype) A V)
+    (hσ : ∀ h : H, σ ⟨h.val.val, by sorry⟩ = ρ h) :
+    Nonempty (Iso (tensorInd K tK htK (tensorInd H tH htH ρ)) (tensorInd _ t ht σ)) := by sorry
+
+/-- Unit test: TauCeti.ContinuousRep.asai_restrict. -/
+example (H : Subgroup Γ) [Fintype (Γ ⧸ H)] (h2 : H.index = 2) (hN : H.Normal)
+    (s : Γ) (hs : s ∉ H) (ρ : ContinuousRep H A V) (h : H)
+    (t : Γ ⧸ H → Γ) (ht : ∀ q, (t q : Γ ⧸ H) = q) (v : Γ ⧸ H → V) :
+    Nonempty (Iso (asai H h2 s hs ρ) (tensorInd H t ht ρ)) ∧
+    tensorInd H t ht ρ h (⨂ₜ[A] q, v q) =
+      ⨂ₜ[A] q, ρ ⟨(t q)⁻¹ * h * t q, hN.conj_mem' _ h.property _⟩ (v q) := by sorry
+
+/-- Unit test: TauCeti.ContinuousRep.tensorInd_ne_ind.
+Index two and rank one: tensor induction has rank one, ordinary induction two. -/
+example [Nontrivial A] [Module.Free A V] (H : Subgroup Γ) [Fintype (Γ ⧸ H)]
+    (h2 : H.index = 2) (hV : Module.finrank A V = 1) :
+    Module.finrank A (⨂[A] _ : Γ ⧸ H, V) = 1 ∧
+      Module.finrank A (Γ ⧸ H → V) = 2 := by sorry
+end TensorIndRevision
+end
+end TauCeti.ContinuousRep
+
+
+namespace TauCeti.ContinuousRep
+noncomputable section
+/-- Scalar tensor product along a specified coefficient map, so different
+embeddings do not compete for a global Algebra instance. -/
+def scalarTensorAlong {B E : Type*} [CommRing B] [CommRing E]
+    (σ : B →+* E) (M : Type*) [AddCommGroup M] [Module B M] : Type _ :=
+  letI := σ.toAlgebra
+  E ⊗[B] M
+instance scalarTensorAlong.addCommGroup {B E : Type*} [CommRing B] [CommRing E]
+    (σ : B →+* E) (M : Type*) [AddCommGroup M] [Module B M] :
+    AddCommGroup (scalarTensorAlong σ M) := by unfold scalarTensorAlong; infer_instance
+instance scalarTensorAlong.module {B E : Type*} [CommRing B] [CommRing E]
+    (σ : B →+* E) (M : Type*) [AddCommGroup M] [Module B M] :
+    Module E (scalarTensorAlong σ M) := by unfold scalarTensorAlong; infer_instance
+
+def scalarTensorAlong.tmul {B E : Type*} [CommRing B] [CommRing E]
+    (σ : B →+* E) {M : Type*} [AddCommGroup M] [Module B M] (a : E) (m : M) :
+    scalarTensorAlong σ M :=
+  letI := σ.toAlgebra
+  a ⊗ₜ[B] m
+
+section SplitScalars
+variable {A B E : Type*} [CommRing A] [CommRing B] [CommRing E]
+  [Algebra A B] [Algebra A E]
+  {M : Type*} [AddCommGroup M] [Module B M] [Module A M] [IsScalarTower A B M]
+  {J : Type*} [Fintype J]
+
+/-- Split étale coefficient algebra, specified by its evaluation maps. -/
+def resScalarsBaseChangeEquiv (σ : J → B →ₐ[A] E)
+    (eB : E ⊗[A] B ≃ₐ[E] (J → E))
+    (heB : ∀ b a j, eB (a ⊗ₜ[A] b) j = σ j b * a) :
+    E ⊗[A] M ≃ₗ[E] ((j : J) → scalarTensorAlong (σ j).toRingHom M) := sorry
+
+theorem resScalarsBaseChangeEquiv_tmul (σ : J → B →ₐ[A] E)
+    (eB : E ⊗[A] B ≃ₐ[E] (J → E))
+    (heB : ∀ b a j, eB (a ⊗ₜ[A] b) j = σ j b * a) (a : E) (m : M) (j : J) :
+    resScalarsBaseChangeEquiv σ eB heB (a ⊗ₜ[A] m) j =
+      scalarTensorAlong.tmul (σ j).toRingHom a m := by sorry
+
+/-- The splitting commutes with the original group action on the M factor. -/
+theorem resScalarsBaseChangeEquiv_equivariant
+    {Γ : Type*} [Group Γ] [TopologicalSpace Γ] [TopologicalSpace B]
+    [Module.Finite B M] [Module.Projective B M] [TopologicalSpace M] [IsModuleTopology B M]
+    (ρ : ContinuousRep Γ B M) (σ : J → B →ₐ[A] E)
+    (eB : E ⊗[A] B ≃ₐ[E] (J → E))
+    (heB : ∀ b a j, eB (a ⊗ₜ[A] b) j = σ j b * a) (g : Γ) (a : E) (m : M) :
+    resScalarsBaseChangeEquiv σ eB heB (a ⊗ₜ[A] (ρ g m)) =
+      fun j => scalarTensorAlong.tmul (σ j).toRingHom a (ρ g m) := by sorry
+
+/-- Unit test: TauCeti.ContinuousRep.resScalars_baseChange_split. -/
+example (σ : Fin 2 → B →ₐ[A] E) (eB : E ⊗[A] B ≃ₐ[E] (Fin 2 → E))
+    (heB : ∀ b a j, eB (a ⊗ₜ[A] b) j = σ j b * a) :
+    Nonempty (E ⊗[A] M ≃ₗ[E]
+      (scalarTensorAlong (σ 0).toRingHom M × scalarTensorAlong (σ 1).toRingHom M)) := by sorry
+end SplitScalars
+
+/-- Unit test: TauCeti.ContinuousRep.resScalars_ne_ind.
+The coefficient restriction of the trivial one-dimensional E-representation is
+trivial on K². In contrast index-two induction of the trivial character has
+nontrivial action by an element outside H. -/
+example {K E Γ : Type*} [Field K] [Field E] [Algebra K E] [FiniteDimensional K E]
+    [Group Γ] [TopologicalSpace Γ] [IsTopologicalGroup Γ] [CompactSpace Γ]
+    [TopologicalSpace K] [TopologicalSpace E] [IsTopologicalRing K] [IsTopologicalRing E]
+    [IsModuleTopology K E] (hd : Module.finrank K E = 2)
+    (H : OpenSubgroup Γ) (hH : H.toSubgroup.index = 2)
+    (s : Γ) (hs : s ∉ H) (hchar : ringChar K ≠ 2)
+    :
+    ¬ Nonempty (Iso (resScalars (A := K) (trivial (Γ := Γ) (A := E) (M := E)))
+      (ind H (trivial (Γ := H) (A := K) (M := K)))) := by sorry
+end
+end TauCeti.ContinuousRep
+
+namespace TauCeti.PolarizedRep
+noncomputable section
+variable {Γ : Type*} [Group Γ] [TopologicalSpace Γ]
+  {A B : Type*} [CommRing A] [CommRing B] [TopologicalSpace A] [TopologicalSpace B]
+  [IsTopologicalRing A] [IsTopologicalRing B] [Algebra A B] [ContinuousSMul A B]
+  {M : Type*} [AddCommGroup M] [Module A M] [Module.Finite A M] [Module.Projective A M]
+  [TopologicalSpace M] [IsModuleTopology A M]
+  [TopologicalSpace (B ⊗[A] M)] [IsModuleTopology B (B ⊗[A] M)]
+  [Module.Finite B (B ⊗[A] M)] [Module.Projective B (B ⊗[A] M)]
+
+/-- The extended pairing, multiplier and sign are recorded by the following
+characterization lemmas, rather than merely returning some polarization. -/
+def baseChange {Δ : Subgroup Γ} {ρ : TauCeti.ContinuousRep Δ A M} {c : Γ}
+    (P : PolarizedRep Δ ρ c) : PolarizedRep Δ (ρ.baseChange B) c := sorry
+
+theorem baseChange_pairing {Δ : Subgroup Γ} {ρ : TauCeti.ContinuousRep Δ A M} {c : Γ}
+    (P : PolarizedRep Δ ρ c) (a b : B) (x y : M) :
+    (baseChange (B := B) P).pairing (a ⊗ₜ[A] x) (b ⊗ₜ[A] y) =
+      a * b * algebraMap A B (P.pairing x y) := by sorry
+
+theorem baseChange_multiplier {Δ : Subgroup Γ} {ρ : TauCeti.ContinuousRep Δ A M} {c : Γ}
+    (P : PolarizedRep Δ ρ c) (g : Γ) :
+    ((baseChange (B := B) P).multiplier g : B) = algebraMap A B (P.multiplier g : A) ∧
+      (baseChange (B := B) P).sign = P.sign := by sorry
+end
+end TauCeti.PolarizedRep
+
+
+namespace TauCeti.AlgebraicGroup
+noncomputable section
+open scoped TensorProduct
+variable {K O : Type*} [Field K] [IsAlgClosed K] [CommRing O]
+  [HopfAlgebra K O] [Algebra.FiniteType K O]
+
+/-- Actual Hopf-algebra points carry Mathlib's convolution group law. -/
+def closurePoints (S : Subgroup (WithConv (O →ₐ[K] K))) :
+    Subgroup (WithConv (O →ₐ[K] K)) where
+  carrier := {g | ∀ f ∈ zariskiClosure ((fun g : WithConv (O →ₐ[K] K) => g.ofConv) '' (S : Set (WithConv (O →ₐ[K] K)))), g.ofConv f = 0}
+  one_mem' := by sorry
+  mul_mem' := by sorry
+  inv_mem' := by sorry
+
+/-- Both sides are actual vanishing ideals. The right side defines the closed
+derived group of the closure, rather than an opaque requested proposition. -/
+theorem zariskiClosure_commutator (S : Subgroup (WithConv (O →ₐ[K] K))) :
+    zariskiClosure ((fun g : WithConv (O →ₐ[K] K) => g.ofConv) '' ((⁅S, S⁆ : Subgroup (WithConv (O →ₐ[K] K))) : Set (WithConv (O →ₐ[K] K)))) =
+      zariskiClosure ((fun g : WithConv (O →ₐ[K] K) => g.ofConv) ''
+        ((⁅closurePoints S, closurePoints S⁆ : Subgroup (WithConv (O →ₐ[K] K))) : Set (WithConv (O →ₐ[K] K)))) := by sorry
+end
+end TauCeti.AlgebraicGroup
+
+namespace TauCeti.GaloisRep
+noncomputable section
+variable {Γ K V : Type*} [Group Γ] [TopologicalSpace Γ]
+  [Field K] [TopologicalSpace K]
+  [AddCommGroup V] [Module K V] [Module.Finite K V] [Module.Projective K V]
+  [TopologicalSpace V] [IsModuleTopology K V]
+
+/-- Absolute strong irreducibility is invariant under coefficient extension.
+The carrier comparison and action compatibility specify that extension exactly. -/
+theorem IsStronglyIrreducible.baseChange_iff
+    {E V' : Type*} [Field E] [TopologicalSpace E] [Algebra K E]
+    [AddCommGroup V'] [Module E V'] [Module.Finite E V'] [Module.Projective E V']
+    [TopologicalSpace V'] [IsModuleTopology E V']
+    (ρ : TauCeti.ContinuousRep Γ K V) (ρ' : TauCeti.ContinuousRep Γ E V')
+    (e : E ⊗[K] V ≃ₗ[E] V')
+    (he : ∀ g a v, e (a ⊗ₜ[K] ρ g v) = ρ' g (e (a ⊗ₜ[K] v))) :
+    IsAbsStronglyIrreducible ρ ↔ IsAbsStronglyIrreducible ρ' := by sorry
+
+theorem isAbsStronglyIrreducible_iff_identityComponent [CharZero K]
+    (ρ : TauCeti.ContinuousRep Γ K V)
+    (hss : ρ.toRepresentation.IsSemisimpleRepresentation) :
+    IsAbsStronglyIrreducible ρ ↔
+      (ρ.res ⟨(monodromyIdentityComponent ρ).toSubgroup.subtype,
+        continuous_subtype_val⟩).IsAbsolutelyIrreducible := by sorry
+
+/-- Unit test: TauCeti.GaloisRep.stronglyIrreducible_iff_identityComponent. -/
+example [CharZero K] (ρ : TauCeti.ContinuousRep Γ K V)
+    (hss : ρ.toRepresentation.IsSemisimpleRepresentation) :
+    IsAbsStronglyIrreducible ρ ↔
+      (ρ.res ⟨(monodromyIdentityComponent ρ).toSubgroup.subtype,
+        continuous_subtype_val⟩).IsAbsolutelyIrreducible := by sorry
+
+/-- Unit test: TauCeti.GaloisRep.not_stronglyIrreducible_induced.
+Distinct conjugate characters ensure irreducibility; restriction to H splits
+into two lines. No irreducibility conclusion is assumed as input. -/
+example [CompactSpace Γ] [IsTopologicalGroup Γ] [IsTopologicalRing K]
+    (H : OpenSubgroup Γ) [H.toSubgroup.Normal] (hH : H.toSubgroup.index = 2)
+    (s : Γ) (hs : s ∉ H) (χ : H →ₜ* Kˣ)
+    (hdiff : ∃ h h' : H, (h' : Γ) = s * h * s⁻¹ ∧ χ h' ≠ χ h) :
+    (TauCeti.ContinuousRep.ind H (TauCeti.ContinuousRep.ofCharacter χ)).toRepresentation.IsIrreducible ∧
+      ¬ IsStronglyIrreducible (TauCeti.ContinuousRep.ind H (TauCeti.ContinuousRep.ofCharacter χ)) := by sorry
+
+/-- Unit test: TauCeti.GaloisRep.monodromyGroup_cyclotomic.
+The ideal is zero in the affine matrix line, whose trace on GL1 is G_m. -/
+example (ℓ : ℕ) [Fact ℓ.Prime] (χ : Field.absoluteGaloisGroup ℚ →ₜ* ℚ_[ℓ]ˣ)
+    (hχ : ∀ g, (χ g : ℚ_[ℓ]) = (cyclotomicCharacter ℚ ℓ g : ℤ_[ℓ]))
+    (b : Module.Basis (Fin 1) ℚ_[ℓ] ℚ_[ℓ]) :
+    monodromyGroup (TauCeti.ContinuousRep.ofCharacter χ) b = ⊥ := by sorry
+end
+end TauCeti.GaloisRep
+
+namespace TauCeti.G7
+noncomputable section
+variable {ι K : Type*} [Fintype ι] [DecidableEq ι] [Field K]
+
+/-- Zariski topology on GL, induced by matrix polynomial principal opens. -/
+@[instance_reducible] def matrixZariskiTopology : TopologicalSpace (GL ι K) :=
+  TopologicalSpace.generateFrom {U | ∃ f : MvPolynomial (ι × ι) K,
+    U = {g : GL ι K | MvPolynomial.eval (fun ij => (g : Matrix ι ι K) ij.1 ij.2) f ≠ 0}}
+
+/-- Zariski closure of a matrix subgroup, as its actual K-points. -/
+def matrixClosure (S : Subgroup (GL ι K)) : Subgroup (GL ι K) where
+  carrier := {g | ∀ f : MvPolynomial (ι × ι) K,
+    (∀ s ∈ S, MvPolynomial.eval (fun ij => (s : Matrix ι ι K) ij.1 ij.2) f = 0) →
+      MvPolynomial.eval (fun ij => (g : Matrix ι ι K) ij.1 ij.2) f = 0}
+  one_mem' := by sorry
+  mul_mem' := by sorry
+  inv_mem' := by sorry
+end
+end TauCeti.G7
+
+namespace TauCeti.GaloisRep
+noncomputable section
+/-- Explicit reductivity criterion: the geometric identity component has no
+nontrivial connected closed normal subgroup of unipotent matrices. ReductiveGroups
+supplies the equivalence with its reductive group-scheme predicate. -/
+theorem isReductive_identityComponent_of_semisimple
+    {Γ K V : Type*} [Group Γ] [TopologicalSpace Γ] [Field K] [CharZero K] [IsAlgClosed K]
+    [TopologicalSpace K] [AddCommGroup V] [Module K V] [Module.Finite K V]
+    [Module.Projective K V] [TopologicalSpace V] [IsModuleTopology K V]
+    {ι : Type*} [Fintype ι] [DecidableEq ι]
+    (ρ : TauCeti.ContinuousRep Γ K V) (b : Module.Basis ι K V)
+    (hss : ρ.toRepresentation.IsSemisimpleRepresentation)
+    (r : Γ →* GL ι K)
+    (hr : ∀ g, (r g : Matrix ι ι K) = LinearMap.toMatrix b b (ρ g))
+    (U : Subgroup (G7.matrixClosure
+      (r.comp (monodromyIdentityComponent ρ).toSubgroup.subtype).range)) [U.Normal]
+    (hclosed : letI := G7.matrixZariskiTopology (ι := ι) (K := K)
+      IsClosed ((fun u : ↥(G7.matrixClosure
+      (r.comp (monodromyIdentityComponent ρ).toSubgroup.subtype).range) => (u : GL ι K)) '' (U : Set ↥(G7.matrixClosure
+      (r.comp (monodromyIdentityComponent ρ).toSubgroup.subtype).range))))
+    (hconn : letI := G7.matrixZariskiTopology (ι := ι) (K := K)
+      IsPreconnected ((fun u : ↥(G7.matrixClosure
+      (r.comp (monodromyIdentityComponent ρ).toSubgroup.subtype).range) => (u : GL ι K)) '' (U : Set ↥(G7.matrixClosure
+      (r.comp (monodromyIdentityComponent ρ).toSubgroup.subtype).range))))
+    (hunip : ∀ u ∈ U, IsNilpotent ((u.val : Matrix ι ι K) - 1)) : U = ⊥ := by sorry
+end
+end TauCeti.GaloisRep
+
+
+namespace TauCeti.CHTGroup
+noncomputable section
+variable {Γ : Type*} [Group Γ] {R : Type*} [CommRing R]
+  {n : Type*} [Fintype n] [DecidableEq n]
+
+/-- Extract the GL component on a subgroup landing in the plus component. -/
+def plusPart (Δ : Subgroup Γ) (r : Γ →* CHTGroup n R)
+    (hΔ : ∀ g ∈ Δ, (r g).right = 1) : Δ →* GL n R where
+  toFun g := (r g).left.1
+  map_one' := by sorry
+  map_mul' := by sorry
+
+/-- CHT08 pp. 9–10, construction following Lemma 2.1.2. H must meet the
+nonidentity component. Its multiplier is the restriction of a character of Γ.
+The rank is n[Γ:H], not 2n[Γ:H]. -/
+def ind (Δ H : Subgroup Γ) (hΔ : Δ.index = 2) [Fintype (Γ ⧸ H)] [DecidableEq (Γ ⧸ H)]
+    (γ₀ : H) (hγ₀ : (γ₀ : Γ) ∉ Δ) (χ : Γ →* Rˣ)
+    (rH : H →* CHTGroup n R)
+    (hplus : ∀ h : H, (h : Γ) ∈ Δ ↔ (rH h).right = 1)
+    (hν : (nu n R).comp rH = χ.comp H.subtype) :
+    Γ →* CHTGroup (n × (Γ ⧸ H)) R := sorry
+
+theorem ind_nu (Δ H : Subgroup Γ) (hΔ : Δ.index = 2) [Fintype (Γ ⧸ H)] [DecidableEq (Γ ⧸ H)]
+    (γ₀ : H) (hγ₀ : (γ₀ : Γ) ∉ Δ) (χ : Γ →* Rˣ)
+    (rH : H →* CHTGroup n R)
+    (hplus : ∀ h : H, (h : Γ) ∈ Δ ↔ (rH h).right = 1)
+    (hν : (nu n R).comp rH = χ.comp H.subtype) :
+    (nu (n × (Γ ⧸ H)) R).comp (ind Δ H hΔ γ₀ hγ₀ χ rH hplus hν) = χ := by sorry
+
+/-- Characterization of the induced plus component on the actual coinduced
+function module. The source component is extracted on H∩Δ and transported
+into Δ. Right translation is Mathlib's coinduced action. -/
+theorem ind_plus (Δ H : Subgroup Γ) (hΔ : Δ.index = 2) [Fintype (Γ ⧸ H)] [DecidableEq (Γ ⧸ H)]
+    (γ₀ : H) (hγ₀ : (γ₀ : Γ) ∉ Δ) (χ : Γ →* Rˣ)
+    (rH : H →* CHTGroup n R)
+    (hplus : ∀ h : H, (h : Γ) ∈ Δ ↔ (rH h).right = 1)
+    (hν : (nu n R).comp rH = χ.comp H.subtype)
+    (j : (Δ.comap H.subtype) →* Δ)
+    (hj : ∀ h, (j h : Γ) = (h.val : Γ))
+    (hp : ∀ h ∈ Δ.comap H.subtype, (rH h).right = 1) :
+    ∃ e : Representation.coindV j (TauCeti.G7.matrixRep (plusPart (Δ.comap H.subtype) rH hp))
+      ≃ₗ[R] ((n × (Γ ⧸ H)) → R),
+      ∀ (δ : Δ) f,
+        e (Representation.coind j (TauCeti.G7.matrixRep (plusPart (Δ.comap H.subtype) rH hp)) δ f) =
+          TauCeti.G7.matrixRep
+            (plusPart Δ (ind Δ H hΔ γ₀ hγ₀ χ rH hplus hν) (by sorry)) δ (e f) := by sorry
+
+/-- Unit test: TauCeti.CHTGroup.equivTriple_trivial. For the order-two group,
+the pure j inclusion corresponds to the trivial plus representation, multiplier
+-1 on the generator, and the identity pairing. -/
+example (R : Type*) [CommRing R] :
+    let Γ := Multiplicative (ZMod 2)
+    let r : Γ →* CHTGroup (Fin 1) R := SemidirectProduct.inr
+    let c : Γ := Multiplicative.ofAdd (1 : ZMod 2)
+    ((equivTriple (Fin 1) R (⊥ : Subgroup Γ) (by sorry) c (by sorry))
+      ⟨r, by sorry⟩).val =
+      (1, (nu (Fin 1) R).comp r, 1) := by sorry
+end
+end TauCeti.CHTGroup
+
+
+namespace TauCeti.G7
+noncomputable section
+variable {n E : Type*} [Fintype n] [DecidableEq n] [Field E] [CharZero E]
+/-- Identity component of the actual closed matrix subgroup, in the Zariski topology.
+The geometric-component supplier proves this point description over local E. -/
+def matrixIdentityComponent (S : Subgroup (GL n E)) : Subgroup (GL n E) where
+  carrier := letI := matrixZariskiTopology (ι := n) (K := E)
+    connectedComponentIn (matrixClosure S : Set (GL n E)) 1
+  one_mem' := by sorry
+  mul_mem' := by sorry
+  inv_mem' := by sorry
+
+/-- Tensor product homomorphism on the actual matrix units. -/
+def tensorGL {K : Type*} [CommRing K] :
+    GL (Fin 2) K × GL (Fin 2) K →* GL (Fin 2 × Fin 2) K where
+  toFun p := ⟨Matrix.kronecker (p.1 : Matrix (Fin 2) (Fin 2) K) (p.2 : Matrix (Fin 2) (Fin 2) K),
+    Matrix.kronecker ((p.1⁻¹ : GL (Fin 2) K) : Matrix (Fin 2) (Fin 2) K) ((p.2⁻¹ : GL (Fin 2) K) : Matrix (Fin 2) (Fin 2) K), by sorry, by sorry⟩
+  map_one' := by sorry
+  map_mul' := by sorry
+end
+end TauCeti.G7
+
+namespace TauCeti.ResidualImage
+noncomputable section
+variable {n : Type} [Fintype n] [DecidableEq n]
+  {O E : Type*} [CommRing O] [Field E] [CharZero E] [Algebra O E]
+
+theorem isEnormousCharZero_of_zariskiClosure (H : Subgroup (GL n O))
+    (hsplit : ∀ h ∈ H, ∃ s : Multiset E,
+      Matrix.charpoly ((h : Matrix n n O).map (algebraMap O E)) = (s.map fun a => X - C a).prod)
+    (hspan : Submodule.span E ((fun g : GL n E => (g : Matrix n n E)) ''
+      (G7.matrixIdentityComponent (H.map (Matrix.GeneralLinearGroup.map (algebraMap O E))) :
+        Set (GL n E))) = ⊤)
+    (hreg : ∃ g ∈ G7.matrixIdentityComponent (H.map (Matrix.GeneralLinearGroup.map (algebraMap O E))),
+      ∃ s : Multiset E, s.Nodup ∧ Matrix.charpoly (g : Matrix n n E) =
+        (s.map fun a => X - C a).prod) : IsEnormousCharZero (E := E) H := by sorry
+
+theorem isEnormousCharZero_of_derived (H : Subgroup (GL n O))
+    (hsplit : ∀ h ∈ H, ∃ s : Multiset E,
+      Matrix.charpoly ((h : Matrix n n O).map (algebraMap O E)) = (s.map fun a => X - C a).prod)
+    (G₀ : Subgroup (GL n E))
+    (hG₀ : G₀ = G7.matrixIdentityComponent (H.map (Matrix.GeneralLinearGroup.map (algebraMap O E))))
+    (hspan : Submodule.span E ((fun g : GL n E => (g : Matrix n n E)) ''
+      (G7.matrixClosure (⁅G₀, G₀⁆ : Subgroup (GL n E)) : Set (GL n E))) = ⊤)
+    (hreg : ∃ g ∈ G7.matrixClosure (⁅G₀, G₀⁆ : Subgroup (GL n E)),
+      ∃ s : Multiset E, s.Nodup ∧ Matrix.charpoly (g : Matrix n n E) =
+        (s.map fun a => X - C a).prod) : IsEnormousCharZero (E := E) H := by sorry
+
+/-- Unit test: TauCeti.ResidualImage.not_isEnormous_Q8_tensor_Q8.
+Two explicit quaternion matrices generate Q8. Their tensor-square image is
+adequate in odd characteristic but has no regular semisimple element in rank four. -/
+example {K : Type} [Field K] [IsAlgClosed K] (p : ℕ) [Fact p.Prime] [CharP K p]
+    (hp : p ≠ 2) (i : K) (hi : i ^ 2 = -1)
+    (a b : GL (Fin 2) K)
+    (ha : (a : Matrix (Fin 2) (Fin 2) K) = !![i, 0; 0, -i])
+    (hb : (b : Matrix (Fin 2) (Fin 2) K) = !![0, 1; -1, 0]) :
+    let Q := Subgroup.closure ({a, b} : Set (GL (Fin 2) K))
+    let H := (Q.prod Q).map G7.tensorGL
+    IsAdequate H ∧ ¬ IsEnormous H := by sorry
+end
+end TauCeti.ResidualImage
+
+
+namespace TauCeti.G7
+noncomputable section
+/-- Reorder (x1,x2,y1,y2) as (x1,y1,x2,y2). This carries J4 to
+block-diagonal symplectic planes, where the wreath construction is explicit. -/
+def blockOrder {K : Type} [CommRing K] : GL (Fin 2 ⊕ Fin 2) K :=
+  ⟨fun i j => if (match i with
+    | Sum.inl k => if k = 0 then Sum.inl 0 else Sum.inr 0
+    | Sum.inr k => if k = 0 then Sum.inl 1 else Sum.inr 1) = j then 1 else 0,
+    fun i j => if (match i with
+    | Sum.inl k => if k = 0 then Sum.inl 0 else Sum.inr 0
+    | Sum.inr k => if k = 0 then Sum.inl 1 else Sum.inr 1) = j then 1 else 0,
+    by sorry, by sorry⟩
+
+def sl2BlockEmbed {K : Type} [Field K] :
+    Matrix.SpecialLinearGroup (Fin 2) K × Matrix.SpecialLinearGroup (Fin 2) K →*
+      TauCeti.SimilitudeGroup.GSp 2 K where
+  toFun p := ⟨(⟨(blockOrder (K := K) : Matrix (Fin 2 ⊕ Fin 2) (Fin 2 ⊕ Fin 2) K) *
+      Matrix.fromBlocks (p.1 : Matrix (Fin 2) (Fin 2) K) 0 0
+        (p.2 : Matrix (Fin 2) (Fin 2) K) * (blockOrder (K := K) : Matrix _ _ K),
+      (blockOrder (K := K) : Matrix (Fin 2 ⊕ Fin 2) (Fin 2 ⊕ Fin 2) K) *
+        Matrix.fromBlocks (p.1⁻¹ : Matrix (Fin 2) (Fin 2) K) 0 0
+          (p.2⁻¹ : Matrix (Fin 2) (Fin 2) K) * (blockOrder (K := K) : Matrix _ _ K),
+      by sorry, by sorry⟩, 1), by sorry⟩
+  map_one' := by sorry
+  map_mul' := by sorry
+
+def sl2BlockSwap {K : Type} [Field K] : TauCeti.SimilitudeGroup.GSp 2 K :=
+  ⟨(⟨(blockOrder (K := K) : Matrix (Fin 2 ⊕ Fin 2) (Fin 2 ⊕ Fin 2) K) *
+      Matrix.fromBlocks 0 (1 : Matrix (Fin 2) (Fin 2) K) 1 0 *
+        (blockOrder (K := K) : Matrix _ _ K),
+    (blockOrder (K := K) : Matrix (Fin 2 ⊕ Fin 2) (Fin 2 ⊕ Fin 2) K) *
+      Matrix.fromBlocks 0 (1 : Matrix (Fin 2) (Fin 2) K) 1 0 *
+        (blockOrder (K := K) : Matrix _ _ K), by sorry, by sorry⟩, 1), by sorry⟩
+
+def sl2WreathImage (K : Type) [Field K] : Subgroup (TauCeti.SimilitudeGroup.GSp 2 K) :=
+  Subgroup.closure (Set.range (sl2BlockEmbed (K := K)) ∪ {sl2BlockSwap (K := K)})
+end
+end TauCeti.G7
+
+namespace TauCeti.ResidualImage.GSp4
+/-- Unit test: TauCeti.ResidualImage.GSp4.isWeaklyEnormous_not_isEnormous_wreath_ZMod5. -/
+example [Fact (Nat.Prime 5)] :
+    IsWeaklyEnormous (G7.sl2WreathImage (ZMod 5)) ∧
+      ¬ IsEnormous (G7.sl2WreathImage (ZMod 5)) := by sorry
+
+/-- Unit test: TauCeti.ResidualImage.GSp4.isEnormous_SL2wr_ZMod3.
+The quotient condition of the GL4 notion must not be added to the GSp4 definition. -/
+example [Fact (Nat.Prime 3)] :
+    IsEnormous (G7.sl2WreathImage (ZMod 3)) ∧
+      ∃ N : Subgroup (G7.sl2WreathImage (ZMod 3)), N.Normal ∧
+        N.index = 3 := by sorry
+end TauCeti.ResidualImage.GSp4
+
+
+namespace TauCeti.GSp4Rep
+noncomputable section
+variable {Γ K : Type} [Group Γ] [TopologicalSpace Γ] [IsTopologicalGroup Γ]
+  [CompactSpace Γ] [Field K] [TopologicalSpace K] [IsTopologicalRing K]
+
+/-- The Asai summand comes from the symmetric cross terms, hence carries no
+extra quadratic sign. The specified symplectic induction determines ν. -/
+theorem adZero_symplecticInd (h2 : (2 : K) ≠ 0)
+    (H : OpenSubgroup Γ) [Fintype (Γ ⧸ H.toSubgroup)]
+    (hH : H.toSubgroup.index = 2) (s : Γ) (hs : s ∉ H)
+    (ρ : H →ₜ* GL (Fin 2) K) (χ : Γ →* Kˣ)
+    (hχ : ∀ h : H, Matrix.GeneralLinearGroup.det (ρ h) = χ h) (ε : ℤˣ)
+    (r : GSp4Rep Γ K)
+    (hr : r.toHom.toMonoidHom = symplecticInd H.toSubgroup hH s hs ρ.toMonoidHom χ hχ ε) :
+    ∃ e : G7.lieZero (G7.J4 K) ≃ₗ[K]
+      ((⨂[K] _ : Γ ⧸ H.toSubgroup, (Fin 2 → K)) ×
+        Representation.coindV H.toSubgroup.subtype (G7.adZeroRep ρ.toMonoidHom)),
+      ∀ (g : Γ) x, e (r.adZero g x) =
+        (((G7.gsp4Nu (r.toHom g))⁻¹ : Kˣ).val •
+          (TauCeti.ContinuousRep.asai H.toSubgroup hH s hs
+            (TauCeti.ContinuousRep.ofFramed ρ) g (e x).1),
+          Representation.coind H.toSubgroup.subtype (G7.adZeroRep ρ.toMonoidHom) g (e x).2) := by sorry
+
+/-- Unit test: TauCeti.GSp4Rep.ad_not_adZero_add_nu. Comparing at c distinguishes
+the trivial scalar line from the nontrivial multiplier character. -/
+example (h2 : (2 : K) ≠ 0) (r : GSp4Rep Γ K) (c : Γ) (hc : c ^ 2 = 1)
+    (hodd : G7.gsp4Nu (r.toHom c) = -1) :
+    ¬ ∃ e : TauCeti.SimilitudeGroup.lie (G7.J4 K) ≃ₗ[K] (G7.lieZero (G7.J4 K) × K),
+      ∀ g x, e (r.ad g x) =
+        (r.adZero g (e x).1, (G7.gsp4Nu (r.toHom g) : K) * (e x).2) := by sorry
+end
+end TauCeti.GSp4Rep
+
+
+namespace TauCeti.Conductor
+noncomputable section
+variable {K : Type*} [Field K] [ValuativeRel K] [TopologicalSpace K]
+  [IsNonarchimedeanLocalField K] (ℓ : ℕ) [Fact ℓ.Prime]
+
+/-- Unit test: TauCeti.Conductor.artinConductor_tateCurve.
+Tate uniformization supplies this nonzero tame Kummer cocycle; the conductor
+calculation uses its actual inertia and wild-inertia action. -/
+example (hℓ : (ℓ : 𝓀[K]) ≠ 0)
+    (ρ : TauCeti.ContinuousRep (Field.absoluteGaloisGroup K) ℚ_[ℓ] (Fin 2 → ℚ_[ℓ]))
+    (c : Field.absoluteGaloisGroup K → ℚ_[ℓ])
+    (hI : ∀ σ ∈ TauCeti.GaloisRep.inertiaGroup K,
+      LinearMap.toMatrix' (ρ σ) = !![1, c σ; 0, 1])
+    (hne : ∃ σ ∈ TauCeti.GaloisRep.inertiaGroup K, c σ ≠ 0)
+    (hP : ∀ σ ∈ TauCeti.GaloisRep.localWildInertiaGroup K, ρ σ = LinearMap.id) :
+    artinConductor ρ = 1 := by sorry
+
+/-- Unit test: TauCeti.Conductor.artinConductor_lift_fails.
+The scaled lattice multiplies the tame cocycle by ℓ. Reduction of its inertia
+matrices is trivial, but the original cocycle is nonzero. -/
+example (hℓ : (ℓ : 𝓀[K]) ≠ 0)
+    (ρ : TauCeti.ContinuousRep (Field.absoluteGaloisGroup K) ℚ_[ℓ] (Fin 2 → ℚ_[ℓ]))
+    (rhoBar : TauCeti.ContinuousRep (Field.absoluteGaloisGroup K) (ZMod ℓ) (Fin 2 → ZMod ℓ))
+    (b : Field.absoluteGaloisGroup K → ℤ_[ℓ])
+    (hI : ∀ σ ∈ TauCeti.GaloisRep.inertiaGroup K,
+      LinearMap.toMatrix' (ρ σ) = !![1, (ℓ : ℚ_[ℓ]) * (b σ : ℚ_[ℓ]); 0, 1])
+    (hred : ∀ σ ∈ TauCeti.GaloisRep.inertiaGroup K,
+      LinearMap.toMatrix' (rhoBar σ) = !![1, PadicInt.toZMod ((ℓ : ℤ_[ℓ]) * b σ); 0, 1])
+    (hne : ∃ σ ∈ TauCeti.GaloisRep.inertiaGroup K, b σ ≠ 0)
+    (hP : ∀ σ ∈ TauCeti.GaloisRep.localWildInertiaGroup K, ρ σ = LinearMap.id) :
+    artinConductor ρ = 1 ∧ artinConductor rhoBar = 0 := by sorry
+
+/-- Unit test: TauCeti.Conductor.artinConductor_eq_wdConductor_tate.
+The normalized rank-one monodromy is not inferred from an arbitrary group map. -/
+example (hℓ : (ℓ : 𝓀[K]) ≠ 0) {W : Type*} [Group W] [TopologicalSpace W]
+    (ι : W →ₜ* Field.absoluteGaloisGroup K) (deg : W →* Multiplicative ℤ)
+    (hι : Function.Injective ι) (hI : deg.ker.map ι.toMonoidHom = TauCeti.GaloisRep.inertiaGroup K)
+    (hc : IsCompact (deg.ker : Set W)) (q : ℕ) (hq : q = Nat.card 𝓀[K])
+    (ρ : TauCeti.ContinuousRep (Field.absoluteGaloisGroup K) ℚ_[ℓ] (Fin 2 → ℚ_[ℓ]))
+    (c : Field.absoluteGaloisGroup K → ℚ_[ℓ])
+    (hρI : ∀ σ ∈ TauCeti.GaloisRep.inertiaGroup K,
+      LinearMap.toMatrix' (ρ σ) = !![1, c σ; 0, 1])
+    (hne : ∃ σ ∈ TauCeti.GaloisRep.inertiaGroup K, c σ ≠ 0)
+    (hP : ∀ σ ∈ TauCeti.GaloisRep.localWildInertiaGroup K, ρ σ = LinearMap.id)
+    (F : W) (hF : deg F = Multiplicative.ofAdd (-1 : ℤ))
+    (t : deg.ker →* Multiplicative ℤ_[ℓ]) (ht : Function.Surjective t)
+    (htP : ∀ σ : deg.ker, ι σ ∈ TauCeti.GaloisRep.localWildInertiaGroup K → t σ = 1)
+    (htame : TauCeti.WeilDeligneRep.IsTameCharacter deg q t) :
+    artinConductor ρ = 1 ∧
+      wdConductor K ι (TauCeti.WeilDeligneRep.ofEllAdic (q := q) (ρ.res ι) F hF t) = 1 := by sorry
+end
+end TauCeti.Conductor
+
+
+namespace TauCeti.LocalWeil
+noncomputable section
+variable (K : Type) [Field K] [ValuativeRel K] [TopologicalSpace K]
+  [IsNonarchimedeanLocalField K]
+/-- Requested ClassFieldTheory layer 9 export, described on actual G_K. Its topology
+makes inertia open with its profinite topology and the integer quotient discrete. -/
+def group : Subgroup (Field.absoluteGaloisGroup K) :=
+  TauCeti.GaloisRep.inertiaGroup K ⊔ Subgroup.zpowers (TauCeti.GaloisRep.arithFrobLift K)
+instance group.topology : TopologicalSpace (group K) := sorry
+instance group.topologicalGroup : IsTopologicalGroup (group K) := sorry
+/-- Requested local-CFT export, with uniformizers sent to geometric Frobenius.
+It is the arithmetic reciprocity character composed with inversion on K×. -/
+def geometricArtin : Kˣ →* Abelianization (group K) := sorry
+end
+end TauCeti.LocalWeil
+
+namespace TauCeti.WeilDeligneRep
+noncomputable section
+/-- Requested AL.1 local constant of a quasi-character. The ramified formula
+below characterizes its normalization on actual units and the Haar measure. -/
+def tateLocalConstant (K : Type) [Field K] [ValuativeRel K] [TopologicalSpace K]
+    [IsNonarchimedeanLocalField K] [MeasurableSpace K]
+    (χ : Kˣ →* ℂˣ) (ψ : AddChar K ℂ) (μ : MeasureTheory.Measure K) : ℂˣ := sorry
+
+/-- The actual data to which Deligne's four axioms apply. The local Weil carrier
+is the specified subgroup of G_K, not an arbitrary abstract group. -/
+structure EpsilonInput where
+  K : Type
+  [fieldK : Field K]
+  [valuationK : ValuativeRel K]
+  [topologyK : TopologicalSpace K]
+  [localK : IsNonarchimedeanLocalField K]
+  [measurableK : MeasurableSpace K]
+  ψ : AddChar K ℂ
+  continuous_ψ : Continuous ψ
+  nontrivial_ψ : ∃ x, ψ x ≠ 1
+  μ : MeasureTheory.Measure K
+  [haar_μ : μ.IsAddHaarMeasure]
+  V : Type
+  [addV : AddCommGroup V]
+  [moduleV : Module ℂ V]
+  [finiteV : FiniteDimensional ℂ V]
+  r : Representation ℂ (TauCeti.LocalWeil.group K) V
+  smooth : IsOpen {w | r w = LinearMap.id}
+attribute [instance] EpsilonInput.fieldK EpsilonInput.valuationK EpsilonInput.topologyK
+  EpsilonInput.localK EpsilonInput.measurableK EpsilonInput.haar_μ EpsilonInput.addV
+  EpsilonInput.moduleV EpsilonInput.finiteV
+
+def EpsilonInput.withRep (b : EpsilonInput) {V : Type} [AddCommGroup V]
+    [Module ℂ V] [FiniteDimensional ℂ V]
+    (r : Representation ℂ (TauCeti.LocalWeil.group b.K) V)
+    (h : IsOpen {w | r w = LinearMap.id}) : EpsilonInput :=
+  { b with V := V, addV := inferInstance, moduleV := inferInstance,
+           finiteV := inferInstance, r := r, smooth := h }
+
+def EpsilonInput.withMeasure (b : EpsilonInput) (μ : MeasureTheory.Measure b.K)
+    [μ.IsAddHaarMeasure] : EpsilonInput := {b with μ := μ, haar_μ := inferInstance}
+
+/-- The conditions are explicit equations on exact sequences, measures,
+virtual dimension-zero inductions and characters. This is not an opaque Prop stub. -/
+structure EpsilonAxioms (ε : EpsilonInput → ℂˣ) : Prop where
+  iso : ∀ (b : EpsilonInput) {V : Type} [AddCommGroup V] [Module ℂ V]
+    [FiniteDimensional ℂ V] (r : Representation ℂ (TauCeti.LocalWeil.group b.K) V)
+    (h : IsOpen {w | r w = LinearMap.id}) (e : b.V ≃ₗ[ℂ] V),
+    (∀ w x, e (b.r w x) = r w (e x)) → ε b = ε (b.withRep r h)
+  exactSequence : ∀ (b : EpsilonInput) {V' V'' : Type} [AddCommGroup V'] [Module ℂ V']
+    [FiniteDimensional ℂ V'] [AddCommGroup V''] [Module ℂ V''] [FiniteDimensional ℂ V'']
+    (r' : Representation ℂ (TauCeti.LocalWeil.group b.K) V')
+    (r'' : Representation ℂ (TauCeti.LocalWeil.group b.K) V'')
+    (h' : IsOpen {w | r' w = LinearMap.id}) (h'' : IsOpen {w | r'' w = LinearMap.id})
+    (f : V' →ₗ[ℂ] b.V) (g : b.V →ₗ[ℂ] V''), Function.Injective f → Function.Surjective g →
+    LinearMap.range f = LinearMap.ker g →
+    (∀ w, f ∘ₗ r' w = b.r w ∘ₗ f) → (∀ w, g ∘ₗ b.r w = r'' w ∘ₗ g) →
+      ε b = ε (b.withRep r' h') * ε (b.withRep r'' h'')
+  measure : ∀ (b : EpsilonInput) (a : NNReal) (_ha : 0 < a)
+    (hhaar : (((a : ENNReal) • b.μ)).IsAddHaarMeasure),
+    letI := hhaar
+    (ε (b.withMeasure ((a : ENNReal) • b.μ)) : ℂ) =
+      (a : ℂ) ^ Module.finrank ℂ b.V * ε b
+  induced : ∀ (bK bL : EpsilonInput) [Algebra bK.K bL.K] [FiniteDimensional bK.K bL.K]
+    [Algebra (AlgebraicClosure bK.K) (AlgebraicClosure bL.K)]
+    [IsScalarTower bK.K (AlgebraicClosure bK.K) (AlgebraicClosure bL.K)]
+    (φ : TauCeti.LocalWeil.group bL.K →* TauCeti.LocalWeil.group bK.K)
+    (_hφ : ∀ w, (φ w : Field.absoluteGaloisGroup bK.K) =
+      TauCeti.GaloisRep.localEmbeddingMap bK.K bL.K w)
+    (_hψ : ∀ x, bL.ψ x = bK.ψ (Algebra.trace bK.K bL.K x))
+    {V' : Type} [AddCommGroup V'] [Module ℂ V'] [FiniteDimensional ℂ V']
+    (r' : Representation ℂ (TauCeti.LocalWeil.group bL.K) V')
+    (h' : IsOpen {w | r' w = LinearMap.id})
+    (hfinite : FiniteDimensional ℂ (Representation.coindV φ bL.r))
+    (hfinite' : FiniteDimensional ℂ (Representation.coindV φ r')),
+    letI := hfinite
+    letI := hfinite'
+    ∀ (hsmooth : IsOpen {w | Representation.coind φ bL.r w = LinearMap.id})
+      (hsmooth' : IsOpen {w | Representation.coind φ r' w = LinearMap.id}),
+      Module.finrank ℂ bL.V = Module.finrank ℂ V' →
+      ε (bK.withRep (Representation.coind φ bL.r) hsmooth) /
+        ε (bK.withRep (Representation.coind φ r') hsmooth') = ε bL / ε (bL.withRep r' h')
+  character : ∀ (b : EpsilonInput) (χW : TauCeti.LocalWeil.group b.K →* ℂˣ)
+    (χK : b.Kˣ →* ℂˣ) (e : b.V ≃ₗ[ℂ] ℂ),
+    (∀ w x, e (b.r w x) = (χW w : ℂ) * e x) →
+    (∀ x, Abelianization.lift χW (TauCeti.LocalWeil.geometricArtin b.K x) = χK x) →
+      ε b = tateLocalConstant b.K χK b.ψ b.μ
+
+/-- Deligne 4.1: uniqueness across the full family of local fields, not merely
+uniqueness for a fixed field with induction axiom omitted. -/
+theorem epsilonWeil_unique (ε : EpsilonInput → ℂˣ) (h : EpsilonAxioms ε)
+    (b : EpsilonInput) : ε b = epsilonWeil b.K b.ψ b.μ b.r := by sorry
+end
+end TauCeti.WeilDeligneRep
+
+
+namespace TauCeti.WeilDeligneRep
+noncomputable section
+def epsilonFamily (b : EpsilonInput) : ℂˣ := epsilonWeil b.K b.ψ b.μ b.r
+
+/-- Deligne 4.1(3), virtual class [r]-[r'] of dimension zero.
+The ratio is independent of either Haar measure by the scaling axiom. -/
+theorem epsilonWeil_induced : ∀ (bK bL : EpsilonInput) [Algebra bK.K bL.K] [FiniteDimensional bK.K bL.K]
+    [Algebra (AlgebraicClosure bK.K) (AlgebraicClosure bL.K)]
+    [IsScalarTower bK.K (AlgebraicClosure bK.K) (AlgebraicClosure bL.K)]
+    (φ : TauCeti.LocalWeil.group bL.K →* TauCeti.LocalWeil.group bK.K)
+    (hφ : ∀ w, (φ w : Field.absoluteGaloisGroup bK.K) =
+      TauCeti.GaloisRep.localEmbeddingMap bK.K bL.K w)
+    (hψ : ∀ x, bL.ψ x = bK.ψ (Algebra.trace bK.K bL.K x))
+    {V' : Type} [AddCommGroup V'] [Module ℂ V'] [FiniteDimensional ℂ V']
+    (r' : Representation ℂ (TauCeti.LocalWeil.group bL.K) V')
+    (h' : IsOpen {w | r' w = LinearMap.id})
+    (hfinite : FiniteDimensional ℂ (Representation.coindV φ bL.r))
+    (hfinite' : FiniteDimensional ℂ (Representation.coindV φ r')),
+    letI := hfinite
+    letI := hfinite'
+    ∀ (hsmooth : IsOpen {w | Representation.coind φ bL.r w = LinearMap.id})
+      (hsmooth' : IsOpen {w | Representation.coind φ r' w = LinearMap.id}),
+      Module.finrank ℂ bL.V = Module.finrank ℂ V' →
+      epsilonFamily (bK.withRep (Representation.coind φ bL.r) hsmooth) /
+        epsilonFamily (bK.withRep (Representation.coind φ r') hsmooth') = epsilonFamily bL / epsilonFamily (bL.withRep r' h') := by sorry
+
+/-- Deligne 4.1(4), comparison through geometric local reciprocity. -/
+theorem epsilonWeil_character : ∀ (b : EpsilonInput) (χW : TauCeti.LocalWeil.group b.K →* ℂˣ)
+    (χK : b.Kˣ →* ℂˣ) (e : b.V ≃ₗ[ℂ] ℂ),
+    (∀ w x, e (b.r w x) = (χW w : ℂ) * e x) →
+    (∀ x, Abelianization.lift χW (TauCeti.LocalWeil.geometricArtin b.K x) = χK x) →
+      epsilonFamily b = tateLocalConstant b.K χK b.ψ b.μ := by sorry
+end
+end TauCeti.WeilDeligneRep
+
+namespace TauCeti.WeilDeligneRep
+noncomputable section
+attribute [local instance] Classical.propDecidable
+variable (b : EpsilonInput)
+
+/-- Deligne 5.5.3 and 8.12: the character is specified by the actual Weil
+inclusion and the integer degree, with arithmetic Frobenius of degree +1. -/
+theorem epsilon_unramified_twist
+    (deg : TauCeti.LocalWeil.group b.K →* Multiplicative ℤ)
+    (ι : TauCeti.LocalWeil.group b.K →ₜ* Field.absoluteGaloisGroup b.K)
+    (hι : ∀ w, ι w = w.val)
+    (hI : deg.ker.map ι.toMonoidHom = TauCeti.GaloisRep.inertiaGroup b.K)
+    (q : ℕ) (hq : q = Nat.card 𝓀[b.K])
+    (D : WeilDeligneRep (TauCeti.LocalWeil.group b.K) deg q ℂ b.V)
+    (s : ℂ) (χ : TauCeti.LocalWeil.group b.K →* ℂˣ)
+    (hχ : ∀ w, (χ w : ℂ) = Complex.exp
+      (s * ((Multiplicative.toAdd (deg w) : ℤ) : ℂ) * Real.log q))
+    (hopen : IsOpen {w | χ w = 1})
+    (F : TauCeti.LocalWeil.group b.K) (hF : deg F = Multiplicative.ofAdd (-1))
+    (π : 𝒪[b.K]) (hπ : Irreducible π) (ν : ℤ)
+    (hψ₀ : ∀ y : 𝒪[b.K], b.ψ ((π : b.K) ^ (-ν) * y) = 1)
+    (hψ₁ : ∃ y : 𝒪[b.K], b.ψ ((π : b.K) ^ (-ν - 1) * y) ≠ 1) :
+    (epsilon b.ψ b.μ (twist D χ hopen) F hF : ℂ) =
+      Complex.exp (-( (TauCeti.Conductor.wdConductor b.K ι D : ℂ) +
+        (ν : ℂ) * Module.finrank ℂ b.V) * s * Real.log q) *
+      (epsilon b.ψ b.μ D F hF : ℂ) := by sorry
+
+/-- Deligne 5.7.1: duality includes the norm twist and ψ(-x).
+The volumes express dual Haar measures, without assuming the desired epsilon identity. -/
+theorem epsilon_dual
+    (deg : TauCeti.LocalWeil.group b.K →* Multiplicative ℤ)
+    (ι : TauCeti.LocalWeil.group b.K →ₜ* Field.absoluteGaloisGroup b.K)
+    (hι : ∀ w, ι w = w.val)
+    (hI : deg.ker.map ι.toMonoidHom = TauCeti.GaloisRep.inertiaGroup b.K)
+    (q : ℕ) (hq : q = Nat.card 𝓀[b.K]) (hq0 : (q : ℂ) ≠ 0)
+    (D : WeilDeligneRep (TauCeti.LocalWeil.group b.K) deg q ℂ b.V)
+    (hω : IsOpen {w | omega deg hq0 w = 1})
+    (F : TauCeti.LocalWeil.group b.K) (hF : deg F = Multiplicative.ofAdd (-1))
+    (π : 𝒪[b.K]) (hπ : Irreducible π) (ν : ℤ)
+    (hψ₀ : ∀ y : 𝒪[b.K], b.ψ ((π : b.K) ^ (-ν) * y) = 1)
+    (hψ₁ : ∃ y : 𝒪[b.K], b.ψ ((π : b.K) ^ (-ν - 1) * y) ≠ 1)
+    (μ' : MeasureTheory.Measure b.K) [μ'.IsAddHaarMeasure]
+    (hdual : b.μ (𝒪[b.K] : Set b.K) * μ' (𝒪[b.K] : Set b.K) =
+      ENNReal.ofReal ((q : ℝ) ^ (-(ν : ℝ)))) :
+    epsilon b.ψ b.μ D F hF *
+      epsilon (b.ψ.compAddMonoidHom (-AddMonoidHom.id b.K)) μ'
+        (twist (dual D) (omega deg hq0) hω) F hF = 1 := by sorry
+
+/-- Ramified Tate constant, AL.1 explicit-epsilon-factors (ii), in the
+normalization of the packet. The integrand is on O× inside the actual local field. -/
+theorem tateLocalConstant_ramified (χ ω : b.Kˣ →* ℂˣ) (s : ℂ)
+    (π : 𝒪[b.K]) (hπ : Irreducible π) (hπ0 : (π : b.K) ≠ 0)
+    (c : ℕ) (hc : 0 < c)
+    (hc₀ : ∀ y : 𝒪[b.K]ˣ, (∃ z : 𝒪[b.K], (y : 𝒪[b.K]) - 1 = π^c * z) →
+      ω (Units.map 𝒪[b.K].subtype.toMonoidHom y) = 1)
+    (hc₁ : ∃ y : 𝒪[b.K]ˣ, (∃ z : 𝒪[b.K], (y : 𝒪[b.K]) - 1 = π^(c-1) * z) ∧
+      ω (Units.map 𝒪[b.K].subtype.toMonoidHom y) ≠ 1)
+    (hunit : ∀ y : 𝒪[b.K]ˣ, χ (Units.map 𝒪[b.K].subtype.toMonoidHom y) =
+      ω (Units.map 𝒪[b.K].subtype.toMonoidHom y))
+    (hπχ : (χ (Units.mk0 (π : b.K) hπ0) : ℂ) =
+      (ω (Units.mk0 (π : b.K) hπ0) : ℂ) * Complex.exp (-s * Real.log (Nat.card 𝓀[b.K])))
+    (ν : ℤ)
+    (hψ₀ : ∀ y : 𝒪[b.K], b.ψ ((π : b.K)^(-ν) * y) = 1)
+    (hψ₁ : ∃ y : 𝒪[b.K], b.ψ ((π : b.K)^(-ν - 1) * y) ≠ 1)
+    (hμ : b.μ (𝒪[b.K] : Set b.K) =
+      ENNReal.ofReal ((Nat.card 𝓀[b.K] : ℝ)^(-(ν : ℝ)/2))) :
+    (tateLocalConstant b.K χ b.ψ b.μ : ℂ) =
+      (ω (Units.mk0 (π : b.K) hπ0) : ℂ)^(ν + c) *
+      Complex.exp ((1/2 - s) * (ν + c : ℂ) * Real.log (Nat.card 𝓀[b.K])) *
+      (Complex.exp (((ν + c : ℂ)/2) * Real.log (Nat.card 𝓀[b.K])) *
+        ∫ y in {y : b.K | y ∈ 𝒪[b.K] ∧ y⁻¹ ∈ 𝒪[b.K]},
+          (if hy : y ≠ 0 then ((ω (Units.mk0 y hy))⁻¹ : ℂ) else 0) *
+            b.ψ ((π : b.K)^(-ν - c) * y) ∂b.μ) := by sorry
+
+/-- Unit test: TauCeti.WeilDeligneRep.epsilon_eq_tate.
+A ramified character through actual geometric reciprocity satisfies the Tate comparison. -/
+example (χW : TauCeti.LocalWeil.group b.K →* ℂˣ) (χK : b.Kˣ →* ℂˣ)
+    (e : b.V ≃ₗ[ℂ] ℂ) (he : ∀ w x, e (b.r w x) = (χW w : ℂ) * e x)
+    (hArt : ∀ x, Abelianization.lift χW (TauCeti.LocalWeil.geometricArtin b.K x) = χK x)
+    (hram : ∃ y : 𝒪[b.K]ˣ, χK (Units.map 𝒪[b.K].subtype.toMonoidHom y) ≠ 1) :
+    epsilonWeil b.K b.ψ b.μ b.r = tateLocalConstant b.K χK b.ψ b.μ := by sorry
+end
+end TauCeti.WeilDeligneRep
+
+namespace TauCeti.GaloisRep
+noncomputable section
+variable (K : Type*) [Field K] [ValuativeRel K] [TopologicalSpace K]
+  [IsNonarchimedeanLocalField K]
+
+def primeToResiduePrimes := {ℓ : ℕ // ℓ.Prime ∧ (ℓ : 𝓀[K]) ≠ 0}
+instance primeToResiduePrimes.fact (ℓ : primeToResiduePrimes K) : Fact ℓ.val.Prime := ⟨ℓ.property.1⟩
+
+/-- This comparison consumes the upstream tame-quotient isomorphism. Its
+finite-coordinate normalization specifies its meaning, rather than assuming
+that its ℓ-projection is already the requested character. -/
+theorem tameCharacter_eq_tame
+    (P : Subgroup (inertiaGroup K)) [P.Normal]
+    (hP : P = (localWildInertiaGroup K).comap (inertiaGroup K).subtype)
+    (θ : (inertiaGroup K ⧸ P) ≃*
+      ((j : primeToResiduePrimes K) → rootsOfUnityTateModule (AlgebraicClosure K) j.val))
+    (hθ : ∀ (j : primeToResiduePrimes K) (π : 𝒪[K]), Irreducible π →
+      ∀ (n : ℕ) (r : AlgebraicClosure K), r^(j.val^n) = algebraMap K _ (π : K) →
+      ∀ σ : inertiaGroup K,
+        (((θ (QuotientGroup.mk σ) j : ℕ → (AlgebraicClosure K)ˣ) n : AlgebraicClosure K)) =
+          ((σ : Field.absoluteGaloisGroup K) • r) / r)
+    (ℓ : ℕ) [Fact ℓ.Prime] (hℓ : (ℓ : 𝓀[K]) ≠ 0) :
+    tameCharacter K ℓ =
+      (Pi.evalMonoidHom
+        (fun j : primeToResiduePrimes K => rootsOfUnityTateModule (AlgebraicClosure K) j.val)
+        ⟨ℓ, Fact.out, hℓ⟩).comp (θ.toMonoidHom.comp (QuotientGroup.mk' P)) := by sorry
+end
+end TauCeti.GaloisRep
+
+namespace TauCeti.GaloisLattice.IntegralModel
+noncomputable section
+open scoped TensorProduct
+variable {Γ O k M : Type*} [Group Γ] [TopologicalSpace Γ]
+  [CommRing O] [TopologicalSpace O] [IsTopologicalRing O]
+  [Field k] [TopologicalSpace k] [IsTopologicalRing k] [Algebra O k] [ContinuousSMul O k]
+  [AddCommGroup M] [Module O M] [Module.Finite O M] [Module.Projective O M]
+  [TopologicalSpace M] [IsModuleTopology O M]
+  [TopologicalSpace (k ⊗[O] M)] [IsModuleTopology k (k ⊗[O] M)]
+
+/-- Dual companion of reduction_tensor, with the evaluation formula fixing the map. -/
+theorem reduction_dual (ρ : TauCeti.ContinuousRep Γ O M) :
+    ∃ e : k ⊗[O] Module.Dual O M ≃ₗ[k] Module.Dual k (k ⊗[O] M),
+      (∀ (a b : k) (f : Module.Dual O M) (m : M),
+        e (a ⊗ₜ[O] f) (b ⊗ₜ[O] m) = a * b * algebraMap O k (f m)) ∧
+      (∀ g x, e ((ρ.toRepresentation.dual g).baseChange k x) =
+        (ρ.baseChange (B := k)).toRepresentation.dual g (e x)) := by sorry
+
+/-- Restriction companion of reduction_tensor. -/
+theorem reduction_res {Δ : Type*} [Group Δ] [TopologicalSpace Δ]
+    (φ : Δ →ₜ* Γ) (ρ : TauCeti.ContinuousRep Γ O M) :
+    (ρ.res φ).baseChange (B := k) = (ρ.baseChange (B := k)).res φ := by sorry
+
+/-- Twist companion of reduction_tensor, written on the common scalar-extension carrier. -/
+theorem reduction_twist (ρ : TauCeti.ContinuousRep Γ O M) (χ : Γ →ₜ* Oˣ)
+    (g : Γ) (x : k ⊗[O] M) :
+    ((ρ.twist χ).baseChange (B := k)) g x =
+      algebraMap O k (χ g : O) • (ρ.baseChange (B := k)) g x := by sorry
+
+/-- Sum companion of reduction_tensor with its canonical maps on pure tensors. -/
+theorem reduction_sum {N : Type*} [AddCommGroup N] [Module O N]
+    [Module.Finite O N] [Module.Projective O N]
+    [TopologicalSpace N] [IsModuleTopology O N]
+    (ρ : TauCeti.ContinuousRep Γ O M) (σ : TauCeti.ContinuousRep Γ O N) :
+    ∃ e : k ⊗[O] (M × N) ≃ₗ[k] ((k ⊗[O] M) × (k ⊗[O] N)),
+      (∀ a m n, e (a ⊗ₜ[O] (m,n)) = (a ⊗ₜ[O] m, a ⊗ₜ[O] n)) ∧
+      (∀ g x, e ((LinearMap.prodMap (ρ g) (σ g)).baseChange k x) =
+        LinearMap.prodMap ((ρ g).baseChange k) ((σ g).baseChange k) (e x)) := by sorry
+end
+end TauCeti.GaloisLattice.IntegralModel
+
+namespace TauCeti.Conductor
+noncomputable section
+attribute [local instance] Classical.propDecidable
+open scoped TensorProduct
+
+/-- The group is the actual lower-numbering valuation predicate. It is supplied
+as a subgroup, together with this predicate; no filtration sizes are assumed. -/
+structure DyadicLowerData (L : IntermediateField ℚ_[2] (AlgebraicClosure ℚ_[2])) where
+  ν : Valuation L (WithZero (Multiplicative ℤ))
+  normalized : ∃ x : L, ν x = ↑(Multiplicative.ofAdd (-1 : ℤ))
+  extendsBase : ∀ x : ℚ_[2], ν (algebraMap ℚ_[2] L x) ≤ 1 ↔ x ∈ 𝒪[ℚ_[2]]
+  G : ℕ → Subgroup (L ≃ₐ[ℚ_[2]] L)
+  lower : ∀ i σ, σ ∈ G i ↔ ∀ x : L, ν x ≤ 1 →
+    ν (σ x - x) ≤ ↑(Multiplicative.ofAdd (-(i : ℤ) - 1))
+  res : Field.absoluteGaloisGroup ℚ_[2] →* (L ≃ₐ[ℚ_[2]] L)
+  restriction : ∀ σ x, ((res σ x : L) : AlgebraicClosure ℚ_[2]) = σ • (x : AlgebraicClosure ℚ_[2])
+
+def dyadicCodim (L : IntermediateField ℚ_[2] (AlgebraicClosure ℚ_[2]))
+    (d : DyadicLowerData L) (χ : Field.absoluteGaloisGroup ℚ_[2] →ₜ* ℂˣ) (i : ℕ) : ℕ :=
+  1 - Module.finrank ℂ (invariants (TauCeti.ContinuousRep.ofCharacter χ).toRepresentation
+    (TauCeti.GaloisRep.localWildInertiaGroup ℚ_[2] ⊓ (d.G i).comap d.res))
+
+/-- Unit test: TauCeti.Conductor.swanConductor_unweighted_fails.
+Q₂(ζ₈) has positive lower-group sizes 4,2,2, and χ₈ is nontrivial on all
+three. These sizes and the codimensions are conclusions, not input tables. -/
+example (ζ r : AlgebraicClosure ℚ_[2]) (hζ : IsPrimitiveRoot ζ 8)
+    (hr : r = ζ + ζ⁻¹) (hr2 : r^2 = 2)
+    (L : IntermediateField ℚ_[2] (AlgebraicClosure ℚ_[2]))
+    (hL : L = IntermediateField.adjoin ℚ_[2] {ζ})
+    [FiniteDimensional ℚ_[2] L] [IsGalois ℚ_[2] L] (d : DyadicLowerData L)
+    (χ : Field.absoluteGaloisGroup ℚ_[2] →ₜ* ℂˣ)
+    (hχ : ∀ σ, (χ σ : ℂ) = if σ • r = r then 1 else -1) :
+    (Nat.card (d.G 1) = 4 ∧ Nat.card (d.G 2) = 2 ∧ Nat.card (d.G 3) = 2) ∧
+    (∑ i ∈ Finset.Icc 1 3, dyadicCodim L d χ i) = 3 ∧
+    (∑ i ∈ Finset.Icc 1 3, (Nat.card (d.G i) : ℚ) / Nat.card (d.G 0) * dyadicCodim L d χ i) =
+      swanConductor (TauCeti.ContinuousRep.ofCharacter χ) ∧
+    swanConductor (TauCeti.ContinuousRep.ofCharacter χ) = 2 := by sorry
+
+/-- Unit test: TauCeti.Conductor.swanConductor_eq_lowerSum_any.
+The same character is computed over Q₂(√2) and Q₂(ζ₈), with their actual
+valuation-defined lower groups and actual inertia action. -/
+example (ζ r : AlgebraicClosure ℚ_[2]) (hζ : IsPrimitiveRoot ζ 8)
+    (hr : r = ζ + ζ⁻¹) (hr2 : r^2 = 2)
+    (L M : IntermediateField ℚ_[2] (AlgebraicClosure ℚ_[2]))
+    (hL : L = IntermediateField.adjoin ℚ_[2] {r})
+    (hM : M = IntermediateField.adjoin ℚ_[2] {ζ})
+    [FiniteDimensional ℚ_[2] L] [IsGalois ℚ_[2] L]
+    [FiniteDimensional ℚ_[2] M] [IsGalois ℚ_[2] M]
+    (dL : DyadicLowerData L) (dM : DyadicLowerData M)
+    (χ : Field.absoluteGaloisGroup ℚ_[2] →ₜ* ℂˣ)
+    (hχ : ∀ σ, (χ σ : ℂ) = if σ • r = r then 1 else -1) :
+    (∑ i ∈ Finset.Icc 1 2, (Nat.card (dL.G i) : ℚ) / Nat.card (dL.G 0) * dyadicCodim L dL χ i) = 2 ∧
+    (∑ i ∈ Finset.Icc 1 3, (Nat.card (dM.G i) : ℚ) / Nat.card (dM.G 0) * dyadicCodim M dM χ i) = 2 ∧
+    (∑ i ∈ Finset.Icc 1 2, dyadicCodim L dL χ i) ≠
+      (∑ i ∈ Finset.Icc 1 3, dyadicCodim M dM χ i) := by sorry
+end
+end TauCeti.Conductor
+
+/-! ## Revision 3: geometric Tate-module interface (R01.6)
+
+This block imports the actual pinned abelian-variety carrier. Its points are
+sections of its geometric base change, rather than a supplied abstract group.
+The dual/polarization data requested from AbelianSchemesAndArithmeticModuli
+are distinguished below from Arithmetic's inverse-limit constructions.
+-/
+namespace TauCeti.AlgebraicGeometry.AbelianVariety
+noncomputable section
+open CategoryTheory
+open scoped CategoryTheory.MonObj
+universe u
+variable {K : Type u} [Field K]
+
+/-- Geometric points: sections over Spec Kbar of the geometric base change. -/
+abbrev geometricPoints (A : AbelianVariety K) :=
+  Additive ((Over.mk (𝟙 (AlgebraicGeometry.Spec (.of (AlgebraicClosure K))))) ⟶
+    (A.baseChange (AlgebraicClosure K)).toOver)
+
+/-- The geometric action is pullback of sections along Spec(σ⁻¹), followed by
+base-change descent for the K-scheme A. This is a construction on these points. -/
+def geometricPoints.galoisAction (A : AbelianVariety K) :
+    Field.absoluteGaloisGroup K →* AddAut (geometricPoints A) := sorry
+
+/-- The induced map of geometric points is composition with the actual
+base-changed morphism of schemes. -/
+def geometricPoints.map {A B : AbelianVariety K} (f : A ⟶ B) :
+    geometricPoints A →+ geometricPoints B where
+  toFun x := Additive.ofMul (Additive.toMul x ≫
+    Hom.toOverHom (Hom.baseChange f (AlgebraicClosure K)))
+  map_zero' := by sorry
+  map_add' := by sorry
+
+/-- ArithmeticGaloisRepresentations:R01.6/tate-module-of-an-abelian-variety:
+A[m](Kbar), with its actual geometric points and inherited addition. -/
+def torsionPoints (A : AbelianVariety K) (m : ℕ) : AddSubgroup (geometricPoints A) where
+  carrier := {x | m • x = 0}
+  zero_mem' := by simp
+  add_mem' := by intros; simp_all [nsmul_add]
+  neg_mem' := by intros; simp_all
+
+/-- The inverse limit of A[ℓ^n](Kbar), transition multiplication by ℓ. The
+term at n=0 is zero. This formula also makes sense at ℓ=char K, but the
+prime-to-characteristic rank theorem deliberately does not apply there. -/
+def tateModule (A : AbelianVariety K) (ℓ : ℕ) : Type u :=
+  {x : ℕ → geometricPoints A // ∀ n,
+    ℓ ^ n • x n = 0 ∧ ℓ • x (n + 1) = x n}
+
+instance tateModule.addCommGroup (A : AbelianVariety K) (ℓ : ℕ) :
+    AddCommGroup (tateModule A ℓ) := sorry
+instance tateModule.module (A : AbelianVariety K) (ℓ : ℕ) [Fact ℓ.Prime] :
+    Module ℤ_[ℓ] (tateModule A ℓ) := sorry
+/-- The inverse-limit topology of the finite discrete torsion groups. -/
+instance tateModule.topology (A : AbelianVariety K) (ℓ : ℕ) :
+    TopologicalSpace (tateModule A ℓ) := sorry
+
+/-- Projection to the n-th torsion level. -/
+def tateModule.toTorsion (A : AbelianVariety K) (ℓ : ℕ) (n : ℕ) :
+    tateModule A ℓ →+ torsionPoints A (ℓ ^ n) :=
+  { toFun := fun x => ⟨x.val n, (x.property n).1⟩
+    map_zero' := by sorry
+    map_add' := by sorry }
+
+theorem tateModule.ext (A : AbelianVariety K) (ℓ : ℕ) (x y : tateModule A ℓ)
+    (h : ∀ n, tateModule.toTorsion A ℓ n x = tateModule.toTorsion A ℓ n y) : x = y := by sorry
+
+theorem tateModule_free (A : AbelianVariety K) (ℓ g : ℕ) [Fact ℓ.Prime]
+    (hℓ : (ℓ : K) ≠ 0) (hg : A.dim = g) :
+    Module.Free ℤ_[ℓ] (tateModule A ℓ) ∧
+      Module.finrank ℤ_[ℓ] (tateModule A ℓ) = 2 * g := by sorry
+
+instance tateModule.finite (A : AbelianVariety K) (ℓ : ℕ) [Fact ℓ.Prime]
+    [Fact ((ℓ : K) ≠ 0)] : Module.Finite ℤ_[ℓ] (tateModule A ℓ) := sorry
+instance tateModule.projective (A : AbelianVariety K) (ℓ : ℕ) [Fact ℓ.Prime]
+    [Fact ((ℓ : K) ≠ 0)] : Module.Projective ℤ_[ℓ] (tateModule A ℓ) := sorry
+instance tateModule_isModuleTopology (A : AbelianVariety K) (ℓ : ℕ) [Fact ℓ.Prime]
+    [Fact ((ℓ : K) ≠ 0)] : IsModuleTopology ℤ_[ℓ] (tateModule A ℓ) := sorry
+
+/-- Continuous geometric Galois action on the inverse limit. -/
+def tateModuleRep (A : AbelianVariety K) (ℓ : ℕ) [Fact ℓ.Prime]
+    [Fact ((ℓ : K) ≠ 0)] :
+    TauCeti.ContinuousRep (Field.absoluteGaloisGroup K) ℤ_[ℓ] (tateModule A ℓ) := sorry
+
+theorem tateModuleRep_toTorsion (A : AbelianVariety K) (ℓ : ℕ) [Fact ℓ.Prime]
+    [Fact ((ℓ : K) ≠ 0)] (σ : Field.absoluteGaloisGroup K)
+    (x : tateModule A ℓ) (n : ℕ) :
+    (tateModule.toTorsion A ℓ n (tateModuleRep A ℓ σ x) : geometricPoints A) =
+      geometricPoints.galoisAction A σ (tateModule.toTorsion A ℓ n x) := by sorry
+
+/-- Rational Tate module, formed from the actual inverse limit. -/
+abbrev rationalTateModule (A : AbelianVariety K) (ℓ : ℕ) [Fact ℓ.Prime] :=
+  ℚ_[ℓ] ⊗[ℤ_[ℓ]] tateModule A ℓ
+
+/-- Covariant functoriality is levelwise the map of geometric points. -/
+def tateModule.map {A B : AbelianVariety K} (f : A ⟶ B) (ℓ : ℕ) [Fact ℓ.Prime] :
+    tateModule A ℓ →ₗ[ℤ_[ℓ]] tateModule B ℓ := sorry
+
+theorem tateModule.map_toTorsion {A B : AbelianVariety K} (f : A ⟶ B)
+    (ℓ : ℕ) [Fact ℓ.Prime] (x : tateModule A ℓ) (n : ℕ) :
+    (tateModule.toTorsion B ℓ n (tateModule.map f ℓ x) : geometricPoints B) =
+      geometricPoints.map f (tateModule.toTorsion A ℓ n x) := by sorry
+
+/-- Scalar restriction along a prescribed embedding of algebraic closures is
+part of this base-change identification; the resulting local representations
+are compared along its induced absolute-Galois homomorphism. -/
+def tateModule.baseChange (A : AbelianVariety K) (ℓ : ℕ) [Fact ℓ.Prime]
+    (L : Type u) [Field L] [Algebra K L] [Algebra (AlgebraicClosure K) (AlgebraicClosure L)]
+    [IsScalarTower K (AlgebraicClosure K) (AlgebraicClosure L)]
+    [IsScalarTower K L (AlgebraicClosure L)] (hℓ : (ℓ : K) ≠ 0) :
+    tateModule A ℓ ≃ₗ[ℤ_[ℓ]] tateModule (A.baseChange L) ℓ := sorry
+
+theorem tateModule.kernel_mod_pow (A : AbelianVariety K) (ℓ : ℕ) [Fact ℓ.Prime]
+    (hℓ : (ℓ : K) ≠ 0) (n : ℕ) :
+    (tateModule.toTorsion A ℓ n).ker =
+      (LinearMap.range ((ℓ ^ n : ℤ_[ℓ]) • (LinearMap.id :
+        tateModule A ℓ →ₗ[ℤ_[ℓ]] tateModule A ℓ))).toAddSubgroup := by sorry
+
+/-- The quotient is a Z/ℓ^n-module. Its additive equivalence is the underlying
+map of the linear equivalence and must respect scalar reduction. -/
+def tateModule.modPowEquiv (A : AbelianVariety K) (ℓ : ℕ) [Fact ℓ.Prime]
+    (hℓ : (ℓ : K) ≠ 0) (n : ℕ) :
+    (tateModule A ℓ ⧸ (tateModule.toTorsion A ℓ n).ker) ≃+
+      torsionPoints A (ℓ ^ n) := sorry
+
+theorem tateModule.modPowEquiv_mk (A : AbelianVariety K) (ℓ : ℕ) [Fact ℓ.Prime]
+    (hℓ : (ℓ : K) ≠ 0) (n : ℕ) (x : tateModule A ℓ) :
+    tateModule.modPowEquiv A ℓ hℓ n (QuotientAddGroup.mk x) =
+      tateModule.toTorsion A ℓ n x := by sorry
+
+/-- Prime-to-characteristic adelic Tate module. -/
+def adelicTateModule (A : AbelianVariety K) : Type u :=
+  (ℓ : {p : ℕ // p.Prime ∧ (p : K) ≠ 0}) → tateModule A ℓ.val
+
+theorem torsionPoints_card (A : AbelianVariety K) (m g : ℕ) (hm : 0 < m)
+    (hmK : (m : K) ≠ 0) (hg : A.dim = g) :
+    Nat.card (torsionPoints A m) = m ^ (2 * g) := by sorry
+
+/-- Unit test: TauCeti.AlgebraicGeometry.AbelianVariety.tateModule_rank_eq. -/
+example (A : AbelianVariety K) (ℓ g : ℕ) [Fact ℓ.Prime]
+    (hℓ : (ℓ : K) ≠ 0) (hg : A.dim = g) :
+    Module.finrank ℤ_[ℓ] (tateModule A ℓ) = 2 * g := by sorry
+
+/-- Unit test: TauCeti.AlgebraicGeometry.AbelianVariety.tateModule_of_dim_zero. -/
+example (A : AbelianVariety K) (ℓ : ℕ) [Fact ℓ.Prime]
+    (hℓ : (ℓ : K) ≠ 0) (hg : A.dim = 0) : Subsingleton (tateModule A ℓ) := by sorry
+
+/-- Unit test: TauCeti.AlgebraicGeometry.AbelianVariety.tateModule_mod_pow_equiv_galois. -/
+example (A : AbelianVariety K) (ℓ : ℕ) [Fact ℓ.Prime] [Fact ((ℓ : K) ≠ 0)]
+    (σ : Field.absoluteGaloisGroup K) (x : tateModule A ℓ) (n : ℕ) :
+    tateModule.modPowEquiv A ℓ Fact.out n
+      (QuotientAddGroup.mk (tateModuleRep A ℓ σ x)) =
+      ⟨geometricPoints.galoisAction A σ (tateModule.toTorsion A ℓ n x), by sorry⟩ := by sorry
+end
+end TauCeti.AlgebraicGeometry.AbelianVariety
+
+namespace TauCeti.AlgebraicGeometry.AbelianVariety
+noncomputable section
+open CategoryTheory
+open scoped CategoryTheory.MonObj
+universe u
+variable {K : Type u} [Field K]
+
+/-- Unit test: TauCeti.AlgebraicGeometry.AbelianVariety.tateModule_char_p_excluded.
+The ordinary elliptic case in characteristic p has p^n geometric p^n-torsion
+points, hence Tate rank one rather than two. The geometric torsion count is
+supplied by the ordinary elliptic-curve theorem, not the prime-to-p API. -/
+example (p : ℕ) [Fact p.Prime] [CharP K p] (A : AbelianVariety K)
+    (hg : A.dim = 1) (hordinary : ∀ n, Nat.card (torsionPoints A (p ^ n)) = p ^ n) :
+    Module.finrank ℤ_[p] (tateModule A p) = 1 ∧
+      Module.finrank ℤ_[p] (tateModule A p) ≠ 2 := by sorry
+
+/-- Rational points are sections before extending the ground field. -/
+abbrev rationalPoints (A : AbelianVariety K) :=
+  Additive ((Over.mk (𝟙 (AlgebraicGeometry.Spec (.of K)))) ⟶ A.toOver)
+
+/-- Unit test: TauCeti.AlgebraicGeometry.AbelianVariety.tateModule_ne_limit_rational_torsion.
+For an elliptic curve over Q the boundedness hypothesis comes from the finite
+rational torsion theorem. Its rational torsion inverse limit is zero, whereas
+the geometric Tate module has rank two. -/
+example (A : AbelianVariety ℚ) (ℓ : ℕ) [Fact ℓ.Prime] (hg : A.dim = 1)
+    (hbounded : ∃ b : ℕ, ∀ n : ℕ, ∀ x : rationalPoints A,
+      ℓ ^ n • x = 0 → ℓ ^ b • x = 0) :
+    Subsingleton {x : ℕ → rationalPoints A // ∀ n,
+      ℓ ^ n • x n = 0 ∧ ℓ • x (n + 1) = x n} ∧
+      ¬ Subsingleton (tateModule A ℓ) := by sorry
+
+/-! ### Requested supplier data, on the actual geometric carrier
+
+`dual`, `Hom.dual`, and `Polarization` denote the requested A1/A2 geometric
+exports: the dual abelian variety, pullback on Pic^0, and an isogeny geometrically
+induced by an ample invertible sheaf. They are data stubs, not new Arithmetic
+milestones or certified available declarations. The finite pairing is A3's
+pairing of geometric torsion points. Arithmetic owns its compatible limit.
+-/
+def dual (A : AbelianVariety K) : AbelianVariety K := sorry
+def Hom.dual {A B : AbelianVariety K} (f : A ⟶ B) : dual B ⟶ dual A := sorry
+/-- Requested A2 type of geometric polarizations, including ampleness. -/
+def Polarization (A : AbelianVariety K) : Type (u + 1) := sorry
+def Polarization.toHom {A : AbelianVariety K} (λ : Polarization A) : A ⟶ dual A := sorry
+def Polarization.degree {A : AbelianVariety K} (λ : Polarization A) : ℕ := sorry
+
+def finiteWeilPairing (A : AbelianVariety K) (m : ℕ) :
+    torsionPoints A m →+ torsionPoints (dual A) m →+
+      Additive (rootsOfUnity m (AlgebraicClosure K)) := sorry
+
+/-- Z_ℓ(1) is the inverse limit of the actual geometric roots of unity. -/
+abbrev integralTateTwist (K : Type u) [Field K] (ℓ : ℕ) :=
+  Additive (TauCeti.GaloisRep.rootsOfUnityTateModule (AlgebraicClosure K) ℓ)
+instance integralTateTwist.module (ℓ : ℕ) [Fact ℓ.Prime] :
+    Module ℤ_[ℓ] (integralTateTwist K ℓ) := sorry
+
+section Pairings
+variable (A : AbelianVariety K) (ℓ : ℕ) [Fact ℓ.Prime] [Fact ((ℓ : K) ≠ 0)]
+
+/-- The compatible limit of the finite A3 pairing. -/
+def weilPairing [Fact ((ℓ : K) ≠ 0)] : tateModule A ℓ →ₗ[ℤ_[ℓ]] tateModule (dual A) ℓ →ₗ[ℤ_[ℓ]]
+    integralTateTwist K ℓ := sorry
+
+theorem weilPairing_mod_pow (x : tateModule A ℓ) (y : tateModule (dual A) ℓ) (n : ℕ) :
+    ((Additive.toMul (weilPairing A ℓ x y)).val n) =
+      (Additive.toMul (finiteWeilPairing A (ℓ ^ n)
+        (tateModule.toTorsion A ℓ n x) (tateModule.toTorsion (dual A) ℓ n y))).val := by sorry
+
+theorem weilPairing_perfect : Function.Bijective
+    (fun y : tateModule (dual A) ℓ =>
+      (weilPairing A ℓ).flip y) := by sorry
+
+theorem weilPairing_galois (σ : Field.absoluteGaloisGroup K)
+    (x : tateModule A ℓ) (y : tateModule (dual A) ℓ) :
+    weilPairing A ℓ (tateModuleRep A ℓ σ x) (tateModuleRep (dual A) ℓ σ y) =
+      (TauCeti.GaloisRep.cyclotomicCharacter K ℓ σ : ℤ_[ℓ]) • weilPairing A ℓ x y := by sorry
+
+theorem weilPairing_map_dual {B : AbelianVariety K} (f : A ⟶ B)
+    (x : tateModule A ℓ) (y : tateModule (dual B) ℓ) :
+    weilPairing A ℓ x (tateModule.map (Hom.dual f) ℓ y) =
+      weilPairing B ℓ (tateModule.map f ℓ x) y := by sorry
+
+/-- Polarization of the compatible limit, with values in the Tate twist. -/
+def polarizationPairing [Fact ((ℓ : K) ≠ 0)] (λ : Polarization A) :
+    tateModule A ℓ →ₗ[ℤ_[ℓ]] tateModule A ℓ →ₗ[ℤ_[ℓ]] integralTateTwist K ℓ :=
+  sorry
+
+theorem polarizationPairing_apply (λ : Polarization A) (x y : tateModule A ℓ) :
+    polarizationPairing A ℓ λ x y =
+      weilPairing A ℓ x (tateModule.map λ.toHom ℓ y) := by sorry
+
+theorem polarizationPairing_alternating (λ : Polarization A) (x : tateModule A ℓ) :
+    polarizationPairing A ℓ λ x x = 0 := by sorry
+
+theorem polarizationPairing_perfect_iff (λ : Polarization A) :
+    Function.Bijective (polarizationPairing A ℓ λ) ↔ ¬ ℓ ∣ λ.degree := by sorry
+
+/-- Integral adjunction underlying Rosati; after inverting λ and tensoring with
+Q this is e(αx,y)=e(x,α†y) on V_ℓA for α in End^0(A). -/
+theorem polarizationPairing_integralAdjunction (λ : Polarization A) (α β : A ⟶ A)
+    (hRosati : λ.toHom ≫ Hom.dual α = β ≫ λ.toHom)
+    (x y : tateModule A ℓ) :
+    polarizationPairing A ℓ λ (tateModule.map α ℓ x) y =
+      polarizationPairing A ℓ λ x (tateModule.map β ℓ y) := by sorry
+
+theorem polarizationPairing_galois (λ : Polarization A) (σ : Field.absoluteGaloisGroup K)
+    (x y : tateModule A ℓ) :
+    polarizationPairing A ℓ λ (tateModuleRep A ℓ σ x) (tateModuleRep A ℓ σ y) =
+      (TauCeti.GaloisRep.cyclotomicCharacter K ℓ σ : ℤ_[ℓ]) •
+        polarizationPairing A ℓ λ x y := by sorry
+
+/-- This is the basis-free similitude statement; a symplectic basis gives GSp. -/
+theorem integralImage_le_GSp (λ : Polarization A) (σ : Field.absoluteGaloisGroup K)
+    (hλ : ¬ ℓ ∣ λ.degree) :
+    ∃ ν : ℤ_[ℓ]ˣ, ∀ x y,
+      polarizationPairing A ℓ λ (tateModuleRep A ℓ σ x) (tateModuleRep A ℓ σ y) =
+        (ν : ℤ_[ℓ]) • polarizationPairing A ℓ λ x y := by sorry
+
+/-- Unit test: TauCeti.AlgebraicGeometry.AbelianVariety.weilPairing_galois. -/
+example (σ : Field.absoluteGaloisGroup K) (x : tateModule A ℓ)
+    (y : tateModule (dual A) ℓ) :
+    weilPairing A ℓ (tateModuleRep A ℓ σ x) (tateModuleRep (dual A) ℓ σ y) =
+      (TauCeti.GaloisRep.cyclotomicCharacter K ℓ σ : ℤ_[ℓ]) • weilPairing A ℓ x y := by sorry
+
+/-- Unit test: TauCeti.AlgebraicGeometry.AbelianVariety.polarizationPairing_elliptic_det. -/
+example (λ : Polarization A) (hg : A.dim = 1) (hprincipal : λ.degree = 1)
+    (b : Module.Basis (Fin 2) ℤ_[ℓ] (tateModule A ℓ)) (σ : Field.absoluteGaloisGroup K) :
+    Matrix.det (LinearMap.toMatrix b b (tateModuleRep A ℓ σ)) =
+      (TauCeti.GaloisRep.cyclotomicCharacter K ℓ σ : ℤ_[ℓ]) ∧
+      Function.Surjective (fun a : ℤ_[ℓ] =>
+        a • polarizationPairing A ℓ λ (b 0) (b 1)) := by sorry
+
+/-- Unit test: TauCeti.AlgebraicGeometry.AbelianVariety.polarizationPairing_zero_dim. -/
+example (λ : Polarization A) (hg : A.dim = 0) :
+    polarizationPairing A ℓ λ = 0 ∧ Function.Bijective (polarizationPairing A ℓ λ) := by sorry
+
+/-- Unit test: TauCeti.AlgebraicGeometry.AbelianVariety.polarizationPairing_not_perfect.
+For [ℓ]λ_E the compatible pairing is ℓ times the principal one. -/
+example (λ μ : Polarization A) (hg : A.dim = 1) (hprincipal : λ.degree = 1)
+    (hμ : μ.toHom = (mulBy A ℓ) ≫ λ.toHom) :
+    polarizationPairing A ℓ μ = ℓ • polarizationPairing A ℓ λ ∧
+      ¬ Function.Bijective (polarizationPairing A ℓ μ) := by sorry
+
+/-- Unit test: TauCeti.AlgebraicGeometry.AbelianVariety.weilPairing_target_twist. -/
+example (λ : Polarization A) (c : Field.absoluteGaloisGroup K)
+    (hc : TauCeti.GaloisRep.cyclotomicCharacter K ℓ c = -1)
+    (x y : tateModule A ℓ) (hne : polarizationPairing A ℓ λ x y ≠ 0) :
+    polarizationPairing A ℓ λ (tateModuleRep A ℓ c x) (tateModuleRep A ℓ c y) =
+      -polarizationPairing A ℓ λ x y ∧
+      polarizationPairing A ℓ λ (tateModuleRep A ℓ c x) (tateModuleRep A ℓ c y) ≠
+        polarizationPairing A ℓ λ x y := by sorry
+end Pairings
+end
+end TauCeti.AlgebraicGeometry.AbelianVariety
+
+namespace TauCeti.AlgebraicGeometry.AbelianVariety
+noncomputable section
+open CategoryTheory
+universe u
+variable {K : Type u} [Field K] (A : AbelianVariety K) (ℓ : ℕ) [Fact ℓ.Prime]
+  [Fact ((ℓ : K) ≠ 0)]
+
+instance rationalTateModule.finite [Fact ((ℓ : K) ≠ 0)] : Module.Finite ℚ_[ℓ] (rationalTateModule A ℓ) := sorry
+instance rationalTateModule.projective : Module.Projective ℚ_[ℓ] (rationalTateModule A ℓ) := sorry
+instance rationalTateModule.topology : TopologicalSpace (rationalTateModule A ℓ) := sorry
+instance rationalTateModule.moduleTopology : IsModuleTopology ℚ_[ℓ] (rationalTateModule A ℓ) := sorry
+instance rationalTateModule.free : Module.Free ℚ_[ℓ] (rationalTateModule A ℓ) := sorry
+
+def rationalTateModuleRep : TauCeti.ContinuousRep (Field.absoluteGaloisGroup K)
+    ℚ_[ℓ] (rationalTateModule A ℓ) := (tateModuleRep A ℓ).baseChange ℚ_[ℓ]
+
+abbrev firstCohomology (A : AbelianVariety K) (ℓ : ℕ) [Fact ℓ.Prime] :=
+  Module.Dual ℚ_[ℓ] (rationalTateModule A ℓ)
+instance firstCohomology.topology : TopologicalSpace (firstCohomology A ℓ) := sorry
+instance firstCohomology.moduleTopology : IsModuleTopology ℚ_[ℓ] (firstCohomology A ℓ) := sorry
+
+def firstCohomologyRep : TauCeti.ContinuousRep (Field.absoluteGaloisGroup K)
+    ℚ_[ℓ] (firstCohomology A ℓ) := (rationalTateModuleRep A ℓ).dual
+
+/-- Rational covariant action of the actual geometric morphism. -/
+def rationalTateModule.map {B : AbelianVariety K} (f : A ⟶ B) :
+    rationalTateModule A ℓ →ₗ[ℚ_[ℓ]] rationalTateModule B ℓ :=
+  LinearMap.baseChange ℚ_[ℓ] (tateModule.map f ℓ)
+
+
+
+/-- Product polarization exported by A2, on the actual product variety. -/
+def Polarization.prod {B : AbelianVariety K} (λ : Polarization A) (μ : Polarization B) :
+    Polarization (A.prod B) := sorry
+
+theorem polarizationPairing_prod {B : AbelianVariety K} [Fact ((ℓ : K) ≠ 0)]
+    (λ : Polarization A) (μ : Polarization B) (x y : tateModule (A.prod B) ℓ) :
+    polarizationPairing (A.prod B) ℓ (Polarization.prod A λ μ) x y =
+      polarizationPairing A ℓ λ (tateModule.map (prod.fst A B) ℓ x)
+        (tateModule.map (prod.fst A B) ℓ y) +
+      polarizationPairing B ℓ μ (tateModule.map (prod.snd A B) ℓ x)
+        (tateModule.map (prod.snd A B) ℓ y) := by sorry
+
+section Local
+variable [ValuativeRel K] [TopologicalSpace K] [IsNonarchimedeanLocalField K]
+  {W : Type u} [Group W] [TopologicalSpace W]
+  (ιW : W →ₜ* Field.absoluteGaloisGroup K) (deg : W →* Multiplicative ℤ)
+  (F : W) (hF : deg F = Multiplicative.ofAdd (-1 : ℤ))
+
+/-- R01.2 supplies W_K, its degree map, and its map to G_K. The chosen F is
+geometric Frobenius; the representation is the dual rational Tate module. -/
+def localEulerFactor : Polynomial ℚ_[ℓ] :=
+  TauCeti.GaloisRep.localEulerFactor
+    (TauCeti.ContinuousRep.res ιW (firstCohomologyRep A ℓ)) F hF
+
+/-- Inertia coinvariants are the quotient by the span of all (σ-1)x. -/
+def inertiaRelations : Submodule ℚ_[ℓ] (rationalTateModule A ℓ) :=
+  Submodule.span ℚ_[ℓ] {z | ∃ (σ : W) (x : rationalTateModule A ℓ),
+    deg σ = 1 ∧ z = rationalTateModuleRep A ℓ (ιW σ) x - x}
+
+def coinvariantFrobenius (F : W) : Module.End ℚ_[ℓ]
+    (rationalTateModule A ℓ ⧸ inertiaRelations A ℓ ιW deg) := sorry
+
+theorem coinvariantFrobenius_mk (x : rationalTateModule A ℓ) :
+    coinvariantFrobenius A ℓ ιW deg F (Submodule.Quotient.mk x) =
+      Submodule.Quotient.mk (rationalTateModuleRep A ℓ (ιW F⁻¹) x) := by sorry
+
+theorem localEulerFactor_eq_coinvariants :
+    localEulerFactor A ℓ ιW deg F hF =
+      (coinvariantFrobenius A ℓ ιW deg F).charpoly.reverse := by sorry
+
+/-- Specialization data comes from R11.1. A0 is the actual special fibre and
+π0 its geometric q-power endomorphism. The hypothesis is compatibility of
+specialization with arithmetic Frobenius, rather than the desired polynomial. -/
+theorem localEulerFactor_of_goodReduction {k₀ : Type u} [Field k₀] [Finite k₀]
+    (A₀ : AbelianVariety k₀) [Fact ((ℓ : k₀) ≠ 0)] (π₀ : A₀ ⟶ A₀)
+    (sp : rationalTateModule A ℓ ≃ₗ[ℚ_[ℓ]] rationalTateModule A₀ ℓ)
+    (hI : ∀ σ ∈ deg.ker, rationalTateModuleRep A ℓ (ιW σ) = LinearMap.id)
+    (hsp : ∀ x, sp (rationalTateModuleRep A ℓ (ιW F⁻¹) x) =
+      rationalTateModule.map A₀ ℓ π₀ (sp x)) :
+    localEulerFactor A ℓ ιW deg F hF =
+      (rationalTateModule.map A₀ ℓ π₀).charpoly.reverse := by sorry
+
+theorem localEulerFactor_isogeny {B : AbelianVariety K} (f : A ⟶ B)
+    (hf : IsIsogeny f) :
+    localEulerFactor A ℓ ιW deg F hF = localEulerFactor B ℓ ιW deg F hF := by sorry
+
+theorem localEulerFactor_prod (B : AbelianVariety K) :
+    localEulerFactor (A.prod B) ℓ ιW deg F hF =
+      localEulerFactor A ℓ ιW deg F hF * localEulerFactor B ℓ ιW deg F hF := by sorry
+
+theorem localEulerFactor_natDegree_le (g : ℕ) (hg : A.dim = g) :
+    (localEulerFactor A ℓ ιW deg F hF).natDegree ≤ 2 * g ∧
+      ((localEulerFactor A ℓ ιW deg F hF).natDegree = 2 * g ↔
+        ∀ σ ∈ deg.ker, rationalTateModuleRep A ℓ (ιW σ) = LinearMap.id) := by sorry
+
+theorem localEulerFactor_eq_weilDeligne (q : ℕ)
+    (t : deg.ker →* Multiplicative ℤ_[ℓ])
+    (ht : TauCeti.WeilDeligneRep.IsTameCharacter deg q t) :
+    localEulerFactor A ℓ ιW deg F hF = TauCeti.WeilDeligneRep.localFactor
+      (TauCeti.WeilDeligneRep.ofEllAdic (q := q)
+        (TauCeti.ContinuousRep.res ιW (firstCohomologyRep A ℓ)) F hF t) F hF := by sorry
+
+/-- Unit test: TauCeti.AlgebraicGeometry.AbelianVariety.localEulerFactor_zero. -/
+example (hg : A.dim = 0) : localEulerFactor A ℓ ιW deg F hF = 1 := by sorry
+
+/-- Unit test: TauCeti.AlgebraicGeometry.AbelianVariety.localEulerFactor_tate_curve.
+The basis and Kummer cocycle are supplied by the geometric Tate uniformization;
+the nonzero inertia value is what distinguishes it from the split sum. -/
+example (q : ℕ) (hq : (q : ℚ_[ℓ]) ≠ 0)
+    (b : Module.Basis (Fin 2) ℚ_[ℓ] (rationalTateModule A ℓ))
+    (c : W → ℚ_[ℓ])
+    (hρ : ∀ σ, LinearMap.toMatrix b b (rationalTateModuleRep A ℓ (ιW σ)) =
+      !![(q : ℚ_[ℓ]) ^ Multiplicative.toAdd (deg σ), c σ; 0, 1])
+    (hI : ∃ σ ∈ deg.ker, c σ ≠ 0) :
+    localEulerFactor A ℓ ιW deg F hF = 1 - X := by sorry
+
+/-- Linear-algebra computation supporting the good-reduction test below.
+For y²=x³-x at 5, the finite-field point count is 8. The geometric specialization
+API gives arithmetic trace -2 and determinant 5; this test fixes the sign and dual. -/
+example (b : Module.Basis (Fin 2) ℚ_[ℓ] (rationalTateModule A ℓ))
+    (hI : ∀ σ ∈ deg.ker, rationalTateModuleRep A ℓ (ιW σ) = LinearMap.id)
+    (htr : LinearMap.trace ℚ_[ℓ] _ (rationalTateModuleRep A ℓ (ιW F⁻¹)) = -2)
+    (hdet : LinearMap.det (rationalTateModuleRep A ℓ (ιW F⁻¹)) = 5) :
+    localEulerFactor A ℓ ιW deg F hF = 1 + C 2 * X + C 5 * X ^ 2 := by sorry
+
+/-- Linear-algebra dual-versus-covariant computation used below. -/
+example (b : Module.Basis (Fin 2) ℚ_[ℓ] (rationalTateModule A ℓ))
+    (hℓ5 : ℓ ≠ 5)
+    (hI : ∀ σ ∈ deg.ker, rationalTateModuleRep A ℓ (ιW σ) = LinearMap.id)
+    (htr : LinearMap.trace ℚ_[ℓ] _ (rationalTateModuleRep A ℓ (ιW F⁻¹)) = -2)
+    (hdet : LinearMap.det (rationalTateModuleRep A ℓ (ιW F⁻¹)) = 5) :
+    TauCeti.GaloisRep.localEulerFactor
+      (TauCeti.ContinuousRep.res ιW (rationalTateModuleRep A ℓ)) F hF =
+        1 + C (2 / 5) * X + C (1 / 5) * X ^ 2 ∧
+      TauCeti.GaloisRep.localEulerFactor
+        (TauCeti.ContinuousRep.res ιW (rationalTateModuleRep A ℓ)) F hF ≠
+        localEulerFactor A ℓ ιW deg F hF := by sorry
+end Local
+end
+end TauCeti.AlgebraicGeometry.AbelianVariety
+
+namespace TauCeti.AlgebraicGeometry.AbelianVariety
+noncomputable section
+universe u
+variable {K : Type u} [Field K]
+/-- Requested EllipticCurves export: the smooth projective group curve of W,
+viewed as an actual abelian variety. This is a supplier data stub. -/
+def ofWeierstrass (W : WeierstrassCurve K) [W.IsElliptic] : AbelianVariety K := sorry
+
+/-- Unit test: TauCeti.AlgebraicGeometry.AbelianVariety.localEulerFactor_compare_localPolynomial.
+R01.2 supplies the actual local Weil data. For good or multiplicative reduction
+this compares the geometric construction to Mathlib's already-defined polynomial. -/
+example [ValuativeRel K] [TopologicalSpace K] [IsNonarchimedeanLocalField K]
+    (R : Type u) [CommRing R] [IsDomain R] [IsDiscreteValuationRing R]
+    [Algebra R K] [IsFractionRing R K] [Finite (IsLocalRing.ResidueField R)]
+    (W₀ : WeierstrassCurve K) [W₀.IsElliptic]
+    (hred : W₀.HasGoodReduction R ∨ W₀.HasMultiplicativeReduction R)
+    (ℓ : ℕ) [Fact ℓ.Prime] [Fact ((ℓ : K) ≠ 0)]
+    (hℓ : (ℓ : IsLocalRing.ResidueField R) ≠ 0)
+    {W : Type u} [Group W] [TopologicalSpace W]
+    (ιW : W →ₜ* Field.absoluteGaloisGroup K) (deg : W →* Multiplicative ℤ)
+    (F : W) (hF : deg F = Multiplicative.ofAdd (-1 : ℤ))
+    (hI : deg.ker.map ιW.toMonoidHom = TauCeti.GaloisRep.inertiaGroup K)
+    (hΦ : ιW F⁻¹ * (TauCeti.GaloisRep.arithFrobLift K)⁻¹ ∈
+      TauCeti.GaloisRep.inertiaGroup K) :
+    localEulerFactor (ofWeierstrass W₀) ℓ ιW deg F hF =
+      (W₀.localPolynomial R).map (Int.castRingHom ℚ_[ℓ]) := by sorry
+end
+end TauCeti.AlgebraicGeometry.AbelianVariety
+
+namespace TauCeti.AlgebraicGeometry.AbelianVariety
+noncomputable section
+open CategoryTheory
+universe u
+variable {K : Type u} [Field K] [NumberField K]
+  (A : AbelianVariety K) (p : ℕ) [Fact p.Prime]
+
+instance prime_ne_zero_numberField : Fact ((p : K) ≠ 0) := ⟨by sorry⟩
+
+/-- The topology is pointwise convergence on the finite free Tate module,
+equivalently the matrix topology in any integral basis. -/
+instance tateAut.topology : TopologicalSpace
+    (tateModule A p ≃ₗ[ℤ_[p]] tateModule A p) :=
+  TopologicalSpace.induced (fun f => (f : tateModule A p → tateModule A p)) inferInstance
+
+/-- Basis-free integral similitudes, using the actual polarization pairing. -/
+def tateSimilitudes (λ : Polarization A) :
+    Subgroup (tateModule A p ≃ₗ[ℤ_[p]] tateModule A p) where
+  carrier := {f | ∃ ν : ℤ_[p]ˣ, ∀ x y,
+    polarizationPairing A p λ (f x) (f y) = (ν : ℤ_[p]) • polarizationPairing A p λ x y}
+  one_mem' := by sorry
+  mul_mem' := by sorry
+  inv_mem' := by sorry
+
+def tateGaloisAut : Field.absoluteGaloisGroup K →*
+    (tateModule A p ≃ₗ[ℤ_[p]] tateModule A p) := sorry
+
+theorem tateGaloisAut_apply (σ : Field.absoluteGaloisGroup K) (x : tateModule A p) :
+    tateGaloisAut A p σ x = tateModuleRep A p σ x := by sorry
+
+def pAdicRepresentation (λ : Polarization A) :
+    Field.absoluteGaloisGroup K →* tateSimilitudes A p λ := sorry
+
+theorem pAdicRepresentation_apply (λ : Polarization A)
+    (σ : Field.absoluteGaloisGroup K) (x : tateModule A p) :
+    pAdicRepresentation A p λ σ x = tateModuleRep A p σ x := by sorry
+
+def pAdicImage (λ : Polarization A) : Subgroup (tateSimilitudes A p λ) :=
+  (pAdicRepresentation A p λ).range
+
+def IsPGaloisGeneric (λ : Polarization A) : Prop :=
+  IsOpen (pAdicImage A p λ : Set (tateSimilitudes A p λ))
+
+abbrev primes := {p : ℕ // p.Prime}
+instance primes.isPrime (p : primes) : Fact p.val.Prime := ⟨p.property⟩
+
+def adelicRepresentation (λ : Polarization A) :
+    Field.absoluteGaloisGroup K →* ((p : primes) → tateSimilitudes A p.val λ) := sorry
+
+theorem adelicRepresentation_apply (λ : Polarization A)
+    (σ : Field.absoluteGaloisGroup K) (p : primes) :
+    adelicRepresentation A λ σ p = pAdicRepresentation A p.val λ σ := by sorry
+
+def IsGaloisGeneric (λ : Polarization A) : Prop :=
+  IsOpen ((adelicRepresentation A λ).range : Set ((p : primes) → tateSimilitudes A p.val λ))
+
+theorem isPGaloisGeneric_iff_finiteIndex (λ : Polarization A)
+    (hprincipal : λ.degree = 1) :
+    IsPGaloisGeneric A p λ ↔ (pAdicImage A p λ).FiniteIndex := by sorry
+
+theorem IsGaloisGeneric.isPGaloisGeneric (λ : Polarization A)
+    (hprincipal : λ.degree = 1) (h : IsGaloisGeneric A λ) :
+    IsPGaloisGeneric A p λ := by sorry
+
+/-- Requested geometric base change of an ample polarization from A2. -/
+def Polarization.baseChange (λ : Polarization A) (L : Type u) [Field L] [Algebra K L] :
+    Polarization (A.baseChange L) := sorry
+
+theorem isPGaloisGeneric_baseChange_iff (λ : Polarization A) (hprincipal : λ.degree = 1)
+    (L : Type u) [Field L] [NumberField L] [Algebra K L] [FiniteDimensional K L] :
+    IsPGaloisGeneric A p λ ↔
+      IsPGaloisGeneric (A.baseChange L) p (Polarization.baseChange A λ L) := by sorry
+
+/-- The basis is symplectic relative to a chosen generator of Z_p(1), with the
+standard -J form used by G7. The framed representation is characterized by matrices. -/
+def framedSymplecticRep (λ : Polarization A) (g : ℕ)
+    (b : Module.Basis (Fin g ⊕ Fin g) ℤ_[p] (tateModule A p))
+    (z : integralTateTwist K p) (hz : Function.Bijective (fun a : ℤ_[p] => a • z))
+    (hb : ∀ i j, polarizationPairing A p λ (b i) (b j) =
+      (-Matrix.J (Fin g) ℤ_[p]) i j • z) :
+    Field.absoluteGaloisGroup K →* TauCeti.SimilitudeGroup.groupScheme
+      (-Matrix.J (Fin g) ℤ_[p]) ℤ_[p] := sorry
+
+theorem framedSymplecticRep_matrix (λ : Polarization A) (g : ℕ)
+    (b : Module.Basis (Fin g ⊕ Fin g) ℤ_[p] (tateModule A p))
+    (z : integralTateTwist K p) (hz : Function.Bijective (fun a : ℤ_[p] => a • z))
+    (hb : ∀ i j, polarizationPairing A p λ (b i) (b j) =
+      (-Matrix.J (Fin g) ℤ_[p]) i j • z) (σ : Field.absoluteGaloisGroup K) :
+    ((framedSymplecticRep A p λ g b z hz hb σ).val.1 :
+      Matrix (Fin g ⊕ Fin g) (Fin g ⊕ Fin g) ℤ_[p]) =
+      LinearMap.toMatrix b b (tateModuleRep A p σ) := by sorry
+
+theorem isPGaloisGeneric_iff_framed (λ : Polarization A) (g : ℕ)
+    (b : Module.Basis (Fin g ⊕ Fin g) ℤ_[p] (tateModule A p))
+    (z : integralTateTwist K p) (hz : Function.Bijective (fun a : ℤ_[p] => a • z))
+    (hb : ∀ i j, polarizationPairing A p λ (b i) (b j) =
+      (-Matrix.J (Fin g) ℤ_[p]) i j • z) :
+    IsPGaloisGeneric A p λ ↔ IsOpen
+      ((framedSymplecticRep A p λ g b z hz hb).range : Set _) := by sorry
+
+theorem isPGaloisGeneric_polarization_indep (λ μ : Polarization A)
+    (hλ : λ.degree = 1) (hμ : μ.degree = 1) (g : ℕ) (hg : A.dim = g) (hgpos : 0 < g) :
+    (IsPGaloisGeneric A p λ ↔ IsPGaloisGeneric A p μ) ∧
+      (IsPGaloisGeneric A p λ → ∃ a : ℤ_[p]ˣ,
+        polarizationPairing A p μ = (a : ℤ_[p]) • polarizationPairing A p λ) := by sorry
+
+/-- Unit test: TauCeti.AlgebraicGeometry.AbelianVariety.isPGaloisGeneric_iff_finiteIndex. -/
+example (λ : Polarization A) (hprincipal : λ.degree = 1) :
+    IsPGaloisGeneric A p λ ↔ (pAdicImage A p λ).FiniteIndex := by sorry
+
+/-- Unit test: TauCeti.AlgebraicGeometry.AbelianVariety.not_open_in_Sp.
+Over a number field the cyclotomic character has infinite image; a nonzero
+perfect alternating pairing detects a multiplier other than 1. -/
+example (λ : Polarization A) (hprincipal : λ.degree = 1) (g : ℕ) (hg : A.dim = g)
+    (hgpos : 0 < g) : ∃ σ : Field.absoluteGaloisGroup K, ∃ x y : tateModule A p,
+    polarizationPairing A p λ (tateModuleRep A p σ x) (tateModuleRep A p σ y) ≠
+      polarizationPairing A p λ x y := by sorry
+
+/-- Unit test: TauCeti.AlgebraicGeometry.AbelianVariety.isGaloisGeneric_baseChange. -/
+example (λ : Polarization A) (hprincipal : λ.degree = 1)
+    (L : Type u) [Field L] [NumberField L] [Algebra K L] [FiniteDimensional K L] :
+    (IsPGaloisGeneric A p λ ↔ IsPGaloisGeneric (A.baseChange L) p (Polarization.baseChange A λ L)) ∧
+      (IsGaloisGeneric A λ ↔ IsGaloisGeneric (A.baseChange L) (Polarization.baseChange A λ L)) := by sorry
+
+/-- Unit test: TauCeti.AlgebraicGeometry.AbelianVariety.isPGaloisGeneric_cm.
+The actual geometric CM action, over a quadratic field, gives J. Its normalizer
+condition is supplied by descent of endomorphisms; the conclusion is infinite index,
+not an assumed failure of openness. This applies to y²=x³-x over Q. -/
+example (λ : Polarization A) (hprincipal : λ.degree = 1) (hg : A.dim = 1)
+    (J : Module.End ℚ_[p] (rationalTateModule A p))
+    (hJ : J ^ 2 = -1)
+    (hnonscalar : ∀ a : ℚ_[p], J ≠ a • (LinearMap.id : Module.End ℚ_[p] _))
+    (hdescent : ∀ σ : Field.absoluteGaloisGroup K,
+      rationalTateModuleRep A p σ ∘ₗ J = J ∘ₗ rationalTateModuleRep A p σ ∨
+      rationalTateModuleRep A p σ ∘ₗ J = -J ∘ₗ rationalTateModuleRep A p σ) :
+    ¬ IsPGaloisGeneric A p λ ∧ ¬ (pAdicImage A p λ).FiniteIndex := by sorry
+end
+end TauCeti.AlgebraicGeometry.AbelianVariety
+
+namespace TauCeti.AlgebraicGeometry.AbelianVariety
+noncomputable section
+open CategoryTheory
+universe u
+variable {K : Type u} [Field K] (A : AbelianVariety K) (ℓ : ℕ) [Fact ℓ.Prime]
+  [Fact ((ℓ : K) ≠ 0)]
+
+/-- The actual rational endomorphism algebra, with composition inherited from End A. -/
+abbrev EndZero := ℚ ⊗[ℤ] End A
+
+/-- Integral coefficient action is extension of the actual morphism action.
+Its source is written Z_l ⊗ O; commutativity identifies it with O ⊗ Z_l. -/
+def tateModule.endAction {O : Type u} [CommRing O] (ι : O →+* End A) :
+    (ℤ_[ℓ] ⊗[ℤ] O) →+* Module.End ℤ_[ℓ] (tateModule A ℓ) := sorry
+
+theorem tateModule.endAction_tmul {O : Type u} [CommRing O] (ι : O →+* End A)
+    (a : ℤ_[ℓ]) (b : O) :
+    tateModule.endAction A ℓ ι (a ⊗ₜ[ℤ] b) = a • tateModule.map (End.toHom (ι b)) ℓ := by sorry
+
+def rationalEndAction : EndZero A →ₐ[ℚ] Module.End ℚ_[ℓ] (rationalTateModule A ℓ) := sorry
+
+theorem rationalEndAction_tmul (a : ℚ) (f : End A) :
+    rationalEndAction A ℓ (a ⊗ₜ[ℤ] f) =
+      (a : ℚ_[ℓ]) • rationalTateModule.map A ℓ f.toHom := by sorry
+
+section RationalCoefficients
+variable {E : Type u} [Field E] [NumberField E] (ι : E →ₐ[ℚ] EndZero A)
+
+/-- Type synonym retains the chosen K-defined coefficient embedding in the module type. -/
+def withEndCoefficients [Fact ((ℓ : K) ≠ 0)] (ι : E →ₐ[ℚ] EndZero A) : Type u := rationalTateModule A ℓ
+instance withEndCoefficients.addCommGroup : AddCommGroup (withEndCoefficients A ℓ ι) :=
+  inferInstanceAs (AddCommGroup (rationalTateModule A ℓ))
+instance withEndCoefficients.moduleQell : Module ℚ_[ℓ] (withEndCoefficients A ℓ ι) :=
+  inferInstanceAs (Module ℚ_[ℓ] (rationalTateModule A ℓ))
+instance withEndCoefficients.module : Module (ℚ_[ℓ] ⊗[ℚ] E) (withEndCoefficients A ℓ ι) := sorry
+instance withEndCoefficients.scalarTower : IsScalarTower ℚ_[ℓ] (ℚ_[ℓ] ⊗[ℚ] E)
+    (withEndCoefficients A ℓ ι) := sorry
+
+theorem withEndCoefficients.smul_tmul (a : ℚ_[ℓ]) (e : E) (x : withEndCoefficients A ℓ ι) :
+    (a ⊗ₜ[ℚ] e) • x = a • rationalEndAction A ℓ (ι e) x := by sorry
+
+theorem endAction_commutes (e : E) (σ : Field.absoluteGaloisGroup K) :
+    rationalEndAction A ℓ (ι e) ∘ₗ rationalTateModuleRep A ℓ σ =
+      rationalTateModuleRep A ℓ σ ∘ₗ rationalEndAction A ℓ (ι e) := by sorry
+
+variable {Eλ : Type u} [Field Eλ] [TopologicalSpace Eλ] [IsTopologicalRing Eλ]
+  [Algebra ℚ_[ℓ] Eλ] [FiniteDimensional ℚ_[ℓ] Eλ]
+  (πλ : (ℚ_[ℓ] ⊗[ℚ] E) →ₐ[ℚ_[ℓ]] Eλ)
+
+abbrev lambdaCarrier := TauCeti.ContinuousRep.scalarTensorAlong πλ.toRingHom
+  (withEndCoefficients A ℓ ι)
+instance lambdaCarrier.finite : Module.Finite Eλ (lambdaCarrier A ℓ ι πλ) := sorry
+instance lambdaCarrier.projective : Module.Projective Eλ (lambdaCarrier A ℓ ι πλ) := sorry
+instance lambdaCarrier.topology : TopologicalSpace (lambdaCarrier A ℓ ι πλ) := sorry
+instance lambdaCarrier.moduleTopology : IsModuleTopology Eλ (lambdaCarrier A ℓ ι πλ) := sorry
+
+def lambdaTateModule : TauCeti.ContinuousRep (Field.absoluteGaloisGroup K) Eλ
+    (lambdaCarrier A ℓ ι πλ) := sorry
+
+theorem lambdaTateModule_tmul (σ : Field.absoluteGaloisGroup K) (a : Eλ)
+    (x : withEndCoefficients A ℓ ι) :
+    lambdaTateModule A ℓ ι πλ σ (TauCeti.ContinuousRep.scalarTensorAlong.tmul πλ.toRingHom a x) =
+      TauCeti.ContinuousRep.scalarTensorAlong.tmul πλ.toRingHom a
+        (rationalTateModuleRep A ℓ σ x) := by sorry
+
+/-- Freeness over the full product coefficient algebra is a genuine hypothesis.
+The result does not infer equal ranks from the dimension over Q_l alone. -/
+theorem lambdaTateModule_finrank [Module.Free (ℚ_[ℓ] ⊗[ℚ] E) (withEndCoefficients A ℓ ι)]
+    (r g : ℕ) (hg : A.dim = g)
+    (hfreeRank : Module.finrank (ℚ_[ℓ] ⊗[ℚ] E) (withEndCoefficients A ℓ ι) = r)
+    (hr : r * Module.finrank ℚ E = 2 * g) :
+    Module.finrank Eλ (lambdaCarrier A ℓ ι πλ) = r := by sorry
+
+/-- The totally-real Rosati-fixed coefficient theorem supplies the component
+pairing. This signature records its actual alternating perfect form and its
+cyclotomic similitude, not the determinant conclusion as a hypothesis. -/
+theorem lambdaTateModule_det_of_pairing (b : Module.Basis (Fin 2) Eλ (lambdaCarrier A ℓ ι πλ))
+    (e : LinearMap.BilinForm Eλ (lambdaCarrier A ℓ ι πλ))
+    (healt : e.IsAlt) (heperfect : Function.Bijective e)
+    (heG : ∀ σ x y, e (lambdaTateModule A ℓ ι πλ σ x) (lambdaTateModule A ℓ ι πλ σ y) =
+      algebraMap ℚ_[ℓ] Eλ ((TauCeti.GaloisRep.cyclotomicCharacter K ℓ σ : ℤ_[ℓ]) : ℚ_[ℓ]) * e x y)
+    (σ : Field.absoluteGaloisGroup K) :
+    LinearMap.det (lambdaTateModule A ℓ ι πλ σ) =
+      algebraMap ℚ_[ℓ] Eλ ((TauCeti.GaloisRep.cyclotomicCharacter K ℓ σ : ℤ_[ℓ]) : ℚ_[ℓ]) := by sorry
+
+theorem lambdaTateModule_odd_of_pairing [NumberField K]
+    (b : Module.Basis (Fin 2) Eλ (lambdaCarrier A ℓ ι πλ))
+    (e : LinearMap.BilinForm Eλ (lambdaCarrier A ℓ ι πλ))
+    (healt : e.IsAlt) (heperfect : Function.Bijective e)
+    (heG : ∀ σ x y, e (lambdaTateModule A ℓ ι πλ σ x) (lambdaTateModule A ℓ ι πλ σ y) =
+      algebraMap ℚ_[ℓ] Eλ ((TauCeti.GaloisRep.cyclotomicCharacter K ℓ σ : ℤ_[ℓ]) : ℚ_[ℓ]) * e x y)
+    (v : NumberField.InfinitePlace K) (hv : v.IsReal) :
+    LinearMap.det (lambdaTateModule A ℓ ι πλ (TauCeti.GaloisRep.complexConjugation K v hv)) = -1 := by sorry
+
+/-- Component Frobenius after geometric specialization. The specialization map
+and π are not replaced with their characteristic-polynomial conclusions. -/
+theorem lambdaTateModule_frobenius {k₀ : Type u} [Field k₀] (A₀ : AbelianVariety k₀)
+    [Fact ((ℓ : k₀) ≠ 0)] (π₀ : A₀ ⟶ A₀) (F : Field.absoluteGaloisGroup K)
+    (sp : rationalTateModule A ℓ ≃ₗ[ℚ_[ℓ]] rationalTateModule A₀ ℓ)
+    (hsp : ∀ x, sp (rationalTateModuleRep A ℓ F x) = rationalTateModule.map A₀ ℓ π₀ (sp x))
+    (a : Eλ) (x : withEndCoefficients A ℓ ι) :
+    lambdaTateModule A ℓ ι πλ F (TauCeti.ContinuousRep.scalarTensorAlong.tmul πλ.toRingHom a x) =
+      TauCeti.ContinuousRep.scalarTensorAlong.tmul πλ.toRingHom a
+        (sp.symm (rationalTateModule.map A₀ ℓ π₀ (sp x))) := by sorry
+
+variable {J : Type u} [Fintype J] (Eⱼ : J → Type u) [∀ j, Field (Eⱼ j)]
+  [∀ j, Algebra ℚ_[ℓ] (Eⱼ j)]
+  (split : (ℚ_[ℓ] ⊗[ℚ] E) ≃ₐ[ℚ_[ℓ]] ((j : J) → Eⱼ j))
+
+def lambdaProjection (j : J) : (ℚ_[ℓ] ⊗[ℚ] E) →ₐ[ℚ_[ℓ]] Eⱼ j :=
+  (Pi.evalAlgHom ℚ_[ℓ] Eⱼ j).comp split.toAlgHom
+
+def lambdaTateModule.decomposition : withEndCoefficients A ℓ ι ≃ₗ[ℚ_[ℓ]]
+    ((j : J) → lambdaCarrier A ℓ ι (lambdaProjection Eⱼ split j)) := sorry
+
+theorem lambdaTateModule.decomposition_tmul (j : J) (x : withEndCoefficients A ℓ ι) :
+    lambdaTateModule.decomposition A ℓ ι Eⱼ split x j =
+      TauCeti.ContinuousRep.scalarTensorAlong.tmul (lambdaProjection Eⱼ split j).toRingHom 1 x := by sorry
+
+/-- Component extension into an algebraically closed coefficient field. -/
+def lambdaTateModule.coefficientExtension {C : Type u} [Field C] [Algebra Eλ C]
+    (σ : E →ₐ[ℚ] C) [Algebra ℚ_[ℓ] C] [IsScalarTower ℚ_[ℓ] Eλ C]
+    (hπ : ∀ a e, algebraMap Eλ C (πλ (a ⊗ₜ[ℚ] e)) = algebraMap ℚ_[ℓ] C a * σ e) :
+    C ⊗[Eλ] lambdaCarrier A ℓ ι πλ ≃ₗ[C]
+      TauCeti.ContinuousRep.scalarTensorAlong
+        ((Algebra.TensorProduct.lift
+          (IsScalarTower.toAlgHom ℚ ℚ_[ℓ] C) σ (fun _ _ => Commute.all _ _)).toRingHom)
+        (withEndCoefficients A ℓ ι) := sorry
+end RationalCoefficients
+end
+end TauCeti.AlgebraicGeometry.AbelianVariety
+
+namespace TauCeti.AlgebraicGeometry.AbelianVariety
+noncomputable section
+open CategoryTheory
+universe u
+variable {K : Type u} [Field K] (A : AbelianVariety K) (ℓ : ℕ) [Fact ℓ.Prime]
+  [Fact ((ℓ : K) ≠ 0)] {E : Type u} [Field E] [NumberField E]
+
+/-- The maximal order acts through actual K-defined endomorphisms. -/
+def withIntegralEndCoefficients [Fact ((ℓ : K) ≠ 0)] (ιO : 𝓞 E →+* End A) : Type u := tateModule A ℓ
+instance withIntegralEndCoefficients.addCommGroup (ιO : 𝓞 E →+* End A) :
+    AddCommGroup (withIntegralEndCoefficients A ℓ ιO) :=
+  inferInstanceAs (AddCommGroup (tateModule A ℓ))
+instance withIntegralEndCoefficients.module (ιO : 𝓞 E →+* End A) :
+    Module (ℤ_[ℓ] ⊗[ℤ] 𝓞 E) (withIntegralEndCoefficients A ℓ ιO) := sorry
+
+def integralLambdaTateModule {Oλ : Type u} [CommRing Oλ]
+    (ιO : 𝓞 E →+* End A) (πλ : (ℤ_[ℓ] ⊗[ℤ] 𝓞 E) →+* Oλ) : Type u :=
+  TauCeti.ContinuousRep.scalarTensorAlong πλ (withIntegralEndCoefficients A ℓ ιO)
+
+/-- A[λ] consists of actual geometric ℓ-torsion killed by every coefficient in λ. -/
+def lambdaTorsion (ιO : 𝓞 E →+* End A) (λ : Ideal (𝓞 E)) :
+    AddSubgroup (geometricPoints A) where
+  carrier := {x | ℓ • x = 0 ∧ ∀ a ∈ λ, geometricPoints.map (End.toHom (ιO a)) x = 0}
+  zero_mem' := by sorry
+  add_mem' := by sorry
+  neg_mem' := by sorry
+
+/-- Residual comparison: the uniformizer factor is necessary at a ramified λ.
+The local coefficient map identifies λ with the inverse image of (ϖ). -/
+def lambdaTorsion.residualEquiv {Oλ : Type u} [CommRing Oλ] [IsDomain Oλ]
+    [IsDiscreteValuationRing Oλ] (ιO : 𝓞 E →+* End A)
+    (πλ : (ℤ_[ℓ] ⊗[ℤ] 𝓞 E) →+* Oλ) (λ : Ideal (𝓞 E)) [λ.IsMaximal]
+    (ϖ : Oλ) (hϖ : Irreducible ϖ) (e : ℕ) (he : 0 < e)
+    (u : Oλˣ) (hℓ : πλ (ℓ ⊗ₜ[ℤ] (1 : 𝓞 E)) = u * ϖ ^ e)
+    (hλ : λ = (Ideal.span {ϖ}).comap
+      (πλ.comp (Algebra.TensorProduct.includeRight.toRingHom))) :
+    (integralLambdaTateModule A ℓ ιO πλ ⧸
+      (LinearMap.range (ϖ • (LinearMap.id : Module.End Oλ
+        (integralLambdaTateModule A ℓ ιO πλ)))).toAddSubgroup) ≃+
+        lambdaTorsion A ℓ ιO λ := sorry
+
+/-- Maximal-order local components are finite torsion-free over a DVR.
+No analogous assertion at the bad primes of a nonmaximal order is made. -/
+theorem integralLambdaTateModule_free {Oλ Eλ : Type u} [CommRing Oλ] [IsDomain Oλ]
+    [IsDiscreteValuationRing Oλ] [Field Eλ] [Algebra Oλ Eλ] [IsFractionRing Oλ Eλ]
+    (ιO : 𝓞 E →+* End A) (πλ : (ℤ_[ℓ] ⊗[ℤ] 𝓞 E) →+* Oλ)
+    (hsurj : Function.Surjective πλ) :
+    Module.Free Oλ (integralLambdaTateModule A ℓ ιO πλ) ∧
+      Module.finrank Oλ (integralLambdaTateModule A ℓ ιO πλ) =
+        Module.finrank Eλ (Eλ ⊗[Oλ] integralLambdaTateModule A ℓ ιO πλ) := by sorry
+end
+end TauCeti.AlgebraicGeometry.AbelianVariety
+namespace TauCeti.AlgebraicGeometry.AbelianVariety
+noncomputable section
+open CategoryTheory
+universe u
+variable {K : Type u} [Field K] (A : AbelianVariety K) (ℓ : ℕ)
+  [Fact ℓ.Prime] [Fact ((ℓ : K) ≠ 0)]
+
+abbrev rationalTateTwist := ℚ_[ℓ] ⊗[ℤ_[ℓ]] integralTateTwist K ℓ
+
+def rationalPolarizationPairing [Fact ((ℓ : K) ≠ 0)] (λ : Polarization A) :
+    rationalTateModule A ℓ →ₗ[ℚ_[ℓ]] rationalTateModule A ℓ →ₗ[ℚ_[ℓ]]
+      rationalTateTwist (K := K) ℓ := sorry
+
+theorem rationalPolarizationPairing_tmul (λ : Polarization A) (a b : ℚ_[ℓ])
+    (x y : tateModule A ℓ) :
+    rationalPolarizationPairing A ℓ λ (a ⊗ₜ[ℤ_[ℓ]] x) (b ⊗ₜ[ℤ_[ℓ]] y) =
+      (a * b) ⊗ₜ[ℤ_[ℓ]] polarizationPairing A ℓ λ x y := by sorry
+
+/-- Requested A2 rational Rosati involution, characterized by adjunction below.
+Its construction uses the rational inverse of the actual polarization isogeny. -/
+def Polarization.rosati (λ : Polarization A) : EndZero A ≃ₗ[ℚ] (EndZero A)ᵐᵒᵖ := sorry
+
+theorem polarizationPairing_rosati (λ : Polarization A) (α : EndZero A)
+    (x y : rationalTateModule A ℓ) :
+    rationalPolarizationPairing A ℓ λ (rationalEndAction A ℓ α x) y =
+      rationalPolarizationPairing A ℓ λ x (rationalEndAction A ℓ (MulOpposite.unop (Polarization.rosati A λ α)) y) := by sorry
+
+/-- Every polarization is nondegenerate after rationalization, including ℓ
+that divide its degree. The multiplier is explicitly the cyclotomic character. -/
+theorem image_le_GSp (λ : Polarization A) (σ : Field.absoluteGaloisGroup K) :
+    Function.Bijective (rationalPolarizationPairing A ℓ λ) ∧
+    (∀ x y, rationalPolarizationPairing A ℓ λ
+      (rationalTateModuleRep A ℓ σ x) (rationalTateModuleRep A ℓ σ y) =
+      ((TauCeti.GaloisRep.cyclotomicCharacter K ℓ σ : ℤ_[ℓ]) : ℚ_[ℓ]) •
+        rationalPolarizationPairing A ℓ λ x y) := by sorry
+
+variable {E Eλ : Type u} [Field E] [NumberField E] [NumberField.IsTotallyReal E]
+  [Field Eλ] [TopologicalSpace Eλ] [IsTopologicalRing Eλ]
+  [Algebra ℚ_[ℓ] Eλ] [FiniteDimensional ℚ_[ℓ] Eλ]
+  (ι : E →ₐ[ℚ] EndZero A) (πλ : (ℚ_[ℓ] ⊗[ℚ] E) →ₐ[ℚ_[ℓ]] Eλ)
+
+/-- GL2-type determinant. Rosati-fixed E supplies the component pairing;
+no pairing or determinant identity is assumed. -/
+theorem lambdaTateModule_det (λ : Polarization A)
+    (hRosati : ∀ e, MulOpposite.unop (Polarization.rosati A λ (ι e)) = ι e)
+    (hg : A.dim = Module.finrank ℚ E) (σ : Field.absoluteGaloisGroup K) :
+    LinearMap.det (lambdaTateModule A ℓ ι πλ σ) =
+      algebraMap ℚ_[ℓ] Eλ ((TauCeti.GaloisRep.cyclotomicCharacter K ℓ σ : ℤ_[ℓ]) : ℚ_[ℓ]) := by sorry
+
+theorem lambdaTateModule_odd [NumberField K] (λ : Polarization A)
+    (hRosati : ∀ e, MulOpposite.unop (Polarization.rosati A λ (ι e)) = ι e)
+    (hg : A.dim = Module.finrank ℚ E)
+    (v : NumberField.InfinitePlace K) (hv : v.IsReal) :
+    LinearMap.det (lambdaTateModule A ℓ ι πλ
+      (TauCeti.GaloisRep.complexConjugation K v hv)) = -1 := by sorry
+end
+end TauCeti.AlgebraicGeometry.AbelianVariety
+namespace TauCeti.AlgebraicGeometry.AbelianVariety
+noncomputable section
+open CategoryTheory
+universe u
+variable {K : Type u} [Field K]
+
+instance torsionPoints.moduleZMod (A : AbelianVariety K) (m : ℕ) :
+    Module (ZMod m) (torsionPoints A m) := sorry
+instance torsionPoints.finite (A : AbelianVariety K) (m : ℕ) [NeZero m]
+    [Fact ((m : K) ≠ 0)] : Finite (torsionPoints A m) := sorry
+instance torsionPoints.topology (A : AbelianVariety K) (m : ℕ) :
+    TopologicalSpace (torsionPoints A m) := ⊥
+instance torsionPoints.discrete (A : AbelianVariety K) (m : ℕ) :
+    DiscreteTopology (torsionPoints A m) := ⟨rfl⟩
+instance torsionPoints.moduleTopology (A : AbelianVariety K) (ℓ : ℕ) [Fact ℓ.Prime] :
+    IsModuleTopology (ZMod ℓ) (torsionPoints A ℓ) := sorry
+instance torsionPoints.finiteModule (A : AbelianVariety K) (ℓ : ℕ) [Fact ℓ.Prime]
+    [Fact ((ℓ : K) ≠ 0)] : Module.Finite (ZMod ℓ) (torsionPoints A ℓ) := sorry
+instance torsionPoints.projective (A : AbelianVariety K) (ℓ : ℕ) [Fact ℓ.Prime] :
+    Module.Projective (ZMod ℓ) (torsionPoints A ℓ) := sorry
+
+def torsionRepresentation (A : AbelianVariety K) (ℓ : ℕ) [Fact ℓ.Prime]
+    [Fact ((ℓ : K) ≠ 0)] : TauCeti.ContinuousRep (Field.absoluteGaloisGroup K)
+      (ZMod ℓ) (torsionPoints A ℓ) := sorry
+
+theorem torsionRepresentation_apply (A : AbelianVariety K) (ℓ : ℕ) [Fact ℓ.Prime]
+    [Fact ((ℓ : K) ≠ 0)] (σ : Field.absoluteGaloisGroup K) (x : torsionPoints A ℓ) :
+    (torsionRepresentation A ℓ σ x : geometricPoints A) = geometricPoints.galoisAction A σ x := by sorry
+
+/-- The quotient map is linear through the integer scalar reduction. This
+also fixes the scalar compatibility of modPowEquiv, beyond its additive carrier. -/
+theorem tateModule.toTorsion_smul (A : AbelianVariety K) (ℓ : ℕ) [Fact ℓ.Prime]
+    (n : ℕ) (a : ℤ_[ℓ]) (x : tateModule A ℓ) (r : ℤ)
+    (hr : ∃ b : ℤ_[ℓ], a - r = (ℓ^n : ℤ_[ℓ]) * b) :
+    tateModule.toTorsion A ℓ n (a • x) = r • tateModule.toTorsion A ℓ n x := by sorry
+
+theorem tateModule.baseChange_galois (A : AbelianVariety K) (ℓ : ℕ) [Fact ℓ.Prime]
+    (L : Type u) [Field L] [Algebra K L] [Algebra (AlgebraicClosure K) (AlgebraicClosure L)]
+    [IsScalarTower K (AlgebraicClosure K) (AlgebraicClosure L)]
+    [IsScalarTower K L (AlgebraicClosure L)] [Fact ((ℓ : K) ≠ 0)] [Fact ((ℓ : L) ≠ 0)]
+    (σ : Field.absoluteGaloisGroup L) (x : tateModule A ℓ) :
+    tateModule.baseChange A ℓ L Fact.out
+      (tateModuleRep A ℓ (Field.absoluteGaloisGroup.mapOfAlgebra K L σ) x) =
+      tateModuleRep (A.baseChange L) ℓ σ (tateModule.baseChange A ℓ L Fact.out x) := by sorry
+
+/-- The minimal model y²+y=x³-x²-10x-20. -/
+def curve11a1 : WeierstrassCurve ℚ := ⟨0, -1, 1, -10, -20⟩
+instance curve11a1.elliptic : curve11a1.IsElliptic := by sorry
+
+/-- Unit test: TauCeti.Conductor.primeToPConductor_11a1.
+These are the actual raw geometric torsion actions, without semisimplification. -/
+example :
+    TauCeti.Conductor.primeToPConductor ℚ 5 (torsionRepresentation (ofWeierstrass curve11a1) 5) = ⊤ ∧
+    TauCeti.Conductor.primeToPConductor ℚ 3 (torsionRepresentation (ofWeierstrass curve11a1) 3) =
+      Ideal.span {(11 : 𝓞 ℚ)} := by sorry
+
+variable (A : AbelianVariety K) (ℓ : ℕ) [Fact ℓ.Prime] [Fact ((ℓ : K) ≠ 0)]
+
+/-- Unit test: TauCeti.AlgebraicGeometry.AbelianVariety.lambdaTateModule_rationals.
+The unique rational coefficient component identifies with V_l A, equivariantly. -/
+example (ι : ℚ →ₐ[ℚ] EndZero A)
+    (π : (ℚ_[ℓ] ⊗[ℚ] ℚ) →ₐ[ℚ_[ℓ]] ℚ_[ℓ])
+    (hπ : ∀ a b, π (a ⊗ₜ[ℚ] b) = a * (b : ℚ_[ℓ])) :
+    ∃ e : lambdaCarrier A ℓ ι π ≃ₗ[ℚ_[ℓ]] rationalTateModule A ℓ,
+      ∀ σ x, e (lambdaTateModule A ℓ ι π σ x) = rationalTateModuleRep A ℓ σ (e x) := by sorry
+
+/-- Unit test: TauCeti.AlgebraicGeometry.AbelianVariety.lambdaTateModule_cm_rank_one.
+For the CM model y²=x³-x over its quadratic coefficient field, the two
+5-adic coefficient projections each have dimension one. -/
+example {E : Type u} [Field E] [NumberField E] (i : E) (hi : i^2 = -1)
+    (hE : Module.finrank ℚ E = 2)
+    (W : WeierstrassCurve E) (hW : W = ⟨0, 0, 0, -1, 0⟩) [W.IsElliptic]
+    (ι : E →ₐ[ℚ] EndZero (ofWeierstrass W))
+    (split : (ℚ_[5] ⊗[ℚ] E) ≃ₐ[ℚ_[5]] (Fin 2 → ℚ_[5])) :
+    (∀ j : Fin 2, Module.finrank ℚ_[5]
+      (lambdaCarrier (ofWeierstrass W) 5 ι
+        (lambdaProjection (fun _ : Fin 2 => ℚ_[5]) split j)) = 1) := by sorry
+
+/-- Unit test: TauCeti.AlgebraicGeometry.AbelianVariety.lambdaTateModule_not_over_smaller_field.
+Descent conjugates [i] to [-i]; since its square is -1, it is invertible.
+Thus the Q-action cannot commute with this geometric CM action. -/
+example (hg : A.dim = 1) (J : Module.End ℚ_[ℓ] (rationalTateModule A ℓ))
+    (hJ : J^2 = -1) (c : Field.absoluteGaloisGroup K)
+    (hconj : rationalTateModuleRep A ℓ c ∘ₗ J = -J ∘ₗ rationalTateModuleRep A ℓ c) :
+    rationalTateModuleRep A ℓ c ∘ₗ J ≠ J ∘ₗ rationalTateModuleRep A ℓ c := by sorry
+
+/-- Unit test: TauCeti.AlgebraicGeometry.AbelianVariety.lambdaTateModule_sum.
+The product decomposition respects Galois action, and each component has the
+expected scalar-restriction dimension. -/
+example {E : Type u} [Field E] [NumberField E] (ι : E →ₐ[ℚ] EndZero A)
+    {J : Type u} [Fintype J] (Eⱼ : J → Type u) [∀ j, Field (Eⱼ j)]
+    [∀ j, TopologicalSpace (Eⱼ j)] [∀ j, IsTopologicalRing (Eⱼ j)]
+    [∀ j, Algebra ℚ_[ℓ] (Eⱼ j)] [∀ j, FiniteDimensional ℚ_[ℓ] (Eⱼ j)]
+    (split : (ℚ_[ℓ] ⊗[ℚ] E) ≃ₐ[ℚ_[ℓ]] ((j : J) → Eⱼ j)) :
+    (∀ σ x j, lambdaTateModule.decomposition A ℓ ι Eⱼ split
+      (rationalTateModuleRep A ℓ σ x) j =
+      lambdaTateModule A ℓ ι (lambdaProjection Eⱼ split j) σ
+        (lambdaTateModule.decomposition A ℓ ι Eⱼ split x j)) ∧
+    (∀ j, Module.finrank ℚ_[ℓ] (lambdaCarrier A ℓ ι (lambdaProjection Eⱼ split j)) =
+      Module.finrank ℚ_[ℓ] (Eⱼ j) *
+        Module.finrank (Eⱼ j) (lambdaCarrier A ℓ ι (lambdaProjection Eⱼ split j))) := by sorry
+end
+end TauCeti.AlgebraicGeometry.AbelianVariety
+
+namespace TauCeti.AlgebraicGeometry.AbelianVariety
+noncomputable section
+
+/-- The CM elliptic curve over Q_5, good at 5. -/
+def curveGoodFive : WeierstrassCurve ℚ_[5] := ⟨0, 0, 0, -1, 0⟩
+instance curveGoodFive.elliptic : curveGoodFive.IsElliptic := by sorry
+
+section ConcreteEulerTest
+variable (ℓ : ℕ) [Fact ℓ.Prime] (hℓ : ℓ ≠ 5) [Fact ((ℓ : ℚ_[5]) ≠ 0)]
+  {W : Type} [Group W] [TopologicalSpace W]
+  (ι : W →ₜ* Field.absoluteGaloisGroup ℚ_[5]) (deg : W →* Multiplicative ℤ)
+  (F : W) (hF : deg F = Multiplicative.ofAdd (-1 : ℤ))
+  (hI : deg.ker.map ι.toMonoidHom = TauCeti.GaloisRep.inertiaGroup ℚ_[5])
+  (hΦ : ι F⁻¹ * (TauCeti.GaloisRep.arithFrobLift ℚ_[5])⁻¹ ∈
+    TauCeti.GaloisRep.inertiaGroup ℚ_[5])
+include hℓ hI hΦ
+
+/-- Unit test: TauCeti.AlgebraicGeometry.AbelianVariety.localEulerFactor_goodReduction.
+The actual curve has eight F_5-points, so a_5=-2. No trace, determinant or
+polynomial value of the geometric representation is assumed here. -/
+example : localEulerFactor (ofWeierstrass curveGoodFive) ℓ ι deg F hF =
+    1 + Polynomial.C 2 * Polynomial.X + Polynomial.C 5 * Polynomial.X ^ 2 := by sorry
+
+/-- Unit test: TauCeti.AlgebraicGeometry.AbelianVariety.localEulerFactor_not_on_V.
+The covariant module with geometric Frobenius gives the reciprocal-root
+polynomial, which differs from the H^1 Euler polynomial at this actual curve. -/
+example :
+    TauCeti.GaloisRep.localEulerFactor
+      ((rationalTateModuleRep (ofWeierstrass curveGoodFive) ℓ).res ι) F hF =
+        1 + Polynomial.C (2 / 5 : ℚ_[ℓ]) * Polynomial.X +
+          Polynomial.C (1 / 5 : ℚ_[ℓ]) * Polynomial.X ^ 2 ∧
+      TauCeti.GaloisRep.localEulerFactor
+        ((rationalTateModuleRep (ofWeierstrass curveGoodFive) ℓ).res ι) F hF ≠
+        localEulerFactor (ofWeierstrass curveGoodFive) ℓ ι deg F hF := by sorry
+end ConcreteEulerTest
+end
+end TauCeti.AlgebraicGeometry.AbelianVariety
+
+namespace TauCeti.AlgebraicGeometry.AbelianVariety
+noncomputable section
+open CategoryTheory
+universe u
+variable {K : Type u} [Field K] (A : AbelianVariety K) (ℓ : ℕ) [Fact ℓ.Prime]
+  [Fact ((ℓ : K) ≠ 0)] {E : Type u} [Field E] [NumberField E]
+  {Oλ : Type u} [CommRing Oλ] [IsDomain Oλ] [IsDiscreteValuationRing Oλ]
+  (ιO : 𝓞 E →+* End A) (πλ : (ℤ_[ℓ] ⊗[ℤ] 𝓞 E) →+* Oλ)
+
+/-- The actual action on the local integral component. -/
+def integralLambdaAction : Representation Oλ (Field.absoluteGaloisGroup K)
+    (integralLambdaTateModule A ℓ ιO πλ) := sorry
+
+theorem integralLambdaAction_tmul (σ : Field.absoluteGaloisGroup K) (a : Oλ)
+    (x : withIntegralEndCoefficients A ℓ ιO) :
+    integralLambdaAction A ℓ ιO πλ σ
+        (TauCeti.ContinuousRep.scalarTensorAlong.tmul πλ a x) =
+      TauCeti.ContinuousRep.scalarTensorAlong.tmul πλ a (tateModuleRep A ℓ σ x) := by sorry
+
+def lambdaTorsion.galoisAction (λ : Ideal (𝓞 E)) :
+    Field.absoluteGaloisGroup K →* AddAut (lambdaTorsion A ℓ ιO λ) := sorry
+
+theorem lambdaTorsion.galoisAction_apply (λ : Ideal (𝓞 E))
+    (σ : Field.absoluteGaloisGroup K) (x : lambdaTorsion A ℓ ιO λ) :
+    (lambdaTorsion.galoisAction A ℓ ιO λ σ x : geometricPoints A) =
+      geometricPoints.galoisAction A σ x := by sorry
+
+variable (λ : Ideal (𝓞 E)) [λ.IsMaximal] (ϖ : Oλ) (hϖ : Irreducible ϖ)
+  (e : ℕ) (he : 0 < e) (u : Oλˣ)
+  (hℓ : πλ (ℓ ⊗ₜ[ℤ] (1 : 𝓞 E)) = u * ϖ ^ e)
+  (hλ : λ = (Ideal.span {ϖ}).comap
+    (πλ.comp (Algebra.TensorProduct.includeRight.toRingHom)))
+
+/-- The residual equivalence intertwines the actual Galois action. -/
+theorem lambdaTorsion.residualEquiv_galois (σ : Field.absoluteGaloisGroup K)
+    (x : integralLambdaTateModule A ℓ ιO πλ) :
+    lambdaTorsion.residualEquiv A ℓ ιO πλ λ ϖ hϖ e he u hℓ hλ
+        (QuotientAddGroup.mk (integralLambdaAction A ℓ ιO πλ σ x)) =
+      lambdaTorsion.galoisAction A ℓ ιO λ σ
+        (lambdaTorsion.residualEquiv A ℓ ιO πλ λ ϖ hϖ e he u hℓ hλ
+          (QuotientAddGroup.mk x)) := by sorry
+
+/-- Coefficient compatibility: the additive equivalence is also linear through
+the O_E/λ residue map. This states the action without inventing a residue field. -/
+theorem lambdaTorsion.residualEquiv_coeff (a : 𝓞 E)
+    (x : integralLambdaTateModule A ℓ ιO πλ) :
+    (lambdaTorsion.residualEquiv A ℓ ιO πλ λ ϖ hϖ e he u hℓ hλ
+        (QuotientAddGroup.mk (πλ (1 ⊗ₜ[ℤ] a) • x)) : geometricPoints A) =
+      geometricPoints.map (End.toHom (ιO a))
+        (lambdaTorsion.residualEquiv A ℓ ιO πλ λ ϖ hϖ e he u hℓ hλ
+          (QuotientAddGroup.mk x)) := by sorry
+end
+end TauCeti.AlgebraicGeometry.AbelianVariety
