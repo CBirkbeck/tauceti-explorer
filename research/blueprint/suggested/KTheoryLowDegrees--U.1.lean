@@ -4884,7 +4884,9 @@ def dieudonneDetAux : (n : ℕ) → Matrix (Fin n) (Fin n) D → Abelianization 
 variable (D) in
 /-- **The Dieudonné determinant** (`KTheoryLowDegrees:U.3/dieudonne-determinant`):
 `Δₙ : GL_n(D) → Abelianization Dˣ`, the recursion `dieudonneDetAux` (a real definition; it is a
-homomorphism by `U.3/dieudonne-multiplicative`). -/
+homomorphism by `U.3/dieudonne-multiplicative`). The empty-rank extension is Δ₀=1.
+For the invertible pivot minor, permute rows only. In comparing nonadjacent pivots,
+restore row order with factor (−1)^(i+j), using lower-rank signed swaps. -/
 def dieudonneDet (n : ℕ) (X : GL (Fin n) D) : Abelianization Dˣ :=
   dieudonneDetAux D n X
 
@@ -5212,7 +5214,7 @@ theorem circle_no_so_contraction (n : ℕ) [NeZero n] (hn : 2 ≤ n) :
   sorry
 
 open CliffordAlgebra in
--- test circle_spin_quarter_turn_test: detects both orientation and doubled angle.
+-- test TauCeti.KTheory.circle_spin_quarter_turn_test: detects both orientation and doubled angle.
 example :
     let Q := TauCeti.realCliffordForm 2 0
     let q := spinRotation Q (Pi.single (1 : Fin 2) 1) (Pi.single (0 : Fin 2) 1)
@@ -5225,7 +5227,7 @@ example :
   sorry
 
 open CliffordAlgebra in
--- test circle_spin_full_turn_test: the lift is nonidentity although its image is identity.
+-- test TauCeti.KTheory.circle_spin_full_turn_test: the lift is nonidentity although its image is identity.
 example :
     let Q := TauCeti.realCliffordForm 2 0
     let q := spinRotation Q (Pi.single (1 : Fin 2) 1) (Pi.single (0 : Fin 2) 1)
@@ -5238,7 +5240,7 @@ example :
   sorry
 
 open CliffordAlgebra in
--- test circle_spin_complement_test: stabilization fixes the complementary column.
+-- test TauCeti.KTheory.circle_spin_complement_test: stabilization fixes the complementary column.
 example (θ : ℝ) (i : Fin 3) :
     let Q := TauCeti.realCliffordForm 3 0
     let q := spinRotation Q (Pi.single (1 : Fin 3) 1) (Pi.single (0 : Fin 3) 1)
@@ -5770,6 +5772,11 @@ BMS (A.10)): for `a, b ∈ O_{F,S}` nonzero coprime, a finite set `S₀` of prim
 `b`, open subgroups `V_𝔭` and elements `x_𝔭` of `F_𝔭ˣ` at `𝔭 ∈ S₀ ∪ S_∞` (with `ord_𝔭 x_𝔭 = e_𝔭 ≥ 0`
 on `S₀`, and some `V_𝔭`, `𝔭 ∈ S_∞`, of finite index), infinitely many primes `𝔭₀ ∉ S₀ ∪ S` admit
 `c ≡ a (mod b)` with `c ∈ x_𝔭 V_𝔭` on `S₀ ∪ S_∞` and `cA = 𝔭₀ ∏ 𝔭^{e_𝔭}` (read on valuations). -/
+/- REVIEW E115: choose the auxiliary idèle ā=a⁻¹ at primes dividing b and 1 elsewhere.
+From t x̄ v=ā d take c=d. At primes of b, c=a v; elsewhere c=t x̄ v.
+The published ā=a, c=ad leaves an unwanted factor a at the other places.
+For number fields the norm image of V contains all positive reals through an archimedean
+identity component; compact norm-one classes then surject onto the discrete quotient. -/
 theorem dirichlet_theorem_arithmetic_type (hS : S.Finite) (a b : S.integer F) (ha : a ≠ 0) (hb : b ≠ 0)
     (hab : IsCoprime a b) (S₀ : Finset (HeightOneSpectrum (𝓞 F)))
     (hS₀ : ∀ 𝔭 ∈ S₀, 𝔭 ∉ S ∧ 𝔭.valuation F (b : F) = 1)
@@ -7415,7 +7422,9 @@ example (x : Additive (K1 B)) : K1.smulK0 A B 0 x = 0 ∧ K1.smulK0 A B (RingK0.
   ⟨by rw [map_zero, AddMonoidHom.zero_apply], K1.one_smulK0 A B x⟩
 
 -- test TauCeti.KTheory.K1.smulK0_ideal_units (computation)
-/- For `R = ℤ[√−5]` and `𝔞 = (2, 1 + √−5)`: `[𝔞]·[-1] = [-1]`. -/
+/- For `R = ℤ[√−5]` and `𝔞 = (2, 1 + √−5)`: `[𝔞]·[-1] = [-1]`.
+The determinant calculation gives −1; equality in K₁ also needs injectivity from
+U.4/bass-milnor-serre. This is an arithmetic acceptance test conditional on that input. -/
 example [Module.Finite (Zsqrtd (-5)) (Ideal.span {2, 1 + Zsqrtd.sqrtd} : Ideal (Zsqrtd (-5)))]
     [Module.Projective (Zsqrtd (-5)) (Ideal.span {2, 1 + Zsqrtd.sqrtd} : Ideal (Zsqrtd (-5)))] :
     K1.smulK0 (Zsqrtd (-5)) (Zsqrtd (-5))
@@ -9064,4 +9073,26 @@ Full-file elaboration at the exact pins remains unestablished. -/
 /-! Independent review REV-KTheoryLowDegrees--U.1~2: arithmetic-type signatures carry finite S;
 nonidentity transvection conjugacy is separate from elementary membership. This file remains a
 planning prototype. Full elaboration was blocked at the missing Exact.Functor import; no build
-was attempted. The readonly reader requires regeneration from the corrected packet. -/
+was attempted. At round 2, the readonly reader required regeneration; revision 3 and its
+independent review synchronized it with the corrected packet. -/
+
+/- Independent review REV-KTheoryLowDegrees--U.1~3 (2026-10-08).
+The packet and reader state the exact contracts; no body elaboration was obtained.
+Division-ring reduction first gives [[I,c],[0,μ]]; left e_{i,n}(−c_i μ⁻¹) clears c.
+In the no-units-valued-determinant argument, λ=0 is the identity; invert only λ≠0.
+The Mennicke MS1 lower move is L(t)⁻¹ σ L(t), giving a+tb. Residue cyclicity
+is asserted only for finite residue fields. The Stallings ℤ/2 example has n≥3.
+Arithmetic finite transfer uses S′ exactly the primes above S. For an arbitrary
+Dedekind ideal, only det([I]·[u])=u follows from rank one; K₁ equality needs
+determinant injectivity. Jacobson containment is distinct from √I=I.
+
+Homotopy imports: H.1/classifying-space-of-group-is-KG1 computes π₁BG;
+H.3/plus-fundamental-group computes the quotient; H.3/plus-is-acyclic is
+the separate local-coefficient theorem. H.2/long-exact-sequence supplies the LES.
+H.3’s universal property currently has abelian CW targets. The determinant
+target is abelian directly. For BGL(A)⁺ use K.2:plus/plus-equals-Q first,
+then H.3/hspace-is-abelian on its connected loop-space component. This does
+not import an unsupported universal property for arbitrary nonabelian targets.
+The relative-plus and degree-two boundary comparison remains an explicit gap.
+All implementation statuses stay unchecked; sorry does not close a recorded gap.
+-/
