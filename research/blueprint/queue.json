@@ -38859,8 +38859,9 @@
     "BP-GL2ModularityLifting--R32.3~2"
    ],
    "prompt": "research/blueprint/prompts/REV-GL2ModularityLifting--R32.3~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7050"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7050",
+   "finishedAt": "2026-10-08T14:44:35Z"
   },
   {
    "kind": "blueprint",
@@ -39005,7 +39006,8 @@
    ],
    "revisionOf": "BP-GeometricSatakeAndFusion--GS3",
    "prompt": "research/blueprint/prompts/BP-GeometricSatakeAndFusion--GS3~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6965"
   },
   {
    "priority": 2,
@@ -41281,8 +41283,8 @@
     "BP-StableHomotopyKTheory~2"
    ],
    "prompt": "research/blueprint/prompts/REV-StableHomotopyKTheory~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #7095"
+   "state": "external",
+   "note": "claimed on GitHub issue #7095"
   },
   {
    "kind": "blueprint",
