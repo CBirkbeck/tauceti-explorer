@@ -32924,7 +32924,8 @@
    ],
    "followUpOf": "DESIGN-HodgeStructuresPartII",
    "prompt": "research/blueprint/prompts/BP-HodgeStructuresPartII--H.8.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6947"
   },
   {
    "id": "REV-HodgeStructuresPartII--H.8",
@@ -40149,8 +40150,9 @@
     "BP-MetaplecticAutomorphicForms--MP.8~2"
    ],
    "prompt": "research/blueprint/prompts/REV-MetaplecticAutomorphicForms--MP.8~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7075"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7075",
+   "finishedAt": "2026-10-08T06:50:04Z"
   },
   {
    "kind": "blueprint",
@@ -40206,8 +40208,9 @@
     "BP-MotivicEtaleKTheory--M.5d~2"
    ],
    "prompt": "research/blueprint/prompts/REV-MotivicEtaleKTheory--M.5d~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7076"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7076",
+   "finishedAt": "2026-10-08T06:50:07Z"
   },
   {
    "kind": "blueprint",
