@@ -18,6 +18,8 @@ import Mathlib.Algebra.MvPolynomial.Eval
 import Mathlib.FieldTheory.RatFunc.AsPolynomial
 import Mathlib.FieldTheory.RatFunc.Degree
 import Mathlib.Data.Fin.VecNotation
+import Mathlib.NumberTheory.NumberField.Basic
+import Mathlib.AlgebraicGeometry.EllipticCurve.VariableChange
 
 set_option autoImplicit false
 -- Signature prototyping intentionally admits sorry.
@@ -25,6 +27,47 @@ set_option warningAsError false
 noncomputable section
 open scoped Polynomial
 namespace TauCeti.ImaginaryQuadraticModularity
+
+def shortEquationFamily (F : Type*) [Field F] [NumberField F] :
+    Set (NumberField.RingOfIntegers F × NumberField.RingOfIntegers F) :=
+  {ab | 4 * ab.1 ^ 3 + 27 * ab.2 ^ 2 ≠ 0}
+
+namespace shortEquationFamily
+
+theorem mem (F : Type*) [Field F] [NumberField F]
+    (a b : NumberField.RingOfIntegers F) :
+    (a, b) ∈ shortEquationFamily F ↔ 4 * a ^ 3 + 27 * b ^ 2 ≠ 0 := by sorry
+
+theorem discriminant (F : Type*) [Field F] [NumberField F]
+    (a b : NumberField.RingOfIntegers F) :
+    (⟨0, 0, 0, (a : F), (b : F)⟩ : WeierstrassCurve F).Δ =
+      -16 * (4 * (a : F) ^ 3 + 27 * (b : F) ^ 2) ∧
+    ((a, b) ∈ shortEquationFamily F ↔
+      (⟨0, 0, 0, (a : F), (b : F)⟩ : WeierstrassCurve F).IsElliptic) := by sorry
+
+-- shortEquationFamily.test_zero
+example (F : Type*) [Field F] [NumberField F] :
+    ((0, 0) : NumberField.RingOfIntegers F × NumberField.RingOfIntegers F) ∉
+      shortEquationFamily F := by sorry
+
+-- shortEquationFamily.test_one
+example (F : Type*) [Field F] [NumberField F] :
+    ((0, 1) : NumberField.RingOfIntegers F × NumberField.RingOfIntegers F) ∈
+      shortEquationFamily F ∧
+    (⟨0, 0, 0, 0, 1⟩ : WeierstrassCurve F).Δ = -432 := by sorry
+
+-- shortEquationFamily.test_scaling
+example (F : Type*) [Field F] [NumberField F] :
+    ((0, 1) : NumberField.RingOfIntegers F × NumberField.RingOfIntegers F) ≠ (0, 64) ∧
+    ((0, 1) : NumberField.RingOfIntegers F × NumberField.RingOfIntegers F) ∈
+      shortEquationFamily F ∧
+    ((0, 64) : NumberField.RingOfIntegers F × NumberField.RingOfIntegers F) ∈
+      shortEquationFamily F ∧
+    (⟨Units.mk0 (2 : F) (by norm_num), 0, 0, 0⟩ : WeierstrassCurve.VariableChange F) •
+      (⟨0, 0, 0, 0, 64⟩ : WeierstrassCurve F) =
+      (⟨0, 0, 0, 0, 1⟩ : WeierstrassCurve F) := by sorry
+
+end shortEquationFamily
 
 def b3J : RatFunc ℚ := RatFunc.mk (((Polynomial.X + 27) * (Polynomial.X + 3)^3) : Polynomial ℚ) (Polynomial.X : Polynomial ℚ)
 
@@ -253,6 +296,13 @@ example : b3ns5Sextic.natDegree = 6 ∧ b3ns5Sextic.leadingCoeff = 9 := by sorry
 def genusOneSpecialPoints (K : Type*) [Field K] (s : K) : List (Fin 3 → K) := [![1,s,0], ![1,-s,0], ![0,5*s,1], ![-2,-s,1], ![-5/2,5*s/4,1]]
 
 theorem genusOneSpecialPoints_coordinates (K : Type*) [Field K] (s : K) : genusOneSpecialPoints K s = [![1,s,0], ![1,-s,0], ![0,5*s,1], ![-2,-s,1], ![-5/2,5*s/4,1]] := by sorry
+
+-- The coordinate equation below still needs its geometric lift through genus_one_model.
+theorem genusOneSpecialPoints_on_curve (K : Type*) [Field K] [CharZero K]
+    (s : K) (h : s ^ 2 = -3) :
+    ∀ v ∈ genusOneSpecialPoints K s,
+      v 1 ^ 2 = -3 * (v 0 ^ 4 + 2 * v 0 ^ 3 * v 2 - v 0 ^ 2 * v 2 ^ 2 +
+        10 * v 0 * v 2 ^ 3 + 25 * v 2 ^ 4) := by sorry
 
 theorem genusOneSpecialPoints_conjugate (K L : Type*) [Field K] [Field L] (s : K) (f : K →+* L) : (genusOneSpecialPoints K s).map (fun v => f ∘ v) = genusOneSpecialPoints L (f s) := by sorry
 
@@ -1168,7 +1218,7 @@ Construct the Jacobian using the relative Picard interface without a rational ba
 
 
 TauCeti.ImaginaryQuadraticModularity.genus_one_jacobian
-For C as above, JacC is ℚ-isomorphic to the elliptic curve y²=x³+3x²−720x−8100 (45A2), and JacC(ℚ)≅ℤ/2⊕ℤ/2. C(ℚ3)=∅, hence C(ℚ)=∅. Under the ℚ(√−3) identification P↦[P]−[∞−], its three nonzero rational classes are D₀,D₁,D₂ from genusOneSpecialPoints, each of order 2 and D₀+D₁=D₂. This identifies the Jacobian over ℚ without identifying the pointless genus-one curve C with it over ℚ.
+For C as above, JacC is ℚ-isomorphic to the elliptic curve y²=x³+3x²−720x−8100 (45A2), and JacC(ℚ)≅ℤ/2⊕ℤ/2. C(ℚ3)=∅, hence C(ℚ)=∅. Under the ℚ(√−3) identification P↦[P]−[∞−], its three nonzero rational classes are D₀=[0+]−[∞−], D₁=[P₁]−[∞−], D₂=[P₂]−[∞−], using genusOneSpecialPoints over ℚ(√−3); each has order 2 and D₀+D₁=D₂. This identifies the Jacobian over ℚ without identifying the pointless genus-one curve C with it over ℚ.
 
 Requires: IQ.5 genus_one_model, IQ.5 genusOneSpecialPoints, Jacobian D, ED.3, ED.6
 
@@ -1639,7 +1689,7 @@ Special case: Rank computations use algebraic rank bounds; a finite search or nu
 
 
 TauCeti.ImaginaryQuadraticModularity.sqrt_minus_ten_infinite_level_fifteen
-Let F=ℚ(√−10) and s²=−10. The point (x,y)=(-1,6s) on E15:y²=x(x+16)(x+25) is nontorsion. It is not rational, and quadratic_torsion_growth shows that E15(F)tors=E15(ℚ) because F is neither ℚ(i) nor ℚ(√5). Hence X₀(15)(F) is infinite. This gives a concrete field to which finite_level_fifteen_modularity does not apply; it says nothing against modularity of particular curves over that field.
+Let F=ℚ(√−10) and s²=−10. The point (x,y)=(-1,6s) on E15:y²=x(x+16)(x+25) is nontorsion. It is not rational, and quadratic_level_fifteen_torsion shows that E15(F)tors=E15(ℚ) because F is neither ℚ(i) nor ℚ(√5). Hence X₀(15)(F) is infinite. This gives a concrete field to which finite_level_fifteen_modularity does not apply; it says nothing against modularity of particular curves over that field.
 
 Requires: IQ.5 level_fifteen_models, IQ.5 quadratic_level_fifteen_torsion
 
