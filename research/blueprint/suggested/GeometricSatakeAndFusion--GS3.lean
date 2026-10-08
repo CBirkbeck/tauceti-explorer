@@ -8,7 +8,7 @@ Pins: Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174;
 Tau Ceti f790474821cf4256814db967cb154e7af3d0c369.
 
 IMPORTANT SIGNATURE LIMITATION (packet gap: Formal geometric and enhanced carriers).
-Sat, Disjoint, Loc, Perf and Enhanced below are parameters for the imported
+Sat, Disjoint, Loc, SatW, Comod, Perf and Enhanced below are parameters for the imported
 GEOMETRIC categories, not new definitions of those categories. The pinned
 libraries cannot express the required diamond, ULA, flat-perverse, continuous
 Weil, root-pinning or stable infinity-category conditions. Those conditions are
@@ -31,6 +31,8 @@ import Mathlib.CategoryTheory.Monad.Monadicity
 import Mathlib.Data.ZMod.Basic
 import Mathlib.Data.Fin.VecNotation
 import Mathlib.Algebra.Category.ModuleCat.Basic
+import Mathlib.Algebra.Category.FGModuleCat.Basic
+import Mathlib.FieldTheory.IsAlgClosed.Basic
 import Mathlib.CategoryTheory.Limits.Shapes.Products
 import Mathlib.RingTheory.HopfAlgebra.Basic
 import Mathlib.LinearAlgebra.RootSystem.Defs
@@ -167,11 +169,11 @@ def collisionFunctor_union {n m n' m' : ℕ}
 theorem collisionFunctor_comp_assoc {n m k l : ℕ}
     (α : Fin n → Fin m) (β : Fin m → Fin k) (γ : Fin k → Fin l) :
     (collisionFunctor_comp Sat (β ∘ α) γ).hom ≫
-      (isoWhiskerRight (collisionFunctor_comp Sat α β) (collisionFunctor Sat γ)).hom ≫
+      (Functor.isoWhiskerRight (collisionFunctor_comp Sat α β) (collisionFunctor Sat γ)).hom ≫
       (Functor.associator (collisionFunctor Sat α) (collisionFunctor Sat β)
         (collisionFunctor Sat γ)).hom =
     (collisionFunctor_comp Sat α (γ ∘ β)).hom ≫
-      (isoWhiskerLeft (collisionFunctor Sat α) (collisionFunctor_comp Sat β γ)).hom :=
+      (Functor.isoWhiskerLeft (collisionFunctor Sat α) (collisionFunctor_comp Sat β γ)).hom :=
   by sorry
 
 def collisionFunctor_unitInsertion (n : ℕ) :
@@ -342,7 +344,15 @@ theorem genericFibreReductivity : TauCeti.reductiveAffineGroupSchemeProperty k g
 -- generators and the geometric generic-fibre identification are omitted.
 -- Node torus-and-rank-one-identification: the torus/SL2 coordinate rings and
 -- component-grading map are imported parameters; geometric hypotheses omitted.
+-- Over the generic fibre only; the integral statement is the next node.
 theorem torusRankOneIdentification : Nonempty (reconstructed ≅ pinned) := by sorry
+-- Node rank-one-integral-identification: for PGL2 the integral group is SL2 for
+-- every ell != p. Omitted: the special-fibre image argument; at ell = 2 it counts
+-- invariants of tensor powers (top Borel-Moore homology of convolution fibres
+-- against SL2 tilting modules), which excludes the normalizer of the diagonal
+-- torus and its Frobenius preimages (packet source issue E8), and the flat-module
+-- lift VI.11.3.
+theorem rankOneIntegralIdentification : Nonempty (reconstructed ≅ pinned) := by sorry
 -- Node generic-root-datum: the actual weight-functor/root-datum identification
 -- is omitted; this uses the library RootPairing as the target carrier.
 variable (M N : Type u) [AddCommGroup M] [AddCommGroup N]
@@ -429,6 +439,40 @@ theorem chevalleyInvolution {G : Type u} [Group G] (sw theta : G ≃* G)
     sw g = adjointConjugation (theta g) := by sorry
 -- Omitted: adjointConjugation is precisely Ad(rho(-1)) for the actual pinned data.
 end NormalizedEquivalence
+
+/-! Rational Witt vector geometric Satake (Zhu, Theorem 0.3), through the FS
+degeneration. `SatW` is a parameter for Zhu's category of L⁺G-equivariant
+perverse sheaves with algebraically closed coefficient field `K` on the Witt
+vector affine Grassmannian over an algebraic closure of F_q, and `Comod` for the
+finite-dimensional comodules over the coordinate Hopf algebra of the split dual
+group. OMITTED: the Witt geometry, the one-leg comparison and rationalization,
+perversity and equivariance, and the transport of the fusion symmetry. The
+monoidal structure on `H` is the one transported from fusion; it is not
+identified with the structure of Zhu's Proposition 2.20. -/
+section WittRationalSatake
+variable (K : Type u) [Field K] [IsAlgClosed K] [CharZero K]
+variable (SatW Comod : Type u) [Category.{u} SatW] [Category.{u} Comod]
+variable [MonoidalCategory SatW] [MonoidalCategory Comod]
+variable [SymmetricCategory SatW] [SymmetricCategory Comod]
+variable (H : SatW ⥤ FGModuleCat.{u} K) (forget : Comod ⥤ FGModuleCat.{u} K)
+variable [H.Braided] [forget.Braided]
+
+-- Node witt-rational-tannakian-category. Expressible part of (ii): the fibre
+-- functor is faithful and the category is rigid. Omitted: the identification
+-- (i) with the rationalized FS Satake category of Spd k, the abelian structure
+-- of SatW and exactness of H, semisimplicity, End(IC_0) = K, and (iii) the
+-- identification of the Tannakian group with the generic fibre of the Satake group.
+theorem wittRationalTannakianCategory :
+    H.Faithful ∧ Nonempty (RigidCategory SatW) := by sorry
+
+-- Node witt-rational-satake-equivalence (Zhu, Theorem 0.3). Expressible part: an
+-- equivalence S with forget ∘ S ≅ H. Omitted: that S and this isomorphism are
+-- symmetric monoidal, items (a)–(d) of the node (tensor constant term, Borel
+-- filtration, IC_μ ↦ V_μ, torus case), and the identification of Comod with the
+-- representations of the pinned dual group.
+theorem wittRationalSatakeEquivalence :
+    ∃ S : SatW ≌ Comod, Nonempty (S.functor ⋙ forget ≅ H) := by sorry
+end WittRationalSatake
 
 section PerfectExtension
 -- Omitted: these are the stable infinity-categories Perf(B(Ghat⋊Q)^I),
