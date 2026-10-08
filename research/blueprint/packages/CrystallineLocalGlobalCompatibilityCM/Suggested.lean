@@ -8,11 +8,15 @@ Tau Ceti baseline: f790474821cf4256814db967cb154e7af3d0c369.
 The expressible cores below use only individual Mathlib imports.
 
 The four CL.0 objects expose algebraic cores: block exchange, positive exponent
-cone, integral block subgroup and scalar rescaling. The two later theorem
-signatures concern the numerical degree bound and the adic subquotient lemma.
-Their arithmetic specializations and the other signatures require genuine
-supplier types. The catalogue at the end records the mathematical statements,
-API and tests of those omissions. A commented statement is not a Lean declaration.
+cone, integral block subgroup and scalar rescaling. CL.3 adds the p-adic
+normalization of a supplied determinant-norm character. CL.6 exposes integral
+and torsion image algebras of supplied actions, their factorization and the
+scalar-extension map. These cores do not construct arithmetic cohomology or
+its actions. The theorem signatures include the degree bound, adic subquotient
+lemma and full corrected determinant-kernel criterion with its A₄ exception.
+The catalogue records remaining arithmetic specializations and signatures,
+including partial cores explicitly distinguished from missing declarations.
+A commented statement is not a Lean declaration.
 No smooth, automorphic, crystalline, Barsotti–Tate or arithmetic derived notion
 is replaced by a proposition that assumes its desired conclusions.
 
@@ -31,6 +35,15 @@ import Mathlib.RingTheory.Ideal.Quotient.Defs
 import Mathlib.RingTheory.Filtration
 import Mathlib.NumberTheory.Padics.PadicIntegers
 import Mathlib.Algebra.Field.ZMod
+import Mathlib.GroupTheory.SpecificGroups.Alternating
+import Mathlib.FieldTheory.IsAlgClosed.Basic
+import Mathlib.LinearAlgebra.Matrix.Trace
+import Mathlib.LinearAlgebra.Dimension.Finrank
+import Mathlib.Algebra.Algebra.Subalgebra.Basic
+import Mathlib.Algebra.Polynomial.AlgebraMap
+import Mathlib.LinearAlgebra.TensorProduct.Tower
+
+open scoped TensorProduct
 
 noncomputable section
 namespace CrystallineCM
@@ -232,13 +245,234 @@ lemma subquotient_mod_p_pow (p : ℕ) [Fact p.Prime]
       Function.Surjective g := by
   sorry
 
+/- CL.3/chi-character, CN §2.3.1 p.37.
+The input δ is the *actual* norm of the determinant on Lie U, supplied by PA.0/PA.2.
+The normalization itself needs no smooth-category carrier. The codomain is ℤ_pˣ,
+which maps into Oˣ under the coefficient algebra map. This does not construct δ
+or its top-continuous-cohomology interpretation. -/
+def ChiCharacter (p : ℕ) [Fact p.Prime] {G : Type*} [Monoid G]
+    (δ : G →* ℚ_[p]ˣ) : G →* ℤ_[p]ˣ where
+  toFun g := PadicInt.mkUnits (u := ((δ g : ℚ_[p])⁻¹ *
+    (p : ℚ_[p]) ^ (δ g : ℚ_[p]).valuation)) (by sorry)
+  map_one' := by sorry
+  map_mul' := by sorry
+
+lemma ChiCharacter_mul (p : ℕ) [Fact p.Prime] {G : Type*} [Monoid G]
+    (δ : G →* ℚ_[p]ˣ) (g h : G) :
+    ChiCharacter p δ (g*h) = ChiCharacter p δ g * ChiCharacter p δ h ∧
+      ChiCharacter p δ 1 = 1 := by
+  sorry
+
+lemma ChiCharacter_unit_value (p : ℕ) [Fact p.Prime] {G : Type*} [Monoid G]
+    (δ : G →* ℚ_[p]ˣ) (g : G) :
+    ((ChiCharacter p δ g : ℤ_[p]) : ℚ_[p]).valuation = 0 ∧
+      ((ChiCharacter p δ g : ℤ_[p]) : ℚ_[p]) =
+        (δ g : ℚ_[p])⁻¹ * (p : ℚ_[p]) ^ (δ g : ℚ_[p]).valuation := by
+  sorry
+
+-- The compact-Levi restriction has |δ|_p=1. The top-cohomology identification
+-- still needs continuous unipotent cochains; this is its unit-character formula.
+lemma ChiCharacter_orientation (p : ℕ) [Fact p.Prime] {G : Type*} [Monoid G]
+    (δ : G →* ℚ_[p]ˣ) (g : G) (u : ℤ_[p]ˣ)
+    (hu : (δ g : ℚ_[p]) = ((u : ℤ_[p]) : ℚ_[p])) :
+    ChiCharacter p δ g = u⁻¹ := by
+  sorry
+
+-- CrystallineCM.ChiCharacter_test_identity
+example (p : ℕ) [Fact p.Prime] :
+    ChiCharacter p (MonoidHom.id ℚ_[p]ˣ) 1 = 1 := by
+  sorry
+
+-- CrystallineCM.ChiCharacter_test_rank_one_unit
+-- δ=det Ad|Lie U=a/d for the GL₂ upper-triangular radical.
+example (p : ℕ) [Fact p.Prime] (a d : ℤ_[p]ˣ) :
+    ChiCharacter p (Units.map (algebraMap ℤ_[p] ℚ_[p]).toMonoidHom)
+      (a * d⁻¹) = d * a⁻¹ := by
+  sorry
+
+-- CrystallineCM.ChiCharacter_test_uniformizer
+example (p : ℕ) [Fact p.Prime] :
+    ChiCharacter p (MonoidHom.id ℚ_[p]ˣ)
+      (Units.mk0 (p : ℚ_[p]) (by sorry)) = 1 := by
+  sorry
+
+/- CL.6/hecke-images-A and torsion-hecke-image, CN §4.2.1 p.61.
+These definitions take the *actual* algebra action as data. The caller must
+supply localized ordinary cohomology and its Hecke action. This algebraic core
+does not produce that cohomology or assert a reduction map between the images. -/
+section HeckeImages
+variable {R H M : Type*} [CommRing R] [CommRing H] [Algebra R H]
+  [AddCommGroup M] [Module R M]
+
+abbrev HeckeImagesA (action : H →ₐ[R] Module.End R M) :
+    Subalgebra R (Module.End R M) := action.range
+
+lemma HeckeImagesA_mem (action : H →ₐ[R] Module.End R M)
+    (b : Module.End R M) : b ∈ HeckeImagesA action ↔ ∃ h : H, action h = b := by
+  exact action.mem_range
+
+lemma HeckeImagesA_factor (action : H →ₐ[R] Module.End R M)
+    {B : Type*} [Semiring B] [Algebra R B] (f : H →ₐ[R] B) :
+    (∃! g : HeckeImagesA action →ₐ[R] B, g.comp action.rangeRestrict = f) ↔
+      ∀ h : H, action h = 0 → f h = 0 := by
+  sorry
+
+-- Tensoring an actual module action supplies the map to the rational image.
+-- The cohomology/base-change comparison is a separate arithmetic supplier.
+def HeckeImagesA_integral_to_rational (action : H →ₐ[R] Module.End R M)
+    (E : Type*) [CommRing E] [Algebra R E] :
+    HeckeImagesA action →ₐ[R]
+      ((Module.End.baseChangeHom R E M).comp action).range := by
+  sorry
+
+lemma HeckeImagesA_integral_to_rational_apply
+    (action : H →ₐ[R] Module.End R M)
+    (E : Type*) [CommRing E] [Algebra R E] (h : H) :
+    ((HeckeImagesA_integral_to_rational action E (action.rangeRestrict h)) :
+      Module.End E (E ⊗[R] M)) = (action h).baseChange E := by
+  sorry
+
+-- An injection M→E⊗M detects an endomorphism from its scalar extension.
+-- This hypothesis is supplied arithmetically in generic unitary middle degree;
+-- it is not automatic for torsion integral cohomology.
+lemma HeckeImagesA_integral_to_rational_injective
+    (action : H →ₐ[R] Module.End R M)
+    (E : Type*) [CommRing E] [Algebra R E]
+    (hinj : Function.Injective (fun x : M => (1 : E) ⊗ₜ[R] x)) :
+    Function.Injective (HeckeImagesA_integral_to_rational action E) := by
+  sorry
+
+-- CrystallineCM.HeckeImagesA_test_zero_cohomology
+example {Z : Type*} [AddCommGroup Z] [Module R Z] [Subsingleton Z]
+    (action : H →ₐ[R] Module.End R Z) : Subsingleton (HeckeImagesA action) := by
+  infer_instance
+
+-- CrystallineCM.HeckeImagesA_test_scalar_image
+-- Evaluate the polynomial Hecke operator on the coefficient line. The faithful
+-- scalar action identifies its endomorphism image with this evaluation image.
+example (a : R) :
+    (Polynomial.aeval a).range = (⊤ : Subalgebra R R) ∧
+      RingHom.ker (Polynomial.aeval a).toRingHom =
+        Ideal.span {Polynomial.X - Polynomial.C a} := by
+  sorry
+
+-- CrystallineCM.HeckeImagesA_test_range
+example (action : H →ₐ[R] Module.End R M) :
+    HeckeImagesA action = action.range := rfl
+
+abbrev TorsionHeckeImage {T : Type*} [AddCommGroup T] [Module R T]
+    (torsionAction : H →ₐ[R] Module.End R T) :
+    Subalgebra R (Module.End R T) := torsionAction.range
+
+lemma TorsionHeckeImage_mem {T : Type*} [AddCommGroup T] [Module R T]
+    (torsionAction : H →ₐ[R] Module.End R T) (b : Module.End R T) :
+    b ∈ TorsionHeckeImage torsionAction ↔ ∃ h : H, torsionAction h = b := by
+  exact torsionAction.mem_range
+
+lemma TorsionHeckeImage_faithful {T : Type*} [AddCommGroup T] [Module R T]
+    (torsionAction : H →ₐ[R] Module.End R T) :
+    Function.Injective (TorsionHeckeImage torsionAction).val := by
+  exact Subtype.val_injective
+
+lemma TorsionHeckeImage_image_reduction {T : Type*}
+    [AddCommGroup T] [Module R T]
+    (integralAction : H →ₐ[R] Module.End R M)
+    (torsionAction : H →ₐ[R] Module.End R T)
+    (reduction : M →ₗ[R] T)
+    (equivariance : ∀ h x, reduction (integralAction h x) =
+      torsionAction h (reduction x)) (h : H) (y : T)
+    (hy : y ∈ LinearMap.range reduction) :
+    ∃ x : M, reduction x = y ∧
+      reduction (integralAction h x) = torsionAction h y := by
+  sorry
+
+-- CrystallineCM.TorsionHeckeImage_test_zero
+example {Z : Type*} [AddCommGroup Z] [Module R Z] [Subsingleton Z]
+    (torsionAction : H →ₐ[R] Module.End R Z) :
+    Subsingleton (TorsionHeckeImage torsionAction) := by
+  infer_instance
+
+-- CrystallineCM.TorsionHeckeImage_test_scalar_mod
+-- The scalar endomorphisms of R/I identify the scalar image with R/I, not R.
+example (I : Ideal R) : Function.Surjective (Ideal.Quotient.mk I) ∧
+    RingHom.ker (Ideal.Quotient.mk I) = I := by
+  sorry
+
+-- CrystallineCM.TorsionHeckeImage_test_new_torsion
+-- C=[ℤ₃ --3--> ℤ₃] in degrees 0,1 has H⁰=0, whereas its mod-3 H⁰
+-- is ℤ/3. Thus no map from its zero integral H⁰ image onto the scalar
+-- mod-3 H⁰ image is possible. These are the two kernel calculations.
+example :
+    (LinearMap.ker (LinearMap.lsmul ℤ_[3] ℤ_[3] (3 : ℤ_[3]))) = ⊥ ∧
+      (LinearMap.ker (LinearMap.lsmul (ZMod 3) (ZMod 3) (3 : ZMod 3))) = ⊤ := by
+  sorry
+end HeckeImages
+
+/- CL.9/lem-5-6-5, corrected finite-group statement of CN pp.85–86.
+Private notation expresses the projective image as the range of conjugation on
+GL₂(K). Its kernel is the scalar subgroup of GL₂(K), so it is precisely the
+projective matrix image; it is not the quotient by the centre of ρ(G).
+The latter quotient would wrongly kill an abelian nonscalar projective image.
+No absolute-Galois-group or Dickson-classification carrier is needed to *state*
+this theorem. Its proof still uses the supplier's classification. -/
+private abbrev projectiveMatrixImage {K G : Type*} [Field K] [Group G]
+    (ρ : G →* Matrix.GeneralLinearGroup (Fin 2) K) :=
+  (MulAut.conj.comp ρ).range
+
+private def determinantKernelHasLine {K G : Type*} [Field K] [Group G]
+    (ρ : G →* Matrix.GeneralLinearGroup (Fin 2) K) : Prop :=
+  ∃ W : Submodule K (Fin 2 → K), Module.finrank K W = 1 ∧
+    ∀ g : G, Matrix.GeneralLinearGroup.det (ρ g) = 1 →
+      ∀ v ∈ W, (ρ g : Matrix (Fin 2) (Fin 2) K).mulVec v ∈ W
+
+lemma determinant_kernel_reducible_except_tetrahedral
+    (p : ℕ) [Fact p.Prime] (hp : p ≠ 2) {K G : Type*}
+    [Field K] [IsAlgClosed K] [CharP K p] [Group G] [Finite G]
+    (ρ : G →* Matrix.GeneralLinearGroup (Fin 2) K)
+    (hd : 1 < Nat.card (Matrix.GeneralLinearGroup.det.comp ρ).range)
+    (htrace : ∀ g : G, Matrix.GeneralLinearGroup.det (ρ g) ≠ 1 →
+      Matrix.trace (ρ g : Matrix (Fin 2) (Fin 2) K) ^ 2 =
+        (1 + (Matrix.GeneralLinearGroup.det (ρ g) : K)) ^ 2) :
+    determinantKernelHasLine ρ ∨
+      (Nat.card (Matrix.GeneralLinearGroup.det.comp ρ).range = 3 ∧
+        Nonempty (projectiveMatrixImage ρ ≃* alternatingGroup (Fin 4)) ∧
+        ¬ determinantKernelHasLine ρ ∧
+        Nonempty (projectiveMatrixImage
+          (ρ.comp (Matrix.GeneralLinearGroup.det.comp ρ).ker.subtype) ≃*
+            Multiplicative (ZMod 2 × ZMod 2))) := by
+  sorry
+
+-- Concrete anticommuting quaternion generators from the F₇ exception.
+-- This finite calculation checks the exceptional source scope independently of
+-- the unproved classification theorem above.
+private def quaternionI : Matrix (Fin 2) (Fin 2) (ZMod 7) := !![0,1;-1,0]
+private def quaternionJ : Matrix (Fin 2) (Fin 2) (ZMod 7) := !![2,3;3,-2]
+
+example : quaternionI * quaternionI = -1 ∧
+    quaternionJ * quaternionJ = -1 ∧
+    quaternionI * quaternionJ = -(quaternionJ * quaternionI) := by
+  decide
+
+-- Over any algebraically closed odd-characteristic extension of F₇ the two
+-- generators have no common invariant line: eigenvalues on such a line would
+-- be nonzero and would have to both commute and anticommute.
+example {K : Type*} [Field K] [CharP K 7] :
+    ¬ ∃ v : Fin 2 → K, v ≠ 0 ∧ ∃ a b : K,
+      (!![0,1;-1,0] : Matrix (Fin 2) (Fin 2) K).mulVec v = a • v ∧
+      (!![2,3;3,-2] : Matrix (Fin 2) (Fin 2) K).mulVec v = b • v := by
+  sorry
+
 end CrystallineCM
 
 /-
 Source-indexed omission catalogue
 
 These are mathematical specifications awaiting genuine supplier carrier types.
-Each entry identifies its missing signature by proposed declaration name.
+Each entry identifies a missing signature, a partial algebraic core, or a typed
+finite-group theorem by proposed declaration name. Partial cores do not discharge
+the missing arithmetic specialization. CORE API/example entries below have
+executable general forms above; their arithmetic interpretation remains subject
+to the stated supplier interfaces.
 The statements use the conventions and hypotheses of the accompanying README.
 An omitted statement is not an assumed proposition or an implementation claim.
 
@@ -520,15 +754,15 @@ Direct prerequisites: CrystallineLocalGlobalCompatibilityCM:CL.3/induction-filtr
 Source: CN25v3 Lemma 2.3.7, p.37
 
 CrystallineLocalGlobalCompatibilityCM:CL.3/chi-character
-OMITTED signature: CrystallineCM.ChiCharacter
+PARTIAL signature (typed core above; arithmetic specialization absent): CrystallineCM.ChiCharacter
 χ : M(L) → O^× is χ(m) = Nm_{L/Q_p} det_L(Ad(m)|_{Lie U(L)})^{−1} / |Nm_{L/Q_p} det_L(Ad(m)|_{Lie U(L)})|_p.
 Direct prerequisites: PotentialAutomorphyInfrastructure:PA.2/bruhat-orientation-character; PotentialAutomorphyInfrastructure:PA.0/unipotent-exterior-cohomology
-OMITTED API signature: CrystallineCM.ChiCharacter_mul — χ(mm′)=χ(m)χ(m′) and χ(1)=1.
-OMITTED API signature: CrystallineCM.ChiCharacter_unit_value — The normalization has p-adic valuation zero and therefore lies in Z_p×⊂O×.
-OMITTED API signature: CrystallineCM.ChiCharacter_orientation — Its restriction to compact Levi is the inverse determinant on top continuous unipotent cohomology; on the torus it agrees with the appropriate PA.2 orientation character.
-OMITTED example: CrystallineCM.ChiCharacter_test_identity — χ(1)=1.
-OMITTED example: CrystallineCM.ChiCharacter_test_rank_one_unit — For GL₂ and m=diag(a,d) with a/d∈Z_p×, χ(m)=d/a.
-OMITTED example: CrystallineCM.ChiCharacter_test_uniformizer — For L=Q_p and m=diag(p,1), χ(m)=1 because the determinant inverse and absolute-value denominator cancel.
+CORE API signature: CrystallineCM.ChiCharacter_mul — χ(mm′)=χ(m)χ(m′) and χ(1)=1.
+CORE API signature: CrystallineCM.ChiCharacter_unit_value — The normalization has p-adic valuation zero and therefore lies in Z_p×⊂O×.
+CORE API signature: CrystallineCM.ChiCharacter_orientation — Its restriction to compact Levi is the inverse determinant on top continuous unipotent cohomology; on the torus it agrees with the appropriate PA.2 orientation character.
+CORE example: CrystallineCM.ChiCharacter_test_identity — χ(1)=1.
+CORE example: CrystallineCM.ChiCharacter_test_rank_one_unit — For GL₂ and m=diag(a,d) with a/d∈Z_p×, χ(m)=d/a.
+CORE example: CrystallineCM.ChiCharacter_test_uniformizer — For L=Q_p and m=diag(p,1), χ(m)=1 because the determinant inverse and absolute-value denominator cancel.
 Source: CN25v3 §2.3.1, p.37
 
 CrystallineLocalGlobalCompatibilityCM:CL.3/lem-2-3-8
@@ -694,27 +928,27 @@ Direct prerequisites: CrystallineLocalGlobalCompatibilityCM:CL.6/prop-4-2-2; Cry
 Source: CN25v3 Proposition 4.2.4, p.61
 
 CrystallineLocalGlobalCompatibilityCM:CL.6/hecke-images-A
-OMITTED signature: CrystallineCM.HeckeImagesA
+PARTIAL signature (typed core above; arithmetic specialization absent): CrystallineCM.HeckeImagesA
 A(K,λ,q)=T^{Q^{w₀^P},S̄-ord}_{w₀^P}(H^q(X_K,V_λ)_m), the image subalgebra of the displayed actual cohomological Hecke action. All source notations m, Q and the chosen ordinary localization are fixed; it is not the whole abstract Hecke algebra.
 Direct prerequisites: CrystallineLocalGlobalCompatibilityCM:CL.6/ord-hecke-algebras-4-2; mathlib:AlgHom.range; CrystallineLocalGlobalCompatibilityCM:CL.1/p-ordinary-finite-level
-OMITTED API signature: CrystallineCM.HeckeImagesA_mem — An endomorphism belongs to A(K,λ,q) iff it is the action of some element of the specified abstract ordinary Hecke algebra.
-OMITTED API signature: CrystallineCM.HeckeImagesA_factor — A map out of the abstract algebra factors through A iff it kills the annihilator of the displayed localized cohomology.
-OMITTED API signature: CrystallineCM.HeckeImagesA_integral_to_rational — The map to its rational cohomology image is induced by tensoring the actual coefficient complex; injectivity requires the specified middle-degree input and is not unconditional for GL_n.
-OMITTED example: CrystallineCM.HeckeImagesA_test_zero_cohomology — For H^q_m=0, A is the zero endomorphism algebra; it is not the nonzero abstract Hecke algebra.
-OMITTED example: CrystallineCM.HeckeImagesA_test_scalar_image — If a polynomial Hecke algebra acts by evaluating T at a∈O on an O-line, its image is O and kernel is (T−a).
-OMITTED example: CrystallineCM.HeckeImagesA_test_range — For an available module action, A is exactly AlgHom.range, including its image membership statement.
+CORE API signature: CrystallineCM.HeckeImagesA_mem — An endomorphism belongs to A(K,λ,q) iff it is the action of some element of the specified abstract ordinary Hecke algebra.
+CORE API signature: CrystallineCM.HeckeImagesA_factor — A map out of the abstract algebra factors through A iff it kills the annihilator of the displayed localized cohomology.
+CORE API signature: CrystallineCM.HeckeImagesA_integral_to_rational — The map to its rational cohomology image is induced by tensoring the actual coefficient complex; injectivity requires the specified middle-degree input and is not unconditional for GL_n.
+CORE example: CrystallineCM.HeckeImagesA_test_zero_cohomology — For H^q_m=0, A is the zero endomorphism algebra; it is not the nonzero abstract Hecke algebra.
+CORE example: CrystallineCM.HeckeImagesA_test_scalar_image — If a polynomial Hecke algebra acts by evaluating T at a∈O on an O-line, its image is O and kernel is (T−a).
+CORE example: CrystallineCM.HeckeImagesA_test_range — For an available module action, A is exactly AlgHom.range, including its image membership statement.
 Source: CN25v3 §4.2.1, p.61
 
 CrystallineLocalGlobalCompatibilityCM:CL.6/torsion-hecke-image
-OMITTED signature: CrystallineCM.TorsionHeckeImage
+PARTIAL signature (typed core above; arithmetic specialization absent): CrystallineCM.TorsionHeckeImage
 A(K,λ,q,m)=image of T^{Q^{w₀^P},S̄-ord}_{w₀^P} in End_O(H^q(X_K,V_λ/ϖ^m)_m). Integral and torsion Hecke operators agree on the image of integral cohomology in torsion cohomology. A map A(K,λ,q)/ϖ^m→A(K,λ,q,m) requires an additional annihilator containment; neither that map nor equality is automatic.
 Direct prerequisites: CrystallineLocalGlobalCompatibilityCM:CL.6/hecke-images-A; mathlib:AlgHom.range
-OMITTED API signature: CrystallineCM.TorsionHeckeImage_mem — b belongs iff b is the specified ordinary Hecke action on H^q(X_K,V_λ/ϖ^m)_m.
-OMITTED API signature: CrystallineCM.TorsionHeckeImage_faithful — Its tautological action on this module is injective as a map of algebras.
-OMITTED API signature: CrystallineCM.TorsionHeckeImage_image_reduction — An integral Hecke operator and its induced torsion operator agree on the image of H^q(V_λ)→H^q(V_λ/ϖ^m).
-OMITTED example: CrystallineCM.TorsionHeckeImage_test_zero — Zero torsion cohomology gives the zero image algebra.
-OMITTED example: CrystallineCM.TorsionHeckeImage_test_scalar_mod — For a scalar O-action on R_m, its torsion image is R_m.
-OMITTED example: CrystallineCM.TorsionHeckeImage_test_new_torsion — Torsion H^{q+1}(V) may contribute to H^q(V/ϖ^m); the definition cannot identify the latter image with A(K,λ,q)/ϖ^m without extra hypotheses.
+CORE API signature: CrystallineCM.TorsionHeckeImage_mem — b belongs iff b is the specified ordinary Hecke action on H^q(X_K,V_λ/ϖ^m)_m.
+CORE API signature: CrystallineCM.TorsionHeckeImage_faithful — Its tautological action on this module is injective as a map of algebras.
+CORE API signature: CrystallineCM.TorsionHeckeImage_image_reduction — An integral Hecke operator and its induced torsion operator agree on the image of H^q(V_λ)→H^q(V_λ/ϖ^m).
+CORE example: CrystallineCM.TorsionHeckeImage_test_zero — Zero torsion cohomology gives the zero image algebra.
+CORE example: CrystallineCM.TorsionHeckeImage_test_scalar_mod — For a scalar O-action on R_m, its torsion image is R_m.
+CORE example: CrystallineCM.TorsionHeckeImage_test_new_torsion — Torsion H^{q+1}(V) may contribute to H^q(V/ϖ^m); the definition cannot identify the latter image with A(K,λ,q)/ϖ^m without extra hypotheses.
 Source: CN25v3 §4.2.1, p.61
 
 CrystallineLocalGlobalCompatibilityCM:CL.6/unitary-middle-hecke-image
@@ -954,7 +1188,7 @@ Direct prerequisites: CrystallineLocalGlobalCompatibilityCM:CL.9/setup-5-6; Crys
 Source: CN25v3 Proposition 5.6.1, p.82
 
 CrystallineLocalGlobalCompatibilityCM:CL.9/lem-5-6-5
-OMITTED signature: CrystallineCM.determinant_kernel_reducible_except_tetrahedral
+TYPED signature (full corrected theorem above): CrystallineCM.determinant_kernel_reducible_except_tetrahedral
 Corrected statement (source issue E12): let G be finite, p odd, ρ : G → GL₂(F̄_p) with det ρ of order d > 1, and suppose (tr ρ(g))² = (1 + det ρ(g))² whenever det ρ(g) ≠ 1. Then ρ|_{ker(det ρ)} is reducible, unless d = 3 and the projective image of ρ is A₄; in that case ρ|_{ker(det ρ)} has projective image Z/2 × Z/2 and is absolutely irreducible. (Printed: the conclusion without the exception.)
 Direct prerequisites: ArithmeticGaloisRepresentations:R01.4/dickson-classification-and-the-dyadic-refinement
 Source: CN25v3 Lemma 5.6.5, pp.85–86
