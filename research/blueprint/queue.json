@@ -39267,8 +39267,9 @@
     "BP-HeckeStacksAndLocalShtukas~2"
    ],
    "prompt": "research/blueprint/prompts/REV-HeckeStacksAndLocalShtukas~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7057"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7057",
+   "finishedAt": "2026-10-08T18:21:04Z"
   },
   {
    "kind": "blueprint",
