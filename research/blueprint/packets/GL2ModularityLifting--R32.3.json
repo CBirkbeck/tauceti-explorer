@@ -9,7 +9,7 @@
   "GL2ModularityLifting:R32.6"
  ],
  "status": "complete",
- "summary": "Complete target-level continuation of the two checkpoints for R32.3–R32.6, retaining all nine prior identifiers. The plan separates typed dyadic specialization, Pan’s three residual local branches and seeded component connectivity, finite-order ordinary normalization at three, and coefficient-prime transfer with explicit DP all-member de Rham data. Generic pseudo-character, reducibility-ideal, local block, patching and ordinary extensions are precise supplier requests, not duplicate constructions. All four stages are planned; source-independence certification and unavailable arithmetic Lean carriers are recorded gaps, so neither proof closure nor implementation is claimed.",
+ "summary": "Complete target-level revision for R32.3–R32.6, retaining all 28 reviewed declaration identifiers. The reader and suggested interfaces agree on typed dyadic specialization, Pan’s three residual local branches and seeded component connectivity, finite-order ordinary quotient normalization at three, and coefficient-prime transfer with explicit DP all-member de Rham data. Generic pseudodeformation, reducibility, local block, patching and ordinary inputs remain precise supplier requests. All four stages are planned; source-independence certification and unavailable arithmetic Lean carriers remain recorded gaps, so proof closure and implementation are not claimed.",
  "baseline": {
   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -17,32 +17,38 @@
    {
     "ref": "mathlib:Relation.ReflTransGen",
     "module": "Mathlib.Logic.Relation",
-    "provides": "Reflexive transitive closure with refl and tail constructors; used for the finite seeded component chain."
+    "provides": "Reflexive transitive closure with refl and tail constructors; used for the finite seeded component chain.",
+    "checked": "2026-10-08"
    },
    {
     "ref": "mathlib:Relation.ReflTransGen.trans",
     "module": "Mathlib.Logic.Relation",
-    "provides": "Compose two ReflTransGen chains, hence append a one-edge chain."
+    "provides": "Compose two ReflTransGen chains, hence append a one-edge chain.",
+    "checked": "2026-10-08"
    },
    {
     "ref": "mathlib:Relation.reflTransGen_iff_eq",
     "module": "Mathlib.Logic.Relation",
-    "provides": "If there is no outgoing r-edge from a, ReflTransGen r a b iff b=a."
+    "provides": "If there is no outgoing r-edge from a, ReflTransGen r a b iff b=a.",
+    "checked": "2026-10-08"
    },
    {
     "ref": "mathlib:PrimeSpectrum.comap",
     "module": "Mathlib.RingTheory.Spectrum.Prime.RingHom",
-    "provides": "A ring homomorphism R→S induces Spec S→Spec R by inverse image of the prime ideal."
+    "provides": "A ring homomorphism R→S induces Spec S→Spec R by inverse image of the prime ideal.",
+    "checked": "2026-10-08"
    },
    {
     "ref": "mathlib:minimalPrimes",
     "module": "Mathlib.RingTheory.Ideal.MinimalPrime.Basic",
-    "provides": "The set of prime ideals minimal over the zero ideal."
+    "provides": "The set of prime ideals minimal over the zero ideal.",
+    "checked": "2026-10-08"
    },
    {
     "ref": "mathlib:minimalPrimes.equivIrreducibleComponents",
     "module": "Mathlib.RingTheory.Spectrum.Prime.Topology",
-    "provides": "Order equivalence between minimal primes of R and the order dual of the irreducible components of Spec R."
+    "provides": "Order equivalence between minimal primes of R and the order dual of the irreducible components of Spec R.",
+    "checked": "2026-10-08"
    }
   ]
  },
@@ -61,7 +67,9 @@
     "§3 (p. 15)",
     "Definition 1.10 clauses (4)–(6) compared with published version",
     "Paso 6 crystalline weight-two/four ordinary application, p.14"
-   ]
+   ],
+   "revisionRead": "2026-10-08",
+   "revisionReadSections": "Theorems 1.4–1.7, pp.4–5; Definition 1.10 and Remark 4, pp.6–7; Paso 6, p.14"
   },
   {
    "id": "SKINNER-WILES-1999",
@@ -73,7 +81,9 @@
    "read": "2026-10-06",
    "readSections": [
     "Introduction: the Theorem (printed p. 6) and the outline (pp. 7–8)"
-   ]
+   ],
+   "revisionRead": "2026-10-08",
+   "revisionReadSections": "Introduction theorem, printed p.6 (PDF p.3), page image"
   },
   {
    "id": "PAN-2022",
@@ -92,7 +102,9 @@
     "§5.1 and §6.1 exact ordinary theorem statements, pp.71,95–96",
     "§7.1–7.4, statements and all three branch proofs, pp.111–124",
     "§8 Theorem 8.0.1 and Remark 8.0.4, pp.124–125"
-   ]
+   ],
+   "revisionRead": "2026-10-08",
+   "revisionReadSections": "Theorem 1.0.2, p.3; Corollaries 3.5.10–3.5.12, pp.31–34; §4.1, pp.38–40; Theorems 5.1.2 and 6.1.2, pp.71,95–96; §§7.1–7.4, pp.111–124; Theorem 8.0.1 and Remark 8.0.4, pp.124–125"
   },
   {
    "id": "PASKUNAS-2016",
@@ -104,7 +116,9 @@
    "read": "2026-10-06",
    "readSections": [
     "§1: Theorem 1.1 and §1.1.2 'Global part' (pp. 1–6)"
-   ]
+   ],
+   "revisionRead": "2026-10-08",
+   "revisionReadSections": "Theorem 1.1, pp.1–2; §1.1.2, p.5"
   },
   {
    "id": "TUNG-2021-DYADIC",
@@ -121,35 +135,41 @@
     "§6.3 Colmez finiteness, near faithfulness and nonordinary components, pp.32–33",
     "§7.2–7.3 ordinary support/lifts, pp.36–37",
     "§8 all-component support and global lifting proof, pp.38–39"
-   ]
+   ],
+   "revisionRead": "2026-10-08",
+   "revisionReadSections": "Introduction, pp.2–3; §4.3, pp.20–21; Lemma 5.3.2, pp.28–29; §6.3, pp.32–33; §§7.2–7.3, pp.36–37; §8, pp.38–39"
   },
   {
    "id": "TUNG-2021-P3",
    "title": "On the automorphy of 2-dimensional potentially semi-stable deformation rings of G_{Q_p}",
    "authors": "Shen-Ning Tung",
-   "edition": "Algebra Number Theory 15 (2021), no. 9, 2173–2194; arXiv:1803.07451v4 (21 March 2021, the latest version). The arXiv version was read; printed page = PDF page.",
+   "edition": "Algebra Number Theory 15 (2021), no. 9, 2173–2194; arXiv:1803.07451v4 (21 March 2021). The arXiv version was read; printed page = PDF page.",
    "url": "https://arxiv.org/pdf/1803.07451v4",
    "sha256": "22017bc9beb585c2aae5421d2fe1a8a9049d8a93e4f8bb8cf684149616db1ba2",
    "read": "2026-09-29",
    "readSections": [
     "Abstract and introduction, with the Fontaine–Mazur theorem (pp. 1–2)",
-    "Theorem 1.2 (p. 4); checkpoint 1 recorded it as pp. 1–2, which is corrected here",
+    "Theorem 1.2, p.4",
     "Proposition 4.4, Remark 4.5, the proof of Theorem 1.2, Corollary 4.6, Theorem 4.7 and Remark 4.8 (pp. 14–15)"
-   ]
+   ],
+   "revisionRead": "2026-10-08",
+   "revisionReadSections": "Theorem 4.7 and Remark 4.8, p.15"
   },
   {
    "id": "EMERTON-LGC-2011",
    "title": "Local-global compatibility in the p-adic Langlands programme for GL₂/ℚ",
    "authors": "Matthew Emerton",
    "edition": "Preprint, draft of 23 March 2011, 119 pages, on Emerton's University of Chicago page; not published in a journal. Printed page = PDF page. The same file as GL2ModularityLifting part R22.1.",
-   "url": "http://www.math.uchicago.edu/~emerton/pdffiles/lg.pdf",
+   "url": "https://www.math.uchicago.edu/~emerton/pdffiles/lg.pdf",
    "sha256": "bf4f8556ef04be02daed0b1dba35c91ce4a7b2f4cbbf28d0d8351b1fc369eb13",
    "read": "2026-09-29",
    "readSections": [
     "§1.2: Theorems 1.2.1, 1.2.3, 1.2.4, Corollary 1.2.2 and Remark 1.2.5 (pp. 3–5)",
     "Theorem 3.3.22 (p. 28)",
     "§§7.3–7.4 (pp. 95–98)"
-   ]
+   ],
+   "revisionRead": "2026-10-08",
+   "revisionReadSections": "Theorem 3.3.22, p.28; §§7.3–7.4, pp.96–97"
   },
   {
    "id": "HU-TAN-2015",
@@ -162,7 +182,9 @@
    "readSections": [
     "Abstract and introduction, Theorem 1.4 (pp. 1–5)",
     "§6: Proposition 6.2, Theorem 6.3 and its proof (pp. 33–35)"
-   ]
+   ],
+   "revisionRead": "2026-10-08",
+   "revisionReadSections": "Theorem 6.3 and proof, p.35"
   },
   {
    "id": "DP-PUBLISHED",
@@ -176,7 +198,9 @@
     "§1.2 Theorems 1.4–1.7, pp.4–5",
     "§1.4 Definition 1.10, Theorem 1.11 and Remark 4, p.7",
     "§2 Paso 6, p.14"
-   ]
+   ],
+   "revisionRead": "2026-10-08",
+   "revisionReadSections": "Theorems 1.4–1.7, pp.4–5; Definition 1.10 and Remark 4, p.7; Paso 6, p.14"
   }
  ],
  "nodes": [
@@ -1867,7 +1891,7 @@
    "status": "planned",
    "remaining": [
     "Finish the source-independence supplier audit before certifying the independent Serre route; elaborate lifting/compatible-system signatures against the requested arithmetic carriers.",
-    "Supply the DP extra-data comparison from R24.5; synchronize the reader with this independent review before acceptance."
+    "Supply the DP all-member de Rham/common-weight extra-data comparison from R24.5, with the coefficient-prime WD exception retained."
    ],
    "notes": "Owns ramified coefficient-prime reducible modern transfer (RT-AREA-langlands-2/21). DP de Rham premises are explicit; historical KW carriers require the extra premise. Good-prime recognition is imported without a cycle back through R24.6."
   }
@@ -1922,7 +1946,7 @@
    "source": "DP-PUBLISHED",
    "kind": "gap",
    "locator": "Theorem 1.7, fourth hypothesis, published p.5; arXiv v2 p.4",
-   "printed": "The source requires some k ≥ 2.",
+   "printed": "The determinant condition is det ρ=ψχ₃^{k−1} for an integer k≥2, without a stated finite-order restriction on ψ (paraphrase of the fourth hypothesis).",
    "correction": "Require ψ to be a finite-order character in det ρ=ψε^{k−1}, as in the Skinner–Wiles theorem cited in its proof. The lifting and transfer nodes in this packet retain this qualification.",
    "reason": "Skinner–Wiles, printed p.6, explicitly assumes finite-order ψ. Without it, det ρ=ψε^{k−1} is satisfied tautologically by defining ψ from any ordinary representation and does not force a classical integral weight. The cited theorem therefore does not prove the unrestricted wording. The surrounding geometric use has finite-order ψ, so the DP application is unchanged.",
    "affects": "a stated result",
@@ -1948,63 +1972,72 @@
    "url": "https://arxiv.org/pdf/2108.07577v2",
    "citation": "Luis Victor Dieulefait and Ariel Martín Pacetti, A simplified proof of Serre's conjecture",
    "read": "2026-09-29",
-   "sha256": "0c6850dafda032f7a4008947c519b5aef8cc13762207bb67c36810170a8eebe6"
+   "sha256": "0c6850dafda032f7a4008947c519b5aef8cc13762207bb67c36810170a8eebe6",
+   "rechecked": "2026-10-08"
   },
   {
    "kind": "published",
    "url": "http://www.numdam.org/item/PMIHES_1999__89__5_0.pdf",
    "citation": "C. M. Skinner and A. J. Wiles, Residually reducible representations and modular forms",
    "read": "2026-09-29",
-   "sha256": "ec0697b3e9c9fa68063b19688f10347d204a8b7b86526384c9ccd6e7fe30e6f3"
+   "sha256": "ec0697b3e9c9fa68063b19688f10347d204a8b7b86526384c9ccd6e7fe30e6f3",
+   "rechecked": "2026-10-08"
   },
   {
    "kind": "preprint",
    "url": "https://arxiv.org/pdf/1901.07166v2",
    "citation": "Lue Pan, The Fontaine–Mazur conjecture in the residually reducible case",
    "read": "2026-09-29",
-   "sha256": "590171129d28a65749cf92b1f6099dbacaa90cc6698828f0a4dfd3da943f4824"
+   "sha256": "590171129d28a65749cf92b1f6099dbacaa90cc6698828f0a4dfd3da943f4824",
+   "rechecked": "2026-10-08"
   },
   {
    "kind": "preprint",
    "url": "https://arxiv.org/pdf/1509.00332v2",
    "citation": "Vytautas Paškūnas, On 2-dimensional 2-adic Galois representations of local and global fields",
    "read": "2026-09-29",
-   "sha256": "727addeb49ee302052a493cf097a868a70c340286981598b5e7382fcd8f86749"
+   "sha256": "727addeb49ee302052a493cf097a868a70c340286981598b5e7382fcd8f86749",
+   "rechecked": "2026-10-08"
   },
   {
    "kind": "preprint",
    "url": "https://arxiv.org/pdf/1908.06174v3",
    "citation": "Shen-Ning Tung, On the modularity of 2-adic potentially semi-stable deformation rings",
    "read": "2026-09-29",
-   "sha256": "a601da3762c35dab9ebdac5fb5106f1e3f627304dfc2390ac43fe2ac862c6de8"
+   "sha256": "a601da3762c35dab9ebdac5fb5106f1e3f627304dfc2390ac43fe2ac862c6de8",
+   "rechecked": "2026-10-08"
   },
   {
    "kind": "preprint",
    "url": "https://arxiv.org/pdf/1803.07451v4",
    "citation": "Shen-Ning Tung, On the automorphy of 2-dimensional potentially semi-stable deformation rings of G_{Q_p}",
    "read": "2026-09-29",
-   "sha256": "22017bc9beb585c2aae5421d2fe1a8a9049d8a93e4f8bb8cf684149616db1ba2"
+   "sha256": "22017bc9beb585c2aae5421d2fe1a8a9049d8a93e4f8bb8cf684149616db1ba2",
+   "rechecked": "2026-10-08"
   },
   {
    "kind": "author copy",
    "url": "http://www.math.uchicago.edu/~emerton/pdffiles/lg.pdf",
    "citation": "Matthew Emerton, Local-global compatibility in the p-adic Langlands programme for GL₂/ℚ (draft of 23 March 2011)",
    "read": "2026-09-29",
-   "sha256": "bf4f8556ef04be02daed0b1dba35c91ce4a7b2f4cbbf28d0d8351b1fc369eb13"
+   "sha256": "bf4f8556ef04be02daed0b1dba35c91ce4a7b2f4cbbf28d0d8351b1fc369eb13",
+   "rechecked": "2026-10-08"
   },
   {
    "kind": "preprint",
    "url": "https://arxiv.org/pdf/1309.1658v2",
    "citation": "Yongquan Hu and Fucheng Tan, The Breuil–Mézard conjecture for non-scalar split residual representations",
    "read": "2026-09-29",
-   "sha256": "d36f237d7269e9dac7d32d80f1e4d6fe5c20b210ae067075b2dedb51e73d9bb2"
+   "sha256": "d36f237d7269e9dac7d32d80f1e4d6fe5c20b210ae067075b2dedb51e73d9bb2",
+   "rechecked": "2026-10-08"
   },
   {
    "kind": "published",
    "url": "https://link.springer.com/content/pdf/10.1007/s13398-023-01478-8.pdf",
    "citation": "A simplified proof of Serre’s conjecture, RACSAM 117:153 (2023), doi:10.1007/s13398-023-01478-8",
    "read": "2026-10-06",
-   "sha256": "2a133808911a1819ea9480bea0bfc18846035f961e866ddec4d05d69b093e0f8"
+   "sha256": "2a133808911a1819ea9480bea0bfc18846035f961e866ddec4d05d69b093e0f8",
+   "rechecked": "2026-10-08"
   }
  ],
  "restructure": [
@@ -2017,7 +2050,7 @@
   }
  ],
  "librarySearch": {
-  "read": "2026-10-06",
+  "read": "2026-10-08",
   "reviewedAudit": "data/library-coverage.json has no direct GL2ModularityLifting R32.3–R32.6 entry; supplier audit records are leads, not proof of absence.",
   "pinnedSourceChecks": [
    "Mathlib at 082e2d3: actual Relation.ReflTransGen, PrimeSpectrum.comap, minimalPrimes and component-equivalence declarations read in source.",
