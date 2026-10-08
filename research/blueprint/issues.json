@@ -4124,5 +4124,9 @@
  "RT-BP-ComplexMultiplicationAndExplicitReciprocity~2": 7688,
  "RT-BP-Polylogarithms--P.3~2": 7689,
  "RT-BP-EllipticRegulators--ER.7~2": 7690,
- "RT-BP-HabiroNumberFields--HB.2~2": 7692
+ "RT-BP-HabiroNumberFields--HB.2~2": 7692,
+ "RT-DESIGN-ClassicalGroupsPartII": 7696,
+ "RT-DESIGN-EllipticCurveModularityImaginaryQuadratic": 7697,
+ "RT-DESIGN-EllipticCurveModularityPartII~2": 7698,
+ "RT-BP-WeightsInEtaleCohomology~2": 7699
 }
