@@ -41345,7 +41345,8 @@
    ],
    "revisionOf": "BP-VectorBundlesAndIsocrystals--VB3",
    "prompt": "research/blueprint/prompts/BP-VectorBundlesAndIsocrystals--VB3~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7016"
   },
   {
    "priority": 2,
