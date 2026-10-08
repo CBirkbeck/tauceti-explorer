@@ -455,6 +455,9 @@ Prerequisites: **PotentialAutomorphyInfrastructure:PA.2** (relative bruhat cells
 
 **The modulus-type character χ of M(L)** (`CrystallineCM.ChiCharacter`). χ : M(L) → O^× is χ(m) = Nm_{L/Q_p} det_L(Ad(m)|_{Lie U(L)})^{−1} / |Nm_{L/Q_p} det_L(Ad(m)|_{Lie U(L)})|_p.
 
+Write δ(m)=Nm_{L/Q_p}det_L(Ad(m)|_{Lie U(L)}) and v_p for the integer valuation on a nonzero p-adic number. The formula is equivalently χ(m)=δ(m)^{-1}p^{v_p(δ(m))}, where the rational value of the absolute value is embedded into Q_p before division. This gives a unit of Z_p and then a unit of O through the coefficient map. Reuse Mathlib's `PadicInt.mkUnits` to package the valuation-zero value. If δ(m) is already a p-adic unit, the formula gives precisely its inverse. The norm-determinant character and its interpretation on top continuous cohomology are supplied by the specified Lie-action and orientation interfaces. Normalizing an arbitrary supplied character does not establish that interpretation.
+
+
 Required API:
 
 - `CrystallineCM.ChiCharacter_mul`: χ(mm′)=χ(m)χ(m′) and χ(1)=1.
@@ -811,6 +814,9 @@ Prerequisites: **CL.5**: Levi cohomology with U-coefficients is a summand of com
 
 **Hecke images A(K,λ,q), A(K,λ,q,m), Ã(K̃,λ̃,S̄) and deep levels** (`CrystallineCM.HeckeImagesA`). A(K,λ,q)=T^{Q^{w₀^P},S̄-ord}_{w₀^P}(H^q(X_K,V_λ)_m), the image subalgebra of the displayed actual cohomological Hecke action. All source notations m, Q and the chosen ordinary localization are fixed; it is not the whole abstract Hecke algebra.
 
+For the actual action a:H→End_O(M), the defining image has a surjective map H→im(a) and an injective tautological map im(a)→End_O(M). A homomorphism f:H→B factors uniquely through im(a) exactly when a(h)=0 implies f(h)=0 for every h∈H. Extending scalars sends a(h) to 1⊗a(h) on E⊗_O M; reuse `Module.End.baseChangeHom` for this algebra map. The induced map between the two images is injective when the canonical map M→E⊗_O M is injective. The application must identify rational cohomology with this scalar extension and supply the stated middle-degree injection. No such injectivity follows from the definition of an image algebra alone.
+
+
 Required API:
 
 - `CrystallineCM.HeckeImagesA_mem`: An endomorphism belongs to A(K,λ,q) iff it is the action of some element of the specified abstract ordinary Hecke algebra.
@@ -864,6 +870,9 @@ Acceptance tests:
 - `CrystallineCM.TorsionHeckeImage_test_zero`: Zero torsion cohomology gives the zero image algebra.
 - `CrystallineCM.TorsionHeckeImage_test_scalar_mod`: For a scalar O-action on R_m, its torsion image is R_m.
 - `CrystallineCM.TorsionHeckeImage_test_new_torsion`: Torsion H^{q+1}(V) may contribute to H^q(V/ϖ^m); the definition cannot identify the latter image with A(K,λ,q)/ϖ^m without extra hypotheses.
+
+A concrete instance is the two-term complex O --ϖ--> O in degrees zero and one for a nonzero uniformizer in a DVR. Its integral H⁰ is zero and its H¹ is O/ϖ. After derived reduction modulo ϖ the differential is zero, so H⁰ becomes O/ϖ. Thus its scalar Hecke image in degree zero changes from zero to O/ϖ. There can be no unital map from that zero integral image to the nonzero torsion image. Equivariance of the coefficient map still compares operators on the image of integral H⁰, which is zero here; it does not identify the whole torsion cohomology with a reduction of integral H⁰.
+
 
 Source: CN, §4.2.1, p.61.
 
@@ -1046,6 +1055,9 @@ Source: CN, §5.6, pp.81–82.
 Prerequisites: **CL.7**: Local–global compatibility at p via deformation rings; **CL.8**: Cohomology of PGL₂ locally symmetric spaces at non-neat level; **LocalGaloisDeformationRings:R08.4** (bt ring unique generalisation); **LocalGaloisDeformationRings:L7** (snowden ordinary ring trivial residual).
 
 **A reducibility criterion for mod-p representations (variant of DDT 4.11)** (`CrystallineCM.determinant_kernel_reducible_except_tetrahedral`). Let G be finite, p odd, ρ : G → GL₂(F̄_p) with det ρ of order d > 1, and suppose (tr ρ(g))² = (1 + det ρ(g))² whenever det ρ(g) ≠ 1. Then ρ|_{ker(det ρ)} is reducible, unless d = 3 and the projective image of ρ is A₄; in that case ρ|_{ker(det ρ)} has projective image Z/2 × Z/2 and is absolutely irreducible.
+
+Reducibility here means that the determinant kernel fixes a one-dimensional subspace of the two-dimensional vector space over the algebraically closed coefficient field. Realize the projective image as the range of conjugation by ρ on the ambient GL₂: the kernel of conjugation on GL₂ is exactly its scalar subgroup. Quotienting by the centre of ρ(G) would instead remove every element of an abelian image, including nonscalar projective elements, and would change the criterion. In the exceptional branch, the determinant image has order three, the projective image is A₄, the determinant kernel has projective image (Z/2)², and it fixes no line. The non-exceptional branch supplies a fixed line without assuming that ρ itself is irreducible.
+
 
 Source: CN, Lemma 5.6.5, pp.85–86.
 
