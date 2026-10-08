@@ -21,63 +21,63 @@
         "kind": "definition",
         "module": "Mathlib/RingTheory/Frobenius.lean",
         "provides": "For a monoid acting on an R-algebra S and fixing R, σ is arithmetic Frobenius at Q if σ•x≡x^q mod Q for every x, where q=#(R/(Q∩R)). The definition does not itself require a finite group.",
-        "checked": "Independent review REV-WeightsInEtaleCohomology, 2026-10-06: exact declaration and hypotheses re-read in Mathlib/RingTheory/Frobenius.lean at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; resolved by #check in the suggested file. No Tau Ceti declaration is cited."
+        "checked": "Independent review REV-WeightsInEtaleCohomology~2, 2026-10-08: exact declaration and hypotheses read in Mathlib/RingTheory/Frobenius.lean at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; resolved by #check in the successfully elaborated suggested file. No Tau Ceti declaration is cited."
       },
       {
         "ref": "mathlib:IsArithFrobAt.mul_inv_mem_inertia",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/Frobenius.lean",
         "provides": "Two arithmetic Frobenius elements at Q differ by an element of the inertia subgroup of Q.",
-        "checked": "Independent review REV-WeightsInEtaleCohomology, 2026-10-06: exact declaration and hypotheses re-read in Mathlib/RingTheory/Frobenius.lean at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; resolved by #check in the suggested file. No Tau Ceti declaration is cited."
+        "checked": "Independent review REV-WeightsInEtaleCohomology~2, 2026-10-08: exact declaration and hypotheses read in Mathlib/RingTheory/Frobenius.lean at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; resolved by #check in the successfully elaborated suggested file. No Tau Ceti declaration is cited."
       },
       {
         "ref": "mathlib:IsArithFrobAt.conj",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/Frobenius.lean",
         "provides": "If σ is a Frobenius at Q, then τστ⁻¹ is a Frobenius at τ • Q: conjugacy across the primes above v.",
-        "checked": "Independent review REV-WeightsInEtaleCohomology, 2026-10-06: exact declaration and hypotheses re-read in Mathlib/RingTheory/Frobenius.lean at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; resolved by #check in the suggested file. No Tau Ceti declaration is cited."
+        "checked": "Independent review REV-WeightsInEtaleCohomology~2, 2026-10-08: exact declaration and hypotheses read in Mathlib/RingTheory/Frobenius.lean at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; resolved by #check in the successfully elaborated suggested file. No Tau Ceti declaration is cited."
       },
       {
         "ref": "mathlib:IsArithFrobAt.exists_of_isInvariant",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/Frobenius.lean",
         "provides": "For a finite group G acting on S with invariant algebra R, a prime Q with finite S/Q has an arithmetic Frobenius element; integrality follows from invariant-ring finiteness rather than being a separate hypothesis.",
-        "checked": "Independent review REV-WeightsInEtaleCohomology, 2026-10-06: exact declaration and hypotheses re-read in Mathlib/RingTheory/Frobenius.lean at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; resolved by #check in the suggested file. No Tau Ceti declaration is cited."
+        "checked": "Independent review REV-WeightsInEtaleCohomology~2, 2026-10-08: exact declaration and hypotheses read in Mathlib/RingTheory/Frobenius.lean at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; resolved by #check in the successfully elaborated suggested file. No Tau Ceti declaration is cited."
       },
       {
         "ref": "mathlib:Representation",
         "kind": "definition",
         "module": "Mathlib/RepresentationTheory/Basic.lean",
         "provides": "A representation is a monoid homomorphism G→*Module.End E V, with no unrequested continuity assumption.",
-        "checked": "Independent review REV-WeightsInEtaleCohomology, 2026-10-06: exact declaration and hypotheses re-read in Mathlib/RepresentationTheory/Basic.lean at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; resolved by #check in the suggested file. No Tau Ceti declaration is cited."
+        "checked": "Independent review REV-WeightsInEtaleCohomology~2, 2026-10-08: exact declaration and hypotheses read in Mathlib/RepresentationTheory/Basic.lean at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; resolved by #check in the successfully elaborated suggested file. No Tau Ceti declaration is cited."
       },
       {
         "ref": "mathlib:Representation.dual",
         "kind": "definition",
         "module": "Mathlib/RepresentationTheory/Basic.lean",
         "provides": "The contragredient sends g to the transpose of ρ(g⁻¹).",
-        "checked": "Independent review REV-WeightsInEtaleCohomology, 2026-10-06: exact declaration and hypotheses re-read in Mathlib/RepresentationTheory/Basic.lean at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; resolved by #check in the suggested file. No Tau Ceti declaration is cited."
+        "checked": "Independent review REV-WeightsInEtaleCohomology~2, 2026-10-08: exact declaration and hypotheses read in Mathlib/RepresentationTheory/Basic.lean at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; resolved by #check in the successfully elaborated suggested file. No Tau Ceti declaration is cited."
       },
       {
         "ref": "mathlib:Representation.ofDistribMulAction",
         "kind": "definition",
         "module": "Mathlib/RepresentationTheory/Basic.lean",
         "provides": "A compatible distributive group action produces a linear representation; the scalar units action gives the rank-one test instance.",
-        "checked": "Independent review REV-WeightsInEtaleCohomology, 2026-10-06: exact declaration and hypotheses re-read in Mathlib/RepresentationTheory/Basic.lean at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; resolved by #check in the suggested file. No Tau Ceti declaration is cited."
+        "checked": "Independent review REV-WeightsInEtaleCohomology~2, 2026-10-08: exact declaration and hypotheses read in Mathlib/RepresentationTheory/Basic.lean at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; resolved by #check in the successfully elaborated suggested file. No Tau Ceti declaration is cited."
       },
       {
         "ref": "mathlib:LinearMap.charpoly",
         "kind": "definition",
         "module": "Mathlib/LinearAlgebra/Charpoly/Basic.lean",
         "provides": "Characteristic polynomial on finite free finite modules, using the chosen basis; applied to the Frobenius action.",
-        "checked": "Independent review REV-WeightsInEtaleCohomology, 2026-10-06: exact declaration and hypotheses re-read in Mathlib/LinearAlgebra/Charpoly/Basic.lean at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; resolved by #check in the suggested file. No Tau Ceti declaration is cited."
+        "checked": "Independent review REV-WeightsInEtaleCohomology~2, 2026-10-08: exact declaration and hypotheses read in Mathlib/LinearAlgebra/Charpoly/Basic.lean at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; resolved by #check in the successfully elaborated suggested file. No Tau Ceti declaration is cited."
       },
       {
         "ref": "mathlib:Matrix.charpoly",
         "kind": "definition",
         "module": "Mathlib/LinearAlgebra/Matrix/Charpoly/Basic.lean",
         "provides": "For a square matrix over a commutative ring with a finite decidable index, det(XI−M). Used in inverse-companion and induced-representation prototypes.",
-        "checked": "Independent review REV-WeightsInEtaleCohomology, 2026-10-06: exact declaration and hypotheses re-read in Mathlib/LinearAlgebra/Matrix/Charpoly/Basic.lean at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; resolved by #check in the suggested file. No Tau Ceti declaration is cited."
+        "checked": "Independent review REV-WeightsInEtaleCohomology~2, 2026-10-08: exact declaration and hypotheses read in Mathlib/LinearAlgebra/Matrix/Charpoly/Basic.lean at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; resolved by #check in the successfully elaborated suggested file. No Tau Ceti declaration is cited."
       }
     ]
   },
@@ -93,9 +93,10 @@
         "cc-fb70e5, 2026-09-29: §1 (1.13)–(1.15), pp. 278–279",
         "codex-8vDn9u, 2026-10-06: §1 (1.13)–(1.15), §3 (3.2), §4 (4.2)–(4.3), §5 (5.6)–(5.10), §6 (6.1)–(6.3), pp. 278–279, 283, 287–289, 291–297; (1.5.1), p. 275.",
         "codex-1NhrNh independent review, 2026-10-06: §1 (1.5.1), (1.13)–(1.15); §3 (3.2); §4 (4.1)–(4.3); §5 (5.6)–(5.10); §6 (6.1); printed pp. 275, 278–279, 283, 287–289, 291–295.",
-        "ChatGPT GPT-6 Astra Pro — chatgpt-5c67bc37a117 authoring revision, 2026-10-07: fresh public PDF SHA-256 matches the recorded edition. Read §1 (1.5.1), (1.13)–(1.15), pp. 275, 278–279; §3 (3.1)–(3.2), pp. 283–284; §5 (5.6)–(5.10) and §6 (6.1)–(6.3), pp. 291–295. Theorem (3.2) is on p. 284 (page image checked), with its setup on p. 283."
+        "ChatGPT GPT-6 Astra Pro — chatgpt-5c67bc37a117 authoring revision, 2026-10-07: fresh public PDF SHA-256 matches the recorded edition. Read §1 (1.5.1), (1.13)–(1.15), pp. 275, 278–279; §3 (3.1)–(3.2), pp. 283–284; §5 (5.6)–(5.10) and §6 (6.1)–(6.3), pp. 291–295. Theorem (3.2) is on p. 284 (page image checked), with its setup on p. 283.",
+        "Codex — codex-MT9qQ6 independent review REV-WeightsInEtaleCohomology~2, 2026-10-08: fresh public PDF hash matches the recorded version. Read §1 (1.5.1), (1.13)–(1.15), pp. 275, 278–279; §3 (3.1)–(3.2), pp. 283–284; §4 (4.2)–(4.3), pp. 288–289; §5 (5.6)–(5.10), pp. 291–293; §6 (6.1)–(6.3), pp. 294–295."
       ],
-      "accessed": "2026-10-07"
+      "accessed": "2026-10-08"
     },
     {
       "id": "deligne-weil-ii",
@@ -108,9 +109,10 @@
         "cc-fb70e5, 2026-09-29: (1.1.10)–(1.1.15), pp. 151–153; §1.2 (1.2.1)–(1.2.8), pp. 153–155",
         "codex-8vDn9u, 2026-10-06: §1.2 (1.2.1)–(1.2.8); §3.3 (3.3.1)–(3.3.11); (3.7.1); §4.1 (4.1.1)–(4.1.2); §6.2 (6.2.1)–(6.2.5), pp. 153–155, 204–207, 215, 217–218, 247–248.",
         "codex-1NhrNh independent review, 2026-10-06: §1.1 (1.1.13), §1.2 (1.2.2)–(1.2.6), §3.3 (3.3.6), §3.7 (3.7.1), §4.1 (4.1.1), §6.2 (6.2.1)–(6.2.5); pp. 152–154, 206, 215, 217, 247.",
-        "ChatGPT GPT-6 Astra Pro — chatgpt-5c67bc37a117 authoring revision, 2026-10-07: fresh public PDF SHA-256 matches the recorded edition. Read §1.1 (1.1.11)–(1.1.15), §1.2 (1.2.1)–(1.2.7), pp. 152–154; §3.3 (3.3.4)–(3.3.6), p. 206; (3.7.1), p. 215; §4.1 (4.1.1), p. 217; §6.2 (6.2.1)–(6.2.7), pp. 247–248."
+        "ChatGPT GPT-6 Astra Pro — chatgpt-5c67bc37a117 authoring revision, 2026-10-07: fresh public PDF SHA-256 matches the recorded edition. Read §1.1 (1.1.11)–(1.1.15), §1.2 (1.2.1)–(1.2.7), pp. 152–154; §3.3 (3.3.4)–(3.3.6), p. 206; (3.7.1), p. 215; §4.1 (4.1.1), p. 217; §6.2 (6.2.1)–(6.2.7), pp. 247–248.",
+        "Codex — codex-MT9qQ6 independent review REV-WeightsInEtaleCohomology~2, 2026-10-08: fresh public PDF hash matches the recorded version. Read §1.1–§1.2, pp. 152–155; (3.3.4)–(3.3.6), p. 206; (3.7.1), p. 215; (4.1.1), p. 217; (6.2.1)–(6.2.5), p. 247."
       ],
-      "accessed": "2026-10-07"
+      "accessed": "2026-10-08"
     },
     {
       "id": "lawrence-venkatesh",
@@ -124,9 +126,10 @@
         "cc-fb70e5, 2026-09-29 (checkpoint 2): §3.1–§3.2, pp. 15–16",
         "codex-8vDn9u, 2026-10-06: §2.1–§2.5 and §3.1–§3.2; Frobenius convention translated explicitly, pp. 9–16.",
         "codex-1NhrNh independent review, 2026-10-06: §2.3 Lemma 2.3, §2.5 Lemma 2.10, §3.1 (3.2); pp. 9–10, 13–14, 16. Corrected the p. 13 section number from 2.4 to 2.5.",
-        "ChatGPT GPT-6 Astra Pro — chatgpt-5c67bc37a117 authoring revision, 2026-10-07: fresh public PDF SHA-256 matches the recorded edition. Read §2.3 Lemma 2.3, pp. 9–10; §2.5 and Lemma 2.10, pp. 13–14 (section heading image checked); §3.1 (3.2), p. 16. The finite-quotient character construction and reciprocal-quartic distinction were checked as arithmetic applications, not attributed as verbatim source theorems."
+        "ChatGPT GPT-6 Astra Pro — chatgpt-5c67bc37a117 authoring revision, 2026-10-07: fresh public PDF SHA-256 matches the recorded edition. Read §2.3 Lemma 2.3, pp. 9–10; §2.5 and Lemma 2.10, pp. 13–14 (section heading image checked); §3.1 (3.2), p. 16. The finite-quotient character construction and reciprocal-quartic distinction were checked as arithmetic applications, not attributed as verbatim source theorems.",
+        "Codex — codex-MT9qQ6 independent review REV-WeightsInEtaleCohomology~2, 2026-10-08: fresh public PDF hash matches the recorded version. Read §2.3 Lemma 2.3, pp. 9–10; §2.5/Lemma 2.10, pp. 13–14; §3.1 (3.2), p. 16."
       ],
-      "accessed": "2026-10-07"
+      "accessed": "2026-10-08"
     },
     {
       "id": "milne-abelian-varieties",
@@ -140,9 +143,10 @@
         "cc-fb70e5, 2026-09-29 (checkpoint 2): Chapter I §17, pp. 69–71",
         "codex-8vDn9u, 2026-10-06: Chapter I §12 pp. 54–56, §17 pp. 69–71; Chapter II §1 pp. 75–78; Chapter III §11 pp. 117–118. Fresh public PDF hash matches the inherited SHA256.",
         "codex-1NhrNh independent review, 2026-10-06: I Theorem 12.1 and Remark 12.5, pp. 55–56; I Remark 17.2, p. 70; II Theorem 1.1 and proof, Corollary 1.5 and Remark 1.6(a), pp. 75–78. Replaced two mismatched source passages.",
-        "ChatGPT GPT-6 Astra Pro — chatgpt-5c67bc37a117 authoring revision, 2026-10-07: fresh public PDF SHA-256 matches the recorded edition. Read I Theorem 12.1 and Remark 12.5, pp. 55–56; I Remark 17.2, p. 70; II §1 and Theorem 1.1 proof, pp. 75–76; Corollary 1.5/Remark 1.6(a), p. 78. Page images checked for H¹/exterior powers, Galois equivariance and q-Frobenius."
+        "ChatGPT GPT-6 Astra Pro — chatgpt-5c67bc37a117 authoring revision, 2026-10-07: fresh public PDF SHA-256 matches the recorded edition. Read I Theorem 12.1 and Remark 12.5, pp. 55–56; I Remark 17.2, p. 70; II §1 and Theorem 1.1 proof, pp. 75–76; Corollary 1.5/Remark 1.6(a), p. 78. Page images checked for H¹/exterior powers, Galois equivariance and q-Frobenius.",
+        "Codex — codex-MT9qQ6 independent review REV-WeightsInEtaleCohomology~2, 2026-10-08: fresh public PDF hash matches the recorded version. Read I Theorem 12.1/Remark 12.5, pp. 55–56; I Remark 17.2, p. 70; II §1/Theorem 1.1 proof, pp. 75–76; Corollary 1.5/Remark 1.6(a), p. 78."
       ],
-      "accessed": "2026-10-07"
+      "accessed": "2026-10-08"
     },
     {
       "id": "deligne-modular",
@@ -151,11 +155,12 @@
       "edition": "Séminaire Bourbaki, exposé 355 (1968/69), pp. 139–172; Numdam scan; printed page = PDF page +137.",
       "url": "https://www.numdam.org/item/SB_1968-1969__11__139_0.pdf",
       "sha256": "19509c19b0cb056f4a5eba83a48a99f54bb6df0c7a96ab7f4018b0765e1ed98c",
-      "accessed": "2026-10-07",
+      "accessed": "2026-10-08",
       "readSections": [
         "§3.19–§3.20 and §5 (5.1)–(5.6), pp. 158–159, 168–171.",
         "codex-1NhrNh independent review, 2026-10-06: §5 (5.1)–(5.6), pp. 168–171; checked the degree-r+1 parabolic realization and the conditional 1969 formulation.",
-        "ChatGPT GPT-6 Astra Pro — chatgpt-5c67bc37a117 authoring revision, 2026-10-07: fresh public PDF SHA-256 matches the recorded edition. Read §3.18–§3.20, pp. 158–159; §5 (5.1)–(5.6), pp. 168–171. The 1969 theorem is conditional on Weil; the smooth compactification and projector realization remain actual geometric inputs."
+        "ChatGPT GPT-6 Astra Pro — chatgpt-5c67bc37a117 authoring revision, 2026-10-07: fresh public PDF SHA-256 matches the recorded edition. Read §3.18–§3.20, pp. 158–159; §5 (5.1)–(5.6), pp. 168–171. The 1969 theorem is conditional on Weil; the smooth compactification and projector realization remain actual geometric inputs.",
+        "Codex — codex-MT9qQ6 independent review REV-WeightsInEtaleCohomology~2, 2026-10-08: fresh public PDF hash matches the recorded version. Read §3.18–§3.20, pp. 158–159; §5 (5.1)–(5.6), pp. 168–171."
       ]
     },
     {
@@ -165,25 +170,27 @@
       "edition": "arXiv:math/0612077v2 (11 December 2006; journal publication 2009); manuscript page = PDF page.",
       "url": "https://arxiv.org/pdf/math/0612077v2",
       "sha256": "fb5b69b76d2257ce20f47366c4bd165ccdb571333e7f25a4ed6e92dbb4b55df7",
-      "accessed": "2026-10-07",
+      "accessed": "2026-10-08",
       "readSections": [
         "§1 Theorems 0–2 and Claim 1, pp. 10–13; §6.3 Lemma 3 and Claim 3, pp. 29–31; §7 Lemma 4, pp. 32–34; §8 Claim 4, weight spectral sequence and Claim 5, pp. 35–38; §9 Proposition 1′ and its l-adic proof, pp. 38–39. The crystalline vanishing proof on pp. 40–43 is not claimed read. The §2 p. 12 sign was additionally verified on the page image; E1 imports the recorded E50 correction.",
         "codex-1NhrNh independent review, 2026-10-06: §2 pp. 12–13 (p. 12 image); §6 Lemma 3 pp. 30–31; §7 Lemma 4 pp. 32–34; §8 Claims 4–5 and §9 Proposition 1′ pp. 35–39. The completed-unramified base is retained; crystalline proof pp. 40–43 and journal version remain unverified.",
-        "ChatGPT GPT-6 Astra Pro — chatgpt-5c67bc37a117 authoring revision, 2026-10-07: fresh public PDF SHA-256 matches the recorded edition. Read First-page version stamp and pp. 1–2, 10–13; splitting discussion p. 19; §6 Lemma 3, §7 Lemma 4 and §8–§9 l-adic argument, pp. 30–39. Images of pp. 12 and 32 checked for the recorded sign and completed-unramified base. Crystalline proof pp. 40–43 and the journal version were not read."
+        "ChatGPT GPT-6 Astra Pro — chatgpt-5c67bc37a117 authoring revision, 2026-10-07: fresh public PDF SHA-256 matches the recorded edition. Read First-page version stamp and pp. 1–2, 10–13; splitting discussion p. 19; §6 Lemma 3, §7 Lemma 4 and §8–§9 l-adic argument, pp. 30–39. Images of pp. 12 and 32 checked for the recorded sign and completed-unramified base. Crystalline proof pp. 40–43 and the journal version were not read.",
+        "Codex — codex-MT9qQ6 independent review REV-WeightsInEtaleCohomology~2, 2026-10-08: fresh public PDF hash matches the recorded version. Read §2, pp. 10–13; splitting discussion p. 19; §6–§9 l-adic argument, pp. 30–39. Page 12 image checked. Crystalline proof pp. 40–43 and journal version not read."
       ]
     },
     {
       "id": "dfg",
-      "title": "The adjoint motive of a modular form and the Tamagawa number conjecture",
+      "title": "Adjoint motives of modular forms and the Tamagawa number conjecture",
       "authors": "Fred Diamond, Matthias Flach and Li Guo",
       "edition": "arXiv:2512.02348v2 (December 2025 revision); manuscript page = PDF page.",
       "url": "https://arxiv.org/pdf/2512.02348v2",
       "sha256": "0f4984acdabd2efd542aae932850da83c36ec023185a47f40c8ef5813bd21898",
-      "accessed": "2026-10-07",
+      "accessed": "2026-10-08",
       "readSections": [
         "§4.5, pp. 50–51; §5.1–§5.4, pp. 52–59; §5.5, pp. 59–60.",
         "codex-1NhrNh independent review, 2026-10-06: §5.4 Lemma 5.7 and §5.5 pp. 58–60; retained the inherited all-λ comparison request instead of assuming the integral premotive covers primes dividing Nk!.",
-        "ChatGPT GPT-6 Astra Pro — chatgpt-5c67bc37a117 authoring revision, 2026-10-07: fresh public PDF SHA-256 matches the recorded edition. Read Selected definitions and comparisons on pp. 1, 6–10, 12–13, 24, 50–52 and 58–62, especially §1.2 all-λ étale modules versus restricted crystalline data, §1.3 Dirichlet normalization, §5.4 Lemma 5.7 and §5.5 twisted realization. The p. 24 exceptional-set typo is already recorded by AutomorphicGaloisRepresentations/E3; no duplicate finding or new verdict is added. The cited Scholl proof was not freshly accessible."
+        "ChatGPT GPT-6 Astra Pro — chatgpt-5c67bc37a117 authoring revision, 2026-10-07: fresh public PDF SHA-256 matches the recorded edition. Read Selected definitions and comparisons on pp. 1, 6–10, 12–13, 24, 50–52 and 58–62, especially §1.2 all-λ étale modules versus restricted crystalline data, §1.3 Dirichlet normalization, §5.4 Lemma 5.7 and §5.5 twisted realization. The p. 24 exceptional-set typo is already recorded by AutomorphicGaloisRepresentations/E3; no duplicate finding or new verdict is added. The cited Scholl proof was not freshly accessible.",
+        "Codex — codex-MT9qQ6 independent review REV-WeightsInEtaleCohomology~2, 2026-10-08: fresh public PDF hash matches the recorded version. Read §1.1–§1.3, pp. 6–10, 12–13; Theorem 2.4, p. 24 (image checked); §5.4–§5.5, pp. 58–62. Independently confirmed the p. 24 divisibility misprint already recorded as AGR/E3; no duplicate finding. This reading concerns the 2025 long preprint, not the differently numbered 2004 journal article."
       ]
     },
     {
@@ -193,11 +200,12 @@
       "edition": "Ann. Sci. ENS (4) 19 (1986), 409–468; Numdam scan; printed page = PDF page +407.",
       "url": "https://www.numdam.org/article/ASENS_1986_4_19_3_409_0.pdf",
       "sha256": "d4a5fb6b1cd76f944f8948e06df1c7ad5656ae5ee14b9189178ee1e8f2b0dab8",
-      "accessed": "2026-10-07",
+      "accessed": "2026-10-08",
       "readSections": [
         "Conventions, pp. 409–410; §4.1–§4.7, pp. 423–425; §5.6, p. 429.",
         "codex-1NhrNh independent review, 2026-10-06: §4.1–§4.5 pp. 423–425, finite-level extensions, Weil-equivariant sequence, residual cuspidal exclusion and normalization filtration.",
-        "ChatGPT GPT-6 Astra Pro — chatgpt-5c67bc37a117 authoring revision, 2026-10-07: fresh public PDF SHA-256 matches the recorded edition. Read Conventions pp. 409–410, selected model statements pp. 414–416, and §4.1–§4.8 pp. 423–425: finite-level extensions, Weil-equivariant specialization, cuspidal residual-term exclusion and normalization filtration."
+        "ChatGPT GPT-6 Astra Pro — chatgpt-5c67bc37a117 authoring revision, 2026-10-07: fresh public PDF SHA-256 matches the recorded edition. Read Conventions pp. 409–410, selected model statements pp. 414–416, and §4.1–§4.8 pp. 423–425: finite-level extensions, Weil-equivariant specialization, cuspidal residual-term exclusion and normalization filtration.",
+        "Codex — codex-MT9qQ6 independent review REV-WeightsInEtaleCohomology~2, 2026-10-08: fresh public PDF hash matches the recorded version. Read Conventions pp. 409–410; §4.1–§4.8, pp. 423–425."
       ]
     }
   ],
@@ -722,7 +730,7 @@
       ],
       "title": "Tate modules and H^i of abelian varieties and curves with good reduction are pure and integral",
       "kind": "theorem",
-      "statement": "Let A be an abelian variety of dimension g over a number field K with good reduction outside a finite set T of finite places, and p a prime. Then ρ = H¹(A_K̄, ℚ_p) = (V_pA)^∨ is pure of weight 1 outside T ∪ {v | p} with integral Frobenius polynomials. At v ∉ T ∪ {v | p}, P_v(ρ, X) = P_{π_{A_v}}(X), the characteristic polynomial of the Frobenius endomorphism of the reduction A_v, independently of p. V_pA itself is pure of weight −1 there; if g>0 its geometric Frobenius polynomial is not integral, since its constant coefficient has absolute rational denominator q_v^g. For g=0 the polynomial is 1 and is integral. For 0 ≤ i ≤ 2g, H^i(A_K̄, ℚ_p) = ∧^i H¹ is pure of weight i and integral, with P_v the characteristic polynomial of π_{A_v} on ∧^i. The same holds for H¹ of a smooth projective geometrically connected curve over K with good reduction outside T, through its Jacobian.",
+      "statement": "Let A be an abelian variety of dimension g over a number field K with good reduction outside a finite set T of finite places, and p a prime. Then ρ = H¹(A_K̄, ℚ_p) = (V_pA)^∨ is pure of weight 1 outside T ∪ {v | p} with integral Frobenius polynomials. At v ∉ T ∪ {v | p}, P_v(ρ, X) = P_{π_{A_v}}(X), the characteristic polynomial of the Frobenius endomorphism of the reduction A_v, independently of p. V_pA itself is pure of weight −1 there; if g>0 its geometric Frobenius polynomial is not integral, since its constant coefficient has absolute rational denominator q_v^g. For g=0 the polynomial is 1 and is integral. For 0 ≤ i ≤ 2g, H^i(A_K̄, ℚ_p) = ∧^i H¹ is pure of weight i and integral, with P_v the characteristic polynomial of π_{A_v} on ∧^i. The same holds for H¹ of a smooth projective geometrically connected curve over K with good reduction outside T, through the Jacobian of its residue curve after smooth proper base change.",
       "hypotheses": [
         "Good reduction at v∤p means an abelian scheme model over O_v. Néron–Ogg–Shafarevich at R11.5 supplies unramifiedness; SF.2 smooth proper base change and A4 Tate-module/cohomology duality supply specialization.",
         "Geometric convention (R34.1). The dual V_pA has weight −1 and Frobenius polynomials with denominators q_v, which is the H¹-versus-Tate-dual distinction that RS-17 asks R34.2 to keep.",
@@ -735,7 +743,7 @@
         "So the geometric Frobenius on H¹ has characteristic polynomial P_{π_{A_v}} ∈ ℤ[X] (AbelianSchemesAndArithmeticModuli A6/characteristic-polynomial-of-an-endomorphism), whose roots are Weil q_v-numbers of weight 1 (DeligneWeightsAndPurity DWP.1/weil-estimate-for-abelian-varieties). It is independent of p, since P_{π_{A_v}} is defined without p.",
         "V_pA=(H¹)∨ has weight −1. For g>0 its geometric characteristic polynomial has constant coefficient q_v^(−g), which is not an integer. For g=0 the polynomial is 1.",
         "A4 cup-product gives H^i(A)=∧^iH¹, pure of weight i by tensor/subquotient weight arithmetic. Its characteristic polynomial is an integer symmetric polynomial expression in the integer characteristic polynomial of H¹, so rationality and integrality both hold.",
-        "Curves: H¹(C) = H¹(J) Galois-equivariantly, and J has good reduction outside T when C does (DeligneWeightsAndPurity DWP.1/weights-of-the-cohomology-of-curves)."
+        "Curves: apply SF.2 smooth proper base change directly to the smooth proper model of C, identifying H¹(C_K̄) with H¹(C_v over the algebraic closure of k_v). DWP.1/weights-of-the-cohomology-of-curves compares the latter Frobenius action with H¹ of the Jacobian of C_v and supplies its weight-one integer polynomial. No good-reduction theorem for the generic Jacobian is needed in this route."
       ],
       "acceptance": [
         "E/ℚ: y² = x³ − x has good reduction outside {2}. At ℓ = 3, P_3(H¹, X) = X² + 3: weight 1, integral. On V_pE the polynomial is X² + 1/3.",
@@ -909,7 +917,7 @@
         "The fixed-point formula and Jacobian comparison are supplier theorems, not new trace or positivity proofs here."
       ],
       "proofSteps": [
-        "Apply smooth proper base change to C and its Jacobian, importing H¹ comparison from DWP.1’s Jacobian suppliers.",
+        "Apply SF.2 smooth proper base change directly to C. Then use DWP.1/weights-of-the-cohomology-of-curves to identify the Frobenius action on H¹ of the residue curve with H¹ of its Jacobian; no smooth proper model of the generic Jacobian is needed.",
         "Apply the imported fixed-point trace formula to F^m; the top-degree Tate line has eigenvalue q^m.",
         "Use the Weil estimate for curves for each α_i, and Cayley–Hamilton in rank two for the recurrence."
       ],
@@ -1859,8 +1867,8 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Independently re-fetched arXiv math/0612077v2 and inspected the p. 12 page image: it assigns n=1 to geometric Frobenius and prints the positive q exponent and φN=pNφ. The source’s p. 13 equivariant N:Gr₁(1)≅Gr₋₁ forces FNF⁻¹=q⁻¹N and Nφ=pφN. Confirmed only for this preprint version; no journal or corrigendum claim. The 2×2 suggested matrix has F diagonal(1,q), N with its upper-right entry 1 and satisfies the inverse relation.",
-        "by": "REV-WeightsInEtaleCohomology"
+        "reason": "Independently inspected arXiv math/0612077v2 p. 12 image and p. 13 Theorem 2: geometric Frobenius has n=1, while the equivariant N:Gr₁(1)→Gr₋₁ requires the inverse residue-cardinality factor. Thus FNF⁻¹=q⁻¹N and Nφ=pφN agree with the graded weights and the suggested matrix example. This confirms the existing E1/E50 preprint finding only; the journal version and a corrigendum were not verified.",
+        "by": "REV-WeightsInEtaleCohomology~2"
       }
     }
   ],
@@ -1869,56 +1877,56 @@
       "kind": "published",
       "url": "https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf",
       "citation": "Pierre Deligne, La conjecture de Weil. I; Publ. Math. IHÉS 43 (1974), 273–307; Numdam scan with OCR (printed page = PDF page + 271)",
-      "read": "2026-10-07",
+      "read": "2026-10-08",
       "sha256": "8392b345d4854e6dc55fb42cfc0b616d941935983723627237239a87348f42e5"
     },
     {
       "kind": "published",
       "url": "https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf",
       "citation": "Pierre Deligne, La conjecture de Weil. II; Publ. Math. IHÉS 52 (1980), 137–252; Numdam scan with OCR (printed page = PDF page + 135)",
-      "read": "2026-10-07",
+      "read": "2026-10-08",
       "sha256": "b06eea61bf9cb2b596c162f5befcf85d1be69828910a6107c8aa3a99c4afcc71"
     },
     {
       "kind": "preprint",
       "url": "https://arxiv.org/abs/1807.02721",
       "citation": "Brian Lawrence and Akshay Venkatesh, Diophantine problems and p-adic period mappings; arXiv:1807.02721v3 (25 Oct 2019; published in Invent. Math. 221 (2020)); printed page = PDF page",
-      "read": "2026-10-07",
+      "read": "2026-10-08",
       "sha256": "e3013516c1123635f0373cd5b623eafa3d816f043ee54760dec724d329bc6b9b"
     },
     {
       "kind": "author copy",
       "url": "https://www.jmilne.org/math/CourseNotes/AV.pdf",
       "citation": "J. S. Milne, Abelian Varieties; Course notes, version 2.00 (March 16, 2008); printed page = PDF page − 6",
-      "read": "2026-10-07",
+      "read": "2026-10-08",
       "sha256": "f5ca4e63e5092a4b102daad1470e4cbed5fe8f82115e3a28c8881e3f67f6aaef"
     },
     {
       "kind": "published",
       "url": "https://www.numdam.org/item/SB_1968-1969__11__139_0.pdf",
       "citation": "Pierre Deligne, Formes modulaires et représentations l-adiques; Séminaire Bourbaki, exposé 355 (1968/69), pp. 139–172; Numdam scan; printed page = PDF page +137.",
-      "read": "2026-10-07",
+      "read": "2026-10-08",
       "sha256": "19509c19b0cb056f4a5eba83a48a99f54bb6df0c7a96ab7f4018b0765e1ed98c"
     },
     {
       "kind": "preprint",
       "url": "https://arxiv.org/pdf/math/0612077v2",
       "citation": "Takeshi Saito, Hilbert modular forms and p-adic Hodge theory; arXiv:math/0612077v2 (11 December 2006; journal publication 2009); manuscript page = PDF page.",
-      "read": "2026-10-07",
+      "read": "2026-10-08",
       "sha256": "fb5b69b76d2257ce20f47366c4bd165ccdb571333e7f25a4ed6e92dbb4b55df7"
     },
     {
       "kind": "preprint",
       "url": "https://arxiv.org/pdf/2512.02348v2",
-      "citation": "Fred Diamond, Matthias Flach and Li Guo, The adjoint motive of a modular form and the Tamagawa number conjecture; arXiv:2512.02348v2 (December 2025 revision); manuscript page = PDF page.",
-      "read": "2026-10-07",
+      "citation": "Fred Diamond, Matthias Flach and Li Guo, Adjoint motives of modular forms and the Tamagawa number conjecture; arXiv:2512.02348v2 (December 2025 revision); manuscript page = PDF page.",
+      "read": "2026-10-08",
       "sha256": "0f4984acdabd2efd542aae932850da83c36ec023185a47f40c8ef5813bd21898"
     },
     {
       "kind": "published",
       "url": "https://www.numdam.org/article/ASENS_1986_4_19_3_409_0.pdf",
       "citation": "Henri Carayol, Sur les représentations l-adiques associées aux formes modulaires de Hilbert; Ann. Sci. ENS (4) 19 (1986), 409–468; Numdam scan; printed page = PDF page +407.",
-      "read": "2026-10-07",
+      "read": "2026-10-08",
       "sha256": "d4a5fb6b1cd76f944f8948e06df1c7ad5656ae5ee14b9189178ee1e8f2b0dab8"
     }
   ],
@@ -1943,145 +1951,145 @@
     }
   ],
   "review": {
-    "status": "needs_changes",
-    "reviewer": "independent-review-REV-WeightsInEtaleCohomology",
-    "date": "2026-10-06",
-    "notes": "Finished independent target-level review of all 27 nodes, nine exact-pin baseline declarations, eight public source versions, reviewed R34 library audit, RS-17 and RT-AREA-langlands-2/10. Corrected 15 nodes, API/Lean mismatches, erroneous source locators/passages, original-coefficient excerpt, Saito base/hypotheses/ownership, LPV.0 adic and R13.5 model routing, direct degree comparison and fine compatible-system imports; confirmed E1 on the preprint image. Packet checker passes and the suggested file elaborates against the exact Mathlib pin with only admitted-proof warnings. The packet remains a complete planning pass, with six planned stages, six explicit gaps and 22 requests, and makes no formalisation claim. Needs changes because the authoritative reader document is outside this review issue’s allowed deliverables and still repeats the corrected finite-V/E_q assertion, old API, counterexample, source passages and supplier boundaries. The report gives precise required reader edits. These are revision obligations, not reasons to reject honest open supplier gaps.",
+    "status": "accepted",
+    "reviewer": "independent-review-REV-WeightsInEtaleCohomology~2",
+    "date": "2026-10-08",
+    "notes": "Second independent target-level review: all 27 nodes checked (25 verified, two corrected), nine exact-pin baseline declarations confirmed, 83 distinct direct fine supplier statements inspected, all nine narrowed requests and six retained gaps checked, reader/packet/suggested parity checked, AUDIT-19/RS-17 and RT-AREA-langlands-2/10 boundaries confirmed. The prior reader synchronization is complete. Two curve proof routes now specialize C directly before the finite-field Jacobian comparison, avoiding an unlisted relative-Jacobian theorem. E1 is independently confirmed for the inspected Saito preprint. DFG’s already-recorded AGR/E3 exceptional-set misprint is independently checked without duplicating its finding. Structural validation passes; the unchanged suggested file elaborates at the exact Mathlib pin with only admitted-proof warnings. Accepted as a complete planning pass with six planned stages, nine requests, six gaps, no closed stages and no formalization claim.",
     "checked": [
       {
         "nodeId": "WeightsInEtaleCohomology:R34.1/arithmetic-and-geometric-frobenius",
-        "verdict": "corrected",
-        "note": "Corrected the API to describe the supplied-element prototype; added inertia lift-independence and linear-equivalence invariance. Arithmetic decomposition/inertia and finite-quotient Frobenius hypotheses are retained."
+        "verdict": "verified",
+        "note": "Weil I (1.15), p. 279, and Weil II (1.1.13), p. 152 fix the inverse convention. The six APIs cover inverse roots, conjugacy, inertia and intertwining; the supplied-element prototype is explicitly distinguished from the continuous arithmetic carrier."
       },
       {
         "nodeId": "WeightsInEtaleCohomology:R34.1/pure-and-integral-galois-representations",
-        "verdict": "corrected",
-        "note": "Added reusable predicate characterisations, integrality/chosen-embedding monotonicity and the all-embeddings-to-chosen implication; restored inertia triviality to the integral API and expanded the zero-rank test. Full local-place/continuous carriers remain an explicit signature gap."
+        "verdict": "verified",
+        "note": "Lawrence–Venkatesh Lemma 2.3, pp. 9–10, supports separate algebraicity, all-embeddings purity and rational integer polynomials. Eleven APIs and five tests retain inertia, exceptional-set monotonicity, the chosen-embedding implication and rank-zero qualification."
       },
       {
         "nodeId": "WeightsInEtaleCohomology:R34.1/purity-under-linear-algebra-operations",
-        "verdict": "corrected",
-        "note": "Corrected the Lawrence–Venkatesh p. 13 locator to §2.5. The rationality hypothesis for integer subquotient polynomials and unramified-middle hypothesis for extensions are necessary and present."
+        "verdict": "verified",
+        "note": "Weil II (1.2.5), p. 154, and Lawrence–Venkatesh §2.5, p. 13, support weight arithmetic. The middle representation must already be unramified; rationality is retained for integral subquotient polynomials."
       },
       {
         "nodeId": "WeightsInEtaleCohomology:R34.1/purity-under-restriction-and-induction",
         "verdict": "verified",
-        "note": "Restriction uses residue-degree powers; induction excludes ramified places and uses the cyclic-block product P_u(X^f). Purity and rational integrality are preserved under these operations."
+        "note": "Weil II (1.2.5), p. 154, and Lawrence–Venkatesh Lemma 2.10, p. 14, agree with q raised to residue degree and the induction cyclic-block product. The independent R01.1/R01.2 fine suppliers provide the local representation inputs, with ramified places excluded."
       },
       {
         "nodeId": "WeightsInEtaleCohomology:R34.1/frobenius-eigenvalues-need-not-be-algebraic",
-        "verdict": "corrected",
-        "note": "Replaced the odd-prime-only continuity argument by compatible finite cyclic quotients of the profinite unit group, covering ℓ=2; added the direct continuous-character supplier request."
+        "verdict": "verified",
+        "note": "Weil II (1.2.3), (1.2.6), p. 154, motivates the distinction rather than supplying the explicit example. Compatible finite cyclic quotients give continuous finite-field characters for every prime, including 2; nonalgebraic units and the odd-prime scalar example have the claimed scope."
       },
       {
         "nodeId": "WeightsInEtaleCohomology:R34.1/purity-at-every-embedding-versus-a-chosen-embedding",
-        "verdict": "corrected",
-        "note": "Replaced the noninteger 1+√2 example by an irreducible reciprocal quartic with unit-circle and real conjugates, giving a chosen integer-weight-zero finite-field character. Scoped the counterexample pointwise and recorded the rational-polynomial exception."
+        "verdict": "verified",
+        "note": "Weil II (1.2.6), p. 154, is consistent with the reciprocal-quartic pointwise finite-field counterexample. Irreducibility mod 2, the quadratic in x+x inverse, the unit condition and the rational-polynomial exception keep chosen and all-embeddings purity distinct."
       },
       {
         "nodeId": "WeightsInEtaleCohomology:R34.2/frobenius-on-tate-modules-and-first-cohomology",
-        "verdict": "corrected",
-        "note": "Replaced the first Milne p. 76 citation by the actual q-power Frobenius definition on p. 75. The contragredient H¹ comparison on I p. 56 fixes the inverse variance."
+        "verdict": "verified",
+        "note": "Milne II §1, pp. 75–76, and I Remark 12.5, p. 56, identify arithmetic Frobenius with the Tate endomorphism and geometric H¹ with its transpose. The finite-field R01.6 and A6 fine imports do not use the downstream good-reduction aggregate."
       },
       {
         "nodeId": "WeightsInEtaleCohomology:R34.2/purity-of-tate-modules-with-good-reduction",
         "verdict": "corrected",
-        "note": "Replaced the unrelated Néron-model citation for exterior powers with Milne I Theorem 12.1(b)/Remark 12.5 and II Corollary 1.5/Remark 1.6(a); distinguished reciprocal Euler factors. The positive-dimension Tate polynomial has constant term q^(−g); zero rank is integral."
+        "note": "Corrected the curve proof to apply SF.2 smooth proper base change to C directly and DWP.1 weights-of-the-cohomology-of-curves to its residue curve. This removes an unlisted relative-Jacobian good-reduction assertion. Milne I 12.1/12.5, pp. 55–56, and II 1.5/1.6, p. 78, still justify exterior powers; the positive-dimension reciprocal Tate polynomial and zero-rank exception remain correct."
       },
       {
         "nodeId": "WeightsInEtaleCohomology:R34.2/good-reduction-point-counts-and-traces",
         "verdict": "verified",
-        "note": "The reduction, all-m abelian count and Hasse specialization use the inspected DWP.1 supplier, without replanning the upstream elliptic theorem. The F₅ curve count is consistent."
+        "note": "Milne II Theorem 1.1 proof, p. 76, and the inspected DWP.1 count/Hasse suppliers give all-extension abelian counts. The F₅ example has eight points and trace −2; agreement with the upstream elliptic target is an implementation obligation, not a claim of a completed Hasse proof."
       },
       {
         "nodeId": "WeightsInEtaleCohomology:R34.1/representation-sheaf-weight-comparison",
         "verdict": "verified",
-        "note": "Normal arithmetic model and actual π₁ factorisation are retained; Frobenius stalks translate DWP.5 weights, not a claimed lisse extension over every model."
+        "note": "Weil II (1.1.13), (1.2.2)–(1.2.3), pp. 152–154, matches the actual π₁/stalk comparison. The normal arithmetic model and factorization conditions are explicit; SF.2 must supply the named étale equivalence, not coherent duality."
       },
       {
         "nodeId": "WeightsInEtaleCohomology:R34.1/arithmetic-complex-weight-normalization",
         "verdict": "verified",
-        "note": "Weil II 6.2.5(b) requires smooth support and lisse cohomology. The shift/twist formula r+a−2b and dualizing Q_l(d)[2d] agree; this late comparison is absent from the early Tate path."
+        "note": "Weil II (6.2.5)(b), p. 247, requires smooth support and lisse cohomology. The formula r+a−2b, degree-by-degree w+i criterion and dualizing twist agree, and this branch is absent from the early Tate/Faltings path."
       },
       {
         "nodeId": "WeightsInEtaleCohomology:R34.2/curve-traces-over-all-residue-extensions",
-        "verdict": "verified",
-        "note": "Proper smooth geometrically connected reduction, curve–Jacobian H¹ and the fixed-point trace suppliers yield the all-extension count and genus-one recurrence; the F₂₅ example gives 32 points."
+        "verdict": "corrected",
+        "note": "Corrected the first proof step to specialize C directly, then compare H¹ of its special fibre with that fibre’s Jacobian. Weil I (1.5.1), p. 275, and (1.13)–(1.15), pp. 278–279, give the all-extension trace convention. The genus-zero and genus-one cases, including the F₂₅ recurrence, agree."
       },
       {
         "nodeId": "WeightsInEtaleCohomology:R34.3/proper-trait-specialization-comparison",
-        "verdict": "corrected",
-        "note": "Routed the missing adic completion/derived-limit comparison to LPV.0, whose site/nearby-cycle scope contains it; LPV.1 is the inertia/variation stage. Existing torsion proper-base-change fine nodes remain. Transition maps, derived limits and finiteness stay an explicit LPV.0/SF.2 gap."
+        "verdict": "verified",
+        "note": "Carayol §4.1–§4.3, pp. 423–424, gives compatible finite-level data and equivariant specialization. Current LPV.0 adic-realization targets and SF.2 requests explicitly retain actual-system uniform finiteness, finite Tor amplitude, derived completion and inverse-limit obligations; these are not claimed proved."
       },
       {
         "nodeId": "WeightsInEtaleCohomology:R34.3/nodal-modular-curve-comparison",
-        "verdict": "corrected",
-        "note": "Moved the geometry prerequisite/request from downstream R13.6, which requires R34.3, to R13.5 bad fibres and regular/semistable models. The graph sequences remain limited to a proved semistable constant-coefficient model; Carayol’s general coefficient filtration and cuspidal residual-term exclusion are separate."
+        "verdict": "verified",
+        "note": "Carayol §4.2–§4.5, pp. 423–425, and Saito Claim 5, pp. 37–38, support the stated filtration. The elementary graph sequences are restricted to constant coefficients; the general coefficient and cuspidal residual-term argument is separate. R13.5 supplies model geometry before the R13.6 consumer."
       },
       {
         "nodeId": "WeightsInEtaleCohomology:R34.3/arithmetic-picard-lefschetz-normalization",
         "verdict": "verified",
-        "note": "The regular proper-flat isolated quadratic model, odd sign, Kummer root of b and even/characteristic-2 branch agree with the inspected LPV.2 statements. The mixed-characteristic proof interior remains an honest inherited gap."
+        "note": "Weil I (4.2)–(4.3), pp. 288–289, agrees with the inspected LPV.2 odd quadratic sign and Kummer-character target. Regular proper-flat models, isolated quadratic singularities, even-dimensional reflection and the characteristic-2 branch are retained. The unread Illusie proof interior stays a gap."
       },
       {
         "nodeId": "WeightsInEtaleCohomology:R34.3/saito-semistable-comparison-model",
-        "verdict": "corrected",
-        "note": "Corrected V to a finite extension of the completed maximal unramified base; restored genus>1, sufficiently-small, splitting and unchanged-component hypotheses. Recorded the Galois action and a precise finite-local/residue descent gap; routed Hilbert model/projector geometry to R18.2."
+        "verdict": "verified",
+        "note": "Saito Lemma 4, pp. 32–34, and Claim 4, pp. 35–36, use a finite extension of the completed maximal unramified field. Genus, level, splitting and unchanged p/q components are retained. R18.2 owns the actual Hilbert model; finite-local/residue descent and CP.4 comparison hypotheses remain exact requests."
       },
       {
         "nodeId": "WeightsInEtaleCohomology:R34.4/finite-field-pencil-descent",
         "verdict": "verified",
-        "note": "The nonempty pencil-parameter open has a finite-extension point; incidence blowup and F^d/q^d comparisons are requested explicitly. No F_q-rational pencil is assumed."
+        "note": "Weil I (5.6)–(5.7), pp. 291–292, and (6.1), pp. 294–295, support geometric pencil existence. A nonempty parameter open gives a finite-extension point, not necessarily an F_q point; incidence blowup and F^d/q^d comparisons are explicit supplier inputs."
       },
       {
         "nodeId": "WeightsInEtaleCohomology:R34.4/vanishing-quotient-parity-comparison",
         "verdict": "verified",
-        "note": "The radical quotient, arithmetic stability and alternating/symmetric parity agree with LPV.4. The zero-cycle branch retains its skyscraper term; perfect ambient pairing is not mistaken for a nondegenerate restriction."
+        "note": "Weil I (5.8)–(5.9), pp. 292–293, and current LPV.4/EDC fine statements support the radical quotient and parity. The radical is not assumed zero; arithmetic stability and the zero-cycle/skyscraper branch are preserved."
       },
       {
         "nodeId": "WeightsInEtaleCohomology:R34.4/original-coefficient-monodromy-hypotheses",
-        "verdict": "corrected",
-        "note": "Replaced the nonmatching source excerpt by the actual open-image wording. The original Q_l group, rational local factors, odd parity and zero-rank branch are exactly the hypotheses required by the inspected DWP.2/DWP.3 and LPV.5 nodes."
+        "verdict": "verified",
+        "note": "Weil I (3.1)–(3.2), pp. 283–284, and (5.10), p. 293, require the original Q_l symplectic group and rational local factors. The current DWP.2/DWP.3 and LPV.5 targets match these hypotheses; extending coefficients does not create open image in the larger coefficient-field points."
       },
       {
         "nodeId": "WeightsInEtaleCohomology:R34.5/parabolic-cohomology-weight-comparison",
         "verdict": "verified",
-        "note": "Sym^r R¹ has weight r; the upper/lower bounds on the parabolic image give weight r+1. The geometry-only R19.1 premotive import avoids the purity-dependent aggregate cycle."
+        "note": "Weil II (3.3.6), p. 206, and (3.7.1), p. 215, give weight r+1 for the parabolic image of Sym^r R¹. Deligne 1969 (5.1), (5.3), pp. 168–169, is conditional in its own context. The independent parabolic premotive fine import avoids the AGR aggregate return through purity."
       },
       {
         "nodeId": "WeightsInEtaleCohomology:R34.5/kuga-sato-projector-weight-comparison",
-        "verdict": "corrected",
-        "note": "Added the direct R18.2 prerequisite and routed Saito’s Hilbert model/projector to that owner, while GH.0/R14.3 supply the classical comparison. Actual correspondence, total degree q₀ and auxiliary character are retained; the available CM-product nodes are insufficient."
+        "verdict": "verified",
+        "note": "Deligne 1969 (5.2)–(5.4), pp. 168–170, and Saito Lemma 3, pp. 30–31, have different classical and Hilbert models/degrees. Existing AGR projector targets are reused; GH.0/R14.3 request the actual classical W_r geometry, while R18.2 owns q₀ and the auxiliary twist. The CM-product degree 2r+1 cannot replace degree r+1."
       },
       {
         "nodeId": "WeightsInEtaleCohomology:R34.5/weight-two-jacobian-weight-comparison",
-        "verdict": "corrected",
-        "note": "Clarified that the Tate-module eigensummand is ρ=M∨ of geometric weight −1; H¹=M has weight +1. Rational integer coefficients belong to the full abelian-variety polynomial, not automatically to a K_f summand."
+        "verdict": "verified",
+        "note": "DFG Lemma 5.7, pp. 58–59, and Milne I Remark 12.5, p. 56, agree with the k=2 Jacobian eigensummand: geometric H¹ has weight +1 and its Tate dual −1. A coefficient-field factor is not automatically a rational integer polynomial."
       },
       {
         "nodeId": "WeightsInEtaleCohomology:R34.5/arithmetic-hard-lefschetz-comparison",
         "verdict": "verified",
-        "note": "The arithmetic ample class restores cup η^a into H^(d+a)(a), with both sides of weight d−a. A projector restricts the isomorphism only if it commutes with η^a; absolute DWP.9 suffices."
+        "note": "Weil II (4.1.1), p. 217, suppresses geometric twists that the arithmetic η^a map must restore. Source and target then have weight d−a; restricting to an eigensummand needs a projector commuting with cup product. Absolute DWP.9 suffices."
       },
       {
         "nodeId": "WeightsInEtaleCohomology:R34.6/eigenform-purity-and-ramanujan-bound",
         "verdict": "verified",
-        "note": "The cuspidal k≥2 good-prime and all-embeddings claim has the correct cohomological/geometric versus dual/arithmetic convention. The DFG all-λ extension remains an exact owner request; the Ramanujan bound is the triangle inequality, not new compatibility."
+        "note": "Deligne 1969 (5.1), (5.6), pp. 168, 170–171, and Weil II (3.7.1), p. 215, give the good-prime all-embeddings bound with the correct dual convention. The independent geometric Eichler/DFG normalization contract remains requested; weights do not imply a common polynomial."
       },
       {
         "nodeId": "WeightsInEtaleCohomology:R34.6/fixed-eigenform-good-prime-compatibility",
-        "verdict": "corrected",
-        "note": "Replaced the broad R24.5:operations stage import by its available fine weak-carrier and predicate nodes. Common Hecke polynomials are proved independently of root norms; de Rham/Hodge–Tate/bad-place obligations are not inferred from this good-prime theorem."
+        "verdict": "verified",
+        "note": "DFG §1.1–§1.3, pp. 6–13, and Lemma 5.7/§5.5, pp. 58–60, distinguish all-λ étale modules from restricted crystalline data and identify the finite-character normalization. The fixed-source common Hecke polynomial uses the existing R24.5 fine carrier/predicate boundary without claiming its additional Hodge or bad-place axioms."
       },
       {
         "nodeId": "WeightsInEtaleCohomology:R34.6/arithmetic-realization-transport",
         "verdict": "verified",
-        "note": "Equivariant arithmetic Frobenius comparisons preserve inverse geometric spectra too; commuting idempotents inherit purity, with rationality required for integer coefficients. Semisimplicity remains independent."
+        "note": "Lawrence–Venkatesh Lemma 2.3, pp. 9–10, and Weil II (1.2.5), p. 154, agree with equivariant realization/projector transport. Rationality for integer factor coefficients and independent semisimplicity are retained. Finite residue-degree power descent uses q>1."
       },
       {
         "nodeId": "WeightsInEtaleCohomology:R34.6/hilbert-local-monodromy-weight-export",
-        "verdict": "corrected",
-        "note": "Added the direct Hilbert degree/projector node and fine R24.5 carrier/predicate prerequisites; corrected Theorems 1–2 to §2. Saito’s g>1, w≥k_i≥2, parity and even-degree discrete-series conditions, degree/twist identity and inverse geometric WD relation agree. The R06.6 crystalline proof and actual model-descent inputs remain recorded gaps."
+        "verdict": "verified",
+        "note": "Saito Theorems 1–2, pp. 12–13, Lemma 3, pp. 30–31, and Claims 4–5/Proposition 1′, pp. 35–39, match the restricted g>1 Hilbert statement and q₀/twist identity. The inverse geometric WD relation and rank-two graded weights agree. The imported R06.6 crystalline argument on pp. 40–43 and actual-model descent remain explicit gaps, not new claims."
       }
     ]
   }
