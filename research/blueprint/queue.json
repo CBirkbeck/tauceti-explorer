@@ -46121,7 +46121,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-ComplexMultiplicationAndExplicitReciprocity.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7461"
   },
   {
    "id": "REV-PKG-ComplexMultiplicationAndExplicitReciprocity",
@@ -46364,8 +46365,9 @@
     "PKG-DerivedDeRhamCohomology"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-DerivedDeRhamCohomology.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7511"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7511",
+   "finishedAt": "2026-10-08T23:53:12Z"
   },
   {
    "id": "PKG-DiamondEtaleCohomology",
@@ -47613,8 +47615,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-SmallRamificationAndAbelianVarietyBaseCases.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7496"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7496",
+   "finishedAt": "2026-10-08T23:53:15Z"
   },
   {
    "id": "REV-PKG-SmallRamificationAndAbelianVarietyBaseCases",
@@ -47743,7 +47746,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-WeightsInEtaleCohomology.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7499"
   },
   {
    "id": "REV-PKG-WeightsInEtaleCohomology",
