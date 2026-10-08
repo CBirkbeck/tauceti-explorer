@@ -927,7 +927,8 @@ theorem BcHnDecomposition (W : C) :
 This signature retains the End ring's carrier as an actual endomorphism set;
 Brauer invariant and period-basis formula are omitted. -/
 def BcMorphismCalculus (W : C) (D : Type u) : (W ⟶ W) ≃ D := by sorry
-/-- The BdRplus-module realization and killed-by-t^r hypotheses are omitted.
+/-- The finite BC carrier, BdRplus-module realization and killed-by-t^r
+hypotheses are omitted.
 Maps are arbitrary VS maps, not assumed BdR-linear. -/
 theorem TorsionVsHomVanishing (W BdRplus BdR : C) :
     (∀ f : W ⟶ BdRplus, f=0) ∧ (∀ f : W ⟶ BdR, f=0) := by sorry
@@ -1230,9 +1231,10 @@ systems on S and vector bundles on X_S whose EVERY geometric HN slope is zero, v
 L↦L⊗_E O_X. The quasi-inverse is T↦H⁰(X_T,E_T); it commutes with perfectoid base change
 and coefficient extension with its normalized Frobenius. Locally constant rank is
 handled componentwise. Total degree zero alone does not suffice.
-Hypotheses: The condition is that the HN polygon is CONSTANT ZERO, i.e. everywhere
-semistable of slope 0, not merely fibrewise trivial. Full faithfulness is proved by
-pro-étale descent, reducing to L trivial, and then by Prop. II.2.5(ii):
+Hypotheses: Every geometric fibre is semistable of slope zero. On each component of
+locally constant rank its HN polygon is therefore the fixed zero polygon. Fibrewise
+triviality does not trivialize the descent datum globally. Full faithfulness is proved
+by pro-étale descent, reducing to L trivial, and then by Prop. II.2.5(ii):
 H⁰(X_S,O)=underline E(S), the locally constant E-valued functions on |S|, and
 RΓ(X_S,O)=RΓ_proét(S,E). Essential surjectivity is Thm. II.2.19(ii) applied with a
 single slope 0. A local system is not the same as a globally trivial bundle: the descent
@@ -1617,24 +1619,19 @@ Direct imports: VectorBundlesAndIsocrystals:VB4/all-rings-pointwise-purity.
 
 VectorBundlesAndIsocrystals:VB4/local-global-purity-counterexamples
 Declaration: LocalGlobalPurityCounterexamples
-Contract: Let K = 𝔽_p((q)) with |q| = ω < 1, B = K{ω²/T, T, U/ω^{−2}}/(U(T − q) − 1) (so
-Spa(B, B°) is the annulus ω² ≤ |T| ≤ 1 minus the open disc |T − q| < ω²), and B_1 =
-K{ω²/T, T/ω²}, B_2 = K{1/T, T} (its boundary circles |T| = ω² and |T| = 1). The
-substitution T ↦ q²T is an isomorphism σ_q: B_1 → B_2 [printed as a map B_2 → B_1];
-gluing the boundary circles using σ_q produces an affinoid Spa(A,A°) inside the Tate
-curve with parameter q² over K. This Tate curve is the analytic realization of a smooth
-projective genus-one curve. Glueing the trivial ℚ_p-local system on Spa(B, B°) along
-this identification by matching the generator 1 on one circle with p on the other gives
-an étale ℚ_p-local system V on Spa(A, A°). Let R, S, S_1, S_2 be the completed
-perfections of A, B, B_1, B_2 and X = Spa(R, R°). Then V corresponds to no étale
-φ-module over ℰ̃_R or ℛ̃^bd_R (a nonzero v would give x ∈ ℰ̃_S with x_2 = pσ_q(x_1) ∈
-ℰ̃_{S_2}, forcing x ∈ ∩_m p^m W(S) = 0). By Theorem 8.5.12, V does correspond to an
-étale φ-module over ℛ̃_R and to étale φ-modules over ℰ̃_X and ℛ̃^bd_X, which therefore
-do not descend to ℰ̃_R, ℛ̃^bd_R (an obstruction to glueing finite projective modules
-over these rings, Remark 5.3.7); and the étale φ-module over ℛ̃_R admits no étale model,
-locally free or not. For the nodal example, we also retain Example 8.5.18 as a
-sheaf-level locally étale but not globally étale counterexample; the ring-level
-strengthening is G-PATCH.
+Contract: KL constructs a rational local system with p-monodromy by identifying the two
+boundary circles of a punctured annulus over K=F_p((q)), |q|=ω<1. Its affinoid algebra
+is B=K{ω²/T,T,U/ω^{−2}}/(U(T−q)−1); the boundaries have algebras B₁=K{ω²/T,T/ω²} and
+B₂=K{1/T,T}. Substitution T↦q²T identifies B₁ with B₂, in that direction, and gives an
+affinoid chart in the Tate curve of parameter q² over K. Identify one boundary generator
+with p times the other and pass to completed perfections R,S,S₁,S₂ of A,B,B₁,B₂. The
+resulting Q_p local system cannot come from an étale module over ℰ̃_R or ℛ̃^bd_R: a
+putative invariant section would satisfy x₂=pσ_q(x₁), hence belong to every p^mW(S) and
+vanish. It does come from an étale full Robba module and from étale ℰ̃_X and ℛ̃^bd_X
+sheaves on X=Spa(R,R°). Thus sheaf descent does not imply descent to the bounded
+coefficient rings, and the full Robba module has no étale model. The separate nodal
+example 8.5.18 gives locally étale sheaves without a global étale lattice. Its stronger
+bounded-ring interpretation remains the obligation G-PATCH.
 Hypotheses: KL Hypotheses 5.0.1 and 6.0.1: R is a perfect uniform Banach F_p-algebra
 over an analytic field; a≥1 and q=p^a. Ring/sheaf, full/bounded Robba and integral
 coefficients are kept distinct.
@@ -1752,7 +1749,8 @@ Hypotheses: KL Hypotheses 5.0.1 and 6.0.1: R is a perfect uniform Banach F_p-alg
 over an analytic field; a≥1 and q=p^a. Ring/sheaf, full/bounded Robba and integral
 coefficients are kept distinct. KL Hypothesis 8.7.1: mixed characteristic, perfectoid
 untilt over Q_p, q=p^a.
-Direct imports: VectorBundlesAndIsocrystals:VB4/nonnegative-extension.
+Direct imports: VectorBundlesAndIsocrystals:VB4/nonnegative-extension,
+VectorBundlesAndIsocrystals:VB4/purity-openness.
 
 VectorBundlesAndIsocrystals:VB4/ample-iff-pointwise
 Declaration: AmpleIffPointwise
@@ -1905,16 +1903,13 @@ RelativeFarguesFontaine:RF0:integral-Y, DiamondsAndVStacks:D3/locally-profinite-
 
 VectorBundlesAndIsocrystals:VB3:general-BC/sympathetic-vector-spaces
 Declaration: SympatheticVS
-Contract: A Vector Space (VS) W is a functor Λ ↦ W(Λ) from sympathetic algebras to
-Q_p-vector spaces, and a sequence 0 → W_1 → W → W_2 → 0 is exact precisely when it is
-exact on W(Λ) for every Λ. Sympathetic algebras are, following Colmez, the spectral
-connected C-Banach algebras Λ on which x ↦ x^p is surjective on {x : ‖x−1‖_Λ < 1}, with
-O_Λ the unit ball; this paper imposes two further conditions, that Λ → C(Spm(Λ) → C) be
-injective — a property taken for granted in the earlier arguments but failing for
-instance for Λ = O_{C′} with C′ the spherical closure of C — and that Λ be separable,
-i.e. have a dense C-subspace of countable dimension, so that Hahn–Banach is available
-without assuming C spherically complete. Since O_C/p is countable, the sympathetic
-closure of a separable such algebra is again separable.
+Contract: Use the category of connected spectral C-Banach algebras whose p-power map is
+onto the open unit neighborhood of 1. CN further require faithful evaluation on C-valued
+spectral points and a dense C-linear subspace with a countable basis. Write O_Λ for the
+unit ball. These extra requirements exclude the spherical-closure example in footnote 6
+and permit the Hahn–Banach arguments under the standing countability assumption. A
+sympathetic Vector Space is a covariant functor from this category to Q_p-vector spaces.
+Exactness means exactness after evaluation at each algebra Λ.
 Hypotheses: E=Q_p. As in CN §1 and §1.3.3, C is the completion of an algebraic closure
 of a complete discretely valued field K of characteristic 0 whose perfect residue field
 is countable; hence O_C/p is countable, which CN use (footnote 6) to keep sympathetic
@@ -1943,14 +1938,11 @@ Direct imports: mathlib:NormedAlgebra, mathlib:ModuleCat.
 
 VectorBundlesAndIsocrystals:VB3:general-BC/banach-colmez-presentations
 Declaration: BCPresentation
-Contract: Morally a BC is a finite dimensional C-vector space up to a finite dimensional
-Q_p-vector space, with Dimension Dim W = (a,b) where a = dim W is the C-dimension and b
-= ht W ∈ Z the Q_p-dimension. Precisely, a VS W is finite Dimensional — a BC — if it
-equals V_d up to finite dimensional Q_p-vector spaces: there are finite dimensional
-Q_p-vector spaces V_1, V_2 and exact sequences 0 → V_1 → Y → V_d → 0 and 0 → V_2 → Y → W
-→ 0, so that W is obtained from V_d by adding V_1 and quotienting by V_2; then dim W = d
-and ht W = dim_{Q_p}V_1 − dim_{Q_p}V_2. These are the objects often called Banach–Colmez
-spaces.
+Contract: A sympathetic Vector Space W admits a finite Banach–Colmez presentation when
+some Y fits into 0→V₁→Y→V_d→0 and 0→V₂→Y→W→0, where V_d(Λ)=Λ^d and V₁,V₂ are constant
+finite-dimensional Q_p spaces. Such W is a BC object. The presentation assigns dim(W)=d
+and ht(W)=dim_Qp(V₁)−dim_Qp(V₂), so Dimension is the pair (dim,ht). Independence of
+these integers from Y and the two sequences is the separate Dimension theorem.
 Hypotheses: E=Q_p. As in CN §1 and §1.3.3, C is the completion of an algebraic closure
 of a complete discretely valued field K of characteristic 0 whose perfect residue field
 is countable; hence O_C/p is countable, which CN use (footnote 6) to keep sympathetic
@@ -2014,8 +2006,10 @@ mathlib:CategoryTheory.Abelian.
 
 VectorBundlesAndIsocrystals:VB3:general-BC/standard-dimension-examples
 Declaration: StandardDimensionExamples
-Contract: The Spaces B_m and U_{h,d} are BC's, with Dim B_m = (m,0) and Dim U_{h,d} =
-(d,h) if d ≥ 0, (−d,−h) if d < 0.
+Contract: For integers h≥1, d∈Z and m≥1, the period objects B_m=B⁺_dR/t^m and U_{h,d}
+belong to BC. Their Dimensions are Dim(B_m)=(m,0), Dim(U_{h,d})=(d,h) for d≥0, and
+Dim(U_{h,d})=(−d,−h) for d<0. In particular U_{1,0}=Q_p has Dimension (0,1); the
+zero-slope case is retained in the nonnegative branch.
 Hypotheses: E=Q_p. As in CN §1 and §1.3.3, C is the completion of an algebraic closure
 of a complete discretely valued field K of characteristic 0 whose perfect residue field
 is countable; hence O_C/p is countable, which CN use (footnote 6) to keep sympathetic
@@ -2123,9 +2117,10 @@ VectorBundlesAndIsocrystals:VB3:general-BC/torsion-vs-hom-vanishing.
 
 VectorBundlesAndIsocrystals:VB3:general-BC/euler-poincare-height
 Declaration: EulerPoincareHeight
-Contract: From the formulas (3.10), ht(H^0(X,O(λ))) − ht(H^1(X,O(λ))) = h for every λ;
-by additivity this gives ht(H^0(X,E)) − ht(H^1(X,E)) = rk E for every vector bundle E on
-X, and the formula extends to coherent sheaves.
+Contract: For every coherent sheaf F on the geometric curve,
+ht(H⁰(X,F))−ht(H¹(X,F))=rk(F). For a standard block O(λ), where λ=d/h is reduced with
+h>0, the difference is h. Additivity and coherent-sheaf classification extend this
+calculation from standard blocks to all F; torsion has rank and Euler height zero.
 Hypotheses: E=Q_p. As in CN §1 and §1.3.3, C is the completion of an algebraic closure
 of a complete discretely valued field K of characteristic 0 whose perfect residue field
 is countable; hence O_C/p is countable, which CN use (footnote 6) to keep sympathetic
@@ -2197,14 +2192,14 @@ mathlib:CategoryTheory.Equivalence.
 
 VectorBundlesAndIsocrystals:VB3:general-BC/bc-hn-invariants
 Declaration: BCHNInvariants
-Contract: Define the invariants on Coh^-_X by rk^-(E_{−1} → E_0) = deg(E_0) −
-deg(E_{−1}) and deg^-(E_{−1} → E_0) = rk(E_{−1}) − rk(E_0). These give its
-Harder–Narasimhan structure. Under transport to BC, rk^- = dim and deg^- = −ht; a
-torsion F_x gives µ^-(BC(0 → F_x)) = 0. Denote by W_{≥λ}, W_{>λ} the Harder–Narasimhan
-filtration and W_{>−∞} := ∪_λ W_{≥λ}. For reduced λ=d/h, set U_λ= U_{h,d}, with
-U_{eh,ed} = U_λ^e for e ≥ 1, and U_λ = H^0(X,O(λ)) = BC(0 → O(λ)) if λ ≥ 0, U_λ =
-H^1(X,O(λ)) = BC(O(λ) → 0) if λ < 0; the resulting invariants satisfy rk^-(U_λ) =
-sign(λ)d, deg^-(U_λ) = −sign(λ)h and µ^-(U_λ) = −1/λ.
+Contract: On the tilted coherent heart, assign rk⁻([E₋₁→E₀])=deg(E₀)−deg(E₋₁) and
+deg⁻([E₋₁→E₀])=rk(E₋₁)−rk(E₀). Under Le Bras these become dim and −ht, defining the BC
+HN structure. A nonzero torsion object has slope zero. Write W_{≥λ},W_{>λ} for the HN
+pieces and W_{>−∞}=∪_λW_{≥λ}. For reduced λ=d/h with h>0, let U_λ=U_{h,d}; scaling the
+pair by e≥1 gives e copies. For λ≥0 use H⁰(O(λ)), and for λ<0 use H¹(O(λ)), equivalently
+BC(O(λ)[1]). For λ≠0 the standard block has rk⁻=sign(λ)d, deg⁻=−sign(λ)h and µ⁻=−1/λ.
+The boundary U₀=Q_p instead has rk⁻=0, deg⁻=−1 and µ⁻=−∞; the zero object has no HN
+slopes. See E35 for the missing nonzero condition in the source formula.
 Hypotheses: E=Q_p. As in CN §1 and §1.3.3, C is the completion of an algebraic closure
 of a complete discretely valued field K of characteristic 0 whose perfect residue field
 is countable; hence O_C/p is countable, which CN use (footnote 6) to keep sympathetic
@@ -2316,14 +2311,14 @@ RelativeFarguesFontaine:RF2:untilts/BdR-completion-and-filtration.
 
 VectorBundlesAndIsocrystals:VB3:general-BC/torsion-point-realization
 Declaration: TorsionPointRealization
-Contract: For x a closed point, F ↦ H^0(X,F) is an equivalence from torsion coherent
-sheaves supported at x to finite length B^+_dR(C_x)-modules; such a module is a sum of
-B_m(C_x) = B^+_dR(C_x)/t_x^m, and the sequence 0 → O --t_x^m--> O(m) → i_{x,*}B_m → 0
-together with H^1(X,O) = 0 gives H^0(X,i_{x,*}B_m) = U_m/Q_p t_x^m. Hence End_BC(U_m/Q_p
-t_x^m) ≅ B_m(C_x), so for m = 1 the endomorphisms are C_x; and for x ≠ ∞, Hom_BC(U_1/Q_p
-t_x, V_1) = 0 because the two sheaves are supported at distinct points. In the case x =
-∞, crucial for the paper's results, t_x = t and U_m/Q_p t^m = B_m, and the object of BC
-attached to a finite length B^+_dR-module M is simply M ⊗_{B^+_dR} B^+_dR.
+Contract: At a closed untilt point x, torsion coherent sheaves supported at x are
+equivalent to finite-length B⁺_dR(C_x)-modules via global sections. The indecomposable
+modules are B_m(C_x)=B⁺_dR(C_x)/t_x^m, m≥1. The divisor sequence
+0→O→O(m)→i_{x,*}B_m(C_x)→0 has first map t_x^m; H¹(O)=0 therefore identifies the BC
+realization with U_m/Q_p t_x^m. Its endomorphism ring is B_m(C_x), giving C_x when m=1.
+For x≠∞ its Hom to V₁ vanishes because the supports are disjoint. At the chosen point ∞,
+write t_x=t; a finite-length module M is realized by the functor Λ↦M⊗_{B⁺_dR}B⁺_dR(Λ),
+rather than an extension of scalars from a ring to itself.
 Hypotheses: E=Q_p. As in CN §1 and §1.3.3, C is the completion of an algebraic closure
 of a complete discretely valued field K of characteristic 0 whose perfect residue field
 is countable; hence O_C/p is countable, which CN use (footnote 6) to keep sympathetic
@@ -2354,13 +2349,13 @@ VectorBundlesAndIsocrystals:VB3:general-BC/curvature.
 
 VectorBundlesAndIsocrystals:VB3:general-BC/torsion-vs-hom-vanishing
 Declaration: TorsionVsHomVanishing
-Contract: The curvature-zero subcategory is closed under kernels and cokernels of its
-morphisms. If the period Vector Space W is a B⁺_dR-Module killed by t^r, r≥1, every VS
-map from W to either B⁺_dR or B_dR vanishes. For the first target, realize W from a
-finite-length module and take the inverse limit of Hom into B⁺_dR/t^k; the resulting Hom
-into the torsion-free ring is zero. For the second, the graph presentations of BC
-objects are used to bound the image of each VS map inside t⁻ᴺB⁺_dR for some N.
-Establishing this bound for unrestricted VS morphisms is the explicit obligation G-HOM.
+Contract: The curvature-zero BC category is closed under kernels and cokernels of its
+morphisms. Let W be a BC object carrying a B⁺_dR-Module structure with t^rW=0 for some
+r≥1. Then every VS natural map W→B⁺_dR or W→B_dR is zero. The BC hypothesis permits the
+finite-length realization used in Corollary 3.18. For B⁺_dR, compare maps to all
+B⁺_dR/t^k and take their inverse limit, obtaining Hom into a torsion-free module. For
+B_dR, the remaining bounded-image argument must place each arbitrary VS map inside
+t^{-N}B⁺_dR for some N; this is G-HOM. The maps are not assumed period-linear.
 Hypotheses: E=Q_p. As in CN §1 and §1.3.3, C is the completion of an algebraic closure
 of a complete discretely valued field K of characteristic 0 whose perfect residue field
 is countable; hence O_C/p is countable, which CN use (footnote 6) to keep sympathetic
