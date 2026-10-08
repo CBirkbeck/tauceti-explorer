@@ -673,6 +673,11 @@ theorem fromLaurent_injective (h : ∃ n ∈ S, 0 < n) : Function.Injective (fro
 
 end Units
 
+/-- Habiro Remark 7.1, p. 1142: alternating units on orders coprime to `2m`. -/
+theorem isUnit_alternating (m : ℕ) (hm : 3 ≤ m) (hodd : Odd m) :
+    IsUnit (fromPoly ℤ {n | 0 < n ∧ Nat.Coprime n (2 * m)}
+      (∑ i ∈ Finset.range m, (-1 : ℤ[X]) ^ i * X ^ i)) := sorry
+
 open HabiroRing
 
 /-- Test `kontsevich_mod_P2` (computation): `F ≡ 2 - q (mod P₂)`. -/
@@ -927,12 +932,60 @@ theorem taylorAt_algEquiv (τ : A ≃ₐ[R] A) {n : ℕ} (hn : n ∈ S) (ζ : A)
     (x : CycloCompletion R S) :
     taylorAt R S hn (τ ζ) hτζ x = PowerSeries.map (τ : A →+* A) (taylorAt R S hn ζ hζ x) := sorry
 
+theorem evalAt_algEquiv (τ : A ≃ₐ[R] A) {n : ℕ} (hn : n ∈ S) (ζ : A)
+    (hζ : aeval ζ (cyclotomic n R) = 0) (hτζ : aeval (τ ζ) (cyclotomic n R) = 0)
+    (x : CycloCompletion R S) :
+    evalAt R S hn (τ ζ) hτζ x = τ (evalAt R S hn ζ hζ x) := sorry
+
+/-- Coefficient naturality for a commuting square of coefficient and root algebras. -/
+theorem evalAt_mapRing {R' A' : Type*} [CommRing R'] [CommRing A'] [Algebra R' A']
+    (φ : R →+* R') (ψ : A →+* A')
+    (hcompat : ψ.comp (algebraMap R A) = (algebraMap R' A').comp φ)
+    {n : ℕ} (hn : n ∈ S) (ζ : A) (hζ : aeval ζ (cyclotomic n R) = 0)
+    (hψζ : aeval (ψ ζ) (cyclotomic n R') = 0) (x : CycloCompletion R S) :
+    evalAt R' S hn (ψ ζ) hψζ (mapRing R S φ x) = ψ (evalAt R S hn ζ hζ x) := sorry
+
+theorem taylorAt_mapRing {R' A' : Type*} [CommRing R'] [CommRing A'] [Algebra R' A']
+    (φ : R →+* R') (ψ : A →+* A')
+    (hcompat : ψ.comp (algebraMap R A) = (algebraMap R' A').comp φ)
+    {n : ℕ} (hn : n ∈ S) (ζ : A) (hζ : aeval ζ (cyclotomic n R) = 0)
+    (hψζ : aeval (ψ ζ) (cyclotomic n R') = 0) (x : CycloCompletion R S) :
+    taylorAt R' S hn (ψ ζ) hψζ (mapRing R S φ x) =
+      PowerSeries.map ψ (taylorAt R S hn ζ hζ x) := sorry
+
 /-- `q ↦ q^a`, continuous when `m / gcd m a ∈ S` for every `m ∈ T`. -/
 def powSubst {T : Set ℕ} (a : ℕ) (ha : 0 < a) (h : ∀ m ∈ T, m / Nat.gcd m a ∈ S) :
     CycloCompletion R S →+* CycloCompletion R T := sorry
 
 theorem powSubst_fromPoly {T : Set ℕ} (a : ℕ) (ha : 0 < a) (h : ∀ m ∈ T, m / Nat.gcd m a ∈ S)
     (g : R[X]) : powSubst R S a ha h (fromPoly R S g) = fromPoly R T (g.comp (X ^ a)) := sorry
+
+theorem aeval_pow_cyclotomic_eq_zero (a : ℕ) (ha : 0 < a) (m : ℕ) (ζ : A)
+    (hζ : aeval ζ (cyclotomic m R) = 0) :
+    aeval (ζ ^ a) (cyclotomic (m / Nat.gcd m a) R) = 0 := sorry
+
+theorem evalAt_powSubst {T : Set ℕ} (a : ℕ) (ha : 0 < a)
+    (h : ∀ m ∈ T, m / Nat.gcd m a ∈ S) {m : ℕ} (hm : m ∈ T)
+    (ζ : A) (hζ : aeval ζ (cyclotomic m R) = 0) (x : CycloCompletion R S) :
+    evalAt R T hm ζ hζ (powSubst R S a ha h x) =
+      evalAt R S (h m hm) (ζ ^ a) (aeval_pow_cyclotomic_eq_zero R a ha m ζ hζ) x := sorry
+
+theorem taylorAt_powSubst {T : Set ℕ} (a : ℕ) (ha : 0 < a)
+    (h : ∀ m ∈ T, m / Nat.gcd m a ∈ S) {m : ℕ} (hm : m ∈ T)
+    (ζ : A) (hζ : aeval ζ (cyclotomic m R) = 0) (x : CycloCompletion R S) :
+    taylorAt R T hm ζ hζ (powSubst R S a ha h x) =
+      PowerSeries.subst ((PowerSeries.C ζ + PowerSeries.X) ^ a - PowerSeries.C (ζ ^ a))
+        (taylorAt R S (h m hm) (ζ ^ a) (aeval_pow_cyclotomic_eq_zero R a ha m ζ hζ) x) := sorry
+
+theorem powSubst_one (x : CycloCompletion R S) :
+    powSubst R S 1 (by decide) (fun m hm => by simpa using hm) x = x := sorry
+
+theorem powSubst_comp {T U : Set ℕ} (a b : ℕ) (ha : 0 < a) (hb : 0 < b)
+    (hST : ∀ m ∈ T, m / Nat.gcd m a ∈ S)
+    (hTU : ∀ m ∈ U, m / Nat.gcd m b ∈ T)
+    (hSU : ∀ m ∈ U, m / Nat.gcd m (a * b) ∈ S) (x : CycloCompletion R S) :
+    powSubst R T b hb hTU (powSubst R S a ha hST x) =
+      powSubst R S (a * b) (Nat.mul_pos ha hb) hSU x := sorry
 
 end Naturality
 
@@ -1157,6 +1210,13 @@ theorem transition_injective_of_monicImplies {f g : R[X]} (hf : f.Monic) (hg : g
     Function.Injective (MonicCompletion.transition R
       (T := Submonoid.closure {f * g}) (T' := Submonoid.closure {f}) sorry) := sorry
 
+/-- The complete-coefficient case of Habiro Proposition 3.1, pp. 1132–1133. -/
+theorem transition_bijective_of_isAdicComplete {f g : R[X]} (hf : f.Monic) (hg : g.Monic)
+    (I : Ideal R) (hI : I.FG) [IsAdicComplete I R]
+    (h : f ∈ (Ideal.span {g} ⊔ I.map C).radical) :
+    Function.Bijective (MonicCompletion.transition R
+      (T := Submonoid.closure {f * g}) (T' := Submonoid.closure {f}) sorry) := sorry
+
 /-- HC.4/chain-injectivity-for-monic-completions: Habiro Theorem 3.1. -/
 theorem transition_injective_of_monicPrecedes {M₀ M : Set R[X]} (hM : ∀ f ∈ M, f.Monic)
     (h : MonicPrecedes M₀ M) :
@@ -1168,7 +1228,7 @@ theorem cyclotomic_mem_radical_adjacencyIndex (m n : ℕ) :
     cyclotomic m R ∈ (Ideal.span {cyclotomic n R, C (adjacencyIndex m n : R)}).radical := sorry
 
 /-- Habiro Lemma 4.2(2). -/
-theorem adjacent_iff_monicImplies [Nontrivial R] (m n : ℕ) :
+theorem adjacent_iff_monicImplies [Nontrivial R] (m n : ℕ) (hm : 0 < m) (hn : 0 < n) :
     Adjacent R m n ↔ MonicImplies (cyclotomic m R) (cyclotomic n R) := sorry
 
 end MonicCompletions
@@ -1298,10 +1358,19 @@ theorem restrict_univ_not_surjective {S : Set ℕ} (hS : S.Finite) (hne : S.None
     (h0 : ∀ n ∈ S, 0 < n) : ¬ Function.Surjective (restrict ℤ Set.univ (Set.subset_univ S)) :=
   sorry
 
-/-- HC.4/taylor-maps-are-not-surjective. -/
-theorem taylorAt_not_surjective {n : ℕ} (ζ : ℂ) (hζ : IsPrimitiveRoot ζ n)
-    (hζ' : aeval ζ (cyclotomic n ℤ) = 0) :
-    ¬ Function.Surjective (taylorAt ℤ Set.univ (Set.mem_univ n) ζ hζ') := sorry
+/-- The chosen root as an element of its embedded cyclotomic integer algebra. -/
+def cyclotomicIntegerRoot (ζ : ℂ) : Algebra.adjoin ℤ ({ζ} : Set ℂ) :=
+  ⟨ζ, Algebra.subset_adjoin (Set.mem_singleton ζ)⟩
+
+theorem aeval_cyclotomicIntegerRoot {n : ℕ} (ζ : ℂ)
+    (hζ : aeval ζ (cyclotomic n ℤ) = 0) :
+    aeval (cyclotomicIntegerRoot ζ) (cyclotomic n ℤ) = 0 := sorry
+
+/-- HC.4/taylor-maps-are-not-surjective: the target is `ℤ[ζ][[X]]`. -/
+theorem taylorAt_not_surjective {n : ℕ} (hn : 0 < n) (ζ : ℂ)
+    (hζ : IsPrimitiveRoot ζ n) (hζ' : aeval ζ (cyclotomic n ℤ) = 0) :
+    ¬ Function.Surjective (taylorAt ℤ Set.univ (Set.mem_univ n)
+      (cyclotomicIntegerRoot ζ) (aeval_cyclotomicIntegerRoot ζ hζ')) := sorry
 
 end Rigidity
 
@@ -1954,12 +2023,41 @@ namespace cycloModuleCompletion
 /-- The `R[q]^S`-module structure. -/
 instance instModule : Module (CycloCompletion R S) (cycloModuleCompletion R S M) := sorry
 
+instance instIsScalarTower :
+    IsScalarTower R[X] (CycloCompletion R S) (cycloModuleCompletion R S M) := sorry
+
+/-- The subspace topology of compatible families with discrete quotient modules. -/
+instance instTopologicalSpace : TopologicalSpace (cycloModuleCompletion R S M) :=
+  TopologicalSpace.induced
+    (fun x : cycloModuleCompletion R S M =>
+      (x : ∀ f : cycloIndex R S, polyModQuot R M (f : R[X])))
+    (@Pi.topologicalSpace _ _ fun _ => ⊥)
+
+instance instIsTopologicalAddGroup : IsTopologicalAddGroup (cycloModuleCompletion R S M) := sorry
+
+instance instContinuousSMul :
+    ContinuousSMul (CycloCompletion R S) (cycloModuleCompletion R S M) := sorry
+
+theorem isCompleteSeparated :
+    letI : UniformSpace (cycloModuleCompletion R S M) :=
+      IsTopologicalAddGroup.rightUniformSpace _
+    CompleteSpace (cycloModuleCompletion R S M) ∧ T2Space (cycloModuleCompletion R S M) := sorry
+
 /-- The canonical map `M[q] → M[q]^S`. -/
 def of : PolynomialModule R M →ₗ[R[X]] cycloModuleCompletion R S M := sorry
+
+theorem denseRange_of : DenseRange (of R S M) := sorry
 
 /-- The projection `M[q]^S → M[q] / f M[q]`. -/
 def proj (f : cycloIndex R S) : cycloModuleCompletion R S M →ₗ[R[X]] polyModQuot R M (f : R[X]) :=
   (LinearMap.proj f).comp (cycloModuleSubmodule R S M).subtype
+
+theorem proj_of (f : cycloIndex R S) (p : PolynomialModule R M) :
+    proj R S M f (of R S M p) = Submodule.Quotient.mk p := sorry
+
+theorem proj_compatible (f g : cycloIndex R S) (h : (f : R[X]) ∣ (g : R[X]))
+    (x : cycloModuleCompletion R S M) :
+    Submodule.mapQ _ _ LinearMap.id sorry (proj R S M g x) = proj R S M f x := sorry
 
 theorem ext {x y : cycloModuleCompletion R S M} (h : ∀ f, proj R S M f x = proj R S M f y) :
     x = y := sorry
@@ -1969,12 +2067,33 @@ theorem proj_eq_zero_iff (f : cycloIndex R S) (x : cycloModuleCompletion R S M) 
     proj R S M f x = 0 ↔ ∃ y, x = (f : R[X]) • y := sorry
 
 /-- For `M = R` the module completion is the ring completion. -/
-def selfEquiv : cycloModuleCompletion R S R ≃ₗ[R[X]] CycloCompletion R S := sorry
+def selfEquiv : cycloModuleCompletion R S R ≃ₗ[CycloCompletion R S] CycloCompletion R S := sorry
+
+theorem selfEquiv_of (p : PolynomialModule R R) :
+    selfEquiv R S (of R S R p) =
+      fromPoly R S (PolynomialModule.equivPolynomialSelf p) := sorry
 
 variable {M} {N P : Type*} [AddCommGroup N] [Module R N] [AddCommGroup P] [Module R P]
 
-def map (φ : M →ₗ[R] N) : cycloModuleCompletion R S M →ₗ[R[X]] cycloModuleCompletion R S N :=
+def map (φ : M →ₗ[R] N) :
+    cycloModuleCompletion R S M →ₗ[CycloCompletion R S] cycloModuleCompletion R S N :=
   sorry
+
+theorem map_id : map R S (LinearMap.id : M →ₗ[R] M) = LinearMap.id := sorry
+
+theorem map_comp (φ : M →ₗ[R] N) (ψ : N →ₗ[R] P) :
+    map R S (ψ.comp φ) = (map R S ψ).comp (map R S φ) := sorry
+
+theorem map_of (φ : M →ₗ[R] N) (p : PolynomialModule R M) :
+    map R S φ (of R S M p) = of R S N (PolynomialModule.map R φ p) := sorry
+
+theorem continuous_map (φ : M →ₗ[R] N) : Continuous (map R S φ) := sorry
+
+theorem map_injective (φ : M →ₗ[R] N) (h : Function.Injective φ) :
+    Function.Injective (map R S φ) := sorry
+
+theorem map_surjective (φ : M →ₗ[R] N) (h : Function.Surjective φ) :
+    Function.Surjective (map R S φ) := sorry
 
 /-- Exactness, with no hypothesis on `R`, `S` or the modules. -/
 theorem map_exact {φ : M →ₗ[R] N} {ψ : N →ₗ[R] P} (h : Function.Exact φ ψ) :
@@ -1984,9 +2103,18 @@ theorem map_exact {φ : M →ₗ[R] N} {ψ : N →ₗ[R] P} (h : Function.Exact 
 def restrict {S' : Set ℕ} (h : S' ⊆ S) :
     cycloModuleCompletion R S M →ₗ[R[X]] cycloModuleCompletion R S' M := sorry
 
+theorem restrict_comp {S' S'' : Set ℕ} (h : S' ⊆ S) (h' : S'' ⊆ S')
+    (x : cycloModuleCompletion R S M) :
+    restrict R S' h' (restrict R S h x) = restrict R S (h'.trans h) x := sorry
+
+theorem map_restrict {S' : Set ℕ} (h : S' ⊆ S) (φ : M →ₗ[R] N)
+    (x : cycloModuleCompletion R S M) :
+    map R S' φ (restrict R S h x) = restrict R S h (map R S φ x) := sorry
+
 /-- Products, hence finite direct sums. -/
 def piEquiv {ι : Type*} (M : ι → Type*) [∀ i, AddCommGroup (M i)] [∀ i, Module R (M i)] :
-    cycloModuleCompletion R S (∀ i, M i) ≃ₗ[R[X]] ∀ i, cycloModuleCompletion R S (M i) := sorry
+    cycloModuleCompletion R S (∀ i, M i) ≃ₗ[CycloCompletion R S]
+      ∀ i, cycloModuleCompletion R S (M i) := sorry
 
 /-- The comparison `M ⊗_R R[q]^S → M[q]^S`, bijective for finitely presented `M`. -/
 def ofTensor : TensorProduct R M (CycloCompletion R S) →ₗ[R] cycloModuleCompletion R S M := sorry
@@ -2002,13 +2130,20 @@ def equivPiOfChain (g : ℕ → cycloIndex R S) (hmono : ∀ n, (g n : R[X]) ∣
     cycloModuleCompletion R S M ≃ₗ[R]
       ∀ j : ℕ, Fin ((g (j + 1) : R[X]).natDegree - (g j : R[X]).natDegree) → M := sorry
 
+theorem equivPiOfChain_map (g : ℕ → cycloIndex R S)
+    (hmono : ∀ n, (g n : R[X]) ∣ (g (n + 1) : R[X])) (hg0 : (g 0 : R[X]) = 1)
+    (hg : ∀ f : cycloIndex R S, ∃ n, (f : R[X]) ∣ (g n : R[X]))
+    (φ : M →ₗ[R] N) (x : cycloModuleCompletion R S M) :
+    equivPiOfChain R S g hmono hg0 hg (map R S φ x) =
+      fun j k => φ (equivPiOfChain R S g hmono hg0 hg x j k) := sorry
+
 end cycloModuleCompletion
 
 end Modules
 
 /-- Test `cycloModuleCompletion.selfEquiv_test` (compatibility). -/
 example (R : Type*) [CommRing R] (S : Set ℕ) :
-    Nonempty (cycloModuleCompletion R S R ≃ₗ[R[X]] CycloCompletion R S) :=
+    Nonempty (cycloModuleCompletion R S R ≃ₗ[CycloCompletion R S] CycloCompletion R S) :=
   ⟨cycloModuleCompletion.selfEquiv R S⟩
 
 /-- Test `cycloModuleCompletion.subsingleton` (degenerate). -/
@@ -2151,8 +2286,7 @@ example : ¬ Adjacent (ℤ × ℚ) 1 2 ∧ ¬ IsCoprime (cyclotomic 1 (ℤ × �
 
 /-! ## HC.6 — the exported interface and the acceptance examples -/
 
--- HC.6/the-exported-interface: a bookkeeping node (exports by node id, consumers, and needs not
--- supplied here); it has no Lean form.
+-- The consumers and ownership boundaries of the exported interfaces are specified in README.md.
 
 /-- HC.6/the-acceptance-examples: `1 - q` is not a unit of `ℤ[q]^ℕ` nor of `ℤ[q]^{2}`, but is
 one of `ℤ[q]^{6}` and of `ℤ[1/2][q]^{2}`. -/

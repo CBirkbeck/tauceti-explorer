@@ -1,0 +1,8 @@
+{
+  "review": {
+    "status": "needs_changes",
+    "reviewer": "independent-review-REV-PKG-HabiroCyclotomicCompletions",
+    "date": "2026-10-08",
+    "notes": "Independent review of all 107 distinct accepted targets and the HC.6 finite specifications; primary H/H0/G/W sources, pinned library interfaces, scope and supplier boundaries, and exact finite polynomial/matrix examples checked. Corrected positive-order adjacency hypotheses and the integral Taylor non-surjectivity target; added complete-coefficient monic transition bijectivity, coefficient/Galois/power naturality, completed-module topology/scalar/functor API, and restricted alternating units; removed bookkeeping wording. Final lean-check exit 0, zero errors, 411 sorry-only warnings; all three unchanged packet checks report zero errors and warnings. Needs changes: general cofinal completion/reconstruction signatures, general individual-root uniqueness, general localized component/domain/rootwise detection signatures, actual localization statements, and unresolved HC.1/QM.0 q-toolkit ownership. Apostol publisher PDF returned 403; no fresh reading of that source is claimed. Detailed report: research/blueprint/reviews/REV-PKG-HabiroCyclotomicCompletions.md."
+  }
+}
