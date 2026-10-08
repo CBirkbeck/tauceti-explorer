@@ -169,7 +169,8 @@ theorem classifyingSpace_joined_vertex (x : classifyingSpace C) :
 
 /-- `CategoryTheory.classifyingSpaceMap_universes` (other): `classifyingSpaceMap`, like Mathlib's `nerveMap`,
 needs both categories in one object universe and one morphism universe; for the projection of the
-translation category this forces `G : Type` (or a `ULift`). -/
+translation category `ActionCategory G X ⥤ SingleObj G` this forces the acted-on type `X : Type` (or a `ULift`), since the
+objects of `SingleObj G` form `Unit : Type`. -/
 example (G : Type) [Group G] :
     classifyingSpace (ActionCategory G G) ⟶ classifyingSpace (SingleObj G) :=
   classifyingSpaceMap (ActionCategory.π G G)
@@ -227,21 +228,22 @@ theorem _root_.SSet.toTop_map_isClosedEmbedding_of_mono {A X : SSet.{u}} (i : A 
     Topology.IsClosedEmbedding (SSet.toTop.map i).hom := sorry
 
 -- `SSet.toTop_locallyContractibleSpace` (instance), signature (not yet statable at the pins in this file):
--- `instance (X : SSet.{u}) : LocallyContractibleSpace (SSet.toTop.obj X)`; Mathlib's `LocallyContractibleSpace`
+-- `theorem SSet.toTop_locallyContractibleSpace (X : SSet.{u}) : LocallyContractibleSpace (SSet.toTop.obj X)` (a theorem: Mathlib's `LocallyContractibleSpace` is a Prop-valued def, not a class); state it after adding `import Mathlib.Topology.Homotopy.LocallyContractible` — Mathlib's `LocallyContractibleSpace`
 -- (Mathlib/Topology/Homotopy/LocallyContractible.lean) is not imported by this file. Consequence: `|X|` is
 -- locally path-connected and semilocally simply connected (Tau Ceti
 -- `SemilocallySimplyConnectedSpace.of_locallyContractibleSpace`).
 
 /-- `CategoryTheory.classifyingSpace_sigma`: `B` of a disjoint union of categories is the disjoint union
 of their classifying spaces. -/
-theorem classifyingSpace_sigma {ι : Type u} (C : ι → Type u) [∀ i, Category.{v} (C i)] :
-    Nonempty (classifyingSpace (Σ i, C i) ≃ₜ Σ i, classifyingSpace (C i)) := sorry
+theorem classifyingSpace_sigma {ι : Type u} (C : ι → Type u) [∀ i, Category.{u} (C i)] :
+    IsHomeomorph (fun p : Σ i, classifyingSpace (C i) =>
+      (classifyingSpaceMap (CategoryTheory.Sigma.incl (C := C) p.1)).hom p.2) := sorry
 
 -- `H.1/realisation-boundary-inclusion-disk`, signature (not yet statable at the pins in this file):
 -- `theorem SSet.toTop_boundary_arrowIso_diskBoundaryInclusion (n : ℕ) :
 --   Nonempty (Arrow.mk (SSet.toTop.{u}.map (SSet.boundary.{u} n).ι) ≅ Arrow.mk (TopCat.diskBoundaryInclusion.{u} n))`;
--- `TopCat.diskBoundaryInclusion` lives in Mathlib/Topology/Category/TopCat/Sphere.lean, which this file does not
--- import. The closed-embedding half is `SSet.toTop_map_isClosedEmbedding_of_mono` applied to `(SSet.boundary n).ι`.
+-- statable after `import Mathlib.Topology.Category.TopCat.Sphere` and `import Mathlib.AlgebraicTopology.SimplicialSet.Boundary`
+-- (both exist at the pin); state it as a `theorem … := sorry`. The closed-embedding half is `SSet.toTop_map_isClosedEmbedding_of_mono` applied to `(SSet.boundary n).ι`.
 
 /-- `toTopCWComplex_stdSimplex_cells` (computation). -/
 example (n k : ℕ) : letI := SSet.toTopCWComplex (SSet.stdSimplex.obj (SimplexCategory.mk n))
@@ -290,12 +292,17 @@ theorem classifyingSpaceProdHomeomorph (C D : Type u) [Category.{v} C] [Category
         (classifyingSpaceMap (CategoryTheory.Prod.snd C D)).hom x)) := sorry
 
 -- `H.1/classifying-space-prod-compactly-generated`: signature (not yet statable at the pins): the same map is a
--- homeomorphism onto the product in compactly generated spaces, for arbitrary `C`, `D`; Mathlib has no
--- compactly generated product at 082e2d3.
+-- homeomorphism onto the product in compactly generated spaces, for arbitrary `C`, `D`:
+-- `theorem classifyingSpaceProd_isHomeomorph_compactlyGenerated (C D : Type u) [Category.{v} C] [Category.{v} D] :
+--   @IsHomeomorph _ _ _ (TopologicalSpace.compactlyGenerated.{max u v} (classifyingSpace C × classifyingSpace D))
+--     (fun x : classifyingSpace (C × D) => ((classifyingSpaceMap (CategoryTheory.Prod.fst C D)).hom x,
+--       (classifyingSpaceMap (CategoryTheory.Prod.snd C D)).hom x))` (state it as a theorem; the k-ified product is
+-- Mathlib's `TopologicalSpace.compactlyGenerated`).
 
 /-- `H.1/natural-transformations-adjoints-contractibility`: a natural transformation gives a homotopy. -/
 theorem NatTrans.classifyingSpaceHomotopic {F G : C ⥤ D} (η : F ⟶ G) :
-    ContinuousMap.Homotopic (classifyingSpaceMap F).hom (classifyingSpaceMap G).hom := sorry
+    ∃ H : ContinuousMap.Homotopy (classifyingSpaceMap F).hom (classifyingSpaceMap G).hom,
+      ∀ (X : C) (t : unitInterval), H (t, classifyingSpace_vertex X) = classifyingSpace_edge (η.app X) t := sorry
 
 /-- `H.1/adjunction-homotopy-equivalence`. -/
 theorem Adjunction.classifyingSpaceHomotopyEquiv {L : C ⥤ D} {R : D ⥤ C} (adj : L ⊣ R) :
@@ -342,11 +349,14 @@ theorem classifyingSpace_homology_filtered_colimit {I : Type u} [SmallCategory I
 
 /-- `H.1/pi0-classifying-space`: `π₀(BC)` is the set of components of `C`. -/
 theorem classifyingSpace_zerothHomotopy :
-    Nonempty (ZerothHomotopy (classifyingSpace C) ≃ CategoryTheory.ConnectedComponents C) := sorry
+    ∃ e : ZerothHomotopy (classifyingSpace C) ≃ CategoryTheory.ConnectedComponents C,
+      ∀ X : C, e (ZerothHomotopy.mk (classifyingSpace_vertex X)) = CategoryTheory.ConnectedComponents.mk X := sorry
 
 -- `H.1/simplicial-covering-realisation`, signature (not yet statable at the pins in this file):
 -- `theorem SSet.toTop_map_isCoveringMap {E X : SSet.{u}} (p : E ⟶ X) (hp : p is a simplicial covering, i.e.
--- every simplex of X has exactly one lift through each lift of its 0-th vertex) :
+-- every simplex of X lifts uniquely through each lift of any one of its vertices) — statable at the pin as
+-- `(hp : ∀ (n : ℕ) (σ : X _⦋n⦌) (k : Fin (n + 1)) (e : E _⦋0⦌), p.app _ e = X.map (SimplexCategory.const ⦋0⦌ ⦋n⦌ k).op σ →
+--   ∃! τ : E _⦋n⦌, p.app _ τ = σ ∧ E.map (SimplexCategory.const ⦋0⦌ ⦋n⦌ k).op τ = e) :
 -- IsCoveringMap (SSet.toTop.map p).hom`; the unique-lifting hypothesis needs an API for lifting simplices
 -- along a map of simplicial sets (or for pullbacks along `Δ[n] ⟶ X` being trivial), which this file does
 -- not set up.
@@ -357,6 +367,14 @@ theorem classifyingSpace_zerothHomotopy :
 theorem classifyingSpace_elements_isCoveringMap (F : C ⥤ Type u)
     (hF : ∀ ⦃X Y : C⦄ (f : X ⟶ Y), Function.Bijective (F.map f)) :
     IsCoveringMap (classifyingSpaceMap (Functor.Elements.π F)).hom := sorry
+
+/-- `H.1/coverings-fundamental-group-local-coefficients`, essential surjectivity: every covering of `BC` is
+`B` of the category of elements of a morphism-inverting functor. -/
+theorem classifyingSpace_covering_exists_elements {C : Type u} [SmallCategory C] {E : Type u}
+    [TopologicalSpace E] (p : C(E, classifyingSpace C)) (hp : IsCoveringMap p) :
+    ∃ (F : C ⥤ Type u) (_ : ∀ ⦃X Y : C⦄ (f : X ⟶ Y), Function.Bijective (F.map f))
+      (h : E ≃ₜ classifyingSpace F.Elements),
+      ∀ e, (classifyingSpaceMap (Functor.Elements.π F)).hom (h e) = p e := sorry
 
 /-- The functor `C ⥤ Π(BC)`: `X ↦ [X]`, `f ↦ [classifyingSpace_edge f]`. -/
 def classifyingSpace_edgeFunctor (C : Type u) [Category.{v} C] :
@@ -401,6 +419,12 @@ def categoryHomology.mapOfFunctor (R : Type (max u v)) [Ring R] (F : C ⥤ D) (M
 def categoryHomology.longExactSequence (R : Type (max u v)) [Ring R]
     (S : ShortComplex (C ⥤ ModuleCat.{max u v} R)) (hS : S.ShortExact) (n : ℕ) :
     categoryHomology R S.X₃ (n + 1) ⟶ categoryHomology R S.X₁ n := sorry
+
+theorem categoryHomology.longExactSequence_exact (R : Type (max u v)) [Ring R]
+    (S : ShortComplex (C ⥤ ModuleCat.{max u v} R)) (hS : S.ShortExact) (n : ℕ) :
+    Function.Exact (categoryHomology.map R S.f n).hom (categoryHomology.map R S.g n).hom ∧
+    Function.Exact (categoryHomology.map R S.g (n + 1)).hom (categoryHomology.longExactSequence R S hS n).hom ∧
+    Function.Exact (categoryHomology.longExactSequence R S hS n).hom (categoryHomology.map R S.f n).hom := sorry
 
 def categoryHomologyZeroIsoColimit (R : Type (max u v)) [Ring R] (M : C ⥤ ModuleCat.{max u v} R) :
     categoryHomology R M 0 ≅ colimit M := sorry
@@ -473,6 +497,16 @@ def basepoint (G : Type u) [Group G] : Group.classifyingSpace G :=
 
 def loop (g : G) : Path (basepoint G) (basepoint G) := CategoryTheory.classifyingSpace_edge (C := SingleObj G) g
 
+theorem loop_one : (loop (1 : G)).Homotopic (Path.refl (basepoint G)) := sorry
+
+theorem loop_mul (g h : G) : (loop (g * h)).Homotopic ((loop h).trans (loop g)) := sorry
+
+theorem map_basepoint (φ : G →* H) : (map φ).hom (basepoint G) = basepoint H := sorry
+
+theorem map_id : map (MonoidHom.id G) = 𝟙 (Group.classifyingSpace G) := sorry
+
+theorem map_comp {K : Type u} [Group K] (φ : G →* H) (ψ : H →* K) : map (ψ.comp φ) = map φ ≫ map ψ := sorry
+
 instance pathConnected (G : Type u) [Group G] : PathConnectedSpace (Group.classifyingSpace G) := sorry
 
 def fundamentalGroupMulEquiv (G : Type u) [Group G] :
@@ -517,12 +551,22 @@ example {G H : Type} [Group G] [Group H] (φ : G →* H) (h : H) :
 /-- `classifyingSpace_not_contractible_Z` (non-example). -/
 example : ¬ ContractibleSpace (Group.classifyingSpace (Multiplicative ℤ)) := sorry
 
+/-- `classifyingSpace_conj_freely_homotopic`, second half: not homotopic relative to the basepoint in general. -/
+example : ¬ ContinuousMap.HomotopicRel (Group.classifyingSpace.map (MonoidHom.id (Equiv.Perm (Fin 3)))).hom
+    (Group.classifyingSpace.map (MulAut.conj (Equiv.swap (0 : Fin 3) 1)).toMonoidHom).hom
+    {Group.classifyingSpace.basepoint (Equiv.Perm (Fin 3))} := sorry
+
 /-- `H.1/translation-category-classifying-space`: `B(∫_G G)` is contractible. -/
 theorem Group.classifyingSpace_translation_contractible (G : Type u) [Group G] :
     ContractibleSpace (CategoryTheory.classifyingSpace (CategoryTheory.ActionCategory G G)) := sorry
 
 theorem Group.classifyingSpace_translation_isCoveringMap (G : Type) [Group G] :
     IsCoveringMap (CategoryTheory.classifyingSpaceMap (CategoryTheory.ActionCategory.π G G)).hom := sorry
+
+theorem Group.classifyingSpace_actionCategory_homotopyEquiv (G X : Type u) [Group G] [MulAction G X]
+    [MulAction.IsPretransitive G X] (x : X) :
+    Nonempty (ContinuousMap.HomotopyEquiv (CategoryTheory.classifyingSpace (CategoryTheory.ActionCategory G X))
+      (Group.classifyingSpace (MulAction.stabilizer G x))) := sorry
 
 /-- `H.1/classifying-space-of-group-is-KG1`. -/
 theorem Group.classifyingSpace_isKOne (G : Type u) [Group G] :
@@ -603,6 +647,13 @@ example {X Y : TopCat.{u}} [ContractibleSpace X] [ContractibleSpace Y] (f : X �
 example : ¬ IsWeakHomotopyEquivalence
     (TopCat.ofHom (ContinuousMap.const PUnit.{1} (ULift.up true : ULift.{0} Bool)) :
       TopCat.of PUnit.{1} ⟶ TopCat.of (ULift.{0} Bool)) := sorry
+
+/-- `isWeakHomotopyEquivalence_not_all_basepoints` (non-example): `S¹ ⊔ {*} → {a, b}` is bijective on `π₀`
+and an isomorphism on every `π_n` at `*`, but not on `π₁` at a point of the circle. -/
+example : ¬ IsWeakHomotopyEquivalence
+    (TopCat.ofHom ⟨Sum.elim (fun _ : Circle => (ULift.up true : ULift.{0} Bool))
+        (fun _ : PUnit.{1} => (ULift.up false : ULift.{0} Bool)), by fun_prop⟩ :
+      TopCat.of (Circle ⊕ PUnit.{1}) ⟶ TopCat.of (ULift.{0} Bool)) := sorry
 
 /-- `isWeakHomotopyEquivalence_iff_homotopyEquiv_cw` (compatibility). -/
 example {X Y : TopCat.{u}} [Topology.CWComplex (Set.univ : Set X)]
@@ -792,7 +843,8 @@ example (f : A ⟶ B) (b : B) :
 
 /- `transport_loopSpace` (computation). -/
 -- signature (not yet statable at the pins): example (b : B) (ω : Path b b)
--- For `f` the inclusion of `b`, `transport f ω` is right concatenation `γ ↦ γ.trans ω` on `Ω B b`.
+-- For `f` the inclusion of `b`, `transport f ω` is `γ ↦ γ.trans ω` on `Ω B b`; on `π₀(Ω B b) ≅ π₁(B, b)` this is
+-- left multiplication by `[ω]` in Mathlib's group structure (`p * q = q.trans p`).
 
 /-- `transport_comm_proj` (characterisation). -/
 example (f : A ⟶ B) {b b' : B} (ω : Path b b') :
@@ -838,7 +890,7 @@ example (b : B) : Nonempty (homotopyPullback
     (TopCat.ofHom (ContinuousMap.const PUnit.{u + 1} b) : TopCat.of PUnit ⟶ B) ≃ₜ LoopSpace B b) := sorry
 
 /-- `isHomotopyCartesian_id` (degenerate). -/
-example : IsHomotopyCartesian (𝟙 A) (𝟙 A) (𝟙 A) (𝟙 A) rfl := sorry
+example {E : TopCat.{u}} (p : E ⟶ A) : IsHomotopyCartesian p p (𝟙 E) (𝟙 A) (by simp) := sorry
 
 /-- The map `E' → F(p, h b')`, `e' ↦ (α e', t ↦ h (K (p' e', t)))`, given by a contraction `K` of `B'`. -/
 def homotopyFiber.ofContraction {E' E B' : TopCat.{u}} (p' : E' ⟶ B') (p : E ⟶ B) (α : E' ⟶ E)
@@ -2757,6 +2809,9 @@ def piPairing (X Y : SymmSpectrum.{u}) (p q : ℤ) :
 -- signature (not yet statable at the pins): theorem piPairing_comm (X Y : SymmSpectrum.{u}) (p q : ℤ)
 -- `τ_*(x · y) = (-1)^{pq} y · x` under the symmetry `smash X Y ≅ smash Y X`.
 -- signature (not yet statable at the pins): theorem piPairing_unit (X : SymmSpectrum.{u}) (p : ℤ)
+-- signature (not yet statable at the pins): theorem piPairing_comp_psi (Y Y' : SymmSpectrum.{u}) (p q : ℤ)
+-- `ψ_*(x · y)` is the point-set product of `x` and `y` (H.5:spectra/true-homotopy-pairing), for the natural
+-- map `ψ : Y ∧ᴸ Y' → Y ∧ Y'`, which is not declared in this file.
 -- signature (not yet statable at the pins): theorem piPairing_naturality {X Y X' Y' : SymmSpectrum.{u}} (f : X ⟶ X') (g : Y ⟶ Y') (p q : ℤ)
 /-- `H.5:spectra/smash-connectivity` (Schwede II Proposition 5.22). -/
 theorem piPairing_bottom_iso (X Y : SymmSpectrum.{u}) (k l : ℤ)
@@ -2766,11 +2821,13 @@ theorem piPairing_bottom_iso (X Y : SymmSpectrum.{u}) (k l : ℤ)
 
 /- `piPairing_sphere_ring` (computation): comment (graded-commutative ring `π_* S`). -/
 -- signature (not yet statable at the pins): example
-/-- `piPairing_zero_spectrum` (degenerate). -/
-example (X Z : SymmSpectrum.{u}) (hZ : IsZero Z) (p q : ℤ) (x : pi X p) (z : pi Z q) :
-    piPairing X Z p q x z = 0 := sorry
-/- `piPairing_HA_HB` (compatibility): see `eilenbergMacLane`. -/
--- signature (not yet statable at the pins): example
+/- `piPairing_sphere_unit` (degenerate): for `Y = S` and `1 ∈ π₀ S`, `x · 1` corresponds to `x` under the
+unit isomorphism `X ∧ᴸ S ≅ X`. -/
+-- signature (not yet statable at the pins): example — the unit isomorphism of `SHC.derivedSmash` and the
+-- unit `1 ∈ π₀ S` are not declared in this file.
+/- `piPairing_iota_iota` (compatibility): for the fundamental class `ι₁ ∈ π₁(S¹)`, `ι₁ · ι₁` generates
+`π₂(S¹ ∧ᴸ S¹) ≅ ℤ` (because `α_{1,1}` is an isomorphism). -/
+-- signature (not yet statable at the pins): example — the fundamental class `ι₁` is not declared in this file.
 /- `piPairing_not_commutative` (non-example): comment (sign on `ι · ι`). -/
 -- signature (not yet statable at the pins): example
 

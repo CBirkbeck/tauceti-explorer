@@ -4,13 +4,13 @@ This roadmap supplies the homotopy theory that algebraic K-theory uses: classify
 
 The eight layers in scope are H.1, H.2, H.3, H.4, H.5, H.5:spectra, H.5:S-delooping and H.6. H.5 aggregates its two children. The concrete spectrum foundation is independent of the K-theory spectrum; the latter assembles the deloopings supplied by GeneralAlgebraicKTheory:K.4:construction. Biexact K-theory products and their E∞ refinements belong to GeneralAlgebraicKTheory:K.7.
 
-This is a plan of 213 declarations: 24 definitions, 36 constructions, 65 lemmas, 82 theorems, four comparisons and two applications. It specifies 336 API items, 245 unit tests and 36 planets, using 88 baseline declarations. Every node has implementation status `unchecked`. All eight coverage records are `planned`; none asserts proof closure. The 35 gaps and 15 supplier requests below delimit the remaining proof and interface work. The packet is complete as a planning pass, within the declaration budget.
+This is a plan of 213 declarations: 24 definitions, 36 constructions, 65 lemmas, 82 theorems, four comparisons and two applications. It specifies 337 API items, 246 unit tests and 36 planets, using 109 baseline declarations. Every node has implementation status `unchecked`. All eight coverage records are `planned`; none asserts proof closure. The 41 gaps and 14 supplier requests below delimit the remaining proof and interface work.
 
 ## Ownership and dependency order
 
 The baseline is Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`. Mathlib supplies the nerve and realisation, simplicial objects and homotopies, Kan complexes, fundamental groupoids and homotopy groups, categorical and classical CW structures, H-spaces, group homology, Dold–Kan, category localisation, comma categories, the Grothendieck construction, monoidal categories, the Grothendieck group of a commutative monoid, triangulated categories, t-structures and spectral objects. Tau Ceti supplies the local-coefficient interface, induced homotopy-group maps, basepoint change and action, the loop-space shift, K(G,1) recognition and split K₀. The complete declaration list appears below.
 
-Tau Ceti AlgebraicTopology stages 1–6 and 8 supply van Kampen, relative and twisted singular chains, excision, CW pairs and cellular homology, cofibrations, Serre fibrations and the homology Serre spectral sequence, singular cohomology, relative homotopy, Hurewicz and Whitehead, and Kan versus topological homotopy groups. UniversalCovers stages 2 and 4 supply cover constructions and recognition of aspherical spaces. Requested extensions to these interfaces are listed explicitly below.
+Tau Ceti AlgebraicTopology stages 1, 2, 4–6 and 8 supply van Kampen, relative and twisted singular chains, CW pairs and cellular homology, cofibrations, Serre fibrations and the homology Serre spectral sequence, singular cohomology, relative homotopy, Hurewicz and Whitehead, and Kan versus topological homotopy groups. UniversalCovers stages 2 and 4 supply cover constructions and recognition of aspherical spaces, and Tau Ceti already has the category of covering spaces with its monodromy functor (TauCeti.CoveringSpace). Requested extensions to these interfaces are listed explicitly below.
 
 KTheoryLowDegrees:U.1 and Z.1 supply stable elementary-group perfectness, Whitehead's lemma and free complements. K2SymbolsBrauer:T.1:classical supplies universal-central-extension recognition and its H₂ kernel. ArithmeticGaloisDuality:R02.1 supplies the algebra of lim and lim¹ of towers. GeneralAlgebraicKTheory:K.4:construction supplies Waldhausen categories, S-constructions, the K₀ indexing and natural deloopings; its node `GeneralAlgebraicKTheory:K.4/delooping-and-the-spectrum` has that construction stage as its owner. EnhancedDerivedSheaves:E0 supplies the dg shift/cone sign comparison. Its E5:abstract interface is requested by the Eₙ-algebra refinement in H.6, while the concrete symmetric-spectrum definition uses simplicial sets directly.
 
@@ -24,7 +24,7 @@ Consumers include GeneralAlgebraicKTheory, KTheoryLowDegrees, K2SymbolsBrauer, K
 - **Category and group composition.** In `SingleObj G`, categorical composition satisfies f ≫ g = g*f. For Mathlib's fundamental group, p*q is q.trans p. Thus the edge of g*h is homotopic to the edge of h followed by the edge of g. The bar comparison inverts each group entry without reversing the tuple; its first differential term acts by the inverse of that entry.
 - **Homotopy fibres and low degrees.** F(f,b) consists of (a,γ) with γ going from f(a) to b. Path reversal compares this convention with Weibel's. The long exact sequence includes the π₁(B)-action on π₀(F): degree-one terms are groups and degree-zero terms pointed sets. Exactness at a pointed set means the inverse image of its basepoint.
 - **Weak equivalences.** A weak homotopy equivalence is bijective on π₀ and induces isomorphisms on all homotopy groups at every basepoint. Homotopy-cartesian means that the comparison with a homotopy pullback is a weak equivalence. Whitehead converts it to a homotopy equivalence in the stated CW setting.
-- **Plus construction.** X⁺_P is an acyclic map with fundamental-group kernel P, with a chosen cell model when required. Its 3-cells kill a basis over ℤ[π₁X/P] in the appropriate covering pair. The proved mapping universal property has abelian targets; the general target property remains a gap. The stated uniqueness and functoriality use the corresponding abelian-target hypotheses, and yield homotopy equivalences or homotopy classes rather than equality of chosen spaces.
+- **Plus construction.** The map X → X⁺_P is acyclic with fundamental-group kernel P, with a chosen cell model when required. Its 3-cells kill a basis over ℤ[π₁X/P] in the appropriate covering pair. The proved mapping universal property has abelian targets; the general target property remains a gap. The stated uniqueness and functoriality use the corresponding abelian-target hypotheses, and yield homotopy equivalences or homotopy classes rather than equality of chosen spaces.
 - **Symmetric spectra.** Levels are pointed simplicial sets with left symmetric-group actions; iterated structure maps satisfy block equivariance. Strict looping requires Kan levels for its homotopical interpretation. Naive groups π̂_k are colimits; true groups π_k use a stable Ω-replacement. Semistability identifies them. Naive connectivity implies true connectivity; the converse fails. Suspension is S¹∧−, while (sh X)_n=X_{1+n} and π̂_{k+1}(sh X)=π̂_k X. These constructions are distinct before passing to the stable homotopy category. The cone is pointed using Schwede's zero-end convention, fixing the signs of connecting maps. The sphere twist contributes (−1)^{pq}.
 - **Coefficients and completion.** The functor E/m is E∧ᴸS/m; its cofibre triangle is a theorem. The universal coefficient sequence is exact and has no natural splitting. The functorial p-completion is F(S/p^∞,ΣE); comparison with a homotopy limit of E/pʳ is proved under the specified compatible tower construction. Tensoring homotopy groups with ℤ_p requires the finite-generation theorem.
 - **Complexes and truncations.** A chain complex C is expressed as a cochain complex Cⁿ=C_{−n}; cochain shift by one corresponds to spectrum suspension. Space Postnikov towers belong to H.3, spectrum connective covers and Postnikov sections to H.5:spectra, and reconstruction by the spectrum Postnikov homotopy limit to H.6.
@@ -34,7 +34,7 @@ Consumers include GeneralAlgebraicKTheory, KTheoryLowDegrees, K2SymbolsBrauer, K
 
 This layer forms BC=|NC| from the existing nerve and realisation. It records vertices, edges, functoriality and the CW cells, then develops natural-transformation homotopies, adjunctions, finite-factor products and filtered-category results. Coverings and local systems are compared with morphism-inverting functors; π₁ is identified through C[C⁻¹], with a maximal-tree presentation. Category homology is compared with derived colimits and singular homology with local coefficients. The group case gives BG as a K(G,1) and the bar/group-homology comparison.
 
-Acceptance includes the ordered two-element category giving the interval, contractibility for initial and terminal objects, the trivial group's contractible BG, and H₁(BG;ℤ) as abelianisation. The entrywise inverse in the bar comparison is checked using a noncommutative group. The compactly generated product, simplicial-covering and local cellular-homology imports retain their proof gaps.
+Acceptance includes the ordered two-element category giving the interval, contractibility for initial and terminal objects, the trivial group's contractible BG, and H₁(BG;ℤ) as abelianisation. The bar comparison's proof outline records that the chain isomorphism inverts each entry without reversing the tuple. The compactly generated product, simplicial-covering and local cellular-homology imports retain their proof gaps.
 
 ### Declarations of H.1
 
@@ -68,7 +68,7 @@ Acceptance includes the ordered two-element category giving the interval, contra
 - `CategoryTheory.classifyingSpace_edge_comp` (relation): classifyingSpace_edge (f ≫ g) is homotopic rel endpoints to (classifyingSpace_edge f).trans (classifyingSpace_edge g), and classifyingSpace_edge (𝟙 X) to the constant path.
 - `CategoryTheory.classifyingSpace_edgeFunctor` (functoriality): The functor C ⥤ FundamentalGroupoid (classifyingSpace C), X ↦ [X], f ↦ the class of classifyingSpace_edge f (well defined by classifyingSpace_edge_comp).
 - `CategoryTheory.classifyingSpace_joined_vertex` (characterisation): Every point of classifyingSpace C is joined by a path to some vertex [X].
-- `CategoryTheory.classifyingSpaceMap_universes` (other): classifyingSpaceMap, like Mathlib's nerveMap, applies only to functors between categories with the same object universe and the same morphism universe; for ActionCategory G X ⥤ SingleObj G or F.Elements ⥤ C this forces G : Type (or a ULift).
+- `CategoryTheory.classifyingSpaceMap_universes` (other): classifyingSpaceMap, like Mathlib's nerveMap, applies only to functors between categories with the same object universe and the same morphism universe; for ActionCategory G X ⥤ SingleObj G this forces X : Type, because the objects of SingleObj G form Unit : Type while those of ActionCategory G X live in the universe of X (G itself may live in any universe, and both morphism types live in the universe of G); for F.Elements ⥤ C with C : Type u and F : C ⥤ Type w it forces w ≤ u. Otherwise use ULift or AsSmall.
 
 **Unit tests.**
 
@@ -111,14 +111,14 @@ Acceptance includes the ordered two-element category giving the interval, contra
 
 1. |Δ[n]| ≅ the topological simplex (mathlib:SimplexCategory.toTopHomeo).
 2. ∂Δ[n] is the union of the faces δᵢ. Realisation preserves this colimit, and the induced map from the colimit of the face simplices to the boundary of the topological simplex is a continuous bijection from a compact space to a Hausdorff one, hence a homeomorphism onto the boundary.
-3. The simplex and its boundary are homeomorphic to (𝔻ⁿ, ∂𝔻ⁿ) by radial projection from the barycentre.
+3. Project Δⁿ affinely onto {x ∈ EuclideanSpace ℝ (Fin n) | xᵢ ≥ 0, Σ xᵢ ≤ 1} by forgetting the 0-th barycentric coordinate; this is a convex bounded set with nonempty interior whose frontier is the image of the union of the facets. Mathlib's exists_homeomorph_image_interior_closure_frontier_eq_unitBall then gives a homeomorphism of pairs onto (𝔻 n, ∂𝔻 n).
 
 **Acceptance.**
 
 - n = 0: ∂Δ[0] is empty and 𝔻 0 is a point.
 - n = 1: |∂Δ[1]| is the two endpoints of |Δ[1]| ≅ [0,1] (Mathlib's SSet.stdSimplex.toTopObjIsoI).
 
-**Prerequisites.** `mathlib:SSet.toTop`, `mathlib:SimplexCategory.toTopHomeo`, `mathlib:sSetTopAdj`, `mathlib:TopCat.diskBoundaryInclusion`, `mathlib:SSet.relativeCellComplex`, `mathlib:TopCat.CWComplex`.
+**Prerequisites.** `mathlib:SSet.toTop`, `mathlib:SimplexCategory.toTopHomeo`, `mathlib:sSetTopAdj`, `mathlib:TopCat.diskBoundaryInclusion`, `mathlib:SSet.relativeCellComplex`, `mathlib:TopCat.CWComplex`, `mathlib:SSet.boundary_eq_iSup`, `mathlib:SSet.Subcomplex.MulticoequalizerDiagram.isColimit`, `mathlib:exists_homeomorph_image_interior_closure_frontier_eq_unitBall`.
 
 **Sources.**
 
@@ -174,7 +174,7 @@ Acceptance includes the ordered two-element category giving the interval, contra
 - The 1-skeleton of BC is the graph with vertices objects and edges non-identity morphisms (used by H.1/maximal-tree-presentation).
 - Do not count degenerate simplices as cells: B of the one-morphism category has a single 0-cell and no higher cells.
 
-**Prerequisites.** `mathlib:SSet.toTop`, `tauceti:TauCetiRoadmap/AlgebraicTopology#stage-4-cw-pairs-cellular-homology-and-cofibrations`, `mathlib:SSet.relativeCellComplex`, `mathlib:TopCat.CWComplex`, `mathlib:sSetTopAdj`, `H.1/realisation-boundary-inclusion-disk`.
+**Prerequisites.** `mathlib:SSet.toTop`, `tauceti:TauCetiRoadmap/AlgebraicTopology#stage-4-cw-pairs-cellular-homology-and-cofibrations`, `mathlib:SSet.relativeCellComplex`, `mathlib:TopCat.CWComplex`, `mathlib:sSetTopAdj`, `H.1/realisation-boundary-inclusion-disk`, `mathlib:Topology.RelCWComplex.closedCell`.
 
 **Sources.**
 
@@ -222,7 +222,7 @@ Acceptance includes the ordered two-element category giving the interval, contra
 
 1. On nerves, N(C × D) ≅ NC × ND (on simplices, a string in C × D is a pair of strings).
 2. For standard simplices, |Δ[n] × Δ[m]| → Δⁿ × Δᵐ is a continuous bijection (staircase triangulation; Mathlib's SimplicialSet/ProdStdSimplex.lean lists the nondegenerate simplices) from a compact space to a Hausdorff one, hence a homeomorphism.
-3. The inverse BC × BD → B(C × D) is continuous on each Δⁿ × Δᵐ. BC is a quotient of ⊔ Δⁿ (realisation is a colimit in TopCat), BD is a quotient of finitely many simplices, and Δⁿ and BD are locally compact. So Whitehead's lemma (mathlib:Topology.IsQuotientMap.continuous_lift_prod_left), applied in each variable, gives continuity on BC × BD.
+3. The inverse BC × BD → B(C × D) is continuous on each Δⁿ × Δᵐ. BC is a quotient of ⊔ Δⁿ (realisation is a colimit in TopCat), BD is a quotient of finitely many simplices, and Δⁿ and BD are locally compact. So Whitehead's lemma (mathlib:Topology.IsQuotientMap.continuous_lift_prod_left for the BC factor and Topology.IsQuotientMap.continuous_lift_prod_right, same file, for the BD factor), gives continuity on BC × BD.
 
 **Acceptance.**
 
@@ -510,7 +510,7 @@ Acceptance includes the ordered two-element category giving the interval, contra
 
 #### `H.1/simplicial-covering-realisation` — Realisations of simplicial coverings are covering maps
 
-*Lemma.* Let p : E ⟶ X be a map of simplicial sets that is a simplicial covering: for every simplex σ : Δ[n] ⟶ X, the pullback of p along σ is isomorphic over Δ[n] to the projection Δ[n] × S_σ → Δ[n] for a set S_σ. Equivalently, every simplex of X has exactly one lift through each lift of its 0-th vertex. Then SSet.toTop.map p is a covering map (Mathlib IsCoveringMap) whose fibre over the vertex x is the set of 0-simplices of E over x.
+*Lemma.* Let p : E ⟶ X be a map of simplicial sets that is a simplicial covering: for every simplex σ : Δ[n] ⟶ X, the pullback of p along σ is isomorphic over Δ[n] to the projection Δ[n] × S_σ → Δ[n] for a set S_σ. Equivalently, for every simplex of X and every vertex k of it, each lift of the k-th vertex extends to exactly one lift of the simplex. Then SSet.toTop.map p is a covering map (Mathlib IsCoveringMap) whose fibre over the vertex x is the set of 0-simplices of E over x.
 
 **Hypotheses.**
 
@@ -541,20 +541,20 @@ Acceptance includes the ordered two-element category giving the interval, contra
 
 **Hypotheses.**
 
-- C small; covering spaces in Mathlib's sense (IsCoveringMap); BC is locally contractible, hence locally path-connected and semilocally simply connected (API item SSet.toTop_locallyContractibleSpace of H.1/classifying-space-cw-structure; tauceti:TauCeti.SemilocallySimplyConnectedSpace.of_locallyContractibleSpace).
+- C small; covering spaces in Mathlib's sense (IsCoveringMap); BC is strongly locally contractible (every point has a basis of contractible neighbourhoods, Mathlib's StronglyLocallyContractibleSpace, to be supplied as an instance on SSet.toTop.obj X by H.1/classifying-space-cw-structure in place of SSet.toTop_locallyContractibleSpace), hence locally path-connected (Mathlib instance instLocallyPathConnectedSpace) and semilocally simply connected (Tau Ceti instance built from tauceti:TauCeti.SemilocallySimplyConnectedSpace.of_locallyContractibleSpace).
 
 **Construction or proof outline.**
 
 1. Given a covering E → BC, path lifting along the edges classifyingSpace.edge f defines bijections E_[X] → E_[Y] functorial in f, so X ↦ E_[X] is morphism-inverting (Quillen §1, LNM p. 90).
 2. Given F morphism-inverting, the projection F.Elements → C (Mathlib's Functor.Elements.π) realises to a map whose fibre over [X] is F(X); the projection N(F.Elements) → NC is a simplicial covering (its pullback along a string X₀ → ⋯ → X_n is Δ[n] × F(X₀), the transition maps being bijections), so its realisation is a covering map (H.1/simplicial-covering-realisation). Open cells are not open, so local triviality cannot be checked cell by cell (Quillen §1 cites Gabriel–Zisman App. I 3.2; Weibel IV Exercise 3.1).
-3. The two constructions are inverse up to natural isomorphism by the unique path lifting property (Tau Ceti UniversalCovers stage 2 lifting and classification).
+3. The two constructions are inverse up to natural isomorphism. The fibre of B(F.Elements) → BC over [X] is F(X), compatibly with the edge bijections, by construction. For a covering E, lifting the characteristic simplices of BC through chosen points of the vertex fibres (unique lifting from simply connected simplices) gives a map B(F_E.Elements) → E over BC; it is a morphism of TauCeti.CoveringSpace (classifyingSpace C) inducing a bijection on the fibre over every vertex, hence on every fibre, so it is an isomorphism because TauCeti.CoveringSpace.monodromyFunctor is faithful, and full over the locally path-connected base BC (TauCeti.CoveringSpace.monodromyFunctor_full), and therefore reflects isomorphisms.
 
 **Acceptance.**
 
-- For a group G, coverings of BG correspond to G-sets (Weibel IV 3.3.1 and Exercise 3.2).
+- For a group G, coverings of BG correspond to G-sets (Weibel IV Exercise 3.1 for the one-object groupoid of G; Quillen LNM p. 90).
 - For H ⊂ G the homotopy fibre of BH → BG is the discrete set G/H, while the strict fibre category of SingleObj H → SingleObj G is a point (Weibel IV Exercise 3.3).
 
-**Prerequisites.** `H.1/nerve-and-classifying-space`, `H.1/classifying-space-cw-structure`, `tauceti:TauCetiRoadmap/UniversalCovers#stage-2-lifting-criterion-and-galois-correspondence`, `H.1/simplicial-covering-realisation`, `mathlib:CategoryTheory.Functor.Elements`, `mathlib:IsCoveringMap`, `tauceti:TauCeti.SemilocallySimplyConnectedSpace.of_locallyContractibleSpace`.
+**Prerequisites.** `H.1/nerve-and-classifying-space`, `H.1/classifying-space-cw-structure`, `H.1/simplicial-covering-realisation`, `mathlib:CategoryTheory.Functor.Elements`, `mathlib:IsCoveringMap`, `tauceti:TauCeti.SemilocallySimplyConnectedSpace.of_locallyContractibleSpace`, `tauceti:TauCeti.CoveringSpace`, `tauceti:TauCeti.CoveringSpace.monodromyFunctor`, `tauceti:TauCeti.CoveringSpace.monodromyFunctor_full`.
 
 **Sources.**
 
@@ -691,7 +691,7 @@ Acceptance includes the ordered two-element category giving the interval, contra
 - H₀(C; M) = colim_{c∈C} M(c).
 - For C = SingleObj G and a G-module M this is the bar complex computing group homology (H.1/bar-complex-comparison).
 
-**Prerequisites.** `mathlib:CategoryTheory.nerve`, `mathlib:AlgebraicTopology.alternatingFaceMapComplex`, `mathlib:AlgebraicTopology.DoldKan.homotopyEquivNormalizedMooreComplexAlternatingFaceMapComplex`.
+**Prerequisites.** `mathlib:CategoryTheory.nerve`, `mathlib:AlgebraicTopology.alternatingFaceMapComplex`, `mathlib:AlgebraicTopology.DoldKan.homotopyEquivNormalizedMooreComplexAlternatingFaceMapComplex`, `mathlib:SSet.homology`.
 
 **Sources.**
 
@@ -744,7 +744,7 @@ Acceptance includes the ordered two-element category giving the interval, contra
 **Acceptance.**
 
 - For constant L = A this is the identification of the cellular complex of |NC| with Mathlib's normalised simplicial chain complex (nerve C).normalizedChainComplex A.
-- For C = SingleObj G and L a G-module M, this is the normalised bar complex: 'The cellular chain complex used to form the homology of BG with coefficients in M is the same as the canonical chain complex' (Weibel IV p. 28).
+- For C = SingleObj G and L a G-module M, the cellular complex of BG with coefficients in M is the normalised bar complex computing H_*(G; M), as Weibel remarks on p. IV.28.
 
 **Prerequisites.** `H.1/classifying-space-cw-structure`, `H.1/local-systems-as-functors`, `H.1/category-homology`, `tauceti:TauCetiRoadmap/AlgebraicTopology#stage-2-relative-singular-chains-and-homology`, `tauceti:TauCetiRoadmap/AlgebraicTopology#stage-4-cw-pairs-cellular-homology-and-cofibrations`.
 
@@ -952,7 +952,7 @@ Acceptance includes the ordered two-element category giving the interval, contra
 
 **Construction or proof outline.**
 
-1. n ≥ 4: every horn Λ[n, k] contains the 2-skeleton of Δ[n], since each 2-face lies in at least two (n−1)-faces other than the k-th. Nerves are 2-coskeletal (mathlib:CategoryTheory.Nerve.cosk₂Iso), so the horn extends uniquely.
+1. n ≥ 4: every horn Λ[n, k] contains the 2-skeleton of Δ[n], since each 2-face lies in n − 2 ≥ 2 of the (n−1)-faces, hence in at least one other than the k-th. Nerves are 2-coskeletal (mathlib:CategoryTheory.Nerve.cosk₂Iso), so the horn extends uniquely.
 2. n = 2: inner horns are filled by composition (Mathlib: nerve C is a quasicategory, CategoryTheory.Nerve.quasicategory). The outer horns Λ[2,0] and Λ[2,2] are filled with g ∘ f⁻¹ and f⁻¹ ∘ g.
 3. n = 3: the horn determines all edges, and the missing 2-face commutes because the other three do and the arrows are invertible (for the missing d₀, cancel f₀₁ on the right). Then 2-coskeletality gives the 3-simplex. n = 1 is trivial.
 
@@ -999,7 +999,7 @@ Acceptance includes the ordered two-element category giving the interval, contra
 
 The homotopy fibre uses paths from f(a) to the chosen target point. Mapping-path fibrations, homotopy pullbacks, relative homotopy groups and transport give the long exact sequence with its group and pointed-set tail. Quillen's Theorem A uses contractible comma categories; Theorem B uses transition equivalences of comma categories and its quasifibration argument. Proper simplicial-space realisation, bisimplicial realisation, homotopy colimits and Thomason's comparison are separate inputs.
 
-The levelwise-fibration theorem used by Waldhausen is stated for bisimplicial sets, with connected base realisations, chosen compatible basepoints and the canonical fibre comparison. The π_*-Kan Bousfield–Friedlander form is a separate node. These are not assertions about arbitrary levelwise fibrations of simplicial spaces. Acceptance includes the identity and constant homotopy fibres, the action at π₀, Quillen B over a contractible base, and the Δ[1] boundary counterexample to dropping the connected-base or π_*-Kan hypotheses. Dold–Lashof, Strøm, gluing, Reedy and Bousfield–Friedlander proof imports are recorded as gaps.
+The levelwise-fibration theorem used by Waldhausen is stated for bisimplicial sets, with connected base realisations, chosen compatible basepoints and the canonical fibre comparison. The π_*-Kan Bousfield–Friedlander form is a separate node. These are not assertions about arbitrary levelwise fibrations of simplicial spaces. Acceptance includes the identity and constant homotopy fibres, the action at π₀, the failure of Theorem B for the fibred target functor EA → QA, and the Δ[1] boundary counterexample to dropping the connected-base or π_*-Kan hypotheses. Dold–Lashof, Strøm, gluing, Reedy, Bousfield–Friedlander and Thomason proof imports are recorded as gaps.
 
 ### Declarations of H.2
 
@@ -1014,7 +1014,7 @@ The levelwise-fibration theorem used by Waldhausen is stated for bisimplicial se
 **Construction or proof outline.**
 
 1. Define the predicate from the bijection on π₀ and the isomorphisms on π_n at every basepoint (Hatcher §4.1, before Theorem 4.5).
-2. Two-out-of-three and invariance under homotopy follow from functoriality of HomotopyGroup.mapHom and homotopy invariance of induced maps (Tau Ceti HomotopyGroup.map_eq_of_homotopicRel with basepoint transport).
+2. Two-out-of-three follows from functoriality of HomotopyGroup.map (map_comp) together with basepoint change along paths and its naturality under maps (TauCeti.homotopyGroupMulEquivOfPath, TauCeti.GenLoop.map_transport), using the π₀-bijection to reach every basepoint of the middle space. Invariance under free homotopy is the trace formula TauCeti.homotopyGroupTransport_map, and a homotopy equivalence is a weak homotopy equivalence by HomotopyGroup.map_bijective_of_homotopyEquiv (all finite index types N, including N = Fin 0 for π₀).
 
 **API.**
 
@@ -1030,6 +1030,7 @@ The levelwise-fibration theorem used by Waldhausen is stated for bisimplicial se
 - `isWeakHomotopyEquivalence_contractible` (computation): Any map between contractible spaces is a weak homotopy equivalence.
 - `isWeakHomotopyEquivalence_not_pi0` (non-example): The inclusion of one point into a two-point discrete space is not a weak homotopy equivalence (π₀ fails), although it is an isomorphism on all π_n at its basepoint.
 - `isWeakHomotopyEquivalence_iff_homotopyEquiv_cw` (compatibility): For CW complexes X, Y, f is a weak homotopy equivalence iff it is the forward map of a homotopy equivalence.
+- `isWeakHomotopyEquivalence_not_all_basepoints` (non-example): The map S¹ ⊔ {*} → {a, b} (discrete) sending the circle to a and * to b is bijective on π₀ and an isomorphism on every π_n at the basepoint *, but it is not a weak homotopy equivalence, since π₁ at a point of the circle is ℤ while π₁ at a is trivial.
 
 **Uses.**
 
@@ -1043,18 +1044,18 @@ The levelwise-fibration theorem used by Waldhausen is stated for bisimplicial se
 - A homotopy equivalence is a weak homotopy equivalence.
 - The inclusion of a point in the Warsaw circle is a weak homotopy equivalence that is not a homotopy equivalence; Whitehead's theorem needs CW hypotheses.
 
-**Prerequisites.** `mathlib:HomotopyGroup.Pi`, `tauceti:HomotopyGroup.mapHom`, `mathlib:ContinuousMap.HomotopyEquiv`, `tauceti:TauCeti.homotopyGroupMulEquivOfPath`, `tauceti:TauCetiRoadmap/AlgebraicTopology#stage-8-relative-homotopy-hurewicz-and-whitehead`.
+**Prerequisites.** `mathlib:HomotopyGroup.Pi`, `tauceti:HomotopyGroup.mapHom`, `mathlib:ContinuousMap.HomotopyEquiv`, `tauceti:TauCeti.homotopyGroupMulEquivOfPath`, `tauceti:TauCetiRoadmap/AlgebraicTopology#stage-8-relative-homotopy-hurewicz-and-whitehead`, `tauceti:TauCeti.GenLoop.map_transport`, `tauceti:TauCeti.homotopyGroupTransport_map`, `tauceti:HomotopyGroup.map_bijective_of_homotopyEquiv`.
 
 **Sources.**
 
-- [Hatcher-AlgebraicTopology](https://pi.math.cornell.edu/~hatcher/AT/AT.pdf), §4.1, paragraph before Theorem 4.5, printed p. 346 (PDF 355). Whitehead's theorem, whose hypothesis is the notion defined here; Hatcher calls such a map a weak homotopy equivalence in the surrounding text.
+- [Hatcher-AlgebraicTopology](https://pi.math.cornell.edu/~hatcher/AT/AT.pdf), §4.1, Theorem 4.5, printed p. 346 (PDF 355). Whitehead's theorem for connected CW complexes, whose hypothesis is the notion defined here; on p. 352 Hatcher restates it as: a weak homotopy equivalence between CW complexes is a homotopy equivalence.
 - [Hatcher-AlgebraicTopology](https://pi.math.cornell.edu/~hatcher/AT/AT.pdf), §4.1 CW Approximation, printed p. 352 (PDF 361). Hatcher's definition (isomorphisms on π_n for all n ≥ 0 and all basepoints), adopted by the node.
 
 **Suggested home.** `TauCeti/AlgebraicTopology/HomotopyFiber/Basic`, namespace `TauCeti`.
 
 #### `H.2/homotopy-fibre-and-long-exact-sequence` — Homotopy fibre of a map — planet: *Homotopy fibre*
 
-*Definition.* For a continuous map f : A → B and b ∈ B, the homotopy fibre F(f, b) is the subspace of A × C(I, B) (compact-open topology) of pairs (a, γ) with γ(0) = f(a) and γ(1) = b; it is pointed by (a₀, const) when f(a₀) = b, and comes with the projection F(f, b) → A, (a, γ) ↦ a. The strict fibre f⁻¹(b) includes as the pairs with constant γ. Convention pinned: paths run from f(a) to b (Quillen, Hatcher); Weibel's F(f) uses paths from the basepoint to f(e), and reversing paths is a natural homeomorphism between the two. A sequence F → A → B with F → B constant is a homotopy fibre sequence when the evident map F → F(f, b) is a weak homotopy equivalence.
+*Definition.* For a continuous map f : A → B and b ∈ B, the homotopy fibre F(f, b) is the subspace of A × C(I, B) (compact-open topology) of pairs (a, γ) with γ(0) = f(a) and γ(1) = b; it is pointed by (a₀, const) when f(a₀) = b, and comes with the projection F(f, b) → A, (a, γ) ↦ a. The strict fibre f⁻¹(b) includes as the pairs with constant γ. Convention pinned: paths run from f(a) to b (Quillen, Hatcher); Weibel's F(f) uses paths from the basepoint to f(e), and reversing paths is a natural homeomorphism between the two. A sequence F → A → B together with a null-homotopy H of the composite F → B to the constant map at b is a homotopy fibre sequence when the induced map F → F(f, b), x ↦ (i x, H(x, -)), is a weak homotopy equivalence; when F → B is constant at b, H is taken to be the constant homotopy.
 
 **Hypotheses.**
 
@@ -1083,7 +1084,7 @@ The levelwise-fibration theorem used by Waldhausen is stated for bisimplicial se
 - `homotopyFiber_id_contractible` (degenerate): homotopyFiber (𝟙 B) b is contractible for every b.
 - `homotopyFiber_point_eq_loopSpace` (computation): For the inclusion of the point b into B, homotopyFiber is homeomorphic to Ω B b = LoopSpace B b.
 - `homotopyFiber_toPoint` (computation): For the constant map A → point, homotopyFiber is homeomorphic to A.
-- `homotopyFiber_ofFiber_not_weakEquiv` (non-example): For the inclusion SingleObj H → SingleObj G of a proper subgroup, realised, the strict fibre is a point but the homotopy fibre is the discrete set G/H, so ofFiber is not a weak homotopy equivalence.
+- `homotopyFiber_ofFiber_not_weakEquiv` (non-example): For the inclusion SingleObj H → SingleObj G of a proper subgroup, realised, the strict fibre over the basepoint is a point but π₀ of the homotopy fibre is in bijection with G/H, which has at least two elements, so ofFiber is not surjective on π₀ and hence not a weak homotopy equivalence.
 
 **Uses.**
 
@@ -1097,13 +1098,13 @@ The levelwise-fibration theorem used by Waldhausen is stated for bisimplicial se
 
 - For the inclusion of a point {b} → B, F = ΩB, the loop space at b (Hatcher p. 408).
 - For H ⊂ G the homotopy fibre of BH → BG is the discrete set G/H while the strict fibre category is a point (Weibel IV Exercise 3.3).
-- Record whether each low-degree homotopy set is a pointed set or a group (H.2/long-exact-sequence).
+- For f a₀ = b, the composite of loopSpaceInclusion Ω B b → F(f, b) with the projection to A is the constant map at a₀.
 
 **Prerequisites.** `mathlib:Path`, `H.2/weak-homotopy-equivalence`.
 
 **Sources.**
 
-- [Weibel-KBook-IV](https://www.math.rutgers.edu/~weibel/Kbook/Kbook.IV.pdf), Homotopy Fiber 1.2, p. IV.3. Weibel's definition of the homotopy fibre and of homotopy fibration sequences (with paths from the basepoint).
+- [Weibel-KBook-IV](https://www.math.rutgers.edu/~weibel/Kbook/Kbook.IV.pdf), Homotopy Fiber 1.2, p. IV.3. Weibel's definition of the homotopy fibre and of homotopy fibration sequences (with paths from the basepoint); Weibel asks F → F(f) to be a homotopy equivalence, the node asks only for a weak homotopy equivalence, which agrees with Weibel's notion when F and the homotopy fibre have CW homotopy type.
 - [Hatcher-AlgebraicTopology](https://pi.math.cornell.edu/~hatcher/AT/AT.pdf), §4.3 'Pathspace constructions', printed p. 407 (PDF 416). Hatcher's homotopy fibre, whose path convention the node pins.
 
 **Suggested home.** `TauCeti/AlgebraicTopology/HomotopyFiber/Basic`, namespace `TauCeti`.
@@ -1145,7 +1146,7 @@ The levelwise-fibration theorem used by Waldhausen is stated for bisimplicial se
 
 **Construction or proof outline.**
 
-1. The pairs (D^k × I, D^k × 0) and (D^k × I, D^k × 0 ∪ ∂D^k × I) are homeomorphic, so p has the relative homotopy lifting property for (I^{n−1}, ∂I^{n−1}) (Hatcher p. 376).
+1. A homeomorphism of pairs carries (D^k × I, D^k × 0 ∪ ∂D^k × I) to (D^k × I, D^k × 0); hence lifting for discs gives lifting relative to the boundary, in particular for (I^{n−1}, ∂I^{n−1}) (Hatcher p. 376); this relative lifting step, which also needs (I^k, ∂I^k) ≅ (D^k, ∂D^k), is the packet gap 'Relative homotopy lifting for Serre fibrations'.
 2. Surjectivity: a map (I^n, ∂I^n) → (B, b) lifts, starting from the constant lift x₀ on J^{n−1}, to a map I^n → E sending ∂I^n into F.
 3. Injectivity: given lifts f̃₀, f̃₁ with homotopic images, lift the homotopy G : I^n × I → B relative to the partial lift f̃₀ ∪ f̃₁ ∪ (constant on J^{n−1} × I), after permuting the last two coordinates.
 
@@ -1173,14 +1174,14 @@ The levelwise-fibration theorem used by Waldhausen is stated for bisimplicial se
 **Construction or proof outline.**
 
 1. Lift the homotopy g_t(e, γ) = γ(t) on E_p starting at (e, γ) ↦ e; the lift is a fibre-preserving deformation of E_p into E (Hatcher Prop. 4.65).
-2. For Serre fibrations, compare the long exact sequences of p and of E_p → B (Hatcher Theorem 4.41 and H.2/long-exact-sequence) and apply the five lemma at every basepoint, including the pointed-set end with the π₁-action of H.2/fibre-sequence-low-degree.
+2. For Serre fibrations, the inclusion E → E_p is a map of Serre fibrations over B restricting to p⁻¹(b) → F(p, b). For every x ∈ p⁻¹(b) compare the based-pair long exact sequences of (E, p⁻¹(b), x) and (E_p, F(p, b), x) (Tau Ceti AlgebraicTopology stage 8): the relative terms are both identified with π_n(B, b) for n ≥ 1 by H.2/fibration-relative-homotopy-iso (a bijection of pointed sets for n = 1), and the absolute terms of E and E_p agree because E → E_p is a homotopy equivalence (Tau Ceti HomotopyGroup.map_bijective_of_homotopyEquiv). The five lemma gives bijectivity on π_n for n ≥ 1; on π₀, surjectivity is path lifting and injectivity follows by taking the second point as basepoint and using the n = 1 bijection on relative terms.
 
 **Acceptance.**
 
 - The projection B × F → B: the inclusion of F into the homotopy fibre is a homotopy equivalence.
-- For a covering map the fibre is discrete and is the homotopy fibre up to weak equivalence (covering maps are Hurewicz fibrations, Mathlib IsCoveringMap.liftHomotopy).
+- For a covering map the fibre is discrete and includes into the homotopy fibre by a homotopy equivalence (covering maps are Hurewicz fibrations, Mathlib IsCoveringMap.liftHomotopy).
 
-**Prerequisites.** `H.2/mapping-path-space-fibration`, `H.2/long-exact-sequence`, `tauceti:TauCetiRoadmap/AlgebraicTopology#stage-5-bundles-covers-products-and-finite-cover-descent`, `H.2/fibre-sequence-low-degree`, `H.2/fibration-relative-homotopy-iso`.
+**Prerequisites.** `H.2/mapping-path-space-fibration`, `H.2/long-exact-sequence`, `tauceti:TauCetiRoadmap/AlgebraicTopology#stage-5-bundles-covers-products-and-finite-cover-descent`, `H.2/fibre-sequence-low-degree`, `H.2/fibration-relative-homotopy-iso`, `tauceti:TauCetiRoadmap/AlgebraicTopology#stage-8-relative-homotopy-hurewicz-and-whitehead`, `tauceti:HomotopyGroup.map_bijective_of_homotopyEquiv`.
 
 **Sources.**
 
@@ -1190,7 +1191,7 @@ The levelwise-fibration theorem used by Waldhausen is stated for bisimplicial se
 
 #### `H.2/connecting-map` — Connecting map of a homotopy fibre
 
-*Construction.* For f : A → B and a₀ ∈ A with f(a₀) = b, the connecting map ∂ : π_{n+1}(B, b) → π_n(F(f, b), (a₀, const)) for n ≥ 0 is the composite of the loop-space shift π_{n+1}(B, b) ≅ π_n(ΩB, const) (Tau Ceti HomotopyGroup.pathLoopSpaceMulEquiv, with Mathlib's π₁ ≅ π₀(Ω) in degree 0) with the map induced by the inclusion ΩB → F(f, b), ω ↦ (a₀, ω). It is a group homomorphism for n ≥ 1 and a map of pointed sets for n = 0, natural for commutative squares.
+*Construction.* For f : A → B and a₀ ∈ A with f(a₀) = b, the connecting map ∂ : π_{n+1}(B, b) → π_n(F(f, b), (a₀, const)) for n ≥ 0 is the composite of the loop-space shift π_{n+1}(B, b) ≅ π_n(ΩB, const) (Tau Ceti HomotopyGroup.pathLoopSpaceMulEquiv for n ≥ 1; in degree 0, Tau Ceti HomotopyGroup.zerothHomotopyLoopSpaceEquivFundamentalGroup composed with Mathlib's HomotopyGroup.pi1EquivFundamentalGroup and HomotopyGroup.pi0EquivZerothHomotopy) with the map induced by the inclusion ΩB → F(f, b), ω ↦ (a₀, ω). It is a group homomorphism for n ≥ 1 and a map of pointed sets for n = 0, natural for commutative squares.
 
 **Hypotheses.**
 
@@ -1212,7 +1213,7 @@ The levelwise-fibration theorem used by Waldhausen is stated for bisimplicial se
 
 - `connecting_id_eq_zero` (degenerate): For f = 𝟙 B, connecting is the trivial map.
 - `connecting_point_bijective` (computation): For the inclusion of the point b into B, connecting is bijective in every degree (it is the loop-space shift).
-- `connecting_basepointChange` (compatibility): Under change of basepoint along a path in A (TauCeti.homotopyGroupMulEquivOfPath) connecting is conjugated by the corresponding transports.
+- `connecting_basepointChange` (compatibility): For a path δ in the strict fibre f⁻¹(b) from a₀ to a₁, connecting at a₁ equals connecting at a₀ followed by basepoint change (TauCeti.homotopyGroupMulEquivOfPath for n ≥ 1, the identity on π₀ for n = 0) along the path r ↦ (δ r, const_b) in homotopyFiber f b.
 - `connecting_not_hom_degree_zero` (non-example): In degree 0 the target π₀(F) is only a pointed set: for BH → BG with H = Σ₂ ⊂ G = Σ₃ the homotopy fibre is the discrete space G/H and connecting is g ↦ gH : G → G/H; no group structure on G/H makes it a homomorphism, since its kernel would be the non-normal subgroup H.
 
 **Uses.**
@@ -1226,7 +1227,7 @@ The levelwise-fibration theorem used by Waldhausen is stated for bisimplicial se
 - For f = id_B the connecting map lands in π_n of a contractible space and is zero.
 - For the path fibration of a point, ∂ is the loop-space shift isomorphism.
 
-**Prerequisites.** `H.2/homotopy-fibre-and-long-exact-sequence`, `tauceti:HomotopyGroup.pathLoopSpaceMulEquiv`, `tauceti:HomotopyGroup.mapHom`, `mathlib:LoopSpace`.
+**Prerequisites.** `H.2/homotopy-fibre-and-long-exact-sequence`, `tauceti:HomotopyGroup.pathLoopSpaceMulEquiv`, `tauceti:HomotopyGroup.mapHom`, `mathlib:LoopSpace`, `tauceti:HomotopyGroup.zerothHomotopyLoopSpaceEquivFundamentalGroup`, `mathlib:HomotopyGroup.pi1EquivFundamentalGroup`, `mathlib:HomotopyGroup.pi0EquivZerothHomotopy`.
 
 **Sources.**
 
@@ -1247,7 +1248,7 @@ The levelwise-fibration theorem used by Waldhausen is stated for bisimplicial se
 
 1. Replace f by the fibration E_f → B with fibre F (H.2/mapping-path-space-fibration); A ≃ E_f.
 2. Apply H.2/fibration-relative-homotopy-iso to E_f → B: p_* : π_n(E_f, F, x₀) → π_n(B, b) is bijective for n ≥ 1 (relative groups of the arbitrary based pair (E_f, F) from Tau Ceti AlgebraicTopology stage 8).
-3. Splice with the long exact sequence of the based pair (E, F) (Tau Ceti AlgebraicTopology stage 8 item 1), identify the resulting boundary with H.2/connecting-map, and check exactness at π₀(F), π₀(A) directly.
+3. Splice with the long exact sequence of the based pair (E, F) (Tau Ceti AlgebraicTopology stage 8 item 1), identify the resulting boundary with H.2/connecting-map precomposed with inversion on π_{n+1}(B, b) or with connecting-map itself, according to the face convention of the AT stage-8 relative groups (inversion is a bijection fixing the base point, so images and kernels are unchanged), and check exactness at π₀(F), π₀(A) directly.
 
 **Acceptance.**
 
@@ -1255,7 +1256,7 @@ The levelwise-fibration theorem used by Waldhausen is stated for bisimplicial se
 - Exhibit a fibration where π₁(B) → π₀(F) is not injective and π₀(F) is not a group (H.2/fibre-sequence-low-degree): the sequence of pointed sets is exact but carries the extra π₁-action.
 - For BH → BG with H ⊂ G: 1 → H → G → G/H → * gives π₀F = G/H.
 
-**Prerequisites.** `H.2/homotopy-fibre-and-long-exact-sequence`, `H.2/connecting-map`, `H.2/mapping-path-space-fibration`, `tauceti:TauCetiRoadmap/AlgebraicTopology#stage-8-relative-homotopy-hurewicz-and-whitehead`, `H.2/fibration-relative-homotopy-iso`.
+**Prerequisites.** `H.2/homotopy-fibre-and-long-exact-sequence`, `H.2/connecting-map`, `H.2/mapping-path-space-fibration`, `tauceti:TauCetiRoadmap/AlgebraicTopology#stage-8-relative-homotopy-hurewicz-and-whitehead`, `H.2/fibration-relative-homotopy-iso`, `tauceti:HomotopyGroup.map_bijective_of_homotopyEquiv`, `tauceti:HomotopyGroup.map_eq_of_homotopicRel`.
 
 **Sources.**
 
@@ -1267,7 +1268,7 @@ The levelwise-fibration theorem used by Waldhausen is stated for bisimplicial se
 
 #### `H.2/fibre-sequence-low-degree` — The π₁-action at the pointed-set end of the fibre sequence
 
-*Lemma.* For f : A → B with f(a₀) = b and F = F(f, b), the group π₁(B, b) acts on the set π₀(F) by transporting the path coordinate (concatenation with loops at b); the connecting map ∂ : π₁(B, b) → π₀(F) is the orbit map of the base point. Two elements of π₀(F) have the same image in π₀(A) iff they lie in the same π₁(B, b)-orbit, and the stabiliser of [ā₀] is the image of π₁(A, a₀) → π₁(B, b).
+*Lemma.* For f : A → B with f(a₀) = b and F = F(f, b), the group π₁(B, b) (Mathlib's multiplication, p * q = q.trans p) acts on the left on the set π₀(F) by ω • [(a, γ)] = [(a, γ.trans ω)], concatenating the path coordinate with the loop; the connecting map ∂ : π₁(B, b) → π₀(F) is the orbit map of the base point. Two elements of π₀(F) have the same image in π₀(A) iff they lie in the same π₁(B, b)-orbit, and the stabiliser of [ā₀] is the image of π₁(A, a₀) → π₁(B, b).
 
 **Hypotheses.**
 
@@ -1275,8 +1276,8 @@ The levelwise-fibration theorem used by Waldhausen is stated for bisimplicial se
 
 **Construction or proof outline.**
 
-1. Define the action by (a, γ) · ω = (a, γ · ω) for ω a loop at b; it respects homotopy classes.
-2. If (a, γ), (a′, γ′) have path-connected images in A, a path from a to a′ transports γ to a path γ″ from f(a′) to b, and γ″⁻¹ · γ′ is a loop ω with (a′, γ″) · ω = (a′, γ′); conversely an orbit maps to one component.
+1. Define the action by ω • (a, γ) = (a, γ.trans ω) for ω a loop at b; it respects homotopy classes, and it is a left action because Mathlib's product ω₂ * ω₁ is ω₁.trans ω₂.
+2. If a and a′ lie in the same path component of A, a path from a to a′ transports γ to a path γ″ from f(a′) to b, and γ″⁻¹ · γ′ is a loop ω with (a′, γ″) · ω = (a′, γ′); conversely an orbit maps to one component.
 3. The stabiliser computation is the exactness at π₁(B) of H.2/long-exact-sequence.
 
 **Acceptance.**
@@ -1312,12 +1313,12 @@ The levelwise-fibration theorem used by Waldhausen is stated for bisimplicial se
 - `TauCeti.homotopyFiber.transportHomotopyEquiv` (equivalence): transport f ω is a homotopy equivalence with inverse transport f ω.symm.
 - `TauCeti.homotopyFiber.transport_homotopic` (relation): Homotopic paths rel endpoints give homotopic transports.
 - `TauCeti.homotopyFiber.transport_trans` (functoriality): transport f (ω.trans ω′) is homotopic to transport f ω′ ∘ transport f ω; transport along a constant path is homotopic to the identity.
-- `TauCeti.homotopyFiber.connecting_transport` (compatibility): For a path σ in A from a₀ to a₁ and ω = f ∘ σ: connecting at a₁ ∘ (change of basepoint along ω on π_{n+1}(B)) = (change of basepoint in F(f, f a₁) along t ↦ (σ t, ω|[t,1])) ∘ (transport f ω)_* ∘ connecting at a₀.
+- `TauCeti.homotopyFiber.connecting_transport` (compatibility): For a path σ in A from a₀ to a₁ and ω = f ∘ σ: connecting at a₁ ∘ (change of basepoint along ω on π_{n+1}(B)) = (change of basepoint in F(f, f a₁) along the path from (a₀, (Path.refl (f a₀)).trans ω) to (a₁, const) given by t ↦ (σ t, ω|[t,1]) preceded by the reparametrisation path from (Path.refl (f a₀)).trans ω to ω) ∘ (transport f ω)_* ∘ connecting at a₀.
 
 **Unit tests.**
 
 - `transport_refl_homotopic_id` (degenerate): transport f (Path.refl b) is homotopic to the identity.
-- `transport_loopSpace` (computation): For the inclusion of the point b, transport along a loop ω is right concatenation by ω on Ω B b.
+- `transport_loopSpace` (computation): For the inclusion of the point b, transport along a loop ω is γ ↦ γ.trans ω on Ω B b; on π₀(Ω B b) ≅ π₁(B, b) it is left multiplication by [ω] in Mathlib's group structure.
 - `transport_comm_proj` (characterisation): proj ∘ transport f ω = proj.
 - `transport_not_identity_onPi0` (non-example): For BH → BG and a loop g ∉ H, transport acts on π₀(homotopyFiber) = G/H nontrivially; transport is not the identity on π₀.
 
@@ -1332,11 +1333,11 @@ The levelwise-fibration theorem used by Waldhausen is stated for bisimplicial se
 - For a constant loop ω, T_ω is homotopic to the identity.
 - For the inclusion of a point, transport along a loop ω acts on ΩB by right concatenation.
 
-**Prerequisites.** `H.2/homotopy-fibre-and-long-exact-sequence`, `H.2/connecting-map`, `tauceti:TauCeti.homotopyGroupMulEquivOfPath`.
+**Prerequisites.** `H.2/homotopy-fibre-and-long-exact-sequence`, `H.2/connecting-map`, `tauceti:TauCeti.homotopyGroupMulEquivOfPath`, `mathlib:Path.Homotopy`, `tauceti:TauCeti.homotopyGroupEquivOfPath`.
 
 **Sources.**
 
-- [Hatcher-AlgebraicTopology](https://pi.math.cornell.edu/~hatcher/AT/AT.pdf), §4.3, Proposition 4.61, printed p. 405 (PDF 414). Hatcher's Proposition 4.61, applied to E_f → B; the explicit concatenation formula is that of its proof.
+- [Hatcher-AlgebraicTopology](https://pi.math.cornell.edu/~hatcher/AT/AT.pdf), §4.3, Proposition 4.61, printed p. 405 (PDF 414). Hatcher's Proposition 4.61 (transport of fibres along paths, invariance under homotopy of paths, compatibility with composition), applied to E_f → B; with the explicit lift from the proof of Proposition 4.64 the transport is concatenation of the path coordinate.
 
 **Suggested home.** `TauCeti/AlgebraicTopology/HomotopyFiber/Basic`, namespace `TauCeti`.
 
@@ -1366,7 +1367,7 @@ The levelwise-fibration theorem used by Waldhausen is stated for bisimplicial se
 **Unit tests.**
 
 - `homotopyPullback_point_point` (computation): homotopyPullback (point b) (point b) is the loop space Ω B b.
-- `isHomotopyCartesian_id` (degenerate): The square with two identity maps is homotopy-cartesian.
+- `isHomotopyCartesian_id` (degenerate): For any map p : E → B, the square with E′ = E, B′ = B, α = id, h = id and p′ = p is homotopy-cartesian (the comparison is the inclusion of E into the mapping path space of p).
 - `isHomotopyCartesian_iff_fiber` (characterisation): For B′ contractible, the square is homotopy-cartesian iff E′ → homotopyFiber p (h b′) is a weak homotopy equivalence (H.2/homotopy-cartesian-contractible-base).
 - `not_isHomotopyCartesian_strictFiber` (non-example): For a proper subgroup H ⊂ G the square (strict fibre point → BH over point → BG) is not homotopy-cartesian.
 
@@ -1399,7 +1400,7 @@ The levelwise-fibration theorem used by Waldhausen is stated for bisimplicial se
 
 **Construction or proof outline.**
 
-1. For contractible B′ the projection B′ ×ʰ_B E → {b′} ×ʰ_B E = F(p, h b′) is a homotopy equivalence (contract B′ and transport, H.2/homotopy-fibre-transport).
+1. For contractible B′ with contraction K to b′, the map B′ ×ʰ_B E → {b′} ×ʰ_B E, (x, γ, e) ↦ (b′, (h ∘ K(x, -))⁻¹ · γ, e), is a homotopy equivalence with inverse the inclusion of the slice x = b′ (the homotopies are the partial contractions, as in H.2/homotopy-fibre-transport but continuous in x); compose with the path-reversal homeomorphism {b′} ×ʰ_B E ≅ F(p, h b′) (H.2/homotopy-pullback, symm and point_eq_homotopyFiber).
 2. Compose with the comparison map and use two-out-of-three (H.2/weak-homotopy-equivalence).
 
 **Acceptance.**
@@ -1424,14 +1425,14 @@ The levelwise-fibration theorem used by Waldhausen is stated for bisimplicial se
 
 **Construction or proof outline.**
 
-1. The homotopy pullback along a composite is the iterated homotopy pullback up to natural homotopy equivalence (concatenate paths), so the comparison maps factor through each other.
+1. The homotopy pullback along a composite is the iterated homotopy pullback up to natural homotopy equivalence (concatenate paths), so the comparison map of (1)+(2) factors as the comparison of (1), followed by the homotopy base change along B″ → B′ of the comparison of (2), followed by that equivalence. Homotopy base change preserves weak equivalences: both sides are fibrations over B″ and the map on fibres is the induced map of homotopy fibres over B′, a weak equivalence by H.2/long-exact-sequence, H.2/fibre-sequence-low-degree and H.2/fibre-to-homotopy-fibre.
 2. Apply two-out-of-three (H.2/weak-homotopy-equivalence); for horizontal equivalences compare homotopy fibres by H.2/long-exact-sequence and the five lemma.
 
 **Acceptance.**
 
 - Used in the final step of the proof of Theorem B: (1)+(3) and (3) homotopy-cartesian imply (1) homotopy-cartesian (Quillen p. 99).
 
-**Prerequisites.** `H.2/homotopy-pullback`, `H.2/long-exact-sequence`, `H.2/fibre-sequence-low-degree`, `H.2/mapping-path-space-fibration`, `H.2/weak-homotopy-equivalence`.
+**Prerequisites.** `H.2/homotopy-pullback`, `H.2/long-exact-sequence`, `H.2/fibre-sequence-low-degree`, `H.2/mapping-path-space-fibration`, `H.2/weak-homotopy-equivalence`, `H.2/fibre-to-homotopy-fibre`.
 
 **Sources.**
 
@@ -1463,7 +1464,7 @@ The levelwise-fibration theorem used by Waldhausen is stated for bisimplicial se
 **Unit tests.**
 
 - `commaToHomotopyFiber_id` (degenerate): For f = 𝟭 C′ both source and target are contractible, so commaToHomotopyFiber is a weak homotopy equivalence.
-- `commaToHomotopyFiber_subgroup` (computation): For SingleObj H → SingleObj G (H ⊂ G), the comma category ∗\f is the action category of H acting on G by translation, equivalent to the discrete category H\G of cosets, and commaToHomotopyFiber is a weak homotopy equivalence onto the discrete homotopy fibre, which has one point for each coset.
+- `commaToHomotopyFiber_subgroup` (computation): For SingleObj H → SingleObj G (H ⊂ G), the comma category ∗\f is the action category of H acting on G by translation, equivalent to the discrete category H\G of cosets, and commaToHomotopyFiber is a weak homotopy equivalence: on π₀ it is a bijection from the right cosets Hv to π₀ of the homotopy fibre (Hv ↦ the class of v⁻¹H), and every component on both sides is weakly contractible.
 - `commaToHomotopyFiber_fiber_compat` (compatibility): Restricted to the strict fibre f⁻¹(Y) ⊆ Y\f (objects (X, id)), it agrees with homotopyFiber.ofFiber.
 - `commaToHomotopyFiber_not_equiv` (non-example): For the inclusion of the object 0 into Fin 2 the comma category 1\f is empty while the homotopy fibre over 1 is contractible: the map is not a weak equivalence without Theorem B's hypothesis.
 
@@ -1532,7 +1533,7 @@ The levelwise-fibration theorem used by Waldhausen is stated for bisimplicial se
 
 #### `H.2/excisive-triad-homotopy-comparison` — Relative homotopy groups of excisive triads
 
-*Lemma.* Let f : (X; A, B) → (Y; C, D) be a map of excisive triads (X is the union of the interiors of A and B, and likewise Y of C and D). If π_i(A, A ∩ B) → π_i(C, C ∩ D) and π_i(B, A ∩ B) → π_i(D, C ∩ D) are bijective for i < n and surjective for i = n, for all basepoints, then the same holds for π_i(X, A) → π_i(Y, C) (and by symmetry for π_i(X, B) → π_i(Y, D)).
+*Lemma.* Suppose (X; A, B) and (Y; C, D) are excisive triads, meaning that the interiors of A and B cover X and those of C and D cover Y, and f : X → Y carries A into C and B into D. Assume that, at every basepoint, f induces bijections on the relative groups π_i(A, A ∩ B) → π_i(C, C ∩ D) and π_i(B, A ∩ B) → π_i(D, C ∩ D) in degrees i < n, and surjections in degree n. Then the same holds for π_i(X, A) → π_i(Y, C) (and by symmetry for π_i(X, B) → π_i(Y, D)).
 
 **Hypotheses.**
 
@@ -1645,7 +1646,7 @@ The levelwise-fibration theorem used by Waldhausen is stated for bisimplicial se
 **Construction or proof outline.**
 
 1. Define |X| as a coend (or a colimit over the category of simplices) in TopCat; its right adjoint is the singular simplicial space (Quillen §1, Lemma hypothesis).
-2. For X levelwise discrete, |X| agrees with SSet.toTop of the underlying simplicial set by the coend formula defining SSet.toTop (left Kan extension of the topological simplex).
+2. For X levelwise discrete, |X| agrees with SSet.toTop of the underlying simplicial set by comparing the coend with SSet.toTop, which Mathlib defines as the left Kan extension of the topological simplex along the Yoneda embedding (co-Yoneda / density).
 3. For a bisimplicial set, the realisation of a product of representables Δ[r] ⊠ Δ[s] is Δ^r × Δ^s (H.1/classifying-space-prod with finite factors).
 
 **API.**
@@ -2073,14 +2074,14 @@ The levelwise-fibration theorem used by Waldhausen is stated for bisimplicial se
 
 1. Form the double complex with (p, q)-generators the pairs (c₀ → ⋯ → c_q, T(c_q) → d₀ → ⋯ → d_p) (tensor A). For a fixed C-string the D-direction is the nerve of T(c_q)\D, which has an initial object (H.1/contractible-of-initial-or-terminal), so the column filtration gives H_*(C; A).
 2. For a fixed D-string d₀ → ⋯ → d_p the C-direction is the nerve of T/d₀, functorial in d₀ along d₀ → d₁; so the row filtration has E¹_{p,q} = ⊕ H_q(T/d₀; A) and E² = H_p(D; d ↦ H_q(T/d; A)) in the convention of H.1/category-homology (coefficient at the first vertex). For cofibred T, T⁻¹(d) → T/d has a left adjoint, giving the T⁻¹(d) form.
-3. Construct the spectral sequence from the double complex with Mathlib's spectral objects (CategoryTheory.Abelian.SpectralObject and its E₂ homological spectral sequence), first-quadrant convergence being automatic.
+3. Turn the row filtration of the total complex into a functor EInt ⥤ CochainComplex (homological degrees negated). Mathlib's HomotopyCategory.spectralObjectMappingCone followed by Triangulated.SpectralObject.mapHomologicalFunctor (homology) gives an Abelian.SpectralObject indexed by EInt. Apply Abelian.SpectralObject.spectralSequence with an E¹-type data core (Mathlib's E₂ cores applied to a filtration spectral object have H(gr) as page 2), check its HasSpectralSequence conditions, and identify E¹ and E² as above. Convergence to H_{p+q}(C; A) (finite filtration in each total degree, E^∞ = associated graded of the abutment) is proved here, because Mathlib at the pin has no convergence API.
 
 **Acceptance.**
 
 - For T = id the E² page is concentrated in q = 0 and the spectral sequence collapses.
 - For the projection ρ : S⁻¹X → ⟨S, S⟩ (cofibred with fibre X) it gives the spectral sequence of Weibel IV Theorem 4.8.
 
-**Prerequisites.** `H.1/category-homology`, `mathlib:CategoryTheory.Abelian.SpectralObject`, `H.1/contractible-of-initial-or-terminal`.
+**Prerequisites.** `H.1/category-homology`, `mathlib:CategoryTheory.Abelian.SpectralObject`, `H.1/contractible-of-initial-or-terminal`, `mathlib:HomotopyCategory.spectralObjectMappingCone`, `mathlib:CategoryTheory.Triangulated.SpectralObject.mapHomologicalFunctor`, `mathlib:CategoryTheory.CostructuredArrow`, `mathlib:CategoryTheory.StructuredArrow`.
 
 **Sources.**
 
@@ -2112,7 +2113,7 @@ The levelwise-fibration theorem used by Waldhausen is stated for bisimplicial se
 - The inclusion of monoids ℕ → ℤ gives Bℕ ≃ Bℤ ≃ S¹ (Weibel IV Example 3.7.2).
 - Source and target functors from the Segal subdivision are homotopy equivalences (Weibel IV Exercise 3.9).
 
-**Prerequisites.** `H.2/bisimplicial-realization-lemma`, `H.2/levelwise-equivalence-theorem`, `H.2/quasi-fibration-lemma`, `H.1/contractible-of-initial-or-terminal`, `H.1/classifying-space-op-homeomorph`, `mathlib:CategoryTheory.StructuredArrow`.
+**Prerequisites.** `H.2/bisimplicial-realization-lemma`, `H.2/levelwise-equivalence-theorem`, `H.2/quasi-fibration-lemma`, `H.1/contractible-of-initial-or-terminal`, `H.1/classifying-space-op-homeomorph`, `mathlib:CategoryTheory.StructuredArrow`, `mathlib:CategoryTheory.CostructuredArrow`.
 
 **Sources.**
 
@@ -2138,7 +2139,7 @@ The levelwise-fibration theorem used by Waldhausen is stated for bisimplicial se
 
 - The projection ∫_C F → C of a Grothendieck construction of F : C^op ⥤ Cat is prefibred, with base change F(u); dually, for Mathlib's CategoryTheory.Grothendieck F (F : C ⥤ Cat) the projection is precofibred with cobase change F(u).
 
-**Prerequisites.** `mathlib:CategoryTheory.Functor.IsPreFibered`, `mathlib:CategoryTheory.StructuredArrow`, `H.1/adjunction-homotopy-equivalence`.
+**Prerequisites.** `mathlib:CategoryTheory.Functor.IsPreFibered`, `mathlib:CategoryTheory.StructuredArrow`, `H.1/adjunction-homotopy-equivalence`, `mathlib:CategoryTheory.Grothendieck`.
 
 **Sources.**
 
@@ -2256,9 +2257,9 @@ The levelwise-fibration theorem used by Waldhausen is stated for bisimplicial se
 
 ## H.3 — The plus construction and its space-theoretic foundations
 
-Acyclic spaces and maps are defined using reduced fibre homology and local coefficients. For a connected CW space X and perfect normal subgroup P, the plus cell model attaches 2-cells to kill P, then 3-cells along a basis over ℤ[π₁X/P] in the covering pair. It preserves homology with all coefficients pulled back from the quotient. The mapping-cylinder comparison proves the universal property for abelian targets, with the corresponding uniqueness and functoriality statements.
+An acyclic space has vanishing reduced integral homology and an acyclic map has an acyclic homotopy fibre; a criterion theorem characterises acyclic maps by homology with every local coefficient system pulled back from the target. For a connected CW space X and perfect normal subgroup P, the plus cell model attaches 2-cells to kill P, then 3-cells along a basis over ℤ[π₁X/P] in the covering pair. It preserves homology with all coefficients pulled back from the quotient. The mapping-cylinder comparison proves the universal property for abelian targets, with the corresponding uniqueness and functoriality statements.
 
-The supporting space theory includes Eilenberg–Mac Lane spaces, cohomology representability, principal fibrations, Postnikov towers, obstruction lifting, homological Whitehead for abelian spaces and the fibre of an H-map. The rational Hurewicz comparison for connected H-spaces identifies rational homotopy with primitive rational homology. Universal-central-extension recognition is imported from T.1:classical. Acceptance includes trivial-subgroup plus, simply connected plus of a perfect group's BG, the covering-module basis, and the distinction between trivial π₁-action and centrality in a fibration. The non-abelian target universal property and general relative construction remain gaps.
+The supporting space theory includes Eilenberg–Mac Lane spaces, cohomology representability, principal fibrations, Postnikov towers, obstruction lifting, homological Whitehead for abelian spaces and for H-spaces, and recognition of plus constructions by maps into H-spaces. The rational Hurewicz comparison for connected H-spaces of CW type with finite-dimensional rational homology in each degree identifies rational homotopy with primitive rational homology. Universal-central-extension recognition is imported from T.1:classical. Acceptance includes trivial-subgroup plus, simply connected plus of a perfect group's BG, the covering-module basis, the Poincaré homology sphere, whose plus construction is S³ although S³ → X⁺ has degree 120, and Hatcher's Example 4.35, which shows that a π₁- and homology isomorphism need not be acyclic. Recorded gaps remain for the local-coefficient acyclicity of the cell model, the Serre spectral sequence with twisted total-space coefficients, the base-and-total case of the spectral sequence comparison, the multiplicative cohomology Serre spectral sequence, the non-abelian target universal property and the general relative construction.
 
 ### Declarations of H.3
 
@@ -2280,7 +2281,7 @@ The supporting space theory includes Eilenberg–Mac Lane spaces, cohomology rep
 - `TauCeti.IsAcyclicSpace` (constructor): IsAcyclicSpace F :↔ ∀ n, IsZero (reduced singular homology of F with ℤ coefficients in degree n).
 - `TauCeti.IsAcyclicSpace.pathConnected` (projection): An acyclic space is path-connected and nonempty.
 - `TauCeti.IsAcyclicSpace.of_contractible` (compatibility): A ContractibleSpace is acyclic.
-- `TauCeti.IsAcyclicSpace.of_homotopyEquiv` (relation): Acyclicity is invariant under homotopy equivalence (indeed under weak homotopy equivalence).
+- `TauCeti.IsAcyclicSpace.of_homotopyEquiv` (relation): Acyclicity is invariant under homotopy equivalence (Mathlib's homotopy invariance of singular homology).
 - `TauCeti.IsAcyclicSpace.perfect_fundamentalGroup` (projection): For acyclic F, Group.IsPerfect (FundamentalGroup F x) and H₂ of it vanishes (H.3/acyclic-space-perfect-fundamental-group).
 
 **Unit tests.**
@@ -2303,7 +2304,7 @@ The supporting space theory includes Eilenberg–Mac Lane spaces, cohomology rep
 - The Volodin space X(R) ⊂ BGL(R) is acyclic with π₁ image E(R) (Weibel IV Example 1.3.2, cited from Suslin).
 - BG for a perfect group with H₂(G) = 0 is not acyclic in general (it has H₃).
 
-**Prerequisites.** `mathlib:AlgebraicTopology.singularHomologyFunctor`.
+**Prerequisites.** `mathlib:AlgebraicTopology.singularHomologyFunctor`, `mathlib:TopCat.singularHomology₀Iso`.
 
 **Sources.**
 
@@ -2740,7 +2741,7 @@ The supporting space theory includes Eilenberg–Mac Lane spaces, cohomology rep
 
 **API.**
 
-- `TauCeti.IsAbelianSpace` (constructor): IsAbelianSpace X x :↔ PathConnectedSpace X ∧ ∀ n, TauCeti.fundamentalGroupMulAut (n := n) is trivial at x.
+- `TauCeti.IsAbelianSpace` (constructor): IsAbelianSpace X x :↔ PathConnectedSpace X ∧ ∀ n, TauCeti.fundamentalGroupMulAut (Fin (n + 1)) x = 1 (dimension-1 conjugation by TauCeti.congr_fundamentalGroupMulAut_piOne).
 - `TauCeti.IsAbelianSpace.of_basepoint` (relation): IsAbelianSpace X x ↔ IsAbelianSpace X y for x, y in a path-connected X.
 - `TauCeti.IsAbelianSpace.of_simplyConnected` (compatibility): A simply connected space is abelian.
 - `TauCeti.IsAbelianSpace.of_hSpace` (compatibility): A path-connected H-space (Mathlib HSpace) is abelian (H.3/hspace-is-abelian).
@@ -2855,7 +2856,7 @@ The supporting space theory includes Eilenberg–Mac Lane spaces, cohomology rep
 **Construction or proof outline.**
 
 1. Reduce to a CW pair by a CW model of (X, A) (AT stage 8 / stage 4 cellular approximation).
-2. Hatcher's proof of Theorem 4.37 (pp. 371–373): Lemma 4.38 (π_n(W, X) is the free ℤ[π₁X]-module on the attached n-cells when π₁X ≅ π₁W, via the universal cover and π_n of coverings) identifies π′_n(X, A) with H_n(X, A); with trivial action π′_n = π_n, and for n = 2 trivial action makes π₂(X, A) abelian.
+2. Hatcher's proof of Theorem 4.37 (pp. 371–373): Lemma 4.38 (π_n(W, X) is the free ℤ[π₁X]-module on the attached n-cells when π₁X ≅ π₁W, via the universal cover and the relative form of Hatcher Proposition 4.1, that a covering projection induces π_n(W̃, p⁻¹X) ≅ π_n(W, X) for n ≥ 2; tauceti:IsCoveringMap.homotopyGroupMulEquiv covers only absolute groups, so this is the packet gap 'Relative homotopy groups of coverings') identifies π′_n(X, A) with H_n(X, A); with trivial action π′_n = π_n, and for n = 2 trivial action makes π₂(X, A) abelian.
 
 **Acceptance.**
 
@@ -3000,7 +3001,7 @@ The supporting space theory includes Eilenberg–Mac Lane spaces, cohomology rep
 
 #### `H.3/abelian-extension-corollary` — Extending maps into abelian spaces
 
-*Theorem.* If X is a connected abelian CW complex and (W, A) a CW pair with H^{n+1}(W, A; π_n X) = 0 for all n, then every map A → X extends to a map W → X.
+*Theorem.* Let X be a connected CW complex that is abelian, and (W, A) a CW pair. If the relative cohomology groups H^{n+1}(W, A; π_n X) vanish for every n, then each map A → X extends over W.
 
 **Hypotheses.**
 
@@ -3192,7 +3193,7 @@ The supporting space theory includes Eilenberg–Mac Lane spaces, cohomology rep
 
 **Hypotheses.**
 
-- P perfect normal in G; the recognition theorem for universal central extensions (a central extension X of a perfect group is universal iff H₁(X) = H₂(X) = 0, with kernel H₂(P) by Hopf's formula) is the node K2SymbolsBrauer:T.1/recognition-theorem with the kernel computation K2SymbolsBrauer:T.1:classical/uce-kernel-h2 (RT-AREA-ktheory-1/30).
+- P perfect normal in G; the recognition theorem for universal central extensions (a central extension X of a perfect group is universal iff H₁(X) = H₂(X) = 0, with kernel H₂(P) by Hopf's formula) is the node K2SymbolsBrauer:T.1/recognition-theorem with the kernel computation K2SymbolsBrauer:T.1:classical/uce-kernel-h2.
 
 **Construction or proof outline.**
 
@@ -3243,7 +3244,7 @@ The supporting space theory includes Eilenberg–Mac Lane spaces, cohomology rep
 
 #### `H.3/plus-universal-cover` — BP⁺ is the universal cover of BG⁺
 
-*Lemma.* Let P ⊆ H ⊆ G with P perfect and normal in G, and f : BG → BG⁺ a plus construction relative to P. The covering of BG⁺ with group H/P ⊆ G/P, pulled back along f, is a plus construction of BH (≃ the covering of BG with group H) relative to P; hence BH⁺_P is homotopy equivalent to that covering, compatibly with the maps from BH, and π_n(BH⁺_P) ≅ π_n(BG⁺) for n ≥ 2. For H = P this says BP⁺ is the universal cover of BG⁺. For G = GL(R), P = E(R): BE(R)⁺ is the universal cover of BGL(R)⁺ and K_n(R) ≅ π_n BE(R)⁺ for n ≥ 2; for a commutative ring and H = SL(R) (E(R) is the perfect radical of SL(R) since SL(R)/E(R) = SK₁(R) is abelian), BSL(R)⁺ → BGL(R)⁺ is an isomorphism on π_n for n ≥ 2.
+*Lemma.* Let P ⊆ H ⊆ G with P perfect and normal in G, and f : BG → BG⁺ a plus construction relative to P. The covering of BG⁺ with group H/P ⊆ G/P, pulled back along f, is a plus construction of BH (≃ the covering of BG with group H) relative to P; hence BH⁺_P is homotopy equivalent to that covering, compatibly with the maps from BH, and π_n(BH⁺_P) ≅ π_n(BG⁺) for n ≥ 2. For H = P this says BP⁺ is the universal cover of BG⁺. For G = GL(R), P = E(R): BE(R)⁺ is the universal cover of BGL(R)⁺ and K_n(R) ≅ π_n BE(R)⁺ for n ≥ 2; for a commutative ring and H = SL(R) = ker(det : GL(R) → R^×) (E(R) ⊆ SL(R), and SL(R)/E(R) ⊆ GL(R)/E(R) is abelian by KTheoryLowDegrees:U.1/whitehead-lemma, so E(R) is the perfect radical of SL(R)), BSL(R)⁺ → BGL(R)⁺ is an isomorphism on π_n for n ≥ 2.
 
 **Hypotheses.**
 
@@ -3260,7 +3261,7 @@ The supporting space theory includes Eilenberg–Mac Lane spaces, cohomology rep
 - π₁(BE(R)⁺) = 0 and π₂(BE(R)⁺) ≅ K₂(R).
 - For P = G this is the identity.
 
-**Prerequisites.** `H.3/plus-construction-uniqueness`, `H.1/translation-category-classifying-space`, `tauceti:IsCoveringMap.homotopyGroupMulEquiv`, `H.2/homotopy-pullback`, `KTheoryLowDegrees:U.1`.
+**Prerequisites.** `H.3/plus-construction-uniqueness`, `H.1/translation-category-classifying-space`, `tauceti:IsCoveringMap.homotopyGroupMulEquiv`, `H.2/homotopy-pullback`, `KTheoryLowDegrees:U.1/whitehead-lemma`, `KTheoryLowDegrees:U.1/stable-elementary-perfect`.
 
 **Sources.**
 
@@ -3436,7 +3437,7 @@ The supporting space theory includes Eilenberg–Mac Lane spaces, cohomology rep
 
 A symmetric monoidal groupoid S gives the explicit category S⁻¹S, whose classifying space is the homotopy group completion of BS under the localisation hypotheses. Cofinal stabilisation compares projective-module group completion with K₀(R)×BGL(R)⁺. General local-coefficient acyclicity of stabilisation is stated separately from an integral-homology isomorphism. The connected H-space argument uses H.3; the BGL⁺ H-space construction retains its dependency on the general-target plus gap.
 
-The Fin*-Segal model uses coherent subset data to obtain a strict Γ-space from a symmetric monoidal groupoid. Grouplikeness, bar delooping and homology group completion give the connective-spectrum input. Picard groupoids supply the grouplike case. The hermitian applications specify the orthogonal, symplectic and quadratic-symplectic examples over ℤ and the topological variants over ℝ. Acceptance distinguishes the maximal subgroupoid of projective modules from all module maps, tests π₀ as algebraic Grothendieck group, and checks free-module cofinality and the countable CCMT adjunction. Segal, CCMT, coherence and local-coefficient group-completion proofs remain explicit gaps.
+The Fin*-Segal model uses coherent subset data to obtain a strict Γ-space from a symmetric monoidal groupoid. Grouplikeness, bar delooping and homology group completion give the connective-spectrum input. Picard groupoids supply the grouplike case. The hermitian applications specify the symmetric, symplectic, quadratic and (−1)-quadratic examples over ℤ and the topological variants over ℝ. Acceptance distinguishes the maximal subgroupoid of projective modules from all module maps, tests π₀ as algebraic Grothendieck group, and checks free-module cofinality and the countable CCMT adjunction. Segal, CCMT, coherence, Bass commutator, local-coefficient group-completion and K^top(ℝ) ≃ ko proofs remain explicit gaps, as does the compactly generated product behind the H-space structure on BS.
 
 ### Declarations of H.4
 
@@ -3480,7 +3481,7 @@ The Fin*-Segal model uses coherent subset data to obtain a strict Γ-space from 
 - π₀(B Core S) is the commutative monoid of isomorphism classes S^iso.
 - For projective modules the symmetry c_{M,M} is not the identity when M ≠ 0 (Bhatt–Scholze Example 12.2(i)).
 
-**Prerequisites.** `mathlib:CategoryTheory.SymmetricCategory`, `mathlib:CategoryTheory.Core`, `mathlib:CategoryTheory.Skeleton`.
+**Prerequisites.** `mathlib:CategoryTheory.SymmetricCategory`, `mathlib:CategoryTheory.Core`, `mathlib:CategoryTheory.Skeleton`, `mathlib:CategoryTheory.MorphismProperty.IsStableUnderBraiding`, `mathlib:CategoryTheory.Functor.core`.
 
 **Sources.**
 
@@ -3495,7 +3496,7 @@ The Fin*-Segal model uses coherent subset data to obtain a strict Γ-space from 
 
 **Hypotheses.**
 
-- The homeomorphism B(S × S) ≅ BS × BS (H.1/classifying-space-prod) needs a finite factor or compactly generated products; for countable CW complexes the ordinary product is already a CW complex, which covers S = F(R) for countable R. In general Mathlib's HSpace must be applied to the compactly generated product (packet gap 'Realisation of products').
+- The homeomorphism B(S × S) ≅ BS × BS (H.1/classifying-space-prod) needs a finite factor or compactly generated products; for countable CW complexes the ordinary product is already a CW complex, which covers S = F(R) for countable R. In general B(□) is continuous only on the compactly generated product, so Mathlib's HSpace (multiplication on the ordinary product X × X) applies only when BS × BS already has the CW topology; the general case needs a compactly generated variant of H-spaces (packet gap 'Realisation of products').
 
 **Construction or proof outline.**
 
@@ -3625,7 +3626,7 @@ The Fin*-Segal model uses coherent subset data to obtain a strict Γ-space from 
 
 #### `H.4/S-inverse-S-pi0` — π₀ of S⁻¹S is the Grothendieck group of the monoid of components
 
-*Lemma.* The canonical map from the Grothendieck group of the commutative monoid π₀(S) = S^iso to π₀ B(S⁻¹S) induced by m ↦ (m, e) is an isomorphism of abelian groups, inverse to (m, n) ↦ [m] − [n]. Hence K₀(S) = π₀ B(S⁻¹S) agrees with Mathlib's Algebra.GrothendieckGroup of the monoid of isomorphism classes, and for S = Core of an additive category with ⊞ with Tau Ceti's SplitK0.
+*Lemma.* The canonical map from the Grothendieck group of the commutative monoid π₀(S) = S^iso to π₀ B(S⁻¹S) induced by m ↦ (m, e) is an isomorphism of abelian groups, inverse to (m, n) ↦ [m] − [n]. Hence K₀(S) = π₀ B(S⁻¹S) agrees with Mathlib's Algebra.GrothendieckGroup of the monoid of isomorphism classes, and for S = Core of an essentially small additive category with ⊞ with Tau Ceti's SplitK0.
 
 **Hypotheses.**
 
@@ -3651,11 +3652,11 @@ The Fin*-Segal model uses coherent subset data to obtain a strict Γ-space from 
 
 #### `H.4/group-completion` — Group completions of homotopy-commutative H-spaces
 
-*Definition.* Let X be a homotopy-commutative, homotopy-associative H-space. A group completion of X is an H-space map f : X → Y to an H-space Y such that π₀(Y) is the group completion of the commutative monoid π₀(X) (via f) and, for every commutative ring k, the induced map identifies H_*(Y; k) with the localisation π₀(X)⁻¹ H_*(X; k) of the Pontryagin ring at the multiplicative set π₀(X) ⊂ H₀(X; k). When X is a CW complex, Y is taken to be one, and is then group-like.
+*Definition.* For an H-space X whose multiplication is associative and commutative up to homotopy, an H-map f : X → Y to another H-space Y is a group completion when π₀(Y) is the group completion of the commutative monoid π₀(X) (via f) and, for every commutative ring k, the induced map identifies H_*(Y; k) with the localisation π₀(X)⁻¹ H_*(X; k) of the Pontryagin ring at the multiplicative set π₀(X) ⊂ H₀(X; k). When X is a CW complex, Y is taken to be one, and is then group-like.
 
 **Hypotheses.**
 
-- X, Y H-spaces (Mathlib HSpace) that are homotopy associative and commutative; Y a CW complex when X is.
+- X, Y H-spaces (Mathlib HSpace, so the multiplication is continuous on the ordinary product; see H.4/classifying-space-hspace for when BS qualifies) that are homotopy associative and commutative; Y a CW complex when X is.
 
 **Construction or proof outline.**
 
@@ -3991,7 +3992,7 @@ The Fin*-Segal model uses coherent subset data to obtain a strict Γ-space from 
 
 **Hypotheses.**
 
-- S as in H.4/cofinal-sequence-plus-comparison.
+- S a symmetric monoidal groupoid with faithful translations and a sequence of objects s_{n+1} = s_n □ a_n that is cofinal (every s has s′ with s □ s′ ≅ s_n for some n); Aut(S) = colim_n Aut(s_n). The map B Aut(S) → Y_S is defined here: the homomorphisms Aut(s_n) → Aut_{S⁻¹S}(s_n, s_n), g ↦ (g, 1), are compatible with stabilisation by a_n up to a natural transformation, which gives a functor from the telescope category ⟨ℕ, ⊔_n Aut(s_n)⟩ to S⁻¹S. Its classifying space is B Aut(S) up to homotopy (H.2/quillen-theorem-a).
 
 **Construction or proof outline.**
 
@@ -4007,7 +4008,7 @@ The Fin*-Segal model uses coherent subset data to obtain a strict Γ-space from 
 - Counterexample to the constant-coefficient shortcut: a CW complex Z with π₁Z = ℤ, π₂Z = ℤ[t^±]/(2t − 1) and H̃_*(Z) = H̃_*(S¹) maps to S¹ by an integral homology isomorphism that is not acyclic.
 - For finite sets it gives the acyclic map BΣ_∞ → Ω₀B N(Fin_*).
 
-**Prerequisites.** `H.4/quillen-localization-of-homology`, `H.3/acyclic-map`, `H.3/acyclic-map-homology-criterion`, `H.4/monoidal-action-category`.
+**Prerequisites.** `H.4/quillen-localization-of-homology`, `H.3/acyclic-map`, `H.3/acyclic-map-homology-criterion`, `H.4/monoidal-action-category`, `H.2/quillen-theorem-a`, `H.1/filtered-colimit-homology`.
 
 **Sources.**
 
@@ -4023,12 +4024,12 @@ The Fin*-Segal model uses coherent subset data to obtain a strict Γ-space from 
 **Hypotheses.**
 
 - S has a cofinal sequence as stated; faithful translations.
-- Perfectness and normality of E are imported from Bass (p. 355), not read (packet gap 'Bass commutator lemma for Aut(S)').
+- E = [Aut(S), Aut(S)] (automatically normal); its perfectness is part of the conclusion.
 
 **Construction or proof outline.**
 
 1. The mapping telescope gives a map B Aut(S) → Y_S that is an integral homology isomorphism (H.4/quillen-localization-of-homology, as in Theorem 4.9) and is acyclic by H.4/group-completion-acyclic (McDuff–Segal, Randal-Williams 2013, recorded gap); an acyclic map with kernel E on π₁ is a plus construction (H.3/plus-construction-predicate) (Weibel IV Theorem 4.10 proof).
-2. E perfect normal and K₁ = Aut(S)/E: Bass, 'essentially on p. 355'.
+2. By H.4/group-completion-acyclic and H.3/acyclic-map, π₁(B Aut(S)) = Aut(S) → π₁(Y_S) is onto with perfect kernel P. P ⊆ E since P = [P, P]. E ⊆ P since π₁(Y_S) is abelian, as Y_S is a component of the H-space B(S⁻¹S) (H.4/classifying-space-hspace, H.3/hspace-is-abelian). Hence E = P is perfect, K₁(S) = π₁(Y_S) = Aut(S)/E, and the telescope map is a plus construction relative to E. (Weibel instead cites Bass p. 355 for the perfectness of E; that route is not needed.) and the gap's neededBy entry for this node.]
 
 **Acceptance.**
 
@@ -4038,7 +4039,7 @@ The Fin*-Segal model uses coherent subset data to obtain a strict Γ-space from 
 - ε-quadratic forms over a number ring O: every form is an orthogonal summand of an ε-hyperbolic form, so with the hyperbolic sequence every component of the quadratic Grothendieck–Witt space is B O_{∞,∞}(O)⁺ for ε = 1 and B Sp^q_∞(O)⁺ for ε = −1 (Calmès et al. Remark 2.3.20).
 - Quadratic forms: K(Quad^ε(A)) ≃ εL₀(A) × BεO⁺ (Weibel IV Example 4.12.2).
 
-**Prerequisites.** `H.4/quillen-localization-of-homology`, `H.3/plus-construction-predicate`, `H.4/group-completion-acyclic`, `H.4/S-inverse-S-pi0`, `H.1/filtered-colimit-homology`, `H.2/quillen-theorem-a`.
+**Prerequisites.** `H.4/quillen-localization-of-homology`, `H.3/plus-construction-predicate`, `H.4/group-completion-acyclic`, `H.4/S-inverse-S-pi0`, `H.1/filtered-colimit-homology`, `H.2/quillen-theorem-a`, `H.3/acyclic-map`, `H.3/hspace-is-abelian`, `H.4/classifying-space-hspace`.
 
 **Sources.**
 
@@ -4084,7 +4085,7 @@ The Fin*-Segal model uses coherent subset data to obtain a strict Γ-space from 
 **Construction or proof outline.**
 
 1. f induces f⁻¹f : S⁻¹S → T⁻¹T (H.4/strictification-independence) and an H-space map Y_S → Y_T.
-2. Theorem 4.8 and B(S) ≃ ⊔ B Aut(s) (H.1/groupoid-nerve-one-type) give H_*(Y_S) = colim_{s∈S} H_*(B Aut(s)) = colim_{s∈S} H_*(B Aut(fs)) ≅ colim_{t∈T} H_*(B Aut(t)) = H_*(Y_T) using cofinality of the translation categories (H.4/quillen-localization-of-homology).
+2. Theorem 4.8 and B(S) ≃ ⊔ B Aut(s) (H.1/groupoid-nerve-one-type) give H_*(Y_S) = colim_{s∈S} H_*(B Aut(s)) = colim_{s∈S} H_*(B Aut(fs)) ≅ colim_{t∈T} H_*(B Aut(t)) = H_*(Y_T) using cofinality of the translation categories (H.4/quillen-localization-of-homology). The isomorphism (4.7.2) is natural for f: x ↦ (e, x) commutes with f⁻¹f up to the unit isomorphism f(e) ≅ e, and natural isomorphisms give homotopies (H.1/natural-transformations-adjoints-contractibility). So the composite isomorphism is the map induced by Y_S → Y_T.
 3. The induced H-space map Y_S → Y_T is an integral homology isomorphism of connected H-spaces, hence a homotopy equivalence (H.3/hspace-homology-whitehead).
 
 **Acceptance.**
@@ -4092,7 +4093,7 @@ The Fin*-Segal model uses coherent subset data to obtain a strict Γ-space from 
 - The one-object subcategory R^× is cofinal in Pic(R) (Weibel IV p. 44).
 - F(R) → iso P(R) is cofinal (H.4/cofinality-projective-modules).
 
-**Prerequisites.** `H.4/quillen-localization-of-homology`, `H.3/hspace-homology-whitehead`, `H.4/strictification-independence`, `H.1/groupoid-nerve-one-type`.
+**Prerequisites.** `H.4/quillen-localization-of-homology`, `H.3/hspace-homology-whitehead`, `H.4/strictification-independence`, `H.1/groupoid-nerve-one-type`, `H.1/natural-transformations-adjoints-contractibility`.
 
 **Sources.**
 
@@ -4102,7 +4103,7 @@ The Fin*-Segal model uses coherent subset data to obtain a strict Γ-space from 
 
 #### `H.4/cofinality-projective-modules` — Cofinality: the group completion of iso P(R) is K₀(R) × BGL(R)⁺ — planet: *Cofinality theorem*
 
-*Theorem.* For a ring R and S = iso P(R) (finitely generated projective modules and isomorphisms, under ⊕), B(S⁻¹S) ≃ K₀(R) × BGL(R)⁺, the basepoint component being BGL(R)⁺ via the cofinal inclusion F(R) → iso P(R) (every finitely generated projective module is a direct summand of a finite free module). The identification π₀ B(S⁻¹S) ≅ K₀(R) is the canonical one; the basepoint-component equivalence Y_{iso P(R)} ≃ BGL(R)⁺ is the composite of H.4/gl-telescope-plus-comparison with the cofinality equivalence Y_{F(R)} ≃ Y_{iso P(R)}; its naturality in ring maps up to homotopy is H.4/gl-plus-comparison-naturality. The product decomposition depends on choices of translations and is not natural.
+*Theorem.* For a ring R and S = iso P(R) (finitely generated projective modules and isomorphisms, under ⊕), B(S⁻¹S) ≃ K₀(R) × BGL(R)⁺, the basepoint component being BGL(R)⁺ via the cofinal functor F(R) → iso P(R) (every finitely generated projective module is a direct summand of a finite free module). The identification π₀ B(S⁻¹S) ≅ K₀(R) is the canonical one; the basepoint-component equivalence Y_{iso P(R)} ≃ BGL(R)⁺ is the composite of H.4/gl-telescope-plus-comparison with the cofinality equivalence Y_{F(R)} ≃ Y_{iso P(R)}; its naturality in ring maps up to homotopy is H.4/gl-plus-comparison-naturality. The product decomposition depends on choices of translations and is not natural.
 
 **Hypotheses.**
 
@@ -4112,11 +4113,11 @@ The Fin*-Segal model uses coherent subset data to obtain a strict Γ-space from 
 
 1. F(R) → iso P(R) is cofinal (KTheoryLowDegrees:Z.1; Weibel IV Example 4.1.1(c)).
 2. The functor F(R) → iso P(R) of H.4/based-free-module-groupoid is strong symmetric monoidal and bijective on automorphism groups of each Rⁿ (for every ring; injective on objects only under IBN).
-3. Combine H.4/cofinality-theorem(b) with H.4/gl-telescope-plus-comparison for the basepoint component, and H.4/S-inverse-S-pi0 for π₀ = K₀(R) (Weibel IV Corollary 4.11.1).
+3. Combine H.4/cofinality-theorem with H.4/gl-telescope-plus-comparison for the basepoint component, and H.4/S-inverse-S-pi0 for π₀ = K₀(R) (Weibel IV Corollary 4.11.1).
 
 **Acceptance.**
 
-- Check K₀(F(R)) = ℤ against K₀(iso P(R)) = K₀(R) for a ring with nontrivial projective modules.
+- For R = ℤ × ℤ, π₀B(F(R)⁻¹F(R)) = ℤ while π₀B(S⁻¹S) = K₀(R) = ℤ² for S = iso P(R), and the basepoint components agree (both BGL(R)⁺).
 - Consumers must use this component-preserving comparison, not a claimed natural product splitting.
 
 **Prerequisites.** `H.4/cofinality-theorem`, `H.4/gl-telescope-plus-comparison`, `H.4/S-inverse-S-pi0`, `KTheoryLowDegrees:Z.1/free-summand-data`, `H.4/based-free-module-groupoid`.
@@ -4278,7 +4279,7 @@ The Fin*-Segal model uses coherent subset data to obtain a strict Γ-space from 
 
 **Sources.**
 
-- [Carlsson-Deloopings-Handbook-2005](https://webhomes.maths.ed.ac.uk/~v1ranick/papers/carldeloop.pdf), §1.2, Definition 1, Proposition 2 with proof, Theorem 3, Examples 4–5, printed pp. 6–8 (PDF 4–6). Carlsson's Theorem 3 quotes Segal. It prints 'n > 1'; the node states n ≥ 1, the correct range (source issue StableHomotopyKTheory/E8).
+- [Carlsson-Deloopings-Handbook-2005](https://webhomes.maths.ed.ac.uk/~v1ranick/papers/carldeloop.pdf), §1.2, Definition 1, Proposition 2 with proof, Theorem 3, Examples 4–5, printed pp. 6–8 (PDF 4–6). Carlsson's Theorem 3 restates Segal's theorem with the range n > 1; the node states n ≥ 1, the correct range (source issue StableHomotopyKTheory/E8).
 
 **Suggested home.** `TauCeti/AlgebraicTopology/GroupCompletion/Segal`, namespace `TauCeti`.
 
@@ -4523,7 +4524,7 @@ The chosen model is symmetric spectra of pointed simplicial sets. Sphere block m
 
 The smash product and its derived functor provide the homotopy pairing and Koszul signs. Ring, module and operadic algebra spectra are separate interfaces. Eilenberg–Mac Lane spectra are constructed for abelian groups and rings, then compared with unbounded complexes; homotopy groups, shifts and triangles are specified explicitly. Their cohomology represents ordinary cohomology, using suspension–evaluation rather than assuming every positive shift remains an Ω-spectrum. Cellular approximation, connective generation and smash connectivity support EM uniqueness and functorial connective covers and Postnikov sections. Sequential homotopy colimits and products in SHC are stated separately. Γ-spaces and deloopings compare the model with connective spectra and Picard groupoids.
 
-Acceptance includes the sphere and HA, the free-spectrum counterexample to identifying naive and true groups, π̂_{k+1}(sh X)=π̂_k X, cone signs, H(C[1])≃ΣHC, the ordinary cohomology comparison, and a connective cover's homotopy groups. Constructing KU and identifying its cover with ku belongs to RefinedTraceMethods:RT.4:topological, which consumes the generic cover theorem. The Kan–Quillen, Moore, module/operadic-model, Shipley, sequential-spectrum and infinite-loop-machine proof imports remain gaps.
+Acceptance includes the sphere and HA, the free-spectrum counterexample to identifying naive and true groups, π̂_{k+1}(sh X)=π̂_k X, cone signs, H(C[1])≃ΣHC, the ordinary cohomology comparison, and a connective cover's homotopy groups. Constructing KU and identifying its cover with ku belongs to RefinedTraceMethods:RT.4:topological, which consumes the generic cover theorem. The Kan–Quillen, Moore, module/operadic-model, Shipley, sequential-spectrum, infinite-loop-machine and Picard-groupoid proof imports remain gaps.
 
 ### Declarations of H.5:spectra
 
@@ -4555,7 +4556,7 @@ Acceptance includes the sphere and HA, the free-spectrum counterexample to ident
 
 - `sphere_zero` (degenerate): sphere 0 = S⁰ = Δ[0]₊ and smash S⁰ K ≅ K.
 - `circle_cells` (computation): circle has exactly one nondegenerate 0-simplex and one nondegenerate 1-simplex, and its realisation is homeomorphic to the circle.
-- `sphere_toTop` (compatibility): SSet.toTop (sphere n) is homeomorphic to the topological n-sphere (one 0-cell and one n-cell).
+- `sphere_toTop` (compatibility): SSet.toTop (sphere n) is homeomorphic to the topological n-sphere (for n ≥ 2 the simplicial model has more cells than the minimal CW structure: S¹ ∧ S¹ has one nondegenerate 0-simplex, one nondegenerate 1-simplex and two nondegenerate 2-simplices).
 - `smash_not_product` (non-example): smash circle circle is not circle ⊗ circle: the latter realises to the torus, the former to S².
 
 **Uses.**
@@ -5029,7 +5030,7 @@ Acceptance includes the sphere and HA, the free-spectrum counterexample to ident
 
 #### `H.5:spectra/stable-model-structure` — The stable model structure on symmetric spectra
 
-*Theorem.* The category of symmetric spectra of simplicial sets admits a (cofibrantly generated, simplicial) model structure whose weak equivalences are the stable equivalences, whose cofibrations are the projective cofibrations, and whose fibrant objects are the Ω-spectra with Kan levels; there is also the positive projective (and flat) stable model structure with the same weak equivalences. Functorial factorisations give functorial cofibrant and fibrant replacements. Its homotopy category is the stable homotopy category.
+*Theorem.* The category of symmetric spectra of simplicial sets admits a (cofibrantly generated, simplicial) model structure whose weak equivalences are the stable equivalences, whose cofibrations are the projective cofibrations, and whose fibrant objects are the Ω-spectra with Kan levels; there is also the positive projective (and flat) stable model structure with the same weak equivalences. Functorial factorisations (from the small object argument, Mathlib's MorphismProperty.FunctorialFactorizationData; Mathlib's ModelCategory itself only asserts existence) give functorial cofibrant and fibrant replacements. Its homotopy category is the stable homotopy category.
 
 **Hypotheses.**
 
@@ -5056,7 +5057,7 @@ Acceptance includes the sphere and HA, the free-spectrum counterexample to ident
 
 #### `H.5:spectra/stable-homotopy-category` — The stable homotopy category — planet: *Stable homotopy category*
 
-*Construction.* The stable homotopy category SHC is the localisation γ : Sp → SHC of symmetric spectra at the stable equivalences (Mathlib's MorphismProperty.Localization), with hom-sets [X, Y] = homotopy classes of maps from X to a chosen injective Ω-spectrum replacement of Y; a morphism of spectra is a stable equivalence iff γ of it is an isomorphism. SHC is additive (finite sums and products agree), the suspension Σ = S¹ ∧ − is an autoequivalence, and π_k X = [S^k, X].
+*Construction.* The stable homotopy category SHC is the localisation γ : Sp → SHC of symmetric spectra at the stable equivalences (a localisation functor in the sense of Mathlib's Functor.IsLocalization, hence equivalent to MorphismProperty.Localization, whose hom-types lie in a larger universe), with hom-sets [X, Y] = homotopy classes of maps from X to a chosen injective Ω-spectrum replacement of Y; a morphism of spectra is a stable equivalence iff γ of it is an isomorphism. SHC is additive (finite sums and products agree), the suspension Σ = S¹ ∧ − is an autoequivalence, and π_k X = [S^k, X].
 
 **Hypotheses.**
 
@@ -5098,7 +5099,7 @@ Acceptance includes the sphere and HA, the free-spectrum counterexample to ident
 - The functor γ sends F₁S¹ → S to an isomorphism.
 - SHC(S, HA) = A.
 
-**Prerequisites.** `H.5:spectra/stable-equivalence`, `H.5:spectra/stable-model-structure`, `mathlib:CategoryTheory.MorphismProperty.Localization`, `H.5:spectra/finite-biproducts`, `H.5:spectra/true-homotopy-groups`, `H.5:spectra/loop-shift-suspension`.
+**Prerequisites.** `H.5:spectra/stable-equivalence`, `H.5:spectra/stable-model-structure`, `mathlib:CategoryTheory.MorphismProperty.Localization`, `H.5:spectra/finite-biproducts`, `H.5:spectra/true-homotopy-groups`, `H.5:spectra/loop-shift-suspension`, `mathlib:CategoryTheory.Functor.IsLocalization`.
 
 **Sources.**
 
@@ -5378,11 +5379,11 @@ Acceptance includes the sphere and HA, the free-spectrum counterexample to ident
 
 **Acceptance.**
 
-- For p = q = 1 the twist is −1.
-- For p even the twist is the identity.
+- For m = n = 1, α_{1,1}^{−1} ∘ τ̄_{S¹,S¹} ∘ α_{1,1} = −1 on S².
+- For m even (any n), α_{n,m}^{−1} ∘ τ̄_{S^m,S^n} ∘ α_{m,n} is the identity of S^{m+n}.
 - For m = −1, n = 1 the twist on S^{−1} ∧^L S^1 ≅ S^0 is −1.
 
-**Prerequisites.** `H.5:spectra/derived-smash-product`, `H.5:spectra/suspension-spectrum`, `H.5:spectra/true-homotopy-groups`, `H.5:spectra/true-homotopy-pairing`.
+**Prerequisites.** `H.5:spectra/derived-smash-product`, `H.5:spectra/suspension-spectrum`, `H.5:spectra/true-homotopy-groups`, `H.5:spectra/true-homotopy-pairing`, `H.5:spectra/stable-homotopy-category`.
 
 **Sources.**
 
@@ -5410,12 +5411,13 @@ Acceptance includes the sphere and HA, the free-spectrum counterexample to ident
 - `TauCeti.SymmSpectrum.piPairing_comm` (relation): τ_* (x · y) = (−1)^{pq} y · x.
 - `TauCeti.SymmSpectrum.piPairing_unit` (simp): The class 1 ∈ pi S 0 is a two-sided unit.
 - `TauCeti.SymmSpectrum.piPairing_naturality` (functoriality): (f ∧ f′)_*(y · y′) = (−1)^{m′n} f_* y · f′_* y′ for f′ of degree m′ and y ∈ π_n Y (Schwede II (4.12)).
+- `TauCeti.SymmSpectrum.piPairing_comp_psi` (compatibility): For the natural map ψ : Y ∧ᴸ Y′ → Y ∧ Y′ of H.5:spectra/derived-smash-product, ψ_*(x · y) is the point-set product of x and y of H.5:spectra/true-homotopy-pairing (Schwede II p. 253).
 
 **Unit tests.**
 
 - `piPairing_sphere_ring` (computation): pi S * with piPairing is a graded-commutative ring with pi S 0 ≅ ℤ.
-- `piPairing_zero_spectrum` (degenerate): piPairing with the trivial spectrum is zero.
-- `piPairing_HA_HB` (compatibility): For abelian groups A, B, piPairing in degrees (0, 0) for HA, HB sends a ⊗ b to the class of a ∧ b : S ≅ S ∧ S → HA ∧ HB.
+- `piPairing_sphere_unit` (degenerate): For Y = S and the unit 1 ∈ π₀S, x · 1 corresponds to x under X ∧ᴸ S ≅ X (unit isomorphism), for every x ∈ π_p X.
+- `piPairing_iota_iota` (compatibility): For the fundamental class ι₁ ∈ π₁(S¹), ι₁ · ι₁ generates π₂(S¹ ∧ᴸ S¹) ≅ ℤ (because α_{1,1} is an isomorphism), whereas a pairing defined without α_{p,q} or with the wrong sign convention fails this or piPairing_not_commutative.
 - `piPairing_not_commutative` (non-example): piPairing is not commutative without sign: for ι ∈ pi S¹ 1 (S¹ = ΣS), ι · ι = −τ_*(ι · ι).
 
 **Uses.**
@@ -5432,13 +5434,13 @@ Acceptance includes the sphere and HA, the free-spectrum counterexample to ident
 
 **Sources.**
 
-- [Schwede-SymmetricSpectra-2012](https://www.math.uni-bonn.de/~schwede/SymSpec-v3.pdf), Chapter II, Proposition 4.11, p. 252 (PDF 253). Schwede's sign rule for the pairing; the connectivity statement is Proposition 5.22 (p. 264).
+- [Schwede-SymmetricSpectra-2012](https://www.math.uni-bonn.de/~schwede/SymSpec-v3.pdf), Chapter II, Proposition 4.11, p. 252 (PDF 253). Schwede defines the pairing on true homotopy groups of the derived smash product by smashing representatives and precomposing with α (4.13), and proves its sign rule under graded maps (4.12).
 
 **Suggested home.** `TauCeti/AlgebraicTopology/Spectra/Smash`, namespace `TauCeti`.
 
 #### `H.5:spectra/smash-connectivity` — Connectivity of smash products
 
-*Theorem.* If X is (k−1)-connected and Y is (l−1)-connected, then X ∧^L Y is (k+l−1)-connected and the pairing π_k X ⊗ π_l Y → π_{k+l}(X ∧^L Y) of H.5:spectra/homotopy-group-pairing is an isomorphism.
+*Theorem.* For a (k−1)-connected spectrum X and an (l−1)-connected spectrum Y, the derived smash product X ∧^L Y is (k+l−1)-connected, and in the bottom degree k + l the pairing π_k X ⊗ π_l Y → π_{k+l}(X ∧^L Y) of H.5:spectra/homotopy-group-pairing is an isomorphism.
 
 **Hypotheses.**
 
@@ -5740,7 +5742,7 @@ Acceptance includes the sphere and HA, the free-spectrum counterexample to ident
 
 **Construction or proof outline.**
 
-1. Define H as the composite U ∘ L ∘ c ∘ R of Shipley's zig-zag through Sp^Σ(sAb) and Sp^Σ(ch₊) (Shipley §2.2), using Mathlib's Dold–Kan equivalence levelwise for the Sp^Σ(sAb) ↔ Sp^Σ(ch₊) step.
+1. Define H as the composite U ∘ L ∘ c ∘ R of Shipley's zig-zag through Sp^Σ(sAb) and Sp^Σ(ch₊) (Shipley §2.2), where the Sp^Σ(sAb) → Sp^Σ(ch₊) step φ*N applies Mathlib's Dold–Kan normalisation levelwise together with the lax symmetric monoidal (Eilenberg–Zilber shuffle) structure of N and the ring map φ : Sym(ℤ[1]) → N(ℤ̃S), neither of which Mathlib provides at the pin; its left adjoint L is not the levelwise Dold–Kan inverse.
 2. The three adjunctions are Quillen equivalences whose right adjoints preserve all weak equivalences (Shipley Prop. 2.10, proved in Shipley §§3–4 from [SS03b]; packet gap 'Shipley's zig-zag of monoidal Quillen equivalences'), so quasi-isomorphisms go to stable equivalences and D(ℤ) ≃ Ho(HZ-Mod); ℤ may be replaced by any commutative ring (Shipley p. 5).
 
 **API.**
@@ -5786,7 +5788,7 @@ Acceptance includes the sphere and HA, the free-spectrum counterexample to ident
 
 **Construction or proof outline.**
 
-1. The Quillen equivalences give an exact equivalence D(ℤ) ≃ Ho(HZ-Mod) sending ℤ[0] to HZ; π_k(HC) = SHC(S^k, HC) ≅ Ho(HZ-Mod)(Σ^k HZ, HC) ≅ D(ℤ)(ℤ placed in cochain degree −k, C) = H^{−k}(C) (free–forgetful adjunction of H.5:spectra/module-spectra-model-structure; exactness with the cone sign of EnhancedDerivedSheaves:E0/stable-api-and-the-sign-comparison).
+1. The Quillen equivalences give an exact equivalence D(ℤ) ≃ Ho(HZ-Mod) sending ℤ[0] to HZ; π_k(HC) = SHC(S^k, HC) ≅ Ho(HZ-Mod)(Σ^k HZ, HC) ≅ D(ℤ)(ℤ placed in cochain degree −k, C) = H^{−k}(C) (free–forgetful adjunction of H.5:spectra/module-spectra-model-structure; exactness: the triangulation induced by the stable model structure on Ho(Ch(ℤ)) agrees with Mathlib's shift and cone sign on DerivedCategory ℤ (packet gap 'Shipley's zig-zag of monoidal Quillen equivalences'; the dg-nerve analogue is EnhancedDerivedSheaves:E0/stable-api-and-the-sign-comparison)).
 2. H(A[0]) has homotopy A in degree 0, so it is HA by H.5:spectra/eilenberg-maclane-uniqueness.
 
 **Uses.**
@@ -5845,7 +5847,7 @@ Acceptance includes the sphere and HA, the free-spectrum counterexample to ident
 
 1. Construct the cover by cellular approximation of [−, X] on {S^k}_{k≥n} (H.5:spectra/cellular-approximation, Schwede II Prop. 5.14), which is (n−1)-connected by H.5:spectra/connective-generation (Prop. 5.21), and show [A, q_n] bijective for (n−1)-connected A (Theorem 8.1); the section is the cone (Theorem 8.3), using Prop. 5.24.
 2. π_* computations and uniqueness of δ (Schwede II Lemma 5.27).
-3. t-structure and heart: Schwede II Remark 5.26 and Theorem 5.25; instantiate Mathlib's Triangulated.TStructure.
+3. t-structure and heart: Schwede II Remark 5.26 and Theorem 5.25; instantiate Mathlib's Triangulated.TStructure with t.le n = spectra with π_k = 0 for k < −n (the essential image of τ_{≥−n}) and t.ge n = spectra with π_k = 0 for k > −n, so that t.le 0 is the connective spectra.
 
 **API.**
 
@@ -5873,7 +5875,7 @@ Acceptance includes the sphere and HA, the free-spectrum counterexample to ident
 
 **Acceptance.**
 
-- For X = HZ ∨ Σ²HZ ∨ Σ^{−2}HZ, τ_{≥0}X ≅ HZ ∨ Σ²HZ and τ_{≤−1}X ≅ Σ^{−2}HZ (τ_{≥0}KU = ku is checked in StableHomotopyKTheory:KU-spectra, where KU and ku are built).
+- For X = HZ ∨ Σ²HZ ∨ Σ^{−2}HZ, τ_{≥0}X ≅ HZ ∨ Σ²HZ and τ_{≤−1}X ≅ Σ^{−2}HZ (τ_{≥0}KU = ku is checked in RefinedTraceMethods:RT.4:topological, where KU and ku are built).
 - The connective cover of a connective spectrum is itself; P₀ of a connective X is Hπ₀X.
 - The connective cover must not silently erase negative K-groups: τ_{≥0} of nonconnective K-theory loses K_{<0}.
 
@@ -6201,11 +6203,11 @@ Acceptance includes π₂(S/2)=ℤ/4, the extra Tor class in a mod-2 example, a 
 
 #### `H.6/moore-spectrum` — Moore spectra S/m — planet: *Moore spectrum*
 
-*Construction.* For an integer m ≥ 1, the mod-m Moore spectrum S/m is the mapping cone of m : S → S (multiplication by m on the sphere spectrum), with the distinguished triangle S →m S → S/m →δ S¹. It is a connective Moore spectrum for ℤ/m: H₀(S/m; ℤ) = ℤ/m and H_k = 0 otherwise; π₀(S/m) = ℤ/m. S/m is well defined up to (non-unique) isomorphism as a cone of m (TR1, TR3). Every homomorphism ℤ/m → ℤ/m′ is realised by a morphism S/m → S/m′ (the exact sequence (6.42) applied to the defining triangle), uniquely when m′ is odd (the indeterminacy is Ext(ℤ/m, ℤ/m′ ⊗ ℤ/2)); uniqueness of Moore spectra for arbitrary groups (Schwede II Theorem 6.43) needs the spectrum Hurewicz theorem and is not used in this stage.
+*Construction.* For an integer m ≥ 1, the mod-m Moore spectrum S/m is the mapping cone of m : S → S (multiplication by m on the sphere spectrum), with the distinguished triangle S →m S → S/m →δ S¹. It is a connective Moore spectrum for ℤ/m: H₀(S/m; ℤ) = ℤ/m and H_k = 0 otherwise; π₀(S/m) = ℤ/m. S/m is well defined up to (non-unique) isomorphism as a cone of m (TR1, TR3). Every homomorphism ℤ/m → ℤ/m′ is realised by a morphism S/m → S/m′ (the exact sequence (6.42) applied to the defining triangle), uniquely when m or m′ is odd (the indeterminacy is Ext(ℤ/m, ℤ/m′ ⊗ ℤ/2) ≅ ℤ/gcd(2, m, m′)); uniqueness of Moore spectra for arbitrary groups (Schwede II Theorem 6.43) needs the spectrum Hurewicz theorem and is not used in this stage.
 
 **Hypotheses.**
 
-- m ≥ 1; the point-set model is the mapping cone of a representative of m (for example the degree-m self-map of S¹ on level 1 of the free spectrum), well defined up to isomorphism in SHC.
+- m ≥ 1; the point-set model is the mapping cone of a representative of m (for example a degree-m map from a subdivided simplicial circle to a Kan model of S¹, on level 1 of the free spectrum), well defined up to isomorphism in SHC.
 
 **Construction or proof outline.**
 
@@ -6245,7 +6247,7 @@ Acceptance includes π₂(S/2)=ℤ/4, the extra Tor class in a mod-2 example, a 
 
 **Sources.**
 
-- [Schwede-SymmetricSpectra-2012](https://www.math.uni-bonn.de/~schwede/SymSpec-v3.pdf), Chapter II, Definition 6.33, p. 284 (PDF 285); Proposition 6.48, p. 287 (PDF 288). Schwede's Moore spectra and the computation π₂(S/2) = ℤ/4.
+- [Schwede-SymmetricSpectra-2012](https://www.math.uni-bonn.de/~schwede/SymSpec-v3.pdf), Chapter II, Definition 6.33, p. 284 (PDF 285); Construction 6.39, (6.41)–(6.42) and Theorem 6.43, pp. 285–286 (PDF 286–287); Proposition 6.48 and (6.50), pp. 287–288 (PDF 288–289). Schwede's Moore spectra and the computation π₂(S/2) = ℤ/4.
 - [Weibel-KBook-IV](https://www.math.rutgers.edu/~weibel/Kbook/Kbook.IV.pdf), Definition 2.1, p. IV.18. Weibel's space-level Moore spaces P^m(ℤ/ℓ), the unstable analogue.
 
 **Suggested home.** `TauCeti/AlgebraicTopology/Spectra/Coefficients`, namespace `TauCeti`.
@@ -6575,9 +6577,9 @@ Acceptance includes π₂(S/2)=ℤ/4, the extra Tor class in a mod-2 example, a 
 
 **Acceptance.**
 
-- This is the roadmap's acceptance test 'a tower with a nonzero derived-limit obstruction'.
+- This realises the roadmap's acceptance test asking for a tower whose derived-limit obstruction is nonzero.
 
-**Prerequisites.** `H.6/milnor-sequence`, `mathlib:PadicInt`, `ArithmeticGaloisDuality:R02.1/lim-one`, `ArithmeticGaloisDuality:R02.1/lim-one-six-term`.
+**Prerequisites.** `H.6/milnor-sequence`, `mathlib:PadicInt`, `ArithmeticGaloisDuality:R02.1/lim-one`, `ArithmeticGaloisDuality:R02.1/lim-one-six-term`, `mathlib:PadicInt.lift`, `mathlib:PadicInt.toZModPow`.
 
 **Sources.**
 
@@ -6650,7 +6652,7 @@ Acceptance includes π₂(S/2)=ℤ/4, the extra Tor class in a mod-2 example, a 
 
 **Acceptance.**
 
-- Index check: by the formula the Tate module of π_{n−1}(E) contributes to π_n(E; ℤ_ℓ), so the Tate module ℤ_ℓ of K₁(ℂ) = ℂ^× appears in K₂(ℂ; ℤ_ℓ). Weibel's printed example 'K₁(ℂ; ℤ_ℓ) = π₁(K(ℂ); ℤ_ℓ) is ℤ_ℓ' (p. IV.22) is inconsistent with that formula (source issue StableHomotopyKTheory/E2).
+- Index check: by the formula the Tate module of π_{n−1}(E) contributes to π_n(E; ℤ_ℓ), so the Tate module ℤ_ℓ of K₁(ℂ) = ℂ^× appears in K₂(ℂ; ℤ_ℓ). Weibel's example on p. IV.22, which gives ℤ_ℓ for K₁(ℂ; ℤ_ℓ) = π₁(K(ℂ); ℤ_ℓ), is inconsistent with that formula (source issue StableHomotopyKTheory/E2).
 - Exhibit a tower with nonzero lim¹ before replacing completion by an inverse limit (H.6/nonzero-lim-one-example).
 - Keep the Tate module term: completion is not tensoring with ℤ_ℓ in general.
 
@@ -6698,7 +6700,7 @@ Acceptance includes π₂(S/2)=ℤ/4, the extra Tor class in a mod-2 example, a 
 
 **Construction or proof outline.**
 
-1. For a finitely generated abelian group A, Hom(ℤ/p^∞, A) = 0 (A has no divisible p-torsion) and Ext(ℤ/p^∞, A) ≅ A^∧_p ≅ A ⊗ ℤ_p (Mathlib's AdicCompletion.ofTensorProductEquivOfFiniteNoetherian for the Noetherian ring ℤ and the ideal (p), with the identification AdicCompletion (span {p}) ℤ ≃+* ℤ_[p], packet-authored from PadicInt.lift and the kernels of PadicInt.toZModPow, since Mathlib at the pin has no such equivalence).
+1. For a finitely generated abelian group A, Hom(ℤ/p^∞, A) = 0 (A has no divisible p-torsion) and Ext(ℤ/p^∞, A) ≅ A^∧_p ≅ A ⊗ ℤ_p (Mathlib's AdicCompletion.ofTensorProductEquivOfFiniteNoetherian for the Noetherian ring ℤ and the ideal (p), applied to π_k X transported to Type 0 (Shrink or ULift) if the spectra live in a higher universe, with the identification AdicCompletion (span {p}) ℤ ≃+* ℤ_[p], an equivalence Mathlib does not have at the pin (packet gap 'p-adic integers as the (p)-adic completion of ℤ'); it is to be built from PadicInt.lift and PadicInt.toZModPow (Mathlib/NumberTheory/Padics/RingHoms.lean) and PadicInt.maximalIdeal_eq_span_p).
 2. Insert into H.6/completion-ext-hom-sequence.
 
 **Acceptance.**
@@ -6718,7 +6720,7 @@ Acceptance includes π₂(S/2)=ℤ/4, the extra Tor class in a mod-2 example, a 
 
 #### `H.6/p-complete-criteria` — Criteria for p-completeness
 
-*Lemma.* A spectrum E is p-complete (E → E^∧_p an isomorphism) iff the canonical map E → F(S/p^∞, ΣE) is an isomorphism, iff the homotopy limit of ⋯ →p E →p E vanishes. In particular: (a) if a fixed power p^N annihilates π_k E for all k, then E is p-complete; (b) E/p^r is p-complete; (c) fibres, cofibres, retracts and homotopy limits of p-complete spectra are p-complete; (d) a map of p-complete spectra is an equivalence iff it is one after smashing with S/p.
+*Lemma.* A spectrum E is p-complete (the canonical map E → E^∧_p = F(S/p^∞, ΣE) is an isomorphism) iff the homotopy limit of ⋯ →p E →p E vanishes, equivalently iff F(S[1/p], E) = 0. In particular: (a) if a fixed power p^N annihilates π_k E for all k, then E is p-complete; (b) E/p^r is p-complete; (c) fibres, cofibres, retracts, products and homotopy limits of towers of p-complete spectra are p-complete; (d) a map of p-complete spectra is an equivalence iff it is one after smashing with S/p.
 
 **Hypotheses.**
 
@@ -6736,11 +6738,11 @@ Acceptance includes π₂(S/2)=ℤ/4, the extra Tor class in a mod-2 example, a 
 
 - H(ℤ/p^r) is p-complete; S is not (π₀ = ℤ ≠ ℤ_p).
 
-**Prerequisites.** `H.6/p-completion`, `H.6/completion-ext-hom-sequence`, `H.6/milnor-sequence`, `H.5:spectra/sequential-homotopy-colimit`, `H.5:spectra/derived-smash-product`, `H.6/qp-zp-coefficients`, `H.6/moore-spectrum-change-of-coefficients`, `H.5:spectra/triangulated-structure`.
+**Prerequisites.** `H.6/p-completion`, `H.6/completion-ext-hom-sequence`, `H.6/milnor-sequence`, `H.5:spectra/sequential-homotopy-colimit`, `H.5:spectra/derived-smash-product`, `H.6/qp-zp-coefficients`, `H.6/moore-spectrum-change-of-coefficients`, `H.5:spectra/triangulated-structure`, `ArithmeticGaloisDuality:R02.1/mittag-leffler-lim-one`, `H.6/homotopy-limit-of-tower`, `H.6/mod-l-homotopy-and-bockstein-sequence`, `H.5:spectra/shc-products`.
 
 **Sources.**
 
-- [Schwede-SymmetricSpectra-2012](https://www.math.uni-bonn.de/~schwede/SymSpec-v3.pdf), Chapter II, Remark 9.8 and Theorem 9.9, pp. 303–304 (PDF 304–305). Schwede's properties of p-completion; criteria (a)–(d) are derived from them (packet-authored for (a)).
+- [Schwede-SymmetricSpectra-2012](https://www.math.uni-bonn.de/~schwede/SymSpec-v3.pdf), Chapter II, Remark 9.8 and Theorem 9.9, pp. 303–304 (PDF 304–305). Schwede's definition of p-completion and its tower and Ext–Hom descriptions; the holim criterion and (a)–(d) are derived from them by the packet.
 - [Weibel-KBook-IV](https://www.math.rutgers.edu/~weibel/Kbook/Kbook.IV.pdf), 2.9, p. IV.22. Weibel's completion, the setting of the criteria used by the finite-field K-theory roadmap.
 
 **Suggested home.** `TauCeti/AlgebraicTopology/Spectra/Completion`, namespace `TauCeti`.
@@ -6829,7 +6831,7 @@ Acceptance includes π₂(S/2)=ℤ/4, the extra Tor class in a mod-2 example, a 
 
 #### `H.6/arithmetic-fracture-square` — The arithmetic fracture square — planet: *Arithmetic fracture square*
 
-*Theorem.* For every spectrum X the square with X → ∏_p X^∧_p on top, rationalisations vertically, and X_ℚ → (∏_p X^∧_p)_ℚ at the bottom is homotopy cartesian, i.e. there is a distinguished triangle X → X_ℚ ⊕ ∏_p X^∧_p → (∏_p X^∧_p)_ℚ → ΣX; the profinite completion X^∧ = F(S(ℚ/ℤ), ΣX), with S(ℚ/ℤ) := cofibre(S → S_ℚ), is ∏_p X^∧_p. Hence the long exact sequence ⋯ → π_k X → ℚ ⊗ π_k X ⊕ ∏_p π_k(X^∧_p) → ℚ ⊗ ∏_p π_k(X^∧_p) → π_{k−1} X → ⋯. For bounded-below X with finitely generated homotopy groups, π_k(X^∧_p) = π_k X ⊗ ℤ_p and the sequence becomes the arithmetic square of π_k X.
+*Theorem.* For every spectrum X the square with X → ∏_p X^∧_p on top, rationalisations vertically, and X_ℚ → (∏_p X^∧_p)_ℚ at the bottom is homotopy cartesian, i.e. there is a distinguished triangle X → X_ℚ ⊕ ∏_p X^∧_p → (∏_p X^∧_p)_ℚ → ΣX; the profinite completion X^∧ = F(S(ℚ/ℤ), ΣX), with S(ℚ/ℤ) := cofibre(S → S_ℚ), is ∏_p X^∧_p. Hence the long exact sequence ⋯ → π_k X → ℚ ⊗ π_k X ⊕ ∏_p π_k(X^∧_p) → ℚ ⊗ ∏_p π_k(X^∧_p) → π_{k−1} X → ⋯. For X with finitely generated homotopy groups, π_k(X^∧_p) = π_k X ⊗ ℤ_p and the sequence becomes the arithmetic square of π_k X.
 
 **Hypotheses.**
 
@@ -7126,7 +7128,7 @@ Acceptance includes π₂(S/2)=ℤ/4, the extra Tor class in a mod-2 example, a 
 
 #### `H.6/burklund-quotient-tower` — Burklund's towers of E_n-algebra quotients
 
-*Theorem.* (Burklund, Theorem 1.5 with Theorem 5.2.) Let C be a stably E_m-monoidal stable ∞-category with m ≥ 2, I ∈ C and v : I → 1_C such that 1_C/v admits a right unital multiplication. Then for each n ≤ m there is a tower of E_n-algebras and E_n-algebra maps ⋯ → 1_C/v^{n+3} → 1_C/v^{n+2} → 1_C/v^{n+1}, and for each q > n, 1_C/v^q has a v-compatible E_n-algebra structure (Burklund Definition 5.1), unique up to equivalence. In C = Sp the hypothesis holds for v = 4 (S/4 admits a unital multiplication, Burklund Remark 5.7) and for v = p an odd prime (S/p admits a unital multiplication, Burklund p. 1).
+*Theorem.* (Burklund, Theorem 1.5 with Theorem 5.2.) Let C be a stably E_m-monoidal stable ∞-category with m ≥ 2, I ∈ C and v : I → 1_C such that the cofibre 1_C/v carries a right unital multiplication. For every n ≤ m the quotients 1_C/v^q with q ≥ n + 1 then form a tower of E_n-algebras and E_n-algebra maps (… → 1_C/v^{n+2} → 1_C/v^{n+1}), and for each q > n, 1_C/v^q has a v-compatible E_n-algebra structure (Burklund Definition 5.1), unique up to equivalence. In C = Sp the hypothesis holds for v = 4 (S/4 admits a unital multiplication, Burklund Remark 5.7) and for v = p an odd prime (S/p admits a unital multiplication, Burklund p. 1).
 
 **Hypotheses.**
 
@@ -7236,9 +7238,13 @@ A planned layer accounts for its targets through nodes, pinned imports, supplier
 - Kahn's cellular-functor results (2.3.6–2.3.7, requested by ArithmeticKTheory:N.3:finite-generation) are not planned here: they are specific to the rank filtration and stay with that consumer
 - The Reedy model structure on simplicial spaces and Hirschhorn Theorem 18.7.4 (for H.2/realisation-is-homotopy-colimit) and Strøm's product theorem (for H.2/h-cofibration-pushout-product) are quoted (gaps)
 - The stage-text target 'Compare the Kan-simplicial and existing topological homotopy groups' is imported from Tau Ceti AlgebraicTopology stage 8 item 2 (RS-33), not re-planned; its H.2 consumer is the π_*-Kan condition of H.2/bisimplicial-fibration-pi-kan
+- Hurewicz fibrations and relative homotopy lifting for Serre fibrations (gaps)
 
 ### Remaining work in H.3
 
+- Local-coefficient acyclicity of the cell-attachment plus construction (gap)
+- Serre spectral sequence with twisted total-space coefficients (gap)
+- Relative homotopy groups of coverings (gap)
 - Non-abelian-target universal property (gap)
 - General relative plus construction beyond simply connected bases (gap)
 - Base-and-total case of the spectral sequence comparison theorem (gap)
@@ -7259,6 +7265,7 @@ No separate construction: re-export the specifications of the two H.5 children.
 
 - Kan–Quillen model structure, Moore's theorem for simplicial abelian groups, Shipley's zig-zag of monoidal Quillen equivalences, the Bousfield–Friedlander comparison (HSS Thm. 4.3.2), model structures on module spectra, operadic model structures, the infinite loop space machine equivalence and Patel's Picard comparison are quoted (gaps)
 - Homotopy limits of cosimplicial spectra with the Bousfield–Kan spectral sequence and Thomason's descent convergence criteria (requested by SchemeKTheoryOperations:S.4) and presheaves of spectra are not planned in this pass
+- Flat symmetric spectra and the invariance of smashing with them (gap)
 
 ### Remaining work in H.5:S-delooping
 
@@ -7269,10 +7276,11 @@ No separate construction: re-export the specifications of the two H.5 children.
 - Boardman's conditional convergence, Araki–Toda, Peterson's splitting, Browder's scholium, Serre's finiteness of the stable stems and Burklund's proofs are quoted (gaps)
 - The Eilenberg–Moore spectral sequence requested by KTheoryFiniteLocalFields:L.1 is not in H.6's stage text and is not planned here
 - The equivariant rank truncation and derived-completion compatibility requested by KTheoryFiniteLocalFields are not planned here; preservation of fibre sequences and the bounded-exponent completeness criterion are H.6/p-completion and H.6/p-complete-criteria (a)
+- First stable stems and the (p)-adic completion of ℤ (gaps)
 
 ### Recorded gaps
 
-These imports and unresolved proof steps are not claimed as proved. Each entry identifies its consumers and the action needed to close it.
+These imports and unresolved proof steps are not claimed as proved. Each entry identifies its consumers and the quoted or missing input; where a next step is known it is stated.
 
 #### Gap 1: Realisation of products
 
@@ -7288,7 +7296,7 @@ Quillen cites Gabriel–Zisman App. I 3.2, I 1.2 and App. II 3.3 for local trivi
 
 #### Gap 3: Cellular homology with local coefficients
 
-The comparison of cellular and singular homology with local coefficients (Whitehead VI.4.8, cited by Weibel) is needed for H_*(BC; L) ≅ H_*(C; L); Tau Ceti AlgebraicTopology stage 4 plans the constant-coefficient comparison and stage 2 twisted chains. Either stage 4 extends to local systems or a node is added here. The new node H.1/cellular-chains-local-coefficients also needs excision for twisted relative homology (not stated in AlgebraicTopology stage 2 or 3).
+The comparison of cellular and singular homology with local coefficients (Whitehead VI.4.8, cited by Weibel) is needed for H_*(BC; L) ≅ H_*(C; L); Tau Ceti AlgebraicTopology stage 4 plans the constant-coefficient comparison and stage 2 twisted chains. Either stage 4 extends to local systems or a node is added here. The node H.1/cellular-chains-local-coefficients also needs excision for twisted relative homology (not stated in AlgebraicTopology stage 2 or 3).
 
 **Needed by.** `H.1/homology-of-small-categories`, `H.1/cellular-chains-local-coefficients`.
 
@@ -7386,7 +7394,7 @@ Caradus–Clarke–McGibbon–Thomason [CCMT, 1.2] quoted by Weibel IV Theorem 4
 
 Perfectness and normality of the commutator subgroup of Aut(S) = colim Aut(s_n) are taken by Weibel from Bass p. 355; not read. For GL(R) the input is KTheoryLowDegrees:U.1. Calmès et al. (§3.2) cite Randal-Williams 2013, Proposition 3.1 for this instead; check whether it needs a stable-isomorphism condition on complements in the cofinal sequence.
 
-**Needed by.** `H.4/cofinal-sequence-plus-comparison`.
+**Needed by.** .
 
 #### Gap 20: Topological K-theory of ℝ via simplicial rings
 
@@ -7420,7 +7428,7 @@ The product theorem for h-cofibrations (Strøm, Note on cofibrations II, Math. S
 
 #### Gap 25: Spectral sequence comparison theorem: base and total space imply fibre
 
-Hatcher SSAT Prop. 1.12 states the comparison for fibrations with trivial action and proves only the other two cases ('We will not prove the third case'); AT stage 5 plans naturality of the Serre spectral sequence, not Zeeman's comparison theorem (MacLane, Homology; not read). The simply connected special case used by H.3/acyclic-map-homology-criterion has a direct proof in the node.
+Hatcher SSAT Prop. 1.12 states the comparison for fibrations with trivial action and proves only the other two cases, saying explicitly that the third is not proved there; AT stage 5 plans naturality of the Serre spectral sequence, not Zeeman's comparison theorem (MacLane, Homology; not read). The simply connected special case used by H.3/acyclic-map-homology-criterion has a direct proof in the node.
 
 **Needed by.** `H.3/serre-comparison-fibre`.
 
@@ -7484,13 +7492,49 @@ Schwede IV Thm. 1.3 (transfer of the stable model structures to R-modules via th
 
 **Needed by.** `H.5:spectra/module-spectra-model-structure`.
 
+#### Gap 36: p-adic integers as the (p)-adic completion of ℤ
+
+Mathlib at 082e2d3 has IsAdicComplete (maximalIdeal ℤ_[p]) ℤ_[p] and PadicInt.maximalIdeal_eq_span_p but no ring isomorphism AdicCompletion (Ideal.span {p}) ℤ ≃+* ℤ_[p]. It is to be built from PadicInt.lift and the kernels of PadicInt.toZModPow (Mathlib/NumberTheory/Padics/RingHoms.lean), as a lemma node of H.6.
+
+**Needed by.** `H.6/completion-finite-type`.
+
+#### Gap 37: Relative homotopy groups of coverings
+
+Hatcher's proof of Lemma 4.38 (p. 371) uses that a covering projection p : W̃ → W induces isomorphisms π_n(W̃, p⁻¹X) ≅ π_n(W, X) for n ≥ 2 (relative form of Proposition 4.1). Tau Ceti's IsCoveringMap.homotopyGroupMulEquiv covers absolute groups only, AlgebraicTopology stage 8 does not plan the relative case, and in degree 2 it does not follow from the five lemma because π₁ of the cover need not surject. It is to become a lemma node of H.3 (relative homotopy lifting for coverings).
+
+**Needed by.** `H.3/relative-hurewicz-trivial-action`.
+
+#### Gap 38: First stable stems
+
+Several H.6 statements use π₁S ≅ ℤ/2 (generated by η) and π₂S ≅ ℤ/2 (generated by η²): uniqueness of maps between Moore spectra when m or m′ is odd, p·1_{S/p} = 0 for odd p, and π₂(S/2) ≅ ℤ/4 with 2·1_{S/2} = jηδ ≠ 0 (Schwede II Prop. 6.48 and (6.50); Schwede I pp. 12–13 and II Ex. 10.11 for the stems). The Hopf fibration, the Freudenthal suspension theorem and the Steenrod-square argument are planned nowhere. A theorem node H.6/first-stable-stems and a lemma node for π₂(S/2) are to be added.
+
+**Needed by.** `H.6/moore-spectrum`, `H.6/mod-l-homotopy-and-bockstein-sequence`, `H.6/uct-splitting`, `H.6/moore-spectrum-change-of-coefficients`, `H.6/p-completion`.
+
+#### Gap 39: Flat symmetric spectra and invariance of smashing
+
+The derived smash product rests on flat (S-cofibrant) symmetric spectra (Schwede I Def. 5.41, p. 98), on the invariance of A ∧ − for flat A under level equivalences, π̂_*-isomorphisms and stable equivalences (Prop. 5.50, p. 101), on a functorial flat resolution (Construction 5.53, p. 102) and on X ∧ − preserving stable equivalences between flat spectra (Prop. 5.54, p. 103). No node defines flatness or proves these results. They are to become a definition node and two lemma nodes of H.5:spectra.
+
+**Needed by.** `H.5:spectra/derived-smash-product`.
+
+#### Gap 40: Hurewicz fibrations
+
+H.2/mapping-path-space-fibration concludes, and H.2/fibre-to-homotopy-fibre assumes, that a map is a Hurewicz fibration (homotopy lifting for every space), but neither library defines the notion (Tau Ceti AlgebraicTopology stage 5 plans only the Serre carrier, lifting for discs; Mathlib's Topology/Homotopy/Lifting.lean proves the lifting property for covering maps without naming it). A definition node H.2/hurewicz-fibration is to be added, with the implication to the stage-5 Serre carrier, stability under pullback and the covering-map instance (IsCoveringMap.liftHomotopy).
+
+**Needed by.** `H.2/mapping-path-space-fibration`, `H.2/fibre-to-homotopy-fibre`.
+
+#### Gap 41: Relative homotopy lifting for Serre fibrations
+
+The proof of H.2/fibration-relative-homotopy-iso needs that lifting for discs implies lifting relative to the boundary for the cube pairs (I^{n−1}, ∂I^{n−1}). Hatcher (p. 376) gets it from the homeomorphism of pairs (D^k × I, D^k × 0 ∪ ∂D^k × I) ≅ (D^k × I, D^k × 0) without proof, and the cubical homotopy groups also need (I^k, ∂I^k) ≅ (D^k, ∂D^k). Neither library has these homeomorphisms or the relative lifting property, and AlgebraicTopology stage 5 plans only the carrier. It is to become a lemma node of H.2.
+
+**Needed by.** `H.2/fibration-relative-homotopy-iso`.
+
 ## Supplier requests
 
-The following 15 interfaces are requested from their owners. A request is a dependency boundary and does not assert that the supplier has completed the proof.
+The following 14 interfaces are requested from their owners. A request is a dependency boundary and does not assert that the supplier has completed the proof.
 
 ### Request 1: `GeneralAlgebraicKTheory:K.4:construction`
 
-The node GeneralAlgebraicKTheory:K.4/delooping-and-the-spectrum: Waldhausen additivity, the relative S.-fibration and the deloopings |wS^{(n)}C| ≃ Ω|wS^{(n+1)}C| for n ≥ 1, natural in exact functors, on which the assembly of the K-theory symmetric spectrum rests (RS-33; RT-AREA-ktheory-1/4). Its fibration input is H.2/levelwise-fibration-realisation of this packet. The S-delooping nodes also use GeneralAlgebraicKTheory:K.4:construction/waldhausen-categories, /S-construction, /K-theory-space-of-a-waldhausen-category (π₁|wS.C| ≅ K₀(C)) and /iS-versus-Q.
+The node GeneralAlgebraicKTheory:K.4/delooping-and-the-spectrum: Waldhausen additivity, the relative S.-fibration and the deloopings |wS^{(n)}C| ≃ Ω|wS^{(n+1)}C| for n ≥ 1, natural in exact functors, on which the assembly of the K-theory symmetric spectrum rests. Its fibration input is H.2/levelwise-fibration-realisation of this packet. The S-delooping nodes also use GeneralAlgebraicKTheory:K.4:construction/waldhausen-categories, /S-construction, /K-theory-space-of-a-waldhausen-category (π₁|wS.C| ≅ K₀(C)) and /iS-versus-Q.
 
 **Needed by.** `H.5:S-delooping/k-theory-symmetric-spectrum`, `H.5:S-delooping/iterated-S-construction-omega-spectrum`, `H.5:S-delooping/k-theory-spectrum-functoriality`.
 
@@ -7498,37 +7542,37 @@ The node GeneralAlgebraicKTheory:K.4/delooping-and-the-spectrum: Waldhausen addi
 
 The nodes KTheoryLowDegrees:U.1/whitehead-lemma ([GL(A), GL(A)] = E(A)) and KTheoryLowDegrees:U.1/stable-elementary-perfect (E(A) perfect), the perfect normal subgroup for BGL(A)⁺.
 
-**Needed by.** `H.4/gl-telescope-plus-comparison`, `H.4/plus-hspace-block-sum`.
+**Needed by.** `H.3/plus-universal-cover`, `H.4/plus-hspace-block-sum`, `H.4/gl-telescope-plus-comparison`.
 
 ### Request 3: `KTheoryLowDegrees:Z.1`
 
 The node KTheoryLowDegrees:Z.1/free-summand-data: every finitely generated projective module is a direct summand of a finite free module with explicit complement, giving cofinality of F(R) in iso P(R).
 
-**Needed by.** `H.4/cofinality-projective-modules`.
+**Needed by.** `H.4/based-free-module-groupoid`, `H.4/cofinality-projective-modules`.
 
 ### Request 4: `K2SymbolsBrauer:T.1:classical`
 
-The recognition theorem for universal central extensions (K2SymbolsBrauer:T.1/recognition-theorem) and the kernel H₂(P; ℤ) (K2SymbolsBrauer:T.1:classical/uce-kernel-h2), planned there per RT-AREA-ktheory-1/30, with the stage edge T.1:classical → H.3. Also K2SymbolsBrauer:T.1/uce-perfect, K2SymbolsBrauer:T.1:classical/uce-source-superperfect, K2SymbolsBrauer:T.1:classical/uce-lift and K2SymbolsBrauer:T.1:classical/uce-kernel-h2-natural, for groups in Type u (the H.3 statements are universe-polymorphic).
+The recognition theorem for universal central extensions (K2SymbolsBrauer:T.1/recognition-theorem) and the kernel H₂(P; ℤ) (K2SymbolsBrauer:T.1:classical/uce-kernel-h2), with K2SymbolsBrauer:T.1/uce-perfect, K2SymbolsBrauer:T.1:classical/uce-source-superperfect, K2SymbolsBrauer:T.1:classical/uce-lift and K2SymbolsBrauer:T.1:classical/uce-kernel-h2-natural. These nodes are stated for groups in Type 0 (Mathlib's Rep ℤ G needs G : Type 0); the H.3 consumers apply them to π₁ of spaces in an arbitrary universe u, so what is requested is the same six statements for groups in Type u, with integral homology H_n(G; ℤ) taken with ULift ℤ coefficients (or a universe-polymorphic integral group homology) and its comparison with the Type-0 version.
 
-**Needed by.** `H.3/plus-pi2-universal-central-extension`, `H.3/plus-uce-fibration`, `H.3/plus-pi2-natural`.
+**Needed by.** `H.3/plus-pi2-universal-central-extension`, `H.3/plus-pi2-natural`, `H.3/plus-uce-fibration`.
 
 ### Request 5: `ArithmeticGaloisDuality:R02.1`
 
-lim and lim¹ of towers of abelian groups with the six-term sequence and Mittag-Leffler vanishing (ArithmeticGaloisDuality:R02.1/lim-one, R02.1/lim-one-six-term, R02.1/mittag-leffler, R02.1/mittag-leffler-lim-one), plus invariance of lim and lim¹ under pro-isomorphism of towers and their vanishing on pro-zero towers (requested by KTheoryFiniteLocalFields; please add if not yet a node).
+lim and lim¹ of towers of abelian groups with the six-term sequence and Mittag-Leffler vanishing (ArithmeticGaloisDuality:R02.1/lim-one, R02.1/lim-one-six-term, R02.1/mittag-leffler, R02.1/mittag-leffler-lim-one); H.6/p-complete-criteria uses that a tower whose N-fold composites vanish has lim = lim¹ = 0 (it is Mittag-Leffler with zero stable images, R02.1/mittag-leffler-lim-one).
 
-**Needed by.** `H.6/milnor-sequence`, `H.6/nonzero-lim-one-example`, `H.6/l-adic-completion-milnor-sequence`.
+**Needed by.** `H.6/milnor-sequence`, `H.6/nonzero-lim-one-example`, `H.6/l-adic-completion-milnor-sequence`, `H.6/p-complete-criteria`.
 
 ### Request 6: `EnhancedDerivedSheaves:E0`
 
-The abstract stable-category interface (zero object, fibres and cofibres, suspension equivalence, triangulated homotopy category) in particular EnhancedDerivedSheaves:E0/stable-api-and-the-sign-comparison, the cone and shift signs of cochain complexes under which the Eilenberg–Mac Lane functor D(ℤ) → SHC is triangulated; the comparison itself is EnhancedDerivedSheaves:E5:spectra-comparison.
+The abstract stable-category interface (zero object, fibres and cofibres, suspension equivalence, triangulated homotopy category) in particular EnhancedDerivedSheaves:E0/stable-api-and-the-sign-comparison, the cone and shift signs of cochain complexes under which the Eilenberg–Mac Lane functor D(ℤ) → SHC is triangulated; the H.5 node additionally needs the agreement of the model-category triangulation of Ho(Ch(ℤ)) with Mathlib's DerivedCategory ℤ conventions (packet gap).
 
 **Needed by.** `H.5:spectra/eilenberg-maclane-of-chain-complex-homotopy`.
 
 ### Request 7: `EnhancedDerivedSheaves:E5:abstract`
 
-Symmetric monoidal stable ∞-categories and E_n-/E∞-algebras abstractly, used to state Burklund's theorem and the E∞ refinement; the concrete operadic model in symmetric spectra is H.5:spectra/operadic-algebras.
+The little-cubes ∞-operads E_n (Lurie, Higher Algebra §5.1) with E_n-algebras in an E_m-monoidal ∞-category for n ≤ m, and stably E_m-monoidal stable ∞-categories (tensor product exact in each variable), as used to state Burklund's Theorems 1.1–1.5; ∞-operads, algebra objects (E∞ = CAlg) and stable ∞-categories are the existing nodes EnhancedDerivedSheaves:E5:abstract/infinity-operad, /algebra-objects and /stable-infinity-category; the concrete operadic model in symmetric spectra is H.5:spectra/operadic-algebras.
 
-**Needed by.** `H.6/burklund-moore-multiplicative`.
+**Needed by.** `H.6/burklund-quotient-tower`, `H.6/burklund-moore-multiplicative`.
 
 ### Request 8: `tauceti:TauCetiRoadmap/AlgebraicTopology#stage-1-van-kampen-through-the-fundamental-groupoid`
 
@@ -7540,43 +7584,37 @@ Van Kampen for cell attachments (fundamental groupoid colimit theorem and its ba
 
 Relative singular homology and twisted singular chains with local coefficients (item 6), with pullback and naturality, for the comparison H_*(BC; L) ≅ H_*(C; L) and the local-coefficient acyclicity statements.
 
-**Needed by.** `H.1/homology-of-small-categories`, `H.3/acyclic-map-homology-criterion`, `H.3/plus-is-acyclic`.
+**Needed by.** `H.1/cellular-chains-local-coefficients`, `H.1/homology-of-small-categories`, `H.3/twisted-homology-via-cover`, `H.3/acyclic-map-homology-criterion`, `H.3/plus-is-acyclic`, `H.3/serre-class-fibration`.
 
-### Request 10: `tauceti:TauCetiRoadmap/AlgebraicTopology#stage-3-subdivision-excision-and-mayer--vietoris`
-
-Excision for CW pairs, used in the homology computation of the plus construction.
-
-**Needed by.** `H.3/plus-integral-homology`.
-
-### Request 11: `tauceti:TauCetiRoadmap/AlgebraicTopology#stage-4-cw-pairs-cellular-homology-and-cofibrations`
+### Request 10: `tauceti:TauCetiRoadmap/AlgebraicTopology#stage-4-cw-pairs-cellular-homology-and-cofibrations`
 
 CW pairs, cellular homology and its comparison with singular homology (also with local coefficients), cofibrations and homotopy extension, mapping cylinders, cellular approximation, and the skeletal-filtration exact couple, of which H.6/exact-couple is the generic notion. Also: a categorical TopCat.CWComplex gives a classical Topology.CWComplex with the same cells (Mathlib TODO in Topology/CWComplex/Abstract/Basic.lean); compact subsets of a CW complex lie in finite subcomplexes; CW complexes are locally contractible (Hatcher Props. A.1, A.4).
 
-**Needed by.** `H.1/classifying-space-cw-structure`, `H.3/obstruction-lifting`, `H.6/atiyah-hirzebruch-spectral-sequence`, `H.1/filtered-colimits-of-categories`, `H.1/coverings-fundamental-group-local-coefficients`.
+**Needed by.** `H.1/classifying-space-cw-structure`, `H.1/cellular-chains-local-coefficients`, `H.1/homology-of-small-categories`, `H.2/proper-simplicial-space`, `H.2/gluing-lemma`, `H.2/h-cofibration-pushout-product`, `H.3/plus-construction-by-cell-attachment`, `H.3/plus-fundamental-group`, `H.3/plus-integral-homology`, `H.3/plus-is-acyclic`, `H.3/eilenberg-maclane-space`, `H.3/relative-hurewicz-trivial-action`, `H.3/principal-fibration-criterion`, `H.3/cohomology-representability`, `H.3/postnikov-principal-fibrations`, `H.3/obstruction-lifting`, `H.3/abelian-extension-corollary`, `H.3/abelian-homology-whitehead`, `H.3/plus-construction-universal-property`, `H.3/serre-class-theorem`, `H.4/classifying-space-hspace`, `H.6/exact-couple`, `H.6/atiyah-hirzebruch-spectral-sequence`.
 
-### Request 12: `tauceti:TauCetiRoadmap/AlgebraicTopology#stage-5-bundles-covers-products-and-finite-cover-descent`
+### Request 11: `tauceti:TauCetiRoadmap/AlgebraicTopology#stage-5-bundles-covers-products-and-finite-cover-descent`
 
 The Serre-fibration carrier with its pullback and map APIs, and the homology Serre spectral sequence with monodromy local system H_q(F; R) and its naturality under maps of fibrations.
 
-**Needed by.** `H.2/mapping-path-space-fibration`, `H.3/acyclic-space-perfect-fundamental-group`, `H.3/serre-class-theorem`.
+**Needed by.** `H.2/mapping-path-space-fibration`, `H.2/fibration-relative-homotopy-iso`, `H.2/fibre-to-homotopy-fibre`, `H.2/homotopy-pullback`, `H.3/acyclic-space-perfect-fundamental-group`, `H.3/serre-comparison-fibre`, `H.3/acyclic-map-homology-criterion`, `H.3/plus-relative-fibre-comparison`, `H.3/serre-class-fibration`, `H.3/serre-class-eilenberg-maclane`, `H.3/serre-class-theorem`, `H.3/rational-hurewicz-hspace`, `H.4/plus-of-product`.
 
-### Request 13: `tauceti:TauCetiRoadmap/AlgebraicTopology#stage-6-cohomology-products-and-manifold-duality`
+### Request 12: `tauceti:TauCetiRoadmap/AlgebraicTopology#stage-6-cohomology-products-and-manifold-duality`
 
 Singular cohomology of spaces, for the representability H^n(X; G) ≅ [X, K(G, n)] and its spectrum form.
 
-**Needed by.** `H.3/cohomology-representability`, `H.5:spectra/eilenberg-maclane-cohomology`.
+**Needed by.** `H.3/cohomology-representability`, `H.3/abelian-homology-whitehead`, `H.3/plus-construction-universal-property`, `H.3/rational-hurewicz-hspace`, `H.5:spectra/eilenberg-maclane-cohomology`.
 
-### Request 14: `tauceti:TauCetiRoadmap/AlgebraicTopology#stage-8-relative-homotopy-hurewicz-and-whitehead`
+### Request 13: `tauceti:TauCetiRoadmap/AlgebraicTopology#stage-8-relative-homotopy-hurewicz-and-whitehead`
 
 Based pairs and their long exact sequence of relative homotopy groups, Kan homotopy groups with the comparison to cubical homotopy groups, the Hurewicz and relative Hurewicz theorems (simply connected relative case; the trivial-action case with non-simply-connected A is H.3/relative-hurewicz-trivial-action), and Whitehead's theorem for CW complexes and spaces of CW type. Relative homotopy groups π_n(X, A, a₀) and the based-pair long exact sequence are needed for arbitrary subspaces A (the fibre of a Serre or path-space fibration, p⁻¹(b) ⊆ E, excisive-triad pairs), not only NDR pairs; and the Kan homotopy groups enter the π_*-Kan condition of H.2/bisimplicial-fibration-pi-kan.
 
-**Needed by.** `H.2/long-exact-sequence`, `H.3/abelian-homology-whitehead`, `H.1/filtered-colimit-homotopy-equivalence`, `H.2/fibration-relative-homotopy-iso`, `H.2/excisive-triad-homotopy-comparison`, `H.2/bisimplicial-fibration-pi-kan`.
+**Needed by.** `H.1/filtered-colimit-homotopy-equivalence`, `H.2/weak-homotopy-equivalence`, `H.2/fibration-relative-homotopy-iso`, `H.2/fibre-to-homotopy-fibre`, `H.2/long-exact-sequence`, `H.2/quasi-fibration`, `H.2/excisive-triad-homotopy-comparison`, `H.2/dold-lashof-criteria`, `H.2/dold-lashof-deformation`, `H.2/levelwise-equivalence-theorem`, `H.2/bisimplicial-fibration-pi-kan`, `H.3/acyclic-pi1-iso-weak-equivalence`, `H.3/plus-construction-by-cell-attachment`, `H.3/eilenberg-maclane-space`, `H.3/relative-hurewicz-trivial-action`, `H.3/principal-fibration-criterion`, `H.3/postnikov-limit-weak-equivalence`, `H.3/abelian-extension-corollary`, `H.3/abelian-homology-whitehead`, `H.3/plus-construction-uniqueness`, `H.3/plus-uce-fibration`, `H.3/serre-class-theorem`, `H.3/rational-hurewicz-hspace`, `H.4/invertible-action-equivalence`.
 
-### Request 15: `tauceti:TauCetiRoadmap/UniversalCovers#stage-2-lifting-criterion-and-galois-correspondence`
+### Request 14: `tauceti:TauCetiRoadmap/UniversalCovers#stage-2-lifting-criterion-and-galois-correspondence`
 
 Covering-space lifting and classification for the comparison of coverings of BC with morphism-inverting functors and for the covering X_P of the plus construction.
 
-**Needed by.** `H.1/coverings-fundamental-group-local-coefficients`, `H.3/plus-construction-by-cell-attachment`.
+**Needed by.** `H.1/fundamental-groupoid-localization`, `H.3/twisted-homology-via-cover`, `H.3/acyclic-map-homology-criterion`, `H.3/plus-construction-by-cell-attachment`, `H.3/plus-is-acyclic`, `H.3/relative-hurewicz-trivial-action`.
 
 ## Atlas structure and upstream interfaces
 
@@ -7600,33 +7638,33 @@ These concern existing Tau Ceti plans and are not changes to those plans.
 
 The statements below are imported. Their files and actual signatures were checked at the pinned commits; they are not new nodes of this roadmap.
 
-- `mathlib:AddSubgroup.torsionBy` (def; `Mathlib/Algebra/Module/Torsion/Basic.lean`): The m-torsion subgroup A[m] of an additive group.
-- `mathlib:AdicCompletion.ofTensorProductEquivOfFiniteNoetherian` (def; `Mathlib/RingTheory/AdicCompletion/AsTensorProduct.lean`): For a finite module M over a Noetherian ring, AdicCompletion I R ⊗ M ≃ AdicCompletion I M.
+- `mathlib:AddSubgroup.torsionBy` (def; `Mathlib/Algebra/Module/Torsion/Basic.lean`): The n-torsion subgroup A[n] = {a | n • a = 0} of an additive commutative group A, for n : ℤ (scoped notation A[n]); for n : ℕ it is a ZMod n-module (torsionBy.zmodModule).
+- `mathlib:AdicCompletion.ofTensorProductEquivOfFiniteNoetherian` (def; `Mathlib/RingTheory/AdicCompletion/AsTensorProduct.lean`): For a Noetherian commutative ring R : Type u, an ideal I and a finite R-module M : Type u (same universe as R), the natural map is an AdicCompletion I R-linear equivalence AdicCompletion I R ⊗[R] M ≃ AdicCompletion I M.
 - `mathlib:Algebra.GrothendieckGroup` (abbrev; `Mathlib/GroupTheory/MonoidLocalization/GrothendieckGroup.lean`): The Grothendieck group of a commutative monoid, Localization ⊤, with of and the universal property lift.
 - `mathlib:Algebra.GrothendieckGroup.lift` (def; `Mathlib/GroupTheory/MonoidLocalization/GrothendieckGroup.lean`): Universal property: (M →* G) ≃ (GrothendieckGroup M →* G) for a commutative group G.
-- `mathlib:AlgebraicTopology.singularHomologyFunctor` (def; `Mathlib/AlgebraicTopology/SingularHomology/Basic.lean`): Singular homology C ⥤ TopCat ⥤ C in degree n, for coefficients in a category with homology.
+- `mathlib:AlgebraicTopology.singularHomologyFunctor` (def; `Mathlib/AlgebraicTopology/SingularHomology/Basic.lean`): Singular homology in degree n, C ⥤ TopCat.{w} ⥤ C, for a preadditive category C with coproducts of size w and CategoryWithHomology.
 - `mathlib:CategoryTheory.Abelian.DoldKan.equivalence` (def; `Mathlib/AlgebraicTopology/DoldKan/Equivalence.lean`): The Dold–Kan equivalence SimplicialObject A ≌ ChainComplex A ℕ for abelian A.
-- `mathlib:CategoryTheory.Abelian.SpectralObject` (structure; `Mathlib/Algebra/Homology/SpectralObject/Basic.lean`): Spectral objects in an abelian category, with pages, differentials and the induced spectral sequences (E₂ homological, first quadrant).
+- `mathlib:CategoryTheory.Abelian.SpectralObject` (structure; `Mathlib/Algebra/Homology/SpectralObject/Basic.lean`): Spectral objects in an abelian category indexed by a category ι (cohomological: H^n on arrows, δ : H^n → H^{n+1}). In SpectralObject/SpectralSequence.lean, Abelian.SpectralObject.spectralSequence is defined for any SpectralSequenceDataCore satisfying HasSpectralSequence. For ι = EInt it gives the E₂ cohomological spectral sequence on ℤ × ℤ, plus ℕ × ℕ versions under IsFirstQuadrant (cohomological) or IsThirdQuadrant (E₂HomologicalSpectralSequenceNat). There is no convergence or abutment API.
 - `mathlib:CategoryTheory.Core` (structure; `Mathlib/CategoryTheory/Core.lean`): The core of a category: the groupoid with the same objects and only the isomorphisms.
 - `mathlib:CategoryTheory.CostructuredArrow` (def; `Mathlib/CategoryTheory/Comma/StructuredArrow/Basic.lean`): The comma category F/d of pairs (c, F c ⟶ d) (costructured arrows).
 - `mathlib:CategoryTheory.Functor.IsMittagLeffler` (def; `Mathlib/CategoryTheory/CofilteredSystem.lean`): The Mittag-Leffler condition for cofiltered systems of sets.
 - `mathlib:CategoryTheory.Functor.IsPreFibered` (class; `Mathlib/CategoryTheory/FiberedCategory/Fibered.lean`): SGA 1 VI.6.1 prefibered functor: every arrow into the image of an object has a cartesian lift.
 - `mathlib:CategoryTheory.Grothendieck` (structure; `Mathlib/CategoryTheory/Grothendieck.lean`): The Grothendieck construction ∫ F of a functor F : C ⥤ Cat, with its projection to C.
 - `mathlib:CategoryTheory.IsTriangulated` (class; `Mathlib/CategoryTheory/Triangulated/Triangulated.lean`): Triangulated categories: pretriangulated categories satisfying the octahedral axiom.
-- `mathlib:CategoryTheory.MorphismProperty.Localization` (def; `Mathlib/CategoryTheory/Localization/Construction.lean`): The localisation of a category at a class of morphisms, with its universal property.
-- `mathlib:CategoryTheory.Pretriangulated` (class; `Mathlib/CategoryTheory/Triangulated/Pretriangulated.lean`): Pretriangulated categories: shift, distinguished triangles and the axioms TR1–TR4 minus the octahedron.
+- `mathlib:CategoryTheory.MorphismProperty.Localization` (def; `Mathlib/CategoryTheory/Localization/Construction.lean`): The constructed localisation W.Localization with Q : C ⥤ W.Localization and its universal property (lift, fac, uniq). For C : Type u with Category.{v}, its hom-types are in Type (max u v), not Type v. A concrete model with small hom-sets is related to it through Functor.IsLocalization.
+- `mathlib:CategoryTheory.Pretriangulated` (class; `Mathlib/CategoryTheory/Triangulated/Pretriangulated.lean`): Pretriangulated structure on a preadditive category with a zero object and an additive ℤ-shift (HasShift C ℤ): a class of distinguished triangles X ⟶ Y ⟶ Z ⟶ X⟦1⟧ satisfying TR1–TR3 (rotation with sign −f⟦1⟧); the octahedral axiom TR4 is IsTriangulated.
 - `mathlib:CategoryTheory.SimplicialObject` (abbrev; `Mathlib/AlgebraicTopology/SimplicialObject/Basic.lean`): Simplicial objects SimplexCategoryᵒᵖ ⥤ C; with C = SSet these are bisimplicial sets, with C = TopCat simplicial spaces.
 - `mathlib:CategoryTheory.SpectralSequence` (structure; `Mathlib/Algebra/Homology/SpectralSequence/Basic.lean`): Spectral sequences: pages of complexes with the identification of homology with the next page (no convergence theory).
 - `mathlib:CategoryTheory.StructuredArrow` (def; `Mathlib/CategoryTheory/Comma/StructuredArrow/Basic.lean`): The comma category d\F of pairs (c, d ⟶ F c) (structured arrows).
 - `mathlib:CategoryTheory.SymmetricCategory` (class; `Mathlib/CategoryTheory/Monoidal/Braided/Basic.lean`): Symmetric monoidal categories: braided monoidal categories whose braiding is involutive.
 - `mathlib:CategoryTheory.Triangulated.SpectralObject` (structure; `Mathlib/CategoryTheory/Triangulated/SpectralObject.lean`): Spectral objects in a triangulated category; mapHomologicalFunctor turns them into abelian spectral objects.
-- `mathlib:CategoryTheory.Triangulated.SpectralObject.mapHomologicalFunctor` (def; `Mathlib/CategoryTheory/Triangulated/SpectralObject.lean`): A homological functor sends a triangulated spectral object to a spectral object in an abelian category.
-- `mathlib:CategoryTheory.Triangulated.TStructure` (structure; `Mathlib/CategoryTheory/Triangulated/TStructure/Basic.lean`): t-structures on a pretriangulated category.
-- `mathlib:CategoryTheory.nerve` (def; `Mathlib/AlgebraicTopology/SimplicialSet/Nerve.lean`): The nerve of a category: n-simplices are functors Fin (n+1) ⥤ C, i.e. strings of n composable arrows.
-- `mathlib:CategoryTheory.nerveFunctor` (def; `Mathlib/AlgebraicTopology/SimplicialSet/Nerve.lean`): The nerve as a functor Cat ⥤ SSet.
-- `mathlib:CategoryTheory.nerveMap` (def; `Mathlib/AlgebraicTopology/SimplicialSet/Nerve.lean`): The simplicial map nerve C ⟶ nerve D induced by a functor C ⥤ D.
+- `mathlib:CategoryTheory.Triangulated.SpectralObject.mapHomologicalFunctor` (def; `Mathlib/CategoryTheory/Triangulated/SpectralObject.lean`): For a homological functor F : C ⥤ A with a shift sequence (F.ShiftSequence ℤ; the tautological one always exists), sends a spectral object X of C to the abelian spectral object with H^n = X.ω₁ ⋙ F.shift n (so H^n(i ≤ j) ≅ F(ω₁(i ≤ j)⟦n⟧)) and δ the connecting maps of F's homology sequence.
+- `mathlib:CategoryTheory.Triangulated.TStructure` (structure; `Mathlib/CategoryTheory/Triangulated/TStructure/Basic.lean`): The type of t-structures on a pretriangulated category, in cohomological indexing: subcategories le n and ge n with Hom(le 0, ge 1) = 0, X ∈ le n ⇒ X⟦a⟧ ∈ le (n − a), and truncation triangles. The abelian heart is still a TODO at the pin.
+- `mathlib:CategoryTheory.nerve` (def; `Mathlib/AlgebraicTopology/SimplicialSet/Nerve.lean`): The nerve of a category C : Type u with Category.{v}, as an SSet.{max u v}: n-simplices are ComposableArrows C n = (Fin (n+1) ⥤ C), i.e. strings of n composable arrows, with face i deleting vertex i.
+- `mathlib:CategoryTheory.nerveFunctor` (def; `Mathlib/AlgebraicTopology/SimplicialSet/Nerve.lean`): The nerve as a functor Cat.{v, u} ⥤ SSet.{max u v}; on Cat.{u, u} it lands in SSet.{u}.
+- `mathlib:CategoryTheory.nerveMap` (def; `Mathlib/AlgebraicTopology/SimplicialSet/Nerve.lean`): The simplicial map nerve C ⟶ nerve D induced by a functor F : C ⥤ D between categories with the same object universe u and the same morphism universe v (C D : Type u, Category.{v}).
 - `mathlib:ContinuousMap.HomotopyEquiv` (structure; `Mathlib/Topology/Homotopy/Equiv.lean`): Homotopy equivalences between topological spaces, with refl, symm, trans.
-- `mathlib:DerivedCategory` (def; `Mathlib/Algebra/Homology/DerivedCategory/Basic.lean`): The derived category of an abelian category, as a localisation of cochain complexes at quasi-isomorphisms.
+- `mathlib:DerivedCategory` (def; `Mathlib/Algebra/Homology/DerivedCategory/Basic.lean`): The derived category of an abelian category C, the localisation of CochainComplex C ℤ at quasi-isomorphisms, given a choice [HasDerivedCategory.{w} C] with morphisms in Type w (HasDerivedCategory.standard gives w = max u v); it carries Mathlib's shift and triangulated structure.
 - `mathlib:Group.IsPerfect` (class; `Mathlib/GroupTheory/IsPerfect.lean`): A group is perfect if its commutator subgroup is ⊤.
 - `mathlib:HSpace` (class; `Mathlib/Topology/Homotopy/HSpaces.lean`): H-space structure: a continuous multiplication with a two-sided unit up to homotopy relative to the unit (no associativity or inverses).
 - `mathlib:HomotopicalAlgebra.ModelCategory` (class; `Mathlib/AlgebraicTopology/ModelCategory/Basic.lean`): Model categories (CM1–CM5) with fibrations, cofibrations and weak equivalences.
@@ -7642,14 +7680,14 @@ The statements below are imported. Their files and actual signatures were checke
 - `mathlib:Topology.RelCWComplex.closedCell` (def; `Mathlib/Topology/CWComplex/Classical/Basic.lean`): Closed cells of a classical (relative) CW complex structure (classes Topology.RelCWComplex and Topology.CWComplex: characteristic maps, closure finiteness, weak topology).
 - `mathlib:groupHomology` (def; `Mathlib/RepresentationTheory/Homological/GroupHomology/Basic.lean`): Group homology H_n(G, A) of a representation, defined as the homology of the inhomogeneous chain complex.
 - `mathlib:sSetTopAdj` (def; `Mathlib/AlgebraicTopology/SingularSet.lean`): The adjunction SSet.toTop ⊣ TopCat.toSSet between realisation and the singular simplicial set.
-- `tauceti:HomotopyGroup.mapHom` (def; `TauCeti/Topology/Homotopy/HomotopyGroup/Map.lean`): The group homomorphism on homotopy groups induced by a based continuous map, with mapHom_id and mapHom_comp.
+- `tauceti:HomotopyGroup.mapHom` (def; `TauCeti/Topology/Homotopy/HomotopyGroup/Map.lean`): The monoid homomorphism HomotopyGroup N X x →* HomotopyGroup N Y y induced by a based continuous map, for a nonempty index type N with decidable equality (positive dimensions; the underlying function HomotopyGroup.map exists in every dimension), with mapHom_id and mapHom_comp.
 - `tauceti:HomotopyGroup.pathLoopSpaceMulEquiv` (def; `TauCeti/Topology/Homotopy/HomotopyGroup/LoopSpace.lean`): The loop-space shift π_(m+1)(Ω X x) ≃* π_(m+2) X x.
 - `tauceti:IsCoveringMap.homotopyGroupMulEquiv` (def; `TauCeti/Topology/Homotopy/HomotopyGroup/Covering.lean`): A covering map p induces group isomorphisms HomotopyGroup N E e ≃* HomotopyGroup N X (p e) whenever the index type N is nontrivial (π_n for n ≥ 2).
 - `tauceti:TauCeti.LocalCoefficientSystem` (abbrev; `TauCeti/AlgebraicTopology/LocalCoefficient.lean`): A local coefficient system on a space: a functor from Mathlib's fundamental groupoid to ModuleCat R, with pullback, transport and monodromy.
-- `tauceti:TauCeti.SplitK0.grothendieckAddGroupEquiv` (def; `TauCeti/CategoryTheory/GrothendieckGroup/Split.lean`): Split K₀ of an additive category is the Grothendieck group of the monoid of isomorphism classes under biproduct.
-- `tauceti:TauCeti.fundamentalGroupMulAut` (def; `TauCeti/Topology/Homotopy/HomotopyGroup/FundamentalGroupAction.lean`): The action FundamentalGroup X x →* MulAut (HomotopyGroup N X x) of π₁ on π_n.
-- `tauceti:TauCeti.homotopyGroupMulEquivOfPath` (def; `TauCeti/Topology/Homotopy/HomotopyGroup/BasepointChange.lean`): Change of basepoint along a path: HomotopyGroup N X x ≃* HomotopyGroup N X y, depending only on the path class.
-- `tauceti:TauCeti.IsEilenbergMacLaneSpaceOne` (def; `TauCeti/AlgebraicTopology/EilenbergMacLane/Basic.lean`): The K(G,1) predicate on a based space: IsAspherical X x (path-connected, π_n = 0 for n ≥ 2) and FundamentalGroup X x ≃* G, with basepoint independence, products and homotopy invariance.
+- `tauceti:TauCeti.SplitK0.grothendieckAddGroupEquiv` (def; `TauCeti/CategoryTheory/GrothendieckGroup/Split.lean`): For an essentially small category with zero morphisms, a zero object and binary biproducts (for example an essentially small additive category), Algebra.GrothendieckAddGroup (ObjectCode C) ≃+ SplitK0 C: split K₀ is the group completion of the monoid of isomorphism classes under biproduct.
+- `tauceti:TauCeti.fundamentalGroupMulAut` (def; `TauCeti/Topology/Homotopy/HomotopyGroup/FundamentalGroupAction.lean`): The action fundamentalGroupMulAut N x : FundamentalGroup X x →* MulAut (HomotopyGroup N X x) of π₁ on π_n, for a finite nonempty index type N with decidable equality (positive dimensions); in dimension 1 it is conjugation (congr_fundamentalGroupMulAut_piOne).
+- `tauceti:TauCeti.homotopyGroupMulEquivOfPath` (def; `TauCeti/Topology/Homotopy/HomotopyGroup/BasepointChange.lean`): Change of basepoint along a path: HomotopyGroup N X x ≃* HomotopyGroup N X y for a finite nonempty index type N with decidable equality, depending only on the path class (homotopyGroupMulEquivOfPath_congr); in dimension 0 the bijection homotopyGroupEquivOfPath.
+- `tauceti:TauCeti.IsEilenbergMacLaneSpaceOne` (def; `TauCeti/AlgebraicTopology/EilenbergMacLane/Basic.lean`): The K(G,1) predicate on a based space: IsAspherical X x (path-connected, π_n = 0 for n ≥ 2) and Nonempty (FundamentalGroup X x ≃* G), with basepoint independence and products; homotopy invariance is IsEilenbergMacLaneSpaceOne.of_homotopyEquiv in TauCeti/AlgebraicTopology/EilenbergMacLane/HomotopyEquiv.lean.
 - `mathlib:SSet.relativeCellComplex` (abbrev; `Mathlib/AlgebraicTopology/SimplicialSet/Skeleton.lean`): A simplicial set X is a relative cell complex for the boundary inclusions ∂Δ[n] → Δ[n], with one cell for each nondegenerate simplex (relativeCellComplexCellsEquiv).
 - `mathlib:TopCat.CWComplex` (abbrev; `Mathlib/Topology/CWComplex/Abstract/Basic.lean`): Categorical CW complexes: iterated pushouts of the disk boundary inclusions ∂𝔻ⁿ → 𝔻ⁿ in TopCat (comparison with the classical notion is a Mathlib TODO).
 - `mathlib:TopCat.diskBoundaryInclusion` (def; `Mathlib/Topology/Category/TopCat/Sphere.lean`): The inclusion ∂𝔻 n ⟶ 𝔻 n of the boundary sphere into the closed disk, in TopCat.
@@ -7688,10 +7726,31 @@ The statements below are imported. Their files and actual signatures were checke
 - `mathlib:Matrix.fromBlocks` (def; `Mathlib/Data/Matrix/Block.lean`): The block matrix with blocks A, B, C, D.
 - `mathlib:finSumFinEquiv` (def; `Mathlib/Logic/Equiv/Fin/Basic.lean`): The equivalence Fin m ⊕ Fin n ≃ Fin (m + n).
 - `mathlib:Matrix.vecMulLinear` (abbrev; `Mathlib/LinearAlgebra/Matrix/ToLin.lean`): The left R-linear map (m → R) → (n → R), v ↦ v ᵥ* M, of a matrix acting on row vectors.
+- `mathlib:CategoryTheory.Functor.IsLocalization` (class; `Mathlib/CategoryTheory/Localization/Predicate.lean`): The predicate that a functor L : C ⥤ D inverts W and identifies D with the localisation of C at W (the induced functor from W.Localization is an equivalence).
+- `mathlib:CategoryTheory.Functor.core` (def; `Mathlib/CategoryTheory/Core.lean`): The functor F.core : Core C ⥤ Core D induced by F : C ⥤ D on maximal subgroupoids (with Functor.coreComp for composites).
+- `mathlib:CategoryTheory.MorphismProperty.IsStableUnderBraiding` (class; `Mathlib/CategoryTheory/Monoidal/Widesubcategory.lean`): A monoidal-stable morphism property of a braided monoidal category that contains the braiding isomorphisms and their inverses (so that the wide subcategory is braided).
+- `mathlib:HomotopyCategory.spectralObjectMappingCone` (def; `Mathlib/Algebra/Homology/HomotopyCategory/SpectralObject.lean`): The triangulated spectral object in HomotopyCategory C (up ℤ) indexed by CochainComplex C ℤ, sending composable arrows to their images and δ to the connecting map of the mapping-cone triangle.
+- `mathlib:HomotopyGroup.pi0EquivZerothHomotopy` (def; `Mathlib/Topology/Homotopy/HomotopyGroup.lean`): The bijection π_ 0 X x ≃ ZerothHomotopy X between the zeroth cubical homotopy set and the path components.
+- `mathlib:HomotopyGroup.pi1EquivFundamentalGroup` (def; `Mathlib/Topology/Homotopy/HomotopyGroup.lean`): The bijection π_ 1 X x ≃ FundamentalGroup X x (the multiplicative version is HomotopyGroup.pi1MulEquivFundamentalGroup).
+- `mathlib:PadicInt.lift` (def; `Mathlib/NumberTheory/Padics/RingHoms.lean`): For a compatible family of ring homomorphisms R →+* ZMod (p^k), the induced ring homomorphism R →+* ℤ_[p] (limit of the family).
+- `mathlib:PadicInt.toZModPow` (def; `Mathlib/NumberTheory/Padics/RingHoms.lean`): The reduction ring homomorphism ℤ_[p] →+* ZMod (p^n).
+- `mathlib:Path.Homotopy` (abbrev; `Mathlib/Topology/Homotopy/Path.lean`): Homotopies of paths relative to their endpoints, with the groupoid laws of concatenation up to such homotopy (reflTrans, transAssoc and their relatives).
+- `mathlib:SSet.Subcomplex.MulticoequalizerDiagram.isColimit` (def; `Mathlib/AlgebraicTopology/SimplicialSet/SubcomplexColimits.lean`): A multicoequaliser diagram in the lattice of subcomplexes of a simplicial set gives a colimit multicofork in SSet.
+- `mathlib:SSet.boundary_eq_iSup` (theorem; `Mathlib/AlgebraicTopology/SimplicialSet/Boundary.lean`): The boundary ∂Δ[n] is the supremum of the faces of Δ[n] opposite to the vertices i : Fin (n + 1).
+- `mathlib:SSet.homology` (abbrev; `Mathlib/AlgebraicTopology/SimplicialSet/Homology/Basic.lean`): The homology in degree n of the simplicial chain complex X.chainComplex R of a simplicial set, with coefficients R in a category with homology.
+- `mathlib:TopCat.singularHomology₀Iso` (def; `Mathlib/AlgebraicTopology/SingularHomology/HomologyZero.lean`): Singular homology in degree 0 of X : TopCat with coefficients R is the coproduct of copies of R indexed by ZerothHomotopy X.
+- `mathlib:exists_homeomorph_image_interior_closure_frontier_eq_unitBall` (theorem; `Mathlib/Analysis/Convex/GaugeRescale.lean`): For a convex bounded set s with nonempty interior in a real normed space E there is a homeomorphism E ≃ₜ E sending interior s, closure s and frontier s to the open unit ball, the closed unit ball and the unit sphere.
+- `tauceti:HomotopyGroup.map_eq_of_homotopicRel` (theorem; `TauCeti/Topology/Homotopy/HomotopyGroup/Homotopy.lean`): Maps homotopic relative to a set containing the basepoint induce the same function on HomotopyGroup N.
+- `tauceti:HomotopyGroup.zerothHomotopyLoopSpaceEquivFundamentalGroup` (def; `TauCeti/Topology/Homotopy/HomotopyGroup/LoopSpace.lean`): The bijection ZerothHomotopy (Ω X x) ≃ FundamentalGroup X x (path components of the loop space are homotopy classes of loops).
+- `tauceti:TauCeti.CoveringSpace` (abbrev; `TauCeti/Topology/Covering/Category.lean`): The category of covering spaces of X : TopCat, the full subcategory of Over X on covering maps.
+- `tauceti:TauCeti.CoveringSpace.monodromyFunctor` (def; `TauCeti/Topology/Covering/Monodromy/Basic.lean`): The monodromy functor CoveringSpace X ⥤ (FundamentalGroupoid X ⥤ Type u), sending a covering to its fibre transport functor; faithful (instance monodromyFunctor_faithful).
+- `tauceti:TauCeti.CoveringSpace.monodromyFunctor_full` (instance; `TauCeti/Topology/Covering/Monodromy/Full.lean`): The monodromy functor is full when the base is locally path-connected.
+- `tauceti:TauCeti.GenLoop.map_transport` (theorem; `TauCeti/Topology/Homotopy/HomotopyGroup/BasepointChange.lean`): Postcomposing with a continuous map commutes with transport of generalised loops along a path (along the image path).
+- `tauceti:TauCeti.homotopyGroupEquivOfPath` (def; `TauCeti/Topology/Homotopy/HomotopyGroup/BasepointChange.lean`): Change of basepoint along a path as a bijection HomotopyGroup N X x ≃ HomotopyGroup N X y in every dimension (including N = Fin 0).
 
 ## Source issues and corrected conventions
 
-The 15 inherited findings below retain their independent-review dispositions. Descriptions are in our own words and refer to the particular version recorded in the packet. Formulae identify the error; the planning nodes use the corrected statements. No claim about another edition is inferred from a preprint or author copy.
+Each of the 15 source issues below carries the verdict of the independent review and refers to the version listed under References and versions. Formulae identify the error; the planning nodes use the corrected statements. No claim about another edition is inferred from a preprint or author copy.
 
 ### StableHomotopyKTheory/E1 — misprint
 
@@ -7717,11 +7776,11 @@ The 15 inherited findings below retain their independent-review dispositions. De
 
 **Correction.** By the formula of 2.9, π_n(E; ℤ_ℓ) is an extension of T_ℓ π_{n−1}(E) by the ℓ-adic completion of π_n(E); for E = K(ℂ), n = 1: K₁(ℂ) = ℂ^× is divisible, so its completion vanishes, and T_ℓ K₀(ℂ) = T_ℓ ℤ = 0; hence K₁(ℂ; ℤ_ℓ) = 0 and the Tate module ℤ_ℓ of ℂ^× appears in K₂(ℂ; ℤ_ℓ).
 
-**Reason.** Direct application of the extension stated in the same paragraph; recorded in the reviewed decomposition (REVIEW-EXT-01-EXT-15) and re-checked here.
+**Reason.** Direct application of the extension stated in the same paragraph.
 
 **Effect.** nothing. **Known correction.** new.
 
-**Correction search.** Weibel's K-book errata page (https://sites.math.rutgers.edu/~weibel/Kbook.html, list of corrections; not reachable for a full check in this run); the published AMS GSM 145 text was not available.
+**Correction search.** Weibel's list of corrections to the published K-book (AMS GSM 145), file Kbook.errata.pdf dated 17 October 2022, read in the Internet Archive copy of 29 August 2024 because the link on the author's K-book page now returns 404: no entry for this passage; the published AMS GSM 145 text itself was not read; research/blueprint/packets and research/blueprint/errata: no other record of this example.
 
 **Independent disposition.** confirmed by `REV-StableHomotopyKTheory`: By the extension in Weibel IV 2.9 itself, π₁(K(ℂ); ℤ_ℓ) is an extension of T_ℓ K₀(ℂ) = T_ℓ ℤ = 0 by the ℓ-adic completion of K₁(ℂ) = ℂ^×, which vanishes because ℂ^× is divisible; the Tate module ℤ_ℓ of ℂ^× appears in K₂(ℂ; ℤ_ℓ).
 
@@ -7753,7 +7812,7 @@ The 15 inherited findings below retain their independent-review dispositions. De
 
 **Effect.** nothing. **Known correction.** GeneralAlgebraicKTheory/E-relative-S-proof-roles (recorded by the GeneralAlgebraicKTheory K.1 packet).
 
-**Correction search.** research/blueprint/packets/GeneralAlgebraicKTheory--K.1.json sourceIssues; Weibel's K-book homepage (errata file not reachable in the GeneralAlgebraicKTheory search).
+**Correction search.** Weibel's list of corrections to the published K-book (AMS GSM 145), file Kbook.errata.pdf dated 17 October 2022, read in the Internet Archive copy of 29 August 2024 because the link on the author's K-book page now returns 404: no entry for this passage; research/blueprint/packets/GeneralAlgebraicKTheory--K.1.json sourceIssues, where the same slip is recorded.
 
 **Independent disposition.** confirmed by `REV-StableHomotopyKTheory`: Weibel IV 8.5.3 (p. IV.69) defines S_n f = S_n B ×_{S_n C} S_{n+1} C, containing C as (0, C = ⋯ = C) and projecting onto S_n B, so the extension category is E(C, S_n f, S_n B); the printed roles in the proof of V.1.7 (p. V.8) would give |wS.B| as the second term, contradicting the statement.
 
@@ -7769,7 +7828,7 @@ The 15 inherited findings below retain their independent-review dispositions. De
 
 **Effect.** a stated result. **Known correction.** new.
 
-**Correction search.** research/blueprint/packets and research/blueprint/errata for records of this passage (none found); Weibel's K-book homepage errata link (not reachable in this run).
+**Correction search.** Weibel's list of corrections to the published K-book (AMS GSM 145), file Kbook.errata.pdf dated 17 October 2022, read in the Internet Archive copy of 29 August 2024 because the link on the author's K-book page now returns 404: no entry for this passage; research/blueprint/packets and research/blueprint/errata: no other record of this passage.
 
 **Independent disposition.** confirmed by `REV-StableHomotopyKTheory`: P^m(ℤ/ℓ) = S^{m−1} ∪_ℓ e^m has cellular complex ℤ →ℓ ℤ in degrees m and m − 1, so H̃_{m−1} = ℤ/ℓ and H̃_m = 0; Weibel's own sequence on p. IV.18 (π_m X →ℓ π_m X → π_m(X; ℤ/ℓ) → π_{m−1}X) agrees with the correction.
 
@@ -7785,7 +7844,7 @@ The 15 inherited findings below retain their independent-review dispositions. De
 
 **Effect.** a stated result. **Known correction.** new.
 
-**Correction search.** research/blueprint/packets and research/blueprint/errata for records of this exercise (none found); Weibel's K-book homepage errata link (not reachable in this run).
+**Correction search.** Weibel's list of corrections to the published K-book (AMS GSM 145), file Kbook.errata.pdf dated 17 October 2022, read in the Internet Archive copy of 29 August 2024 because the link on the author's K-book page now returns 404: no entry for this passage; research/blueprint/packets and research/blueprint/errata: no other record of this exercise.
 
 **Independent disposition.** confirmed by `REV-StableHomotopyKTheory`: The only canonical map S³ → X⁺ is the composite of the 120-sheeted covering S³ → S³/Γ (degree 120 on H₃) with X → X⁺ (an H₃-isomorphism), so it multiplies H₃ ≅ ℤ by 120 and is not a homotopy equivalence; a homotopy equivalence S³ → X⁺ exists by the first part of the exercise.
 
@@ -7801,7 +7860,7 @@ The 15 inherited findings below retain their independent-review dispositions. De
 
 **Effect.** nothing. **Known correction.** K3BlochGroups/E-V4-5 (confirmed by REV-K3BlochGroups--V.4).
 
-**Correction search.** research/blueprint/packets/K3BlochGroups--V.4.json sourceIssues.
+**Correction search.** Weibel's list of corrections to the published K-book (AMS GSM 145), file Kbook.errata.pdf dated 17 October 2022, read in the Internet Archive copy of 29 August 2024 because the link on the author's K-book page now returns 404: no entry for this passage; research/blueprint/packets/K3BlochGroups--V.4.json and research/blueprint/packets/KTheoryFiniteLocalFields.json sourceIssues, where the same slip is recorded (KTheoryFiniteLocalFields/E3 as well).
 
 **Independent disposition.** confirmed by `REV-StableHomotopyKTheory`: Read at p. IV.21: the statement and last line of the proof print π_m(X; ℤ/q₁) × π_m(X; ℤ/q₁) after the display [P^m(ℤ/q₁), X] × [P^m(ℤ/q₂), X].
 
@@ -7817,7 +7876,7 @@ The 15 inherited findings below retain their independent-review dispositions. De
 
 **Effect.** nothing. **Known correction.** new.
 
-**Correction search.** the published chapter as hosted in Andrew Ranicki's archive (read in full at §1.2); Carlsson's 2003 preprint 'handbook.two.pdf' listing (not opened); research/blueprint/packets and errata for records of this passage (none).
+**Correction search.** the public copy of the published chapter (Andrew Ranicki's archive), read at §1.2; Springer's page for the chapter refused automated access, so a publisher erratum could not be checked; research/blueprint/packets and research/blueprint/errata: no other record of this passage.
 
 **Independent disposition.** confirmed by `REV-StableHomotopyKTheory`: Added by the independent review after reading the published chapter; the node H.4/segal-gamma-space-delooping already states n ≥ 1.
 
@@ -7849,7 +7908,7 @@ The 15 inherited findings below retain their independent-review dispositions. De
 
 **Effect.** nothing. **Known correction.** new.
 
-**Correction search.** research/blueprint/packets and errata for records of this exercise (none); Weibel's K-book homepage errata link (not reachable, as for E5–E6).
+**Correction search.** Weibel's list of corrections to the published K-book (AMS GSM 145), file Kbook.errata.pdf dated 17 October 2022, read in the Internet Archive copy of 29 August 2024 because the link on the author's K-book page now returns 404: no entry for this passage; research/blueprint/packets and research/blueprint/errata: no other record of this exercise.
 
 **Independent disposition.** confirmed by `REV-StableHomotopyKTheory`: Added by the independent review; the exercise's conclusion about X = S³/Γ is unaffected once Γ ⊂ SU(2).
 
@@ -7865,7 +7924,7 @@ The 15 inherited findings below retain their independent-review dispositions. De
 
 **Effect.** nothing. **Known correction.** new.
 
-**Correction search.** research/blueprint/packets and errata for records of this passage (none).
+**Correction search.** Weibel's list of corrections to the published K-book (AMS GSM 145), file Kbook.errata.pdf dated 17 October 2022, read in the Internet Archive copy of 29 August 2024 because the link on the author's K-book page now returns 404: no entry for this passage; research/blueprint/packets and errata for records of this passage (none).
 
 **Independent disposition.** confirmed by `REV-StableHomotopyKTheory`: Added by the independent review (found by its H.1 check); H.1/maximal-tree-presentation uses the corrected definition.
 
@@ -7897,7 +7956,7 @@ The 15 inherited findings below retain their independent-review dispositions. De
 
 **Effect.** a stated result. **Known correction.** new.
 
-**Correction search.** research/blueprint/errata (no Weibel K-book register); research/blueprint/packets (no record of this exercise).
+**Correction search.** Weibel's list of corrections to the published K-book (AMS GSM 145), file Kbook.errata.pdf dated 17 October 2022, read in the Internet Archive copy of 29 August 2024 because the link on the author's K-book page now returns 404: no entry for this passage; research/blueprint/errata (no Weibel K-book register); research/blueprint/packets (no record of this exercise).
 
 **Independent disposition.** confirmed by `REV-StableHomotopyKTheory`: Checked by the review: for a cofibred (Grothendieck-construction) functor the fibre F⁻¹(d) is equivalent to the comma category F/d, not to d\F, and in the stated example B(0\F) is a circle while F⁻¹(0) is two points, so the printed double complex computes H_p(D^op; H_q(d\F)), not H_p(D; H_q F⁻¹). H.2/functor-homology-spectral-sequence uses the corrected complex.
 
@@ -7909,11 +7968,11 @@ The 15 inherited findings below retain their independent-review dispositions. De
 
 **Correction.** For C the category of finite pointed sets (wedge sum; the one-point set is a zero object), Sp(C) is the sphere spectrum.
 
-**Reason.** The construction two pages earlier requires 'a category which contains a zero objects, i.e. an object which is both initial and terminal'; in finite sets ∅ is initial but not terminal, so Sum_C is not defined as stated.
+**Reason.** The construction of Sum_C two pages earlier assumes that C has a zero object, an object both initial and terminal; in finite sets ∅ is initial but not terminal, so Sum_C is not defined as stated.
 
 **Effect.** nothing. **Known correction.** new.
 
-**Correction search.** research/blueprint/errata and packets for records of Carlsson's Handbook chapter (not searched exhaustively in this run).
+**Correction search.** the public copy of the published chapter (Andrew Ranicki's archive), read at §1.2; Springer's page for the chapter refused automated access, so a publisher erratum could not be checked; research/blueprint/packets and research/blueprint/errata: no other record of Carlsson's chapter.
 
 **Independent disposition.** confirmed by `REV-StableHomotopyKTheory`: Read at printed p. 8 of the public chapter: the construction requires 'a category which contains a zero object', and in finite sets ∅ is initial but not terminal; finite pointed sets under wedge sum is the intended example. H.4/segal-gamma-space-delooping states the corrected example.
 
