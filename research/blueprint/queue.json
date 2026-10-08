@@ -32567,7 +32567,8 @@
    ],
    "avoidAccountOf": "BP-HodgeStructuresPartII--H.0",
    "prompt": "research/blueprint/prompts/REV-HodgeStructuresPartII--H.0.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7023"
   },
   {
    "id": "BP-HodgeStructuresPartII--H.1",
@@ -32753,7 +32754,8 @@
    ],
    "avoidAccountOf": "BP-HodgeStructuresPartII--H.4",
    "prompt": "research/blueprint/prompts/REV-HodgeStructuresPartII--H.4.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7061"
   },
   {
    "id": "BP-HodgeStructuresPartII--H.5",
@@ -40956,8 +40958,9 @@
     "BP-ShimuraData~2"
    ],
    "prompt": "research/blueprint/prompts/REV-ShimuraData~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7091"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7091",
+   "finishedAt": "2026-10-08T05:20:28Z"
   },
   {
    "kind": "blueprint",
