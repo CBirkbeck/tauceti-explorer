@@ -72,7 +72,8 @@
         "2026-09-29 (cc-39fac3, part R26.1 checkpoint 1): §§1–7 in full (Propositions 2.1–2.2, 3.1, §4, Lemmas 5.1–5.4, Corollary 5.5, §6.1 small weights, §6.2, §7.1).",
         "2026-10-06, Codex codex-uGlOi6: re-fetched the stated hash and read the scoped statements and proofs; locators refer to this version, not inferred published numbering.",
         "2026-10-06, Codex codex-sHhOXz independent review: re-fetched the exact recorded SHA256; read and compared the scoped node locators and statements. See the independent review report for precise boundaries; published Khare and Savitt editions were not obtained.",
-        "2026-10-08, Codex codex-vmLqNQ: re-fetched and SHA256-checked the registered public file. Preprint pp.1–3, 8, 11–28: scoped theorem statements, lifting and compatible-system contracts, §4 comparison, local lemmas/corollary and the complete conductor-one induction and terminal rows. Published Duke text not obtained."
+        "2026-10-08, Codex codex-vmLqNQ: re-fetched and SHA256-checked the registered public file. Preprint pp.1–3, 8, 11–28: scoped theorem statements, lifting and compatible-system contracts, §4 comparison, local lemmas/corollary and the complete conductor-one induction and terminal rows. Published Duke text not obtained.",
+        "2026-10-08, independent reviewer Codex codex-mDgRfa: fetched and verified the registered SHA256. Introduction pp.1–5, complete scoped §§2–6 pp.7–28 and §7.1 pp.28–29; all 36 node applications checked against their source contracts. Duke text not obtained."
       ]
     },
     {
@@ -86,7 +87,8 @@
         "2026-09-29 (cc-39fac3, part R26.1 checkpoint 1): §§2–3, 6–8 for the carried R27 nodes (Definition 2.1, (L_r)–(D_r), Lemmas 6.1–6.3, §7, §8.2–8.3); the excerpts were re-selected from this extraction.",
         "2026-10-06, Codex codex-uGlOi6: re-fetched the stated hash and read the scoped statements and proofs; locators refer to this version, not inferred published numbering.",
         "2026-10-06, Codex codex-sHhOXz independent review: re-fetched the exact recorded SHA256; read and compared the scoped node locators and statements. See the independent review report for precise boundaries; published Khare and Savitt editions were not obtained.",
-        "2026-10-08, Codex codex-vmLqNQ: re-fetched and SHA256-checked the registered public file. Preprint pp.2–6, 10–16: S-type and modularity conventions, Definition 2.1, L/W/D hypotheses, Theorem 5.1 local contracts, Lemmas 6.1–6.3, §7 estimates, §8.2 weight recursion and §8.3 corrected corollaries. Later conductor/dyadic induction belongs to the sibling packet."
+        "2026-10-08, Codex codex-vmLqNQ: re-fetched and SHA256-checked the registered public file. Preprint pp.2–6, 10–16: S-type and modularity conventions, Definition 2.1, L/W/D hypotheses, Theorem 5.1 local contracts, Lemmas 6.1–6.3, §7 estimates, §8.2 weight recursion and §8.3 corrected corollaries. Later conductor/dyadic induction belongs to the sibling packet.",
+        "2026-10-08, independent reviewer Codex codex-mDgRfa: fetched and verified the registered SHA256. Definition2.1 pp.5–6, Theorem4.1 p.7, Theorem5.1 and remarks pp.8–10, §§6–7 pp.10–13, complete §8.2 pp.13–15 and §8.3 pp.16–17 including Lemma8.2 proof."
       ]
     },
     {
@@ -100,7 +102,8 @@
         "2026-09-29 (cc-39fac3, part R26.1 checkpoint 1): pp. 1–3 (Theorem 1, Proposition 1 with proof).",
         "2026-10-06, Codex codex-uGlOi6: re-fetched the stated hash and read the scoped statements and proofs; locators refer to this version, not inferred published numbering.",
         "2026-10-06, Codex codex-sHhOXz independent review: re-fetched the exact recorded SHA256; read and compared the scoped node locators and statements. See the independent review report for precise boundaries; published Khare and Savitt editions were not obtained.",
-        "2026-10-08, Codex codex-vmLqNQ: re-fetched and SHA256-checked the registered public file. Appendix pp.1–6: presentation, local tangent-space counts, finite flat complete-intersection criterion and minimal R=T argument; bibliography is not a further proof input."
+        "2026-10-08, Codex codex-vmLqNQ: re-fetched and SHA256-checked the registered public file. Appendix pp.1–6: presentation, local tangent-space counts, finite flat complete-intersection criterion and minimal R=T argument; bibliography is not a further proof input.",
+        "2026-10-08, independent reviewer Codex codex-mDgRfa: fetched and verified the registered SHA256. Entire seven-page appendix, including all statements and proofs on pp.1–6."
       ]
     },
     {
@@ -113,7 +116,8 @@
       "readSections": [
         "2026-10-06, codex-uGlOi6: Remark 1.7; Theorem 6.11; Corollary 6.15(1),(2), proof and Remark 6.17 (printed pp.34–39).",
         "2026-10-06, Codex codex-sHhOXz independent review: re-fetched the exact recorded SHA256; read and compared the scoped node locators and statements. See the independent review report for precise boundaries; published Khare and Savitt editions were not obtained.",
-        "2026-10-08, Codex codex-vmLqNQ: re-fetched and SHA256-checked the registered public file. Corrected arXiv v3 p.4 Remark 1.7; pp.34–35 Theorem 6.11 and proof; pp.38–39 Corollary 6.15, proof and Remark 6.17. Older published Theorem 6.12 was not obtained."
+        "2026-10-08, Codex codex-vmLqNQ: re-fetched and SHA256-checked the registered public file. Corrected arXiv v3 p.4 Remark 1.7; pp.34–35 Theorem 6.11 and proof; pp.38–39 Corollary 6.15, proof and Remark 6.17. Older published Theorem 6.12 was not obtained.",
+        "2026-10-08, independent reviewer Codex codex-mDgRfa: fetched and verified the registered SHA256. Remark1.7 p.4, Theorem6.11 pp.34–35, Corollary6.15 pp.38–39 and Remark6.17 p.39. Earlier published correction is author-reported; old edition not obtained."
       ]
     },
     {
@@ -126,7 +130,8 @@
       "readSections": [
         "2026-10-06, codex-uGlOi6: Definition 1.12, Lemmas 1.13–1.15 and proofs, pp.7–10.",
         "2026-10-06, Codex codex-sHhOXz independent review: re-fetched the exact recorded SHA256; read and compared the scoped node locators and statements. See the independent review report for precise boundaries; published Khare and Savitt editions were not obtained.",
-        "2026-10-08, Codex codex-vmLqNQ: re-fetched and SHA256-checked the registered public file. arXiv v2 pp.7–10: Definition 1.12 and Lemmas 1.13–1.15 with their proofs, in particular the normalized bad-dihedral weight split without a conductor-one assumption."
+        "2026-10-08, Codex codex-vmLqNQ: re-fetched and SHA256-checked the registered public file. arXiv v2 pp.7–10: Definition 1.12 and Lemmas 1.13–1.15 with their proofs, in particular the normalized bad-dihedral weight split without a conductor-one assumption.",
+        "2026-10-08, independent reviewer Codex codex-mDgRfa: fetched and verified the registered SHA256. Definition1.12 and Lemmas1.13–1.15 with proofs/remarks, v2 pp.7–10."
       ]
     },
     {
@@ -139,7 +144,8 @@
       "readSections": [
         "2026-10-06, codex-uGlOi6: §2, Lemma 2.1, Proposition 2.2 and proof, Corollary 2.3, pp.278–280.",
         "2026-10-06, Codex codex-sHhOXz independent review: re-fetched the exact recorded SHA256; read and compared the scoped node locators and statements. See the independent review report for precise boundaries; published Khare and Savitt editions were not obtained.",
-        "2026-10-08, Codex codex-vmLqNQ: re-fetched and SHA256-checked the registered public file. PDF pp.2–4, printed pp.278–280: standing semistability/cyclotomic-determinant assumptions, Lemma 2.1 and Proposition 2.2 with the dihedral argument. No extension to arbitrary residual representations."
+        "2026-10-08, Codex codex-vmLqNQ: re-fetched and SHA256-checked the registered public file. PDF pp.2–4, printed pp.278–280: standing semistability/cyclotomic-determinant assumptions, Lemma 2.1 and Proposition 2.2 with the dihedral argument. No extension to arbitrary residual representations.",
+        "2026-10-08, independent reviewer Codex codex-mDgRfa: fetched and verified the registered SHA256. Standing §2 conventions, Lemma2.1, Proposition2.2 and complete proof, published pp.278–280."
       ]
     },
     {
@@ -152,7 +158,8 @@
       "readSections": [
         "2026-10-06, codex-uGlOi6: Theorems 1–2, Corollary 1 (3.5),(3.6), p.69; the underlying analytic proof is an explicit source boundary.",
         "2026-10-06, Codex codex-sHhOXz independent review: re-fetched the exact recorded SHA256; read and compared the scoped node locators and statements. See the independent review report for precise boundaries; published Khare and Savitt editions were not obtained.",
-        "2026-10-08, Codex codex-vmLqNQ: re-fetched and SHA256-checked the registered public file. Printed p.69 (PDF p.6): Theorem 2 and Corollary 1, inequalities (3.3)–(3.6) and domains. Analytic proof and published finite verification tables not read."
+        "2026-10-08, Codex codex-vmLqNQ: re-fetched and SHA256-checked the registered public file. Printed p.69 (PDF p.6): Theorem 2 and Corollary 1, inequalities (3.3)–(3.6) and domains. Analytic proof and published finite verification tables not read.",
+        "2026-10-08, independent reviewer Codex codex-mDgRfa: fetched and verified the registered SHA256. Exact Theorem2 and Corollary1 (3.3)–(3.6) and their domains, published p.69. Analytic proof and tables not read."
       ]
     },
     {
@@ -165,7 +172,8 @@
       "readSections": [
         "2026-10-06, codex-uGlOi6: Introduction pp.1–2: attached representations, residual semisimplification, modular versus strongly modular.",
         "2026-10-06, Codex codex-sHhOXz independent review: re-fetched the exact recorded SHA256; read and compared the scoped node locators and statements. See the independent review report for precise boundaries; published Khare and Savitt editions were not obtained.",
-        "2026-10-08, Codex codex-vmLqNQ: re-fetched and SHA256-checked the registered public file. Author-copy introduction pp.1–2, published pp.843–845: residual modularity and strong modularity conventions and the stated equivalence range ell≥3. The remaining proof is outside this job."
+        "2026-10-08, Codex codex-vmLqNQ: re-fetched and SHA256-checked the registered public file. Author-copy introduction pp.1–2, published pp.843–845: residual modularity and strong modularity conventions and the stated equivalence range ell≥3. The remaining proof is outside this job.",
+        "2026-10-08, independent reviewer Codex codex-mDgRfa: fetched and verified the registered SHA256. Introduction pp.1–2, modular/strongly-modular distinction and equivalence only for residual characteristic at least three."
       ]
     },
     {
@@ -178,7 +186,8 @@
       "readSections": [
         "2026-10-06, codex-uGlOi6: published Theorem5.2(ii) p.247; §6.2 killing ramification pp.250–251. These correspond to the older Theorem4.1(ii)/§5.2 locators used in Khare v1; the semistable hypothesis is retained. Definition4.1 and Theorem4.2(ii) statement were also checked; their realization proof is consumed from the R24/R25 suppliers.",
         "2026-10-06, Codex codex-sHhOXz independent review: re-fetched the exact recorded SHA256; read and compared the scoped node locators and statements. See the independent review report for precise boundaries; published Khare and Savitt editions were not obtained.",
-        "2026-10-08, Codex codex-vmLqNQ: re-fetched and SHA256-checked the registered public file. Printed pp.235, 237, 239, 243–244, 247, 250–251: Theorem 3.3, Definition 4.1, Theorem 4.2 lifting/compatible-system statements and the relevant proof boundary, Theorem 5.2(ii) and proof, and §6.2. The full proof of Theorem 4.2 is imported from R24, not certified by this reading."
+        "2026-10-08, Codex codex-vmLqNQ: re-fetched and SHA256-checked the registered public file. Printed pp.235, 237, 239, 243–244, 247, 250–251: Theorem 3.3, Definition 4.1, Theorem 4.2 lifting/compatible-system statements and the relevant proof boundary, Theorem 5.2(ii) and proof, and §6.2. The full proof of Theorem 4.2 is imported from R24, not certified by this reading.",
+        "2026-10-08, independent reviewer Codex codex-mDgRfa: fetched and verified the registered SHA256. Published Proposition3.2 and Theorem3.3 p.239, Propositions3.4–3.5 pp.240–241 and Lemma3.6/proof p.241; Definition4.1/Theorem4.2 pp.243–245, Theorem5.2(ii) and proof p.247, §6.2 pp.250–251. Distinguished preprint Lemma2.4/Proposition2.3 from their published numbers."
       ]
     },
     {
@@ -190,7 +199,8 @@
       "sha256": "ec42c9a450a7f7368a72670a3e9c54b75cad77802f18ac08d4dac6078bf7fa02",
       "readSections": [
         "2026-10-06, Codex codex-sHhOXz independent review: Introduction p.2 odd-prime convention; introduction to §6 p.67 and §6.1 pp.67–68 including Propositions 6.1.1–6.1.3. The computations omitted by the authors were not reconstructed. Also read §4.1 Proposition 4.1.1 and its proof, pp.30–31, for the separate scalar crystalline ordinary criterion.",
-        "2026-10-08, Codex codex-vmLqNQ: re-fetched and SHA256-checked the registered public file. Printed pp.2, 30–31, 67–68: odd-prime convention, Proposition 4.1.1 and proof, §6.1 setup and Proposition 6.1.1 with its references to 6.1.2–6.1.3. The integral calculations in §6 beyond that boundary were not read and remain R07.5 work."
+        "2026-10-08, Codex codex-vmLqNQ: re-fetched and SHA256-checked the registered public file. Printed pp.2, 30–31, 67–68: odd-prime convention, Proposition 4.1.1 and proof, §6.1 setup and Proposition 6.1.1 with its references to 6.1.2–6.1.3. The integral calculations in §6 beyond that boundary were not read and remain R07.5 work.",
+        "2026-10-08, independent reviewer Codex codex-mDgRfa: fetched and verified the registered SHA256. Odd-prime convention in Introduction p.2; Proposition4.1.1/proof pp.30–31 and §6 introduction/Proposition6.1.1 pp.67–68. The author omits §6 calculations; source access does not discharge R07.5."
       ]
     }
   ],
@@ -372,25 +382,27 @@
       ],
       "title": "Flatness of the deformation rings of prescribed lifts",
       "kind": "lemma",
-      "statement": "(Khare §2.1, after KW Annals §2.) Let p be odd, ρ̄ : G_ℚ → GL₂(F) odd irreducible with non-solvable image, 2 ≤ k(ρ̄) ≤ p + 1 and k(ρ̄) ≠ p, and let R be the global deformation ring of lifts with fixed determinant, unramified outside a fixed finite set, with prescribed local conditions. If (a) each local ring R_ℓ (ℓ ≠ p) is a flat complete intersection over 𝒪 of relative dimension h⁰(D_ℓ, Ad⁰ρ̄) and R_p one of relative dimension h⁰(D_p, Ad⁰ρ̄) + 1, and (b) R/(π) is finite, then R is finite flat and a complete intersection over 𝒪; in particular ρ̄ has a lift of the prescribed type. Finiteness of R/(π) follows from finiteness of R_F/(π) for a totally real Galois F of even degree over which ρ̄|_{G_F} is modular by a suitable cuspidal π (Taylor), through R_F ≅ T_F (KW Annals Lemma 2.4).",
+      "statement": "(Khare §2.1, after §2 of the KW preprint cited there, published Annals §3.) Let p be odd, ρ̄ : G_ℚ → GL₂(F) odd irreducible with non-solvable image, 2 ≤ k(ρ̄) ≤ p + 1 and k(ρ̄) ≠ p, and let R be the global deformation ring of lifts with fixed determinant, unramified outside a fixed finite set, with prescribed local conditions. If (a) each local ring R_ℓ (ℓ ≠ p) is a flat complete intersection over 𝒪 of relative dimension h⁰(D_ℓ, Ad⁰ρ̄) and R_p one of relative dimension h⁰(D_p, Ad⁰ρ̄) + 1, and (b) R/(π) is finite, then R is finite flat and a complete intersection over 𝒪; in particular ρ̄ has a lift of the prescribed type. Finiteness of R/(π) follows from finiteness of R_F/(π) for a totally real Galois F of even degree over which ρ̄|_{G_F} is modular by a suitable cuspidal π (Taylor), through R_F ≅ T_F (KW preprint Lemma 2.4, published Annals Lemma 3.6, p.241).",
       "hypotheses": [
         "Non-solvable image of ρ̄ (so ρ̄|_{G_F} has non-solvable image for totally real F); k(ρ̄) ≠ p; for p = 3 an auxiliary prime handles non-neatness."
       ],
       "proofSteps": [
         "Import the prescribed-lift and compatible-system contracts from R24 and verify the stated local hypotheses. This node records their application in the level-one argument; generic existence and compatibility remain owned by R24.",
         "Böckle's Proposition 1 turns the local dimension counts into a presentation 𝒪[[X_1, …, X_r]]/(f_1, …, f_s) with s ≤ r.",
-        "Taylor's potential modularity gives F and π; R_F ≅ T_F (Fujiwara / Taylor §3) makes R_F finite over 𝒪; the orders of ρ_R(I_ℓ) and ρ̄(I_ℓ) agree for the prescribed lifts, so ρ_R|_{G_F} specialises ρ_{R_F} and R/(π) is finite (KW Annals Lemma 2.4).",
+        "Taylor's potential modularity gives F and π; R_F ≅ T_F (Fujiwara / Taylor §3) makes R_F finite over 𝒪; the orders of ρ_R(I_ℓ) and ρ̄(I_ℓ) agree for the prescribed lifts, so ρ_R|_{G_F} specialises ρ_{R_F} and R/(π) is finite (KW preprint Lemma 2.4, published Annals Lemma 3.6, p.241).",
         "A finite 𝒪-algebra with a presentation by at most r relations in r variables is a flat complete intersection."
       ],
       "acceptance": [
-        "Existence of a lift comes from flatness, not from an explicit construction."
+        "Existence of a lift comes from flatness, not from an explicit construction.",
+        "Match the chosen totally real field, determinant and local minimal deformation problem with R22.3/R22.4 before using finiteness or integral R=T. R22.1 only constructs the deformation-to-Hecke map; it does not prove this isomorphism."
       ],
       "prerequisites": [
         "ClassicalSerreModularity:R26.1/bockle-appendix-minimal-deformation-ring-presentation",
         "PotentialModularityAndCompatibleSystems:R24.3/kw-annals-minimal-lifts",
         "PotentialModularityAndCompatibleSystems:R24.3/finite-presentation-complete-intersection",
         "PotentialModularityAndCompatibleSystems:R24.5",
-        "GL2ModularityLifting:R22.1",
+        "GL2ModularityLifting:R22.3/minimal-ring-finite",
+        "GL2ModularityLifting:R22.4/integral-r-equals-t-when-smooth",
         "PotentialModularityAndCompatibleSystems:R24.3/required-lift-types"
       ],
       "library": {
@@ -407,6 +419,11 @@
           "sourceId": "khare-level-one",
           "locator": "§2.1, p. 11 of the preprint",
           "match": "The local criterion."
+        },
+        {
+          "sourceId": "kw-annals",
+          "locator": "§3, Lemma 3.6 and proof, published p.241",
+          "match": "The published finite-restriction argument corresponding to preprint Lemma 2.4 cited by Khare §2.1."
         }
       ],
       "implementationStatus": "unchecked"
@@ -502,7 +519,7 @@
       ],
       "proofSteps": [
         "Import the prescribed-lift and compatible-system contracts from R24 and verify the stated local hypotheses. This node records their application in the level-one argument; generic existence and compatibility remain owned by R24.",
-        "R_p (crystalline of weight k(ρ̄), fixed determinant) is smooth of relative dimension h⁰(D_p, Ad⁰ρ̄) + 1 (Ramakrishna, Taylor; KW Annals Prop. 2.3 for k = p + 1); R_q by local-ring-at-q-smooth; conclude by lifting-method-flatness."
+        "Verify the crystalline local ring at p case by case using R08.6: the irreducible Fontaine–Laffaille export in weight k≤p, the ramified or distinguished ordinary export, and the residual-weight p+1 endpoint export with compatible determinant. Keep 2≤k≤p+1 and k≠p. The unframed relative dimension is h⁰(D_p, Ad⁰ρ̄)+1; framed dimensions are not substituted for it. The endpoint reference in Khare is KW preprint Proposition 2.3, published Annals Proposition 3.5, pp.240–241. Combine with local-ring-at-q-smooth and lifting-method-flatness."
       ],
       "acceptance": [
         "The nebentypus can only be moved within the coset χ·⟨η_q⟩: j ≡ (exponent of χ) mod (q − 1)/p^r."
@@ -510,7 +527,9 @@
       "prerequisites": [
         "ClassicalSerreModularity:R26.2/lifting-method-flatness",
         "ClassicalSerreModularity:R26.2/local-ring-at-q-smooth",
-        "LocalGaloisDeformationRings:R08.3",
+        "LocalGaloisDeformationRings:R08.6/export-fontaine-laffaille-irreducible",
+        "LocalGaloisDeformationRings:R08.6/export-ordinary",
+        "LocalGaloisDeformationRings:R08.6/export-endpoint-weight",
         "PotentialModularityAndCompatibleSystems:R24.3/required-lift-types"
       ],
       "library": {
@@ -807,8 +826,10 @@
         "OrdinaryAutomorphicFormsAndModularityLifting:R21.6",
         "ClassicalSerreModularity:R26.2/lifting-method-flatness",
         "OrdinaryAutomorphicFormsAndModularityLifting:R21.5/nearly-ordinary-irreducible-lifting-over-q",
-        "GL2ModularityLifting:R22.6",
-        "LocalGaloisDeformationRings:R08.3",
+        "GL2ModularityLifting:R22.5/kw-i-theorem-4-1-odd-prime",
+        "LocalGaloisDeformationRings:R08.6/export-fontaine-laffaille-irreducible",
+        "LocalGaloisDeformationRings:R08.6/export-ordinary",
+        "LocalGaloisDeformationRings:R08.6/export-endpoint-weight",
         "PotentialModularityAndCompatibleSystems:R24.3/kw-annals-minimal-lifts",
         "PotentialModularityAndCompatibleSystems:R24.5/kw-theorem-5-1-systems",
         "PotentialModularityAndCompatibleSystems:R24.6/residual-members",
@@ -874,7 +895,7 @@
         "OrdinaryAutomorphicFormsAndModularityLifting:R21.6",
         "ClassicalSerreModularity:R26.4/ordinary-reduction-and-parity",
         "GL2AutomorphicRepresentationsAndTransfer:R17.6",
-        "GL2ModularityLifting:R22.6",
+        "GL2ModularityLifting:R22.5/kw-i-theorem-4-1-odd-prime",
         "AlgebraicModularFormsAndSerreWeights:R15.4",
         "PotentialModularityAndCompatibleSystems:R24.6/linked-systems-modularity-transfer",
         "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3"
@@ -980,7 +1001,7 @@
         "SerreWeightAndLevelOptimisation:R20.6",
         "AlgebraicModularFormsAndSerreWeights:R15.6",
         "PotentialModularityAndCompatibleSystems:R24.6/linked-systems-modularity-transfer",
-        "GL2ModularityLifting:R22.6"
+        "GL2ModularityLifting:R22.5/kw-i-theorem-4-1-odd-prime"
       ],
       "library": {
         "module": "TauCeti/NumberTheory/SerreConjecture/LevelOne",
@@ -1006,13 +1027,13 @@
       ],
       "title": "Proof of Corollary 1.2 (conductor a prime, weight 2)",
       "kind": "theorem",
-      "statement": "(Khare §7.1, corrected by KW I §8.3.) Corollary 1.2 holds (for all p, KW I Corollary 8.1(i)): for q = 2 by the semistable weight-two input of KW Annals (old Theorem4.1(ii), published Theorem5.2(ii)), after the conductor-two semistability check from R01.5 and the R25 abelian-variety application; for q odd by killing ramification: a minimal p-adic lift in a compatible system, whose member above q reduces to a mod-q representation unramified outside q, modular by the level-one theorem; then the lifting theorems (Lemmas 5.1, 5.3) make the system modular. KW I replace the reference 'Theorem 5.1(3) of [24]' (insufficient when p ∤ q − 1) by Theorem 6.1(2) of [24] with Skinner–Wiles [39]–[41], via Saito (semistable case) or Theorem 5.1(3 ii) (unramified over ℚ_q(μ_q)).",
+      "statement": "(Khare §7.1, corrected by KW I §8.3.) Corollary 1.2 holds (for all p, KW I Corollary 8.1(i)): for q = 2 by the semistable weight-two input of KW Annals (old Theorem4.1(ii), published Theorem5.2(ii)), after the conductor-two semistability check from R01.2/R01.3 and the R25 abelian-variety application; for q odd by killing ramification: a minimal p-adic lift in a compatible system, whose member above q reduces to a mod-q representation unramified outside q, modular by the level-one theorem; then the lifting theorems (Lemmas 5.1, 5.3) make the system modular. KW I replace the reference 'Theorem 5.1(3) of [24]' (insufficient when p ∤ q − 1) by Theorem 6.1(2) of [24] with Skinner–Wiles [39]–[41], via Saito (semistable case) or Theorem 5.1(3 ii) (unramified over ℚ_q(μ_q)).",
       "hypotheses": [
         "The copy of [24] read here is the arXiv v1 preprint, whose numbering (Proposition 3.1) differs from the published Duke numbering (Theorems 5.1, 6.1) used by KW I.",
         "KW I's [41] is C. Skinner, 'Nearly ordinary deformations of residually dihedral representations' ('to appear'; listed as a 2009 preprint by Allen, arXiv:1301.1113), which KW I call a correction to Skinner–Wiles 2001 ([40]); it is unpublished and was not read (a gap), and it concerns the dihedral case of OrdinaryAutomorphicFormsAndModularityLifting/E11"
       ],
       "proofSteps": [
-        "For q=2, prime-to-p conductor forces p odd. Conductor exponent one means inertia has one-dimensional invariants and Swan conductor zero. On the quotient the tame inertia character is Frobenius-stable, so χ=χ² and χ=1; the inertia image is unipotent of p-power order. Together with k=2 this is precisely published Annals Definition4.1 semistability. Request this local inference from R01.5.",
+        "For q=2, prime-to-p conductor forces p odd. Conductor exponent one means inertia has one-dimensional invariants and Swan conductor zero. On the quotient the tame inertia character is Frobenius-stable, so χ=χ² and χ=1; the inertia image is unipotent of p-power order. Together with k=2 this is precisely published Annals Definition4.1 semistability. Request this local inference from R01.2/R01.3.",
         "Apply published Annals Theorem5.2(ii). Its proof first handles reducible cyclotomic restriction by known dihedral modularity and weight/level optimisation; otherwise Theorem4.2(ii) realises a weight-two minimal compatible system in a positive-dimensional GL2-type abelian variety with good reduction outside 2 and semistable reduction at 2. Import the compatible-system/realisation contracts and R25.4/schoof-theorem; the abelian variety must be zero, a contradiction. R25 does not itself export an arbitrary conductor-two residual theorem.",
         "For q odd use the required minimal weight-two system and split the q-adic local parameter into semistable with nonzero monodromy or unramified over Q_q(μ_q). Its residual representation is unramified outside q, so the level-one theorem or its reducible convention gives residual modularity.",
         "Identify and apply the published Duke Theorem6.1(2) with the corrected Skinner–Wiles references; this is an explicit source boundary, not inferred from Proposition3.1 of the preprint. Transfer modularity through the system and optimise to weight2, level Γ₁(q).",
@@ -1030,7 +1051,8 @@
         "PotentialModularityAndCompatibleSystems:R24.5/kw-theorem-5-1-systems",
         "OrdinaryAutomorphicFormsAndModularityLifting:R21.5/theorem-a",
         "OrdinaryAutomorphicFormsAndModularityLifting:R21.5/nearly-ordinary-irreducible-lifting-over-q",
-        "ArithmeticGaloisRepresentations:R01.5",
+        "ArithmeticGaloisRepresentations:R01.2",
+        "ArithmeticGaloisRepresentations:R01.3",
         "SmallRamificationAndAbelianVarietyBaseCases:R25.4/schoof-theorem",
         "SmallRamificationAndAbelianVarietyBaseCases:R25.5/gl2-type-abelian-variety",
         "SmallRamificationAndAbelianVarietyBaseCases:R25.5/descent-of-gl2-type-realisation",
@@ -1078,8 +1100,8 @@
       "hypotheses": [],
       "proofSteps": [
         "Normalise irreducible weights by the finite cyclotomic-twist set; use the level-one theorem and its weight-2 realisation.",
-        "Use finite generation of the integral Hecke algebra and finiteness of its mod-p eigencharacters; residual attached representations are determined up to semisimplification by Frobenius.",
-        "Use Kronecker–Weber/abelian character classification for the reducible semisimple branch; unipotent extensions are excluded by semisimplicity."
+        "Use finite generation of the integral Hecke algebra and finiteness of its mod-p eigencharacters; residual attached representations are determined up to semisimplification by Frobenius. R01.5 supplies Frobenius recognition, rather than the conductor or inertia API.",
+        "Use Kronecker–Weber/abelian character classification for the reducible semisimple branch; unipotent extensions are excluded by semisimplicity. Import the existing ClassFieldTheory Layer 13 Kronecker–Weber and abelian-conductor comparison; this node applies them to finite prime-to-p character images and does not re-plan class field theory."
       ],
       "acceptance": [
         "Quantitative refinements are open (Khare §7.2)."
@@ -1088,7 +1110,8 @@
         "ClassicalSerreModularity:R26.6/level-one-proof-assembly",
         "AlgebraicModularFormsAndSerreWeights:R15.6",
         "ArithmeticGaloisRepresentations:R01.5",
-        "AlgebraicModularFormsAndSerreWeights:R15.3"
+        "AlgebraicModularFormsAndSerreWeights:R15.3",
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-13-norm-theorems-and-class-fields"
       ],
       "library": {
         "module": "TauCeti/NumberTheory/SerreConjecture/LevelOne",
@@ -1174,7 +1197,8 @@
       ],
       "prerequisites": [
         "ArithmeticGaloisRepresentations:R01.4",
-        "ArithmeticGaloisRepresentations:R01.5",
+        "ArithmeticGaloisRepresentations:R01.2",
+        "ArithmeticGaloisRepresentations:R01.3",
         "AlgebraicModularFormsAndSerreWeights:R15.4",
         "mathlib:Nat.maxPrimeFac",
         "mathlib:Nat.maxPrimeFac_one",
@@ -1280,7 +1304,7 @@
         },
         {
           "name": "goodDihedral_upper_endpoint",
-          "kind": "characterisation",
+          "kind": "non-example",
           "statement": "For p=7, q=241 and N=9·241², Q(N/q²)=3. The congruences at 2,3,5 and modulo8 hold, but 241≢1 mod7. Thus the predicate fails: equality at the upper endpoint s=p is required."
         },
         {
@@ -1333,7 +1357,8 @@
       "prerequisites": [
         "ClassicalSerreModularity:R27.1/good-dihedral-prime-definition",
         "ArithmeticGaloisRepresentations:R01.4",
-        "ArithmeticGaloisRepresentations:R01.5",
+        "ArithmeticGaloisRepresentations:R01.2",
+        "ArithmeticGaloisRepresentations:R01.3",
         "PotentialModularityAndCompatibleSystems:R24.6/residual-members",
         "mathlib:Nat.maxPrimeFac_mul",
         "mathlib:Nat.maxPrimeFac_pow"
@@ -1811,7 +1836,7 @@
       "proofSteps": [
         "Verify the full determinant and local type at each transition rather than equating weights by numerical arithmetic alone.",
         "At the foil ℓ (including ℓ=3), exclude locally irreducible bad-dihedral weight 2 by the general R15.4 normalized-weight lemma, not the level-one classification: ramification at P may remain. Follow the three solvable branches of degenerate-branches. The residually irreducible ordinary CM case retains its correction gap.",
-        "At P, local reducibility gives ordinary up to a Teichmüller twist via R07.5; the potentially BT nonordinary lift uses R22.6 with cyclotomic irreducibility.",
+        "At P, local reducibility gives ordinary up to a Teichmüller twist via R07.5; the potentially BT nonordinary lift uses R22.5/kw-i-theorem-4-1-odd-prime with cyclotomic irreducibility.",
         "Check the unipotent/semistable endpoint k=P+1 separately: its admissible exponent coset is 0."
       ],
       "acceptance": [
@@ -2099,8 +2124,8 @@
       "note": "Served in part: OrdinaryAutomorphicFormsAndModularityLifting R21.5/theorem-a-over-q (residually reducible) and R21.5/nearly-ordinary-irreducible-lifting-over-q (Skinner–Wiles 2001, residually irreducible, excluding ρ̄ induced from an imaginary quadratic field until its E11 is resolved), both exported by R21.6/exported-ordinary-modularity-over-q."
     },
     {
-      "supplier": "GL2ModularityLifting:R22.1",
-      "need": "Minimal R = T over totally real fields (Fujiwara; Taylor §3) for ρ̄|_{G_F} with non-solvable image.",
+      "supplier": "GL2ModularityLifting:R22.4",
+      "need": "Minimal integral R=T over the chosen totally real Galois field F (Fujiwara/Taylor §3), with prescribed determinant and the same local deformation conditions as Khare §2.1. Consume R22.3/minimal-ring-finite and R22.4/integral-r-equals-t-when-smooth only after checking their patching, local smoothness and residual-image hypotheses; specify any further source-compatible export required for this F. R22.1 provides only the surjective map to the Hecke algebra, not R=T.",
       "neededBy": [
         "ClassicalSerreModularity:R26.2/lifting-method-flatness"
       ],
@@ -2126,8 +2151,8 @@
       "status": "open"
     },
     {
-      "supplier": "LocalGaloisDeformationRings:R08.3",
-      "need": "Crystalline lifting rings of weight k ≤ p + 1 with fixed determinant, smooth of relative dimension h⁰(D_p, Ad⁰ρ̄) + 1.",
+      "supplier": "LocalGaloisDeformationRings:R08.6",
+      "need": "For odd p and normalized residual weight 2≤k≤p+1 with k≠p, export the crystalline local-ring cases used in Khare Proposition 2.2: irreducible Fontaine–Laffaille (k≤p), ramified or distinguished ordinary, and residual weight p+1 with compatible determinant. Use R08.6/export-fontaine-laffaille-irreducible, export-ordinary and export-endpoint-weight, respecting each local hypothesis. Recover the unframed relative dimension h⁰(D_p,Ad⁰ρ̄)+1 via the framing comparison. Do not assert smoothness for all crystalline rings solely from the weight bound.",
       "neededBy": [
         "ClassicalSerreModularity:R26.2/nebentype-lift-at-q",
         "ClassicalSerreModularity:R26.4/level-one-lifting-lemma"
@@ -2177,10 +2202,9 @@
       "status": "open"
     },
     {
-      "supplier": "ArithmeticGaloisRepresentations:R01.5",
-      "need": "Supply the canonical inertia/restriction and prime-to-characteristic Artin conductor API. For semisimple residual abelian characters unramified outside p, the Kronecker–Weber/class-field comparison forces factorisation through the prime-to-p quotient of Z_pˣ, hence finitely many F̄_p-valued characters (order divides p−1). For q=2, Artin exponent one in odd residual characteristic gives tame inertia with a fixed line; Frobenius forces the quotient character χ=χ², hence χ=1 and the inertia image is unipotent of p-power order. This supplies the semistability premise for Annals Theorem5.2(ii).",
+      "supplier": "ArithmeticGaloisRepresentations:R01.3",
+      "need": "Supply the prime-to-characteristic Artin/Swan conductor and reduction/support comparison API, using local inclusions from R01.2. Nontrivial tame niveau-two inertia has conductor exponent two. For q=2 in odd residual characteristic, Artin exponent one gives a tame fixed line; the Frobenius-stable quotient character satisfies χ=χ², so it is trivial and inertia is unipotent of p-power order. This is the local application needed for Annals Definition4.1/Theorem5.2(ii), not a Frobenius-recognition result of R01.5.",
       "neededBy": [
-        "ClassicalSerreModularity:R26.6/finiteness-corollary-1-3",
         "ClassicalSerreModularity:R27.1/good-dihedral-prime-definition",
         "ClassicalSerreModularity:R27.1/good-dihedral-implies-nonsolvable-image-and-is-preserved",
         "ClassicalSerreModularity:R26.6/corollary-1-2-proof"
@@ -2216,8 +2240,8 @@
       "status": "open"
     },
     {
-      "supplier": "GL2ModularityLifting:R22.6",
-      "need": "Export nonordinary potentially BT modularity over Q for the tame Q_p(μ_p) type, with residual cyclotomic restriction absolutely irreducible, and crystalline lifting in 2≤k≤p+1 with the ordinary endpoint handled explicitly. Include the semistable weight-two transition in the corrected prime-conductor proof.",
+      "supplier": "GL2ModularityLifting:R22.5",
+      "need": "Export R22.5/kw-i-theorem-4-1-odd-prime over Q: p>2, modular residual representation absolutely irreducible over Q(μ_p), and a lift crystalline of weight 2≤k≤p+1 or potentially semistable of weight two. Apply its potentially Barsotti–Tate and semistable branches with exact local hypotheses; retain its recorded nonordinary k=p+1/residual-weight-two boundary. Ordinary/reducible and bad-dihedral branches use R21 separately. R22.6 is the dyadic owner and does not supply this odd-prime result.",
       "neededBy": [
         "ClassicalSerreModularity:R26.4/level-one-lifting-lemma",
         "ClassicalSerreModularity:R26.4/degenerate-branches",
@@ -2247,6 +2271,32 @@
       "neededBy": [
         "ClassicalSerreModularity:R26.4/level-one-lifting-lemma",
         "ClassicalSerreModularity:R26.4/degenerate-branches"
+      ],
+      "status": "open"
+    },
+    {
+      "supplier": "ArithmeticGaloisRepresentations:R01.2",
+      "need": "Supply canonical decomposition/inertia inclusions, restriction and the tame Frobenius conjugation relation used in the good-dihedral predicate, image protection and conductor-two semistability calculation. Artin/Swan exponents are supplied separately by R01.3.",
+      "neededBy": [
+        "ClassicalSerreModularity:R27.1/good-dihedral-prime-definition",
+        "ClassicalSerreModularity:R27.1/good-dihedral-implies-nonsolvable-image-and-is-preserved",
+        "ClassicalSerreModularity:R26.6/corollary-1-2-proof"
+      ],
+      "status": "open"
+    },
+    {
+      "supplier": "ArithmeticGaloisRepresentations:R01.5",
+      "need": "Supply Frobenius recognition of continuous semisimple residual representations by their unramified Frobenius characteristic polynomials, to deduce that finitely many residual Hecke eigencharacters give finitely many representation classes. Abelian-character finiteness is the consumer application of the existing Tau Ceti ClassFieldTheory Layer 13, not a new R01.5 conductor theorem.",
+      "neededBy": [
+        "ClassicalSerreModularity:R26.6/finiteness-corollary-1-3"
+      ],
+      "status": "open"
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-13-norm-theorems-and-class-fields",
+      "need": "Import the existing upstream kroneckerWeber and least-cyclotomic-level/abelianConductor comparison for Q, then apply them to finite residual characters unramified outside p. Their prime-to-p image factors through the prime-to-p quotient of Z_pˣ, so its order divides p−1, including the trivial p=2 case. This is an upstream contract and its consumer application, not a new class-field-theory plan.",
+      "neededBy": [
+        "ClassicalSerreModularity:R26.6/finiteness-corollary-1-3"
       ],
       "status": "open"
     }
@@ -2368,6 +2418,15 @@
         "ClassicalSerreModularity:R27.1/good-dihedral-implies-nonsolvable-image-and-is-preserved"
       ],
       "detail": "Current R27.1 inherits R26.6, so node-level early-prefix independence does not remove the stage path to R33.2–R33.5. The packet’s explicit R27.1a/R27.1b rescope proposal must replace the base requires and RS-06 source endpoints; adding links alone cannot fix it. The Chebotarev/insertion nodes are preserved in the sibling R27.3 packet. Verify no R26.x ancestor of R33.1–R33.5 after application; until then this structural target is planned, not closed."
+    },
+    {
+      "title": "Exact supplier exports remain open after routing correction",
+      "neededBy": [
+        "ClassicalSerreModularity:R26.2/lifting-method-flatness",
+        "ClassicalSerreModularity:R26.2/nebentype-lift-at-q",
+        "ClassicalSerreModularity:R26.6/finiteness-corollary-1-3"
+      ],
+      "detail": "Independent supplier reads locate inertia at R01.2, conductors at R01.3, Frobenius recognition at R01.5, minimal finiteness/integral R=T at R22.3/R22.4, and odd-prime lifting at R22.5. The direct imports and requests now follow these contracts. Match the totally real deformation problem with the exact R22.3/R22.4 hypotheses; verify the local crystalline case and framing comparison at R08.6. R15.3 currently describes characteristic-p forms and Hecke operators: the requested finite integral weight-two Hecke algebra is an additional export to specify there, not a result already established by its stage name. Reducible-character finiteness imports ClassFieldTheory Layer 13, whose Kronecker–Weber/conductor contract is existing upstream work. No generic supplier theorem is newly planned in this packet."
     }
   ],
   "sourceIssues": [
@@ -2387,9 +2446,16 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Confirmed in Khare arXiv v1 §6.1 p.25: the preceding P=29, ℓ=7 construction has support {7,29}; {3,19} belongs to the prior row. No claim about the unavailable Duke text.",
-        "by": "REV-ClassicalSerreModularity--R26.1"
-      }
+        "reason": "Read Khare v1 §6.1 p.25. The mod-7 companion of the characteristic29 row has support{7,29}, whereas{3,19} is the preceding row. Confirmed the preprint slip only; Duke text not obtained.",
+        "by": "REV-ClassicalSerreModularity--R26.1~2"
+      },
+      "reviewHistory": [
+        {
+          "verdict": "confirmed",
+          "reason": "Confirmed in Khare arXiv v1 §6.1 p.25: the preceding P=29, ℓ=7 construction has support {7,29}; {3,19} belongs to the prior row. No claim about the unavailable Duke text.",
+          "by": "REV-ClassicalSerreModularity--R26.1"
+        }
+      ]
     },
     {
       "id": "ClassicalSerreModularity/E2",
@@ -2407,9 +2473,16 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Confirmed in Khare arXiv v1 §6.1 pp.25–26: for P=31, ℓ^e=5, the exponent coset is 0 modulo 6. The printed 16 fails; 18 satisfies the half-open interval (12,18] and gives weights 20,14. No claim about the unavailable Duke text.",
-        "by": "REV-ClassicalSerreModularity--R26.1"
-      }
+        "reason": "Read Khare v1 §6.1 pp.25–26 and recomputed the characteristic31/foil5 coset modulo6. The printed exponent16 is unavailable; exponent18 gives weights20/14 and lies in(12,18]. No published-edition assertion.",
+        "by": "REV-ClassicalSerreModularity--R26.1~2"
+      },
+      "reviewHistory": [
+        {
+          "verdict": "confirmed",
+          "reason": "Confirmed in Khare arXiv v1 §6.1 pp.25–26: for P=31, ℓ^e=5, the exponent coset is 0 modulo 6. The printed 16 fails; 18 satisfies the half-open interval (12,18] and gives weights 20,14. No claim about the unavailable Duke text.",
+          "by": "REV-ClassicalSerreModularity--R26.1"
+        }
+      ]
     },
     {
       "id": "ClassicalSerreModularity/E10",
@@ -2427,9 +2500,16 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Confirmed against KW I author-copy §7 p.12: the exponent in the 2-power estimate is independent of r in L_r/W_r. Use e≥4 throughout the application; retain the existing known correction attribution.",
-        "by": "REV-ClassicalSerreModularity--R26.1"
-      }
+        "reason": "Read KW I §7–§8.2 pp.12–15. The conductor-prime count r is fixed, independently of the exponent of the selected prime-power divisor. Confirmed the collision and the use of e≥4 for the dyadic estimate, with prior correction attribution retained.",
+        "by": "REV-ClassicalSerreModularity--R26.1~2"
+      },
+      "reviewHistory": [
+        {
+          "verdict": "confirmed",
+          "reason": "Confirmed against KW I author-copy §7 p.12: the exponent in the 2-power estimate is independent of r in L_r/W_r. Use e≥4 throughout the application; retain the existing known correction attribution.",
+          "by": "REV-ClassicalSerreModularity--R26.1"
+        }
+      ]
     },
     {
       "id": "ClassicalSerreModularity/E11",
@@ -2449,9 +2529,16 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Confirmed against Khare arXiv v1 §4 p.19: the claimed uniform upper bound with the displayed B=1.2A is false at x=31 and x=100 (π=11,25). The packet instead uses the exact Rosser–Schoenfeld Theorem 2/Corollary 1 domains. This does not assert that the next-prime conclusion fails or that the unavailable Duke edition contains the same wording.",
-        "by": "REV-ClassicalSerreModularity--R26.1"
-      }
+        "reason": "Read Khare v1 §4 pp.19–20 and computed π(31)=11,π(100)=25. These contradict the proposed uniform upper constant. Rosser–Schoenfeld p.69 supplies the replacement domains; this confirms a proof-input error, not failure of the intended prime-ratio conclusion or an error in the unread Duke edition.",
+        "by": "REV-ClassicalSerreModularity--R26.1~2"
+      },
+      "reviewHistory": [
+        {
+          "verdict": "confirmed",
+          "reason": "Confirmed against Khare arXiv v1 §4 p.19: the claimed uniform upper bound with the displayed B=1.2A is false at x=31 and x=100 (π=11,25). The packet instead uses the exact Rosser–Schoenfeld Theorem 2/Corollary 1 domains. This does not assert that the next-prime conclusion fails or that the unavailable Duke edition contains the same wording.",
+          "by": "REV-ClassicalSerreModularity--R26.1"
+        }
+      ]
     },
     {
       "id": "ClassicalSerreModularity/E12",
@@ -2468,9 +2555,16 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Confirmed as an author-reported correction: Savitt arXiv v3 Remark 1.7 explicitly identifies the published Theorem 6.12(4), i=1 error. Read v3 Theorem 6.11, Corollary 6.15 and Remark 6.17; did not independently obtain the older published text. Use the corrected v3 classification and preserve lattice hypotheses.",
-        "by": "REV-ClassicalSerreModularity--R26.1"
-      }
+        "reason": "Read Savitt v3 Remark1.7 p.4 and corrected Theorem6.11/Corollary6.15/Remark6.17 pp.34–39. The i=1 case gives coincident niveau-two exponents of niveau one. Confirmed the author-reported published correction; the older published theorem was not independently read.",
+        "by": "REV-ClassicalSerreModularity--R26.1~2"
+      },
+      "reviewHistory": [
+        {
+          "verdict": "confirmed",
+          "reason": "Confirmed as an author-reported correction: Savitt arXiv v3 Remark 1.7 explicitly identifies the published Theorem 6.12(4), i=1 error. Read v3 Theorem 6.11, Corollary 6.15 and Remark 6.17; did not independently obtain the older published text. Use the corrected v3 classification and preserve lattice hypotheses.",
+          "by": "REV-ClassicalSerreModularity--R26.1"
+        }
+      ]
     },
     {
       "id": "ClassicalSerreModularity/E13",
@@ -2488,9 +2582,16 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Independently multiplied the displayed upper-triangular matrices and verified the printed sign on the rendered PDF page. The correction follows from the source’s two preceding equations.",
-        "by": "REV-ClassicalSerreModularity--R26.1"
-      }
+        "reason": "Read Khare v1 §2.3 p.15 and independently derived α−β=γ(c−1),αβ=ψ, hence β²+βγ(c−1)−ψ=0. A numerical substitution distinguishes the signs; its derivative reduces to a nonzero twice-eigenvalue in odd characteristic. This is edition-qualified and leaves smoothness unchanged.",
+        "by": "REV-ClassicalSerreModularity--R26.1~2"
+      },
+      "reviewHistory": [
+        {
+          "verdict": "confirmed",
+          "reason": "Independently multiplied the displayed upper-triangular matrices and verified the printed sign on the rendered PDF page. The correction follows from the source’s two preceding equations.",
+          "by": "REV-ClassicalSerreModularity--R26.1"
+        }
+      ]
     },
     {
       "id": "ClassicalSerreModularity/E14",
@@ -2508,9 +2609,16 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Checked the published paragraph and the elementary dihedral-group orders. The quadratic quotient uses the index-two rotation subgroup, not the center.",
-        "by": "REV-ClassicalSerreModularity--R26.1"
-      }
+        "reason": "Read Ribet published Proposition2.2 proof p.280 with its semistable/cyclotomic conventions. Cyclic tame inertia of order p±1 cannot lie in the dihedral center when its order exceeds two; the index-two rotation subgroup gives the stated quadratic quotient. Confirmed the terminology slip without broadening the theorem.",
+        "by": "REV-ClassicalSerreModularity--R26.1~2"
+      },
+      "reviewHistory": [
+        {
+          "verdict": "confirmed",
+          "reason": "Checked the published paragraph and the elementary dihedral-group orders. The quadratic quotient uses the index-two rotation subgroup, not the center.",
+          "by": "REV-ClassicalSerreModularity--R26.1"
+        }
+      ]
     }
   ],
   "sourceVersions": [
@@ -2587,7 +2695,7 @@
   ],
   "baselineAudit": {
     "reviewedAudit": "data/library-coverage.json, scoped R26/R27 stage records",
-    "confirmation": "Read Mathlib MaxPrimeFac and GeneralLinearGroup/Defs at 082e2d37; inspected Tau Ceti sources at f790474 using commit-qualified reads. The libraries supply matrix groups, prime factors, modular-form carriers and abelian-variety carriers. They do not supply the residual G_Q representation with canonical conductor/Serre-weight/modular-newform witness needed to type the headline statements. R26.1 process bookkeeping is excluded while its mathematical theorem/contracts remain. R26.5 consumes R25 arithmetic results rather than rebuilding the existing abelian-variety carrier. Read Nat.primeCounting at the exact Mathlib pin: its value counts primes ≤n, which fixes the floor adapter for real x. Independent reviewer codex-sHhOXz read all seven original declarations at Mathlib 082e2d3 and added the already existing Nat.exists_prime_lt_and_le_two_mul from Bertrand.lean, with n≠0. Checked all eight scoped reviewed-audit records; no built carrier or generic supplier theorem is newly planned. Full Chebotarev and GlobalNumberFields upstream documents were read; Chebotarev Layer 10 remains an upstream supplier, not a new plan. Revision 2, codex-vmLqNQ: independently rechecked all eight Mathlib declarations at the exact pin, including their nonzero/strict-range premises; inspected the pinned Tau Ceti absolute Galois and abelian-variety carriers and modular-form uses. An absolute Galois carrier exists; the missing interface is its assembled residual-representation/conductor/weight/attached-newform package. The suggested file continues to import Mathlib only."
+    "confirmation": "Read Mathlib MaxPrimeFac and GeneralLinearGroup/Defs at 082e2d37; inspected Tau Ceti sources at f790474 using commit-qualified reads. The libraries supply matrix groups, prime factors, modular-form carriers and abelian-variety carriers. They do not supply the residual G_Q representation with canonical conductor/Serre-weight/modular-newform witness needed to type the headline statements. R26.1 process bookkeeping is excluded while its mathematical theorem/contracts remain. R26.5 consumes R25 arithmetic results rather than rebuilding the existing abelian-variety carrier. Read Nat.primeCounting at the exact Mathlib pin: its value counts primes ≤n, which fixes the floor adapter for real x. Independent reviewer codex-sHhOXz read all seven original declarations at Mathlib 082e2d3 and added the already existing Nat.exists_prime_lt_and_le_two_mul from Bertrand.lean, with n≠0. Checked all eight scoped reviewed-audit records; no built carrier or generic supplier theorem is newly planned. Full Chebotarev and GlobalNumberFields upstream documents were read; Chebotarev Layer 10 remains an upstream supplier, not a new plan. Revision 2, codex-vmLqNQ: independently rechecked all eight Mathlib declarations at the exact pin, including their nonzero/strict-range premises; inspected the pinned Tau Ceti absolute Galois and abelian-variety carriers and modular-form uses. An absolute Galois carrier exists; the missing interface is its assembled residual-representation/conductor/weight/attached-newform package. The suggested file continues to import Mathlib only. Independent review revision 2, codex-mDgRfa: all eight Mathlib declarations re-read at 082e2d37; commit-qualified Tau Ceti reads confirm absolute Galois groups, cusp forms and abelian varieties at f790474. All eight library-audit records and both full upstream examples rechecked; exact supplier contracts, not stage names alone, determine imports."
   },
   "paperRouteAlignment": [
     {
@@ -2609,7 +2717,7 @@
         "PotentialModularityAndCompatibleSystems"
       ],
       "detail": "RT-AREA-langlands-2/1: current R27.1 has an inherited R26.6 requirement, defeating the early good-dihedral prefix used by R33. The stage graph cannot erase the edge by adding a link. RT-AREA-langlands-2/7 also requires an integral Savitt supplier at R07.5 and its compatible-system consumer edge.",
-      "proposal": "Replace R27.1 by R27.1a (Definition2.1, Lemma6.3, Lemma8.2) and R27.1b (good-dihedral insertion and other late operations). R27.1a requires only R01.4/R01.5, R15.4, R24.5’s compatible-system operations or R24.6 residual-member interface, and Tau Ceti Chebotarev Layer10; delete inherited R26.6 and other late modularity requirements from this prefix. Preserve stable node ids and migrate the sibling R27.1/lemma-8-2-chebotarev-choice-of-auxiliary-primes to R27.1a; its prime-field hypothesis remains. Migrate R27.1/good-dihedral-prime-insertion to R27.1b, with its actual R24 lift dependencies. Keep R26.6→R27.3 for W1. Replace RS-06 links R27.1→R33.2/R33.3/R33.6 by R27.1a→those stages; assign any actual late insertion consumers to R27.1b explicitly. The mixed Dickson/modularity/weight alias keeps its RS-06 component owners, not a new early-prefix dependency. Add the weight-classification dependency R07.5→R24.6 (R07.4 descent precedes R07.5); remove R15.4-as-integral-classification ownership. After application check that no R26.x stage is an ancestor of R33.1–R33.5. Do not create fictitious live stage ids in this packet."
+      "proposal": "Replace R27.1 by R27.1a (Definition2.1, Lemma6.3, Lemma8.2) and R27.1b (good-dihedral insertion and other late operations). R27.1a requires only R01.2/R01.3/R01.4, R15.4, R24.5’s compatible-system operations or R24.6 residual-member interface, and Tau Ceti Chebotarev Layer10; delete inherited R26.6 and other late modularity requirements from this prefix. Preserve stable node ids and migrate the sibling R27.1/lemma-8-2-chebotarev-choice-of-auxiliary-primes to R27.1a; its prime-field hypothesis remains. Migrate R27.1/good-dihedral-prime-insertion to R27.1b, with its actual R24 lift dependencies. Keep R26.6→R27.3 for W1. Replace RS-06 links R27.1→R33.2/R33.3/R33.6 by R27.1a→those stages; assign any actual late insertion consumers to R27.1b explicitly. The mixed Dickson/modularity/weight alias keeps its RS-06 component owners, not a new early-prefix dependency. Add the weight-classification dependency R07.5→R24.6 (R07.4 descent precedes R07.5); remove R15.4-as-integral-classification ownership. After application check that no R26.x stage is an ancestor of R33.1–R33.5. Do not create fictitious live stage ids in this packet."
     }
   ],
   "links": [
@@ -2630,191 +2738,381 @@
     }
   ],
   "review": {
-    "status": "needs_changes",
-    "reviewer": "independent-review-REV-ClassicalSerreModularity--R26.1",
-    "date": "2026-10-06",
-    "notes": "Finished independent target-level review: 36 node/source/proof-route checks, all eight pinned Mathlib citations confirmed, cross-roadmap contracts and all eight scoped targets audited. Corrected 29 node objects, added no nodes, expanded the two-definition API to 16 items and 11 tests, and confirmed five existing plus two newly recorded edition-qualified source issues. Suggested Lean elaborates with 32 expected unproved-placeholder warnings only. The complete pass and eight planned statuses are retained; six honest supplier/source/structure gaps remain. Verdict needs_changes because the input-only reader still contains the wrong quadratic sign, copied contradictory hypotheses, overbroad prime transfer and solvable/ordinary claims, stale BM source boundary and dyadic equality. This review issue does not authorize editing that reader. A revision must synchronize it with the corrected packet/Lean and reproduce the three red-team dispositions described in the report; maintainer application of the stage split remains explicitly pending.",
+    "status": "accepted",
+    "reviewer": "independent-review-REV-ClassicalSerreModularity--R26.1~2",
+    "date": "2026-10-08",
+    "notes": "Independent review of the revised packet, reader and suggested file: all 36 nodes checked against ten hash-matched public source versions, all eight Mathlib baseline citations and scoped library-audit records confirmed, supplier contracts and source/component ownership compared, and all three assigned red-team dispositions rechecked. Corrected ten node objects, source-edition locators and direct import/request routing; added no nodes. Reader synchronized, seven source issues independently confirmed with edition limits. Complete pass retained with eight planned stages, none closed, 16 API items, 11 tests, seven planets, 23 open requests and seven explicit gaps. Independent finite arithmetic and graph dry run passed. Suggested Lean elaborated unchanged with 32 expected unproved-placeholder warnings only. Acceptance certifies the plan and its honest boundaries, not formal proofs or maintainer application of the stage split.",
     "checked": [
       {
         "nodeId": "ClassicalSerreModularity:R26.1/level-one-theorem-and-the-meaning-of-arises-from",
-        "verdict": "corrected",
-        "note": "Khare Theorem 1.1 and the arises-from/strong-modularity conventions match. Corrected the proof summary to distinguish the three residual solvable branches instead of attributing ordinarity to solvability. Exact weight/level remains an R15/R20 import."
+        "verdict": "verified",
+        "note": "Khare v1 Theorem1.1 pp.1–2 and BCDT Introduction pp.1–2 agree with the residual theorem and the optimal-weight/level convention; the characteristic≥3 equivalence is scoped and R15/R20 retain ownership."
       },
       {
         "nodeId": "ClassicalSerreModularity:R26.1/corollary-1-2-conductor-a-prime-and-its-corrected-proof",
         "verdict": "verified",
-        "note": "Khare Corollary 1.2 has p>2; KW Corollary 8.1(i) includes p=2. Checked the corrected [24] Duke-numbered references, q=2 semistability/Annals input and the explicit unavailable-publication/CM boundaries."
+        "note": "Khare v1 Cor1.2 pp.2–3 is restricted to p>2, whereas KW I Cor8.1(i) p.16 includes p=2. The Duke [24] reference and unpublished ordinary correction remain explicit edition gaps."
       },
       {
         "nodeId": "ClassicalSerreModularity:R26.1/bockle-appendix-minimal-deformation-ring-presentation",
         "verdict": "verified",
-        "note": "Read all seven Böckle appendix pages and the three R24/R04 supplier statements. Oddness, fixed-determinant convention, decomposable-flat exception and reduced Hecke hypotheses agree; no generic theorem is re-owned."
+        "note": "Read the entire appendix, Theorem1/Proposition1/Lemmas1–2 pp.1–6: fixed determinant, oddness, decomposable flat exception and reduced Hecke hypotheses are retained; R04/R24 supply generic statements."
       },
       {
         "nodeId": "ClassicalSerreModularity:R26.2/lifting-method-flatness",
         "verdict": "corrected",
-        "note": "Checked Khare §2.1 and R24 finite-flat complete-intersection contracts. Clarified that this is an application with local hypotheses, not a new generic lifting theorem or a restriction of the source to conductor one."
+        "note": "Khare §2.1 pp.8–11 and published Annals Lemma3.6 p.241 support the restriction/finiteness application. Corrected the older preprint locator and replaced the R22.1 map by exact R22.3/R22.4 finiteness/integral-R=T contracts, with matching hypotheses still requested."
       },
       {
         "nodeId": "ClassicalSerreModularity:R26.2/minimal-weight-two-lift",
-        "verdict": "corrected",
-        "note": "Checked Proposition 2.1 including p>3, ordinarity, k=2 and k=p+1 distinctions. Added direct R17 solvable modularity and R20 ordinary weight-two eigenform realisation imports and a precise request."
+        "verdict": "verified",
+        "note": "Khare Prop2.1 pp.7–8 and §2.2 pp.11–13 retain p>3, ordinary residual, k≠p and the k=2 BT/k=p+1 semistable alternatives. Solvable and nonsolvable routes use different suppliers."
       },
       {
         "nodeId": "ClassicalSerreModularity:R26.2/local-ring-at-q-smooth",
-        "verdict": "corrected",
-        "note": "Checked Proposition 2.2 proof on the rendered p.15. Corrected the quadratic sign (E13), explicit odd-prime/coefficient assumptions and unit Hensel derivative; smoothness conclusion is unchanged."
+        "verdict": "verified",
+        "note": "Recomputed the triangular-matrix commutation and determinant in Khare §2.3 pp.14–15: the plus-sign quadratic and odd-characteristic unit derivative are correct. The q≠p, q≡1 modp and exact character coset conditions survive."
       },
       {
         "nodeId": "ClassicalSerreModularity:R26.2/nebentype-lift-at-q",
         "verdict": "corrected",
-        "note": "Proposition 2.2 keeps non-solvable image, normalized weight, fixed determinant and prescribed q-nebentype. Clarified application ownership; the local and generic R24 inputs are direct."
+        "note": "Khare Prop2.2 pp.13–15 agrees with the prescribed nebentypus. Replaced the unrestricted R08.3 smoothness request by the three case-specific R08.6 exports and distinguished framed from unframed dimensions; mapped preprint Prop2.3 to published Prop3.5 pp.240–241."
       },
       {
         "nodeId": "ClassicalSerreModularity:R26.2/compatible-system-lifts",
-        "verdict": "corrected",
-        "note": "Proposition 3.1 has different residual hypotheses in (i) and (ii). Corrected literal ramification support to allow each member’s own coefficient prime, and separated the nonsolvable hypothesis on the new reduction from that on the original representation."
+        "verdict": "verified",
+        "note": "Khare Prop3.1/§3 pp.16–19 and KW I Thm5.1 pp.9–10 agree with minimal/nonminimal types. Coefficient-characteristic ramification is permitted; fixed Weil–Deligne support supplies the transfer, and R24 owns the system."
       },
       {
         "nodeId": "ClassicalSerreModularity:R26.3/chebyshev-next-prime",
-        "verdict": "corrected",
-        "note": "Checked §4 and the independently computed finite certificates. Clarified ℓ≤p after the Fermat skip using P<2p and ℓ≤(P−1)/2; the finite certificate checks this directly. The asymptotic input uses the corrected prime-counting bounds."
+        "verdict": "verified",
+        "note": "Khare §4 pp.19–20 and KW I §7 pp.12–13 use the same odd prime-power inequality. Finite and analytic replacement inputs validate the plan without using the false uniform Chebyshev range; R26.3 is the sole owner."
       },
       {
         "nodeId": "ClassicalSerreModularity:R26.3/serre-weight-twist",
         "verdict": "verified",
-        "note": "Lemma 5.2 retains k≠2, k<p and the distinction between locally irreducible and split inertia cases. R15.4 supplies the recipe; neither arbitrary twists nor unnormalized weights are treated as weight-invariant."
+        "note": "Khare Lemma5.2 p.21 has k≠2 and k<p. The irreducible and split inertia formulas, and their residual/cyclotomic interpretation, agree with the R15 recipe request."
       },
       {
         "nodeId": "ClassicalSerreModularity:R26.3/weight-interval-containment",
-        "verdict": "corrected",
-        "note": "Added positive-length and m≥1 hypotheses, both lower as well as upper returned-weight bounds, and the residue-coset selection argument. Removed the false claim that the arithmetic had been proved in Lean; suggested signatures are unproved."
+        "verdict": "verified",
+        "note": "The integer interval in Khare §6.2 pp.26–28 has length L=(P−1)/(2m+1). Both weight bounds follow from the cleared-denominator inequality; every residue class occurs once in the half-open interval. Checked 284,062 representatives independently."
       },
       {
         "nodeId": "ClassicalSerreModularity:R26.3/level-one-induction-scheme",
-        "verdict": "corrected",
-        "note": "Corrected the overbroad one-prime S(B) transfer. Prove the full theorem in characteristic P before applying Corollary 5.5(ii); part (i) only transfers fixed normalized weight k to q≥k−1. Added R15.4 normalization."
+        "verdict": "verified",
+        "note": "Khare §6 pp.23–28 supports induction on the all-characteristic weight bound. The base completes S(32); the transition completes the normalized characteristic before Cor5.5 transfer, with no circular appeal to the final theorem."
       },
       {
         "nodeId": "ClassicalSerreModularity:R26.4/local-reducibility-ordinary",
-        "verdict": "corrected",
-        "note": "Obtained BM Proposition 6.1.1: odd p, nonscalar principal-series type, HT {0,1}, arbitrary stable lattice, no End premise. Restricted the statement accordingly and separated Savitt’s semisimplification extension from its End-restricted corollary."
+        "verdict": "verified",
+        "note": "Khare Lemma5.3 p.22, BM Prop6.1.1 pp.67–68 and Savitt Thm6.11 pp.34–35 agree for odd p, nonscalar tame type and HT {0,1}. BM allows any lattice; Savitt Cor6.15 has its own End condition and Remark6.17 only extends semisimplifications."
       },
       {
         "nodeId": "ClassicalSerreModularity:R26.4/level-one-lifting-lemma",
         "verdict": "corrected",
-        "note": "Corollary 5.5 needs the general crystalline weight-k R24 lift/system, not just Khare’s weight-two Proposition 3.1. Added those direct imports, dihedral termination, residual-weight/transfer imports and the separate scalar crystalline FL ordinary criterion; endpoint and CM gaps stay explicit."
+        "note": "Khare Lemma5.4/Cor5.5 p.22 retains even k, fixed-weight q≥k−1 and the full-theorem premise in part(ii). Corrected the odd-prime import to R22.5 and the local cases to R08.6; general-weight R24 systems and the ordinary CM gap remain explicit."
       },
       {
         "nodeId": "ClassicalSerreModularity:R26.4/degenerate-branches",
         "verdict": "corrected",
-        "note": "Corrected solvable⇒ordinary and use of level-one classification at a foil ramified at P. Separate reducible, general bad-dihedral and cyclotomically absolutely irreducible solvable branches. Added the scalar crystalline BM Proposition 4.1.1/FL criterion, with k=2<ℓ including ℓ=3."
+        "note": "Khare §5/§6.2 and DP Lemmas1.13–1.14 pp.8–9 justify separate reducible, bad-dihedral and cyclotomically irreducible branches. BM Prop4.1.1 pp.30–31 handles scalar crystalline k=2<ℓ, including ℓ=3. Routed odd-prime lifting to R22.5."
       },
       {
         "nodeId": "ClassicalSerreModularity:R26.5/small-weights-table",
-        "verdict": "corrected",
-        "note": "All five terminal applications and the R25 table cover the stated even weights through 32. Clarified old versus published Annals numbering; no new abelian-variety carrier or realization is introduced."
+        "verdict": "verified",
+        "note": "Read all five rows in Khare §6.1 pp.24–26; computed the 13 exponent cosets and returned weights independently. E1 applies to P=29 support and E2 to P=31 nebentypus, without changing the legitimate P=29 exponent16."
       },
       {
         "nodeId": "ClassicalSerreModularity:R26.6/level-one-proof-assembly",
         "verdict": "corrected",
-        "note": "Checked the two-system link and R20 refinement. Clarified that the foil adds no fixed Weil–Deligne ramification while its own coefficient member can be ramified; the transfer still checks its local/residual hypotheses."
+        "note": "Khare §§6–7 pp.23–29 assembles the completed weight induction, matching lifts and exact-weight/level optimisation. Changed the odd-prime direct import to R22.5; no unresolved supplier is described as proved here."
       },
       {
         "nodeId": "ClassicalSerreModularity:R26.6/corollary-1-2-proof",
-        "verdict": "verified",
-        "note": "Checked Khare §7.1, corrected KW §8.3 and published Annals Definition 4.1/Theorem 4.2(ii)/Theorem 5.2(ii)/§6.2. The conductor-two application has the explicit R01.5 semistability check and R25 realization/Schoof inputs, not an unconditional killing-ramification axiom."
+        "verdict": "corrected",
+        "note": "KW I §8.3 p.16 and Annals Def4.1/Thm4.2/Thm5.2(ii) pp.244–247 require conductor-two semistability and the GL2-type realisation. Corrected inertia/conductor ownership to R01.2/R01.3. The q=2 fixed-line calculation and separate R25 Schoof application are sound."
       },
       {
         "nodeId": "ClassicalSerreModularity:R26.6/finiteness-corollary-1-3",
-        "verdict": "verified",
-        "note": "Corollary 1.3’s semisimplicity and finite cyclotomic twists are retained. The integral Hecke-algebra argument and prime-to-p abelian character quotient close the two branches via precise R15.3/R01.5 requests; finite complex dimension alone is not used."
+        "verdict": "corrected",
+        "note": "Khare §7.1 pp.28–29 requires a finite integral Hecke algebra, not just a finite complex dimension. Added upstream ClassFieldTheory Layer13 for abelian characters; retained R01.5 specifically for Frobenius recognition and recorded the R15.3 integral-export extension."
       },
       {
         "nodeId": "ClassicalSerreModularity:R26.6/corollary-8-1-ii-and-the-statement-W1",
-        "verdict": "corrected",
-        "note": "Checked KW Corollary 8.1(ii) and its W1 consequence. Clarified that t=p is a branch handled by part (i), not an omitted source case; added the general R15.4 bad-dihedral weight prerequisite used to check restriction irreducibility."
+        "verdict": "verified",
+        "note": "KW I Cor8.1(ii) p.16 gives the stated weight-two odd-conductor initial case. The plan imports the mixed image/modularity/optimisation components, and the stage proposal preserves R26.6→R27.3 for W1."
       },
       {
         "nodeId": "ClassicalSerreModularity:R27.1/good-dihedral-prime-definition",
         "verdict": "corrected",
-        "note": "Definition 2.1’s exact nontrivial odd prime-power order, strict size bound, conductor convention, inclusive congruence endpoint and basis invariance agree. Added three API items/tests for the existential locally-good wrapper, catching a universal-quantifier or witness-free definition."
+        "note": "KW I Def2.1 p.5 requires nontrivial odd-prime-power inertia and inclusive prime congruences. Corrected local imports to R01.2/R01.3 and classified the p=7,q=241 endpoint test as a non-example. The full API uses actual conductor only after specialization."
       },
       {
         "nodeId": "ClassicalSerreModularity:R27.1/good-dihedral-implies-nonsolvable-image-and-is-preserved",
-        "verdict": "verified",
-        "note": "Lemma 6.3’s minimal-at-q system, ramification support and bounded residual characteristic are retained. Its proof imports only the early image/conductor/system interface; no dependency on the mixed modularity alias or level-one theorem is introduced."
+        "verdict": "corrected",
+        "note": "KW I Lemma6.3 pp.11–12 excludes small exceptional and quadratic-induced images and preserves the prime-power local type in the bounded characteristic range. Corrected conductor/support inputs to R01.2/R01.3; no modularity theorem is an early-prefix input."
       },
       {
         "nodeId": "ClassicalSerreModularity:R27.1/dickson-and-the-dyadic-solvable-refinement",
-        "verdict": "corrected",
-        "note": "Checked KW Lemmas 6.1/6.2 and DP Definitions 1.12/Lemmas 1.13–1.14. Retained RS-06’s component owners and added the published Ribet proof locator with its rotation-subgroup misprint E14; that semistable theorem is not a general bad-dihedral weight theorem."
+        "verdict": "verified",
+        "note": "KW I Lemmas6.1–6.2 pp.10–11 retain solvability in characteristic two and normalized odd-prime weights. RS06 componentMigrations retain the stable alias while R01/R17/R20/R15 own its distinct components; Ribet Prop2.2 is an analogy, not an unrestricted theorem."
       },
       {
         "nodeId": "ClassicalSerreModularity:R27.2/hypotheses-Lr-Wr-and-Dr",
         "verdict": "verified",
-        "note": "L_r/W_r/D_r domains, weight restrictions, odd-conductor versus dyadic-valuation conditions and monotonicity directions agree with §3. The seven API items/four meaningful tests remain typed mathematical plans with an honest missing-interface ledger."
+        "note": "KW I §3 pp.5–6 agrees with r≥1 for L/W and r≥0 for D. Checked all seven API items, four tests and the reverse direction of monotonicity: stronger universal hypotheses imply the smaller conductor range."
       },
       {
         "nodeId": "ClassicalSerreModularity:R27.2/prime-gap-estimates-driving-the-weight-recursion",
-        "verdict": "corrected",
-        "note": "Corrected the remaining exponent/conductor-count collision r≥4 to e≥4 and the false equality for (13,17,4) to 176<208. The shared odd estimate stays owned by R26.3; only the dyadic application is retained here."
+        "verdict": "verified",
+        "note": "KW I §7 pp.12–13 imports the single odd estimate and adds the dyadic application. The exponent e≥4 is independent of conductor count r; 176<208 at (13,17,4), and the even exponent interval has length two."
       },
       {
         "nodeId": "ClassicalSerreModularity:R27.2/theorem-3-2-weight-reduction",
-        "verdict": "corrected",
-        "note": "Read the entire three-part §8.2 argument. Retained the mandatory third system and final reduction to the predecessor characteristic; added the local crystalline-weight-two argument showing the foil cannot add an uncounted conductor prime."
+        "verdict": "verified",
+        "note": "Read all §8.2 pp.13–15, including characteristic3/5 branches and the third compatible system. The final reduction to the smaller predecessor characteristic is essential; the crystalline foil condition preserves the ≤r prime count. R07.5 supplies integral residual weights."
       },
       {
         "nodeId": "ClassicalSerreModularity:R26.3/explicit-prime-counting-input",
-        "verdict": "corrected",
-        "note": "Removed copied terminal-row hypotheses and checked all four Rosser–Schoenfeld domains at published p.69. The natural-floor adapter matches pinned Nat.primeCounting; analytic proof/verification-table boundary remains honest."
+        "verdict": "verified",
+        "note": "Published Rosser–Schoenfeld p.69 gives precisely (3.3)–(3.6) and their four domains. Nat.primeCounting at the pin counts≤n; the floor adapter is right. E11 counterexamples and the unread analytic proof/table boundary remain explicit."
       },
       {
         "nodeId": "ClassicalSerreModularity:R26.3/next-prime-ratio",
-        "verdict": "corrected",
-        "note": "Removed copied row hypotheses and added pinned Bertrand as a direct baseline prerequisite. Independently checked positive logarithmic margins at 31 and 21591 and the two-step non-Fermat comparison; exact 22/15 is retained."
+        "verdict": "verified",
+        "note": "Independently evaluated positive logarithmic margins at 31 and 21591, respectively 0.2459763296 and 0.6667561461, with increasing comparisons. Bertrand has n≠0; the Fermat skip is separate and 22/15 is exact."
       },
       {
         "nodeId": "ClassicalSerreModularity:R26.3/finite-auxiliary-prime-checks",
-        "verdict": "corrected",
-        "note": "Removed copied row hypotheses. Exhaustive independent sieve checked all 2,422 primes 5≤p≤21591, exact odd prime-power divisors, the least non-Fermat prime, ℓ≤p, integer inequality, all interval weights and residue representatives; largest chosen P=21599."
+        "verdict": "verified",
+        "note": "An independent sieve/factorisation checked all 2,422 primes 5≤p≤21591, least non-Fermat P, exact odd powers, ℓ≤p and integer margins. Largest P=21599 and minimum margin0; p=251 correctly skips257 for263."
       },
       {
         "nodeId": "ClassicalSerreModularity:R26.4/ordinary-reduction-and-parity",
-        "verdict": "corrected",
-        "note": "Removed copied row hypotheses; checked normalized even-weight twist cases and distinguished ordinary-character parity, with k=P+1 handled separately and no characteristic-two inference."
+        "verdict": "verified",
+        "note": "Khare §6.2 pp.26–27 uses twists only for k<P and treats k=P+1 separately. Even weight gives an odd residual-character exponent, hence distinction in odd characteristic; this is not a characteristic-two or automatic modularity assertion."
       },
       {
         "nodeId": "ClassicalSerreModularity:R26.5/terminal-row-branch-contract",
         "verdict": "corrected",
-        "note": "Removed copied hypotheses and the false level-one premise at the foil. The general bad-dihedral lemma and the three solvable branches now supply the local lifting contract; j must respect its residue coset and the return residual need not be irreducible."
+        "note": "Khare §6.1–6.2 uses the allowable exponent coset and separate residual-image branches at both returns. Corrected the nonordinary odd-prime reference to R22.5; the general bad-dihedral lemma applies at the ramified foil, unlike the level-one classification."
       },
       {
         "nodeId": "ClassicalSerreModularity:R26.5/weight-eight",
-        "verdict": "corrected",
-        "note": "Replaced copied hypotheses by P=7, ℓ=3, support {3,7}, j=2. Checked exact divisor, coset and weights 4/6; export only after completing all normalized weights≤8 in characteristic 7."
+        "verdict": "verified",
+        "note": "Khare §6.1 p.24: (P,ℓ,ℓ^e,j)=(7,3,3,2), support{3,7}, returned weights4/6. Verified the coset and prior bound; the normalized characteristic7 range is completed before all-characteristic export."
       },
       {
         "nodeId": "ClassicalSerreModularity:R26.5/weights-ten-twelve",
-        "verdict": "corrected",
-        "note": "Replaced copied hypotheses by P=11, ℓ=5, support {5,11}, j=4. Checked the two residue cosets and weights 6/8; export after the full characteristic-11 bound 12 is proved."
+        "verdict": "verified",
+        "note": "Khare §6.1 p.24: (11,5,5,4), support{5,11}, returned weights6/8. Both starting weights meet the coset; the full bound12 is completed before transport."
       },
       {
         "nodeId": "ClassicalSerreModularity:R26.5/weights-fourteen-twenty",
-        "verdict": "corrected",
-        "note": "Replaced copied hypotheses by P=19, ℓ=3, support {3,19}, j=8. Checked exact divisor 9 and all four weights’ cosets; return weights 10/12 precede this row, then export the full bound 20."
+        "verdict": "verified",
+        "note": "Khare §6.1 pp.24–25: (19,3,9,8), support{3,19}, returned weights10/12. All four starting weights have the same residue modulo2 and the full bound20 is completed first."
       },
       {
         "nodeId": "ClassicalSerreModularity:R26.5/weights-twentytwo-thirty",
-        "verdict": "corrected",
-        "note": "Replaced copied E2 hypothesis: j=16 for 22/26/30 and j=14 for 24/28. Checked support {7,29} (E1), modulus 4 and weights 18/14 or 16/16; E2 belongs only to the next row. Export after the full bound 30."
+        "verdict": "verified",
+        "note": "Khare §6.1 p.25: (29,7,7), support{7,29}; j16 for22/26/30 returns18/14, j14 for24/28 returns16/16. Computed both modulo4 cosets; this row does not inherit E2."
       },
       {
         "nodeId": "ClassicalSerreModularity:R26.5/weight-thirtytwo",
-        "verdict": "corrected",
-        "note": "Replaced copied hypotheses by P=31, ℓ=5, support {5,31}, j=18. Checked 6∣18, 6∤16 and (12,18], returning weights 20/14 (E2); export after the full bound 32."
+        "verdict": "verified",
+        "note": "Khare §6.1 pp.25–26: (31,5,5,18), support{5,31}; 6 divides18 but not16 and (12,18] selects18. Returned weights20/14 precede32, with the full characteristic31 range completed before transfer."
       }
     ]
-  }
+  },
+  "reviewHistory": [
+    {
+      "status": "needs_changes",
+      "reviewer": "independent-review-REV-ClassicalSerreModularity--R26.1",
+      "date": "2026-10-06",
+      "notes": "Finished independent target-level review: 36 node/source/proof-route checks, all eight pinned Mathlib citations confirmed, cross-roadmap contracts and all eight scoped targets audited. Corrected 29 node objects, added no nodes, expanded the two-definition API to 16 items and 11 tests, and confirmed five existing plus two newly recorded edition-qualified source issues. Suggested Lean elaborates with 32 expected unproved-placeholder warnings only. The complete pass and eight planned statuses are retained; six honest supplier/source/structure gaps remain. Verdict needs_changes because the input-only reader still contains the wrong quadratic sign, copied contradictory hypotheses, overbroad prime transfer and solvable/ordinary claims, stale BM source boundary and dyadic equality. This review issue does not authorize editing that reader. A revision must synchronize it with the corrected packet/Lean and reproduce the three red-team dispositions described in the report; maintainer application of the stage split remains explicitly pending.",
+      "checked": [
+        {
+          "nodeId": "ClassicalSerreModularity:R26.1/level-one-theorem-and-the-meaning-of-arises-from",
+          "verdict": "corrected",
+          "note": "Khare Theorem 1.1 and the arises-from/strong-modularity conventions match. Corrected the proof summary to distinguish the three residual solvable branches instead of attributing ordinarity to solvability. Exact weight/level remains an R15/R20 import."
+        },
+        {
+          "nodeId": "ClassicalSerreModularity:R26.1/corollary-1-2-conductor-a-prime-and-its-corrected-proof",
+          "verdict": "verified",
+          "note": "Khare Corollary 1.2 has p>2; KW Corollary 8.1(i) includes p=2. Checked the corrected [24] Duke-numbered references, q=2 semistability/Annals input and the explicit unavailable-publication/CM boundaries."
+        },
+        {
+          "nodeId": "ClassicalSerreModularity:R26.1/bockle-appendix-minimal-deformation-ring-presentation",
+          "verdict": "verified",
+          "note": "Read all seven Böckle appendix pages and the three R24/R04 supplier statements. Oddness, fixed-determinant convention, decomposable-flat exception and reduced Hecke hypotheses agree; no generic theorem is re-owned."
+        },
+        {
+          "nodeId": "ClassicalSerreModularity:R26.2/lifting-method-flatness",
+          "verdict": "corrected",
+          "note": "Checked Khare §2.1 and R24 finite-flat complete-intersection contracts. Clarified that this is an application with local hypotheses, not a new generic lifting theorem or a restriction of the source to conductor one."
+        },
+        {
+          "nodeId": "ClassicalSerreModularity:R26.2/minimal-weight-two-lift",
+          "verdict": "corrected",
+          "note": "Checked Proposition 2.1 including p>3, ordinarity, k=2 and k=p+1 distinctions. Added direct R17 solvable modularity and R20 ordinary weight-two eigenform realisation imports and a precise request."
+        },
+        {
+          "nodeId": "ClassicalSerreModularity:R26.2/local-ring-at-q-smooth",
+          "verdict": "corrected",
+          "note": "Checked Proposition 2.2 proof on the rendered p.15. Corrected the quadratic sign (E13), explicit odd-prime/coefficient assumptions and unit Hensel derivative; smoothness conclusion is unchanged."
+        },
+        {
+          "nodeId": "ClassicalSerreModularity:R26.2/nebentype-lift-at-q",
+          "verdict": "corrected",
+          "note": "Proposition 2.2 keeps non-solvable image, normalized weight, fixed determinant and prescribed q-nebentype. Clarified application ownership; the local and generic R24 inputs are direct."
+        },
+        {
+          "nodeId": "ClassicalSerreModularity:R26.2/compatible-system-lifts",
+          "verdict": "corrected",
+          "note": "Proposition 3.1 has different residual hypotheses in (i) and (ii). Corrected literal ramification support to allow each member’s own coefficient prime, and separated the nonsolvable hypothesis on the new reduction from that on the original representation."
+        },
+        {
+          "nodeId": "ClassicalSerreModularity:R26.3/chebyshev-next-prime",
+          "verdict": "corrected",
+          "note": "Checked §4 and the independently computed finite certificates. Clarified ℓ≤p after the Fermat skip using P<2p and ℓ≤(P−1)/2; the finite certificate checks this directly. The asymptotic input uses the corrected prime-counting bounds."
+        },
+        {
+          "nodeId": "ClassicalSerreModularity:R26.3/serre-weight-twist",
+          "verdict": "verified",
+          "note": "Lemma 5.2 retains k≠2, k<p and the distinction between locally irreducible and split inertia cases. R15.4 supplies the recipe; neither arbitrary twists nor unnormalized weights are treated as weight-invariant."
+        },
+        {
+          "nodeId": "ClassicalSerreModularity:R26.3/weight-interval-containment",
+          "verdict": "corrected",
+          "note": "Added positive-length and m≥1 hypotheses, both lower as well as upper returned-weight bounds, and the residue-coset selection argument. Removed the false claim that the arithmetic had been proved in Lean; suggested signatures are unproved."
+        },
+        {
+          "nodeId": "ClassicalSerreModularity:R26.3/level-one-induction-scheme",
+          "verdict": "corrected",
+          "note": "Corrected the overbroad one-prime S(B) transfer. Prove the full theorem in characteristic P before applying Corollary 5.5(ii); part (i) only transfers fixed normalized weight k to q≥k−1. Added R15.4 normalization."
+        },
+        {
+          "nodeId": "ClassicalSerreModularity:R26.4/local-reducibility-ordinary",
+          "verdict": "corrected",
+          "note": "Obtained BM Proposition 6.1.1: odd p, nonscalar principal-series type, HT {0,1}, arbitrary stable lattice, no End premise. Restricted the statement accordingly and separated Savitt’s semisimplification extension from its End-restricted corollary."
+        },
+        {
+          "nodeId": "ClassicalSerreModularity:R26.4/level-one-lifting-lemma",
+          "verdict": "corrected",
+          "note": "Corollary 5.5 needs the general crystalline weight-k R24 lift/system, not just Khare’s weight-two Proposition 3.1. Added those direct imports, dihedral termination, residual-weight/transfer imports and the separate scalar crystalline FL ordinary criterion; endpoint and CM gaps stay explicit."
+        },
+        {
+          "nodeId": "ClassicalSerreModularity:R26.4/degenerate-branches",
+          "verdict": "corrected",
+          "note": "Corrected solvable⇒ordinary and use of level-one classification at a foil ramified at P. Separate reducible, general bad-dihedral and cyclotomically absolutely irreducible solvable branches. Added the scalar crystalline BM Proposition 4.1.1/FL criterion, with k=2<ℓ including ℓ=3."
+        },
+        {
+          "nodeId": "ClassicalSerreModularity:R26.5/small-weights-table",
+          "verdict": "corrected",
+          "note": "All five terminal applications and the R25 table cover the stated even weights through 32. Clarified old versus published Annals numbering; no new abelian-variety carrier or realization is introduced."
+        },
+        {
+          "nodeId": "ClassicalSerreModularity:R26.6/level-one-proof-assembly",
+          "verdict": "corrected",
+          "note": "Checked the two-system link and R20 refinement. Clarified that the foil adds no fixed Weil–Deligne ramification while its own coefficient member can be ramified; the transfer still checks its local/residual hypotheses."
+        },
+        {
+          "nodeId": "ClassicalSerreModularity:R26.6/corollary-1-2-proof",
+          "verdict": "verified",
+          "note": "Checked Khare §7.1, corrected KW §8.3 and published Annals Definition 4.1/Theorem 4.2(ii)/Theorem 5.2(ii)/§6.2. The conductor-two application has the explicit R01.5 semistability check and R25 realization/Schoof inputs, not an unconditional killing-ramification axiom."
+        },
+        {
+          "nodeId": "ClassicalSerreModularity:R26.6/finiteness-corollary-1-3",
+          "verdict": "verified",
+          "note": "Corollary 1.3’s semisimplicity and finite cyclotomic twists are retained. The integral Hecke-algebra argument and prime-to-p abelian character quotient close the two branches via precise R15.3/R01.5 requests; finite complex dimension alone is not used."
+        },
+        {
+          "nodeId": "ClassicalSerreModularity:R26.6/corollary-8-1-ii-and-the-statement-W1",
+          "verdict": "corrected",
+          "note": "Checked KW Corollary 8.1(ii) and its W1 consequence. Clarified that t=p is a branch handled by part (i), not an omitted source case; added the general R15.4 bad-dihedral weight prerequisite used to check restriction irreducibility."
+        },
+        {
+          "nodeId": "ClassicalSerreModularity:R27.1/good-dihedral-prime-definition",
+          "verdict": "corrected",
+          "note": "Definition 2.1’s exact nontrivial odd prime-power order, strict size bound, conductor convention, inclusive congruence endpoint and basis invariance agree. Added three API items/tests for the existential locally-good wrapper, catching a universal-quantifier or witness-free definition."
+        },
+        {
+          "nodeId": "ClassicalSerreModularity:R27.1/good-dihedral-implies-nonsolvable-image-and-is-preserved",
+          "verdict": "verified",
+          "note": "Lemma 6.3’s minimal-at-q system, ramification support and bounded residual characteristic are retained. Its proof imports only the early image/conductor/system interface; no dependency on the mixed modularity alias or level-one theorem is introduced."
+        },
+        {
+          "nodeId": "ClassicalSerreModularity:R27.1/dickson-and-the-dyadic-solvable-refinement",
+          "verdict": "corrected",
+          "note": "Checked KW Lemmas 6.1/6.2 and DP Definitions 1.12/Lemmas 1.13–1.14. Retained RS-06’s component owners and added the published Ribet proof locator with its rotation-subgroup misprint E14; that semistable theorem is not a general bad-dihedral weight theorem."
+        },
+        {
+          "nodeId": "ClassicalSerreModularity:R27.2/hypotheses-Lr-Wr-and-Dr",
+          "verdict": "verified",
+          "note": "L_r/W_r/D_r domains, weight restrictions, odd-conductor versus dyadic-valuation conditions and monotonicity directions agree with §3. The seven API items/four meaningful tests remain typed mathematical plans with an honest missing-interface ledger."
+        },
+        {
+          "nodeId": "ClassicalSerreModularity:R27.2/prime-gap-estimates-driving-the-weight-recursion",
+          "verdict": "corrected",
+          "note": "Corrected the remaining exponent/conductor-count collision r≥4 to e≥4 and the false equality for (13,17,4) to 176<208. The shared odd estimate stays owned by R26.3; only the dyadic application is retained here."
+        },
+        {
+          "nodeId": "ClassicalSerreModularity:R27.2/theorem-3-2-weight-reduction",
+          "verdict": "corrected",
+          "note": "Read the entire three-part §8.2 argument. Retained the mandatory third system and final reduction to the predecessor characteristic; added the local crystalline-weight-two argument showing the foil cannot add an uncounted conductor prime."
+        },
+        {
+          "nodeId": "ClassicalSerreModularity:R26.3/explicit-prime-counting-input",
+          "verdict": "corrected",
+          "note": "Removed copied terminal-row hypotheses and checked all four Rosser–Schoenfeld domains at published p.69. The natural-floor adapter matches pinned Nat.primeCounting; analytic proof/verification-table boundary remains honest."
+        },
+        {
+          "nodeId": "ClassicalSerreModularity:R26.3/next-prime-ratio",
+          "verdict": "corrected",
+          "note": "Removed copied row hypotheses and added pinned Bertrand as a direct baseline prerequisite. Independently checked positive logarithmic margins at 31 and 21591 and the two-step non-Fermat comparison; exact 22/15 is retained."
+        },
+        {
+          "nodeId": "ClassicalSerreModularity:R26.3/finite-auxiliary-prime-checks",
+          "verdict": "corrected",
+          "note": "Removed copied row hypotheses. Exhaustive independent sieve checked all 2,422 primes 5≤p≤21591, exact odd prime-power divisors, the least non-Fermat prime, ℓ≤p, integer inequality, all interval weights and residue representatives; largest chosen P=21599."
+        },
+        {
+          "nodeId": "ClassicalSerreModularity:R26.4/ordinary-reduction-and-parity",
+          "verdict": "corrected",
+          "note": "Removed copied row hypotheses; checked normalized even-weight twist cases and distinguished ordinary-character parity, with k=P+1 handled separately and no characteristic-two inference."
+        },
+        {
+          "nodeId": "ClassicalSerreModularity:R26.5/terminal-row-branch-contract",
+          "verdict": "corrected",
+          "note": "Removed copied hypotheses and the false level-one premise at the foil. The general bad-dihedral lemma and the three solvable branches now supply the local lifting contract; j must respect its residue coset and the return residual need not be irreducible."
+        },
+        {
+          "nodeId": "ClassicalSerreModularity:R26.5/weight-eight",
+          "verdict": "corrected",
+          "note": "Replaced copied hypotheses by P=7, ℓ=3, support {3,7}, j=2. Checked exact divisor, coset and weights 4/6; export only after completing all normalized weights≤8 in characteristic 7."
+        },
+        {
+          "nodeId": "ClassicalSerreModularity:R26.5/weights-ten-twelve",
+          "verdict": "corrected",
+          "note": "Replaced copied hypotheses by P=11, ℓ=5, support {5,11}, j=4. Checked the two residue cosets and weights 6/8; export after the full characteristic-11 bound 12 is proved."
+        },
+        {
+          "nodeId": "ClassicalSerreModularity:R26.5/weights-fourteen-twenty",
+          "verdict": "corrected",
+          "note": "Replaced copied hypotheses by P=19, ℓ=3, support {3,19}, j=8. Checked exact divisor 9 and all four weights’ cosets; return weights 10/12 precede this row, then export the full bound 20."
+        },
+        {
+          "nodeId": "ClassicalSerreModularity:R26.5/weights-twentytwo-thirty",
+          "verdict": "corrected",
+          "note": "Replaced copied E2 hypothesis: j=16 for 22/26/30 and j=14 for 24/28. Checked support {7,29} (E1), modulus 4 and weights 18/14 or 16/16; E2 belongs only to the next row. Export after the full bound 30."
+        },
+        {
+          "nodeId": "ClassicalSerreModularity:R26.5/weight-thirtytwo",
+          "verdict": "corrected",
+          "note": "Replaced copied hypotheses by P=31, ℓ=5, support {5,31}, j=18. Checked 6∣18, 6∤16 and (12,18], returning weights 20/14 (E2); export after the full bound 32."
+        }
+      ]
+    }
+  ]
 }
