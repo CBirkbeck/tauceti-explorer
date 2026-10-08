@@ -1,15 +1,15 @@
 # Hodge–Tate theory, canonical subgroups, and automorphic period maps: T0–T5
 
-Revision 2, issue #7304, Codex session codex-AkiLuL, 8 October 2026. This is the definitive reader for the packet and its suggested signatures. It plans the finite and relative character maps, their flag and torsor realizations, canonical subgroups with quantitative radii, period-position estimates, and the integral AIP comparison. It retains every original node identifier and every independent-review verdict. The preceding review remains `needs_changes`; this revision makes no acceptance claim.
+Independent review of revision 2, issue #7298, Codex session codex-e11AD3, 8 October 2026. The review accepts this complete target-level planning pass with its explicit gaps. This reader is synchronized with the packet and suggested signatures; no implementation or proof is claimed. The preceding review is retained in the packet history.
 
-The planning pass is complete at 63 nodes: 11 definitions, 12 constructions, 25 theorems, 12 lemmas and 3 comparisons. The definitions/constructions have 128 API items and 79 mathematical tests; 25 nodes are planets. All six stages are **planned**, with 11 recorded gaps and 18 supplier requests. Planned means that each target has a statement and a prerequisite route ending in a pinned declaration, another owner or an explicit gap. It does not mean that a supplier has implemented its output or that a target is proved. Every implementation status remains unchecked. T6 is the separate logarithmic/general-local-system part and is outside this job.
+The planning pass is complete at 66 nodes: 11 definitions, 13 constructions, 26 theorems, 13 lemmas and 3 comparisons. The definitions/constructions have 136 API items and 83 mathematical tests; 26 nodes are planets. All six stages are **planned**, with 13 recorded gaps and 18 supplier requests. Planned means that each target has a statement and a prerequisite route ending in a pinned declaration, another owner or an explicit gap. It does not mean that a supplier has implemented its output or that a target is proved. Every implementation status remains unchecked. T6 is the separate logarithmic/general-local-system part and is outside this job.
 
 ## Starting point and ownership
 
 The upstream ReductiveGroups roadmap supplies the existing algebraic-group direction, its tangent/cocharacter APIs and its parabolic/Levi programme; the pinned point-subgroup declarations alone do not represent a flag variety. General strict filtered Tannakian reconstruction extends that direction as a proposed Part II. T2 keeps the rational Hodge–Tate application. The upstream AdicSpaces roadmap supplies the Huber-pair and adic-space foundations. AdicSpaces Part II R2 is asked for the exact normal formal-model, integral generic-fibre and strict-transform contracts used here. Neither foundational roadmap is re-planned.
 
-- Hodge-type π_HT on the tower: equivariance, Levi-torsor/automorphic-bundle pullback, elliptic π_HT*𝒪(1)=ω and Hilbert Res_{O_F/Z}P¹ identification: **`PerfectoidShimuraVarieties:S3`**; formerly `HodgeTateAndCanonicalSubgroups:T2`.
-- Hasse invariant Ha(G) = det V* of a BT₁ over any 𝔽_p-scheme, Fargues's isomorphism LF and the BT₁ Hodge–Tate exact sequence: **`FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2`**; formerly `HodgeTateAndCanonicalSubgroups:T0`.
+- Hodge-type π_HT on the open limit v-sheaf, its equivariance, Levi/bundle pullback, elliptic quotient-line and unsplit Hilbert formulas: **`HodgeTateAndCanonicalSubgroups:T2`**; S3 imports this map for its perfectoid incarnation and compactified extension. The verifier’s /22 qualification prevents the cycle through T4 and S1–S3.
+- Hasse invariant Ha(G) = det V* of a BT₁ over any 𝔽_p-scheme, Fargues's isomorphism LF and the BT₁ Hodge–Tate exact sequence, and normalized multiplicative determinant pullback (PIL20 Lemma 6.3.4.1): **`FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2`**; formerly `HodgeTateAndCanonicalSubgroups:T0`.
 - Co-Lie complex, finite-flat syntomic determinant/trace duality and commutative-group square-zero deformation: **`FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.6`**.
 - General finitely presented module/sheaf Fitting operations: **`tauceti:TauCetiRoadmap/StableReduction#layer-0-relative-curves-and-extensions-of-dvrs`**.
 - General strict filtered tensor fiber functors, fpqc splitting and reductive stabilizer: **`ReductiveGroups, Part II (proposed extension)`**; formerly `HodgeTateAndCanonicalSubgroups:T2`.
@@ -22,11 +22,15 @@ For H finite locally free over S, ω_H is the pullback of relative differentials
 
 The Fargues ideal δ_G is Fitt₀ω_G. The trace codifferent is its inverse fractional line after restriction to the unit; it is not the torsion module ω_G. Degrees use a normalized real rank-one valuation v(p)=1, with finitely presented valuation-ring modules; module length over a nondiscrete valuation ring is a different invariant. Effective Cartier-divisor pullback requires the determinant to remain regular. Codimension-one checking is confined to integral normal noetherian schemes.
 
-For a multiplicative p-divisible group with character lattice T, ω_G=T⊗ω_μ and its determinant uses det T. Normalize the character determinant over ℤ_p before tensoring with the base; this still defines the normalized map when p is nilpotent in the base. Boundary torsion uses a quasi-finite group with a separate finite Raynaud part of height 2g−r and the full polarized one-motive [Y→G̃]; an arbitrary semi-abelian scheme has no asserted dual semi-abelian scheme.
+For a multiplicative p-divisible group with character lattice T, ω_G=T⊗ω_μ and its determinant uses det T. R07.2 owns the general normalized pullback; T0 applies it on C4 boundary charts. Factor the determinant as p^r times a unit, without asserting that the full lattice map is p times an automorphism. Normalize the character determinant over ℤ_p before tensoring with the base; this still defines the normalized map when p is nilpotent in the base. Boundary torsion uses a quasi-finite group with a separate finite Raynaud part of height 2g−r and the full polarized one-motive [Y→G̃]; an arbitrary semi-abelian scheme has no asserted dual semi-abelian scheme.
 
-The relative comparison distinguishes B_dR⁺ from the structural O B_dR⁺ sheaf. CS17’s two horizontal lattices M and M₀ produce the graded filtration; gr⁰B_dR=Ô is not an identity for gr⁰O B_dR. The families here descend to the discretely valued K/comparison setting, then may be base extended to C. Rational homology tensors give rational G(ℚ_p) frames; integral frames need a separately specified lattice/model. The common Tate-trivialization torsor supplies the central-cocharacter equivariance for the Levi comparison.
+The split finite multiplicative isomorphism uses the constant character fibre (ℤ/p^n)^r⊗R′, or the locally constant character sheaf tensored with 𝒪. Global sections over a disconnected R′ give a different source; over 𝔽_p×𝔽_p they double its rank.
+
+The relative comparison distinguishes B_dR⁺ from the structural O B_dR⁺ sheaf. CS17’s two horizontal lattices M and M₀ produce the graded filtration; gr⁰B_dR=Ô is not an identity for gr⁰O B_dR. The families here descend to the discretely valued K/comparison setting, then may be base extended to C. For an individual abelian variety over arbitrary C the rational sequence instead uses CDM12 Theorem 3.20/Remark 3.21, with A4’s degree-one identifications and Weil duality; finite-Q_p descent is unnecessary. Rational homology tensors give rational G(ℚ_p) frames; integral frames need a separately specified lattice/model. The canonical raw Levi comparison is contracted with the Tate-basis torsor through central μ. A chosen basis gives an underlying untwisted comparison with its transported linearization; it does not erase the μ-weight twist (E31).
 
 Put S_n=(p^n−1)/(p−1) and w=Hasse height. The weak formal condition is S_n w<1/2; the strong sufficient condition is p^n w<1/2. HALO’s w≤p^{−(n+1)} works for every prime: at p=2 its weak inequality remains strict, although the strong inequality may be equality. FAR11’s HN range is strict: w<1/(2p^{n−1}) for p≥5 and w<1/3^n for p=3. The larger BHW geometric-position range w≤1/(c_p p^{n−1}), c_p=2,3,4, is a separate contract with a remaining p≥3 endpoint input.
+
+The HN induction uses a supplied Frobenius-congruent subgroup and the noncircular pointwise quotient-Hasse lemma. At level n it applies induction to p^{−(n−1)}D/D. The later family quotient-radius theorem is downstream.
 
 The canonical conormal comparison is truncated at n−δ, δ=S_n w. The raw dual character map has cokernel degree w/(p−1); it is not an integral isomorphism at positive height. Subtracting this second error gives scalar kernel precision x=n−p^n w/(p−1). This is an O_C-module congruence. The unsplit O_F/p^n canonical generator is a distinct H2/H4 input, and O_F stability plus an underlying rank count does not prove it.
 
@@ -36,9 +40,13 @@ On a normal formal Hilbert chart choose the actual determinant ideal Hdg_T with 
 
 The AIP structure group is proved from the ratio of two actual AIP lifts over the same abelian base point. The ratio equals cz+d through the open embedding in the total Hodge bundle. The ambient-radius containment has only one direction and is not used backwards. Finite Atkin–Lehner maps use n≥1 and source radius p^nε<1/2; infinite level uses structural forgetful pullback. O5 supplies the associated coefficient sheaves and AIPH Theorem 6.7(3) restriction comparison; O6 separately supplies p-Hecke.
 
+For determinant modifications put D=gb, with b=1/(p−1) at odd p and b=2 conditionally at p=2. Bounds and reductions consistently use p^D and p^{n−D}; for GSp₄/F the conditional p=2 determinant loss is 4[F:ℚ]. The minimal modified determinant pulls back to the toroidal modified determinant even though the whole finite-level Hodge bundle need not descend. The canonical adic section has no unconditional formal-model isomorphism attached.
+
+For weight coefficients choose a common actual AIP coordinate, level, formal-radius and analytic-character domain. The printed all-unit supremum and analytic-radius formula are false (E29–E30); a level-index repair alone does not validate a positive radius. The full finite-character integral generator with unit HT pullback is an explicit O5 gap. The ratio/invariants proof uses that generator and P9 rather than assuming the perfectoid equalizer is already an invertible line. At n=0 both constructions use AL_1.
+
 ## Sources read and version limits
 
-All node statements, proof outlines and source-issue descriptions below are authored paraphrases. No source passage is reproduced. Page numbers refer to the precise public PDF listed here; published pagination is identified separately. Published BHW §5/§7 and Scholze §III.3 source-issue collations are inherited from the retained independent review. Other published versions are not claimed to have been collated.
+All mathematical statements, proof routes and source-issue assessments here are authored paraphrases. Source locators refer to the pinned public versions below, not to their different published pagination. The independent review re-read the used statements and checked all 21 PDF hashes against the packet receipts. No uncleared book was used.
 
 ### FAR10
 
@@ -123,7 +131,7 @@ George Boxer, Frank Calegari, Toby Gee, Vincent Pilloni, [Abelian surfaces over 
 
 ### CS17
 
-Ana Caraiani, Peter Scholze, [On the generic part of the cohomology of compact unitary Shimura varieties](https://arxiv.org/abs/1511.02418). arXiv:1511.02418v1 (8 Nov 2015); published Ann. of Math. 186 (2017) (not collated). Read 2026-10-08. SHA-256 `aa93df3947e57ab78b070a82d638e70c25ae2ae15aeb60346575e74fdf85b349`.
+Ana Caraiani, Peter Scholze, [On the generic part of the cohomology of compact unitary Shimura varieties](https://arxiv.org/abs/1511.02418). arXiv:1511.02418v1 (8 Nov 2015); published Ann. of Math. 186 (2017), Proposition 2.3.9 collated at pp.673–674. Read 2026-10-08. SHA-256 `aa93df3947e57ab78b070a82d638e70c25ae2ae15aeb60346575e74fdf85b349`.
 
 **Sections used.**
 
@@ -158,7 +166,7 @@ Fabrizio Andreatta, Adrian Iovita, Vincent Pilloni, [p-adic families of Siegel m
 **Sections used.**
 
 - §3 (Theorem 3.1.1 after Fargues, Propositions 3.1.2, 3.2.1, 3.2.2)
-- Appendix (quotients by canonical and anticanonical subgroups)
+- §6.2.1, Proposition 6.2.1.1, PDF p.29 (anticanonical quotient, auxiliary restricted range)
 
 ### HALO
 
@@ -174,7 +182,8 @@ Peter Scholze, [Perfectoid spaces: a survey](https://people.mpim-bonn.mpg.de/sch
 
 **Sections used.**
 
-- §4, Proposition 4.13, Remark 4.14 and Proposition 4.15, pp. 27–29
+- §4, Theorem 4.13, Remark 4.14 and Proposition 4.15, pp. 27–29
+- Theorem 3.20 and Remark 3.21, PDF p.20 (absolute algebraic Hodge–Tate spectral sequence)
 
 ### ZIE
 
@@ -182,22 +191,31 @@ Paul Ziegler, [Graded and filtered fiber functors on Tannakian categories](https
 
 **Sections used.**
 
-- §3.1, Definition 3.4, PDF p. 15; Theorems 3.14–3.15, PDF p. 17; Theorem 3.52, PDF p. 27
+- §3.1, Definition 3.4, PDF p. 15; Theorems 3.14–3.15, PDF p. 17; Theorem 3.52, PDF pp.27–28
 
-Lan’s corrected author compilation and errata were also read at Definition 8.5 and Theorems 8.6–8.7 (PDF p. 34), with the dimension-one boundary exception in errata item (3). E27’s source-error allegation remains rejected: the pending work is the concrete GSp₄/F model/coefficient application and mod-p^k pushforward. No uncleared copy of Illusie, Huber or Faltings–Chai was read. The Illusie foundation and DRW consumer refinement remain explicit gaps.
+### BPC25
 
-Additional version receipts retained in the packet:
+George Boxer, Vincent Pilloni, [Higher Coleman theory](https://www.imo.universite-paris-saclay.fr/~pilloni/HigherColeman.pdf). Author revised manuscript dated 3 March 2025, HigherColeman.pdf (180 pp.); this receipt pins the actual bytes read. Read 2026-10-08. SHA-256 `d340c9a020cc5fdbca781a8630b6fae35e14607142bed700d6ab82334faa80ae`.
 
-- [Published AIF 73 (2023), 1709–1794; collated §5 and §7 for E20–E25.](https://www.numdam.org/item/10.5802/aif.3560.pdf); published; read 2026-10-07; SHA-256 `d59b7f701eb5258c351d959be08d49f17946245ed1e5779317d2371981c2c5c4`.
-- [Published Annals 182 (2015), 945–1066; collated the §III.3 chart-permutation sentence.](https://annals.math.princeton.edu/wp-content/uploads/annals-v182-n3-p03-p.pdf); published; read 2026-10-07; SHA-256 `ebac854f47381c19a987b43b59d2c05cad55c3186c4d8cde067a7be0d06cbd16`.
-- [Kai-Wen Lan, Integral models of toroidal compactifications with projective cone decompositions, IMRN 2017, no. 11, 3237–3280, doi:10.1093/imrn/rnw123; author compilation incorporates known errata. Read Definition 8.5 and Theorems 8.6–8.7.](https://www.kwlan.org/articles/cpt-ram-nbl.pdf); author copy; read 2026-10-08; SHA-256 `ff2229d32fc6dd99174d8ff392ebdf6c93c3a455118bd7d54f54a74a967d31ac`.
-- [Integral models of toroidal compactifications with projective cone decompositions — Errata; author errata linked from Lan’s academic page. Item (3) adds the dimension-one boundary exception to Theorem 8.7.](https://www.kwlan.org/articles/cpt-ram-nbl-err.pdf); author errata; read 2026-10-08; SHA-256 `e0ecf94c74332660867965dc9877836ef97f2a03161c53b5f0ff1a1a7f616b04`.
+**Sections used.**
+
+- §4.4.8, pp.67–68; Remark 4.4.12, p.69; §4.4.22–4.4.24, pp.73–75 (relative tensor torsors, cyclotomic comparison and Hodge-type map)
+
+Lan’s corrected author compilation and errata were read at Definition 8.5 and Theorems 8.6–8.7 (PDF p.34); errata item (3) adds the dimension-one boundary exception. E27 remains rejected as a source-error allegation. Concrete C5 model/coefficient and mod-p^k pushforward applications remain open. No uncleared Illusie, Huber or Faltings–Chai copy was read.
+
+Additional version receipts:
+
+- [Published AIF 73 (2023), 1709–1794; collated §5 and §7 for E20–E25.](https://www.numdam.org/item/10.5802/aif.3560.pdf); published; recorded read 2026-10-07; SHA-256 `d59b7f701eb5258c351d959be08d49f17946245ed1e5779317d2371981c2c5c4`.
+- [Published Annals 182 (2015), 945–1066; collated the §III.3 chart-permutation sentence.](https://annals.math.princeton.edu/wp-content/uploads/annals-v182-n3-p03-p.pdf); published; recorded read 2026-10-07; SHA-256 `ebac854f47381c19a987b43b59d2c05cad55c3186c4d8cde067a7be0d06cbd16`.
+- [Kai-Wen Lan, Integral models of toroidal compactifications with projective cone decompositions, IMRN 2017, no. 11, 3237–3280, doi:10.1093/imrn/rnw123; author compilation incorporates known errata. Read Definition 8.5 and Theorems 8.6–8.7.](https://www.kwlan.org/articles/cpt-ram-nbl.pdf); author copy; recorded read 2026-10-08; SHA-256 `ff2229d32fc6dd99174d8ff392ebdf6c93c3a455118bd7d54f54a74a967d31ac`.
+- [Integral models of toroidal compactifications with projective cone decompositions — Errata; author errata linked from Lan’s academic page. Item (3) adds the dimension-one boundary exception to Theorem 8.7.](https://www.kwlan.org/articles/cpt-ram-nbl-err.pdf); author errata; recorded read 2026-10-08; SHA-256 `e0ecf94c74332660867965dc9877836ef97f2a03161c53b5f0ff1a1a7f616b04`.
+- [Caraiani–Scholze, Annals 186 (2017), 649–766; Proposition 2.3.9 and proof, pp.673–674: raw untwisted comparison persists](https://annals.math.princeton.edu/wp-content/uploads/annals-v186-n3-p01-p.pdf); published version; recorded read 2026-10-08; SHA-256 `4f9449e5ecfd8fb8b43a04acef73060f531be995babaa9f744f3db36aaa5e61a`.
 
 ## Pinned-library boundary
 
 Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`; Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`. data/library-coverage.json has no reviewed record for HodgeTateAndCanonicalSubgroups:T0–T5; the unreviewed AUDIT-37 finds every target not built (only Cartier duality, the cotangent space of a Hopf ideal, Kähler differentials, Module.Grassmannian, BDeRhamPlus and the dynamic parabolic exist). Tau Ceti's TauCeti.Bialgebra.CotangentSpace (ker ε/(ker ε)² over any commutative ring) is ω_H for an affine group scheme, and FiniteLocallyFreeCommAffineGroupSchemeCat.cartierDuality gives H(S) = Hom(H^D, 𝔾_m): together they carry the finite-level Hodge–Tate map. No Fitting-ideal API exists in Mathlib (only LieModule Fitting decompositions).
 
-Each of the 29 cited declaration statements was inspected at these pins. The malformed unqualified Cartier-duality index alias stays removed; its fully qualified existing API is documented through the category entry. The orchestrator owns the separate index repair.
+All 29 cited declaration statements and surrounding hypotheses were independently read at these pins. The malformed unqualified Cartier-duality index alias stays removed; its fully qualified source API is documented through the category entry. Carrier declarations are not treated as the missing geometric/comparison theorems. The orchestrator owns the separate index repair.
 
 - `tauceti:TauCeti.Bialgebra.AugmentationIdeal` (abbrev, `TauCeti/Algebra/AlgebraicGroup/Tangent/Cotangent.lean`): The augmentation ideal ker ε of a commutative bialgebra over a commutative ring.
 - `tauceti:TauCeti.Bialgebra.CotangentSpace` (abbrev, `TauCeti/Algebra/AlgebraicGroup/Tangent/Cotangent.lean`): The cotangent space (ker ε)/(ker ε)² at the identity of the affine monoid of a commutative bialgebra over any commutative ring: ω_H for an affine group scheme.
@@ -328,6 +346,7 @@ Let H be a finite locally free commutative group scheme over a scheme S, with Ca
 - `FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1/p-divisible-cartier-dual`
 - `mathlib:GroupLike`
 - `mathlib:CategoryTheory.Grp`
+- `HodgeTateAndCanonicalSubgroups:T0/conormal-base-change`
 
 **Source matches.**
 
@@ -462,7 +481,7 @@ For a p-divisible G/O_C, put α:T_pG⊗_{ℤ_p}O_C→ω_{G^D}. For every a∈O_C
 
 **Proof route.**
 
-- Use the integral Faltings complex and annihilator estimate of Scholze CDM12 Proposition 4.13, together with the character description in Remark 4.14; this supplies both the zero composite and the integral cohomology bound.
+- Use the integral Faltings complex and annihilator estimate of Scholze CDM12 Theorem 4.13, together with the character description in Remark 4.14; this supplies both the zero composite and the integral cohomology bound.
 - Fargues FAR10 Theorem 7/FAR11 Theorem 2 give the character-cokernel bound in the stated valuation-ring setting. For a finite group embed in a p-divisible group and use the right-exact conormal sequence.
 - Invert p for the rational exactness. A bound on the final cokernel alone would not identify the middle kernel.
 
@@ -482,9 +501,9 @@ For a p-divisible G/O_C, put α:T_pG⊗_{ℤ_p}O_C→ω_{G^D}. For every a∈O_C
 
 **Source matches.**
 
-- CDM12, Proposition 4.13 and Remark 4.14, PDF pp. 27–28: The integral complex has bounded cohomology and its last map is the differential of characters.
-- FAR10, §9, Théorème 7, PDF pp. 27–29: The character map has uniformly bounded cokernel over an algebraically closed rank-one valued base.
-- FAR11, §5.1, Théorème 2, PDF p. 24: Restates the integral Hodge–Tate bound used for canonical subgroups.
+- CDM12, Theorem 4.13 and Remark 4.14, PDF pp. 27–28: The integral complex has bounded cohomology and its last map is the differential of characters.
+- FAR10, §9, Théorème 7, PDF p.26 (author copy; p≠2): The character map has uniformly bounded cokernel over an algebraically closed rank-one valued base.
+- FAR11, §5.3.2, Théorème 2, PDF pp.24–25 (author copy): Restates the integral Hodge–Tate bound used for canonical subgroups.
 
 ### T0/fargues-degree — Fargues's degree of a finite flat group scheme
 
@@ -596,7 +615,7 @@ Let f: G → G′ be a homomorphism of finite flat commutative group schemes ove
 
 **Proof route.**
 
-- Reduce to S = Spec A₀ affine with free Hopf algebras; with M the matrix of f*: B₂ ↪ B₁ and Q_i the trace forms, Q₂ = ᵗM Q₁ M, so (by different = discriminant, Fargues 2010 Proposition 1) δ_{G₂}^n = det(M)² δ_{G₁}^n (Proposition 2).
+- Reduce to S = Spec A₀ affine with free Hopf algebras; with M the matrix of f*: B₂ ↪ B₁ and Q_i the trace forms, Q₂ = ᵗM Q₁ M, so (by the trace discriminant being the norm of the different, with group different generated by the unit pullback δ_G (FAR10 Proposition 1)) δ_{G₂}^n = det(M)² δ_{G₁}^n (Proposition 2).
 - Take valuations (Proposition 3); χ ≥ 0 with equality iff f* is onto, i.e. f is an isomorphism (Corollaire 3).
 
 **Acceptance instances.**
@@ -729,11 +748,12 @@ Let X be a normal ℤ_p-flat scheme (or formal scheme) and f: G → G′ an isog
 
 **Lemma** · proposed name `TauCeti.HodgeTate.multiplicativeHodgeTateIso` · implementation unchecked.
 
-Let R be a ring and H a finite locally free commutative group scheme over R which is étale-locally isomorphic to μ_{p^n}^r (equivalently H^D étale-locally constant (ℤ/p^n)^r). Then α_{H^D} ⊗ 1: H^D(R′) ⊗ R′ → ω_H ⊗ R′ is an isomorphism for every étale R-algebra R′ trivialising H^D, and ω_H is locally free of rank r over R/p^n. In particular, for the universal multiplicative subgroup H_n of a Siegel or Hilbert–Siegel tower, HT ⊗ O: H_n^D ⊗ O → ω_{H_n} is an isomorphism.
+Let H/R be finite locally free and étale-locally μ_{p^n}^r, with Cartier dual the étale sheaf M locally constant with fibre (ℤ/p^n)^r. The sheaf character map M⊗_ℤ𝒪_S→ω_H is an isomorphism. On a chosen split chart R′ it is the isomorphism (ℤ/p^n)^r⊗_ℤR′→ω_H⊗_RR′ induced by the constant character lattice. This holds on disconnected charts too; the tensor of the group of all global sections H^D(R′) with R′ is a different module. In particular the universal multiplicative subgroup on a Siegel or Hilbert–Siegel chart has this sheaf Hodge–Tate isomorphism.
 
 **Hypotheses.**
 
 - H étale-locally of multiplicative type μ_{p^n}^r; no hypothesis on p.
+- Use the locally constant character sheaf, or its chosen constant fibre on a split chart, rather than all global sections of that sheaf.
 
 **Proof route.**
 
@@ -743,31 +763,33 @@ Let R be a ring and H a finite locally free commutative group scheme over R whic
 **Acceptance instances.**
 
 - For H = μ_{p^n}, α_{ℤ/p^n}(1) = dt/t generates ω_{μ_{p^n}} = R/p^n.
+- For R′=𝔽_p×𝔽_p and H=μ_p, M⊗R′≅R′, while H^D(R′)≅(ℤ/p)^2 and H^D(R′)⊗R′≅(R′)^2. The latter cannot be the source of the claimed isomorphism.
 
 **Inputs.**
 
 - `HodgeTateAndCanonicalSubgroups:T0/finite-hodge-tate-map`
 - `HodgeTateAndCanonicalSubgroups:T0/conormal-module`
+- `HodgeTateAndCanonicalSubgroups:T0/conormal-base-change`
 
 **Source matches.**
 
 - PIL20, §9.4 (author copy), PDF p. 56: Pilloni: HT ⊗ O is an isomorphism for H_n étale-locally μ_{p^n}.
 
-### T0/normalized-multiplicative-pullback — Normalised pullback along isogenies of multiplicative p-divisible groups
+### T0/normalized-multiplicative-pullback — Boundary application of normalized multiplicative determinant pullback
 
 **Lemma** · proposed name `TauCeti.HodgeTate.normalizedMultiplicativePullback_det` · implementation unchecked.
 
-Let G and G′ be multiplicative p-divisible groups of height h over a base where their conormal bundles are defined, with étale character lattices T and T′. Then G = T^∨ ⊗ μ_{p^∞} and ω_G = T ⊗ ω_{μ_{p^∞}}, hence det ω_G = det T ⊗ ω_{μ_{p^∞}}^{⊗h}. An isogeny λ: G → G′ induces λ₀: T′ → T. If det λ₀ has p-adic valuation r, the integral lattice isomorphism p^{−r}det λ₀: det T′ → det T defines the normalised pullback λ̃*: det ω_{G′} → det ω_G; det λ* = p^r λ̃*. Division is performed on the character lattice before tensoring with O_S, so the definition remains meaningful when p is nilpotent on S.
+On a supplied boundary/Raynaud chart with a multiplicative p-divisible piece G and a multiplicative isogeny λ:G→G′, import R07.2’s normalized determinant pullback. For the étale character lattices T,T′, ω_G=T⊗ω_μ and λ induces λ₀:T′→T. If det λ₀=p^r u with u a unit on the determinant ℤ_p-line, its normalization gives an isomorphism λ̃*:detω_G′→detω_G and det λ*=p^r λ̃*. Pullback to the boundary chart and étale descent preserve this identity, including bases where p is nilpotent. The general multiplicative-group lemma belongs to R07.2; this node records its application with the boundary character convention.
 
 **Hypotheses.**
 
-- T is the character lattice: G=T^∨⊗μ_{p∞}, hence ω_G=T⊗ω_{μ_{p∞}} and det ω_G=det T⊗(ω_{μ_{p∞}})^{⊗r}.
-- Write λ₀=p·u on the ℤ_p character lattice with u invertible; compute det u=p^{−r}det λ₀ over ℤ_p before extension of scalars. No division by p in O_S and no inverse or transpose of det T is used.
+- C4 supplies the actual multiplicative pieces, character lattices and compatible isogenies on the boundary chart.
+- Normalize det λ₀ over ℤ_p before tensoring with 𝒪_S. The factorization det λ₀=p^r u does not imply λ₀=p·u as an endomorphism; arbitrary invariant factors are allowed.
 
 **Proof route.**
 
-- Étale-locally G ≅ μ_{p^∞} ⊗ T^∨; then ω_G ≅ T ⊗ ω_{μ_{p^∞}} and λ* corresponds to λ₀ ⊗ 1.
-- Take determinants; divide by p^r = det λ₀ up to a unit to obtain an isomorphism; descend from the étale cover.
+- Import R07.2’s character-lattice determinant theorem (PIL20 Lemma 6.3.4.1, with character/cocharacter variance corrected).
+- Apply it to the supplied multiplicative piece on each split boundary chart; conormal base change transports the identity. Descend using the compatible character-lattice maps on overlaps.
 
 **Acceptance instances.**
 
@@ -778,6 +800,9 @@ Let G and G′ be multiplicative p-divisible groups of height h over a base wher
 - `HodgeTateAndCanonicalSubgroups:T0/conormal-module`
 - `HodgeTateAndCanonicalSubgroups:T0/multiplicative-hodge-tate-isomorphism`
 - `FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1/p-divisible-group`
+- `HodgeTateAndCanonicalSubgroups:T0/conormal-base-change`
+- `FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2`
+- `ShimuraCompactifications:C4`
 
 **Source matches.**
 
@@ -1215,12 +1240,10 @@ For f:H→K of finite locally free commutative S-groups and x∈H(S), α_K(f(x))
 
 - FAR11, §2.1.1, PDF p. 4: Character differentials give the functorial finite-level Hodge–Tate map.
 
-**Coverage: planned.** Every target has a declaration route; the following refinements remain dependencies of the affected targets.
-
-**Remaining.**
+**Coverage: planned.**
 
 - Group co-Lie deformation and trace duality: R07.6 owns the finite-flat group specialization of DD.0’s full cotangent and obstruction theory, syntomic determinant and trace duality. Read FAR10 §1–§2, SCH15 III.2.2 and HALO A.1 give the consequences used here; Illusie II is not cleared and its foundation is not independently verified. The Fitting definition of degree does not remove this lifting input.
-- Valuation-ring Fitting and the integral O_C Faltings complex: Import the StableReduction general Fitting direction, and request its nonnoetherian finite-presentation valuation specialization from R07.1. CDM12 Proposition 4.13 independently supplies the bounded integral complex and zero composite; R07.1’s existing complete-noetherian-local dimension statements do not cover O_C, and its finite-to-p-divisible embedding must have exact hypotheses.
+- Valuation-ring Fitting and the integral O_C Faltings complex: Import the StableReduction general Fitting direction, and request its nonnoetherian finite-presentation valuation specialization from R07.1. CDM12 Theorem 4.13 independently supplies the bounded integral complex and zero composite; R07.1’s existing complete-noetherian-local dimension statements do not cover O_C, and its finite-to-p-divisible embedding must have exact hypotheses.
 - Boundary one-motives and arbitrary-C Raynaud realization: C4 supplies polarized [Y→G̃], the finite-flat torsion pieces and integral overlap uniqueness, plus arbitrary-base semi-abelian Verschiebung. R11.3 supplies the descent/existence or complete-C uniformization extension beyond its current DVR statements. Boundary coordinate estimates use the full height-2g dual one-motive realization, not the smaller finite Raynaud group.
 - Normalized PEL model, coefficient and determinant descent: The E27 source-error allegation remains rejected. Lan Definition 8.5/Theorem 8.7, read with the author’s errata, cover normalized ramified models and nonflat coefficient algebras under their stated assumptions. C5 must identify the exact GSp₄/F model and formally canonical coefficient, verify the dimension exception, and separately supply the mod-p^k pushforward/projection formula and determinant/norm descent. C6 HBAV models do not discharge this request.
 
@@ -1293,8 +1316,8 @@ In the degree-one abelian comparison, define the ascending cohomological Hodge�
 
 **Source matches.**
 
-- CS17, §2.2, Proposition 2.2.3, Corollary 2.2.4 and Proposition 2.2.5, PDF pp. 14–16; Remark 4.2.8, PDF p. 49: Defines the relative filtration using two lattices and compares its pointwise abelian map with the character construction.
-- CDM12, Propositions 4.13–4.15 and Remark 4.14, PDF pp. 27–29: Proves the good-reduction agreement through the Kummer/logarithmic character calculation.
+- CS17, §2.2, Proposition 2.2.3, Corollary 2.2.4 and Proposition 2.2.5, PDF pp. 14–16; Remark 4.2.8, PDF p. 47: Defines the relative filtration using two lattices and compares its pointwise abelian map with the character construction.
+- CDM12, Theorem 4.13, Remark 4.14 and Proposition 4.15 and Remark 4.14, PDF pp. 27–29: Proves the good-reduction agreement through the Kummer/logarithmic character calculation.
 
 ### T1/hodge-tensor-comparison — Hodge tensors under the p-adic comparison
 
@@ -1327,13 +1350,11 @@ Let (G, X) be a Shimura datum of Hodge type with a symplectic embedding G ↪ GS
 
 - CS17, §2.3, after Lemma 2.3.6 (arXiv:1511.02418v1), PDF p. 20: Caraiani–Scholze §2.2: Blasius's theorem on Hodge tensors under the comparison.
 
-**Coverage: planned.** Every target has a declaration route; the following refinements remain dependencies of the affected targets.
+**Coverage: planned.**
 
-**Remaining.**
+- Relative character comparison and Tate-normalized rational tensors: P8 supplies the two horizontal B_dR^+ lattices and relative Kummer edge-map compatibility of CS17 §2.2; CDM12 Proposition 4.15 is the independently read good-reduction pointwise reference. B1 supplies rational defining tensors and central-μ contraction with the Tate-basis torsor. CS17’s raw untwisted conclusion is corrected by Boxer–Pilloni §4.4.8/Remark 4.4.23 (E31). General-C families outside the stated K-descent hypothesis and integral G_ℤp frames require separate extensions. P8 also supplies the absolute arbitrary-C algebraic degree-one spectral sequence and A4 its H¹O/invariant-differential identifications; this does not assume finite-Q_p descent.
 
-- Relative character comparison and Tate-normalized rational tensors: P8 supplies the two horizontal B_dR^+ lattices and relative Kummer edge-map compatibility of CS17 §2.2; CDM12 Proposition 4.15 is the independently read good-reduction pointwise reference. B1 supplies rational defining tensors and descent through the common Tate-trivialization torsor of CS17 Lemma 2.3.8/Proposition 2.3.9. General-C families outside the stated K-descent hypothesis and integral G_ℤp frames require separate extensions.
-
-## T2 — The finite/family exact sequences, quotient flag, rational tensor reduction and Levi comparison stay here. The global period map on the perfectoid tower remains with S3; classification remains upstream.
+## T2 — Rational exact sequences, tensor flags, the cyclotomic Levi comparison and the open limit-tower period map. S3 supplies the perfectoid incarnation and compactified extension.
 
 ### T2/p-divisible-hodge-tate-sequence — The Hodge–Tate exact sequence of a p-divisible group over O_C
 
@@ -1348,7 +1369,7 @@ Let C be a complete algebraically closed extension of ℚ_p and G a p-divisible 
 
 **Proof route.**
 
-- Use T0/fargues-hodge-tate-cokernel for the actual integral complex and its zero composite (CDM12 Proposition 4.13).
+- Use T0/fargues-hodge-tate-cokernel for the actual integral complex and its zero composite (CDM12 Theorem 4.13).
 - After inversion of p, the character map is surjective; apply the same bound to G^D and dualize via the Cartier Tate pairing to see that the first map is injective.
 - Use dim Lie G=d, dim ω_GD=h−d and rank T_pG=h from the O_C supplier to identify image and kernel. The resulting sequence is natural and twisted by C(1) on the Lie term.
 
@@ -1369,14 +1390,14 @@ Let C be a complete algebraically closed extension of ℚ_p and G a p-divisible 
 
 **Source matches.**
 
-- CDM12, Proposition 4.13, PDF pp. 27–28: The bounded integral complex becomes an exact Hodge–Tate sequence after inverting p.
-- SW13, Proposition 4.3.6, PDF pp. 26–27: Uses the canonical Hodge–Tate exact sequence in the O_C classification setting.
+- CDM12, Theorem 4.13, PDF pp. 27–28: The bounded integral complex becomes an exact Hodge–Tate sequence after inverting p.
+- SW13, §4.3, Proposition 4.3.6, PDF p.39 (arXiv:1211.6357v2): Uses the canonical Hodge–Tate exact sequence in the O_C classification setting.
 
 ### T2/abelian-hodge-tate-sequence — The Hodge–Tate sequence of an abelian variety
 
 **Theorem** · proposed name `TauCeti.HodgeTate.abelianHodgeTateSequence` · planet **Hodge–Tate sequence of an abelian variety** · implementation unchecked.
 
-Let C be a complete algebraically closed extension of ℚ_p and A an abelian variety over C of dimension g. There is a canonical exact sequence 0 → Lie(A^∨)(1) → T_pA^∨ ⊗_{ℤ_p} C → ω_A → 0 (the roadmap's convention, with Lie(A^∨)(1) := Lie(A^∨) ⊗ C(1)), functorial in A, compatible with isogenies, with endomorphisms and with polarisations; for A defined over a complete discretely valued K ⊂ C it is Gal(C/K)-equivariant. Dually, the Hodge–Tate filtration Lie A ⊗ C(1) ⊂ T_pA ⊗ C is a Lagrangian subspace for the Weil pairing of any principal polarisation. For A with good reduction it is the sequence of T2/p-divisible-hodge-tate-sequence for G = A^∨[p^∞]; in general it is obtained through the Raynaud extension (T0/raynaud-hodge-tate-filtration).
+Let C be a complete algebraically closed extension of ℚ_p and A an abelian variety over C of dimension g. There is a canonical exact sequence 0 → Lie(A^∨)(1) → T_pA^∨ ⊗_{ℤ_p} C → ω_A → 0 (the roadmap's convention, with Lie(A^∨)(1) := Lie(A^∨) ⊗ C(1)), functorial in A, compatible with isogenies, with endomorphisms and with polarisations; for A defined over a complete discretely valued K ⊂ C it is Gal(C/K)-equivariant. Dually, the Hodge–Tate filtration Lie A ⊗ C(1) ⊂ T_pA ⊗ C is a Lagrangian subspace for the Weil pairing of any principal polarisation. For A with good reduction it is the sequence of T2/p-divisible-hodge-tate-sequence for G = A^∨[p^∞]; over arbitrary C its rational sequence comes from degree-one cohomological Hodge–Tate theory; its Raynaud character interpretation is conditional on T0/raynaud-hodge-tate-filtration.
 
 **Hypotheses.**
 
@@ -1385,9 +1406,9 @@ Let C be a complete algebraically closed extension of ℚ_p and A an abelian var
 
 **Proof route.**
 
-- Construct the rational sequence from T1’s degree-one abelian Hodge–Tate filtration; CDM12 Proposition 4.15 identifies its good-reduction character description.
-- Use T0/raynaud-hodge-tate-filtration for the general character description on the dual one-motive, retaining the torus and uniformizing lattice pieces.
-- Functoriality, endomorphisms and the polarization pairing come from T1’s tensor comparison and A3. Zero self-pairing plus half dimension proves the Lie subspace is Lagrangian.
+- Apply the proper smooth algebraic Hodge–Tate spectral sequence over the given arbitrary complete algebraically closed C (CDM12 Theorem 3.20 and Remark 3.21, PDF p.20). In degree one its degeneration gives 0→H¹(A,𝒪_A)⊗C→H¹_ét(A,ℚ_p)⊗C→H⁰(A,Ω¹_A)⊗C(−1)→0.
+- Use A4’s H¹(A,𝒪_A)=Lie(A^∨), H⁰(A,Ω¹_A)=ω_A and A3’s Weil duality H¹_ét(A,ℚ_p)(1)=V_pA^∨ to obtain the stated homological quotient sequence. No descent of A to a finite extension of ℚ_p is required.
+- For good reduction identify the character map by CDM12 Proposition 4.15; the semistable character description uses the separate conditional O_C Raynaud input. Functoriality of the spectral sequence and the Weil pairing give endomorphisms, duality and isotropy; half dimension makes the Lie subspace Lagrangian.
 
 **Acceptance instances.**
 
@@ -1399,16 +1420,17 @@ Let C be a complete algebraically closed extension of ℚ_p and A an abelian var
 - `HodgeTateAndCanonicalSubgroups:T2/p-divisible-hodge-tate-sequence`
 - `HodgeTateAndCanonicalSubgroups:T0/raynaud-hodge-tate-filtration`
 - `HodgeTateAndCanonicalSubgroups:T0/hodge-tate-map-compatibilities`
-- `HodgeTateAndCanonicalSubgroups:T1/hodge-tate-graded-comparison`
 - `AbelianSchemesAndArithmeticModuli:A3`
 - `AbelianSchemesAndArithmeticModuli:A4`
 - `FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1`
 - `NeronModelsAndSemistableAbelianVarieties:R11.3`
+- `PadicHodgeTheory:P8`
 
 **Source matches.**
 
 - BHW, §5.3, Remark 5.15 (arXiv:1902.03985v4), PDF p. 23: BHW's convention for the Hodge–Tate sequence of an abelian variety.
 - SCH15, §3.3, Lemma 3.3.4 (arXiv v2, III.3.4), PDF p. 55: Scholze's Lemma 3.3.4 uses the filtration on points.
+- CDM12, Theorem 3.20 and Remark 3.21, PDF p.20; Proposition 4.15, PDF pp.28–29: The arbitrary-C algebraic degree-one spectral sequence gives the rational sequence independently of the complete-DVR relative comparison.
 
 ### T2/relative-hodge-tate-sequence — The relative Hodge–Tate sequence on the pro-étale site
 
@@ -1446,13 +1468,13 @@ Let X/K be smooth adic, with K a complete discretely valued extension of Q_p, an
 
 ### T2/hodge-tate-flag-point — The Hodge–Tate filtration as a point of the flag variety
 
-**Construction** · proposed name `TauCeti.HodgeTate.hodgeTateFlagPoint` · planet **Hodge–Tate period point** · implementation unchecked.
+**Construction** · proposed name `TauCeti.HodgeTate.hodgeTateFlagPoint` · implementation unchecked.
 
 Let Λ be a free ℤ_p-module of rank 2g with a perfect alternating pairing ψ (the Siegel case; Λ with an 𝒪-action and hermitian or symplectic form in the PEL case), and Fl the Lagrangian Grassmannian of rank-g quotients Λ ⊗ C ↠ W with Lagrangian kernel (Fl ⊂ Gr(g, Λ), Mathlib's Module.Grassmannian of rank-g quotients). For an abelian variety A over C with a symplectic similitude trivialisation β: Λ ≅ T_pA^∨, the Hodge–Tate quotient T_pA^∨ ⊗ C ↠ ω_A defines π_HT(A, β) ∈ Fl(C). Fl carries the Plücker coordinates s_J (J ⊂ {1, …, 2g}, |J| = g, J any g-element subset) and the binomial(2g,g)-indexed affinoid charts Fl_J = {|s_{J′}| ≤ |s_J| for all J′}, which cover Fl. The full GSp_2g(ℤ_p) action does not permute this finite chart family. The construction is functorial: for γ ∈ GSp(Λ ⊗ ℚ_p) with γΛ ⊂ Λ, π_HT(A′, β′) = γ·π_HT(A, β) when (A′, β′) is the corresponding isogenous pair.
 
 **Hypotheses.**
 
-- This node is the finite-level, pointwise construction (Scholze's Lemma 3.3.4 on points); the period map on the perfectoid tower, its continuity, equivariance and the pullback of 𝒪(1) are PerfectoidShimuraVarieties S1/S3's (RT-AREA-padic-1/22).
+- This is the pointwise quotient-flag construction. T2/open-tower-hodge-tate-map promotes the relative filtration to a morphism on S0’s open limit v-sheaf; T2/open-tower-levi-pullback gives its bundle formula. S1/S3 own representability, the adic incarnation and the compactified extensions (qualified RT /22).
 - Convention: quotients, not lines; for g = 1 the quotient line is ω_A, so the tautological quotient bundle pulls back to ω (the BHW convention).
 
 **Proof route.**
@@ -1549,7 +1571,7 @@ Let (G, X) be a Shimura datum of Hodge (or PEL) type, Sh_K → Spec E its Shimur
 
 **Hypotheses.**
 
-- Only the finite-level reduction on 𝒮_proét is planned here; its descent along π_HT on the perfectoid tower and the identification with the pullback of the Levi torsor of Fl_{G,μ} are PerfectoidShimuraVarieties S3's (RT-AREA-padic-1/22).
+- This is the finite-level reduction on 𝒮_proét. Its pullback along the open limit-tower map is T2/open-tower-levi-pullback. S3 imports that result for the perfectoid incarnation and proves the compactified extension.
 - Use the rational tensor torsor of CS17 §2.3. For an integral G(ℤ_p)-torsor additionally specify an integral model and tensor lattice. Dynamic point subgroups in the baseline do not supply the algebraic P_μ and M_μ or their torsor quotient.
 
 **Proof route.**
@@ -1560,7 +1582,7 @@ Let (G, X) be a Shimura datum of Hodge (or PEL) type, Sh_K → Spec E its Shimur
 
 **Acceptance instances.**
 
-- For the modular curve, ℳ_HT is the 𝔾_m × 𝔾_m-torsor of trivialisations of (ω^{-1}(1), ω) ⊗ Ô.
+- For the modular curve over C, with a specified determinant/polarization normalization, the Levi torsor frames the two graded lines (ω^{-1}(1), ω). Before a determinant trivialization use det H¹_dR⊗ω^{-1}(1) in the first line for prime-to-p Hecke equivariance.
 
 **Inputs.**
 
@@ -1595,30 +1617,32 @@ Let (G, X) be a Shimura datum of Hodge (or PEL) type, Sh_K → Spec E its Shimur
 
 **Mathematical tests.**
 
-- `TauCeti.HodgeTate.hodgeTateLeviTorsor_modularCurve` (computation): For GL₂ and the modular curve, ℳ_HT corresponds to the pair of line bundles (ω^{-1}(1), ω) ⊗ Ô.
+- `TauCeti.HodgeTate.hodgeTateLeviTorsor_modularCurve` (computation): For the modular curve over C, with a specified determinant/polarization normalization, the Levi torsor frames the two graded lines (ω^{-1}(1), ω). Before a determinant trivialization use det H¹_dR⊗ω^{-1}(1) in the first line for prime-to-p Hecke equivariance.
 - `TauCeti.HodgeTate.hodgeTateParabolicReduction_torus` (degenerate): For a torus datum with μ central, P_μ = M_μ = T and 𝒫_HT = 𝒫_ét ×^{T(ℚ_p)} T_Ô.
 - `TauCeti.HodgeTate.hodgeTateParabolicReduction_not_hodge` (non-example): The Hodge–Tate parabolic P_μ is opposite to the parabolic stabilising the Hodge filtration (AutomorphicBundles B0/hodge-parabolic-convention); using the Hodge filtration's parabolic gives a different reduction whose Levi torsor differs by the inverse of μ.
 
-### T2/de-rham-hodge-tate-levi-comparison — The de Rham and Hodge–Tate Levi torsors agree
+### T2/de-rham-hodge-tate-levi-comparison — Cyclotomic comparison of de Rham and Hodge–Tate Levi torsors
 
 **Theorem** · proposed name `TauCeti.HodgeTate.deRhamHodgeTateLeviComparison` · planet **Comparison of de Rham and Hodge–Tate torsors** · implementation unchecked.
 
-In the situation of T2/hodge-tate-parabolic-reduction, let ℳ_dR be the M_μ-torsor obtained from the Hodge filtration of H¹_dR(A/𝒮) with its tensors (the de Rham Levi torsor of AutomorphicBundles B1/filtration-reduction), pulled back to 𝒮_proét and extended to Ô. Then there is a canonical isomorphism of M_μ-torsors ℳ_dR ×^{M_μ} M_{μ,Ô} ≅ ℳ_HT, compatible with Hecke maps and morphisms of data, given by the Tate-normalised graded relative comparison and equivariant descent (Caraiani–Scholze Lemma 2.3.8, Proposition 2.3.9). Consequently the automorphic vector bundle 𝒱_ρ of a representation ρ of M_μ satisfies 𝒱_ρ ⊗ Ô ≅ ℳ_HT ×^{M_μ} ρ.
+For the rational Hodge-type family and parabolic reduction of T2, let ℳ_dR be the actual de Rham Levi torsor supplied by B1, pulled to the pro-étale site and extended to Ô. Let 𝒯(1) be the ℤ_p^×-torsor of Tate-module bases and let μ:ℤ_p^×→M_μ be the central cocharacter over a field defining μ. The canonical comparison is ℳ_HT ≅ ℳ_dR ×^{μ,ℤ_p^×} 𝒯(1), independent of the symplectic embedding and compatible with the natural Hecke linearizations. For a Levi representation of central μ-weight a this gives the associated HT bundle ≅ the de Rham automorphic bundle ⊗Ô(a). A chosen Tate basis over C gives an underlying untwisted isomorphism; it does not canonically descend over E_𝔭 or retain every linearization.
 
 **Hypotheses.**
 
-- Uses the cyclotomic twist conventions of the comparison: the graded pieces of the Hodge filtration correspond to those of the Hodge–Tate filtration after twisting by Ô(i).
-- Both torsors use the common Tate-motive normalisation of CS17 §2.3, not the raw frame torsor of the untwisted graded Hodge bundle. The supplier AutomorphicBundles B1 must be reconciled with this convention.
+- Use rational tensor frames and the actual opposed-parabolic/Tate convention of B0/B1; μ is defined after an explicitly stated finite extension, with the intrinsic conjugacy-class descent kept separate.
+- The Tate-basis torsor is a pro-étale torsor, not a globally trivial sheaf over a finite extension of ℚ_p. Its contracted product uses μ’s central image.
+- The family obeys the K/algebraizability hypotheses of T1 relative comparison; do not infer integral G_ℤp frames from rational tensors.
 
 **Proof route.**
 
-- Follow CS17 Lemma 2.3.8 and Proposition 2.3.9: map both Levi torsors to the torsor of trivialisations of the Tate motive Ô(1). Over that torsor, use the graded comparison with the twists trivialised.
-- The tensor-compatible graded comparison gives the isomorphism over the Tate-trivialisation torsor; check equivariance for the central cocharacter so it descends to the canonical M_μ-torsor isomorphism. A direct untwisted gr⁰ identification of every graded piece is insufficient.
-- Hecke and change-of-data compatibility follow from this construction and the relative comparison.
+- Pull the graded relative comparison to the Tate-basis torsor, where each twist can be trivialized. Tensor compatibility identifies the graded tensor frames there.
+- Changing the Tate basis rescales the graded pieces through μ. Descend to the contracted product ℳ_dR ×^{μ,ℤ_p^×}𝒯(1), rather than to the untwisted ℳ_dR. Boxer–Pilloni §4.4.8 and Remark 4.4.23 explicitly state this correction to the raw CS17 formulation.
+- Functoriality of comparison and contraction gives the stated equivariance; keep the determinant local system if no polarization/determinant trivialization has been chosen.
 
 **Acceptance instances.**
 
-- For the modular curve: gr⁰ = ω ↔ ω ⊗ Ô and gr¹ = ω^{-1} ↔ ω^{-1}(1).
+- For the normalized modular curve the HT graded lines are ω and ω^{-1}(1); raw de Rham lines are ω and ω^{-1}. The μ-weight-one part detects the missing twist.
+- For μ-weight zero representations the associated comparison is untwisted. Over a finite K/ℚ_p one cannot identify Ô(1) with Ô canonically; a C-valued Tate basis alone does not establish equivariance.
 
 **Inputs.**
 
@@ -1632,7 +1656,8 @@ In the situation of T2/hodge-tate-parabolic-reduction, let ℳ_dR be the M_μ-to
 
 **Source matches.**
 
-- CS17, §2.3, Proposition 2.3.9 (arXiv:1511.02418v1), PDF p. 21: Lemma 2.3.8 / Proposition 2.3.9: M_dR ≅ M_p.
+- CS17, §2.3, Proposition 2.3.9 (arXiv:1511.02418v1), PDF p. 21: The graded comparison and tensor argument; its untwisted torsor conclusion is corrected by the cyclotomic contraction (E31).
+- BPC25, §4.4.8, PDF pp.67–68; Remark 4.4.12, p.69; Remark 4.4.23, p.74: The revised manuscript gives the cyclotomic contracted product and the representation-weight twist.
 
 ### T2/filtered-fibre-functor — The Hodge–Tate tensor filtration
 
@@ -1666,7 +1691,7 @@ Apply the shared filtered-Tannakian theory to the rational Hodge-type étale fib
 
 **Source matches.**
 
-- ZIE, §3.1, Definition 3.4, PDF p. 15; Theorems 3.14–3.15, PDF p. 17; Theorem 3.52, PDF p. 27: Strict exact tensor filtrations split fpqc locally, and reductive automorphism groups give parabolic stabilizers.
+- ZIE, §3.5, Theorem 3.52, PDF pp.27–28 (reductive case part (iii), p.28): Strict exact tensor filtrations split fpqc locally, and reductive automorphism groups give parabolic stabilizers.
 - CS17, §2.3, Lemmas 2.3.6–2.3.7, PDF pp. 19–20: The relative Hodge–Tate tensor filtration has the fixed Shimura cocharacter type.
 
 **Uses.**
@@ -1686,17 +1711,126 @@ Apply the shared filtered-Tannakian theory to the rational Hodge-type étale fib
 **Mathematical tests.**
 
 - `TauCeti.HodgeTate.ExactTensorFiltration.gl_grassmannian` (compatibility): For G = GL_n and μ of type (1^r, 0^{n−r}), filtrations of type μ are the elements of Mathlib's Module.Grassmannian R (R^n) (n − r).
-- `TauCeti.HodgeTate.ExactTensorFiltration.trivial` (degenerate): For μ central (e.g. G a torus) the only filtration of type μ is the one given by the weights of μ, and the frame torsor is the trivial G-torsor.
+- `TauCeti.HodgeTate.ExactTensorFiltration.trivial` (degenerate): For central μ and a supplied underlying tensor frame, the weight filtration needs no proper parabolic reduction and its framed torsor is trivial. Without that frame the underlying G-torsor need not be trivial.
 - `TauCeti.HodgeTate.ExactTensorFiltration.not_arbitrary_filtration` (non-example): A rank-one R-module filtered by a non-direct-summand ideal with nonflat quotient does not satisfy the locally free graded-piece/strict exact tensor-filtration contract; for example (2)⊂ℤ at the local prime 2.
 
-**Coverage: planned.** Every target has a declaration route; the following refinements remain dependencies of the affected targets.
+### T2/open-tower-hodge-tate-map — Hodge–Tate map on the open limit tower
 
-**Remaining.**
+**Construction** · proposed name `TauCeti.HodgeTate.openTowerHodgeTateMap` · planet **Hodge–Tate period map** · implementation unchecked.
 
-- Valuation-ring Fitting and the integral O_C Faltings complex: Import the StableReduction general Fitting direction, and request its nonnoetherian finite-presentation valuation specialization from R07.1. CDM12 Proposition 4.13 independently supplies the bounded integral complex and zero composite; R07.1’s existing complete-noetherian-local dimension statements do not cover O_C, and its finite-to-p-divisible embedding must have exact hypotheses.
+For a Hodge-type datum with sufficiently small tame level K^p and rational tensor frames, let S_∞^◇=lim_{K_p}S_{K^pK_p}^◇ be S0’s open tower over C. There is a canonical morphism of v-sheaves π_HT:S_∞^◇→Fl_{G,μ}^{an,◇}, defined by the relative type-μ filtration in the universal rational Tate frame. It is independent of a chosen Siegel embedding, equivariant for G(ℚ_p) and for prime-to-p Hecke translations between tame levels (trivial action on the flag for the latter). Its evaluation on any perfectoid test object is the tensor filtration quotient, and on geometric points it is T2’s Hodge–Tate flag point. Perfectoid representability of S_∞^◇ is not a hypothesis.
+
+**Hypotheses.**
+
+- Use S0’s genuine limit v-sheaf and compatible universal rational Tate trivialization; the finite-level families meet T1’s comparison hypotheses. The tower itself and its right G(ℚ_p)-action are imports, not new definitions.
+- The descended flag is the reflex-field form. A cocharacter or split Hilbert factorization requires an explicitly stated extension. Fix the dual-Tate quotient convention and transport the flag action accordingly; T4 converts it to BHW’s left action.
+- P9 must transfer the finite-level relative filtration/frame reduction to all perfectoid untilts, functorially and with effective locally free descent; D6 supplies diamondization of the analytic flag. A geometric-point assignment alone does not define this morphism.
+
+**Proof route.**
+
+- Pull T2’s relative exact sequence and rational tensor-frame reduction along each projection of S0’s limit sheaf, using the universal Tate trivialization. On a perfectoid test untilt the resulting locally free tensor filtration of type μ represents a map to the analytic flag by R09.1’s universal property.
+- P9’s functorial completed pullback/descent contract and D6’s diamond functor give compatible sections on every perfectoid test object. Their compatibility with restriction and v-descent produces the morphism; this sheaf construction precedes S2 representability. CS17 §2.3, after Lemma 2.3.7, uses the same relative frame-to-flag construction on its representing tower.
+- Changing rational frames by G(ℚ_p) gives the specified flag action. Naturality under the Hecke isogenies gives prime-to-p equivariance. CS17 Lemma 2.3.7’s tensor-idempotent argument establishes embedding independence; do not merely compare classical points.
+
+**Acceptance instances.**
+
+- The elliptic quotient, central-cocharacter and unsplit Hilbert test cases below all evaluate the relative construction on perfectoid test families.
+- On a perfectoid representative supplied later by S2, this morphism is the diamond of S3’s adic period morphism; representability is used only for that realization.
+
+**Inputs.**
+
+- `HodgeTateAndCanonicalSubgroups:T2/relative-hodge-tate-sequence`
+- `HodgeTateAndCanonicalSubgroups:T2/pel-hodge-type-filtration`
+- `HodgeTateAndCanonicalSubgroups:T2/hodge-tate-parabolic-reduction`
+- `HodgeTateAndCanonicalSubgroups:T2/hodge-tate-flag-point`
+- `PerfectoidShimuraVarieties:S0/infinite-level-diamond`
+- `PerfectoidShimuraVarieties:S0/tower-right-action`
+- `DiamondsAndVStacks:D6/gluing-and-the-diamond-functor`
+- `AlgebraicModuliForArithmeticGeometry:R09.1`
+- `PerfectoidSpaces:P9`
+
+**Source matches.**
+
+- CS17, §2.1, Theorems 2.1.2–2.1.3, PDF pp.11–12; §2.3, Lemma 2.3.7 and subsequent frame-to-flag construction, pp.20–21: The relative tensor-frame construction and equivariance on the represented tower; its v-sheaf precursor is deduced using the explicit supplier transfer/descent contract.
+- BPC25, §4.4.22–4.4.24, PDF pp.73–75: Universal rational frames, relative reduction and the open Hodge-type period map; the source proves the perfectoid incarnation downstream.
+
+**Uses.**
+
+- HodgeTateAndCanonicalSubgroups:T4/hodge-tate-coordinate: Defines the coordinate as a function on the open tower before S1–S3.
+- HodgeTateAndCanonicalSubgroups:T5/hodge-tate-aip-lift: Provides the relative quotient line and its tautological section on the open anticanonical tower.
+- PerfectoidShimuraVarieties:S3: Supplies the sheaf map to be realized on the perfectoid representative and extended to compactifications.
+
+**Planning API.**
+
+- `TauCeti.HodgeTate.openTowerHodgeTateMap` (constructor): The v-sheaf morphism determined by the universal relative tensor filtration.
+- `TauCeti.HodgeTate.openTowerHodgeTateMap_ext` (extensionality): Two candidate maps agree if their natural evaluations agree on every perfectoid test object, not merely on geometric points.
+- `TauCeti.HodgeTate.openTowerHodgeTateMap_eval` (simp): On each perfectoid test untilt evaluation is the type-μ relative filtration quotient.
+- `TauCeti.HodgeTate.openTowerHodgeTateMap_point` (compatibility): On (C′,C′⁺)-points the map equals hodgeTateFlagPoint with the fixed quotient convention.
+- `TauCeti.HodgeTate.openTowerHodgeTateMap_equivariant` (functoriality): π_HT composed with a tower translation equals the induced flag translation composed with π_HT, with the chosen left/right dictionary.
+- `TauCeti.HodgeTate.openTowerHodgeTateMap_hecke` (functoriality): Prime-to-p translation between tame levels commutes with π_HT and acts trivially on the flag.
+- `TauCeti.HodgeTate.openTowerHodgeTateMap_baseChange` (functoriality): Base extending C and the tower commutes with the map, without choosing a splitting of F beforehand.
+- `TauCeti.HodgeTate.openTowerHodgeTateMap_embedding` (compatibility): Under a Hodge-type Siegel embedding the two period maps commute with the corresponding flag embedding; its construction is independent of that choice.
+
+**Mathematical tests.**
+
+- `TauCeti.HodgeTate.openTowerHodgeTateMap_modular` (compatibility): For GL₂, evaluation on a perfectoid test family gives the kernel of the relative quotient to ω_E, with the tautological quotient pulling back to ω_E.
+- `TauCeti.HodgeTate.openTowerHodgeTateMap_torus` (degenerate): For a central cocharacter the flag is a point, hence the map is its structural morphism regardless of whether the tower has a perfectoid representative.
+- `TauCeti.HodgeTate.openTowerHodgeTateMap_hilbertUnsplit` (compatibility): For the Hodge-type Hilbert G* datum the target is (Res_{F/ℚ}ℙ¹)^{an,◇}; an embedding-product identification is asserted only after a specified splitting extension.
+- `TauCeti.HodgeTate.openTowerHodgeTateMap_kernelQuotient` (non-example): For an elliptic family the kernel line is ω_E^{-1}(1) (with determinant normalization), while the quotient is ω_E. Substituting the tautological subline for the quotient changes the bundle and twist.
+
+Added by independent review `REV-HodgeTateAndCanonicalSubgroups--T0~2`.
+
+### T2/open-tower-levi-pullback — Open-tower Levi pullback and elliptic/Hilbert bundle formulas
+
+**Theorem** · proposed name `TauCeti.HodgeTate.openTowerLeviPullback` · planet **Hodge–Tate automorphic bundle pullback** · implementation unchecked.
+
+Along T2’s open-tower π_HT, the tautological Levi torsor of the Hodge–Tate flag pulls back to ℳ_HT on the limit v-sheaf. Hence an associated Levi representation of central μ-weight a pulls back to the finite-level de Rham automorphic bundle tensored with Ô(a), by the cyclotomic comparison. In the dual-Tate quotient convention the elliptic tautological quotient 𝒪(1) pulls back to ω_E; for the Hodge-type Hilbert G* datum the flag is (Res_{F/ℚ}ℙ¹)^{an,◇} and π_HT*Res_{𝒪_F/ℤ}𝒪(1)≅ω_A as a rank-[F:ℚ] bundle with its Res G_m-action. These identifications hold before perfectoid representability; they inherit the transported frame/Hecke linearizations.
+
+**Hypotheses.**
+
+- Import the actual homogeneous parabolic and Levi torsors from R09.1/B0, rather than their point-subgroup substitutes or a downstream S3 theorem. The automorphic representation is inflated from the common Levi.
+- For the Hilbert quotient, level structures use T_pA^∨ and the polarization ideal convention of H2/H4. Over an unsplit field do not replace the restriction of scalars by an embedding-indexed product or its integral tensor order by its normalization.
+- The O(1) formula uses BHW’s kernel/quotient action on projective space, transported from CS17’s standard-representation convention. Raw CS17-compatible representations retain their μ-weight twist; no untwisted equivariance is inferred from a choice of roots of unity.
+
+**Proof route.**
+
+- The pullback of the universal parabolic frame torsor along the relative filtration map is exactly the adapted frame torsor. Passing to its Levi quotient commutes with pullback by the supplied torsor universal property.
+- Apply T2’s corrected cyclotomic Levi comparison and associated-bundle functor. For GL₂ identify the universal quotient with the actual relative character quotient to ω_E; this computes the O(1) convention directly, without erasing twists in other representations.
+- For G* use the O_F-linear rank-one quotient and the representability/universal bundle of restriction of scalars. The quotient map identifies its pulled-back bundle with ω_A. After an explicit splitting extension this is the direct sum of the embedding-indexed quotient lines; faithful base change descends the identification. BHW §5.3–5.4 states this unsplit construction.
+
+**Acceptance instances.**
+
+- At an elliptic point with normalized determinant, the quotient line is ω_E and the subline is ω_E^{-1}(1).
+- After a splitting extension of F the Hilbert rank-[F:ℚ] bundle is ⊕_σ𝒪(1)_σ; before it the restriction-of-scalars bundle is retained.
+- For μ-weight a the raw associated bundle formula includes (a); a=0 is the untwisted special case.
+
+**Inputs.**
+
+- `HodgeTateAndCanonicalSubgroups:T2/open-tower-hodge-tate-map`
+- `HodgeTateAndCanonicalSubgroups:T2/de-rham-hodge-tate-levi-comparison`
+- `HodgeTateAndCanonicalSubgroups:T2/abelian-hodge-tate-sequence`
+- `AlgebraicModuliForArithmeticGeometry:R09.1`
+- `AutomorphicBundles:B0/hodge-parabolic-convention`
+- `AutomorphicBundles:B2/automorphic-vector-bundles-from-representations-of-the-centralizer`
+- `HilbertModularVarietiesAndShimuraCurves:H2`
+- `HilbertModularVarietiesAndShimuraCurves:H4`
+- `PerfectoidSpaces:P9`
+
+**Source matches.**
+
+- CS17, §2.3, Lemma 2.3.8 and Proposition 2.3.9, PDF p.21: Relative Levi frame pullback; E31 corrects the raw untwisted comparison.
+- BPC25, §4.4.8, PDF pp.67–68; Remark 4.4.12, p.69; Remarks 4.4.23–4.4.24, pp.74–75: Cyclotomic torsor contraction and representation-weight bundle pullback.
+- BHW, §3.3, (3.2) and Lemma 3.17, PDF pp.12–13; §5.3, Remark 5.15, p.23; §5.4, Definitions 5.22–5.24 and Proposition 5.25/Remark 5.28, pp.25–26: Quotient O(1) formula, Hilbert restriction of scalars and the explicitly conditional splitting.
+
+Added by independent review `REV-HodgeTateAndCanonicalSubgroups--T0~2`.
+
+**Coverage: planned.**
+
+- Valuation-ring Fitting and the integral O_C Faltings complex: Import the StableReduction general Fitting direction, and request its nonnoetherian finite-presentation valuation specialization from R07.1. CDM12 Theorem 4.13 independently supplies the bounded integral complex and zero composite; R07.1’s existing complete-noetherian-local dimension statements do not cover O_C, and its finite-to-p-divisible embedding must have exact hypotheses.
 - Boundary one-motives and arbitrary-C Raynaud realization: C4 supplies polarized [Y→G̃], the finite-flat torsion pieces and integral overlap uniqueness, plus arbitrary-base semi-abelian Verschiebung. R11.3 supplies the descent/existence or complete-C uniformization extension beyond its current DVR statements. Boundary coordinate estimates use the full height-2g dual one-motive realization, not the smaller finite Raynaud group.
-- Relative character comparison and Tate-normalized rational tensors: P8 supplies the two horizontal B_dR^+ lattices and relative Kummer edge-map compatibility of CS17 §2.2; CDM12 Proposition 4.15 is the independently read good-reduction pointwise reference. B1 supplies rational defining tensors and descent through the common Tate-trivialization torsor of CS17 Lemma 2.3.8/Proposition 2.3.9. General-C families outside the stated K-descent hypothesis and integral G_ℤp frames require separate extensions.
+- Relative character comparison and Tate-normalized rational tensors: P8 supplies the two horizontal B_dR^+ lattices and relative Kummer edge-map compatibility of CS17 §2.2; CDM12 Proposition 4.15 is the independently read good-reduction pointwise reference. B1 supplies rational defining tensors and central-μ contraction with the Tate-basis torsor. CS17’s raw untwisted conclusion is corrected by Boxer–Pilloni §4.4.8/Remark 4.4.23 (E31). General-C families outside the stated K-descent hypothesis and integral G_ℤp frames require separate extensions. P8 also supplies the absolute arbitrary-C algebraic degree-one spectral sequence and A4 its H¹O/invariant-differential identifications; this does not assume finite-Q_p descent.
 - Shared filtered-Tannakian Part II and representable torsors: Ziegler Definition 3.4, Theorems 3.14–3.15 and 3.52 establish the precise algebraic strict/fpqc statements. The proposed ReductiveGroups Part II extension must expose them. R09.1/B0 supply the representable flag and actual parabolic quotient; pinned dynamic point subgroups are insufficient. CS17’s separate pro-étale type argument governs the Shimura application.
+- Open-tower relative filtration transfer: S0’s existing limit v-sheaf and action statements were read, as was D6’s diamond functor. P9 must expose functorial completed relative filtration/frame pullback on all perfectoid test untilts and effective locally free/Levi descent, compatible with the universal flag. This exact interface is not the existing coefficient-product invariant-ring contract. R09.1/B0 must expose the homogeneous Hodge–Tate flag/Levi universal torsor upstream of S3. Neither perfectoid representability nor geometric-point evaluation substitutes for these inputs.
 
 ## T3 — All-prime weak formal existence, strict p≥3 HN characterizations, truncated conormal estimates and Hilbert generator requests are kept distinct. Lifting and rigidity have separate foundations.
 
@@ -1850,6 +1984,8 @@ Let R be a complete p-torsion-free cyclotomic valuation-base algebra and A/R abe
 - `HodgeTateAndCanonicalSubgroups:T3/hasse-neighbourhood`
 - `HodgeTateAndCanonicalSubgroups:T0/semi-abelian-hasse-invariant`
 - `HodgeTateAndCanonicalSubgroups:T0/semi-abelian-torsion`
+- `HodgeTateAndCanonicalSubgroups:T3/subgroup-lifting`
+- `HodgeTateAndCanonicalSubgroups:T3/section-rigidity`
 
 **Source matches.**
 
@@ -1880,6 +2016,40 @@ Let R be a complete p-torsion-free cyclotomic valuation-base algebra and A/R abe
 - `TauCeti.HodgeTate.canonicalSubgroup_not_constant` (non-example): C_m is in general not isomorphic to the constant group (ℤ/p^m)^g over R: for A ordinary it is multiplicative, μ_{p^m}^g étale-locally; only its geometric generic points are (ℤ/p^m)^g.
 - `TauCeti.HodgeTate.canonicalSubgroup_points_strict` (non-example): The printed equality of Corollary 3.2.6 fails over non-normal R′: for R′ = {(a, b) ∈ O_C² | a ≡ b mod p^{1/(p−1)}}, A ordinary, ε = 0, s = (ζ_p, 1) ∈ C₁(R′) is not ≡ 0 mod p^{1/p}.
 
+### T3/pointwise-quotient-hasse — Hasse height of a supplied Frobenius-congruent quotient
+
+**Lemma** · proposed name `TauCeti.HodgeTate.pointwiseQuotientHasse` · implementation unchecked.
+
+Let G be BT₂ over O_C, p≠2, with Hasse height w<1. Supply a finite flat C⊂G[p] of height dim G and a BT₁ quotient E=p^{−1}C/C. Assume C reduces to ker F modulo p^{1−w}, with the compatible quotient/conormal identification. Then min(Ha(E),1−w)=min(pw,1−w). In particular Ha(E)=pw for w<1/(p+1), and Ha(E)≥1−w for w≥1/(p+1). This statement assumes the subgroup and quotient; it proves no canonical-subgroup existence.
+
+**Hypotheses.**
+
+- C, E and their base-change/BT/conormal compatibilities are supplied by R07.1.
+- Use the arbitrary-characteristic-p-base Hasse theory of R07.2. Normalize v(p)=1 and truncate Hasse heights at 1.
+
+**Proof route.**
+
+- Over a base killed by p, Frobenius identifies p^{−1}ker F/ker F with G[p]^(p); its conormal determinant transports the Hasse section to its pth tensor power.
+- Reduce the supplied C and E modulo p^{1−w}. Equality of these Hasse sections gives equality of their valuations truncated at 1−w, as in the proof of FAR11 Theorem 5.
+- Compare pw with 1−w to obtain the two stated branches. No invocation of the main canonical-subgroup theorem occurs.
+
+**Acceptance instances.**
+
+- For w=0 the supplied Frobenius-congruent quotient has Hasse height zero.
+- For p=5 and w=1/10 the height is 1/2; at w=1/6 only the lower bound 5/6 follows.
+
+**Inputs.**
+
+- `HodgeTateAndCanonicalSubgroups:T3/hasse-neighbourhood`
+- `FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1`
+- `FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2`
+
+**Source matches.**
+
+- FAR11, §7.4, proof of Théorème 5, PDF pp.37–38: The truncated Hasse identity in the proof uses only the supplied Frobenius congruence, allowing it before canonical-subgroup induction.
+
+Added by independent review `REV-HodgeTateAndCanonicalSubgroups--T0~2`.
+
 ### T3/canonical-subgroup-theorem — Existence, uniqueness and characterisations of canonical subgroups
 
 **Theorem** · proposed name `TauCeti.HodgeTate.canonicalSubgroup_theorem` · planet **Canonical subgroup theorem** · implementation unchecked.
@@ -1896,7 +2066,7 @@ Let R be a complete p-torsion-free cyclotomic valuation-base algebra and A/R abe
 
 - (1) Existence: H₁ := ker(V^m: A₁^{(p^m)} → A₁) has co-Lie complex Lie A₁^{(p^m)} → Lie A₁ with determinant Ha^{(p^m−1)/(p−1)}, so p^ε ≃ 0 on ℓ̌_{H₁}; apply T3/subgroup-lifting to ker F^m ⊂ A₁[p^m].
 - (1) Uniqueness and points: if C, C′ are both ≡ ker F^m mod p^{1−ε}, the universal point of C maps to a point of A[p^m]/C′ vanishing mod p^{1−ε}, and Ω¹ of A[p^m]/C′ is killed by p^ε < p^{1−ε}, so T3/section-rigidity gives C ⊂ C′.
-- (2) Fargues: for n = 1, C is the closure of ker α_{G,1−Ha(G)} (T0/finite-hodge-tate-map) and deg(G/C) = Ha(G) by T0/fargues-hodge-tate-cokernel and the Oort–Tate computation; induct on n using T3/quotient-hasse-radius (Ha(p^{-1}C/C) = p·Ha(G)) and the Harder–Narasimhan formalism (degree properties T0/fargues-degree-properties, T0/fargues-degree-generic-isomorphism).
+- (2) Use FAR11 Theorem 4 for level-one existence, degree, Frobenius congruence and character-kernel identification, with the stated HN/degree/cokernel and Oort–Tate inputs. For n≥2 let D⊂G[p] be that level-one subgroup. T3/pointwise-quotient-hasse gives Ha(p^{−1}D/D)=pw; R07.1 supplies the level-(n−1) BT quotient p^{−(n−1)}D/D. Apply induction to this quotient and take the inverse image of its canonical subgroup. HN/degree inequalities identify the resulting height-nd break (FAR11 Theorem 6, PDF pp.38–39). The later family quotient-radius theorem is not a prerequisite.
 
 **Acceptance instances.**
 
@@ -1914,13 +2084,15 @@ Let R be a complete p-torsion-free cyclotomic valuation-base algebra and A/R abe
 - `HodgeTateAndCanonicalSubgroups:T0/fargues-degree-properties`
 - `HodgeTateAndCanonicalSubgroups:T0/fargues-degree-generic-isomorphism`
 - `FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1/oort-tate-classification`
+- `HodgeTateAndCanonicalSubgroups:T3/pointwise-quotient-hasse`
+- `FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1`
 
 **Source matches.**
 
 - SCH15, §3.2.1, Corollary 3.2.6, p. 33 (arXiv v2): Corollary 3.2.6: existence and uniqueness.
 - SCH15, §3.2.1, proof of Corollary 3.2.6, p. 33: Existence through the lifting corollary.
-- FAR11, §7.5, Théorème 6, PDF p. 38: Fargues's main theorem, p ≠ 2.
-- FAR11, §7.5, Théorème 6 (7), PDF p. 38: Hodge–Tate characterisation.
+- FAR11, §7.5, Théorème 6, PDF pp.38–39: Fargues's main theorem, p ≠ 2.
+- FAR11, §7.5, Théorème 6 (7), PDF pp.38–39: Hodge–Tate characterisation.
 - FAR11, §6.5, Théorème 4, PDF p. 32: Degree of the quotient at level 1.
 
 ### T3/canonical-subgroup-properties — Levels, functoriality, duality and generic points of canonical subgroups
@@ -1972,26 +2144,27 @@ Let R be a p-adically complete flat ℤ_p^cycl-algebra and A, B abelian schemes 
 **Proof route.**
 
 - (1): modulo p^{1−ε}, A/C_{m₁} = A/ker F^{m₁} = A^{(p^{m₁})}, whose Hasse invariant is Ha(A)^{p^{m₁}}; the exact sequence by uniqueness and T3/section-rigidity, using 0 → ker F^{m₁}_A → ker F^m_A → ker F^{m₂}_B → 0 mod p^{1−ε}.
-- (2): E = p^{-1}ker F/ker F ≅ G[p]^{(p)} has H̃a(E) = H̃a(G)^{⊗p}, and C ≡ ker F mod p^{1−w} (Fargues 2011, Théorème 5).
+- (2) Apply T3/pointwise-quotient-hasse to the canonical level-one subgroup supplied by the main theorem and its Frobenius congruence.
 - (3): for A with |Ha| ≥ |p|^{ε/p}, A′ = A/C has radius ε by (1), and D = A[p]/C meets the weak canonical subgroup of A′ trivially (T3/section-rigidity); conversely A′/D ≅ A.
 
 **Acceptance instances.**
 
-- For E ordinary, E/E[p]^0 ≅ E^{(p)} is ordinary (Ha 0 ↦ 0).
-- For E with Ha(E) = 1/(2p), Ha(E/C₁) = 1/2 and Ha(E/D) = 1/(2p²) for D anticanonical.
+- For ordinary E over O_C, E/E[p]^0 is ordinary. Its special-fibre quotient is the Frobenius twist; no mixed-characteristic Frobenius-twist isomorphism is asserted.
+- For p≥5 and Ha(E)=1/(2p), Ha(E/C₁)=1/2 and Ha(E/D)=1/(2p²) for an anticanonical D.
 
 **Inputs.**
 
 - `HodgeTateAndCanonicalSubgroups:T3/canonical-subgroup-theorem`
 - `HodgeTateAndCanonicalSubgroups:T3/canonical-subgroup-properties`
 - `HodgeTateAndCanonicalSubgroups:T3/section-rigidity`
+- `HodgeTateAndCanonicalSubgroups:T3/pointwise-quotient-hasse`
 
 **Source matches.**
 
 - SCH15, §3.2.1, proof of Proposition 3.2.8(iii), p. 34 (arXiv v2): Hasse invariant of the quotient by the canonical subgroup.
 - FAR11, §7.4, Théorème 5, PDF p. 37: Fargues's Théorème 5.
 - SCH15, §3.2.2, Theorem 3.2.15(iii), p. 40 (arXiv v2): Anticanonical subgroups and the radius change.
-- AIP15, Appendix, quotient by an anticanonical subgroup (arXiv:1212.3812), PDF p. 29: Dividing by an anticanonical subgroup divides the Hodge height by p.
+- AIP15, §6.2.1, Proposition 6.2.1.1, PDF p.29 (arXiv:1212.3812v1; auxiliary p>2 range): Dividing by an anticanonical subgroup divides the Hodge height by p.
 
 ### T3/canonical-subgroup-hodge-tate — The Hodge–Tate map of the dual canonical subgroup
 
@@ -2029,8 +2202,8 @@ Let C/ℚ_p be complete algebraically closed, G/O_C p-divisible of dimension d, 
 
 **Source matches.**
 
-- AIP15, §3.2, Proposition 3.2.1, PDF pp. 9–10: Provides the truncated conormal comparison and the positive raw Hodge–Tate cokernel defect.
-- FAR11, Proposition 7, PDF pp. 27–29; Théorème 6, PDF pp. 35–38: The fixed-vector determinant calculation and the strict-range HN kernel theorem.
+- AIP15, §3.2, Proposition 3.2.1, PDF pp.12–13 (arXiv:1212.3812v1): Provides the truncated conormal comparison and the positive raw Hodge–Tate cokernel defect.
+- FAR11, Proposition 7, PDF pp. 27–29; Théorème 6, PDF pp.38–39: The fixed-vector determinant calculation and the strict-range HN kernel theorem.
 - HALO, Appendix A.2, Corollary A.2(4); A.3, Propositions A.2–A.3, PDF pp. 39–41: Supplies the all-prime formal canonical construction and determinant ideal, including the p=2 range.
 
 ### T3/hilbert-canonical-subgroup — Canonical subgroups of Hilbert–Blumenthal abelian schemes at arbitrary p
@@ -2069,11 +2242,9 @@ For a HBAV A/R on the specified normal admissible Deligne–Pappas/Rapoport Hilb
 
 - BHW, §5.2, PDF pp. 21–23; §7.1, PDF p. 29: Uses the total-Hasse canonical subgroup and the Hilbert dual generator.
 - HALO, Appendix A.2, Corollary A.2(1)–(6), PDF pp. 39–40: Gives existence, nesting, quotient, duality and geometric generic ℤ/p^n type at every prime.
-- AIPH, §3, Propositions 3.2–3.3 and Igusa construction, PDF pp. 12–14; §4.1, Proposition 4.1, PDF pp. 15–16: The Hilbert formal setting and O_F-linear generator enter the integral lattice construction.
+- AIPH, §3, Propositions 3.2–3.3, PDF p.11 (Hilbert_adicfinal.pdf): The Hilbert formal setting and O_F-linear generator enter the integral lattice construction.
 
-**Coverage: planned.** Every target has a declaration route; the following refinements remain dependencies of the affected targets.
-
-**Remaining.**
+**Coverage: planned.**
 
 - Group co-Lie deformation and trace duality: R07.6 owns the finite-flat group specialization of DD.0’s full cotangent and obstruction theory, syntomic determinant and trace duality. Read FAR10 §1–§2, SCH15 III.2.2 and HALO A.1 give the consequences used here; Illusie II is not cleared and its foundation is not independently verified. The Fitting definition of degree does not remove this lifting input.
 - Inclusive geometric endpoint and ramified canonical generator: HALO Appendix A independently covers p=2 and the small all-prime formal radius, including the strict weak-bound inequality at its endpoint. The larger BHW pointwise radius still needs its p≥3 inclusive-endpoint refinement and exact unsplit O_F/p^n dual generator from H2/H4. The scalar kernel/degree argument and generic projection are separated; neither stability nor a generic decomposition proves integral O_F freeness.
@@ -2130,7 +2301,7 @@ Let X be the Siegel, Hilbert or PEL Shimura variety at prime-to-p level with Has
 
 **Mathematical tests.**
 
-- `TauCeti.HodgeTate.anticanonicalLocus_ordinary` (degenerate): At ε = 0 (ordinary locus), the anticanonical locus parametrises D étale-locally complementary to A[p]^0, i.e. D ≅ (ℤ/p^n)^g étale-locally.
+- `TauCeti.HodgeTate.anticanonicalLocus_ordinary` (degenerate): On the ordinary locus, D is a complement to the connected multiplicative part A[p^n]^0 and is étale-locally (ℤ/p^n)^g. Many complements may exist; D is not asserted equal to a previously chosen complement.
 - `TauCeti.HodgeTate.canonicalLocus_modularCurve` (computation): For the modular curve and n = 1 the two loci partition X_{Γ₀(p)}(ε) into the canonical component (degree 1 over X(ε)) and the anticanonical component (degree p over X(ε)).
 - `TauCeti.HodgeTate.anticanonicalLocus_not_complement` (non-example): For Hilbert data with several primes above p, 'D different from C' is not 'D ∩ C = 0': the anticanonical condition must be imposed at every prime above p.
 
@@ -2138,11 +2309,12 @@ Let X be the Siegel, Hilbert or PEL Shimura variety at prime-to-p level with Has
 
 **Theorem** · proposed name `TauCeti.HodgeTate.canonicalLocus_isomorphism` · implementation unchecked.
 
-In the situation of T4/canonical-anticanonical-loci, A ↦ (A, C_n) defines an isomorphism X(ε) ≅ X_{Γ₀(p^n)}(ε)_c of adic spaces (and of formal models after normalisation), inverse to the forgetful map; it is compatible with the forgetful maps in n, with prime-to-p Hecke correspondences and with base change.
+In the situation of T4/canonical-anticanonical-loci, A ↦ (A, C_n) defines an isomorphism X(ε) ≅ X_{Γ₀(p^n)}(ε)_c of adic spaces, inverse to the forgetful map; it is compatible with the forgetful maps in n, with prime-to-p Hecke correspondences and with base change.
 
 **Hypotheses.**
 
 - ε within the radius of existence of the strong canonical subgroup of level n.
+- A formal-model version additionally needs the common compatible normalization/model identification requested from R2; the adic finite-étale section argument alone does not establish it.
 
 **Proof route.**
 
@@ -2158,6 +2330,7 @@ In the situation of T4/canonical-anticanonical-loci, A ↦ (A, C_n) defines an i
 - `HodgeTateAndCanonicalSubgroups:T4/canonical-anticanonical-loci`
 - `HodgeTateAndCanonicalSubgroups:T3/canonical-subgroup-properties`
 - `HodgeTateAndCanonicalSubgroups:T3/canonical-subgroup-theorem`
+- `AdicSpacesPartII:R2`
 
 **Source matches.**
 
@@ -2224,6 +2397,7 @@ Let 𝒪_p = 𝒪_F ⊗ ℤ_p and Fl = Res_{F/ℚ}ℙ¹. Fix BHW’s kernel-line
 - `ShimuraData:D3/compact-dual`
 - `mathlib:Module.Grassmannian`
 - `HilbertModularVarietiesAndShimuraCurves:H4`
+- `HodgeTateAndCanonicalSubgroups:T2/open-tower-hodge-tate-map`
 
 **Source matches.**
 
@@ -2308,7 +2482,7 @@ Let 1 > r > 0, m ≥ 1 with p^{−m} ≤ r, and 0 ≤ ε ≤ 1/(c_p p^m) with c_
 
 **Hypotheses.**
 
-- These are value inclusions for the S3 period map; T4 does not construct a second global period map.
+- The open-locus value inclusions use T2’s map. Boundary charts use the relative full one-motive flag and estimates supplied by T0/C4; whenever S3’s compactified map has been constructed, these yield the identical value inclusions for its extension. A global S3 map is not a prerequisite for the open estimate or local boundary calculation.
 - At the BHW inclusive endpoints, supply the canonical conormal/kernel estimates stated in Proposition 5.19. FAR11’s strict HN bound alone does not cover equality for p≥3; this is recorded as a numerical supplier refinement.
 - For boundary points require the compatible full dual one-motive estimates. The finite-height Raynaud Tate group by itself does not give a rank-2g coordinate frame.
 
@@ -2334,6 +2508,8 @@ Let 1 > r > 0, m ≥ 1 with p^{−m} ≤ r, and 0 ≤ ε ≤ 1/(c_p p^m) with c_
 - `HodgeTateAndCanonicalSubgroups:T4/canonical-kernel-congruence`
 - `HodgeTateAndCanonicalSubgroups:T4/ramified-period-comparison`
 - `HilbertModularVarietiesAndShimuraCurves:H2`
+- `HodgeTateAndCanonicalSubgroups:T2/open-tower-hodge-tate-map`
+- `HodgeTateAndCanonicalSubgroups:T0/hodge-tate-boundary-extension`
 
 **Source matches.**
 
@@ -2406,13 +2582,12 @@ Let G/O_C be a p-divisible group with free Tate module, conormal rank g and heig
 
 - BHW, §5.3, proof of Proposition 5.18, PDF pp. 24–25: The two rank-g submodules in the truncated kernel agree after losing the raw HT cokernel valuation.
 
-**Coverage: planned.** Every target has a declaration route; the following refinements remain dependencies of the affected targets.
-
-**Remaining.**
+**Coverage: planned.**
 
 - Boundary one-motives and arbitrary-C Raynaud realization: C4 supplies polarized [Y→G̃], the finite-flat torsion pieces and integral overlap uniqueness, plus arbitrary-base semi-abelian Verschiebung. R11.3 supplies the descent/existence or complete-C uniformization extension beyond its current DVR statements. Boundary coordinate estimates use the full height-2g dual one-motive realization, not the smaller finite Raynaud group.
 - Inclusive geometric endpoint and ramified canonical generator: HALO Appendix A independently covers p=2 and the small all-prime formal radius, including the strict weak-bound inequality at its endpoint. The larger BHW pointwise radius still needs its p≥3 inclusive-endpoint refinement and exact unsplit O_F/p^n dual generator from H2/H4. The scalar kernel/degree argument and generic projection are separated; neither stability nor a generic decomposition proves integral O_F freeness.
 - Siegel consumer domain refinement: The OverconvergentAutomorphicForms O8 request for the p>2g Siegel DRW §3.6 domain comparison needs its source read and exact comparison hypothesis. The present nodes cover the assigned general canonical and period-position targets; this additional consumer refinement is not established.
+- Formal canonical-locus model identification: The adic canonical component is a finite-étale section. R2 must identify compatible normalized formal models over one common base before this strengthens to a formal isomorphism; generic-fibre isomorphism and normalization alone are insufficient.
 
 ## T5 — Igusa fibers, the formal integral lattice, strict-transform modifications and the actual AIP lift/structure-group calculation lead to comparison with O5’s independently constructed coefficient sheaves.
 
@@ -2671,7 +2846,7 @@ For the normal admissible Siegel toroidal full-level-p^n formal model, and for t
 
 **Construction** · proposed name `TauCeti.HodgeTate.modifiedMinimalModel` · implementation unchecked.
 
-Let 𝔛^*_{K(p^n)} be the Stein factorisation of 𝔛_{K(p^n)} → 𝔛^* (𝔛^* the minimal compactification, ShimuraCompactifications C5/C6); it is a normal admissible formal scheme. The determinant Λ^{g}HT: Λ^{g}((𝒪_p/p^n)^{2g}) → det ω/p^n of the Hodge–Tate map (for GSp₄/F, its O_F-direct factor ⊗_{v|p} Λ²(𝒪_{F_v}/p^n)^4 → det ω/p^n) descends from 𝔛_{K(p^n)} to 𝔛^*_{K(p^n)}. Normalising the blow-up of the ideal generated by the coefficients of local lifts of the descended map gives 𝔛^{*−mod}_{K(p^n)} → 𝔛^*_{K(p^n)}, an isomorphism on generic fibres, carrying an invertible det ω^mod ⊂ det ω with p^{2[F:ℚ]/(p−1)} det ω ⊂ det ω^mod ⊂ det ω for GSp₄/F (p^{g/(p−1)} for GSp_{2g}), and Λ^gHT factors through a surjection onto det ω^mod/p^{n − 2[F:ℚ]/(p−1)}. 𝔛^mod_{K(p^n)} maps to 𝔛^{*−mod}_{K(p^n)} compatibly.
+On the exact normal full-level minimal Stein model supplied by C5, descend the degree-g exterior-power Hodge–Tate map modulo p^n using the coefficient pushforward identity. For GSp₄/F retain its placewise O_F exterior-square factor and restriction-of-scalars determinant convention. Normalize the blowup of its coefficient ideal to obtain 𝔛^{*−mod}, an isomorphism on generic fibres, with an invertible determinant image L^mod⊂detω. Put b=1/(p−1) for p≥3 and b=2 for p=2, the latter conditional on the separately verified PS16 Remark 1.10 estimate. For g the underlying abelian dimension set D=gb and require n>D. Then p^D detω⊂L^mod⊂detω and the exterior-power map surjects onto L^mod/p^{n−D}. Thus for GSp₄/F, g=2[F:ℚ], D=2[F:ℚ]/(p−1) at odd p and D=4[F:ℚ] conditionally at p=2. The compatible toroidal modification maps to 𝔛^{*−mod} and pulls L^mod back to detω^mod on the toroidal side.
 
 **Hypotheses.**
 
@@ -2706,6 +2881,7 @@ Let 𝔛^*_{K(p^n)} be the Stein factorisation of 𝔛_{K(p^n)} → 𝔛^* (𝔛
 - BCGP21, §6.2.1, Remark 6.2.2, p. 144: Remark 6.2.2.
 - PS16, §1.4, Corollaire 1.7 (author copy; published Corollaire 1.4), PDF p. 5: Pilloni–Stroh Corollaire 1.7: descent of the Hodge–Tate sections.
 - PIL20, §12.9.1, PDF p. 80: Pilloni's restatement.
+- PS16, §1.19, PDF p.8; Remark 1.10, PDF p.5; Corollary A.10, PDF p.26: Determinant precision is n−g/(p−1) at odd p and conditionally n−2g at p=2; pushforward is a separate assertion.
 
 **Uses.**
 
@@ -2718,14 +2894,14 @@ Let 𝔛^*_{K(p^n)} be the Stein factorisation of 𝔛_{K(p^n)} → 𝔛^* (𝔛
 - `TauCeti.HodgeTate.minimalLevelModel` (constructor): 𝔛^*_{K(p^n)}, the Stein factorisation of 𝔛_{K(p^n)} → 𝔛^*.
 - `TauCeti.HodgeTate.hodgeTateDeterminant_descends` (relation): Λ^gHT is the pullback of a map on 𝔛^*_{K(p^n)}.
 - `TauCeti.HodgeTate.modifiedMinimalModel` (constructor): 𝔛^{*−mod}_{K(p^n)}, the normalised blow-up of the coefficient ideal of Λ^gHT.
-- `TauCeti.HodgeTate.modifiedDetHodge_bounds` (relation): p^{2[F:ℚ]/(p−1)} det ω ⊂ det ω^mod ⊂ det ω (GSp₄/F).
-- `TauCeti.HodgeTate.modifiedDetHodge_surjective` (characterisation): Λ^gHT ⊗ 1 surjects onto det ω^mod/p^{n−2[F:ℚ]/(p−1)}.
+- `TauCeti.HodgeTate.modifiedDetHodge_bounds` (relation): For D=gb, p^D detω⊂L^mod⊂detω; b=1/(p−1) for odd p and b=2 conditionally for p=2. For GSp₄/F, g=2[F:ℚ].
+- `TauCeti.HodgeTate.modifiedDetHodge_surjective` (characterisation): For n>D the exterior-power character map surjects onto L^mod/p^{n−D}, with the same prime-dependent conditional D.
 
 **Mathematical tests.**
 
 - `TauCeti.HodgeTate.modifiedMinimalModel_ordinary` (degenerate): Over the ordinary locus 𝔛^{*−mod} = 𝔛^* and det ω^mod = det ω.
 - `TauCeti.HodgeTate.modifiedDetHodge_factor` (computation): For GSp₄/F each local factor Λ²_{𝒪_{F_v}/p^n}(𝒪_{F_v}/p^n)^4 has rank six over 𝒪_{F_v}/p^n. The determinant of the underlying rank-2[F:ℚ] module is obtained using restriction of scalars and the determinant/norm construction; a tensor of those rank-six modules must not be confused with that determinant line.
-- `TauCeti.HodgeTate.modifiedMinimalModel_not_toroidal` (non-example): det ω^mod on 𝔛^{*−mod} is not ω^mod's determinant pulled back from a toroidal model: it is constructed on the minimal side, where ω itself does not descend, only det ω does.
+- `TauCeti.HodgeTate.modifiedMinimalModel_not_toroidal` (non-example): The minimal modified determinant line pulls back along the compatible toroidal-to-minimal modified map to detω^mod (PIL20 §12.9.1, PDF p.80). This determinant descent does not imply that the full finite-level Hodge bundle descends to the minimal model.
 
 ### T5/modified-plus-sheaf — The étale sheaf ω^{mod,+}
 
@@ -2841,21 +3017,22 @@ In the situation of T5/integral-differential-lattice, let 𝔉_m := {w ∈ ω^in
 
 **Theorem** · proposed name `TauCeti.HodgeTate.aipHodgeTate_comparison` · planet **AIP–Hodge–Tate comparison** · implementation unchecked.
 
-With the preceding integral-model, Igusa and effective-descent contracts, the AIP torsor and the canonical Hodge–Tate section identify the independently constructed O5 coefficient sheaves for bounded smooth κ and ε≤ε_κ. On a weight piece k take m=k+r−1, r=3 for p≥3 and r=5 for p=2. For finite n≥1 define the AIP sheaf on X_{Γ₀*(p^n)}(p^nε)_a by AL_n* of the sheaf on X(ε), and use the supplied AIPH Theorem 6.7(3) identification with forgetful pullback on X_{Γ₀*(p^n)}(ε)_a. Pullback by s∘u_n gives the comparison there with the perfectoid κ-equivariant sheaf. At n=∞ use s and the structural forgetful pullback, with no AL_∞. At n=0 use the finite-level Atkin–Lehner identification as in BHW Theorem 7.14. The resulting invertible O⁺-modules and their rationalizations agree, functorially for prime-to-p Hecke correspondences; p-Hecke compatibility is a separate O6 input.
+On a common admitted weight/radius chart, and conditional on the stated integral-model, Igusa, integral-generator and effective-descent contracts, the AIP torsor and canonical Hodge–Tate section identify O5’s independently constructed analytic O⁺ coefficient sheaf with the perfectoid inverse-weight coefficient sheaf, and identify their rationalizations. Choose an actual common analytic extension of the bounded smooth κ and the AIP universal-coordinate interval, canonical level and formal-radius conditions; no radius ε_κ computed from BHW’s all-unit supremum or Proposition 6.3 formula is asserted. For finite n≥1 pull the AIP sheaf back by AL_n on the scaled p^nε domain and use the supplied AIPH Theorem 6.7(3) forgetful-restriction comparison; the section is s∘u_n. For n=∞ use s and structural forgetful pullback. At n=0 use AL_1 on both constructions. Prime-to-p naturality holds; p-Hecke is a separate O6 input.
 
 **Hypotheses.**
 
-- Use the independent O5 torsor/weight coefficient construction, including the corrected m=k+r−1 and its coefficient completed tensor sheaf.
+- O5 supplies the independent analytic eigenfunction sheaf on the actual B_m torsor, completed integral coefficients and an invertible local generator whose HT pullback is a unit in O⁺. For full finite-character weights this last input remains an explicit gap; formal coherence or rational invertibility alone does not prove it.
 - Use T5/hodge-tate-aip-lift and T5/aip-automorphy-factor for the actual B_m-valued transformation factor; the reversed ambient radius bound proves neither assertion.
 - The integral descent theorem must apply on the stated coefficient-base product and topology, with effective continuous descent and equality of O⁺ invariants. These hypotheses are requested from P9.
 - Finite Atkin–Lehner uses the scaled domain p^nε with the prescribed radius restrictions; its forgetful restriction is the AIPH comparison supplier, not an invented identification.
+- Choose an AIPH §4.2 interval I=[p^k,p^k′], r_AIP≥3 and r_AIP+k≥m≥k′+2 (odd p) or k′+4 (p=2), with its actual universal-coordinate chart. Intersect its radius with the canonical and common analytic-character ranges. A corrected pro-p supremum is not identified with those coordinates without proof.
 
 **Proof route.**
 
 - The factorization and ratio lemmas give a B_m-equivariant lift of the canonical HT section on the anticanonical tower.
 - Evaluate a κ-equivariant function on that lift. The scalar formula and cocycle give exactly the κ^{-1}(cz+d) law defining the independent perfectoid coefficient sheaf.
-- On a torsor trivializing cover both sheaves are generated by an invertible equivariant section. Effective integral continuous descent and the supplied O⁺ invariant identity glue the local isomorphisms on each coefficient-base product.
-- Apply the finite-level scaled AL_n and forgetful restriction conventions; use the structural map for n=∞ and the finite-level identification for n=0. Prime-to-p functoriality follows from naturality of the character construction; import p-Hecke from O6.
+- Import the O5 integral generator with unit HT pullback f. For any perfectoid equivariant integral g, g/f is invariant and integral; P9 identifies the invariant completed O⁺ ring with the base. This gives integral surjectivity and local freeness without assuming the equalizer is already a line. Glue using the supplied transition units. The full finite-character generator step remains a recorded conditional input.
+- Apply the finite-level scaled AL_n and forgetful restriction conventions; use the structural map for n=∞ and the AL_1 on both sides for n=0. Prime-to-p functoriality follows from naturality of the character construction; import p-Hecke from O6.
 
 **Acceptance instances.**
 
@@ -2941,6 +3118,7 @@ For ε≤p^{−(m+1)}, the canonical section s=HT(α(e₁)) on the anticanonical
 - `HodgeTateAndCanonicalSubgroups:T5/aip-torsor`
 - `HodgeTateAndCanonicalSubgroups:T5/integral-lattice-properties`
 - `HodgeTateAndCanonicalSubgroups:T0/finite-hodge-tate-naturality`
+- `HodgeTateAndCanonicalSubgroups:T2/open-tower-levi-pullback`
 
 **Source matches.**
 
@@ -2977,28 +3155,26 @@ For γ∈Γ₀(p) acting on the anticanonical tower with the fixed left-coordina
 
 - BHW, §5.4, Lemma 5.31, PDF p. 26; §7.2, Lemma 7.12, PDF p. 31: The scalar transformation formula and torsor diagram; the ratio proof replaces the invalid ambient-radius inclusion.
 
-**Coverage: planned.** Every target has a declaration route; the following refinements remain dependencies of the affected targets.
-
-**Remaining.**
+**Coverage: planned.**
 
 - Normalized PEL model, coefficient and determinant descent: The E27 source-error allegation remains rejected. Lan Definition 8.5/Theorem 8.7, read with the author’s errata, cover normalized ramified models and nonflat coefficient algebras under their stated assumptions. C5 must identify the exact GSp₄/F model and formally canonical coefficient, verify the dimension exception, and separately supply the mod-p^k pushforward/projection formula and determinant/norm descent. C6 HBAV models do not discharge this request.
 - Formal matrices, common level models and integral O⁺ transfer: AIPH Proposition 4.1 supplies the formal matrix/adjugate proof. R2/H4 must expose its exact normal admissible model, compatible generators and integral generic-fibre transfer preserving those matrices and inverses. The separate inclusion/determinant-cancellation proof establishes level independence once this common model is available; AIPH Proposition 4.7 alone compares weight sheaves.
 - Modified strict transforms, Hilbert–Siegel coefficient charts and p=2 estimate: Use PS16’s successive minor modifications and the strict image, and BCGP’s placewise construction only with its integral coefficient presentations supplied. PS16 Remark 1.10 reports the p=2 exponent 2 as an unwritten communication; obtain a verified boundary estimate before asserting that variant. Keep its level conventions separate from strict n>b and retain the étale, rather than analytic-site, O⁺ sheaf.
-- Effective integral coefficient descent and finite-level AIP restrictions: The HT lift and actual B_m-valued automorphy factor are planned separately, with a torsor-ratio repair of Lemma 7.12. P9 must supply effective continuous descent and O⁺ invariants on the bounded coefficient-base product. O5 supplies the independent AIP coefficients and AIPH Theorem 6.7(3) finite AL_n/forgetful restriction comparison; O6 supplies p-Hecke with changed radii. No AL_∞ is asserted.
+- Effective integral coefficient descent and finite-level AIP restrictions: The HT lift and actual B_m-valued automorphy factor are planned separately, with a torsor-ratio repair of Lemma 7.12. P9 must supply effective continuous descent and O⁺ invariants on the bounded coefficient-base product. O5 supplies the independent AIP coefficients and AIPH Theorem 6.7(3) finite AL_n/forgetful restriction comparison; O6 supplies p-Hecke with changed radii. No AL_∞ is asserted. O5’s full finite-character integral generator/unit-pullback and common admissible coordinate-domain comparison remain missing. The all-unit supremum and analytic-radius formulas are false; correcting the level index alone does not supply a positive-radius comparison.
 
 ## Requests to existing owners
 
-These are recorded dependency contracts, not messages claiming that another roadmap already implements the extension.
-
 ### FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2
 
-Supply Frobenius/Verschiebung and Hasse/dual-Hasse theory of a BT₁ over an arbitrary F_p-scheme, with the LF isomorphism, quasi-polarization compatibility and the BT₁ character sequence. Its last semilinear map is F−HW(G^D), not bare Frobenius (HALO Appendix A.3, equation (6); FAR11 §2.1.2). T0 imports this input and proves the semi-abelian boundary application. Extend the existing field-only F/V contract explicitly.
+Supply Frobenius/Verschiebung and Hasse/dual-Hasse theory of a BT₁ over an arbitrary F_p-scheme, with the LF isomorphism, quasi-polarization compatibility and the BT₁ character sequence. Its last semilinear map is F−HW(G^D), not bare Frobenius (HALO Appendix A.3, equation (6); FAR11 §2.1.2). T0 imports this input and proves the semi-abelian boundary application. Extend the existing field-only F/V contract explicitly. Also supply the general normalized determinant pullback for multiplicative p-divisible isogenies (PIL20 Lemma 6.3.4.1, PDF p.34): use the character lattice, factor only its determinant as p^r times a unit, normalize over ℤ_p before base change, and prove étale descent. T0 imports it for boundary charts. Supply the Hasse section’s Frobenius tensor-power compatibility on that quotient.
 
 **Required by.**
 
 - `HodgeTateAndCanonicalSubgroups:T0/semi-abelian-hasse-invariant`
 - `HodgeTateAndCanonicalSubgroups:T0/hasse-invariant-ordinary-locus`
 - `HodgeTateAndCanonicalSubgroups:T3/hasse-neighbourhood`
+- `HodgeTateAndCanonicalSubgroups:T0/normalized-multiplicative-pullback`
+- `HodgeTateAndCanonicalSubgroups:T3/pointwise-quotient-hasse`
 
 ### AbelianSchemesAndArithmeticModuli:A2
 
@@ -3021,7 +3197,7 @@ The Weil pairing e_n: A[p^n] × A^∨[p^n] → μ_{p^n} identifying A[p^n]^D wit
 
 ### AbelianSchemesAndArithmeticModuli:A4
 
-H¹_dR(A/S) of an abelian scheme with its Hodge filtration 0 → ω_A → H¹_dR → Lie(A^∨) → 0 and Gauss–Manin connection, and the Hodge filtration triangle for an isogeny used in Fargues's δ_G + δ_{G^D} = div|G|.
+H¹_dR(A/S) of an abelian scheme with its Hodge filtration 0 → ω_A → H¹_dR → Lie(A^∨) → 0 and Gauss–Manin connection, and the Hodge filtration triangle for an isogeny used in Fargues's δ_G + δ_{G^D} = div|G|. Include H¹(A,𝒪_A)=Lie(A^∨) and H⁰(A,Ω¹_A)=ω_A with duality and endomorphism compatibility for the absolute sequence.
 
 **Required by.**
 
@@ -3031,13 +3207,14 @@ H¹_dR(A/S) of an abelian scheme with its Hodge filtration 0 → ω_A → H¹_dR
 
 ### PadicHodgeTheory:P8
 
-For algebraizable proper smooth families on smooth adic spaces over a complete DVR field, supply the filtered horizontal relative comparison with its local-system finiteness hypothesis (CS17 Theorem 2.2.2), the horizontal lattices M and M₀, intersection filtration and graded/edge maps (Proposition 2.2.3, Corollary 2.2.4, Proposition 2.2.5). Supply the degree-one relative Kummer/character compatibility whose good-reduction pointwise form is CDM12 Proposition 4.15; distinguish B_dR from OB_dR and track the Weil/Tate duality. CP.1’s AΩ specialization and ordinary-point density do not supply this map.
+For algebraizable proper smooth families on smooth adic spaces over a complete DVR field, supply the filtered horizontal relative comparison with its local-system finiteness hypothesis (CS17 Theorem 2.2.2), the horizontal lattices M and M₀, intersection filtration and graded/edge maps (Proposition 2.2.3, Corollary 2.2.4, Proposition 2.2.5). Supply the degree-one relative Kummer/character compatibility whose good-reduction pointwise form is CDM12 Proposition 4.15; distinguish B_dR from OB_dR and track the Weil/Tate duality. CP.1’s AΩ specialization and ordinary-point density do not supply this map. Separately supply the absolute degree-one proper smooth algebraic Hodge–Tate spectral sequence over arbitrary complete algebraically closed C, its algebraic degeneration (CDM12 Theorem 3.20/Remark 3.21, PDF p.20), functoriality and cup-product duality. This is independent of the relative K-descent contract.
 
 **Required by.**
 
 - `HodgeTateAndCanonicalSubgroups:T1/abelian-relative-comparison`
 - `HodgeTateAndCanonicalSubgroups:T1/hodge-tate-graded-comparison`
 - `HodgeTateAndCanonicalSubgroups:T2/relative-hodge-tate-sequence`
+- `HodgeTateAndCanonicalSubgroups:T2/abelian-hodge-tate-sequence`
 
 ### ShimuraCompactifications:C5
 
@@ -3060,6 +3237,7 @@ Supply the total Hasse ideal and normal admissible Hilbert formal neighborhoods,
 - `HodgeTateAndCanonicalSubgroups:T4/canonical-kernel-congruence`
 - `HodgeTateAndCanonicalSubgroups:T4/period-map-inclusions`
 - `HodgeTateAndCanonicalSubgroups:T4/ramified-period-comparison`
+- `HodgeTateAndCanonicalSubgroups:T2/open-tower-levi-pullback`
 
 ### HilbertModularVarietiesAndShimuraCurves:H4
 
@@ -3073,19 +3251,22 @@ Supply the full-level and Γ₀ subgroup moduli in BHW’s dual-abelian conventi
 - `HodgeTateAndCanonicalSubgroups:T5/aip-hodge-tate-comparison`
 - `HodgeTateAndCanonicalSubgroups:T3/hilbert-canonical-subgroup`
 - `HodgeTateAndCanonicalSubgroups:T4/ramified-period-comparison`
+- `HodgeTateAndCanonicalSubgroups:T2/open-tower-levi-pullback`
 
 ### PerfectoidSpaces:P9
 
-For the anticanonical pro-étale full-level torsor over Γ₀*(p^n) and its product with the bounded weight affinoid, supply effective continuous descent for the actual completed coefficient O⁺-sheaf, equality of its invariants with the base sheaf, and preservation of invertible modules. State the adic/diamond site, the completed tensor convention and topological coefficient hypotheses, as required by BHW Lemma 3.7/Theorem 7.14. This is stronger than a bare diamond torsor or rational O invariant statement.
+For the anticanonical pro-étale full-level torsor over Γ₀*(p^n) and its product with the bounded weight affinoid, supply effective continuous descent for the actual completed coefficient O⁺-sheaf, equality of its invariants with the base sheaf, and preservation of invertible modules. State the adic/diamond site, the completed tensor convention and topological coefficient hypotheses, as required by BHW Lemma 3.7/Theorem 7.14. This is stronger than a bare diamond torsor or rational O invariant statement. For T2’s open tower also supply functorial completed pullback of the finite-level relative tensor filtration and adapted frame/Levi torsors to every perfectoid untilt mapping to the limit sheaf, with locally free descent and compatibility with the analytic flag functor of D6. This is not supplied by a field-point calculation or an O⁺ invariant-ring statement alone.
 
 **Required by.**
 
 - `HodgeTateAndCanonicalSubgroups:T5/aip-torsor`
 - `HodgeTateAndCanonicalSubgroups:T5/aip-hodge-tate-comparison`
+- `HodgeTateAndCanonicalSubgroups:T2/open-tower-hodge-tate-map`
+- `HodgeTateAndCanonicalSubgroups:T2/open-tower-levi-pullback`
 
 ### FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1
 
-Extend p-divisible conormal/dimension and finite-level reduction to O_C (C complete algebraically closed, v(p)=1): ω_{G[p^n]}≅ω_G/p^n, dim G+dim G^D=height G and p-adic completeness. Supply the integral Faltings complex with zero composite and cohomology killed by every a of v(a)≥1/(p−1), as restated in CDM12 Proposition 4.13. State the exact hypotheses for embedding a finite flat p-primary O_C-group in a p-divisible group. Supply cyclic presentations and Fitting degree for finitely presented torsion modules over rank-one valuation rings, with presentation independence. The existing complete-noetherian-local dimension and small-ramification uniqueness results are insufficient.
+Extend p-divisible conormal/dimension and finite-level reduction to O_C (C complete algebraically closed, v(p)=1): ω_{G[p^n]}≅ω_G/p^n, dim G+dim G^D=height G and p-adic completeness. Supply the integral Faltings complex with zero composite and cohomology killed by every a of v(a)≥1/(p−1), as restated in CDM12 Theorem 4.13. State the exact hypotheses for embedding a finite flat p-primary O_C-group in a p-divisible group. Supply cyclic presentations and Fitting degree for finitely presented torsion modules over rank-one valuation rings, with presentation independence. The existing complete-noetherian-local dimension and small-ramification uniqueness results are insufficient. Supply the BT quotient p^{−a}D/D at the required truncation level for a supplied finite-flat subgroup D, its height/dimension and reduction/conormal compatibility (FAR11 Theorem 5 proof and Theorem 6 induction, PDF pp.37–39).
 
 **Required by.**
 
@@ -3096,16 +3277,19 @@ Extend p-divisible conormal/dimension and finite-level reduction to O_C (C compl
 - `HodgeTateAndCanonicalSubgroups:T2/p-divisible-hodge-tate-sequence`
 - `HodgeTateAndCanonicalSubgroups:T2/abelian-hodge-tate-sequence`
 - `HodgeTateAndCanonicalSubgroups:T0/fargues-degree`
+- `HodgeTateAndCanonicalSubgroups:T3/pointwise-quotient-hasse`
+- `HodgeTateAndCanonicalSubgroups:T3/canonical-subgroup-theorem`
 
 ### ShimuraCompactifications:C4
 
-On the actual normalized full-level degeneration charts, supply the polarized one-motive [Y→G̃], its pairing/finite locally free torsion and integral overlap/cone-refinement morphisms. Distinguish the torus character lattice from Y. Supply relative Verschiebung on smooth commutative semi-abelian schemes over arbitrary F_p-bases and its base-change/Raynaud compatibility. Retain the existing C4 good-prime and admissible-fan restrictions. Finite-flat Cartier duality does not apply to the whole quasi-finite boundary G[p^n].
+On the actual normalized full-level degeneration charts, supply the polarized one-motive [Y→G̃], its pairing/finite locally free torsion and integral overlap/cone-refinement morphisms. Distinguish the torus character lattice from Y. Supply relative Verschiebung on smooth commutative semi-abelian schemes over arbitrary F_p-bases and its base-change/Raynaud compatibility. Retain the existing C4 good-prime and admissible-fan restrictions. Finite-flat Cartier duality does not apply to the whole quasi-finite boundary G[p^n]. For T0’s normalized-pullback application provide compatible multiplicative pieces/isogenies and their étale character lattices on the boundary charts.
 
 **Required by.**
 
 - `HodgeTateAndCanonicalSubgroups:T0/semi-abelian-torsion`
 - `HodgeTateAndCanonicalSubgroups:T0/semi-abelian-hasse-invariant`
 - `HodgeTateAndCanonicalSubgroups:T0/hodge-tate-boundary-extension`
+- `HodgeTateAndCanonicalSubgroups:T0/normalized-multiplicative-pullback`
 
 ### NeronModelsAndSemistableAbelianVarieties:R11.3
 
@@ -3118,7 +3302,7 @@ Supply semistable existence/effective descent for arbitrary C-points, or an O_C 
 
 ### AutomorphicBundles:B1
 
-Supply the rational homology tensor/frame convention and reconcile the de Rham Levi torsor with the common Tate-trivialization torsor used in CS17 Lemma 2.3.8/Proposition 2.3.9. Over that torsor trivialize all graded Tate twists, verify central-cocharacter equivariance, and descend. For an integral version separately specify a stable tensor lattice and integral reductive group model; rational absolute Hodge cycles alone do not give G(ℤ_p) frames.
+Supply the rational homology tensor/frame convention, actual opposed-parabolic de Rham Levi torsor and its central cocharacter. Expose the contracted product with the Tate-basis ℤ_p^×-torsor so the graded comparison descends to the μ-twisted torsor, as in Boxer–Pilloni Remark 4.4.23, not an unconditional untwisted identification. Preserve determinant local systems and Hecke linearizations. For integral frames specify a stable tensor lattice and integral reductive model separately.
 
 **Required by.**
 
@@ -3149,17 +3333,19 @@ Import the full cotangent/square-zero deformation theory from DerivedDeRhamCohom
 
 ### AlgebraicModuliForArithmeticGeometry:R09.1
 
-Supply the relative rank-g quotient/flag scheme, universal quotient bundle and descended flag form over the reflex field, with pullback and representability. The Mathlib Module.Grassmannian carrier is an affine-module component, not already the analytic flag scheme or its tautological bundle.
+Supply the relative rank-g quotient/flag scheme, universal quotient bundle and descended flag form over the reflex field, with pullback and representability. The Mathlib Module.Grassmannian carrier is an affine-module component, not already the analytic flag scheme or its tautological bundle. Include the homogeneous torsor G→G/P_HT and its actual Levi quotient G/U_HT→G/P_HT, with universal frame pullback and associated bundles; use B0’s opposed-parabolic convention. The generic interface cannot be imported from downstream S3.
 
 **Required by.**
 
 - `HodgeTateAndCanonicalSubgroups:T2/hodge-tate-flag-point`
 - `HodgeTateAndCanonicalSubgroups:T2/pel-hodge-type-filtration`
 - `HodgeTateAndCanonicalSubgroups:T2/hodge-tate-parabolic-reduction`
+- `HodgeTateAndCanonicalSubgroups:T2/open-tower-hodge-tate-map`
+- `HodgeTateAndCanonicalSubgroups:T2/open-tower-levi-pullback`
 
 ### AdicSpacesPartII:R2
 
-Supply the integral generic-fibre/pullback theorem for coherent finite locally free sheaves, their explicit matrix maps and quotients on normal admissible p-torsion-free formal Hilbert charts. It must identify the formal and analytic O⁺ character maps and preserve the local generator/inverse matrices of AIPH Proposition 4.1. Also supply normalization of the relevant formal models and strict transform/image under admissible blowups. The ordinary generic-fibre equivalence or rank-one point checking alone does not establish this O⁺ identification.
+Supply the integral generic-fibre/pullback theorem for coherent finite locally free sheaves, their explicit matrix maps and quotients on normal admissible p-torsion-free formal Hilbert charts. It must identify the formal and analytic O⁺ character maps and preserve the local generator/inverse matrices of AIPH Proposition 4.1. Also supply normalization of the relevant formal models and strict transform/image under admissible blowups. The ordinary generic-fibre equivalence or rank-one point checking alone does not establish this O⁺ identification. For a formal canonical-locus version specify a common admissible base model, its compatible normalization in the finite cover and prove the canonical section extends as an isomorphism of its formal component.
 
 **Required by.**
 
@@ -3167,10 +3353,11 @@ Supply the integral generic-fibre/pullback theorem for coherent finite locally f
 - `HodgeTateAndCanonicalSubgroups:T5/integral-lattice-properties`
 - `HodgeTateAndCanonicalSubgroups:T5/modified-hodge-bundle`
 - `HodgeTateAndCanonicalSubgroups:T5/modified-minimal-model`
+- `HodgeTateAndCanonicalSubgroups:T4/canonical-locus-isomorphism`
 
 ### OverconvergentAutomorphicForms:O5
 
-Supply the independently constructed AIP weight sheaf from F_m and its bounded smooth character, with m=k+r−1, completed integral coefficients, local invertible generators and AIPH Theorem 6.7(3) finite-level AL_n/forgetful restriction comparison. T5 supplies the torsor/HT identification rather than constructing these coefficients twice.
+Supply the independently constructed AIP weight sheaf from F_m and its bounded smooth character, with an actual admitted AIP coordinate/level/radius chart, completed integral coefficients, local invertible generators and AIPH Theorem 6.7(3) finite-level AL_n/forgetful restriction comparison. T5 supplies the torsor/HT identification rather than constructing these coefficients twice. Use the reviewed universal-coordinate domain intersection, not the printed all-unit supremum, analytic-radius formula or a universal k+r−1 repair. Supply a local integral eigenfunction generator with unit HT pullback for the full finite-character factor and its transition units. Keep formal coherence separate from analytic O⁺ invertibility; use AL_1 on both sides at n=0.
 
 **Required by.**
 
@@ -3190,7 +3377,7 @@ R07.6 owns the finite-flat group specialization of DD.0’s full cotangent and o
 
 ### 2. Valuation-ring Fitting and the integral O_C Faltings complex
 
-Import the StableReduction general Fitting direction, and request its nonnoetherian finite-presentation valuation specialization from R07.1. CDM12 Proposition 4.13 independently supplies the bounded integral complex and zero composite; R07.1’s existing complete-noetherian-local dimension statements do not cover O_C, and its finite-to-p-divisible embedding must have exact hypotheses.
+Import the StableReduction general Fitting direction, and request its nonnoetherian finite-presentation valuation specialization from R07.1. CDM12 Theorem 4.13 independently supplies the bounded integral complex and zero composite; R07.1’s existing complete-noetherian-local dimension statements do not cover O_C, and its finite-to-p-divisible embedding must have exact hypotheses.
 
 **Required by.**
 
@@ -3223,7 +3410,7 @@ The E27 source-error allegation remains rejected. Lan Definition 8.5/Theorem 8.7
 
 ### 5. Relative character comparison and Tate-normalized rational tensors
 
-P8 supplies the two horizontal B_dR^+ lattices and relative Kummer edge-map compatibility of CS17 §2.2; CDM12 Proposition 4.15 is the independently read good-reduction pointwise reference. B1 supplies rational defining tensors and descent through the common Tate-trivialization torsor of CS17 Lemma 2.3.8/Proposition 2.3.9. General-C families outside the stated K-descent hypothesis and integral G_ℤp frames require separate extensions.
+P8 supplies the two horizontal B_dR^+ lattices and relative Kummer edge-map compatibility of CS17 §2.2; CDM12 Proposition 4.15 is the independently read good-reduction pointwise reference. B1 supplies rational defining tensors and central-μ contraction with the Tate-basis torsor. CS17’s raw untwisted conclusion is corrected by Boxer–Pilloni §4.4.8/Remark 4.4.23 (E31). General-C families outside the stated K-descent hypothesis and integral G_ℤp frames require separate extensions. P8 also supplies the absolute arbitrary-C algebraic degree-one spectral sequence and A4 its H¹O/invariant-differential identifications; this does not assume finite-Q_p descent.
 
 **Required by.**
 
@@ -3231,6 +3418,7 @@ P8 supplies the two horizontal B_dR^+ lattices and relative Kummer edge-map comp
 - `HodgeTateAndCanonicalSubgroups:T1/hodge-tensor-comparison`
 - `HodgeTateAndCanonicalSubgroups:T2/relative-hodge-tate-sequence`
 - `HodgeTateAndCanonicalSubgroups:T2/de-rham-hodge-tate-levi-comparison`
+- `HodgeTateAndCanonicalSubgroups:T2/abelian-hodge-tate-sequence`
 
 ### 6. Shared filtered-Tannakian Part II and representable torsors
 
@@ -3277,7 +3465,7 @@ Use PS16’s successive minor modifications and the strict image, and BCGP’s p
 
 ### 10. Effective integral coefficient descent and finite-level AIP restrictions
 
-The HT lift and actual B_m-valued automorphy factor are planned separately, with a torsor-ratio repair of Lemma 7.12. P9 must supply effective continuous descent and O⁺ invariants on the bounded coefficient-base product. O5 supplies the independent AIP coefficients and AIPH Theorem 6.7(3) finite AL_n/forgetful restriction comparison; O6 supplies p-Hecke with changed radii. No AL_∞ is asserted.
+The HT lift and actual B_m-valued automorphy factor are planned separately, with a torsor-ratio repair of Lemma 7.12. P9 must supply effective continuous descent and O⁺ invariants on the bounded coefficient-base product. O5 supplies the independent AIP coefficients and AIPH Theorem 6.7(3) finite AL_n/forgetful restriction comparison; O6 supplies p-Hecke with changed radii. No AL_∞ is asserted. O5’s full finite-character integral generator/unit-pullback and common admissible coordinate-domain comparison remain missing. The all-unit supremum and analytic-radius formulas are false; correcting the level index alone does not supply a positive-radius comparison.
 
 **Required by.**
 
@@ -3292,15 +3480,30 @@ The OverconvergentAutomorphicForms O8 request for the p>2g Siegel DRW §3.6 doma
 - `HodgeTateAndCanonicalSubgroups:T3/canonical-subgroup-theorem`
 - `HodgeTateAndCanonicalSubgroups:T4/period-map-inclusions`
 
-A follow-up must discharge those exact contracts and refine the affected targets before any stage is called closed. In particular it must independently establish the p≥3 inclusive endpoints and unsplit ramified generator, integral O⁺ transfer, group co-Lie/trace foundation, arbitrary-C boundary realization, GSp₄/F model/coefficient descent, p=2 global modification estimate and effective coefficient descent. The DRW O8 domain refinement requires its own source reading.
+### 12. Formal canonical-locus model identification
+
+The adic canonical component is a finite-étale section. R2 must identify compatible normalized formal models over one common base before this strengthens to a formal isomorphism; generic-fibre isomorphism and normalization alone are insufficient.
+
+**Required by.**
+
+- `HodgeTateAndCanonicalSubgroups:T4/canonical-locus-isomorphism`
+
+### 13. Open-tower relative filtration transfer
+
+S0’s existing limit v-sheaf and action statements were read, as was D6’s diamond functor. P9 must expose functorial completed relative filtration/frame pullback on all perfectoid test untilts and effective locally free/Levi descent, compatible with the universal flag. This exact interface is not the existing coefficient-product invariant-ring contract. R09.1/B0 must expose the homogeneous Hodge–Tate flag/Levi universal torsor upstream of S3. Neither perfectoid representability nor geometric-point evaluation substitutes for these inputs.
+
+**Required by.**
+
+- `HodgeTateAndCanonicalSubgroups:T2/open-tower-hodge-tate-map`
+- `HodgeTateAndCanonicalSubgroups:T2/open-tower-levi-pullback`
 
 ## Source-issue ledger
 
-All previous independent source-issue verdicts are retained exactly in the packet. The descriptions here paraphrase the printed claim and the mathematical correction; rejected allegations are not presented as source errors.
+Every issue below was reassessed independently for revision 2. Fourteen of the original fifteen assessments are confirmed; E27 is rejected as a source mistake, with its application gap retained. E29–E30 import and independently verify O0’s existing diagnostics; E31 independently confirms the Levi twist diagnostic of PerfectoidShimuraVarieties/E21 against both CS17 versions and the revised Boxer–Pilloni manuscript. These are paraphrased claims, not source quotations.
 
 ### HodgeTateAndCanonicalSubgroups/E14 — FAR10
 
-§3, Définition 5, PDF p. 9 (author copy). **Independent verdict: confirmed.**
+**Locator.** §3, Définition 5, PDF p. 9 (author copy)
 
 **Claim examined.** The definition gives the scaling correction with a positive sign and omits the ambient dimension.
 
@@ -3308,9 +3511,11 @@ All previous independent source-issue verdicts are retained exactly in the packe
 
 **Reason.** By additivity χ(Λ₁, p^kΛ₂) = χ(Λ₁, Λ₂) + k·dim V, so the printed sign and the missing factor dim V are wrong; the printed quotient Λ₂/Λ₁ should be Λ₁/Λ₂. Proposition 3 uses only the case Λ₂ ⊂ Λ₁.
 
+**Independent verdict: confirmed.** Confirmed in FAR10 Definition 5: rank-r scaling adds kr to χ, so the compensating sign is minus and the factor r is necessary; the quotient for Λ₂⊂Λ₁ is Λ₁/Λ₂. Reviewed by `REV-HodgeTateAndCanonicalSubgroups--T0~2`.
+
 ### HodgeTateAndCanonicalSubgroups/E15 — FAR10
 
-§4.3, Corollaire 5(5), PDF p. 12 (author copy). **Independent verdict: confirmed.**
+**Locator.** §4.3, Corollaire 5(5), PDF p. 12 (author copy)
 
 **Claim examined.** The generic-isomorphism condition names G as the target rather than the group G″ in the hypothesis.
 
@@ -3318,9 +3523,11 @@ All previous independent source-issue verdicts are retained exactly in the packe
 
 **Reason.** The hypothesis concerns the map to G″, as in Corollaire 3(b); G/G′ → G is not defined.
 
+**Independent verdict: confirmed.** Confirmed in FAR10 Corollary 5(5): the generic quotient in the asserted filtration is G″, not G. The corrected statement matches the surrounding exact sequence. Reviewed by `REV-HodgeTateAndCanonicalSubgroups--T0~2`.
+
 ### HodgeTateAndCanonicalSubgroups/E16 — FAR11
 
-§6.6, Proposition 11, PDF p. 34 (author copy). **Independent verdict: confirmed.**
+**Locator.** §6.6, Proposition 11, PDF p. 34 (author copy)
 
 **Claim examined.** The two prime cases are printed inconsistently with the adjacent canonical-subgroup bounds.
 
@@ -3328,9 +3535,11 @@ All previous independent source-issue verdicts are retained exactly in the packe
 
 **Reason.** Corollaires 1 and 2 on the same page and Théorème 4 use 'si p ≠ 3'; with 'p ≠ 2' the two cases overlap at p = 3.
 
+**Independent verdict: confirmed.** Confirmed in FAR11 Proposition 11 (§6.6): in the standing p≠2 context the displayed branch must read p≠3, separating the p=3 case. Corrected the section locator. Reviewed by `REV-HodgeTateAndCanonicalSubgroups--T0~2`.
+
 ### HodgeTateAndCanonicalSubgroups/E17 — FAR11
 
-§5.4, before Théorème 3, PDF p. 25 (author copy). **Independent verdict: confirmed.**
+**Locator.** §5.4, before Théorème 3, PDF p. 25 (author copy)
 
 **Claim examined.** The comparison with the 2010 paper points to its sixth theorem.
 
@@ -3338,19 +3547,23 @@ All previous independent source-issue verdicts are retained exactly in the packe
 
 **Reason.** Théorème 3 is Théorème 7 of Fargues 2010; Théorème 6 there is the HN/HT polygon comparison. §5 of the same paper cites 'théorème 7 de [16]' correctly.
 
+**Independent verdict: confirmed.** Confirmed: FAR11 Theorem 3’s cokernel argument is FAR10 Theorem 7, whereas Theorem 6 is the triple equivalence. Reviewed by `REV-HodgeTateAndCanonicalSubgroups--T0~2`.
+
 ### HodgeTateAndCanonicalSubgroups/E18 — FAR11
 
-§7.5, proof of Théorème 6, PDF p. 38 (author copy). **Independent verdict: confirmed.**
+**Locator.** §7.5, proof of Théorème 6, PDF p. 38 (author copy)
 
 **Claim examined.** The inductive truncated BT quotient is written with C before that subgroup has been constructed.
 
-**Correct statement.** Apply the induction to p^{−(n−1)}D/D, at truncated level n−1.
+**Correct statement.** In the level-(n−1) induction use p^{−(n−1)}D/D, where D is the already constructed level-one subgroup, instead of a quotient written with the as-yet unconstructed C.
 
 **Reason.** C is defined in the next sentence from the induction hypothesis applied to p^{−(n−1)}D/D (D the canonical subgroup of G[p]).
 
+**Independent verdict: confirmed.** Confirmed in FAR11 Theorem 6 proof, PDF p.38: the level-(n−1) quotient must be p^{−(n−1)}D/D. Merely writing G/D suppresses the necessary truncation. Reviewed by `REV-HodgeTateAndCanonicalSubgroups--T0~2`.
+
 ### HodgeTateAndCanonicalSubgroups/E19 — BP26
 
-§4.1.8, PDF p. 41 (author copy). **Independent verdict: confirmed.**
+**Locator.** §4.1.8, PDF p. 41 (author copy)
 
 **Claim examined.** The divisor duality identity is attributed to the wrong numbered lemma in FAR10.
 
@@ -3358,9 +3571,11 @@ All previous independent source-issue verdicts are retained exactly in the packe
 
 **Reason.** Lemme 3 of Fargues 2010 is flat base change δ_{h*G} = h*δ_G; the duality identity is Lemme 2.
 
+**Independent verdict: confirmed.** Confirmed in BP26 §4.1.8: degree duality is Lemma 2, not Lemma 3. Reviewed by `REV-HodgeTateAndCanonicalSubgroups--T0~2`.
+
 ### HodgeTateAndCanonicalSubgroups/E20 — BHW
 
-§7.1, after Definition 7.5, display (7.1), PDF p. 29 (arXiv:1902.03985v4). **Independent verdict: confirmed.**
+**Locator.** §7.1, after Definition 7.5, display (7.1), PDF p. 29 (arXiv:1902.03985v4)
 
 **Claim examined.** Display (7.1) places the fixed-radius ambient unit group inside B_m; Lemma 7.12 uses this direction.
 
@@ -3368,9 +3583,11 @@ All previous independent source-issue verdicts are retained exactly in the packe
 
 **Reason.** The actual inverse Hasse ideal is contained in the fixed-radius scalar ideal, which reverses the printed inclusion. Once both canonical HT sections lift to the same B_m-torsor, their unique torsor ratio equals cz+d by its faithful scalar action. This supplies the structure-group membership without the invalid inclusion.
 
+**Independent verdict: confirmed.** Confirmed in arXiv v4 and the published BHW equation (7.1). Pointwise height w≤ε gives v(I′_m)=m−p^m w/(p−1)≥x, hence I′_m⊂(p^x). This does not by itself verify the subsequent automorphy-factor argument. Reviewed by `REV-HodgeTateAndCanonicalSubgroups--T0~2`.
+
 ### HodgeTateAndCanonicalSubgroups/E21 — BHW
 
-§7.1, Lemma 7.2, PDF p. 28 (arXiv:1902.03985v4). **Independent verdict: confirmed.**
+**Locator.** §7.1, Lemma 7.2, PDF p.29 (arXiv:1902.03985v4)
 
 **Claim examined.** The middle term in Lemma 7.2 is declared exact with the total-Hasse ideal I_m.
 
@@ -3378,9 +3595,11 @@ All previous independent source-issue verdicts are retained exactly in the packe
 
 **Reason.** For g ≥ 2, deg ω_{A[p^m]/H_m} = ((p^m−1)/(p−1))ε in total (Fargues), while I_mω⁺/p^m has degree g(p^m−1)ε/(p−1), so ker π ≠ I_mω⁺. Only the factorisation is used afterwards, in Definition 7.3 and Corollary 7.6.
 
+**Independent verdict: confirmed.** Confirmed in arXiv v4 and published BHW Lemma 7.2. For dimension g>1, equality of the kernel with I_mω⁺ would force deg ω_{H_m}=g(m−δ), contradicting deg H_m=mg−δ when δ>0. The needed weaker containment ker π⊂I_mω⁺ still requires the canonical-subgroup differential theorem. Reviewed by `REV-HodgeTateAndCanonicalSubgroups--T0~2`.
+
 ### HodgeTateAndCanonicalSubgroups/E22 — BHW
 
-§5.2, PDF p. 21 (arXiv:1902.03985v4). **Independent verdict: confirmed.**
+**Locator.** §5.2, PDF p. 21 (arXiv:1902.03985v4)
 
 **Claim examined.** The introductory level-n Frobenius reduction uses the level-one precision 1−ε.
 
@@ -3388,9 +3607,11 @@ All previous independent source-issue verdicts are retained exactly in the packe
 
 **Reason.** Confirmed as a mismatch with the cited canonical-subgroup bound: Proposition 5.19(1) states 1−δ, δ=ε(p^n−1)/(p−1), not 1−ε at level n. The stronger congruence is not disproved here; classified as a missing justification, not an established false theorem. The mismatch persists in the published §5.2.
 
+**Independent verdict: confirmed.** Confirmed as a mismatch with the cited canonical-subgroup bound: Proposition 5.19(1) states 1−δ, δ=ε(p^n−1)/(p−1), not 1−ε at level n. The stronger congruence is not disproved here; classified as a missing justification, not an established false theorem. The mismatch persists in the published §5.2. Reviewed by `REV-HodgeTateAndCanonicalSubgroups--T0~2`.
+
 ### HodgeTateAndCanonicalSubgroups/E23 — BHW
 
-§5.3, proof of Proposition 5.18, PDF p. 24 (arXiv:1902.03985v4). **Independent verdict: confirmed.**
+**Locator.** §5.3, proof of Proposition 5.18, PDF p. 24 (arXiv:1902.03985v4)
 
 **Claim examined.** The proof identifies the integral ramified coefficient order with its product of embedding valuation rings.
 
@@ -3398,19 +3619,23 @@ All previous independent source-issue verdicts are retained exactly in the packe
 
 **Reason.** 𝒪_p ⊗_{ℤ_p} O_C ≅ O_C^Σ holds only for p unramified in F; for ramified p the left side is not integrally closed and V need not be locally free over 𝒪_p ⊗ O_C. The paper claims all p. Also noted by the PerfectoidShimuraVarieties packet (its E36).
 
+**Independent verdict: confirmed.** Confirmed in arXiv v4 and published proof of Proposition 5.18: for ramified F the integral tensor order is not the product of O_C over embeddings. Generic projections and the normalisation must be distinguished; the repaired congruence argument remains a gap. Reviewed by `REV-HodgeTateAndCanonicalSubgroups--T0~2`.
+
 ### HodgeTateAndCanonicalSubgroups/E24 — BHW
 
-§7.2, Definition 7.9 and proof of Theorem 7.14, PDF p. 29–30 (arXiv:1902.03985v4). **Independent verdict: confirmed.**
+**Locator.** §7.2, Definition 7.9, arXiv v4 PDF p.30; published p.1761 (PDF p.54)
 
 **Claim examined.** The weight-piece construction takes m=k+r and claims the needed canonical radius at that level.
 
-**Correct statement.** Use m=k+r−1, with r=3 for p≥3 and r=5 for p=2, and the independently constructed O5 coefficients.
+**Correct statement.** Under the displayed scalar radius arithmetic, level k+r−1 covers the stated upper endpoint, whereas k+r need not. For an actual full-weight comparison use independently verified AIP coordinate/level conditions and a common admitted domain; the index change alone does not repair the weight-domain errors E29–E30.
 
 **Reason.** On W*_k, v(δ_κ) ∈ [p^{−k}, p^{−(k−1)}], so ε_κ ∈ [p^{−(k+r+1)}, p^{−(k+r)}] while ε^can_{k+r} = p^{−(k+r+1)}: 'ε_κ ≤ ε^can_m' fails for m = k + r except at the boundary; AIP (Hilbert) §4.2 requires n ≤ r + k − 1.
 
+**Independent verdict: confirmed.** Confirmed as a conditional arithmetic mismatch in Definition 7.9 (not Lemma 7.9). Its displayed interval allows ε=p^{−(k+r)}, exceeding ε_can(k+r)=p^{−(k+r+1)}. The scalar repair k+r−1 does not validate the printed diagnostic or analytic-extension formula. Reviewed by `REV-HodgeTateAndCanonicalSubgroups--T0~2`.
+
 ### HodgeTateAndCanonicalSubgroups/E25 — BHW
 
-§5.3, proof of Proposition 5.19, PDF p. 24 (arXiv:1902.03985v4). **Independent verdict: confirmed.**
+**Locator.** §5.3, proof of Proposition 5.19, PDF p. 24 (arXiv:1902.03985v4)
 
 **Claim examined.** The character/conormal estimate is assigned to AIP15 Proposition 3.2.2.
 
@@ -3418,9 +3643,11 @@ All previous independent source-issue verdicts are retained exactly in the packe
 
 **Reason.** The content of (2) and (3) is AIP Proposition 3.2.1 (isomorphism modulo p^{n−v(p^n−1)/(p−1)}, cokernel of degree v/(p−1)); Proposition 3.2.2 concerns HT of G[p^n] and needs v < (p−1)/(p(p^n−1)).
 
+**Independent verdict: confirmed.** Confirmed in arXiv v4 and published Proposition 5.19(2): the differential and cokernel statement is AIP15 Proposition 3.2.1, not its 3.2.2. Reviewed by `REV-HodgeTateAndCanonicalSubgroups--T0~2`.
+
 ### HodgeTateAndCanonicalSubgroups/E26 — BCGP21
 
-§6.5.1, PDF p. 154 (arXiv:1812.09269v3). **Independent verdict: confirmed.**
+**Locator.** §6.5.1, PDF p. 154 (arXiv:1812.09269v3)
 
 **Claim examined.** The degree formula applies the valuation after reduction of each cyclic presentation entry modulo p.
 
@@ -3428,9 +3655,11 @@ All previous independent source-issue verdicts are retained exactly in the packe
 
 **Reason.** Subgroups not killed by p occur (M_{1,w} ⊂ 𝒢_w[p²] in Lemma 6.5.12), for which the truncated sum is not Fargues's degree; the PAPER-BOXER-CALEGARI-GEE-PILLONI-21 route already corrects the item statement.
 
+**Independent verdict: confirmed.** Confirmed in BCGP arXiv v3 §6.5.1: evaluating v after reduction mod p truncates each elementary divisor at 1; μ_{p²} has ω=R/p² and degree 2, while the printed truncated sum gives 1. This review does not claim a collation with the published BCGP version. Reviewed by `REV-HodgeTateAndCanonicalSubgroups--T0~2`.
+
 ### HodgeTateAndCanonicalSubgroups/E27 — BCGP21
 
-§6.1.4, PDF p. 141 (arXiv:1812.09269v3). **Independent verdict: rejected.**
+**Locator.** §6.1.4, PDF p. 141 (arXiv:1812.09269v3)
 
 **Claim examined.** The boundary-extension argument invokes Lan’s normalized-model Koecher theorem.
 
@@ -3438,9 +3667,11 @@ All previous independent source-issue verdicts are retained exactly in the packe
 
 **Reason.** Rejected as a source mistake. Lan Theorem 8.7 explicitly addresses normalised models and arbitrary coefficient algebras with formally canonical sheaves (Definition 8.5). A toroidal boundary divisor is not an obstruction to this theorem. The concrete model/coefficient and determinant-descent checks remain gaps in this packet.
 
+**Independent verdict: rejected.** Rejected as a source mistake. Lan Theorem 8.7 explicitly addresses normalised models and arbitrary coefficient algebras with formally canonical sheaves (Definition 8.5). A toroidal boundary divisor is not an obstruction to this theorem. The concrete model/coefficient and determinant-descent checks remain gaps in this packet. Reviewed by `REV-HodgeTateAndCanonicalSubgroups--T0~2`.
+
 ### HodgeTateAndCanonicalSubgroups/E28 — SCH15
 
-§III.3, immediately before Lemma III.3.9, arXiv v2 PDF p. 58; published Annals p. 1008 (PDF p. 64). **Independent verdict: confirmed.**
+**Locator.** §III.3, immediately before Lemma III.3.9, arXiv v2 PDF p. 58; published Annals p. 1008 (PDF p. 64)
 
 **Claim examined.** The paragraph claims the full integral symplectic similitude group permutes the finite family of Plücker domains.
 
@@ -3448,40 +3679,78 @@ All previous independent source-issue verdicts are retained exactly in the packe
 
 **Reason.** For g=1 the two charts are D₀={|z|≤1} and D∞={|z|≥1}. Under γ=(1 0;1 1), the image of D₀ contains 0 and ∞, so it equals neither chart. This checks the auxiliary assertion, not a counterexample to the period-map theorem.
 
+**Independent verdict: confirmed.** The explicit g=1 matrix counterexample disproves permutation of the finite Plücker chart family; it occurs in both the arXiv and published text. Reviewed by `REV-HodgeTateAndCanonicalSubgroups--T0~2`.
+
+### HodgeTateAndCanonicalSubgroups/E29 — BHW
+
+**Locator.** §6.1 after Definition 6.2, arXiv v4 PDF p.27; published p.1757 (PDF p.50)
+
+**Claim examined.** The all-unit supremum is asserted to be less than one for every bounded weight.
+
+**Correct statement.** Keep affinoid-image boundedness. A small principal-unit diagnostic may be useful, but quantitative AIP domains need independent universal-coordinate conditions.
+
+**Reason.** For p>2 and F=ℚ, a nontrivial Teichmüller character is a bounded point of weight space and has |κ(ζ)−1|=1 on a prime-to-p root of unity. Its all-unit supremum is one, so the ensuing claimed positive ε_κ need not be positive.
+
+**Independent verdict: confirmed.** For p>2 and F=ℚ, a nontrivial Teichmüller character is a bounded point of weight space and has |κ(ζ)−1|=1 on a prime-to-p root of unity. Its all-unit supremum is one, so the ensuing claimed positive ε_κ need not be positive. Reviewed by `REV-HodgeTateAndCanonicalSubgroups--T0~2`.
+
+### HodgeTateAndCanonicalSubgroups/E30 — BHW
+
+**Locator.** §6.1, Proposition 6.3, arXiv v4 PDF p.27; published p.1757 (PDF p.50)
+
+**Claim examined.** The common analytic radius is prescribed as the product |p|^r₀|T_κ|.
+
+**Correct statement.** Use a genuine common analytic extension radius and AIP Proposition 2.8’s coordinate hypotheses. Changing the all-unit supremum to a pro-p supremum alone does not validate the product formula.
+
+**Reason.** Take F=ℚ,p=3 and the finite character trivial on μ₂ with κ(4)=ζ₉. The pro-p supremum is 3^{−1/6}, so the claimed ball has radius 3^{−7/6}. It contains 64 because |64−1|₃=3^{−2}; κ(64)=ζ₃. But the kernel elements 4^{9·3^j} accumulate at 1 in the same ball. The analytic identity theorem would force an extension to equal 1 throughout it, contradicting the value at 64.
+
+**Independent verdict: confirmed.** Take F=ℚ,p=3 and the finite character trivial on μ₂ with κ(4)=ζ₉. The pro-p supremum is 3^{−1/6}, so the claimed ball has radius 3^{−7/6}. It contains 64 because |64−1|₃=3^{−2}; κ(64)=ζ₃. But the kernel elements 4^{9·3^j} accumulate at 1 in the same ball. The analytic identity theorem would force an extension to equal 1 throughout it, contradicting the value at 64. Reviewed by `REV-HodgeTateAndCanonicalSubgroups--T0~2`.
+
+### HodgeTateAndCanonicalSubgroups/E31 — CS17
+
+**Locator.** §2.3, Proposition 2.3.9/proof, arXiv v1 PDF p.21; published pp.673–674 (PDF pp.25–26)
+
+**Claim examined.** The raw de Rham and Hodge–Tate Levi torsors are canonically identified without a central-cocharacter Tate twist.
+
+**Correct statement.** Use ℳ_HT≅ℳ_dR×^{μ,ℤ_p^×}𝒯(1); an associated central-μ-weight-a bundle receives Tate twist (a). A chosen C-valued Tate basis provides an underlying untwisted identification with its transported linearization.
+
+**Reason.** The comparison of graded pieces carries Tate weights. A basis on the Tate-trivialization torsor yields an isomorphism there, but a change of basis acts through central μ; descent gives the contracted product, not the raw de Rham torsor. Boxer–Pilloni §4.4.8/Remark 4.4.23 makes this explicit. The published CS17 proof retains the untwisted conclusion.
+
+**Independent verdict: confirmed.** The comparison of graded pieces carries Tate weights. A basis on the Tate-trivialization torsor yields an isomorphism there, but a change of basis acts through central μ; descent gives the contracted product, not the raw de Rham torsor. Boxer–Pilloni §4.4.8/Remark 4.4.23 makes this explicit. The published CS17 proof retains the untwisted conclusion. Reviewed by `REV-HodgeTateAndCanonicalSubgroups--T0~2`.
+
 ## Routing and structure proposals
 
-- **Bijakowski–Pilloni–Stroh 2016, item 10 (Fargues's degree).** Planned as T0/fargues-degree and T0/fargues-degree-properties from Fargues 2010 directly; the Annals PDF served by the publisher was a 6-page stub, so BPS's own text was not read; its use is the degree of Fargues 2010, which is read.
-- **Boxer–Pilloni 2026, items fargues-degree-divisor, fargues-degree-comparison-generic-isomorphism, fargues-degree-of-truncated-BT-and-extreme-values.** T0/fargues-divisor, T0/fargues-degree-generic-isomorphism, T0/fargues-degree-properties. In the author copy read, the divisor of an isogeny via det Lie(f) is not in Boxer–Pilloni; it is planned from Pilloni 2020 §14 and BCGP §6.5.1 (T0/isogeny-divisor). The Siegel identity D_i + D_{2g+1−i} = V(p^n) stays with HigherHidaAndColemanTheory.
-- **Pilloni 2020 route 8.** Ha(G), LF, quasi-polarisations, LF∘λ* and the BT₁ Hodge–Tate sequence: requested from R07.2 (RT-AREA-padic-1/26). Degree items: T0 degree nodes; Hodge–Tate isomorphism for multiplicative H_n: T0/multiplicative-hodge-tate-isomorphism; Lemma 6.3.4.1: T0/normalized-multiplicative-pullback; HT over the toroidal boundary: T0/hodge-tate-boundary-extension; deg L⁰ = 1/(p+1): acceptance of T0/fargues-degree (computed from Fargues 2010 §6); ω^mod, ω^{mod,+}, 𝔛(p^n)^{⋆−mod}: T5/modified-hodge-bundle, T5/modified-plus-sheaf, T5/modified-minimal-model; the inverse different (§14.9): T0/degree-different (trace codifferent δ_G^{-1}; not the conormal quotient).
-- **BCGP 2021 route 13 (items 144, 251, 253).** 144: T0/fargues-degree and T0/isogeny-divisor (with the corrected degree Σ v(x_i), sourceIssues); 251: T0/hodge-tate-boundary-extension and T5/modified-hodge-bundle; 253: T5/modified-minimal-model.
-- **Scholze 2015 route 2.** Items 28, 29: T3/subgroup-lifting, T3/section-rigidity; 30, 57: T0/semi-abelian-hasse-invariant, T0/hasse-invariant-ordinary-locus, T0/hasse-invariant-minimal-compactification; 31–35: T3/canonical-subgroup, T3/canonical-subgroup-theorem, T3/canonical-subgroup-properties, T3/quotient-hasse-radius; 39–41: canonical Frobenius lifts and the anticanonical open immersions are PerfectoidShimuraVarieties S1's nodes (T4/canonical-anticanonical-loci and T4/atkin-lehner-anticanonical give the general loci and radius bookkeeping they use); 56: T0/raynaud-hodge-tate-filtration; 59: T2/hodge-tate-flag-point (on points); 61: PerfectoidShimuraVarieties S1/rational-flags-preimage.
-- **Caraiani–Scholze 2017 route 6 (items 52, 53, 143).** Not planned here: restructure entry for RT-AREA-padic-1/25.
-- **BCGP 2025 route 23 (4.4.1 items).** Not planned here: restructure entry for RT-AREA-padic-1/23.
-- **Consumer requests (PerfectoidShimuraVarieties, OverconvergentAutomorphicForms O0/O8, ShimuraCompactifications C6).** PSV→T0: T0/semi-abelian-hasse-invariant, hasse-invariant-ordinary-locus, hasse-invariant-minimal-compactification, raynaud-hodge-tate-filtration, fargues-hodge-tate-cokernel. PSV→T2: T2/hodge-tate-flag-point (Plücker coordinates, Lagrangian charts), T2/abelian-hodge-tate-sequence (Lagrangian, defined over K), T2/relative-hodge-tate-sequence. PSV→T3: T3/canonical-subgroup, -theorem, -properties, quotient-hasse-radius, section-rigidity. PSV→T4: T4/canonical-anticanonical-loci, atkin-lehner-anticanonical, period-map-inclusions, ramified-period-comparison (the ramified case requested there). PSV→T5: T5/modified-hodge-bundle, modified-minimal-model, igusa-full-level-comparison. O0→T4: T4/hodge-tate-coordinate (left action, cocycle), period-map-inclusions (c_p), atkin-lehner-anticanonical; the partial-Hasse improvements under U_𝔭 are O6's Hecke statements and are not planned here. O0→T5: T5/integral-differential-lattice, integral-lattice-properties, igusa-torsor, aip-torsor, aip-hodge-tate-comparison. O8→T3 (Siegel p > 2g domain comparison of DRW §3.6): not planned in this pass (coverage remaining). C6→T0: T0/semi-abelian-hasse-invariant (split-torus unit, chart compatibility).
+- **Bijakowski–Pilloni–Stroh 2016, item 10 (Fargues's degree):** Planned as T0/fargues-degree and T0/fargues-degree-properties from Fargues 2010 directly; the Annals PDF served by the publisher was a 6-page stub, so BPS's own text was not read; its use is the degree of Fargues 2010, which is read.
+- **Boxer–Pilloni 2026, items fargues-degree-divisor, fargues-degree-comparison-generic-isomorphism, fargues-degree-of-truncated-BT-and-extreme-values:** T0/fargues-divisor, T0/fargues-degree-generic-isomorphism, T0/fargues-degree-properties. In the author copy read, the divisor of an isogeny via det Lie(f) is not in Boxer–Pilloni; it is planned from Pilloni 2020 §14 and BCGP §6.5.1 (T0/isogeny-divisor). The Siegel identity D_i + D_{2g+1−i} = V(p^n) stays with HigherHidaAndColemanTheory.
+- **Pilloni 2020 route 8:** Ha(G), LF, quasi-polarisations, LF∘λ* and the BT₁ Hodge–Tate sequence: requested from R07.2 (RT-AREA-padic-1/26). Degree items: T0 degree nodes; Hodge–Tate isomorphism for multiplicative H_n: T0/multiplicative-hodge-tate-isomorphism; Lemma 6.3.4.1: imported from R07.2, with boundary application T0/normalized-multiplicative-pullback; HT over the toroidal boundary: T0/hodge-tate-boundary-extension; deg L⁰ = 1/(p+1): acceptance of T0/fargues-degree (computed from Fargues 2010 §6); ω^mod, ω^{mod,+}, 𝔛(p^n)^{⋆−mod}: T5/modified-hodge-bundle, T5/modified-plus-sheaf, T5/modified-minimal-model; the inverse different (§14.9): T0/degree-different (trace codifferent δ_G^{-1}; not the conormal quotient).
+- **BCGP 2021 route 13 (items 144, 251, 253):** 144: T0/fargues-degree and T0/isogeny-divisor (with the corrected degree Σ v(x_i), sourceIssues); 251: T0/hodge-tate-boundary-extension and T5/modified-hodge-bundle; 253: T5/modified-minimal-model.
+- **Scholze 2015 route 2:** Items 28, 29: T3/subgroup-lifting, T3/section-rigidity; 30, 57: T0/semi-abelian-hasse-invariant, T0/hasse-invariant-ordinary-locus, T0/hasse-invariant-minimal-compactification; 31–35: T3/canonical-subgroup, T3/canonical-subgroup-theorem, T3/canonical-subgroup-properties, T3/quotient-hasse-radius; 39–41: canonical Frobenius lifts and the anticanonical open immersions are PerfectoidShimuraVarieties S1's nodes (T4/canonical-anticanonical-loci and T4/atkin-lehner-anticanonical give the general loci and radius bookkeeping they use); 56: T0/raynaud-hodge-tate-filtration; 59: T2/hodge-tate-flag-point (on points); 61: PerfectoidShimuraVarieties S1/rational-flags-preimage.
+- **Caraiani–Scholze 2017 route 6 (items 52, 53, 143):** Not planned here: restructure entry for RT-AREA-padic-1/25.
+- **BCGP 2025 route 23 (4.4.1 items):** Not planned here: restructure entry for RT-AREA-padic-1/23.
+- **Consumer requests (PerfectoidShimuraVarieties, OverconvergentAutomorphicForms O0/O8, ShimuraCompactifications C6):** PSV→T0: T0/semi-abelian-hasse-invariant, hasse-invariant-ordinary-locus, hasse-invariant-minimal-compactification, raynaud-hodge-tate-filtration, fargues-hodge-tate-cokernel. PSV→T2: T2/hodge-tate-flag-point (Plücker coordinates, Lagrangian charts), T2/abelian-hodge-tate-sequence (Lagrangian, Galois-stable for A/K; no K-linear HT splitting), T2/relative-hodge-tate-sequence. PSV→T3: T3/canonical-subgroup, -theorem, -properties, quotient-hasse-radius, section-rigidity. PSV→T4: T4/canonical-anticanonical-loci, atkin-lehner-anticanonical, period-map-inclusions, ramified-period-comparison (the ramified case requested there). PSV→T5: T5/modified-hodge-bundle, modified-minimal-model, igusa-full-level-comparison. O0→T4: T4/hodge-tate-coordinate (left action, cocycle), period-map-inclusions (c_p), atkin-lehner-anticanonical; the partial-Hasse improvements under U_𝔭 are O6's Hecke statements and are not planned here. O0→T5: T5/integral-differential-lattice, integral-lattice-properties, igusa-torsor, aip-torsor, aip-hodge-tate-comparison. O8→T3 (Siegel p > 2g domain comparison of DRW §3.6): not planned in this pass (coverage remaining). C6→T0: T0/semi-abelian-hasse-invariant (split-torus unit, chart compatibility). PSV→T2 additionally imports open-tower-hodge-tate-map and open-tower-levi-pullback, with S3 keeping their perfectoid incarnation and compactified extension (verifier-qualified RT /22).
 
-**Rescope.** RT-AREA-padic-1/22 (confirmed): the Hodge-type π_HT on the tower and its properties were planned in T2 and in PerfectoidShimuraVarieties S3.
+**Rescope.** RT-AREA-padic-1/22 was qualified by the verifier: the original S3-only ownership fix would create a cycle and omit T2’s stated open-tower target. The revision retained that wrong fix; this review corrects it.
 
-Owners entry above (owner S3). T2 is narrowed to the finite-level Hodge–Tate exact sequences (p-divisible, abelian, relative), the pointwise flag point with the Lagrangian charts, the PEL and Hodge-tensor flag conditions, the Hodge–Tate parabolic reduction with its Levi torsor and its comparison with the de Rham torsor. S3 imports T2/hodge-tate-flag-point, T2/hodge-tate-parabolic-reduction and T2/de-rham-hodge-tate-levi-comparison.
+Follow the verifier’s qualification and REV-FIX-RT-AREA-padic-1~2: T2 owns the map on S0’s open limit v-sheaf, including equivariance and Levi/bundle pullback. S3 imports T2/open-tower-hodge-tate-map and T2/open-tower-levi-pullback; it identifies the adic morphism on the perfectoid representative supplied by S2, proves datum functoriality through S2 embeddings and extends the map/properties to the compactifications with the source’s exact hypotheses. Add S0 → T2; add the direct forwarding edges T2 → S5, T2 → TC.1 and T2 → O8 (already transitive). T2 → S3 stays. S3 → T4 would close T4 → S1 → S2 → S3 → T4 and is forbidden. Move the general homogeneous Hodge–Tate flag/Levi-torsor interface needed by T2 to R09.1/B0’s existing flag direction, rather than importing it from the downstream S3 node. PAN-26/HigherHida briefs distinguish the open T2 map from S3’s compactified incarnation. Campaign/data edits belong to the orchestrator.
 
-**Rescope.** RT-AREA-padic-1/26 (confirmed): the Hasse invariant of a BT₁, LF and the BT₁ Hodge–Tate sequence were routed to T0, which is upstream of none of H2, C6, R15.3, IG.2.
+**Rescope.** RT-AREA-padic-1/26 (confirmed): the Hasse invariant of a BT₁, LF and the BT₁ Hodge–Tate sequence were routed to T0, which is upstream of none of H2, C6, R15.3, IG.2. The general normalized multiplicative determinant pullback is part of the same R07.2 rerouting.
 
-Owners entry above (owner R07.2, which must extend Frobenius/Verschiebung from fields to arbitrary 𝔽_p-schemes; see requests). T0 keeps T0/semi-abelian-hasse-invariant (boundary extension, compatibility with R07.2, split-torus unit) and the Siegel minimal-compactification statements. Add stage edges R07.2 → H2, R07.2 → C6, R07.2 → AlgebraicModularFormsAndSerreWeights:R15.3, R07.2 → IgusaVarietiesAndTorsionConcentration:IG.2.
+Owners entry above (owner R07.2, which must extend Frobenius/Verschiebung from fields to arbitrary 𝔽_p-schemes; see requests). T0 keeps T0/semi-abelian-hasse-invariant (boundary extension, compatibility with R07.2, split-torus unit) and the Siegel minimal-compactification statements. Add stage edges R07.2 → H2, R07.2 → C6, R07.2 → AlgebraicModularFormsAndSerreWeights:R15.3, R07.2 → IgusaVarietiesAndTorsionConcentration:IG.2. R07.2 also owns PIL20 Lemma 6.3.4.1. T0/normalized-multiplicative-pullback keeps only its boundary application; no second general theory is planned.
 
 **Rescope.** RT-AREA-padic-1/25 (confirmed): Caraiani–Scholze items 52, 53, 143 (Scholze–Weinstein Theorem 4.1.4 over O_C/p, Theorem B/5.2.1 over O_C, the modification at ∞) were routed to T2, downstream of the whole global Shimura construction; no T2 target needs them.
 
-Create a FiniteFlatGroupsAndIntegralPadicHodgeTheory stage after R07.2 for the Scholze–Weinstein O_C/O_C-p classification and Fargues–Fontaine modification, importing VectorBundlesAndIsocrystals VB1/VB2. It supplies the O_C realization used by T0/T2, IG.3 and ET.6a. Do not import T0’s Hodge–Tate map back into this foundation: that would reverse its prerequisite direction. The classification and modification are not planned here.
+Create a FiniteFlatGroupsAndIntegralPadicHodgeTheory stage after R07.2 for the Scholze–Weinstein O_C/O_C-p classification and Fargues–Fontaine modification, importing VectorBundlesAndIsocrystals VB1/VB2. Its downstream realization/modification consumers are IG.3 and ET.6a; no T0/T2 target here imports that classification. T0’s character map is a separate input to any future classification proof, never a backedge from classification to T0. Do not import T0’s Hodge–Tate map back into this foundation: that would reverse its prerequisite direction. The classification and modification are not planned here.
 
 **Rescope.** RT-AREA-padic-1/23 (confirmed): BCGP-25 items 4.4.1-usual/-cusp/-analytic-usual/-analytic-cusp were routed to T4, T5, T6, which plan none of them.
 
-Remove them from route 23; route 4.4.1-usual/-cusp to TorsionCohomologyInfrastructure TC.2 and the analytic ones to HigherHidaAndColemanTheory (BCGP-25 route 22). This packet plans none of them.
+Repoint BCGP-25 route 23 in place for 4.4.1-usual/-cusp to TorsionCohomologyInfrastructure TC.2; move the analytic items to HigherHidaAndColemanTheory’s corresponding comparison scope (route 22). Do not leave an empty route. This packet plans none of those completed-cohomology comparisons.
 
 **Rescope.** Stage dependency lines do not list what the plan uses: T0 uses ShimuraCompactifications C5 (toroidal/minimal models, Koecher) and NeronModelsAndSemistableAbelianVarieties R11.3; T2 uses ShimuraData D3 (compact dual) and PELModuli M0; T3 uses T0's Hasse invariant for Siegel data; T4 uses PELModuli M1 and T2's flag point; T5 uses PerfectoidShimuraVarieties S0 (the infinite-level tower) and PerfectoidSpaces P9. T1's dependency text cites 'ClassicalAdicEtaleCohomology C0', which does not exist (RT-AREA-padic-1/32).
 
-Add the stage edges C5 → T0, R11.3 → T0 (already from RS-32), D3 → T2, PELModuli:M0 → T2, T0 → T3, PELModuli:M1 → T4, T2 → T4, PerfectoidShimuraVarieties:S0 → T5, P9 → T5 (already from RS-05); correct T1's dependency text to ClassicalAdicEtaleCohomology H0. None of these creates a cycle (checked against the recorded stage edges).
+Add the stage edges C5 → T0, R11.3 → T0 (already from RS-32), D3 → T2, PELModuli:M0 → T2, T0 → T3, PELModuli:M1 → T4, T2 → T4, PerfectoidShimuraVarieties:S0 → T2 and → T5, P9 → T2 and → T5 (already from RS-05); correct T1's dependency text to ClassicalAdicEtaleCohomology H0. None of these creates a cycle (checked against the recorded stage edges).
 
 **Split.** T0 contains two coherent groups: finite-level Hodge–Tate theory and Fargues's degree of finite flat group schemes over a valuation ring (local, no Shimura varieties), and the semi-abelian/boundary extension (Hasse invariant of semi-abelian schemes, minimal compactification, toroidal extension of HT), which needs ShimuraCompactifications C4/C5.
 
-Propose T0:local containing conormal-module, finite-hodge-tate-map, hodge-tate-map-compatibilities, p-divisible-hodge-tate-map, fargues-hodge-tate-cokernel, fargues-degree, fargues-degree-properties, fargues-degree-generic-isomorphism, fargues-divisor, multiplicative-hodge-tate-isomorphism, normalized-multiplicative-pullback, harder-narasimhan-filtration, degree-different, conormal-base-change, conormal-right-exact, finite-hodge-tate-naturality, and T0:boundary containing isogeny-divisor, semi-abelian-torsion, semi-abelian-hasse-invariant, hasse-invariant-ordinary-locus, hasse-invariant-minimal-compactification, hodge-tate-boundary-extension and raynaud-hodge-tate-filtration. This assigns every T0 node, including HN and degree-different. Only the boundary application imports C4/C5/R11.3; retain current stage IDs pending maintainer acceptance.
+Propose T0:local containing conormal-module, finite-hodge-tate-map, hodge-tate-map-compatibilities, p-divisible-hodge-tate-map, fargues-hodge-tate-cokernel, fargues-degree, fargues-degree-properties, fargues-degree-generic-isomorphism, fargues-divisor, multiplicative-hodge-tate-isomorphism, harder-narasimhan-filtration, degree-different, conormal-base-change, conormal-right-exact, finite-hodge-tate-naturality, and T0:boundary containing normalized-multiplicative-pullback, isogeny-divisor, semi-abelian-torsion, semi-abelian-hasse-invariant, hasse-invariant-ordinary-locus, hasse-invariant-minimal-compactification, hodge-tate-boundary-extension and raynaud-hodge-tate-filtration. This assigns every T0 node, including HN and degree-different. Only the boundary application imports C4/C5/R11.3; retain current stage IDs pending maintainer acceptance.
 
 **Rescope.** Generic filtered-Tannakian reconstruction is shared by Hodge-type torsors and automorphic bundles.
 
@@ -3489,8 +3758,8 @@ Extend the existing ReductiveGroups direction as Part II with strict filtered fi
 
 ## Suggested signatures and validation
 
-The suggested file contains actual declarations for all 63 node names, 128 API names and 79 test names, with named mathematical tests accompanied by examples. It uses Scheme.Modules/pullback, group objects over schemes, actual module sheaves and submodules on ringed sites, the imported affine cotangent/Cartier carriers, finite module frames, quotient Grassmannians, subgroup objects, ideals, matrices and fractional ideals. It does not replace unavailable supplier conditions by unspecified proposition fields. Comments identify omitted associations and hypotheses; those signatures are schematic and must be completed against the suppliers before implementation. Pointwise loci are accompanied by formal scheme, sheaf or topological-space signatures where the geometric carrier is required.
+The suggested file contains actual declarations for all 66 node names, 136 API names and 83 test names, with named mathematical tests accompanied by examples. Its carriers are schemes, group objects over schemes, module sheaves/submodules, affine cotangent/Cartier objects, character-lattice tensors, quotient Grassmannians, subgroup objects, ideals, matrices and fractional ideals. Supplier associations and hypotheses omitted from Lean are identified in comments and fully specified above. Those signatures remain schematic until the exact supplier interfaces exist; no unspecified proposition fields stand in for geometry.
 
-The full file was checked with the mandated wrapper but **could not elaborate**: the pinned shared build lacks the Tau Ceti cotangent/Cartier-duality compiled modules. A scratch Mathlib projection, replacing only those unavailable imports with explicitly identified carrier/signature stand-ins, elaborated with admission warnings only. This checks the Mathlib-side signature syntax, not the Tau Ceti linkage, supplier hypotheses or mathematical proofs. No library was built or updated.
+The mandatory full-file `lean-check` attempt stops at the missing pinned Tau Ceti cotangent `.olean`. This review cannot claim full elaboration or a Mathlib-only projection result. It created no Lean file outside the suggested deliverable and built or updated no library.
 
-The blueprint checker reports zero errors and zero warnings. The 56 original node IDs, preceding review object and every source-issue review value remain in place. Source excerpts have been removed recursively. Coverage is planned for T0 through T5, with no stage claimed closed. This complete revision is ready for its next independent review.
+The blueprint checker reports zero errors and zero warnings. The packet review accepts all 66 nodes as a complete target-level plan, with 13 explicit gaps and 18 supplier requests; all six stages are planned and none is closed. Every implementation remains unchecked. The preceding independent review is preserved in `reviewHistory`, and each prior source-issue assessment is retained in its history.
