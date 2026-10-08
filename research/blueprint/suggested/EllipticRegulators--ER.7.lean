@@ -25,6 +25,10 @@ normalized new EigenformAwayFromLevel; no bad-prime eigenvalue interface implied
 UpperHalfPlane.peterssonInner
 (TauCeti.NumberTheory.ModularForms.Petersson.Basic): conjugate-first integral.
 Merel is first-linear and index-normalized. The geometry uses a supplier adapter.
+The adapter must correct E25 (appendix §2.c p.147; later author §2.3 p.284):
+when a_p = 0 and r = v_p(m/mω) > 0, R_p is -conjugate(ω(p)) at r = 1
+and zero at r > 1, as its defining polynomial shows. No local twist carrier
+is implemented by these module prototypes.
 Those modules are not imported into this Mathlib-only elaboration: the existing
 shared Tau Ceti build is at a different commit, and no new build is created.
 -/
