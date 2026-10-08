@@ -1,8 +1,8 @@
 {
   "roadmaps": 236,
-  "stages": 4737,
+  "stages": 4759,
   "originalStages": 2160,
-  "sourceRefinements": 2577,
+  "sourceRefinements": 2599,
   "reviewedDecompositions": [
     {
       "roadmap": "AInfCohomology",
@@ -82,13 +82,6 @@
       "deferredLinks": 0
     },
     {
-      "roadmap": "DeligneWeightsAndPurity",
-      "status": "partial",
-      "nodes": 5,
-      "review": "accepted",
-      "deferredLinks": 0
-    },
-    {
       "roadmap": "DerivedDeRhamCohomology",
       "status": "partial",
       "nodes": 7,
@@ -107,7 +100,7 @@
       "status": "partial",
       "nodes": 2,
       "review": "accepted",
-      "deferredLinks": 4
+      "deferredLinks": 5
     },
     {
       "roadmap": "EulerSystemsCyclotomicMainConjecture",
@@ -285,14 +278,14 @@
   "editedRoadmapSummaries": 181,
   "curatedStagePresentations": 339,
   "administrativeStages": 101,
-  "mathematicalStars": 4636,
+  "mathematicalStars": 4658,
   "plainTextPlanetLabels": 398,
   "hiddenPlanets": 600,
   "mappedStageStatuses": 350,
   "libraryAuditStatuses": 19,
   "bibliographicSources": 46,
-  "roadmapEdges": 2134,
-  "stageEdges": 12269,
+  "roadmapEdges": 2135,
+  "stageEdges": 12322,
   "reviewedLinkPackets": 25,
   "promotedBlueprints": [
     {
@@ -468,6 +461,12 @@
       "roadmap": "DeformationAndDerivedPatchingAlgebra",
       "nodes": 53,
       "reviewer": "independent-review-REV-DeformationAndDerivedPatchingAlgebra--R03.6"
+    },
+    {
+      "file": "DeligneWeightsAndPurity--DWP.0",
+      "roadmap": "DeligneWeightsAndPurity",
+      "nodes": 83,
+      "reviewer": "independent-review-REV-DeligneWeightsAndPurity--DWP.0~2"
     },
     {
       "file": "DeligneWeightsAndPurity--DWP.7",
@@ -1167,8 +1166,8 @@
     }
   ],
   "sourceDocuments": 296,
-  "htmlBytes": 35680430,
-  "htmlSha256": "ea305aba8cdee496e1ac57800bdf2d6b88cfc8f0b99afb23e4a9221fb267e7af",
+  "htmlBytes": 35701760,
+  "htmlSha256": "263b4086f315a81ba226b39907d0a69a3ad10066af973d1925180bf06e2fd693",
   "networkDependencies": 0,
   "localProgressOverridesIncluded": false,
   "assets": {
@@ -1200,7 +1199,7 @@
     "data/roadmap-summaries.json": "c8bdd0a9105f5d3c4a858c8b635990729f8e94497dee784a71fae659b8c05b9f",
     "data/roadmap-classification.json": "2641dbc97eb2566c715162d011b46890d1635629181ef8126ac7aed9e24a3b13",
     "data/classification-estimates.json": "625d35fe6121bf099dc5de9e6a9111793596f9b664e3fbd439841434bb4a57d6",
-    "data/roadmap-distances.json": "e307e4dc69159a3ac0c124498da107196d9123ff39d68e5d4812b4fb109ad09d",
+    "data/roadmap-distances.json": "f8157d325ff660b78caad50e0febcf5ed17c6189c840092ff04c33dd9c5fd2ec",
     "data/galaxy-layout.json": "2c01bbf6e2083476a6b73f3d295c4d4c898d0be461c21fb0195da29a30469a03",
     "data/bibliography.json": "bef230a41fad22d6b790c7564061c4d05c2ae5b78cab53d005eb404afab2b122",
     "NOTICE": "a285b95d5adbf5c2bcc82db36e2a77b797f84a2c5cbb30292efd0bae17cc4f34",
@@ -1316,6 +1315,8 @@
     "data/blueprints/DeformationAndDerivedPatchingAlgebra--P7.md": "4275581db5d9c335a2d7cf4bd9854d04a95f0d496348f0240476920a2b48a541",
     "data/blueprints/DeformationAndDerivedPatchingAlgebra--R03.6.json": "d8acb7c1295c7768a31e640723f3493f5ac4987474a18f9405015d8ea3a7584b",
     "data/blueprints/DeformationAndDerivedPatchingAlgebra--R03.6.md": "5cb32739e0e0e2d6b2a7497f810abcee961f72e8c8cbb434012ef9811e3649c4",
+    "data/blueprints/DeligneWeightsAndPurity--DWP.0.json": "00cb087647f4368e354bc593abd404750c22daf69b9dbc6ee2138e0892cbc863",
+    "data/blueprints/DeligneWeightsAndPurity--DWP.0.md": "a4fcfa605ce03ae775f002bd0b0c944ac2d0f7e16324211dc99f60820ae61e50",
     "data/blueprints/DeligneWeightsAndPurity--DWP.7.json": "f33c6ce8f20f136d8ebed8f41916c085e8d3d6167e224a0dca9b65db2dc31832",
     "data/blueprints/DeligneWeightsAndPurity--DWP.7.md": "ae5f5743868613d9bfe9487219e4595591694b60ac985dac3756a61f9b2a1e90",
     "data/blueprints/DiamondEtaleCohomology--C0.json": "c04d585fa637c065eb3aadf35bb3c210558c4c325df18498e679736755cc276f",

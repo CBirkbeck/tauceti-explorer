@@ -584,6 +584,17 @@
     "data/blueprints/DeformationAndDerivedPatchingAlgebra--R03.6.md"
    ]
   },
+  "research/blueprint/packets/DeligneWeightsAndPurity--DWP.0.json": {
+   "promotedAt": "2026-10-08T08:20:11Z",
+   "review": "64d53823021669d3",
+   "reviewDate": "2026-10-08",
+   "reviewer": "independent-review-REV-DeligneWeightsAndPurity--DWP.0~2",
+   "sha256": "d0b8ae53af46a73224bd279a846534e8f36525110e3deee5dea41e830cad0660",
+   "to": [
+    "data/blueprints/DeligneWeightsAndPurity--DWP.0.json",
+    "data/blueprints/DeligneWeightsAndPurity--DWP.0.md"
+   ]
+  },
   "research/blueprint/packets/DeligneWeightsAndPurity--DWP.7.json": {
    "promotedAt": "2026-10-06T13:40:04Z",
    "review": "5aff6f72a6059d91",
