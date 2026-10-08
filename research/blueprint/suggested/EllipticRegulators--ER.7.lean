@@ -270,9 +270,14 @@ ER.7/supersingular-orders-of-modular-units — componentwise equal orders using 
 cuspidal supersingular module quotient Qbar[Σ]/Qbar[S].
 ER.7/full-level-modular-symbol-integrality — vertical tame boundaries vanish over
 finite fields; requires arithmetic-surface localization with weight comparison.
+At good primes use weight-one global units of the proper smooth fibre (SS 7.3.1,
+author-copy pp.19–20). The open-fibre boundary group need not vanish.
 ER.7/integral-beilinson-subspace — P_K lies in the model-independent integral part.
 General modular curves need resolved regular graphs/common models, total K/G
 transfer and restriction-compatible weight projectors, not elliptic-only E.6.
+Push the model lift in total K2/G2, then project the target to weight two.
+R13.6 must supply regular resolved graphs and common domination in mixed
+characteristic; its current special-fibre graphs do not supply that extension.
 ER.7/elliptic-regulator-adjointness — proper covariance, form duality and invariant
 rational Galois descent on E, without an unproved orbit-sum noncancellation claim.
 Its compact-class proof does not close the stronger inherited function-field
@@ -285,5 +290,9 @@ are imported by packet id, not declared a second time here. In particular the
 Kronecker formulas, Manin–Drinfeld, Brunault's explicit theorem and Merel-based
 prime-level formulas are not fresh definitions. G3 retains analytic E15/E16
 error-location obligations; G4 retains the rigorous X1(11) sign obligation.
+The Kronecker adapter uses Siegel Theorem 1 (§1, p.13) with the power kernel and
+contour estimates, and Theorem 2 (§3, p.28) with Abel summation. Theorem 3 (§5,
+p.47) supplies the separate Gaussian theta/Mellin continuation adapter. G6 keeps
+the corresponding summability and interchange proofs open.
 -/
 end EllipticRegulators.Modular
