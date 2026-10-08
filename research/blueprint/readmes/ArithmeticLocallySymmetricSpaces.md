@@ -65,7 +65,7 @@ The baseline is Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 and Tau Ceti f7
 - **[sch15]** P. Scholze, *On torsion in the cohomology of locally symmetric varieties*. Annals of Mathematics 182 (2015), 945–1066; arXiv:1306.2070 read 2026-10-07 (its Corollary V.4.2 is Corollary 5.4.2 of the Annals version). [Public source](https://arxiv.org/abs/1306.2070). Read: §V.4, Corollary V.4.2 and its proof.
 - **[milne]** J. S. Milne, *Introduction to Shimura varieties*. notes, version of 16 September 2017, read 2026-10-07. [Public source](https://www.jmilne.org/math/xnotes/svi.pdf). Read: §1, Cartan involutions: definition (9), Example 1.15, Theorem 1.16, Example 1.17, Propositions 1.18 and 1.20.
 - **[sella]** Y. Sella, *Comparison of sheaf cohomology and singular cohomology*. arXiv:1602.06674v3, read 2026-10-07. [Public source](https://arxiv.org/abs/1602.06674). Read: Introduction and main Theorem.
-- **[hr]** G. Harder, A. Raghuram, *Eisenstein cohomology for GL_N and ratios of critical values of Rankin–Selberg L-functions*. arXiv:1405.6513, read 2026-10-07 (Annals of Mathematics Studies 203, 2020). [Public source](https://arxiv.org/abs/1405.6513). Read: §4.1–4.2: boundary strata, the fibration with nilmanifold fibre, (4.2), Proposition 4.3, §4.2.3 Kostant's theorem (4.5).
+- **[hr]** G. Harder, A. Raghuram, *Eisenstein cohomology for GL_N and ratios of critical values of Rankin–Selberg L-functions*. arXiv:1405.6513, read 2026-10-07 (Annals of Mathematics Studies 203, 2020). [Public source](https://arxiv.org/abs/1405.6513). Read: §4.1, pp.23–24 (the ordinary GL_N boundary resolution); §4.2.1, pp.25–26 (nilmanifold fibration, (4.2), Proposition 4.3); §4.2.3, pp.27–28 (Kostant decomposition (4.5) over a splitting field with dominant integral weight). The general reductive-group target is a boundary-stratum spectral sequence; the displayed splitting is the totally real GL_N source application under those coefficient hypotheses.
 - **[franke]** J. Franke, *Harmonic analysis in weighted L2-spaces*. Annales scientifiques de l'École Normale Supérieure (4) 31 (1998), 181–279 (Numdam copy, read 2026-10-07). [Public source](https://www.numdam.org/item/10.1016/s0012-9593%2898%2980015-3.pdf). Read: Abstract and introduction; §7.4 Borel's conjecture, Theorem 18 and the spectral sequence (1) that follows.
 - **[bs73]** A. Borel, J.-P. Serre, *Corners and arithmetic groups*. Commentarii Mathematici Helvetici 48 (1973), 436–483; public E-Periodica IIIF scan and volume OCR read 2026-10-07; inherited PDF checksum not independently rehashed. [Public source](https://www.e-periodica.ch/iiif/com-001:1973:48::32/manifest). Read: §§1.4–1.9, 2.3–2.4: Cartan involutions and type S–Q spaces; §§3.2–3.9: geodesic action and horospherical decomposition; §§5.1–5.3, 7.1–7.6: corners, analytic embeddings and intersections; §§8.3, 8.6.4: interior homotopy and contractibility; §§9.1–9.5: arithmetic properness, compactness and torsion-free quotients; §11.1: rounding, finite triangulation and local-coefficient group cohomology.
 - **[dh73]** A. Douady, L. Hérault, *Arrondissement des variétés à coins — Appendice à Corners and arithmetic groups*. Commentarii Mathematici Helvetici 48 (1973), 484–489; public E-Periodica IIIF scan and volume OCR read 2026-10-07; inherited PDF checksum not independently rehashed. [Public source](https://www.e-periodica.ch/iiif/com-001:1973:48::33/manifest). Read: §§2–3: sectors, inward vector fields and ambient embeddings; §4, Propositions 4.1–4.3: collar and smooth boundary model; §§5–6, Proposition 6.1, Theorem and Definition 6.2: rounding on the same underlying topological space.
@@ -949,11 +949,13 @@ Let P_1, …, P_s represent the G(F)-conjugacy classes of proper F-parabolic sub
 
 ### Theorem: Boundary strata fibre over Levi quotients with nilmanifold fibres
 
-**Identifier:** `ALS.2/stratum-nilmanifold-fibration`.
+**Declaration:** theorem; node `ArithmeticLocallySymmetricSpaces:ALS.2/stratum-nilmanifold-fibration`.
 
 Let P = M ⋉ N be a rational parabolic. Distinguish the P-space Y^P_L = P(F)\(e(P) × P(A^∞)/L) from the induced G-stratum X^P_K of boundary-stratification. The latter decomposes over representatives g of P(A^∞)\G(A^∞)/K as a disjoint union of Y^P_{L_g}, where L_g = P(A^∞) ∩ gKg⁻¹. For each good neat L_g decomposed as L_{M,g} ⋉ L_{N,g}, the projection e(P) ≅ N(ℝ) × X_M → X_M induces a proper submersion Y^P_{L_g} → X^M_{L_{M,g}}. Here X_M already has its own split centre removed. On an arithmetic component the fibre is the compact nilmanifold Γ_{N,g}\N(ℝ); its monodromy is induced by the extension 1 → Γ_{N,g} → Γ_{P,g} → Γ_{M,g} → 1. The local system R^qπ_*V has stalk H^q(Γ_{N,g}, V). A global stratum with multiple g is not assigned one untransported Levi base. Nondecomposed levels require a separate comparison after refinement.
 
-**Hypotheses.** Each transported P-level L_g used in the fibration is good, neat and decomposed with respect to P = M ⋉ N.
+**Hypotheses.**
+
+- Each transported P-level L_g used in the fibration is good, neat and decomposed with respect to P = M ⋉ N.
 
 **Construction or proof.**
 
@@ -961,14 +963,21 @@ Let P = M ⋉ N be a rational parabolic. Distinguish the P-space Y^P_L = P(F)\(e
 2. N(ℝ) is a simply connected nilpotent Lie group and Γ_N is a cocompact lattice (unipotent groups have compact arithmetic quotients; AA.3/unipotent-class-number-one), so the fibre is a compact nilmanifold (AdditiveCombinatorics AC.3 owns nilmanifolds, Mal'cev bases and rationality).
 3. Local triviality: the projection is a smooth proper submersion (Ehresmann), monodromy by conjugation of Γ_M on Γ_N; R^qπ_*V has stalk H^q(Γ_N\N(ℝ), V) = H^q(Γ_N, V) since the nilmanifold is a K(Γ_N, 1).
 
-**Acceptance properties.**
+**Direct prerequisites.** `ArithmeticLocallySymmetricSpaces:ALS.2/boundary-stratification`, `ArithmeticLocallySymmetricSpaces:ALS.2/geodesic-action-boundary-face`, `AdditiveCombinatorics:AC.3`, `tauceti:TauCetiRoadmap/AlgebraicTopology#stage-5-bundles-covers-products-and-finite-cover-descent`, `AdelicAlgebraicGroups:AA.3/unipotent-class-number-one`.
+
+**Acceptance checks.**
 
 - For SL_{2,ℚ} and P = B, M = T is a torus with X_M a point and the stratum is the circle Γ_N\N(ℝ).
 - For GL_3 and the Borel, fibres are Heisenberg nilmanifolds of dimension 3 over a point.
 
-**Direct prerequisites.** `ArithmeticLocallySymmetricSpaces:ALS.2/boundary-stratification`; `ArithmeticLocallySymmetricSpaces:ALS.2/geodesic-action-boundary-face`; `AdditiveCombinatorics:AC.3`; `tauceti:TauCetiRoadmap/AlgebraicTopology#stage-5-bundles-covers-products-and-finite-cover-descent`; `AdelicAlgebraicGroups:AA.3/unipotent-class-number-one`.
+**Sources.**
 
-**Source passages.** [nt16], §3.1, p. 43: The fibration for the projection to the Levi quotient (NT16's H = G/N). [hr], §4.1, before (4.2): The fibration over the Levi locally symmetric space and its Leray–Serre spectral sequence (characteristic zero).
+- [J. Newton, J. A. Thorne, Torsion Galois representations over CM fields and Hecke algebras in the derived category](https://doi.org/10.1017/fms.2016.16), §3.1, p. 43. The fibration for the projection to the Levi quotient (NT16's H = G/N).
+- [G. Harder, A. Raghuram, Eisenstein cohomology for GL_N and ratios of critical values of Rankin–Selberg L-functions](https://arxiv.org/abs/1405.6513v2), §4.2.1, p.25, before (4.2) (arXiv:1405.6513v2). The fibration over the Levi locally symmetric space and its Leray–Serre spectral sequence (characteristic zero).
+
+**Atlas planet:** Nilmanifold fibration of boundary strata.
+
+**Implementation status:** `unchecked`.
 
 ### Construction: The stratification filtration of ∂X̄_K and its spectral sequence
 
@@ -1498,59 +1507,84 @@ Let P=M⋉N be a proper rational parabolic and K a good neat level. Write the in
 
 ### Theorem: Nomizu–van Est: cohomology of unipotent arithmetic groups is Lie algebra cohomology
 
-**Identifier:** `ALS.4/nomizu-van-est`.
+**Declaration:** theorem; node `ArithmeticLocallySymmetricSpaces:ALS.4/nomizu-van-est`.
 
-Let N be a unipotent group over ℚ (the unipotent radical of a rational parabolic), 𝔫 = Lie N, Γ_N ⊂ N(ℚ) an arithmetic subgroup (a lattice in N(ℝ)) and V a finite-dimensional rational representation of N over a field E of characteristic 0. Then the inclusion of N(ℝ)-invariant forms gives natural isomorphisms H^*(𝔫, V) ≅ H^*(Γ_N\N(ℝ), V) ≅ H^*(Γ_N, V), the Lie algebra cohomology carries its algebraic M-action, while the fixed nilmanifold comparison is equivariant for the normalizer of Γ_N in M(ℚ). Other Levi/commensurator elements require transported lattices and the corresponding pullback/trace maps; a fixed arithmetic lattice need not be preserved by all of M. This is a characteristic-zero statement: for integral or mod-p coefficients H^*(Γ_N, V) is not given by 𝔫-cohomology in general, and integral boundary statements must not assume it (ALS.4/boundary-stratum-cohomology-formula keeps the two regimes separate).
+Let N be a unipotent group over ℚ, 𝔫_E=Lie(N)⊗ℚE, Γ_N⊂N(ℚ) an arithmetic lattice, E a number field, and V a finite-dimensional algebraic representation of N_E. Rational Nomizu comparison, extended to E, gives H*(𝔫_E,V)≅H*(Γ_N,V), equivalently the local-system cohomology of Γ_N\N(ℝ). After an embedding E→ℂ this is the comparison by the invariant V-valued differential-form complex with its coefficient action. If N is the unipotent radical of a rational parabolic P=M⋉N and V extends to an algebraic P_E-representation, its Lie cohomology carries the algebraic M_E-action. The fixed nilmanifold comparison is equivariant for the normalizer of Γ_N in M(ℚ); other commensurator elements require transported lattices and their pullback/trace maps. No integral or mod-p Nomizu–Kostant comparison is asserted.
 
-**Hypotheses.** E a field of characteristic 0 V a rational N-representation Γ_N arithmetic in N(ℚ)
+**Hypotheses.**
+
+- E a number field of characteristic zero; the E-linear rational comparison is meant before any optional complex embedding
+- V a finite-dimensional algebraic N_E-representation
+- Γ_N arithmetic in N(ℚ), hence a lattice in N(ℝ)
+- For the Levi-equivariance statement, N is the unipotent radical of the rational parabolic P=M⋉N and V extends to an algebraic P_E-representation.
 
 **Construction or proof.**
 
-1. Nomizu: for a compact nilmanifold Γ_N\N(ℝ), left-invariant forms compute de Rham cohomology (induction on a central series, Leray–Serre for circle/torus bundles); with coefficients in a unipotent representation V the same induction applies since V has an N-stable flag with trivial graded pieces.
+1. Apply rational Nomizu comparison for the algebraic unipotent group and its arithmetic lattice, with the induced E-structure; after E→ℂ this is the invariant-form de Rham comparison. The coefficient representation is unipotent and has a finite N-stable filtration with trivial graded pieces, so the central-series argument extends to V. An E-linear isomorphism is not obtained merely by forgetting the choice of a complex embedding: retain the rational comparison/descent input.
 2. Γ_N\N(ℝ) is a K(Γ_N, 1) (nilmanifold fibre of stratum-nilmanifold-fibration), so its cohomology with local system V is H^*(Γ_N, V).
-3. Levi equivariance: M acts on 𝔫 and V, hence on Lie algebra cochains. On a fixed nilmanifold only the normalizer of Γ_N acts geometrically. A general commensurator element compares transported lattices through refinement and transfer.
+3. When the coefficient extends to P, M acts on 𝔫_E and V and therefore on their Lie cochains. Only the normalizer of Γ_N acts on the fixed nilmanifold; a general rational Levi commensurator compares transported lattices through refinement and transfer.
 4. Use the requested AF.1a absolute Lie algebra cochain complex over E to define H^*(𝔫,V); the existing relative complex over C does not supply this exact output. The lattice comparison itself stays in ALS.4.
 
-**Acceptance properties.**
+**Direct prerequisites.** `ArithmeticLocallySymmetricSpaces:ALS.2/stratum-nilmanifold-fibration`, `AdditiveCombinatorics:AC.3`, `AutomorphicFormsOnReductiveGroups:AF.1a`, `mathlib:groupCohomology`.
+
+**Acceptance checks.**
 
 - N = 𝔾_a, Γ_N = ℤ, V = E with trivial action: H^0 = H^1 = E, matching H^*(𝔫, E) for the one-dimensional abelian 𝔫.
 - N = 𝔾_a and V = Sym^k(E²) restricted to the upper unipotent: H^0(𝔫, V) and H^1(𝔫, V) are one-dimensional (highest and lowest weight lines).
 
-**Direct prerequisites.** `ArithmeticLocallySymmetricSpaces:ALS.2/stratum-nilmanifold-fibration`; `AdditiveCombinatorics:AC.3`; `AutomorphicFormsOnReductiveGroups:AF.1a`; `mathlib:groupCohomology`.
+**Sources.**
 
-**Source passages.** [hr], §4.1, p. 25–26: The statement used for boundary strata, with its Levi equivariance.
+- [G. Harder, A. Raghuram, Eisenstein cohomology for GL_N and ratios of critical values of Rankin–Selberg L-functions](https://arxiv.org/abs/1405.6513v2), §4.2.1, pp.25–26 (arXiv:1405.6513v2). The GL_n boundary application of the rational unipotent comparison. Its algebraic Levi action is on the coefficient module H*(𝔲_P,M_λ,E); geometry at a fixed lattice requires its normalizer. This passage invokes the comparison and is not a full proof of rational Nomizu.
+
+**Implementation status:** `unchecked`.
 
 ### Theorem: Cohomology of a boundary stratum via van Est and Kostant
 
-**Identifier:** `ALS.4/boundary-stratum-cohomology-formula`.
+**Declaration:** theorem; node `ArithmeticLocallySymmetricSpaces:ALS.4/boundary-stratum-cohomology-formula`.
 
-Let G be connected reductive over F, P=M⋉N proper, K good neat, E characteristic 0 containing all coefficient embeddings and splitting the chosen restriction-of-scalars root datum, with a highest-weight Borel contained in P, and V_λ algebraic. For each transported decomposed level L_g from stratum-nilmanifold-fibration, Leray/Hochschild–Serre gives E₂^{a,b}=H^a(X^M_{L_{M,g}},H^b(𝔫,V_λ)~)⇒H^{a+b}(Y^P_{L_g},V_λ), by Nomizu–van Est. Kostant identifies H^b(𝔫,V_λ)=⊕_{w∈W^P,ℓ(w)=b}V^M_{w(λ+ρ)−ρ}; this describes the E₂ page for general reductive G and does not assert degeneration. For G=Res_{F/ℚ}GL_N with F totally real, Harder–Raghuram §4.2, (4.2) and Proposition 4.3 supply the degeneration and the natural cohomological decomposition H^q(X^P_K,V_λ)=⊕_g⊕_{w∈W^P}H^{q−ℓ(w)}(X^M_{L_{M,g}},V^M_{w·λ}), with the transported-component and real-component invariants of that source. Over all levels this is its algebraic unnormalized induction from π₀(P(ℝ))×P(A^∞) to π₀(G(ℝ))×G(A^∞). At eligible hyperspecial components the Hecke action is through the integral unnormalized S=r_M∘r_P; conversion to normalized induction multiplies by the explicit modulus half-character. Beyond that totally real GL_N setting, a direct-sum/derived splitting requires a separate Levi-equivariant nilpotent-cochain formality theorem; E₂ degeneration alone would give only an associated graded, not a canonical splitting. No integral Kostant decomposition is asserted.
+Let G be connected reductive over F, P=M⋉N proper, K good neat, E a number field that splits 𝐆=Res_{F/ℚ}G and contains all embeddings of F, and V_λ the irreducible algebraic 𝐆_E-representation of dominant integral highest weight λ for a fixed split Borel and torus. For each transported decomposed level L_g from stratum-nilmanifold-fibration, Leray/Hochschild–Serre gives E₂^{a,b}=H^a(X^M_{L_{M,g}},H^b(𝔫,V_λ)~)⇒H^{a+b}(Y^P_{L_g},V_λ), by Nomizu–van Est. Kostant identifies H^b(𝔫,V_λ)=⊕_{w∈W^P,ℓ(w)=b}V^M_{w(λ+ρ)−ρ}; this describes the E₂ page for general reductive G and does not assert degeneration. For 𝐆=Res_{F/ℚ}GL_N with F totally real and E/ℚ Galois containing F, Harder–Raghuram §4.2, (4.2) and Proposition 4.3 supply the degeneration and the natural cohomological decomposition H^q(X^P_K,V_λ)=⊕_g⊕_{w∈W^P}H^{q−ℓ(w)}(X^M_{L_{M,g}},V^M_{w·λ}), with the transported-component and real-component invariants of that source. Over all levels this is its algebraic unnormalized induction from π₀(P(ℝ))×P(A^∞) to π₀(G(ℝ))×G(A^∞). At eligible hyperspecial components the Hecke action is through the integral unnormalized S=r_M∘r_P; conversion to normalized induction multiplies by the explicit modulus half-character. A general reductive direct-sum/derived splitting requires a separate Levi-equivariant nilpotent-cochain formality theorem; E₂ degeneration alone would give only an associated graded, not a canonical splitting. No integral Kostant decomposition is asserted.
 
-**Hypotheses.** E characteristic 0, containing the coefficient embeddings and splitting the chosen root datum; the highest-weight Borel lies in P; the Harder–Raghuram splitting branch assumes F totally real K neat and decomposed with respect to P
+**Hypotheses.**
+
+- F a number field; E/ℚ a finite characteristic-zero splitting field for 𝐆=Res_{F/ℚ}G containing all embeddings of F
+- Fix the split torus and Borel over E and a dominant integral highest weight λ; P and its Levi are compatible with these choices
+- K neat and decomposed at the transported levels
+- The cited natural direct-sum decomposition and real-component induction of Harder–Raghuram are used for 𝐆=Res_{F/ℚ}GL_N with F totally real and E/ℚ Galois containing F. General reductive G uses the E₂ spectral sequence unless a separate splitting theorem is supplied.
 
 **Construction or proof.**
 
 1. Apply the transported-level nilmanifold fibration to each g. Nomizu–van Est identifies the stalk cohomology with Lie-algebra cohomology; the discrete extension gives Leray/Hochschild–Serre before any degeneration claim.
-2. Use the requested AF.1a absolute-cochain/Kostant theorem, using its actual Levi modules V^M_{w·λ}, not one-dimensional substitutes. This supplies the displayed E₂ page in characteristic zero.
-3. For the totally real GL_N statement use Harder–Raghuram (4.2), Proposition 4.3 and §4.2.3 exactly: the natural decomposition and induction include transported levels and π₀(K_∞)-invariants. Do not transfer the GL_N degeneration to every reductive group or every number field.
+2. Use the requested AF.1a absolute-cochain/Kostant theorem over the specified splitting field E and dominant integral λ, with its actual Levi modules V^M_{w·λ}. For nonsplit input without this extension one must first supply the scalar-extension/descent data; the displayed highest-weight sum is not asserted over an arbitrary characteristic-zero field.
+3. For Res_{F/ℚ}GL_N with F totally real, use Harder–Raghuram v2 §4.2.1, (4.2), Proposition 4.3, §4.2.2 and §4.2.3 exactly. Keep E Galois containing F, transported levels and the real-component invariants. The proof’s referenced degeneration/splitting input remains explicit; no such natural direct sum is inferred for every reductive group.
 4. Apply boundary-stratum-hecke-comparison and parabolic-hecke-maps on eligible components. The generic reductive splitting and extension beyond decomposed levels are recorded gaps with exact earlier inputs.
 
-**Acceptance properties.**
+**Direct prerequisites.** `ArithmeticLocallySymmetricSpaces:ALS.4/nomizu-van-est`, `ArithmeticLocallySymmetricSpaces:ALS.4/boundary-stratum-hecke-comparison`, `ArithmeticLocallySymmetricSpaces:ALS.4/parabolic-hecke-maps`, `ArithmeticLocallySymmetricSpaces:ALS.2/stratum-nilmanifold-fibration`, `AutomorphicFormsOnReductiveGroups:AF.1a`, `SmoothRepresentationsOfLocalGroups:SR.2`.
+
+**Acceptance checks.**
 
 - GL_{2,ℚ}, P = B, λ = (k, 0): W^B = {1, s}, H^0(𝔫, V_λ) = E(k, 0), H^1(𝔫, V_λ) = E(−1, k + 1), so each cusp contributes the characters (k,0) in degree 0 and (−1, k+1) in degree 1.
 - λ = 0: H^*(𝔫,E) = ⊕_{w∈W^P} V^M_{w·0}[−ℓ(w)]. These are irreducible Levi representations, not generally one-dimensional characters; for a Borel M is a torus and the character notation E(w·0) is valid.
 
-**Direct prerequisites.** `ArithmeticLocallySymmetricSpaces:ALS.4/nomizu-van-est`; `ArithmeticLocallySymmetricSpaces:ALS.4/boundary-stratum-hecke-comparison`; `ArithmeticLocallySymmetricSpaces:ALS.4/parabolic-hecke-maps`; `ArithmeticLocallySymmetricSpaces:ALS.2/stratum-nilmanifold-fibration`; `AutomorphicFormsOnReductiveGroups:AF.1a`; `SmoothRepresentationsOfLocalGroups:SR.2`.
+**Sources.**
 
-**Source passages.** [hr], §4.1, (4.2), p. 26: Part (i), summed over the strata components. [hr], §4.2.3, (4.5): Part (ii). [hr], §4.1, Proposition 4.3: Part (iii), algebraic induction.
+- [G. Harder, A. Raghuram, Eisenstein cohomology for GL_N and ratios of critical values of Rankin–Selberg L-functions](https://arxiv.org/abs/1405.6513v2), §4.2.1, (4.2), p.26 (arXiv:1405.6513v2). Part (i), summed over the strata components.
+- [G. Harder, A. Raghuram, Eisenstein cohomology for GL_N and ratios of critical values of Rankin–Selberg L-functions](https://arxiv.org/abs/1405.6513v2), §4.2.3, (4.5), p.27 (arXiv:1405.6513v2). Part (ii).
+- [G. Harder, A. Raghuram, Eisenstein cohomology for GL_N and ratios of critical values of Rankin–Selberg L-functions](https://arxiv.org/abs/1405.6513v2), §4.2.1, Proposition 4.3, p.26 (arXiv:1405.6513v2). Part (iii), algebraic induction.
+
+**Atlas planet:** Kostant–van Est boundary formula.
+
+**Implementation status:** `unchecked`.
 
 ### Theorem: The integral Leray–Hochschild–Serre spectral sequence of a stratum
 
-**Identifier:** `ALS.4/levi-hochschild-serre`.
+**Declaration:** theorem; node `ArithmeticLocallySymmetricSpaces:ALS.4/levi-hochschild-serre`.
 
 For neat decomposed K and P=M⋉N, write X^P_K=⊔_gY^P_{L_g}, with all levels and arithmetic groups transported as in stratum-nilmanifold-fibration. For each component the discrete extension 1→Γ_{N,g}→Γ_{P,g}→Γ_{M,g}→1 gives E₂^{a,b}=H^a(Γ_{M,g},H^b(Γ_{N,g},V))⇒H^{a+b}(Γ_{P,g},V), equivalently the Leray sequence on the Levi base with the indicated local coefficient sheaf. Sum these sequences across g. They are Hecke-compatible through the induced parabolic action and the r_M comparison where its hypotheses hold. Coefficient base change is a derived map of spectral sequences, retaining Tor terms; it is not an isomorphism of E₂ pages without flatness. In the special NT16 Lemma 4.5 setting, N is an F-unipotent group, Γ_N is a congruence subgroup N(F)∩U_N, and k has the stated p-residue coefficients with trivial N-action. The comparison with U_{N,S} uses the discrete groups and the arithmetic acyclicity argument in that lemma. The pro-p topology of U_{N,S} does not by itself identify its continuous cohomology with this discrete cohomology; no general discrete/profinite comparison is claimed here.
 
-**Hypotheses.** K neat and decomposed V finite projective
+**Hypotheses.**
+
+- K neat and decomposed
+- V finite projective
 
 **Construction or proof.**
 
@@ -1559,14 +1593,19 @@ For neat decomposed K and P=M⋉N, write X^P_K=⊔_gY^P_{L_g}, with all levels a
 3. For the specialized p-coefficient assertion read NT16 Lemma 4.5 as a statement about discrete groups and its hypotheses. Its arithmetic filtration and acyclicity are proof inputs; density in a compact p-adic group is not a proof of cohomological comparison.
 4. Derived coefficient change gives maps retaining all Tor contributions. Finite quotient groups in ALS.6 have the discrete topology, so their continuous cochains, if used, coincide with ordinary group cochains by a direct finite-domain identification.
 
-**Acceptance properties.**
+**Direct prerequisites.** `ArithmeticLocallySymmetricSpaces:ALS.2/stratum-nilmanifold-fibration`, `ArithmeticLocallySymmetricSpaces:ALS.4/boundary-stratum-hecke-comparison`, `mathlib:groupCohomology`, `ArithmeticLocallySymmetricSpaces:ALS.1/group-cohomology-comparison`, `tauceti:TauCetiRoadmap/AlgebraicTopology#stage-5-bundles-covers-products-and-finite-cover-descent`.
+
+**Acceptance checks.**
 
 - For GL_{2,ℚ}, P = B: Γ_N ≅ ℤ, E_2^{a,b} = H^a(pt, H^b(ℤ, V)), giving H^0 and H^1 of the cusp circle as invariants and coinvariants of the unipotent monodromy on V.
-- In characteristic 0 the E_2 page is the Kostant–van Est formula.
+- In characteristic 0, over a number field E splitting the group and for V=V_λ irreducible of dominant integral highest weight, the E_2 page is the Kostant–van Est formula.
 
-**Direct prerequisites.** `ArithmeticLocallySymmetricSpaces:ALS.2/stratum-nilmanifold-fibration`; `ArithmeticLocallySymmetricSpaces:ALS.4/boundary-stratum-hecke-comparison`; `mathlib:groupCohomology`; `ArithmeticLocallySymmetricSpaces:ALS.1/group-cohomology-comparison`; `tauceti:TauCetiRoadmap/AlgebraicTopology#stage-5-bundles-covers-products-and-finite-cover-descent`.
+**Sources.**
 
-**Source passages.** [nt16], §4, Lemma 4.5, p. 56: The integral (mod p) comparison for the unipotent part. [hr], §4.1, before (4.2): The Leray–Serre spectral sequence of the stratum fibration (degeneration only in characteristic 0).
+- [J. Newton, J. A. Thorne, Torsion Galois representations over CM fields and Hecke algebras in the derived category](https://doi.org/10.1017/fms.2016.16), §4, Lemma 4.5, p. 56. The integral (mod p) comparison for the unipotent part.
+- [G. Harder, A. Raghuram, Eisenstein cohomology for GL_N and ratios of critical values of Rankin–Selberg L-functions](https://arxiv.org/abs/1405.6513v2), §4.2.1, p.25, before (4.2) (arXiv:1405.6513v2). The characteristic-zero GL_n/ totally-real-field boundary fibration in the source. Its degeneration is not used to identify the integral sequence, and alone does not produce a canonical general reductive splitting.
+
+**Implementation status:** `unchecked`.
 
 ### Theorem: Gluing over strata: convergence and Hecke compatibility of the boundary spectral sequence
 
@@ -2299,9 +2338,9 @@ Consumed by: `ArithmeticLocallySymmetricSpaces:ALS.2/stratum-nilmanifold-fibrati
 
 ### AutomorphicFormsOnReductiveGroups:AF.1a
 
-Kostant's theorem: for a reductive Lie algebra over a field of characteristic 0 and a parabolic 𝔮 = 𝔪 ⊕ 𝔫, H^q(𝔫, V_λ) ≅ ⊕_{w ∈ W^P, ℓ(w) = q} V^M_{w·λ} as M-modules, w·λ = w(λ + ρ) − ρ, with Tau Ceti's Weyl vector ρ; and Lie algebra cohomology H^*(𝔫, V) (RT-AREA-automorphic-1/6). Own the absolute Chevalley–Eilenberg complex and this theorem in the AF.1a cochain prefix; AF.1 imports that prefix. The current relative complex is over ℂ and does not yet supply the general characteristic-zero E statement or Kostant decomposition, so retain this stage request rather than citing it as an exact theorem.
+The full absolute algebraic Chevalley–Eilenberg complex C*(𝔫_E,V), differential and functorial coefficient/Levi action, in all degrees over a characteristic-zero field E; and Kostant’s theorem for a split reductive group over E, a compatible parabolic with Levi M and nilpotent radical 𝔫, and an irreducible algebraic coefficient V_λ of dominant integral highest weight: H^q(𝔫_E,V_λ)≅⊕_{w∈W^P,ℓ(w)=q}V^M_{w(λ+ρ)−ρ} as algebraic M-representations. For nonsplit input require a specified splitting extension and descent compatibility, not the same formula over an arbitrary field. AF.1a is the unique owner; AF.1 imports it. The existing relative complex over ℂ and Mathlib’s low-degree absolute maps do not yet supply this exact output, so this is a stage request, not an exact fulfilled theorem citation. ALS.4 owns the rational arithmetic-lattice Nomizu comparison and its transported-lattice Hecke application (RT-AREA-automorphic-1/6).
 
-Consumed by: `ArithmeticLocallySymmetricSpaces:ALS.4/nomizu-van-est`; `ArithmeticLocallySymmetricSpaces:ALS.4/boundary-stratum-cohomology-formula`.
+Consumed by: `ArithmeticLocallySymmetricSpaces:ALS.4/nomizu-van-est`, `ArithmeticLocallySymmetricSpaces:ALS.4/boundary-stratum-cohomology-formula`.
 
 ### AutomorphicGaloisRepresentationsPartII:AG2.4
 
