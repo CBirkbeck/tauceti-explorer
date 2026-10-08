@@ -69,7 +69,8 @@
     "Paso 6 crystalline weight-two/four ordinary application, p.14"
    ],
    "revisionRead": "2026-10-08",
-   "revisionReadSections": "Theorems 1.4–1.7, pp.4–5; Definition 1.10 and Remark 4, pp.6–7; Paso 6, p.14"
+   "revisionReadSections": "Theorems 1.4–1.7, pp.4–5; Definition 1.10 and Remark 4, pp.6–7; Paso 6, p.14",
+   "independentReviewRead": "2026-10-08"
   },
   {
    "id": "SKINNER-WILES-1999",
@@ -83,7 +84,8 @@
     "Introduction: the Theorem (printed p. 6) and the outline (pp. 7–8)"
    ],
    "revisionRead": "2026-10-08",
-   "revisionReadSections": "Introduction theorem, printed p.6 (PDF p.3), page image"
+   "revisionReadSections": "Introduction theorem, printed p.6 (PDF p.3), page image",
+   "independentReviewRead": "2026-10-08"
   },
   {
    "id": "PAN-2022",
@@ -104,7 +106,8 @@
     "§8 Theorem 8.0.1 and Remark 8.0.4, pp.124–125"
    ],
    "revisionRead": "2026-10-08",
-   "revisionReadSections": "Theorem 1.0.2, p.3; Corollaries 3.5.10–3.5.12, pp.31–34; §4.1, pp.38–40; Theorems 5.1.2 and 6.1.2, pp.71,95–96; §§7.1–7.4, pp.111–124; Theorem 8.0.1 and Remark 8.0.4, pp.124–125"
+   "revisionReadSections": "Theorem 1.0.2, p.3; Corollaries 3.5.10–3.5.12, pp.31–34; §4.1, pp.38–40; Theorems 5.1.2 and 6.1.2, pp.71,95–96; §§7.1–7.4, pp.111–124; Theorem 8.0.1 and Remark 8.0.4, pp.124–125",
+   "independentReviewRead": "2026-10-08"
   },
   {
    "id": "PASKUNAS-2016",
@@ -118,7 +121,8 @@
     "§1: Theorem 1.1 and §1.1.2 'Global part' (pp. 1–6)"
    ],
    "revisionRead": "2026-10-08",
-   "revisionReadSections": "Theorem 1.1, pp.1–2; §1.1.2, p.5"
+   "revisionReadSections": "Theorem 1.1, pp.1–2; §1.1.2, p.5",
+   "independentReviewRead": "2026-10-08"
   },
   {
    "id": "TUNG-2021-DYADIC",
@@ -137,7 +141,9 @@
     "§8 all-component support and global lifting proof, pp.38–39"
    ],
    "revisionRead": "2026-10-08",
-   "revisionReadSections": "Introduction, pp.2–3; §4.3, pp.20–21; Lemma 5.3.2, pp.28–29; §6.3, pp.32–33; §§7.2–7.3, pp.36–37; §8, pp.38–39"
+   "revisionReadSections": "Introduction, pp.2–3; §4.3, pp.20–21; Lemma 5.3.2, pp.28–29; §6.3, pp.32–33; §§7.2–7.3, pp.36–37; §8, pp.38–39; §3.2.5 Proposition 3.2.7, p.15; Proposition 5.2.2(3), p.28",
+   "independentReviewRead": "2026-10-08",
+   "versionOfRecordAccess": "Publisher article page read on 2026-10-08; its PDF endpoint served an HTML access page, not the article. Theorem 8.0.3 finding E11 is scoped to arXiv v3 only; no collation of the published theorem is claimed."
   },
   {
    "id": "TUNG-2021-P3",
@@ -153,7 +159,8 @@
     "Proposition 4.4, Remark 4.5, the proof of Theorem 1.2, Corollary 4.6, Theorem 4.7 and Remark 4.8 (pp. 14–15)"
    ],
    "revisionRead": "2026-10-08",
-   "revisionReadSections": "Theorem 4.7 and Remark 4.8, p.15"
+   "revisionReadSections": "Theorem 4.7 and Remark 4.8, p.15",
+   "independentReviewRead": "2026-10-08"
   },
   {
    "id": "EMERTON-LGC-2011",
@@ -169,7 +176,8 @@
     "§§7.3–7.4 (pp. 95–98)"
    ],
    "revisionRead": "2026-10-08",
-   "revisionReadSections": "Theorem 3.3.22, p.28; §§7.3–7.4, pp.96–97"
+   "revisionReadSections": "Theorem 3.3.22, p.28; §§7.3–7.4, pp.96–97",
+   "independentReviewRead": "2026-10-08"
   },
   {
    "id": "HU-TAN-2015",
@@ -184,7 +192,8 @@
     "§6: Proposition 6.2, Theorem 6.3 and its proof (pp. 33–35)"
    ],
    "revisionRead": "2026-10-08",
-   "revisionReadSections": "Theorem 6.3 and proof, p.35"
+   "revisionReadSections": "Theorem 6.3 and proof, p.35",
+   "independentReviewRead": "2026-10-08"
   },
   {
    "id": "DP-PUBLISHED",
@@ -200,7 +209,8 @@
     "§2 Paso 6, p.14"
    ],
    "revisionRead": "2026-10-08",
-   "revisionReadSections": "Theorems 1.4–1.7, pp.4–5; Definition 1.10 and Remark 4, p.7; Paso 6, p.14"
+   "revisionReadSections": "Theorems 1.4–1.7, pp.4–5; Definition 1.10 and Remark 4, p.7; Paso 6, p.14",
+   "independentReviewRead": "2026-10-08"
   }
  ],
  "nodes": [
@@ -379,7 +389,7 @@
     "Skinner–Wiles' hypothesis (i) χ|_{D₃} ≠ 1 holds automatically for χ = χ̄₃, which is ramified at 3; Dieulefait–Pacetti print it as 'ρ|_{D₃} ≠ (1 0; 0 1)' (source issue OrdinaryAutomorphicFormsAndModularityLifting/E9)",
     "The inertia-quotient condition is an explicit hypothesis of this theorem. The crystalline-to-ordinary criterion is used separately in crystalline-weights-two-four-completion.",
     "Pan Theorem 1.0.2 includes odd p=3 but excludes local residual ratio ω; the existing R21.5/theorem-a-at-three already records this accurately.",
-    "ψ is of finite order, as stated in Skinner–Wiles. DP Theorem 1.7 does not repeat this qualification; source issue E1 records it.",
+    "ψ is of finite order, as stated in Skinner–Wiles. DP Theorem 1.7 does not repeat this qualification; source issue E10 records it.",
     "The representation is defined over a finite extension E/Q_3, as required by Skinner–Wiles; the Q̄_3 notation denotes its coefficient embedding."
    ],
    "proofSteps": [
@@ -698,8 +708,11 @@
    ],
    "title": "Automorphy from typed dyadic component support",
    "kind": "theorem",
-   "statement": "In Tung §§4–5, with a modular totally odd nonsolvable residual representation over a totally real F in which 2 splits completely, fixed determinant ψε, the specified Steinberg conditions away from 2, auxiliary place v₁, and a product σ of locally algebraic types, suppose the imported Theorem 8.0.1 gives support meeting every component of R∞(σ)[1/2]. Then Rˢ_ψ(σ) is finite over 𝒪 and M(σ)[1/2] is faithful over Rˢ_ψ(σ)[1/2]. Every characteristic-zero point of this global deformation problem, including the point of a prescribed lift of type σ, therefore occurs in algebraic quaternionic forms and is automorphic after Jacquet–Langlands.",
-   "hypotheses": [],
+   "statement": "In Tung §§4–5, with a modular nonsolvable residual representation over a totally real F in which 2 splits completely, fixed determinant ψε totally odd, odd deformation conditions at every real place, the specified Steinberg conditions away from 2, auxiliary place v₁, and a product σ of locally algebraic types, suppose the imported Theorem 8.0.1 gives support containing every irreducible component of R∞(σ)[1/2]. Then Rˢ_ψ(σ) is finite over 𝒪 and M(σ)[1/2] is faithful over Rˢ_ψ(σ)[1/2]. Every characteristic-zero point of this global deformation problem, including the point of a prescribed lift of type σ, therefore occurs in algebraic quaternionic forms and is automorphic after Jacquet–Langlands.",
+   "hypotheses": [
+    "The characteristic-zero deformation points satisfy det ρ(c_v)=−1 at every real place. Residual oddness in characteristic two cannot replace these odd local deformation conditions (Tung §3.2.5, Proposition 3.2.7, p.15).",
+    "Full component support is required: the type-specialized patched module is supported on the union of all irreducible components. A nonempty intersection with each component alone is not a general algebraic full-support criterion."
+   ],
    "proofSteps": [
     "Use R31.5 for Tung Theorem 8.0.1, including both Theorem 6.3.7 (nonordinary components) and Theorem 7.3.1 (ordinary components); no finiteness assertion about the raw completed module is substituted.",
     "Apply Tung Lemma 5.3.2 (1)–(3), with its local–global type comparison and patching/augmentation comparison. The finite module, reduced generic fibre and faithful action imply nonzero fibre at every characteristic-zero point by localization and Nakayama.",
@@ -715,8 +728,8 @@
    "sources": [
     {
      "sourceId": "TUNG-2021-DYADIC",
-     "locator": "§5.3, Lemma 5.3.2, pp.28–29; §8, Theorem 8.0.1 p.38 and Theorem 8.0.3 with proof pp.38–39 (arXiv v3)",
-     "match": "The cited passage supplies this statement and the indicated proof route."
+     "locator": "§3.2.5, Proposition 3.2.7, p.15; §5.2, Proposition 5.2.2(3), p.28; §5.3, Lemma 5.3.2, p.28; §8, Theorems 8.0.1 and 8.0.3 with proof, pp.38–39 (arXiv v3)",
+     "match": "The odd local deformation problem retains characteristic-zero total oddness; the type-specialized finite module and full patched-component support give the finite faithful unpatched module in Lemma 5.3.2(3)."
     }
    ],
    "acceptance": [
@@ -733,11 +746,13 @@
    ],
    "title": "Tung’s totally real dyadic lifting theorem",
    "kind": "theorem",
-   "statement": "Let F be totally real with every F_v ≅ ℚ₂ for v|2. Let ρ:G_F→GL₂(𝒪) be continuous, finitely ramified, with modular totally odd residual representation of nonsolvable image, and potentially semistable with distinct Hodge–Tate weights at every v|2. Then ρ is attached, up to twist, to a Hilbert modular form. There is no local exclusion of extensions of a character by itself (Tung Theorem 8.0.3).",
-   "hypotheses": [],
+   "statement": "Let F be totally real with every F_v ≅ ℚ₂ for v|2. Let ρ:G_F→GL₂(𝒪) be continuous, totally odd and finitely ramified, with modular residual representation of nonsolvable image, and potentially semistable with distinct Hodge–Tate weights at every v|2. Then ρ is attached, up to twist, to a Hilbert modular form. There is no local exclusion of extensions of a character by itself (Tung Theorem 8.0.3).",
+   "hypotheses": [
+    "Total oddness means det ρ(c_v)=−1 for every real place v. The bar on ρ in arXiv v3 Theorem 8.0.3(3) is recorded as source issue GL2ModularityLifting/E11; use the odd characteristic-zero local deformation condition from §3.2.5, not residual determinant parity at two."
+   ],
    "proofSteps": [
     "Choose a totally real solvable extension F′/F, disjoint from the residual fixed field with ζ₂, of even degree, split at 2, killing residual ramification away from 2 and making the remaining lift inertia unipotent. Preserve nonsolvable residual image using the general-field restriction export requested from R04.4.",
-    "Choose the definite quaternion algebra ramified at the real places and the even set Σ of remaining ramified finite places, an auxiliary v₁ with distinct residual Frobenius eigenvalues, and the level of Tung §8. The determinant, types and Steinberg local conditions put ρ|G_F′ in the situation of typed-component-specialisation.",
+    "Choose the definite quaternion algebra ramified at the real places and the even set Σ of remaining ramified finite places, an auxiliary v₁ with distinct residual Frobenius eigenvalues, and the level of Tung §8. Total oddness of ρ puts its real-place points in D_v^odd (Proposition 3.2.7). The determinant, types and Steinberg local conditions put ρ|G_F′ in the situation of typed-component-specialisation.",
     "Apply that theorem and descend using solvable base change, with irreducibility guaranteed by nonsolvable residual image."
    ],
    "prerequisites": [
@@ -749,12 +764,13 @@
    "sources": [
     {
      "sourceId": "TUNG-2021-DYADIC",
-     "locator": "§8, Theorem 8.0.3 and proof, pp.38–39 (arXiv v3)",
-     "match": "The cited passage supplies this statement and the indicated proof route."
+     "locator": "§3.2.5, Proposition 3.2.7, p.15; §8, Theorem 8.0.3 and proof, pp.38–39 (arXiv v3)",
+     "match": "The proof uses odd characteristic-zero local deformations. The displayed residual oddness in condition (3) is corrected as in source issue E11."
     }
    ],
    "acceptance": [
-    "Let F be totally real with every F_v ≅ ℚ₂ for v|2. Let ρ:G_F→GL₂(𝒪) be continuous, finitely ramified, with modular totally odd residual representation of nonsolvable image, and potentially semistable with distinct Hodge–Tate weights at every v|2. Then ρ is attached, up to twist, to a Hilbert modular form. There is no local exclusion of extensions of a character by itself (Tung Theorem 8.0.3)."
+    "Let F be totally real with every F_v ≅ ℚ₂ for v|2. Let ρ:G_F→GL₂(𝒪) be continuous, totally odd and finitely ramified, with modular residual representation of nonsolvable image, and potentially semistable with distinct Hodge–Tate weights at every v|2. Then ρ is attached, up to twist, to a Hilbert modular form. There is no local exclusion of extensions of a character by itself (Tung Theorem 8.0.3).",
+    "The local characteristic-two reductions of I₂ and diag(1,−1) coincide, although their characteristic-zero determinants are +1 and −1. Thus residual determinant data alone does not verify the total-oddness premise."
    ],
    "implementationStatus": "unchecked",
    "planet": {
@@ -1625,7 +1641,7 @@
  "requests": [
   {
    "supplier": "CompletedCohomologyAndLocalGlobalCompatibility:R31.5",
-   "need": "Tung §5 Lemma 5.3.2 and §8 Theorem 8.0.1, with finite type-specialized modules and the ordinary §7.3.1 plus nonordinary §6.3.7 component cases. For Pan, Theorem 4.1.7: localized pseudo-ring→Hecke surjection has nilpotent kernel at Definition 4.1.4 nice primes, including the local p=3 exclusion; §§4.2–4.8 construct the one-dimensional-prime patching and finite faithful multiplicity module. Keep the raw completed homology nonfinite and use Corollary 3.5.10 to justify finite-module support. Supply Pan §8 only with its explicit residual-modularity hypothesis.",
+   "need": "Tung §5 Lemma 5.3.2 and §8 Theorem 8.0.1, with the totally odd fixed determinant and real-place odd deformation conditions, full support on every patched irreducible component, and finite type-specialized modules and the ordinary §7.3.1 plus nonordinary §6.3.7 component cases. For Pan, Theorem 4.1.7: localized pseudo-ring→Hecke surjection has nilpotent kernel at Definition 4.1.4 nice primes, including the local p=3 exclusion; §§4.2–4.8 construct the one-dimensional-prime patching and finite faithful multiplicity module. Keep the raw completed homology nonfinite and use Corollary 3.5.10 to justify finite-module support. Supply Pan §8 only with its explicit residual-modularity hypothesis.",
    "neededBy": [
     "GL2ModularityLifting:R32.3/typed-component-specialisation",
     "GL2ModularityLifting:R32.4/nice-prime-component-bridge",
@@ -1942,7 +1958,7 @@
  ],
  "sourceIssues": [
   {
-   "id": "GL2ModularityLifting/E1",
+   "id": "GL2ModularityLifting/E10",
    "source": "DP-PUBLISHED",
    "kind": "gap",
    "locator": "Theorem 1.7, fourth hypothesis, published p.5; arXiv v2 p.4",
@@ -1957,12 +1973,34 @@
     "Web search for the exact paper title and erratum; none located",
     "Pacetti author homepage/papers page attempted; page text inaccessible, so no author-page clearance is claimed",
     "Independent review, 6 October 2026: https://link.springer.com/article/10.1007/s13398-023-01478-8 (no correction linked); https://arxiv.org/abs/2108.07577 (v1,v2 only); exact-title erratum and DOI correction searches (none located).",
-    "Independent review, 6 October 2026: https://sites.google.com/site/luisdieulefait/ lists this paper without a correction; https://sweet.ua.pt/apacetti/ returned no readable text, so no Pacetti-homepage clearance is claimed."
+    "Independent review, 6 October 2026: https://sites.google.com/site/luisdieulefait/ lists this paper without a correction; https://sweet.ua.pt/apacetti/ returned no readable text, so no Pacetti-homepage clearance is claimed.",
+    "Independent review, 8 October 2026: publisher DOI page and PDF, arXiv:2108.07577 version record, and exact DOI/title correction searches; no correction located in these accessible records."
    ],
    "review": {
     "verdict": "confirmed",
-    "reason": "Independently read the publisher PDF p.5 and arXiv v2 p.4: Theorem 1.7 writes det ρ=ψχ₃^{k−1} but places no finite-order restriction on ψ. The cited Skinner–Wiles theorem on the Numdam image, printed p.6, explicitly requires ψ finite order. An arbitrary choice ψ=det ρ·χ₃^{1−k} makes the unrestricted determinant condition vacuous, so the cited theorem proves only the qualified statement retained by this packet. This confirms a gap in the citation, rather than claiming a counterexample to the full printed theorem.",
-    "by": "REV-GL2ModularityLifting--R32.3"
+    "reason": "Independently compared published DP Theorem 1.7 p.5 and arXiv v2 p.4 with the Numdam page image of Skinner–Wiles, printed p.6. Only Skinner–Wiles states that ψ has finite order. Without that condition choosing ψ=det ρ·ε^{1−k} makes the determinant factorization impose no restriction. The citation therefore supports the qualified theorem planned here; this is a citation gap, not a claimed counterexample. The identifier is now E10 because part R22.1 already uses E1 for a different finding.",
+    "by": "REV-GL2ModularityLifting--R32.3~2"
+   }
+  },
+  {
+   "id": "GL2ModularityLifting/E11",
+   "source": "TUNG-2021-DYADIC",
+   "kind": "misprint",
+   "locator": "arXiv:1908.06174v3, Theorem 8.0.3(3), p.38; compare §3.2.5 Proposition 3.2.7, p.15 and the proof, pp.38–39",
+   "printed": "Condition (3) assigns total oddness to the residual representation rather than to the characteristic-zero lift (paraphrase; the bar was checked on the page image).",
+   "correction": "Require det ρ(c_v)=−1 for the characteristic-zero lift at every real place. Retain the odd deformation conditions and totally odd fixed determinant when applying the patched theorem.",
+   "reason": "The characteristic-two residual determinant sends every complex conjugation to 1 and cannot distinguish an even lift from an odd lift. Locally I₂ and diag(1,−1) have the same reduction at two and different determinants before reduction. Proposition 3.2.7 says that a characteristic-zero point factors through the odd local quotient exactly when the lift is odd; these are the real-place deformation conditions used in the proof. Paškūnas Theorem 1.1, p.1, explicitly requires the determinant of the lift to be totally odd. The intended correction is therefore explicit in the proof setup, without asserting a global counterexample.",
+   "affects": "a stated result",
+   "known": "No correction located in the accessible records searched. Scoped to arXiv v3: the published theorem could not be read or collated.",
+   "searched": [
+    "8 October 2026: https://arxiv.org/abs/1908.06174 lists v1–v3, with v3 labelled final version and no later correction.",
+    "8 October 2026: https://link.springer.com/article/10.1007/s00209-020-02588-4 lists the article and abstract without a linked correction; its PDF endpoint returned an HTML access page, so no published-text verification is claimed.",
+    "8 October 2026: https://sntung41406.github.io/research/ lists the article without an erratum; exact paper-title and DOI correction/erratum searches located none."
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Read the bar in Theorem 8.0.3(3) on the arXiv v3 p.38 image; independently checked its incompatibility with characteristic-two determinant parity and the actual odd characteristic-zero quotient in Proposition 3.2.7, p.15. Corrected both the global lifting node and typed specialization. Confirmation concerns this preprint only.",
+    "by": "REV-GL2ModularityLifting--R32.3~2"
    }
   }
  ],
@@ -2005,7 +2043,8 @@
    "citation": "Shen-Ning Tung, On the modularity of 2-adic potentially semi-stable deformation rings",
    "read": "2026-09-29",
    "sha256": "a601da3762c35dab9ebdac5fb5106f1e3f627304dfc2390ac43fe2ac862c6de8",
-   "rechecked": "2026-10-08"
+   "rechecked": "2026-10-08",
+   "publishedAccessAttempt": "Publisher article page read on 2026-10-08; its PDF endpoint served an HTML access page, not the article. Theorem 8.0.3 finding E11 is scoped to arXiv v3 only; no collation of the published theorem is claimed."
   },
   {
    "kind": "preprint",
@@ -2075,150 +2114,150 @@
   ]
  },
  "review": {
-  "status": "needs_changes",
-  "reviewer": "independent-review-REV-GL2ModularityLifting--R32.3",
-  "date": "2026-10-06",
-  "notes": "Completed independent target-level review of all 28 nodes (20 corrected, 8 verified), nine source versions/hashes and every node locator/excerpt, all six pinned Mathlib statements, actual cross-packet suppliers, 26 precise requests, APIs/tests/planets, the suggested file and RT-AREA-langlands-2/21. Corrected supplier generality and ownership, ordinary quotient normalization, DP versus KW geometric data, local absolute irreducibility, component prime selection, setup and direct dependencies, source locators and API gaps; confirmed source issue E1. The packet and suggested file are corrected and their honest supplier/carrier/source-independence gaps remain. Verdict needs_changes because the reader document is outside this review’s allowed deliverables and still contains the old mathematical/dependency text; the report lists exact synchronization work. Four stages remain planned, not closed. No implementation is claimed.",
+  "status": "accepted",
+  "reviewer": "independent-review-REV-GL2ModularityLifting--R32.3~2",
+  "date": "2026-10-08",
+  "notes": "Completed independent target-level review of all 28 declarations (25 verified, 3 corrected; none added or unverifiable), nine downloaded source hashes and every node locator, six pinned Mathlib declarations, actual cross-packet supplier statements and 26 precise direct requests, all APIs/tests/planets, the compiled suggested fragment, reader synchronization and RT-AREA-langlands-2/21. Corrected characteristic-zero total oddness and full typed component support, confirmed the DP finite-order qualification finding under collision-free E10, and added confirmed arXiv-v3-only oddness misprint E11 with a failed publisher-PDF access recorded. The prior reader revision is synchronized and the previous rejection is resolved. Accepted as an honest target-level complete pass: four stages remain planned, two explicit source-independence/carrier gaps and the requested exports remain, and no arithmetic implementation or independent Serre proof certification is claimed.",
   "checked": [
    {
     "nodeId": "GL2ModularityLifting:R32.3/dyadic-de-rham-modularity-lifting",
-    "verdict": "corrected",
-    "note": "Tung Theorem A and Paškūnas Theorem 1.1 checked. Removed obsolete statement-(b) dependency and clarified general-field preservation; Paškūnas locator now includes p.2 for hypothesis (iv)."
+    "verdict": "verified",
+    "note": "Tung Theorem A, p.2, and Paškūnas Theorem 1.1, pp.1–2: residual modularity and nonsolvable image remain hypotheses; monodromy supplies potential semistability without changing the weight gap. The totally real supplier now explicitly requires the lift to be odd."
    },
    {
     "nodeId": "GL2ModularityLifting:R32.4/pan-residually-reducible-fontaine-mazur",
-    "verdict": "corrected",
-    "note": "Pan Theorem 1.0.2 checked, including the p=3 ratio exclusion and ordinary/nonordinary split. Removed obsolete statement-(c) citation to the now odd-only table."
+    "verdict": "verified",
+    "note": "Pan Theorem 1.0.2, p.3: characteristic-zero irreducibility and the p=3 exclusion are preserved. The ordinary cases use exact 5.1.2/6.1.2 exports; the nonordinary cases use the separate generic, scalar and cyclotomic paths."
    },
    {
     "nodeId": "GL2ModularityLifting:R32.4/pan-residually-irreducible-fontaine-mazur",
     "verdict": "verified",
-    "note": "Pan Theorem 8.0.1 and Remark 8.0.4 checked. The usable Q theorem explicitly retains residual modularity, cyclotomic absolute irreducibility, local absolute irreducibility and the p=3 exclusion; the full-Serre corollary is excluded."
+    "note": "Pan Theorem 8.0.1, p.124, has residual modularity, cyclotomic absolute irreducibility and absolute local irreducibility with the p=3 extension exclusion. Remark 8.0.4, p.125, is excluded from the independent Serre route. The broader introduction consequence is not substituted."
    },
    {
     "nodeId": "GL2ModularityLifting:R32.5/p-three-residually-reducible-branch",
     "verdict": "corrected",
-    "note": "SW printed p.6 and DP Theorem 1.7 checked. Normalization now selects the actual unramified quotient; reversed summands are relabelled without cyclotomic twisting. Removed stale supplier/table claims, added the normalization edge and finite coefficient-field convention; finite-order determinant condition retained."
+    "note": "Skinner–Wiles introduction theorem, printed p.6, and DP Theorem 1.7, arXiv p.4/published p.5: finite-order determinant factor, actual inertia quotient, finite coefficients and residual 1⊕ω₃ retained. Updated the source finding reference to E10 to remove its collision with part R22.1; the mathematical statement already had the qualification."
    },
    {
     "nodeId": "GL2ModularityLifting:R32.6/transfer-residually-irreducible-odd",
     "verdict": "verified",
-    "note": "DP Theorem 1.4 and Tung odd-prime Theorem 4.7 checked. Quadratic-to-cyclotomic absolute irreducibility supplier read; each direction gets residual modularity from the modular lift and uses regular de Rham monodromy."
+    "note": "DP Theorem 1.4, p.4, Tung dyadic introduction pp.1–2 and odd-prime Theorem 4.7, p.15: the two lifts each meet the hypotheses, a modular member supplies residual modularity, and part R22.1 supplies the lifting and quadratic/cyclotomic restriction comparison. The supplier is planned, not asserted implemented."
    },
    {
     "nodeId": "GL2ModularityLifting:R32.6/transfer-dyadic",
     "verdict": "verified",
-    "note": "DP Theorem 1.5 checked. The known modular congruent lift supplies residual modularity; nonsolvable residual image and arbitrary distinct weights are preserved. No Barsotti–Tate substitution."
+    "note": "DP Theorem 1.5, p.4: congruence with a modular member supplies the modular residual representation; both lifts retain oddness and regular de Rham hypotheses, while nonsolvable residual image ensures irreducibility."
    },
    {
     "nodeId": "GL2ModularityLifting:R32.6/transfer-residually-reducible",
     "verdict": "verified",
-    "note": "DP Theorem 1.6 and Pan 1.0.2 checked. Characteristic-zero irreducibility is explicit, no residual modularity is manufactured, and the p=3 extension is only the nonexceptional Pan branch."
+    "note": "DP Theorem 1.6, p.4, and Pan Theorem 1.0.2: no residual modularity or coefficient-prime WD comparison is required. Characteristic-zero irreducibility and the exceptional p=3 branch remain separate."
    },
    {
     "nodeId": "GL2ModularityLifting:R32.6/de-rham-lifting-and-almost-strict-systems",
-    "verdict": "corrected",
-    "note": "DP Definition 1.10/Remark 4 and the actual R24.5 carrier checked. Replaced the false projection of all-member de Rham data from the historical KW carrier by explicit extra data and a precise R24.5 request. Good-prime recognition avoids the R24.6 back-edge."
+    "verdict": "verified",
+    "note": "DP Definition 1.10, pp.6–7/published p.7, keeps all-member de Rham and common regular weights despite its WD exception. The actual R24.5 compatible-system statement lacks these premises in its historical KW carrier; the explicit extra-data request supplies them. No general existence theorem is inferred."
    },
    {
     "nodeId": "GL2ModularityLifting:R32.6/globalisation-dependency-audit",
-    "verdict": "corrected",
-    "note": "All seven cited source passages checked. Removed the unsupported blanket certification of KW II independence; exact auxiliary-globalization and weight-change leaves remain an explicit audit gap."
+    "verdict": "verified",
+    "note": "Tung §4.3, pp.20–21; Paškūnas p.5; Pan Remark 8.0.4, p.125; Emerton pp.28,96–97; Hu–Tan p.35 identify the exact auxiliary and full-Serre uses. Verified the bounded comparison, not the uninspected leaf proofs: R31.6/R20.6 requests and the source-independence gap expressly remain."
    },
    {
     "nodeId": "GL2ModularityLifting:R32.3/typed-component-specialisation",
     "verdict": "corrected",
-    "note": "Tung Lemma 5.3.2 and Theorem 8.0.1 checked, including both ordinary and nonordinary support. Finite typed modules, faithfulness, localization and Nakayama are retained; corrected §8 locators to pp.38–39."
+    "note": "Corrected to totally odd characteristic-zero fixed determinant and odd real-place deformation points (Tung Proposition 3.2.7, p.15). Replaced ambiguous component meeting with full support containing every component; Proposition 5.2.2(3) and Lemma 5.3.2, p.28, use the type-specialized finite module. Updated the precise R31.5 export and reader/manifest."
    },
    {
     "nodeId": "GL2ModularityLifting:R32.3/totally-real-dyadic-lifting",
     "verdict": "corrected",
-    "note": "Tung Theorem 8.0.3 and proof checked. Replaced Q-only nonsolvable-image lemma by the arbitrary-F R04.4 restriction request; corrected pp.38–39 locator."
+    "note": "Corrected total oddness to det ρ(c_v)=−1 for the characteristic-zero lift. Tung arXiv v3 Theorem 8.0.3(3), p.38, puts a bar on ρ, but Proposition 3.2.7, p.15, and the odd deformation setup require the lift condition. New confirmed preprint-only misprint E11 records this. The solvable field, nonsolvable-image preservation and descent suppliers remain explicit."
    },
    {
     "nodeId": "GL2ModularityLifting:R32.4/nice-prime",
-    "verdict": "corrected",
-    "note": "Pan §4.1 and Definition 4.1.4 checked clause by clause. Added the actual Eisenstein maximal-ideal setup, scoped the away-p Frobenius condition to S, replaced the SW pro-modular prerequisite by the Pan R31.3 image interface, and added constructor/iff APIs."
+    "verdict": "verified",
+    "note": "Pan Definition 4.1.4 and Remarks 4.1.5–4.1.6, p.39: characteristic-p dimension-one Hecke prime, normalization lattice, nonsplit reduction, dihedral disjointness and constant away-p restriction are retained, with the pseudo-ring contraction witness and §4.1.2 maximal Eisenstein ideal. Six APIs and three tests distinguish these conditions."
    },
    {
     "nodeId": "GL2ModularityLifting:R32.4/potentially-nice-prime",
-    "verdict": "corrected",
-    "note": "Pan §7.2.4 checked. Characteristic p, dimension one, irreducibility and finite away-p image remain separate from Hecke occurrence and constant lattice lifts. Added constructor/iff APIs."
+    "verdict": "verified",
+    "note": "Pan §7.2.4, p.114: characteristic-p dimension one, irreducibility and finite away-p images do not assert Hecke occurrence or a nice lattice. Six APIs/three tests retain the carrier distinction; coefficient extension includes the irreducibility premise."
    },
    {
     "nodeId": "GL2ModularityLifting:R32.4/nice-prime-component-bridge",
-    "verdict": "corrected",
-    "note": "Pan Theorem 4.1.7/Corollary 4.1.8 and Corollary 3.5.12 checked. Imported Pan pro-modularity via R31.3 and added the R06.2 coefficient/weight argument needed for the absolutely irreducible local classicality input."
+    "verdict": "verified",
+    "note": "Pan Theorem 4.1.7/Corollary 4.1.8, pp.39–40: a component through the nice prime lies in the closed Hecke image via localized nilpotent kernel. Corollary 3.5.12, pp.32–34, needs absolute local irreducibility; the precise R06.2 weight/coefficient argument supplies it for G_Qp. Both R31 classicality and R17 transfer are direct inputs."
    },
    {
     "nodeId": "GL2ModularityLifting:R32.4/large-component-at-regular-point",
-    "verdict": "corrected",
-    "note": "Pan Lemma 7.1.3 and §7.1.2 checked. Made inherited determinant de Rham, residual-character extension and degree-enlargement hypotheses explicit for downstream ordinary density and dimension cuts."
+    "verdict": "verified",
+    "note": "Pan Lemma 7.1.3 and §7.1.4, p.112: h¹−h²=2d, integral component dimension ≥1+2d, finite generic away-p inertia characters and the enlarged abelian-field setup are retained. Deformation comparison, away-p analysis and global duality are requested from their owners."
    },
    {
     "nodeId": "GL2ModularityLifting:R32.4/generic-ordinary-intersection",
     "verdict": "verified",
-    "note": "Pan Lemma 7.2.1/Corollary 7.2.3 checked with the corrected §7.1 setup inherited from the large-component node. Principal local ordinary ideals and finite Λ/dense modular arithmetic points are exact requests."
+    "note": "Pan Lemma 7.2.1/Corollary 7.2.3, pp.113–114: principal ordinary ideals lose at most d dimensions, ordinary finiteness gives a surjective Λ component, and abelian Leopoldt excludes its small reducible locus. The residual ratio excludes 1 and both cyclotomic orientations."
    },
    {
     "nodeId": "GL2ModularityLifting:R32.4/scalar-ordinary-intersection",
     "verdict": "verified",
-    "note": "Pan §7.3 checked. The scalar case retains a chosen character, two local parameters, three comparison equations and the ordinary orientation; density uses the corrected large-component setup."
+    "note": "Pan Lemma 7.3.1/Corollary 7.3.2, pp.115–116: the chosen-character cover contributes two parameters per place and three equations; the bound is 1+2d+2d−3d. Exact local and ordinary scalar exports are requested, not substituted by the distinguished SW theorem."
    },
    {
     "nodeId": "GL2ModularityLifting:R32.4/potentially-nice-base-change",
-    "verdict": "corrected",
-    "note": "Pan §7.2.4–7.2.5 and §7.3 checked. Removed the SW pro-modular citation and added the exact R04.3 trace-cut/finite-image prime-selection input. Solvable restriction and actual Hecke occurrence remain separate inputs."
+    "verdict": "verified",
+    "note": "Pan §§7.2.4–7.2.5, pp.114–115, and scalar continuation p.116: the trace-cut dimension argument produces an irreducible finite-away-p prime; solvable restriction and dense ordinary modular points then give the nice lattice and Hecke maximal ideal. The exact R04 field/prime-selection requests retain all restrictions."
    },
    {
     "nodeId": "GL2ModularityLifting:R32.4/good-component",
-    "verdict": "corrected",
-    "note": "Pan Definition 7.4.1 checked. Seed must be potentially nice and lie in the ordinary arithmetic closure; finite reflexive reachability permits a one-component chain. Added a concrete extensionality API and clarified the imported arithmetic locus."
+    "verdict": "verified",
+    "note": "Pan Definition 7.4.1, p.116: a finite seeded chain requires a potentially nice point in the ordinary closure at its start and potentially nice shared points on every edge. ReflTransGen encodes the length-one seed. Five APIs and four tests catch empty seeds, omitted intermediate components and non-nice intersections."
    },
    {
     "nodeId": "GL2ModularityLifting:R32.4/extension-components",
-    "verdict": "corrected",
-    "note": "Pan Definition 7.4.21 checked: generic points in the spectrum image, not arbitrary component intersections. All three Mathlib spectrum citations are exact. Added composition/subset functoriality in both packet and Lean."
+    "verdict": "verified",
+    "note": "Pan Definition 7.4.21, p.121: minimal prime points in the image of the whole Spec R_B, not all minimal primes or just a selected open, index Z_B. The imported trace map and pinned component correspondence give the concrete prototype. Five APIs and three tests catch zero targets and kernel obstructions."
    },
    {
     "nodeId": "GL2ModularityLifting:R32.4/extension-component-control",
     "verdict": "verified",
-    "note": "Pan Lemmas 7.4.15–7.4.19/Corollary 7.4.20 checked. Exact duality and deformation comparisons are requested; reducible locus is distinguished from nilradical reduction, and completion/trace dimension gain is retained."
+    "note": "Pan Lemmas 7.4.15–7.4.19/Corollary 7.4.20, pp.119–121: the reducible locus is a closed subscheme, not the nilradical reduction. The H¹ comparison, extra-S vanishing, connectedness and trace dimension/minimal-prime assertions are precise owner requests."
    },
    {
     "nodeId": "GL2ModularityLifting:R32.4/extension-component-propagation",
-    "verdict": "corrected",
-    "note": "Pan Corollary 7.4.22 checked. The intersection need not be finite over Λ; added the general R04.3 trace-cut prime-selection export rather than applying an ordinary-only hypothesis to it."
+    "verdict": "verified",
+    "note": "Pan Corollary 7.4.22, p.121: the 2d−1 intersection is outside the ≤d+1 reducible locus in the degree-enlarged setup; the trace dimension gain and trace cuts produce a potentially nice shared point. Its generic intersection does not require finiteness over Λ; R04.3 states the needed general prime selection."
    },
    {
     "nodeId": "GL2ModularityLifting:R32.4/cyclotomic-component-connectedness",
-    "verdict": "corrected",
-    "note": "Pan Proposition 7.4.3 and its three branches checked. Added the direct R03.6 connectedness export for the irreducible ordinary-prime branch; extension comparison, B0/B1 passage and the height-one intersection remain explicit."
+    "verdict": "verified",
+    "note": "Pan Proposition 7.4.3 and proof, pp.117–124: retains all three ordinary-prime cases, the two-generator global cyclotomic ideal, localized principality only off the exceptional singular point, extension-ring connectedness and the height≤1 GMA comparison. All additional algebraic and ordinary work is routed to owners."
    },
    {
     "nodeId": "GL2ModularityLifting:R32.4/nonordinary-hilbert-modularity",
-    "verdict": "corrected",
-    "note": "Pan Theorem 7.1.1/Lemma 7.4.2 checked. Added the direct R04.4 field-selection export for the preliminary degree enlargement and the common extension for the finite chain. Generic, scalar and cyclotomic routes retain distinct hypotheses."
+    "verdict": "verified",
+    "note": "Pan Theorem 7.1.1/Lemma 7.4.2, pp.111–116: abelian totally real p-split field, odd globally extendable residual ratio and irreducible regular de Rham local representations are explicit. The finite chain uses one auxiliary solvable extension; final classicality and descent remain direct suppliers."
    },
    {
     "nodeId": "GL2ModularityLifting:R32.5/ordinary-character-normalisation",
-    "verdict": "corrected",
-    "note": "SW normalization checked against the actual R21.5 suppliers. Clarified that η is the lift and the twist is η^{-1}; split the mixed SW/DP source locator. Finite order preserves inertia quotient, weights and oddness."
+    "verdict": "verified",
+    "note": "Skinner–Wiles printed p.6 and DP arXiv p.4/published p.5: choosing the global residual constituent of the actual unramified quotient makes its Teichmüller twist unramified locally, changes ψ to ψη⁻², and preserves weights and determinant oddness. Global ratio ω₃ is stronger than merely locally distinguished."
    },
    {
     "nodeId": "GL2ModularityLifting:R32.5/crystalline-weights-two-four-completion",
-    "verdict": "corrected",
-    "note": "DP Paso 6 and the R21.5 crystalline criterion checked at p=3,k=2 or 4. Added the direct p-three branch used in the proof and corrected the publisher Paso 6 locator to p.14."
+    "verdict": "verified",
+    "note": "DP Paso 6, p.14, and the actual R21.5 crystalline-reducible-reduction-is-ordinary statement: k=2,4 are in 2≤k≤p+1 at p=3, residual inertia characters are distinct, and quotient normalization permits the general SW theorem. Level-one global ratio identification is kept separate."
    },
    {
     "nodeId": "GL2ModularityLifting:R32.6/ramified-reducible-coefficient-prime",
-    "verdict": "corrected",
-    "note": "DP Definition 1.10/Remark 4 checked in both PDFs. Kept all-member de Rham/common weights as explicit additional data on the KW carrier via R24.5; corrected publisher locator to p.7. Pan uses no missing bad-prime WD comparison."
+    "verdict": "verified",
+    "note": "DP Definition 1.10/Remark 4, arXiv pp.6–7/published p.7: explicit all-member geometric data permits Pan at ramified p≥5 without WD equality. R19.3 and R01.5 recognition identify the family at good primes. R32.6 is the sole modern-transfer owner; importing R24.6 back is avoided."
    },
    {
     "nodeId": "GL2ModularityLifting:R32.6/transfer-ordinary-three",
     "verdict": "verified",
-    "note": "DP 1.7 and finite-order quotient normalization checked. Both lifts must independently satisfy the normalized ordinary hypotheses; congruence alone supplies neither ordinarity nor the determinant condition."
+    "note": "DP Theorem 1.7 and Skinner–Wiles: each lift separately has the finite-order quotient normalization, inertia shape and finite-order determinant factor for its own weight. Congruence does not supply these local hypotheses on a second lift."
    }
   ]
  }

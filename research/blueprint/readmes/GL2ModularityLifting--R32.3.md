@@ -76,7 +76,12 @@ Acceptance:
 
 Declaration: `GL2ModularityLifting:R32.3/typed-component-specialisation` (theorem).
 
-In Tung §§4–5, with a modular totally odd nonsolvable residual representation over a totally real F in which 2 splits completely, fixed determinant ψε, the specified Steinberg conditions away from 2, auxiliary place v₁, and a product σ of locally algebraic types, suppose the imported Theorem 8.0.1 gives support meeting every component of R∞(σ)[1/2]. Then Rˢ_ψ(σ) is finite over 𝒪 and M(σ)[1/2] is faithful over Rˢ_ψ(σ)[1/2]. Every characteristic-zero point of this global deformation problem, including the point of a prescribed lift of type σ, therefore occurs in algebraic quaternionic forms and is automorphic after Jacquet–Langlands.
+In Tung §§4–5, with a modular nonsolvable residual representation over a totally real F in which 2 splits completely, fixed determinant ψε totally odd, odd deformation conditions at every real place, the specified Steinberg conditions away from 2, auxiliary place v₁, and a product σ of locally algebraic types, suppose the imported Theorem 8.0.1 gives support containing every irreducible component of R∞(σ)[1/2]. Then Rˢ_ψ(σ) is finite over 𝒪 and M(σ)[1/2] is faithful over Rˢ_ψ(σ)[1/2]. Every characteristic-zero point of this global deformation problem, including the point of a prescribed lift of type σ, therefore occurs in algebraic quaternionic forms and is automorphic after Jacquet–Langlands.
+
+Hypotheses and conventions:
+
+- The characteristic-zero deformation points satisfy det ρ(c_v)=−1 at every real place. Residual oddness in characteristic two cannot replace these odd local deformation conditions (Tung §3.2.5, Proposition 3.2.7, p.15).
+- Full component support is required: the type-specialized patched module is supported on the union of all irreducible components. A nonempty intersection with each component alone is not a general algebraic full-support criterion.
 
 Proof or construction:
 
@@ -86,7 +91,7 @@ Proof or construction:
 
 Direct inputs: `CompletedCohomologyAndLocalGlobalCompatibility:R31.5`, `CompletedCohomologyAndLocalGlobalCompatibility:R31.2`, `DeformationAndDerivedPatchingAlgebra:R03.6/nearly-faithful-iff-support-eq-univ`, `DeformationAndDerivedPatchingAlgebra:R03.6/nearly-faithful-quotient`, `GL2AutomorphicRepresentationsAndTransfer:R17.3`.
 
-Sources: [TUNG-2021-DYADIC](https://arxiv.org/pdf/1908.06174v3), §5.3, Lemma 5.3.2, pp.28–29; §8, Theorem 8.0.1 p.38 and Theorem 8.0.3 with proof pp.38–39 (arXiv v3).
+Sources: [TUNG-2021-DYADIC](https://arxiv.org/pdf/1908.06174v3), §3.2.5, Proposition 3.2.7, p.15; §5.2, Proposition 5.2.2(3), p.28; §5.3, Lemma 5.3.2, p.28; §8, Theorems 8.0.1 and 8.0.3 with proof, pp.38–39 (arXiv v3).
 
 Acceptance:
 
@@ -99,21 +104,26 @@ Declaration: `GL2ModularityLifting:R32.3/totally-real-dyadic-lifting` (theorem).
 
 Atlas planet: **Dyadic Hilbert modularity lifting**.
 
-Let F be totally real with every F_v ≅ ℚ₂ for v|2. Let ρ:G_F→GL₂(𝒪) be continuous, finitely ramified, with modular totally odd residual representation of nonsolvable image, and potentially semistable with distinct Hodge–Tate weights at every v|2. Then ρ is attached, up to twist, to a Hilbert modular form. There is no local exclusion of extensions of a character by itself (Tung Theorem 8.0.3).
+Let F be totally real with every F_v ≅ ℚ₂ for v|2. Let ρ:G_F→GL₂(𝒪) be continuous, totally odd and finitely ramified, with modular residual representation of nonsolvable image, and potentially semistable with distinct Hodge–Tate weights at every v|2. Then ρ is attached, up to twist, to a Hilbert modular form. There is no local exclusion of extensions of a character by itself (Tung Theorem 8.0.3).
+
+Hypotheses and conventions:
+
+- Total oddness means det ρ(c_v)=−1 for every real place v. The bar on ρ in arXiv v3 Theorem 8.0.3(3) is recorded as source issue GL2ModularityLifting/E11; use the odd characteristic-zero local deformation condition from §3.2.5, not residual determinant parity at two.
 
 Proof or construction:
 
 1. Choose a totally real solvable extension F′/F, disjoint from the residual fixed field with ζ₂, of even degree, split at 2, killing residual ramification away from 2 and making the remaining lift inertia unipotent. Preserve nonsolvable residual image using the general-field restriction export requested from R04.4.
-2. Choose the definite quaternion algebra ramified at the real places and the even set Σ of remaining ramified finite places, an auxiliary v₁ with distinct residual Frobenius eigenvalues, and the level of Tung §8. The determinant, types and Steinberg local conditions put ρ|G_F′ in the situation of typed-component-specialisation.
+2. Choose the definite quaternion algebra ramified at the real places and the even set Σ of remaining ramified finite places, an auxiliary v₁ with distinct residual Frobenius eigenvalues, and the level of Tung §8. Total oddness of ρ puts its real-place points in D_v^odd (Proposition 3.2.7). The determinant, types and Steinberg local conditions put ρ|G_F′ in the situation of typed-component-specialisation.
 3. Apply that theorem and descend using solvable base change, with irreducibility guaranteed by nonsolvable residual image.
 
 Direct inputs: `GL2ModularityLifting:R32.3/typed-component-specialisation`, `GlobalGaloisDeformations:R04.4`, `CompletedCohomologyAndLocalGlobalCompatibility:R31.6`, `GL2AutomorphicRepresentationsAndTransfer:R17.4`.
 
-Sources: [TUNG-2021-DYADIC](https://arxiv.org/pdf/1908.06174v3), §8, Theorem 8.0.3 and proof, pp.38–39 (arXiv v3).
+Sources: [TUNG-2021-DYADIC](https://arxiv.org/pdf/1908.06174v3), §3.2.5, Proposition 3.2.7, p.15; §8, Theorem 8.0.3 and proof, pp.38–39 (arXiv v3).
 
 Acceptance:
 
-- Let F be totally real with every F_v ≅ ℚ₂ for v|2. Let ρ:G_F→GL₂(𝒪) be continuous, finitely ramified, with modular totally odd residual representation of nonsolvable image, and potentially semistable with distinct Hodge–Tate weights at every v|2. Then ρ is attached, up to twist, to a Hilbert modular form. There is no local exclusion of extensions of a character by itself (Tung Theorem 8.0.3).
+- Let F be totally real with every F_v ≅ ℚ₂ for v|2. Let ρ:G_F→GL₂(𝒪) be continuous, totally odd and finitely ramified, with modular residual representation of nonsolvable image, and potentially semistable with distinct Hodge–Tate weights at every v|2. Then ρ is attached, up to twist, to a Hilbert modular form. There is no local exclusion of extensions of a character by itself (Tung Theorem 8.0.3).
+- The local characteristic-two reductions of I₂ and diag(1,−1) coincide, although their characteristic-zero determinants are +1 and −1. Thus residual determinant data alone does not verify the total-oddness premise.
 
 ## R32.4 — Pan's residually reducible theorem
 
@@ -562,7 +572,7 @@ The source-faithful p=3 theorem is the existing Skinner–Wiles specialization. 
 
 For a crystalline member with weights {0,1} or {0,3}, the existing R21.5 calculation applies within 2≤k≤p+1. Reducible residual semisimplification forces ordinarity, and the residual characters on inertia are distinct since k−1 is odd. The character selected for normalization is the global constituent whose local restriction is the actual unramified ordinary quotient. Its Teichmüller lift is also unramified at 3. Twisting by its inverse consequently preserves the inertia quotient and does not change the weight. An arbitrary choice of constituent does not have that property. The level-one application identifies the normalized global ratio with ω₃; outside level one the general distinguished Skinner–Wiles theorem needs only the nontrivial local ratio.
 
-The published DP Theorem 1.7 is checked against Skinner–Wiles' printed theorem. The separate supplier finding E9 addresses DP's redundant nontriviality bullet. This packet records E1 for the finite-order qualification on ψ that DP does not repeat. Every statement here keeps ψ finite order. The completion in weights two and four does not assert ordinarity at all crystalline weights or for every regular de Rham lift.
+The published DP Theorem 1.7 is checked against Skinner–Wiles' printed theorem. The separate supplier finding E9 addresses DP's redundant nontriviality bullet. This packet records E10 for the finite-order qualification on ψ that DP does not repeat. Every statement here keeps ψ finite order. The completion in weights two and four does not assert ordinarity at all crystalline weights or for every regular de Rham lift.
 
 ### The p = 3 residually reducible branch: Skinner–Wiles, and why Pan's theorem does not cover it
 
@@ -577,7 +587,15 @@ Hypotheses and conventions:
 - Skinner–Wiles' hypothesis (i) χ|_{D₃} ≠ 1 holds automatically for χ = χ̄₃, which is ramified at 3; Dieulefait–Pacetti print it as 'ρ|_{D₃} ≠ (1 0; 0 1)' (source issue OrdinaryAutomorphicFormsAndModularityLifting/E9)
 - The inertia-quotient condition is an explicit hypothesis of this theorem. The crystalline-to-ordinary criterion is used separately in crystalline-weights-two-four-completion.
 - Pan Theorem 1.0.2 includes odd p=3 but excludes local residual ratio ω; the existing R21.5/theorem-a-at-three already records this accurately.
-- ψ is of finite order, as stated in Skinner–Wiles. DP Theorem 1.7 does not repeat this qualification; source issue E1 records it.
+- ψ is of finite order, as stated in Skinner–Wiles. DP Theorem 1.7 does not repeat this qualification; source issue E10 records it.
+- The representation is defined over a finite extension E/Q_3, as required by Skinner–Wiles; the Q̄_3 notation denotes its coefficient embedding.
+
+Hypotheses and conventions:
+
+- Skinner–Wiles' hypothesis (i) χ|_{D₃} ≠ 1 holds automatically for χ = χ̄₃, which is ramified at 3; Dieulefait–Pacetti print it as 'ρ|_{D₃} ≠ (1 0; 0 1)' (source issue OrdinaryAutomorphicFormsAndModularityLifting/E9)
+- The inertia-quotient condition is an explicit hypothesis of this theorem. The crystalline-to-ordinary criterion is used separately in crystalline-weights-two-four-completion.
+- Pan Theorem 1.0.2 includes odd p=3 but excludes local residual ratio ω; the existing R21.5/theorem-a-at-three already records this accurately.
+- ψ is of finite order, as stated in Skinner–Wiles. DP Theorem 1.7 does not repeat this qualification; source issue E10 records it.
 - The representation is defined over a finite extension E/Q_3, as required by Skinner–Wiles; the Q̄_3 notation denotes its coefficient embedding.
 
 Proof or construction:
@@ -855,7 +873,7 @@ Acceptance:
 
 There are 26 precise stage requests. Each consumer listed below has a direct prerequisite edge to that supplier. Existing supplier nodes are reused when their statements suffice; these requests describe the additional exports needed for this part.
 
-- **`CompletedCohomologyAndLocalGlobalCompatibility:R31.5`**: Tung §5 Lemma 5.3.2 and §8 Theorem 8.0.1, with finite type-specialized modules and the ordinary §7.3.1 plus nonordinary §6.3.7 component cases. For Pan, Theorem 4.1.7: localized pseudo-ring→Hecke surjection has nilpotent kernel at Definition 4.1.4 nice primes, including the local p=3 exclusion; §§4.2–4.8 construct the one-dimensional-prime patching and finite faithful multiplicity module. Keep the raw completed homology nonfinite and use Corollary 3.5.10 to justify finite-module support. Supply Pan §8 only with its explicit residual-modularity hypothesis. Consumers: `GL2ModularityLifting:R32.3/typed-component-specialisation`, `GL2ModularityLifting:R32.4/nice-prime-component-bridge`, `GL2ModularityLifting:R32.4/pan-residually-irreducible-fontaine-mazur`.
+- **`CompletedCohomologyAndLocalGlobalCompatibility:R31.5`**: Tung §5 Lemma 5.3.2 and §8 Theorem 8.0.1, with the totally odd fixed determinant and real-place odd deformation conditions, full support on every patched irreducible component, and finite type-specialized modules and the ordinary §7.3.1 plus nonordinary §6.3.7 component cases. For Pan, Theorem 4.1.7: localized pseudo-ring→Hecke surjection has nilpotent kernel at Definition 4.1.4 nice primes, including the local p=3 exclusion; §§4.2–4.8 construct the one-dimensional-prime patching and finite faithful multiplicity module. Keep the raw completed homology nonfinite and use Corollary 3.5.10 to justify finite-module support. Supply Pan §8 only with its explicit residual-modularity hypothesis. Consumers: `GL2ModularityLifting:R32.3/typed-component-specialisation`, `GL2ModularityLifting:R32.4/nice-prime-component-bridge`, `GL2ModularityLifting:R32.4/pan-residually-irreducible-fontaine-mazur`.
 
 - **`CompletedCohomologyAndLocalGlobalCompatibility:R31.4`**: Pan Theorem 3.5.5: equality of Galois and spectral local pseudo-ring actions; Corollary 3.5.10: the block multiplicity module is finite faithful over completed Hecke and Hecke is finite over the local pseudo ring; Corollary 3.5.12: regular de Rham points locally absolutely irreducible at every p-place are classical. Preserve residual block restrictions and determinant/central-character normalization. Consumers: `GL2ModularityLifting:R32.4/nice-prime-component-bridge`, `GL2ModularityLifting:R32.4/pan-residually-irreducible-fontaine-mazur`.
 
@@ -938,7 +956,7 @@ Source records below preserve the historical reading information and exact file 
 
 - [On 2-dimensional 2-adic Galois representations of local and global fields](https://arxiv.org/pdf/1509.00332v2). Vytautas Paškūnas. Algebra Number Theory 10 (2016), no. 6, 1301–1358; arXiv:1509.00332v2, dated 25 April 2016 on its first page and version record. The arXiv version was read; printed page = PDF page. Historical read: 2026-10-06. Historical passages: §1: Theorem 1.1 and §1.1.2 'Global part' (pp. 1–6). Revision recheck (2026-10-08): Theorem 1.1, pp.1–2; §1.1.2, p.5. SHA-256: `727addeb49ee302052a493cf097a868a70c340286981598b5e7382fcd8f86749`.
 
-- [On the modularity of 2-adic potentially semi-stable deformation rings](https://arxiv.org/pdf/1908.06174v3). Shen-Ning Tung. Math. Z. 298 (2021), 107–159; arXiv:1908.06174v3. The arXiv version was read. Historical read: 2026-10-06. Historical passages: Introduction: the combined theorem (Kisin, Paškūnas, Hu–Tan, Tung), Theorems A, B and C and the strategy (pp. 1–3); §4.3 suitable globalization, pp.20–21; §5.3 typed support/finiteness equivalence, pp.28–29; §6.3 Colmez finiteness, near faithfulness and nonordinary components, pp.32–33; §7.2–7.3 ordinary support/lifts, pp.36–37; §8 all-component support and global lifting proof, pp.38–39. Revision recheck (2026-10-08): Introduction, pp.2–3; §4.3, pp.20–21; Lemma 5.3.2, pp.28–29; §6.3, pp.32–33; §§7.2–7.3, pp.36–37; §8, pp.38–39. SHA-256: `a601da3762c35dab9ebdac5fb5106f1e3f627304dfc2390ac43fe2ac862c6de8`.
+- [On the modularity of 2-adic potentially semi-stable deformation rings](https://arxiv.org/pdf/1908.06174v3). Shen-Ning Tung. Math. Z. 298 (2021), 107–159; arXiv:1908.06174v3. The arXiv version was read. Historical read: 2026-10-06. Historical passages: Introduction: the combined theorem (Kisin, Paškūnas, Hu–Tan, Tung), Theorems A, B and C and the strategy (pp. 1–3); §4.3 suitable globalization, pp.20–21; §5.3 typed support/finiteness equivalence, pp.28–29; §6.3 Colmez finiteness, near faithfulness and nonordinary components, pp.32–33; §7.2–7.3 ordinary support/lifts, pp.36–37; §8 all-component support and global lifting proof, pp.38–39. Revision recheck (2026-10-08): Introduction, pp.2–3; §4.3, pp.20–21; Lemma 5.3.2, pp.28–29; §6.3, pp.32–33; §§7.2–7.3, pp.36–37; §8, pp.38–39; independent review also checked §3.2.5 Proposition 3.2.7, p.15, and Proposition 5.2.2(3), p.28. SHA-256: `a601da3762c35dab9ebdac5fb5106f1e3f627304dfc2390ac43fe2ac862c6de8`.
 
 - [On the automorphy of 2-dimensional potentially semi-stable deformation rings of G_{Q_p}](https://arxiv.org/pdf/1803.07451v4). Shen-Ning Tung. Algebra Number Theory 15 (2021), no. 9, 2173–2194; arXiv:1803.07451v4 (21 March 2021). The arXiv version was read; printed page = PDF page. Historical read: 2026-09-29. Historical passages: Abstract and introduction, with the Fontaine–Mazur theorem (pp. 1–2); Theorem 1.2, p.4; Proposition 4.4, Remark 4.5, the proof of Theorem 1.2, Corollary 4.6, Theorem 4.7 and Remark 4.8 (pp. 14–15). Revision recheck (2026-10-08): Theorem 4.7 and Remark 4.8, p.15. SHA-256: `22017bc9beb585c2aae5421d2fe1a8a9049d8a93e4f8bb8cf684149616db1ba2`.
 
@@ -948,4 +966,8 @@ Source records below preserve the historical reading information and exact file 
 
 - [A simplified proof of Serre’s conjecture](https://link.springer.com/content/pdf/10.1007/s13398-023-01478-8.pdf). Luis Victor Dieulefait and Ariel Martín Pacetti. Rev. R. Acad. Cienc. Exactas Fís. Nat. Ser. A Mat. 117, article 153 (2023); publisher PDF, 17 pages. Locators use the PDF section numbering, which agrees with arXiv v2 (the publisher HTML increments the section numbers). Historical read: 2026-10-06. Historical passages: §1.2 Theorems 1.4–1.7, pp.4–5; §1.4 Definition 1.10, Theorem 1.11 and Remark 4, p.7; §2 Paso 6, p.14. Revision recheck (2026-10-08): Theorems 1.4–1.7, pp.4–5; Definition 1.10 and Remark 4, p.7; Paso 6, p.14. SHA-256: `2a133808911a1819ea9480bea0bfc18846035f961e866ddec4d05d69b093e0f8`.
 
-Source issue `GL2ModularityLifting/E1`: The determinant condition is det ρ=ψχ₃^{k−1} for an integer k≥2, without a stated finite-order restriction on ψ (paraphrase of the fourth hypothesis). Require ψ to be a finite-order character in det ρ=ψε^{k−1}, as in the Skinner–Wiles theorem cited in its proof. The lifting and transfer nodes in this packet retain this qualification. Skinner–Wiles, printed p.6, explicitly assumes finite-order ψ. Without it, det ρ=ψε^{k−1} is satisfied tautologically by defining ψ from any ordinary representation and does not force a classical integral weight. The cited theorem therefore does not prove the unrestricted wording. The surrounding geometric use has finite-order ψ, so the DP application is unchanged. The independent confirmation is preserved in the packet. Its accessible publisher/arXiv/author records and correction searches are recorded there, including the unsuccessful Pacetti-homepage read; no clearance of that inaccessible page is claimed.
+Source issue `GL2ModularityLifting/E10`: The determinant condition is det ρ=ψχ₃^{k−1} for an integer k≥2, without a stated finite-order restriction on ψ (paraphrase of the fourth hypothesis). Require ψ to be a finite-order character in det ρ=ψε^{k−1}, as in the Skinner–Wiles theorem cited in its proof. The lifting and transfer nodes in this packet retain this qualification. Skinner–Wiles, printed p.6, explicitly assumes finite-order ψ. Without it, det ρ=ψε^{k−1} is satisfied tautologically by defining ψ from any ordinary representation and does not force a classical integral weight. The cited theorem therefore does not prove the unrestricted wording. The surrounding geometric use has finite-order ψ, so the DP application is unchanged. The independent confirmation is preserved in the packet. Its accessible publisher/arXiv/author records and correction searches are recorded there, including the unsuccessful Pacetti-homepage read; no clearance of that inaccessible page is claimed.
+
+Source issue `GL2ModularityLifting/E11`: In arXiv v3 Theorem 8.0.3(3), p.38, the displayed total-oddness condition is placed on the residual representation. The lifting theorem here instead requires det ρ(c_v)=−1 at every real place, as the odd characteristic-zero deformation quotient requires in Proposition 3.2.7, p.15. At two, residual determinant parity cannot establish this: I₂ and diag(1,−1) reduce to the same matrix. The proof’s odd deformation setup and Paškūnas Theorem 1.1, p.1, identify the intended hypothesis. The reviewer confirms this preprint misprint; the publisher PDF endpoint returned an HTML access page, so the finding does not claim that the version of record contains it. The packet records the version, hash, access attempt and correction search.
+
+The DP finding formerly called E1 in this part is E10: part R22.1 already assigns E1 to a different Kisin finding. This avoids conflating the two records. All 28 declaration identifiers are preserved.
