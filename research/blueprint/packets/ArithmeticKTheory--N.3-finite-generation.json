@@ -177,7 +177,7 @@
       "edition": "Algebraic K-Theory I, LNM 341 (1973), pp.179–198; Rochester-hosted proceedings scan",
       "url": "https://www.sas.rochester.edu/mth/sites/doug-ravenel/otherpapers/bass-seattle.pdf",
       "sha256": "9e10948869fcaf64251261294efddf3f4c13ec31838d9a89a7b5b96a4f0c933b",
-      "accessed": "2026-10-07",
+      "accessed": "2026-10-08",
       "readSections": [
         "§1 in full, printed pp.179–185, scan headers 195–201, PDF pages 187–193: Theorems 1 and 3, Remark (2), Stability, arithmetic duality/descent and H-space argument."
       ]
@@ -189,7 +189,7 @@
       "edition": "arXiv:1108.2441v3, 2 July 2014",
       "url": "https://arxiv.org/pdf/1108.2441v3",
       "sha256": "71b5da651ba9feca4c1abcc58f566afbf11019dda465cbc3a95aace7cb1e2406",
-      "accessed": "2026-10-07",
+      "accessed": "2026-10-08",
       "readSections": [
         "§§1.1–1.3, pp.3–5: category homology and coefficients.",
         "§§2.1.4–2.4.1, pp.8–12: cellular functors, reduced coefficients, mapping cone and rank spectral sequence.",
@@ -203,7 +203,7 @@
       "edition": "Author-hosted chapter IV, separately paginated PDF; published GSM 145 (2013)",
       "url": "https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.IV.pdf",
       "sha256": "9f1c1b8cccfe19d547c27dd04c61f198fd7a0cddd0018a0b84442b00fa575248",
-      "accessed": "2026-10-07",
+      "accessed": "2026-10-08",
       "readSections": [
         "IV.6.8–6.9, PDF p.59, book p.325: the two-hypothesis Dedekind criterion and the finite-over-Z case."
       ]
@@ -215,7 +215,7 @@
       "edition": "arXiv:1909.01217v4, 23 April 2021; Math. Z. 300 (2022)",
       "url": "https://arxiv.org/pdf/1909.01217v4",
       "sha256": "3421bcfaffc1e05198ae8323971872ca3774bd73c067077e94f46ed5d073d7ad",
-      "accessed": "2026-10-07",
+      "accessed": "2026-10-08",
       "readSections": [
         "§1, pp.2–4: building, virtual duality and Theorem C, including the orientation counterexample.",
         "§2.1, pp.8–10: Proposition 2.1, orientation module and integral duality for torsion-free subgroups."
@@ -228,7 +228,7 @@
       "edition": "Annals of Mathematics (2) 54 (1951), pp.425–505, JSTOR scan hosted at Rochester",
       "url": "https://www.sas.rochester.edu/mth/sites/doug-ravenel/otherpapers/Serre-HSEF.pdf",
       "sha256": "8bae9700e92a7de8569b2d9244e2f37e56de46d2cf21706c6f37171fd3e9e7f7",
-      "accessed": "2026-10-07",
+      "accessed": "2026-10-08",
       "readSections": [
         "Chapter III §1 Proposition 1 and proof, printed pp.465–466: finite-type homology in fibrations with trivial local systems.",
         "Chapter IV §3 Proposition 3 and corollary, printed p.479: H-space deck transformations and simplicity; §6 Proposition 9 and proof, printed p.483: loop-space finite type.",
@@ -254,7 +254,7 @@
       ],
       "proofSteps": [
         "Apply Kahn 2.3.7 to the cellular inclusion Q_{m−1} → Q_m. Its complement is the groupoid of rank-m projectives (predecessor rank-filtration).",
-        "The augmented reduced chain complex of each comma category has homology concentrated in degree m−1, with coefficient St(P⊗F), by the predecessor suspended-building comparison. Its group hyperhomology collapses to H_{i−m}(Aut P;St). Include the extra mapping-cone shift [1].",
+        "The augmented reduced chain complex of each comma category has homology concentrated in degree m−1, with coefficient St(P⊗F), by the predecessor suspended-building comparison. Its group hyperhomology collapses to H_{i−m}(Aut P;St). Include the extra mapping-cone shift [1]. The remaining H.1 request supplies derived group homology of this bounded-below coefficient complex and its concentration comparison; ordinary bar homology of a representation alone does not state that input.",
         "Decompose groupoid homology over projective isomorphism classes. Use the functorial mapping-cone comparison in Kahn 4.3.4 for m≥2; for m=1 use 2.3.7 with the explicit augmented chains of two points, rather than its positive-sphere-dimension argument."
       ],
       "acceptance": [
@@ -267,6 +267,11 @@
         "ArithmeticKTheory:N.3:finite-generation/comma-category-is-the-layer-poset",
         "ArithmeticKTheory:N.3:finite-generation/layer-poset-is-the-suspended-building",
         "ArithmeticKTheory:N.3:finite-generation/rank-spectral-sequence",
+        "StableHomotopyKTheory:H.1/classifying-space-cw-structure",
+        "StableHomotopyKTheory:H.1/homology-of-small-categories",
+        "StableHomotopyKTheory:H.1/bar-complex-comparison",
+        "StableHomotopyKTheory:H.1/groupoid-nerve-one-type",
+        "StableHomotopyKTheory:H.1/natural-transformations-adjoints-contractibility",
         "StableHomotopyKTheory:H.1",
         "StableHomotopyKTheory:H.2",
         "mathlib:groupHomology",
@@ -322,7 +327,7 @@
       ],
       "proofSteps": [
         "At the step adding rank n+1, the relative groups in degrees i and i+1 vanish respectively for n≥i and n≥i+1 by relative-rank-homology-comparison. Apply the relative long exact sequence.",
-        "Every simplex uses finitely many projectives and lies in some Q_n; every finite chain and relation therefore lies at finite rank. Use H.1’s filtered-union comparison to identify homology of the union with its filtered colimit.",
+        "Every simplex uses finitely many projectives and lies in some Q_n; every finite chain and relation therefore lies at finite rank. Use H.1/filtered-colimit-homology’s filtered-union comparison to identify homology of the union with its filtered colimit.",
         "All later transition maps are isomorphisms once n≥i+1. This proves stabilization to BQ without any general assertion that a colimit of finitely generated groups is finitely generated."
       ],
       "acceptance": [
@@ -333,7 +338,8 @@
       "prerequisites": [
         "ArithmeticKTheory:N.3:finite-generation/relative-rank-homology-comparison",
         "ArithmeticKTheory:N.3:finite-generation/rank-filtration",
-        "StableHomotopyKTheory:H.1",
+        "StableHomotopyKTheory:H.1/filtered-colimit-homology",
+        "StableHomotopyKTheory:H.1/homology-of-small-categories",
         "mathlib:SSet.homology",
         "mathlib:SSet.homologyMap"
       ],
@@ -438,7 +444,7 @@
         "The general Serre theorem is a recorded requested extension of H.6, not a declaration found in the baseline or a theorem explicitly stated in H.6’s present atlas text."
       ],
       "proofSteps": [
-        "Use GeneralAlgebraicKTheory:K.1/elementary-properties-of-K-groups for the multiplication induced by exact direct sum. H.1 supplies realization/product and natural-isomorphism/homotopy comparisons; Q(P(A)) is connected through its maps from zero.",
+        "Use GeneralAlgebraicKTheory:K.1/elementary-properties-of-K-groups for exact direct sum, H.1/classifying-space-prod-compactly-generated for the realization/product comparison, and H.1/natural-transformations-adjoints-contractibility for the unit, associativity and symmetry homotopies. Work with compactly generated realizations and their CW models; for number rings a countable skeleton also gives the ordinary product comparison. H.1/classifying-space-cw-structure and H.1/homology-of-small-categories supply the CW and integral simplicial/singular homology inputs. Q(P(A)) is connected through its maps from zero.",
         "The unit, associativity and symmetry isomorphisms give the H-space properties. The connected H-space simplicity theorem is part of the explicit H.6 extension request.",
         "Apply Serre’s finite-type theorem as requested from the homotopy supplier. Concretely, π_1 X=H_1 X is finitely generated abelian; its classifying-space homology is finitely generated. IV.3 Proposition 3 trivializes its action on universal-cover homology. III.1 Proposition 1(b), interpreted on the covering fibration over Bπ_1, makes the simply connected universal cover have finite-type homology. V.2 Proposition 1 then gives finite generation of its higher homotopy groups. The singular-complex interpretation in V.1 footnote 6 removes the original ULC regularity restriction. Use K_n=π_{n+1} BQ.",
         "Specialize to O_F using the arithmetic inputs in the previous node. Preserve the predecessor’s endpoint IDs for consumers."
@@ -452,7 +458,10 @@
         "ArithmeticKTheory:N.3:finite-generation/rank-filtration-homology-finite-type",
         "GeneralAlgebraicKTheory:K.1/elementary-properties-of-K-groups",
         "GeneralAlgebraicKTheory:K.1/K-groups-of-exact-categories",
-        "StableHomotopyKTheory:H.1",
+        "StableHomotopyKTheory:H.1/classifying-space-cw-structure",
+        "StableHomotopyKTheory:H.1/classifying-space-prod-compactly-generated",
+        "StableHomotopyKTheory:H.1/natural-transformations-adjoints-contractibility",
+        "StableHomotopyKTheory:H.1/homology-of-small-categories",
         "StableHomotopyKTheory:H.6",
         "mathlib:NumberField.RingOfIntegers",
         "mathlib:SSet.toTop",
@@ -585,12 +594,9 @@
   "requests": [
     {
       "supplier": "StableHomotopyKTheory:H.1",
-      "need": "For these Q nerves, realize natural isomorphisms as homotopies, preserve products up to natural equivalence, identify homology of exhaustive filtered unions with its colimit, and compare integral bar/group hyperhomology of groupoids with realization local coefficients. This is a specialization of H.1’s stated scope, not a duplicate construction.",
+      "need": "Extend H.1 category/bar homology to bounded-below chain-complex coefficients on a groupoid: construct the natural integral hyperhomology spectral sequence with E²_(p,q)=H_p(G;H_q(C)), and when H_q(C) is concentrated in one degree identify total homology with the shifted representation homology. Preserve naturality under coefficient quasi-isomorphisms and changes of groupoid representatives. The ordinary representation comparison, groupoid decomposition, realization comparison, natural-transformation homotopies and filtered-colimit theorem are now imported through their existing H.1 node IDs; none is requested again. Source: Kahn §§1.3 and 2.2–2.3.7, pp.4–5 and 9–12.",
       "neededBy": [
-        "ArithmeticKTheory:N.3:finite-generation/relative-rank-homology-comparison",
-        "ArithmeticKTheory:N.3:finite-generation/rank-homology-stability",
-        "ArithmeticKTheory:N.3:finite-generation/rank-filtration-homology-finite-type",
-        "ArithmeticKTheory:N.3:finite-generation/quillen-homotopy-finite-type"
+        "ArithmeticKTheory:N.3:finite-generation/relative-rank-homology-comparison"
       ]
     },
     {
@@ -629,7 +635,7 @@
         "ArithmeticKTheory:N.3:finite-generation/relative-rank-homology-comparison",
         "ArithmeticKTheory:N.3:finite-generation/quillen-homotopy-finite-type"
       ],
-      "detail": "H.2 does not yet state Kahn’s cellular-functor mapping-cone theorem, and H.6 does not state Serre’s simple-space finite-type theorem. Their exact contracts are requested extensions, not claimed covered by the current stage text. Kahn supplies the first proof; Serre supplies the finite-type theorem and its H-space cover/loop proof inputs. Assign the latter to an early homotopy stage without a K-theory return dependency and provide declaration-level supplier nodes."
+      "detail": "H.1 has declaration-level ordinary category/bar homology and realization suppliers, but no exact node for the bounded-below chain-coefficient hyperhomology/concentration comparison needed in the rank layer; its extension contract is requested explicitly. H.2 does not yet state Kahn’s cellular-functor mapping-cone theorem, and H.6 does not state Serre’s simple-space finite-type theorem. These exact contracts are requested extensions, not claimed covered by their current stage texts. Kahn supplies the first two proof inputs; Serre supplies the finite-type theorem and its H-space cover/loop proof inputs. Assign them to early homotopy stages without a K-theory return dependency and provide declaration-level supplier nodes."
     },
     {
       "title": "Owner specializations and naturality are not yet expressible",
@@ -648,7 +654,7 @@
       "stageId": "ArithmeticKTheory:N.3:finite-generation",
       "status": "planned",
       "remaining": [
-        "Assign and supply the H.2 cellular mapping-cone and early Serre/H-space extension contracts using the cited Kahn and Serre proof inputs.",
+        "Supply the requested H.1 chain-coefficient hyperhomology/concentration comparison and assign and supply the H.2 cellular mapping-cone and early Serre/H-space extension contracts using the cited Kahn and Serre proof inputs.",
         "Resolve the recorded ALS finite-CW and orientation-duality contracts through Borel R.1; retain the exact projective-lattice and integral-descent hypotheses.",
         "Restore the explicitly recorded owner specializations and naturality conditions in the five elaborated prototypes when the Q, Steinberg and based K-map interfaces are supplied; retain the original endpoint IDs during assembly."
       ],
@@ -677,42 +683,47 @@
       "affects": "nothing",
       "known": "new",
       "searched": [
-        "arXiv submission history at https://arxiv.org/abs/1108.2441 (v3 is the latest listed version on 2026-10-07).",
+        "arXiv submission history at https://arxiv.org/abs/1108.2441 (v3 remains the latest listed version on 2026-10-08).",
         "Author preprint listing https://webusers.imj-prg.fr/~bruno.kahn/preprints/prep2.html and its linked https://webusers.imj-prg.fr/~bruno.kahn/preprints/Quillen-Dedekind7.pdf: the same formula is still printed; no separate correction is listed."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently checked §2.2.3 p.9 in both recorded PDF versions, whose hashes match. The augmentation is induced by the constant one-object coefficient functor on D, so its target is the chains of D, consistently with §2.2.2 on the same page. The displayed C is a base-category misprint, with no change to the rank-comparison statement. The checked arXiv history and author listing supply no correction.",
+        "by": "REV-ArithmeticKTheory--N.3-finite-generation~2"
+      }
     }
   ],
   "upstreamNotes": [],
   "review": {
-    "status": "needs_changes",
-    "reviewer": "independent-review-REV-ArithmeticKTheory--N.3-finite-generation",
-    "date": "2026-10-06",
-    "notes": "Completed independent target-level review of all five fresh nodes, nine retained interfaces, five public sources, nine baseline declarations at the recorded commits, supplier contracts, library audit and confirmed RT-AREA-ktheory-1/1. Corrected the finite-S localization proof to use the torsion-class-group presentation and finite-support exact sequence; corrected finite K-groups to finitely generated K-groups in a title. The mathematical targets are justified and coverage remains planned with honest supplier gaps. Needs changes because all five proposed Lean declarations are comments rather than actual named theorem signatures as required by PROTOCOL section 13. Helper examples elaborate at the Mathlib pin; they do not check those signatures. The reader, outside this review issue’s deliverables, must be reconciled in revision. See the review report.",
+    "status": "accepted",
+    "reviewer": "independent-review-REV-ArithmeticKTheory--N.3-finite-generation~2",
+    "date": "2026-10-08",
+    "notes": "Independent second review of all five fresh nodes and typed prototypes, nine retained interfaces, public source versions and locators, 26 baseline declarations at their exact pins, exact cross-roadmap suppliers, library audit and confirmed RT-AREA-ktheory-1/1. Every prior review correction is resolved. Corrected broad H.1 references to existing declaration-level suppliers and narrowed the remaining request to chain-coefficient hyperhomology, explicitly adding that need to the existing supplier gap. Confirmed source misprint E27. All five prototypes elaborate at the Mathlib pin with only the five expected prototype-proof warnings; essential arithmetic/naturality omissions remain explicit under PROTOCOL §13. Accepted as a complete target-level pass with planned coverage, five requests and two recorded gaps; no implementation or closure claimed.",
     "checked": [
       {
         "nodeId": "ArithmeticKTheory:N.3:finite-generation/relative-rank-homology-comparison",
-        "verdict": "verified",
-        "note": "Kahn 2.3.7 and 4.3.1–4.3.4 and Quillen Theorem 3 give the integral relative comparison. Checked mapping-cone shift, signed i−m, rank-one two-point case, coefficient action and representative transport; requested H.2 extension remains explicit."
+        "verdict": "corrected",
+        "note": "Verified the integral cone shift, signed i−m, rank-one two-point case, coefficient action and representative transport in Kahn 2.3.7/4.3 and Quillen Theorem 3. Replaced ordinary H.1 stage uses with five exact supplier nodes and isolated chain-coefficient hyperhomology as a requested extension and gap. The actual cone/direct-sum signature elaborates; its arithmetic and naturality omissions are explicit."
       },
       {
         "nodeId": "ArithmeticKTheory:N.3:finite-generation/rank-homology-stability",
-        "verdict": "verified",
-        "note": "Quillen Stability has precisely the stated surjectivity and isomorphism bounds. Relative LES and exhaustive finite-chain filtration justify stabilization to BQ without a general finite-generation claim about colimits."
+        "verdict": "corrected",
+        "note": "Verified Quillen’s surjective n≥i and isomorphism n≥i+1 bounds for both maps by the relative LES and exhaustion. Replaced the H.1 stage prerequisite with its exact filtered-colimit and realization-homology nodes. All four canonical inclusion maps are typed in the elaborated prototype; no arbitrary-colimit finite-generation inference is used."
       },
       {
         "nodeId": "ArithmeticKTheory:N.3:finite-generation/rank-filtration-homology-finite-type",
         "verdict": "verified",
-        "note": "Finite Pic gives finitely many classes in each rank; integral Steinberg homology for all projective lattices gives finitely generated relative groups. Noetherian subgroups, exact extensions and degreewise stabilization give the conclusion. Borel R.1 supplies orientation-correct integral duality and finite-index descent, not merely rational cohomology."
+        "note": "Verified finite Pic/classification before the rank sum, integral Steinberg homology for every projective lattice, rank-zero terminal comparison, Noetherian subgroup/quotient and exact-extension induction, then degreewise stabilization. Read the orientation-correct Borel supplier and low-degree class-group bridge. The actual nerve/Rep prototype and essential owner omissions agree with the full statement."
       },
       {
         "nodeId": "ArithmeticKTheory:N.3:finite-generation/quillen-homotopy-finite-type",
         "verdict": "corrected",
-        "note": "Corrected the title to finitely generated K-groups. Checked the n+1 homotopy shift, connected H-space/simple-space distinction and Serre cover argument with trivial homology action. Requested early homotopy extension is not claimed to exist in the present H.6 text."
+        "note": "Verified K_n=π_(n+1), connected H-space simplicity and the explicit Serre cover argument with trivial deck action; BQ is not assumed simply connected. Replaced the H.1 stage prerequisite with exact CW, compactly generated product, natural-transformation and homology-comparison nodes. The based actual-homotopy prototype elaborates; the early Serre extension and arithmetic identifications remain explicit."
       },
       {
         "nodeId": "ArithmeticKTheory:N.3:finite-generation/s-localization-finite-defect",
-        "verdict": "corrected",
-        "note": "Replaced the fraction-field localization prerequisite with N.1/S-integers-localisation-of-torsion-class-group and N.2/finite-support, and made B=A[1/s] with support exactly S explicit. Checked finite outer terms, parity bounds, and separate K1/K0 arguments. No finite-defect claim in degree one or infinite-S finite-generation claim."
+        "verdict": "verified",
+        "note": "The prior review’s principal-localization/finite-support correction is retained in packet, reader and prototype. Checked actual localization map, n≥2 finite defects, even injectivity, odd n≥3 surjectivity and separate K1/K0 arguments. Actual cubical-loop representative compatibility identifies the typed middle map; the residue/arithmetic identifications are openly omitted."
       }
     ]
   },
@@ -720,13 +731,13 @@
     {
       "kind": "preprint",
       "url": "https://arxiv.org/pdf/1108.2441v3",
-      "read": "2026-10-07",
+      "read": "2026-10-08",
       "sha256": "71b5da651ba9feca4c1abcc58f566afbf11019dda465cbc3a95aace7cb1e2406"
     },
     {
       "kind": "author copy",
       "url": "https://webusers.imj-prg.fr/~bruno.kahn/preprints/Quillen-Dedekind7.pdf",
-      "read": "2026-10-07",
+      "read": "2026-10-08",
       "sha256": "480209ded2cd8c388a725f49a654ba8df5ce5dd8d2ce69baa9d16553ef6634c6",
       "citation": "January 2014 author copy; §2.2.3 p.9 checked for an existing correction."
     }
