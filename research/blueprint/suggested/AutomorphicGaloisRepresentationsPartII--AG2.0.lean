@@ -1,5 +1,6 @@
 /-
-Suggested Lean prototypes for the roadmap "Automorphic Galois Representations PartII"
+Suggested Lean prototypes for the roadmap
+"Galois representations attached to regular algebraic automorphic representations of GL_n"
 (AutomorphicGaloisRepresentationsPartII), part AG2.0 (stages AG2.0–AG2.5).
 
 This file is not the roadmap and is not exhaustive. The roadmap document
@@ -8,6 +9,10 @@ suggest Lean forms so that contributors and reviewers converge on names and sign
 results use `sorry`; nothing here is claimed to be formalised (implementationStatus =
 unchecked). Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; Tau Ceti f790474821cf4256814db967cb154e7af3d0c369. Only
 Mathlib is imported.
+
+Accepted RS-12 keeps this as a separate roadmap: raw AG2.1a geometry supplies
+ET's local correspondences, and the rank-two R19 comparisons occur subsequently.
+The historical roadmap and declaration identifiers are retained.
 
 Names are relative to the namespace `TauCeti.AutomorphicGalois` and agree with the `api` and `tests` names of the packet
 `research/blueprint/packets/AutomorphicGaloisRepresentationsPartII--AG2.0.json`. Unit tests are `example`s whose docstring
@@ -402,7 +407,7 @@ Direct owners/contracts: AutomorphicGaloisRepresentationsPartII:AG2.0/frobenius-
 -/
 /-
 Declaration `AutomorphicGaloisRepresentationsPartII:AG2.0/dominant-weights-and-the-weight-w` (definition): Dominant weights (ℤⁿ)^{Hom(F,Ω),+}, the subsets (ℤⁿ)_w for CM fields, base change of weights and the representations Ξ_a.
-Mathematical signature: Specialize the imported AF.4 algebraic-weight carrier to Res GL_n; its coordinate notation and Ξ_a are aliases of that owner, not a second highest-weight theory. Let F be a number field, n ≥ 1 and Ω an algebraically closed field of characteristic 0. (ℤⁿ)^{Hom(F,Ω),+} is the set of a = (a_{τ,i}) with τ ∈ Hom(F, Ω), 1 ≤ i ≤ n and a_{τ,1} ≥ ⋯ ≥ a_{τ,n}. If F is totally real or CM, with complex conjugation c, and w ∈ ℤ, then (ℤⁿ)^{Hom(F,Ω)}_w is the set of a with a_{τ,i} + a_{τ∘c,n+1−i} = w for all τ and i (for Ω = ℂ this is the same as a_{τ,i} + a_{c∘τ,n+1−i} = w). For a finite extension F′/F, a_{F′} is given by (a_{F′})_{τ,i} = a_{τ|_F,i}. The weight a is extremely regular if for some τ, any two subsets H, H′ of {a_{τ,i} + n − i} of the same cardinality with equal sums are equal. For a ∈ (ℤⁿ)^{Hom(F,ℂ),+}, Ξ_a is the irreducible algebraic representation of GL_n^{Hom(F,ℂ)} that is the tensor product over τ of the irreducible representations of GL_n with highest weight a_τ.
+Mathematical signature: For a number field F, rank n≥1 and algebraically closed characteristic-zero coefficient field Ω, use the embedding-wise dominant GL_n coordinates of AF.4: a family a has a_{τ,1}≥⋯≥a_{τ,n} at each τ:F→Ω. The notation (ℤⁿ)^{Hom(F,Ω),+} denotes this specialization of the imported algebraic-weight carrier. For totally real or CM F with conjugation c, membership in (ℤⁿ)_w means a_{τ,i}+a_{τ∘c,n+1−i}=w for every τ and i. When Ω=ℂ, conjugating the target embedding gives the same condition. Restriction of embeddings defines base change: (a_{F′})_{τ,i}=a_{τ|_F,i}. Extreme regularity asks that, at some embedding, equal-sized subsets of the shifted entries {a_{τ,i}+n−i} are determined by their sums. For complex coefficients Ξ_a is AF.4’s highest-weight representation, identified with the tensor product of the GL_n representations of highest weights a_τ. The coordinate notation and Ξ_a do not introduce a second highest-weight theory.
 Hypotheses: Dominance is the ordering a_{τ,1} ≥ ⋯ ≥ a_{τ,n}, with repetitions allowed; regularity of the attached Hodge–Tate numbers comes from the shift by n − i (node expected-hodge-tate-multiset), not from strictness of a. The condition defining (ℤⁿ)_w pairs τ with τ∘c and i with n + 1 − i. It is empty unless F is totally real or CM. Ξ_a is a representation of the complex group GL_n^{Hom(F,ℂ)} = (Res_{F/ℚ} GL_n)_ℂ. Its highest-weight theory is supplied by AutomorphicFormsOnReductiveGroups AF.4 (algebraic highest weights).
 Signature omitted where not prototyped above. Missing objects: AF.4 irreducible algebraic GL_n coefficient representations; the weight functions themselves are prototyped above.
 Direct owners/contracts: mathlib:NumberField.IsCMField.complexEmbedding_complexConj; AutomorphicFormsOnReductiveGroups:AF.4; AutomorphicFormsOnReductiveGroups:AF.4/algebraic-weight
@@ -437,7 +442,7 @@ An example requiring the full object is omitted because AF.4 irreducible algebra
 An example requiring the full object is omitted because AF.4 irreducible algebraic GL_n coefficient representations; the weight functions themselves are prototyped above. The expressible scalar/weight examples above retain the available fragment only. -/
 /-
 Declaration `AutomorphicGaloisRepresentationsPartII:AG2.0/regular-algebraic-of-weight` (definition): Regular algebraic automorphic representations of GL_n(𝔸_F) and their weight.
-Mathematical signature: Let F be a number field and π an automorphic representation of GL_n(𝔸_F). π is regular algebraic if π_∞ has the same infinitesimal character as an irreducible algebraic representation of Res_{F/ℚ} GL_n. It has weight a ∈ (ℤⁿ)^{Hom(F,ℂ),+} if π_∞ has the same infinitesimal character as Ξ_a^∨. A regular algebraic π has a unique weight. Twisting: if ψ is an algebraic Hecke character of F with ψ|_{(F_∞^×)⁰}(x) = ∏_τ τ(x)^{−b_τ}, then π ⊗ (ψ∘det) has weight (a_{τ,i} + b_τ). In particular π ⊗ ‖det‖^t (t ∈ ℤ) has weight (a_{τ,i} − t).
+Mathematical signature: For an automorphic GL_n(𝔸_F) representation π over a number field F, regular algebraicity means that its archimedean infinitesimal character comes from an irreducible algebraic representation of Res_{F/ℚ} GL_n. Write its weight as the unique dominant family a for which infChar(π_∞)=infChar(Ξ_a^∨). If an algebraic Hecke character ψ has identity-component infinity type ∏_τ τ(x)^{−b_τ}, tensoring π with ψ∘det changes a_{τ,i} to a_{τ,i}+b_τ. Thus an integer norm twist π⊗‖det‖^t changes every coordinate to a_{τ,i}−t.
 Hypotheses: The infinitesimal character is compared with that of Ξ_a^∨, not Ξ_a; this is the convention of both BLGGT and ACC+. Regular algebraic is Clozel's C-algebraic for GL_n. It differs from L-algebraic by the twist ‖det‖^{(n−1)/2} when n is even. The C/L distinction is owned by AutomorphicFormsOnReductiveGroups AF.4 and is not re-planned here. No cuspidality, self-duality or unitarity is part of the definition.
 Signature omitted where not prototyped above. Missing objects: AF.1 archimedean (g,K)-modules and their infinitesimal characters, AF.4 Ξ_a and adele automorphic representations.
 Direct owners/contracts: AutomorphicGaloisRepresentationsPartII:AG2.0/dominant-weights-and-the-weight-w; AutomorphicFormsOnReductiveGroups:AF.4/algebraic-weight; AutomorphicFormsOnReductiveGroups:AF.4/infinitesimal-character-of-weight; AutomorphicFormsOnReductiveGroups:AF.1
