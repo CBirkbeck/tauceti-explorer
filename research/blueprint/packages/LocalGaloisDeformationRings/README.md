@@ -17,7 +17,7 @@ Consumers include `GlobalGaloisDeformations:G7,R04.6`, `PotentialAutomorphyInfra
 
 - p is the coefficient prime, ℓ the residue characteristic of K; q is its residue cardinality away from p. Unless specified otherwise, f=[K:ℚ_p]. K/ℚ_ℓ is finite except in the equal-characteristic application. The coefficient integers 𝒪 of a finite E/ℚ_p have uniformizer ϖ and residue k. Cohomology is continuous for the stated topology.
 - R□ represents actual lifts in a fixed basis; R represents strict classes under the Schur hypothesis. `LiftingRing`, `ConditionRing`, `GenericFibre` denote the framed ring, its specified quotient and localization at ϖ. Residual conjugacies are transported explicitly.
-- Integral dimension is one plus relative dimension for the nonzero flat rings here; generic dimension is over E. Fixed determinants use ad⁰ when trace splitting is valid. For general G, fix the whole G/G^der to use dim G^der.
+- Integral dimension is one plus relative dimension for the nonzero flat rings here; generic dimension is over E. Relative determinant presentations use ad⁰; integral scalar splitting requires p∤d. For general G, fix the whole G/G^der to use dim G^der.
 - Ordinary-character reciprocity sends a uniformizer to geometric Frobenius. Tau Ceti `ClassFieldTheory`, Layer 7, uses arithmetic reciprocity: compose with inversion. The tame relation uses arithmetic φtφ⁻¹=t^q; inert quadratic places use q².
 - HT(ε)=+1. Negate labelled weights from HT(ε)=−1 sources. Retain the contravariant D* and covariant Fontaine–Laffaille dictionaries. Ordinary highest weights λ give characters of weights −λ_{τ,d−i+1}−i+1; the rank-two weight-zero shape has {0,−1}, with dual KW shape {0,1}.
 - Full types away from p retain N; p-adic inertia types have finite image; full WD types also retain Frobenius. Flat closures may contain dropped-monodromy boundary points. A uniformizer fibre differs from the closed-point fibre of a model resolution.
@@ -41,7 +41,7 @@ The following external interfaces are needed:
 
 ## Layer 1: Universal lifting rings and coefficient infrastructure
 
-Begin with universal rings and the local continuous-cohomology calculation. Then construct the character coefficients and the rank-general integral-model functor once. The Fontaine–Laffaille condition is included here as input to the Hodge and rigidity applications; ordinary flags and their geometric images are developed in Layer 6.
+Begin with universal rings and the local continuous-cohomology calculation. Then construct the character coefficients and the rank-general integral-model functor once. The Fontaine–Laffaille condition is included here as input to the Hodge and rigidity applications; the ordinary flag scheme is constructed here, with its geometric comparisons in Layer 6.
 
 <a id="t1-1"></a>
 
@@ -290,11 +290,11 @@ Sources: [BIP23], §3.5, the coefficient rings Λ and Remark 3.32, arXiv v2 pp. 
 
 ### 1.16 Presentation of framed rings over Λ and the cocycle count
 
-Over Λ, the lifting ring has presentation Λ[[X₁,…,X_r]]/(f₁,…,f_s), r=dim_κZ¹, s=dim_κH², padding relations by zero. Fixed determinants use the trace-zero complex. Require coefficient-linear continuous cohomology, finiteness and natural-topology comparison for κ.
+Over Λ, R□=Λ[[X₁,…,X_r]]/(f₁,…,f_s), with r=dim_κZ¹(ad ρ), s=h²(ad ρ) and r−s=d²(1+f); relations may be padded by zero. For finite continuous V, dim Z¹(V)=h¹(V)+dim V−h⁰(V)=(1+f)dim V+h²(V). Relative to the universal determinant ring R_{det ρ}, the same presentation uses ad⁰ without assuming p∤d. Require coefficient-linear continuous cohomology, finiteness and natural-topology comparison for κ.
 
 Prerequisites: [1.15](#t1-15); [1.4](#t1-4); `DeformationAndDerivedPatchingAlgebra:R03.2`; ClassFieldTheory / layer 5 local coefficients the brauer group the local invariant and duality.
 
-Sources: [BIP23], Proposition 3.33 and (21)–(22), arXiv v2 p. 26; [PQ26], Lemma 3.1, arXiv v2 p. 22.
+Sources: [BIP23], Proposition 3.33 and (21)–(22), arXiv v2 p. 26, and Proposition 4.3, p. 37; [PQ26], Lemma 3.1, p. 22, and Proposition 3.6, p. 24 (arXiv v2).
 
 <a id="t1-17"></a>
 
@@ -347,7 +347,7 @@ Sources: [BIP23], Lemma 4.1 and its proof, arXiv v2 p. 36.
 
 ### 1.20 Presentations of G-valued framed rings and central quotients
 
-Smooth reduction with continuous sections yields a G-valued presentation with dim Z¹ variables and at most dim H² relations. Fixed full multipliers use the Lie kernel. Obstruction vanishing gives smoothness. Central quotient comparisons distinguish finite étale and torus kernels and use completed fibre products.
+For smooth affine 𝒪-groups φ:G→H with G⁰→H⁰ smooth surjective, put 𝔨=ker(ad ρ→ad(φρ)). Then R□_G=R□_H[[X₁,…,X_r]]/(f₁,…,f_t), r=dim Z¹(𝔨), t=h²(𝔨); for Γ=G_K, r−t=(dim G−dim H)(1+f). Taking H=1 gives the absolute presentation. Continuous sections are required for local-field κ. For generalised reductive G and flat closed Z⊂Z(G⁰) normal in G, H=G/Z: finite étale Z gives R□_H≅R□_G; a torus Z with Z∩G^der étale gives R□_{G/G^der}⊗̂_{R□_{H/H^der}}R□_H≅R□_G. Away from p, GSp₄ with fixed multiplier and H⁰(ad⁰ρ̄(1))=0 has a ten-variable smooth ring; if ρ̄ is also unramified, every lift is unramified.
 
 Prerequisites: [1.17](#t1-17); [1.16](#t1-16); [1.10](#t1-10); ClassFieldTheory / layer 5 local coefficients the brauer group the local invariant and duality.
 
@@ -419,7 +419,7 @@ Sources: [DING25], §3.2.2, arXiv p. 61; [DING25], §3.2.2, arXiv p. 61.
 
 ### 1.24 Fixed-determinant rings by twisting: the functor 𝒳 and the power map φ_d
 
-On the space 𝒳 of characters trivial on the selected local-Artin torsion subgroup, the d-th-power map is finite flat, generically étale and a special-fibre universal homeomorphism. Scalar twisting identifies its pullback with the fixed-ψ space times 𝒳, giving rational dimension comparisons even when p|d.
+Let ψ lift det ρ̄ and χ=ψ∘Art_K|_μ on the selected local-Artin torsion subgroup μ. For continuous θ:G_K→1+𝔪_A trivial on Art_K(μ), 𝒳 is represented by 𝒪(𝒳)=𝒪[[Y₁,…,Y_{f+1}]]. The d-th-power map φ_d is finite flat, generically étale and a special-fibre universal homeomorphism. Scalar twisting (ρ,θ)↦(ρ⊗θ⁻¹,θ) gives R^{□,χ}⊗_{𝒪(𝒳),φ_d}𝒪(𝒳)≅R^{□,ψ}⊗̂_𝒪𝒪(𝒳). Here R^{□,χ} fixes det on μ and R^{□,ψ}=R□⊗_{R_{det ρ̄},ψ}𝒪 fixes the whole determinant. These comparisons allow p|d.
 
 Prerequisites: [1.19](#t1-19); [1.10](#t1-10); [1.1](#t1-1).
 
@@ -478,7 +478,7 @@ Sources: [CHT08], §2.4.4, Definition 2.4.14 and Corollary 2.4.18, pp. 43–44.
 
 ### 2.4 Structure of unrestricted lifting rings away from p
 
-In rank two away from p with compatible fixed determinant, the unrestricted ring is reduced, 𝒪-flat and a complete intersection of dimension four. Its generic components are regular of dimension three, with constant inertia type after forgetting N. Full type may change at component intersections; H⁰(ad⁰ρ(1)) detects ambient smoothness.
+Away from p, H⁰(ad ρ̄(1))=0 gives an unrestricted rank-d ring 𝒪[[X₁,…,X_{d²}]]. In rank two with compatible fixed determinant, the unrestricted ring is reduced, 𝒪-flat and a complete intersection of dimension four. Its generic components are regular of dimension three, with constant inertia type after forgetting N. Full type may change at component intersections; H⁰(ad⁰ρ(1)) detects ambient smoothness.
 
 Prerequisites: [1.1](#t1-1); [1.4](#t1-4); [2.1](#t2-1); ClassFieldTheory / layer 5 local coefficients the brauer group the local invariant and duality.
 
@@ -562,7 +562,7 @@ Sources: [CG20], Assumption 4.3, published pp. 813–814; [CG20], Remark 4.4, pu
 
 ### 2.8 The minimally ramified deformation ring
 
-Minimal ramification is liftable, with framed ring 𝒪[[X₁,…,X_{d²}]] and unframed tangent dimension h⁰(ad ρ̄). Construct kernel/image filtrations over small extensions compatibly with tame splitting.
+Minimal ramification is liftable, with framed ring 𝒪[[X₁,…,X_{d²}]] and unframed tangent dimension h⁰(ad ρ̄). Construct kernel/image filtrations over small extensions compatibly with tame splitting. If p∤#ρ̄(I_K), minimality means killing ker(ρ̄|_I), and L=H¹(G_K/I_K,(ad ρ̄)^{I_K}).
 
 Prerequisites: [2.3](#t2-3); [2.1](#t2-1); [1.1](#t1-1); `GlobalGaloisDeformations:R04.3/deformation-problem-ideal`; `MvPowerSeries` (Mathlib).
 
@@ -590,13 +590,13 @@ Worked checks:
 
 Prerequisites: [2.4](#t2-4); `GlobalGaloisDeformations:R04.3/deformation-problem-ideal`.
 
-Sources: [Gee22], §3.31, after Theorem 3.31, pp. 19–20; [Shotton], Definition 3.5 and Proposition 3.6.
+Sources: [Gee22], §3.31, after Theorem 3.31, pp. 19–20; [Shotton], Definition 3.5 and Proposition 3.6, p. 12.
 
 <a id="t2-10"></a>
 
 ### 2.10 Local rings at Taylor–Wiles primes
 
-For rank two, odd p, q≡1 mod p, distinct residual Frobenius eigenvalues and fixed unramified determinant, the ring is 𝒪[[x,y,B,u]]/((1+u)^{p^m}−1), p^m∥q−1. Inertia is diag(1+u,(1+u)⁻¹) in the eigenbasis; (1,y;x,1) gives framing variables. It is smooth of relative dimension three over 𝒪[Δ].
+For rank two, odd p, q≡1 mod p, distinct residual Frobenius eigenvalues and fixed unramified determinant, the ring is 𝒪[[x,y,B,u]]/((1+u)^{p^m}−1), p^m∥q−1. Set C=(1,y;x,1) and lift one residual Frobenius eigenvalue to α. The universal matrices are Φ=C⁻¹diag(α+B,χ(φ)/(α+B))C and σ=C⁻¹diag(1+u,(1+u)⁻¹)C. It is smooth of relative dimension three over 𝒪[Δ].
 
 Prerequisites: [2.4](#t2-4); [2.1](#t2-1); [1.1](#t1-1).
 
@@ -628,19 +628,19 @@ Worked checks:
 
 Prerequisites: [1.17](#t1-17); [2.5](#t2-5).
 
-Sources: [BCGP21], §7.4.9, arXiv v3 p. 190; [BCGP21], Proposition 7.4.10, arXiv v3 p. 191; [BCGP21], §7.4.13, Spaces of matrices.
+Sources: [BCGP21], §7.4.9, arXiv v3 p. 190; [BCGP21], Proposition 7.4.10, arXiv v3 p. 191; [BCGP21], §7.4.13, pp. 193–194.
 
 <a id="t2-12"></a>
 
 ### 2.12 Level-raising local deformation problems 𝒟^mix, 𝒟^unr, 𝒟^ram
 
-At an inert CM place, take polarized rank N≥2, p≥N, p∤(q²−1), even μ and multiplier η_v^με^{1−N}. The unramified residual restriction contains q^{−N},q^{−N+2} exactly once. Its mixed ring is smooth of relative dimension N²−1 over 𝒪[[x₀,x₁]]/(x₀x₁); both components have relative dimension N². Monodromy points from q^{−N} to q^{−N+2}, with x(s−q^{−N})=0 and tame exponent q². For odd μ the mixed and ramified conditions coincide, x₀=0, and the resulting ring is smooth of relative dimension N²−1.
+At an inert CM place, take polarized rank N≥2, p≥N, p∤(q²−1), even μ and multiplier η_v^με^{1−N}. The unramified residual restriction contains q^{−N},q^{−N+2} exactly once. Its mixed ring is smooth of relative dimension N²−1 over 𝒪[[x₀,x₁]]/(x₀x₁); both components have relative dimension N². Monodromy points from q^{−N} to q^{−N+2}, with x(s−q^{−N})=0 and tame exponent q². For odd μ, x₀(2+x+y)=0 forces x₀=0: mixed equals unramified, while the ramified subproblem is smooth of relative dimension N²−1.
 
 API:
 
-- `LevelRaising.mix`: The polarized local problem 𝒟^mix with its canonical rank-two block at an inert place; the GL_N restriction is r♮ on G_{F_w}.
-- `LevelRaising.unr`: 𝒟^unr ⊂ 𝒟^mix.
-- `LevelRaising.ram`: 𝒟^ram ⊂ 𝒟^mix.
+- `LevelRaising.mix`: Inertia preserves the canonical rank-two block M₀ and is trivial on M₁; the GL_N restriction is r♮ on G_{F_w}.
+- `LevelRaising.unr`: Inertia is also trivial on M₀.
+- `LevelRaising.ram`: Frobenius on M₀ has characteristic polynomial (T−q^{−N})(T−q^{−N+2}).
 - `LevelRaising.localModel`: 𝒟^mix is formally smooth over Spf 𝒪⟦x₀, x₁⟧/(x₀x₁), with 𝒟^unr = {x₀ = 0} and 𝒟^ram = {x₁ = 0}.
 - `LevelRaising.relation`: x(s − q^{−N}) = 0 in R^mix.
 - `LevelRaising.unr_eq_minimal`: For the unramified polarized residual problem 𝒟^unr is the polarized unramified lifting condition; after restriction to G_{F_w} it is unramified GL_N inertia.
@@ -684,7 +684,7 @@ For trivial rank-d residual data, q≡1 mod p and splitting coefficients, distin
 
 Prerequisites: [2.5](#t2-5); [2.4](#t2-4); [2.9](#t2-9).
 
-Sources: [TaylorII], §3, Proposition 3.1, p. 196; [Gee22], Proposition 3.37 and Theorem 3.38, p. 21; [NT26], proof of Theorem 5.9, arXiv v2 p. 45; [THORNE15], Proposition 3.15 and its proof.
+Sources: [TaylorII], §3, Proposition 3.1, p. 196; [Gee22], Proposition 3.37 and Theorem 3.38, p. 21; [NT26], proof of Theorem 5.9, arXiv v2 p. 45; [THORNE15], Proposition 3.15 and its proof, p. 18.
 
 <a id="t2-16"></a>
 
@@ -730,7 +730,7 @@ Worked checks:
 
 Prerequisites: [2.13](#t2-13); [2.9](#t2-9); [2.5](#t2-5); `ArithmeticGaloisRepresentations:R01.2/grothendieck-monodromy-and-the-weil-deligne-functor`.
 
-Sources: [NT26], proof of Lemma 3.6, arXiv v2 p. 18; [Shotton], Definition 3.5 and Proposition 3.6.
+Sources: [NT26], proof of Lemma 3.6, arXiv v2 p. 18; [Shotton], Definition 3.5 and Proposition 3.6, p. 12.
 
 <a id="t2-19"></a>
 
@@ -861,11 +861,11 @@ Sources: [CG20], Definition 4.6 (3)–(4), published p. 815.
 
 ### 2.26 The Steinberg lifting ring is a domain and equals the fixed-type ring
 
-For trivial rank d and q≡1 mod p, the Steinberg closure is a domain of dimension d²+1. Integral monodromy analysis removes Taylor's p>d restriction.
+For trivial rank d and q≡1 mod p, the Steinberg closure is a domain of dimension d²+1. The natural surjection to the full special-type ring R□(τ_{Sp_d}) is an isomorphism. Integral monodromy analysis removes Taylor's p>d restriction.
 
 Prerequisites: [2.5](#t2-5); [2.18](#t2-18); [2.24](#t2-24).
 
-Sources: [NT26], proof of Lemma 3.8, arXiv v2 p. 20; [THORNE15], Proposition 3.17.
+Sources: [NT26], proof of Lemma 3.8, arXiv v2 p. 20; [THORNE15], Proposition 3.17, p. 20.
 
 <a id="t2-27"></a>
 
@@ -2207,6 +2207,8 @@ Sources: [KW209], §2.8, Proposition 2.12 and its proof, pp. 16–18.
 ### 8.2 The local conditions of KW II
 
 For rank two over a totally real field, fix determinant φ=ψχ_p and the local choices: odd at infinity; low-weight crystalline, ordinary endpoint or prescribed weight-two type above p; fixed-character semistable or inertia-rigid away from p. The p-adic local field is unramified, and is ℚ_p in the irreducible and crystalline endpoint branches. Define each quotient as the reduced flat closure of its selected points. The chosen unramified quotient character, semistable γ and reference inertia lift ρ₀ are data. In the abelian split-distinct case selecting one graded character selects one component; the union of both choices need not be a domain.
+
+Above p, low weight means crystalline of residual Serre weight k≤p, or ordinary of weight p+1. For odd p the weight-two WD parameter is (ω^{k−2}⊕1,0), or (1,N≠0) at k=p+1; for p=2 use crystalline weight two at k=2 and semistable weight two at k=4. At p, the fixed-character semistable shape is (γχ_p,*;0,γ), with γ unramified. Inertia-rigid lifts are conjugate on inertia to ρ₀; the split-distinct branch fixes its upper-triangular graded character. Retain F_v=ℚ_q in the level-two branch.
 
 API:
 
