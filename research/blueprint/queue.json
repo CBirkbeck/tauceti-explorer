@@ -76229,8 +76229,9 @@
     "FIX-RT-AREA-automorphic-1~5"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-automorphic-1~5.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7449"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7449",
+   "finishedAt": "2026-10-08T22:43:18Z"
   },
   {
    "id": "RT-AREA-automorphic-2",
