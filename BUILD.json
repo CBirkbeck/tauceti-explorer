@@ -1,8 +1,8 @@
 {
   "roadmaps": 237,
-  "stages": 4896,
+  "stages": 4929,
   "originalStages": 2166,
-  "sourceRefinements": 2730,
+  "sourceRefinements": 2763,
   "reviewedDecompositions": [
     {
       "roadmap": "AInfCohomology",
@@ -243,14 +243,14 @@
   "editedRoadmapSummaries": 181,
   "curatedStagePresentations": 339,
   "administrativeStages": 101,
-  "mathematicalStars": 4795,
+  "mathematicalStars": 4828,
   "plainTextPlanetLabels": 398,
   "hiddenPlanets": 600,
   "mappedStageStatuses": 350,
   "libraryAuditStatuses": 19,
   "bibliographicSources": 46,
-  "roadmapEdges": 2176,
-  "stageEdges": 12714,
+  "roadmapEdges": 2180,
+  "stageEdges": 12803,
   "reviewedLinkPackets": 25,
   "promotedBlueprints": [
     {
@@ -926,6 +926,12 @@
       "reviewer": "independent-review-REV-DESIGN-HodgeStructuresPartII"
     },
     {
+      "file": "HodgeTateAndCanonicalSubgroups--T0",
+      "roadmap": "HodgeTateAndCanonicalSubgroups",
+      "nodes": 66,
+      "reviewer": "independent-review-REV-HodgeTateAndCanonicalSubgroups--T0~2"
+    },
+    {
       "file": "IgusaVarietiesAndTorsionConcentration",
       "roadmap": "IgusaVarietiesAndTorsionConcentration",
       "nodes": 123,
@@ -1160,6 +1166,12 @@
       "reviewer": "independent-review-REV-ShimuraCompactifications--C6"
     },
     {
+      "file": "ShimuraVarieties--V8",
+      "roadmap": "ShimuraVarieties",
+      "nodes": 26,
+      "reviewer": "independent-review-REV-ShimuraVarieties--V8~2"
+    },
+    {
       "file": "SmallRamificationAndAbelianVarietyBaseCases",
       "roadmap": "SmallRamificationAndAbelianVarietyBaseCases",
       "nodes": 59,
@@ -1209,8 +1221,8 @@
     }
   ],
   "sourceDocuments": 296,
-  "htmlBytes": 35588770,
-  "htmlSha256": "f8c3cbf5e050cfe6c814200d9ae72bb37d0e0641785bb9a65badb753d98a20a2",
+  "htmlBytes": 35710633,
+  "htmlSha256": "22af22f5d920343353ce5aa7a36c51238cdaf80d406372d416428a21b72df2ce",
   "networkDependencies": 0,
   "localProgressOverridesIncluded": false,
   "assets": {
@@ -1242,7 +1254,7 @@
     "data/roadmap-summaries.json": "c8bdd0a9105f5d3c4a858c8b635990729f8e94497dee784a71fae659b8c05b9f",
     "data/roadmap-classification.json": "2641dbc97eb2566c715162d011b46890d1635629181ef8126ac7aed9e24a3b13",
     "data/classification-estimates.json": "625d35fe6121bf099dc5de9e6a9111793596f9b664e3fbd439841434bb4a57d6",
-    "data/roadmap-distances.json": "96aa715c058bde70ad7a24a9627b5acf7966219e3db7236f03fc36768ed7b66c",
+    "data/roadmap-distances.json": "3fdc3aaca9ce2f2d9aad1a3b448ffaeb17b1caca05de06463a1b0bdd18f8bebf",
     "data/galaxy-layout.json": "7489487a2143484a355b36026c2f7d3dd9384ac5c58ac90d8b061b8dfcab6088",
     "data/bibliography.json": "bef230a41fad22d6b790c7564061c4d05c2ae5b78cab53d005eb404afab2b122",
     "NOTICE": "a285b95d5adbf5c2bcc82db36e2a77b797f84a2c5cbb30292efd0bae17cc4f34",
@@ -1524,6 +1536,8 @@
     "data/blueprints/HodgeStructuresPartII--H.8.md": "773efd0b05a4c6108c2f472f8d5a1cad665ffad07e8057601a2db461b98dcd18",
     "data/blueprints/HodgeStructuresPartII.json": "2b0cd77691cded87b89d241a3d0b714857e4953c302230943ed06a2ff7a2be60",
     "data/blueprints/HodgeStructuresPartII.md": "a0767cc10c8b1a31a8ee89ee6626c5dd35ca747db752905beb81d1d4f70e207c",
+    "data/blueprints/HodgeTateAndCanonicalSubgroups--T0.json": "f815772fd48142ae1ba12cc2a1bc6a0635d7c50296432b051413b8f609e6d895",
+    "data/blueprints/HodgeTateAndCanonicalSubgroups--T0.md": "6611797f3a75cd9fee4d2e0408004d2aa86006fcc111c70d38a26ca989e52f84",
     "data/blueprints/IgusaVarietiesAndTorsionConcentration.json": "760f4bbb163d3b80f07f3cf0039ac0d71a09e14f362ed2423174979fbce91c76",
     "data/blueprints/IgusaVarietiesAndTorsionConcentration.md": "cd118c16ddb3651709e26fffbf0e3febee0a160db83976f477aea882652faff1",
     "data/blueprints/InductionRestrictionPartII.json": "85af7815c4223c6b160f957e001598afb66ae1aaa84ddbea6995008ed72519c5",
@@ -1602,6 +1616,8 @@
     "data/blueprints/SemisimpleAlgebrasPartII.md": "7d72aa9a82427470a96a523a502fdd12fee1268a581dd08fd02e94d143bec247",
     "data/blueprints/ShimuraCompactifications--C6.json": "1106fa4773d45d8ca2ebe86e66aa02ae62a56341e9828c07f65aca690da7d771",
     "data/blueprints/ShimuraCompactifications--C6.md": "0879965a7bd7d0ec541be3b0aa8b90b609b9910a7c566fe5908dbefa87c16a5d",
+    "data/blueprints/ShimuraVarieties--V8.json": "9c4dcc830e5acdcd9e9c2f39ebb33c8c04cc0df0b9e14c8a459d9385442296c9",
+    "data/blueprints/ShimuraVarieties--V8.md": "9acb2e576482bd0f6c667e3c138e3193fc40257df88491d45f83339bbc2e7b78",
     "data/blueprints/SmallRamificationAndAbelianVarietyBaseCases.json": "23f958611ab637021db69e31c3df861049f38d88d4e32d7f0be79f45dc3496ea",
     "data/blueprints/SmallRamificationAndAbelianVarietyBaseCases.md": "bf5bb37e33b91d56f46879172730f6ced43c4f448c1ff01efeec27bc66d0141e",
     "data/blueprints/SpecialValuesBirchTate.json": "4f757c294cfa0a140e437995ab1486bf8d53560fa7f8461d4f8ab742684139aa",

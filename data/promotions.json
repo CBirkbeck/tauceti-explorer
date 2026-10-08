@@ -1513,6 +1513,17 @@
     "data/blueprints/roadmaps/HodgeStructuresPartII.json"
    ]
   },
+  "research/blueprint/packets/HodgeTateAndCanonicalSubgroups--T0.json": {
+   "promotedAt": "2026-10-08T12:24:13Z",
+   "review": "858a8c49e01fc27d",
+   "reviewDate": "2026-10-08",
+   "reviewer": "independent-review-REV-HodgeTateAndCanonicalSubgroups--T0~2",
+   "sha256": "f815772fd48142ae1ba12cc2a1bc6a0635d7c50296432b051413b8f609e6d895",
+   "to": [
+    "data/blueprints/HodgeTateAndCanonicalSubgroups--T0.json",
+    "data/blueprints/HodgeTateAndCanonicalSubgroups--T0.md"
+   ]
+  },
   "research/blueprint/packets/IgusaVarietiesAndTorsionConcentration.json": {
    "promotedAt": "2026-10-07T17:20:54Z",
    "review": "448d600f1c0552f1",
@@ -1944,6 +1955,17 @@
    "to": [
     "data/blueprints/ShimuraCompactifications--C6.json",
     "data/blueprints/ShimuraCompactifications--C6.md"
+   ]
+  },
+  "research/blueprint/packets/ShimuraVarieties--V8.json": {
+   "promotedAt": "2026-10-08T12:24:13Z",
+   "review": "9af16755b098105e",
+   "reviewDate": "2026-10-08",
+   "reviewer": "independent-review-REV-ShimuraVarieties--V8~2",
+   "sha256": "7b9f673cceba055406ca9241335b2b6bccbc89b9088acb40654f01481898547e",
+   "to": [
+    "data/blueprints/ShimuraVarieties--V8.json",
+    "data/blueprints/ShimuraVarieties--V8.md"
    ]
   },
   "research/blueprint/packets/SmallRamificationAndAbelianVarietyBaseCases.json": {
