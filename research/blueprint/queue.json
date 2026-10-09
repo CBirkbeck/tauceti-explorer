@@ -38921,8 +38921,9 @@
     "BP-ExcursionOperatorsAndSpectralAction--ES0~2"
    ],
    "prompt": "research/blueprint/prompts/REV-ExcursionOperatorsAndSpectralAction--ES0~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7047"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7047",
+   "finishedAt": "2026-10-09T09:55:56Z"
   },
   {
    "kind": "blueprint",
@@ -70670,8 +70671,9 @@
     "REV-LocalGaloisDeformationRings~2"
    ],
    "prompt": "research/blueprint/prompts/RT-BP-LocalGaloisDeformationRings~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7673"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7673",
+   "finishedAt": "2026-10-09T09:55:59Z"
   },
   {
    "id": "REV-RT-BP-LocalGaloisDeformationRings~2",
