@@ -1,0 +1,194 @@
+{
+ "id": "IntegralHeckeAndGaloisDeterminantsPartII",
+ "title": "Integral Hecke actions, determinants and interpolation, Part II: ramified Hecke operators and local–global compatibility away from p",
+ "area": "langlands",
+ "parent": "IntegralHeckeAndGaloisDeterminants",
+ "summary": "Starting where Integral Hecke actions, determinants and interpolation stops, this Part II constructs the ramified Hecke operators t_{v,i}(σ) of GL_n at pro-ℓ-Iwahori level and the ramified Hecke polynomials P_{v,σ}(X), identifies them with the local Langlands correspondence, transfers them to Siegel-parahoric levels of the quasi-split unitary group U(n, n), and proves local–global compatibility away from p for the Galois determinants valued in torsion Hecke algebras of GL_n over a CM field (Allen et al., Potential automorphy over CM fields, Theorem 3.1.1): up to a nilpotent ideal of bounded exponent, the characteristic polynomial of every σ in the Weil group at a place of R is the image of P_{v,σ}(X).",
+ "readme": "The definitive document is research/blueprint/readmes/IntegralHeckeAndGaloisDeterminantsPartII.md.\n\nThis Part II starts where Integral Hecke actions, determinants and interpolation (IntegralHeckeAndGaloisDeterminants) stops. IHG.3 normalizes the spherical Hecke polynomial P_v(X) at unramified places, and IHG.4–IHG.5 interpolate and specialize Hecke-algebra-valued determinants, but nothing there says how such a determinant behaves at a ramified place. This roadmap constructs the ramified Hecke operators of GL_n at pro-ℓ-Iwahori level (IHR.1), identifies them with the local Langlands correspondence (IHR.2), transfers them to Siegel-parahoric and tame levels of the quasi-split unitary group U(n, n) at split places (IHR.3), proves the resultant relation that controls inertia (IHR.4), builds the ramified Hecke algebras of arithmetic complexes (IHR.5), proves local–global compatibility at R for the unitary group and its boundary (IHR.6), and descends it to GL_n: Theorem 3.1.1 of Allen–Calegari–Caraiani–Gee–Helm–Le Hung–Newton–Scholze–Taylor–Thorne (IHR.7).\n\nConventions are those of ACC+ §1.2: Art_{F_v} sends uniformizers to geometric Frobenius elements, Frob_v is geometric, ‖σ‖_v = |Art_{F_v}^{−1}(σ)|_v, ε(Frob_v) = q_v^{−1}, rec^T is the arithmetic normalization of the local Langlands correspondence, Hecke algebras have Z-coefficients with vol(U) = 1, and determinants are Chenevier's (IHG.0).\n\nImported, never re-planned: determinants, Cayley–Hamilton reconstruction, Hecke images of complexes, the spherical normalization and interpolation (IntegralHeckeAndGaloisDeterminants IHG.0–IHG.5); positive-monoid Hecke algebras and the Bushnell–Kutzko Lemmas 2.1.12–2.1.13, Jacquet functors and the geometric lemma (SmoothRepresentationsOfLocalGroups SR.1–SR.3); arithmetic complexes, Hecke actions, the boundary, duality and level change (ArithmeticLocallySymmetricSpaces ALS.0–ALS.6); the unramified Levi Satake identities, Scholze's torsion comparison and Theorem 2.3.7 (TorsionCohomologyInfrastructure TC.2–TC.4); the descent of the Satake map to boundary Hecke algebras, Theorem 2.4.8 (PotentialAutomorphyInfrastructure PA.0); characteristic-zero Galois representations of U(n, n) with local–global compatibility at split places (AutomorphicGaloisRepresentationsPartII AG2.2, AG2.5); Weil–Deligne representations (ArithmeticGaloisRepresentations R01.2); the local Langlands correspondence (EndoscopicTransferAndUnitaryTraceComparison ET.6); local and global class field theory and Chebotarev (Tau Ceti ClassFieldTheory, Chebotarev).\n\nNot in this roadmap: local–global compatibility at p (PotentialAutomorphyInfrastructure PA.1–PA.2), places of R whose level is not between Iw_{v,1} and Iw_v, places whose residue characteristic does not split in an imaginary quadratic subfield of F, and the monodromy operator itself (the theorem controls characteristic polynomials, not N).",
+ "prerequisites": [
+  "IntegralHeckeAndGaloisDeterminants",
+  "SmoothRepresentationsOfLocalGroups",
+  "ArithmeticLocallySymmetricSpaces",
+  "TorsionCohomologyInfrastructure",
+  "PotentialAutomorphyInfrastructure",
+  "AutomorphicGaloisRepresentationsPartII",
+  "ArithmeticGaloisRepresentations",
+  "EndoscopicTransferAndUnitaryTraceComparison",
+  "IgusaVarietiesAndTorsionConcentration",
+  "tauceti:TauCetiRoadmap/ClassFieldTheory",
+  "tauceti:TauCetiRoadmap/Chebotarev"
+ ],
+ "stages": [
+  {
+   "key": "IHR.1",
+   "title": "Pro-ℓ-Iwahori levels and the ramified Hecke operators of GL_n",
+   "description": "### IHR.1. Pro-ℓ-Iwahori levels and the ramified Hecke operators of GL_n\n\nLet F_v be a nonarchimedean local field with ring of integers O_{F_v}, fixed uniformizer ϖ_v, residue field k(v) of cardinality q_v and residue characteristic ℓ, and let O be a ring in which q_v is a unit (in the arithmetic application, the ring of integers of a finite extension E/ℚ_p with p ≠ ℓ). Hecke algebras H(G, U) are the rings of compactly supported U-biinvariant ℤ-valued functions with vol(U) = 1, written with double cosets [UgU]; Art_{F_v} sends uniformizers to geometric Frobenius elements.\n\n**Targets.**\n- *Tame Iwahori levels.* The open compact subgroups I_v of GL_n(F_v) with Iw_{v,1} ⊆ I_v ⊆ Iw_v (Iw_v the standard Iwahori subgroup, Iw_{v,1} the pro-ℓ Iwahori subgroup of ArithmeticLocallySymmetricSpaces ALS.0); their bijection with subgroups of (k(v)^×)^n = Iw_v/Iw_{v,1}; their Iwahori decomposition with respect to the upper triangular Borel B_n = T_nN_n.\n- *The tame torus quotient* Ξ_v = T_n(F_v)/(T_n(F_v) ∩ I_v) = (F_v^×)^n/ker((O_{F_v}^×)^n → Iw_v/I_v), its positive cone (valuations non-increasing), the exact sequence 0 → T_n(O_{F_v})/(T_n ∩ I_v) → Ξ_v → ℤ^n → 0, and the strongly positive element z_v = diag(ϖ_v^{n−1}, …, ϖ_v, 1).\n- *Invertibility of positive double cosets*: for every g ∈ T_n(F_v), [I_v g I_v] is a unit of H(GL_n(F_v), I_v) ⊗ ℤ[1/q_v] (Flicker's tame presentation, extended to every intermediate level and to integral coefficients).\n- *The tame torus embedding* t : O[Ξ_v] → H(GL_n(F_v), I_v) ⊗ O, the unique O-algebra homomorphism sending a positive g to [I_v g I_v]; it is injective (ACC+ §2.2.5, p. 924, via the positive-monoid Lemmas 2.1.12–2.1.13 owned by SmoothRepresentationsOfLocalGroups SR.1).\n- *The ramified Hecke operators* t_{v,i}(α) = t(q_v^{(i−1)v(α)}·(1, …, α, …, 1)) for α ∈ F_v^× (α in position i), their elementary symmetric functions e_{v,i}(α), and the characters ψ_{v,i} : W_{F_v} → (H(GL_n(F_v), I_v) ⊗ O)^×, σ ↦ t_{v,i}(σ) := t_{v,i}(Art_{F_v}^{−1}(σ|_{F_v^{ab}})).\n- *The ramified Hecke polynomial* (2.2.8) P_{v,σ}(X) = ∏_{i=1}^{n}(X − t_{v,i}(σ)) = Σ_{i=0}^{n}(−1)^i e_{v,i}(σ)X^{n−i}, with its universal version in O[Ξ_v][X], and its compatibility with change of tame level.\n\nEvery object carries the API listed in the roadmap document, with unit tests for n = 1, for I_v = Iw_v and for I_v = Iw_{v,1}.",
+   "requires": [
+    "IntegralHeckeAndGaloisDeterminants:IHG.3",
+    "SmoothRepresentationsOfLocalGroups:SR.1",
+    "ArithmeticLocallySymmetricSpaces:ALS.0",
+    "ArithmeticLocallySymmetricSpaces:ALS.3",
+    "ArithmeticLocallySymmetricSpaces:ALS.4",
+    "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-7-the-absolute-local-artin-map-its-normalizations-and-conductors",
+    "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-9-the-local-weil-group"
+   ]
+  },
+  {
+   "key": "IHR.2",
+   "title": "Tame Iwahori invariants and the local Langlands correspondence",
+   "description": "### IHR.2. Tame Iwahori invariants and the local Langlands correspondence\n\nCoefficients are Q̄_p, with p ≠ ℓ; rec^T_{F_v} is the arithmetic normalization rec_{F_v}(π ⊗ |det|^{(1−n)/2}) of the local Langlands correspondence of EndoscopicTransferAndUnitaryTraceComparison ET.6, valued in Frobenius-semisimple Weil–Deligne representations (ArithmeticGaloisRepresentations R01.2).\n\n**Targets** (ACC+ Proposition 2.2.9, proved from Flicker's tame algebra).\n- *Tame principal series criterion.* For an irreducible admissible Q̄_p[GL_n(F_v)]-module π_v, π_v^{I_v} ≠ 0 if and only if π_v is a subquotient of Ind_{B_n}^{GL_n} χ for a smooth character χ of (F_v^×)^n factoring through Ξ_v.\n- *Centrality.* Each e_{v,i}(α) lies in the centre of H(GL_n(F_v), I_v) ⊗ O, so acts on π_v^{I_v} ≠ 0 by a scalar e_{v,i}(α, π_v) ∈ Q̄_p.\n- *Characteristic polynomial identity.* If π_v^{I_v} ≠ 0 and (r_v, N_v) = rec^T_{F_v}(π_v), then for every σ ∈ W_{F_v} the characteristic polynomial of r_v(σ) is Σ_{i=0}^{n}(−1)^i e_{v,i}(Art_{F_v}^{−1}(σ), π_v) X^{n−i}.\n- *Comparison with the parent roadmap.* For unramified π_v and I_v = Iw_v, e_{v,i}(Frob_v) acts on π_v^{Iw_v} by the scalar by which q_v^{i(i−1)/2}T_{v,i} acts on π_v^{GL_n(O_{F_v})}, so P_{v,Frob_v} specializes to the spherical polynomial P_v of IntegralHeckeAndGaloisDeterminants IHG.3.\n\nAcceptance: n = 1 against local class field theory; the Steinberg representation of GL_2 (P_{v,φ} acts by (X − 1)(X − q_v) for a geometric Frobenius lift φ); unramified principal series of GL_2.",
+   "requires": [
+    "IntegralHeckeAndGaloisDeterminants:IHG.3",
+    "IntegralHeckeAndGaloisDeterminants:IHG.2",
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.6",
+    "ArithmeticGaloisRepresentations:R01.2",
+    "SmoothRepresentationsOfLocalGroups:SR.1",
+    "SmoothRepresentationsOfLocalGroups:SR.2",
+    "SmoothRepresentationsOfLocalGroups:SR.3",
+    "AutomorphicGaloisRepresentationsPartII:AG2.0",
+    "IntegralHeckeAndGaloisDeterminantsPartII:IHR.1"
+   ]
+  },
+  {
+   "key": "IHR.3",
+   "title": "Siegel-parahoric transfer at split places of the quasi-split unitary group",
+   "description": "### IHR.3. Siegel-parahoric transfer at split places of the quasi-split unitary group\n\nLet F be a CM field with maximal totally real subfield F⁺, G̃ the quasi-split unitary group U(n, n) over O_{F⁺} with Siegel parabolic P = U ⋊ G, G = Res_{O_F/O_{F⁺}} GL_n (TorsionCohomologyInfrastructure TC.3; IgusaVarietiesAndTorsionConcentration IG.0), and v a place of F, prime to p, above a place v̄ of F⁺ split in F, with ι_v : G̃(F⁺_v̄) ≅ GL_{2n}(F_v) and G(F⁺_v̄) = GL_n(F_{v^c}) × GL_n(F_v).\n\n**Targets** (ACC+ §2.2.5, pp. 925–931).\n- *Siegel parahoric levels*: 𝔭_v ⊂ GL_{2n}(O_{F_v}) (reduction block upper triangular with blocks n, 1, …, 1), 𝔭_{v,1} = ker(𝔭_v → B_n(k(v)) → T_n(k(v))), the levels q̃_v = ι_v^{−1}(𝔮_v) with 𝔭̃_{v,1} ⊆ q̃_v ⊆ 𝔭̃_v, their intersections GL_n(O_{F_{v^c}}) × Iw_v and GL_n(O_{F_{v^c}}) × Iw_{v,1} with the Levi, and their Iwahori decomposition with respect to P; and the unitary tame levels Ĩ_v̄ with Ĩw_v̄(1, 1) ⊆ Ĩ_v̄ ⊆ Ĩw_v̄(0, 1), meeting the Levi in I_{v^c} × I_v.\n- *Lemma 2.2.10 and its tame analogue*: (ϖ_v^{−c}1_n, 1_n) and (ϖ_{v^c}^{−1}1_n, 1_n) are strongly positive and the corresponding double cosets are units of the Hecke algebras at levels q̃_v and Ĩ_v̄ over O.\n- *Transferred operators* (2.2.11)–(2.2.12): the injective homomorphism t from H(GL_n(F_{v^c}) × GL_n(F_v), GL_n(O_{F_{v^c}}) × I_v) ⊗ O, the operators t_{v,i}(σ) (image of ‖σ‖_v^{−n}t_{v,i}(σ)), e_{v,i}(σ), e_{v^c,i}(σ) (image of ‖σ‖_v^{i(n−1)}e_{v^c,i}(σ)), the polynomials P_{v,σ}, P_{v^c,σ} and P̃_{v,σ} = P_{v^c,σ^{−c}}P_{v,σ} of degree 2n with coefficients ẽ_{v,i}(σ); and at tame unitary level the polynomial (2.2.17) P̃_{v,σ}(X) = ∏_{i=1}^{2n}(X − ι_v^{−1}(t_{v,i}(σ))).\n- *Lemma 2.2.13*: on π̃^{q̃_v} ≠ 0 the ẽ_{v,i}(σ) act by scalars, and Σ(−1)^iẽ_{v,i}(σ, π̃)X^{2n−i} is the characteristic polynomial of r_v(σ), (r_v, N_v) = rec^T_{F_v}(π̃ ∘ ι_v^{−1}).\n- *Satake transforms* (Propositions 2.2.18–2.2.19): 𝒮(P̃_{v,σ}(X)) = P_{v,σ}(X)‖σ‖_v^{n(1−2n)}P_{v^c,σ^{−c}}(‖σ‖_v^{2n−1}X) at level Ĩ_v̄, and 𝒮(P_{v,σ}) = P_{v,σ}, 𝒮(P_{v^c,σ^{−c}}(X)) = ‖σ‖_v^{n(1−2n)}P_{v^c,σ^{−c}}(‖σ‖_v^{2n−1}X) at level q̃_v.\n\nAcceptance: n = 1, where G̃ = U(1, 1), q̃_v is an Iwahori-type level of GL_2(F_v) and every formula is checked against unramified twists.",
+   "requires": [
+    "IntegralHeckeAndGaloisDeterminantsPartII:IHR.1",
+    "IntegralHeckeAndGaloisDeterminantsPartII:IHR.2",
+    "TorsionCohomologyInfrastructure:TC.3",
+    "IgusaVarietiesAndTorsionConcentration:IG.0",
+    "ArithmeticLocallySymmetricSpaces:ALS.4",
+    "SmoothRepresentationsOfLocalGroups:SR.1",
+    "SmoothRepresentationsOfLocalGroups:SR.2",
+    "SmoothRepresentationsOfLocalGroups:SR.3",
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.6",
+    "IntegralHeckeAndGaloisDeterminants:IHG.3"
+   ]
+  },
+  {
+   "key": "IHR.4",
+   "title": "The resultant and the inertia relation",
+   "description": "### IHR.4. The resultant and the inertia relation\n\nFix a Frobenius lift φ_v ∈ W_{F_v}.\n\n**Targets** (ACC+ §2.2.5, pp. 928–930).\n- *The resultant* Res_v ∈ H(G̃(F⁺_v̄), q̃_v) ⊗ O of P_{v^c,φ_v^{−c}}(X) and P_{v,φ_v}(X), computed in the commutative image of t; its Bézout identity, its behaviour under ring maps, and the criterion that its image in a ring is a unit exactly when the images of the two polynomials are coprime.\n- *Étaleness away from the resultant*: over a field κ, the algebra of ordered factorizations of a monic polynomial of degree n₁ + n₂ into monic factors of degrees n₁, n₂ is étale at every point where the two factors have unit resultant (the commutative-algebra input cited by ACC+ from Thorne).\n- *Proposition 2.2.14*: for π̃ with π̃^{q̃_v} ≠ 0 and T_v̄ the Q̄_p-algebra generated by the e_{v^c,i}(φ_v^{−c}) and e_{v,i}(φ_v), at every maximal ideal 𝔪 of T_v̄ either Res_v ∈ 𝔪, or T_{v̄,𝔪} = Q̄_p and N_vP_{v,φ_v}(r_v(φ_v)) = 0 and (r_v(τ_v) − 1)P_{v,φ_v}(r_v(φ_v)) = 0 for all τ_v ∈ I_{F_v}.\n- *Corollary 2.2.15*: for continuous ρ : G_{F_v} → GL_{2n}(Q̄_p) with WD(ρ)^{F-ss} ≅ rec^T_{F_v}(π̃ ∘ ι_v^{−1}), Res_v^{(2n)!}(ρ(τ_v) − 1)P_{v,φ_v}(ρ(φ_v)) = 0 in M_{2n}(T_v̄) for all τ_v ∈ I_{F_v}.\n\nAcceptance: the Steinberg case n = 1 (Π = St_2), where Res_v is a unit and P_{v,φ_v}(r_v(φ_v)) kills the monodromy; and an unramified case, where Res_v vanishes exactly at the two coincident orderings of the Frobenius eigenvalues.",
+   "requires": [
+    "IntegralHeckeAndGaloisDeterminantsPartII:IHR.3",
+    "ArithmeticGaloisRepresentations:R01.2",
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.6",
+    "SmoothRepresentationsOfLocalGroups:SR.2"
+   ]
+  },
+  {
+   "key": "IHR.5",
+   "title": "Ramified Hecke algebras of arithmetic complexes",
+   "description": "### IHR.5. Ramified Hecke algebras of arithmetic complexes\n\nLet F be a CM field containing an imaginary quadratic field, p a prime such that every p-adic place of F⁺ splits in F (ACC+ §3.1), S = S^c a finite set of finite places containing the p-adic ones, R ⊂ S a set of places prime to p whose residue characteristics split in an imaginary quadratic subfield of F, K ⊂ GL_n(A_F^∞) good with Iw_{v,1} ⊆ K_v ⊆ Iw_v for v ∈ R and K_v = GL_n(O_{F_v}) for v ∈ R^c − R, and T = S − (R^c − R).\n\n**Targets.**\n- *The ramified Hecke algebra* T^T_R ⊂ H(GL_n(A_F^∞), K) ⊗ O, the commutative O-subalgebra generated by the spherical algebra T^T and all t_{v,i}(σ) (v ∈ R, σ ∈ W_{F_v}); its image T^T_R(C) in End_{D(O)}(C) for a complex C with a Hecke action (ALS.3, IHG.2), T^T_R(K, λ) = T^T_R(RΓ(X_K, 𝒱_λ)), the inclusions T^S(K, λ) ⊆ T^T(K, λ) ⊆ T^T_R(K, λ), finiteness over O, the identification with the inverse limit over the coefficients 𝒱_λ/ϖ^m, and the localization T^T_R(K, λ)_𝔪 at a maximal ideal 𝔪 of T^S(K, λ) as a T^S(K, λ)-algebra (semilocal, not local in general).\n- *The unitary ramified Hecke algebra* T̃^T_R generated by T̃^S, the operators of IHR.3 at v ∈ R and the transferred spherical operators at v ∈ R^c − R, with its images on RΓ_c, RΓ and the Borel–Serre boundary of X̃_K̃.\n- *The ramified Satake homomorphism* 𝒮 : T̃^T_R → T^T_R extending (2.2.3) through Lemma 2.1.13, with its values on P̃_v, P̃_{v,σ}, P_{v,σ}, P_{v^c,σ^{−c}} and Res_v.\n- *Twisting* by a character ψ with ψ ∘ Art_F ∘ det trivial on K: f_ψ(t_{v,i}(σ)) = ψ(σ)^{−1}t_{v,i}(σ), the induced isomorphisms of ramified Hecke algebras and the twisted Hecke polynomials.\n- *Duality*: ι̃ descends to an isomorphism ι̃(T̃^T_R)(RΓ_c(X̃_K̃, O)) ≅ T̃^T_R(RΓ(X̃_K̃, O)).\n- *Change of level*: for K′ ⊲ K differing at R (with K′_v = Iw_{v,1}), at an auxiliary prime q and at p, the diagram T^{T′}_R(K′, λ) ← T^{T′}_R(K/K′, λ) ↠ T^{T′}_R(K, λ) → T^T_R(K, λ) with left kernel of nilpotence exponent bounded in terms of n and [F : ℚ].",
+   "requires": [
+    "IntegralHeckeAndGaloisDeterminantsPartII:IHR.1",
+    "IntegralHeckeAndGaloisDeterminantsPartII:IHR.3",
+    "IntegralHeckeAndGaloisDeterminantsPartII:IHR.4",
+    "IntegralHeckeAndGaloisDeterminants:IHG.2",
+    "IntegralHeckeAndGaloisDeterminants:IHG.3",
+    "ArithmeticLocallySymmetricSpaces:ALS.1",
+    "ArithmeticLocallySymmetricSpaces:ALS.3",
+    "ArithmeticLocallySymmetricSpaces:ALS.4",
+    "ArithmeticLocallySymmetricSpaces:ALS.5:finite-level-duality",
+    "ArithmeticLocallySymmetricSpaces:ALS.6",
+    "TorsionCohomologyInfrastructure:TC.3",
+    "SmoothRepresentationsOfLocalGroups:SR.1"
+   ]
+  },
+  {
+   "key": "IHR.6",
+   "title": "Local–global compatibility at R for the unitary group",
+   "description": "### IHR.6. Local–global compatibility at R for the unitary group\n\nKeep the setting of IHR.5 and let K̃ ⊂ G̃(A^∞_{F⁺}) be good, decomposed with respect to P, with K̃_v̄ = q̃_v at v ∈ R − R^c and K̃_v̄ = Ĩ_v̄ at v ∈ R ∩ R^c; fix Frobenius lifts φ_v (v ∈ R).\n\n**Targets** (ACC+ §3.2, pp. 958–961).\n- *Classical points*: for a cuspidal cohomological π̃ of G̃(A_{F⁺}) with (π̃^∞)^{K̃} ≠ 0, r_ι(π̃) viewed over the image T̃^T_R(π̃) satisfies (1) characteristic polynomial of Frob_v equal to P̃_v for v ∉ S, (2) characteristic polynomial of σ ∈ W_{F_v} equal to P̃_{v,σ} for v ∈ R, (3) Res_v^{(2n)!}ρ((τ_v − 1)P_{v,φ_v}(φ_v)) = 0 for v ∈ R − R^c; and the same for r_ι(π̃)^∨ ⊗ ε^{1−2n} through the duality involution ι̃.\n- *Interpolation with conditions at R*: for every continuous discrete quotient A of the classical Hecke algebra T_cl (T̃^T_R with Scholze's topology), a unique 2n-dimensional A-valued determinant of G_{F,S} with conditions (1)–(3), (3) expressed through its trace.\n- *Proposition 3.2.2*: an ideal Ĩ_{c,R} ⊂ T̃^T_R(RΓ_c(X̃_K̃, O)) with Ĩ_{c,R}^N = 0 (N depending only on n and [F : ℚ]) and a determinant D̃_{c,R} over the quotient with (1)–(3).\n- *The same for RΓ(X̃_K̃, O)* through Poincaré duality, and *Corollary 3.2.3* for the boundary RΓ(∂X̃_K̃, O) through the boundary triangle.",
+   "requires": [
+    "IntegralHeckeAndGaloisDeterminantsPartII:IHR.2",
+    "IntegralHeckeAndGaloisDeterminantsPartII:IHR.3",
+    "IntegralHeckeAndGaloisDeterminantsPartII:IHR.4",
+    "IntegralHeckeAndGaloisDeterminantsPartII:IHR.5",
+    "AutomorphicGaloisRepresentationsPartII:AG2.2",
+    "AutomorphicGaloisRepresentationsPartII:AG2.5",
+    "TorsionCohomologyInfrastructure:TC.2",
+    "IntegralHeckeAndGaloisDeterminants:IHG.0",
+    "IntegralHeckeAndGaloisDeterminants:IHG.2",
+    "IntegralHeckeAndGaloisDeterminants:IHG.4",
+    "IntegralHeckeAndGaloisDeterminants:IHG.5",
+    "ArithmeticLocallySymmetricSpaces:ALS.4"
+   ]
+  },
+  {
+   "key": "IHR.7",
+   "title": "Descent to GL_n: local–global compatibility away from p",
+   "description": "### IHR.7. Descent to GL_n: local–global compatibility away from p\n\nKeep the setting of IHR.5 and let 𝔪 ⊂ T^S(K, λ) be non-Eisenstein (IntegralHeckeAndGaloisDeterminants IHG.3).\n\n**Targets** (ACC+ §3, pp. 954–964).\n- *The ramified local determinant* E_v of W_{F_v}: for v ∈ R the determinant of ⊕_i ψ_{v,i}, with characteristic polynomial P_{v,σ}(X) at σ; for v ∈ R^c − R the unramified determinant with characteristic polynomial P_v(X) at Frob_v; uniqueness.\n- *Auxiliary characters*: characters of finite prime-to-p order, unramified at S, separating the Frobenius eigenvalues at R as required by Lemma 3.2.1(2)–(3).\n- *The decomposed unitary level* K̃ with K̃ ∩ G(A^∞_{F⁺}) = K (proof of Lemma 3.2.1(5)), after conjugating K into GL_n(O_{F_v}) at the remaining places.\n- *Lemma 3.2.1*: reduction of Proposition 3.1.2 to K_v = Iw_{v,1} (v ∈ R), a small auxiliary level at an odd prime q, separated Frobenius eigenvalues, an auxiliary twist ψ, λ = 0 and a decomposed level K̃.\n- *The boundary determinant* D′ = D·(D^{c,∨} ⊗ ε^{1−2n}) over T^T_R(K, 0)_𝔪/I_R, obtained by pushing Corollary 3.2.3 along the descended Satake map of PotentialAutomorphyInfrastructure PA.0 (Theorem 2.4.8), with its characteristic polynomials and the unit 𝒮(Res_v).\n- *The restriction of D to W_{F_v}* equals E_v for v ∈ R, and ρ_𝔪 is unramified at v^c with Frobenius polynomial P_{v^c} for v ∈ R − R^c.\n- *Proposition 3.1.2* (determinant form) and *Theorem 3.1.1*: an integer N ≥ 1 depending only on n and [F : ℚ], an ideal I_R ⊂ T^T_R(K, λ)_𝔪 with I_R^N = 0 and a continuous ρ_{𝔪,R} : G_{F,T} → GL_n(T^T_R(K, λ)_𝔪/I_R) with det(X − ρ_{𝔪,R}(Frob_v)) = P_v(X) for v ∉ T and det(X − ρ_{𝔪,R}(σ)) = P_{v,σ}(X) for v ∈ R, σ ∈ W_{F_v}.\n\nAcceptance: n = 1, where every statement is class field theory for Hecke characters of conductor dividing the tame level; and the use at Taylor–Wiles places, where the ψ_{v,i} are residually distinct and ρ_{𝔪,R}|_{W_{F_v}} ≅ ⊕_i ψ_{v,i}.",
+   "requires": [
+    "IntegralHeckeAndGaloisDeterminantsPartII:IHR.5",
+    "IntegralHeckeAndGaloisDeterminantsPartII:IHR.6",
+    "PotentialAutomorphyInfrastructure:PA.0",
+    "TorsionCohomologyInfrastructure:TC.4",
+    "IntegralHeckeAndGaloisDeterminants:IHG.0",
+    "IntegralHeckeAndGaloisDeterminants:IHG.1",
+    "IntegralHeckeAndGaloisDeterminants:IHG.3",
+    "IntegralHeckeAndGaloisDeterminants:IHG.4",
+    "IntegralHeckeAndGaloisDeterminants:IHG.5",
+    "ArithmeticLocallySymmetricSpaces:ALS.0",
+    "ArithmeticLocallySymmetricSpaces:ALS.3",
+    "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-11-the-global-class-formation-and-global-artin-reciprocity",
+    "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-12-separate-arithmetic-global-existence-the-norm-index-and-the-global-correspondence",
+    "tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev"
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "id": "ACC23",
+   "title": "Potential automorphy over CM fields",
+   "authors": "Patrick B. Allen, Frank Calegari, Ana Caraiani, Toby Gee, David Helm, Bao V. Le Hung, James Newton, Peter Scholze, Richard Taylor, Jack A. Thorne",
+   "edition": "Annals of Mathematics 197 (2023), no. 3, 897–1113; the published PDF posted on Frank Calegari's page, cited by its printed page numbers",
+   "url": "https://www.math.uchicago.edu/~fcale/papers/Ramanujan.pdf",
+   "readSections": [
+    "§1.2 Notation, pp. 905–909",
+    "§2.1.9 The Hecke algebra of a monoid, pp. 913–916",
+    "§2.2.1, pp. 916–921",
+    "§2.2.5 Some useful Hecke operators, pp. 921–931",
+    "§2.2.20 Duality and twisting, pp. 931–935",
+    "§2.3, pp. 935–941",
+    "§2.4.1, Theorem 2.4.8, pp. 946–948",
+    "§3 Local–global compatibility, l ≠ p, pp. 953–964",
+    "uses of Theorem 3.1.1 on pp. 900, 1063, 1067",
+    "References, pp. 1106–1113"
+   ]
+  },
+  {
+   "id": "ACC23v2",
+   "title": "Potential automorphy over CM fields",
+   "authors": "Patrick B. Allen, Frank Calegari, Ana Caraiani, Toby Gee, David Helm, Bao V. Le Hung, James Newton, Peter Scholze, Richard Taylor, Jack A. Thorne",
+   "edition": "arXiv:1812.09999v2 (16 June 2022), the accepted version; compared with print for the passages used",
+   "url": "https://arxiv.org/abs/1812.09999v2",
+   "readSections": [
+    "§2.2.5 and §3, compared with the published text"
+   ]
+  },
+  {
+   "id": "Fli11",
+   "title": "The tame algebra",
+   "authors": "Yuval Z. Flicker",
+   "edition": "Journal of Lie Theory 21 (2011), no. 2, 469–489 (open access at the Centre Mersenne archive)",
+   "url": "https://jolt.centre-mersenne.org/item/10.5802/jolt.640.pdf",
+   "readSections": [
+    "§2 (Theorem 2.1, Corollary 2.2), pp. 471–474",
+    "§3 (Theorem 3.1, Corollary 3.2, Proposition 3.3, Corollary 3.4), pp. 475–479",
+    "§4 (Theorem 4.5, Proposition 4.11), pp. 479–488"
+   ]
+  },
+  {
+   "id": "Tho22",
+   "title": "On the vanishing of adjoint Bloch–Kato Selmer groups of irreducible automorphic Galois representations",
+   "authors": "Jack A. Thorne",
+   "edition": "arXiv:2207.04925v1 (11 July 2022); cited by ACC+ as [Tho21]",
+   "url": "https://arxiv.org/abs/2207.04925v1",
+   "readSections": [
+    "§2 A different computation: Lemma 2.1, the resultant Res_{n1,n2}, Propositions 2.2–2.3, Lemma 2.4, pp. 4–6"
+   ]
+  }
+ ],
+ "status": "draft"
+}
