@@ -23889,8 +23889,9 @@
    ],
    "avoidAccountOf": "BP-ComplexComparisonPartII",
    "prompt": "research/blueprint/prompts/REV-ComplexComparisonPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #378"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #378",
+   "finishedAt": "2026-10-09T22:20:50Z"
   },
   {
    "id": "BP-CrystallineCohomology--CR.0",
@@ -34949,7 +34950,8 @@
    ],
    "avoidAccountOf": "BP-ArithmeticGaloisRepresentations--R01.3",
    "prompt": "research/blueprint/prompts/REV-ArithmeticGaloisRepresentations--R01.3.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7948"
   },
   {
    "id": "BP-ArithmeticGaloisRepresentations--R01.4",
