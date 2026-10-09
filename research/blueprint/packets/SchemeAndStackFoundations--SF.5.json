@@ -65,7 +65,7 @@
         "kind": "abbrev",
         "module": "TauCeti/AlgebraicGeometry/LineBundle/Basic.lean",
         "provides": "The full subcategory of native module sheaves that are locally free of rank one.",
-        "checked": "Statement and ambient parameters read at the recorded pins on 2026-10-09. The file explicitly leaves tensor and Picard construction to the Jacobian lane. Reuse its objects; request that lane for tensor powers and pullback."
+        "checked": "Statement and ambient parameters read at the recorded pins on 2026-10-09. The file explicitly leaves tensor and Picard construction to the Jacobian lane. Reuse its objects; request that lane for tensor powers and pullback. Independent review confirms this historical baseline; current native tensor/dual/pullback and AlgebraicVectorBundles supersede its old supplier comment. Do not infer current absence from this pin."
       },
       {
         "ref": "tauceti:TauCeti.AlgebraicGeometry.InvertibleSheaf.trivial",
@@ -122,6 +122,27 @@
         "module": "Mathlib/AlgebraicGeometry/Morphisms/Smooth.lean",
         "provides": "The native affine-local smoothness condition of specified natural relative dimension.",
         "checked": "Statement and ambient parameters read at the recorded pins on 2026-10-09. Its smooth lemma implies Smooth; it has base-change and composition results. It does not express regular immersions or arbitrary lci morphisms."
+      },
+      {
+        "ref": "mathlib:SheafOfModules.IsLocallyFree",
+        "kind": "class",
+        "module": "Mathlib/Algebra/Category/ModuleCat/Sheaf/LocallyFree.lean",
+        "provides": "Local freeness of a native module sheaf, with arbitrary local basis index sets.",
+        "checked": "Class statement and surrounding parameters read at Mathlib 082e2d3 on 2026-10-09. Suggested signatures now use these native conditions where applicable; constant rank is supplied separately by AlgebraicVectorBundles."
+      },
+      {
+        "ref": "mathlib:SheafOfModules.IsFinitePresentation",
+        "kind": "class",
+        "module": "Mathlib/Algebra/Category/ModuleCat/Sheaf/Quasicoherent.lean",
+        "provides": "Finite local presentation; with local freeness this expresses finite locally free bundles.",
+        "checked": "Class statement and surrounding parameters read at Mathlib 082e2d3 on 2026-10-09. Suggested signatures now use these native conditions where applicable; constant rank is supplied separately by AlgebraicVectorBundles."
+      },
+      {
+        "ref": "mathlib:MvPolynomial.IsHomogeneous",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/MvPolynomial/Homogeneous.lean",
+        "provides": "Homogeneity of degree n for native multivariate polynomials, defined by monomial weights all equal to one.",
+        "checked": "Definition and surrounding parameters read at Mathlib 082e2d3 on 2026-10-09; requires CommSemiring R. Suggested plane Bézout now uses this condition with nonzero forms and positive degrees."
       }
     ]
   },
@@ -612,7 +633,7 @@
           "how": "The associated coherent cycle supplies the coniveau comparison, without a second G-theory construction."
         }
       ],
-      "prototypeLimitations": "Coherence and the common support dimension bounds are omitted only from the Lean signatures, because the pinned sheaf predicates are incomplete; the packet gives the exact domain.",
+      "prototypeLimitations": "On the exact-sequence API, native local Noetherianity and finite presentation of all three modules are now explicit. In this scope they express coherence. Common support δ-dimension bounds and the generic module-length interface remain source-scoped supplier conditions; no placeholder coherence predicate is introduced.",
       "leanName": "TauCeti.AlgebraicGeometry.Intersection.coherentCycle"
     },
     {
@@ -693,7 +714,7 @@
           "how": "Principal boundary cycles generate rational equivalence and descend proper pushforward."
         }
       ],
-      "prototypeLimitations": "The local Noetherian and δ-dimension hypotheses are absent only from the prototype. P¹, its coordinate and marked point cycles are exact upstream Jacobian Layer A fixtures.",
+      "prototypeLimitations": "The principalBoundary signature still omits the local Noetherian and induced δ-dimension conditions; its family data now explicitly require the support generic point to have δ-dimension d+1. P¹, its coordinate and marked point cycles are upstream Jacobian Layer A fixtures.",
       "leanName": "TauCeti.AlgebraicGeometry.Intersection.principalBoundary"
     },
     {
@@ -747,6 +768,11 @@
           "name": "TauCeti.AlgebraicGeometry.Intersection.rationalRelations_noetherian_generators",
           "role": "characterisation",
           "statement": "For Noetherian X the relation subgroup is the additive closure of the set of individual principal boundaries."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.Intersection.rationalRelations_locally_finite",
+          "role": "constructor",
+          "statement": "For a family of principal-boundary data with locally finite closed supports, the locally finite coefficient sum is in Rat_d(X). The index set need not be finite."
         }
       ],
       "tests": [
@@ -764,6 +790,11 @@
           "name": "TauCeti.AlgebraicGeometry.Intersection.rationalRelations_test_point_nonzero",
           "kind": "non-example",
           "statement": "A unit point on Spec ℚ is not a relation: there are no one-dimensional closed supports."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.Intersection.rationalRelations_test_countable_p1",
+          "kind": "non-example",
+          "statement": "On the countable disjoint union of P¹ over ℚ the sum of [0_n]−[∞_n] over all components lies in Rat₀, but not in the additive subgroup generated by finitely many individual principal boundaries. This detects accidental finite-generation on a non-quasi-compact scheme."
         }
       ],
       "uses": [
@@ -1101,7 +1132,7 @@
       "kind": "theorem",
       "statement": "For a finite locally free S-morphism f:X→Y of constant rank n, f_*f*=n on CH_d(Y) in every grade, with the pure relative dimension zero pullback. Generic nonreduced lengths are part of n.",
       "hypotheses": [
-        "Cartesian square over S; proper vertical map; flat horizontal map of relative pure dimension r. For the second assertion finite locally free rank n."
+        "Finite locally free S-morphism f of constant rank n; compatible induced dimensions; relative pure dimension zero."
       ],
       "proofSteps": [
         "Check the fibre algebra length weighted by residue degrees is its vector-space rank n on every integral generator. Descend by the existing proper and flat relation compatibilities."
@@ -1125,7 +1156,7 @@
         "namespace": "TauCeti.AlgebraicGeometry.Intersection"
       },
       "implementationStatus": "unchecked",
-      "prototypeLimitations": "Finite locally free constant rank n, S-linearity and compatible induced dimensions are omitted. Proper and flat alone do not give this rank-n formula.",
+      "prototypeLimitations": "Finite and flat conditions and the equality of n with the supplier finite locally free rank are now explicit. S-linearity, induced-dimension compatibility and the locally free constant-rank interface for f_*O_X remain omitted; proper and flat alone are insufficient.",
       "leanName": "TauCeti.AlgebraicGeometry.Intersection.finite_flat_push_pull"
     },
     {
@@ -1163,7 +1194,7 @@
         "namespace": "TauCeti.AlgebraicGeometry.Intersection"
       },
       "implementationStatus": "unchecked",
-      "prototypeLimitations": "The complementary-image condition is omitted from the Lean signature; it is not implied by the two immersion classes.",
+      "prototypeLimitations": "Complementarity is now explicitly Set.range j=(Set.range i)ᶜ on native scheme points. The common induced dimension base remains omitted; the immersion classes alone do not imply complementarity.",
       "leanName": "TauCeti.AlgebraicGeometry.Intersection.chow_localization"
     },
     {
@@ -1179,14 +1210,17 @@
         "Zariski locally trivial affine-space bundle of constant rank r, over the same S."
       ],
       "proofSteps": [
-        "Use the affine-line relation and Chow localization to establish the trivial bundle case; noetherian induction on a trivializing cover glues the assertion. The non-quasi-compact case is treated locally with locally finite cycles."
+        "Surjectivity is the separate affine-bundle-surjectivity target (42.32.1). For a geometric vector bundle compactify as P(E dual ⊕ O), with divisor at infinity P(E dual). Cartier Gysin/projection and uniqueness in the projective bundle formula show that the pullback is injective (42.36.3). This gives the isomorphism required by refined Gysin. Arbitrary Zariski locally trivial affine-space bundles need the higher-Chow localization input outlined in Remark 42.32.8; that larger injectivity argument is recorded as a gap, not obtained by elementary gluing."
       ],
       "acceptance": [
         "CH₀(A¹)=0 and CH₁(A¹)=ℤ over a field, so unshifted homotopy invariance is wrong."
       ],
       "prerequisites": [
         "SchemeAndStackFoundations:SF.5/flat-pullback",
-        "SchemeAndStackFoundations:SF.5/chow-localization"
+        "SchemeAndStackFoundations:SF.5/chow-localization",
+        "SchemeAndStackFoundations:SF.5/projective-bundle-formula",
+        "SchemeAndStackFoundations:SF.5/cartier-gysin",
+        "SchemeAndStackFoundations:SF.5/chern-projection"
       ],
       "sources": [
         {
@@ -1200,8 +1234,11 @@
         "namespace": "TauCeti.AlgebraicGeometry.Intersection"
       },
       "implementationStatus": "unchecked",
-      "prototypeLimitations": "The affine-space bundle condition, its constant rank and induced dimensions are omitted from the prototype; arbitrary Flat p does not suffice.",
-      "leanName": "TauCeti.AlgebraicGeometry.Intersection.affine_bundle_homotopy"
+      "prototypeLimitations": "The suggested theorem now uses the actual geometric total-space projection of a native finite locally free module and binds its relative rank. Compatible induced dimensions are still omitted. The packet also states arbitrary locally trivial affine-space bundle invariance; its higher-Chow injectivity proof remains an explicit refinement gap.",
+      "leanName": "TauCeti.AlgebraicGeometry.Intersection.affine_bundle_homotopy",
+      "upstreamImports": [
+        "tauceti:TauCetiRoadmap/AlgebraicVectorBundles#l2b--geometric-vector-bundles"
+      ]
     },
     {
       "id": "SchemeAndStackFoundations:SF.5/first-chern",
@@ -1285,7 +1322,10 @@
           "how": "The O(1) cap operator constructs all higher Chern operations."
         }
       ],
-      "leanName": "TauCeti.AlgebraicGeometry.Intersection.firstChern"
+      "leanName": "TauCeti.AlgebraicGeometry.Intersection.firstChern",
+      "upstreamImports": [
+        "tauceti:TauCetiRoadmap/AlgebraicVectorBundles#l0c--polynomial-operations"
+      ]
     },
     {
       "id": "SchemeAndStackFoundations:SF.5/chern-projection",
@@ -1334,7 +1374,7 @@
       "kind": "theorem",
       "statement": "For two invertible sheaves L,M in Situation 42.7.1, c₁(L)c₁(M)∩a=c₁(M)c₁(L)∩a in CH_(d−2)(X).",
       "hypotheses": [
-        "L and M invertible; f proper or flat with pure relative dimension as stated; compatible induced dimensions."
+        "X in Situation 42.7.1; L and M invertible."
       ],
       "proofSteps": [
         "Exchange the two section divisors on integral supports. The tame-symbol boundary makes the discrepancy a rational relation."
@@ -1370,13 +1410,13 @@
       "kind": "theorem",
       "statement": "For a flat S-map f:X→Y of constant pure relative dimension r and a line L on Y, c₁(f*L)∩f*a=f*(c₁(L)∩a) in CH_(d+r−1)(X).",
       "hypotheses": [
-        "L and M invertible; f proper or flat with pure relative dimension as stated; compatible induced dimensions."
+        "Flat S-map f locally of finite type of constant pure relative dimension r; invertible L on Y; compatible induced dimensions."
       ],
       "proofSteps": [
         "Pull back local section equations and use the generic-length identity for flat inverse images. Pass to the relation quotient."
       ],
       "acceptance": [
-        "On P¹×P¹ the two ruling line bundles have commuting product of degree 1."
+        "Pulling O(1) from P¹ to P¹×P¹ and capping after flat pullback gives the fibre ruling class, with grade lowered by one."
       ],
       "prerequisites": [
         "SchemeAndStackFoundations:SF.5/first-chern",
@@ -1530,6 +1570,11 @@
           "name": "TauCeti.AlgebraicGeometry.Intersection.projectiveBundle_quotient_epi",
           "role": "universal-property",
           "statement": "The canonical map π*E→O(1) is an epimorphism of native module sheaves."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.Intersection.projectiveBundle_classifies_quotients",
+          "role": "universal-property",
+          "statement": "For f:T→X, T-maps over X to P(E) correspond to pairs (invertible L on T, epimorphism f*E→L) up to the isomorphism intertwining the quotient maps. The classifier pulls the universal pair back to the given pair."
         }
       ],
       "tests": [
@@ -1559,8 +1604,12 @@
           "how": "The higher-tier moduli roadmap imports this general bundle foundation; Grassmannian and invariant-lattice targets remain its own."
         }
       ],
-      "prototypeLimitations": "Finite local freeness and rank are omitted from the prototype. Relative Proj itself remains an SF.0 supplier rather than a second construction here.",
-      "leanName": "TauCeti.AlgebraicGeometry.Intersection.projectiveBundle"
+      "prototypeLimitations": "Finite local freeness can be stated natively and is used by rank-dependent theorems. The classifier is an actual quotient pair modulo intertwining line isomorphisms. Relative Proj is an SF.0 supplier; bundle/Spec/tensor infrastructure is imported from AlgebraicVectorBundles.",
+      "leanName": "TauCeti.AlgebraicGeometry.Intersection.projectiveBundle",
+      "upstreamImports": [
+        "tauceti:TauCetiRoadmap/AlgebraicVectorBundles#l0b--quasicoherent-and-finite-locally-free-sheaves",
+        "tauceti:TauCetiRoadmap/AlgebraicVectorBundles#l0c--polynomial-operations"
+      ]
     },
     {
       "id": "SchemeAndStackFoundations:SF.5/projective-bundle-formula",
@@ -1575,7 +1624,7 @@
         "E finite locally free of constant rank r>0; π flat of relative dimension r−1 and proper."
       ],
       "proofSteps": [
-        "On a trivial bundle identify classes by powers of the hyperplane. Localization and noetherian induction give the general statement; the leading push coefficient proves uniqueness."
+        "The top-power push formula in Lemma 42.36.1, together with lower-power vanishing and the Chern projection formula, proves uniqueness of the coefficients. On a trivial bundle use the hyperplane complement and affine-bundle surjectivity, then localization. Noetherian induction and the same locally finite support argument give existence in general. Do not use vector-bundle injectivity here: it is a consequence of this formula."
       ],
       "acceptance": [
         "For the trivial rank-two bundle, the two summands have grades d−1 and d. For rank one there is just the identity summand."
@@ -1585,7 +1634,10 @@
         "SchemeAndStackFoundations:SF.5/first-chern",
         "SchemeAndStackFoundations:SF.5/flat-pullback",
         "SchemeAndStackFoundations:SF.5/chow-proper-push",
-        "SchemeAndStackFoundations:SF.5/chow-localization"
+        "SchemeAndStackFoundations:SF.5/chow-localization",
+        "SchemeAndStackFoundations:SF.5/affine-bundle-surjectivity",
+        "SchemeAndStackFoundations:SF.5/chern-projection",
+        "SchemeAndStackFoundations:SF.5/cartier-gysin"
       ],
       "sources": [
         {
@@ -1599,7 +1651,7 @@
         "namespace": "TauCeti.AlgebraicGeometry.Intersection"
       },
       "implementationStatus": "unchecked",
-      "prototypeLimitations": "The constant rank r and finite locally free hypotheses are omitted from the Lean form; the integer grading of the expansion is retained.",
+      "prototypeLimitations": "The native local-freeness and finite-presentation hypotheses and equality of each fibre rank to r are explicit. Compatible induced dimensions and the relative-Proj API remain supplier interfaces.",
       "leanName": "TauCeti.AlgebraicGeometry.Intersection.projective_bundle_formula"
     },
     {
@@ -1678,8 +1730,12 @@
           "how": "Whitney and the characteristic polynomials are proved after this injective splitting pullback."
         }
       ],
-      "prototypeLimitations": "The finite locally free rank-r and flag-filtration hypotheses are stated in the packet but omitted from these suggested forms.",
-      "leanName": "TauCeti.AlgebraicGeometry.Intersection.flagBundle"
+      "prototypeLimitations": "Rank-sensitive injectivity and the zero-detection test explicitly assume native finite local freeness and rank r. The flag filtration, dimension induction and its base-change identifications remain planned interfaces.",
+      "leanName": "TauCeti.AlgebraicGeometry.Intersection.flagBundle",
+      "upstreamImports": [
+        "tauceti:TauCetiRoadmap/AlgebraicVectorBundles#l0b--quasicoherent-and-finite-locally-free-sheaves",
+        "tauceti:TauCetiRoadmap/AlgebraicVectorBundles#l0c--polynomial-operations"
+      ]
     },
     {
       "id": "SchemeAndStackFoundations:SF.5/chern-operators",
@@ -1708,7 +1764,9 @@
         "SchemeAndStackFoundations:SF.5/flag-bundle",
         "SchemeAndStackFoundations:SF.5/cartier-gysin",
         "SchemeAndStackFoundations:SF.5/chern-commutation",
-        "SchemeAndStackFoundations:SF.5/chern-flat"
+        "SchemeAndStackFoundations:SF.5/chern-flat",
+        "SchemeAndStackFoundations:SF.5/bivariant-chow",
+        "SchemeAndStackFoundations:SF.5/bivariant-detection"
       ],
       "sources": [
         {
@@ -1809,7 +1867,7 @@
         "namespace": "TauCeti.AlgebraicGeometry.Intersection"
       },
       "implementationStatus": "unchecked",
-      "prototypeLimitations": "The three finite locally free conditions are omitted from the prototype. The expansion is an iterated cap sum with explicit grade transport, not an assumed Whitney identity.",
+      "prototypeLimitations": "Each of the three native module terms is explicitly locally free and finitely presented; the exact sequence is native. The expansion is the independently defined sum of iterated cap operators with grade transport. Compatible induced dimensions remain omitted.",
       "leanName": "TauCeti.AlgebraicGeometry.Intersection.whitney"
     },
     {
@@ -1933,7 +1991,11 @@
         }
       ],
       "prototypeLimitations": "Regularity is omitted from normalCone_regular. vectorBundle is the SF.0 relative-Spec supplier. Affine schemes and the origin fixtures use native Scheme objects.",
-      "leanName": "TauCeti.AlgebraicGeometry.Intersection.normalCone"
+      "leanName": "TauCeti.AlgebraicGeometry.Intersection.normalCone",
+      "upstreamImports": [
+        "tauceti:TauCetiRoadmap/AlgebraicVectorBundles#l1a--relative-spec",
+        "tauceti:TauCetiRoadmap/AlgebraicVectorBundles#l2b--geometric-vector-bundles"
+      ]
     },
     {
       "id": "SchemeAndStackFoundations:SF.5/normal-deformation",
@@ -2242,23 +2304,24 @@
       "kind": "theorem",
       "statement": "For an original regular immersion Z→X of constant codimension c and Y′→Y flat of pure relative dimension r over X, refined Gysin commutes with flat pullback. Both routes have target CH_(d+r−c)(Z×X Y′), with the rank c of the original immersion.",
       "hypotheses": [
-        "Original regular immersion of codimension c; Cartesian diagrams; proper or relative-pure-dimensional flat comparison map."
+        "Original regular immersion of constant codimension c; Cartesian base-change diagrams; flat comparison map of constant pure relative dimension r; compatible induced dimensions."
       ],
       "proofSteps": [
-        "Apply flat compatibility of specialization, then of the cone inclusion and inverse vector-bundle homotopy."
+        "Lemma 42.54.2 constructs the refined operation as a bivariant class using the normal cone, its embedding in the pulled-back original normal bundle and inverse vector-bundle homotopy. Its flat naturality is the flat axiom of that construction. Lemma 42.48.4 supplies the regular-zero-section comparison used within the construction; it is not itself a flat-specialization theorem."
       ],
       "acceptance": [
-        "The transverse line computation is invariant under replacing either support by a proper resolution and pushing back."
+        "Base change of the origin immersion in A¹ along A²→A¹ preserves its original codimension one and commutes with the relative-dimension-one pullback."
       ],
       "prerequisites": [
         "SchemeAndStackFoundations:SF.5/refined-gysin",
-        "SchemeAndStackFoundations:SF.5/proper-flat-basechange"
+        "SchemeAndStackFoundations:SF.5/proper-flat-basechange",
+        "SchemeAndStackFoundations:SF.5/bivariant-chow"
       ],
       "sources": [
         {
           "sourceId": "stacks-chow",
-          "locator": "Lemma 42.48.4, tag 0FAR, p. 103; refined construction in Section 42.54, pp. 121–126",
-          "match": "Flat specialization and homotopy give the refined flat compatibility."
+          "locator": "Lemmas 42.48.4 (0FAR), p. 103, and 42.54.2 (0FBK), pp. 121–122",
+          "match": "The first lemma concerns classes of zero schemes of regular sections, not flat specialization. The second constructs the bivariant refined class, whose flat compatibility is part of Definition 42.33.1; use its proof and vector-bundle homotopy."
         }
       ],
       "library": {
@@ -2362,7 +2425,7 @@
         "Compositions and Cartesian inverse images as stated; regular immersions of the original ambient schemes."
       ],
       "proofSteps": [
-        "Form the two-parameter deformation for the two original immersions. Compare Cartier specializations in its two parameters, then use the two normal vector-bundle homotopy inverses."
+        "Both orders define bivariant classes. Use Lemma 42.35.3 to test on integral schemes and allow proper birational modifications. Blow up the two pulled-back centres so that they become effective Cartier divisors; this uses the imported StableReduction Layer 4 blowup API. The excess formulas convert their Gysin operations to top Chern caps followed by Cartier Gysin. Chern/Cartier commutation identifies the two orders (Lemma 42.54.8). This proof is not the asserted two-parameter deformation argument."
       ],
       "acceptance": [
         "Two coordinate hyperplanes of A² give the same unit origin cycle in either order."
@@ -2370,13 +2433,18 @@
       "prerequisites": [
         "SchemeAndStackFoundations:SF.5/refined-gysin",
         "SchemeAndStackFoundations:SF.5/normal-deformation",
-        "SchemeAndStackFoundations:SF.5/specialization"
+        "SchemeAndStackFoundations:SF.5/specialization",
+        "SchemeAndStackFoundations:SF.5/bivariant-detection",
+        "SchemeAndStackFoundations:SF.5/gysin-excess",
+        "SchemeAndStackFoundations:SF.5/cartier-gysin",
+        "SchemeAndStackFoundations:SF.5/gysin-proper-flat",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces"
       ],
       "sources": [
         {
           "sourceId": "stacks-chow",
-          "locator": "Lemma 42.54.8, tag 0FBP, pp. 124–125",
-          "match": "The two-parameter deformation identifies both orders of refined intersection."
+          "locator": "Lemma 42.54.8, tag 0FBP, pp. 124–125; Lemma 42.35.3, tag 02UC, p. 67",
+          "match": "Reduces to integral tests after proper birational modifications, makes centres Cartier by blowing up, and applies excess plus Cartier commutation."
         }
       ],
       "library": {
@@ -2400,7 +2468,7 @@
         "Compositions and Cartesian inverse images as stated; regular immersions of the original ambient schemes."
       ],
       "proofSteps": [
-        "Build the double deformation and compare specializing in either parameter order. Its normal exact sequence, specialization commutation and homotopy identify the resulting maps."
+        "The dual conormal sequence of the original nested regular immersions supplies the short exact sequence of virtual normal bundles used by Lemma 42.54.10. Apply bivariant detection and blow up the product of the two pulled-back centre ideals on each integral test, making both centres effective Cartier divisors. Excess and Chern commutation remove the complementary bundle factors. Lemma 42.54.9 identifies the zero-section Cartier Gysin image of the nested normal-cone class with the smaller normal-cone class; vector-bundle homotopy then identifies the composed refined operation with the original one. The two affine blowup/normal-cone calculations omitted in 42.54.9 remain the specific recorded proof gap. Use the corrected cycle grades and cone label recorded in E-SF5-17, and the bundle types in E-SF5-18; no generic double-deformation theorem is assumed."
       ],
       "acceptance": [
         "Two coordinate hyperplanes of A² give the same unit origin cycle in either order."
@@ -2409,13 +2477,16 @@
         "SchemeAndStackFoundations:SF.5/refined-gysin",
         "SchemeAndStackFoundations:SF.5/gysin-excess",
         "SchemeAndStackFoundations:SF.5/normal-deformation",
-        "SchemeAndStackFoundations:SF.5/gysin-interchange"
+        "SchemeAndStackFoundations:SF.5/gysin-interchange",
+        "SchemeAndStackFoundations:SF.5/bivariant-detection",
+        "SchemeAndStackFoundations:SF.5/cartier-gysin",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces"
       ],
       "sources": [
         {
           "sourceId": "stacks-chow",
-          "locator": "Lemmas 42.54.8 and 42.54.10, tags 0FBP and 0FEC, pp. 124–126",
-          "match": "The double-deformation argument proves interchange and composition."
+          "locator": "Lemmas 42.54.9–42.54.10, tags 0FEB and 0FEC, pp. 125–126",
+          "match": "The nested normal-cone/Cartier comparison and its excess formula prove composition after the proper-modification reduction."
         }
       ],
       "library": {
@@ -2423,7 +2494,7 @@
         "namespace": "TauCeti.AlgebraicGeometry.Intersection"
       },
       "implementationStatus": "unchecked",
-      "prototypeLimitations": "Regularity/codimension are omitted. The right side is the two composed Gysin maps with the canonical restriction and grade transports; proving their equality requires the double-deformation input recorded as a gap.",
+      "prototypeLimitations": "Original regularity/codimension and compatible induced dimensions remain omitted. The independently constructed right side is the composed refined operation, not a premise. The specific nested-normal-cone affine-chart comparison in Lemma 42.54.9 is the recorded proof gap.",
       "leanName": "TauCeti.AlgebraicGeometry.Intersection.regular_gysin_comp"
     },
     {
@@ -2626,7 +2697,7 @@
           "how": "Correspondences and products of curves use field-independent exterior products."
         }
       ],
-      "prototypeLimitations": "Finite type, induced dimensions and support purity are omitted. The inseparable test additionally assumes K/k purely inseparable of degree p, omitted from Lean; it does not claim this coefficient for arbitrary extensions.",
+      "prototypeLimitations": "The inseparable test now explicitly requires a finite-dimensional purely inseparable extension of degree p. Finite-type schemes and compatible induced dimensions remain omitted from the general product signatures.",
       "leanName": "TauCeti.AlgebraicGeometry.Intersection.exterior"
     },
     {
@@ -2684,6 +2755,21 @@
           "name": "TauCeti.AlgebraicGeometry.Intersection.smoothChowRing",
           "role": "data",
           "statement": "The codimension-graded direct sum has the stated commutative ring structure."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.Intersection.smoothChowRing_add",
+          "role": "compatibility",
+          "statement": "The ring additive group is the already defined native graded direct sum."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.Intersection.smoothChowRing_mul",
+          "role": "relation",
+          "statement": "Multiplication is the sum of the homogeneous diagonal/exterior-product intersections, with the specified grade shifts."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.Intersection.smoothChowRing_one",
+          "role": "simp",
+          "statement": "The unit is the degree-zero inclusion of the fundamental class."
         }
       ],
       "tests": [
@@ -2709,7 +2795,7 @@
           "how": "Todd polynomials, surface pairings and graph intersections require a genuine smooth intersection ring."
         }
       ],
-      "prototypeLimitations": "Smoothness, separatedness, finite type and pure dimension n are omitted in these signatures. No CommRing instance is supplied for arbitrary X or arbitrary dimension function; smoothChowRing is only a future structure constructor under those omitted conditions.",
+      "prototypeLimitations": "The ring API explicitly fixes the native direct-sum additive structure and multiplication on homogeneous classes to the diagonal product. Native smooth dimension and separated field scope are explicit on the ring constructor and ring API, while compatible induced dimensions remain omitted. No arbitrary ring structure is accepted as the product.",
       "leanName": "TauCeti.AlgebraicGeometry.Intersection.TotalChow"
     },
     {
@@ -2876,7 +2962,7 @@
         "namespace": "TauCeti.AlgebraicGeometry.Intersection"
       },
       "implementationStatus": "unchecked",
-      "prototypeLimitations": "Algebraic closedness, nonzero homogeneous forms and their specified degrees are omitted. The integer helper is the finite sum of lengths at isolated projective intersections, not total length of a positive-dimensional common locus.",
+      "prototypeLimitations": "Nonzero forms, native homogeneous degree m,n>0, total-degree equalities and algebraic closure are now explicit. The independently constructed helper counts only isolated support points, using the residual-gcd/local-unit comparison requested from SF.0. Positive-dimensional common components are not included in the finite sum.",
       "leanName": "TauCeti.AlgebraicGeometry.Intersection.isolated_plane_bezout"
     },
     {
@@ -2959,7 +3045,7 @@
         "namespace": "TauCeti.AlgebraicGeometry.Intersection"
       },
       "implementationStatus": "unchecked",
-      "prototypeLimitations": "Smoothness, quasiprojectivity, coherence and local freeness of each C.X n are omitted. The suggested form retains boundedness, vanishing positive homology and the degree-zero homology comparison to the actual native module M.",
+      "prototypeLimitations": "Native smooth relative dimension over an algebraically closed field, finite presentation of M, and local freeness/finite presentation of every resolution term are explicit. Boundedness, homology vanishing and the zeroth homology isomorphism are genuine conditions. Quasiprojectivity and the resolution construction remain source-scoped suppliers.",
       "leanName": "TauCeti.AlgebraicGeometry.Intersection.coherent_finite_resolution"
     },
     {
@@ -3167,7 +3253,7 @@
         "namespace": "TauCeti.AlgebraicGeometry.Intersection"
       },
       "implementationStatus": "unchecked",
-      "prototypeLimitations": "Finite local freeness, rank, smooth dimension and regularity are omitted. The missing general Koszul construction and exactness are explicitly requested from the lower algebra foundations owner.",
+      "prototypeLimitations": "Native smooth relative dimension over an algebraically closed field and finite local freeness of E are explicit; r is its actual fibre rank. The regular-sequence/Koszul construction, induced Chow dimensions and quasiprojective scope remain SF.0 supplier conditions.",
       "leanName": "TauCeti.AlgebraicGeometry.Intersection.koszul_character"
     },
     {
@@ -3233,7 +3319,8 @@
         "SchemeAndStackFoundations:SF.5/chow-localization",
         "SchemeAndStackFoundations:SF.5/chern-projection",
         "SchemeAndStackFoundations:SF.5/chern-commutation",
-        "SchemeAndStackFoundations:SF.5/chern-flat"
+        "SchemeAndStackFoundations:SF.5/chern-flat",
+        "SchemeAndStackFoundations:SF.5/finite-resolutions"
       ],
       "sources": [
         {
@@ -3247,7 +3334,7 @@
         "namespace": "TauCeti.AlgebraicGeometry.Intersection"
       },
       "implementationStatus": "unchecked",
-      "prototypeLimitations": "Smoothness, quasiprojectivity and coherence are omitted. Each side denotes the displayed independently constructed rational Chow expression, with the zero-section proper push; no conclusion is a premise.",
+      "prototypeLimitations": "Native smooth relative dimension over an algebraically closed field, finite presentation of M and finite local freeness of E are explicit. The output grade uses the actual bundle rank. Quasiprojectivity, compatible induced dimensions and the zero-section/normal-bundle construction remain supplier conditions. Each side is the independently constructed rational Chow expression specified in the statement.",
       "leanName": "TauCeti.AlgebraicGeometry.Intersection.zero_section_rr"
     },
     {
@@ -3289,7 +3376,7 @@
         "namespace": "TauCeti.AlgebraicGeometry.Intersection"
       },
       "implementationStatus": "unchecked",
-      "prototypeLimitations": "Smoothness, quasiprojectivity, coherence and dimensions are omitted; the two helpers are the rational Chow expressions specified above.",
+      "prototypeLimitations": "Native smooth relative dimensions over the same algebraically closed field, i.IsOver, closed immersion and finite presentation of M are explicit. Quasiprojectivity, compatible induced dimensions and the normal/tangent construction remain supplier conditions. The two helpers denote the rational Chow expressions specified in the statement.",
       "leanName": "TauCeti.AlgebraicGeometry.Intersection.regular_embedding_rr"
     },
     {
@@ -3332,7 +3419,7 @@
       "planet": {
         "name": "Grothendieck–Riemann–Roch theorem"
       },
-      "prototypeLimitations": "Projectivity, common algebraically closed field, smoothness, quasiprojectivity, coherence and dimensions are omitted. IsProper alone is insufficient; the two independently defined sides contain the finite alternating higher images and the rational proper Chow push.",
+      "prototypeLimitations": "The native common algebraically closed field, smooth relative dimensions, f.IsOver, properness and finite presentation of M are explicit. The source requires a projective morphism and quasiprojective varieties; those conditions and compatible induced Chow dimensions remain omitted supplier interfaces. IsProper alone is insufficient. The two independent expressions use finite alternating higher images and rational proper Chow push.",
       "leanName": "TauCeti.AlgebraicGeometry.Intersection.projective_grr"
     },
     {
@@ -3370,7 +3457,7 @@
         "namespace": "TauCeti.AlgebraicGeometry.Intersection"
       },
       "implementationStatus": "unchecked",
-      "prototypeLimitations": "Smooth projective, algebraically closed field, dimension n and coherence hypotheses are omitted.",
+      "prototypeLimitations": "Native smooth relative dimension n, properness over an algebraically closed field and finite presentation of M are explicit. Projectivity, compatible induced Chow dimensions, finite-dimensional coherent cohomology and vanishing remain source-scoped supplier conditions. The Euler helper reuses the native finite-cutoff expression.",
       "leanName": "TauCeti.AlgebraicGeometry.Intersection.hirzebruch_rr"
     },
     {
@@ -3613,7 +3700,7 @@
           "how": "Determinant ampleness and moduli projective embeddings use the shared positivity definitions."
         }
       ],
-      "prototypeLimitations": "Projectivity/finite type are omitted from ambient parameters; the closed restriction API also omits i.IsOver. The body explicitly includes an over-k closed immersion, so no arbitrary morphism is called a projective embedding.",
+      "prototypeLimitations": "Projectivity/finite type are omitted from ambient parameters; the closed restriction API now includes i.IsOver. The body explicitly includes an over-k closed immersion, so no arbitrary morphism is called a projective embedding.",
       "leanName": "TauCeti.AlgebraicGeometry.Intersection.IsVeryAmple"
     },
     {
@@ -3697,7 +3784,7 @@
           "how": "Determinant ampleness and moduli projective embeddings use the shared positivity definitions."
         }
       ],
-      "prototypeLimitations": "Projectivity/finite type are ambient source hypotheses; the restriction API omits i.IsOver. The power-of-embedding predicate is intentionally the absolute projective-field form, not general relative ampleness over an arbitrary noncompact base.",
+      "prototypeLimitations": "Projectivity/finite type are ambient source hypotheses; the restriction API now includes i.IsOver. The power-of-embedding predicate is intentionally the absolute projective-field form, not general relative ampleness over an arbitrary noncompact base.",
       "leanName": "TauCeti.AlgebraicGeometry.Intersection.IsAmple"
     },
     {
@@ -3900,7 +3987,7 @@
         "namespace": "TauCeti.AlgebraicGeometry.Intersection"
       },
       "implementationStatus": "unchecked",
-      "prototypeLimitations": "Surface, field, coherence and canonical-divisor identification of K are omitted.",
+      "prototypeLimitations": "The suggested theorem explicitly identifies K with the canonical line and states native integral/smooth dimension two/proper scope over an algebraically closed field. Projectivity, induced dimensions and divisor-to-line/canonical constructions remain suppliers.",
       "leanName": "TauCeti.AlgebraicGeometry.Intersection.surface_euler_rr"
     },
     {
@@ -3939,7 +4026,7 @@
         "namespace": "TauCeti.AlgebraicGeometry.Intersection"
       },
       "implementationStatus": "unchecked",
-      "prototypeLimitations": "The smooth projective surface, base field and canonical identity of K are omitted; the h⁰/h¹ helpers denote native coherent-cohomology dimensions under finite-dimensionality certificates.",
+      "prototypeLimitations": "The canonical-divisor identification and native integral/smooth dimension two/proper scope over an algebraically closed field are explicit; the remaining projective coherent-duality and divisor interfaces are imported as before.",
       "leanName": "TauCeti.AlgebraicGeometry.Intersection.surface_riemann_roch"
     },
     {
@@ -3987,7 +4074,7 @@
       "planet": {
         "name": "Hodge index theorem"
       },
-      "prototypeLimitations": "Smooth projective integral surface and algebraic closedness of the ground field are omitted. The field, ampleness of H and ample orthogonality are explicit. The full numerical-radical quotient signature has its own recorded SF.5 gap; numerical and algebraic equivalence are not identified.",
+      "prototypeLimitations": "Native integral surface, smooth relative dimension two and properness over an algebraically closed field are now explicit. Projectivity and the common induced field dimension function remain supplier conditions; the full numerical-quotient signature is a separate explicit gap.",
       "leanName": "TauCeti.AlgebraicGeometry.Intersection.hodge_index"
     },
     {
@@ -4029,7 +4116,7 @@
         "namespace": "TauCeti.AlgebraicGeometry.Intersection"
       },
       "implementationStatus": "unchecked",
-      "prototypeLimitations": "Smooth projective integral surface and algebraic closedness are omitted. The field, ampleness and both orthogonality hypotheses are explicit.",
+      "prototypeLimitations": "Native integral surface, smooth relative dimension two and properness over an algebraically closed field are now explicit. Projectivity and the common induced field dimension function remain supplier conditions; the full numerical-quotient signature is a separate explicit gap.",
       "leanName": "TauCeti.AlgebraicGeometry.Intersection.hodge_cauchy"
     },
     {
@@ -4069,7 +4156,7 @@
         "namespace": "TauCeti.AlgebraicGeometry.Intersection"
       },
       "implementationStatus": "unchecked",
-      "prototypeLimitations": "The actual smooth curve graph/degree/genus data are omitted from this numerical signature; graphSelfNumber denotes their independently constructed surface intersection number.",
+      "prototypeLimitations": "The suggested graph theorem now binds e to the independently constructed map degree and g to dim H¹(D,O_D), and states native field-linearity, finiteness, smooth dimension one and properness. Geometric connectedness and projective curve interfaces remain supplier predicates.",
       "leanName": "TauCeti.AlgebraicGeometry.Intersection.graph_normal_degree"
     },
     {
@@ -4107,7 +4194,7 @@
         "namespace": "TauCeti.AlgebraicGeometry.Intersection"
       },
       "implementationStatus": "unchecked",
-      "prototypeLimitations": "Finite field, curve, genus and actual Frobenius/extension data are omitted from the numerical helpers; their exact geometric meaning is stated in the packet.",
+      "prototypeLimitations": "Finite field and q=its cardinality, field base, native smooth dimension one and properness are explicit. Actual extension fields, Frobenius and geometric connectedness remain precise SF.3 suppliers; the numerical helpers denote those constructions.",
       "leanName": "TauCeti.AlgebraicGeometry.Intersection.frobenius_diagonal_count"
     },
     {
@@ -4147,7 +4234,7 @@
         "namespace": "TauCeti.AlgebraicGeometry.Intersection"
       },
       "implementationStatus": "unchecked",
-      "prototypeLimitations": "The curve and finite-field data are omitted from this numerical suggested form. The statement uses every r≥1; q and g stand for the field size and genus of that fixed curve.",
+      "prototypeLimitations": "Finite field, q=its cardinality and g=dim H¹(C,O_C), native smooth dimension one and properness are now explicit. Geometric connectedness and actual extension-point comparison remain SF.3 suppliers. The assertion retains every r≥1.",
       "leanName": "TauCeti.AlgebraicGeometry.Intersection.weil_bound_all_extensions"
     },
     {
@@ -4263,6 +4350,11 @@
           "sourceId": "edidin-graham",
           "locator": "Definition–Proposition 1 in Section 2.2, p. 5; Proposition 16 in Section 5.3, p. 28",
           "match": "The first formula fixes the representation shift and the second fixes A_d([X/G])=A_(d+g)^G(X); the concluding line on p. 28 has the recorded opposite-sign misprint."
+        },
+        {
+          "sourceId": "edidin-graham",
+          "locator": "Section 2.5, p. 8; Section 3.2, pp. 13–14",
+          "match": "The smooth equivariant product and the torus/finite-multiplicative-group approximations give integral polynomial-ring and n-times-generator relations. The universal character fixes the first-Chern sign."
         }
       ],
       "library": {
@@ -4285,6 +4377,21 @@
           "name": "TauCeti.AlgebraicGeometry.Intersection.equivariantChow_independent",
           "role": "functoriality",
           "statement": "Two good-pair mixed quotients yield canonically isomorphic groups in the same equivariant grade."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.Intersection.stackChowRing_add",
+          "role": "compatibility",
+          "statement": "The ring additive group is the already defined native graded direct sum."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.Intersection.stackChowRing_mul",
+          "role": "relation",
+          "statement": "Multiplication is the sum of the homogeneous diagonal/exterior-product intersections, with the specified grade shifts."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.Intersection.stackChowRing_one",
+          "role": "simp",
+          "statement": "The unit is the degree-zero inclusion of the fundamental class."
         }
       ],
       "tests": [
@@ -4310,7 +4417,7 @@
           "how": "Good pairs implement quotient-stack comparisons and the torsion tests."
         }
       ],
-      "prototypeLimitations": "Group structure, action, base field, good-pair freeness/codimension and dimensions l,g are omitted. The trivial-group test also places X over ℚ. Mixed quotients and quotient stacks are the specified SF.1 constructions. The Bμ_n ring calculation follows from G_m approximation and localization for the weight-n line; no rational-only comparison is used for its integral torsion.",
+      "prototypeLimitations": "Mixed quotients are now SF.1 algebraic-space presentations on the native stack carrier, not forced to be schemes. Shifts use actual supplier dimensions. Native scheme prototypes cover scheme actions; general algebraic-space actions, group/action/good-pair data and field grading remain SF.1 interfaces. Full integral ring tests fix multiplication, the existing direct-sum addition, unit and universal first Chern generator. Bμ_n is over ℚ, not with rational coefficients.",
       "leanName": "TauCeti.AlgebraicGeometry.Intersection.equivariantChow"
     },
     {
@@ -4351,7 +4458,7 @@
         "namespace": "TauCeti.AlgebraicGeometry.Intersection"
       },
       "implementationStatus": "unchecked",
-      "prototypeLimitations": "Finite type, DM, smoothness and pure dimension n are omitted. The precise local-Gysin/composition construction invokes unread references in Kresch and is recorded as a proof gap; scheme diagonal Gysin is not treated as sufficient by itself.",
+      "prototypeLimitations": "The suggested ring now fixes the native direct-sum additive structure, diagonal-defined multiplication and fundamental unit. Stack smoothness, DM and dimension interfaces remain SF.1 suppliers. The exact local-Gysin/composition construction and rational push remain explicit gaps.",
       "leanName": "TauCeti.AlgebraicGeometry.Intersection.smooth_dm_intersection_ring"
     },
     {
@@ -4753,7 +4860,7 @@
         "namespace": "TauCeti.AlgebraicGeometry.Intersection"
       },
       "implementationStatus": "unchecked",
-      "prototypeLimitations": "Finite universal homeomorphism, projectivity and characteristic p>0 are omitted; the precise finite-algebra bound cited to Kollár by the source is recorded as an unread proof input.",
+      "prototypeLimitations": "Positive characteristic is now native, with prime p, field base, finite morphism and field-linearity. Universal-homeomorphism and projective/finite-type scope remain the exact omitted source conditions; an arbitrary finite map is insufficient.",
       "leanName": "TauCeti.AlgebraicGeometry.Intersection.semiample_universal_homeomorphism"
     },
     {
@@ -4791,7 +4898,7 @@
         "namespace": "TauCeti.AlgebraicGeometry.Intersection"
       },
       "implementationStatus": "unchecked",
-      "prototypeLimitations": "Nefness, positive characteristic, conductor pushout and connectedness are omitted. The SF.1 request names exactly the conductor pushout; the source’s Raynaud proof input remains a gap.",
+      "prototypeLimitations": "Positive characteristic, field bases, properness and field-linearity are now native. The source reduced/conductor, geometric-connectedness and normal-away-from-centre hypotheses remain omitted interfaces, explicitly stated in this node.",
       "leanName": "TauCeti.AlgebraicGeometry.Intersection.semiample_conductor_gluing"
     },
     {
@@ -4834,7 +4941,7 @@
         "namespace": "TauCeti.AlgebraicGeometry.Intersection"
       },
       "implementationStatus": "unchecked",
-      "prototypeLimitations": "Characteristic, nefness, the ample-plus-effective decomposition, and identification of D with its reduced Cartier support are omitted; the Artin contraction theorem invoked by the source is a precise recorded gap.",
+      "prototypeLimitations": "Positive characteristic, native proper field scope, nefness and an ample A plus effective Cartier decomposition of a positive power of L are explicit except for the effective-Cartier predicate (which remains a precise SF.0 supplier). Closed immersion alone does not supply that predicate.",
       "leanName": "TauCeti.AlgebraicGeometry.Intersection.ample_effective_semiample"
     },
     {
@@ -4876,7 +4983,7 @@
       "planet": {
         "name": "Keel semiampleness theorem"
       },
-      "prototypeLimitations": "Projectivity and positive characteristic are omitted. The characteristic-zero counterexample below precludes silently dropping the latter.",
+      "prototypeLimitations": "Prime p and CharP k p, field base and native properness are explicit. Projectivity remains a supplier condition. No smoothness or bigness is imposed.",
       "leanName": "TauCeti.AlgebraicGeometry.Intersection.keel_semiample"
     },
     {
@@ -4915,7 +5022,7 @@
         "namespace": "TauCeti.AlgebraicGeometry.Intersection"
       },
       "implementationStatus": "unchecked",
-      "prototypeLimitations": "Surface, projectivity and algebraic-closure-of-finite-field hypotheses are omitted. Arbitrary positive-characteristic fields do not supply the torsion conclusion.",
+      "prototypeLimitations": "The suggested surface result now works over an algebraically closed algebraic extension of ZMod p with prime p, in native smooth dimension two and proper scope. The broader possibly singular surface/projective statement remains in the packet; no arbitrary characteristic-p field supplies torsion.",
       "leanName": "TauCeti.AlgebraicGeometry.Intersection.finite_field_nef_big_surface"
     },
     {
@@ -4956,14 +5063,188 @@
         "namespace": "TauCeti.AlgebraicGeometry.Intersection"
       },
       "implementationStatus": "unchecked",
-      "prototypeLimitations": "Smooth projective curve, algebraically closed characteristic-zero field and genus≥2 are omitted. keelProductLine denotes the concrete relative canonical line twisted by the diagonal on the actual scheme C×C.",
+      "prototypeLimitations": "The suggested theorem now states native characteristic zero, algebraic closure, smooth dimension one, properness and genus at least two. The self-product is the actual fibre product over that field. Projectivity follows in the curve source scope; the line is the specified relative canonical twist.",
       "leanName": "TauCeti.AlgebraicGeometry.Intersection.keel_characteristic_zero_counterexample"
+    },
+    {
+      "parentStageId": "SchemeAndStackFoundations:SF.5",
+      "realises": [
+        "SchemeAndStackFoundations:SF.5"
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Intersection/Chow",
+        "namespace": "TauCeti.AlgebraicGeometry.Intersection"
+      },
+      "implementationStatus": "unchecked",
+      "addedBy": "REV-SchemeAndStackFoundations--SF.5",
+      "id": "SchemeAndStackFoundations:SF.5/affine-bundle-surjectivity",
+      "title": "Surjectivity for locally trivial affine-space bundles",
+      "kind": "lemma",
+      "statement": "For a Zariski locally trivial affine-space bundle p:E→X of constant rank r in Situation 42.7.1, flat pullback CH_d(X)→CH_(d+r)(E) is surjective. This target makes no injectivity assertion.",
+      "hypotheses": [
+        "Zariski locally trivial affine-space bundle of constant rank r over the same dimension base; all cycles are locally finite."
+      ],
+      "proofSteps": [
+        "First prove the affine-line case on each integral support by eliminating components dominating the affine line with a rational function, using the inherited dimension function. Iterate for trivial affine r-space. Lift classes on a trivializing open and use Chow localization on its closed complement; run the support argument locally for a locally finite family."
+      ],
+      "acceptance": [
+        "CH₁(A¹) is generated by the flat pullback of the point; CH₀(A¹)=0. Do not use injective gluing for this argument."
+      ],
+      "prerequisites": [
+        "SchemeAndStackFoundations:SF.5/flat-pullback",
+        "SchemeAndStackFoundations:SF.5/chow-localization",
+        "SchemeAndStackFoundations:SF.5/rational-equivalence"
+      ],
+      "sources": [
+        {
+          "sourceId": "stacks-chow",
+          "locator": "Lemma 42.32.1, tag 02TT, p. 58; Lemmas 42.32.2–3, pp. 58–59",
+          "match": "Establishes surjectivity for locally trivial affine-space bundles, sufficient for projective-bundle surjectivity."
+        }
+      ],
+      "leanName": "TauCeti.AlgebraicGeometry.Intersection.affine_bundle_surjective",
+      "prototypeLimitations": "The suggested form specializes to the actual geometric vector bundle projection and binds r to locally constant rank; arbitrary nonlinear transition maps are covered by this packet statement and require the SF.0 affine-bundle interface."
+    },
+    {
+      "parentStageId": "SchemeAndStackFoundations:SF.5",
+      "realises": [
+        "SchemeAndStackFoundations:SF.5"
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Intersection/Chow",
+        "namespace": "TauCeti.AlgebraicGeometry.Intersection"
+      },
+      "implementationStatus": "unchecked",
+      "addedBy": "REV-SchemeAndStackFoundations--SF.5",
+      "id": "SchemeAndStackFoundations:SF.5/bivariant-chow",
+      "title": "Bivariant Chow classes",
+      "kind": "construction",
+      "statement": "For an S-morphism f:X→Y and integer p, a bivariant class of degree p is a family c_g:CH_d(Y′)→CH_(d−p)(X×Y Y′), for every S-map g:Y′→Y and every d. It commutes with proper pushforward, flat pullback of constant pure relative dimension, and refined Cartier Gysin in the sense of Definition 42.33.1. Pointwise addition gives A^p(X→Y). Pullback of the test map gives restriction, and composition of the families gives A^p(X→Y)×A^q(Y→Z)→A^(p+q)(X→Z). Identity gives the degree-zero unit. For X=Y these form the operational graded ring; it is not asserted commutative on singular schemes.",
+      "hypotheses": [
+        "Situation 42.7.1 and compatible induced dimensions on every Cartesian test diagram; the original Cartier immersion and pulled-back line carry the source zero-locus condition."
+      ],
+      "proofSteps": [
+        "Use the native abelian groups CH_d and additive homomorphisms to form the dependent family group. Cut out the subgroup satisfying the three explicitly transported naturality equalities. Addition preserves them. Restriction and composition of families preserve each equality by the proper/flat/Cartier operation laws."
+      ],
+      "acceptance": [
+        "The identity family is the degree-zero unit. Zero cap on every test is the zero bivariant class. On Spec k the operational degree-zero group is ℤ acting by multiplication, including the nonzero identity."
+      ],
+      "prerequisites": [
+        "SchemeAndStackFoundations:SF.5/chow-group",
+        "SchemeAndStackFoundations:SF.5/chow-proper-push",
+        "SchemeAndStackFoundations:SF.5/flat-pullback",
+        "SchemeAndStackFoundations:SF.5/cartier-gysin"
+      ],
+      "sources": [
+        {
+          "sourceId": "stacks-chow",
+          "locator": "Definition 42.33.1, tag 0B76, pp. 62–63; Remarks 42.33.5–6, p. 63; Definition 42.34.1, tag 0B7E, p. 64",
+          "match": "Defines the all-base-change family and its proper, flat and Cartier compatibility, then restriction, composition and the operational ring."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.AlgebraicGeometry.Intersection.BivariantChow.cap",
+          "role": "constructor",
+          "statement": "Apply the additive cap family to any test g:Y′→Y and any homological grade."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.Intersection.BivariantChow.ext",
+          "role": "extensionality",
+          "statement": "Two classes are equal when all their cap homomorphisms agree."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.Intersection.BivariantChow.comp",
+          "role": "structure",
+          "statement": "Composition of families adds codimensions, is associative, and has the degree-zero identity as unit."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.Intersection.BivariantChow.restrict",
+          "role": "functoriality",
+          "statement": "Restrict by a Cartesian change of target using the canonical iterated-pullback isomorphism."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.Intersection.BivariantChow.cap_zero",
+          "role": "simp",
+          "statement": "The cap homomorphism of the zero bivariant class is zero on every test scheme and grade."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.Intersection.BivariantChow.cap_add",
+          "role": "simp",
+          "statement": "The cap homomorphism of c+e is the sum of their cap homomorphisms."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.AlgebraicGeometry.Intersection.bivariant_test_identity",
+          "kind": "characterisation",
+          "statement": "The degree-zero identity family acts as the identity on every Chow class."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.Intersection.bivariant_test_zero",
+          "kind": "degenerate",
+          "statement": "A zero family caps every class to zero."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.Intersection.bivariant_test_point",
+          "kind": "non-example",
+          "statement": "The identity on Spec ℚ is nonzero, detected by its unit point."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Stacks 42.38 and 42.54",
+          "how": "Chern operators and refined Gysin are bivariant classes. Detection permits the proper-modification reduction in Gysin interchange/composition."
+        }
+      ],
+      "leanName": "TauCeti.AlgebraicGeometry.Intersection.BivariantChow",
+      "prototypeLimitations": "The native dependent family and subgroup laws are suggested. Canonical Cartesian transports are independently typed helpers, not hypotheses assuming naturality. The exact induced-dimension and Cartier zero-locus predicates remain supplier interfaces; restore them before implementation."
+    },
+    {
+      "parentStageId": "SchemeAndStackFoundations:SF.5",
+      "realises": [
+        "SchemeAndStackFoundations:SF.5"
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Intersection/Chow",
+        "namespace": "TauCeti.AlgebraicGeometry.Intersection"
+      },
+      "implementationStatus": "unchecked",
+      "addedBy": "REV-SchemeAndStackFoundations--SF.5",
+      "id": "SchemeAndStackFoundations:SF.5/bivariant-detection",
+      "title": "Integral-support detection of bivariant classes",
+      "kind": "theorem",
+      "statement": "For c∈A^p(X→Y), the following are equivalent: c=0; for every integral S-scheme Y′→Y, c∩[Y′]=0; for each such Y′ there is a proper birational Y″→Y′ with Y″ integral and c∩[Y″]=0. Equality of two classes follows by applying this criterion to their difference.",
+      "hypotheses": [
+        "Situation 42.7.1; all test maps and dimensions induced from its fixed base; the modification is proper birational, not an arbitrary proper cover."
+      ],
+      "proofSteps": [
+        "For any locally finite cycle take the coproduct of its integral closed supports. Its map to the test scheme is proper because the supports are locally finite. Proper naturality reduces cap to the integral fundamental classes. A proper birational modification pushes its fundamental class to the original one, proving the third criterion. This includes non-quasi-compact tests; finite-support generation alone is insufficient."
+      ],
+      "acceptance": [
+        "Equality of refined classes can be checked after blowing up each integral test to make the two pulled-back centres Cartier, as in 42.54.8."
+      ],
+      "prerequisites": [
+        "SchemeAndStackFoundations:SF.5/bivariant-chow",
+        "SchemeAndStackFoundations:SF.5/fundamental-cycle",
+        "SchemeAndStackFoundations:SF.5/graded-cycle",
+        "SchemeAndStackFoundations:SF.5/chow-proper-push"
+      ],
+      "sources": [
+        {
+          "sourceId": "stacks-chow",
+          "locator": "Lemma 42.35.3, tag 02UC, p. 67",
+          "match": "Gives precisely the three equivalent vanishing tests and the locally finite coproduct proof."
+        }
+      ],
+      "leanName": "TauCeti.AlgebraicGeometry.Intersection.bivariant_detect_integral",
+      "prototypeLimitations": "The suggested form states the integral test criterion using a generic point and induced δ dimension. Proper birational modification detection and all-base S-linearity are in this packet statement, pending the SF.0 birational interface."
     }
   ],
   "requests": [
     {
       "supplier": "SchemeAndStackFoundations:SF.0",
-      "need": "For schemes locally of finite type over a locally Noetherian universally catenary dimension base, construct the induced integer dimension function by residue transcendence degree, restriction to closed/open immersions, and pure-dimensional flat fibre shifts. Supply finite generic stalk/module lengths, locally finite irreducible supports, relative Spec and relative Proj with graded symmetric/normal algebras, regular immersion/conormal exact sequences and constant-rank vector bundles. Reuse native scheme ideals and pullbacks.",
+      "need": "For schemes locally of finite type over a locally Noetherian universally catenary dimension base, construct the induced integer dimension function by residue transcendence degree, restriction to closed/open immersions, and pure-dimensional flat fibre shifts. Supply finite generic stalk/module lengths, locally finite irreducible supports, relative Proj with graded symmetric/normal algebras, and regular-immersion/conormal exact sequences. Import finite locally free bundles, rank, tensor/dual/exterior/symmetric powers, relative Spec and total spaces from the current AlgebraicVectorBundles L0–L2 roadmap; supply only adapters to its interfaces. Reuse native scheme ideals and pullbacks.",
       "neededBy": [
         "SchemeAndStackFoundations:SF.5/dimension-function",
         "SchemeAndStackFoundations:SF.5/fundamental-cycle",
@@ -5044,7 +5325,7 @@
     },
     {
       "supplier": "SchemeAndStackFoundations:SF.3",
-      "need": "Reuse TauCetiRoadmap/JacobianChallenge Layers A–C for divisor/invertible-sheaf comparison, tensor powers and pullback, Picard classes, proper-curve principal degree zero, χ(L)=deg L+1−g, canonical degree 2g−2 and extension-field/base-change genus invariance. Provide the scheme-level comparison to the native Euler characteristic and to existing abstract divisor RR. For graphs include q-power Frobenius degree q and its zero differential, fixed-point schemes over every finite extension and geometric connectedness preservation.",
+      "need": "Reuse TauCetiRoadmap/JacobianChallenge Layers A–C for divisor/invertible-sheaf comparison, Picard classes, proper-curve principal degree zero, χ(L)=deg L+1−g, canonical degree 2g−2 and extension-field/base-change genus invariance. Provide the scheme-level comparison to the native Euler characteristic and to existing abstract divisor RR. For graphs include q-power Frobenius degree q and its zero differential, fixed-point schemes over every finite extension and geometric connectedness preservation. Tensor, dual and pullback now come from the current native library/AlgebraicVectorBundles supplier; do not replan them in SF.3.",
       "neededBy": [
         "SchemeAndStackFoundations:SF.5/first-chern",
         "SchemeAndStackFoundations:SF.5/proper-relations",
@@ -5073,8 +5354,8 @@
   ],
   "gaps": [
     {
-      "title": "Tame-boundary reciprocity and double deformation proof leaves",
-      "detail": "Stacks Lemma 42.27.1 (0AYC), p. 49 is used by first-Chern descent; its two-dimensional order/tame-symbol reciprocity argument has not been fully chased to the native order API. The double-deformation proof of refined interchange/composition in 42.54.8/42.54.10 needs its two-parameter blowup chart comparison. The read statement and dependency route are recorded, but these proof inputs require a source-to-library pass.",
+      "title": "Tame reciprocity and nested normal-cone comparison",
+      "detail": "Stacks Lemma 42.27.1 (0AYC), p. 49 supplies first-Chern descent/commutation, but its two-dimensional length-order/tame-symbol reciprocity has not been fully connected to the native order API. For Gysin composition the unresolved calculation is the affine-chart identification of the nested normal cone and Cartier subcone in Lemma 42.54.9 (0FEB), p. 125, used by 42.54.10. Interchange itself uses bivariant detection (42.35.3), proper birational blowups, excess and Cartier commutation, now explicit nodes/prerequisites; do not substitute an unproved two-parameter deformation claim.",
       "neededBy": [
         "SchemeAndStackFoundations:SF.5/first-chern",
         "SchemeAndStackFoundations:SF.5/chern-projection",
@@ -5167,6 +5448,13 @@
         "SchemeAndStackFoundations:SF.5/projective-grr",
         "SchemeAndStackFoundations:SF.5/hodge-index"
       ]
+    },
+    {
+      "title": "General affine-space bundle injectivity",
+      "detail": "Vector-bundle bijectivity is planned via 42.36.3 and the acyclic projective-bundle chain. For arbitrary Zariski locally trivial affine-space bundles, Remark 42.32.8, pp. 61–62, invokes higher Chow groups and their longer localization sequence. That proof input is not supplied here; identify the exact source and supplier before claiming the broader homotopy target closed. Ordinary localization only gives surjectivity.",
+      "neededBy": [
+        "SchemeAndStackFoundations:SF.5/affine-bundle-homotopy"
+      ]
     }
   ],
   "coverage": [
@@ -5174,7 +5462,7 @@
       "stageId": "SchemeAndStackFoundations:SF.5",
       "status": "planned",
       "remaining": [
-        "Tame-boundary reciprocity and double deformation proof leaves: Stacks Lemma 42.27.1 (0AYC), p. 49 is used by first-Chern descent; its two-dimensional order/tame-symbol reciprocity argument has not been fully chased to the native order API. The double-deformation proof of refined interchange/composition in 42.54.8/42.54.10 needs its two-parameter blowup chart comparison. The read statement and dependency route are recorded, but these proof inputs require a source-to-library pass.",
+        "Tame reciprocity and nested normal-cone comparison: Stacks Lemma 42.27.1 (0AYC), p. 49 supplies first-Chern descent/commutation, but its two-dimensional length-order/tame-symbol reciprocity has not been fully connected to the native order API. For Gysin composition the unresolved calculation is the affine-chart identification of the nested normal cone and Cartier subcone in Lemma 42.54.9 (0FEB), p. 125, used by 42.54.10. Interchange itself uses bivariant detection (42.35.3), proper birational blowups, excess and Cartier commutation, now explicit nodes/prerequisites; do not substitute an unproved two-parameter deformation claim.",
         "General lci gluing: The read Definition 42.59.4 (0FF3) provides only a global regular/smooth factorization. Establish descent of the local refined operations for an arbitrary lci morphism, including independence on intersections of local factorizations and composition. The global-factorable construction is complete at target level; this gap supplies the broader unqualified lci target.",
         "Moving and local Tor comparison: The proper-intersection Tor coefficient and the Cohen–Macaulay reduction were read, but their full comparison to the diagonal-defined product invokes moving/deformation and regular-local intersection facts not all traced through the pinned source. Supply the moving comparison in the stated algebraically closed smooth scope; do not replace Tor by raw intersection length.",
         "Asymptotic RR and Kodaira decomposition: Keel Definition 0.0/Lemma 1.7 use the equivalence between maximal section growth, positive top intersection for nef bundles on every component, and an ample-plus-effective power on an integral big component. The source invokes standard asymptotic/Kodaira results rather than proving all of them. Identify and read a public proof with projective singular/reducible scope, then give its backward chain under the SF.5 positivity owner.",
@@ -5185,7 +5473,8 @@
         "Stack Riemann–Roch for determinant consumers: Smooth projective scheme GRR does not establish GRR for DM stacks or nodal families. StableReductionPartII MC.5 needs an explicit source-scoped stack/nodal-family determinant RR comparison, including the singular Todd/dualizing correction and boundary terms. This requested extension belongs to the SF.5 RR owner and is not claimed by projective-grr.",
         "Numerical quotient signature: The ample-orthogonality Hodge inequality and Cauchy proof are independent of a finite-rank Néron–Severi theorem. The full finite-dimensional signature statement needs the construction of divisors modulo the numerical radical and a finite-dimensionality proof. Do not identify numerical equivalence with algebraic equivalence or import unrelated Néron-model theory.",
         "Public replacement and original-source collation: Fulton Intersection Theory is not in the cleared library and no authorized full public edition was used. The scheme route is replaced by the fully acquired public Stacks chapters and author lecture notes, with precise read ranges. The 1958 Hodge paper was acquired as an entire public 2022 transcription; its original journal text has not been collated. Two transcription sign slips are recorded against that transcription alone. Collate the version of record before attributing either slip to Grothendieck.",
-        "Resolve the exact SF.0/SF.1/SF.2/SF.3 and existing StableReduction Layer 4 supplier requests; independent review checks source issues and omitted prototype hypotheses."
+        "General affine-space bundle injectivity: Vector-bundle bijectivity is planned via 42.36.3 and the acyclic projective-bundle chain. For arbitrary Zariski locally trivial affine-space bundles, Remark 42.32.8, pp. 61–62, invokes higher Chow groups and their longer localization sequence. That proof input is not supplied here; identify the exact source and supplier before claiming the broader homotopy target closed. Ordinary localization only gives surjectivity.",
+        "Resolve the precise SF.0–SF.3 and StableReduction Layer 4 requests; import current AlgebraicVectorBundles interfaces and regenerate the reader from this reviewed packet before packaging."
       ]
     }
   ],
@@ -5195,14 +5484,19 @@
       "source": "kraemer",
       "kind": "misprint",
       "locator": "III.6 Theorem 6.2(d), printed p. 99, 20 July 2023 author notes",
-      "printed": "The excess formula labels its target A_(n−d−e), where e is the excess rank.",
-      "correction": "The target is A_(n−d); the rank-e cap is applied after a codimension-(d−e) Gysin.",
-      "reason": "The total grade loss is (d−e)+e=d; Corollary 5.8, p. 96 and Stacks 42.54.3–4 confirm it.",
+      "printed": "The excess formula gives target A_(n−d−e). Here d is the original regular codimension and e is the pulled-back regular codimension, not the excess rank.",
+      "correction": "The target is A_(n−d). The pulled-back codimension-e Gysin is followed by c_(d−e) of the excess bundle, whose rank is d−e.",
+      "reason": "The total grade loss is e+(d−e)=d. Read the source notation in Theorem 6.2(d), p. 99 and compare Corollary 5.8, p. 96 and Stacks 42.54.3–4.",
       "affects": "a stated result",
       "known": "new",
       "searched": [
         "2026-10-09: author course/archive page and public search for errata/corrections; no posted correction found."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked the acquired version at the stated locator and the displayed calculation. The total grade loss is e+(d−e)=d. Read the source notation in Theorem 6.2(d), p. 99 and compare Corollary 5.8, p. 96 and Stacks 42.54.3–4.",
+        "by": "REV-SchemeAndStackFoundations--SF.5"
+      }
     },
     {
       "id": "SchemeAndStackFoundations/E-SF5-2",
@@ -5216,7 +5510,12 @@
       "known": "new",
       "searched": [
         "2026-10-09: Milne course page and addenda/correction search for AG11 Proposition 11.6; no correction found."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked the acquired version at the stated locator and the displayed calculation. Tensoring two disjoint effective divisor quotient modules gives zero, not support on their union.",
+        "by": "REV-SchemeAndStackFoundations--SF.5"
+      }
     },
     {
       "id": "SchemeAndStackFoundations/E-SF5-3",
@@ -5230,7 +5529,12 @@
       "known": "new",
       "searched": [
         "2026-10-09: live tag 0FAG proof and comments (same formula; no comments), Stacks correction/history search; no correction found."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked the acquired version at the stated locator and the displayed calculation. Squaring r_F c₁(E)+r_E c₁(F) gives 2r_Er_F c₁(E)c₁(F). For two lines on P² the corrected expression has c₂(E⊗F)=0.",
+        "by": "REV-SchemeAndStackFoundations--SF.5"
+      }
     },
     {
       "id": "SchemeAndStackFoundations/E-SF5-4",
@@ -5244,7 +5548,12 @@
       "known": "new",
       "searched": [
         "2026-10-09: author course/archive page and public search for errata/corrections; no posted correction found."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked the acquired version at the stated locator and the displayed calculation. For a rank-one bundle, the zeroth Segre push is π_*π*a=a, not π_*(ξπ*a). The earlier projective formula uses rank minus one.",
+        "by": "REV-SchemeAndStackFoundations--SF.5"
+      }
     },
     {
       "id": "SchemeAndStackFoundations/E-SF5-5",
@@ -5258,7 +5567,12 @@
       "known": "new",
       "searched": [
         "2026-10-09: author course/archive page and public search for errata/corrections; no posted correction found."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked the acquired version at the stated locator and the displayed calculation. For an origin in A¹, the projectivized normal cone is P⁰ and the normal cone is A¹.",
+        "by": "REV-SchemeAndStackFoundations--SF.5"
+      }
     },
     {
       "id": "SchemeAndStackFoundations/E-SF5-6",
@@ -5272,7 +5586,12 @@
       "known": "new",
       "searched": [
         "2026-10-09: author course/archive page and public search for errata/corrections; no posted correction found."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked the acquired version at the stated locator and the displayed calculation. The preceding definition and fibre product are for the regular immersion Y→X; intersecting the whole ambient X would have grade loss zero.",
+        "by": "REV-SchemeAndStackFoundations--SF.5"
+      }
     },
     {
       "id": "SchemeAndStackFoundations/E-SF5-7",
@@ -5286,7 +5605,12 @@
       "known": "new",
       "searched": [
         "2026-10-09: author course/archive page and public search for errata/corrections; no posted correction found."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked the acquired version at the stated locator and the displayed calculation. T_Y is a module on Y and cannot be pulled back by X×Y→X.",
+        "by": "REV-SchemeAndStackFoundations--SF.5"
+      }
     },
     {
       "id": "SchemeAndStackFoundations/E-SF5-8",
@@ -5300,7 +5624,12 @@
       "known": "new",
       "searched": [
         "2026-10-09: author course/archive page and public search for errata/corrections; no posted correction found."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked the acquired version at the stated locator and the displayed calculation. On P¹ the cokernel of multiplication O(−1)→O at a point is a skyscraper, not a vector bundle. K₀ uses the specified exact sequences.",
+        "by": "REV-SchemeAndStackFoundations--SF.5"
+      }
     },
     {
       "id": "SchemeAndStackFoundations/E-SF5-9",
@@ -5314,7 +5643,12 @@
       "known": "new",
       "searched": [
         "2026-10-09: arXiv version history (v3 latest), publisher DOI 10.1007/s002220050214 preview (full text subscription-only), public errata search. Finding scoped to acquired v3, not asserted about the journal text."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked the acquired version at the stated locator and the displayed calculation. Proposition 16 immediately above compares A_(i+g)^G(X) across presentations. The mixed quotient has dimension dim X+l−g, which gives the same plus shift.",
+        "by": "REV-SchemeAndStackFoundations--SF.5"
+      }
     },
     {
       "id": "SchemeAndStackFoundations/E-SF5-10",
@@ -5328,7 +5662,12 @@
       "known": "new",
       "searched": [
         "2026-10-09: public transcription and Grothendieck bibliography/archive/translation search; original journal text not acquired, so this finding is limited to the 2022 transcription."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked the acquired version at the stated locator and the displayed calculation. For m=1 and f(x,x)>0 the printed sign fails. The statement following (1.2) also uses the corrected positive sign.",
+        "by": "REV-SchemeAndStackFoundations--SF.5"
+      }
     },
     {
       "id": "SchemeAndStackFoundations/E-SF5-11",
@@ -5342,7 +5681,12 @@
       "known": "new",
       "searched": [
         "2026-10-09: public transcription and Grothendieck bibliography/archive/translation search; original journal text not acquired, so this finding is limited to the 2022 transcription."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked the acquired version at the stated locator and the displayed calculation. Rearranging the displayed equality reverses the printed inequality; its equivalent signature sign (3.7 ter) agrees with the correction.",
+        "by": "REV-SchemeAndStackFoundations--SF.5"
+      }
     },
     {
       "id": "SchemeAndStackFoundations/E-SF5-12",
@@ -5356,7 +5700,12 @@
       "known": "new",
       "searched": [
         "2026-10-09: author course/archive page and public search for errata/corrections; no posted correction found."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked the acquired version at the stated locator and the displayed calculation. Both the cap by a bundle on Y and its subsequent f-push have source A_*(Y).",
+        "by": "REV-SchemeAndStackFoundations--SF.5"
+      }
     },
     {
       "id": "SchemeAndStackFoundations/E-SF5-13",
@@ -5370,7 +5719,12 @@
       "known": "new",
       "searched": [
         "2026-10-09: author course/archive page and public search for errata/corrections; no posted correction found."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked the acquired version at the stated locator and the displayed calculation. A doubled integral support must contribute twice its refined intersection; the operation lowers the input support dimension by d even when the inverse image has excess dimension.",
+        "by": "REV-SchemeAndStackFoundations--SF.5"
+      }
     },
     {
       "id": "SchemeAndStackFoundations/E-SF5-14",
@@ -5385,7 +5739,88 @@
       "searched": [
         "2026-10-09: acquired ed88ff78 PDF, live tag 0FVC proof/comments and public Stacks correction search; the matching September 14, 2026 Comment 11743 reports this slip."
       ],
-      "correctionSource": "https://stacks.math.columbia.edu/tag/0FVC#comment-11743"
+      "correctionSource": "https://stacks.math.columbia.edu/tag/0FVC#comment-11743",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked the acquired version at the stated locator and the displayed calculation. A generated line can give a constant map, so j itself need not be an immersion; its second component is the stated embedding.",
+        "by": "REV-SchemeAndStackFoundations--SF.5"
+      }
+    },
+    {
+      "id": "SchemeAndStackFoundations/E-SF5-15",
+      "source": "stacks-chow",
+      "kind": "misprint",
+      "locator": "Final proof of Lemma 42.36.3, tag 02TY, p. 72, ed88ff78",
+      "printed": "The coefficient-uniqueness step cites 42.26.4 and the final Chern expression puts the infinity-divisor O(1) on the ambient projective bundle.",
+      "correction": "Cite 42.36.2 for coefficient uniqueness and use O_P(1) in the expression acting on Chow(P).",
+      "reason": "Lemma 42.26.4 is proper compatibility for a line Chern class, not the projective decomposition; the displayed class lives on P. Its restriction on the divisor is O_D(1).",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "2026-10-09: acquired ed88ff78 chapter and live https://stacks.math.columbia.edu/tag/02TY proof/comments; no matching correction found."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Lemma 42.26.4 is proper compatibility for a line Chern class, not the projective decomposition; the displayed class lives on P. Its restriction on the divisor is O_D(1).",
+        "by": "REV-SchemeAndStackFoundations--SF.5"
+      }
+    },
+    {
+      "id": "SchemeAndStackFoundations/E-SF5-16",
+      "source": "stacks-chow",
+      "kind": "misprint",
+      "locator": "Proof of Lemma 42.36.1, tag 02TW, p. 70, ed88ff78",
+      "printed": "The inverse image of an integral support of δ-dimension k is assigned δ-dimension r−1.",
+      "correction": "Its induced δ-dimension is k+r−1.",
+      "reason": "A rank-r projective bundle has relative dimension r−1. For a positive-dimensional base the omitted k is nonzero; this is also the dimension used in the lemma target.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "2026-10-09: acquired ed88ff78 chapter and live https://stacks.math.columbia.edu/tag/02TW proof/comments; no matching correction found."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "A rank-r projective bundle has relative dimension r−1. For a positive-dimensional base the omitted k is nonzero; this is also the dimension used in the lemma target.",
+        "by": "REV-SchemeAndStackFoundations--SF.5"
+      }
+    },
+    {
+      "id": "SchemeAndStackFoundations/E-SF5-17",
+      "source": "stacks-chow",
+      "kind": "misprint",
+      "locator": "Proof of Lemma 42.54.9, tag 0FEB, p. 125, ed88ff78",
+      "printed": "The first displayed calculation applies the infinity Gysin to an already-specialized fibre with grade n+1 and ends at grade n; the second ends with the cone of Y in X.",
+      "correction": "In the first calculation use the class of W double-prime intersect U in grade n before specialization, and end with the cone of Z in Y in grade n−1. In the second calculation use the cone of Z in X in grade n.",
+      "reason": "Two Cartier Gysin operations lower the grade of [U]_(n+1) to n−1. The strict transform has dimension n and its infinity fibre dimension n−1. The preceding identity U_infinity=C_Z X fixes the cone label in the second calculation.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "2026-10-09: acquired ed88ff78 chapter and live https://stacks.math.columbia.edu/tag/0FEB and https://stacks.math.columbia.edu/tag/0FEC; section https://stacks.math.columbia.edu/tag/0FBI comments only discuss capitalization. No matching correction found."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Two Cartier Gysin operations lower the grade of [U]_(n+1) to n−1. The strict transform has dimension n and its infinity fibre dimension n−1. The preceding identity U_infinity=C_Z X fixes the cone label in the second calculation.",
+        "by": "REV-SchemeAndStackFoundations--SF.5"
+      }
+    },
+    {
+      "id": "SchemeAndStackFoundations/E-SF5-18",
+      "source": "stacks-chow",
+      "kind": "misprint",
+      "locator": "Proof of Lemma 42.54.10, tag 0FEC, p. 126, ed88ff78",
+      "printed": "The complementary-bundle exact sequence is assigned to modules on Z although its conormal is for Y in X; a dual-normal map is said to factor through the normal kernel itself, and the reduction identifies a normal bundle with the conormal bundle.",
+      "correction": "The initial complementary bundle and exact sequence live on Y and are then restricted to Z. The factorization of N dual passes through N_1 dual. The remaining virtual normal bundle for Y in X is the dual of its conormal.",
+      "reason": "The proof starts with N double-prime on Y and takes the kernel of N→E restricted to Z on Z. Dualizing this kernel sequence supplies the quotient N dual→N_1 dual. A virtual normal bundle surjects onto the conormal only after taking its dual, as defined in Section 42.54.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "2026-10-09: acquired ed88ff78 chapter and live https://stacks.math.columbia.edu/tag/0FEB and https://stacks.math.columbia.edu/tag/0FEC; section https://stacks.math.columbia.edu/tag/0FBI comments only discuss capitalization. No matching correction found."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The proof starts with N double-prime on Y and takes the kernel of N→E restricted to Z on Z. Dualizing this kernel sequence supplies the quotient N dual→N_1 dual. A virtual normal bundle surjects onto the conormal only after taking its dual, as defined in Section 42.54.",
+        "by": "REV-SchemeAndStackFoundations--SF.5"
+      }
     }
   ],
   "restructure": [
@@ -5502,5 +5937,602 @@
     "declarationIndex": "Matched declaration index at the exact recorded Tau Ceti and Mathlib pins.",
     "scope": "Read native cycle, module, line, principal-divisor and Euler-characteristic files; searched algebraic-geometry namespaces for Chow, rational equivalence, Gysin, Chern, Todd, surface RR and Hodge. No corresponding implementation found in the pinned search. Open Mathlib PR searches for Chow/Gysin/Chern returned no relevant algebraic-geometric implementation; public Zulip archive queries supplied no settled competing design. These are scoped search observations, not a claim about all external work.",
     "adoption": "Use the native AlgebraicCycle and weighted map, native module/sheaf/quotient/tensor/DirectSum/pseudofunctor carriers, and SmoothOfRelativeDimension. Adopt new Mathlib implementations without maintaining a parallel raw cycle carrier."
+  },
+  "importsFromTauCetiRoadmaps": [
+    {
+      "roadmap": "AlgebraicVectorBundles",
+      "layers": [
+        "L0A",
+        "L0B",
+        "L0C",
+        "L1A",
+        "L1B",
+        "L2A",
+        "L2B"
+      ],
+      "checkedAt": "de435a569d325b365a30fe83269ce34674eaea80",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/tree/de435a569d325b365a30fe83269ce34674eaea80/TauCetiRoadmap/AlgebraicVectorBundles",
+      "provides": "The symmetric monoidal closed category of module sheaves; finite locally free bundles and locally constant rank; tensor, dual, exterior/symmetric powers and determinants; relative Spec and its arbitrary base-change anti-equivalence; linear Spec and geometric total spaces. Reuse these targets, including totalSpaceScheme(E)=Spec Sym(E dual). Relative Proj and Chow operations are additions here, not repetitions of these layers.",
+      "declarations": [
+        "isFiniteLocallyFree",
+        "FiniteLocallyFreeSheaf",
+        "rank",
+        "isFiniteLocallyFreeOfRank",
+        "invertibleSheafEquivFiniteLocallyFreeRankOne",
+        "relativeSpec",
+        "totalSpaceScheme",
+        "totalSpaceHomEquiv"
+      ],
+      "consumers": [
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.5/affine-bundle-homotopy",
+          "layers": [
+            "tauceti:TauCetiRoadmap/AlgebraicVectorBundles#l2b--geometric-vector-bundles"
+          ]
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.5/first-chern",
+          "layers": [
+            "tauceti:TauCetiRoadmap/AlgebraicVectorBundles#l0c--polynomial-operations"
+          ]
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.5/projective-bundle",
+          "layers": [
+            "tauceti:TauCetiRoadmap/AlgebraicVectorBundles#l0b--quasicoherent-and-finite-locally-free-sheaves",
+            "tauceti:TauCetiRoadmap/AlgebraicVectorBundles#l0c--polynomial-operations"
+          ]
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.5/flag-bundle",
+          "layers": [
+            "tauceti:TauCetiRoadmap/AlgebraicVectorBundles#l0b--quasicoherent-and-finite-locally-free-sheaves",
+            "tauceti:TauCetiRoadmap/AlgebraicVectorBundles#l0c--polynomial-operations"
+          ]
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.5/normal-cone",
+          "layers": [
+            "tauceti:TauCetiRoadmap/AlgebraicVectorBundles#l1a--relative-spec",
+            "tauceti:TauCetiRoadmap/AlgebraicVectorBundles#l2b--geometric-vector-bundles"
+          ]
+        }
+      ]
+    }
+  ],
+  "upstreamNotes": [
+    {
+      "note": "No upstream alteration is proposed. SF.5 now imports the current L0–L2 targets rather than asking SF.0 to rebuild bundles or relative Spec. Current Tau Ceti a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039 has InvertibleSheaf.tensorProduct/dual/pullback, the monoidal module category and relativeSpec. Those newer declarations are supplier adapters, not citations at the f790474 baseline.",
+      "url": "https://github.com/TauCetiProject/TauCeti/tree/a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039/TauCeti/AlgebraicGeometry",
+      "roadmaps": [
+        "AlgebraicVectorBundles"
+      ]
+    },
+    {
+      "roadmaps": [
+        "AlgebraicVectorBundles"
+      ],
+      "note": "This current upstream roadmap is absent from the atlas stage snapshot. Exact layer imports and their SF.5 consumers are recorded in importsFromTauCetiRoadmaps and node upstreamImports, separately from historical pinned baseline declarations. Register those current upstream layers and convert these imports into ordinary prerequisite edges when the snapshot is refreshed; do not fabricate pinned declarations for a newer roadmap or replan its mathematics."
+    }
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-SchemeAndStackFoundations--SF.5",
+    "date": "2026-10-09",
+    "notes": "Checked all 80 original nodes and justified three additions; 36 verified, 44 corrected, three added, none unverifiable. Confirmed all 19 pinned baseline declarations and all 18 source issues against the versions recorded. Corrected proof routes, copied hypotheses, geometric numerical parameters, quotient/ring interfaces and newer upstream ownership. The single stage remains planned, with twelve explicit refinement gaps, ten supplier requests and no closed-stage claim. Suggested Lean elaborates at the pins with only expected warnings for admitted declarations; packet checker has zero errors/warnings. The read-only reader predates these corrections and must be regenerated from this packet before packaging; current AlgebraicVectorBundles layer imports await snapshot registration.",
+    "checked": [
+      {
+        "nodeId": "SchemeAndStackFoundations:SF.5/dimension-function",
+        "verdict": "verified",
+        "note": "Verified dimension functions against Situation 42.7.1, tag 02QL, p. 15. Statement, source hypotheses, direct inputs and proof route agree; API/tests and prototype boundary checked where present."
+      },
+      {
+        "nodeId": "SchemeAndStackFoundations:SF.5/graded-cycle",
+        "verdict": "verified",
+        "note": "Verified homogeneous algebraic cycles against Definition 42.8.1, tag 02QR, p. 17. Statement, source hypotheses, direct inputs and proof route agree; API/tests and prototype boundary checked where present."
+      },
+      {
+        "nodeId": "SchemeAndStackFoundations:SF.5/fundamental-cycle",
+        "verdict": "verified",
+        "note": "Verified fundamental cycles with generic lengths against Definition 42.9.2, tag 02QU, p. 18. Statement, source hypotheses, direct inputs and proof route agree; API/tests and prototype boundary checked where present."
+      },
+      {
+        "nodeId": "SchemeAndStackFoundations:SF.5/coherent-cycle",
+        "verdict": "corrected",
+        "note": "The exact-sequence API now states native local Noetherianity and finite presentation of all three terms; the common support bound remains explicit supplier scope."
+      },
+      {
+        "nodeId": "SchemeAndStackFoundations:SF.5/locally-finite-principal-boundary",
+        "verdict": "corrected",
+        "note": "Family data now bind the generic support dimension to d+1; the native finite-support principal-divisor API remains an input to a locally finite extension."
+      },
+      {
+        "nodeId": "SchemeAndStackFoundations:SF.5/rational-equivalence",
+        "verdict": "corrected",
+        "note": "Added the locally finite family constructor and the countable disjoint-union P¹ test that rejects finite-only rational relations."
+      },
+      {
+        "nodeId": "SchemeAndStackFoundations:SF.5/chow-group",
+        "verdict": "verified",
+        "note": "Verified chow groups against Definition 42.19.1, tag 02RW, p. 30. Statement, source hypotheses, direct inputs and proof route agree; API/tests and prototype boundary checked where present."
+      },
+      {
+        "nodeId": "SchemeAndStackFoundations:SF.5/proper-relations",
+        "verdict": "verified",
+        "note": "Verified proper pushforward preserves rational equivalence against Lemmas 42.18.1, 42.18.3 and 42.20.3, tags 02RT, 02RU and 02S2, pp. 27–30 and 33–34. Statement, source hypotheses, direct inputs and proof route agree; API/tests and prototype boundary checked where present."
+      },
+      {
+        "nodeId": "SchemeAndStackFoundations:SF.5/chow-proper-push",
+        "verdict": "verified",
+        "note": "Verified proper pushforward on chow groups against Definition 42.12.1 and Lemma 42.20.3, tags 02R4 and 02S2, pp. 20–21 and 33–34. Statement, source hypotheses, direct inputs and proof route agree; API/tests and prototype boundary checked where present."
+      },
+      {
+        "nodeId": "SchemeAndStackFoundations:SF.5/flat-pullback",
+        "verdict": "verified",
+        "note": "Verified flat pullback against Definition 42.14.1 and Lemma 42.20.2, tags 02RB and 02S1, pp. 23–24 and 33. Statement, source hypotheses, direct inputs and proof route agree; API/tests and prototype boundary checked where present."
+      },
+      {
+        "nodeId": "SchemeAndStackFoundations:SF.5/proper-flat-basechange",
+        "verdict": "verified",
+        "note": "Verified proper-flat base change against Lemma 42.15.1, tag 02RG, p. 25. Statement, source hypotheses, direct inputs and proof route agree; API/tests and prototype boundary checked where present."
+      },
+      {
+        "nodeId": "SchemeAndStackFoundations:SF.5/finite-flat-degree",
+        "verdict": "corrected",
+        "note": "Corrected the copied hypothesis list and bound n to the actual finite locally free rank, with native finite and flat conditions."
+      },
+      {
+        "nodeId": "SchemeAndStackFoundations:SF.5/chow-localization",
+        "verdict": "corrected",
+        "note": "The open immersion is now required to have image complementary to the closed immersion in the suggested exactness statement."
+      },
+      {
+        "nodeId": "SchemeAndStackFoundations:SF.5/affine-bundle-homotopy",
+        "verdict": "corrected",
+        "note": "Removed the injective-gluing claim; vector-bundle injectivity now follows from the projective formula. General affine-space-bundle injectivity has its own higher-Chow gap."
+      },
+      {
+        "nodeId": "SchemeAndStackFoundations:SF.5/first-chern",
+        "verdict": "corrected",
+        "note": "Imported current AlgebraicVectorBundles tensor/dual operations; historical baseline comments no longer imply that those operations are absent today."
+      },
+      {
+        "nodeId": "SchemeAndStackFoundations:SF.5/chern-projection",
+        "verdict": "verified",
+        "note": "Verified projection formula for first chern operators against Lemma 42.26.4, tag 02SU, p. 47. Statement, source hypotheses, direct inputs and proof route agree; API/tests and prototype boundary checked where present."
+      },
+      {
+        "nodeId": "SchemeAndStackFoundations:SF.5/chern-commutation",
+        "verdict": "corrected",
+        "note": "Replaced the unrelated finite-flat hypotheses by the actual dimension-base and invertible-sheaf hypotheses."
+      },
+      {
+        "nodeId": "SchemeAndStackFoundations:SF.5/chern-flat",
+        "verdict": "corrected",
+        "note": "Replaced the unrelated finite-flat hypotheses and corrected the acceptance example for the flat Chern grade shift."
+      },
+      {
+        "nodeId": "SchemeAndStackFoundations:SF.5/cartier-gysin",
+        "verdict": "verified",
+        "note": "Verified gysin maps for cartier divisors against Definition 42.29.1 and Lemmas 42.29.4, 42.30.2–42.30.3, tags 02T8, 02T9, 02TO and 0F95, pp. 52–56. Statement, source hypotheses, direct inputs and proof route agree; API/tests and prototype boundary checked where present."
+      },
+      {
+        "nodeId": "SchemeAndStackFoundations:SF.5/projective-bundle",
+        "verdict": "corrected",
+        "note": "Added the quotient-line universal property modulo intertwining line isomorphisms and current upstream bundle imports."
+      },
+      {
+        "nodeId": "SchemeAndStackFoundations:SF.5/projective-bundle-formula",
+        "verdict": "corrected",
+        "note": "Added affine-bundle surjectivity, Cartier Gysin and Chern projection; its proof does not depend circularly on vector homotopy. Native finite local freeness and actual rank are explicit."
+      },
+      {
+        "nodeId": "SchemeAndStackFoundations:SF.5/flag-bundle",
+        "verdict": "corrected",
+        "note": "Bound rank-sensitive injectivity to native finite local freeness and actual rank, and imported existing bundle operations."
+      },
+      {
+        "nodeId": "SchemeAndStackFoundations:SF.5/chern-operators",
+        "verdict": "corrected",
+        "note": "Added the bivariant construction and integral-support detection as direct inputs."
+      },
+      {
+        "nodeId": "SchemeAndStackFoundations:SF.5/whitney",
+        "verdict": "corrected",
+        "note": "Added native finite local freeness of all terms of the exact sequence in the suggested theorem."
+      },
+      {
+        "nodeId": "SchemeAndStackFoundations:SF.5/chern-regular-section",
+        "verdict": "verified",
+        "note": "Verified top chern class of a regular section against Lemma 42.44.1, tag 0FA9, pp. 88–89. Statement, source hypotheses, direct inputs and proof route agree; API/tests and prototype boundary checked where present."
+      },
+      {
+        "nodeId": "SchemeAndStackFoundations:SF.5/normal-cone",
+        "verdict": "corrected",
+        "note": "Imported current relative Spec and geometric bundle conventions rather than requesting them as new SF.0 work."
+      },
+      {
+        "nodeId": "SchemeAndStackFoundations:SF.5/normal-deformation",
+        "verdict": "verified",
+        "note": "Verified deformation to the normal cone against III.4 Proposition 4.1, printed pp. 91–92; Section 42.53, pp. 118–120, tags 0FBG–0FBH. Statement, source hypotheses, direct inputs and proof route agree; API/tests and prototype boundary checked where present."
+      },
+      {
+        "nodeId": "SchemeAndStackFoundations:SF.5/specialization",
+        "verdict": "verified",
+        "note": "Verified specialization of chow classes against III.4 Corollary 4.2, printed p. 93; Lemmas 42.48.1–42.48.3, tags 0F9J, 0GUH and 0FAQ, pp. 102–103. Statement, source hypotheses, direct inputs and proof route agree; API/tests and prototype boundary checked where present."
+      },
+      {
+        "nodeId": "SchemeAndStackFoundations:SF.5/refined-gysin",
+        "verdict": "verified",
+        "note": "Verified refined gysin maps against III.6 Definition 6.1 and Theorem 6.2, printed pp. 98–99; Lemma 42.54.2, tag 0FBK, pp. 121–122. Statement, source hypotheses, direct inputs and proof route agree; API/tests and prototype boundary checked where present."
+      },
+      {
+        "nodeId": "SchemeAndStackFoundations:SF.5/gysin-proper-flat",
+        "verdict": "verified",
+        "note": "Verified proper compatibility of refined gysin against Lemma 42.48.3, tag 0FAQ, p. 103; refined construction in Section 42.54, pp. 121–126. Statement, source hypotheses, direct inputs and proof route agree; API/tests and prototype boundary checked where present."
+      },
+      {
+        "nodeId": "SchemeAndStackFoundations:SF.5/gysin-flat",
+        "verdict": "corrected",
+        "note": "Corrected copied hypotheses and the false identification of 42.48.4 as flat specialization; cited the bivariant construction 42.54.2 (0FBK)."
+      },
+      {
+        "nodeId": "SchemeAndStackFoundations:SF.5/gysin-excess",
+        "verdict": "verified",
+        "note": "Verified excess intersection formula against III.5 Corollary 5.8, printed p. 96; III.6 Theorem 6.2(d), p. 99; Lemmas 42.54.3–42.54.4, tags 0FBL and 0FV7, pp. 122–123. Statement, source hypotheses, direct inputs and proof route agree; API/tests and prototype boundary checked where present."
+      },
+      {
+        "nodeId": "SchemeAndStackFoundations:SF.5/gysin-self-intersection",
+        "verdict": "verified",
+        "note": "Verified self-intersection formula against III.5 Example 5.9, printed p. 97. Statement, source hypotheses, direct inputs and proof route agree; API/tests and prototype boundary checked where present."
+      },
+      {
+        "nodeId": "SchemeAndStackFoundations:SF.5/gysin-interchange",
+        "verdict": "corrected",
+        "note": "Replaced an unsupported double-deformation route by integral detection, proper birational blowups, excess, Cartier commutation and central Chern operations."
+      },
+      {
+        "nodeId": "SchemeAndStackFoundations:SF.5/gysin-composition",
+        "verdict": "corrected",
+        "note": "Used the actual dual normal sequence, Cartier nested-cone identity 42.54.9 (0FEB), and excess reduction of 42.54.10; the omitted chart calculation remains a gap."
+      },
+      {
+        "nodeId": "SchemeAndStackFoundations:SF.5/lci-pullback",
+        "verdict": "verified",
+        "note": "Verified pullback for globally factorable lci morphisms against Lemmas 42.59.1–42.59.3 and Definition 42.59.4, tags 0FF0–0FF3, pp. 136–138. Statement, source hypotheses, direct inputs and proof route agree; API/tests and prototype boundary checked where present."
+      },
+      {
+        "nodeId": "SchemeAndStackFoundations:SF.5/lci-factorization-independence",
+        "verdict": "verified",
+        "note": "Verified independence of lci factorization against Lemmas 42.59.2–42.59.3 and 42.59.6, tags 0FF1, 0FF2 and 0FF5, pp. 137–139. Statement, source hypotheses, direct inputs and proof route agree; API/tests and prototype boundary checked where present."
+      },
+      {
+        "nodeId": "SchemeAndStackFoundations:SF.5/exterior-product",
+        "verdict": "corrected",
+        "note": "Bound the inseparable multiplicity test to a finite purely inseparable extension of the stated degree."
+      },
+      {
+        "nodeId": "SchemeAndStackFoundations:SF.5/smooth-intersection",
+        "verdict": "corrected",
+        "note": "The proposed ring now fixes the existing direct-sum addition, homogeneous diagonal multiplication and fundamental unit; native smooth dimension and field scope are explicit."
+      },
+      {
+        "nodeId": "SchemeAndStackFoundations:SF.5/tor-intersection",
+        "verdict": "verified",
+        "note": "Verified local tor formula for proper intersections against Section 43.14, tag 0AZR, pp. 9–11; Lemma 43.16.1, tag 0B02, p. 14. Statement, source hypotheses, direct inputs and proof route agree; API/tests and prototype boundary checked where present."
+      },
+      {
+        "nodeId": "SchemeAndStackFoundations:SF.5/degree",
+        "verdict": "verified",
+        "note": "Verified degree of zero cycles against Section 42.41 and Lemmas 42.41.1–42.41.3, tags 0AZ1–0AZ3, pp. 81–82. Statement, source hypotheses, direct inputs and proof route agree; API/tests and prototype boundary checked where present."
+      },
+      {
+        "nodeId": "SchemeAndStackFoundations:SF.5/isolated-plane-bezout",
+        "verdict": "corrected",
+        "note": "The suggested forms are nonzero homogeneous polynomials of the stated positive total degrees over an algebraically closed field."
+      },
+      {
+        "nodeId": "SchemeAndStackFoundations:SF.5/arithmetic-surface-comparison",
+        "verdict": "verified",
+        "note": "Verified comparison with arithmetic surface intersections against Definitions 42.29.1 and Lemma 42.30.3, pp. 52 and 56. Statement, source hypotheses, direct inputs and proof route agree; API/tests and prototype boundary checked where present."
+      },
+      {
+        "nodeId": "SchemeAndStackFoundations:SF.5/finite-resolutions",
+        "verdict": "corrected",
+        "note": "Resolution terms are now native finite locally free modules, and the smooth dimension, finite-presentation, boundedness and homology comparison conditions are explicit."
+      },
+      {
+        "nodeId": "SchemeAndStackFoundations:SF.5/chern-character",
+        "verdict": "verified",
+        "note": "Verified rational chern characters against Section 42.45 and Lemmas 42.45.2–42.45.4, tags 02UM, 0F9C, 0F9D and 0FAB, pp. 90–91; IV.1–2, printed pp. 111–117. Statement, source hypotheses, direct inputs and proof route agree; API/tests and prototype boundary checked where present."
+      },
+      {
+        "nodeId": "SchemeAndStackFoundations:SF.5/todd-class",
+        "verdict": "verified",
+        "note": "Verified todd classes against IV.1 Proposition 1.2 and Lemma 1.3, printed pp. 112–114. Statement, source hypotheses, direct inputs and proof route agree; API/tests and prototype boundary checked where present."
+      },
+      {
+        "nodeId": "SchemeAndStackFoundations:SF.5/koszul-character",
+        "verdict": "corrected",
+        "note": "Bound r to the actual finite locally free bundle rank, with native smooth dimension and field scope; the regular Koszul supplier remains recorded."
+      },
+      {
+        "nodeId": "SchemeAndStackFoundations:SF.5/projective-space-rr",
+        "verdict": "verified",
+        "note": "Verified riemann–roch on projective space against IV.3 Proposition 3.1, printed pp. 118–119. Statement, source hypotheses, direct inputs and proof route agree; API/tests and prototype boundary checked where present."
+      },
+      {
+        "nodeId": "SchemeAndStackFoundations:SF.5/zero-section-rr",
+        "verdict": "corrected",
+        "note": "Added the finite-resolution prerequisite, native source scope and actual bundle-rank output grading."
+      },
+      {
+        "nodeId": "SchemeAndStackFoundations:SF.5/regular-embedding-rr",
+        "verdict": "corrected",
+        "note": "Added the native common field, field-linearity, smooth relative dimensions and finite presentation of the coherent input."
+      },
+      {
+        "nodeId": "SchemeAndStackFoundations:SF.5/projective-grr",
+        "verdict": "corrected",
+        "note": "Added the native common algebraically closed field, field-linearity, properness, smooth dimensions and coherent input; projective/quasiprojective scope remains explicitly omitted."
+      },
+      {
+        "nodeId": "SchemeAndStackFoundations:SF.5/hirzebruch-rr",
+        "verdict": "corrected",
+        "note": "Added native algebraically closed field, properness, smooth dimension and finite presentation; true Euler finiteness remains a supplier condition."
+      },
+      {
+        "nodeId": "SchemeAndStackFoundations:SF.5/global-generation",
+        "verdict": "verified",
+        "note": "Verified global generation of coherent modules against Definition 17.4.1 and Lemmas 17.4.2–17.4.3, tags 01AM–01AO, pp. 4–5; Proposition 28.27.13, tag 01Q3, proof, pp. 45–46. Statement, source hypotheses, direct inputs and proof route agree; API/tests and prototype boundary checked where present."
+      },
+      {
+        "nodeId": "SchemeAndStackFoundations:SF.5/projective-positivity",
+        "verdict": "verified",
+        "note": "Verified semiample line bundles against Introduction and Definition 0.0, printed pp. 253–254; Section 1, pp. 259–261. Statement, source hypotheses, direct inputs and proof route agree; API/tests and prototype boundary checked where present."
+      },
+      {
+        "nodeId": "SchemeAndStackFoundations:SF.5/very-ample",
+        "verdict": "corrected",
+        "note": "Closed restriction now states native field-linearity of the immersion."
+      },
+      {
+        "nodeId": "SchemeAndStackFoundations:SF.5/ample",
+        "verdict": "corrected",
+        "note": "Closed restriction now states native field-linearity of the immersion."
+      },
+      {
+        "nodeId": "SchemeAndStackFoundations:SF.5/surface-pairing",
+        "verdict": "verified",
+        "note": "Verified surface intersection pairings against Theorem 11.9, Proposition 11.11 and Theorem 11.14, pp. 8–10. Statement, source hypotheses, direct inputs and proof route agree; API/tests and prototype boundary checked where present."
+      },
+      {
+        "nodeId": "SchemeAndStackFoundations:SF.5/surface-adjunction",
+        "verdict": "verified",
+        "note": "Verified adjunction for surface curves against Theorem 11.27 and Examples 11.28–11.30, pp. 18–21. Statement, source hypotheses, direct inputs and proof route agree; API/tests and prototype boundary checked where present."
+      },
+      {
+        "nodeId": "SchemeAndStackFoundations:SF.5/surface-bertini",
+        "verdict": "verified",
+        "note": "Verified bertini and ample twists on surfaces against Theorem 11.45 and Corollaries 11.46–11.47, pp. 30–33. Statement, source hypotheses, direct inputs and proof route agree; API/tests and prototype boundary checked where present."
+      },
+      {
+        "nodeId": "SchemeAndStackFoundations:SF.5/surface-weak-rr",
+        "verdict": "corrected",
+        "note": "Identified K with the canonical line and added native integral smooth proper surface scope over an algebraically closed field."
+      },
+      {
+        "nodeId": "SchemeAndStackFoundations:SF.5/surface-rr",
+        "verdict": "corrected",
+        "note": "Identified K with the canonical line and added native integral smooth proper surface scope; coherent duality remains imported from SF.2."
+      },
+      {
+        "nodeId": "SchemeAndStackFoundations:SF.5/hodge-index",
+        "verdict": "corrected",
+        "note": "Added native integral smooth proper surface scope over an algebraically closed field; retained the separately recorded numerical-quotient gap."
+      },
+      {
+        "nodeId": "SchemeAndStackFoundations:SF.5/hodge-cauchy",
+        "verdict": "corrected",
+        "note": "Added native integral smooth proper surface scope; Milne 11.54 has a one-way implication, confirmed visually, so no false iff source issue was added."
+      },
+      {
+        "nodeId": "SchemeAndStackFoundations:SF.5/curve-product-graphs",
+        "verdict": "corrected",
+        "note": "Bound the map degree and genus to their geometric constructions, using native finite field-linear maps of smooth proper curves."
+      },
+      {
+        "nodeId": "SchemeAndStackFoundations:SF.5/frobenius-fixed-points",
+        "verdict": "corrected",
+        "note": "Bound q to the finite field cardinality and stated native smooth proper curve scope; actual Frobenius, extension fields and geometric connectedness remain SF.3 inputs."
+      },
+      {
+        "nodeId": "SchemeAndStackFoundations:SF.5/weil-bound",
+        "verdict": "corrected",
+        "note": "Bound q to the field cardinality and g to native H¹ dimension, with smooth proper curve scope, retaining every r≥1."
+      },
+      {
+        "nodeId": "SchemeAndStackFoundations:SF.5/stack-chow",
+        "verdict": "verified",
+        "note": "Verified integral chow groups of finite type stacks against Definitions 2.1.4 and 2.1.11; Theorem 2.1.12(i)–(iii), pp. 4–7. Statement, source hypotheses, direct inputs and proof route agree; API/tests and prototype boundary checked where present."
+      },
+      {
+        "nodeId": "SchemeAndStackFoundations:SF.5/mixed-quotients",
+        "verdict": "corrected",
+        "note": "Changed the quotient carrier from a forced scheme to an SF.1 algebraic-space presentation; corrected actual dimension shifts and strengthened BGm/Bμn tests to integral ring equivalences with their Chern generators."
+      },
+      {
+        "nodeId": "SchemeAndStackFoundations:SF.5/dm-gysin-ring",
+        "verdict": "corrected",
+        "note": "Required the proposed ring to have native addition, the specified diagonal product and fundamental unit rather than merely some commutative ring structure."
+      },
+      {
+        "nodeId": "SchemeAndStackFoundations:SF.5/dm-rational-degree",
+        "verdict": "verified",
+        "note": "Verified rational degree on proper dm stacks against Section 4.3, p. 24, rational integration paragraph. Statement, source hypotheses, direct inputs and proof route agree; API/tests and prototype boundary checked where present."
+      },
+      {
+        "nodeId": "SchemeAndStackFoundations:SF.5/nef-big",
+        "verdict": "verified",
+        "note": "Verified nef line bundles against Definition 0.0 and the ensuing numerical discussion, printed p. 254; Lemma 1.7, p. 262. Statement, source hypotheses, direct inputs and proof route agree; API/tests and prototype boundary checked where present."
+      },
+      {
+        "nodeId": "SchemeAndStackFoundations:SF.5/big-line",
+        "verdict": "verified",
+        "note": "Verified big line bundles against Definition 0.0 and the ensuing numerical discussion, printed p. 254; Lemma 1.7, p. 262. Statement, source hypotheses, direct inputs and proof route agree; API/tests and prototype boundary checked where present."
+      },
+      {
+        "nodeId": "SchemeAndStackFoundations:SF.5/nef-big-numerical",
+        "verdict": "verified",
+        "note": "Verified numerical characterization of nef bigness against Definition 0.0 and the ensuing numerical discussion, printed p. 254; Lemma 1.7, p. 262. Statement, source hypotheses, direct inputs and proof route agree; API/tests and prototype boundary checked where present."
+      },
+      {
+        "nodeId": "SchemeAndStackFoundations:SF.5/exceptional-locus",
+        "verdict": "verified",
+        "note": "Verified exceptional loci of nef line bundles against Definition 0.1, printed p. 254; Lemma 1.7, p. 262. Statement, source hypotheses, direct inputs and proof route agree; API/tests and prototype boundary checked where present."
+      },
+      {
+        "nodeId": "SchemeAndStackFoundations:SF.5/frobenius-descent",
+        "verdict": "corrected",
+        "note": "Added prime p, native CharP, proper field bases, finiteness and field-linearity; the universal-homeomorphism scope is still explicitly required."
+      },
+      {
+        "nodeId": "SchemeAndStackFoundations:SF.5/semiample-gluing",
+        "verdict": "corrected",
+        "note": "Added native positive characteristic, proper field bases and field-linearity; reduced/conductor, connectedness and normality conditions remain precise suppliers."
+      },
+      {
+        "nodeId": "SchemeAndStackFoundations:SF.5/ample-effective-semiample",
+        "verdict": "corrected",
+        "note": "Added a positive tensor-power decomposition into an ample line and the divisor line; native characteristic/proper scope is explicit and the Cartier condition remains required."
+      },
+      {
+        "nodeId": "SchemeAndStackFoundations:SF.5/keel-semiampleness",
+        "verdict": "corrected",
+        "note": "Added native prime positive characteristic and proper field scope without imposing smoothness or bigness."
+      },
+      {
+        "nodeId": "SchemeAndStackFoundations:SF.5/finite-field-semiampleness",
+        "verdict": "corrected",
+        "note": "Required an algebraically closed algebraic extension of a prime finite field; arbitrary positive characteristic is insufficient for the torsion step."
+      },
+      {
+        "nodeId": "SchemeAndStackFoundations:SF.5/keel-characteristic-zero",
+        "verdict": "corrected",
+        "note": "Required characteristic zero, algebraic closure, smooth proper curve scope and genus≥2; the self-product is the actual fibre product over that field."
+      },
+      {
+        "nodeId": "SchemeAndStackFoundations:SF.5/affine-bundle-surjectivity",
+        "verdict": "added",
+        "note": "Stacks 42.32.1 (02TT), p. 58 gives the precise surjectivity input needed by the projective formula without assuming injective gluing."
+      },
+      {
+        "nodeId": "SchemeAndStackFoundations:SF.5/bivariant-chow",
+        "verdict": "added",
+        "note": "Stacks 42.33.1 (0B76), pp. 62–63 and 42.34.1 (0B7E), p. 64 supply the family construction and operational ring. Added native additive family/subgroup forms, cap, extensionality, restriction, bilinear composition, cap simp API and three tests."
+      },
+      {
+        "nodeId": "SchemeAndStackFoundations:SF.5/bivariant-detection",
+        "verdict": "added",
+        "note": "Stacks 42.35.3 (02UC), p. 67 supplies integral-test and proper-birational detection; its proof uses a locally finite coproduct of closed supports, including non-quasi-compact tests."
+      }
+    ],
+    "baselineChecked": [
+      {
+        "ref": "mathlib:AlgebraicGeometry.AlgebraicCycle",
+        "verdict": "confirmed",
+        "note": "Statement and ambient parameters read at the recorded pins on 2026-10-09. Requires Zero R; the generic point convention identifies integral closed subspaces. No grading or rational equivalence is built into this carrier."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.AlgebraicCycle.map",
+        "verdict": "confirmed",
+        "note": "Statement and ambient parameters read at the recorded pins on 2026-10-09. Requires Semiring R, QuasiCompact f and decidable equality on the weight type; coefficient is residue degree when the two weights agree and zero otherwise. Restriction and quotient descent are new work."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.AlgebraicCycle.mapCoeff",
+        "verdict": "confirmed",
+        "note": "Statement and ambient parameters read at the recorded pins on 2026-10-09. It is a natural number. For homogeneous input, equality of source and image dimensions is the exact nonvanishing condition."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.AlgebraicCycle.map_id",
+        "verdict": "confirmed",
+        "note": "Statement and ambient parameters read at the recorded pins on 2026-10-09. Uses one common weight function; it does not supply composition or descent."
+      },
+      {
+        "ref": "mathlib:Function.locallyFinsuppWithin.single",
+        "verdict": "confirmed",
+        "note": "Statement and ambient parameters read at the recorded pins on 2026-10-09. Requires DecidableEq X and Zero Y. Supplies cycle generators without another free-cycle carrier."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.Scheme.Modules",
+        "verdict": "confirmed",
+        "note": "Statement and ambient parameters read at the recorded pins on 2026-10-09. This includes all module sheaves, not only coherent or finite locally free ones."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.Scheme.Modules.pullback",
+        "verdict": "confirmed",
+        "note": "Statement and ambient parameters read at the recorded pins on 2026-10-09. For f:X→Y its source is Y.Modules and target X.Modules. It is not Chow pullback."
+      },
+      {
+        "ref": "tauceti:TauCeti.AlgebraicGeometry.InvertibleSheaf",
+        "verdict": "confirmed",
+        "note": "Statement and ambient parameters read at the recorded pins on 2026-10-09. The file explicitly leaves tensor and Picard construction to the Jacobian lane. Reuse its objects; request that lane for tensor powers and pullback. Independent review confirms this historical baseline; current native tensor/dual/pullback and AlgebraicVectorBundles supersede its old supplier comment. Do not infer current absence from this pin."
+      },
+      {
+        "ref": "tauceti:TauCeti.AlgebraicGeometry.InvertibleSheaf.trivial",
+        "verdict": "confirmed",
+        "note": "Statement and ambient parameters read at the recorded pins on 2026-10-09. Its underlying module is the native free sheaf on PUnit."
+      },
+      {
+        "ref": "tauceti:TauCeti.AlgebraicGeometry.SchemeWeilDivisor.toAlgebraicCycle",
+        "verdict": "confirmed",
+        "note": "Statement and ambient parameters read at the recorded pins on 2026-10-09. It has finite support on coheight-one points, without requiring a new cycle carrier."
+      },
+      {
+        "ref": "tauceti:TauCeti.AlgebraicGeometry.SchemeWeilDivisor.equivFiniteCodimensionOneCycles",
+        "verdict": "confirmed",
+        "note": "Statement and ambient parameters read at the recorded pins on 2026-10-09. This finite-support codimension grading is not the locally finite dimension grading over a non-field base."
+      },
+      {
+        "ref": "tauceti:TauCeti.AlgebraicGeometry.WeilDivisor.OrderSystem.ofScheme",
+        "verdict": "confirmed",
+        "note": "Statement and ambient parameters read at the recorded pins on 2026-10-09. Requires IsIntegral and IsNoetherian. It does not cover a non-quasi-compact locally Noetherian integral scheme."
+      },
+      {
+        "ref": "tauceti:TauCeti.AlgebraicGeometry.WeilDivisor.OrderSystem.principalDivisor",
+        "verdict": "confirmed",
+        "note": "Statement and ambient parameters read at the recorded pins on 2026-10-09. The coefficients are the order homomorphisms; multiplication of functions becomes addition."
+      },
+      {
+        "ref": "tauceti:TauCeti.AlgebraicGeometry.WeilDivisor.OrderSystem.ClassGroup",
+        "verdict": "confirmed",
+        "note": "Statement and ambient parameters read at the recorded pins on 2026-10-09. Only the abstract divisor-class quotient is provided, not arbitrary-dimensional Chow groups or the scheme Picard comparison."
+      },
+      {
+        "ref": "tauceti:AlgebraicGeometry.Scheme.Modules.eulerCharBelow",
+        "verdict": "confirmed",
+        "note": "Statement and ambient parameters read at the recorded pins on 2026-10-09. X is over Spec k with k a field. True Euler characteristic requires finite-dimensional cohomology and vanishing at and above the cutoff; infinite-dimensional finrank has a junk value."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.SmoothOfRelativeDimension",
+        "verdict": "confirmed",
+        "note": "Statement and ambient parameters read at the recorded pins on 2026-10-09. Its smooth lemma implies Smooth; it has base-change and composition results. It does not express regular immersions or arbitrary lci morphisms."
+      },
+      {
+        "ref": "mathlib:SheafOfModules.IsLocallyFree",
+        "verdict": "confirmed",
+        "note": "Class statement and surrounding parameters read at Mathlib 082e2d3 on 2026-10-09. Suggested signatures now use these native conditions where applicable; constant rank is supplied separately by AlgebraicVectorBundles."
+      },
+      {
+        "ref": "mathlib:SheafOfModules.IsFinitePresentation",
+        "verdict": "confirmed",
+        "note": "Class statement and surrounding parameters read at Mathlib 082e2d3 on 2026-10-09. Suggested signatures now use these native conditions where applicable; constant rank is supplied separately by AlgebraicVectorBundles."
+      },
+      {
+        "ref": "mathlib:MvPolynomial.IsHomogeneous",
+        "verdict": "confirmed",
+        "note": "Definition and surrounding parameters read at Mathlib 082e2d3 on 2026-10-09; requires CommSemiring R. Suggested plane Bézout now uses this condition with nonzero forms and positive degrees."
+      }
+    ]
   }
 }
