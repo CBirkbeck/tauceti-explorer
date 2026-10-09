@@ -104968,6 +104968,26 @@
    "independentOf": [],
    "state": "pending",
    "prompt": "research/blueprint/prompts/REV-PKG-AlgebraicModuliForArithmeticGeometry~adv.md"
+  },
+  {
+   "id": "REV-PKG-NeronModelsAndSemistableAbelianVarieties~adv",
+   "kind": "review",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "NeronModelsAndSemistableAbelianVarieties"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-PKG-NeronModelsAndSemistableAbelianVarieties~adv.md",
+    "research/blueprint/packages/NeronModelsAndSemistableAbelianVarieties/review.json",
+    "research/blueprint/packages/NeronModelsAndSemistableAbelianVarieties/README.md",
+    "research/blueprint/packages/NeronModelsAndSemistableAbelianVarieties/Suggested.lean",
+    "research/blueprint/packages/NeronModelsAndSemistableAbelianVarieties/metadata.toml"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/REV-PKG-NeronModelsAndSemistableAbelianVarieties~adv.md"
   }
  ]
 }
