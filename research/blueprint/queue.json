@@ -30890,7 +30890,8 @@
    ],
    "avoidAccountOf": "BP-InverseGaloisAndArithmeticFundamentalGroups",
    "prompt": "research/blueprint/prompts/REV-InverseGaloisAndArithmeticFundamentalGroups.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #519"
   },
   {
    "id": "BP-MotivesAndAlgebraicCycles",
@@ -35023,8 +35024,9 @@
    ],
    "followUpOf": "BP-ArithmeticGaloisRepresentations",
    "prompt": "research/blueprint/prompts/BP-ArithmeticGaloisRepresentations--R01.5.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7959"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7959",
+   "finishedAt": "2026-10-09T22:54:10Z"
   },
   {
    "id": "REV-ArithmeticGaloisRepresentations--R01.5",
