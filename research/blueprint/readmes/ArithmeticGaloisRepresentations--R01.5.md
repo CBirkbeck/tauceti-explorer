@@ -99,6 +99,7 @@ Adjoin the range of the group representation as a subalgebra over Z. Closure und
 API:
 
 - **imageAlgebra_mem** (constructor): Each ρ(g) belongs to B.
+- **imageAlgebra_le_iff** (universal-property): For any Z-subalgebra S of M_n(Ω), B⊂S iff every ρ(g) belongs to S.
 - **imageAlgebra_span** (characterisation): The underlying submodule of B is span_Z{ρ(g):g∈Γ}.
 - **imageAlgebra_trace_mem** (projection): For each b∈B, its matrix trace belongs to Z.
 
@@ -110,7 +111,7 @@ Unit tests:
 
 The recorded uses are BLGGT14, Lemma A.1.5, p.85 — Its constituent image algebra identifies the descent obstruction and its multiplicity.; ChenevierV2, Definition–Proposition 2.18(iii), p.32 — This concrete image is compared with the faithful determinant quotient.; ArithmeticGaloisRepresentations:R01.5/simple-module-of-an-irreducible-representation — The central division algebra presentation controls constituent multiplicities and the Schur index..
 
-Direct prerequisites: `ArithmeticGaloisRepresentations:R01.5/trace-field`, `mathlib:Algebra.adjoin`.
+Direct prerequisites: `ArithmeticGaloisRepresentations:R01.5/trace-field`, `mathlib:Algebra.adjoin`, `mathlib:Algebra.adjoin_le_iff`.
 
 Source: BLGGT14, Lemma A.1.5, proof, printed p.85; SerreCarayol93, Theorem 4 and proof, p.3; ChenevierV2, Definition–Proposition 2.18(iii), p.32.
 
@@ -330,6 +331,7 @@ API:
 - **schurIndex_dvd** (relation): s(ρ) divides n.
 - **schurIndex_eq_one_iff** (characterisation): s(ρ)=1 iff β(ρ)=1.
 - **schurIndex_of_matrix** (compatibility): If a>0, D is finite-dimensional central division over Z, and B≃M_a(D), then s(ρ)=deg_Z(D) and n=a·s(ρ).
+- **schurIndex_congr** (functoriality): Conjugate full-span representations have the same index. Identify their trace fields first; conjugation then identifies their image algebras, so the baseline index invariance theorem applies.
 
 Unit tests:
 
@@ -339,7 +341,7 @@ Unit tests:
 
 The recorded uses are ArithmeticGaloisRepresentations:R01.5/simple-modules-over-the-algebraic-closure — The index is the multiplicity in the scalar extension of the simple module of B.; ArithmeticGaloisRepresentations:R01.5/descent-obstruction — Constituent multiplicities must be divisible by the attached division-algebra degree.; BLGGT14, Lemma A.1.5, p.85 — Simple eigenvalues exclude the multiplicities produced by a nonsplit division algebra..
 
-Direct prerequisites: `ArithmeticGaloisRepresentations:R01.5/image-algebra-finite-dimensional`, `ArithmeticGaloisRepresentations:R01.5/image-algebra-central`, `ArithmeticGaloisRepresentations:R01.5/image-algebra-simple`, `ArithmeticGaloisRepresentations:R01.5/image-algebra-dimension`, `ArithmeticGaloisRepresentations:R01.5/representation-brauer-class`, `tauceti:TauCeti.Algebra.index`, `tauceti:TauCeti.Algebra.index_pos`, `tauceti:TauCeti.Algebra.index_dvd_deg`, `tauceti:TauCeti.Algebra.index_eq_deg_of_algEquiv_matrix`, `tauceti:TauCeti.Algebra.deg_eq_mul_index_of_algEquiv_matrix`, `tauceti:TauCeti.Algebra.deg_eq_of_finrank_eq_sq`, `tauceti:TauCeti.Algebra.isSplittingField_self_iff_index_eq_one`, `tauceti:TauCeti.BrauerGroup.mk_eq_one_iff_isSplittingField`.
+Direct prerequisites: `ArithmeticGaloisRepresentations:R01.5/image-algebra-finite-dimensional`, `ArithmeticGaloisRepresentations:R01.5/image-algebra-central`, `ArithmeticGaloisRepresentations:R01.5/image-algebra-simple`, `ArithmeticGaloisRepresentations:R01.5/image-algebra-dimension`, `ArithmeticGaloisRepresentations:R01.5/representation-brauer-class`, `tauceti:TauCeti.Algebra.index`, `tauceti:TauCeti.Algebra.index_pos`, `tauceti:TauCeti.Algebra.index_dvd_deg`, `tauceti:TauCeti.Algebra.index_eq_deg_of_algEquiv_matrix`, `tauceti:TauCeti.Algebra.deg_eq_mul_index_of_algEquiv_matrix`, `tauceti:TauCeti.Algebra.deg_eq_of_finrank_eq_sq`, `tauceti:TauCeti.Algebra.isSplittingField_self_iff_index_eq_one`, `tauceti:TauCeti.BrauerGroup.mk_eq_one_iff_isSplittingField`, `ArithmeticGaloisRepresentations:R01.5/trace-field-conjugacy`, `tauceti:TauCeti.Algebra.index_eq_of_algEquiv`.
 
 Source: BLGGT14, Lemma A.1.5, proof, printed p.85; SerreCarayol93, Theorem 4 and proof, p.3; ChenevierV2, Definition–Proposition 2.18(iii), p.32.
 
@@ -397,7 +399,7 @@ Here K is a number field, G_K has the Krull topology, and Σ is a Dirichlet-dens
 | `prescribed-quadratic-residue-symbols` | Compatible sign vectors from the preceding criterion occur as the Legendre symbols of the d_i at primes outside the finite bad set, with density 1/[ℚ(√d_i):ℚ]. An incompatible sign vector occurs at no such prime. |
 | `recognition-on-a-dense-subset` | Two continuous representations over a common coefficient field with equal characteristic polynomials on a dense set have isomorphic semisimplifications, after the scalar-extension conventions of R01.1. |
 | `recognition-by-characteristic-polynomials-and-coefficient-descent` | Equality of unramified Frobenius polynomials at Σ gives the preceding recognition conclusion. A coefficient-field model uses the separate descent contract and its obstruction, rather than following from recognition alone. |
-| `recognition-by-traces` | In characteristic zero, equal Frobenius traces at Σ determine semisimplifications by trace Brauer–Nesbitt and density. The characteristic-zero hypothesis remains. |
+| `recognition-by-traces` | If n! is invertible in the common coefficient field E, equal Frobenius traces at Σ determine semisimplifications after extension to E. This includes characteristic zero and characteristic p>n; the factorial hypothesis remains. |
 | `rank-two-trace-determinant-identities` | The 2×2 characteristic polynomial is X²−tr(A)X+det(A), and the polarized trace/determinant relations follow from matrix Cayley–Hamilton and cyclic trace. The identities retain their arbitrary-characteristic form. |
 | `rank-two-trace-and-determinant-comparison` | Rank-two matrix representations compare their determinant polynomial laws through the trace and determinant data, using the existing IHG.0 rank-two determinant interface. |
 | `rank-two-recognition` | Rank-two Frobenius trace **and** determinant agreement gives characteristic-polynomial agreement and hence recognition of semisimplifications. It supplies no residual trace-only theorem. |
@@ -418,7 +420,7 @@ The constituent statements in this table use a perfect base k, an algebraic clos
 | `absolutely-irreducible-determined-by-trace` | Two absolutely irreducible representations with equal traces are isomorphic in any characteristic. For an embedding of a smaller coefficient field, scalar-conjugacy of an absolutely irreducible representation is detected by whether that embedding fixes its traces. |
 | `simple-modules-over-the-algebraic-closure` | W⊗k̄ is the sum over embeddings τ:Z→k̄ of pairwise different absolutely irreducible ρ_τ, each with multiplicity s and dimension m. Consequently dim_k W=m·s·[Z:k]. |
 | `image-algebra-of-a-constituent` | The factor ρ_τ has trace field τ(Z), image algebra B⊗_{Z,τ}τ(Z), and attached index s. |
-| `simple-module-of-an-irreducible-representation` | An absolutely irreducible representation over k̄ with finite trace field comes from the scalar extension of a unique simple k[Γ]-module. Its Galois orbit, rather than a chosen conjugate, indexes that module. |
+| `simple-module-of-an-irreducible-representation` | For perfect k, an absolutely irreducible representation over k̄ with finite trace field occurs as a constituent of the scalar extension of a unique simple k[Γ]-module. That extension contains its entire Galois orbit, each constituent with Schur-index multiplicity; it need not be a k-form of the chosen representation. |
 | `galois-action-on-constituents` | The characteristic polynomials of a semisimple k̄ representation lie in k exactly when its constituent multiset is Galois invariant, with multiplicities included. |
 | `descent-obstruction` | For each Galois orbit O, let s_O be its attached index and m_O its constituent multiplicity. An invariant semisimple representation has a k-form exactly when s_O divides m_O for every orbit. |
 | `descent-obstruction-absolutely-irreducible` | For a single absolutely irreducible factor whose trace field is k, a k-form exists exactly when β=1. An intermediate L-form exists exactly when β becomes neutral over L. The two new splitting criteria make these clauses separate declarations. |
@@ -453,7 +455,7 @@ These are nine retained IDs. The parent’s relevant locators are Serre 1981, §
 
 The open-GLₙ zero-set proof instead inducts on variables, outside the exceptional fibres where all coefficient polynomials vanish, and uses finite one-variable root sets. The additive Haar singleton-null instance provides null finite fibres. Its current source name is `MeasureTheory.Measure.IsHaarMeasure.nullSingletonClass`, at line 943 of `Mathlib/MeasureTheory/Group/Measure.lean`. The supplied declaration index omits priority-decorated instances and indexes only its deprecated `noAtoms` alias at line 955. The packet records that alias as the searchable baseline reference and records the preferred actual instance separately. Regenerating the index permits the preferred reference without changing mathematics. The hypothesis that the identity is not isolated remains explicit.
 
-The unproved application is different: GSp₄(O_E) is a lower-dimensional subgroup of GL₄(O_E), and is not open in the ambient matrix algebra. Normalizing ambient additive matrix measure there gives no group Haar measure. The requested nonarchimedean chart comparison must first produce Haar measure intrinsically on that group. Moreover, for a disconnected algebraic monodromy group, nonvanishing on the identity component alone does not prevent a polynomial from vanishing on another entire component met by G. Either work inside the identity component or check every such component. The shared gap with DWP.3 records this exact condition.
+The unproved application is different: GSp₄(O_E) is a lower-dimensional subgroup of GL₄(O_E), and is not open in the ambient matrix algebra. Normalizing ambient additive matrix measure there gives no group Haar measure. The requested nonarchimedean chart comparison must first produce Haar measure intrinsically on that group. Moreover, for a disconnected algebraic monodromy group, nonvanishing on the identity component alone does not prevent a polynomial from vanishing on another entire component met by G. Either work inside the identity component or check every such component. The shared gap with DWP.3 records this exact condition. Its consumer is the requested algebraic-subgroup extension of `polynomial-conditions-on-frobenius-have-density-zero`; the accepted open-GLₙ statement and the abstract Chebotarev bounds keep their existing hypotheses.
 
 ### Local coefficient recognition and gluing
 
@@ -492,7 +494,7 @@ For the first six targets, ρ:G_ℚ→GSp₄(Q̄_p) and σ:G_ℚ→GL_N(Q̄_p) a
 | `potentially-abelian-scalar-case` | For the chosen L, b=1 exactly when the restricted image is scalar, implying finite projective image. Conversely finite projective image gives b=1 when L is chosen from its projective kernel. The choice of L matters. |
 | `curve-recognition-from-an-open-subset` | Let C/F_q be smooth geometrically connected, U⊂C a nonempty open, ℓ≠p, and V₁,V₂ lisse E-sheaves of equal rank, with E a finite ℚ_ℓ-extension or Q̄_ℓ. Equality of their det(1−Frob_x t) polynomials at every closed x of U gives isomorphic semisimplifications on π₁(C); semisimple sheaves are isomorphic. Choose the same arithmetic or geometric Frobenius convention for both. |
 
-BCGP arXiv v1, Propositions 4.11.1–4.11.2 and their proofs, pp.109–112, are read for the GSp₄ targets. The corrected off-subgroup Asai polynomial is retained from parent source issue E502: the reciprocal pair cannot be replaced by a repeated λ, since the determinant of the quadratic factor is 1. The potential-abelian locators, BCGP Lemma 10.2.3, pp.212–213, are imported from the parent. Kisin–Zhou arXiv v2, proof of Proposition 5.3.5, p.54, remains the parent anchor for the curve application. Its published Annals 202 (2025) version has not been collated here.
+BCGP arXiv v1, Propositions 4.11.1–4.11.2 and their proofs, pp.109–112, are read for the GSp₄ targets. The corrected off-subgroup Asai polynomial is retained from parent source issue E502: the reciprocal pair λ,λ⁻¹ cannot be replaced by λ,−λ, since the determinant of the quadratic factor is 1. The potential-abelian locators, BCGP Lemma 10.2.3, pp.212–213, are imported from the parent. Kisin–Zhou arXiv v2, proof of Proposition 5.3.5, p.54, remains the parent anchor for the curve application. Its published Annals 202 (2025) version has not been collated here.
 
 Nekovář’s Proposition 3.10, pp.1196–1198, has now been read including its hypotheses and proof. For the representations ρ_i and σ of a profinite group Γ, (A′) requires each W_i to be a sum of simple modules for the Q̄_ℓ-span of Lie(ρ_i(Γ)), and each simple factor to be one-dimensional or minuscule. Condition (C′) requires an open Γ′, a dense subset Σ⊂Γ′ and an integer a≥1 such that the characteristic polynomial of (⊗ρ_i)(gᵃ) annihilates σ(gᵃ) on Σ. Its case (3) requires **a=r=1** and W₁ minuscule. It proves global semisimplicity of σ and isotypy with ρ₁ on Γ′. It does not identify σ globally with copies of ρ₁ without an additional component argument. Theorem 3.7, pp.1195–1196, and Proposition 1.3(2), §§1.4–1.5, pp.1187–1189, supply the weight/unipotent mechanism whose declarations the gap lists. Reading them settles the source contract, not the library prerequisites.
 

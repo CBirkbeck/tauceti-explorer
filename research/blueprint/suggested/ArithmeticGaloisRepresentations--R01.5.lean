@@ -20,6 +20,7 @@ import Mathlib.LinearAlgebra.Matrix.Notation
 import Mathlib.LinearAlgebra.TensorProduct.Basic
 import Mathlib.Algebra.MonoidAlgebra.Module
 import Mathlib.RingTheory.TwoSidedIdeal.Operations
+import Mathlib.RingTheory.TwoSidedIdeal.Kernel
 import Mathlib.RingTheory.RootsOfUnity.PrimitiveRoots
 import TauCeti.Algebra.BrauerGroup.BaseChange
 import TauCeti.Algebra.BrauerGroup.Splitting
@@ -27,7 +28,7 @@ import TauCeti.Algebra.BrauerGroup.Quaternion
 import TauCeti.Algebra.CentralSimple.Index
 
 noncomputable section
-open scoped TensorProduct
+open scoped TensorProduct Quaternion
 universe u v
 namespace TauCeti.GaloisRep
 
@@ -61,6 +62,11 @@ def imageAlgebra : Subalgebra (traceField k ρ) (Matrix (Fin n) (Fin n) Ω) :=
 
 lemma imageAlgebra_mem (g : Γ) :
     (ρ g : Matrix (Fin n) (Fin n) Ω) ∈ imageAlgebra k ρ := by sorry
+
+lemma imageAlgebra_le_iff (S : Subalgebra (traceField k ρ)
+    (Matrix (Fin n) (Fin n) Ω)) :
+    imageAlgebra k ρ ≤ S ↔
+      ∀ g, (ρ g : Matrix (Fin n) (Fin n) Ω) ∈ S := by sorry
 
 lemma imageAlgebra_span :
     (imageAlgebra k ρ).toSubmodule = Submodule.span (traceField k ρ)
@@ -250,6 +256,18 @@ lemma schurIndex_of_matrix [NeZero n]
     schurIndex k ρ hspan = Algebra.deg (traceField k ρ) D ∧
       n = a * schurIndex k ρ hspan := by sorry
 
+lemma schurIndex_congr [NeZero n]
+    (ρ' : Γ →* (Matrix (Fin n) (Fin n) Ω)ˣ)
+    (P : (Matrix (Fin n) (Fin n) Ω)ˣ)
+    (hconj : ∀ g, (ρ' g : Matrix (Fin n) (Fin n) Ω) =
+      (P : Matrix (Fin n) (Fin n) Ω) * (ρ g : Matrix (Fin n) (Fin n) Ω) *
+        (↑(P⁻¹) : Matrix (Fin n) (Fin n) Ω))
+    (hspan : Submodule.span Ω
+      (Set.range fun g ↦ (ρ g : Matrix (Fin n) (Fin n) Ω)) = ⊤)
+    (hspan' : Submodule.span Ω
+      (Set.range fun g ↦ (ρ' g : Matrix (Fin n) (Fin n) Ω)) = ⊤) :
+    schurIndex k ρ hspan = schurIndex k ρ' hspan' := by sorry
+
 /-! Concrete tests. The quaternion hypotheses specify exactly the eight matrices
 of Q₈; no unrelated field or group property is hidden behind a placeholder. -/
 private def quaternionI : Matrix (Fin 2) (Fin 2) ℂ := !![Complex.I, 0; 0, -Complex.I]
@@ -305,7 +323,8 @@ example (r : Γ →* (Matrix (Fin 2) (Fin 2) ℂ)ˣ)
     (himage : Set.range (fun g ↦ (r g : Matrix (Fin 2) (Fin 2) ℂ)) = quaternionMatrices)
     (hspan : Submodule.span ℂ
       (Set.range fun g ↦ (r g : Matrix (Fin 2) (Fin 2) ℂ)) = ⊤) :
-    brauerClass ℝ r hspan ≠ 1 := by sorry
+    Nonempty ((imageAlgebra ℝ r).restrictScalars ℝ ≃ₐ[ℝ] ℍ[ℝ]) ∧
+      brauerClass ℝ r hspan ≠ 1 := by sorry
 
 -- TauCeti.GaloisRep.schurIndex_one_dim
 example (χ : Γ →* (Matrix (Fin 1) (Fin 1) Ω)ˣ)
@@ -324,7 +343,8 @@ example (r : Γ →* (Matrix (Fin 2) (Fin 2) ℂ)ˣ)
     (himage : Set.range (fun g ↦ (r g : Matrix (Fin 2) (Fin 2) ℂ)) = quaternionMatrices)
     (hspan : Submodule.span ℂ
       (Set.range fun g ↦ (r g : Matrix (Fin 2) (Fin 2) ℂ)) = ⊤) :
-    schurIndex ℝ r hspan = 2 := by sorry
+    schurIndex ℝ r hspan = 2 ∧
+      Module.finrank ℝ ((imageAlgebra ℝ r).restrictScalars ℝ) = 4 := by sorry
 
 -- Acceptance test: the matrix trace pairing survives characteristic two.
 example : Matrix.trace (1 : Matrix (Fin 2) (Fin 2) (ZMod 2)) = 0 ∧
