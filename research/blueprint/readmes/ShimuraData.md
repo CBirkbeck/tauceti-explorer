@@ -2,7 +2,7 @@
 
 This roadmap constructs the input to complex Shimura varieties: a rational reductive group and a full real conjugacy class of algebraic maps from the Deligne torus, with its homogeneous complex geometry, Hodge variations, reflex field and level conditions. It includes general pure data, then identifies Hodge, abelian and pre-abelian type as predicates with witnesses. A moduli interpretation belongs to the particular downstream construction that proves one.
 
-The planning pass covers D0–D5. Every target and every in-scope item routed from the papers has a named declaration, or imports a named library declaration or supplier stage. All six stages are **planned**; none is closed. The packet is complete as a planning pass, and all declarations retain implementation status **unchecked**. The ten gaps and exact supplier requests below identify where proof leaves and prototype conditions remain open. The full suggested Lean module remains uncompiled; it is a collection of interfaces using the pinned Hopf algebra, finite-comodule, Hodge, local-system, manifold and scheme carriers; its comments identify the conditions left out. Its supplier sketches identify omitted hypotheses on those objects. The nine residual named conclusions from the historical review are now represented on their intended objects; E17 corrects the rational Iwahori statement to require all places above one rational prime. The complete specifications here remain binding. This revision awaits independent review.
+The planning pass covers D0–D5. Every target and every in-scope item routed from the papers has a named declaration, or imports a named library declaration or supplier stage. All six stages are **planned**; none is closed. The packet is complete as a planning pass, and all declarations retain implementation status **unchecked**. The eleven gaps and exact supplier requests below identify where proof leaves and prototype conditions remain open. The full suggested Lean module remains uncompiled; it is a collection of interfaces using the pinned Hopf algebra, finite-comodule, Hodge, local-system, manifold and scheme carriers; its comments identify the conditions left out. Its supplier sketches identify omitted hypotheses on those objects. The nine residual named conclusions from the historical review are now represented on their intended objects; E17 corrects the rational Iwahori statement to require all places above one rational prime. The complete specifications here remain binding. REV-ShimuraData~3 completes the independent review with needs_changes: five D0 prototypes still omit their actual point-group and analytic conclusions, as detailed in the final gap below.
 
 ## Conventions and ownership
 
@@ -44,7 +44,7 @@ For abelian and preabelian type the rational adjoint map is tested on chosen con
 | [D4](#d4) | 15 | 6 | planned |
 | [D5](#d5) | 38 | 6 | planned |
 
-The register contains 123 declaration-sized nodes: 19 definitions, 25 constructions, 53 lemmas and 26 theorems. The definition/construction API has 140 items; the equivalence also names two naturality/morphism interfaces. There are 132 unit tests, 27 planets, 45 checked baseline citations and 26 exact supplier requests. All six stages are planned; ten supplier/condition gaps remain. REV-ShimuraData~2 gives a completed needs_changes verdict, with 99 verified, 14 corrected, nine unverifiable and one added node. The earlier independent review remains in its permanent report.
+The register contains 123 declaration-sized nodes: 19 definitions, 25 constructions, 53 lemmas and 26 theorems. The definition/construction API has 140 items; the equivalence also names two naturality/morphism interfaces. There are 132 unit tests, 27 planets, 45 checked baseline citations and 26 exact supplier requests. All six stages are planned; eleven supplier/condition gaps remain. REV-ShimuraData~3 gives a completed needs_changes verdict, with 109 verified, nine corrected, five unverifiable and no added nodes. All 17 source findings have independent confirmed verdicts. The earlier reviews remain in their permanent reports and the packet’s reviewHistory.
 
 ## Sources and pinned baseline
 
@@ -59,10 +59,12 @@ Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; Tau Ceti f790474821cf4256814db
 - [Tame topology of arithmetic quotients and algebraicity of Hodge loci](https://par.nsf.gov/servlets/purl/10200187) — Benjamin Bakker; Bruno Klingler; Jacob Tsimerman; Published JAMS 33 (2020), NSF copy. Read/rechecked 2026-10-08: §1.3, published pp.920–921 (PDF pp.4–5); §2.1, published pp.922–923 (PDF pp.6–7). SHA-256: b7cf457907c30c9dc1c349637e74027ce4ef038a2e0f646b7685f571d367e058.
 - [The period-index problem for real surfaces](https://www.numdam.org/item/10.1007/s10240-019-00108-7.pdf) — Olivier Benoist; Published Publ. Math. IHÉS 130 (2019), pp.63–110. Read/rechecked 2026-10-08: §6.2, published pp.93–95, especially Proposition 6.6 proof p.94 (PDF p.32). SHA-256: 8dfc0f221ab510ba1ecfe7c5b5fde12c217019f33d704ea89ce1a0c144398d3b.
 - [Abelian surfaces over totally real fields are potentially modular](https://pmihes.centre-mersenne.org/item/10.1007/s10240-021-00128-2.pdf) — George Boxer; Frank Calegari; Toby Gee; Vincent Pilloni; Published Publ. Math. IHÉS 134 (2021), pp.153–501. Read/rechecked 2026-10-08: Definition 3.2.1 pp.201–202; Lemma 7.8.3 p.409. SHA-256: b4cc8b016615bcaf4b92bdf826ec1e285f6aca842ebd9f13712e1c498f8454af.
-- [Abelian varieties isogenous to no Jacobian](https://annals.math.princeton.edu/wp-content/uploads/annals-v191-n2-p07-s.pdf) — David Masser; Umberto Zannier; Published Annals of Math. 191 (2020), pp.635–674. Read/rechecked 2026-10-08: §1.2 p.637. SHA-256: 8b76bfac88374180701992e242d88f5d38fbe0b0cdb39c6c40c3c3fbbb874b60.
+- [Abelian varieties isogenous to no Jacobian](https://annals.math.princeton.edu/wp-content/uploads/annals-v191-n2-p07-s.pdf) — David Masser; Umberto Zannier; Published Annals of Math. 191 (2020), pp.635–674. Read/rechecked 2026-10-08; locator corrected 2026-10-09: §1 (Introduction), p.637, paragraph preceding Theorem 1.1. SHA-256: 8b76bfac88374180701992e242d88f5d38fbe0b0cdb39c6c40c3c3fbbb874b60.
 - [Completed cohomology and preabelian type Shimura varieties](https://pure.mpg.de/rest/items/item_3525265_3/component/file_3560933/content) — David Hansen; Christian Johansson; Published J. Lond. Math. Soc. 107 (2023), §4.1 p.1980 (PDF p.27), DOI 10.1112/jlms.12799; public MPG copy. Read/rechecked 2026-10-08: §4.1, p.1980 (PDF p.27), Definition 4.1 and preceding Hodge/abelian-type definitions. SHA-256: 24fa8fb4040cb374d90fd9fafc7d086027312eb16a1dfc6e37f65ded817f4cdf.
 
-The D5 comparison passages in Milne, BP, CG, Pilloni and BCGP were rechecked on 2026-10-09 for this revision. Their files match the recorded hashes.
+- [Shimura varieties and moduli](https://www.jmilne.org/math/xnotes/svhIP.pdf) — J. S. Milne; Published Handbook of Moduli, Vol. II (2013), author-hosted typeset chapter; printed pagination. Read 2026-10-09: §6, definition/connectedness p.494; Propositions 6.3–6.4 and Corollary 6.5 p.495. SHA-256: 7237c2a4dda0727923d4ec3d9c6ca8aac6e618ed90be3fa3c6ba34f79b94aaaa.
+
+The independent review rechecked every node’s relevant source locator on 2026-10-09; all eleven inherited public files match their recorded hashes. The additional published Milne chapter gives exact connectedness and polarizable-reductivity evidence. Historic reading ranges above remain attributed to the earlier passes; the independent ranges are recorded in the packet’s independentReviewRead entries.
 
 Deligne’s scan was checked from page images: printed pp.251–256 and 265–267. CG is the publisher-typeset advance-publication copy with PDF pagination, rather than an unchecked final journal pagination. BP and Pilloni author copies and BP21 arXiv v1 remain distinguished from their versions of record. Unread foundational leaves include Wolf 1984 Theorem 8.7.9, BL03 I Lemma 1 and general SGA3 representability; they remain gaps. The rational Hodge-endomorphism/elliptic MT proof and the normalized cyclotomic valuation proof remain explicit requests.
 
@@ -95,22 +97,22 @@ Deligne’s scan was checked from page images: printed pp.251–256 and 265–26
 | [tauceti:TauCeti.reductiveCommHopfAlgProperty](https://github.com/CBirkbeck/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Algebra/AlgebraicGroup/Reductive/Basic.lean#L70) | Reductivity predicate on finite-type commutative Hopf algebras, including smoothness, geometric connectedness and trivial connected normal smooth unipotent subgroups of the geometric fiber. Used to state the separate MT reductivity target; it does not prove reductivity. |
 | [tauceti:TauCeti.Comodule](https://github.com/CBirkbeck/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Algebra/Coalgebra/Comodule/Basic.lean#L53) | Right coaction together with coassociativity and the right counit law. |
 | [tauceti:TauCeti.FGComoduleCat](https://github.com/CBirkbeck/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Algebra/Coalgebra/Comodule/Finite/Basic.lean#L96) | Full category of finitely generated comodules; over a field these are finite-dimensional algebraic representations. |
-| [tauceti:TauCeti.FGComoduleCat.ofHom](https://github.com/CBirkbeck/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Algebra/Coalgebra/Comodule/Finite/Basic.lean#L174) | Bundles an existing lawful comodule morphism as a finite-comodule categorical morphism. |
+| [tauceti:TauCeti.FGComoduleCat.ofHom](https://github.com/CBirkbeck/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Algebra/Coalgebra/Comodule/Finite/Basic.lean#L172) | Bundles an existing lawful comodule morphism as a finite-comodule categorical morphism. |
 | [tauceti:TauCeti.FGComoduleCat.isoOfLinearEquiv](https://github.com/CBirkbeck/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Algebra/Coalgebra/Comodule/Finite/Basic.lean#L219) | A coaction-compatible linear equivalence gives a finite-comodule isomorphism. |
 | [tauceti:TauCeti.FGComoduleCat.tensor](https://github.com/CBirkbeck/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Algebra/Coalgebra/Comodule/Finite/TensorProduct.lean#L62) | Finite-comodule tensor product with diagonal coaction over a bialgebra. |
 | [tauceti:TauCeti.FGComoduleCat.dual](https://github.com/CBirkbeck/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Algebra/Coalgebra/Comodule/Finite/Dual.lean#L43) | Finite-dimensional comodule linear dual, using the Hopf antipode. |
 | [tauceti:TauCeti.HopfIdeal.sSup_toIdeal](https://github.com/CBirkbeck/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Algebra/HopfAlgebra/HopfIdeal/Basic.lean#L569) | Arbitrary Hopf-ideal supremum has the supremum of underlying ideals; this implements the sum of subgroup ideals, with reverse subgroup order. |
 | [tauceti:TauCeti.GeneralLinear.finiteTypeCoordinateHopfAlgebra](https://github.com/CBirkbeck/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Algebra/AlgebraicGroup/GeneralLinear/Coordinate/HopfAlgebra.lean#L726) | Existing coordinate Hopf algebra of GL_n, bundled finite type; n is a natural number. |
-| [tauceti:TauCeti.Hodge.IsPolarization](https://github.com/CBirkbeck/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Geometry/Hodge/Polarization.lean#L63) | Native integral Hodge–Riemann predicate on a ℤ-bilinear form: weight parity, nondegeneracy after real extension, filtration orthogonality and i^(p−q) positivity on each pure piece. It does not impose unimodularity, and is not a predicate directly on rational bilinear forms. |
+| [tauceti:TauCeti.Hodge.IsPolarization](https://github.com/CBirkbeck/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Geometry/Hodge/Polarization.lean#L70) | Native integral Hodge–Riemann predicate on a ℤ-bilinear form: weight parity, integral nondegeneracy Q.Nondegenerate, filtration orthogonality and i^(p−q) positivity on each pure piece. It does not impose unimodularity, and is not a predicate directly on rational bilinear forms. |
 | [mathlib:QuotientGroup.instT2Space](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Algebra/ProperAction/Basic.lean#L206) | The quotient of a topological group by a closed subgroup is Hausdorff; closedness is a typeclass hypothesis. |
 | [mathlib:QuotientGroup.instSecondCountableTopology](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Algebra/Group/Quotient.lean#L142) | The quotient of a second countable topological group by any subgroup is second countable; the source section requires continuous multiplication. |
-| [mathlib:IsDedekindDomain.FiniteAdeleRing](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/DedekindDomain/FiniteAdeleRing.lean#L95) | Restricted product of finite completions with their integral subrings, with ring and topology instances and the canonical fraction-field algebra map. For ℤ and ℚ this is the existing rational finite-adele carrier. |
+| [mathlib:IsDedekindDomain.FiniteAdeleRing](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/DedekindDomain/FiniteAdeleRing.lean#L94) | Restricted product of finite completions with their integral subrings, with ring and topology instances and the canonical fraction-field algebra map. For ℤ and ℚ this is the existing rational finite-adele carrier. |
 | [mathlib:Matrix.GeneralLinearGroup.map](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/LinearAlgebra/Matrix/GeneralLinearGroup/Defs.lean#L188) | A homomorphism of commutative rings induces the corresponding group homomorphism on finite square general linear groups. |
 | [mathlib:RootPairing](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/LinearAlgebra/RootSystem/Defs.lean#L82) | Perfectly paired root/coroot modules with their reflection permutations; the GSp and Borel identifications remain R7 inputs. |
 | [mathlib:RootPairing.Base](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/LinearAlgebra/RootSystem/Base.lean#L70) | Simple-root support, linear independence and positive-or-negative generation for the native root pairing. |
 | [mathlib:RootPairing.Base.IsPos](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/LinearAlgebra/RootSystem/Base.lean#L538) | Positivity with respect to the supplied base, defined by positive root height. |
 | [mathlib:RootPairing.weylGroup](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/LinearAlgebra/RootSystem/WeylGroup.lean#L56) | Subgroup of root-pairing automorphisms generated by reflections; the standard-representation permutation and Levi/length comparisons remain R7 inputs. |
-| [mathlib:Matrix.unitaryGroup](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/LinearAlgebra/UnitaryGroup.lean#L62) | Native star-unitary matrix group, specialized to 2×2 complex matrices in the centralizer isomorphism. |
+| [mathlib:Matrix.unitaryGroup](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/LinearAlgebra/UnitaryGroup.lean#L60) | Native star-unitary matrix group, specialized to 2×2 complex matrices in the centralizer isomorphism. |
 | [mathlib:NumberField.RingOfIntegers](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/NumberTheory/NumberField/Basic.lean#L104) | Integral closure of ℤ in F, with its commutative domain structure; supplies the ring for finite places and finite adeles. |
 | [mathlib:Matrix.GeneralLinearGroup.toLin](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/LinearAlgebra/Matrix/GeneralLinearGroup/Defs.lean#L121) | Multiplicative equivalence from invertible matrices to invertible linear maps on coordinate functions, used to define the inverse-image Lagrangian. |
 
@@ -857,7 +859,8 @@ Uses:
 
 Source evidence:
 
-- [Introduction to Shimura varieties](https://www.jmilne.org/math/xnotes/svi.pdf), Aside following 2.16, p.31. The aside defines MT and states its connectedness and polarizable reductivity. The noetherian intersection is an R0 request; the two structural assertions are separated below and import R3/H1/R6.
+- [Introduction to Shimura varieties](https://www.jmilne.org/math/xnotes/svi.pdf), Aside following 2.16, p.31. Defines the smallest rational algebraic subgroup containing h(S); this aside does not explicitly establish connectedness or polarizable reductivity. Those are separately sourced below.
+- [Shimura varieties and moduli](https://www.jmilne.org/math/xnotes/svhIP.pdf), §6, definition of Mumford–Tate groups, p.494. Defines MT as the smallest rational algebraic subgroup through which h factors and explains connectedness. Finite-type Hopf-ideal representability is still the specified R0/R3 proof input.
 
 Planet: Mumford–Tate group.
 ### Connectedness of the Mumford–Tate group
@@ -881,7 +884,7 @@ Direct prerequisites: ShimuraData:D1/mumford-tate-group; tauceti:TauCetiRoadmap/
 
 Source evidence:
 
-- [Introduction to Shimura varieties](https://www.jmilne.org/math/xnotes/svi.pdf), Aside following 2.16, p.31. The passage states this structural property; the proof route imports the exact supplier interfaces named in the prerequisites.
+- [Shimura varieties and moduli](https://www.jmilne.org/math/xnotes/svhIP.pdf), §6, definition of Mumford–Tate groups, p.494. Minimality allows replacement by the identity component, proving connectedness. The scheme-theoretic component and scalar-extension comparison remain R3 inputs.
 ### Reductivity of a polarizable Mumford–Tate group
 
 Declaration: **TauCeti.Shimura.mumfordTateReductive**. Node: ShimuraData:D1/mumford-tate-reductive. Kind: lemma.
@@ -903,7 +906,7 @@ Direct prerequisites: ShimuraData:D1/mumford-tate-group; ShimuraData:D1/mumford-
 
 Source evidence:
 
-- [Introduction to Shimura varieties](https://www.jmilne.org/math/xnotes/svi.pdf), Aside following 2.16, p.31. The passage states this structural property; the proof route imports the exact supplier interfaces named in the prerequisites.
+- [Shimura varieties and moduli](https://www.jmilne.org/math/xnotes/svhIP.pdf), §6, Corollary 6.5, p.495. States reductivity for polarizable rational Hodge structures, with a semisimplicity proof route. The planned proof imports H1 semisimplicity and the R6 faithful-representation criterion.
 ### Hodge-generic abelian variety
 
 Declaration: **TauCeti.Shimura.hodgeGeneric**. Node: ShimuraData:D1/hodge-generic. Kind: definition.
@@ -944,7 +947,7 @@ Uses:
 
 Source evidence:
 
-- [Abelian varieties isogenous to no Jacobian](https://annals.math.princeton.edu/wp-content/uploads/annals-v191-n2-p07-s.pdf), §1.2, p.637. For hodge-generic abelian variety, the passage fixes the object/convention used in the statement. The proof outline specifies the specialization; its external inputs remain prerequisites rather than additional claims about this source.
+- [Abelian varieties isogenous to no Jacobian](https://annals.math.princeton.edu/wp-content/uploads/annals-v191-n2-p07-s.pdf), §1 (Introduction), p.637, paragraph preceding Theorem 1.1. Defines Hodge genericity by the full symplectic-similitude Mumford–Tate group of a polarized abelian variety. The definition is not Corollary 1.2, and it is stronger than a mere endomorphism-ring condition.
 
 <a id="d2"></a>
 
@@ -1399,9 +1402,9 @@ Source evidence:
 
 Declaration: **TauCeti.Shimura.polarizedIntegralVariation**. Node: ShimuraData:D3/polarized-integral-variation. Kind: definition.
 
-A polarized integral variation of weight n is a variation with a locally constant finite free ℤ-lattice, its rational/complex scalar extensions, and a flat nondegenerate rational polarizing form into ℚ(−n) (equivalently the conventional ℤ-valued form with explicit Tate normalization). The form has parity (−1)ⁿ and gives the pinned positive Hermitian form on every fiber. The lattice is locally free, not forced to be globally constant or unimodular.
+A polarized integral variation of weight n is a variation with a locally constant finite free ℤ-lattice and a parallel ℤ-bilinear polarizing form, with the explicit Tate normalization used to compare its rational and complex scalar extensions. The integral form is nondegenerate, has parity (−1)ⁿ and satisfies the pinned Hodge–Riemann orthogonality and positivity on every fiber. Rational nondegeneracy agrees after scalar extension, but an arbitrary rational polarization is not thereby integral. The lattice is locally free, not forced to be globally constant or unimodular.
 
-Hypotheses and conventions: B is a complex manifold; n is an integer; L is a locally constant finite-rank real/rational system. In the integral polarized case its ℤ-lattice is locally finite free and its polarizing form is flat, rationally nondegenerate and has the specified Tate normalization.
+Hypotheses and conventions: B is a complex manifold and n is an integer. The locally constant ℤ-lattice has finite free fibers; its polarizing form is ℤ-bilinear, parallel and nondegenerate, with the stated Tate normalization. The H0/H1 scalar-extension and filtered-bundle comparisons are supplier inputs.
 
 Proof or construction:
 
@@ -1439,7 +1442,7 @@ Uses:
 
 Source evidence:
 
-- [Tame topology of arithmetic quotients and algebraicity of Hodge loci](https://par.nsf.gov/servlets/purl/10200187), §1.3, published p.920 (PDF p.4). For polarized integral variation, the passage fixes the object/convention used in the statement. The proof outline specifies the specialization; its external inputs remain prerequisites rather than additional claims about this source.
+- [Tame topology of arithmetic quotients and algebraicity of Hodge loci](https://par.nsf.gov/servlets/purl/10200187), §1.3, published p.920 (PDF p.4); §4.2, published p.928 (PDF p.12). The paper uses polarized ℤ-Hodge variations and later an integral polarization form Qℤ and its complex extension. This supports an integral pairing carrier, without identifying every rational pairing on a fixed lattice with an integral form.
 ### Flat bundle local comparison
 
 Declaration: **TauCeti.Shimura.flatBundleLocal**. Node: ShimuraData:D3/flat-bundle-local. Kind: lemma.
@@ -2015,7 +2018,7 @@ Uses:
 
 Source evidence:
 
-- [Higher Hida theory for Siegel modular forms](https://www.imo.universite-paris-saclay.fr/~pilloni/higherhidaSiegel.pdf), §6.1, p.60; corrected E116. For schubert and opposite schubert loci, the passage fixes the object/convention used in the statement. The proof outline specifies the specialization; its external inputs remain prerequisites rather than additional claims about this source.
+- [Higher Hida theory for Siegel modular forms](https://www.imo.universite-paris-saclay.fr/~pilloni/higherhidaSiegel.pdf), §6.1.8, p.60; corrected ShimuraData/E4 (extraction PAPER-BOXER-PILLONI-26/E116). For schubert and opposite schubert loci, the passage fixes the object/convention used in the statement. The proof outline specifies the specialization; its external inputs remain prerequisites rather than additional claims about this source.
 - [Higher Coleman theory](https://arxiv.org/pdf/2110.10251v1), §3.1, pp.31–32. For schubert and opposite schubert loci, the passage fixes the object/convention used in the statement. The proof outline specifies the specialization; its external inputs remain prerequisites rather than additional claims about this source.
 ### Bruhat closure criterion
 
@@ -2849,7 +2852,7 @@ Acceptance:
 Direct prerequisites: ShimuraData:D4/shimura-datum; ShimuraData:D3/reflex-field; ShimuraData:D3/compact-dual; tauceti:TauCetiRoadmap/ReductiveGroups#layer-4-jordan-decomposition-diagonalizable-groups-tori.
 
 - **TauCeti.Shimura.torusDomain** (characterisation): X and X∨ are points; tangent and complex dimension are zero.
-- **TauCeti.Shimura.torusReflex** (compatibility): Gal fixes the reflex field precisely when it fixes μh.
+- **TauCeti.Shimura.torusReflex** (compatibility): An automorphism of ℚ̄ fixes the reflex field pointwise if and only if it fixes μh; torus conjugacy is trivial, and finite-definition-field descent identifies the fixing subgroup with this stabilizer.
 - **TauCeti.Shimura.torusMap** (characterisation): A torus algebraic homomorphism gives a datum morphism iff it sends h to the target h.
 
 Unit tests:
@@ -2860,8 +2863,8 @@ Unit tests:
 
 Uses:
 
-- ShimuraVarieties:V4: The consumer uses torus shimura datum through these concrete interfaces: X and X∨ are points; tangent and complex dimension are zero. Gal fixes the reflex field precisely when it fixes μh.
-- CM reciprocity: The consumer uses torus shimura datum through these concrete interfaces: X and X∨ are points; tangent and complex dimension are zero. Gal fixes the reflex field precisely when it fixes μh.
+- ShimuraVarieties:V4: The consumer uses torus shimura datum through these concrete interfaces: X and X∨ are points; tangent and complex dimension are zero. An automorphism of ℚ̄ fixes the reflex field pointwise if and only if it fixes μh; torus conjugacy is trivial, and finite-definition-field descent identifies the fixing subgroup with this stabilizer.
+- CM reciprocity: The consumer uses torus shimura datum through these concrete interfaces: X and X∨ are points; tangent and complex dimension are zero. An automorphism of ℚ̄ fixes the reflex field pointwise if and only if it fixes μh; torus conjugacy is trivial, and finite-definition-field descent identifies the fixing subgroup with this stabilizer.
 
 Source evidence:
 
@@ -2884,7 +2887,7 @@ Acceptance:
 
 - On the split Res_E Gm factors, the actual CM-type μ has exponent one for embeddings in Φ and zero for their canonical complex conjugates.
 - An automorphism fixes the actual CM torus μ class if and only if its composition action preserves the selected CM embeddings Φ; the fixed field is the CM reflex field. The equality is computed, not supplied as a stabilizer premise.
-- The image under any datum morphism is a special point.
+- For any target Shimura datum D and datum morphism f from the CM torus datum, f∘hΦ is a special point of D, by the rational torus-image factorization.
 - For imaginary quadratic E and either CM type, the reflex field is E.
 - Conjugating Φ conjugates μ and its reflex embedding.
 - The weight map is the inverse scalar cocharacter on E.
@@ -2893,7 +2896,7 @@ Direct prerequisites: ShimuraData:D5/torus-datum; ReductiveGroupsPartII:RG2.0a; 
 
 - **TauCeti.Shimura.cmTorusMu** (compatibility): On the split Res_E Gm factors, the actual CM-type μ has exponent one for embeddings in Φ and zero for their canonical complex conjugates.
 - **TauCeti.Shimura.cmTorusReflex** (characterisation): An automorphism fixes the actual CM torus μ class if and only if its composition action preserves the selected CM embeddings Φ; the fixed field is the CM reflex field. The equality is computed, not supplied as a stabilizer premise.
-- **TauCeti.Shimura.cmTorusSpecial** (characterisation): The image under any datum morphism is a special point.
+- **TauCeti.Shimura.cmTorusSpecial** (characterisation): For any target Shimura datum D and datum morphism f from the CM torus datum, f∘hΦ is a special point of D, by the rational torus-image factorization.
 
 Unit tests:
 
@@ -2925,7 +2928,7 @@ Acceptance:
 
 - The full constructed domain is biholomorphic to the upper and lower half-planes, has dimension one and exactly two connected components.
 - For the constructed μ=diag(z,1), its geometric class has reflex field ℚ and its compact dual is ℙ¹ over ℚ; over ℂ it is the projective line of the standard two-dimensional representation.
-- Determinant sends h₀(z) to Nm(z), giving a morphism to the norm torus datum.
+- The rational determinant gives a datum morphism from the actual GL₂ datum to (Gm,Nm); its coordinate map, real-point determinant and base-changed S-map agree, and det(h₀(z))=Nm(z).
 - The standard h₀ corresponds to i.
 - A negative-determinant matrix sends i to −i, and the actual full GL₂ datum has exactly two components.
 - The actual GL₂ and genus-one Siegel data are isomorphic, including their algebraic maps and full domain orbits.
@@ -2934,7 +2937,7 @@ Direct prerequisites: ShimuraData:D4/shimura-datum; ShimuraData:D1/adjoint-gl2-o
 
 - **TauCeti.Shimura.gl2Domain** (compatibility): The full constructed domain is biholomorphic to the upper and lower half-planes, has dimension one and exactly two connected components.
 - **TauCeti.Shimura.gl2ReflexDual** (compatibility): For the constructed μ=diag(z,1), its geometric class has reflex field ℚ and its compact dual is ℙ¹ over ℚ; over ℂ it is the projective line of the standard two-dimensional representation.
-- **TauCeti.Shimura.gl2Determinant** (characterisation): Determinant sends h₀(z) to Nm(z), giving a morphism to the norm torus datum.
+- **TauCeti.Shimura.gl2Determinant** (characterisation): The rational determinant gives a datum morphism from the actual GL₂ datum to (Gm,Nm); its coordinate map, real-point determinant and base-changed S-map agree, and det(h₀(z))=Nm(z).
 
 Unit tests:
 
@@ -3734,7 +3737,27 @@ The sixteen historical source issues were independently rechecked by REV-Shimura
 - **ShimuraData/E15** — [Abelian surfaces over totally real fields are potentially modular](https://pmihes.centre-mersenne.org/item/10.1007/s10240-021-00128-2.pdf), Lemma 7.8.3 proof, published p.409: First extend v(λ−1)≥1/4 from eigenvalues to their entire generated subgroup using inversion and the ultrametric product inequality. Then apply the cyclotomic torsion gap to every generated torsion element. Neatness tests torsion in the subgroup generated by eigenvalues. Individual nontorsion eigenvalues can have torsion product: diag(2,−1/2) generates −1. The omitted closure step is valid and supplied by D5/local-products-bound; this leaves the four-dimensional local bound intact. This repairs the single-local generated-group argument only; E17 records a separate failure of the one-F-place statement for the faithful rational restriction-of-scalars representation. new
 - **ShimuraData/E16** — [Higher coherent cohomology and p-adic modular forms of singular weights](https://www.imo.universite-paris-saclay.fr/~pilloni/complexhidatheorygsp4.pdf), §5.1.2, author p.20, copy recorded in sourceVersions: The parabolic subgroup P_W stabilizes the totally isotropic direct factor W. The sentence is defining P_W from W, and the following examples identify the line stabilizer as the Klingen parabolic and the maximal isotropic plane stabilizer as the Siegel parabolic. Stabilizing P_W itself is not this defining action on V. Recorded in PAPER-PILLONI-20/E21 and its extraction review; no author or publisher corrigendum is claimed.
 
-- **ShimuraData/E17** — [Abelian surfaces over totally real fields are potentially modular](https://pmihes.centre-mersenne.org/item/10.1007/s10240-021-00128-2.pdf), Lemma 7.8.3, published p.409, compared with Definition 3.2.1 and §3.1, published pp.201–202: Require Iw₁ containment at every F-place above one rational prime ℓ>5, all absolutely unramified. The four-dimensional single-place generated-eigenvalue bound remains valid but does not alone control the faithful rational restriction-of-scalars representation. Take F=ℚ(√2), O_F=ℤ[√2], u=7+5√2=(1+√2)³ of norm −1, and ℓ=7. At v=(7,√2−3), F_v=ℚ₇ and u≡1 mod v. The scalar γ=uI₄ belongs to Iw₁(v) and to full integral level at every other finite place. In the faithful rational representation on F⁴ the eigenvalues include u and its conjugate 7−5√2, whose product is −1. Thus γ is not rationally neat and its diagonal adele fails Definition 3.2.1 at every rational prime. Its similitude u² is totally positive, so restricting to G₁(ℚ)⁺ does not remove it. The other 7-adic place has u≡−1, illustrating the missing factor. E15 product closure within one local factor cannot repair this counterexample. No published correction was located in the journal listing, arXiv version history or author publication pages. This new finding awaits independent review.
+- **ShimuraData/E17** — [Abelian surfaces over totally real fields are potentially modular](https://pmihes.centre-mersenne.org/item/10.1007/s10240-021-00128-2.pdf), Lemma 7.8.3, published p.409, compared with Definition 3.2.1 and §3.1, published pp.201–202: Require Iw₁ containment at every F-place above one rational prime ℓ>5, all absolutely unramified. The four-dimensional single-place generated-eigenvalue bound remains valid but does not alone control the faithful rational restriction-of-scalars representation. Take F=ℚ(√2), O_F=ℤ[√2], u=7+5√2=(1+√2)³ of norm −1, and ℓ=7. At v=(7,√2−3), F_v=ℚ₇ and u≡1 mod v. The scalar γ=uI₄ belongs to Iw₁(v) and to full integral level at every other finite place. In the faithful rational representation on F⁴ the eigenvalues include u and its conjugate 7−5√2, whose product is −1. Thus γ is not rationally neat and its diagonal adele fails Definition 3.2.1 at every rational prime. Its similitude u² is totally positive, so restricting to G₁(ℚ)⁺ does not remove it. The other 7-adic place has u≡−1, illustrating the missing factor. E15 product closure within one local factor cannot repair this counterexample. No published correction was located in the journal listing, arXiv version history or author publication pages. This finding is independently confirmed by REV-ShimuraData~3.
+
+Independent source verification, REV-ShimuraData~3 (2026-10-09):
+
+- **ShimuraData/E1 — confirmed**: BP p.2 assigns the unipotent-radical role to Mμ, whereas its dominant weights and p.34 require the centralizing Levi. Correct the name, not the downstream reductive representation theory. Independently checked by this review on 2026-10-09 in the recorded version.
+- **ShimuraData/E2 — confirmed**: BP p.34 tests noncompact roots. Minimal left cosets instead require positivity of inverse images of Levi roots; genus one already disproves the printed criterion, since its Levi Weyl subgroup is trivial. Independently checked by this review on 2026-10-09 in the recorded version.
+- **ShimuraData/E3 — confirmed**: BP p.34 ordinary integer order loses its block-Borel cyclic order. In genus two w=(4,2,3,1) has inverse indices (3,1), cyclically increasing, and maps the Levi root to a positive noncompact root. The revised cyclic rank criterion preserves this representative. Independently checked by this review on 2026-10-09 in the recorded version.
+- **ShimuraData/E4 — confirmed**: BP §6.1.8 p.60 has correct closure formulas but calls the two resulting Schubert varieties cells. Their scheme-theoretic closures and open cells must remain distinct. Independently checked by this review on 2026-10-09 in the recorded version.
+- **ShimuraData/E5 — confirmed**: CG PDF p.7 repeats exponent a on the second torus coordinate. Character (0,1,0) must evaluate to t₂, so the second exponent is b. Independently checked by this review on 2026-10-09 in the recorded version.
+- **ShimuraData/E6 — confirmed**: CG PDF p.8 coordinate swapping is the longest Levi element, length one. Full longest negates both split weights and adjusts the similitude exponent, length four; swapping does not reverse the noncompact positives. Independently checked by this review on 2026-10-09 in the recorded version.
+- **ShimuraData/E7 — confirmed**: CG PDF pp.8–9 full orthogonal similitudes include diag(1,1,−1,−1), which anticommutes with J. The h-centralizer is positive real scalars times the symplectic orthogonal subgroup K∞,1. Independently checked by this review on 2026-10-09 in the recorded version.
+- **ShimuraData/E8 — confirmed**: CG PDF pp.9–10 transpose the defined K∞,1 label to K1,∞ in the unitary block/basis displays. The displayed matrices describe the former subgroup; this is an index-label slip. Independently checked by this review on 2026-10-09 in the recorded version.
+- **ShimuraData/E9 — confirmed**: CG PDF p.9 misses the exponential-kernel coset with two odd-π angles and an odd-πi scalar. Both factors are −1 there, and their product is identity. Independently checked by this review on 2026-10-09 in the recorded version.
+- **ShimuraData/E10 — confirmed**: CG PDF p.28 coordinate identification omits the parity condition imposed by the preceding extra exponential-kernel coset. In those coordinates characters satisfy a+b≡c mod2; an abstract lattice isomorphism with ℤ³ remains valid. Independently checked by this review on 2026-10-09 in the recorded version.
+- **ShimuraData/E11 — confirmed**: Pilloni author p.20 gives a valid positive system but an incompatible claimed simple pair and coroot sign. The lower full Borel uses e₂−e₁ and −2e₂+e₃ as simple roots, with coroots f₂−f₁ and −f₂, agreeing with the later chamber. Independently checked by this review on 2026-10-09 in the recorded version.
+- **ShimuraData/E12 — confirmed**: Pilloni author pp.23,107 use a rank-two identity alongside the rank-four matrix J. The S-map on the rank-four symplectic module needs I₄. Independently checked by this review on 2026-10-09 in the recorded version.
+- **ShimuraData/E13 — confirmed**: Milne p.69 gives the symplectic zero equation for a GSp Lie algebra. The identity matrix produces 2ψ, so the correct equation has scalar c(X)ψ; the central Lie line must be retained. Independently checked by this review on 2026-10-09 in the recorded version.
+- **ShimuraData/E14 — confirmed**: Milne p.69 weight must invert its diagonal restriction as defined on p.56. On homology h(r)=rI, hence the weight is r⁻¹I. The rational-descent assertion survives. Independently checked by this review on 2026-10-09 in the recorded version.
+- **ShimuraData/E15 — confirmed**: BCGP published p.409 only excludes torsion individual eigenvalues, whereas the generated subgroup also includes products and inverses. The local ultrametric closure argument repairs this single four-dimensional local calculation. It does not prove the full rational one-F-place lemma; E17 supplies a separate counterexample. Independently checked by this review on 2026-10-09 in the recorded version.
+- **ShimuraData/E16 — confirmed**: Pilloni author p.20 defines P_W from the submodule W, and its line/plane examples confirm that W is what is stabilized. Stabilizing P_W itself is the misplaced symbol. Independently checked by this review on 2026-10-09 in the recorded version.
+- **ShimuraData/E17 — confirmed**: BCGP published pp.201–202 define neatness using a faithful rational representation. At p.409 one F-place is insufficient: in F=ℚ(√2), the unit u=7+5√2 reduces to 1 at (7,√2−3), yet the two rational-representation eigenvalues u and u′ multiply to −1. The scalar has totally positive similitude u². All places above one rational prime control the full spectrum and remove this counterexample. Independently checked by this review on 2026-10-09 in the recorded version.
 
 ## Supplier requests
 
@@ -3807,7 +3830,7 @@ Needed by: ShimuraData:D1/mumford-tate-group; ShimuraData:D1/hodge-generic.
 
 ### Suggested signatures omit unavailable conditions explicitly
 
-The suggested signatures use the intended mathematical carriers in the main revised interfaces; the nine residual named conclusions from REV-ShimuraData~2 are now present, with the Iwahori hypothesis corrected by E17. Supplier stubs use existing Hopf/comodule, local-system, manifold, scheme and group carriers. Explicit omitted hypotheses still must be restored before implementation: RG2.0a split real descent compatibility; faithful tensor generation; real algebraic point and homogeneous quotient charts; SV1–SV3 and faithful period-map/tangent identifications; flat sheaf/bundle gluing and natural integral/rational scalar-extension comparisons; rational Hodge weight/polarization and elliptic MT classification; central/derived/adjoint comparison diagrams; projective parabolic representability and effective reflex descent; integral Coxeter/Schubert incidence; restriction-of-scalars adelic/eigenvalue comparisons at all F-places over a rational prime, absolute unramifiedness at every certification place, Lie compatibility of the centralizer-to-U(2) comparison and compact Cartan complexification/exponential. These are conditions on the specified objects, never arbitrary proposition fields or substitutions for the conclusion. The full complete statements remain in each node; no supplier closure or whole-module Lean elaboration is claimed. The focused Mathlib-only D5 interfaces elaborate, but the exact pinned Tau Ceti build is unavailable.
+The nine revised D5 signatures use the intended mathematical carriers; the five D0 conclusion defects remain separately recorded; the nine residual named conclusions from REV-ShimuraData~2 are now present, with the Iwahori hypothesis corrected by E17. Supplier stubs use existing Hopf/comodule, local-system, manifold, scheme and group carriers. Explicit omitted hypotheses still must be restored before implementation: RG2.0a split real descent compatibility; faithful tensor generation; real algebraic point and homogeneous quotient charts; SV1–SV3 and faithful period-map/tangent identifications; flat sheaf/bundle gluing and natural integral/rational scalar-extension comparisons; rational Hodge weight/polarization and elliptic MT classification; central/derived/adjoint comparison diagrams; projective parabolic representability and effective reflex descent; integral Coxeter/Schubert incidence; restriction-of-scalars adelic/eigenvalue comparisons at all F-places over a rational prime, absolute unramifiedness at every certification place, Lie compatibility of the centralizer-to-U(2) comparison and compact Cartan complexification/exponential. These are conditions on the specified objects, never arbitrary proposition fields or substitutions for the conclusion. The full complete statements remain in each node; no supplier closure or whole-module Lean elaboration is claimed. The focused Mathlib-only D5 interfaces elaborate, but the exact pinned Tau Ceti build is unavailable.
 
 Needed by: ShimuraData:D0; ShimuraData:D1; ShimuraData:D2; ShimuraData:D3; ShimuraData:D4; ShimuraData:D5.
 
@@ -3829,12 +3852,18 @@ The native LF0 text provides local fields, finite extensions and normalized valu
 
 Needed by: ShimuraData:D5/local-torsion-gap; ShimuraData:D5/iwahori-neat.
 
-- **ShimuraData:D0 — planned**: Suggested signatures omit unavailable conditions explicitly; Real analytic point and homogeneous quotient bridge.
+- **ShimuraData:D0 — planned**: Suggested signatures omit unavailable conditions explicitly; Real analytic point and homogeneous quotient bridge; Five D0 bridge prototypes omit their actual conclusions.
 - **ShimuraData:D1 — planned**: Effective comodule descent is requested, not closed; Mumford–Tate and genericity proof inputs; Suggested signatures omit unavailable conditions explicitly.
 - **ShimuraData:D2 — planned**: Complex analytic quotient input; Suggested signatures omit unavailable conditions explicitly; Real analytic point and homogeneous quotient bridge; Real algebraic component finiteness is an RG2.0 extension request (Milne p.54 footnote39), not the current local-point stage statement.
 - **ShimuraData:D3 — planned**: Holomorphic flat bundles and connections from local systems; Integral flag geometry supplier exceeds field Bruhat theorem; Reflex parabolic-type descent representability; Suggested signatures omit unavailable conditions explicitly; Complex analytic quotient input.
 - **ShimuraData:D4 — planned**: Suggested signatures omit unavailable conditions explicitly.
 - **ShimuraData:D5 — planned**: AA.3 rational lattice comparison for the principal GL₂ congruence calculation; V0 is a downstream arithmeticity consumer, not an input; Suggested signatures omit unavailable conditions explicitly; Hilbert compact dual requires nonaffine geometry; Cyclotomic valuation comparison exceeds LF0 statement.
+
+### Five D0 bridge prototypes omit their actual conclusions
+
+Needed by: ShimuraData:D0/deligne-points-topology; ShimuraData:D0/deligne-lie-points; ShimuraData:D0/hilbert-real-points; ShimuraData:D0/hilbert-adelic-points; ShimuraData:D0/datum-map-points.
+
+REV-ShimuraData~3: delignePointsTopology assumes an arbitrary topological group isomorphism and only returns continuity, with no actual S point/splitting or conjugation formula. deligneLiePoints is a scalar identity, without an analytic point equivalence or its Lie/norm/diagonal differentials. hilbertRealPoints only returns bijectivity of an arbitrary group equivalence, omitting Res_F points, topology, real analyticity and the common-determinant G* locus. hilbertAdelicPoints only returns a trivial kernel for an arbitrary equivalence, omitting the two finite-adele carriers, topology, determinant locus, compact opens and rational diagonal. datumMapPoints restates an assumed abstract commuting square, with no rational Hopf map, continuous local/adelic or analytic real maps and diagonal/projection compatibility. Restore the specified conclusions on named supplier point carriers, using sketches of the existing Hopf, manifold and finite-adele carriers. PROTOCOL §13 allows explicitly omitted unavailable hypotheses; it does not justify changing the conclusion or assuming the promised comparison as an arbitrary equivalence.
 
 ## Native dependency graph note
 
@@ -3846,6 +3875,6 @@ RT-AREA-algebraicgeometry/27 remains handed to the maintainer for the native/cro
 
 The suggested file retains all 123 local declarations, 142 API names and 132 labeled unit tests. The nine revised names state their specified mathematical conclusions: a rational Hilbert determinant datum morphism; based-root, Weyl and lattice comparisons; Bruhat-cell intersection ranks; four genus-two representatives with lengths and both longest elements; the actual centralizer-to-U(2) group isomorphism with inverse; and the corrected adelic/rational Iwahori criterion. Auxiliary coordinate and valuation calculations support these conclusions. None is an implementation claim.
 
-A focused Mathlib-only extraction containing the eight revised root/Weyl/flag, genus-two and Iwahori interfaces was checked with lean-check in the shared build at the exact Mathlib pin. It elaborated with only expected warnings about unproved declarations; the two elementary quadratic-unit counterexample identities have actual proofs. That check excludes the Hilbert determinant interface and the rest of the module, which import Tau Ceti. No existing shared build has both exact required source commits, so the full suggested module was not compiled. No build was constructed or updated. The real analytic/Lie comparison, restriction-of-scalars spectral dictionary, all-place absolute unramifiedness and other explicitly omitted supplier conditions must be restored for implementation.
+For BP-ShimuraData~3, the revision author checked a focused Mathlib-only extraction containing the eight revised root/Weyl/flag, genus-two and Iwahori interfaces with lean-check in the shared build at the exact Mathlib pin. It elaborated with only expected warnings about unproved declarations; the two elementary quadratic-unit counterexample identities have actual proofs. That check excludes the Hilbert determinant interface and the rest of the module, which import Tau Ceti. No existing shared build has both exact required source commits, so the full suggested module was not compiled. No build was constructed or updated. The real analytic/Lie comparison, restriction-of-scalars spectral dictionary, all-place absolute unramifiedness and other explicitly omitted supplier conditions must be restored for implementation.
 
-Packet, source-issue/version, declaration/API/test coverage, historical-review preservation and deliverable-scope checks are recorded in the permanent handoff. The historical REV-ShimuraData~2 needs_changes verdict remains untouched; this revision and the new E17 source finding await independent review.
+Packet, source-issue/version, declaration/API/test coverage, historical-review preservation and deliverable-scope checks are recorded in the permanent handoff. The historical REV-ShimuraData~2 needs_changes verdict is preserved in reviewHistory. REV-ShimuraData~3 is a completed independent needs_changes review of all 123 nodes, with five D0 conclusion mismatches and E17 independently confirmed. This review did not compile Lean: the exact Tau Ceti build is unavailable. The focused check described above is the revision author’s check, not a new check by this reviewer.

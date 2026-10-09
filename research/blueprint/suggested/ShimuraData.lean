@@ -66,6 +66,13 @@ holomorphic bundle with a horizontal filtration; rational torus immersions and c
 connected adjoint data; and the actual cocharacters, domains and Cartan group of the examples.
 No statement claims implementation or supplier closure.
 
+REV-ShimuraData~3 identifies a separate D0 discrepancy: the five opening bridge
+prototypes still give abstract isomorphism consequences or a scalar identity. They
+do not yet state the S/Hilbert topology and analytic comparisons, or the rational
+algebraic map/local/adelic compatibility specified by their packet nodes. Their
+actual comparison conclusions must be restored on the supplier point carriers;
+missing supplier hypotheses may remain explicitly omitted under PROTOCOL §13.
+
 BP-ShimuraData~3 replaces the nine residual conclusions identified by the independent
 review. Native root pairings and bases, matrix groups and Bruhat-cell membership now
 appear in those comparisons; strong adelic neatness precedes its rational consequence.
@@ -1528,9 +1535,12 @@ def torusDatum (T : TorusCommHopfAlgCat ℚ) (h : Supplier.RealSMap T.obj.obj) :
 lemma torusDomain (T : TorusCommHopfAlgCat ℚ) (h : Supplier.RealSMap T.obj.obj) :
     (torusDatum T h).orbit.X = {Supplier.realSPoints h} ∧
       Supplier.datumDimension (torusDatum T h) = 0 := by sorry
-lemma torusReflex (T : TorusCommHopfAlgCat ℚ) (h : Supplier.RealSMap T.obj.obj) :
-    reflexField (Supplier.classFromS h) = IntermediateField.fixedField
-      (MulAction.stabilizer (Qbar ≃ₐ[ℚ] Qbar) (Supplier.classFromS h)) := by sorry
+-- The finite-definition-field and torus trivial-conjugation comparisons are R4 inputs
+-- omitted here. The conclusion compares automorphisms with the actual μ class.
+lemma torusReflex (T : TorusCommHopfAlgCat ℚ) (h : Supplier.RealSMap T.obj.obj)
+    (σ : Qbar ≃ₐ[ℚ] Qbar) :
+    σ ∈ (reflexField (Supplier.classFromS h)).fixingSubgroup ↔
+      σ • Supplier.classFromS h = Supplier.classFromS h := by sorry
 lemma torusMap (T U : TorusCommHopfAlgCat ℚ)
     (h : Supplier.RealSMap T.obj.obj) (k : Supplier.RealSMap U.obj.obj)
     (f : U.obj.obj ⟶ T.obj.obj) :
@@ -1595,8 +1605,9 @@ lemma cmTorusMu (Φ : Supplier.CMType) (e : Φ.field →ₐ[ℚ] Qbar) :
 lemma cmTorusReflex (Φ : Supplier.CMType) (σ : Qbar ≃ₐ[ℚ] Qbar) :
     σ ∈ MulAction.stabilizer (Qbar ≃ₐ[ℚ] Qbar) (Supplier.classFromS (Supplier.cmSMap Φ)) ↔
       Supplier.cmTypeGaloisAction Φ σ = Φ.embeddings := by sorry
-lemma cmTorusSpecial (Φ : Supplier.CMType) :
-    specialPoint (cmTorus Φ) (Supplier.realSPoints (Supplier.cmSMap Φ)) := by sorry
+lemma cmTorusSpecial (Φ : Supplier.CMType) (D : shimuraDatum)
+    (f : datumMorphism (cmTorus Φ) D) :
+    specialPoint D (f.val.comp (Supplier.realSPoints (Supplier.cmSMap Φ))) := by sorry
 -- TauCeti.Shimura.tests.torusCm
 example : reflexField (Supplier.classFromS (Supplier.cmSMap Supplier.imaginaryQuadraticType)) =
     Supplier.imaginaryQuadraticField ∧ Supplier.imaginaryQuadraticField ≠ ⊥ := by sorry
@@ -1651,7 +1662,22 @@ lemma gl2Domain : Nonempty (Supplier.datumDomain gl2Datum ≃ₜ HalfPlanes) ∧
 lemma gl2ReflexDual : reflexField (Supplier.classFromS Supplier.gl2SMap) = ⊥ ∧
     Nonempty (Supplier.datumDual gl2Datum ≃ₜ Projectivization ℂ (Fin 2 → ℂ)) ∧
     Supplier.datumDualDimension gl2Datum = 1 := by sorry
-lemma gl2Determinant (z : ℂ) : (gl2Matrix z).det = z.re^2 + z.im^2 := by sorry
+lemma gl2DeterminantNorm (z : ℂ) : (gl2Matrix z).det = z.re^2 + z.im^2 := by sorry
+namespace Supplier
+ -- Native R0/R4 supply the determinant coordinate map and Gm point identification.
+ def gl2DeterminantCoordinate : normTorus.obj.obj ⟶ gl2Coordinate.obj := sorry
+ def normTorusPoints : ℝˣ ≃* Points normTorus.obj.obj ℝ := sorry
+end Supplier
+-- The coordinate/point evaluation and norm S-map comparison are omitted supplier inputs.
+lemma gl2Determinant :
+    ∃ f : datumMorphism gl2Datum (torusDatum Supplier.normTorus Supplier.normSMap),
+      f.coordinate = Supplier.gl2DeterminantCoordinate ∧
+      CommHopfAlgCat.baseChangeMap (K := ℝ) f.coordinate ≫ Supplier.gl2SMap =
+        Supplier.normSMap ∧
+      (∀ M : Matrix.GeneralLinearGroup (Fin 2) ℝ,
+        Supplier.pointMap f.coordinate ℝ (Supplier.gl2Points M) =
+          Supplier.normTorusPoints M.det) ∧
+      (∀ z : ℂ, (gl2Matrix z).det = z.re^2 + z.im^2) := by sorry
 -- TauCeti.Shimura.tests.gl2AtI
 example : gl2Matrix Complex.I = !![0,1; -1,0] ∧
     Supplier.datumDimension gl2Datum = 1 := by sorry
