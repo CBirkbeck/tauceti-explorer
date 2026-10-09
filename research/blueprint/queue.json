@@ -49262,7 +49262,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-NeronModelsAndSemistableAbelianVarieties.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7594",
+   "finishedAt": "2026-10-09T15:57:26Z"
   },
   {
    "id": "REV-PKG-NeronModelsAndSemistableAbelianVarieties",
