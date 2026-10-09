@@ -22,6 +22,8 @@ import Mathlib.Algebra.Category.Ring.Basic
 import Mathlib.CategoryTheory.Action
 import Mathlib.CategoryTheory.ConnectedComponents
 import Mathlib.CategoryTheory.Groupoid.FreeGroupoidOfCategory
+import Mathlib.GroupTheory.FreeGroup.NielsenSchreier
+import Mathlib.CategoryTheory.Abelian.LeftDerived
 import Mathlib.CategoryTheory.Grothendieck
 import Mathlib.CategoryTheory.FiberedCategory.Fibered
 import Mathlib.CategoryTheory.FiberedCategory.Fiber
@@ -391,8 +393,50 @@ theorem classifyingSpace_fundamentalGroup (X : C) :
     Nonempty (FundamentalGroup (classifyingSpace C) (classifyingSpace_vertex X) ≃*
       Aut ((FreeGroupoid.of C).obj X)) := sorry
 
-/-- `H.1/maximal-tree-presentation`, case `T = ∅` for a group: `π₁(BG, ⋆) ≃* G`. The presentation of
-`π₁(BC)` by a maximal tree is the node statement; the monoid case (group completion) is not stated. -/
+/-- Realise the unique rooted path in the wide tree; reverse tree edges are traversed backwards. -/
+def classifyingSpace_treePath (T : WideSubquiver (Quiver.Symmetrify C))
+    [Quiver.Arborescence T] (X : C) :
+    Path (classifyingSpace_vertex (show C from Quiver.root T)) (classifyingSpace_vertex X) := sorry
+
+def classifyingSpace_treeLoop (T : WideSubquiver (Quiver.Symmetrify C))
+    [Quiver.Arborescence T] {X Y : C} (f : X ⟶ Y) :
+    FundamentalGroup (classifyingSpace C) (classifyingSpace_vertex (show C from Quiver.root T)) :=
+  FundamentalGroup.fromPath ⟦((classifyingSpace_treePath T X).trans
+    (classifyingSpace_edge f)).trans (classifyingSpace_treePath T Y).symm⟧
+
+/-- `H.1/maximal-tree-presentation`: the quotient universal property for any connected category.
+`T` is a wide rooted tree in the symmetrified underlying quiver: even an edgeless tree retains
+every vertex. Its root supplies the basepoint. Labels are the loops obtained by following the
+tree to the source, traversing the arrow, and returning along the tree. With Mathlib's
+endomorphism multiplication, `f ≫ g` is labelled by `label g * label f`.
+
+The proof first uses the free groupoid on the *quiver*, then imposes the identity/composition
+relations to obtain `CategoryTheory.FreeGroupoid C`; the latter is generally not a free groupoid.
+The equivalence is natural in the target group. -/
+def classifyingSpace_maximalTreePresentation [IsConnected C]
+    (T : WideSubquiver (Quiver.Symmetrify C)) [Quiver.Arborescence T]
+    (H : Type (max u v)) [Group H] :
+    (FundamentalGroup (classifyingSpace C)
+      (classifyingSpace_vertex (show C from Quiver.root T)) →* H) ≃
+      { label : ∀ (X Y : C), (X ⟶ Y) → H //
+        (∀ X, label X X (𝟙 X) = 1) ∧
+        (∀ (X Y Z : C) (f : X ⟶ Y) (g : Y ⟶ Z),
+          label X Z (f ≫ g) = label Y Z g * label X Y f) ∧
+        (∀ (X Y : C) (f : X ⟶ Y),
+          f ∈ Quiver.wideSubquiverSymmetrify T X Y → label X Y f = 1) } := sorry
+
+/-- The universal-property equivalence evaluates a homomorphism on the specified tree loops. -/
+theorem classifyingSpace_maximalTreePresentation_apply [IsConnected C]
+    (T : WideSubquiver (Quiver.Symmetrify C)) [Quiver.Arborescence T]
+    (H : Type (max u v)) [Group H]
+    (φ : FundamentalGroup (classifyingSpace C)
+      (classifyingSpace_vertex (show C from Quiver.root T)) →* H)
+    {X Y : C} (f : X ⟶ Y) :
+    (classifyingSpace_maximalTreePresentation T H φ).val X Y f =
+      φ (classifyingSpace_treeLoop T f) := sorry
+
+/-- `H.1/maximal-tree-presentation`, the one-object group example. The empty tree has its single
+vertex; E11 does not remove that vertex when there are no tree edges. -/
 theorem classifyingSpace_fundamentalGroup_singleObj (G : Type u) [Group G] :
     Nonempty (FundamentalGroup (classifyingSpace (SingleObj G))
       (classifyingSpace_vertex (SingleObj.star G)) ≃* G) := sorry
@@ -461,11 +505,41 @@ example : ∀ M : SingleObj (Multiplicative (ZMod 2)) ⥤ ModuleCat.{0} ℤ,
     (∀ g : SingleObj.star (Multiplicative (ZMod 2)) ⟶ SingleObj.star _, M.map g = 𝟙 _) →
     (M.obj (SingleObj.star _) = ModuleCat.of ℤ ℤ) → IsZero (categoryHomology ℤ M 2) := sorry
 
-/-- `H.1/category-homology-derived-colimit`: `H_n(C; −)` are the left derived functors of `colim`
-(stated as vanishing on representable projectives together with `H₀ = colim`). -/
-theorem categoryHomology_isDerivedColimit (R : Type (max u v)) [Ring R] (X : C) (n : ℕ) :
+/-- The representable contraction used in `H.1/category-homology-derived-colimit`.
+This is a helper, not the derived-functor comparison itself. -/
+theorem categoryHomology_representable_isZero (R : Type (max u v)) [Ring R] (X : C) (n : ℕ) :
     IsZero (categoryHomology R (coyoneda.obj (Opposite.op X) ⋙ uliftFunctor.{u} ⋙
       (ModuleCat.free R)) (n + 1)) := sorry
+
+/-- Homology in fixed degree as a functor of coefficient diagrams, using `categoryHomology.map`. -/
+def categoryHomologyFunctor (R : Type (max u v)) [Ring R] (n : ℕ) :
+    (C ⥤ ModuleCat.{max u v} R) ⥤ ModuleCat.{max u v} R where
+  obj M := categoryHomology R M n
+  map φ := categoryHomology.map R φ n
+  map_id := sorry
+  map_comp := sorry
+
+/-- Colimits of module-valued diagrams are additive. This elementary structural fact is
+separate from the missing construction of projective resolutions in the diagram category. -/
+instance categoryColim_additive (R : Type (max u v)) [Ring R] :
+    (colim : (C ⥤ ModuleCat.{max u v} R) ⥤ ModuleCat.{max u v} R).Additive := sorry
+
+/-- `H.1/category-homology-derived-colimit`: a natural comparison with Mathlib's generic
+left derived functor, in every degree. The explicit resolution assumption is the provisional
+Lean input: constructing it from representable projectives and proving the comparison remain
+in the Gabriel–Zisman gap. The mathematical theorem does not assume it as an extra condition. -/
+def categoryHomology_isDerivedColimit (R : Type (max u v)) [Ring R]
+    [HasProjectiveResolutions (C ⥤ ModuleCat.{max u v} R)] (n : ℕ) :
+    categoryHomologyFunctor (C := C) R n ≅
+      (colim : (C ⥤ ModuleCat.{max u v} R) ⥤ ModuleCat.{max u v} R).leftDerived n := sorry
+
+/-- The comparison's naturality square, rather than unrelated objectwise isomorphisms. -/
+theorem categoryHomology_isDerivedColimit_naturality (R : Type (max u v)) [Ring R]
+    [HasProjectiveResolutions (C ⥤ ModuleCat.{max u v} R)] (n : ℕ)
+    {M N : C ⥤ ModuleCat.{max u v} R} (φ : M ⟶ N) :
+    categoryHomology.map R φ n ≫ (categoryHomology_isDerivedColimit R n).hom.app N =
+      (categoryHomology_isDerivedColimit R n).hom.app M ≫
+        ((colim : (C ⥤ ModuleCat.{max u v} R) ⥤ ModuleCat.{max u v} R).leftDerived n).map φ := sorry
 
 -- `H.1/cellular-chains-local-coefficients`, signature (not yet statable at the pins): for a morphism-inverting
 -- `L : C ⥤ ModuleCat R`, the twisted relative homology `H_q(BC⁽ⁿ⁾, BC⁽ⁿ⁻¹⁾; L)` is `⊕ L(X₀)` over the
@@ -1681,8 +1755,80 @@ theorem IsPlusConstruction.recognition_hSpace {f : X ⟶ Y} {x : X} {P : Subgrou
       (ModuleCat.of (ULift.{u} ℤ) (ULift.{u} ℤ))).map g)) :
     IsAcyclicMap g ∧ ∃ e : ContinuousMap.HomotopyEquiv Y H, ContinuousMap.Homotopic (e.toFun.comp f.hom) g.hom := sorry
 
-/-- `H.3/plus-pi2-universal-central-extension`: `π₂(BG⁺) ≅ H₂(P; ℤ)` for `P = G` perfect. -/
-theorem plusConstruction.pi2_eq_H2 (G : Type u) [Group G] [Group.IsPerfect G] :
+/-- The perfect normal subgroup of `G` is transported along the actual `π₁(BG) ≃* G`.
+The induced quotient identification is part of `H.3/plus-pi2-universal-central-extension`.
+It retains `G/P` when `P` is proper; it does not assert that every such plus space is simply connected. -/
+def plusConstruction.groupPi1Equiv (G : Type u) [Group G] (P : Subgroup G)
+    [P.Normal] [Group.IsPerfect P] :
+    let x := Group.classifyingSpace.basepoint G
+    let Q := P.comap (Group.classifyingSpace.fundamentalGroupMulEquiv G).toMonoidHom
+    FundamentalGroup (plusConstruction (Group.classifyingSpace G) x Q)
+      ((plusConstruction.incl _ x Q).hom x) ≃* G ⧸ P := sorry
+
+/-- The quotient map on fundamental groups is the map induced by the plus inclusion. -/
+theorem plusConstruction.groupPi1Equiv_incl (G : Type u) [Group G] (P : Subgroup G)
+    [P.Normal] [Group.IsPerfect P]
+    (g : FundamentalGroup (Group.classifyingSpace G) (Group.classifyingSpace.basepoint G)) :
+    let x := Group.classifyingSpace.basepoint G
+    let Q := P.comap (Group.classifyingSpace.fundamentalGroupMulEquiv G).toMonoidHom
+    plusConstruction.groupPi1Equiv G P
+      (FundamentalGroup.map (plusConstruction.incl _ x Q).hom x g) =
+        QuotientGroup.mk ((Group.classifyingSpace.fundamentalGroupMulEquiv G) g) := sorry
+
+/-- `H.3/plus-pi2-universal-central-extension`: `π₂(BG⁺_P) ≃* H₂(P; ℤ)` for every perfect
+normal subgroup `P` of `G`. The lifted integral coefficient ring matches the universe of `P`.
+Recognition and the kernel comparison come from the classical UCE supplier; this signature
+does not assume the unresolved unrestricted-target plus uniqueness theorem. -/
+def plusConstruction.pi2Equiv (G : Type u) [Group G] (P : Subgroup G)
+    [P.Normal] [Group.IsPerfect P] :
+    let x := Group.classifyingSpace.basepoint G
+    let Q := P.comap (Group.classifyingSpace.fundamentalGroupMulEquiv G).toMonoidHom
+    HomotopyGroup.Pi 2 (plusConstruction (Group.classifyingSpace G) x Q)
+      ((plusConstruction.incl _ x Q).hom x) ≃*
+        Multiplicative (groupHomology (Rep.trivial (ULift.{u} ℤ) P (ULift.{u} ℤ)) 2) := sorry
+
+theorem plusConstruction.pi2_eq_H2 (G : Type u) [Group G] (P : Subgroup G)
+    [P.Normal] [Group.IsPerfect P] :
+    let x := Group.classifyingSpace.basepoint G
+    let Q := P.comap (Group.classifyingSpace.fundamentalGroupMulEquiv G).toMonoidHom
+    Nonempty (HomotopyGroup.Pi 2 (plusConstruction (Group.classifyingSpace G) x Q)
+      ((plusConstruction.incl _ x Q).hom x) ≃*
+        Multiplicative (groupHomology (Rep.trivial (ULift.{u} ℤ) P (ULift.{u} ℤ)) 2)) :=
+  ⟨plusConstruction.pi2Equiv G P⟩
+
+/-- The fibre's projection is a universal central extension of the specified subgroup.
+The explicit universal property is the conclusion imported from K2SymbolsBrauer T.1;
+it is not a second definition of central extensions. The supplier's requested universe
+extension remains necessary to prove this for arbitrary `u`. -/
+theorem plusConstruction.fiber_universalCentralExtension (G : Type u) [Group G]
+    (P : Subgroup G) [P.Normal] [Group.IsPerfect P] :
+    let x := Group.classifyingSpace.basepoint G
+    let Q := P.comap (Group.classifyingSpace.fundamentalGroupMulEquiv G).toMonoidHom
+    let f := plusConstruction.incl (Group.classifyingSpace G) x Q
+    let F := homotopyFiber f (f.hom x)
+    let z := homotopyFiber.basepoint f x
+    let π : FundamentalGroup F z →* G :=
+      (Group.classifyingSpace.fundamentalGroupMulEquiv G).toMonoidHom.comp
+        (FundamentalGroup.map (homotopyFiber.proj f (f.hom x)).hom z)
+    ∃ p : FundamentalGroup F z →* P,
+      P.subtype.comp p = π ∧ Function.Surjective p ∧
+      p.ker ≤ Subgroup.center (FundamentalGroup F z) ∧
+      ∀ (Y : Type u) [Group Y] (q : Y →* P),
+        Function.Surjective q → q.ker ≤ Subgroup.center Y →
+          ∃! h : FundamentalGroup F z →* Y, q.comp h = p := sorry
+
+/-- Proper-subgroup check: killing the trivial perfect subgroup does not kill `G`.
+In particular this applies to nonperfect groups such as ℤ/2, whose π₁ is retained. -/
+example (G : Type u) [Group G] :
+    let x := Group.classifyingSpace.basepoint G
+    let Q := (⊥ : Subgroup G).comap (Group.classifyingSpace.fundamentalGroupMulEquiv G).toMonoidHom
+    Nonempty (FundamentalGroup (plusConstruction (Group.classifyingSpace G) x Q)
+      ((plusConstruction.incl _ x Q).hom x) ≃* G) ∧
+      Subsingleton (HomotopyGroup.Pi 2 (plusConstruction (Group.classifyingSpace G) x Q)
+        ((plusConstruction.incl _ x Q).hom x)) := sorry
+
+/-- The original perfect-group case remains a useful special case. -/
+theorem plusConstruction.pi2_eq_H2_perfect (G : Type u) [Group G] [Group.IsPerfect G] :
     Nonempty (HomotopyGroup.Pi 2 (plusConstruction (Group.classifyingSpace G)
       (Group.classifyingSpace.basepoint G) ⊤)
       ((plusConstruction.incl _ _ ⊤).hom (Group.classifyingSpace.basepoint G)) ≃*
@@ -1692,8 +1838,8 @@ theorem plusConstruction.pi2_eq_H2 (G : Type u) [Group G] [Group.IsPerfect G] :
 (based, or with trivial `π₁`-action on `π₂(BG'⁺)`), the isomorphisms `π₂(BG⁺) ≅ H₂(P; ℤ)` and
 `π₂(BG'⁺) ≅ H₂(P'; ℤ)` carry `φ⁺_*` to `H₂(φ|_P; ℤ)`. -/
 -- signature (not yet statable at the pins): theorem plusConstruction.pi2_eq_H2_natural
--- Needs the specific isomorphism of `H.3/plus-pi2-universal-central-extension` (stated above only as
--- `Nonempty`, and only for `P = G`) and the universal-central-extension lift of K2SymbolsBrauer T.1.
+-- Use the specific `plusConstruction.pi2Equiv G P` above. The based plus map and the
+-- universal-central-extension lift of K2SymbolsBrauer T.1 remain prospective inputs.
 
 /- `H.3/plus-universal-cover`: `π_n(BP⁺) ≅ π_n(BG⁺)` for `n ≥ 2`. -/
 -- signature (not yet statable at the pins): theorem plusConstruction.universalCover (G : Type u) [Group G] (P : Subgroup G) [P.Normal]
@@ -2210,6 +2356,49 @@ Its current return type is only the sequence of spaces: spectrum structure remai
 def segalSpectrum (C : Type u) [Category.{u} C] [HasZeroObject C] [HasBinaryCoproducts C] :
     ℕ → TopCat.{u} := sorry
 
+/-- Isomorphism classes with the commutative monoid operation induced by categorical sums.
+This chooses the sum operation, rather than an unrelated monoidal instance (for modules, tensor
+product would give the wrong K₀). -/
+abbrev segalIsoClasses (C : Type u) [Category.{u} C] := Quotient (isIsomorphicSetoid C)
+
+instance (C : Type u) [Category.{u} C] [HasZeroObject C] [HasBinaryCoproducts C] :
+    CommMonoid (segalIsoClasses C) := sorry
+
+open scoped ZeroObject in
+theorem segalIsoClasses.mk_zero (C : Type u) [Category.{u} C] [HasZeroObject C]
+    [HasBinaryCoproducts C] :
+    (Quotient.mk (isIsomorphicSetoid C) (0 : C) : segalIsoClasses C) = 1 := sorry
+
+theorem segalIsoClasses.mk_coprod (C : Type u) [Category.{u} C] [HasZeroObject C]
+    [HasBinaryCoproducts C] (X Y : C) :
+    (Quotient.mk (isIsomorphicSetoid C) (X ⨿ Y) : segalIsoClasses C) =
+      Quotient.mk (isIsomorphicSetoid C) X * Quotient.mk (isIsomorphicSetoid C) Y := sorry
+
+/-- Before completion: components are the monoid of isomorphism classes under sums. -/
+def segalGammaSpace.pi0IsoClasses (C : Type u) [Category.{u} C] [HasZeroObject C]
+    [HasBinaryCoproducts C] : GammaSpace.pi0Monoid (segalGammaSpace C) ≃* segalIsoClasses C := sorry
+
+/-- Components of the actual group-completed zeroth space, not of `A_C([1])`. -/
+abbrev segalSpectrum.pi0 (C : Type u) [Category.{u} C] [HasZeroObject C]
+    [HasBinaryCoproducts C] := ZerothHomotopy (segalSpectrum C 0)
+
+instance (C : Type u) [Category.{u} C] [HasZeroObject C] [HasBinaryCoproducts C] :
+    CommGroup (segalSpectrum.pi0 C) := sorry
+
+/-- The component map of the Γ-space group completion, expressed on isomorphism classes. -/
+def segalSpectrum.toPi0 (C : Type u) [Category.{u} C] [HasZeroObject C]
+    [HasBinaryCoproducts C] : segalIsoClasses C →* segalSpectrum.pi0 C := sorry
+
+def segalSpectrum.pi0GrothendieckEquiv (C : Type u) [Category.{u} C] [HasZeroObject C]
+    [HasBinaryCoproducts C] :
+    segalSpectrum.pi0 C ≃* Algebra.GrothendieckGroup (segalIsoClasses C) := sorry
+
+/-- The comparison identifies the completion map with the algebraic map on generators. -/
+theorem segalSpectrum.pi0GrothendieckEquiv_toPi0 (C : Type u) [Category.{u} C]
+    [HasZeroObject C] [HasBinaryCoproducts C] (x : segalIsoClasses C) :
+    segalSpectrum.pi0GrothendieckEquiv C (segalSpectrum.toPi0 C x) =
+      Algebra.GrothendieckGroup.of x := sorry
+
 /- `segalGammaSpace_finset_sphere` (computation): quoted Barratt–Priddy–Quillen–Segal; comment only. -/
 -- signature (not yet statable at the pins): example
 
@@ -2217,9 +2406,23 @@ def segalSpectrum (C : Type u) [Category.{u} C] [HasZeroObject C] [HasBinaryCopr
 example (C : Type u) [Category.{u} C] [HasZeroObject C] [HasBinaryCoproducts C]
     [∀ X Y : C, Subsingleton (X ⟶ Y)] : ∀ n, ContractibleSpace (SSet.toTop.obj ((segalGammaSpace C).obj n)) := sorry
 
-/-- `segalGammaSpace_pi0_K0` (compatibility). -/
-example (C : Type u) [Category.{u} C] [HasZeroObject C] [HasBinaryCoproducts C] :
-    Nonempty (GammaSpace.pi0Monoid (segalGammaSpace C) ≃ Quotient (isIsomorphicSetoid C)) := sorry
+/-- `segalGammaSpace_pi0_K0` (compatibility): take a small model of the category of finitely
+generated projective modules. The group uses direct sums, and its domain is the zeroth space
+after completion. The full-subcategory equivalence records the projective-module application. -/
+example (R : Type u) [Ring R] (C : Type u) [Category.{u} C] [HasZeroObject C]
+    [HasBinaryCoproducts C]
+    (e : C ≌ ObjectProperty.FullSubcategory (fun M : ModuleCat.{u} R =>
+      Module.Finite R M ∧ Module.Projective R M)) :
+    Nonempty (segalSpectrum.pi0 C ≃* Algebra.GrothendieckGroup (segalIsoClasses C)) := sorry
+
+/-- `segalGammaSpace_rank_group_completion` (computation): the rank monoid of projectives over
+a field is ℕ; completion produces ℤ, including negative ranks. This detects the old test's
+replacement of K₀ by the pre-completion component set. -/
+example (C : Type u) [Category.{u} C] [HasZeroObject C] [HasBinaryCoproducts C]
+    (rank : segalIsoClasses C ≃* Multiplicative ℕ) :
+    ∃ e : segalSpectrum.pi0 C ≃* Multiplicative ℤ,
+      ∀ x : segalIsoClasses C,
+        e (segalSpectrum.toPi0 C x) = Multiplicative.ofAdd ((rank x).toAdd : ℤ) := sorry
 
 /- `segalGammaSpace_not_without_sums` (non-example): a groupoid with a monoidal structure has no
 binary coproducts in general, so `segalGammaSpace` does not apply to `Core` (instance check). -/
@@ -3541,6 +3744,52 @@ def page (C : ExactCouple.{u} a b c) (r : ℕ) (pq : ℤ × ℤ) : ModuleCat.{u}
 def toSpectralSequence (C : ExactCouple.{u} (1, -1) (0, 0) (-1, 0)) :
     SpectralSequence (ModuleCat.{u} ℤ) (fun r => ComplexShape.up' ((-r, r - 1) : ℤ × ℤ)) 1 := sorry
 
+/-- For a two-stage filtration, `D_(p,q) = π_(p+q) X_p` and
+`E_(p,q) = π_(p+q) gr_p`. Thus `d₁ : E_(1,n) → E_(0,n)` is the connecting map
+`π_(n+1) gr₁ → π_n X₀`, with the sign of the defining distinguished triangle. -/
+def twoStageBoundary (C : ExactCouple.{u} (1, -1) (0, 0) (-1, 0)) (n : ℤ) :
+    C.E (1, n) ⟶ C.E (0, n) := by
+  simpa using C.k (1, n) ≫ C.j ((1, n) + (-1, 0))
+
+/-- The map induced by `i_(0,n)` after identifying `D_(0,n)` with `E_(0,n)` via `j`;
+the lower-column vanishing supplies that identification. -/
+def twoStageCokernelIncl (C : ExactCouple.{u} (1, -1) (0, 0) (-1, 0))
+    (hD : ∀ (p q : ℤ), p < 0 → IsZero (C.D (p, q))) (n : ℤ) :
+    cokernel (C.twoStageBoundary n) ⟶ C.D (1, n - 1) := sorry
+
+/-- The map induced by `j_(1,n−1)`, factored through the kernel of the next boundary. -/
+def twoStageKernelProj (C : ExactCouple.{u} (1, -1) (0, 0) (-1, 0))
+    (hD : ∀ (p q : ℤ), p < 0 → IsZero (C.D (p, q))) (n : ℤ) :
+    C.D (1, n - 1) ⟶ kernel (C.twoStageBoundary (n - 1)) := sorry
+
+/-- The two-stage extension has specified kernel/cokernel terms and the actual `D` abutment.
+No splitting is chosen or asserted. -/
+def twoStageExtension (C : ExactCouple.{u} (1, -1) (0, 0) (-1, 0))
+    (hD : ∀ (p q : ℤ), p < 0 → IsZero (C.D (p, q))) (n : ℤ) :
+    ShortComplex (ModuleCat.{u} ℤ) :=
+  ShortComplex.mk (C.twoStageCokernelIncl hD n) (C.twoStageKernelProj hD n) (by sorry)
+
+/-- `exactCouple_zero_E` (degenerate): zero `E` makes every `i` invertible and every page zero. -/
+example (C : ExactCouple.{u} a b c) (hE : ∀ pq, IsZero (C.E pq)) :
+    (∀ pq, IsIso (C.i pq)) ∧ ∀ (r : ℕ) (pq : ℤ × ℤ), IsZero (C.page r pq) := sorry
+
+/-- `exactCouple_two_stage` (computation): the couple of `0 → X₀ → X₁ = X` has no
+negative `D` columns and only two `E` columns. All pages from E² are isomorphic, and
+`0 → coker(d₁ : π_(n+1) gr₁ → π_n X₀) → π_n X →
+ker(d₁ : π_n gr₁ → π_(n−1) X₀) → 0` is exact. -/
+example (C : ExactCouple.{u} (1, -1) (0, 0) (-1, 0))
+    (hD : ∀ (p q : ℤ), p < 0 → IsZero (C.D (p, q)))
+    (hE : ∀ (p q : ℤ), p ≠ 0 → p ≠ 1 → IsZero (C.E (p, q))) (n : ℤ) :
+    (∀ r : ℕ, 2 ≤ r → ∀ pq, Nonempty (C.page r pq ≅ C.page 2 pq)) ∧
+      (C.twoStageExtension hD n).ShortExact := sorry
+
+/-- `exactCouple_not_complex` (non-example): an exact couple may have `i² ≠ 0`.
+Take constant D = E = ℤ² and i(x,y)=(x,0), j(x,y)=(y,0), k(x,y)=(0,y).
+The three vertices are exact, and j ∘ k squares to zero, but i is a nonzero idempotent.
+This rules out treating the D row as a chain complex differential. -/
+example : ∃ C : ExactCouple.{0} (0, 0) (0, 0) (0, 0),
+    C.i (0, 0) ≫ C.i ((0, 0) + (0, 0)) ≠ 0 := sorry
+
 end ExactCouple
 
 namespace SHC.FilteredSpectrum
@@ -3566,10 +3815,6 @@ def abutmentFiltration (F : FilteredSpectrum.{u}) (E : SHC.{u}) (c : ∀ s, F.X.
     AddSubgroup (SHC.piObj E k) := AddMonoidHom.range (Preadditive.rightComp (SHC.sphere k) (c s))
 
 end SHC.FilteredSpectrum
-
-/- `exactCouple_zero_E` / `exactCouple_two_stage` / `exactCouple_spectralObject_compat` /
-`exactCouple_not_complex`: comment-level tests of `ExactCouple` (see the packet). -/
--- signature (not yet statable at the pins): example
 
 /- `spectralSequence_trivial` / `spectralSequence_single_step` / `spectralSequence_compat_exactCouple` /
 `spectralSequence_E2_not_abutment`: comment-level tests (see the packet). -/
