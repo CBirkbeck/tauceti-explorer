@@ -20,6 +20,24 @@ another roadmap plans is imported, never planned again. Where more is needed in
 an existing roadmap's direction, it becomes "<that roadmap>, Part II". The rules
 are in [PROTOCOL.md](PROTOCOL.md), section 15.
 
+## Upstream tiers
+
+The roadmaps go to Tau Ceti bottom-up, as roadmap packages (PROTOCOL.md
+section 20): a README, a `Suggested.lean` and the unit tests of every
+definition. A roadmap goes to Tau Ceti only once every roadmap it depends on is
+already a Tau Ceti roadmap. The order is in
+[upstream/CaraianiNewton.md](upstream/CaraianiNewton.md): the 94 roadmaps that
+Caraiani–Newton needs, in tiers, with tightly coupled roadmaps merged into one
+package. The `top` list in `focus.json` is the current tiers. Finish their
+plans, fixes and packages before anything else.
+
+A plan in the current tier cites only Mathlib, Tau Ceti and roadmaps of a lower
+tier (the order file lists, for each roadmap, the citations that point upward). When it needs a definition or result that a higher roadmap
+plans, it plans that notion itself, and the higher roadmap imports it from
+here: the notion moves down. Never cite the higher roadmap. Record each move in
+your handoff note, so that the higher roadmap's plan can be pointed at its new
+owner.
+
 ## What the roadmap work is
 
 For each roadmap, go through the papers it is built on, find every definition

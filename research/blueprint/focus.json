@@ -1,9 +1,16 @@
 {
- "purpose": "The roadmaps the maintainer wants finished next (2026-10-05): every roadmap covering these areas. Their planning, review, assembly and fix issues carry the label `focus`, and workers take `focus` issues first (WORKERS.md). The areas listed under `top` come before every other area (2026-10-07): their issues also carry the label `top`, and workers take those first of all. Edit this file to change the focus; the next intake sync relabels the issues.",
+ "purpose": "The roadmaps the maintainer wants finished next: every roadmap covering these areas. Their planning, review, assembly and fix issues carry the label `focus`, and workers take `focus` issues first (WORKERS.md). The areas listed under `top` come before every other area: their issues also carry the label `top`, and workers take those first of all. Since 2026-10-09 `top` is the current upstream tier: the roadmaps go to Tau Ceti bottom-up as packages, a roadmap only once every roadmap it depends on is a Tau Ceti roadmap, and the current tiers come from research/blueprint/upstream/CaraianiNewton.md (WORKERS.md, 'Upstream tiers'). Edit this file to change the focus; the next intake sync relabels the issues.",
  "top": [
-  "Caraiani–Newton"
+  "Upstream tiers 1–2"
  ],
  "areas": {
+  "Upstream tiers 1–2": [
+   "PadicMeasuresIwasawaAlgebras",
+   "ReductiveGroupsPartII",
+   "AdelicAlgebraicGroups",
+   "SchemeAndStackFoundations",
+   "SmoothRepresentationsOfLocalGroups"
+  ],
   "Habiro rings and Habiro cohomology": [
    "HabiroRings",
    "HabiroNumberFields",
