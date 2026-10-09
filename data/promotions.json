@@ -272,6 +272,18 @@
     "roadmaps/DerivedDeRhamCohomology/metadata.toml"
    ]
   },
+  "research/blueprint/packages/FarguesFontaineDiamonds/review.json": {
+   "promotedAt": "2026-10-09T00:27:12Z",
+   "review": "1c934c5275c4f05b",
+   "reviewDate": "2026-10-09",
+   "reviewer": "independent-review-REV-PKG-FarguesFontaineDiamonds",
+   "sha256": "efe5925bc6d47cae4b9d693daec3afcacbc0aa8057ee9ea00bc40bf7363f85ed",
+   "to": [
+    "roadmaps/FarguesFontaineDiamonds/README.md",
+    "roadmaps/FarguesFontaineDiamonds/Suggested.lean",
+    "roadmaps/FarguesFontaineDiamonds/metadata.toml"
+   ]
+  },
   "research/blueprint/packages/IntegralHeckeAndGaloisDeterminants/review.json": {
    "promotedAt": "2026-10-08T21:34:12Z",
    "review": "174a182332191321",
