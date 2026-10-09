@@ -35922,7 +35922,8 @@
    ],
    "avoidAccountOf": "BP-KTheoryLowDegrees--U.3",
    "prompt": "research/blueprint/prompts/REV-KTheoryLowDegrees--U.3.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7547"
   },
   {
    "id": "BP-KTheoryLowDegrees--U.4",
@@ -36035,8 +36036,9 @@
    ],
    "followUpOf": "BP-KTheoryLowDegrees--U.1",
    "prompt": "research/blueprint/prompts/BP-KTheoryLowDegrees--U.6.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7562"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7562",
+   "finishedAt": "2026-10-09T04:53:08Z"
   },
   {
    "id": "REV-KTheoryLowDegrees--U.6",
@@ -41760,7 +41762,8 @@
    ],
    "revisionOf": "BP-StableHomotopyKTheory",
    "prompt": "research/blueprint/prompts/BP-StableHomotopyKTheory~3.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7568"
   },
   {
    "priority": 2,
