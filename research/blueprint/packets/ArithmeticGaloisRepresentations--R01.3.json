@@ -16,98 +16,98 @@
         "kind": "def",
         "module": "Mathlib/Algebra/BigOperators/Finsupp/Basic.lean",
         "provides": "Product of g a (f a) over the finite support of f; lines 45–54 read.",
-        "checked": "Declaration and ambient hypotheses read at the pinned commit on 2026-10-09."
+        "checked": "Declaration and ambient hypotheses independently read at the pinned commit on 2026-10-09; adequacy checked by REV-ArithmeticGaloisRepresentations--R01.3 (codex-QbX3Ak)."
       },
       {
         "ref": "mathlib:Ideal.ramificationIdx",
         "kind": "def",
         "module": "Mathlib/RingTheory/RamificationInertia/Ramification.lean",
         "provides": "For an A-algebra B and ideal q of B, q.ramificationIdx A is the length of the localized quotient by the contracted ideal; lines 44–57 read. The prototype uses the valuation-ring inclusion and its maximal ideal.",
-        "checked": "Declaration and ambient hypotheses read at the pinned commit on 2026-10-09."
+        "checked": "Declaration and ambient hypotheses independently read at the pinned commit on 2026-10-09; adequacy checked by REV-ArithmeticGaloisRepresentations--R01.3 (codex-QbX3Ak)."
       },
       {
         "ref": "mathlib:IsDedekindDomain.HeightOneSpectrum",
         "kind": "structure",
         "module": "Mathlib/RingTheory/DedekindDomain/Ideal/Lemmas.lean",
         "provides": "The nonzero prime ideal underlying a height-one point of a Dedekind domain; lines 490–513 read.",
-        "checked": "Declaration and ambient hypotheses read at the pinned commit on 2026-10-09."
+        "checked": "Declaration and ambient hypotheses independently read at the pinned commit on 2026-10-09; adequacy checked by REV-ArithmeticGaloisRepresentations--R01.3 (codex-QbX3Ak)."
       },
       {
         "ref": "mathlib:Nat.digits",
         "kind": "def",
         "module": "Mathlib/Data/Nat/Digits/Defs.lean",
         "provides": "Little-endian finite base-b digit list, with digits b 0=[], lines 70–91 read.",
-        "checked": "Declaration and ambient hypotheses read at the pinned commit on 2026-10-09."
+        "checked": "Declaration and ambient hypotheses independently read at the pinned commit on 2026-10-09; adequacy checked by REV-ArithmeticGaloisRepresentations--R01.3 (codex-QbX3Ak)."
       },
       {
         "ref": "mathlib:Representation.averageMap",
         "kind": "def",
         "module": "Mathlib/RepresentationTheory/Invariants.lean",
         "provides": "For a finite group whose cardinality is invertible in the coefficient ring, the group average acts as a linear projection to Representation.invariants; lines 120–145 read.",
-        "checked": "Declaration and ambient hypotheses read at the pinned commit on 2026-10-09."
+        "checked": "Declaration and ambient hypotheses independently read at the pinned commit on 2026-10-09; adequacy checked by REV-ArithmeticGaloisRepresentations--R01.3 (codex-QbX3Ak)."
       },
       {
         "ref": "mathlib:Representation.invariants",
         "kind": "def",
         "module": "Mathlib/RepresentationTheory/Invariants.lean",
         "provides": "the subspace V^G of invariants of a representation",
-        "checked": "Declaration and ambient hypotheses independently read at the pinned commit; adequacy checked for every citing node by REV-ArithmeticGaloisRepresentations~3."
+        "checked": "Declaration and ambient hypotheses independently read at the pinned commit on 2026-10-09; adequacy checked by REV-ArithmeticGaloisRepresentations--R01.3 (codex-QbX3Ak)."
       },
       {
         "ref": "mathlib:Representation.prod",
         "kind": "def",
         "module": "Mathlib/RepresentationTheory/Basic.lean",
         "provides": "Product representation on V×W, with action (ρV g).prodMap (ρW g); lines 595–605 read. Finite products implement the three-character unit test.",
-        "checked": "Declaration and ambient hypotheses read at the pinned commit on 2026-10-09."
+        "checked": "Declaration and ambient hypotheses independently read at the pinned commit on 2026-10-09; adequacy checked by REV-ArithmeticGaloisRepresentations--R01.3 (codex-QbX3Ak)."
       },
       {
         "ref": "mathlib:WeierstrassCurve.HasAdditiveReduction",
         "kind": "class",
         "module": "Mathlib/AlgebraicGeometry/EllipticCurve/Reduction.lean",
         "provides": "Minimality, multiplicative valuation of Δ and of c4 less than one; lines 351–357 read.",
-        "checked": "Declaration and ambient hypotheses read at the pinned commit on 2026-10-09."
+        "checked": "Declaration and ambient hypotheses independently read at the pinned commit on 2026-10-09; adequacy checked by REV-ArithmeticGaloisRepresentations--R01.3 (codex-QbX3Ak)."
       },
       {
         "ref": "mathlib:WeierstrassCurve.HasGoodReduction",
         "kind": "class",
         "module": "Mathlib/AlgebraicGeometry/EllipticCurve/Reduction.lean",
         "provides": "Minimality and multiplicative valuation of Δ equal to one; lines 320–326 read. This is additive discriminant valuation zero.",
-        "checked": "Declaration and ambient hypotheses read at the pinned commit on 2026-10-09."
+        "checked": "Declaration and ambient hypotheses independently read at the pinned commit on 2026-10-09; adequacy checked by REV-ArithmeticGaloisRepresentations--R01.3 (codex-QbX3Ak)."
       },
       {
         "ref": "mathlib:WeierstrassCurve.HasMultiplicativeReduction",
         "kind": "class",
         "module": "Mathlib/AlgebraicGeometry/EllipticCurve/Reduction.lean",
         "provides": "Minimality, multiplicative valuation of Δ less than one and of c4 equal to one; lines 343–350 read.",
-        "checked": "Declaration and ambient hypotheses read at the pinned commit on 2026-10-09."
+        "checked": "Declaration and ambient hypotheses independently read at the pinned commit on 2026-10-09; adequacy checked by REV-ArithmeticGaloisRepresentations--R01.3 (codex-QbX3Ak)."
       },
       {
         "ref": "mathlib:WeierstrassCurve.IsElliptic",
         "kind": "class",
         "module": "Mathlib/AlgebraicGeometry/EllipticCurve/Weierstrass.lean",
         "provides": "The discriminant is a unit; lines 362–372 read. Over a field this excludes singular equations.",
-        "checked": "Declaration and ambient hypotheses read at the pinned commit on 2026-10-09."
+        "checked": "Declaration and ambient hypotheses independently read at the pinned commit on 2026-10-09; adequacy checked by REV-ArithmeticGaloisRepresentations--R01.3 (codex-QbX3Ak)."
       },
       {
         "ref": "mathlib:WeierstrassCurve.minimal",
         "kind": "def",
         "module": "Mathlib/AlgebraicGeometry/EllipticCurve/Reduction.lean",
         "provides": "Chooses a minimal Weierstrass equation via a variable change, with IsMinimal instance; lines 285–305 read.",
-        "checked": "Declaration and ambient hypotheses read at the pinned commit on 2026-10-09."
+        "checked": "Declaration and ambient hypotheses independently read at the pinned commit on 2026-10-09; adequacy checked by REV-ArithmeticGaloisRepresentations--R01.3 (codex-QbX3Ak)."
       },
       {
         "ref": "tauceti:TauCeti.AbsoluteGaloisGroup",
         "kind": "abbrev",
         "module": "TauCeti/FieldTheory/Galois/AbsoluteGaloisGroup.lean",
         "provides": "Gal(SeparableClosure K/K), retaining the Krull topology; lines 225–232 read.",
-        "checked": "Declaration and ambient hypotheses read at the pinned commit on 2026-10-09."
+        "checked": "Declaration and ambient hypotheses independently read at the pinned commit on 2026-10-09; adequacy checked by REV-ArithmeticGaloisRepresentations--R01.3 (codex-QbX3Ak)."
       },
       {
         "ref": "tauceti:TauCeti.absoluteGaloisGroupRestrictEquiv",
         "kind": "def",
         "module": "TauCeti/FieldTheory/Galois/AbsoluteGaloisGroup.lean",
         "provides": "absoluteGaloisGroupRestrictEquiv (K) [Field K] : Field.absoluteGaloisGroup K ≃ₜ* TauCeti.AbsoluteGaloisGroup K, where AbsoluteGaloisGroup K := Gal(SeparableClosure K/K); an isomorphism of topological groups given by restriction to the separable closure (separableClosureRestrictEquiv). The same file proves that the fixed field of Gal(E/F) in a normal E is the perfect closure of F (mem_perfectClosure_iff_fixed).",
-        "checked": "Declaration and ambient hypotheses independently read at the pinned commit; adequacy checked for every citing node by REV-ArithmeticGaloisRepresentations~3."
+        "checked": "Declaration and ambient hypotheses independently read at the pinned commit on 2026-10-09; adequacy checked by REV-ArithmeticGaloisRepresentations--R01.3 (codex-QbX3Ak)."
       }
     ]
   },
@@ -132,6 +132,7 @@
       "edition": "Compositio Math. 92 (1994), 227–248",
       "sha256": "fb60a47d07f45d2066fa80d7a307fc8fbe6de1ad04446bcef8bed9d84a898971",
       "readSections": [
+        "§1, weighted digit definition, p. 227",
         "§2, Lemma 2.7, p. 230",
         "§§3–5, pp. 231–242; Theorem 5.5, p. 242 read on image",
         "Theorem 6.2, p. 243 read on image"
@@ -147,7 +148,7 @@
       "sha256": "52152ad27e8b153e02849710fb59992d7bd970f88156d9297529a42f9b0a85b3",
       "readSections": [
         "§3.1, pp. 126–128",
-        "§3.7, pp. 137–139"
+        "§§3.5–3.7, pp. 135–139"
       ],
       "read": "2026-10-09"
     },
@@ -219,7 +220,7 @@
       "id": "serre-tate",
       "title": "Good reduction of abelian varieties",
       "authors": "Jean-Pierre Serre and John Tate",
-      "url": "https://wstein.org/papers/bib/Serre-Tate-Good_Reduction_of_Abelian_Varieties.pdf?download=1",
+      "url": "https://wstein.org/papers/bib/Serre-Tate-Good_Reduction_of_Abelian_Varieties.pdf",
       "edition": "Ann. of Math. 88 (1968), 492–517",
       "sha256": "93a2f4e0cd8d9e49c4d96baa76753ca8debf2d1f06e58d563fe1f30fd81dfeb7",
       "readSections": [
@@ -255,8 +256,8 @@
       "sources": [
         {
           "sourceId": "serre61",
-          "locator": "§3.1, pp. 126–128; Proposition 4 and remark, p. 128",
-          "match": "Upper numbering commutes with passage to quotients; the perfect-residue-field generality is explicit."
+          "locator": "§3.1, Propositions 2–4, pp. 126–128",
+          "match": "Proposition 3 is the finite quotient theorem; Proposition 4 is the tower formula. This section treats totally ramified extensions, with perfect residue field allowed; inertia separation supplies the general finite-extension formulation."
         },
         {
           "sourceId": "ulmer",
@@ -530,7 +531,8 @@
       "prerequisites": [
         "ArithmeticGaloisRepresentations:R01.3/swan-from-breaks",
         "ArithmeticGaloisRepresentations:R01.3/finite-inertia-factorisation",
-        "mathlib:Representation.invariants"
+        "mathlib:Representation.invariants",
+        "ArithmeticGaloisRepresentations:R01.3/hasse-arf-integrality"
       ],
       "sources": [
         {
@@ -600,7 +602,7 @@
         {
           "name": "TauCeti.ConductorR013.artin_unipotent",
           "kind": "non-example",
-          "statement": "The two-dimensional tame unipotent representation with nonzero monodromy has ε=a=1; the trivial two-dimensional representation has a=0."
+          "statement": "On F² let ρ(g)(x,y)=(x+t(g)y,y), where t:G_K→(F,+) is continuous, vanishes on P_K and is nonzero on I_K. Then ε=a=1 and Sw=0; the trivial action on F² has a=0. Determine the fixed space from this action, without assuming its dimension."
         }
       ]
     },
@@ -830,10 +832,14 @@
       ],
       "proofSteps": [
         "Apply global-away-conductor with exactly the excluded places above ℓ. All remaining local representations have prime-to-residue-characteristic coefficients and finite wild image.",
-        "The excluded valuations vanish, proving coprimality. Identify ideals of Z with positive generators over Q."
+        "The excluded valuations vanish, proving coprimality. Identify ideals of Z with positive generators over Q. For the raw-to-semisimple inequality, restrict a composition series to inertia: left exactness of invariants gives ε(V^{ss})≤ε(V), while exact averaging on each finite wild p-group gives Sw(V^{ss})=Sw(V). Coefficient extension preserves both terms by conductor-extend-scalars. This argument covers arbitrary finite-image residual representations, without requiring them to lift to an ℓ-adic representation."
       ],
       "prerequisites": [
-        "ArithmeticGaloisRepresentations:R01.3/global-away-conductor"
+        "ArithmeticGaloisRepresentations:R01.3/global-away-conductor",
+        "ArithmeticGaloisRepresentations:R01.3/conductor-extend-scalars",
+        "ArithmeticGaloisRepresentations:R01.1/semisimplification",
+        "mathlib:Representation.averageMap",
+        "mathlib:Representation.invariants"
       ],
       "sources": [
         {
@@ -886,12 +892,12 @@
         {
           "name": "TauCeti.ConductorR013.primeToConductor_twoPrimes",
           "kind": "computation",
-          "statement": "Over Q, local exponents a₂=3 and a₃=1, with coefficient prime ℓ=3 and all other exponents zero, give N=8."
+          "statement": "Over Q, apply the product constructor to the formal exponent function a₂=3,a₃=1 and zero elsewhere. Excluding the coefficient prime ℓ=3 gives N=8. The unused value at 3 is not a conductor assertion at the coefficient prime."
         },
         {
           "name": "TauCeti.ConductorR013.primeToConductor_notCoefficientPrime",
           "kind": "non-example",
-          "statement": "The same data with coefficient prime ℓ=2 give N=3; neither product may contain the coefficient prime."
+          "statement": "The same formal exponent function, excluding ℓ=2, gives N=3. The unused value at 2 is not supplied by residual conductor theory; neither product may contain its excluded prime."
         }
       ]
     },
@@ -1093,7 +1099,7 @@
       ],
       "proofSteps": [
         "Import potential-good reduction and the good-model/Tate-module specialisation from EllipticCurves for E. Over a finite Galois good-reduction extension, inertia acts on the good special fibre by automorphisms.",
-        "Serre–Tate Theorem 2 extends the action to the good model and compares it with the action on every Tate module. Faithfulness gives the common kernel; the endomorphism characteristic polynomial gives the common integral trace data.",
+        "Serre–Tate Theorem 2 extends inertia to automorphisms of the good special fibre and compares every Tate-module action. Faithfulness gives the common kernel. The theorem states integral, ℓ-independent traces; the imported endomorphism characteristic-polynomial theorem supplies integral, ℓ-independent polynomials (the traces of all powers also determine them in characteristic zero).",
         "Finite inertia image kills inertia over a finite extension, so the Néron–Ogg–Shafarevich criterion gives the converse. The source proof uses the torsion-free congruence kernel and bounds tame primes by 3."
       ],
       "prerequisites": [
@@ -1103,8 +1109,8 @@
       "sources": [
         {
           "sourceId": "serre-tate",
-          "locator": "§2, Theorem 2 and proof, pp. 496–498",
-          "match": "Finite inertia, its common kernel and its integral characteristic polynomial are proved together."
+          "locator": "§2, Theorem 2 and Corollary 2 with their proofs, pp. 496–498",
+          "match": "Theorem 2 gives the common inertia kernel and integral, ℓ-independent traces under potential good reduction. Corollary 2 supplies the potential-good criterion; characteristic-polynomial independence uses the good-fibre endomorphism comparison."
         }
       ],
       "acceptance": [
@@ -1498,8 +1504,8 @@
       "sources": [
         {
           "sourceId": "bk",
-          "locator": "§5, equation (5.4), p. 242",
-          "match": "Defines λ_p using base-p digits and uses the carry inequality in the proof of Theorem 5.5."
+          "locator": "§1, p. 227, definition of λ_p; Theorem 5.5 and its proof, p. 242",
+          "match": "The introduction defines the weighted base-p digit sum; the proof of Theorem 5.5 uses the carry inequality. Equation (5.6) is the constituent conductor estimate, not the definition."
         }
       ],
       "acceptance": [
@@ -1564,8 +1570,8 @@
         "Mixed characteristic with finite K/Q_p; no claim for all perfect residue fields or equal characteristic. The exact root-of-unity and self-duality hypotheses are required."
       ],
       "proofSteps": [
-        "Apply brumer-kramer-constituent-estimate to each simple or *-simple constituent of the nontrivial wild part, after the multiplicity-weighted rational lift. Its dimension is (p−1)p^i and its Swan contribution is at most e_K[p+(p−1)i]p^i.",
-        "Sum the simple bounds with multiplicities. The codimensions add, and the carry inequality for λ_p bounds the weighted digit sum by λ_p(d₁). In the exceptional dyadic case use the self-dual constituents, exactly as Theorem 5.5(ii).",
+        "Over the fixed field K₁ of G₁, decompose the nontrivial wild part into simple or *-simple constituents W_j, counting repeated constituents. Put m_j=m_F(W_j) and i_j=δ_F(W_j). The rational-lift and character-field formulas give dim W_j=m_j(p−1)p^{i_j}, not (p−1)p^{i_j} without the Schur-index factor. The constituent estimate gives Sw(W_j)≤e_{K₁}m_j[p+(p−1)i_j]p^{i_j}.",
+        "Put s_i=Σ_{j:i_j=i}m_j, so d₁=Σ_i s_i p^i. Additivity gives the bound e_{K₁}[pd₁+(p−1)Σ_i i s_i p^i], and carrying gives Σ_i i s_i p^i≤λ_p(d₁). In the exceptional dyadic case the decomposition is into *-simple self-dual constituents, as in Theorem 5.5(ii).",
         "The finite wild extension is over the fixed field of G₁. Its absolute ramification index scales by the tame index; the Swan base-change formula cancels that index and leaves e_K. No coarser group-order estimate replaces the constituent bound."
       ],
       "prerequisites": [
@@ -1603,7 +1609,7 @@
       ],
       "proofSteps": [
         "Use Theorem 6.2 of Brumer–Kramer for g=1: d=⌊2/(p−1)⌋ and f≤2+e_K[pd+(p−1)λ_p(d)].",
-        "Choose an auxiliary ℓ satisfying the theorem’s root-of-unity degree condition. A polarization of degree prime to ℓ gives a G₁-invariant perfect alternating pairing because cyclotomic inertia is unramified for ℓ≠p; hence the needed dyadic self-duality. Use ℓ-independence to transfer the resulting bound to f(E).",
+        "For the elliptic specialization choose ℓ=3 when p=2: [F₃(μ₈):F₃]=2 and 2 is nonsquare in F₃. The canonical principal polarization gives a perfect G₁-invariant alternating pairing on E[3], since the prime-to-p cyclotomic action is unramified, hence dyadic self-duality. When p=3 choose ℓ=2: [F₂(μ₉):F₂]=ord₉(2)=6. Apply the Swan bound to these raw torsion modules, use elliptic-local-independence, and bound the tame term by two. For p≥5 use the already established vanishing of the elliptic Swan term. These concrete choices require no theorem about auxiliary primes in arithmetic progressions.",
         "Evaluate d and λ: at 2, d=2 and λ₂(2)=2; at 3, d=1 and λ₃(1)=0; at p≥5,d=0."
       ],
       "prerequisites": [
@@ -1634,7 +1640,7 @@
       "realises": [
         "ArithmeticGaloisRepresentations:R01.3"
       ],
-      "title": "Actual inertia invariants in the Weil–Deligne correspondence",
+      "title": "Conductor comparison for the Weil–Deligne correspondence",
       "kind": "comparison",
       "statement": "For an ℓ-adic representation ρ over a finite extension of Q_ℓ, ℓ≠p, and its genuine Weil–Deligne pair (r,N), V^{ρ(I_K)}=(ker N)∩V^{r(I_K)}. Consequently Sw(ρ)=Sw(r) and a(ρ)=a(r,N). The tame character t_ℓ must be nonzero on every open inertia subgroup, and r(I_K) must be finite. An arbitrary tuple satisfying only a formal exponential equality with t_ℓ=0 does not suffice.",
       "hypotheses": [
@@ -1642,8 +1648,8 @@
         "Finite residue field; all inertia and tame-character identifications are those of R01.2’s actual correspondence."
       ],
       "proofSteps": [
-        "Choose an open inertia subgroup where r is trivial and the exponential identity holds. The nonzero tame character takes infinitely many ℓ-adic values on it. If v is fixed by ρ, the polynomial exp(tN)v−v vanishes at infinitely many t and hence Nv=0.",
-        "Then the full exponential identity reduces to ρ(σ)v=r(σ)v on ker N, giving equality of the invariant spaces in both directions. Wild inertia has tame character zero, so its representations coincide. Substitute into the conductor formulas."
+        "Consume R01.2’s genuine correspondence, including its invariant-space identity V^{ρ(I_K)}=(ker N)∩V^{r(I_K)} and equality of the wild actions. These are supplier outputs, not newly planned constructions here. In that supplier proof, finite r(I_K) and the tame character’s nonzero image on every open inertia subgroup are essential; the polynomial exponential argument gives Nv=0 for a fixed vector.",
+        "Apply the invariant identity to the actual tame codimension and the equal wild actions to the Swan sum. Substitute into wd-from-monodromy to obtain a(ρ)=a(r,N). This node is the consumer conductor comparison, with the existing monodromy construction imported from R01.2."
       ],
       "prerequisites": [
         "ArithmeticGaloisRepresentations:R01.3/wd-from-monodromy",
@@ -1691,8 +1697,8 @@
       "sources": [
         {
           "sourceId": "serre61",
-          "locator": "§3.7, pp. 137–139",
-          "match": "The upper-break character conductor and ordinary integrality supply the representation side; the reciprocity transport is an explicit supplier request."
+          "locator": "§§3.5–3.7: Corollary 1 to Proposition 8, p. 136; Propositions 9–10 and Theorem 2, pp. 137–139",
+          "match": "The abelian upper-break calculation and Artin integrality supply the representation side. The reciprocity construction in these sections uses algebraically closed residue fields and proalgebraic unit groups; ordinary local-field reciprocity transport remains the explicit ClassFieldTheory supplier request."
         }
       ],
       "acceptance": [
@@ -1879,7 +1885,7 @@
       "status": "planned",
       "remaining": [
         "Perfect infinite residue-field ramification supplier: Serre 1961 verifies the mathematical scope, but the current LocalFieldsRamification roadmap and pinned carriers target nonarchimedean local fields. The Part II extension must export the same finite upper quotient theorem, different calculus and absolute inertia images for arbitrary perfect residue fields. Every tier-P assertion is conditional on this precise supplier input.",
-        "Curve cohomology and determinant carriers at this tier: Own the restricted H¹_et representation, proper specialisation/Euler characteristic, perfect direct-image determinant and dualising-lattice interfaces required for minimal regular curves of genus g≥1 over a DVR, together with the genus-one specializations. The smooth-curve determinant input is the canonical, base-change-compatible isomorphism det Rf₊(ω²)≃(det Rf₊ω)^⊗13, including genus one; Liu §3 p. 2 identifies the general Mumford/Deligne input. The precise conductor and lattice statements are given by surface-artin-conductor, determinant-discriminant-order and elliptic-minimal-model-comparison. Current libraries do not provide these carriers, and the higher-tier etale/duality roadmap cannot be a prerequisite. They must move down into this conductor interface, with general theory importing them; no Prop placeholder occurs in the Lean file.",
+        "Curve cohomology and determinant carriers at this tier: Own the restricted H¹_et representation, proper specialisation/Euler characteristic, perfect direct-image determinant and dualising-lattice interfaces required for minimal regular curves of genus g≥1 over a DVR, together with the genus-one specializations. The smooth-curve determinant input is the canonical, base-change-compatible isomorphism det Rf₊(ω²)≃(det Rf₊ω)^⊗13, including genus one; Liu §3 p. 2 identifies the general Mumford/Deligne input. The precise conductor and lattice statements are given by surface-artin-conductor, determinant-discriminant-order and elliptic-minimal-model-comparison. Current libraries do not provide these carriers, and the higher-tier etale/duality roadmap cannot be a prerequisite. They must move down into this conductor interface, with general theory importing them; no Prop placeholder occurs in the Lean file. The semistable API also requires unipotent prime-to-p H¹ monodromy (hence zero Swan) and the normalization/cohomology formula χ_special−χ_generic=#geometric nodes; ordinary coherent duality alone supplies neither.",
         "Saito finite-extension defect identity: The theorem and uniform genus-one deduction were read in Liu’s freely available original notes (§3 p. 2 and §4 pp. 4–5), and the determinant definition is now explicit. Saito 1988 Theorem 1’s proof was not obtained. To close the proof, provide the matching finite-extension defects of ordΔ and −Art, then semistable reduction; the notes’ explanation does not state these defects. This is a precise remaining proof input, especially for mixed characteristic (0,2).",
         "Reciprocity unit/upper-filtration compatibility: ClassFieldTheory’s current Layer 7 gives character-conductor minima but not the density identity for Art(U^n) and upper ramification. The exact Part II request above is the missing input of the character comparison.",
         "Rational p-group representation interface: The arithmetic constituent estimates and rational-lift theorem are now explicit nodes with source proofs. The generic Schur-index/character-field dictionary and p-group classification/refined rational Clifford induction used by Brumer–Kramer Proposition 4.4 are not explicit in the upstream interface. The representation-theory refinement requests remain open; simple modular lifting alone does not supply these rational forms."
@@ -1900,7 +1906,7 @@
     },
     {
       "title": "Curve cohomology and determinant carriers at this tier",
-      "detail": "Own the restricted H¹_et representation, proper specialisation/Euler characteristic, perfect direct-image determinant and dualising-lattice interfaces required for minimal regular curves of genus g≥1 over a DVR, together with the genus-one specializations. The smooth-curve determinant input is the canonical, base-change-compatible isomorphism det Rf₊(ω²)≃(det Rf₊ω)^⊗13, including genus one; Liu §3 p. 2 identifies the general Mumford/Deligne input. The precise conductor and lattice statements are given by surface-artin-conductor, determinant-discriminant-order and elliptic-minimal-model-comparison. Current libraries do not provide these carriers, and the higher-tier etale/duality roadmap cannot be a prerequisite. They must move down into this conductor interface, with general theory importing them; no Prop placeholder occurs in the Lean file.",
+      "detail": "Own the restricted H¹_et representation, proper specialisation/Euler characteristic, perfect direct-image determinant and dualising-lattice interfaces required for minimal regular curves of genus g≥1 over a DVR, together with the genus-one specializations. The smooth-curve determinant input is the canonical, base-change-compatible isomorphism det Rf₊(ω²)≃(det Rf₊ω)^⊗13, including genus one; Liu §3 p. 2 identifies the general Mumford/Deligne input. The precise conductor and lattice statements are given by surface-artin-conductor, determinant-discriminant-order and elliptic-minimal-model-comparison. Current libraries do not provide these carriers, and the higher-tier etale/duality roadmap cannot be a prerequisite. They must move down into this conductor interface, with general theory importing them; no Prop placeholder occurs in the Lean file. The semistable API also requires unipotent prime-to-p H¹ monodromy (hence zero Swan) and the normalization/cohomology formula χ_special−χ_generic=#geometric nodes; ordinary coherent duality alone supplies neither.",
       "neededBy": [
         "ArithmeticGaloisRepresentations:R01.3/surface-artin-conductor",
         "ArithmeticGaloisRepresentations:R01.3/determinant-discriminant-order",
@@ -1939,7 +1945,7 @@
   "upstreamNotes": [
     {
       "roadmap": "LocalFieldsRamification",
-      "detail": "Current main includes canonical lowerRamificationGroup, lowerRamificationGroupReal, herbrandOrderIso, inverseHerbrand, upperRamificationGroup and absoluteWildInertia, after the atlas pin. upperRamificationGroupQuotient names a quotient construction; it must not be confused with the upperRamificationGroup_fixedField quotient-compatibility theorem still listed as a target. Import the existing roadmap; no pinned implementation claim."
+      "detail": "Current Tau Ceti a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039 provides finite lower/upper groups, herbrandOrderIso and inverseHerbrand, and the proved map_restrictNormalHom_upperRamificationGroup in NumberTheory/LocalField/Herbrand/UpperQuotient.lean. It also provides inertiaSubgroup and wildInertiaSubgroup and their finite-image theorems. These landed after the atlas pin. upperRamificationGroupQuotient is the quotient-filtration construction, distinct from the field-theoretic Herbrand theorem. Consume these through LocalFieldsRamification; do not plan them again or claim they exist at the pin."
     },
     {
       "roadmap": "EllipticCurves",
@@ -2158,6 +2164,138 @@
     {
       "id": "ArithmeticGaloisRepresentations:R01.3/residual-elliptic-conductor-away-from-ell",
       "title": "Global residual elliptic conductor"
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.1/semisimplification",
+      "title": "Semisimplification of the underlying finite-dimensional representation"
     }
-  ]
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-ArithmeticGaloisRepresentations--R01.3",
+    "date": "2026-10-09",
+    "notes": "Independent Codex session codex-QbX3Ak reviewed all 24 nodes, all nine public source files, all fourteen pinned baseline declarations, supplier ownership/current main, stage coverage, 36 API items, 36 tests, six planets and RT-AREA-langlands-1/6. Corrected eleven node interfaces/source or proof claims and refreshed baseline evidence. Accepted as a complete target-level planning pass under current detail.json and PROTOCOL §0; R01.3 remains planned, not closed, with five precise gaps and ten supplier requests. The suggested file elaborates at the pins; the review report records its warnings. Elaboration does not establish the mathematical gaps.",
+    "checked": [
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.3/absolute-upper-filtration",
+        "verdict": "corrected",
+        "note": "Inverse-limit construction uses the separable group and finite quotient compatibility. Corrected Serre’s quotient/tower locators and refreshed the post-pin library inventory; tier P retains its supplier gap."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.3/finite-wild-break-decomposition",
+        "verdict": "corrected",
+        "note": "Nested wild-group averaging gives the canonical rational break summands. The prototype now states both pre-jump and right-limit invariant formulas; the quadratic/direct-sum tests distinguish breaks one and two."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.3/swan-from-breaks",
+        "verdict": "verified",
+        "note": "Weighted break, upper integral and finite lower-sum conventions agree. Tame and dyadic tests detect loss of weights; the finite quotient comparison is honestly omitted from the prototype."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.3/artin-from-actual-inertia",
+        "verdict": "corrected",
+        "note": "The tame term uses actual inertia. Added the directly used integrality import and replaced the assumed invariant-dimension test with an explicit nontrivial unipotent action."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.3/prime-to-characteristic-simple-lifting",
+        "verdict": "verified",
+        "note": "Brumer–Kramer Lemma 2.7 supplies split prime-to-characteristic lifting and invariant dimensions. Aut(H)-equivariance and cyclic stabilizer extension are derived using the precise Clifford/cohomology requests."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.3/wd-from-monodromy",
+        "verdict": "verified",
+        "note": "The actual WD formula uses ker N intersected with r-invariants, finite inertia and arithmetic Frobenius. The unbundled numerical prototype is identified as such and does not fabricate the correspondence."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.3/global-away-conductor",
+        "verdict": "verified",
+        "note": "Finite support, height-one primes and nonnegative integral away-place exponents give the ideal product. Coefficient-characteristic places are explicitly excluded; the global restriction supplier is named."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.3/residual-prime-to-coefficient-conductor",
+        "verdict": "corrected",
+        "note": "Added coefficient-extension, semisimplification and averaging prerequisites and the invariant-space argument for the API. Numerical tests now identify excluded-place values as unused formal data."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.3/separable-extension-herbrand",
+        "verdict": "verified",
+        "note": "The non-Galois composite is independent of the Galois closure by the tower theorem. Derivative normalization includes the residue degree; identity, unramified and tame tests have genuine field hypotheses."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.3/elliptic-exponent-and-parts",
+        "verdict": "verified",
+        "note": "The definition imports the elliptic Tate module and local independence; auxiliary primes are chosen locally, so the global conductor includes all bad primes. Existing reduction predicates are used at the pin."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.3/potential-good-common-inertia",
+        "verdict": "corrected",
+        "note": "Theorem 2 gives common kernels and integral independent traces; characteristic polynomials follow from the good-fibre endomorphism input. Corrected the attribution and included Corollary 2 for the criterion."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.3/elliptic-local-independence",
+        "verdict": "verified",
+        "note": "Potential-good finite inertia, prime-to-p wild reduction and potentially-multiplicative quadratic twisting cover the cases. Dyadic quadratic wild terms are retained and all auxiliary primes are compared."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.3/surface-artin-conductor",
+        "verdict": "corrected",
+        "note": "The cohomological sign and geometric component convention match Liu. Made the semistable unipotent-monodromy and Euler/normalization inputs explicit in the existing geometric gap."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.3/determinant-discriminant-order",
+        "verdict": "verified",
+        "note": "The determinant lattices and canonical smooth isomorphism specify a unique integral order, with genus-one minimal differential comparison. General determinant/duality inputs remain recorded rather than asserted built."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.3/elliptic-minimal-model-comparison",
+        "verdict": "verified",
+        "note": "Liu’s minimal Weierstrass lemma and proof support the elliptic smooth-locus and differential-lattice comparison. This restricted input moves down from the higher-tier Néron-model direction."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.3/saito-verified-statement",
+        "verdict": "verified",
+        "note": "Liu independently states Saito’s theorem in the stated minimal, proper, regular, genus-at-least-one scope, including mixed (0,2). The original finite-extension-defect proof is an explicit unresolved input."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.3/uniform-ogg-comparison",
+        "verdict": "verified",
+        "note": "The genus-one determinant and Artin comparisons plus unramified descent yield the exact Ogg formula. Counts geometric components regardless of multiplicity; closure remains conditional on the Saito/geometric gaps."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.3/brumer-kramer-digit-function",
+        "verdict": "corrected",
+        "note": "The weighted digit definition is on p. 227, not equation (5.4). The carry argument and binary/ternary tests agree with the scanned proof of Theorem 5.5 on p. 242."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.3/brumer-kramer-wild-bound",
+        "verdict": "corrected",
+        "note": "Restored the Schur-index factors m_j in constituent dimensions and conductor bounds, then aggregated s_i=sum m_j before carrying. The tame-index cancellation leaves the stated e_K bound unchanged."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.3/elliptic-sharp-exponent-bounds",
+        "verdict": "corrected",
+        "note": "Theorem 6.2 specializes to the stated elliptic bounds. Concrete auxiliary primes 3 and 2 give the necessary dyadic/triadic root conditions, avoiding an unlisted auxiliary-prime existence input."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.3/wd-actual-inertia-invariants",
+        "verdict": "corrected",
+        "note": "The invariant identity is already an R01.2 output. Recast the proof as its conductor application, preserving the genuine tame-character/finite-inertia hypotheses and avoiding duplicate monodromy ownership."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.3/character-conductor-reciprocity",
+        "verdict": "corrected",
+        "note": "Expanded locators to the Hasse–Arf and character-conductor statements. Distinguished Serre’s proalgebraic reciprocity scope from the ordinary local-field density identity requested from ClassFieldTheory."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.3/brumer-kramer-rational-lift",
+        "verdict": "verified",
+        "note": "Proposition 4.4, Corollary 4.5 and Proposition 4.6 support the multiplicity-weighted rational integral lift, including the self-dual dyadic alternative. Generic character/Schur/classification inputs remain precise requests."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.3/brumer-kramer-constituent-estimate",
+        "verdict": "verified",
+        "note": "The cyclic and quaternion estimates, discriminant contribution under induction and multiplicity-weighted lift give the rational/F constituent estimate. The root-of-unity and p-adic hypotheses are retained."
+      }
+    ]
+  }
 }
