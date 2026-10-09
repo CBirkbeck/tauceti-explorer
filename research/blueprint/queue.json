@@ -24897,9 +24897,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-EnhancedDerivedSheaves--E0.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [],
-   "note": "released on GitHub issue #719"
+   "note": "claimed on GitHub issue #719"
   },
   {
    "id": "REV-EnhancedDerivedSheaves--E0",
@@ -34056,8 +34056,8 @@
    ],
    "followUpOf": "BP-SchemeAndStackFoundations",
    "prompt": "research/blueprint/prompts/BP-SchemeAndStackFoundations--SF.0.md",
-   "state": "pending",
-   "note": "released on GitHub issue #6325"
+   "state": "external",
+   "note": "claimed on GitHub issue #6325"
   },
   {
    "id": "REV-SchemeAndStackFoundations--SF.0",
@@ -34290,8 +34290,9 @@
    ],
    "followUpOf": "BP-SchemeAndStackFoundations",
    "prompt": "research/blueprint/prompts/BP-SchemeAndStackFoundations--SF.5.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6330"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6330",
+   "finishedAt": "2026-10-09T12:52:00Z"
   },
   {
    "id": "REV-SchemeAndStackFoundations--SF.5",
