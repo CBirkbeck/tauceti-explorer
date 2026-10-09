@@ -43111,8 +43111,9 @@
    ],
    "revisionOf": "BP-DiophantineApproximationAndTranscendence",
    "prompt": "research/blueprint/prompts/BP-DiophantineApproximationAndTranscendence~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6514"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6514",
+   "finishedAt": "2026-10-09T12:27:38Z"
   },
   {
    "priority": 2,
