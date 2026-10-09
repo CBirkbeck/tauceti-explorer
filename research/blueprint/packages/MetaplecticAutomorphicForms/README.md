@@ -184,7 +184,7 @@ Tests: (1) B=0 on Z, χ=id of Multiplicative Z: (3,4) has additive value 3; (2) 
 
 #### MP.0.13: Topological Heisenberg extension
 
-Give the existing bilinear FactorSet.Extension E_B the topology transported from C×W by its coordinate equivalence. If C,W are Hausdorff topological modules and B is continuous, multiplication and inversion are continuous. For finite-dimensional modules over a nondiscrete local field it is locally compact and second countable. For B=½ω, the native isometry action is jointly continuous provided evaluation on W is jointly continuous; in the finite-dimensional local-field case give isometries their subspace topology in GL(W).
+Use the product topology of `TauCeti.FactorSet.Extension.instTopologicalSpace` on E_B and its `homeomorphProd`. Specialize `Extension.isTopologicalGroup` to continuous B; native `isClosedEmbedding_inl` and `isOpenMap_rightHom` give the extension maps for Hausdorff C,W. For finite-dimensional modules over a nondiscrete local field it is locally compact and second countable. For B=½ω, the native isometry action is jointly continuous provided evaluation on W is jointly continuous; in the finite-dimensional local-field case give isometries their subspace topology in GL(W).
 
 The local-field specialization has characteristic different from two; W is finite dimensional and ω is alternating. Continuity of B is required in the general topological-module case; joint continuity of the isometry evaluation is a separate hypothesis for the action.
 
