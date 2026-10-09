@@ -47475,8 +47475,9 @@
    ],
    "revisionOf": "PKG-DeligneWeightsAndPurity",
    "prompt": "research/blueprint/prompts/PKG-DeligneWeightsAndPurity~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7896"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7896",
+   "finishedAt": "2026-10-09T18:47:21Z"
   },
   {
    "id": "REV-PKG-DeligneWeightsAndPurity~2",
@@ -49777,7 +49778,8 @@
    ],
    "revisionOf": "PKG-VectorBundlesAndIsocrystals",
    "prompt": "research/blueprint/prompts/PKG-VectorBundlesAndIsocrystals~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7914"
   },
   {
    "id": "REV-PKG-VectorBundlesAndIsocrystals~2",
