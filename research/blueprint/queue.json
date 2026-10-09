@@ -34752,8 +34752,9 @@
    ],
    "avoidAccountOf": "BP-AlgebraicModuliForArithmeticGeometry--R09.7",
    "prompt": "research/blueprint/prompts/REV-AlgebraicModuliForArithmeticGeometry--R09.7.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6296"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6296",
+   "finishedAt": "2026-10-09T18:20:44Z"
   },
   {
    "id": "BP-ArithmeticGaloisRepresentations--G7",
@@ -46935,7 +46936,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-AutomorphicLFunctionsAndLocalFactors.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7892"
   },
   {
    "id": "REV-PKG-AutomorphicLFunctionsAndLocalFactors",
@@ -48708,8 +48710,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-HodgeStructuresPartII.md",
-   "state": "pending",
-   "note": "released on GitHub issue #7491"
+   "state": "external",
+   "note": "claimed on GitHub issue #7491"
   },
   {
    "id": "REV-PKG-HodgeStructuresPartII",
@@ -49513,8 +49515,9 @@
     "PKG-PotentialModularityAndCompatibleSystems"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-PotentialModularityAndCompatibleSystems.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7527"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7527",
+   "finishedAt": "2026-10-09T18:20:47Z"
   },
   {
    "id": "PKG-SemisimpleAlgebrasPartII",
@@ -79874,8 +79877,8 @@
     "FIX-RT-AREA-iwasawa-2~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-2~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #6219"
+   "state": "external",
+   "note": "claimed on GitHub issue #6219"
   },
   {
    "id": "RT-AREA-iwasawa-3",
