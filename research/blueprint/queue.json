@@ -34124,8 +34124,9 @@
    ],
    "avoidAccountOf": "BP-SchemeAndStackFoundations--SF.1",
    "prompt": "research/blueprint/prompts/REV-SchemeAndStackFoundations--SF.1.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6283"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6283",
+   "finishedAt": "2026-10-09T13:17:42Z"
   },
   {
    "id": "BP-SchemeAndStackFoundations--SF.2",
