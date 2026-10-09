@@ -34086,8 +34086,9 @@
    ],
    "avoidAccountOf": "BP-SchemeAndStackFoundations--SF.0",
    "prompt": "research/blueprint/prompts/REV-SchemeAndStackFoundations--SF.0.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6282"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6282",
+   "finishedAt": "2026-10-09T18:43:47Z"
   },
   {
    "id": "BP-SchemeAndStackFoundations--SF.1",
@@ -48438,8 +48439,9 @@
    ],
    "revisionOf": "PKG-HabiroCyclotomicCompletions",
    "prompt": "research/blueprint/prompts/PKG-HabiroCyclotomicCompletions~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7904"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7904",
+   "finishedAt": "2026-10-09T18:43:50Z"
   },
   {
    "id": "REV-PKG-HabiroCyclotomicCompletions~2",
@@ -49633,7 +49635,8 @@
    ],
    "revisionOf": "PKG-SmallRamificationAndAbelianVarietyBaseCases",
    "prompt": "research/blueprint/prompts/PKG-SmallRamificationAndAbelianVarietyBaseCases~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7913"
   },
   {
    "id": "REV-PKG-SmallRamificationAndAbelianVarietyBaseCases~2",
