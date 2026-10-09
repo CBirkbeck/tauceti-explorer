@@ -20,6 +20,7 @@ import Mathlib.Algebra.Group.End
 import Mathlib.Algebra.Group.Equiv.Basic
 import Mathlib.FieldTheory.AbsoluteGaloisGroup
 import Mathlib.FieldTheory.Galois.Basic
+import Mathlib.FieldTheory.SeparableClosure
 import Mathlib.RepresentationTheory.Basic
 import Mathlib.LinearAlgebra.TensorProduct.Basic
 import Mathlib.RingTheory.TensorProduct.Basic
@@ -142,11 +143,17 @@ def divisionKernel (A : AbelianVariety K) (m : ℕ) :
     Subgroup (Field.absoluteGaloisGroup K) := (torsionAction A m).ker
 def divisionField (A : AbelianVariety K) (m : ℕ) :
     IntermediateField K (AlgebraicClosure K) :=
-  IntermediateField.fixedField (divisionKernel A m)
+  separableClosure K (AlgebraicClosure K) ⊓
+    IntermediateField.fixedField (divisionKernel A m)
 
 theorem divisionField_fixed_iff (A : AbelianVariety K) (m : ℕ)
-    (x : AlgebraicClosure K) : x ∈ divisionField A m ↔
+    (x : AlgebraicClosure K) : x ∈ divisionField A m ↔ IsSeparable K x ∧
       ∀ σ ∈ divisionKernel A m, (show AlgebraicClosure K ≃ₐ[K] AlgebraicClosure K from σ) x = x := by sorry
+theorem divisionField_le_separableClosure (A : AbelianVariety K) (m : ℕ) :
+    divisionField A m ≤ separableClosure K (AlgebraicClosure K) := inf_le_left
+theorem divisionField_finiteGalois (A : AbelianVariety K) (m : ℕ)
+    (hm : 0 < m) (hchar : (m : K) ≠ 0) :
+    Module.Finite K (divisionField A m) ∧ IsGalois K (divisionField A m) := by sorry
 theorem divisionField_kernel (A : AbelianVariety K) (m : ℕ) (hm : 0 < m)
     (hchar : (m : K) ≠ 0) :
     {σ : Field.absoluteGaloisGroup K | ∀ x : divisionField A m, (show AlgebraicClosure K ≃ₐ[K] AlgebraicClosure K from σ) x = x} =
@@ -169,6 +176,12 @@ def cubicCurveAV : AbelianVariety ℚ := by sorry
 example : divisionField cubicCurveAV 2 =
     IntermediateField.adjoin ℚ {x : AlgebraicClosure ℚ | aeval x twoDivisionCubic = 0} ∧
     Module.finrank ℚ (divisionField cubicCurveAV 2) = 6 := by sorry
+-- Test divisionField_excludes_inseparable: over F_p(t), a p-th root of t
+-- is fixed by every K-automorphism of Kbar but belongs to no division field.
+example (A : AbelianVariety K) (m : ℕ) (x : AlgebraicClosure K)
+    (hx : ¬ IsSeparable K x) : x ∉ divisionField A m := by
+  intro h
+  exact hx ((divisionField_fixed_iff A m x).mp h).1
 
 def tateBaseChange (A : AbelianVariety K) (p : ℕ) [Fact p.Prime]
     (L : Type u) [Field L] [Algebra K L]
@@ -484,7 +497,7 @@ section Genericity
 variable {G H J : Type*} [Group G] [Group H] [Group J]
 variable [TopologicalSpace G] [TopologicalSpace H] [TopologicalSpace J]
 def pGeneric (ρ : G →* H) : Prop := IsOpen (Set.range ρ)
-theorem pGeneric_open_iff_finiteIndex [CompactSpace G] [T2Space H]
+theorem pGeneric_open_iff_finiteIndex [CompactSpace G] [CompactSpace H] [T2Space H]
     [IsTopologicalGroup H] (ρ : G →* H) (hρ : Continuous ρ) :
     pGeneric ρ ↔ ρ.range.FiniteIndex := by sorry
 theorem pGeneric_finite_extension [CompactSpace G] [T2Space H]
@@ -501,6 +514,10 @@ theorem pGeneric_isogeny (ρ : G →* H) (τ : G →* J) (e : H ≃* J)
 example [Subsingleton H] (ρ : G →* H) : pGeneric ρ := by sorry
 -- Test pGeneric_full_image
 example (ρ : G →* H) (h : Function.Surjective ρ) : pGeneric ρ := by sorry
+-- Test pGeneric_discrete_infinite: even a compact trivial image is open
+-- with infinite index in an infinite discrete ambient group.
+example [CompactSpace G] [Subsingleton G] [DiscreteTopology H] [Infinite H]
+    (ρ : G →* H) : pGeneric ρ ∧ ¬ ρ.range.FiniteIndex := by sorry
 -- Test pGeneric_dyadic: the predicate uses the supplied integral topology.
 example (ρ : G →* Matrix.GeneralLinearGroup (Fin 2) ℤ_[2])
     (hρ : Function.Surjective ρ) : pGeneric ρ := by sorry
@@ -701,7 +718,8 @@ theorem lambdaOddness (c : Field.absoluteGaloisGroup K) :
     LinearMap.det (lambdaRep A p embedding factor c) = (-1 : L) ∧
     (lambdaRep A p embedding factor c).charpoly = X ^ 2 - 1 := by sorry
 -- Omitted: K=Q, E defined over Q of degree dim A, canonical factor, c actual
--- complex conjugation. E-linear Betti comparison is A4's supplier.
+-- complex conjugation. Q8 requests the full E-linear Betti–Tate comparison;
+-- A4's realization convention alone does not supply its all-prime statement.
 theorem coefficientFrobeniusComparison {k : Type*} [Field k]
     (B : AbelianVariety k) (embeddingB : E →+* RationalEnd B) (q : ℕ)
     (sp : lambdaComponent A p embedding factor ≃ₗ[L]
