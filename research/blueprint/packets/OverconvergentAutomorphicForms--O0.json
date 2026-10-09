@@ -23,336 +23,336 @@
         "kind": "instance",
         "module": "Mathlib/RingTheory/TensorProduct/Basic.lean",
         "provides": "The A-algebra structure on A ⊗[R] B from the left factor.",
-        "checked": "Independently confirmed by REV-OverconvergentAutomorphicForms--O0 (2026-10-06): declaration and surrounding hypotheses read at the exact baseline commit; its statement supplies the stated algebraic/topological input, not an analytic or adic enhancement. Revision codex-OHTDYt (2026-10-08) reread the declaration at the same exact pin; retained its stated scope. Independent review REV-OverconvergentAutomorphicForms--O0~2 (2026-10-08) confirmed the declaration and hypotheses at the exact pin, including its coefficient and convention restrictions."
+        "checked": "Independently confirmed by REV-OverconvergentAutomorphicForms--O0 (2026-10-06): declaration and surrounding hypotheses read at the exact baseline commit; its statement supplies the stated algebraic/topological input, not an analytic or adic enhancement. Revision codex-OHTDYt (2026-10-08) reread the declaration at the same exact pin; retained its stated scope. Independent review REV-OverconvergentAutomorphicForms--O0~2 (2026-10-08) confirmed the declaration and hypotheses at the exact pin, including its coefficient and convention restrictions. Independent review REV-OverconvergentAutomorphicForms--O0~3, 2026-10-09: declaration and surrounding hypotheses read at the exact recorded commit; claimed scope confirmed."
       },
       {
         "ref": "mathlib:Algebra.norm",
         "kind": "def",
         "module": "Mathlib/RingTheory/Norm/Defs.lean",
         "provides": "The norm of a finite free algebra: determinant of left multiplication.",
-        "checked": "Independently confirmed by REV-OverconvergentAutomorphicForms--O0 (2026-10-06): declaration and surrounding hypotheses read at the exact baseline commit; its statement supplies the stated algebraic/topological input, not an analytic or adic enhancement. Revision codex-OHTDYt (2026-10-08) reread the declaration at the same exact pin; retained its stated scope. Independent review REV-OverconvergentAutomorphicForms--O0~2 (2026-10-08) confirmed the declaration and hypotheses at the exact pin, including its coefficient and convention restrictions."
+        "checked": "Independently confirmed by REV-OverconvergentAutomorphicForms--O0 (2026-10-06): declaration and surrounding hypotheses read at the exact baseline commit; its statement supplies the stated algebraic/topological input, not an analytic or adic enhancement. Revision codex-OHTDYt (2026-10-08) reread the declaration at the same exact pin; retained its stated scope. Independent review REV-OverconvergentAutomorphicForms--O0~2 (2026-10-08) confirmed the declaration and hypotheses at the exact pin, including its coefficient and convention restrictions. Independent review REV-OverconvergentAutomorphicForms--O0~3, 2026-10-09: declaration and surrounding hypotheses read at the exact recorded commit; claimed scope confirmed."
       },
       {
         "ref": "mathlib:Algebra.norm_apply",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/Norm/Defs.lean",
         "provides": "Algebra.norm R x = det of multiplication by x.",
-        "checked": "Independently confirmed by REV-OverconvergentAutomorphicForms--O0 (2026-10-06): declaration and surrounding hypotheses read at the exact baseline commit; its statement supplies the stated algebraic/topological input, not an analytic or adic enhancement. Revision codex-OHTDYt (2026-10-08) reread the declaration at the same exact pin; retained its stated scope. Independent review REV-OverconvergentAutomorphicForms--O0~2 (2026-10-08) confirmed the declaration and hypotheses at the exact pin, including its coefficient and convention restrictions."
+        "checked": "Independently confirmed by REV-OverconvergentAutomorphicForms--O0 (2026-10-06): declaration and surrounding hypotheses read at the exact baseline commit; its statement supplies the stated algebraic/topological input, not an analytic or adic enhancement. Revision codex-OHTDYt (2026-10-08) reread the declaration at the same exact pin; retained its stated scope. Independent review REV-OverconvergentAutomorphicForms--O0~2 (2026-10-08) confirmed the declaration and hypotheses at the exact pin, including its coefficient and convention restrictions. Independent review REV-OverconvergentAutomorphicForms--O0~3, 2026-10-09: declaration and surrounding hypotheses read at the exact recorded commit; claimed scope confirmed."
       },
       {
         "ref": "mathlib:Algebra.norm_eq_prod_embeddings",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/Norm/Transitivity.lean",
         "provides": "The norm is the product of the conjugates under all embeddings into an algebraically closed field.",
-        "checked": "Independently confirmed by REV-OverconvergentAutomorphicForms--O0 (2026-10-06): declaration and surrounding hypotheses read at the exact baseline commit; its statement supplies the stated algebraic/topological input, not an analytic or adic enhancement. Revision codex-OHTDYt (2026-10-08) reread the declaration at the same exact pin; retained its stated scope. Independent review REV-OverconvergentAutomorphicForms--O0~2 (2026-10-08) confirmed the declaration and hypotheses at the exact pin, including its coefficient and convention restrictions."
+        "checked": "Independently confirmed by REV-OverconvergentAutomorphicForms--O0 (2026-10-06): declaration and surrounding hypotheses read at the exact baseline commit; its statement supplies the stated algebraic/topological input, not an analytic or adic enhancement. Revision codex-OHTDYt (2026-10-08) reread the declaration at the same exact pin; retained its stated scope. Independent review REV-OverconvergentAutomorphicForms--O0~2 (2026-10-08) confirmed the declaration and hypotheses at the exact pin, including its coefficient and convention restrictions. Independent review REV-OverconvergentAutomorphicForms--O0~3, 2026-10-09: declaration and surrounding hypotheses read at the exact recorded commit; claimed scope confirmed."
       },
       {
         "ref": "mathlib:ContinuousMonoidHom",
         "kind": "structure",
         "module": "Mathlib/Topology/Algebra/ContinuousMonoidHom.lean",
         "provides": "Continuous monoid homomorphisms between topological monoids.",
-        "checked": "Independently confirmed by REV-OverconvergentAutomorphicForms--O0 (2026-10-06): declaration and surrounding hypotheses read at the exact baseline commit; its statement supplies the stated algebraic/topological input, not an analytic or adic enhancement. Revision codex-OHTDYt (2026-10-08) reread the declaration at the same exact pin; retained its stated scope. Independent review REV-OverconvergentAutomorphicForms--O0~2 (2026-10-08) confirmed the declaration and hypotheses at the exact pin, including its coefficient and convention restrictions."
+        "checked": "Independently confirmed by REV-OverconvergentAutomorphicForms--O0 (2026-10-06): declaration and surrounding hypotheses read at the exact baseline commit; its statement supplies the stated algebraic/topological input, not an analytic or adic enhancement. Revision codex-OHTDYt (2026-10-08) reread the declaration at the same exact pin; retained its stated scope. Independent review REV-OverconvergentAutomorphicForms--O0~2 (2026-10-08) confirmed the declaration and hypotheses at the exact pin, including its coefficient and convention restrictions. Independent review REV-OverconvergentAutomorphicForms--O0~3, 2026-10-09: declaration and surrounding hypotheses read at the exact recorded commit; claimed scope confirmed."
       },
       {
         "ref": "mathlib:ContinuousMonoidHom.comp",
         "kind": "def",
         "module": "Mathlib/Topology/Algebra/ContinuousMonoidHom.lean",
         "provides": "Composition of continuous monoid homs.",
-        "checked": "Independently confirmed by REV-OverconvergentAutomorphicForms--O0 (2026-10-06): declaration and surrounding hypotheses read at the exact baseline commit; its statement supplies the stated algebraic/topological input, not an analytic or adic enhancement. Revision codex-OHTDYt (2026-10-08) reread the declaration at the same exact pin; retained its stated scope. Independent review REV-OverconvergentAutomorphicForms--O0~2 (2026-10-08) confirmed the declaration and hypotheses at the exact pin, including its coefficient and convention restrictions."
+        "checked": "Independently confirmed by REV-OverconvergentAutomorphicForms--O0 (2026-10-06): declaration and surrounding hypotheses read at the exact baseline commit; its statement supplies the stated algebraic/topological input, not an analytic or adic enhancement. Revision codex-OHTDYt (2026-10-08) reread the declaration at the same exact pin; retained its stated scope. Independent review REV-OverconvergentAutomorphicForms--O0~2 (2026-10-08) confirmed the declaration and hypotheses at the exact pin, including its coefficient and convention restrictions. Independent review REV-OverconvergentAutomorphicForms--O0~3, 2026-10-09: declaration and surrounding hypotheses read at the exact recorded commit; claimed scope confirmed."
       },
       {
         "ref": "mathlib:ContinuousMonoidHom.fst",
         "kind": "def",
         "module": "Mathlib/Topology/Algebra/ContinuousMonoidHom.lean",
         "provides": "The first projection as a continuous monoid hom.",
-        "checked": "Independently confirmed by REV-OverconvergentAutomorphicForms--O0 (2026-10-06): declaration and surrounding hypotheses read at the exact baseline commit; its statement supplies the stated algebraic/topological input, not an analytic or adic enhancement. Revision codex-OHTDYt (2026-10-08) reread the declaration at the same exact pin; retained its stated scope. Independent review REV-OverconvergentAutomorphicForms--O0~2 (2026-10-08) confirmed the declaration and hypotheses at the exact pin, including its coefficient and convention restrictions."
+        "checked": "Independently confirmed by REV-OverconvergentAutomorphicForms--O0 (2026-10-06): declaration and surrounding hypotheses read at the exact baseline commit; its statement supplies the stated algebraic/topological input, not an analytic or adic enhancement. Revision codex-OHTDYt (2026-10-08) reread the declaration at the same exact pin; retained its stated scope. Independent review REV-OverconvergentAutomorphicForms--O0~2 (2026-10-08) confirmed the declaration and hypotheses at the exact pin, including its coefficient and convention restrictions. Independent review REV-OverconvergentAutomorphicForms--O0~3, 2026-10-09: declaration and surrounding hypotheses read at the exact recorded commit; claimed scope confirmed."
       },
       {
         "ref": "mathlib:ContinuousMonoidHom.snd",
         "kind": "def",
         "module": "Mathlib/Topology/Algebra/ContinuousMonoidHom.lean",
         "provides": "The second projection as a continuous monoid hom.",
-        "checked": "Independently confirmed by REV-OverconvergentAutomorphicForms--O0 (2026-10-06): declaration and surrounding hypotheses read at the exact baseline commit; its statement supplies the stated algebraic/topological input, not an analytic or adic enhancement. Revision codex-OHTDYt (2026-10-08) reread the declaration at the same exact pin; retained its stated scope. Independent review REV-OverconvergentAutomorphicForms--O0~2 (2026-10-08) confirmed the declaration and hypotheses at the exact pin, including its coefficient and convention restrictions."
+        "checked": "Independently confirmed by REV-OverconvergentAutomorphicForms--O0 (2026-10-06): declaration and surrounding hypotheses read at the exact baseline commit; its statement supplies the stated algebraic/topological input, not an analytic or adic enhancement. Revision codex-OHTDYt (2026-10-08) reread the declaration at the same exact pin; retained its stated scope. Independent review REV-OverconvergentAutomorphicForms--O0~2 (2026-10-08) confirmed the declaration and hypotheses at the exact pin, including its coefficient and convention restrictions. Independent review REV-OverconvergentAutomorphicForms--O0~3, 2026-10-09: declaration and surrounding hypotheses read at the exact recorded commit; claimed scope confirmed."
       },
       {
         "ref": "mathlib:Ideal.span",
         "kind": "abbrev",
         "module": "Mathlib/RingTheory/Ideal/Span.lean",
         "provides": "The ideal generated by a set.",
-        "checked": "Independently confirmed by REV-OverconvergentAutomorphicForms--O0 (2026-10-06): declaration and surrounding hypotheses read at the exact baseline commit; its statement supplies the stated algebraic/topological input, not an analytic or adic enhancement. Revision codex-OHTDYt (2026-10-08) reread the declaration at the same exact pin; retained its stated scope. Independent review REV-OverconvergentAutomorphicForms--O0~2 (2026-10-08) confirmed the declaration and hypotheses at the exact pin, including its coefficient and convention restrictions."
+        "checked": "Independently confirmed by REV-OverconvergentAutomorphicForms--O0 (2026-10-06): declaration and surrounding hypotheses read at the exact baseline commit; its statement supplies the stated algebraic/topological input, not an analytic or adic enhancement. Revision codex-OHTDYt (2026-10-08) reread the declaration at the same exact pin; retained its stated scope. Independent review REV-OverconvergentAutomorphicForms--O0~2 (2026-10-08) confirmed the declaration and hypotheses at the exact pin, including its coefficient and convention restrictions. Independent review REV-OverconvergentAutomorphicForms--O0~3, 2026-10-09: declaration and surrounding hypotheses read at the exact recorded commit; claimed scope confirmed."
       },
       {
         "ref": "mathlib:IsModuleTopology",
         "kind": "class",
         "module": "Mathlib/Topology/Algebra/Module/ModuleTopology.lean",
         "provides": "The class asserting a module carries its module topology.",
-        "checked": "Independently confirmed by REV-OverconvergentAutomorphicForms--O0 (2026-10-06): declaration and surrounding hypotheses read at the exact baseline commit; its statement supplies the stated algebraic/topological input, not an analytic or adic enhancement. Revision codex-OHTDYt (2026-10-08) reread the declaration at the same exact pin; retained its stated scope. Independent review REV-OverconvergentAutomorphicForms--O0~2 (2026-10-08) confirmed the declaration and hypotheses at the exact pin, including its coefficient and convention restrictions."
+        "checked": "Independently confirmed by REV-OverconvergentAutomorphicForms--O0 (2026-10-06): declaration and surrounding hypotheses read at the exact baseline commit; its statement supplies the stated algebraic/topological input, not an analytic or adic enhancement. Revision codex-OHTDYt (2026-10-08) reread the declaration at the same exact pin; retained its stated scope. Independent review REV-OverconvergentAutomorphicForms--O0~2 (2026-10-08) confirmed the declaration and hypotheses at the exact pin, including its coefficient and convention restrictions. Independent review REV-OverconvergentAutomorphicForms--O0~3, 2026-10-09: declaration and surrounding hypotheses read at the exact recorded commit; claimed scope confirmed."
       },
       {
         "ref": "mathlib:IsModuleTopology.continuous_of_linearMap",
         "kind": "theorem",
         "module": "Mathlib/Topology/Algebra/Module/ModuleTopology.lean",
         "provides": "Linear maps between modules with the module topology are continuous.",
-        "checked": "Independently confirmed by REV-OverconvergentAutomorphicForms--O0 (2026-10-06): declaration and surrounding hypotheses read at the exact baseline commit; its statement supplies the stated algebraic/topological input, not an analytic or adic enhancement. Revision codex-OHTDYt (2026-10-08) reread the declaration at the same exact pin; retained its stated scope. Independent review REV-OverconvergentAutomorphicForms--O0~2 (2026-10-08) confirmed the declaration and hypotheses at the exact pin, including its coefficient and convention restrictions."
+        "checked": "Independently confirmed by REV-OverconvergentAutomorphicForms--O0 (2026-10-06): declaration and surrounding hypotheses read at the exact baseline commit; its statement supplies the stated algebraic/topological input, not an analytic or adic enhancement. Revision codex-OHTDYt (2026-10-08) reread the declaration at the same exact pin; retained its stated scope. Independent review REV-OverconvergentAutomorphicForms--O0~2 (2026-10-08) confirmed the declaration and hypotheses at the exact pin, including its coefficient and convention restrictions. Independent review REV-OverconvergentAutomorphicForms--O0~3, 2026-10-09: declaration and surrounding hypotheses read at the exact recorded commit; claimed scope confirmed."
       },
       {
         "ref": "mathlib:IsModuleTopology.isTopologicalRing",
         "kind": "theorem",
         "module": "Mathlib/Topology/Algebra/Module/ModuleTopology.lean",
         "provides": "A finite algebra with the module topology over a topological ring is a topological ring.",
-        "checked": "Independently confirmed by REV-OverconvergentAutomorphicForms--O0 (2026-10-06): declaration and surrounding hypotheses read at the exact baseline commit; its statement supplies the stated algebraic/topological input, not an analytic or adic enhancement. Revision codex-OHTDYt (2026-10-08) reread the declaration at the same exact pin; retained its stated scope. Independent review REV-OverconvergentAutomorphicForms--O0~2 (2026-10-08) confirmed the declaration and hypotheses at the exact pin, including its coefficient and convention restrictions."
+        "checked": "Independently confirmed by REV-OverconvergentAutomorphicForms--O0 (2026-10-06): declaration and surrounding hypotheses read at the exact baseline commit; its statement supplies the stated algebraic/topological input, not an analytic or adic enhancement. Revision codex-OHTDYt (2026-10-08) reread the declaration at the same exact pin; retained its stated scope. Independent review REV-OverconvergentAutomorphicForms--O0~2 (2026-10-08) confirmed the declaration and hypotheses at the exact pin, including its coefficient and convention restrictions. Independent review REV-OverconvergentAutomorphicForms--O0~3, 2026-10-09: declaration and surrounding hypotheses read at the exact recorded commit; claimed scope confirmed."
       },
       {
         "ref": "mathlib:IsTopologicalRing",
         "kind": "class",
         "module": "Mathlib/Topology/Algebra/Ring/Basic.lean",
         "provides": "Topological rings.",
-        "checked": "Independently confirmed by REV-OverconvergentAutomorphicForms--O0 (2026-10-06): declaration and surrounding hypotheses read at the exact baseline commit; its statement supplies the stated algebraic/topological input, not an analytic or adic enhancement. Revision codex-OHTDYt (2026-10-08) reread the declaration at the same exact pin; retained its stated scope. Independent review REV-OverconvergentAutomorphicForms--O0~2 (2026-10-08) confirmed the declaration and hypotheses at the exact pin, including its coefficient and convention restrictions."
+        "checked": "Independently confirmed by REV-OverconvergentAutomorphicForms--O0 (2026-10-06): declaration and surrounding hypotheses read at the exact baseline commit; its statement supplies the stated algebraic/topological input, not an analytic or adic enhancement. Revision codex-OHTDYt (2026-10-08) reread the declaration at the same exact pin; retained its stated scope. Independent review REV-OverconvergentAutomorphicForms--O0~2 (2026-10-08) confirmed the declaration and hypotheses at the exact pin, including its coefficient and convention restrictions. Independent review REV-OverconvergentAutomorphicForms--O0~3, 2026-10-09: declaration and surrounding hypotheses read at the exact recorded commit; claimed scope confirmed."
       },
       {
         "ref": "mathlib:LinearMap.det",
         "kind": "irreducible_def",
         "module": "Mathlib/LinearAlgebra/Determinant.lean",
         "provides": "The determinant of an endomorphism of a finite free module.",
-        "checked": "Independently confirmed by REV-OverconvergentAutomorphicForms--O0 (2026-10-06): declaration and surrounding hypotheses read at the exact baseline commit; its statement supplies the stated algebraic/topological input, not an analytic or adic enhancement. Revision codex-OHTDYt (2026-10-08) reread the declaration at the same exact pin; retained its stated scope. Independent review REV-OverconvergentAutomorphicForms--O0~2 (2026-10-08) confirmed the declaration and hypotheses at the exact pin, including its coefficient and convention restrictions."
+        "checked": "Independently confirmed by REV-OverconvergentAutomorphicForms--O0 (2026-10-06): declaration and surrounding hypotheses read at the exact baseline commit; its statement supplies the stated algebraic/topological input, not an analytic or adic enhancement. Revision codex-OHTDYt (2026-10-08) reread the declaration at the same exact pin; retained its stated scope. Independent review REV-OverconvergentAutomorphicForms--O0~2 (2026-10-08) confirmed the declaration and hypotheses at the exact pin, including its coefficient and convention restrictions. Independent review REV-OverconvergentAutomorphicForms--O0~3, 2026-10-09: declaration and surrounding hypotheses read at the exact recorded commit; claimed scope confirmed."
       },
       {
         "ref": "mathlib:LinearMap.det_baseChange",
         "kind": "lemma",
         "module": "Mathlib/LinearAlgebra/Charpoly/BaseChange.lean",
         "provides": "The determinant commutes with base change.",
-        "checked": "Independently confirmed by REV-OverconvergentAutomorphicForms--O0 (2026-10-06): declaration and surrounding hypotheses read at the exact baseline commit; its statement supplies the stated algebraic/topological input, not an analytic or adic enhancement. Revision codex-OHTDYt (2026-10-08) reread the declaration at the same exact pin; retained its stated scope. Independent review REV-OverconvergentAutomorphicForms--O0~2 (2026-10-08) confirmed the declaration and hypotheses at the exact pin, including its coefficient and convention restrictions."
+        "checked": "Independently confirmed by REV-OverconvergentAutomorphicForms--O0 (2026-10-06): declaration and surrounding hypotheses read at the exact baseline commit; its statement supplies the stated algebraic/topological input, not an analytic or adic enhancement. Revision codex-OHTDYt (2026-10-08) reread the declaration at the same exact pin; retained its stated scope. Independent review REV-OverconvergentAutomorphicForms--O0~2 (2026-10-08) confirmed the declaration and hypotheses at the exact pin, including its coefficient and convention restrictions. Independent review REV-OverconvergentAutomorphicForms--O0~3, 2026-10-09: declaration and surrounding hypotheses read at the exact recorded commit; claimed scope confirmed."
       },
       {
         "ref": "mathlib:Module.Finite.base_change",
         "kind": "instance",
         "module": "Mathlib/RingTheory/TensorProduct/Finite.lean",
         "provides": "Base change of a finite module is finite.",
-        "checked": "Independently confirmed by REV-OverconvergentAutomorphicForms--O0 (2026-10-06): declaration and surrounding hypotheses read at the exact baseline commit; its statement supplies the stated algebraic/topological input, not an analytic or adic enhancement. Revision codex-OHTDYt (2026-10-08) reread the declaration at the same exact pin; retained its stated scope. Independent review REV-OverconvergentAutomorphicForms--O0~2 (2026-10-08) confirmed the declaration and hypotheses at the exact pin, including its coefficient and convention restrictions."
+        "checked": "Independently confirmed by REV-OverconvergentAutomorphicForms--O0 (2026-10-06): declaration and surrounding hypotheses read at the exact baseline commit; its statement supplies the stated algebraic/topological input, not an analytic or adic enhancement. Revision codex-OHTDYt (2026-10-08) reread the declaration at the same exact pin; retained its stated scope. Independent review REV-OverconvergentAutomorphicForms--O0~2 (2026-10-08) confirmed the declaration and hypotheses at the exact pin, including its coefficient and convention restrictions. Independent review REV-OverconvergentAutomorphicForms--O0~3, 2026-10-09: declaration and surrounding hypotheses read at the exact recorded commit; claimed scope confirmed."
       },
       {
         "ref": "mathlib:Module.Free.tensor",
         "kind": "instance",
         "module": "Mathlib/LinearAlgebra/TensorProduct/Basis.lean",
         "provides": "Tensor products of free modules are free.",
-        "checked": "Independently confirmed by REV-OverconvergentAutomorphicForms--O0 (2026-10-06): declaration and surrounding hypotheses read at the exact baseline commit; its statement supplies the stated algebraic/topological input, not an analytic or adic enhancement. Revision codex-OHTDYt (2026-10-08) reread the declaration at the same exact pin; retained its stated scope. Independent review REV-OverconvergentAutomorphicForms--O0~2 (2026-10-08) confirmed the declaration and hypotheses at the exact pin, including its coefficient and convention restrictions."
+        "checked": "Independently confirmed by REV-OverconvergentAutomorphicForms--O0 (2026-10-06): declaration and surrounding hypotheses read at the exact baseline commit; its statement supplies the stated algebraic/topological input, not an analytic or adic enhancement. Revision codex-OHTDYt (2026-10-08) reread the declaration at the same exact pin; retained its stated scope. Independent review REV-OverconvergentAutomorphicForms--O0~2 (2026-10-08) confirmed the declaration and hypotheses at the exact pin, including its coefficient and convention restrictions. Independent review REV-OverconvergentAutomorphicForms--O0~3, 2026-10-09: declaration and surrounding hypotheses read at the exact recorded commit; claimed scope confirmed."
       },
       {
         "ref": "mathlib:Module.finrank_baseChange",
         "kind": "theorem",
         "module": "Mathlib/LinearAlgebra/Dimension/Constructions.lean",
         "provides": "finrank of a base change equals the finrank of the original module.",
-        "checked": "Independently confirmed by REV-OverconvergentAutomorphicForms--O0 (2026-10-06): declaration and surrounding hypotheses read at the exact baseline commit; its statement supplies the stated algebraic/topological input, not an analytic or adic enhancement. Revision codex-OHTDYt (2026-10-08) reread the declaration at the same exact pin; retained its stated scope. Independent review REV-OverconvergentAutomorphicForms--O0~2 (2026-10-08) confirmed the declaration and hypotheses at the exact pin, including its coefficient and convention restrictions."
+        "checked": "Independently confirmed by REV-OverconvergentAutomorphicForms--O0 (2026-10-06): declaration and surrounding hypotheses read at the exact baseline commit; its statement supplies the stated algebraic/topological input, not an analytic or adic enhancement. Revision codex-OHTDYt (2026-10-08) reread the declaration at the same exact pin; retained its stated scope. Independent review REV-OverconvergentAutomorphicForms--O0~2 (2026-10-08) confirmed the declaration and hypotheses at the exact pin, including its coefficient and convention restrictions. Independent review REV-OverconvergentAutomorphicForms--O0~3, 2026-10-09: declaration and surrounding hypotheses read at the exact recorded commit; claimed scope confirmed."
       },
       {
         "ref": "mathlib:NumberField.IsTotallyReal",
         "kind": "class",
         "module": "Mathlib/NumberTheory/NumberField/InfinitePlace/TotallyRealComplex.lean",
         "provides": "A number field all of whose complex embeddings are real.",
-        "checked": "Independently confirmed by REV-OverconvergentAutomorphicForms--O0 (2026-10-06): declaration and surrounding hypotheses read at the exact baseline commit; its statement supplies the stated algebraic/topological input, not an analytic or adic enhancement. Revision codex-OHTDYt (2026-10-08) reread the declaration at the same exact pin; retained its stated scope. Independent review REV-OverconvergentAutomorphicForms--O0~2 (2026-10-08) confirmed the declaration and hypotheses at the exact pin, including its coefficient and convention restrictions."
+        "checked": "Independently confirmed by REV-OverconvergentAutomorphicForms--O0 (2026-10-06): declaration and surrounding hypotheses read at the exact baseline commit; its statement supplies the stated algebraic/topological input, not an analytic or adic enhancement. Revision codex-OHTDYt (2026-10-08) reread the declaration at the same exact pin; retained its stated scope. Independent review REV-OverconvergentAutomorphicForms--O0~2 (2026-10-08) confirmed the declaration and hypotheses at the exact pin, including its coefficient and convention restrictions. Independent review REV-OverconvergentAutomorphicForms--O0~3, 2026-10-09: declaration and surrounding hypotheses read at the exact recorded commit; claimed scope confirmed."
       },
       {
         "ref": "mathlib:NumberField.RingOfIntegers",
         "kind": "def",
         "module": "Mathlib/NumberTheory/NumberField/Basic.lean",
         "provides": "The ring of integers 𝓞 K of a number field.",
-        "checked": "Independently confirmed by REV-OverconvergentAutomorphicForms--O0 (2026-10-06): declaration and surrounding hypotheses read at the exact baseline commit; its statement supplies the stated algebraic/topological input, not an analytic or adic enhancement. Revision codex-OHTDYt (2026-10-08) reread the declaration at the same exact pin; retained its stated scope. Independent review REV-OverconvergentAutomorphicForms--O0~2 (2026-10-08) confirmed the declaration and hypotheses at the exact pin, including its coefficient and convention restrictions."
+        "checked": "Independently confirmed by REV-OverconvergentAutomorphicForms--O0 (2026-10-06): declaration and surrounding hypotheses read at the exact baseline commit; its statement supplies the stated algebraic/topological input, not an analytic or adic enhancement. Revision codex-OHTDYt (2026-10-08) reread the declaration at the same exact pin; retained its stated scope. Independent review REV-OverconvergentAutomorphicForms--O0~2 (2026-10-08) confirmed the declaration and hypotheses at the exact pin, including its coefficient and convention restrictions. Independent review REV-OverconvergentAutomorphicForms--O0~3, 2026-10-09: declaration and surrounding hypotheses read at the exact recorded commit; claimed scope confirmed."
       },
       {
         "ref": "mathlib:NumberField.RingOfIntegers.rank",
         "kind": "theorem",
         "module": "Mathlib/NumberTheory/NumberField/Basic.lean",
         "provides": "The ℤ-rank of 𝓞 K is [K : ℚ].",
-        "checked": "Independently confirmed by REV-OverconvergentAutomorphicForms--O0 (2026-10-06): declaration and surrounding hypotheses read at the exact baseline commit; its statement supplies the stated algebraic/topological input, not an analytic or adic enhancement. Revision codex-OHTDYt (2026-10-08) reread the declaration at the same exact pin; retained its stated scope. Independent review REV-OverconvergentAutomorphicForms--O0~2 (2026-10-08) confirmed the declaration and hypotheses at the exact pin, including its coefficient and convention restrictions."
+        "checked": "Independently confirmed by REV-OverconvergentAutomorphicForms--O0 (2026-10-06): declaration and surrounding hypotheses read at the exact baseline commit; its statement supplies the stated algebraic/topological input, not an analytic or adic enhancement. Revision codex-OHTDYt (2026-10-08) reread the declaration at the same exact pin; retained its stated scope. Independent review REV-OverconvergentAutomorphicForms--O0~2 (2026-10-08) confirmed the declaration and hypotheses at the exact pin, including its coefficient and convention restrictions. Independent review REV-OverconvergentAutomorphicForms--O0~3, 2026-10-09: declaration and surrounding hypotheses read at the exact recorded commit; claimed scope confirmed."
       },
       {
         "ref": "mathlib:NumberField.isUnit_iff_norm",
         "kind": "theorem",
         "module": "Mathlib/NumberTheory/NumberField/Units/Basic.lean",
         "provides": "For an algebraic integer, being a unit is equivalent to absolute value of its field norm being 1; the integer norm ±1 description follows from integrality.",
-        "checked": "Independently confirmed by REV-OverconvergentAutomorphicForms--O0 (2026-10-06): declaration and surrounding hypotheses read at the exact baseline commit; its statement supplies the stated algebraic/topological input, not an analytic or adic enhancement. Revision codex-OHTDYt (2026-10-08) reread the declaration at the same exact pin; retained its stated scope. Independent review REV-OverconvergentAutomorphicForms--O0~2 (2026-10-08) confirmed the declaration and hypotheses at the exact pin, including its coefficient and convention restrictions."
+        "checked": "Independently confirmed by REV-OverconvergentAutomorphicForms--O0 (2026-10-06): declaration and surrounding hypotheses read at the exact baseline commit; its statement supplies the stated algebraic/topological input, not an analytic or adic enhancement. Revision codex-OHTDYt (2026-10-08) reread the declaration at the same exact pin; retained its stated scope. Independent review REV-OverconvergentAutomorphicForms--O0~2 (2026-10-08) confirmed the declaration and hypotheses at the exact pin, including its coefficient and convention restrictions. Independent review REV-OverconvergentAutomorphicForms--O0~3, 2026-10-09: declaration and surrounding hypotheses read at the exact recorded commit; claimed scope confirmed."
       },
       {
         "ref": "mathlib:PadicInt",
         "kind": "def",
         "module": "Mathlib/NumberTheory/Padics/PadicIntegers.lean",
         "provides": "The p-adic integers ℤ_[p].",
-        "checked": "Independently confirmed by REV-OverconvergentAutomorphicForms--O0 (2026-10-06): declaration and surrounding hypotheses read at the exact baseline commit; its statement supplies the stated algebraic/topological input, not an analytic or adic enhancement. Revision codex-OHTDYt (2026-10-08) reread the declaration at the same exact pin; retained its stated scope. Independent review REV-OverconvergentAutomorphicForms--O0~2 (2026-10-08) confirmed the declaration and hypotheses at the exact pin, including its coefficient and convention restrictions."
+        "checked": "Independently confirmed by REV-OverconvergentAutomorphicForms--O0 (2026-10-06): declaration and surrounding hypotheses read at the exact baseline commit; its statement supplies the stated algebraic/topological input, not an analytic or adic enhancement. Revision codex-OHTDYt (2026-10-08) reread the declaration at the same exact pin; retained its stated scope. Independent review REV-OverconvergentAutomorphicForms--O0~2 (2026-10-08) confirmed the declaration and hypotheses at the exact pin, including its coefficient and convention restrictions. Independent review REV-OverconvergentAutomorphicForms--O0~3, 2026-10-09: declaration and surrounding hypotheses read at the exact recorded commit; claimed scope confirmed."
       },
       {
         "ref": "mathlib:PadicInt.compactSpace",
         "kind": "instance",
         "module": "Mathlib/NumberTheory/Padics/ProperSpace.lean",
         "provides": "ℤ_[p] is compact.",
-        "checked": "Independently confirmed by REV-OverconvergentAutomorphicForms--O0 (2026-10-06): declaration and surrounding hypotheses read at the exact baseline commit; its statement supplies the stated algebraic/topological input, not an analytic or adic enhancement. Revision codex-OHTDYt (2026-10-08) reread the declaration at the same exact pin; retained its stated scope. Independent review REV-OverconvergentAutomorphicForms--O0~2 (2026-10-08) confirmed the declaration and hypotheses at the exact pin, including its coefficient and convention restrictions."
+        "checked": "Independently confirmed by REV-OverconvergentAutomorphicForms--O0 (2026-10-06): declaration and surrounding hypotheses read at the exact baseline commit; its statement supplies the stated algebraic/topological input, not an analytic or adic enhancement. Revision codex-OHTDYt (2026-10-08) reread the declaration at the same exact pin; retained its stated scope. Independent review REV-OverconvergentAutomorphicForms--O0~2 (2026-10-08) confirmed the declaration and hypotheses at the exact pin, including its coefficient and convention restrictions. Independent review REV-OverconvergentAutomorphicForms--O0~3, 2026-10-09: declaration and surrounding hypotheses read at the exact recorded commit; claimed scope confirmed."
       },
       {
         "ref": "mathlib:Rat.ringOfIntegersEquiv",
         "kind": "def",
         "module": "Mathlib/NumberTheory/NumberField/Basic.lean",
         "provides": "The ring of integers of ℚ is ℤ.",
-        "checked": "Independently confirmed by REV-OverconvergentAutomorphicForms--O0 (2026-10-06): declaration and surrounding hypotheses read at the exact baseline commit; its statement supplies the stated algebraic/topological input, not an analytic or adic enhancement. Revision codex-OHTDYt (2026-10-08) reread the declaration at the same exact pin; retained its stated scope. Independent review REV-OverconvergentAutomorphicForms--O0~2 (2026-10-08) confirmed the declaration and hypotheses at the exact pin, including its coefficient and convention restrictions."
+        "checked": "Independently confirmed by REV-OverconvergentAutomorphicForms--O0 (2026-10-06): declaration and surrounding hypotheses read at the exact baseline commit; its statement supplies the stated algebraic/topological input, not an analytic or adic enhancement. Revision codex-OHTDYt (2026-10-08) reread the declaration at the same exact pin; retained its stated scope. Independent review REV-OverconvergentAutomorphicForms--O0~2 (2026-10-08) confirmed the declaration and hypotheses at the exact pin, including its coefficient and convention restrictions. Independent review REV-OverconvergentAutomorphicForms--O0~3, 2026-10-09: declaration and surrounding hypotheses read at the exact recorded commit; claimed scope confirmed."
       },
       {
         "ref": "mathlib:Subgroup",
         "kind": "structure",
         "module": "Mathlib/Algebra/Group/Subgroup/Defs.lean",
         "provides": "Subgroups of a group.",
-        "checked": "Independently confirmed by REV-OverconvergentAutomorphicForms--O0 (2026-10-06): declaration and surrounding hypotheses read at the exact baseline commit; its statement supplies the stated algebraic/topological input, not an analytic or adic enhancement. Revision codex-OHTDYt (2026-10-08) reread the declaration at the same exact pin; retained its stated scope. Independent review REV-OverconvergentAutomorphicForms--O0~2 (2026-10-08) confirmed the declaration and hypotheses at the exact pin, including its coefficient and convention restrictions."
+        "checked": "Independently confirmed by REV-OverconvergentAutomorphicForms--O0 (2026-10-06): declaration and surrounding hypotheses read at the exact baseline commit; its statement supplies the stated algebraic/topological input, not an analytic or adic enhancement. Revision codex-OHTDYt (2026-10-08) reread the declaration at the same exact pin; retained its stated scope. Independent review REV-OverconvergentAutomorphicForms--O0~2 (2026-10-08) confirmed the declaration and hypotheses at the exact pin, including its coefficient and convention restrictions. Independent review REV-OverconvergentAutomorphicForms--O0~3, 2026-10-09: declaration and surrounding hypotheses read at the exact recorded commit; claimed scope confirmed."
       },
       {
         "ref": "mathlib:Subgroup.FiniteIndex",
         "kind": "class",
         "module": "Mathlib/GroupTheory/Index.lean",
         "provides": "Finite-index subgroups.",
-        "checked": "Independently confirmed by REV-OverconvergentAutomorphicForms--O0 (2026-10-06): declaration and surrounding hypotheses read at the exact baseline commit; its statement supplies the stated algebraic/topological input, not an analytic or adic enhancement. Revision codex-OHTDYt (2026-10-08) reread the declaration at the same exact pin; retained its stated scope. Independent review REV-OverconvergentAutomorphicForms--O0~2 (2026-10-08) confirmed the declaration and hypotheses at the exact pin, including its coefficient and convention restrictions."
+        "checked": "Independently confirmed by REV-OverconvergentAutomorphicForms--O0 (2026-10-06): declaration and surrounding hypotheses read at the exact baseline commit; its statement supplies the stated algebraic/topological input, not an analytic or adic enhancement. Revision codex-OHTDYt (2026-10-08) reread the declaration at the same exact pin; retained its stated scope. Independent review REV-OverconvergentAutomorphicForms--O0~2 (2026-10-08) confirmed the declaration and hypotheses at the exact pin, including its coefficient and convention restrictions. Independent review REV-OverconvergentAutomorphicForms--O0~3, 2026-10-09: declaration and surrounding hypotheses read at the exact recorded commit; claimed scope confirmed."
       },
       {
         "ref": "mathlib:TensorProduct",
         "kind": "def",
         "module": "Mathlib/LinearAlgebra/TensorProduct/Defs.lean",
         "provides": "The tensor product of modules over a commutative semiring.",
-        "checked": "Independently confirmed by REV-OverconvergentAutomorphicForms--O0 (2026-10-06): declaration and surrounding hypotheses read at the exact baseline commit; its statement supplies the stated algebraic/topological input, not an analytic or adic enhancement. Revision codex-OHTDYt (2026-10-08) reread the declaration at the same exact pin; retained its stated scope. Independent review REV-OverconvergentAutomorphicForms--O0~2 (2026-10-08) confirmed the declaration and hypotheses at the exact pin, including its coefficient and convention restrictions."
+        "checked": "Independently confirmed by REV-OverconvergentAutomorphicForms--O0 (2026-10-06): declaration and surrounding hypotheses read at the exact baseline commit; its statement supplies the stated algebraic/topological input, not an analytic or adic enhancement. Revision codex-OHTDYt (2026-10-08) reread the declaration at the same exact pin; retained its stated scope. Independent review REV-OverconvergentAutomorphicForms--O0~2 (2026-10-08) confirmed the declaration and hypotheses at the exact pin, including its coefficient and convention restrictions. Independent review REV-OverconvergentAutomorphicForms--O0~3, 2026-10-09: declaration and surrounding hypotheses read at the exact recorded commit; claimed scope confirmed."
       },
       {
         "ref": "mathlib:Units.map",
         "kind": "def",
         "module": "Mathlib/Algebra/Group/Units/Hom.lean",
         "provides": "The map on units induced by a monoid hom.",
-        "checked": "Independently confirmed by REV-OverconvergentAutomorphicForms--O0 (2026-10-06): declaration and surrounding hypotheses read at the exact baseline commit; its statement supplies the stated algebraic/topological input, not an analytic or adic enhancement. Revision codex-OHTDYt (2026-10-08) reread the declaration at the same exact pin; retained its stated scope. Independent review REV-OverconvergentAutomorphicForms--O0~2 (2026-10-08) confirmed the declaration and hypotheses at the exact pin, including its coefficient and convention restrictions."
+        "checked": "Independently confirmed by REV-OverconvergentAutomorphicForms--O0 (2026-10-06): declaration and surrounding hypotheses read at the exact baseline commit; its statement supplies the stated algebraic/topological input, not an analytic or adic enhancement. Revision codex-OHTDYt (2026-10-08) reread the declaration at the same exact pin; retained its stated scope. Independent review REV-OverconvergentAutomorphicForms--O0~2 (2026-10-08) confirmed the declaration and hypotheses at the exact pin, including its coefficient and convention restrictions. Independent review REV-OverconvergentAutomorphicForms--O0~3, 2026-10-09: declaration and surrounding hypotheses read at the exact recorded commit; claimed scope confirmed."
       },
       {
         "ref": "mathlib:moduleTopology",
         "kind": "abbrev",
         "module": "Mathlib/Topology/Algebra/Module/ModuleTopology.lean",
         "provides": "The module topology: the finest topology making addition and scalar multiplication continuous.",
-        "checked": "Independently confirmed by REV-OverconvergentAutomorphicForms--O0 (2026-10-06): declaration and surrounding hypotheses read at the exact baseline commit; its statement supplies the stated algebraic/topological input, not an analytic or adic enhancement. Revision codex-OHTDYt (2026-10-08) reread the declaration at the same exact pin; retained its stated scope. Independent review REV-OverconvergentAutomorphicForms--O0~2 (2026-10-08) confirmed the declaration and hypotheses at the exact pin, including its coefficient and convention restrictions."
+        "checked": "Independently confirmed by REV-OverconvergentAutomorphicForms--O0 (2026-10-06): declaration and surrounding hypotheses read at the exact baseline commit; its statement supplies the stated algebraic/topological input, not an analytic or adic enhancement. Revision codex-OHTDYt (2026-10-08) reread the declaration at the same exact pin; retained its stated scope. Independent review REV-OverconvergentAutomorphicForms--O0~2 (2026-10-08) confirmed the declaration and hypotheses at the exact pin, including its coefficient and convention restrictions. Independent review REV-OverconvergentAutomorphicForms--O0~3, 2026-10-09: declaration and surrounding hypotheses read at the exact recorded commit; claimed scope confirmed."
       },
       {
         "ref": "mathlib:Representation",
         "kind": "abbrev",
         "module": "Mathlib/RepresentationTheory/Basic.lean",
         "provides": "For a semiring k, monoid G and k-module V, a monoid hom G→*Module.End k V; continuity is extra.",
-        "checked": "Independently confirmed by REV-OverconvergentAutomorphicForms--O0 (2026-10-06): declaration and surrounding hypotheses read at the exact baseline commit; its statement supplies the stated algebraic/topological input, not an analytic or adic enhancement. Revision codex-OHTDYt (2026-10-08) reread the declaration at the same exact pin; retained its stated scope. Independent review REV-OverconvergentAutomorphicForms--O0~2 (2026-10-08) confirmed the declaration and hypotheses at the exact pin, including its coefficient and convention restrictions."
+        "checked": "Independently confirmed by REV-OverconvergentAutomorphicForms--O0 (2026-10-06): declaration and surrounding hypotheses read at the exact baseline commit; its statement supplies the stated algebraic/topological input, not an analytic or adic enhancement. Revision codex-OHTDYt (2026-10-08) reread the declaration at the same exact pin; retained its stated scope. Independent review REV-OverconvergentAutomorphicForms--O0~2 (2026-10-08) confirmed the declaration and hypotheses at the exact pin, including its coefficient and convention restrictions. Independent review REV-OverconvergentAutomorphicForms--O0~3, 2026-10-09: declaration and surrounding hypotheses read at the exact recorded commit; claimed scope confirmed."
       },
       {
         "ref": "mathlib:Representation.tprod",
         "kind": "def",
         "module": "Mathlib/RepresentationTheory/Basic.lean",
         "provides": "Tensor product action on V⊗[k]W over a commutative semiring, with the same monoid.",
-        "checked": "Independently confirmed by REV-OverconvergentAutomorphicForms--O0 (2026-10-06): declaration and surrounding hypotheses read at the exact baseline commit; its statement supplies the stated algebraic/topological input, not an analytic or adic enhancement. Revision codex-OHTDYt (2026-10-08) reread the declaration at the same exact pin; retained its stated scope. Independent review REV-OverconvergentAutomorphicForms--O0~2 (2026-10-08) confirmed the declaration and hypotheses at the exact pin, including its coefficient and convention restrictions."
+        "checked": "Independently confirmed by REV-OverconvergentAutomorphicForms--O0 (2026-10-06): declaration and surrounding hypotheses read at the exact baseline commit; its statement supplies the stated algebraic/topological input, not an analytic or adic enhancement. Revision codex-OHTDYt (2026-10-08) reread the declaration at the same exact pin; retained its stated scope. Independent review REV-OverconvergentAutomorphicForms--O0~2 (2026-10-08) confirmed the declaration and hypotheses at the exact pin, including its coefficient and convention restrictions. Independent review REV-OverconvergentAutomorphicForms--O0~3, 2026-10-09: declaration and surrounding hypotheses read at the exact recorded commit; claimed scope confirmed."
       },
       {
         "ref": "mathlib:Representation.dual",
         "kind": "def",
         "module": "Mathlib/RepresentationTheory/Basic.lean",
         "provides": "For a group G over a commutative ring, contragredient action on Module.Dual k V by precomposition with ρ(g⁻¹).",
-        "checked": "Independently confirmed by REV-OverconvergentAutomorphicForms--O0 (2026-10-06): declaration and surrounding hypotheses read at the exact baseline commit; its statement supplies the stated algebraic/topological input, not an analytic or adic enhancement. Revision codex-OHTDYt (2026-10-08) reread the declaration at the same exact pin; retained its stated scope. Independent review REV-OverconvergentAutomorphicForms--O0~2 (2026-10-08) confirmed the declaration and hypotheses at the exact pin, including its coefficient and convention restrictions."
+        "checked": "Independently confirmed by REV-OverconvergentAutomorphicForms--O0 (2026-10-06): declaration and surrounding hypotheses read at the exact baseline commit; its statement supplies the stated algebraic/topological input, not an analytic or adic enhancement. Revision codex-OHTDYt (2026-10-08) reread the declaration at the same exact pin; retained its stated scope. Independent review REV-OverconvergentAutomorphicForms--O0~2 (2026-10-08) confirmed the declaration and hypotheses at the exact pin, including its coefficient and convention restrictions. Independent review REV-OverconvergentAutomorphicForms--O0~3, 2026-10-09: declaration and surrounding hypotheses read at the exact recorded commit; claimed scope confirmed."
       },
       {
         "ref": "mathlib:Representation.invariants",
         "kind": "def",
         "module": "Mathlib/RepresentationTheory/Invariants.lean",
         "provides": "The submodule of vectors fixed by every group element.",
-        "checked": "Independently confirmed by REV-OverconvergentAutomorphicForms--O0 (2026-10-06): declaration and surrounding hypotheses read at the exact baseline commit; its statement supplies the stated algebraic/topological input, not an analytic or adic enhancement. Revision codex-OHTDYt (2026-10-08) reread the declaration at the same exact pin; retained its stated scope. Independent review REV-OverconvergentAutomorphicForms--O0~2 (2026-10-08) confirmed the declaration and hypotheses at the exact pin, including its coefficient and convention restrictions."
+        "checked": "Independently confirmed by REV-OverconvergentAutomorphicForms--O0 (2026-10-06): declaration and surrounding hypotheses read at the exact baseline commit; its statement supplies the stated algebraic/topological input, not an analytic or adic enhancement. Revision codex-OHTDYt (2026-10-08) reread the declaration at the same exact pin; retained its stated scope. Independent review REV-OverconvergentAutomorphicForms--O0~2 (2026-10-08) confirmed the declaration and hypotheses at the exact pin, including its coefficient and convention restrictions. Independent review REV-OverconvergentAutomorphicForms--O0~3, 2026-10-09: declaration and surrounding hypotheses read at the exact recorded commit; claimed scope confirmed."
       },
       {
         "ref": "mathlib:ContinuousLinearMap",
         "kind": "structure",
         "module": "Mathlib/Topology/Algebra/Module/ContinuousLinearMap/Basic.lean",
         "provides": "Continuous semilinear map of topological modules; bounded Banach operators are a specialisation.",
-        "checked": "Independently confirmed by REV-OverconvergentAutomorphicForms--O0 (2026-10-06): declaration and surrounding hypotheses read at the exact baseline commit; its statement supplies the stated algebraic/topological input, not an analytic or adic enhancement. Revision codex-OHTDYt (2026-10-08) reread the declaration at the same exact pin; retained its stated scope. Independent review REV-OverconvergentAutomorphicForms--O0~2 (2026-10-08) confirmed the declaration and hypotheses at the exact pin, including its coefficient and convention restrictions."
+        "checked": "Independently confirmed by REV-OverconvergentAutomorphicForms--O0 (2026-10-06): declaration and surrounding hypotheses read at the exact baseline commit; its statement supplies the stated algebraic/topological input, not an analytic or adic enhancement. Revision codex-OHTDYt (2026-10-08) reread the declaration at the same exact pin; retained its stated scope. Independent review REV-OverconvergentAutomorphicForms--O0~2 (2026-10-08) confirmed the declaration and hypotheses at the exact pin, including its coefficient and convention restrictions. Independent review REV-OverconvergentAutomorphicForms--O0~3, 2026-10-09: declaration and surrounding hypotheses read at the exact recorded commit; claimed scope confirmed."
       },
       {
         "ref": "mathlib:SheafOfModules",
         "kind": "structure",
         "module": "Mathlib/Algebra/Category/ModuleCat/Sheaf.lean",
         "provides": "A presheaf of modules on a site whose underlying additive presheaf is a sheaf; no adic ringed site is supplied.",
-        "checked": "Independently confirmed by REV-OverconvergentAutomorphicForms--O0 (2026-10-06): declaration and surrounding hypotheses read at the exact baseline commit; its statement supplies the stated algebraic/topological input, not an analytic or adic enhancement. Revision codex-OHTDYt (2026-10-08) reread the declaration at the same exact pin; retained its stated scope. Independent review REV-OverconvergentAutomorphicForms--O0~2 (2026-10-08) confirmed the declaration and hypotheses at the exact pin, including its coefficient and convention restrictions."
+        "checked": "Independently confirmed by REV-OverconvergentAutomorphicForms--O0 (2026-10-06): declaration and surrounding hypotheses read at the exact baseline commit; its statement supplies the stated algebraic/topological input, not an analytic or adic enhancement. Revision codex-OHTDYt (2026-10-08) reread the declaration at the same exact pin; retained its stated scope. Independent review REV-OverconvergentAutomorphicForms--O0~2 (2026-10-08) confirmed the declaration and hypotheses at the exact pin, including its coefficient and convention restrictions. Independent review REV-OverconvergentAutomorphicForms--O0~3, 2026-10-09: declaration and surrounding hypotheses read at the exact recorded commit; claimed scope confirmed."
       },
       {
         "ref": "tauceti:NumberField.NarrowClassGroup",
         "kind": "def",
         "module": "TauCeti/NumberTheory/NumberField/NarrowClassGroup/Basic.lean",
         "provides": "Invertible fractional ideals modulo principal ideals generated by totally positive elements.",
-        "checked": "Independently confirmed by REV-OverconvergentAutomorphicForms--O0 (2026-10-06): declaration and surrounding hypotheses read at the exact baseline commit; its statement supplies the stated algebraic/topological input, not an analytic or adic enhancement. Revision codex-OHTDYt (2026-10-08) reread the declaration at the same exact pin; retained its stated scope. Independent review REV-OverconvergentAutomorphicForms--O0~2 (2026-10-08) confirmed the declaration and hypotheses at the exact pin, including its coefficient and convention restrictions."
+        "checked": "Independently confirmed by REV-OverconvergentAutomorphicForms--O0 (2026-10-06): declaration and surrounding hypotheses read at the exact baseline commit; its statement supplies the stated algebraic/topological input, not an analytic or adic enhancement. Revision codex-OHTDYt (2026-10-08) reread the declaration at the same exact pin; retained its stated scope. Independent review REV-OverconvergentAutomorphicForms--O0~2 (2026-10-08) confirmed the declaration and hypotheses at the exact pin, including its coefficient and convention restrictions. Independent review REV-OverconvergentAutomorphicForms--O0~3, 2026-10-09: declaration and surrounding hypotheses read at the exact recorded commit; claimed scope confirmed."
       },
       {
         "ref": "tauceti:NumberField.NarrowClassGroup.instFinite",
         "kind": "instance",
         "module": "TauCeti/NumberTheory/NumberField/NarrowClassGroup/Finite.lean",
         "provides": "For a number field, its narrow ideal class group is finite.",
-        "checked": "Independently confirmed by REV-OverconvergentAutomorphicForms--O0 (2026-10-06): declaration and surrounding hypotheses read at the exact baseline commit; its statement supplies the stated algebraic/topological input, not an analytic or adic enhancement. Revision codex-OHTDYt (2026-10-08) reread the declaration at the same exact pin; retained its stated scope. Independent review REV-OverconvergentAutomorphicForms--O0~2 (2026-10-08) confirmed the declaration and hypotheses at the exact pin, including its coefficient and convention restrictions."
+        "checked": "Independently confirmed by REV-OverconvergentAutomorphicForms--O0 (2026-10-06): declaration and surrounding hypotheses read at the exact baseline commit; its statement supplies the stated algebraic/topological input, not an analytic or adic enhancement. Revision codex-OHTDYt (2026-10-08) reread the declaration at the same exact pin; retained its stated scope. Independent review REV-OverconvergentAutomorphicForms--O0~2 (2026-10-08) confirmed the declaration and hypotheses at the exact pin, including its coefficient and convention restrictions. Independent review REV-OverconvergentAutomorphicForms--O0~3, 2026-10-09: declaration and surrounding hypotheses read at the exact recorded commit; claimed scope confirmed."
       },
       {
         "ref": "mathlib:Module.Projective",
         "kind": "class",
         "module": "Mathlib/Algebra/Module/Projective.lean",
         "provides": "Projective modules are split summands of free modules; finite projectivity is expressed together with Module.Finite, without a free-basis assumption.",
-        "checked": "Revision codex-dTheLX, 2026-10-09: definition and surrounding hypotheses read at the exact Mathlib baseline commit; the full Mathlib-only suggested file elaboration checks the use of these carriers. No analytic geometry is supplied by this citation."
+        "checked": "Revision codex-dTheLX, 2026-10-09: definition and surrounding hypotheses read at the exact Mathlib baseline commit; the full Mathlib-only suggested file elaboration checks the use of these carriers. No analytic geometry is supplied by this citation. Independent review REV-OverconvergentAutomorphicForms--O0~3, 2026-10-09: declaration and surrounding hypotheses read at the exact recorded commit; claimed scope confirmed."
       },
       {
         "ref": "mathlib:LinearMap.baseChange",
         "kind": "def",
         "module": "Mathlib/LinearAlgebra/TensorProduct/Tower.lean",
         "provides": "For an R-linear map and an R-algebra A, its A-linear extension on A tensor M; algebraic, not a completed Banach base change.",
-        "checked": "Revision codex-dTheLX, 2026-10-09: definition and surrounding hypotheses read at the exact Mathlib baseline commit; the full Mathlib-only suggested file elaboration checks the use of these carriers. No analytic geometry is supplied by this citation."
+        "checked": "Revision codex-dTheLX, 2026-10-09: definition and surrounding hypotheses read at the exact Mathlib baseline commit; the full Mathlib-only suggested file elaboration checks the use of these carriers. No analytic geometry is supplied by this citation. Independent review REV-OverconvergentAutomorphicForms--O0~3, 2026-10-09: declaration and surrounding hypotheses read at the exact recorded commit; claimed scope confirmed."
       },
       {
         "ref": "mathlib:Valuation",
         "kind": "structure",
         "module": "Mathlib/RingTheory/Valuation/Basic.lean",
         "provides": "A multiplicative zero-preserving map satisfying the ultrametric inequality with values in a linearly ordered commutative monoid with zero. No real-valued restriction.",
-        "checked": "Revision codex-dTheLX, 2026-10-09: definition and surrounding hypotheses read at the exact Mathlib baseline commit; the full Mathlib-only suggested file elaboration checks the use of these carriers. No analytic geometry is supplied by this citation."
+        "checked": "Revision codex-dTheLX, 2026-10-09: definition and surrounding hypotheses read at the exact Mathlib baseline commit; the full Mathlib-only suggested file elaboration checks the use of these carriers. No analytic geometry is supplied by this citation. Independent review REV-OverconvergentAutomorphicForms--O0~3, 2026-10-09: declaration and surrounding hypotheses read at the exact recorded commit; claimed scope confirmed."
       },
       {
         "ref": "mathlib:Valuation.integer",
         "kind": "def",
         "module": "Mathlib/RingTheory/Valuation/Integers.lean",
         "provides": "For a ring and a linearly ordered commutative group with zero, the subring of elements whose valuation is at most one.",
-        "checked": "Revision codex-dTheLX, 2026-10-09: definition and surrounding hypotheses read at the exact Mathlib baseline commit; the full Mathlib-only suggested file elaboration checks the use of these carriers. No analytic geometry is supplied by this citation."
+        "checked": "Revision codex-dTheLX, 2026-10-09: definition and surrounding hypotheses read at the exact Mathlib baseline commit; the full Mathlib-only suggested file elaboration checks the use of these carriers. No analytic geometry is supplied by this citation. Independent review REV-OverconvergentAutomorphicForms--O0~3, 2026-10-09: declaration and surrounding hypotheses read at the exact recorded commit; claimed scope confirmed."
       },
       {
         "ref": "mathlib:DirectLimit",
         "kind": "abbrev",
         "module": "Mathlib/Order/DirectedInverseSystem.lean",
         "provides": "The quotient of a directed disjoint union by eventual equality. Ring structure for ring-hom transition maps is provided by Mathlib/Algebra/Colimit/DirectLimit.lean.",
-        "checked": "Revision codex-dTheLX, 2026-10-09: definition and surrounding hypotheses read at the exact Mathlib baseline commit; the full Mathlib-only suggested file elaboration checks the use of these carriers. No analytic geometry is supplied by this citation."
+        "checked": "Revision codex-dTheLX, 2026-10-09: definition and surrounding hypotheses read at the exact Mathlib baseline commit; the full Mathlib-only suggested file elaboration checks the use of these carriers. No analytic geometry is supplied by this citation. Independent review REV-OverconvergentAutomorphicForms--O0~3, 2026-10-09: declaration and surrounding hypotheses read at the exact recorded commit; claimed scope confirmed."
       },
       {
         "ref": "mathlib:DirectLimit.Ring.of",
         "kind": "def",
         "module": "Mathlib/Algebra/Colimit/DirectLimit.lean",
         "provides": "The canonical ring map from a component of a directed ring system into its direct limit.",
-        "checked": "Revision codex-dTheLX, 2026-10-09: definition and surrounding hypotheses read at the exact Mathlib baseline commit; the full Mathlib-only suggested file elaboration checks the use of these carriers. No analytic geometry is supplied by this citation."
+        "checked": "Revision codex-dTheLX, 2026-10-09: definition and surrounding hypotheses read at the exact Mathlib baseline commit; the full Mathlib-only suggested file elaboration checks the use of these carriers. No analytic geometry is supplied by this citation. Independent review REV-OverconvergentAutomorphicForms--O0~3, 2026-10-09: declaration and surrounding hypotheses read at the exact recorded commit; claimed scope confirmed."
       },
       {
         "ref": "mathlib:DirectLimit.Ring.lift",
         "kind": "def",
         "module": "Mathlib/Algebra/Colimit/DirectLimit.lean",
         "provides": "Compatible component ring maps induce a ring map out of the directed limit; used for precision reduction after the level colimit.",
-        "checked": "Revision codex-dTheLX, 2026-10-09: definition and surrounding hypotheses read at the exact Mathlib baseline commit; the full Mathlib-only suggested file elaboration checks the use of these carriers. No analytic geometry is supplied by this citation."
+        "checked": "Revision codex-dTheLX, 2026-10-09: definition and surrounding hypotheses read at the exact Mathlib baseline commit; the full Mathlib-only suggested file elaboration checks the use of these carriers. No analytic geometry is supplied by this citation. Independent review REV-OverconvergentAutomorphicForms--O0~3, 2026-10-09: declaration and surrounding hypotheses read at the exact recorded commit; claimed scope confirmed."
       },
       {
         "ref": "mathlib:Ideal.Quotient.lift",
         "kind": "def",
         "module": "Mathlib/RingTheory/Ideal/Quotient/Defs.lean",
         "provides": "A ring map killing an ideal descends to its quotient; supplies finite-level reduction pullbacks.",
-        "checked": "Revision codex-dTheLX, 2026-10-09: definition and surrounding hypotheses read at the exact Mathlib baseline commit; the full Mathlib-only suggested file elaboration checks the use of these carriers. No analytic geometry is supplied by this citation."
+        "checked": "Revision codex-dTheLX, 2026-10-09: definition and surrounding hypotheses read at the exact Mathlib baseline commit; the full Mathlib-only suggested file elaboration checks the use of these carriers. No analytic geometry is supplied by this citation. Independent review REV-OverconvergentAutomorphicForms--O0~3, 2026-10-09: declaration and surrounding hypotheses read at the exact recorded commit; claimed scope confirmed."
       },
       {
         "ref": "mathlib:Ideal.Quotient.factor",
         "kind": "def",
         "module": "Mathlib/RingTheory/Ideal/Quotient/Defs.lean",
         "provides": "An inclusion of ideals induces a ring map from the smaller-ideal quotient to the larger-ideal quotient; supplies decreasing p-adic precision.",
-        "checked": "Revision codex-dTheLX, 2026-10-09: definition and surrounding hypotheses read at the exact Mathlib baseline commit; the full Mathlib-only suggested file elaboration checks the use of these carriers. No analytic geometry is supplied by this citation."
+        "checked": "Revision codex-dTheLX, 2026-10-09: definition and surrounding hypotheses read at the exact Mathlib baseline commit; the full Mathlib-only suggested file elaboration checks the use of these carriers. No analytic geometry is supplied by this citation. Independent review REV-OverconvergentAutomorphicForms--O0~3, 2026-10-09: declaration and surrounding hypotheses read at the exact recorded commit; claimed scope confirmed."
       },
       {
         "ref": "mathlib:AdicCompletion",
         "kind": "def",
         "module": "Mathlib/RingTheory/AdicCompletion/Basic.lean",
         "provides": "Compatible inverse-limit families in module quotients by ideal powers. Mathlib/RingTheory/AdicCompletion/Algebra.lean supplies the componentwise commutative ring structure for completion of the ring.",
-        "checked": "Revision codex-dTheLX, 2026-10-09: definition and surrounding hypotheses read at the exact Mathlib baseline commit; the full Mathlib-only suggested file elaboration checks the use of these carriers. No analytic geometry is supplied by this citation."
+        "checked": "Revision codex-dTheLX, 2026-10-09: definition and surrounding hypotheses read at the exact Mathlib baseline commit; the full Mathlib-only suggested file elaboration checks the use of these carriers. No analytic geometry is supplied by this citation. Independent review REV-OverconvergentAutomorphicForms--O0~3, 2026-10-09: declaration and surrounding hypotheses read at the exact recorded commit; claimed scope confirmed."
       }
     ]
   },
@@ -376,6 +376,12 @@
         "date": "2026-10-09",
         "worker": "Codex — codex-dTheLX",
         "sections": "Definition6.5 and proof of Proposition6.6, printed p1758: actual integral equalizers and the ordinary formal Igusa input."
+      },
+      "independentReviewRead": {
+        "date": "2026-10-09",
+        "reviewer": "REV-OverconvergentAutomorphicForms--O0~3",
+        "sha256": "d59b7f701eb5258c351d959be08d49f17946245ed1e5779317d2371981c2c5c4",
+        "sections": "All node locators in §§6–7 and §§9–10, printed pp1756–1765 and 1780–1792; Definition4.5 pp1736–1737, Definitions5.14/5.17 and Proposition5.18 pp1749–1751, Lemmas5.29–5.31 p1755, and Definition8.8 p1768. Arithmetic, frame, radius and normalization conventions checked directly."
       }
     },
     {
@@ -392,6 +398,12 @@
       "revisionRead": {
         "date": "2026-10-08",
         "sections": "The corresponding weight, canonical-subgroup and AIP comparison passages in §§6–7; fingerprint matches the previously reviewed version."
+      },
+      "independentReviewRead": {
+        "date": "2026-10-09",
+        "reviewer": "REV-OverconvergentAutomorphicForms--O0~3",
+        "sha256": "8ee48970dc500f60a6409cca0e6d9feeb693071da00a8b37174776717b708dac",
+        "sections": "Corresponding §6–7 source-issue formulas and Theorem7.14, PDF pp27–31; compared against the version of record."
       }
     },
     {
@@ -413,6 +425,12 @@
         "date": "2026-10-09",
         "worker": "Codex — codex-dTheLX",
         "sections": "Lemma4.4 and Propositions4.3/4.7, pp16–18; full finite-character factor in section6.4, p29."
+      },
+      "independentReviewRead": {
+        "date": "2026-10-09",
+        "reviewer": "REV-OverconvergentAutomorphicForms--O0~3",
+        "sha256": "34f517fd8d02d778f16f19745f4303b3955d48646d0ce6665b88a10f6fcdebbd",
+        "sections": "Lemma2.4 and Proposition2.8 pp7–10; Proposition4.1, Propositions4.3–4.7 and Lemma4.4 pp15–18; §6.4 p29, §7.1 p30, Proposition8.4 and §§8.4–8.5 pp36–39."
       }
     },
     {
@@ -429,6 +447,12 @@
       "revisionRead": {
         "date": "2026-10-08",
         "sections": "§§3.3–3.5 pp14–18, especially Proposition3.13, Corollary3.14 and Remark3.15; Lemma3.25 p22, Lemma3.27 p24 and the global-Hasse cofinality qualification in Proposition3.22."
+      },
+      "independentReviewRead": {
+        "date": "2026-10-09",
+        "reviewer": "REV-OverconvergentAutomorphicForms--O0~3",
+        "sha256": "1f42b2c19b9542e937b6d02c244f71c7a1ef1d15840b8fab209950227269c406",
+        "sections": "Definitions/constructions and all cited results in §§3–4, pp14–24 and 26–28; Appendix Lemma6.3 and Proposition6.4 pp32–33, used to assess the explicit cusp-cohomology request."
       }
     },
     {
@@ -450,6 +474,12 @@
         "date": "2026-10-09",
         "worker": "Codex — codex-dTheLX",
         "sections": "Section6.2, pp147–153, especially analytic induction in 6.2.3–6.2.4 and the distinction between continuous dual and projective distributions in 6.2.20."
+      },
+      "independentReviewRead": {
+        "date": "2026-10-09",
+        "reviewer": "REV-OverconvergentAutomorphicForms--O0~3",
+        "sha256": "d340c9a020cc5fdbca781a8630b6fae35e14607142bed700d6ab82334faa80ae",
+        "sections": "§6.2 induction, analytic charts, duals and finite character conditions, pp147–153; §6.3 algebraic/analytic comparison and twists, pp153–155."
       }
     },
     {
@@ -466,6 +496,12 @@
       "revisionRead": {
         "date": "2026-10-08",
         "sections": "§4.2.2 pp66–67, including coefficient completion and Proposition4.14 with s≥1."
+      },
+      "independentReviewRead": {
+        "date": "2026-10-09",
+        "reviewer": "REV-OverconvergentAutomorphicForms--O0~3",
+        "sha256": "741a49c0677a77b22c9759a016e215882b70dc760eb9e41fd2fe45cc633d05ba",
+        "sections": "§4.3 and Proposition4.14, pp66–67: exact global unitary coefficient setup, limit order, local torus, dimension/depth and reducedness arguments."
       }
     },
     {
@@ -487,6 +523,12 @@
         "date": "2026-10-09",
         "worker": "Codex — codex-dTheLX",
         "sections": "Definition3.7 and Proposition3.8 with proof, pp16–17: affine ordered completion and natural map to analytic O+, with formal-unit cocycle effectivity."
+      },
+      "independentReviewRead": {
+        "date": "2026-10-09",
+        "reviewer": "REV-OverconvergentAutomorphicForms--O0~3",
+        "sha256": "1a435945b817b8081b34e490b39b43c707676d4142cb83b77493b112908cdadf",
+        "sections": "Corollary1.4 p3; Definition3.7 and Proposition3.8 with proof pp16–17: line-only analytic effectivity, formal unit cocycles and the natural completion map."
       }
     }
   ],
@@ -498,10 +540,17 @@
       "read": "2026-10-06",
       "sha256": "d59b7f701eb5258c351d959be08d49f17946245ed1e5779317d2371981c2c5c4",
       "independentReviewRead": {
-        "date": "2026-10-08",
-        "reviewer": "REV-OverconvergentAutomorphicForms--O0~2",
+        "date": "2026-10-09",
+        "reviewer": "REV-OverconvergentAutomorphicForms--O0~3",
         "sha256": "d59b7f701eb5258c351d959be08d49f17946245ed1e5779317d2371981c2c5c4"
-      }
+      },
+      "independentReviewHistory": [
+        {
+          "date": "2026-10-08",
+          "reviewer": "REV-OverconvergentAutomorphicForms--O0~2",
+          "sha256": "d59b7f701eb5258c351d959be08d49f17946245ed1e5779317d2371981c2c5c4"
+        }
+      ]
     },
     {
       "kind": "preprint",
@@ -510,10 +559,17 @@
       "read": "2026-10-06",
       "sha256": "8ee48970dc500f60a6409cca0e6d9feeb693071da00a8b37174776717b708dac",
       "independentReviewRead": {
-        "date": "2026-10-08",
-        "reviewer": "REV-OverconvergentAutomorphicForms--O0~2",
+        "date": "2026-10-09",
+        "reviewer": "REV-OverconvergentAutomorphicForms--O0~3",
         "sha256": "8ee48970dc500f60a6409cca0e6d9feeb693071da00a8b37174776717b708dac"
-      }
+      },
+      "independentReviewHistory": [
+        {
+          "date": "2026-10-08",
+          "reviewer": "REV-OverconvergentAutomorphicForms--O0~2",
+          "sha256": "8ee48970dc500f60a6409cca0e6d9feeb693071da00a8b37174776717b708dac"
+        }
+      ]
     },
     {
       "kind": "published",
@@ -522,10 +578,17 @@
       "read": "2026-10-06",
       "sha256": "34f517fd8d02d778f16f19745f4303b3955d48646d0ce6665b88a10f6fcdebbd",
       "independentReviewRead": {
-        "date": "2026-10-08",
-        "reviewer": "REV-OverconvergentAutomorphicForms--O0~2",
+        "date": "2026-10-09",
+        "reviewer": "REV-OverconvergentAutomorphicForms--O0~3",
         "sha256": "34f517fd8d02d778f16f19745f4303b3955d48646d0ce6665b88a10f6fcdebbd"
-      }
+      },
+      "independentReviewHistory": [
+        {
+          "date": "2026-10-08",
+          "reviewer": "REV-OverconvergentAutomorphicForms--O0~2",
+          "sha256": "34f517fd8d02d778f16f19745f4303b3955d48646d0ce6665b88a10f6fcdebbd"
+        }
+      ]
     },
     {
       "kind": "published",
@@ -534,10 +597,17 @@
       "read": "2026-10-06",
       "sha256": "1f42b2c19b9542e937b6d02c244f71c7a1ef1d15840b8fab209950227269c406",
       "independentReviewRead": {
-        "date": "2026-10-08",
-        "reviewer": "REV-OverconvergentAutomorphicForms--O0~2",
+        "date": "2026-10-09",
+        "reviewer": "REV-OverconvergentAutomorphicForms--O0~3",
         "sha256": "1f42b2c19b9542e937b6d02c244f71c7a1ef1d15840b8fab209950227269c406"
-      }
+      },
+      "independentReviewHistory": [
+        {
+          "date": "2026-10-08",
+          "reviewer": "REV-OverconvergentAutomorphicForms--O0~2",
+          "sha256": "1f42b2c19b9542e937b6d02c244f71c7a1ef1d15840b8fab209950227269c406"
+        }
+      ]
     },
     {
       "kind": "published",
@@ -546,10 +616,17 @@
       "read": "2026-10-06",
       "sha256": "d340c9a020cc5fdbca781a8630b6fae35e14607142bed700d6ab82334faa80ae",
       "independentReviewRead": {
-        "date": "2026-10-08",
-        "reviewer": "REV-OverconvergentAutomorphicForms--O0~2",
+        "date": "2026-10-09",
+        "reviewer": "REV-OverconvergentAutomorphicForms--O0~3",
         "sha256": "d340c9a020cc5fdbca781a8630b6fae35e14607142bed700d6ab82334faa80ae"
-      }
+      },
+      "independentReviewHistory": [
+        {
+          "date": "2026-10-08",
+          "reviewer": "REV-OverconvergentAutomorphicForms--O0~2",
+          "sha256": "d340c9a020cc5fdbca781a8630b6fae35e14607142bed700d6ab82334faa80ae"
+        }
+      ]
     },
     {
       "kind": "published",
@@ -558,10 +635,17 @@
       "read": "2026-10-06",
       "sha256": "741a49c0677a77b22c9759a016e215882b70dc760eb9e41fd2fe45cc633d05ba",
       "independentReviewRead": {
-        "date": "2026-10-08",
-        "reviewer": "REV-OverconvergentAutomorphicForms--O0~2",
+        "date": "2026-10-09",
+        "reviewer": "REV-OverconvergentAutomorphicForms--O0~3",
         "sha256": "741a49c0677a77b22c9759a016e215882b70dc760eb9e41fd2fe45cc633d05ba"
-      }
+      },
+      "independentReviewHistory": [
+        {
+          "date": "2026-10-08",
+          "reviewer": "REV-OverconvergentAutomorphicForms--O0~2",
+          "sha256": "741a49c0677a77b22c9759a016e215882b70dc760eb9e41fd2fe45cc633d05ba"
+        }
+      ]
     },
     {
       "kind": "published",
@@ -570,10 +654,17 @@
       "read": "2026-10-06",
       "sha256": "1a435945b817b8081b34e490b39b43c707676d4142cb83b77493b112908cdadf",
       "independentReviewRead": {
-        "date": "2026-10-08",
-        "reviewer": "REV-OverconvergentAutomorphicForms--O0~2",
+        "date": "2026-10-09",
+        "reviewer": "REV-OverconvergentAutomorphicForms--O0~3",
         "sha256": "1a435945b817b8081b34e490b39b43c707676d4142cb83b77493b112908cdadf"
-      }
+      },
+      "independentReviewHistory": [
+        {
+          "date": "2026-10-08",
+          "reviewer": "REV-OverconvergentAutomorphicForms--O0~2",
+          "sha256": "1a435945b817b8081b34e490b39b43c707676d4142cb83b77493b112908cdadf"
+        }
+      ]
     }
   ],
   "nodes": [
@@ -6130,19 +6221,26 @@
         "Centre Mersenne DOI10.5802/aif.3560 article page and author publication pages, checked 2026-10-06: no erratum located.",
         "arXiv:1902.03985v4 compared with the published PDF: the relevant printed formulas agree.",
         "Web searches for Birkbeck–Heuer–Williams Hilbert forms erratum/correction, 2026-10-06: no correction found. No authors contacted.",
-        "Independent web search on 2026-10-08 for the paper title and erratum/correction found no erratum in the returned results; the published PDF and arXiv v4 retain the relevant formulas. This search does not establish absence of an erratum."
+        "Independent web search on 2026-10-08 for the paper title and erratum/correction found no erratum in the returned results; the published PDF and arXiv v4 retain the relevant formulas. This search does not establish absence of an erratum.",
+        "Independent review 2026-10-09: publisher article page and title searches with erratum/correction returned no erratum. This does not establish its absence; no author was contacted."
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Confirmed against Definition 6.1, the subsequent displayed formula, and (9.1) in the version of record and arXiv v4: the stated dual map needs N(x)⁻¹ to give w²(t⁻¹∘N).",
-        "by": "REV-OverconvergentAutomorphicForms--O0~2",
-        "date": "2026-10-08"
+        "reason": "Definition6.1 p1756 and the displayed character formula require opposite signs in the norm coordinate. Character precomposition with N rather than N inverse gives t(N), contradicting the specified t inverse factor unless it is 2-torsion. The preprint retains this discrepancy.",
+        "by": "REV-OverconvergentAutomorphicForms--O0~3",
+        "date": "2026-10-09"
       },
       "reviewHistory": [
         {
           "verdict": "confirmed",
           "reason": "Confirmed against Definition 6.1, the subsequent displayed formula, and (9.1) in the version of record and arXiv v4: the stated dual map needs N(x)⁻¹ to give w²(t⁻¹∘N).",
           "by": "REV-OverconvergentAutomorphicForms--O0"
+        },
+        {
+          "verdict": "confirmed",
+          "reason": "Confirmed against Definition 6.1, the subsequent displayed formula, and (9.1) in the version of record and arXiv v4: the stated dual map needs N(x)⁻¹ to give w²(t⁻¹∘N).",
+          "by": "REV-OverconvergentAutomorphicForms--O0~2",
+          "date": "2026-10-08"
         }
       ]
     },
@@ -6160,19 +6258,26 @@
         "Centre Mersenne DOI10.5802/aif.3560 article page and author publication pages, checked 2026-10-06: no erratum located.",
         "arXiv:1902.03985v4 compared with the published PDF: the relevant printed formulas agree.",
         "Web searches for Birkbeck–Heuer–Williams Hilbert forms erratum/correction, 2026-10-06: no correction found. No authors contacted.",
-        "Independent web search on 2026-10-08 for the paper title and erratum/correction found no erratum in the returned results; the published PDF and arXiv v4 retain the relevant formulas. This search does not establish absence of an erratum."
+        "Independent web search on 2026-10-08 for the paper title and erratum/correction found no erratum in the returned results; the published PDF and arXiv v4 retain the relevant formulas. This search does not establish absence of an erratum.",
+        "Independent review 2026-10-09: publisher article page and title searches with erratum/correction returned no erratum. This does not establish its absence; no author was contacted."
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Confirmed: for p>2 the nontrivial Teichmuller character has affinoid-point image but supremum 1 on all units, whereas it is trivial on principal units. The positive-radius numerical conclusion therefore cannot use the printed all-unit diagnostic.",
-        "by": "REV-OverconvergentAutomorphicForms--O0~2",
-        "date": "2026-10-08"
+        "reason": "The all-unit supremum in p1757 and the related parameters in pp1737/1761 equal one for a nontrivial Teichmuller character, although its image is a weight-space point. Restriction to principal units removes that example but does not identify all AIP coordinates or fix E3.",
+        "by": "REV-OverconvergentAutomorphicForms--O0~3",
+        "date": "2026-10-09"
       },
       "reviewHistory": [
         {
           "verdict": "confirmed",
           "reason": "Confirmed: for p>2 the nontrivial Teichmuller character has affinoid-point image but supremum 1 on all units, whereas it is trivial on principal units. The positive-radius numerical conclusion therefore cannot use the printed all-unit diagnostic.",
           "by": "REV-OverconvergentAutomorphicForms--O0"
+        },
+        {
+          "verdict": "confirmed",
+          "reason": "Confirmed: for p>2 the nontrivial Teichmuller character has affinoid-point image but supremum 1 on all units, whereas it is trivial on principal units. The positive-radius numerical conclusion therefore cannot use the printed all-unit diagnostic.",
+          "by": "REV-OverconvergentAutomorphicForms--O0~2",
+          "date": "2026-10-08"
         }
       ]
     },
@@ -6190,19 +6295,26 @@
         "Centre Mersenne DOI10.5802/aif.3560 article page and author publication pages, checked 2026-10-06: no erratum located.",
         "arXiv:1902.03985v4 compared with the published PDF: the relevant printed formulas agree.",
         "Web searches for Birkbeck–Heuer–Williams Hilbert forms erratum/correction, 2026-10-06: no correction found. No authors contacted.",
-        "Independent web search on 2026-10-08 for the paper title and erratum/correction found no erratum in the returned results; the published PDF and arXiv v4 retain the relevant formulas. This search does not establish absence of an erratum."
+        "Independent web search on 2026-10-08 for the paper title and erratum/correction found no erratum in the returned results; the published PDF and arXiv v4 retain the relevant formulas. This search does not establish absence of an erratum.",
+        "Independent review 2026-10-09: publisher article page and title searches with erratum/correction returned no erratum. This does not establish its absence; no author was contacted."
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Confirmed on the PDF page: the radius is the product |p|^r0|Tκ|, not an exponent involving Tκ. At p=3 the finite character κ(4)=ζ9 forces value ζ3 at64 while an accumulating sequence of kernel elements in the claimed ball forces any analytic extension to be constant there.",
-        "by": "REV-OverconvergentAutomorphicForms--O0~2",
-        "date": "2026-10-08"
+        "reason": "Proposition6.3 p1757 prints the product radius. At p=3, the character on 1+3Z_3 with κ(4)=ζ_9 gives r=3^(-7/6); the ball at one contains 64, where κ is nontrivial, and infinitely many kernel points converging to one. The analytic identity theorem contradicts extension on that ball. The existential radius remains valid.",
+        "by": "REV-OverconvergentAutomorphicForms--O0~3",
+        "date": "2026-10-09"
       },
       "reviewHistory": [
         {
           "verdict": "confirmed",
           "reason": "Confirmed on the PDF page: the radius is the product |p|^r0|Tκ|, not an exponent involving Tκ. At p=3 the finite character κ(4)=ζ9 forces value ζ3 at64 while an accumulating sequence of kernel elements in the claimed ball forces any analytic extension to be constant there.",
           "by": "REV-OverconvergentAutomorphicForms--O0"
+        },
+        {
+          "verdict": "confirmed",
+          "reason": "Confirmed on the PDF page: the radius is the product |p|^r0|Tκ|, not an exponent involving Tκ. At p=3 the finite character κ(4)=ζ9 forces value ζ3 at64 while an accumulating sequence of kernel elements in the claimed ball forces any analytic extension to be constant there.",
+          "by": "REV-OverconvergentAutomorphicForms--O0~2",
+          "date": "2026-10-08"
         }
       ]
     },
@@ -6220,19 +6332,26 @@
         "Centre Mersenne DOI10.5802/aif.3560 article page and author publication pages, checked 2026-10-06: no erratum located.",
         "arXiv:1902.03985v4 compared with the published PDF: the relevant printed formulas agree.",
         "Web searches for Birkbeck–Heuer–Williams Hilbert forms erratum/correction, 2026-10-06: no correction found. No authors contacted.",
-        "Independent web search on 2026-10-08 for the paper title and erratum/correction found no erratum in the returned results; the published PDF and arXiv v4 retain the relevant formulas. This search does not establish absence of an erratum."
+        "Independent web search on 2026-10-08 for the paper title and erratum/correction found no erratum in the returned results; the published PDF and arXiv v4 retain the relevant formulas. This search does not establish absence of an erratum.",
+        "Independent review 2026-10-09: publisher article page and title searches with erratum/correction returned no erratum. This does not establish its absence; no author was contacted."
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Confirmed: the displayed local O_F/p^m module has p^(mg) elements, g=[F:Q], including ramified p. The printed p^m order omits g.",
-        "by": "REV-OverconvergentAutomorphicForms--O0~2",
-        "date": "2026-10-08"
+        "reason": "Definition7.1 p1759 gives the local O_F/p^mO_F module, whose rank as a finite group is p^(m[F:Q]); the order p^m omits the field degree. This is independent of ramification.",
+        "by": "REV-OverconvergentAutomorphicForms--O0~3",
+        "date": "2026-10-09"
       },
       "reviewHistory": [
         {
           "verdict": "confirmed",
           "reason": "Confirmed: the displayed local O_F/p^m module has p^(mg) elements, g=[F:Q], including ramified p. The printed p^m order omits g.",
           "by": "REV-OverconvergentAutomorphicForms--O0"
+        },
+        {
+          "verdict": "confirmed",
+          "reason": "Confirmed: the displayed local O_F/p^m module has p^(mg) elements, g=[F:Q], including ramified p. The printed p^m order omits g.",
+          "by": "REV-OverconvergentAutomorphicForms--O0~2",
+          "date": "2026-10-08"
         }
       ]
     },
@@ -6250,19 +6369,26 @@
         "Centre Mersenne DOI10.5802/aif.3560 article page and author publication pages, checked 2026-10-06: no erratum located.",
         "arXiv:1902.03985v4 compared with the published PDF: the relevant printed formulas agree.",
         "Web searches for Birkbeck–Heuer–Williams Hilbert forms erratum/correction, 2026-10-06: no correction found. No authors contacted.",
-        "Independent web search on 2026-10-08 for the paper title and erratum/correction found no erratum in the returned results; the published PDF and arXiv v4 retain the relevant formulas. This search does not establish absence of an erratum."
+        "Independent web search on 2026-10-08 for the paper title and erratum/correction found no erratum in the returned results; the published PDF and arXiv v4 retain the relevant formulas. This search does not establish absence of an erratum.",
+        "Independent review 2026-10-09: publisher article page and title searches with erratum/correction returned no erratum. This does not establish its absence; no author was contacted."
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Confirmed against the bibliography and both AIP author PDFs: Theorem 3.16 is in AIP CUSP, reference[3], not ADIC[2]. The arithmetic fixed-radius statement uses Theorem 4.4 and the cofinal affinoid refinement.",
-        "by": "REV-OverconvergentAutomorphicForms--O0~2",
-        "date": "2026-10-08"
+        "reason": "Remark6.9 p1759 sends Theorem3.16 to the ADIC reference, which has no such theorem. The CUSP author PDF has it on p18; the arithmetic fixed-radius form is Theorem4.4 p28 with its stated weight-affinoid conditions.",
+        "by": "REV-OverconvergentAutomorphicForms--O0~3",
+        "date": "2026-10-09"
       },
       "reviewHistory": [
         {
           "verdict": "confirmed",
           "reason": "Confirmed against the bibliography and both AIP author PDFs: Theorem 3.16 is in AIP CUSP, reference[3], not ADIC[2]. The arithmetic fixed-radius statement uses Theorem 4.4 and the cofinal affinoid refinement.",
           "by": "REV-OverconvergentAutomorphicForms--O0"
+        },
+        {
+          "verdict": "confirmed",
+          "reason": "Confirmed against the bibliography and both AIP author PDFs: Theorem 3.16 is in AIP CUSP, reference[3], not ADIC[2]. The arithmetic fixed-radius statement uses Theorem 4.4 and the cofinal affinoid refinement.",
+          "by": "REV-OverconvergentAutomorphicForms--O0~2",
+          "date": "2026-10-08"
         }
       ]
     },
@@ -6278,14 +6404,23 @@
       "known": "new",
       "searched": [
         "The published PDF and arXiv v4 retain the same displayed direction; checked independently on 2026-10-08.",
-        "The dated title/erratum/correction web searches on 2026-10-08 found no correction in the returned results; absence is not established and no author was contacted."
+        "The dated title/erratum/correction web searches on 2026-10-08 found no correction in the returned results; absence is not established and no author was contacted.",
+        "Independent review 2026-10-09: publisher article page and title searches with erratum/correction returned no erratum. This does not establish its absence; no author was contacted."
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "The actual frame map and the first step of the proof determine AIP-to-perfectoid pullback. The displayed opposite arrow may denote the inverse isomorphism, but is mislabelled as that pullback.",
-        "by": "REV-OverconvergentAutomorphicForms--O0~2",
-        "date": "2026-10-08"
-      }
+        "reason": "Theorem7.14 p1764 displays the reverse of the pullback induced by a frame from the perfectoid cover to the AIP torsor. Its proof first constructs the AIP-to-perfectoid map, also in arXiv v4 p31. The opposite isomorphism exists as its inverse; only the pullback label/direction is at issue.",
+        "by": "REV-OverconvergentAutomorphicForms--O0~3",
+        "date": "2026-10-09"
+      },
+      "reviewHistory": [
+        {
+          "verdict": "confirmed",
+          "reason": "The actual frame map and the first step of the proof determine AIP-to-perfectoid pullback. The displayed opposite arrow may denote the inverse isomorphism, but is mislabelled as that pullback.",
+          "by": "REV-OverconvergentAutomorphicForms--O0~2",
+          "date": "2026-10-08"
+        }
+      ]
     }
   ],
   "restructure": [
@@ -6340,379 +6475,379 @@
   ],
   "review": {
     "status": "needs_changes",
-    "reviewer": "independent-review-REV-OverconvergentAutomorphicForms--O0~2",
-    "date": "2026-10-08",
-    "notes": "Completed independent review of all 73 input nodes and the added valuation-unit lemma, all source locators, 38 baseline declarations, named supplier statements, closure, API, tests, planets, reader alignment and earlier corrections. Corrected 13 original nodes in place and added one lemma. The conditional O5 valuative equalizer argument and O7 norm-completion argument are mathematically sound under their exact recorded contracts; missing supplier existence is not treated as a contradiction. The remaining acceptance failure is §13: 152 of 199 distinct node/API names have no typed declaration, and 36 examples do not implement the 109 test contracts. All five input sourceIssues are independently confirmed; added and confirmed E6 for the reversed displayed frame-pullback arrow in Theorem7.14. The typed prefix elaborates with 83 placeholder-proof warnings and no errors. Review verdicts distinguish these missing prototypes from the mathematical assessments; see the report for the exhaustive register.",
+    "reviewer": "independent-review-REV-OverconvergentAutomorphicForms--O0~3",
+    "date": "2026-10-09",
+    "notes": "Completed independent review of revision round 3: all 74 nodes and source locators, all 48 exact pinned baseline statements, named supplier statements, 13 requests, 13 gaps, coverage, API/tests, 32 planets and reader/register alignment. The round-2 mathematical corrections are retained; no mathematical node correction or addition was necessary. The new finite coefficient and affine completion cores are honest prerequisites, and the new valuation signature handles arbitrary ordered value groups, but actual analytic admission remains a separate obligation. PROTOCOL §13 still fails: 151 of 199 required node/API names are absent from typed declarations; 89 named declarations and 54 examples do not cover the 115 test contracts. The full Mathlib-only file elaborated with 115 placeholder-proof warnings and no other warnings or errors. All six sourceIssues independently confirmed. Verdicts distinguish conditional mathematical support from full prototype omissions; the review itself is complete, while the input packet remains an honest partial revision with eight planned and zero closed stages.",
     "checked": [
       {
         "nodeId": "OverconvergentAutomorphicForms:O0/units-at-p",
         "verdict": "verified",
-        "note": "Finite-free left tensor algebra with the module topology; compactness uses the finite basis and the unit determinant locus, without a splitting assumption on p."
+        "note": "Finite free tensor with scalars on the left; the module-topology basis argument gives compactness and the correct rank without a splitting assumption."
       },
       {
         "nodeId": "OverconvergentAutomorphicForms:O0/norm-at-p",
         "verdict": "verified",
-        "note": "The determinant norm is continuous in a finite basis and commutes with scalar extension; the cited norm is an algebraic input before restricting to units."
+        "note": "The finite-free determinant norm and its base-change identity give the continuous units homomorphism, including the global-unit formula."
       },
       {
         "nodeId": "OverconvergentAutomorphicForms:O0/principal-units",
         "verdict": "verified",
-        "note": "The ideal p^r defines the principal-unit subgroup, including r=0; congruence quotients establish finite index and the pro-p assertion."
+        "note": "Congruence subgroups are open of finite index; the successive additive p-power quotients justify the pro-p assertion for positive depth."
       },
       {
         "nodeId": "OverconvergentAutomorphicForms:O0/geometric-weight-characters",
         "verdict": "verified",
-        "note": "Continuous unit characters have the stated topology and multiplication; the discrete-codomain counterexample makes continuity a substantive condition."
+        "note": "The point functor uses ContinuousMonoidHom with the units topology; rigid representability remains explicitly with L0a."
       },
       {
         "nodeId": "OverconvergentAutomorphicForms:O0/arithmetic-weight-characters",
         "verdict": "verified",
-        "note": "The two arithmetic character coordinates have different source groups; the product character and its evaluation law retain both."
+        "note": "Restriction to the two factors inverts the stated constructor; the topology and coefficient-ring functor are retained."
       },
       {
         "nodeId": "OverconvergentAutomorphicForms:O0/weight-dual-group-map",
         "verdict": "verified",
-        "note": "The inverse norm in the dual map produces the source’s later character convention; E1 is independently confirmed."
+        "note": "The inverse norm coordinate is required by pullback of characters; positivity gives norm one on the stated global units."
       },
       {
         "nodeId": "OverconvergentAutomorphicForms:O0/weight-comparison",
         "verdict": "verified",
-        "note": "Pullback along the corrected continuous group map gives the pointwise weight map; its rigid representing space is an explicit L0a supplier request."
+        "note": "Continuous character precomposition has the specified multiplication law and coefficient naturality; representability is an imported contract."
       },
       {
         "nodeId": "OverconvergentAutomorphicForms:O0/weight-comparison-formula",
         "verdict": "verified",
-        "note": "Evaluation of the product character gives the square and inverse norm factor with the correct sign."
+        "note": "Homomorphism evaluation on the inverse norm coordinate gives the displayed formula with the correct sign."
       },
       {
         "nodeId": "OverconvergentAutomorphicForms:O0/weight-comparison-norm-factor",
-        "verdict": "corrected",
-        "note": "Removed the remaining quoted source clause and corrected the algebraic test: t is y↦y^b on Z_p×, while w=N^a on O_p×."
+        "verdict": "verified",
+        "note": "Cancellation leaves t inverse composed with N; the algebraic test keeps w and t on their distinct domains."
       },
       {
         "nodeId": "OverconvergentAutomorphicForms:O0/weight-comparison-totally-positive-units",
         "verdict": "verified",
-        "note": "A totally positive global unit has norm +1, so the remaining arithmetic character factor is trivial; no ordinary-class replacement is used."
+        "note": "The unit norm is ±1 and the real embedding product is positive, hence one; the totally-real and total-positivity hypotheses are necessary."
       },
       {
         "nodeId": "OverconvergentAutomorphicForms:O0/weight-radius-parameter",
         "verdict": "verified",
-        "note": "The principal-unit supremum is a diagnostic, not an AIP universal coordinate; Teichmuller and power-character fixtures distinguish them."
+        "note": "The pro-p supremum is a diagnostic, explicitly distinguished from the AIP universal coordinates and the disproved numerical radius."
       },
       {
         "nodeId": "OverconvergentAutomorphicForms:O0/continuous-character-bounded",
         "verdict": "verified",
-        "note": "Compact character image and the power-multiplicative norm give bounded values and inverses; the integral-character structure retains the stated coefficient assumptions."
+        "note": "Continuity on the compact principal-unit group and the power-multiplicative ultrametric norm give the uniform strict bound; arbitrary Banach norms are excluded."
       },
       {
         "nodeId": "OverconvergentAutomorphicForms:O0/analytic-continuation-of-bounded-weights",
         "verdict": "unverifiable",
-        "note": "Existential continuation on actual universal-coordinate charts is justified; the disproved scalar radius is excluded and the quantitative comparison is an explicit gap. Mathematical contract assessed as above, but 1 required node/API name(s) lack a typed declaration (§13)."
+        "note": "Existential extension on actual analytic thickenings follows from the coordinate-chart supplier and AIP Proposition 2.8; the printed numerical formula is excluded. Mathematical contract is conditional on the recorded suppliers/gaps; its full typed prototype remains unverified under PROTOCOL §13."
       },
       {
         "nodeId": "OverconvergentAutomorphicForms:O0/bounded-weight-families",
         "verdict": "unverifiable",
-        "note": "Affinoid-image bounded families and their pullbacks depend on the requested rigid character space, rather than on the scalar supremum alone. Mathematical contract assessed as above, but 4 required node/API name(s) lack a typed declaration (§13)."
+        "note": "Boundedness is containment of the image in one weight affinoid, while smoothness belongs to the base; the universal-coordinate admission is retained. Mathematical contract is conditional on the recorded suppliers/gaps; its full typed prototype remains unverified under PROTOCOL §13."
       },
       {
         "nodeId": "OverconvergentAutomorphicForms:O0/finite-analytic-coefficients",
         "verdict": "unverifiable",
-        "note": "The baseline Representation supplies algebraic action only; finite projectivity, analytic orbit maps, canonical Banach topology and stable integral lattice remain separate data. Mathematical contract assessed as above, but 6 required node/API name(s) lack a typed declaration (§13)."
+        "note": "The finite-projective analytic action, Banach scalar extension and separately specified stable lattice are appropriate. FiniteCoefficientCore supplies algebraic and continuous prerequisites, without the analytic orbit-map carrier. Mathematical contract is conditional on the recorded suppliers/gaps; its full typed prototype remains unverified under PROTOCOL §13."
       },
       {
         "nodeId": "OverconvergentAutomorphicForms:O0/coefficient-tensor-dual",
         "verdict": "unverifiable",
-        "note": "Finite-projective duals are contragredient; completed tensor operations use R0 with its specified lattices, without an arbitrary product O+ identification. Mathematical contract assessed as above, but 1 required node/API name(s) lack a typed declaration (§13)."
+        "note": "The tensor action is diagonal and the dual action uses the inverse group element. The finite-projective completed-tensor supplier is required beyond the new algebraic fixtures. Mathematical contract is conditional on the recorded suppliers/gaps; its full typed prototype remains unverified under PROTOCOL §13."
       },
       {
         "nodeId": "OverconvergentAutomorphicForms:O0/analytic-induced-coefficients",
         "verdict": "unverifiable",
-        "note": "BP’s closed subgroup M_1, analytic Iwahori thickening and monoid hypotheses are retained; ordinary strong dual and projective distribution modules are distinct. Mathematical contract assessed as above, but 7 required node/API name(s) lack a typed declaration (§13)."
+        "note": "BP induction uses genuine analytic neighbourhoods of the closed M_1 and retains its character/monoid conventions; its strong Banach dual is distinguished from the projective compact-open distribution dual. Mathematical contract is conditional on the recorded suppliers/gaps; its full typed prototype remains unverified under PROTOCOL §13."
       },
       {
         "nodeId": "OverconvergentAutomorphicForms:O0/algebraic-induced-comparison",
         "verdict": "unverifiable",
-        "note": "BP §6.2.11 retains the inverse Weyl-conjugated finite twist and kernel hypotheses; the algebraic subrepresentation is not asserted to fill analytic induction. Mathematical contract assessed as above, but 1 required node/API name(s) lack a typed declaration (§13)."
+        "note": "The dominant algebraic representation maps into analytic induction with the source Weyl/dual twist and finite-character kernel conditions; equality with all analytic functions is excluded. Mathematical contract is conditional on the recorded suppliers/gaps; its full typed prototype remains unverified under PROTOCOL §13."
       },
       {
         "nodeId": "OverconvergentAutomorphicForms:O0/unitary-completed-coefficients",
         "verdict": "unverifiable",
-        "note": "The definite-unitary completion keeps inverse limit in coefficient precision outside direct limit in level, other-p lattices and the inverse algebraic action. Mathematical contract assessed as above, but 4 required node/API name(s) lack a typed declaration (§13)."
+        "note": "Ding’s CM definite-unitary setup, split p-places, fixed away-from-place lattice, inverse equivariance and ordered limits are retained; no finite-rank claim replaces the completed Banach representation. Mathematical contract is conditional on the recorded suppliers/gaps; its full typed prototype remains unverified under PROTOCOL §13."
       },
       {
         "nodeId": "OverconvergentAutomorphicForms:O0/unitary-jacquet-eigenvariety",
         "verdict": "unverifiable",
-        "note": "The Jacquet eigenvariety uses the full noncompact torus character space and coherent strong dual, requested from its Part II owner rather than Buzzard’s compact engine. Mathematical contract assessed as above, but 1 required node/API name(s) lack a typed declaration (§13)."
+        "note": "The full noncompact local torus and completed Jacquet construction require the precise Emerton Part II contract; the GL_n unitary consumer is separate from the Hilbert compact operator. Mathematical contract is conditional on the recorded suppliers/gaps; its full typed prototype remains unverified under PROTOCOL §13."
       },
       {
         "nodeId": "OverconvergentAutomorphicForms:O0/unitary-eigenvariety-geometry",
         "verdict": "unverifiable",
-        "note": "Ding Proposition4.14 supplies the dimension/regularity target; its definite-unitary admissibility and BHS inputs remain exact Part II proof requests. Mathematical contract assessed as above, but 1 required node/API name(s) lack a typed declaration (§13)."
+        "note": "Dimension n times the local degree and Cohen–Macaulayness retain Ding’s hypotheses; the local regularity input is assigned to the recorded Jacquet/BHS supplier. Mathematical contract is conditional on the recorded suppliers/gaps; its full typed prototype remains unverified under PROTOCOL §13."
       },
       {
         "nodeId": "OverconvergentAutomorphicForms:O0/unitary-eigenvariety-reduced",
         "verdict": "unverifiable",
-        "note": "Reducedness uses the recorded classical-density and smooth-point inputs; it is not a consequence of a Banach representation or dimension formula alone. Mathematical contract assessed as above, but 1 required node/API name(s) lack a typed declaration (§13)."
+        "note": "Reducedness is a separate density/local-geometry argument under Ding’s setup, not a consequence of Cohen–Macaulayness alone. Mathematical contract is conditional on the recorded suppliers/gaps; its full typed prototype remains unverified under PROTOCOL §13."
       },
       {
         "nodeId": "OverconvergentAutomorphicForms:O1/right-automorphy-cocycle",
         "verdict": "verified",
-        "note": "The right cocycle and inverse coefficient action preserve noncommuting order; the gauge maps and left-to-right adapter are typed algebraic cores with analytic conditions explicitly omitted."
+        "note": "The typed algebraic cocycle, inverse representation action and gauge maps preserve noncommutative order. The left-to-right adapter inverts both group and coefficient; unknown analyticity is explicitly omitted."
       },
       {
         "nodeId": "OverconvergentAutomorphicForms:O1/equivariant-coefficient-sheaf",
         "verdict": "unverifiable",
-        "note": "The equalizer sheaf uses actual analytic functions, ringed sites and coefficient-sensitive torsor descent; arbitrary function sets are not substituted. Mathematical contract assessed as above, but 6 required node/API name(s) lack a typed declaration (§13)."
+        "note": "The equalizer uses analytic functions on an actual torsor with the coefficient carrier and stable lattice supplied; a set-theoretic orbit space does not supply this sheaf. Mathematical contract is conditional on the recorded suppliers/gaps; its full typed prototype remains unverified under PROTOCOL §13."
       },
       {
         "nodeId": "OverconvergentAutomorphicForms:O1/coefficient-descent-functoriality",
         "verdict": "unverifiable",
-        "note": "Rational coefficient operations use effective descent; integral pullback retains flatness/chart-change assumptions rather than asserting exactness for all base changes. Mathematical contract assessed as above, but 1 required node/API name(s) lack a typed declaration (§13)."
+        "note": "Operations are conditional on effective descent; coarse stabilizers and invertible finite group order are retained, with no integral averaging assertion. Mathematical contract is conditional on the recorded suppliers/gaps; its full typed prototype remains unverified under PROTOCOL §13."
       },
       {
         "nodeId": "OverconvergentAutomorphicForms:O1/analytic-line-effectivity",
         "verdict": "unverifiable",
-        "note": "Heuer’s criterion is line-specific on a smooth rigid space over a perfectoid extension of Q_p; the formal-unit cocycle is not replaced by an arbitrary analytic O+ cocycle. Mathematical contract assessed as above, but 1 required node/API name(s) lack a typed declaration (§13)."
+        "note": "Heuer’s line-only dense-open analytic criterion and formal pro-étale unit-cocycle effectivity have the correct scope; arbitrary-rank descent is not inferred. Mathematical contract is conditional on the recorded suppliers/gaps; its full typed prototype remains unverified under PROTOCOL §13."
       },
       {
         "nodeId": "OverconvergentAutomorphicForms:O2/admitted-hilbert-domain",
         "verdict": "unverifiable",
-        "note": "The character and canonical-domain intersection, ramification and AL radius scaling are retained; its carrier is a T4/T5/S5 request. Mathematical contract assessed as above, but 4 required node/API name(s) lack a typed declaration (§13)."
+        "note": "The actual Hodge–Tate coordinate domain keeps the source c_p scale, positive-depth condition and existential character extension; admission is not inferred from the scalar diagnostic. Mathematical contract is conditional on the recorded suppliers/gaps; its full typed prototype remains unverified under PROTOCOL §13."
       },
       {
         "nodeId": "OverconvergentAutomorphicForms:O2/hilbert-automorphy-factor",
-        "verdict": "corrected",
-        "note": "Removed the hypothesis contradicting the left source action; the right interface now explicitly inverts the group element and coefficient cocycle. Mathematical contract assessed as above, but 4 required node/API name(s) lack a typed declaration (§13)."
+        "verdict": "unverifiable",
+        "note": "The actual cz+d factor belongs to the left Hilbert action, and the right interface is an explicit conversion; admission controls both character value and inverse. Mathematical contract is conditional on the recorded suppliers/gaps; its full typed prototype remains unverified under PROTOCOL §13."
       },
       {
         "nodeId": "OverconvergentAutomorphicForms:O2/hilbert-cocycle-law",
         "verdict": "unverifiable",
-        "note": "The Hilbert cz+d identity is left ordered; the typed p=3 matrix fixture gives 7 for that law and 4 for the erroneous unconverted right law. Mathematical contract assessed as above, but 1 required node/API name(s) lack a typed declaration (§13)."
+        "note": "Matrix multiplication gives the left law evaluated at δx; the source level action and frame transformation supply the geometric identity. Mathematical contract is conditional on the recorded suppliers/gaps; its full typed prototype remains unverified under PROTOCOL §13."
       },
       {
         "nodeId": "OverconvergentAutomorphicForms:O2/geometric-hilbert-sheaf",
         "verdict": "unverifiable",
-        "note": "The rational equalizer becomes an analytic line through the stated effectivity contract; integral local freeness is not assumed here. Mathematical contract assessed as above, but 4 required node/API name(s) lack a typed declaration (§13)."
+        "note": "The rational inverse-weight equalizer is independent of AIP, with analytic-line effectivity obtained through the ordinary formal tower and Heuer criterion. Mathematical contract is conditional on the recorded suppliers/gaps; its full typed prototype remains unverified under PROTOCOL §13."
       },
       {
         "nodeId": "OverconvergentAutomorphicForms:O2/hilbert-level-radius-maps",
         "verdict": "unverifiable",
-        "note": "AL_n transports p^n ε to ε, and n=0 uses AL_1; the radius is not silently held constant across levels. Mathematical contract assessed as above, but 1 required node/API name(s) lack a typed declaration (§13)."
+        "note": "Level pullback and radius restriction preserve the equalizer; the tame-level Atkin–Lehner transport retains the p-scaled radius. Mathematical contract is conditional on the recorded suppliers/gaps; its full typed prototype remains unverified under PROTOCOL §13."
       },
       {
         "nodeId": "OverconvergentAutomorphicForms:O2/hilbert-algebraic-specialisation",
         "verdict": "unverifiable",
-        "note": "The algebraic weight comparison retains splitting coefficients and the actual modified differential lattice; the norm character gives the determinant line. Mathematical contract assessed as above, but 1 required node/API name(s) lack a typed declaration (§13)."
+        "note": "The algebraic weight gives the supplied associated Hodge coefficient; norm weight one gives the determinant line, rather than the trivial character. Mathematical contract is conditional on the recorded suppliers/gaps; its full typed prototype remains unverified under PROTOCOL §13."
       },
       {
         "nodeId": "OverconvergentAutomorphicForms:O3/integral-hilbert-sheaf",
         "verdict": "unverifiable",
-        "note": "The integral sheaf is defined by O+ eigenfunctions before freeness; rational comparison alone does not prove an integral line. Mathematical contract assessed as above, but 4 required node/API name(s) lack a typed declaration (§13)."
+        "note": "The lattice is the independent geometric O+ equalizer; integral freeness is a separate conditional theorem rather than part of the definition. Mathematical contract is conditional on the recorded suppliers/gaps; its full typed prototype remains unverified under PROTOCOL §13."
       },
       {
         "nodeId": "OverconvergentAutomorphicForms:O3/integral-rationalisation",
-        "verdict": "corrected",
-        "note": "Replaced the circular integral AIP-generator proof with a finite bounded-denominator argument on quasicompact inverse-image patches, removing the O5 prerequisite. Mathematical contract assessed as above, but 1 required node/API name(s) lack a typed declaration (§13)."
+        "verdict": "unverifiable",
+        "note": "Finite denominator clearing on quasicompact inverse-image patches preserves the eigencondition and glues; no integral AIP generator or arbitrary localization/invariants interchange is used. Mathematical contract is conditional on the recorded suppliers/gaps; its full typed prototype remains unverified under PROTOCOL §13."
       },
       {
         "nodeId": "OverconvergentAutomorphicForms:O3/hilbert-weight-pullback",
         "verdict": "unverifiable",
-        "note": "Sheaf pullback and weight specialization are distinct from arbitrary nonflat base change of integral global sections; the flat/formal-chart qualifications are retained. Mathematical contract assessed as above, but 1 required node/API name(s) lack a typed declaration (§13)."
+        "note": "Rational comparison is compatible with coefficient pullback; integral comparison retains flatness/chart conditions in view of the AIP finite-group-cohomology obstruction. Mathematical contract is conditional on the recorded suppliers/gaps; its full typed prototype remains unverified under PROTOCOL §13."
       },
       {
         "nodeId": "OverconvergentAutomorphicForms:O3/fixed-radius-hilbert-forms",
         "verdict": "unverifiable",
-        "note": "Fixed-radius forms are actual sections on each polarisation component and level, with their integral inclusion and specialization contracts. Mathematical contract assessed as above, but 4 required node/API name(s) lack a typed declaration (§13)."
+        "note": "Global sections retain the polarisation, level, weight base and fixed admitted radius; no Banach freeness follows just from naming sections. Mathematical contract is conditional on the recorded suppliers/gaps; its full typed prototype remains unverified under PROTOCOL §13."
       },
       {
         "nodeId": "OverconvergentAutomorphicForms:O3/overconvergent-hilbert-forms",
         "verdict": "unverifiable",
-        "note": "The radius colimit has the prescribed restriction maps and cofinality; the zero-radius ordinary module is not substituted for overconvergent forms. Mathematical contract assessed as above, but 4 required node/API name(s) lack a typed declaration (§13)."
+        "note": "The shrinking-radius colimit, its LB topology and the ordinary endpoint are distinguished; the AIP transition statements provide the intended maps. Mathematical contract is conditional on the recorded suppliers/gaps; its full typed prototype remains unverified under PROTOCOL §13."
       },
       {
         "nodeId": "OverconvergentAutomorphicForms:O3/ramified-modified-lattice",
         "verdict": "unverifiable",
-        "note": "At ramified non-Rapoport points the modified O_F-linear lattice is on the Igusa cover; descent to a base line is a further condition. Mathematical contract assessed as above, but 1 required node/API name(s) lack a typed declaration (§13)."
+        "note": "The modified differential lattice is on the actual Igusa cover and differs from the naive integral Hodge lattice at ramified primes; its construction stays with T5. Mathematical contract is conditional on the recorded suppliers/gaps; its full typed prototype remains unverified under PROTOCOL §13."
       },
       {
         "nodeId": "OverconvergentAutomorphicForms:O4/presentation-geometric-small",
         "verdict": "unverifiable",
-        "note": "The small geometric presentation is defined independently with its actual level action and scalar multiplier. Mathematical contract assessed as above, but 4 required node/API name(s) lack a typed declaration (§13)."
+        "note": "Definition 9.1’s small geometric cover, effective group and inverse-weight multiplier are kept as a distinct presentation. Mathematical contract is conditional on the recorded suppliers/gaps; its full typed prototype remains unverified under PROTOCOL §13."
       },
       {
         "nodeId": "OverconvergentAutomorphicForms:O4/presentation-geometric-full",
         "verdict": "unverifiable",
-        "note": "The full geometric cover retains the central closure/effective quotient and its independent equivariance condition. Mathematical contract assessed as above, but 4 required node/API name(s) lack a typed declaration (§13)."
+        "note": "The hybrid full cover and geometric group are distinct from the small-cover presentation; the exact source multiplier is retained. Mathematical contract is conditional on the recorded suppliers/gaps; its full typed prototype remains unverified under PROTOCOL §13."
       },
       {
         "nodeId": "OverconvergentAutomorphicForms:O4/presentation-arithmetic-intermediate",
         "verdict": "unverifiable",
-        "note": "The arithmetic intermediate presentation uses the twisted w action, with finite Δ distinct from the full profinite quotient. Mathematical contract assessed as above, but 4 required node/API name(s) lack a typed declaration (§13)."
+        "note": "The E(p^n) quotient presentation retains its determinant/unit twist and effective central relations. Mathematical contract is conditional on the recorded suppliers/gaps; its full typed prototype remains unverified under PROTOCOL §13."
       },
       {
         "nodeId": "OverconvergentAutomorphicForms:O4/presentation-arithmetic-full",
         "verdict": "unverifiable",
-        "note": "The full arithmetic presentation retains actual Weil pairing, determinant and profinite equivariance, without identifying it by definition with the intermediate presentation. Mathematical contract assessed as above, but 4 required node/API name(s) lack a typed declaration (§13)."
+        "note": "The PΓ_0 quotient and arithmetic full cover retain their representative and central-closure conditions. Mathematical contract is conditional on the recorded suppliers/gaps; its full typed prototype remains unverified under PROTOCOL §13."
       },
       {
         "nodeId": "OverconvergentAutomorphicForms:O4/arithmetic-representatives",
         "verdict": "unverifiable",
-        "note": "Positive-unit and congruence relations make the representative rule well-defined; ineffective central units must act trivially on the fibre. Mathematical contract assessed as above, but 1 required node/API name(s) lack a typed declaration (§13)."
+        "note": "The positive-unit norm identity cancels the central representative change; finite quotient relations and central closures are not conflated. Mathematical contract is conditional on the recorded suppliers/gaps; its full typed prototype remains unverified under PROTOCOL §13."
       },
       {
         "nodeId": "OverconvergentAutomorphicForms:O4/geometric-full-cover-comparison",
         "verdict": "unverifiable",
-        "note": "The full/small geometric comparison uses the actual torsor maps and invariant-function descent, not equality of abstract dimensions. Mathematical contract assessed as above, but 1 required node/API name(s) lack a typed declaration (§13)."
+        "note": "The Z_p× torsor span and its explicit maps implement the small/full comparison, using the actual effective covers. Mathematical contract is conditional on the recorded suppliers/gaps; its full typed prototype remains unverified under PROTOCOL §13."
       },
       {
         "nodeId": "OverconvergentAutomorphicForms:O4/twisted-polarisation-action",
         "verdict": "unverifiable",
-        "note": "The polarisation action ε·_w f=w(ε)(ε⁻¹)*f retains its inverse and the totally-positive-unit cancellation. Mathematical contract assessed as above, but 4 required node/API name(s) lack a typed declaration (§13)."
+        "note": "The inverse polarisation pullback carries the weight twist; square-unit cancellation makes it an action of the specified finite quotient. Mathematical contract is conditional on the recorded suppliers/gaps; its full typed prototype remains unverified under PROTOCOL §13."
       },
       {
         "nodeId": "OverconvergentAutomorphicForms:O4/finite-polarisation-descent",
         "verdict": "unverifiable",
-        "note": "Finite twisted Δ descent is taken integrally without dividing by its order; rational projectors alone do not establish integral effectivity. Mathematical contract assessed as above, but 1 required node/API name(s) lack a typed declaration (§13)."
+        "note": "Twisted finite Δ(N)-invariants give the intermediate presentation integrally without dividing by its order. Mathematical contract is conditional on the recorded suppliers/gaps; its full typed prototype remains unverified under PROTOCOL §13."
       },
       {
         "nodeId": "OverconvergentAutomorphicForms:O4/weil-pairing-comparison",
         "verdict": "unverifiable",
-        "note": "Multiplication by w(eβ)⁻¹ gives the specified Weil-pairing comparison and both inverse signs are retained. Mathematical contract assessed as above, but 1 required node/API name(s) lack a typed declaration (§13)."
+        "note": "The e_beta inverse weight factor and its transformation law produce the arithmetic full-cover comparison; the pairing datum remains a supplier input. Mathematical contract is conditional on the recorded suppliers/gaps; its full typed prototype remains unverified under PROTOCOL §13."
       },
       {
         "nodeId": "OverconvergentAutomorphicForms:O4/polarisation-class-forms",
         "verdict": "unverifiable",
-        "note": "The narrow-class quotient combines the separate component modules using explicit transport, rather than choosing an ordinary-class quotient. Mathematical contract assessed as above, but 4 required node/API name(s) lack a typed declaration (§13)."
+        "note": "The quotient of component spaces uses explicit positive p-unit transports and narrow classes, so Hecke maps can change the polarisation ideal. Mathematical contract is conditional on the recorded suppliers/gaps; its full typed prototype remains unverified under PROTOCOL §13."
       },
       {
         "nodeId": "OverconvergentAutomorphicForms:O4/polarisation-choice-independence",
         "verdict": "unverifiable",
-        "note": "Polarisation independence follows through the actual transport and pairing diagrams; geometric operators retain their specified conjugation. Mathematical contract assessed as above, but 1 required node/API name(s) lack a typed declaration (§13)."
+        "note": "The arithmetic twist cancels the representative change; the geometric G* comparison still retains a polarisation choice as the source requires. Mathematical contract is conditional on the recorded suppliers/gaps; its full typed prototype remains unverified under PROTOCOL §13."
       },
       {
         "nodeId": "OverconvergentAutomorphicForms:O5/aip-independent-coefficients",
-        "verdict": "corrected",
-        "note": "Corrected the stale formal-generic-fibre acceptance clause: analytic O/O+ eigenfunctions, the universal formal line and the coherent finite-character factor are separate constructions. Mathematical contract assessed as above, but 5 required node/API name(s) lack a typed declaration (§13)."
+        "verdict": "unverifiable",
+        "note": "Analytic O/O+ frame eigenfunctions, the universal formal line and the coherent finite-character factor remain separate. Rational invertibility alone does not prove full positive-radius O+ freeness. Mathematical contract is conditional on the recorded suppliers/gaps; its full typed prototype remains unverified under PROTOCOL §13."
       },
       {
         "nodeId": "OverconvergentAutomorphicForms:O5/aip-translation-valuation-units",
-        "verdict": "added",
-        "note": "Promoted the translation-unit API argument to a named lemma. Integral formal-character units, the admitted small-character congruence and finite-order valuation values preserve both bounds at every valuation. Mathematical contract assessed as above, but 1 required node/API name(s) lack a typed declaration (§13)."
+        "verdict": "unverifiable",
+        "note": "The new arbitrary-rank valuation theorem and six tests verify the pointwise implication given both multiplier bounds. The node additionally establishes those bounds from actual analytic admission; that geometric step is still absent from the typed statement. Mathematical contract is conditional on the recorded suppliers/gaps; its full typed prototype remains unverified under PROTOCOL §13."
       },
       {
         "nodeId": "OverconvergentAutomorphicForms:O5/aip-line-and-gluing",
-        "verdict": "corrected",
-        "note": "The full-character unit-generator criterion is conditional; corrected the P9 citation’s scope by separating its completed lattice tensor from the requested geometric O+ sheaf variant. Mathematical contract assessed as above, but 1 required node/API name(s) lack a typed declaration (§13)."
+        "verdict": "unverifiable",
+        "note": "A unit eigenfunction with unit transition ratios and invariant-function descent on every open would give an integral line. P9’s completed lattice criterion does not itself construct the geometric full-character generator. Mathematical contract is conditional on the recorded suppliers/gaps; its full typed prototype remains unverified under PROTOCOL §13."
       },
       {
         "nodeId": "OverconvergentAutomorphicForms:O5/geometric-aip-comparison",
-        "verdict": "corrected",
-        "note": "The valuative integral-equalizer proof is noncircular; added the exact T5 ε_base≤p^(−(m+1)) bound and scaled source admission, and the new valuation-unit lemma as an input. Mathematical contract assessed as above, but 1 required node/API name(s) lack a typed declaration (§13)."
+        "verdict": "unverifiable",
+        "note": "Rational frame comparison plus valuative lift/transitivity and unit-valued translation compares the integral equalizers noncircularly. The exact T5 base bound and the scaled source admission remain explicit. Mathematical contract is conditional on the recorded suppliers/gaps; its full typed prototype remains unverified under PROTOCOL §13."
       },
       {
         "nodeId": "OverconvergentAutomorphicForms:O5/arithmetic-aip-comparison",
-        "verdict": "corrected",
-        "note": "Arithmetic twisted invariants transport the integral comparison without averaging; explicitly inherited the corrected geometric comparison radius and source-domain requirements. Mathematical contract assessed as above, but 1 required node/API name(s) lack a typed declaration (§13)."
+        "verdict": "unverifiable",
+        "note": "The geometric comparison passes through the explicit twisted arithmetic descent chain without averaging; the inverse second AIP character and comparison-domain restrictions are retained. Mathematical contract is conditional on the recorded suppliers/gaps; its full typed prototype remains unverified under PROTOCOL §13."
       },
       {
         "nodeId": "OverconvergentAutomorphicForms:O5/aip-comparison-naturality",
-        "verdict": "corrected",
-        "note": "Naturality follows from actual pullback/frame maps with weight and level transport; explicitly inherited the corrected T5 admission on the comparison diagrams. Mathematical contract assessed as above, but 1 required node/API name(s) lack a typed declaration (§13)."
+        "verdict": "unverifiable",
+        "note": "The actual frame pullback determines the map and its naturality with weight, level and radius transport; the diagrams retain the stricter T5 admission. Mathematical contract is conditional on the recorded suppliers/gaps; its full typed prototype remains unverified under PROTOCOL §13."
       },
       {
         "nodeId": "OverconvergentAutomorphicForms:O6/hilbert-cusp-forms",
-        "verdict": "corrected",
-        "note": "Boundary-ideal cusp forms remain independent of Koecher; explicitly inherited the frame-comparison radius where the AIP cusp comparison is used. Mathematical contract assessed as above, but 4 required node/API name(s) lack a typed declaration (§13)."
+        "verdict": "unverifiable",
+        "note": "Cuspidality is the boundary-ideal subsheaf, distinct from Koecher extension; AIP comparison retains boundary transport and its admitted domains. Mathematical contract is conditional on the recorded suppliers/gaps; its full typed prototype remains unverified under PROTOCOL §13."
       },
       {
         "nodeId": "OverconvergentAutomorphicForms:O6/hilbert-koecher",
         "verdict": "unverifiable",
-        "note": "Koecher retains g>1, normality and boundary codimension; the elliptic case requires its separate cusp expansion calculation. Mathematical contract assessed as above, but 1 required node/API name(s) lack a typed declaration (§13)."
+        "note": "The degree-greater-than-one codimension-two extension has the right scope; it does not make every extending form cuspidal or imply the degree-one analogue. Mathematical contract is conditional on the recorded suppliers/gaps; its full typed prototype remains unverified under PROTOCOL §13."
       },
       {
         "nodeId": "OverconvergentAutomorphicForms:O6/tame-hilbert-hecke",
         "verdict": "unverifiable",
-        "note": "Tame trace has degree q+1 and normalizer 1/q; the coefficient orientation and prime-to-p compactified correspondence scope are retained. Mathematical contract assessed as above, but 5 required node/API name(s) lack a typed declaration (§13)."
+        "note": "The tame degree-q+1 correspondence uses q inverse times pullback, coefficient identification and trace, retaining its change of component. Mathematical contract is conditional on the recorded suppliers/gaps; its full typed prototype remains unverified under PROTOCOL §13."
       },
       {
         "nodeId": "OverconvergentAutomorphicForms:O6/wild-hilbert-hecke",
-        "verdict": "corrected",
-        "note": "Replaced an integral-identification claim by the integral coefficient map of Lemma10.3; uniformizer independence and partial-radius improvement remain valid. Mathematical contract assessed as above, but 5 required node/API name(s) lack a typed declaration (§13)."
+        "verdict": "unverifiable",
+        "note": "The wild degree-q correspondence has an integral coefficient map, extra level ne+1 and partial-radius gain; neither an integral isomorphism nor lattice preservation by q inverse is asserted. Mathematical contract is conditional on the recorded suppliers/gaps; its full typed prototype remains unverified under PROTOCOL §13."
       },
       {
         "nodeId": "OverconvergentAutomorphicForms:O6/hilbert-diamond-operators",
         "verdict": "unverifiable",
-        "note": "The tame level automorphisms and arithmetic twists give the diamond operators; their boundary and composition laws are explicit. Mathematical contract assessed as above, but 4 required node/API name(s) lack a typed declaration (§13)."
+        "note": "Degree-one level automorphisms and the supplied coefficient transport give diamond operators; the source’s central S operator is kept distinct. Mathematical contract is conditional on the recorded suppliers/gaps; its full typed prototype remains unverified under PROTOCOL §13."
       },
       {
         "nodeId": "OverconvergentAutomorphicForms:O6/aip-hecke-equivariance",
-        "verdict": "corrected",
-        "note": "Hecke comparison is a torsor/isogeny diagram statement; source and target now explicitly inherit the corrected T5 frame-comparison admission. Mathematical contract assessed as above, but 1 required node/API name(s) lack a typed declaration (§13)."
+        "verdict": "unverifiable",
+        "note": "The actual isogeny/frame diagram compares coefficient maps before trace; source and target both inherit the frame-comparison admission. Mathematical contract is conditional on the recorded suppliers/gaps; its full typed prototype remains unverified under PROTOCOL §13."
       },
       {
         "nodeId": "OverconvergentAutomorphicForms:O6/hilbert-q-expansion-comparison",
         "verdict": "unverifiable",
-        "note": "B5 supplies classical expansions only; analytic bounded families and p-level expansion compatibility remain a precise extension request with the same trace normalization. Mathematical contract assessed as above, but 1 required node/API name(s) lack a typed declaration (§13)."
+        "note": "Boundary-compatible torsor comparison gives the expansion diagrams conditional on the precise B5 p-level/family extension; existing tame algebraic expansions are not treated as that extension. Mathematical contract is conditional on the recorded suppliers/gaps; its full typed prototype remains unverified under PROTOCOL §13."
       },
       {
         "nodeId": "OverconvergentAutomorphicForms:O6/fixed-cusp-banach-modules",
-        "verdict": "corrected",
-        "note": "Restricted direct use of AIP Theorem4.4 to its admissible open arithmetic weight affinoid; finite wild level uses scaled AL transport and boundary compatibility. Mathematical contract assessed as above, but 1 required node/API name(s) lack a typed declaration (§13)."
+        "verdict": "unverifiable",
+        "note": "AIP Theorem 4.4 uses an admissible open arithmetic weight affinoid, its cofinal Hasse refinement and cusp vanishing; projective Banach does not mean finite rank. Mathematical contract is conditional on the recorded suppliers/gaps; its full typed prototype remains unverified under PROTOCOL §13."
       },
       {
         "nodeId": "OverconvergentAutomorphicForms:O6/compact-radius-restriction",
-        "verdict": "corrected",
-        "note": "Compact restriction uses the refined global-Hasse affinoids and relative compact containment; inherited the source theorem’s admissible weight affinoid restriction. Mathematical contract assessed as above, but 1 required node/API name(s) lack a typed declaration (§13)."
+        "verdict": "unverifiable",
+        "note": "Relative compact containment of refined Hasse affinoids and the L4/R3 compactness contracts supply strict complete continuity over the affinoid algebra. Mathematical contract is conditional on the recorded suppliers/gaps; its full typed prototype remains unverified under PROTOCOL §13."
       },
       {
         "nodeId": "OverconvergentAutomorphicForms:O6/controlling-hilbert-operator",
         "verdict": "unverifiable",
-        "note": "The product ∏U_𝔭^e_𝔭 improves every p-direction and has total normalizer p^(−g); one partial operator need not be controlling. Mathematical contract assessed as above, but 4 required node/API name(s) lack a typed declaration (§13)."
+        "note": "The product of partial U operators with ramification exponents improves every partial radius; one partial operator alone is not asserted controlling. Mathematical contract is conditional on the recorded suppliers/gaps; its full typed prototype remains unverified under PROTOCOL §13."
       },
       {
         "nodeId": "OverconvergentAutomorphicForms:O6/controlling-complete-continuity",
         "verdict": "unverifiable",
-        "note": "Completely continuous restriction and radius-improving factorization give the controlling compact operator, with the stated (Pr) Banach source assumptions. Mathematical contract assessed as above, but 1 required node/API name(s) lack a typed declaration (§13)."
+        "note": "Factor the controlling correspondence through the smaller radius and the proved compact restriction; complete continuity uses finite A-generated ranges. Mathematical contract is conditional on the recorded suppliers/gaps; its full typed prototype remains unverified under PROTOCOL §13."
       },
       {
         "nodeId": "OverconvergentAutomorphicForms:O6/hecke-lattice-renormalisation",
         "verdict": "unverifiable",
-        "note": "Multiplication by q_𝔭 or p^g removes the specified trace denominator; integral trace preservation is a separate contract, and no optimality is asserted. Mathematical contract assessed as above, but 1 required node/API name(s) lack a typed declaration (§13)."
+        "note": "Integral coefficient transport and unnormalized trace give a sufficient renormalization; the rational normalizer alone need not preserve the lattice. Mathematical contract is conditional on the recorded suppliers/gaps; its full typed prototype remains unverified under PROTOCOL §13."
       },
       {
         "nodeId": "OverconvergentAutomorphicForms:O7/ordinary-completed-functions",
         "verdict": "unverifiable",
-        "note": "Formal affine ordered completion is constructed separately from analytic O+; patchwise sheafification prevents a false global finite-level assertion. Mathematical contract assessed as above, but 5 required node/API name(s) lack a typed declaration (§13)."
+        "note": "Completion is outer inverse limit in precision of inner direct limits in finite level. The new affine ring construction retains this order, but supplies no actual formal Igusa patch sheaf or deck action. Mathematical contract is conditional on the recorded suppliers/gaps; its full typed prototype remains unverified under PROTOCOL §13."
       },
       {
         "nodeId": "OverconvergentAutomorphicForms:O7/ordinary-weighted-forms",
         "verdict": "unverifiable",
-        "note": "Weighted ordinary functions keep the inverse character and integral compatible reductions, with the separate coefficient-lattice completion contract. Mathematical contract assessed as above, but 5 required node/API name(s) lack a typed declaration (§13)."
+        "note": "Weighted functions retain inverse equivariance after completion and the separate weight-lattice tensor contract; uniform descent to one finite level is not claimed. Mathematical contract is conditional on the recorded suppliers/gaps; its full typed prototype remains unverified under PROTOCOL §13."
       },
       {
         "nodeId": "OverconvergentAutomorphicForms:O7/igusa-completion-comparison",
         "verdict": "unverifiable",
-        "note": "The unit-ball approximation proof is valid under finite-level good reduction, isometric maps and the actual analytic norm-completion contract. Those actual-model inputs remain requested; Heuer supplies only the natural map. Mathematical contract assessed as above, but 1 required node/API name(s) lack a typed declaration (§13)."
+        "note": "The unit-ball approximation proof is valid conditional on R_i=A_i° and the actual isometric analytic norm completion. Heuer’s natural map does not establish these ordinary-model hypotheses. Mathematical contract is conditional on the recorded suppliers/gaps; its full typed prototype remains unverified under PROTOCOL §13."
       },
       {
         "nodeId": "OverconvergentAutomorphicForms:O7/ordinary-restriction",
         "verdict": "unverifiable",
-        "note": "Ordinary restriction uses actual compatible formal patches and remains bounded on the stated integral lattice; it does not identify all ordinary functions with overconvergent forms. Mathematical contract assessed as above, but 5 required node/API name(s) lack a typed declaration (§13)."
+        "note": "Ordinary restriction must use the actual patches and compatible coefficient/frame maps; an abstract ring restriction is only its algebraic prerequisite. Mathematical contract is conditional on the recorded suppliers/gaps; its full typed prototype remains unverified under PROTOCOL §13."
       },
       {
         "nodeId": "OverconvergentAutomorphicForms:O7/ordinary-coefficient-comparison",
         "verdict": "unverifiable",
-        "note": "The ordinary coefficient comparison combines formal torsor descent and the conditional O7 structural comparison; it does not infer a Hida control theorem. Mathematical contract assessed as above, but 1 required node/API name(s) lack a typed declaration (§13)."
+        "note": "The structural completion comparison and the ordinary unit cocycle give the coefficient comparison, with the arithmetic twists kept; no Hida control theorem follows. Mathematical contract is conditional on the recorded suppliers/gaps; its full typed prototype remains unverified under PROTOCOL §13."
       },
       {
         "nodeId": "OverconvergentAutomorphicForms:O7/ordinary-hecke-expansions",
         "verdict": "unverifiable",
-        "note": "Restriction, Hecke and expansion diagrams commute through the compatible reductions and ordered completion; the coefficient comparison alone is not a space-level Hida theorem. Mathematical contract assessed as above, but 1 required node/API name(s) lack a typed declaration (§13)."
+        "note": "Finite-level isogeny and boundary-expansion diagrams pass through the ordered completion when the specified maps are compatible with precision and level. Mathematical contract is conditional on the recorded suppliers/gaps; its full typed prototype remains unverified under PROTOCOL §13."
       },
       {
         "nodeId": "OverconvergentAutomorphicForms:O6/cuspidal-coefficient-vanishing",
         "verdict": "unverifiable",
-        "note": "The AIP formal fan/unit quotient vanishing and formal-functions adapter remain a compactification Part II input; the actual global-Hasse affinoid refinement is retained. Mathematical contract assessed as above, but 1 required node/API name(s) lack a typed declaration (§13)."
+        "note": "Theorem 3.17, Corollary 3.20 and the refined Proposition 3.22 provide the cusp-cohomology route; formal functions and the fan quotient remain an explicit compactification Part II request. Mathematical contract is conditional on the recorded suppliers/gaps; its full typed prototype remains unverified under PROTOCOL §13."
       }
     ]
   },
@@ -7087,6 +7222,384 @@
           "nodeId": "OverconvergentAutomorphicForms:O6/cuspidal-coefficient-vanishing",
           "verdict": "verified",
           "note": "Cusp coefficient vanishing separates the ShimuraCompactifications formal toric/fan theorem from its local-line/projection-formula analytic application; exact owner gap retained."
+        }
+      ]
+    },
+    {
+      "status": "needs_changes",
+      "reviewer": "independent-review-REV-OverconvergentAutomorphicForms--O0~2",
+      "date": "2026-10-08",
+      "notes": "Completed independent review of all 73 input nodes and the added valuation-unit lemma, all source locators, 38 baseline declarations, named supplier statements, closure, API, tests, planets, reader alignment and earlier corrections. Corrected 13 original nodes in place and added one lemma. The conditional O5 valuative equalizer argument and O7 norm-completion argument are mathematically sound under their exact recorded contracts; missing supplier existence is not treated as a contradiction. The remaining acceptance failure is §13: 152 of 199 distinct node/API names have no typed declaration, and 36 examples do not implement the 109 test contracts. All five input sourceIssues are independently confirmed; added and confirmed E6 for the reversed displayed frame-pullback arrow in Theorem7.14. The typed prefix elaborates with 83 placeholder-proof warnings and no errors. Review verdicts distinguish these missing prototypes from the mathematical assessments; see the report for the exhaustive register.",
+      "checked": [
+        {
+          "nodeId": "OverconvergentAutomorphicForms:O0/units-at-p",
+          "verdict": "verified",
+          "note": "Finite-free left tensor algebra with the module topology; compactness uses the finite basis and the unit determinant locus, without a splitting assumption on p."
+        },
+        {
+          "nodeId": "OverconvergentAutomorphicForms:O0/norm-at-p",
+          "verdict": "verified",
+          "note": "The determinant norm is continuous in a finite basis and commutes with scalar extension; the cited norm is an algebraic input before restricting to units."
+        },
+        {
+          "nodeId": "OverconvergentAutomorphicForms:O0/principal-units",
+          "verdict": "verified",
+          "note": "The ideal p^r defines the principal-unit subgroup, including r=0; congruence quotients establish finite index and the pro-p assertion."
+        },
+        {
+          "nodeId": "OverconvergentAutomorphicForms:O0/geometric-weight-characters",
+          "verdict": "verified",
+          "note": "Continuous unit characters have the stated topology and multiplication; the discrete-codomain counterexample makes continuity a substantive condition."
+        },
+        {
+          "nodeId": "OverconvergentAutomorphicForms:O0/arithmetic-weight-characters",
+          "verdict": "verified",
+          "note": "The two arithmetic character coordinates have different source groups; the product character and its evaluation law retain both."
+        },
+        {
+          "nodeId": "OverconvergentAutomorphicForms:O0/weight-dual-group-map",
+          "verdict": "verified",
+          "note": "The inverse norm in the dual map produces the source’s later character convention; E1 is independently confirmed."
+        },
+        {
+          "nodeId": "OverconvergentAutomorphicForms:O0/weight-comparison",
+          "verdict": "verified",
+          "note": "Pullback along the corrected continuous group map gives the pointwise weight map; its rigid representing space is an explicit L0a supplier request."
+        },
+        {
+          "nodeId": "OverconvergentAutomorphicForms:O0/weight-comparison-formula",
+          "verdict": "verified",
+          "note": "Evaluation of the product character gives the square and inverse norm factor with the correct sign."
+        },
+        {
+          "nodeId": "OverconvergentAutomorphicForms:O0/weight-comparison-norm-factor",
+          "verdict": "corrected",
+          "note": "Removed the remaining quoted source clause and corrected the algebraic test: t is y↦y^b on Z_p×, while w=N^a on O_p×."
+        },
+        {
+          "nodeId": "OverconvergentAutomorphicForms:O0/weight-comparison-totally-positive-units",
+          "verdict": "verified",
+          "note": "A totally positive global unit has norm +1, so the remaining arithmetic character factor is trivial; no ordinary-class replacement is used."
+        },
+        {
+          "nodeId": "OverconvergentAutomorphicForms:O0/weight-radius-parameter",
+          "verdict": "verified",
+          "note": "The principal-unit supremum is a diagnostic, not an AIP universal coordinate; Teichmuller and power-character fixtures distinguish them."
+        },
+        {
+          "nodeId": "OverconvergentAutomorphicForms:O0/continuous-character-bounded",
+          "verdict": "verified",
+          "note": "Compact character image and the power-multiplicative norm give bounded values and inverses; the integral-character structure retains the stated coefficient assumptions."
+        },
+        {
+          "nodeId": "OverconvergentAutomorphicForms:O0/analytic-continuation-of-bounded-weights",
+          "verdict": "unverifiable",
+          "note": "Existential continuation on actual universal-coordinate charts is justified; the disproved scalar radius is excluded and the quantitative comparison is an explicit gap. Mathematical contract assessed as above, but 1 required node/API name(s) lack a typed declaration (§13)."
+        },
+        {
+          "nodeId": "OverconvergentAutomorphicForms:O0/bounded-weight-families",
+          "verdict": "unverifiable",
+          "note": "Affinoid-image bounded families and their pullbacks depend on the requested rigid character space, rather than on the scalar supremum alone. Mathematical contract assessed as above, but 4 required node/API name(s) lack a typed declaration (§13)."
+        },
+        {
+          "nodeId": "OverconvergentAutomorphicForms:O0/finite-analytic-coefficients",
+          "verdict": "unverifiable",
+          "note": "The baseline Representation supplies algebraic action only; finite projectivity, analytic orbit maps, canonical Banach topology and stable integral lattice remain separate data. Mathematical contract assessed as above, but 6 required node/API name(s) lack a typed declaration (§13)."
+        },
+        {
+          "nodeId": "OverconvergentAutomorphicForms:O0/coefficient-tensor-dual",
+          "verdict": "unverifiable",
+          "note": "Finite-projective duals are contragredient; completed tensor operations use R0 with its specified lattices, without an arbitrary product O+ identification. Mathematical contract assessed as above, but 1 required node/API name(s) lack a typed declaration (§13)."
+        },
+        {
+          "nodeId": "OverconvergentAutomorphicForms:O0/analytic-induced-coefficients",
+          "verdict": "unverifiable",
+          "note": "BP’s closed subgroup M_1, analytic Iwahori thickening and monoid hypotheses are retained; ordinary strong dual and projective distribution modules are distinct. Mathematical contract assessed as above, but 7 required node/API name(s) lack a typed declaration (§13)."
+        },
+        {
+          "nodeId": "OverconvergentAutomorphicForms:O0/algebraic-induced-comparison",
+          "verdict": "unverifiable",
+          "note": "BP §6.2.11 retains the inverse Weyl-conjugated finite twist and kernel hypotheses; the algebraic subrepresentation is not asserted to fill analytic induction. Mathematical contract assessed as above, but 1 required node/API name(s) lack a typed declaration (§13)."
+        },
+        {
+          "nodeId": "OverconvergentAutomorphicForms:O0/unitary-completed-coefficients",
+          "verdict": "unverifiable",
+          "note": "The definite-unitary completion keeps inverse limit in coefficient precision outside direct limit in level, other-p lattices and the inverse algebraic action. Mathematical contract assessed as above, but 4 required node/API name(s) lack a typed declaration (§13)."
+        },
+        {
+          "nodeId": "OverconvergentAutomorphicForms:O0/unitary-jacquet-eigenvariety",
+          "verdict": "unverifiable",
+          "note": "The Jacquet eigenvariety uses the full noncompact torus character space and coherent strong dual, requested from its Part II owner rather than Buzzard’s compact engine. Mathematical contract assessed as above, but 1 required node/API name(s) lack a typed declaration (§13)."
+        },
+        {
+          "nodeId": "OverconvergentAutomorphicForms:O0/unitary-eigenvariety-geometry",
+          "verdict": "unverifiable",
+          "note": "Ding Proposition4.14 supplies the dimension/regularity target; its definite-unitary admissibility and BHS inputs remain exact Part II proof requests. Mathematical contract assessed as above, but 1 required node/API name(s) lack a typed declaration (§13)."
+        },
+        {
+          "nodeId": "OverconvergentAutomorphicForms:O0/unitary-eigenvariety-reduced",
+          "verdict": "unverifiable",
+          "note": "Reducedness uses the recorded classical-density and smooth-point inputs; it is not a consequence of a Banach representation or dimension formula alone. Mathematical contract assessed as above, but 1 required node/API name(s) lack a typed declaration (§13)."
+        },
+        {
+          "nodeId": "OverconvergentAutomorphicForms:O1/right-automorphy-cocycle",
+          "verdict": "verified",
+          "note": "The right cocycle and inverse coefficient action preserve noncommuting order; the gauge maps and left-to-right adapter are typed algebraic cores with analytic conditions explicitly omitted."
+        },
+        {
+          "nodeId": "OverconvergentAutomorphicForms:O1/equivariant-coefficient-sheaf",
+          "verdict": "unverifiable",
+          "note": "The equalizer sheaf uses actual analytic functions, ringed sites and coefficient-sensitive torsor descent; arbitrary function sets are not substituted. Mathematical contract assessed as above, but 6 required node/API name(s) lack a typed declaration (§13)."
+        },
+        {
+          "nodeId": "OverconvergentAutomorphicForms:O1/coefficient-descent-functoriality",
+          "verdict": "unverifiable",
+          "note": "Rational coefficient operations use effective descent; integral pullback retains flatness/chart-change assumptions rather than asserting exactness for all base changes. Mathematical contract assessed as above, but 1 required node/API name(s) lack a typed declaration (§13)."
+        },
+        {
+          "nodeId": "OverconvergentAutomorphicForms:O1/analytic-line-effectivity",
+          "verdict": "unverifiable",
+          "note": "Heuer’s criterion is line-specific on a smooth rigid space over a perfectoid extension of Q_p; the formal-unit cocycle is not replaced by an arbitrary analytic O+ cocycle. Mathematical contract assessed as above, but 1 required node/API name(s) lack a typed declaration (§13)."
+        },
+        {
+          "nodeId": "OverconvergentAutomorphicForms:O2/admitted-hilbert-domain",
+          "verdict": "unverifiable",
+          "note": "The character and canonical-domain intersection, ramification and AL radius scaling are retained; its carrier is a T4/T5/S5 request. Mathematical contract assessed as above, but 4 required node/API name(s) lack a typed declaration (§13)."
+        },
+        {
+          "nodeId": "OverconvergentAutomorphicForms:O2/hilbert-automorphy-factor",
+          "verdict": "corrected",
+          "note": "Removed the hypothesis contradicting the left source action; the right interface now explicitly inverts the group element and coefficient cocycle. Mathematical contract assessed as above, but 4 required node/API name(s) lack a typed declaration (§13)."
+        },
+        {
+          "nodeId": "OverconvergentAutomorphicForms:O2/hilbert-cocycle-law",
+          "verdict": "unverifiable",
+          "note": "The Hilbert cz+d identity is left ordered; the typed p=3 matrix fixture gives 7 for that law and 4 for the erroneous unconverted right law. Mathematical contract assessed as above, but 1 required node/API name(s) lack a typed declaration (§13)."
+        },
+        {
+          "nodeId": "OverconvergentAutomorphicForms:O2/geometric-hilbert-sheaf",
+          "verdict": "unverifiable",
+          "note": "The rational equalizer becomes an analytic line through the stated effectivity contract; integral local freeness is not assumed here. Mathematical contract assessed as above, but 4 required node/API name(s) lack a typed declaration (§13)."
+        },
+        {
+          "nodeId": "OverconvergentAutomorphicForms:O2/hilbert-level-radius-maps",
+          "verdict": "unverifiable",
+          "note": "AL_n transports p^n ε to ε, and n=0 uses AL_1; the radius is not silently held constant across levels. Mathematical contract assessed as above, but 1 required node/API name(s) lack a typed declaration (§13)."
+        },
+        {
+          "nodeId": "OverconvergentAutomorphicForms:O2/hilbert-algebraic-specialisation",
+          "verdict": "unverifiable",
+          "note": "The algebraic weight comparison retains splitting coefficients and the actual modified differential lattice; the norm character gives the determinant line. Mathematical contract assessed as above, but 1 required node/API name(s) lack a typed declaration (§13)."
+        },
+        {
+          "nodeId": "OverconvergentAutomorphicForms:O3/integral-hilbert-sheaf",
+          "verdict": "unverifiable",
+          "note": "The integral sheaf is defined by O+ eigenfunctions before freeness; rational comparison alone does not prove an integral line. Mathematical contract assessed as above, but 4 required node/API name(s) lack a typed declaration (§13)."
+        },
+        {
+          "nodeId": "OverconvergentAutomorphicForms:O3/integral-rationalisation",
+          "verdict": "corrected",
+          "note": "Replaced the circular integral AIP-generator proof with a finite bounded-denominator argument on quasicompact inverse-image patches, removing the O5 prerequisite. Mathematical contract assessed as above, but 1 required node/API name(s) lack a typed declaration (§13)."
+        },
+        {
+          "nodeId": "OverconvergentAutomorphicForms:O3/hilbert-weight-pullback",
+          "verdict": "unverifiable",
+          "note": "Sheaf pullback and weight specialization are distinct from arbitrary nonflat base change of integral global sections; the flat/formal-chart qualifications are retained. Mathematical contract assessed as above, but 1 required node/API name(s) lack a typed declaration (§13)."
+        },
+        {
+          "nodeId": "OverconvergentAutomorphicForms:O3/fixed-radius-hilbert-forms",
+          "verdict": "unverifiable",
+          "note": "Fixed-radius forms are actual sections on each polarisation component and level, with their integral inclusion and specialization contracts. Mathematical contract assessed as above, but 4 required node/API name(s) lack a typed declaration (§13)."
+        },
+        {
+          "nodeId": "OverconvergentAutomorphicForms:O3/overconvergent-hilbert-forms",
+          "verdict": "unverifiable",
+          "note": "The radius colimit has the prescribed restriction maps and cofinality; the zero-radius ordinary module is not substituted for overconvergent forms. Mathematical contract assessed as above, but 4 required node/API name(s) lack a typed declaration (§13)."
+        },
+        {
+          "nodeId": "OverconvergentAutomorphicForms:O3/ramified-modified-lattice",
+          "verdict": "unverifiable",
+          "note": "At ramified non-Rapoport points the modified O_F-linear lattice is on the Igusa cover; descent to a base line is a further condition. Mathematical contract assessed as above, but 1 required node/API name(s) lack a typed declaration (§13)."
+        },
+        {
+          "nodeId": "OverconvergentAutomorphicForms:O4/presentation-geometric-small",
+          "verdict": "unverifiable",
+          "note": "The small geometric presentation is defined independently with its actual level action and scalar multiplier. Mathematical contract assessed as above, but 4 required node/API name(s) lack a typed declaration (§13)."
+        },
+        {
+          "nodeId": "OverconvergentAutomorphicForms:O4/presentation-geometric-full",
+          "verdict": "unverifiable",
+          "note": "The full geometric cover retains the central closure/effective quotient and its independent equivariance condition. Mathematical contract assessed as above, but 4 required node/API name(s) lack a typed declaration (§13)."
+        },
+        {
+          "nodeId": "OverconvergentAutomorphicForms:O4/presentation-arithmetic-intermediate",
+          "verdict": "unverifiable",
+          "note": "The arithmetic intermediate presentation uses the twisted w action, with finite Δ distinct from the full profinite quotient. Mathematical contract assessed as above, but 4 required node/API name(s) lack a typed declaration (§13)."
+        },
+        {
+          "nodeId": "OverconvergentAutomorphicForms:O4/presentation-arithmetic-full",
+          "verdict": "unverifiable",
+          "note": "The full arithmetic presentation retains actual Weil pairing, determinant and profinite equivariance, without identifying it by definition with the intermediate presentation. Mathematical contract assessed as above, but 4 required node/API name(s) lack a typed declaration (§13)."
+        },
+        {
+          "nodeId": "OverconvergentAutomorphicForms:O4/arithmetic-representatives",
+          "verdict": "unverifiable",
+          "note": "Positive-unit and congruence relations make the representative rule well-defined; ineffective central units must act trivially on the fibre. Mathematical contract assessed as above, but 1 required node/API name(s) lack a typed declaration (§13)."
+        },
+        {
+          "nodeId": "OverconvergentAutomorphicForms:O4/geometric-full-cover-comparison",
+          "verdict": "unverifiable",
+          "note": "The full/small geometric comparison uses the actual torsor maps and invariant-function descent, not equality of abstract dimensions. Mathematical contract assessed as above, but 1 required node/API name(s) lack a typed declaration (§13)."
+        },
+        {
+          "nodeId": "OverconvergentAutomorphicForms:O4/twisted-polarisation-action",
+          "verdict": "unverifiable",
+          "note": "The polarisation action ε·_w f=w(ε)(ε⁻¹)*f retains its inverse and the totally-positive-unit cancellation. Mathematical contract assessed as above, but 4 required node/API name(s) lack a typed declaration (§13)."
+        },
+        {
+          "nodeId": "OverconvergentAutomorphicForms:O4/finite-polarisation-descent",
+          "verdict": "unverifiable",
+          "note": "Finite twisted Δ descent is taken integrally without dividing by its order; rational projectors alone do not establish integral effectivity. Mathematical contract assessed as above, but 1 required node/API name(s) lack a typed declaration (§13)."
+        },
+        {
+          "nodeId": "OverconvergentAutomorphicForms:O4/weil-pairing-comparison",
+          "verdict": "unverifiable",
+          "note": "Multiplication by w(eβ)⁻¹ gives the specified Weil-pairing comparison and both inverse signs are retained. Mathematical contract assessed as above, but 1 required node/API name(s) lack a typed declaration (§13)."
+        },
+        {
+          "nodeId": "OverconvergentAutomorphicForms:O4/polarisation-class-forms",
+          "verdict": "unverifiable",
+          "note": "The narrow-class quotient combines the separate component modules using explicit transport, rather than choosing an ordinary-class quotient. Mathematical contract assessed as above, but 4 required node/API name(s) lack a typed declaration (§13)."
+        },
+        {
+          "nodeId": "OverconvergentAutomorphicForms:O4/polarisation-choice-independence",
+          "verdict": "unverifiable",
+          "note": "Polarisation independence follows through the actual transport and pairing diagrams; geometric operators retain their specified conjugation. Mathematical contract assessed as above, but 1 required node/API name(s) lack a typed declaration (§13)."
+        },
+        {
+          "nodeId": "OverconvergentAutomorphicForms:O5/aip-independent-coefficients",
+          "verdict": "corrected",
+          "note": "Corrected the stale formal-generic-fibre acceptance clause: analytic O/O+ eigenfunctions, the universal formal line and the coherent finite-character factor are separate constructions. Mathematical contract assessed as above, but 5 required node/API name(s) lack a typed declaration (§13)."
+        },
+        {
+          "nodeId": "OverconvergentAutomorphicForms:O5/aip-translation-valuation-units",
+          "verdict": "added",
+          "note": "Promoted the translation-unit API argument to a named lemma. Integral formal-character units, the admitted small-character congruence and finite-order valuation values preserve both bounds at every valuation. Mathematical contract assessed as above, but 1 required node/API name(s) lack a typed declaration (§13)."
+        },
+        {
+          "nodeId": "OverconvergentAutomorphicForms:O5/aip-line-and-gluing",
+          "verdict": "corrected",
+          "note": "The full-character unit-generator criterion is conditional; corrected the P9 citation’s scope by separating its completed lattice tensor from the requested geometric O+ sheaf variant. Mathematical contract assessed as above, but 1 required node/API name(s) lack a typed declaration (§13)."
+        },
+        {
+          "nodeId": "OverconvergentAutomorphicForms:O5/geometric-aip-comparison",
+          "verdict": "corrected",
+          "note": "The valuative integral-equalizer proof is noncircular; added the exact T5 ε_base≤p^(−(m+1)) bound and scaled source admission, and the new valuation-unit lemma as an input. Mathematical contract assessed as above, but 1 required node/API name(s) lack a typed declaration (§13)."
+        },
+        {
+          "nodeId": "OverconvergentAutomorphicForms:O5/arithmetic-aip-comparison",
+          "verdict": "corrected",
+          "note": "Arithmetic twisted invariants transport the integral comparison without averaging; explicitly inherited the corrected geometric comparison radius and source-domain requirements. Mathematical contract assessed as above, but 1 required node/API name(s) lack a typed declaration (§13)."
+        },
+        {
+          "nodeId": "OverconvergentAutomorphicForms:O5/aip-comparison-naturality",
+          "verdict": "corrected",
+          "note": "Naturality follows from actual pullback/frame maps with weight and level transport; explicitly inherited the corrected T5 admission on the comparison diagrams. Mathematical contract assessed as above, but 1 required node/API name(s) lack a typed declaration (§13)."
+        },
+        {
+          "nodeId": "OverconvergentAutomorphicForms:O6/hilbert-cusp-forms",
+          "verdict": "corrected",
+          "note": "Boundary-ideal cusp forms remain independent of Koecher; explicitly inherited the frame-comparison radius where the AIP cusp comparison is used. Mathematical contract assessed as above, but 4 required node/API name(s) lack a typed declaration (§13)."
+        },
+        {
+          "nodeId": "OverconvergentAutomorphicForms:O6/hilbert-koecher",
+          "verdict": "unverifiable",
+          "note": "Koecher retains g>1, normality and boundary codimension; the elliptic case requires its separate cusp expansion calculation. Mathematical contract assessed as above, but 1 required node/API name(s) lack a typed declaration (§13)."
+        },
+        {
+          "nodeId": "OverconvergentAutomorphicForms:O6/tame-hilbert-hecke",
+          "verdict": "unverifiable",
+          "note": "Tame trace has degree q+1 and normalizer 1/q; the coefficient orientation and prime-to-p compactified correspondence scope are retained. Mathematical contract assessed as above, but 5 required node/API name(s) lack a typed declaration (§13)."
+        },
+        {
+          "nodeId": "OverconvergentAutomorphicForms:O6/wild-hilbert-hecke",
+          "verdict": "corrected",
+          "note": "Replaced an integral-identification claim by the integral coefficient map of Lemma10.3; uniformizer independence and partial-radius improvement remain valid. Mathematical contract assessed as above, but 5 required node/API name(s) lack a typed declaration (§13)."
+        },
+        {
+          "nodeId": "OverconvergentAutomorphicForms:O6/hilbert-diamond-operators",
+          "verdict": "unverifiable",
+          "note": "The tame level automorphisms and arithmetic twists give the diamond operators; their boundary and composition laws are explicit. Mathematical contract assessed as above, but 4 required node/API name(s) lack a typed declaration (§13)."
+        },
+        {
+          "nodeId": "OverconvergentAutomorphicForms:O6/aip-hecke-equivariance",
+          "verdict": "corrected",
+          "note": "Hecke comparison is a torsor/isogeny diagram statement; source and target now explicitly inherit the corrected T5 frame-comparison admission. Mathematical contract assessed as above, but 1 required node/API name(s) lack a typed declaration (§13)."
+        },
+        {
+          "nodeId": "OverconvergentAutomorphicForms:O6/hilbert-q-expansion-comparison",
+          "verdict": "unverifiable",
+          "note": "B5 supplies classical expansions only; analytic bounded families and p-level expansion compatibility remain a precise extension request with the same trace normalization. Mathematical contract assessed as above, but 1 required node/API name(s) lack a typed declaration (§13)."
+        },
+        {
+          "nodeId": "OverconvergentAutomorphicForms:O6/fixed-cusp-banach-modules",
+          "verdict": "corrected",
+          "note": "Restricted direct use of AIP Theorem4.4 to its admissible open arithmetic weight affinoid; finite wild level uses scaled AL transport and boundary compatibility. Mathematical contract assessed as above, but 1 required node/API name(s) lack a typed declaration (§13)."
+        },
+        {
+          "nodeId": "OverconvergentAutomorphicForms:O6/compact-radius-restriction",
+          "verdict": "corrected",
+          "note": "Compact restriction uses the refined global-Hasse affinoids and relative compact containment; inherited the source theorem’s admissible weight affinoid restriction. Mathematical contract assessed as above, but 1 required node/API name(s) lack a typed declaration (§13)."
+        },
+        {
+          "nodeId": "OverconvergentAutomorphicForms:O6/controlling-hilbert-operator",
+          "verdict": "unverifiable",
+          "note": "The product ∏U_𝔭^e_𝔭 improves every p-direction and has total normalizer p^(−g); one partial operator need not be controlling. Mathematical contract assessed as above, but 4 required node/API name(s) lack a typed declaration (§13)."
+        },
+        {
+          "nodeId": "OverconvergentAutomorphicForms:O6/controlling-complete-continuity",
+          "verdict": "unverifiable",
+          "note": "Completely continuous restriction and radius-improving factorization give the controlling compact operator, with the stated (Pr) Banach source assumptions. Mathematical contract assessed as above, but 1 required node/API name(s) lack a typed declaration (§13)."
+        },
+        {
+          "nodeId": "OverconvergentAutomorphicForms:O6/hecke-lattice-renormalisation",
+          "verdict": "unverifiable",
+          "note": "Multiplication by q_𝔭 or p^g removes the specified trace denominator; integral trace preservation is a separate contract, and no optimality is asserted. Mathematical contract assessed as above, but 1 required node/API name(s) lack a typed declaration (§13)."
+        },
+        {
+          "nodeId": "OverconvergentAutomorphicForms:O7/ordinary-completed-functions",
+          "verdict": "unverifiable",
+          "note": "Formal affine ordered completion is constructed separately from analytic O+; patchwise sheafification prevents a false global finite-level assertion. Mathematical contract assessed as above, but 5 required node/API name(s) lack a typed declaration (§13)."
+        },
+        {
+          "nodeId": "OverconvergentAutomorphicForms:O7/ordinary-weighted-forms",
+          "verdict": "unverifiable",
+          "note": "Weighted ordinary functions keep the inverse character and integral compatible reductions, with the separate coefficient-lattice completion contract. Mathematical contract assessed as above, but 5 required node/API name(s) lack a typed declaration (§13)."
+        },
+        {
+          "nodeId": "OverconvergentAutomorphicForms:O7/igusa-completion-comparison",
+          "verdict": "unverifiable",
+          "note": "The unit-ball approximation proof is valid under finite-level good reduction, isometric maps and the actual analytic norm-completion contract. Those actual-model inputs remain requested; Heuer supplies only the natural map. Mathematical contract assessed as above, but 1 required node/API name(s) lack a typed declaration (§13)."
+        },
+        {
+          "nodeId": "OverconvergentAutomorphicForms:O7/ordinary-restriction",
+          "verdict": "unverifiable",
+          "note": "Ordinary restriction uses actual compatible formal patches and remains bounded on the stated integral lattice; it does not identify all ordinary functions with overconvergent forms. Mathematical contract assessed as above, but 5 required node/API name(s) lack a typed declaration (§13)."
+        },
+        {
+          "nodeId": "OverconvergentAutomorphicForms:O7/ordinary-coefficient-comparison",
+          "verdict": "unverifiable",
+          "note": "The ordinary coefficient comparison combines formal torsor descent and the conditional O7 structural comparison; it does not infer a Hida control theorem. Mathematical contract assessed as above, but 1 required node/API name(s) lack a typed declaration (§13)."
+        },
+        {
+          "nodeId": "OverconvergentAutomorphicForms:O7/ordinary-hecke-expansions",
+          "verdict": "unverifiable",
+          "note": "Restriction, Hecke and expansion diagrams commute through the compatible reductions and ordered completion; the coefficient comparison alone is not a space-level Hida theorem. Mathematical contract assessed as above, but 1 required node/API name(s) lack a typed declaration (§13)."
+        },
+        {
+          "nodeId": "OverconvergentAutomorphicForms:O6/cuspidal-coefficient-vanishing",
+          "verdict": "unverifiable",
+          "note": "The AIP formal fan/unit quotient vanishing and formal-functions adapter remain a compactification Part II input; the actual global-Hasse affinoid refinement is retained. Mathematical contract assessed as above, but 1 required node/API name(s) lack a typed declaration (§13)."
         }
       ]
     }
