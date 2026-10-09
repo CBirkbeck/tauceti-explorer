@@ -38450,7 +38450,8 @@
     "BP-CrystallineCohomology--CR.5~3"
    ],
    "prompt": "research/blueprint/prompts/REV-CrystallineCohomology--CR.5~3.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7545"
   },
   {
    "kind": "blueprint",
@@ -39103,7 +39104,8 @@
    ],
    "revisionOf": "BP-GeneralizedHeegnerCycles--GH.0",
    "prompt": "research/blueprint/prompts/BP-GeneralizedHeegnerCycles--GH.0~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6964"
   },
   {
    "priority": 2,
