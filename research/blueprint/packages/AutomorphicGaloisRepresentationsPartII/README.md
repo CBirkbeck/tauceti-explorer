@@ -73,7 +73,7 @@ The imaginary quadratic field in the CS discrete-transfer setup is denoted 𝒦:
 | AG2.6 | Coefficient-prime comparison, compatible systems and specialization comparisons |
 | AG2.7 | Finite local realization, residual Hecke ideals, genericity and arithmetic exports |
 
-AG2.1 comprises its two mathematical producers AG2.1a and AG2.1b. The order below follows these layers; “Requires” records the finer proof order and names external stages explicitly. Internal links refer to mathematical targets even when their historical identifier has a different layer prefix. API and test names lie in `TauCeti.AutomorphicGalois` unless another namespace is displayed. The tests are required discriminating examples and counterexamples, including geometrically supplied cases; a partial algebraic example in Suggested.lean does not establish its full automorphic version.
+AG2.1 comprises its two mathematical producers AG2.1a and AG2.1b. The order below follows these layers; “Requires” records the finer proof order and names external stages explicitly. Internal links refer to each target’s mathematical layer. API and test names lie in `TauCeti.AutomorphicGalois` unless another namespace is displayed. The tests are required discriminating examples and counterexamples, including geometrically supplied cases; a partial algebraic example in Suggested.lean does not establish its full automorphic version.
 
 The sources are keyed in the bibliography. Locators use the stated edition's printed pages unless marked as author-copy or arXiv pages. AHTW v1 is an unrefereed preprint. The targets are grouped by their mathematical outputs, rather than by the order of any paper.
 ## AG2.0. Algebraic weights, characters and good-place attachment
@@ -225,7 +225,7 @@ Sources: [ACC+](#source-accplus), §2.2.5, (2.2.6), p. 922; [ACC+](#source-accpl
 
 **A Galois representation attached to π at the good places, and its functoriality under twist, dual, conjugation and base change.** For regular algebraic cuspidal π, a coefficient isomorphism ι:Q̄_ℓ≅C, and a continuous semisimple rank-n representation r of G_F unramified outside a finite set, IsAttached(ι,r,π) means that outside a finite set of finite places v∤ℓ, π_v is spherical, r is unramified, and ι det(X−r(Frob_v^geom))=P_v(π_v;X). The exceptional set contains the ramification of π, F and r and the coefficient prime. Two such r are isomorphic by Frobenius density. This is a good-place condition; it asserts neither local Langlands compatibility at ramified places nor de Rham admissibility nor global existence.
 
-Assume also: This is the property HLTT prove for every regular algebraic cuspidal π over a CM field (ACC+ Theorem 2.3.2). It is the interface that AG2.1–AG2.4 produce and AG2.5 strengthens. Nothing at the places in S, or above l, is asserted. Uniqueness needs semisimplicity. It uses Čebotarev and Brauer–Nesbitt (ArithmeticGaloisRepresentations R01.1/R01.5). The base-change clause needs the Satake parameters of BC(π)_w to be the q-power restrictions of those of π_v (the unramified base-change identity), supplied by EndoscopicTransferAndUnitaryTraceComparison ET.7, which exports the Arthur–Clozel base-change steps to this roadmap.
+Assume also: This is the property HLTT prove for every regular algebraic cuspidal π over a CM field (ACC+ Theorem 2.3.2). It is the interface that AG2.1–AG2.4 produce and AG2.5 strengthens. Nothing at the places in S, or above l, is asserted. Uniqueness needs semisimplicity. It uses Čebotarev and Brauer–Nesbitt (ArithmeticGaloisRepresentations R01.1/R01.5). The base-change clause needs the Satake parameters of BC(π)_w to be the q-power restrictions of those of π_v (the unramified base-change identity), required from EndoscopicTransferAndUnitaryTraceComparison ET.7, which exports the Arthur–Clozel base-change steps to this roadmap.
 
 API:
 
@@ -1571,7 +1571,7 @@ Sources: [ACC+](#source-accplus), Definition 2.3.6 and following duality stateme
 
 <a id="source-caraiani-away"></a>
 
-**Caraiani-away.** Ana Caraiani, [Local-global compatibility and the action of monodromy on nearby cycles](https://arxiv.org/pdf/1010.2188v1). arXiv:1010.2188v1 (2010), published Duke Math. J. 161 (2012), 2331–2413. The full tensor-square purity argument uses the published author copy lgc1.pdf, pp.2410–2411; other locators specify arXiv pages.
+**Caraiani-away.** Ana Caraiani, [Local-global compatibility and the action of monodromy on nearby cycles](https://arxiv.org/pdf/1010.2188v1). arXiv:1010.2188v1 (2010), published Duke Math. J. 161 (2012), 2331–2413. The full tensor-square purity argument uses the [published author copy](https://www.ma.imperial.ac.uk/~acaraian/papers/lgc1.pdf), pp.2410–2411; other locators specify arXiv pages.
 
 <a id="source-caraiani-p"></a>
 
