@@ -46443,8 +46443,8 @@
     "PKG-DiamondEtaleCohomology"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-DiamondEtaleCohomology.md",
-   "state": "pending",
-   "note": "released on GitHub issue #7512"
+   "state": "external",
+   "note": "claimed on GitHub issue #7512"
   },
   {
    "id": "PKG-DiamondsAndVStacks",
@@ -47034,7 +47034,8 @@
     "PKG-HeckeStacksAndLocalShtukas"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-HeckeStacksAndLocalShtukas.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7521"
   },
   {
    "id": "PKG-HeegnerPointEulerSystems",
@@ -77505,8 +77506,8 @@
     "FIX-RT-AREA-langlands-2~3"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-langlands-2~3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5871"
+   "state": "pending",
+   "note": "released on GitHub issue #5871"
   },
   {
    "id": "FIX-RT-AREA-langlands-2~4",
