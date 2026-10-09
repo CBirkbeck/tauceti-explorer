@@ -1,11 +1,15 @@
+import TauCeti.NumberTheory.ModularForms.Newforms.Newform
 import Mathlib.Algebra.Group.End
 import Mathlib.Algebra.Order.Floor.Semiring
 import Mathlib.Algebra.Ring.Parity
 import Mathlib.Analysis.Complex.Basic
+import Mathlib.NumberTheory.Padics.PadicNumbers
+import Mathlib.NumberTheory.Padics.PadicIntegers
 import Mathlib.Analysis.SpecialFunctions.Log.Basic
 import Mathlib.Data.Int.ModEq
 import Mathlib.Data.Nat.MaxPrimeFac
 import Mathlib.Data.ZMod.Basic
+import Mathlib.FieldTheory.AbsoluteGaloisGroup
 import Mathlib.FieldTheory.IsAlgClosed.AlgebraicClosure
 import Mathlib.FieldTheory.KrullTopology
 import Mathlib.GroupTheory.OrderOfElement
@@ -24,6 +28,12 @@ import Mathlib.NumberTheory.PrimeCounting
 import Mathlib.Order.Interval.Finset.Nat
 import Mathlib.RingTheory.DiscreteValuationRing.Basic
 import Mathlib.RingTheory.Frobenius
+import Mathlib.GroupTheory.SpecificGroups.Alternating
+import Mathlib.GroupTheory.SpecificGroups.Dihedral
+import Mathlib.GroupTheory.Subgroup.Simple
+import Mathlib.RingTheory.Flat.Basic
+import Mathlib.RingTheory.MvPowerSeries.Basic
+import Mathlib.RingTheory.Regular.RegularSequence
 import Mathlib.RepresentationTheory.Irreducible
 import Mathlib.RingTheory.LocalRing.ResidueField.Basic
 import Mathlib.Tactic.NormNum
@@ -36,26 +46,17 @@ import Mathlib.Topology.Instances.Matrix
 /-!
 # Suggested Lean forms: Serre's modularity conjecture over ℚ
 
-This file is not the roadmap and is not exhaustive. The roadmap README is definitive. These
-statements suggest Lean forms so that contributors and reviewers converge on names and
+This file is not the roadmap and is not exhaustive; the roadmap README is definitive. It
+supplies the mathematical target signatures, construction APIs and definition tests, with
+supplier adapters where needed. These statements suggest Lean forms so that contributors and reviewers converge on names and
 signatures. The targets are proved by `sorry`; only arithmetic and matrix examples carry proofs,
 and nothing here is claimed to be formalised.
 
-The file imports individual Mathlib modules only. It works with Mathlib's absolute Galois group
-of `ℚ`, its Frobenius elements, inertia groups, complex conjugations and Dirichlet density.
-Objects that other roadmaps own appear in the section `ImportedInterfaces` as opaque data
-stand-ins whose docstrings name the owner; the owner's definition governs. Tau Ceti's
-`HeckeRing.GL2.Newform` is among them: the pinned newform carries no attached Galois
-representation, and the shared check of this file has no Tau Ceti build, so a stand-in summing it
-over levels and weights carries the residual representations; an implementation uses the pinned
-structure. No condition is replaced by a `Prop`-valued placeholder: "arises from" and "modular"
-are defined from the data stand-ins, and for irreducible `ρ̄`, the only case used, this is the
-definition of §2.2 of the README, owned by `AlgebraicModularFormsAndSerreWeights:R15.6`.
-
-Local p-adic statements (crystalline and Barsotti–Tate lifts, Weil–Deligne types, deformation
-rings, compatible systems) need interfaces that the pinned libraries do not have. For those
-targets the file records their exact matrix and arithmetic content as examples, most of them
-proved by `decide`, `norm_num` or `omega`; the README states the theorems.
+The file imports Mathlib and Tau Ceti's pinned newform API. Bundled forms below wrap
+`HeckeRing.GL2.Newform`; only their unavailable attached Galois representations and the
+interfaces owned by neighbouring roadmaps use data-valued `sorry` stand-ins. Each stand-in
+names its owner. Conditions on those objects are expressed by equations, dimensions, local
+invariants or explicitly typed supplier structures; none is an unspecified `Prop` field.
 
 Layer labels such as `R26.3` and target labels such as `R26.3/weight-interval-containment`
 refer to the README.
@@ -190,20 +191,24 @@ def artinConductor {k : Type*} [CommRing k] (ρ : GQ →* GL (Fin 2) k) : ℕ :=
 `k(ρ̄) ≥ 2` of a residual representation, from his local recipe at `p`. -/
 def serreWeight {p : ℕ} [Fact p.Prime] (ρ : GQ →* GL (Fin 2) (FpBar p)) : ℕ := sorry
 
-/-- Stand-in (opaque) for the normalised classical newforms of all levels and weights, Tau Ceti's
-`HeckeRing.GL2.Newform N k` at the pin, summed over `N` and `k`. -/
-def Newform : Type := sorry
+/-- The existing normalised newform carrier, bundled over its positive level and natural weight. -/
+structure Newform where
+  level : ℕ
+  level_ne_zero : NeZero level
+  weight : ℕ
+  form : @HeckeRing.GL2.Newform level level_ne_zero (weight : ℤ)
 
 namespace Newform
 
-/-- The level of a newform (stand-in, opaque). -/
-def level (f : Newform) : ℕ := sorry
+/-- Fourier coefficients of the existing carrier. -/
+def coeff (f : Newform) (n : ℕ) : ℂ :=
+  letI := f.level_ne_zero
+  (UpperHalfPlane.qExpansion 1 f.form.toCuspForm).coeff n
 
-/-- The weight of a newform (stand-in, opaque). -/
-def weight (f : Newform) : ℕ := sorry
-
-/-- The character of a newform, a Dirichlet character modulo its level (stand-in, opaque). -/
-def character (f : Newform) : DirichletCharacter ℂ f.level := sorry
+/-- The nebentypus is the existing zero extension from units. -/
+def character (f : Newform) : DirichletCharacter ℂ f.level :=
+  letI := f.level_ne_zero
+  MulChar.ofUnitHom f.form.χ
 
 /-- Imported from `AlgebraicModularFormsAndSerreWeights:R15.6` (stand-in, opaque): the primes `λ`
 above `p` of the coefficient field of `f`, relative to the fixed embedding `ι_p`, together with an
@@ -246,22 +251,23 @@ def katzDiamond (N : ℕ) (k : ℤ) (A : Type u) [CommRing A] (d : ZMod N) :
 def katzBaseChange (N : ℕ) (k : ℤ) (A B : Type u) [CommRing A] [CommRing B] [Algebra A B] :
     B ⊗[A] KatzCuspForms N k A →ₗ[B] KatzCuspForms N k B := sorry
 
-/-- Imported from Tau Ceti ModularForms, Layer 4 (stand-in, opaque): the normalised cuspidal
-newforms of weight one, of all levels and characters, `Σ N, HeckeRing.GL2.Newform N 1` at the
-pin, with their complex Deligne–Serre representations. -/
-def WeightOneNewform : Type := sorry
+/-- Weight-one normalised newforms, using the same pinned analytic carrier. -/
+structure WeightOneNewform where
+  level : ℕ
+  level_ne_zero : NeZero level
+  form : @HeckeRing.GL2.Newform level level_ne_zero 1
 
 namespace WeightOneNewform
 
-/-- The level of a weight-one newform (imported, opaque). -/
-def level (f : WeightOneNewform) : ℕ := sorry
+/-- The existing nebentypus, extended by zero. -/
+def character (f : WeightOneNewform) : DirichletCharacter ℂ f.level :=
+  letI := f.level_ne_zero
+  MulChar.ofUnitHom f.form.χ
 
-/-- The character of a weight-one newform, modulo its level (imported, opaque). -/
-def character (f : WeightOneNewform) : DirichletCharacter ℂ f.level := sorry
-
-/-- The Fourier coefficient `a_n(f)`; for a prime `r` it is the eigenvalue of `T_r`
-(imported, opaque). -/
-def coeff (f : WeightOneNewform) (n : ℕ) : ℂ := sorry
+/-- Fourier coefficients of the existing cusp form, with width one. -/
+def coeff (f : WeightOneNewform) (n : ℕ) : ℂ :=
+  letI := f.level_ne_zero
+  (UpperHalfPlane.qExpansion 1 f.form.toCuspForm).coeff n
 
 /-- Imported from `AutomorphicGaloisRepresentations:R19.1` (stand-in, opaque): the Deligne–Serre
 representation `ρ_f : G_ℚ → GL₂(ℂ)`, in a chosen basis. -/
@@ -325,8 +331,8 @@ theorem corollary_8_1_ii {p : ℕ} [Fact p.Prime] (ρ : GQ →* GL (Fin 2) (FpBa
   sorry
 
 /-- `R26.6/finiteness-corollary-1-3` (Khare Corollary 1.3), absolutely irreducible part: up to
-isomorphism there are finitely many S-type representations unramified outside `p`. Left out of
-the signature: the reducible semisimple ones, sums of two characters of order dividing `p − 1`. -/
+isomorphism there are finitely many S-type representations unramified outside `p`. The full
+semisimple statement, including sums of characters, is `finite_level_one_semisimple` below. -/
 theorem finite_level_one (p : ℕ) [Fact p.Prime] :
     ∃ S : Set (GQ →* GL (Fin 2) (FpBar p)), S.Finite ∧
       ∀ ρ : GQ →* GL (Fin 2) (FpBar p), IsSType ρ →
@@ -580,8 +586,8 @@ theorem IsGoodDihedralPrime.q_sq_dvd_conductor {p : ℕ} [Fact p.Prime]
   sorry
 
 /-- `R27.1/good-dihedral-implies-nonsolvable-image-and-is-preserved`, part (i) (Khare–Wintenberger
-Lemma 6.3(i)): a locally good-dihedral representation has non-solvable image. Left out of the
-signature: the projective image is not `A₅`, and part (ii), which needs compatible systems. -/
+Lemma 6.3(i)): the non-solvability component. The full conclusion and propagation are
+`good_dihedral_large_image` and `good_dihedral_preserved` below. -/
 theorem isLocallyGoodDihedral_not_isSolvable {p : ℕ} [Fact p.Prime]
     (ρ : GQ →* GL (Fin 2) (FpBar p)) (hcont : IsOpen (ρ.ker : Set GQ)) (h : IsGoodDihedralRep ρ) :
     ¬ Group.IsSolvable ρ.range := by
@@ -830,9 +836,9 @@ theorem artin_reduction_isAbsIrreducible {G O : Type*} [Group G] [Finite G] [Com
   sorry
 
 /-- `R27.6/artin-reductions-of-serre-type`, part (c): with `ℓ` prime to the order of the image and
-to the Artin conductor, the reduction is unramified at `ℓ` and has the same conductor. Left out of
-the signature: part (a), the independence of the lattice, the character, the weights `k(ρ̄_λ) = ℓ`
-and `1`, and part (d). -/
+to the Artin conductor, the reduction is unramified at `ℓ` and has the same conductor. The
+realisation, lattice independence, weights, character and density are stated in the Artin section
+below (`artin_realisation`, `artin_reduction_invariants`, `artin_frobenius_density`). -/
 theorem artin_reduction_conductor {O : Type*} [CommRing O] [IsDomain O]
     [IsDiscreteValuationRing O] [CharZero O] {ℓ : ℕ} (hℓ : ℓ.Prime)
     [CharP (IsLocalRing.ResidueField O) ℓ]
@@ -1192,16 +1198,23 @@ example : D₀.mul P = P.mul D₁ ∧ F₀.mul P = P.mul F₁ ∧ D₁.mul (D₁
     F₁.mul F₁ = one ∧ (F₁.mul D₁).mul F₁ = D₁.mul D₁ := by
   decide
 
+/-- Invariants of the cyclic group generated by A, computed as ker(A−1). -/
+def matrixInvariants {K : Type*} [Field K] (A : Matrix (Fin 2) (Fin 2) K) :=
+  LinearMap.ker (Matrix.toLin' (A - 1))
+
 /-- `adapted_lattice_nonsplit` and `residual_depends_on_lattice`: modulo `π`, `D₁ ≡ (1 0; 1 1) ≠ 1`
 and `F₁ ≡ diag(1, −1)`, so the reduction of `L₁` is a non-split extension with one-dimensional
 inertia invariants. -/
 example : D₁.red = !![1, 0; 1, 1] ∧ F₁.red = !![1, 0; 0, -1] ∧ D₁.red ≠ 1 ∧
-    (D₁.red - 1) * (D₁.red - 1) = 0 := by
-  decide
+    (D₁.red - 1) * (D₁.red - 1) = 0 ∧
+    Module.finrank (ZMod 3) (matrixInvariants D₁.red) = 1 ∧
+    Module.finrank (ZMod 3) (matrixInvariants D₀.red) = 2 := by
+  sorry
 
 /-- `standard_lattice_nonexample`: the standard lattice reduces to the trivial inertia action,
 with two-dimensional invariants, so it cannot realise a ramified `ρ̄₃|_{I₂}`; `L₁` does. -/
-example : D₀.red = 1 ∧ D₀.red ≠ D₁.red := by decide
+example : D₀.red = 1 ∧ D₀.red ≠ D₁.red ∧
+    Module.finrank (ZMod 3) (matrixInvariants D₀.red) = 2 := by sorry
 
 /-- `split_case_standard_lattice`: modulo `π`, `F₀² = 1` and `F₀ ≠ ±1`, so its eigenvalues are `1`
 and `−1 = 2 = χ̄₃(Frob₂)`; `L₀` realises `γ ⊗ (η ⊕ 1)`. -/
@@ -1211,6 +1224,1384 @@ example : F₀.red * F₀.red = 1 ∧ F₀.red ≠ 1 ∧ F₀.red ≠ -1 ∧ (2 
 example : F₀.e00.add F₀.e11 = e0 ∧ F₁.e00.add F₁.e11 = e0 := by decide
 
 end TauCeti.SerreConjecture.DP
+
+/-! ## Supplier adapters used by the remaining targets
+
+These are interfaces to R01, R07–R08 and R24, rather than new owners of local Galois groups,
+period rings, induction or compatible systems. The data-valued stand-ins identify the invariant
+being imported. Their predicates below have mathematical bodies. A member includes an integral
+model and a residue embedding; changing that model changes the reduction, not its semisimplification.
+-/
+noncomputable section
+namespace TauCeti.SerreConjecture
+open NumberField
+namespace ImportedInterfaces
+
+/-- R01.1: isomorphism of matrix representations, including the chosen coefficient field. -/
+def RepIso {G K : Type*} [Group G] [Field K] (ρ τ : G →* GL (Fin 2) K) : Prop :=
+  ∃ B : GL (Fin 2) K, ∀ g, ρ g = B * τ g * B⁻¹
+
+/-- R01.1: a full free stable lattice, specified by its basis in the generic representation.
+The basis columns span its underlying O-submodule; invertibility gives full generic span. -/
+structure StableLattice {G O K : Type*} [Group G] [CommRing O] [Field K] [Algebra O K]
+    (ρ : G →* GL (Fin 2) K) where
+  basis : GL (Fin 2) K
+  action : G →* GL (Fin 2) O
+  intertwines : ∀ g, ρ g * basis = basis * Matrix.GeneralLinearGroup.map (algebraMap O K) (action g)
+
+/-- R01.1: semisimplification on the same two-dimensional carrier (well-defined up to RepIso). -/
+def semisimplification {G K : Type*} [Group G] [Field K]
+    (ρ : G →* GL (Fin 2) K) : G →* GL (Fin 2) K := sorry
+
+/-- R01.2: the valuation topology on the integral closure in a finite extension of Q_p.
+This adapter uses the unique extension of the p-adic valuation; it is not a chosen topology. -/
+abbrev coefficientTopology (p : ℕ) [Fact p.Prime] (K : Type*) [Field K]
+    [Algebra (Padic p) K] [FiniteDimensional (Padic p) K] [Algebra (PadicInt p) K] :
+    TopologicalSpace (integralClosure (PadicInt p) K) := sorry
+
+/-- R01/R24: one integral p-adic member over the integers of a finite extension of Q_p.
+The field/topology/finite-extension identifications are supplied by R01.2; O is not a free
+coefficient variable standing for an arbitrary ring in the theorem statements. -/
+structure Member where
+  p : ℕ
+  prime : Fact p.Prime
+  O : Type
+  ring : CommRing O
+  domain : IsDomain O
+  dvr : IsDiscreteValuationRing O
+  charZero : CharZero O
+  topology : TopologicalSpace O
+  topologicalRing : IsTopologicalRing O
+  residueChar : CharP (IsLocalRing.ResidueField O) p
+  residueAlgebra : Algebra (ZMod p) (IsLocalRing.ResidueField O)
+  finiteResidue : FiniteDimensional (ZMod p) (IsLocalRing.ResidueField O)
+  padicAlgebra : Algebra (Padic p) (FractionRing O)
+  finitePadic : FiniteDimensional (Padic p) (FractionRing O)
+  padicIntAlgebra : Algebra (PadicInt p) (FractionRing O)
+  integers : O ≃+* integralClosure (PadicInt p) (FractionRing O)
+  integersCompatibility : ∀ x, (integers x : FractionRing O) = algebraMap O (FractionRing O) x
+  algebraCompatibility : ∀ x : PadicInt p,
+    algebraMap (PadicInt p) (FractionRing O) x = algebraMap (Padic p) (FractionRing O) (x : Padic p)
+  topologyCompatibility : topology = TopologicalSpace.induced integers
+    (coefficientTopology p (FractionRing O))
+  residueEmbedding : IsLocalRing.ResidueField O →+* FpBar p
+  rho : GQ →* GL (Fin 2) O
+  continuous : Continuous rho
+
+attribute [instance] Member.prime Member.ring Member.domain Member.dvr Member.charZero
+  Member.topology Member.topologicalRing Member.residueChar Member.residueAlgebra Member.finiteResidue Member.padicAlgebra Member.finitePadic Member.padicIntAlgebra
+
+namespace Member
+abbrev generic (m : Member) := genericRep m.rho
+abbrev residual (m : Member) :=
+  (Matrix.GeneralLinearGroup.map m.residueEmbedding).comp (residualRep m.rho)
+
+/-- R07.3: Hodge–Tate numbers, counted with multiplicity. -/
+def hodgeWeights (m : Member) : Multiset ℤ := sorry
+/-- R07.3: dimension over the coefficient field of D_dR(V). -/
+def deRhamRank (m : Member) : ℕ := sorry
+/-- R07.3: dimension of D_cris(V), with the usual coefficient-field normalisation. -/
+def crystallineRank (m : Member) : ℕ := sorry
+/-- R07.3: dimension of D_pcris(V), over the maximal unramified coefficient extension. -/
+def potentiallyCrystallineRank (m : Member) : ℕ := sorry
+
+def IsDeRham (m : Member) : Prop := m.deRhamRank = 2
+def IsCrystalline (m : Member) : Prop := m.crystallineRank = 2
+def IsPotentiallyCrystalline (m : Member) : Prop := m.potentiallyCrystallineRank = 2
+def HasWeight (m : Member) (k : ℕ) : Prop := m.hodgeWeights = {0, (k : ℤ) - 1}
+def RamifiedInside (m : Member) (S : Finset ℕ) : Prop :=
+  ∀ r, r.Prime → r ≠ m.p → r ∉ S → IsUnramifiedAt m.generic r
+
+/-- Modularity in terms of the existing form and the Frobenius characteristic polynomials.
+The embedding of the coefficient field need not be continuous. -/
+def ArisesFrom (m : Member) (f : Newform) : Prop :=
+  ∃ ι : FractionRing m.O →+* ℂ,
+    ∃ S : Finset ℕ, ∀ r, r.Prime → r ≠ m.p → r ∉ S → ∀ σ, IsFrobAt σ r →
+      ι (Matrix.trace (m.generic σ : Matrix (Fin 2) (Fin 2) (FractionRing m.O))) =
+        f.coeff r ∧
+      ι (Matrix.det (m.generic σ : Matrix (Fin 2) (Fin 2) (FractionRing m.O))) =
+        f.character (r : ZMod f.level) * (r : ℂ) ^ (f.weight - 1)
+def IsModular (m : Member) : Prop := ∃ f : Newform, 2 ≤ f.weight ∧ m.ArisesFrom f
+end Member
+
+/-- R01.2: conjugation on inertia by the arithmetic Frobenius in the chosen local frame. -/
+def inertiaFrobeniusConjugation (r : ℕ) : MulAut (inertiaAt r) := sorry
+
+/-- R01.3: a local Weil–Deligne parameter in the arithmetic-Frobenius convention.
+Finite inertia, Frobenius and monodromy are retained; F N F⁻¹ = r N fixes the convention. -/
+structure WDParameter (K : Type*) [Field K] (r : ℕ) where
+  inertia : inertiaAt r →* GL (Fin 2) K
+  finiteInertia : Finite inertia.range
+  frobenius : GL (Fin 2) K
+  conjugates : ∀ g, frobenius * inertia g * frobenius⁻¹ =
+    inertia (inertiaFrobeniusConjugation r g)
+  monodromy : Matrix (Fin 2) (Fin 2) K
+  nilpotent : monodromy * monodromy = 0
+  frobeniusMonodromy : (frobenius : Matrix (Fin 2) (Fin 2) K) * monodromy =
+    (r : K) • (monodromy * (frobenius : Matrix (Fin 2) (Fin 2) K))
+  commutes : ∀ g, (inertia g : Matrix (Fin 2) (Fin 2) K) * monodromy =
+    monodromy * (inertia g : Matrix (Fin 2) (Fin 2) K)
+
+/-- R01.3/R07: WD(V|D_r), including at the coefficient prime for potentially semistable V. -/
+def wd (m : Member) (r : ℕ) : WDParameter (FractionRing m.O) r := sorry
+/-- R01.3: coefficient extension of the inertia parameter and monodromy. -/
+def WDParameter.map {K L : Type*} [Field K] [Field L] {r : ℕ}
+    (W : WDParameter K r) (f : K →+* L) : WDParameter L r := sorry
+
+/-- R01.3: Frobenius semisimplification, preserving inertia and monodromy. -/
+def WDParameter.frobeniusSS {K : Type*} [Field K] {r : ℕ}
+    (W : WDParameter K r) : WDParameter K r := sorry
+
+def WDParameter.Isomorphic {K : Type*} [Field K] {r : ℕ}
+    (W V : WDParameter K r) : Prop :=
+  ∃ B : GL (Fin 2) K, (∀ g, W.inertia g = B * V.inertia g * B⁻¹) ∧
+    W.frobenius = B * V.frobenius * B⁻¹ ∧
+    W.monodromy = (B : Matrix (Fin 2) (Fin 2) K) * V.monodromy *
+      (B⁻¹ : Matrix (Fin 2) (Fin 2) K)
+
+/-- R24.5–R24.6: rational almost strictly compatible systems, indexed by coefficient places.
+The unramified odd coefficient-prime clause includes reducible reductions. At a ramified
+coefficient prime the WD comparison is imposed only for irreducible residual members. -/
+structure CompatibleSystem where
+  E : Type
+  field : Field E
+  numberField : NumberField E
+  S : Finset ℕ
+  weights : Multiset ℤ
+  member : IsDedekindDomain.HeightOneSpectrum (𝓞 E) → Member
+  coefficient : ∀ v, E →+* FractionRing (member v).O
+  integralCoefficient : ∀ v, 𝓞 E →+* (member v).O
+  integralCompatibility : ∀ v x,
+    algebraMap (member v).O (FractionRing (member v).O) (integralCoefficient v x) =
+      coefficient v (x : E)
+  placeKernel : ∀ v, RingHom.ker ((IsLocalRing.residue (member v).O).comp (integralCoefficient v)) = v.asIdeal
+  placeAbove : ∀ v, ((member v).p : 𝓞 E) ∈ v.asIdeal
+  allPrimes : ∀ p, p.Prime → ∃ v, (member v).p = p
+  trace : ℕ → E
+  determinant : ℕ → E
+  parameter : ∀ r, WDParameter E r
+  hodge : ∀ v, (member v).hodgeWeights = weights
+  deRham : ∀ v, (member v).IsDeRham
+  odd : ∀ v, IsOdd (member v).generic
+  irreducible : ∀ v, IsIrreducible (member v).generic
+  ramification : ∀ v, (member v).RamifiedInside S
+  frobenius : ∀ v r, r.Prime → r ≠ (member v).p → r ∉ S → ∀ σ, IsFrobAt σ r →
+    Matrix.trace ((member v).generic σ : Matrix (Fin 2) (Fin 2) (FractionRing (member v).O)) =
+      coefficient v (trace r) ∧
+    Matrix.det ((member v).generic σ : Matrix (Fin 2) (Fin 2) (FractionRing (member v).O)) =
+      coefficient v (determinant r)
+  wdCompatibility : ∀ v r, r.Prime →
+    (r ≠ (member v).p ∨ IsIrreducible (member v).residual ∨ (r ≠ 2 ∧ r ∉ S)) →
+      ((wd (member v) r).frobeniusSS).Isomorphic
+        (((parameter r).map (coefficient v)).frobeniusSS)
+  crystalline : ∀ v, (member v).p ∉ S →
+    ((member v).p ≠ 2 ∨ IsIrreducible (member v).residual) → (member v).IsCrystalline
+
+attribute [instance] CompatibleSystem.field CompatibleSystem.numberField
+namespace CompatibleSystem
+abbrev Place (s : CompatibleSystem) := IsDedekindDomain.HeightOneSpectrum (𝓞 s.E)
+def HasWeight (s : CompatibleSystem) (k : ℕ) : Prop := s.weights = {0, (k : ℤ) - 1}
+def IsModular (s : CompatibleSystem) : Prop :=
+  ∃ (f : Newform) (ι : s.E →+* ℂ), 2 ≤ f.weight ∧
+    ∀ r, r.Prime → r ∉ s.S → ¬ r ∣ f.level →
+      ι (s.trace r) = f.coeff r ∧
+      ι (s.determinant r) = f.character (r : ZMod f.level) * (r : ℂ) ^ (f.weight - 1)
+/-- All residual coefficient fields at p have degree one (p splits completely). -/
+def SplitAt (s : CompatibleSystem) (p : ℕ) : Prop :=
+  ∀ v : s.Place, (s.member v).p = p →
+    Module.finrank (ZMod (s.member v).p) (IsLocalRing.ResidueField (s.member v).O) = 1
+end CompatibleSystem
+
+/-- R24.6: two systems are linked at an identified residue characteristic and an actual
+isomorphism of their chosen semisimplified reductions. -/
+def Linked (s t : CompatibleSystem) (p : ℕ) : Prop :=
+  ∃ (v : s.Place) (w : t.Place) (_h : (s.member v).p = (t.member w).p),
+    (s.member v).p = p ∧
+    ∃ B : GL (Fin 2) (FpBar (t.member w).p),
+      HEq (semisimplification (s.member v).residual)
+        ((MulAut.conj B).toMonoidHom.comp (semisimplification (t.member w).residual))
+
+/-- R01.4: the quadratic subgroup corresponding to Q(sqrt((-1)^((p-1)/2)*p)). -/
+def quadraticSubgroup (p : ℕ) : Subgroup GQ := sorry
+def IsBadDihedral {p : ℕ} [Fact p.Prime] (ρ : GQ →* GL (Fin 2) (FpBar p)) : Prop :=
+  IsIrreducible ρ ∧ ¬ IsIrreducible (ρ.comp (quadraticSubgroup p).subtype)
+
+/-- R01.4: scalar quotient of the matrix image. -/
+def projectiveImage {G K : Type*} [Group G] [Field K] (ρ : G →* GL (Fin 2) K) : Type := sorry
+instance {G K : Type*} [Group G] [Field K] (ρ : G →* GL (Fin 2) K) : Group (projectiveImage ρ) := sorry
+
+/-- R07.4/R15.4: finite-flat model of the specified residual local representation after
+restriction to a finite extension of ramification index e. The carrier includes the group
+scheme, its coefficient action and its generic-fibre identification, supplied by R07.4. -/
+def FiniteFlatModel {p : ℕ} [Fact p.Prime] (ρ : GQ →* GL (Fin 2) (FpBar p)) (e : ℕ) : Type := sorry
+/-- R01.4: the mod-p cyclotomic character on G_Q. -/
+def cyclotomic {p : ℕ} [Fact p.Prime] : GQ →* (FpBar p)ˣ := sorry
+
+/-- R01.2 local decomposition group at r, realised inside G_Q. -/
+def decompositionAt (r : ℕ) : Subgroup GQ := sorry
+/-- R07.3/R21: ordinary up to a Teichmüller twist, expressed by its invariant line and the
+inertial cyclotomic quotient. The characters themselves belong to R01.4. -/
+def teichmuller (m : Member) : GQ →* (FractionRing m.O)ˣ := sorry
+def padicCyclotomic (m : Member) : GQ →* (FractionRing m.O)ˣ := sorry
+def IsOrdinary (m : Member) : Prop :=
+  ∃ (B : GL (Fin 2) (FractionRing m.O)) (a b : GQ →* (FractionRing m.O)ˣ) (i j : ℤ),
+    (∀ g : decompositionAt m.p,
+      (B⁻¹ * m.generic g * B : Matrix (Fin 2) (Fin 2) (FractionRing m.O)) 1 0 = 0) ∧
+    ∀ g : inertiaAt m.p,
+      (B⁻¹ * m.generic g * B : Matrix (Fin 2) (Fin 2) (FractionRing m.O)) 0 0 =
+        a g * teichmuller m g ^ i * padicCyclotomic m g ∧
+      (B⁻¹ * m.generic g * B : Matrix (Fin 2) (Fin 2) (FractionRing m.O)) 1 1 =
+        b g * teichmuller m g ^ j ∧ a g = 1 ∧ b g = 1
+
+end ImportedInterfaces
+end TauCeti.SerreConjecture
+end
+
+/-! ## R33.2–R33.3: local characters, induction and the two lattices -/
+noncomputable section
+namespace TauCeti.SerreConjecture
+open NumberField ImportedInterfaces
+namespace DP
+
+/-- R01.2, using Mathlib's absolute Galois group of Q_N. -/
+abbrev LocalGalois (N : ℕ) [Fact N.Prime] := Field.absoluteGaloisGroup (Padic N)
+/-- ClassFieldTheory/LocalFieldsRamification: the subgroup G_(Q_N²) of index two. -/
+def unramifiedQuadratic (N : ℕ) [Fact N.Prime] : Subgroup (LocalGalois N) := sorry
+/-- The local inertia subgroup, from LocalFieldsRamification (not a new local-group target). -/
+def localInertia (N : ℕ) [Fact N.Prime] : Subgroup (LocalGalois N) := sorry
+/-- The wild inertia subgroup, from LocalFieldsRamification. -/
+def localWildInertia (N : ℕ) [Fact N.Prime] : Subgroup (LocalGalois N) := sorry
+/-- A tame inertia lift and arithmetic Frobenius, from LocalFieldsRamification's tame frame. -/
+def tameGenerator (N : ℕ) [Fact N.Prime] : LocalGalois N := sorry
+def localFrobenius (N : ℕ) [Fact N.Prime] : LocalGalois N := sorry
+/-- Art_(Q_N²)(N), equivalently the square of the chosen Frobenius in the abelian quotient. -/
+def artinUniformizer (N : ℕ) [Fact N.Prime] : unramifiedQuadratic N := sorry
+/-- Inclusion of I_N in G_(Q_N²), from the unramified quadratic extension. -/
+def quadraticInertia (N : ℕ) [Fact N.Prime] : localInertia N →* unramifiedQuadratic N := sorry
+
+/-- R01.2: the integers Z_q[ζ_q] and its chosen primitive root. -/
+def CyclotomicIntegers (q : ℕ) [Fact q.Prime] : Type := sorry
+instance (q : ℕ) [Fact q.Prime] : CommRing (CyclotomicIntegers q) := sorry
+instance (q : ℕ) [Fact q.Prime] : IsDomain (CyclotomicIntegers q) := sorry
+instance (q : ℕ) [Fact q.Prime] : IsDiscreteValuationRing (CyclotomicIntegers q) := sorry
+instance (q : ℕ) [Fact q.Prime] : CharZero (CyclotomicIntegers q) := sorry
+instance (q : ℕ) [Fact q.Prime] : CharP (IsLocalRing.ResidueField (CyclotomicIntegers q)) q := sorry
+def zeta (q : ℕ) [Fact q.Prime] : (CyclotomicIntegers q)ˣ := sorry
+
+/-- R01.2/ClassFieldTheory: the character through F_(N²)^×, trivial on the uniformizer.
+The prime-to-N, odd order q divides N+1 and not N-1; these hypotheses select niveau two. -/
+def levelTwoCharacter (q N : ℕ) [Fact q.Prime] [Fact N.Prime]
+    (hodd : Odd q) (hdiv : q ∣ N + 1) (hnot : ¬ q ∣ N - 1) :
+    unramifiedQuadratic N →* (CyclotomicIntegers q)ˣ := sorry
+
+theorem levelTwoCharacter_orderOf (q N : ℕ) [Fact q.Prime] [Fact N.Prime]
+    (hodd : Odd q) (hdiv : q ∣ N + 1) (hnot : ¬ q ∣ N - 1) :
+    orderOf (levelTwoCharacter q N hodd hdiv hnot) = q ∧
+    orderOf ((levelTwoCharacter q N hodd hdiv hnot).comp (quadraticInertia N)) = q ∧
+    ¬ ∀ g : localInertia N,
+      levelTwoCharacter q N hodd hdiv hnot (quadraticInertia N g) ^ N =
+        levelTwoCharacter q N hodd hdiv hnot (quadraticInertia N g) := by sorry
+
+theorem levelTwoCharacter_artin (q N : ℕ) [Fact q.Prime] [Fact N.Prime]
+    (hodd : Odd q) (hdiv : q ∣ N + 1) (hnot : ¬ q ∣ N - 1) :
+    levelTwoCharacter q N hodd hdiv hnot (artinUniformizer N) = 1 := by sorry
+
+/-- Induction from the index-two subgroup, in the two coset basis (InductionRestriction).
+This supplied map is integral because κ is unit valued. -/
+def inducedQuadratic {R : Type*} [CommRing R] (N : ℕ) [Fact N.Prime]
+    (κ : unramifiedQuadratic N →* Rˣ) : LocalGalois N →* GL (Fin 2) R := sorry
+
+def dihedralType (q N : ℕ) [Fact q.Prime] [Fact N.Prime]
+    (hodd : Odd q) (hdiv : q ∣ N + 1) (hnot : ¬ q ∣ N - 1) :
+    LocalGalois N →* GL (Fin 2) (CyclotomicIntegers q) :=
+  inducedQuadratic N (levelTwoCharacter q N hodd hdiv hnot)
+
+/-- Reduction of the cyclotomic character in characteristic p. For p≠q this specialises the
+common cyclotomic integer model, not a nonexistent map Z_q→F_p. R01.2/R24.6 own that model. -/
+def reducedCharacter (q N p : ℕ) [Fact q.Prime] [Fact N.Prime] [Fact p.Prime]
+    (hodd : Odd q) (hdiv : q ∣ N + 1) (hnot : ¬ q ∣ N - 1) :
+    unramifiedQuadratic N →* (FpBar p)ˣ := sorry
+
+theorem dihedralType_irreducible (q N : ℕ) [Fact q.Prime] [Fact N.Prime]
+    (hodd : Odd q) (hdiv : q ∣ N + 1) (hnot : ¬ q ∣ N - 1) :
+    IsIrreducible (genericRep (dihedralType q N hodd hdiv hnot)) ∧
+    ∀ p, ∀ (_ : Fact p.Prime), p ≠ q →
+      IsIrreducible (inducedQuadratic N (reducedCharacter q N p hodd hdiv hnot)) := by sorry
+
+/-- The standard full stable lattice with the coset basis e₁,e₂. -/
+def dihedralType.standardLattice (q N : ℕ) [Fact q.Prime] [Fact N.Prime]
+    (hodd : Odd q) (hdiv : q ∣ N + 1) (hnot : ¬ q ∣ N - 1) :
+    StableLattice (O := CyclotomicIntegers q)
+      (genericRep (dihedralType q N hodd hdiv hnot)) := sorry
+
+theorem dihedralType_standardLattice_basis (q N : ℕ) [Fact q.Prime] [Fact N.Prime]
+    (hodd : Odd q) (hdiv : q ∣ N + 1) (hnot : ¬ q ∣ N - 1) :
+    (dihedralType.standardLattice q N hodd hdiv hnot).basis = 1 ∧
+    (dihedralType.standardLattice q N hodd hdiv hnot).action = dihedralType q N hodd hdiv hnot ∧
+    (dihedralType q N hodd hdiv hnot (tameGenerator N) :
+      Matrix (Fin 2) (Fin 2) (CyclotomicIntegers q)) = dihedralInertia (zeta q : CyclotomicIntegers q) N ∧
+    (dihedralType q N hodd hdiv hnot (localFrobenius N) :
+      Matrix (Fin 2) (Fin 2) (CyclotomicIntegers q)) = dihedralFrob (CyclotomicIntegers q) := by sorry
+
+/-- 1⊕η, where η is the unramified quadratic character (kernel G_(Q_N²)). -/
+def splitUnramified (N : ℕ) [Fact N.Prime] (k : Type*) [Field k] :
+    LocalGalois N →* GL (Fin 2) k := sorry
+
+theorem dihedralType_standardLattice_residual (q N : ℕ) [Fact q.Prime] [Fact N.Prime]
+    (hodd : Odd q) (hdiv : q ∣ N + 1) (hnot : ¬ q ∣ N - 1) :
+    RepIso (residualRep (dihedralType.standardLattice q N hodd hdiv hnot).action)
+      (splitUnramified N (IsLocalRing.ResidueField (CyclotomicIntegers q))) ∧
+    (localInertia N ≤ (residualRep (dihedralType.standardLattice q N hodd hdiv hnot).action).ker) ∧
+    Matrix.trace (residualRep (dihedralType.standardLattice q N hodd hdiv hnot).action
+      (localFrobenius N) : Matrix (Fin 2) (Fin 2) (IsLocalRing.ResidueField (CyclotomicIntegers q))) = 0 := by sorry
+
+theorem dihedralType_residual_semisimplification (q N : ℕ) [Fact q.Prime] [Fact N.Prime]
+    (hodd : Odd q) (hdiv : q ∣ N + 1) (hnot : ¬ q ∣ N - 1)
+    (Λ : StableLattice (O := CyclotomicIntegers q)
+      (genericRep (dihedralType q N hodd hdiv hnot))) :
+    RepIso (semisimplification (residualRep Λ.action))
+      (splitUnramified N (IsLocalRing.ResidueField (CyclotomicIntegers q))) := by sorry
+
+/-- At (q,N)=(3,2), the normalized order-three niveau-two character. -/
+def orderThreeCharacter : unramifiedQuadratic 2 →* (CyclotomicIntegers 3)ˣ :=
+  levelTwoCharacter 3 2 (by decide) (by norm_num) (by norm_num)
+def orderThreeType : LocalGalois 2 →* GL (Fin 2) (CyclotomicIntegers 3) :=
+  inducedQuadratic 2 orderThreeCharacter
+
+def orderThreeType.standardLattice :
+    StableLattice (O := CyclotomicIntegers 3) (genericRep orderThreeType) :=
+  dihedralType.standardLattice 3 2 (by decide) (by norm_num) (by norm_num)
+/-- O(e₁+e₂)⊕O(ζ−1)e₂; the basis matrix P is invertible over Frac(O), not over O. -/
+def orderThreeType.adaptedLattice :
+    StableLattice (O := CyclotomicIntegers 3) (genericRep orderThreeType) := sorry
+
+/-- The P,D₁,F₁ calculations above are the matrices of this full stable lattice. -/
+theorem orderThreeType_adaptedLattice_basis :
+    (orderThreeType.adaptedLattice.basis :
+      Matrix (Fin 2) (Fin 2) (FractionRing (CyclotomicIntegers 3))) =
+        !![1, 0; 1, (algebraMap (CyclotomicIntegers 3) (FractionRing (CyclotomicIntegers 3))
+          (zeta 3 : CyclotomicIntegers 3)) - 1] ∧
+    (orderThreeType.adaptedLattice.action (tameGenerator 2) :
+      Matrix (Fin 2) (Fin 2) (CyclotomicIntegers 3)) =
+        !![(zeta 3 : CyclotomicIntegers 3), 0; (zeta 3 : CyclotomicIntegers 3), (zeta 3 : CyclotomicIntegers 3)^2] ∧
+    (orderThreeType.adaptedLattice.action (localFrobenius 2) :
+      Matrix (Fin 2) (Fin 2) (CyclotomicIntegers 3)) = !![1, (zeta 3 : CyclotomicIntegers 3)-1; 0, -1] := by sorry
+
+theorem orderThreeType_standardLattice_reduction :
+    RepIso (residualRep orderThreeType.standardLattice.action)
+      (splitUnramified 2 (IsLocalRing.ResidueField (CyclotomicIntegers 3))) ∧
+    localInertia 2 ≤ (residualRep orderThreeType.standardLattice.action).ker := by sorry
+
+/-- The nonsplit reduction has exactly the two matrices calculated above, in the adapted basis. -/
+theorem orderThreeType_adaptedLattice_reduction :
+    (residualRep orderThreeType.adaptedLattice.action (tameGenerator 2) :
+      Matrix (Fin 2) (Fin 2) (IsLocalRing.ResidueField (CyclotomicIntegers 3))) = !![1, 0; 1, 1] ∧
+    (residualRep orderThreeType.adaptedLattice.action (localFrobenius 2) :
+      Matrix (Fin 2) (Fin 2) (IsLocalRing.ResidueField (CyclotomicIntegers 3))) = !![1, 0; 0, -1] ∧
+    Module.finrank (IsLocalRing.ResidueField (CyclotomicIntegers 3))
+      (fixedVectors (residualRep orderThreeType.adaptedLattice.action) (localInertia 2)) = 1 := by sorry
+
+/-- R01.2: extension of a local representation to the chosen decomposition subgroup of G_Q. -/
+def localRestriction (m : Member) (r : ℕ) [Fact r.Prime] :
+    LocalGalois r →* GL (Fin 2) (FractionRing m.O) := sorry
+/-- Residual local restriction, using the same chosen decomposition group. -/
+def residualLocalRestriction (m : Member) (r : ℕ) [Fact r.Prime] :
+    LocalGalois r →* GL (Fin 2) (FpBar m.p) := sorry
+
+/-- The two possible Steinberg reductions at 2 in characteristic 3, after unramified twist.
+This includes both split and ramified cases, and names the twist and coefficient embedding. -/
+structure SteinbergReductionAtTwo (m : Member) where
+  atThree : m.p = 3
+  embed : IsLocalRing.ResidueField (CyclotomicIntegers 3) →+* FpBar m.p
+  twist : LocalGalois 2 →* (FpBar m.p)ˣ
+  unramifiedTwist : ∀ g : localInertia 2, twist g = 1
+  ramified : Bool
+  wildTrivial : ∀ g : localWildInertia 2, residualLocalRestriction m 2 g = 1
+  normalForm : ∃ B : GL (Fin 2) (FpBar m.p),
+    ((B⁻¹ * residualLocalRestriction m 2 (tameGenerator 2) * B : Matrix (Fin 2) (Fin 2) (FpBar m.p)) =
+      if ramified then !![1, 0; 1, 1] else 1) ∧
+    (B⁻¹ * residualLocalRestriction m 2 (localFrobenius 2) * B : Matrix (Fin 2) (Fin 2) (FpBar m.p)) =
+      (twist (localFrobenius 2) : FpBar m.p) • !![1, 0; 0, -1]
+
+/-- R01.1: tensor by a scalar character. -/
+def twistRep {G k : Type*} [Group G] [Field k] (χ : G →* kˣ)
+    (ρ : G →* GL (Fin 2) k) : G →* GL (Fin 2) k := sorry
+
+theorem orderThreeType_exists_lattice_reduction_iso (m : Member)
+    (h : SteinbergReductionAtTwo m) :
+    ∃ Λ : StableLattice (O := CyclotomicIntegers 3) (genericRep orderThreeType),
+      Λ = (if h.ramified then orderThreeType.adaptedLattice else orderThreeType.standardLattice) ∧
+      RepIso (twistRep h.twist ((Matrix.GeneralLinearGroup.map h.embed).comp (residualRep Λ.action)))
+        (residualLocalRestriction m 2) := by sorry
+
+/-- Compatible means an actual stable-lattice reduction isomorphic on inertia, including the
+unramified twist. This is the local hypothesis of DP Theorem 1.9(4), not just ss compatibility. -/
+theorem orderThreeType_isCompatible (m : Member) (h : SteinbergReductionAtTwo m) :
+    ∃ Λ : StableLattice (O := CyclotomicIntegers 3) (genericRep orderThreeType),
+      RepIso ((twistRep h.twist ((Matrix.GeneralLinearGroup.map h.embed).comp
+        (residualRep Λ.action))).comp (localInertia 2).subtype)
+        ((residualLocalRestriction m 2).comp (localInertia 2).subtype) := by sorry
+
+end DP
+end TauCeti.SerreConjecture
+end
+
+/-! ## R27.1 and R33: insertion, modularity transfer and removal of ramification -/
+noncomputable section
+namespace TauCeti.SerreConjecture
+open NumberField ImportedInterfaces
+
+/-- A member lifts the specified residual representation, up to conjugacy and ss. -/
+def ImportedInterfaces.Member.Lifts (m : Member) {p : ℕ} [Fact p.Prime]
+    (ρ : GQ →* GL (Fin 2) (FpBar p)) : Prop :=
+  ∃ (_h : m.p = p) (B : GL (Fin 2) (FpBar p)),
+    HEq (semisimplification m.residual) ((MulAut.conj B).toMonoidHom.comp ρ)
+
+namespace DP
+/-- The inertial WD type κ⊕κ^N, with κ of order q and zero monodromy. The induced local representation interchanges the two characters; its scalar determinant need not have finite order. -/
+def HasDihedralType (s : CompatibleSystem) (q N : ℕ) : Prop :=
+  ∃ (κ : inertiaAt N →* s.Eˣ) (B : GL (Fin 2) s.E), orderOf κ = q ∧
+    (∀ g, (B⁻¹ * (s.parameter N).inertia g * B : Matrix (Fin 2) (Fin 2) s.E) =
+      !![(κ g : s.E), 0; 0, (κ g : s.E) ^ N]) ∧ (s.parameter N).monodromy = 0
+
+/-- The Paso 2 datum; general prescribed lift existence stays with R24.3. -/
+structure GoodDihedralInsertion (s : CompatibleSystem) where
+  q : ℕ
+  N : ℕ
+  qPrime : Fact q.Prime
+  NPrime : Fact N.Prime
+  qGtFive : 5 < q
+  qModFour : q % 4 = 1
+  qLarge : ∀ r ∈ s.S, r < q
+  split : s.SplitAt q
+  newPrime : N ∉ s.S
+  system : CompatibleSystem
+  weightTwo : system.HasWeight 2
+  ramification : system.S = insert N s.S
+  link : Linked s system q
+  localType : HasDihedralType system q N
+  primeCongruences : N % 8 = 1 ∧ (∀ r, r.Prime → r < q → N % r = 1) ∧ N % q = q - 1
+  modularity : s.IsModular ↔ system.IsModular
+
+attribute [instance] GoodDihedralInsertion.qPrime GoodDihedralInsertion.NPrime
+
+theorem GoodDihedralInsertion.type_at_N {s : CompatibleSystem} (d : GoodDihedralInsertion s) :
+    HasDihedralType d.system d.q d.N := d.localType
+
+theorem GoodDihedralInsertion.congruences {s : CompatibleSystem} (d : GoodDihedralInsertion s) :
+    d.N % 8 = 1 ∧ (∀ r, r.Prime → r < d.q → d.N % r = 1) ∧ d.N % d.q = d.q - 1 :=
+  d.primeCongruences
+
+theorem GoodDihedralInsertion.modular_iff {s : CompatibleSystem} (d : GoodDihedralInsertion s) :
+    s.IsModular ↔ d.system.IsModular := d.modularity
+
+/-- R33.2/Paso 2. Either the solvable branch terminates or the insertion exists. -/
+theorem exists_goodDihedralInsertion (s : CompatibleSystem) (hweight : s.HasWeight 2) :
+    s.IsModular ∨ Nonempty (GoodDihedralInsertion s) := by sorry
+
+/-- R33.1, DP 1.4: odd-prime lifting with regular de Rham weights and residual modularity.
+Non-bad-dihedral plus residual irreducibility is the cyclotomic absolute-irreducibility condition. -/
+theorem modularity_lifting_odd (m : Member) (hp : m.p ≠ 2) (k : ℕ) (hk : 2 ≤ k)
+    (hdR : m.IsDeRham) (hweight : m.HasWeight k)
+    (hodd : IsOdd m.generic) (hirr : IsIrreducible m.generic)
+    (hfinite : ∃ S, m.RamifiedInside S) (hres : IsIrreducible m.residual)
+    (hbad : ¬ IsBadDihedral m.residual) (hmod : IsModular m.residual) : m.IsModular := by sorry
+
+/-- R33.1, DP 1.5: the dyadic transfer has the non-solvable residual hypothesis. -/
+theorem modularity_lifting_two (m : Member) (hp : m.p = 2) (k : ℕ) (hk : 2 ≤ k)
+    (hdR : m.IsDeRham) (hweight : m.HasWeight k) (hodd : IsOdd m.generic)
+    (hirr : IsIrreducible m.generic) (hfinite : ∃ S, m.RamifiedInside S)
+    (hlarge : ¬ Group.IsSolvable m.residual.range) (hmod : IsModular m.residual) :
+    m.IsModular := by sorry
+
+/-- R33.1, DP 1.6/Pan: no residual modularity or WD hypothesis is imposed in this branch. -/
+theorem modularity_lifting_reducible (m : Member) (hp : 5 ≤ m.p) (k : ℕ) (hk : 2 ≤ k)
+    (hdR : m.IsDeRham) (hweight : m.HasWeight k) (hodd : IsOdd m.generic)
+    (hirr : IsIrreducible m.generic) (hfinite : ∃ S, m.RamifiedInside S)
+    (hred : ¬ IsIrreducible m.residual) : m.IsModular := by sorry
+
+/-- R32.5's finite-order twist completion of DP 1.7, in the terminal weights used here. -/
+theorem modularity_lifting_three_terminal (m : Member) (hp : m.p = 3) (k : ℕ)
+    (hk : k = 2 ∨ k = 4) (hcrys : m.IsCrystalline) (hweight : m.HasWeight k)
+    (hodd : IsOdd m.generic) (hirr : IsIrreducible m.generic)
+    (hunram : m.RamifiedInside ∅) (hred : ¬ IsIrreducible m.residual) : m.IsModular := by sorry
+
+/-- R24.6/DP Remark 4: any one characteristic-zero member determines system modularity. -/
+theorem modularity_member_iff (s : CompatibleSystem) (v : s.Place) :
+    (s.member v).IsModular ↔ s.IsModular := by sorry
+
+/-- R33.1/Fontaine–Laffaille. This is the representation statement behind p>2k. -/
+theorem fontaineLaffaille_not_badDihedral (m : Member) (k : ℕ) (hk : 2 ≤ k)
+    (hp : 2 * k < m.p) (hcrys : m.IsCrystalline) (hweight : m.HasWeight k)
+    (hirr : IsIrreducible m.residual) :
+    serreWeight m.residual = k ∧ ¬ IsBadDihedral m.residual := by sorry
+
+/-- The weight comparison also covers reducible reductions; only the bad-dihedral
+exclusion needs to distinguish irreducibility. -/
+theorem fontaineLaffaille_weight (m : Member) (k : ℕ) (hk : 2 ≤ k)
+    (hp : 2*k < m.p) (hcrys : m.IsCrystalline) (hweight : m.HasWeight k) :
+    serreWeight m.residual = k := by sorry
+
+/-- R33.1/solvable termination: reducible and irreducible solvable residuals have different inputs. -/
+theorem solvable_residual_termination (m : Member) (hp : 5 ≤ m.p) (k : ℕ) (hk : 2 ≤ k)
+    (hdR : m.IsDeRham) (hweight : m.HasWeight k) (hodd : IsOdd m.generic)
+    (hirr : IsIrreducible m.generic) (hfinite : ∃ S, m.RamifiedInside S)
+    (hsolv : Group.IsSolvable m.residual.range) (hbad : ¬ IsBadDihedral m.residual) :
+    m.IsModular := by sorry
+
+/-- R33.1/Paso 1: starts with the prescribed crystalline lift, then links at w>2k.
+The new ramification set may contain w. -/
+theorem paso_one {p : ℕ} [Fact p.Prime] (hp : p ≠ 2)
+    (ρ : GQ →* GL (Fin 2) (FpBar p)) (hS : IsSType ρ)
+    (hlarge : ¬ Group.IsSolvable ρ.range) (hk : 2 ≤ serreWeight ρ ∧ serreWeight ρ ≤ p + 1)
+    (s : CompatibleSystem) (v : s.Place) (hlift : (s.member v).Lifts ρ)
+    (hcrys : (s.member v).IsCrystalline) (hweight : s.HasWeight (serreWeight ρ)) :
+    IsModular ρ ∨ ∃ (w : ℕ) (t : CompatibleSystem), w.Prime ∧ 2 * serreWeight ρ < w ∧
+      w ∉ s.S ∧ t.HasWeight 2 ∧ t.S ⊆ insert w s.S ∧ Linked s t w ∧
+      (IsModular ρ ↔ t.IsModular) := by sorry
+
+/-- The control hypotheses kept during Pasos 3–4, not an assertion about any arbitrary type. -/
+structure DihedralControl (s : CompatibleSystem) (q N : ℕ) (S₁ : Finset ℕ) where
+  qPrime : Fact q.Prime
+  NPrime : Fact N.Prime
+  qGtFive : 5 < q
+  qLarge : ∀ r ∈ S₁, r < q
+  NNew : N ∉ S₁
+  congruences : N % 8 = 1 ∧ (∀ r, r.Prime → r < q → N % r = 1) ∧ N % q = q - 1
+  ramification : s.S ⊆ insert N (S₁ ∪ {2, 3})
+  type : HasDihedralType s q N
+  regular : ∃ k, 2 ≤ k ∧ s.HasWeight k
+
+
+/-- R33.2/Lemma 2.1 includes the good-dihedral predicate, not just an order computation. -/
+theorem lemma_two_one (s : CompatibleSystem) (q N : ℕ) (S₁ : Finset ℕ)
+    (h : DihedralControl s q N S₁) (v : s.Place) (hp : (s.member v).p ∈ S₁ ∪ {2, 3}) :
+    IsGoodDihedralRep (s.member v).residual ∧
+      ¬ Group.IsSolvable (s.member v).residual.range := by sorry
+
+/-- R33.2/Paso 3: no weight-two conclusion is imposed on the intermediate system. -/
+theorem paso_three (s : CompatibleSystem) (q N : ℕ) (S₁ : Finset ℕ)
+    (h : DihedralControl s q N S₁) :
+    ∃ t : CompatibleSystem, t.S ⊆ {2, N} ∧ HasDihedralType t q N ∧
+      (s.IsModular ↔ t.IsModular) := by sorry
+
+/-- R33.3/Lemma 2.3: linked at 3, same weights/ramification, order-three type and zero N.
+The Steinberg condition retains nonzero monodromy and trivial inertial WD representation. -/
+theorem typeChangeAtTwo (s : CompatibleSystem) (hweight : s.HasWeight 2) (hthree : 3 ∉ s.S)
+    (hsteinberg : (s.parameter 2).monodromy ≠ 0 ∧ ∀ g, (s.parameter 2).inertia g = 1)
+    (hlarge : ∀ v : s.Place, (s.member v).p = 3 → ¬ Group.IsSolvable (s.member v).residual.range) :
+    ∃ t : CompatibleSystem, t.HasWeight 2 ∧ t.S = s.S ∧ Linked s t 3 ∧
+      HasDihedralType t 3 2 ∧ (s.IsModular ↔ t.IsModular) := by sorry
+
+/-- R33.3/Remark 6: the odd-ramification finite-flat exclusion, applied to the changed type. -/
+theorem remark_six (s : CompatibleSystem) (hweight : s.HasWeight 2)
+    (htype : HasDihedralType s 3 2) (v : s.Place) (hp : (s.member v).p = 2)
+    (hlarge : ¬ Group.IsSolvable (s.member v).residual.range) :
+    Nonempty (FiniteFlatModel (s.member v).residual 3) ∧ serreWeight (s.member v).residual = 2 := by sorry
+
+/-- R33.3/Paso 4: the direct weight-two branch and the Steinberg/type-change detour for
+weight four both end here. Type at N survives; the resulting system has weight two. -/
+theorem paso_four (s : CompatibleSystem) (q N : ℕ) (S₁ : Finset ℕ)
+    (h : DihedralControl s q N S₁) (hram : s.S ⊆ {2, N}) :
+    ∃ t : CompatibleSystem, t.S ⊆ {N} ∧ t.HasWeight 2 ∧ HasDihedralType t q N ∧
+      (s.IsModular ↔ t.IsModular) := by sorry
+
+/-- R33.3/Paso 5: reducible residuals terminate with Pan's de Rham theorem; the other
+branch gives an empty ramification set. N≡1 mod8 rules out level-one bad dihedral. -/
+theorem paso_five (s : CompatibleSystem) (N : ℕ) (hN : N.Prime) (hbig : 5 < N)
+    (hcong : N % 8 = 1) (hweight : s.HasWeight 2) (hram : s.S ⊆ {N}) :
+    s.IsModular ∨ ∃ (t : CompatibleSystem) (k : ℕ), 2 ≤ k ∧ t.S = ∅ ∧ t.HasWeight k ∧
+      (s.IsModular ↔ t.IsModular) := by sorry
+
+/-- R33.4/Paso 6: the named terminal system theorem, using Tate–Serre, R32.5's crystalline
+weights 2/4 completion and R25.5's checked GL₂-type semistable weight-6/Schoof branch. -/
+theorem terminal_five (s : CompatibleSystem) (k : ℕ) (hk : 2 ≤ k)
+    (hweight : s.HasWeight k) (hram : s.S = ∅) :
+    s.IsModular := by sorry
+
+/-- R33.5: every unramified odd member of the specific weight-two dyadic lift system works;
+its residual can be reducible. The existence of a suitable coefficient place is part of the result. -/
+theorem auxiliary_odd_member (s : CompatibleSystem) (hweight : s.HasWeight 2)
+    (v₂ : s.Place) (htwo : (s.member v₂).p = 2)
+    (hlarge : ¬ Group.IsSolvable (s.member v₂).residual.range) :
+    (∃ v : s.Place, 3 < (s.member v).p ∧ (s.member v).p ∉ s.S) ∧
+    ∀ v : s.Place, 3 < (s.member v).p → (s.member v).p ∉ s.S →
+      (s.member v).IsCrystalline ∧ (s.member v).HasWeight 2 ∧
+      IsOdd (s.member v).generic ∧ IsIrreducible (s.member v).generic ∧
+      (IsIrreducible (s.member v).residual →
+        serreWeight (s.member v).residual = 2 ∧ ¬ IsBadDihedral (s.member v).residual) := by sorry
+
+end DP
+end TauCeti.SerreConjecture
+end
+
+/-! ## R26: the prescribed-lift application contracts -/
+noncomputable section
+namespace TauCeti.SerreConjecture
+open NumberField ImportedInterfaces
+
+/-- R24.3: the exact minimal local lift condition of KW §5, including its dyadic exceptional
+induced case. The supplied carrier contains the inertial identification, not just an equality
+of conductor exponents. -/
+def MinimalModel (m : Member) (r : ℕ) : Type := sorry
+def IsMinimalAway (m : Member) (T : Finset ℕ) : Prop :=
+  ∀ r, r.Prime → r ∉ T → Nonempty (MinimalModel m r)
+/-- R07.4/R24.3: a p-divisible group over Q_p(μ_p)'s integers whose rational Tate module is V. -/
+def BarsottiTateOverCyclotomic (m : Member) : Type := sorry
+/-- R01.4: the finite-order lift of det(ρ̄)χ̄_p^(1−k), not a freely chosen determinant. -/
+def finiteDeterminant (m : Member) : GQ →* (FractionRing m.O)ˣ := sorry
+
+/-- Ordinary residual shape in Serre's normalization. -/
+def ResidualOrdinary {p : ℕ} [Fact p.Prime] (ρ : GQ →* GL (Fin 2) (FpBar p)) : Prop :=
+  ∃ B : GL (Fin 2) (FpBar p), ∀ g : inertiaAt p,
+    (B⁻¹ * ρ g * B : Matrix (Fin 2) (Fin 2) (FpBar p)) 1 0 = 0 ∧
+    (B⁻¹ * ρ g * B : Matrix (Fin 2) (Fin 2) (FpBar p)) 0 0 =
+      (cyclotomic (p := p) g : FpBar p) ^ (serreWeight ρ - 1) ∧
+    (B⁻¹ * ρ g * B : Matrix (Fin 2) (Fin 2) (FpBar p)) 1 1 = 1
+
+/-- R26.2/Proposition 2.1. The endpoint is semistable, rather than a falsely claimed BT lift. -/
+theorem minimal_weight_two_lift {p : ℕ} [Fact p.Prime] (hp : 3 < p)
+    (ρ : GQ →* GL (Fin 2) (FpBar p)) (hS : IsSType ρ) (hord : ResidualOrdinary ρ)
+    (hk : 2 ≤ serreWeight ρ ∧ serreWeight ρ ≤ p + 1 ∧ serreWeight ρ ≠ p) :
+    ∃ m : Member, m.Lifts ρ ∧ m.HasWeight 2 ∧ IsMinimalAway m {p} ∧
+      (∀ g, Matrix.det (m.generic g : Matrix (Fin 2) (Fin 2) (FractionRing m.O)) =
+        finiteDeterminant m g * teichmuller m g ^ (serreWeight ρ - 2) * padicCyclotomic m g) ∧
+      (serreWeight ρ < p + 1 → Nonempty (BarsottiTateOverCyclotomic m)) ∧
+      (serreWeight ρ = 2 → m.IsCrystalline) ∧
+      (serreWeight ρ = p + 1 → (wd m p).monodromy ≠ 0) ∧ IsOrdinary m := by sorry
+
+/-- The prescribed minimal weight-two condition of Khare §2.2, p. 12, including its
+actual ordinary inertia character and endpoint. This is an application predicate on members. -/
+def MinimalWeightTwoLift {p : ℕ} [Fact p.Prime]
+    (ρ : GQ →* GL (Fin 2) (FpBar p)) (m : Member) : Prop :=
+  m.Lifts ρ ∧ m.HasWeight 2 ∧ IsMinimalAway m {p} ∧
+    (∀ g, Matrix.det (m.generic g : Matrix (Fin 2) (Fin 2) (FractionRing m.O)) =
+      finiteDeterminant m g * teichmuller m g ^ (serreWeight ρ - 2) * padicCyclotomic m g) ∧
+    (∃ B : GL (Fin 2) (FractionRing m.O), ∀ g : inertiaAt p,
+      (B⁻¹ * m.generic g * B : Matrix (Fin 2) (Fin 2) (FractionRing m.O)) 1 0 = 0 ∧
+      (B⁻¹ * m.generic g * B : Matrix (Fin 2) (Fin 2) (FractionRing m.O)) 0 0 =
+        (teichmuller m g : FractionRing m.O) ^ (serreWeight ρ-2) * padicCyclotomic m g ∧
+      (B⁻¹ * m.generic g * B : Matrix (Fin 2) (Fin 2) (FractionRing m.O)) 1 1 = 1) ∧
+    (serreWeight ρ < p+1 → Nonempty (BarsottiTateOverCyclotomic m)) ∧
+    (serreWeight ρ = 2 → m.IsCrystalline) ∧
+    (serreWeight ρ = p+1 → (wd m p).monodromy ≠ 0)
+
+theorem minimal_weight_two_lift_prescribed {p : ℕ} [Fact p.Prime] (hp : 3 < p)
+    (ρ : GQ →* GL (Fin 2) (FpBar p)) (hS : IsSType ρ) (hord : ResidualOrdinary ρ)
+    (hk : 2 ≤ serreWeight ρ ∧ serreWeight ρ ≤ p+1 ∧ serreWeight ρ ≠ p) :
+    ∃ m : Member, MinimalWeightTwoLift ρ m := by sorry
+
+/-- R01.2/ClassFieldTheory: a chosen tame fundamental character at q, valued in the
+coefficient extension containing its (q−1)-st roots; it is not the p-cyclotomic character. -/
+def tameCharacter (m : Member) (q : ℕ) : inertiaAt q →* (FractionRing m.O)ˣ := sorry
+
+/-- R26.2: local nebentypus data, with a chosen coefficient extension containing the characters.
+χ is the Teichmüller lift of the residual tame character; η has exact p^e order. -/
+structure NebentypeLift {p : ℕ} [Fact p.Prime]
+    (ρ : GQ →* GL (Fin 2) (FpBar p)) (q e : ℕ) (i : ℤ) where
+  member : Member
+  lifts : member.Lifts ρ
+  weight : member.HasWeight (serreWeight ρ)
+  crystalline : member.IsCrystalline
+  minimal : IsMinimalAway member {p, q}
+  chi : inertiaAt q →* (FractionRing member.O)ˣ
+  eta : inertiaAt q →* (FractionRing member.O)ˣ
+  etaOrder : orderOf eta = p ^ e
+  etaFundamental : ∀ g, eta g = tameCharacter member q g ^ ((q-1) / p^e)
+  chiFinite : 0 < orderOf chi
+  chiPrimeToP : ¬ p ∣ orderOf chi
+  etaGlobal : GQ →* (FractionRing member.O)ˣ
+  etaGlobalOrder : orderOf etaGlobal = p^e
+  etaRestrict : ∀ g : inertiaAt q, etaGlobal g = eta g
+  type : ∃ B : GL (Fin 2) (FractionRing member.O), ∀ g : inertiaAt q,
+    (B⁻¹ * member.generic g * B : Matrix (Fin 2) (Fin 2) (FractionRing member.O)) 1 0 = 0 ∧
+    (B⁻¹ * member.generic g * B : Matrix (Fin 2) (Fin 2) (FractionRing member.O)) 0 0 = chi g * eta g ^ i ∧
+    (B⁻¹ * member.generic g * B : Matrix (Fin 2) (Fin 2) (FractionRing member.O)) 1 1 = 1
+  determinant : ∀ g : GQ,
+    Matrix.det (member.generic g : Matrix (Fin 2) (Fin 2) (FractionRing member.O)) =
+      finiteDeterminant member g * padicCyclotomic member g ^ (serreWeight ρ - 1) * etaGlobal g ^ i
+
+/-- Local residual tame upper-triangular shape, including genuine ramification. -/
+def NebentypeResidual {p : ℕ} [Fact p.Prime]
+    (ρ : GQ →* GL (Fin 2) (FpBar p)) (q : ℕ) : Prop :=
+  ¬ IsUnramifiedAt ρ q ∧ ∃ (χ : inertiaAt q →* (FpBar p)ˣ) (B : GL (Fin 2) (FpBar p)),
+    (∀ g, χ g ^ (q - 1) = 1) ∧ ∀ g : inertiaAt q,
+      (B⁻¹ * ρ g * B : Matrix (Fin 2) (Fin 2) (FpBar p)) 1 0 = 0 ∧
+      (B⁻¹ * ρ g * B : Matrix (Fin 2) (Fin 2) (FpBar p)) 0 0 = χ g ∧
+      (B⁻¹ * ρ g * B : Matrix (Fin 2) (Fin 2) (FpBar p)) 1 1 = 1
+
+/-- R26.2/Proposition 2.2, all integral nebentypus exponents, including p=3. -/
+theorem nebentype_lift_at_q {p : ℕ} [Fact p.Prime] (hp : p ≠ 2)
+    (ρ : GQ →* GL (Fin 2) (FpBar p)) (hS : IsSType ρ) (hlarge : ¬ Group.IsSolvable ρ.range)
+    (hk : 2 ≤ serreWeight ρ ∧ serreWeight ρ ≤ p + 1 ∧ serreWeight ρ ≠ p)
+    (q e : ℕ) (hq : q.Prime) (hqp : q ≠ p) (he : 0 < e)
+    (hexact : p ^ e ∣ q - 1 ∧ ¬ p ^ (e + 1) ∣ q - 1) (hlocal : NebentypeResidual ρ q) (i : ℤ) :
+    Nonempty (NebentypeLift ρ q e i) := by sorry
+
+/-- R26.2/Proposition 3.1(i): same member and weight two; WD type at p is retained.
+R24.5/almost-strict-compatibility supplies the common full system adapter. -/
+theorem compatible_system_minimal_weight_two {p : ℕ} [Fact p.Prime] (hp : 3 < p)
+    (ρ : GQ →* GL (Fin 2) (FpBar p)) (hS : IsSType ρ) (hord : ResidualOrdinary ρ)
+    (m : Member) (hprescribed : MinimalWeightTwoLift ρ m) :
+    ∃ (s : CompatibleSystem) (v : s.Place), HEq (s.member v) m ∧ s.HasWeight 2 ∧
+      ∀ w : s.Place, 2 < (s.member w).p → IsUnramifiedAt ρ (s.member w).p →
+        (s.member w).IsCrystalline ∧
+        (s.member w).RamifiedInside ((artinConductor ρ).primeFactors ∪ {p}) := by sorry
+
+/-- R26.2/Proposition 3.1(ii): the member above q has the stated return weights, with a twist.
+R24.5/almost-strict-compatibility supplies the full system adapter. The local
+crystalline-over-Q_q(μ_q) carrier is owned by R07/R24, as above. -/
+theorem compatible_system_nebentype {p : ℕ} [Fact p.Prime] (hp : p ≠ 2)
+    (ρ : GQ →* GL (Fin 2) (FpBar p)) (hS : IsSType ρ) (hk : serreWeight ρ = 2)
+    (hlarge : ¬ Group.IsSolvable ρ.range)
+    (q e : ℕ) (hq : q.Prime) (hqp : q ≠ p) (he : 0 < e)
+    (hexact : p^e ∣ q-1 ∧ ¬ p^(e+1) ∣ q-1)
+    (i : ℤ) (d : NebentypeLift ρ q e i) (j : ℕ)
+    (hj : 1 ≤ j ∧ j ≤ q - 2) (htype : ∀ g : inertiaAt q,
+      d.chi g * d.eta g ^ i = tameCharacter d.member q g ^ j) :
+    ∃ (s : CompatibleSystem) (v : s.Place), HEq (s.member v) d.member ∧ s.HasWeight 2 ∧
+      ∀ w : s.Place, (s.member w).p = q →
+        IsUnramifiedAt (s.member w).generic p ∧
+        (s.member w).RamifiedInside ((artinConductor ρ).primeFactors.erase p) ∧
+        Nonempty (BarsottiTateOverCyclotomic (s.member w)) ∧
+        (¬ Group.IsSolvable (s.member w).residual.range →
+          serreWeight (s.member w).residual = j + 2 ∨
+          serreWeight (DP.twistRep (cyclotomic (p := (s.member w).p) ^ (-(j : ℤ))) (s.member w).residual) = q + 1 - j) := by sorry
+
+/-- R26.3/Khare Lemma 5.2: local irreducible and split cases have different twist exponents. -/
+theorem serre_weight_twist {p : ℕ} [Fact p.Prime] (hp : p ≠ 2)
+    (ρ : GQ →* GL (Fin 2) (FpBar p)) (hS : IsSType ρ) (hN : artinConductor ρ = 1) (hk : serreWeight ρ ≠ 2 ∧ serreWeight ρ < p)
+    (k' : ℕ) (hexponent : serreWeight ρ - 1 = p - k') (hk' : k' ≤ p) :
+    (IsIrreducible (ρ.comp (decompositionAt p).subtype) →
+      serreWeight (DP.twistRep (cyclotomic (p := p) ^ k') ρ) = k' + 2) ∧
+    ((∃ B : GL (Fin 2) (FpBar p), ∀ g : inertiaAt p,
+      (B⁻¹ * ρ g * B : Matrix (Fin 2) (Fin 2) (FpBar p)) 0 1 = 0 ∧
+      (B⁻¹ * ρ g * B : Matrix (Fin 2) (Fin 2) (FpBar p)) 1 0 = 0) →
+      serreWeight (DP.twistRep (cyclotomic (p := p) ^ (1 - (serreWeight ρ : ℤ))) ρ) = p + 1 - serreWeight ρ) := by sorry
+
+/-- R26.4/Lemma 5.3, specifically the nonscalar potentially BT type ω^i⊕1. -/
+theorem local_reducibility_ordinary (m : Member) (hp : m.p ≠ 2) (hweight : m.HasWeight 2)
+    (hdR : m.IsDeRham) (hN : (wd m m.p).monodromy = 0)
+    (i : ℕ) (hi : 1 ≤ i ∧ i ≤ m.p - 2)
+    (htype : ∃ B : GL (Fin 2) (FractionRing m.O), ∀ g : inertiaAt m.p,
+      (B⁻¹ * (wd m m.p).inertia g * B : Matrix (Fin 2) (Fin 2) (FractionRing m.O)) =
+        !![(teichmuller m g : FractionRing m.O) ^ i, 0; 0, 1])
+    (hred : ¬ IsIrreducible (m.residual.comp (decompositionAt m.p).subtype)) :
+    ¬ IsIrreducible (m.generic.comp (decompositionAt m.p).subtype) ∧ IsOrdinary m := by sorry
+
+/-- R26.4/Corollary 5.4: the level-one lifting lemma, including the ordinary CM branch.
+Its proof requires the documented extension to R21.5; the existing imaginary-CM exclusion
+cannot establish this theorem. -/
+theorem level_one_lifting (m : Member) (hp : m.p ≠ 2) (k : ℕ)
+    (hk : 2 ≤ k ∧ k ≤ m.p + 1 ∧ Even k) (hcrys : m.IsCrystalline)
+    (hweight : m.HasWeight k) (hirr : IsIrreducible m.generic)
+    (hunram : m.RamifiedInside ∅) (hmod : IsModular m.residual) :
+    ∃ f : Newform, f.level = 1 ∧ f.weight = k ∧ m.ArisesFrom f := by sorry
+
+/-- R26.4/Corollary 5.5(i), transport of a fixed weight; q≥k−1 is essential. -/
+theorem level_one_change_characteristic (p k : ℕ) (hp : p.Prime) (hpodd : p ≠ 2)
+    (hk : 2 ≤ k ∧ k ≤ p + 1)
+    (hknown : ∀ (_ : Fact p.Prime) (ρ : GQ →* GL (Fin 2) (FpBar p)),
+      IsSType ρ → artinConductor ρ = 1 → serreWeight ρ = k → IsModular ρ)
+    (q : ℕ) [Fact q.Prime] (hq : k - 1 ≤ q)
+    (ρ : GQ →* GL (Fin 2) (FpBar q)) (hS : IsSType ρ)
+    (hN : artinConductor ρ = 1) (hweight : serreWeight ρ = k) : IsModular ρ := by sorry
+
+/-- R26.4/degenerate branches: the scalar crystalline BT foil case has distinguished ordinary
+characters, not the nonscalar hypothesis of Lemma 5.3. -/
+theorem scalar_bt_reducible_ordinary (m : Member) (hp : m.p ≠ 2)
+    (hcrys : m.IsCrystalline) (hweight : m.HasWeight 2)
+    (hred : ¬ IsIrreducible (m.residual.comp (decompositionAt m.p).subtype)) :
+    IsOrdinary m ∧ ∃ g : inertiaAt m.p, cyclotomic (p := m.p) g ≠ 1 := by sorry
+
+/-- R26.4: parity supplies distinction before an ordinary lifting theorem is applied. -/
+theorem ordinary_residual_distinguished {p : ℕ} [Fact p.Prime] (hp : p ≠ 2)
+    (ρ : GQ →* GL (Fin 2) (FpBar p)) (hS : IsSType ρ) (hN : artinConductor ρ = 1)
+    (hord : ResidualOrdinary ρ) (hk : 2 ≤ serreWeight ρ ∧ serreWeight ρ ≤ p + 1) :
+    Even (serreWeight ρ) ∧ ∃ g : inertiaAt p, cyclotomic (p := p) g ^ (serreWeight ρ - 1) ≠ 1 := by sorry
+
+/-- R26.5: the complete terminal-row implication. The prescribed determinant and type are
+those of the two lift/system targets above. Reducible, bad-dihedral and solvable branches
+are discharged by R26.4, rather than folded into an assumed irreducible return member. -/
+theorem terminal_row_branch_contract (P ℓ e j k B : ℕ) [Fact P.Prime]
+    (hℓ : ℓ.Prime) (hodd : P ≠ 2 ∧ ℓ ≠ 2 ∧ P ≠ ℓ) (he : 0 < e)
+    (hexact : ℓ ^ e ∣ P - 1 ∧ ¬ ℓ ^ (e + 1) ∣ P - 1)
+    (hj : 1 ≤ j ∧ j ≤ P - 2 ∧ Even j)
+    (hcoset : Nat.ModEq ((P - 1) / ℓ ^ e) j (k - 2))
+    (hweights : j + 2 ≤ B ∧ P + 1 - j ≤ B) (hknown : LevelOneUpTo B)
+    (ρ : GQ →* GL (Fin 2) (FpBar P)) (hS : IsSType ρ) (hN : artinConductor ρ = 1)
+    (hk : serreWeight ρ = k) (hkRange : 2 ≤ k ∧ k ≤ P + 1 ∧ Even k)
+    (hord : ResidualOrdinary ρ) : ArisesFrom ρ 1 k := by sorry
+
+end TauCeti.SerreConjecture
+end
+
+/-! ## R26.1–R26.2: applying the deformation-ring suppliers -/
+noncomputable section
+namespace TauCeti.SerreConjecture
+open NumberField ImportedInterfaces
+
+/-- The power-series quotient that a presentation actually supplies. -/
+structure PowerSeriesPresentation (O R : Type*) [CommRing O] [CommRing R] [Algebra O R]
+    (n m : ℕ) where
+  relations : List (MvPowerSeries (Fin n) O)
+  relationCount : relations.length = m
+  equivalence : (MvPowerSeries (Fin n) O ⧸ Ideal.ofList relations) ≃ₐ[O] R
+
+def IsCompleteIntersection (O R : Type*) [CommRing O] [CommRing R] [Algebra O R] : Prop :=
+  ∃ n m, ∃ P : PowerSeriesPresentation O R n m,
+    RingTheory.Sequence.IsRegular (MvPowerSeries (Fin n) O) P.relations
+
+/-- R04.3/R08: representing data for the global deformation functor of ρ with its specified
+local conditions. O is the specified finite-flat Witt coefficient algebra with the residual
+field of ρ. The datum includes completeness, that residual identification and the universal
+property on complete Noetherian local O-algebras. -/
+def DeformationRepresentingData {p : ℕ} [Fact p.Prime]
+    (ρ : GQ →* GL (Fin 2) (FpBar p)) (O R : Type*) [CommRing O] [CommRing R] [Algebra O R] :
+    Type := sorry
+
+/-- R04.3/R08: the prescribed local subfunctor on complete local O-algebras. -/
+def LocalDeformationCondition {p : ℕ} [Fact p.Prime]
+    (ρ : GQ →* GL (Fin 2) (FpBar p)) (O : Type*) [CommRing O] (r : ℕ) : Type := sorry
+/-- R04.3: dim H⁰(D_r,Ad⁰ρ), or dim H⁰(D_r,Adρ) when determinant is not fixed. -/
+def adjointH0 {p : ℕ} [Fact p.Prime] (ρ : GQ →* GL (Fin 2) (FpBar p))
+    (r : ℕ) (fixedDeterminant : Bool) : ℕ := sorry
+/-- R04/R08: coherence with the actual global universal representation and the local
+representing rings, for this set of conditions and this determinant convention. -/
+def DeformationCoherence {p : ℕ} [Fact p.Prime]
+    (ρ : GQ →* GL (Fin 2) (FpBar p)) (O R : Type*) [CommRing O] [CommRing R] [Algebra O R]
+    (D : DeformationRepresentingData ρ O R) (fixedDeterminant : Bool) (S : Finset ℕ)
+    (conditions : ∀ r, LocalDeformationCondition ρ O r) (localRing : ℕ → Type)
+    (dimensions : ℕ → ℤ) (universal : GQ →* GL (Fin 2) R) : Type := sorry
+
+/-- The supplier's global ring, local rings and adjoint dimensions in Böckle's application.
+The Boolean fixes whether Ad⁰ or Ad is used, throughout both the counts and the determinant. -/
+structure DeformationProblem {p : ℕ} [Fact p.Prime]
+    (ρ : GQ →* GL (Fin 2) (FpBar p)) (O R : Type*) [CommRing O] [CommRing R] [Algebra O R] where
+  representing : DeformationRepresentingData ρ O R
+  fixedDeterminant : Bool
+  S : Finset ℕ
+  containsCoefficientPrime : p ∈ S
+  condition : ∀ r, LocalDeformationCondition ρ O r
+  localRing : ℕ → Type
+  localCommRing : ∀ r, CommRing (localRing r)
+  localAlgebra : ∀ r, Algebra O (localRing r)
+  h0 : ℕ → ℕ
+  h0Identification : ∀ r, h0 r = adjointH0 ρ r fixedDeterminant
+  relativeDimension : ℕ → ℤ
+  universal : GQ →* GL (Fin 2) R
+  coherence : DeformationCoherence ρ O R representing fixedDeterminant S condition
+    localRing relativeDimension universal
+
+attribute [instance] DeformationProblem.localCommRing DeformationProblem.localAlgebra
+
+/-- R26.1: zero-defect presentation for the level-one minimal and Q-new conditions.
+This applies R04/R24's presentation; it does not assert another owner for the generic theorem. -/
+theorem bockle_level_one_presentation {p : ℕ} [Fact p.Prime]
+    (ρ : GQ →* GL (Fin 2) (FpBar p)) (hodd : IsOdd ρ)
+    (O R : Type*) [CommRing O] [IsDomain O] [IsDiscreteValuationRing O] [CommRing R] [Algebra O R]
+    (D : DeformationProblem ρ O R)
+    (hlocal : ∀ r ∈ D.S, Module.Flat O (D.localRing r) ∧ IsCompleteIntersection O (D.localRing r))
+    (hdimension : ∀ r ∈ D.S, D.relativeDimension r =
+      (D.h0 r : ℤ) + if r = p then 1 + (if D.fixedDeterminant then 0 else 1) else 0) :
+    ∃ n, Nonempty (PowerSeriesPresentation O R
+      (n + if D.fixedDeterminant then 0 else 1) n) := by sorry
+
+/-- R08/R24: D's p-local condition is flat with cyclotomic determinant, over W(k)
+or its specified coefficient base change O. This is not an arbitrary deformation condition. -/
+def FlatCyclotomicLocalCondition {p : ℕ} [Fact p.Prime]
+    {ρ : GQ →* GL (Fin 2) (FpBar p)} {O R : Type*}
+    [CommRing O] [CommRing R] [Algebra O R] (D : DeformationProblem ρ O R) : Type := sorry
+
+/-- R26.1: the separately computed decomposable flat exception, with two tangent variables. -/
+theorem decomposable_flat_local_ring {p : ℕ} [Fact p.Prime] (hp : p ≠ 2)
+    (ρ : GQ →* GL (Fin 2) (FpBar p)) (hS : IsSType ρ)
+    (hflat : Nonempty (FiniteFlatModel ρ 1))
+    (hdecomp : ∃ B : GL (Fin 2) (FpBar p), ∀ g : decompositionAt p,
+      (B⁻¹ * ρ g * B : Matrix (Fin 2) (Fin 2) (FpBar p)) =
+        !![(cyclotomic (p := p) g : FpBar p), 0; 0, 1])
+    (O R : Type*) [CommRing O] [IsDomain O] [IsDiscreteValuationRing O] [CommRing R] [Algebra O R]
+    (D : DeformationProblem ρ O R) (hdet : D.fixedDeterminant = true)
+    (hcondition : FlatCyclotomicLocalCondition D) :
+    Nonempty (D.localRing p ≃ₐ[O] MvPowerSeries (Fin 2) O) := by sorry
+
+/-- R26.2: the flatness/complete-intersection conclusion with finite mod-π ring.
+The existence of an integral specialization gives an actual prescribed lift. -/
+theorem lifting_method_flatness {p : ℕ} [Fact p.Prime] (hp : p ≠ 2)
+    (ρ : GQ →* GL (Fin 2) (FpBar p)) (hS : IsSType ρ)
+    (hlarge : ¬ Group.IsSolvable ρ.range)
+    (hk : 2 ≤ serreWeight ρ ∧ serreWeight ρ ≤ p + 1 ∧ serreWeight ρ ≠ p)
+    (O R : Type*) [CommRing O] [IsDomain O] [IsDiscreteValuationRing O] [CommRing R] [Algebra O R]
+    (D : DeformationProblem ρ O R) (hdet : D.fixedDeterminant = true)
+    (hlocal : ∀ r ∈ D.S, Module.Flat O (D.localRing r) ∧ IsCompleteIntersection O (D.localRing r))
+    (hdimension : ∀ r ∈ D.S, D.relativeDimension r = (D.h0 r : ℤ) + if r = p then 1 else 0)
+    (π : O) (hπ : IsLocalRing.maximalIdeal O = Ideal.span {π})
+    (hfinite : Finite (R ⧸ Ideal.span {algebraMap O R π})) :
+    Module.Finite O R ∧ Module.Flat O R ∧ IsCompleteIntersection O R ∧
+    ∃ (m : Member) (f : R →+* m.O), m.Lifts ρ ∧
+      m.rho = (Matrix.GeneralLinearGroup.map f).comp D.universal := by sorry
+
+/-- R08.2: the versal local deformation ring for the determinant and inertia characters of
+NebentypeLift. Its representing datum is local, not the global ring above. -/
+def NebentypeLocalRingData {p : ℕ} [Fact p.Prime]
+    (ρ : GQ →* GL (Fin 2) (FpBar p)) (q e : ℕ) (i : ℤ)
+    (O R : Type*) [CommRing O] [CommRing R] [Algebra O R] : Type := sorry
+
+/-- R26.2: smoothness of the full local ring, rather than just the Frobenius quadratic. -/
+theorem local_ring_at_q_smooth {p : ℕ} [Fact p.Prime] (hp : p ≠ 2)
+    (ρ : GQ →* GL (Fin 2) (FpBar p)) (q e : ℕ) (hq : q.Prime) (hqp : q ≠ p)
+    (he : 0 < e) (hexact : p ^ e ∣ q - 1 ∧ ¬ p ^ (e + 1) ∣ q - 1)
+    (hlocal : NebentypeResidual ρ q) (i : ℤ)
+    (O R : Type*) [CommRing O] [IsDomain O] [IsDiscreteValuationRing O] [CommRing R] [Algebra O R]
+    (D : NebentypeLocalRingData ρ q e i O R) :
+    Nonempty (R ≃ₐ[O] MvPowerSeries (Fin 1) O) := by sorry
+
+/-- R26.4: the foil's three solvable branches, with a weight-two BT lift. The bad-dihedral
+case invokes the required CM extension of R21.5; solvability itself is not ordinarity. -/
+theorem degenerate_foil_solvable (m : Member) (hp : m.p ≠ 2) (hweight : m.HasWeight 2)
+    (hbt : Nonempty (BarsottiTateOverCyclotomic m)) (hodd : IsOdd m.generic)
+    (hirr : IsIrreducible m.generic) (hfinite : ∃ S, m.RamifiedInside S)
+    (hsolv : Group.IsSolvable m.residual.range) : m.IsModular := by sorry
+
+/-- R26.4: the unramified foil branch reduces to level one and weight two.
+The level-one weight-two exclusion forces reducibility; it is not discarded as impossible. -/
+theorem degenerate_unramified_foil (m : Member) (hp : m.p ≠ 2)
+    (hweight : m.HasWeight 2) (hcrys : m.IsCrystalline)
+    (hodd : IsOdd m.generic) (hirr : IsIrreducible m.generic)
+    (hunram : m.RamifiedInside ∅) :
+    ¬ IsIrreducible m.residual ∧ IsOrdinary m ∧ m.IsModular := by sorry
+
+/-- R26.4: the return's reducible/solvable branches at the nontrivial even tame exponent.
+The potentially BT type, determinant and distinction are retained, not only its weight. -/
+theorem degenerate_return_solvable (m : Member) (hp : m.p ≠ 2) (hweight : m.HasWeight 2)
+    (hbt : Nonempty (BarsottiTateOverCyclotomic m)) (hodd : IsOdd m.generic)
+    (hirr : IsIrreducible m.generic) (hfinite : ∃ S, m.RamifiedInside S)
+    (j : ℕ) (hj : 1 ≤ j ∧ j ≤ m.p - 2 ∧ Even j)
+    (htype : ∃ B : GL (Fin 2) (FractionRing m.O), ∀ g : inertiaAt m.p,
+      (B⁻¹ * (wd m m.p).inertia g * B : Matrix (Fin 2) (Fin 2) (FractionRing m.O)) =
+        !![(teichmuller m g : FractionRing m.O) ^ j, 0; 0, 1])
+    (hsolv : Group.IsSolvable m.residual.range) : m.IsModular := by sorry
+
+end TauCeti.SerreConjecture
+end
+
+/-! ## R27.5–R27.6 and R33.6: finite flatness, regular systems and Artin reductions -/
+noncomputable section
+namespace TauCeti.SerreConjecture
+open NumberField ImportedInterfaces
+
+/-- R27.5: finite flatness over an odd-ramification extension excludes the très ramifiée
+weight-four dyadic case. This is the local input imported from R15.4/R07.4. -/
+theorem dyadic_finite_flat_weight_two [Fact (Nat.Prime 2)]
+    (ρ : GQ →* GL (Fin 2) (FpBar 2)) (hS : IsSType ρ) (e : ℕ) (he : Odd e)
+    (hflat : Nonempty (FiniteFlatModel ρ e)) : serreWeight ρ = 2 := by sorry
+
+/-- R15.4/Serre Proposition 4: the precise imported finite-flat bridge used in both exports. -/
+theorem finite_flat_cyclotomic_weight_two {p : ℕ} [Fact p.Prime] (hp : 5 ≤ p)
+    (ρ : GQ →* GL (Fin 2) (FpBar p)) (hS : IsSType ρ)
+    (hflat : Nonempty (FiniteFlatModel ρ 1))
+    (hdet : ∀ g, Matrix.det (ρ g : Matrix (Fin 2) (Fin 2) (FpBar p)) = cyclotomic (p := p) g) :
+    serreWeight ρ = 2 := by sorry
+
+/-- R27.6: the finite-flat version, with the full cyclotomic determinant hypothesis. -/
+theorem finite_flat_weight_two_export {p : ℕ} [Fact p.Prime] (hp : 5 ≤ p)
+    (ρ : GQ →* GL (Fin 2) (FpBar p)) (hS : IsSType ρ)
+    (hflat : Nonempty (FiniteFlatModel ρ 1))
+    (hdet : ∀ g, Matrix.det (ρ g : Matrix (Fin 2) (Fin 2) (FpBar p)) = cyclotomic (p := p) g) :
+    ∃ (f : Newform) (v : f.ResidualPlace p), f.level = artinConductor ρ ∧ f.weight = 2 ∧
+      f.character = 1 ∧ RepIso (f.residualRep v) ρ := by sorry
+
+/-- R27.6/KW 10.1(i). The Tate twist by −b is visible in both Frobenius coefficients.
+Regularity a>b yields weight a−b+1≥2; irregular systems remain the ML.1 consumer's target. -/
+theorem regular_compatible_system_modularity (s : CompatibleSystem) (a b : ℤ)
+    (hweights : s.weights = {a, b}) (hregular : b < a) :
+    ∃ (f : Newform) (ι : s.E →+* ℂ), f.weight = (a - b).toNat + 1 ∧ 2 ≤ f.weight ∧
+      ∀ r, r.Prime → r ∉ s.S → ¬ r ∣ f.level →
+        ι (s.trace r) * (r : ℂ) ^ (-b) = f.coeff r ∧
+        ι (s.determinant r) * (r : ℂ) ^ (-2 * b) =
+          f.character (r : ZMod f.level) * (r : ℂ) ^ (f.weight - 1) := by sorry
+
+/-- A number-field realization and one full stable lattice at every coefficient place.
+E is allowed to exceed the trace field. The completed local rings are the actual members'
+coefficient rings, identified by their integral residue kernels. -/
+structure ArtinRealisation (ρ : GQ →* GL (Fin 2) ℂ) where
+  E : Type
+  field : Field E
+  numberField : NumberField E
+  complexEmbedding : E →+* ℂ
+  representation : GQ →* GL (Fin 2) E
+  complexIso : RepIso ((Matrix.GeneralLinearGroup.map complexEmbedding).comp representation) ρ
+  member : IsDedekindDomain.HeightOneSpectrum (𝓞 E) → Member
+  embedding : ∀ v, E →+* FractionRing (member v).O
+  integralEmbedding : ∀ v, 𝓞 E →+* (member v).O
+  placeKernel : ∀ v, RingHom.ker ((IsLocalRing.residue (member v).O).comp (integralEmbedding v)) = v.asIdeal
+  integralCompatibility : ∀ v x,
+    algebraMap (member v).O (FractionRing (member v).O) (integralEmbedding v x) = embedding v (x : E)
+  lattice : ∀ v, StableLattice (O := (member v).O)
+    ((Matrix.GeneralLinearGroup.map (embedding v)).comp representation)
+  action : ∀ v, (lattice v).action = (member v).rho
+  trace : ℕ → 𝓞 E
+  traceCompatibility : ∀ r, r.Prime → ¬ r ∣ artinConductor ρ → ∀ g, IsFrobAt g r →
+    complexEmbedding (trace r : E) = Matrix.trace (ρ g : Matrix (Fin 2) (Fin 2) ℂ)
+  determinantCharacter : DirichletCharacter (𝓞 E) (artinConductor ρ)
+  determinant : ∀ r, r.Prime → ¬ r ∣ artinConductor ρ → ∀ g, IsFrobAt g r →
+    complexEmbedding (determinantCharacter (r : ZMod (artinConductor ρ))) =
+      Matrix.det (ρ g : Matrix (Fin 2) (Fin 2) ℂ)
+
+attribute [instance] ArtinRealisation.field ArtinRealisation.numberField
+
+/-- R27.6/artin-reductions, part (a), including finiteness of the complex image. -/
+theorem artin_realisation (ρ : GQ →* GL (Fin 2) ℂ) (hcont : Continuous ρ)
+    (hirr : IsIrreducible ρ) (hodd : IsOdd ρ) :
+    Finite ρ.range ∧ Nonempty (ArtinRealisation ρ) := by sorry
+
+/-- Lattice independence is unconditional for ss, and full for image order prime to p. -/
+theorem artin_lattice_independence (ρ : GQ →* GL (Fin 2) ℂ)
+    (A : ArtinRealisation ρ) (v : IsDedekindDomain.HeightOneSpectrum (𝓞 A.E))
+    (Λ : StableLattice (O := (A.member v).O)
+      ((Matrix.GeneralLinearGroup.map (A.embedding v)).comp A.representation))
+    (hG : ¬ (A.member v).p ∣ Nat.card ρ.range) :
+    RepIso (residualRep Λ.action) (residualRep (A.lattice v).action) := by sorry
+
+theorem artin_lattice_ss_independence (ρ : GQ →* GL (Fin 2) ℂ)
+    (A : ArtinRealisation ρ) (v : IsDedekindDomain.HeightOneSpectrum (𝓞 A.E))
+    (Λ : StableLattice (O := (A.member v).O)
+      ((Matrix.GeneralLinearGroup.map (A.embedding v)).comp A.representation)) :
+    RepIso (semisimplification (residualRep Λ.action))
+      (semisimplification (residualRep (A.lattice v).action)) := by sorry
+
+/-- R15.4: Edixhoven's minimal Katz weight and Serre's residual character. -/
+def edixhovenWeight {p : ℕ} [Fact p.Prime] (ρ : GQ →* GL (Fin 2) (FpBar p)) : ℕ := sorry
+def serreCharacter {p : ℕ} [Fact p.Prime] (ρ : GQ →* GL (Fin 2) (FpBar p)) :
+    DirichletCharacter (FpBar p) (artinConductor ρ) := sorry
+
+/-- R27.6/artin-reductions, parts (b)–(c): S-type, faithfulness, conductor, both weights,
+character and coefficient reduction of traces/determinants are all retained. -/
+theorem artin_reduction_invariants (ρ : GQ →* GL (Fin 2) ℂ) (hcont : Continuous ρ)
+    (hirr : IsIrreducible ρ) (hodd : IsOdd ρ) (A : ArtinRealisation ρ)
+    (v : IsDedekindDomain.HeightOneSpectrum (𝓞 A.E))
+    (hG : ¬ (A.member v).p ∣ Nat.card ρ.range) (hN : ¬ (A.member v).p ∣ artinConductor ρ) :
+    (A.member v).p ≠ 2 ∧ IsSType (A.member v).residual ∧
+    (A.member v).residual.ker = ρ.ker ∧ IsUnramifiedAt (A.member v).residual (A.member v).p ∧
+    artinConductor (A.member v).residual = artinConductor ρ ∧
+    serreWeight (A.member v).residual = (A.member v).p ∧ edixhovenWeight (A.member v).residual = 1 ∧
+    ∀ r, r.Prime → ¬ r ∣ artinConductor ρ * (A.member v).p → ∀ g, IsFrobAt g r →
+      Matrix.trace ((A.member v).residual g : Matrix (Fin 2) (Fin 2) (FpBar (A.member v).p)) =
+        (A.member v).residueEmbedding (IsLocalRing.residue (A.member v).O
+          (A.integralEmbedding v (A.trace r))) ∧
+      Matrix.det ((A.member v).residual g : Matrix (Fin 2) (Fin 2) (FpBar (A.member v).p)) =
+        (A.member v).residueEmbedding (IsLocalRing.residue (A.member v).O
+          (A.integralEmbedding v (A.determinantCharacter (r : ZMod (artinConductor ρ))))) ∧
+      serreCharacter (A.member v).residual (r : ZMod (artinConductor (A.member v).residual)) =
+        Matrix.det ((A.member v).residual g : Matrix (Fin 2) (Fin 2) (FpBar (A.member v).p)) := by sorry
+
+/-- R27.6/artin-reductions, part (d): exact positive density of the complex-conjugation class. -/
+theorem artin_frobenius_density (ρ : GQ →* GL (Fin 2) ℂ) (hcont : Continuous ρ)
+    (hirr : IsIrreducible ρ) (hodd : IsOdd ρ)
+    (φ : AlgebraicClosure ℚ →+* ℂ) (c : GQ) (hc : ComplexEmbedding.IsConj φ c) :
+    ∃ δ : ℝ, 0 < δ ∧ δ = (Nat.card {x : ρ.range // IsConj x (⟨ρ c, by exact ⟨c, rfl⟩⟩ : ρ.range)} : ℝ) /
+      Nat.card ρ.range ∧ NumberField.Set.HasDirichletDensity
+      (primesOfRat {r | r.Prime ∧ ¬ r ∣ artinConductor ρ * Nat.card ρ.range ∧
+        ∃ g, IsFrobAt g r ∧ IsConj (ρ g) (ρ c)}) δ := by sorry
+
+/-- R27.6: the general odd-prime Katz weight-one statement consumed by ML.1; no hypothesis
+on the two eigenvalues at the coefficient-prime Frobenius is imposed. -/
+theorem unramified_residual_weight_one_general {ℓ : ℕ} [Fact ℓ.Prime] (hℓ : ℓ ≠ 2)
+    (ρ : GQ →* GL (Fin 2) (FpBar ℓ)) (hcont : IsOpen (ρ.ker : Set GQ))
+    (hirr : IsIrreducible ρ) (hodd : IsOdd ρ) (hur : IsUnramifiedAt ρ ℓ) :
+    ∃ h : KatzCuspForms (artinConductor ρ) 1 (FpBar ℓ), h ≠ 0 ∧
+      ∀ r, r.Prime → ¬ r ∣ artinConductor ρ * ℓ → ∀ g, IsFrobAt g r →
+        katzHecke _ 1 _ r h = Matrix.trace (ρ g : Matrix (Fin 2) (Fin 2) (FpBar ℓ)) • h ∧
+        katzDiamond _ 1 _ (r : ZMod (artinConductor ρ)) h =
+          Matrix.det (ρ g : Matrix (Fin 2) (Fin 2) (FpBar ℓ)) • h := by sorry
+
+/-- R33.6: residual attachments to the actual pinned good-eigenform carrier, supplied by R15.6. -/
+def EigenformResidualPlace {N : ℕ} [NeZero N] {k : ℤ}
+    (f : HeckeRing.GL2.EigenformAwayFromLevel N k) (p : ℕ) : Type := sorry
+def eigenformResidualRep {N : ℕ} [NeZero N] {k : ℤ}
+    (f : HeckeRing.GL2.EigenformAwayFromLevel N k) {p : ℕ} [Fact p.Prime]
+    (v : EigenformResidualPlace f p) : GQ →* GL (Fin 2) (FpBar p) := sorry
+
+def IsEigenformModular {p : ℕ} [Fact p.Prime] (ρ : GQ →* GL (Fin 2) (FpBar p)) : Prop :=
+  ∃ (N k : ℕ) (_ : NeZero N), 2 ≤ k ∧
+    ∃ (f : HeckeRing.GL2.EigenformAwayFromLevel N (k : ℤ)) (v : EigenformResidualPlace f p),
+      RepIso (semisimplification (eigenformResidualRep f v)) ρ
+
+/-- R33.6: Atkin–Lehner and Brauer–Nesbitt identify the two notions of modularity. -/
+theorem eigenform_modularity_iff {p : ℕ} [Fact p.Prime]
+    (ρ : GQ →* GL (Fin 2) (FpBar p)) (hS : IsSType ρ) :
+    IsEigenformModular ρ ↔ IsModular ρ := by sorry
+
+/-- R26.6/Corollary 1.3 includes reducible semisimple representations. -/
+theorem finite_level_one_semisimple (p : ℕ) [Fact p.Prime] :
+    ∃ S : Set (GQ →* GL (Fin 2) (FpBar p)), S.Finite ∧ ∀ ρ,
+      IsOpen (ρ.ker : Set GQ) → IsOdd ρ → RepIso ρ (semisimplification ρ) →
+      (∀ r, r.Prime → r ≠ p → IsUnramifiedAt ρ r) → ∃ τ ∈ S, RepIso τ ρ := by sorry
+
+end TauCeti.SerreConjecture
+end
+
+/-! ## R27.1/R27.4: the full image and auxiliary-prime contracts
+Dickson's groups, the cyclotomic subgroup and local restriction are adapters to R01.4;
+the dihedral modularity statement is imported from R17/R20. No classification is replanned. -/
+noncomputable section
+namespace TauCeti.SerreConjecture
+open NumberField ImportedInterfaces
+
+/-- R01.4: PSL₂(k), the scalar quotient of SL₂(k). -/
+def projectiveSL (k : Type*) [Field k] : Type := sorry
+instance (k : Type*) [Field k] : Group (projectiveSL k) := sorry
+/-- R01.4: PGL₂(k), the scalar quotient of GL₂(k). -/
+def projectiveGL (k : Type*) [Field k] : Type := sorry
+instance (k : Type*) [Field k] : Group (projectiveGL k) := sorry
+/-- R01.4: G_(Q(μ_p)) as a subgroup of G_Q. -/
+def cyclotomicSubgroup (p : ℕ) : Subgroup GQ := sorry
+
+theorem dickson_alternatives {G : Type*} [Group G] {p : ℕ} [Fact p.Prime]
+    (ρ : G →* GL (Fin 2) (FpBar p)) (hfinite : Finite ρ.range) (hirr : IsIrreducible ρ) :
+    (∃ n, Nonempty (projectiveImage ρ ≃* DihedralGroup n)) ∨
+    Nonempty (projectiveImage ρ ≃* alternatingGroup (Fin 4)) ∨
+    Nonempty (projectiveImage ρ ≃* Equiv.Perm (Fin 4)) ∨
+    Nonempty (projectiveImage ρ ≃* alternatingGroup (Fin 5)) ∨
+    ∃ k : Subfield (FpBar p), Finite k ∧
+      (Nonempty (projectiveImage ρ ≃* projectiveSL k) ∨
+       Nonempty (projectiveImage ρ ≃* projectiveGL k)) := by sorry
+
+theorem projectiveSL_simple (k : Type*) [Field k] [Finite k] (hsize : 4 ≤ Nat.card k) :
+    IsSimpleGroup (projectiveSL k) ∧ ¬ Group.IsSolvable (projectiveSL k) := by sorry
+
+/-- KW Lemma 6.1: the dyadic solvable refinement. -/
+theorem dyadic_solvable_dihedral {G : Type*} [Group G]
+    (ρ : G →* GL (Fin 2) (FpBar 2)) (hfinite : Finite ρ.range)
+    (hirr : IsIrreducible ρ) (hsolv : Group.IsSolvable ρ.range) :
+    ∃ n, Nonempty (projectiveImage ρ ≃* DihedralGroup n) := by sorry
+
+/-- KW Lemma 6.2(i): refined dihedral modularity, including p=2. -/
+theorem dihedral_arisesFrom_optimal {p : ℕ} [Fact p.Prime]
+    (ρ : GQ →* GL (Fin 2) (FpBar p)) (hS : IsSType ρ)
+    (hdihedral : ∃ n, Nonempty (projectiveImage ρ ≃* DihedralGroup n)) :
+    ArisesFrom ρ (artinConductor ρ) (serreWeight ρ) := by sorry
+
+/-- KW Lemma 6.2(ii), with the full cyclotomic restriction hypothesis. -/
+theorem cyclotomic_reducible_weight {p : ℕ} [Fact p.Prime] (hp : 3 ≤ p)
+    (ρ : GQ →* GL (Fin 2) (FpBar p)) (hS : IsSType ρ)
+    (hk : 2 ≤ serreWeight ρ ∧ serreWeight ρ ≤ p + 1)
+    (hred : ¬ IsIrreducible (ρ.comp (cyclotomicSubgroup p).subtype)) :
+    serreWeight ρ = (p + 1) / 2 ∨ serreWeight ρ = (p + 3) / 2 := by sorry
+
+/-- KW Lemma 6.3(i), including the previously omitted A₅ exclusion. -/
+theorem good_dihedral_large_image {p : ℕ} [Fact p.Prime]
+    (ρ : GQ →* GL (Fin 2) (FpBar p)) (hcont : IsOpen (ρ.ker : Set GQ))
+    (hgood : IsGoodDihedralRep ρ) :
+    ¬ Group.IsSolvable ρ.range ∧ ¬ Nonempty (projectiveImage ρ ≃* alternatingGroup (Fin 5)) := by sorry
+
+/-- R24.3: the local minimal lift identification with the specified residual representation,
+including a comparison of coefficient fields. -/
+def MinimalLiftAt {p : ℕ} [Fact p.Prime] (m : Member)
+    (ρ : GQ →* GL (Fin 2) (FpBar p)) (q : ℕ) : Type := sorry
+
+/-- KW Lemma 6.3(ii): the bounded residual range and actual minimal local lift are explicit. -/
+theorem good_dihedral_preserved {p : ℕ} [Fact p.Prime]
+    (ρ : GQ →* GL (Fin 2) (FpBar p)) (hS : IsSType ρ) (q : ℕ)
+    (hgood : IsGoodDihedralPrime ρ galoisInertia p (artinConductor ρ) q)
+    (s : CompatibleSystem) (v : s.Place) (hlift : (s.member v).Lifts ρ)
+    (hminimal : Nonempty (MinimalLiftAt (s.member v) ρ q))
+    (hram : ∀ r ∈ s.S, r ∣ artinConductor ρ * p) (w : s.Place)
+    (hbound : (s.member w).p ≤ max (Nat.maxPrimeFac (artinConductor ρ / q^2)) p) :
+    IsGoodDihedralPrime (s.member w).residual galoisInertia (s.member w).p
+      (artinConductor (s.member w).residual) q ∧
+    ¬ Group.IsSolvable (s.member w).residual.range ∧
+    ¬ Nonempty (projectiveImage (s.member w).residual ≃* alternatingGroup (Fin 5)) := by sorry
+
+/-- Lemma 8.2's local consequence, beyond its trace and divisibility consequence. -/
+theorem lemma_8_2_local_shape {p : ℕ} [Fact p.Prime] (hp : p % 4 = 1)
+    (ρ : GQ →* GL (Fin 2) (ZMod p))
+    {φ : AlgebraicClosure ℚ →+* ℂ} {c : GQ} (hc : ComplexEmbedding.IsConj φ c)
+    (hodd : Matrix.det (ρ c : Matrix (Fin 2) (Fin 2) (ZMod p)) = -1) {q : ℕ}
+    (hq : q ∈ auxiliaryPrimes ρ c) :
+    ∃ (γ : decompositionAt q →* (FpBar p)ˣ) (B : GL (Fin 2) (FpBar p)),
+      (∀ g : inertiaAt q, ∀ h : decompositionAt q, (g : GQ) = (h : GQ) → γ h = 1) ∧
+      ∀ g : decompositionAt q,
+        (B⁻¹ * (Matrix.GeneralLinearGroup.map (algebraMap (ZMod p) (FpBar p)) (ρ g)) * B :
+          Matrix (Fin 2) (Fin 2) (FpBar p)) =
+          (γ g : FpBar p) • !![(cyclotomic (p := p) g : FpBar p), 0; 0, 1] := by sorry
+
+/-- R27.1/KW §8.4: insertion from the prime-field-valued weight-two residual input.
+The p′-power character and good-dihedral reductions below p′ are part of the output. -/
+theorem classical_good_dihedral_insertion {p : ℕ} [Fact p.Prime]
+    (hp : 5 < p) (hmod : p % 4 = 1) (ρ₀ : GQ →* GL (Fin 2) (ZMod p))
+    (hS : IsSType ((Matrix.GeneralLinearGroup.map (algebraMap (ZMod p) (FpBar p))).comp ρ₀))
+    (hlarge : ¬ Group.IsSolvable ρ₀.range)
+    (hk : serreWeight ((Matrix.GeneralLinearGroup.map (algebraMap (ZMod p) (FpBar p))).comp ρ₀) = 2)
+    (hram : ∀ r, r.Prime → r ≠ p → ¬ IsUnramifiedAt ρ₀ r → r < p)
+    {φ : AlgebraicClosure ℚ →+* ℂ} {c : GQ} (hc : ComplexEmbedding.IsConj φ c)
+    (hodd : Matrix.det (ρ₀ c : Matrix (Fin 2) (Fin 2) (ZMod p)) = -1) (q : ℕ)
+    (hq : q ∈ auxiliaryPrimes ρ₀ c) :
+    ∃ (s : CompatibleSystem) (v : s.Place),
+      (s.member v).Lifts ((Matrix.GeneralLinearGroup.map (algebraMap (ZMod p) (FpBar p))).comp ρ₀) ∧
+      s.HasWeight 2 ∧ (s.member v).IsCrystalline ∧
+      IsMinimalAway (s.member v) {p,q} ∧
+      (∃ (a : ℕ) (ψ : inertiaAt q →* s.Eˣ) (B : GL (Fin 2) s.E), 0 < a ∧ orderOf ψ = p^a ∧
+        (∀ g, (B⁻¹ * (s.parameter q).inertia g * B : Matrix (Fin 2) (Fin 2) s.E) =
+          !![(ψ g : s.E), 0; 0, (ψ g : s.E)^q]) ∧ (s.parameter q).monodromy = 0) ∧
+      ∀ w : s.Place, (s.member w).p < p → (s.member w).p ≠ q →
+        IsGoodDihedralPrime (s.member w).residual galoisInertia (s.member w).p
+          (artinConductor (s.member w).residual) q := by sorry
+
+/-- R27.4: the full split auxiliary characteristic, not just its size inequality. -/
+theorem classical_auxiliary_characteristic {p : ℕ} [Fact p.Prime]
+    (ρ : GQ →* GL (Fin 2) (FpBar p)) (hS : IsSType ρ)
+    (hlarge : if p = 2 then ¬ Group.IsSolvable ρ.range else
+      IsIrreducible (ρ.comp (cyclotomicSubgroup p).subtype))
+    (s : CompatibleSystem) (v : s.Place) (hlift : (s.member v).Lifts ρ)
+    (hweight : s.HasWeight (if p = 2 then 2 else serreWeight ρ))
+    (hnormal : p ≠ 2 → 2 ≤ serreWeight ρ ∧ serreWeight ρ ≤ p+1)
+    (hram : ∀ r ∈ s.S, r ∣ artinConductor ρ * p) :
+    IsModular ρ ∨ ∃ (p' : ℕ) (_ : Fact p'.Prime) (w : s.Place),
+      5 < p' ∧ p' % 4 = 1 ∧ p < p' ∧ (∀ r ∈ s.S, r < p') ∧ s.SplitAt p' ∧
+      (s.member w).p = p' ∧ IsSType (s.member w).residual ∧
+      serreWeight (s.member w).residual = 2 ∧ ¬ Group.IsSolvable (s.member w).residual.range := by sorry
+
+end TauCeti.SerreConjecture
+end
+
+/-! ## Construction tests against the actual local and global interfaces -/
+noncomputable section
+namespace TauCeti.SerreConjecture
+open NumberField ImportedInterfaces
+namespace DP
+
+/-- R07.3: crystalline representations have zero monodromy at their coefficient prime. -/
+theorem crystalline_monodromy_zero (m : Member) (hcrys : m.IsCrystalline) :
+    (wd m m.p).monodromy = 0 := by sorry
+
+local instance : Fact (Nat.Prime 7) := ⟨by norm_num⟩
+
+/-- R07.3: for a de Rham member, potential crystallinity is exactly N=0 in WD. -/
+theorem potentially_crystalline_iff (m : Member) (hdR : m.IsDeRham) :
+    m.IsPotentiallyCrystalline ↔ (wd m m.p).monodromy = 0 := by sorry
+
+/-- `level_one_nonexample`: a normalized order-three character at N=7 is Frobenius
+invariant, so its induction is reducible. Divisibility alone is not the assertion. -/
+example (κ : unramifiedQuadratic 7 →* (CyclotomicIntegers 3)ˣ)
+    (horder : orderOf κ = 3) (hnorm : κ (artinUniformizer 7) = 1) :
+    (∀ g : localInertia 7, κ (quadraticInertia 7 g)^7 = κ (quadraticInertia 7 g)) ∧
+    ¬ IsIrreducible (genericRep (inducedQuadratic 7 κ)) := by sorry
+
+/-- `unnormalised_character`: κ itself has cyclic image; the restriction of Ind κ to the
+quadratic subgroup has image μ_q×μ_q. The full and projective image orders differ. -/
+example (q N : ℕ) [Fact q.Prime] [Fact N.Prime] (hodd : Odd q)
+    (hdiv : q ∣ N+1) (hnot : ¬ q ∣ N-1)
+    (κ : unramifiedQuadratic N →* (CyclotomicIntegers q)ˣ)
+    (horder : orderOf κ = q) (hinertia : orderOf (κ.comp (quadraticInertia N)) = q)
+    (hunnorm : κ (artinUniformizer N) = zeta q) :
+    Nat.card (inducedQuadratic N κ).range = 2*q^2 ∧
+    Nat.card (projectiveImage (genericRep (inducedQuadratic N κ))) = 2*q := by sorry
+
+/-- `insertion_needs_rationality`: a trace outside the prime field obstructs descent.
+Degree two alone does not obstruct descent; this fixture supplies the missing trace witness. -/
+example {G K : Type*} [Group G] [Field K] [Algebra (ZMod 13) K]
+    (hdegree : Module.finrank (ZMod 13) K = 2) (ρ : G →* GL (Fin 2) K) (g : G)
+    (htrace : Matrix.trace (ρ g : Matrix (Fin 2) (Fin 2) K) ∉
+      Set.range (algebraMap (ZMod 13) K)) :
+    ¬ ∃ ρ₀ : G →* GL (Fin 2) (ZMod 13),
+      RepIso ρ ((Matrix.GeneralLinearGroup.map (algebraMap (ZMod 13) K)).comp ρ₀) := by sorry
+
+/-- `insertion_q_gt_5`: five passes the solvable exceptional-group exclusions, but fails
+both the strict good-dihedral bound and the A₅ exclusion. -/
+example (s : CompatibleSystem) (d : GoodDihedralInsertion s) :
+    d.q ≠ 5 ∧ ¬ 5 ∣ 12 ∧ ¬ 5 ∣ 24 ∧ 5 ∣ 60 := by
+  have h := d.qGtFive
+  constructor
+  · omega
+  · norm_num
+
+/-- `insertion_not_general_lift_owner`: a mathematical application of Paso 2.
+General prescribed-lift existence remains R24.3; the ownership boundary stays in prose. -/
+example (s : CompatibleSystem) (hw : s.HasWeight 2) :
+    s.IsModular ∨ ∃ d : GoodDihedralInsertion s,
+      d.system.HasWeight 2 ∧ Linked s d.system d.q ∧ HasDihedralType d.system d.q d.N := by
+  sorry
+
+/-- The explicit local alternatives in DP 1.9(4), used only as a test fixture. -/
+def AuxiliaryWeightClause (m : Member) (k : ℕ) : Prop :=
+  m.HasWeight 2 ∧ (k = 2 → m.IsCrystalline) ∧ (k = m.p+1 → (wd m m.p).monodromy ≠ 0)
+
+/-- `insertion_crystalline_needs_weight_two`: weight 14 at 13 selects the noncrystalline
+Steinberg alternative; weight 2 at 13 selects the crystalline alternative. -/
+example (m n : Member) (hp : m.p = 13) (hq : n.p = 13)
+    (hend : AuxiliaryWeightClause m 14) (htwo : AuxiliaryWeightClause n 2) :
+    m.HasWeight 2 ∧ (wd m 13).monodromy ≠ 0 ∧ ¬ m.IsCrystalline ∧
+    n.HasWeight 2 ∧ n.IsCrystalline := by sorry
+
+/-- `ramification_index_three`: the selected extension has e=3, an odd ramification index. -/
+example : Odd (3 : ℕ) ∧ 3 % 2 = 1 := by decide
+
+/-- `steinberg_nonexample`: the order-three type has zero monodromy and cannot be
+isomorphic to a Steinberg WD parameter with nonzero monodromy. -/
+example (s : CompatibleSystem) (htype : HasDihedralType s 3 2)
+    (W : WDParameter s.E 2) (hstein : W.monodromy ≠ 0) :
+    (s.parameter 2).monodromy = 0 ∧ ¬ W.Isomorphic (s.parameter 2) := by sorry
+
+/-- `steinberg_nonexample`, p-adic Hodge content: a Steinberg member is not potentially
+crystalline, whereas the order-three type gives a potentially crystalline dyadic member. -/
+example (m : Member) (hdR : m.IsDeRham) (hstein : (wd m m.p).monodromy ≠ 0)
+    (s : CompatibleSystem) (htype : HasDihedralType s 3 2) (v : s.Place)
+    (hp : (s.member v).p = 2) (hirr : IsIrreducible (s.member v).residual) :
+    ¬ m.IsPotentiallyCrystalline ∧ (s.member v).IsPotentiallyCrystalline := by sorry
+
+/-- `needs_unramified_at_3`: a Steinberg member at 3 with residual weight 4 cannot supply
+Lemma 2.3's crystalline weight-two member. Its bad prime 3 must lie in S. -/
+example (s : CompatibleSystem) (hw : s.HasWeight 2) (v : s.Place)
+    (hp : (s.member v).p = 3) (hstein : (wd (s.member v) 3).monodromy ≠ 0)
+    (hres : serreWeight (s.member v).residual = 4) :
+    3 ∈ s.S ∧ ¬ (s.member v).IsCrystalline ∧ serreWeight (s.member v).residual ≠ 2 := by sorry
+
+end DP
+end TauCeti.SerreConjecture
+end
+
+/-! ## R26.1: the auxiliary-to-minimal R=T application -/
+noncomputable section
+namespace TauCeti.SerreConjecture
+open NumberField ImportedInterfaces
+
+/-- R24.3: the minimal/auxiliary global deformation and Hecke diagram for the same residual
+representation and determinant. It includes the Q-new local conditions, the quotient maps,
+reduced new quotient and Carayol's conductor-prime-to-Q identification. O is the specified
+finite-flat Witt coefficient algebra with unchanged residue field. -/
+def AuxiliaryMinimalRTData (O RQ TQ Rmin Tmin : Type*)
+    [CommRing O] [CommRing RQ] [CommRing TQ] [CommRing Rmin] [CommRing Tmin]
+    [Algebra O RQ] [Algebra O TQ] [Algebra O Rmin] [Algebra O Tmin]
+    (auxiliary : RQ →ₐ[O] TQ) (minimal : Rmin →ₐ[O] Tmin) : Type := sorry
+
+/-- Böckle Theorem 1, applied to the actual level-one diagram rather than an abstract map. -/
+theorem bockle_minimal_r_equals_t_application (O RQ TQ Rmin Tmin : Type*)
+    [CommRing O] [IsDomain O] [IsDiscreteValuationRing O]
+    [CommRing RQ] [CommRing TQ] [CommRing Rmin] [CommRing Tmin]
+    [Algebra O RQ] [Algebra O TQ] [Algebra O Rmin] [Algebra O Tmin]
+    (auxiliary : RQ →ₐ[O] TQ) (minimal : Rmin →ₐ[O] Tmin)
+    (D : AuxiliaryMinimalRTData O RQ TQ Rmin Tmin auxiliary minimal)
+    (haux : Function.Bijective auxiliary)
+    (hTQ : Module.Finite O TQ ∧ Module.Flat O TQ) (hreduced : IsReduced TQ)
+    (hTmin : Module.Finite O Tmin ∧ Module.Flat O Tmin) :
+    Function.Bijective minimal ∧ Module.Finite O Rmin ∧ Module.Flat O Rmin ∧
+      IsCompleteIntersection O Rmin := by sorry
+
+/-- R27.6: primes in the positive-density conjugation class give distinct residual
+Frobenius eigenvalues {1,−1} at every place above that prime; trace=0 and det=−1 expose this. -/
+theorem artin_distinct_frobenius_reductions (ρ : GQ →* GL (Fin 2) ℂ)
+    (hcont : Continuous ρ) (hirr : IsIrreducible ρ) (hodd : IsOdd ρ)
+    (A : ArtinRealisation ρ) (φ : AlgebraicClosure ℚ →+* ℂ) (c : GQ)
+    (hc : ComplexEmbedding.IsConj φ c) (v : IsDedekindDomain.HeightOneSpectrum (𝓞 A.E))
+    (hgood : ¬ (A.member v).p ∣ artinConductor ρ * Nat.card ρ.range)
+    (g : GQ) (hFrob : IsFrobAt g (A.member v).p) (hclass : IsConj (ρ g) (ρ c)) :
+    (A.member v).p ≠ 2 ∧ Matrix.trace ((A.member v).residual g :
+      Matrix (Fin 2) (Fin 2) (FpBar (A.member v).p)) = 0 ∧
+    Matrix.det ((A.member v).residual g : Matrix (Fin 2) (Fin 2) (FpBar (A.member v).p)) = -1 := by sorry
+
+end TauCeti.SerreConjecture
+end
 
 /-! ## The analytic carriers at the pin -/
 
