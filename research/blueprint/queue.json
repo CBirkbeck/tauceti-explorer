@@ -46863,7 +46863,8 @@
     "PKG-HabiroCohomologyFoundations"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-HabiroCohomologyFoundations.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7518"
   },
   {
    "id": "PKG-HabiroCyclotomicCompletions",
@@ -47014,8 +47015,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-HeegnerPointEulerSystems.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7490"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7490",
+   "finishedAt": "2026-10-09T00:58:04Z"
   },
   {
    "id": "REV-PKG-HeegnerPointEulerSystems",
@@ -47814,7 +47816,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-WeilConjectures.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7500"
   },
   {
    "id": "REV-PKG-WeilConjectures",
