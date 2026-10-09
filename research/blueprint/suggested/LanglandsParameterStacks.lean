@@ -1040,7 +1040,7 @@ TEST excursion_lift_eval [characterisation]: For a compatible cone ξ, lift(ξ)�
 LanglandsParameterStacks:LP2:excursion-presentation/universal-homeomorphism
 Excursion comparison as a universal homeomorphism (theorem).
 Target statement (full theorem signature omitted): For a finite-wild W, Spec(O(Z¹(W,H))^H)→Spec Exc(W,H) is a universal homeomorphism, and the algebra comparison is an isomorphism after inverting l. Its proof is independent of l∤|π₁(H)_tors|.
-Required full carriers: LanglandsParameterStacks:LP2:excursion-presentation/excursion-algebra-and-universal-homeomorphism; LanglandsParameterStacks:LP2:excursion-presentation/free-cocycle-index; ReductiveGroupsPartII:RG2.5; mathlib:PrimeSpectrum.isHomeomorph_comap. See the packet’s explicit requests and gaps.
+Required full carriers: LanglandsParameterStacks:LP2:excursion-presentation/excursion-algebra-and-universal-homeomorphism; LanglandsParameterStacks:LP2:excursion-presentation/free-cocycle-index; LanglandsParameterStacks:LP2:excursion-presentation/free-derived-cocycle-colimit; ReductiveGroupsPartII:RG2.5; mathlib:PrimeSpectrum.isHomeomorph_comap. See the packet’s explicit requests and gaps.
 
 LanglandsParameterStacks:LP2:excursion-presentation/universal-property-of-the-excursion-algebra
 The universal excursion relations (theorem).
@@ -1302,6 +1302,7 @@ LanglandsParameterStacks:LP3/integral-chevalley-restriction
 Integral Chevalley restriction for Levi groups (theorem).
 Target statement (full theorem signature omitted): For a split reductive standard dual Levi M over Z, maximal split torus T and Weyl group W(M,T), restriction gives an isomorphism Z[M]^M≃Z[T]^{W(M,T)}. This is integral over Z with no good-prime hypothesis.
 Required full carriers: ReductiveGroupsPartII:RG2.5; mathlib:RootPairing; tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ. See the packet’s explicit requests and gaps.
+Highest-weight supplier: the accepted ReductiveGroupsIntegralRepresentationsPartII extension through parent Layer9 pending DESIGN registration, as recorded in G1; RG2.6 supplies the separate structural inputs.
 
 LanglandsParameterStacks:LP2:excursion-presentation/free-derived-cocycle-colimit
 Derived free-cocycle presentations (theorem).
