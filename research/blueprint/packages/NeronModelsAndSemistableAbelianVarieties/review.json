@@ -1,0 +1,8 @@
+{
+  "review": {
+    "status": "needs_changes",
+    "reviewer": "independent-review-REV-PKG-NeronModelsAndSemistableAbelianVarieties~adv",
+    "date": "2026-10-09",
+    "notes": "Independent fixing/adversarial review of all six layers and conventions against public sources, current upstream and current/pinned Tau Ceti. Fixed duplicated Kodaira geometry, dependency order and the potential-semistability cycle, finite-level invariants inference, isogeny and Lang examples, finite-free two-lattice discriminant and specified quotient tests, polarisation variance, nonreduced Picard prerequisite, BGW parity/Brauer/source attribution, fibrewise stable Picard, period-ring scalar/source/API, conductor descent, differential scaling, strict matrix bound and order-48/order-8 residual calculation. Final lean-check exit 0: 102 sorry warnings only. Blueprint input check: 0 errors/warnings; intake check: 5 files, 0 problems; git diff --check: exit 0. Henselisation invariance and unramified period-comparison descent are explicit targets; geometric Picard fibres use the normalization sequence. Remaining defects: signed valuation-to-inertia bridge (README 4.3; needed for 5.1), signed inverse-form-to-biextension obstruction comparison (4.6), inaccessible Tate source for wild/all-characteristic equation-to-Neron comparisons (2.9 and 6.6, affecting 2.8 and 6.7-6.9), and uncollated Noot 2017 Corollary 2.2/coefficient-prime trace argument (6.10). These are explicitly marked gaps; no mathematical proof closure or implementation is claimed. Full receipts, statement-by-statement adversarial table and resume instructions are in the review report."
+  }
+}
