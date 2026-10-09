@@ -15,7 +15,8 @@ not finite `K`-rank; it is not identified with Mathlib's `IsCompactOperator`. Co
 Mathlib's `ZeroAtInftyContinuousMap` on a discrete index type, with input index first and output
 index second. Entire series are power series restricted at every radius, with the Fréchet topology
 of all Gauss norms; the Fredholm series is `det (1 - T u)` with constant coefficient `1`. Banach
-stages of analytic functions and their duals are typed on these coefficient spaces; the global
+stages of analytic functions, their duals and bounded coefficient specialization are typed on these
+coefficient spaces. The full entire spectral transform uses simultaneous all-radius limits; the global
 compact-type inductive limit, its strong dual, completed projective tensor products and the
 analytic character spaces are stated in the README and are absent here (see the closing comment).
 -/
@@ -62,6 +63,45 @@ example (i j : I) (h : i ≠ j) (a : A) : c0Single i a j = 0 := by sorry
 /-- The native sup norm detects the coefficient rather than its support size. -/
 example (i : I) (a : A) : ‖c0Single i a‖ = ‖a‖ := by sorry
 end NonarchimedeanFredholm
+
+namespace NonarchimedeanTopologyTests
+variable {K : Type*} [NontriviallyNormedField K]
+/-- A bounded diagonal operator on the native c0 carrier, used to distinguish strictness
+from continuity and injectivity. -/
+def weightedDiagonal (a : ℕ → K) (ha : ∀ n, ‖a n‖ ≤ 1) : C₀(ℕ,K) →L[K] C₀(ℕ,K) := sorry
+/-- Diagonal multiplication retains each coordinate. -/
+theorem weightedDiagonal_apply (a : ℕ → K) (ha : ∀ n, ‖a n‖ ≤ 1)
+    (x : C₀(ℕ,K)) (n : ℕ) : weightedDiagonal a ha x n = a n * x n := sorry
+/-- The zero diagonal is zero. -/
+example (h : ∀ n : ℕ, ‖(0:K)‖ ≤ 1) : weightedDiagonal (fun _ => 0) h = 0 := sorry
+/-- The unit diagonal is identity, including on infinite c0. -/
+example (h : ∀ n : ℕ, ‖(1:K)‖ ≤ 1) :
+    weightedDiagonal (fun _ => 1) h = ContinuousLinearMap.id K C₀(ℕ,K) := sorry
+/-- A coordinate witness pins the input/output index convention. -/
+example (a : ℕ → K) (ha : ∀ n, ‖a n‖ ≤ 1) (n : ℕ) :
+    weightedDiagonal a ha (NonarchimedeanFredholm.c0Single n 1) n = a n := sorry
+/-- Product topology has coordinatewise, not uniform, convergence of the unit vectors. -/
+example : Tendsto (fun n : ℕ => fun i : ℕ => if i=n then (1:K) else 0)
+    atTop (𝓝 0) := sorry
+/-- The same vectors in the sup-norm c0 space cannot converge to zero. -/
+example : ¬ Tendsto (fun n : ℕ => NonarchimedeanFredholm.c0Single n (1:K))
+    atTop (𝓝 0) := sorry
+/-- The split kernel embedding is a native strict map. -/
+example : Topology.IsStrictMap (fun x : K => (x,(0:K))) := sorry
+/-- A norm-decaying diagonal is an injective continuous map which is not strict onto its image. -/
+example (h : ∀ n : ℕ, ‖(3:ℚ_[3])^n‖ ≤ 1) :
+    Function.Injective (weightedDiagonal (fun n => (3:ℚ_[3])^n) h) ∧
+    ¬ Topology.IsStrictMap (weightedDiagonal (fun n => (3:ℚ_[3])^n) h) := sorry
+/-- The bounded-sequence array is excluded, despite lying in the product inverse limit. -/
+example : ¬ ∃ f : C₀(ℕ,K), ∀ n, f n = 1 := sorry
+/-- The decaying infinite diagonal is included in the product stage. Its infinite matrix rank
+prevents it from being a finite algebraic tensor. -/
+example : ∃ f : C₀(ℕ×ℕ,ℚ_[3]), ∀ i j,
+    f (i,j) = if i=j then (3:ℚ_[3])^i else 0 := sorry
+/-- No finite sum of separated coefficient arrays equals the decaying diagonal. -/
+example : ¬ ∃ (r : ℕ) (x y : Fin r → ℕ → ℚ_[3]), ∀ i j,
+    (∑ k : Fin r, x k i * y k j) = if i=j then (3:ℚ_[3])^i else 0 := sorry
+end NonarchimedeanTopologyTests
 
 namespace AnalyticDistributions
 open scoped ZeroAtInfty
@@ -204,51 +244,49 @@ variable {K E F H : Type*} [NontriviallyNormedField K]
     [NormedAddCommGroup E] [NormedSpace K E]
     [NormedAddCommGroup F] [NormedSpace K F]
     [NormedAddCommGroup H] [NormedSpace K H]
-/-- Pushforward of analytic distributions. For an analytic map f:X→Y of compact p-adic manifolds,
-define f_*μ by (f_*μ)(g)=μ(g∘f). This is a continuous K-linear map D(X,K)→D(Y,K) for the strong
-dual topologies. (Source: Colmez, §II.4, printed pp. 34–37.) -/
-def distributionPushforward (P : F →L[K] E) (μ : E →L[K] K) : F →L[K] K := μ.comp P
+/-- The transpose of a supplied continuous linear map on fixed normed spaces.
+The analytic stage-to-limit construction is a separate README target. -/
+def transposePullback (P : F →L[K] E) (μ : E →L[K] K) : F →L[K] K := μ.comp P
 /-- Evaluation is μ applied to pullback. Part of the API of the target *Pushforward of analytic
 distributions*. -/
-theorem distributionPushforward_apply (P : F →L[K] E) (μ : E →L[K] K) (f : F) :
-    distributionPushforward P μ f = μ (P f) := by sorry
-/-- (g∘f)_*=g_*∘f_*. Part of the API of the target *Pushforward of analytic distributions*. -/
-theorem distributionPushforward_comp (P : F →L[K] E) (Q : H →L[K] F) (μ : E →L[K] K) :
-    distributionPushforward (P.comp Q) μ =
-      distributionPushforward Q (distributionPushforward P μ) := by sorry
+theorem transposePullback_apply (P : F →L[K] E) (μ : E →L[K] K) (f : F) :
+    transposePullback P μ f = μ (P f) := by sorry
+/-- Supplied-map transposes compose in reverse order. -/
+theorem transposePullback_comp (P : F →L[K] E) (Q : H →L[K] F) (μ : E →L[K] K) :
+    transposePullback (P.comp Q) μ =
+      transposePullback Q (transposePullback P μ) := by sorry
 -- AnalyticDistributionTests.pushforward_identity
-example (μ : E →L[K] K) : distributionPushforward (ContinuousLinearMap.id K E) μ = μ := by sorry
+example (μ : E →L[K] K) : transposePullback (ContinuousLinearMap.id K E) μ = μ := by sorry
 -- AnalyticDistributionTests.pushforward_zero
-example (P : F →L[K] E) : distributionPushforward P (0 : E →L[K] K) = 0 := by sorry
+example (P : F →L[K] E) : transposePullback P (0 : E →L[K] K) = 0 := by sorry
 -- AnalyticDistributionTests.pushforward_constant
 example (P : F →L[K] E) (ev : F →L[K] K) (e : E)
     (hP : ∀ f, P f = ev f • e) (μ : E →L[K] K) :
-    distributionPushforward P μ = μ e • ev := by sorry
+    transposePullback P μ = μ e • ev := by sorry
 end Transposes
 
 section Multipliers
 variable {K R : Type*} [NontriviallyNormedField K] [NormedCommRing R] [NormedAlgebra K R]
 -- Exact bounded-algebra transpose. The global LF analytic multiplication is omitted.
-/-- Transpose multiplication on analytic test functions. Part of the API of the target *Multiplication
-by an analytic function*. -/
-def distributionMultiply (g : R) (μ : R →L[K] K) : R →L[K] K :=
+/-- Transpose of multiplication in a fixed normed algebra. -/
+def transposeMultiplier (g : R) (μ : R →L[K] K) : R →L[K] K :=
     μ.comp (ContinuousLinearMap.mul K R g)
 /-- (gμ)(f)=μ(gf). Part of the API of the target *Multiplication by an analytic function*. -/
-theorem distributionMultiply_apply (g f : R) (μ : R →L[K] K) :
-    distributionMultiply g μ f = μ (g*f) := by sorry
+theorem transposeMultiplier_apply (g f : R) (μ : R →L[K] K) :
+    transposeMultiplier g μ f = μ (g*f) := by sorry
 /-- Successive multiplications multiply their analytic factors. Part of the API of the target
 *Multiplication by an analytic function*. -/
-theorem distributionMultiply_assoc (g h : R) (μ : R →L[K] K) :
-    distributionMultiply (g*h) μ = distributionMultiply g (distributionMultiply h μ) := by sorry
+theorem transposeMultiplier_assoc (g h : R) (μ : R →L[K] K) :
+    transposeMultiplier (g*h) μ = transposeMultiplier g (transposeMultiplier h μ) := by sorry
 -- AnalyticDistributionTests.multiply_one
-example (μ : R →L[K] K) : distributionMultiply 1 μ = μ := by sorry
+example (μ : R →L[K] K) : transposeMultiplier 1 μ = μ := by sorry
 -- AnalyticDistributionTests.multiply_atom
 example (ev : R →L[K] K) (hm : ∀ g f, ev (g*f) = ev g * ev f) (g : R) :
-    distributionMultiply g ev = ev g • ev := by sorry
+    transposeMultiplier g ev = ev g • ev := by sorry
 -- AnalyticDistributionTests.multiply_bounded
 -- Native bounded-measure compatibility on a finite space is the exact common domain.
 example {G : Type*} [Fintype G] [DecidableEq G] (g f : G → K) (μ : (G → K) →L[K] K) :
-    distributionMultiply g μ f = μ (fun x => g x * f x) := by sorry
+    transposeMultiplier g μ f = μ (fun x => g x * f x) := by sorry
 end Multipliers
 
 section FiniteConvolution
@@ -260,28 +298,47 @@ def pointDistribution (a : G) : (G → K) →L[K] K := by sorry
 theorem pointDistribution_apply (a : G) (f : G → K) : pointDistribution a f = f a := by sorry
 /-- Push forward the tensor distribution along group multiplication. Part of the API of the target
 *Convolution by iterated analytic evaluation*. -/
-def distributionConvolution (mu1 μ : (G → K) →L[K] K) : (G → K) →L[K] K := by sorry
+def finiteConvolution (mu1 μ : (G → K) →L[K] K) : (G → K) →L[K] K := by sorry
 /-- Its value is the specified iterated integral. Part of the API of the target *Convolution by
 iterated analytic evaluation*. -/
-theorem distributionConvolution_apply (mu1 μ : (G → K) →L[K] K) (f : G → K) :
-    distributionConvolution mu1 μ f = μ (fun y => mu1 (fun x => f (x*y))) := by sorry
+theorem finiteConvolution_apply (mu1 μ : (G → K) →L[K] K) (f : G → K) :
+    finiteConvolution mu1 μ f = μ (fun y => mu1 (fun x => f (x*y))) := by sorry
 /-- Convolution is associative. Part of the API of the target *Convolution by iterated analytic
 evaluation*. -/
-theorem distributionConvolution_assoc (mu1 μ ν : (G → K) →L[K] K) :
-    distributionConvolution (distributionConvolution mu1 μ) ν =
-      distributionConvolution mu1 (distributionConvolution μ ν) := by sorry
+theorem finiteConvolution_assoc (mu1 μ ν : (G → K) →L[K] K) :
+    finiteConvolution (finiteConvolution mu1 μ) ν =
+      finiteConvolution mu1 (finiteConvolution μ ν) := by sorry
 -- AnalyticDistributionTests.convolution_atoms
-example (a b : G) : distributionConvolution (pointDistribution (K:=K) a) (pointDistribution b) =
+example (a b : G) : finiteConvolution (pointDistribution (K:=K) a) (pointDistribution b) =
     pointDistribution (a*b) := by sorry
 -- AnalyticDistributionTests.convolution_unit
-example (μ : (G → K) →L[K] K) : distributionConvolution (pointDistribution 1) μ = μ := by sorry
+example (μ : (G → K) →L[K] K) : finiteConvolution (pointDistribution 1) μ = μ := by sorry
 -- AnalyticDistributionTests.convolution_bounded
 example (w z f : G → K) (mu1 μ : (G → K) →L[K] K)
     (hmu1 : ∀ f, mu1 f = ∑ x, w x * f x) (hμ : ∀ f, μ f = ∑ y, z y * f y) :
-    distributionConvolution mu1 μ f = ∑ y, ∑ x, z y * w x * f (x*y) := by sorry
+    finiteConvolution mu1 μ f = ∑ y, ∑ x, z y * w x * f (x*y) := by sorry
 end FiniteConvolution
 
 end AnalyticDistributions
+
+namespace AnalyticStageTests
+/-- The affine analytic pullback retains all three coefficients. -/
+example : (Polynomial.X^2 : Polynomial ℚ).comp (1+3*Polynomial.X) =
+    1+6*Polynomial.X+9*Polynomial.X^2 := by sorry
+/-- Constant pullback returns a constant, including the zero constant. -/
+example : (Polynomial.X^2 : Polynomial ℚ).comp (Polynomial.C 2) = Polynomial.C 4 := by sorry
+/-- Multiplication of test functions is coefficient product, not value at zero. -/
+example : ((1+Polynomial.X)*Polynomial.X : Polynomial ℚ) =
+    Polynomial.X+Polynomial.X^2 := by ring
+/-- Positive derivative pushforward along y=1+3x takes y² to 6. -/
+example : (((Polynomial.X^2 : Polynomial ℚ).comp (1+3*Polynomial.X)).derivative).eval 0 = 6 := by sorry
+/-- Positive derivative multiplication x dδ_0=δ_0, witnessed on the constant test. -/
+example : (Polynomial.X : Polynomial ℚ).derivative.eval 0 = 1 := by simp
+/-- Convolving positive first derivatives takes x² to 2. -/
+example : (Polynomial.X^2 : Polynomial ℚ).derivative.derivative.eval 0 = 2 := by sorry
+/-- Zero total mass does not imply zero distribution: δ_0−δ_1 takes x to −1. -/
+example : (Polynomial.X : Polynomial ℚ).eval 0 - Polynomial.X.eval 1 = -1 := by simp
+end AnalyticStageTests
 
 /-! ## Layer 2: admissible growth, vector order and uniqueness -/
 
@@ -350,6 +407,16 @@ example (μ : LocallyConstant (Fin g → ℤ_[p]) K →ₗ[K] K)
 end Rectangles
 
 end AnalyticDistributions
+
+namespace GrowthTests
+/-- The sparse Mahler coefficients tend to zero but their C1-weighted valuations stay −1. -/
+example : Tendsto (fun k : ℕ => (3:ℚ_[3])^k) atTop (𝓝 0) ∧
+    ∀ k : ℕ, (k:ℤ)-(k+1) = -1 := sorry
+/-- Specified digit doubling at p=3: the two C2 Taylor ratios differ. -/
+example : (1:ℚ_[3]) ≠ (2:ℚ_[3])/(2:ℚ_[3])^2 := by norm_num
+/-- The dyadic digit witness uses 3=1+2 and d(3)=1+4=5. -/
+example : (1:ℚ_[2]) ≠ (5:ℚ_[2])/(3:ℚ_[2])^2 := by norm_num
+end GrowthTests
 
 /-! ## Layer 3: character spaces and Mellin transforms -/
 
@@ -480,7 +547,7 @@ theorem branchCoordinate_norm_le (q : K) (hq : ‖q‖ < 1) (s : ℤ_[p]) :
 specialization of a branch independently of arithmetic L-value interpolation. In the canonical
 unit chart, recovering x^k additionally requires the finite character ν=ω^i with k≡i modulo p−1
 for odd p, and the corresponding parity branch at p=2; those coordinate comparisons are a
-remaining supplier interface. (Source: RJW, Remark 3.47, pp. 25–26; §5.3, pp. 34–35 (formula
+unit-chart comparison in README §3.2. (Source: RJW, Remark 3.47, pp. 25–26; §5.3, pp. 34–35 (formula
 immediately before Remark 5.22).) -/
 theorem branchMellin_nat (F : PowerSeries K) (q : K) (hq : ‖q‖ < 1) (n : ℕ) :
     branchMellin F q hq (n : ℤ_[p]) = evalOpen F ((1+q)^n-1) := by sorry
@@ -1097,6 +1164,232 @@ theorem resolventCoeff_succ (f : M →L[A] M) (hp : HasPr A M)
       (fredholmSeriesPr f hp hf).coeff (n+1) • ContinuousLinearMap.id A M +
         f.comp (resolventCoeff f hp hf n) := by sorry
 
+end FredholmPr
+end NonarchimedeanFredholm
+
+/-!
+Adjugate estimates and finite-coordinate passage to the Fredholm resolvent.
+Intermediate sequences satisfy the algebraic recurrence explicitly; no hypothesis
+assumes the analytic bound or entireness being proved. Matrices are input-first.
+-/
+namespace NonarchimedeanFredholm
+open scoped _root_.Matrix
+universe u v w
+variable {K A : Type u}
+variable [NontriviallyNormedField K] [CompleteSpace K]
+variable [NormedCommRing A] [NormOneClass A] [Nontrivial A]
+variable [NormedAlgebra K A] [CompleteSpace A] [IsNoetherianRing A]
+variable {I : Type w} [TopologicalSpace I] [DiscreteTopology I] [DecidableEq I]
+
+ /-- Evaluation of a finite coordinate projection. For T finite, x∈c_A(I) and j∈I, (π_T x)_j=x_j when
+ j∈T, and (π_T x)_j=0 otherwise. (Source: Serre, §6, Proposition 10 and Lemma 3(a)–(c), printed pp. 78–79.) -/
+ theorem coordinateProjection_apply (T : Finset I) (x : C₀(I,A)) (j : I) :
+    coordinateProjection T x j = if j ∈ T then x j else 0 := by sorry
+
+/-- π_∅=0 as a native continuous A-linear map. Part of the API of the target *Finite coordinate
+truncation*. -/
+theorem coordinateProjection_empty :
+    coordinateProjection (A := A) (∅ : Finset I) = 0 := by sorry
+
+/-- π_T composed with π_S is π_(T∩S); hence each finite projection is idempotent. Part of the API of
+the target *Finite coordinate truncation*. -/
+theorem coordinateProjection_inter (T S : Finset I) :
+    (coordinateProjection (A := A) T).comp (coordinateProjection S) =
+      coordinateProjection (T ∩ S) := by sorry
+
+/-- π_T(a e_j)=a e_j if j∈T, and zero if j∉T. Part of the API of the target *Finite coordinate
+truncation*. -/
+theorem coordinateProjection_single (T : Finset I) (j : I) (a : A) :
+    coordinateProjection T (c0Single j a) = if j ∈ T then c0Single j a else 0 := by sorry
+
+
+ /-- Operator bound from the coordinate vectors. For a continuous A-linear f:c_A(I)→c_A(I) and C≥0,
+ ‖f‖_K≤C if and only if ‖f(e_i)‖≤C for every i∈I. (Source: Serre, §6, Proposition 10 and
+ Lemma 3(a)–(c), printed pp. 78–79.) -/
+ theorem c0_operator_norm_le_iff
+    (hA : ∀ x y : A, ‖x+y‖ ≤ max ‖x‖ ‖y‖)
+    (f : C₀(I,A) →L[A] C₀(I,A)) (C : ℝ) (hC : 0 ≤ C) :
+    ‖f.restrictScalars K‖ ≤ C ↔ ∀ i, ‖f (c0Single i (1 : A))‖ ≤ C := by sorry
+
+ /-- Coefficients of the finite adjugate. For a d×d matrix D over A, put H(T)=I−TD, c_n=coeff_n det(H),
+ and B_n=(coeff_n adj(H)_ij)_ij. Then B₀=I and B_(n+1)=c_(n+1)I+B_nD. This order is compatible with
+ the input-first operator convention. (Source: Serre, §6, Proposition 10 and Lemma 3(a)–(c),
+ printed pp. 78–79.) -/
+ theorem finite_adjugate_recurrence {d : ℕ} (D : Matrix (Fin d) (Fin d) A) (n : ℕ) :
+    (fun i j : Fin d => ((Matrix.adjugate (1 - (Polynomial.X : Polynomial A) • D.map (Polynomial.C : A →+* Polynomial A))) i j).coeff 0) =
+      (1 : Matrix (Fin d) (Fin d) A) ∧
+    (fun i j : Fin d => ((Matrix.adjugate (1 - (Polynomial.X : Polynomial A) • D.map (Polynomial.C : A →+* Polynomial A))) i j).coeff (n+1)) =
+      ((Matrix.det (1 - (Polynomial.X : Polynomial A) • D.map (Polynomial.C : A →+* Polynomial A))).coeff (n+1)) • (1 : Matrix (Fin d) (Fin d) A) +
+        Matrix.of (fun i j : Fin d => ((Matrix.adjugate (1 - (Polynomial.X : Polynomial A) • D.map (Polynomial.C : A →+* Polynomial A))) i j).coeff n) * D := by sorry
+
+ /-- Distinct-column bound for adjugate coefficients. Let D be a d×d matrix, b_j≥0 with ‖D_ij‖≤b_j, n≥0
+ and C≥0. Assume ∏_{j∈S}b_j≤C for every n-element subset S of its column index set. Every
+ coefficient of degree n of every entry of adj(I−TD) then has norm at most C. (Source: Serre, §6,
+ Proposition 10 and Lemma 3(a)–(c), printed pp. 78–79.) -/
+ theorem finite_adjugate_coeff_bound {d : ℕ}
+    (hA : ∀ x y : A, ‖x+y‖ ≤ max ‖x‖ ‖y‖)
+    (D : Matrix (Fin d) (Fin d) A) (b : Fin d → ℝ)
+    (hb0 : ∀ j, 0 ≤ b j) (hb : ∀ i j, ‖D i j‖ ≤ b j)
+    (n : ℕ) (C : ℝ) (hC : 0 ≤ C)
+    (hprod : ∀ S : Finset (Fin d), S.card = n → ∏ j ∈ S, b j ≤ C) (i j : Fin d) :
+    ‖((Matrix.adjugate (1 - (Polynomial.X : Polynomial A) • D.map (Polynomial.C : A →+* Polynomial A))) i j).coeff n‖ ≤ C := by sorry
+
+ /-- Resolvent recurrence on finite coordinates. Let u:c_A(I)→c_A(I) be completely continuous, with
+ output support in a finite J. Let V₀=I and V_(n+1)=c_(n+1)(u)I+uV_n, where c_n(u) are the actual
+ Fredholm coefficients. For every finite L⊇J, the entries of V_n between coordinates i,j∈L equal
+ the degree-n coefficients of adj(I−T D_L), where D_L=(u_ij)_(i,j∈L). (Source: Serre, §6,
+ Proposition 10 and Lemma 3(a)–(c), printed pp. 78–79.) -/
+ theorem finite_coordinate_resolvent_comparison
+    (hA : ∀ x y : A, ‖x+y‖ ≤ max ‖x‖ ‖y‖)
+    (f : C₀(I,A) →L[A] C₀(I,A)) (hf : IsCompletelyContinuous f)
+    (V : ℕ → C₀(I,A) →L[A] C₀(I,A)) (hV0 : V 0 = ContinuousLinearMap.id A _)
+    (hV : ∀ n, V (n+1) = (fredholmSeries f hf).coeff (n+1) •
+      ContinuousLinearMap.id A _ + f.comp (V n))
+    (J L : Finset I) (hJL : J ⊆ L)
+    (hJ : ∀ i j, j ∉ J → operatorEntry f i j = 0) (n : ℕ) (i j : ↥L) :
+    operatorEntry (V n) i j =
+      ((Matrix.adjugate (1 - (Polynomial.X : Polynomial A) •
+        (fun a b : ↥L => Polynomial.C (operatorEntry f a b)))) i j).coeff n := by sorry
+
+ /-- Resolvent bound for finite output support. Suppose u has output support in finite J. Let b_j≥0
+ bound its output-column norms, fix n≥0 and C≥0, and assume every product of n distinct b_j is at
+ most C. Then ‖V_n‖_K≤C. (Source: Serre, §6, Proposition 10 and Lemma 3(a)–(c), printed pp. 78–79.) -/
+ theorem finite_output_resolvent_bound
+    (hA : ∀ x y : A, ‖x+y‖ ≤ max ‖x‖ ‖y‖)
+    (f : C₀(I,A) →L[A] C₀(I,A)) (hf : IsCompletelyContinuous f)
+    (V : ℕ → C₀(I,A) →L[A] C₀(I,A)) (hV0 : V 0 = ContinuousLinearMap.id A _)
+    (hV : ∀ n, V (n+1) = (fredholmSeries f hf).coeff (n+1) •
+      ContinuousLinearMap.id A _ + f.comp (V n))
+    (J : Finset I) (hJ : ∀ i j, j ∉ J → operatorEntry f i j = 0)
+    (b : I → ℝ) (hb0 : ∀ j, 0 ≤ b j) (hb : ∀ j, columnSize f j ≤ b j)
+    (n : ℕ) (C : ℝ) (hC : 0 ≤ C)
+    (hprod : ∀ S : Finset I, S.card = n → ∏ j ∈ S, b j ≤ C) :
+    ‖(V n).restrictScalars K‖ ≤ C := by sorry
+
+ /-- Continuity of the finite recurrence. Let α carry any filter l. Suppose u_α→u in K-operator norm on
+ c_A(I), and c_(α,n)→c_n in A for each n. Define sequences V_(α,n) and V_n by initial identity and
+ V_(α,n+1)=c_(α,n+1)I+u_αV_(α,n), respectively V_(n+1)=c_(n+1)I+uV_n. For every fixed n,
+ V_(α,n)→V_n in K-operator norm. (Source: Serre, §6, Proposition 10 and Lemma 3(a)–(c), printed pp. 78–79.) -/
+ theorem recurrence_coefficient_tendsto {ι : Type*} (l : Filter ι)
+    (f : ι → C₀(I,A) →L[A] C₀(I,A)) (g : C₀(I,A) →L[A] C₀(I,A))
+    (c : ι → ℕ → A) (d : ℕ → A)
+    (V : ι → ℕ → C₀(I,A) →L[A] C₀(I,A)) (W : ℕ → C₀(I,A) →L[A] C₀(I,A))
+    (hV0 : ∀ i, V i 0 = ContinuousLinearMap.id A _)
+    (hW0 : W 0 = ContinuousLinearMap.id A _)
+    (hV : ∀ i n, V i (n+1) = c i (n+1) • ContinuousLinearMap.id A _ + (f i).comp (V i n))
+    (hW : ∀ n, W (n+1) = d (n+1) • ContinuousLinearMap.id A _ + g.comp (W n))
+    (hf : Tendsto (fun i => (f i).restrictScalars K) l (𝓝 (g.restrictScalars K)))
+    (hc : ∀ n, Tendsto (fun i => c i n) l (𝓝 (d n))) (n : ℕ) :
+    Tendsto (fun i => (V i n).restrictScalars K) l (𝓝 ((W n).restrictScalars K)) := by sorry
+
+ /-- Adjugate bound for the Fredholm resolvent. Let u be completely continuous on c_A(I), and let b_j≥0
+ bound its output-column norms. For n≥0 and C≥0, if every product of n distinct b_j is at most C,
+ then ‖V_n‖_K≤C. (Source: Serre, §6, Proposition 10 and Lemma 3(a)–(c), printed pp. 78–79.) -/
+ theorem resolvent_recurrence_norm_bound
+    (hA : ∀ x y : A, ‖x+y‖ ≤ max ‖x‖ ‖y‖)
+    (f : C₀(I,A) →L[A] C₀(I,A)) (hf : IsCompletelyContinuous f)
+    (V : ℕ → C₀(I,A) →L[A] C₀(I,A)) (hV0 : V 0 = ContinuousLinearMap.id A _)
+    (hV : ∀ n, V (n+1) = (fredholmSeries f hf).coeff (n+1) •
+      ContinuousLinearMap.id A _ + f.comp (V n))
+    (b : I → ℝ) (hb0 : ∀ j, 0 ≤ b j) (hb : ∀ j, columnSize f j ≤ b j)
+    (n : ℕ) (C : ℝ) (hC : 0 ≤ C)
+    (hprod : ∀ S : Finset I, S.card = n → ∏ j ∈ S, b j ≤ C) :
+    ‖(V n).restrictScalars K‖ ≤ C := by sorry
+
+ /-- Entire tail estimate for resolvent coefficients. Let b_j≥0 bound the output-column norms of
+ completely continuous u and satisfy b_j≤L. Fix R>0, 0<q<1 and finite T with Rb_j≤q off T. Put
+ m=|T| and B=max(1,RL). Then ‖V_n‖_K Rⁿ≤B^m q^(max(n−m,0)) for every n≥0. (Source: Serre, §6,
+ Proposition 10 and Lemma 3(a)–(c), printed pp. 78–79.) -/
+ theorem resolvent_recurrence_tail_bound
+    (hA : ∀ x y : A, ‖x+y‖ ≤ max ‖x‖ ‖y‖)
+    (f : C₀(I,A) →L[A] C₀(I,A)) (hf : IsCompletelyContinuous f)
+    (V : ℕ → C₀(I,A) →L[A] C₀(I,A)) (hV0 : V 0 = ContinuousLinearMap.id A _)
+    (hV : ∀ n, V (n+1) = (fredholmSeries f hf).coeff (n+1) •
+      ContinuousLinearMap.id A _ + f.comp (V n))
+    (b : I → ℝ) (hb0 : ∀ j, 0 ≤ b j) (hb : ∀ j, columnSize f j ≤ b j)
+    (L : ℝ) (hL : ∀ j, b j ≤ L) (R q : ℝ)
+    (hR : 0 < R) (hq : 0 < q) (hq' : q < 1)
+    (T : Finset I) (hT : ∀ j, j ∉ T → R*b j ≤ q) (n : ℕ) :
+    ‖(V n).restrictScalars K‖ * R^n ≤
+      (max 1 (R*L))^T.card * q^(n-T.card) := by sorry
+
+variable {M : Type v} [NormedAddCommGroup M] [NormedSpace K M]
+variable [Module A M] [IsScalarTower K A M] [ContinuousSMul A M] [CompleteSpace M]
+
+ /-- Compression of the coefficient recurrence. Let i:M→c_A(I) and r:c_A(I)→M be native continuous
+ A-linear maps with ri=I. For u:M→M put U=iur. For any scalar sequence c_n, suppose V₀=I_M,
+ W₀=I_c0, V_(n+1)=c_(n+1)I_M+uV_n and W_(n+1)=c_(n+1)I_c0+UW_n. Then rW_n i=V_n for every n.
+ (Source: Serre, §6, Proposition 10 and Lemma 3(a)–(c), printed pp. 78–79.) -/
+ theorem recurrence_retraction (f : M →L[A] M)
+    (i : M →L[A] C₀(I,A)) (r : C₀(I,A) →L[A] M)
+    (hri : r.comp i = ContinuousLinearMap.id A M) (c : ℕ → A)
+    (V : ℕ → M →L[A] M) (W : ℕ → C₀(I,A) →L[A] C₀(I,A))
+    (hV0 : V 0 = ContinuousLinearMap.id A _) (hW0 : W 0 = ContinuousLinearMap.id A _)
+    (hV : ∀ n, V (n+1) = c (n+1) • ContinuousLinearMap.id A _ + f.comp (V n))
+    (hW : ∀ n, W (n+1) = c (n+1) • ContinuousLinearMap.id A _ +
+      (i.comp (f.comp r)).comp (W n)) (n : ℕ) :
+    r.comp ((W n).comp i) = V n := by sorry
+
+ /-- Entireness of the recurrence on a projective Banach module. Let M have (Pr), u:M→M be completely
+ continuous, and c_n be its actual summand Fredholm coefficients. For any V₀=I and
+ V_(n+1)=c_(n+1)I+uV_n, and every R>0, ‖V_n‖_K Rⁿ tends to zero. (Source: Serre, §6, Proposition 10
+ and Lemma 3(a)–(c), printed pp. 78–79.7–12 for coordinates; §3, full manuscript p.22.) -/
+ theorem resolvent_recurrence_entire
+    (hA : ∀ x y : A, ‖x+y‖ ≤ max ‖x‖ ‖y‖)
+    (f : M →L[A] M) (hp : HasPr A M) (hf : IsCompletelyContinuous f)
+    (V : ℕ → M →L[A] M) (hV0 : V 0 = ContinuousLinearMap.id A _)
+    (hV : ∀ n, V (n+1) = (fredholmSeriesPr f hp hf).coeff (n+1) •
+      ContinuousLinearMap.id A _ + f.comp (V n)) (R : ℝ) (hR : 0 < R) :
+    Tendsto (fun n => ‖(V n).restrictScalars K‖ * R^n) atTop (𝓝 0) := by sorry
+
+-- The constructor's initial-coefficient API, used to instantiate the estimates.
+/-- The initial coefficient v₀ is the identity endomorphism on the actual module M. Part of the API of
+the target *Fredholm resolvent series*. -/
+theorem resolventCoeff_zero (f : M →L[A] M) (hp : HasPr A M)
+    (hf : IsCompletelyContinuous f) : resolventCoeff f hp hf 0 = ContinuousLinearMap.id A M := by sorry
+
+-- Test projection_empty_support.
+example (x : C₀(I,A)) : coordinateProjection (∅ : Finset I) x = 0 := by sorry
+-- Test projection_selected_coordinate.
+example (j : I) (a : A) : coordinateProjection {j} (c0Single j a) = c0Single j a := by sorry
+-- Test projection_rejected_coordinate.
+example (i j : I) (a : A) (h : i ≠ j) : coordinateProjection {i} (c0Single j a) = 0 := by sorry
+
+-- Test adjugate_rank_one.
+example (a : A) :
+    Matrix.adjugate (1 - (Polynomial.X : Polynomial A) • (fun _ _ : Fin 1 => Polynomial.C a)) = 1 := by sorry
+-- Test adjugate_diagonal_two.
+example (a b : A) :
+    Matrix.adjugate (1 - (Polynomial.X : Polynomial A) • (diagonalTwo a b).map (Polynomial.C : A →+* Polynomial A)) =
+      (fun i j : Fin 2 => if i=j then
+        if i=0 then 1-Polynomial.C b*(Polynomial.X : Polynomial A) else 1-Polynomial.C a*(Polynomial.X : Polynomial A) else 0) := by sorry
+-- Test adjugate_nilpotent_two.
+example : Matrix.adjugate (1 - (Polynomial.X : Polynomial A) • (nilpotentTwo (A := A)).map (Polynomial.C : A →+* Polynomial A)) =
+    1 + (Polynomial.X : Polynomial A) • (nilpotentTwo (A := A)).map (Polynomial.C : A →+* Polynomial A) := by sorry
+-- Test finite_output_support_is_not_enough_for_input.
+example (a : A) :
+    ((Matrix.adjugate (1 - (Polynomial.X : Polynomial A) • (diagonalTwo a 0).map (Polynomial.C : A →+* Polynomial A))) 1 1).coeff 1 = -a ∧
+    ((Matrix.adjugate (1 - (Polynomial.X : Polynomial A) • (diagonalTwo a 0).map (Polynomial.C : A →+* Polynomial A))) 0 0).coeff 1 = 0 := by sorry
+end NonarchimedeanFredholm
+
+namespace NonarchimedeanFredholm
+universe u v w
+
+variable {K A : Type u}
+variable [NontriviallyNormedField K] [CompleteSpace K]
+variable [NormedCommRing A] [NormOneClass A] [hNontrivialA : Nontrivial A]
+variable [NormedAlgebra K A] [hCompleteA : CompleteSpace A] [hNoeth : IsNoetherianRing A]
+variable {M N P : Type v}
+variable [NormedAddCommGroup M] [NormedSpace K M] [Module A M]
+variable [IsScalarTower K A M] [ContinuousSMul A M] [hCompleteM : CompleteSpace M]
+variable [NormedAddCommGroup N] [NormedSpace K N] [Module A N]
+variable [IsScalarTower K A N] [ContinuousSMul A N] [CompleteSpace N]
+variable [NormedAddCommGroup P] [NormedSpace K P] [Module A P]
+variable [IsScalarTower K A P] [ContinuousSMul A P] [CompleteSpace P]
+
+section FredholmPr
+variable (hA : ∀ x y : A, ‖x+y‖ ≤ max ‖x‖ ‖y‖)
+
 include hA hNoeth in
 /-- For every R>0, norm(v_n) R^n tends to zero. Part of the API of the target *Fredholm resolvent
 series*. -/
@@ -1378,211 +1671,6 @@ end FredholmPr
 
 end NonarchimedeanFredholm
 
-/-!
-Adjugate estimates and finite-coordinate passage to the Fredholm resolvent.
-Intermediate sequences satisfy the algebraic recurrence explicitly; no hypothesis
-assumes the analytic bound or entireness being proved. Matrices are input-first.
--/
-namespace NonarchimedeanFredholm
-open scoped _root_.Matrix
-universe u v w
-variable {K A : Type u}
-variable [NontriviallyNormedField K] [CompleteSpace K]
-variable [NormedCommRing A] [NormOneClass A] [Nontrivial A]
-variable [NormedAlgebra K A] [CompleteSpace A] [IsNoetherianRing A]
-variable {I : Type w} [TopologicalSpace I] [DiscreteTopology I] [DecidableEq I]
-
- /-- Evaluation of a finite coordinate projection. For T finite, x∈c_A(I) and j∈I, (π_T x)_j=x_j when
- j∈T, and (π_T x)_j=0 otherwise. (Source: Serre, §6, Proposition 10 and Lemma 3(a)–(c), printed pp. 78–79.) -/
- theorem coordinateProjection_apply (T : Finset I) (x : C₀(I,A)) (j : I) :
-    coordinateProjection T x j = if j ∈ T then x j else 0 := by sorry
-
-/-- π_∅=0 as a native continuous A-linear map. Part of the API of the target *Finite coordinate
-truncation*. -/
-theorem coordinateProjection_empty :
-    coordinateProjection (A := A) (∅ : Finset I) = 0 := by sorry
-
-/-- π_T composed with π_S is π_(T∩S); hence each finite projection is idempotent. Part of the API of
-the target *Finite coordinate truncation*. -/
-theorem coordinateProjection_inter (T S : Finset I) :
-    (coordinateProjection (A := A) T).comp (coordinateProjection S) =
-      coordinateProjection (T ∩ S) := by sorry
-
-/-- π_T(a e_j)=a e_j if j∈T, and zero if j∉T. Part of the API of the target *Finite coordinate
-truncation*. -/
-theorem coordinateProjection_single (T : Finset I) (j : I) (a : A) :
-    coordinateProjection T (c0Single j a) = if j ∈ T then c0Single j a else 0 := by sorry
-
-
- /-- Operator bound from the coordinate vectors. For a continuous A-linear f:c_A(I)→c_A(I) and C≥0,
- ‖f‖_K≤C if and only if ‖f(e_i)‖≤C for every i∈I. (Source: Serre, §6, Proposition 10 and
- Lemma 3(a)–(c), printed pp. 78–79.) -/
- theorem c0_operator_norm_le_iff
-    (hA : ∀ x y : A, ‖x+y‖ ≤ max ‖x‖ ‖y‖)
-    (f : C₀(I,A) →L[A] C₀(I,A)) (C : ℝ) (hC : 0 ≤ C) :
-    ‖f.restrictScalars K‖ ≤ C ↔ ∀ i, ‖f (c0Single i (1 : A))‖ ≤ C := by sorry
-
- /-- Coefficients of the finite adjugate. For a d×d matrix D over A, put H(T)=I−TD, c_n=coeff_n det(H),
- and B_n=(coeff_n adj(H)_ij)_ij. Then B₀=I and B_(n+1)=c_(n+1)I+B_nD. This order is compatible with
- the input-first operator convention. (Source: Serre, §6, Proposition 10 and Lemma 3(a)–(c),
- printed pp. 78–79.) -/
- theorem finite_adjugate_recurrence {d : ℕ} (D : Matrix (Fin d) (Fin d) A) (n : ℕ) :
-    (fun i j : Fin d => ((Matrix.adjugate (1 - (Polynomial.X : Polynomial A) • D.map (Polynomial.C : A →+* Polynomial A))) i j).coeff 0) =
-      (1 : Matrix (Fin d) (Fin d) A) ∧
-    (fun i j : Fin d => ((Matrix.adjugate (1 - (Polynomial.X : Polynomial A) • D.map (Polynomial.C : A →+* Polynomial A))) i j).coeff (n+1)) =
-      ((Matrix.det (1 - (Polynomial.X : Polynomial A) • D.map (Polynomial.C : A →+* Polynomial A))).coeff (n+1)) • (1 : Matrix (Fin d) (Fin d) A) +
-        Matrix.of (fun i j : Fin d => ((Matrix.adjugate (1 - (Polynomial.X : Polynomial A) • D.map (Polynomial.C : A →+* Polynomial A))) i j).coeff n) * D := by sorry
-
- /-- Distinct-column bound for adjugate coefficients. Let D be a d×d matrix, b_j≥0 with ‖D_ij‖≤b_j, n≥0
- and C≥0. Assume ∏_{j∈S}b_j≤C for every n-element subset S of its column index set. Every
- coefficient of degree n of every entry of adj(I−TD) then has norm at most C. (Source: Serre, §6,
- Proposition 10 and Lemma 3(a)–(c), printed pp. 78–79.) -/
- theorem finite_adjugate_coeff_bound {d : ℕ}
-    (hA : ∀ x y : A, ‖x+y‖ ≤ max ‖x‖ ‖y‖)
-    (D : Matrix (Fin d) (Fin d) A) (b : Fin d → ℝ)
-    (hb0 : ∀ j, 0 ≤ b j) (hb : ∀ i j, ‖D i j‖ ≤ b j)
-    (n : ℕ) (C : ℝ) (hC : 0 ≤ C)
-    (hprod : ∀ S : Finset (Fin d), S.card = n → ∏ j ∈ S, b j ≤ C) (i j : Fin d) :
-    ‖((Matrix.adjugate (1 - (Polynomial.X : Polynomial A) • D.map (Polynomial.C : A →+* Polynomial A))) i j).coeff n‖ ≤ C := by sorry
-
- /-- Resolvent recurrence on finite coordinates. Let u:c_A(I)→c_A(I) be completely continuous, with
- output support in a finite J. Let V₀=I and V_(n+1)=c_(n+1)(u)I+uV_n, where c_n(u) are the actual
- Fredholm coefficients. For every finite L⊇J, the entries of V_n between coordinates i,j∈L equal
- the degree-n coefficients of adj(I−T D_L), where D_L=(u_ij)_(i,j∈L). (Source: Serre, §6,
- Proposition 10 and Lemma 3(a)–(c), printed pp. 78–79.) -/
- theorem finite_coordinate_resolvent_comparison
-    (hA : ∀ x y : A, ‖x+y‖ ≤ max ‖x‖ ‖y‖)
-    (f : C₀(I,A) →L[A] C₀(I,A)) (hf : IsCompletelyContinuous f)
-    (V : ℕ → C₀(I,A) →L[A] C₀(I,A)) (hV0 : V 0 = ContinuousLinearMap.id A _)
-    (hV : ∀ n, V (n+1) = (fredholmSeries f hf).coeff (n+1) •
-      ContinuousLinearMap.id A _ + f.comp (V n))
-    (J L : Finset I) (hJL : J ⊆ L)
-    (hJ : ∀ i j, j ∉ J → operatorEntry f i j = 0) (n : ℕ) (i j : ↥L) :
-    operatorEntry (V n) i j =
-      ((Matrix.adjugate (1 - (Polynomial.X : Polynomial A) •
-        (fun a b : ↥L => Polynomial.C (operatorEntry f a b)))) i j).coeff n := by sorry
-
- /-- Resolvent bound for finite output support. Suppose u has output support in finite J. Let b_j≥0
- bound its output-column norms, fix n≥0 and C≥0, and assume every product of n distinct b_j is at
- most C. Then ‖V_n‖_K≤C. (Source: Serre, §6, Proposition 10 and Lemma 3(a)–(c), printed pp. 78–79.) -/
- theorem finite_output_resolvent_bound
-    (hA : ∀ x y : A, ‖x+y‖ ≤ max ‖x‖ ‖y‖)
-    (f : C₀(I,A) →L[A] C₀(I,A)) (hf : IsCompletelyContinuous f)
-    (V : ℕ → C₀(I,A) →L[A] C₀(I,A)) (hV0 : V 0 = ContinuousLinearMap.id A _)
-    (hV : ∀ n, V (n+1) = (fredholmSeries f hf).coeff (n+1) •
-      ContinuousLinearMap.id A _ + f.comp (V n))
-    (J : Finset I) (hJ : ∀ i j, j ∉ J → operatorEntry f i j = 0)
-    (b : I → ℝ) (hb0 : ∀ j, 0 ≤ b j) (hb : ∀ j, columnSize f j ≤ b j)
-    (n : ℕ) (C : ℝ) (hC : 0 ≤ C)
-    (hprod : ∀ S : Finset I, S.card = n → ∏ j ∈ S, b j ≤ C) :
-    ‖(V n).restrictScalars K‖ ≤ C := by sorry
-
- /-- Continuity of the finite recurrence. Let α carry any filter l. Suppose u_α→u in K-operator norm on
- c_A(I), and c_(α,n)→c_n in A for each n. Define sequences V_(α,n) and V_n by initial identity and
- V_(α,n+1)=c_(α,n+1)I+u_αV_(α,n), respectively V_(n+1)=c_(n+1)I+uV_n. For every fixed n,
- V_(α,n)→V_n in K-operator norm. (Source: Serre, §6, Proposition 10 and Lemma 3(a)–(c), printed pp. 78–79.) -/
- theorem recurrence_coefficient_tendsto {ι : Type*} (l : Filter ι)
-    (f : ι → C₀(I,A) →L[A] C₀(I,A)) (g : C₀(I,A) →L[A] C₀(I,A))
-    (c : ι → ℕ → A) (d : ℕ → A)
-    (V : ι → ℕ → C₀(I,A) →L[A] C₀(I,A)) (W : ℕ → C₀(I,A) →L[A] C₀(I,A))
-    (hV0 : ∀ i, V i 0 = ContinuousLinearMap.id A _)
-    (hW0 : W 0 = ContinuousLinearMap.id A _)
-    (hV : ∀ i n, V i (n+1) = c i (n+1) • ContinuousLinearMap.id A _ + (f i).comp (V i n))
-    (hW : ∀ n, W (n+1) = d (n+1) • ContinuousLinearMap.id A _ + g.comp (W n))
-    (hf : Tendsto (fun i => (f i).restrictScalars K) l (𝓝 (g.restrictScalars K)))
-    (hc : ∀ n, Tendsto (fun i => c i n) l (𝓝 (d n))) (n : ℕ) :
-    Tendsto (fun i => (V i n).restrictScalars K) l (𝓝 ((W n).restrictScalars K)) := by sorry
-
- /-- Adjugate bound for the Fredholm resolvent. Let u be completely continuous on c_A(I), and let b_j≥0
- bound its output-column norms. For n≥0 and C≥0, if every product of n distinct b_j is at most C,
- then ‖V_n‖_K≤C. (Source: Serre, §6, Proposition 10 and Lemma 3(a)–(c), printed pp. 78–79.) -/
- theorem resolvent_recurrence_norm_bound
-    (hA : ∀ x y : A, ‖x+y‖ ≤ max ‖x‖ ‖y‖)
-    (f : C₀(I,A) →L[A] C₀(I,A)) (hf : IsCompletelyContinuous f)
-    (V : ℕ → C₀(I,A) →L[A] C₀(I,A)) (hV0 : V 0 = ContinuousLinearMap.id A _)
-    (hV : ∀ n, V (n+1) = (fredholmSeries f hf).coeff (n+1) •
-      ContinuousLinearMap.id A _ + f.comp (V n))
-    (b : I → ℝ) (hb0 : ∀ j, 0 ≤ b j) (hb : ∀ j, columnSize f j ≤ b j)
-    (n : ℕ) (C : ℝ) (hC : 0 ≤ C)
-    (hprod : ∀ S : Finset I, S.card = n → ∏ j ∈ S, b j ≤ C) :
-    ‖(V n).restrictScalars K‖ ≤ C := by sorry
-
- /-- Entire tail estimate for resolvent coefficients. Let b_j≥0 bound the output-column norms of
- completely continuous u and satisfy b_j≤L. Fix R>0, 0<q<1 and finite T with Rb_j≤q off T. Put
- m=|T| and B=max(1,RL). Then ‖V_n‖_K Rⁿ≤B^m q^(max(n−m,0)) for every n≥0. (Source: Serre, §6,
- Proposition 10 and Lemma 3(a)–(c), printed pp. 78–79.) -/
- theorem resolvent_recurrence_tail_bound
-    (hA : ∀ x y : A, ‖x+y‖ ≤ max ‖x‖ ‖y‖)
-    (f : C₀(I,A) →L[A] C₀(I,A)) (hf : IsCompletelyContinuous f)
-    (V : ℕ → C₀(I,A) →L[A] C₀(I,A)) (hV0 : V 0 = ContinuousLinearMap.id A _)
-    (hV : ∀ n, V (n+1) = (fredholmSeries f hf).coeff (n+1) •
-      ContinuousLinearMap.id A _ + f.comp (V n))
-    (b : I → ℝ) (hb0 : ∀ j, 0 ≤ b j) (hb : ∀ j, columnSize f j ≤ b j)
-    (L : ℝ) (hL : ∀ j, b j ≤ L) (R q : ℝ)
-    (hR : 0 < R) (hq : 0 < q) (hq' : q < 1)
-    (T : Finset I) (hT : ∀ j, j ∉ T → R*b j ≤ q) (n : ℕ) :
-    ‖(V n).restrictScalars K‖ * R^n ≤
-      (max 1 (R*L))^T.card * q^(n-T.card) := by sorry
-
-variable {M : Type v} [NormedAddCommGroup M] [NormedSpace K M]
-variable [Module A M] [IsScalarTower K A M] [ContinuousSMul A M] [CompleteSpace M]
-
- /-- Compression of the coefficient recurrence. Let i:M→c_A(I) and r:c_A(I)→M be native continuous
- A-linear maps with ri=I. For u:M→M put U=iur. For any scalar sequence c_n, suppose V₀=I_M,
- W₀=I_c0, V_(n+1)=c_(n+1)I_M+uV_n and W_(n+1)=c_(n+1)I_c0+UW_n. Then rW_n i=V_n for every n.
- (Source: Serre, §6, Proposition 10 and Lemma 3(a)–(c), printed pp. 78–79.) -/
- theorem recurrence_retraction (f : M →L[A] M)
-    (i : M →L[A] C₀(I,A)) (r : C₀(I,A) →L[A] M)
-    (hri : r.comp i = ContinuousLinearMap.id A M) (c : ℕ → A)
-    (V : ℕ → M →L[A] M) (W : ℕ → C₀(I,A) →L[A] C₀(I,A))
-    (hV0 : V 0 = ContinuousLinearMap.id A _) (hW0 : W 0 = ContinuousLinearMap.id A _)
-    (hV : ∀ n, V (n+1) = c (n+1) • ContinuousLinearMap.id A _ + f.comp (V n))
-    (hW : ∀ n, W (n+1) = c (n+1) • ContinuousLinearMap.id A _ +
-      (i.comp (f.comp r)).comp (W n)) (n : ℕ) :
-    r.comp ((W n).comp i) = V n := by sorry
-
- /-- Entireness of the recurrence on a projective Banach module. Let M have (Pr), u:M→M be completely
- continuous, and c_n be its actual summand Fredholm coefficients. For any V₀=I and
- V_(n+1)=c_(n+1)I+uV_n, and every R>0, ‖V_n‖_K Rⁿ tends to zero. (Source: Serre, §6, Proposition 10
- and Lemma 3(a)–(c), printed pp. 78–79.7–12 for coordinates; §3, full manuscript p.22.) -/
- theorem resolvent_recurrence_entire
-    (hA : ∀ x y : A, ‖x+y‖ ≤ max ‖x‖ ‖y‖)
-    (f : M →L[A] M) (hp : HasPr A M) (hf : IsCompletelyContinuous f)
-    (V : ℕ → M →L[A] M) (hV0 : V 0 = ContinuousLinearMap.id A _)
-    (hV : ∀ n, V (n+1) = (fredholmSeriesPr f hp hf).coeff (n+1) •
-      ContinuousLinearMap.id A _ + f.comp (V n)) (R : ℝ) (hR : 0 < R) :
-    Tendsto (fun n => ‖(V n).restrictScalars K‖ * R^n) atTop (𝓝 0) := by sorry
-
--- The constructor's initial-coefficient API, used to instantiate the estimates.
-/-- The initial coefficient v₀ is the identity endomorphism on the actual module M. Part of the API of
-the target *Fredholm resolvent series*. -/
-theorem resolventCoeff_zero (f : M →L[A] M) (hp : HasPr A M)
-    (hf : IsCompletelyContinuous f) : resolventCoeff f hp hf 0 = ContinuousLinearMap.id A M := by sorry
-
--- Test projection_empty_support.
-example (x : C₀(I,A)) : coordinateProjection (∅ : Finset I) x = 0 := by sorry
--- Test projection_selected_coordinate.
-example (j : I) (a : A) : coordinateProjection {j} (c0Single j a) = c0Single j a := by sorry
--- Test projection_rejected_coordinate.
-example (i j : I) (a : A) (h : i ≠ j) : coordinateProjection {i} (c0Single j a) = 0 := by sorry
-
--- Test adjugate_rank_one.
-example (a : A) :
-    Matrix.adjugate (1 - (Polynomial.X : Polynomial A) • (fun _ _ : Fin 1 => Polynomial.C a)) = 1 := by sorry
--- Test adjugate_diagonal_two.
-example (a b : A) :
-    Matrix.adjugate (1 - (Polynomial.X : Polynomial A) • (diagonalTwo a b).map (Polynomial.C : A →+* Polynomial A)) =
-      (fun i j : Fin 2 => if i=j then
-        if i=0 then 1-Polynomial.C b*(Polynomial.X : Polynomial A) else 1-Polynomial.C a*(Polynomial.X : Polynomial A) else 0) := by sorry
--- Test adjugate_nilpotent_two.
-example : Matrix.adjugate (1 - (Polynomial.X : Polynomial A) • (nilpotentTwo (A := A)).map (Polynomial.C : A →+* Polynomial A)) =
-    1 + (Polynomial.X : Polynomial A) • (nilpotentTwo (A := A)).map (Polynomial.C : A →+* Polynomial A) := by sorry
--- Test finite_output_support_is_not_enough_for_input.
-example (a : A) :
-    ((Matrix.adjugate (1 - (Polynomial.X : Polynomial A) • (diagonalTwo a 0).map (Polynomial.C : A →+* Polynomial A))) 1 1).coeff 1 = -a ∧
-    ((Matrix.adjugate (1 - (Polynomial.X : Polynomial A) • (diagonalTwo a 0).map (Polynomial.C : A →+* Polynomial A))) 0 0).coeff 1 = 0 := by sorry
-end NonarchimedeanFredholm
-
 /-! Riesz finite generation and projectivity. The geometric statements need only
 continuous A-scalar multiplication; no unit hypothesis on the root parameter.
 This section extends the existing native kernel and (Pr) interfaces. -/
@@ -1675,7 +1763,7 @@ theorem riesz_kernel_finite (u : M →L[A] M) (a : A) (h : ℕ)
     (hu : IsCompletelyContinuous u) : Module.Finite A ((1-a • u)^h).ker := by sorry
 
 include K hNoeth in
-/-- The target Finite (Pr) modules are algebraically projective. Canonical finite-module topology remains a gap. -/
+/-- The target Finite (Pr) modules are algebraically projective. The finite-module topology comparison is specified in README §4.2. -/
 theorem projective_of_finite_hasPr [Module.Finite A M] (hp : HasPr A M) :
     Module.Projective A M := by sorry
 
@@ -2630,7 +2718,7 @@ end
 end NonarchimedeanFredholm
 
 /-! Reciprocal resultants and the scalar truncation limit in Coleman A3.8(11).
-The full entire spectral transform is a separate remaining target.
+The full entire spectral transform follows the all-radius convergence estimates below.
 -/
 namespace NonarchimedeanFredholm
 section ReciprocalResultants
@@ -2941,7 +3029,7 @@ end EntireGaussTests
 end
 
 /-! Entire functional input with a fixed polynomial characteristic input.
-The rank is explicit. General entire characteristic input still needs uniform estimates. -/
+The fixed-rank construction precedes the full simultaneous entire transform. -/
 noncomputable section
 open Filter
 open scoped Topology
@@ -3082,6 +3170,173 @@ example (e : A) (he : e^2 = 0) :
 example (n : ℕ) (B : PowerSeries A) (hB : IsEntire B) (hB0 : B.coeff 0 = 0) :
     entirePolynomialSpectral n B 1 = 1 := sorry
 end EntireFixedCharacteristic
+
+section EntireCharacteristic
+variable {A : Type*} [NormedCommRing A] [hNormOne : NormOneClass A] [hComplete : CompleteSpace A] [hNontrivial : Nontrivial A]
+variable (hA : ∀ x y : A, ‖x+y‖ ≤ max ‖x‖ ‖y‖)
+include hA hNormOne hComplete hNontrivial
+/-- The simultaneous entire transform: coefficients are limits of the finite chosen-rank
+resultants. Its convergence API requires both entireness and the zero/one normalizations. -/
+def entireSpectralTransform (B P : PowerSeries A) : PowerSeries A := sorry
+/-- The positive-degree functional majorant at a real radius. -/
+def spectralFunctionalMajorant (B : PowerSeries A) (r : ℝ) : ℝ :=
+    sSup (Set.range (fun m : ℕ => ‖B.coeff (m+1)‖ * r^(m+1)))
+/-- Every entire characteristic series admits a decreasing Newton majorant. -/
+theorem entireCharacteristic_majorant (P : PowerSeries A) (hP : IsEntire P) (hP0 : P.coeff 0 = 1) :
+    ∃ ρ : ℕ → ℝ, (∀ i, 0 < ρ i) ∧ Antitone ρ ∧ Tendsto ρ atTop (𝓝 0) ∧
+      ∀ j, ‖P.coeff j‖ ≤ ∏ i ∈ Finset.range j, ρ i := sorry
+/-- The functional majorant is finite, decreasing along a decreasing radius sequence and
+vanishes along radii tending to zero. -/
+theorem entireFunctional_majorant (B : PowerSeries A) (hB : IsEntire B)
+    (ρ : ℕ → ℝ) (hρ : ∀ i, 0 < ρ i) (hdec : Antitone ρ)
+    (hlim : Tendsto ρ atTop (𝓝 0)) :
+    (∀ i m, ‖B.coeff (m+1)‖ * (ρ i)^(m+1) ≤ spectralFunctionalMajorant B (ρ i)) ∧
+      Antitone (fun i => spectralFunctionalMajorant B (ρ i)) ∧
+      Tendsto (fun i => spectralFunctionalMajorant B (ρ i)) atTop (𝓝 0) := sorry
+/-- The bound is uniform in both truncation degrees, including unbounded characteristic rank. -/
+theorem spectralTruncation_coeff_bound (B P : PowerSeries A)
+    (hB : IsEntire B) (hP : IsEntire P) (hB0 : B.coeff 0 = 0) (hP0 : P.coeff 0 = 1)
+    (ρ β : ℕ → ℝ) (hρ : ∀ i, 0 < ρ i) (hdec : Antitone ρ)
+    (hc : ∀ j, ‖P.coeff j‖ ≤ ∏ i ∈ Finset.range j, ρ i)
+    (hβ : ∀ i m, ‖B.coeff (m+1)‖ * (ρ i)^(m+1) ≤ β i)
+    (N M k : ℕ) :
+    ‖(polynomialSpectralResultant N M (PowerSeries.trunc (M+1) B)
+      (PowerSeries.trunc (N+1) P)).coeff k‖ ≤ ∏ i ∈ Finset.range k, β i := sorry
+/-- The finite-exception product bound supplies all-radius tails independently of N and M. -/
+theorem spectralTruncation_uniform_tail (B P : PowerSeries A)
+    (hB : IsEntire B) (hP : IsEntire P) (hB0 : B.coeff 0 = 0) (hP0 : P.coeff 0 = 1)
+    (ρ β : ℕ → ℝ) (hρ : ∀ i, 0 < ρ i) (hdec : Antitone ρ)
+    (hc : ∀ j, ‖P.coeff j‖ ≤ ∏ i ∈ Finset.range j, ρ i)
+    (hβ : ∀ i m, ‖B.coeff (m+1)‖ * (ρ i)^(m+1) ≤ β i)
+    (hβ0 : ∀ i, 0 ≤ β i) (R q L : ℝ) (hR : 0 < R) (hq : 0 < q ∧ q < 1)
+    (hL : ∀ i, β i ≤ L) (H : ℕ) (hH : ∀ i, H ≤ i → R*β i ≤ q) (N M k : ℕ) :
+    ‖(polynomialSpectralResultant N M (PowerSeries.trunc (M+1) B)
+      (PowerSeries.trunc (N+1) P)).coeff k‖ * R^k ≤
+        max 1 (R*L)^H * q^(k-H) := sorry
+/-- Fixed functional degree only reads finitely many characteristic coefficients,
+independently of added zero-root padding. -/
+theorem spectralTruncation_characteristic_stable (B P : PowerSeries A)
+    (hB0 : B.coeff 0 = 0) (hP0 : P.coeff 0 = 1) (M k N N' : ℕ)
+    (hN : k*M ≤ N) (hN' : k*M ≤ N') :
+    (polynomialSpectralResultant N M (PowerSeries.trunc (M+1) B)
+      (PowerSeries.trunc (N+1) P)).coeff k =
+    (polynomialSpectralResultant N' M (PowerSeries.trunc (M+1) B)
+      (PowerSeries.trunc (N'+1) P)).coeff k := sorry
+/-- Changing the functional cutoff has uniformly small fixed-coefficient error.
+The maximum root radius controls the functional tail; rank N is unrestricted. -/
+theorem spectralTruncation_functional_tail (B P : PowerSeries A)
+    (hB0 : B.coeff 0 = 0) (hP0 : P.coeff 0 = 1)
+    (ρ : ℕ → ℝ) (hρ : ∀ i, 0 < ρ i) (hdec : Antitone ρ)
+    (hc : ∀ j, ‖P.coeff j‖ ≤ ∏ i ∈ Finset.range j, ρ i)
+    (β η : ℝ) (hβ : 0 ≤ β) (hη : 0 ≤ η)
+    (hb : ∀ m, ‖B.coeff (m+1)‖ * (ρ 0)^(m+1) ≤ β)
+    (N M L k : ℕ) (hML : M ≤ L)
+    (htail : ∀ m, M < m → ‖B.coeff m‖ * (ρ 0)^m ≤ η) :
+    ‖(polynomialSpectralResultant N L (PowerSeries.trunc (L+1) B)
+       (PowerSeries.trunc (N+1) P)).coeff k -
+      (polynomialSpectralResultant N M (PowerSeries.trunc (M+1) B)
+       (PowerSeries.trunc (N+1) P)).coeff k‖ ≤ η*(max 1 β)^(k-1) := sorry
+/-- Entire output with its actual zero/one normalizations. -/
+theorem entireSpectralTransform_entire (B P : PowerSeries A)
+    (hB : IsEntire B) (hP : IsEntire P) (hB0 : B.coeff 0 = 0) (hP0 : P.coeff 0 = 1) :
+    IsEntire (entireSpectralTransform B P) := sorry
+/-- The simultaneous limit has constant coefficient one. -/
+theorem entireSpectralTransform_constantCoeff (B P : PowerSeries A)
+    (hB : IsEntire B) (hP : IsEntire P) (hB0 : B.coeff 0 = 0) (hP0 : P.coeff 0 = 1) :
+    (entireSpectralTransform B P).coeff 0 = 1 := sorry
+/-- Independently cofinal truncations converge in every Gauss norm. -/
+theorem entireSpectralTransform_independent (B P : PowerSeries A)
+    (hB : IsEntire B) (hP : IsEntire P) (hB0 : B.coeff 0 = 0) (hP0 : P.coeff 0 = 1)
+    (N M : ℕ → ℕ) (hN : Tendsto N atTop atTop) (hM : Tendsto M atTop atTop)
+    (R : ℝ) (hR : 0 < R) :
+    Tendsto (fun j => PowerSeries.gaussNorm norm R
+      ((polynomialSpectralResultant (N j) (M j) (PowerSeries.trunc (M j+1) B)
+        (PowerSeries.trunc (N j+1) P) : PowerSeries A)-entireSpectralTransform B P))
+      atTop (𝓝 0) := sorry
+/-- Normalized all-radius approximants have the same spectral limit. -/
+theorem entireSpectralTransform_continuous (B P : PowerSeries A) (Bs Ps : ℕ → PowerSeries A)
+    (hB : IsEntire B) (hP : IsEntire P) (hB0 : B.coeff 0 = 0) (hP0 : P.coeff 0 = 1)
+    (he : ∀ j, IsEntire (Bs j) ∧ IsEntire (Ps j) ∧ (Bs j).coeff 0 = 0 ∧ (Ps j).coeff 0 = 1)
+    (hlim : ∀ R : ℝ, 0 < R →
+      Tendsto (fun j => PowerSeries.gaussNorm norm R (Bs j-B)) atTop (𝓝 0) ∧
+      Tendsto (fun j => PowerSeries.gaussNorm norm R (Ps j-P)) atTop (𝓝 0))
+    (R : ℝ) (hR : 0 < R) :
+    Tendsto (fun j => PowerSeries.gaussNorm norm R
+      (entireSpectralTransform (Bs j) (Ps j)-entireSpectralTransform B P)) atTop (𝓝 0) := sorry
+/-- The polynomial-characteristic comparison retains every allowed chosen rank. -/
+theorem entireSpectralTransform_polynomial (B : PowerSeries A) (hB : IsEntire B)
+    (hB0 : B.coeff 0 = 0) (P : Polynomial A) (hP0 : P.coeff 0 = 1)
+    (n : ℕ) (hn : P.natDegree ≤ n) :
+    entireSpectralTransform B (P : PowerSeries A) = (entirePolynomialSpectral n B P : PowerSeries A) := sorry
+/-- Functional input T preserves the entire characteristic input. -/
+example (P : PowerSeries A) (hP : IsEntire P) (hP0 : P.coeff 0 = 1) :
+    entireSpectralTransform PowerSeries.X P = P := sorry
+/-- Zero functional input gives one, with arbitrary infinite characteristic rank. -/
+example (P : PowerSeries A) (hP : IsEntire P) (hP0 : P.coeff 0 = 1) :
+    entireSpectralTransform 0 P = 1 := sorry
+/-- The unit characteristic input gives one despite increasing truncation ranks. -/
+example (B : PowerSeries A) (hB : IsEntire B) (hB0 : B.coeff 0 = 0) :
+    entireSpectralTransform B 1 = 1 := sorry
+/-- Nonreduced coefficients survive: no reduction or splitting field is taken. -/
+example (e : A) (he : e^2 = 0) :
+    entireSpectralTransform PowerSeries.X (1-PowerSeries.C e*PowerSeries.X^2) =
+      1-PowerSeries.C e*PowerSeries.X^2 := sorry
+/-- Majorant of X at a positive radius equals that radius. -/
+example (r : ℝ) (hr : 0 < r) : spectralFunctionalMajorant (PowerSeries.X : PowerSeries A) r = r := sorry
+/-- Majorant of zero is zero. -/
+example (r : ℝ) : spectralFunctionalMajorant (0 : PowerSeries A) r = 0 := sorry
+/-- Majorant of X² distinguishes the exponent. -/
+example (r : ℝ) (hr : 0 < r) : spectralFunctionalMajorant (PowerSeries.X^2 : PowerSeries A) r = r^2 := sorry
+end EntireCharacteristic
+
+/-- A nonzero constant functional input makes rank padding fail even coefficientwise. -/
+example : ¬ CauchySeq (fun N : ℕ =>
+    (polynomialSpectralResultant N 0 (1 : Polynomial ℚ_[3]) 1).coeff 1) := sorry
+
+/-- A genuine infinite characteristic input, with no bounded-degree hypothesis. Its quadratic
+coefficient decay gives all-radius entireness and every coefficient is nonzero. -/
+example :
+    let P : PowerSeries ℚ_[3] := PowerSeries.mk (fun n => (3:ℚ_[3])^(n*n))
+    IsEntire P ∧ (∀ n, P.coeff n ≠ 0) ∧ entireSpectralTransform PowerSeries.X P = P := sorry
+
+section EntireOperator
+variable {K A M : Type*} [NontriviallyNormedField K] [hCompleteK : CompleteSpace K]
+    [NormedCommRing A] [hNormOneA : NormOneClass A] [hNontrivialA : Nontrivial A] [hCompleteA : CompleteSpace A]
+    [NormedAlgebra K A] [hNoethA : IsNoetherianRing A]
+    [NormedAddCommGroup M] [NormedSpace K M] [Module A M]
+    [IsScalarTower K A M] [ContinuousSMul A M] [hCompleteM : CompleteSpace M]
+include K hCompleteK hNormOneA hNontrivialA hCompleteA hNoethA hCompleteM
+/-- Entire functional evaluation on the existing continuous-operator carrier. -/
+def entireOperatorEval (B : PowerSeries A) (u : M →L[A] M) : M →L[A] M := sorry
+/-- The sum converges in K-operator norm; the compatible A-action constant is explicit. -/
+theorem entireOperatorEval_hasSum (B : PowerSeries A) (hB : IsEntire B)
+    (u : M →L[A] M) (C : ℝ) (hC : 0 < C)
+    (hact : ∀ (a : A) (x : M), ‖a • x‖ ≤ C*‖a‖*‖x‖) :
+    HasSum (fun m => (B.coeff m • u^m).restrictScalars K)
+      ((entireOperatorEval B u).restrictScalars K) := sorry
+/-- With zero constant, operator evaluation stays in the complete-continuity ideal. -/
+theorem entireOperatorEval_completelyContinuous (B : PowerSeries A) (hB : IsEntire B)
+    (hB0 : B.coeff 0 = 0) (u : M →L[A] M) (hu : IsCompletelyContinuous u)
+    (C : ℝ) (hC : 0 < C) (hact : ∀ (a : A) (x : M), ‖a • x‖ ≤ C*‖a‖*‖x‖) :
+    IsCompletelyContinuous (entireOperatorEval B u) := sorry
+/-- Coleman A3.9 on a (Pr) module, including the zero-extension comparison. -/
+theorem fredholmSeriesPr_entireOperatorEval
+    (hA : ∀ x y : A, ‖x+y‖ ≤ max ‖x‖ ‖y‖)
+    (B : PowerSeries A) (hB : IsEntire B) (hB0 : B.coeff 0 = 0)
+    (u : M →L[A] M) (hp : HasPr A M) (hu : IsCompletelyContinuous u)
+    (C : ℝ) (hC : 0 < C) (hact : ∀ (a : A) (x : M), ‖a • x‖ ≤ C*‖a‖*‖x‖) :
+    fredholmSeriesPr (entireOperatorEval B u) hp
+      (entireOperatorEval_completelyContinuous (K:=K) B hB hB0 u hu C hC hact) =
+        entireSpectralTransform B (fredholmSeriesPr u hp hu) := sorry
+/-- Zero function evaluates to zero. -/
+example (u : M →L[A] M) : entireOperatorEval (0 : PowerSeries A) u = 0 := sorry
+/-- Coordinate function evaluates to the operator, not its trace. -/
+example (u : M →L[A] M) : entireOperatorEval PowerSeries.X u = u := sorry
+/-- Nilpotent operators retain the positive first coefficient. -/
+example (u : M →L[A] M) (hu : u^2 = 0) (B : PowerSeries A) (hB : IsEntire B) :
+    entireOperatorEval B u = B.coeff 0 • ContinuousLinearMap.id A M + B.coeff 1 • u := sorry
+end EntireOperator
+
 end NonarchimedeanFredholm
 end
 
@@ -3165,31 +3420,152 @@ example (a : K) (ha : 1 < ‖a‖) (μ : affinoidDistributionStage PUnit K)
     μ ∉ familyIntegralLattice (K:=K) := by sorry
 end Coefficients
 
+section StageSpecialization
+variable {K A B : Type*} [NontriviallyNormedField K]
+    [NormedCommRing A] [NormedCommRing B] [NormedAlgebra K A] [NormedAlgebra K B]
+variable {I : Type*} [TopologicalSpace I] [DiscreteTopology I] [DecidableEq I]
+/-- Pointwise bounded scalar extension on the actual complete analytic coefficient stages. -/
+def analyticStageSpecialization (η : A →ₐ[K] B) (C : ℝ) (hC : 0 < C)
+    (hη : ∀ a, ‖η a‖ ≤ C*‖a‖) : C₀(I,A) →L[K] C₀(I,B) := sorry
+/-- Each analytic coefficient is mapped by the specified homomorphism. -/
+theorem analyticStageSpecialization_apply (η : A →ₐ[K] B) (C : ℝ) (hC : 0 < C)
+    (hη : ∀ a, ‖η a‖ ≤ C*‖a‖) (f : C₀(I,A)) (i : I) :
+    analyticStageSpecialization η C hC hη f i = η (f i) := sorry
+/-- Specialization of a bounded dual family constructs a B-linear continuous functional.
+It uses bounded, not c0, basis values. -/
+def stageDistributionSpecialization [CompleteSpace B] [IsUltrametricDist B]
+    (η : A →ₐ[K] B) (C : ℝ) (hC : 0 < C) (hη : ∀ a, ‖η a‖ ≤ C*‖a‖)
+    (μ : affinoidDistributionStage I A) : affinoidDistributionStage I B := sorry
+/-- The basis values genuinely specialize. -/
+theorem stageDistributionSpecialization_basis [CompleteSpace B] [IsUltrametricDist B]
+    (η : A →ₐ[K] B) (C : ℝ) (hC : 0 < C) (hη : ∀ a, ‖η a‖ ≤ C*‖a‖)
+    (μ : affinoidDistributionStage I A) (i : I) :
+    stageDistributionSpecialization η C hC hη μ (NonarchimedeanFredholm.c0Single i 1) =
+      η (μ (NonarchimedeanFredholm.c0Single i 1)) := sorry
+/-- Actual stage evaluation comparison, without an assumed equality. -/
+theorem stageDistributionSpecialization_eval [CompleteSpace A] [CompleteSpace B]
+    [IsUltrametricDist A] [IsUltrametricDist B]
+    (η : A →ₐ[K] B) (C : ℝ) (hC : 0 < C) (hη : ∀ a, ‖η a‖ ≤ C*‖a‖)
+    (μ : affinoidDistributionStage I A) (f : C₀(I,A)) :
+    stageDistributionSpecialization η C hC hη μ (analyticStageSpecialization η C hC hη f) =
+      η (μ f) := sorry
+/-- Identity specializes functions identically. -/
+example (h : ∀ a : A, ‖(AlgHom.id K A) a‖ ≤ 1*‖a‖) (f : C₀(I,A)) :
+    analyticStageSpecialization (AlgHom.id K A) 1 (by norm_num) h f = f := sorry
+/-- Scalar extension of one coefficient preserves its chosen index. -/
+example (η : A →ₐ[K] B) (C : ℝ) (hC : 0 < C) (hη : ∀ a, ‖η a‖ ≤ C*‖a‖)
+    (i : I) (a : A) :
+    analyticStageSpecialization η C hC hη (NonarchimedeanFredholm.c0Single i a) =
+      NonarchimedeanFredholm.c0Single i (η a) := sorry
+/-- The empty chart remains zero after any coefficient extension. -/
+example (η : A →ₐ[K] B) (C : ℝ) (hC : 0 < C) (hη : ∀ a, ‖η a‖ ≤ C*‖a‖)
+    (f : C₀(Fin 0,A)) : analyticStageSpecialization η C hC hη f = 0 := sorry
+/-- Identity specializes bounded dual coefficients identically. -/
+example [CompleteSpace A] [IsUltrametricDist A]
+    (h : ∀ a : A, ‖(AlgHom.id K A) a‖ ≤ 1*‖a‖) (μ : affinoidDistributionStage I A) :
+    stageDistributionSpecialization (AlgHom.id K A) 1 (by norm_num) h μ = μ := sorry
+/-- The zero stage distribution specializes to zero. -/
+example [CompleteSpace B] [IsUltrametricDist B]
+    (η : A →ₐ[K] B) (C : ℝ) (hC : 0 < C) (hη : ∀ a, ‖η a‖ ≤ C*‖a‖) :
+    stageDistributionSpecialization η C hC hη (0 : affinoidDistributionStage I A) = 0 := sorry
+end StageSpecialization
+
+section ComputedSpecialization
+/-- A two-coordinate bounded functional on a product affinoid; values on the monomial basis
+are (1,2), (3,4), and then zero. -/
+def twoCoefficientFunctional : C₀(ℕ,ℚ_[3]×ℚ_[3]) →L[ℚ_[3]×ℚ_[3]] (ℚ_[3]×ℚ_[3]) := sorry
+/-- The defining evaluation uses both coefficients and both scalar components. -/
+theorem twoCoefficientFunctional_apply (f : C₀(ℕ,ℚ_[3]×ℚ_[3])) :
+    twoCoefficientFunctional f = (1,2)*f 0+(3,4)*f 1 := sorry
+/-- First basis value pins the component order. -/
+example : twoCoefficientFunctional (NonarchimedeanFredholm.c0Single 0 1) = (1,2) := sorry
+/-- Second basis value pins the coefficient order. -/
+example : twoCoefficientFunctional (NonarchimedeanFredholm.c0Single 1 1) = (3,4) := sorry
+/-- All later coefficients vanish, without forcing an infinite dual into c0 in general. -/
+example : twoCoefficientFunctional (NonarchimedeanFredholm.c0Single 2 1) = 0 := sorry
+/-- Specialization to the second component gives 22 on e0+5e1. -/
+example (h : ∀ a : ℚ_[3]×ℚ_[3], ‖(AlgHom.snd ℚ_[3] ℚ_[3] ℚ_[3]) a‖ ≤ 1*‖a‖) :
+    stageDistributionSpecialization (AlgHom.snd ℚ_[3] ℚ_[3] ℚ_[3]) 1 (by norm_num) h
+      twoCoefficientFunctional
+      (NonarchimedeanFredholm.c0Single 0 1+NonarchimedeanFredholm.c0Single 1 5) = 22 := sorry
+/-- The other scalar homomorphism gives 16 and is not the same fiber. -/
+example (h : ∀ a : ℚ_[3]×ℚ_[3], ‖(AlgHom.fst ℚ_[3] ℚ_[3] ℚ_[3]) a‖ ≤ 1*‖a‖) :
+    stageDistributionSpecialization (AlgHom.fst ℚ_[3] ℚ_[3] ℚ_[3]) 1 (by norm_num) h
+      twoCoefficientFunctional
+      (NonarchimedeanFredholm.c0Single 0 1+NonarchimedeanFredholm.c0Single 1 5) = 16 := sorry
+/-- Wrong coefficient-action scalars change the computed fiber even in dimension one. -/
+example : ((AlgHom.snd ℚ_[3] ℚ_[3] ℚ_[3]) ((2,3)*(5,7)))*(3:ℚ_[3])^2 = 189 ∧
+    ((AlgHom.fst ℚ_[3] ℚ_[3] ℚ_[3]) ((2,3)*(5,7)))*(3:ℚ_[3])^2 = 90 := by norm_num
+end ComputedSpecialization
+
 section CoefficientActions
 variable {A E : Type*} [NormedCommRing A] [NormedAddCommGroup E] [Module A E]
 -- The supplied pullback and multiplier are the exact fixed-stage maps.
-/-- Compose a bounded analytic pullback with a bounded analytic multiplier. Part of the API of the
-target *Universal-character coefficient action*. -/
-def coefficientAction (P M : E →L[A] E) (μ : E →L[A] A) : E →L[A] A := μ.comp (M.comp P)
+/-- Transpose of two supplied fixed-stage maps. No analytic or universal-character data are
+constructed by this helper; the README specifies those stage-to-limit maps separately. -/
+def transposeCoefficientAction (P M : E →L[A] E) (μ : E →L[A] A) : E →L[A] A := μ.comp (M.comp P)
 /-- (U_σμ)(f)=μ(j_σ(f∘φ_σ)). Part of the API of the target *Universal-character coefficient action*. -/
-theorem coefficientAction_apply (P M : E →L[A] E) (μ : E →L[A] A) (f : E) :
-    coefficientAction P M μ f = μ (M (P f)) := by sorry
+theorem transposeCoefficientAction_apply (P M : E →L[A] E) (μ : E →L[A] A) (f : E) :
+    transposeCoefficientAction P M μ f = μ (M (P f)) := by sorry
 /-- U_σU_τ=U_(στ) from R_τR_σ=R_(στ). Part of the API of the target *Universal-character coefficient
 action*. -/
-theorem coefficientAction_comp (Pσ Mσ Pτ Mτ Pστ Mστ : E →L[A] E)
+theorem transposeCoefficientAction_comp (Pσ Mσ Pτ Mτ Pστ Mστ : E →L[A] E)
     (hcocycle : (Mτ.comp Pτ).comp (Mσ.comp Pσ) = Mστ.comp Pστ) (μ : E →L[A] A) :
-    coefficientAction Pσ Mσ (coefficientAction Pτ Mτ μ) = coefficientAction Pστ Mστ μ := by sorry
--- AnalyticDistributionTests.coefficientAction_identity
+    transposeCoefficientAction Pσ Mσ (transposeCoefficientAction Pτ Mτ μ) = transposeCoefficientAction Pστ Mστ μ := by sorry
+-- AnalyticDistributionTests.transposeCoefficientAction_identity
 example (μ : E →L[A] A) :
-    coefficientAction (ContinuousLinearMap.id A E) (ContinuousLinearMap.id A E) μ = μ := by sorry
--- AnalyticDistributionTests.coefficientAction_dirac
+    transposeCoefficientAction (ContinuousLinearMap.id A E) (ContinuousLinearMap.id A E) μ = μ := by sorry
+-- AnalyticDistributionTests.transposeCoefficientAction_dirac
 example (evx evφ : E →L[A] A) (j : A) (P M : E →L[A] E)
-    (h : ∀ f, evx (M (P f)) = j * evφ f) : coefficientAction P M evx = j • evφ := by sorry
--- AnalyticDistributionTests.coefficientAction_specialization
--- Exact evaluation compatibility; scalar-tensor specialization is explicitly omitted.
-example {B : Type*} [NormedCommRing B] (η : A →+* B) (P M : E →L[A] E)
-    (μ : E →L[A] A) (f : E) : η (coefficientAction P M μ f) = η (μ (M (P f))) := by sorry
+    (h : ∀ f, evx (M (P f)) = j * evφ f) : transposeCoefficientAction P M evx = j • evφ := by sorry
 end CoefficientActions
+
+section ConcreteAnalyticAction
+variable {A : Type*} [NormedCommRing A] [NormOneClass A]
+/-- Actual coefficient pullback along z↦az on the closed unit analytic disc. -/
+def analyticStageDilate (a : A) (ha : ‖a‖ ≤ 1) : C₀(ℕ,A) →L[A] C₀(ℕ,A) := sorry
+/-- The nth input coefficient is multiplied by a^n. -/
+theorem analyticStageDilate_coeff (a : A) (ha : ‖a‖ ≤ 1) (f : C₀(ℕ,A)) (n : ℕ) :
+    analyticStageDilate a ha f n = a^n*f n := sorry
+/-- Unit dilation is the identity map. -/
+example (h : ‖(1:A)‖ ≤ 1) : analyticStageDilate (1:A) h = ContinuousLinearMap.id A C₀(ℕ,A) := sorry
+/-- Zero dilation retains just the constant coefficient. -/
+example (h : ‖(0:A)‖ ≤ 1) (f : C₀(ℕ,A)) :
+    analyticStageDilate (0:A) h f = NonarchimedeanFredholm.c0Single 0 (f 0) := sorry
+/-- The quadratic basis coefficient detects the analytic coordinate action. -/
+example (a : A) (ha : ‖a‖ ≤ 1) :
+    analyticStageDilate a ha (NonarchimedeanFredholm.c0Single 2 1) =
+      NonarchimedeanFredholm.c0Single 2 (a^2) := sorry
+/-- Point evaluation is the convergent restricted-series sum, including boundary points. -/
+def analyticStageEvaluate [CompleteSpace A] [IsUltrametricDist A]
+    (x : A) (hx : ‖x‖ ≤ 1) : C₀(ℕ,A) →L[A] A := sorry
+/-- Evaluation agrees with the actual coefficient sum. -/
+theorem analyticStageEvaluate_hasSum [CompleteSpace A] [IsUltrametricDist A]
+    (x : A) (hx : ‖x‖ ≤ 1) (f : C₀(ℕ,A)) :
+    HasSum (fun n => f n*x^n) (analyticStageEvaluate x hx f) := sorry
+/-- Evaluation at zero takes the constant coefficient. -/
+example [CompleteSpace A] [IsUltrametricDist A] (h : ‖(0:A)‖ ≤ 1) (f : C₀(ℕ,A)) :
+    analyticStageEvaluate (0:A) h f = f 0 := sorry
+/-- Evaluation of a quadratic monomial gives x². -/
+example [CompleteSpace A] [IsUltrametricDist A] (x : A) (hx : ‖x‖ ≤ 1) :
+    analyticStageEvaluate x hx (NonarchimedeanFredholm.c0Single 2 1) = x^2 := sorry
+/-- The zero analytic function evaluates to zero at every allowed point. -/
+example [CompleteSpace A] [IsUltrametricDist A] (x : A) (hx : ‖x‖ ≤ 1) :
+    analyticStageEvaluate x hx 0 = 0 := sorry
+end ConcreteAnalyticAction
+
+/-- The specialized action is computed from a constructed analytic pullback and multiplier,
+then from the constructed dual specialization. The input is the quadratic monomial. -/
+example [IsUltrametricDist (ℚ_[3]×ℚ_[3])]
+    (hp : ‖((3,3):ℚ_[3]×ℚ_[3])‖ ≤ 1)
+    (hone : ‖(1:ℚ_[3]×ℚ_[3])‖ ≤ 1)
+    (hη : ∀ a : ℚ_[3]×ℚ_[3], ‖(AlgHom.snd ℚ_[3] ℚ_[3] ℚ_[3]) a‖ ≤ 1*‖a‖) :
+    let μ := ((5,7):ℚ_[3]×ℚ_[3]) • analyticStageEvaluate (1:ℚ_[3]×ℚ_[3]) hone
+    let U := transposeCoefficientAction (analyticStageDilate ((3,3):ℚ_[3]×ℚ_[3]) hp)
+      (((2,3):ℚ_[3]×ℚ_[3]) • ContinuousLinearMap.id (ℚ_[3]×ℚ_[3]) C₀(ℕ,ℚ_[3]×ℚ_[3])) μ
+    stageDistributionSpecialization (AlgHom.snd ℚ_[3] ℚ_[3] ℚ_[3]) 1 (by norm_num) hη U
+      (NonarchimedeanFredholm.c0Single 2 1) = 189 := sorry
+
 
 section Complexes
 variable {K A : Type*} [NontriviallyNormedField K] [NormedCommRing A]
@@ -3385,26 +3761,46 @@ example : ¬ CompactStageFactorization (fun _ : ℕ => C₀(ℕ,K))
     (fun _ => ContinuousLinearMap.id K C₀(ℕ,K)) (fun _ => 0) := by sorry
 end InfiniteIdentityTests
 
+namespace TorusValuationTests
+/-- Character valuation is +1 at p; RG2.1 apartment translation is −1. -/
+example : padicValRat 3 (3:ℚ) = 1 ∧ -padicValRat 3 (3:ℚ) = -1 := by
+  have h3 : padicValRat 3 (3:ℚ) = 1 := by
+    convert padicValRat.self (by norm_num : 1 < (3:ℕ)) using 1
+    norm_num
+  exact ⟨h3, by simp only [h3]⟩
+/-- The inverse square has negative character valuation. -/
+example : padicValRat 3 ((3:ℚ)^(-2:ℤ)) = -2 := by
+  have h3 : padicValRat 3 (3:ℚ) = 1 := by
+    convert padicValRat.self (by norm_num : 1 < (3:ℕ)) using 1
+    norm_num
+  rw [padicValRat.zpow, h3]
+  norm_num
+/-- The positive SL2 root t² has twice the normalized torus valuation. -/
+example : padicValRat 3 ((3:ℚ)^2) = 2 ∧ padicValRat 3 ((3:ℚ)⁻¹) = -1 := by
+  have h3 : padicValRat 3 (3:ℚ) = 1 := by
+    convert padicValRat.self (by norm_num : 1 < (3:ℕ)) using 1
+    norm_num
+  rw [padicValRat.pow, padicValRat.inv, h3]
+  norm_num
+/-- For the SL2 chamber, testing nonnegative integral valuations gives the usual real order. -/
+example (s t : ℝ) : (∀ n : ℕ, 0 ≤ (n:ℝ)*(s-t)) ↔ t ≤ s := sorry
+/-- The rootless split torus has both signs; its slope order is equality. -/
+example (s t : ℝ) : (∀ n : ℤ, 0 ≤ (n:ℝ)*(s-t)) ↔ t = s := sorry
+/-- The anisotropic cocharacter space has exactly one slope. -/
+example : Subsingleton ((Fin 0 → ℝ) →ₗ[ℝ] ℝ) := inferInstance
+end TorusValuationTests
+
 end AnalyticDistributions
 
-/-!
-The README states the following targets, which cannot be typed at the pinned APIs because their
-carriers (the compact-type inductive limit of the Banach stages and its strong dual, the completed
-projective tensor product of Banach spaces, the left-heart extension groups, the analytic character
-spaces and the derived finite-slope window) are not in the libraries: the pointwise translated-disc realization
-`discAnalytic`, its evaluation and maximum-principle comparisons, `LAh`, `LA` and `Dist` with their
-Gauss valuations and the maps `measureToDist`;
-the three-space theorems of §0.2 and the Hahn–Banach theorem; the chart pullback, chart independence,
-completed analytic tensor and strong-duality statements of §0.3; the unbounded Amice transform and
-its operator dictionary on the global carrier (§1.1, §1.4), the non-splitting theorems (§1.5);
-`Cr`, `DistOrder`, the Amice–Vélu–Vishik theorem, the anisotropic function space and the rectangular
-and multidegree extension theorems (§2.1–§2.2); the distribution Mellin transform
-`distributionMellin` and its Fréchet isomorphism, coefficient extension and adic comparison (§3.3,
-§3.4); the dual scalar-extension map, the Tate-algebra and formal-series compactness theorems, the
-finite-slope perfect complex and its homotopy invariance, the Euler-characteristic local constancy
-and the Fréchet finite-slope theorem (§4.13–§4.15); the torus character-valuation and
-positive-monoid comparisons of §4.15.
--/
+/- The following README constructions have no native carrier at the pins and hence have no
+signature here: NACvx/HANACvx and their left hearts; separated completed projective/inductive
+tensors and compact-type limits; discAnalytic, LAh, LA and Dist; their global analytic pullbacks,
+products, pushforwards, multipliers and universalCharacterAction; Cr, DistOrder and anisotropic
+C^r; the global Amice/Mellin equivalences and character spaces; derived finite-slope windows;
+torusCharacterValuation, its compact quotient and positive torus monoids. Their exact
+constructions, APIs and topology tests are in README §§0.0–0.3, 1.3, 2.1–2.3, 3.3–3.4,
+4.15–4.17. Native coefficient, operator, specialization and valuation witnesses above test the
+corresponding available interfaces. -/
 
 end
 
