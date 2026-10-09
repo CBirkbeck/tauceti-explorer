@@ -41,6 +41,17 @@ that roadmap well and to find gaps, not to plan every Lean declaration:
 Red teams, fixes, attribution and source jobs run after a roadmap has gone
 upstream, as follow-ups; they never hold a roadmap back.
 
+**Never duplicate what TauCetiRoadmap already has.** The atlas's snapshot of Tau
+Ceti's roadmaps (`content/tau-ceti/`) is older than
+[TauCetiRoadmap main](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/TauCetiRoadmap):
+AlgebraicVectorBundles, DifferentialGeometry, IntegralLattices, LocalGaloisGroups,
+OperatorTheory, OrthogonalSpinGroups, PeripheralActions, ProfiniteArithmetic and
+RealAlgebraicGeometry (and the Completed roadmaps ContourIntegration,
+EffectiveBounds, OrthogonalL2Bases, RestrictedProducts) are not in the snapshot.
+Before planning or packaging a target, check those roadmaps' `Suggested.lean`
+and the current Tau Ceti library; what exists there is cited, never planned
+again.
+
 ## Upstream tiers
 
 The roadmaps go to Tau Ceti bottom-up, as roadmap packages (PROTOCOL.md
