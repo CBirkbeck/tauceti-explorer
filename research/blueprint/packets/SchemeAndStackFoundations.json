@@ -18047,7 +18047,7 @@
       "status": "not_read",
       "remaining": [
         "Formal geometry, deformation/lifting, algebraization, non-Noetherian modifications, strict transforms and source-qualified alterations remain unread at their primary locators.",
-        "Import NeronModelsAndSemistableAbelianVarieties R11.1/R11.3 and StableReductionLayer7/8/9. Resolve the conflicting confirmed alteration-owner recommendations before adding any alteration dependency."
+        "Import NeronModelsAndSemistableAbelianVarieties R11.1/R11.3 and StableReductionLayer7/8/9 where a source theorem uses them. SF.4 is the single owner of the schematic alteration theorems (RS-25; RT-AREA-algebraicgeometry/16; requested by AdicCoefficientsAndComparisons L5 and needed by PadicDifferentialEquationsAndRigidCohomology RD.5). Plan them in the forms that request states, importing blow-ups, strict transforms and flattening from StableReductionLayer4 and the stable pointed-curve stack from StableReductionPartII key/moduli-curves and MC.2 (RT-AREA-algebraicgeometry/17), not from R09.4/R09.5. Import the projective cover of 2.24 from StableReductionPartII MC.4, extended to n ≥ 3 marked points in every genus, only once the SF.5 rescope removes SF.4 → SF.5 (gap: Alteration owner settled; the moduli cover waits for the SF.5 rescope)."
       ]
     },
     {
@@ -18109,11 +18109,11 @@
       "detail": "The four reserved scheme-brauer, coherent-duality, equivariant-sheaf-cohomology and galois-gerbs contracts are now mathematically specified with APIs/tests, rather than unplanned. Their actual Lean carriers, supplier bridges and proof frontiers remain open in the four named carrier gaps. Complete Br₀/Br₁ with ground-field/base-change data; coherent lci fundamental-class and cotangent determinant comparisons; equivariant category/acyclicity and support comparisons; pro-gerb descent and the Kottwitz protorus application. Excellent schemes still need CM/(S_n) variants and pathological examples; henselization still needs its recorded comparisons and owner consolidation. No reserved brief is claimed fully closed."
     },
     {
-      "title": "Conflicting confirmed alteration ownership directions",
+      "title": "Alteration owner settled; the moduli cover waits for the SF.5 rescope",
       "neededBy": [
         "SchemeAndStackFoundations:SF.4"
       ],
-      "detail": "RT-AREA-algebraicgeometry/16 recommends SF.4→L5, while RT-AREA-etale/21 recommends L5:alterations→SF.4. Both findings are confirmed in their inputs. This checkpoint imports neither direction; a coherent accepted ownership decision is needed before this strand can be planned. Other confirmed findings remain the explicit unimplemented matrix below."
+      "detail": "SF.4 is the single owner of the schematic alteration theorems (de Jong 1996: alterations in the sense of 2.20, Theorem 4.1 with Remark 4.2 over a field, the curve-fibration step 5.8 and Theorem 6.5 over a trait). Accepted RS-25 keeps them here, RT-AREA-algebraicgeometry/16 recommends it, and the accepted AdicCoefficientsAndComparisons packet imports them from SF.4 and keeps only proper-hypercover comparison descent and local calculations in L5. RT-AREA-etale/21 asked that the alteration theorems not inherit H1/H5; a schematic SF.4 prefix meets that, so no L5:alterations stage is created. PadicDifferentialEquationsAndRigidCohomology RD.5 still requests the alterations from L5 and proposes L5 as owner; its blueprint job should retarget that request to SF.4. What remains open: the proofs of Theorems 4.1 and 5.8 use de Jong’s 2.24: the stack of stable pointed curves, and a projective scheme with a finite dominant map to it carrying a stable family, obtained by normalising the stack in the function field of the cover that trivialises ℓ-torsion of the universal Jacobian (two primes ℓ ≥ 3), which is projective (de Jong cites Deligne, ‘Le lemme de Gabber’, with Knudsen as general reference). The stack and its properness are StableReductionPartII key/moduli-curves (MC.0) and MC.2; the level cover and projective cover are planned in MC.4 for unpointed curves of genus at least 2, so the range de Jong uses, n ≥ 3 marked points and every genus g ≥ 0 (genus 0 and 1 included), must be added there (as the AdicCoefficientsAndComparisons request to SF.4 also notes), with torsion of abelian schemes from AbelianSchemes A3. MC.0, MC.2 and A3 do not depend on SF.4, but MC.4 requires SF.5, so while SF.4 → SF.5 stands, importing MC.4 into SF.4 closes the cycle SF.4 → SF.5 → MC.4 → SF.4. The rescope entry for RT-AREA-algebraicgeometry/15 removes SF.4 → SF.5; the import of MC.4 waits for it."
     },
     {
       "title": "Seven-stage and all routed-source closure",
@@ -18881,58 +18881,66 @@
     {
       "id": "RT-AREA-algebraicgeometry/1",
       "stage": "SchemeAndStackFoundations:SF.1",
-      "status": "unimplemented",
+      "status": "applied (packet side)",
       "boundary": "General spaces/stacks belong here; R09 receives the exported interface.",
-      "read": "Full claim/evidence/fix and applicable verifier confirmation read on 2026-10-02; no independent review performed by this worker."
+      "read": "Full claim/evidence/fix and applicable verifier confirmation read on 2026-10-02; no independent review performed by this worker.",
+      "round2": "Round 2 of the algebraic-geometry area fix (FIX-RT-AREA-algebraicgeometry~2, claude-5oyBX2, 2026-10-09): SF.1 is the single owner of algebraic spaces (SF.1/representable-diagonal, SF.1/etale-atlas, SF.1/algebraic-space and their APIs) and of the remaining Artin and Deligne–Mumford stack targets listed in SF.1 coverage. The AlgebraicModuli A0-extension packet imports spaces, sites and diagonals from SF.1 through its requests and keeps in R09.3/R09.4 only the moduli-specific descent and gerbe material, so the SF.1 → R09.3 and SF.1 → R09.4 edges follow from those prerequisites. The unplanned stack targets go to BP-SchemeAndStackFoundations--SF.1."
     },
     {
       "id": "RT-AREA-algebraicgeometry/8",
       "stage": "SchemeAndStackFoundations:SF.3",
-      "status": "unimplemented",
+      "status": "applied",
       "boundary": "NS and Picard number remain with A2, not duplicate generic SF.3 theory.",
-      "read": "Full claim/evidence/fix and applicable verifier confirmation read on 2026-10-02; no independent review performed by this worker."
+      "read": "Full claim/evidence/fix and applicable verifier confirmation read on 2026-10-02; no independent review performed by this worker.",
+      "round2": "Round 2 of the algebraic-geometry area fix (FIX-RT-AREA-algebraicgeometry~2, claude-5oyBX2, 2026-10-09): No SF.3 node plans the Néron–Severi group or the Picard number; SF.3 coverage keeps them with AbelianSchemesAndArithmeticModuli:A2, and the AnabelianGeometry packet requests them from A2 for NC.5. A2 itself is BP-AbelianSchemesAndArithmeticModuli’s."
     },
     {
       "id": "RT-AREA-algebraicgeometry/11",
       "stage": "SchemeAndStackFoundations:SF.0",
-      "status": "unimplemented",
+      "status": "applied (packet side)",
       "boundary": "Weil restriction follows MC0F → RG2.0a → R09.3; import that owner.",
-      "read": "Full claim/evidence/fix and applicable verifier confirmation read on 2026-10-02; no independent review performed by this worker."
+      "read": "Full claim/evidence/fix and applicable verifier confirmation read on 2026-10-02; no independent review performed by this worker.",
+      "round2": "Round 2 of the algebraic-geometry area fix (FIX-RT-AREA-algebraicgeometry~2, claude-5oyBX2, 2026-10-09): SF.0 plans no Weil restriction. SF.0 coverage records the chain ModularCurves 0F → ReductiveGroupsPartII RG2.0a → AlgebraicModuli R09.3, and the A0-extension packet’s R09.3 coverage names 0F and RG2.0a as its imports. Re-pointing the LAWRENCE-SAWIN-25 route away from SF.0 is a paper-file change for the maintainer."
     },
     {
       "id": "RT-AREA-algebraicgeometry/15",
       "stage": "SchemeAndStackFoundations:SF.5",
-      "status": "unimplemented",
+      "status": "recorded",
       "boundary": "Use genuine SF.3/R09.1/coherent-duality prerequisites and remove spurious reduction paths through the eventual reviewed link changes.",
-      "read": "Full claim/evidence/fix and applicable verifier confirmation read on 2026-10-02; no independent review performed by this worker."
+      "read": "Full claim/evidence/fix and applicable verifier confirmation read on 2026-10-02; no independent review performed by this worker.",
+      "round2": "Round 2 of the algebraic-geometry area fix (FIX-RT-AREA-algebraicgeometry~2, claude-5oyBX2, 2026-10-09): SF.5 has no nodes yet. Its coverage names its real inputs: SF.3, AlgebraicModuli R09.1, the coherent-duality key of SF.2 and StableReduction Layer 4. The stage-edge change (SF.3 → SF.5 and R09.1 → SF.5 in place of SF.4 → SF.5, and removal of the RS-25 forwarding links from R11.1, R11.3 and StableReduction Layers 7–9) is the rescope entry in restructure. The nodes go to BP-SchemeAndStackFoundations--SF.5."
     },
     {
       "id": "RT-AREA-algebraicgeometry/16",
       "stage": "SchemeAndStackFoundations:SF.4",
-      "status": "unimplemented",
-      "boundary": "Recommends SF.4 as single alteration supplier to L5; conflicts with etale/21.",
-      "read": "Full claim/evidence/fix and applicable verifier confirmation read on 2026-10-02; no independent review performed by this worker."
+      "status": "applied",
+      "boundary": "SF.4 is the single alteration owner; AdicCoefficientsAndComparisons L5 imports it.",
+      "read": "Full claim/evidence/fix and applicable verifier confirmation read on 2026-10-02; no independent review performed by this worker.",
+      "round2": "Round 2 of the algebraic-geometry area fix (FIX-RT-AREA-algebraicgeometry~2, claude-5oyBX2, 2026-10-09): SF.4 is the single owner of the schematic alteration theorems: accepted RS-25 keeps them here, the finding recommends it, and the accepted AdicCoefficientsAndComparisons packet already imports them from SF.4 and narrows L5 to comparison descent and local calculations. The conflict gap is settled in this direction (see the gap and SF.4 coverage). PadicDifferentialEquationsAndRigidCohomology still requests de Jong’s theorem from L5 for RD.5 and proposes L5 as owner; retargeting that request to SF.4 goes to BP-PadicDifferentialEquationsAndRigidCohomology. The alteration nodes go to BP-SchemeAndStackFoundations--SF.4."
     },
     {
       "id": "RT-AREA-algebraicgeometry/17",
       "stage": "SchemeAndStackFoundations:SF.4",
-      "status": "unimplemented",
-      "boundary": "Use pointed-curve moduli R09.4/R09.5 as alteration inputs, not an SR object theorem.",
-      "read": "Full claim/evidence/fix and applicable verifier confirmation read on 2026-10-02; no independent review performed by this worker."
+      "status": "applied",
+      "boundary": "Import the stable pointed-curve stack from StableReductionPartII (key/moduli-curves, MC.2) as alteration input; R09.4 does not plan it.",
+      "read": "Full claim/evidence/fix and applicable verifier confirmation read on 2026-10-02; no independent review performed by this worker.",
+      "round2": "Round 2 of the algebraic-geometry area fix (FIX-RT-AREA-algebraicgeometry~2, claude-5oyBX2, 2026-10-09): The single owner of the stack of stable pointed curves is StableReductionPartII (key/moduli-curves at MC.0; the proper Deligne–Mumford theorem at MC.2), the Part II alternative the finding allows; R09.4 does not plan it, and the A0-extension packet imports it from there. SF.4 imports it for de Jong’s curve-fibration step. The projective cover of de Jong 1996, 2.24 (n ≥ 3 marked points, every genus) belongs in MC.4, which plans it for unpointed curves of genus at least 2 only and requires SF.5; its pointed extension and its import wait for the SF.5 rescope (see the SF.4 gap)."
     },
     {
       "id": "RT-AREA-algebraicgeometry/18",
       "stage": "SchemeAndStackFoundations:SF.2",
-      "status": "unimplemented",
+      "status": "applied (packet side)",
       "boundary": "General coherent duality extends the curve-scoped SR2 contract.",
-      "read": "Full claim/evidence/fix and applicable verifier confirmation read on 2026-10-02; no independent review performed by this worker."
+      "read": "Full claim/evidence/fix and applicable verifier confirmation read on 2026-10-02; no independent review performed by this worker.",
+      "round2": "Round 2 of the algebraic-geometry area fix (FIX-RT-AREA-algebraicgeometry~2, claude-5oyBX2, 2026-10-09): SF.2 is the single owner of coherent duality: key/coherent-duality (f^! for separated finite-type morphisms of Noetherian schemes) with its dualizing-complex nodes. It extends StableReduction Layer 2’s curve dualizing sheaf. The A0-extension packet routes its 22 duality items from four papers to this key. Re-pointing the paper routes and AnalyticStacks AS.1 is the maintainer’s."
     },
     {
       "id": "RT-AREA-algebraicgeometry/31",
       "stage": "SchemeAndStackFoundations:SF.6",
-      "status": "unimplemented",
+      "status": "applied (packet side)",
       "boundary": "Import ComplexComparison C5 for the arithmetic cohomology comparison.",
-      "read": "Full claim/evidence/fix and applicable verifier confirmation read on 2026-10-02; no independent review performed by this worker."
+      "read": "Full claim/evidence/fix and applicable verifier confirmation read on 2026-10-02; no independent review performed by this worker.",
+      "round2": "Round 2 of the algebraic-geometry area fix (FIX-RT-AREA-algebraicgeometry~2, claude-5oyBX2, 2026-10-09): SF.6 is a consumer of the Betti–de Rham comparison: the SchemeAndStackFoundations--SF.6 packet imports ComplexComparisonPartII:C5 and its two repair nodes. The atlas edge C5 → SF.6 follows from those prerequisites."
     },
     {
       "id": "RT-AREA-etale/2",
@@ -18944,9 +18952,10 @@
     {
       "id": "RT-AREA-etale/21",
       "stage": "SchemeAndStackFoundations:SF.4",
-      "status": "unimplemented",
-      "boundary": "Recommends new L5:alterations as supplier to SF.4; conflicts with algebraicgeometry/16.",
-      "read": "Full claim/evidence/fix and applicable verifier confirmation read on 2026-10-02; no independent review performed by this worker."
+      "status": "settled",
+      "boundary": "Settled with algebraicgeometry/16: SF.4 owns the schematic alterations; no L5:alterations stage.",
+      "read": "Full claim/evidence/fix and applicable verifier confirmation read on 2026-10-02; no independent review performed by this worker.",
+      "round2": "Round 2 of the algebraic-geometry area fix (FIX-RT-AREA-algebraicgeometry~2, claude-5oyBX2, 2026-10-09): settled together with RT-AREA-algebraicgeometry/16. The schematic alteration prefix is SF.4, which carries no H1/H5 dependency, so no separate L5:alterations owner is created."
     },
     {
       "id": "RT-AREA-ktheory-2/38",
@@ -19302,6 +19311,19 @@
       ],
       "detail": "The full existing PerfectoidSpaces:P3/henselisation-of-pairs node plans the general arbitrary ring/ideal colimit and left-adjoint property, overlapping the exact reserved key assigned by #642. Its API also contains flatness, all ideal-power quotients, Noetherianity, completion and filtered-colimit comparisons. These are requirements to reconcile, not new definitions to copy.",
       "proposal": "Keep SchemeAndStackFoundations:key/henselization as the single general carrier and refinement owner required by the key survey; retain the fifteen current refinement IDs. Preserve PerfectoidSpaces:P3/henselisation-of-pairs as a compatibility/import node, using the reserved key and its declaration-sized outputs and keeping the flatness, ideal-power, Noetherian, completion and filtered-colimit requirements as imports or source-decomposed outputs owned once. ClassicalAdicEtaleCohomology retains the f-adic topology/continuity/plus-ring specialization using that carrier. Route dependencies at node granularity to avoid dragging adic/Perfectoid theory into SF.0; validate any needed substage split before applying stage links. This proposal is unaccepted and does not modify either supplier packet."
+    },
+    {
+      "action": "rescope",
+      "roadmaps": [
+        "SchemeAndStackFoundations",
+        "AlgebraicModuliForArithmeticGeometry",
+        "NeronModelsAndSemistableAbelianVarieties",
+        "StableReductionPartII",
+        "AdicCoefficientsAndComparisons",
+        "PadicDifferentialEquationsAndRigidCohomology"
+      ],
+      "detail": "RT-AREA-algebraicgeometry/15 (confirmed): the only atlas input of SF.5 is SF.4 (deformation, formal schemes, algebraization, alterations), which Chow groups, Gysin maps, Chern classes, Grothendieck–Riemann–Roch, surface Riemann–Roch and the Hodge index theorem do not use. RS-25 also forwarded R11.1, R11.3 and StableReduction Layers 7–9 into SF.5, so SF.5 and its consumers inherit Néron-model, abelian-scheme, p-divisible-group and adic-space ancestors. SF.5’s real inputs are curve Riemann–Roch and adjunction (SF.3), projective and flag bundles with O(1) (AlgebraicModuli R09.1), coherent duality on smooth projective surfaces (SF.2 key/coherent-duality, reaching SF.5 through SF.3) and arithmetic-surface intersections (StableReduction Layer 4). The edge SF.4 → SF.5 also blocks SF.4 from importing StableReductionPartII MC.4, which requires SF.5.",
+      "proposal": "Replace SF.4 → SF.5 by SF.3 → SF.5 and AlgebraicModuli R09.1 → SF.5; keep StableReduction Layer 4 → SF.5. Delete the RS-25 forwarding links R11.1 → SF.5, R11.3 → SF.5 and StableReduction Layers 7, 8 and 9 → SF.5. Add SF.4 → AdicCoefficientsAndComparisons L5 and SF.4 → PadicDifferentialEquationsAndRigidCohomology RD.5 (RT-AREA-algebraicgeometry/16, RT-AREA-etale/21), and StableReductionPartII MC.2 → SF.4 (RT-AREA-algebraicgeometry/17). Then add StableReductionPartII MC.4 → SF.4 for de Jong’s projective cover (2.24): in the atlas stage edges and requires together with the roadmap definitions in research/blueprint/roadmaps, it is acyclic once SF.4 → SF.5 is gone (checked 2026-10-09). The unreviewed research packets add a longer path from SF.4 through PrismaticCohomology PR.1 to PELModuli M6 and so to MC.4; check it again when those packets are reviewed, and import the cover at node level. This proposal edits no other packet or atlas file."
     }
   ],
   "targetInventory": [

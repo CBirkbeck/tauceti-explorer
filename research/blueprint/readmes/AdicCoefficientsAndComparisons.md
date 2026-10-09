@@ -1297,7 +1297,7 @@ Layer status: **planned**. Remaining obligations:
 
 - AdicCoefficientsAndComparisons/G-local: Unwritten normal-crossing and semistable calculations
 - AdicCoefficientsAndComparisons/G-proper-descent: Proper descent is not étale hypercover descent
-- AdicCoefficientsAndComparisons/G-owners: Conflicting alteration ownership prescriptions
+- AdicCoefficientsAndComparisons/G-owners: Alteration owner settled in SF.4; supplier edges pending
 - Resolve precise supplier requests before claiming closure.
 
 ## L6. Constructible direct-image comparison and full faithfulness
@@ -1559,9 +1559,9 @@ The defined scalar-localised integral lattice category exists once its enhanceme
 
 Affected declarations: `AdicCoefficientsAndComparisons:L0/rational-constructible-coefficients`.
 
-### AdicCoefficientsAndComparisons/G-owners: Conflicting alteration ownership prescriptions
+### AdicCoefficientsAndComparisons/G-owners: Alteration owner settled in SF.4; supplier edges pending
 
-RT-AREA-algebraicgeometry/16 and RT-AREA-etale/21 prescribe opposite owners. Accepted RS-25 keeps source-scoped alterations in SF.4, and Protocol §15 forbids duplicate owners. This packet therefore imports SF.4 and proposes rescoped L5 tasks 4–5. Maintainer decision is required to supersede RS-25 if a new alterations stage is preferred; both prescriptions cannot be applied simultaneously.
+Confirmed findings RT-AREA-algebraicgeometry/16 (SF.4 owns de Jong’s theorems; SF.4 → L5) and RT-AREA-etale/21 (a new stage L5:alterations owns them; L5:alterations → SF.4) prescribed opposite owners. Accepted RS-25 keeps ‘source-scoped alterations’ in SF.4. This packet follows RT-AREA-algebraicgeometry/16 and RS-25: L5 imports the alterations from SF.4 and keeps roadmap tasks 4–5, which also meets RT-AREA-etale/21’s concern that schematic alterations not inherit H1/H5. Round 2 of the algebraic-geometry area fix (FIX-RT-AREA-algebraicgeometry~2, 2026-10-09) settled the same owner in the SchemeAndStackFoundations packet, so the two packets agree and no L5:alterations stage is created. PadicDifferentialEquationsAndRigidCohomology still requests de Jong’s theorem from L5 for RD.5 and proposes L5 as owner; retargeting that request to SF.4 is handed to its blueprint job. Still open: the atlas edge SF.4 → L5 is a proposal in that packet’s restructure list, SF.4 has no alteration nodes yet (BP-SchemeAndStackFoundations--SF.4), and SF.4’s import of the pointed projective cover from StableReductionPartII MC.4 closes the cycle SF.4 → SF.5 → MC.4 → SF.4 until the rescope for RT-AREA-algebraicgeometry/15 removes SF.4 → SF.5. Until then the L5 nodes rest on the SF.4 request.
 
 Affected declarations: `AdicCoefficientsAndComparisons:L5/alteration-hypercover-descent`.
 

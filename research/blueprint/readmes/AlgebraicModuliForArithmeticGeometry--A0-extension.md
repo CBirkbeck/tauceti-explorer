@@ -6110,20 +6110,32 @@ The relative Picard functor is a sheafification, not the pointwise quotient of l
 
 Under the universal isomorphism OT→fT*OXT, the sequence 0→Pic(T)→Pic(XT)→PicX/B(T) has the asserted middle kernel. A section makes it split exact by identifying the relative sheaf with the kernel of restriction along the section. Choose local rigidifications, normalize each overlap isomorphism by its discrepancy along the section, and use the global-functions hypothesis to show that the triple discrepancy is one. Actual invertible-module descent then gives a global representative and its rigidification. No Brauer-vanishing hypothesis is used. Stacks0D02/0D24 were read for the next algebraicity/representability route, but their backward coherent-stack and Artin proof inputs are not yet decomposed here.
 
+## Round 2 of the algebraic-geometry area fix (2026-10-09)
+
+FIX-RT-AREA-algebraicgeometry~2 (claude-5oyBX2) checked this packet against the confirmed findings RT-AREA-algebraicgeometry/1, /2, /10, /11, /12, /13, /14, /17, /18 and /32. The binding ownership above already applies /1 (spaces and diagonals from SF.1), /11 (Weil restriction from ModularCurves 0F, compared with RG2.0a), /12 (Grassmannians from ModularCurves 0G; relative Proj and ampleness from StableReduction Layer 2), /13 (blow-ups from StableReduction Layer 4), /14 (proper coherent base change imported in all relative dimensions), /17 (stable pointed curves from StableReductionPartII) and /18 (coherent duality from SF.2). Round 2 adds to the coverage of the stages the parts that were still unnamed:
+
+- R09.1 states O(n), H^q(P^n_A, O(m)) with its multiplication maps, and Serre’s theorems A and B, absolute and relative, for ComplexComparisonPartII C1–C3 (/32).
+- R09.3 imports quotients by finite locally free equivalence relations from ModularCurves 0C and proves the general quotients compatible with them (/10), and names ModularCurves 0F and RG2.0a as the affine Weil-restriction cases it extends (/11).
+- R09.6’s approximation targets (G-ring permanence, approximation over henselian G-rings, Artin’s common étale neighbourhood corollary) must precede the Artin criterion, while accepted RS-27 makes A0-extension → R09.6. A restructure entry therefore proposes the prefix R09.6:approximation, ordered SF.0 → R09.6:approximation → A0-extension → R09.6, and the criterion imports only that prefix (/2).
+- R09.5 leaves the coarse space and projective covers of the stable pointed-curve stack to StableReductionPartII MC.4 (/17).
+- A0-extension names SF.2’s key/coherent-duality as its duality supplier (/18).
+
+These stages’ nodes remain with the part jobs BP-AlgebraicModuliForArithmeticGeometry--R09.1, --R09.3, --R09.4, --R09.5, --R09.6 and --A0-extension-2.
+
 ## Stage coverage and continuation
 
 
 ### AlgebraicModuliForArithmeticGeometry:A0-extension — partial
 
-- The six relative-Picard leaves plan sheafification, base change, the middle kernel and section-rigidified splitting. Picard-stack algebraicity (Stacks0D02), general representability (0D24), local separation, Pic0 and the precise Artin1969/approximation extension remain undecomposed.
+- The six relative-Picard leaves plan sheafification, base change, the middle kernel and section-rigidified splitting. Picard-stack algebraicity (Stacks0D02), general representability (0D24), local separation, Pic0 and the precise Artin1969/approximation extension remain undecomposed. The approximation step of the Artin criterion (Stacks 98.10) must come from a supplier that precedes it (RT-AREA-algebraicgeometry/2). Accepted RS-27 has A0-extension → R09.6, so the criterion may not import R09.6 as a whole; this packet proposes an approximation prefix R09.6:approximation, ordered SF.0 → R09.6:approximation → A0-extension → R09.6 (restructure entry), and the criterion imports only that prefix.
 
 - General proper coherent cohomology/base change imports the locally Noetherian StableReduction/Jacobian input in all relative dimensions; the non-Noetherian finite-presentation/perfect/Tor-amplitude extension, analytification and proper GAGA remain source work.
 
-- Normalization/excellence, Raynaud finite Picard subgroup–dual torsor and trait (N)* criteria, the Gm Leray/Brauer obstruction, K/O devissage and the exact divisor/ramified-trace adapters remain pending. Import coherent duality from its reserved owner.
+- Normalization/excellence, Raynaud finite Picard subgroup–dual torsor and trait (N)* criteria, the Gm Leray/Brauer obstruction, K/O devissage and the exact divisor/ramified-trace adapters remain pending. Import coherent duality from its reserved owner. That owner is SchemeAndStackFoundations:key/coherent-duality at SF.2, the single owner of coherent duality (RT-AREA-algebraicgeometry/18); no duality node is planned here.
 
 ### AlgebraicModuliForArithmeticGeometry:R09.1 — not_read
 
-- Import ModularCurves0G Grassmannian projectivity/universal quotient/invariant loci and StableReduction2 Proj/ampleness; source-decompose O(n), Plucker comparison and smoothness, flag spaces, relative very-ampleness, Hilbert polynomials and regularity bounds.
+- Import ModularCurves0G Grassmannian projectivity/universal quotient/invariant loci and StableReduction2 Proj/ampleness; source-decompose O(n), Plucker comparison and smoothness, flag spaces, relative very-ampleness, Hilbert polynomials and regularity bounds. For ComplexComparisonPartII C1–C3 (RT-AREA-algebraicgeometry/32, their request to R09.1) state as named targets: O(n) on P^n_A and the relative O(1) of P(E); H^q(P^n_A, O(m)) for all q and m with its multiplication maps; and Serre’s theorems A and B for coherent sheaves on projective schemes, absolute and relative for projective morphisms (EGA III 2.2.1).
 
 - Verify bounded-degree finiteness of Hilbert polynomials and the Chow parameter inputs at the routed paper locators; split semilinear Frobenius and determinantal rank-locus constructions.
 
@@ -6139,9 +6151,9 @@ Under the universal isomorphism OT→fT*OXT, the sequence 0→Pic(T)→Pic(XT)�
 
 - Implement and elaborate the module extension-coordinate maps, diagonal/triple identification, chosen-overlap equivalence, native canonical comparison and equalizer/counit coordinates. Prove the actual right-adjoint uniqueness transport before invoking the chosen comonadic adjunction.
 
-- Coherent locally Noetherian etale-presentation descent and proper GAGA remain pending. Import ordinary object descent from ModularCurves0E and polarized etale Proj descent from StableReduction2.
+- Coherent locally Noetherian etale-presentation descent and proper GAGA remain pending. Import ordinary object descent from ModularCurves0E and polarized etale Proj descent from StableReduction2. Import quotients by finite locally free equivalence relations from ModularCurves 0C and prove the algebraic-space quotients of SF.1 compatible with them on their common domain (RT-AREA-algebraicgeometry/10).
 
-- General polarized fppf projective-scheme descent, finite-locally-free Weil restriction on algebraic spaces (Stacks05YC/05YF, compare RG2.0a), and their base-change/effectivity leaves remain pending. Abelian-specific data belong downstream.
+- General polarized fppf projective-scheme descent, finite-locally-free Weil restriction on algebraic spaces (Stacks05YC/05YF, compare RG2.0a), and their base-change/effectivity leaves remain pending. Abelian-specific data belong downstream. Import the affine finite-presentation case and its base change from ModularCurves 0F and the affine finite-type case from ReductiveGroupsPartII RG2.0a, and prove the algebraic-space extension compatible with both (RT-AREA-algebraicgeometry/11).
 
 ### AlgebraicModuliForArithmeticGeometry:R09.4 — partial
 
@@ -6155,13 +6167,13 @@ Under the universal isomorphism OT→fT*OXT, the sequence 0→Pic(T)→Pic(XT)�
 
 - The affine-kernel rigidification leaf is only the affine-gerbe case. General ACV rigidification, vertical inertia and representability, its universal property, and auxiliary-level distinctions need separate source-checked nodes.
 
-- Finite-inertia coarse-space existence, tame versus arbitrary flat base change, finite curve quotients, normalization and finite-correspondence descent remain pending. Elliptic coarse/level cases import ModularCurves4C/9D/9E.
+- Finite-inertia coarse-space existence, tame versus arbitrary flat base change, finite curve quotients, normalization and finite-correspondence descent remain pending. Elliptic coarse/level cases import ModularCurves4C/9D/9E. The coarse space and finite projective scheme covers of the stable pointed-curve stack belong to StableReductionPartII (MC.4), not to R09.5 (RT-AREA-algebraicgeometry/17).
 
 ### AlgebraicModuliForArithmeticGeometry:R09.6 — not_read
 
 - Read and decompose deformation groupoids, completed-local comparison, effectivity and versal algebraization. Import the selected Artin criterion from A0-extension rather than plan it twice.
 
-- Order approximation leaves before A0 Artin and Artin-dependent versal leaves after it; verify hypotheses on G-rings, henselian bases, Artin common etale neighbourhoods and the assigned Popescu/excellence suppliers.
+- Order approximation leaves before A0 Artin and Artin-dependent versal leaves after it; verify hypotheses on G-rings, henselian bases, Artin common etale neighbourhoods and the assigned Popescu/excellence suppliers. Plan the approximation targets of RT-AREA-algebraicgeometry/2 in the proposed prefix R09.6:approximation, which the A0-extension criterion imports: the permanence of G-rings under finite type (Stacks 15.51.10), approximation over henselian G-rings (Stacks 16.13.1–16.13.2) and the common étale neighbourhood corollary (Artin 1969, Corollary 2.6), which two paper extractions already record as planned at R09.6. G-rings are SchemeAndStackFoundations:SF.0/g-ring and Popescu’s theorem is routed to SF.0. The rest of R09.6 keeps importing the criterion from A0-extension, as RS-27 has it.
 
 ### AlgebraicModuliForArithmeticGeometry:R09.7 — not_read
 
