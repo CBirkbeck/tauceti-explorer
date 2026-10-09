@@ -4,8 +4,8 @@ These statements suggest Lean forms so that contributors and reviewers converge 
 signatures. Proofs are deliberately omitted; nothing here is an implementation.
 
 Pinned Mathlib: 082e2d37e8b0463410cdb532e111cd43d5a66174.
-Pinned Tau Ceti: f790474821cf4256814db967cb154e7af3d0c369 (one module imported, for the
-double-coset Hecke ring).
+Pinned Tau Ceti: f790474821cf4256814db967cb154e7af3d0c369 (two modules imported: the
+double-coset Hecke ring and base change of representations).
 
 The first part states the general locally profinite theory (smooth representations, invariants,
 admissibility, Hecke algebras, induction, Jacquet modules) over any commutative ring. The second
@@ -48,6 +48,7 @@ import Mathlib.NumberTheory.Padics.PadicIntegers
 import Mathlib.GroupTheory.GroupAction.Quotient
 import Mathlib.GroupTheory.PGroup
 import TauCeti.NumberTheory.HeckeRing.Associativity
+import TauCeti.RepresentationTheory.BaseChange
 
 noncomputable section
 open scoped BigOperators TensorProduct MonoidAlgebra
@@ -82,12 +83,6 @@ variable {V : Type*} [AddCommMonoid V] [Module A V] (ρ : Representation A G V)
 an open stabiliser. -/
 def IsSmooth : Prop := ∀ v : V, IsOpen ((ρ.stabilizer v : Subgroup G) : Set G)
 
-/-- Change of coefficients along `A → B`. -/
-def baseChange (B : Type*) [CommRing B] [Algebra A B] : Representation B G (B ⊗[A] V) where
-  toFun g := (ρ g).baseChange B
-  map_one' := by sorry
-  map_mul' := by sorry
-
 /-- Whittaker functionals: linear forms transforming by the character `ψ` of `U`. -/
 def whittakerFunctionals (U : Subgroup G) (ψ : U →* Aˣ) : Submodule A (V →ₗ[A] A) where
   carrier := {ℓ | ∀ (u : U) (v : V), ℓ (ρ u v) = (ψ u : A) * ℓ v}
@@ -103,8 +98,9 @@ theorem IsSmooth.comp_continuous {H : Type*} [Group H] [TopologicalSpace H] (h :
     (f : H →* G) (hf : Continuous f) : IsSmooth (ρ.comp f) := by sorry
 theorem isSmooth_ofMulAction_quotient (U : Subgroup G) (hU : IsOpen (U : Set G)) :
     IsSmooth (Representation.ofMulAction A G (G ⧸ U)) := by sorry
+/-- Change of coefficients (Tau Ceti's `Representation.baseChange`) preserves smoothness. -/
 theorem isSmooth_baseChange (B : Type*) [CommRing B] [Algebra A B] (h : IsSmooth ρ) :
-    IsSmooth (baseChange ρ B) := by sorry
+    IsSmooth (_root_.Representation.baseChange B ρ) := by sorry
 theorem whittakerFunctionals_trivial_of_ne_one (U : Subgroup G) (ψ : U →* Aˣ) [IsDomain A]
     (hψ : ∃ u : U, (ψ u : A) ≠ 1) :
     whittakerFunctionals (Representation.trivial A G V) U ψ = ⊥ := by sorry
@@ -635,7 +631,7 @@ def AbsolutelyIrreducible (rho : Representation k G V) : Prop :=
   ∀ (L : Type u) (hL : Field L) (hAlg : Algebra k L),
     letI := hL
     letI := hAlg
-    Representation.IsIrreducible (Representation.baseChange rho L)
+    Representation.IsIrreducible (_root_.Representation.baseChange L rho)
 def Generic (rho : Representation k G V) (U : Subgroup G) (psi : U →* kˣ) : Prop :=
   Nontrivial (WhittakerCoinvariants (rho.comp U.subtype) psi)
 def finiteLength (rho : Representation k G V) : Prop :=
@@ -700,7 +696,7 @@ def CoWhittaker (rho : Representation A G V) (U : Subgroup G) (psi : U →* Aˣ)
     letI := hP
     letI : CommRing P.ResidueField := Field.toCommRing
     EssentiallyAIG
-      (Representation.smoothVectors (Representation.dual (Representation.baseChange rho P.ResidueField))).toRepresentation
+      (Representation.smoothVectors (Representation.dual (_root_.Representation.baseChange P.ResidueField rho))).toRepresentation
       U ((Units.map (algebraMap A P.ResidueField).toMonoidHom).comp psi)
 namespace CoWhittaker
 lemma derivative (rho : Representation A G V) (U : Subgroup G) (psi : U →* Aˣ)
@@ -712,7 +708,7 @@ lemma fibers (rho : Representation A G V) (U : Subgroup G) (psi : U →* Aˣ)
     letI := hP
     letI : CommRing P.ResidueField := Field.toCommRing
     EssentiallyAIG
-      (Representation.smoothVectors (Representation.dual (Representation.baseChange rho P.ResidueField))).toRepresentation
+      (Representation.smoothVectors (Representation.dual (_root_.Representation.baseChange P.ResidueField rho))).toRepresentation
       U ((Units.map (algebraMap A P.ResidueField).toMonoidHom).comp psi) := by sorry
 -- scalars and field: the GL_n generic/finite-length cosocle hypotheses are
 -- omitted rather than stated for arbitrary groups.
@@ -1155,19 +1151,7 @@ For a Noetherian Z[1/p]-algebra R, the relevant Hecke algebras are Noetherian, i
 SRPlan.cuspidalReductionConsequences [theorem]
 For an irreducible integral ell-adic representation, cuspidality of its reduction implies cuspidality of the characteristic-zero representation. For an irreducible cuspidal Levi representation, induction is irreducible on a nonempty open set of unramified characters in the coefficient setting of DHKM Corollary 4.12, and the associated parabolic inductions have the stated common Grothendieck-class comparison.
 
-## SR.0–SR.3a targets not elaborated above (local reductive carriers needed)
-
-Representation.IsSmooth [definition]
-Let G be a topological group, A a commutative ring and ρ : Representation A G V a representation on an A-module V (no topology on V). The representation is smooth if for every v ∈ V the stabiliser {g ∈ G | ρ g v = v} is open in G. For a locally profinite G this is equivalent to: every v is fixed by some compact open subgroup, i.e. V = ⋃_U V^U over compact open U.
-
-Representation.IsSmooth [api]
-IsSmooth ρ :⇔ ∀ v, IsOpen {g | ρ g v = v}.
-
-Representation.isSmooth_iff_exists_openSubgroup [api]
-For a NonarchimedeanGroup G: smooth iff every v is fixed by some open subgroup; for a locally profinite G: iff every v is fixed by some compact open subgroup.
-
-Representation.IsSmooth.subrepresentation [api]
-A subrepresentation of a smooth representation is smooth.
+## SR.0–SR.3a names not elaborated above (they need the reductive carriers or API beyond the declarations)
 
 Representation.IsSmooth.quotient [api]
 A quotient representation of a smooth representation is smooth.
@@ -1178,32 +1162,11 @@ Arbitrary direct sums and filtered colimits of smooth representations are smooth
 Representation.IsSmooth.tprod [api]
 The tensor product over A of two smooth representations is smooth.
 
-Representation.IsSmooth.comp_continuous [api]
-Restriction along a continuous homomorphism H →* G preserves smoothness; inflation along a continuous open surjection G → G/N preserves smoothness.
-
-Representation.isSmooth_ofMulAction_quotient [api]
-A[G ⧸ U] is smooth when U is open.
-
 Representation.isSmooth_iff_isSmoothDiscrete [api]
 For A with the discrete topology, IsSmooth ρ ↔ TauCeti.IsSmoothDiscrete of the object of TopRep A G with discrete underlying module.
 
 Representation.isSmooth_iff_isSmoothDiscrete_test [test]
 For ZMod 3 acting trivially on itself, IsSmooth holds and agrees with TauCeti.IsSmoothDiscrete; for (ZMod 3)ˣ with the indiscrete topology acting by multiplication both fail (TauCeti.not_isSmoothDiscrete_ofDiscreteModule_units_zmod).
-
-Representation.smoothVectors [construction]
-For a topological group G and any representation ρ : Representation A G V, the smooth vectors V^∞ = {v ∈ V | the stabiliser of v is open} form a subrepresentation, and V^∞ = ⋃_U V^U over compact open U when G is locally profinite. The assignment V ↦ V^∞ is a functor smoothPart : Rep A G ⥤ SmoothRep A G which is right adjoint to the inclusion ι : SmoothRep A G ⥤ Rep A G; the counit ι(V^∞) → V is the inclusion and is an isomorphism exactly when V is smooth, so SmoothRep A G is a coreflective full subcategory of Rep A G.
-
-Representation.smoothVectors [api]
-The subrepresentation V^∞ of a representation of a topological group.
-
-Representation.mem_smoothVectors_iff [api]
-v ∈ V^∞ ↔ IsOpen (stabiliser of v); for locally profinite G ↔ ∃ compact open U, v ∈ V^U.
-
-Representation.smoothVectors_isSmooth [api]
-The restriction of ρ to V^∞ is smooth.
-
-Representation.smoothVectors_eq_top_iff [api]
-V^∞ = ⊤ iff ρ is smooth.
 
 SmoothRep.coreflective [api]
 The inclusion ι is Coreflective (fully faithful with right adjoint smoothPart).
@@ -1363,12 +1326,6 @@ For U = ℤ/p over F_p no A-linear idempotent onto V^U commuting with U exists o
 
 SmoothRep.invariantsFunctor_exact [theorem]
 If U is a compact open subgroup of a locally profinite G with pro-order invertible in A, then invariantsFunctor U : SmoothRep A G ⥤ ModuleCat A is exact, commutes with arbitrary direct sums and filtered colimits, and V^U is a natural direct summand of V as an A[U]-module. Without the hypothesis exactness fails: for U = ℤ/p and A = F_p the U-invariants of F_p[U] → F_p are not surjective.
-
-Representation.IsAdmissible [definition]
-A smooth representation V of a locally profinite group G over a commutative ring A is admissible if for every compact open subgroup U the A-module V^U is finitely generated. Over a field this says dim V^U < ∞ (Casselman's definition). It suffices to check U in any neighbourhood basis of compact open subgroups when these have pro-order invertible in A, since then V^{U} is a direct summand of V^{U'} for U' ≤ U. Finite direct sums of admissible representations are admissible; over a noetherian A subrepresentations are admissible; quotients are admissible when invariants are exact (invariants-exact).
-
-Representation.IsAdmissible [api]
-IsAdmissible ρ :⇔ IsSmooth ρ ∧ ∀ U compact open, Module.Finite A (V^U).
 
 Representation.isAdmissible_iff_basis [api]
 Under HasCofinalUnitProOrder, it suffices to check U in a neighbourhood basis.
@@ -2037,16 +1994,16 @@ SmoothCentre.ladic_separated [theorem]
 Let Λ be a noetherian ℓ-adically separated domain in which the pro-orders of a cofinal family 𝒦 of compact open subgroups are invertible (for example Λ = ℤ_ℓ[√q] with ℓ ≠ p and 𝒦 the pro-p subgroups of a p-adic group). Then each Hecke algebra H(G, K; Λ) and its centre are ℓ-adically separated, and so is Z(G, Λ) ≅ lim_K Z(H(G, K; Λ)): ⋂_n ℓ^n Z(G, Λ) = 0. In particular two elements of Z(G, Λ) agreeing modulo ℓ^n for every n are equal.
 
 HasIwahoriDecomposition [definition]
-Let P = M ⋉ N and P̄ = M ⋉ N̄ be closed subgroups of a locally profinite G with P ∩ N̄ = 1 and N̄MN open in G (a parabolic pair, as for opposite parabolic subgroups of a reductive group, supplied by Tau Ceti ReductiveGroups Layer 7 and ReductiveGroupsPartII RG2.3). A compact open subgroup U has an Iwahori decomposition with respect to (P, P̄) if multiplication U_{N̄} × U_M × U_N → U is bijective, where U_X = U ∩ X. An element m ∈ M is U-positive if m U_N m⁻¹ ⊆ U_N and m⁻¹ U_{N̄} m ⊆ U_{N̄}; the U-positive elements form a monoid Δ_M⁺ containing U_M, and Δ⁺ := U_N Δ_M⁺ U_{N̄}. A central z ∈ Z(M) ∩ Δ_M⁺ is strongly positive if for all compact open H₁, H₂ ⊆ N there is n ≥ 0 with z^n H₁ z^{−n} ⊆ H₂, and for all compact open K₁, K₂ ⊆ N̄ there is n ≥ 0 with z^{−n} K₁ z^n ⊆ K₂ (so ⋃_n z^{−n} U_N z^n = N and ⋃_n z^n U_{N̄} z^{−n} = N̄).
+Let P = M ⋉ N and P̄ = M ⋉ N̄ be closed subgroups of a locally profinite G with P ∩ N̄ = 1 and N̄MN open in G (a parabolic pair, as for opposite parabolic subgroups of a reductive group, supplied by Tau Ceti ReductiveGroups Layer 7 and ReductiveGroupsPartII RG2.3). A compact open subgroup U has an Iwahori decomposition with respect to (P, P̄) if both multiplication maps U_{N̄} × U_M × U_N → U and U_N × U_M × U_{N̄} → U are bijective, where U_X = U ∩ X. An element m ∈ M is U-positive if m U_N m⁻¹ ⊆ U_N and m⁻¹ U_{N̄} m ⊆ U_{N̄}; the U-positive elements form a monoid Δ_M⁺ containing U_M, and Δ⁺ := U_N Δ_M⁺ U_{N̄}. A central z ∈ Z(M) ∩ Δ_M⁺ is strongly positive if for all compact open subgroups H₁, H₂ of U_N there is n ≥ 0 with z^n H₁ z^{−n} ⊆ H₂, and for all compact open subgroups K₁, K₂ of U_{N̄} there is n ≥ 0 with z^{−n} K₁ z^n ⊆ K₂.
 
 HasIwahoriDecomposition [api]
-U = U_{N̄} U_M U_N with bijective multiplication, for a parabolic pair (P, P̄).
+U = U_{N̄} U_M U_N = U_N U_M U_{N̄} with bijective multiplications, for a parabolic pair (P, P̄).
 
 positiveMonoid [api]
 Δ_M⁺ := {m ∈ M | m U_N m⁻¹ ⊆ U_N, m⁻¹ U_{N̄} m ⊆ U_{N̄}} as a Submonoid M.
 
 IsStronglyPositive [api]
-Central z ∈ Δ_M⁺ contracting N under conjugation by z and N̄ under z⁻¹, in the sense of the statement.
+Central z ∈ Δ_M⁺ contracting the compact open subgroups of U_N under conjugation by z and those of U_{N̄} under z⁻¹.
 
 HasIwahoriDecomposition.mul_mem_iff [api]
 Every u ∈ U is uniquely ū m n with ū ∈ U_{N̄}, m ∈ U_M, n ∈ U_N, and also uniquely n m ū.
@@ -2073,7 +2030,7 @@ HasIwahoriDecomposition.trivial_parabolic [test]
 With P = G, every compact open U has an Iwahori decomposition and positiveMonoid = ⊤.
 
 positiveHeckeHom [theorem]
-Let U have an Iwahori decomposition with respect to (P, P̄) and let H(Δ_M⁺, U_M) ⊆ H(M, U_M) and H(Δ⁺, U) ⊆ H(G, U) be the ℤ-spans of the double cosets [U_M m U_M] (m ∈ Δ_M⁺) and [U δ U] (δ ∈ Δ⁺). Then: (1) for m, m' ∈ Δ_M⁺, U m U m' U = U m m' U and [U m U][U m' U] = [U m m' U] in H(G, U; ℤ); (2) the ℤ-linear map t : H(Δ_M⁺, U_M) → H(Δ⁺, U), [U_M m U_M] ↦ [U m U], is an injective ring homomorphism; (3) with 𝒮 = r_M ∘ r_P the restriction–integration map, t ∘ 𝒮 and 𝒮 ∘ t multiply [U m U], resp. [U_M m U_M], by |δ_P(m)|⁻¹ = #(U_N / m U_N m⁻¹). In particular the span of {[U m U] : m in a commutative submonoid of Δ_M⁺} is a commutative subalgebra of H(G, U; ℤ). For M = T a maximal torus of a split group, U = K_p with an Iwahori decomposition relative to (B, B̄) and T⁺ the monoid of t with t U_{K_p} t⁻¹ ⊆ U_{K_p} and t⁻¹ Ū_{K_p} t ⊆ Ū_{K_p}, t ↦ [K_p t K_p] is an algebra homomorphism ℤ[T⁺/T_{K_p}] → H(G, K_p; ℤ). The two contraction conditions are needed: the product decomposition alone does not make t ↦ [K_p t K_p] multiplicative.
+Let U have an Iwahori decomposition with respect to (P, P̄) and let H(Δ_M⁺, U_M) ⊆ H(M, U_M) and H(Δ⁺, U) ⊆ H(G, U) be the ℤ-spans of the double cosets [U_M m U_M] (m ∈ Δ_M⁺) and [U δ U] (δ ∈ Δ⁺). Then: (1) for m, m' ∈ Δ_M⁺, U m U m' U = U m U_M m' U, so [U m U][U m' U] = t([U_M m U_M][U_M m' U_M]) in H(G, U; ℤ), and [U m U][U m' U] = [U m m' U] when U_M m U_M m' U_M = U_M m m' U_M (for instance when M is a torus); (2) the ℤ-linear map t : H(Δ_M⁺, U_M) → H(Δ⁺, U), [U_M m U_M] ↦ [U m U], is an injective ring homomorphism; (3) with 𝒮 = r_M ∘ r_P the restriction–integration map, t ∘ 𝒮 and 𝒮 ∘ t multiply [U m U], resp. [U_M m U_M], by |δ_P(m)|⁻¹ = #(U_N / m U_N m⁻¹). In particular, for M = T a torus, the [U t U] (t ∈ Δ_T⁺) span a commutative subalgebra of H(G, U; ℤ). For M = T a maximal torus of a split group, U = K_p with an Iwahori decomposition relative to (B, B̄) and T⁺ the monoid of t with t U_{K_p} t⁻¹ ⊆ U_{K_p} and t⁻¹ Ū_{K_p} t ⊆ Ū_{K_p}, t ↦ [K_p t K_p] is an algebra homomorphism ℤ[T⁺/T_{K_p}] → H(G, K_p; ℤ). The two contraction conditions are needed: the product decomposition alone does not make t ↦ [K_p t K_p] multiplicative.
 
 positiveHeckeHom [api]
 t : H(Δ_M⁺, U_M; ℤ) →+* H(Δ⁺, U; ℤ), [U_M m U_M] ↦ [U m U].
@@ -2082,7 +2039,7 @@ positiveHeckeHom_injective [api]
 t is injective.
 
 doubleCoset_mul_of_positive [api]
-[U m U][U m' U] = [U m m' U] for m, m' ∈ Δ_M⁺.
+[U m U][U m' U] = t([U_M m U_M][U_M m' U_M]) for m, m' ∈ Δ_M⁺, equal to [U m m' U] when U_M m U_M m' U_M = U_M m m' U_M.
 
 positiveHeckeHom_comp_restrict [api]
 t ∘ 𝒮 = |δ_P|⁻¹ · and 𝒮 ∘ t = |δ_P|⁻¹ · on basis elements.
@@ -2709,6 +2666,6 @@ SmoothRep.firstAdjunctionUnit_ne_second [test]
 The unit of the first adjunction r_P ⊣ i_P is π → i_P(r_P π) (closed orbit, a quotient piece), not η: the two adjunctions use opposite parabolics.
 
 SmoothRep.secondAdjunction [theorem]
-For a connected reductive group G over a nonarchimedean local field F, opposite parabolics P = MN and P̄ = MN̄, and complex coefficients: normalised parabolic induction i_P is left adjoint to the normalised Jacquet functor r_{P̄} along the opposite parabolic, Hom_G(i_P τ, π) ≅ Hom_M(τ, r_{P̄} π) naturally in τ and π, with unit and counit those of second-adjunction-unit. This is separate from the first adjunction r_P ⊣ i_P. Consequences: r_{P̄} commutes with arbitrary products; i_P preserves projective objects; for admissible π, Hom_G(i_P τ, π̃) ≅ Hom_M(τ, (r_P π)~), compatibly with Casselman's pairing. In unnormalised terms the right adjoint of Ind_P^G ∘ infl is δ_P⁻¹ ⊗ (−)_{N̄}.
+For a connected reductive group G over a nonarchimedean local field F, opposite parabolics P = MN and P̄ = MN̄, and complex coefficients: normalised parabolic induction i_P is left adjoint to the normalised Jacquet functor r_{P̄} along the opposite parabolic, Hom_G(i_P τ, π) ≅ Hom_M(τ, r_{P̄} π) naturally in τ and π, with unit and counit those of second-adjunction-unit. This is separate from the first adjunction r_P ⊣ i_P. Consequences: r_{P̄} commutes with arbitrary products; i_P preserves projective objects; for admissible π, Hom_G(i_P τ, π̃) ≅ Hom_M(τ, (r_P π)~), compatibly with Casselman's pairing. In unnormalised terms the right adjoint of Ind_P^G ∘ infl is δ_P ⊗ (−)_{N̄}, as in the conventions.
 
 -/
