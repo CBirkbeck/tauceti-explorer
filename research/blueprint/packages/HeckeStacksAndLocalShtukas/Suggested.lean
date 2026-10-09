@@ -457,8 +457,8 @@ def LocalField.weilActionSpdC (F : LocalField p) : F.WeilGroup →* Aut F.spdC :
 
 /-! ### Reductive groups, cocharacters and `B(G)` -/
 
-/-- ReductiveGroups (stand-in): reductive groups over `E`; the pinned carrier is
-`TauCeti.ReductiveAffineGroupSchemeCat E`, which the shared build does not compile. -/
+/-- ReductiveGroups (stand-in): reductive groups over `E`; the corresponding pinned library
+carrier is `TauCeti.ReductiveAffineGroupSchemeCat E`. -/
 def RedGrp (F : LocalField p) : Type 1 := sorry
 
 /-- ReductiveGroups (stand-in): homomorphisms of group schemes over `E`. -/
@@ -1954,8 +1954,10 @@ theorem BunG.trivTorsor.push_equivariant {G H : RedGrp F} (f : G ⟶ H) {T : VSh
 `Gr_{G,Spd Ĕ_μ,≤μ} → Bun_G` of the element `b`, in the orientation of Scholze–Weinstein, Lecture
 23: a point `x` goes to the bundle `E_x` on `X_S` with the modification `E_x ⇢ E_b` at the leg,
 bounded by `μ`, that the lattice `x` defines. The normalization required from BG2 is
-`κ(E_x) = κ(E_b) + μ♯`, with image in `B(G, μ)` for the orbit `μ(ξ)`.
-This interface requires the supplier to export this sign and its inverse-orientation dictionary. For `𝔾_m` and `μ(z) = z^d`, `E_x(dS♯) ≅ E_b`. -/
+`κ(E_x) = κ(E_b) + μ♯`. For the trivial target `b = 1`, the orbit `μ(ξ)` has image
+contained in `B(G, μ)`, equal to it for minuscule `μ`; this image bound is not asserted for
+general `b`. This interface requires the supplier to export the relative sign and its
+inverse-orientation dictionary. For `𝔾_m` and `μ(z) = z^d`, `E_x(dS♯) ≅ E_b`. -/
 def BunG.beauvilleLaszlo (G : RedGrp F) (b : G.ptsBreve) (μ : G.Cochar) :
     (GrG.oneLeg G μ).stack ⟶ BunG G := sorry
 
@@ -9725,8 +9727,8 @@ does not state, because the imported interfaces of this file cannot express it (
 lattices over `B_dR`, the loci `Y_I(S)`, ∞-categorical coherences, colimits in stable
 ∞-categories, objects of roadmaps that have no stand-in here). Such a clause is left out and is
 not replaced by a weaker hypothesis or by an opaque proposition; the declaration states the rest.
-The roadmap document and the roadmap give the full statement of every node, API item and unit
-test, and they govern wherever this file states less. -/
+README.md gives the full statement of every target, API item and unit test, and governs
+wherever this file states less. -/
 
 end TauCeti.HeckeShtukas
 
