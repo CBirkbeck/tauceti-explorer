@@ -47006,7 +47006,8 @@
     "PKG-AutomorphicLFunctionsAndLocalFactors"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-AutomorphicLFunctionsAndLocalFactors.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7919"
   },
   {
    "id": "PKG-AutomorphicSpectralTheory",
@@ -47975,8 +47976,9 @@
     "PKG-EllipticCurveModularityPartII~2"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-EllipticCurveModularityPartII~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7928"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7928",
+   "finishedAt": "2026-10-09T23:45:30Z"
   },
   {
    "id": "PKG-EllipticCurveModularityPartIIGL2TypeAbelianVarieties",
@@ -49861,7 +49863,8 @@
     "PKG-VectorBundlesAndIsocrystals~2"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-VectorBundlesAndIsocrystals~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7942"
   },
   {
    "id": "PKG-WeightsInEtaleCohomology",
