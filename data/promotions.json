@@ -2356,6 +2356,17 @@
     "data/blueprints/RankZeroOneBSD--BSD.7.md"
    ]
   },
+  "research/blueprint/packets/RefinedTraceMethods--RT.5.json": {
+   "promotedAt": "2026-10-09T06:27:12Z",
+   "review": "df70527c9b66156a",
+   "reviewDate": "2026-10-09",
+   "reviewer": "independent-review-REV-RefinedTraceMethods--RT.5~2",
+   "sha256": "f2be0ce715be1325c2f1baf6d2d037ee5fef8710ec66fd90b8a31d5e9dc8d39a",
+   "to": [
+    "data/blueprints/RefinedTraceMethods--RT.5.json",
+    "data/blueprints/RefinedTraceMethods--RT.5.md"
+   ]
+  },
   "research/blueprint/packets/RelativeFarguesFontaine--RF4.json": {
    "promotedAt": "2026-10-08T14:13:02Z",
    "review": "a5aac38de52085f3",
