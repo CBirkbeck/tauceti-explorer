@@ -11,7 +11,8 @@ contributors and reviewers converge on names and signatures. Every proof is `sor
 here is an implementation.
 
 Independent review REV-RefinedTraceMethods--RT.1~2 corrects the signatures below.
-The packet remains needs_changes because the RT.5 foundation ordering is unresolved. Coherent interfaces use quasicategories and mapping-space paths; ordinary
+The prior independent review is retained pending review of the third revision. Fine RT.5
+imports and the finitary invariant unit theorem supply the trace proof route. Coherent interfaces use quasicategories and mapping-space paths; ordinary
 models are shadows. Exact supplier requests remain for the coherent categorical,
 spectral and condensed infrastructure, and source proof gaps remain in the packet.
 Successful elaboration checks signatures; every mathematical proof remains a placeholder.
@@ -382,8 +383,11 @@ def THHcoeff (A : Obj ConnAlg) : Functor (Bimod A) Sp := sorry
 def bimoduleBaseChange {A B : Obj ConnAlg} (f : Hom A B) : Functor (Bimod A) (Bimod B) := sorry
 def THHcoeff.map {A B : Obj ConnAlg} (f : Hom A B) (M : Obj (Bimod A)) :
     Hom ((THHcoeff A).obj M) ((THHcoeff B).obj ((bimoduleBaseChange f).obj M)) := sorry
-/-- Compact-preservation data for −⊗_A M on Perf(A), supplied by K.4/RT.5. -/
+/-- Compact-preservation data for −⊗_A M on Perf(A), supplied by K.4/H.5. -/
 def PerfPreservation (A : Obj ConnAlg) (M : Obj (Bimod A)) : Type := sorry
+/-- Trace on Mod_A ≃ Ind(Perf(A)), using RT.5/dualizable-categories evaluation and
+coevaluation. Perf(A) is not asserted dualizable as a small category. The H.5 module
+comparison identifies evaluation with relative tensor and coevaluation with A. -/
 def categoricalBimoduleTrace (A : Obj ConnAlg) (M : Obj (Bimod A))
     (hM : PerfPreservation A M) : Obj Sp := sorry
 theorem THHcoeff.categoricalTrace (A : Obj ConnAlg) (M : Obj (Bimod A))
@@ -5836,9 +5840,10 @@ def tcOne (A : E1Ring) : (TC (THHcyc A)).homotopyGroup 0 := sorry
 
 end RT3
 
-/-- The cyclotomic trace `tr : IK → TC`, a natural transformation of localizing invariants
-(Blumberg–Gepner–Tabuada, Hesselholt–Nikolaus: corepresentability of `IK` on noncommutative
-motives). -/
+/-- The cyclotomic trace `tr : IK → TC` preserves exact sequences. Its source proof factors
+filtered-colimit-preserving cyclotomic THH through the finitary small-category restriction
+of RT.5/localizing-motives and then maps out of the sphere. TC itself is not factored as
+a finitary invariant (BGT Theorems 8.7/9.8; Hesselholt–Nikolaus §1.1.2). -/
 def cyclotomicTrace : RT3.IK.toFunctor ⟶ RT3.TCinv.toFunctor := sorry
 
 /-- `tr : K(A) → TC(A)` for an E₁-ring `A`: the composite `K → IK → TC` on `Perf(A)`. -/
@@ -5956,68 +5961,114 @@ equivalence (π_{−1} of the p-completions differ: 0 versus ℤ_p). -/
 example (p : ℕ) [Fact p.Prime] :
     ¬ IsIso (relativeTrace (RT3.ofRingMap (algebraMap ℤ (Localization.Away (p : ℤ))))) := sorry
 
+/-! ### RT.3/finitary-invariant-tensor-units
+The following coherent category interfaces are imported from EDS. RT.3 proves only the
+K-theory unit identification, by the Day localization argument of BGT §§5 and 7.
+RT.5/localizing-motives supplies its finitary small-category universal property; its
+relative κ-finitary tensor audit is not a prerequisite for this specialization. -/
+
+namespace RT3
+
+/-- Split-exact versus exact invariants, both preserving all filtered colimits. -/
+inductive FinitaryInvariantKind where
+  | additive
+  | localizing
+
+/-- Coherent category of finitary spectrum-valued invariants (EDS localization request). -/
+def finitaryInvariants (k : FinitaryInvariantKind) : Coherent.InftyCategory := sorry
+/-- Tensor unit of the localized spectral Day product. -/
+def invariantUnit (k : FinitaryInvariantKind) : Coherent.Obj (finitaryInvariants k) := sorry
+/-- K or IK, according to split-exact or exact preservation. -/
+def kTheoryInvariant (k : FinitaryInvariantKind) : Coherent.Obj (finitaryInvariants k) := sorry
+/-- Sphere-representable unit comparison, using the K.4/K.6 concrete model comparisons. -/
+def invariantUnitComparison (k : FinitaryInvariantKind) :
+    Coherent.Hom (invariantUnit k) (kTheoryInvariant k) := sorry
+
+end RT3
+
+/-- BGT Theorems 5.14–5.15, pp. 24–25: the finitary additive and localizing
+Day convolution units are connective K and concrete nonconnective IK, respectively. -/
+theorem finitaryInvariantTensorUnits (k : RT3.FinitaryInvariantKind) :
+    Nonempty (Coherent.InverseData (RT3.invariantUnitComparison k)) := sorry
+
 /-! ### RT.3/trace-uniqueness-multiplicative -/
 
 namespace RT3
 
-/-- E_∞-algebra structures on an invariant for the Day convolution product on additive
-(resp. localizing) invariants, whose unit is `K` (resp. `IK`). -/
-def EInftyStr (F : SmallStableCat ⥤ Spectrum) : Type := sorry
+/-- E∞-algebra structures for the localized Day convolution product. -/
+def EInftyStr (k : FinitaryInvariantKind) (F : SmallStableCat ⥤ Spectrum) : Type := sorry
 
-/-- E_∞-algebras in additive or localizing invariants. -/
-structure InvCAlg where
-  /-- The underlying invariant. -/
+/-- Ordinary model shadow of a finitary multiplicative invariant; the coherent mapping
+space retains all higher data. Filtered-colimit preservation is an actual field. -/
+structure InvCAlg (k : FinitaryInvariantKind) where
   toFunctor : SmallStableCat ⥤ Spectrum
-  /-- The E_∞-structure. -/
-  str : EInftyStr toFunctor
+  finitary : Limits.PreservesFilteredColimits toFunctor
+  str : EInftyStr k toFunctor
 
-/-- E_∞-algebra maps of invariants (points of the mapping space, up to homotopy). -/
-def InvCAlg.Hom (X Y : InvCAlg) : Type := sorry
-
-/-- The underlying natural transformation of an E_∞-map. -/
-def InvCAlg.Hom.toNatTrans {X Y : InvCAlg} (φ : InvCAlg.Hom X Y) :
+/-- Points of the coherent multiplicative mapping space. -/
+def InvCAlg.Hom {k : FinitaryInvariantKind} (X Y : InvCAlg k) : Type := sorry
+def InvCAlg.Hom.toNatTrans {k : FinitaryInvariantKind} {X Y : InvCAlg k} (φ : InvCAlg.Hom X Y) :
     X.toFunctor ⟶ Y.toFunctor := sorry
 
-/-- `K`, the unit of the Day convolution on additive invariants. -/
-def KCAlg : InvCAlg := ⟨KFunctor, sorry⟩
+def KCAlg : InvCAlg .additive := ⟨KFunctor, sorry, sorry⟩
+def THHCAlg (k : FinitaryInvariantKind) : InvCAlg k := ⟨THHinv.toFunctor, sorry, sorry⟩
+def IKCAlg : InvCAlg .localizing := ⟨IK.toFunctor, sorry, sorry⟩
 
-/-- `THH` with its E_∞-structure as an additive invariant. -/
-def THHCAlg : InvCAlg := ⟨THHinv.toFunctor, sorry⟩
+/-- Finite genuine p-typical TC stages TC^(n+1) with restriction transitions, from RT.2/TR.
+BGT 2013 Proposition 10.8 proves these stages preserve filtered colimits. -/
+def TCFiniteFunctor (p n : ℕ) [Fact p.Prime] : SmallStableCat ⥤ Spectrum := sorry
+def TCFiniteCAlg (p n : ℕ) [Fact p.Prime] : InvCAlg .additive :=
+  ⟨TCFiniteFunctor p n, sorry, sorry⟩
 
-/-- `IK`, the unit of the Day convolution on localizing invariants. -/
-def IKCAlg : InvCAlg := ⟨IK.toFunctor, sorry⟩
-
-/-- `TC` with its E_∞-structure as a localizing invariant. -/
-def TCCAlg : InvCAlg := ⟨TCinv.toFunctor, sorry⟩
-
-/-- The E₁-map underlying a map of E_∞-rings. -/
-def toE1Map {A B : EInftyRing} (f : A ⟶ B) : A.toE1 ⟶ B.toE1 := sorry
-
-/-- The coherent mapping Kan complex of multiplicative invariants, supplied by EDS E0
-and the requested early RT.5 motives foundation. Ordinary InvCAlg.Hom is its model shadow. -/
-def InvCAlg.mappingSpace (X Y : InvCAlg) : SSet.{0} := sorry
-instance (X Y : InvCAlg) : SSet.KanComplex (InvCAlg.mappingSpace X Y) := sorry
-/-- Coherent contraction data for a Kan complex (equivalence to a point, with homotopy
-inverse and higher coherence). The supplier owns the implementation of this witness. -/
+/-- Coherent mapping Kan complex of finitary multiplicative invariants (EDS E0). -/
+def InvCAlg.mappingSpace {k : FinitaryInvariantKind} (X Y : InvCAlg k) : SSet.{0} := sorry
+instance {k : FinitaryInvariantKind} (X Y : InvCAlg k) : SSet.KanComplex (InvCAlg.mappingSpace X Y) := sorry
+/-- Equivalence to a point, with homotopy inverse and higher coherence. -/
 def ContractibilityWitness (K : SSet.{0}) [SSet.KanComplex K] : Type := sorry
+
+/-- Homotopy limit of the K→TC^n multiplicative mapping spaces along restriction,
+including all compatibility paths. This is not an ordinary product of stage maps. -/
+def compatibleTraceSpace (p : ℕ) [Fact p.Prime] : SSet.{0} := sorry
+instance (p : ℕ) [Fact p.Prime] : SSet.KanComplex (compatibleTraceSpace p) := sorry
+/-- Connected components of the preceding coherent homotopy limit. -/
+def CompatibleTraceClass (p : ℕ) [Fact p.Prime] : Type := sorry
+/-- Class of the compatible finite-stage cyclotomic trace. -/
+def cyclotomicTraceClass (p : ℕ) [Fact p.Prime] : CompatibleTraceClass p := sorry
+
+/-- Projection of integral TC to modern p-typical TC. The finite genuine tower is
+compared to this model for THH of connective rings by RT.2/genuine-tc-agrees. -/
+def toPTypicalTC (p : ℕ) [Fact p.Prime] (X : CyclotomicSpectrum) :
+    TC X ⟶ TC.pTypical p ((CyclotomicSpectrum.toPTypical p).obj X) := sorry
+
+def connectiveTraceP (p : ℕ) [Fact p.Prime] (A : E1Ring) :
+    connectiveK (Perf A) ⟶ TC.pTypical p ((CyclotomicSpectrum.toPTypical p).obj (THHcyc A)) :=
+  cyclotomicTrace.ofRing A ≫ toPTypicalTC p (THHcyc A)
+
+/-- The E₁-map underlying an E∞-ring map. -/
+def toE1Map {A B : EInftyRing} (f : A ⟶ B) : A.toE1 ⟶ B.toE1 := sorry
 end RT3
 
-/-- Node `RefinedTraceMethods:RT.3/trace-uniqueness-multiplicative`. The E_∞-maps `K → THH`
-of additive invariants form a contractible space whose point is the Dennis trace; likewise the
-E_∞-maps `IK → TC` of localizing invariants, whose point is the cyclotomic trace; hence for an
-E_∞-ring `A` the trace `K(A) → TC(A)` is a map of E_∞-rings. (The refinement through the
-`TC^n` of Bökstedt–Hsiang–Madsen is not stated.) -/
+/-- BGT Theorems 7.3–7.4, pp. 32–33. K→THH (also IK→THH) and K→TC^n have
+contractible multiplicative mapping spaces. The coherent finite-stage tower supplies a
+unique limiting homotopy class. TC itself is not placed in the finitary Day category.
+For connective commutative A, genuine/modern TC comparison identifies the multiplicative
+trace into modern p-typical TC. -/
 theorem traceUniquenessMultiplicative :
-    (∃ φ : RT3.InvCAlg.Hom RT3.KCAlg RT3.THHCAlg,
-      Nonempty (RT3.ContractibilityWitness (RT3.InvCAlg.mappingSpace RT3.KCAlg RT3.THHCAlg)) ∧ φ.toNatTrans = dennisTrace) ∧
-    (∃ φ : RT3.InvCAlg.Hom RT3.IKCAlg RT3.TCCAlg,
-      Nonempty (RT3.ContractibilityWitness (RT3.InvCAlg.mappingSpace RT3.IKCAlg RT3.TCCAlg)) ∧
-        φ.toNatTrans = cyclotomicTrace) ∧
-    ∀ A : EInftyRing, ∃ (KA TCA : EInftyRing)
-      (eK : KA.toE1.toSpectrum ≅ connectiveK (Perf A.toE1))
-      (eT : TCA.toE1.toSpectrum ≅ TC (THHcyc A.toE1)) (φ : KA ⟶ TCA),
-      eK.inv ≫ E1Ring.toSpectrumMap (RT3.toE1Map φ) ≫ eT.hom = cyclotomicTrace.ofRing A.toE1 :=
-  sorry
+    (∃ φ : RT3.InvCAlg.Hom RT3.KCAlg (RT3.THHCAlg .additive),
+      Nonempty (RT3.ContractibilityWitness (RT3.InvCAlg.mappingSpace RT3.KCAlg (RT3.THHCAlg .additive))) ∧
+        φ.toNatTrans = dennisTrace) ∧
+    Nonempty (RT3.ContractibilityWitness (RT3.InvCAlg.mappingSpace RT3.IKCAlg (RT3.THHCAlg .localizing))) ∧
+    (∀ (p n : ℕ) [Fact p.Prime], Nonempty (RT3.ContractibilityWitness
+      (RT3.InvCAlg.mappingSpace RT3.KCAlg (RT3.TCFiniteCAlg p n)))) ∧
+    (∀ (p : ℕ) [Fact p.Prime] (x : RT3.CompatibleTraceClass p),
+      x = RT3.cyclotomicTraceClass p) ∧
+    ∀ (p : ℕ) [Fact p.Prime] (A : EInftyRing), A.toE1.IsConnective →
+      ∃ (KA TCA : EInftyRing)
+        (eK : KA.toE1.toSpectrum ≅ connectiveK (Perf A.toE1))
+        (eT : TCA.toE1.toSpectrum ≅ TC.pTypical p
+          ((CyclotomicSpectrum.toPTypical p).obj (THHcyc A.toE1))) (φ : KA ⟶ TCA),
+        eK.inv ≫ E1Ring.toSpectrumMap (RT3.toE1Map φ) ≫ eT.hom =
+          RT3.connectiveTraceP p A.toE1 := sorry
 
 /-! ### RT.3/goodwillie-calculus -/
 
