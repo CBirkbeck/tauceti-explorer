@@ -1,0 +1,10 @@
+{
+  "_about": "Roadmaps the stage-link closure of EllipticCurveModularityImaginaryQuadratic reaches only through an upward citation (a stage of a lower-tier roadmap requiring one layer of them). Under the order's rule that upward citations move down into the citing roadmap, that one layer's notion moves and the roadmap itself is no longer needed for Caraiani–Newton, so it is left out of the order files. Audited 2026-10-09 from data/atlas.json and research/blueprint/roadmaps/*.json.",
+  "roadmaps": {
+    "SieveMethodsAndPrimePatterns": {"layer": "SV.2", "needed_by": "ArithmeticStatistics:ST.2", "notion": "large sieve and bilinear sums, for the uniformity estimates that impose infinitely many local conditions"},
+    "FiniteFieldsAndCharacterSums": {"layer": "FF.1", "needed_by": "AnalyticNumberTheory:AN.1", "notion": "characters and elementary character sums, for Dirichlet L-functions"},
+    "AutomorphicPadicLFunctions": {"layer": "L3", "needed_by": "PadicFamilies:L5", "notion": "totally real abelian and CM p-adic L-function constructions, for the ordinary theory over totally real fields"},
+    "RelativeFarguesFontaine": {"layer": "RF4:vector-bundles", "needed_by": "AInfCohomology:AI.2", "notion": "linear patching of vector bundles, for Breuil–Kisin–Fargues modules"},
+    "PadicHodgeRegulators": {"layer": "L1", "needed_by": "SelmerIwasawaCohomology:L2, SelmerIwasawaCohomology:L4", "notion": "Bloch–Kato maps, for the finite local conditions of Selmer structures"}
+  }
+}
