@@ -1,5 +1,62 @@
 # REV-FIX-RT-AREA-iwasawa-2~2 — blocked continuation
 
+## Continuation receipt: codex-SOsCZg
+
+Codex, session `codex-SOsCZg`, 9 October 2026; input commit
+`457a6c2c24bf0731da73a90417da2fa350edcef6`.
+The bot confirmed this session's claim in
+[comment 6091229794](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6091229794).
+This session did none of the original fixes. **Blocked checkpoint: the required
+review scope still exceeds the live issue's authorized deliverables.**
+
+Read the complete live issue and claim confirmation, both protocols, WORKERS.md,
+UPSTREAM_GUIDE.md, all six finding/verifier records, the round-two fix report,
+and the existing review and handoff. Reproduced `issues.deliverables_complete`
+against the actual queue entry: **nine-output queue `False`; five-output live
+issue `True`**. L3-2 still lacks a review object; D.1 still carries the accepted
+`independent-review-REV-PadicHodgeRegulators--D.1~2`. Requested explicit
+authorization for those two additional packet and suggested-file reviews from
+the manager. No response had arrived at this checkpoint. No unlisted file or
+review verdict was changed.
+
+The finding-by-finding verdicts below remain the previous reviewers' work.
+This continuation freshly checked /4's central source contracts and pinned
+transpose reuse; it did not redo their all-node audits or review L3-2/D.1.
+The read-only current upstream StableReduction and QuiverRepresentations
+READMEs and suggested files, plus the reviewed L3/L6 library-coverage entries,
+were checked for the Fitting/transpose ownership boundary. The current Tau Ceti
+checkout differs from the baseline, so the transpose statement was read using
+its Git object at `f790474821cf4256814db967cb154e7af3d0c369`.
+
+Freshly read [Dasgupta–Kakde, arXiv:2010.00657v3](https://arxiv.org/pdf/2010.00657v3),
+§§2.2–2.3, pp.15–18; Lemma 3.9, pp.25–26; §6.1 and Lemma 6.1, p.40.
+Accessed 9 October 2026; PDF SHA-256
+`c1fe1cd8e1d218b4d44c58b1171c561b5955261340e345e51f9c82fa33b63099`.
+The published Annals version was not read.
+
+| Contract freshly checked | Result |
+|---|---|
+| Character ring and cardinality | Image of character evaluation; sufficient coefficient roots, regular element, finite quotient and square-presentation assumptions retained. Finite PID factors use the packet's separate finite-ideal reduction. |
+| Compound-image preimage | The packet uses `ι_J(adj_r(A_J)x)` and the right-sided compound/adjugate identity. For its two-row, three-column example, `(2,1,0)` maps to `(2,2)`; rank-zero and top exterior degree conventions agree. |
+| Transpose and sharp | The cokernel of the dual presentation depends on the presentation; the scalar transport is between inverse character sets. The pinned transpose carrier requires no minimality. For the zero module, the identity presentation gives zero transpose, whereas adding a free relation gives a free transpose; the Fitting formula retains the square-presentation condition. |
+
+| Fresh check | Result |
+|---|---|
+| PMIA packet checker | 487 nodes; zero errors, zero warnings |
+| L3 packet checker | 1,663 nodes; zero errors, 26 inherited short-API warnings outside this fix's scope |
+| PMIA native `lean-check` | Exit 0; 1,075 warnings, all uses of `sorry`; no errors or other warnings |
+| L3 native `lean-check` | Exit 1 at unresolved `research` import; declarations did not elaborate |
+| Source-excerpt inventory | Neither issue-named packet contains a node-source `excerpt` key |
+
+Checks ran sequentially with over 20 GB available; no library build or language
+server was started, and no compile remains running. Elaboration proves no
+admitted assertion. The named packets, Lean files, coverage, gaps and existing
+accepted reviews are unchanged. Only this receipt and the handoff changed.
+The exact administrative remedies in the preserved report below remain valid:
+authorize and perform the additional reviews, or reconcile the queue outputs
+with the live issue. Another identical two-packet dispatch cannot finish the
+nine-output completion check.
+
 ## Fresh source and compilation receipt from codex-p9uw1D
 
 Codex, session `codex-p9uw1D`, 9 October 2026, input commit
