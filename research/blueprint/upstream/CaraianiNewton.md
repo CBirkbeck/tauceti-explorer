@@ -5,35 +5,31 @@ Generated 2026-10-09 from tauceti-explorer main: `data/atlas.json` stage links, 
 **Needed.** The main roadmap, EllipticCurveModularityImaginaryQuadratic, reaches 94 roadmaps (601 layers) through the atlas's stage links. Node-by-node packet citations reach 55 more (Habiro, K-theory, Euler systems and others); those are stray citations to be removed, not needs.
 
 **Order.** A roadmap goes to Tau Ceti only once every roadmap it depends on is there. At roadmap level the 94 depend on each other in cycles, so:
-- Twelve groups of tightly coupled roadmaps form bundles (at most four roadmaps each). Each roadmap in a bundle keeps its own package; a bundle goes to Tau Ceti in one pull request, so its roadmaps may cite one another.
-- The 74 units (bundles and single roadmaps) are ordered by where their layers sit in the atlas's layer graph, then by a local search that minimises citations pointing upward.
+- Twelve groups of tightly coupled roadmaps are merged, each into one package (at most four roadmaps per group).
+- The remaining 74 units are ordered by where their layers sit in the atlas's layer graph, then by a local search that minimises citations pointing upward.
 - In this order, 61 reviewed stage links and 503 packet citations point upward, between 98 pairs of units. Each is a notion that moves down into the citing roadmap.
 - The order has 28 tiers. A unit in tier t depends only on Mathlib, Tau Ceti and units in tiers below t, once its upward citations have moved down.
-
-![The roadmaps Caraiani–Newton needs, by upstream tier](CaraianiNewton.svg)
-
-The diagram draws each tier as a row, tier 1 at the bottom, with only the essential dependencies (transitive reduction). The dot beside each roadmap shows its state: no plan yet, plan in progress, plan accepted, or package accepted.
 
 Each roadmap line shows: packets accepted/total, package status, the layers Caraiani–Newton needs out of the roadmap's total, and the upward citations to move down.
 
 ## Tier 1
 
 - **FoundationsAndLibraryIntegration** — Foundations, existing libraries, and proof integrity. No plan yet · package not yet · CN needs 5/6 layers
-- **ReductiveGroupsPartII** — Reductive groups, Part II: local structure and arithmetic models. No plan yet · package not yet · CN needs 7/7 layers · move down: AlgebraicModuliForArithmeticGeometry (1)
-- **PadicMeasuresIwasawaAlgebras** — P-adic measures, completed group algebras, and characteristic ideals. Plan 0/1 accepted · package not yet · CN needs 7/8 layers · move down: ClassicalArithmeticCompletion (3)
+- **ReductiveGroupsPartII** — Reductive groups, Part II: local structure and arithmetic models. Plan 0/1 accepted · package not yet · CN needs 7/7 layers · move down: AlgebraicModuliForArithmeticGeometry (1)
+- **PadicMeasuresIwasawaAlgebras** — P-adic measures, completed group algebras, and characteristic ideals. Plan 1/1 accepted · package not yet · CN needs 7/8 layers
 
 ## Tier 2
 
 - **AdelicAlgebraicGroups** — Adelic algebraic groups and arithmetic quotients. Plan 1/1 accepted · package not yet · CN needs 4/6 layers · move down: ModularCurvesPartII (2)
-- **SchemeAndStackFoundations** — Scheme, stack, cohomology and intersection foundations. Plan 1/1 accepted · package not yet · CN needs 6/7 layers · move down: PerfectoidSpaces (1), DeformationAndDerivedPatchingAlgebra (1)
-- **SmoothRepresentationsOfLocalGroups** — Smooth representations of local groups. No plan yet · package not yet · CN needs 10/11 layers · move down: EnhancedDerivedSheaves (1) · cites outside the 94: ExcursionOperatorsAndSpectralAction (3), LanglandsParameterStacks (2)
+- **SchemeAndStackFoundations** — Scheme, stack, cohomology and intersection foundations. Plan 2/8 accepted · package not yet · CN needs 6/7 layers · move down: PerfectoidSpaces (1), DeformationAndDerivedPatchingAlgebra (1)
+- **SmoothRepresentationsOfLocalGroups** — Smooth representations of local groups. Plan 0/2 accepted · package not yet · CN needs 10/11 layers · move down: EnhancedDerivedSheaves (1) · cites outside the 94: ExcursionOperatorsAndSpectralAction (3), LanglandsParameterStacks (2)
 
 ## Tier 3
 
 - **IntegralHeckeAndGaloisDeterminants** — Integral Hecke actions, determinants and interpolation. Plan 1/1 accepted · package accepted · CN needs 6/7 layers · move down: ArithmeticGaloisDuality (6), DerivedDeRhamCohomology (6) · cites outside the 94: LanglandsParameterStacks (23)
-- **GeometryOfNumbersAndQuadraticArithmetic** — Geometry of numbers, quadratic forms and homogeneous arithmetic. Plan 0/1 accepted · package not yet · CN needs 3/7 layers · move down: ClassicalArithmeticCompletion (1) · cites outside the 94: GeneralAlgebraicKTheory (12), MetaplecticAutomorphicForms (2)
-- **Bundle:** AdicEtaleGeometry + AdicSpacesPartII + DiamondsAndVStacks + PerfectoidSpaces
-  - **AdicEtaleGeometry** — Analytic adic geometry required for diamonds. Plan 1/1 accepted · package not yet · CN needs 5/5 layers · move down: ClassicalAdicEtaleCohomology (2), PerfectoidQuotients (1)
+- **GeometryOfNumbersAndQuadraticArithmetic** — Geometry of numbers, quadratic forms and homogeneous arithmetic. Plan 0/1 accepted · package not yet · CN needs 3/7 layers · move down: ClassicalArithmeticCompletion (1) · cites outside the 94: GeneralAlgebraicKTheory (14), StableHomotopyKTheory (6), MetaplecticAutomorphicForms (2)
+- **Merged package:** AdicEtaleGeometry + AdicSpacesPartII + DiamondsAndVStacks + PerfectoidSpaces
+  - **AdicEtaleGeometry** — Analytic adic geometry required for diamonds. Plan 1/1 accepted · package accepted · CN needs 5/5 layers · move down: ClassicalAdicEtaleCohomology (2), PerfectoidQuotients (1)
   - **AdicSpacesPartII** — Adic Spaces PartII. Plan 1/1 accepted · package not yet · CN needs 7/8 layers · move down: AlgebraicModuliForArithmeticGeometry (11), ClassicalAdicEtaleCohomology (3), AdicCoefficientsAndComparisons (2), DeformationAndDerivedPatchingAlgebra (1), ModularCurvesPartII (1) · cites outside the 94: TropicalAndBerkovichArithmetic (1)
   - **DiamondsAndVStacks** — Pro-étale descent, diamonds and small v-stacks. Plan 1/1 accepted · package not yet · CN needs 7/7 layers · cites outside the 94: TropicalAndBerkovichArithmetic (2)
   - **PerfectoidSpaces** — Perfectoid rings and spaces. Plan 1/2 accepted · package not yet · CN needs 9/10 layers · move down: PerfectoidQuotients (9), PadicHodgeTheory (9), DerivedDeRhamCohomology (7), ClassicalAdicEtaleCohomology (4) · cites outside the 94: TropicalAndBerkovichArithmetic (2)
@@ -41,8 +37,8 @@ Each roadmap line shows: packets accepted/total, package status, the layers Cara
 ## Tier 4
 
 - **EnhancedDerivedSheaves** — Enhanced derived categories of sheaves. Plan 0/2 accepted · package not yet · CN needs 7/11 layers · move down: DerivedDeRhamCohomology (15) · cites outside the 94: StableHomotopyKTheory (2)
-- **AlgebraicModuliForArithmeticGeometry** — Algebraic moduli and representability for arithmetic geometry. Plan 1/1 accepted · package not yet · CN needs 10/12 layers
-- **LocallyAnalyticDistributions** — Locally analytic distributions, growth, and character spaces. Plan 0/1 accepted · package not yet · CN needs 5/5 layers
+- **AlgebraicModuliForArithmeticGeometry** — Algebraic moduli and representability for arithmetic geometry. Plan 1/2 accepted · package not yet · CN needs 10/12 layers
+- **LocallyAnalyticDistributions** — Locally analytic distributions, growth, and character spaces. Plan 0/1 accepted · package not yet · CN needs 5/5 layers · move down: PadicDifferentialEquationsAndRigidCohomology (1)
 - **DiophantineApproximationAndTranscendence** — Diophantine approximation and transcendence. Plan 0/1 accepted · package not yet · CN needs 2/6 layers · move down: ClassicalArithmeticCompletion (1)
 
 ## Tier 5
@@ -61,14 +57,14 @@ Each roadmap line shows: packets accepted/total, package status, the layers Cara
 
 ## Tier 8
 
-- **Bundle:** ArithmeticGaloisDuality + SelmerIwasawaCohomology
+- **Merged package:** ArithmeticGaloisDuality + SelmerIwasawaCohomology
   - **ArithmeticGaloisDuality** — Global Galois duality and compact coefficients. Plan 0/1 accepted · package not yet · CN needs 7/8 layers
   - **SelmerIwasawaCohomology** — Selmer groups, continuous integral cohomology, and Iwasawa cohomology. Plan 0/1 accepted · package not yet · CN needs 3/5 layers · move down: PadicHodgeRegulators (3) · cites outside the 94: EulerSystemsCyclotomicMainConjecture (3), IntegralIwasawaTheory (2)
 - **NeronModelsAndSemistableAbelianVarieties** — Néron models and semistable abelian varieties. Plan 1/1 accepted · package not yet · CN needs 6/6 layers · move down: PadicHodgeTheory (2) · cites outside the 94: NeronModelsAndSemistableAbelianVarietiesPartII (1)
 
 ## Tier 9
 
-- **Bundle:** CrystallineCohomology + DerivedDeRhamCohomology
+- **Merged package:** CrystallineCohomology + DerivedDeRhamCohomology
   - **CrystallineCohomology** — Crystalline cohomology, de Rham–Witt and logarithmic foundations. Plan 1/2 accepted · package not yet · CN needs 8/11 layers · move down: AInfCohomology (16), PadicDifferentialEquationsAndRigidCohomology (9), FiniteFlatGroupsAndIntegralPadicHodgeTheory (6), PadicHodgeTheory (5), PrismaticCohomology (2), PerfectoidQuotients (2) … · cites outside the 94: SchemeKTheoryOperations (6), HabiroRings (6)
   - **DerivedDeRhamCohomology** — Derived de Rham cohomology and its algebraic foundations. Plan 1/1 accepted · package accepted · CN needs 4/7 layers · move down: PerfectoidQuotients (16), AInfCohomology (3), PadicHodgeTheory (2)
 - **HeightsRationalPointsAndObstructions** — Heights, rational points and obstructions. Plan 0/1 accepted · package not yet · CN needs 2/7 layers · move down: FaltingsFinitenessAndIsogenyTheorems (1)
@@ -77,15 +73,15 @@ Each roadmap line shows: packets accepted/total, package status, the layers Cara
 
 - **DeformationAndDerivedPatchingAlgebra** — Commutative algebra for deformation theory and patching. Plan 2/5 accepted · package not yet · CN needs 9/9 layers · move down: CompletedCohomologyPartII (3)
 - **FiniteFlatGroupsAndIntegralPadicHodgeTheory** — Finite flat group schemes and integral p-adic Hodge theory. Plan 0/1 accepted · package not yet · CN needs 6/6 layers · move down: PadicHodgeTheory (22), PadicDifferentialEquationsAndRigidCohomology (1) · cites outside the 94: VectorBundlesAndIsocrystals (2), PhiGammaModulesAndIwasawaCohomology (2)
-- **Bundle:** AdicCoefficientsAndComparisons + ClassicalAdicEtaleCohomology + EtaleDualityAndPerverseSheaves + LefschetzPencilsAndVanishingCycles
+- **Merged package:** AdicCoefficientsAndComparisons + ClassicalAdicEtaleCohomology + EtaleDualityAndPerverseSheaves + LefschetzPencilsAndVanishingCycles
   - **AdicCoefficientsAndComparisons** — Adic coefficients and comparison with schemes. Plan 1/1 accepted · package accepted · CN needs 6/7 layers · move down: DiamondSixOperations (13), DiamondEtaleCohomology (12)
-  - **ClassicalAdicEtaleCohomology** — The classical analytic cohomology inputs to diamonds. Plan 3/4 accepted · package not yet · CN needs 10/10 layers · cites outside the 94: TropicalAndBerkovichArithmetic (20)
+  - **ClassicalAdicEtaleCohomology** — The classical analytic cohomology inputs to diamonds. Plan 3/5 accepted · package not yet · CN needs 10/10 layers · cites outside the 94: TropicalAndBerkovichArithmetic (20)
   - **EtaleDualityAndPerverseSheaves** — Étale duality, cycle classes and perverse sheaves. Plan 0/2 accepted · package not yet · CN needs 13/13 layers · move down: DeligneWeightsAndPurity (15)
   - **LefschetzPencilsAndVanishingCycles** — Lefschetz pencils, nearby cycles and vanishing cycles. Plan 1/2 accepted · package not yet · CN needs 9/10 layers · move down: DeligneWeightsAndPurity (15), FiniteFieldsAndCharacterSums (1), IgusaVarietiesAndTorsionConcentration (1)
 
 ## Tier 11
 
-- **Bundle:** ArithmeticLocallySymmetricSpaces + AutomorphicFormsOnReductiveGroups
+- **Merged package:** ArithmeticLocallySymmetricSpaces + AutomorphicFormsOnReductiveGroups
   - **ArithmeticLocallySymmetricSpaces** — Arithmetic locally symmetric spaces and their cohomology. Plan 1/1 accepted · package not yet · CN needs 8/8 layers · move down: AutomorphicSpectralTheory (5), CompletedCohomologyPartII (3), AutomorphicGaloisRepresentationsPartII (3) · cites outside the 94: AdditiveCombinatorics (2)
   - **AutomorphicFormsOnReductiveGroups** — Automorphic forms on reductive groups. Plan 0/1 accepted · package not yet · CN needs 6/7 layers · move down: ShimuraData (5), AutomorphicLFunctionsAndLocalFactors (2), AutomorphicSpectralTheory (2), ModularCurvesPartII (1)
 - **ModularCurvesPartII** — Modular Curves PartII. Plan 0/3 accepted · package not yet · CN needs 20/20 layers · move down: WeightsInEtaleCohomology (1)
@@ -105,19 +101,19 @@ Each roadmap line shows: packets accepted/total, package status, the layers Cara
 ## Tier 13
 
 - **AutomorphicSpectralTheory** — Automorphic spectral theory and trace distributions. Plan 1/1 accepted · package not yet · CN needs 7/7 layers · move down: EndoscopicTransferAndUnitaryTraceComparison (3) · cites outside the 94: QSeriesPartitionsAndMockModularForms (13), EllipticRegulators (3)
-- **Bundle:** AInfCohomology + PadicHodgeTheory + PerfectoidQuotients + PrismaticCohomology
+- **Merged package:** AInfCohomology + PadicHodgeTheory + PerfectoidQuotients + PrismaticCohomology
   - **AInfCohomology** — Integral A_inf cohomology and Breuil–Kisin–Fargues structures. Plan 1/2 accepted · package not yet · CN needs 9/10 layers · move down: RelativeFarguesFontaine (8), CohomologyComparisons (8) · cites outside the 94: RefinedTraceMethods (7), VectorBundlesAndIsocrystals (3)
   - **PadicHodgeTheory** — P-adic Hodge theory and geometric comparison. Plan 0/2 accepted · package not yet · CN needs 9/10 layers · move down: CohomologyComparisons (10), AutomorphicGaloisRepresentations (6), GL2AutomorphicRepresentationsAndTransfer (2), HilbertModularVarietiesAndShimuraCurves (1) · cites outside the 94: PhiGammaModulesAndIwasawaCohomology (33)
   - **PerfectoidQuotients** — Perfectoid quotients and their prismatic prerequisites. Plan 1/1 accepted · package accepted · CN needs 7/7 layers
   - **PrismaticCohomology** — Prismatic cohomology: relative, absolute, Nygaard and log variants. Plan 0/2 accepted · package not yet · CN needs 3/9 layers · move down: HodgeTateAndCanonicalSubgroups (3) · cites outside the 94: LanglandsParameterStacks (10), RefinedTraceMethods (4), QWittVectors (4), VectorBundlesAndIsocrystals (2)
-- **Bundle:** PELModuli + ShimuraVarieties
+- **Merged package:** PELModuli + ShimuraVarieties
   - **PELModuli** — Siegel and PEL moduli problems. Plan 0/1 accepted · package not yet · CN needs 6/7 layers · move down: HilbertModularVarietiesAndShimuraCurves (2), ShimuraCompactifications (1)
   - **ShimuraVarieties** — Complex Shimura varieties and canonical models. Plan 1/2 accepted · package not yet · CN needs 8/10 layers · move down: ShimuraCompactifications (1) · cites outside the 94: ComplexMultiplicationAndExplicitReciprocity (5)
 
 ## Tier 14
 
 - **CohomologyComparisons** — Cohomology comparisons: integral diagrams and rational period realizations. Plan 1/1 accepted · package not yet · CN needs 4/7 layers · move down: HodgeTateAndCanonicalSubgroups (3), PerfectoidShimuraVarieties (2) · cites outside the 94: RefinedTraceMethods (1)
-- **Bundle:** AnalyticNumberTheory + ArithmeticStatistics
+- **Merged package:** AnalyticNumberTheory + ArithmeticStatistics
   - **AnalyticNumberTheory** — Analytic number theory, zeta functions and prime distribution. Plan 0/2 accepted · package not yet · CN needs 5/10 layers · move down: SieveMethodsAndPrimePatterns (2), FiniteFieldsAndCharacterSums (1) · cites outside the 94: LogicAndDefinabilityInNumberTheory (2), ProbabilisticAndMetricNumberTheory (1)
   - **ArithmeticStatistics** — Arithmetic statistics, counting fields and Selmer distributions. Plan 1/1 accepted · package not yet · CN needs 3/6 layers · move down: SieveMethodsAndPrimePatterns (2) · cites outside the 94: AbelianSchemesAndArithmeticModuliPartII (12), ComplexMultiplicationAndExplicitReciprocity (4), FunctionFieldArithmetic (4), InductionRestrictionPartII (4)
 - **HilbertModularVarietiesAndShimuraCurves** — Hilbert Modular Varieties And Shimura Curves. Plan 2/2 accepted · package not yet · CN needs 12/13 layers · move down: GL2AutomorphicRepresentationsAndTransfer (12), AutomorphicBundles (5), ShimuraCompactifications (5), AutomorphicGaloisRepresentations (2), ArakelovGeometryAndAbelianHeights (1) · cites outside the 94: AbelianSchemesAndArithmeticModuliPartII (2)
@@ -127,15 +123,15 @@ Each roadmap line shows: packets accepted/total, package status, the layers Cara
 ## Tier 15
 
 - **SieveMethodsAndPrimePatterns** — Sieve methods, prime gaps and prime patterns. Plan 0/1 accepted · package not yet · CN needs 3/6 layers
-- **Bundle:** ColemanIntegration + ComputationalNumberTheory + DirichletPadicLFunctions + FiniteFieldsAndCharacterSums
+- **Merged package:** ColemanIntegration + ComputationalNumberTheory + DirichletPadicLFunctions + FiniteFieldsAndCharacterSums
   - **ColemanIntegration** — Coleman integration and noncritical Dirichlet L-values. Plan 1/1 accepted · package not yet · CN needs 2/4 layers · move down: PadicHodgeRegulators (3), AutomorphicPadicLFunctions (1) · cites outside the 94: Polylogarithms (11), BorelRegulators (2)
   - **ComputationalNumberTheory** — Certified computational number theory and arithmetic data. Plan 1/1 accepted · package not yet · CN needs 3/6 layers
   - **DirichletPadicLFunctions** — Dirichlet p-adic L-functions, special values, and Eisenstein measures. Plan 5/6 accepted · package not yet · CN needs 5/6 layers · cites outside the 94: QSeriesPartitionsAndMockModularForms (4), IntegralIwasawaTheory (2), StableHomotopyKTheory (1)
   - **FiniteFieldsAndCharacterSums** — Finite fields, character sums, finite rings and coding interfaces. Plan 2/5 accepted · package not yet · CN needs 2/6 layers · cites outside the 94: WeilConjectures (7), AdditiveCombinatorics (4), FunctionFieldArithmetic (4)
-- **Bundle:** GlobalGaloisDeformations + LocalGaloisDeformationRings
+- **Merged package:** GlobalGaloisDeformations + LocalGaloisDeformationRings
   - **GlobalGaloisDeformations** — Global Galois deformation rings. Plan 1/1 accepted · package not yet · CN needs 6/8 layers
   - **LocalGaloisDeformationRings** — Local Galois deformation rings and their components. Plan 1/1 accepted · package not yet · CN needs 7/8 layers · cites outside the 94: PadicLocalLanglandsForGL2Qp (1)
-- **Bundle:** AutomorphicBundles + ShimuraCompactifications
+- **Merged package:** AutomorphicBundles + ShimuraCompactifications
   - **AutomorphicBundles** — Automorphic bundles and classical automorphic forms. Plan 2/2 accepted · package not yet · CN needs 4/9 layers · move down: HodgeTateAndCanonicalSubgroups (3)
   - **ShimuraCompactifications** — Toroidal compactifications and boundary geometry. Plan 1/2 accepted · package not yet · CN needs 7/9 layers · move down: HodgeTateAndCanonicalSubgroups (2), AutomorphicGaloisRepresentationsPartII (1)
 - **RelativeFarguesFontaine** — Relative Fargues–Fontaine curves and period geometry. Plan 1/2 accepted · package not yet · CN needs 6/11 layers · cites outside the 94: VectorBundlesAndIsocrystals (13), BunGAndNewtonStrata (12)
@@ -143,12 +139,12 @@ Each roadmap line shows: packets accepted/total, package status, the layers Cara
 
 ## Tier 16
 
-- **Bundle:** ModularSymbolsPadicLFunctions + PadicFamilies
+- **Merged package:** ModularSymbolsPadicLFunctions + PadicFamilies
   - **ModularSymbolsPadicLFunctions** — Modular symbols and analytic p-adic L-functions of modular forms. Plan 0/1 accepted · package not yet · CN needs 2/5 layers
   - **PadicFamilies** — Hida and Coleman families, period modules, and family L-functions. Plan 0/1 accepted · package not yet · CN needs 4/8 layers · move down: OrdinaryAutomorphicFormsAndModularityLifting (6), AutomorphicGaloisRepresentations (1), AutomorphicPadicLFunctions (1), GL2AutomorphicRepresentationsAndTransfer (1) · cites outside the 94: KatoEulerSystems (1), NoncommutativeAndEquivariantIwasawa (1)
 - **ArakelovGeometryAndAbelianHeights** — Arakelov geometry and heights of abelian varieties. No plan yet · package not yet · CN needs 6/6 layers
 - **AnabelianGeometryAndNonabelianChabauty** — Anabelian geometry and nonabelian Chabauty. Plan 1/1 accepted · package not yet · CN needs 5/7 layers
-- **HodgeTateAndCanonicalSubgroups** — Hodge–Tate theory, canonical subgroups, and automorphic period maps. Plan 1/2 accepted · package not yet · CN needs 5/9 layers · move down: PerfectoidShimuraVarieties (5) · cites outside the 94: OverconvergentAutomorphicForms (1)
+- **HodgeTateAndCanonicalSubgroups** — Hodge–Tate theory, canonical subgroups, and automorphic period maps. Plan 2/2 accepted · package not yet · CN needs 5/9 layers · move down: PerfectoidShimuraVarieties (5) · cites outside the 94: OverconvergentAutomorphicForms (1)
 
 ## Tier 17
 
