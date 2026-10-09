@@ -29550,7 +29550,8 @@
    ],
    "avoidAccountOf": "BP-SelmerIwasawaCohomology",
    "prompt": "research/blueprint/prompts/REV-SelmerIwasawaCohomology.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #485"
   },
   {
    "id": "BP-SerreWeightAndLevelOptimisation",
@@ -47008,8 +47009,9 @@
     "PKG-AutomorphicLFunctionsAndLocalFactors"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-AutomorphicLFunctionsAndLocalFactors.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7919"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7919",
+   "finishedAt": "2026-10-09T23:59:32Z"
   },
   {
    "id": "PKG-AutomorphicSpectralTheory",
@@ -47191,8 +47193,9 @@
     "PKG-ClassicalSerreModularity~2"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-ClassicalSerreModularity~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7922"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7922",
+   "finishedAt": "2026-10-09T23:59:35Z"
   },
   {
    "id": "PKG-CohomologyComparisons",
@@ -47551,8 +47554,9 @@
     "PKG-DeligneWeightsAndPurity~2"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-DeligneWeightsAndPurity~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7924"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7924",
+   "finishedAt": "2026-10-09T23:59:39Z"
   },
   {
    "id": "PKG-DerivedDeRhamCohomology",
@@ -79948,8 +79952,8 @@
     "FIX-RT-AREA-iwasawa-2~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-2~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6219"
+   "state": "pending",
+   "note": "released on GitHub issue #6219"
   },
   {
    "id": "RT-AREA-iwasawa-3",
@@ -81257,8 +81261,8 @@
     "FIX-RT-AREA-algebraicgeometry~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-algebraicgeometry~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #5702"
+   "state": "external",
+   "note": "claimed on GitHub issue #5702"
   },
   {
    "id": "RT-AREA-padic-1",
@@ -81706,8 +81710,8 @@
     "FIX-RT-AREA-padic-1~3"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-padic-1~3.md",
-   "state": "pending",
-   "note": "released on GitHub issue #5704"
+   "state": "external",
+   "note": "claimed on GitHub issue #5704"
   },
   {
    "id": "RT-AREA-padic-2",
@@ -105358,8 +105362,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/PKG-GeneralAlgebraicKTheory~codex.md"
+   "state": "external",
+   "prompt": "research/blueprint/prompts/PKG-GeneralAlgebraicKTheory~codex.md",
+   "note": "claimed on GitHub issue #8076"
   },
   {
    "id": "PKG-StableHomotopyKTheory~codex",
@@ -105377,8 +105382,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/PKG-StableHomotopyKTheory~codex.md"
+   "state": "external",
+   "prompt": "research/blueprint/prompts/PKG-StableHomotopyKTheory~codex.md",
+   "note": "claimed on GitHub issue #8077"
   },
   {
    "id": "PKG-DiophantineApproximationAndTranscendence~codex",
