@@ -15,6 +15,11 @@ All declarations have implementation status `unchecked`. The packet and this
 reader state the mathematical targets; the suggested Lean file supplies honest
 component signatures and identifies the full signatures it cannot yet state.
 
+Independent review `REV-HodgeTateAndCanonicalSubgroups--T6~2` accepts this
+planning pass after the corrections recorded below: 56 targets verified and
+12 corrected. The [review report](../reviews/REV-HodgeTateAndCanonicalSubgroups--T6~2.md)
+records source access, supplier checks and the remaining closure work.
+
 ## Conventions and construction route
 
 A log structure is a monoid sheaf on the ordinary étale ringed site, with unit
@@ -23,7 +28,8 @@ unit fibre. Generic logification and pullback belong to
 `CrystallineCohomology:CR.5:log-algebra`; that supplier must extend its current
 scheme setting to arbitrary ringed sites. The analytic specialization starts
 with the existing A1 étale-site interface. A chart has its structural image in
-the specified plus sheaf. By contrast, the index in the Kummer étale criterion
+the specified plus sheaf. For monoid algebras, the plus ring is the integral
+closure of the raw plus algebra (E14). By contrast, the index in the Kummer étale criterion
 is invertible in **O**, without requiring invertibility in **O⁺**. Fine and fs
 are étale-local chart conditions. Saturated products use the fs category.
 
@@ -54,7 +60,7 @@ it is still proposed, so current prerequisites retain the reviewed P8 citation.
 
 For Riemann–Hilbert, k is a complete discretely valued p-adic field with perfect
 residue field, and K may be any perfectoid extension containing k∞ unless the
-particular theorem requires the completion of an algebraic closure. Structural
+particular theorem requires the completion of an algebraic closure. For the arithmetic Galois-invariant formula choose K=k̂∞. Structural
 periods include a further filtration completion after inverting t, even with
 trivial logs. Residues are normalized in [0,1). Tensor equivalences require
 unipotent geometric boundary monodromy; the ramified-pullback isomorphisms have
@@ -130,7 +136,7 @@ data/library-coverage.json has no direct T6 record; neighbouring HodgeTate dupli
 | Stage | Coverage | Remaining closure |
 | --- | --- | --- |
 | `HodgeTateAndCanonicalSubgroups:T6:log-sites` | planned | Supplier closure: the R0 normalization request (with [Han20], [Lüt93], [Bar76]), the R3 request for étale descent of coherent modules (DLLZ-adic Proposition A.10), the CR.5:log-algebra request for topos-generic log structures, and the H0 request items. Add the stage edges from H0, R3, A4, P0, P1 and P3 listed in the dependency-line restructure entry. |
-| `HodgeTateAndCanonicalSubgroups:T6:comparison` | planned | Adopt PadicHodgeTheory:P8:primitive and T6:log-primitive (FIX-RT-AREA-padic-1, finding /24) and replace the PadicHodgeTheory:P8 citations by P8:primitive nodes. Settle the owner of the Liu–Zhu ordinary Riemann–Hilbert package (PAPER-LIU-ZHU-17 route 8) and cite it from log-riemann-hilbert, arithmetic-log-de-rham, log-rh-pullback, unipotent-log-tensor and the canonical-coefficient nodes. Close the PerfectoidSpaces Part II decompletion, ALS.1 Part II rigidity and V8.general embedding requests, find an early owner for the CM special-point inputs, and the external inputs named in the gaps (Katz, André–Baldassarri, Kisin, Huber's comparison, log purity). |
+| `HodgeTateAndCanonicalSubgroups:T6:comparison` | planned | Adopt PadicHodgeTheory:P8:primitive and T6:log-primitive (FIX-RT-AREA-padic-1, finding /24) and replace the PadicHodgeTheory:P8 citations by P8:primitive nodes. Settle the owner of the Liu–Zhu ordinary Riemann–Hilbert package (PAPER-LIU-ZHU-17 route 8) and cite it from log-riemann-hilbert, arithmetic-log-de-rham, log-rh-pullback, unipotent-log-tensor and the canonical-coefficient nodes. Close the PerfectoidSpaces Part II decompletion, ALS.1 Part II rigidity and V8.general embedding requests, find an early owner for the CM special-point inputs, and the external inputs named in the gaps (Katz, André–Baldassarri, Kisin, Huber's comparison, log purity). State the coefficient version of formal horizontal trivialization requested from P8:local-rational, including compatibility with filtration completion; the untwisted Poincaré complex alone does not supply the two-lattice frame. |
 | `HodgeTateAndCanonicalSubgroups:T6` | planned | Apply the narrowed finite-level texts of FIX-RT-AREA-padic-1 (finding /4) to T6, T6:comparison and the roadmap summary, and the dependency-line changes of the restructure entries. |
 
 Prerequisites below distinguish existing library declarations, exact supplier nodes, local targets and supplier-stage requests. A request records missing mathematical content; its stage label is not evidence that a theorem is already available. The proposed primitive split is recorded under ownership and is not inserted as an existing prerequisite.
@@ -216,16 +222,17 @@ Proposed library placement: `TauCeti/AlgebraicGeometry/LogAdic/Sites`, namespace
 
 `HodgeTateAndCanonicalSubgroups:T6:log-sites/toric-log-adic-space` · construction · proposed declaration `TauCeti.LogAdic.MonoidAlgebraLog`.
 
-For a Huber pair (R,R⁺) with ring of definition R₀ adic for a finitely generated ideal I and a monoid P, (R[P],R⁺[P]) with ring of definition R₀[P] and ideal of definition IR₀[P] is a Huber pair (Lemma 2.2.11); (R⟨P⟩,R⁺⟨P⟩) is its completion and Spa(R[P],R⁺[P])=Spa(R⟨P⟩,R⁺⟨P⟩) (Remark 2.2.12). If P is finitely generated and R is analytic and strongly noetherian, or finitely generated over a noetherian ring of definition, then so is R⟨P⟩, Spa(R⟨P⟩,R⁺⟨P⟩) is étale sheafy, and the formation of Spa(R⟨P⟩,R⁺⟨P⟩)→Spa(R,R⁺) is compatible with rational localisation (Lemma 2.2.13). When it is étale sheafy, Spa(R⟨P⟩,R⁺⟨P⟩) carries the log structure P^log associated with the constant pre-log structure P_X→O_{X_ét}, a↦e^a (Definition 2.2.17, Convention 2.2.18). For a locally noetherian adic space Y with trivial log structure and P finitely generated, gluing over noetherian affinoid opens gives a morphism of log adic spaces Y⟨P⟩→Y (Example 2.2.19); for P toric and Y=Spa(k,k⁺) this is an affinoid toric log adic space, and for P=ℕⁿ it is the unit polydisc Dⁿ with the log structure associated with (a₁,…,aₙ)↦T₁^{a₁}⋯Tₙ^{aₙ} (Examples 2.2.20-2.2.21).
+For a Huber pair (R,R⁺) with ring of definition R₀ adic for a finitely generated ideal I and a monoid P, (R[P],R[P]⁺), where R[P]⁺ is the integral closure of the raw monoid subring R⁺[P] in R[P], with ring of definition R₀[P] and ideal of definition IR₀[P] is a Huber pair (corrected form of Lemma 2.2.11; source issue E14); (R⟨P⟩,R⁺⟨P⟩) is its completion and Spa(R[P],R[P]⁺)=Spa(R⟨P⟩,R⁺⟨P⟩) (Remark 2.2.12). If P is finitely generated and R is analytic and strongly noetherian, or finitely generated over a noetherian ring of definition, then so is R⟨P⟩, Spa(R⟨P⟩,R⁺⟨P⟩) is étale sheafy, and the formation of Spa(R⟨P⟩,R⁺⟨P⟩)→Spa(R,R⁺) is compatible with rational localisation (Lemma 2.2.13). When it is étale sheafy, Spa(R⟨P⟩,R⁺⟨P⟩) carries the log structure P^log associated with the constant pre-log structure P_X→O_{X_ét}, a↦e^a (Definition 2.2.17, Convention 2.2.18). For a locally noetherian adic space Y with trivial log structure and P finitely generated, gluing over noetherian affinoid opens gives a morphism of log adic spaces Y⟨P⟩→Y (Example 2.2.19); for P toric and Y=Spa(k,k⁺) this is an affinoid toric log adic space, and for P=ℕⁿ it is the unit polydisc Dⁿ with the log structure associated with (a₁,…,aₙ)↦T₁^{a₁}⋯Tₙ^{aₙ} (Examples 2.2.20-2.2.21).
 
 **Hypotheses and conventions.**
 
 - Lemma 2.2.13 needs P finitely generated and R analytic strongly noetherian or finitely generated over a noetherian ring of definition; the packet's carriers are the analytic case.
 - The tautological map P→R⟨P⟩, a↦e^a, takes values in R⁺⟨P⟩, so it satisfies the integral-image condition of DLLZ charts.
+- Throughout this packet, the plus ring of a monoid chart is the integral closure of the raw plus monoid algebra; R⁺⟨P⟩ denotes its completion as a ring of integral elements. Raw R⁺[P] need not be integrally closed, even for fs P with torsion units. This correction changes the plus-ring carrier, while the bounded continuous valuations and rational subsets stay the same.
 
 **Construction or proof route.**
 
-1. R⁺[P] is open and integrally closed in R[P]: reduce to finitely generated P and use the normality result cited by DLLZ ([BG09, Thm. 4.42]) (Lemma 2.2.11).
+1. R₀[P] with the I-adic topology makes R[P] a Huber ring. The raw subring R⁺[P] is open and consists of power-bounded elements: powers of a monoid monomial remain in R₀[P], and a finite sum with power-bounded coefficients remains bounded under powers. Its integral closure R[P]⁺ is open and remains in the integrally closed power-bounded subring, hence gives a ring of integral elements. A valuation bounded by 1 on raw R⁺[P] is bounded on its integral closure, so the Spa and rational subsets are unchanged. No unrestricted monoid-algebra normality theorem is used.
 2. For finitely generated P, a surjection ℕʳ→P gives a continuous surjection R⟨T₁,…,T_r⟩→R⟨P⟩, so strong noetherianity, or a noetherian ring of definition, passes to R⟨P⟩; étale sheafiness is then the locally noetherian case (DLLZ Corollary A.11) (Lemma 2.2.13).
 3. Define P^log by the CR.5 associated log structure on the étale site, and glue Y⟨P⟩ along rational localisations.
 
@@ -235,7 +242,7 @@ For a Huber pair (R,R⁺) with ring of definition R₀ adic for a finitely gener
 
 **Planning API.**
 
-- `TauCeti.LogAdic.MonoidAlgebraLog.huberPair` (constructor): (R[P],R⁺[P]) with ring of definition R₀[P] and ideal of definition IR₀[P] is a Huber pair, with completion (R⟨P⟩,R⁺⟨P⟩) (Lemma 2.2.11, Remark 2.2.12).
+- `TauCeti.LogAdic.MonoidAlgebraLog.huberPair` (constructor): (R[P],R[P]⁺) is a Huber pair for R[P]⁺ the integral closure of raw R⁺[P] in R[P], with ring of definition R₀[P] and ideal of definition IR₀[P]. Its completed pair is denoted (R⟨P⟩,R⁺⟨P⟩). This is the corrected version of Lemma 2.2.11 and Remark 2.2.12 (E14).
 - `TauCeti.LogAdic.MonoidAlgebraLog.noetherian` (compatibility): For finitely generated P, R⟨P⟩ is analytic and strongly noetherian (resp. finitely generated over a noetherian ring of definition) when R is, and Spa(R⟨P⟩,R⁺⟨P⟩) is étale sheafy (Lemma 2.2.13).
 - `TauCeti.LogAdic.MonoidAlgebraLog.logStructure` (constructor): The log structure P^log associated with P_X→O_{X_ét}, a↦e^a (Definition 2.2.17).
 - `TauCeti.LogAdic.MonoidAlgebraLog.tautologicalChart` (projection): P→P^log(X), a↦e^a, with values in R⁺⟨P⟩; it is a chart of P^log.
@@ -243,6 +250,7 @@ For a Huber pair (R,R⁺) with ring of definition R₀ adic for a finitely gener
 - `TauCeti.LogAdic.MonoidAlgebraLog.map` (functoriality): A monoid map u:P→Q induces Y⟨Q⟩→Y⟨P⟩ over Y, compatible with the tautological charts, with identity and composition laws.
 - `TauCeti.LogAdic.MonoidAlgebraLog.rational_localization` (compatibility): The formation of Spa(R⟨P⟩,R⁺⟨P⟩)→Spa(R,R⁺) commutes with rational localisation of Spa(R,R⁺) (Lemma 2.2.13).
 - `TauCeti.LogAdic.MonoidAlgebraLog.lift` (universal-property): For a log adic space X over Y, morphisms X→Y⟨P⟩ of log adic spaces over Y correspond to monoid maps P→M_X(X) whose composite with α lands in O⁺_{X_ét}(X) (Remarks 2.3.2-2.3.3).
+- `TauCeti.LogAdic.MonoidAlgebraLog.plus` (constructor): The integral closure of raw R⁺[P] in R[P]; it contains every tautological monomial, is open and lies in the power-bounded subring. Use this plus ring before forming a Huber.Pair, and its completed ring of integral elements afterward.
 
 **Discriminating unit tests.**
 
@@ -250,12 +258,13 @@ For a Huber pair (R,R⁺) with ring of definition R₀ adic for a finitely gener
 - `TauCeti.LogAdic.MonoidAlgebraLog.int_circle` (degenerate): For P=ℤ, Spa(k⟨P⟩,k°⟨P⟩) is the circle |T|=1 and P^log is the trivial log structure, because the image of P consists of units.
 - `TauCeti.LogAdic.MonoidAlgebraLog.zero_monoid` (degenerate): For P=0, Y⟨P⟩→Y is the identity of Y with the trivial log structure.
 - `TauCeti.LogAdic.MonoidAlgebraLog.origin_nontrivial` (non-example): For P=ℕ, the point T=0 lies in Spa(k⟨ℕ⟩,k°⟨ℕ⟩) and has characteristic ℕ, so P^log is not trivial and Spa(k⟨ℕ⟩,k°⟨ℕ⟩) is not the punctured disc.
+- `TauCeti.LogAdic.MonoidAlgebraLog.torsion_units` (non-example): For R=Q₂, R⁺=Z₂ and P=C₂ with generator u and u²=1, e=(1+u)/2 satisfies e²=e. It is integral over raw Z₂[C₂], but is not in that raw subring because its two coefficients are 1/2. Thus e belongs to R[P]⁺ and a raw-plus constructor would fail the Huber-pair integral-closure condition. The algebraic Q/Z model has the same coefficient calculation.
 
 **Prerequisites.** [HodgeTateAndCanonicalSubgroups:T6:log-sites/log-adic-space](#log-adic-space), `CrystallineCohomology:CR.5:log-algebra/associated-log`, `tauceti:TauCeti.Huber.Pair`, `AdicSpacesPartII:R0/noetherian-type-huber-ring`, `AdicSpacesPartII:R0/topologically-finite-type-noetherian-type`, `AdicSpacesPartII:R0/locally-noetherian-adic-space`, `AdicEtaleGeometry:A1/etale-structure-sheaf`.
 
 **Sources and relation to this target.**
 
-- [DLLZ-adic](https://www.kwlan.org/articles/log-adic.pdf), Lemma 2.2.11 and Remark 2.2.12, pp. 9-10. Gives the Huber pair (R[P],R⁺[P]) and, in Remark 2.2.12, its completion (R⟨P⟩,R⁺⟨P⟩), as in the node.
+- [DLLZ-adic](https://www.kwlan.org/articles/log-adic.pdf), Lemma 2.2.11 and Remark 2.2.12, pp. 9-10. Supplies the monoid-algebra topology and the completion convention. The plus-ring assertion of Lemma 2.2.11 is corrected by integral closure (E14); bounded continuous valuations give the same Spa.
 - [DLLZ-adic](https://www.kwlan.org/articles/log-adic.pdf), Lemma 2.2.13, p. 10. Noetherianity, étale sheafiness and compatibility with rational localisation for finitely generated P, with the two cases on R kept in the hypotheses.
 - [DLLZ-adic](https://www.kwlan.org/articles/log-adic.pdf), Definition 2.2.17 and Convention 2.2.18, p. 11. Defines the log structure P^log on Spa(R⟨P⟩,R⁺⟨P⟩).
 - [DLLZ-adic](https://www.kwlan.org/articles/log-adic.pdf), Examples 2.2.19-2.2.21, pp. 11-12. Constructs Y⟨P⟩→Y by gluing; Examples 2.2.20-2.2.21 give affinoid toric log adic spaces and the log polydisc Dⁿ.
@@ -550,13 +559,15 @@ Let f:(A,M,α)→(B,N,β) be a tft homomorphism of pre-log Huber rings: A and B 
 
 - f is tft, including the finite generation of N^gp/((f♯M)^gp·β⁻¹(B×)); the unrestricted algebraic Kähler module is not the analytic carrier.
 - A is of noetherian type (Huber's standing assumption (1.1.1)), as presupposed by DLLZ's use of Huber's continuous differentials (1.6.2) and needed for finite B-modules to be complete; all DLLZ applications are locally noetherian.
+- R0/continuous-differentials uses the opposite diagonal convention 1⊗b−b⊗1. Identify its representing module with the present ordinary summand by negating that diagonal generator; retain dβ(n)=β(n)δ(n) for the universal derivation.
 
 **Construction or proof route.**
 
 1. Build Ω^log as J/J² from the completed tensor product and the monoid algebra; d is an A-linear derivation and δ a monoid map with the relations of Definition 3.2.2.
 2. Identify J/J² with the presentation (3.2.7)-(3.2.8) over the imported continuous Ω_{B/A}; finiteness gives completeness and continuity of d.
-3. Universal property: a derivation (d,δ) into L gives (B⊗̂_A B)[N]/I→B∗L, b₁⊗b₂↦(b₁b₂,b₁d(b₂)), e^n↦(1,δ(n)), hence J/J²→L (Proposition 3.2.9).
+3. Universal property: with d(b)=b⊗1−1⊗b and δ(n)=e^n−1, a log derivation (d,δ) into L gives the square-zero lift b₁⊗b₂↦(b₁b₂,b₂d(b₁)), e^n↦(1,δ(n)). The two terms of each structural relation then have equal second coordinate dβ(n)=β(n)δ(n), and the induced J/J²→L sends the universal d to d, without a sign reversal (Proposition 3.2.9, corrected proof E15).
 4. Strict case: every n∈N is a unit times f♯(m), so δ is determined by d (Lemma 3.2.10).
+5. For formally log unramified B→C, uniqueness of lifts gives an injective restriction Der^log_A(C,H)→Der^log_A(B,H). Its kernel Der^log_B(C,H) is zero for every H, hence the representing module Ω^log_{C/B} is zero. Surjectivity and left splitting belong to the formally log smooth clause (Theorem 3.2.18, corrected proof E16).
 
 **Acceptance checks.**
 
@@ -579,6 +590,7 @@ Let f:(A,M,α)→(B,N,β) be a tft homomorphism of pre-log Huber rings: A and B 
 - `TauCeti.LogAdic.ContinuousLogDifferentials.identity` (degenerate): For the identity log Huber map the module is zero.
 - `TauCeti.LogAdic.ContinuousLogDifferentials.toric_rank` (computation): Over k, Ω¹_log of k⟨T₁,…,T_r⟩ with coordinate log structure is free on dlog T_i.
 - `TauCeti.LogAdic.ContinuousLogDifferentials.coordinate_relation` (characterisation): In that module dT_i=T_i dlog T_i; imposing dlog T_i=0 at T_i=0 is incorrect.
+- `TauCeti.LogAdic.ContinuousLogDifferentials.diagonal_sign` (computation): For the coordinate chart T, use d(T)=T·δ(1). The square-zero lift of T⊗1−1⊗T has second component d(T), while e^1−1 has δ(1). The alternative lift b₁⊗b₂↦(b₁b₂,b₁d(b₂)) gives −d(T) and fails the structural relation when d(T)≠0 in characteristic zero.
 
 **Prerequisites.** [HodgeTateAndCanonicalSubgroups:T6:log-sites/continuous-log-derivation](#continuous-log-derivation), `CrystallineCohomology:CR.5/log-differentials`, `AdicSpacesPartII:R0/continuous-differentials`, `AdicSpacesPartII:R0/completed-tensor-product`, `AdicSpacesPartII:R0/first-fundamental-sequence`.
 
@@ -612,9 +624,9 @@ For an lft morphism f:Y→X of locally noetherian coherent log adic spaces, the 
 **Construction or proof route.**
 
 1. Affinoid construction: Theorem 3.2.18 identifies Ω^log_{C/A} with C⊗_BΩ^log_{B/A} on each Spa(C,C⁺)∈Y_ét, giving a coherent sheaf with a universal derivation (Construction 3.3.2, Lemma 3.3.3); glue over finitely indexed étale affinoid coverings {X_i→X}, {Y_i→Y} from Proposition 2.3.21 by étale descent of coherent sheaves (DLLZ Proposition A.10; Construction 3.3.4, Lemma 3.3.5).
-2. Base change: compare Der^log for B′=B⊗̂_A A′ (resp. its integral or saturated modification) using Remark 3.2.3 and the arguments of Ogus IV.1.1.3 and IV.1.1.9, with (Q′)^gp=((Q′)^int)^gp=((Q′)^sat)^gp (Proposition 3.3.7).
-3. Transitivity, injectivity and vanishing: globalise Theorem 3.2.18(1)-(5) and use the toric computation of Proposition 3.2.25 with Proposition 3.3.7 (Theorem 3.3.17).
-4. Formal versus chart log smoothness: chart log smooth maps are formally log smooth by Proposition 3.2.25 and Remark 3.3.13; conversely Lemma 3.3.15 (local freeness for formally log smooth maps) yields an fs chart from elements t_i with δ(t_i) a basis, and Lemma 3.3.14 makes the strict comparison map étale (Proposition 3.3.16).
+2. Base change: compare Der^log for B′=B⊗̂_A A′ (resp. its integral or saturated modification) using Remark 3.2.3 and the arguments of Ogus IV.1.1.3 and IV.1.1.9, with (Q′)^gp=((Q′)^int)^gp=((Q′)^sat)^gp (Proposition 3.3.7). The representing adjunction is Hom_{B′}(B′⊗_BΩ,L)=Hom_B(Ω,L), with L regarded by restriction as a B-module; there is no extra tensor by B′ on the right (E17).
+3. Transitivity, injectivity and vanishing: globalise Theorem 3.2.18(1)-(5) and use the toric computation of Proposition 3.2.25 with Proposition 3.3.7 (Theorem 3.3.17). Formal log unramifiedness uses injectivity of the derivation restriction and zero kernel, not the surjectivity belonging to formal log smoothness (E16).
+4. Formal versus chart log smoothness: chart log smooth maps are formally log smooth by Proposition 3.2.25 and Remark 3.3.13; conversely Lemma 3.3.15 (local freeness for formally log smooth maps) yields an fs chart from elements t_i with δ(t_i) a basis, and Lemma 3.3.14 makes the strict comparison map étale (Proposition 3.3.16). The chart maps its free generators to t_i in the log monoid, whose δ(t_i) form the differential basis, not to elements of the differential module (proof misprints E18).
 
 **Acceptance checks.**
 
@@ -768,19 +780,20 @@ Proposed library placement: `TauCeti/AlgebraicGeometry/LogAdic/Sites`, namespace
 
 `HodgeTateAndCanonicalSubgroups:T6:log-sites/kummer-root-covers` · construction · proposed declaration `TauCeti.LogAdic.RootCover`.
 
-Let X be a locally noetherian log adic space with a chart modeled on a torsion-free fs monoid P and n≥1. Put X^{1/n}:=X×_{X⟨P⟩}X⟨(1/n)P⟩ with its chart (1/n)P, where P↪(1/n)P is isomorphic to [n]:P→P. More generally, for a Kummer homomorphism u:P→Q of fs monoids with G:=Q^gp/u^gp(P^gp) finite, Y:=X×_{X⟨P⟩}X⟨Q⟩→X is a finite surjective Kummer cover with an action of G^D_X:=X⟨G⟩ such that G^D_X×_X Y≃Y×_X Y, and for affinoid X the sequence 0→O(X)→O(Y)→O(Y×_X Y) is exact. When G is annihilated by an integer invertible in O_X, Y→X is an open Galois finite Kummer étale cover with group G^D_X, which is the constant group Hom(G,O_X(X)^×) when O_X(X) contains the relevant roots of unity; for X^{1/n} with μ_n⊂O_X(X) this is Hom(((1/n)P)^gp/P^gp,μ_n) acting on root monomials by characters. These Y→X are the standard Kummer (étale) covers. If X is noetherian with a sharp fs chart P, every Kummer étale (resp. finite Kummer étale) Y→X becomes étale (resp. finite étale) after base change to some X^{1/n}, and every Kummer étale covering indexed by a finite set is refined by one whose members V_j are étale over root covers X^{1/n_j}; n may be taken invertible on X when X has at most one positive residue characteristic.
+Let X be a locally noetherian log adic space with a chart modeled on a torsion-free fs monoid P and n≥1. Put X^{1/n}:=X×_{X⟨P⟩}X⟨(1/n)P⟩ with its chart (1/n)P, where P↪(1/n)P is isomorphic to [n]:P→P. More generally, for a Kummer homomorphism u:P→Q of fs monoids with G:=Q^gp/u^gp(P^gp) finite, Y:=X×_{X⟨P⟩}X⟨Q⟩→X is a finite surjective Kummer cover with an action of G^D_X:=X⟨G⟩ such that G^D_X×_X Y≃Y×_X Y, and for affinoid X the sequence 0→O(X)→O(Y)→O(Y×_X Y) is exact. When G is annihilated by an integer invertible in O_X, Y→X is an open Galois finite Kummer étale cover with group G^D_X, which is the constant group Hom(G,O_X(X)^×) when O_X(X) contains the relevant roots of unity; for X^{1/n} with μ_n⊂O_X(X) this is Hom(((1/n)P)^gp/P^gp,μ_n) acting on root monomials by characters. These Y→X are the standard Kummer (étale) covers. If X is noetherian with a sharp fs chart P, every quasi-compact Kummer étale (resp. finite Kummer étale) Y→X becomes étale (resp. finite étale) after base change to some X^{1/n}, and every Kummer étale covering indexed by a finite set is refined by one whose members V_j are étale over root covers X^{1/n_j}; n may be taken invertible on X when X has at most one positive residue characteristic.
 
 **Hypotheses and conventions.**
 
 - X locally noetherian with a chart modeled on a torsion-free fs monoid P (Definition 4.1.5); the refinement statements (Lemmas 4.2.5–4.2.6) assume X noetherian with a sharp fs chart.
 - The Galois description needs the order of G invertible in O_X; the constant-group form needs the corresponding roots of unity in O_X(X), otherwise G^D_X is only an étale group object.
+- A single root level strictifying Y→X requires Y quasi-compact (or an explicitly supplied uniform bound on its characteristic exponents). Finite Y→X over noetherian X satisfies this automatically. This extra hypothesis repairs Lemma 4.2.5 (E19), without restricting the objects of the Kummer étale site.
 
 **Construction or proof route.**
 
 1. Monoid side from CR.5: (1/n)P, and (Q⊕_P Q)^sat≃Q⊕G for Kummer u ([Ill02, Lem. 3.3], as cited in Proposition 4.1.6).
 2. Proposition 4.1.6: finiteness and injectivity of O(X)→O(Y) since Z[P] is a direct summand of the finite Z[P]-module Z[Q]; exactness in low degrees by [Niz08, Lem. 3.28]; the torsor isomorphism from (Q⊕_P Q)^sat≃Q⊕G; for |G| invertible, R⟨Q⟩^Γ=R⟨P⟩ and the finite quotient construction of Lemma 4.1.7 give the Galois property and openness.
 3. Lemma 4.3.2: the full Čech complex of a standard Kummer cover is exact, by the explicit contracting homotopy of [Niz08, Lem. 3.28] on O(Y)⊗R[G]^{⊗•}.
-4. Lemmas 4.2.5–4.2.6: re-chart with the prescribed sharp P (Lemma 4.1.10), choose n with P→Q_i→(1/n)P, and use (Q_i⊕_P(1/n)P)^sat≃G_i⊕(1/n)P to see that the base change to X^{1/n} is strictly étale; finiteness by [Hub96, Lem. 1.4.5].
+4. For quasi-compact Y choose finitely many chart neighbourhoods re-charted with the prescribed sharp P (Lemma 4.1.10), and choose one n with P→Q_i→(1/n)P for those charts. The saturated pushouts (Q_i⊕_P(1/n)P)^sat≃G_i⊕(1/n)P make the base change strictly étale; finiteness follows when Y→X is finite. For a finite-index covering of noetherian X, first refine by quasi-compact chart domains, take a finite subcover of their open images in X, and then apply the preceding argument. This proves the covering refinement of Lemma 4.2.6 without inferring quasi-compactness of Y from that of X.
 
 **Acceptance checks.**
 
@@ -791,7 +804,7 @@ Let X be a locally noetherian log adic space with a chart modeled on a torsion-f
 - `TauCeti.LogAdic.RootCover` (constructor): The n-th root cover X×_{X⟨P⟩}X⟨(1/n)P⟩ of a torsion-free fs chart, and more generally the standard cover X×_{X⟨P⟩}X⟨Q⟩ of a Kummer chart P→Q.
 - `TauCeti.LogAdic.RootCover.action` (structure): Hom((1/n)P^gp/P^gp,μ_n) acts by multiplying the root monomial of a by its character.
 - `TauCeti.LogAdic.RootCover.refine` (functoriality): For n dividing m the m-th root cover maps to the n-th root cover, compatibly under divisibility composition.
-- `TauCeti.LogAdic.RootCover.strictify` (compatibility): For X noetherian with a sharp fs chart, every Kummer étale (resp. finite Kummer étale) Y→X becomes étale (resp. finite étale) after base change to some X^{1/n} (Lemma 4.2.5).
+- `TauCeti.LogAdic.RootCover.strictify` (compatibility): For X noetherian with a sharp fs chart, every quasi-compact Kummer étale (resp. finite Kummer étale) Y→X becomes étale (resp. finite étale) after base change to some X^{1/n} (Lemma 4.2.5).
 - `TauCeti.LogAdic.RootCover.finite_surjective` (compatibility): The standard cover is finite and surjective, and finite Kummer étale when the order of G is invertible in O_X (Definition 4.1.5, Proposition 4.1.6(1)).
 - `TauCeti.LogAdic.RootCover.galois` (structure): G^D_X×_X Y≃Y×_X Y, and for |G| invertible Y→X is an open Galois finite Kummer étale cover with group G^D_X (Proposition 4.1.6(3)–(4)).
 - `TauCeti.LogAdic.RootCover.cech_exact` (characterisation): For affinoid X with a sharp chart the Čech complex O(X)→O(Y)→O(Y×_X Y)→⋯ of a standard Kummer cover is exact, with an O(X)-linear contracting homotopy (Lemma 4.3.2).
@@ -803,6 +816,7 @@ Let X be a locally noetherian log adic space with a chart modeled on a torsion-f
 - `TauCeti.LogAdic.RootCover.disc_action` (computation): For P=N and μ_n present, ζ sends S to ζS on T=S^n.
 - `TauCeti.LogAdic.RootCover.ramified_boundary` (non-example): For n>1 the root map on the log disc has ramification index n at T=0 and is not strict étale there.
 - `TauCeti.LogAdic.RootCover.polydisc_degree` (computation): For P=N^r over an affinoid field k with n invertible in k and μ_n⊂k, X^{1/n}→X is finite of degree n^r with Galois group μ_n^r acting coordinatewise on S_i, S_i^n=T_i.
+- `TauCeti.LogAdic.RootCover.no_uniform_noncompact` (non-example): Let X be a coordinate log disc over C_p and let Y be the disjoint union of its q-th root discs, indexed by all primes q. For any root level n choose q not dividing n: its saturated pullback still has characteristic index q/gcd(q,n)=q at the boundary, so Y cannot become strict étale at that single level. Quasi-compactness or a uniform exponent bound is essential.
 
 **Prerequisites.** [HodgeTateAndCanonicalSubgroups:T6:log-sites/kummer-etale-morphism](#kummer-etale-morphism), [HodgeTateAndCanonicalSubgroups:T6:log-sites/integral-adic-chart](#integral-adic-chart), [HodgeTateAndCanonicalSubgroups:T6:log-sites/saturated-adic-products](#saturated-adic-products), `AdicSpacesPartII:R0/fibre-products-existence`, `AdicSpacesPartII:R0/finite-algebra-over-affinoid`, `AdicSpacesPartII:R0/finite-morphism`, [HodgeTateAndCanonicalSubgroups:T6:log-sites/toric-log-adic-space](#toric-log-adic-space).
 
@@ -811,7 +825,7 @@ Let X be a locally noetherian log adic space with a chart modeled on a torsion-f
 - [DLLZ-adic](https://www.kwlan.org/articles/log-adic.pdf), Definition 4.1.5, p. 41. The root cover X^{1/n}=X×_{X⟨P⟩}X⟨(1/n)P⟩ for a torsion-free fs chart, finite Kummer étale when n is invertible.
 - [DLLZ-adic](https://www.kwlan.org/articles/log-adic.pdf), Proposition 4.1.6, pp. 41–42; Definition 4.1.8, p. 43. The group object G^D_X=X⟨G⟩ acting on Y=X×_{X⟨P⟩}X⟨Q⟩; parts (1)–(4) give finiteness, surjectivity, the torsor isomorphism and the Galois property recorded in the statement.
 - [DLLZ-adic](https://www.kwlan.org/articles/log-adic.pdf), Lemma 4.3.2, p. 52. Čech exactness of O for standard Kummer covers (api cech_exact), valid without the étale condition.
-- [DLLZ-adic](https://www.kwlan.org/articles/log-adic.pdf), Lemmas 4.2.5–4.2.6, pp. 49–50. Lemma 4.2.6 (refinement by members étale over root covers); Lemma 4.2.5 just before it gives strictification after base change to X^{1/n}. The node keeps the noetherian sharp-chart hypothesis.
+- [DLLZ-adic](https://www.kwlan.org/articles/log-adic.pdf), Lemmas 4.2.5–4.2.6, pp. 49–50. Lemma 4.2.6 (refinement by members étale over root covers); Lemma 4.2.5 just before it gives strictification after base change to X^{1/n}. The node keeps the noetherian sharp-chart hypothesis. The strictification clause is restricted to quasi-compact Y (E19); the finite covering refinement uses a finite quasi-compact chart refinement.
 
 **Uses.**
 
@@ -949,7 +963,7 @@ Let X be an affinoid noetherian fs log adic space. An O_{X_két}-module is analy
 
 1. Reduce, by Lemma 4.2.6 and Proposition A.10, to the Čech complex of a standard Kummer cover Y→X of an affinoid X with a sharp fs chart.
 2. (1): Y, Y×_X Y, … are finite over X (Proposition 4.1.6), so C•_F(Y/X)≃C•(Y/X)⊗_{O(X)}F(X), and the O(X)-linear contracting homotopy of Lemma 4.3.2 makes it exact.
-3. (2): with a sharp chart P, reduce to F|_U analytic coherent for U=X^{1/n} with n invertible in k; by (1) the higher cohomology of U×_X⋯×_X U vanishes, and the Čech complex of U/X computes H^i(G,F(U)) for G=((1/n)P)^gp/P^gp, which vanishes for i>0 because |G| is invertible in k and F(U) is a k-vector space.
+3. (2): with a sharp chart P, reduce étale locally to F|_U analytic coherent for U=X^{1/n}, n invertible in k. After a finite separable extension adjoining μ_n, the acting group is Γ=Hom(((1/n)P)^gp/P^gp,μ_n), the constant form of the diagonalizable group G^D, rather than its character group G. By (1) the higher cohomology on the Čech terms vanishes. Averaging over Γ contracts the positive-degree group cohomology of F(U), since |Γ| is invertible in k. This computation on strict étale stalks gives R^jε_ét,*F=0 for j>0 and descends to the original field (E20).
 4. Hence R^jε_ét,*F=0 for j>0 and ε_ét,*F is coherent on X_ét; this is étale local (Proposition 2.3.13), so H^i(X_két,F)≅H^i(X_ét,ε_ét,*F)=0 by Proposition A.10.
 
 **Acceptance checks.**
@@ -962,7 +976,7 @@ Let X be an affinoid noetherian fs log adic space. An O_{X_két}-module is analy
 
 - [DLLZ-adic](https://www.kwlan.org/articles/log-adic.pdf), Definition 4.3.6(1), p. 55. Definition of analytic coherent O_{X_két}-modules; part (2) defines coherent ones Kummer étale locally.
 - [DLLZ-adic](https://www.kwlan.org/articles/log-adic.pdf), Theorem 4.3.7(2), p. 55. The field alternative of the theorem, kept as a hypothesis of case (2).
-- [DLLZ-adic](https://www.kwlan.org/articles/log-adic.pdf), Theorem 4.3.7, proof of (2), p. 56. The group-cohomology vanishing used in proof step 3.
+- [DLLZ-adic](https://www.kwlan.org/articles/log-adic.pdf), Theorem 4.3.7, proof of (2), p. 56. The finite-group vanishing argument, repaired by using the character-dual action after adjoining roots of unity (E20), proves case (2).
 
 Proposed library placement: `TauCeti/AlgebraicGeometry/LogAdic/Sites`, namespace `TauCeti.LogAdic`.
 
@@ -1493,17 +1507,18 @@ Proposed library placement: `TauCeti/AlgebraicGeometry/LogAdic/Sites`, namespace
 
 `HodgeTateAndCanonicalSubgroups:T6:log-sites/completed-structural-log-sheaves` · construction · proposed declaration `TauCeti.LogAdic.CompletedLogStructure`.
 
-For X a locally noetherian fs log adic space over Spa(Q_p,Z_p), define on X_prokét: O⁺=ν⁻¹O⁺_két and O=ν⁻¹O_két; Ô⁺=lim_n O⁺/p^n and Ô=Ô⁺[1/p]; Ô^{♭+}=lim_Φ Ô⁺≅lim_Φ O⁺/p and Ô^♭=lim_Φ Ô, with transition maps Φ: x↦x^p; M=ν⁻¹M_két with α: M→O, and M♭=lim_{a↦a^p} M with the induced α♭: M♭→Ô♭. For every pro-Kummer étale presentation U=lim U_i, M(U)=colim_i M_{U_i}(U_i) (Proposition 5.4.2). Limits and localizations are formed in sheaves; ring sections alone do not define the topology.
+For X a locally noetherian fs log adic space over Spa(Q_p,Z_p), define on X_prokét: O⁺=ν⁻¹O⁺_két and O=ν⁻¹O_két; Ô⁺=lim_n O⁺/p^n and Ô=Ô⁺[1/p]. Define the characteristic-p ring sheaf Ô^{♭+}=lim_Frob(O⁺/p). Its underlying multiplicative monoid identifies with lim_{x↦x^p}Ô⁺; addition is the tilt addition, not coordinatewise addition of characteristic-zero sequences. On a log affinoid perfectoid U with associated (R,R⁺), the tilted structural pair has sections (R♭,R^{♭+}); the multiplicative carrier of Ô♭ identifies with lim_{x↦x^p}Ô. Put M=ν⁻¹M_két with α:M→O and M♭=lim_{a↦a^p}M, with induced α♭:M♭→Ô♭. For qcqs pro-Kummer presentations U=lim U_i with qcqs finite stages, M(U)=colim_i M_{U_i}(U_i); on arbitrary U use the sheaf associated with that presheaf and descent from the qcqs basis (Proposition 5.4.2, corrected scope E21). Limits and localizations are formed in sheaves; ring sections alone do not define the topology.
 
 **Hypotheses and conventions.**
 
 - X locally noetherian fs over Spa(Q_p,Z_p); Frobenius is applied in characteristic p for the tilt.
+- The Frobenius inverse limit is taken in rings only after reduction modulo p. The sharp map Ô^{♭+}→Ô⁺ is multiplicative and generally not additive. The sections/filtered-colimit formula is asserted on the qcqs basis, not on an arbitrary disjoint union.
 
 **Construction or proof route.**
 
 1. Use inverse image along ν and sheaf limits/quotients.
-2. Construct the tilts as inverse limits along Frobenius and the compatible log structural maps α and α♭.
-3. Proposition 5.4.2: as in Proposition 5.1.6, reduce exactness of the Čech sequence of the presheaf U↦colim M_{U_j}(U_j) to a single Kummer étale cover (Proposition 5.1.5, Scholze 2013 Lemma 3.16) and conclude by the sheaf property of M_két (Proposition 4.3.4).
+2. Form lim_Frob(O⁺/p) as a characteristic-p ring sheaf; identify its multiplicative monoid with the power-map limit of Ô⁺, carrying the induced tilt addition. On the log perfectoid basis use the tilted perfectoid structural rings and glue. Compatible sequences of log structural sections give α♭, and sharp is multiplicative.
+3. On qcqs presentations, use a finite covering refinement and a common finite stage to check the Čech equalizer for U↦colim_iM_{U_i}(U_i), using the Kummer sheaf property of M_két. The qcqs filtered-colimit result gives the sections formula there; sheafify for arbitrary objects. Infinite products need not commute with this filtered colimit (E21).
 
 **Acceptance checks.**
 
@@ -1512,10 +1527,10 @@ For X a locally noetherian fs log adic space over Spa(Q_p,Z_p), define on X_prok
 **Planning API.**
 
 - `TauCeti.LogAdic.CompletedLogStructure` (constructor): The inverse-image, completed and tilted ring/monoid sheaves with their maps.
-- `TauCeti.LogAdic.CompletedLogStructure.mod_p` (compatibility): On the perfectoid basis Ô⁺/p identifies with O⁺/p.
-- `TauCeti.LogAdic.CompletedLogStructure.tilt_projection` (projection): The nth Frobenius-limit projection and the multiplicative sharp map.
+- `TauCeti.LogAdic.CompletedLogStructure.mod_p` (compatibility): On a log affinoid perfectoid U with associated (R,R⁺), Ô⁺(U)/p=R⁺/p. The natural map to (O⁺/p)(U) is an almost isomorphism; taking sections of a quotient sheaf is not identified with quotienting sections without proof (Theorem 5.4.3(1),(3)).
+- `TauCeti.LogAdic.CompletedLogStructure.tilt_projection` (projection): The nth ring projection Ô^{♭+}→O⁺/p from the characteristic-p Frobenius limit, and sharp:Ô^{♭+}→Ô⁺ as a multiplicative monoid map. Sharp is not asserted additive.
 - `TauCeti.LogAdic.CompletedLogStructure.functorial` (functoriality): Log pullback gives compatible maps of all structural sheaves and their completions.
-- `TauCeti.LogAdic.CompletedLogStructure.monoid_sections` (characterisation): For every pro-Kummer étale presentation U=lim U_i, M(U)=colim_i M_{U_i}(U_i) (Proposition 5.4.2).
+- `TauCeti.LogAdic.CompletedLogStructure.monoid_sections` (characterisation): For a qcqs pro-Kummer presentation U=lim U_i by qcqs finite stages, M(U)=colim_iM_{U_i}(U_i). For arbitrary U recover M(U) by descent from this basis; there is no unrestricted sectionwise colimit formula (corrected scope of Proposition 5.4.2, E21).
 
 **Discriminating unit tests.**
 
@@ -1523,14 +1538,15 @@ For X a locally noetherian fs log adic space over Spa(Q_p,Z_p), define on X_prok
 - `TauCeti.LogAdic.CompletedLogStructure.frobenius_relation` (characterisation): A tilt sequence satisfies x_{n+1}^p=x_n modulo p.
 - `TauCeti.LogAdic.CompletedLogStructure.not_localize_first` (non-example): Taking p-adic completion after inverting p yields zero quotients, so it cannot replace Ô⁺ followed by inversion.
 - `TauCeti.LogAdic.CompletedLogStructure.trivial_log` (compatibility): If X has trivial log structure, X_prokét=X_proét and O⁺, Ô⁺, Ô, Ô^{♭+} are Scholze's sheaves of the same names, with M=O^× and α the inclusion.
+- `TauCeti.LogAdic.CompletedLogStructure.noncompact_sections` (non-example): On a countable disjoint union of coordinate log discs, take the same i!-root level on every component at stage i. In the all-root limit, the section whose j-th component has characteristic exponent 1/j! exists by sheaf descent, but descends to no common finite level. Thus filtered colimits of monoid sections cannot be computed sectionwise on arbitrary non-quasi-compact presentations.
 
-**Prerequisites.** [HodgeTateAndCanonicalSubgroups:T6:log-sites/log-site-projections](#log-site-projections), [HodgeTateAndCanonicalSubgroups:T6:log-sites/kummer-etale-site](#kummer-etale-site), [HodgeTateAndCanonicalSubgroups:T6:log-sites/log-affinoid-perfectoid](#log-affinoid-perfectoid), `AdicEtaleGeometry:A1/etale-structure-sheaf`, `mathlib:AdicCompletion`.
+**Prerequisites.** [HodgeTateAndCanonicalSubgroups:T6:log-sites/log-site-projections](#log-site-projections), [HodgeTateAndCanonicalSubgroups:T6:log-sites/kummer-etale-site](#kummer-etale-site), [HodgeTateAndCanonicalSubgroups:T6:log-sites/log-affinoid-perfectoid](#log-affinoid-perfectoid), `AdicEtaleGeometry:A1/etale-structure-sheaf`, `mathlib:AdicCompletion`, `DiamondsAndVStacks:D0/filtered-colimits-and-cohomology-on-coherent-sites`.
 
 **Sources and relation to this target.**
 
-- [DLLZ-adic](https://www.kwlan.org/articles/log-adic.pdf), Definition 5.4.1, p. 78. Introduces the integral, completed and tilted structure sheaves and the log structures α, α♭ defined in the node, with the same hypothesis on X.
+- [DLLZ-adic](https://www.kwlan.org/articles/log-adic.pdf), Definition 5.4.1, p. 78. Introduces the integral, completed and tilted structure sheaves and the log structures α, α♭ defined in the node, with the same hypothesis on X. The characteristic-zero power-map limits are multiplicative carriers; the characteristic-p ring is the Frobenius limit modulo p.
 - [DLLZ-adic](https://www.kwlan.org/articles/log-adic.pdf), Definition 5.4.1(4), p. 78. Defines M=ν⁻¹M_két, its tilt M♭ and the structural maps.
-- [DLLZ-adic](https://www.kwlan.org/articles/log-adic.pdf), Proposition 5.4.2, p. 78. Gives M(U)=colim M_{U_i}(U_i) for every pro-Kummer étale presentation, as in the monoid_sections API item.
+- [DLLZ-adic](https://www.kwlan.org/articles/log-adic.pdf), Proposition 5.4.2, p. 78. The proof checks the sections presheaf on quasi-compact objects and finite covers. The node retains the qcqs-basis formula and sheafifies elsewhere, correcting the unrestricted statement (E21).
 
 **Uses.**
 
@@ -1556,7 +1572,7 @@ Let X be a locally noetherian fs log adic space over Spa(Q_p,Z_p) and U a log af
 
 1. By Proposition 5.3.12, sheaves on X_prokét are determined on log affinoid perfectoid objects; for (1)–(2) reduce, by Proposition 5.1.5 and the almost Čech criterion (Scholze 2013 Lemma 3.16), to Kummer étale covers pulled back from compositions of finite Kummer étale maps and rational localizations, which become étale over Û by Lemma 5.3.8; conclude with almost acyclicity of O⁺/p^n on affinoid perfectoid spaces (Scholze 2012 Theorem 7.13) and Scholze 2013 Lemma 3.18.
 2. (3): the images of (O⁺/p^n)(U) in (O⁺/p^m)(U) are R⁺/p^m, so the inverse limit is R⁺.
-3. (4)–(5): apply Scholze 2013 Lemma 3.18 to G=O⁺/p along Frobenius, then check the sheaf property of U↦R^{♭+} as the Frobenius limit of the exact sequences 0→R⁺/p→S⁺/p→T⁺/p.
+3. (5) and the almost form of (4): apply the basis-acyclicity derived-limit lemma to O⁺/p along Frobenius. For exact (4), use the canonical power-map-limit presentation of Ô^{♭+} as a multiplicative sheaf, with its tilt addition. Limits commute with sections, so (3) identifies its sections with lim_{x↦x^p}R⁺=R^{♭+}; the induced tilt addition agrees with the perfectoid tilt. Alternatively, tilted perfectoid descent gives the exact equalizer directly. Do not infer exactness of the untilted modulo-p Čech equalizer merely from p-torsionfreeness and sheafness (source proof gap E26).
 4. (6): Lemma 5.3.8 reduces the equivalence to Kedlaya–Liu Theorem 9.2.15; the vanishing follows as in Liu–Zhu 2017 Proposition 2.3 with Lemma 5.1.4(3).
 
 **Acceptance checks.**
@@ -1570,6 +1586,7 @@ Let X be a locally noetherian fs log adic space over Spa(Q_p,Z_p) and U a log af
 - [DLLZ-adic](https://www.kwlan.org/articles/log-adic.pdf), Theorem 5.4.3, p. 79. Hypotheses of parts (1)–(5), which the node restates.
 - [DLLZ-adic](https://www.kwlan.org/articles/log-adic.pdf), Theorem 5.4.3(3), p. 79. The exact identification Ô⁺(U)≅R⁺ with the p-adic completion of O⁺(U) in part (3).
 - [DLLZ-adic](https://www.kwlan.org/articles/log-adic.pdf), Theorem 5.4.4, p. 80. Part (6): finite locally free Ô-modules over U and their higher cohomology vanishing.
+- [DLLZ-adic](https://www.kwlan.org/articles/log-adic.pdf), proof of Theorem 5.4.3(4), p. 80. The exact tilted identification is retained, but the claim that an untilted modulo-p Čech equalizer is exact from sheafness and p-torsionfreeness is replaced by the completed power-map limit and tilted descent (E26).
 
 Proposed library placement: `TauCeti/AlgebraicGeometry/LogAdic/Sites`, namespace `TauCeti.LogAdic`.
 
@@ -2050,7 +2067,7 @@ Proposed library placement: `TauCeti/AlgebraicGeometry/LogAdic/Comparison`, name
 
 Atlas planet: **Structural logarithmic periods**.
 
-Let X be a locally noetherian fs log adic space over Spa(k,k⁺) (k of characteristic 0, residue field κ of characteristic p). For a log affinoid perfectoid U=lim_{i∈I}U_i∈X_prokét with U_i=(Spa(R_i,R_i⁺),M_i,α_i) and associated perfectoid pair (R,R⁺), put M_i=M_i(U_i), M=colim_iM_i=M(U) and M♭=lim_{a↦pa}M=M♭(U), with α♭:M♭→R♭. For r≥1, S_{i,r} is the quotient of the monoid algebra (R_i⊗̂_{W(κ)}(W(R^{♭+})/ξ^r))[M_i×_M M♭] by the elements α_i(a′)⊗1−(1⊗[α♭(a″)])e_a for a=(a′,a″) (equation (2.2.8)); [α♭(a″)]∈W(R^{♭+})[1/p]/ξ^r acts because p is invertible in R_i. The map θ_log:S_{i,r}→R induced by R_i→R and θ with θ_log(e_a)=1 is well defined since θ([α♭(a″)])=α_i(a′) ((2.2.9)). Put Ŝ_i=lim_{r,s}S_{i,r}/(ker θ_log)^s; colim_iŜ_i depends only on U. OB⁺_dR,log is the sheaf on X_prokét associated with U↦colim_iŜ_i on the log affinoid perfectoid basis, with θ_log:OB⁺_dR,log→Ô and Fil^rOB⁺_dR,log=(ker θ_log)^rOB⁺_dR,log (Definition 2.2.10(1)). It is an O_{X_prokét}-algebra and a filtered B_dR⁺-algebra.
+Assume the residue field κ of k is perfect, so the W(κ)-algebra structures below are defined (E10). Let X be a locally noetherian fs log adic space over Spa(k,k⁺) (k of characteristic 0, residue field κ of characteristic p). For a log affinoid perfectoid U=lim_{i∈I}U_i∈X_prokét with U_i=(Spa(R_i,R_i⁺),M_i,α_i) and associated perfectoid pair (R,R⁺), put M_i=M_i(U_i), M=colim_iM_i=M(U) and M♭=lim_{a↦pa}M=M♭(U), with α♭:M♭→R♭. For r≥1, S_{i,r} is the quotient of the monoid algebra (R_i⊗̂_{W(κ)}(W(R^{♭+})/ξ^r))[M_i×_M M♭] by the elements α_i(a′)⊗1−(1⊗[α♭(a″)])e_a for a=(a′,a″) (equation (2.2.8)); [α♭(a″)]∈W(R^{♭+})[1/p]/ξ^r acts because p is invertible in R_i. The map θ_log:S_{i,r}→R induced by R_i→R and θ with θ_log(e_a)=1 is well defined since θ([α♭(a″)])=α_i(a′) ((2.2.9)). Put Ŝ_i=lim_{r,s}S_{i,r}/(ker θ_log)^s; colim_iŜ_i depends only on U. OB⁺_dR,log is the sheaf on X_prokét associated with U↦colim_iŜ_i on the log affinoid perfectoid basis, with θ_log:OB⁺_dR,log→Ô and Fil^rOB⁺_dR,log=(ker θ_log)^rOB⁺_dR,log (Definition 2.2.10(1)). It is an O_{X_prokét}-algebra and a filtered B_dR⁺-algebra.
 
 **Hypotheses and conventions.**
 
@@ -2742,18 +2759,19 @@ Proposed library placement: `TauCeti/AlgebraicGeometry/LogAdic/Comparison`, name
 
 `HodgeTateAndCanonicalSubgroups:T6:comparison/arithmetic-log-de-rham` · construction · proposed declaration `TauCeti.LogAdic.ArithmeticLogDR`.
 
-For µ:X_prokét→X_an (k, (X,D) as in the geometric functor, K any perfectoid field containing k_∞) set D_dR,log(L)=µ_*(L̂⊗_{Q̂_p}OB_dR,log)≅RH_log(L)^{Gal(K/k)} with Fil^•D_dR,log(L)=(Fil^•RH_log(L))^{Gal(K/k)}. Then L↦D_dR,log(L) is a functor to vector bundles on X_an with integrable log connection ∇_L and decreasing filtration by coherent subsheaves satisfying Griffiths transversality; for every irreducible component Z of D all eigenvalues of Res_Z(∇_L) lie in Q∩[0,1), and they are 0 if L|U has unipotent geometric monodromy along D. The adjunction map D_dR,log(L)⊗̂_k B_dR→RH_log(L) is injective and strictly compatible with filtrations. If L|U is de Rham it is an isomorphism compatible with connections and filtrations, and gr D_dR,log(L) is a vector bundle of rank rk_{Q_p}L. Without that hypothesis the rank of D_dR,log(L) need not equal rk L.
+For µ:X_prokét→X_an (k, (X,D) as in the geometric functor, K any perfectoid field containing k_∞) set D_dR,log(L)=µ_*(L̂⊗_{Q̂_p}OB_dR,log). For the invariant computation choose K=k̂_∞; then D_dR,log(L)≅RH_log(L)^{Gal(k_∞/k)} and Fil^•D_dR,log(L)=(Fil^•RH_log(L))^{Gal(k_∞/k)}. Then L↦D_dR,log(L) is a functor to vector bundles on X_an with integrable log connection ∇_L and decreasing filtration by coherent subsheaves satisfying Griffiths transversality; for every irreducible component Z of D all eigenvalues of Res_Z(∇_L) lie in Q∩[0,1), and they are 0 if L|U has unipotent geometric monodromy along D. The adjunction map D_dR,log(L)⊗̂_k B_dR→RH_log(L) is injective and strictly compatible with filtrations. If L|U is de Rham it is an isomorphism compatible with connections and filtrations, and gr D_dR,log(L) is a vector bundle of rank rk_{Q_p}L. Without that hypothesis the rank of D_dR,log(L) need not equal rk L.
 
 **Hypotheses and conventions.**
 
 - The same p-adic field and normal crossings pair as the geometric RH construction; no geometric-irreducibility hypothesis is needed for the arithmetic residues (Theorem 3.2.7(2)).
 - De Rham means L|U de Rham in Scholze's sense (as reviewed in the DLLZ-RH introduction); it is needed only for the adjunction isomorphism and the graded rank.
+- The intrinsic µ-pushforward does not depend on K. Its Galois-invariant description here uses K=k̂_∞, as in Lemma 3.3.17; it is not asserted for arbitrary Aut(K/k). General perfectoid K remains allowed for the geometric RH coefficient extension and the adjunction comparison.
 
 **Construction or proof route.**
 
-1. Compute D_dR,log(L) as the sheaf associated with Y↦H⁰(Gal(K/k),RH_log(L)(Y)); with K=k̂_∞, decompletion (Theorem A.2.1.2, Corollary A.1.21) gives finitely generated graded pieces compatible with rational and finite étale localization, so D_dR,log(L) is coherent (Lemma 3.3.17); it is reflexive by the codimension-two extension argument [Kis99, Cor. 2.2.4], [Ser66, Prop. 7] (Lemma 3.3.18).
-2. D_dR,log(L)(X)≅N^{Gal(K/k)} and its residue is still t⁻¹log(γ_i), so the eigenvalue analysis of normalized-log-residues gives eigenvalues in Q∩[0,1) (Proposition 3.4.15), and 0 under unipotent monodromy (proof of Theorem 3.2.12(2)); Proposition 3.4.16 then gives local freeness (Theorem 3.2.7(1)).
-3. The adjunction map is injective and strict by comparing ⊕_{a+b=r}gr^a(RH_log(L))^{Gal(K/k)}⊗K(b) with gr^r RH_log(L) (Lemma 3.4.18).
+1. Choose K=k̂_∞ for the invariant computation. Compute D_dR,log(L) as the sheaf associated with Y↦H⁰(Gal(k_∞/k),RH_log(L)(Y)); with K=k̂_∞, decompletion (Theorem A.2.1.2, Corollary A.1.21) gives finitely generated graded pieces compatible with rational and finite étale localization, so D_dR,log(L) is coherent (Lemma 3.3.17); it is reflexive by the codimension-two extension argument [Kis99, Cor. 2.2.4], [Ser66, Prop. 7] (Lemma 3.3.18).
+2. D_dR,log(L)(X)≅N^{Gal(k_∞/k)} and its residue is still t⁻¹log(γ_i), so the eigenvalue analysis of normalized-log-residues gives eigenvalues in Q∩[0,1) (Proposition 3.4.15), and 0 under unipotent monodromy (proof of Theorem 3.2.12(2)); Proposition 3.4.16 then gives local freeness (Theorem 3.2.7(1)).
+3. The adjunction map is injective and strict by comparing ⊕_{a+b=r}gr^a(RH_log(L))^{Gal(k_∞/k)}⊗K(b) with gr^r RH_log(L) (Lemma 3.4.18).
 4. If L|U is de Rham the map is an isomorphism on U (LZ17 Cor. 3.12(ii), from Scholze's association L̂⊗OB_dR≅E⊗OB_dR), hence on X by Proposition 3.4.17 and the normalized residues on both sides (Corollary 3.4.21); then ⊕_a gr^a D_dR,log(L)⊗K(−a)≅H_log(L) gives the graded rank (Corollary 3.4.22).
 
 **Acceptance checks.**
@@ -2763,7 +2781,7 @@ For µ:X_prokét→X_an (k, (X,D) as in the geometric functor, K any perfectoid 
 **Planning API.**
 
 - `TauCeti.LogAdic.ArithmeticLogDR` (constructor): The arithmetic degree-zero pushforward with its induced connection and coherent filtration.
-- `TauCeti.LogAdic.ArithmeticLogDR.geometric_invariants` (characterisation): It is the arithmetic Galois-invariant sheaf of the geometric RH object, with Fil^r D_dR,log(L)=(Fil^r RH_log(L))^{Gal(K/k)}.
+- `TauCeti.LogAdic.ArithmeticLogDR.geometric_invariants` (characterisation): For K=k̂_∞, the arithmetic pushforward is RH_log(L)^{Gal(k_∞/k)}, with Fil^rD_dR,log(L)=(Fil^rRH_log(L))^{Gal(k_∞/k)} (Lemma 3.3.17). This formula is not a descent claim through Aut(K/k) for arbitrary perfectoid K.
 - `TauCeti.LogAdic.ArithmeticLogDR.residue_eigenvalues` (relation): For every irreducible component Z of D the eigenvalues of Res_Z(∇_L) lie in Q∩[0,1); they are all 0 when L|U has unipotent geometric monodromy along D.
 - `TauCeti.LogAdic.ArithmeticLogDR.toRH` (projection): The adjunction map D_dR,log(L)⊗̂_k B_dR→RH_log(L) is horizontal, injective and strictly compatible with filtrations (Lemma 3.4.18).
 - `TauCeti.LogAdic.ArithmeticLogDR.toRH_iso_of_isDeRham` (compatibility): If L|U is de Rham, the adjunction map is an isomorphism of filtered vector bundles with log connection (Corollary 3.4.21).
@@ -2786,6 +2804,7 @@ For µ:X_prokét→X_an (k, (X,D) as in the geometric functor, K any perfectoid 
 - [DLLZ-RH](https://www.kwlan.org/articles/log-RH.pdf), Theorem 3.2.7(2), p. 26. The arithmetic residue normalization, stated without a geometric-irreducibility hypothesis; the same item gives the graded rank rk_{Q_p}L for de Rham L|U.
 - [DLLZ-RH](https://www.kwlan.org/articles/log-RH.pdf), Lemma 3.4.18, p. 38. The adjunction map D_dR,log(L)⊗̂_k B_dR→RH_log(L) is injective and strict, as in the node and its toRH API item.
 - [DLLZ-RH](https://www.kwlan.org/articles/log-RH.pdf), Corollary 3.4.21, p. 38. The de Rham isomorphism with RH_log stated in the node; Corollary 3.4.22 then gives the graded rank.
+- [DLLZ-RH](https://www.kwlan.org/articles/log-RH.pdf), Lemma 3.3.17 and its proof, pp. 31–32. Explicitly chooses K=k̂_∞ to compute the arithmetic pushforward and its coherent graded pieces as cyclotomic Galois invariants; the intrinsic pushforward construction remains independent of this choice.
 
 **Uses.**
 
@@ -3122,8 +3141,8 @@ On the pro-Kummer-étale site of S^tor_{K,Σ}, for W∈Rep(Gᶜ) put M:=Ŵ_p⊗_
 
 **Construction or proof route.**
 
-1. Use the canonical association and the log Poincaré lemma (OB_dR,log)^{∇=0}=B_dR to identify Ŵ_p⊗B_dR with (W_dR⊗OB_dR,log)^{∇=0}; since t is horizontal and OB_dR,log=OB⁺_dR,log[1/t], this is M⁰[1/t].
-2. Locally on a log affinoid perfectoid over a toric chart, OB⁺_dR,log is a power-series ring over B_dR⁺ in the log coordinates; the integrable log connection of W_dR then has a full set of formal horizontal sections, so M⁰ is a B_dR⁺-local system of rank dim W with M⁰⊗_{B_dR⁺}OB⁺_dR,log≅W_dR⊗OB⁺_dR,log.
+1. On a log affinoid perfectoid above a toric chart, write OB⁺_dR,log as the formal power-series ring of the toric structural-period model. Solve the integrable coefficient connection coefficient by coefficient over this Q-algebra, starting from a basis at zero coordinates. Commuting partial equations and the formal recursion give a horizontal frame. Thus M⁰ is a rank-dim W B_dR⁺-local system and its scalar extension to OB⁺_dR,log recovers W_dR⊗OB⁺_dR,log. This uses formal horizontal trivialization, not only exactness of the untwisted Poincaré complex.
+2. Extend this horizontal frame through localization and the additional filtration completion defining OB_dR,log. The completed log Poincaré lemma identifies its horizontal scalar coefficients with B_dR. Hence (W_dR⊗OB_dR,log)^{∇=0}=M⁰[1/t], while the canonical association identifies this horizontal local system with Ŵ_p⊗B_dR. No equality OB_dR,log=OB⁺_dR,log[1/t] is asserted (DLLZ-RH Remark 2.2.11).
 3. Carry both lattice filtrations into the common ambient space and identify M/Fil¹M with Ŵ_p⊗Ô using B_dR⁺/Fil¹=Ô.
 
 **Acceptance checks.**
@@ -3147,11 +3166,11 @@ On the pro-Kummer-étale site of S^tor_{K,Σ}, for W∈Rep(Gᶜ) put M:=Ŵ_p⊗_
 - `TauCeti.LogAdic.TwoDeRhamLattices.horizontal_requirement` (non-example): The unrestricted module W_dR⊗OB_dR,log⁺ is not itself M⁰; its horizontal kernel is required.
 - `TauCeti.LogAdic.TwoDeRhamLattices.tate_line` (computation): For a rank-one associated pair with Ŵ_p≅Q_p(1) and W_dR=(O,d) with Gr^{−1}W_dR=W_dR, one has M⁰=Fil^{−1}B_dR·M=t⁻¹M, whereas Fil⁰ of the Hodge-induced filtration on (W_dR⊗OB_dR,log)^{∇=0} is M itself.
 
-**Prerequisites.** [HodgeTateAndCanonicalSubgroups:T6:comparison/canonical-log-period-comparison](#canonical-log-period-comparison), [HodgeTateAndCanonicalSubgroups:T6:comparison/log-poincare](#log-poincare), [HodgeTateAndCanonicalSubgroups:T6:comparison/constant-log-periods](#constant-log-periods), [HodgeTateAndCanonicalSubgroups:T6:comparison/toric-structural-period-model](#toric-structural-period-model).
+**Prerequisites.** [HodgeTateAndCanonicalSubgroups:T6:comparison/canonical-log-period-comparison](#canonical-log-period-comparison), [HodgeTateAndCanonicalSubgroups:T6:comparison/log-poincare](#log-poincare), [HodgeTateAndCanonicalSubgroups:T6:comparison/constant-log-periods](#constant-log-periods), [HodgeTateAndCanonicalSubgroups:T6:comparison/toric-structural-period-model](#toric-structural-period-model), `PadicHodgeTheory:P8:local-rational/formal-poincare-lemma`.
 
 **Sources and relation to this target.**
 
-- [BP](https://www.imo.universite-paris-saclay.fr/~vincent.pilloni/HigherColeman.pdf), Remark 4.4.39 and following text, p. 79. BP’s definition of the two lattices M and M⁰ in a common B_dR-local system. BP prints M=W_p⊗B⁺_{dR,log}; the sheaf meant is B_dR⁺ (the sentence quoted calls M a B_dR⁺-local system), and the node uses B_dR⁺.
+- [BP](https://www.imo.universite-paris-saclay.fr/~vincent.pilloni/HigherColeman.pdf), Remark 4.4.39 and following text, p. 79. BP’s definition of the two lattices M and M⁰ in a common B_dR-local system. BP prints M=W_p⊗B⁺_{dR,log}; the sheaf meant is B_dR⁺ (the surrounding text identifies M a B_dR⁺-local system), and the node uses B_dR⁺.
 - [BP](https://www.imo.universite-paris-saclay.fr/~vincent.pilloni/HigherColeman.pdf), Remark 4.4.39 and following text, p. 79. The two filtrations Fil^iM and Fil^iM⁰ are the ones determined by the two lattices; the node defines them as Fil^iB_dR·L.
 
 **Uses.**
@@ -3206,7 +3225,7 @@ With M, M⁰ and their lattice filtrations from two-de-rham-lattices, define the
 
 **Sources and relation to this target.**
 
-- [BP](https://www.imo.universite-paris-saclay.fr/~vincent.pilloni/HigherColeman.pdf), text after Remark 4.4.39, p. 79. Introduces the displayed definition Fil_{−j}(W_p⊗Ô)=(M∩Fil^jM⁰)/(Fil¹M∩Fil^jM⁰) that the node states verbatim.
+- [BP](https://www.imo.universite-paris-saclay.fr/~vincent.pilloni/HigherColeman.pdf), text after Remark 4.4.39, p. 79. Introduces the displayed definition Fil_{−j}(W_p⊗Ô)=(M∩Fil^jM⁰)/(Fil¹M∩Fil^jM⁰) that the node states.
 - [BP](https://www.imo.universite-paris-saclay.fr/~vincent.pilloni/HigherColeman.pdf), text after Remark 4.4.39, p. 79. The filtration is defined from the canonical comparison of §4.4.38 on S^tor_{K,Σ}; the relation Gr_j(W_p⊗Ô)(j)=Gr^jW_dR⊗Ô is displayed at the top of p. 80.
 
 **Uses.**
@@ -3364,7 +3383,7 @@ Proposed library placement: `TauCeti/AlgebraicGeometry/LogAdic/Comparison`, name
 
 `HodgeTateAndCanonicalSubgroups:T6:comparison/hodge-type-comparison-agreement` · theorem · proposed declaration `TauCeti.LogAdic.hodge_type_comparison_agreement`.
 
-Let (G,X) be of Hodge type (Gᶜ=G) with a Siegel embedding, faithful symplectic representation V₀ and universal abelian scheme f:A→S_K, with V₀ realized by H₁(A)=(R¹f_*)^∨ as in BP §4.4.8 and AutomorphicBundles:B1/hodge-tensor-realizations (DLLZ-RH (5.5.2) use the contragredient normalization V₀↦R¹f_*; the argument of their Lemma 5.5.3 applies verbatim to the dual realizations), so that the realizations of V₀^{⊗m}(−t) are the duals of the cohomology of A^m, up to Tate twist. On the open Shimura variety: (i) for W=V₀^{⊗m}(−t) the canonical isomorphism p-W_dR≃W_dR of canonical-log-period-comparison is the one induced by Scholze’s relative de Rham comparison for A^m, and for every irreducible W∈Rep(G) it is induced from these by the Hodge tensor s_W cutting W out of some V₀^{⊗m_W}(−t_W) (Lemma 5.5.6, Corollary 5.5.7), hence for every W∈Rep(G) by additivity; (ii) hence on S_K the period isomorphism Ŵ_p⊗OB_dR≃W_dR⊗OB_dR is the abelian-scheme comparison with Hodge tensors (Caraiani–Scholze §§2.2–2.3), and the lattice HT filtration, P_HT and the Levi comparison restrict to those built from A and its tensors.
+Let (G,X) be of Hodge type (Gᶜ=G) with a Siegel embedding, faithful symplectic representation V₀ and universal abelian scheme f:A→S_K, with V₀ realized by H₁(A)=(R¹f_*)^∨ as in BP §4.4.8 and AutomorphicBundles:B1/hodge-tensor-realizations (DLLZ-RH (5.5.2) use the contragredient normalization V₀↦R¹f_*; the argument of their Lemma 5.5.3 applies to the dual realizations), so that the realizations of V₀^{⊗m}(−t) are the duals of the cohomology of A^m, up to Tate twist. On the open Shimura variety: (i) for W=V₀^{⊗m}(−t) the canonical isomorphism p-W_dR≃W_dR of canonical-log-period-comparison is the one induced by Scholze’s relative de Rham comparison for A^m, and for every irreducible W∈Rep(G) it is induced from these by the Hodge tensor s_W cutting W out of some V₀^{⊗m_W}(−t_W) (Lemma 5.5.6, Corollary 5.5.7), hence for every W∈Rep(G) by additivity; (ii) hence on S_K the period isomorphism Ŵ_p⊗OB_dR≃W_dR⊗OB_dR is the abelian-scheme comparison with Hodge tensors (Caraiani–Scholze §§2.2–2.3), and the lattice HT filtration, P_HT and the Levi comparison restrict to those built from A and its tensors.
 
 **Hypotheses and conventions.**
 
@@ -3373,7 +3392,7 @@ Let (G,X) be of Hodge type (Gᶜ=G) with a Siegel embedding, faithful symplectic
 
 **Construction or proof route.**
 
-1. DLLZ-RH Lemma 5.5.3: GAGA full faithfulness and Scholze’s relative comparison give (5.5.4) for V₀^{⊗m}(−t), equal to the identity at the special point h.
+1. DLLZ-RH Lemma 5.5.3: Scholze’s relative comparison gives the analytic morphism. Full faithfulness of p-adic analytification for regular algebraic connections ([AB01, Ch. 4, Cor. 6.8.2], [ABC20, Cor. 34.6.2], explicitly used on p. 63) algebraizes it on the open Shimura variety, giving (5.5.4) for V₀^{⊗m}(−t), equal to the identity at the special point h. Proper rigid GAGA on S_K is not the input.
 2. Lemma 5.5.6 and Corollary 5.5.7: each irreducible W is cut out of V₀^{⊗m}(−t) by a Hodge tensor s_W, giving (5.5.8).
 3. Proposition 5.5.9 with Remark 5.5.10 (Faltings’s and Scholze’s comparisons agree for CM abelian varieties; Blasius for Hodge tensors): (5.5.8) is the identity at h on each component, hence equals the canonical isomorphism of Theorem 5.3.1, and Proposition 5.4.4 transfers this to the de Rham side.
 4. The period isomorphism is µ⁻¹D_dR of the de Rham side tensored up, and for R^if_*Q_p the D_dR-identification is the one induced by Scholze’s comparison; so the lattices M, M⁰, the HT filtration and P_HT on S_K are those of the abelian-scheme comparison; conclude with T2’s description of the HT filtration and the faithful-representation test for P_HT.
@@ -3504,6 +3523,12 @@ The algebraic Hodge cocharacter/parabolic convention and the Tannakian extractio
 
 Needed by: [HodgeTateAndCanonicalSubgroups:T6:comparison/lattice-hodge-tate-filtration](#lattice-hodge-tate-filtration), [HodgeTateAndCanonicalSubgroups:T6:comparison/canonical-ht-tensor](#canonical-ht-tensor), [HodgeTateAndCanonicalSubgroups:T6:comparison/finite-levi-torsor](#finite-levi-torsor), [HodgeTateAndCanonicalSubgroups:T6:comparison/hodge-tate-parabolic-reduction](#hodge-tate-parabolic-reduction), [HodgeTateAndCanonicalSubgroups:T6:comparison/hodge-type-comparison-agreement](#hodge-type-comparison-agreement).
 
+### `PadicHodgeTheory:P8:local-rational`
+
+The two-lattice construction needs a horizontal frame for an integrable finite free connection on B_dR⁺[[y₁,…,y_d]], with ∇=d+A, obtained by multivariable formal recursion and invertibility of the positive integers; its extension must be compatible with the filtration completion after inverting t. P8:local-rational/formal-poincare-lemma supplies only the untwisted de Rham complex. Request the coefficient version there; until that exact interface exists, the frame step is a recorded proof input, not an assumed comparison.
+
+Needed by: [HodgeTateAndCanonicalSubgroups:T6:comparison/two-de-rham-lattices](#two-de-rham-lattices).
+
 ## Ownership and proposed restructuring
 
 RT-AREA-padic-1/4 (confirmed) found BP Theorem 4.4.40 planned in both T6:comparison and PerfectoidShimuraVarieties:S6. FIX-RT-AREA-padic-1 (RT-AREA-padic-1.fixes.md, finding /4, edits 2–6) gives the narrowed texts; the atlas text of T6, T6:comparison and the roadmap summary still contains Theorem 4.4.40.
@@ -3576,7 +3601,7 @@ Needed by: [HodgeTateAndCanonicalSubgroups:T6:comparison/canonical-arithmetic-mo
 
 ### CM special-point comparison inputs
 
-No atlas node supplies the CM/potentially crystalline tensor package of DLLZ-RH Proposition 5.4.1: Blasius's theorem on Hodge tensors under p-adic comparison [Bla94], potential good reduction of CM abelian varieties [ST68, §5], and the agreement of Faltings's and Scholze's de Rham comparison isomorphisms for abelian varieties with potentially good reduction [IIK21, §11] (Remark 5.5.10). MotivesAndAlgebraicCycles:MC.7 states no node with these results, and citing its stage would close a cycle through other planned roadmaps (AutomorphicBundles B5 cites T6:comparison, and B5→C5→PELModuli M6→R28.1→R28.4→MC.7), so the inputs need an owner that does not depend on T6 — an early CM abelian-variety comparison supplier — rather than MC.7. No hypothetical general Shimura motive is assumed.
+No atlas node supplies the CM/potentially crystalline tensor package of DLLZ-RH Proposition 5.4.1: Blasius's theorem on Hodge tensors under p-adic comparison [Bla94], potential good reduction of CM abelian varieties [ST68, §5], and the agreement of Faltings's and Scholze's de Rham comparison isomorphisms for abelian varieties with potentially good reduction [IIK21, §11] (Remark 5.5.10). MotivesAndAlgebraicCycles:MC.7 states no node with these results, and citing its stage would close a cycle through other planned roadmaps (AutomorphicBundles B5 cites T6:comparison, and B5→C5→PELModuli M6→R28.1→R28.3→R28.4→MC.7), so the inputs need an owner that does not depend on T6 — an early CM abelian-variety comparison supplier — rather than MC.7. No hypothetical general Shimura motive is assumed.
 
 Needed by: [HodgeTateAndCanonicalSubgroups:T6:comparison/special-point-comparison](#special-point-comparison), [HodgeTateAndCanonicalSubgroups:T6:comparison/hodge-type-comparison-agreement](#hodge-type-comparison-agreement).
 
@@ -3594,9 +3619,9 @@ Needed by: [HodgeTateAndCanonicalSubgroups:T6:comparison/log-riemann-hilbert](#l
 
 ### Further external inputs of the logarithmic proofs without an atlas owner
 
-boundary-local-system-extension (DLLZ-adic Lemma 4.6.2): Huber's comparison of algebraic and analytic étale cohomology [Hub96, Prop. 2.1.4, Thm. 3.8.1] and log purity for schemes [Ill02, Thm. 7.2] (Fujiwara–Kato). log-regularity-and-extension (DLLZ-RH Propositions 3.4.16–3.4.17): André–Baldassarri's regular-singular local freeness and uniqueness [AB01, Ch. 1, 4.5–4.7], [ABC20, 11.2.2, 11.5.1]. arithmetic-log-de-rham (DLLZ-RH Lemma 3.3.18): Kisin's codimension-two extension [Kis99, Cor. 2.2.4]. relative-log-comparison (DLLZ-RH §3.5): Katz's normalized residues of the Gauss–Manin connection [Kat71, §VII]. kummer-proper-pushforward-local-systems (DLLZ-adic Corollary 6.3.5): the relative finiteness theorem [SW20, Thm. 10.5.1] (R^if_ét,* of an étale Z_p-local system along a proper smooth morphism of rigid analytic varieties over a characteristic-zero field is a local system). Each needs a supplier node or a request once an owner is identified; none is assumed here.
+boundary-local-system-extension (DLLZ-adic Lemma 4.6.2): Huber's comparison of algebraic and analytic étale cohomology [Hub96, Prop. 2.1.4, Thm. 3.8.1] and log purity for schemes [Ill02, Thm. 7.2] (Fujiwara–Kato). log-regularity-and-extension (DLLZ-RH Propositions 3.4.16–3.4.17): André–Baldassarri's regular-singular local freeness and uniqueness [AB01, Ch. 1, 4.5–4.7], [ABC20, 11.2.2, 11.5.1]. arithmetic-log-de-rham (DLLZ-RH Lemma 3.3.18): Kisin's codimension-two extension [Kis99, Cor. 2.2.4]. relative-log-comparison (DLLZ-RH §3.5): Katz's normalized residues of the Gauss–Manin connection [Kat71, §VII]. kummer-proper-pushforward-local-systems (DLLZ-adic Corollary 6.3.5): the relative finiteness theorem [SW20, Thm. 10.5.1] (R^if_ét,* of an étale Z_p-local system along a proper smooth morphism of rigid analytic varieties over a characteristic-zero field is a local system). Each needs a supplier node or a request once an owner is identified; none is assumed here. hodge-type-comparison-agreement (DLLZ-RH Lemma 5.5.3, proof p. 63) additionally uses full faithfulness of analytification for regular algebraic connections [AB01, Ch. 4, Cor. 6.8.2], [ABC20, Cor. 34.6.2]; the open S_K is not proper, so ordinary proper GAGA does not supply this step.
 
-Needed by: [HodgeTateAndCanonicalSubgroups:T6:log-sites/boundary-local-system-extension](#boundary-local-system-extension), [HodgeTateAndCanonicalSubgroups:T6:comparison/log-regularity-and-extension](#log-regularity-and-extension), [HodgeTateAndCanonicalSubgroups:T6:comparison/arithmetic-log-de-rham](#arithmetic-log-de-rham), [HodgeTateAndCanonicalSubgroups:T6:comparison/relative-log-comparison](#relative-log-comparison), [HodgeTateAndCanonicalSubgroups:T6:comparison/kummer-proper-pushforward-local-systems](#kummer-proper-pushforward-local-systems).
+Needed by: [HodgeTateAndCanonicalSubgroups:T6:log-sites/boundary-local-system-extension](#boundary-local-system-extension), [HodgeTateAndCanonicalSubgroups:T6:comparison/log-regularity-and-extension](#log-regularity-and-extension), [HodgeTateAndCanonicalSubgroups:T6:comparison/arithmetic-log-de-rham](#arithmetic-log-de-rham), [HodgeTateAndCanonicalSubgroups:T6:comparison/relative-log-comparison](#relative-log-comparison), [HodgeTateAndCanonicalSubgroups:T6:comparison/kummer-proper-pushforward-local-systems](#kummer-proper-pushforward-local-systems), [HodgeTateAndCanonicalSubgroups:T6:comparison/hodge-type-comparison-agreement](#hodge-type-comparison-agreement).
 
 ### Published-source collation of DLLZ-adic findings
 
@@ -3604,9 +3629,15 @@ Springer DOI 10.1007/978-3-031-21550-6_3 served only a subscription preview. The
 
 Needed by: [HodgeTateAndCanonicalSubgroups:T6:comparison/proper-padic-boundary-cohomology](#proper-padic-boundary-cohomology), [HodgeTateAndCanonicalSubgroups:T6:log-sites/kummer-etale-higher-direct-images](#kummer-etale-higher-direct-images).
 
+### Formal horizontal trivialization of integrable coefficient connections
+
+The two-lattice construction needs a horizontal frame for an integrable finite free connection on B_dR⁺[[y₁,…,y_d]], with ∇=d+A, obtained by multivariable formal recursion and invertibility of the positive integers; its extension must be compatible with the filtration completion after inverting t. P8:local-rational/formal-poincare-lemma supplies only the untwisted de Rham complex. Request the coefficient version there; until that exact interface exists, the frame step is a recorded proof input, not an assumed comparison.
+
+Needed by: [HodgeTateAndCanonicalSubgroups:T6:comparison/two-de-rham-lattices](#two-de-rham-lattices).
+
 ## Source corrections carried into the targets
 
-These are the 13 findings confirmed by `REV-HodgeTateAndCanonicalSubgroups--T6`. Their descriptions state the source behavior and correction in our own words; the packet retains the reviewer’s separate verdicts. The chapter and journal versions remain uncollated.
+The 26 findings below were independently checked by `REV-HodgeTateAndCanonicalSubgroups--T6~2`. E1–E13 retain their historical verdicts in the packet; E14–E26 were added in this review. All descriptions use our own words. Findings are scoped to the hashed public copies, and the published chapter and journal versions remain uncollated.
 
 ### E1: error
 
@@ -3618,7 +3649,7 @@ Correction: Require X proper for the finiteness assertion. Keep the local-system
 
 Reason: The hypotheses are those of Theorem 4.6.1 (X smooth over k with a normal crossings divisor as in Example 2.3.17, char(k)=0, k⁺=O_k), not properness; no properness appears at the start of §6, §6.1 or §6.3 or in the conventions. Definition 6.3.1 allows torsion Z_p-systems. For the nonproper closed unit disc with empty boundary and the constant F_p-system, Remark 6.2.2 explicitly states that H¹(D,F_p) is infinite. The printed proof invokes Theorem 6.2.1, which assumes X proper, both for the limit argument and for the finiteness. The extension statements and the first comparison hold levelwise without properness. DLLZ-RH applies the corollary only with a proper compactification (Corollary 3.2.10), so DLLZ-RH is unaffected.
 
-Affects: a stated result. Independent verdict: `confirmed`.
+Affects: a stated result. Independent verdict: `confirmed` by `REV-HodgeTateAndCanonicalSubgroups--T6~2`.
 
 ### E2: gap
 
@@ -3630,7 +3661,7 @@ Correction: Add Huber's standing assumption ([Hub96, (1.1.1)]: A has a noetheria
 
 Reason: The presentation (3.2.7) uses Huber's continuous differentials Ω_{B/A} ([Hub96, (1.6.2)]), which are defined and finite under (1.1.1), and the inference from finite generation to completeness needs finite modules over B to be complete in the natural topology, which holds for B of noetherian type but not for an arbitrary complete Huber ring; Definition 3.2.4 only asks A, B complete and A→B tft.
 
-Affects: the proof. Independent verdict: `confirmed`.
+Affects: the proof. Independent verdict: `confirmed` by `REV-HodgeTateAndCanonicalSubgroups--T6~2`.
 
 ### E3: misprint
 
@@ -3642,7 +3673,7 @@ Correction: the canonical (cup-product) morphism ∧^i R^1ε_ét,*(μ_n) → R^i
 
 Reason: By Lemma 4.4.27 and Corollary 4.4.22 the stalk of R^iε_ét,*(μ_n) is H^i(Hom(M̄^gp,Ẑ′(1)),μ_n)≅∧^i(M̄^gp/n)⊗μ_n^{⊗(1−i)}, whereas ∧^iR^1ε_ét,*(μ_n)≅∧^i(M̄^gp/n) by (4.4.28). The two differ by the twist μ_n^{⊗(1−i)}, which is nontrivial as a Galois module when μ_n⊄O_X: for an fs log point over Q_5 with M̄=N² and n=3, the printed statement for i=2 asks for Z/3≅μ_3^{⊗−1}, and for i=0 for Z/3≅μ_3, both false. The cup product lands in R^iε_*(μ_n^{⊗i}). Lemma 4.6.2 (p. 69) states the correctly twisted form ∧^i(M̄^gp/nM̄^gp)(−i)≅R^iε_*(Z/n) and its proof invokes Lemma 4.4.29 in that form. Confirmed on the rendered page image of p. 65 (μ_n untwisted in both places).
 
-Affects: a stated result. Independent verdict: `confirmed`.
+Affects: a stated result. Independent verdict: `confirmed` by `REV-HodgeTateAndCanonicalSubgroups--T6~2`.
 
 ### E4: gap
 
@@ -3654,7 +3685,7 @@ Correction: Assume moreover that k is a perfectoid field (of residue characteris
 
 Reason: Definition 5.3.1(3) requires the completed colimit k⟨P_{Q≥0}⟩ to be perfectoid, which holds only if k is perfectoid (for P=0 it is k itself; in general k⁺⟨P_{Q≥0}⟩/p=(k⁺/p)[P_{Q≥0}] has surjective Frobenius only if k⁺/p does). A complete field of characteristic zero containing all roots of unity need not be perfectoid (e.g. the Gauss-norm completion of the completed Q_p(μ_∞)(T), whose residue field F̄_p(T) is imperfect). The proof of Proposition 6.1.1 applies Lemma 6.1.11 (via Theorem 5.4.3) to Ṽ, so it needs Ẽ log affinoid perfectoid. Checked on the rendered page 81.
 
-Affects: the proof. Independent verdict: `confirmed`.
+Affects: the proof. Independent verdict: `confirmed` by `REV-HodgeTateAndCanonicalSubgroups--T6~2`.
 
 ### E5: gap
 
@@ -3666,7 +3697,7 @@ Correction: Assume that k has residue characteristic p (k is an extension of Q_p
 
 Reason: If the residue characteristic of k is not p, then p is a unit in k⁺, so k⁺/p=0 and O⁺/p=0; parts (1) and (2) hold trivially and the deduced finiteness of H^i(X_két,L) does not follow. The proof also uses log affinoid perfectoid objects (defined over Spa(Z_p,Z_p)) and an element ϖ∈k♭ with ϖ♯=p. Every application in DLLZ-adic and DLLZ-RH is over an extension of Q_p. Checked on the rendered page 85.
 
-Affects: the proof. Independent verdict: `confirmed`.
+Affects: the proof. Independent verdict: `confirmed` by `REV-HodgeTateAndCanonicalSubgroups--T6~2`.
 
 ### E6: error
 
@@ -3678,7 +3709,7 @@ Correction: The first term must be the tensor product completed for the filtrati
 
 Reason: The proof reduces to 0→B+_dR,X|_X̃[[y′]]→B+_dR,X|_X̃[[y]]→⋯, whose first term is the completed tensor product. Take X=T²→X′=T¹ (projection, trivial log structure, a log smooth map between spaces as in Remark 2.4.1(1)): ∇_{X/X′}=∂/∂y₂⊗δ(a₂) has kernel B+_dR,X[[y₁]], which contains ∑_k[T₂♭]^k y₁^k. Every element in the image of the uncompleted tensor product has y₁-coefficients in a finitely generated f⁻¹B+_dR,X′-submodule, while θ([T₂♭]^k)=T₂^k are linearly independent over the functions pulled back from X′; so exactness fails at OB+_dR,log,X. Same mechanism as PadicHodgeTheory/E12 for Scholze 2013, Proposition 8.5.
 
-Affects: a stated result. Independent verdict: `confirmed`.
+Affects: a stated result. Independent verdict: `confirmed` by `REV-HodgeTateAndCanonicalSubgroups--T6~2`.
 
 ### E7: misprint
 
@@ -3690,7 +3721,7 @@ Correction: ... a finite locally free gr⁰(O_Z ⊗̂_k B_dR) = O_Z ⊗̂_k K-mo
 
 Reason: µ′_Z lands in Z_an, Z is X or an open subspace of a stratum of D, and the proof establishes statement (a) over R̄_K = R̄ ⊗̂_k K with R̄ = R/(T₁,…,T_l); Lemma 3.3.2 on the same page uses O_Z. For Z ≠ X the module is not locally free over O_X ⊗̂_k K.
 
-Affects: nothing. Independent verdict: `confirmed`.
+Affects: nothing. Independent verdict: `confirmed` by `REV-HodgeTateAndCanonicalSubgroups--T6~2`.
 
 ### E8: misprint
 
@@ -3702,7 +3733,7 @@ Correction: ({A_{m,k̂_∞}}_{m≥1}, Â_∞, Γ̃) is a decompletion system.
 
 Reason: A_m is not defined in A.2.2; the proof combines Proposition A.2.2.1, which is about {A_{m,k̂_∞}}, with Theorem A.1.10, and §3.3 applies the theorem to R_{K,m} over K.
 
-Affects: nothing. Independent verdict: `confirmed`.
+Affects: nothing. Independent verdict: `confirmed` by `REV-HodgeTateAndCanonicalSubgroups--T6~2`.
 
 ### E9: gap
 
@@ -3714,7 +3745,7 @@ Correction: Corollary 2.2.6 assumes X over a perfectoid field containing all roo
 
 Reason: The hypothesis of Corollary 2.2.6 is not satisfied by X over a p-adic field; the identification is canonical (t^r f ↦ f ⊗ ε^{⊗r} is independent of ε), so the descent step is routine but not stated.
 
-Affects: nothing. Independent verdict: `confirmed`.
+Affects: nothing. Independent verdict: `confirmed` by `REV-HodgeTateAndCanonicalSubgroups--T6~2`.
 
 ### E10: gap
 
@@ -3726,7 +3757,7 @@ Correction: Assume the residue field κ perfect (automatic for the p-adic fields
 
 Reason: §2 only assumes k complete nonarchimedean of characteristic 0 with residue characteristic p. The W(κ)-algebra structures on R_i and on W(R^{♭+}) need maps W(κ)→O_k and κ→R^{♭+}, which exist canonically when κ is perfect but not for imperfect κ.
 
-Affects: nothing. Independent verdict: `confirmed`.
+Affects: nothing. Independent verdict: `confirmed` by `REV-HodgeTateAndCanonicalSubgroups--T6~2`.
 
 ### E11: misprint
 
@@ -3738,7 +3769,7 @@ Correction: … summand m_{WZ₀} h*_{WZ₀}(Res_{Z₀}(∇_L)) …
 
 Reason: The summand indexed by Z₀ in Res_W(h*(∇_L))=∑_{h(W)⊂Z} m_WZ h*_{WZ}(Res_Z(∇_L)) involves Res_{Z₀}; the next sentence of the proof uses Res_{Z₀}(∇_L).
 
-Affects: nothing. Independent verdict: `confirmed`.
+Affects: nothing. Independent verdict: `confirmed` by `REV-HodgeTateAndCanonicalSubgroups--T6~2`.
 
 ### E12: misprint
 
@@ -3750,7 +3781,7 @@ Correction: the completion of the stalk of F at each classical point of X is fre
 
 Reason: Proposition 3.4.16 concerns the torsion-free coherent module F; no 𝓔 occurs in its statement.
 
-Affects: nothing. Independent verdict: `confirmed`.
+Affects: nothing. Independent verdict: `confirmed` by `REV-HodgeTateAndCanonicalSubgroups--T6~2`.
 
 ### E13: misprint
 
@@ -3762,7 +3793,163 @@ Correction: M = W_p ⊗_{Q_p} B⁺_dR, and one symbol for the second lattice (M�
 
 Reason: No sheaf B⁺_{dR,log} is defined: BP lists only B⁺_dR, B_dR, OB⁺_{dR,log} and OB_{dR,log}, DLLZ-RH defines no unadorned log period sheaf B_{dR,log}, and the next sentence calls M a B⁺_dR-local system. The second lattice is named M₀ in its definition and M⁰ in the displayed formula. Checked on the rendered page (220 dpi), not only in pdftotext output.
 
-Affects: nothing. Independent verdict: `confirmed`.
+Affects: nothing. Independent verdict: `confirmed` by `REV-HodgeTateAndCanonicalSubgroups--T6~2`.
+
+### E14: error
+
+[DLLZ-adic](https://www.kwlan.org/articles/log-adic.pdf), Hashed public author copy, Lemma 2.2.11, pp. 9–10; publisher text not collated..
+
+Source behavior: For arbitrary commutative P, the raw pair (R[P],R⁺[P]) is asserted to be a Huber pair, using integral closedness of R⁺[P].
+
+Correction: Replace the raw plus algebra by its integral closure in R[P], then complete this corrected pair. The bounded valuation spectrum is unchanged.
+
+Reason: Take R=Q₂, R⁺=Z₂ and P=C₂, with u²=1. The element e=(1+u)/2 is idempotent, hence satisfies a monic polynomial over Z₂[C₂], but its coefficients 1/2 are not integral. The raw plus algebra is not integrally closed. C₂ is fs, so allowing fs monoids does not remove the counterexample.
+
+Affects: a stated result. Independent verdict: `confirmed` by `REV-HodgeTateAndCanonicalSubgroups--T6~2`.
+
+### E15: misprint
+
+[DLLZ-adic](https://www.kwlan.org/articles/log-adic.pdf), Hashed public author copy, proof of Proposition 3.2.9, p. 27; publisher text not collated..
+
+Source behavior: The square-zero lift sends b₁⊗b₂ to (b₁b₂,b₁d(b₂)), while the universal differential was defined as b⊗1−1⊗b.
+
+Correction: Use (b₁b₂,b₂d(b₁)); keep e^n↦(1,δ(n)).
+
+Reason: The corrected lift sends the universal diagonal difference to d(b), and its two structural-relation terms have second coordinate dβ(n)=β(n)δ(n). The printed lift gives −d(b) and does not annihilate that relation in general. The sign was checked on the rendered p. 27.
+
+Affects: the proof. Independent verdict: `confirmed` by `REV-HodgeTateAndCanonicalSubgroups--T6~2`.
+
+### E16: error
+
+[DLLZ-adic](https://www.kwlan.org/articles/log-adic.pdf), Hashed public author copy, proof of Theorem 3.2.18(3), p. 30; publisher text not collated..
+
+Source behavior: Formal log unramifiedness is used to assert surjectivity of the restriction on derivations and injectivity of the left differential map.
+
+Correction: Use injectivity of the derivation restriction: uniqueness of lifts makes its kernel Der^log_B(C,H) zero. The representing property gives Ω^log_{C/B}=0.
+
+Reason: Unramifiedness supplies uniqueness, not existence, of a lift. Surjectivity belongs to formal smoothness. A left-injective transitivity map by itself would not force the rightmost differential module to vanish. The stated theorem remains valid.
+
+Affects: the proof. Independent verdict: `confirmed` by `REV-HodgeTateAndCanonicalSubgroups--T6~2`.
+
+### E17: error
+
+[DLLZ-adic](https://www.kwlan.org/articles/log-adic.pdf), Hashed public author copy, proof of Proposition 3.3.7, p. 36; publisher text not collated..
+
+Source behavior: The Hom and Der restriction expressions acquire an additional tensor factor ⊗_B B′, although L is already a B′-module.
+
+Correction: Use Hom_{B′}(B′⊗_BΩ,L)=Hom_B(Ω,L), and the corresponding derivation restriction, without an extra tensor.
+
+Reason: The scalar-extension/restriction adjunction needs no additional extension of its Hom target. For a rank-one Ω and B′=B×B, L=B′, the extra tensor produces two copies of the correct B′-module.
+
+Affects: the proof. Independent verdict: `confirmed` by `REV-HodgeTateAndCanonicalSubgroups--T6~2`.
+
+### E18: misprint
+
+[DLLZ-adic](https://www.kwlan.org/articles/log-adic.pdf), Hashed public author copy, proof of Proposition 3.3.16, pp. 38–39; publisher text not collated..
+
+Source behavior: The free chart generators are sent to δ(t_i); the subsequent formal smoothness phrase loses the log qualifier and one toric comparison expression uses an undeclared k.
+
+Correction: Send generators to t_i in the log monoid, with δ(t_i) the differential basis. Retain formal log smoothness and the relative comparison X×_{X⟨P⟩}X⟨Q⟩.
+
+Reason: A chart maps into the log monoid, while δ(t_i) lie in its differential module. The argument is relative over X and never specifies a separate field k. These slips do not change the proposition.
+
+Affects: nothing. Independent verdict: `confirmed` by `REV-HodgeTateAndCanonicalSubgroups--T6~2`.
+
+### E19: error
+
+[DLLZ-adic](https://www.kwlan.org/articles/log-adic.pdf), Hashed public author copy, Lemma 4.2.5 and its proof, pp. 49–50; publisher text not collated..
+
+Source behavior: A single n is asserted to strictify every Kummer étale Y→X when X is noetherian with a sharp fs chart.
+
+Correction: Assume Y quasi-compact or a uniform exponent bound. The finite-cover case already satisfies this, and covering refinement is obtained by finite quasi-compact chart refinement.
+
+Reason: For X a log disc over C_p, take Y the disjoint union of its q-root covers for all primes q. Given n, a q not dividing n leaves boundary index q after saturated pullback, so no single root level is strict étale. Noetherian X does not make arbitrary Y quasi-compact.
+
+Affects: a stated result. Independent verdict: `confirmed` by `REV-HodgeTateAndCanonicalSubgroups--T6~2`.
+
+### E20: gap
+
+[DLLZ-adic](https://www.kwlan.org/articles/log-adic.pdf), Hashed public author copy, proof of Theorem 4.3.7(2), p. 56; publisher text not collated..
+
+Source behavior: The character group G=((1/n)P)^gp/P^gp is used as the acting constant group in H^i(G,F(U)) over the original field.
+
+Correction: Use G^D as the group object. Étale locally adjoining μ_n makes its action the constant group Γ=Hom(G,μ_n); apply averaging there and descend the vanishing.
+
+Reason: Root monomials are acted on by characters of G, not by a canonically specified action of G itself. Over a field without μ_n the diagonalizable group need not be constant. The roots-of-unity extension and strict-stalk argument give the required proof.
+
+Affects: the proof. Independent verdict: `confirmed` by `REV-HodgeTateAndCanonicalSubgroups--T6~2`.
+
+### E21: error
+
+[DLLZ-adic](https://www.kwlan.org/articles/log-adic.pdf), Hashed public author copy, Proposition 5.4.2, pp. 78–79; publisher text not collated..
+
+Source behavior: The sectionwise formula M(U)=colim_iM_{U_i}(U_i) is asserted for any pro-Kummer presentation.
+
+Correction: State the sections formula on the qcqs basis and use sheaf descent on arbitrary objects.
+
+Reason: Let X be a countable disjoint union of log discs over C_p and U_i the union of the i!-root covers on all components. The limit has a sheaf section with exponent 1/j! on component j, but no common finite level contains all these characteristic exponents. Filtered colimits do not commute with the infinite product of sections. The printed proof checks only quasi-compact objects and finite covers.
+
+Affects: a stated result. Independent verdict: `confirmed` by `REV-HodgeTateAndCanonicalSubgroups--T6~2`.
+
+### E22: misprint
+
+[DLLZ-RH](https://www.kwlan.org/articles/log-RH.pdf), Hashed public author copy, abbreviated log definitions, p. 10; publisher text not collated..
+
+Source behavior: The criterion for a strictly étale morphism mentions only étaleness of the underlying adic morphism.
+
+Correction: Require strictness of the log morphism as well as ordinary étaleness, as in DLLZ-adic Definition 2.2.23.
+
+Reason: The identity underlying adic map from a log point with a nontrivial characteristic to the same point with the trivial target log structure is étale on carriers and non-strict. The abbreviated sentence drops one of the two conditions; later toric charts use the intended strict condition.
+
+Affects: nothing. Independent verdict: `confirmed` by `REV-HodgeTateAndCanonicalSubgroups--T6~2`.
+
+### E23: misprint
+
+[DLLZ-RH](https://www.kwlan.org/articles/log-RH.pdf), Hashed public author copy, Lemma 3.5.9, p. 40; proof p. 41; publisher text not collated..
+
+Source behavior: For g:Z→Z′, the complex F in Rg_*F is stated to consist of vector bundles on Z′.
+
+Correction: The complex F is on the source Z.
+
+Reason: Rg_* is defined on source complexes, and the subsequent proof and applications use F on Z. This is a domain typo.
+
+Affects: nothing. Independent verdict: `confirmed` by `REV-HodgeTateAndCanonicalSubgroups--T6~2`.
+
+### E24: misprint
+
+[DLLZ-RH](https://www.kwlan.org/articles/log-RH.pdf), Hashed public author copy, Appendix A.2.3 after (A.2.3.1), p. 75; publisher text not collated..
+
+Source behavior: The direct system {B_{r,m}} and its condition (2) are indexed by r≥1.
+
+Correction: Fix r and index both systems by m≥1.
+
+Reason: The transition and submetric projection maps vary m, while r is the fixed period truncation. The surrounding decompletion tuples are indexed by m. Both occurrences were checked on the rendered p. 75.
+
+Affects: nothing. Independent verdict: `confirmed` by `REV-HodgeTateAndCanonicalSubgroups--T6~2`.
+
+### E25: misprint
+
+[DLLZ-RH](https://www.kwlan.org/articles/log-RH.pdf), Hashed public author copy, Theorem A.2.3.4, p. 75; publisher text not collated..
+
+Source behavior: The acting group in the decompletion tuple is denoted Γ.
+
+Correction: Use Γ₁, the geometric tower group already acting on B_{r,m}.
+
+Reason: The construction and Proposition A.2.3.3 use Γ₁; the unqualified Γ in this theorem is not defined in this setup. Checked on the rendered p. 75.
+
+Affects: nothing. Independent verdict: `confirmed` by `REV-HodgeTateAndCanonicalSubgroups--T6~2`.
+
+### E26: gap
+
+[DLLZ-adic](https://www.kwlan.org/articles/log-adic.pdf), Hashed public author copy, proof of Theorem 5.4.3(4), p. 80; publisher text not collated..
+
+Source behavior: Exactness of the sectionwise sequence 0→R⁺/p→S⁺/p→T⁺/p is inferred from sheafness and p-torsionfreeness of the integral structure sheaf.
+
+Correction: Use the completed power-map-limit presentation, whose sections are R^{♭+} by part (3), with tilt addition; or use exact descent for the integral structure sheaf on the tilted perfectoid spaces.
+
+Reason: Sheafness and p-torsionfreeness alone do not make taking sections commute with quotienting by p: the obstruction is the p-torsion in H¹ of the integral sheaf. The earlier argument on the same page establishes only almost exactness of the modulo-p Čech complex. This leaves the stated exactness without the claimed justification. The completed power-map limit or exact tilted descent repairs the step; the theorem is not rejected.
+
+Affects: the proof. Independent verdict: `confirmed` by `REV-HodgeTateAndCanonicalSubgroups--T6~2`.
 
 ## Suggested Lean file and validation
 
@@ -3790,11 +3977,11 @@ under the packet name. A catalogue entry marked “not stated” is a signature
 omission. No untyped geometric statement is counted as an elaborated theorem,
 and no missing condition is replaced by an arbitrary proposition field. The
 full geometric theorem nodes await the exact supplier carriers listed above.
-The final file has typed components for 123 of 406 distinct packet names:
-20 of 68 node declarations, 49 of 212 API names after removing the names that
-also name nodes, and 54 of 126 tests. The 246 API entries include 34 node names.
-The other 283 distinct names have explicit signature omissions. No full geometric
-theorem node is typed. Elaboration with `lean-check` exits 0; its 130 warnings all
+The final file has typed components for 125 of 411 distinct packet names:
+20 of 68 node declarations, 50 of 213 API names after removing the names that
+also name nodes, and 55 of 130 tests. The 247 API entries include 34 node names.
+The other 286 distinct names have explicit signature omissions. No full geometric
+theorem node is typed. Elaboration with `lean-check` exits 0; its 131 warnings all
 concern unproved declarations. The packet checker reports zero errors and warnings.
 The round-2 [handoff](../handoff/BP-HodgeTateAndCanonicalSubgroups--T6~2.md)
 records the checks and the reproducible catalogue synchronization recipe.
