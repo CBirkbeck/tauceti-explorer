@@ -46511,8 +46511,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-EllipticCurveModularity.md",
-   "state": "pending",
-   "note": "released on GitHub issue #7469"
+   "state": "external",
+   "note": "claimed on GitHub issue #7469"
   },
   {
    "id": "REV-PKG-EllipticCurveModularity",
@@ -47104,8 +47104,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-HodgeStructuresPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7491"
+   "state": "pending",
+   "note": "released on GitHub issue #7491"
   },
   {
    "id": "REV-PKG-HodgeStructuresPartII",
@@ -77510,8 +77510,8 @@
     "FIX-RT-AREA-langlands-2~3"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-langlands-2~3.md",
-   "state": "pending",
-   "note": "released on GitHub issue #5871"
+   "state": "external",
+   "note": "claimed on GitHub issue #5871"
   },
   {
    "id": "FIX-RT-AREA-langlands-2~4",
