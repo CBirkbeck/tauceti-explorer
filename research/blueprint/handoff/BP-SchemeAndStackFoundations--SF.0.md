@@ -17,7 +17,7 @@ Every implementation status remains `unchecked`. No mathematical implementation 
   and Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`; the imported contracts
   are individually recorded. No new node duplicates a pinned declaration.
 - Sources: 278 source/version records with URLs, read locators and fingerprints;
-  18 source issues, E101–E118, described in our own words for independent review.
+  17 source issues, E102–E118, described in our own words for independent review.
 - Reader: each target's statement, hypotheses, construction/proof, uses, API, tests,
   prerequisites and exact source locators, followed by supplier and consumer contracts,
   base proof supplements, source-route coverage and the baseline audit.
@@ -30,8 +30,6 @@ Every implementation status remains `unchecked`. No mathematical implementation 
 - `lean-check research/blueprint/suggested/SchemeAndStackFoundations--SF.0.lean`:
   **compiled at the pinned build, 0 errors; only declaration-uses-sorry warnings**.
   The final file has no unused-variable, overlapping-instance or reducibility warnings.
-  A separate exact-name audit found 446 elaborating API names and 15 names explicitly
-  deferred in carrier-omission comments, with no accidental namespace mismatch.
 - Only this issue's packet, reader, suggested file and handoff are changed.
 
 ## Mathematical changes
@@ -127,6 +125,10 @@ Compact support Layer 1 roadmap. Retarget the consumer RD.3 request away from
 AdicCoefficients L2; no second compactification is planned here. The packet also
 records the relative-Spec and general-relative-Proj upstream notes.
 
+The inherited E101 observation is withdrawn: a product factor is finite étale over
+S by its idempotent projection and over R by composition, so the source statement
+is true. This clarification is recorded on the finite-étale equivalence target.
+
 ## Signature limitations and review focus
 
 The reader is definitive. Some concrete test rings/localizations and some imported
@@ -144,7 +146,7 @@ all five ownership moves, the new consumer contracts and source issues E117/E118
 E117 concerns the ultrafilter polarity in the exposition used for products of fields.
 E118 concerns the zero-index term in the cited Witaszek preprint binomial argument;
 the recorded positive-index correction gives the required bound. No published
-correction was located for that preprint issue. Inherited E101–E116 remain observations
+correction was located for that preprint issue. Inherited E102–E116 remain observations
 for independent source checking, rather than assertions that upstream has corrected them.
 
 ## Source access and next step

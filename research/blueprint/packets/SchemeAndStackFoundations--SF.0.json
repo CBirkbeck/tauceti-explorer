@@ -9369,6 +9369,9 @@
           "kind": "degenerate",
           "statement": "For I = 0 every pair is henselian and the functor is the identity up to the canonical isomorphism A/0 = A."
         }
+      ],
+      "notes": [
+        "The inherited source observation E101 is withdrawn: in Stacks Lemma 10.153.7 each local product factor is finite etale over S via an idempotent projection, and hence also finite etale over R by composition. The printed assertion is true; the residue comparison uses the composite R-algebra structure."
       ]
     },
     {
@@ -19922,24 +19925,6 @@
   ],
   "gaps": [],
   "sourceIssues": [
-    {
-      "id": "SchemeAndStackFoundations/E101",
-      "source": "STACKS-04GE",
-      "kind": "misprint",
-      "locator": "Lemma 10.153.7 (tag 04GK), proof, first paragraph; online text accessed 9 October 2026",
-      "printed": "Paraphrase of the source issue: The factors are R-algebras obtained from the finite etale R-algebra S",
-      "correction": "with A_i local and finite etale over R",
-      "reason": "The factors are R-algebras obtained from the finite etale R-algebra S; 'finite etale over S' would make each A_i a quotient finite etale over the whole product, which is not what is used next (residue fields of A_i are finite separable over k).",
-      "affects": "nothing",
-      "nodes": [
-        "SchemeAndStackFoundations:SF.0/henselian-finite-etale-equivalence"
-      ],
-      "known": "new",
-      "searched": [
-        "Parent packet SchemeAndStackFoundations.json sourceIssues E1-E10 (not listed)",
-        "Current online Stacks text of tag 04GK, 9 October 2026 (misprint still present)"
-      ]
-    },
     {
       "id": "SchemeAndStackFoundations/E102",
       "source": "STACKS-04GG",

@@ -89,7 +89,24 @@ The following targets of this layer are in the pinned Mathlib and are cited, not
   and Bézout inequalities are SF.5.
 - **Notions planned here for higher roadmaps.** Henselization of pairs is planned here and
   imported by the perfectoid roadmap; catenary and universally catenary rings, depth and the
-  Cohen–Macaulay property are planned here and imported by the deformation-theory roadmap. Absolute Cohen rings and the absolute Cohen structure theorem also move here because the excellence proof needs them; relative coefficient constructions stay with deformation theory. Absolute Cohen rings and the absolute Cohen structure theorem also move here because the excellence proof needs them; relative coefficient constructions stay with deformation theory.
+  Cohen–Macaulay property are planned here and imported by the deformation-theory roadmap. Absolute Cohen rings and the absolute Cohen structure theorem also move here because the excellence proof needs them; relative coefficient constructions stay with deformation theory. Absolute Cohen rings and the absolute Cohen structure theorem also move here because the excellence proof needs them; relative coefficient constructions stay with deformation theory. Absolute Cohen rings and the absolute Cohen structure theorem also move here because the excellence proof needs them; relative coefficient constructions stay with deformation theory.
+
+
+### Planning and signature status
+
+This part finishes the inherited checkpoint for SF.0. It contains 139 targets: 26 definitions,
+26 constructions, 75 theorems, 6 comparisons, 3 lemmas and 3 applications, with 383 API items
+and 226 discriminating tests. The plan is complete for independent review; coverage is
+**planned**, with ten precise supplier contracts below. No target is asserted implemented.
+The suggested interfaces elaborate at the pinned libraries. Some interfaces and tests need
+prepared diagrams or concrete carriers whose definitions belong to other packages; the
+suggested file identifies each omitted carrier and condition in a comment. The mathematical
+statements, hypotheses and tests here remain definitive.
+
+The proof supplements below replace the inherited coequalizer argument with a single scalar
+action, close the étale-section and residue-selector steps, and supply the Cohen/derivation
+chain behind excellence. The base packet is retained separately: assembly must apply these
+supplements and the five moves of foundational notions recorded below.
 
 
 ### Planning and signature status
@@ -1491,6 +1508,8 @@ Sources:
 - [STACKS-04GE](https://stacks.math.columbia.edu/tag/04GE), Lemma 10.153.7 (tag 04GK), Section 10.153. Finite etale algebras over a henselian local ring are equivalent to finite etale algebras over the residue field; (c).
 - [STACKS-09XD](https://stacks.math.columbia.edu/tag/09XD), Lemma 15.11.5 (tag 09XH), Section 15.11. The integral closure localization used for essential surjectivity.
 - [PAPER-CLAUSEN-MATHEW-21](https://arxiv.org/pdf/1905.06611v3), Construction 4.33, p. 52, arXiv v3. The category of finite etale A^h_p-algebras is equivalent to that of etale k(p)-algebras.
+
+Notes: The inherited source observation E101 is withdrawn: in Stacks Lemma 10.153.7 each local product factor is finite etale over S via an idempotent projection, and hence also finite etale over R by composition. The printed assertion is true; the residue comparison uses the composite R-algebra structure.
 
 <a id="henselian-local-finite-algebras"></a>
 
@@ -7446,18 +7465,6 @@ All 492 imported declarations below were read at Mathlib `082e2d37e8b0463410cdb5
 ## Source issues
 
 The following records describe source issues in our own words. Statements and proofs above use the corrected claims. These observations need independent review; the packet retains correction-search records and the affected target ids.
-
-### SchemeAndStackFoundations/E101
-
-STACKS-04GE, Lemma 10.153.7 (tag 04GK), proof, first paragraph; online text accessed 9 October 2026.
-
-Paraphrase of the source issue: The factors are R-algebras obtained from the finite etale R-algebra S
-
-Correction: with A_i local and finite etale over R
-
-Reason: The factors are R-algebras obtained from the finite etale R-algebra S; 'finite etale over S' would make each A_i a quotient finite etale over the whole product, which is not what is used next (residue fields of A_i are finite separable over k).
-
-Source-issue tracking status: new.
 
 ### SchemeAndStackFoundations/E102
 
