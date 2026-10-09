@@ -1,8 +1,8 @@
 {
   "roadmaps": 244,
-  "stages": 5753,
+  "stages": 5759,
   "originalStages": 2207,
-  "sourceRefinements": 3546,
+  "sourceRefinements": 3552,
   "reviewedDecompositions": [
     {
       "roadmap": "AInfCohomology",
@@ -173,14 +173,14 @@
   "editedRoadmapSummaries": 181,
   "curatedStagePresentations": 339,
   "administrativeStages": 101,
-  "mathematicalStars": 5652,
+  "mathematicalStars": 5658,
   "plainTextPlanetLabels": 398,
   "hiddenPlanets": 600,
   "mappedStageStatuses": 350,
   "libraryAuditStatuses": 19,
   "bibliographicSources": 46,
   "roadmapEdges": 2389,
-  "stageEdges": 15006,
+  "stageEdges": 15024,
   "reviewedLinkPackets": 25,
   "promotedBlueprints": [
     {
@@ -260,6 +260,12 @@
       "roadmap": "AlgebraicModuliForArithmeticGeometry",
       "nodes": 21,
       "reviewer": "independent-review-REV-AlgebraicModuliForArithmeticGeometry--R09.6"
+    },
+    {
+      "file": "AlgebraicModuliForArithmeticGeometry--R09.7",
+      "roadmap": "AlgebraicModuliForArithmeticGeometry",
+      "nodes": 40,
+      "reviewer": "independent-review-REV-AlgebraicModuliForArithmeticGeometry--R09.7"
     },
     {
       "file": "AnabelianGeometryAndNonabelianChabauty",
@@ -1445,8 +1451,8 @@
     }
   ],
   "sourceDocuments": 296,
-  "htmlBytes": 37462097,
-  "htmlSha256": "a4a57332a26f88697d011dbe6588bc58c508f0e36b788b346b14fa8749d46c09",
+  "htmlBytes": 37483656,
+  "htmlSha256": "f17dd9505845a79db2beefdfc203fefa46527f7e3846abecfd7962507d467de0",
   "networkDependencies": 0,
   "localProgressOverridesIncluded": false,
   "assets": {
@@ -1478,7 +1484,7 @@
     "data/roadmap-summaries.json": "c8bdd0a9105f5d3c4a858c8b635990729f8e94497dee784a71fae659b8c05b9f",
     "data/roadmap-classification.json": "2641dbc97eb2566c715162d011b46890d1635629181ef8126ac7aed9e24a3b13",
     "data/classification-estimates.json": "625d35fe6121bf099dc5de9e6a9111793596f9b664e3fbd439841434bb4a57d6",
-    "data/roadmap-distances.json": "c1304298cd7e27c9075df306808e3d6fbb14510dc4c57d1721436e8b2fe09c5d",
+    "data/roadmap-distances.json": "3a98c53f9c14be91df261ce5b080f51e915023d38b046c8e6fd24f30a2da65e0",
     "data/galaxy-layout.json": "2c89ea58b5f5ad9fc7715ddcc8193de9d1fadb2e1fdc452020cd7432f12c819d",
     "data/bibliography.json": "bef230a41fad22d6b790c7564061c4d05c2ae5b78cab53d005eb404afab2b122",
     "NOTICE": "a285b95d5adbf5c2bcc82db36e2a77b797f84a2c5cbb30292efd0bae17cc4f34",
@@ -1562,6 +1568,8 @@
     "data/blueprints/AlgebraicModuliForArithmeticGeometry--R09.5.md": "98215f24ec946ab7dfa4bfd435f8fac06f98ab2dd24228f823b423981e642421",
     "data/blueprints/AlgebraicModuliForArithmeticGeometry--R09.6.json": "36e3ff49355a498a5918144818da2706a6213fe79a776194f307d07614e0fddb",
     "data/blueprints/AlgebraicModuliForArithmeticGeometry--R09.6.md": "2029c22234ceaac86e19fb75169aa9ca44bf8a79a4bca70b98f8da0bafa214fd",
+    "data/blueprints/AlgebraicModuliForArithmeticGeometry--R09.7.json": "f61f4c46057f52f9269e791423d00b7735f3b53fe74dd2ca1f845ec264320c81",
+    "data/blueprints/AlgebraicModuliForArithmeticGeometry--R09.7.md": "885128dbcfe7fe513685599561c836186082530ff484ab675e565dae74ae0eaa",
     "data/blueprints/AnabelianGeometryAndNonabelianChabauty.json": "8f01f09372b0f11e33678f9faf0a7cc96be694202cfc4806eb1faf8242a76974",
     "data/blueprints/AnabelianGeometryAndNonabelianChabauty.md": "3ad5c0ff93d99a8b77fc00fc69720fdd0656fa43ca400863591beaf868a886b1",
     "data/blueprints/ArithmeticGaloisRepresentations.json": "aab9243cf67682cfc62610d285f56ae5da8c3a8024fa8f8bf57027e0361f3090",

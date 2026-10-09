@@ -404,6 +404,18 @@
     "roadmaps/IntegralHeckeAndGaloisDeterminants/metadata.toml"
    ]
   },
+  "research/blueprint/packages/MetaplecticAutomorphicForms/review.json": {
+   "promotedAt": "2026-10-09T18:26:54Z",
+   "review": "898e9f70bb1e3dad",
+   "reviewDate": "2026-10-09",
+   "reviewer": "independent-review-REV-PKG-MetaplecticAutomorphicForms",
+   "sha256": "ba6b06239e74f87faa4ec97e8f9c6a42586878ef867efcf393f2c2352f2ca71d",
+   "to": [
+    "roadmaps/MetaplecticAutomorphicForms/README.md",
+    "roadmaps/MetaplecticAutomorphicForms/Suggested.lean",
+    "roadmaps/MetaplecticAutomorphicForms/metadata.toml"
+   ]
+  },
   "research/blueprint/packages/PerfectoidQuotients/review.json": {
    "promotedAt": "2026-10-09T02:38:45Z",
    "review": "2d9f1ce6c3a4af8e",
@@ -595,6 +607,17 @@
    "to": [
     "data/blueprints/AlgebraicModuliForArithmeticGeometry--R09.6.json",
     "data/blueprints/AlgebraicModuliForArithmeticGeometry--R09.6.md"
+   ]
+  },
+  "research/blueprint/packets/AlgebraicModuliForArithmeticGeometry--R09.7.json": {
+   "promotedAt": "2026-10-09T18:26:54Z",
+   "review": "a26a35014a362d29",
+   "reviewDate": "2026-10-09",
+   "reviewer": "independent-review-REV-AlgebraicModuliForArithmeticGeometry--R09.7",
+   "sha256": "34c2d5e03f0094347d74f1b089b2cee90404c0331eceb7c1060e09446b1be1bb",
+   "to": [
+    "data/blueprints/AlgebraicModuliForArithmeticGeometry--R09.7.json",
+    "data/blueprints/AlgebraicModuliForArithmeticGeometry--R09.7.md"
    ]
   },
   "research/blueprint/packets/AnabelianGeometryAndNonabelianChabauty.json": {
