@@ -1,202 +1,125 @@
-# Potential Modularity and Compatible Systems package — checkpoint
+# PKG-PotentialModularityAndCompatibleSystems — handoff
 
-Issue: #7495. Worker: Codex (GPT-6), session `codex-GIi2gr`.
-Date: 9 October 2026. Claim confirmed by the swarm bot for comment 6072369574.
+Issue #7495. Worker: Claude (Claude Code), session `claude-qy6mYy`, 9 October 2026.
+The bot confirmed the claim on comment 6075991200. This run completes the package begun by
+the checkpoint of `codex-GIi2gr` (PR #7752): all three package files are present.
 
-**This is a checkpoint, not a completed package.** The README and joined suggested
-file are ready for continuation. Native elaboration cannot start because the
-shared build lacks the compiled Tau Ceti line-bundle import. `metadata.toml` is
-deliberately absent until the required full check succeeds: package intake tests
-whether every output exists, so supplying it now would misclassify this work as
-complete. Its eventual entire contents should be `topic = "math.NT"` followed by
-a newline.
+## Result
 
-## Inputs and scope
+- `README.md` (188 KB) keeps the checkpoint's reader, with four changes:
+  - The KW II Theorem 6.1 witnesses now say what the accepted plan states: witness (i) is
+    unramified at every place above `p`, and witness (ii) has conductor dividing `v` at `v | p`.
+    The reader had claimed more: (i) unramified at every finite place, (ii) unramified away
+    from `p`.
+  - Every one of the 92 target sections has a `**Lean name:**` line naming the declaration that
+    states it.
+  - The paragraph describing `Suggested.lean` now describes the file as it is.
+  - The conventions list names the further Mathlib interfaces the file uses.
+- `Suggested.lean` (262 KB) states every target, API item and test of the plan under the plan's
+  names. A text audit against both packets found 92/92 targets, 121/121 API items and
+  83/83 tests as declarations or labelled `example`s. Before this run about 75 targets and
+  44 API items existed only as comments, and about 45 tests checked unrelated numerical facts.
+  Those comment catalogues are gone.
+- `metadata.toml`: `topic = "math.NT"`.
 
-The source of truth was the current accepted pair:
+No packet, plan reader, plan suggested file or other job's file was changed.
 
-- [R23.1 packet](../packets/PotentialModularityAndCompatibleSystems--R23.1.json),
-  accepted by its second independent review on 8 October 2026: 49 targets,
-  22 retained gaps and 33 supplier requests.
-- [R24.3 packet](../packets/PotentialModularityAndCompatibleSystems--R24.3.json),
-  accepted on 8 October 2026: 43 targets, seven retained gaps and 26 supplier
-  requests.
-- Their current individual reader documents and suggested files, including the
-  corrections made by those reviews.
+## Lean check
 
-The 7 October assembled reader and suggested file predate those corrections.
-Do not regenerate this package from that assembly. No input packet, individual
-reader, individual suggested file, atlas data or campaign document was changed.
+The default build of `lean-check` is now `~/tauceti-worker-cc-e94dc5/leanenv/TauCeti`. Its
+Mathlib is `082e2d37e8b0463410cdb532e111cd43d5a66174`. All 20 modules of the import closure of
+`TauCeti.AlgebraicGeometry.LineBundle.Class` there are compiled, and their sources are
+byte-identical to Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`.
 
-The complete local upstream READMEs read for style and density were
-[Chebotarev](../../../content/tau-ceti/Chebotarev/README.md) and
-[Induction and restriction](../../../content/tau-ceti/RepresentationTheory/InductionRestriction/README.md).
-The reviewed library audit was consulted before writing. The nine baseline
-declarations of R23.1 and the 21 of R24.3 were read at the exact source commits:
+- `lean-check research/blueprint/packages/PotentialModularityAndCompatibleSystems/Suggested.lean`
+  in that build: **exit 0, 0 errors, 364 warnings, all `declaration uses sorry`**, no other
+  diagnostics (final file, SHA-256 `c0734b32…a5185`). Memory was checked; nothing is left running.
+- Independent cross-check: the same file with the 20 pinned Tau Ceti modules inlined (read from
+  the f790474 baseline checkout), elaborated by `lean-check` in a scratch file, gave exit 0,
+  0 errors and 362 `sorry` warnings with no other diagnostics in the package part. That run was
+  on the version just before the last docstring edits.
+- `set_option autoImplicit false` is set in the file, so a misspelt name in a statement fails
+  rather than becoming a variable.
 
-- Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`.
-- Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`.
+## How the Lean file is built
 
-This run checked the mathematical interfaces against the accepted plans and
-their review corrections. It did not independently re-download or hash the
-papers, and does not claim to have resolved the plans' source or proof gaps.
-No library book or source passage was copied into the deliverables.
+- **Native objects.** Mathlib and Tau Ceti objects are used directly. Examples:
+  - places and completions (`InfinitePlace.Completion`, `adicCompletion`, `IsModuleTopology`);
+  - `Field.absoluteGaloisGroup.map` for restriction, `cyclotomicCharacter`, `PadicAlgCl`;
+  - `IntermediateField.LinearDisjoint`, `algebraicClosure`;
+  - scheme morphism properties, `AffineSpace`, `topologicalKrullDim`;
+  - `NumberField.Set.HasDirichletDensity`, Tau Ceti `InvertibleSheaf`/`LineBundleClass`.
+- **Supplier objects.** Objects owned by other roadmaps are opaque *data*, each with its owner
+  in the docstring:
+  - Frobenius lifts, inertia and decomposition groups, complex conjugations (R01.1);
+  - cuspidal `GL₂` representations with weights, conductors, Hecke polynomials and
+    `ρ_{π,ι}` (R17/R19);
+  - Hilbert–Blumenthal abelian varieties and their torsion and Tate modules (A6/H6);
+  - KW deformation rings and their lifts (R04.6/R08.6);
+  - Weil–Deligne parameters and Hodge–Tate/de Rham/crystalline ranks (R06.2/R06.3);
+  - quaternionic Hecke algebras (R17.3);
+  - the analytic topology on local points, curve compactifications, étale fundamental groups and
+    the Isom torsor (SF.x/R09.3);
+  - the idèle class group and algebraic Hecke characters (GlobalNumberFields).
+- **Predicates.** Every predicate is defined from such data, for example `ArisesFrom`,
+  `IsModularLift`, `IsLiftOfType`, `IsStrict`/`IsAlmostStrict` and `omegaDivisors`. There is no
+  `def _ : Prop := sorry` and no unconstrained `Prop` field. The only `sorry` instances of `Prop`
+  classes are the true facts `Fact lam.residueChar.Prime` and `IsLocalRing` of the deformation
+  ring.
+- **Carriers.** The family carriers now carry their compatibility conditions:
+  - `WeaklyCompatibleSystem`: geometric Frobenius, unramifiedness, de Rham and crystalline
+    members, labelled Hodge–Tate data;
+  - the KW rank-two `CompatibleSystem`, with its Weil–Deligne data and the strict and
+    almost-strict predicates;
+  - `SkolemDatum`: separated, finite type, surjective, irreducible, open in the analytic
+    topology, Galois-stable.
+  - `AuxiliaryField` now holds its actual cuspidal witnesses and the unramifiedness of the
+    universal representation mod `p`.
+- **Omissions.** Hypotheses or conclusions that still cannot be stated are named in the
+  docstring of their declaration ("Omitted hypothesis/conclusion: … (owner …)"), in 19
+  declarations:
+  - `SkolemDatum`, `reductionToCurves`, `taylorTheoremG`: geometric irreducibility,
+    smoothness of points, quasi-projectivity;
+  - `densityOfAlgebraicLocalPoints`: Corollaire 1.6.2;
+  - `chtCharacterExtension`: global continuity;
+  - `surjectiveSpecialisation`: Galois-equivariance;
+  - `functionFieldIsomTorsor`: nonconstancy;
+  - `potentialGlobalGaloisLocalData`: avoidance;
+  - `taylorLemma11`, `taylorLemma15`: finite or tame ramification;
+  - `taylorOrdinaryPotentialResidual`: the "moreover" local shape;
+  - `weightReductionHeckeSurjection`: the 𝐕-operator criterion;
+  - `snowdenPotentialResidual`: type compatibility;
+  - `bcgpLocalData`: local completions;
+  - `ordinaryGlobalFiniteness`: adequacy and the CM comparisons;
+  - `monodromy_component_field`: multiplicity one;
+  - `modern_prescribed_type_lifts`: (A2);
+  - `brauerSystem`: the size of `E`;
+  - `kw_theorem_5_1_systems`: the type identification and Savitt weights.
 
-## Work saved
+  The README keeps the full statements.
 
-[README.md](../packages/PotentialModularityAndCompatibleSystems/README.md)
-is 180,122 UTF-8 bytes. It is a standalone mathematical roadmap with purpose,
-boundaries, conventions, existing-library interfaces, the order of construction,
-92 target statements, all 121 API items and all 83 tests, source locators and
-prerequisites at every target, and edition-specific references. It contains no
-packet names, job identifiers, review/checkpoint statuses or private paths.
-The wording is mathematical paraphrase rather than source excerpts or a summary
-organized by a paper's sections.
+## For the package review
 
-The target distribution is:
+- The plan's recorded gaps and source issues are unchanged. Examples: Taylor Corollary 1.7, the
+  MB90 input, the CDT and Skinner–Wiles inputs, the BCGP 9.1.12 correction, KW II source issue
+  E2 and Taylor E9/E10/E11. The README keeps them; the Lean docstrings cite them where relevant.
+- Worth checking:
+  - the encoding of prescribed local completions through `K_v ⊗_K E ≅ ∏ E_v`;
+  - the use of embeddings `K' → K_v` or `K_v^{nr}` for "split" and "unramified" in
+    `moretBaillyThreeLocalConditions`;
+  - `DetectsSubextensions` as the Frobenius-generation condition;
+  - the KW witnesses `HasKWWitnesses`, now matched to the plan's Theorem 6.1 statement.
+- Lean names are lowerCamelCase in `TauCeti.PotentialModularity` for the R23 targets, which have
+  no `suggestedName` in the plan, and the plan's snake_case `suggestedName`s for R24.
 
-| Layer | Targets |
-| --- | ---: |
-| R24.5:operations | 22 |
-| R23.1 | 22 |
-| R23.2 | 4 |
-| R23.3 | 14 |
-| R23.4 | 1 |
-| R23.5 | 2 |
-| R24.1 | 4 |
-| R24.2 | 2 |
-| R24.3 | 11 |
-| R24.4 | 2 |
-| R24.5 | 5 |
-| R24.6 | 3 |
+## Checks run
 
-R23.6 is the export-order table, not an additional target. The generic operations
-layer is presented first because its carrier precedes the R19 automorphic-family
-suppliers; it does not import potential modularity or eigenform existence.
+- `python3 scripts/check_blueprint.py` on both packets: 0 errors, 0 warnings (unchanged inputs).
+- `python3 research/blueprint/intake.py check-files` on the three package files: 3 files,
+  0 problems.
+- `git diff --check`: clean.
+- The coverage audit and the anchor-to-section audit of the README: all 92 sections carry the
+  API and tests of their own target.
 
-The document keeps the accepted distinctions explicit:
-
-- Scalar splitting versus equality of completions; all local embeddings;
-  Galois closure versus avoidance; and boundary-rigidified Picard classes versus
-  existing unrigidified line bundles.
-- Residual modularity before global finiteness and lift existence; a separately
-  supplied lift before its potential modularity. The auxiliary KW II Theorem 8.2
-  is an independent imported input, not the conclusion of this route.
-- Unframed fixed-determinant finiteness versus the framed power-series extension;
-  positive dimension as a separate requirement for a characteristic-zero point;
-  ordinary semistable quotient rings versus arbitrary ordinary components.
-- Full R22.5/R22.6 KW lifting versus the narrower KW II Theorem 9.7 route.
-- BLGGT away-coefficient strictness, KW all-place strictness, KW almost strictness
-  and Dieulefait–Pacetti's additional all-member de Rham condition.
-- Virtual Brauer expressions versus genuine families; the overlap-character
-  input for the norm-one argument; and Skinner's full Hilbert coefficient-prime
-  theorem for strictness.
-- CM signed pairings and quadratic multiplier corrections; Hodge sign and
-  geometric/arithmetic Frobenius comparisons; cofinite rank-two versus
-  density-one general-rank residual statements; and the exclusion of equal
-  Hodge weights from the normalized weight-a-minus-b-plus-one formula.
-
-[Suggested.lean](../packages/PotentialModularityAndCompatibleSystems/Suggested.lean)
-joins the current individual suggested files, with one header, 28 unique leading
-imports, their definitions, API fragments, tests and explicit omission catalogue.
-The canonical `TauCeti.PotentialModularity.GaloisGroup` now uses
-`Field.absoluteGaloisGroup`; the `TauCeti.CompatibleSystems.GaloisGroup` alias
-refers to it. This retains the common meaning and exports the name to the tests'
-child namespace. Merely opening the other namespace inside the parent did not
-export that name to the child; the partial Lean check caught and corrected this
-join error.
-
-The native Tau Ceti invertible-sheaf interface is retained. Arithmetic signatures
-that the accepted plans explicitly omit remain omitted, and carrier fragments
-remain identified as such. No arbitrary proposition fields, dummy theorems or
-inlined substitute libraries were introduced to manufacture elaboration.
-
-## Validation and exact blocker
-
-Both unchanged packets passed `python3 scripts/check_blueprint.py <packet>` with
-zero errors and zero warnings. Structural checks of the package verified:
-
-- Exact set equality with the 92 accepted target identifiers.
-- Presence of each of the 121 API names and 83 test names at its target.
-- Sources and prerequisites at every target, unique anchors, resolving internal
-  links and defined bibliography references.
-- The 200 KB size bound, exclusion of programme-process prose from the README,
-  unique leading imports and a single Lean header.
-
-The final staged diff passed `git diff --cached --check`;
-`python3 research/blueprint/intake.py check-files` on the three changed files
-reported **3 files, 0 problems**.
-
-The final native command was:
-
-```sh
-lean-check research/blueprint/packages/PotentialModularityAndCompatibleSystems/Suggested.lean
-```
-
-It exited **1**, before elaborating the body, at line 1. The compiled object
-`TauCeti/AlgebraicGeometry/LineBundle/Class.olean` for module
-`TauCeti.AlgebraicGeometry.LineBundle.Class` does not exist in the shared build.
-The default build has the pinned Mathlib. Other existing builds with that native
-object had different Mathlib commits and were not used. A build with both exact
-pins and the required native objects has not been established. No library build,
-cache update, Lean language server or additional repository checkout was started.
-Memory was checked before Lean runs (111 GB available, above the 20 GB threshold).
-Runs were sequential and no Lean process from this run remains running.
-
-A **partial**, Mathlib-only check of the current R24.3 portion was also run through
-`lean-check`. It used the exact joined body beginning at the second
-`noncomputable section`, all 27 Mathlib imports, and the canonical Galois-group
-alias as its only preceding declaration. After correcting the namespace problem
-above, it exited **0** with **zero errors and 77 `sorry` warnings**, with no other
-warnings. This does not certify R23.1 or the full native package.
-
-For reproducing that partial check in the next worker's own scratch directory:
-
-```python
-from pathlib import Path
-
-s = Path("research/blueprint/packages/PotentialModularityAndCompatibleSystems/Suggested.lean").read_text()
-imports = "\n".join(line for line in s.splitlines() if line.startswith("import Mathlib."))
-body = s[s.index("noncomputable section\nopen scoped NumberField Polynomial"):]
-prefix = """
-universe u
-namespace TauCeti.PotentialModularity
-abbrev GaloisGroup (F : Type u) [Field F] := Field.absoluteGaloisGroup F
-end TauCeti.PotentialModularity
-"""
-# Write imports + prefix + body to a .lean file in your own scratch directory,
-# then run lean-check on it. Do not add the fragment to the repository.
-```
-
-## Continuation
-
-1. Use an already existing shared build at both exact pins that provides the
-   native line-bundle module and its dependencies. Follow WORKERS.md: do not build
-   Mathlib or Tau Ceti, create a Lake project, start a language server, or inline
-   their source files. If no such build is available, this external blocker
-   remains for the maintainer's build environment.
-2. Run the full native command above. Fix any body errors and any warnings other
-   than `sorry` in the allowed package files, retaining faithful mathematical
-   signatures. The successful partial check does not cover interactions with the
-   geometric half. Record the actual final exit status and warning count here.
-3. Check the README against any further accepted input changes, preserving every
-   target/API/test and its source locator. Retain the supplier boundaries. The
-   regular-local/Cohen–Macaulay proof is R03.3; integral-point extraction is R03.4.
-4. Only after successful full elaboration, create `metadata.toml` with the one
-   line given above and change this note to the completed-package result. Run
-   `git diff --check` and `research/blueprint/intake.py check-files` on the actual
-   deliverable paths before submitting.
-
-The retained source/proof gaps include the precise strong-approximation and S-unit
-inputs to Moret–Bailly, the prescribed-completion/Jordan and inverse-Galois inputs,
-H6 local moduli constructions, Taylor's exceptional CM ordinary lifting and
-Corollary 1.7/determinant-twist arguments, small-prime and weight-adjustment inputs,
-the ordinary selected-component comparisons, Brauer overlap descent, and the
-monodromy/Larsen/Sen suppliers. The complete lists remain in the two accepted
-packets. In particular R23.4 does not establish arbitrary regular de Rham
-potential modularity; the broad Dieulefait–Pacetti Theorem 1.11 conclusion outside
-its A/B/C and dyadic weight-two scope stays a recorded gap.
-
-Scratch generators, extracted declaration notes and logs are disposable. All
-information needed for continuation is in the delivered files, this note and the
-unchanged accepted inputs. There is no second claim in this run.
+No Lean language server, `lake build`, `lake update` or cache download was used. Scratch files
+were kept outside the repository and are deleted.
