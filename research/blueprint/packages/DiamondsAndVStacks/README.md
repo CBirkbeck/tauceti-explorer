@@ -603,7 +603,7 @@ The purpose of disconnected covers is to turn geometry into valuation-field comp
 
 #### D1.1 — Totally disconnected perfectoid spaces
 
-A perfectoid space X is totally disconnected if X is qcqs and every open cover of X splits, that is, for every open cover {U_i} of X the map from the disjoint union of the U_i to X admits a section. These are the analogues of profinite sets in the perfectoid setting. The name refers to the connected components of |X|, which are the fibres of the projection to the profinite set pi_0(X) and are of the form Spa(K, K^+); it does not say that |X| is a totally disconnected topological space.
+Call a perfectoid space X totally disconnected when it is quasi-compact quasi-separated and each of its open covers admits a splitting, that is, for every open cover {U_i} of X the map from the disjoint union of the U_i to X admits a section. These are the analogues of profinite sets in the perfectoid setting. The name refers to the connected components of |X|, which are the fibres of the projection to the profinite set pi_0(X) and are of the form Spa(K, K^+); it does not say that |X| is a totally disconnected topological space.
 
 **Hypotheses and scope.** X is required to be qcqs; without quasicompactness the splitting condition is vacuous on the pieces of an infinite disjoint union and the structure theory fails. The condition is on open covers, not on étale covers: the étale version is the strictly totally disconnected condition of ECD 7.15, which is strictly stronger.
 
