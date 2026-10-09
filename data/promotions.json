@@ -368,6 +368,18 @@
     "roadmaps/FarguesFontaineDiamonds/metadata.toml"
    ]
   },
+  "research/blueprint/packages/HabiroCyclotomicCompletions/review.json": {
+   "promotedAt": "2026-10-09T20:36:30Z",
+   "review": "64df0145dba5b849",
+   "reviewDate": "2026-10-09",
+   "reviewer": "independent-review-REV-PKG-HabiroCyclotomicCompletions~2",
+   "sha256": "8201b249fa5ad8a5b771932084f14744d781d0151d8df1e8b33b810d33a8b956",
+   "to": [
+    "roadmaps/HabiroCyclotomicCompletions/README.md",
+    "roadmaps/HabiroCyclotomicCompletions/Suggested.lean",
+    "roadmaps/HabiroCyclotomicCompletions/metadata.toml"
+   ]
+  },
   "research/blueprint/packages/HabiroRings/review.json": {
    "promotedAt": "2026-10-09T03:58:26Z",
    "review": "de9c3cdada91d152",
@@ -3209,6 +3221,13 @@
    "review": "77a04be6dc713beb",
    "reviewDate": "2026-10-09",
    "reviewer": "independent-review-REV-PKG-IntegralHeckeAndGaloisDeterminants~2"
+  },
+  "research/blueprint/packages/LocallyAnalyticDistributions/review.json": {
+   "at": "2026-10-09T20:36:30Z",
+   "reason": "the review names no review job: reviewer must be independent-review-<job>",
+   "review": "d75cd0a438680737",
+   "reviewDate": "2026-10-09",
+   "reviewer": "fix-FIX-PKG-LocallyAnalyticDistributions~adv"
   },
   "research/blueprint/packages/PadicMeasuresIwasawaAlgebras/review.json": {
    "at": "2026-10-09T13:18:03Z",
