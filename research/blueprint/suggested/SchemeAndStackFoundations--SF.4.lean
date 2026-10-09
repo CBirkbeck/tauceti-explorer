@@ -11,7 +11,9 @@ Conventions of this prototype.
 * Schemes, morphism properties, ideal sheaves, subschemes and modules are Mathlib's
   (`AlgebraicGeometry.Scheme`, `IsClosedImmersion`, `Scheme.IdealSheafData`, `Scheme.Modules`).
 * A formal scheme is prototyped by its system of thickenings `X 0 → X 1 → ⋯` (Stacks 0AIF);
-  the comparison with topologically locally ringed spaces is an API item, because Mathlib has no
+  these are auxiliary `AdicSystem`s, with only level-preserving maps. General continuous
+  maps require reindexing, and the topologically locally ringed-space comparison is an open gap.
+  Mathlib has no
   sheaves of topological rings on spaces.
 * Objects that need Tau Ceti StableReduction Layers 1–4 (nodal and stable families, blowups) or
   algebraic stacks (SchemeAndStackFoundations SF.1) are not typed here; their declarations are listed in
@@ -120,6 +122,10 @@ example (k : Type u) [Field k] :
     ¬ IsThickening (Spec.map (CommRingCat.ofHom (Ideal.Quotient.mk
       (Ideal.span {(Polynomial.X : Polynomial k)})))) := by
   sorry
+
+/- Test AlgebraicGeometry.thickening_nil_not_nilpotent: the nil ideal in
+   k[x_i : i ≥ 1]/(x_i^(i+2) : i ≥ 1) defines a thickening with no local
+   uniform nilpotence exponent. This tests the general, non-Noetherian definition. -/
 
 /-- Formally smooth morphisms: extensions exist along affine first-order thickenings over the
 base (Stacks 02H0). -/
@@ -429,7 +435,8 @@ def IsVersal {D : PredeformationFunctor Λ k} {R : CompleteLocalAlg Λ k} (ξ : 
     Prop :=
   IsSmoothMorphism ξ
 
-/-- Hulls = minimal versal formal elements (Stacks 06T4). -/
+/-- Hulls: versal with bijective tangent map. Ring-minimality in Stacks 06T4 is a
+different notion without H2; use Schlessinger 06IX/06IY for the classical hull criterion. -/
 def IsHull {D : PredeformationFunctor Λ k} {R : CompleteLocalAlg Λ k} (ξ : FormalElement D R) :
     Prop :=
   IsVersal ξ ∧ Function.Bijective (PredeformationFunctor.map (prorep R) D ξ)
@@ -447,20 +454,27 @@ theorem IsProrepresentable.isHull {D : PredeformationFunctor Λ k} (h : IsProrep
     ∃ (R : CompleteLocalAlg Λ k) (ξ : FormalElement D R), IsHull ξ := by
   sorry
 
-theorem IsVersal.powerSeries {D : PredeformationFunctor Λ k} {R : CompleteLocalAlg Λ k}
+theorem IsVersal.powerSeries [IsNoetherianRing Λ] [IsLocalRing Λ]
+    [IsAdicComplete (IsLocalRing.maximalIdeal Λ) Λ]
+    (hres : Function.Surjective (algebraMap Λ k)) {D : PredeformationFunctor Λ k}
+    {R : CompleteLocalAlg Λ k} (h1 : D.H1) (h2 : D.H2)
     (ξ : FormalElement D R) (h : IsVersal ξ) :
     ∃ (R₀ : CompleteLocalAlg Λ k) (ξ₀ : FormalElement D R₀) (r : ℕ), IsHull ξ₀ ∧
       Nonempty (R.R ≃ₐ[Λ] MvPowerSeries (Fin r) R₀.R) := by
   sorry
 
 /-- Schlessinger's theorem: hulls (Stacks 06IX, 06IY). -/
-theorem schlessinger_hull (D : PredeformationFunctor Λ k) :
+theorem schlessinger_hull [IsNoetherianRing Λ] [IsLocalRing Λ]
+    [IsAdicComplete (IsLocalRing.maximalIdeal Λ) Λ]
+    (hres : Function.Surjective (algebraMap Λ k)) (D : PredeformationFunctor Λ k) :
     (∃ (_ : D.H1) (h2 : D.H2), D.H3 h2) ↔
       ∃ (R : CompleteLocalAlg Λ k) (ξ : FormalElement D R), IsHull ξ := by
   sorry
 
 /-- Schlessinger's theorem: prorepresentability (Stacks 06JM). -/
-theorem schlessinger_prorepresentable (D : PredeformationFunctor Λ k) :
+theorem schlessinger_prorepresentable [IsNoetherianRing Λ] [IsLocalRing Λ]
+    [IsAdicComplete (IsLocalRing.maximalIdeal Λ) Λ]
+    (hres : Function.Surjective (algebraMap Λ k)) (D : PredeformationFunctor Λ k) :
     (∃ (_ : D.H1) (h2 : D.H2), D.H3 h2 ∧ D.H4) ↔ IsProrepresentable D := by
   sorry
 
@@ -471,7 +485,8 @@ example (R : CompleteLocalAlg Λ k) (n : ℕ) (e : R.R ≃ₐ[Λ] MvPowerSeries 
 
 -- Deformation.point_functor: a functor with one-point values satisfies H1 and H4 and has a
 -- one-point tangent space.
-example (D : PredeformationFunctor Λ k) (h : ∀ A, Subsingleton (D.F.obj A)) :
+example (D : PredeformationFunctor Λ k) (h : ∀ A, Subsingleton (D.F.obj A))
+    (hne : ∀ A, Nonempty (D.F.obj A)) :
     D.H1 ∧ D.H4 ∧ Subsingleton D.tangentSpace := by
   sorry
 
@@ -508,9 +523,10 @@ example (h2 : (2 : k) ≠ 0) : ∃ D : PredeformationFunctor Λ k,
     ¬ ∃ (R : CompleteLocalAlg Λ k) (ξ : FormalElement D R), IsHull ξ := by
   sorry
 
-/-- Obstruction theories (Stacks 07YG specialised to `C_Λ`). The kernel `I` of a small extension is
-one-dimensional, so the class `ob ∈ O ⊗ I` is recorded in `O` after choosing a generator. -/
-structure ObstructionTheory (D : PredeformationFunctor Λ k) where
+/-- Auxiliary lift detector. This is weaker than the packet's obstruction theory:
+it lacks tensor-valued classes and naturality for maps of kernels (Stacks 07YG).
+It cannot justify the number-of-relations bound. -/
+structure LiftDetector (D : PredeformationFunctor Λ k) where
   O : Type u
   [addCommGroup : AddCommGroup O]
   [module : Module k O]
@@ -519,41 +535,39 @@ structure ObstructionTheory (D : PredeformationFunctor Λ k) where
   lift_iff : ∀ {A' A : ArtinLocalAlg Λ k} (f : A' ⟶ A) (hf : IsSmallExtension f) (ξ : D.F.obj A),
     ob f hf ξ = 0 ↔ ∃ x, D.F.map f x = ξ
 
-attribute [instance] ObstructionTheory.addCommGroup ObstructionTheory.module
-  ObstructionTheory.finiteDimensional
+attribute [instance] LiftDetector.addCommGroup LiftDetector.module
+  LiftDetector.finiteDimensional
 
-theorem ObstructionTheory.lift_iff' {D : PredeformationFunctor Λ k} (o : ObstructionTheory D)
+theorem LiftDetector.lift_iff' {D : PredeformationFunctor Λ k} (o : LiftDetector D)
     {A' A : ArtinLocalAlg Λ k} (f : A' ⟶ A) (hf : IsSmallExtension f) (ξ : D.F.obj A) :
     o.ob f hf ξ = 0 ↔ ∃ x, D.F.map f x = ξ :=
   o.lift_iff f hf ξ
 
 /-- An unobstructed functor has the zero obstruction theory. -/
-def ObstructionTheory.zero (D : PredeformationFunctor Λ k)
+def LiftDetector.zero (D : PredeformationFunctor Λ k)
     (h : ∀ {A' A : ArtinLocalAlg Λ k} (f : A' ⟶ A), IsSmallExtension f →
-      Function.Surjective (D.F.map f)) : ObstructionTheory D :=
+      Function.Surjective (D.F.map f)) : LiftDetector D :=
   sorry
 
-/-- A hull `Λ[[t₁..t_d]]/J` with `d = dim T_F` has at most `dim O` minimal relations. -/
-theorem ObstructionTheory.relations_le {D : PredeformationFunctor Λ k} (o : ObstructionTheory D)
-    (d : ℕ) (J : Ideal (MvPowerSeries (Fin d) Λ)) (R : CompleteLocalAlg Λ k)
-    (e : R.R ≃ₐ[Λ] MvPowerSeries (Fin d) Λ ⧸ J) (ξ : FormalElement D R) (h : IsHull ξ) :
-    J.spanFinrank ≤ Module.finrank k o.O := by
-  sorry
+/- A hull `Λ[[t₁..t_d]]/J` with `d = dim T_F` has at most `dim O` minimal relations. -/
+/- Deformation.ObstructionTheory.relations_le is deferred. A genuine natural
+   O ⊗ I obstruction theory and a minimal hull presentation with d = dim T_F are required;
+   the former typed formula allowed J=(t) presenting h_Λ with O=0. -/
 
 /-- Obstruction theories pull back along smooth morphisms. -/
-def ObstructionTheory.map {D D' : PredeformationFunctor Λ k} (η : D.F ⟶ D'.F)
-    (hη : IsSmoothMorphism η) (o : ObstructionTheory D') : ObstructionTheory D :=
+def LiftDetector.map {D D' : PredeformationFunctor Λ k} (η : D.F ⟶ D'.F)
+    (hη : IsSmoothMorphism η) (o : LiftDetector D') : LiftDetector D :=
   sorry
 
 -- Deformation.obstruction_powerSeries
 example (R : CompleteLocalAlg Λ k) (n : ℕ) (e : R.R ≃ₐ[Λ] MvPowerSeries (Fin n) Λ) :
-    ∃ o : ObstructionTheory (prorep R), Module.finrank k o.O = 0 := by
+    ∃ o : LiftDetector (prorep R), Module.finrank k o.O = 0 := by
   sorry
 
 -- Deformation.obstruction_hypersurface: h_{Λ[[t]]/(t²)} has a nonzero obstruction space.
 example (R : CompleteLocalAlg Λ k)
     (e : R.R ≃ₐ[Λ] PowerSeries Λ ⧸ Ideal.span {(PowerSeries.X : PowerSeries Λ) ^ 2})
-    (o : ObstructionTheory (prorep R)) : 0 < Module.finrank k o.O := by
+    (o : LiftDetector (prorep R)) : 0 < Module.finrank k o.O := by
   sorry
 
 -- Deformation.not_unobstructed_hypersurface: h_{k[[x,y]]/(xy)} is not unobstructed.
@@ -595,123 +609,124 @@ def levelMap (X : ℕ → Scheme.{u}) (ι : ∀ n, X n ⟶ X (n + 1)) : ∀ n, X
   | 0 => 𝟙 _
   | n + 1 => levelMap X ι n ≫ ι n
 
-/-- A formal scheme, prototyped by a system of thickenings `X 0 ⊂ X 1 ⊂ ⋯` in which `X n` is cut
+/-- An auxiliary system with a chosen indexing of thickenings `X 0 ⊂ X 1 ⊂ ⋯` in which `X n` is cut
 out in `X (n + 1)` by the `(n + 1)`-st power of the ideal of `X 0` (Stacks 0AIF). The
 packet's definition is the topologically locally ringed space `colim X n`. -/
-structure FormalScheme where
+structure AdicSystem where
   X : ℕ → Scheme.{u}
   ι : ∀ n, X n ⟶ X (n + 1)
   isThickening : ∀ n, IsThickening (ι n)
   adic : ∀ n, (ι n).ker = (levelMap X ι (n + 1)).ker ^ (n + 1)
 
-namespace FormalScheme
+namespace AdicSystem
 
 /-- The reductions `X n`. -/
-abbrev reduction (𝔛 : FormalScheme.{u}) (n : ℕ) : Scheme.{u} := 𝔛.X n
+abbrev reduction (𝔛 : AdicSystem.{u}) (n : ℕ) : Scheme.{u} := 𝔛.X n
 
 /-- Level-preserving morphisms of systems. -/
-structure Hom (𝔛 𝔜 : FormalScheme.{u}) where
+structure Hom (𝔛 𝔜 : AdicSystem.{u}) where
   app : ∀ n, 𝔛.X n ⟶ 𝔜.X n
   comm : ∀ n, 𝔛.ι n ≫ app (n + 1) = app n ≫ 𝔜.ι n
 
 /-- Adic morphisms: each level is the base change of the next. -/
-def IsAdicHom {𝔛 𝔜 : FormalScheme.{u}} (f : Hom 𝔛 𝔜) : Prop :=
+def IsAdicHom {𝔛 𝔜 : AdicSystem.{u}} (f : Hom 𝔛 𝔜) : Prop :=
   ∀ n, IsPullback (𝔛.ι n) (f.app n) (f.app (n + 1)) (𝔜.ι n)
 
 /-- A scheme as a formal scheme with the zero ideal of definition. -/
-def ofScheme (X : Scheme.{u}) : FormalScheme.{u} where
+def ofScheme (X : Scheme.{u}) : AdicSystem.{u} where
   X _ := X
   ι _ := 𝟙 X
   isThickening _ := sorry
   adic _ := sorry
 
 /-- Locally Noetherian formal schemes. -/
-def IsLocallyNoetherian (𝔛 : FormalScheme.{u}) : Prop :=
+def IsLocallyNoetherian (𝔛 : AdicSystem.{u}) : Prop :=
   ∀ n, AlgebraicGeometry.IsLocallyNoetherian (𝔛.X n)
 
 /-- Fibre products of adic morphisms, computed levelwise. -/
-def pullback {𝔛 𝔜 𝔖 : FormalScheme.{u}} (f : Hom 𝔛 𝔖) (g : Hom 𝔜 𝔖) (hf : IsAdicHom f) :
-    FormalScheme.{u} :=
+def pullback {𝔛 𝔜 𝔖 : AdicSystem.{u}} (f : Hom 𝔛 𝔖) (g : Hom 𝔜 𝔖) (hf : IsAdicHom f) :
+    AdicSystem.{u} :=
   sorry
 
-theorem pullback_X {𝔛 𝔜 𝔖 : FormalScheme.{u}} (f : Hom 𝔛 𝔖) (g : Hom 𝔜 𝔖) (hf : IsAdicHom f)
+theorem pullback_X {𝔛 𝔜 𝔖 : AdicSystem.{u}} (f : Hom 𝔛 𝔖) (g : Hom 𝔜 𝔖) (hf : IsAdicHom f)
     (n : ℕ) : Nonempty ((pullback f g hf).X n ≅ Limits.pullback (f.app n) (g.app n)) := by
   sorry
 
-/- AlgebraicGeometry.FormalScheme.adicEquivSystems: in this prototype a formal scheme is given by
-   its system of reductions, so adic formal schemes over `Spf A` are by definition compatible
+/- AlgebraicGeometry.AdicSystem.adicEquivSystems: in this prototype a formal scheme is given by
+   its system of reductions, so adic formal schemes over `SpfSystem A` are by definition compatible
    systems over `A/I^{n+1}`; the comparison with topologically locally ringed spaces needs sheaves of topological rings, which Mathlib does not provide, and is stated in
    the packet. -/
 
-end FormalScheme
+end AdicSystem
 
-/-- `Spf A` as the system `Spec (A/I^{n+1})` (Stacks 0AIF). -/
-def Spf (A : AdicRing.{u}) : FormalScheme.{u} where
+/-- `SpfSystem A` as the system `Spec (A/I^{n+1})` (Stacks 0AIF). -/
+def SpfSystem (A : AdicRing.{u}) : AdicSystem.{u} where
   X n := Spec (CommRingCat.of (A.carrier ⧸ A.ideal ^ (n + 1)))
   ι n := Spec.map (CommRingCat.ofHom (Ideal.Quotient.factor
     (Ideal.pow_le_pow_right (by omega : n + 1 ≤ n + 2))))
   isThickening _ := sorry
   adic _ := sorry
 
-namespace Spf
+namespace SpfSystem
 
-/-- Global sections of `Spf A` recover `A`: `A` is the limit of the `A/I^{n+1}`. -/
+/-- Global sections of `SpfSystem A` recover `A`: `A` is the limit of the `A/I^{n+1}`. -/
 theorem globalSections (A : AdicRing.{u}) :
     Function.Bijective (AdicCompletion.of A.ideal A.carrier) := by
   sorry
 
-/-- Morphisms `Spf B → Spf A` correspond to continuous ring maps `A → B`. -/
+/-- Strict level-preserving maps correspond to maps preserving the chosen ideals.
+This auxiliary statement excludes general continuous maps that require reindexing. -/
 theorem homEquiv (A B : AdicRing.{u}) :
-    Nonempty (FormalScheme.Hom (Spf B) (Spf A) ≃
+    Nonempty (AdicSystem.Hom (SpfSystem B) (SpfSystem A) ≃
       {φ : A.carrier →+* B.carrier // A.ideal.map φ ≤ B.ideal}) := by
   sorry
 
-/- AlgebraicGeometry.Spf.basicOpen_sections: Γ(D(f), O_{Spf A}) is the I-adic completion of A_f;
+/- AlgebraicGeometry.SpfSystem.basicOpen_sections: Γ(D(f), O_{SpfSystem A}) is the I-adic completion of A_f;
    it needs the structure sheaf of topological rings and is stated in the packet. -/
 
-/-- The closed immersions `Spec (A/I^{n+1}) → Spf A`. -/
-abbrev reduction (A : AdicRing.{u}) (n : ℕ) : Scheme.{u} := (Spf A).X n
+/-- The closed immersions `Spec (A/I^{n+1}) → SpfSystem A`. -/
+abbrev reduction (A : AdicRing.{u}) (n : ℕ) : Scheme.{u} := (SpfSystem A).X n
 
-/-- With the zero ideal of definition, `Spf A` is `Spec A`. -/
+/-- With the zero ideal of definition, `SpfSystem A` is `Spec A`. -/
 theorem ofScheme (A : AdicRing.{u}) (h : A.ideal = ⊥) (n : ℕ) :
-    Nonempty ((Spf A).X n ≅ Spec (CommRingCat.of A.carrier)) := by
+    Nonempty ((SpfSystem A).X n ≅ Spec (CommRingCat.of A.carrier)) := by
   sorry
 
 /-- Functoriality in continuous ring maps. -/
 def map {A B : AdicRing.{u}} (φ : A.carrier →+* B.carrier) (hφ : A.ideal.map φ ≤ B.ideal) :
-    FormalScheme.Hom (Spf B) (Spf A) :=
+    AdicSystem.Hom (SpfSystem B) (SpfSystem A) :=
   sorry
 
-end Spf
+end SpfSystem
 
--- AlgebraicGeometry.Spf.padicInt_points: Spf Z_p has one point.
+-- AlgebraicGeometry.SpfSystem.padicInt_points: SpfSystem Z_p has one point.
 example (p : ℕ) [Fact p.Prime] (A : AdicRing.{0}) (e : A.carrier ≃+* ℤ_[p])
-    (hI : A.ideal = Ideal.span {e.symm p}) : Subsingleton ((Spf A).X 0) := by
+    (hI : A.ideal = Ideal.span {e.symm p}) : Subsingleton ((SpfSystem A).X 0) := by
   sorry
 
--- AlgebraicGeometry.Spf.discrete_eq_spec
+-- AlgebraicGeometry.SpfSystem.discrete_eq_spec
 example (A : AdicRing.{u}) (h : A.ideal = ⊥) :
-    Nonempty ((Spf A).X 0 ≅ Spec (CommRingCat.of A.carrier)) := by
+    Nonempty ((SpfSystem A).X 0 ≅ Spec (CommRingCat.of A.carrier)) := by
   sorry
 
--- AlgebraicGeometry.Spf.not_spec_powerSeries: Spf k[[t]] has one point, Spec k[[t]] two.
+-- AlgebraicGeometry.SpfSystem.not_spec_powerSeries: SpfSystem k[[t]] has one point, Spec k[[t]] two.
 example (k : Type u) [Field k] (A : AdicRing.{u}) (e : A.carrier ≃+* PowerSeries k)
-    (hI : A.ideal = Ideal.span {e.symm PowerSeries.X}) : Subsingleton ((Spf A).X 0) := by
+    (hI : A.ideal = Ideal.span {e.symm PowerSeries.X}) : Subsingleton ((SpfSystem A).X 0) := by
   sorry
 
 example (k : Type u) [Field k] : ¬ Subsingleton (Spec (CommRingCat.of (PowerSeries k))) := by
   sorry
 
--- AlgebraicGeometry.Spf.homEquiv_padic: the only ring endomorphism of Z_p is the identity.
+-- AlgebraicGeometry.SpfSystem.homEquiv_padic: the only ring endomorphism of Z_p is the identity.
 example (p : ℕ) [Fact p.Prime] (φ : ℤ_[p] →+* ℤ_[p]) : φ = RingHom.id _ := by
   sorry
 
--- AlgebraicGeometry.FormalScheme.ofScheme_spf
+-- AlgebraicGeometry.AdicSystem.ofScheme_spf
 example (A : AdicRing.{u}) (h : A.ideal = ⊥) (n : ℕ) :
-    Nonempty ((Spf A).X n ≅ (FormalScheme.ofScheme (Spec (CommRingCat.of A.carrier))).X n) := by
+    Nonempty ((SpfSystem A).X n ≅ (AdicSystem.ofScheme (Spec (CommRingCat.of A.carrier))).X n) := by
   sorry
 
--- AlgebraicGeometry.FormalScheme.padic_line: the reductions of the completion of 𝔸¹_{Z_p} along
+-- AlgebraicGeometry.AdicSystem.padic_line: the reductions of the completion of 𝔸¹_{Z_p} along
 -- p = 0 are 𝔸¹ over Z/p^{n+1}.
 example (p : ℕ) [Fact p.Prime] (n : ℕ) (A : AdicRing.{0})
     (e : A.carrier ≃+* (PowerSeries ℤ_[p])) :
@@ -719,78 +734,79 @@ example (p : ℕ) [Fact p.Prime] (n : ℕ) (A : AdicRing.{0})
       Spec (CommRingCat.of (Polynomial ℤ_[p] ⧸ Ideal.span {(p : Polynomial ℤ_[p]) ^ (n + 1)}))) := by
   sorry
 
--- AlgebraicGeometry.FormalScheme.not_adic_projection: Spf k[[s,t]] → Spf k[[s]] is not adic,
+-- AlgebraicGeometry.AdicSystem.not_adic_projection: SpfSystem k[[s,t]] → SpfSystem k[[s]] is not adic,
 -- because (s) does not generate an ideal of definition of k[[s,t]].
 example (k : Type u) [Field k] :
     Ideal.span {(MvPowerSeries.X 0 : MvPowerSeries (Fin 2) k)} ≠
       Ideal.span {MvPowerSeries.X 0, MvPowerSeries.X 1} := by
   sorry
 
--- AlgebraicGeometry.FormalScheme.locallyNoetherian_padic
+-- AlgebraicGeometry.AdicSystem.locallyNoetherian_padic
 example (A : AdicRing.{u}) [IsNoetherianRing A.carrier] :
-    FormalScheme.IsLocallyNoetherian (Spf A) := by
+    AdicSystem.IsLocallyNoetherian (SpfSystem A) := by
   sorry
 
 /-- The formal completion `X/Z` along the closed subscheme cut out by `I`: the system of
 infinitesimal neighbourhoods `V(I^{n+1})` (Stacks 0AIZ, 0AMC, 0GBA). -/
-def Scheme.formalCompletion (X : Scheme.{u}) (I : X.IdealSheafData) : FormalScheme.{u} where
+def Scheme.completionSystem (X : Scheme.{u}) (I : X.IdealSheafData) : AdicSystem.{u} where
   X n := (I ^ (n + 1)).subscheme
   ι n := Scheme.IdealSheafData.inclusion (sorry : I ^ (n + 2) ≤ I ^ (n + 1))
   isThickening _ := sorry
   adic _ := sorry
 
-namespace Scheme.formalCompletion
+namespace Scheme.completionSystem
 
 /-- The canonical maps from the reductions of `X/Z` to `X`. -/
 def toScheme (X : Scheme.{u}) (I : X.IdealSheafData) (n : ℕ) :
-    (Scheme.formalCompletion X I).X n ⟶ X :=
+    (Scheme.completionSystem X I).X n ⟶ X :=
   (I ^ (n + 1)).subschemeι
 
-/-- Functoriality for morphisms carrying the first centre into the second. -/
+/-- Strict level-preserving functoriality under the displayed ideal containment.
+Set-theoretic containment of centres only gives a genuine formal map after reindexing. -/
 def map {X Y : Scheme.{u}} (f : X ⟶ Y) (I : X.IdealSheafData) (J : Y.IdealSheafData)
     (h : J ≤ I.map f) :
-    FormalScheme.Hom (Scheme.formalCompletion X I) (Scheme.formalCompletion Y J) :=
+    AdicSystem.Hom (Scheme.completionSystem X I) (Scheme.completionSystem Y J) :=
   sorry
 
 theorem reduction (X : Scheme.{u}) (I : X.IdealSheafData) (n : ℕ) :
-    (Scheme.formalCompletion X I).X n = (I ^ (n + 1)).subscheme :=
+    (Scheme.completionSystem X I).X n = (I ^ (n + 1)).subscheme :=
   rfl
 
 /-- Over a locally Noetherian scheme the completion is locally Noetherian (flatness of `X/Z → X`
 is recorded in the packet). -/
 theorem flat (X : Scheme.{u}) [AlgebraicGeometry.IsLocallyNoetherian X] (I : X.IdealSheafData) :
-    FormalScheme.IsLocallyNoetherian (Scheme.formalCompletion X I) := by
+    AdicSystem.IsLocallyNoetherian (Scheme.completionSystem X I) := by
   sorry
 
-end Scheme.formalCompletion
+end Scheme.completionSystem
 
-/- AlgebraicGeometry.Scheme.formalCompletion_spec: for `X = Spec A` and `I` finitely generated,
-   `X/V(I) ≅ Spf Â` (Stacks 0GBA); it needs the ideal sheaf of an ideal on an affine scheme, which
+/- AlgebraicGeometry.Scheme.completionSystem_spec: for `X = Spec A` and `I` finitely generated,
+   `X/V(I) ≅ SpfSystem Â` (Stacks 0GBA); it needs the ideal sheaf of an ideal on an affine scheme, which
    Mathlib builds only through `IdealSheafData.ofIdeals` with compatibility data; stated in the
    packet. -/
 
--- AlgebraicGeometry.formalCompletion_affineLine_origin: the reductions of the completion of 𝔸¹_k
--- at the origin are Spec k[t]/(t^{n+1}) (the reductions of Spf k[[t]]).
+-- AlgebraicGeometry.completionSystem_affineLine_origin: the reductions of the completion of 𝔸¹_k
+-- at the origin are Spec k[t]/(t^{n+1}) (the reductions of SpfSystem k[[t]]).
 example (k : Type u) [Field k] (n : ℕ) :
     Nonempty (Spec (CommRingCat.of (PowerSeries k ⧸ Ideal.span {(PowerSeries.X : PowerSeries k) ^ (n + 1)})) ≅
       Spec (CommRingCat.of (Polynomial k ⧸ Ideal.span {(Polynomial.X : Polynomial k) ^ (n + 1)}))) := by
   sorry
 
--- AlgebraicGeometry.formalCompletion_self
-example (X : Scheme.{u}) (n : ℕ) : Nonempty ((Scheme.formalCompletion X ⊥).X n ≅ X) := by
+-- AlgebraicGeometry.completionSystem_self
+example (X : Scheme.{u}) (n : ℕ) : Nonempty ((Scheme.completionSystem X ⊥).X n ≅ X) := by
   sorry
 
--- AlgebraicGeometry.formalCompletion_empty
-example (X : Scheme.{u}) (n : ℕ) : IsEmpty ((Scheme.formalCompletion X ⊤).X n) := by
+-- AlgebraicGeometry.completionSystem_empty
+example (X : Scheme.{u}) (n : ℕ) : IsEmpty ((Scheme.completionSystem X ⊤).X n) := by
   sorry
 
--- AlgebraicGeometry.formalCompletion_ne_neighbourhood: k[[t]] is not Artinian.
+-- AlgebraicGeometry.completionSystem_ne_neighbourhood: k[[t]] is not Artinian.
 example (k : Type u) [Field k] : ¬ IsArtinianRing (PowerSeries k) := by
   sorry
 
 /-- Coherent formal modules (Stacks 0EHN): finitely presented modules on the reductions with
 compatible restrictions. -/
-structure Scheme.CoherentFormalModule (𝔛 : FormalScheme.{u}) where
+structure Scheme.CoherentFormalModule (𝔛 : AdicSystem.{u}) where
   F : ∀ n, (𝔛.X n).Modules
   fp : ∀ n, (F n).IsFinitePresentation
   iso : ∀ n, (Scheme.Modules.pullback (𝔛.ι n)).obj (F (n + 1)) ≅ F n
@@ -798,14 +814,14 @@ structure Scheme.CoherentFormalModule (𝔛 : FormalScheme.{u}) where
 /-- The completion of a finitely presented module (Stacks 0880). -/
 def Scheme.completionFunctor (X : Scheme.{u}) (I : X.IdealSheafData)
     (M : X.Modules) (hM : M.IsFinitePresentation) :
-    Scheme.CoherentFormalModule (Scheme.formalCompletion X I) where
-  F n := (Scheme.Modules.pullback (Scheme.formalCompletion.toScheme X I n)).obj M
+    Scheme.CoherentFormalModule (Scheme.completionSystem X I) where
+  F n := (Scheme.Modules.pullback (Scheme.completionSystem.toScheme X I n)).obj M
   fp _ := sorry
   iso _ := sorry
 
 /- AlgebraicGeometry.Scheme.completionFunctor_exact (exactness of F ↦ (F/IⁿF)_n as a functor to
    inverse systems, Stacks 0881, via Artin–Rees; it is not levelwise exactness) and
-   AlgebraicGeometry.Scheme.coherentFormalModuleEquivSpec (coherent formal modules on Spf Â ≃ finite
+   AlgebraicGeometry.Scheme.coherentFormalModuleEquivSpec (coherent formal modules on SpfSystem Â ≃ finite
    Â-modules, Stacks 087W) need the abelian category of coherent formal modules; stated in the
    packet. -/
 
@@ -841,7 +857,8 @@ example (p m : ℕ) [Fact p.Prime] :
    * SF.4/theorem-on-formal-functions  (Stacks 02OC): H^p(X,F)^ ≅ lim_n H^p(X, F/IⁿF);
    * SF.4/stein-factorization (Stacks 03H0, 0AY8);
    * SF.4/effective-formal-deformations-of-curves.
-   The existence and algebraization theorems are typed below. -/
+   The existence consequence is typed below; algebraization targets with absent supplier types
+   are recorded as precise comments. -/
 
 /-- Grothendieck's existence theorem (Stacks 088C): for `X` proper over a complete Noetherian
 ring, every coherent formal module is the completion of a coherent module. -/
@@ -849,7 +866,7 @@ theorem grothendieck_existence (A : AdicRing.{u}) [IsNoetherianRing A.carrier] {
     (f : X ⟶ Spec (CommRingCat.of A.carrier)) [IsProper f] (I : X.IdealSheafData)
     (hI : I.support = (Set.range (Limits.pullback.fst f (Spec.map (CommRingCat.ofHom
       (Ideal.Quotient.mk A.ideal)))) : Set X))
-    (𝓜 : Scheme.CoherentFormalModule (Scheme.formalCompletion X I)) :
+    (𝓜 : Scheme.CoherentFormalModule (Scheme.completionSystem X I)) :
     ∃ (M : X.Modules) (hM : M.IsFinitePresentation),
       Nonempty (∀ n, (Scheme.completionFunctor X I M hM).F n ≅ 𝓜.F n) := by
   sorry
@@ -862,38 +879,35 @@ abbrev quotMap (A : AdicRing.{u}) (n : ℕ) :
     Spec (CommRingCat.of (A.carrier ⧸ A.ideal ^ (n + 1))) ⟶ Spec (CommRingCat.of A.carrier) :=
   Spec.map (CommRingCat.ofHom (Ideal.Quotient.mk (A.ideal ^ (n + 1))))
 
-/-- Algebraization of morphisms (Stacks 0A42): compatible maps of reductions of a proper scheme to
+/- Algebraization of morphisms (Stacks 0A42): compatible maps of reductions of a proper scheme to
 a separated finite-type scheme over a complete Noetherian ring come from a unique map. -/
-theorem algebraize_hom (A : AdicRing.{u}) [IsNoetherianRing A.carrier]
-    {X Y : Scheme.{u}} (fX : X ⟶ Spec (CommRingCat.of A.carrier))
-    (fY : Y ⟶ Spec (CommRingCat.of A.carrier)) [IsProper fX] [IsSeparated fY]
-    [LocallyOfFiniteType fY]
-    (g : ∀ n, Limits.pullback fX (quotMap A n) ⟶ Limits.pullback fY (quotMap A n))
-    (hg : ∀ n, g n ≫ Limits.pullback.snd fY (quotMap A n) = Limits.pullback.snd fX (quotMap A n)) :
-    ∃! G : X ⟶ Y, ∃ h : G ≫ fY = fX, ∀ n,
-      Limits.pullback.map fX (quotMap A n) fY (quotMap A n) G (𝟙 _) (𝟙 _)
-        (by rw [Category.comp_id, h]) (by simp) = g n := by
-  sorry
+/- AlgebraicGeometry.algebraize_hom (Stacks 0A42): the compatible system of
+   maps X_n → Y_n over A/I^(n+1) algebraizes uniquely. Compatibility means that for every n
+   the transition X_n → X_(n+1) followed by g_(n+1) equals g_n followed by
+   Y_n → Y_(n+1). A family of unrelated maps g_n is insufficient; the coherent
+   formal Hom construction has not yet been supplied. -/
 
-/-- Grothendieck's algebraization theorem (Stacks 089A): a compatible system of proper schemes over
+/- Grothendieck's algebraization theorem (Stacks 089A): a compatible system of proper schemes over
 `A/I^{n+1}` whose first member carries an ample line bundle lifting to all levels is the system of
 reductions of a proper `A`-scheme. Ampleness is Tau Ceti StableReduction Layer 2's notion and is
-recorded in the packet; the typed form records the conclusion. -/
-theorem grothendieck_algebraization (A : AdicRing.{u}) [IsNoetherianRing A.carrier]
-    (𝔛 : FormalScheme.{u}) (π : FormalScheme.Hom 𝔛 (Spf A)) (hπ : FormalScheme.IsAdicHom π)
-    (hproper : IsProper (π.app 0)) :
-    ∃ (X : Scheme.{u}) (f : X ⟶ Spec (CommRingCat.of A.carrier)), IsProper f ∧
-      ∀ n, Nonempty (Limits.pullback f (quotMap A n) ≅ 𝔛.X n) := by
-  sorry
+recorded in the packet. The precise hypothesis is retained in the comment below. -/
+/- AlgebraicGeometry.grothendieck_algebraization (Stacks 089A): an adic system
+   proper over A/I^(n+1) with a compatible system of invertible modules whose first member
+   is ample algebraizes to a proper A-scheme. Ampleness is an essential hypothesis,
+   supplied by StableReduction Layer 2; the unconditional typed version is removed. -/
 
 /-! ## SF.4c  Modifications, strict transforms, flattening, regularity -/
 
 /-- Modifications: proper morphisms that are isomorphisms over a dense open with dense preimage
-(Stacks 0AAZ; de Jong 2.17); source and target are assumed integral where used. -/
+(Stacks 0AAZ; de Jong 2.17); source and target are integral. -/
 class IsModification {S' S : Scheme.{u}} (f : S' ⟶ S) : Prop where
+  integralSource : IsIntegral S'
+  integralTarget : IsIntegral S
   isProper : IsProper f
   birational : ∃ U : S.Opens, Dense (U : Set S) ∧ Dense ((f ⁻¹ᵁ U : S'.Opens) : Set S') ∧
     IsIso (f ∣_ U)
+
+attribute [instance] IsModification.integralSource IsModification.integralTarget
 
 theorem IsModification.comp {S'' S' S : Scheme.{u}} (g : S'' ⟶ S') (f : S' ⟶ S)
     [IsModification g] [IsModification f] : IsModification (g ≫ f) := by
@@ -952,7 +966,8 @@ theorem isModification_iff {S' S : Scheme.{u}} (f : S' ⟶ S) [IsIntegral S] [Is
   sorry
 
 /-- de Jong 5.4: finitely many alterations are dominated by a single alteration. -/
-theorem exists_dominating {S : Scheme.{u}} {ι : Type} [Finite ι] (T : ι → Scheme.{u})
+theorem exists_dominating {S : Scheme.{u}} [IsIntegral S] [IsNoetherian S]
+    {ι : Type} [Finite ι] (T : ι → Scheme.{u}) [∀ i, IsIntegral (T i)]
     (g : ∀ i, T i ⟶ S) [∀ i, IsAlteration (g i)] :
     ∃ (T' : Scheme.{u}) (_ : IsIntegral T') (h : T' ⟶ S) (_ : IsAlteration h),
       ∀ i, ∃ a : T' ⟶ T i, a ≫ g i = h := by
@@ -1024,21 +1039,27 @@ example (k : Type u) [Field k]
    StableReduction Layer 4) is a modification with centre the origin; the blowup is not available
    in this build. -/
 
-/-- Strict transform of `X → S` along `S' → S` (Stacks 080D; de Jong 2.18): the ideal sheaf of the
-scheme-theoretic closure of the base change over the open where `S' → S` is an isomorphism. -/
+/-- Base strict transform of `X → S` along `S' → S` (de Jong 2.18): the ideal sheaf of the
+quotient of the base change by torsion over the integral modified base. It equals the
+scheme-theoretic closure over a dense flat open where the modification is an isomorphism. -/
 def strictTransform {X S S' : Scheme.{u}} (f : X ⟶ S) (φ : S' ⟶ S) [IsModification φ] :
     (Limits.pullback f φ).IdealSheafData :=
   sorry
 
-/-- Strict transform of a module: quotient by sections supported over the exceptional locus. -/
+/-- Base strict transform of a module: quotient by torsion over the integral base.
+For a blowup compare exceptional torsion only when the module is flat over the full complement
+of its centre. -/
 def strictTransformModule {X S S' : Scheme.{u}} (f : X ⟶ S) (φ : S' ⟶ S) [IsModification φ]
     (M : X.Modules) : (Limits.pullback f φ).Modules :=
   sorry
 
 /-- The strict transform is the scheme-theoretic closure of the restriction over any dense open
-over which `φ` is an isomorphism (de Jong 2.18). -/
+over which `φ` is an isomorphism and `f` is flat (de Jong 2.18).
+This typed consequence records only the support equality, not schematic equality. -/
 theorem strictTransform_eq_closure {X S S' : Scheme.{u}} (f : X ⟶ S) (φ : S' ⟶ S)
-    [IsModification φ] (U : S.Opens) (hU : Dense (U : Set S)) (hφ : IsIso (φ ∣_ U)) :
+    [IsModification φ] [IsNoetherian S] [IsNoetherian S'] [LocallyOfFiniteType f]
+    (U : S.Opens) (hU : Dense (U : Set S)) (hflat : Flat (f ∣_ U))
+    (hφ : IsIso (φ ∣_ U)) :
     (↑(strictTransform f φ).support : Set ↥(Limits.pullback f φ)) =
       closure {x : ↥(Limits.pullback f φ) | Limits.pullback.snd f φ x ∈ φ ⁻¹ᵁ U} := by
   sorry
@@ -1046,17 +1067,20 @@ theorem strictTransform_eq_closure {X S S' : Scheme.{u}} (f : X ⟶ S) (φ : S' 
 /-- A closed subscheme of `X ×_S S'` flat over `S'` and equal to the base change over a dense open
 is the strict transform (de Jong 2.18). -/
 theorem strictTransform_unique_of_flat {X S S' : Scheme.{u}} (f : X ⟶ S) (φ : S' ⟶ S)
-    [IsModification φ] (Z : (Limits.pullback f φ).IdealSheafData)
+    [IsModification φ] [IsNoetherian S] [IsNoetherian S'] [LocallyOfFiniteType f]
+    (Z : (Limits.pullback f φ).IdealSheafData)
     (hflat : Flat (Z.subschemeι ≫ Limits.pullback.snd f φ))
     (hgen : ∃ U : S'.Opens, Dense (U : Set S') ∧
-      ∀ x : ↥(Limits.pullback f φ), Limits.pullback.snd f φ x ∈ U → x ∈ Z.support) :
+      IsIso (Z.subschemeι ∣_ ((Limits.pullback.snd f φ) ⁻¹ᵁ U))) :
     Z = strictTransform f φ := by
   sorry
 
 /- AlgebraicGeometry.strictTransform_comp (transitivity), strictTransform_eq_blowup (Stacks 080E),
-   strictTransform_closedImmersion (agreement with Tau Ceti StableReduction Layer 4's strict
-   transform of a closed subscheme), and the tests strictTransform_line and
-   strictTransform_centre_empty need the blowup of Layer 4; they are stated in the packet. -/
+   strictTransform_closedImmersion (conditional comparison with Tau Ceti StableReduction Layer
+   4), and the tests strictTransform_line and strictTransform_centre_empty need its blowup.
+   Agreement requires flatness over the full complement of the centre. For a vertical line
+   in the affine plane the base-torsion transform is empty but the blowup transform is the line;
+   the packet records both conventions explicitly. -/
 
 -- AlgebraicGeometry.strictTransform_self
 example {S S' : Scheme.{u}} (φ : S' ⟶ S) [IsModification φ] :
@@ -1206,12 +1230,12 @@ theorem IsStrictNormalCrossings.of_subset {X : Scheme.{u}} (C : SNCData X)
 example (X : Scheme.{u}) [IsRegular X] : IsStrictNormalCrossings (⊤ : X.IdealSheafData) := by
   sorry
 
-/-- Resolution of curves by normalization (Stacks 0C45, 0BI4). -/
-theorem resolution_of_curves (Y : Scheme.{u}) [IsIntegral Y] [IsNoetherian Y]
-    (hdim : topologicalKrullDim Y ≤ 1) [IsFinite (Scheme.Hom.fromNormalization (𝟙 Y))] :
-    IsRegular (Scheme.Hom.normalization (𝟙 Y)) ∧
-      IsModification (Scheme.Hom.fromNormalization (𝟙 Y)) := by
-  sorry
+/- Resolution of curves by normalization (Stacks 0C45, 0BI4). -/
+/- AlgebraicGeometry.resolution_of_curves (Stacks 0C45/0BI4): the finite
+   absolute normalization of a reduced Noetherian curve is regular. For integral Y,
+   construct Spec K(Y) → Y and normalize that morphism, not the identity Y → Y.
+   Mathlib's relative normalization of the identity is Y itself; the required generic-point
+   adapter and its absolute-normalization comparison are recorded as a packet gap. -/
 
 /-- Serre's criterion for normality (Stacks 031S), the `(R₁)` half: a normal Noetherian domain is
 regular in codimension one. The `(S₂)` half needs depth, which Mathlib does not define. -/
@@ -1245,7 +1269,8 @@ theorem Grassmannian.isProper (r d : ℕ) :
    AlgebraicGeometry.Grassmannian.relative (Gr(E, d) → S for a vector bundle E) need projective
    space and vector bundles over a base (Tau Ceti StableReduction Layer 2); stated in the packet. -/
 
--- AlgebraicGeometry.Grassmannian.rank_one: points of Gr(r, 1) are rank-one quotients of A^r.
+-- Weak representability consequence of Grassmannian.rank_one; the projective-space
+-- isomorphism test is stated in the packet.
 example (A : Type) [CommRing A] (r : ℕ) :
     Nonempty ((Spec (CommRingCat.of A) ⟶ Grassmannian r 1) ≃
       Module.Grassmannian A (Fin r → A) 1) := by
@@ -1255,7 +1280,8 @@ example (A : Type) [CommRing A] (r : ℕ) :
 example (r : ℕ) : Nonempty (Grassmannian r r ≅ Spec (CommRingCat.of ℤ)) := by
   sorry
 
--- AlgebraicGeometry.Grassmannian.dimension
+-- Weak smoothness consequence of Grassmannian.dimension; the dimension-4 assertion
+-- still needs relative dimension and projective-space supplier types.
 example : Smooth (specZIsTerminal.from (Grassmannian 4 2)) := by
   sorry
 
@@ -1294,6 +1320,14 @@ example : ¬ IsAffine (Grassmannian 2 1) := by
 
 /-! ## SF.4e  de Jong's alterations -/
 
+/-- Component ideals locally generated by a non-zero-divisor (effective Cartier).
+This is the local predicate needed in de Jong 2.16(c); StableReduction Layer 2
+supplies the bundled effective Cartier divisor comparison. -/
+def SNCData.HasCartierComponents {X : Scheme.{u}} (C : SNCData X) : Prop :=
+  ∀ i, ∀ x ∈ ((C.comp i).support : Set X),
+    ∃ (U : X.affineOpens) (_ : x ∈ (U : X.Opens)) (t : Γ(X, U)),
+      (C.comp i).ideal U = Ideal.span {t} ∧ Function.Injective (fun a : Γ(X, U) => t * a)
+
 namespace DeJong
 
 /-- A trait: a complete discrete valuation ring (de Jong 2.12). -/
@@ -1326,7 +1360,10 @@ theorem isSVariety_iff_genericFiber_nonempty {R K : Type u} [CommRing R] [IsDoma
 /-- Base change along a finite extension of traits: components of the base change dominating `X`
 are `S'`-varieties mapping to `X` by alterations (de Jong 6.8). -/
 theorem IsSVariety.baseChange_component {R R' : Type u} [CommRing R] [IsDomain R]
-    [CommRing R'] [IsDomain R'] [Algebra R R'] [Module.Finite R R'] {X : Scheme.{u}}
+    [IsDiscreteValuationRing R] [IsTrait R] [CommRing R'] [IsDomain R']
+    [IsDiscreteValuationRing R'] [IsTrait R'] [Algebra R R'] [Module.Finite R R']
+    [IsLocalHom (algebraMap R R')] (hinj : Function.Injective (algebraMap R R'))
+    {X : Scheme.{u}}
     (f : X ⟶ Spec (CommRingCat.of R)) [IsSVariety f] :
     ∃ (Z : (Limits.pullback f (Spec.map (CommRingCat.ofHom (algebraMap R R')))).IdealSheafData)
       (_ : IsIntegral Z.subscheme),
@@ -1341,7 +1378,7 @@ theorem IsSVariety.baseChange_component {R R' : Type u} [CommRing R] [IsDomain R
 def IsSVariety.toModel {R K : Type u} [CommRing R] [IsDomain R] [IsDiscreteValuationRing R]
     [Field K] [Algebra R K] [IsFractionRing R K] {C : Scheme.{u}}
     (toK : C ⟶ Spec (CommRingCat.of K)) {X : Scheme.{u}} (f : X ⟶ Spec (CommRingCat.of R))
-    [IsSVariety f] (e : TauCeti.genericFiber R K f ≅ Over.mk toK) : TauCeti.Model R K C toK :=
+    [IsSVariety f] [IsProper f] (e : TauCeti.genericFiber R K f ≅ Over.mk toK) : TauCeti.Model R K C toK :=
   sorry
 
 -- AlgebraicGeometry.DeJong.isTrait_padicInt
@@ -1372,13 +1409,13 @@ example (p : ℕ) [Fact p.Prime] :
   sorry
 
 /-- Conditions (a)–(d) of de Jong 2.16 without integrality: smooth generic fibre, and the special
-fibre is cut out by the product of components whose partial intersections are smooth over the
+fibre is cut out by the product of effective Cartier components whose partial intersections are smooth over the
 residue field of the expected codimension. -/
 def SemistableConditions {R : Type u} [CommRing R] [IsDomain R] [IsDiscreteValuationRing R]
     (K : Type u) [Field K] [Algebra R K] [IsFractionRing R K] {X : Scheme.{u}}
     (f : X ⟶ Spec (CommRingCat.of R)) : Prop :=
   Smooth (TauCeti.genericFiber R K f).hom ∧
-    ∃ C : SNCData X, (TauCeti.specialFiberι R f).ker = C.divisor ∧ C.IsTransverse ∧
+    ∃ C : SNCData X, (TauCeti.specialFiberι R f).ker = C.divisor ∧ C.HasCartierComponents ∧ C.IsTransverse ∧
       ∀ J : Finset C.ι, J.Nonempty →
         ∃ g : (C.stratum J).subscheme ⟶ Spec (CommRingCat.of (IsLocalRing.ResidueField R)),
           Smooth g ∧ g ≫ Spec.map (CommRingCat.ofHom (algebraMap R (IsLocalRing.ResidueField R))) =
@@ -1458,7 +1495,9 @@ def IsStrictSemistablePair {R : Type u} [CommRing R] [IsDomain R] [IsDiscreteVal
     (f : X ⟶ Spec (CommRingCat.of R)) (H : SNCData X) : Prop :=
   IsStrictlySemistable K f ∧
     IsStrictNormalCrossings ((TauCeti.specialFiberι R f).ker * H.divisor) ∧
-    ∀ J : Finset H.ι, J.Nonempty → SemistableConditions K ((H.stratum J).subschemeι ≫ f)
+    ∀ J : Finset H.ι, J.Nonempty →
+      Flat ((H.stratum J).subschemeι ≫ f) ∧
+      SemistableConditions K ((H.stratum J).subschemeι ≫ f)
 
 theorem IsStrictSemistablePair.of_strictlySemistable {R : Type u} [CommRing R] [IsDomain R]
     [IsDiscreteValuationRing R] {K : Type u} [Field K] [Algebra R K] [IsFractionRing R K]
@@ -1484,6 +1523,12 @@ theorem IsStrictSemistablePair.restrict {R : Type u} [CommRing R] [IsDomain R]
    C[[t, s]]/(π − t₁⋯t_n)) and the tests AlgebraicGeometry.DeJong.pair_specialFiber,
    AlgebraicGeometry.DeJong.pair_with_horizontal and AlgebraicGeometry.DeJong.not_pair_diagonal
    (computations with Z_p[x, y, z]/(xy − p)) are stated in the packet. -/
+
+/- Test AlgebraicGeometry.DeJong.not_pair_generic_cusp: over R=Q[[π]],
+   X=Spec R[x,y] and H=V((πx−1)^2+π^2 y^3), H misses the special fibre
+   but is cuspidal on the generic fibre. The pair (X,X_s ∪ H) fails SNC;
+   special-fibre local forms alone do not imply the global pair predicate.
+   See de Jong 6.4 p. 83 and the packet source issue E3. -/
 
 /- Split semistable curves (SF.4/split-prestable-curve) need Tau Ceti StableReduction Layer 3's
    prestable families. Declarations: AlgebraicGeometry.DeJong.IsSplitPrestable,
@@ -1512,16 +1557,24 @@ theorem alteration_theorem (k : Type u) [Field k] {X : Scheme.{u}}
       ((PerfectField k) → IsAlteration.IsGenericallyEtale φ) := by
   sorry
 
-/-- de Jong's semistable alteration theorem over a trait (Theorem 6.5). -/
+/-- A properness consequence of de Jong's semistable alteration theorem (6.5).
+The packet retains projectivity and geometrically irreducible generic fibre; their supplier
+notions are not typed here. The map over S and the entire boundary are recorded. -/
 theorem semistable_alteration_theorem (R : Type u) [CommRing R] [IsDomain R]
     [IsDiscreteValuationRing R] [IsTrait R] {X : Scheme.{u}} (f : X ⟶ Spec (CommRingCat.of R))
-    [IsSVariety f] :
+    [IsSVariety f] (Z : X.IdealSheafData) (hZ : Z ≠ ⊥)
+    (hclosed : Set.range (TauCeti.specialFiberι R f) ⊆ (Z.support : Set X)) :
     ∃ (R₁ K₁ : Type u) (_ : CommRing R₁) (_ : IsDomain R₁) (_ : IsDiscreteValuationRing R₁)
-      (_ : IsTrait R₁) (_ : Algebra R R₁) (_ : Module.Finite R R₁) (_ : Field K₁)
+      (_ : IsTrait R₁) (_ : Algebra R R₁) (_ : Module.Finite R R₁)
+      (_ : IsLocalHom (algebraMap R R₁)) (_ : Function.Injective (algebraMap R R₁))
+      (_ : Field K₁)
       (_ : Algebra R₁ K₁) (_ : IsFractionRing R₁ K₁)
       (X₁ : Scheme.{u}) (_ : IsIntegral X₁) (φ : X₁ ⟶ X) (_ : IsAlteration φ) (Xbar₁ : Scheme.{u})
       (g : Xbar₁ ⟶ Spec (CommRingCat.of R₁)) (j : X₁ ⟶ Xbar₁) (H : SNCData Xbar₁),
-        IsOpenImmersion j ∧ IsProper g ∧ IsStrictSemistablePair K₁ g H := by
+        IsOpenImmersion j ∧ IsProper g ∧ IsStrictSemistablePair K₁ g H ∧
+          (j ≫ g) ≫ Spec.map (CommRingCat.ofHom (algebraMap R R₁)) = φ ≫ f ∧
+          (((TauCeti.specialFiberι R₁ g).ker * H.divisor).support : Set Xbar₁) =
+            (Set.range j)ᶜ ∪ j '' (φ ⁻¹' (Z.support : Set X)) := by
   sorry
 
 end DeJong
