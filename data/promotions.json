@@ -3017,6 +3017,13 @@
    "reviewDate": "2026-10-09",
    "reviewer": "independent-review-REV-PKG-PadicMeasuresIwasawaAlgebras"
   },
+  "research/blueprint/packages/ReductiveGroupsPartII/review.json": {
+   "at": "2026-10-09T13:55:57Z",
+   "reason": "REV-PKG-ReductiveGroupsPartII is not a job of the queue",
+   "review": "bcac3e4c6b234ec0",
+   "reviewDate": "2026-10-09",
+   "reviewer": "independent-review-REV-PKG-ReductiveGroupsPartII"
+  },
   "research/blueprint/packages/SchemeAndStackFoundations/review.json": {
    "at": "2026-10-09T13:08:54Z",
    "reason": "REV-PKG-SchemeAndStackFoundations is not a job of the queue",
