@@ -46486,8 +46486,9 @@
     "PKG-DiamondsAndVStacks"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-DiamondsAndVStacks.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7513"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7513",
+   "finishedAt": "2026-10-09T03:09:21Z"
   },
   {
    "id": "PKG-EllipticCurveModularity",
@@ -47000,7 +47001,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-HeckeStacksAndLocalShtukas.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7489"
   },
   {
    "id": "REV-PKG-HeckeStacksAndLocalShtukas",
@@ -47749,8 +47751,9 @@
     "PKG-VStackSheavesAndLisseCategories"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-VStackSheavesAndLisseCategories.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7541"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7541",
+   "finishedAt": "2026-10-09T03:09:24Z"
   },
   {
    "id": "PKG-VectorBundlesAndIsocrystals",
@@ -47768,7 +47771,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-VectorBundlesAndIsocrystals.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7498"
   },
   {
    "id": "REV-PKG-VectorBundlesAndIsocrystals",
