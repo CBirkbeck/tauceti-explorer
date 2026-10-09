@@ -104947,6 +104947,26 @@
    "independentOf": [],
    "state": "pending",
    "prompt": "research/blueprint/prompts/REV-PKG-LocallyAnalyticDistributions~adv.md"
+  },
+  {
+   "id": "REV-PKG-AlgebraicModuliForArithmeticGeometry~adv",
+   "kind": "review",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "AlgebraicModuliForArithmeticGeometry"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-PKG-AlgebraicModuliForArithmeticGeometry~adv.md",
+    "research/blueprint/packages/AlgebraicModuliForArithmeticGeometry/review.json",
+    "research/blueprint/packages/AlgebraicModuliForArithmeticGeometry/README.md",
+    "research/blueprint/packages/AlgebraicModuliForArithmeticGeometry/Suggested.lean",
+    "research/blueprint/packages/AlgebraicModuliForArithmeticGeometry/metadata.toml"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/REV-PKG-AlgebraicModuliForArithmeticGeometry~adv.md"
   }
  ]
 }
