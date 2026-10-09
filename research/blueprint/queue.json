@@ -46151,8 +46151,9 @@
     "PKG-ComplexMultiplicationAndExplicitReciprocity"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-ComplexMultiplicationAndExplicitReciprocity.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7509"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7509",
+   "finishedAt": "2026-10-09T01:06:48Z"
   },
   {
    "id": "PKG-ComputationalNumberTheory",
@@ -47042,7 +47043,8 @@
     "PKG-HeegnerPointEulerSystems"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-HeegnerPointEulerSystems.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7522"
   },
   {
    "id": "PKG-HodgeStructuresPartII",
