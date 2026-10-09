@@ -1,0 +1,2959 @@
+{
+  "roadmapId": "AlgebraicModuliForArithmeticGeometry",
+  "protocol": "blueprint-v1",
+  "part": "R09.4",
+  "scope": [
+    "AlgebraicModuliForArithmeticGeometry:R09.4"
+  ],
+  "status": "complete",
+  "summary": "Arithmetic applications of the SF.1 stack carrier: fixed-polygon generalized elliptic moduli and fixed-degree polarized abelian moduli. Stable pointed curves are imported from their existing Part II owner. General stack theory and the inherited gerbe targets are not redeclared.",
+  "baseline": {
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "declarations": [
+      {
+        "ref": "mathlib:AlgebraicGeometry.Scheme",
+        "module": "Mathlib/AlgebraicGeometry/Scheme.lean",
+        "provides": "Native scheme carrier, with Over and scheme pullbacks; never a private replacement.",
+        "checked": "Actual statement read at the pinned commit on 2026-10-09."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.Smooth",
+        "module": "Mathlib/AlgebraicGeometry/Morphisms/Smooth.lean",
+        "provides": "Smooth morphisms, already including local finite presentation and flatness.",
+        "checked": "Actual statement read at the pinned commit on 2026-10-09."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.IsProper",
+        "module": "Mathlib/AlgebraicGeometry/Morphisms/Proper.lean",
+        "provides": "Proper scheme morphisms; this does not define properness of a stack.",
+        "checked": "Actual statement read at the pinned commit on 2026-10-09."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.GeometricallyConnected",
+        "module": "Mathlib/AlgebraicGeometry/Geometrically/Connected.lean",
+        "provides": "The native geometric connectedness predicate, including pullback instances and fibre characterization.",
+        "checked": "Actual statement read at the pinned commit on 2026-10-09."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Pseudofunctor.IsStack",
+        "module": "Mathlib/CategoryTheory/Sites/Descent/IsStack.lean",
+        "provides": "Effective descent for Cat-valued pseudofunctors; groupoid fibres are an additional requirement.",
+        "checked": "Actual statement read at the pinned commit on 2026-10-09."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.GrpObj",
+        "module": "Mathlib/CategoryTheory/Monoidal/Grp.lean",
+        "provides": "Group-object data over the cartesian monoidal category Over S.",
+        "checked": "Actual statement read at the pinned commit on 2026-10-09."
+      },
+      {
+        "ref": "mathlib:rootsOfUnity",
+        "module": "Mathlib/RingTheory/RootsOfUnity/Basic.lean",
+        "provides": "Subgroup of units with nth power one, useful for the polygon automorphism functor on test rings.",
+        "checked": "Actual statement read at the pinned commit on 2026-10-09."
+      },
+      {
+        "ref": "tauceti:TauCeti.AlgebraicGeometry.AbelianVariety",
+        "module": "TauCeti/AlgebraicGeometry/AbelianVariety/Basic.lean",
+        "provides": "Existing proper geometrically integral field-valued group object, with derived smoothness, connectedness, commutativity and base change.",
+        "checked": "Actual statement read at the pinned commit on 2026-10-09."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Functor.grpObjObj",
+        "module": "Mathlib/CategoryTheory/Monoidal/Grp.lean",
+        "provides": "A monoidal functor transports a group object; used for Over.pullback.",
+        "checked": "Actual statement read at the pinned commit on 2026-10-09."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.IsMonHom",
+        "module": "Mathlib/CategoryTheory/Monoidal/Mon.lean",
+        "provides": "The existing predicate that a morphism preserves the unit and multiplication of native monoid objects; used for zero-preserving abelian morphisms.",
+        "checked": "Actual statement at lines 212–215 read at the pinned commit on 2026-10-09."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "ces",
+      "title": "A modular description of X_0(n)",
+      "authors": "Kęstutis Česnavičius",
+      "edition": "arXiv:1511.07475v2, 5 October 2017; printed pagination 1–65",
+      "url": "https://arxiv.org/pdf/1511.07475v2",
+      "readDate": "2026-10-09",
+      "readSections": [
+        "Definitions 2.1.1, 2.1.3, 2.1.7 and Lemma 2.1.6, pp.6–7",
+        "§3.1, pp.15–19; §3.2.1, pp.19–20"
+      ],
+      "sha256": "94d0532f68812cd97a2fc119377c2adff529d5a2fa03fbda4fe8c2623ba4d0bd"
+    },
+    {
+      "id": "con",
+      "title": "Arithmetic moduli of generalized elliptic curves",
+      "authors": "Brian Conrad",
+      "edition": "Author copy of J. Inst. Math. Jussieu 6 (2007), 209–278; citations use author-copy pages",
+      "url": "https://math.stanford.edu/~conrad/papers/kmpaper.pdf",
+      "readDate": "2026-10-09",
+      "readSections": [
+        "§2.1, pp.4–7; §2.2, pp.7–10",
+        "§3.2, pp.23–26, especially Theorems 3.2.2 and 3.2.4"
+      ],
+      "sha256": "f53e4ff819d534926e6ee59874cbce4e7bad4a315cbd6d05984b8405b11f15d8"
+    },
+    {
+      "id": "ols",
+      "title": "Compactifications of moduli of abelian varieties: an introduction",
+      "authors": "Martin Olsson",
+      "edition": "MSRI Publications 59, PDF masthead 2011; Cambridge print publication 2012, pp.295–348",
+      "url": "https://library.slmath.org/books/Book59/files/65olsson.pdf",
+      "readDate": "2026-10-09",
+      "readSections": [
+        "§2.1, pp.297–303, including Lemmas 2.1.8–2.1.9 and Theorem 2.1.11"
+      ],
+      "sha256": "e9fb8d71139b90c14c57c68c4d5048a929c7135447b6372e4c5df097cf78bbf4"
+    },
+    {
+      "id": "aov",
+      "title": "Tame stacks in positive characteristic",
+      "authors": "Dan Abramovich, Martin Olsson, Angelo Vistoli",
+      "edition": "Ann. Inst. Fourier 58(4) (2008), 1057–1091; published Numdam PDF",
+      "url": "https://www.numdam.org/article/AIF_2008__58_4_1057_0.pdf",
+      "readDate": "2026-10-09",
+      "readSections": [
+        "§2.3, Definition 2.6 and Proposition 2.7, pp.1067–1068",
+        "§3, Definition 3.1, Theorem 3.2 and Corollary 3.3, pp.1077–1078"
+      ],
+      "sha256": "f9e06b4081d49dd366969e82468697e30465a55ccfbab72df06935fc999a46e1"
+    },
+    {
+      "id": "oort",
+      "title": "Finite group schemes, local moduli for abelian varieties, and lifting problems",
+      "authors": "Frans Oort",
+      "edition": "Compositio Math. 23(3) (1971), 265–296",
+      "url": "https://www.numdam.org/article/CM_1971__23_3_265_0.pdf",
+      "readDate": "2026-10-09",
+      "readSections": [
+        "§2.3, Lemma 2.3.2, pp.282–284",
+        "§2.4, Theorem 2.4.1 and proof of the separable-polarization implication, pp.286–287"
+      ],
+      "sha256": "d26f4320669876099dfbcab554bea1b2f4f90eb714bfdd22badc6a6cc9817c8c"
+    },
+    {
+      "id": "kass",
+      "title": "Notes on Abelian Schemes",
+      "authors": "Jesse Kass",
+      "edition": "Author notes dated 10 May 2014, 8 pages",
+      "url": "https://people.ucsc.edu/~jelkass/files/AbelianSchemes.pdf",
+      "readDate": "2026-10-09",
+      "readSections": [
+        "§1, pp.1–3, especially Theorem 1 and its Artin-local rigidity proof",
+        "§3, pp.5–7, especially Theorem 8; statements read, omitted proofs are not certified"
+      ],
+      "sha256": "53cc9465c948918bda905bf3ed2dc2ab45b726c9b0b4f2ebd57c24102f4463c8"
+    },
+    {
+      "id": "milne",
+      "title": "Abelian Varieties",
+      "authors": "James S. Milne",
+      "edition": "Course notes version 2.0, 2008; printed pagination",
+      "url": "https://www.jmilne.org/math/CourseNotes/AV.pdf",
+      "readDate": "2026-10-09",
+      "readSections": [
+        "§16, Proposition 16.1 and Corollary 16.2, pp.67–68",
+        "§17, Theorem 17.1 and Remark 17.2, pp.69–71; these do not supply a proof of the arbitrary-base dual theorem"
+      ],
+      "sha256": "f5ca4e63e5092a4b102daad1470e4cbed5fe8f82115e3a28c8881e3f67f6aaef"
+    },
+    {
+      "id": "dr",
+      "title": "Les schémas de modules de courbes elliptiques",
+      "authors": "Pierre Deligne, Michael Rapoport",
+      "edition": "Lecture Notes in Mathematics 349 (1973), 143–316; IAS scan, internal DeRa pagination also recorded",
+      "url": "https://publications.ias.edu/sites/default/files/Number22.pdf",
+      "readDate": "2026-10-09",
+      "readSections": [
+        "V.1.1–V.1.5, pp.DeRa92–94 (PDF indices 91–93), browser PDF text; displayed formulas can be absent in OCR",
+        "II.2.3–II.2.6, pp.DeRa44–46 (PDF indices 43–45); III.2.5–III.2.6, pp.DeRa61–62 (PDF indices 60–61), read for Pic⁰ action and one-gon algebraicity",
+        "IV.1.1–IV.1.3, pp.DeRa63–65 (PDF indices 62–64), including the contraction existence and uniqueness proof; IV.1.6, pp.DeRa65–67, read for the trait-model argument"
+      ]
+    },
+    {
+      "id": "stacks",
+      "title": "The Stacks Project",
+      "authors": "The Stacks Project Authors",
+      "edition": "Live version read 9 October 2026; tags are stable locators",
+      "url": "https://stacks.math.columbia.edu",
+      "readDate": "2026-10-09",
+      "readSections": [
+        "Tag 06DC, Theorem 97.16.1: fppf presentation criterion",
+        "Tag 04TK, Theorem 94.17.3: quotient groupoid algebraicity",
+        "Tag 0DPS, §108.11: polarized proper schemes; not the same moduli problem as a polarization homomorphism"
+      ]
+    },
+    {
+      "id": "owners",
+      "title": "Owning roadmap specifications",
+      "authors": "Tau Ceti roadmap and Atlas contributors",
+      "edition": "Current upstream main and local supplier packets inspected 9 October 2026; these are specifications, not implementation certificates",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap",
+      "readDate": "2026-10-09",
+      "readSections": [
+        "AlgebraicVectorBundles README and Suggested; StableReduction README and Suggested; ModularCurves scheme/group/quotient/presentation layers",
+        "SF.1 packet, A0-extension packet, StableReductionPartII packet, ModularCurvesPartII R12.1 packet and reviewed library audit"
+      ]
+    },
+    {
+      "id": "ces-pub",
+      "title": "A modular description of X_0(n)",
+      "authors": "Kęstutis Česnavičius",
+      "edition": "Algebra & Number Theory 11(9) (2017), 2001–2089; published version used only for the contraction wording comparison",
+      "url": "https://msp.org/ant/2017/11-9/ant-v11-n9-p02-s.pdf",
+      "readDate": "2026-10-09",
+      "readSections": [
+        "§3.2.1, pp.2025–2026: comparison with arXiv v2 contraction wording"
+      ],
+      "sha256": "ccb6ebe7e478e67d20701e9e7cbffc0525a97bf5b02e6e2aa9511272d254ed1c"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/arith-standard-ngon",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "kind": "construction",
+      "title": "Standard Néron polygon",
+      "statement": "For every scheme S and integer n≥1 construct the proper flat finitely presented nodal genus-one S-curve C_n by cyclically identifying ∞ on component i of n copies of P¹_S with 0 on component i+1. For n=1 identify the two sections of one P¹. Its smooth locus is the S-group G_m×(Z/nZ)_S with identity (1,0), and its translation action extends to C_n. All constructions commute with arbitrary base change.",
+      "hypotheses": [
+        "S arbitrary; n is positive."
+      ],
+      "prerequisites": [
+        "mathlib:AlgebraicGeometry.Scheme",
+        "tauceti:TauCetiRoadmap/ModularCurves#0c-finite-quotients-and-torsors",
+        "tauceti:TauCetiRoadmap/ModularCurves#0a-relative-effective-cartier-divisors"
+      ],
+      "proofSteps": [
+        "Build the node chart Spec(O_S[x,y]/xy) and glue its punctured branches to the standard projective-line charts; for n=1 use the same two branches on one normalization component.",
+        "Prove properness and flatness from the canonical relative-normalization/gluing construction, with normalization sequence giving genus one.",
+        "Descend (u,i)·(t,j)=(ut,i+j) from the normalization; compare the smooth-locus point group with native units and ZMod."
+      ],
+      "sources": [
+        {
+          "sourceId": "ces",
+          "locator": "Definition 2.1.1, p.6",
+          "match": "The cyclic coequalizer constructs the polygon, including the one-gon and its smooth group."
+        },
+        {
+          "sourceId": "con",
+          "locator": "§2.1, pp.4–5, equation (2.1.2)",
+          "match": "The glued action and finite cyclic quotient descriptions work over arbitrary bases."
+        }
+      ],
+      "acceptance": [
+        "The proper polygon, rather than its smooth locus, is the geometric carrier.",
+        "Do not use a set quotient of geometric points to construct the scheme.",
+        "The split one-gon model must remain nodal over F₂; source issue E2 rejects the printed model there."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "namespace": "TauCeti.ArithmeticModuli",
+        "module": "TauCeti/AlgebraicGeometry/ArithmeticModuli/R094"
+      },
+      "api": [
+        {
+          "name": "StandardNgon.baseChange",
+          "role": "functoriality",
+          "statement": "C_n×_S T is canonically C_n over T, respecting zero and translation."
+        },
+        {
+          "name": "StandardNgon.smoothPoints",
+          "role": "compatibility",
+          "statement": "On affine test rings R the smooth-point group is Rˣ×Multiplicative(ZMod n), naturally in R."
+        },
+        {
+          "name": "StandardNgon.normalization",
+          "role": "projection",
+          "statement": "The canonical relative normalization is the disjoint union of n projective lines with the specified two branches at each node; this is not a claim about absolute normalization over a nonnormal base."
+        },
+        {
+          "name": "StandardNgon.nodeCharts",
+          "role": "characterisation",
+          "statement": "Every node has the standard xy=0 chart; n=1 still has two normalization flags."
+        }
+      ],
+      "tests": [
+        {
+          "name": "StandardNgon.one_component",
+          "kind": "degenerate",
+          "statement": "C_1 is the rational nodal genus-one curve; its smooth locus is G_m, not a smooth elliptic curve. A split cubic model over every base is y²z+xyz=x³, with normalization x=u(u+1), y=u²(u+1); the two branches u=0,−1 are distinct even in characteristic two."
+        },
+        {
+          "name": "StandardNgon.two_components",
+          "kind": "computation",
+          "statement": "C_2 has two components meeting at two distinct nodes and smooth component group Z/2Z."
+        },
+        {
+          "name": "StandardNgon.base_change_nonreduced",
+          "kind": "compatibility",
+          "statement": "The same normalization and xy=0 node charts persist over k[ε]/ε²; the construction does not discard nilpotents."
+        }
+      ],
+      "uses": [
+        {
+          "where": "FixedEllipticModuli.boundary",
+          "how": "Boundary objects and their automorphism group scheme."
+        },
+        {
+          "where": "ModularCurvesPartII:R13.1",
+          "how": "Shared object input moves down to this owner; its level-specific results consume it."
+        }
+      ],
+      "declaration": "R094.standard_ngon"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/arith-generalized-elliptic",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "kind": "definition",
+      "title": "Generalized elliptic curve",
+      "statement": "A generalized elliptic curve over S is a proper flat finitely presented curve E→S whose geometric fibres are smooth connected genus-one curves or Néron polygons, a commutative group law with zero on E^sm, and an action E^sm×_S E→E extending that law. On polygon fibres translations act by rotations on the cyclic component graph, equivalently trivially on Pic⁰. Isomorphisms are S-isomorphisms respecting zero, law and action. Pullback uses the native scheme fibre product.",
+      "hypotheses": [
+        "S arbitrary. The action condition is part of the definition, beyond fibrewise shape."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/arith-standard-ngon",
+        "tauceti:TauCetiRoadmap/ModularCurves#1d-the-scheme-theoretic-group-law",
+        "tauceti:TauCetiRoadmap/ModularCurves#1e-the-cubic-polarisation-and-elliptic-descent"
+      ],
+      "proofSteps": [
+        "Bundle the curve, its actual relative smooth open, the group object there, and its extension action.",
+        "Require the rotation condition, and establish morphism/extensionality and coherent pullback from the action and universal schematic density.",
+        "Identify the smooth restriction with the existing ModularCurves elliptic family, preserving the group law."
+      ],
+      "sources": [
+        {
+          "sourceId": "ces",
+          "locator": "Definition 2.1.3, p.6",
+          "match": "The family condition includes the Pic⁰ action constraint."
+        },
+        {
+          "sourceId": "con",
+          "locator": "Definition 2.1.4 and Remark 2.1.13, pp.5–7",
+          "match": "The action extends the smooth group law; some twisted polygon families do not admit it."
+        }
+      ],
+      "acceptance": [
+        "Bare pointed semistable genus-one families are not silently given an action."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "namespace": "TauCeti.ArithmeticModuli",
+        "module": "TauCeti/AlgebraicGeometry/ArithmeticModuli/R094"
+      },
+      "api": [
+        {
+          "name": "GeneralizedEllipticCurve.smoothLocus",
+          "role": "projection",
+          "statement": "Expose the native smooth open and its commutative group object."
+        },
+        {
+          "name": "GeneralizedEllipticCurve.pullback",
+          "role": "functoriality",
+          "statement": "Arbitrary scheme base change preserves all data, with identity/composition coherence."
+        },
+        {
+          "name": "GeneralizedEllipticCurve.smoothEquivalence",
+          "role": "equivalence",
+          "statement": "The full smooth subcategory is equivalent to ModularCurves Layer 1 elliptic families and their zero-preserving isomorphisms."
+        },
+        {
+          "name": "GeneralizedEllipticCurve.iso_ext",
+          "role": "extensionality",
+          "statement": "Isomorphisms equal on the universally schematically dense smooth locus are equal on E."
+        },
+        {
+          "name": "GeneralizedEllipticCurve.ofStandardNgon",
+          "role": "constructor",
+          "statement": "The standard polygon carries the law and action above."
+        }
+      ],
+      "tests": [
+        {
+          "name": "GeneralizedEllipticCurve.smooth_agreement",
+          "kind": "compatibility",
+          "statement": "A smooth elliptic family with its existing law gives exactly the same generalized object."
+        },
+        {
+          "name": "GeneralizedEllipticCurve.nodal_onegon",
+          "kind": "degenerate",
+          "statement": "The standard one-gon is admitted, including its inversion."
+        },
+        {
+          "name": "GeneralizedEllipticCurve.twisted_two_gon_excluded",
+          "kind": "non-example",
+          "statement": "Over A=k[ε,ε′]/(ε,ε′)², the two-gon with node parameters ε and ε′ has no such group/action structure, even fpqc locally (Conrad Example 2.1.11 and Remark 2.1.13)."
+        }
+      ],
+      "uses": [
+        {
+          "where": "FixedEllipticModuli",
+          "how": "Use zero-preserving isomorphisms and full family data in the fibre groupoid."
+        },
+        {
+          "where": "ModularCurvesPartII:R13.1–R13.2",
+          "how": "Add the arithmetic Drinfeld-level data to this same carrier."
+        }
+      ],
+      "declaration": "R094.generalized_elliptic"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/arith-degeneracy",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "kind": "construction",
+      "title": "Schematic degeneracy locus",
+      "statement": "For a generalized elliptic curve f:E→S, let E^sing be cut out by Fitt_1(Ω¹_{E/S}), and S^∞ its schematic image in S. This closed subscheme decomposes locally finitely into open-and-closed pieces S^∞_n with n-gon fibres; E is fppf locally the standard n-gon over each piece. E^sing and S^∞, including the component-count pieces, commute with arbitrary base change.",
+      "hypotheses": [
+        "f is generalized elliptic, not just a DR semistable genus-one curve."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/arith-generalized-elliptic",
+        "tauceti:TauCetiRoadmap/ModularCurves#0a-relative-effective-cartier-divisors"
+      ],
+      "proofSteps": [
+        "Apply the native differential/Fitting-ideal scheme construction; keep the scheme structure of the image.",
+        "Use the polygon trivialization over the image to compare after arbitrary pullback.",
+        "Compute the node ideals and descend the locally constant component count."
+      ],
+      "sources": [
+        {
+          "sourceId": "con",
+          "locator": "Definition 2.1.8, Lemma 2.1.10, Theorem 2.1.12, pp.6–7",
+          "match": "The image and fppf polygon trivializations give base-change compatibility; the bare-curve counterexample explains the hypothesis."
+        }
+      ],
+      "acceptance": [
+        "The nilpotent structure of S^∞ is retained."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "namespace": "TauCeti.ArithmeticModuli",
+        "module": "TauCeti/AlgebraicGeometry/ArithmeticModuli/R094"
+      },
+      "api": [
+        {
+          "name": "GeneralizedEllipticCurve.singularSubscheme",
+          "role": "projection",
+          "statement": "The relative Fitting ideal cuts out the nonsmooth locus."
+        },
+        {
+          "name": "GeneralizedEllipticCurve.degeneracyBaseChange",
+          "role": "functoriality",
+          "statement": "S^∞(E_T)=S^∞(E)×_S T as closed subschemes."
+        },
+        {
+          "name": "GeneralizedEllipticCurve.polygonTrivialization",
+          "role": "characterisation",
+          "statement": "Over S^∞_n the generalized curve is fppf locally C_n."
+        }
+      ],
+      "tests": [
+        {
+          "name": "GeneralizedEllipticCurve.polygon_degeneracy",
+          "kind": "computation",
+          "statement": "For C_n/S the degeneracy subscheme is all of S."
+        },
+        {
+          "name": "GeneralizedEllipticCurve.smooth_degeneracy",
+          "kind": "degenerate",
+          "statement": "For a smooth elliptic family the degeneracy subscheme is empty."
+        },
+        {
+          "name": "GeneralizedEllipticCurve.bare_curve_image_failure",
+          "kind": "non-example",
+          "statement": "The twisted two-gon over A above has S^∞=Spec A, but pullback along ε=ε′ has degeneracy Spec k inside Spec(k[ε]/ε²); hence the base-change theorem cannot be generalized to bare curves."
+        }
+      ],
+      "uses": [
+        {
+          "where": "FixedEllipticModuli.cusp",
+          "how": "Defines the closed boundary substack with its scheme structure."
+        },
+        {
+          "where": "ModularCurvesPartII:R13.1",
+          "how": "Supplies its shared schematic degeneration input."
+        }
+      ],
+      "declaration": "R094.degeneracy"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/arith-polygon-automorphisms",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "kind": "theorem",
+      "title": "Automorphisms of a Néron polygon",
+      "statement": "Aut_S(C_n) as a generalized elliptic curve is the group scheme µ_n×(Z/2Z)_S. A root ζ scales the coordinate on component i by ζ^i; the second factor acts by (t,i)↦(t⁻¹,−i). These actions commute. The formula is natural on all test schemes, including nonreduced ones; it is not merely a formula for algebraically closed points.",
+      "hypotheses": [
+        "n≥1; automorphisms preserve the identity and generalized group/action structure."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/arith-standard-ngon",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/arith-generalized-elliptic",
+        "mathlib:rootsOfUnity"
+      ],
+      "proofSteps": [
+        "Extend the smooth-group coordinate formulas across the node charts.",
+        "A law-preserving automorphism either preserves or reverses the cycle; fixing zero forces its component scalings to be powers of one ζ with ζ^n=1.",
+        "Compute inversion conjugation directly: both the component index and the coordinate are inverted, so ζ is unchanged."
+      ],
+      "sources": [
+        {
+          "sourceId": "ces",
+          "locator": "Lemma 2.1.6, p.7",
+          "match": "The group scheme is the direct product, with inversion central."
+        },
+        {
+          "sourceId": "con",
+          "locator": "Example 2.1.5, p.5",
+          "match": "The coordinate scaling formula is the same; its semidirect notation must be read with trivial conjugation."
+        }
+      ],
+      "acceptance": [
+        "At n=1 the group is constant C₂.",
+        "In characteristic p dividing n, µ_n is nonreduced and cannot be replaced by its geometric points.",
+        "The prototype checks the smooth-group formulas and an infinitesimal µ₃ point; extension to the proper curve is explicitly unstated under G-native."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "namespace": "TauCeti.ArithmeticModuli",
+        "module": "TauCeti/AlgebraicGeometry/ArithmeticModuli/R094"
+      },
+      "declaration": "R094.polygon_automorphisms",
+      "uses": []
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/arith-contraction",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "kind": "construction",
+      "title": "Contraction of polygon components",
+      "statement": "For a proper flat finitely presented semistable genus-one curve E/S and a relative effective Cartier divisor D⊂E^sm finite locally free of positive rank, construct c_D(E) by contracting precisely fibre components disjoint from D, uniquely as the relative projective contraction and compatibly with arbitrary base change. Its smooth locus is the image of the open subgroup of E^sm consisting of retained components when E is generalized elliptic and D=G is a finite locally free subgroup. In that subgroup case the contraction inherits a unique generalized law and action, G becomes ample, and the map restricts to an isomorphism from the retained-component open in E^sm onto c_G(E)^sm.",
+      "hypotheses": [
+        "The general divisor construction yields a curve, not an asserted group object. The subgroup case uses a generalized elliptic input and a finite locally free subgroup. The contraction is not the scheme quotient E/G."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/arith-generalized-elliptic",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/arith-degeneracy",
+        "tauceti:TauCetiRoadmap/ModularCurves#0a-relative-effective-cartier-divisors",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves"
+      ],
+      "proofSteps": [
+        "Reduce by finite-presentation limits to a noetherian base. For every m>0, curve duality and fibre cohomology make f_*O(mD) locally free and compatible with arbitrary base change.",
+        "The graded algebra ⊕_{m≥0}f_*O(mD) is finitely generated with a uniform degree bound checked on smooth genus-one fibres and polygon fibres. Its relative Proj gives the proper flat contraction; fibrewise sections identify exactly the retained components.",
+        "Any candidate contraction has the same pullback divisor and graded section algebra, giving uniqueness. The base-change theorem for every graded piece identifies the relative Proj after arbitrary pullback.",
+        "For a subgroup divisor, its retained-component smooth open is a subgroup. Uniqueness transports translations to the contraction and proves the group and action identities; the finite subgroup becomes ample."
+      ],
+      "sources": [
+        {
+          "sourceId": "ces",
+          "locator": "§3.2.1, pp.19–20",
+          "match": "Contraction retains exactly the components met by G and is base-change compatible."
+        },
+        {
+          "sourceId": "con",
+          "locator": "§2.1, equation (2.1.4) and the following discussion, pp.7–8",
+          "match": "The divisor contraction acquires its generalized structure when the divisor is a subgroup."
+        },
+        {
+          "sourceId": "ces",
+          "locator": "§3.2.1, p.19; published version p.2025",
+          "match": "The group isomorphism must be read on the retained-component open inside E^sm, as corrected in E4."
+        },
+        {
+          "sourceId": "dr",
+          "locator": "IV.1.1–IV.1.3, pp.DeRa63–65 (PDF indices 62–64)",
+          "match": "The proof reduces to noetherian bases, constructs the graded section algebra with compatible base change, proves uniqueness and transports the subgroup action."
+        }
+      ],
+      "acceptance": [
+        "c_G(E)=E for a smooth elliptic family.",
+        "Contracting to a specified component count requires an appropriate subgroup; it is not an arbitrary map of polygons."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "namespace": "TauCeti.ArithmeticModuli",
+        "module": "TauCeti/AlgebraicGeometry/ArithmeticModuli/R094"
+      },
+      "api": [
+        {
+          "name": "GenusOneCurve.contractDivisor",
+          "role": "constructor",
+          "statement": "Construct the relative projective contraction for a positive finite locally free smooth Cartier divisor; with a subgroup divisor it agrees with GeneralizedEllipticCurve.contract."
+        },
+        {
+          "name": "GeneralizedEllipticCurve.contract",
+          "role": "constructor",
+          "statement": "Construct c_G(E) with its map and smooth law."
+        },
+        {
+          "name": "GeneralizedEllipticCurve.contract_baseChange",
+          "role": "functoriality",
+          "statement": "Pullback identifies the contracted curves and maps."
+        },
+        {
+          "name": "GeneralizedEllipticCurve.contract_componentCriterion",
+          "role": "characterisation",
+          "statement": "Exactly the components missing G are contracted."
+        },
+        {
+          "name": "GeneralizedEllipticCurve.contract_unique",
+          "role": "universal-property",
+          "statement": "The target and map are unique up to the specified commuting isomorphism."
+        }
+      ],
+      "tests": [
+        {
+          "name": "GeneralizedEllipticCurve.contract_smooth",
+          "kind": "compatibility",
+          "statement": "On a smooth elliptic curve contraction is the identity."
+        },
+        {
+          "name": "GeneralizedEllipticCurve.contract_to_one",
+          "kind": "degenerate",
+          "statement": "On C_n the zero subgroup meets only the identity component and contracts to C_1."
+        },
+        {
+          "name": "GeneralizedEllipticCurve.contract_all_components",
+          "kind": "computation",
+          "statement": "The subgroup {1}×Z/nZ meets every component and the contraction of C_n is the identity."
+        },
+        {
+          "name": "GenusOneCurve.divisor_without_law",
+          "kind": "non-example",
+          "statement": "A divisor meeting selected components of a bare semistable genus-one curve produces its curve contraction, but supplies neither a zero nor a group action; the output is not automatically generalized elliptic."
+        }
+      ],
+      "uses": [
+        {
+          "where": "FixedEllipticModuli.proper",
+          "how": "After ramification, choose a subgroup meeting exactly n components."
+        },
+        {
+          "where": "ModularCurvesPartII:R13.1–R13.2",
+          "how": "Shared contraction object; level-specific contractions consume it."
+        }
+      ],
+      "declaration": "R094.contraction"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/arith-fixed-elliptic-moduli",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "kind": "construction",
+      "title": "Fixed-polygon elliptic moduli",
+      "statement": "For n≥1, form the groupoid-valued contravariant moduli pseudofunctor E_n on schemes over Z: objects are generalized elliptic curves whose singular geometric fibres are n-gons; arrows are the isomorphisms above. Keep all smooth elliptic fibres, including supersingular ones. The closed cusp E_n^∞ is defined by the schematic degeneracy locus. The open E_n^{n-ord} removes only smooth supersingular points in characteristics dividing n.",
+      "hypotheses": [
+        "n≥1 is fixed, not allowed to jump among different polygon sizes."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/arith-generalized-elliptic",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/arith-degeneracy",
+        "SchemeAndStackFoundations:SF.1/stack-in-groupoids"
+      ],
+      "proofSteps": [
+        "Define pullback on curves, smooth groups and actions and use the scheme pullback coherence maps.",
+        "Use the component-count decomposition of the degeneracy base to identify the fixed-n subfunctor.",
+        "Define the supersingular exclusions on the smooth substack using the existing elliptic p-torsion criterion."
+      ],
+      "sources": [
+        {
+          "sourceId": "ces",
+          "locator": "§3.1, pp.15–16; Proposition 3.1.5, p.17",
+          "match": "The fixed-polygon stack and the n-ordinary open have different object sets."
+        }
+      ],
+      "acceptance": [
+        "Do not replace fibre groupoids by isomorphism classes."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "namespace": "TauCeti.ArithmeticModuli",
+        "module": "TauCeti/AlgebraicGeometry/ArithmeticModuli/R094"
+      },
+      "api": [
+        {
+          "name": "FixedEllipticModuli.fibre",
+          "role": "data",
+          "statement": "Objects and zero-preserving isomorphisms over S form the specified groupoid."
+        },
+        {
+          "name": "FixedEllipticModuli.pullback",
+          "role": "functoriality",
+          "statement": "Pullback gives coherent contravariant transition functors."
+        },
+        {
+          "name": "FixedEllipticModuli.smoothOpen",
+          "role": "compatibility",
+          "statement": "Its smooth open is the existing elliptic moduli groupoid."
+        },
+        {
+          "name": "FixedEllipticModuli.boundary",
+          "role": "projection",
+          "statement": "The cusp is the closed subfunctor whose pulled-back degeneracy closed subscheme is all of S."
+        },
+        {
+          "name": "FixedEllipticModuli.ordinaryOpen",
+          "role": "projection",
+          "statement": "Only the indicated supersingular smooth geometric points are removed."
+        }
+      ],
+      "tests": [
+        {
+          "name": "FixedEllipticModuli.smooth_inertia",
+          "kind": "non-example",
+          "statement": "Inversion of a smooth elliptic curve is a nonidentity arrow, including characteristic two; its fibre is not a discrete set."
+        },
+        {
+          "name": "FixedEllipticModuli.standard_polygon",
+          "kind": "computation",
+          "statement": "C_n lies in E_n^∞ with automorphism group scheme µ_n×C₂."
+        },
+        {
+          "name": "FixedEllipticModuli.wrong_polygon",
+          "kind": "non-example",
+          "statement": "For m≠n, C_m is excluded although every smooth elliptic curve is included."
+        }
+      ],
+      "uses": [
+        {
+          "where": "FixedEllipticModuli.algebraic",
+          "how": "This is the stack carrier to which the presentation theorem applies."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.5",
+          "how": "Boundary coarse and level constructions consume this fixed-count stack."
+        }
+      ],
+      "declaration": "R094.fixed_elliptic_moduli"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/arith-elliptic-descent",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "kind": "theorem",
+      "title": "Effective descent for generalized elliptic families",
+      "statement": "E_n is an fpqc stack in groupoids. Effective descent includes the proper curve, the smooth group law, its extension action and the fixed component-count condition, not only descent of an underlying sheaf of isomorphism classes.",
+      "hypotheses": [
+        "n≥1; arbitrary scheme bases and fpqc covers."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/arith-fixed-elliptic-moduli",
+        "SchemeAndStackFoundations:SF.1/qcoh-fpqc-descent",
+        "SchemeAndStackFoundations:SF.1/stack-in-groupoids",
+        "tauceti:TauCetiRoadmap/ModularCurves#1e-the-cubic-polarisation-and-elliptic-descent"
+      ],
+      "proofSteps": [
+        "E^sm[n] is finite locally free and meets every component; as a relative Cartier divisor it supplies an ample line bundle.",
+        "Use sufficiently high powers to descend the projective curve and its coherent algebra from fpqc linear descent.",
+        "Descend the smooth open, law and action as morphisms, and check the geometric fibre conditions after the cover."
+      ],
+      "sources": [
+        {
+          "sourceId": "ces",
+          "locator": "§3.1, p.15",
+          "match": "The ample n-torsion divisor proves effectivity over arbitrary bases."
+        }
+      ],
+      "acceptance": [
+        "A descended scheme rather than an unidentified algebraic space is required.",
+        "The native Pseudofunctor.IsStack is a useful predicate only after the groupoid-valued carrier is supplied."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "namespace": "TauCeti.ArithmeticModuli",
+        "module": "TauCeti/AlgebraicGeometry/ArithmeticModuli/R094"
+      },
+      "declaration": "R094.elliptic_descent",
+      "uses": []
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/arith-onegon-weierstrass",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "kind": "theorem",
+      "title": "Integral one-gon Weierstrass presentation",
+      "declaration": "R094.onegon_weierstrass",
+      "statement": "Let U⊂Spec Z[a₁,a₂,a₃,a₄,a₆] be the open where the ideal (Δ,c₄) is the unit ideal, so every geometric cubic fibre is smooth or nodal. Let G be the smooth integral Weierstrass coordinate-change group with parameters u∈G_m and r,s,t∈G_a. Its universal noncuspidal cubic, with zero at infinity and the generalized action, identifies E_1≃[U/G]. The presentation U→E_1 is smooth and surjective; E_1 is algebraic, DM and smooth over Z of relative dimension one.",
+      "hypotheses": [
+        "Only the irreducible smooth-or-one-gon fibres occur. The characteristic-two nodal model uses y²z+xyz=x³, not the erroneous printed cubic of E2."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/arith-elliptic-descent",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/arith-polygon-automorphisms",
+        "tauceti:TauCetiRoadmap/ModularCurves#1c-pole-sheaves-weierstrass-coordinates-and-variable-changes",
+        "tauceti:TauCetiRoadmap/ModularCurves#1e-the-cubic-polarisation-and-elliptic-descent",
+        "tauceti:TauCetiRoadmap/ModularCurves#4b-the-weierstrass-presentation",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity",
+        "SchemeAndStackFoundations:SF.1/quotient-stack-algebraic",
+        "SchemeAndStackFoundations:SF.1/deligne-mumford-stack"
+      ],
+      "proofSteps": [
+        "On a one-gon family the smooth zero is a relative Cartier divisor, and O(3·0) is relatively ample; relative curve cohomology gives the rank-three cubic model locally on the base. Extend the existing smooth elliptic coordinate argument to the nodal fibre, keeping the same coordinate-change group.",
+        "The smooth locus of an irreducible pointed genus-one family identifies with Pic⁰; its Picard action extends to the entire curve and yields the unique generalized structure, as in DR II.2.3–II.2.6. Thus cubic models and generalized E_1 objects give equivalent groupoids, not only the same fibre shapes.",
+        "The noncuspidal condition is the open D(Δ)∪D(c₄), including all residue characteristics. The coordinate group is smooth of relative dimension four and U of dimension five. Apply the quotient-stack criterion for algebraicity and smoothness.",
+        "Smooth elliptic stabilizers are finite unramified by the existing rigidity argument and one-gon stabilizers are constant C₂ by arith-polygon-automorphisms. Apply the unramified-diagonal criterion to obtain DM. This base theorem precedes the auxiliary B_n argument and avoids a hidden E_1/B_1 circular proof."
+      ],
+      "sources": [
+        {
+          "sourceId": "ces",
+          "locator": "Proof of Proposition 3.1.5, pp.17–18",
+          "match": "The B₁=E_1 base is used before the general auxiliary equivalence."
+        },
+        {
+          "sourceId": "dr",
+          "locator": "II.2.3–II.2.6, pp.DeRa44–46 (PDF indices 43–45); III.2.5–III.2.6, pp.DeRa61–62 (PDF indices 60–61)",
+          "match": "The Pic⁰ action supplies the generalized law and the irreducible component of the algebraic smooth stack supplies the E_1 base."
+        },
+        {
+          "sourceId": "owners",
+          "locator": "ModularCurves Layers 1C, 1E and 4B; StableReduction Layer 2",
+          "match": "Extend the existing smooth cubic/cohomology argument to the nodal open; do not redeclare the smooth presentation."
+        }
+      ],
+      "acceptance": [
+        "At Δ=0,c₄≠0 the fibre is nodal and belongs to E_1; the cuspidal Δ=c₄=0 locus is excluded.",
+        "The fixed-n algebraicity proof consumes this theorem before B_n; this theorem never assumes that proof.",
+        "Inversion gives constant C₂ at the one-gon even in characteristic two; finite étale does not imply tame there."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "namespace": "TauCeti.ArithmeticModuli",
+        "module": "TauCeti/AlgebraicGeometry/ArithmeticModuli/R094"
+      }
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/arith-cyclic-atlas-moduli",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "kind": "construction",
+      "title": "Auxiliary cyclic-subgroup moduli",
+      "statement": "For n≥1 let B_n(S) classify E∈E_n(S) and an ample finite étale subgroup G⊂E^sm that is étale locally isomorphic to (Z/nZ)_S. Ampleness means that every geometric fibre component meets G. Isomorphisms preserve G without choosing a generator.",
+      "hypotheses": [
+        "No invertibility assumption on n. Subgroup étaleness is required even in residue characteristic dividing n."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/arith-fixed-elliptic-moduli",
+        "tauceti:TauCetiRoadmap/ModularCurves#0c-finite-quotients-and-torsors"
+      ],
+      "proofSteps": [
+        "Parameterize a generator by a section of E^sm[n] giving a closed immersion of the constant cyclic group.",
+        "Express immersion and ampleness as open conditions and divide the free generator-changing action of (Z/nZ)ˣ.",
+        "Define the forgetful map to E_n; over a supersingular elliptic curve in characteristic dividing n its fibre is empty."
+      ],
+      "sources": [
+        {
+          "sourceId": "ces",
+          "locator": "§3.1, pp.16–17; Proposition 3.1.5",
+          "match": "This auxiliary subgroup space supplies the n-ordinary fppf presentation."
+        }
+      ],
+      "acceptance": [
+        "This is an étale subgroup, not a Drinfeld cyclic subgroup scheme."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "namespace": "TauCeti.ArithmeticModuli",
+        "module": "TauCeti/AlgebraicGeometry/ArithmeticModuli/R094"
+      },
+      "api": [
+        {
+          "name": "CyclicAtlasModuli.forget",
+          "role": "projection",
+          "statement": "Forget G to obtain E_n."
+        },
+        {
+          "name": "CyclicAtlasModuli.pullback",
+          "role": "functoriality",
+          "statement": "Pullback preserves the subgroup and ampleness."
+        },
+        {
+          "name": "CyclicAtlasModuli.generatorQuotient",
+          "role": "characterisation",
+          "statement": "The subgroup space is the free (Z/nZ)ˣ quotient of its generator space."
+        },
+        {
+          "name": "CyclicAtlasModuli.oneEquivalence",
+          "role": "equivalence",
+          "statement": "B_1≃E_1, since the unique subgroup is the zero section and every allowed singular fibre is a one-gon."
+        }
+      ],
+      "tests": [
+        {
+          "name": "CyclicAtlasModuli.one",
+          "kind": "degenerate",
+          "statement": "B_1≃E_1 with the same automorphisms."
+        },
+        {
+          "name": "CyclicAtlasModuli.polygon",
+          "kind": "computation",
+          "statement": "On C_n, G={1}×Z/nZ is an ample finite étale cyclic subgroup over every base."
+        },
+        {
+          "name": "CyclicAtlasModuli.supersingular_missing",
+          "kind": "non-example",
+          "statement": "A supersingular elliptic curve over an algebraically closed field of characteristic p|n has no such subgroup of order n."
+        }
+      ],
+      "uses": [
+        {
+          "where": "FixedEllipticModuli.algebraic",
+          "how": "Provides a finite-flat-type presentation, with its actual range stated."
+        },
+        {
+          "where": "FixedEllipticModuli.dmLocus",
+          "how": "Its existence does not force the target stack to be DM."
+        }
+      ],
+      "declaration": "R094.cyclic_atlas_moduli"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/arith-cyclic-atlas-dm",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "kind": "theorem",
+      "title": "Deligne–Mumford cyclic atlas",
+      "statement": "B_n is a Deligne–Mumford stack smooth over Z of relative dimension one.",
+      "hypotheses": [
+        "n≥1; the subgroup has exactly the properties in the preceding definition."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/arith-cyclic-atlas-moduli",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/arith-elliptic-descent",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/arith-contraction",
+        "SchemeAndStackFoundations:SF.1/deligne-mumford-stack",
+        "tauceti:TauCetiRoadmap/ModularCurves#4b-the-weierstrass-presentation",
+        "tauceti:TauCetiRoadmap/ModularCurves#0b-finite-locally-free-group-schemes-and-cartier-duality",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/arith-onegon-weierstrass"
+      ],
+      "proofSteps": [
+        "Use the Deligne–Rapoport V.1.4 equivalence with irreducible generalized elliptic curves equipped with a subgroup étale locally µ_n: quotient by G and dual kernel give the forward map.",
+        "The ample étale cyclic G acts freely on the polygon components and smooth locus; apply the existing finite scheme quotient to E/G, descend its law/action, and identify the dual multiplicative kernel. This is a quotient, distinct from the component contraction.",
+        "The inverse is the unique pointed cyclic finite étale cover extending the corresponding smooth isogeny; G-cyclic-cover records this extension input.",
+        "Over the one-gon moduli, the multiplicative-subgroup functor is representable étale by the Hilbert functor and formal rigidity of multiplicative subgroups.",
+        "Combine this with the explicit Weierstrass presentation for E_1 to obtain smoothness and an étale atlas."
+      ],
+      "sources": [
+        {
+          "sourceId": "dr",
+          "locator": "V.1.1–V.1.5, pp.DeRa92–94 (PDF indices 91–93)",
+          "match": "The auxiliary equivalence and étaleness establish this conclusion."
+        },
+        {
+          "sourceId": "ces",
+          "locator": "Proposition 3.1.5, p.17",
+          "match": "Restates the DM and smoothness conclusion without inverting n."
+        }
+      ],
+      "acceptance": [
+        "B_n is DM even where E_n is not.",
+        "The pointed-cover construction must preserve the generalized action on the boundary."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "namespace": "TauCeti.ArithmeticModuli",
+        "module": "TauCeti/AlgebraicGeometry/ArithmeticModuli/R094"
+      },
+      "declaration": "R094.cyclic_atlas_dm",
+      "uses": []
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/arith-cyclic-atlas-cover",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "kind": "theorem",
+      "title": "Range and flatness of the cyclic presentation",
+      "statement": "B_n→E_n factors through E_n^{n-ord} and there is representable, separated, quasi-finite, faithfully flat and locally finitely presented. Together with the smooth open M_ell⊂E_n these maps cover E_n. The B_n map is not asserted étale, and for p|n is not surjective onto supersingular smooth elliptic curves.",
+      "hypotheses": [
+        "n≥1."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/arith-cyclic-atlas-moduli",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/arith-cyclic-atlas-dm",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/arith-fixed-elliptic-moduli"
+      ],
+      "proofSteps": [
+        "For a fixed E, construct its subgroup scheme from the open generator locus inside E^sm[n] and the free generator quotient.",
+        "Prove flatness and finite presentation on the ordinary smooth locus and on polygon charts; ampleness is open.",
+        "Existence on ordinary smooth fibres and on every n-gon gives exactly the claimed range. Add the smooth elliptic open for the excluded points."
+      ],
+      "sources": [
+        {
+          "sourceId": "ces",
+          "locator": "Proposition 3.1.5 and proof, pp.17–18",
+          "match": "States the representability, range and fppf properties needed for this cover."
+        }
+      ],
+      "acceptance": [
+        "Do not call the composite from a smooth atlas of B_n an étale or smooth atlas of E_n."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "namespace": "TauCeti.ArithmeticModuli",
+        "module": "TauCeti/AlgebraicGeometry/ArithmeticModuli/R094"
+      },
+      "declaration": "R094.cyclic_atlas_cover",
+      "uses": []
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/arith-fixed-elliptic-algebraic",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "kind": "theorem",
+      "title": "Algebraicity and smoothness of fixed-polygon moduli",
+      "statement": "For each n≥1, E_n is an algebraic stack smooth over Spec Z of relative dimension one.",
+      "hypotheses": [
+        "Use the fpqc groupoid carrier above; no assumption n is invertible."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/arith-elliptic-descent",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/arith-cyclic-atlas-cover",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/arith-cyclic-atlas-dm",
+        "SchemeAndStackFoundations:SF.1/algebraic-stack",
+        "SchemeAndStackFoundations:SF.1/stack-presentation",
+        "tauceti:TauCetiRoadmap/ModularCurves#4b-the-weierstrass-presentation",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/arith-onegon-weierstrass"
+      ],
+      "proofSteps": [
+        "Import the preceding integral one-gon Weierstrass theorem as the base algebraic smooth stack; this theorem does not depend on B_n or on the fixed-n conclusion.",
+        "Use the representable fppf cover from B_n and the smooth elliptic open with the fppf-presentation criterion, then construct a genuine smooth atlas.",
+        "Descend smoothness and relative dimension along the faithfully flat locally finitely presented presentation; SF.1 must supply these precise criteria."
+      ],
+      "sources": [
+        {
+          "sourceId": "ces",
+          "locator": "Theorem 3.1.6(a) and proof, pp.18–19",
+          "match": "The fixed-count stack is smooth and algebraic even with non-smooth inertia."
+        },
+        {
+          "sourceId": "stacks",
+          "locator": "Tag 06DC, Theorem 97.16.1",
+          "match": "An fppf presentation by an algebraic source proves algebraicity; it does not identify that presentation as a smooth atlas."
+        }
+      ],
+      "acceptance": [
+        "A non-smooth µ_n stabilizer does not contradict smoothness of the stack."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "namespace": "TauCeti.ArithmeticModuli",
+        "module": "TauCeti/AlgebraicGeometry/ArithmeticModuli/R094"
+      },
+      "declaration": "R094.fixed_elliptic_algebraic",
+      "uses": []
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/arith-elliptic-finite-diagonal",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "kind": "theorem",
+      "title": "Finite generalized-elliptic isomorphism schemes",
+      "statement": "For E,E′∈E_n(S), the scheme Isom_S(E,E′) of generalized-elliptic isomorphisms is finite over S, compatibly with arbitrary base change. Thus E_n has finite diagonal and is separated over Z.",
+      "hypotheses": [
+        "The two curves have the same geometric polygon count at common singular points."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/arith-fixed-elliptic-moduli",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/arith-polygon-automorphisms",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/arith-fixed-elliptic-algebraic",
+        "AlgebraicModuliForArithmeticGeometry:R09.2",
+        "SchemeAndStackFoundations:SF.1/stack-morphism-properties",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-5-regular-and-minimal-models"
+      ],
+      "proofSteps": [
+        "Use the Hilbert/Hom–Isom owner for representability, with an ample torsion divisor restricting projective data; preserve law and action as closed conditions.",
+        "Quasi-finiteness follows from finite smooth elliptic automorphisms and the polygon automorphism group scheme, including its nonreduced part.",
+        "Prove properness by extending an isomorphism over a trait using minimal regular models, their blowups and contraction with matching component counts (G-trait-isom records the remaining extension lemma).",
+        "Pass to arbitrary bases by finite-presentation approximation and descent."
+      ],
+      "sources": [
+        {
+          "sourceId": "con",
+          "locator": "Theorem 3.2.4 and proof, pp.25–26",
+          "match": "The matched-count hypothesis gives finite relative Isom."
+        },
+        {
+          "sourceId": "ces",
+          "locator": "Proposition 3.1.8, p.19",
+          "match": "Compatible degeneracy counts give finite representability over arbitrary schemes."
+        }
+      ],
+      "acceptance": [
+        "A finite diagonal is not automatically unramified."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "namespace": "TauCeti.ArithmeticModuli",
+        "module": "TauCeti/AlgebraicGeometry/ArithmeticModuli/R094"
+      },
+      "declaration": "R094.elliptic_finite_diagonal",
+      "uses": []
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/arith-elliptic-proper",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "kind": "theorem",
+      "title": "Properness of fixed-polygon moduli",
+      "statement": "E_n→Spec Z is proper for every n≥1, in addition to its finite diagonal and relative smoothness.",
+      "hypotheses": [
+        "Properness is a stack property, not properness of every presenting scheme."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/arith-elliptic-finite-diagonal",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/arith-fixed-elliptic-algebraic",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/arith-contraction",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-7-semistable-reduction",
+        "SchemeAndStackFoundations:SF.1/stack-morphism-properties"
+      ],
+      "proofSteps": [
+        "For an elliptic curve over a trait fraction field, use semistable reduction after a finite field extension.",
+        "Ramify further until the special polygon count is divisible by n, choose a finite locally free subgroup meeting n components, and contract to an n-gon; supply the component-count/ramification input in G-trait-model.",
+        "The finite diagonal supplies the separatedness part of the stack valuative criterion. Quasi-compactness follows from the smooth moduli plus the single standard-polygon boundary class; local finite presentation follows from smoothness.",
+        "Apply the existence-after-extension valuative criterion for proper algebraic stacks requested from SF.1."
+      ],
+      "sources": [
+        {
+          "sourceId": "ces",
+          "locator": "Theorem 3.1.6(a) and proof, pp.18–19",
+          "match": "Semistable reduction and prescribed polygon contraction prove properness."
+        }
+      ],
+      "acceptance": [
+        "The open smooth elliptic moduli is not proper; retaining the one-gon or n-gon boundary is essential."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "namespace": "TauCeti.ArithmeticModuli",
+        "module": "TauCeti/AlgebraicGeometry/ArithmeticModuli/R094"
+      },
+      "declaration": "R094.elliptic_proper",
+      "uses": []
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/arith-elliptic-dm-locus",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "kind": "theorem",
+      "title": "Exact Deligne–Mumford locus",
+      "statement": "The maximal Deligne–Mumford open of E_n is the complement of the cusp fibres over Spec(Z/nZ). In particular E_1 is DM over Z, and E_n is DM over Z[1/n]. Smooth supersingular fibres remain DM, even when p|n.",
+      "hypotheses": [
+        "n≥1."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/arith-elliptic-finite-diagonal",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/arith-polygon-automorphisms",
+        "SchemeAndStackFoundations:SF.1/deligne-mumford-stack",
+        "SchemeAndStackFoundations:SF.1/inertia"
+      ],
+      "proofSteps": [
+        "Smooth elliptic automorphism schemes are unramified by the existing smooth elliptic rigidity argument.",
+        "At the n-gon the diagonal fibre is µ_n×C₂ and is unramified exactly where n is invertible.",
+        "Use the unramified-diagonal characterization and openness of the DM locus; do not confuse this locus with E_n^{n-ord}."
+      ],
+      "sources": [
+        {
+          "sourceId": "ces",
+          "locator": "Theorem 3.1.6(a), p.18",
+          "match": "Specifies the exact largest DM open."
+        }
+      ],
+      "acceptance": [
+        "For n=3 in characteristic three a cusp is not DM, while a smooth supersingular object is."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "namespace": "TauCeti.ArithmeticModuli",
+        "module": "TauCeti/AlgebraicGeometry/ArithmeticModuli/R094"
+      },
+      "declaration": "R094.elliptic_dm_locus",
+      "uses": []
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/arith-elliptic-cusp",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "kind": "theorem",
+      "title": "Cusp gerbe and Cartier boundary",
+      "statement": "E_n^∞ is canonically equivalent to B(µ_n×C₂), is reduced and smooth over Z of relative dimension zero, and is a relative effective Cartier divisor in E_n. Spec Z→E_n^∞ supplied by C_n is finite locally free of rank 2n.",
+      "hypotheses": [
+        "n≥1; reduced means the stack is reduced, not that every stabilizer group scheme is reduced."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/arith-degeneracy",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/arith-polygon-automorphisms",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/arith-fixed-elliptic-algebraic",
+        "SchemeAndStackFoundations:SF.1/quotient-stack",
+        "SchemeAndStackFoundations:SF.1/quotient-stack-algebraic",
+        "tauceti:TauCetiRoadmap/ModularCurves#0a-relative-effective-cartier-divisors"
+      ],
+      "proofSteps": [
+        "Every boundary object is an fppf form of C_n. Use the torsor/automorphism equivalence to identify the entire boundary groupoid, not only its points.",
+        "Compute the trivial-torsor atlas and its degree from µ_n×C₂.",
+        "Use the Weierstrass nodal smoothing parameter and the auxiliary presentation to prove the relative Cartier assertion and reducedness.",
+        "Prove smoothness as a stack by the smooth quotient presentation criterion, not by claiming µ_n smooth."
+      ],
+      "sources": [
+        {
+          "sourceId": "ces",
+          "locator": "Theorem 3.1.6(b)–(c), pp.18–19",
+          "match": "States the boundary gerbe, its relative Cartier structure and its smoothness."
+        }
+      ],
+      "acceptance": [
+        "Bµ_p can be a smooth algebraic stack in characteristic p without being DM.",
+        "This special cusp identification consumes generic gerbe/torsor theory; it does not redeclare the inherited gerbe machinery."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "namespace": "TauCeti.ArithmeticModuli",
+        "module": "TauCeti/AlgebraicGeometry/ArithmeticModuli/R094"
+      },
+      "declaration": "R094.elliptic_cusp",
+      "uses": []
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/arith-elliptic-tame",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "kind": "theorem",
+      "title": "Tameness and wild elliptic inertia",
+      "statement": "The cusp E_n^∞ is tame exactly over Z[1/2], with no need to invert n. E_n over Z[1/6] is tame. In characteristic two its generic smooth stabilizer contains constant C₂ and is not linearly reductive, although the smooth moduli remains DM. Thus tameness, DM and properness are separate properties.",
+      "hypotheses": [
+        "Tameness means exact invariants for finite geometric stabilizers, using the finite-inertia criterion."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/arith-elliptic-cusp",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/arith-elliptic-finite-diagonal",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/arith-elliptic-dm-locus",
+        "SchemeAndStackFoundations:SF.1/tame-stack",
+        "SchemeAndStackFoundations:SF.1/tame-local-structure",
+        "tauceti:TauCetiRoadmap/ModularCurves#4b-the-weierstrass-presentation"
+      ],
+      "proofSteps": [
+        "Diagonalizable µ_n is linearly reductive in every characteristic; constant C₂ is linearly reductive exactly away from characteristic two.",
+        "For smooth elliptic fibres in characteristic greater than three, the possible automorphism groups have orders 2, 4 or 6, invertible in that characteristic.",
+        "Apply the AOV finite-inertia stabilizer criterion; in characteristic two the constant inversion subgroup gives the counterexample."
+      ],
+      "sources": [
+        {
+          "sourceId": "aov",
+          "locator": "Definition 2.6 and Proposition 2.7, pp.1067–1068; Theorem 3.2, p.1077",
+          "match": "Diagonalizable factors and the finite-inertia criterion distinguish tame from DM."
+        },
+        {
+          "sourceId": "ces",
+          "locator": "Lemma 2.1.6, p.7",
+          "match": "Supplies the precise cusp stabilizer."
+        }
+      ],
+      "acceptance": [
+        "For n=3 over F₃ the cusp is tame but not DM.",
+        "No claim that all of E_n is tame over Z[1/2] is needed."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "namespace": "TauCeti.ArithmeticModuli",
+        "module": "TauCeti/AlgebraicGeometry/ArithmeticModuli/R094"
+      },
+      "declaration": "R094.elliptic_tame",
+      "uses": []
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/arith-abelian-scheme",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "kind": "definition",
+      "title": "Relative abelian scheme",
+      "statement": "An abelian scheme over S is a group object A in the native category Over S whose structure morphism is smooth and proper with geometrically connected fibres. Commutativity is a theorem, not a redundant axiom. Relative dimension is locally constant; fixing g requires every geometric fibre to have dimension g. Over a field this category is equivalent to TauCeti.AlgebraicGeometry.AbelianVariety, respecting the underlying group object.",
+      "hypotheses": [
+        "S an arbitrary native scheme; g≥0 when a dimension is fixed."
+      ],
+      "prerequisites": [
+        "mathlib:AlgebraicGeometry.Smooth",
+        "mathlib:AlgebraicGeometry.IsProper",
+        "mathlib:AlgebraicGeometry.GeometricallyConnected",
+        "mathlib:CategoryTheory.GrpObj",
+        "mathlib:CategoryTheory.Functor.grpObjObj",
+        "tauceti:TauCeti.AlgebraicGeometry.AbelianVariety"
+      ],
+      "proofSteps": [
+        "Bundle only the native Over object, group law and established geometric predicates.",
+        "Transport the group object by Over.pullback and use the native stability instances for all three geometric predicates.",
+        "Use rigidity for commutativity. Smooth geometrically connected group fibres are geometrically integral, supplying the existing field adapter rather than a second field definition."
+      ],
+      "sources": [
+        {
+          "sourceId": "kass",
+          "locator": "Definition 1 and Theorem 1, pp.1–3",
+          "match": "The relative definition, rigidity and automatic commutativity are stated over scheme bases."
+        },
+        {
+          "sourceId": "ols",
+          "locator": "Definition 2.1.1, p.297",
+          "match": "The proper smooth connected-fibre group is the unpolarized relative carrier."
+        }
+      ],
+      "acceptance": [
+        "The zero-dimensional object is allowed.",
+        "A torus is not admitted merely because it is a smooth connected commutative group."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "namespace": "TauCeti.ArithmeticModuli",
+        "module": "TauCeti/AlgebraicGeometry/ArithmeticModuli/R094"
+      },
+      "api": [
+        {
+          "name": "AbelianScheme.toScheme",
+          "role": "projection",
+          "statement": "Expose the underlying native scheme from the Over carrier."
+        },
+        {
+          "name": "AbelianScheme.zeroSection",
+          "role": "projection",
+          "statement": "Expose its group-object unit S→A."
+        },
+        {
+          "name": "AbelianScheme.zeroSection_comp",
+          "role": "simp",
+          "statement": "The zero section composed with the structure map is the identity on S."
+        },
+        {
+          "name": "AbelianScheme.baseChange",
+          "role": "functoriality",
+          "statement": "Pullback gives an abelian scheme, with its native group object."
+        },
+        {
+          "name": "AbelianScheme.baseChange_toOver",
+          "role": "compatibility",
+          "statement": "Its Over object is exactly the native Over.pullback object."
+        },
+        {
+          "name": "AbelianScheme.commutative",
+          "role": "instance",
+          "statement": "Every such group object is commutative."
+        },
+        {
+          "name": "AbelianScheme.ofAbelianVariety",
+          "role": "coercion",
+          "statement": "The existing field abelian variety gives a relative object over Spec K."
+        },
+        {
+          "name": "AbelianScheme.toAbelianVariety",
+          "role": "coercion",
+          "statement": "The field restriction gives the existing geometrically integral abelian variety."
+        },
+        {
+          "name": "AbelianScheme.field_roundtrip",
+          "role": "compatibility",
+          "statement": "The field adapter followed by its inverse recovers the original native abelian variety."
+        },
+        {
+          "name": "AbelianScheme.zeroDimensional",
+          "role": "constructor",
+          "statement": "The identity S→S with its trivial group law is an abelian scheme."
+        },
+        {
+          "name": "AbelianScheme.zeroPreserving_isMonHom",
+          "role": "characterisation",
+          "statement": "An Over morphism between abelian schemes preserving their zero sections is a native IsMonHom morphism; no second bundled homomorphism carrier is required."
+        },
+        {
+          "name": "AbelianScheme.relativeDimension",
+          "role": "data",
+          "statement": "The dimension of the geometric fibre defines a locally constant function on S; fixing g means this function is everywhere g. Pullback composes this function with the map on base points."
+        },
+        {
+          "name": "AbelianScheme.fieldEquivalence",
+          "role": "equivalence",
+          "statement": "Over Spec K, the two native object adapters extend to an equivalence of zero-preserving isomorphism groupoids with Tau Ceti abelian varieties, compatible with extension of fields and the native underlying Over objects."
+        }
+      ],
+      "tests": [
+        {
+          "name": "AbelianScheme.zero_dimension",
+          "kind": "degenerate",
+          "statement": "The identity Spec K→Spec K is the dimension-zero object."
+        },
+        {
+          "name": "AbelianScheme.field_agreement",
+          "kind": "compatibility",
+          "statement": "The field adapter recovers the native Tau Ceti variety including its law."
+        },
+        {
+          "name": "AbelianScheme.nonproper_excluded",
+          "kind": "non-example",
+          "statement": "If G∈Over S is not proper, no abelian scheme has Over object G; in particular G_m over a field is excluded."
+        }
+      ],
+      "uses": [
+        {
+          "where": "PolarizedAbelianModuli",
+          "how": "The carrier for fixed dimension and degree."
+        },
+        {
+          "where": "AbelianSchemesAndArithmeticModuli:A.1–A.2",
+          "how": "The needed relative carrier moves down here; field abelian varieties stay with Tau Ceti and JacobianChallenge."
+        }
+      ],
+      "declaration": "AbelianScheme"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/arith-relative-abelian-rigidity",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "kind": "theorem",
+      "title": "Relative abelian rigidity and torsion",
+      "statement": "A zero-preserving S-morphism from an abelian scheme to a separated S-group scheme is a group homomorphism. A homomorphism with zero geometric fibres is zero. For A/S of dimension g, [N]:A→A is finite locally free of rank N^(2g) for N≥1 and finite étale when N is invertible on S; kernel A[N] and these assertions commute with arbitrary base change.",
+      "hypotheses": [
+        "For rigidity A is proper smooth with geometrically connected fibres; for multiplication g is constant."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/arith-abelian-scheme",
+        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-e-abelian-varieties",
+        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-c-relative-coherent-cohomology-and-base-change",
+        "mathlib:CategoryTheory.IsMonHom"
+      ],
+      "proofSteps": [
+        "Prove the Artin-local rigidity lemma from proper flat cohomology/base change, reduce general bases by finite-presentation limits and local completion, then apply it to the commutator and addition defect.",
+        "For [N], apply the existing field degree/isogeny theorem on fibres and relative flatness to obtain finite locally free degree N^(2g).",
+        "Invertible differential N on the Lie algebra gives étaleness; kernel formation is a fibre product."
+      ],
+      "sources": [
+        {
+          "sourceId": "kass",
+          "locator": "Theorem 1 and proof, pp.2–3",
+          "match": "Proves zero-preserving morphisms and commutativity using relative rigidity."
+        },
+        {
+          "sourceId": "milne",
+          "locator": "§16, Proposition 16.1 and Corollary 16.2, pp.67–68",
+          "match": "The field case is already owned; it is not enough by itself over a nonreduced base."
+        },
+        {
+          "sourceId": "ols",
+          "locator": "§2.1, pp.297–300",
+          "match": "Uses the relative torsion scheme and its invertible-level étaleness."
+        },
+        {
+          "sourceId": "kass",
+          "locator": "Corollary 1, p.3",
+          "match": "States multiplication degree; its proof is assigned as an exercise, so the relative proof is still G-relative-torsion."
+        }
+      ],
+      "acceptance": [
+        "The proof must work over nonreduced bases, not only on geometric points.",
+        "The necessary relative finite-flat passage from the field theorem is G-relative-torsion."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "namespace": "TauCeti.ArithmeticModuli",
+        "module": "TauCeti/AlgebraicGeometry/ArithmeticModuli/R094"
+      },
+      "declaration": "R094.relative_abelian_rigidity",
+      "uses": []
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/arith-relative-dual",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "kind": "construction",
+      "title": "Relative dual abelian scheme",
+      "statement": "For A/S an abelian scheme, represent its fppf sheaf of rigidified fibrewise algebraically trivial line bundles by an abelian scheme A∨/S, with normalized Poincaré line bundle on A×_S A∨. Duals commute with arbitrary base change; evaluation gives A≃A∨∨ and morphisms dualize contravariantly. The field restriction agrees with the dual in JacobianChallenge Layer E.",
+      "hypotheses": [
+        "Rigidification along zero and fibrewise algebraic triviality are part of the functor. No higher-tier dual construction is a prerequisite."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/arith-abelian-scheme",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/arith-relative-abelian-rigidity",
+        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-e-abelian-varieties",
+        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-c-relative-coherent-cohomology-and-base-change",
+        "AlgebraicModuliForArithmeticGeometry:R09.1"
+      ],
+      "proofSteps": [
+        "Define the rigidified Picard functor with its theorem-of-the-cube group law.",
+        "Use the abelian-specific relative representability argument, not merely the unproved blanket Picard representability target; G-dual records the missing proof from arbitrary bases.",
+        "Construct normalized Poincaré data and evaluate against it to prove base change and biduality by fibre comparison plus rigidity."
+      ],
+      "sources": [
+        {
+          "sourceId": "ols",
+          "locator": "§2.1.3, p.298",
+          "match": "States relative duality and the normalized universal line bundle."
+        },
+        {
+          "sourceId": "kass",
+          "locator": "§3, Theorems 3–5, pp.5–6",
+          "match": "Confirms the dual and Poincaré statements but does not supply the omitted representability proof."
+        }
+      ],
+      "acceptance": [
+        "A Picard group of global line bundles is not the dual scheme."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "namespace": "TauCeti.ArithmeticModuli",
+        "module": "TauCeti/AlgebraicGeometry/ArithmeticModuli/R094"
+      },
+      "api": [
+        {
+          "name": "AbelianScheme.dual",
+          "role": "constructor",
+          "statement": "Construct the abelian scheme representing the rigidified Pic⁰ sheaf."
+        },
+        {
+          "name": "AbelianScheme.poincare",
+          "role": "data",
+          "statement": "Give its line bundle normalized on both zero sections."
+        },
+        {
+          "name": "AbelianScheme.dual_baseChange",
+          "role": "functoriality",
+          "statement": "(A_T)∨≃(A∨)_T with the Poincaré data."
+        },
+        {
+          "name": "AbelianScheme.bidual",
+          "role": "equivalence",
+          "statement": "Evaluation gives the canonical group isomorphism A≃A∨∨."
+        },
+        {
+          "name": "AbelianScheme.dualMap",
+          "role": "functoriality",
+          "statement": "A homomorphism A→B induces B∨→A∨ contravariantly."
+        }
+      ],
+      "tests": [
+        {
+          "name": "AbelianScheme.dual_zero",
+          "kind": "degenerate",
+          "statement": "The dual of the dimension-zero identity scheme is itself."
+        },
+        {
+          "name": "AbelianScheme.dual_field",
+          "kind": "compatibility",
+          "statement": "Over Spec K the relative dual is the existing Layer E dual with the same normalized pairing."
+        },
+        {
+          "name": "AbelianScheme.dual_product",
+          "kind": "computation",
+          "statement": "(A×_S B)∨≃A∨×_S B∨, with Poincaré line bundle the tensor product of the two pullbacks."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Polarization",
+          "how": "Defines its target morphism and positivity criterion."
+        },
+        {
+          "where": "AbelianSchemesAndArithmeticModuli:A.2",
+          "how": "Relative duals and Poincaré data have this lower owner; Rosati and type results consume them."
+        }
+      ],
+      "declaration": "R094.relative_dual"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/arith-polarization",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "kind": "definition",
+      "title": "Polarization of fixed degree",
+      "statement": "A polarization is a homomorphism λ:A→A∨ whose every geometric fibre equals φ_L:x↦t_x*L⊗L⁻¹ for an ample line bundle L. A degree parameter d≥1 means λ is finite locally free of rank d²; on a g-dimensional fibre h⁰(L)=d. Principal means d=1. The moduli object is λ, not a global choice of L. An isomorphism f:(A,λ)→(B,µ) obeys f∨∘µ∘f=λ.",
+      "hypotheses": [
+        "A/S an abelian scheme of constant dimension g≥0. For g=0 only d=1 occurs."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/arith-relative-dual",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/arith-relative-abelian-rigidity",
+        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-e-abelian-varieties"
+      ],
+      "proofSteps": [
+        "Define φ_L by the normalized Poincaré universal property and the theorem of the cube.",
+        "Require fibrewise ample representability and the finite-flat degree condition.",
+        "Use fibre Riemann–Roch and the existing field polarization degree theorem to relate rank ker λ and h⁰(L)."
+      ],
+      "sources": [
+        {
+          "sourceId": "ols",
+          "locator": "§2.1.5–§2.1.7, pp.298–300",
+          "match": "The homomorphism definition and square degree convention are the intended moduli data; E1 corrects its global translation claim."
+        }
+      ],
+      "acceptance": [
+        "Degree d² of λ is not renamed degree d.",
+        "Do not demand a chosen global ample representative."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "namespace": "TauCeti.ArithmeticModuli",
+        "module": "TauCeti/AlgebraicGeometry/ArithmeticModuli/R094"
+      },
+      "api": [
+        {
+          "name": "Polarization.toHom",
+          "role": "projection",
+          "statement": "Expose the group homomorphism A→A∨."
+        },
+        {
+          "name": "Polarization.degree",
+          "role": "characterisation",
+          "statement": "The kernel is finite locally free of rank d²."
+        },
+        {
+          "name": "Polarization.ofAmple",
+          "role": "constructor",
+          "statement": "A fibrewise ample line bundle induces λ with the stated degree."
+        },
+        {
+          "name": "Polarization.pullback",
+          "role": "functoriality",
+          "statement": "Base change preserves the polarization and its degree."
+        },
+        {
+          "name": "Polarization.isoCriterion",
+          "role": "characterisation",
+          "statement": "Isomorphisms satisfy the dual-conjugation equation."
+        },
+        {
+          "name": "Polarization.principal",
+          "role": "characterisation",
+          "statement": "Principal is equivalent to λ being an isomorphism."
+        }
+      ],
+      "tests": [
+        {
+          "name": "Polarization.dimension_zero",
+          "kind": "degenerate",
+          "statement": "On the identity abelian scheme the unique polarization has d=1; d>1 is impossible."
+        },
+        {
+          "name": "Polarization.elliptic_degree",
+          "kind": "computation",
+          "statement": "On an elliptic curve O(m·0), m≥1, induces [m] under the principal dual identification and has kernel rank m² and d=m."
+        },
+        {
+          "name": "Polarization.negative_excluded",
+          "kind": "non-example",
+          "statement": "On an elliptic curve the map induced by O(−0) is not a polarization; symmetry alone is insufficient."
+        }
+      ],
+      "uses": [
+        {
+          "where": "PolarizedAbelianModuli",
+          "how": "Fixes the isomorphism groupoid and its degree component."
+        },
+        {
+          "where": "AbelianSchemesAndArithmeticModuli:A.2",
+          "how": "Consumes this relative input for polarization types and Rosati theory."
+        }
+      ],
+      "declaration": "R094.polarization"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/arith-local-ample-representatives",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "kind": "theorem",
+      "title": "Local representatives of a polarization",
+      "statement": "Every polarization admits a representing ample line bundle fppf locally on S; if 2 is invertible it does so étale locally. Over an Artin local base, a chosen representing line bundle on the residue fibre lifts with a lifting polarization. For two representing bundles, their difference is an A∨-section; it is a translate globally only when that section is in λ(A(S)), but it is a translate fppf locally.",
+      "hypotheses": [
+        "Line bundles are understood up to pullback from S, or rigidified at zero."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/arith-polarization",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/arith-relative-dual",
+        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-c-relative-coherent-cohomology-and-base-change"
+      ],
+      "proofSteps": [
+        "Construct a canonical bundle representing 2λ from (id,λ)*Poincaré.",
+        "Its square-root torsor under A∨[2] supplies the local representative; this torsor is étale when 2 is invertible.",
+        "For a prescribed residue bundle use Oort Lemma 2.3.2 and the Picard exact sequence.",
+        "The correct translation criterion is the image of λ on S-sections, not all of A∨(S); use E1 to test the global distinction."
+      ],
+      "sources": [
+        {
+          "sourceId": "ols",
+          "locator": "Lemmas 2.1.8–2.1.9, pp.300–301; Remark 2.1.6, p.299",
+          "match": "The local conclusions are valid; E1 supplies the correction to the global translation sentence."
+        },
+        {
+          "sourceId": "oort",
+          "locator": "Lemma 2.3.2 and its proof, pp.282–284",
+          "match": "Lifts a chosen representative over small Artin thickenings."
+        }
+      ],
+      "acceptance": [
+        "Over R the degree-two polarization on y²=x(x−1)(x+1) has same-polarization bundles differing by (0,0), which is not a double of a real point."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "namespace": "TauCeti.ArithmeticModuli",
+        "module": "TauCeti/AlgebraicGeometry/ArithmeticModuli/R094"
+      },
+      "declaration": "R094.local_ample_representatives",
+      "uses": []
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/arith-canonical-bounded-bundle",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "kind": "construction",
+      "title": "Canonical projective bundle for polarized families",
+      "statement": "For (A/S,λ) of dimension g and degree d², M=(id,λ)*Poincaré, normalized along zero, is relatively ample and represents 2λ. M³ is relatively very ample, and for r≥1 the pushforward f_*(M^(3r)) is locally free of rank d(6r)^g with arbitrary base-change compatibility. The corresponding Hilbert polynomial is P(t)=d(6t)^g.",
+      "hypotheses": [
+        "A has constant dimension g; the Poincaré bundle is normalized; g=0,d=1 gives the constant polynomial one."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/arith-polarization",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/arith-relative-dual",
+        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-c-relative-coherent-cohomology-and-base-change",
+        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-e-abelian-varieties"
+      ],
+      "proofSteps": [
+        "Compute φ_M=2λ with the Poincaré identities and check positivity on every fibre.",
+        "Apply the abelian very-ampleness theorem to M³ on fibres; relative base change makes the embedding uniform.",
+        "Use higher-cohomology vanishing and Riemann–Roch on every abelian fibre, then coherent base change, to obtain ranks and the fixed polynomial."
+      ],
+      "sources": [
+        {
+          "sourceId": "ols",
+          "locator": "§2.1.7–§2.1.10, pp.300–302",
+          "match": "The canonical doubled line bundle and its cubic embedding produce bounded projective data."
+        }
+      ],
+      "acceptance": [
+        "A local line bundle representing λ has a different Hilbert polynomial from this canonical doubled representative."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "namespace": "TauCeti.ArithmeticModuli",
+        "module": "TauCeti/AlgebraicGeometry/ArithmeticModuli/R094"
+      },
+      "api": [
+        {
+          "name": "Polarization.canonicalBundle",
+          "role": "constructor",
+          "statement": "Construct the rigidified bundle M with φ_M=2λ."
+        },
+        {
+          "name": "Polarization.canonicalBundle_baseChange",
+          "role": "functoriality",
+          "statement": "M formation commutes with arbitrary pullback."
+        },
+        {
+          "name": "Polarization.cubicVeryAmple",
+          "role": "characterisation",
+          "statement": "M³ gives a relative closed immersion after locally choosing a frame of its pushforward."
+        },
+        {
+          "name": "Polarization.sectionRank",
+          "role": "characterisation",
+          "statement": "For r≥1 the section rank is d(6r)^g."
+        },
+        {
+          "name": "Polarization.hilbertPolynomial",
+          "role": "data",
+          "statement": "Expose P(t)=d(6t)^g for the Hilbert owner."
+        }
+      ],
+      "tests": [
+        {
+          "name": "Polarization.canonical_elliptic",
+          "kind": "computation",
+          "statement": "For an elliptic principal polarization M has degree two, M³ degree six and h⁰=6."
+        },
+        {
+          "name": "Polarization.canonical_zero",
+          "kind": "degenerate",
+          "statement": "For g=0,d=1, M³ is the trivial bundle and its pushforward has rank one."
+        },
+        {
+          "name": "Polarization.canonical_degree_distinction",
+          "kind": "non-example",
+          "statement": "For g=1,d=2 the rank is 12, not 6 and not 24; rank ker λ is 4."
+        }
+      ],
+      "uses": [
+        {
+          "where": "PolarizedAbelianModuli.framedAtlas",
+          "how": "Bounds its projective Hilbert parameter scheme."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.2",
+          "how": "Uses its existing Hilbert/Hom–Isom construction with this exact polynomial."
+        }
+      ],
+      "declaration": "R094.canonical_bounded_bundle"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/arith-polarized-abelian-moduli",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "kind": "construction",
+      "title": "Polarized abelian moduli",
+      "statement": "For g≥0,d≥1 form A_{g,d}(S), the groupoid of dimension-g abelian schemes with a polarization of degree d² and dual-compatible isomorphisms. It is an fppf stack. Neither a global representing line bundle nor a level structure is part of its objects.",
+      "hypotheses": [
+        "Base schemes are over Z; the g=0,d>1 stack is empty."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/arith-abelian-scheme",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/arith-polarization",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/arith-local-ample-representatives",
+        "SchemeAndStackFoundations:SF.1/stack-in-groupoids",
+        "SchemeAndStackFoundations:SF.1/qcoh-fpqc-descent"
+      ],
+      "proofSteps": [
+        "Give the groupoid and coherent pullback directly from the two preceding carriers.",
+        "Fppf locally choose the ample representative to descend the projective scheme, and then descend the group law and λ; remove the choice from the descended object.",
+        "Test degree and constant dimension on geometric fibres and establish locality."
+      ],
+      "sources": [
+        {
+          "sourceId": "ols",
+          "locator": "§2.1.10 and Theorem 2.1.11, pp.301–302",
+          "match": "The stack classifies polarization homomorphisms with these conventions."
+        }
+      ],
+      "acceptance": [
+        "Do not silently substitute the stack of varieties with a chosen ample line bundle."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "namespace": "TauCeti.ArithmeticModuli",
+        "module": "TauCeti/AlgebraicGeometry/ArithmeticModuli/R094"
+      },
+      "api": [
+        {
+          "name": "PolarizedAbelianModuli.fibre",
+          "role": "data",
+          "statement": "Its fibre is the stated groupoid of (A,λ) and isomorphisms."
+        },
+        {
+          "name": "PolarizedAbelianModuli.pullback",
+          "role": "functoriality",
+          "statement": "Its transition functors use the native pullback and commute coherently."
+        },
+        {
+          "name": "PolarizedAbelianModuli.forget",
+          "role": "projection",
+          "statement": "Forget λ to the relative abelian-scheme groupoid."
+        },
+        {
+          "name": "PolarizedAbelianModuli.fppfDescent",
+          "role": "characterisation",
+          "statement": "The actual groupoid satisfies effective fppf descent."
+        },
+        {
+          "name": "PolarizedAbelianModuli.ellipticEquivalence",
+          "role": "equivalence",
+          "statement": "A_{1,1} is equivalent to smooth elliptic moduli via its canonical principal polarization."
+        }
+      ],
+      "tests": [
+        {
+          "name": "PolarizedAbelianModuli.elliptic",
+          "kind": "compatibility",
+          "statement": "A_{1,1} is smooth elliptic moduli with its automorphisms, not its j-line coarse space."
+        },
+        {
+          "name": "PolarizedAbelianModuli.minus_one",
+          "kind": "non-example",
+          "statement": "[−1] on a positive-dimensional polarized abelian variety is an automorphism; the unlevelled fibre is not a discrete set."
+        },
+        {
+          "name": "PolarizedAbelianModuli.zero",
+          "kind": "degenerate",
+          "statement": "A_{0,1} is the terminal stack and A_{0,d} is empty for d>1."
+        }
+      ],
+      "uses": [
+        {
+          "where": "PolarizedAbelianModuli.algebraic",
+          "how": "The bounded projective construction supplies its atlas."
+        },
+        {
+          "where": "AbelianSchemesAndArithmeticModuli:A.6",
+          "how": "Higher arithmetic levels, types and correspondences consume this same carrier."
+        }
+      ],
+      "planet": {
+        "name": "Polarized abelian moduli"
+      },
+      "declaration": "R094.polarized_abelian_moduli"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/arith-full-level",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "kind": "construction",
+      "title": "Prime-to-characteristic full level structure",
+      "statement": "For N≥1 invertible on S, a full level-N structure on A/S of dimension g is an isomorphism of finite étale group schemes α:(Z/NZ)_S^(2g)≃A[N]. It is an ordered basis with no symplectic pairing imposed. Define A_{g,d}[N] by these structures and polarization-compatible isomorphisms preserving α.",
+      "hypotheses": [
+        "N is invertible on S. Scheme rigidity requires N≥3; the definition allows N=1,2."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/arith-relative-abelian-rigidity",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/arith-polarized-abelian-moduli",
+        "SchemeAndStackFoundations:SF.1/torsor"
+      ],
+      "proofSteps": [
+        "Use the relative finite étale torsion kernel and its locally constant rank to construct the basis torsor.",
+        "Its change-of-basis action is GL_{2g}(Z/NZ), not a symplectic group without a Weil-pairing condition.",
+        "Bundle α with the preceding moduli data, and require arrows to preserve it."
+      ],
+      "sources": [
+        {
+          "sourceId": "ols",
+          "locator": "Proof of Theorem 2.1.11, p.302",
+          "match": "Full level kills automorphisms and supplies the finite étale cover over Z[1/N]."
+        },
+        {
+          "sourceId": "kass",
+          "locator": "Theorem 8, p.7",
+          "match": "States the N≥3 fine-level conclusion; its omitted proof is tracked in G-fine-level."
+        }
+      ],
+      "acceptance": [
+        "At N=2 inversion fixes the level; N≥3 cannot be weakened."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "namespace": "TauCeti.ArithmeticModuli",
+        "module": "TauCeti/AlgebraicGeometry/ArithmeticModuli/R094"
+      },
+      "api": [
+        {
+          "name": "FullLevel.torsionBasis",
+          "role": "data",
+          "statement": "Expose α as an isomorphism of the two finite étale group schemes."
+        },
+        {
+          "name": "FullLevel.baseChange",
+          "role": "functoriality",
+          "statement": "The basis pulls back with the kernel and constant group."
+        },
+        {
+          "name": "FullLevel.changeBasis",
+          "role": "structure",
+          "statement": "Precomposition gives the free transitive basis action of GL_{2g}(Z/NZ)."
+        },
+        {
+          "name": "FullLevel.forget",
+          "role": "projection",
+          "statement": "The forgetful map is a finite étale GL torsor over the unlevelled stack on Z[1/N]."
+        }
+      ],
+      "tests": [
+        {
+          "name": "FullLevel.two_inversion",
+          "kind": "non-example",
+          "statement": "On a positive-dimensional abelian variety in characteristic≠2, [−1] is nontrivial and fixes every full level-two structure."
+        },
+        {
+          "name": "FullLevel.three_rigid",
+          "kind": "characterisation",
+          "statement": "For N=3 invertible, a polarized automorphism fixing a full basis is the identity."
+        },
+        {
+          "name": "FullLevel.bad_characteristic",
+          "kind": "non-example",
+          "statement": "For an elliptic curve in characteristic p, E[p] has rank p² but is not an étale constant rank-two p-basis group; the definition cannot extend unchanged."
+        }
+      ],
+      "uses": [
+        {
+          "where": "PolarizedAbelianModuli.fineScheme",
+          "how": "Its rigidifying finite étale cover constructs the algebraic atlas."
+        },
+        {
+          "where": "AlgebraicModuliForArithmeticGeometry:R09.5",
+          "how": "Uses this full-level owner for coarse and rigidification comparisons; richer arithmetic levels remain with their owners."
+        }
+      ],
+      "declaration": "R094.full_level"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/arith-polarized-automorphism-rigidity",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "kind": "theorem",
+      "title": "Finite polarized automorphisms and level rigidity",
+      "statement": "For a polarized abelian variety over an algebraically closed field, the polarization-preserving automorphism group scheme is finite étale. If N≥3 is invertible and an automorphism is the identity on A[N], it is the identity on A. The relative polarized Isom functor is unramified; infinitesimal homomorphisms fixing the special fibre vanish by relative rigidity.",
+      "hypotheses": [
+        "The field finite-group statement needs positivity of λ, not only symmetry."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/arith-full-level",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/arith-relative-abelian-rigidity",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/arith-canonical-bounded-bundle",
+        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-e-abelian-varieties"
+      ],
+      "proofSteps": [
+        "Realize automorphisms as stabilizers of bounded projective data and use rigidity to eliminate tangent directions.",
+        "Use positivity of the Rosati form to prove boundedness/finiteness of integral automorphisms preserving λ; the minimal field argument, moved down from the higher Rosati owner, is G-level-rigidity.",
+        "Apply the congruence-kernel torsion lemma: a finite-order integral automorphism congruent to one at full level N≥3 is trivial; treat composite N including N=4, not just odd primes.",
+        "Pass to the relative Isom functor by the infinitesimal rigidity criterion and base change."
+      ],
+      "sources": [
+        {
+          "sourceId": "ols",
+          "locator": "Theorem 2.1.11 and proof, pp.301–302",
+          "match": "Uses the finite unramified automorphisms and the level-rigidity theorem."
+        },
+        {
+          "sourceId": "kass",
+          "locator": "Theorem 8, p.7",
+          "match": "Gives the fine-level consequence but does not prove the required congruence lemma."
+        }
+      ],
+      "acceptance": [
+        "This key input is planned with a precise missing proof, not borrowed from a higher-tier arithmetic-moduli stage."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "namespace": "TauCeti.ArithmeticModuli",
+        "module": "TauCeti/AlgebraicGeometry/ArithmeticModuli/R094"
+      },
+      "declaration": "R094.polarized_automorphism_rigidity",
+      "uses": []
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/arith-framed-polarized-parameter",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "kind": "construction",
+      "title": "Bounded framed polarized parameter scheme",
+      "statement": "For fixed g,d construct the scheme H_{g,d} of triples (A,λ,β), where (A,λ) is polarized abelian and β is a frame of f_*M³ of rank r=d6^g, modulo simultaneous scalar frames. Its tautological embedding lies in P^(r−1) with polynomial d(6t)^g. The forgetful map is a PGL_r torsor over A_{g,d}, with the equivariant universal polarized family. Adding full level gives H_{g,d}[N].",
+      "hypotheses": [
+        "For g=0,d>1 the parameter scheme is empty. Canonical M eliminates the arbitrary representing-line-bundle choice."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/arith-canonical-bounded-bundle",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/arith-polarized-abelian-moduli",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/arith-full-level",
+        "AlgebraicModuliForArithmeticGeometry:R09.2",
+        "SchemeAndStackFoundations:SF.1/torsor"
+      ],
+      "proofSteps": [
+        "Start with the existing Hilbert scheme for the fixed polynomial and its universal embedded projective family.",
+        "Impose smooth connected abelian fibres, zero and group-law equations by Hom schemes and their closed equalizer conditions; construct the relative polarization morphism and the canonical-bundle compatibility locus.",
+        "Establish the locally closed parameter locus and its base-change universal property (G-framed-locus); equality of embedded data provides uniqueness.",
+        "Use local frames modulo scalars and canonical M to prove the PGL torsor description and equivariant universal family."
+      ],
+      "sources": [
+        {
+          "sourceId": "ols",
+          "locator": "§2.1.10 and proof of Theorem 2.1.11, pp.301–302",
+          "match": "The bounded canonical embedding is the starting point for the representability construction."
+        }
+      ],
+      "acceptance": [
+        "The parameter locus requires an actual representability proof; it is not defined by arbitrary Prop labels on Hilbert points."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "namespace": "TauCeti.ArithmeticModuli",
+        "module": "TauCeti/AlgebraicGeometry/ArithmeticModuli/R094"
+      },
+      "api": [
+        {
+          "name": "PolarizedFrames.hilbertMap",
+          "role": "projection",
+          "statement": "Map the tautological embedded family to the existing Hilbert scheme with polynomial d(6t)^g."
+        },
+        {
+          "name": "PolarizedFrames.universalFamily",
+          "role": "data",
+          "statement": "Carry the universal group scheme and λ compatible with its canonical cubic embedding."
+        },
+        {
+          "name": "PolarizedFrames.frameTorsor",
+          "role": "characterisation",
+          "statement": "Forgetting the projective frame is a PGL_r torsor over the groupoid."
+        },
+        {
+          "name": "PolarizedFrames.baseChange",
+          "role": "functoriality",
+          "statement": "The representing scheme and universal family commute with base change."
+        }
+      ],
+      "tests": [
+        {
+          "name": "PolarizedFrames.elliptic_rank",
+          "kind": "computation",
+          "statement": "For g=d=1 the canonical ambient space is P⁵, not P²."
+        },
+        {
+          "name": "PolarizedFrames.scalar",
+          "kind": "characterisation",
+          "statement": "A frame and its nonzero scalar multiple give the same projective frame."
+        },
+        {
+          "name": "PolarizedFrames.missing_law",
+          "kind": "non-example",
+          "statement": "A smooth embedded genus-one curve without zero and λ is not a point of H_{1,1}; Hilbert polynomial alone is insufficient."
+        }
+      ],
+      "uses": [
+        {
+          "where": "PolarizedAbelianModuli.algebraic",
+          "how": "The PGL quotient gives algebraicity with a concrete atlas."
+        },
+        {
+          "where": "PolarizedAbelianModuli.fineScheme",
+          "how": "Its levelled GIT quotient gives the representable rigid cover."
+        }
+      ],
+      "declaration": "R094.framed_polarized_parameter"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/arith-fine-polarized-scheme",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "kind": "theorem",
+      "title": "Fine level scheme",
+      "statement": "For N≥3, A_{g,d}[N] over Z[1/N] is represented by a quasi-projective scheme carrying its universal polarized abelian scheme with full level. For d arbitrary no symplectic level pairing is imposed. The forgetful map is a finite étale GL_{2g}(Z/NZ) torsor in the stack sense.",
+      "hypotheses": [
+        "g≥0,d≥1,N≥3. Empty components cause no exception."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/arith-framed-polarized-parameter",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/arith-polarized-automorphism-rigidity",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/arith-full-level",
+        "SchemeAndStackFoundations:SF.1/fine-moduli-space",
+        "SchemeAndStackFoundations:SF.1/finite-group-quotient"
+      ],
+      "proofSteps": [
+        "Apply the GIT stable quotient to H_{g,d}[N] by PGL_r, proving stable locus, orbit separation and relative quasi-projectivity; G-fine-level gives the precise unverified input instead of claiming that trivial inertia alone implies a scheme.",
+        "Use full-level rigidity to identify the quotient groupoid with its representing scheme.",
+        "Descend the equivariant universal family and level structure; identify the change-of-basis torsor."
+      ],
+      "sources": [
+        {
+          "sourceId": "ols",
+          "locator": "Proof of Theorem 2.1.11, p.302",
+          "match": "Cites the quasi-projective fine scheme construction; its original GIT proof has not been read here."
+        },
+        {
+          "sourceId": "kass",
+          "locator": "Theorem 8, p.7",
+          "match": "States the fine scheme theorem without its proof."
+        }
+      ],
+      "acceptance": [
+        "Only the algebraic-space conclusion follows from trivial inertia without the additional GIT scheme argument.",
+        "Do not state smoothness over all Z[1/N]; primes dividing d remain."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "namespace": "TauCeti.ArithmeticModuli",
+        "module": "TauCeti/AlgebraicGeometry/ArithmeticModuli/R094"
+      },
+      "declaration": "R094.fine_polarized_scheme",
+      "uses": []
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/arith-polarized-algebraic-dm",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "kind": "theorem",
+      "title": "Algebraic Deligne–Mumford polarized moduli",
+      "statement": "A_{g,d} is an algebraic Deligne–Mumford stack of finite type over Z. On Z[1/N], N≥3, it is equivalent to [A_{g,d}[N]/GL_{2g}(Z/NZ)]. The level-three and level-four schemes give a representable étale surjective atlas after taking their disjoint union over Z[1/3] and Z[1/4], which cover Spec Z.",
+      "hypotheses": [
+        "g≥0,d≥1; the entire degree component, including primes dividing d."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/arith-framed-polarized-parameter",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/arith-fine-polarized-scheme",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/arith-full-level",
+        "SchemeAndStackFoundations:SF.1/quotient-stack-algebraic",
+        "SchemeAndStackFoundations:SF.1/deligne-mumford-stack"
+      ],
+      "proofSteps": [
+        "The bounded Hilbert frame scheme and PGL torsor prove algebraicity and finite type.",
+        "The GL basis torsor identifies each localized quotient groupoid; full-level rigidity supplies unramified diagonal.",
+        "Use N=3 and N=4 to cover every residue characteristic and obtain the explicit étale atlas."
+      ],
+      "sources": [
+        {
+          "sourceId": "ols",
+          "locator": "Theorem 2.1.11 and proof, pp.301–302",
+          "match": "States DM over Z and explains full-level covers."
+        }
+      ],
+      "acceptance": [
+        "The GL torsor is finite étale even when its constant group order is not invertible; tameness needs an independent order test."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "namespace": "TauCeti.ArithmeticModuli",
+        "module": "TauCeti/AlgebraicGeometry/ArithmeticModuli/R094"
+      },
+      "declaration": "R094.polarized_algebraic_dm",
+      "uses": []
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/arith-polarized-finite-diagonal",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "kind": "theorem",
+      "title": "Finite polarized relative isomorphisms",
+      "statement": "For two dimension-g degree-d² polarized abelian schemes over S, the polarization-preserving Isom functor is represented by a finite unramified S-scheme, with arbitrary base-change compatibility. Consequently A_{g,d} has finite diagonal and is separated over Z.",
+      "hypotheses": [
+        "S arbitrary; no invertibility assumption on d."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/arith-polarized-algebraic-dm",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/arith-polarized-automorphism-rigidity",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/arith-relative-abelian-rigidity",
+        "AlgebraicModuliForArithmeticGeometry:R09.2",
+        "SchemeAndStackFoundations:SF.1/stack-morphism-properties",
+        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-e-abelian-varieties"
+      ],
+      "proofSteps": [
+        "Apply projective Hom–Isom with canonical bounded bundles, imposing the zero and polarization equations.",
+        "Rigidity gives unramifiedness and field automorphism finiteness gives quasi-finiteness.",
+        "Over a trait, extend a generic homomorphism between abelian schemes with good reduction and its inverse; equality of the polarization equation extends by separatedness. G-good-reduction-extension records the required theorem.",
+        "Apply the scheme valuative criterion, finite-presentation approximation and descent to obtain finiteness over arbitrary bases."
+      ],
+      "sources": [
+        {
+          "sourceId": "ols",
+          "locator": "Theorem 2.1.11 and proof, pp.301–302",
+          "match": "The proof requires relative finite polarized Isom; its good-reduction extension input is not supplied in detail."
+        },
+        {
+          "sourceId": "milne",
+          "locator": "Theorem 17.1 and Remark 17.2, pp.69–71",
+          "match": "The Néron-extension statement motivates the trait step, but the full relative proof remains G-good-reduction-extension."
+        }
+      ],
+      "acceptance": [
+        "Finite field automorphism groups alone do not prove properness of relative Isom."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "namespace": "TauCeti.ArithmeticModuli",
+        "module": "TauCeti/AlgebraicGeometry/ArithmeticModuli/R094"
+      },
+      "declaration": "R094.polarized_finite_diagonal",
+      "uses": []
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/arith-polarized-small-extension-lifting",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "kind": "theorem",
+      "title": "Prime-to-degree polarized infinitesimal lifting",
+      "statement": "Let R′→R be a square-zero surjection of Artin local rings with algebraically closed residue field k, and (A,λ)/R a dimension-g degree-d² polarized abelian scheme. If d is invertible in k, (A,λ) lifts to R′; the chosen ample representative on a residue fibre can be lifted compatibly. For fixed kernel I killed by the maximal ideal, the lifting obstruction is the polarization cup-product obstruction and vanishes because λ is separable.",
+      "hypotheses": [
+        "d prime to char(k). For full level N also invertible, the existing basis lifts uniquely. No assertion for inseparable polarizations."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/arith-local-ample-representatives",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/arith-relative-abelian-rigidity",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/arith-polarization",
+        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-c-relative-coherent-cohomology-and-base-change"
+      ],
+      "proofSteps": [
+        "Use the relative abelian deformation torsor under H¹(A_k,T_A)⊗I and line-bundle obstruction in H²(A_k,O_A)⊗I (G-abelian-deformation records the missing general construction).",
+        "Cup with c₁(L) maps the abelian deformation directions onto the line-bundle obstruction when λ is separable. Choose a direction cancelling it.",
+        "Oort Lemma 2.3.2 matches lifted homomorphism polarizations with representatives; induction on length handles Artin local extensions.",
+        "Finite étale full level lifts uniquely across nilpotent thickenings."
+      ],
+      "sources": [
+        {
+          "sourceId": "oort",
+          "locator": "Theorem 2.4.1, implication (a)⇒(c), pp.286–287; Lemma 2.3.2, pp.282–284",
+          "match": "The separable-polarization implication is the exact smoothness input required here."
+        }
+      ],
+      "acceptance": [
+        "The deformation comparison layer R09.6 consumes this minimal lifting result; using R09.6 here would make a cycle."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "namespace": "TauCeti.ArithmeticModuli",
+        "module": "TauCeti/AlgebraicGeometry/ArithmeticModuli/R094"
+      },
+      "declaration": "R094.polarized_small_extension_lifting",
+      "uses": []
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/arith-polarized-smooth",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "kind": "theorem",
+      "title": "Smoothness away from polarization degree",
+      "statement": "A_{g,d} is smooth over Z[1/d] of relative dimension g(g+1)/2. For N≥3 its fine full-level scheme is smooth over Z[1/(Nd)] of the same relative dimension.",
+      "hypotheses": [
+        "g≥0,d≥1. No smoothness assertion at primes dividing d."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/arith-polarized-algebraic-dm",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/arith-polarized-small-extension-lifting",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/arith-fine-polarized-scheme",
+        "SchemeAndStackFoundations:SF.1/stack-morphism-properties"
+      ],
+      "proofSteps": [
+        "Apply the infinitesimal smoothness criterion to the finite-type atlas using the lifting theorem.",
+        "The tangent space is the symmetric subspace selected by the polarization pairing, of dimension g(g+1)/2; relative étale full level adds no tangent directions.",
+        "Descend scheme smoothness to the stack and identify the relative dimension."
+      ],
+      "sources": [
+        {
+          "sourceId": "ols",
+          "locator": "Theorem 2.1.11, p.301",
+          "match": "Specifies the smooth base Z[1/d]."
+        },
+        {
+          "sourceId": "oort",
+          "locator": "Theorem 2.4.1, pp.286–287",
+          "match": "Provides unobstructedness for separable polarizations."
+        }
+      ],
+      "acceptance": [
+        "For g=1,d=1 this agrees with smooth elliptic moduli of dimension one."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "namespace": "TauCeti.ArithmeticModuli",
+        "module": "TauCeti/AlgebraicGeometry/ArithmeticModuli/R094"
+      },
+      "declaration": "R094.polarized_smooth",
+      "uses": []
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.4/arith-abelian-separation-tameness",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "kind": "theorem",
+      "title": "Separated abelian moduli and tameness limits",
+      "statement": "A_{g,d} is separated of finite type with finite inertia, is tame in characteristic zero, and in characteristic p is tame exactly when each geometric polarization-preserving automorphism group has order prime to p. The family A_{1,1} is not proper over Z: an elliptic curve with multiplicative reduction over a trait has no abelian-scheme extension, although it extends in E_1. In characteristic two its generic constant inversion inertia is wild.",
+      "hypotheses": [
+        "The positive-characteristic test uses the finite étale automorphism theorem, not the degree d alone. No compactification is an object of A_{g,d}."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/arith-polarized-finite-diagonal",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/arith-polarized-automorphism-rigidity",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/arith-polarized-abelian-moduli",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/arith-elliptic-proper",
+        "SchemeAndStackFoundations:SF.1/tame-stack",
+        "SchemeAndStackFoundations:SF.1/tame-local-structure",
+        "tauceti:TauCetiRoadmap/ModularCurves#4b-the-weierstrass-presentation",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-7-semistable-reduction"
+      ],
+      "proofSteps": [
+        "Use finite diagonal for separatedness; finite étale geometric inertia makes the AOV linear-reductivity condition the prime-to-p group-order condition.",
+        "Use the elliptic equivalence and a nodal multiplicative degeneration to refute properness of A_{1,1}; no finite extension removes the multiplicative reduction.",
+        "Record the constant C₂ subgroup in characteristic two. Keep coarse spaces and abelian compactifications with their existing owners."
+      ],
+      "sources": [
+        {
+          "sourceId": "aov",
+          "locator": "Theorem 3.2, p.1077; Proposition 2.7, pp.1067–1068",
+          "match": "Gives the exact stabilizer criterion."
+        },
+        {
+          "sourceId": "ols",
+          "locator": "Theorem 2.1.11, pp.301–302",
+          "match": "Asserts separated DM moduli and smoothness, not properness; compactification is a distinct problem."
+        },
+        {
+          "sourceId": "ces",
+          "locator": "Theorem 3.1.6, pp.18–19",
+          "match": "The generalized-elliptic boundary explains the missing properness in the smooth elliptic open."
+        }
+      ],
+      "acceptance": [
+        "Over characteristic two, d=1 is invertible but does not imply tame."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "namespace": "TauCeti.ArithmeticModuli",
+        "module": "TauCeti/AlgebraicGeometry/ArithmeticModuli/R094"
+      },
+      "declaration": "R094.abelian_separation_tameness",
+      "uses": []
+    }
+  ],
+  "sourceIssues": [
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry/E1",
+      "sourceId": "ols",
+      "kind": "error",
+      "locator": "Remark 2.1.6, p.299",
+      "printed": "The survey makes equality of polarization homomorphisms equivalent to translation by a global A(S)-point, modulo a base line bundle.",
+      "correction": "Replace global translation by fppf-local translation. Globally the difference class must lie in λ(A(S)); equality of polarization maps only puts it in A∨(S).",
+      "reason": "Over R, E:y²=x(x−1)(x+1) has two real components. P=(0,0) lies off the identity component and is not in 2E(R). The ample bundles O(2O) and O(O+P) induce the same degree-two polarization, but cannot differ by a translation of a real point. Pullbacks from Spec R do not repair this since Pic(R)=0.",
+      "affects": "a stated result",
+      "known": "No correction found in the public survey or the author publication page on 2026-10-09; this is a local correction with the explicit counterexample.",
+      "searched": [
+        "https://library.slmath.org/books/Book59/files/65olsson.pdf",
+        "https://sites.google.com/berkeley.edu/martin-olsson/articles-and-notes",
+        "Web search: Olsson Compactifications of moduli of abelian varieties errata"
+      ]
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry/E2",
+      "sourceId": "con",
+      "kind": "error",
+      "locator": "§2.1, p.5, paragraph immediately before equation (2.1.2)",
+      "printed": "The standard split one-gon over arbitrary bases is identified with the cubic y²z=x³−x²z using the displayed parameterization involving t²+1.",
+      "correction": "Use the split nodal cubic y²z+xyz=x³. Its normalization has x=u(u+1), y=u²(u+1) with the two preimages u=0,−1 of the node; a projective change of parameter identifies these with 0 and ∞.",
+      "reason": "At the printed cubic’s node in characteristic two the tangent cone is (y+x)², and its parameterization has only one geometric preimage: it is cuspidal rather than nodal. Over R its tangent cone y²+x² is nonsplit, whereas the standard one-gon is split. The corrected tangent cone y(y+x) has distinct rational branches in every characteristic.",
+      "affects": "a stated result",
+      "known": "No public correction found on the author paper page or by the title/errata search on 2026-10-09. The same equation occurs in the higher ModularCurvesPartII packet; its consumer should use this corrected owner.",
+      "searched": [
+        "https://math.stanford.edu/~conrad/papers/kmpaper.pdf",
+        "https://math.stanford.edu/~conrad/papers/",
+        "Web search: Conrad arithmetic moduli generalized elliptic curves errata nodal cubic"
+      ]
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry/E3",
+      "sourceId": "kass",
+      "kind": "misprint",
+      "locator": "Lemma 1 proof, p.2, final pushforward identification",
+      "printed": "The final identification applies η_* to the structure sheaf of X although η has source S.",
+      "correction": "The final sheaf is η_*O_S, using π_*O_X≃O_S.",
+      "reason": "The displayed η:S→Y cannot push forward a sheaf on X. With O_S the map has the required target and defines the factored morphism.",
+      "affects": "the proof",
+      "known": "No correction found in the public author PDF or by the notes-title correction search on 2026-10-09.",
+      "searched": [
+        "https://people.ucsc.edu/~jelkass/files/AbelianSchemes.pdf",
+        "Web search: Notes on Abelian Schemes Kass correction rigidity"
+      ]
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry/E4",
+      "sourceId": "ces",
+      "kind": "misprint",
+      "locator": "§3.2.1, p.19, second contraction condition; published §3.2.1, p.2025",
+      "printed": "The group-isomorphism condition describes the complement of the discarded components without naming its ambient smooth locus.",
+      "correction": "Take the retained-component open inside E^sm, not the complement inside the proper curve E. This open maps isomorphically to c_G(E)^sm.",
+      "reason": "If G meets every component of a polygon, no component is discarded. The literal complement inside E would be the proper singular polygon itself and cannot be group-isomorphic to its smooth locus. The intended open in E^sm is the full smooth locus and makes the identity-contraction test hold.",
+      "affects": "a stated result",
+      "known": "The published 2017 version repeats the same wording; no contraction erratum was found by the title/errata search on 2026-10-09. Record this as an ambient-locus clarification rather than a failure of the contraction theorem.",
+      "searched": [
+        "https://arxiv.org/pdf/1511.07475v2",
+        "https://msp.org/ant/2017/11-9/ant-v11-n9-p02-s.pdf",
+        "Web search: A modular description of X_0(n) errata contraction"
+      ]
+    }
+  ],
+  "requests": [
+    {
+      "supplier": "SchemeAndStackFoundations:SF.1",
+      "need": "Supply the single groupoid-valued carrier on native schemes, quotient stacks and finite-inertia tameness criteria, respecting the listed existing node contracts. Add the precise fppf-presentation criterion of Stacks Tag 06DC; descent of smoothness/finite type/relative dimension along representable faithfully flat lfp covers; unramified-diagonal DM recognition; relative Cartier divisors; and the algebraic-stack valuative criterion with existence after finite trait extension. A quasi-finite flat cover must not be renamed a smooth atlas.",
+      "usedBy": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "status": "requested"
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/ModularCurves#0a-relative-effective-cartier-divisors",
+      "need": "Use the existing smooth-point divisors, relative Cartier base change, schematic image/Fitting input and relative ampleness. The canonical polygon/gluing construction here extends these inputs; no second divisor carrier.",
+      "usedBy": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "status": "requested"
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/ModularCurves#0b-finite-locally-free-group-schemes-and-cartier-duality",
+      "need": "Use finite flat and finite étale subgroup/dual-kernel constructions in the DR auxiliary equivalence; their extension across nodal fibres is G-cyclic-cover, not already supplied by smooth elliptic duality.",
+      "usedBy": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "status": "requested"
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/ModularCurves#0c-finite-quotients-and-torsors",
+      "need": "Use representable free finite-group quotients of generator spaces and their descent; compare the generalized polygon constructions with these existing scheme-level quotients.",
+      "usedBy": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "status": "requested"
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/ModularCurves#1d-the-scheme-theoretic-group-law",
+      "need": "Import the smooth elliptic law and zero-preserving morphisms, then prove the generalized-object smooth equivalence.",
+      "usedBy": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "status": "requested"
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/ModularCurves#1e-the-cubic-polarisation-and-elliptic-descent",
+      "need": "Import projective elliptic descent and its cubic ample bundle; extend descent here by the n-torsion divisor without redefining smooth elliptic families.",
+      "usedBy": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "status": "requested"
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/ModularCurves#4b-the-weierstrass-presentation",
+      "need": "Import the smooth integral Weierstrass coordinate-change presentation and automorphism rigidity. Here its nodal-open extension must use the split cubic y²z+xyz=x³, including characteristic two, and be proved rather than assumed to lie in the smooth owner.",
+      "usedBy": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "status": "requested"
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity",
+      "need": "Import relative curve cohomology, duality, positivity and section/base-change arguments used in DR IV.1.2. General positive-divisor genus-one contraction is owned by arith-contraction, with the graded relative-Proj construction and the arbitrary-base approximation proof now outlined from the original source.",
+      "usedBy": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "status": "requested"
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves",
+      "need": "Import the existing semistable nodal curve and pointed-curve carriers; polygon action and subgroup contraction are the arithmetic extensions here.",
+      "usedBy": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "status": "requested"
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces",
+      "need": "Import blowup and intersection calculations for trait model comparison, with the exact genus-one matched-count extension still recorded as G-trait-isom.",
+      "usedBy": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "status": "requested"
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/StableReduction#layer-5-regular-and-minimal-models",
+      "need": "Import minimal regular models and their contraction comparison; do not identify the missing generalized-group extension theorem with object-level minimality.",
+      "usedBy": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "status": "requested"
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/StableReduction#layer-7-semistable-reduction",
+      "need": "Import semistable reduction after finite extension; the prescribed n-gon ramification/component argument is G-trait-model here.",
+      "usedBy": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "status": "requested"
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-c-relative-coherent-cohomology-and-base-change",
+      "need": "Use the existing relative coherent cohomology/base-change and Picard machinery for proper smooth families, especially finite locally free section bundles with fibre vanishing. It is not a certificate for relative dual representability or abelian deformation theory, which are G-dual and G-abelian-deformation.",
+      "usedBy": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "status": "requested"
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-e-abelian-varieties",
+      "need": "Import field abelian duality, polarization degree, Riemann–Roch/vanishing and cubic very-ampleness from the existing field direction; combine with native field abelian varieties. Relative duals, torsion and minimum polarized rigidity have the local lower-tier owner here; do not import higher arithmetic-moduli or Rosati plans.",
+      "usedBy": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "status": "requested"
+    },
+    {
+      "supplier": "AlgebraicModuliForArithmeticGeometry:R09.1",
+      "need": "Use its existing relative Picard-functor interface to state the rigidified algebraically trivial functor; G-dual requires the abelian-specific representability proof and must not be discharged by a blanket Picard assertion.",
+      "usedBy": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "status": "requested"
+    },
+    {
+      "supplier": "AlgebraicModuliForArithmeticGeometry:R09.2",
+      "need": "Supply the existing fixed-projective fp Hilbert/Hom–Isom construction, with canonical polynomial P(t)=d(6t)^g for polarized abelian data, and projective generalized curves via ample torsion divisors. The framed group/polarization locus and relative proper Isom extension remain local proof obligations.",
+      "usedBy": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4"
+      ],
+      "status": "requested"
+    },
+    {
+      "supplier": "AlgebraicModuliForArithmeticGeometry:R09.5",
+      "need": "Using StableReductionPartII’s stable pointed moduli, construct a finite surjective scheme cover with its pulled-back universal family for every stable (g,n); state base and finite-type hypotheses and prove existence without claiming étaleness at wild primes. Full prime-to-characteristic level abelian schemes needed for algebraicity already have the lower owner in R09.4; retain only coarse/rigidification comparisons here.",
+      "usedBy": [
+        "SchemeAndStackFoundations:SF.4",
+        "StableReductionPartII:MC.2"
+      ],
+      "status": "requested"
+    },
+    {
+      "supplier": "StableReductionPartII:MC.2",
+      "need": "Retain the existing pointed DM/smooth/proper theorem and definition; repair the independent review and replace generic R09.4 references by SF.1. Extend the finite-unramified diagonal statement from MC.1’s unpointed case to all stable (g,n), including genus zero and one. Do not depend on E_1 for the pointed genus-one base case.",
+      "usedBy": [
+        "AlgebraicModuliForArithmeticGeometry:R09.5",
+        "SchemeAndStackFoundations:SF.4"
+      ],
+      "status": "requested"
+    },
+    {
+      "supplier": "SchemeAndStackFoundations:SF.4",
+      "need": "Use StableReductionPartII MC.1/MC.2 and the requested R09.5 finite scheme cover as the stable-family moduli input to alterations. Remove any suggestion that the construction is owned by an étale comparison layer.",
+      "usedBy": [
+        "SchemeAndStackFoundations:SF.4"
+      ],
+      "status": "requested"
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/ModularCurves#1c-pole-sheaves-weierstrass-coordinates-and-variable-changes",
+      "need": "Import the existing smooth elliptic O(3·0) coordinate/model/coordinate-change argument. Its nodal one-gon extension is the local arith-onegon-weierstrass key theorem, using curve cohomology and the Pic⁰ action, and must precede B_n; do not assume the general fixed-polygon algebraicity to obtain its n=1 base.",
+      "usedBy": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/arith-onegon-weierstrass"
+      ],
+      "status": "requested"
+    }
+  ],
+  "gaps": [
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry/G-native",
+      "title": "Native signatures for unimplemented geometric carriers",
+      "detail": "The pinned baseline has neither the SF.1 stack carrier nor a bundled generalized elliptic curve, relative Picard/Poincaré bundle, relative Cartier divisor contraction or fixed-dimension predicate in the form required here. The suggested file explicitly names every omitted definition, theorem, API and test, and its exact mathematical contract. Only the native abelian-scheme carrier and field adapters and the polygon smooth-point formulas are typed; no omitted hypothesis is replaced by an arbitrary proposition. Elaborating this partial signature file does not certify any omitted statement.",
+      "affectedNodes": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/arith-standard-ngon",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/arith-generalized-elliptic",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/arith-degeneracy",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/arith-polygon-automorphisms",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/arith-contraction",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/arith-fixed-elliptic-moduli",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/arith-elliptic-descent",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/arith-cyclic-atlas-moduli",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/arith-cyclic-atlas-dm",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/arith-cyclic-atlas-cover",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/arith-fixed-elliptic-algebraic",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/arith-elliptic-finite-diagonal",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/arith-elliptic-proper",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/arith-elliptic-dm-locus",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/arith-elliptic-cusp",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/arith-elliptic-tame",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/arith-abelian-scheme",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/arith-relative-abelian-rigidity",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/arith-relative-dual",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/arith-polarization",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/arith-local-ample-representatives",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/arith-canonical-bounded-bundle",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/arith-polarized-abelian-moduli",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/arith-full-level",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/arith-polarized-automorphism-rigidity",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/arith-framed-polarized-parameter",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/arith-fine-polarized-scheme",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/arith-polarized-algebraic-dm",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/arith-polarized-finite-diagonal",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/arith-polarized-small-extension-lifting",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/arith-polarized-smooth",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/arith-abelian-separation-tameness",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/arith-onegon-weierstrass"
+      ]
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry/G-cyclic-cover",
+      "title": "Pointed cyclic cover across the one-gon",
+      "detail": "Reconstruct DR V.1.4’s inverse: the unique pointed finite étale cyclic cover of the irreducible generalized elliptic curve dual to the selected multiplicative subgroup, including its group/action extension on n-gons, in families and with base change. The DR scan’s OCR drops displayed formulas; the auxiliary equivalence is read but this reconstruction is not established.",
+      "affectedNodes": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/arith-cyclic-atlas-dm"
+      ]
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry/G-trait-isom",
+      "title": "Matched-count generalized isomorphism extension",
+      "detail": "From regular/minimal genus-one trait models prove a generic zero/law-preserving isomorphism of two generalized elliptic curves with matching polygon counts extends uniquely over the trait. Include the nodal special-fibre action and arbitrary-base finite-presentation descent; object-level stable reduction alone is insufficient.",
+      "affectedNodes": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/arith-elliptic-finite-diagonal"
+      ]
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry/G-trait-model",
+      "title": "Prescribed polygon count after ramification",
+      "detail": "Prove that an elliptic generic fibre after semistable reduction and additional finite ramification has a generalized model with polygon count divisible by any fixed n and admits a finite locally free smooth subgroup meeting exactly n components; contraction gives the required E_n object. Track extensions and smoothing rather than assume every semistable model already has the requested count.",
+      "affectedNodes": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/arith-elliptic-proper"
+      ]
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry/G-relative-torsion",
+      "title": "Relative finite locally free multiplication",
+      "detail": "Deduce [N] finite locally free degree N^(2g) from the existing field degree theorem over arbitrary schemes, including fibre flatness and finite-presentation descent; prove the invertible differential étaleness claim. Kass states the result but assigns the proof as an exercise.",
+      "affectedNodes": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/arith-relative-abelian-rigidity"
+      ]
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry/G-dual",
+      "title": "Arbitrary-base dual abelian representability",
+      "detail": "Prove the rigidified fibrewise Pic⁰ sheaf of an abelian scheme is an abelian scheme over arbitrary S, construct normalized Poincaré data, and prove base change and biduality. Olsson and Kass state this, without the general-base representability proof. Faltings–Chai is not cleared in the supplied library and has not been used.",
+      "affectedNodes": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/arith-relative-dual"
+      ]
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry/G-level-rigidity",
+      "title": "Minimum field polarized finite-group and congruence argument",
+      "detail": "Supply the minimum field proof of finiteness of polarization-preserving automorphisms and faithfulness on full level N≥3 invertible, including N=4. Use positivity/boundedness and the finite-order congruence-kernel lemma; do not infer it from an unproved fine scheme theorem or cite higher Rosati theory. The survey states the consequence, not this proof.",
+      "affectedNodes": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/arith-polarized-automorphism-rigidity"
+      ]
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry/G-framed-locus",
+      "title": "Representability of the bounded polarized frame locus",
+      "detail": "In the fixed Hilbert/Hom parameter spaces prove the group-law, connectedness, dual morphism, positivity and canonical-bundle compatibility conditions produce the representing scheme H_{g,d}, with its exact universal property. A Hilbert polynomial does not encode these data by itself. The survey’s boundedness ingredients are read, but this parameter-locus argument is not.",
+      "affectedNodes": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/arith-framed-polarized-parameter"
+      ]
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry/G-fine-level",
+      "title": "GIT fine scheme rather than just an algebraic space",
+      "detail": "Prove the stable relative PGL quotient of H_{g,d}[N] exists as a quasi-projective scheme over Z[1/N], with descended universal polarized family. Olsson cites Mumford GIT 1965 Chapter 7 Theorem 7.9 and its following remark; this original proof has not been read. Trivial inertia establishes at most an algebraic space without this input. No uncleared book copy was used.",
+      "affectedNodes": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/arith-fine-polarized-scheme"
+      ]
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry/G-good-reduction-extension",
+      "title": "Trait homomorphism extension for good-reduction abelian schemes",
+      "detail": "Prove Hom_R(A,B)→Hom_K(A_K,B_K) is bijective for abelian schemes over a DVR, by the Weil/Néron extension argument, then extend inverse and polarization equations and descend finiteness over arbitrary S. Milne’s Néron statement is not a substitute for the full proof or for relative Hom representability.",
+      "affectedNodes": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/arith-polarized-finite-diagonal"
+      ]
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry/G-abelian-deformation",
+      "title": "Minimal abelian and line-bundle obstruction calculation",
+      "detail": "Construct the abelian deformation torsor H¹(T_A)⊗I and the H²(O_A)⊗I line-bundle obstruction over small Artin extensions, and prove the polarization cup-product surjectivity when d is invertible and tangent dimension g(g+1)/2. Oort’s lifting implication is read but its underlying deformation construction is not reconstructed. This minimum input moves down from R09.6 to avoid an R09.4→R09.6→R09.4 cycle.",
+      "affectedNodes": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/arith-polarized-small-extension-lifting",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/arith-polarized-smooth"
+      ]
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry/G-owner-rewiring",
+      "title": "Apply shared-input ownership before composing suppliers",
+      "detail": "SF.1→R09.3/R09.4 replaces the overlapping generic plan. StableReductionPartII’s generic R09.4 references must point to SF.1 before its theorem is used as the stable-curve supplier. The higher ModularCurvesPartII and AbelianSchemes plans must import the lower arithmetic inputs listed in restructure. Their packets are deliberately not edited here. This is an ownership prerequisite, not missing new stable-curve mathematics.",
+      "affectedNodes": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/arith-fixed-elliptic-moduli",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/arith-polarized-abelian-moduli"
+      ]
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "status": "planned",
+      "remaining": [
+        "Discharge the twelve recorded gaps and satisfy the twenty precise supplier requests. No target-level node remains unwritten.",
+        "Apply the single-owner rewiring for SF.1, StableReductionPartII and the higher arithmetic suppliers. This packet does not modify those packets or close their reviews.",
+        "Retain the accepted A0-extension R09.4 gerbe frontier and its open gaps; this arithmetic completion is not a certificate for it."
+      ]
+    }
+  ],
+  "granularity": "target-level",
+  "inherited": {
+    "packet": "research/blueprint/packets/AlgebraicModuliForArithmeticGeometry--A0-extension.json",
+    "nodeCount": 476,
+    "r094NodeCount": 431,
+    "reusedInterfaces": [
+      {
+        "id": "AlgebraicModuliForArithmeticGeometry:R09.4/finite-quotient-presentation",
+        "use": "Conditional finite-quotient presentations of particular DM stacks; not a blanket presentation of every DM stack."
+      },
+      {
+        "id": "AlgebraicModuliForArithmeticGeometry:R09.4/commuting-quotient-exchange",
+        "use": "Compare iterated quotients by commuting fppf groups where the stated hypotheses hold."
+      },
+      {
+        "id": "AlgebraicModuliForArithmeticGeometry:R09.4/torsor-twist-space",
+        "use": "Twist algebraic spaces by the stated commutative étale-group torsors."
+      }
+    ],
+    "frontier": "Accepted target plan retained unchanged. Generic gerbes, neutralization and cohomological classification are not redeclared. Its 16 gaps and 22 requests are not discharged by this packet.",
+    "planets": "The five existing R09.4 planets (Gerbes, Abelian bandings, Neutralizations, Giraud’s gerbe classification, Profinite étale gerbes) are retained; Polarized abelian moduli is the single new planet. Total six for the unsplit layer."
+  },
+  "imports": [
+    {
+      "owner": "StableReductionPartII",
+      "nodes": [
+        "StableReductionPartII:key/moduli-curves",
+        "StableReductionPartII:MC.1/finite-unramified-diagonal",
+        "StableReductionPartII:MC.1/proper-moduli",
+        "StableReductionPartII:MC.2/pointed-dm-theorem"
+      ],
+      "statement": "For g,n≥0 with 2g−2+n>0, the stack of proper flat fp geometrically connected nodal genus-g curves with n disjoint ordered smooth sections and ample logarithmic dualizing bundle is a smooth proper DM stack over Z, of relative dimension 3g−3+n. Its diagonal must be finite unramified also in the pointed cases. The existing owner supplies the definition and theorem; its current review needs changes, so this is an import contract rather than a verified implementation.",
+      "condition": "Replace generic R09.4 prerequisites in MC.1/MC.2 by precise SF.1 carrier/atlas/properness inputs before adding the consumer edges. Its genus-one proof uses the rigid-triangle embedding, not E_1 from this packet.",
+      "consumers": [
+        "AlgebraicModuliForArithmeticGeometry:R09.5",
+        "SchemeAndStackFoundations:SF.4"
+      ],
+      "cover": "R09.5 must provide a finite surjective scheme cover carrying the pulled-back universal stable family; not necessarily étale at bad primes and not a universal family on the coarse space."
+    },
+    {
+      "owner": "SchemeAndStackFoundations:SF.1",
+      "nodes": [
+        "SchemeAndStackFoundations:SF.1/stack-in-groupoids",
+        "SchemeAndStackFoundations:SF.1/stackification",
+        "SchemeAndStackFoundations:SF.1/two-fibre-product",
+        "SchemeAndStackFoundations:SF.1/representable-stack-morphism",
+        "SchemeAndStackFoundations:SF.1/algebraic-stack",
+        "SchemeAndStackFoundations:SF.1/deligne-mumford-stack",
+        "SchemeAndStackFoundations:SF.1/inertia",
+        "SchemeAndStackFoundations:SF.1/stack-presentation",
+        "SchemeAndStackFoundations:SF.1/quotient-stack",
+        "SchemeAndStackFoundations:SF.1/tame-stack"
+      ],
+      "statement": "One generic space/stack carrier, with fibre products, representable diagonal, atlases and their independence. Native Cat-valued descent alone does not imply groupoid fibres or algebraicity."
+    }
+  ],
+  "restructure": [
+    {
+      "action": "rescope",
+      "roadmaps": [
+        "SchemeAndStackFoundations",
+        "AlgebraicModuliForArithmeticGeometry"
+      ],
+      "detail": "RT-AREA-algebraicgeometry/1: duplicate generic space/stack carriers and missing supplier edge.",
+      "proposal": "SF.1 owns general algebraic spaces, stacks, representable diagonals, fibre products, smooth/étale atlases and their independence. Add SF.1→R09.3 and SF.1→R09.4. Narrow R09.3 to Weil restriction as an algebraic space, finite-quotient comparison and moduli-object descent; R09.4 keeps the inherited gerbe application frontier and the arithmetic targets in this packet. Never point SF.1 at this R09.4 arithmetic plan.",
+      "links": [
+        {
+          "source": "SchemeAndStackFoundations:SF.1",
+          "target": "AlgebraicModuliForArithmeticGeometry:R09.3"
+        },
+        {
+          "source": "SchemeAndStackFoundations:SF.1",
+          "target": "AlgebraicModuliForArithmeticGeometry:R09.4"
+        }
+      ]
+    },
+    {
+      "action": "rescope",
+      "roadmaps": [
+        "StableReductionPartII",
+        "AlgebraicModuliForArithmeticGeometry",
+        "SchemeAndStackFoundations"
+      ],
+      "detail": "RT-AREA-algebraicgeometry/17 now has an existing Part II owner, but its generic stack prerequisites point to R09.4 and its review is not accepted.",
+      "proposal": "Keep stable pointed moduli solely in StableReductionPartII:key/moduli-curves and MC.1/MC.2. Replace every generic R09.4 stack prerequisite in those stages with the exact SF.1 interfaces, including the requested stack valuative criterion. Keep the independent rigid-triangle genus-one base argument. Then add MC.1/MC.2→R09.5 and MC.1/MC.2→SF.4, plus R09.5→SF.4 for the finite scheme cover carrying a family. R09.5 owns that cover and must not promise a universal coarse-space family. No duplicate stable-moduli definition is introduced here."
+    },
+    {
+      "action": "rescope",
+      "roadmaps": [
+        "AlgebraicModuliForArithmeticGeometry",
+        "ModularCurvesPartII"
+      ],
+      "detail": "The higher-tier ModularCurvesPartII R13.1 already plans object inputs required by this lower-tier arithmetic stage.",
+      "proposal": "Move the standard-polygon part of R13.1/semistable-genus-one-curves-and-neron-polygons to arith-standard-ngon here; its bare curve carrier imports StableReduction Layer 3. Move R13.1/generalized-elliptic-curve and R13.1/non-smooth-locus-and-base-change to arith-generalized-elliptic and arith-degeneracy. Move R13.1/contraction-away-from-a-divisor to arith-contraction, whose general-divisor construction and subgroup extension are both specified here. R13.1 keeps the DR structure criterion and Drinfeld cyclicity; R13.2 keeps Γ-specific moduli, integral-level properties and level contraction maps, importing these four lower objects. Its one-gon test must use the corrected split cubic from E2. Add R09.4→ModularCurvesPartII:R13.1."
+    },
+    {
+      "action": "rescope",
+      "roadmaps": [
+        "AlgebraicModuliForArithmeticGeometry",
+        "AbelianSchemesAndArithmeticModuli"
+      ],
+      "detail": "Relative abelian carriers and minimum fine-level representability are needed before higher arithmetic moduli and Rosati results.",
+      "proposal": "Move the minimum relative abelian scheme, dual/Poincaré, polarization, multiplication, full-level rigidity and fine-scheme inputs to the corresponding arith-* targets in this lower owner. The field abelian variety remains in Tau Ceti/JacobianChallenge Layer E. AbelianSchemes A.1/A.2/A.6 consume these inputs and keep higher Rosati, polarization-type, integral parahoric/PEL and Hecke targets. R09.5 consumes the fine full-level scheme for coarse comparisons instead of owning a prerequisite of R09.4. R09.6 consumes the minimal polarized small-extension lifting theorem instead of being a prerequisite for its smoothness consequence."
+    }
+  ],
+  "upstreamNotes": [
+    {
+      "roadmap": "tauceti:TauCetiRoadmap/ModularCurves",
+      "detail": "The smooth integral Weierstrass owner is imported, not replanned; its nodal-open extension is explicitly local. There is no reliance on the snapshot’s obsolete scope."
+    },
+    {
+      "roadmap": "tauceti:TauCetiRoadmap/StableReduction",
+      "detail": "Its object-level curve/contraction/reduction roadmaps are imported. Moduli stacks stay with the existing StableReduction Part II proposal, whose review must be repaired."
+    }
+  ],
+  "validation": {
+    "blueprint": "check_blueprint.py passed with zero errors and zero warnings; final counts recorded in the handoff.",
+    "suggestedLean": "lean-check succeeded at the pinned baseline with only warnings for admitted proofs; all unstateable geometric signatures are explicitly named omissions under G-native.",
+    "currentUpstreamAudit": {
+      "roadmapCommit": "3b51bbf9a925f23bca922570bea8d641b6ec712d",
+      "tauCetiCommit": "a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039",
+      "read": [
+        "AlgebraicVectorBundles README and Suggested",
+        "StableReduction README and Suggested",
+        "ModularCurves object/group/quotient/moduli sections and Suggested",
+        "EllipticCurves relevant object and moduli sections"
+      ],
+      "rule": "These read-only current-main inputs are not rebuilt. No native relative stack/dual/generalized carrier was found."
+    },
+    "reviewedAudit": "data/library-coverage.json, R09.4: partly built, with native Cat-valued descent but missing arithmetic stack applications."
+  }
+}
