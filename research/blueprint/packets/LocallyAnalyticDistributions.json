@@ -1738,6 +1738,11 @@
         "ref": "tauceti:TauCeti.HasZeroSequenceOfUnits.isQuotientMap",
         "module": "TauCeti.Topology.Algebra.OpenMapping.Henkel",
         "provides": "Same hypotheses yield quotient topology; read with git show at the exact Tau Ceti pin."
+      },
+      {
+        "ref": "mathlib:Matrix.det_one_sub_mul_comm",
+        "module": "Mathlib.LinearAlgebra.Matrix.SchurComplement",
+        "provides": "Over any commutative ring and finite index types m,n, for rectangular A:m×n and B:n×m, det(1−AB)=det(1−BA). Apply over polynomial coefficients with the scalar T absorbed in one factor. No field, reducedness or equality of matrix sizes is required."
       }
     ]
   },
@@ -1876,7 +1881,7 @@
       "url": "https://webusers.imj-prg.fr/~wieslawa.niziol/CN5.pdf",
       "readDate": "2026-10-09",
       "readSections": [
-        "Appendix A in full, Lemmas A.1–A.4 and Remark A.6, printed pp. 58–59"
+        "Appendix A in full, Propositions A.1, A.3, A.4 and Remark A.2 and Remark A.6, printed pp. 58–59"
       ],
       "sha256": "bb1628cf1f4321243e6070be2abae99f72a41e237e70a7eb1ec1fc03cc2cd52a",
       "note": "Only the listed primary passages were read for this continuation. Unread cited proofs are recorded as gaps; no whole-paper coverage is asserted."
@@ -1989,7 +1994,7 @@
       "proofSteps": [
         "Banach: the coefficient map identifies An(B(a, r), L) with a weighted c₀ space.",
         "Multiplicativity (Colmez I.4.2): the Cauchy product gives ≥, and the product of the first coefficients where each valuation is attained gives equality.",
-        "Maximum principle (I.4.3): after rescaling to the unit disc, a unit-normalised power series has nonzero reduction, which is nonzero at some residue class."
+        "Maximum principle (I.4.3): for rational radii rescale over a finite extension of L to a unit disc and use nonzero reduction. For an arbitrary real radius approximate it from above by rational radii, using coefficient decay to pass the Gauss infimum to the limit; a rescaling element need not exist for an irrational radius."
       ],
       "acceptance": [
         "φ(x) = x on B(0, 0): v_{B(0,0)}(φ) = 0, attained at the units.",
@@ -2071,7 +2076,7 @@
       ],
       "acceptance": [
         "Polynomials lie in LA₀ with v_{LA₀}(P) = inf of the valuations of their coefficients.",
-        "1_{a+p^hℤ_p} ∈ LA_h with valuation 0, but it is not in LA_{h−1}.",
+        "For h≥1, 1_{a+p^hℤ_p} has valuation 0 in LA_h and does not belong to LA_{h−1}; at h=0 it is the constant function 1.",
         "f = Σ_{n≥1} 1_{p^n+p^{2n}ℤ_p} is locally constant on ℤ_p ∖ {0} but not continuous at 0 (f(p^n) = 1, f(0) = 0), so it is not locally analytic: local analyticity needs a positive radius at every point, including 0."
       ],
       "prerequisites": [
@@ -2144,7 +2149,7 @@
         {
           "name": "indicator_not_mem_LAh_pred",
           "kind": "non-example",
-          "statement": "1_{a+p^hℤ_p} ∉ LA_{h−1}."
+          "statement": "For h≥1, 1_{a+p^hℤ_p} ∉ LA_{h−1}; the restriction h≥1 is essential."
         }
       ],
       "planet": {
@@ -2387,7 +2392,7 @@
       ],
       "proofSteps": [
         "Lemma II.2.1: for v_p(z) > u_h, Σ C(x, n)z^n converges to (1 + z)^x in LA_h, since z^n/[n/p^h]! → 0.",
-        "Bounds: v_p(b_n) ≥ v_{LA_h}(μ) + v_{LA_h}(C(x, n)) = v_{LA_h}(μ) − v_p([n/p^h]!) ≥ v_{LA_h}(μ) − nu_h (Amice's basis), so A_μ converges on B(0, u_h⁺); conversely, for f = Σb_nT^n ∈ R⁺, v_p([n/p^h]! b_n) ≥ v_{B(0,u_{h+1})}(f) − 1 → +∞ defines μ by ∫φ μ = Σ b_n a_n(φ).",
+        "Bounds: v_p(b_n)≥v_{LA_h}(μ)−v_p([n/p^h]!) gives the stated stage seminorm inequalities via Amice’s basis. Conversely, choose a positive radius strictly smaller than u_h, for example u_{h+1}/2. Its Gauss bound and v_p([n/p^h]!)=nu_h−O(log(n+1)) imply v_p([n/p^h]!b_n)→+∞. The resulting normalized coefficient family defines a continuous functional on LA_h, compatible on nested stages, by the Mahler coefficient pairing. The lower bound v_{B(0,u_{h+1})}(f)−1 alone does not imply divergence.",
         "Compatibility with measures: both transforms are Σ T^n ∫C(x, n)μ."
       ],
       "acceptance": [
@@ -2584,7 +2589,7 @@
         {
           "name": "digit_doubling_not_C2",
           "kind": "non-example",
-          "statement": "The digit-doubling function is not of class C²."
+          "statement": "For x=Σ_{n≥0}a_n(x)p^n with 0≤a_n(x)<p, the function φ(x)=Σ_{n≥0}a_n(x)p^{2n} is not of class C², despite having derivative zero everywhere."
         }
       ]
     },
@@ -2596,7 +2601,7 @@
       ],
       "title": "Distributions of order r (admissible distributions)",
       "kind": "definition",
-      "statement": "For r ≥ 0, a distribution μ ∈ D(ℤ_p, L) has order r (is r-admissible, or h-admissible with h = r) if it extends continuously to C^r(ℤ_p, L); D_r(ℤ_p, L) = C^r(ℤ_p, L)′. The following are equivalent: (a) μ ∈ D_r; (b) the Amice transform A_μ = Σ b_nT^n has v_p(b_n) + rℓ(n) bounded below (A_μ ∈ R⁺_r); (c) inf_h(v_{B(0,u_h)}(A_μ) + rh) > −∞; (d) v_{D_r}(μ) = inf_n(v_{LA_n}(μ) + rn) > −∞, i.e. ‖μ‖_{LA_n} = O(p^{rn}) (on the ball of radius p^{−n}); (e) there is C with v_p(∫_{a+p^nℤ_p}((x − a)/p^n)^k μ) ≥ C − rn for all a ∈ ℤ_p, k, n. The valuations of (b)–(e) are equivalent to v′_{D_r}, and μ ↦ A_μ is an isometry (D_r, v′_{D_r}) ≅ (R⁺_r, v_r). Orders add under products of transforms and under convolution.",
+      "statement": "For r ≥ 0, a distribution μ ∈ D(ℤ_p, L) has order r (is r-admissible, or h-admissible with h = r) if it extends continuously to C^r(ℤ_p, L); D_r(ℤ_p, L) = C^r(ℤ_p, L)′. The following are equivalent: (a) μ ∈ D_r; (b) the Amice transform A_μ = Σ b_nT^n has v_p(b_n) + rℓ(n) bounded below (A_μ ∈ R⁺_r); (c) inf_h(v_{B(0,u_h)}(A_μ) + rh) > −∞; (d) v_{D_r}(μ) = inf_n(v_{LA_n}(μ) + rn) > −∞, i.e. ‖μ‖_{LA_n} = O(p^{rn}) (on the ball of radius p^{−n}); (e) there is C with v_p(∫_{a+p^nℤ_p}((x − a)/p^n)^k μ) ≥ C − rn for all a ∈ ℤ_p, k, n. The valuations of (b)–(e) are equivalent to v′_{D_r}, and μ ↦ A_μ is an isometry (D_r, v′_{D_r}) ≅ (R⁺_r, v_r). Orders add under products of transforms and under convolution. Here v′_{D_r}(μ) is the dual valuation inf_{φ≠0}(v_p(μ(φ))−v_{C^r}(φ)) for the Mahler valuation v_{C^r}; it is not defined using the Taylor-remainder valuation v′_{C^r}. This fixes the norm convention in the isometry claim.",
       "hypotheses": [
         "L ⊆ ℂ_p is a closed subfield (a finite extension of ℚ_p in applications), v_p the valuation with v_p(p) = 1, and ℓ(n) the number of base-p digits of n (ℓ(0) = 0).",
         "Pollack–Stevens' 'h-admissible' (‖μ‖_s = O(s^{−h}) as s → 0⁺, their Definition 6.1) is (d) with r = h, s = p^{−n}; ModularSymbolsPadicLFunctions L2 requests it in this form.",
@@ -2731,7 +2736,7 @@
       ],
       "title": "The Amice–Vélu–Vishik extension and uniqueness theorem",
       "kind": "theorem",
-      "statement": "Let r ≥ 0 and N ∈ ℕ ∪ {∞} with N ≥ [r]. Let μ be a linear form on the locally polynomial functions of degree ≤ N (equivalently, compatible values ∫_{a+p^nℤ_p} x^i μ for i ≤ N) such that for some C, v_p(∫_{a+p^nℤ_p}((x − a)/p^n)^k μ) ≥ C − rn for all a ∈ ℤ_p, k ≤ N, n ∈ ℕ. Then μ extends uniquely to a distribution of order r. In particular two distributions of order r that agree on locally polynomial functions of degree ≤ N coincide when N ≥ [r], i.e. when r < N + 1. For r = N + 1 uniqueness fails: d^{N+1}δ₀ (φ ↦ ±φ^{(N+1)}(0)) is a nonzero distribution of order N + 1 vanishing on all locally polynomial functions of degree ≤ N.",
+      "statement": "Let r ≥ 0 and N ∈ ℕ ∪ {∞} with N ≥ [r]. Let μ be a linear form on the locally polynomial functions of degree ≤ N (equivalently, compatible values ∫_{a+p^nℤ_p} x^i μ for i ≤ N) such that for some C, v_p(∫_{a+p^nℤ_p}((x − a)/p^n)^k μ) ≥ C − rn for all a ∈ ℤ_p, k ≤ N, n ∈ ℕ. Then μ extends uniquely to a distribution of order r. In particular two distributions of order r that agree on locally polynomial functions of degree ≤ N coincide when N ≥ [r], i.e. when r < N + 1. For r = N + 1 uniqueness fails: d^{N+1}δ₀ (φ ↦ φ^{(N+1)}(0)) is a nonzero distribution of order N + 1 vanishing on all locally polynomial functions of degree ≤ N.",
       "hypotheses": [
         "L ⊆ ℂ_p is a closed subfield (a finite extension of ℚ_p in applications), v_p the valuation with v_p(p) = 1, and ℓ(n) the number of base-p digits of n (ℓ(0) = 0).",
         "The strict threshold r < N + 1 is the small-slope condition h < k + 1 of ModularSymbolsPadicLFunctions L2 (N = k, r = h); at critical slope h = k + 1 this theorem does not apply.",
@@ -3342,7 +3347,8 @@
       ],
       "prerequisites": [
         "LocallyAnalyticDistributions:L4/coefficient-continuity",
-        "LocallyAnalyticDistributions:L4/minor-tail-estimate"
+        "LocallyAnalyticDistributions:L4/minor-tail-estimate",
+        "LocallyAnalyticDistributions:L4/entire-series"
       ],
       "proofSteps": [
         "Choose a uniformly small tail in degree using minor-tail-estimate for both u_s and u.",
@@ -3448,12 +3454,13 @@
       ],
       "prerequisites": [
         "LocallyAnalyticDistributions:L4/finite-submodule-approximation",
-        "LocallyAnalyticDistributions:L4/determinant-invariance"
+        "LocallyAnalyticDistributions:L4/determinant-invariance",
+        "mathlib:Matrix.det_one_sub_mul_comm"
       ],
       "proofSteps": [
         "First truncate u to have finite free coordinate image G. Then truncate v only on v(G), using the uniform finite-submodule estimate.",
         "Reduce both determinants to finite free modules and use the rectangular finite determinant identity, then pass to coefficients in the two approximation steps.",
-        "Do not assert pi_S v->v globally: the source explicitly avoids that false step. The exact pinned rectangular-identity declaration is not yet audited and is listed as a gap."
+        "Do not assert pi_S v→v globally. The two finite-image approximations and the native rectangular identity are separate inputs; the finite-free-image determinant transport remains an analytic proof-closure input."
       ],
       "acceptance": [
         "The formula is a power-series identity, unlike evaluated-product-on."
@@ -3461,7 +3468,7 @@
       "sources": [
         {
           "sourceId": "Buzzard-Eigenvarieties-2006",
-          "locator": "Lemma 2.7 and its complete proof, pp. 14-15",
+          "locator": "Lemma 2.7 and its complete proof, pp. 15–16",
           "match": "Preserves the two distinct finite-module truncations and the one-compact-factor hypothesis."
         }
       ],
@@ -12266,7 +12273,7 @@
       "sources": [
         {
           "sourceId": "COLMEZ-NIZIOL-2025",
-          "locator": "Appendix A, Lemmas A.1–A.4 and Remark A.6, printed pp. 58–59",
+          "locator": "Appendix A, Propositions A.1, A.3, A.4 and Remark A.2 and Remark A.6, printed pp. 58–59",
           "match": "Source-grounded contract; the proof steps specify any worker deduction and imported inputs separately."
         }
       ],
@@ -12288,7 +12295,7 @@
         "LocallyAnalyticDistributions:L0/strict-sequence-comparison"
       ],
       "proofSteps": [
-        "Apply CN Lemma A.1: bounded lattices in the two outer terms give a bounded neighborhood lattice in the middle.",
+        "Apply CN Proposition A.1: bounded lattices in the two outer terms give a bounded neighborhood lattice in the middle.",
         "Use the strict extension to show this lattice absorbs and separates points, then completeness of the ends to establish completeness of the resulting equivalent norm. Record the left-heart representation step as a foundational input."
       ],
       "acceptance": [
@@ -12297,7 +12304,7 @@
       "sources": [
         {
           "sourceId": "COLMEZ-NIZIOL-2025",
-          "locator": "Appendix A, Lemma A.1, printed p. 58",
+          "locator": "Appendix A, Proposition A.1, printed p. 58",
           "match": "Source-grounded contract; the proof steps specify any worker deduction and imported inputs separately."
         }
       ],
@@ -12331,7 +12338,7 @@
       "sources": [
         {
           "sourceId": "COLMEZ-NIZIOL-2025",
-          "locator": "Appendix A, Lemma A.2, printed p. 58",
+          "locator": "Appendix A, Remark A.2, printed p. 58",
           "match": "Source-grounded contract; the proof steps specify any worker deduction and imported inputs separately."
         }
       ],
@@ -12354,7 +12361,7 @@
         "LocallyAnalyticDistributions:L0/banach-three-space"
       ],
       "proofSteps": [
-        "Choose countable defining systems of seminorms on the outer terms and the compatible quotient neighborhoods used in CN Lemma A.3.",
+        "Choose countable defining systems of seminorms on the outer terms and the compatible quotient neighborhoods used in CN Proposition A.3.",
         "The induced countable family on the middle term makes it metrizable; completeness follows by lifting a Cauchy sequence and correcting its errors inside the complete kernel. The foundational left-heart comparison is retained as an input."
       ],
       "acceptance": [
@@ -12363,7 +12370,7 @@
       "sources": [
         {
           "sourceId": "COLMEZ-NIZIOL-2025",
-          "locator": "Appendix A, Lemma A.3, printed p. 58",
+          "locator": "Appendix A, Proposition A.3, printed p. 58",
           "match": "Source-grounded contract; the proof steps specify any worker deduction and imported inputs separately."
         }
       ],
@@ -12387,7 +12394,7 @@
         "LocallyAnalyticDistributions:L0/banach-splitting"
       ],
       "proofSteps": [
-        "Follow CN Lemma A.4 by dualizing to nuclear Fréchet spaces, applying the cited extension theorem there, and dualizing back.",
+        "Follow CN Proposition A.4 by dualizing to nuclear Fréchet spaces, applying the cited extension theorem there, and dualizing back.",
         "The vanishing of Ext¹ for the separated compact-type terms and reflexivity are required, not consequences of an arbitrary algebraic extension.",
         "Record CN’s cited Lemma 2.5 of Colmez–Gilles–Nizioł and Dierolf–Roelcke Proposition 3.8 as unread proof-closure inputs."
       ],
@@ -12398,7 +12405,7 @@
       "sources": [
         {
           "sourceId": "COLMEZ-NIZIOL-2025",
-          "locator": "Appendix A, Lemma A.4, printed pp. 58–59",
+          "locator": "Appendix A, Proposition A.4, printed pp. 58–59",
           "match": "Source-grounded contract; the proof steps specify any worker deduction and imported inputs separately."
         }
       ],
@@ -12469,7 +12476,7 @@
         {
           "name": "AnalyticDistributionTests.analyticStage_geometric_excluded",
           "kind": "non-example",
-          "statement": "The coefficient family constantly 1 in positive dimension is not a radius-h analytic stage element."
+          "statement": "For a nonempty chart set and positive analytic dimension, the coefficient family constantly 1 is not a radius-h analytic stage element. With no charts the space is zero."
         }
       ],
       "uses": [
@@ -13275,9 +13282,9 @@
         "LocallyAnalyticDistributions:L0/compact-type-dual-reflexivity"
       ],
       "proofSteps": [
-        "Use Kohlhaase Proposition 4.2: a split smooth-distribution quotient for a nondiscrete group would make all locally analytic functions bounded on one fixed neighborhood lattice and hence locally constant.",
-        "Apply Corollary 4.3 to Z_p and transpose a hypothetical section.",
-        "The cohomological resolution/strict smooth quotient needed for Proposition 4.2 is an explicit proof input, not a one-line consequence of local integration."
+        "A section of differentiation would give a continuous projection onto its locally constant kernel, hence split the smooth-distribution quotient by strong-dual reflexivity. Following Kohlhaase Proposition 4.2, extend scalars to a complete valued field containing C_p using its completed distribution scalar-extension identity (37); the split quotient remains split. This coefficient-extension identity is an additional explicit proof input.",
+        "A split smooth quotient gives a strict surjection from locally analytic functions to locally constant functions. The analytic space has a bounded O_K-submodule whose K-linear span is dense, obtained from the unit ball of a dense Banach stage. Its image would be a bounded submodule with dense span in the smooth-function space; this is the meaning of total, not metric total boundedness.",
+        "The smooth-function space is a strict LF limit of finite-dimensional residue-level spaces. Every bounded set lies in one finite-dimensional level, which is closed and proper for nondiscrete Z_p, so its span cannot be dense. This contradiction is Corollary 4.3. Strict quotient topology, completed coefficient extension, reflexivity, the dense-span bounded analytic submodule and the strict-LF bounded-set theorem remain explicit foundational inputs."
       ],
       "acceptance": [
         "Choosing algebraic primitives does not give a continuous section of the LF topology."
@@ -13694,7 +13701,7 @@
       ],
       "kind": "lemma",
       "title": "Determination by finite characters and polynomial moments",
-      "statement": "A tensor distribution of order r with r_i<N_i+1 is determined by all moments χ(x)∏x_i^{j_i} with finite-order χ of Z_p^g and 0≤j_i≤N_i, after a finite splitting-field coefficient extension. These functions span the locally polynomial test spaces at each finite residue level.",
+      "statement": "A tensor distribution of order r with r_i<N_i+1 is determined by its finite-character polynomial moments, interpreted after coefficient extension as follows: at each finite residue level choose a finite extension containing the characters of that quotient, and test χ(x)∏x_i^{j_i} for 0≤j_i≤N_i. Fourier inversion makes these functions span that level’s locally polynomial tests. The extension may vary with the level; no single finite extension contains all p-power-order characters.",
       "hypotheses": [
         "Unless the statement explicitly gives broader field hypotheses, K is a finite extension of Q_p with v_p(p)=1, X is a compact finite-dimensional Q_p-analytic manifold, and an affinoid coefficient A has a chosen complete submultiplicative ultrametric Banach norm. Numerical slopes are tested on geometric rank-one fibres."
       ],
@@ -13702,7 +13709,7 @@
         "LocallyAnalyticDistributions:L2/tensor-multidegree-extension"
       ],
       "proofSteps": [
-        "Use finite Fourier inversion on each quotient (Z/p^mZ)^g.",
+        "For each finite quotient (Z/p^mZ)^g use Fourier inversion over its own finite splitting extension; finite coefficient extension is faithful and the resulting equalities descend to K.",
         "Expand centered monomials in ordinary monomials.",
         "The moment equalities imply equality on the dense locally polynomial subspace and hence equality of continuous functionals."
       ],
@@ -13760,9 +13767,10 @@
       ],
       "kind": "comparison",
       "title": "Isotropic and vector growth bounds differ",
-      "statement": "The isotropic order-r norm on Z_p^g weights a multivariate locally constant wavelet by p^(floor(r·max_iℓ(n_i))); tensor vector order weights by p^(Σ_i floor(r_iℓ(n_i))). Their extension criteria use, respectively, equal-radius cosets and all rectangular cosets. They must not be identified merely by r=Σ_i r_i.",
+      "statement": "For 0≤r<1 and 0≤r_i<1, the isotropic order-r norm on Z_p^g weights a multivariate locally constant wavelet by p^(floor(r·max_iℓ(n_i))); tensor vector order weights it by p^(Σ_i floor(r_iℓ(n_i))). Their extension criteria use equal-radius cosets and all rectangular cosets, respectively. They must not be identified merely by r=Σ_i r_i. Higher orders require the locally polynomial wavelets already specified in anisotropic-tensor-wavelets.",
       "hypotheses": [
-        "Unless the statement explicitly gives broader field hypotheses, K is a finite extension of Q_p with v_p(p)=1, X is a compact finite-dimensional Q_p-analytic manifold, and an affinoid coefficient A has a chosen complete submultiplicative ultrametric Banach norm. Numerical slopes are tested on geometric rank-one fibres."
+        "Unless the statement explicitly gives broader field hypotheses, K is a finite extension of Q_p with v_p(p)=1, X is a compact finite-dimensional Q_p-analytic manifold, and an affinoid coefficient A has a chosen complete submultiplicative ultrametric Banach norm. Numerical slopes are tested on geometric rank-one fibres.",
+        "The displayed locally constant wavelet comparison assumes 0≤r<1 and 0≤r_i<1 for every coordinate; when comparing r=Σr_i require this sum to be less than 1."
       ],
       "prerequisites": [
         "LocallyAnalyticDistributions:L2/anisotropic-tensor-wavelets",
@@ -13773,7 +13781,7 @@
         "Equal-radius bounds constrain only one ray of the conductor lattice; rectangular growth supplies independent coordinate control."
       ],
       "acceptance": [
-        "With g=2 and r_1=r_2>0, indices (p^m,1) and (p^m,p^m) distinguish the sum and maximum weights."
+        "For g=2, r_1=r_2=s with 0<s<1/2 and r=2s, indices (p^m,1) and (p^m,p^m) distinguish the sum and maximum weights."
       ],
       "sources": [
         {
@@ -14277,17 +14285,17 @@
       ],
       "kind": "comparison",
       "title": "Rigid and adic Mellin comparison",
-      "statement": "On the character space supplied by PMIA L0a, the rigid Mellin function corresponds under the imported rigid/adic equivalence to an adic analytic section. Its restrictions on affinoid character charts agree with the radius-wise Mellin seminorms and with character evaluation at rank-one points.",
+      "statement": "Conditional on the requested rigid/adic comparison for finite-type character-space charts, the rigid Mellin function corresponds to an adic analytic section on the PMIA L0a character space. Restrictions on corresponding affinoid charts agree with radius-wise Mellin seminorms and with rank-one character evaluation. Upstream AdicSpaces Layer 5 supplies adic spaces and discs, but does not state this comparison.",
       "hypotheses": [
         "Unless the statement explicitly gives broader field hypotheses, K is a finite extension of Q_p with v_p(p)=1, X is a compact finite-dimensional Q_p-analytic manifold, and an affinoid coefficient A has a chosen complete submultiplicative ultrametric Banach norm. Numerical slopes are tested on geometric rank-one fibres."
       ],
       "prerequisites": [
         "LocallyAnalyticDistributions:L3/mellin-frechet-isomorphism",
-        "tauceti:TauCetiRoadmap/AdicSpaces#layer-5-adic-spaces-and-elementary-geometry",
-        "PadicMeasuresIwasawaAlgebras:L0a"
+        "PadicMeasuresIwasawaAlgebras:L0a",
+        "AdicSpacesPartII:R3"
       ],
       "proofSteps": [
-        "Import the rigid/adic equivalence and the geometric character space; do not define a new representability functor.",
+        "Obtain the explicitly requested rigid/adic comparison, chart-section compatibility and rank-one evaluation from AdicSpaces Part II. Import the PMIA geometric character space; do not replan representability or treat the comparison as already in upstream Layer 5.",
         "Identify sections on the same rational affinoid charts and glue using the sheaf equalities."
       ],
       "acceptance": [
@@ -14515,7 +14523,7 @@
         {
           "name": "AnalyticDistributionTests.distributionStage_bounded_not_c0",
           "kind": "non-example",
-          "statement": "The functional summing all coefficients has basis values constantly 1, so lies in the dual while its basis family is not c₀ on an infinite index set."
+          "statement": "Over complete ultrametric K (or a complete ultrametric coefficient algebra with the stated bounded action), summing a c₀ coefficient family is continuous. Its basis values are constantly 1, so the dual contains this functional although its basis family is not c₀ on an infinite index set. This test does not hold over the real numbers."
         }
       ],
       "uses": [
@@ -15430,7 +15438,7 @@
       "proofSteps": [
         "The scalar maps commute with the differential and their determinants are 1−aT.",
         "The identity complex is contractible by its inverse differential.",
-        "Its cohomology is zero, while for a≠0 the raw product has a zero after coefficient extension."
+        "For a=1 and nonzero A the raw product has a zero at T=1 on every geometric fibre, although cohomology vanishes. A nonzero nilpotent a would give no such fibre zero, so nonzero a alone is not sufficient."
       ],
       "acceptance": [
         "At a=1 the two products are (1−T)^2 and 1."
@@ -15454,7 +15462,8 @@
       "title": "Numerical h-slope decomposition",
       "statement": "For a continuous operator U on a Banach A-module, an h-slope decomposition is M=M^{≤h}⊕M^{>h}, continuously split and U-stable, with M^{≤h} finite projective, annihilated by a monic polynomial with unit constant term whose roots on every geometric rank-one fibre have valuation ≤h, and every monic polynomial with unit constant term and roots of valuation ≤h on every such fibre acting invertibly on M^{>h}. In reciprocal Fredholm coordinates Q(0)=1, the corresponding roots of Q have valuation ≥−h. The complement uses ≤h, including the endpoint. The annihilator excludes zero eigenvalues; zero has valuation +∞ and belongs to the >h part for finite h.",
       "hypotheses": [
-        "Unless the statement explicitly gives broader field hypotheses, K is a finite extension of Q_p with v_p(p)=1, X is a compact finite-dimensional Q_p-analytic manifold, and an affinoid coefficient A has a chosen complete submultiplicative ultrametric Banach norm. Numerical slopes are tested on geometric rank-one fibres."
+        "Unless the statement explicitly gives broader field hypotheses, K is a finite extension of Q_p with v_p(p)=1, X is a compact finite-dimensional Q_p-analytic manifold, and an affinoid coefficient A has a chosen complete submultiplicative ultrametric Banach norm. Numerical slopes are tested on geometric rank-one fibres.",
+        "The numerical slope bound h is rational, as in the cited slope-decomposition and local-constancy statements; endpoint inequalities are inclusive on the finite-slope side."
       ],
       "prerequisites": [
         "LocallyAnalyticDistributions:L4/finite-slope-summands"
@@ -15535,7 +15544,8 @@
       "title": "Functoriality of slope projectors",
       "statement": "A continuous A-linear map intertwining two operators with h-slope decompositions preserves their ≤h and >h summands, and commutes with the projectors.",
       "hypotheses": [
-        "Unless the statement explicitly gives broader field hypotheses, K is a finite extension of Q_p with v_p(p)=1, X is a compact finite-dimensional Q_p-analytic manifold, and an affinoid coefficient A has a chosen complete submultiplicative ultrametric Banach norm. Numerical slopes are tested on geometric rank-one fibres."
+        "Unless the statement explicitly gives broader field hypotheses, K is a finite extension of Q_p with v_p(p)=1, X is a compact finite-dimensional Q_p-analytic manifold, and an affinoid coefficient A has a chosen complete submultiplicative ultrametric Banach norm. Numerical slopes are tested on geometric rank-one fibres.",
+        "The numerical slope bound h is rational, as in the cited slope-decomposition and local-constancy statements; endpoint inequalities are inclusive on the finite-slope side."
       ],
       "prerequisites": [
         "LocallyAnalyticDistributions:L4/numerical-slope-decomposition",
@@ -15567,7 +15577,8 @@
       "title": "Uniqueness of the h-slope decomposition",
       "statement": "An h-slope decomposition with the inclusive complement condition is unique as a continuous pair of summands. The projectors agree for any two such decompositions.",
       "hypotheses": [
-        "Unless the statement explicitly gives broader field hypotheses, K is a finite extension of Q_p with v_p(p)=1, X is a compact finite-dimensional Q_p-analytic manifold, and an affinoid coefficient A has a chosen complete submultiplicative ultrametric Banach norm. Numerical slopes are tested on geometric rank-one fibres."
+        "Unless the statement explicitly gives broader field hypotheses, K is a finite extension of Q_p with v_p(p)=1, X is a compact finite-dimensional Q_p-analytic manifold, and an affinoid coefficient A has a chosen complete submultiplicative ultrametric Banach norm. Numerical slopes are tested on geometric rank-one fibres.",
+        "The numerical slope bound h is rational, as in the cited slope-decomposition and local-constancy statements; endpoint inequalities are inclusive on the finite-slope side."
       ],
       "prerequisites": [
         "LocallyAnalyticDistributions:L4/slope-functoriality"
@@ -15598,7 +15609,8 @@
       "title": "The finite-slope subcomplex",
       "statement": "If a degreewise compact cochain representative admits a common h-slope decomposition in every degree, the ≤h summands form a bounded subcomplex, the >h summands form its complementary subcomplex, and the cochain projections are continuous.",
       "hypotheses": [
-        "Unless the statement explicitly gives broader field hypotheses, K is a finite extension of Q_p with v_p(p)=1, X is a compact finite-dimensional Q_p-analytic manifold, and an affinoid coefficient A has a chosen complete submultiplicative ultrametric Banach norm. Numerical slopes are tested on geometric rank-one fibres."
+        "Unless the statement explicitly gives broader field hypotheses, K is a finite extension of Q_p with v_p(p)=1, X is a compact finite-dimensional Q_p-analytic manifold, and an affinoid coefficient A has a chosen complete submultiplicative ultrametric Banach norm. Numerical slopes are tested on geometric rank-one fibres.",
+        "The numerical slope bound h is rational, as in the cited slope-decomposition and local-constancy statements; endpoint inequalities are inclusive on the finite-slope side."
       ],
       "prerequisites": [
         "LocallyAnalyticDistributions:L4/compact-complex-representative",
@@ -15630,7 +15642,8 @@
       "title": "A finite perfect model on a slope window",
       "statement": "On an affinoid where the chosen representative product has a slope-adapted coprime factorization selecting the same finite h-window in each degree, the preceding ≤h subcomplex is a bounded complex of finite-projective A-modules, hence a perfect complex. Only the selected finite window has this algebraic finiteness assertion.",
       "hypotheses": [
-        "Unless the statement explicitly gives broader field hypotheses, K is a finite extension of Q_p with v_p(p)=1, X is a compact finite-dimensional Q_p-analytic manifold, and an affinoid coefficient A has a chosen complete submultiplicative ultrametric Banach norm. Numerical slopes are tested on geometric rank-one fibres."
+        "Unless the statement explicitly gives broader field hypotheses, K is a finite extension of Q_p with v_p(p)=1, X is a compact finite-dimensional Q_p-analytic manifold, and an affinoid coefficient A has a chosen complete submultiplicative ultrametric Banach norm. Numerical slopes are tested on geometric rank-one fibres.",
+        "The numerical slope bound h is rational, as in the cited slope-decomposition and local-constancy statements; endpoint inequalities are inclusive on the finite-slope side."
       ],
       "prerequisites": [
         "LocallyAnalyticDistributions:L4/complex-product-entire",
@@ -15664,7 +15677,8 @@
       "title": "Cohomology and finite slopes",
       "statement": "For such a split cochain representative, H^j(C^{≤h}) identifies algebraically with the h-slope part of H^j(C). Cohomology is formed as ker d/im d even when im d is not closed; no Hausdorff Banach norm on arbitrary H^j(C) is assumed.",
       "hypotheses": [
-        "Unless the statement explicitly gives broader field hypotheses, K is a finite extension of Q_p with v_p(p)=1, X is a compact finite-dimensional Q_p-analytic manifold, and an affinoid coefficient A has a chosen complete submultiplicative ultrametric Banach norm. Numerical slopes are tested on geometric rank-one fibres."
+        "Unless the statement explicitly gives broader field hypotheses, K is a finite extension of Q_p with v_p(p)=1, X is a compact finite-dimensional Q_p-analytic manifold, and an affinoid coefficient A has a chosen complete submultiplicative ultrametric Banach norm. Numerical slopes are tested on geometric rank-one fibres.",
+        "The numerical slope bound h is rational, as in the cited slope-decomposition and local-constancy statements; endpoint inequalities are inclusive on the finite-slope side."
       ],
       "prerequisites": [
         "LocallyAnalyticDistributions:L4/slope-subcomplex",
@@ -15697,7 +15711,8 @@
       "title": "Homotopy invariance on a finite slope window",
       "statement": "Continuous U-equivariant cochain homotopy equivalences induce homotopy equivalences between their finite h-slope complexes on common slope-adapted affinoids. Their finite-slope cohomology and coherent support agree, even though their raw representative products may differ.",
       "hypotheses": [
-        "Unless the statement explicitly gives broader field hypotheses, K is a finite extension of Q_p with v_p(p)=1, X is a compact finite-dimensional Q_p-analytic manifold, and an affinoid coefficient A has a chosen complete submultiplicative ultrametric Banach norm. Numerical slopes are tested on geometric rank-one fibres."
+        "Unless the statement explicitly gives broader field hypotheses, K is a finite extension of Q_p with v_p(p)=1, X is a compact finite-dimensional Q_p-analytic manifold, and an affinoid coefficient A has a chosen complete submultiplicative ultrametric Banach norm. Numerical slopes are tested on geometric rank-one fibres.",
+        "The numerical slope bound h is rational, as in the cited slope-decomposition and local-constancy statements; endpoint inequalities are inclusive on the finite-slope side."
       ],
       "prerequisites": [
         "LocallyAnalyticDistributions:L4/slope-functoriality",
@@ -15731,7 +15746,8 @@
       "title": "Derived base change of a finite slope complex",
       "statement": "On compatible slope-adapted affinoids A→B, the finite perfect slope complex base changes to C^{≤h}⊗_A B and represents its derived tensor product. It agrees with the finite slope complex over B once the imported operator/factorization base-change hypotheses hold. Cohomology commutes with underived base change only under additional flatness or vanishing-Tor hypotheses.",
       "hypotheses": [
-        "Unless the statement explicitly gives broader field hypotheses, K is a finite extension of Q_p with v_p(p)=1, X is a compact finite-dimensional Q_p-analytic manifold, and an affinoid coefficient A has a chosen complete submultiplicative ultrametric Banach norm. Numerical slopes are tested on geometric rank-one fibres."
+        "Unless the statement explicitly gives broader field hypotheses, K is a finite extension of Q_p with v_p(p)=1, X is a compact finite-dimensional Q_p-analytic manifold, and an affinoid coefficient A has a chosen complete submultiplicative ultrametric Banach norm. Numerical slopes are tested on geometric rank-one fibres.",
+        "The numerical slope bound h is rational, as in the cited slope-decomposition and local-constancy statements; endpoint inequalities are inclusive on the finite-slope side."
       ],
       "prerequisites": [
         "LocallyAnalyticDistributions:L4/finite-slope-perfect-complex",
@@ -15764,7 +15780,8 @@
       "title": "Local constancy of exact-slope module rank",
       "statement": "For a compact operator on a projective Banach affinoid module and fixed finite h, the dimension of its exact-h fibre summand is locally constant near each rank-one point in the rank-one locus. Use slope-adapted finite-projective windows and neighborhoods on which the relevant eigenvalue norms remain in the selected bands. This assertion is not a cover of all higher-rank points of Spa(A).",
       "hypotheses": [
-        "Unless the statement explicitly gives broader field hypotheses, K is a finite extension of Q_p with v_p(p)=1, X is a compact finite-dimensional Q_p-analytic manifold, and an affinoid coefficient A has a chosen complete submultiplicative ultrametric Banach norm. Numerical slopes are tested on geometric rank-one fibres."
+        "Unless the statement explicitly gives broader field hypotheses, K is a finite extension of Q_p with v_p(p)=1, X is a compact finite-dimensional Q_p-analytic manifold, and an affinoid coefficient A has a chosen complete submultiplicative ultrametric Banach norm. Numerical slopes are tested on geometric rank-one fibres.",
+        "The numerical slope bound h is rational, as in the cited slope-decomposition and local-constancy statements; endpoint inequalities are inclusive on the finite-slope side."
       ],
       "prerequisites": [
         "LocallyAnalyticDistributions:L4/numerical-slope-decomposition",
@@ -15773,7 +15790,7 @@
       "proofSteps": [
         "Isolate the finitely many roots in a bounded slope window near the point.",
         "Choose strict gaps around h for all unequal slopes and use the local finite factorization to preserve multiplicities of the exact-h band.",
-        "Coleman A5.5 is stated over the closed-disc base; extension to general affinoids and nonreduced finite-projective rank remains an explicit proof input."
+        "Pilloni Proposition 13.1.3.1 and its proof assert exact-h module-rank local constancy for rational h at rank-one points. Coleman A5.5 and A5.5.1 give degree strata and local finiteness for quasi-finite affinoid maps over a closed disc, rather than directly stating an exact-slope theorem. The passage from these geometric inputs to general-affinoid finite-projective windows, including nonreduced coefficients, remains an explicit proof gap."
       ],
       "acceptance": [
         "For a scalar nonzero a, perturbations smaller than |a| have the same valuation."
@@ -15781,8 +15798,13 @@
       "sources": [
         {
           "sourceId": "PILLONI-2020",
-          "locator": "Proposition 13.1.3.1 and proof, author p. 85; Coleman Proposition A5.5 and Corollary A5.5.1, printed pp. 441–442",
-          "match": "Source-grounded contract; the proof steps specify any worker deduction and imported inputs separately."
+          "locator": "Proposition 13.1.3.1 and its proof, author pp. 84–85",
+          "match": "Exact-h module-rank local constancy is used in the proof, for rational h at rank-one points."
+        },
+        {
+          "sourceId": "Coleman-PadicBanach-published-1997",
+          "locator": "Proposition A5.5 and Corollary A5.5.1, printed pp. 441–442 (PDF pp. 25–26)",
+          "match": "Closed-disc quasi-finite geometry and local-finiteness input; this is not itself an exact-slope theorem."
         }
       ],
       "implementationStatus": "unchecked"
@@ -15797,7 +15819,8 @@
       "title": "Local constancy of the finite-slope Euler characteristic",
       "statement": "For a bounded finite-projective slope complex in a rank-one weight neighborhood, the alternating sum of exact-h fibre cohomology dimensions is locally constant, equal to the alternating sum of the locally constant ranks of its exact-h terms. Individual cohomology dimensions may jump.",
       "hypotheses": [
-        "Unless the statement explicitly gives broader field hypotheses, K is a finite extension of Q_p with v_p(p)=1, X is a compact finite-dimensional Q_p-analytic manifold, and an affinoid coefficient A has a chosen complete submultiplicative ultrametric Banach norm. Numerical slopes are tested on geometric rank-one fibres."
+        "Unless the statement explicitly gives broader field hypotheses, K is a finite extension of Q_p with v_p(p)=1, X is a compact finite-dimensional Q_p-analytic manifold, and an affinoid coefficient A has a chosen complete submultiplicative ultrametric Banach norm. Numerical slopes are tested on geometric rank-one fibres.",
+        "The numerical slope bound h is rational, as in the cited slope-decomposition and local-constancy statements; endpoint inequalities are inclusive on the finite-slope side."
       ],
       "prerequisites": [
         "LocallyAnalyticDistributions:L4/finite-slope-perfect-complex",
@@ -15830,7 +15853,8 @@
       "title": "Extension through a factorized operator",
       "statement": "Suppose r:D→C and a:C→D are continuous intertwining maps with U_C=r a and U_D=a r. If a cohomology class f in C satisfies f=P(U_C)f with P(0)=0, write P=XQ and define its extension to D by a(Q(U_C)f). Then restricting it by r gives f. This is the type-correct finite-slope extension formula.",
       "hypotheses": [
-        "Unless the statement explicitly gives broader field hypotheses, K is a finite extension of Q_p with v_p(p)=1, X is a compact finite-dimensional Q_p-analytic manifold, and an affinoid coefficient A has a chosen complete submultiplicative ultrametric Banach norm. Numerical slopes are tested on geometric rank-one fibres."
+        "Unless the statement explicitly gives broader field hypotheses, K is a finite extension of Q_p with v_p(p)=1, X is a compact finite-dimensional Q_p-analytic manifold, and an affinoid coefficient A has a chosen complete submultiplicative ultrametric Banach norm. Numerical slopes are tested on geometric rank-one fibres.",
+        "The numerical slope bound h is rational, as in the cited slope-decomposition and local-constancy statements; endpoint inequalities are inclusive on the finite-slope side."
       ],
       "prerequisites": [
         "LocallyAnalyticDistributions:L4/cohomology-slope-comparison"
@@ -15861,7 +15885,8 @@
       "title": "Independence of the finite-slope extension polynomial",
       "statement": "Under the factorized-map hypotheses and finite h-slope decompositions, restriction r:D^{≤h}→C^{≤h} is an isomorphism with inverse a·U_C^(−1). Therefore the finite-slope extension does not depend on the choice of P=XQ satisfying f=P(U_C)f.",
       "hypotheses": [
-        "Unless the statement explicitly gives broader field hypotheses, K is a finite extension of Q_p with v_p(p)=1, X is a compact finite-dimensional Q_p-analytic manifold, and an affinoid coefficient A has a chosen complete submultiplicative ultrametric Banach norm. Numerical slopes are tested on geometric rank-one fibres."
+        "Unless the statement explicitly gives broader field hypotheses, K is a finite extension of Q_p with v_p(p)=1, X is a compact finite-dimensional Q_p-analytic manifold, and an affinoid coefficient A has a chosen complete submultiplicative ultrametric Banach norm. Numerical slopes are tested on geometric rank-one fibres.",
+        "The numerical slope bound h is rational, as in the cited slope-decomposition and local-constancy statements; endpoint inequalities are inclusive on the finite-slope side."
       ],
       "prerequisites": [
         "LocallyAnalyticDistributions:L4/factorized-finite-slope-extension",
@@ -15975,7 +16000,8 @@
       "title": "Finite slopes of a compact Fréchet factorization",
       "statement": "If the stage operators in the preceding factorization have h-slope decompositions with finite-projective ≤h summands, the transitions identify all stage ≤h summands; the induced Fréchet operator has this common finite-slope module. Its characteristic finite-window factor is independent of the chosen stage.",
       "hypotheses": [
-        "Unless the statement explicitly gives broader field hypotheses, K is a finite extension of Q_p with v_p(p)=1, X is a compact finite-dimensional Q_p-analytic manifold, and an affinoid coefficient A has a chosen complete submultiplicative ultrametric Banach norm. Numerical slopes are tested on geometric rank-one fibres."
+        "Unless the statement explicitly gives broader field hypotheses, K is a finite extension of Q_p with v_p(p)=1, X is a compact finite-dimensional Q_p-analytic manifold, and an affinoid coefficient A has a chosen complete submultiplicative ultrametric Banach norm. Numerical slopes are tested on geometric rank-one fibres.",
+        "The numerical slope bound h is rational, as in the cited slope-decomposition and local-constancy statements; endpoint inequalities are inclusive on the finite-slope side."
       ],
       "prerequisites": [
         "LocallyAnalyticDistributions:L4/compact-frechet-factorization",
@@ -16251,7 +16277,7 @@
         "Implement the separated nonarchimedean projective tensor completion, analytic base change, dual scalar-extension image theorem and actual specialization. Verify (Pr) for each same-stage distribution module used in Fredholm theory instead of assuming it for all continuous duals.",
         "Close the actual universal-character semigroup chart/multiplier construction, uniform radii and destination Taylor tail estimates; import its arithmetic semigroup and root-data input.",
         "Refine the numerical-slope root-location/fibre interface, finite-slope functor for endomorphisms commuting up to continuous homotopy, and native perfect/derived base-change signatures. The representative-product counterexample forbids claiming raw spectral support invariant.",
-        "Prove exact-h local constancy for general affinoids from finite slope windows; Coleman A5.5 only supplies the checked closed-disc base case. Preserve the rank-one restriction and the distinction between Euler characteristic and individual cohomology dimensions.",
+        "Prove exact-h local constancy for general affinoids from finite slope windows; Coleman A5.5 supplies closed-disc quasi-finite geometry, not the full exact-slope theorem. Preserve the rank-one restriction and the distinction between Euler characteristic and individual cohomology dimensions.",
         "Obtain the geometric Stein/inner compact-restriction comparison from AdicSpacesPartII R3 and the full solid f_*f^* comparison from the shared Part II proposal. Ordinary inversion or a direct union of finite windows does not discharge BCGP25."
       ],
       "notes": "Target contracts have been added across this stage in the 303-node pass. Existing composite declarations and the explicit foundational/proof gaps still need lemma-level refinement; the stage is not closed."
@@ -16277,7 +16303,7 @@
     },
     {
       "title": "Finite free and finite projective algebra interfaces",
-      "detail": "Native monic quotient basis, quotient algebra norm/resultant and polynomial Bezout criteria are already cited. Remaining: finite-projective determinant and Cayley–Hamilton, rank and leading coefficient over nonreduced coefficients, and the rectangular Sylvester identity in operator comparison. The A=K×K and dual-number tests must remain; field-only ranks do not suffice."
+      "detail": "Native monic quotient basis, quotient algebra norm/resultant and polynomial Bezout criteria are already cited. Remaining: finite-projective determinant and Cayley–Hamilton, rank and leading coefficient over nonreduced coefficients. The rectangular determinant identity itself is native Matrix.det_one_sub_mul_comm; its finite-free-image analytic transport remains to be justified. The A=K×K and dual-number tests must remain; field-only ranks do not suffice."
     },
     {
       "title": "Remaining analytic helper and API granularity",
@@ -16303,9 +16329,10 @@
       "neededBy": [
         "LocallyAnalyticDistributions:L3/finite-character-component-mellin",
         "LocallyAnalyticDistributions:L3/branch-mellin",
-        "LocallyAnalyticDistributions:L3/meromorphic-mellin-clearing"
+        "LocallyAnalyticDistributions:L3/meromorphic-mellin-clearing",
+        "LocallyAnalyticDistributions:L3/mellin-adic-comparison"
       ],
-      "detail": "The current pass supplies target contracts for the global unbounded component Mellin equivalence, inverse bounded comparison, branch analyticity, derivatives, twists, multivariable pushforward, finite coefficient extension, rigid/adic comparison and meromorphic gluing. Their compact-type dual topology, imported universal-character coordinates and actual sheaf/section carriers still need construction. Native bounded component and scalar branch adapters alone do not prove the global equivalence or pseudomeasure gluing."
+      "detail": "The current pass supplies target contracts for the global unbounded component Mellin equivalence, inverse bounded comparison, branch analyticity, derivatives, twists, multivariable pushforward, finite coefficient extension, rigid/adic comparison and meromorphic gluing. Their compact-type dual topology, imported universal-character coordinates and actual sheaf/section carriers still need construction. Native bounded component and scalar branch adapters alone do not prove the global equivalence or pseudomeasure gluing. In particular upstream AdicSpaces Layer 5 does not supply the rigid/adic section equivalence. The precise extension is requested from AdicSpacesPartII R3."
     },
     {
       "title": "Shared nonarchimedean topology, left-heart and compact-type duality",
@@ -16337,7 +16364,7 @@
         "LocallyAnalyticDistributions:L3/unbounded-component-mellin",
         "LocallyAnalyticDistributions:L3/mellin-frechet-isomorphism"
       ],
-      "detail": "The suggested file gives native coefficient stages, continuous-linear transposes and complex signatures where expressible. It explicitly omits the unavailable manifold/LA strong-dual, C^r completed tensor, clopen-box realization, multivariate analytic Fréchet sheaf and global Mellin signatures. These are mathematical contracts in the packet, not placeholder Prop fields. General operator continuity, wavelet density, Fourier inversion and tensor norm comparisons need source-level refinement. Kohlhaase Proposition 4.2 also needs its strict smooth-distribution quotient/resolution input; it is not proved by the local primitive lemma."
+      "detail": "The suggested file gives native coefficient stages, continuous-linear transposes and complex signatures where expressible. It explicitly omits the unavailable manifold/LA strong-dual, C^r completed tensor, clopen-box realization, multivariate analytic Fréchet sheaf and global Mellin signatures. These are mathematical contracts in the packet, not placeholder Prop fields. General operator continuity, wavelet density, Fourier inversion and tensor norm comparisons need source-level refinement. Kohlhaase Proposition 4.2 also needs strict smooth-quotient/reflexivity, the total bounded analytic lattice and the bounded-set theorem for the strict LF smooth-function limit; it is not proved by the local primitive lemma. The nonsplitting proof also uses Kohlhaase (37), completed distribution coefficient extension to a complete valued field containing C_p, to preserve the split quotient; finite-dimensional coefficient comparison alone does not supply this identity."
     },
     {
       "title": "Family dual base change and projectivity",
@@ -16359,7 +16386,7 @@
         "LocallyAnalyticDistributions:L4/derived-slope-base-change",
         "LocallyAnalyticDistributions:L4/exact-slope-rank-local-constancy"
       ],
-      "detail": "Missing: valued geometric-fibre root-location typing, the finite-slope functor in the continuous homotopy category for comparisons commuting only up to homotopy, native finite-perfect/derived tensor comparison, and general-affinoid exact-h local constancy beyond the checked Coleman disc case. The equivariant strict representative argument is available as a plan, while these stronger inputs remain unresolved. Nonreduced finite-projective rank/determinant arguments inherit the existing algebra gap."
+      "detail": "Missing: valued geometric-fibre root-location typing, the finite-slope functor in the continuous homotopy category for comparisons commuting only up to homotopy, native finite-perfect/derived tensor comparison, and general-affinoid exact-h local constancy beyond Coleman’s closed-disc quasi-finite geometry. The equivariant strict representative argument is available as a plan, while these stronger inputs remain unresolved. Nonreduced finite-projective rank/determinant arguments inherit the existing algebra gap."
     },
     {
       "title": "Stein geometry and full analytic solid localization",
@@ -16431,13 +16458,13 @@
       "note": "No torus, root data or reductive-group topology is reconstructed in LAD."
     },
     {
-      "supplier": "tauceti:TauCetiRoadmap/AdicSpaces#layer-5-adic-spaces-and-elementary-geometry",
-      "need": "The existing rigid/adic comparison and analytic section comparison on character-space affinoids, with their rank-one evaluation compatibility.",
+      "supplier": "AdicSpacesPartII:R3",
+      "need": "Provide the comparison between finite-type rigid analytic spaces and their associated adic spaces on the scalar character-space charts: corresponding affinoid/rational domains have canonically identified analytic sections, compatible with restriction and geometric rank-one evaluation. Current upstream AdicSpaces Layer 5 does not contain this theorem; extend AdicSpaces Part II rather than cite it as existing.",
       "neededBy": [
         "LocallyAnalyticDistributions:L3/mellin-adic-comparison"
       ],
       "status": "open",
-      "note": "This is an imported roadmap output; any absent extension is a Part II need, never a replan of upstream."
+      "note": "Missing supplier output; basic adic-space construction alone does not provide a rigid/adic equivalence."
     }
   ],
   "sourceIssues": [
@@ -16455,7 +16482,12 @@
         "27September2026: opened the Springer version-of-record landing page https://link.springer.com/article/10.1007/s002220050127; no correction link found. Read the published scan from the recorded public mirror and the separately hashed public author copy.",
         "Targeted public searches for the title with erratum/correction and Coleman A3.1 with error/entire, and Coleman A3.4 with correction/erratum; no relevant correction located. This was a bounded search, not proof that none exists.",
         "Searched the atlas source-issues registry and research/errata/REGISTER.md for the exact title and author-copy identifier: no existing finding found. The wstein memorial directory did not open and its paper endpoint returned403, so no successful reading of that page is claimed."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in the published scan, printed p. 432 (PDF p. 16), and the separately pinned author copy. In the restricted-series ring, (1−pT)Σ_{n≥0}p^nT^n=1 contradicts the stated implication; the leading-term control requires entire series.",
+        "by": "REV-LocallyAnalyticDistributions"
+      }
     },
     {
       "id": "LocallyAnalyticDistributions/E2",
@@ -16471,7 +16503,12 @@
         "27September2026: opened the Springer version-of-record landing page https://link.springer.com/article/10.1007/s002220050127; no correction link found. Read the published scan from the recorded public mirror and the separately hashed public author copy.",
         "Targeted public searches for the title with erratum/correction and Coleman A3.1 with error/entire, and Coleman A3.4 with correction/erratum; no relevant correction located. This was a bounded search, not proof that none exists.",
         "Searched the atlas source-issues registry and research/errata/REGISTER.md for the exact title and author-copy identifier: no existing finding found. The wstein memorial directory did not open and its paper endpoint returned403, so no successful reading of that page is claimed."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in the published scan, printed p. 433 (PDF p. 17). The displayed constant uses powers of the splitting roots where the coefficient should multiply T^n. The resulting quotient may be zero, so that displayed quotient does not establish faithful descent.",
+        "by": "REV-LocallyAnalyticDistributions"
+      }
     },
     {
       "id": "LocallyAnalyticDistributions/E3",
@@ -16487,29 +16524,39 @@
         "9 October 2026: checked the arXiv version record, the author research page, the Springer chapter DOI 10.1007/978-3-642-55245-8_12 and the Warwick WRAP record 75859; searched title plus erratum/correction and Definition 2.12 cofinite/tensor. No relevant correction was located in this bounded search.",
         "The Springer PDF endpoint returned an HTML response, not a readable published PDF; the accepted manuscript download was restricted. The finding is limited to the explicitly hashed arXiv v3, whose pp. 4–5 were also checked on page images.",
         "The available publisher-book erratum concerns another chapter’s modular-symbol formula and does not establish a correction of this definition."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed for hashed arXiv v3, pp. 4–5, also inspected as page images. The indicator of pZ_p in the second coordinate with vector order (1/2,0) is a tensor element, but the printed cofinite first-difference condition excludes it. No published-version correction is asserted.",
+        "by": "REV-LocallyAnalyticDistributions"
+      }
     },
     {
       "id": "LocallyAnalyticDistributions/E4",
       "source": "PILLONI-2020",
       "kind": "misprint",
       "locator": "§13.1.1, author p. 84",
-      "printed": "The confirmed extraction finding E107 applies to the recorded source version.",
+      "printed": "The author version tests reciprocal Q(U) on the complementary summand using roots of Q of valuation strictly greater than h.",
       "correction": "The complementary summand in an h-slope decomposition must invert polynomials of slope at most h; reciprocal Fredholm roots have valuation at least −h.",
-      "reason": "A one-dimensional eigenvalue at valuation h must belong to ≤h and be excluded from >h; the printed complementary condition cannot give this uniqueness.",
+      "reason": "For U=p and h=1 the finite-slope summand must contain the scalar eigenline, but Q=1−pT has reciprocal root valuation −1 and is not tested by the printed >1 condition. Correct reciprocal tests use valuation ≥−h, so both the reciprocal sign and the endpoint need correction.",
       "affects": "a stated result",
       "known": "known",
       "searched": [
         "Read the confirmed extraction record PAPER-PILLONI-20/E107 and checked the relevant primary author/arXiv passage. The published PDF was not used for this continuation’s statement."
       ],
-      "knownFinding": "E107"
+      "knownFinding": "E107",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in the author PDF p. 84, also inspected as an image. Reciprocal roots require valuation ≥−h: the printed test has the wrong sign and excludes the endpoint. The scalar U=p,h=1 distinguishes the conditions.",
+        "by": "REV-LocallyAnalyticDistributions"
+      }
     },
     {
       "id": "LocallyAnalyticDistributions/E5",
       "source": "PILLONI-2020",
       "kind": "misprint",
       "locator": "Proof of Corollary 13.2.4.2, author p. 87",
-      "printed": "The confirmed extraction finding E112 applies to the recorded source version.",
+      "printed": "The proof applies P to the raising map from the lower-radius group to the higher-radius group, although that map has different domain and codomain.",
       "correction": "For P=XQ and U_C=r a, extend f by a(Q(U_C)f), then restrict by r.",
       "reason": "The raising map has different domain and codomain from U_C; treating it as an endomorphism inside P is ill-typed. The corrected restriction is U_CQ(U_C)f=f.",
       "affects": "the proof",
@@ -16517,14 +16564,19 @@
       "searched": [
         "Read the confirmed extraction record PAPER-PILLONI-20/E112 and checked the relevant primary author/arXiv passage. The published PDF was not used for this continuation’s statement."
       ],
-      "knownFinding": "E112"
+      "knownFinding": "E112",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in the author PDF p. 87, also inspected as an image. A polynomial cannot be evaluated at the map C→D as an endomorphism of C; for P=XQ the corrected raising formula is aQ(U_C)f.",
+        "by": "REV-LocallyAnalyticDistributions"
+      }
     },
     {
       "id": "LocallyAnalyticDistributions/E6",
       "source": "BCGP-2021",
       "kind": "misprint",
       "locator": "§6.1.1, arXiv p. 139",
-      "printed": "The confirmed extraction finding E77 applies to the recorded source version.",
+      "printed": "The complementary condition tests monic annihilating polynomials whose roots have valuation strictly less than h.",
       "correction": "Invert all monic polynomials with root valuation at most h on the complementary >h summand, including equality.",
       "reason": "Without equality the scalar eigenvalue at valuation h can be assigned inconsistently to the two summands.",
       "affects": "a stated result",
@@ -16532,17 +16584,1541 @@
       "searched": [
         "Read the confirmed extraction record PAPER-BOXER-CALEGARI-GEE-PILLONI-21/E77 and checked the relevant primary author/arXiv passage. The published PDF was not used for this continuation’s statement."
       ],
-      "knownFinding": "E77"
+      "knownFinding": "E77",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in arXiv v3 p. 139, also inspected as an image. The strict <h complementary test misses the boundary eigenvalue; monic tests must include root valuation h.",
+        "by": "REV-LocallyAnalyticDistributions"
+      }
     }
   ],
   "restructure": [],
   "libraryReview": {
     "status": "discovery_only",
-    "scope": "All five LAD rows in the reviewed aggregate AUDIT-25, integrated decomposition/review, RS-16 LAD ownership, and all applicable link records were read. The inherited nine baseline declarations and eighteen additions were inspected in byte-verified pinned sources. This is a targeted continuation, not a new exhaustive library audit. Lean elaboration checks signatures only. The scalar-Mellin continuation reread all five audited rows and inspected the newly cited Mathlib declarations at the pin; it makes no new Tau Ceti baseline additions. The 9 October continuation reread all five audit rows, RS-16 and supplier boundaries; ModuleCat/CochainComplex/Homotopy/MvPowerSeries.coeff were inspected at the Mathlib pin and Henkel openness/quotient topology at the exact Tau Ceti pin. No replacement of native complexes, character representability, completed scalar tensors or generic Stein geometry is claimed."
+    "scope": "All five LAD rows in the reviewed aggregate AUDIT-25, integrated decomposition/review, RS-16 LAD ownership, and all applicable link records were read. The inherited nine baseline declarations and eighteen additions were inspected in byte-verified pinned sources. This is a targeted continuation, not a new exhaustive library audit. Lean elaboration checks signatures only. The scalar-Mellin continuation reread all five audited rows and inspected the newly cited Mathlib declarations at the pin; it makes no new Tau Ceti baseline additions. The 9 October continuation reread all five audit rows, RS-16 and supplier boundaries; ModuleCat/CochainComplex/Homotopy/MvPowerSeries.coeff were inspected at the Mathlib pin and Henkel openness/quotient topology at the exact Tau Ceti pin. No replacement of native complexes, character representability, completed scalar tensors or generic Stein geometry is claimed. Independent review, 9 October 2026: all 254 inherited declarations were checked against pinned source statements and resolved in the shared pinned build; native Matrix.det_one_sub_mul_comm is added as the 255th baseline citation. Current upstream OperatorTheory and OperatorIdeals were read to distinguish generic K-linear approximation from A-finite-image Fredholm theory. Current AdicSpaces Layer 5 was checked and the absent rigid/adic section comparison is now a precise Part II request."
   },
   "review": {
-    "status": "pending",
-    "notes": "The 303-node budget-complete pass needs independent review. The accepted integrated thirteen-node decomposition is retained; it is not an independent acceptance of this extension."
+    "status": "accepted",
+    "reviewer": "independent-review-REV-LocallyAnalyticDistributions",
+    "date": "2026-10-09",
+    "notes": "Independent review of all 303 nodes: 270 verified, 33 corrected, none added or unverifiable. All 254 inherited pinned baseline citations confirmed and the native rectangular determinant identity added (255 total). All six version-scoped sourceIssues confirmed. The packet is accepted as a completed target-level planning pass; all five stages remain partial, with 14 recorded gaps and 9 supplier requests. Missing global carriers/signatures and proof inputs are not formalised. RT-AREA-iwasawa-2/5 is addressed at the compact-complex/finite-window level, with full solid localization explicitly external. The read-only reader input must be regenerated from this corrected packet during assembly/packaging. No upstream roadmap was changed or replanned.",
+    "checked": [
+      {
+        "nodeId": "LocallyAnalyticDistributions:L0/disc-analytic-functions",
+        "verdict": "corrected",
+        "note": "Maximum-principle proof now treats irrational radii by approximation."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L0/locally-analytic-radius",
+        "verdict": "corrected",
+        "note": "The indicator nonexample assumes h≥1, including its unit test."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L0/amice-mahler-basis",
+        "verdict": "verified",
+        "note": "Checked Amice's theorem on Mahler coefficients against COLMEZ-FONCTIONS-2010 Theorem I.4.7 and Corollary I.4.8, p. 15. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L0/locally-analytic-topology",
+        "verdict": "verified",
+        "note": "Checked The locally analytic topology is finer against RJW-2024 Remark 3.41, p. 24. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L0/locally-analytic-distributions",
+        "verdict": "verified",
+        "note": "Checked Locally analytic distributions against RJW-2024 Definition 3.42 and Remark 3.44, pp. 24–25; COLMEZ-FONCTIONS-2010 §II.2 opening, pp. 29–30. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L0/field-analytic-functions",
+        "verdict": "verified",
+        "note": "Checked F-analytic against ℚ_p-analytic functions against SCHNEIDER-TEITELBAUM-2001 Introduction, p. 1, and Lemmas 1.1–1.3, pp. 3–5. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L1/amice-transform",
+        "verdict": "corrected",
+        "note": "The inverse coefficient-decay proof now uses a strictly smaller positive radius; a fixed lower bound does not imply divergence."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L1/distribution-operations",
+        "verdict": "verified",
+        "note": "Checked Operations on distributions against COLMEZ-FONCTIONS-2010 §II.4.1–II.4.6, pp. 34–37. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L1/division-by-x-and-primitives",
+        "verdict": "verified",
+        "note": "Checked Division by x, primitives and logarithmic factors against COLMEZ-FONCTIONS-2010 §II.4.2 (division par x), Proposition II.4.1, and Proposition I.5.16, pp. 24 and 35. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L2/c-r-functions",
+        "verdict": "corrected",
+        "note": "The digit-doubling nonexample is explicitly defined in the test."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L2/order-r-distributions",
+        "verdict": "corrected",
+        "note": "The isometric dual valuation is explicitly the dual of the Mahler valuation."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L2/order-zero-measures",
+        "verdict": "verified",
+        "note": "Checked Order zero is bounded measures against COLMEZ-FONCTIONS-2010 §II.3.2, pp. 31–32. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L2/amice-velu-vishik",
+        "verdict": "corrected",
+        "note": "The critical-order derivative counterexample uses the adopted positive transpose convention."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/completely-continuous",
+        "verdict": "verified",
+        "note": "Checked Complete continuity in the Banach algebra convention against Buzzard-Eigenvarieties-2006 Section 2, pp. 9-10, finite-rank and compact definitions. The recorded foundational/analytic gaps are retained; this verifies the mathematical contract, not implementation or closure."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/c0-lift",
+        "verdict": "verified",
+        "note": "Checked Bounded-family extension from c0 against Buzzard-Eigenvarieties-2006 Section 2, pp. 7-9. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/orthonormalizable-modules",
+        "verdict": "verified",
+        "note": "Checked Orthonormalizable and potentially orthonormalizable modules against Buzzard-Eigenvarieties-2006 Section 2, pp. 7-9 and 15-16. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/finite-module-topology",
+        "verdict": "verified",
+        "note": "Checked Canonical topology on finite Banach modules against Buzzard-Eigenvarieties-2006 Proposition 2.1 and proof; Lemma 2.3(b), pp. 6-11. The recorded foundational/analytic gaps are retained; this verifies the mathematical contract, not implementation or closure."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/finite-coordinate-injection",
+        "verdict": "verified",
+        "note": "Checked Finite coordinates detect a finite submodule against Buzzard-Eigenvarieties-2006 Lemma 2.3(a)-(b), pp. 10-11. The recorded foundational/analytic gaps are retained; this verifies the mathematical contract, not implementation or closure."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/finite-submodule-approximation",
+        "verdict": "verified",
+        "note": "Checked Uniform coordinate truncation on finite submodules against Buzzard-Eigenvarieties-2006 Lemma 2.3(c), pp. 10-11. The recorded foundational/analytic gaps are retained; this verifies the mathematical contract, not implementation or closure."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/compact-matrix-criterion",
+        "verdict": "verified",
+        "note": "Checked Completely continuous matrix criterion against Buzzard-Eigenvarieties-2006 Proposition 2.4, pp. 11-12. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/fredholm-determinant",
+        "verdict": "verified",
+        "note": "Checked Fredholm determinant in an orthonormal chart against Buzzard-Eigenvarieties-2006 Definition following Proposition 2.4, p. 12. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/entire-series",
+        "verdict": "verified",
+        "note": "Checked Entire power series over A against Buzzard-Eigenvarieties-2006 Section 3, p. 21. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/minor-tail-estimate",
+        "verdict": "verified",
+        "note": "Checked Uniform entire tail bound from column majorants against Serre-EndomorphismesCC-1962 Proposition 7(b) and its column-product estimate, pp. 75-76; Proposition 8, p. 77. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/coefficient-continuity",
+        "verdict": "verified",
+        "note": "Checked Lipschitz bound in each determinant degree against Serre-EndomorphismesCC-1962 Proposition 8 proof, p. 77. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/gauss-convergence",
+        "verdict": "corrected",
+        "note": "The evaluation-bound API’s owner entire-series is an explicit prerequisite."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/finite-coordinate-determinant",
+        "verdict": "verified",
+        "note": "Checked Determinant of a finite-coordinate operator against Buzzard-Eigenvarieties-2006 Lemma 2.5(b), pp. 12-13. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/determinant-invariance",
+        "verdict": "verified",
+        "note": "Checked Independence of chart and equivalent norm against Buzzard-Eigenvarieties-2006 Lemma 2.5(a)-(c) and Corollary 2.6, pp. 12-14. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/cyclic-determinant-identity",
+        "verdict": "corrected",
+        "note": "Buzzard Lemma 2.7 is on pp. 15–16; native rectangular determinant identity is now a baseline prerequisite."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/completed-base-change",
+        "verdict": "verified",
+        "note": "Checked Completed scalar extension of ON modules and determinants against Buzzard-Eigenvarieties-2006 Lemmas 2.8-2.9 and Corollary 2.10, pp. 16-18. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/projective-banach-modules",
+        "verdict": "verified",
+        "note": "Checked Property (Pr) against Buzzard-Eigenvarieties-2006 Section 2, pp. 18-20. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/projective-lifting",
+        "verdict": "verified",
+        "note": "Checked Continuous lifting characterization of (Pr) against Buzzard-Eigenvarieties-2006 Section 2, lifting discussion before Lemma 2.11, pp. 18-19. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/finite-pr-projective",
+        "verdict": "verified",
+        "note": "Checked Finite (Pr) modules are algebraically projective against Buzzard-Eigenvarieties-2006 Lemma 2.11, p. 19. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/summand-fredholm-theory",
+        "verdict": "verified",
+        "note": "Checked Fredholm determinant on a (Pr) module against Buzzard-Eigenvarieties-2006 Section 2, pp. 19-21, including Lemmas 2.12-2.13. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/fredholm-direct-sum",
+        "verdict": "verified",
+        "note": "Checked Fredholm determinant of a direct sum against Buzzard-Eigenvarieties-2006 Section 2, p. 20; used in Proposition 3.2, p. 23. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/evaluated-product-on",
+        "verdict": "verified",
+        "note": "Checked Evaluated Fredholm product identity on c0 against Serre-EndomorphismesCC-1962 Corollary 1 to Proposition 7, p. 76; Proposition 8, p. 77; Buzzard-Eigenvarieties-2006 Lemma 2.3(c), Proposition 2.4 and Lemma 2.5, pp. 10-14; Lemma 3.1, p. 22. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/evaluated-product-pr",
+        "verdict": "verified",
+        "note": "Checked Evaluated Fredholm product identity for (Pr) against Buzzard-Eigenvarieties-2006 Zero-extension construction, pp. 19-20; Lemma 3.1, p. 22. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/entire-division",
+        "verdict": "verified",
+        "note": "Checked Division of entire series by a monic polynomial against Coleman-PadicBanach-1997 Appendix A3, division preceding Lemmas A3.5 and A3.7; Coleman-PadicBanach-published-1997 printed434/PDF18, norm interpretation and proof of LemmaA3.5. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/entire-resultants",
+        "verdict": "verified",
+        "note": "Checked Resultant of a monic polynomial and an entire series against Coleman-PadicBanach-1997 Appendix A3, definition of resultant and Lemma A3.7; Coleman-PadicBanach-published-1997 printed434–435/PDF18–19, norm interpretation and Lemmas A3.5,A3.7. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/resultant-unit",
+        "verdict": "verified",
+        "note": "Checked Resultant detects analytic coprimality against Coleman-PadicBanach-1997 Lemma A3.7 and proof; Coleman-PadicBanach-published-1997 printed434–435/PDF18–19, norm interpretation and Lemmas A3.5,A3.7. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/resolvent-series",
+        "verdict": "verified",
+        "note": "Checked Fredholm resolvent series against Serre-EndomorphismesCC-1962 Section 6, Proposition 10 and Lemma 3 with its three-step proof, pp. 78-79. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/fredholm-resolvent",
+        "verdict": "verified",
+        "note": "Checked Polynomial Fredholm invertibility criterion against Buzzard-Eigenvarieties-2006 Lemma 3.1, pp. 21-22; Coleman-PadicBanach-1997 Lemma A4.1 proof and Lemmas A3.7-A3.8, Theorem A3.9. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/compact-identity-finite",
+        "verdict": "verified",
+        "note": "Checked Complete continuity of the identity detects finite generation against Buzzard-Eigenvarieties-2006 Proposition 3.2, p. 23, finite-generation paragraph. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/riesz-root-projectors",
+        "verdict": "verified",
+        "note": "Checked Riesz projectors at a Fredholm root against Buzzard-Eigenvarieties-2006 Proposition 3.2 and proof, pp. 23-24; Serre-EndomorphismesCC-1962 Proposition 12 and proof, pp. 80-81. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/finite-slope-summands",
+        "verdict": "verified",
+        "note": "Checked Finite projective slope summands against Buzzard-Eigenvarieties-2006 Theorem 3.3 and proof, pp. 24-25. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/finite-image-range-comparison",
+        "verdict": "verified",
+        "note": "Checked Finite ambient image versus finitely generated range against Buzzard-Eigenvarieties-2006 Section 2, p. 9, finite-rank definition. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/completely-continuous-norm-approximation",
+        "verdict": "verified",
+        "note": "Checked Strict norm approximation by finite-image maps against Buzzard-Eigenvarieties-2006 Section 2, pp. 8-10, operator norm and closure definition. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/c0-scalar-bound",
+        "verdict": "verified",
+        "note": "Checked Bounded coefficient action on c0 against Buzzard-Eigenvarieties-2006 Section 2, pp. 7-8, definition of c_A(I). Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/finite-coordinate-detection",
+        "verdict": "verified",
+        "note": "Checked Finite coordinates detect a finite submodule against Buzzard-Eigenvarieties-2006 Lemma 2.3(a), p. 10, complete proof paragraph. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/hasse-series",
+        "verdict": "verified",
+        "note": "Checked Hasse derivatives of formal power series against Buzzard-Eigenvarieties-2006 Section 3, p. 22, Hasse derivatives and roots; Proposition 3.2, pp. 23-24. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/hasse-polynomial-comparison",
+        "verdict": "verified",
+        "note": "Checked Polynomial and series Hasse derivatives agree against Buzzard-Eigenvarieties-2006 Section 3, p. 22, Hasse derivatives and roots; Proposition 3.2, pp. 23-24. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/hasse-product",
+        "verdict": "verified",
+        "note": "Checked Hasse product formula for power series against Serre-EndomorphismesCC-1962 Section 7, Proposition 12 proof, printed pp. 80-81 (PDF pp. 13-14); Buzzard-Eigenvarieties-2006 Section 3, p. 22, Hasse derivatives and roots; Proposition 3.2, pp. 23-24. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/hasse-coefficient-bound",
+        "verdict": "verified",
+        "note": "Checked Hasse coefficient radius bound against Buzzard-Eigenvarieties-2006 Section 3, p. 22, Hasse derivatives and roots; Proposition 3.2, pp. 23-24. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/hasse-entire",
+        "verdict": "verified",
+        "note": "Checked Hasse derivatives preserve entireness against Buzzard-Eigenvarieties-2006 Section 3, p. 22, Hasse derivatives and roots; Proposition 3.2, pp. 23-24. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/resolvent-hasse-evaluation",
+        "verdict": "verified",
+        "note": "Checked Evaluated Hasse derivatives of the resolvent against Serre-EndomorphismesCC-1962 Section 7, Proposition 12 proof, printed pp. 80-81 (PDF pp. 13-14); Buzzard-Eigenvarieties-2006 Section 3, p. 22, Hasse derivatives and roots; Proposition 3.2, pp. 23-24. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/evaluated-hasse-resolvent",
+        "verdict": "verified",
+        "note": "Checked Evaluated Hasse resolvent recurrence against Serre-EndomorphismesCC-1962 Section 7, Proposition 12 proof, printed pp. 80-81 (PDF pp. 13-14); Buzzard-Eigenvarieties-2006 Section 3, p. 22, Hasse derivatives and roots; Proposition 3.2, pp. 23-24. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/hasse-polynomial-closure",
+        "verdict": "verified",
+        "note": "Checked Hasse resolvent values lie in the polynomial closure against Serre-EndomorphismesCC-1962 Section 7, Proposition 12 proof, printed pp. 80-81 (PDF pp. 13-14); Buzzard-Eigenvarieties-2006 Section 3, p. 22, Hasse derivatives and roots; Proposition 3.2, pp. 23-24. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/hasse-resolvent-commutation",
+        "verdict": "verified",
+        "note": "Checked Hasse resolvent values commute against Serre-EndomorphismesCC-1962 Section 7, Proposition 12 proof, printed pp. 80-81 (PDF pp. 13-14). Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/entire-root-unit",
+        "verdict": "verified",
+        "note": "Checked Roots of an entire series with unit constant are units against Buzzard-Eigenvarieties-2006 Section 3, p. 22, Hasse derivatives and roots; Proposition 3.2, pp. 23-24. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/hasse-lower-annihilation",
+        "verdict": "verified",
+        "note": "Checked Lower Hasse resolvent annihilation against Serre-EndomorphismesCC-1962 Section 7, Proposition 12 proof, printed pp. 80-81 (PDF pp. 13-14); Buzzard-Eigenvarieties-2006 Proposition 3.2, manuscript p. 23, first proof paragraph. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/hasse-normalized-annihilation",
+        "verdict": "verified",
+        "note": "Checked Normalized Hasse resolvent identity against Serre-EndomorphismesCC-1962 Section 7, Proposition 12 proof, printed pp. 80-81 (PDF pp. 13-14); Buzzard-Eigenvarieties-2006 Proposition 3.2, manuscript p. 23, first proof paragraph. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/riesz-projector-formula",
+        "verdict": "verified",
+        "note": "Checked Explicit Hasse Riesz projector against Serre-EndomorphismesCC-1962 Section 7, Proposition 12 proof, printed pp. 80-81 (PDF pp. 13-14); Buzzard-Eigenvarieties-2006 Proposition 3.2, manuscript p. 23, first proof paragraph. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/riesz-projector-idempotence",
+        "verdict": "verified",
+        "note": "Checked Idempotence of the Hasse projector against Serre-EndomorphismesCC-1962 Section 7, Proposition 12 proof, printed pp. 80-81 (PDF pp. 13-14); Buzzard-Eigenvarieties-2006 Proposition 3.2, manuscript p. 23, first proof paragraph. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/riesz-kernel-image",
+        "verdict": "verified",
+        "note": "Checked Canonical kernel and image summands against Serre-EndomorphismesCC-1962 Section 7, Proposition 12 proof, printed pp. 80-81 (PDF pp. 13-14); Buzzard-Eigenvarieties-2006 Proposition 3.2, manuscript p. 23, first proof paragraph. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/riesz-topological-splitting",
+        "verdict": "verified",
+        "note": "Checked Topological Riesz decomposition against Serre-EndomorphismesCC-1962 Section 7, Proposition 12 proof, printed pp. 80-81 (PDF pp. 13-14); Buzzard-Eigenvarieties-2006 Proposition 3.2, manuscript p. 23, first proof paragraph. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/riesz-regular-inverse",
+        "verdict": "verified",
+        "note": "Checked Inverse on the regular Riesz summand against Serre-EndomorphismesCC-1962 Section 7, Proposition 12 proof, printed pp. 80-81 (PDF pp. 13-14); Buzzard-Eigenvarieties-2006 Proposition 3.2, manuscript p. 23, first proof paragraph. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/riesz-projector-closure",
+        "verdict": "verified",
+        "note": "Checked Polynomial closure of Riesz projectors against Serre-EndomorphismesCC-1962 Section 7, Proposition 12 proof, printed pp. 80-81 (PDF pp. 13-14); Buzzard-Eigenvarieties-2006 Proposition 3.2, manuscript p. 23, first proof paragraph. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/riesz-commuting-stability",
+        "verdict": "verified",
+        "note": "Checked Stability under commuting operators against Serre-EndomorphismesCC-1962 Section 7, Proposition 12 proof, printed pp. 80-81 (PDF pp. 13-14); Buzzard-Eigenvarieties-2006 Proposition 3.2, manuscript p. 23, first proof paragraph. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/finite-coordinate-projection",
+        "verdict": "verified",
+        "note": "Checked Finite coordinate truncation against Buzzard-Eigenvarieties-2006 §2, pp.7–12 for coordinates; §3, full manuscript p.22 freshly reread on27 September2026 for the Fredholm resolvent over (Pr) modules.. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/finite-coordinate-projection-evaluation",
+        "verdict": "verified",
+        "note": "Checked Evaluation of a finite coordinate projection against Serre-EndomorphismesCC-1962 §6, Proposition10 and Lemma3(a)–(c), printed78–79 / PDF11–12; full fresh reading and printed79 page image checked on27 September2026.. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/finite-coordinate-projection-bound",
+        "verdict": "verified",
+        "note": "Checked Contractivity of coordinate truncation against Serre-EndomorphismesCC-1962 §6, Proposition10 and Lemma3(a)–(c), printed78–79 / PDF11–12; full fresh reading and printed79 page image checked on27 September2026.. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/c0-operator-norm-criterion",
+        "verdict": "verified",
+        "note": "Checked Operator bound from the coordinate vectors against Serre-EndomorphismesCC-1962 §6, Proposition10 and Lemma3(a)–(c), printed78–79 / PDF11–12; full fresh reading and printed79 page image checked on27 September2026.. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/finite-adjugate-recurrence",
+        "verdict": "verified",
+        "note": "Checked Coefficients of the finite adjugate against Serre-EndomorphismesCC-1962 §6, Proposition10 and Lemma3(a)–(c), printed78–79 / PDF11–12; full fresh reading and printed79 page image checked on27 September2026.. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/finite-adjugate-coefficient-bound",
+        "verdict": "verified",
+        "note": "Checked Distinct-column bound for adjugate coefficients against Serre-EndomorphismesCC-1962 §6, Proposition10 and Lemma3(a)–(c), printed78–79 / PDF11–12; full fresh reading and printed79 page image checked on27 September2026.. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/finite-coordinate-resolvent-comparison",
+        "verdict": "verified",
+        "note": "Checked Resolvent recurrence on finite coordinates against Serre-EndomorphismesCC-1962 §6, Proposition10 and Lemma3(a)–(c), printed78–79 / PDF11–12; full fresh reading and printed79 page image checked on27 September2026.. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/finite-output-resolvent-bound",
+        "verdict": "verified",
+        "note": "Checked Resolvent bound for finite output support against Serre-EndomorphismesCC-1962 §6, Proposition10 and Lemma3(a)–(c), printed78–79 / PDF11–12; full fresh reading and printed79 page image checked on27 September2026.. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/resolvent-coefficient-continuity",
+        "verdict": "verified",
+        "note": "Checked Continuity of the finite recurrence against Serre-EndomorphismesCC-1962 §6, Proposition10 and Lemma3(a)–(c), printed78–79 / PDF11–12; full fresh reading and printed79 page image checked on27 September2026.. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/resolvent-coefficient-bound",
+        "verdict": "verified",
+        "note": "Checked Adjugate bound for the Fredholm resolvent against Serre-EndomorphismesCC-1962 §6, Proposition10 and Lemma3(a)–(c), printed78–79 / PDF11–12; full fresh reading and printed79 page image checked on27 September2026.. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/resolvent-tail-bound",
+        "verdict": "verified",
+        "note": "Checked Entire tail estimate for resolvent coefficients against Serre-EndomorphismesCC-1962 §6, Proposition10 and Lemma3(a)–(c), printed78–79 / PDF11–12; full fresh reading and printed79 page image checked on27 September2026.. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/resolvent-retraction-comparison",
+        "verdict": "verified",
+        "note": "Checked Compression of the coefficient recurrence against Serre-EndomorphismesCC-1962 §6, Proposition10 and Lemma3(a)–(c), printed78–79 / PDF11–12; full fresh reading and printed79 page image checked on27 September2026.. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/resolvent-recurrence-entire",
+        "verdict": "verified",
+        "note": "Checked Entireness of the recurrence on a projective Banach module against Serre-EndomorphismesCC-1962 §6, Proposition10 and Lemma3(a)–(c), printed78–79 / PDF11–12; full fresh reading and printed79 page image checked on27 September2026.; Buzzard-Eigenvarieties-2006 §2, pp.7–12 for coordinates; §3, full manuscript p.22 freshly reread on27 September2026 for the Fredholm resolvent over (Pr) modules.. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/riesz-geometric-factor",
+        "verdict": "verified",
+        "note": "Checked Finite geometric factor for the root operator against Buzzard-Eigenvarieties-2006 Proposition 3.2, complete proof on manuscript pp.23–24. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/riesz-kernel-operator-equiv",
+        "verdict": "verified",
+        "note": "Checked Continuous inverse on the root kernel against Buzzard-Eigenvarieties-2006 Proposition 3.2, complete proof on manuscript pp.23–24. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/pr-continuous-retract",
+        "verdict": "verified",
+        "note": "Checked Property (Pr) under continuous retractions against Buzzard-Eigenvarieties-2006 Definition of (Pr), full manuscript pp.18–19, and use of Lemma2.11 on p.23. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/riesz-kernel-pr",
+        "verdict": "verified",
+        "note": "Checked Property (Pr) of the complemented root kernel against Buzzard-Eigenvarieties-2006 Proposition 3.2, complete proof on manuscript pp.23–24. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/riesz-compressed-approximation",
+        "verdict": "verified",
+        "note": "Checked Finite-image approximation of the root identity against Buzzard-Eigenvarieties-2006 Proposition 3.2, complete proof on manuscript pp.23–24. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/riesz-kernel-compact-identity",
+        "verdict": "verified",
+        "note": "Checked Complete continuity of the root identity against Buzzard-Eigenvarieties-2006 Proposition 3.2, complete proof on manuscript pp.23–24. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/riesz-kernel-finite",
+        "verdict": "verified",
+        "note": "Checked Finite generation of the root kernel against Buzzard-Eigenvarieties-2006 Proposition 3.2, complete proof on manuscript pp.23–24. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/riesz-kernel-projective",
+        "verdict": "verified",
+        "note": "Checked Projectivity of the finite root kernel against Buzzard-Eigenvarieties-2006 Lemma2.11, manuscript p.19, and Proposition3.2 proof, pp.23–24. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/ultrametric-product-perturbation",
+        "verdict": "verified",
+        "note": "Checked Ultrametric perturbation of a finite product against Serre-EndomorphismesCC-1962 Proposition 8 proof, printed p. 77 (PDF p. 10). Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/ultrametric-determinant-bound",
+        "verdict": "verified",
+        "note": "Checked Determinant bound by distinct output columns against Serre-EndomorphismesCC-1962 Proposition 7(a,b), printed pp. 75–76 (PDF pp. 8–9). Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/ultrametric-determinant-perturbation",
+        "verdict": "verified",
+        "note": "Checked Uniform finite determinant perturbation against Serre-EndomorphismesCC-1962 Proposition 8 proof, printed p. 77 (PDF p. 10). Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/fixed-degree-minors-null",
+        "verdict": "verified",
+        "note": "Checked Cofinite decay of fixed-degree principal minors against Buzzard-Eigenvarieties-2006 Definition following Proposition 2.4, manuscript p. 12. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/distinct-column-product-tail",
+        "verdict": "verified",
+        "note": "Checked Finite exceptional-set product estimate against Serre-EndomorphismesCC-1962 Proposition 7(b), printed p. 76 (PDF p. 9). Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/entire-tail-summable",
+        "verdict": "verified",
+        "note": "Checked Summability of every evaluated coefficient tail against Coleman-PadicBanach-published-1997 Section A3, printed p.434/PDF18, proof of Lemma A3.5; linear-factor specialization. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/entire-linear-quotient",
+        "verdict": "verified",
+        "note": "Checked Tail quotient for division by a linear factor against Coleman-PadicBanach-published-1997 Section A3, printed p.434/PDF18, proof of Lemma A3.5; linear-factor specialization. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/entire-linear-quotient-coeff",
+        "verdict": "verified",
+        "note": "Checked Coefficient formula for the tail quotient against Coleman-PadicBanach-published-1997 Section A3, printed p.434/PDF18, proof of Lemma A3.5; linear-factor specialization. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/entire-linear-quotient-recurrence",
+        "verdict": "verified",
+        "note": "Checked Recurrence for linear-quotient coefficients against Coleman-PadicBanach-published-1997 Section A3, printed p.434/PDF18, proof of Lemma A3.5; linear-factor specialization. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/entire-linear-quotient-bound",
+        "verdict": "verified",
+        "note": "Checked Ultrametric bound for each quotient coefficient against Coleman-PadicBanach-published-1997 Section A3, printed p.434/PDF18, proof of Lemma A3.5; linear-factor specialization. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/entire-linear-quotient-entire",
+        "verdict": "verified",
+        "note": "Checked Entireness of the linear quotient against Coleman-PadicBanach-published-1997 Section A3, printed p.434/PDF18, proof of Lemma A3.5; linear-factor specialization. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/entire-linear-division",
+        "verdict": "verified",
+        "note": "Checked Division identity with evaluation as remainder against Coleman-PadicBanach-published-1997 Section A3, printed p.434/PDF18, proof of Lemma A3.5; linear-factor specialization. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/entire-linear-product-constant",
+        "verdict": "verified",
+        "note": "Checked An entire linear product cannot be a nonzero constant against Coleman-PadicBanach-published-1997 Section A3, printed p.434/PDF18, proof of Lemma A3.5; linear-factor specialization; Coleman-PadicBanach-published-1997 Lemma A3.1, printed432/PDF16; corrected linear entire case, finding LocallyAnalyticDistributions/E1. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/entire-linear-division-unique",
+        "verdict": "verified",
+        "note": "Checked Uniqueness of the entire quotient and constant remainder against Coleman-PadicBanach-published-1997 Section A3, printed p.434/PDF18, proof of Lemma A3.5; linear-factor specialization. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/polynomial-series-entire",
+        "verdict": "verified",
+        "note": "Checked Native polynomials are entire against Coleman-PadicBanach-published-1997 Section A3, printed p.434/PDF18, proof of Lemma A3.5; linear-factor specialization. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/entire-linear-quotient-polynomial",
+        "verdict": "verified",
+        "note": "Checked Agreement with native monic polynomial division against Coleman-PadicBanach-published-1997 Section A3, printed p.434/PDF18, proof of Lemma A3.5; linear-factor specialization. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/entire-linear-root-factor",
+        "verdict": "verified",
+        "note": "Checked Roots and linear factors in the entire-series ring against Coleman-PadicBanach-published-1997 Section A3, printed p.434/PDF18, proof of Lemma A3.5; linear-factor specialization. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/monic-reciprocal-bound",
+        "verdict": "verified",
+        "note": "Checked Exponential bound for the reciprocal reversal against Coleman-PadicBanach-published-1997 Appendix A3, printed434/PDF18: quotient-algebra interpretation and proof of LemmaA3.5; published432–435/PDF16–19 and authorPDF22–26 read in full.. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/monic-reciprocal-tail-summable",
+        "verdict": "verified",
+        "note": "Checked Convergence of reciprocal-weighted entire tails against Coleman-PadicBanach-published-1997 Appendix A3, printed434/PDF18: quotient-algebra interpretation and proof of LemmaA3.5; published432–435/PDF16–19 and authorPDF22–26 read in full.. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/entire-monic-quotient",
+        "verdict": "verified",
+        "note": "Checked Reciprocal-tail quotient by a monic polynomial against Coleman-PadicBanach-published-1997 Appendix A3, printed434/PDF18: quotient-algebra interpretation and proof of LemmaA3.5; published432–435/PDF16–19 and authorPDF22–26 read in full.. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/entire-monic-quotient-coeff",
+        "verdict": "verified",
+        "note": "Checked Coefficients of the monic tail quotient against Coleman-PadicBanach-published-1997 Appendix A3, printed434/PDF18: quotient-algebra interpretation and proof of LemmaA3.5; published432–435/PDF16–19 and authorPDF22–26 read in full.. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/entire-monic-quotient-bound",
+        "verdict": "verified",
+        "note": "Checked Weighted bound for the monic quotient against Coleman-PadicBanach-published-1997 Appendix A3, printed434/PDF18: quotient-algebra interpretation and proof of LemmaA3.5; published432–435/PDF16–19 and authorPDF22–26 read in full.. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/entire-monic-quotient-entire",
+        "verdict": "verified",
+        "note": "Checked Entireness of the monic quotient against Coleman-PadicBanach-published-1997 Appendix A3, printed434/PDF18: quotient-algebra interpretation and proof of LemmaA3.5; published432–435/PDF16–19 and authorPDF22–26 read in full.. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/entire-monic-quotient-recurrence",
+        "verdict": "verified",
+        "note": "Checked The monic quotient coefficient recurrence against Coleman-PadicBanach-published-1997 Appendix A3, printed434/PDF18: quotient-algebra interpretation and proof of LemmaA3.5; published432–435/PDF16–19 and authorPDF22–26 read in full.. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/entire-monic-division-remainder",
+        "verdict": "verified",
+        "note": "Checked The native polynomial remainder against Coleman-PadicBanach-published-1997 Appendix A3, printed434/PDF18: quotient-algebra interpretation and proof of LemmaA3.5; published432–435/PDF16–19 and authorPDF22–26 read in full.. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/entire-monic-product-low-degree",
+        "verdict": "verified",
+        "note": "Checked A monic entire product cannot lower degree against Coleman-PadicBanach-published-1997 Appendix A3, printed434/PDF18: quotient-algebra interpretation and proof of LemmaA3.5; published432–435/PDF16–19 and authorPDF22–26 read in full.. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/entire-monic-division-unique",
+        "verdict": "verified",
+        "note": "Checked Uniqueness of monic entire division against Coleman-PadicBanach-published-1997 Appendix A3, printed434/PDF18: quotient-algebra interpretation and proof of LemmaA3.5; published432–435/PDF16–19 and authorPDF22–26 read in full.. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/entire-monic-quotient-polynomial",
+        "verdict": "verified",
+        "note": "Checked Compatibility with native polynomial division against Coleman-PadicBanach-published-1997 Appendix A3, printed434/PDF18: quotient-algebra interpretation and proof of LemmaA3.5; published432–435/PDF16–19 and authorPDF22–26 read in full.. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/entire-monic-quotient-linear",
+        "verdict": "verified",
+        "note": "Checked Compatibility with the existing linear tail quotient against Coleman-PadicBanach-published-1997 Appendix A3, printed434/PDF18: quotient-algebra interpretation and proof of LemmaA3.5; published432–435/PDF16–19 and authorPDF22–26 read in full.. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/entire-polynomial-inclusion",
+        "verdict": "verified",
+        "note": "Checked Polynomial inclusion in the entire-series ring against Coleman-PadicBanach-published-1997 Appendix A3, printed434–435/PDF18–19: quotient-norm interpretation and Lemmas A3.5,A3.7. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/entire-polynomial-divisibility",
+        "verdict": "verified",
+        "note": "Checked Polynomial divisibility detected inside entire series against Coleman-PadicBanach-published-1997 Appendix A3, printed434–435/PDF18–19: quotient-norm interpretation and Lemmas A3.5,A3.7. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/entire-quotient-class",
+        "verdict": "verified",
+        "note": "Checked Entire series in the native monic quotient against Coleman-PadicBanach-published-1997 Appendix A3, printed434–435/PDF18–19: quotient-norm interpretation and Lemmas A3.5,A3.7. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/entire-quotient-class-kernel",
+        "verdict": "verified",
+        "note": "Checked Kernel of analytic reduction modulo a monic polynomial against Coleman-PadicBanach-published-1997 Appendix A3, printed434–435/PDF18–19: quotient-norm interpretation and Lemmas A3.5,A3.7. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/entire-quotient-class-surjective",
+        "verdict": "verified",
+        "note": "Checked Polynomial representatives lift every quotient class against Coleman-PadicBanach-published-1997 Appendix A3, printed434–435/PDF18–19: quotient-norm interpretation and Lemmas A3.5,A3.7. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/entire-quotient-class-linear",
+        "verdict": "verified",
+        "note": "Checked Linear analytic reduction is convergent evaluation against Coleman-PadicBanach-published-1997 Appendix A3, printed434–435/PDF18–19: quotient-norm interpretation and Lemmas A3.5,A3.7. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/entire-resultant-polynomial",
+        "verdict": "verified",
+        "note": "Checked Entire resultant agrees with the native polynomial resultant against Coleman-PadicBanach-published-1997 Appendix A3, printed434–435/PDF18–19: quotient-norm interpretation and Lemmas A3.5,A3.7. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/entire-resultant-bezout",
+        "verdict": "verified",
+        "note": "Checked Bounded polynomial coefficient in the resultant Bezout identity against Coleman-PadicBanach-published-1997 Appendix A3, printed434–435/PDF18–19: quotient-norm interpretation and Lemmas A3.5,A3.7. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/spectral-reversed-degree",
+        "verdict": "verified",
+        "note": "Checked Monic reversal of a normalized polynomial against Coleman-PadicBanach-published-1997 Appendix A3, printed434–436/PDF18–20: finite definition of D(B,P), LemmaA3.8 and TheoremA3.9; complete printed432–436 freshly read27 September2026.. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/polynomial-spectral-resultant",
+        "verdict": "verified",
+        "note": "Checked The finite polynomial spectral transform against Coleman-PadicBanach-published-1997 Appendix A3, printed434–436/PDF18–20: finite definition of D(B,P), LemmaA3.8 and TheoremA3.9; complete printed432–436 freshly read27 September2026.. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/spectral-polynomial-evaluation",
+        "verdict": "verified",
+        "note": "Checked Specializing the spectral parameter against Coleman-PadicBanach-published-1997 Appendix A3, printed434–436/PDF18–20: finite definition of D(B,P), LemmaA3.8 and TheoremA3.9; complete printed432–436 freshly read27 September2026.. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/spectral-polynomial-constant",
+        "verdict": "verified",
+        "note": "Checked Normalization of the finite transform against Coleman-PadicBanach-published-1997 Appendix A3, printed434–436/PDF18–20: finite definition of D(B,P), LemmaA3.8 and TheoremA3.9; complete printed432–436 freshly read27 September2026.. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/spectral-right-bound",
+        "verdict": "verified",
+        "note": "Checked Independence of the auxiliary degree bound against Coleman-PadicBanach-published-1997 Appendix A3, printed434–436/PDF18–20: finite definition of D(B,P), LemmaA3.8 and TheoremA3.9; complete printed432–436 freshly read27 September2026.. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/spectral-linear-factor",
+        "verdict": "verified",
+        "note": "Checked A single polynomial eigenvalue against Coleman-PadicBanach-published-1997 Appendix A3, printed434–436/PDF18–20: finite definition of D(B,P), LemmaA3.8 and TheoremA3.9; complete printed432–436 freshly read27 September2026.. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/spectral-factor-product",
+        "verdict": "verified",
+        "note": "Checked Multiplication of finite characteristic factors against Coleman-PadicBanach-published-1997 Appendix A3, printed434–436/PDF18–20: finite definition of D(B,P), LemmaA3.8 and TheoremA3.9; complete printed432–436 freshly read27 September2026.. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/spectral-zero-padding",
+        "verdict": "verified",
+        "note": "Checked The exact zero-root padding factor against Coleman-PadicBanach-published-1997 Appendix A3, printed434–436/PDF18–20: finite definition of D(B,P), LemmaA3.8 and TheoremA3.9; complete printed432–436 freshly read27 September2026.. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/spectral-padding-stability",
+        "verdict": "verified",
+        "note": "Checked Stability when the operator series vanishes at zero against Coleman-PadicBanach-published-1997 Appendix A3, printed434–436/PDF18–20: finite definition of D(B,P), LemmaA3.8 and TheoremA3.9; complete printed432–436 freshly read27 September2026.. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/spectral-scalar-extension",
+        "verdict": "verified",
+        "note": "Checked Coefficient maps preserve the finite transform against Coleman-PadicBanach-published-1997 Appendix A3, printed434–436/PDF18–20: finite definition of D(B,P), LemmaA3.8 and TheoremA3.9; complete printed432–436 freshly read27 September2026.. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/spectral-quotient-norm",
+        "verdict": "verified",
+        "note": "Checked Finite spectral transform as a native algebra norm against Coleman-PadicBanach-published-1997 Appendix A3, printed434–436/PDF18–20: finite definition of D(B,P), LemmaA3.8 and TheoremA3.9; complete printed432–436 freshly read27 September2026.. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/spectral-split-factors",
+        "verdict": "verified",
+        "note": "Checked The finite root-product formula against Coleman-PadicBanach-published-1997 Appendix A3, printed434–436/PDF18–20: finite definition of D(B,P), LemmaA3.8 and TheoremA3.9; complete printed432–436 freshly read27 September2026.. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/spectral-matrix-reflection",
+        "verdict": "verified",
+        "note": "Checked Fixed-rank reflection of the characteristic series against Coleman-PadicBanach-published-1997 Appendix A3, printed 435–436/PDF 19–20, finite definition of D and the finite-operator step in the proof of Theorem A3.9; complete printed 432–436 freshly reread.. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/spectral-matrix-degree",
+        "verdict": "verified",
+        "note": "Checked Degree bound for the characteristic series against Coleman-PadicBanach-published-1997 Appendix A3, printed 435–436/PDF 19–20, finite definition of D and the finite-operator step in the proof of Theorem A3.9; complete printed 432–436 freshly reread.. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/spectral-matrix-coefficients",
+        "verdict": "verified",
+        "note": "Checked Scalar extension of the characteristic series against Coleman-PadicBanach-published-1997 Appendix A3, printed 435–436/PDF 19–20, finite definition of D and the finite-operator step in the proof of Theorem A3.9; complete printed 432–436 freshly reread.. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/spectral-matrix-conjugation",
+        "verdict": "verified",
+        "note": "Checked Similarity invariance of the characteristic series against Coleman-PadicBanach-published-1997 Appendix A3, printed 435–436/PDF 19–20, finite definition of D and the finite-operator step in the proof of Theorem A3.9; complete printed 432–436 freshly reread.. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/spectral-triangular-diagonal-product",
+        "verdict": "verified",
+        "note": "Checked Diagonal entries of a triangular product against Coleman-PadicBanach-published-1997 Appendix A3, printed 435–436/PDF 19–20, finite definition of D and the finite-operator step in the proof of Theorem A3.9; complete printed 432–436 freshly reread.. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/spectral-triangular-evaluation",
+        "verdict": "verified",
+        "note": "Checked Polynomial evaluation preserves upper triangularity against Coleman-PadicBanach-published-1997 Appendix A3, printed 435–436/PDF 19–20, finite definition of D and the finite-operator step in the proof of Theorem A3.9; complete printed 432–436 freshly reread.. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/spectral-triangular-evaluation-diagonal",
+        "verdict": "verified",
+        "note": "Checked The diagonal of a polynomial in a triangular matrix against Coleman-PadicBanach-published-1997 Appendix A3, printed 435–436/PDF 19–20, finite definition of D and the finite-operator step in the proof of Theorem A3.9; complete printed 432–436 freshly reread.. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/spectral-triangular-characteristic",
+        "verdict": "verified",
+        "note": "Checked Characteristic factors of a triangular matrix against Coleman-PadicBanach-published-1997 Appendix A3, printed 435–436/PDF 19–20, finite definition of D and the finite-operator step in the proof of Theorem A3.9; complete printed 432–436 freshly reread.. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/spectral-triangular-comparison",
+        "verdict": "verified",
+        "note": "Checked Finite spectral mapping for triangular matrices against Coleman-PadicBanach-published-1997 Appendix A3, printed 435–436/PDF 19–20, finite definition of D and the finite-operator step in the proof of Theorem A3.9; complete printed 432–436 freshly reread.. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/spectral-evaluation-conjugation",
+        "verdict": "verified",
+        "note": "Checked Similarity commutes with polynomial calculus against Coleman-PadicBanach-published-1997 Appendix A3, printed 435–436/PDF 19–20, finite definition of D and the finite-operator step in the proof of Theorem A3.9; complete printed 432–436 freshly reread.. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/spectral-evaluation-coefficients",
+        "verdict": "verified",
+        "note": "Checked Scalar extension of matrix polynomial calculus against Coleman-PadicBanach-published-1997 Appendix A3, printed 435–436/PDF 19–20, finite definition of D and the finite-operator step in the proof of Theorem A3.9; complete printed 432–436 freshly reread.. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/spectral-similarity-comparison",
+        "verdict": "verified",
+        "note": "Checked Spectral mapping from a triangularizing similarity against Coleman-PadicBanach-published-1997 Appendix A3, printed 435–436/PDF 19–20, finite definition of D and the finite-operator step in the proof of Theorem A3.9; complete printed 432–436 freshly reread.. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/spectral-faithful-comparison",
+        "verdict": "verified",
+        "note": "Checked Faithful descent of finite spectral mapping against Coleman-PadicBanach-published-1997 Appendix A3, printed 435–436/PDF 19–20, finite definition of D and the finite-operator step in the proof of Theorem A3.9; complete printed 432–436 freshly reread.. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/spectral-universal-polynomial",
+        "verdict": "verified",
+        "note": "Checked Universal polynomial coefficients against Coleman-PadicBanach-published-1997 Appendix A3, printed 435–436/PDF19–20, finite definition of D and finite-operator step in Theorem A3.9; full printed432–436 freshly read 27 September2026.. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/spectral-universal-degree",
+        "verdict": "verified",
+        "note": "Checked Degree bound for the universal polynomial against Coleman-PadicBanach-published-1997 Appendix A3, printed 435–436/PDF19–20, finite definition of D and finite-operator step in Theorem A3.9; full printed432–436 freshly read 27 September2026.. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/spectral-specialization",
+        "verdict": "verified",
+        "note": "Checked Simultaneous coefficient and matrix specialization against Coleman-PadicBanach-published-1997 Appendix A3, printed 435–436/PDF19–20, finite definition of D and finite-operator step in Theorem A3.9; full printed432–436 freshly read 27 September2026.. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/spectral-specialization-matrix",
+        "verdict": "verified",
+        "note": "Checked Specialization of the native generic matrix against Coleman-PadicBanach-published-1997 Appendix A3, printed 435–436/PDF19–20, finite definition of D and finite-operator step in Theorem A3.9; full printed432–436 freshly read 27 September2026.. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/spectral-specialization-polynomial",
+        "verdict": "verified",
+        "note": "Checked Recovery of a bounded polynomial against Coleman-PadicBanach-published-1997 Appendix A3, printed 435–436/PDF19–20, finite definition of D and finite-operator step in Theorem A3.9; full printed432–436 freshly read 27 September2026.. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/spectral-generic-discriminant",
+        "verdict": "verified",
+        "note": "Checked Nonzero discriminant of the generic matrix against Coleman-PadicBanach-published-1997 Appendix A3, printed 435–436/PDF19–20, finite definition of D and finite-operator step in Theorem A3.9; full printed432–436 freshly read 27 September2026.. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/spectral-generic-separability",
+        "verdict": "verified",
+        "note": "Checked Generic separability in a faithful field extension against Coleman-PadicBanach-published-1997 Appendix A3, printed 435–436/PDF19–20, finite definition of D and finite-operator step in Theorem A3.9; full printed432–436 freshly read 27 September2026.. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/spectral-distinct-root-enumeration",
+        "verdict": "verified",
+        "note": "Checked Numbering distinct characteristic roots against Coleman-PadicBanach-published-1997 Appendix A3, printed 435–436/PDF19–20, finite definition of D and finite-operator step in Theorem A3.9; full printed432–436 freshly read 27 September2026.. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/spectral-eigenbasis",
+        "verdict": "verified",
+        "note": "Checked An eigenbasis from distinct characteristic roots against Coleman-PadicBanach-published-1997 Appendix A3, printed 435–436/PDF19–20, finite definition of D and finite-operator step in Theorem A3.9; full printed432–436 freshly read 27 September2026.. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/spectral-eigenbasis-conjugation",
+        "verdict": "verified",
+        "note": "Checked Diagonal similarity from an eigenbasis against Coleman-PadicBanach-published-1997 Appendix A3, printed 435–436/PDF19–20, finite definition of D and finite-operator step in Theorem A3.9; full printed432–436 freshly read 27 September2026.. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/spectral-universal-comparison",
+        "verdict": "verified",
+        "note": "Checked The universal finite spectral identity against Coleman-PadicBanach-published-1997 Appendix A3, printed 435–436/PDF19–20, finite definition of D and finite-operator step in Theorem A3.9; full printed432–436 freshly read 27 September2026.. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/spectral-finite-specialization",
+        "verdict": "verified",
+        "note": "Checked Finite spectral mapping over any coefficient ring against Coleman-PadicBanach-published-1997 Appendix A3, printed 435–436/PDF19–20, finite definition of D and finite-operator step in Theorem A3.9; full printed432–436 freshly read 27 September2026.. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/spectral-characteristic-reindex",
+        "verdict": "verified",
+        "note": "Checked Reindexing a characteristic series against Coleman-PadicBanach-published-1997 Appendix A3, printed 435–436/PDF19–20, finite definition of D and finite-operator step in Theorem A3.9; full printed432–436 freshly read 27 September2026.. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/spectral-evaluation-reindex",
+        "verdict": "verified",
+        "note": "Checked Reindexing polynomial matrix calculus against Coleman-PadicBanach-published-1997 Appendix A3, printed 435–436/PDF19–20, finite definition of D and finite-operator step in Theorem A3.9; full printed432–436 freshly read 27 September2026.. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/spectral-matrix-comparison",
+        "verdict": "verified",
+        "note": "Checked Finite characteristic spectral mapping against Coleman-PadicBanach-published-1997 Appendix A3, printed 435–436/PDF19–20, finite definition of D and finite-operator step in Theorem A3.9; full printed432–436 freshly read 27 September2026.. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/spectral-sylvester-reflection",
+        "verdict": "verified",
+        "note": "Checked Simultaneous reflection of the Sylvester matrix against Coleman-PadicBanach-published-1997 Appendix A3, printed434–435/PDF18–19: resultant norm interpretation, reciprocity(9), and the full proof of LemmaA3.8(11). Complete printed433–435 freshly read from the published copy.. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/spectral-resultant-reflection",
+        "verdict": "verified",
+        "note": "Checked Reciprocal resultant with swapped factors against Coleman-PadicBanach-published-1997 Appendix A3, printed434–435/PDF18–19: resultant norm interpretation, reciprocity(9), and the full proof of LemmaA3.8(11). Complete printed433–435 freshly read from the published copy.. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/spectral-reciprocal-evaluation",
+        "verdict": "verified",
+        "note": "Checked Finite reciprocal spectral evaluation against Coleman-PadicBanach-published-1997 Appendix A3, printed434–435/PDF18–19: resultant norm interpretation, reciprocity(9), and the full proof of LemmaA3.8(11). Complete printed433–435 freshly read from the published copy.. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/resultant-remainder-fixed-bound",
+        "verdict": "verified",
+        "note": "Checked A fixed-size resultant of the monic remainder against Coleman-PadicBanach-published-1997 Appendix A3, printed434–435/PDF18–19: resultant norm interpretation, reciprocity(9), and the full proof of LemmaA3.8(11). Complete printed433–435 freshly read from the published copy.. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/resultant-coordinate-continuity",
+        "verdict": "verified",
+        "note": "Checked Continuity of a fixed coefficient resultant against Coleman-PadicBanach-published-1997 Appendix A3, printed434–435/PDF18–19: resultant norm interpretation, reciprocity(9), and the full proof of LemmaA3.8(11). Complete printed433–435 freshly read from the published copy.. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/entire-quotient-truncation-limit",
+        "verdict": "verified",
+        "note": "Checked Truncation limit of each monic quotient coefficient against Coleman-PadicBanach-published-1997 Appendix A3, printed434–435/PDF18–19: resultant norm interpretation, reciprocity(9), and the full proof of LemmaA3.8(11). Complete printed433–435 freshly read from the published copy.. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/entire-remainder-truncation-limit",
+        "verdict": "verified",
+        "note": "Checked Truncation limit of each monic remainder coefficient against Coleman-PadicBanach-published-1997 Appendix A3, printed434–435/PDF18–19: resultant norm interpretation, reciprocity(9), and the full proof of LemmaA3.8(11). Complete printed433–435 freshly read from the published copy.. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/entire-resultant-truncation-limit",
+        "verdict": "verified",
+        "note": "Checked Entire resultant as a limit of polynomial resultants against Coleman-PadicBanach-published-1997 Appendix A3, printed434–435/PDF18–19: resultant norm interpretation, reciprocity(9), and the full proof of LemmaA3.8(11). Complete printed433–435 freshly read from the published copy.. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/spectral-reciprocal-limit",
+        "verdict": "verified",
+        "note": "Checked Scalar spectral limit with a fixed reciprocal polynomial against Coleman-PadicBanach-published-1997 Appendix A3, printed434–435/PDF18–19: resultant norm interpretation, reciprocity(9), and the full proof of LemmaA3.8(11). Complete printed433–435 freshly read from the published copy.. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/spectral-simultaneous-truncation-limit",
+        "verdict": "verified",
+        "note": "Checked The normalized scalar limit in Coleman A3.8 against Coleman-PadicBanach-published-1997 Appendix A3, printed434–435/PDF18–19: resultant norm interpretation, reciprocity(9), and the full proof of LemmaA3.8(11). Complete printed433–435 freshly read from the published copy.. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/entire-native-restricted",
+        "verdict": "verified",
+        "note": "Checked Entire series and native restrictedness against Coleman-PadicBanach-published-1997 Appendix A3, complete published printed 432–436 / PDF 16–20 freshly read on 27 September 2026; entire coefficient decay on 432, division on 434, spectral truncation limit and Lemma A3.8 on 435.. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/entire-native-gauss",
+        "verdict": "verified",
+        "note": "Checked The native Gauss norm comparison against Coleman-PadicBanach-published-1997 Appendix A3, complete published printed 432–436 / PDF 16–20 freshly read on 27 September 2026; entire coefficient decay on 432, division on 434, spectral truncation limit and Lemma A3.8 on 435.. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/entire-gauss-truncation-bound",
+        "verdict": "verified",
+        "note": "Checked Two-radius truncation estimate against Coleman-PadicBanach-published-1997 Appendix A3, complete published printed 432–436 / PDF 16–20 freshly read on 27 September 2026; entire coefficient decay on 432, division on 434, spectral truncation limit and Lemma A3.8 on 435.. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/entire-gauss-truncation-convergence",
+        "verdict": "verified",
+        "note": "Checked Entire truncations converge at every radius against Coleman-PadicBanach-published-1997 Appendix A3, complete published printed 432–436 / PDF 16–20 freshly read on 27 September 2026; entire coefficient decay on 432, division on 434, spectral truncation limit and Lemma A3.8 on 435.. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/entire-bounded-coefficient-limit",
+        "verdict": "verified",
+        "note": "Checked Entire coefficient limits under radius bounds against Coleman-PadicBanach-published-1997 Appendix A3, complete published printed 432–436 / PDF 16–20 freshly read on 27 September 2026; entire coefficient decay on 432, division on 434, spectral truncation limit and Lemma A3.8 on 435.. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/entire-bounded-gauss-limit",
+        "verdict": "verified",
+        "note": "Checked Bounded coefficient limits converge in Gauss norms against Coleman-PadicBanach-published-1997 Appendix A3, complete published printed 432–436 / PDF 16–20 freshly read on 27 September 2026; entire coefficient decay on 432, division on 434, spectral truncation limit and Lemma A3.8 on 435.. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/entire-gauss-cauchy-bounded",
+        "verdict": "verified",
+        "note": "Checked Radius bounds for a Gauss-Cauchy sequence against Coleman-PadicBanach-published-1997 Appendix A3, complete published printed 432–436 / PDF 16–20 freshly read on 27 September 2026; entire coefficient decay on 432, division on 434, spectral truncation limit and Lemma A3.8 on 435.. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/entire-gauss-cauchy-complete",
+        "verdict": "verified",
+        "note": "Checked Unique entire limit of Gauss-Cauchy sequences against Coleman-PadicBanach-published-1997 Appendix A3, complete published printed 432–436 / PDF 16–20 freshly read on 27 September 2026; entire coefficient decay on 432, division on 434, spectral truncation limit and Lemma A3.8 on 435.. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/entire-gauss-uniform-evaluation",
+        "verdict": "verified",
+        "note": "Checked Uniform evaluation of a Gauss limit against Coleman-PadicBanach-published-1997 Appendix A3, complete published printed 432–436 / PDF 16–20 freshly read on 27 September 2026; entire coefficient decay on 432, division on 434, spectral truncation limit and Lemma A3.8 on 435.. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/entire-gauss-multiplication-limit",
+        "verdict": "verified",
+        "note": "Checked Multiplication of Gauss limits against Coleman-PadicBanach-published-1997 Appendix A3, complete published printed 432–436 / PDF 16–20 freshly read on 27 September 2026; entire coefficient decay on 432, division on 434, spectral truncation limit and Lemma A3.8 on 435.. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/entire-monic-quotient-gauss-bound",
+        "verdict": "verified",
+        "note": "Checked A radius bound for entire monic division against Coleman-PadicBanach-published-1997 Appendix A3, complete published printed 432–436 / PDF 16–20 freshly read on 27 September 2026; entire coefficient decay on 432, division on 434, spectral truncation limit and Lemma A3.8 on 435.. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/entire-monic-quotient-gauss-limit",
+        "verdict": "verified",
+        "note": "Checked Continuity of entire monic division in Gauss radii against Coleman-PadicBanach-published-1997 Appendix A3, complete published printed 432–436 / PDF 16–20 freshly read on 27 September 2026; entire coefficient decay on 432, division on 434, spectral truncation limit and Lemma A3.8 on 435.. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/spectral-reduce-functional-polynomial",
+        "verdict": "verified",
+        "note": "Checked Reduction of the functional polynomial at fixed characteristic rank against Coleman-PadicBanach-published-1997 Appendix A3, published435/PDF19: definition of D and LemmaA3.8; full published435–436 freshly read28 September2026, with preceding full432–436 reading retained.. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/spectral-output-degree",
+        "verdict": "verified",
+        "note": "Checked The finite spectral output has degree at most its rank against Coleman-PadicBanach-published-1997 Appendix A3, published435/PDF19: definition of D and LemmaA3.8; full published435–436 freshly read28 September2026, with preceding full432–436 reading retained.. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/spectral-coefficient-coordinate-continuity",
+        "verdict": "verified",
+        "note": "Checked Continuity of finite spectral coefficients against Coleman-PadicBanach-published-1997 Appendix A3, published435/PDF19: definition of D and LemmaA3.8; full published435–436 freshly read28 September2026, with preceding full432–436 reading retained.. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/bounded-degree-gauss-limit",
+        "verdict": "verified",
+        "note": "Checked Gauss convergence of bounded-degree coefficient limits against Coleman-PadicBanach-published-1997 Appendix A3, published435/PDF19: definition of D and LemmaA3.8; full published435–436 freshly read28 September2026, with preceding full432–436 reading retained.. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/entire-fixed-polynomial-spectral",
+        "verdict": "verified",
+        "note": "Checked Spectral transform with entire functional input and fixed polynomial input against Coleman-PadicBanach-published-1997 Appendix A3, published435/PDF19: definition of D and LemmaA3.8; full published435–436 freshly read28 September2026, with preceding full432–436 reading retained.. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/entire-fixed-polynomial-compatibility",
+        "verdict": "verified",
+        "note": "Checked Agreement with the polynomial spectral construction against Coleman-PadicBanach-published-1997 Appendix A3, published435/PDF19: definition of D and LemmaA3.8; full published435–436 freshly read28 September2026, with preceding full432–436 reading retained.. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/entire-fixed-spectral-coefficient-limit",
+        "verdict": "verified",
+        "note": "Checked Coefficient limits at fixed characteristic rank against Coleman-PadicBanach-published-1997 Appendix A3, published435/PDF19: definition of D and LemmaA3.8; full published435–436 freshly read28 September2026, with preceding full432–436 reading retained.. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/entire-fixed-spectral-gauss-limit",
+        "verdict": "verified",
+        "note": "Checked All-radius Gauss convergence at fixed characteristic rank against Coleman-PadicBanach-published-1997 Appendix A3, published435/PDF19: definition of D and LemmaA3.8; full published435–436 freshly read28 September2026, with preceding full432–436 reading retained.. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/spectral-simultaneous-fixed-polynomial-gauss",
+        "verdict": "verified",
+        "note": "Checked Simultaneous truncation convergence for polynomial characteristic input against Coleman-PadicBanach-published-1997 Appendix A3, published435/PDF19: definition of D and LemmaA3.8; full published435–436 freshly read28 September2026, with preceding full432–436 reading retained.. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/entire-fixed-spectral-padding",
+        "verdict": "verified",
+        "note": "Checked The exact zero-root padding law for entire functional input against Coleman-PadicBanach-published-1997 Appendix A3, published435/PDF19: definition of D and LemmaA3.8; full published435–436 freshly read28 September2026, with preceding full432–436 reading retained.. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/entire-fixed-spectral-factor-product",
+        "verdict": "verified",
+        "note": "Checked Factor products for polynomial characteristic inputs against Coleman-PadicBanach-published-1997 Appendix A3, published435/PDF19: definition of D and LemmaA3.8; full published435–436 freshly read28 September2026, with preceding full432–436 reading retained.. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/entire-fixed-spectral-linear-input",
+        "verdict": "verified",
+        "note": "Checked Linear characteristic input evaluates the entire function against Coleman-PadicBanach-published-1997 Appendix A3, published435/PDF19: definition of D and LemmaA3.8; full published435–436 freshly read28 September2026, with preceding full432–436 reading retained.. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L1/open-disc-native-radius",
+        "verdict": "verified",
+        "note": "Checked Open-disc series and the native analytic radius against COLMEZ-FONCTIONS-2010 §II.2, Lemma II.2.1 and Theorem II.2.2 with proofs, author PDF p. 30. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L1/open-disc-summability",
+        "verdict": "verified",
+        "note": "Checked Summability inside the open disc against COLMEZ-FONCTIONS-2010 §II.2, Lemma II.2.1 and Theorem II.2.2 with proofs, author PDF p. 30. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L1/open-disc-uniform-tail",
+        "verdict": "verified",
+        "note": "Checked Uniform geometric tails on a smaller disc against COLMEZ-FONCTIONS-2010 §II.2, Lemma II.2.1 and Theorem II.2.2 with proofs, author PDF p. 30. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L1/open-disc-evaluation-analytic",
+        "verdict": "verified",
+        "note": "Checked Analytic evaluation of an open-disc series against COLMEZ-FONCTIONS-2010 §II.2, Lemma II.2.1 and Theorem II.2.2 with proofs, author PDF p. 30. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L1/open-disc-evaluation-mul",
+        "verdict": "verified",
+        "note": "Checked Evaluation preserves products inside the disc against COLMEZ-FONCTIONS-2010 §II.2, Lemma II.2.1 and Theorem II.2.2 with proofs, author PDF p. 30. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L1/open-disc-evaluation-map",
+        "verdict": "verified",
+        "note": "Checked Evaluation commutes with an isometric coefficient extension against COLMEZ-FONCTIONS-2010 §II.2, Lemma II.2.1 and Theorem II.2.2 with proofs, author PDF p. 30. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L3/finite-character-component-mellin",
+        "verdict": "verified",
+        "note": "Checked Mellin series on a finite-character component against RJW-2024 Remark 3.47, pp. 25–26; §5.3, pp. 34–35 (formula immediately before Remark 5.22). The recorded foundational/analytic gaps are retained; this verifies the mathematical contract, not implementation or closure."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L3/component-mellin-coefficient-bound",
+        "verdict": "verified",
+        "note": "Checked Bounded component Mellin coefficients against RJW-2024 Remark 3.47, pp. 25–26; §5.3, pp. 34–35 (formula immediately before Remark 5.22). Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L3/component-mellin-open-disc",
+        "verdict": "verified",
+        "note": "Checked Bounded component series are analytic on the disc against RJW-2024 Remark 3.47, pp. 25–26; §5.3, pp. 34–35 (formula immediately before Remark 5.22). Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L3/component-mellin-evaluation",
+        "verdict": "verified",
+        "note": "Checked Character evaluation equals the component Mellin value against RJW-2024 Remark 3.47, pp. 25–26; §5.3, pp. 34–35 (formula immediately before Remark 5.22); COLMEZ-FONCTIONS-2010 §II.2, Lemma II.2.1 and Theorem II.2.2 with proofs, author PDF p. 30. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L3/branch-mellin",
+        "verdict": "verified",
+        "note": "Checked Mellin branches in an arithmetic parameter against RJW-2024 Remark 3.47, pp. 25–26; §5.3, pp. 34–35 (formula immediately before Remark 5.22). The recorded foundational/analytic gaps are retained; this verifies the mathematical contract, not implementation or closure."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L3/branch-coordinate-domain",
+        "verdict": "verified",
+        "note": "Checked Arithmetic branches stay inside the character disc against COLMEZ-FONCTIONS-2010 §II.2, Lemma II.2.1 and Theorem II.2.2 with proofs, author PDF p. 30. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L3/branch-integer-evaluation",
+        "verdict": "verified",
+        "note": "Checked Mellin evaluation at integral weights against RJW-2024 Remark 3.47, pp. 25–26; §5.3, pp. 34–35 (formula immediately before Remark 5.22). Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L3/meromorphic-mellin-clearing",
+        "verdict": "verified",
+        "note": "Checked Mellin evaluation on a clearing-factor domain against RJW-2024 Remark 3.47, pp. 25–26; §5.3, pp. 34–35 (formula immediately before Remark 5.22). The recorded foundational/analytic gaps are retained; this verifies the mathematical contract, not implementation or closure."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L3/meromorphic-clearing-independence",
+        "verdict": "verified",
+        "note": "Checked Agreement of Mellin clearing expressions against RJW-2024 Remark 3.47, pp. 25–26; §5.3, pp. 34–35 (formula immediately before Remark 5.22). Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L0/strict-sequence-comparison",
+        "verdict": "corrected",
+        "note": "Appendix A locator now distinguishes Propositions A.1/A.3/A.4 from Remark A.2. The shared left-heart input remains a gap."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L0/banach-three-space",
+        "verdict": "corrected",
+        "note": "CN locator/proof attribution corrected to Proposition A.1; left-heart and bounded-lattice inputs remain explicit."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L0/banach-splitting",
+        "verdict": "corrected",
+        "note": "CN locator corrected to Remark A.2; the spherical-completeness OR separability alternative is retained."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L0/frechet-three-space",
+        "verdict": "corrected",
+        "note": "CN locator/proof attribution corrected to Proposition A.3; no splitting is inferred."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L0/compact-type-three-space",
+        "verdict": "corrected",
+        "note": "CN locator/proof attribution corrected to Proposition A.4; cited Ext and nuclear extension inputs remain gaps."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L0/multivariable-fixed-radius",
+        "verdict": "corrected",
+        "note": "The constant-coefficient nonexample requires a nonempty chart set."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L0/radius-restriction-compact",
+        "verdict": "verified",
+        "note": "Checked Compact restriction to a smaller radius against SCHNEIDER-TEITELBAUM-2001 §1, Lemmas 1.1–1.2 and Proposition 1.4, printed pp. 3–6. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L0/compact-uniform-radius",
+        "verdict": "verified",
+        "note": "Checked A common analytic radius on a compact manifold against SCHNEIDER-TEITELBAUM-2001 §1, Lemmas 1.1–1.2 and Proposition 1.4, printed pp. 3–6. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L0/analytic-chart-pullback",
+        "verdict": "verified",
+        "note": "Checked Continuity of analytic chart pullback against SCHNEIDER-TEITELBAUM-2001 §1, Lemmas 1.1–1.2 and Proposition 1.4, printed pp. 3–6. The recorded foundational/analytic gaps are retained; this verifies the mathematical contract, not implementation or closure."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L0/chart-independence",
+        "verdict": "verified",
+        "note": "Checked Independence of the analytic atlas against SCHNEIDER-TEITELBAUM-2001 §1, Lemmas 1.1–1.2 and Proposition 1.4, printed pp. 3–6. The recorded foundational/analytic gaps are retained; this verifies the mathematical contract, not implementation or closure."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L0/product-analytic-tensor",
+        "verdict": "verified",
+        "note": "Checked Products and completed analytic tensors against SCHNEIDER-TEITELBAUM-2001 §1, Lemmas 1.1–1.2 and Proposition 1.4, printed pp. 3–6. The recorded foundational/analytic gaps are retained; this verifies the mathematical contract, not implementation or closure."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L0/compact-type-dual-reflexivity",
+        "verdict": "verified",
+        "note": "Checked Strong duality for analytic compact-type spaces against SCHNEIDER-TEITELBAUM-2001 §1, Lemmas 1.1–1.2 and Proposition 1.4, printed pp. 3–6. The recorded foundational/analytic gaps are retained; this verifies the mathematical contract, not implementation or closure."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L1/distribution-pushforward",
+        "verdict": "verified",
+        "note": "Checked Pushforward of analytic distributions against COLMEZ-FONCTIONS-2010 §II.4, printed pp. 34–37. The recorded foundational/analytic gaps are retained; this verifies the mathematical contract, not implementation or closure."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L1/distribution-convolution",
+        "verdict": "verified",
+        "note": "Checked Convolution by iterated analytic evaluation against COLMEZ-FONCTIONS-2010 §II.4, printed pp. 34–37. The recorded foundational/analytic gaps are retained; this verifies the mathematical contract, not implementation or closure."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L1/distribution-multiply",
+        "verdict": "verified",
+        "note": "Checked Multiplication by an analytic function against COLMEZ-FONCTIONS-2010 §II.4, printed pp. 34–37. The recorded foundational/analytic gaps are retained; this verifies the mathematical contract, not implementation or closure."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L1/amice-dirac",
+        "verdict": "verified",
+        "note": "Checked Amice transform of a point mass against COLMEZ-FONCTIONS-2010 §II.4, printed pp. 34–37. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L1/amice-convolution",
+        "verdict": "verified",
+        "note": "Checked Unbounded Amice convolution identity against COLMEZ-FONCTIONS-2010 §II.4, printed pp. 34–37. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L1/amice-multiply-x",
+        "verdict": "verified",
+        "note": "Checked Coordinate multiplication under Amice against COLMEZ-FONCTIONS-2010 §II.4, printed pp. 34–37. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L1/amice-character-twist",
+        "verdict": "verified",
+        "note": "Checked Additive character twist under Amice against COLMEZ-FONCTIONS-2010 §II.4, printed pp. 34–37. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L1/amice-ball-restriction",
+        "verdict": "verified",
+        "note": "Checked Fourier formula for clopen restriction against COLMEZ-FONCTIONS-2010 §II.4.3 and Proposition II.4.1, printed p. 35. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L1/amice-derivative",
+        "verdict": "verified",
+        "note": "Checked The transpose derivative and logarithm against COLMEZ-FONCTIONS-2010 §II.4, printed pp. 34–37. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L1/amice-dilation",
+        "verdict": "verified",
+        "note": "Checked Dilation and the φ operator against COLMEZ-FONCTIONS-2010 §II.4.5, printed pp. 35–36. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L1/psi-unit-projector",
+        "verdict": "verified",
+        "note": "Checked The ψ operator and support on units against COLMEZ-FONCTIONS-2010 §II.4.5, printed p. 36. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L1/division-on-units",
+        "verdict": "verified",
+        "note": "Checked Canonical coordinate division away from zero against COLMEZ-FONCTIONS-2010 §II.4, printed pp. 34–37. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L1/analytic-local-primitives",
+        "verdict": "verified",
+        "note": "Checked Local primitives with a radius loss against COLMEZ-FONCTIONS-2010 §I.5, Proposition I.5.16, printed pp. 24–25; Kohlhaase Corollary 4.3, printed p. 21. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L1/derivative-nonsplitting",
+        "verdict": "corrected",
+        "note": "Replaced the inaccurate proof paraphrase by the total bounded lattice/strict LF bounded-set contradiction, retaining its foundational gaps."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L1/logarithm-extension-nonsplitting",
+        "verdict": "verified",
+        "note": "Checked The nonsplit logarithm sequence against COLMEZ-NIZIOL-2025 Appendix A, Remark A.6, printed p. 59. The recorded foundational/analytic gaps are retained; this verifies the mathematical contract, not implementation or closure."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L1/logarithm-apparent-poles",
+        "verdict": "verified",
+        "note": "Checked Cancellation in logarithmic derivative quotients against COLMEZ-FONCTIONS-2010 §II.4, printed pp. 34–37. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L2/anisotropic-tensor-wavelets",
+        "verdict": "verified",
+        "note": "Checked Tensor wavelets and vector order against LOEFFLER-2014 §2.3, Definitions 2.11–2.14, Remark 2.13 and Theorem 2.15, printed pp. 4–5. The recorded foundational/analytic gaps are retained; this verifies the mathematical contract, not implementation or closure."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L2/rectangular-wavelet-basis",
+        "verdict": "verified",
+        "note": "Checked Rectangular locally constant wavelets against LOEFFLER-2014 §2.3, Definitions 2.11–2.14, Remark 2.13 and Theorem 2.15, printed pp. 4–5. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L2/rectangular-growth",
+        "verdict": "verified",
+        "note": "Checked Rectangular growth for a locally constant functional against LOEFFLER-2014 §2.3, Definitions 2.11–2.14, Remark 2.13 and Theorem 2.15, printed pp. 4–5. The recorded foundational/analytic gaps are retained; this verifies the mathematical contract, not implementation or closure."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L2/rectangular-extension",
+        "verdict": "verified",
+        "note": "Checked Extension of rectangular distributions against LOEFFLER-2014 §2.3, Definitions 2.11–2.14, Remark 2.13 and Theorem 2.15, printed pp. 4–5. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L2/rectangular-growth-necessity",
+        "verdict": "verified",
+        "note": "Checked Growth forced by the tensor dual norm against LOEFFLER-2014 §2.3, Definitions 2.11–2.14, Remark 2.13 and Theorem 2.15, printed pp. 4–5. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L2/quasifactor-chart-invariance",
+        "verdict": "verified",
+        "note": "Checked Compatible quasi-factor chart invariance against LOEFFLER-2014 §2.3, Definitions 2.11–2.14, Remark 2.13 and Theorem 2.15, printed pp. 4–5. The recorded foundational/analytic gaps are retained; this verifies the mathematical contract, not implementation or closure."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L2/tensor-multidegree-extension",
+        "verdict": "verified",
+        "note": "Checked Multidegree admissibility and uniqueness against LOEFFLER-2014 Remark 2.13 and Theorem 2.15, printed p. 5; tensor deduction from Colmez Theorem II.3.5, printed pp. 32–33. The recorded foundational/analytic gaps are retained; this verifies the mathematical contract, not implementation or closure."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L2/locally-algebraic-determination",
+        "verdict": "corrected",
+        "note": "Finite-character splitting extensions may vary with the finite residue level; no fixed finite field contains all characters."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L2/critical-vector-counterexample",
+        "verdict": "verified",
+        "note": "Checked Failure at a critical coordinate order against LOEFFLER-2014 §2.2, Remark 2.10, printed p. 4; worker tensor counterexample using Colmez §II.4.4. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L2/isotropic-anisotropic-distinction",
+        "verdict": "corrected",
+        "note": "Locally constant wavelet comparison restricted to orders below one; higher orders require locally polynomial wavelets."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L2/rayclass-growth-adapter",
+        "verdict": "verified",
+        "note": "Checked From conductor bounds to analytic ray-class distributions against LOEFFLER-2014 §3.1, Definition 3.1 and Theorem 3.3, printed pp. 6–7. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L2/positive-order-nonmeasure",
+        "verdict": "verified",
+        "note": "Checked A positive-order distribution that is not a measure against COLMEZ-FONCTIONS-2010 §II.3, Proposition II.3.1, printed p. 31; §II.4.4, printed p. 35. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L3/unbounded-component-mellin",
+        "verdict": "verified",
+        "note": "Checked Distribution Mellin components against KOHLHAASE-2011 Theorem 4.4 and its coefficient model, printed pp. 21–22. The recorded foundational/analytic gaps are retained; this verifies the mathematical contract, not implementation or closure."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L3/mellin-frechet-isomorphism",
+        "verdict": "verified",
+        "note": "Checked Mellin as a Fréchet algebra isomorphism against KOHLHAASE-2011 Theorem 4.4 and its coefficient model, printed pp. 21–22. The recorded foundational/analytic gaps are retained; this verifies the mathematical contract, not implementation or closure."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L3/bounded-mellin-characterisation",
+        "verdict": "verified",
+        "note": "Checked Bounded Mellin functions and measures against RJW-2024 Theorem 3.43 and Remark 3.47, printed pp. 24–26; §5.3, printed pp. 34–35. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L3/mellin-character-evaluation",
+        "verdict": "verified",
+        "note": "Checked Evaluation of distributions at analytic characters against RJW-2024 Theorem 3.43 and Remark 3.47, printed pp. 24–26; §5.3, printed pp. 34–35. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L3/mellin-convolution",
+        "verdict": "verified",
+        "note": "Checked Multiplicativity of distribution Mellin against SCHNEIDER-TEITELBAUM-2001 §1, Lemmas 1.1–1.2 and Proposition 1.4, printed pp. 3–6. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L3/mellin-generator-change",
+        "verdict": "verified",
+        "note": "Checked Mellin compatibility with a different generator against RJW-2024 Theorem 3.43 and Remark 3.47, printed pp. 24–26; §5.3, printed pp. 34–35. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L3/mellin-weight-analyticity",
+        "verdict": "verified",
+        "note": "Checked Local analyticity in an arithmetic weight parameter against RJW-2024 Theorem 3.43 and Remark 3.47, printed pp. 24–26; §5.3, printed pp. 34–35. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L3/mellin-weight-derivative",
+        "verdict": "verified",
+        "note": "Checked Weight differentiation and logarithmic moments against RJW-2024 Theorem 3.43 and Remark 3.47, printed pp. 24–26; §5.3, printed pp. 34–35. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L3/mellin-twist",
+        "verdict": "verified",
+        "note": "Checked Twists of the distribution Mellin transform against RJW-2024 Theorem 3.43 and Remark 3.47, printed pp. 24–26; §5.3, printed pp. 34–35. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L3/mellin-pushforward",
+        "verdict": "verified",
+        "note": "Checked Mellin functoriality for group maps against RJW-2024 Theorem 3.43 and Remark 3.47, printed pp. 24–26; §5.3, printed pp. 34–35. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L3/mellin-coefficient-extension",
+        "verdict": "verified",
+        "note": "Checked Finite coefficient extension of Mellin against SCHNEIDER-TEITELBAUM-2001 §1, Lemmas 1.1–1.2 and Proposition 1.4, printed pp. 3–6. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L3/mellin-adic-comparison",
+        "verdict": "corrected",
+        "note": "Removed the unsupported claim that upstream AdicSpaces Layer 5 contains rigid/adic comparison; precise missing Part II supplier request added."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L3/meromorphic-mellin-gluing",
+        "verdict": "verified",
+        "note": "Checked Gluing genuine pseudomeasure Mellin numerators against RJW-2024 Theorem 3.43 and Remark 3.47, printed pp. 24–26; §5.3, printed pp. 34–35. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L3/clearing-pole-order",
+        "verdict": "verified",
+        "note": "Checked Local pole order of a clearing presentation against RJW-2024 Theorem 3.43 and Remark 3.47, printed pp. 24–26; §5.3, printed pp. 34–35. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/affinoid-analytic-stage",
+        "verdict": "verified",
+        "note": "Checked Affinoid-valued analytic stages against URBAN-2011 Lemmas 3.4.6–3.4.7 and Definition 3.4.10, author pp. 43–45. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/affinoid-distribution-stage",
+        "verdict": "corrected",
+        "note": "The bounded non-c₀ dual example and its Lean signature explicitly require an ultrametric coefficient field."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/family-integral-lattice",
+        "verdict": "verified",
+        "note": "Checked Integral distribution lattices against URBAN-2011 Lemmas 3.4.6–3.4.7 and Definition 3.4.10, author pp. 43–45. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/analytic-completed-tensor",
+        "verdict": "verified",
+        "note": "Checked Scalar tensors of analytic stages against URBAN-2011 Lemmas 3.4.6–3.4.7 and Definition 3.4.10, author pp. 43–45. The recorded foundational/analytic gaps are retained; this verifies the mathematical contract, not implementation or closure."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/dual-scalar-extension-map",
+        "verdict": "verified",
+        "note": "Checked The canonical distribution scalar-extension map against URBAN-2011 Lemmas 3.4.6–3.4.7 and Definition 3.4.10, author pp. 43–45. The recorded foundational/analytic gaps are retained; this verifies the mathematical contract, not implementation or closure."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/family-specialization",
+        "verdict": "verified",
+        "note": "Checked Specialization of distribution families against URBAN-2011 Lemmas 3.4.6–3.4.7 and Definition 3.4.10, author pp. 43–45. The recorded foundational/analytic gaps are retained; this verifies the mathematical contract, not implementation or closure."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/universal-character-coefficient-action",
+        "verdict": "verified",
+        "note": "Checked Universal-character coefficient action against URBAN-2011 Lemmas 3.4.6–3.4.7 and Definition 3.4.10, author pp. 43–45. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/coefficient-action-cocycle",
+        "verdict": "verified",
+        "note": "Checked Cocycle law and handedness against URBAN-2011 Lemmas 3.4.6–3.4.7 and Definition 3.4.10, author pp. 43–45. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/uniform-family-radius",
+        "verdict": "verified",
+        "note": "Checked A common radius for universal weights against URBAN-2011 Lemmas 3.4.6–3.4.7, author pp. 43–44. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/contracting-family-compactness",
+        "verdict": "verified",
+        "note": "Checked Complete continuity from analytic contraction against URBAN-2011 Lemmas 3.4.6–3.4.7 and Definition 3.4.10, author pp. 43–45. The recorded foundational/analytic gaps are retained; this verifies the mathematical contract, not implementation or closure."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/pan-tate-compactness",
+        "verdict": "verified",
+        "note": "Checked Compact algebra maps with nilpotent coordinate images against PAN-2026 §2.2.1 and Example 2.2.2, arXiv p. 13. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/pan-formal-compactness",
+        "verdict": "verified",
+        "note": "Checked Compactness for bounded formal-series inputs against PAN-2026 §2.2.1 and Example 2.2.2, arXiv p. 13. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/banach-cochain-complex",
+        "verdict": "verified",
+        "note": "Checked Bounded complexes of projective Banach modules against PILLONI-2020 §§13.1.1–13.1.3, author pp. 84–85. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/compact-complex-representative",
+        "verdict": "verified",
+        "note": "Checked Degreewise completely continuous representatives against PILLONI-2020 §§13.1.1–13.1.3, author pp. 84–85. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/compact-homotopy-endomorphism",
+        "verdict": "verified",
+        "note": "Checked Compactness of a homotopy endomorphism against PILLONI-2020 §§13.1.1–13.1.3, author pp. 84–85. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/representative-fredholm-product",
+        "verdict": "verified",
+        "note": "Checked Characteristic series of a compact complex representative against PILLONI-2020 §§13.1.1–13.1.3, author pp. 84–85. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/complex-product-entire",
+        "verdict": "verified",
+        "note": "Checked Entirety of the representative product against BCGP-2021 §6.1.1, arXiv p. 139; Theorem 6.3.16 and proof, arXiv pp. 152–153. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/representative-product-dependence",
+        "verdict": "corrected",
+        "note": "The geometric zero counterexample uses a=1; nonzero nilpotent a does not suffice."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/numerical-slope-decomposition",
+        "verdict": "corrected",
+        "note": "Added the rational numerical slope hypothesis required by the cited source; inclusive endpoints and rank-one fibre conventions are retained."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/slope-functoriality",
+        "verdict": "corrected",
+        "note": "Added the rational numerical slope hypothesis required by the cited source; inclusive endpoints and rank-one fibre conventions are retained."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/slope-uniqueness",
+        "verdict": "corrected",
+        "note": "Added the rational numerical slope hypothesis required by the cited source; inclusive endpoints and rank-one fibre conventions are retained."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/slope-subcomplex",
+        "verdict": "corrected",
+        "note": "Added the rational numerical slope hypothesis required by the cited source; inclusive endpoints and rank-one fibre conventions are retained."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/finite-slope-perfect-complex",
+        "verdict": "corrected",
+        "note": "Added the rational numerical slope hypothesis required by the cited source; inclusive endpoints and rank-one fibre conventions are retained."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/cohomology-slope-comparison",
+        "verdict": "corrected",
+        "note": "Added the rational numerical slope hypothesis required by the cited source; inclusive endpoints and rank-one fibre conventions are retained."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/finite-slope-homotopy-invariance",
+        "verdict": "corrected",
+        "note": "Added the rational numerical slope hypothesis required by the cited source; inclusive endpoints and rank-one fibre conventions are retained."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/derived-slope-base-change",
+        "verdict": "corrected",
+        "note": "Added the rational numerical slope hypothesis required by the cited source; inclusive endpoints and rank-one fibre conventions are retained."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/exact-slope-rank-local-constancy",
+        "verdict": "corrected",
+        "note": "Added rational h, corrected separate Pilloni/Coleman locators, and distinguished closed-disc quasi-finite geometry from the general exact-slope proof."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/finite-slope-euler-local-constancy",
+        "verdict": "corrected",
+        "note": "Added the rational numerical slope hypothesis required by the cited source; inclusive endpoints and rank-one fibre conventions are retained."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/factorized-finite-slope-extension",
+        "verdict": "corrected",
+        "note": "Added the rational numerical slope hypothesis required by the cited source; inclusive endpoints and rank-one fibre conventions are retained."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/factorized-extension-independence",
+        "verdict": "corrected",
+        "note": "Added the rational numerical slope hypothesis required by the cited source; inclusive endpoints and rank-one fibre conventions are retained."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/compact-frechet-factorization",
+        "verdict": "verified",
+        "note": "Checked Compact factorization on Fréchet presentations against URBAN-2011 §2.3.12 and Lemma 2.3.13, author pp. 27–28. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/frechet-finite-slope",
+        "verdict": "corrected",
+        "note": "Added the rational numerical slope hypothesis required by the cited source; inclusive endpoints and rank-one fibre conventions are retained."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/stein-frechet-interface",
+        "verdict": "verified",
+        "note": "Checked Stein exhaustions for finite-slope operators against BCGP-2025 Definition 2.2.17, printed p. 21; §§4.6.46–4.6.49, printed pp. 93–95. The recorded foundational/analytic gaps are retained; this verifies the mathematical contract, not implementation or closure."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/torus-slope-order",
+        "verdict": "verified",
+        "note": "Checked The torus partial order on slopes against BCGP-2025 §1.8.5, printed p. 9; §§4.6.47–4.6.48, printed pp. 93–94. Prerequisites and proof sketch checked against the stated hypotheses and conventions."
+      },
+      {
+        "nodeId": "LocallyAnalyticDistributions:L4/classical-solid-finite-window",
+        "verdict": "verified",
+        "note": "Checked Classical finite windows and solid localization against BCGP-2025 §4.6.46 and Remark 4.6.49, printed pp. 93–95. The recorded foundational/analytic gaps are retained; this verifies the mathematical contract, not implementation or closure."
+      }
+    ]
   },
   "checks": {
     "agent": "Codex — codex-h73CoC",
@@ -16554,7 +18130,7 @@
       "preservedNodeIds": 214,
       "apiItems": 179,
       "definitionConstructionTests": 160,
-      "baselineDeclarations": 254,
+      "baselineDeclarations": 255,
       "gaps": 14,
       "requests": 9,
       "planets": 18
@@ -16840,10 +18416,35 @@
       "nativeBuildsThisRun": 0,
       "note": "The complete file elaborated in the supplied shared pinned build. The only subsequent file change appends a comment register for inherited missing signatures; no declarations changed."
     },
-    "preservation": "All 214 predecessor node ids retained; 213 node objects unchanged. The sole old statement edit corrects the C^r remainder domain to x∈Z_p, y∈p^hZ_p from the primary definition. All thirteen integrated L4 node ids and the nineteen integrated links retained.",
+    "preservation": "All 214 predecessor node ids retained; 213 node objects unchanged. The sole old statement edit corrects the C^r remainder domain to x∈Z_p, y∈p^hZ_p from the primary definition. All thirteen integrated L4 node ids and the nineteen integrated links retained. The independent review retains all 303 input node ids and adds no nodes; corrections are enumerated in its report and review.checked.",
     "errata": {
       "errors": 0,
       "note": "Versioned errata-v1 wrapper containing the six packet findings and sourceVersions passed scripts/check_errata.py. Four newly recorded findings include three reused confirmed extraction corrections and one version-scoped new preprint counterexample."
+    },
+    "independentReview": {
+      "agent": "Codex — codex-cpe72I",
+      "date": "2026-10-09",
+      "nodes": 303,
+      "verified": 270,
+      "corrected": 33,
+      "added": 0,
+      "unverifiable": 0,
+      "baselineDeclarations": 255,
+      "sourceIssuesConfirmed": 6,
+      "scope": "Target level under current detail.json; inherited finer nodes retained. All stages partial; compilation checks typing only, not proofs.",
+      "blueprint": {
+        "errors": 0,
+        "warnings": 0
+      },
+      "lean": {
+        "command": "lean-check research/blueprint/suggested/LocallyAnalyticDistributions.lean",
+        "exitCode": 0,
+        "errors": 0,
+        "warnings": 489,
+        "onlySorryWarnings": true,
+        "suggestedSha256": "ac5b4f9c96060b6a03049543ea8647fd3c6a915368cc84cec21d50d96b56add3",
+        "nativeBuildsThisRun": 0
+      }
     }
   },
   "provenance": {
