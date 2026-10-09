@@ -46443,8 +46443,8 @@
     "PKG-DiamondEtaleCohomology"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-DiamondEtaleCohomology.md",
-   "state": "pending",
-   "note": "released on GitHub issue #7512"
+   "state": "external",
+   "note": "claimed on GitHub issue #7512"
   },
   {
    "id": "PKG-DiamondsAndVStacks",
@@ -47007,8 +47007,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-HeckeStacksAndLocalShtukas.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7489"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7489",
+   "finishedAt": "2026-10-09T03:42:02Z"
   },
   {
    "id": "REV-PKG-HeckeStacksAndLocalShtukas",
@@ -47369,8 +47370,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-MetaplecticAutomorphicForms.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7492"
+   "state": "pending",
+   "note": "released on GitHub issue #7492"
   },
   {
    "id": "REV-PKG-MetaplecticAutomorphicForms",
@@ -77503,8 +77504,8 @@
     "FIX-RT-AREA-langlands-2~3"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-langlands-2~3.md",
-   "state": "pending",
-   "note": "released on GitHub issue #5871"
+   "state": "external",
+   "note": "claimed on GitHub issue #5871"
   },
   {
    "id": "FIX-RT-AREA-langlands-2~4",
