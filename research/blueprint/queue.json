@@ -29928,9 +29928,9 @@
     "REV-RS-21"
    ],
    "prompt": "research/blueprint/prompts/BP-SmoothRepresentationsOfLocalGroups--SR.0.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [],
-   "note": "claimed on GitHub issue #996"
+   "note": "released on GitHub issue #996"
   },
   {
    "id": "REV-SmoothRepresentationsOfLocalGroups--SR.0",
@@ -34100,8 +34100,9 @@
    ],
    "followUpOf": "BP-SchemeAndStackFoundations",
    "prompt": "research/blueprint/prompts/BP-SchemeAndStackFoundations--SF.1.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6326"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6326",
+   "finishedAt": "2026-10-09T12:01:09Z"
   },
   {
    "id": "REV-SchemeAndStackFoundations--SF.1",
@@ -34145,8 +34146,9 @@
    ],
    "followUpOf": "BP-SchemeAndStackFoundations",
    "prompt": "research/blueprint/prompts/BP-SchemeAndStackFoundations--SF.2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6327"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6327",
+   "finishedAt": "2026-10-09T12:01:11Z"
   },
   {
    "id": "REV-SchemeAndStackFoundations--SF.2",
@@ -34258,7 +34260,8 @@
    ],
    "avoidAccountOf": "BP-SchemeAndStackFoundations--SF.4",
    "prompt": "research/blueprint/prompts/REV-SchemeAndStackFoundations--SF.4.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6286"
   },
   {
    "id": "BP-SchemeAndStackFoundations--SF.5",
@@ -46318,8 +46321,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-AdelicAlgebraicGroups.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7453"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7453",
+   "finishedAt": "2026-10-09T12:01:12Z"
   },
   {
    "id": "REV-PKG-AdelicAlgebraicGroups",
