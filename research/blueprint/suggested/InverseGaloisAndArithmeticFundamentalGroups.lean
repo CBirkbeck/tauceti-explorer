@@ -601,6 +601,17 @@ means the exact statement remains in the packet and reader; it is not weakened t
 opaque carrier or an assumed proposition. Supplier names refer to roadmap plans, not
 implemented modules at this pin. All tests proved by sorry check only their type.
 
+Independent review boundary corrections (REV-InverseGaloisAndArithmeticFundamentalGroups):
+The Galois-algebra tensor criterion requires a nonzero algebra; the zero-algebra test
+is omitted with the other geometric carrier tests. Decomposition uses the underlying
+point, whereas a geometric lift has inertia stabilizer. General descent uses continuous
+lifts of G/Z(G) comparison cosets with the specified trivial central action. Property E
+quantifies over pro-Δ′ quotients and needs finite-quotient compatibility/compactness.
+The marked unramified-infinity analytic comparison uses product-one tuples. EVW7.7
+allows every finite étale cover under its proper smooth normal-crossings hypotheses;
+no extra prime-to-residue-characteristic condition on the cover degree is imposed.
+The empty patch ring is the local ring at the closed-fiber generic point.
+
 ### InverseGaloisAndArithmeticFundamentalGroups:IG.0/finite-etale-covers
 partial signatures. Full mathematical target remains the packet statement. The native signatures cover the listed declarations; additional categorical, geometric and arithmetic clauses are not implied by their elaboration. The geometric-fiber clause of empty_test, restriction-to-Gm clause of ramification_test and explicit pullback coherence isomorphisms still require the geometric bridge.
 Typed target/carrier: TauCeti.InverseGalois.finiteEtaleProperty, TauCeti.InverseGalois.FiniteEtaleCover.
@@ -636,7 +647,7 @@ Supplier/carrier interfaces: tauceti:TauCetiRoadmap/ModularCurves#0d-finite-éta
 ### InverseGaloisAndArithmeticFundamentalGroups:IG.0/finite-galois-algebras
 whole declaration omitted. Full mathematical target remains the packet statement. The whole target declaration is omitted until its prerequisites have actual Lean carriers and the source-proof interfaces are connected.
 Whole API omissions: GaloisAlgebra.split, GaloisAlgebra.torsorMap, GaloisAlgebra.invariants, GaloisAlgebra.homClass.
-Whole test omissions: GaloisAlgebra.split_test, GaloisAlgebra.quadratic_test, GaloisAlgebra.weak_test.
+Whole test omissions: GaloisAlgebra.split_test, GaloisAlgebra.quadratic_test, GaloisAlgebra.weak_test, GaloisAlgebra.zero_test.
 Exact gap obligations: Scheme Galois-category bridge.
 Supplier/carrier interfaces: SchemeAndStackFoundations:SF.1.
 
@@ -674,7 +685,7 @@ Supplier/carrier interfaces: SchemeAndStackFoundations:SF.2.
 whole declaration omitted. Full mathematical target remains the packet statement. The whole target declaration is omitted until its prerequisites have actual Lean carriers and the source-proof interfaces are connected.
 Whole API omissions: ProetaleFundamentalGroup.actionEquivalence, ProetaleFundamentalGroup.toEtale, ProetaleFundamentalGroup.torsorEquivalence, ProetaleFundamentalGroup.map.
 Whole test omissions: ProetaleFundamentalGroup.normal_test, ProetaleFundamentalGroup.node_test, ProetaleFundamentalGroup.conjugacy_test.
-Exact gap obligations: Noohi and pro-étale carrier signatures.
+Exact gap obligations: Noohi and pro-étale carrier signatures; Supplier comparison adapters.
 Supplier/carrier interfaces: SchemeAndStackFoundations:SF.2, EnhancedDerivedSheaves:E2.
 
 ### InverseGaloisAndArithmeticFundamentalGroups:IG.1/arithmetic-exact-sequence
@@ -698,7 +709,7 @@ Supplier/carrier interfaces: tauceti:TauCetiRoadmap/LocalFieldsRamification#laye
 
 ### InverseGaloisAndArithmeticFundamentalGroups:IG.1/proper-specialization
 whole declaration omitted. Full mathematical target remains the packet statement. The whole target declaration is omitted until its prerequisites have actual Lean carriers and the source-proof interfaces are connected.
-Exact gap obligations: Geometric specialization carrier.
+Exact gap obligations: Geometric specialization carrier; Supplier comparison adapters.
 Supplier/carrier interfaces: SchemeAndStackFoundations:SF.4.
 
 ### InverseGaloisAndArithmeticFundamentalGroups:IG.1/punctured-specialization
@@ -724,8 +735,8 @@ Exact gap obligations: Geometric specialization carrier.
 
 ### InverseGaloisAndArithmeticFundamentalGroups:IG.1/stack-and-family-exactness
 whole declaration omitted. Full mathematical target remains the packet statement. The whole target declaration is omitted until its prerequisites have actual Lean carriers and the source-proof interfaces are connected.
-Exact gap obligations: Stack completion exactness source; Geometric specialization carrier.
-Supplier/carrier interfaces: AlgebraicModuliForArithmeticGeometry:R09.4, SchemeAndStackFoundations:SF.3.
+Exact gap obligations: Stack completion exactness source; Geometric specialization carrier; Supplier comparison adapters.
+Supplier/carrier interfaces: SchemeAndStackFoundations:SF.3, SchemeAndStackFoundations:SF.1, SchemeAndStackFoundations:SF.4.
 
 ### InverseGaloisAndArithmeticFundamentalGroups:IG.2/regular-subring
 partial signatures. Full mathematical target remains the packet statement. The native signatures cover the listed declarations; additional categorical, geometric and arithmetic clauses are not implied by their elaboration.
@@ -850,12 +861,12 @@ Supplier/carrier interfaces: tauceti:TauCetiRoadmap/ClassFieldTheory#layer-10-gl
 
 ### InverseGaloisAndArithmeticFundamentalGroups:IG.3/general-riemann-existence
 whole declaration omitted. Full mathematical target remains the packet statement. The whole target declaration is omitted until its prerequisites have actual Lean carriers and the source-proof interfaces are connected.
-Exact gap obligations: General nonproper Riemann-existence algebraization.
+Exact gap obligations: General nonproper Riemann-existence algebraization; Supplier comparison adapters.
 Supplier/carrier interfaces: ComplexComparisonPartII:C0, ComplexComparisonPartII:C3, ComplexComparisonPartII:C4, tauceti:TauCetiRoadmap/BelyiMaps#layer-0-permutation-triples, AlgebraicModuliForArithmeticGeometry:R09.7.
 
 ### InverseGaloisAndArithmeticFundamentalGroups:IG.3/bounded-cover-count
 whole declaration omitted. Full mathematical target remains the packet statement. The whole target declaration is omitted until its prerequisites have actual Lean carriers and the source-proof interfaces are connected.
-Exact gap obligations: General nonproper Riemann-existence algebraization; Nonproper characteristic-zero base-extension proof.
+Exact gap obligations: General nonproper Riemann-existence algebraization; Nonproper characteristic-zero base-extension proof; Supplier comparison adapters.
 Supplier/carrier interfaces: tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-0-profinite-foundations, ComplexComparisonPartII:C4.
 
 ### InverseGaloisAndArithmeticFundamentalGroups:IG.3/branch-tuples
@@ -1029,7 +1040,7 @@ Exact gap obligations: Arithmetic embedding signatures; Profinite complement con
 whole declaration omitted. Full mathematical target remains the packet statement. The whole target declaration is omitted until its prerequisites have actual Lean carriers and the source-proof interfaces are connected.
 Whole API omissions: PropertyE.lift, PropertyE.weakIsProper, PropertyE.finiteReduction, PropertyE.admissibility.
 Whole test omissions: PropertyE.nonsplit_test, PropertyE.split_test, PropertyE.generalKernel_test.
-Exact gap obligations: Arithmetic embedding signatures.
+Exact gap obligations: Arithmetic embedding signatures; Property E finite-to-profinite criterion.
 Supplier/carrier interfaces: tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-5-presentations-extensions-and-the-rank-interpretations.
 
 ### InverseGaloisAndArithmeticFundamentalGroups:IG.4/unramified-property-e
@@ -1088,43 +1099,43 @@ Supplier/carrier interfaces: SchemeAndStackFoundations:SF.3, tauceti:TauCetiRoad
 whole declaration omitted. Full mathematical target remains the packet statement. The whole target declaration is omitted until its prerequisites have actual Lean carriers and the source-proof interfaces are connected.
 Whole API omissions: ArithmeticHurwitz.branch, ArithmeticHurwitz.classLocus, ArithmeticHurwitz.centerlessDescent, ArithmeticHurwitz.markedRepresentability.
 Whole test omissions: ArithmeticHurwitz.central_test, ArithmeticHurwitz.marked_test, ArithmeticHurwitz.infinity_test.
-Exact gap obligations: Original tame/admissible moduli construction proofs; Hurwitz geometry signatures.
-Supplier/carrier interfaces: AlgebraicModuliForArithmeticGeometry:R09.4, SchemeAndStackFoundations:SF.4.
+Exact gap obligations: Original tame/admissible moduli construction proofs; Hurwitz geometry signatures; Supplier comparison adapters.
+Supplier/carrier interfaces: SchemeAndStackFoundations:SF.4, SchemeAndStackFoundations:SF.1.
 
 ### InverseGaloisAndArithmeticFundamentalGroups:IG.5/arbitrary-monodromy-marked-moduli
 whole declaration omitted. Full mathematical target remains the packet statement. The whole target declaration is omitted until its prerequisites have actual Lean carriers and the source-proof interfaces are connected.
 Whole API omissions: ArbitraryMarkedHurwitz.monodromy, ArbitraryMarkedHurwitz.fullLocus, ArbitraryMarkedHurwitz.exactImage, ArbitraryMarkedHurwitz.inactivePuncture.
 Whole test omissions: ArbitraryMarkedHurwitz.empty_test, ArbitraryMarkedHurwitz.identity_test, ArbitraryMarkedHurwitz.properImage_test.
-Exact gap obligations: Original tame/admissible moduli construction proofs; Hurwitz geometry signatures.
-Supplier/carrier interfaces: AlgebraicModuliForArithmeticGeometry:R09.4.
+Exact gap obligations: Original tame/admissible moduli construction proofs; Hurwitz geometry signatures; Supplier comparison adapters.
+Supplier/carrier interfaces: SchemeAndStackFoundations:SF.1, SchemeAndStackFoundations:SF.4.
 
 ### InverseGaloisAndArithmeticFundamentalGroups:IG.5/hurwitz-analytic-comparison
 whole declaration omitted. Full mathematical target remains the packet statement. The whole target declaration is omitted until its prerequisites have actual Lean carriers and the source-proof interfaces are connected.
-Exact gap obligations: Original tame/admissible moduli construction proofs; Hurwitz geometry signatures.
-Supplier/carrier interfaces: ComplexComparisonPartII:C3, AlgebraicModuliForArithmeticGeometry:R09.4.
+Exact gap obligations: Original tame/admissible moduli construction proofs; Hurwitz geometry signatures; Supplier comparison adapters.
+Supplier/carrier interfaces: ComplexComparisonPartII:C3, SchemeAndStackFoundations:SF.1, SchemeAndStackFoundations:SF.4.
 
 ### InverseGaloisAndArithmeticFundamentalGroups:IG.5/admissible-g-covers
 whole declaration omitted. Full mathematical target remains the packet statement. The whole target declaration is omitted until its prerequisites have actual Lean carriers and the source-proof interfaces are connected.
 Whole API omissions: AdmissibleGCover.baseChange, AdmissibleGCover.connectedLocus, AdmissibleGCover.smoothLocus, AdmissibleGCover.nodeCharacters.
 Whole test omissions: AdmissibleGCover.trivial_test, AdmissibleGCover.node_test, AdmissibleGCover.unbalanced_test.
-Exact gap obligations: Original tame/admissible moduli construction proofs; Hurwitz geometry signatures.
-Supplier/carrier interfaces: SchemeAndStackFoundations:SF.3, AlgebraicModuliForArithmeticGeometry:R09.4.
+Exact gap obligations: Original tame/admissible moduli construction proofs; Hurwitz geometry signatures; Supplier comparison adapters.
+Supplier/carrier interfaces: SchemeAndStackFoundations:SF.3, SchemeAndStackFoundations:SF.1, SchemeAndStackFoundations:SF.4.
 
 ### InverseGaloisAndArithmeticFundamentalGroups:IG.5/admissible-stacks-and-stable-curves
 whole declaration omitted. Full mathematical target remains the packet statement. The whole target declaration is omitted until its prerequisites have actual Lean carriers and the source-proof interfaces are connected.
-Exact gap obligations: Original tame/admissible moduli construction proofs; Hurwitz geometry signatures.
-Supplier/carrier interfaces: SchemeAndStackFoundations:SF.4, AlgebraicModuliForArithmeticGeometry:R09.4.
+Exact gap obligations: Original tame/admissible moduli construction proofs; Hurwitz geometry signatures; Supplier comparison adapters.
+Supplier/carrier interfaces: SchemeAndStackFoundations:SF.4, SchemeAndStackFoundations:SF.1.
 
 ### InverseGaloisAndArithmeticFundamentalGroups:IG.5/ordered-configuration-compactification
 whole declaration omitted. Full mathematical target remains the packet statement. The whole target declaration is omitted until its prerequisites have actual Lean carriers and the source-proof interfaces are connected.
 Whole API omissions: ConfigurationCompactification.frame, ConfigurationCompactification.open, ConfigurationCompactification.boundary, ConfigurationCompactification.permutation.
 Whole test omissions: ConfigurationCompactification.two_test, ConfigurationCompactification.one_test, ConfigurationCompactification.unit_test.
-Exact gap obligations: Hurwitz geometry signatures.
-Supplier/carrier interfaces: AlgebraicModuliForArithmeticGeometry:R09.4, SchemeAndStackFoundations:SF.3.
+Exact gap obligations: Hurwitz geometry signatures; Supplier comparison adapters.
+Supplier/carrier interfaces: SchemeAndStackFoundations:SF.3, SchemeAndStackFoundations:SF.1, SchemeAndStackFoundations:SF.4.
 
 ### InverseGaloisAndArithmeticFundamentalGroups:IG.5/tame-cohomological-specialization
 whole declaration omitted. Full mathematical target remains the packet statement. The whole target declaration is omitted until its prerequisites have actual Lean carriers and the source-proof interfaces are connected.
-Exact gap obligations: Nonproper cohomology kernel and coefficient tower; Hurwitz geometry signatures.
+Exact gap obligations: Nonproper cohomology kernel and coefficient tower; Hurwitz geometry signatures; Supplier comparison adapters.
 Supplier/carrier interfaces: EnhancedDerivedSheaves:E2, SchemeAndStackFoundations:SF.2.
 
 ### InverseGaloisAndArithmeticFundamentalGroups:IG.5/fixed-degree-mod-l-comparison
@@ -1134,12 +1145,12 @@ Supplier/carrier interfaces: SchemeAndStackFoundations:SF.2.
 
 ### InverseGaloisAndArithmeticFundamentalGroups:IG.5/coefficient-tower-comparison
 whole declaration omitted. Full mathematical target remains the packet statement. The whole target declaration is omitted until its prerequisites have actual Lean carriers and the source-proof interfaces are connected.
-Exact gap obligations: Nonproper cohomology kernel and coefficient tower; Hurwitz geometry signatures.
+Exact gap obligations: Nonproper cohomology kernel and coefficient tower; Hurwitz geometry signatures; Supplier comparison adapters.
 Supplier/carrier interfaces: EnhancedDerivedSheaves:E1, EnhancedDerivedSheaves:E2, SchemeAndStackFoundations:SF.2.
 
 ### InverseGaloisAndArithmeticFundamentalGroups:IG.5/restricted-hurwitz-trace-kernel
 whole declaration omitted. Full mathematical target remains the packet statement. The whole target declaration is omitted until its prerequisites have actual Lean carriers and the source-proof interfaces are connected.
-Exact gap obligations: Nonproper cohomology kernel and coefficient tower; Hurwitz geometry signatures.
+Exact gap obligations: Nonproper cohomology kernel and coefficient tower; Hurwitz geometry signatures; Supplier comparison adapters.
 Supplier/carrier interfaces: EnhancedDerivedSheaves:E2, SchemeAndStackFoundations:SF.2.
 
 ### InverseGaloisAndArithmeticFundamentalGroups:IG.5/fixed-degree-point-estimate
@@ -1176,23 +1187,23 @@ Exact gap obligations: Hurwitz geometry signatures.
 
 ### InverseGaloisAndArithmeticFundamentalGroups:IG.5/double-cover-trace-zero
 whole declaration omitted. Full mathematical target remains the packet statement. The whole target declaration is omitted until its prerequisites have actual Lean carriers and the source-proof interfaces are connected.
-Exact gap obligations: Hurwitz geometry signatures.
-Supplier/carrier interfaces: SchemeAndStackFoundations:SF.3, AlgebraicModuliForArithmeticGeometry:R09.4.
+Exact gap obligations: Hurwitz geometry signatures; Supplier comparison adapters.
+Supplier/carrier interfaces: SchemeAndStackFoundations:SF.3, SchemeAndStackFoundations:SF.1.
 
 ### InverseGaloisAndArithmeticFundamentalGroups:IG.5/lifted-affine-coordinate-group
 partial signatures. Full mathematical target remains the packet statement. The native signatures cover the listed declarations; additional categorical, geometric and arithmetic clauses are not implied by their elaboration. The point group and odd parameterization are typed; the relative scheme action and connectedness assertion still require the scheme quotient carrier.
 Typed target/carrier: TauCeti.InverseGalois.LiftedAffineGroup.
 Typed API: LiftedAffineGroup.mul, LiftedAffineGroup.oddParameter.
-Whole API omissions: LiftedAffineGroup.action, LiftedAffineGroup.connected.
 Typed examples: LiftedAffineGroup.identity_test, LiftedAffineGroup.involution_test, LiftedAffineGroup.even_test.
+Whole API omissions: LiftedAffineGroup.action, LiftedAffineGroup.connected.
 Supplier/carrier interfaces: SchemeAndStackFoundations:SF.0.
 
 ### InverseGaloisAndArithmeticFundamentalGroups:IG.5/labelled-hyperelliptic-family
 whole declaration omitted. Full mathematical target remains the packet statement. The whole target declaration is omitted until its prerequisites have actual Lean carriers and the source-proof interfaces are connected.
 Whole API omissions: LabelledHyperellipticFamily.cover, LabelledHyperellipticFamily.normalForm, LabelledHyperellipticFamily.isomSheaf, LabelledHyperellipticFamily.quotient.
 Whole test omissions: LabelledHyperellipticFamily.genusOne_test, LabelledHyperellipticFamily.deck_test, LabelledHyperellipticFamily.repeatedRoot_test.
-Exact gap obligations: Hurwitz geometry signatures.
-Supplier/carrier interfaces: AlgebraicModuliForArithmeticGeometry:R09.4.
+Exact gap obligations: Hurwitz geometry signatures; Supplier comparison adapters.
+Supplier/carrier interfaces: SchemeAndStackFoundations:SF.1.
 
 ### InverseGaloisAndArithmeticFundamentalGroups:IG.5/finite-cover-image-lemmas
 whole declaration omitted. Full mathematical target remains the packet statement. The whole target declaration is omitted until its prerequisites have actual Lean carriers and the source-proof interfaces are connected.
@@ -1223,20 +1234,20 @@ Supplier/carrier interfaces: ComplexComparisonPartII:C5/repair-sheaf-singular-co
 whole declaration omitted. Full mathematical target remains the packet statement. The whole target declaration is omitted until its prerequisites have actual Lean carriers and the source-proof interfaces are connected.
 Whole API omissions: ArtinNeighborhood.point, ArtinNeighborhood.tower, ArtinNeighborhood.aspherical, ArtinNeighborhood.cohomology.
 Whole test omissions: ArtinNeighborhood.affineLine_test, ArtinNeighborhood.torus_test, ArtinNeighborhood.projectiveLine_test.
-Exact gap obligations: Artin and residual-finiteness original proofs.
+Exact gap obligations: Artin and residual-finiteness original proofs; Supplier comparison adapters.
 Supplier/carrier interfaces: ComplexComparisonPartII:C0, SchemeAndStackFoundations:SF.3.
 
 ### InverseGaloisAndArithmeticFundamentalGroups:IG.3/curve-topological-density
 whole declaration omitted. Full mathematical target remains the packet statement. The whole target declaration is omitted until its prerequisites have actual Lean carriers and the source-proof interfaces are connected.
-Exact gap obligations: Artin and residual-finiteness original proofs.
+Exact gap obligations: Artin and residual-finiteness original proofs; Supplier comparison adapters.
 Supplier/carrier interfaces: ComplexComparisonPartII:C0.
 
 ### InverseGaloisAndArithmeticFundamentalGroups:IG.5/versal-phi-cover-families
 whole declaration omitted. Full mathematical target remains the packet statement. The whole target declaration is omitted until its prerequisites have actual Lean carriers and the source-proof interfaces are connected.
 Whole API omissions: VersalPhiFamily.chart, VersalPhiFamily.cover, VersalPhiFamily.monodromy, VersalPhiFamily.withSection.
 Whole test omissions: VersalPhiFamily.trivial_test, VersalPhiFamily.elliptic_test, VersalPhiFamily.central_test.
-Exact gap obligations: Hurwitz geometry signatures; Versal-family original construction.
-Supplier/carrier interfaces: AlgebraicModuliForArithmeticGeometry:R09.4.
+Exact gap obligations: Hurwitz geometry signatures; Versal-family original construction; Supplier comparison adapters.
+Supplier/carrier interfaces: SchemeAndStackFoundations:SF.1, SchemeAndStackFoundations:SF.4.
 
 ### InverseGaloisAndArithmeticFundamentalGroups:IG.5/general-fixed-fiber-equation
 whole declaration omitted. Full mathematical target remains the packet statement. The whole target declaration is omitted until its prerequisites have actual Lean carriers and the source-proof interfaces are connected.
@@ -1247,8 +1258,8 @@ Supplier/carrier interfaces: InductionRestrictionPartII:RS.3/discrete-action.
 partial signatures. Full mathematical target remains the packet statement. The native signatures cover the listed declarations; additional categorical, geometric and arithmetic clauses are not implied by their elaboration.
 Typed target/carrier: TauCeti.InverseGalois.FieldRealization, TauCeti.InverseGalois.PolynomialRealization.
 Typed API: FieldRealization.degree, PolynomialRealization.toField, FieldRealization.transport.
-Whole API omissions: FieldRealization.groupEquiv.
 Typed examples: Realization.trivial_test, Realization.reducible_test, Realization.degree_test.
+Whole API omissions: FieldRealization.groupEquiv.
 
 ### InverseGaloisAndArithmeticFundamentalGroups:IG.6/specialization-export
 whole declaration omitted. Full mathematical target remains the packet statement. The whole target declaration is omitted until its prerequisites have actual Lean carriers and the source-proof interfaces are connected.
@@ -1324,5 +1335,4 @@ Supplier/carrier interfaces: tauceti:TauCetiRoadmap/ReductiveGroups#layer-0-the-
 ### InverseGaloisAndArithmeticFundamentalGroups:IG.4/wang-cyclic-eight-counterexample
 whole declaration omitted. Full mathematical target remains the packet statement. The whole target declaration is omitted until its prerequisites have actual Lean carriers and the source-proof interfaces are connected. The prerequisite list below is the exact carrier boundary; no untyped condition is replaced by a proposition parameter.
 Supplier/carrier interfaces: tauceti:TauCetiRoadmap/ClassFieldTheory#layer-7-the-absolute-local-artin-map-its-normalizations-and-conductors, tauceti:TauCetiRoadmap/ClassFieldTheory#layer-10-global-carriers-the-brauer-sequence-and-the-sum-of-local-invariants.
-
 -/
