@@ -1451,7 +1451,7 @@
         "Projective X/S and a chosen relatively very ample sheaf are used for a coherent-source presentation. E need not be flat for Hom, but both sheaves are flat for Isom. For invertible source E the Hom proof also works with proper finitely presented X/S, because tensoring F with E∨ retains base-flatness."
       ],
       "proofSteps": [
-        "On each affine base open choose a two-term presentation E1→E0→E→0 by sums of powers of the relative very ample invertible sheaf. Internal Hom from Ei to F is a twist of F, hence base-flat. The proper cohomology complex corepresents its H0; the cokernel of the two corepresenting modules corepresents Hom(E,F). Glue the affine linear schemes by the functor. For invertible E, the same argument uses F⊗E∨ directly and requires only properness.",
+        "On each affine base open choose a two-term presentation E19→E0→E→0 by sums of powers of the relative very ample invertible sheaf. Internal Hom from Ei to F is a twist of F, hence base-flat. The proper cohomology complex corepresents its H0; the cokernel of the two corepresenting modules corepresents Hom(E,F). Glue the affine linear schemes by the functor. For invertible E, the same argument uses F⊗E∨ directly and requires only properness.",
         "For Isom use Hom(E,F)×Hom(F,E) and impose the two identities as closed vanishing loci.",
         "Projection forgetting the inverse identifies its points with actual sheaf isomorphisms, and inversion is unique."
       ],
@@ -1957,7 +1957,7 @@
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-c-relative-coherent-cohomology-and-base-change",
-      "need": "The current Jacobian Layer C/StableReduction J-C contract is proper finitely presented f over locally Noetherian S, coherent S-flat F, without assuming X/S flat: finite Grothendieck complexes on affine bases, coherent higher direct images, arbitrary-base-change maps, vanishing/surjectivity criteria giving locally free H0, and a corepresenting finite module for H0(F⊗M) when M is invertible. R09.2 combines these modules along a two-term projective presentation of a coherent E to corepresent Hom(E,F); it does not infer the general proper coherent-source theorem from a cohomology complex alone. Also use proper coherent pushforward for every coherent sheaf (no sheaf-flatness assumption for coherence), required by the Chow unit and test sheaves. Constant fibre dimensions on a nonreduced base alone must not imply local freeness; see sourceIssue E1.",
+      "need": "The current Jacobian Layer C/StableReduction J-C contract is proper finitely presented f over locally Noetherian S, coherent S-flat F, without assuming X/S flat: finite Grothendieck complexes on affine bases, coherent higher direct images, arbitrary-base-change maps, vanishing/surjectivity criteria giving locally free H0, and a corepresenting finite module for H0(F⊗M) when M is invertible. R09.2 combines these modules along a two-term projective presentation of a coherent E to corepresent Hom(E,F); it does not infer the general proper coherent-source theorem from a cohomology complex alone. Also use proper coherent pushforward for every coherent sheaf (no sheaf-flatness assumption for coherence), required by the Chow unit and test sheaves. Constant fibre dimensions on a nonreduced base alone must not imply local freeness; see sourceIssue E19.",
       "neededBy": [
         "AlgebraicModuliForArithmeticGeometry:R09.2/flattening-strata",
         "AlgebraicModuliForArithmeticGeometry:R09.2/quot-grassmann-map",
@@ -1998,7 +1998,7 @@
   "gaps": [],
   "sourceIssues": [
     {
-      "id": "AlgebraicModuliForArithmeticGeometry/E1",
+      "id": "AlgebraicModuliForArithmeticGeometry/E19",
       "source": "NITSURE",
       "kind": "error",
       "locator": "arXiv:math/0504590v1, Theorem 3.7(3), printed p. 17",
@@ -2014,7 +2014,7 @@
       ]
     },
     {
-      "id": "AlgebraicModuliForArithmeticGeometry/E2",
+      "id": "AlgebraicModuliForArithmeticGeometry/E20",
       "source": "EGA-III1",
       "kind": "error",
       "locator": "Published EGA III1, §3.1, Theorem 3.1.2, printed pp. 115–116",
@@ -2030,7 +2030,7 @@
       ]
     },
     {
-      "id": "AlgebraicModuliForArithmeticGeometry/E3",
+      "id": "AlgebraicModuliForArithmeticGeometry/E21",
       "source": "SGA1-XII",
       "kind": "misprint",
       "locator": "Electronic re-edition arXiv:math/0206203v2, XII proof of 4.4, display (*) on printed p. 250 (original margin p. 331)",
@@ -2046,7 +2046,7 @@
       ]
     },
     {
-      "id": "AlgebraicModuliForArithmeticGeometry/E4",
+      "id": "AlgebraicModuliForArithmeticGeometry/E22",
       "source": "NITSURE",
       "kind": "error",
       "locator": "arXiv:math/0504590v1, exercise after Remark 2.2, printed p. 11, third regularity implication",
@@ -2062,7 +2062,7 @@
       ]
     },
     {
-      "id": "AlgebraicModuliForArithmeticGeometry/E5",
+      "id": "AlgebraicModuliForArithmeticGeometry/E23",
       "source": "NITSURE",
       "kind": "misprint",
       "locator": "arXiv:math/0504590v1, proof of Lemma 2.1(c), printed p. 11",
@@ -2117,7 +2117,7 @@
       "citation": "arXiv:math/0504590v1, 29 April 2005; preprint, not a claim about the FGA Explained version of record",
       "read": "2026-10-09",
       "sha256": "edbab8363ccfd8fe07f855c27498c784ecac26482043663f0b56972c85c7ed6d",
-      "note": "AMS version-of-record chapter was not accessible: publisher book landing page returned 403. Findings E1, E4, E5 are scoped to arXiv v1 and make no claim about the published chapter."
+      "note": "AMS version-of-record chapter was not accessible: publisher book landing page returned 403. Findings E19, E22, E23 are scoped to arXiv v1 and make no claim about the published chapter."
     },
     {
       "kind": "published",
@@ -2132,7 +2132,7 @@
       "citation": "SMF Documents Mathématiques 3 (2003), arXiv:math/0206203v2 electronic re-edition; printed pp. 247–250, original margin pp. 326–331",
       "read": "2026-10-09",
       "sha256": "8e64218d356456c534eebf996940f0f957e43b54f1a080241debe12cbaf60d3c",
-      "note": "Electronic re-edition read; SMF publisher page unavailable through the browser. E3 is scoped to the electronic re-edition, not an unchecked original printing."
+      "note": "Electronic re-edition read; SMF publisher page unavailable through the browser. E21 is scoped to the electronic re-edition, not an unchecked original printing."
     }
   ]
 }
