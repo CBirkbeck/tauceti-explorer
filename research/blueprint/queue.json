@@ -29954,8 +29954,9 @@
    ],
    "avoidAccountOf": "BP-SmoothRepresentationsOfLocalGroups--SR.0",
    "prompt": "research/blueprint/prompts/REV-SmoothRepresentationsOfLocalGroups--SR.0.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #494"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #494",
+   "finishedAt": "2026-10-09T16:08:22Z"
   },
   {
    "id": "BP-SmoothRepresentationsOfLocalGroups--SR.4",
@@ -104969,8 +104970,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/REV-PKG-AlgebraicModuliForArithmeticGeometry~adv.md"
+   "state": "external",
+   "prompt": "research/blueprint/prompts/REV-PKG-AlgebraicModuliForArithmeticGeometry~adv.md",
+   "note": "claimed on GitHub issue #8027"
   },
   {
    "id": "REV-PKG-NeronModelsAndSemistableAbelianVarieties~adv",
