@@ -12131,7 +12131,8 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-IntegralHeckeAndGaloisDeterminantsPartII.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3383"
   },
   {
    "id": "REV-DESIGN-IntegralHeckeAndGaloisDeterminantsPartII",
@@ -60058,7 +60059,8 @@
     "REV-DESIGN-EllipticCurveModularityImaginaryQuadratic"
    ],
    "prompt": "research/blueprint/prompts/RT-DESIGN-EllipticCurveModularityImaginaryQuadratic.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7697"
   },
   {
    "id": "REV-RT-DESIGN-EllipticCurveModularityImaginaryQuadratic",
@@ -70661,7 +70663,8 @@
     "REV-LocalGaloisDeformationRings~2"
    ],
    "prompt": "research/blueprint/prompts/RT-BP-LocalGaloisDeformationRings~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7673"
   },
   {
    "id": "REV-RT-BP-LocalGaloisDeformationRings~2",
@@ -71366,7 +71369,8 @@
     "REV-PotentialAutomorphyInfrastructure~2"
    ],
    "prompt": "research/blueprint/prompts/RT-BP-PotentialAutomorphyInfrastructure~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7293"
   },
   {
    "id": "REV-RT-BP-PotentialAutomorphyInfrastructure~2",
