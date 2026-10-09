@@ -46036,7 +46036,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-ClassicalSerreModularity.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7460"
   },
   {
    "id": "REV-PKG-ClassicalSerreModularity",
@@ -46122,8 +46123,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-ComplexMultiplicationAndExplicitReciprocity.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7461"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7461",
+   "finishedAt": "2026-10-09T00:41:48Z"
   },
   {
    "id": "REV-PKG-ComplexMultiplicationAndExplicitReciprocity",
@@ -46323,8 +46325,9 @@
     "PKG-DeligneWeightsAndPurity"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-DeligneWeightsAndPurity.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7510"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7510",
+   "finishedAt": "2026-10-09T00:41:53Z"
   },
   {
    "id": "PKG-DerivedDeRhamCohomology",
@@ -47007,7 +47010,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-HeegnerPointEulerSystems.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7490"
   },
   {
    "id": "REV-PKG-HeegnerPointEulerSystems",
