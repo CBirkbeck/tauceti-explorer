@@ -1,4 +1,4 @@
-# Algebraic moduli and representability for arithmetic geometry
+# Roadmap: algebraic moduli and representability for arithmetic geometry
 
 This roadmap builds the representability machinery that the arithmetic moduli roadmaps of Tau Ceti
 stand on and that neither Mathlib nor another Tau Ceti roadmap owns: the projective parameter
@@ -8,12 +8,12 @@ coherent dévissage behind proper GAGA; faithfully flat descent of modules and q
 on affine covers and on algebraic spaces; gerbes with abelian bands, their neutralizations, Giraud's
 classification by second cohomology, profinite étale gerbes and their finite stages; rigidification
 of stacks and the base-change statements available for coarse spaces; Artin approximation; the
-relative Picard sheaf, proper flat coherent cohomology with base change, the algebraicity of the
+relative Picard sheaf, derived proper-flat coherent cohomology, the algebraicity of the
 Picard stack and Artin's representability criterion; deformation groupoids compared with completed
 local rings; and canonical resolution of singularities in characteristic zero with the strict
 normal crossings compactification that Borel's extension theorem consumes. Every object is defined
 on Mathlib's `AlgebraicGeometry.Scheme`, on Mathlib's sites and `Cat`-valued pseudofunctors, or on
-the algebraic spaces and stacks of SchemeAndStackFoundations; every theorem names its hypotheses.
+the algebraic spaces and stacks of SchemeAndStackFoundations. The exact hypotheses and supplier contracts determine the scope of each result.
 
 | Layer | Title | What it builds |
 |---|---|---|
@@ -23,7 +23,7 @@ the algebraic spaces and stacks of SchemeAndStackFoundations; every theorem name
 | [R09.4](#r09-4) | Gerbes, abelian bands and their classification | gerbes on a site, relative gerbes, abelian bandings and the intrinsic band, band-preserving morphisms, neutralizations, Giraud's H² classification, root gerbes, Hom sheaves and descent of gerbe morphisms, profinite étale gerbes and finite stages, twisted inertia |
 | [R09.5](#r09-5) | Coarse spaces and rigidification | rigidification along inertia subgroups, base change of coarse spaces, auxiliary level as a rigidifier, normalisation and schematic closure, descent of finite correspondences |
 | [R09.6a](#r09-6a) | Artin approximation | G-ring permanence, approximation over henselian G-rings, Artin's approximation theorem |
-| [A0-extension](#a0-extension) | Relative Picard, proper-flat cohomology and Artin's criterion | the relative Picard sheaf and its section-rigidified splitting, cohomology and base change with Tor-amplitude, algebraicity of the Picard stack and functor, Artin's axioms and criterion, analytification of étale presentations |
+| [A0-extension](#a0-extension) | Relative Picard, proper-flat cohomology and Artin's criterion | the relative Picard sheaf and its section-rigidified splitting, derived cohomology with Tor-amplitude, algebraicity of the Picard stack and functor, Artin's axioms and criterion, analytification of étale presentations |
 | [R09.6b](#r09-6b) | Deformation groupoids, completed local rings and algebraisation | deformation groupoids at a point of a stack, stabilisers, comparison with completed local rings, versality, effectivity and algebraisation |
 | [R09.7](#r09-7) | Characteristic-zero resolution and normal-crossings compactification | marked ideals and transforms, maximal contact and coefficient ideals, the invariant, global centres and termination, embedded desingularisation, SNC compactification with polydisc charts |
 
@@ -69,7 +69,7 @@ Mathlib schemes and sites, Tau Ceti line bundles and blowups, SchemeAndStackFoun
   (Weil restriction along finite locally free morphisms and Hom schemes of finite locally free group
   schemes), 0G (the relative Grassmannian of rank-N quotients of a Hopf algebra with its affine
   charts), 4C (rigidifiers) and 9D (coarse schemes of finite quotient problems). StableReduction
-  Layer 2 (relative Proj of a finitely generated graded algebra, relative ampleness, openness of the
+  Layer 2 (proper-flat cohomology and base-change criteria, semicontinuity, relative Proj of a finitely generated graded algebra, relative ampleness, openness of the
   fibrewise-ample locus, polarised étale descent) and Layer 4 (the blowup of a finite-type ideal as
   relative Proj of the Rees algebra: universal property, projectivity, flat base change, exceptional
   divisor, strict transform, affine charts). JacobianChallenge Layer A (line bundles, divisors,
@@ -88,7 +88,9 @@ Mathlib schemes and sites, Tau Ceti line bundles and blowups, SchemeAndStackFoun
   finiteness of normalisation over Nagata rings (SF.0); the Picard scheme of a curve (SF.3,
   JacobianChallenge); the relative Grassmannian of a Hopf algebra and Weil restriction
   (ModularCurves 0F, 0G); blowups as relative Proj with their charts and the resolution of
-  arithmetic surfaces (StableReduction Layer 4, Tau Ceti `affineBlowupι`); the rigidified Picard
+  arithmetic surfaces (StableReduction Layer 4, Tau Ceti `affineBlowupι`); coherent cohomology
+  semicontinuity and the classical cohomology-and-base-change criteria (StableReduction Layer 2,
+  JacobianChallenge Layer C); the rigidified Picard
   functor (Tau Ceti `rigidifiedPicardFunctor`); torsors and their first cohomology, the second
   cohomology class of an abelian-banded gerbe (SF.2, `SF.2/gerbe-h2-class`). Giraud's
   classification in R09.4 differs from `SF.2/gerbe-h2-class` in asserting the bijection between
@@ -96,6 +98,7 @@ Mathlib schemes and sites, Tau Ceti line bundles and blowups, SchemeAndStackFoun
   the class of a given gerbe; the relative Picard sheaf of A0-extension differs from
   `rigidifiedPicardFunctor` in being the fppf sheafification over an algebraic-space base, with the
   rigidified functor as the carrier of its sections.
+- **Quasi-coherent pullback in current Tau Ceti.** `TauCeti/AlgebraicGeometry/Modules/Pullback/Basic.lean:AlgebraicGeometry.Scheme.Modules.isQuasicoherent_pullback` supplies preservation for arbitrary scheme morphisms. `TauCeti/AlgebraicGeometry/Modules/Quasicoherent/Basic.lean:TauCeti.AlgebraicGeometry.QuasicoherentSheaf.pullback`, `pullback_obj_obj`, `pullbackId` and `pullbackComp` supply restriction to the full quasi-coherent category and its comparisons. R09.3 consumes them; it adds the pseudofunctor coherence and effective descent, rather than another restricted pullback construction.
 - **Not built here.** The identification of the degree-zero relative Picard space of an abelian
   scheme with its dual, Néron–Severi groups and polarised moduli
   (AbelianSchemesAndArithmeticModuli); PEL and Shimura moduli, Borel's extension theorem and the
@@ -105,6 +108,14 @@ Mathlib schemes and sites, Tau Ceti line bundles and blowups, SchemeAndStackFoun
   (LocalGaloisDeformationRings); Hurwitz spaces (InverseGaloisAndArithmeticFundamentalGroups);
   the geometric fundamental-lemma machinery (EndoscopicTransferAndUnitaryTraceComparison). These
   roadmaps import from this one and are never cited as inputs.
+
+### Unresolved supplier contracts
+
+The arbitrary-site classification of abelian gerbes needs a torsor/derived-H¹ comparison, slice-compatible change of band, neutrality for injective coefficient sheaves and the two inverse identities for the lifting-gerbe construction. The intrinsic band additionally needs its comparison with the descended slice sheaf; constant point-site fixtures do not supply the nonconstant restriction-chain or nonneutral root-gerbe comparisons. The profinite-gerbe limit needs a precise cofinal pseudo-diagram and affine-limit representability theorem. The affine quotient and faithful-flatness assertions for arbitrary affine stabilizers require an extension beyond the finite-type group theory; neither a quotient sheaf nor ordinary descent supplies their representability.
+
+The algebraic-space Picard and Artin results require the ringed small étale sites, invertible-module pullback, represented diagonals, module-valued obstruction theory, proper-space formal effectivity and the hull-to-smooth-chart comparison. Scheme versions alone do not provide these contracts. The algebraic-space analytic quotient and the holomorphic inverse-function theorem needed for the final charts are separate local targets; the higher-tier ComplexComparisonPartII cannot be an input.
+
+These unresolved contracts are mathematical gaps. A supplier's broad layer name does not assert the needed extension. The resolution recursion and pre-existing-boundary gaps are stated at their dependent results in R09.7.
 
 ## Conventions
 
@@ -131,7 +142,7 @@ Mathlib schemes and sites, Tau Ceti line bundles and blowups, SchemeAndStackFoun
   separate descent theorem. "Universally `O_T ≅ f_{T*} O_{X_T}`" means the comparison is an
   isomorphism for every scheme `T → B`.
 - **Projective parameter spaces.** Grassmannians parametrise locally free *quotients* of fixed rank,
-  Mathlib's convention; `P(E) = Proj Sym E^∨` with `Hom(T, P(E))` the invertible quotients of `E_T`.
+  Mathlib's convention; `P(E) = Proj Sym E` with `Hom(T, P(E))` the invertible quotients of `E_T`.
   A parameter morphism `H → S` is never asserted flat because its universal family is flat; flatness
   of `H → S` needs its own theorem.
 - **Resolution.** Characteristic zero, varieties of finite type over a field embedded in smooth
@@ -151,55 +162,59 @@ This layer supplies the projective parameter spaces the moduli layers cut their 
 **Conventions.** "Locally free of rank r" means finite locally free of constant rank r; E_T is the pullback to T. Grassmannians parametrise locally free QUOTIENTS (EGA I (1971) §9.7; Mathlib `Module.Grassmannian`): a T-point of Gr(k,E) is E_T ↠ Q with Q locally free of rank k, up to isomorphism of Q. P(E) := Gr(1,E) = Proj Sym E classifies invertible quotients; for E locally free this is SF.5/projective-bundle applied to E^∨.
 
 **T001** `R09.1/projective-bundle-points` (theorem). For E quasi-coherent of finite type on X and g : T → X, f ↦ (g^*E ↠ f^*O(1)) is a bijection Hom_X(T,P(E)) ≅ {(L,q) : L invertible on T, q : g^*E ↠ L}/≅, natural in T and compatible with P(E) ×_X X' ≅ P(E_{X'}). Hence P(E ⊗ N) ≅ P(E) for N invertible, with O(1) ↦ O(1) ⊗ p^*N, and P(N) ≅ X.
-- Source: Hartshorne 1977, Prop. II.7.12; EGA II, Prop. (4.2.3).
+- Source: Stacks, Section 27.21 (tag 01OA), Definition 27.21.1 and the following inverse constructions of rank-one quotients and morphisms to Proj Sym E. The relative-Proj base-change comparison is Lemma 27.16.10.
 - Needs: SF.5/projective-bundle; SF.0/relative-proj-base-change; StableReduction Layer 2.
 
-**T002** `R09.1/projective-bundle-twists` (definition). O(n) := O(1)^{⊗n} on p : P(E) → X, E locally free of rank r ≥ 1, with p_*O(n) = Sym^n E (n ≥ 0), p_*O(n) = 0 (n < 0), R^ip_*O(n) = 0 for 0 < i < r−1, R^{r−1}p_*O(n) = 0 for n > −r, R^{r−1}p_*O(−r) ≅ det(E)^∨, compatible with base change (no Noetherian hypothesis).
+**T002** `R09.1/projective-bundle-twists` (definition). O(n) := O(1)^{⊗n} on p : P(E) → X, E finite locally free of constant rank r. For r ≥ 2, p_*O(n) = Sym^n E for n ≥ 0 and is zero for n < 0; R^ip_*O(n) = 0 for 0 < i < r−1 and for i ≥ r; R^{r−1}p_*O(n) = 0 for n > −r, and R^{r−1}p_*O(−r) ≅ det(E)^∨. These identifications commute with arbitrary base change. For r = 1, p is an isomorphism, O(n) = E^{⊗n} for every integer n, p_*O(n) = E^{⊗n}, and all positive higher direct images vanish. For r = 0, P(E) is empty and all direct images vanish.
 - API: `ProjectiveBundle.twist`, `ProjectiveBundle.pushforward_twist_eq_sym`, `ProjectiveBundle.higherPushforward_twist_eq_zero`, `ProjectiveBundle.pushforward_twist_baseChange`
-- Tests: `ProjectiveBundleTests.rankOne` [degenerate] E invertible: P(E) ≅ X, O(n) ≅ E^{⊗n}; `ProjectiveBundleTests.projLine` [computation] E = O^2: p_*O(2) has rank 3, R^1p_*O(−2) ≅ O; `ProjectiveBundleTests.negativeTwist` [non-example] p_*O(−1) = 0 refutes "p_*O(n) = Sym^n E for all n".
-- Source: Stacks, Lemma 30.8.4 (tag 01XX), Lemma 30.8.3 (tag 01XW); Hartshorne 1977, Ex. III.8.4.
+- Tests: `ProjectiveBundleTests.rankOne` [degenerate] E invertible: P(E) ≅ X, O(n) ≅ E^{⊗n}; `ProjectiveBundleTests.projLine` [computation] E = O^2: p_*O(2) has rank 3, R^1p_*O(−2) ≅ O; `ProjectiveBundleTests.negativeTwist` [non-example] for rank r ≥ 2, p_*O(−1) = 0 refutes "p_*O(n) = Sym^n E for all n".
+- Source: Stacks, Lemma 30.8.4 (tag 01XX), Lemma 30.8.3 (tag 01XW); Hartshorne 1977, Ex. III.8.4. Source gap: the Hartshorne, Katz–Mazur, K3 locator(s) remain unverified; they do not discharge the claim beyond the separately identified public or library contract.
 - Needs: T001; SF.2/qcoh-higher-direct-images.
+- Additional checks: `ProjectiveBundleTests.rankOneNegative` computes p_*O(−1) = E^∨ for E invertible, disproving rank-one vanishing. `ProjectiveBundleTests.determinantSign` takes E = O_{P¹}(1) ⊕ O_{P¹}: R¹p_*O(−2) = O_{P¹}(−1), fixing the dual determinant. `ProjectiveBundleTests.rankZero` has empty total space.
 
 **T003** `R09.1/relative-grassmannian-functor` (definition). Gr(k,E) : (Sch/X)^op → Set, T ↦ {E_T ↠ Q : Q locally free of rank k}/≅, for E quasi-coherent of finite presentation, with universal quotient and pullbacks; for X = Spec R, E = M~, T = Spec A, Gr(k,E)(T) is identified with `Module.Grassmannian.functor R M k` at A (submodules of A ⊗_R M with locally free rank-k quotient), naturally via `Module.Grassmannian.map`.
 - API: `Grassmannian.functor`, `Grassmannian.univQuot`, `Grassmannian.pullback`, `Grassmannian.affineComparison`
-- Tests: `GrassmannianTests.affineAgreesWithMathlib` [compatibility] naturality in A → B; `GrassmannianTests.quotientNotSubmodule` [non-example] over non-reduced A the functor of rank-k submodules differs; `GrassmannianTests.rankTooLarge` [degenerate] rank E = r < k gives the empty functor.
-- Source: EGA I (1971), (9.7.3) (the functor of locally free quotients); Nitsure 2005, §1, subsection "Construction of Grassmannian"; Mathlib `Module.Grassmannian.functor`, `Module.Grassmannian.map`.
+- Tests: `GrassmannianTests.affineAgreesWithMathlib` [compatibility] naturality in A → B; `GrassmannianTests.quotientNotSubmodule` [non-example] for A = k[t,ε]/(ε²), the submodule A·(t,0) ⊂ A² is free of rank one but A²/A·(t,0) = A/(t) ⊕ A is not locally free. An arbitrary locally free submodule is not a subbundle or the kernel of a locally free rank-one quotient; `GrassmannianTests.rankTooLarge` [degenerate] E finite locally free of constant rank r < k gives the empty functor.
+- Source: EGA I (1971), (9.7.3) (the functor of locally free quotients); Nitsure 2005, §1, subsection "Construction of Grassmannian"; Mathlib `Module.Grassmannian.functor`, `Module.Grassmannian.map`. Source gap: the EGA I (1971), Hartshorne, Katz–Mazur, K3 locator(s) remain unverified; they do not discharge the claim beyond the separately identified public or library contract.
 - Needs: Mathlib `Module.Grassmannian.functor`; AlgebraicVectorBundles L0A–L2B.
 
-**T004** `R09.1/grassmannian-scheme-api` (theorem). For E locally free of rank r (more generally quasi-coherent of finite presentation) T003 is represented by Gr(k,E) → X, separated of finite presentation, with E_{Gr} ↠ Q_univ whose kernel K_univ is locally free of rank r−k; Gr(k,E) ×_X X' ≅ Gr(k,E_{X'}); for u : O_U^k → E|_U the locus where O_T^k → Q is an isomorphism is open, isomorphic to A^{k(r−k)}_U when u is a coordinate inclusion of O_U^r ≅ E|_U, and such opens cover. Degenerate cases: Gr(0,E) = Gr(r,E) = X, Gr(k,E) = ∅ for k > r, Gr(1,E) = P(E) with Q_univ = O(1); for E of locally constant rank, Gr(k,E) splits over the rank strata. Duality: Q ↦ (ker q)^∨ gives Gr(k,E) ≅ Gr(r−k,E^∨), so Gr(k,E) also represents rank-(r−k) subbundles. For E a quasi-coherent Hopf algebra this is the Grassmannian of ModularCurves 0G.
-- Source: SF.4/grassmannian-scheme (Nitsure 2005, §1); Stacks, Lemma 27.22.1 (tag 089T), Lemma 27.22.3 (tag 089V); EGA I (1971), Thm. (9.7.4).
+**T004** `R09.1/grassmannian-scheme-api` (theorem). For E finite locally free of constant rank r and 0 ≤ k ≤ r, T003 is represented by Gr(k,E) → X, separated of finite presentation, with E_{Gr} ↠ Q_univ whose kernel K_univ is locally free of rank r−k; Gr(k,E) ×_X X' ≅ Gr(k,E_{X'}); for u : O_U^k → E|_U the locus where O_T^k → Q is an isomorphism is open, isomorphic to A^{k(r−k)}_U when u is a coordinate inclusion of O_U^r ≅ E|_U, and such opens cover. Degenerate cases: Gr(0,E) = Gr(r,E) = X, Gr(k,E) = ∅ for k > r, Gr(1,E) = P(E) with Q_univ = O(1); for E of locally constant rank, Gr(k,E) splits over the rank strata. Duality: Q ↦ (ker q)^∨ gives Gr(k,E) ≅ Gr(r−k,E^∨), so Gr(k,E) also represents rank-(r−k) subbundles. This API extends the Hopf-algebra parameter space of ModularCurves 0G to arbitrary finite locally free E, independently of a group law.
+- Source: SF.4/grassmannian-scheme (Nitsure 2005, §1); Stacks, Lemma 27.22.1 (tag 089T), Lemma 27.22.3 (tag 089V); EGA I (1971), Thm. (9.7.4). Source gap: the EGA I (1971), Hartshorne, Katz–Mazur, K3 locator(s) remain unverified; they do not discharge the claim beyond the separately identified public or library contract.
 - Needs: T001, T003; SF.4/grassmannian-scheme; ModularCurves 0G.
 
 **T005** `R09.1/plucker-and-smoothness` (theorem). For E locally free of rank r and 0 ≤ k ≤ r: (i) Λ^kE_{Gr} ↠ det Q_univ defines by T001 an X-morphism Gr(k,E) → P(Λ^kE) which is a closed immersion pulling O(1) back to det Q_univ, so Gr(k,E) → X is projective and det Q_univ relatively very ample; (ii) Gr(k,E) → X is smooth of relative dimension k(r−k) with relative tangent sheaf Hom(K_univ,Q_univ), its fibre over x being the Grassmannian of k-dimensional quotients of E(x) over κ(x). Both are checked on the charts of T004 and are stable under base change.
-- Source: EGA I (1971), §9.8 "Morphismes de Plücker et de Segre" (section level); Nitsure 2005, §1.
+- Source: EGA I (1971), §9.8 "Morphismes de Plücker et de Segre" (section level); Nitsure 2005, §1. Source gap: the EGA I (1971), Hartshorne, Katz–Mazur, K3 locator(s) remain unverified; they do not discharge the claim beyond the separately identified public or library contract.
 - Needs: T001, T004; StableReduction Layer 2; Mathlib `AlgebraicGeometry.IsClosedImmersion`, `AlgebraicGeometry.Smooth`.
+- Additional checks: `PluckerTests.sign` uses the rank-two quotient matrix with rows (1,0,a,b) and (0,1,c,d). Its minors are (p₁₂,p₁₃,p₁₄,p₂₃,p₂₄,p₃₄) = (1,c,d,−a,−b,ad−bc), so p₁₂p₃₄−p₁₃p₂₄+p₁₄p₂₃ = 0. In characteristic 2 the signs reduce accordingly; the identity still holds. For k = 0 or k = r the tangent rank k(r−k) is zero and the map is an isomorphism onto P(O_X) or P(det E).
 
 **T006** `R09.1/flag-scheme` (definition). For E locally free of rank r and 0 < k_1 < … < k_m < r, Fl(k_1<…<k_m,E) → X representing chains E_T ↠ Q_m ↠ … ↠ Q_1 with Q_i locally free of rank k_i, built as the iterated Grassmannian bundle Gr(k_1,Q_{2,univ}) → … → Gr(k_m,E) → X with universal flag and base change; projective (closed in the fibre product of the P(Λ^{k_i}E) by T005 at each step and a Segre map) and smooth of relative dimension Σ_i k_i(k_{i+1}−k_i), k_{m+1} := r.
 - API: `FlagScheme`, `FlagScheme.univFlag`, `FlagScheme.pullback`, `FlagScheme.step`, `FlagScheme.projective`, `FlagScheme.smooth`
 - Tests: `FlagSchemeTests.oneStep` [degenerate] m = 1 is Gr(k_1,E); `FlagSchemeTests.fullFlagPointCount` [computation] E = O^r over F_q, k_i = i: the point count is the q-factorial [r]_q!; `FlagSchemeTests.repeatedRank` [non-example] k_i = k_{i+1} forces Q_{i+1} ≅ Q_i, so allowing equal ranks adds nothing.
-- Source: EGA I (1971), §9.9 "Fibrés en drapeaux" (section level); composition of projective and smooth morphisms (StableReduction Layer 2; Mathlib `AlgebraicGeometry.Smooth`).
+- Source: EGA I (1971), §9.9 "Fibrés en drapeaux" (section level); composition of projective and smooth morphisms (StableReduction Layer 2; Mathlib `AlgebraicGeometry.Smooth`). Source gap: the EGA I (1971), Hartshorne, Katz–Mazur, K3 locator(s) remain unverified; they do not discharge the claim beyond the separately identified public or library contract.
 - Needs: T004, T005.
 
-**T007** `R09.1/relatively-ample-very-ample` (definition). For f : X → S quasi-compact, L is f-ample if L|_{f^{-1}(V)} is ample for every affine open V ⊂ S; L is f-very ample if L ≅ i^*O(1) for an immersion i : X → P(E) over S, E quasi-coherent on S. Permanence: L f-ample ⇔ L^{⊗n} f-ample (n ≥ 1); f-ample ⇒ f separated; both notions are stable under base change; L f-ample, N g-ample, g quasi-compact ⇒ L ⊗ f^*N^{⊗e} is (g∘f)-ample for e ≫ 0; S affine ⇒ f-ample = ample; f-very ample ⇒ f-ample; for f quasi-compact, f-very ample ⇔ f^*f_*L ↠ L and X → P(f_*L) is an immersion. Power theorem: for S quasi-compact and f of finite type, L is f-ample iff L^{⊗d} is f-very ample for some d ≥ 1 iff for all d ≫ 0, and then N ⊗ L^{⊗d} is f-very ample for d ≫ 0 for every invertible N.
+**T007** `R09.1/relatively-ample-very-ample` (definition). For f : X → S quasi-compact, L is f-ample if L|_{f^{-1}(V)} is ample for every affine open V ⊂ S; L is f-very ample if L ≅ i^*O(1) for an immersion i : X → P(E) over S, E quasi-coherent on S. Permanence: L f-ample ⇔ L^{⊗n} f-ample (n ≥ 1); f-ample ⇒ f separated; both notions are stable under base change; L f-ample, N g-ample and the target of g quasi-compact ⇒ L ⊗ f^*N^{⊗e} is (g∘f)-ample for e ≫ 0; S affine ⇒ f-ample = ample; f-very ample ⇒ f-ample; for f quasi-compact, f-very ample ⇔ f^*f_*L ↠ L and X → P(f_*L) is an immersion. Power theorem: for S quasi-compact and f of finite type, L is f-ample iff L^{⊗d} is f-very ample for some d ≥ 1 iff for all d ≫ 0, and then N ⊗ L^{⊗d} is f-very ample for d ≫ 0 for every invertible N.
 - API: `IsRelativelyAmple`, `IsRelativelyAmple.pow_iff`, `IsRelativelyAmple.baseChange`, `IsRelativelyAmple.comp`, `IsRelativelyVeryAmple`, `IsRelativelyVeryAmple.toRelativelyAmple`, `IsRelativelyVeryAmple.baseChange`, `IsRelativelyAmple.exists_pow_veryAmple`
 - Tests: `RelAmpleTests.structureSheafQuasiAffine` [characterisation] O_X is f-ample iff f is quasi-affine; `RelAmpleTests.projOfDegreeOneAlgebra` [computation] O(1) on Proj_S A, A generated in degree 1, is very ample; `RelAmpleTests.notFiniteType` [non-example] Stacks' f-ample L on an X not of finite type with no f-very ample power, so "some power very ample" is not a valid definition of f-ample; `RelAmpleTests.smallestPower` [non-example] for each d a finite-type X_d/k whose O(1) has O(d) as least very ample power.
 - Source: Stacks, Definition 29.38.1 (tag 01VH), Lemmas 29.38.2 (02NN), 29.38.3 (01VI), 29.38.5 (01VK), 29.38.6 (0891), 29.38.7 (0892), 29.38.8 (0C4K), 29.38.9 (0893); Definition 29.39.1 (01VM), Lemmas 29.39.2 (01VN), 29.39.7 (01VR), 29.39.8 (0B3F), Examples 29.39.3 (07ZR), 29.39.4 (01VO), 29.39.5 (01VP); Lemmas 29.40.5 (01VU), 29.40.8 (0FVC).
 - Needs: T001; StableReduction Layer 2 (ampleness for relative Proj; this is the general invertible-sheaf form); Mathlib `AlgebraicGeometry.QuasiCompact`.
+- Additional checks: `RelAmpleTests.nonQuasiCompactBase` uses a disjoint union of copies of P¹ with L of successively more negative degree: no single exponent in the composition assertion works without a quasi-compact final base. This arbitrary-base formulation extends the locally Noetherian positivity contract of StableReduction Layer 2.
 
-**T008** `R09.1/hilbert-polynomial` (definition). For a field k, X ⊂ P^n_k closed and F coherent on X, P_F ∈ Q[t] with P_F(d) = χ(X,F(d)) for all d; P_F(d) = h^0(F(d)) for d ≫ 0; deg P_F = dim Supp F; additivity on short exact sequences; P_{F(e)}(d) = P_F(d+e); invariance under field extension; for a finitely generated graded k[x_0..x_n]-module M with Poincaré series p/(1−X)^{n+1} and char k = 0 (Mathlib's hypothesis), P_{M~} = `hilbertPoly p (n+1)`. Families: for T locally Noetherian, X ⊂ P^n_T closed and F coherent on X flat over T, t ↦ P_{F_t} is locally constant on T; for T integral Noetherian the converse holds.
+**T008** `R09.1/hilbert-polynomial` (definition). For a field k, X ⊂ P^n_k closed and F coherent on X, P_F ∈ Q[t] with P_F(d) = χ(X,F(d)) for all d; P_F(d) = h^0(F(d)) for d ≫ 0; for F ≠ 0, deg P_F = dim Supp F; for F = 0, P_F = 0 (no numerical degree equality is imposed on the empty support); additivity on short exact sequences; P_{F(e)}(d) = P_F(d+e); invariance under field extension; for a finitely generated graded k[x_0..x_n]-module M with Poincaré series p/(1−X)^{n+1} and char k = 0 (Mathlib's hypothesis), P_{M~} = `hilbertPoly p (n+1)`. Families: for T locally Noetherian, X ⊂ P^n_T closed and F coherent on X flat over T, t ↦ P_{F_t} is locally constant on T; for T integral Noetherian the converse holds.
 - API: `HilbertPolynomial`, `HilbertPolynomial.eval_eq_euler`, `HilbertPolynomial.degree_eq_dim_support`, `HilbertPolynomial.additive`, `HilbertPolynomial.eq_mathlib_hilbertPoly`, `HilbertPolynomial.locallyConstant_of_flat`
 - Tests: `HilbertPolyTests.projectiveSpace` [computation] P_{O_{P^n}}(d) = binom(d+n,n); `HilbertPolyTests.curve` [computation] degree e, arithmetic genus g: ed + 1 − g; `HilbertPolyTests.fatPoint` [non-example] Spec k[ε]/(ε²) ⊂ P^1 has P = 2, not 1, refuting a definition via the reduced support.
-- Source: Stacks, Lemma 33.35.14 (08AC), Definition 33.35.15 (08AD), Lemma 33.35.16 (08AE); Hartshorne 1977, Ex. III.5.2, Thm. I.7.5, Thm. III.9.9; EGA III, Thm. (7.9.4) and Prop. (7.9.11) (local constancy of χ and of the Hilbert polynomial in flat families; the converse over an integral base is Hartshorne's); Mathlib `Polynomial.hilbertPoly`.
+- Source: Stacks, Lemma 33.35.14 (08AC), Definition 33.35.15 (08AD), Lemma 33.35.16 (08AE); Hartshorne 1977, Ex. III.5.2, Thm. I.7.5, Thm. III.9.9; EGA III, Thm. (7.9.4) and Prop. (7.9.11) (local constancy of χ and of the Hilbert polynomial in flat families; the converse over an integral base is Hartshorne's); Mathlib `Polynomial.hilbertPoly`. Source gap: the EGA III, Hartshorne, Katz–Mazur, K3 locator(s) remain unverified; they do not discharge the claim beyond the separately identified public or library contract.
 - Needs: T002; SF.2/ample-serre-vanishing; SF.2/tor-independent-base-change; Mathlib `AlgebraicGeometry.Flat`.
 
 **T009** `R09.1/castelnuovo-mumford-regularity` (definition). F coherent on P^n_k is m-regular if H^i(F(m−i)) = 0 for all i ≥ 1; Mumford's theorem: m-regular ⇒ (m+1)-regular, F(m) globally generated, H^0(F(m)) ⊗ H^0(O(1)) ↠ H^0(F(m+1)); hence H^i(F(d)) = 0 for i ≥ 1, d ≥ m−i, and P_F(d) = h^0(F(d)) for d ≥ m. Boundedness: for p, n ≥ 0 there is a polynomial F_{p,n} in n+1 variables such that for every field k and every coherent F' ⊂ O_{P^n_k}^{⊕p} with Hilbert polynomial of binomial-basis coefficients (a_0,…,a_n), F' is F_{p,n}(a_0,…,a_n)-regular; hence for fixed (n,p,P) there is m_0, uniform in k, such that every quotient O_{P^n_k}^{⊕p} ↠ Q with Hilbert polynomial P has m_0-regular kernel and Q, so for m ≥ m_0, Q(m) is globally generated, h^0(Q(m)) = P(m) and H^i(Q(m)) = 0 for i ≥ 1.
 - API: `IsRegular`, `IsRegular.succ`, `IsRegular.globallyGenerated`, `IsRegular.multiplication_surjective`, `IsRegular.hilbertPoly_eval_eq_h0`, `IsRegular.uniformBound` (Mumford's F_{p,n})
-- Tests: `RegularityTests.twist` [computation] O(a) is (−a)-regular; `RegularityTests.twoPoints` [computation] the ideal of two points in P^2 is 2-regular and not 1-regular (h^1(I) = 1); `RegularityTests.threeCollinearPoints` [non-example] the ideal of three collinear points in P^2 has h^1(I(1)) = 1, so regularity is not a function of the Hilbert polynomial.
+- Tests: `RegularityTests.twist` [computation] O(a) is (−a)-regular; `RegularityTests.twoPoints` [computation] the ideal of two points in P^2 is 2-regular and not 1-regular (h^1(I) = 1); `RegularityTests.threeCollinearPoints` [non-example] the ideal of three collinear points in P^2 has h^1(I(1)) = 1 and least regularity 3, whereas three noncollinear points have least regularity 2; both subschemes have Hilbert polynomial 3. Thus their ideal Hilbert polynomials agree but their least regularities differ.
 - Source: Mumford 1966, Lecture 14; Nitsure 2005, §2, Lemma 2.1 (the regularity lemma) and Thm. 2.3 (the uniform bound).
 - Needs: T008; SF.2/ample-serre-vanishing.
+- Additional checks: `RegularityTests.projectivePoint` on P⁰ all coherent sheaves are m-regular for every integer m; the twist check asserts (−a)-regularity, not least regularity in dimension zero.
 
 **T010** `R09.1/invariant-quotient-locus-closed` (theorem). Let E be locally free of rank r on X. (i) For φ : E → E O_X-linear, the subfunctor of Gr(k,E) of T-points whose kernel K satisfies φ_T(K) ⊂ K is represented by the closed subscheme Z_φ cut out by the vanishing of K_univ → E_{Gr} →φ E_{Gr} ↠ Q_univ, a map of locally free sheaves; Z_φ commutes with base change. (ii) For X over F_p with absolute Frobenius F and φ : F^*E → E O_X-linear, the locus where φ_T(F_T^*K) ⊂ K is the closed subscheme cut out by F^*K_univ → F^*E_{Gr} → E_{Gr} ↠ Q_univ (F^*K_univ locally free of rank r−k). Both rest on: for u : M → N A-linear with N projective there is an ideal I ⊂ A with u ⊗_A B = 0 iff IB = 0. Checks: for E = O^2, k = 1, φ a nilpotent Jordan block, Z_φ ⊂ P^1 is a double point (a section of O(2) vanishing to order 2), so the reduced locus has the wrong Spec k[ε]-points; for φ the canonical F^*O^r = O^r over k̄, the points of Z_φ are the rank-k quotients of F_p^r.
-- Source: Stacks, Lemma 77.8.3 (tag 083L); EGA I (1971), §9.7 (section level, the closed loci of the Grassmannian).
+- Source: Stacks, Lemma 77.8.3 (tag 083L); EGA I (1971), §9.7 (section level, the closed loci of the Grassmannian). Source gap: the EGA I (1971), Hartshorne, Katz–Mazur, K3 locator(s) remain unverified; they do not discharge the claim beyond the separately identified public or library contract.
 - Needs: T004.
 
 <a id="r09-2"></a>
@@ -213,33 +228,35 @@ This layer turns the parameter spaces of R09.1 into the representability tools t
 - Source: Stacks, Section 99.9 (tag 0CZX), Lemma 99.9.2 (tag 0D00).
 - Needs: SF.4/hilbert-scheme; Mathlib `AlgebraicGeometry.IsProper`, `AlgebraicGeometry.Flat`, `AlgebraicGeometry.IsClosedImmersion`.
 
-**T022** `R09.2/hilbert-degree-one-and-non-flat-base` (theorem). For f : X → S separated of finite presentation, Hilb^1_{X/S} is represented by X with universal family the diagonal X → X ×_S X (an isomorphism onto its image, hence flat): a degree-one Z ⊂ X_T gives O_T ↠ q_*O_Z with q_*O_Z locally free of rank 1, a surjection of finite modules of equal rank is an isomorphism, so Z is the graph of a section T → X_T, i.e. a morphism T → X over S. Consequently, for S = Spec k[ε]/(ε²) and X = Spec k its closed point, Hilb^1_{X/S} = X has flat universal family while X → S is not flat (k is not flat over k[ε]); so flatness of the universal family over Hilb, which holds by definition of the functor, never implies flatness of Hilb_{X/S} → S, even for a closed immersion X → S of finite presentation.
-- Source: Stacks, Lemma 99.9.2 (tag 0D00) (`Hilb = Quot`) and Lemma 10.16.4 (tag 05G8) (a surjective endomorphism of a finite module is an isomorphism); the degree-one representability is derived here from these two and has no Stacks number.
+**T022** `R09.2/hilbert-degree-one-and-non-flat-base` (theorem). For f : X → S separated of finite presentation, Hilb^1_{X/S} is represented by X with universal family the diagonal X → X ×_S X (an isomorphism onto its image, hence flat): a degree-one Z ⊂ X_T gives a unit map O_T → q_*O_Z with q_*O_Z locally free of rank 1. On each residue field this is the unit map into a nonzero one-dimensional algebra and is an isomorphism; its determinant is therefore a unit locally, so the map is an isomorphism, so Z is the graph of a section T → X_T, i.e. a morphism T → X over S. Consequently, for S = Spec k[ε]/(ε²) and X = Spec k its closed point, Hilb^1_{X/S} = X has flat universal family while X → S is not flat (k is not flat over k[ε]); so flatness of the universal family over Hilb, which holds by definition of the functor, never implies flatness of Hilb_{X/S} → S, even for a closed immersion X → S of finite presentation.
+- Source: Stacks, Lemma 99.9.2 (tag 0D00) (`Hilb = Quot`) and Lemma 10.16.4 (tag 05G8) (a surjective endomorphism of a finite module is an isomorphism); the degree-one representability additionally uses the preceding fibrewise unit-map argument and has no Stacks number.
 - Needs: T021.
 
-**T023** `R09.2/hom-and-isom-schemes` (theorem). Let S be locally Noetherian, X → S projective flat and Y → S quasi-projective. (i) T ↦ Hom_T(X_T,Y_T) is represented by an open subscheme Hom_S(X,Y) ⊂ Hilb_{X×_SY/S}, the locus of Z ⊂ X_T ×_T Y_T with pr_1 : Z → X_T an isomorphism; it is a disjoint union over Hilbert polynomials of quasi-projective S-schemes, commutes with base change, and carries identity, composition and evaluation X ×_S Hom_S(X,Y) → Y. (ii) If also Y → S is projective flat, the isomorphisms form an open subscheme Isom_S(X,Y) ⊂ Hom_S(X,Y), with inverse Isom_S(X,Y) ≅ Isom_S(Y,X), composition and base change. Openness uses: for a proper morphism between schemes flat over T, the set of t where the fibre map is an isomorphism is open. Checks: Hom_S(S,Y) = Y, Hom_S(X,S) = S; Hom_k(Spec k[ε],Y) is the tangent scheme Spec Sym Ω_{Y/k} for Y smooth.
-- Source: Nitsure 2005, Thm. 6.6 (Hom open in Hilb_{X×_SY/S}), Thm. 6.5 (openness of the isomorphism locus), exercise after Thm. 6.6 (Aut open in Mor); Grothendieck FGA, exposé 221, §4.c (section level).
+**T023** `R09.2/hom-and-isom-schemes` (theorem). Let S be locally Noetherian, X → S projective flat and Y → S quasi-projective. (i) T ↦ Hom_T(X_T,Y_T) is represented by an open subscheme Hom_S(X,Y) ⊂ Hilb_{X×_SY/S}, the locus of Z ⊂ X_T ×_T Y_T with pr_1 : Z → X_T an isomorphism; it is a disjoint union over Hilbert polynomials of quasi-projective S-schemes, commutes with base change, and carries identity, composition and evaluation X ×_S Hom_S(X,Y) → Y. (ii) If also Y → S is projective flat, the isomorphisms form an open subscheme Isom_S(X,Y) ⊂ Hom_S(X,Y), with inverse Isom_S(X,Y) ≅ Isom_S(Y,X), composition and base change. The cited openness argument applies to the projective projection from the universal graph between proper flat families. A general proper morphism is not covered by that projectivity-based source argument. Checks: Hom_S(S,Y) = Y, Hom_S(X,S) = S; Hom_k(Spec k[ε],Y) is the tangent scheme Spec Sym Ω_{Y/k} for Y smooth.
+- Source: Nitsure 2005, Thm. 6.6 (Hom open in Hilb_{X×_SY/S}), Thm. 6.5 (openness of the isomorphism locus), exercise after Thm. 6.6 (Aut open in Mor); Grothendieck FGA, exposé 221, §4.c (section level). Source gap: the Hartshorne, Grothendieck FGA, Katz–Mazur, K3 locator(s) remain unverified; they do not discharge the claim beyond the separately identified public or library contract.
 - Needs: T021; SF.4/hilbert-scheme; SF.0/flat-proper-fibre-loci.
 
-**T024** `R09.2/polarised-isom-scheme` (theorem). Let S be locally Noetherian, X, Y → S projective flat, L on X and M on Y invertible, and assume the fppf relative Picard functor Pic_{Y/S} is represented by a separated S-scheme (curves: SF.3/picard-scheme-without-point; geometrically integral fibres: Kleiman). Then the subfunctor of Isom_S(X,Y) of φ with φ^*M ≅ L ⊗ (pullback from T) is represented by a closed subscheme Isom_S((X,L),(Y,M)), the pullback of the diagonal of Pic_{Y/S} along φ ↦ [(φ^{-1})^*L] and φ ↦ [M]; Aut_S((X,L)) is a closed subgroup scheme of Aut_S(X). No statement is made without separatedness of Pic_{Y/S}. Checks: Isom_k((P^1,O(1)),(P^1,O(1))) = PGL_2; Isom((E,O(p)),(E,O(p))) is the finite group Aut(E,p).
-- Source: Kleiman 2005, The Picard scheme (FGA explained), Thm. 9.4.8; SF.3/picard-scheme-without-point; Mathlib `AlgebraicGeometry.IsSeparated`.
+**T024** `R09.2/polarised-isom-scheme` (theorem). Let S be locally Noetherian, X, Y → S projective flat, L on X and M on Y invertible, and assume the fppf relative Picard functor Pic_{Y/S} is represented by a separated S-scheme (curves: SF.3/picard-scheme-without-point; geometrically integral fibres: Kleiman). Then the subfunctor of Isom_S(X,Y) of φ for which the relative Picard classes of φ^*M and L agree is represented by a closed subscheme Isom_S((X,L),(Y,M)), the pullback of the diagonal of Pic_{Y/S} along φ ↦ [(φ^{-1})^*L] and φ ↦ [M]; Aut_S((X,L)) is a closed subgroup scheme of Aut_S(X). No statement is made without separatedness of Pic_{Y/S}. Checks: Isom_k((P^1,O(1)),(P^1,O(1))) = PGL_2; Isom((E,O(p)),(E,O(p))) is the finite group Aut(E,p).
+- Source: Kleiman, The Picard scheme, arXiv:math/0504020, Theorem 4.8, pp. 28–29 (published numbering 9.4.8); SF.3/picard-scheme-without-point; Mathlib `AlgebraicGeometry.IsSeparated`.
 - Needs: T023; SF.3/picard-groupoid; Tau Ceti `TauCeti.AlgebraicGeometry.rigidifiedPicardFunctor`.
+- Additional checks: Equality of classes means equality after fppf sheafification. A global formula φ^*M ≅ L ⊗ f_T^*N follows when O_T ≅ f_{T*}O_{X_T} universally (the kernel theorem below); it is not part of the assertion for arbitrary projective flat families. `PolarisedIsomTests.sheafEquality` distinguishes this local condition from a chosen global line-bundle isomorphism.
 
 **T025** `R09.2/automorphism-group-scheme` (theorem). For S locally Noetherian and X → S projective flat, Aut_S(X) := Isom_S(X,X) is a group scheme over S, locally of finite type (a disjoint union of quasi-projective S-schemes), acting on Hom_S(X,Y) and Hom_S(Y,X); Aut_S(P^n_S) = PGL_{n+1,S}; Aut_k(E) for an elliptic curve contains E acting by translation and is not finite; finiteness and unramifiedness are asserted only for stable curves, by SF.4/isom-stable-curves.
 - Source: T023–T024; SF.4/isom-stable-curves; Nitsure 2005, exercise after Thm. 6.6.
 - Needs: T023, T024; SF.1/group-action.
 
-**T026** `R09.2/quot-into-grassmannian` (theorem). Let S be Noetherian, X = P^n_S, E = O_X(−a)^{⊕p}, P a polynomial and m_0 = m_0(n,p,P,a) from R09.1 T009. For m ≥ m_0 every T-point of Quot^P_{E/X/S} (T-flat quotient E_T ↠ Q with fibrewise Hilbert polynomial P) satisfies R^iπ_{T*}Q(m) = 0 (i ≥ 1), π_{T*}Q(m) locally free of rank P(m), π_{T*}E_T(m) ↠ π_{T*}Q(m), and Q is recovered from the subsheaf of E_T(m) generated by π_{T*}K(m). Hence Q ↦ (π_{T*}E_T(m) ↠ π_{T*}Q(m)) is a monomorphism of functors Quot^P_{E/X/S} → Gr(P(m), π_*E(m)) with π_*E(m) = Sym^{m−a}(O^{n+1})^{⊕p} locally free; this is the bridge into SF.4/hilbert-scheme, which identifies the image as a closed subscheme.
+**T026** `R09.2/quot-into-grassmannian` (theorem). Let S be Noetherian, X = P^n_S, E = O_X(−a)^{⊕p}, P a polynomial and m_0 = m_0(n,p,P,a) from R09.1 T009. Increase m_0 to at least a. For m ≥ m_0 every T-point of Quot^P_{E/X/S} (T-flat quotient E_T ↠ Q with fibrewise Hilbert polynomial P) satisfies R^iπ_{T*}Q(m) = 0 (i ≥ 1), π_{T*}Q(m) locally free of rank P(m), π_{T*}E_T(m) ↠ π_{T*}Q(m), and Q is recovered from the subsheaf of E_T(m) generated by π_{T*}K(m). Hence Q ↦ (π_{T*}E_T(m) ↠ π_{T*}Q(m)) is a monomorphism of functors Quot^P_{E/X/S} → Gr(P(m), π_*E(m)) with π_*E(m) = Sym^{m−a}(O^{n+1})^{⊕p} locally free; this is the bridge into SF.4/hilbert-scheme, which identifies the image as a closed subscheme.
 - Hypotheses: S Noetherian; E a finite sum of twists of O (SF.4/hilbert-scheme reduces general coherent E to this case).
-- Source: Nitsure 2005, §5, subsection "Embedding Quot into Grassmannian" (a step of the proof of Thm. 5.2), with Thm. 2.3; Mumford 1966, Lecture 14; Grothendieck FGA, exposé 221, Lemme 3.3 and Prop. 3.8 (boundedness from its §2).
+- Source: Nitsure 2005, §5, subsection "Embedding Quot into Grassmannian", p. 26 (a step of the proof of Theorem 5.2), with Theorem 2.3, pp. 11–12; Mumford 1966, Lecture 14; Grothendieck FGA, exposé 221, Lemme 3.3 and Prop. 3.8 (boundedness from its §2). Source gap: the Hartshorne, Grothendieck FGA, Katz–Mazur, K3 locator(s) remain unverified; they do not discharge the claim beyond the separately identified public or library contract.
 - Needs: R09.1 T004, T008, T009; SF.2/tor-independent-base-change; SF.4/hilbert-scheme.
+- Additional checks: `QuotBoundTests.nonnegativeDegree` has m−a ≥ 0, so Sym^{m−a} and P(m) specify genuine finite ranks; the empty-quotient case has P = 0 and Grassmannian rank zero.
 
 **T027** `R09.2/coherent-devissage` (theorem). Let X be Noetherian and P a property of coherent O_X-modules such that (1) in any short exact sequence of coherent sheaves, if two terms have P so does the third, and (2) for every integral closed Z ⊂ X with generic point ξ there is a coherent G with Supp G = Z, m_ξG_ξ = 0, dim_{κ(ξ)}G_ξ = 1 and P(G). Then P holds for every coherent sheaf on X. Variant: (1) may be weakened to closure under extensions plus "F^{⊕r} has P ⇒ F has P" if (2) is strengthened to the ideal-subsheaf condition of the cited variant.
 - Source: Stacks, Lemma 30.12.6 (tag 01YI); Lemma 30.12.8 (tag 01YM); Lemma 30.12.3 (tag 01YF).
 - Needs: Mathlib `IsNoetherianRing`; AdicSpacesPartII R3.
 
 **T028** `R09.2/devissage-via-chow` (theorem). Let X be proper over a Noetherian S and P as in T027(1). Suppose that for every integral closed Z ⊂ X there are a proper surjective π : Z' → Z with Z' projective over S and π an isomorphism over a dense open of Z, and L relatively very ample on Z', such that P holds for (Z → X)_*π_*L^{⊗n} for some n with R^iπ_*L^{⊗n} = 0 (i ≥ 1). Then P holds for every coherent sheaf on X. Chow's lemma supplies (Z',π,L) for each Z and relative Serre vanishing supplies n; G := π_*L^{⊗n} has support Z and generic stalk κ(ξ) because π is an isomorphism near ξ. This is the mechanism of the proofs of proper GAGA and of coherence of higher direct images under proper morphisms.
-- Source: Stacks, Proposition 30.19.1 (tag 02O5) (the argument), Lemma 30.18.1 (tag 0200), Lemma 30.12.6 (tag 01YI); SGA 1, exposé XII, Thm. 4.4 (with Cor. 4.3 for cohomology); Serre 1956, GAGA, §3, n° 12–17 (Théorème 3 and its dévissage).
+- Source: Stacks, Proposition 30.19.1 (tag 02O5) (the argument), Lemma 30.18.1 (tag 0200), Lemma 30.12.6 (tag 01YI); Serre 1956, GAGA, §3, n° 12, Theorems 1–3, pp. 19–20, and their proofs in n° 13–17, pp. 20–27, concern projective complex varieties. They do not supply proper GAGA through Chow directly. Source gap: the formerly cited SGA 1 XII Theorem 4.4 and Corollary 4.3 have not been verified for that additional comparison.
 - Needs: T027; SF.4/chow-lemma; SF.2/ample-serre-vanishing; SF.2/qcoh-higher-direct-images.
 
 **T029** `R09.2/projective-domination-of-proper` (theorem). For X proper over a Noetherian S there are a projective S-scheme X' and a proper surjective S-morphism π : X' → X which is an isomorphism over a dense open of X (birational for X integral). Only the existence of a dominating projective X' is asserted; X itself need not be projective.
@@ -268,11 +285,9 @@ hypothesis is added unless the target says so.
 The chosen pair and triple overlaps of the singleton covering `f.op` are the tensor products
 `S ⊗_R S` and `S ⊗_R S ⊗_R S`, compared with Mathlib's chosen pullbacks by explicit coordinates.
 
-Lemmas: **T041** Pullback preserves quasi-coherence.
-
 **T042** `R09.3/affine-pullback-tensor` (construction). For a commutative ring map R→A, pullback of the tilde(M) along Spec A→Spec R is naturally isomorphic to tilde(A⊗R M). 3 tests (compatibility, degenerate, non-example). Source: Stacks, Lemma 26.7.3(1) and proof.
 
-**T043** `R09.3/quasicoherent-pseudofunctor` (construction). Restrict the scheme-module pullback functors to the full subcategories of the IsQuasicoherent predicate. 3 tests (degenerate, non-example). Source: Stacks, Proposition 35.5.2; Stacks, Lemma 17.10.4.
+**T043** `R09.3/quasicoherent-pseudofunctor` (construction). Assemble the existing restricted quasi-coherent pullbacks and their identity/composition comparisons into a Cat-valued pseudofunctor; the restricted functors themselves are supplied by Tau Ceti. 3 tests (degenerate, non-example). Source: Stacks, Proposition 35.5.2; Stacks, Lemma 17.10.4.
 
 **T044** `R09.3/module-descent-coaction` (construction). For every commutative ring map R→A, tensor-overlap module descent is equivalent to the scalar-extension comonad coalgebras, preserving the underlying A-module and every morphism. 3 tests (computation, degenerate, non-example). Source: Stacks, Proposition 35.3.9, equalizer formula and cocycle calculation.
 
@@ -448,7 +463,7 @@ Lemmas: **T091** Band-preserving morphisms are fully faithful; **T092** Band-pre
 
 **T097** `R09.4/neutral-self-equivalences` (theorem). For an A-gerbe with a neutralization x, its groupoid of band-preserving self-equivalences is equivalent to the groupoid of A-torsors on the base. A torsor P acts on BA by Q↦Q⊗A P. An equivariant isomorphism P≅P′ corresponds to an invertible modification. Composition corresponds to contracted product, and the identity to the trivial torsor.
 - Hypotheses: A specified site (C,J), with fixed object and morphism universes; all stacks have groupoid fibres. The site has a chosen terminal object S; the neutralization x is an object of F(S).
-- Source: Groechenig–Wyss–Ziegler 2020, §2.2.1, p. 515; Breen 1994, Proposition 2.14, p. 56
+- Source: Groechenig–Wyss–Ziegler 2020, §2.2.1, p. 515; Breen 1994, Proposition 2.14, p. 56 Source gap: the Breen locator and its arbitrary-site generality remain unverified; the geometric gerbe discussion in GWZ alone does not supply the full arbitrary-site classification contract.
 - Needs: T096, T089, T395, T411, T424, T428, T430, T432, T433, T435, T448, T449, T442, T440, T450, T454, T455, T456, T460, T461, T462, T463, T471, T470, T469; DiamondsAndVStacks D0
 
 **T098** `R09.4/change-band` (construction). For a homomorphism u:A→B and an A-gerbe F, extend each Isom(x,y) by the contracted product with B; 3 tests (characterisation, compatibility, degenerate). Source: Olsson 2007 (Math 274 notes), Theorem 31.7, reverse construction, p. 126; Milne 2015 (Étale Cohomology IV), IV §2 p. 9.
@@ -467,14 +482,14 @@ Lemmas: **T104** Independence of injective and neutralization choices.
 
 **T105** `R09.4/h2-classification` (theorem). For a fixed abelian sheaf A on the chosen site with terminal object, band-preserving equivalence classes of A-gerbes are naturally in bijection with the derived H2(A). The class and lifting-gerbe constructions are inverse. The zero class is precisely the neutral class. Equivalence fixes the A-banding.
 - Hypotheses: A specified site (C,J), with fixed object and morphism universes, a chosen terminal object S and its Limits.IsTerminal witness; all stacks have groupoid fibres. `HasSheafify` and `HasExt` for the abelian-sheaf category, with coefficient and site universes compatible with the connecting map of Tau Ceti's sheaf-cohomology long exact sequence.
-- Source: Milne 2015 (Étale Cohomology IV), IV §2 p. 9, (i); Breen 1994, (2.13.4), Proposition 2.14, pp. 55–56
+- Source: Milne 2015 (Étale Cohomology IV), IV §2 p. 9, (i); Breen 1994, (2.13.4), Proposition 2.14, pp. 55–56 Source gap: the Breen locator and its arbitrary-site generality remain unverified; the geometric gerbe discussion in GWZ alone does not supply the full arbitrary-site classification contract.
 - Needs: T101, T103, T104, T096, T093
 
 **T106** `R09.4/root-gerbe` (construction). For a scheme X, an invertible sheaf L and n>0 invertible on X, RootGerbe_n(L)(T) consists of line bundles M on T and isomorphisms φ:M⊗n≅L|T, with arrows ρ satisfying φ=ψ∘ρ⊗n. 3 tests (compatibility, degenerate, non-example). Source: Andreini–Jiang–Tseng 2011, §2.2 Definition 2.2 and Remark 2.4, p. 5; Groechenig–Wyss–Ziegler 2020, §2.3 p. 519.
 
 Lemmas: **T107** The Kummer class of a root gerbe.
 
-**T108** `R09.4/root-o1-nonneutral` (theorem). Let k be algebraically closed and n>1 invertible in k. RootGerbe_n(O(1)) on P1_k is locally nonempty, but has no global object and its derived Kummer class is nonzero.
+**T108** `R09.4/root-o1-nonneutral` (theorem). Let k be algebraically closed and n>1 invertible in k. RootGerbe_n(O(1)) on P1_k is locally nonempty, but has no global object and its derived Kummer class is nonzero. For n = 1 it is neutral; for n = 2 in characteristic different from 2 its class is degree 1 modulo 2, while O(2) has the root O(1) and gives class zero. These fix the Kummer boundary normalization.
 - Hypotheses: k algebraically closed; n>1 and n invertible in k. The degree of line bundles on P¹ (JacobianChallenge Layer A) satisfies degree(O(1))=1 and degree(M^{⊗n})=n·degree(M).
 - Source: Andreini–Jiang–Tseng 2011, §2.2 Definition 2.2; Milne 2015 (Étale Cohomology IV), IV §2 p. 9, boundary-gerbe neutrality
 - Needs: T106, T107, T105; JacobianChallenge Layer A
@@ -483,7 +498,7 @@ Lemmas: **T109** Change of band on derived gerbe classes.
 
 **T110** `R09.4/class-site-pullback` (theorem). For a geometric morphism of the chosen sheaf topoi induced by base change T→S, with exact inverse-image functor on abelian sheaves and the derived global-cohomology comparison, pullback carries an A-banding to an f* A-banding and class(f*F)=f*(class(F)).
 - Hypotheses: Both sites have fixed universes and chosen terminal objects with terminality witnesses; the geometric morphism induced by T→S has exact inverse image on abelian sheaves, and the comparison of derived global cohomology along it is an SF.2 input (SchemeAndStackFoundations SF.2), natural in the gerbe.
-- Source: Groechenig–Wyss–Ziegler 2020, §2.2 Definition 2.6(ii), p. 515; Breen 1994, Proposition 2.14 and (2.13.4)
+- Source: Groechenig–Wyss–Ziegler 2020, §2.2 Definition 2.6(ii), p. 515; Breen 1994, Proposition 2.14 and (2.13.4) Source gap: the Breen locator and its arbitrary-site generality remain unverified; the geometric gerbe discussion in GWZ alone does not supply the full arbitrary-site classification contract.
 - Needs: T082, T085, T105; SchemeAndStackFoundations SF.2
 
 **T111** `R09.4/finite-etale-gerbe` (definition). A finite étale gerbe over k is a fpqc gerbe admitting a flat presentation R⇒U with both U and R finite étale k-schemes. Equivalently it is a finite gerbe whose base change to a separable splitting extension is BG for a finite étale group scheme G.
@@ -534,21 +549,19 @@ Lemmas: **T121** The constant profinite integer group is not of finite type.
 
 Lemmas: **T123** Transporting the torsor attached to a gerbe self-equivalence.
 
-**T124** `R09.4/self-equivalence-torsor` (construction). For a band-preserving self-equivalence η of any A-gerbe F, choose local objects x and glue the A-torsors Isom(x,ηx) using their choice-independent transport maps. 3 tests (compatibility, degenerate, non-example). Source: Groechenig–Wyss–Ziegler 2020, §2.2.1, p. 515; Breen 1994, Proposition 2.14, p. 56.
+**T124** `R09.4/self-equivalence-torsor` (construction). For a band-preserving self-equivalence η of any A-gerbe F, choose local objects x and glue the A-torsors Isom(x,ηx) using their choice-independent transport maps. 3 tests (compatibility, degenerate, non-example). Source: Groechenig–Wyss–Ziegler 2020, §2.2.1, p. 515; Breen 1994, Proposition 2.14, p. 56. Source gap: the Breen locator and its arbitrary-site generality remain unverified; the geometric gerbe discussion in GWZ alone does not supply the full arbitrary-site classification contract.
 
 **T125** `R09.4/all-self-equivalences` (theorem). For any A-gerbe F, the groupoid of band-preserving self-equivalences is equivalent to the groupoid of A-torsors. The functor is η↦Pη; its inverse twists local objects by a torsor and descends them. Modifications correspond to equivariant isomorphisms. The assertion holds without a chosen neutralization.
 - Hypotheses: A specified site (C,J), with fixed object and morphism universes; all stacks have groupoid fibres.
-- Source: Groechenig–Wyss–Ziegler 2020, §2.2.1 p. 515; Breen 1994, Proposition 2.14
+- Source: Groechenig–Wyss–Ziegler 2020, §2.2.1 p. 515; Breen 1994, Proposition 2.14 Source gap: the Breen locator and its arbitrary-site generality remain unverified; the geometric gerbe discussion in GWZ alone does not supply the full arbitrary-site classification contract.
 - Needs: T124, T097, T395, T411, T424; DiamondsAndVStacks D0
 
 **T126** `R09.4/quotient-gerbe-transgression` (construction). Let a finite constant group Γ act on Y, let A be a commutative band on the chosen site, and let α be an A-gerbe with Γ-equivariant structure ηγ and its unit/composition modifications. 3 tests (characterisation, compatibility, degenerate). Source: Groechenig–Wyss–Ziegler 2020, §2.2.1 p. 515.
 
-**T127** `R09.4/inertia-stack` (construction). For a stack X in groupoids on (C,J), IX(U) is the groupoid of pairs (x,a) with x∈X(U) and a∈Aut(x); 3 tests (compatibility, degenerate, non-example). Source: Groechenig–Wyss–Ziegler 2020, §2.2.2, p. 518.
-
 **T128** `R09.4/quotient-inertia-components` (theorem). For a finite constant group Γ acting on Y, I[Y/Γ]≃⊔_[γ] [Yγ/CΓ(γ)], where one representative is chosen from each conjugacy class and Yγ is the fixed-point sheaf (with representability whenever supplied). Changing representatives gives the canonical equivalent description. No tameness or invertibility of |Γ| is required for this groupoid formula.
 - Hypotheses: Γ is a finite constant group acting on the sheaf Y. Representability of the fixed-point sheaves Y^γ, where the source uses it, is SF.1's.
 - Source: Groechenig–Wyss–Ziegler 2020, §2.2.1, p. 515
-- Needs: T127; DiamondsAndVStacks D0
+- Needs: SchemeAndStackFoundations SF.1; DiamondsAndVStacks D0
 
 **T129** `R09.4/canonical-affine-factorization` (definition). For f:Γ→Δ between affine fpqc gerbes over k, a canonical factorization consists of an affine fpqc gerbe E, maps g:Γ→E and h:E→Δ, an invertible modification h∘g≅f, proof that g is locally full, and proof that h is faithful on all fibre groupoids. Equivalence of such data includes the compatible modification over Δ.
 - Hypotheses: Γ and Δ are affine fpqc gerbes over a field k.
@@ -556,6 +569,8 @@ Lemmas: **T123** Transporting the torsor attached to a gerbe self-equivalence.
 - Tests: `CanonicalFactorTests.identity` [degenerate], `CanonicalFactorTests.kernel` [compatibility], `CanonicalFactorTests.notTarget` [non-example]
 - Source: Borne–Vistoli 2019, Definition 3.8, p. 8
 - Needs: T116; Mathlib `CategoryTheory.Pseudofunctor.StrongTrans`, `CategoryTheory.Pseudofunctor.StrongTrans.Modification`, `MonoidHom.toFunctor`
+
+**T510** `R09.4/affine-factor-existence` (construction). For f:Γ→Δ between affine fpqc gerbes, there is a canonical factorization Γ→E→Δ. 3 tests (compatibility, degenerate, non-example). Source: Borne–Vistoli 2019, Proposition 3.9 and proof, pp. 8–9.
 
 Lemmas: **T130** Uniqueness of the canonical affine factor.
 
@@ -600,7 +615,7 @@ Lemmas: **T130** Uniqueness of the canonical affine factor.
 
 **T139** `R09.4/prime-to-p-twisted-inertia` (construction). For a stack X over a perfect field k of characteristic p, let μ̂=lim_(n,p)=1 μn with transition μmn→μn given by the mth power. 3 tests (compatibility, degenerate, non-example). Source: Groechenig–Wyss–Ziegler 2019, §2.4 setup and Definition 2.9, p. 9.
 
-**T140** `R09.4/twisted-inertia-finite-field` (theorem). For X/Fq with diagonal of finite presentation, Iμ̂X(Fq) is equivalent to the groupoid of pairs (x,α), with x∈X(Fq), a continuous homomorphism α:μ̂(Fqbar)→Aut(x_Fqbar) for the discrete topology, and Frobenius equivariance φα=αφ. An arrow is an Fq-isomorphism of objects intertwining α. The domain Frobenius acts by qth power.
+**T140** `R09.4/twisted-inertia-finite-field` (theorem). For X/Fq with diagonal of finite presentation, Iμ̂X(Fq) is equivalent to the groupoid of pairs (x,α), with x∈X(Fq), a continuous homomorphism α:μ̂(Fqbar)→Aut(x_Fqbar) for the discrete topology, and Frobenius equivariance φα=αφ. An arrow is an Fq-isomorphism of objects intertwining α. The domain Frobenius acts by qth power. For μ₅ over F₂ the exponent is 2 modulo 5, whereas inverse Frobenius has exponent 3; the identity map from μ₅ to itself intertwines the two q-power actions and does not intertwine q-power with inverse q-power. For a constant C₃ target over F₂ equivariance forces α = 0; over F₄ there are three homomorphisms from μ₃ to C₃.
 - Hypotheses: X is a stack over Fq with diagonal of finite presentation. The mapping-stack/Galois-descent comparison at each finite stage is supplied.
 - Source: Groechenig–Wyss–Ziegler 2019, Lemma 2.10(a) and proof, pp. 9–10
 - Needs: T139; SchemeAndStackFoundations SF.1
@@ -839,7 +854,7 @@ Lemmas: **T327** The transported inverse returns the target; **T328** The transp
 Lemmas: **T331** The transported Hom map is surjective with a local anchor; **T332** Correct target equivalences on a gerbe covering sieve; **T333** The pullback comparison is Mathlib's strong-naturality component.
 
 #### Strand `hom-sheaf` (T334–T349)
-Standing hypotheses: C is an arbitrary category and F,G are Mathlib Cat-valued pseudofunctors on LocallyDiscrete Cᵒᵖ. η is their Mathlib StrongTrans. The forward comparison and the presheaf maps require no gerbe or band hypothesis.
+Standing hypotheses: C is an arbitrary category and F,G are Mathlib Cat-valued pseudofunctors on LocallyDiscrete Cᵒᵖ. η is their Mathlib StrongTrans. The forward comparison and the presheaf maps require no gerbe or band hypothesis. Injectivity, local surjectivity and the isomorphism targets T341–T349 additionally require F and G to be gerbes with the same specified abelian coefficient sheaf and η to preserve both bandings. A transformation B(1) → B(C₂) fails fullness and shows why these extra hypotheses cannot be omitted.
 Lemmas: **T334** Strong comparison for a composite base arrow; **T335** Compatibility with every deeper slice restriction.
 
 **T336** `R09.4/hom-sheaf/presheaf-map` (construction). Construct a natural transformation F.presheafHom(x,y)→G.presheafHom(ηUx,ηUy) on (C/U)ᵒᵖ whose component at T is h_(T.hom). Source: Olsson 2007 (Math 274 notes), §31, Lemma 31.3 full-faithfulness paragraph, pp. 122–123.
@@ -855,7 +870,7 @@ Lemmas: **T340** Underlying natural transformation of the sheaf map; **T341** In
 Lemmas: **T347** The specified forward map of the isomorphism; **T348** Bijection on the fibre Hom map; **T349** Fullness of every component functor.
 
 #### Strand `object-descent` (T350–T373)
-Standing hypotheses: C is an arbitrary category, J its specified Grothendieck topology, and F,G Cat-valued pseudofunctors on LocallyDiscrete Cᵒᵖ with Mathlib strong transformation η.
+Standing hypotheses: C is an arbitrary category, J its specified Grothendieck topology, and F,G Cat-valued pseudofunctors on LocallyDiscrete Cᵒᵖ with Mathlib strong transformation η. Full faithfulness, covering of the local image sieve and effective gluing require F,G gerbes, fixed abelian bandings by the same sheaf and band preservation by η. These are assumptions of the equivalence theorem, not consequences of strong naturality alone.
 **T350** `R09.4/object-descent/component-fully-faithful` (construction). For each U construct the FullyFaithful data of the component functor ηU, using the coefficient universe convention. Source: Olsson 2007 (Math 274 notes), §31 Lemma 31.3, pp. 122–123.
 
 Lemmas: **T351** Mathlib's inverse really lifts every target arrow.
@@ -1082,24 +1097,22 @@ Lemmas: **T508** The local chart map is an isomorphism.
 
 Moduli stacks of arithmetic objects carry inertia that one removes in a controlled way: by rigidifying along a subgroup of the inertia (killing only chosen automorphisms), by passing to the coarse moduli space (killing all), or by adding level structure (making objects rigid before quotienting again). This layer builds rigidification and level removal, fixes the comparison with the coarse spaces of SchemeAndStackFoundations SF.1 and ModularCurves 9D, and supplies the normalisation, schematic-closure and descent statements a coarse space needs. Keel–Mori, tame stacks and their base change are cited from SF.1, never rebuilt.
 
-**T510** `R09.5/affine-kernel-rigidification` (construction). For f:Γ→Δ between affine fpqc gerbes, there is a canonical factorization Γ→E→Δ. 3 tests (compatibility, degenerate, non-example). Source: Borne–Vistoli 2019, Proposition 3.9 and proof, pp. 8–9.
-
 **T511** `R09.5/inertia-subgroup-stack` (definition). A flat, finitely presented closed subgroup stack `H ⊂ I_X`: for each `T → X` the fibre `H_T ⊂ Aut_T(x)` is a flat finitely presented closed subgroup space, stable under the identifications induced by 2-isomorphisms (so normal in `I_X`).
-- Hypotheses: `X` algebraic over `S`; `H → I_X` a closed immersion, `H → X` flat and finitely presented.
+- Hypotheses: `X` algebraic and locally of finite presentation over `S`; `H → I_X` a closed immersion, `H → X` flat and finitely presented.
 - API: `Stack.InertiaSubgroup`, `InertiaSubgroup.fibre`, `InertiaSubgroup.isNormal`, `InertiaSubgroup.pullback`
-- Tests: `InertiaSubgroupTests.trivial` [degenerate] the unit section qualifies; `InertiaSubgroupTests.full` [degenerate] `I_X` qualifies when flat and finitely presented over `X`; `InertiaSubgroupTests.bgFour` [computation] `ℤ/2 ⊂ ℤ/4` gives a subgroup stack of `I_{B(ℤ/4)}`.
-- Source: Abramovich–Corti–Vistoli 2003, §5.1 (Setup 5.1.4); Romagny 2005, §5 "Rigidifications".
+- Tests: `InertiaSubgroupTests.trivial` [degenerate] the unit section qualifies when it is closed (in particular for separated diagonal); `InertiaSubgroupTests.full` [degenerate] `I_X` qualifies when flat and finitely presented over `X`; `InertiaSubgroupTests.bgFour` [computation] `ℤ/2 ⊂ ℤ/4` gives a subgroup stack of `I_{B(ℤ/4)}`.
+- Source: AOV 2008, Appendix A, setup and Theorem A.1, pp. 1086–1089 (varying normal inertia subgroup); Romagny 2005, §5, pp. 224–225 (fixed group).
 - Needs: SF.1 (`SF.1/inertia`, `SF.1/algebraic-stack`, `SF.1/stack-morphism-properties`).
 
 **T512** `R09.5/rigidification` (definition). The rigidified stack `X ⫽ H`: the fppf stackification of the prestack with the objects of `X` and morphism sheaves `Hom(x,y)/H_x`, with `X → X ⫽ H`; every morphism `X → Y` to an algebraic stack killing `H` factors uniquely through `X ⫽ H`, and the inertia of `X ⫽ H` pulled back to `X` is `I_X/H`.
 - Hypotheses: as in T511.
 - API: `Stack.rigidify`, `rigidify.proj`, `rigidify.universal`, `rigidify.inertia_pullback`
-- Tests: `RigidifyTests.trivialInertia` [degenerate] a scheme rigidified along the unit section is itself; `RigidifyTests.bgFourAlongTwo` [non-example] `B(ℤ/4) ⫽ (ℤ/2) ≃ B(ℤ/2)`, not `Spec k`; `RigidifyTests.gerbe` [characterisation] `X → X ⫽ H` is a gerbe iff `H = I_X`.
-- Source: Abramovich–Corti–Vistoli 2003, Theorem 5.1.5 (`H` commutative: existence and universal property); Romagny 2005, Theorem 5.1 (`H` normal in the Hom sheaves; `X → X ⫽ H` is a gerbe, from which the inertia description follows).
+- Tests: `RigidifyTests.trivialInertia` [degenerate] a scheme rigidified along the unit section is itself; `RigidifyTests.bgFourAlongTwo` [non-example] `B(ℤ/4) ⫽ (ℤ/2) ≃ B(ℤ/2)`, not `Spec k`; `RigidifyTests.gerbe` [characterisation] `X → X ⫽ H` is always an fppf gerbe with relative inertia H. For B(ℤ/4) → B(ℤ/2), the kernel has order 2 while the target still has inertia ℤ/2; full inertia is needed to make the target an algebraic space, not to make the projection a gerbe.
+- Source: AOV 2008, Appendix A, Theorem A.1 and Remark A.2, pp. 1087–1089; the prestack quotient and stackification are in its proof. Romagny 2005, Theorem 5.1, pp. 224–225 treats a fixed group over the base.
 - Needs: T511; SF.1 (`SF.1/stackification`, `SF.1/two-fibre-product`).
 
 **T513** `R09.5/rigidification-base-change` (theorem). `X ⫽ H` is an algebraic stack; `X → X ⫽ H` is smooth, surjective and finitely presented, a gerbe, étale when `X` is Deligne–Mumford; formation of `X ⫽ H` commutes with base change `S' → S` (the rigidification of `X ×_S S'` along `H_{S'}` is `(X ⫽ H) ×_S S'`); and `X` and `X ⫽ H` have the same coarse moduli space whenever one exists.
-- Source: Abramovich–Corti–Vistoli 2003, Theorem 5.1.5(4); Romagny 2005, Theorem 5.1 (ii)–(iv).
+- Source: AOV 2008, Theorem A.1 and proof, pp. 1087–1089 (general subgroup); Romagny 2005, Theorem 5.1 (ii)–(iv), pp. 224–225 (base change and coarse comparison for a fixed group). The base-change assertion in the general case follows by base changing the quotient prestack and using its universal property.
 - Needs: T512; SF.1 (`SF.1/algebraic-stack`, `SF.1/stack-presentation`).
 
 **T514** `R09.5/rigidification-full-inertia-coarse` (theorem). If `I_X → X` is finite, flat and finitely presented, then `X ⫽ I_X` is an algebraic space, `X → X ⫽ I_X` is a gerbe, and `X ⫽ I_X` is the coarse moduli space of `X`.
@@ -1108,25 +1121,27 @@ Moduli stacks of arithmetic objects carry inertia that one removes in a controll
 
 **T515** `R09.5/finite-inertia-coarse-comparison` (theorem). For `X = [U/G]`, `U` affine over `S`, `G` finite constant, the Keel–Mori coarse space is `Spec` of the invariants, equals the ModularCurves 9D coarse scheme of the same finite quotient problem, and both commute with flat base change; for `|G|` invertible on `S` (tame case) with arbitrary base change. Only the identification with the 9D scheme is new.
 - Source: Stacks, Lemma 35.23.25 (tag 02LA) for the descent step; AOV 2008 via SF.1.
-- Needs: T510, T514; SF.1 (`SF.1/finite-quotient-coarse`, `SF.1/tame-local-structure`, `SF.1/quotient-stack`); ModularCurves 9D.
+- Needs: T511, T514; SF.1 (`SF.1/finite-quotient-coarse`, `SF.1/tame-local-structure`, `SF.1/quotient-stack`); ModularCurves 9D.
 
-**T516** `R09.5/rigid-level-structure` (definition). A level functor on a moduli problem `P`: a representable finite étale surjective `P_N → P` whose fibre over `x/T` is a torsor under a finite étale group `G_T`, with the induced `Aut(x)`-action. The level is *rigid* if an automorphism of `x` fixing a point of `P_N(x)` is the identity.
+**T516** `R09.5/rigid-level-structure` (definition). A level functor on a moduli problem `P`: a representable finite étale surjective `P_N → P` equipped with an action of a fixed finite étale S-group G, making P_N → P a G-torsor over the stack P; pullbacks, the torsor action and their cocycles are part of the datum. Each fibre over x/T is consequently a G_T-torsor with the induced Aut(x)-action. The level is *rigid* if an automorphism of `x` fixing a point of `P_N(x)` is the identity.
 - Hypotheses: `G → S` finite étale; `P` a stack in groupoids on `(Sch/S)_fppf`.
 - API: `LevelStructure`, `LevelStructure.torsor`, `LevelStructure.IsRigid`, `LevelStructure.autAction`
-- Tests: `LevelTests.ellipticThree` [computation] full level `N ≥ 3` on elliptic curves is rigid; `LevelTests.ellipticTwo` [non-example] level `2` is not, `[-1]` fixes `E[2]`; `LevelTests.abelianScheme` [characterisation] an automorphism of an abelian scheme trivial on `A[N]`, `N ≥ 3`, is trivial.
-- Source: Katz–Mazur 1985, Corollary 2.7.2 (elliptic curves) and 4.7.0 via ModularCurves 4C; for abelian schemes Serre's lemma, cited (not proved) in Mumford 1965 (GIT), Chapter 7 §3, p. 139 of the third edition.
+- Tests: `LevelTests.ellipticThree` [computation] full level `N ≥ 3` with N invertible on the base on elliptic curves is rigid; `LevelTests.ellipticTwo` [non-example] over a base where 2 is invertible, level `2` is not, `[-1]` fixes `E[2]`; `LevelTests.abelianScheme` [characterisation] an automorphism of a polarized abelian scheme preserving its polarization and trivial on `A[N]`, `N ≥ 3` invertible on the base, is trivial. The polarization is essential to the finite-order argument.
+- Source: Katz–Mazur 1985, Corollary 2.7.2 (elliptic curves) and 4.7.0 via ModularCurves 4C; for polarized abelian schemes Serre's lemma, cited (not proved) in Mumford 1965 (GIT), Chapter 7 §3, p. 139 of the third edition. Source gap: the Hartshorne, Katz–Mazur, K3 locator(s) remain unverified; they do not discharge the claim beyond the separately identified public or library contract.
 - Needs: SF.1 (`SF.1/moduli-functor`, `SF.1/torsor`); ModularCurves 4C, 0E.
+- Additional checks: `LevelTests.characteristicDividesLevel` has μ_p ⊂ E[p] for an ordinary elliptic curve in characteristic p, so full p-torsion level does not furnish the finite étale torsor required by this definition. Fibrewise torsor structures without a compatible global G-action do not supply the quotient of the next theorem. `LevelTests.unpolarizedProduct` takes A = E × E in characteristic zero and the automorphism (P,Q) ↦ (P+NQ,Q). Its matrix (1,N;0,1) is nonidentity but fixes A[N]; unpolarized abelian schemes do not satisfy the asserted rigidity.
 
 **T517** `R09.5/level-removal-quotient` (theorem). If the level of T516 is rigid and `P` is algebraic with finite inertia, then `P_N` is an algebraic space with a finite étale `G`-action, `[P_N/G] ≃ P` ("removal of level"), `P_N → P` is the finite étale cover by the fine space ("addition of level"), and the coarse space of `P` is the quotient space `P_N/G`, a scheme when `P_N` is quasi-projective over `S`.
-- Source: Katz–Mazur 1985, Corollary 2.7.2 and 4.7.0; Stacks, Lemma 35.23.25 (tag 02LA).
+- Source: Katz–Mazur 1985, Corollary 2.7.2 and 4.7.0; Stacks, Lemma 35.23.25 (tag 02LA). Source gap: the Hartshorne, Katz–Mazur, K3 locator(s) remain unverified; they do not discharge the claim beyond the separately identified public or library contract.
 - Needs: T514, T516; SF.1 (`SF.1/finite-quotient-coarse`, `SF.1/finite-group-quotient`, `SF.1/quotient-stack-algebraic`); ModularCurves 0C.
 
-**T518** `R09.5/space-normalization` (definition). The normalisation `ν : Xᵛ → X` of an algebraic space with finitely many codimension-zero points on each quasi-compact étale chart (every locally Noetherian space): `Xᵛ` normal, `ν` integral and surjective, factoring through `X_red`, initial among dominant morphisms from normal spaces of the given kind; `ν` is finite when `X` is Nagata.
+**T518** `R09.5/space-normalization` (definition). The normalisation `ν : Xᵛ → X` of an algebraic space with finitely many codimension-zero points on each quasi-compact étale chart (every locally Noetherian space): `Xᵛ` normal, `ν` integral and surjective, factoring through `X_red`, with the universal factorization property: every morphism Z → X from a normal space of the given kind that sends each codimension-zero point of Z to a codimension-zero point of X factors uniquely through ν; `ν` is finite when `X` is Nagata.
 - Hypotheses: `X` satisfies Stacks, Lemma 67.49.1 (tag 0BB1); finiteness needs `X` Nagata.
 - API: `Space.normalization`, `normalization.isIntegral`, `normalization.universal`, `normalization.isFinite_of_nagata`
 - Tests: `NormalizationTests.normal` [degenerate] `ν` is an isomorphism for normal `X`; `NormalizationTests.cusp` [computation] the cuspidal cubic normalises to `𝔸¹`; `NormalizationTests.etaleLocal` [compatibility] commutes with étale `V → X`.
 - Source: Stacks, Lemma 67.49.5 (tag 07U4), Definition 67.49.6 (tag 0BB2), Lemma 67.49.8 (tag 0BB4), Lemma 67.49.9 (tag 0BB5).
 - Needs: SF.0 (`SF.0/nagata-normalization-finite`); SF.1 (`SF.1/algebraic-space`, `SF.1/small-etale-site`).
+- Additional checks: `NormalizationTests.componentwiseGeneric` takes a nodal curve X and Z = Xᵛ ⊔ Spec k, with the added point mapping to the node. Z → X is dominant as a whole, but the point has two distinct lifts to Xᵛ; ordinary dominance does not imply uniqueness. The condition is on every generic point of Z.
 
 **T519** `R09.5/schematic-closure` (definition). The schematic closure of an immersion `Z → X` of algebraic spaces (of stacks, via a smooth presentation): the scheme-theoretic image `Z̄`, with `Z → Z̄` an open immersion onto a scheme-theoretically dense open when `Z → X` is quasi-compact or `Z` is reduced.
 - Hypotheses: `Z → X` an immersion, quasi-compact or with `Z` reduced.
@@ -1165,13 +1180,13 @@ Artin's criterion (A0-extension) and algebraisation (R09.6b) rest on one algebra
 - Needs: T522, T524; Mathlib `AdicCompletion`.
 
 **T526** `R09.6a/artin-approximation-classical` (theorem). For `R` a field or an excellent discrete valuation ring, `A` the henselisation of a finite-type `R`-algebra at a prime ideal and `𝔪` a proper ideal of `A`, a solution in the `𝔪`-adic completion `A^∧` of a polynomial system over `A` is approximated to any order (modulo `𝔪^c`) by a solution in `A`. For `A` the henselisation of `k[x_1, …, x_n]` at the origin, `A` is the ring of algebraic power series and `A^∧ = k[[x_1, …, x_n]]`: formal solutions of polynomial systems are approximated by algebraic ones.
-- Source: Artin 1969 (Publ. IHÉS 36), Theorem (1.10); Theorem (1.12) is the functorial form. The algebraic-power-series statement is the case `A = k[x]^h` of (1.10) and carries no separate number.
+- Source: Artin 1969 (Publ. IHÉS 36), Theorems (1.10) and (1.12), p. 26; (1.12) is the functorial form. The algebraic-power-series statement is the case `A = k[x]^h` of (1.10) and carries no separate number.
 - Needs: T522; SF.0 (`SF.0/excellent-ring`, `SF.0/henselian-pair`).
 
 <a id="a0-extension"></a>
 ## A0-extension. Relative Picard, proper-flat cohomology and Artin's criterion
 
-T527–T532 build the relative Picard sheaf `Pic_{X/B}`, its kernel sequence and its section-rigidified form on the carriers Tau Ceti `TauCeti.AlgebraicGeometry.rigidifiedPicardFunctor` and `TauCeti.AlgebraicGeometry.RigidifiedLineBundle`. This section supplies the inputs that make those sheaves geometric: cohomology and base change for proper flat morphisms (giving `f_*O_X = O_S` universally, the hypothesis of T529 and T532) and Artin's criterion, which makes the Picard stack algebraic and the Picard functor an algebraic space. It closes with finite normalisation over an excellent base and analytification of étale presentations.
+T527–T532 build the relative Picard sheaf `Pic_{X/B}`, its kernel sequence and its section-rigidified form on the carriers Tau Ceti `TauCeti.AlgebraicGeometry.rigidifiedPicardFunctor` and `TauCeti.AlgebraicGeometry.RigidifiedLineBundle`. This section supplies the inputs that make those sheaves geometric: derived cohomology for proper flat morphisms (giving `f_*O_X = O_S` universally, the hypothesis of T529 and T532) and Artin's criterion, which makes the Picard stack algebraic and the Picard functor an algebraic space. It closes with finite normalisation over an excellent base and analytification of étale presentations.
 
 **T527** `A0-extension/relative-picard-sheaf` (definition). For f:X→B, define PicX/B as the fppf sheafification on Sch/B of T↦Pic(XT), where Pic denotes invertible modules up to isomorphism. Equivalently sheafify the quotient presheaf Pic(XT)/fT*Pic(T), since every line bundle on T is locally trivial. Tensor product supplies the abelian group law.
 - Hypotheses: A scheme S, algebraic spaces X and B over S, and a specified S-morphism f:X→B. Test objects are schemes T→B in a fixed-universe model of Sch/B with the fppf topology; X_T=X×_B T and f_T:X_T→T. Pic uses invertible modules on the small étale ringed sites.
@@ -1182,42 +1197,35 @@ T527–T532 build the relative Picard sheaf `Pic_{X/B}`, its kernel sequence and
 
 Lemmas: **T528** Base change of the relative Picard sheaf; **T529** Kernel of passage to relative Picard classes.
 
-**T530** `A0-extension/section-rigidified-picard` (definition). For a section σ:B→X, a rigidified Picard object over T is an invertible sheaf L on XT and an isomorphism α:OT≅σT*L. An arrow is an isomorphism of line bundles preserving α. Under universal OT≅fT*OXT every such object has only the identity automorphism, and its isomorphism class lies in ker(σT*:Pic(XT)→Pic(T)).
+**T530** `A0-extension/section-rigidified-picard` (definition). For a section σ:B→X of algebraic spaces, extend the scheme rigidifications already supplied by Tau Ceti to invertible modules on the small étale ringed site. A rigidified Picard object over T is an invertible sheaf L on XT and an isomorphism α:OT≅σT*L. An arrow is an isomorphism of line bundles preserving α. Under universal OT≅fT*OXT every such object has only the identity automorphism, and its isomorphism class lies in ker(σT*:Pic(XT)→Pic(T)).
 - Hypotheses: A scheme S, algebraic spaces X and B over S, and a specified S-morphism f:X→B. Test objects are schemes T→B in a fixed-universe model of Sch/B with the fppf topology; X_T=X×_B T and f_T:X_T→T. Pic uses invertible modules on the small étale ringed sites.
 - API: `RigidifiedPicard.lineBundle`, `RigidifiedPicard.trivialization`, `RigidifiedPicard.pullback`, `RigidifiedPicard.mk`, `RigidifiedPicard.hom`, `RigidifiedPicard.hom_ext`, `RigidifiedPicard.trivial`
 - Tests: `RigidifiedPicardTests.identity` [degenerate], `RigidifiedPicardTests.automorphisms` [non-example], `RigidifiedPicardTests.P1` [compatibility]
 - Source: Stacks, Lemma 99.11.5 (tag 0D29) and the definition preceding it, Lemma 99.11.7 (tag 0D2B)
-- Needs: T053; Tau Ceti `TauCeti.SheafOfModules.IsInvertible`, `TauCeti.AlgebraicGeometry.InvertibleSheaf`; SchemeAndStackFoundations SF.1
+- Needs: T053; Tau Ceti `TauCeti.AlgebraicGeometry.RigidifiedLineBundle`, `RigidifiedLineBundle.autSubgroup_eq_bot_iff`, `TauCeti.SheafOfModules.IsInvertible`; SchemeAndStackFoundations SF.1
 
-Lemmas: **T531** Rigidified Picard objects have trivial automorphisms.
+Lemmas: **T531** Under universal O_T ≅ f_{T*}O_{X_T}, algebraic-space rigidified Picard objects have trivial automorphisms, extending the existing scheme theorem rather than rebuilding it.
 
 **T532** `A0-extension/section-picard-split` (theorem). If σ:B→X is a section and OT→fT*OXT is an isomorphism for all T→B, then 0→Pic(T)→Pic(XT)→PicX/B(T)→0 is split exact, with retraction σT*. Equivalently PicX/B(T)≅ker σT*, naturally in T.
 - Hypotheses: A scheme S, algebraic spaces X and B over S, and a specified S-morphism f:X→B. Test objects are schemes T→B in a fixed-universe model of Sch/B with the fppf topology; X_T=X×_B T and f_T:X_T→T. Pic uses invertible modules on the small étale ringed sites.
 - Source: Stacks, Lemma 99.11.4 (tag 0D28) and proof
 - Needs: T529, T530, T531, T054, T052
 
-**T533** `A0/proper-flat-perfect-complex` (theorem). For `f : X → Spec A` proper, `A` Noetherian, `F` coherent and `A`-flat, `RΓ(X, F)` is a perfect complex of finite Tor-amplitude and `RΓ(X, F) ⊗^L_A A' → RΓ(X_{A'}, F_{A'})` is an isomorphism for every `A → A'`; over a general base the same holds Zariski-locally for `f` proper, flat, finitely presented and `F` finitely presented `S`-flat, by Noetherian approximation.
-- Source: Stacks, Lemma 30.22.1 (tag 07VK); Mumford 1970 (Abelian Varieties), §5.
-- Needs: SF.2 (`SF.2/tor-independent-base-change`, `SF.2/qcoh-higher-direct-images`); SF.0 (`SF.0/noetherian-approximation`).
+**T533** `A0/proper-flat-perfect-complex` (theorem). For f : X → Spec A proper, A Noetherian and F coherent and A-flat, RΓ(X,F) is perfect and its derived tensor product with A′ computes RΓ(X_{A′},F_{A′}) for every A → A′. The extension beyond the classical cohomology-and-base-change criteria is the following arbitrary-base algebraic-space statement: for a finitely presented morphism f : X → Y, a perfect E on X and a bounded complex G of finitely presented modules termwise flat over Y with support proper over Y, Rf_*(E ⊗^L G) is perfect and commutes with arbitrary base change. In particular proper, flat, finitely presented f preserves perfect complexes under Rf_*. Target-flatness is relative to Y, not just an unrelated ambient base S.
+- Source: Stacks, Lemma 30.22.1 (tag 07VK), for the Noetherian affine-base case; Lemma 75.25.1 (tag 0A1P), including its approximation proof, for the arbitrary-base space case.
+- Needs: SF.2 (`SF.2/tor-independent-base-change`, `SF.2/qcoh-higher-direct-images`, `SF.2/derived-quasi-coherent-category`, `SF.2/derived-pullback-pushforward-qcoh`, `SF.2/derived-tensor-internal-hom`); SF.0 (`SF.0/noetherian-approximation`); SF.1 algebraic-space étale descent. Gap: the named SF.2 derived substrate is stated for schemes; its algebraic-space extension and compatibility with the specified ringed étale sites must be supplied.
 
-**T534** `A0/fibre-cohomology-semicontinuity` (theorem). With `f`, `F` as in T533, `s ↦ dim Hⁱ(X_s, F_s)` is upper semicontinuous and `s ↦ χ(X_s, F_s)` is locally constant on `S`.
-- Source: Hartshorne 1977, Theorem III.12.8; Mumford 1970, §5 Corollary 1.
-- Needs: T533.
-
-**T535** `A0/cohomology-and-base-change` (theorem). With `f`, `F` as in T533 and `s ∈ S`: if `Rⁱf_*F ⊗ κ(s) → Hⁱ(X_s, F_s)` is surjective then it is an isomorphism, also near `s`; given that, `Rⁱ⁻¹f_*F ⊗ κ(s) → Hⁱ⁻¹(X_s, F_s)` is surjective iff `Rⁱf_*F` is locally free near `s`.
-- Source: Hartshorne 1977, Theorem III.12.11; Mumford 1970, §5 Corollary 3 (Corollary 2 is Grauert's criterion over a reduced base).
-- Needs: T533, T534.
-
-**T536** `A0/pushforward-structure-sheaf-universal` (theorem). If `f : X → S` is proper, flat, finitely presented with reduced and connected geometric fibres, then `O_S → f_*O_X` is an isomorphism after every base change.
+**T536** `A0/pushforward-structure-sheaf-universal` (theorem). For a morphism of schemes `f : X → S`, if f is proper, flat, finitely presented with reduced and connected geometric fibres, then `O_S → f_*O_X` is an isomorphism after every base change.
 - Source: Stacks, Lemma 36.32.6 (tag 0E0L).
-- Needs: T533, T535; SF.0 (`SF.0/flat-proper-fibre-loci`).
+- Needs: T533; StableReduction Layer 2; SF.0 (`SF.0/flat-proper-fibre-loci`).
 
-**T537** `A0/picard-stack` (definition). The Picard stack `𝒫ic_{X/B}` of `f : X → B`: objects over `T → B` are invertible sheaves on `X_T`, morphisms are isomorphisms; it is an open substack of the stack of coherent sheaves, `Pic_{X/B}` (T527) is its sheaf of isomorphism classes, and every object has automorphism group `𝔾_m`.
+**T537** `A0/picard-stack` (definition). The Picard stack 𝒫ic_{X/B} of f : X → B has invertible sheaves on X_T as objects over T → B and their isomorphisms as arrows. It is an open substack of the stack of flat finitely presented sheaves, and Pic_{X/B} is the fppf sheafification of its presheaf of isomorphism classes. Aut(L) on T is Γ(X_T,O_{X_T})^×, naturally the sheaf f_{T*}𝔾_m. The identification with 𝔾_{m,T} requires O_T ≅ f_{T*}O_{X_T} universally.
 - Hypotheses: `f` flat, proper, finitely presented between algebraic spaces over `S`.
-- API: `PicardStack`, `PicardStack.toCoh`, `PicardStack.toPicFunctor`, `PicardStack.autGm`
+- API: `PicardStack`, `PicardStack.toCoh`, `PicardStack.toPicFunctor`, `PicardStack.autUnits`, `PicardStack.autGm_of_universalPushforward`
 - Tests: `PicardStackTests.base` [degenerate] for `X = B` it is `B𝔾_m`; `PicardStackTests.projectiveLine` [computation] over a field `𝒫ic_{ℙ¹} ≃ ℤ × B𝔾_m`; `PicardStackTests.conic` [non-example] on a pointless conic the degree-one class in `Pic_{C/k}(k)` has no representing line bundle, so isomorphism classes do not form the stack.
 - Source: Stacks, Lemma 99.10.1 (tag 0D03).
 - Needs: T527; SF.3 (`SF.3/picard-groupoid`); SF.1 (`SF.1/stack-in-groupoids`); Tau Ceti `TauCeti.AlgebraicGeometry.LineBundleClass`.
+- Additional checks: `PicardStackTests.disconnected` takes X = Spec k ⊔ Spec k over k: Aut(O_X) = k^× × k^× and the stack is B𝔾_m × B𝔾_m, disproving unconditional scalar automorphisms. For X = B the sheaf of classes is zero although the groupoid has nontrivial automorphisms.
 
 **T538** `A0/picard-stack-algebraic` (theorem). For `f : X → B` flat, proper, finitely presented between algebraic spaces over `S`, `𝒫ic_{X/B}` is an algebraic stack.
 - Source: Stacks, Proposition 99.10.2 (tag 0D04).
@@ -1231,7 +1239,7 @@ Lemmas: **T531** Rigidified Picard objects have trivial automorphisms.
 - Hypotheses: `S` locally Noetherian.
 - API: `ArtinAxioms`, `ArtinAxioms.limitPreserving`, `ArtinAxioms.rimSchlessinger`, `ArtinAxioms.effective`, `ArtinAxioms.opennessOfVersality`
 - Tests: `ArtinAxiomsTests.scheme` [degenerate] a scheme locally of finite type satisfies all; `ArtinAxiomsTests.classifyingStack` [computation] `BG`, `G` smooth affine, satisfies all; `ArtinAxiomsTests.completion` [non-example] `T ↦ Γ(T, O_T)^∧` fails [1].
-- Source: Stacks, Section 98.14 (tag 07XJ) (the axioms as numbered here); Artin 1974 (Inventiones 27), Theorem (5.3) (conditions (1)–(4) with an obstruction theory).
+- Source: Stacks, Section 98.14 (tag 07XJ) (the axioms as numbered here); Artin 1974 (Inventiones 27), Theorem (5.3), pp. 181–182 (a historical variant with conditions (1)–(4) and an obstruction theory, not the numbering of these axioms).
 - Needs: SF.4 (`SF.4/deformation-functor`, `SF.4/obstruction-theory`, `SF.4/artinian-coefficient-category`); SF.1 (`SF.1/stack-in-groupoids`).
 
 **T541** `A0/artin-criterion-spaces` (theorem). A functor on `(Sch/S)_fppf` with diagonal representable by algebraic spaces, satisfying [-1]–[5], is an algebraic space if `O_{S,s}` is a G-ring at every finite-type point `s`.
@@ -1239,33 +1247,34 @@ Lemmas: **T531** Rigidified Picard objects have trivial automorphisms.
 - Needs: T540, T522; SF.0 (`SF.0/g-ring`, `SF.0/excellent-ring`).
 
 **T542** `A0/artin-criterion-stacks` (theorem). A stack with diagonal representable by algebraic spaces, satisfying [-1]–[5], is an algebraic stack if `O_{S,s}` is a G-ring at every finite-type point.
-- Source: Stacks, Proposition 98.17.2 (tag 07Y5); Artin 1974, Theorem (5.3).
+- Source: Stacks, Proposition 98.17.2 (tag 07Y5). Artin 1974, Theorem (5.3), pp. 181–182, is the obstruction-theoretic historical variant; the exact supplier for the displayed axiom set is the Stacks proposition.
 - Needs: T540, T541; SF.1 (`SF.1/algebraic-stack`).
 
-**T543** `A0/picard-torsion-component` (theorem). Under the hypotheses of T539, the subfunctor `Pic^τ_{X/B}` of classes a multiple of which is fibrewise algebraically equivalent to zero is an open subspace of `Pic_{X/B}`; over a field `Pic⁰ ⊂ Pic^τ` is the identity component, and `Pic^τ_{ℙ¹/k}` is trivial.
-- Source: Kleiman 2005 (FGA Explained, "The Picard scheme"), Thm. 9.6.16 (`Pic^τ` open and closed of finite type, commuting with base change); SGA 6, Exposé XIII, Thm. 4.7 (i) and (iii).
+**T543** `A0/picard-torsion-component` (theorem). For f : X → B a morphism of schemes, projective Zariski-locally on B, flat and with geometrically integral fibres, Pic^τ_{X/B}, consisting of classes with a positive multiple fibrewise algebraically equivalent to zero, is an open and closed subgroup scheme of finite type, and its formation commutes with base change. Over a field Pic⁰ is the identity component and Pic^τ_{P¹/k} = 0. The general proper-flat algebraic-space hypotheses of the Picard representability theorem alone are not the hypotheses of this result.
+- Source: Kleiman, The Picard scheme, arXiv:math/0504020, Theorem 6.16, pp. 58–59 (published numbering 9.6.16); projective Zariski-local, flat and geometrically integral hypotheses are explicit.
 - Needs: T539; SF.3 (`SF.3/picard-cohomological`).
 
 **T544** `A0/proper-space-normalization-excellent` (theorem). An algebraic space of finite type over an excellent (more generally Nagata) base is Nagata, so its normalisation (T518) is finite, and proper over the base when `X` is.
 - Source: Stacks, Lemma 67.26.1 (tag 0BAU), Lemma 67.26.2 (tag 0BAV), Lemma 67.49.9 (tag 0BB5).
 - Needs: T518; SF.0 (`SF.0/excellent-ring`, `SF.0/nagata-normalization-finite`).
 
-**T545** `A0/analytification-of-spaces` (definition). The analytification `X^an` of an algebraic space `X` of finite type over `ℂ`: the quotient of the analytification of an étale presentation `U → X` by the analytified relation `U ×_X U`; independence of the presentation up to unique isomorphism, functoriality, compatibility with fibre products.
-- Hypotheses: `X` of finite type over `ℂ`; `U` a scheme, `U → X` étale surjective.
+**T545** `A0/analytification-of-spaces` (definition). The analytification `X^an` of a locally separated algebraic space `X` of finite type over `ℂ`: the quotient of the analytification of an étale presentation `U → X` by the analytified relation `U ×_X U`; independence of the presentation up to unique isomorphism, functoriality, compatibility with fibre products.
+- Hypotheses: `X` of finite type and locally separated over `ℂ` (its diagonal is an immersion); `U` a scheme, `U → X` étale surjective.
 - API: `Space.analytify`, `analytify.ofPresentation`, `analytify.indep`, `analytify.map`
 - Tests: `AnalytifyTests.scheme` [degenerate] agrees with scheme analytification; `AnalytifyTests.freeQuotient` [computation] a free finite quotient of a variety analytifies to the quotient space; `AnalytifyTests.nonSeparated` [non-example] a non-separated line yields a non-Hausdorff space, not its coarse scheme.
-- Source: Knutson 1971 (Algebraic Spaces), Chapter I, §5 (5.17 and following); Artin 1970 (Annals 91), §7, Theorem 7.3 (analytification of proper spaces; section titles not verified against a copy).
+- Source: Conrad–Temkin, Non-archimedean analytification of algebraic spaces, §1.1, p. 1 (complex analytifiability requires local separatedness, with the precise pointer Knutson I.5.17ff); the detailed complex quotient construction remains a source gap until that cited construction is verified. Artin 1970, Theorem 7.3 concerns proper spaces and is not a supplier for all finite-type spaces.
+- Additional checks: `AnalytifyTests.localSeparatedness` distinguishes a non-separated scheme (which is locally separated and may analytify non-Hausdorffly) from an algebraic space whose diagonal is not an immersion; the latter need not have an analytification as a complex analytic space.
 - Needs: SF.1 (`SF.1/space-presentation`, `SF.1/etale-equivalence-relation`, `SF.1/etale-quotient-theorem`).
 
 <a id="r09-6b"></a>
 ## R09.6b. Deformation groupoids, completed local rings and algebraisation
 
-A point of an algebraic stack has a deformation groupoid, a deformation functor, and, after choosing a smooth presentation, a complete local ring pro-representing a hull of that functor; Artin's criterion (A0-extension) says these local data plus approximation (R09.6a) rebuild the stack. This layer defines the groupoid and functor of a point, records the stabiliser action, compares the deformation functor of a space with the functor pro-represented by its complete local ring, states versality and effectivity of the formal object cut out by a presentation, and gives the algebraisation of versal formal objects over an excellent base.
+A point of an algebraic stack has a deformation groupoid, a deformation functor, and, after choosing a smooth presentation, a complete local ring giving a versal formal object of that functor; it is a hull only when its tangent map is bijective; Artin's criterion (A0-extension) says these local data plus approximation (R09.6a) rebuild the stack. This layer defines the groupoid and functor of a point, records the stabiliser action, compares the deformation functor of a space with the functor pro-represented by its complete local ring, states versality and effectivity of the formal object cut out by a presentation, and gives the algebraisation of versal formal objects over an excellent base.
 
 **T546** `R09.6b/deformation-groupoid` (definition). For `𝒳` fibred in groupoids over `(Sch/S)_fppf`, `k` a field of finite type over `S`, `x₀ ∈ 𝒳(Spec k)`: the category `𝒟ef_{𝒳,x₀}` cofibred in groupoids over Artinian local `S`-algebras with residue field `k`, objects over `A` being pairs `(x ∈ 𝒳(Spec A), x|_k ≅ x₀)`; a predeformation category, and a deformation category exactly when `𝒳` satisfies (RS).
 - Hypotheses: `S` locally Noetherian; `k` of finite type over `S`.
 - API: `DefGroupoid`, `DefGroupoid.fibre`, `DefGroupoid.isDeformation_of_RS`, `DefGroupoid.changeOfField`
-- Tests: `DefGroupoidTests.scheme` [degenerate] for a scheme the groupoid is discrete; `DefGroupoidTests.bg` [computation] for `BG` the stabiliser is `G(k)` and deformations are `G`-torsors over `Spec A`; `DefGroupoidTests.noRS` [non-example] a presheaf that is not an étale sheaf need not give a deformation category.
+- Tests: `DefGroupoidTests.scheme` [degenerate] for a scheme the groupoid is discrete; `DefGroupoidTests.bg` [computation] for BG, deformations are G-torsors over Spec A with a chosen trivialization over k; the automorphisms of the trivial framed torsor are ker(G(A) → G(k)), so over A = k this group is trivial. G(k) acts by changing the framing; `DefGroupoidTests.noRS` [non-example] a presheaf that is not an étale sheaf need not give a deformation category.
 - Source: Stacks, Section 98.3 (tag 07T2), Section 98.6 (tag 07WT).
 - Needs: SF.4 (`SF.4/artinian-coefficient-category`, `SF.4/deformation-functor`); SF.1 (`SF.1/stack-in-groupoids`).
 
@@ -1273,9 +1282,10 @@ A point of an algebraic stack has a deformation groupoid, a deformation functor,
 - Source: Stacks, Section 98.8 (tag 07WY).
 - Needs: T546; SF.4 (`SF.4/schlessinger-theorem`).
 
-**T548** `R09.6b/stabiliser-action-on-deformations` (theorem). `Aut(x₀)` acts on `𝒟ef_{𝒳,x₀}` through the identification `x|_k ≅ x₀`; `Inf(𝒟ef_{𝒳,x₀})` is the tangent space of `Aut(x₀)` at the identity; and for finite inertia the deformation functor of `𝒳 ⫽ I_𝒳` (T512) at the image point is the quotient of `Def_{𝒳,x₀}` by this action.
+**T548** `R09.6b/stabiliser-action-on-deformations` (theorem). Aut(x₀) acts on 𝒟ef_{𝒳,x₀} by changing the chosen identification x|_k ≅ x₀. Inf(𝒟ef_{𝒳,x₀}) is the tangent space of the stabilizer at the identity. No identification of a coarse-space deformation functor with pointwise orbits is asserted. Finite inertia alone also does not make the full inertia flat, as required for full-inertia rigidification.
 - Source: Stacks, Section 98.8 (tag 07WY), Section 98.21 (tag 07Y6).
 - Needs: T512, T546, T547.
+- Additional checks: `StabiliserTests.signQuotient` in characteristic different from 2 uses [A¹/(ℤ/2)] with coarse coordinate t = x². At x = 0 and A = k[ε]/(ε²), every framed source point x ∈ (ε) has x² = 0, whereas the coarse deformation t = ε exists. Thus even a tame finite quotient does not identify coarse deformations with orbits of source deformations.
 
 **T549** `R09.6b/formal-object` (definition). A formal object of `𝒳`: a Noetherian complete local `S`-algebra `R` with residue field of finite type over `S`, objects `ξ_n` over `Spec(R/𝔪ⁿ)` with compatible maps `ξ_n → ξ_{n+1}`; the restriction functor from objects over `Spec R`, *effective* meaning in its essential image, *versal* meaning versal in the predeformation category of T546.
 - Hypotheses: `S` locally Noetherian.
@@ -1284,13 +1294,15 @@ A point of an algebraic stack has a deformation groupoid, a deformation functor,
 - Source: Stacks, Definition 98.9.1 (tag 07X4), Definition 98.9.4 (tag 07X7), Definition 98.12.1 (tag 0CXJ).
 - Needs: T546; SF.4 (`SF.4/formal-completion`, `SF.4/hull`); AdicSpacesPartII F0.
 
-**T550** `R09.6b/formal-objects-effective-algebraic` (theorem). For an algebraic stack the restriction functor of T549 is an equivalence: every formal object is effective, uniquely up to unique isomorphism.
+**T550** `R09.6b/formal-objects-effective-algebraic` (theorem). For an algebraic stack the restriction functor of T549 is an equivalence: every formal object is effective, and every compatible formal isomorphism lifts uniquely. Automorphism groups are preserved, not made trivial; uniqueness refers to a lift of a specified formal comparison.
 - Source: Stacks, Lemma 98.9.5 (tag 07X8).
 - Needs: T549; SF.4 (`SF.4/grothendieck-existence`, `SF.4/grothendieck-algebraization`); SF.1 (`SF.1/stack-presentation`).
+- Additional checks: `EffectivityTests.scalarAutomorphisms` for B𝔾_m over a complete R has automorphism group R^×; these persist in the compatible formal system. This rules out unframed uniqueness up to unique isomorphism.
 
-**T551** `R09.6b/completed-local-ring-pro-represents` (theorem). For an algebraic space `X` locally of finite presentation over `S` and a finite-type point `x`, `Def_{X,x}` is pro-represented by `O^∧_{X,x}` (of any étale chart); for a stack `𝒳` and a smooth presentation `U → 𝒳`, `u ↦ x₀`, the formal object cut out by `O^∧_{U,u}` is a hull of `𝒟ef_{𝒳,x₀}`, pro-representing it exactly when `Inf = 0`.
+**T551** `R09.6b/completed-local-ring-pro-represents` (theorem). For an algebraic space X locally of finite type over a field k and a k-rational point x₀, suppose an étale scheme chart U → X with a specified k-rational lift u of x₀ is given. Then Def_{X,x₀} on local Artinian k-algebras with fixed residue k is pro-represented by the completion of O_{U,u}; its identification is independent of such a chart. For a stack and a smooth scheme presentation U → 𝒳 with a lift u and matching residue field, the completion gives a versal formal object. It is a hull if, in addition, its map on tangent spaces is bijective. Neither vanishing infinitesimal automorphisms nor smoothness of the presentation supplies that tangent condition.
 - Source: Stacks, Section 98.9 (tag 07X3) (the bijection for representable `X`), Lemma 98.12.3 (tag 0CXK).
 - Needs: T547, T549, T550; SF.4 (`SF.4/hull`, `SF.4/schlessinger-theorem`); SF.1 (`SF.1/space-presentation`).
+- Additional checks: `CompletionTests.smoothPadding` takes A¹_k → Spec k at 0: the versal ring k[[t]] has a one-dimensional tangent space while Def_{Spec k} has tangent zero, so it is not a hull even though Inf = 0. `CompletionTests.etaleResidueField` records that an étale chart whose residue field extends k belongs to a different coefficient category until the residue-field identification is specified.
 
 **T552** `R09.6b/presentation-completion-versal` (theorem). For `U → 𝒳` smooth and `u` a finite-type point, the object `U → 𝒳` is versal at `u`, and for `R = O^∧_{U,u}` its formal restriction is versal; in general an object `x/U` is versal at `u` iff its formal restriction is.
 - Source: Stacks, Definition 98.12.2 (tag 07XF), Lemma 98.12.3 (tag 0CXK).
@@ -1301,19 +1313,20 @@ A point of an algebraic stack has a deformation groupoid, a deformation functor,
 - Needs: T522, T523, T549, T552; SF.0 (`SF.0/g-ring`).
 
 **T554** `R09.6b/algebraisation-versal-formal` (theorem). If `𝒳` satisfies axioms [1]–[4] (T540) over an excellent base and `ξ` is a versal formal object over `R` with finite-type residue field, then `ξ` is effective and algebraises: an algebraic space `U` of finite type over `S` and `x/U` versal at `u` with `O^∧_{U,u} ≅ R` inducing `ξ`.
-- Source: Artin 1969 ("Algebraization of formal moduli I"), Theorem 1.6; Stacks, Lemma 98.12.7 (tag 07XH).
+- Source: Stacks, Lemma 98.12.7 (tag 07XH), including its proof of the complete-local-ring isomorphism; effectiveness is axiom [4], limit preservation is axiom [1], and excellence supplies the G-ring condition. No unverified Artin formal-moduli theorem is required for this formulation.
 - Needs: T540, T550, T553; SF.0 (`SF.0/excellent-ring`); SF.4 (`SF.4/grothendieck-algebraization`).
 
-**T555** `R09.6b/deformation-examples` (theorem). `Def` of a smooth point of relative dimension `d` is pro-represented by `k[[t_1, …, t_d]]`; the node `Spec k[x,y]/(xy)` has hull `k[[t]]` with miniversal family `xy = t`; `𝒟ef_{BG,*}` has a single deformation over every `A`, `Inf = Lie G`, and stabiliser `G`.
+**T555** `R09.6b/deformation-examples` (theorem). For a k-rational point of a smooth k-scheme of dimension d, Def of the point is pro-represented by k[[t_1,…,t_d]]. For the origin of the fixed node Spec k[x,y]/(xy), Def of the point is represented by k[[x,y]]/(xy), with tangent dimension 2. Separately, the deformation functor of the nodal singularity has the smoothing family xy = t over k[[t]] (the curve-deformation supplier). For BG with G smooth affine and the trivial framed torsor, every Artinian local k-algebra with residue k has one isomorphism class of framed deformation, infinitesimal automorphisms Lie(G), and automorphism group ker(G(A) → G(k)).
 - Source: Stacks, Section 98.8 (tag 07WY); `SF.4/deformations-of-smooth-schemes`.
 - Needs: T546, T547, T548, T551; SF.4 (`SF.4/deformations-of-smooth-schemes`, `SF.4/effective-formal-deformations-of-curves`).
+- Additional checks: `DefExamples.nonsmoothGroup` uses μ_p in characteristic p over k[ε]/(ε²): the torsor z^p = 1+ε reduces to the trivial torsor and is nontrivial, since a p-th power has no ε term. `DefExamples.nodePoint` contrasts the two-dimensional tangent of a moving point on a fixed node with the one-parameter smoothing of the singularity.
 
 <a id="r09-7"></a>
 ## R09.7. Characteristic-zero resolution and normal-crossings compactification
 
-This layer proves canonical embedded resolution of singularities for varieties over a field of characteristic zero after Bierstone–Milman 1997 (Theorems 1.6, 1.10 and 13.2) and packages its corollary: a smooth quasi-projective variety U is the complement of a strict normal crossings divisor in a smooth projective variety. The algorithm is the marked-ideal one: an ideal with marking d is transformed under blowups of permissible centres, its order is reduced by restricting a coefficient ideal to a hypersurface of maximal contact and inducting on dimension, and the local constructions glue because a local invariant with well-ordered values is upper semicontinuous and compatible with local isomorphisms; its maximum stratum is the next centre and the maximum strictly drops. The closing interface records the holomorphic polydisc charts along the boundary over ℂ, the input shape of Borel 1972, Theorem A, which is consumed, not proved; Deligne, Théorie de Hodge II, Theorem (3.2.5) (the mixed Hodge structure of a smooth variety, independent of the compactification) is one consumer and is a remark, not a target.
+This layer proves canonical embedded resolution of singularities for varieties over a field of characteristic zero after Bierstone–Milman 1997 (Theorems 1.6, 1.10 and 13.2) and packages its corollary: a smooth quasi-projective variety U is the complement of a strict normal crossings divisor in a smooth projective variety. The algorithm is the marked-ideal one: an ideal with marking d is transformed under blowups of permissible centres, its order is reduced by restricting a coefficient ideal to a hypersurface of maximal contact and inducting on dimension, and the local constructions glue through the extended invariant, its component selector and its stabilization and decrease properties. The companion ideals, exceptional birth history and bounded-denominator recursion required for that interface are explicit gaps of T570; a bare rational tuple does not supply them. The closing interface records the holomorphic polydisc charts along the boundary over ℂ, the input shape of Borel 1972, Theorem A, which is consumed, not proved; Deligne, Théorie de Hodge II, Theorem (3.2.5) (the mixed Hodge structure of a smooth variety, independent of the compactification) is one consumer and is a remark, not a target.
 
-**Conventions.** k is a field with `CharZero k`; a *variety* is a separated k-scheme of finite type; "smooth" is `AlgebraicGeometry.Smooth` over Spec k; M is a smooth variety, E = (E_1,…,E_r) an ordered tuple of smooth divisors with SNC (`SF.4/strict-normal-crossings`), the *boundary*; `Bl_C M`, `Exc` are from StableReduction Layer 4; a *marked ideal* is (I, d), I ⊂ O_M coherent, d ≥ 1. Sources: BM = Bierstone–Milman 1997; K3 = Kollár 2007, Chapter 3; W = Włodarczyk 2005.
+**Conventions.** k is a field with `CharZero k`; a *variety* is a reduced separated k-scheme of finite type; "smooth" is `AlgebraicGeometry.Smooth` over Spec k; M is a smooth variety, E = (E_1,…,E_r) an ordered tuple of smooth divisors with SNC (`SF.4/strict-normal-crossings`), the *boundary*; `Bl_C M`, `Exc` are from StableReduction Layer 4; a *marked ideal* is (I, d), I ⊂ O_M coherent, d ≥ 1. Sources: BM = Bierstone–Milman 1997; K3 = Kollár 2007, Chapter 3; W = Włodarczyk 2005.
 
 <a id="r09-7a"></a>
 ### R09.7a. Blowups, transforms and marked ideals
@@ -1321,9 +1334,10 @@ This layer proves canonical embedded resolution of singularities for varieties o
 **T557** `R09.7/order-at-point` (definition). `ord_a I` is the largest n with I_a ⊂ 𝔪_a^n (∞ if I_a = 0); `Cosupp(I, d) := {a : ord_a I ≥ d}`.
 - Hypotheses: M a variety; I coherent.
 - API: `Ideal.orderAt`, `Ideal.orderAt_mul`, `Ideal.orderAt_pow`, `MarkedIdeal.cosupport`
-- Tests: `OrderTests.unitIdeal` [degenerate] ord O_M = 0; `OrderTests.cusp` [computation] ord_0 (y² − x³) = 2; `OrderTests.notZeroSet` [non-example] ord_0 (x²) = 2 though V(x²) is smooth.
+- Tests: `OrderTests.unitIdeal` [degenerate] ord O_M = 0; `OrderTests.cusp` [computation] ord_0 (y² − x³) = 2; `OrderTests.notZeroSet` [non-example] ord_0 (x²) = 2 although its reduced zero set V(x) is smooth; V(x²) itself is nonreduced and not smooth.
 - Source: BM, Chapter I, §3 "Basic notions" (the order ν_a); the cosupport is K3's `cosupp(I, d)` (§3.13).
 - Needs: Mathlib `IsLocalRing`, `IsRegularLocalRing`; `SF.4/regular-scheme`
+- Additional checks: `OrderTests.zeroIdeal` has order ∞ at every point. `OrderTests.dualNumbers` on R = k[ε]/(ε²), m = (ε), computes ord(m) = 1 but ord(m²) = ∞. Thus the power identity requires regular local stalks, as in Suggested.lean; order ∞ implies stalk zero only under the Noetherian Krull-intersection hypothesis.
 
 **T558** `R09.7/order-upper-semicontinuous` (theorem). For M smooth over k and I coherent, `Cosupp(I, d)` is Zariski closed for every d.
 - Hypotheses: M smooth; I coherent.
@@ -1334,31 +1348,32 @@ This layer proves canonical embedded resolution of singularities for varieties o
 - Hypotheses: M smooth; E SNC.
 - API: `MarkedIdeal`, `MarkedIdeal.cosupport`, `MarkedIdeal.IsResolved`, `PermissibleCentre`, `PermissibleCentre.ncWithBoundary`
 - Tests: `MarkedTests.emptyCentre` [degenerate] ∅ is permissible; `MarkedTests.cuspOrigin` [computation] 0 is permissible for ((y² − x³), 2); `MarkedTests.tangentNotNC` [non-example] V(y − x²) is not permissible when E = (V(y)).
-- Source: K3, §3.5 "Birational transforms and marked ideals"; W, §2.1, Definition 2.1.1.
+- Source: K3, §3.5 "Birational transforms and marked ideals"; W, §2.1, Definition 2.1.1. Source gap: the Hartshorne, Katz–Mazur, K3 locator(s) remain unverified; they do not discharge the claim beyond the separately identified public or library contract.
 - Needs: T557; Mathlib `AlgebraicGeometry.IsClosedImmersion`; `SF.4/strict-normal-crossings`
 
 **T560** `R09.7/transforms-of-marked-ideal` (definition). For C permissible and π : M' = Bl_C M → M with F = `Exc` (ideal I_F): the *total transform* π^{-1}I·O_{M'}; the *strict transform* (`SF.4/strict-transform`, plus the marking d); the *controlled transform* I' := I_F^{-d}·π^{-1}I·O_{M'}, defined since π^{-1}I ⊂ I_F^d; the boundary E' := (strict transforms of the E_i, F). Along a sequence the *exceptional record* stores the m_j with total transform = ∏ I_{F_j}^{m_j}·I'.
 - Hypotheses: C permissible for (M, E, I, d).
 - API: `MarkedIdeal.totalTransform`, `MarkedIdeal.controlledTransform`, `MarkedIdeal.boundaryTransform_snc`, `BlowupSequence.excMult`
 - Tests: `TransformTests.emptyCentre` [degenerate] C = ∅ gives I' = I; `TransformTests.cuspChart` [computation] in the chart y = x y' the controlled transform of ((y² − x³), 2) is (y'² − x); `TransformTests.notStrict` [non-example] strict ≠ controlled transform of the cusp for marking 1.
-- Source: K3, §3.5 "Birational transforms and marked ideals"; W, §2.2 (transforms of marked ideals).
+- Source: K3, §3.5 "Birational transforms and marked ideals"; W, §2.2 (transforms of marked ideals). Source gap: the Hartshorne, Katz–Mazur, K3 locator(s) remain unverified; they do not discharge the claim beyond the separately identified public or library contract.
 - Needs: T559; StableReduction Layer 4; `SF.4/strict-transform`; `SF.4/strict-normal-crossings`
 
 **T561** `R09.7/blowup-smooth-base-change` (theorem). For g : N → M smooth and C ⊂ M closed, the base change of `Bl_C M → M` along g is `Bl_{g^{-1}C} N → N`, with exceptional divisors corresponding; if C is permissible for (M, E, I, d) then g^{-1}C is permissible for (N, g^{-1}E, g^{-1}I, d) and controlled transforms correspond.
 - Hypotheses: g smooth; C closed; no char hypothesis.
-- Source: StableReduction Layer 4; K3, §3.5 "Birational transforms and marked ideals".
+- Source: StableReduction Layer 4; K3, §3.5 "Birational transforms and marked ideals". Source gap: the Hartshorne, Katz–Mazur, K3 locator(s) remain unverified; they do not discharge the claim beyond the separately identified public or library contract.
 - Needs: T559, T560; StableReduction Layer 4; Mathlib `AlgebraicGeometry.Smooth`
 
-**T562** `R09.7/marked-ideal-equivalence` (definition). (I_1, d_1) and (I_2, d_2) on (M, E) are *equivalent* if their cosupports agree after every sequence of blowups with centres permissible for both, every open restriction and every smooth pullback (T561); (I, d) ~ (I^k, kd) for all k ≥ 1, and equivalence is stable under multiplication by a fixed (J, e).
+**T562** `R09.7/marked-ideal-equivalence` (definition). (I_1, d_1) and (I_2, d_2) on (M, E) are *equivalent* if their cosupports agree after every sequence of blowups with centres permissible for both, every open restriction and every smooth pullback (T561); (I, d) ~ (I^k, kd) for all k ≥ 1, and equivalence is stable under the weighted marked-ideal sum and product of W §2.8, with the same boundary and its ordering; no unweighted product convention is implicit.
 - Hypotheses: as T559.
 - API: `MarkedIdeal.Equiv`, `MarkedIdeal.Equiv.trans`, `MarkedIdeal.Equiv.cosupp_eq`, `MarkedIdeal.Equiv.blowup`
 - Tests: `EquivTests.refl` [degenerate]; `EquivTests.power` [computation] ((x), 1) ~ ((x²), 2); `EquivTests.notEquiv` [non-example] ((x², y), 1) and ((x, y), 1) separate after blowing up 0.
-- Source: K3, §3.5 "Birational transforms and marked ideals"; W, §2.5 (the equivalence relation).
+- Source: K3, §3.5 "Birational transforms and marked ideals"; W, §2.5 (the equivalence relation). Source gap: the Hartshorne, Katz–Mazur, K3 locator(s) remain unverified; they do not discharge the claim beyond the separately identified public or library contract.
 - Needs: T557, T560, T561
 
-**T563** `R09.7/monomial-case` (theorem). If I = ∏ I_{E_i}^{a_i}, then (I, d) is resolved by the explicit finite sequence blowing up ⋂_{i∈J} E_i for the lexicographically maximal J with ∑_{i∈J} a_i ≥ d; it is functorial for smooth pullbacks.
+**T563** `R09.7/monomial-case` (theorem). If I = ∏ I_{E_i}^{a_i}, select, at each point, the largest boundary-labelled subset J among the inclusion-minimal subsets with ∑_{i∈J} a_i ≥ d: deleting any member must make the sum less than d. The maximal selector locus is a disjoint union of smooth intersections; blowing it up and repeating resolves (I,d). In the i-chart the new exceptional exponent is ∑_{j∈J} a_j − d < a_i, while the other exponents in J persist. This finite combinatorial procedure is compatible with smooth pullback preserving the ordered boundary.
 - Hypotheses: M smooth; E SNC; I monomial in E; any characteristic.
-- Source: K3, §3.13 "Order reduction for marked ideals" (monomial case); BM, Chapter II, §4 "The local construction" (section level; the chapter is not public and its item numbers are not verified).
+- Source: W, §3, Step 2b of the proof of Proposition 3.0.8, p. 20 (minimal subsets, selector and exponent decrease); this combinatorial calculation uses no characteristic-zero operation.
+- Additional checks: `MonomialTests.minimalSubset` takes I = (x⁴y), d = 4 and ordered coordinate boundary. {x} qualifies, while {x,y} is excluded by minimality; arbitrary qualifying supersets would choose a different centre. `MonomialTests.exponent` takes I = (x³y³), d = 4: in the x-chart the transform is (x²v³). `MonomialTests.unit` has empty cosupport for I = O and a positive mark.
 - Needs: T559, T560, T561
 
 <a id="r09-7b"></a>
@@ -1368,43 +1383,46 @@ This layer proves canonical embedded resolution of singularities for varieties o
 - Hypotheses: M smooth over k; `CharZero k` for the order formula.
 - API: `derivativeIdeal`, `derivativeIdeal_iter`, `orderAt_derivativeIdeal`, `derivativeIdeal_smoothPullback`
 - Tests: `DerivTests.unit` [degenerate] D(O_M) = O_M; `DerivTests.cusp` [computation] D((y² − x³)) = (y, x²) at 0; `DerivTests.charP` [non-example] over 𝔽_p, D((x^p)) = (x^p).
-- Source: K3, §3.7 "Birational transform of derivatives"; W, §2.6, Definition 2.6.1.
+- Source: K3, §3.7 "Birational transform of derivatives"; W, §2.6, Definition 2.6.1. Source gap: the Hartshorne, Katz–Mazur, K3 locator(s) remain unverified; they do not discharge the claim beyond the separately identified public or library contract.
 - Needs: T557; Mathlib `KaehlerDifferential`, `Derivation`
 
-**T565** `R09.7/maximal-contact` (definition). For max ord = d, a smooth hypersurface H near a, with normal crossings with E is of *maximal contact* if `Cosupp(I, d) ⊂ H`, persisting under permissible blowups and smooth pullbacks; in char 0 equivalently the ideal of H lies in `D^{d−1}(I)`.
+**T565** `R09.7/maximal-contact` (definition). For max ord = d, a smooth hypersurface H near a, with normal crossings with E is of *maximal contact* if `Cosupp(I, d) ⊂ H`, persisting under permissible blowups and smooth pullbacks; in characteristic zero, a local equation of order one belonging to D^{d−1}(I) is a sufficient criterion, provided H is transverse to E. This derivative criterion is not asserted to characterize all hypersurfaces satisfying the persistence definition.
 - Hypotheses: M smooth; `CharZero k`.
 - API: `MaximalContact`, `MaximalContact.cosupp_le`, `MaximalContact.persists`, `MaximalContact.ofDerivative`
-- Tests: `MaxContactTests.orderOne` [degenerate] d = 1, I = (f) smooth: H = V(f); `MaxContactTests.cusp` [computation] V(y) for ((y² − x³), 2); `MaxContactTests.notAnyContaining` [non-example] V(x) fails for the cusp after one blowup.
-- Source: K3, §3.8 "Maximal contact and going down"; BM, Chapter II, §4 "The local construction".
+- Tests: `MaxContactTests.orderOne` [degenerate] d = 1, I = (f) smooth: H = V(f); `MaxContactTests.cusp` [computation] V(y) for ((y² − x³), 2); `MaxContactTests.notAnyContaining` [non-example] for I = (y²−x⁵), mark 2, V(x) contains the initial cosupport but fails persistence: in the x-chart the controlled transform is (v²−x³), with order 2 at (0,0), a point outside the strict transform of V(x). For the ordinary cusp (y²−x³), the cosupport is already empty after that blowup, so it would not discriminate.
+- Source: K3, §3.8 "Maximal contact and going down"; BM, Chapter II, §4 "The local construction". Source gap: the Hartshorne, Katz–Mazur, K3 locator(s) remain unverified; they do not discharge the claim beyond the separately identified public or library contract.
 - Needs: T559, T560, T561, T564
 
-**T566** `R09.7/maximal-contact-exists` (theorem). If `CharZero k` and ord_a I = d = max ord, a Zariski neighbourhood of a carries a hypersurface of maximal contact, namely V(f) for any f ∈ `D^{d−1}(I)` with ord_a f = 1 (normal crossings with E by T563). Non-example as a test: over 𝔽_2, (x² + y³) has `D(I) = I` and no hypersurface of maximal contact at 0.
+**T566** `R09.7/maximal-contact-exists` (theorem). If CharZero k, ord_a I = d ≥ 1 and I has order at most d on a neighbourhood, an order-one element f of D^{d−1}(I) exists locally and V(f) has maximal contact for the boundary-free marked ideal. With a boundary, require additionally that the chosen tangent direction is transverse to E; existence of such a direction does not follow from the monomial case. In characteristic p, I = (x^p) has D^j(I) = I for ordinary derivatives, so D^{p−1}(I) contains no element of order one: the characteristic-zero derivative argument fails.
 - Hypotheses: `CharZero k`; M smooth; ord_a I = d maximal.
-- Source: K3, §3.8 "Maximal contact and going down"; W, §2.7 (hypersurfaces of maximal contact).
+- Source: K3, §3.8 "Maximal contact and going down"; W, §2.7 (hypersurfaces of maximal contact). Source gap: the Hartshorne, Katz–Mazur, K3 locator(s) remain unverified; they do not discharge the claim beyond the separately identified public or library contract.
 - Needs: T564, T565
+- Additional checks: `MaxContactTests.characteristicTwoCusp` computes D((x²+y³)) = (x²,y²) over F₂, since ∂_y(y³) = y²; it is not equal to I. `MaxContactTests.boundaryTransversality` distinguishes existence of an order-one derivative from transversality to an arbitrary accumulated boundary. The companion-ideal reduction needed for the latter is a gap until specified below.
 
 **T567** `R09.7/coefficient-ideal` (definition). For d = max ord, `C(I, d) := ∑_{j<d} (D^j I)^{d!/(d−j)}` with marking d!, and for H of maximal contact the restriction `(C(I, d)|_H, d!)` on (H, E|_H).
 - Hypotheses: `CharZero k`; H as T565; E|_H SNC.
 - API: `coeffIdeal`, `coeffIdeal.restrict`, `coeffIdeal_cosupp`, `coeffIdeal_smoothPullback`
-- Tests: `CoeffTests.orderOne` [degenerate] C(I, 1) = I; `CoeffTests.cusp` [computation] with H = V(y), C|_H = (x³, x⁴) marked 2; `CoeffTests.notPlainRestriction` [non-example] (I|_H, d) = ((x³), 2) forgets D(I).
-- Source: K3, §3.9 "Restriction of derivatives and going up"; BM, Chapter II, §4.
+- Tests: `CoeffTests.orderOne` [degenerate] C(I, 1) = I; `CoeffTests.cusp` [computation] with H = V(y), C|_H = (x³, x⁴) marked 2; `CoeffTests.notPlainRestriction` [non-example] for I = (y³+x⁷+x³y), d = 3 and H = V(y), one has (D I)|_H = (x³), (D²I)|_H = (x²), hence C|_H = (x¹⁴,x⁹,x¹²) = (x⁹), marked 6. Plain restriction is (x⁷), marked 3. The cusp check simplifies to (x³), marked 2, and therefore does not distinguish these constructions.
+- Source: K3, §3.9 "Restriction of derivatives and going up"; BM, Chapter II, §4. Source gap: the Hartshorne, Katz–Mazur, K3 locator(s) remain unverified; they do not discharge the claim beyond the separately identified public or library contract.
 - Needs: T562, T564, T565
+- Additional checks: For every j < d, d−j is a positive integer dividing d!, so all exponents d!/(d−j) are defined positive integers. For d = 1 the sum has only j = 0.
 
 **T568** `R09.7/going-down-going-up` (theorem). With H of maximal contact: permissible sequences for (H, E|_H, C(I, d)|_H, d!) correspond bijectively to permissible sequences for (M, E, I, d) with centres in H, and the former resolves iff the latter brings max ord below d.
 - Hypotheses: `CharZero k`; d = max ord; H of maximal contact on the whole open.
-- Source: K3, §3.8 "Maximal contact and going down", §3.9 "Restriction of derivatives and going up"; BM, Chapter II, §5 "Proofs".
+- Source: K3, §3.8 "Maximal contact and going down", §3.9 "Restriction of derivatives and going up"; BM, Chapter II, §5 "Proofs". Source gap: the Hartshorne, Katz–Mazur, K3 locator(s) remain unverified; they do not discharge the claim beyond the separately identified public or library contract.
 - Needs: T560, T565, T567
 
-**T569** `R09.7/maximal-contact-independence` (theorem). For H_1, H_2 of maximal contact near a, an étale neighbourhood of a has a k-automorphism fixing E and `Cosupp`, carrying H_1 to H_2 and preserving the equivalence class of (C(I, d), d!); so T568's sequence is independent of H up to equivalence.
+**T569** `R09.7/maximal-contact-independence` (theorem). Let (I,d) have maximal order and let u,v ∈ T(I) := D^{d−1}I be order-one tangent directions transverse to E near a. Define the homogenized ideal H(I,d) = ∑_{0≤j<d} D^j(I)·T(I)^j with mark d. It is equivalent to (I,d). On the completed local ambient scheme at a there is an automorphism carrying u to v, preserving H(I,d) and E and fixing the cosupport. The common étale-neighbourhood gluing theorem identifies the resulting coefficient-ideal constructions after homogenization. An automorphism of a single étale neighbourhood preserving the original I is not asserted.
 - Hypotheses: `CharZero k`; d = max ord at a.
-- Source: K3, §3.10 "Uniqueness of maximal contact", §3.11 "Tuning of ideals"; W, §2.9 (homogenised ideals).
+- Source: W, §2.9, Lemmas 2.9.2, 2.9.4 and 2.9.5, pp. 9–12 of the author preprint (equivalence, formal automorphism, and common étale-neighbourhood gluing).
 - Needs: T562, T565, T567; Mathlib `AlgebraicGeometry.Etale`
+- Additional checks: `HomogenizationTests.markOne` gives H(I,1) = I; `HomogenizationTests.cusp` gives H((y²−x³),2) = (y²,x³,x²y), because T = (y,x²); `HomogenizationTests.transverseDirections` requires both u and v transverse to E, rather than any containing hypersurfaces. The API is `MarkedIdeal.homogenize`, `homogenize_equiv`, `homogenize_tangentTransport`, `homogenize_etaleGluing`.
 
-**T570** `R09.7/local-invariant` (definition). For a ∈ `Cosupp(I, d)` along a blowup sequence, `inv(a)` = (ν_1; s_1; ν_2; s_2; …): normalised orders of successive coefficient ideals along a maximal-contact chain at a, interleaved with counts s_j of exceptional-record components through a, ending in ∞ or the monomial case; values lie in a well-ordered `InvValues`.
+**T570** `R09.7/local-invariant` (definition). For a ∈ `Cosupp(I, d)` along a blowup sequence, `inv(a)` = (ν_1; s_1; ν_2; s_2; …): normalised orders of successive coefficient ideals along a maximal-contact chain at a, interleaved with counts s_j of exceptional-record components through a, ending in ∞ or the monomial case. The exceptional counts use birth times and ordered blocks of the resolution history, not merely the number of current components. The rational value set must record the bounded-denominator conditions of the chosen algorithm: all positive rationals are not well ordered (1, 1/2, 1/3, … is a descending chain). Define in addition the component selector J(a), the extended centre invariant (inv(a),J(a)), and the auxiliary monomial multiplicity μ(a). Gap: the present layer does not yet specify the residual-ideal, companion-ideal and birth-history recursion needed to define these objects and prove their stabilization.
 - Hypotheses: `CharZero k`; M smooth.
 - API: `localInvariant`, `InvValues`, `InvValues.wellFoundedLT`, `localInvariant_indep`
-- Tests: `InvTests.offCosupp` [degenerate] undefined off the cosupport; `InvTests.cusp` [computation] inv_0 = (2; 0; 3/2); `InvTests.umbrella` [computation] for x² = y²z the maximum is attained only at 0.
-- Source: BM, Chapter II, §4 "The local construction" and §6 (the invariant and its key properties).
+- Tests: `InvTests.offCosupp` [degenerate] undefined off the cosupport; `InvTests.cusp` [computation] inv_0 begins with (2; 0; 3/2); `InvTests.umbrella` [computation] for x² = y²z the maximum is attained only at 0.
+- Source: Bierstone–Milman, Desingularization algorithms I, arXiv:math/0207098, Theorem 1.14 and Definitions 1.15, pp. 13–15; §3.2, pp. 24–27 (recursive presentation and exceptional history).
 - Needs: T567, T569, T563
 
 **T571** `R09.7/invariant-semicontinuous-local` (theorem). `inv` is upper semicontinuous (each `{inv ≥ v}` Zariski closed), independent of the chain, and invariant under local isomorphisms: for g étale or an open immersion, `inv(b) = inv(g b)`.
@@ -1415,59 +1433,62 @@ This layer proves canonical embedded resolution of singularities for varieties o
 <a id="r09-7c"></a>
 ### R09.7c. Global centres and termination
 
-**T572** `R09.7/maximum-locus-permissible` (theorem). The locus `{a : inv(a) = max inv}` is a smooth closed subvariety with normal crossings with E, hence a permissible centre; the local maximum loci glue by T571.
+**T572** `R09.7/maximum-locus-permissible` (theorem). For the completed invariant construction satisfying the desingularization principle, the maximum locus of the extended invariant (inv(a),J(a)) is smooth, closed and has normal crossings with E. A bare inv-stratum ending in ∞ is smooth; one ending in 0 may have several normal-crossing components, and the selector chooses a smooth centre. The local centre constructions glue. A union V(xy) of crossing axes is normal crossings but is not smooth: normal crossings of components alone does not prove smoothness of their union.
 - Hypotheses: `CharZero k`; M smooth; `Cosupp(I, d) ≠ ∅`.
-- Source: BM, Chapter II, §6; Chapter IV, §11 "Algebraic desingularization theorems".
+- Source: Bierstone–Milman, Desingularization algorithms I, Theorem 1.14(3), p. 14, Corollary 1.17 and Algorithm 1.18, p. 15 (component selection).
 - Needs: T559, T570, T571
 
-**T573** `R09.7/invariant-drops-terminates` (theorem). Blowing up the centre of T572 makes `max inv` strictly smaller in `InvValues`; well-ordering stops the iteration after finitely many steps, with the controlled transform resolved. Non-example test: for x² = y²z a point over 0 still has multiplicity 2 after the first blowup, so multiplicity alone does not terminate.
+**T573** `R09.7/invariant-drops-terminates` (theorem). Under the full desingularization-principle hypotheses and the auxiliary construction of T570, blowing up an ∞-ending maximum stratum strictly decreases inv over that centre. In the 0-ending monomial case the pair (inv,μ) decreases instead; inv alone need not strictly decrease. The source combines this decrease with stabilization and the component selector to obtain finite termination. This is conditional on the missing recursive supplier in T570 and cannot yet serve as a proved termination interface. Non-example test: for x² = y²z a point over 0 still has multiplicity 2 after the first blowup, so multiplicity alone does not terminate.
 - Hypotheses: `CharZero k`; M smooth.
-- Source: BM, Chapter II, §5 "Proofs" and §6; K3, §3.13 "Order reduction for marked ideals".
+- Source: Bierstone–Milman, Desingularization algorithms I, Theorem 1.14(2),(4), p. 14, and Algorithms 1.18–1.19, pp. 15–16; W, Proposition 3.0.8 and its Step 2b, pp. 16–20.
 - Needs: T568, T563, T570, T572
 
-**T574** `R09.7/principalisation` (theorem). For I ≠ 0 coherent on (M, E), a finite sequence of permissible blowups makes the total transform of I the ideal of ∏ F_j^{m_j}, F_j exceptional, with E' ∪ ⋃F_j SNC.
-- Hypotheses: `CharZero k`; M smooth; I nonzero coherent.
+**T574** `R09.7/principalisation` (theorem). For I coherent and generically nonzero on every component of the smooth (M, E), a finite sequence of permissible blowups makes the total transform of I the ideal of ∏ F_j^{m_j}, F_j exceptional, with E' ∪ ⋃F_j SNC.
+- Hypotheses: `CharZero k`; M smooth; I coherent and generically nonzero on every component.
 - Source: BM, Theorem 1.10 (principalisation) and Chapter IV, §11 "Algebraic desingularization theorems"; W, Theorem 1.0.1 (canonical principalisation).
 - Needs: T560, T573; `SF.4/strict-normal-crossings`
+- Additional checks: `PrincipalizationTests.zeroComponent` takes M = A¹ ⊔ A¹ and I zero on the first component and unit on the second. I ≠ 0 globally, but its total transform stays zero on the first component and cannot be an invertible divisor ideal; this excludes the weaker nonzero hypothesis. A globally zero marked ideal also cannot be resolved by controlled transforms.
 
-**T575** `R09.7/embedded-desingularisation` (theorem). For X ⊂ M closed, M smooth over k, a finite sequence of blowups with smooth centres having normal crossings with the accumulated exceptional divisor makes the strict transform X' smooth with normal crossings with it; it is T573's sequence for (I_X, 1) with the Hilbert–Samuel refinement.
-- Hypotheses: `CharZero k`; M smooth; X closed subvariety.
-- Source: BM, Theorem 1.6 (embedded desingularisation) and Chapter IV, §11 (its Theorem 11.14, a number not verified against a copy); Chapter III for the Hilbert–Samuel invariant.
+**T575** `R09.7/embedded-desingularisation` (theorem). For X ⊂ M closed, M smooth over k, a finite sequence of blowups with smooth centres having normal crossings with the accumulated exceptional divisor makes the strict transform X' smooth with normal crossings with it; its construction must distinguish strict-transform desingularisation from resolving the mark-one ideal, which by itself would erase the cosupport. A precise Hilbert–Samuel refinement or the separate W embedded-resolution construction is required.
+- Hypotheses: `CharZero k`; X reduced closed subvariety. The boundary-free embedded theorem is sourced separately; an arbitrary pre-existing boundary requires a verified relative variant.
+- Source: W, Theorem 1.0.2, p. 2, and §5.2, pp. 24–25 (boundary-free weak embedded desingularization). Gap: the pre-existing-boundary variant and its precise recursion are not supplied by this statement.
 - Needs: T573, T574; `SF.4/strict-transform`
 
 **T576** `R09.7/iso-over-resolved-locus` (theorem). X' → X of T575 is an isomorphism over the open set where X is smooth with normal crossings with E; the centres never meet that locus.
 - Hypotheses: as T575.
-- Source: BM, Chapter IV, §12 "How to avoid blowing up resolved points" (its Theorem 12.2, a number not verified against a copy).
+- Source: BM, Theorem 12.2, p. 292, for the normal-crossings refinement once the strict transform is smooth; W, Theorem 1.0.2(b), p. 2, for preservation of the original smooth locus in the boundary-free embedded construction. Gap: preservation for an arbitrary pre-existing boundary needs the relative variant identified in T575.
 - Needs: T575; `SF.4/modification`
 
-**T577** `R09.7/local-isomorphism-functoriality` (theorem). For a local isomorphism g : (N, g^{-1}E, g^{-1}X) → (M, E, X), the sequence of T575 for N is the step-by-step pullback along g of that for M; functoriality for all smooth morphisms is not asserted.
+**T577** `R09.7/local-isomorphism-functoriality` (theorem). For a local isomorphism g : (N, g^{-1}E, g^{-1}X) → (M, E, X), the sequence of T575 for N is the pullback along g of that for M after deleting steps with empty centres; functoriality for all smooth morphisms is not asserted.
 - Hypotheses: as T575; g étale or an open immersion.
-- Source: BM, Theorem 13.2 (universal desingularisation, Chapter IV §13).
+- Source: W, Theorem 1.0.2(d), p. 2, and the étale-pullback discussion in §3, pp. 16–21, for the boundary-free construction; BM, Theorem 13.2, pp. 297–298, supplies compatibility with isomorphisms between open subsets. Gap: the arbitrary pre-existing-boundary variant remains as in T575.
 - Needs: T561, T571, T575; Mathlib `AlgebraicGeometry.Etale`, `AlgebraicGeometry.IsOpenImmersion`
 
 **T578** `R09.7/non-embedded-resolution` (theorem). Every variety X admits a proper birational X̃ → X, X̃ smooth, an isomorphism over the smooth locus, by embedding affine opens in affine spaces, applying T575 and gluing by T577.
-- Hypotheses: `CharZero k`; X separated of finite type.
-- Source: BM, Theorem 1.6 and Chapter IV, §11; Theorem 13.2.
+- Hypotheses: `CharZero k`; X reduced, separated and of finite type.
+- Source: W, Theorem 1.0.3, p. 3, for reduced varieties; BM, Theorem 1.6, p. 215, and Theorem 13.2, pp. 297–298, for the embedded construction and compatibility on open subsets. Preservation of the whole original smooth locus uses the separate W statement.
 - Needs: T575, T576, T577; `SF.4/modification`
+- Signature scope: `exists_resolution` in Suggested.lean records the integral separated case with an unspecified dense open of isomorphism. The reduced, possibly reducible theorem here and identification of that open with the smooth locus require the separate gluing and preservation targets; they are not asserted by that representative signature.
+- Additional checks: `ResolutionTests.genericallyNonreduced` takes Spec k[ε]/(ε²). A smooth scheme cannot be isomorphic to any dense open of this one-point nonreduced scheme; reducedness is indispensable for the asserted birational resolution.
 
 <a id="r09-7d"></a>
 ### R09.7d. The compactification interface
 
 **T579** `R09.7/snc-compactification` (theorem). For U smooth quasi-projective over k there is a smooth projective X̄ with an open immersion U → X̄ and X̄ ∖ U a strict normal crossings divisor: take a projective closure (R09.1), resolve (closure, boundary) by T575 with centres in the boundary (T576, as U lies in the resolved locus), then principalise the boundary ideal by T574.
 - Hypotheses: `CharZero k`; U smooth, quasi-projective.
-- Source: BM, Theorems 1.6 and 1.10 with Chapter IV §12; Deligne, Théorie de Hodge II, (3.2.1).
+- Source: BM, Theorems 1.6 and 1.10, pp. 215–216, with Theorem 12.2, p. 292; Deligne, Théorie de Hodge II, (3.2.1), pp. 34–35.
 - Needs: T574, T575, T576; R09.1; `SF.4/strict-normal-crossings`; Mathlib `AlgebraicGeometry.IsOpenImmersion`
 
-**T580** `R09.7/polydisc-boundary-chart` (definition). For k = ℂ and (X̄, D) as T579, a *polydisc chart* at p ∈ D is a biholomorphism of a neighbourhood of p in X̄(ℂ) onto Δ^n, p ↦ 0, D ↦ {z_1⋯z_k = 0}; it restricts to (Δ*)^k × Δ^{n−k} ≅ U ∩ chart.
-- Hypotheses: k = ℂ; X̄ smooth; D SNC with k branches through p.
+**T580** `R09.7/polydisc-boundary-chart` (definition). For k = ℂ and (X̄, D) as T579, a *polydisc chart* at p ∈ D is a biholomorphism of a neighbourhood of p in X̄(ℂ) onto Δ^n, p ↦ 0, D ↦ {z_1⋯z_b = 0}, where 0 ≤ b ≤ n is the number of branches; it restricts to (Δ*)^b × Δ^{n−b} ≅ U ∩ chart.
+- Hypotheses: k = ℂ; X̄ smooth; D SNC with b branches through p, 0 ≤ b ≤ n.
 - API: `PolydiscChart`, `PolydiscChart.boundary_eq_coordHyperplanes`, `PolydiscChart.punctured`, `PolydiscChart.restrictU`
-- Tests: `ChartTests.interior` [degenerate] k = 0 is a smooth chart of U; `ChartTests.curve` [computation] on a curve, a disc with D = {z_1 = 0}; `ChartTests.cuspNotSNC` [non-example] no such chart at a cusp of D.
-- Source: Griffiths–Harris, Principles of Algebraic Geometry, Chapter 0 (the holomorphic inverse function theorem); Deligne, Théorie de Hodge II, (3.1.2) and the proof of Proposition (3.1.9).
+- Tests: `ChartTests.interior` [degenerate] b = 0 is a smooth chart of U; `ChartTests.curve` [computation] on a curve, a disc with D = {z_1 = 0}; `ChartTests.cuspNotSNC` [non-example] no such chart at a cusp of D.
+- Source: Deligne, Théorie de Hodge II, (3.1.2), p. 31, and the proof of Proposition (3.1.9), pp. 33–34, for the analytic normal-crossings chart. Gap: a local analytic-space category and holomorphic inverse-function theorem must be supplied here or by a lower-tier contract; the Chapter 0 reference to Griffiths–Harris has not been verified and supplies no such contract.
 - Needs: T579; `SF.4/strict-normal-crossings`; `SF.4/nc-to-snc`
 
-**T581** `R09.7/polydisc-charts-cover` (theorem). For k = ℂ and (X̄, D) as T579, polydisc charts (T580) exist at every point of D; so a holomorphic map on U is, near D, a map on (Δ*)^k × Δ^{n−k} in each chart, the hypothesis shape of Borel 1972, Theorem A (consumed, not proved).
+**T581** `R09.7/polydisc-charts-cover` (theorem). For k = ℂ and (X̄, D) as T579, polydisc charts (T580) exist at every point of D; so a holomorphic map on U is, near D, a map on (Δ*)^b × Δ^{n−b} in each chart, the hypothesis shape of Borel 1972, Theorem A (consumed, not proved).
 - Hypotheses: k = ℂ; D SNC.
-- Source: Deligne, Théorie de Hodge II, proof of Proposition (3.1.9); Borel 1972, Theorem A (statement only, as cited by later work; the paper itself was not verified).
+- Source: Deligne, Théorie de Hodge II, proof of Proposition (3.1.9), pp. 33–34. Borel 1972, Theorem A, is only a downstream consumer, not a supplier for chart existence. The analytic prerequisite gap is that of T580.
 - Needs: T579, T580
 
 ## Sources
@@ -1511,3 +1532,6 @@ This layer proves canonical embedded resolution of singularities for varieties o
 - J.-P. Serre, *Géométrie algébrique et géométrie analytique*, Ann. Inst. Fourier 6 (1956), 1–42. Cited as Serre 1956.
 - J. Włodarczyk, *Simple Hironaka resolution in characteristic zero*, J. Amer. Math. Soc. 18 (2005), 779–822. Cited as W or Włodarczyk 2005.
 - Mathlib `082e2d3` and Tau Ceti `f790474` (library pins), with Tau Ceti `a91d3aaf` for the rigidified Picard functor.
+
+- B. Conrad and M. Temkin, *Non-archimedean analytification of algebraic spaces*, §1.1, p. 1, https://math.stanford.edu/~conrad/papers/analgpaper.pdf.
+- E. Bierstone and P. D. Milman, *Desingularization algorithms I. Role of exceptional divisors*, arXiv:math/0207098, https://arxiv.org/abs/math/0207098.
