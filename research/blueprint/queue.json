@@ -35992,8 +35992,9 @@
    ],
    "followUpOf": "BP-KTheoryLowDegrees--U.1",
    "prompt": "research/blueprint/prompts/BP-KTheoryLowDegrees--U.5.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7561"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7561",
+   "finishedAt": "2026-10-09T05:09:34Z"
   },
   {
    "id": "REV-KTheoryLowDegrees--U.5",
@@ -36060,8 +36061,9 @@
    ],
    "avoidAccountOf": "BP-KTheoryLowDegrees--U.6",
    "prompt": "research/blueprint/prompts/REV-KTheoryLowDegrees--U.6.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7550"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7550",
+   "finishedAt": "2026-10-09T05:09:36Z"
   },
   {
    "id": "BP-AnabelianGeometryAndNonabelianChabauty--NC.0",
@@ -41504,7 +41506,8 @@
     "BP-ShimuraData~3"
    ],
    "prompt": "research/blueprint/prompts/REV-ShimuraData~3.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7554"
   },
   {
    "kind": "blueprint",
@@ -41765,8 +41768,9 @@
    ],
    "revisionOf": "BP-StableHomotopyKTheory",
    "prompt": "research/blueprint/prompts/BP-StableHomotopyKTheory~3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7568"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7568",
+   "finishedAt": "2026-10-09T05:09:42Z"
   },
   {
    "priority": 2,
