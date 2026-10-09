@@ -1,0 +1,1110 @@
+{
+ "roadmapId": "SchemeAndStackFoundations",
+ "protocol": "blueprint-v1",
+ "part": "SF.6",
+ "scope": [
+  "SchemeAndStackFoundations:SF.6"
+ ],
+ "status": "complete",
+ "implementationStatus": "unchecked",
+ "summary": "A completed source/interface pass for the audited process layer SF.6: nine coefficient- and hypothesis-specific consumer contracts account for crystalline/prismatic, analytic, l-adic and cycle/trace handoffs. There are no SF.6 mathematical declarations, APIs, definition unit tests or planets. The packet retains exact supplier frontiers, seven ownership requests and seven gaps. It proposes retiring the process bridge and routing comparisons directly to mathematical consumers, while applying no structural change or upward foundation prerequisite.",
+ "baseline": {
+  "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+  "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+  "declarations": [
+   {
+    "ref": "mathlib:CategoryTheory.Sheaf.H",
+    "module": "Mathlib/CategoryTheory/Sites/SheafCohomology/Basic.lean",
+    "kind": "abbrev",
+    "provides": "Ext-defined cohomology of an abelian sheaf on a specified site; requires HasSheafify and HasExt.",
+    "checked": "Statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-09; no arithmetic comparison inferred."
+   },
+   {
+    "ref": "mathlib:CategoryTheory.Sheaf.H.map",
+    "module": "Mathlib/CategoryTheory/Sites/SheafCohomology/Basic.lean",
+    "kind": "def",
+    "provides": "Additive map from a sheaf morphism on the same site, not a cross-site comparison.",
+    "checked": "Statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-09; no arithmetic comparison inferred."
+   },
+   {
+    "ref": "mathlib:CategoryTheory.Sheaf.H.equiv₀",
+    "module": "Mathlib/CategoryTheory/Sites/SheafCohomology/Basic.lean",
+    "kind": "def",
+    "provides": "Degree-zero additive equivalence with evaluation at a specified terminal object.",
+    "checked": "Statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-09; no arithmetic comparison inferred."
+   },
+   {
+    "ref": "mathlib:AlgebraicGeometry.Scheme.ProEt.topology",
+    "module": "Mathlib/AlgebraicGeometry/Sites/Proetale.lean",
+    "kind": "abbrev",
+    "provides": "Native small pro-étale Grothendieck topology on weakly étale schemes over X.",
+    "checked": "Statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-09; no arithmetic comparison inferred."
+   },
+   {
+    "ref": "mathlib:AlgebraicGeometry.Scheme.etaleTopology_le_proetaleTopology",
+    "module": "Mathlib/AlgebraicGeometry/Sites/Proetale.lean",
+    "kind": "lemma",
+    "provides": "Inclusion of big scheme topologies; no cohomology equivalence is inferred.",
+    "checked": "Statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-09; no arithmetic comparison inferred."
+   },
+   {
+    "ref": "mathlib:AlgebraicGeometry.Scheme.ellAdicSheaf",
+    "module": "Mathlib/AlgebraicGeometry/Sites/ElladicCohomology.lean",
+    "kind": "def",
+    "provides": "The coefficient sheaf of continuous maps into Z_l on the native small pro-étale site.",
+    "checked": "Statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-09; no arithmetic comparison inferred."
+   },
+   {
+    "ref": "mathlib:AlgebraicGeometry.Scheme.EllAdicCohomology",
+    "module": "Mathlib/AlgebraicGeometry/Sites/ElladicCohomology.lean",
+    "kind": "def",
+    "provides": "Cohomology of the universe-lifted native l-adic coefficient sheaf; an additive group, not a supplied comparison theorem.",
+    "checked": "Statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-09; no arithmetic comparison inferred."
+   },
+   {
+    "ref": "mathlib:AlgebraicGeometry.Scheme.isZero_ellAdicSheaf_of_isEmpty",
+    "module": "Mathlib/AlgebraicGeometry/Sites/ElladicCohomology.lean",
+    "kind": "lemma",
+    "provides": "Empty-scheme coefficient sheaf is zero; the file also gives subsingleton cohomology in every degree.",
+    "checked": "Statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-09; no arithmetic comparison inferred."
+   }
+  ],
+  "search": {
+   "date": "2026-10-09",
+   "mathlib": "Pinned source-tree filename and text searches over AlgebraicGeometry, Sites, sheaf cohomology, RingTheory and period-ring files for analytification, de Rham/Betti, crystalline, prismatic and l-adic comparisons. Native sites and l-adic definitions were read; no target comparison theorem was located.",
+   "tauceti": "Exact f790474 git-object searches across TauCeti for de Rham/crystalline/prismatic, étale/pro-étale/l-adic and cohomology, then algebraic-geometry, topology and category-theory paths. Group cohomology, topological étalé spaces and sheaf infrastructure are not scheme comparison theories. No target comparison export was located.",
+   "limit": "Search results support the reviewed AUDIT-01 boundary; they are not a proof that no differently named declaration exists. Only the eight statements explicitly read are baseline citations."
+  }
+ },
+ "sources": [
+  {
+   "id": "groth1966",
+   "title": "On the de Rham cohomology of algebraic varieties",
+   "authors": "Alexander Grothendieck",
+   "edition": "Publications Mathématiques de l’IHÉS 29 (1966), pp.95–103; public Numdam scan",
+   "url": "https://www.numdam.org/article/PMIHES_1966__29__95_0.pdf",
+   "sha256": "f76706281f40b3c43c878bbd7c00c7520751d7b356a9da02004613ba5097e33a",
+   "readDate": "2026-10-09",
+   "readSections": [
+    "Theorem 1, pp.95–96; Theorem 1′ and proper/nonproper proof distinction, pp.96–97"
+   ]
+  },
+  {
+   "id": "sga4-xvi",
+   "title": "SGA 4, Exposé XVI: Théorème de changement de base par un morphisme lisse, et applications",
+   "authors": "Michael Artin",
+   "edition": "Public retypeset Exposé XVI, version 71766d9 dated 30 July 2024; locators distinguish marginal original pagination from PDF pages.",
+   "url": "https://www.normalesup.org/~forgogozo/SGA4/16/16.pdf",
+   "sha256": "d93c3cee9212b35a031559fdf2b9556f96678522791fa7ca836710fc921af96a",
+   "readDate": "2026-10-09",
+   "readSections": [
+    "Corollary 3.9 and Remark 3.10, marginal pp.231–232; §4 Theorem 4.1 and beginning of proper/general argument, marginal pp.232–234 (PDF pp.13–14)"
+   ]
+  },
+  {
+   "id": "bms1",
+   "title": "Integral p-adic Hodge theory",
+   "authors": "Bhargav Bhatt, Matthew Morrow and Peter Scholze",
+   "edition": "arXiv:1602.03148v3; source pagination pp.1–124",
+   "url": "https://arxiv.org/pdf/1602.03148v3",
+   "sha256": "285f7d2088607688365ca92222dcf44c0acd6c4788dd872fe6a6191b9c4e072a",
+   "readDate": "2026-10-09",
+   "readSections": [
+    "Theorem 14.3 and its proof, pp.119–120; Remark 14.4, Theorem 14.5 and lattice hypotheses, pp.120–121"
+   ]
+  },
+  {
+   "id": "bsprism",
+   "title": "Prisms and prismatic cohomology",
+   "authors": "Bhargav Bhatt and Peter Scholze",
+   "edition": "arXiv:1905.08229v4, 23 June 2022",
+   "url": "https://arxiv.org/pdf/1905.08229v4",
+   "sha256": "1d91a6eb85828feb73f84ab3b27ced17514f0855d61c3bff71ab9d8287891e4a",
+   "readDate": "2026-10-09",
+   "readSections": [
+    "Theorem 1.8 and Example 1.9, pp.4–6; Notation 17.1, Theorem 17.2 and construction opening, p.117; Notation 18.1, Theorem 18.2 and Lemma 18.3, pp.122–123",
+    "Independent review: Corollary 15.4 and its proof, p.104; the PR.3 decomposition remains a supplier obligation."
+   ]
+  },
+  {
+   "id": "proetale",
+   "title": "The pro-étale topology for schemes",
+   "authors": "Bhargav Bhatt and Peter Scholze",
+   "edition": "Author-hosted 72-page PDF; all page locators refer to this PDF, not Astérisque pagination",
+   "url": "https://people.mpim-bonn.mpg.de/scholze/proetale.pdf",
+   "sha256": "99b418b32846c12721e0603590be864b0982d5fa7cf594f8771fc78e53e014c7",
+   "readDate": "2026-10-09",
+   "readSections": [
+    "Definition 3.4.1, Proposition 3.4.2 and Remark 3.4.3, p.21; §5.1 and §5.2, pp.34–38; Lemmas 6.5.5–6.5.9, pp.49–50; Definition 6.8.1, Lemma 6.8.2 and Definition 6.8.3, pp.58–59"
+   ]
+  },
+  {
+   "id": "diamonds",
+   "title": "Étale cohomology of diamonds",
+   "authors": "Peter Scholze",
+   "edition": "Author-hosted PDF dated 14 April 2026",
+   "url": "https://people.mpim-bonn.mpg.de/scholze/EtCohDiamonds.pdf",
+   "sha256": "4ce3d1232a6e9e186d1a36da5cc659616569ac8dd2bb263510247c07995a26c1",
+   "readDate": "2026-10-09",
+   "readSections": [
+    "§26, Definition 26.1, completion/operations and Remark 26.3, pp.161–163; §27, Propositions 27.1–27.7 and proofs, pp.163–167"
+   ]
+  },
+  {
+   "id": "bettsstix",
+   "title": "Galois sections and p-adic period mappings",
+   "authors": "L. Alexander Betts and Jakob Stix",
+   "edition": "Author-hosted PDF dated 29 April 2022, 59 pages",
+   "url": "https://www.math.uni-frankfurt.de/~stix/research/preprints/BETTS_STIX-GaloisSectionsPadicPeriods20220429.pdf",
+   "sha256": "7aa79403eff72d06b481424ab4c1f34a8cde68edd62f0d0923ad89cca082f565",
+   "readDate": "2026-10-09",
+   "readSections": [
+    "Proposition 3.19, p.27; Proposition 3.20, proof and Remark 3.21, pp.27–28"
+   ]
+  },
+  {
+   "id": "milne",
+   "title": "Lectures on Étale Cohomology",
+   "authors": "James S. Milne",
+   "edition": "Version 2.21, 22 March 2013; printed pagination",
+   "url": "https://jmilne.org/math/CourseNotes/LEC.pdf",
+   "sha256": "ac4f122f371d38a44c58c296b7dbf88081d89d2de2334070bff3606771c01077",
+   "readDate": "2026-10-09",
+   "readSections": [
+    "§23 cycle and Chern construction, pp.138–142; §24 Poincaré duality, Theorem 24.1 and Remark 24.2, pp.144–145"
+   ]
+  },
+  {
+   "id": "benoist",
+   "title": "The period-index problem for real surfaces",
+   "authors": "Olivier Benoist",
+   "edition": "Published version, Publications Mathématiques de l’IHÉS 130 (2019), pp.63–110",
+   "url": "https://www.numdam.org/item/10.1007/s10240-019-00108-7.pdf",
+   "sha256": "8dfc0f221ab510ba1ecfe7c5b5fde12c217019f33d704ea89ce1a0c144398d3b",
+   "readDate": "2026-10-09",
+   "readSections": [
+    "Equation (1.1) and Kummer comparison, p.69; Equation (2.16) and twist, p.76; proof of Theorem 0.6, degree-one Kummer sequence, p.106"
+   ]
+  },
+  {
+   "id": "realhodge",
+   "title": "On the integral Hodge conjecture for real varieties, I",
+   "authors": "Olivier Benoist and Olivier Wittenberg",
+   "edition": "Author-hosted published version, Inventiones mathematicae 222 (2020), pp.1–77",
+   "url": "https://www.math.ens.psl.eu/~benoist/articles/hodgereel1.pdf",
+   "sha256": "daeb43ec861bd6c30564543dac796c55c7f21aa943c442f826b32613e72a46a9",
+   "readDate": "2026-10-09",
+   "readSections": [
+    "§1.1–1.1.1, coefficient sign action, ordinary versus semi-algebraic topology, torsion/equivariant comparison, pp.9–10"
+   ]
+  },
+  {
+   "id": "ichino",
+   "title": "Hodge classes and the Jacquet–Langlands correspondence",
+   "authors": "Atsushi Ichino and Kartik Prasanna",
+   "edition": "arXiv:1806.10563v2, 10 July 2023; 118 pages, different pagination from the published 135-page article",
+   "url": "https://arxiv.org/pdf/1806.10563v2",
+   "sha256": "058fda94ad08d245dcdf01672e5915beacb8458e6b49498b7e15debbf828aad5",
+   "readDate": "2026-10-09",
+   "readSections": [
+    "§2.1.2, realizations, natural Betti/l-adic comparison and transported morphisms, pp.12–13; published extraction locator p.14 is recorded separately",
+    "§2.2.2, Equation (2.1), chosen embedding and Hecke equivariance, arXiv v2 pp.13–14; published extraction equation locator p.16"
+   ]
+  },
+  {
+   "id": "stacks-rlim",
+   "title": "The Stacks Project: Rlim of abelian groups",
+   "authors": "The Stacks Project Authors",
+   "edition": "Online section 15.88, tags 07KV, 07KW and 07KY, accessed 9 October 2026; stable tags are the locators, no printed page numbering.",
+   "url": "https://stacks.math.columbia.edu/tag/07KV",
+   "sha256": "13e52d7aa8f35ff28370fe63e9c2f89558adf9acbf7f1d80979685978c969cac",
+   "readDate": "2026-10-09",
+   "readSections": [
+    "Lemma 15.88.1 (tag 07KW), Lemmas 15.88.9–15.88.10 (tag 07KY for 15.88.10), and Remark 15.88.12; statements and product-cone proofs."
+   ],
+   "addedBy": "REV-SchemeAndStackFoundations--SF.6"
+  }
+ ],
+ "nodes": [],
+ "requests": [
+  {
+   "id": "R1",
+   "supplier": "SchemeAndStackFoundations:SF.2",
+   "need": "Specify the finite Kummer connecting maps on the native étale cohomology carrier, and identify native pro-étale ellAdicSheaf cohomology with the derived inverse limit of its finite derived reductions. Include the Milnor lim¹ term and the exact finiteness/ML hypotheses for its vanishing; supply real equivariant-descent coefficient conversions using the existing linearized-sheaf/invariant-sections carriers. Coherent duality or a topology inclusion does not provide these maps. Include finite étale transfer and compatibility with the comparison so Hecke correspondences preserve the chosen local-system map.",
+   "neededBy": [
+    "SchemeAndStackFoundations:SF.6"
+   ],
+   "contracts": [
+    "S1",
+    "S4",
+    "S6"
+   ],
+   "role": "foundation supplier; mathematical owner remains SF.2"
+  },
+  {
+   "id": "R2",
+   "supplier": "SchemeAndStackFoundations:SF.5",
+   "need": "Supply CH^r as the actual rational-equivalence quotient, the intersection product for smooth projective X, degree on CH^dim X and properly scoped proper pushforward/flat or lci pullback. Export the precise quotient and degree/product laws consumed by the EDC.3 class and trace diagram; import native cycles/pushforward rather than redefine them.",
+   "neededBy": [
+    "SchemeAndStackFoundations:SF.6"
+   ],
+   "contracts": [
+    "S9"
+   ],
+   "role": "foundation supplier; no second Chow theory in SF.6"
+  },
+  {
+   "id": "R3",
+   "supplier": "ComplexComparisonPartII:C5",
+   "need": "Strengthen the additive repair comparison with named cup and pullback naturality, trace/Tate-period normalization, and the scalar-base-change square for X/k under each embedding into C. Supply actual de Rham hypercohomology and singular-cochain carriers, not an assumed comparison field. Proper smooth family/Gauss–Manin and nonproper logarithmic clauses retain their own domains; none follows from the additive isomorphism alone.",
+   "neededBy": [
+    "SchemeAndStackFoundations:SF.6"
+   ],
+   "contracts": [
+    "S2"
+   ],
+   "role": "downstream ownership request, not a tier-2 prerequisite"
+  },
+  {
+   "id": "R4",
+   "supplier": "ComplexComparisonPartII:C5",
+   "need": "Coordinate the proposed distinct C7 ownership of SGA 4 XVI 4.1 finite-coefficient étale–Betti comparison, finite local systems, real equivariant descent and its compatible finite-to-rational l-adic passage. Record the exact coefficient/site maps and Kummer connecting squares. Reconcile PAPER-LANDESMAN-LITT-24/116(2) IG cover equivalence and the tentative Benoist route 11; current C5 de Rham and IG.0/IG.1 descriptions do not already supply the all-degree theorem. This is a rescope request, not a claim that the absent C7 is an existing stage.",
+   "neededBy": [
+    "SchemeAndStackFoundations:SF.6"
+   ],
+   "contracts": [
+    "S3",
+    "S4",
+    "S6"
+   ],
+   "role": "comparison-owner coordination; no upward prerequisite is installed"
+  },
+  {
+   "id": "R5",
+   "supplier": "EtaleDualityAndPerverseSheaves:EDC.3",
+   "need": "Supply the actual graded cycle-class map on the SF.5 Chow quotient, a source-complete rational-equivalence and Tor/intersection-to-cup argument, compatible trace/Gysin shifts and first-Chern normalization. Preserve the inherited gaps for singular rational-equivalence families and deformation specialization. The cycle construction on prime cycles and Milne 23.4 without its proof are insufficient.",
+   "neededBy": [
+    "SchemeAndStackFoundations:SF.6"
+   ],
+   "contracts": [
+    "S9"
+   ],
+   "role": "downstream ownership request; the needs_changes packet is not an accepted import"
+  },
+  {
+   "id": "R6",
+   "supplier": "PrismaticCohomology:PR.3",
+   "need": "Export the general bounded-prism de Rham comparison of Corollary 15.4 through the Lη_I factorization, with phi_A-twisted completed derived tensor. The PR.1/de-rham-comparison node only supplies the W(A/I) p-torsion-free case. Keep the corrected qcqs hypothesis for global sections and the separate sheaf statement; the independent review read Corollary 15.4 and its factorization-based proof on p.104, but that source reading does not provide a source-complete PR.3 supplier decomposition.",
+   "neededBy": [
+    "SchemeAndStackFoundations:SF.6"
+   ],
+   "contracts": [
+    "S7"
+   ],
+   "role": "downstream prismatic-owner request, not a tier-2 prerequisite"
+  },
+  {
+   "id": "R7",
+   "supplier": "PrismaticCohomology:PR.4",
+   "need": "Export the finite generic-fibre etale comparison for a perfect base prism, identifying RΓ_et(X_eta,Z/p^n) with the derived phi=1 fibre of RΓ_Delta(X/A)/p^n[1/I]. Include compatible coefficient reduction and the derived Z_p limit, without copying the formula to general prisms. The stage supplies the owner boundary but no exact all-degree node was verified in this pass.",
+   "neededBy": [
+    "SchemeAndStackFoundations:SF.6"
+   ],
+   "contracts": [
+    "S7"
+   ],
+   "role": "downstream prismatic-owner request, not a tier-2 prerequisite"
+  }
+ ],
+ "coverage": [
+  {
+   "stageId": "SchemeAndStackFoundations:SF.6",
+   "status": "source_decomposed",
+   "remaining": [],
+   "detail": "All five audited targets are accounted for by S1–S9, exact native citations, supplier nodes or named requests/gaps. The process stage owns no mathematical argument. Source_decomposed records that completed accounting; it does not mean closed, accepted restructuring, source-proof closure or formalization. G1–G7 remain open."
+  }
+ ],
+ "gaps": [
+  {
+   "id": "G1",
+   "title": "Process-stage and tier reconciliation awaits accepted restructuring",
+   "neededBy": [
+    "SchemeAndStackFoundations:SF.6"
+   ],
+   "detail": "AUDIT-01 calls SF.6 process and the issue forbids mathematical nodes; accepted RS-25 keeps the consumer interface. The current upstream order puts foundations in tier 2 and comparison owners later. This packet completes a source/interface manifest with no declaration prerequisites. Its retirement/direct-consumer proposal is not yet accepted; no drop or upward mathematical edge is applied. SF.6 is source_decomposed, not closed."
+  },
+  {
+   "id": "G2",
+   "title": "Additive complex comparison lacks the strengthened consumer export",
+   "neededBy": [
+    "SchemeAndStackFoundations:SF.6"
+   ],
+   "detail": "S2 names the exact partial C5 nodes. Their gaps retain product-compatible singular cochains, full differential/hypercohomology carriers, trace and relative comparison. R3 requests the precise missing statements and period normalization; no stronger interface is assumed here."
+  },
+  {
+   "id": "G3",
+   "title": "Artin and real comparison ownership and proof boundary",
+   "neededBy": [
+    "SchemeAndStackFoundations:SF.6"
+   ],
+   "detail": "S3/S4 account for the finite Artin source statement and Benoist Kummer uses. There is no verified all-degree supplier node, the IG route supplies different cover-level work, and the real comparison proof cited as Scheiderer Corollary 15.3.1 was not read. Proposed C7 is not an atlas stage. R4 must establish one owner and source-complete equivariant descent; tentative Benoist route 11 needs its own route review."
+  },
+  {
+   "id": "G4",
+   "title": "Native l-adic sheaf to derived-limit conversion",
+   "neededBy": [
+    "SchemeAndStackFoundations:SF.6"
+   ],
+   "detail": "The pinned native definition is cohomology of continuous Z_l-valued coefficients on the small pro-étale site, not definitionally R lim finite cohomology. R1 must furnish reduction/completion and the actual identification, retaining lim¹ until finite-level ML is proved. S6 records the conditional rational-realization passage."
+  },
+  {
+   "id": "G5",
+   "title": "Restricted adic comparison proof retained through reviewed provenance",
+   "neededBy": [
+    "SchemeAndStackFoundations:SF.6"
+   ],
+   "detail": "H5/proper-comparison-3-7-2 has accepted supplier provenance for Huber 1996 Theorem 3.7.2, pp.226–227, and records a nonnoetherian proof boundary. That book is not cleared for this worker and no copy was read. Public Scholze 27.4/27.5 uses 3.7.2 for proper support comparison; 27.2 uses Proposition 6.1.1 and Theorem 3.8.1 for full faithfulness. These separate book inputs remain inherited source boundaries, not proofs verified by this public §27 reading. No SF.6 proof closure is claimed."
+  },
+  {
+   "id": "G6",
+   "title": "Intersection quotient and cycle-product source gaps",
+   "neededBy": [
+    "SchemeAndStackFoundations:SF.6"
+   ],
+   "detail": "SF.5 remains not_read in the inherited packet. The EDC packet containing EDC.3 has review needs_changes and retains rational-equivalence, Tor/product and nonproper deformation-specialization gaps. Milne 23.4, p.142, supplies a statement, not the long comparison proof. R2/R5 and the corrected EDC source issue E4 are the exact boundary for S9."
+  },
+  {
+   "id": "G7",
+   "title": "Derived period typing and stronger compatibility are supplier obligations",
+   "neededBy": [
+    "SchemeAndStackFoundations:SF.6"
+   ],
+   "detail": "CP is an accepted target-level plan with gaps, not implementation. S7/S8 preserve its exact derived/completed/Frobenius maps. Its actual period/derived/prismatic carriers and the general proper Gysin extension remain in CP/PR/EDC owners. Betts–Stix Remark 3.21 does not establish equality of its trace-normalized a with the canonical Fontaine period. This packet makes no such equality or integral-lattice claim. The first-Chern proof in the 29 April 2022 Betts–Stix manuscript uses the nonproper total space outside Proposition 3.20(7); reuse CohomologyComparisons/E3 and the CP.6 proper projective-compactification repair, which still depends on the named self-intersection/projective-bundle suppliers. This finding concerns that manuscript only. The PR.1 supplier packet has a needs_changes review and its de Rham theorem is restricted to W(A/I) p-torsion-free. R6 requires the PR.3 generalization with a source-complete Corollary 15.4 proof; R7 requires the precise PR.4 finite-etale export and derived phi=1 convention. Global completed base change keeps qcqs as in PrismaticCohomology/E13."
+  }
+ ],
+ "process": {
+  "audit": "AUDIT-01, accepted REV-AUDIT-01, SF.6 process verdict",
+  "acceptedRestructure": "RS-25, accepted independent-review-REV-RS-25, keeps SF.6 as consumer interface",
+  "inheritedPacket": "SchemeAndStackFoundations.json, accepted independent-review-REV-SchemeAndStackFoundations; SF.6 coverage not_read; no SF.6 nodes or SF.6 sourceWorklist briefs",
+  "ownedMathematics": false,
+  "mathematicalPrerequisites": [],
+  "contracts": [
+   {
+    "key": "S1",
+    "title": "Native sites, coefficients and foundation boundary",
+    "targets": [
+     "l-adic owners",
+     "topology and coefficient restrictions"
+    ],
+    "carriers": [
+     "An abelian sheaf F on a named Grothendieck site (C,J), with HasSheafify and HasExt; H^q(F) is Ext from the constant integral sheaf.",
+     "The native small pro-étale site X.ProEt and ProEt.topology X; its coefficient ellAdicSheaf is obtained from continuous maps into the topological group Z_l.",
+     "Br′(X) is the torsion subgroup of H²_et(X,G_m); it is distinct from the Azumaya Brauer group unless a comparison theorem applies."
+    ],
+    "hypotheses": [
+     "X is a scheme; l is prime for the native l-adic coefficient sheaf.",
+     "The native cohomology definition imposes no invertibility condition on l. Smooth base change, purity and the comparison contracts below have additional hypotheses."
+    ],
+    "map": "Reuse CategoryTheory.Sheaf.H, Sheaf.H.map and Scheme.EllAdicCohomology. H.map changes a sheaf on one fixed site; it is not a morphism-of-sites comparison. The inequality etaleTopology ≤ proetaleTopology concerns the big scheme topologies and is not a cohomology isomorphism.",
+    "compatibility": [
+     "Preserve the small/big-site equivalence and universe lift rather than defining a private cohomology type.",
+     "Use the inherited equivariant-sheaf carrier and its invariant-section spectral sequence for real descent, not the ordinary cohomology of the fixed locus."
+    ],
+    "supplierNodes": [
+     "SchemeAndStackFoundations:SF.2/cohomological-brauer",
+     "SchemeAndStackFoundations:SF.2/linearized-sheaf",
+     "SchemeAndStackFoundations:SF.2/invariant-sections",
+     "SchemeAndStackFoundations:SF.2/spectral-sequence"
+    ],
+    "sources": [
+     {
+      "sourceId": "proetale",
+      "locator": "Definition 6.8.1 and Lemma 6.8.2, author PDF pp.58–59; Corollary 5.1.6 and Remark 5.1.8, pp.35–36"
+     }
+    ],
+    "acceptance": [
+     "Native empty-scheme l-adic cohomology is a subsingleton in every degree.",
+     "Do not identify the topological Z_l coefficient sheaf with the discrete constant sheaf by definitional equality.",
+     "A same-site additive coefficient map does not discharge an analytification or period comparison."
+    ],
+    "frontier": "The inherited SF.2 packet plans equivariant carriers but has no exact native l-adic/derived-limit comparison node. Request R1 supplies that conversion; no new site or cohomology definition belongs to SF.6.",
+    "implementationStatus": "unchecked"
+   },
+   {
+    "key": "S2",
+    "title": "Proper complex de Rham–Betti interface",
+    "targets": [
+     "analytic owners",
+     "properness and smoothness",
+     "cycle classes and traces"
+    ],
+    "carriers": [
+     "A smooth proper scheme X over C; algebraic de Rham hypercohomology of Omega^bullet_(X/C).",
+     "Singular cohomology of the analytic space X^an, with complex coefficients; retain the integral and rational Betti carriers before scalar extension.",
+     "For a characteristic-zero field k and embedding sigma:k→C, apply the comparison to X_sigma; identification with H_dR(X/k)⊗_(k,sigma)C is a separate scalar-base-change map."
+    ],
+    "hypotheses": [
+     "q≥0; X/C smooth and proper for the supplier node.",
+     "Families, nonproper/logarithmic curves, arbitrary connections and singular bases require their own C5 statements."
+    ],
+    "map": "The algebraic-to-holomorphic de Rham hypercohomology map, followed by analytic Poincaré and sheaf-to-singular comparison, gives c_DB:H^q_dR(X/C)→H^q_sing(X^an,C). Proper GAGA and analytic Poincaré make this named map an isomorphism; a chosen equivalence of equal-dimensional spaces does not qualify.",
+    "compatibility": [
+     "Require c_DB,Y ∘ f* = f_an* ∘ c_DB,X for morphisms f:Y→X in the admitted class.",
+     "Require c_DB(x cup y)=c_DB(x) cup c_DB(y), retaining degrees and the cochain-product comparison.",
+     "A trace diagram must name the Tate period/orientation normalization. With the usual integration convention the expected untwisted divisor factor is 2πi, not 1; this strengthened statement is a C5 request, not an export of the additive repair node."
+    ],
+    "supplierNodes": [
+     "ComplexComparisonPartII:C5/repair-proper-de-rham-betti",
+     "ComplexComparisonPartII:C5/repair-sheaf-singular-comparison",
+     "ComplexComparisonPartII:C3/repair-relative-proper-gaga"
+    ],
+    "sources": [
+     {
+      "sourceId": "groth1966",
+      "locator": "Theorem 1′ and proper argument, printed p.96 (PDF p.3)"
+     }
+    ],
+    "acceptance": [
+     "For Spec C, degree zero sends 1 to 1; positive degrees vanish.",
+     "For P¹, compare the actual divisor/trace generators with the chosen period normalization; equality of dimensions in degrees 0 and 2 is insufficient.",
+     "Transport along each specified embedding sigma, not an unspecified complex realization."
+    ],
+    "frontier": "ComplexComparisonPartII is partial and pending review. Its repair node is additive; products, trace, full hypercohomology typing and relative comparison remain explicit supplier gaps. R3 requests exactly these missing clauses. No SF.6 declaration assumes the stronger theorem.",
+    "implementationStatus": "unchecked"
+   },
+   {
+    "key": "S3",
+    "title": "Finite-coefficient étale–Betti and local-system interface",
+    "targets": [
+     "analytic owners",
+     "l-adic owners",
+     "coefficient restrictions"
+    ],
+    "carriers": [
+     "A finite-type C-scheme X, its small étale topos, and the classical analytic topology on X(C).",
+     "A finite locally constant abelian coefficient sheaf, or the constructible torsion sheaves admitted by the relative theorem."
+    ],
+    "hypotheses": [
+     "For relative f:X→S, X and S are locally of finite type over C and f is of finite type; F is abelian torsion.",
+     "SGA 4 XVI 4.1 requires f proper or F constructible for comparison of all R^q f_*; the finite locally constant absolute case uses the constructible alternative.",
+     "This torsion statement is not a theorem for arbitrary nonconstructible Q_l sheaves."
+    ],
+    "map": "The inverse-image comparison epsilon* R^q f_et,* F→R^q f_an,* epsilon*F is an isomorphism in this range. For S=Spec C it gives H^q_et(X,F)→H^q(X(C),F_an); for finite local systems use the sheaf/singular bridge with those coefficients.",
+    "compatibility": [
+     "Require naturality in F and f and compatibility with exact coefficient sequences and their connecting maps.",
+     "Identify mu_n with the chosen Tate coefficient line; do not erase it when comparing divisor classes.",
+     "The rational Betti/l-adic map after an embedding uses S6, not tensoring the torsion theorem without a limit argument."
+    ],
+    "supplierNodes": [],
+    "sources": [
+     {
+      "sourceId": "sga4-xvi",
+      "locator": "§4, Theorem 4.1 and beginning of proof, printed pp.232–234 (public retypeset PDF pp.13–14)"
+     },
+     {
+      "sourceId": "ichino",
+      "locator": "§2.1.2, arXiv v2 pp.12–13, and §2.2.2, Equation (2.1), pp.13–14; published extraction locators pp.14 and 16"
+     }
+    ],
+    "acceptance": [
+     "The comparison sends the Kummer connecting class of a line bundle to the corresponding finite Betti first Chern class.",
+     "For the finite constant sheaf on Spec C, H⁰ is the coefficient group and higher H^q vanish.",
+     "For a nontrivial finite local system, compare its transported monodromy rather than replacing it by a constant system of the same rank."
+    ],
+    "frontier": "No verified all-degree Artin node was found in the inspected supplier packets. PAPER-LANDESMAN-LITT-24/116(2) routes finite étale/topological comparisons to IG.0/IG.1, whose current stages cover Galois categories, not this all-degree theorem. R4 and the C7 rescope proposal distinguish the cover equivalence from cohomology and prevent silently treating either as sufficient.",
+    "implementationStatus": "unchecked"
+   },
+   {
+    "key": "S4",
+    "title": "Complex and real Betti Kummer interfaces",
+    "targets": [
+     "analytic owners",
+     "coefficient restrictions",
+     "cycle classes"
+    ],
+    "carriers": [
+     "Complex smooth X and n>0: H²(X(C),Z/n(1)), retaining a choice if the twist is written as Z/n.",
+     "Real smooth integral X; G=Gal(C/R), the sign G-module Z/n(1), and equivariant Betti cohomology H^q_G(X(C),−).",
+     "The cohomological Brauer group Br′ and the Picard group, independently of an Azumaya comparison."
+    ],
+    "hypotheses": [
+     "Use R=the real numbers for ordinary Betti topology; general real closed fields use the semi-algebraic site, not an unprovided analytic manifold.",
+     "For the degree-one units formula require X/R proper and geometrically connected, so Gamma(X,O_X)^×=R^×.",
+     "Use the finite Kummer sequence on the étale site, where n is invertible in these characteristic-zero cases."
+    ],
+    "map": "Kummer and S3 give 0→Pic(X)/n→H²(X(C),Z/n(1))→Br′(X)[n]→0. The real version is 0→Pic(X)/n→H²_G(X(C),Z/n(1))→Br′(X)[n]→0. For the proper real degree-one mod-2 case, 0→R^×/R^×²→H¹_G(X(C),F₂)→Pic(X)[2]→0.",
+    "compatibility": [
+     "Construct the real comparison using equivariant descent and the same coefficient action; do not replace H_G by H(X(R),−).",
+     "Require the connecting maps and reduction maps in n to commute with comparison.",
+     "The compatibility with intersection/cycle products belongs to S9 and MC.2; it is not a prerequisite of this Kummer prefix."
+    ],
+    "supplierNodes": [
+     "SchemeAndStackFoundations:SF.2/cohomological-brauer",
+     "SchemeAndStackFoundations:SF.2/linearized-sheaf",
+     "SchemeAndStackFoundations:SF.2/spectral-sequence"
+    ],
+    "sources": [
+     {
+      "sourceId": "benoist",
+      "locator": "Equation (1.1), p.69; Equation (2.16), p.76; proof of Theorem 0.6, p.106"
+     },
+     {
+      "sourceId": "realhodge",
+      "locator": "§1.1–1.1.1, pp.9–10, including the torsion comparison attributed to Scheiderer Corollary 15.3.1"
+     }
+    ],
+    "acceptance": [
+     "For Spec R and n=2, Pic=0 and Br′[2]=F₂, hence H²_G(Spec C,F₂)=F₂ even though nonequivariant H² of the point vanishes.",
+     "For X=P¹_R, the units quotient is R^×/R^×² and Pic[2]=0 in the degree-one sequence.",
+     "Dropping properness changes the units term: on G_m,R the coordinate gives an extra nonsquare unit class."
+    ],
+    "frontier": "Benoist route 11 is a continuation requiring route review. These are verified consumer statements, not an accepted new owner assignment. The cited real comparison proof in Scheiderer was not independently read. R1/R4 request the finite Kummer, coefficient-action and equivariant comparison maps; gap G3 retains that source boundary.",
+    "implementationStatus": "unchecked"
+   },
+   {
+    "key": "S5",
+    "title": "Proper adic and scheme–diamond comparison interfaces",
+    "targets": [
+     "analytic owners",
+     "topology and properness",
+     "completion restrictions"
+    ],
+    "carriers": [
+     "For H5, a scheme base S, an adic space R with a locally ringed map to S, and scheme–adic fibre products X^ad and Y^ad, with their étale site morphisms.",
+     "For diamonds in characteristic p, the scheme diamond X^diamond and the derived coefficient category of Scholze §27.",
+     "For mixed characteristic, schemes of finite type over a complete DVR O with perfect residue characteristic p and the different untilt-based diamond construction."
+    ],
+    "hypotheses": [
+     "H5: f:X→Y proper, X,Y locally of finite type over S, Lambda torsion, K∈D⁺(X_et,Lambda); the required scheme–adic fibre products must exist.",
+     "Characteristic p: separated finite-type f:Y→X between qcqs schemes (or the admitted perfections); adic Lambda is complete for an ideal I generated by a finite regular sequence, and I contains an integer prime to p.",
+     "Mixed characteristic: f:Y→X separated between schemes finite type over O; no unrestricted mixed-characteristic full-faithfulness assertion."
+    ],
+    "map": "H5 supplies phi_Y* Rf_* K→Rf_ad,* phi_X*K. The diamond comparison supplies c_X*Rf_!→Rf_diamond,!c_Y* and its right-adjoint mate f!Rc_X,*→Rc_Y,*(f_diamond)!. Keep the site maps, domains and direction of the mate explicit.",
+    "compatibility": [
+     "Proper case uses Rf_!=Rf_* only under properness; separated finite type alone does not justify this substitution.",
+     "For adic coefficients use completed pullback and completed tensor in the named derived categories.",
+     "The characteristic-p and mixed-characteristic scheme-diamond constructions are not silently identified even on the special fibre."
+    ],
+    "supplierNodes": [
+     "ClassicalAdicEtaleCohomology:H5/proper-comparison-3-7-2",
+     "AdicCoefficientsAndComparisons:L3/full-faithfulness-27-2",
+     "AdicCoefficientsAndComparisons:L3/rf-shriek-comparison-27-4",
+     "AdicCoefficientsAndComparisons:L4/proper-support-comparison-27-5"
+    ],
+    "sources": [
+     {
+      "sourceId": "diamonds",
+      "locator": "§26, Definition 26.1 and Remark 26.3, pp.161–163; §27, Propositions 27.1–27.5 with proofs, pp.163–166"
+     }
+    ],
+    "acceptance": [
+     "At a proper structure map, compare the named global-section map obtained from the same base-change transformation.",
+     "Check that the right-adjoint comparison is the mate of the support comparison, with units and counits in the correct categories.",
+     "Reject a proposal substituting ordinary cohomology for compact support for a nonproper map."
+    ],
+    "frontier": "Adic L and Classical H4/H5 plans are accepted, not implemented. H5 imports Huber 3.7.2, pp.226–227, through reviewed provenance; its recorded nonnoetherian proof boundary remains. The book is not cleared for this worker and no copy was read. Scholze 27.4/27.5 uses 3.7.2, while 27.2 also invokes Huber Proposition 6.1.1 and Theorem 3.8.1. Gap G5 retains these distinct unread inputs; reading the public comparison proofs does not independently certify the book proofs.",
+    "implementationStatus": "unchecked"
+   },
+   {
+    "key": "S6",
+    "title": "Derived l-adic limit and rational realization boundary",
+    "targets": [
+     "l-adic owners",
+     "completion and coefficient restrictions"
+    ],
+    "carriers": [
+     "A compatible tower of finite coefficients Lambda_n=Z/l^n or a specified finite-free lisse integral lattice with its derived reductions.",
+     "R lim_n RΓ_et(X,Lambda_n), with its Galois action when X descends to a field k.",
+     "The native pro-étale Z_l coefficient cohomology and the rational realization obtained after scalar extension to Q_l."
+    ],
+    "hypotheses": [
+     "Identify the derived coefficient object with R lim of its derived reductions using a stated derived-completeness theorem.",
+     "To replace H^q R lim by lim H^q, require lim¹ H^(q−1)=0, e.g. a Mittag–Leffler tower; finite finite-level groups give that property.",
+     "For H_B(X(C),Q)⊗Q_l≅H_et(X_kbar,Q_l), use a specified embedding kbar→C, finite-generation/finite-complex inputs and a compatible integral comparison.",
+     "For the Ichino–Prasanna use, work at a sufficiently small level on its smooth compact Shimura variety, with the number-field representation rho factoring through G/Z_s; the associated local system and a compatible integral lattice must be supplied by the Shimura/local-system owner."
+    ],
+    "map": "Retain 0→lim¹ H^(q−1)(K_n)→H^q(R lim K_n)→lim H^q(K_n)→0 before taking an ordinary limit. Compose the finite comparison maps with the derived limit map, identify the actual native sheaf cohomology, then invert l. Transport the G_k action along the resulting comparison; no pre-existing G_k action on an arbitrary Betti space is assumed.",
+    "compatibility": [
+     "Reduction, cup products and pullback must commute at every level and with the derived-limit identifications.",
+     "The continuous G_k representation and a chosen Betti comparison depend on the chosen embedding; a source cannot claim embedding independence from dimension equality.",
+     "Tensoring with Q_l removes integral torsion and therefore cannot certify an integral comparison or lattice recovery.",
+     "At a fixed level K, finite étale correspondence pullback/transfer gives Hecke equivariance of Equation (2.1); passage over levels uses the compatible transition maps. Finite-coefficient comparison on a constant sheaf alone does not supply the representation-valued local system."
+    ],
+    "supplierNodes": [],
+    "sources": [
+     {
+      "sourceId": "proetale",
+      "locator": "Definition 3.4.1 and Proposition 3.4.2, p.21; Corollary 5.1.6 and Remark 5.1.8, pp.35–36; Definition 6.8.1 and Lemma 6.8.2, pp.58–59"
+     },
+     {
+      "sourceId": "ichino",
+      "locator": "§2.1.2, arXiv v2 pp.12–13; §2.2.2, Equation (2.1), pp.13–14, chosen embedding and Hecke equivariance"
+     },
+     {
+      "sourceId": "stacks-rlim",
+      "locator": "§15.88, Lemma 15.88.1 (07KW), Lemmas 15.88.9–15.88.10 (07KY) and Remark 15.88.12; online, no page numbering."
+     }
+    ],
+    "acceptance": [
+     "A tower with nonzero lim¹ contributes to H^q(R lim); a specification discarding that term must fail.",
+     "For a geometric point with constant coefficients, obtain Z_l in degree zero and zero in positive degrees.",
+     "The rational comparison for smooth proper X keeps its embedding and Tate-twist data and does not erase a possible torsion subgroup integrally."
+    ],
+    "frontier": "R1 requests the native sheaf/derived-limit and reduction identifications; R4 requests the compatible finite-to-rational Betti comparison. The native definition alone and the inclusion of topologies supply neither theorem. These requests terminate the mathematical boundary without introducing an SF.6 cohomology carrier.",
+    "implementationStatus": "unchecked"
+   },
+   {
+    "key": "S7",
+    "title": "Crystalline, prismatic and A_inf specialization boundary",
+    "targets": [
+     "crystalline/prismatic owners",
+     "topology, completion and smoothness"
+    ],
+    "carriers": [
+     "A bounded prism (A,I), a smooth p-adic formal scheme X over A/I and RΓ_Delta(X/A)∈D(A).",
+     "For BMS, C/Q_p complete algebraically closed, O_C, A_inf=W(O_C^flat), theta:A_inf→O_C, residue map to W(k), and a proper smooth formal O_C-scheme mathfrak X.",
+     "K_A=RΓ_Ainf(mathfrak X), the continuous de Rham complex, the k-special fibre and the O_C/p fibre, and the adic generic fibre X_eta."
+    ],
+    "hypotheses": [
+     "General prismatic comparisons use the exact bounded/perfect prism hypotheses of Theorem 1.8.",
+     "The BMS proper smooth package uses global perfectness; its degreewise underived specializations require additional Tor/torsion-freeness conditions.",
+     "The k-special fibre and O_C/p fibre are different inputs.",
+     "For the global general-prism crystalline/de Rham/base-change forms require X qcqs; for a bounded-prism map (A,I)→(B,J), complete the tensor derived (p,J)-adically. Sheaf comparisons retain their separate domains.",
+     "PR.1/de-rham-comparison only supplies the W(A/I) p-torsion-free case; Corollary 15.4 for general bounded prisms belongs to PR.3 and request R6. The finite-etale derived-fixed-point clause belongs to PR.4 and R7."
+    ],
+    "map": "For the general prism, crystalline comparison at I=(p) and de Rham comparison use completed derived base change along phi_A; etale comparison requires A perfect and takes phi=1 after I inversion at each p^n level. In the A_inf setting phi*RΓ_Delta≅K_A, K_A⊗^L_(A_inf,theta)O_C≅RΓ_dR,cont, K_A⊗^L_Ainf W(k)≅RΓ_crys(X_k/W(k)), K_A⊗^L_Ainf A_crys≅RΓ_crys(X_(O_C/p)/A_crys), and μ-inverted K_A matches etale Z_p cohomology after the same scalar extension.",
+    "compatibility": [
+     "Name theta, phi, the residue map, μ and the completed topology at every arrow; theta and theta∘phi^(-1) are different maps.",
+     "Track the Frobenius pullback in the comparison with A_inf cohomology.",
+     "Prismatic uniqueness is in the symmetric-monoidal category of pairs (G,eta) in Notation 18.1, not uniqueness of arbitrary group isomorphisms."
+    ],
+    "supplierNodes": [
+     "PrismaticCohomology:PR.1/relative-prismatic-cohomology",
+     "PrismaticCohomology:PR.1/crystalline-comparison",
+     "PrismaticCohomology:PR.1/hodge-tate-comparison",
+     "PrismaticCohomology:PR.1/prismatic-base-change",
+     "PrismaticCohomology:PR.1/de-rham-comparison",
+     "CohomologyComparisons:CP.0/ainf-specialization-dictionary",
+     "CohomologyComparisons:CP.0/formal-algebraic-analytic-dictionary",
+     "CohomologyComparisons:CP.1/theta-de-rham-specialization",
+     "CohomologyComparisons:CP.1/witt-crystalline-specialization",
+     "CohomologyComparisons:CP.1/acris-specialization",
+     "CohomologyComparisons:CP.1/mu-inverted-etale-specialization",
+     "CohomologyComparisons:CP.1/prismatic-frobenius-pullback-comparison",
+     "CohomologyComparisons:CP.1/singular-and-completed-boundary"
+    ],
+    "sources": [
+     {
+      "sourceId": "bsprism",
+      "locator": "Theorem 1.8(1)–(5), pp.4–5; Notation 17.1 and Theorem 17.2, p.117; Notation 18.1, Theorem 18.2 and Lemma 18.3, pp.122–123"
+     },
+     {
+      "sourceId": "bms1",
+      "locator": "Theorem 14.3, pp.119–120; Remark 14.4 and Theorem 14.5, pp.120–121"
+     }
+    ],
+    "acceptance": [
+     "For Spf O_C, degree-zero theta specialization uses the stated theta map and Frobenius convention.",
+     "Do not replace derived tensor on cohomology with ordinary tensor when next-degree Tor can survive.",
+     "A proposed comparison dropping phi* in the A_inf identification fails the scalar/Frobenius check."
+    ],
+    "frontier": "CP is an accepted target-level plan with open gaps, not a baseline implementation. These are downstream supplier contracts, not upward prerequisites of the tier-2 foundation package. Actual derived/prismatic carriers remain in their owners; no new prism, period ring or comparison is planned here. The PR.0 part containing these PR.1 nodes has a needs_changes review; the restricted de Rham node is not a general-prism export. R6/R7 retain the general de Rham and finite-etale supplier boundaries. The global qcqs condition reuses source issue PrismaticCohomology/E13.",
+    "implementationStatus": "unchecked"
+   },
+   {
+    "key": "S8",
+    "title": "Rational p-adic period and trace normalization boundary",
+    "targets": [
+     "crystalline/prismatic owners",
+     "coefficient restrictions",
+     "traces"
+    ],
+    "carriers": [
+     "K/Q_p a finite extension, C its completed algebraic closure, X/K smooth proper, etale Q_p cohomology with G_K action, de Rham K cohomology and B_dR.",
+     "For trace, X geometrically connected and pure dimension d; the trace-normalized period line a:B_dR(-1)≅B_dR〈-1〉 of Betts–Stix."
+    ],
+    "hypotheses": [
+     "Use the rational period comparison in the source-qualified smooth proper setting.",
+     "B_dR tensor filtrations combine the Hodge and period filtrations; equivariance uses the semilinear G_K action.",
+     "The rational trace period a is not assumed equal to the canonical Fontaine period."
+    ],
+    "map": "Use c_dR:H^q_et(X_C,Q_p)⊗B_dR→H^q_dR(X/K)⊗B_dR. Betts–Stix Proposition 3.19 makes the total map a natural graded B_dR-algebra isomorphism. Proposition 3.20 normalizes a on P¹ so the general trace square commutes with a^tensor d; its cycle and first-Chern clauses use the same period.",
+    "compatibility": [
+     "Preserve finite-extension base-change diagrams, Künneth and cups.",
+     "The comparison of a codimension-r cycle class uses a^(-r) in the untwisted presentation; specify the equivalent twisted presentation rather than deleting a.",
+     "General proper Gysin/pushforward compatibility is a separate CP.6 extension, not supplied merely by the cycle and trace statements."
+    ],
+    "supplierNodes": [
+     "CohomologyComparisons:CP.3/filtered-de-rham-comparison",
+     "CohomologyComparisons:CP.6/naturality-base-change-and-cup-products",
+     "CohomologyComparisons:CP.6/trace-normalized-tate-period",
+     "CohomologyComparisons:CP.6/duality-and-cycle-class-compatibility",
+     "CohomologyComparisons:CP.6/first-chern-class-comparison"
+    ],
+    "sources": [
+     {
+      "sourceId": "bettsstix",
+      "locator": "Proposition 3.19, p.27; Proposition 3.20 and Remark 3.21, pp.27–28"
+     }
+    ],
+    "acceptance": [
+     "Use P¹ and its trace generator to fix a; do not replace it by an unproved canonical-period identification.",
+     "Check c1(O(1)) and the trace square with the same twist conversion.",
+     "A rational isomorphism over B_dR gives no assertion that the integral etale and de Rham lattices are isomorphic."
+    ],
+    "frontier": "CP.6 includes the stronger Gysin extension as an explicit additional obligation. Its first-Chern node repairs the nonproper total-space step in the 29 April 2022 Betts–Stix manuscript through a proper projective compactification, self-intersection and projective-bundle suppliers (CohomologyComparisons/E3). The printed proof alone does not discharge that repair. Import only source-qualified clauses of the plan; canonical-period equality remains outside the source theorem. Gap G7 retains the repair, typing and stronger-compatibility boundaries.",
+    "implementationStatus": "unchecked"
+   },
+   {
+    "key": "S9",
+    "title": "Cycle classes, proper Gysin and intersection pairings",
+    "targets": [
+     "cycle classes and traces with intersection pairings"
+    ],
+    "carriers": [
+     "Smooth pure-dimensional X over a perfect field with finite Lambda=Z/n and n invertible, or the separately justified l-adic/rational coefficient passage.",
+     "The SF.5 Chow group CH^r(X), its actual rational-equivalence quotient, products in their stated domain, and the EDC.3 class map cl^r:CH^r(X)→H^(2r)_et(X,Lambda(r)).",
+     "For X proper geometrically connected of dimension d over k, use the geometric trace tr_X:H^(2d)(X_kbar,Lambda(d))→Lambda and its Galois-equivariant relative derived counterpart. For f:Y→X between smooth pure-dimensional varieties put e=dim Y−dim X."
+    ],
+    "hypotheses": [
+     "Use smooth projective varieties for the intersection/degree acceptance diagram and smooth closed pairs for purity; no absolute purity for arbitrary singular embeddings is inferred.",
+     "For nonproper smooth varieties, Poincaré duality pairs ordinary and compactly supported cohomology, not two ordinary groups.",
+     "Pass to l-adic traces via the precise derived-limit/perfection hypotheses; general coefficients retain derived duals.",
+     "Use the geometric base X_kbar for the ordinary perfect Poincaré pairing; over a nonclosed base retain relative derived duality and its Galois action."
+    ],
+    "map": "The Gysin map is f_*:H^q(Y,Lambda(m))→H^(q−2e)(X,Lambda(m−e)); for a codimension-c smooth closed immersion e=−c. Require tr_X(cl(z) cup cl(w))=deg(z·w) in Lambda after geometric base change for z∈CH^r(X), w∈CH^(d−r)(X), together with pullback/pushforward, projection and trace-transitivity diagrams. Cross-theory comparisons must transport these maps with the period/twist conversion in S2 or S8.",
+    "compatibility": [
+     "Cycle classes factor through rational equivalence before a Chow-ring or motive consumer can use them.",
+     "Require cl(z·w)=cl(z) cup cl(w) and tr_X cl(point)=degree(point), with residue-field degree where applicable.",
+     "Refined/excess/self-intersection formulas require the actual SF.5 geometry and the supplier specialization theorem; dimensions or smoothness of a nonproper family do not identify its cohomology fibres."
+    ],
+    "supplierNodes": [
+     "EtaleDualityAndPerverseSheaves:EDC.3/cycle-class-map",
+     "EtaleDualityAndPerverseSheaves:EDC.3/gysin-map",
+     "EtaleDualityAndPerverseSheaves:EDC.3/self-intersection-formula",
+     "EtaleDualityAndPerverseSheaves:EDC.2:pairings/poincare-duality-torsion",
+     "EtaleDualityAndPerverseSheaves:EDC.2:pairings/adic-and-rational-poincare-duality"
+    ],
+    "sources": [
+     {
+      "sourceId": "milne",
+      "locator": "§23, cycle construction pp.138–139; Theorem 23.4 and its proof boundary, p.142; §24, Theorem 24.1 and Remark 24.2, pp.144–145"
+     },
+     {
+      "sourceId": "bettsstix",
+      "locator": "Proposition 3.20(5)–(8), pp.27–28"
+     }
+    ],
+    "acceptance": [
+     "On P¹ over an algebraically closed field, a point class has trace 1; c1(O(m)) has trace m modulo n.",
+     "For a finite flat map of constant degree delta between the admitted smooth varieties, f_*f*=delta, with the correct degree/twist shift.",
+     "For a smooth codimension-c immersion, the shift is +2c and the twist +c; the opposite shift is rejected.",
+     "On a smooth projective surface, the diagonal/graph intersection pairing is evaluated through the Chow product and class/trace diagram, not through a new SF.6 pairing."
+    ],
+    "frontier": "SF.5 has no completed Chow/intersection pass. The EDC.0 part containing EDC.2/EDC.3 has review needs_changes, including rational-equivalence descent, Tor/product and deformation-specialization gaps. Milne 23.4 does not provide its long proof. R2/R5 and gap G6 name these boundaries. EDC source issue E4 corrects the Gysin sign on p.145; it is reused, not duplicated.",
+    "implementationStatus": "unchecked"
+   }
+  ],
+  "targetAccounting": [
+   {
+    "target": "crystalline/prismatic comparisons",
+    "contracts": [
+     "S7",
+     "S8"
+    ]
+   },
+   {
+    "target": "complex/rigid analytic comparisons",
+    "contracts": [
+     "S2",
+     "S3",
+     "S4",
+     "S5"
+    ]
+   },
+   {
+    "target": "l-adic comparisons",
+    "contracts": [
+     "S1",
+     "S3",
+     "S6"
+    ]
+   },
+   {
+    "target": "cycle-class comparisons",
+    "contracts": [
+     "S2",
+     "S4",
+     "S8",
+     "S9"
+    ]
+   },
+   {
+    "target": "trace/intersection compatibility",
+    "contracts": [
+     "S2",
+     "S8",
+     "S9"
+    ]
+   }
+  ],
+  "tierPolicy": "Supplier-node identifiers in this manifest describe downstream ownership and source boundaries. They are not imports or mathematical prerequisites of the tier-2 foundation package. Only native library APIs are present in the suggested file. The proposed retirement sends actual comparison dependencies to the mathematical consumers; no comparison theorem is moved into a no-node process layer."
+ },
+ "paperRouteInventory": [
+  {
+   "paper": "PAPER-ICHINO-PRASANNA-23",
+   "items": [
+    "PAPER-ICHINO-PRASANNA-23/004"
+   ],
+   "use": "Finite local systems and Betti/l-adic realization after a chosen complex embedding; S3/S6. The route to the Shimura Part II consumer uses SF.6 but does not create a new comparison theory here.",
+   "sourceChecked": "arXiv v2 §2.1.2 pp.12–13 and §2.2.2 Equation (2.1), pp.13–14; published extraction locators pp.14 and 16 retained with their own pagination."
+  },
+  {
+   "paper": "PAPER-BENOIST-19",
+   "items": [
+    "PAPER-BENOIST-19/33",
+    "PAPER-BENOIST-19/55",
+    "PAPER-BENOIST-19/199"
+   ],
+   "route": "11, tentative continuation requiring independent route review",
+   "use": "S4 complex/real Kummer and degree-one units interfaces, after SF.2 equivariant sheaf foundation. MC.2 cycle compatibility is not a prerequisite of this prefix."
+  },
+  {
+   "paper": "PAPER-BENOIST-WITTENBERG-20",
+   "items": [
+    "real comparison used by PAPER-BENOIST-19/148"
+   ],
+   "use": "Supporting coefficient/topology and equivariant comparison contract, source §1.1.1 pp.9–10; comparison proof boundary remains G3."
+  },
+  {
+   "paper": "PAPER-LANDESMAN-LITT-24",
+   "items": [
+    "PAPER-LANDESMAN-LITT-24/116(2)"
+   ],
+   "use": "Ownership lead for finite étale/topological-cover equivalence; the cited IG stages do not themselves supply S3 all-degree cohomology comparison. No independent full-paper reading is claimed."
+  }
+ ],
+ "supplierSourceIssues": [
+  {
+   "id": "EtaleDualityAndPerverseSheaves/E4",
+   "locator": "Milne v2.21, display preceding Remark 24.2 and 24.2(b), p.145",
+   "use": "The relative dimension is e=dim Y−dim X and the shift is −2e; for a codimension-c immersion e=−c. Read the source and applied the existing correction; no duplicate issue or source quotation.",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Read Milne v2.21 p.145 and re-derived the shift by dualizing pullback: with e=dim Y−dim X, the degree is q−2e and twist m−e. An immersion has e=−c.",
+    "by": "REV-SchemeAndStackFoundations--SF.6"
+   }
+  },
+  {
+   "id": "PrismaticCohomology/E13",
+   "locator": "BS22 arXiv v4, Theorem 1.8(5) and global forms of (1),(3), p.4",
+   "use": "Reuse the confirmed supplier correction requiring X quasi-compact and quasi-separated for global completed base change. The local sheaf statement retains its own domain. No source passage or duplicate issue is recorded.",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Read the arXiv v4 statement at p.4 and checked the countable-disjoint-union counterexample: after reduction modulo p the scalar-extension image has bounded polynomial degree, so (x^n) is absent. Keep qcqs for the global base-change statement and distinguish local sheaf comparison.",
+    "by": "REV-SchemeAndStackFoundations--SF.6"
+   }
+  },
+  {
+   "id": "CohomologyComparisons/E3",
+   "locator": "Betts–Stix author manuscript dated 29 April 2022, Proposition 3.20(8), final proof paragraph, p.28",
+   "use": "The line-bundle total space is nonproper, outside the scope of Proposition 3.20(7). Reuse the CP.6 proper projective-compactification repair and its self-intersection/projective-bundle supplier obligations. No assertion is made about an unread published proof.",
+   "addedBy": "REV-SchemeAndStackFoundations--SF.6",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Read Proposition 3.20 and its proof on pp.27–28 of the 29 April 2022 manuscript. Clause (7) has a properness hypothesis; the total space used for (8) lacks it. The CP.6 repair records proper compactification and the required supplier inputs.",
+    "by": "REV-SchemeAndStackFoundations--SF.6"
+   }
+  }
+ ],
+ "sourceIssues": [],
+ "restructure": [
+  {
+   "action": "rescope",
+   "roadmaps": [
+    "SchemeAndStackFoundations",
+    "MotivesAndAlgebraicCycles",
+    "ComplexComparisonPartII"
+   ],
+   "detail": "The audited SF.6 process bridge conflicts with the current tier-2 prerequisite rule if it imports later comparison owners. Accepted RS-25 keeps its interface, so removal needs a new accepted decision.",
+   "proposal": "Retire SF.6 as a mathematical layer while retaining S1–S9 as consumer contract documentation. Keep SF.2 sites/cohomology and SF.5 Chow/intersection as the foundation exports. Replace SF.5→SF.6→MC.2 by SF.5→MC.2 for the actual Chow/intersection input; add C5→MC.2 for de Rham–Betti comparison and direct CP/EDC/adic comparison-owner edges to consumers only for their instantiated contracts. No mathematical nodes move to SF.6 and no changes to atlas/audit data are applied by this packet.",
+   "removeStages": [
+    "SchemeAndStackFoundations:SF.6"
+   ],
+   "proposedRemoveEdges": [
+    {
+     "source": "SchemeAndStackFoundations:SF.5",
+     "target": "SchemeAndStackFoundations:SF.6"
+    },
+    {
+     "source": "SchemeAndStackFoundations:SF.6",
+     "target": "MotivesAndAlgebraicCycles:MC.2"
+    }
+   ],
+   "proposedAddEdges": [
+    {
+     "source": "SchemeAndStackFoundations:SF.5",
+     "target": "MotivesAndAlgebraicCycles:MC.2",
+     "reason": "CH quotient, intersection and degree used by realization cycle/trace compatibility."
+    },
+    {
+     "source": "ComplexComparisonPartII:C5",
+     "target": "MotivesAndAlgebraicCycles:MC.2",
+     "reason": "Actual smooth proper de Rham–Betti map after each embedding, with R3-strengthened compatibility, supplies periods through MC.2."
+    }
+   ],
+   "status": "proposal; accepted RS-25 remains in force"
+  },
+  {
+   "action": "rescope",
+   "roadmaps": [
+    "ComplexComparisonPartII",
+    "InverseGaloisAndArithmeticFundamentalGroups"
+   ],
+   "detail": "S3 finite Artin and S4 real-equivariant comparison have no verified all-degree owner node; the inherited Galois-cover route and C5 de Rham theorem have different outputs.",
+   "proposal": "Add a distinct proposed ComplexComparisonPartII:C7, Étale–Betti and real comparisons, owning SGA 4 XVI 4.1, finite/local coefficient comparison, equivariant descent with sign twists, and the compatible derived l-adic passage. Keep Galois categories and cover-level Riemann existence in IG.0/IG.1, importing their exact cover equivalence when needed. The proposed C7 identifier is not an existing stage or prerequisite; reconcile the paper routes before applying the rescope.",
+   "status": "proposal; R4 is the coordination boundary"
+  }
+ ],
+ "confirmedFindings": [
+  {
+   "id": "RT-AREA-algebraicgeometry/31",
+   "disposition": "Accounted for with exact supplier contract and conditional/direct structural proposal; graph and audit edits require maintainer action.",
+   "legacyEdges": [
+    {
+     "source": "ComplexComparisonPartII:C5",
+     "target": "SchemeAndStackFoundations:SF.6",
+     "reason": "S2 natural smooth proper complex comparison, with products/pullback/trace as the explicit R3 frontier.",
+     "condition": "Install only if SF.6 is retained and the upstream tier conflict is resolved; it is not an active foundation prerequisite in this packet."
+    },
+    {
+     "source": "ComplexComparisonPartII:C5",
+     "target": "MotivesAndAlgebraicCycles:MC.2",
+     "reason": "Comparison after each complex embedding for realizations and their period consumers."
+    }
+   ],
+   "preferredResolution": "Retire the process bridge and add the direct C5→MC.2 edge in the rescope proposal. PeriodsAndSpecialValues:PS.0 and PS.8 inherit the comparison through MC.2. Relabel SF.6 and MC.2 as consumers in the C5 duplicate audit, preserving C5 as the owner. No missing compatibility is inferred from the additive repair node."
+  }
+ ],
+ "validation": {
+  "blueprint": "Independent review: python3 scripts/check_blueprint.py reports 0 errors and 0 warnings on 2026-10-09; repeated after final metadata edits.",
+  "lean": "Independent review: lean-check exits 0 with eight native #check outputs, no errors or warnings, at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174. Only Mathlib modules are imported; no arithmetic comparison theorem is elaborated.",
+  "structural": "Independent read-only scripts.build.assemble(require_distances=False) contains 5485 stages and 14681 stageEdges on 2026-10-09. C5→SF.6, C5→MC.2 and SF.5→MC.2 each lack a reverse path when added successively. Originally C5 has no path to MC.2; SF.5 reaches MC.2 through SF.6. This verifies the proposed additions introduce no cycle in that snapshot, not global acyclicity or tier admissibility. All 37 supplier references (34 distinct) resolve; all source keys and five target-accounting rows resolve. Nodes and process mathematicalPrerequisites remain empty.",
+  "scope": "Only the issue packet, review report and own handoff are changed. The suggested file was verified without modification. Reader, inherited packet and atlas/audit/source-owner files are read-only."
+ },
+ "review": {
+  "status": "accepted",
+  "reviewer": "independent-review-REV-SchemeAndStackFoundations--SF.6",
+  "date": "2026-10-09",
+  "notes": "Independent process-manifest review by Codex codex-YHxKq2, issue #6288; author session codex-Jz39Db is different. Zero mathematical nodes checked because AUDIT-01 and the author issue require no SF.6 ownership. All eight pinned baseline statements, nine contracts, 34 distinct supplier-node statements/proof frontiers, seven requests, seven gaps, five targets and RT-AREA-algebraicgeometry/31 checked. Added direct Milnor source, explicit CP/E3 reuse and distinct unread Huber inputs; corrected R6 reading provenance. Accepted as a complete accounting pass with source_decomposed coverage, not mathematical closure, implementation, restructuring approval or supplier acceptance. Twelve public source interfaces checked; restricted Huber and Scheiderer proof boundaries retained. Reader under review is outside authorized edit paths; synchronization notes are in report/handoff. Checks: blueprint 0 errors/0 warnings; native Lean exit 0/no warnings.",
+  "checked": [],
+  "processChecked": [
+   {
+    "contract": "S1",
+    "verdict": "verified",
+    "note": "Native statements have their site, universe and prime hypotheses; SF.2 equivariant O_X-module carriers require the explicit R1 coefficient conversion."
+   },
+   {
+    "contract": "S2",
+    "verdict": "verified",
+    "note": "Grothendieck proper comparison and exact partial C5 suppliers checked. Product, trace, period and scalar-base-change strengthening remains R3/G2."
+   },
+   {
+    "contract": "S3",
+    "verdict": "verified",
+    "note": "SGA 4 XVI 4.1 torsion, finite-type and proper-or-constructible hypotheses checked. Cover equivalence is not the all-degree theorem; R4/G3 retain ownership and proof boundaries."
+   },
+   {
+    "contract": "S4",
+    "verdict": "verified",
+    "note": "Benoist finite Kummer and real sign-action sequences checked. Proper geometrically connected units clause is necessary; unread Scheiderer proof stays G3."
+   },
+   {
+    "contract": "S5",
+    "verdict": "corrected",
+    "note": "Made the coefficient regular sequence finite and distinguished Huber inputs for support comparison and full faithfulness; no private source proof claimed."
+   },
+   {
+    "contract": "S6",
+    "verdict": "corrected",
+    "note": "Added direct Stacks source for Milnor exact sequence and ML vanishing. Native coefficient/reduction comparison, lattice and Hecke maps remain requested."
+   },
+   {
+    "contract": "S7",
+    "verdict": "corrected",
+    "note": "Read general de Rham Corollary 15.4 proof and updated R6 reading provenance without supplying the absent PR.3 export. Frobenius pullback, derived completion and qcqs correction checked."
+   },
+   {
+    "contract": "S8",
+    "verdict": "corrected",
+    "note": "Made existing CP/E3 first-Chern proof repair and its supplier boundary explicit; trace normalization and the unproved canonical-period equality stay distinct."
+   },
+   {
+    "contract": "S9",
+    "verdict": "verified",
+    "note": "Chow quotient, Tor/product and deformation gaps preserved. Geometric/relative duality, compact support, proper Gysin sign and trace-degree diagram checked."
+   }
+  ],
+  "baselineChecked": [
+   {
+    "ref": "mathlib:CategoryTheory.Sheaf.H",
+    "verdict": "verified",
+    "note": "Ext-defined cohomology of an abelian sheaf on a specified site; requires HasSheafify and HasExt."
+   },
+   {
+    "ref": "mathlib:CategoryTheory.Sheaf.H.map",
+    "verdict": "verified",
+    "note": "Additive map from a sheaf morphism on the same site, not a cross-site comparison."
+   },
+   {
+    "ref": "mathlib:CategoryTheory.Sheaf.H.equiv₀",
+    "verdict": "verified",
+    "note": "Degree-zero additive equivalence with evaluation at a specified terminal object."
+   },
+   {
+    "ref": "mathlib:AlgebraicGeometry.Scheme.ProEt.topology",
+    "verdict": "verified",
+    "note": "Native small pro-étale Grothendieck topology on weakly étale schemes over X."
+   },
+   {
+    "ref": "mathlib:AlgebraicGeometry.Scheme.etaleTopology_le_proetaleTopology",
+    "verdict": "verified",
+    "note": "Inclusion of big scheme topologies; no cohomology equivalence is inferred."
+   },
+   {
+    "ref": "mathlib:AlgebraicGeometry.Scheme.ellAdicSheaf",
+    "verdict": "verified",
+    "note": "The coefficient sheaf of continuous maps into Z_l on the native small pro-étale site."
+   },
+   {
+    "ref": "mathlib:AlgebraicGeometry.Scheme.EllAdicCohomology",
+    "verdict": "verified",
+    "note": "Cohomology of the universe-lifted native l-adic coefficient sheaf; an additive group, not a supplied comparison theorem."
+   },
+   {
+    "ref": "mathlib:AlgebraicGeometry.Scheme.isZero_ellAdicSheaf_of_isEmpty",
+    "verdict": "verified",
+    "note": "Empty-scheme coefficient sheaf is zero; the file also gives subsingleton cohomology in every degree."
+   }
+  ],
+  "sourceIssuesChecked": [
+   {
+    "ref": "EtaleDualityAndPerverseSheaves/E4",
+    "verdict": "confirmed"
+   },
+   {
+    "ref": "PrismaticCohomology/E13",
+    "verdict": "confirmed"
+   },
+   {
+    "ref": "CohomologyComparisons/E3",
+    "verdict": "confirmed"
+   }
+  ],
+  "targetAccountingChecked": {
+   "count": 5,
+   "verdict": "verified",
+   "note": "Each audited target is mapped to named contracts and unresolved owner obligations; none is marked mathematically planned or closed."
+  }
+ }
+}

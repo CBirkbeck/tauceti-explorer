@@ -1924,6 +1924,17 @@
     "data/blueprints/HodgeTateAndCanonicalSubgroups--T0.md"
    ]
   },
+  "research/blueprint/packets/HodgeTateAndCanonicalSubgroups--T6.json": {
+   "promotedAt": "2026-10-09T11:16:07Z",
+   "review": "18ce24b91ef3e498",
+   "reviewDate": "2026-10-09",
+   "reviewer": "independent-review-REV-HodgeTateAndCanonicalSubgroups--T6~2",
+   "sha256": "d758e74112d79f989b21f8adfd45f0b215d1f10190fb11ea96057ad042a45815",
+   "to": [
+    "data/blueprints/HodgeTateAndCanonicalSubgroups--T6.json",
+    "data/blueprints/HodgeTateAndCanonicalSubgroups--T6.md"
+   ]
+  },
   "research/blueprint/packets/IgusaVarietiesAndTorsionConcentration.json": {
    "promotedAt": "2026-10-07T17:20:54Z",
    "review": "448d600f1c0552f1",
@@ -2465,6 +2476,17 @@
    "to": [
     "data/blueprints/RelativeFarguesFontaine--RF4.json",
     "data/blueprints/RelativeFarguesFontaine--RF4.md"
+   ]
+  },
+  "research/blueprint/packets/SchemeAndStackFoundations--SF.6.json": {
+   "promotedAt": "2026-10-09T11:16:07Z",
+   "review": "7125d9b7610927f4",
+   "reviewDate": "2026-10-09",
+   "reviewer": "independent-review-REV-SchemeAndStackFoundations--SF.6",
+   "sha256": "2083983f4bd712a2a395470d5b511ff2d55f9f83cef7bbf723066541874953be",
+   "to": [
+    "data/blueprints/SchemeAndStackFoundations--SF.6.json",
+    "data/blueprints/SchemeAndStackFoundations--SF.6.md"
    ]
   },
   "research/blueprint/packets/SchemeAndStackFoundations.json": {
