@@ -1,0 +1,57 @@
+# Handoff: BP-AlgebraicModuliForArithmeticGeometry--R09.2
+
+Issue: #6334. Worker: Codex (GPT-6), session `codex-UzuzH2`. Date: 2026-10-09.
+
+## Completed
+
+The accepted A0-extension’s R09.2 coverage was `not_read`, with no R09.2 nodes to carry forward. This pass plans the entire stated stage: fixed-polynomial flat quotient and closed families; quotient equivalence; functors on arbitrary test schemes; scheme-theoretic flattening; uniform Grassmannian evaluation and recovery; projective representability; universal families and base-change representation; graph Hom/Isom; affine coherent-sheaf parameter spaces; polarized isomorphism pairs; the dual-number parameter counterexample; Chow modification; ideal-power support reduction; coherent dévissage; generic projective test sheaves; and the Chow adjunction-unit defect.
+
+The packet is **complete** at target level. R09.2 is **planned**, rather than closed, because the named supplier contracts remain. Counts: 25 nodes (2 definitions, 2 comparisons, 10 constructions, 10 theorems, 1 application), 46 API items, 41 unit tests, 6 planets, 20 baseline declarations, 0 gaps and 5 requests. Every definition/construction has uses, API, at least three tests and native-library compatibility. Implementation status remains unchecked throughout.
+
+The packet, reader and suggested file agree. The suggested file contains native scheme/module/category signatures and typed supplier data, including actual relative-flatness, polynomial, graph and support conditions. It uses native kernels, epimorphisms, ideals, inverses and line-bundle isomorphisms. The prototype core for projective and polarized theorems uses chosen very ample embeddings; the reader and proof specify the extension to relatively ample polarizations by common positive powers. The evaluation-cokernel helpers are explicitly R09.2 construction data, not supplier targets.
+
+## Validation
+
+- `python3 scripts/check_blueprint.py research/blueprint/packets/AlgebraicModuliForArithmeticGeometry--R09.2.json`: 0 errors, 0 warnings.
+- `lean-check research/blueprint/suggested/AlgebraicModuliForArithmeticGeometry--R09.2.lean`: elaborated at the pinned Mathlib/Tau Ceti build on 2026-10-09, with only admission warnings. All prototype examples were elaborated; no proof or executable-test claim is made.
+- Source-version and issue schema, named-target/API/test correspondence, allowed-file scope and repository-local-path checks were checked before submission.
+
+The Lean run was serial and memory was checked first. The baseline commits are Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`. No build or dependency update was run.
+
+## What remains
+
+Independent review should read all 25 targets, verify the five corrected source findings at their exact versions, inspect the universal all-test-scheme contracts and check the global projectivity proof. Local projective charts are connected globally by det of the universal twisted pushforward and its local Plücker comparison; properness plus relative very ampleness yields a closed embedding in a coherent projective bundle. This must not be replaced by the false inference that local free presentations give a global free one.
+
+Before implementation, resolve these supplier contracts:
+
+- **`AlgebraicModuliForArithmeticGeometry:R09.1`:** Use the existing R09.1 Hilbert-polynomial, relative Serre vanishing and Castelnuovo–Mumford regularity targets: polynomials on proper-support coherent fibres and their field-extension invariance; local constancy for flat finitely presented families; eventual vanishing and generation; and a field-independent uniform regularity bound for kernels in O^p on P^n with fixed polynomial (Nitsure Theorem 2.3, pp. 11–13). Export the bound for quotients of a chosen projective presentation, and the uniform family-tail theorem under arbitrary test-base change. None of these are new R09.2 definitions.
+- **`tauceti:TauCetiRoadmap/JacobianChallenge#layer-c-relative-coherent-cohomology-and-base-change`:** The current Jacobian Layer C/StableReduction J-C contract is proper finitely presented f over locally Noetherian S, coherent S-flat F, without assuming X/S flat: finite Grothendieck complexes on affine bases, coherent higher direct images, arbitrary-base-change maps, vanishing/surjectivity criteria giving locally free H0, and a corepresenting finite module for H0(F⊗M) when M is invertible. R09.2 combines these modules along a two-term projective presentation of a coherent E to corepresent Hom(E,F); it does not infer the general proper coherent-source theorem from a cohomology complex alone. Also use proper coherent pushforward for every coherent sheaf (no sheaf-flatness assumption for coherence), required by the Chow unit and test sheaves. Constant fibre dimensions on a nonreduced base alone must not imply local freeness; see sourceIssue E1.
+- **`tauceti:TauCetiRoadmap/ModularCurves#0g-parameter-spaces-for-subgroup-schemes`:** Import current ModularCurves 0G: the relative Grassmannian of rank-r finite locally free quotients of a finite locally free sheaf, its native sheaf quotient, universal property, arbitrary-base-change identification and projectivity; on affine base opens use the free sheaf of sections of the chosen projective presentation. R09.2 supplies the additional evaluation relations and flattening locus, not a second Grassmannian.
+- **`tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity`:** Import current StableReduction Layer 2 projective-geometry interface: relative Proj/projective bundles P(V) for coherent finitely presented V, O(1), projective and quasi-projective embeddings, relative very ampleness and its base change, projective completions, projective maps and the implication proper immersion→closed immersion. Keep the distinction between coherent V, locally free V and a globally free presentation in Nitsure 5.1–5.3. Export properness plus relative very ampleness as a global closed embedding in P(q_*M) for coherent q_*M, using a high power if needed. The Quot proof uses the native determinant/pullback contract already owned by current AlgebraicVectorBundles L0C, and the Plücker comparison owned by ModularCurves 0G; these are imports, not new definitions. No duplicate Proj, ampleness or finite-source Weil restriction is planned here.
+- **`SchemeAndStackFoundations:SF.0`:** Supplement the existing finite-presentation-limits node with descent of relative flatness of a finitely presented module: for a filtered system A_i with colimit A, a finitely presented A_i-algebra B_i and finitely presented B_i-module M_i, if M_i⊗A is A-flat, then after increasing i the descended M_j is A_j-flat. Surjectivity of a descended map also eventually descends. Export the affine-cover scheme version for qcqs finitely presented X/S. This is the algebra step of Stacks 99.7.7 (082Q), PDF pp. 19–20, citing Algebra 10.168.1; it is not covered by merely descending flat scheme morphisms.
+
+No second blueprint target pass is needed merely to inventory R09.2; the remaining work is supplier-interface resolution and independent review. The packet intentionally retains `planned` coverage until those interfaces are ready. It records no unresolved mathematical gap.
+
+## Ownership and downstream redirection
+
+The existing parent pullback/descent nodes and SF.0 support/extension/limits nodes were read and reused. Current upstream ModularCurves 0F owns finite-source Weil restriction, and 0G owns Grassmannians. Current Jacobian C/StableReduction J-C owns proper coherent cohomology/base change, without an X-flat hypothesis; coherent proper pushforward itself needs no sheaf-flat hypothesis.
+
+Current AlgebraicVectorBundles L0B owns internal Hom and finite local freeness; L0C owns determinant and its pullback comparisons. These are imports. That current roadmap is absent from the atlas snapshot: no fictitious snapshot stage or baseline declaration was created. When the catalogue is synchronized, resolve this documentary owner to its actual upstream layer identifiers. The projective-geometry request explicitly names the interface that consumes the determinant and Plücker contracts. Mathlib open PR 14686 was read for the quotient-oriented Grassmannian direction; it is a lead for ModularCurves 0G, not a pinned-baseline theorem. Open-PR and Zulip searches are recorded in the packet’s upstream notes. Existing Proj, ampleness, sheaf operations and Grassmannians have no duplicate R09.2 nodes.
+
+ComplexComparisonPartII C3 is a downstream Tier 5 consumer, not a prerequisite of this Tier 4 stage. Redirect `repair-relative-proper-gaga` and `repair-proper-coherent-essential-surjectivity` to this packet’s `chow-modification`, `coherent-devissage`, `generic-projective-test-sheaves` and `chow-unit-support`. Analytic coherence/support induction, proper comparison, full faithfulness and Ext¹ lifting remain C3 inputs. Its algebraic-space theorem also needs the R09.3 reduction. The current upstream roadmaps, including the nine newer than the atlas snapshot, and the current Tau Ceti library were read for overlap; no full Hilbert/Quot construction was found to duplicate.
+
+## Sources and durable review notes
+
+All repository mathematics is stated in the worker’s own words; there are no source passages, source excerpts, PDFs or extracted texts in the deliverables. The packet contains public URLs, editions, checksums, reading dates and target locators. This pass used no restricted book.
+
+The mathematical sources read are Nitsure’s arXiv v1, Grothendieck’s Bourbaki 221, Stacks chapters 30/99/108, published EGA III1 §3.1, and Michèle Raynaud’s SGA 1 XII §4 in the electronic re-edition. The source findings are:
+
+- E1: Nitsure 3.7(3) fails over a nonreduced base. The extension on P¹ over dual numbers gives constant fibre h⁰/h¹ and a nonfree pushforward. Use vanishing plus the valid cohomology/base-change criterion.
+- E2: EGA III1 3.1.2 omits the support condition used by its proof. The equal-component-length class on two points is a counterexample. Use Stacks 30.12.6 (01YI).
+- E3: The SGA electronic Ext comparison excludes degree 1 at the step that needs extension lifting. The intended comparison includes all nonnegative degrees.
+- E4: Nitsure’s regularity exercise needs the missing H⁰-surjectivity assumption; the P¹ Euler sequence supplies a counterexample.
+- E5: The generation argument in Nitsure 2.1(c) needs generation of the sheaf, rather than of its H⁰ vector space.
+
+The AMS publisher page returned 403, so Nitsure findings are explicitly scoped to the preprint, with no assertion about the chapter of record. The original SGA printing and publisher copy were not accessible; the finding is scoped to the electronic re-edition. Published EGA was read, and Stacks gives the corrected support criterion. Version histories, primary correction pages and targeted erratum searches are recorded in the packet. The mathematical targets use the corrected forms.
+
+The scratch source files and compile logs are disposable. Everything the reviewer needs to resume is in the four deliverables and the public source locators. Stop this session after its one pull request; do not claim another job.
