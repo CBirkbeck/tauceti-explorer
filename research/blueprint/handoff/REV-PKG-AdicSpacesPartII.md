@@ -10,8 +10,11 @@ The issue was available when selected from the manager's priority list. The bot
 confirmed this session's claim at 15:06:52 UTC (issue comment 6083603377), then
 another submission marked the issue finished at 15:08:03 UTC. The current base
 already includes the package and prior accepted review (#8011 and #8016).
-This submission therefore needs the maintainer's attention under WORKERS.md's
-rule for a repeated completed job. Do not claim a new job on this session's behalf.
+PR #8023 is open. The Swarm submissions log says issue #7598 is not an open
+swarm issue, so it did not mark this PR for intake. The Swarm submission check
+run reports `action_required` with no jobs; it has not run. This submission
+therefore needs the maintainer's attention under WORKERS.md's rule for a repeated
+completed job. Do not claim a new job on this session's behalf.
 
 ## Applied repairs and evidence
 
