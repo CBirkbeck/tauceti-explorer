@@ -29524,11 +29524,12 @@
     "REV-RS-08"
    ],
    "prompt": "research/blueprint/prompts/BP-SelmerIwasawaCohomology.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [
     "BP-PadicMeasuresIwasawaAlgebras"
    ],
-   "note": "claimed on GitHub issue #988"
+   "note": "deliverables arrived from an external worker on issue #988",
+   "finishedAt": "2026-10-09T23:52:51Z"
   },
   {
    "id": "REV-SelmerIwasawaCohomology",
@@ -35099,8 +35100,9 @@
    ],
    "avoidAccountOf": "BP-ArithmeticGaloisRepresentations--R01.6",
    "prompt": "research/blueprint/prompts/REV-ArithmeticGaloisRepresentations--R01.6.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7951"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7951",
+   "finishedAt": "2026-10-09T23:52:53Z"
   },
   {
    "id": "BP-ArithmeticKTheory--N.2",
@@ -79946,8 +79948,8 @@
     "FIX-RT-AREA-iwasawa-2~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-2~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #6219"
+   "state": "external",
+   "note": "claimed on GitHub issue #6219"
   },
   {
    "id": "RT-AREA-iwasawa-3",
