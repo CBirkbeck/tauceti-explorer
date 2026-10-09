@@ -45650,8 +45650,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-AdelicAlgebraicGroups.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7453"
+   "state": "pending",
+   "note": "released on GitHub issue #7453"
   },
   {
    "id": "REV-PKG-AdelicAlgebraicGroups",
@@ -45915,7 +45915,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-AutomorphicGaloisRepresentations.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7458"
   },
   {
    "id": "REV-PKG-AutomorphicGaloisRepresentations",
