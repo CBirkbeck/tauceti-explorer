@@ -4,6 +4,12 @@ This file is not the roadmap and is not exhaustive. The roadmap document
 statements suggest Lean forms so that contributors and reviewers can converge on
 names and signatures. They claim no implementation.
 
+REV-FIX-RT-AREA-algebraicgeometry~2 (Codex codex-sH10uY, 9 October 2026):
+the comparison laws required by the earlier area review are present. The homology
+supplier now explicitly includes the rank-one calculation at the Tate pair;
+finite-dimensionality alone does not justify a nonzero Tate period. The earlier
+review comments below describe their respective input revisions.
+
 FIX-RT-AREA-iwasawa-3~3 (Claude, session claude-kEZwtq, 7 October 2026):
 the comparison isomorphism is now the typed contract `PairDiagram.PeriodComparison`
 (natural for pullbacks and connecting maps, unital, multiplicative for the exterior
@@ -6319,6 +6325,10 @@ structure PairHomology where
   [module : ∀ X Y j, Module ℚ (H X Y j)]
   /-- Finite-dimensionality (SF.2). -/
   [finiteDimensional : ∀ X Y j, FiniteDimensional ℚ (H X Y j)]
+  /-- The Tate pair calculation supplied with actual singular homology:
+  `H_1(ℂ^*, {1}; ℚ)` has dimension one (HMS Theorem 1.6, proof, p. 5,
+  using Assumption B.20). This is additional to finite-dimensionality. -/
+  gm_finrank : Module.finrank ℚ (H Var.gm Var.gmOne 1) = 1
   /-- Pushforward along a map of pairs. -/
   pushforward : ∀ {X X' : Var} {Y : Closeds X.obj.left} {Y' : Closeds X'.obj.left} (f : X ⟶ X'),
     Set.MapsTo f.hom.left Y Y' → ∀ j, H X Y j →ₗ[ℚ] H X' Y' j
@@ -6426,7 +6436,9 @@ theorem singularRep_coboundary_natural {X V X' V' : Var} (ι : V ⟶ X)
           ⟨X, closedImage ι ⊤, i + 1⟩ from Edge.pullback f hf (i + 1)) := sorry
 
 /-- `H^*(𝔾_m, {1}, 1) = ℚ`. -/
-theorem singularRep_gm : Module.finrank ℚ ((singularRep Hs).obj gmVertex) = 1 := sorry
+theorem singularRep_gm : Module.finrank ℚ ((singularRep Hs).obj gmVertex) = 1 := by
+  change Module.finrank ℚ (Module.Dual ℚ (Hs.H Var.gm Var.gmOne 1)) = 1
+  rw [Subspace.dual_finrank_eq, Hs.gm_finrank]
 
 /-- `H^i(X(ℂ), Y(ℂ); ℚ)` is the dual of relative singular homology of the pair. -/
 def singularRep_eq_dual_homology (v : Vertex) :
