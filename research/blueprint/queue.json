@@ -43108,7 +43108,8 @@
    ],
    "revisionOf": "BP-ClassicalArithmeticCompletion",
    "prompt": "research/blueprint/prompts/BP-ClassicalArithmeticCompletion~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6513"
   },
   {
    "priority": 2,
@@ -48473,8 +48474,9 @@
     "PKG-HabiroCyclotomicCompletions~2"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-HabiroCyclotomicCompletions~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7932"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7932",
+   "finishedAt": "2026-10-09T20:22:42Z"
   },
   {
    "id": "PKG-HabiroRings",
