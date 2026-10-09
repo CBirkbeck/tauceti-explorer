@@ -16,343 +16,357 @@
         "kind": "abbrev",
         "module": "TauCeti/Algebra/BrauerGroup/Basic.lean",
         "provides": "Bundles a K-algebra A with instances Algebra.IsCentral K A, IsSimpleRing A, FiniteDimensional K A as a term of Mathlib's CSA K with carrier A.",
-        "checked": "Statement reread at the pinned commit; matching source bytes confirmed in the shared pinned build."
+        "checked": "Independently reread the declaration and its surrounding hypotheses at the recorded pinned commit; source bytes match the pinned Git object."
       },
       {
         "ref": "tauceti:TauCeti.BrauerGroup.mk",
         "kind": "abbrev",
         "module": "TauCeti/Algebra/BrauerGroup/Group.lean",
         "provides": "The Brauer class of a term of Mathlib's CSA K: the projection CSA K → BrauerGroup K.",
-        "checked": "Statement reread at the pinned commit; matching source bytes confirmed in the shared pinned build."
+        "checked": "Independently reread the declaration and its surrounding hypotheses at the recorded pinned commit; source bytes match the pinned Git object."
       },
       {
         "ref": "tauceti:TauCeti.BrauerGroup.instCommGroup",
         "kind": "instance",
         "module": "TauCeti/Algebra/BrauerGroup/Group.lean",
         "provides": "CommGroup structure on BrauerGroup.{u, u} K (K a field in Type u, algebras in Type u): product induced by the tensor product over K, identity the class of K, inverse the class of the opposite algebra.",
-        "checked": "Statement reread at the pinned commit; matching source bytes confirmed in the shared pinned build."
+        "checked": "Independently reread the declaration and its surrounding hypotheses at the recorded pinned commit; source bytes match the pinned Git object."
       },
       {
         "ref": "tauceti:TauCeti.BrauerGroup.baseChange",
         "kind": "def",
         "module": "TauCeti/Algebra/BrauerGroup/BaseChange.lean",
         "provides": "For a field extension L/K (both in Type u): the group homomorphism BrauerGroup.{u,u} K →* BrauerGroup.{u,u} L induced by A ↦ L ⊗[K] A.",
-        "checked": "Statement reread at the pinned commit; matching source bytes confirmed in the shared pinned build."
+        "checked": "Independently reread the declaration and its surrounding hypotheses at the recorded pinned commit; source bytes match the pinned Git object."
       },
       {
         "ref": "tauceti:TauCeti.BrauerGroup.baseChange_mk",
         "kind": "theorem",
         "module": "TauCeti/Algebra/BrauerGroup/BaseChange.lean",
         "provides": "baseChange K L (mk A) = mk (CSA.baseChange L A): the base change of the class of A is the class of L ⊗[K] A.",
-        "checked": "Statement reread at the pinned commit; matching source bytes confirmed in the shared pinned build."
+        "checked": "Independently reread the declaration and its surrounding hypotheses at the recorded pinned commit; source bytes match the pinned Git object."
       },
       {
         "ref": "tauceti:TauCeti.BrauerGroup.mk_eq_one_iff_isSplittingField",
         "kind": "theorem",
         "module": "TauCeti/Algebra/BrauerGroup/Splitting.lean",
         "provides": "[A] = 1 in Br(K) iff K splits A (K ⊗ A ≅ M_n(K)).",
-        "checked": "Statement reread at the pinned commit; matching source bytes confirmed in the shared pinned build."
+        "checked": "Independently reread the declaration and its surrounding hypotheses at the recorded pinned commit; source bytes match the pinned Git object."
       },
       {
         "ref": "tauceti:TauCeti.BrauerGroup.mk_mem_ker_baseChange_iff_isSplittingField",
         "kind": "theorem",
         "module": "TauCeti/Algebra/BrauerGroup/BaseChange.lean",
         "provides": "[A] dies in Br(L) iff L splits A.",
-        "checked": "Statement reread at the pinned commit; matching source bytes confirmed in the shared pinned build."
+        "checked": "Independently reread the declaration and its surrounding hypotheses at the recorded pinned commit; source bytes match the pinned Git object."
       },
       {
         "ref": "tauceti:TauCeti.subsingleton_brauerGroup_of_finite",
         "kind": "theorem",
         "module": "TauCeti/Algebra/BrauerGroup/Trivial.lean",
         "provides": "The Brauer group of a finite field is trivial.",
-        "checked": "Statement reread at the pinned commit; matching source bytes confirmed in the shared pinned build."
+        "checked": "Independently reread the declaration and its surrounding hypotheses at the recorded pinned commit; source bytes match the pinned Git object."
       },
       {
         "ref": "tauceti:TauCeti.Quaternion.mk_ne_one",
         "kind": "theorem",
         "module": "TauCeti/Algebra/BrauerGroup/Quaternion.lean",
         "provides": "The Brauer class of ℍ[ℝ] is not the identity.",
-        "checked": "Statement reread at the pinned commit; matching source bytes confirmed in the shared pinned build."
+        "checked": "Independently reread the declaration and its surrounding hypotheses at the recorded pinned commit; source bytes match the pinned Git object."
       },
       {
         "ref": "tauceti:TauCeti.Algebra.index",
         "kind": "def",
         "module": "TauCeti/Algebra/CentralSimple/Index.lean",
         "provides": "For a finite-dimensional central simple K-algebra A: the degree of the central division algebra in a chosen Wedderburn presentation of A.",
-        "checked": "Statement reread at the pinned commit; matching source bytes confirmed in the shared pinned build."
+        "checked": "Independently reread the declaration and its surrounding hypotheses at the recorded pinned commit; source bytes match the pinned Git object."
       },
       {
         "ref": "tauceti:TauCeti.Algebra.index_dvd_deg",
         "kind": "theorem",
         "module": "TauCeti/Algebra/CentralSimple/Index.lean",
         "provides": "For a finite-dimensional central simple K-algebra A: index K A divides deg K A.",
-        "checked": "Statement reread at the pinned commit; matching source bytes confirmed in the shared pinned build."
+        "checked": "Independently reread the declaration and its surrounding hypotheses at the recorded pinned commit; source bytes match the pinned Git object."
       },
       {
         "ref": "tauceti:TauCeti.Algebra.index_eq_deg_of_algEquiv_matrix",
         "kind": "theorem",
         "module": "TauCeti/Algebra/CentralSimple/Index.lean",
         "provides": "If A ≃ₐ[K] M_n(D) with n ≠ 0 and D a finite-dimensional central division K-algebra, then index K A = deg K D (the index does not depend on the presentation).",
-        "checked": "Statement reread at the pinned commit; matching source bytes confirmed in the shared pinned build."
+        "checked": "Independently reread the declaration and its surrounding hypotheses at the recorded pinned commit; source bytes match the pinned Git object."
       },
       {
         "ref": "tauceti:TauCeti.Algebra.isSplittingField_self_iff_index_eq_one",
         "kind": "theorem",
         "module": "TauCeti/Algebra/CentralSimple/Index.lean",
         "provides": "A finite-dimensional central simple K-algebra A is split over K (IsSplittingField K A K) iff index K A = 1.",
-        "checked": "Statement reread at the pinned commit; matching source bytes confirmed in the shared pinned build."
+        "checked": "Independently reread the declaration and its surrounding hypotheses at the recorded pinned commit; source bytes match the pinned Git object."
       },
       {
         "ref": "tauceti:TauCeti.Algebra.deg",
         "kind": "def",
         "module": "TauCeti/Algebra/CentralSimple/Degree.lean",
         "provides": "deg K A := Nat.sqrt (finrank K A), the degree of a central simple K-algebra (defined for every K-algebra; meaningful when the dimension is a square).",
-        "checked": "Statement reread at the pinned commit; matching source bytes confirmed in the shared pinned build."
+        "checked": "Independently reread the declaration and its surrounding hypotheses at the recorded pinned commit; source bytes match the pinned Git object."
       },
       {
         "ref": "tauceti:TauCeti.Algebra.isCentral_baseChange_iff",
         "kind": "theorem",
         "module": "TauCeti/Algebra/Central/BaseChange.lean",
         "provides": "For a field K, a nontrivial commutative K-algebra L and a K-algebra A: L ⊗[K] A is central over L iff A is central over K.",
-        "checked": "Statement reread at the pinned commit; matching source bytes confirmed in the shared pinned build."
+        "checked": "Independently reread the declaration and its surrounding hypotheses at the recorded pinned commit; source bytes match the pinned Git object."
       },
       {
         "ref": "tauceti:TauCeti.IsSimpleRing.nonempty_algEquiv_matrix_baseChange_of_isSepClosed",
         "kind": "theorem",
         "module": "TauCeti/Algebra/CentralSimple/Degree.lean",
         "provides": "For a finite-dimensional central simple K-algebra A and a separably closed field extension L/K: L ⊗[K] A ≃ₐ[L] M_d(L) with d = TauCeti.Algebra.deg K A.",
-        "checked": "Statement reread at the pinned commit; matching source bytes confirmed in the shared pinned build."
+        "checked": "Independently reread the declaration and its surrounding hypotheses at the recorded pinned commit; source bytes match the pinned Git object."
       },
       {
         "ref": "tauceti:TauCeti.Algebra.index_pos",
         "kind": "theorem",
         "module": "TauCeti/Algebra/CentralSimple/Index.lean",
         "provides": "The index of a finite-dimensional central simple algebra is positive.",
-        "checked": "Statement read in the source at the pinned commit; Tau Ceti source bytes compared with the pinned Git object where read from the current checkout."
+        "checked": "Independently reread the declaration and its surrounding hypotheses at the recorded pinned commit; source bytes match the pinned Git object."
       },
       {
         "ref": "tauceti:TauCeti.Algebra.deg_eq_of_finrank_eq_sq",
         "kind": "theorem",
         "module": "TauCeti/Algebra/CentralSimple/Degree.lean",
         "provides": "If the finite dimension of an algebra is n², its degree, defined by the natural square root, is n.",
-        "checked": "Statement read in the source at the pinned commit; Tau Ceti source bytes compared with the pinned Git object where read from the current checkout."
+        "checked": "Independently reread the declaration and its surrounding hypotheses at the recorded pinned commit; source bytes match the pinned Git object."
       },
       {
         "ref": "tauceti:TauCeti.Algebra.deg_eq_mul_index_of_algEquiv_matrix",
         "kind": "theorem",
         "module": "TauCeti/Algebra/CentralSimple/Index.lean",
         "provides": "A presentation A ≃ M_a(D), with a positive and D central division, gives deg(A)=a·index(A).",
-        "checked": "Statement read in the source at the pinned commit; Tau Ceti source bytes compared with the pinned Git object where read from the current checkout."
+        "checked": "Independently reread the declaration and its surrounding hypotheses at the recorded pinned commit; source bytes match the pinned Git object."
       },
       {
         "ref": "tauceti:TauCeti.skolemNoether",
         "kind": "theorem",
         "module": "TauCeti/Algebra/CentralSimple/SkolemNoether.lean",
         "provides": "Two K-algebra maps from a central simple algebra B to a finite-dimensional simple algebra A differ by conjugation by a unit of A.",
-        "checked": "Statement read in the source at the pinned commit; Tau Ceti source bytes compared with the pinned Git object where read from the current checkout."
+        "checked": "Independently reread the declaration and its surrounding hypotheses at the recorded pinned commit; source bytes match the pinned Git object."
       },
       {
         "ref": "mathlib:IntermediateField.adjoin",
         "kind": "def",
         "module": "Mathlib/FieldTheory/IntermediateField/Adjoin/Defs.lean",
         "provides": "The least intermediate field containing a specified set.",
-        "checked": "Statement read in the source at the pinned commit; Tau Ceti source bytes compared with the pinned Git object where read from the current checkout."
+        "checked": "Independently reread the declaration and its surrounding hypotheses at the recorded pinned commit; source bytes match the pinned Git object."
       },
       {
         "ref": "mathlib:IntermediateField.adjoin_le_iff",
         "kind": "theorem",
         "module": "Mathlib/FieldTheory/IntermediateField/Adjoin/Defs.lean",
         "provides": "An adjoined field lies in L exactly when its generating set lies in L.",
-        "checked": "Statement read in the source at the pinned commit; Tau Ceti source bytes compared with the pinned Git object where read from the current checkout."
+        "checked": "Independently reread the declaration and its surrounding hypotheses at the recorded pinned commit; source bytes match the pinned Git object."
       },
       {
         "ref": "mathlib:Algebra.adjoin",
         "kind": "def",
         "module": "Mathlib/Algebra/Algebra/Subalgebra/Lattice.lean",
         "provides": "The least unital subalgebra containing a set.",
-        "checked": "Statement read in the source at the pinned commit; Tau Ceti source bytes compared with the pinned Git object where read from the current checkout."
+        "checked": "Independently reread the declaration and its surrounding hypotheses at the recorded pinned commit; source bytes match the pinned Git object."
       },
       {
         "ref": "mathlib:Matrix.trace_mul_comm",
         "kind": "theorem",
         "module": "Mathlib/LinearAlgebra/Matrix/Trace.lean",
         "provides": "For matrices of compatible sizes over a commutative coefficient structure, tr(AB)=tr(BA).",
-        "checked": "Statement read in the source at the pinned commit; Tau Ceti source bytes compared with the pinned Git object where read from the current checkout."
+        "checked": "Independently reread the declaration and its surrounding hypotheses at the recorded pinned commit; source bytes match the pinned Git object."
       },
       {
         "ref": "mathlib:Matrix.ext_iff_trace_mul_right",
         "kind": "theorem",
         "module": "Mathlib/LinearAlgebra/Matrix/Trace.lean",
         "provides": "A=B exactly when tr(Ax)=tr(Bx) for all x of transposed dimensions; this gives a nondegenerate matrix trace pairing in every characteristic.",
-        "checked": "Statement read in the source at the pinned commit; Tau Ceti source bytes compared with the pinned Git object where read from the current checkout."
+        "checked": "Independently reread the declaration and its surrounding hypotheses at the recorded pinned commit; source bytes match the pinned Git object."
       },
       {
         "ref": "mathlib:Module.Basis.ofSpan",
         "kind": "theorem",
         "module": "Mathlib/LinearAlgebra/Basis/VectorSpace.lean",
         "provides": "A spanning set over a division ring contains a basis.",
-        "checked": "Statement read in the source at the pinned commit; Tau Ceti source bytes compared with the pinned Git object where read from the current checkout."
+        "checked": "Independently reread the declaration and its surrounding hypotheses at the recorded pinned commit; source bytes match the pinned Git object."
       },
       {
         "ref": "mathlib:Module.Basis.ofSpan_subset",
         "kind": "theorem",
         "module": "Mathlib/LinearAlgebra/Basis/VectorSpace.lean",
         "provides": "The chosen basis elements belong to the original spanning set.",
-        "checked": "Statement read in the source at the pinned commit; Tau Ceti source bytes compared with the pinned Git object where read from the current checkout."
+        "checked": "Independently reread the declaration and its surrounding hypotheses at the recorded pinned commit; source bytes match the pinned Git object."
       },
       {
         "ref": "mathlib:Module.finrank_matrix",
         "kind": "theorem",
         "module": "Mathlib/LinearAlgebra/Dimension/Constructions.lean",
         "provides": "The dimension of matrices over a module is the product of the two index cardinalities and its dimension.",
-        "checked": "Statement read in the source at the pinned commit; Tau Ceti source bytes compared with the pinned Git object where read from the current checkout."
+        "checked": "Independently reread the declaration and its surrounding hypotheses at the recorded pinned commit; source bytes match the pinned Git object."
       },
       {
         "ref": "mathlib:Module.finrank_baseChange",
         "kind": "theorem",
         "module": "Mathlib/LinearAlgebra/Dimension/Constructions.lean",
         "provides": "The finite rank after scalar extension equals the original finite rank for the free modules in question.",
-        "checked": "Statement read in the source at the pinned commit; Tau Ceti source bytes compared with the pinned Git object where read from the current checkout."
+        "checked": "Independently reread the declaration and its surrounding hypotheses at the recorded pinned commit; source bytes match the pinned Git object."
       },
       {
         "ref": "mathlib:Submodule.eq_of_le_of_finrank_eq",
         "kind": "theorem",
         "module": "Mathlib/LinearAlgebra/FiniteDimensional/Basic.lean",
         "provides": "Contained submodules of equal finite dimension agree.",
-        "checked": "Statement read in the source at the pinned commit; Tau Ceti source bytes compared with the pinned Git object where read from the current checkout."
+        "checked": "Independently reread the declaration and its surrounding hypotheses at the recorded pinned commit; source bytes match the pinned Git object."
       },
       {
         "ref": "mathlib:IsSimpleRing.matrix",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/SimpleRing/Matrix.lean",
         "provides": "Nonempty finite square matrices over a simple ring form a simple ring.",
-        "checked": "Statement read in the source at the pinned commit; Tau Ceti source bytes compared with the pinned Git object where read from the current checkout."
+        "checked": "Independently reread the declaration and its surrounding hypotheses at the recorded pinned commit; source bytes match the pinned Git object."
       },
       {
         "ref": "mathlib:IsSimpleRing.of_eq_bot_or_eq_top",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/SimpleRing/Basic.lean",
         "provides": "A nontrivial ring is simple when every two-sided ideal is bottom or top.",
-        "checked": "Statement read in the source at the pinned commit; Tau Ceti source bytes compared with the pinned Git object where read from the current checkout."
+        "checked": "Independently reread the declaration and its surrounding hypotheses at the recorded pinned commit; source bytes match the pinned Git object."
       },
       {
         "ref": "mathlib:Matrix.charpoly_map",
         "kind": "theorem",
         "module": "Mathlib/LinearAlgebra/Matrix/Charpoly/Basic.lean",
         "provides": "Mapping entries along a coefficient ring homomorphism maps the characteristic polynomial along the same homomorphism.",
-        "checked": "Statement read in the source at the pinned commit; Tau Ceti source bytes compared with the pinned Git object where read from the current checkout."
+        "checked": "Independently reread the declaration and its surrounding hypotheses at the recorded pinned commit; source bytes match the pinned Git object."
       },
       {
         "ref": "mathlib:Matrix.charpoly_units_conj",
         "kind": "theorem",
         "module": "Mathlib/LinearAlgebra/Matrix/Charpoly/Basic.lean",
         "provides": "Characteristic polynomials are invariant under conjugation by a matrix unit.",
-        "checked": "Statement read in the source at the pinned commit; Tau Ceti source bytes compared with the pinned Git object where read from the current checkout."
+        "checked": "Independently reread the declaration and its surrounding hypotheses at the recorded pinned commit; source bytes match the pinned Git object."
       },
       {
         "ref": "mathlib:Matrix.trace_eq_neg_charpoly_coeff",
         "kind": "theorem",
         "module": "Mathlib/LinearAlgebra/Matrix/Charpoly/Coeff.lean",
         "provides": "In positive matrix size, the trace is minus the coefficient immediately below the leading term.",
-        "checked": "Statement read in the source at the pinned commit; Tau Ceti source bytes compared with the pinned Git object where read from the current checkout."
+        "checked": "Independently reread the declaration and its surrounding hypotheses at the recorded pinned commit; source bytes match the pinned Git object."
       },
       {
         "ref": "mathlib:separableClosure.isGalois",
         "kind": "theorem",
         "module": "Mathlib/FieldTheory/IsSepClosed.lean",
         "provides": "The relative separable closure in a normal extension is Galois; use the algebraic closure to obtain the absolute separable closure.",
-        "checked": "Statement read in the source at the pinned commit; Tau Ceti source bytes compared with the pinned Git object where read from the current checkout."
+        "checked": "Independently reread the declaration and its surrounding hypotheses at the recorded pinned commit; source bytes match the pinned Git object."
       },
       {
         "ref": "mathlib:SeparableClosure.isSepClosed",
         "kind": "theorem",
         "module": "Mathlib/FieldTheory/IsSepClosed.lean",
         "provides": "The separable closure constructed inside an algebraic closure is separably closed.",
-        "checked": "Statement read in the source at the pinned commit; Tau Ceti source bytes compared with the pinned Git object where read from the current checkout."
+        "checked": "Independently reread the declaration and its surrounding hypotheses at the recorded pinned commit; source bytes match the pinned Git object."
       },
       {
         "ref": "mathlib:IsSepClosed.lift",
         "kind": "theorem",
         "module": "Mathlib/FieldTheory/IsSepClosed.lean",
         "provides": "A separable extension embeds over its base into a separably closed extension.",
-        "checked": "Statement read in the source at the pinned commit; Tau Ceti source bytes compared with the pinned Git object where read from the current checkout."
+        "checked": "Independently reread the declaration and its surrounding hypotheses at the recorded pinned commit; source bytes match the pinned Git object."
       },
       {
         "ref": "mathlib:AlgebraicClosure.isAlgClosed",
         "kind": "theorem",
         "module": "Mathlib/FieldTheory/IsAlgClosed/AlgebraicClosure.lean",
         "provides": "The algebraic closure is an algebraically closed field.",
-        "checked": "Statement read in the source at the pinned commit; Tau Ceti source bytes compared with the pinned Git object where read from the current checkout."
+        "checked": "Independently reread the declaration and its surrounding hypotheses at the recorded pinned commit; source bytes match the pinned Git object."
       },
       {
         "ref": "mathlib:InfiniteGalois.fixedField_fixingSubgroup",
         "kind": "theorem",
         "module": "Mathlib/FieldTheory/Galois/Infinite.lean",
         "provides": "For a Galois extension, the fixed field of the fixing subgroup of an intermediate field is that field; the base-field case detects coefficients fixed by every automorphism.",
-        "checked": "Statement read in the source at the pinned commit; Tau Ceti source bytes compared with the pinned Git object where read from the current checkout."
+        "checked": "Independently reread the declaration and its surrounding hypotheses at the recorded pinned commit; source bytes match the pinned Git object."
       },
       {
         "ref": "mathlib:MonoidAlgebra.lift",
         "kind": "def",
         "module": "Mathlib/Algebra/MonoidAlgebra/Basic.lean",
         "provides": "A monoid map into a unital algebra extends uniquely to an algebra map on its monoid algebra.",
-        "checked": "Statement read in the source at the pinned commit; Tau Ceti source bytes compared with the pinned Git object where read from the current checkout."
+        "checked": "Independently reread the declaration and its surrounding hypotheses at the recorded pinned commit; source bytes match the pinned Git object."
       },
       {
         "ref": "mathlib:TwoSidedIdeal.span",
         "kind": "def",
         "module": "Mathlib/RingTheory/TwoSidedIdeal/Operations.lean",
         "provides": "The two-sided ideal generated by a subset of a possibly noncommutative ring.",
-        "checked": "Statement read in the source at the pinned commit; Tau Ceti source bytes compared with the pinned Git object where read from the current checkout."
+        "checked": "Independently reread the declaration and its surrounding hypotheses at the recorded pinned commit; source bytes match the pinned Git object."
       },
       {
         "ref": "mathlib:TwoSidedIdeal.ker",
         "kind": "def",
-        "module": "Mathlib/RingTheory/TwoSidedIdeal/Operations.lean",
+        "module": "Mathlib/RingTheory/TwoSidedIdeal/Kernel.lean",
         "provides": "The kernel of a ring homomorphism as a two-sided ideal.",
-        "checked": "Statement read in the source at the pinned commit; Tau Ceti source bytes compared with the pinned Git object where read from the current checkout."
+        "checked": "Independently reread the declaration and its surrounding hypotheses at the recorded pinned commit; source bytes match the pinned Git object."
       },
       {
         "ref": "mathlib:MeasureTheory.Measure.IsHaarMeasure.noAtoms",
         "kind": "theorem",
         "module": "Mathlib/MeasureTheory/Group/Measure.lean",
         "provides": "Indexed deprecated alias of IsHaarMeasure.nullSingletonClass (actual instance at line 943): Haar measure on a T1 weakly locally compact topological group has null singletons when the identity is not isolated. The source statement is read; prefer the instance name after the declaration index is regenerated.",
-        "checked": "Statement read in the source at the pinned commit; Tau Ceti source bytes compared with the pinned Git object where read from the current checkout."
+        "checked": "Independently reread the declaration and its surrounding hypotheses at the recorded pinned commit; source bytes match the pinned Git object."
       },
       {
         "ref": "tauceti:TauCeti.BrauerGroup.mk_eq_mk_of_algEquiv",
         "kind": "theorem",
         "module": "TauCeti/Algebra/BrauerGroup/Group.lean",
         "provides": "Isomorphic bundled central simple algebras have equal classes in the existing Brauer group.",
-        "checked": "Statement read in the source at the pinned commit; Tau Ceti source bytes compared with the pinned Git object where read from the current checkout."
+        "checked": "Independently reread the declaration and its surrounding hypotheses at the recorded pinned commit; source bytes match the pinned Git object."
       },
       {
         "ref": "mathlib:Matrix.aeval_self_charpoly",
         "kind": "theorem",
         "module": "Mathlib/LinearAlgebra/Matrix/Charpoly/Basic.lean",
         "provides": "Cayley–Hamilton: for a square matrix M over a commutative ring, aeval M M.charpoly = 0.",
-        "checked": "Statement reread at the pinned commit; matching source bytes confirmed in the shared pinned build."
+        "checked": "Independently reread the declaration and its surrounding hypotheses at the recorded pinned commit; source bytes match the pinned Git object."
       },
       {
         "ref": "mathlib:Module.Basis.baseChange",
         "kind": "def",
         "module": "Mathlib/LinearAlgebra/TensorProduct/Basis.lean",
         "provides": "A basis over R gives a basis of S tensor_R M over S, with basis vectors 1 tensor b_i.",
-        "checked": "Statement read in the source at the pinned commit; Tau Ceti source bytes compared with the pinned Git object where read from the current checkout."
+        "checked": "Independently reread the declaration and its surrounding hypotheses at the recorded pinned commit; source bytes match the pinned Git object."
       },
       {
         "ref": "mathlib:LinearMap.injective_iff_surjective_of_finrank_eq_finrank",
         "kind": "theorem",
         "module": "Mathlib/LinearAlgebra/FiniteDimensional/Lemmas.lean",
         "provides": "A linear map between finite-dimensional spaces of equal dimension is injective exactly when it is surjective.",
-        "checked": "Statement read in the source at the pinned commit; Tau Ceti source bytes compared with the pinned Git object where read from the current checkout."
+        "checked": "Independently reread the declaration and its surrounding hypotheses at the recorded pinned commit; source bytes match the pinned Git object."
       },
       {
         "ref": "mathlib:FiniteDimensional.span_of_finite",
         "kind": "theorem",
         "module": "Mathlib/LinearAlgebra/FiniteDimensional/Defs.lean",
         "provides": "The span of a finite set in a vector space over a division ring is finite-dimensional.",
-        "checked": "Statement read in the source at the pinned commit; Tau Ceti source bytes compared with the pinned Git object where read from the current checkout."
+        "checked": "Independently reread the declaration and its surrounding hypotheses at the recorded pinned commit; source bytes match the pinned Git object."
+      },
+      {
+        "ref": "mathlib:Algebra.adjoin_le_iff",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Algebra/Subalgebra/Lattice.lean",
+        "provides": "For a unital subalgebra S, the algebra generated by a set lies in S exactly when every generator lies in S.",
+        "checked": "Independently read at the pinned commit, line 559; source bytes match the pinned Git object."
+      },
+      {
+        "ref": "tauceti:TauCeti.Algebra.index_eq_of_algEquiv",
+        "kind": "theorem",
+        "module": "TauCeti/Algebra/CentralSimple/Index.lean",
+        "provides": "A base-field algebra equivalence of finite-dimensional central simple algebras preserves their index.",
+        "checked": "Independently read at the pinned commit, lines 139–141; source bytes match the pinned Git object."
       }
     ]
   },
@@ -610,7 +624,8 @@
       ],
       "prerequisites": [
         "ArithmeticGaloisRepresentations:R01.5/trace-field",
-        "mathlib:Algebra.adjoin"
+        "mathlib:Algebra.adjoin",
+        "mathlib:Algebra.adjoin_le_iff"
       ],
       "library": {
         "module": "TauCeti/RepresentationTheory/Galois/Recognition",
@@ -639,6 +654,11 @@
           "name": "TauCeti.GaloisRep.imageAlgebra_mem",
           "role": "constructor",
           "statement": "Each ρ(g) belongs to B."
+        },
+        {
+          "name": "TauCeti.GaloisRep.imageAlgebra_le_iff",
+          "role": "universal-property",
+          "statement": "For a Z-subalgebra S of M_n(Ω), B⊂S iff ρ(g)∈S for every g∈Γ."
         },
         {
           "name": "TauCeti.GaloisRep.imageAlgebra_span",
@@ -1566,7 +1586,8 @@
         "n>0."
       ],
       "proofSteps": [
-        "Supply the already planned CSA instances and use the existing presentation-independent index. The degree computation gives deg(B)=n. Each API statement is a specialization of a cited index or splitting theorem. The finite-field and quaternion tests reuse the same B and class as the Brauer tests."
+        "Supply the already planned CSA instances and use the existing presentation-independent index. The degree computation gives deg(B)=n. Each API statement is a specialization of a cited index or splitting theorem. The finite-field and quaternion tests reuse the same B and class as the Brauer tests.",
+        "Conjugacy identifies the trace fields and gives an algebra equivalence between the image algebras; index_eq_of_algEquiv supplies schurIndex_congr after transport along that field equality."
       ],
       "acceptance": [
         "The statement uses the stated full-span and dimension assumptions; no semisimplicity or splitting hypothesis is silently added."
@@ -1584,7 +1605,9 @@
         "tauceti:TauCeti.Algebra.deg_eq_mul_index_of_algEquiv_matrix",
         "tauceti:TauCeti.Algebra.deg_eq_of_finrank_eq_sq",
         "tauceti:TauCeti.Algebra.isSplittingField_self_iff_index_eq_one",
-        "tauceti:TauCeti.BrauerGroup.mk_eq_one_iff_isSplittingField"
+        "tauceti:TauCeti.BrauerGroup.mk_eq_one_iff_isSplittingField",
+        "ArithmeticGaloisRepresentations:R01.5/trace-field-conjugacy",
+        "tauceti:TauCeti.Algebra.index_eq_of_algEquiv"
       ],
       "library": {
         "module": "TauCeti/RepresentationTheory/Galois/Recognition",
@@ -1628,6 +1651,11 @@
           "name": "TauCeti.GaloisRep.schurIndex_of_matrix",
           "role": "compatibility",
           "statement": "If a>0, D is finite-dimensional central division over Z, and B≃M_a(D), then s(ρ)=deg_Z(D) and n=a·s(ρ)."
+        },
+        {
+          "name": "TauCeti.GaloisRep.schurIndex_congr",
+          "role": "functoriality",
+          "statement": "For full-span representations ρ and ρ′ conjugate over Ω, s(ρ)=s(ρ′). Identify their trace fields by trace-field-conjugacy and their image algebras by matrix conjugation."
         }
       ],
       "tests": [
@@ -1887,9 +1915,9 @@
     {
       "title": "Nonarchimedean analytic Haar-null bridge",
       "neededBy": [
-        "ArithmeticGaloisRepresentations:R01.5/haar-measure-chebotarev"
+        "ArithmeticGaloisRepresentations:R01.5/polynomial-conditions-on-frobenius-have-density-zero"
       ],
-      "detail": "For a compact open subgroup G of H(E), E a finite extension of ℚ_ℓ and H a smooth closed algebraic subgroup of GL_n, construct nonarchimedean analytic charts and identify Haar measure locally with a nonvanishing analytic density times additive chart measure. Deduce that a closed analytic subset of G with empty interior is Haar-null. For a polynomial f, require that its restriction not vanish identically on any algebraic component met by G; a condition on H° alone is sufficient only for a subgroup contained in that component or after checking the other cosets. The existing open-GL_n polynomial proof does not cover lower-dimensional groups such as GSp₄. DeligneWeightsAndPurity:DWP.3/haar-null-exceptional-eigenvalue-locus needs the same bridge and must share its owner. DifferentialGeometry currently uses real manifolds and does not provide it. This gap blocks the symplectic zero-locus application, not abstract clopen or boundary-null Chebotarev."
+      "detail": "The gap concerns the requested extension of polynomial-conditions-on-frobenius-have-density-zero to compact open subgroups of smooth algebraic groups, including GSp₄; the retained open-GL_n statement itself does not need this extension. For a compact open subgroup G of H(E), E a finite extension of ℚ_ℓ and H a smooth closed algebraic subgroup of GL_n, construct nonarchimedean analytic charts and identify Haar measure locally with a nonvanishing analytic density times additive chart measure. Deduce that a closed analytic subset of G with empty interior is Haar-null. For a polynomial f, require that its restriction not vanish identically on any algebraic component met by G; a condition on H° alone is sufficient only for a subgroup contained in that component or after checking the other cosets. The existing open-GL_n polynomial proof does not cover lower-dimensional groups such as GSp₄. DeligneWeightsAndPurity:DWP.3/haar-null-exceptional-eigenvalue-locus needs the same bridge and must share its owner. DifferentialGeometry currently uses real manifolds and does not provide it. This gap blocks the symplectic zero-locus application, not abstract clopen or boundary-null Chebotarev."
     },
     {
       "title": "Minuscule Lie-algebra semisimplicity input",
@@ -2216,18 +2244,35 @@
         "ArithmeticGaloisRepresentations:R01.5/image-algebra-characteristic-polynomials"
       ],
       "contract": "The current layer 4 contains central-simple structure but no reduced-polynomial target. The attached matrix coefficient descent is proved here by separable splitting; a reusable generic reduced-polynomial API is a Part II proposal, not a baseline or existing-roadmap claim."
+    },
+    {
+      "consumers": [
+        "ArithmeticGaloisRepresentations:R01.5/polynomial-conditions-on-frobenius-have-density-zero"
+      ],
+      "requestedGeneralization": "Compact open subgroups of smooth algebraic subgroups of GL_n, including GSp₄.",
+      "contract": "Keep the accepted open-GL_n theorem unchanged. Its algebraic-subgroup extension requires the recorded nonarchimedean analytic Haar-null bridge and nonvanishing on every component met by G. The abstract closed-set Chebotarev bound has no such analytic prerequisite."
     }
   ],
   "inheritedSourceIssues": [
     {
       "parentIssue": "ArithmeticGaloisRepresentations/E501",
       "scope": "Chenevier arXiv:0809.0415v2, Definition 2.19, p.33",
-      "effect": "Use the corrected residual split condition already recorded by the accepted parent. No claim about the unread published wording."
+      "effect": "Use the corrected residual split condition already recorded by the accepted parent. No claim about the unread published wording.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Reread arXiv v2 Definition 2.19, p.33: existence of a determinant-realizing representation alone is weaker than the faithful quotient being a product of matrix algebras over the base field. Retain the parent correction, with no assertion about the uncollated published chapter.",
+        "by": "REV-ArithmeticGaloisRepresentations--R01.5"
+      }
     },
     {
       "parentIssue": "ArithmeticGaloisRepresentations/E502",
       "scope": "BCGP25V1 Proposition 4.11.2, p.111",
-      "effect": "The twisted Asai off-subgroup eigenvalues are {1,−1,λ,λ⁻¹}. Retain the corrected reciprocal pair and its determinant/characteristic-polynomial test, not a repeated λ."
+      "effect": "The twisted Asai off-subgroup eigenvalues are {1,−1,λ,λ⁻¹}. Retain the corrected reciprocal pair and its determinant/characteristic-polynomial test; the printed pair λ,−λ in the cited arXiv version is incorrect.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Reread arXiv v1 Proposition 4.11.2 proof, p.111: the quadratic factor has constant coefficient one and reciprocal roots. The printed λ,−λ pair cannot satisfy that generic factor. Retain the parent correction, restricted to this version.",
+        "by": "REV-ArithmeticGaloisRepresentations--R01.5"
+      }
     }
   ],
   "upstreamNotes": [
@@ -2278,5 +2323,128 @@
       "detail": "Algebraic Goursat and specialized SL₂×SL₂ quotient representation classification are not explicit current targets.",
       "proposal": "Reductive groups, Part II: subgroup and representation comparisons. Build on layers 3, 5, 6 and their algebraic representations. Export algebraic Goursat with quotient hypotheses and the exact SL₂×SL₂ central-quotient/central-torus representation classification. Keep Asai/O₄ and N⋊O₄ witnesses in ArithmeticGaloisRepresentations."
     }
-  ]
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-ArithmeticGaloisRepresentations--R01.5",
+    "date": "2026-10-09",
+    "notes": "Independent review by Codex, session codex-ryNkhU; the author was session codex-AMR33J. Checked all 23 local nodes, all 51 final baseline declarations at the recorded pins, the 53 accepted-parent imports, six supplier requests, three bounded gaps, four definition/construction APIs, 12 unit tests, and six assembled planets. Corrected one baseline module, added two routine API items and their existing-library citations, strengthened two Lean tests, and corrected three reader descriptions plus analytic-gap consumer scope. No nodes added or removed and no source excerpts recorded. Complete is one finished planning pass; R01.5 remains planned with explicit gaps and version checks, not closed. Blueprint checker reports zero errors/warnings; lean-check exits successfully with 44 proof-placeholder warnings and no other warnings.",
+    "checked": [
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.5/trace-field",
+        "verdict": "verified",
+        "note": "Intermediate-field adjoin gives membership and minimality for every matrix size; the cubic and quaternion tests distinguish traces from entries."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.5/trace-field-conjugacy",
+        "verdict": "verified",
+        "note": "Cyclic trace and the two unit inverse identities identify the generating sets; no characteristic assumption is needed."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.5/image-algebra",
+        "verdict": "corrected",
+        "note": "Added the order universal property with Algebra.adjoin_le_iff. The adjoin is over the trace field, and the trivial rank-two test correctly rejects automatic full matrix image."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.5/image-algebra-span",
+        "verdict": "verified",
+        "note": "Products and the identity remain group generators, so their linear span is a unital subalgebra; both minimality inclusions are routine."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.5/image-algebra-trace",
+        "verdict": "verified",
+        "note": "Linear extension of trace from group generators puts all image-algebra traces in Z, including when the characteristic divides n."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.5/image-basis",
+        "verdict": "verified",
+        "note": "Basis.ofSpan and its generator-membership theorem give an image basis; finite matrix dimension reindexes it by Fin(n²), including n=0."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.5/trace-dual-basis",
+        "verdict": "verified",
+        "note": "The invertible trace Gram matrix has entries in Z; its inverse therefore has entries in Z. Traces of bρ(g_j) recover the coordinates without dividing by n."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.5/image-algebra-finite-dimensional",
+        "verdict": "verified",
+        "note": "The descended finite spanning family supplies finite-dimensionality over Z; finiteness over the original k is not asserted."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.5/image-algebra-dimension",
+        "verdict": "verified",
+        "note": "The same group-image basis is Z-independent by extension to Ω and Z-spanning by the Gram calculation, so its dimension is n²."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.5/image-algebra-base-change",
+        "verdict": "verified",
+        "note": "Basis.baseChange identifies the canonical multiplication map with a basis-to-basis map. The pure-tensor formula prevents an unspecified splitting from substituting for this map."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.5/image-algebra-central",
+        "verdict": "verified",
+        "note": "Transport centrality from the matrix algebra and apply the pinned base-change iff; the coefficient extensions meet its nontrivial commutative-algebra hypotheses."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.5/image-algebra-simple",
+        "verdict": "verified",
+        "note": "A basis of a nonzero ideal extends to a basis of B, preserving its injection under scalar extension. Matrix simplicity and equality of finite dimensions force the ideal to be B; n>0 is retained."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.5/split-characteristic-polynomial-invariance",
+        "verdict": "verified",
+        "note": "Cancel the two semilinear actions to obtain a linear matrix automorphism, then apply Skolem–Noether and invariance of characteristic polynomials under conjugation."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.5/image-algebra-characteristic-polynomials",
+        "verdict": "verified",
+        "note": "The separably-closed splitting has size n by the dimension calculation. Galois fixed fields descend its coefficients; comparison in an algebraic closure of Ω identifies them with the displayed matrix coefficients, even over imperfect Z."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.5/polynomial-field-equals-trace-field",
+        "verdict": "verified",
+        "note": "Coefficient descent gives one inclusion; trace_eq_neg_charpoly_coeff gives the other. Positive size and full span remain necessary hypotheses."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.5/image-algebra-faithful-determinant-quotient",
+        "verdict": "verified",
+        "note": "The group-algebra map is onto by the span description. Vanishing of all tested characteristic coefficients detects its kernel through the trace pairing. The polynomial-law kernel and quotient are imported from the existing IHG declarations."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.5/representation-brauer-class",
+        "verdict": "corrected",
+        "note": "The actual CSA constructor and class map are reused. Strengthened the Lean quaternion test to include the real-algebra equivalence with Hamilton quaternions already required by the packet; conjugacy and base change have the correct coefficient fields."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.5/split-image-realisation",
+        "verdict": "verified",
+        "note": "The Brauer splitting criterion and dimension n² give a matrix realization of size n. Skolem–Noether gives its conjugator; conversely the Z-valued image generates a full Z matrix algebra. Inverse group elements ensure a GL-valued form."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.5/split-image-realisation-extension",
+        "verdict": "verified",
+        "note": "Apply the same comparison after extension Z⊂L⊂Ω and the pinned Brauer base-change kernel criterion; the extension has the required scalar tower."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.5/representation-schur-index",
+        "verdict": "corrected",
+        "note": "Added conjugacy invariance through the pinned index_eq_of_algEquiv, after identifying trace fields. Strengthened the quaternion Lean test to include real dimension four. Index is division-algebra degree, not algebra dimension."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.5/rank-two-polarized-relations",
+        "verdict": "verified",
+        "note": "Read BLR Proposition 1, pp.323–324. Its determinant-twisted inversion yields both polarized identities simultaneously; the source proof does not divide by two or assume surjectivity."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.5/rank-two-quadratic-ideal-kernel",
+        "verdict": "corrected",
+        "note": "Read BLR Proposition 2, p.324, including the commutator-annihilator argument under full matrix image. Corrected TwoSidedIdeal.ker to its actual pinned Kernel.lean module and added that explicit Lean import."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.5/rank-two-annihilation-isotypic",
+        "verdict": "verified",
+        "note": "Read BLR Theorem 1, pp.324–325. The group-element ideal equals the full matrix kernel, so a tested module factors through M₂(F) and is a sum of its standard module. The IHG matrix-module interface requires full CH annihilation, established after this quotient comparison; no semisimplicity assumption is inserted and N=0 is allowed."
+      }
+    ]
+  }
 }
