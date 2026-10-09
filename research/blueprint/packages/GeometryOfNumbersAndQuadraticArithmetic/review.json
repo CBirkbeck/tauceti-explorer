@@ -1,0 +1,8 @@
+{
+  "review": {
+    "status": "needs_changes",
+    "reviewer": "independent-review-REV-PKG-GeometryOfNumbersAndQuadraticArithmetic~adv",
+    "date": "2026-10-09",
+    "notes": "Independent fixing review completed. Corrected minima ordering/Dirichlet bounds, DVR finiteness and atomic shear/scope, signed transfer characteristic, maximal mass types/factors and proper-mass bridge, Q/S/basepoint/group-completion conventions, native duality and common-shift cone API, source locators and Gaussian positive-rank guards; Lean exit 0 with only sorry warnings. Real unresolved contracts: hermitian density/model/functional-equation proofs; number-ring genus/metric and Tamagawa/archimedean/smooth-model mass inputs; harmonic theta/Davenport inputs; Howe–Moore, nondivergence and Ratner rigidity/time averages; original all-index transference/mean-value proofs; derived/stable Poincare/dg/spectrum comparisons; general duality-stable s-filtering exact quotient and build order. See the exhaustive review report for 300 targets, all 147 packet lemmas and 54 inherited gap dispositions. Not ready for an upstream draft."
+  }
+}

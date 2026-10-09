@@ -1,12 +1,13 @@
 import Mathlib
 import TauCeti.Algebra.Category.FGModuleCat.Basic
+import TauCeti.CategoryTheory.InvolutiveDual
 import TauCeti.CategoryTheory.Exact.Split
 import TauCeti.CategoryTheory.Exact.Functor
 import TauCeti.CategoryTheory.Exact.Opposite
 import TauCeti.CategoryTheory.GrothendieckGroup.Exact
 
 /-!
-# Geometry of numbers, quadratic forms and homogeneous arithmetic: representative target signatures
+# GeometryOfNumbersAndQuadraticArithmetic: representative target signatures
 
 The mathematical roadmap is `README.md`. This file records definitions and theorem signatures
 which can be stated against the pinned Mathlib and Tau Ceti APIs, together with unit tests as
@@ -60,39 +61,7 @@ end Gram
 
 
 
-/-- Fin n uses zero-based indices. -/
-theorem ordered_tail_product {n : ℕ} (a : Fin n → ℝ) (ha : Monotone a)
-    (h1 : ∀ i, 1 ≤ a i) (i : Fin n) :
-    a i ^ (n - i.val) ≤ ∏ j, a j := by sorry
-
-/-- V ≥ 1 follows, rather than being hidden. -/
-theorem ordered_product_root_bound {n : ℕ} (a : Fin n → ℝ) (ha : Monotone a)
-    (h1 : ∀ i, 1 ≤ a i) (V : ℝ) (hV : (∏ j, a j) ≤ V) (i : Fin n) :
-    a i ≤ Real.rpow V ((n - i.val : ℕ) : ℝ)⁻¹ := by sorry
-
-/-- The box lives in E, not an ambient over-space. -/
-theorem orthonormal_cube_volume
-    {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E]
-    [FiniteDimensional ℝ E] [MeasurableSpace E] [BorelSpace E]
-    {n : ℕ} (b : OrthonormalBasis (Fin n) ℝ E) (r : ℝ) (hr : 0 ≤ r) :
-    volume {x : E | ∀ i, |b.repr x i| ≤ r} = ENNReal.ofReal ((2 * r) ^ n) := by sorry
-
-/-- The normalized radius requires positive dimension. -/
-theorem inscribed_cube
-    {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E]
-    {n : ℕ} (b : OrthonormalBasis (Fin n) ℝ E) (hn : 0 < n) :
-    {x : E | ∀ i, |b.repr x i| ≤ (Real.sqrt n)⁻¹} ⊆
-      Metric.closedBall (0 : E) 1 := by sorry
-
-/-- No spherical surface measure. -/
-theorem intrinsic_ball_lower_bound
-    {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E]
-    [FiniteDimensional ℝ E] [MeasurableSpace E] [BorelSpace E]
-    {n : ℕ} (b : OrthonormalBasis (Fin n) ℝ E) (hn : 0 < n) :
-    ENNReal.ofReal ((2 / Real.sqrt n) ^ n) ≤ volume (Metric.closedBall (0 : E) 1) := by sorry
-
-/- Discriminating unit tests.
-   Exact finite computations are independently exercised in the scratch verification. -/
+/-! Tests of Gram determinants and the geometric bounds. -/
 
 section Tests
 
@@ -115,25 +84,6 @@ example (v : Fin 2 → ℂ) (hv : ∀ i, ‖v i‖ ^ 2 ≤ 5) :
 example : ((!![(2 : ℝ), 1; 1, 1]).det : ℝ) = 1 := by sorry
 example : ((!![(4 : ℝ), 0; 0, 9]).det : ℝ) = 36 := by sorry
 example : ((!![(1 : ℝ), 0; 0, 1]).det : ℝ) = 1 := by sorry
-
-example : (1 : ℝ) ^ 3 ≤ ∏ j : Fin 3, (![1, 2, 4] : Fin 3 → ℝ) j := by sorry
-example : (2 : ℝ) ^ 2 ≤ ∏ j : Fin 3, (![1, 2, 4] : Fin 3 → ℝ) j := by sorry
-example : (4 : ℝ) ^ 1 ≤ ∏ j : Fin 3, (![1, 2, 4] : Fin 3 → ℝ) j := by sorry
-example : ¬ (2 : ℝ) ≤ ∏ j : Fin 2, (![1/2, 2] : Fin 2 → ℝ) j := by sorry
-example : ¬ (4 : ℝ) ^ 2 ≤ ∏ j : Fin 2, (![4, 1] : Fin 2 → ℝ) j := by sorry
-example : (4 : ℝ) ≤ Real.rpow 8 ((1 : ℝ)⁻¹) := by sorry
-example : (2 : ℝ) ≤ Real.rpow 4 ((2 : ℝ)⁻¹) := by sorry
-example : (1 : ℝ) ≤ Real.rpow 1 ((3 : ℝ)⁻¹) := by sorry
-
-example : volume {x : EuclideanSpace ℝ (Fin 0) | ∀ i, |x i| ≤ (0 : ℝ)} = 1 := by sorry
-example : volume {x : EuclideanSpace ℝ (Fin 1) | ∀ i, |x i| ≤ (0 : ℝ)} = 0 := by sorry
-example : volume {x : EuclideanSpace ℝ (Fin 2) | ∀ i, |x i| ≤ (3 : ℝ)} = 36 := by sorry
-example : (2 / Real.sqrt (1 : ℝ)) ^ 1 = 2 := by sorry
-example : (2 / Real.sqrt (4 : ℝ)) ^ 4 = 1 := by sorry
-example (n : ℕ) (hn : 0 < n) :
-    (2 / Real.sqrt n) ^ n = (2 : ℝ) ^ n * Real.rpow (n : ℝ) (-(n : ℝ) / 2) := by sorry
-example : ENNReal.ofReal ((2 / Real.sqrt (2 : ℝ)) ^ 2) ≤ 
-    volume (Metric.closedBall (0 : EuclideanSpace ℝ (Fin 2)) 1) := by sorry
 
 end Tests
 
@@ -326,6 +276,60 @@ end OrthogonalTests
 
 
 /-! ## Layer 1: Convex bodies, successive minima and Minkowski’s theorems -/
+
+/-- Fin n uses zero-based indices. -/
+theorem ordered_tail_product {n : ℕ} (a : Fin n → ℝ) (ha : Monotone a)
+    (h1 : ∀ i, 1 ≤ a i) (i : Fin n) :
+    a i ^ (n - i.val) ≤ ∏ j, a j := by sorry
+
+/-- V ≥ 1 follows, rather than being hidden. -/
+theorem ordered_product_root_bound {n : ℕ} (a : Fin n → ℝ) (ha : Monotone a)
+    (h1 : ∀ i, 1 ≤ a i) (V : ℝ) (hV : (∏ j, a j) ≤ V) (i : Fin n) :
+    a i ≤ Real.rpow V ((n - i.val : ℕ) : ℝ)⁻¹ := by sorry
+
+/-- The box lives in E, not an ambient over-space. -/
+theorem orthonormal_cube_volume
+    {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E]
+    [FiniteDimensional ℝ E] [MeasurableSpace E] [BorelSpace E]
+    {n : ℕ} (b : OrthonormalBasis (Fin n) ℝ E) (r : ℝ) (hr : 0 ≤ r) :
+    volume {x : E | ∀ i, |b.repr x i| ≤ r} = ENNReal.ofReal ((2 * r) ^ n) := by sorry
+
+/-- The normalized radius requires positive dimension. -/
+theorem inscribed_cube
+    {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E]
+    {n : ℕ} (b : OrthonormalBasis (Fin n) ℝ E) (hn : 0 < n) :
+    {x : E | ∀ i, |b.repr x i| ≤ (Real.sqrt n)⁻¹} ⊆
+      Metric.closedBall (0 : E) 1 := by sorry
+
+/-- No spherical surface measure. -/
+theorem intrinsic_ball_lower_bound
+    {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E]
+    [FiniteDimensional ℝ E] [MeasurableSpace E] [BorelSpace E]
+    {n : ℕ} (b : OrthonormalBasis (Fin n) ℝ E) (hn : 0 < n) :
+    ENNReal.ofReal ((2 / Real.sqrt n) ^ n) ≤ volume (Metric.closedBall (0 : E) 1) := by sorry
+
+section GeometricBoundTests
+example : (1 : ℝ) ^ 3 ≤ ∏ j : Fin 3, (![1, 2, 4] : Fin 3 → ℝ) j := by sorry
+example : (2 : ℝ) ^ 2 ≤ ∏ j : Fin 3, (![1, 2, 4] : Fin 3 → ℝ) j := by sorry
+example : (4 : ℝ) ^ 1 ≤ ∏ j : Fin 3, (![1, 2, 4] : Fin 3 → ℝ) j := by sorry
+example : ¬ (2 : ℝ) ≤ ∏ j : Fin 2, (![1/2, 2] : Fin 2 → ℝ) j := by sorry
+example : ¬ (4 : ℝ) ^ 2 ≤ ∏ j : Fin 2, (![4, 1] : Fin 2 → ℝ) j := by sorry
+example : (4 : ℝ) ≤ Real.rpow 8 ((1 : ℝ)⁻¹) := by sorry
+example : (2 : ℝ) ≤ Real.rpow 4 ((2 : ℝ)⁻¹) := by sorry
+example : (1 : ℝ) ≤ Real.rpow 1 ((3 : ℝ)⁻¹) := by sorry
+
+example : volume {x : EuclideanSpace ℝ (Fin 0) | ∀ i, |x i| ≤ (0 : ℝ)} = 1 := by sorry
+example : volume {x : EuclideanSpace ℝ (Fin 1) | ∀ i, |x i| ≤ (0 : ℝ)} = 0 := by sorry
+example : volume {x : EuclideanSpace ℝ (Fin 2) | ∀ i, |x i| ≤ (3 : ℝ)} = 36 := by sorry
+example : (2 / Real.sqrt (1 : ℝ)) ^ 1 = 2 := by sorry
+example : (2 / Real.sqrt (4 : ℝ)) ^ 4 = 1 := by sorry
+example (n : ℕ) (hn : 0 < n) :
+    (2 / Real.sqrt n) ^ n = (2 : ℝ) ^ n * Real.rpow (n : ℝ) (-(n : ℝ) / 2) := by sorry
+example : ENNReal.ofReal ((2 / Real.sqrt (2 : ℝ)) ^ 2) ≤
+    volume (Metric.closedBall (0 : EuclideanSpace ℝ (Fin 2)) 1) := by sorry
+
+end GeometricBoundTests
+
 
 section SuccessiveMinima
 variable {E : Type*} [NormedAddCommGroup E] [NormedSpace ℝ E]
@@ -1202,7 +1206,8 @@ end AtomicDVRForms
 
 section QuaternionicLattices
 open MulOpposite
-variable (R K B V : Type*) [CommRing R] [Field K] [Algebra R K]
+variable (R K B V : Type*) [CommRing R] [IsDomain R] [Field K] [CharZero K]
+  [Algebra R K] [IsFractionRing R K]
   [Ring B] [StarRing B] [Algebra R B] [Algebra K B] [IsScalarTower R K B]
   [AddCommGroup V] [Module R V] [Module K V] [IsScalarTower R K V]
   [Module Bᵐᵒᵖ V] [IsScalarTower K Bᵐᵒᵖ V]
@@ -1331,16 +1336,21 @@ end SignedFieldForms
 
 section SignedHyperbolicTransfer
 variable {K V : Type*} [Field K] [StarRing K] [AddCommGroup V] [Module K V] [FiniteDimensional K V]
-def SignedHermitianSpace.IsHyperbolic {ε : K} (h : SignedHermitianSpace K V ε) : Prop :=
+/-- In characteristic different from two a Lagrangian splits off hyperbolic planes. -/
+def SignedHermitianSpace.IsHyperbolic [NeZero (2 : K)] {ε : K} (h : SignedHermitianSpace K V ε) : Prop :=
  ∃ N : Submodule K V, (N : Set V) = {x | ∀ y∈N, h.form x y=0}
 variable {F L W : Type*} [Field F] [StarRing F] [Field L] [StarRing L] [Algebra F L]
  [FiniteDimensional F L] [AddCommGroup W] [Module F W] [Module L W]
  [IsScalarTower F L W] [FiniteDimensional L W]
-theorem signedHermitianTransfer_hyperbolic (ε : F) (h : SignedHermitianSpace L W (algebraMap F L ε))
+theorem signedHermitianTransfer_hyperbolic [NeZero (2 : F)] [NeZero (2 : L)] (ε : F) (h : SignedHermitianSpace L W (algebraMap F L ε))
  (hε : ε=1 ∨ ε= -1) (ell : L →ₗ[F] F) (hell : ell ≠ 0)
  (hs : ∀ x, ell (star x)=star (ell x))
  (hstar : ∀ x : F, star (algebraMap F L x)=algebraMap F L (star x))
  (hh : h.IsHyperbolic) : (signedHermitianTransfer ε h hε ell hell hs hstar).IsHyperbolic := by sorry
+/-- In characteristic two the diagonal bilinear form is metabolic but nonalternating. -/
+example : ((!![(1 : ZMod 2), 0; 0, 1]).mulVec (![1,1])) = (![1,1] : Fin 2 → ZMod 2) := by sorry
+example : (1 : ZMod 2)*1 + 1*1 = 0 := by sorry
+example : (1 : ZMod 2)*1 + 0*0 ≠ 0 := by sorry
 end SignedHyperbolicTransfer
 
 
@@ -1438,6 +1448,71 @@ theorem genusMass_pos {I : Type*} [Fintype I] [Nonempty I] (w : I → ℕ)
 example : genusMass (fun _ : Unit => 2)=1/2 := by sorry
 example : genusMass (fun _ : Fin 2 => 2)=1 := by sorry
 example : genusMass (Fin.elim0 : Fin 0 → ℕ)=0 := by sorry
+
+/-- Local cases of the maximal quadratic-lattice mass table; ranks determine which cases apply. -/
+inductive MaximalMassLocalType
+  | zero | I | IIPlus | IIMinus | II | IIIPlus | IIIMinus
+  deriving DecidableEq
+
+/-- Convert the diagonal Hasse sign to Kirschmer's Witt sign, using the signed discriminant. -/
+def maximalMassWittSign (m : ℕ) (c hMinusMinus hMinusDisc hMinusNegDisc : ℤ) : ℤ :=
+  if m % 8 = 1 ∨ m % 8 = 2 then c
+  else if m % 8 = 5 ∨ m % 8 = 6 then c * hMinusMinus
+  else if m % 8 = 0 ∨ m % 8 = 3 then c * hMinusDisc
+  else c * hMinusNegDisc
+
+/-- Inputs are the actual local discriminant data and Witt sign, not arbitrary Hilbert symbols. -/
+def maximalMassLocalType (odd oddVal square ramified : Bool) (wittPositive : Bool) :
+    MaximalMassLocalType :=
+  if odd then
+    if oddVal then (if wittPositive then .IIPlus else .IIMinus)
+    else (if wittPositive then .zero else .I)
+  else if square then (if wittPositive then .zero else .I)
+  else if ramified then (if wittPositive then .IIIPlus else .IIIMinus)
+  else (if wittPositive then .zero else .II)
+
+/-- Rational local mass factor. Arithmetic use has q ≥ 2, positive rank and a compatible type. -/
+def maximalLocalMassFactor (q r : ℕ) (odd : Bool) (t : MaximalMassLocalType) : ℚ :=
+  match t with
+  | .zero => 1
+  | .I => if odd then ((q : ℚ)^(2*r)-1)/(2*((q : ℚ)+1))
+      else (((q : ℚ)^(r-1)-1)*((q : ℚ)^r-1))/(2*((q : ℚ)+1))
+  | .IIPlus => ((q : ℚ)^r+1)/2
+  | .IIMinus => ((q : ℚ)^r-1)/2
+  | .II => (((q : ℚ)^(r-1)+1)*((q : ℚ)^r+1))/(2*((q : ℚ)+1))
+  | .IIIPlus | .IIIMinus => 1/2
+
+theorem maximalLocalMassFactor_zero (q r : ℕ) (odd : Bool) :
+    maximalLocalMassFactor q r odd .zero = 1 := by sorry
+theorem maximalLocalMassFactor_odd_I (q r : ℕ) :
+    maximalLocalMassFactor q r true .I = ((q : ℚ)^(2*r)-1)/(2*((q : ℚ)+1)) := by sorry
+theorem maximalLocalMassFactor_even_II (q r : ℕ) :
+    maximalLocalMassFactor q r false .II =
+      (((q : ℚ)^(r-1)+1)*((q : ℚ)^r+1))/(2*((q : ℚ)+1)) := by sorry
+theorem maximalLocalMassFactor_even_III (q r : ℕ) :
+    maximalLocalMassFactor q r false .IIIPlus = 1/2 ∧
+      maximalLocalMassFactor q r false .IIIMinus = 1/2 := by sorry
+
+example : (-1 : ℚ)^(2*(2-1)/2) * (1*1) = -1 := by sorry
+example : (-1 : ℚ)^(2*(2-1)/2) * (1*(-1)) = 1 := by sorry
+example : maximalMassWittSign 3 1 (-1) (-1) 1 = -1 := by sorry
+example : maximalMassWittSign 5 1 (-1) 1 1 = -1 := by sorry
+example : maximalMassWittSign 2 (-1) (-1) (-1) 1 = -1 := by sorry
+example : maximalMassLocalType true true false true true = .IIPlus := by sorry
+example : maximalMassLocalType true true false true false = .IIMinus := by sorry
+example : maximalMassLocalType true false false false true = .zero := by sorry
+example : maximalMassLocalType false false false true false = .IIIMinus := by sorry
+example : maximalLocalMassFactor 2 1 true .I = 1/2 := by sorry
+example : maximalLocalMassFactor 2 1 true .IIPlus = 3/2 := by sorry
+example : maximalLocalMassFactor 2 1 true .IIMinus = 1/2 := by sorry
+example : maximalLocalMassFactor 3 2 false .I = 2 := by sorry
+example : maximalLocalMassFactor 3 2 false .II = 5 := by sorry
+example : maximalLocalMassFactor 2 2 false .IIIMinus = 1/2 := by sorry
+example : maximalLocalMassFactor 2 2 false .zero = 1 := by sorry
+example : (2 : ℚ) * (1/2) = 1 := by sorry
+example : (1 : ℚ)/4 + 1/4 = 2*(1/4) := by sorry
+example : ¬ (1 : ℚ) = 2*1 := by sorry
+
 end WeightedMass
 
 
@@ -2109,9 +2184,7 @@ exact duality of Layer 6 adds exactness of the functor to it. -/
 structure StrongCategoryDuality where
   dual : Cᵒᵖ ⥤ C
   biddual : 𝟭 C ≅ dual.rightOp ⋙ dual
-  coherence : ∀ X : C,
-    biddual.hom.app (dual.obj (op X)) ≫ dual.map ((biddual.hom.app X).op) =
-      𝟙 (dual.obj (op X))
+  coherence : dual.IsInvolutiveDual biddual
 
 variable {C}
 structure SymmetricSpace (D : StrongCategoryDuality C) where
@@ -2547,12 +2620,25 @@ def HermitianConeDiagram.diagram (U : HermitianConeDiagram E) : ConeIndex ⥤ C 
 /-- Equality in the actual localization is also eventual equality of fraction representatives. -/
 def ConeFraction.equivalent {U V : HermitianConeDiagram E} (f g : ConeFraction E U V) : Prop :=
   f.toLocalization E = g.toLocalization E
+/-- Advance a representative by the canonical upper-source and lower-target shift maps. -/
+def ConeFraction.advance {U V : HermitianConeDiagram E} (f : ConeFraction E U V)
+    (a b : ℕ) (ha : f.sourceShift ≤ a) (hb : f.targetShift ≤ b) : ConeFraction E U V := by sorry
+theorem ConeFraction.advance_shifts {U V : HermitianConeDiagram E} (f : ConeFraction E U V)
+    (a b : ℕ) (ha : f.sourceShift ≤ a) (hb : f.targetShift ≤ b) :
+    (f.advance E a b ha hb).sourceShift = a ∧ (f.advance E a b ha hb).targetShift = b := by sorry
+theorem ConeFraction.advance_localization {U V : HermitianConeDiagram E} (f : ConeFraction E U V)
+    (a b : ℕ) (ha : f.sourceShift ≤ a) (hb : f.targetShift ≤ b) :
+    (f.advance E a b ha hb).toLocalization E = f.toLocalization E := by sorry
 theorem ConeFraction.equivalent_iff {U V : HermitianConeDiagram E} (f g : ConeFraction E U V) :
-    f.equivalent E g ↔ ∃ a b : ℕ, f.sourceShift ≤ a ∧ g.sourceShift ≤ a ∧
-      f.targetShift ≤ b ∧ g.targetShift ≤ b ∧
-      ∃ F G : ConeFraction E U V,
-        F.sourceShift=a ∧ G.sourceShift=a ∧ F.targetShift=b ∧ G.targetShift=b ∧
-        F.toLocalization E=f.toLocalization E ∧ G.toLocalization E=g.toLocalization E ∧ HEq F.map G.map := by sorry
+    f.equivalent E g ↔ ∃ (a b : ℕ) (hfa : f.sourceShift ≤ a) (hga : g.sourceShift ≤ a)
+      (hfb : f.targetShift ≤ b) (hgb : g.targetShift ≤ b),
+      HEq (f.advance E a b hfa hfb).map (g.advance E a b hga hgb).map := by sorry
+example {U V : HermitianConeDiagram E} (f : ConeFraction E U V) :
+    f.advance E f.sourceShift f.targetShift le_rfl le_rfl = f := by sorry
+example {U V : HermitianConeDiagram E} (f : ConeFraction E U V) :
+    (f.advance E (f.sourceShift+1) (f.targetShift+1) (by omega) (by omega)).sourceShift = f.sourceShift+1 := by sorry
+example {U V : HermitianConeDiagram E} (f : ConeFraction E U V) :
+    (f.advance E (f.sourceShift+1) (f.targetShift+1) (by omega) (by omega)).toLocalization E = f.toLocalization E := by sorry
 /-- Reindexing functors, rather than component-only data, compose. -/
 def coneLowerShift_add (i j : ℕ) : coneLowerShift E i ⋙ coneLowerShift E j ≅ coneLowerShift E (i+j) := by sorry
 def coneShifts_commute (i j : ℕ) : coneLowerShift E i ⋙ coneUpperShift E j ≅
@@ -2628,7 +2714,7 @@ end NativeNerveAndConstantEmbedding
 section TopologicalGWAdapter
 open scoped unitInterval
 /- Here Qh and Q are the genuine supplied realizations, with the supplied forgetful map.
-The generic realization theorem is requested from H.1 and H.2, not redefined here. -/
+The nerve realization and homotopy-fibre comparison are the interfaces of 6.1 and 6.5. -/
 variable {Qh Q : Type*} [TopologicalSpace Qh] [TopologicalSpace Q]
 abbrev grothendieckWittSpace (forget : C(Qh,Q)) (zero : Q) :=
   {x : Qh × C(I,Q) // x.2 0 = forget x.1 ∧ x.2 1 = zero}
@@ -2652,6 +2738,14 @@ example (forget : C(Qh,Q)) (zeroForm : Qh) :
     (grothendieckWittSpace_base forget zeroForm).val.2 0 = forget zeroForm := by sorry
 example (forget : C(Qh,Q)) (zeroForm : Qh) :
     grothendieckWittSpace_projection forget (forget zeroForm) (grothendieckWittSpace_base forget zeroForm) = zeroForm := by sorry
+example [TopologicalSpace Bool] [DiscreteTopology Bool] :
+    IsEmpty (grothendieckWittSpace (ContinuousMap.const PUnit false) true) := by sorry
+example [TopologicalSpace Bool] [DiscreteTopology Bool] :
+    Nonempty (grothendieckWittSpace (ContinuousMap.id Bool) false) ∧
+      Subsingleton (grothendieckWittSpace (ContinuousMap.id Bool) false) := by sorry
+example [TopologicalSpace Bool] [DiscreteTopology Bool] :
+    Nonempty (grothendieckWittSpace (ContinuousMap.const PUnit false) false) ∧
+      Subsingleton (grothendieckWittSpace (ContinuousMap.const PUnit false) false) := by sorry
 end TopologicalGWAdapter
 
 section FibreFunctoriality
@@ -3031,7 +3125,7 @@ end TauCetiRoadmap.GeometryOfNumbersAndQuadraticArithmetic
 /-!
 ## Targets stated in `README.md` but not in this file
 
-Their carriers are not available at the pinned APIs: the Q-construction, K-groups, S-construction,
+The Dedekind-prime localization of 2.2 (`IntegralQuadraticLattice.localize`) also awaits its coefficient-ring carrier. Other omitted constructions are: the Q-construction, K-groups, S-construction,
 nonconnective K-theory spectrum, nerve realisation theorems and group completion of 6.1
 (`quillenQ`, `exactKGroup`, `nerveRealization`, `quillenTheoremA`, `waldhausenS`,
 `nonconnectiveKSpectrum`, `groupCompletion`); the genus and proper spinor genus of 2.4
