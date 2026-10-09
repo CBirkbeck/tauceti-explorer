@@ -2,7 +2,7 @@
 
 This part develops the trace interfaces used by local-field K-theory, the Beilinson square, topological K-theory and the arithmetic q-Hodge and Habiro comparisons. Its order follows the mathematical constructions: unbounded algebraic cyclic theory, coherent circle and cyclotomic structures, relative K/TC comparisons, complex topological K-theory, and then the even and solid filtrations required by the arithmetic comparisons. The declaration catalogue below gives the hypotheses, dependencies, proof route, API and tests for each target. It is organized by the roadmap’s stages, drawing on several sources for each development.
 
-The packet is a completed **target-level planning pass** with 153 nodes, 372 API items, 251 unit tests and 29 planets. All eight stages are planned and none is closed; 43 exact supplier requests and 4 gaps remain. The completed independent review is **needs_changes**: 113 nodes verified, 37 corrected and 3 unverifiable because the early RT.5 foundation has no acyclic supplier yet. Every implementation status remains unchecked. Successful elaboration of the suggested file validates signatures and test types; its mathematical proofs are placeholders.
+The packet is a completed **target-level planning pass** with 154 nodes, 372 API items, 251 unit tests and 29 planets. All eight stages are planned and none is closed; 42 exact supplier requests and 4 gaps remain. The retained independent review of the prior snapshot is **needs_changes** (113 verified, 37 corrected and 3 unverifiable). This third revision repairs those three imports using fine foundational declarations and a direct sourced Day-convolution unit proof; its acceptance is for the next independent review. Every implementation status remains unchecked. Successful elaboration of the suggested file validates signatures and test types; its mathematical proofs are placeholders.
 
 ## Scope and conventions
 
@@ -26,7 +26,7 @@ StableHomotopyKTheory H.5 supplies spectra, ring/module spectra and smash produc
 
 GeneralAlgebraicKTheory K.4 supplies connective K of perfect stable categories and its comparison with the discrete model; K.6 must compare the Frobenius-pair nonconnective model with the stable ∞-category model and supply multiplicativity. K.5 owns relative K. CR.4 owns de Rham–Witt complexes and their Witt operations. RT.2 proves the full graded TR realization requested by the CMM extraction; L.4 retains the π₀ Witt-vector specialization and arithmetic TR conventions, and L.5 owns local-field calculations. HR.6 supplies the degree-zero Habiro identification. RT.6 supplies general BMS quasisyntomic sheaves and motivic filtrations, beyond descent relative to a fixed prism.
 
-The current RT.5 stage follows RT.3, although its motives foundation is needed to construct the trace and the categorical coefficient-THH comparison. Importing that entire stage would create a cycle. This packet proposes an early RT.5 foundation for localizing motives, K corepresentability, tensor structure and dualizable categorical traces, followed by the later refined computations and continuous extensions. The foundation requests remain unresolved until that ordering repair is accepted and supplied. The proposal and gap below make this boundary explicit.
+The full RT.5 stage follows RT.3. This packet instead imports its existing fine declarations RT.5/localizing-motives and RT.5/dualizable-categories. Their prerequisite closures contain no RT.1–RT.4 targets: EDS and K-theory supply the foundations. The trace uses the finitary small-category restriction of motives, factors cyclotomic THH and only then forms the mapping spectrum defining TC; it needs no no-filtered-colimit comparison. RT.3/finitary-invariant-tensor-units gives the direct BGT proof of the K and IK Day-convolution units, with generic Day/localization operations requested from EDS. The relative κ-finitary tensor audit in the RT.5 packet is not imported. Categorical coefficient THH uses the duality of Mod_A ≃ Ind(Perf(A)), with its explicit H.5 module comparison request. The display split below remains a proposal for the atlas; these fine mathematical imports do not depend on applying it.
 
 The henselian K/TC square belongs to the proposed Part II on henselian pairs, which builds on RT.3; RT.3 exports the nilpotent, rational and filtered-tower comparisons. Real/equivariant topological K-theory, completion theorems and p-adic Adams operations belong to the separately proposed topological Part II. Consumers needing complex K-theory use RT.4:topological rather than the arithmetic aggregate RT.4.
 
@@ -2610,21 +2610,22 @@ For a connective E_1-ring A (modelled by an orthogonal ring spectrum), the under
 
 **Declaration:** `RT.2/thh-bimodule-coefficients` · construction.
 
-For an E₁-ring A and an A-bimodule M, THH(A;M) is the realization of the simplicial bar with n-simplices M⊗A^{⊗n}, endpoint faces given by the right and left module actions and inner faces by multiplication. It is functorial in bimodules and in compatible algebra maps, and equivalent to M⊗^L_{A⊗A^op}A. If M=A it recovers THH(A) with its circle action; a general bimodule does not by itself supply a cyclic structure or circle action. When −⊗_A M preserves Perf(A), this agrees with the categorical trace of that endofunctor, in Raskin’s dualizable-category trace formalism.
+For an E₁-ring A and an A-bimodule M, THH(A;M) is the realization of the simplicial bar with n-simplices M⊗A^⊗n, endpoint faces given by the right and left module actions and inner faces by multiplication. It is functorial in bimodules and compatible algebra maps, and equivalent to M⊗^L_(A⊗A^op)A. RT.5/dualizable-categories supplies duality for Mod_A ≃ Ind(Perf(A)) in Pr^L_st, with dual Mod_(A^op). The trace of the colimit-preserving endofunctor −⊗_A M of Mod_A is this same spectrum. If the endofunctor preserves perfect modules, it is the Ind extension of its restriction to Perf(A). This does not assert that Perf(A) itself is dualizable in Cat^perf_∞ for arbitrary A. M=A recovers THH(A) with its circle action; a general bimodule does not supply a cyclic structure.
 
 **Hypotheses:** Tensor products are spectral/derived; the Perf endofunctor comparison requires preservation of compact modules.
 
-**Direct prerequisites:** `RT.2/thh-e1-ring`; `RT.5`; `StableHomotopyKTheory:H.5:spectra`
+**Direct prerequisites:** `RT.2/thh-e1-ring`; `StableHomotopyKTheory:H.5:spectra`; `RT.5/dualizable-categories`; `EnhancedDerivedSheaves:E5:presentability/ind-completion`; `GeneralAlgebraicKTheory:K.4`
 
 **Construction or proof route:**
 
-1. Construct the simplicial bar using both actions and realize it.
-2. Identify it with the two-sided derived tensor product.
-3. Use the dualizable-category evaluation/coevaluation trace for the compact-preserving functor; specialize M=A for cyclic rotation.
+1. Construct and realize the bimodule bar, keeping its two endpoint actions distinct.
+2. Identify the bar with the derived tensor over A⊗A^op using the H.5 module tensor interface.
+3. Use RT.5/dualizable-categories on Ind(Perf(A)). Its evaluation is the pairing of right and left A-modules by derived tensor, and its coevaluation is the diagonal bimodule A. Insert the bimodule endofunctor and evaluate; the result is M⊗^L_(A⊗A^op)A. This is Raskin §1.12, Examples 1.12.1–1.12.2, p. 4.
+4. If −⊗_A M preserves compacts, identify it with the Ind extension of its Perf restriction. Only for the regular bimodule does cyclic rotation supply the circle action.
 
 **Sources:**
 
-- [raskin-18](https://arxiv.org/abs/1807.06709v1), Theorems 2.12.1–2.12.2, pp. 11–12; §3.1–3.2, pp. 13–15. Coefficient THH and categorical traces for dualizable categories.
+- [raskin-18](https://arxiv.org/abs/1807.06709v1), §1.10–1.12, Examples 1.12.1–1.12.2, p. 4; §4.3, p. 20. Presentable stable category duality, the module/bimodule trace identification, and cyclic symmetry. Theorems 2.12.1–2.12.2 concern derivatives, not this definition.
 
 **Uses that determine the interface:**
 
@@ -2635,7 +2636,7 @@ For an E₁-ring A and an A-bimodule M, THH(A;M) is the realization of the simpl
 
 - `RT3.THHcoeff` (constructor): Bimodule bar realization M↦THH(A;M).
 - `RT3.THHcoeff.map` (functoriality): Functoriality for compatible bimodule/ring maps.
-- `RT3.THHcoeff.categoricalTrace` (characterisation): Comparison to tr(Perf(A),−⊗_A M) in the compact-preserving range.
+- `RT3.THHcoeff.categoricalTrace` (characterisation): Comparison THH(A;M) ≃ tr_Mod_A(−⊗_A M), with Mod_A ≃ Ind(Perf(A)); compact preservation identifies the endofunctor with the Ind extension of its Perf restriction.
 
 **Unit tests:**
 
@@ -2651,7 +2652,9 @@ For an E₁-ring A and an A-bimodule M, THH(A;M) is the realization of the simpl
 - THH(A;A)≃THH(A), with the cyclic regular-bimodule circle action.
 - The two endpoints act through different bimodule structures; arbitrary M has no canonical cyclic rotation.
 
-**Independent review:** unverifiable. The bimodule bar and M⊗^L_{A^e}A formula are sound, with no automatic circle action for general M. Its additional compact-preserving categorical trace comparison still imports the circular whole RT.5 stage.
+**Prior independent review (8 October):** unverifiable. The bimodule bar and M⊗^L_{A^e}A formula are sound, with no automatic circle action for general M. Its additional compact-preserving categorical trace comparison still imports the circular whole RT.5 stage.
+
+**Revision response:** The third revision imports RT.5/dualizable-categories and computes the Mod_A trace from its evaluation/coevaluation data. H.5 supplies the exact module tensor/Morita comparison; the small Perf category is not asserted dualizable. The review verdict above records the prior snapshot and is not upgraded by this revision.
 
 ### Hesselholt’s de Rham–Witt comparison for TR
 
@@ -2818,23 +2821,23 @@ The topological Dennis trace is the natural transformation of additive invariant
 
 **Declaration:** `RT.3/cyclotomic-trace` · construction.
 
-There is a natural transformation tr : IK → TC of localizing invariants of small stable ∞-categories, the cyclotomic trace, lifting the Dennis trace along TC → THH. Construction (Hesselholt–Nikolaus, following Blumberg–Gepner–Tabuada): THH : Cat^{perf}_∞ → CycSp is a localizing, Morita invariant functor to a stable ∞-category, so it factors as tr ∘ z through the universal localizing invariant z : Cat^{perf}_∞ → NMot; then IK(C) ≃ map_{NMot}(z(Perf(S)), z(C)) (corepresentability) maps to map_{CycSp}(S^{triv}, THH(C)) = TC(C). For an E_1-ring A, tr : K(A) → TC(A) on connective K-theory is the composite with K → IK; it is natural in exact functors.
+There is a natural transformation tr : IK → TC of exact-sequence-preserving invariants of small idempotent-complete stable ∞-categories. Use the small-category, filtered-colimit-preserving restriction of RT.5/localizing-motives: Uloc : Cat^perf_∞ → Mloc and IK(C) ≃ map_Mloc(Uloc(Perf(S)), Uloc(C)). Cyclotomic THH is Morita invariant, localizing and filtered-colimit-preserving, so it extends to a colimit-preserving functor F : Mloc → CycSp. The induced map on mapping spectra, with F(Uloc(Perf(S))) ≃ S^triv, defines tr : IK(C) → map_CycSp(S^triv, THH(C)) = TC(C). The connective trace is K → IK → TC; its composite with TC → THH is the Dennis trace. TC need not preserve filtered colimits: the universal factorization is applied to cyclotomic THH, never to TC.
 
-**Hypotheses:** Small stable ∞-categories; TC of RT.2/topological-cyclic-homology.
+**Hypotheses:** Small idempotent-complete stable ∞-categories; the BGT finitary restriction of the motives supplier, not its arbitrary κ-finitary or no-filtered-colimit variant.; CycSp is stable and presentable, and its forgetful functor creates colimits and detects equivalences (RT.2/cyclotomic-spectrum); THH takes values there.
 
-**Direct prerequisites:** `RT.3/dennis-trace`; `RT.3/localizing-invariants`; `RT.2/topological-cyclic-homology`; `RT.2/thh-spectral-categories`; `GeneralAlgebraicKTheory:K.6/nonconnective-spectrum-and-derived-invariance`; `GeneralAlgebraicKTheory:K.4:construction/S-construction`; `GeneralAlgebraicKTheory:K.4`; `GeneralAlgebraicKTheory:K.6`; `RT.5`
+**Direct prerequisites:** `RT.3/dennis-trace`; `RT.3/localizing-invariants`; `RT.2/topological-cyclic-homology`; `RT.2/thh-spectral-categories`; `GeneralAlgebraicKTheory:K.6/nonconnective-spectrum-and-derived-invariance`; `GeneralAlgebraicKTheory:K.4:construction/S-construction`; `GeneralAlgebraicKTheory:K.4`; `GeneralAlgebraicKTheory:K.6`; `RT.5/localizing-motives`; `RT.2/cyclotomic-spectrum`; `RT.2/thh-e1-ring`; `RT.2/trivial-cyclotomic-adjunction`
 
 **Construction or proof route:**
 
-1. THH is localizing and Morita invariant with values in CycSp (RT.2/thh-spectral-categories, RT.2/cyclotomic-spectrum).
-2. Universal property of noncommutative motives NMot and corepresentability of IK (BGT Theorem 1.3/9.8; the version without filtered colimits is used by Hesselholt–Nikolaus and is recorded as an import from RT.5's localizing motives when it lands; here we use BGT's filtered-colimit version, which suffices since IK and THH preserve filtered colimits).
-3. Define tr on mapping spectra; check that TC → THH ∘ tr is the Dennis trace (compare classes in π_0Nat(K, THH) = ℤ).
-4. Infinite-loop-space description via the S_•-construction (Hesselholt–Nikolaus §1.1.2).
+1. THH localization and Morita invariance are supplied by RT.2/thh-spectral-categories. Its spectral bar preserves filtered colimits; because CycSp colimits are created on underlying circle spectra and equivalences are detected there, cyclotomic THH also preserves them.
+2. Specialize the existing RT.5/localizing-motives universal property to the finitary small-category construction over Sp. BGT Theorem 8.7 (pp. 55–56) gives the factorization F into CycSp, and Theorem 9.8 (p. 58) identifies the source mapping spectrum with the concrete nonconnective K-theory of K.6. No comparison to motives without a colimit axiom is needed.
+3. The THH unit identifies F(Uloc(Perf(S))) with the trivial cyclotomic sphere; applying F to mapping spectra defines the natural trace. Mapping out of the sphere is exact, so TC and the trace preserve exact sequences despite the absence of filtered-colimit preservation for TC.
+4. After restriction to connective K, identify the composite into THH by the sphere unit and the Dennis-trace classification (BGT Theorem 10.6). Hesselholt–Nikolaus §1.1.2, pp. 9–11, supplies the same mapping-spectrum construction and its S-construction interpretation.
 
 **Sources:**
 
-- [hesselholt-nikolaus-19](https://arxiv.org/abs/1905.08984v1), §1.1.2 'Topological cyclic homology and the trace', p. 10. Hesselholt–Nikolaus §1.1.2: the cyclotomic trace K(C) → TC(C) via noncommutative motives.
-- [bgt-13](https://arxiv.org/abs/1001.2282v4), §10.3, Theorem 10.11, p. 77 (with Lemmas 10.9-10.10). BGT Theorem 10.11: the cyclotomic trace as the generator of natural transformations K → TC.
+- [bgt-13](https://arxiv.org/abs/1001.2282v4), Theorem 8.7, pp. 55–56; Theorem 9.8, p. 58; Theorem 10.6, p. 75; §10.3, Proposition 10.8 and Theorem 10.11, pp. 76–77. Finitary universal localizing factorization, concrete nonconnective K corepresentability and trace normalization; the finite TC tower explains why TC itself is outside the finitary category.
+- [hesselholt-nikolaus-19](https://arxiv.org/abs/1905.08984v1), §1.1.2, pp. 9–11. Mapping-spectrum construction into CycSp and its connective S-construction comparison. Only the finitary factorization of THH is needed here.
 
 **Uses that determine the interface:**
 
@@ -2863,34 +2866,66 @@ There is a natural transformation tr : IK → TC of localizing invariants of sma
 
 **Planet:** Cyclotomic trace.
 
-**Independent review:** unverifiable. The motives construction is mathematically supported by Hesselholt–Nikolaus/BGT, but its whole-stage RT.5 import points back from a stage that already requires RT.3. The proposed early foundation is not an available acyclic supplier.
+**Prior independent review (8 October):** unverifiable. The motives construction is mathematically supported by Hesselholt–Nikolaus/BGT, but its whole-stage RT.5 import points back from a stage that already requires RT.3. The proposed early foundation is not an available acyclic supplier.
+
+**Revision response:** The third revision imports the existing fine RT.5/localizing-motives contract only at its finitary small-category restriction. THH factors into CycSp before mapping out of the sphere; neither non-finitary TC nor a no-filtered-colimit motive comparison is used. The review verdict above records the prior snapshot and is not upgraded by this revision.
+
+### K-theory units of finitary invariants
+
+**Declaration:** `RT.3/finitary-invariant-tensor-units` · theorem.
+
+The ∞-categories of spectrum-valued finitary additive and finitary localizing invariants of Cat^perf_∞ admit presentably symmetric monoidal Day convolution structures. Their tensor units identify respectively with connective K and concrete nonconnective IK. Here finitary means preservation of all filtered colimits; additive means split-exact-sequence preservation and localizing means exact-sequence preservation. The inclusions into all functors are lax symmetric monoidal, so a multiplicative map in the invariant category gives a multiplicative natural transformation of the underlying functors. This unit identification is the trace-specific specialization of BGT Theorems 5.14–5.15; generic Day convolution and monoidal accessible localization belong to EnhancedDerivedSheaves.
+
+**Hypotheses:** Small idempotent-complete stable ∞-categories with their exact tensor product; spectrum-valued functors preserving filtered colimits.
+
+**Direct prerequisites:** `RT.5/localizing-motives`; `GeneralAlgebraicKTheory:K.4`; `GeneralAlgebraicKTheory:K.6/nonconnective-spectrum-and-derived-invariance`; `EnhancedDerivedSheaves:E5:abstract/symmetric-monoidal-infinity-category`; `EnhancedDerivedSheaves:E5:abstract/stable-infinity-category`; `EnhancedDerivedSheaves:E5:presentability/presentable-categories`; `EnhancedDerivedSheaves:E5:presentability/compact-objects`
+
+**Construction or proof route:**
+
+1. On a suitably small subcategory of κ-compact stable categories, use the spectral presheaf Day convolution and extend functors by filtered colimits (BGT Proposition 5.12 and Corollary 5.13, p. 24).
+2. Localize at zero objects and split-exact, respectively exact, sequences. Tensoring with an exact stable category preserves these relations (BGT Lemma 5.5 and Propositions 5.6–5.7, pp. 22–23), so the EDS monoidal localization criterion applies. This is a source proof plan, not an assertion that the EDS generic definition already includes that criterion.
+3. Identify the localized covariant representable at Perf(S) with K by BGT Theorem 7.13 (p. 49) and with IK using the finitary restriction of RT.5/localizing-motives and BGT Theorem 9.8 (p. 58). The unit comparison is Theorems 5.14–5.15, pp. 24–25. No relative κ-finitary tensor statement is imported from RT.5.
+
+**Sources:**
+
+- [bgt-14](https://arxiv.org/abs/1103.3923v3), Lemma 5.5 and Propositions 5.6–5.7, pp. 22–23; Theorems 5.14–5.15, pp. 24–25. Day convolution descends along the exact-sequence relations and has the K-theory units; comparison with the universal motive functor.
+- [bgt-13](https://arxiv.org/abs/1001.2282v4), Theorem 7.13, p. 49; Theorem 9.8, p. 58. The sphere representable corepresents connective and nonconnective K in the respective invariant categories.
+
+**Acceptance criteria:**
+
+- The unit comparison uses K for split-exact invariants and IK for exact invariants, and is natural in small stable categories.
+- TC is excluded from both finitary categories; THH and each finite TC^n belong to the localizing category.
 
 ### Uniqueness and multiplicativity of the trace
 
 **Declaration:** `RT.3/trace-uniqueness-multiplicative` · theorem.
 
-In the presentably symmetric monoidal ∞-category of additive invariants (Day convolution, unit connective K), THH is an E_∞-algebra and the space of E_∞-algebra maps K → THH is contractible; its unique point is the Dennis trace. Likewise for each TC^n (Bökstedt–Hsiang–Madsen at a prime p), and the multiplicative cyclotomic trace is the unique homotopy class of E_∞-maps K → TC restricting to E_∞-maps K → TC^n; the same holds for IK among localizing invariants. Consequently tr is lax symmetric monoidal: for commutative A, tr : K(A) → TC(A) is a map of E_∞-rings, compatible with the products of GeneralAlgebraicKTheory K.7.
+In the finitary additive invariant category of RT.3/finitary-invariant-tensor-units, THH is an E∞-algebra and the space of E∞-maps K → THH is contractible; the Dennis trace represents its distinguished homotopy class. For a fixed prime p and each finite stage TC^n(−;p), the multiplicative mapping space K → TC^n is also contractible. The coherent compatible finite-stage maps determine the unique homotopy class of multiplicative maps K → TC(−;p) arising from that tower (BGT Theorem 7.4). The same unit argument gives IK → THH in finitary localizing invariants. TC itself need not preserve filtered colimits and is not an E∞-algebra in that finitary invariant category; no contractibility assertion for IK → TC there is made. For a connective E∞-ring A, the connective trace K(A) → TC(A;p) is a map of E∞-rings, compatible with K.7 products.
 
-**Hypotheses:** Additive (resp. localizing) invariants of small idempotent-complete stable ∞-categories.
+**Hypotheses:** Additive or localizing spectrum-valued invariants of small idempotent-complete stable ∞-categories, with preservation of all filtered colimits.; For the TC tower, fix a prime p and use the genuine finite TC^n stages and their coherent restriction transitions. The comparison with modern p-typical TC is used for THH of connective rings in the proved range.
 
-**Direct prerequisites:** `RT.3/cyclotomic-trace`; `RT.3/dennis-trace`; `RT.2/thh-symmetric-monoidal`; `GeneralAlgebraicKTheory:K.7/products-from-biexact-functors`; `EnhancedDerivedSheaves:E5:abstract/symmetric-monoidal-infinity-category`; `RT.5`; `GeneralAlgebraicKTheory:K.6`
+**Direct prerequisites:** `RT.3/cyclotomic-trace`; `RT.3/dennis-trace`; `RT.2/thh-symmetric-monoidal`; `GeneralAlgebraicKTheory:K.7/products-from-biexact-functors`; `EnhancedDerivedSheaves:E5:abstract/symmetric-monoidal-infinity-category`; `GeneralAlgebraicKTheory:K.6`; `RT.3/finitary-invariant-tensor-units`; `RT.2/tr-and-genuine-tc`; `RT.2/genuine-tc-agrees`
 
 **Construction or proof route:**
 
-1. K (resp. IK) is the tensor unit of additive (resp. localizing) invariants, hence initial among E_∞-algebras (BGT 2014, Theorem 1.5, Corollary 1.6).
-2. THH and TC^n are E_∞-algebras there (Theorem 1.10, Corollaries 6.9, 6.15).
-3. Conclude contractibility (Theorems 1.11, 1.12) and identify the point with the Dennis trace via π_0Nat(K, THH) = ℤ.
+1. Apply RT.3/finitary-invariant-tensor-units. Mapping from the tensor unit to an E∞-algebra is contractible (BGT Corollary 3.8, p. 15, and Corollary 7.2, p. 32).
+2. THH is a finitary localizing multiplicative invariant (BGT Corollary 6.9, p. 29). Finite TC^n are likewise multiplicative (Corollary 6.15, p. 31) and preserve filtered colimits by the TR induction in BGT 2013 Proposition 10.8, p. 76.
+3. Identify the Dennis trace by its sphere class. For TC use the homotopy limit of the coherent finite-stage mapping spaces and restriction maps, not a finitary factorization of TC. Theorem 7.4, p. 33, identifies the resulting unique homotopy class as the cyclotomic trace.
+4. Evaluate the lax symmetric monoidal transformation at the commutative algebra Perf(A), using the genuine/modern p-typical comparison for connective A. The result respects the K.7 products.
 
 **Sources:**
 
-- [bgt-14](https://arxiv.org/abs/1103.3923v3), §1, Theorem 1.11 (= Theorem 7.3), p. 5. BGT 2014 Theorems 1.11–1.12: contractible space of E_∞-maps K → THH, and the multiplicative cyclotomic trace.
-- [bgt-14](https://arxiv.org/abs/1103.3923v3), Theorems 1.11–1.12, pp. 4–5. The Dennis trace and cyclotomic trace have distinct uniqueness assertions; Theorem 1.12 is the cyclotomic one.
+- [bgt-14](https://arxiv.org/abs/1103.3923v3), Corollary 3.8, p. 15; Corollaries 6.9 and 6.15, pp. 29, 31; Corollary 7.2 and Theorems 7.3–7.4, pp. 32–33 (introduction Theorems 1.11–1.12, p. 5). Unit initiality, THH and finite TC multiplicativity, contractible finite-stage spaces, and the distinct compatible-tower uniqueness assertion for TC.
+- [bgt-13](https://arxiv.org/abs/1001.2282v4), §10.3, Proposition 10.8, p. 76; Lemmas 10.9–10.10 and Theorem 10.11, p. 77. Finite TC preserves filtered colimits; the inverse limit TC need not. The trace normalization is the unit class.
 
 **Acceptance criteria:**
 
-- For commutative A, the trace K_*(A) → TC_*(A) is a ring homomorphism (products of K.7 on the source).
+- For commutative connective A, the trace K_*(A) → TC_*(A;p) is a ring homomorphism with the K.7 source products.
+- The suggested statement contains the finite-stage contractible mapping spaces and the compatible limiting homotopy class; it does not place TC in the finitary Day category.
 
-**Independent review:** unverifiable. The coherent contractibility statement replaces strict vertex uniqueness, and the TC locator is supplied. Its RT.5 Day-convolution/motives foundation remains circular; correcting the signature does not resolve that import.
+**Prior independent review (8 October):** unverifiable. The coherent contractibility statement replaces strict vertex uniqueness, and the TC locator is supplied. Its RT.5 Day-convolution/motives foundation remains circular; correcting the signature does not resolve that import.
+
+**Revision response:** The third revision uses the sourced finitary-invariant-tensor-units theorem and finite TC tower. The Lean statement now includes finite-stage contractibility and the compatible limiting homotopy class, with modern comparison restricted to connective commutative rings. The review verdict above records the prior snapshot and is not upgraded by this revision.
 
 ### Relative K-theory, relative TC and K^inv
 
@@ -5819,35 +5854,35 @@ For P=Q[β], |β|=2 and differential zero, the derived Hochschild mixed object i
 
 ### RT.1 — planned
 
-- Supply EDS coherent D(Λ) localization and DD smooth étale-chart/Koszul/de Rham interfaces in the exact requested range. Target definitions, cyclic coextensions and base-change restrictions are planned.
+Supply EDS coherent D(Λ) localization and DD smooth étale-chart/Koszul/de Rham interfaces in the exact requested range. Target definitions, cyclic coextensions and base-change restrictions are planned.
 
 ### RT.2 — planned
 
-- Supply general coherent action Kan extensions, mapping spaces and presentability, H.5 ring/module models, and the Barwick–Glasman orthogonal/genuine comparison proof. Resolve the early RT.5 categorical trace split before using that comparison.
+Supply general coherent action Kan extensions, mapping spaces and presentability, H.5 ring/module models, and the Barwick–Glasman orthogonal/genuine comparison proof. The coefficient trace now uses the early RT.5/dualizable-categories contract and the exact H.5 module duality request.
 
 ### RT.3 — planned
 
-- Supply K.4/K.6 Perf and stable-category comparisons and the early RT.5 motives foundation after the ordering repair. Supply coherent Postnikov/sifted/tower interfaces. The Raskin convergence definitions and target proof steps are planned.
+Supply K.4/K.6 Perf and stable-category comparisons, the exact EDS Day-convolution/monoidal-localization request, and coherent Postnikov/sifted/tower interfaces. The finitary RT.5/localizing-motives contract supplies the trace foundation without a backward whole-stage edge; RT.3/finitary-invariant-tensor-units gives the sourced monoidal specialization.
 
 ### RT.3b — planned
 
-- Supply RT.6 general p-complete quasisyntomic/motivic descent and the recorded DD.0 Tor-amplitude interface. The TC Beilinson and low-weight reduction-fiber formulas are planned; the henselian K-theory square belongs to its separate Part II.
+Supply RT.6 general p-complete quasisyntomic/motivic descent and the recorded DD.0 Tor-amplitude interface. The TC Beilinson and low-weight reduction-fiber formulas are planned; the henselian K-theory square belongs to its separate Part II.
 
 ### RT.4 — planned
 
-- The early complex topological K-theory targets are planned; use RT.4:topological as their supplying stage. Keep later q-Hodge and Habiro prerequisites in their named substages.
+The early complex topological K-theory targets are planned; use RT.4:topological as their supplying stage. Keep later q-Hodge and Habiro prerequisites in their named substages.
 
 ### RT.4:Habiro-comparison — planned
 
-- Verify the source proof sketches of Wagner 5.51/5.63 and supply the coherent positive-divisor limit. Use the q-Hodge compatible lifts, actual A₂ morphism, fixed-point hypotheses and 2 invertible; import HR.6 for degree zero.
+Verify the source proof sketches of Wagner 5.51/5.63 and supply the coherent positive-divisor limit. Use the q-Hodge compatible lifts, actual A₂ morphism, fixed-point hypotheses and 2 invertible; import HR.6 for degree zero.
 
 ### RT.4:q-Hodge — planned
 
-- Supply VS2 light solid spectra and EDS coherent sites, filtered presentations and lifted Čech data. Verify Wagner’s explicit gluing/comparison proof sketches and clarify E14. All required even-flat, synthetic finite cyclic and compatible local/global lift definitions are planned.
+Supply VS2 light solid spectra and EDS coherent sites, filtered presentations and lifted Čech data. Verify Wagner’s explicit gluing/comparison proof sketches and clarify E14. All required even-flat, synthetic finite cyclic and compatible local/global lift definitions are planned.
 
 ### RT.4:topological — planned
 
-- Supply H.1/H.5 spectral and pointed model comparisons and the exact graded/derived Laurent HKR imports. Snaith now supplies the stable E∞ Adams construction. Real/equivariant/p-adic extensions remain the recorded Part II proposal.
+Supply H.1/H.5 spectral and pointed model comparisons and the exact graded/derived Laurent HKR imports. Snaith now supplies the stable E∞ Adams construction. Real/equivariant/p-adic extensions remain the recorded Part II proposal.
 
 ### Exact supplier requests
 
@@ -5881,61 +5916,59 @@ For P=Q[β], |β|=2 and differential zero, the derived Hochschild mixed object i
 
 15. **GeneralAlgebraicKTheory:K.6**: Extension/comparison of the Frobenius-pair IK spectrum with nonconnective K of Cat^perf_∞ and spectral Perf(A), functorial in exact functors and localizing on Verdier exact sequences; the current Frobenius-pair declaration has narrower input. Consumers: `RT.3/localizing-invariants`, `RT.3/cyclotomic-trace`, `RT.3/kinv-truncating`, `RT.3/truncating-excision`.
 
-16. **RefinedTraceMethods:RT.5**: The universal localizing motives category and corepresentability of nonconnective K, with the no-filtered-colimit convention used by Hesselholt–Nikolaus and comparison to BGT’s filtered-colimit variant, furnishing the construction of K→TC. This request targets the early foundation in the recorded RT.5 split proposal; the whole current stage cannot be imported acyclically. Consumers: `RT.3/cyclotomic-trace`, `RT.3/trace-uniqueness-multiplicative`.
+16. **RefinedTraceMethods:RT.6**: The pre-Beilinson quasisyntomic sheaf and filtered-map interface on p-complete p-torsion-free qSyn rings, extending the existing motivic-filtrations, cyclic-derham-comparison, syntomic-graded-tc, characteristic-p-tc-sheaf and trace-flat-descent nodes. Supply AMMN Theorem 5.1(2), p. 25 (proof pp. 34–35), left Kan extension of Z_p(n) from p-completed polynomial algebras, so Construction 6.16 and the proof of Theorem 6.17 factor the Hodge-completed graded trace through uncompleted derived de Rham with uniform p-denominators. Do not supply the desired Beilinson theorem or RT.6/ammn-filtered-interface as an input: that interface already imports RT.3b. PR.2 fixed-prism descent does not supply this site. Consumers: `RT.3b/graded-beilinson-square`.
 
-17. **RefinedTraceMethods:RT.6**: The pre-Beilinson quasisyntomic sheaf and filtered-map interface on p-complete p-torsion-free qSyn rings, extending the existing motivic-filtrations, cyclic-derham-comparison, syntomic-graded-tc, characteristic-p-tc-sheaf and trace-flat-descent nodes. Supply AMMN Theorem 5.1(2), p. 25 (proof pp. 34–35), left Kan extension of Z_p(n) from p-completed polynomial algebras, so Construction 6.16 and the proof of Theorem 6.17 factor the Hodge-completed graded trace through uncompleted derived de Rham with uniform p-denominators. Do not supply the desired Beilinson theorem or RT.6/ammn-filtered-interface as an input: that interface already imports RT.3b. PR.2 fixed-prism descent does not supply this site. Consumers: `RT.3b/graded-beilinson-square`.
+17. **EnhancedDerivedSheaves:E5:abstract**: Coherent localization of unbounded dg Λ-modules at underlying b-quasi-isomorphisms and the resulting Mod_Λ(D(k)), including tensor/derived Hom; not the derived category of mixed objects in an abelian category. Consumers: `RT.1/derived-mixed-complex`.
 
-18. **EnhancedDerivedSheaves:E5:abstract**: Coherent localization of unbounded dg Λ-modules at underlying b-quasi-isomorphisms and the resulting Mod_Λ(D(k)), including tensor/derived Hom; not the derived category of mixed objects in an abelian category. Consumers: `RT.1/derived-mixed-complex`.
+18. **EnhancedDerivedSheaves:E0**: Quasicategory-valued coherent diagrams on arbitrary small anima, action groupoids BG (including topological S¹), slices and N^op; functor/mapping spaces, coherent cones and homotopy limits, and Beck–Chevalley for these shapes. Supply accessibility witnesses by a regular cardinal, compact generating subcategory and Ind_κ equivalence; small limits/colimits alone are not presentability. Consumers: `RT.2/spectra-with-action`, `RT.2/parametrised-tate`, `RT.2/cyclic-realisation`, `RT.2/lax-equalizer`, `RT.2/endofunctor-coalgebras`, `RT.2/genuine-cyclotomic-coreflection`, `RT.3/tower-square`.
 
-19. **EnhancedDerivedSheaves:E0**: Quasicategory-valued coherent diagrams on arbitrary small anima, action groupoids BG (including topological S¹), slices and N^op; functor/mapping spaces, coherent cones and homotopy limits, and Beck–Chevalley for these shapes. Supply accessibility witnesses by a regular cardinal, compact generating subcategory and Ind_κ equivalence; small limits/colimits alone are not presentability. Consumers: `RT.2/spectra-with-action`, `RT.2/parametrised-tate`, `RT.2/cyclic-realisation`, `RT.2/lax-equalizer`, `RT.2/endofunctor-coalgebras`, `RT.2/genuine-cyclotomic-coreflection`, `RT.3/tower-square`.
+19. **EnhancedDerivedSheaves:E3**: Coherent left/right Kan extensions along arbitrary small maps needed here, specifically BG→* for a group anima and projections/slices of arbitrary space-indexed diagrams; pointwise (co)limit formulas, orbits⊣trivial⊣fixed, and the Beck–Chevalley base-change equivalence. The full-inclusion theorem is insufficient. Consumers: `RT.2/spectra-with-action`, `RT.2/homotopy-orbits-fixed-points`, `RT.2/parametrised-tate`, `RT.2/cyclic-realisation`.
 
-20. **EnhancedDerivedSheaves:E3**: Coherent left/right Kan extensions along arbitrary small maps needed here, specifically BG→* for a group anima and projections/slices of arbitrary space-indexed diagrams; pointwise (co)limit formulas, orbits⊣trivial⊣fixed, and the Beck–Chevalley base-change equivalence. The full-inclusion theorem is insufficient. Consumers: `RT.2/spectra-with-action`, `RT.2/homotopy-orbits-fixed-points`, `RT.2/parametrised-tate`, `RT.2/cyclic-realisation`.
+20. **EnhancedDerivedSheaves:E5:abstract**: Accessible presentable stable infinity categories with their coherent functor categories, mapping-space homotopy pullbacks, adjunctions and inverse towers; exact/accessible functor predicates and colimit-preserving left adjoints. Supply coherent arrow-category pullback construction for lax equalizers. Consumers: `RT.2/lax-equalizer`, `RT.2/cyclotomic-spectrum`, `RT.2/genuine-cyclotomic-spectrum`, `RT.2/endofunctor-coalgebras`, `RT.2/genuine-cyclotomic-coreflection`.
 
-21. **EnhancedDerivedSheaves:E5:abstract**: Accessible presentable stable infinity categories with their coherent functor categories, mapping-space homotopy pullbacks, adjunctions and inverse towers; exact/accessible functor predicates and colimit-preserving left adjoints. Supply coherent arrow-category pullback construction for lax equalizers. Consumers: `RT.2/lax-equalizer`, `RT.2/cyclotomic-spectrum`, `RT.2/genuine-cyclotomic-spectrum`, `RT.2/endofunctor-coalgebras`, `RT.2/genuine-cyclotomic-coreflection`.
+21. **GeneralAlgebraicKTheory:K.4**: Functorial Perf(A) for arbitrary E₁ rings, the connective Waldhausen S-construction on Cat^perf_∞, and natural comparisons with discrete K.2 plus-construction and spectral/dg Waldhausen models. Supply split additivity and comparison after connective restriction, including induced maps in bimodule square-zero directions. Consumers: `RT.3/dennis-trace`, `RT.3/cyclotomic-trace`, `RT.3/relative-trace`, `RT.3/stable-k-theory-thh`, `RT.3/stable-tc-thh`, `RT.3/dgm-theorem`, `RT.3/tower-square`.
 
-22. **GeneralAlgebraicKTheory:K.4**: Functorial Perf(A) for arbitrary E₁ rings, the connective Waldhausen S-construction on Cat^perf_∞, and natural comparisons with discrete K.2 plus-construction and spectral/dg Waldhausen models. Supply split additivity and comparison after connective restriction, including induced maps in bimodule square-zero directions. Consumers: `RT.3/dennis-trace`, `RT.3/cyclotomic-trace`, `RT.3/relative-trace`, `RT.3/stable-k-theory-thh`, `RT.3/stable-tc-thh`, `RT.3/dgm-theorem`, `RT.3/tower-square`.
+22. **GeneralAlgebraicKTheory:K.6**: Nonconnective K on small idempotent-complete stable infinity categories, localization on Verdier exact sequences, spectral Perf(A), and comparison with the Frobenius-pair model and connective K in nonnegative degrees; natural maps under exact functors. Consumers: `RT.3/localizing-invariants`, `RT.3/cyclotomic-trace`, `RT.3/trace-uniqueness-multiplicative`, `RT.3/relative-trace`, `RT.3/kinv-truncating`, `RT.3/truncating-excision`, `RT.3/tower-square`.
 
-23. **GeneralAlgebraicKTheory:K.6**: Nonconnective K on small idempotent-complete stable infinity categories, localization on Verdier exact sequences, spectral Perf(A), and comparison with the Frobenius-pair model and connective K in nonnegative degrees; natural maps under exact functors. Consumers: `RT.3/localizing-invariants`, `RT.3/cyclotomic-trace`, `RT.3/trace-uniqueness-multiplicative`, `RT.3/relative-trace`, `RT.3/kinv-truncating`, `RT.3/truncating-excision`, `RT.3/tower-square`.
+23. **StableHomotopyKTheory:H.5:spectra**: Coherent E₁ bimodule categories Mod_{A⊗A^op}, opposite algebras, derived tensor and restriction/base change; derivations ker(A⊗A→A)→ΣI, square-zero E₁ algebra multiplication and coherent algebra pullbacks, with connective subcategories. Consumers: `RT.3/square-zero-extensions`, `RT.2/thh-bimodule-coefficients`.
 
-24. **RefinedTraceMethods:RT.5**: Coherent localizing motives and corepresentability of nonconnective K, the unit/endomorphism description yielding K→TC, multiplicative naturality, and a precise comparison of Hesselholt–Nikolaus invariants without a filtered-colimit axiom to BGT invariants with that axiom. This request targets the early foundation in the recorded RT.5 split proposal; the whole current stage cannot be imported acyclically. Consumers: `RT.3/cyclotomic-trace`, `RT.3/trace-uniqueness-multiplicative`.
+24. **EnhancedDerivedSheaves:E0**: Coherent Postnikov inverse towers, coherent sifted diagrams in connective E₁ algebras and their square-zero derivation category, comparison cones and mapping-space limit properties. Consumers: `RT.3/postnikov-convergent`, `RT.3/infinitesimal-sifted-colimits`.
 
-25. **StableHomotopyKTheory:H.5:spectra**: Coherent E₁ bimodule categories Mod_{A⊗A^op}, opposite algebras, derived tensor and restriction/base change; derivations ker(A⊗A→A)→ΣI, square-zero E₁ algebra multiplication and coherent algebra pullbacks, with connective subcategories. Consumers: `RT.3/square-zero-extensions`, `RT.2/thh-bimodule-coefficients`.
+25. **StableHomotopyKTheory:H.6**: Coherent spectrum tower limits and their Milnor exact sequence, p-completion functoriality and compatibility with these towers under the bounded/connective hypotheses used by CMM continuity; an object sequence or finite-limit theorem is insufficient. Consumers: `RT.3/tower-square`, `RT.3/postnikov-convergent`.
 
-26. **RefinedTraceMethods:RT.5**: Dualizable-category trace of compact-preserving bimodule endofunctors of Perf(A), evaluation/coevaluation, and its bar comparison tr(−⊗_A M)≃M⊗^L_{A⊗A^op}A. This request targets the early foundation in the recorded RT.5 split proposal; the whole current stage cannot be imported acyclically. Consumers: `RT.2/thh-bimodule-coefficients`.
+26. **DerivedDeRhamCohomology:DD.0**: Characteristic-zero graded/derived HKR for the commutative dg algebra Q[β] and its localization Q[β^{±1}], |β|=2, with L=A dβ, Hochschild suspension in degree 3 and Connes B=d; support derived Laurent localization and graded exterior powers. The ordinary degree-zero smooth theorem is insufficient. Consumers: `RT.4:topological/graded-laurent-hkr`.
 
-27. **EnhancedDerivedSheaves:E0**: Coherent Postnikov inverse towers, coherent sifted diagrams in connective E₁ algebras and their square-zero derivation category, comparison cones and mapping-space limit properties. Consumers: `RT.3/postnikov-convergent`, `RT.3/infinitesimal-sifted-colimits`.
+27. **DerivedDeRhamCohomology:DD.1**: Koszul resolution of the graded diagonal of Q[β] and its localization Q[β^{±1}] over Q, with β degree 2 and its odd Hochschild generator degree 3; supplies the graded Laurent HKR calculation. Consumers: `RT.4:topological/graded-laurent-hkr`.
 
-28. **StableHomotopyKTheory:H.6**: Coherent spectrum tower limits and their Milnor exact sequence, p-completion functoriality and compatibility with these towers under the bounded/connective hypotheses used by CMM continuity; an object sequence or finite-limit theorem is insufficient. Consumers: `RT.3/tower-square`, `RT.3/postnikov-convergent`.
+28. **EnhancedDerivedSheaves:E5:spectra-comparison**: Rational E∞ ring spectra versus characteristic-zero commutative dg algebras, compatible with derived Hochschild/cyclic bar and Bott localization, identifying ku_Q with Q[β] and KU_Q with Q[β] and its localization Q[β^{±1}], |β|=2. Consumers: `RT.4:topological/graded-laurent-hkr`, `RT.4:topological/relative-thh-ku`.
 
-29. **DerivedDeRhamCohomology:DD.0**: Characteristic-zero graded/derived HKR for the commutative dg algebra Q[β] and its localization Q[β^{±1}], |β|=2, with L=A dβ, Hochschild suspension in degree 3 and Connes B=d; support derived Laurent localization and graded exterior powers. The ordinary degree-zero smooth theorem is insufficient. Consumers: `RT.4:topological/graded-laurent-hkr`.
+29. **EnhancedDerivedSheaves:E0**: Coherent perfect-even infinity sites and spectral/condensed sheafification, sheaf-category t-structures, evaluation at R, and coherent filtered module presentations; ordinary pointwise truncation of a presheaf is insufficient. Consumers: `RT.4:q-Hodge/perfect-even-site`, `RT.4:q-Hodge/even-flat-modules`, `RT.4:q-Hodge/homological-evenness`.
 
-30. **DerivedDeRhamCohomology:DD.1**: Koszul resolution of the graded diagonal of Q[β] and its localization Q[β^{±1}] over Q, with β degree 2 and its odd Hochschild generator degree 3; supplies the graded Laurent HKR calculation. Consumers: `RT.4:topological/graded-laurent-hkr`.
+30. **VStackSheavesAndLisseCategories:VS2**: Light condensed homotopy sheaves and solid spectral mapping objects, right-left relative tensor products, compactness for all filtered colimits, and the coherent light-solid sheafification used in Wagner 2.1–2.4. Retain the unpublished light-spectral-source gap. Consumers: `RT.4:q-Hodge/solid-spectra`, `RT.4:q-Hodge/nuclear-objects`, `RT.4:q-Hodge/homological-evenness`.
 
-31. **EnhancedDerivedSheaves:E5:spectra-comparison**: Rational E∞ ring spectra versus characteristic-zero commutative dg algebras, compatible with derived Hochschild/cyclic bar and Bott localization, identifying ku_Q with Q[β] and KU_Q with Q[β] and its localization Q[β^{±1}], |β|=2. Consumers: `RT.4:topological/graded-laurent-hkr`, `RT.4:topological/relative-thh-ku`.
+31. **EnhancedDerivedSheaves:E0**: Coherent cyclonic E∞ algebra mapping spaces, paths in prime/divisor Tate squares and all higher compatibility, coherent lifted Čech diagrams, and gluing cones; a sequence of strict ψ maps does not supply this data. Consumers: `RT.4:q-Hodge/compatible-spherical-lifts`, `RT.4:q-Hodge/cyclonic-base-coherence`, `RT.4:q-Hodge/cyclonic-even-filtrations`.
 
-32. **EnhancedDerivedSheaves:E0**: Coherent perfect-even infinity sites and spectral/condensed sheafification, sheaf-category t-structures, evaluation at R, and coherent filtered module presentations; ordinary pointwise truncation of a presheaf is insufficient. Consumers: `RT.4:q-Hodge/perfect-even-site`, `RT.4:q-Hodge/even-flat-modules`, `RT.4:q-Hodge/homological-evenness`.
+32. **StableHomotopyKTheory:H.1**: Derived pointed mapping classes and cofibrant pointed replacement; closed Hurewicz cofibration/nondegenerate basepoint interface for compact Hausdorff spaces, agreeing with based CW homotopy classes. Consumers: `RT.4:topological/bu-representability`.
 
-33. **VStackSheavesAndLisseCategories:VS2**: Light condensed homotopy sheaves and solid spectral mapping objects, right-left relative tensor products, compactness for all filtered colimits, and the coherent light-solid sheafification used in Wagner 2.1–2.4. Retain the unpublished light-spectral-source gap. Consumers: `RT.4:q-Hodge/solid-spectra`, `RT.4:q-Hodge/nuclear-objects`, `RT.4:q-Hodge/homological-evenness`.
+33. **EnhancedDerivedSheaves:E0**: Coherent natural mapping Kan complexes, sequential functor diagrams and their mapping-space limit/colimit properties, plus all-filtered-diagram preservation witnesses for the derivative universal property. Consumers: `RT.3/goodwillie-calculus`.
 
-34. **EnhancedDerivedSheaves:E0**: Coherent cyclonic E∞ algebra mapping spaces, paths in prime/divisor Tate squares and all higher compatibility, coherent lifted Čech diagrams, and gluing cones; a sequence of strict ψ maps does not supply this data. Consumers: `RT.4:q-Hodge/compatible-spherical-lifts`, `RT.4:q-Hodge/cyclonic-base-coherence`, `RT.4:q-Hodge/cyclonic-even-filtrations`.
+34. **EnhancedDerivedSheaves:E5:presentability**: Cocomplete presentable stable categories and filtered-colimit-compatible t-structures with actual truncation fiber sequences; identify continuous exact functors with colimit-preserving functors in the source setting of Raskin 2.3 and Variant 2.3.2. Consumers: `RT.3/goodwillie-calculus`, `RT.3/pseudo-extensible`.
 
-35. **StableHomotopyKTheory:H.1**: Derived pointed mapping classes and cofibrant pointed replacement; closed Hurewicz cofibration/nondegenerate basepoint interface for compact Hausdorff spaces, agreeing with based CW homotopy classes. Consumers: `RT.4:topological/bu-representability`.
+35. **CrystallineCohomology:CR.4**: Finite and infinite p-typical de Rham–Witt graded algebras, initiality as a Witt complex, R/F/V/d, basic differential bases for polynomial rings, étale change and Witt localization descent; surjective restriction/Mittag–Leffler and finite-level filtered-colimit interfaces. RT.2 proves their full graded comparison with TR, rather than duplicating these constructions. Consumers: `RT.2/tr-de-rham-witt-hkr`.
 
-36. **EnhancedDerivedSheaves:E0**: Coherent natural mapping Kan complexes, sequential functor diagrams and their mapping-space limit/colimit properties, plus all-filtered-diagram preservation witnesses for the derivative universal property. Consumers: `RT.3/goodwillie-calculus`.
+36. **StableHomotopyKTheory:H.6**: Milnor exact sequence for the coherent restriction tower of TR, with the pro-zero positive-σ summands and Mittag–Leffler de Rham–Witt forms; no general interchange of inverse limits and filtered colimits. Consumers: `RT.2/tr-de-rham-witt-hkr`.
 
-37. **EnhancedDerivedSheaves:E5:presentability**: Cocomplete presentable stable categories and filtered-colimit-compatible t-structures with actual truncation fiber sequences; identify continuous exact functors with colimit-preserving functors in the source setting of Raskin 2.3 and Variant 2.3.2. Consumers: `RT.3/goodwillie-calculus`, `RT.3/pseudo-extensible`.
+37. **EnhancedDerivedSheaves:E5:abstract**: Coherent stable Verdier localization, filtered-cofiber mapping-spectrum formula (NS I.3.3(ii)), Ind realization, and the symmetric monoidal quotient of a thick tensor ideal (NS I.3.6). RT.2 only specializes these to finite-action perfect R-modules and computes the Tate endomorphism ring. Consumers: `RT.2/tate-verdier-quotient`.
 
-38. **CrystallineCohomology:CR.4**: Finite and infinite p-typical de Rham–Witt graded algebras, initiality as a Witt complex, R/F/V/d, basic differential bases for polynomial rings, étale change and Witt localization descent; surjective restriction/Mittag–Leffler and finite-level filtered-colimit interfaces. RT.2 proves their full graded comparison with TR, rather than duplicating these constructions. Consumers: `RT.2/tr-de-rham-witt-hkr`.
+38. **GeneralAlgebraicKTheory:K.6**: Multiplicative nonconnective K-theory for exact symmetric monoidal functors of small stable categories, producing a module over K(End(unit)) from Perf(End(unit))→Q. Consumers: `RT.2/tate-verdier-quotient`.
 
-39. **StableHomotopyKTheory:H.6**: Milnor exact sequence for the coherent restriction tower of TR, with the pro-zero positive-σ summands and Mittag–Leffler de Rham–Witt forms; no general interchange of inverse limits and filtered colimits. Consumers: `RT.2/tr-de-rham-witt-hkr`.
+39. **StableHomotopyKTheory:H.6**: K(1)-localization at each prime, connective E∞ cover, and the odd-prime KU_p^{h(𝔽_p^××ℤ)} model with its map j→ku_p. Supply the principal-unit Adams action and distinguish j from τ≥0KU_p^{hℤ}; p-completion alone is insufficient. Consumers: `RT.4:q-Hodge/image-of-j`.
 
-40. **EnhancedDerivedSheaves:E5:abstract**: Coherent stable Verdier localization, filtered-cofiber mapping-spectrum formula (NS I.3.3(ii)), Ind realization, and the symmetric monoidal quotient of a thick tensor ideal (NS I.3.6). RT.2 only specializes these to finite-action perfect R-modules and computes the Tate endomorphism ring. Consumers: `RT.2/tate-verdier-quotient`.
+40. **HabiroCohomologyFoundations:HQ.3**: The global positive-integer m-twist of the q-Hodge filtration (Wagner Habiro preprint Construction 3.38, Remark 3.39, pp. 42–44; ku preprint Construction 5.50, p. 73), its derived (q^m−1)-completion, lax symmetric monoidal structure, identification of the filtered quotient with q-W_m dR, and coherent transition maps under n|m compatible with Habiro gluing. The existing m-truncated q-Witt objects and étale base-change assertion do not supply this filtration. Consumers: `RT.4:Habiro-comparison/twisted-q-hodge-comparison`, `RT.4:Habiro-comparison/habiro-comparison-theorem`.
 
-41. **GeneralAlgebraicKTheory:K.6**: Multiplicative nonconnective K-theory for exact symmetric monoidal functors of small stable categories, producing a module over K(End(unit)) from Perf(End(unit))→Q. Consumers: `RT.2/tate-verdier-quotient`.
+41. **EnhancedDerivedSheaves:E5:abstract**: Generic spectral Day convolution on a small symmetric monoidal ∞-category, and the monoidal accessible localization criterion: the localization relations are stable under tensoring with representables, so the product descends and the right-adjoint inclusion is lax symmetric monoidal. BGT 2014 Propositions 5.6–5.7 and Theorems 5.14–5.15, pp. 22–25, specify the specialization proved by RT.3/finitary-invariant-tensor-units. The existing symmetric-monoidal-category declaration alone does not supply these operations. Consumers: `RT.3/finitary-invariant-tensor-units`.
 
-42. **StableHomotopyKTheory:H.6**: K(1)-localization at each prime, connective E∞ cover, and the odd-prime KU_p^{h(𝔽_p^××ℤ)} model with its map j→ku_p. Supply the principal-unit Adams action and distinguish j from τ≥0KU_p^{hℤ}; p-completion alone is insufficient. Consumers: `RT.4:q-Hodge/image-of-j`.
-
-43. **HabiroCohomologyFoundations:HQ.3**: The global positive-integer m-twist of the q-Hodge filtration (Wagner Habiro preprint Construction 3.38, Remark 3.39, pp. 42–44; ku preprint Construction 5.50, p. 73), its derived (q^m−1)-completion, lax symmetric monoidal structure, identification of the filtered quotient with q-W_m dR, and coherent transition maps under n|m compatible with Habiro gluing. The existing m-truncated q-Witt objects and étale base-change assertion do not supply this filtration. Consumers: `RT.4:Habiro-comparison/twisted-q-hodge-comparison`, `RT.4:Habiro-comparison/habiro-comparison-theorem`.
+42. **StableHomotopyKTheory:H.5:spectra**: Module-category tensor/Morita comparison Mod_A ≃ Ind(Perf(A)), Mod_A dual Mod_(A^op), with evaluation the derived right-left tensor and coevaluation the diagonal bimodule. Under the identification End^L(Mod_A) ≃ Bimod_A, −⊗_A M corresponds to M. Raskin Examples 1.12.1–1.12.2, p. 4. RT.5/dualizable-categories supplies the generic duality contract; RT.2 computes its bimodule bar specialization, without requiring smooth/proper A. Consumers: `RT.2/thh-bimodule-coefficients`.
 
 ### Recorded gaps
 
@@ -5945,7 +5978,7 @@ For P=Q[β], |β|=2 and differential zero, the derived Hochschild mixed object i
 
 **Unproved or sketched steps in Wagner's ku paper.** Wagner arXiv 2510.06057v1: the gluing of per-prime lifts in 4.18 is asserted without proof; Lemma 4.29 and Theorem 4.14 have sketched proofs; the identification of the q-Hodge complex with gr^0 of the KU filtration (§5 introduction) has no proof; fil_{ev,S¹}TC^{−(m)}(ku/ku) ≃ τ_{≥2⋆}(…) in Theorem 5.51 is sketched. These are recorded at the nodes; no step is claimed beyond the source. Theorem 2.20 also uses the undefined phrase solid homologically flat (source issue E14); the plan uses the explicit sufficient solid even-flat hypothesis, without asserting equivalence to the undefined phrase. Consumers: `RT.4:q-Hodge/spherical-lift`, `RT.4:q-Hodge/global-even-filtration`, `RT.4:q-Hodge/p-complete-comparison-two`, `RT.4:q-Hodge/q-hodge-multiplicativity`, `RT.4:Habiro-comparison/twisted-q-hodge-comparison`.
 
-**RT.5 motives foundation precedes the trace but RT.5 currently depends on RT.3.** The exact RT.5 supplier requests are retained, but importing the whole current stage creates RT.3→RT.5→RT.3 (and RT.2→RT.3→RT.5→RT.2 for the categorical bimodule trace). The proposed split extracts the motives/dualizable trace foundation before RT.2/RT.3 and leaves the refined computations after them. Until that proposal is accepted and its supplying declarations are planned, these imports are unresolved; no acyclic whole-stage supply is claimed. Consumers: `RT.3/cyclotomic-trace`, `RT.3/trace-uniqueness-multiplicative`, `RT.2/thh-bimodule-coefficients`.
+**Polynomial left Kan extension for the uncompleted graded Beilinson map.** The exact early RT.6 motivic, cyclic, syntomic, characteristic-p and trace-flat-descent nodes supply the filtration/descent inputs. None supplies the remaining polynomial left Kan extension of syntomic/TC functors and its comparison with uncompleted p-derived de Rham used in AMMN Theorem 5.1(2), p. 25, its proof and Construction 5.33, pp. 34–35, and Construction 6.16 and proof of Theorem 6.17, pp. 44–45. Retain the RT.6 request for that precise residual interface until a supplying declaration is planned. RT.6/ammn-filtered-interface already imports RT.3b/graded-beilinson-square and cannot be its supplier. Consumers: `RT.3b/graded-beilinson-square`.
 
 ## Proposed ordering and ownership repairs
 
@@ -5965,9 +5998,9 @@ Point those prerequisites at RefinedTraceMethods:RT.4:topological, or at the pro
 
 Sub-layers of RT.2 for the atlas: RT.2:tate (spectra-with-action, homotopy-orbits-fixed-points, norm-map-tate, tate-of-eilenberg-maclane, tate-vanishing-induced, tate-multiplicativity, tate-verdier-quotient, tate-p-local-properties, tate-orbit-lemma, tate-fixpoint-lemma, parametrised-tate, circle-tate, tate-cpn-via-cp); RT.2:thh (cyclic-realisation, edgewise-subdivision, tate-diagonal, thh-e1-ring, thh-bimodule-coefficients, cyclotomic-frobenius-thh, thh-symmetric-monoidal, relative-thh, thh-over-thhz, mixed-complexes-are-circle-modules, norm-sequence-hc, thh-spherical-group-rings, thh-spectral-categories); RT.2:cyclotomic (lax-equalizer, cyclotomic-spectrum, tc-minus-and-tp, topological-cyclic-homology, tc-fibre-sequence, tc-p-completion, trivial-cyclotomic-adjunction, hz-module-circle-tate); RT.2:genuine (orthogonal-spectra, genuine-g-spectra, geometric-fixed-points, borel-completion, isotropy-separation, geometric-fixed-points-localisation, genuine-cyclic-and-circle-spectra, genuine-cyclotomic-spectrum, orthogonal-cyclotomic-spectra, tr-and-genuine-tc, tr-de-rham-witt-hkr, restriction-pullback, genuine-tc-agrees, endofunctor-coalgebras, genuine-cyclotomic-coreflection, bounded-below-cyclotomic-equivalence, bokstedt-construction, thh-models-agree), in this order.
 
-**split — RefinedTraceMethods.** The motives and dualizable-category trace foundation owned by RT.5 is used by RT.2 coefficient THH and RT.3 multiplicative cyclotomic trace. The current atlas edge RT.3→RT.5 makes a backward whole-stage import circular.
+**split — RefinedTraceMethods.** The whole RT.5 stage is downstream of RT.3, but its existing fine nodes RT.5/localizing-motives and RT.5/dualizable-categories have prerequisite closures preceding RT.2/RT.3. Consumers now import only these contracts. The finitary trace construction avoids any no-filtered-colimit comparison; the trace-specific unit theorem supplies its direct BGT monoidal proof separately from the relative tensor audit.
 
-Split RT.5 into an early foundation for localizing motives, nonconnective-K corepresentability, tensor structure and dualizable-category traces, requiring enhanced stable categories and K.4/K.6, and a later refined-invariant/continuous-extension/computation stage. The foundation supplies RT.2 and RT.3; only the later stage retains RT.3 and RT.4:topological as prerequisites. This is a proposed ordering repair, not a newly accepted supplier or new implementation node.
+For atlas presentation, extract RT.5/dualizable-categories and the prerequisite closure of RT.5/localizing-motives into an early foundation. Keep all declaration IDs. The closure contains RT.5/localizing-invariant, continuous-calkin, continuous-extension, continuous-extension-uniqueness, rigid-category and trace-class, besides EDS and K-theory prerequisites; it contains no RT.1–RT.4 target. Later refined computations may retain RT.3 and RT.4:topological. Fine imports already give the acyclic mathematical route; this display split is proposed, not applied to the atlas or RT.5 packet.
 
 ## Pinned baseline
 
@@ -6010,15 +6043,15 @@ Read version: preprint, [text](https://arxiv.org/pdf/2003.12541v2), 2026-10-08; 
 
 **bgt-13** — A universal characterization of higher algebraic K-theory. Andrew J. Blumberg, David Gepner, Gonçalo Tabuada. arXiv:1001.2282v4 (5 Feb 2013); published Geom. Topol. 17 (2013) 733–838. [Source](https://arxiv.org/abs/1001.2282v4).
 
-Relevant source locators: §1.4, Corollary 1.13, p. 7 (proved in §10, Corollary 10.4 and Theorem 10.6); §10.3, Theorem 10.11, p. 77 (with Lemmas 10.9-10.10); §8.3, Definition 8.1, p. 52.
+Relevant source locators: §8.3, Definition 8.1, p. 52; §1.4, Corollary 1.13, p. 7 (proved in §10, Corollary 10.4 and Theorem 10.6); Theorem 8.7, pp. 55–56; Theorem 9.8, p. 58; Theorem 10.6, p. 75; §10.3, Proposition 10.8 and Theorem 10.11, pp. 76–77; Theorem 7.13, p. 49; Theorem 9.8, p. 58; §10.3, Proposition 10.8, p. 76; Lemmas 10.9–10.10 and Theorem 10.11, p. 77.
 
-Read version: preprint, [text](https://arxiv.org/abs/1001.2282v4), 2026-10-08; SHA-256 `08a8ae7fb5715d8269fd728c8a20d72403527aaefbeaa974b7040ec21d667a2d`.
+Read version: preprint, [text](https://arxiv.org/abs/1001.2282v4), 2026-10-09; SHA-256 `08a8ae7fb5715d8269fd728c8a20d72403527aaefbeaa974b7040ec21d667a2d`.
 
 **bgt-14** — Uniqueness of the multiplicative cyclotomic trace. Andrew J. Blumberg, David Gepner, Gonçalo Tabuada. arXiv:1103.3923v3 (1 Jul 2015). [Source](https://arxiv.org/abs/1103.3923v3).
 
-Relevant source locators: §1, Theorem 1.11 (= Theorem 7.3), p. 5.
+Relevant source locators: Lemma 5.5 and Propositions 5.6–5.7, pp. 22–23; Theorems 5.14–5.15, pp. 24–25; Corollary 3.8, p. 15; Corollaries 6.9 and 6.15, pp. 29, 31; Corollary 7.2 and Theorems 7.3–7.4, pp. 32–33 (introduction Theorems 1.11–1.12, p. 5).
 
-Read version: preprint, [text](https://arxiv.org/abs/1103.3923v3), 2026-10-08; SHA-256 `3bf564f86fda5425038fcea4afb681280ee75e88918585cf87daad8dcb76001a`.
+Read version: preprint, [text](https://arxiv.org/abs/1103.3923v3), 2026-10-09; SHA-256 `3bf564f86fda5425038fcea4afb681280ee75e88918585cf87daad8dcb76001a`.
 
 **blumberg-mandell-12** — Localization theorems in topological Hochschild homology and topological cyclic homology. Andrew J. Blumberg, Michael A. Mandell. arXiv:0802.3938v4 (24 May 2012); published Geom. Topol. 16 (2012) 1053–1120. [Source](https://arxiv.org/abs/0802.3938v4).
 
@@ -6082,9 +6115,9 @@ Read version: published, [text](https://pi.math.cornell.edu/~hatcher/VBKT/VB.pdf
 
 **hesselholt-nikolaus-19** — Topological cyclic homology (chapter in Handbook of Homotopy Theory). Lars Hesselholt, Thomas Nikolaus. arXiv:1905.08984v1 (22 May 2019); Handbook of Homotopy Theory (2020). [Source](https://arxiv.org/abs/1905.08984v1).
 
-Relevant source locators: Introduction, p. 2; §1.1.2 'Topological cyclic homology and the trace', p. 10; §1.4 'Group rings', Theorem 1.4.1, p. 34.
+Relevant source locators: §1.1.2, pp. 9–11; Introduction, p. 2; §1.4 'Group rings', Theorem 1.4.1, p. 34.
 
-Read version: preprint, [text](https://arxiv.org/abs/1905.08984v1), 2026-10-08; SHA-256 `233e53dcf91c38123b1487fa53fadff7367e8658fdd197010d81855b8ff037b6`.
+Read version: preprint, [text](https://arxiv.org/abs/1905.08984v1), 2026-10-09; SHA-256 `233e53dcf91c38123b1487fa53fadff7367e8658fdd197010d81855b8ff037b6`.
 
 **hkr-62** — Differential forms on regular affine algebras. G. Hochschild, Bertram Kostant, Alex Rosenberg. Trans. Amer. Math. Soc. 102 (1962) 383–408 (published scan). [Source](https://www.sas.rochester.edu/mth/sites/doug-ravenel/otherpapers/HKR62.pdf).
 
@@ -6162,9 +6195,9 @@ Read version: preprint, [text](https://arxiv.org/abs/2304.04685), 2026-10-08; SH
 
 **raskin-18** — On the Dundas-Goodwillie-McCarthy theorem. Sam Raskin. arXiv:1807.06709v1 (17 Jul 2018). [Source](https://arxiv.org/abs/1807.06709v1).
 
-Relevant source locators: §2.3, Variant 2.3.2, p. 6; §2.7, pp. 7–8; Definition 2.11.2, pp. 10–11; §2.12, pp. 12–15; §5.3–5.6, pp. 31–35.
+Relevant source locators: §2.3, Remark 2.3.1 and Variant 2.3.2, p. 6; §2.12, Theorem 2.12.1(2), p. 11 (proved in §3 via Theorem 3.10.1); §2.12, Theorem 2.12.2(3), p. 11 (proved in §4.11); §2.11, Definition 2.11.2 and Corollary 2.11.7, pp. 10–11; §5.5, Definitions 5.5.1–5.5.2 and Proposition 5.5.3, pp. 32–33; Theorem 5.6.1, p. 33; §1.1, Theorem 1.1.1, p. 1; §5.3–5.4, pp. 31–32; §1.10–1.12, Examples 1.12.1–1.12.2, p. 4; §4.3, p. 20; §2.7, pp. 7–8; Definition 2.11.2, pp. 10–11; Definition 5.5.1, p. 32; Definitions 5.5.2 and Proposition 5.5.3, pp. 32–33.
 
-Read version: preprint, [text](https://arxiv.org/abs/1807.06709v1), 2026-10-08; SHA-256 `3ae1b7a88baa13c939ef64015b9fd9a2b5e09a5cb6c8577e19f436f4c3c18cd1`.
+Read version: preprint, [text](https://arxiv.org/abs/1807.06709v1), 2026-10-09; SHA-256 `3ae1b7a88baa13c939ef64015b9fd9a2b5e09a5cb6c8577e19f436f4c3c18cd1`.
 
 **wagner-habiro-25** — q-Hodge complexes over the Habiro ring. Ferdinand Wagner. arXiv:2510.04782v2 (8 Oct 2025); Corollary 3.13 numbering identical in v1. [Source](https://arxiv.org/abs/2510.04782).
 
@@ -6456,7 +6489,7 @@ Places searched: https://arxiv.org/abs/2411.19929 (only v1 listed, checked 2026-
 
 **RT-AREA-ktheory-2/44 — checked.** Checked DGAInfinity’s imported Hochschild/Morita layers, Keller’s precyclic cone and Bauval’s completed cyclic coextensions. The normalized shuffle unit and mixed totalizations distinguish the cyclic enhancement from duplicated Hochschild infrastructure.
 
-**RT-AREA-ktheory-2/46 — needs_changes.** The K.4/K.6 requests now specify exact stable-category model comparisons. The RT.5 foundation request still creates a backward whole-stage dependency and is unresolved; the proposed split must produce an actual acyclic supplier.
+**RT-AREA-ktheory-2/46 — prior review needs_changes.** The third revision retains the K.4/K.6 requests and imports only fine RT.5 foundation declarations with an acyclic prerequisite closure. Its Day-convolution unit specialization has a direct BGT proof plan. The prior independent disposition is retained for the next review.
 
 ## Upstream notes
 
