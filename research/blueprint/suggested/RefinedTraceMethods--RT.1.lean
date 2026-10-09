@@ -10,9 +10,10 @@ below suggest Lean forms for the definitions, their API and their unit tests, so
 contributors and reviewers converge on names and signatures. Every proof is `sorry`; nothing
 here is an implementation.
 
-Independent review REV-RefinedTraceMethods--RT.1~2 corrects the signatures below.
-The prior independent review is retained pending review of the third revision. Fine RT.5
-imports and the finitary invariant unit theorem supply the trace proof route. Coherent interfaces use quasicategories and mapping-space paths; ordinary
+Independent review REV-RefinedTraceMethods--RT.1~3 accepts this target-level pass
+with its five recorded gaps and exact supplier requests. Fine RT.5 imports and the
+finitary invariant unit theorem supply the acyclic trace proof route.
+Coherent interfaces use quasicategories and mapping-space paths; ordinary
 models are shadows. Exact supplier requests remain for the coherent categorical,
 spectral and condensed infrastructure, and source proof gaps remain in the packet.
 Successful elaboration checks signatures; every mathematical proof remains a placeholder.
@@ -1715,7 +1716,7 @@ example (p : ℕ) [Fact p.Prime] :
     Nonempty (RT1.HH ℤ (ZMod p) 2 ≅ ModuleCat.of ℤ (ZMod p)) ∧
       Limits.IsZero (RT1.HH ℤ (ZMod p) 1) := sorry
 
-/-- Test `HochschildHomology.dual_numbers_nonvanishing` (non-example): for `A = k[x]/(x²)` with
+/-- Test `HochschildHomology.dual_numbers_nonvanishing` (non-example): for nonzero `k` and `A = k[x]/(x²)` with
 `2` invertible, `HH_n(A/k) ≠ 0` for every `n ≥ 0`, so `HH` is not `Ω^*_{A/k}` for non-smooth
 `A`. -/
 example (k : Type) [CommRing k] [Nontrivial k] (h2 : IsUnit (2 : k)) (n : ℕ) :
@@ -2008,7 +2009,7 @@ example (k : Type) [CommRing k] :
             KaehlerDifferential.D k _ (MvPolynomial.X 1)])) := sorry
 
 /-- Test `HochschildHomology.hkrMap_not_surjective_singular` (non-example): for
-`A = k[x]/(x²)`, `ε_2` is not surjective: `Ω²_{A/k} = 0` while `HH_2(A/k) ≠ 0`. -/
+nonzero `k` and `A = k[x]/(x²)`, `ε_2` is not surjective: `Ω²_{A/k} = 0` while `HH_2(A/k) ≠ 0`. -/
 example (k : Type) [CommRing k] [Nontrivial k] :
     Subsingleton ↥(⋀[Polynomial k ⧸ Ideal.span {(Polynomial.X : Polynomial k) ^ 2}]^2
       Ω[(Polynomial k ⧸ Ideal.span {(Polynomial.X : Polynomial k) ^ 2})⁄k]) ∧
@@ -3789,9 +3790,11 @@ def RT2.toShiftP (p : ℕ) (X : CyclotomicSpectrum) : X ⟶ RT2.shiftP p X := so
 def RT2.E2Ring : Type := sorry
 def RT2.E2Ring.toE1 (A : RT2.E2Ring) : E1Ring := sorry
 
-/-- `φ_p^{hT} : TC⁻(X) → (X^{tC_p})^{hT} ≃ TP(X)^∧_p`. -/
-def RT2.frobeniusHT (p : ℕ) (X : CyclotomicSpectrum) :
-    TCminus X.underlying ⟶ Spectrum.pCompletion p (TP X.underlying) := sorry
+/-- The TP-valued Frobenius for THH of an E₂-ring of characteristic p,
+as in NS18 IV.4, pp. 364–365. The characteristic hypothesis supplies this target. -/
+def RT2.frobeniusHT (p : ℕ) (A : RT2.E2Ring) (hchar : (p : A.toE1.pi0) = 0) :
+    TCminus (THH.toCyclotomic A.toE1).underlying ⟶
+      TP (THH.toCyclotomic A.toE1).underlying := sorry
 
 /-- RT.2/trivial-cyclotomic-adjunction: (i) `Y ↦ Y^{triv}` is left adjoint to `TC`; (ii) for
 connective `X`, `sh_p X` has underlying `T`-spectrum `τ_{≥0}(X^{tC_p})` and `φ_ℓ = 0` for `ℓ ≠ p`
@@ -3806,11 +3809,10 @@ theorem trivialCyclotomicAdjunction :
     (∀ (p : ℕ) [Fact p.Prime],
       Nonempty (THH.toCyclotomic (E1Ring.ofRing (ZMod p)) ≅
         RT2.shiftP p (RT2.trivCycFunctor.obj (Spectrum.em ℤ_[p])))) ∧
-    ∀ (p : ℕ) (_ : p.Prime) (A : RT2.E2Ring), ((p : A.toE1.pi0) = 0) →
+    ∀ (p : ℕ) (_ : p.Prime) (A : RT2.E2Ring) (hchar : (p : A.toE1.pi0) = 0),
       RT2.IsCofibreSequence (TC.toTCminus (THH.toCyclotomic A.toE1))
-        (TCminus.can (THH.toCyclotomic A.toE1).underlying ≫
-            RT2.pCompletionMap p (TP (THH.toCyclotomic A.toE1).underlying) -
-          RT2.frobeniusHT p (THH.toCyclotomic A.toE1)) := sorry
+        (TCminus.can (THH.toCyclotomic A.toE1).underlying -
+          RT2.frobeniusHT p A hchar) := sorry
 
 /-! ### RT.2/hz-module-circle-tate -/
 
@@ -3833,11 +3835,10 @@ def RT2.hzComparison₃ (n : ℕ) [NeZero n] (X : RT2.FunBT RT2.DZ) :
       (tateConstruction (RT2.HZ (C n))) ⟶ tateConstruction (restrictToCyclic n (RT2.DZ.toSWA X)) :=
   sorry
 
-/-- RT.2/hz-module-circle-tate: for `X ∈ D(ℤ)^{BT}` (bounded below; the further finiteness
-hypotheses of NS18 Lemma IV.4.12 are left out), `X^{hT} ⊗_{ℤ^{hT}} ℤ → X`,
+/-- RT.2/hz-module-circle-tate: for every `X ∈ D(ℤ)^{BT}`, without boundedness or finiteness
+conditions, `X^{hT} ⊗_{ℤ^{hT}} ℤ → X`,
 `X^{hT} ⊗_{ℤ^{hT}} ℤ^{tT} → X^{tT}` and `X^{tT} ⊗_{ℤ^{tT}} ℤ^{tC_n} → X^{tC_n}` are equivalences. -/
-theorem hzModuleCircleTate (X : RT2.FunBT RT2.DZ)
-    (hX : (RT2.DZ.toSWA X).underlying.IsBoundedBelow) :
+theorem hzModuleCircleTate (X : RT2.FunBT RT2.DZ) :
     IsIso (RT2.hzComparison₁ X) ∧ IsIso (RT2.hzComparison₂ X) ∧
       ∀ (n : ℕ) [NeZero n], IsIso (RT2.hzComparison₃ n X) := sorry
 
@@ -4976,18 +4977,12 @@ example (p : ℕ) [Fact p.Prime] :
 example (Z : GenuineCircleSpectrum) (hZ : Limits.IsZero Z) :
     ∃ X : GenuineCyclotomicSpectrum, X.underlying = Z := sorry
 
-/-- The fibre product `Sp^{BT} ×_{∏_p Sp^{BC_{p^∞}}} ∏_p CycSp_p` of NS18 Proposition II.3.4. -/
-def RT2G.CycSpFibreProduct : Type := sorry
-
-instance RT2G.CycSpFibreProduct.instCategory : Category.{0} RT2G.CycSpFibreProduct := sorry
-
-/-- The canonical functor from `CycSp` to the fibre product. -/
-def RT2G.CycSpFibreProduct.comparison : CyclotomicSpectrum ⥤ RT2G.CycSpFibreProduct := sorry
-
-/-- Test `GenuineCyclotomicSpectrum.fibre_product_nonexample` (non-example): `CycSp` is not
-`Sp^{BT} ×_{∏_p Sp^{BC_{p^∞}}} ∏_p CycSp_p` in general (the second claim of NS18 Proposition
-II.3.4 as printed); the forgetful functor is constructed without it. -/
-example : ¬ RT2G.CycSpFibreProduct.comparison.IsEquivalence := sorry
+/-- Test `GenuineCyclotomicSpectrum.borel_not_genuine`: Borel completion of trivial Hℤ
+cannot have the genuine p-cyclotomic equivalence. Its underlying spectrum is Hℤ and its
+C_p geometric fixed points are Tate Hℤ, which has nonzero negative even homotopy. -/
+example (p : ℕ) [Fact p.Prime] [NeZero p] :
+    IsEmpty (Spectrum.em ℤ ≅
+      tateConstruction (SpectraWithAction.trivial (C p) (Spectrum.em ℤ))) := sorry
 
 /-! ### RT.2/genuine-cyclotomic-coreflection -/
 
@@ -8497,6 +8492,9 @@ def AugmentedCosimplicialShape : InftyCategory := sorry
 def LambdaRingStructure (A : Type) [CommRing A] : Type := sorry
 def PerfectlyCoveredWitness (A : Type) [CommRing A] : Type := sorry
 def QuasiLCIWitness (A R : Type) [CommRing A] [CommRing R] [Algebra A R] : Type := sorry
+/-- The p-completed relative cotangent complex has Tor amplitude in [0,1] (DD.0). -/
+def PQuasiLCIWitness (p : ℕ) (A R : Type)
+    [CommRing A] [CommRing R] [Algebra A R] : Type := sorry
 def pCoefficient (A : Type) [CommRing A] (p : ℕ) : Type := sorry
 instance (A : Type) [CommRing A] (p : ℕ) : CommRing (pCoefficient A p) := sorry
 /-- Faithfully p-quasisyntomic cover and relative semiperfectness mod p (DD.0). -/
@@ -8527,6 +8525,33 @@ inductive LocalLiftBranch (p : ℕ) (A R : Type) [CommRing A] [CommRing R]
     (B : CyclotomicBase p A)
   | e1 : LocalE1Choice p A R B → LocalLiftBranch p A R B
   | e2 : LocalE2Choice p A R B → LocalLiftBranch p A R B
+
+
+/-- The chosen E_n lift restricts to the selected E₂ lift, or is the augmentation
+of the selected coherent lifted Čech resolution in the E₁ branch (Wagner 3.2). -/
+def LocalLiftIdentification {p : ℕ} {A R : Type} [CommRing A] [CommRing R]
+    (B : CyclotomicBase p A) {n : ℕ} (L : SphericalLift B.lift R n)
+    (branch : LocalLiftBranch p A R B) : Type := sorry
+
+/-- The complete local hypotheses of Wagner 3.1–3.2. The base record carries
+perfect coverage and its p-cyclotomic lift; this record supplies the conditions on R
+and identifies the chosen lift with the branch used to construct the filtration. -/
+structure LocalComparisonInput (p : ℕ) (A R : Type)
+    [CommRing A] [CommRing R] [Algebra A R] (B : CyclotomicBase p A)
+    {n : ℕ} (L : SphericalLift B.lift R n) where
+  pComplete : IsPComplete p (Spectrum.em R)
+  boundedTorsion : ∃ N : ℕ, ∀ x : R,
+    (∃ m : ℕ, (p : R)^m * x = 0) → (p : R)^N * x = 0
+  quasiLCI : PQuasiLCIWitness p A R
+  pCompleteLift : IsPComplete p L.ring.toE1.toSpectrum
+  branch : LocalLiftBranch p A R B
+  identification : LocalLiftIdentification B L branch
+
+/-- The comparison is proved at odd primes and in the E₁ branch at p = 2. -/
+def LocalComparisonInput.AdmissiblePrime {p : ℕ} {A R : Type}
+    [CommRing A] [CommRing R] [Algebra A R] {B : CyclotomicBase p A}
+    {n : ℕ} {L : SphericalLift B.lift R n} (I : LocalComparisonInput p A R B L) : Prop :=
+  p ≠ 2 ∨ ∃ C : LocalE1Choice p A R B, I.branch = LocalLiftBranch.e1 C
 
 /-- Arithmetic reduction and rational identifications, coherent on overlaps (H.6/E0). -/
 def ArithmeticLiftCompatibility (SA : EInftyRing) (A R : Type)
@@ -8634,8 +8659,8 @@ example {SA : EInftyRing} (C : CyclonicBaseCoherence SA) (p m : ℕ)
 end RT4Q
 
 /-- Per-prime lifts and the rational lift glue to a global spherical lift `S_R` (E₁, or E₂ if (E₂)
-holds at every prime). The compatibility of the rationalised `p`-adic lifts with the rational lift,
-which the gluing also uses, is not recorded in the signature. -/
+holds at every prime). `G` retains the compatibility of the rationalised `p`-adic lifts
+with the rational lift, as well as the reductions and lifted Čech maps. -/
 theorem SphericalLift.glue (SA : EInftyRing) (A R : Type)
     [CommRing A] [CommRing R] [Algebra A R]
     (G : RT4Q.CompatibleSphericalLifts SA A R) :
@@ -8896,10 +8921,28 @@ def Nuclear {R : RT4Q.SolidRing} (M : RT4Q.SolidMod R) : Prop :=
 theorem Nuclear.baseChange {R S : RT4Q.SolidRing} (f : R ⟶ S) (M : RT4Q.SolidMod R)
     (hM : Nuclear M) : Nuclear ((RT4Q.SolidMod.baseChange f).obj M) := sorry
 
+/-- Ambient solid tensor acts on left R-modules, including for noncommutative R. -/
+def RT4Q.SolidMod.tensorAmbient {R : RT4Q.SolidRing}
+    (P : RT4Q.SolidMod R) (C : SolidSpectrum) : RT4Q.SolidMod R := sorry
+
+/-- Ambient solid mapping-spectrum functor, supplied by the solid spectral interface. -/
+def RT4Q.SolidSpectrum.homSpectrum (C : SolidSpectrum) : SolidSpectrum ⥤ Spectrum := sorry
+
+/-- Ambient compactness means preservation of all filtered colimits by the mapping spectrum. -/
+def RT4Q.IsCompactAmbient (C : SolidSpectrum) : Prop :=
+  Limits.PreservesFilteredColimits (RT4Q.SolidSpectrum.homSpectrum C)
+
+/-- Additional ambient compact-tensor hypothesis of Wagner Theorem 2.11(d). -/
+def RT4Q.CompactTensorWitness (R : RT4Q.SolidRing) : Prop :=
+  ∀ P : RT4Q.SolidMod R, RT4Q.IsCompactObj P →
+    ∀ C : SolidSpectrum, RT4Q.IsCompactAmbient C →
+      RT4Q.IsCompactObj (RT4Q.SolidMod.tensorAmbient P C)
+
 open MonoidalCategory in
-/-- `Hom_R(P, R) ⊗_R M ≃ Hom_R(P, M)` for compact `P` and nuclear `M`. -/
+/-- Wagner 2.11(d): the Hom comparison requires compact P, nuclear M and the
+ambient hypothesis that compact modules tensor compact solid spectra stay compact. -/
 theorem Nuclear.homCompact {R : RT4Q.SolidRing} (P M : RT4Q.SolidMod R)
-    (hP : RT4Q.IsCompactObj P) (hM : Nuclear M) :
+    (hP : RT4Q.IsCompactObj P) (hPC : RT4Q.CompactTensorWitness R) (hM : Nuclear M) :
     IsIso (RT4Q.SolidMod.dualTensorToHom P M) := sorry
 
 /-- Test `Nuclear.dualizable` (degenerate): dualizable objects, in particular the unit, are
@@ -9478,6 +9521,7 @@ with HKR graded pieces (Corollary 3.15), the comparisons on `HC⁻` and `HP`, an
 where the filtration is `lim_Δ τ_{≥2⋆}` over the even resolution. -/
 theorem solidThhEvenFiltration (p : ℕ) [Fact p.Prime] (A R : Type) [CommRing A] [CommRing R]
     [Algebra A R] (B : CyclotomicBase p A) (L : SphericalLift B.lift R 2) (k : EInftyRing)
+    (hlocal : RT4Q.LocalComparisonInput p A R B L)
     (hmodels : RT4Q.DiscretePCompleteModels p k L.ring.toE1)
     (hk : RT4Q.IsConnectiveInfty k) (hke : RT4Q.IsEvenSpectrum (RT4Q.sp k))
     (hkp : ∀ (n : ℤ) (x : (RT4Q.sp k).homotopyGroup (2 * n)), (p : ℤ) • x = 0 → x = 0) :
@@ -9489,6 +9533,7 @@ theorem solidThhEvenFiltration (p : ℕ) [Fact p.Prime] (A R : Type) [CommRing A
     (RT4Q.solidEvenTHH k B.lift L.ring.toE1 L.structureMap).underlying.IsExhaustiveFor
       (RT4Q.solidEval (RT4Q.solidTHH k B.lift L.ring.toE1 L.structureMap)) ∧
     (∀ (l : EInftyRing) (g : k ⟶ l), RT4Q.IsConnectiveInfty l → RT4Q.IsEvenSpectrum (RT4Q.sp l) →
+      (∀ (j : ℤ) (x : (RT4Q.sp l).homotopyGroup (2 * j)), (p : ℤ) • x = 0 → x = 0) →
       Nonempty (RT4Q.solidEvenTHH l B.lift L.ring.toE1 L.structureMap ≅
         RT4Q.FilSolid.baseChange g (RT4Q.solidEvenTHH k B.lift L.ring.toE1 L.structureMap))) ∧
     Nonempty ((RT4Q.solidEvenTHH (EInftyRing.ofCommRing ℤ) B.lift L.ring.toE1
@@ -9662,7 +9707,8 @@ def qHodgeFiltration (p : ℕ) [Fact p.Prime] (A R : Type) [CommRing A] [CommRin
 /-- Modulo `β` the comparison is the de Rham comparison for `HC⁻`: the reduction of the q-Hodge
 filtration modulo `β` is the Hodge filtration on `dR_{R/A}` (`p`-completed). -/
 theorem qHodgeComparison.mod_beta (p : ℕ) [Fact p.Prime] (A R : Type) [CommRing A] [CommRing R]
-    [Algebra A R] (B : CyclotomicBase p A) {n : ℕ} (L : SphericalLift B.lift R n) :
+    [Algebra A R] (B : CyclotomicBase p A) {n : ℕ} (L : SphericalLift B.lift R n)
+    (hlocal : RT4Q.LocalComparisonInput p A R B L) (hprime : hlocal.AdmissiblePrime) :
     Nonempty (RT4Q.modBeta (qHodgeFiltration p A R B L) ≅
       (RT4Q.hodgeFiltration A R).pCompletion p) := sorry
 
@@ -9698,16 +9744,16 @@ example (p : ℕ) [Fact p.Prime] (B : CyclotomicBase p ℤ_[p]) (hB : Nonempty (
 /-! ### RT.4:q-Hodge/p-complete-comparison-odd, p-complete-comparison-two,
 quasi-regular-quotients -/
 
-/-- Wagner Theorem 4.8: for `p > 2` and an E_n-lift (`n = 2`, or `n = 1` in case (E₁), whose cover
-data is not recorded), `ψ^0_R` identifies the completed q-Hodge filtration with
+
+
+/-- Wagner Theorem 4.8: for `p > 2` and the complete local input, `ψ^0_R` identifies the completed q-Hodge filtration with
 `Σ^{−2∗}gr^∗_{ev,hS¹}TC⁻_■(ku_R/ku_A)`; modulo `β` it is the Hodge filtration on `dR_{R/A}`, and
 after rationalisation the combined (Hodge, `q−1`)-filtration on `dR_{R/A}[1/p][[q−1]]`. Not
-recorded: the `ℤ_p[β][[t]]`-module structure beyond the `t`-transitions, the conditions on `A`
-and `R` (perfectly covered, bounded `p^∞`-torsion, `p`-quasi-lci), and the `E_{n−1}`-monoidality
-(Remark 4.9). -/
+recorded in this shadow: the `ℤ_p[β][[t]]`-module structure beyond the `t`-transitions
+and the `E_{n−1}`-monoidality for n ≥ 2 (Remark 4.9). -/
 theorem pCompleteComparisonOdd (p : ℕ) [Fact p.Prime] (hp : 2 < p) (A R : Type) [CommRing A]
     [CommRing R] [Algebra A R] (B : CyclotomicBase p A) {n : ℕ} (hn : 1 ≤ n)
-    (L : SphericalLift B.lift R n) :
+    (L : SphericalLift B.lift R n) (hlocal : RT4Q.LocalComparisonInput p A R B L) :
     Nonempty ((qHodgeFiltration p A R B L).completion ≅
       RT4Q.evenRegraded (RT4Q.localTCminusEven p B.lift L.ring.toE1 L.structureMap)) ∧
     Nonempty (RT4Q.modBeta (qHodgeFiltration p A R B L) ≅
@@ -9717,26 +9763,29 @@ theorem pCompleteComparisonOdd (p : ℕ) [Fact p.Prime] (hp : 2 < p) (A R : Type
 
 /- Wagner Theorem 4.14: at `p = 2`, for `R` 2-torsion free with an E₁-lift `S_R` and E₁-lifts
 `S_{R_∞^n}` of the terms `R_∞^n` of the Čech nerve of a 2-quasi-syntomic cover `R → R_∞` (case
-3.2(E₁); the cover conditions are not recorded), the even filtration is the ad hoc filtration
+3.2(E₁), with the local hypotheses and augmented cover coherence below, the even filtration is the ad hoc filtration
 `lim_Δ τ_{≥2⋆}TC⁻_■(ku_{R_∞^•}/ku_A)` and the conclusions of Theorem 4.8 hold. Case (E₂) at
 `p = 2` remains open. -/
 /-- E₁ cover coherence: the displayed sequence is the augmented p-completed Čech
 nerve of a quasisyntomic relatively semiperfect cover, with all lifted maps. -/
-def RT4Q.LiftedCoverCoherence {A : Type} [CommRing A] (B : CyclotomicBase 2 A)
+def RT4Q.LiftedCoverCoherence {A : Type} [CommRing A] (R : Type) [CommRing R]
+    (B : CyclotomicBase 2 A) (L : SphericalLift B.lift R 1)
     (Rc : ℕ → Type) [∀ m, CommRing (Rc m)]
     (Lc : ∀ m, SphericalLift B.lift (Rc m) 1) : Type := sorry
-def RT4Q.liftedCoverDiagram {A : Type} [CommRing A] (B : CyclotomicBase 2 A)
+def RT4Q.liftedCoverDiagram {A : Type} [CommRing A] (R : Type) [CommRing R]
+    (B : CyclotomicBase 2 A) (L : SphericalLift B.lift R 1)
     (Rc : ℕ → Type) [∀ m, CommRing (Rc m)]
-    (Lc : ∀ m, SphericalLift B.lift (Rc m) 1) (h : RT4Q.LiftedCoverCoherence B Rc Lc) :
+    (Lc : ∀ m, SphericalLift B.lift (Rc m) 1) (h : RT4Q.LiftedCoverCoherence R B L Rc Lc) :
     Coherent.Functor RT4Q.CosimplicialShape RT4Q.FilSpectrum.coherentCategory := sorry
 
 theorem pCompleteComparisonTwo (A R : Type) [CommRing A] [CommRing R] [Algebra A R]
     (B : CyclotomicBase 2 A) (L : SphericalLift B.lift R 1)
+    (hlocal : RT4Q.LocalComparisonInput 2 A R B L)
     (hR : ∀ r : R, (2 : R) * r = 0 → r = 0)
     (Rc : ℕ → Type) [∀ m, CommRing (Rc m)] (Lc : ∀ m, SphericalLift B.lift (Rc m) 1)
-    (hcover : RT4Q.LiftedCoverCoherence B Rc Lc) :
+    (hcover : RT4Q.LiftedCoverCoherence R B L Rc Lc) :
     Nonempty (RT4Q.localTCminusEven 2 B.lift L.ring.toE1 L.structureMap ≅
-      RT4Q.FilSpectrum.totLimit (RT4Q.liftedCoverDiagram B Rc Lc hcover)) ∧
+      RT4Q.FilSpectrum.totLimit (RT4Q.liftedCoverDiagram R B L Rc Lc hcover)) ∧
     Nonempty ((qHodgeFiltration 2 A R B L).completion ≅
       RT4Q.evenRegraded (RT4Q.localTCminusEven 2 B.lift L.ring.toE1 L.structureMap)) ∧
     Nonempty (RT4Q.modBeta (qHodgeFiltration 2 A R B L) ≅
@@ -9749,7 +9798,7 @@ cotangent bound and p-completeness of both R and its spherical lift. -/
 structure RT4Q.IdentityCoverQuasiRegularInput (p : ℕ) (A R : Type)
     [CommRing A] [CommRing R] [Algebra A R] (B : CyclotomicBase p A)
     (L : SphericalLift B.lift R 1) where
-  quasiLCI : RT4Q.QuasiLCIWitness A R
+  quasiLCI : RT4Q.PQuasiLCIWitness p A R
   relativelySemiperfect : RT4Q.SemiperfectCoverWitness p A R R
   pComplete : RT4Q.IsPComplete p (Spectrum.em R)
   pCompleteLift : RT4Q.IsPComplete p L.ring.toE1.toSpectrum
@@ -9902,7 +9951,7 @@ is not recorded. -/
 theorem raksitPolynomialExample {n : ℕ} (L : SphericalLift RT4Q.sphereInfty ℤ[X] n)
     (hL : Nonempty (L.ring ≅ RT4Q.EnRing.ofEInfty n RT4Q.sphericalPolynomial))
     [RT4Q.CompatibleGlobalInput RT4Q.sphereInfty ℤ ℤ[X] L] :
-    ∀ i : ℤ, 0 ≤ i →
+    ∀ i : ℤ, 1 ≤ i →
       Nonempty ((evenCircleFixedPoints (globalEvenFiltrationShadow ℤ ℤ[X] RT4Q.sphereInfty L)).grShift i ≅
         Spectrum.fib (RT4Q.emMap (RT4Q.qDerivative ℤ i))) := sorry
 
