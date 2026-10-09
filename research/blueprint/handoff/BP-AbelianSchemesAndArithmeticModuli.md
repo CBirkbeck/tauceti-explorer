@@ -1,131 +1,92 @@
-# Handoff: BP-AbelianSchemesAndArithmeticModuli (first checkpoint)
+# Handoff: BP-AbelianSchemesAndArithmeticModuli
 
-Agent: Claude Code, session cc-fb70e5. Refs #666.
+Codex, session **codex-TgpAme**, 2026-10-09. Refs #666.
 
-- The packet is partial, with 16 nodes and 6 planets. The checker reports no errors and no warnings.
-- RS-02 (accepted) makes this roadmap Part II of Tau Ceti's JacobianChallenge. This checkpoint follows its A6 and A2
-  keeps.
+The target-level pass is **complete** under the current issue's breadth-first stopping rule. All A0–A6 stages are **planned**, none is closed. This is a completed planning pass requiring independent review, not a claim of recursive mathematical closure or implementation. The packet has 88 nodes (9 definitions, 15 constructions, 53 theorems, 2 lemmas, 9 comparisons), 109 API items, 87 definition tests, 27 planets and 11 baseline declarations. Eleven explicit proof/source obligations and seventeen supplier contracts remain. Every implementation status is unchecked.
 
-## What this checkpoint plans
+## Completed work and preserved input
 
-Source: J. S. Milne, *Abelian Varieties*, course notes v2.00 (2008), author's PDF (SHA-256 f5ca4e63…, printed page =
-PDF page − 6). §10 was read in full, and §§11–14 in the parts used. The author's errata page for v2.00 was also read.
-Every excerpt was matched against its page.
+The 21 inherited checkpoint IDs are preserved. A0–A5 now have targets, and A6 includes the remaining arithmetic interfaces. The packet, reader and suggested file agree on all target IDs, API names and tests. The consumer-coverage table accounts for all 102 routed items attached to this roadmap; it distinguishes the common abelian interface from each paper's separate application. All inherited source passages were deleted and replaced with statements in the worker's own words. The six inherited source findings E1–E6 retain their identities and attribution to Claude Code cc-fb70e5; they are not new discoveries of this pass.
 
-A6, field level, extending Tau Ceti's `AbelianVariety K` API (Hom group, End ring, IsIsogeny, mulBy, prod):
-- `degree-of-an-endomorphism` (definition): deg on End(A), extended to End⁰(A).
-- `degree-is-a-polynomial-function`.
-- `characteristic-polynomial-of-an-endomorphism` (definition, planet): P_α ∈ ℤ[X] with P_α(r) = deg(α − r), and the
-  trace.
-- `endomorphisms-of-simple-abelian-varieties`. The node argues through the image of α, which works over any field; the
-  source's kernel argument does not over imperfect fields.
-- `poincare-complete-reducibility` (planet).
-- `hom-to-tate-module-homs-is-injective`.
-- `hom-is-free-of-finite-rank` (planet). The corrected proof route is planned, with the lattice step through Mathlib's
-  discrete-submodule finiteness.
-- `endomorphism-algebra-is-semisimple`, through Artin–Wedderburn in Mathlib.
-- `polynomials-determined-by-l-adic-values` and `multiplicative-polynomial-functions` (lemmas 10.21 and 10.22).
-- `characteristic-polynomial-on-tate-module` (planet): P_α equals the characteristic polynomial on V_ℓA, independent of
-  ℓ.
-- `trace-and-degree-on-a-subfield`.
-- `degree-formulas-for-polarized-isogenies`.
-- `rosati-positivity` (planet).
-- `automorphisms-of-polarized-abelian-varieties`.
+The accepted RS-02 title is **The Jacobian challenge (Christian Merten's AG version), Part II: abelian schemes and arithmetic moduli**. The current upstream JacobianChallenge and ModularCurves supply the field/elliptic boundary. R09.4 already owns the general abelian carrier, relative dual/Poincaré, polarization, local ample representatives, doubled graph line, full level and polarized-automorphism functors. Those objects are imported, never defined a second time here. R09.3 owns general restriction of scalars; the two inherited generic Weil-restriction nodes are now comparison nodes. A3 owns the genuinely nonaffine abelian quotient application.
 
-A2:
-- `rosati-involution` (definition, planet).
+Current upstream AlgebraicVectorBundles, missing from the atlas snapshot, owns generic locally free bundle, dual, tensor, exterior and determinant operations. Native field AbelianVariety/Hom/End/mulBy/product/isogeny, affine finite-flat Cartier duality, the native weight-one Hodge/complex-structure interface and Mathlib divided powers are also imports. The planning baseline remains Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 and Tau Ceti f790474821cf4256814db967cb154e7af3d0c369. Current Tau Ceti inspected at a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039 has no implemented geometric degree/characteristic-polynomial API to replace these new targets.
 
-## Mistakes found in the source (sourceIssues)
+## Mathematical decisions to retain
 
-New ones; the author's errata page was checked and does not list them:
-- **E1.** Proposition 14.4(b) is false as stated when char k divides n. A supersingular elliptic curve over 𝔽̄₂ has
-  E[4](k̄) = 0 and 24 automorphisms, all of which preserve its principal polarization. The node adds the hypothesis
-  char k ∤ n.
-- **E2.** The proof of 14.4(a) calls End(A) ⊗ ℝ compact. The compact set it needs is {Tr(αα†) = 2g}.
-- **E3.** The proof of 14.4(b) concludes from the nilpotence of β. It needs β†β to be nilpotent, which holds because β
-  and β† commute (α† = α⁻¹).
+- Equal-dimensionality is required for the stated multiplicative degree API. Degree is finite-flat rank, including inseparability. At dimension zero the unique endomorphism is both zero and identity and has degree one; the characteristic polynomial is one and trace zero.
+- The arithmetic dependency chain is torsion density → Hom faithfulness/divisibility → rational degree polynomial and complete reducibility → finite-subspace saturated lattices → Hom finiteness → integral dependence → integral characteristic polynomial. Integer-valuedness alone does not imply integral coefficients. No finiteness/Tate-characteristic-polynomial cycle remains.
+- Over imperfect fields complete reducibility uses a cleared rational projector and its abelian image, not the reduced kernel of an arbitrary isogeny.
+- The normalized Poincaré graph gives 2λ. Rational NS/symmetric-Hom comparison works in characteristic two by this graph; LT's half-normalized map is a separate scalar adapter. Geometric NS and rational-field descent are distinguished. Reduced trace has factor 2g/(em).
+- Ordinary Serre–Tate uses height-g étale factors and integral symmetric q parameters in every genus, including at 2. Nonprincipal weights are not divided by p. Grothendieck–Messing uses locally PD-nilpotent thickenings, not arbitrary nilpotent ideals. Formal polarized effectivity is separate from either infinitesimal theorem.
+- Odd-prime surface lifting concerns a killed-p group of order p⁴; the ordinary dyadic conclusion identifies the underlying A[2], without claiming that every supplied skew self-duality lifts as the chosen polarization. Strong alternation is a separate condition. Both unresolved finite-level proofs are explicit.
+- Riemann positivity is E(Jv,v)>0 for a Hermitian form linear in its first argument. Homology has weight −1 and cohomology weight one. The column-lattice Siegel fibre action is inverse transpose; its Hodge-frame determinant factor is det(CΩ+D).
+- The ℓ-adic norm lemma is stated for monic polynomials with coefficients in Qℓ. Arbitrary algebraic-closure root multisets cannot be recovered by integer-polynomial norm tests because conjugate roots have the same norms.
+- Coefficient algebras change Hom coefficients, not the geometric field. Inverses are two-sided, polarization equations are nonlinear, and real square-root adjustment must commute with extra endomorphism data. Twists require finite integral torsor trivialization and actual abelian idempotent images. Weak polarization scalars are positive units.
+- Normal-base Hom extension is a separate proof obligation. Monodromy-invariant fibre Hom uses the cited algebraic extension theorem; an analytic map over a nonproper base is not automatically algebraized by GAGA. The corresponding missing proof is recorded rather than hidden.
 
-Already on the author's errata page, recorded because nodes use the corrected forms:
-- **E4.** Lemma 10.12 needs a bound on the degree.
-- **E5.** The proof of 10.15 takes M in the wrong module and reasons circularly about dimension.
-- **E6.** A misprint in (αβ)† = β†α†.
+## Ownership moves imposed by the tier order
 
-## Requests (new)
+Redirect higher roadmap prerequisites to the exact nodes below; do not reintroduce upward imports.
 
-- SchemeAndStackFoundations SF.5: degrees of finite morphisms, intersection numbers and their degree formula, and
-  positivity (D^{g−1} · E).
-- Tau Ceti JacobianChallenge Layer E: the field dual, φ_L and polarizations.
+1. **ArithmeticGaloisRepresentations R01.6/G7** imports A4/etale-tate-module and A6/tate-module-of-a-weil-restriction. Its general representation and induction constructions stay there.
+2. **FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.1/R07.2/R07.6** imports A4/p-divisible-group, A4/pd-first-cohomology and A4/grothendieck-messing, together with the structured Serre–Tate/effectivity exports. General integral classification, Breuil/Kisin modules and slope theory stay with that owner.
+3. **CrystallineCohomology** imports the minimal abelian degree-one PD evaluation and filtration-lifting interface. This roadmap constructs no general crystalline site or Dieudonné equivalence.
+4. **ModularCurvesPartII R12.1** imports the dimension-one specialization of A5 complex/analytic comparison. The immutable native ModularCurves elliptic scheme, differentials and pairings remain their original imports.
 
-## Gaps
+## Exact remaining proof/source obligations
 
-- Rosati positivity: the formula is not proved in Milne (it cites his 1986 article §17), and neither that article nor
-  Mumford §21 was read.
-- Poincaré reducibility over imperfect fields (author's footnote 10).
-- deg φ_L = χ(L)² is stated without proof. It is A2's.
+- **G-picard-dual — Relative Pic⁰ representability verification**: R09.4 arith-relative-dual is the precise carrier owner and itself retains its general-base dual proof obligation. Verify all A0-extension Pic⁰/rigidification conditions and its Raynaud passage, rather than importing a completed implementation. Targets: `A2/normalized-poincare-comparison`.
+- **G-exterior — All-degree abelian cohomology proof**: Anschütz–Le Bras v4 Proposition 4.5.1 states the arbitrary-base, all-degree result and cites BBM II, 2.5.2. That primary proof is not freely accessible or cleared; Faltings–Chai VI.2 supplies only a special moduli case. A proof for arbitrary abelian schemes, including characteristic two exterior multiplication, must be supplied. Targets: `A4/all-degree-exterior-cohomology`.
+- **G-pd — Degree-one PD evaluation and lifting proof**: Faltings–Chai I.3 states the locally PD-nilpotent theorem, referring to Messing for the universal-vector-extension proof. The construction and categorical lifting proof have not been checked from a cleared primary source. The degree-one evaluation and abelian filtration equivalence move down together; no general crystalline/Dieudonné classification is asserted. Targets: `A4/pd-first-cohomology`, `A4/grothendieck-messing`.
+- **G-odd-level — Odd-prime truncated polarized BT lifting**: BCGP25 Lemma 9.3.4 needs Wedhorn (2.17) for a compatible principally quasi-polarized BT₁ lift. Its proof and finite-flat BT₁ criterion have not been read. A[p] has order p⁴, not rank four; preserving that correction does not establish the lifting theorem. Targets: `A4/odd-prime-finite-level-lifting`.
+- **G-dyadic — Ordinary dyadic finite-level descent**: Complete the comparison of skew self-dual ordinary finite-flat extensions with the symmetric formal-torus quotient by squares, including Frobenius descent and formal smoothness over every O/π^n. BCGP25 pp.217–218 supplies the alternate proof route. A classifying-space presentation cannot be treated as an established native object; no averaging by 2 or unrestricted nonordinary lift is used. Targets: `A4/ordinary-dyadic-finite-level-lifting`.
+- **G-family — Relative polarized analytic equivalence**: Prove local exponential/lattice descent and the relative horizontal Betti/de Rham comparison; the read analytic notes give the point theorem and Faltings–Chai I.6 the universal Siegel model. These alone are not a full proof for every analytic base. Targets: `A5/analytic-families-and-comparison`.
+- **G-appell — Appell–Humbert and theta separation proof**: The public Stanford notes Theorem 1.17 cite the full Appell–Humbert proof and Theorem 1.18 sketches cubic theta products. Supply the factors-of-automorphy classification and tangent/point separation details from an accessible primary proof. Targets: `A5/appell-humbert-and-algebraicity`.
+- **G-normal-extension — Higher-dimensional normal-base Hom extension**: Faltings–Chai I.2.7 states extension over a locally noetherian normal base, with reduction to the abelian extension theorem. A full graph/extension proof across codimension at least two is required; codimension-one properness alone does not prove it. Do not cite higher-tier NéronModels. Also verify the algebraic monodromy-invariant fibre-Hom extension theorem used in Gao–Habegger, Lemma 5.6 p.25; the analytic family equivalence alone supplies no general algebraization of analytic maps over a nonproper base. Targets: `A6/relative-hom-and-normal-extension`.
+- **G-twist — Localized torsor twist representability**: Kisin–Pappas Lemma 4.4.6 reduces representability to finite integral torsor trivialization (Moret–Bailly) and a kernel/isogeny-factor argument. Verify that finite coefficient descent yields a smooth abelian factor over general bases; arbitrary connected kernels cannot simply be declared smooth. Targets: `A6/abelian-torsor-twist`.
+- **G-cm — CM Hodge factor classification**: Check the rank-one CM-character Hodge decomposition and its simple-factor endomorphism-field statement from the primary CM references of Tsimerman. Complete reducibility alone proves matrix factors but not that their division algebras are CM fields. Targets: `A6/cm-isotypic-boundary`.
+- **G-projective-normality — Projective normality and normal-base ample extension**: Read Faltings–Chai I.1.10(a) gives projectivity on a noetherian normal base; Gao–Habegger §2.2 and DGH Remark 3.1 use stronger chosen-generic-line extension and projective normality of L^n (n≥3, respectively n≥4). Their Koizumi/Mumford/Raynaud proof sources have not been checked here. Supply the section-multiplication proof and the prescribed symmetric-line extension, rather than deriving them from projectivity alone. Targets: `A2/projective-presentation-over-normal-bases`.
 
-## Suggested Lean file
+A reviewer should check these obligations and the target hypotheses before accepting the pass; follow-up workers should discharge them at their recorded owners, rather than add undeclared theorem assumptions. In particular BBM II and Messing were not read: neither is a freely obtained or maintainer-cleared book in this run. Do not fetch an unofficial book copy. Wedhorn's lifting theorem and the full Appell–Humbert/theta-separation and complex-CM classification proofs also remain missing proof reads. The generic prescribed-ample-line/projective-normality input is stronger than assuming an already projectively normal model in Gao–Habegger Appendix C.
 
-It imports Mathlib only. The carrier, Tau Ceti's `AbelianVariety`, has no compiled modules in the local environment,
-so the abelian-variety signatures are written out in the header comment.
+## Supplier contracts
 
-The compiled part covers:
-- uniqueness of P_α (`eq_of_eval_intCast`, proved);
-- Lemmas 10.21 and 10.22 (over `PadicAlgCl ℓ` and matrices);
-- the root-of-unity lemma;
-- the positive trace form of the transpose;
-- semisimplicity examples.
+- `tauceti:TauCetiRoadmap/JacobianChallenge#layer-e-abelian-varieties`: Reuse the existing upstream carrier and exact field/elliptic specialization, with its group law, normalized dual, differential and pairing interfaces; the consuming targets supply the higher-dimensional comparison.
+- `tauceti:TauCetiRoadmap/ModularCurves#1d-the-scheme-theoretic-group-law`: Reuse the existing upstream carrier and exact field/elliptic specialization, with its group law, normalized dual, differential and pairing interfaces; the consuming targets supply the higher-dimensional comparison.
+- `tauceti:TauCetiRoadmap/ModularCurves#2d-picard-duality-and-comparison-of-the-duals`: Reuse the existing upstream carrier and exact field/elliptic specialization, with its group law, normalized dual, differential and pairing interfaces; the consuming targets supply the higher-dimensional comparison.
+- `tauceti:TauCetiRoadmap/ModularCurves#0b-finite-locally-free-group-schemes-and-cartier-duality`: Reuse the existing upstream carrier and exact field/elliptic specialization, with its group law, normalized dual, differential and pairing interfaces; the consuming targets supply the higher-dimensional comparison.
+- `AlgebraicModuliForArithmeticGeometry:R09.1`: Projective embeddings, relative ampleness after a base twist, coherent section multiplication and symmetric-algebra affine representability.
+- `SchemeAndStackFoundations:SF.5`: Intersection positivity for a nonzero effective class against an ample (g−1)-fold intersection, and relative-to-absolute nef/ampleness criteria.
+- `SchemeAndStackFoundations:SF.1`: General effective fppf descent for schemes, invertible sheaves and free finite-flat quotients as algebraic spaces.
+- `tauceti:TauCetiRoadmap/JacobianChallenge#layer-d-the-relative-picard-functor-and-the-jacobian-scheme`: Reuse the existing upstream carrier and exact field/elliptic specialization, with its group law, normalized dual, differential and pairing interfaces; the consuming targets supply the higher-dimensional comparison.
+- `AlgebraicModuliForArithmeticGeometry:R09.6`: Proper-flat cohomology and arbitrary coherent base change after the required local-freeness/rank hypotheses; no curve-only shortcut.
+- `SchemeAndStackFoundations:SF.3`: Relative differentials, Lie/tangent duality and the bounded de Rham complex.
+- `SchemeAndStackFoundations:SF.4`: Grothendieck existence and formal full faithfulness for proper schemes with a compatible ample line over a complete noetherian local base, in arbitrary dimension. Existing curve effectivity does not supply this.
+- `ComplexComparisonPartII:C4`: Chow algebraization of closed analytic projective subspaces and algebraization of proper morphisms, used after the theta embedding.
+- `AlgebraicModuliForArithmeticGeometry:R09.3`: Represent Hom and free finite-flat equivalence-relation quotients by algebraic spaces; retain the relative restriction-of-scalars contracts.
+- `AlgebraicModuliForArithmeticGeometry:R09.4`: Import the existing native-type plan for general abelian schemes, dual/Poincaré data, polarizations, local ample representatives and full level; inspect its retained proof gaps.
+- `AlgebraicModuliForArithmeticGeometry:R09.2`: Represent group-homomorphism graphs by the Hilbert functor with the proper-flat finite-presentation hypotheses.
+- `AlgebraicModuliForArithmeticGeometry:R09.5`: Artin representability with its deformation/effectivity conditions for the abelian Picard application.
+- `tauceti:TauCetiRoadmap/ModularCurves#1c-pole-sheaves-weierstrass-coordinates-and-variable-changes`: Use the native relative genus-one Weierstrass/pole-sheaf equivalence, preserving the pointed smooth proper curve over arbitrary bases.
 
-It was compiled with `lake env lean` against Mathlib 082e2d3 (exit 0, 4 `sorry` warnings).
+## Sources and actual read extents
 
-## What remains (precisely)
+Faltings–Chai was read only in the maintainer-cleared library, directly in place: I.1 pp.1–6, I.2 pp.7–13 (normal extension I.2.7 is pp.9–11), I.3 pp.14–18, I.5.5–I.6 pp.29–30 and VI.2 pp.207–213. No file or passage from that book is retained in this repository or scratch. All statements here are the worker's own formulations with printed locators.
 
-- **A6.**
-  - Weil restriction along finite locally free S′ → S, through AlgebraicModuliForArithmeticGeometry R09.3.
-  - Finite-étale preservation of abelian schemes.
-  - T_ℓ(Res_{L/K} A) ≅ Ind T_ℓ(A), from Poonen §4.6.
-  - Compatibility with relative dualization and geometric fibres.
-  - The gaps above.
-- **A0–A5.** Not planned. Milne's notes treat only fields. A public source for the relative theory (rigidity over
-  nonreduced bases, the dual abelian scheme, quotients by finite flat subgroups) is still to be chosen.
-- **Stage prerequisites.** The A6 nodes use A1–A4 as stage prerequisites: the theorem of the cube, [n] of rank n^{2g},
-  factorization through [n], the Weil pairings, and T_ℓ at field level. These are what A1–A4 must supply first.
+Fresh public reads include Conrad's polarization notes pp.1–10; Conrad–Feng's Picard/cube/projectivity passages and Theorems 7.6.1/7.6.7 pp.73–76; Milne AVc §10 and his 2022 AVs Theorem 13.3 p.25, Theorem 17.3/Lemma 17.4 pp.35–37 and §§18–20 pp.38–44; Katz Theorem 1.2.1/proof pp.143–146, Theorem 2.1 pp.148–150 and Lemmas 4.1.1–4.1.2 pp.168–170; the analytic seminar notes §1 pp.1–8; Xie–Yuan §4.1 pp.19–20; Kisin–Pappas §4.4.5–4.4.8 pp.192–193 and §4.5; Lipnowski–Tsimerman §4.1–4.5 pp.16–22; Caro–Pasten §5.1 pp.16–17; Anschütz–Le Bras Proposition 4.5.1 p.53; KMPS §§2.1.3 and 2.3.1 pp.21 and 30–31; BCGP25 Lemma 9.3.4/Remark 9.3.5 pp.200–202 and Lemma 10.3.1 with both proofs pp.215–218; Gao–Habegger §2.2, Lemma 5.6 p.25 and Appendix C pp.58–59; Tsimerman Lemma 4.1 pp.384–385. Source entries record version-specific URLs and checksums, with historical AVc checksums kept separate from the fresh download.
 
-# Checkpoint 2 (A6: Weil restriction)
+The inherited Poonen/Stacks reads and the reviewed extractions of Kisin17, Pilloni20, FKW24, Charles16 and ABS26 are attributed as such; no full fresh proof read is claimed. Kisin17's direct download was not obtained; the public Kisin–Pappas restatement supplies the twisting statements, with the general proof gap retained. Other routed sources are checked through the 102-item reviewed consumer inventory. Bibliographic titles/URLs are reconciled with the actual extractions, including KMPS, Charles16 and ABS26.
 
-Agent: Claude Code, session cc-fb70e5. Refs #666.
+## Verification and suggested-file limitations
 
-- The packet now has 21 nodes. The checker reports no errors and no warnings, and A6 has 6 planets, the maximum.
-- Sources, as the atlas specifies:
-  - Poonen, *Rational Points on Varieties*, §4.6 and Exercises 4.7–4.9 (the author's online version, printed page = PDF
-    page − 14);
-  - Stacks Project Tags 05YF and 05YC (and 05Y8, Section 97.11).
-  Every excerpt was matched against its page. For the Stacks tags, the match was against the served HTML text.
+- `python3 scripts/check_blueprint.py research/blueprint/packets/AbelianSchemesAndArithmeticModuli.json`: **0 errors, 0 warnings**.
+- Own-node dependency graph: acyclic; all 21 checkpoint IDs preserved; every routed item has a target; definition/construction API and test minimums met; every packet target/API/test name occurs in both reader and suggested manifest.
+- `lean-check research/blueprint/suggested/AbelianSchemesAndArithmeticModuli.lean`: **exit 0**, with declaration-uses-sorry warnings only, at the pinned baseline. Memory was checked before compilation. No language server or library rebuild was started.
+- Final diff: only the three issue deliverables and this handoff, no source files, source passages, excerpts, private absolute paths or changes to another roadmap.
 
-## What checkpoint 2 plans (A6)
+The suggested file's native portion includes field degree and characteristic polynomial APIs and expressible tests, genuine homogeneous degree-polynomial and finite-Hom/semisimplicity signatures, the corrected Qℓ coefficient norm lemma, matrix and integral-congruence lemmas, coefficient Hom composition/base change/units, and a genuine Riemann-form structure with Hermitian formula, integer pairing, unimodularity, pullback and boundary tests. These are prototypes, with no proofs or implementations claimed.
 
-- `weil-restriction-functor` (construction, planet): the fppf sheaf, compatibility with base change, and the
-  algebraic space (imported from R09.3).
-- `weil-restriction-of-quasi-projective-schemes`: Poonen 4.6.3 and 4.6.5, with Bosch–Lütkebohmert–Raynaud's criterion
-  requested and not read.
-- `weil-restriction-over-a-separable-extension-splits`: Poonen Exercise 4.7.
-- `finite-etale-weil-restriction-of-abelian-schemes`. This is the étale-splitting descent proof, through A2's
-  algebraic-space-to-scheme theorem, with the negative example Res_{k[ε]/k}(E) = E × Lie(E) (Poonen 4.6.8).
-- `tate-module-of-a-weil-restriction`: T_ℓ(Res A) ≅ Ind T_ℓA. As the atlas warns, it implies nothing about good
-  reduction at ramified places.
+Every remaining target, API item and test has an exact named signature/omission record identifying its missing carrier or condition. Those records do **not** count as elaborated declarations. Compilation verifies the native portion only and does not resolve the relative Picard/polarization, Tate, BT/PD, de Rham, formal deformation, integral Hodge, analytic-family, affine coefficient-functor or localized torsor signature boundaries. Convert the records to genuine signatures as the named suppliers become available; never replace missing conditions by arbitrary Prop fields.
 
-## Why A0–A5 remain unplanned
-
-Van der Geer–Moonen's *Abelian Varieties* chapters (public on Moonen's page) were checked. They treat abelian varieties
-over fields and group schemes over bases, but never abelian schemes over a base. The relative A1–A3 statements (rigidity
-over nonreduced bases, the dual abelian scheme, fppf quotients by finite flat subgroups of abelian schemes) still need a
-public source.
-
-## Requests (new)
-
-- AlgebraicModuliForArithmeticGeometry R09.3: representability, including BLR §7.6.
-- ArithmeticGaloisRepresentations G7 and R01.6.
-
-## Suggested Lean file
-
-It adds the Weil restriction signatures and a `linear_combination` check of Poonen's Example 4.6.2. It was compiled with
-`lake env lean` (exit 0, 4 `sorry` warnings).
+The next authorized step after this planning submission is independent review. No second issue was claimed in this run.
