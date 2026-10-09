@@ -122,7 +122,8 @@
       "sha256": "1d91a6eb85828feb73f84ab3b27ced17514f0855d61c3bff71ab9d8287891e4a",
       "readDate": "2026-10-09",
       "readSections": [
-        "Theorem 1.8 and Example 1.9, pp.4–6; Notation 17.1, Theorem 17.2 and construction opening, p.117; Notation 18.1, Theorem 18.2 and Lemma 18.3, pp.122–123"
+        "Theorem 1.8 and Example 1.9, pp.4–6; Notation 17.1, Theorem 17.2 and construction opening, p.117; Notation 18.1, Theorem 18.2 and Lemma 18.3, pp.122–123",
+        "Independent review: Corollary 15.4 and its proof, p.104; the PR.3 decomposition remains a supplier obligation."
       ]
     },
     {
@@ -209,6 +210,19 @@
         "§2.1.2, realizations, natural Betti/l-adic comparison and transported morphisms, pp.12–13; published extraction locator p.14 is recorded separately",
         "§2.2.2, Equation (2.1), chosen embedding and Hecke equivariance, arXiv v2 pp.13–14; published extraction equation locator p.16"
       ]
+    },
+    {
+      "id": "stacks-rlim",
+      "title": "The Stacks Project: Rlim of abelian groups",
+      "authors": "The Stacks Project Authors",
+      "edition": "Online section 15.88, tags 07KV, 07KW and 07KY, accessed 9 October 2026; stable tags are the locators, no printed page numbering.",
+      "url": "https://stacks.math.columbia.edu/tag/07KV",
+      "sha256": "13e52d7aa8f35ff28370fe63e9c2f89558adf9acbf7f1d80979685978c969cac",
+      "readDate": "2026-10-09",
+      "readSections": [
+        "Lemma 15.88.1 (tag 07KW), Lemmas 15.88.9–15.88.10 (tag 07KY for 15.88.10), and Remark 15.88.12; statements and product-cone proofs."
+      ],
+      "addedBy": "REV-SchemeAndStackFoundations--SF.6"
     }
   ],
   "nodes": [],
@@ -280,7 +294,7 @@
     {
       "id": "R6",
       "supplier": "PrismaticCohomology:PR.3",
-      "need": "Export the general bounded-prism de Rham comparison of Corollary 15.4 through the Lη_I factorization, with phi_A-twisted completed derived tensor. The PR.1/de-rham-comparison node only supplies the W(A/I) p-torsion-free case. Keep the corrected qcqs hypothesis for global sections and the separate sheaf statement; the Corollary 15.4 proof was not read in this pass.",
+      "need": "Export the general bounded-prism de Rham comparison of Corollary 15.4 through the Lη_I factorization, with phi_A-twisted completed derived tensor. The PR.1/de-rham-comparison node only supplies the W(A/I) p-torsion-free case. Keep the corrected qcqs hypothesis for global sections and the separate sheaf statement; the independent review read Corollary 15.4 and its factorization-based proof on p.104, but that source reading does not provide a source-complete PR.3 supplier decomposition.",
       "neededBy": [
         "SchemeAndStackFoundations:SF.6"
       ],
@@ -349,7 +363,7 @@
       "neededBy": [
         "SchemeAndStackFoundations:SF.6"
       ],
-      "detail": "H5/proper-comparison-3-7-2 has accepted supplier provenance for Huber 1996 Theorem 3.7.2, pp.226–227. That book is not cleared for this worker and no copy was read. The public Scholze §27 proofs explicitly invoke it; they do not discharge the source acquisition/verification boundary of the H5 supplier. No SF.6 proof closure is claimed."
+      "detail": "H5/proper-comparison-3-7-2 has accepted supplier provenance for Huber 1996 Theorem 3.7.2, pp.226–227, and records a nonnoetherian proof boundary. That book is not cleared for this worker and no copy was read. Public Scholze 27.4/27.5 uses 3.7.2 for proper support comparison; 27.2 uses Proposition 6.1.1 and Theorem 3.8.1 for full faithfulness. These separate book inputs remain inherited source boundaries, not proofs verified by this public §27 reading. No SF.6 proof closure is claimed."
     },
     {
       "id": "G6",
@@ -365,7 +379,7 @@
       "neededBy": [
         "SchemeAndStackFoundations:SF.6"
       ],
-      "detail": "CP is an accepted target-level plan with gaps, not implementation. S7/S8 preserve its exact derived/completed/Frobenius maps. Its actual period/derived/prismatic carriers and the general proper Gysin extension remain in CP/PR/EDC owners. Betts–Stix Remark 3.21 does not establish equality of its trace-normalized a with the canonical Fontaine period. This packet makes no such equality or integral-lattice claim. The PR.1 supplier packet has a needs_changes review and its de Rham theorem is restricted to W(A/I) p-torsion-free. R6 requires the PR.3 generalization with a source-complete Corollary 15.4 proof; R7 requires the precise PR.4 finite-etale export and derived phi=1 convention. Global completed base change keeps qcqs as in PrismaticCohomology/E13."
+      "detail": "CP is an accepted target-level plan with gaps, not implementation. S7/S8 preserve its exact derived/completed/Frobenius maps. Its actual period/derived/prismatic carriers and the general proper Gysin extension remain in CP/PR/EDC owners. Betts–Stix Remark 3.21 does not establish equality of its trace-normalized a with the canonical Fontaine period. This packet makes no such equality or integral-lattice claim. The first-Chern proof in the 29 April 2022 Betts–Stix manuscript uses the nonproper total space outside Proposition 3.20(7); reuse CohomologyComparisons/E3 and the CP.6 proper projective-compactification repair, which still depends on the named self-intersection/projective-bundle suppliers. This finding concerns that manuscript only. The PR.1 supplier packet has a needs_changes review and its de Rham theorem is restricted to W(A/I) p-torsion-free. R6 requires the PR.3 generalization with a source-complete Corollary 15.4 proof; R7 requires the precise PR.4 finite-etale export and derived phi=1 convention. Global completed base change keeps qcqs as in PrismaticCohomology/E13."
     }
   ],
   "process": {
@@ -562,7 +576,7 @@
         ],
         "hypotheses": [
           "H5: f:X→Y proper, X,Y locally of finite type over S, Lambda torsion, K∈D⁺(X_et,Lambda); the required scheme–adic fibre products must exist.",
-          "Characteristic p: separated finite-type f:Y→X between qcqs schemes (or the admitted perfections); adic Lambda is complete for a regular-sequence ideal containing an integer prime to p.",
+          "Characteristic p: separated finite-type f:Y→X between qcqs schemes (or the admitted perfections); adic Lambda is complete for an ideal I generated by a finite regular sequence, and I contains an integer prime to p.",
           "Mixed characteristic: f:Y→X separated between schemes finite type over O; no unrestricted mixed-characteristic full-faithfulness assertion."
         ],
         "map": "H5 supplies phi_Y* Rf_* K→Rf_ad,* phi_X*K. The diamond comparison supplies c_X*Rf_!→Rf_diamond,!c_Y* and its right-adjoint mate f!Rc_X,*→Rc_Y,*(f_diamond)!. Keep the site maps, domains and direction of the mate explicit.",
@@ -588,7 +602,7 @@
           "Check that the right-adjoint comparison is the mate of the support comparison, with units and counits in the correct categories.",
           "Reject a proposal substituting ordinary cohomology for compact support for a nonproper map."
         ],
-        "frontier": "Adic L and Classical H4/H5 plans are accepted, not implemented. H5 imports Huber 3.7.2, pp.226–227, through reviewed provenance; the book is not cleared for this worker and its proof was not read. Scholze explicitly uses that input. Gap G5 records the boundary; this public §27 reading does not certify the unread Huber proof.",
+        "frontier": "Adic L and Classical H4/H5 plans are accepted, not implemented. H5 imports Huber 3.7.2, pp.226–227, through reviewed provenance; its recorded nonnoetherian proof boundary remains. The book is not cleared for this worker and no copy was read. Scholze 27.4/27.5 uses 3.7.2, while 27.2 also invokes Huber Proposition 6.1.1 and Theorem 3.8.1. Gap G5 retains these distinct unread inputs; reading the public comparison proofs does not independently certify the book proofs.",
         "implementationStatus": "unchecked"
       },
       {
@@ -625,6 +639,10 @@
           {
             "sourceId": "ichino",
             "locator": "§2.1.2, arXiv v2 pp.12–13; §2.2.2, Equation (2.1), pp.13–14, chosen embedding and Hecke equivariance"
+          },
+          {
+            "sourceId": "stacks-rlim",
+            "locator": "§15.88, Lemma 15.88.1 (07KW), Lemmas 15.88.9–15.88.10 (07KY) and Remark 15.88.12; online, no page numbering."
           }
         ],
         "acceptance": [
@@ -734,7 +752,7 @@
           "Check c1(O(1)) and the trace square with the same twist conversion.",
           "A rational isomorphism over B_dR gives no assertion that the integral etale and de Rham lattices are isomorphic."
         ],
-        "frontier": "CP.6 includes the stronger Gysin extension as an explicit additional obligation and records source proof issues. Import only the proved/source-qualified clauses of its plan; the canonical-period equality remains outside the source theorem. Gap G7 retains typing and stronger-compatibility boundaries.",
+        "frontier": "CP.6 includes the stronger Gysin extension as an explicit additional obligation. Its first-Chern node repairs the nonproper total-space step in the 29 April 2022 Betts–Stix manuscript through a proper projective compactification, self-intersection and projective-bundle suppliers (CohomologyComparisons/E3). The printed proof alone does not discharge that repair. Import only source-qualified clauses of the plan; canonical-period equality remains outside the source theorem. Gap G7 retains the repair, typing and stronger-compatibility boundaries.",
         "implementationStatus": "unchecked"
       },
       {
@@ -870,12 +888,33 @@
     {
       "id": "EtaleDualityAndPerverseSheaves/E4",
       "locator": "Milne v2.21, display preceding Remark 24.2 and 24.2(b), p.145",
-      "use": "The relative dimension is e=dim Y−dim X and the shift is −2e; for a codimension-c immersion e=−c. Read the source and applied the existing correction; no duplicate issue or source quotation."
+      "use": "The relative dimension is e=dim Y−dim X and the shift is −2e; for a codimension-c immersion e=−c. Read the source and applied the existing correction; no duplicate issue or source quotation.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read Milne v2.21 p.145 and re-derived the shift by dualizing pullback: with e=dim Y−dim X, the degree is q−2e and twist m−e. An immersion has e=−c.",
+        "by": "REV-SchemeAndStackFoundations--SF.6"
+      }
     },
     {
       "id": "PrismaticCohomology/E13",
       "locator": "BS22 arXiv v4, Theorem 1.8(5) and global forms of (1),(3), p.4",
-      "use": "Reuse the confirmed supplier correction requiring X quasi-compact and quasi-separated for global completed base change. The local sheaf statement retains its own domain. No source passage or duplicate issue is recorded."
+      "use": "Reuse the confirmed supplier correction requiring X quasi-compact and quasi-separated for global completed base change. The local sheaf statement retains its own domain. No source passage or duplicate issue is recorded.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read the arXiv v4 statement at p.4 and checked the countable-disjoint-union counterexample: after reduction modulo p the scalar-extension image has bounded polynomial degree, so (x^n) is absent. Keep qcqs for the global base-change statement and distinguish local sheaf comparison.",
+        "by": "REV-SchemeAndStackFoundations--SF.6"
+      }
+    },
+    {
+      "id": "CohomologyComparisons/E3",
+      "locator": "Betts–Stix author manuscript dated 29 April 2022, Proposition 3.20(8), final proof paragraph, p.28",
+      "use": "The line-bundle total space is nonproper, outside the scope of Proposition 3.20(7). Reuse the CP.6 proper projective-compactification repair and its self-intersection/projective-bundle supplier obligations. No assertion is made about an unread published proof.",
+      "addedBy": "REV-SchemeAndStackFoundations--SF.6",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read Proposition 3.20 and its proof on pp.27–28 of the 29 April 2022 manuscript. Clause (7) has a properness hypothesis; the total space used for (8) lacks it. The CP.6 repair records proper compactification and the required supplier inputs.",
+        "by": "REV-SchemeAndStackFoundations--SF.6"
+      }
     }
   ],
   "sourceIssues": [],
@@ -948,12 +987,124 @@
     }
   ],
   "validation": {
-    "blueprint": "python3 scripts/check_blueprint.py: 0 errors and 0 warnings on 2026-10-09; final pass repeated after metadata changes.",
-    "lean": "lean-check completed with exit 0, no errors or warnings, and eight native #check outputs at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174. The file imports only Mathlib; the newer shared Tau Ceti checkout is not imported. No arithmetic theorem was elaborated. A subsequent comment-only clarification changed no imports or commands.",
-    "structural": "Read-only scripts.build.assemble(require_distances=False) produced the accepted-overlay graph with 14477 edges and 5427 stages on 2026-10-09. Each of C5→SF.6, C5→MC.2 and SF.5→MC.2 lacked a reverse path, including when added successively; together they introduce no cycle. This checks the proposed pairs, not global acyclicity or tier admissibility. All 37 supplier references (34 distinct) resolve in packets/decompositions, all source keys and five target-accounting rows resolve, and nodes and process mathematicalPrerequisites are empty.",
-    "scope": "Only the four issue deliverables; inherited packet and all atlas/audit/source-owner files remain unchanged."
+    "blueprint": "Independent review: python3 scripts/check_blueprint.py reports 0 errors and 0 warnings on 2026-10-09; repeated after final metadata edits.",
+    "lean": "Independent review: lean-check exits 0 with eight native #check outputs, no errors or warnings, at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174. Only Mathlib modules are imported; no arithmetic comparison theorem is elaborated.",
+    "structural": "Independent read-only scripts.build.assemble(require_distances=False) contains 5485 stages and 14681 stageEdges on 2026-10-09. C5→SF.6, C5→MC.2 and SF.5→MC.2 each lack a reverse path when added successively. Originally C5 has no path to MC.2; SF.5 reaches MC.2 through SF.6. This verifies the proposed additions introduce no cycle in that snapshot, not global acyclicity or tier admissibility. All 37 supplier references (34 distinct) resolve; all source keys and five target-accounting rows resolve. Nodes and process mathematicalPrerequisites remain empty.",
+    "scope": "Only the issue packet, review report and own handoff are changed. The suggested file was verified without modification. Reader, inherited packet and atlas/audit/source-owner files are read-only."
   },
   "review": {
-    "status": "pending"
+    "status": "accepted",
+    "reviewer": "independent-review-REV-SchemeAndStackFoundations--SF.6",
+    "date": "2026-10-09",
+    "notes": "Independent process-manifest review by Codex codex-YHxKq2, issue #6288; author session codex-Jz39Db is different. Zero mathematical nodes checked because AUDIT-01 and the author issue require no SF.6 ownership. All eight pinned baseline statements, nine contracts, 34 distinct supplier-node statements/proof frontiers, seven requests, seven gaps, five targets and RT-AREA-algebraicgeometry/31 checked. Added direct Milnor source, explicit CP/E3 reuse and distinct unread Huber inputs; corrected R6 reading provenance. Accepted as a complete accounting pass with source_decomposed coverage, not mathematical closure, implementation, restructuring approval or supplier acceptance. Twelve public source interfaces checked; restricted Huber and Scheiderer proof boundaries retained. Reader under review is outside authorized edit paths; synchronization notes are in report/handoff. Checks: blueprint 0 errors/0 warnings; native Lean exit 0/no warnings.",
+    "checked": [],
+    "processChecked": [
+      {
+        "contract": "S1",
+        "verdict": "verified",
+        "note": "Native statements have their site, universe and prime hypotheses; SF.2 equivariant O_X-module carriers require the explicit R1 coefficient conversion."
+      },
+      {
+        "contract": "S2",
+        "verdict": "verified",
+        "note": "Grothendieck proper comparison and exact partial C5 suppliers checked. Product, trace, period and scalar-base-change strengthening remains R3/G2."
+      },
+      {
+        "contract": "S3",
+        "verdict": "verified",
+        "note": "SGA 4 XVI 4.1 torsion, finite-type and proper-or-constructible hypotheses checked. Cover equivalence is not the all-degree theorem; R4/G3 retain ownership and proof boundaries."
+      },
+      {
+        "contract": "S4",
+        "verdict": "verified",
+        "note": "Benoist finite Kummer and real sign-action sequences checked. Proper geometrically connected units clause is necessary; unread Scheiderer proof stays G3."
+      },
+      {
+        "contract": "S5",
+        "verdict": "corrected",
+        "note": "Made the coefficient regular sequence finite and distinguished Huber inputs for support comparison and full faithfulness; no private source proof claimed."
+      },
+      {
+        "contract": "S6",
+        "verdict": "corrected",
+        "note": "Added direct Stacks source for Milnor exact sequence and ML vanishing. Native coefficient/reduction comparison, lattice and Hecke maps remain requested."
+      },
+      {
+        "contract": "S7",
+        "verdict": "corrected",
+        "note": "Read general de Rham Corollary 15.4 proof and updated R6 reading provenance without supplying the absent PR.3 export. Frobenius pullback, derived completion and qcqs correction checked."
+      },
+      {
+        "contract": "S8",
+        "verdict": "corrected",
+        "note": "Made existing CP/E3 first-Chern proof repair and its supplier boundary explicit; trace normalization and the unproved canonical-period equality stay distinct."
+      },
+      {
+        "contract": "S9",
+        "verdict": "verified",
+        "note": "Chow quotient, Tor/product and deformation gaps preserved. Geometric/relative duality, compact support, proper Gysin sign and trace-degree diagram checked."
+      }
+    ],
+    "baselineChecked": [
+      {
+        "ref": "mathlib:CategoryTheory.Sheaf.H",
+        "verdict": "verified",
+        "note": "Ext-defined cohomology of an abelian sheaf on a specified site; requires HasSheafify and HasExt."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Sheaf.H.map",
+        "verdict": "verified",
+        "note": "Additive map from a sheaf morphism on the same site, not a cross-site comparison."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Sheaf.H.equiv₀",
+        "verdict": "verified",
+        "note": "Degree-zero additive equivalence with evaluation at a specified terminal object."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.Scheme.ProEt.topology",
+        "verdict": "verified",
+        "note": "Native small pro-étale Grothendieck topology on weakly étale schemes over X."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.Scheme.etaleTopology_le_proetaleTopology",
+        "verdict": "verified",
+        "note": "Inclusion of big scheme topologies; no cohomology equivalence is inferred."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.Scheme.ellAdicSheaf",
+        "verdict": "verified",
+        "note": "The coefficient sheaf of continuous maps into Z_l on the native small pro-étale site."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.Scheme.EllAdicCohomology",
+        "verdict": "verified",
+        "note": "Cohomology of the universe-lifted native l-adic coefficient sheaf; an additive group, not a supplied comparison theorem."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.Scheme.isZero_ellAdicSheaf_of_isEmpty",
+        "verdict": "verified",
+        "note": "Empty-scheme coefficient sheaf is zero; the file also gives subsingleton cohomology in every degree."
+      }
+    ],
+    "sourceIssuesChecked": [
+      {
+        "ref": "EtaleDualityAndPerverseSheaves/E4",
+        "verdict": "confirmed"
+      },
+      {
+        "ref": "PrismaticCohomology/E13",
+        "verdict": "confirmed"
+      },
+      {
+        "ref": "CohomologyComparisons/E3",
+        "verdict": "confirmed"
+      }
+    ],
+    "targetAccountingChecked": {
+      "count": 5,
+      "verdict": "verified",
+      "note": "Each audited target is mapped to named contracts and unresolved owner obligations; none is marked mathematically planned or closed."
+    }
   }
 }
