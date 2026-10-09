@@ -1,72 +1,39 @@
 # REV-FIX-RT-AREA-langlands-2~3 handoff
 
-## Current blocked checkpoint, 9 October 2026 — codex-4L7DNo
+## Current blocker, 9 October 2026 — codex-Y6eAq2
 
 Issue #5871; bot-confirmed claim
-[6073792886](https://github.com/CBirkbeck/tauceti-explorer/issues/5871#issuecomment-6073792886).
-Base `c65973cc7009a24f205415c365b1c27678cb1aaf`.
+[6073892388](https://github.com/CBirkbeck/tauceti-explorer/issues/5871#issuecomment-6073892388).
+Base `17c256184e9b382551add16d3ccd8593c4b69cb2`.
 
-Compared all seven live-issue deliverables with merged checkpoint PR #7768,
-commit `e958deaba4ac4c1565417d6f5cb35c81a969c1e4`: unchanged before this
-checkpoint. No new mathematical review remains within the live scope.
-This submission changes only the report and this handoff, preserving CSM
-accepted, Global accepted and GL2 needs_changes with their reviewer objects.
+All seven live-issue deliverables were byte-for-byte identical to merged
+checkpoint PR #7773, commit `18b9d9bb5`, before this continuation. The
+mathematical review is already complete for those files. This submission
+updates only its report and this handoff. Packet verdicts and reviewer
+objects remain CSM **accepted**, Global **accepted**, GL2 **needs_changes**.
+The negative GL2 verdict is a completed review outcome; its next fix has the
+53 API signatures and 46 tests listed below.
 
-Reproduced the external blocker from the freshly fetched issue:
-`deliverables_complete` is false for the queue's 27 outputs and true when
-only that list is replaced in memory by the issue's seven paths. All 27
-files exist; ten extra packets name other independent reviews. The parent
-fix still lists 40 outputs. Queue and generator both fail `intake.ALLOWED`
-and are outside this job's authorized files.
+Reproduced the blocker from a freshly fetched live issue. The committed
+review expects 27 outputs; `deliverables_complete` returns **false**.
+Replacing only its outputs in memory with the issue's seven files returns
+**true**. Every queue output exists. The ten extra packets correctly name
+other review jobs. The parent fix still lists 40 outputs rather than its
+historical ten. The queue and generator fail `intake.ALLOWED` and are outside
+this issue's editable scope.
 
-All three packet checks pass with zero errors/warnings. Verified 177
-unchecked nodes, no excerpt fields and forty distinct finding dispositions.
-The unchanged suggested files were not recompiled; previous successful
-pinned compilation receipts remain historical evidence. No fresh source
-reading or graph audit is claimed. No scratch file is needed to resume.
+Fresh checks: all three packet validators have zero errors and warnings;
+all 177 nodes remain unchecked; no packet contains an excerpt field; all
+forty findings have exactly one report disposition. The unchanged suggested
+files were not recompiled. Previous successful pinned compilation receipts
+are historical evidence. No fresh source reading or graph audit is claimed.
 
-**Resume after maintainer metadata repair.** The exact seven review outputs,
-ten historical parent-fix outputs, generator diagnosis and read-only
-reproduction are retained below under the 8 October continuation. Reconcile
-both scopes and preserve them through regeneration, then run normal
-intake/sync. GL2's needs_changes verdict does not prevent review completion.
-Another report-only checkpoint cannot fix the metadata. This run stops
-blocked as authorized by the worker instructions; it claims no second job.
-
-
-## Current blocked checkpoint, 9 October 2026 — codex-mcC1YQ
-
-Issue #5871; bot-confirmed claim [6073551013](https://github.com/CBirkbeck/tauceti-explorer/issues/5871#issuecomment-6073551013).
-Base commit `a1104cfa91a4d7c018a57f802e807267dcba3695`.
-
-All seven authorized deliverables were byte-for-byte unchanged from the last
-checkpoint, commit `aa5770f7f` (PR #7718). This run changes only this handoff
-and the review report. The existing mathematical verdicts and packet review
-objects are retained: CSM **accepted**, Global **accepted**, GL2
-**needs_changes**. No new source review or mathematical repair is claimed.
-
-Fresh validation: all three packet checks have zero errors and warnings;
-177 nodes retain unchecked implementation status; no packet contains an
-excerpt field; forty findings have forty distinct report dispositions.
-The unchanged suggested files were not recompiled. The previous run's
-successful pinned `lean-check` receipts remain the compilation evidence.
-
-The intake blocker persists. Parsed the seven paths from the current live
-issue body and reproduced **false** for `deliverables_complete(job)` and
-**true** for `deliverables_complete({**job, "outputs": authorized})`. All 27
-queue outputs exist. The ten extra packets still name other review jobs.
-Both the queue and generator are outside the issue's editable scope and
-fail `intake.ALLOWED`.
-
-**Resume only after maintainer metadata repair.** Reconcile this review's
-seven outputs and its historical parent fix's ten outputs, using the exact
-lists and generation diagnosis below. Preserve those scopes through queue
-regeneration, then run the normal intake/sync completion check. A GL2
-needs_changes verdict does not prevent completion of this review job.
-Another report-only checkpoint cannot remove the blocker. If metadata is
-unchanged, no mathematical work remains within this review's live scope.
-The report's dated audit and the reproduction below contain everything
-needed; scratch is disposable.
+**Resume after maintainer metadata repair.** Reconcile this review to the
+seven exact outputs below and its parent fix to the ten historical outputs.
+Preserve both scopes through queue regeneration, then run normal intake/sync.
+Another worker checkpoint cannot change the excluded metadata. All evidence
+and reproduction steps needed to resume are retained below; scratch is
+disposable and contains no handoff dependency.
 
 ## Blocked intake continuation, 8 October 2026 — codex-CiCHr3
 
@@ -147,7 +114,20 @@ The committed parent
 `FIX-RT-AREA-langlands-2~3` is marked done but now lists 40 outputs, whereas its
 completed fix report explicitly restricts work to these three blueprints.
 Reconcile that historical fix scope too: its report plus the packet, reader
-and suggested file of these three blueprints (ten files). Verify that
+and suggested file of these three blueprints (ten files):
+
+- `research/blueprint/redteam/RT-AREA-langlands-2.fixes-3.md`
+- `research/blueprint/packets/ClassicalSerreModularity--R27.3.json`
+- `research/blueprint/readmes/ClassicalSerreModularity--R27.3.md`
+- `research/blueprint/suggested/ClassicalSerreModularity--R27.3.lean`
+- `research/blueprint/packets/GL2ModularityLifting--R22.1.json`
+- `research/blueprint/readmes/GL2ModularityLifting--R22.1.md`
+- `research/blueprint/suggested/GL2ModularityLifting--R22.1.lean`
+- `research/blueprint/packets/GlobalGaloisDeformations.json`
+- `research/blueprint/readmes/GlobalGaloisDeformations.md`
+- `research/blueprint/suggested/GlobalGaloisDeformations.lean`
+
+Verify that
 regeneration retains the fixed historical scopes and seven review outputs.
 This is the code path to investigate, not a claim that this run has tested a
 generator repair.
