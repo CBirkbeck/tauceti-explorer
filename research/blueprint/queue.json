@@ -46989,8 +46989,9 @@
     "PKG-HabiroRings"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-HabiroRings.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7520"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7520",
+   "finishedAt": "2026-10-09T03:58:15Z"
   },
   {
    "id": "PKG-HeckeStacksAndLocalShtukas",
@@ -47101,8 +47102,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-HodgeStructuresPartII.md",
-   "state": "pending",
-   "note": "released on GitHub issue #7491"
+   "state": "external",
+   "note": "claimed on GitHub issue #7491"
   },
   {
    "id": "REV-PKG-HodgeStructuresPartII",
@@ -77507,8 +77508,8 @@
     "FIX-RT-AREA-langlands-2~3"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-langlands-2~3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5871"
+   "state": "pending",
+   "note": "released on GitHub issue #5871"
   },
   {
    "id": "FIX-RT-AREA-langlands-2~4",
