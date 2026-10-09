@@ -4254,5 +4254,6 @@
  "REV-PKG-LocallyAnalyticDistributions~adv": 8026,
  "REV-PKG-AlgebraicModuliForArithmeticGeometry~adv": 8027,
  "REV-PKG-NeronModelsAndSemistableAbelianVarieties~adv": 8029,
- "REV-PKG-GeometryOfNumbersAndQuadraticArithmetic~adv": 8031
+ "REV-PKG-GeometryOfNumbersAndQuadraticArithmetic~adv": 8031,
+ "REV-PKG-ArithmeticGaloisRepresentations~adv": 8066
 }
