@@ -1,0 +1,2040 @@
+{
+  "roadmapId": "KTheoryLowDegrees",
+  "protocol": "blueprint-v1",
+  "part": "U.5",
+  "scope": [
+    "KTheoryLowDegrees:U.5"
+  ],
+  "status": "complete",
+  "summary": "Follow-up of the accepted U.1 packet. Refine only its unfinished relative K1 comparison: the square of plus maps gives a concrete congruence-loop map, whose kernel is determined by the Steinberg reduction map. Identify the degree-two connecting map with an inverse lifted word under the pinned fibre convention, and import the already-owned degree-zero patching comparison. Preserve the parent congruence groups, transfers, norms, projection formula and DVR boundary by reference. This is a complete planning pass with precise supplier requests, not a claim of implementation or gap-free closure.",
+  "baseline": {
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "declarations": [
+      {
+        "ref": "mathlib:Subgroup.map_normalClosure",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Group/Subgroup/Basic.lean",
+        "provides": "A surjective group homomorphism carries a normal closure to the normal closure of the image; surjectivity is essential.",
+        "checked": "Actual statement read in the Git tree at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-09."
+      },
+      {
+        "ref": "mathlib:Subgroup.Normal.subgroupOf",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Group/Subgroup/Basic.lean",
+        "provides": "A normal subgroup remains normal when restricted to any subgroup of the ambient group.",
+        "checked": "Actual statement read in the Git tree at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-09."
+      },
+      {
+        "ref": "mathlib:QuotientGroup.lift",
+        "kind": "def",
+        "module": "Mathlib/GroupTheory/QuotientGroup/Defs.lean",
+        "provides": "Descent of an actual homomorphism whose kernel contains the specified normal subgroup.",
+        "checked": "Actual statement read in the Git tree at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-09."
+      },
+      {
+        "ref": "mathlib:QuotientGroup.lift_mk",
+        "kind": "theorem",
+        "module": "Mathlib/GroupTheory/QuotientGroup/Defs.lean",
+        "provides": "Evaluation of the quotient descent on a representative.",
+        "checked": "Actual statement read in the Git tree at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-09."
+      },
+      {
+        "ref": "mathlib:QuotientGroup.ker_lift",
+        "kind": "theorem",
+        "module": "Mathlib/GroupTheory/QuotientGroup/Defs.lean",
+        "provides": "Kernel of the descended map is the image of the original kernel.",
+        "checked": "Actual statement read in the Git tree at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-09."
+      },
+      {
+        "ref": "mathlib:QuotientGroup.liftEquiv",
+        "kind": "def",
+        "module": "Mathlib/GroupTheory/QuotientGroup/Defs.lean",
+        "provides": "A surjective map with exactly the prescribed kernel gives the specified quotient equivalence.",
+        "checked": "Actual statement read in the Git tree at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-09."
+      },
+      {
+        "ref": "mathlib:QuotientGroup.map",
+        "kind": "def",
+        "module": "Mathlib/GroupTheory/QuotientGroup/Defs.lean",
+        "provides": "A subgroup-preserving group homomorphism induces the map on normal quotients.",
+        "checked": "Actual statement read in the Git tree at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-09."
+      },
+      {
+        "ref": "mathlib:QuotientGroup.mk'",
+        "kind": "def",
+        "module": "Mathlib/GroupTheory/QuotientGroup/Defs.lean",
+        "provides": "The canonical group homomorphism to a normal quotient.",
+        "checked": "Actual statement read in the Git tree at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-09."
+      },
+      {
+        "ref": "mathlib:Ideal.Quotient.mk_surjective",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Ideal/Quotient/Defs.lean",
+        "provides": "Every element of A/I lifts to A; this does not assert that GL(A)→GL(A/I) is onto.",
+        "checked": "Actual statement read in the Git tree at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-09."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "Kbook.2013",
+      "title": "The K-book: An Introduction to Algebraic K-theory",
+      "authors": "Charles A. Weibel",
+      "edition": "Combined author manuscript dated 29 August 2013. Printed pagination of this file; physical PDF page = printed page + 8. Findings are scoped to this manuscript, not to an unread published edition.",
+      "url": "https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf",
+      "sha256": "a04f53c9393b20672fab2a6818279b2f9996dbc7cf74735789ed13804b058845",
+      "accessed": "2026-10-09",
+      "readSections": [
+        "III.2.2–2.3 and Exercises III.2.3–2.7, printed pp.193–197 / PDF201–205: ambient dependence, exactness, split quotients and noninjective relative K1.",
+        "III.5.7–5.8, printed pp.222–223 / PDF230–231; Definition III.5.1 and Exercises III.5.1–5.2,5.10, printed pp.217,228–229 / PDF225,236–237: Steinberg presentations, relative sequence and the restricted excision result.",
+        "IV.1.1–1.2, printed pp.260–262 / PDF268–270; IV.1.4–1.7.1, printed pp.263–265 / PDF271–273: functorial components, path fibre, acyclic fibre and universal central extension, including Proposition1.7 proof.",
+        "IV.1.11–1.11.1, printed pp.267–268 / PDF275–276; Exercises IV.1.15–1.16, printed p.275 / PDF283: relative groups and comparison obligations.",
+        "II.2.9–2.10, printed p.77 / PDF85; Exercises II.2.3–2.4 and II.2.17, printed pp.78–79,81 / PDF86–87,89: augmented-ring K0, projective triples and automorphism boundary.",
+        "III.5.1–5.5.1, printed pp.217–220 / PDF225–228: stable Steinberg relations, centrality, universal central extensions and the finite-rank conditional warning; full proofs read."
+      ]
+    }
+  ],
+  "sourceVersions": [
+    {
+      "kind": "author copy",
+      "url": "https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf",
+      "citation": "29 August 2013 combined author manuscript",
+      "read": "2026-10-09",
+      "sha256": "a04f53c9393b20672fab2a6818279b2f9996dbc7cf74735789ed13804b058845"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "KTheoryLowDegrees:U.5/plus-fibre-steinberg",
+      "parentStageId": "KTheoryLowDegrees:U.5",
+      "realises": [
+        "KTheoryLowDegrees:U.5"
+      ],
+      "title": "Steinberg group of the acyclic plus fibre",
+      "kind": "comparison",
+      "statement": "Write G_R=GL(R), P_R=E(R), j_R:BG_R→BG_R⁺ and V_R=fib(j_R) with paths j_R(x)→base. There is a unique isomorphism κ_R:π1(V_R)≃St(R) over P_R, hence over G_R. Its restriction to the kernel identifies ∂j_R:π2(BG_R⁺)→π1(V_R) with the inclusion of classical K2(R)=ker φ_R in St(R). Define β_R:K2(R)≃π2(BG_R⁺) as the inverse of that restricted map; this fixes its sign.",
+      "hypotheses": [
+        "A is an associative unital ring, I is a two-sided ideal, B=A/I, and q:A→B is the quotient map.",
+        "All linear, elementary and Steinberg groups are stable groups; no finite-rank assertion is inferred."
+      ],
+      "proofSteps": [
+        "H.3 identifies π1(V_R)→P_R as a universal central extension. T.1 supplies St(R)→P_R as another; uniqueness and rigidity give the unique isomorphism over P_R.",
+        "The fibre long exact sequence and π2(BG_R)=0 make ∂j_R injective with image ker(π1(V_R)→G_R). Transport that kernel through κ_R to ker φ_R.",
+        "Invert this particular map to obtain β_R. Do not silently replace it by an uncalibrated Hurewicz isomorphism."
+      ],
+      "acceptance": [
+        "All maps preserve the displayed basepoint and the specified loop orientation."
+      ],
+      "prerequisites": [
+        "StableHomotopyKTheory:H.3/plus-pi2-universal-central-extension",
+        "StableHomotopyKTheory:H.2/connecting-map",
+        "StableHomotopyKTheory:H.1/classifying-space-of-group-is-KG1",
+        "K2SymbolsBrauer:T.1/steinberg-is-uce",
+        "K2SymbolsBrauer:T.1:classical/uce-lift",
+        "K2SymbolsBrauer:T.1:classical/perfect-extension-rigidity",
+        "K2SymbolsBrauer:T.1/k2-definition"
+      ],
+      "sources": [
+        {
+          "sourceId": "Kbook.2013",
+          "locator": "IV.1.7, proof, and Corollary IV.1.7.1, printed pp.264–265 / PDF272–273",
+          "match": "The acyclic fibre has the universal central extension as its fundamental group; the classical Steinberg extension gives the K2 identification. The specified inverse of the fibre boundary is a worker-pinned orientation."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/RelativeComparison",
+        "namespace": "TauCeti.PlusFibre"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "TauCeti.PlusFibre.steinbergEquiv",
+      "refines": [
+        "KTheoryLowDegrees:U.6/relative-K1-homotopy-comparison"
+      ],
+      "prototypeStatus": "Omitted signature: required ring/space carrier is absent at the pinned baseline."
+    },
+    {
+      "id": "KTheoryLowDegrees:U.5/plus-fibre-steinberg-natural",
+      "parentStageId": "KTheoryLowDegrees:U.5",
+      "realises": [
+        "KTheoryLowDegrees:U.5"
+      ],
+      "title": "Naturality of the whole Steinberg identification",
+      "kind": "lemma",
+      "statement": "For a unital ring map f:R→S and a based functorial square of plus maps, κ_S∘π1(V_f)=St(f)∘κ_R. Consequently β_S∘K2(f)=π2(BGL(f)⁺)∘β_R.",
+      "hypotheses": [
+        "A is an associative unital ring, I is a two-sided ideal, B=A/I, and q:A→B is the quotient map.",
+        "All linear, elementary and Steinberg groups are stable groups; no finite-rank assertion is inferred."
+      ],
+      "proofSteps": [
+        "Both candidate maps between the two central extensions lift E(f). Pull back the target extension along E(f); uniqueness of the lift from the source UCE identifies them.",
+        "Check that St(f) lifts E(f) on root generators. This proves naturality of the full group, not merely its central kernel.",
+        "Naturality of the fibre boundary then gives the displayed β square. Based coherent squares are part of the supplier interface; arbitrary independently chosen free homotopies are not used."
+      ],
+      "acceptance": [
+        "All maps preserve the displayed basepoint and the specified loop orientation."
+      ],
+      "prerequisites": [
+        "KTheoryLowDegrees:U.5/plus-fibre-steinberg",
+        "StableHomotopyKTheory:H.3/plus-construction-functoriality",
+        "K2SymbolsBrauer:T.1:classical/uce-lift",
+        "K2SymbolsBrauer:T.1:classical/perfect-extension-rigidity",
+        "K2SymbolsBrauer:T.1/stabilisation",
+        "StableHomotopyKTheory:H.2/long-exact-sequence"
+      ],
+      "sources": [
+        {
+          "sourceId": "Kbook.2013",
+          "locator": "IV.1.7–1.7.1, printed pp.264–265 / PDF272–273; III.5.4, printed pp.219–220 / PDF227–228",
+          "match": "Combining the universal-central-extension characterization with uniqueness of lifts proves the full naturality statement; it is a worker derivation of these results."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/RelativeComparison",
+        "namespace": "TauCeti.PlusFibre"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "TauCeti.PlusFibre.steinbergEquiv_natural",
+      "refines": [
+        "KTheoryLowDegrees:U.6/relative-K1-homotopy-comparison"
+      ],
+      "prototypeStatus": "Omitted signature: required ring/space carrier is absent at the pinned baseline."
+    },
+    {
+      "id": "KTheoryLowDegrees:U.5/steinberg-kernel-elementary-image",
+      "parentStageId": "KTheoryLowDegrees:U.5",
+      "realises": [
+        "KTheoryLowDegrees:U.5"
+      ],
+      "title": "Image of the Steinberg reduction kernel",
+      "kind": "lemma",
+      "statement": "For q:A→A/I, φ_A(ker St(q))=E(A,I) as subgroups of GL(A). This is the normal closure inside E(A), not inside GL(A), before stable normality is invoked.",
+      "hypotheses": [
+        "A is an associative unital ring, I is a two-sided ideal, B=A/I, and q:A→B is the quotient map.",
+        "All linear, elementary and Steinberg groups are stable groups; no finite-rank assertion is inferred."
+      ],
+      "proofSteps": [
+        "Use request R-St-quotient: St(q) is onto and its kernel is the normal closure in St(A) of all x_ij(x), x∈I.",
+        "The Steinberg map onto E(A) sends precisely those generators to e_ij(x). Apply the pinned normal-closure image theorem to this surjection with codomain E(A), then embed into GL(A).",
+        "This identifies both images by their conjugate generators. The fact that GL(A)→GL(A/I) can fail to be onto is irrelevant."
+      ],
+      "acceptance": [
+        "I=0 gives the trivial image.",
+        "For I=A and B the zero ring, the image is E(A).",
+        "Conjugators are lifted through St(A)→E(A); no finite-rank normality assumption is inserted."
+      ],
+      "prerequisites": [
+        "K2SymbolsBrauer:T.1:classical",
+        "K2SymbolsBrauer:T.1:classical/to-elementary",
+        "K2SymbolsBrauer:T.1/stabilisation",
+        "KTheoryLowDegrees:U.5/relative-elementary-subgroup",
+        "mathlib:Subgroup.map_normalClosure",
+        "mathlib:Ideal.Quotient.mk_surjective"
+      ],
+      "sources": [
+        {
+          "sourceId": "Kbook.2013",
+          "locator": "Definition III.5.1 and Exercise III.5.1, printed pp.217,228 / PDF225,236; III.2.2, printed p.193 / PDF201",
+          "match": "The Steinberg presentation and relative exactness give the quotient-kernel calculation. Taking its elementary image yields exactly the normal generators of the relative elementary group."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/RelativeComparison",
+        "namespace": "TauCeti.SteinbergReduction"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "TauCeti.SteinbergReduction.elementaryImage",
+      "refines": [
+        "KTheoryLowDegrees:U.6/relative-K1-homotopy-comparison"
+      ],
+      "prototypeStatus": "Omitted signature: required ring/space carrier is absent at the pinned baseline."
+    },
+    {
+      "id": "KTheoryLowDegrees:U.5/classifying-reduction-fibre-component",
+      "parentStageId": "KTheoryLowDegrees:U.5",
+      "realises": [
+        "KTheoryLowDegrees:U.5"
+      ],
+      "title": "The component of the unmodified reduction fibre",
+      "kind": "comparison",
+      "statement": "Let F0=fib(BGL(q)). The map BGL(A,I)→F0 given by the inclusion of N=ker GL(q) and its constant reduction null-homotopy is a based weak equivalence onto the basepoint path component of F0. It induces π1(F0)≃N, with projection to GL(A) the subgroup inclusion. This assertion needs no surjectivity of GL(q).",
+      "hypotheses": [
+        "A is an associative unital ring, I is a two-sided ideal, B=A/I, and q:A→B is the quotient map.",
+        "All linear, elementary and Steinberg groups are stable groups; no finite-rank assertion is inferred."
+      ],
+      "proofSteps": [
+        "Classifying spaces are K(G,1). Their fibre sequence gives πn(F0)=0 for n≥2 and identifies π1(F0) with ker GL(q).",
+        "The constant null-homotopy of the composite BN→BG_A→BG_B gives the actual comparison. Its π1 map is the kernel inclusion by naturality of the group/classifying-space identification.",
+        "The domain is connected, so its image lies in the basepoint component, and the map is a weak equivalence there. Other components are controlled by the image cosets of GL(q), not assumed absent."
+      ],
+      "acceptance": [
+        "Reduction GL(Z)→GL(F5) is not onto: determinant ±1 cannot reach determinant 2. The identity-component statement still applies."
+      ],
+      "prerequisites": [
+        "KTheoryLowDegrees:U.5/congruence-subgroup",
+        "StableHomotopyKTheory:H.1/classifying-space-of-group-is-KG1",
+        "StableHomotopyKTheory:H.2/long-exact-sequence",
+        "StableHomotopyKTheory:H.2/fibre-sequence-low-degree",
+        "StableHomotopyKTheory:H.2/homotopy-fibre-and-long-exact-sequence"
+      ],
+      "sources": [
+        {
+          "sourceId": "Kbook.2013",
+          "locator": "IV.1.1, printed p.260 / PDF268; Homotopy Fiber IV.1.2, printed p.262 / PDF270",
+          "match": "The K(G,1) description and the fibre exact sequence give the componentwise calculation. This is a worker derivation, not an assertion that the strict fibre of a classifying-space map is BN."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/RelativeComparison",
+        "namespace": "TauCeti.ReductionFibre"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "TauCeti.ReductionFibre.baseComponentEquiv",
+      "refines": [
+        "KTheoryLowDegrees:U.6/relative-K1-homotopy-comparison"
+      ],
+      "prototypeStatus": "Omitted signature: required ring/space carrier is absent at the pinned baseline."
+    },
+    {
+      "id": "KTheoryLowDegrees:U.5/congruence-loop-map",
+      "parentStageId": "KTheoryLowDegrees:U.5",
+      "realises": [
+        "KTheoryLowDegrees:U.5"
+      ],
+      "title": "Congruence matrices as relative plus loops",
+      "kind": "construction",
+      "statement": "Define c_I:N=GL(A,I)→π1(F⁺), F⁺=fib(BGL(q)⁺), by the map BN→F0→F⁺ induced by the based square of plus maps and its specified homotopy. A matrix loop with constant reduction is sent to its plus loop together with the resulting reduction path. The square homotopy H has direction j_B∘BGL(q)→BGL(q)⁺∘j_A. The induced F0→F⁺ map uses its reversal; it is part of the map even when one strictifies the square.",
+      "hypotheses": [
+        "A is an associative unital ring, I is a two-sided ideal, B=A/I, and q:A→B is the quotient map.",
+        "All linear, elementary and Steinberg groups are stable groups; no finite-rank assertion is inferred."
+      ],
+      "proofSteps": [
+        "Use the constant null-homotopy to construct BN→F0.",
+        "Apply the based-square fibre map for the chosen plus square. In a homotopy-commuting model, concatenate its square homotopy with the image of the old fibre path, with the orientation required by paths f(x)→base.",
+        "Apply π1 and the classifying-space comparison to obtain the group homomorphism. Functoriality is through coherent based squares, so no free-homotopy basepoint-change action is used."
+      ],
+      "acceptance": [
+        "All maps preserve the displayed basepoint and the specified loop orientation."
+      ],
+      "prerequisites": [
+        "KTheoryLowDegrees:U.5/classifying-reduction-fibre-component",
+        "StableHomotopyKTheory:H.3/plus-construction-functoriality",
+        "StableHomotopyKTheory:H.2/homotopy-fibre-and-long-exact-sequence"
+      ],
+      "sources": [
+        {
+          "sourceId": "Kbook.2013",
+          "locator": "IV.1.1.2 and IV.1.2, printed pp.261–262 / PDF269–270; Exercise IV.1.15, printed p.275 / PDF283",
+          "match": "Functorial plus maps and the path-fibre model construct the concrete comparison demanded by the relative-group exercise. The map is specified before its kernel is proved."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/RelativeComparison",
+        "namespace": "TauCeti.CongruenceLoop"
+      },
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "U.5/congruence-loop-surjective and congruence-loop-kernel",
+          "how": "Determine the actual map from congruence matrices, then descend it to relative K1."
+        },
+        {
+          "where": "ArithmeticKTheory:N.1 and KTheoryLowDegrees:U.6",
+          "how": "Track matrix classes and the maps in the relative exact sequence."
+        }
+      ],
+      "api": [
+        {
+          "name": "CongruenceLoop.toPlus",
+          "role": "constructor",
+          "statement": "The homomorphism c_I with its specified based-square construction."
+        },
+        {
+          "name": "CongruenceLoop.projection",
+          "role": "compatibility",
+          "statement": "Its composite with π1(F⁺)→π1(BGL(A)⁺)=K1(A) sends n to [n]."
+        },
+        {
+          "name": "CongruenceLoop.map",
+          "role": "functoriality",
+          "statement": "Maps of ring-ideal pairs commute with c_I through the induced map of fibres."
+        },
+        {
+          "name": "CongruenceLoop.one",
+          "role": "simp",
+          "statement": "c_I(1)=1."
+        },
+        {
+          "name": "CongruenceLoop.mul",
+          "role": "structure",
+          "statement": "c_I(nm)=c_I(n)c_I(m)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "congruenceLoop_zeroIdeal",
+          "kind": "degenerate",
+          "statement": "I=0 gives the trivial domain and trivial target fundamental group."
+        },
+        {
+          "name": "congruenceLoop_wholeIdeal",
+          "kind": "compatibility",
+          "statement": "I=A identifies c_I with the ordinary matrix-to-plus π1 map GL(A)→K1(A)."
+        },
+        {
+          "name": "congruenceLoop_integer_minusOne",
+          "kind": "computation",
+          "statement": "For A=Z,I=A, c_I(diag(-1)) is the nonidentity order-two class in K1(Z)."
+        },
+        {
+          "name": "congruenceLoop_nonSurjectiveReduction",
+          "kind": "non-example",
+          "statement": "The construction still applies to (Z,5Z); it must not request a preimage of the unit 2 of F5 in GL(Z)."
+        }
+      ],
+      "declarationName": "TauCeti.CongruenceLoop.toPlus",
+      "refines": [
+        "KTheoryLowDegrees:U.6/relative-K1-homotopy-comparison"
+      ],
+      "prototypeStatus": "Omitted signature: required ring/space carrier is absent at the pinned baseline."
+    },
+    {
+      "id": "KTheoryLowDegrees:U.5/congruence-loop-projection",
+      "parentStageId": "KTheoryLowDegrees:U.5",
+      "realises": [
+        "KTheoryLowDegrees:U.5"
+      ],
+      "title": "The relative loop retains its matrix class",
+      "kind": "lemma",
+      "statement": "Under π1(BGL(A)⁺)=GL(A)/E(A), the projection of c_I(n) is [n] for every n∈GL(A,I).",
+      "hypotheses": [
+        "A is an associative unital ring, I is a two-sided ideal, B=A/I, and q:A→B is the quotient map.",
+        "All linear, elementary and Steinberg groups are stable groups; no finite-rank assertion is inferred."
+      ],
+      "proofSteps": [
+        "The fibre projection composed with the map BN→F0→F⁺ is j_A composed with BN→BGL(A).",
+        "The absolute comparison sends this very matrix loop to its quotient class, so evaluating at n gives the formula."
+      ],
+      "acceptance": [
+        "All maps preserve the displayed basepoint and the specified loop orientation."
+      ],
+      "prerequisites": [
+        "KTheoryLowDegrees:U.5/congruence-loop-map",
+        "KTheoryLowDegrees:U.6/pi1-plus-construction"
+      ],
+      "sources": [
+        {
+          "sourceId": "Kbook.2013",
+          "locator": "IV.1.1(1), printed pp.260–261 / PDF268–269; Exercise IV.1.15, printed p.275 / PDF283",
+          "match": "The plus map quotients GL by E, and the exercise requires compatibility of the relative map to the absolute first group."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/RelativeComparison",
+        "namespace": "TauCeti.CongruenceLoop"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "TauCeti.CongruenceLoop.projection",
+      "refines": [
+        "KTheoryLowDegrees:U.6/relative-K1-homotopy-comparison"
+      ],
+      "prototypeStatus": "Omitted signature: required ring/space carrier is absent at the pinned baseline."
+    },
+    {
+      "id": "KTheoryLowDegrees:U.5/congruence-loop-natural",
+      "parentStageId": "KTheoryLowDegrees:U.5",
+      "realises": [
+        "KTheoryLowDegrees:U.5"
+      ],
+      "title": "Naturality of congruence loops",
+      "kind": "lemma",
+      "statement": "For f:A→A′ with f(I)⊆I′, the induced map on plus fibres sends c_I(n) to c_I′(GL(f)(n)) for every n∈GL(A,I).",
+      "hypotheses": [
+        "A is an associative unital ring, I is a two-sided ideal, B=A/I, and q:A→B is the quotient map.",
+        "All linear, elementary and Steinberg groups are stable groups; no finite-rank assertion is inferred."
+      ],
+      "proofSteps": [
+        "The ring-ideal square induces the kernel-group map and sends the constant reduction null-homotopy to the constant one.",
+        "Apply the coherent based map of plus squares. The H.2 fibre-map composition law identifies the two composites BN→F⁺ up to based homotopy.",
+        "Take π1 and evaluate on n; no independent choice of free basepoint-changing homotopy is allowed."
+      ],
+      "acceptance": [
+        "All maps preserve the displayed basepoint and the specified loop orientation."
+      ],
+      "prerequisites": [
+        "KTheoryLowDegrees:U.5/congruence-loop-map",
+        "KTheoryLowDegrees:U.5/congruence-subgroup",
+        "StableHomotopyKTheory:H.1/classifying-space-of-group-is-KG1",
+        "StableHomotopyKTheory:H.2/homotopy-fibre-and-long-exact-sequence",
+        "StableHomotopyKTheory:H.3/plus-construction-functoriality"
+      ],
+      "sources": [
+        {
+          "sourceId": "Kbook.2013",
+          "locator": "IV.1.1.2 and IV.1.2, printed pp.261–262 / PDF269–270",
+          "match": "Functorial plus squares and the path-fibre construction give this concrete loop formula."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/RelativeComparison",
+        "namespace": "TauCeti.CongruenceLoop"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "TauCeti.CongruenceLoop.map",
+      "refines": [
+        "KTheoryLowDegrees:U.6/relative-K1-homotopy-comparison"
+      ],
+      "prototypeStatus": "Omitted signature: required ring/space carrier is absent at the pinned baseline."
+    },
+    {
+      "id": "KTheoryLowDegrees:U.5/plus-square-fibre-sequence",
+      "parentStageId": "KTheoryLowDegrees:U.5",
+      "realises": [
+        "KTheoryLowDegrees:U.5"
+      ],
+      "title": "A fibre sequence from the square of plus maps",
+      "kind": "comparison",
+      "statement": "Put V_A=fib(j_A), V_B=fib(j_B), and W=fib(V_A→V_B). The based plus square induces a fibre sequence W→F0→F⁺. Under π1(F0)≃N and κ_A:π1(V_A)≃St(A), the composite π1(W)→π1(F0)→GL(A) equals φ_A composed with π1(W)→π1(V_A)→St(A).",
+      "hypotheses": [
+        "A is an associative unital ring, I is a two-sided ideal, B=A/I, and q:A→B is the quotient map.",
+        "All linear, elementary and Steinberg groups are stable groups; no finite-rank assertion is inferred."
+      ],
+      "proofSteps": [
+        "Invoke request R-fibre-interchange for this based square. It identifies the two iterated homotopy fibres, compatibly with projections, without declaring the original square homotopy-cartesian.",
+        "In the path-square model, the two descriptions specify a point and two paths with a filling homotopy. Swap the two path directions; prefix contractions give the inverse equivalence.",
+        "Compatibility of both projections gives the displayed identity on π1. This identifies the kernel image in the subsequent argument rather than comparing unnamed exact sequences."
+      ],
+      "acceptance": [
+        "All maps preserve the displayed basepoint and the specified loop orientation."
+      ],
+      "prerequisites": [
+        "StableHomotopyKTheory:H.2",
+        "KTheoryLowDegrees:U.5/plus-fibre-steinberg-natural",
+        "KTheoryLowDegrees:U.5/classifying-reduction-fibre-component",
+        "KTheoryLowDegrees:U.5/congruence-loop-map",
+        "StableHomotopyKTheory:H.2/homotopy-cartesian-pasting"
+      ],
+      "sources": [
+        {
+          "sourceId": "Kbook.2013",
+          "locator": "Homotopy Fiber IV.1.2, printed p.262 / PDF270; Proposition IV.1.7 and Exercise IV.1.15, printed pp.264,275 / PDF272,283",
+          "match": "The path model and acyclic-fibre characterization motivate this worker-derived square argument. The generic interchange and sign API is explicitly requested; it is not claimed to be a printed theorem here."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/RelativeComparison",
+        "namespace": "TauCeti.PlusSquare"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "TauCeti.PlusSquare.iteratedFibreEquiv",
+      "refines": [
+        "KTheoryLowDegrees:U.6/relative-K1-homotopy-comparison"
+      ],
+      "prototypeStatus": "Omitted signature: required ring/space carrier is absent at the pinned baseline."
+    },
+    {
+      "id": "KTheoryLowDegrees:U.5/plus-square-inner-fibre-connected",
+      "parentStageId": "KTheoryLowDegrees:U.5",
+      "realises": [
+        "KTheoryLowDegrees:U.5"
+      ],
+      "title": "Connectedness of the inner fibre",
+      "kind": "lemma",
+      "statement": "The space W=fib(V_A→V_B) is path connected.",
+      "hypotheses": [
+        "A is an associative unital ring, I is a two-sided ideal, B=A/I, and q:A→B is the quotient map.",
+        "All linear, elementary and Steinberg groups are stable groups; no finite-rank assertion is inferred."
+      ],
+      "proofSteps": [
+        "Plus maps are acyclic, so V_A and V_B are path connected.",
+        "R-St-quotient makes St(q) onto. Under κ this is surjectivity of π1(V_A)→π1(V_B).",
+        "Use the orbit/stabilizer description at π0 of the fibre: a connected source and target and a surjection on π1 leave one fibre component."
+      ],
+      "acceptance": [
+        "All maps preserve the displayed basepoint and the specified loop orientation."
+      ],
+      "prerequisites": [
+        "KTheoryLowDegrees:U.5/plus-fibre-steinberg-natural",
+        "K2SymbolsBrauer:T.1:classical",
+        "StableHomotopyKTheory:H.3/plus-is-acyclic",
+        "StableHomotopyKTheory:H.2/fibre-sequence-low-degree",
+        "mathlib:Ideal.Quotient.mk_surjective"
+      ],
+      "sources": [
+        {
+          "sourceId": "Kbook.2013",
+          "locator": "IV.1.4–1.4.1 and IV.1.7, printed pp.263–264 / PDF271–272; Exercise III.5.1, printed p.228 / PDF236",
+          "match": "Acyclic fibres are connected; Steinberg reduction is surjective. The fibre exact sequence then gives connectedness of the iterated fibre."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/RelativeComparison",
+        "namespace": "TauCeti.PlusSquare"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "TauCeti.PlusSquare.innerFibre_connected",
+      "refines": [
+        "KTheoryLowDegrees:U.6/relative-K1-homotopy-comparison"
+      ],
+      "prototypeStatus": "Omitted signature: required ring/space carrier is absent at the pinned baseline."
+    },
+    {
+      "id": "KTheoryLowDegrees:U.5/congruence-loop-surjective",
+      "parentStageId": "KTheoryLowDegrees:U.5",
+      "realises": [
+        "KTheoryLowDegrees:U.5"
+      ],
+      "title": "Surjectivity of the congruence-loop map",
+      "kind": "lemma",
+      "statement": "The actual homomorphism c_I:GL(A,I)→π1(F⁺) is surjective.",
+      "hypotheses": [
+        "A is an associative unital ring, I is a two-sided ideal, B=A/I, and q:A→B is the quotient map.",
+        "All linear, elementary and Steinberg groups are stable groups; no finite-rank assertion is inferred."
+      ],
+      "proofSteps": [
+        "The fibre sequence W→F0→F⁺ gives π1(F0)→π1(F⁺)→π0(W).",
+        "W is connected, so exactness gives surjectivity of the first map. Under the specified π1(F0)≃N this map is c_I.",
+        "Use the basepoint component of F0 only; it is not necessary that the whole unmodified reduction fibre be connected."
+      ],
+      "acceptance": [
+        "All maps preserve the displayed basepoint and the specified loop orientation."
+      ],
+      "prerequisites": [
+        "KTheoryLowDegrees:U.5/plus-square-fibre-sequence",
+        "KTheoryLowDegrees:U.5/plus-square-inner-fibre-connected",
+        "KTheoryLowDegrees:U.5/classifying-reduction-fibre-component",
+        "StableHomotopyKTheory:H.2/long-exact-sequence"
+      ],
+      "sources": [
+        {
+          "sourceId": "Kbook.2013",
+          "locator": "IV.1.2 and IV.1.7, printed pp.262,264 / PDF270,272; Exercise IV.1.15, printed p.275 / PDF283",
+          "match": "The path-fibre sequence and the Steinberg description give this worker-derived surjectivity argument."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/RelativeComparison",
+        "namespace": "TauCeti.CongruenceLoop"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "TauCeti.CongruenceLoop.surjective",
+      "refines": [
+        "KTheoryLowDegrees:U.6/relative-K1-homotopy-comparison"
+      ],
+      "prototypeStatus": "Omitted signature: required ring/space carrier is absent at the pinned baseline."
+    },
+    {
+      "id": "KTheoryLowDegrees:U.5/congruence-loop-kernel",
+      "parentStageId": "KTheoryLowDegrees:U.5",
+      "realises": [
+        "KTheoryLowDegrees:U.5"
+      ],
+      "title": "Kernel of the congruence-loop map",
+      "kind": "lemma",
+      "statement": "ker(c_I)=E(A,I), regarded as a subgroup of GL(A,I). In particular this kernel is not defined as E(A)∩GL(A,I).",
+      "hypotheses": [
+        "A is an associative unital ring, I is a two-sided ideal, B=A/I, and q:A→B is the quotient map.",
+        "All linear, elementary and Steinberg groups are stable groups; no finite-rank assertion is inferred."
+      ],
+      "proofSteps": [
+        "Exactness of W→V_A→V_B identifies the image of π1(W) in St(A) with ker St(q).",
+        "The projection identity in plus-square-fibre-sequence identifies its image in GL(A) with φ_A(ker St(q)), exactly E(A,I).",
+        "Exactness of W→F0→F⁺ identifies that same image inside N with ker(c_I). Restrict the already-normal E(A,I) to N using the pinned subgroup API."
+      ],
+      "acceptance": [
+        "The parent Stallings example has E(A,I) properly contained in E(A)∩GL(A,I), so substituting that intersection would give the wrong fibre fundamental group."
+      ],
+      "prerequisites": [
+        "KTheoryLowDegrees:U.5/plus-square-fibre-sequence",
+        "KTheoryLowDegrees:U.5/plus-fibre-steinberg-natural",
+        "KTheoryLowDegrees:U.5/steinberg-kernel-elementary-image",
+        "StableHomotopyKTheory:H.2/long-exact-sequence",
+        "KTheoryLowDegrees:U.5/relative-elementary-stable-normal",
+        "mathlib:Subgroup.Normal.subgroupOf"
+      ],
+      "sources": [
+        {
+          "sourceId": "Kbook.2013",
+          "locator": "IV.1.2, IV.1.7 and Exercise IV.1.15, printed pp.262,264,275 / PDF270,272,283; Exercise III.5.1, printed p.228 / PDF236",
+          "match": "The two fibre sequences and the explicit Steinberg reduction kernel calculate the kernel of the constructed map. No general excision assertion is used."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/RelativeComparison",
+        "namespace": "TauCeti.CongruenceLoop"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "TauCeti.CongruenceLoop.ker_eq_relativeElementary",
+      "refines": [
+        "KTheoryLowDegrees:U.6/relative-K1-homotopy-comparison"
+      ],
+      "prototypeStatus": "Omitted signature: required ring/space carrier is absent at the pinned baseline."
+    },
+    {
+      "id": "KTheoryLowDegrees:U.5/relative-plus-map",
+      "parentStageId": "KTheoryLowDegrees:U.5",
+      "realises": [
+        "KTheoryLowDegrees:U.5"
+      ],
+      "title": "Descent of congruence loops to relative K1",
+      "kind": "construction",
+      "statement": "Descend c_I through N/E(A,I)=K1(A,I) to the specific homomorphism C_I:K1(A,I)→π1(F⁺), characterized by C_I([n])=c_I(n). The underlying quotient is the parent relative K1 definition, not a new carrier.",
+      "hypotheses": [
+        "A is an associative unital ring, I is a two-sided ideal, B=A/I, and q:A→B is the quotient map.",
+        "All linear, elementary and Steinberg groups are stable groups; no finite-rank assertion is inferred."
+      ],
+      "proofSteps": [
+        "The proved kernel identity supplies the containment required by QuotientGroup.lift.",
+        "Apply this existing quotient construction to the actual c_I. Its evaluation on representatives fixes C_I uniquely.",
+        "Matrix projection and functoriality are inherited from c_I and checked on quotient generators; promote the used claims to relative-plus-projection and relative-plus-natural."
+      ],
+      "acceptance": [
+        "All maps preserve the displayed basepoint and the specified loop orientation."
+      ],
+      "prerequisites": [
+        "KTheoryLowDegrees:U.5/congruence-loop-map",
+        "KTheoryLowDegrees:U.5/congruence-loop-kernel",
+        "KTheoryLowDegrees:U.5/relative-K1",
+        "KTheoryLowDegrees:U.5/relative-sequence-degree-one",
+        "mathlib:QuotientGroup.lift",
+        "mathlib:QuotientGroup.lift_mk"
+      ],
+      "sources": [
+        {
+          "sourceId": "Kbook.2013",
+          "locator": "III.2.2, printed p.193 / PDF201; Exercise IV.1.15, printed p.275 / PDF283",
+          "match": "The classical quotient and the demanded relative homotopy comparison fix this descent, once the previously proved kernel is known."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/RelativeComparison",
+        "namespace": "TauCeti.RelativeK1Loop"
+      },
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "U.5/relative-plus-bijective",
+          "how": "Prove that this concrete descended map is the comparison isomorphism."
+        },
+        {
+          "where": "U.5/relative-K2-boundary-plus and ArithmeticKTheory:N.1",
+          "how": "Compare connecting maps and the inclusion into absolute K1 on representatives."
+        }
+      ],
+      "api": [
+        {
+          "name": "RelativeK1Loop.toPlus",
+          "role": "constructor",
+          "statement": "The descended homomorphism C_I."
+        },
+        {
+          "name": "RelativeK1Loop.toPlus_mk",
+          "role": "simp",
+          "statement": "C_I([n])=c_I(n)."
+        },
+        {
+          "name": "RelativeK1Loop.projection",
+          "role": "compatibility",
+          "statement": "Projection of C_I([n]) to K1(A) is [n]."
+        },
+        {
+          "name": "RelativeK1Loop.natural",
+          "role": "functoriality",
+          "statement": "C commutes with maps of ring-ideal pairs."
+        },
+        {
+          "name": "RelativeK1Loop.unique",
+          "role": "universal-property",
+          "statement": "A homomorphism agreeing with c_I after the quotient map equals C_I."
+        }
+      ],
+      "tests": [
+        {
+          "name": "relativePlus_zeroIdeal",
+          "kind": "degenerate",
+          "statement": "For I=0, C_I is the unique map between trivial groups."
+        },
+        {
+          "name": "relativePlus_wholeIdeal",
+          "kind": "compatibility",
+          "statement": "For I=A, C_I is the ordinary identity comparison of classical and plus K1."
+        },
+        {
+          "name": "relativePlus_squareZeroUnits",
+          "kind": "computation",
+          "statement": "For A=Z/p², I=(p), p prime, [1+px] maps to the corresponding nontrivial fibre unit class when x is nonzero modulo p; this gives an additive Z/p group."
+        },
+        {
+          "name": "relativePlus_notAbsoluteKernel",
+          "kind": "non-example",
+          "statement": "For A=ℝ[t], I=(t²-t), the parent Stallings relative SK1 surjects onto Z/2 while SK1(ℝ[t])=0. The nontrivial relative loop survives C_I although its absolute class vanishes."
+        }
+      ],
+      "declarationName": "TauCeti.RelativeK1Loop.toPlus",
+      "refines": [
+        "KTheoryLowDegrees:U.6/relative-K1-homotopy-comparison"
+      ],
+      "prototypeStatus": "Typed conditional group-quotient interface; ring specialization requires suppliers."
+    },
+    {
+      "id": "KTheoryLowDegrees:U.5/relative-plus-bijective",
+      "parentStageId": "KTheoryLowDegrees:U.5",
+      "realises": [
+        "KTheoryLowDegrees:U.5"
+      ],
+      "title": "The relative quotient equals the fibre fundamental group",
+      "kind": "theorem",
+      "statement": "C_I:GL(A,I)/E(A,I)→π1(fib(BGL(q)⁺)) is bijective, hence the specified group isomorphism. The isomorphism sends the class of each congruence matrix to its constructed relative loop.",
+      "hypotheses": [
+        "A is an associative unital ring, I is a two-sided ideal, B=A/I, and q:A→B is the quotient map.",
+        "All linear, elementary and Steinberg groups are stable groups; no finite-rank assertion is inferred."
+      ],
+      "proofSteps": [
+        "Surjectivity of c_I implies surjectivity of the quotient descent.",
+        "Its kernel is the image of E(A,I) in N/E(A,I), which is trivial; use the pinned kernel formula or liftEquiv.",
+        "Take the resulting equivalence of this homomorphism. The proof uses an established map, its surjectivity and its exact kernel; it does not infer a comparison from parallel exact sequences."
+      ],
+      "acceptance": [
+        "All maps preserve the displayed basepoint and the specified loop orientation."
+      ],
+      "prerequisites": [
+        "KTheoryLowDegrees:U.5/relative-plus-map",
+        "KTheoryLowDegrees:U.5/congruence-loop-surjective",
+        "KTheoryLowDegrees:U.5/congruence-loop-kernel",
+        "mathlib:QuotientGroup.liftEquiv",
+        "mathlib:QuotientGroup.ker_lift"
+      ],
+      "sources": [
+        {
+          "sourceId": "Kbook.2013",
+          "locator": "Exercise IV.1.15, printed p.275 / PDF283; III.2.2, printed p.193 / PDF201",
+          "match": "This is the requested degree-one comparison, proved here by the square of acyclic plus fibres rather than by assuming the missing double-ring excision step."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/RelativeComparison",
+        "namespace": "TauCeti.RelativeK1Loop"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "TauCeti.RelativeK1Loop.bijective",
+      "refines": [
+        "KTheoryLowDegrees:U.6/relative-K1-homotopy-comparison"
+      ],
+      "prototypeStatus": "Typed conditional group-quotient interface; ring specialization requires suppliers."
+    },
+    {
+      "id": "KTheoryLowDegrees:U.5/relative-plus-projection",
+      "parentStageId": "KTheoryLowDegrees:U.5",
+      "realises": [
+        "KTheoryLowDegrees:U.5"
+      ],
+      "title": "Projection of the quotient comparison",
+      "kind": "lemma",
+      "statement": "The composite K1(A,I)→C_I π1(F⁺)→π1(BGL(A)⁺)=K1(A) equals the parent inclusion K1(A,I)→K1(A).",
+      "hypotheses": [
+        "A is an associative unital ring, I is a two-sided ideal, B=A/I, and q:A→B is the quotient map.",
+        "All linear, elementary and Steinberg groups are stable groups; no finite-rank assertion is inferred."
+      ],
+      "proofSteps": [
+        "Evaluate both homomorphisms on a congruence-matrix class. Both give its absolute class by congruence-loop-projection.",
+        "Surjectivity of the quotient map gives equality on the whole relative group."
+      ],
+      "acceptance": [
+        "All maps preserve the displayed basepoint and the specified loop orientation."
+      ],
+      "prerequisites": [
+        "KTheoryLowDegrees:U.5/relative-plus-map",
+        "KTheoryLowDegrees:U.5/congruence-loop-projection",
+        "KTheoryLowDegrees:U.5/relative-sequence-degree-one",
+        "mathlib:QuotientGroup.lift_mk"
+      ],
+      "sources": [
+        {
+          "sourceId": "Kbook.2013",
+          "locator": "Exercise IV.1.15, printed p.275 / PDF283; III.2.3, printed p.193 / PDF201",
+          "match": "The exercise requires the inclusion into the absolute group to agree, which the matrix formula establishes."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/RelativeComparison",
+        "namespace": "TauCeti.RelativeK1Loop"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "TauCeti.RelativeK1Loop.projection",
+      "refines": [
+        "KTheoryLowDegrees:U.6/relative-K1-homotopy-comparison"
+      ],
+      "prototypeStatus": "Typed conditional group-quotient interface; ring specialization requires suppliers."
+    },
+    {
+      "id": "KTheoryLowDegrees:U.5/relative-plus-natural",
+      "parentStageId": "KTheoryLowDegrees:U.5",
+      "realises": [
+        "KTheoryLowDegrees:U.5"
+      ],
+      "title": "Naturality in ring-ideal pairs",
+      "kind": "lemma",
+      "statement": "If f:A→A′ satisfies f(I)⊆I′, the square of C_I,C_I′ with the parent map on relative K1 and the induced map on F⁺ fundamental groups commutes. The identity and composition laws are those of the imported relative groups and coherent based fibre maps.",
+      "hypotheses": [
+        "A is an associative unital ring, I is a two-sided ideal, B=A/I, and q:A→B is the quotient map.",
+        "All linear, elementary and Steinberg groups are stable groups; no finite-rank assertion is inferred."
+      ],
+      "proofSteps": [
+        "The kernel-group/classifying-space construction and the map of plus squares commute on every congruence loop.",
+        "Ring maps send each relative elementary generator and its conjugates into the target relative elementary subgroup. Apply the parent relative quotient map.",
+        "Evaluate the two composites on [n]; coherent based square maps give the same loop class, and quotient surjectivity proves equality."
+      ],
+      "acceptance": [
+        "All maps preserve the displayed basepoint and the specified loop orientation."
+      ],
+      "prerequisites": [
+        "KTheoryLowDegrees:U.5/relative-plus-map",
+        "KTheoryLowDegrees:U.5/congruence-loop-natural",
+        "KTheoryLowDegrees:U.5/relative-K1",
+        "mathlib:QuotientGroup.map"
+      ],
+      "sources": [
+        {
+          "sourceId": "Kbook.2013",
+          "locator": "IV.1.1.2 and IV.1.2, printed pp.261–262 / PDF269–270; III.2.2, printed p.193 / PDF201",
+          "match": "Ring maps, plus functoriality and the path-fibre construction give this map-level naturality; it is a worker derivation of the relative comparison."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/RelativeComparison",
+        "namespace": "TauCeti.RelativeK1Loop"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "TauCeti.RelativeK1Loop.natural",
+      "refines": [
+        "KTheoryLowDegrees:U.6/relative-K1-homotopy-comparison"
+      ],
+      "prototypeStatus": "Typed conditional group-quotient interface; ring specialization requires suppliers."
+    },
+    {
+      "id": "KTheoryLowDegrees:U.5/relative-plus-ring-model",
+      "parentStageId": "KTheoryLowDegrees:U.5",
+      "realises": [
+        "KTheoryLowDegrees:U.5"
+      ],
+      "title": "Transport to the functorial ring K-space",
+      "kind": "comparison",
+      "statement": "Transport C_I through the natural based comparison of BGL(A)⁺ with the zero component of the functorial K(A) to obtain Ĉ_I:K1(A,I)≃π1 K(A,I), where K(A,I) is owned by K.5. Its projection to K1(A) is the parent inclusion. Only the basepoint components are used for π1; no natural splitting K(A)=K0(A)×BGL(A)⁺ as H-spaces is assumed.",
+      "hypotheses": [
+        "A is an associative unital ring, I is a two-sided ideal, B=A/I, and q:A→B is the quotient map.",
+        "All linear, elementary and Steinberg groups are stable groups; no finite-rank assertion is inferred."
+      ],
+      "proofSteps": [
+        "Use the early plus/Q ring comparison with its based ring-map naturality. Its precise fibre-compatible naturality is included in request R-ring-model if the existing broad node is read as merely an objectwise product description.",
+        "The maps on the zero source and zero target components are weak equivalences. Their fibre map induces an isomorphism on π1 by the fibre long exact sequences, including the π2 terms.",
+        "Any loop in the full relative fibre projects into the zero source component and uses a path in the zero target component. Thus this is the same π1 as that of the component-level fibre. Compose C_I with the induced isomorphism."
+      ],
+      "acceptance": [
+        "All maps preserve the displayed basepoint and the specified loop orientation."
+      ],
+      "prerequisites": [
+        "KTheoryLowDegrees:U.5/relative-plus-bijective",
+        "KTheoryLowDegrees:U.5/relative-plus-projection",
+        "KTheoryLowDegrees:U.5/relative-plus-natural",
+        "GeneralAlgebraicKTheory:K.2:plus/plus-equals-Q",
+        "GeneralAlgebraicKTheory:K.2:plus/zero-one-ring-comparison",
+        "GeneralAlgebraicKTheory:K.5/relative-K-theory",
+        "StableHomotopyKTheory:H.2/long-exact-sequence"
+      ],
+      "sources": [
+        {
+          "sourceId": "Kbook.2013",
+          "locator": "IV.1.1.1–1.1.2, printed p.261 / PDF269; IV.1.11 and Exercise IV.1.15, printed pp.267–268,275 / PDF275–276,283",
+          "match": "The source warns that the component product does not split naturally as H-spaces. The ring-relative comparison uses the natural based component model and the genuine generic fibre instead."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/RelativeComparison",
+        "namespace": "TauCeti.RelativeK1Loop"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "TauCeti.RelativeK1Loop.ringModelEquiv",
+      "refines": [
+        "KTheoryLowDegrees:U.6/relative-K1-homotopy-comparison"
+      ],
+      "prototypeStatus": "Omitted signature: required ring/space carrier is absent at the pinned baseline."
+    },
+    {
+      "id": "KTheoryLowDegrees:U.5/relative-K2-boundary-lift-independence",
+      "parentStageId": "KTheoryLowDegrees:U.5",
+      "realises": [
+        "KTheoryLowDegrees:U.5"
+      ],
+      "title": "Independence of the lifted Steinberg word",
+      "kind": "lemma",
+      "statement": "For z∈K2(B), if St(q)(w)=z=St(q)(w′), then φ_A(w) and φ_A(w′) lie in N and their inverse classes in N/E(A,I) agree.",
+      "hypotheses": [
+        "A is an associative unital ring, I is a two-sided ideal, B=A/I, and q:A→B is the quotient map.",
+        "All linear, elementary and Steinberg groups are stable groups; no finite-rank assertion is inferred."
+      ],
+      "proofSteps": [
+        "Commutativity of the Steinberg-to-linear square gives GL(q)(φ_A(w))=φ_B(z)=1, and similarly for w′.",
+        "The word w′w⁻¹ lies in ker St(q), so its image lies in E(A,I). Thus the two images have the same quotient class; taking inverses preserves this equality."
+      ],
+      "acceptance": [
+        "All maps preserve the displayed basepoint and the specified loop orientation."
+      ],
+      "prerequisites": [
+        "KTheoryLowDegrees:U.5/steinberg-kernel-elementary-image",
+        "KTheoryLowDegrees:U.5/relative-K1",
+        "K2SymbolsBrauer:T.1:classical/to-elementary",
+        "mathlib:QuotientGroup.mk'"
+      ],
+      "sources": [
+        {
+          "sourceId": "Kbook.2013",
+          "locator": "III.5.7–5.8 and Exercise III.5.1, printed pp.222–223,228 / PDF230–231,236",
+          "match": "The stable relative sequence and the quotient presentation supply the lifted-word calculation. Its inverse convention is pinned by the signed fibre comparison."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/RelativeComparison",
+        "namespace": "TauCeti.RelativeBoundary"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "TauCeti.RelativeBoundary.lift_independent",
+      "refines": [
+        "KTheoryLowDegrees:U.6/relative-K1-homotopy-comparison"
+      ],
+      "prototypeStatus": "Typed conditional group-quotient interface; ring specialization requires suppliers."
+    },
+    {
+      "id": "KTheoryLowDegrees:U.5/relative-K2-boundary",
+      "parentStageId": "KTheoryLowDegrees:U.5",
+      "realises": [
+        "KTheoryLowDegrees:U.5"
+      ],
+      "title": "The inverse lifted-word boundary",
+      "kind": "construction",
+      "statement": "Define δ_I:K2(B)→K1(A,I) by δ_I(z)=[φ_A(w)⁻¹], where St(q)(w)=z. Here K2(B)=ker φ_B is the classical supplier group. This inverse is part of the convention: β is inverse to κ∘∂j and H.2 fibres use paths f(x)→base with connecting maps induced by Ωtarget inclusion.",
+      "hypotheses": [
+        "A is an associative unital ring, I is a two-sided ideal, B=A/I, and q:A→B is the quotient map.",
+        "All linear, elementary and Steinberg groups are stable groups; no finite-rank assertion is inferred."
+      ],
+      "proofSteps": [
+        "Choose a lift using R-St-quotient. Its elementary image reduces to the identity because z∈ker φ_B.",
+        "Take the inverse image and its class in the parent relative quotient. Lift-independence makes this a well-defined function.",
+        "Products of chosen lifts lift products. Their inverse images occur in reverse order, and the parent relative K1 is abelian, so the function is a group homomorphism. Record this as relative-K2-boundary-hom."
+      ],
+      "acceptance": [
+        "All maps preserve the displayed basepoint and the specified loop orientation."
+      ],
+      "prerequisites": [
+        "KTheoryLowDegrees:U.5/relative-K2-boundary-lift-independence",
+        "K2SymbolsBrauer:T.1:classical",
+        "K2SymbolsBrauer:T.1/k2-definition",
+        "KTheoryLowDegrees:U.5/relative-K1",
+        "mathlib:QuotientGroup.mk'"
+      ],
+      "sources": [
+        {
+          "sourceId": "Kbook.2013",
+          "locator": "III.5.7–5.8, printed pp.222–223 / PDF230–231; Exercise IV.1.15, printed p.275 / PDF283",
+          "match": "The relative stable sequence supplies the classical connecting map, while the exercise asks for its agreement with the homotopy boundary. The signed inverse-word formula is a worker derivation under the displayed convention, not a formula quoted from the book."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/RelativeComparison",
+        "namespace": "TauCeti.RelativeBoundary"
+      },
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "U.5/relative-K2-boundary-plus",
+          "how": "Compute the actual topological degree-two connecting map on lifted words."
+        },
+        {
+          "where": "K2SymbolsBrauer:T.6/relative-steinberg-group and ArithmeticKTheory:N.1",
+          "how": "Align the first K2-to-relative-K1 arrow without reconstructing relative K2."
+        }
+      ],
+      "api": [
+        {
+          "name": "RelativeBoundary.ofLift",
+          "role": "constructor",
+          "statement": "The homomorphism δ_I from classical K2(B) to the parent relative quotient."
+        },
+        {
+          "name": "RelativeBoundary.lift_formula",
+          "role": "characterisation",
+          "statement": "For every w with St(q)(w)=z, δ_I(z)=[φ_A(w)⁻¹]."
+        },
+        {
+          "name": "RelativeBoundary.map",
+          "role": "functoriality",
+          "statement": "Maps of ring-ideal pairs commute with δ_I."
+        },
+        {
+          "name": "RelativeBoundary.one",
+          "role": "simp",
+          "statement": "δ_I(1)=1."
+        },
+        {
+          "name": "RelativeBoundary.mul",
+          "role": "structure",
+          "statement": "δ_I(zz′)=δ_I(z)δ_I(z′)."
+        },
+        {
+          "name": "RelativeBoundary.zero_on_image",
+          "role": "compatibility",
+          "statement": "δ_I∘K2(q) is trivial."
+        },
+        {
+          "name": "RelativeBoundary.split",
+          "role": "compatibility",
+          "statement": "A unital ring section of q makes δ_I trivial."
+        },
+        {
+          "name": "RelativeBoundary.plus",
+          "role": "compatibility",
+          "statement": "Ĉ_I∘δ_I equals the generic fibre connecting map composed with β_B and the based ring-model comparison."
+        }
+      ],
+      "tests": [
+        {
+          "name": "relativeBoundary_zeroIdeal",
+          "kind": "degenerate",
+          "statement": "I=0 and q=id give δ_I=0 into the trivial relative group."
+        },
+        {
+          "name": "relativeBoundary_splitDualNumbers",
+          "kind": "computation",
+          "statement": "For a field k, A=k[ε]/(ε²), I=(ε), the constant section k→A makes δ_I zero for every element of K2(k)."
+        },
+        {
+          "name": "relativeBoundary_liftedAbsoluteElement",
+          "kind": "compatibility",
+          "statement": "If z=K2(q)(u) with u∈ker φ_A, choose w=u and obtain δ_I(z)=1."
+        },
+        {
+          "name": "relativeBoundary_inverseSign",
+          "kind": "computation",
+          "statement": "In the typed group-map test diagram S_A=S_B=G_A=Multiplicative Z, G_B=1, St(q)=id, φ_A=id, φ_B and GL(q) trivial, and E=1, the lifted-word formula sends the class n to -n. This is a sign test of the algebraic interface, not an example of a ring Steinberg group."
+        },
+        {
+          "name": "relativeBoundary_prismSign",
+          "kind": "non-example",
+          "statement": "For the based square S¹→* over *→S² whose square homotopy is adjoint to a degree +1 map S¹→ΩS², the induced plus-fibre map and congruence-fibre map have opposite signs. A positive lifted-word boundary with the displayed β and path conventions fails this test."
+        }
+      ],
+      "declarationName": "TauCeti.RelativeBoundary.ofLift",
+      "refines": [
+        "KTheoryLowDegrees:U.6/relative-K1-homotopy-comparison"
+      ],
+      "prototypeStatus": "Typed conditional group-quotient interface; ring specialization requires suppliers."
+    },
+    {
+      "id": "KTheoryLowDegrees:U.5/relative-K2-boundary-hom",
+      "parentStageId": "KTheoryLowDegrees:U.5",
+      "realises": [
+        "KTheoryLowDegrees:U.5"
+      ],
+      "title": "Multiplicativity of the boundary",
+      "kind": "lemma",
+      "statement": "The inverse lifted-word rule satisfies δ_I(zz′)=δ_I(z)δ_I(z′).",
+      "hypotheses": [
+        "A is an associative unital ring, I is a two-sided ideal, B=A/I, and q:A→B is the quotient map.",
+        "All linear, elementary and Steinberg groups are stable groups; no finite-rank assertion is inferred."
+      ],
+      "proofSteps": [
+        "If w,w′ lift z,z′ then ww′ lifts zz′. Its inverse image is φ_A(w′)⁻¹φ_A(w)⁻¹.",
+        "Commute these two classes in the abelian parent relative K1 and use lift-independence. The abelian quotient is necessary; inversion is not a homomorphism on a general noncommutative group."
+      ],
+      "acceptance": [
+        "All maps preserve the displayed basepoint and the specified loop orientation."
+      ],
+      "prerequisites": [
+        "KTheoryLowDegrees:U.5/relative-K2-boundary",
+        "KTheoryLowDegrees:U.5/relative-K1"
+      ],
+      "sources": [
+        {
+          "sourceId": "Kbook.2013",
+          "locator": "III.2.2 and III.5.7, printed pp.193,222 / PDF201,230",
+          "match": "The abelianness of relative K1 and the stable sequence give multiplicativity of the inverse convention."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/RelativeComparison",
+        "namespace": "TauCeti.RelativeBoundary"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "TauCeti.RelativeBoundary.mul",
+      "refines": [
+        "KTheoryLowDegrees:U.6/relative-K1-homotopy-comparison"
+      ],
+      "prototypeStatus": "Typed conditional group-quotient interface; ring specialization requires suppliers."
+    },
+    {
+      "id": "KTheoryLowDegrees:U.5/relative-K2-boundary-natural",
+      "parentStageId": "KTheoryLowDegrees:U.5",
+      "realises": [
+        "KTheoryLowDegrees:U.5"
+      ],
+      "title": "Naturality of the lifted-word boundary",
+      "kind": "lemma",
+      "statement": "For f:A→A′ with f(I)⊆I′, the square of δ_I,δ_I′ with K2(B)→K2(B′) and K1(A,I)→K1(A′,I′) commutes.",
+      "hypotheses": [
+        "A is an associative unital ring, I is a two-sided ideal, B=A/I, and q:A→B is the quotient map.",
+        "All linear, elementary and Steinberg groups are stable groups; no finite-rank assertion is inferred."
+      ],
+      "proofSteps": [
+        "Apply St(f) to a lift w of z. The quotient-ring square says it lifts K2(f̄)(z).",
+        "Naturality of φ sends φ_A(w)⁻¹ to φ_A′(St(f)(w))⁻¹. Evaluate the two quotient classes."
+      ],
+      "acceptance": [
+        "All maps preserve the displayed basepoint and the specified loop orientation."
+      ],
+      "prerequisites": [
+        "KTheoryLowDegrees:U.5/relative-K2-boundary",
+        "K2SymbolsBrauer:T.1/stabilisation",
+        "KTheoryLowDegrees:U.5/relative-K1"
+      ],
+      "sources": [
+        {
+          "sourceId": "Kbook.2013",
+          "locator": "III.5.1, III.5.7 and III.2.2, printed pp.217,222,193 / PDF225,230,201",
+          "match": "Functoriality of root generators and of the relative quotient proves the concrete naturality square."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/RelativeComparison",
+        "namespace": "TauCeti.RelativeBoundary"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "TauCeti.RelativeBoundary.map",
+      "refines": [
+        "KTheoryLowDegrees:U.6/relative-K1-homotopy-comparison"
+      ],
+      "prototypeStatus": "Omitted signature: required ring/space carrier is absent at the pinned baseline."
+    },
+    {
+      "id": "KTheoryLowDegrees:U.5/relative-K2-boundary-zero-on-image",
+      "parentStageId": "KTheoryLowDegrees:U.5",
+      "realises": [
+        "KTheoryLowDegrees:U.5"
+      ],
+      "title": "The boundary kills absolute K2 lifts",
+      "kind": "lemma",
+      "statement": "For u∈K2(A), δ_I(K2(q)(u))=1.",
+      "hypotheses": [
+        "A is an associative unital ring, I is a two-sided ideal, B=A/I, and q:A→B is the quotient map.",
+        "All linear, elementary and Steinberg groups are stable groups; no finite-rank assertion is inferred."
+      ],
+      "proofSteps": [
+        "Use u itself as a Steinberg lift. Its elementary image is the identity by the classical K2 definition.",
+        "Evaluate the inverse-word formula; the inverse identity has trivial relative class."
+      ],
+      "acceptance": [
+        "All maps preserve the displayed basepoint and the specified loop orientation."
+      ],
+      "prerequisites": [
+        "KTheoryLowDegrees:U.5/relative-K2-boundary",
+        "K2SymbolsBrauer:T.1/k2-definition"
+      ],
+      "sources": [
+        {
+          "sourceId": "Kbook.2013",
+          "locator": "III.5.7, printed p.222 / PDF230",
+          "match": "Exactness of the relative stable sequence begins with the absolute K2 image; the lifted-word calculation proves the required composite is trivial."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/RelativeComparison",
+        "namespace": "TauCeti.RelativeBoundary"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "TauCeti.RelativeBoundary.zero_on_image",
+      "refines": [
+        "KTheoryLowDegrees:U.6/relative-K1-homotopy-comparison"
+      ],
+      "prototypeStatus": "Typed conditional group-quotient interface; ring specialization requires suppliers."
+    },
+    {
+      "id": "KTheoryLowDegrees:U.5/relative-K2-boundary-image",
+      "parentStageId": "KTheoryLowDegrees:U.5",
+      "realises": [
+        "KTheoryLowDegrees:U.5"
+      ],
+      "title": "Exactness at relative K1",
+      "kind": "lemma",
+      "statement": "im δ_I=ker(K1(A,I)→K1(A)). Equivalently both are (E(A)∩GL(A,I))/E(A,I).",
+      "hypotheses": [
+        "A is an associative unital ring, I is a two-sided ideal, B=A/I, and q:A→B is the quotient map.",
+        "All linear, elementary and Steinberg groups are stable groups; no finite-rank assertion is inferred."
+      ],
+      "proofSteps": [
+        "Every δ_I(z) is represented by an elementary matrix and hence has trivial absolute class.",
+        "Conversely a class [n] with trivial absolute class has n∈E(A)∩N. Lift n⁻¹ through the surjection St(A)→E(A). Its reduction lies in K2(B), and its boundary class is [n].",
+        "Use the parent quotient map to identify the kernel with the displayed subquotient. This also shows why that subquotient cannot replace all of relative K1."
+      ],
+      "acceptance": [
+        "All maps preserve the displayed basepoint and the specified loop orientation."
+      ],
+      "prerequisites": [
+        "KTheoryLowDegrees:U.5/relative-K2-boundary",
+        "KTheoryLowDegrees:U.5/relative-sequence-degree-one",
+        "K2SymbolsBrauer:T.1:classical/to-elementary"
+      ],
+      "sources": [
+        {
+          "sourceId": "Kbook.2013",
+          "locator": "III.2.3 and III.5.7, printed pp.193,222 / PDF201,230",
+          "match": "The classical exact sequences identify the kernel; the explicit inverse lift proves it is exactly the boundary image."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/RelativeComparison",
+        "namespace": "TauCeti.RelativeBoundary"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "TauCeti.RelativeBoundary.image_characterisation",
+      "refines": [
+        "KTheoryLowDegrees:U.6/relative-K1-homotopy-comparison"
+      ],
+      "prototypeStatus": "Typed conditional group-quotient interface; ring specialization requires suppliers."
+    },
+    {
+      "id": "KTheoryLowDegrees:U.5/relative-K2-boundary-kernel",
+      "parentStageId": "KTheoryLowDegrees:U.5",
+      "realises": [
+        "KTheoryLowDegrees:U.5"
+      ],
+      "title": "Exactness at absolute K2 of the quotient",
+      "kind": "lemma",
+      "statement": "ker δ_I=im(K2(A)→K2(B)).",
+      "hypotheses": [
+        "A is an associative unital ring, I is a two-sided ideal, B=A/I, and q:A→B is the quotient map.",
+        "All linear, elementary and Steinberg groups are stable groups; no finite-rank assertion is inferred."
+      ],
+      "proofSteps": [
+        "One inclusion is relative-K2-boundary-zero-on-image.",
+        "For δ_I(z)=1 choose w lifting z. Then φ_A(w)∈E(A,I). The kernel-image equality provides v∈ker St(q) with φ_A(v)=φ_A(w).",
+        "The word wv⁻¹ lies in K2(A) and reduces to z. This proof does not require an identification of relative K2 with a homotopy group."
+      ],
+      "acceptance": [
+        "All maps preserve the displayed basepoint and the specified loop orientation."
+      ],
+      "prerequisites": [
+        "KTheoryLowDegrees:U.5/relative-K2-boundary-zero-on-image",
+        "KTheoryLowDegrees:U.5/relative-K2-boundary",
+        "K2SymbolsBrauer:T.1/k2-definition",
+        "KTheoryLowDegrees:U.5/steinberg-kernel-elementary-image"
+      ],
+      "sources": [
+        {
+          "sourceId": "Kbook.2013",
+          "locator": "III.5.7–5.8 and Exercise III.5.1, printed pp.222–223,228 / PDF230–231,236",
+          "match": "The stable relative exact sequence and its root-kernel computation supply this precise kernel argument."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/RelativeComparison",
+        "namespace": "TauCeti.RelativeBoundary"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "TauCeti.RelativeBoundary.kernel_characterisation",
+      "refines": [
+        "KTheoryLowDegrees:U.6/relative-K1-homotopy-comparison"
+      ],
+      "prototypeStatus": "Typed conditional group-quotient interface; ring specialization requires suppliers."
+    },
+    {
+      "id": "KTheoryLowDegrees:U.5/relative-K2-boundary-plus",
+      "parentStageId": "KTheoryLowDegrees:U.5",
+      "realises": [
+        "KTheoryLowDegrees:U.5"
+      ],
+      "title": "The signed degree-two boundary comparison",
+      "kind": "comparison",
+      "statement": "For z∈K2(B), C_I(δ_I(z))=∂F⁺(β_B(z)) in π1(F⁺). After the based ring-model transport this is the generic K.5 connecting map. The choice β_B=(κ_B∘∂j_B)⁻¹ and the convention paths f(x)→base force the inverse word in δ_I.",
+      "hypotheses": [
+        "A is an associative unital ring, I is a two-sided ideal, B=A/I, and q:A→B is the quotient map.",
+        "All linear, elementary and Steinberg groups are stable groups; no finite-rank assertion is inferred."
+      ],
+      "proofSteps": [
+        "Represent a lift w by a loop in V_A, with matrix loop n=φ_A(w) and a null-homotopy η of its plus loop. Its reduction has trivial matrix loop and represents κ_B⁻¹(z)=∂j_B(β_B(z)).",
+        "R-fibre-interchange supplies the signed path-prism identity c_I(n)=∂F⁺(-β_B(z)). During contraction by η, the fibre path is the reversed prefix of the reduced null-homotopy; dropping that reversal changes the sign.",
+        "Invert both sides and apply C_I([n⁻¹])=c_I(n)⁻¹ to obtain the displayed equation. Transport it through R-ring-model by naturality of connecting maps.",
+        "Calibrate any independently supplied K2/H2 or T.6 boundary convention against this formula before using it. Do not assert that an uncalibrated Hurewicz map already has the same sign."
+      ],
+      "acceptance": [
+        "The degree +1 S¹/ΩS² square-homotopy test yields degree -1 for the induced opposite fibre map.",
+        "The formula is zero for split quotient maps and on elements lifted from K2(A)."
+      ],
+      "prerequisites": [
+        "KTheoryLowDegrees:U.5/relative-K2-boundary",
+        "KTheoryLowDegrees:U.5/relative-plus-map",
+        "KTheoryLowDegrees:U.5/plus-fibre-steinberg-natural",
+        "KTheoryLowDegrees:U.5/plus-square-fibre-sequence",
+        "KTheoryLowDegrees:U.5/relative-plus-ring-model",
+        "StableHomotopyKTheory:H.2/connecting-map"
+      ],
+      "sources": [
+        {
+          "sourceId": "Kbook.2013",
+          "locator": "IV.1.2, Proposition IV.1.7 and Exercise IV.1.15, printed pp.262,264–265,275 / PDF270,272–273,283; III.5.7, printed p.222 / PDF230",
+          "match": "These locators give the fibre construction, the Steinberg kernel and the relative comparison obligation. The signed prism computation is explicitly a worker derivation whose generic API is requested from H.2."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/RelativeComparison",
+        "namespace": "TauCeti.RelativeBoundary"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "TauCeti.RelativeBoundary.plus",
+      "refines": [
+        "KTheoryLowDegrees:U.6/relative-K1-homotopy-comparison"
+      ],
+      "prototypeStatus": "Omitted signature: required ring/space carrier is absent at the pinned baseline."
+    },
+    {
+      "id": "KTheoryLowDegrees:U.5/relative-K2-boundary-zero-split",
+      "parentStageId": "KTheoryLowDegrees:U.5",
+      "realises": [
+        "KTheoryLowDegrees:U.5"
+      ],
+      "title": "Vanishing for split quotient maps",
+      "kind": "lemma",
+      "statement": "If q has a unital ring section s:B→A, then δ_I is the trivial homomorphism.",
+      "hypotheses": [
+        "A is an associative unital ring, I is a two-sided ideal, B=A/I, and q:A→B is the quotient map.",
+        "All linear, elementary and Steinberg groups are stable groups; no finite-rank assertion is inferred."
+      ],
+      "proofSteps": [
+        "For z∈K2(B), use St(s)(z) as its lift.",
+        "Naturality of φ gives φ_A(St(s)(z))=GL(s)(1)=1, so the lifted-word formula is trivial."
+      ],
+      "acceptance": [
+        "All maps preserve the displayed basepoint and the specified loop orientation."
+      ],
+      "prerequisites": [
+        "KTheoryLowDegrees:U.5/relative-K2-boundary",
+        "K2SymbolsBrauer:T.1/stabilisation",
+        "K2SymbolsBrauer:T.1/k2-definition"
+      ],
+      "sources": [
+        {
+          "sourceId": "Kbook.2013",
+          "locator": "III.2.3.1 and III.5.7, printed pp.193,222 / PDF201,230",
+          "match": "A split quotient gives a split sequence. The word formula exhibits the vanishing of this particular connecting map."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/RelativeComparison",
+        "namespace": "TauCeti.RelativeBoundary"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "TauCeti.RelativeBoundary.split",
+      "refines": [
+        "KTheoryLowDegrees:U.6/relative-K1-homotopy-comparison"
+      ],
+      "prototypeStatus": "Typed conditional group-quotient interface; ring specialization requires suppliers."
+    },
+    {
+      "id": "KTheoryLowDegrees:U.5/relative-components-comparison",
+      "parentStageId": "KTheoryLowDegrees:U.5",
+      "realises": [
+        "KTheoryLowDegrees:U.5"
+      ],
+      "title": "The supplied degree-zero comparison",
+      "kind": "comparison",
+      "statement": "Use K.5/ideal-zero-patching and K.5/relative-triples-to-components to obtain the natural isomorphism K0(I)≃π0 K(A,I). Here K0(I)=ker(K0(A⊕I)→K0(A)) uses the parent projection pr(a,x)=a. Under A⊕I≃A×_B A via (pr,add), the map to K0(A) uses add(a,x)=a+x and sends the triple (P,Q,α:f(P)≃f(Q)) to [P]-[Q]. No definition of a new relative fibre or of a new triple group is made in this packet.",
+      "hypotheses": [
+        "A is an associative unital ring, I is a two-sided ideal, B=A/I, and q:A→B is the quotient map.",
+        "All linear, elementary and Steinberg groups are stable groups; no finite-rank assertion is inferred."
+      ],
+      "proofSteps": [
+        "Import the genuine K.5 path map on projective triples and its proved boundary and component compatibilities.",
+        "In the augmented double model, first projection carries Q and second projection carries P. Subtract the diagonal Q to obtain the kernel of pr on K0.",
+        "Apply add to get [P]-[Q]. This uses the supplied degree-zero excision only; it does not assume all higher K-groups are excisive."
+      ],
+      "acceptance": [
+        "All maps preserve the displayed basepoint and the specified loop orientation."
+      ],
+      "prerequisites": [
+        "KTheoryLowDegrees:U.5/augmented-double-ring",
+        "KTheoryLowDegrees:U.5/relative-K0-of-ideal",
+        "GeneralAlgebraicKTheory:K.5/ideal-zero-patching",
+        "GeneralAlgebraicKTheory:K.5/relative-triples-to-components",
+        "GeneralAlgebraicKTheory:K.5/ideal-degree-zero-excision"
+      ],
+      "sources": [
+        {
+          "sourceId": "Kbook.2013",
+          "locator": "II.2.9–2.10 and Exercises II.2.3–2.4, printed pp.77–79 / PDF85–87; Exercise IV.1.16, printed p.275 / PDF283",
+          "match": "The augmented-ring group and the projective-triple description supply degree zero. K.5 owns the actual triple-to-fibre comparison, which is imported rather than replanned."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/RelativeComparison",
+        "namespace": "TauCeti.RelativeComponents"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "TauCeti.RelativeComponents.idealK0Equiv",
+      "refines": [
+        "KTheoryLowDegrees:U.6/relative-K1-homotopy-comparison"
+      ],
+      "prototypeStatus": "Omitted signature: required ring/space carrier is absent at the pinned baseline."
+    },
+    {
+      "id": "KTheoryLowDegrees:U.5/relative-components-boundary",
+      "parentStageId": "KTheoryLowDegrees:U.5",
+      "realises": [
+        "KTheoryLowDegrees:U.5"
+      ],
+      "title": "Agreement of the degree-one-to-zero boundary",
+      "kind": "lemma",
+      "statement": "The parent Milnor boundary K1(B)→K0(I) followed by the supplied component comparison equals the generic connecting map K1(B)→π0 K(A,I). For a free automorphism a of B^n, the glued module uses row coordinates pr(x)=add(y)a; after subtracting the diagonal free module this is the image of the triple (A^n,A^n,a) under the same path convention.",
+      "hypotheses": [
+        "A is an associative unital ring, I is a two-sided ideal, B=A/I, and q:A→B is the quotient map.",
+        "All linear, elementary and Steinberg groups are stable groups; no finite-rank assertion is inferred."
+      ],
+      "proofSteps": [
+        "The parent free gluing module has first projection Q and second projection P. Its gluing relation identifies add(y) with pr(x) by a, so α:f(P)→f(Q) is precisely a.",
+        "K.5/ideal-zero-patching sends that triple to its glued class minus the diagonal Q. This is exactly the parent ideal-boundary convention.",
+        "K.5/relative-triples-to-components sends (P,Q,a) to the ΩK(B) boundary path under its specified f(x)→base convention. Thus both boundaries agree without exchanging pr and add."
+      ],
+      "acceptance": [
+        "Replacing a by a⁻¹ negates the component boundary; swapping the two projections therefore changes the convention.",
+        "A quotient automorphism lifted from GL(A) yields a diagonal glued class and zero boundary."
+      ],
+      "prerequisites": [
+        "KTheoryLowDegrees:U.5/relative-components-comparison",
+        "KTheoryLowDegrees:U.5/ideal-boundary",
+        "KTheoryLowDegrees:U.5/ideal-sequence-degree-zero",
+        "GeneralAlgebraicKTheory:K.5/relative-triples-to-components",
+        "GeneralAlgebraicKTheory:K.5/ideal-zero-patching"
+      ],
+      "sources": [
+        {
+          "sourceId": "Kbook.2013",
+          "locator": "Exercise II.2.17, printed p.81 / PDF89; Exercises II.2.3–2.4, printed pp.78–79 / PDF86–87; Exercise IV.1.16, printed p.275 / PDF283",
+          "match": "Free gluing describes the boundary and the relative component exercise requires agreement with the homotopy sequence. The row-coordinate check pins the parent projection convention."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/RelativeComparison",
+        "namespace": "TauCeti.RelativeComponents"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "TauCeti.RelativeComponents.boundary",
+      "refines": [
+        "KTheoryLowDegrees:U.6/relative-K1-homotopy-comparison"
+      ],
+      "prototypeStatus": "Omitted signature: required ring/space carrier is absent at the pinned baseline."
+    },
+    {
+      "id": "KTheoryLowDegrees:U.5/double-congruence-isom",
+      "parentStageId": "KTheoryLowDegrees:U.5",
+      "realises": [
+        "KTheoryLowDegrees:U.5"
+      ],
+      "title": "Congruence groups of the augmented double",
+      "kind": "comparison",
+      "statement": "For D=A⊕I and J=ker pr, the stable homomorphism GL(add):GL(D,J)→GL(A,I) is an isomorphism.",
+      "hypotheses": [
+        "A is an associative unital ring, I is a two-sided ideal, B=A/I, and q:A→B is the quotient map.",
+        "All linear, elementary and Steinberg groups are stable groups; no finite-rank assertion is inferred."
+      ],
+      "proofSteps": [
+        "Under D≃A×_B A, a congruence matrix has projections (1,g) with q(g)=1. Conversely (1,g) and (1,g⁻¹) are mutually inverse matrices over the double.",
+        "The two assignments are inverse group homomorphisms at each finite rank and commute with stabilization, so they induce the stated stable isomorphism."
+      ],
+      "acceptance": [
+        "All maps preserve the displayed basepoint and the specified loop orientation."
+      ],
+      "prerequisites": [
+        "KTheoryLowDegrees:U.5/augmented-double-ring",
+        "KTheoryLowDegrees:U.5/congruence-subgroup"
+      ],
+      "sources": [
+        {
+          "sourceId": "Kbook.2013",
+          "locator": "III.2.2 and Exercise III.5.10, printed pp.193,229 / PDF201,237; Exercise II.2.3, printed p.78 / PDF86",
+          "match": "The double and special ideal-preserving excision result imply this matrix calculation. The proof spells out the congruence-group inverse and normal generators; it makes no arbitrary-ideal excision claim."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/RelativeComparison",
+        "namespace": "TauCeti.DoubleRelative"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "TauCeti.DoubleRelative.congruenceEquiv",
+      "refines": [
+        "KTheoryLowDegrees:U.6/relative-K1-homotopy-comparison"
+      ],
+      "prototypeStatus": "Omitted signature: required ring/space carrier is absent at the pinned baseline."
+    },
+    {
+      "id": "KTheoryLowDegrees:U.5/double-relative-elementary-image",
+      "parentStageId": "KTheoryLowDegrees:U.5",
+      "realises": [
+        "KTheoryLowDegrees:U.5"
+      ],
+      "title": "Relative elementary image of the augmented double",
+      "kind": "lemma",
+      "statement": "With D=A⊕I and J=ker pr, GL(add) sends E(D,J) exactly onto E(A,I).",
+      "hypotheses": [
+        "A is an associative unital ring, I is a two-sided ideal, B=A/I, and q:A→B is the quotient map.",
+        "All linear, elementary and Steinberg groups are stable groups; no finite-rank assertion is inferred."
+      ],
+      "proofSteps": [
+        "GL(add) on E(D) is onto E(A), using the section Δ and the elementary generators.",
+        "The relative root generators with entries in J map precisely to the elementary root generators with entries in I.",
+        "Apply the normal-closure image theorem with codomain E(A). Normal closure inside the elementary groups is the definition on both sides, giving equality."
+      ],
+      "acceptance": [
+        "All maps preserve the displayed basepoint and the specified loop orientation."
+      ],
+      "prerequisites": [
+        "KTheoryLowDegrees:U.5/augmented-double-ring",
+        "KTheoryLowDegrees:U.5/relative-elementary-subgroup",
+        "mathlib:Subgroup.map_normalClosure"
+      ],
+      "sources": [
+        {
+          "sourceId": "Kbook.2013",
+          "locator": "III.2.2 and Exercise III.5.10, printed pp.193,229 / PDF201,237",
+          "match": "The double special excision calculation can be checked directly on the normal elementary generators."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/RelativeComparison",
+        "namespace": "TauCeti.DoubleRelative"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "TauCeti.DoubleRelative.elementaryImage",
+      "refines": [
+        "KTheoryLowDegrees:U.6/relative-K1-homotopy-comparison"
+      ],
+      "prototypeStatus": "Omitted signature: required ring/space carrier is absent at the pinned baseline."
+    },
+    {
+      "id": "KTheoryLowDegrees:U.5/double-relative-K1-isom",
+      "parentStageId": "KTheoryLowDegrees:U.5",
+      "realises": [
+        "KTheoryLowDegrees:U.5"
+      ],
+      "title": "Classical relative K1 of the augmented double",
+      "kind": "comparison",
+      "statement": "The actual add-induced map K1(D,J)→K1(A,I) is an isomorphism, with representative formula [(1,g)]↦[g] in double coordinates.",
+      "hypotheses": [
+        "A is an associative unital ring, I is a two-sided ideal, B=A/I, and q:A→B is the quotient map.",
+        "All linear, elementary and Steinberg groups are stable groups; no finite-rank assertion is inferred."
+      ],
+      "proofSteps": [
+        "Descend the double-congruence isomorphism and its inverse to the relative quotients, since the identified elementary subgroups are their specified denominators.",
+        "The two induced maps compose to the identity by evaluation on congruence representatives. This is the special double calculation, not an application of generic Milnor-square K1 excision."
+      ],
+      "acceptance": [
+        "All maps preserve the displayed basepoint and the specified loop orientation."
+      ],
+      "prerequisites": [
+        "KTheoryLowDegrees:U.5/double-congruence-isom",
+        "KTheoryLowDegrees:U.5/double-relative-elementary-image",
+        "KTheoryLowDegrees:U.5/relative-K1",
+        "mathlib:QuotientGroup.map"
+      ],
+      "sources": [
+        {
+          "sourceId": "Kbook.2013",
+          "locator": "Exercise III.5.10, printed p.229 / PDF237; III.2.2, printed p.193 / PDF201",
+          "match": "The ideal-preserving surjection of the double is a valid special excision situation. The quotient proof specifies the actual isomorphism needed by the homotopy comparison."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/RelativeComparison",
+        "namespace": "TauCeti.DoubleRelative"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "TauCeti.DoubleRelative.classicalEquiv",
+      "refines": [
+        "KTheoryLowDegrees:U.6/relative-K1-homotopy-comparison"
+      ],
+      "prototypeStatus": "Omitted signature: required ring/space carrier is absent at the pinned baseline."
+    },
+    {
+      "id": "KTheoryLowDegrees:U.5/relative-double-fibre-degree-one",
+      "parentStageId": "KTheoryLowDegrees:U.5",
+      "realises": [
+        "KTheoryLowDegrees:U.5"
+      ],
+      "title": "The degree-one double-ring fibre comparison",
+      "kind": "comparison",
+      "statement": "Let D=A⊕I and J=ker(pr:D→A). The actual add-induced map π1 K(D,J)→π1 K(A,I) is an isomorphism. This is a degree-one assertion; degree zero is separately supplied by K.5/ideal-degree-zero-excision, and no higher-degree excision is claimed.",
+      "hypotheses": [
+        "A is an associative unital ring, I is a two-sided ideal, B=A/I, and q:A→B is the quotient map.",
+        "All linear, elementary and Steinberg groups are stable groups; no finite-rank assertion is inferred."
+      ],
+      "proofSteps": [
+        "The double-relative-K1-isom calculation identifies the classical degree-one map induced by add as an isomorphism. It is not a generic Milnor-square excision theorem.",
+        "Apply naturality of Ĉ to the actual map of pairs. The two vertical comparisons and the bottom classical map are isomorphisms, hence the top π1 fibre map is an isomorphism.",
+        "This supplies the formerly missing double-fibre degree-one step as a consequence of the direct proof, so it is not used circularly to establish Ĉ."
+      ],
+      "acceptance": [
+        "All maps preserve the displayed basepoint and the specified loop orientation."
+      ],
+      "prerequisites": [
+        "KTheoryLowDegrees:U.5/augmented-double-ring",
+        "KTheoryLowDegrees:U.5/double-relative-K1-isom",
+        "KTheoryLowDegrees:U.5/relative-plus-ring-model",
+        "KTheoryLowDegrees:U.5/relative-plus-natural"
+      ],
+      "sources": [
+        {
+          "sourceId": "Kbook.2013",
+          "locator": "Exercise III.5.10, printed p.229 / PDF237; Exercise II.2.4, printed p.79 / PDF87; Exercises IV.1.15–1.16, printed p.275 / PDF283",
+          "match": "The special ideal-preserving excision calculation gives classical relative K1 and degree zero. The homotopy low-degree double-fibre comparison follows from those maps and the new comparison, not from unrestricted K-theory excision."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/RelativeComparison",
+        "namespace": "TauCeti.DoubleRelative"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "TauCeti.DoubleRelative.fibrePi1Equiv",
+      "refines": [
+        "KTheoryLowDegrees:U.6/relative-K1-homotopy-comparison"
+      ],
+      "prototypeStatus": "Omitted signature: required ring/space carrier is absent at the pinned baseline."
+    },
+    {
+      "id": "KTheoryLowDegrees:U.5/relative-comparison-of-sequences",
+      "parentStageId": "KTheoryLowDegrees:U.5",
+      "realises": [
+        "KTheoryLowDegrees:U.5"
+      ],
+      "title": "Comparison of the two low-degree relative sequences",
+      "kind": "comparison",
+      "statement": "The parent classical sequence K2(A)→K2(B)→δ_I K1(A,I)→K1(A)→K1(B)→K0(I)→K0(A)→K0(B) maps termwise and naturally to the generic relative fibre sequence, using β in degree two, Ĉ in relative degree one, the parent absolute degree-one comparisons and the supplied degree-zero comparison. Every square, including both connecting maps and the map to absolute K1, commutes. T.6 is used for its already-owned sequence, not for an assumed comparison of relative K2.",
+      "hypotheses": [
+        "A is an associative unital ring, I is a two-sided ideal, B=A/I, and q:A→B is the quotient map.",
+        "All linear, elementary and Steinberg groups are stable groups; no finite-rank assertion is inferred."
+      ],
+      "proofSteps": [
+        "Use the parent degree-one and degree-zero sequences and T.6 absolute-K2 segment after calibrating its boundary to δ_I. These exactness results are not copied into new umbrella theorem nodes.",
+        "The matrix projection formula proves the relative-to-absolute K1 square. The signed word comparison proves the K2 connecting square. The triple gluing comparison proves the K1-to-K0 connecting square.",
+        "Functoriality of the imported models proves the remaining absolute and projection squares. Use β naturality in degree two, rather than an unrelated K2/H2 orientation.",
+        "Record supplier gaps and the three precise requests as open dependencies; the diagram is a complete conditional proof plan, not a claim of implemented or gap-free closure."
+      ],
+      "acceptance": [
+        "All maps preserve the displayed basepoint and the specified loop orientation."
+      ],
+      "prerequisites": [
+        "KTheoryLowDegrees:U.5/relative-K2-boundary-natural",
+        "KTheoryLowDegrees:U.5/relative-K2-boundary-plus",
+        "KTheoryLowDegrees:U.5/relative-K2-boundary-image",
+        "KTheoryLowDegrees:U.5/relative-K2-boundary-kernel",
+        "KTheoryLowDegrees:U.5/relative-plus-projection",
+        "KTheoryLowDegrees:U.5/relative-components-boundary",
+        "KTheoryLowDegrees:U.5/relative-components-comparison",
+        "KTheoryLowDegrees:U.5/relative-sequence-degree-one",
+        "KTheoryLowDegrees:U.5/ideal-sequence-degree-zero",
+        "K2SymbolsBrauer:T.6/relative-steinberg-group",
+        "GeneralAlgebraicKTheory:K.5/relative-K-theory",
+        "KTheoryLowDegrees:U.6/pi1-plus-construction"
+      ],
+      "sources": [
+        {
+          "sourceId": "Kbook.2013",
+          "locator": "III.2.3, III.5.7 and Exercises IV.1.15–1.16, printed pp.193,222,275 / PDF201,230,283",
+          "match": "The relative stable sequences and the two explicit homotopy-comparison exercises specify these terms and arrows. This packet supplies the missing map-level comparison and leaves each existing sequence with its owner."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/RelativeComparison",
+        "namespace": "TauCeti.RelativeComparison"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "TauCeti.RelativeComparison.lowDegreeDiagram",
+      "refines": [
+        "KTheoryLowDegrees:U.6/relative-K1-homotopy-comparison"
+      ],
+      "prototypeStatus": "Omitted signature: required ring/space carrier is absent at the pinned baseline."
+    }
+  ],
+  "requests": [
+    {
+      "id": "R-St-quotient",
+      "supplier": "K2SymbolsBrauer:T.1:classical",
+      "need": "For a surjective unital ring map q:A→B with kernel I, prove St(q) surjective and ker St(q) equal to the normal closure in stable St(A) of x_ij(i), i∈I. Supply the generator formula, naturality under commutative quotient-ring squares, and the quotient equivalence St(A)/normalClosure{x_ij(i)}≃St(B). This is an API extension of the existing stable presentation, not a new definition of St.",
+      "neededBy": [
+        "KTheoryLowDegrees:U.5/steinberg-kernel-elementary-image",
+        "KTheoryLowDegrees:U.5/plus-square-inner-fibre-connected",
+        "KTheoryLowDegrees:U.5/relative-K2-boundary"
+      ],
+      "proofPlan": [
+        "Every generator of St(B) lifts because q is onto.",
+        "In the root-killing quotient, a chosen lift of b defines x_ij(b) independently of the lift, using the additive root relation.",
+        "The stable Steinberg commutator relations descend because products of lifts reduce to products in B. These generators define an inverse to the induced quotient map."
+      ],
+      "sources": [
+        {
+          "sourceId": "Kbook.2013",
+          "locator": "Definition III.5.1 and Exercise III.5.1, printed pp.217,228 / PDF225,236",
+          "match": "The presentation yields the stated surjection and its normal root kernel."
+        }
+      ]
+    },
+    {
+      "id": "R-fibre-interchange",
+      "supplier": "StableHomotopyKTheory:H.2",
+      "need": "For a based homotopy-commuting square X→Y over X⁺→Y⁺, with square homotopy directed from X→Y→Y⁺ to X→X⁺→Y⁺, V_X=fib(X→X⁺), V_Y=fib(Y→Y⁺), F0=fib(X→Y), F⁺=fib(X⁺→Y⁺), prove the natural based equivalence fib(V_X→V_Y)≃fib(F0→F⁺), including both projection formulas. With fibre paths f(x)→base and connecting maps given by Ωtarget inclusion, supply the signed prism identity: if a loop v∈π1(V_X) projects to n∈π1(F0) and its image in π1(V_Y) is ∂j_Y(b), then c(n)=∂F⁺(-b). Include hypotheses identifying these loop classes and the square homotopy used by both induced fibre maps.",
+      "neededBy": [
+        "KTheoryLowDegrees:U.5/plus-square-fibre-sequence",
+        "KTheoryLowDegrees:U.5/relative-K2-boundary-plus"
+      ],
+      "proofPlan": [
+        "Write a point of either iterated fibre as a point x, its two outgoing paths and a based filling of their image square. Exchange the two directions to define the equivalence.",
+        "Use prefix contraction of paths to construct its inverse and based homotopies. Check the maps to X and to both outer fibres, retaining the square homotopy.",
+        "For the sign formula contract the X⁺ loop with its null-homotopy. Keeping the fibre path directed from its image to base requires the reverse of the reduced prefix; the end represents -b.",
+        "Check the square X=S¹,Y=*,X⁺=*,Y⁺=S² whose based square homotopy is adjoint to degree +1 in ΩS²: the induced V map has degree +1 and the opposite F map degree -1."
+      ],
+      "sources": [
+        {
+          "sourceId": "Kbook.2013",
+          "locator": "Homotopy Fiber IV.1.2, printed p.262 / PDF270; Exercise IV.1.15, printed p.275 / PDF283",
+          "match": "The path model supplies the construction data; the precise interchange and signed prism statement is a worker-derived generic lemma, not a theorem attributed to this locator."
+        }
+      ]
+    },
+    {
+      "id": "R-ring-model",
+      "supplier": "GeneralAlgebraicKTheory:K.2:plus",
+      "need": "Strengthen plus-equals-Q to a based weak equivalence BGL(A)⁺≃K(A)₀, natural through coherent based squares for unital ring maps. Give the induced equivalence on the π1 of quotient fibres and compatibility with π2 connecting maps and the matrix-to-absolute-K1 map. An objectwise product decomposition or natural π0/π1 isomorphisms alone do not provide this fibre interface.",
+      "neededBy": [
+        "KTheoryLowDegrees:U.5/relative-plus-ring-model",
+        "KTheoryLowDegrees:U.5/relative-K2-boundary-plus"
+      ],
+      "proofPlan": [
+        "Use the existing plus/Q comparison on basepoint components; choose its basepoint and ring-map homotopies coherently.",
+        "A map between component-level fibre sequences that is a weak equivalence on source and target induces a π1 isomorphism and commutes with the connecting map.",
+        "A relative loop projects into the zero source component and its path lies in the zero target component, identifying this π1 with that of the full generic fibre."
+      ],
+      "sources": [
+        {
+          "sourceId": "Kbook.2013",
+          "locator": "IV.1.1.1–1.1.2 and IV.1.11, printed pp.261,267–268 / PDF269,275–276",
+          "match": "The full K-space and its natural component behaviour motivate the strengthened based comparison; no natural H-space product splitting is asserted."
+        }
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "id": "G-St-quotient",
+      "title": "R-St-quotient supplier interface is not yet established",
+      "neededBy": [
+        "KTheoryLowDegrees:U.5/steinberg-kernel-elementary-image",
+        "KTheoryLowDegrees:U.5/plus-square-inner-fibre-connected",
+        "KTheoryLowDegrees:U.5/relative-K2-boundary"
+      ],
+      "detail": "For a surjective unital ring map q:A→B with kernel I, prove St(q) surjective and ker St(q) equal to the normal closure in stable St(A) of x_ij(i), i∈I. Supply the generator formula, naturality under commutative quotient-ring squares, and the quotient equivalence St(A)/normalClosure{x_ij(i)}≃St(B). This is an API extension of the existing stable presentation, not a new definition of St. The exact existing supplier node was inspected; its current statement does not expose this full contract. The proof plan is provided above, and U.5 is planned rather than closed."
+    },
+    {
+      "id": "G-fibre-interchange",
+      "title": "R-fibre-interchange supplier interface is not yet established",
+      "neededBy": [
+        "KTheoryLowDegrees:U.5/plus-square-fibre-sequence",
+        "KTheoryLowDegrees:U.5/relative-K2-boundary-plus"
+      ],
+      "detail": "For a based homotopy-commuting square X→Y over X⁺→Y⁺, with square homotopy directed from X→Y→Y⁺ to X→X⁺→Y⁺, V_X=fib(X→X⁺), V_Y=fib(Y→Y⁺), F0=fib(X→Y), F⁺=fib(X⁺→Y⁺), prove the natural based equivalence fib(V_X→V_Y)≃fib(F0→F⁺), including both projection formulas. With fibre paths f(x)→base and connecting maps given by Ωtarget inclusion, supply the signed prism identity: if a loop v∈π1(V_X) projects to n∈π1(F0) and its image in π1(V_Y) is ∂j_Y(b), then c(n)=∂F⁺(-b). Include hypotheses identifying these loop classes and the square homotopy used by both induced fibre maps. The exact existing supplier node was inspected; its current statement does not expose this full contract. The proof plan is provided above, and U.5 is planned rather than closed."
+    },
+    {
+      "id": "G-ring-model",
+      "title": "R-ring-model supplier interface is not yet established",
+      "neededBy": [
+        "KTheoryLowDegrees:U.5/relative-plus-ring-model",
+        "KTheoryLowDegrees:U.5/relative-K2-boundary-plus"
+      ],
+      "detail": "Strengthen plus-equals-Q to a based weak equivalence BGL(A)⁺≃K(A)₀, natural through coherent based squares for unital ring maps. Give the induced equivalence on the π1 of quotient fibres and compatibility with π2 connecting maps and the matrix-to-absolute-K1 map. An objectwise product decomposition or natural π0/π1 isomorphisms alone do not provide this fibre interface. The exact existing supplier node was inspected; its current statement does not expose this full contract. The proof plan is provided above, and U.5 is planned rather than closed."
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "KTheoryLowDegrees:U.5",
+      "status": "planned",
+      "remaining": [
+        "Resolve R-St-quotient in the existing T.1:classical presentation API.",
+        "Resolve R-fibre-interchange in H.2, including the reversed-prefix boundary sign.",
+        "Resolve R-ring-model in early K.2:plus with based naturality through degree two.",
+        "Implement supplier types and proofs, then replace the omitted ring/topological signatures and tests in the suggested file and elaborate at the exact pinned pair.",
+        "The imported parent and supplier packets retain their own implementation gaps; this follow-up does not certify their closure."
+      ]
+    }
+  ],
+  "sourceIssues": [
+    {
+      "id": "KTheoryLowDegrees/E116",
+      "source": "Kbook.2013",
+      "kind": "misprint",
+      "locator": "Exercise III.5.2, printed p.228 / PDF236, combined author manuscript dated 29 August 2013.",
+      "printed": "The triangular matrix group associated with generators e_ij(r) for i<j is described as lower triangular.",
+      "correction": "With the standard matrix-index convention used in III.5.1, these generators produce upper unitriangular matrices.",
+      "reason": "Already e_12(1) in rank two has its off-diagonal entry above the diagonal. Products preserve upper triangularity.",
+      "affects": "nothing",
+      "known": "Publication status unknown: no accessible correction was found in the checked author materials. This finding is scoped to the dated author copy, not an unread published edition.",
+      "searched": [
+        "Author book page https://sites.math.rutgers.edu/~weibel/Kbook.html, checked 2026-10-09.",
+        "Author-linked errata https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.errata.pdf returned HTTP 404 on 2026-10-09; the www.math.rutgers.edu hostname also returned 404.",
+        "Targeted web searches for the author errata, triangular terminology and central-extension coefficient on 2026-10-09; no correction verified."
+      ]
+    },
+    {
+      "id": "KTheoryLowDegrees/E117",
+      "source": "Kbook.2013",
+      "kind": "misprint",
+      "locator": "III.5.3 central-extension classification paragraph, printed p.218 / PDF226, contrasted with III.5.3.1 discussion on printed p.219 / PDF227, combined author manuscript dated 29 August 2013.",
+      "printed": "The classification of central extensions with arbitrary abelian kernel A is written with integral cohomology H²(G;Z).",
+      "correction": "Use H²(G;A), with trivial G-action on A. Integral coefficients describe the case A=Z. The following page itself uses A as the coefficient group.",
+      "reason": "A central-extension cocycle takes values in its kernel A. For G=C2 and A=0 there is only the identity extension, whereas H²(C2;Z)=Z/2; integral coefficients cannot classify that kernel. The next-page argument uses A. The proof here uses UCE uniqueness and never the erroneous coefficient.",
+      "affects": "nothing",
+      "known": "The next-page discussion in the same author copy uses H²(G;A), making the intended coefficient clear; no separate published correction was verified.",
+      "searched": [
+        "III.5.3.1 discussion in the same combined author manuscript, printed p.219 / PDF227.",
+        "Author book page and linked errata checked 2026-10-09; both attempted errata hostnames returned HTTP 404.",
+        "Targeted web search for the K-book central-extension coefficient correction on 2026-10-09; no separate correction verified."
+      ]
+    }
+  ],
+  "restructure": [
+    {
+      "action": "rescope",
+      "roadmaps": [
+        "KTheoryLowDegrees",
+        "K2SymbolsBrauer",
+        "StableHomotopyKTheory",
+        "GeneralAlgebraicKTheory"
+      ],
+      "detail": "The parent records a coarse T.1→K.2 supplier cycle. Current T.1/classical K2-definition itself now depends only on stabilisation, so that old edge is not an accurate description of the fine-node graph. Import classical Steinberg and UCE nodes plus the early ring model; the relative comparison does not consume its own U.6 target or the relative K2 identification.",
+      "proposal": "Keep existing owners: T.1:classical supplies the Steinberg quotient API; H.2 supplies iterated fibre interchange with its boundary sign; H.3 supplies the acyclic-fibre UCE; early K.2:plus supplies the natural based plus/Q comparison, and K.5 supplies the generic fibre and relative K0. Add the three requested APIs within these existing Part II directions. The existing U.6 comparison milestone realizes U.5 and owns the ring-specific comparison; this U.5 follow-up supplies its fine proof prerequisites and concrete boundary. Do not add a new general relative-plus roadmap, re-plan T.6, or change the six existing U.5 planets."
+    }
+  ],
+  "parentPacket": "research/blueprint/packets/KTheoryLowDegrees--U.1.json",
+  "planningNotes": {
+    "audit": "Reviewed AUDIT-29 U.5 entry: general relative K1, relative sequence and fibre comparison are not built; arithmetic congruence subgroups and free restriction-of-scalars matrices do not supply them. Parent packet already plans the noncomparison targets.",
+    "librarySearch": "Searched both exact Git trees. Tau Ceti has homotopy groups, paths and finite-projective K0, but no BGL plus carrier, classical stable Steinberg group or relative K1 carrier. Hits for Steinberg in CFSG/root-subgroup/character modules concern different objects. The suggested file therefore uses only existing Mathlib group maps/quotients and explicitly omits signatures requiring absent supplier types.",
+    "upstreamStyle": [
+      "content/tau-ceti/AlgebraicTopology/README.md, read in full",
+      "content/tau-ceti/GrothendieckEulerForms/README.md, read in full"
+    ],
+    "links": "Read all six link/overlap records touching KTheoryLowDegrees. They concern Z.1/Z.5 and U.4; none supplies the relative comparison. Read all atlas stage edges touching U.5/U.6. ArithmeticKTheory:N.1 and U.6 consume the actual maps, not an abstract isomorphism.",
+    "supplierStatus": "All references are planning imports, not declarations in the pinned library. H.2/H.3, T.1/T.6, K.2:plus/K.5 and the parent have unimplemented contracts or recorded gaps. Only the three new precise API deficiencies are listed as this packet’s gaps; inherited gaps are not erased or counted as closed.",
+    "refinement": "Every new node refines the already-owned U.6/relative-K1-homotopy-comparison, whose realises includes U.5. Keep that parent milestone id at assembly and replace its unfinished proof outline with this fine-node decomposition; do not count a second comparison milestone or introduce new relative-group carriers. The three double-ring algebra nodes make the parent proof’s existing calculation into declaration-sized prerequisites. The degree-zero nodes are map compatibility imports of K.5, not a new construction of its theory.",
+    "suggestedLean": "Uncompiled conditional algebra prototypes for 11 of 32 nodes; the other 21 signatures are explicitly omitted because their required ring/topology carriers are absent. Of 18 API items, 11 are typed algebra prototypes and 7 omitted. Of 13 defining tests, only relativeBoundary_inverseSign is expressible and prototyped; 12 are explicitly omitted. Three supplemental quotient examples check agreement with existing Mathlib notions and are not replacements for the ring tests. No exact paired build was found, and no build or project was created."
+  },
+  "inheritedSourceIssues": [
+    {
+      "id": "KTheoryLowDegrees/E113",
+      "packet": "research/blueprint/packets/KTheoryLowDegrees--U.1.json",
+      "note": "Preserve the corrected transfer composites from the parent; do not infer both restriction/transfer orders have the same formula."
+    },
+    {
+      "id": "KTheoryLowDegrees/E114",
+      "packet": "research/blueprint/packets/KTheoryLowDegrees--U.1.json",
+      "note": "Preserve the parent restriction on the false converse composite."
+    },
+    {
+      "id": "K2SymbolsBrauer/E2",
+      "packet": "research/blueprint/packets/K2SymbolsBrauer--T.1.json",
+      "note": "Use stable Steinberg UCE. The finite-rank assertion in III.5.5.1 is conditional on centrality, not an unconditional finite-rank UCE theorem."
+    }
+  ],
+  "targetCoverage": [
+    {
+      "target": "Congruence and relative elementary subgroups, stable normality, relative Whitehead and commutator formulas, relative K1/SK1 and determinant",
+      "imports": [
+        "KTheoryLowDegrees:U.5/congruence-subgroup",
+        "KTheoryLowDegrees:U.5/relative-elementary-subgroup",
+        "KTheoryLowDegrees:U.5/relative-elementary-stable-normal",
+        "KTheoryLowDegrees:U.5/relative-whitehead-lemma",
+        "KTheoryLowDegrees:U.5/relative-commutator-formula",
+        "KTheoryLowDegrees:U.5/relative-K1",
+        "KTheoryLowDegrees:U.5/relative-SK1",
+        "KTheoryLowDegrees:U.5/relative-determinant",
+        "KTheoryLowDegrees:U.5/relative-K1-radical-ideal",
+        "KTheoryLowDegrees:U.5/relative-K1-split",
+        "KTheoryLowDegrees:U.5/relative-K1-units-split"
+      ]
+    },
+    {
+      "target": "Relative degree-one exactness and the actual generic-fibre comparison",
+      "imports": [
+        "KTheoryLowDegrees:U.5/relative-sequence-degree-one"
+      ],
+      "newNodes": [
+        "KTheoryLowDegrees:U.5/relative-plus-bijective",
+        "KTheoryLowDegrees:U.5/relative-plus-ring-model",
+        "KTheoryLowDegrees:U.5/relative-K2-boundary-plus",
+        "KTheoryLowDegrees:U.5/relative-comparison-of-sequences"
+      ]
+    },
+    {
+      "target": "K0 of the ideal, Milnor boundary and degree-zero sequence",
+      "imports": [
+        "KTheoryLowDegrees:U.5/augmented-double-ring",
+        "KTheoryLowDegrees:U.5/relative-K0-of-ideal",
+        "KTheoryLowDegrees:U.5/ideal-boundary",
+        "KTheoryLowDegrees:U.5/ideal-sequence-degree-zero"
+      ],
+      "newNodes": [
+        "KTheoryLowDegrees:U.5/relative-components-comparison",
+        "KTheoryLowDegrees:U.5/relative-components-boundary"
+      ]
+    },
+    {
+      "target": "Transfers, determinant and field norms, base change, K0 action and projection formulas",
+      "imports": [
+        "KTheoryLowDegrees:U.5/transfer",
+        "KTheoryLowDegrees:U.5/transfer-determinant-norm",
+        "KTheoryLowDegrees:U.5/transfer-field-norm",
+        "KTheoryLowDegrees:U.5/transfer-base-change",
+        "KTheoryLowDegrees:U.5/transfer-base-change-composite",
+        "KTheoryLowDegrees:U.5/K0-action-on-K1",
+        "KTheoryLowDegrees:U.5/projection-formula",
+        "KTheoryLowDegrees:U.5/projection-formula-transfer-k0"
+      ]
+    },
+    {
+      "target": "DVR cokernel-length boundary, valuation and localization comparison",
+      "imports": [
+        "KTheoryLowDegrees:U.5/dvr-boundary",
+        "KTheoryLowDegrees:U.5/dvr-boundary-valuation",
+        "KTheoryLowDegrees:U.5/dvr-units-sequence",
+        "KTheoryLowDegrees:U.5/dvr-boundary-localisation-comparison"
+      ]
+    }
+  ],
+  "retainedPlanets": [
+    {
+      "nodeId": "KTheoryLowDegrees:U.5/relative-elementary-subgroup",
+      "name": "Relative elementary group"
+    },
+    {
+      "nodeId": "KTheoryLowDegrees:U.5/relative-whitehead-lemma",
+      "name": "Relative Whitehead lemma"
+    },
+    {
+      "nodeId": "KTheoryLowDegrees:U.5/relative-K1",
+      "name": "Relative K₁"
+    },
+    {
+      "nodeId": "KTheoryLowDegrees:U.5/relative-sequence-degree-one",
+      "name": "Relative exact sequence"
+    },
+    {
+      "nodeId": "KTheoryLowDegrees:U.5/transfer",
+      "name": "Transfer"
+    },
+    {
+      "nodeId": "KTheoryLowDegrees:U.5/dvr-boundary",
+      "name": "Explicit valuation boundary"
+    }
+  ]
+}
