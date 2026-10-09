@@ -1,3 +1,24 @@
+import Mathlib.RingTheory.DedekindDomain.Basic
+import Mathlib.RingTheory.DiscreteValuationRing.Basic
+import Mathlib.Algebra.Category.FGModuleCat.Abelian
+import Mathlib.Algebra.Module.Opposite
+import TauCeti.Algebra.Category.FGModuleCat.Basic
+import TauCeti.CategoryTheory.Exact.Split
+import Mathlib.Algebra.Quaternion
+import Mathlib.Data.Sum.Order
+import Mathlib.CategoryTheory.Category.Preorder
+import Mathlib.CategoryTheory.ObjectProperty.FullSubcategory
+import Mathlib.CategoryTheory.Localization.Construction
+import Mathlib.CategoryTheory.Limits.FunctorCategory.BinaryBiproducts
+import Mathlib.CategoryTheory.Limits.Shapes.Biproducts
+import Mathlib.Topology.CompactOpen
+import Mathlib.Algebra.Module.PID
+import Mathlib.CategoryTheory.Limits.Shapes.Pullback.IsPullback.Defs
+import TauCeti.CategoryTheory.Exact.Functor
+import TauCeti.CategoryTheory.Exact.Opposite
+import TauCeti.CategoryTheory.GrothendieckGroup.Exact
+import Mathlib.Topology.Homotopy.HomotopyGroup
+import Mathlib.AlgebraicTopology.SimplicialSet.Nerve
 import Mathlib.NumberTheory.NumberField.ClassNumber
 import Mathlib.NumberTheory.NumberField.Units.DirichletTheorem
 import Mathlib.Algebra.Module.Lattice
@@ -35,12 +56,12 @@ import Mathlib.Tactic
 /-!
 This file is not the roadmap and is not exhaustive; the roadmap document is definitive.
 These statements suggest Lean forms so contributors and reviewers can converge on names and signatures.
-Breadth-first planning pass for #1030; every new statement is an unchecked planning obligation.
+Revision planning pass for #6516; every new statement is an unchecked planning obligation.
 No replacement lattice, Gram matrix, covolume or measure carrier is introduced.
 The primitive-orthogonal proof chain and both sharp halves of Minkowski's second theorem are planned here; all statements remain unchecked.
 -/
 noncomputable section
-open scoped BigOperators
+open scoped BigOperators ZeroObject
 open MeasureTheory Module
 
 namespace TauCeti.GeometryOfNumbersPlan
@@ -1888,743 +1909,1341 @@ example : (2 / Real.sqrt (2 : ℝ))^2 = 2 ∧
 end ReviewedSmallCases
 end TauCeti.GeometryOfNumbersPlan
 
-/-!
-## Exact mathematical prototype frontier
 
-The reader and packet are definitive. These comments record exact mathematical
-contracts whose complete supplier context is still missing. They are not Lean
-declarations, executable tests, or a certificate of API completeness. Signatures
-must use the actual supplier types; no dummy Prop carrier replaces them.
+namespace TauCeti.GeometryOfNumbersPlan
+section NativeExactDuality
+open CategoryTheory CategoryTheory.Limits Opposite
+universe u v w
+variable {C : Type u} [Category.{v} C] [Preadditive C]
+  [HasZeroObject C] [HasBinaryBiproducts C]
 
-GeometryOfNumbersAndQuadraticArithmetic:GN.2/integral-quadratic-lattice — Integral quadratic lattices over a Dedekind domain
-Native construction/statement is prototyped. Source-specific completion, quotient, smoothness or classification hypotheses and arithmetic examples beyond the displayed native context remain mathematical contracts in the reader.
-For a Dedekind domain R with fraction field K, a finite-dimensional K-space V and native q:V→K quadratic, an integral quadratic lattice is L:Submodule R V with Submodule.IsLattice K L and q(L)⊆R. Nondegeneracy of q and unimodularity of its integral polar pairing are separate predicates. There is no global free-basis field.
-TauCeti.GeometryOfNumbersPlan.IntegralQuadraticLattice.ofCarrier [constructor]: Bundle a native full finite submodule and q with q(L)⊆R.
-TauCeti.GeometryOfNumbersPlan.IntegralQuadraticLattice.carrier [projection]: Return the original R-submodule, preserving its IsLattice instance.
-TauCeti.GeometryOfNumbersPlan.IntegralQuadraticLattice.quadraticMap [compatibility]: The restricted native R-quadratic map extends back to q on the K-span.
-TauCeti.GeometryOfNumbersPlan.IntegralQuadraticLattice.ext [extensionality]: For fixed q, equal carriers yield equal bundled integral-lattice data.
-TauCeti.GeometryOfNumbersPlan.integral_quadratic_lattice_test_1: R=Z, K=Q, L=Z and q(x)=x² give an integral lattice whose polar pairing is 2xy and is not unimodular.
-TauCeti.GeometryOfNumbersPlan.integral_quadratic_lattice_test_2: The integral symmetric pairing B(x,y)=xy on Z does not make q(x)=B(x,x)/2 integral.
-TauCeti.GeometryOfNumbersPlan.integral_quadratic_lattice_test_3: A nonprincipal fractional ideal is allowed as an R-lattice; no constructor asks for an R-basis.
+/-- Exactness is the pinned Tau Ceti predicate on the opposite exact structure. -/
+structure ExactCategoryDuality (E : TauCeti.ExactStructure C) extends StrongCategoryDuality C where
+  additive : dual.Additive
+  exact : @TauCeti.ExactStructure.IsConflationExact _ _ _ _ _ _ _ _ _ _ E.op E dual additive
+attribute [instance] ExactCategoryDuality.additive
 
-GeometryOfNumbersAndQuadraticArithmetic:GN.2/lattice-localization — Localization of an integral quadratic lattice
-The exact foreign definition/construction context is not yet expressible against the checked Mathlib-only imports: obtain the listed exact-category, completion/adelic, local density, homogeneous, theta or stable Poincaré supplier interfaces. The complete mathematical declaration is retained below; no placeholder condition or carrier is introduced.
+namespace ExactCategoryDuality
+variable {E : TauCeti.ExactStructure C}
+theorem map_conflation (D : ExactCategoryDuality E) (S : ShortComplex Cᵒᵖ)
+    (hS : E.op.Conflation S) : E.Conflation (S.map D.dual) := by sorry
+theorem map_inflation (D : ExactCategoryDuality E) {X Y : C}
+    (i : X ⟶ Y) (hi : E.IsInflation i) : E.IsDeflation (D.dual.map i.op) := by sorry
+theorem map_deflation (D : ExactCategoryDuality E) {X Y : C}
+    (p : X ⟶ Y) (hp : E.IsDeflation p) : E.IsInflation (D.dual.map p.op) := by sorry
+/-- Sign changes the bidual identification, not the underlying contravariant functor. -/
+def sign (D : ExactCategoryDuality E) : ExactCategoryDuality E where
+  dual := D.dual
+  biddual := { hom := -D.biddual.hom, inv := -D.biddual.inv, hom_inv_id := by sorry, inv_hom_id := by sorry }
+  coherence := by sorry
+  additive := D.additive
+  exact := D.exact
+theorem sign_dual (D : ExactCategoryDuality E) : D.sign.dual = D.dual := by sorry
+theorem sign_biddual (D : ExactCategoryDuality E) (X : C) :
+    D.sign.biddual.hom.app X = -D.biddual.hom.app X := by sorry
+theorem sign_sign (D : ExactCategoryDuality E) : D.sign.sign = D := by sorry
+end ExactCategoryDuality
+
+variable {E : TauCeti.ExactStructure C} (D : ExactCategoryDuality E)
+structure ExactLagrangian (X : SymmetricSpace D.toStrongCategoryDuality) where
+  carrier : C
+  inclusion : carrier ⟶ X.carrier
+  zero : inclusion ≫ X.pairing.hom ≫ D.dual.map inclusion.op = 0
+  conflation : E.Conflation
+    (ShortComplex.mk inclusion (X.pairing.hom ≫ D.dual.map inclusion.op) zero)
+
+namespace ExactLagrangian
+variable {D}
+def ofConflation (X : SymmetricSpace D.toStrongCategoryDuality) (L : C)
+    (i : L ⟶ X.carrier) (hz : i ≫ X.pairing.hom ≫ D.dual.map i.op = 0)
+    (hc : E.Conflation (ShortComplex.mk i (X.pairing.hom ≫ D.dual.map i.op) hz)) :
+    ExactLagrangian D X := ⟨L,i,hz,hc⟩
+theorem isInflation {X : SymmetricSpace D.toStrongCategoryDuality}
+    (L : ExactLagrangian D X) : E.IsInflation L.inclusion := by sorry
+def kernel {X : SymmetricSpace D.toStrongCategoryDuality} (L : ExactLagrangian D X) :
+    IsLimit (KernelFork.ofι L.inclusion L.zero) := by sorry
+def cokernel {X : SymmetricSpace D.toStrongCategoryDuality} (L : ExactLagrangian D X) :
+    IsColimit (CokernelCofork.ofπ (X.pairing.hom ≫ D.dual.map L.inclusion.op) L.zero) := by sorry
+end ExactLagrangian
+
+/-- The right block uses η. No division by two occurs. -/
+def hyperbolicSpace (X : C) : SymmetricSpace D.toStrongCategoryDuality := by sorry
+theorem hyperbolicSpace_carrier (X : C) :
+    (hyperbolicSpace D X).carrier = (X ⊞ D.dual.obj (op X)) := by sorry
+/-- Transport along the carrier equation gives the first summand inclusion. -/
+def hyperbolicLagrangian (X : C) : ExactLagrangian D (hyperbolicSpace D X) := by sorry
+theorem hyperbolicLagrangian_carrier (X : C) :
+    (hyperbolicLagrangian D X).carrier = X := by sorry
+
+def orthogonalSum (X Y : SymmetricSpace D.toStrongCategoryDuality) :
+    SymmetricSpace D.toStrongCategoryDuality := by sorry
+theorem orthogonalSum_carrier (X Y : SymmetricSpace D.toStrongCategoryDuality) :
+    (orthogonalSum D X Y).carrier = (X.carrier ⊞ Y.carrier) := by sorry
+
+structure SymmetricIsometry (X Y : SymmetricSpace D.toStrongCategoryDuality) where
+  iso : X.carrier ≅ Y.carrier
+  preserves : X.preserves Y iso.hom
+
+def symmetricIsometrySetoid : Setoid (SymmetricSpace D.toStrongCategoryDuality) where
+  r X Y := Nonempty (SymmetricIsometry D X Y)
+  iseqv := by sorry
+abbrev SymmetricIsometryClass := Quotient (symmetricIsometrySetoid D)
+def symmetricClass (X : SymmetricSpace D.toStrongCategoryDuality) :
+    SymmetricIsometryClass D := Quotient.mk _ X
+
+def gwRelations : Set (FreeAbelianGroup (SymmetricIsometryClass D)) :=
+  {r | (∃ X Y, r = FreeAbelianGroup.of (symmetricClass D (orthogonalSum D X Y)) -
+      FreeAbelianGroup.of (symmetricClass D X) - FreeAbelianGroup.of (symmetricClass D Y)) ∨
+    (∃ (X : SymmetricSpace D.toStrongCategoryDuality) (L : ExactLagrangian D X),
+      r = FreeAbelianGroup.of (symmetricClass D X) -
+        FreeAbelianGroup.of (symmetricClass D (hyperbolicSpace D L.carrier)))}
+abbrev ExactGW0 := FreeAbelianGroup (SymmetricIsometryClass D) ⧸ AddSubgroup.closure (gwRelations D)
+def ExactGW0.of (X : SymmetricSpace D.toStrongCategoryDuality) : ExactGW0 D :=
+  QuotientAddGroup.mk (FreeAbelianGroup.of (symmetricClass D X))
+theorem ExactGW0.isometry (X Y : SymmetricSpace D.toStrongCategoryDuality)
+    (e : SymmetricIsometry D X Y) : ExactGW0.of D X = ExactGW0.of D Y := by sorry
+theorem ExactGW0.sum (X Y : SymmetricSpace D.toStrongCategoryDuality) :
+    ExactGW0.of D (orthogonalSum D X Y) = ExactGW0.of D X + ExactGW0.of D Y := by sorry
+theorem ExactGW0.metabolic (X : SymmetricSpace D.toStrongCategoryDuality) (L : ExactLagrangian D X) :
+    ExactGW0.of D X = ExactGW0.of D (hyperbolicSpace D L.carrier) := by sorry
+
+def ExactGW0.lift {A : Type*} [AddCommGroup A]
+    (f : SymmetricSpace D.toStrongCategoryDuality → A)
+    (hi : ∀ X Y, Nonempty (SymmetricIsometry D X Y) → f X = f Y)
+    (hs : ∀ X Y, f (orthogonalSum D X Y) = f X + f Y)
+    (hm : ∀ X (L : ExactLagrangian D X), f X = f (hyperbolicSpace D L.carrier)) :
+    ExactGW0 D →+ A := by sorry
+theorem ExactGW0.lift_of {A : Type*} [AddCommGroup A]
+    (f : SymmetricSpace D.toStrongCategoryDuality → A)
+    (hi : ∀ X Y, Nonempty (SymmetricIsometry D X Y) → f X = f Y)
+    (hs : ∀ X Y, f (orthogonalSum D X Y) = f X + f Y)
+    (hm : ∀ X (L : ExactLagrangian D X), f X = f (hyperbolicSpace D L.carrier))
+    (X : SymmetricSpace D.toStrongCategoryDuality) : ExactGW0.lift D f hi hs hm (ExactGW0.of D X)=f X := by sorry
+
+def metabolicSubgroup : AddSubgroup (ExactGW0 D) :=
+  AddSubgroup.closure {x | ∃ (X : SymmetricSpace D.toStrongCategoryDuality),
+    Nonempty (ExactLagrangian D X) ∧ x = ExactGW0.of D X}
+abbrev ExactW0 := ExactGW0 D ⧸ metabolicSubgroup D
+def ExactW0.of (X : SymmetricSpace D.toStrongCategoryDuality) : ExactW0 D :=
+  QuotientAddGroup.mk (ExactGW0.of D X)
+theorem ExactW0.metabolic (X : SymmetricSpace D.toStrongCategoryDuality)
+    (L : ExactLagrangian D X) : ExactW0.of D X = 0 := by sorry
+theorem ExactW0.sum (X Y : SymmetricSpace D.toStrongCategoryDuality) :
+    ExactW0.of D (orthogonalSum D X Y) = ExactW0.of D X + ExactW0.of D Y := by sorry
+
+/-- Tests use the genuine exact structure and expose the sign and metabolic relations. -/
+example (S : ShortComplex Cᵒᵖ) (h : E.op.Conflation S) : E.Conflation (S.map D.dual) := by sorry
+example (X : C) : D.sign.biddual.hom.app X = -D.biddual.hom.app X := by sorry
+example : D.sign.sign = D := by sorry
+example (X : C) : Nonempty (ExactLagrangian D (hyperbolicSpace D X)) := by sorry
+example (X : C) : ExactW0.of D (hyperbolicSpace D X) = 0 := by sorry
+example (X : SymmetricSpace D.toStrongCategoryDuality) (L : ExactLagrangian D X) :
+    ExactGW0.of D X = ExactGW0.of D (hyperbolicSpace D L.carrier) := by sorry
+example (X : C) : ExactGW0.of D (orthogonalSum D (hyperbolicSpace D X) (hyperbolicSpace D X)) =
+    2 • ExactGW0.of D (hyperbolicSpace D X) := by sorry
+end NativeExactDuality
+end TauCeti.GeometryOfNumbersPlan
+
+namespace TauCeti.GeometryOfNumbersPlan
+section LLLTransitions
+variable {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E] {n : ℕ}
+def lllNearestInteger (t : ℝ) : ℤ := ⌊t+1/2⌋
+lemma lll_nearest_integer (t : ℝ) : |t-(lllNearestInteger t : ℝ)| ≤ 1/2 := by sorry
+def lllShear (b : Fin n → E) (i j : Fin n) (r : ℤ) : Fin n → E :=
+  fun k => if k=i then b i-r • b j else b k
+lemma lll_shear_certificate (b : Fin n → E) (i j : Fin n) (hji : j < i) (r : ℤ) :
+    Nonempty (UnimodularBasisCertificate b (lllShear b i j r)) := by sorry
+lemma lll_shear_gram_schmidt (b : Fin n → E) (hb : LinearIndependent ℝ b)
+    (i j : Fin n) (hji : j < i) (r : ℤ) (k : Fin n) :
+    InnerProductSpace.gramSchmidt ℝ (lllShear b i j r) k =
+      InnerProductSpace.gramSchmidt ℝ b k := by sorry
+lemma lll_shear_coefficients (b : Fin n → E) (hb : LinearIndependent ℝ b)
+    (i j : Fin n) (hji : j < i) (r : ℤ) :
+    lllCoefficient (lllShear b i j r) i j = lllCoefficient b i j-r := by sorry
+lemma lll_shear_earlier_coefficients (b : Fin n → E) (hb : LinearIndependent ℝ b)
+    (i j l : Fin n) (hji : j < i) (hl : l < j) (r : ℤ) :
+    lllCoefficient (lllShear b i j r) i l = lllCoefficient b i l-r*lllCoefficient b j l := by sorry
+lemma lll_shear_later_coefficients (b : Fin n → E) (hb : LinearIndependent ℝ b)
+    (i j l : Fin n) (hji : j < i) (hl : j < l) (hli : l < i) (r : ℤ) :
+    lllCoefficient (lllShear b i j r) i l = lllCoefficient b i l := by sorry
+lemma lll_swap_certificate (b : Fin n → E) (i j : Fin n) :
+    Nonempty (UnimodularBasisCertificate b (b ∘ Equiv.swap i j)) := by sorry
+lemma lll_swap_first_vector (b : Fin n → E) (hb : LinearIndependent ℝ b)
+    (i j : Fin n) (hij : i.val+1=j.val) :
+    InnerProductSpace.gramSchmidt ℝ (b ∘ Equiv.swap i j) i =
+      InnerProductSpace.gramSchmidt ℝ b j +
+        lllCoefficient b j i • InnerProductSpace.gramSchmidt ℝ b i := by sorry
+lemma lll_swap_second_vector (b : Fin n → E) (hb : LinearIndependent ℝ b)
+    (i j : Fin n) (hij : i.val+1=j.val) :
+    let B := ‖InnerProductSpace.gramSchmidt ℝ b i‖^2
+    let C := ‖InnerProductSpace.gramSchmidt ℝ b j‖^2
+    let a := lllCoefficient b j i
+    let T := C+a^2*B
+    InnerProductSpace.gramSchmidt ℝ (b ∘ Equiv.swap i j) j =
+      (C/T) • InnerProductSpace.gramSchmidt ℝ b i -
+        (a*B/T) • InnerProductSpace.gramSchmidt ℝ b j := by sorry
+lemma lll_swap_later_coefficients (b : Fin n → E) (hb : LinearIndependent ℝ b)
+    (i j k : Fin n) (hij : i.val+1=j.val) (hjk : j < k) :
+    lllCoefficient (b ∘ Equiv.swap i j) k j =
+      lllCoefficient b k i-lllCoefficient b j i*lllCoefficient b k j := by sorry
+
+def lllPrefixGramDet (b : Fin n → E) (k : ℕ) : ℝ :=
+  (Matrix.gram ℝ (fun i : {i : Fin n // i.val < k} => b i)).det
+def lllRealPotential (b : Fin n → E) : ℝ := ∏ k ∈ Finset.range n, lllPrefixGramDet b k
+lemma lll_prefix_gram_product (b : Fin n → E) (hb : LinearIndependent ℝ b)
+    (k : ℕ) (hk : k≤n) :
+    lllPrefixGramDet b k = ∏ i : {i : Fin n // i.val < k}, ‖InnerProductSpace.gramSchmidt ℝ b i‖^2 := by sorry
+lemma lll_prefix_gram_integral (b : Fin n → E) (hb : LinearIndependent ℝ b)
+    (hGram : ∀ i j, ∃ z : ℤ, inner ℝ (b i) (b j) = (z : ℝ)) (k : ℕ) :
+    ∃ d : ℕ, 0 < d ∧ lllPrefixGramDet b k = d := by sorry
+lemma lll_prefix_shear_invariant (b : Fin n → E) (hb : LinearIndependent ℝ b)
+    (i j : Fin n) (hji : j < i) (r : ℤ) (k : ℕ) :
+    lllPrefixGramDet (lllShear b i j r) k = lllPrefixGramDet b k := by sorry
+lemma lll_prefix_swap_ratio (b : Fin n → E) (hb : LinearIndependent ℝ b)
+    (i j : Fin n) (hij : i.val+1=j.val) :
+    lllRealPotential (b ∘ Equiv.swap i j) =
+      ((‖InnerProductSpace.gramSchmidt ℝ b j‖^2+
+        (lllCoefficient b j i)^2*‖InnerProductSpace.gramSchmidt ℝ b i‖^2) /
+        ‖InnerProductSpace.gramSchmidt ℝ b i‖^2)*lllRealPotential b := by sorry
+lemma lll_strict_potential_decrease (b : Fin n → E) (hb : LinearIndependent ℝ b)
+    (i j : Fin n) (hij : i.val+1=j.val)
+    (hf : ‖InnerProductSpace.gramSchmidt ℝ b j‖^2 <
+      (3/4-(lllCoefficient b j i)^2)*‖InnerProductSpace.gramSchmidt ℝ b i‖^2) :
+    4*lllRealPotential (b ∘ Equiv.swap i j) < 3*lllRealPotential b := by sorry
+
+example : lllNearestInteger (3/2)=2 := by sorry
+example : lllNearestInteger (-1/2)=0 := by sorry
+example : lllNearestInteger (-8/5)= -2 := by sorry
+example : lllPrefixGramDet (Fin.elim0 : Fin 0 → ℝ) 0=1 := by sorry
+example : lllPrefixGramDet (![(2 : ℝ)] : Fin 1 → ℝ) 1=4 := by sorry
+example : lllRealPotential (![(2 : ℝ)] : Fin 1 → ℝ)=1 := by sorry
+example : lllShear (![(1 : ℝ),3] : Fin 2 → ℝ) 1 0 3 = ![1,0] := by sorry
+example : lllShear (![(1 : ℝ),3] : Fin 2 → ℝ) 1 0 0 = ![1,3] := by sorry
+example : lllShear (![(1 : ℝ),3] : Fin 2 → ℝ) 1 0 (-1) = ![1,4] := by sorry
+example : lllRealPotential
+    (![WithLp.toLp 2 ![2,0],WithLp.toLp 2 ![0,1]] : Fin 2 → EuclideanSpace ℝ (Fin 2))=4 := by sorry
+example : lllRealPotential
+    (![WithLp.toLp 2 ![0,1],WithLp.toLp 2 ![2,0]] : Fin 2 → EuclideanSpace ℝ (Fin 2))=1 := by sorry
+example : ¬ Nonempty (UnimodularBasisCertificate (![(1 : ℝ)] : Fin 1 → ℝ)
+    (![(1001/1000 : ℝ)] : Fin 1 → ℝ)) := by sorry
+end LLLTransitions
+
+section CriticalDeterminants
+variable {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E] [FiniteDimensional ℝ E] [MeasurableSpace E] [BorelSpace E]
+local instance : MeasureSpace E := measureSpaceOfInnerProductSpace
+def criticalDeterminant (K : CompactStarBody E) : ℝ :=
+  sInf {d | ∃ (L : Submodule ℤ E) (_ : DiscreteTopology L) (_ : IsZLattice ℝ L),
+    K.admissible L ∧ d=ZLattice.covolume L}
+lemma criticalDeterminant_le_covolume (K : CompactStarBody E) (L : Submodule ℤ E)
+    [DiscreteTopology L] [IsZLattice ℝ L] (h : K.admissible L) :
+    criticalDeterminant K ≤ ZLattice.covolume L := by sorry
+lemma criticalDeterminant_mono (K H : CompactStarBody E)
+    (h : {x | K.gauge x≤1} ⊆ {x | H.gauge x≤1}) : criticalDeterminant K≤criticalDeterminant H := by sorry
+lemma criticalDeterminant_smul (K H : CompactStarBody E) (a : ℝ) (ha : 0 < a)
+    (h : ∀ x, H.gauge x=K.gauge x/a) :
+    criticalDeterminant H = a^(finrank ℝ E)*criticalDeterminant K := by sorry
+lemma star_body_interior_ball (K : CompactStarBody E) :
+    ∃ r : ℝ, 0 < r ∧ Metric.ball 0 r ⊆ {x | K.gauge x < 1} := by sorry
+lemma star_body_admissible_dilate (K : CompactStarBody E) :
+    ∃ (L : Submodule ℤ E) (_ : DiscreteTopology L) (_ : IsZLattice ℝ L), K.admissible L := by sorry
+lemma critical_determinant_positive (K : CompactStarBody E) (hn : 0 < finrank ℝ E) :
+    0 < criticalDeterminant K := by sorry
+lemma star_admissibility_closed (K : CompactStarBody E) {n : ℕ}
+    (b : ℕ → Fin n → E) (c : Basis (Fin n) ℝ E)
+    (hconv : ∀ i, Filter.Tendsto (fun m => b m i) Filter.atTop (nhds (c i)))
+    (h : ∀ m, K.admissible (Submodule.span ℤ (Set.range (b m)))) :
+    K.admissible (Submodule.span ℤ (Set.range c)) := by sorry
+theorem critical_lattice_exists (K : CompactStarBody E) :
+    ∃ (L : Submodule ℤ E) (_ : DiscreteTopology L) (_ : IsZLattice ℝ L),
+      K.admissible L ∧ ZLattice.covolume L=criticalDeterminant K := by sorry
+example (K : CompactStarBody ℝ) (h : ∀ x, K.gauge x=|x|) : criticalDeterminant K=1 := by sorry
+example (K : CompactStarBody ℝ) (h : ∀ x, K.gauge x=|x|/2) : criticalDeterminant K=2 := by sorry
+example (K : CompactStarBody (EuclideanSpace ℝ (Fin 0))) : criticalDeterminant K=1 := by sorry
+end CriticalDeterminants
+
+section GaussianSums
+variable {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E] [FiniteDimensional ℝ E]
+def latticeGaussianSum (L : Submodule ℤ E) (s : ℝ) (u : E) : ℝ :=
+  ∑' x : L, Real.exp (-Real.pi*‖(x : E)+u‖^2/s^2)
+lemma latticeGaussianSum_zeroRank (L : Submodule ℤ (EuclideanSpace ℝ (Fin 0))) (s : ℝ) (hs : 0 < s) :
+    latticeGaussianSum L s 0=1 := by sorry
+lemma latticeGaussianSum_translate (L : Submodule ℤ E) [DiscreteTopology L] [IsZLattice ℝ L]
+    (s : ℝ) (hs : 0 < s) (u v : E) (hv : v∈L) :
+    latticeGaussianSum L s (u+v)=latticeGaussianSum L s u := by sorry
+lemma latticeGaussianSum_scale (L : Submodule ℤ E) [DiscreteTopology L] [IsZLattice ℝ L]
+    (s a : ℝ) (hs : 0 < s) (ha : 0 < a) (u : E) :
+    latticeGaussianSum (L.map (a • LinearMap.id : E →ₗ[ℤ] E)) (a*s) (a • u) =
+      latticeGaussianSum L s u := by sorry
+lemma gaussian_lattice_summable (L : Submodule ℤ E) [DiscreteTopology L] [IsZLattice ℝ L]
+    (s : ℝ) (hs : 0 < s) (u : E) :
+    Summable (fun x : L => Real.exp (-Real.pi*‖(x : E)+u‖^2/s^2)) := by sorry
+lemma gaussian_shift_maximum (L : Submodule ℤ E) [DiscreteTopology L] [IsZLattice ℝ L]
+    (s : ℝ) (hs : 0 < s) (u : E) : latticeGaussianSum L s u≤latticeGaussianSum L s 0 := by sorry
+lemma gaussian_scale_upper (L : Submodule ℤ E) [DiscreteTopology L] [IsZLattice ℝ L]
+    (s : ℝ) (hs : 1≤s) (u : E) :
+    latticeGaussianSum L s u≤s^(finrank ℝ E)*latticeGaussianSum L 1 0 := by sorry
+lemma gaussian_shifted_tail (L : Submodule ℤ E) [DiscreteTopology L] [IsZLattice ℝ L]
+    (u : E) (hn : 0 < finrank ℝ E) :
+    (∑' x : {x : L // Real.sqrt (finrank ℝ E)≤‖(x : E)+u‖},
+      Real.exp (-Real.pi*‖(x.val : E)+u‖^2)) ≤
+    (2*Real.exp (-3*Real.pi/4))^(finrank ℝ E)*latticeGaussianSum L 1 0 := by sorry
+example (L : Submodule ℤ (EuclideanSpace ℝ (Fin 0))) : latticeGaussianSum L 1 0=1 := by sorry
+example : latticeGaussianSum (Submodule.span ℤ {(2 : ℝ)}) 2 0=
+    latticeGaussianSum (Submodule.span ℤ {(1 : ℝ)}) 1 0 := by sorry
+example : latticeGaussianSum (Submodule.span ℤ {(1 : ℝ)}) 1 1=
+    latticeGaussianSum (Submodule.span ℤ {(1 : ℝ)}) 1 0 := by sorry
+end GaussianSums
+end TauCeti.GeometryOfNumbersPlan
+namespace TauCeti.GeometryOfNumbersPlan
+section PrimaryInvariantFactors
+open scoped DirectSum
+variable (R : Type*) [CommRing R] [IsDomain R] [IsPrincipalIdealRing R]
+  (π : R) (M : Type*) [AddCommGroup M] [Module R M] (n : ℕ)
+/-- Only the quotient-module adapter is new; existence consumes Module.PID. -/
+structure HermitianLatticeInvariants where
+  exponent : Fin n → ℕ
+  ordered : Monotone exponent
+  decomposition : Nonempty (M ≃ₗ[R] ⨁ i : Fin n, R ⧸ Ideal.span {π ^ exponent i})
+namespace HermitianLatticeInvariants
+variable {R π M n}
+def valuation (a : HermitianLatticeInvariants R π M n) : ℕ := ∑ i, a.exponent i
+def type (a : HermitianLatticeInvariants R π M n) : ℕ := (Finset.univ.filter (fun i => 0 < a.exponent i)).card
+/-- Zero padding is justified by the supplied n-generator surjection, not by a field basis. -/
+def ofDualQuotient (hπ : Irreducible π) [Module.Finite R M]
+    (hp : Module.IsTorsion' M (Submonoid.powers π))
+    (f : (Fin n → R) →ₗ[R] M) (hf : Function.Surjective f) :
+    HermitianLatticeInvariants R π M n := by sorry
+lemma exponent_unique (a b : HermitianLatticeInvariants R π M n) (hπ : Irreducible π) :
+    a.exponent = b.exponent := by sorry
+lemma selfDual_iff (a : HermitianLatticeInvariants R π M n) (hπ : Irreducible π) :
+    Subsingleton M ↔ a.valuation = 0 := by sorry
+lemma vertex_iff (a : HermitianLatticeInvariants R π M n) (hπ : Irreducible π) :
+    (∀ x : M, π • x = 0) ↔ ∀ i, a.exponent i ≤ 1 := by sorry
+lemma uniformizer_independent (a : HermitianLatticeInvariants R π M n)
+    (b : HermitianLatticeInvariants R ((u : Rˣ) * π) M n) (hπ : Irreducible π) :
+    a.exponent = b.exponent := by sorry
+/-- This API concerns the module; identification of M with L-dual/L is a separate adapter. -/
+example (a : HermitianLatticeInvariants ℤ 2 (ZMod 8) 1) : a.valuation = 3 ∧ a.type = 1 := by sorry
+example (a : HermitianLatticeInvariants R π M 3) (ha : a.exponent = ![0,1,1]) :
+    a.valuation = 2 ∧ a.type = 2 := by sorry
+example (a : HermitianLatticeInvariants R π M 0) : a.valuation = 0 ∧ a.type = 0 := by sorry
+end HermitianLatticeInvariants
+end PrimaryInvariantFactors
+
+section QuaternionicLattices
+open MulOpposite
+variable (R K B V : Type*) [CommRing R] [Field K] [Algebra R K]
+  [Ring B] [StarRing B] [Algebra R B] [Algebra K B] [IsScalarTower R K B]
+  [AddCommGroup V] [Module R V] [Module K V] [IsScalarTower R K V]
+  [Module Bᵐᵒᵖ V] [IsScalarTower K Bᵐᵒᵖ V]
+/-- Right multiplication is the native left action of the opposite ring. -/
+structure QuaternionicIntegralHermitianLattice where
+  parameterA : K
+  parameterB : K
+  parameterA_nonzero : parameterA ≠ 0
+  parameterB_nonzero : parameterB ≠ 0
+  quaternionModel : ∃ e : B ≃ₐ[K] QuaternionAlgebra K parameterA 0 parameterB, ∀ b, e (star b) = star (e b)
+  order : Subalgebra R B
+  orderFull : Submodule.IsLattice K order.toSubmodule
+  star_stable : ∀ a ∈ order, star a ∈ order
+  carrier : Submodule R V
+  full : Submodule.IsLattice K carrier
+  right_stable : ∀ x ∈ carrier, ∀ a ∈ order, op a • x ∈ carrier
+  pairing : V →ₗ[K] V →ₗ[K] B
+  right_sesquilinear : ∀ x y a b, pairing (op a • x) (op b • y) = star a * pairing x y * b
+  symmetric : ∀ x y, pairing y x = star (pairing x y)
+  nondegenerate : ∀ x, (∀ y, pairing x y = 0) → x = 0
+  integral : ∀ x ∈ carrier, ∀ y ∈ carrier, pairing x y ∈ order
+namespace QuaternionicIntegralHermitianLattice
+variable {R K B V}
+def ofOrderStableCarrier (a b : K) (ha : a ≠ 0) (hb : b ≠ 0)
+    (hq : ∃ e : B ≃ₐ[K] QuaternionAlgebra K a 0 b, ∀ x, e (star x) = star (e x))
+    (O : Subalgebra R B) (ho : Submodule.IsLattice K O.toSubmodule)
+    (hs : ∀ a ∈ O, star a ∈ O) (L : Submodule R V) (hL : Submodule.IsLattice K L)
+    (hr : ∀ x ∈ L, ∀ a ∈ O, op a • x ∈ L)
+    (H : V →ₗ[K] V →ₗ[K] B)
+    (hH : ∀ x y a b, H (op a • x) (op b • y) = star a * H x y * b)
+    (ht : ∀ x y, H y x = star (H x y))
+    (hn : ∀ x, (∀ y, H x y = 0) → x = 0)
+    (hi : ∀ x ∈ L, ∀ y ∈ L, H x y ∈ O) :
+    QuaternionicIntegralHermitianLattice R K B V := ⟨a,b,ha,hb,hq,O,ho,hs,L,hL,hr,H,hH,ht,hn,hi⟩
+def dual (L : QuaternionicIntegralHermitianLattice R K B V) : Submodule R V := by sorry
+lemma mem_dual_iff (L : QuaternionicIntegralHermitianLattice R K B V) (x : V) :
+    x ∈ L.dual ↔ ∀ y ∈ L.carrier, L.pairing x y ∈ L.order := by sorry
+lemma integral_le_dual (L : QuaternionicIntegralHermitianLattice R K B V) : L.carrier ≤ L.dual := by sorry
+example (L : QuaternionicIntegralHermitianLattice R K B V) (x y : V) (a b : B) :
+    L.pairing (op a • x) (op b • y) = star a * L.pairing x y * b := by sorry
+example (L : QuaternionicIntegralHermitianLattice R K B V) (x : V) (hx : x ∈ L.carrier) : x ∈ L.dual := by sorry
+example (a : B) : star (1 : B) * a = a := by sorry
+end QuaternionicIntegralHermitianLattice
+end QuaternionicLattices
+
+section IsotropicQuotients
+open CategoryTheory CategoryTheory.Limits Opposite
+universe u v w
+variable {C : Type u} [Category.{v} C] [Preadditive C] [HasZeroObject C] [HasBinaryBiproducts C]
+  {E : TauCeti.ExactStructure C} (D : ExactCategoryDuality E)
+/-- Both admissible inclusions and both actual exact quotients are retained. -/
+structure ExactIsotropicSubobject (X : SymmetricSpace D.toStrongCategoryDuality) where
+  carrier : C
+  orthogonal : C
+  quotient : C
+  inclusion : carrier ⟶ orthogonal
+  orthogonalInclusion : orthogonal ⟶ X.carrier
+  quotientMap : orthogonal ⟶ quotient
+  inclusionExact : E.IsInflation (inclusion ≫ orthogonalInclusion)
+  quotientZero : inclusion ≫ quotientMap = 0
+  quotientExact : E.Conflation (ShortComplex.mk inclusion quotientMap quotientZero)
+  orthogonalZero : orthogonalInclusion ≫ X.pairing.hom ≫
+    D.dual.map (inclusion ≫ orthogonalInclusion).op = 0
+  orthogonalExact : E.Conflation (ShortComplex.mk orthogonalInclusion
+    (X.pairing.hom ≫ D.dual.map (inclusion ≫ orthogonalInclusion).op) orthogonalZero)
+/-- Cokernel descent followed by exact duality constructs the pairing map. -/
+def isotropicReduction {X : SymmetricSpace D.toStrongCategoryDuality}
+    (L : ExactIsotropicSubobject D X) : SymmetricSpace D.toStrongCategoryDuality := by sorry
+lemma isotropicReduction_carrier {X : SymmetricSpace D.toStrongCategoryDuality}
+    (L : ExactIsotropicSubobject D X) : (isotropicReduction D L).carrier = L.quotient := by sorry
+/-- The induced map has an actual quotient carrier, so the pullback can be stated there. -/
+def isotropicReductionPairing {X : SymmetricSpace D.toStrongCategoryDuality}
+    (L : ExactIsotropicSubobject D X) : L.quotient ⟶ D.dual.obj (op L.quotient) := by sorry
+lemma isotropicReduction_pullback {X : SymmetricSpace D.toStrongCategoryDuality}
+    (L : ExactIsotropicSubobject D X) :
+    L.quotientMap ≫ isotropicReductionPairing D L ≫ D.dual.map L.quotientMap.op =
+      L.orthogonalInclusion ≫ X.pairing.hom ≫ D.dual.map L.orthogonalInclusion.op := by sorry
+lemma isotropicReduction_perfect {X : SymmetricSpace D.toStrongCategoryDuality}
+    (L : ExactIsotropicSubobject D X) : IsIso (isotropicReductionPairing D L) := by sorry
+lemma exact_five_lemma (S T : ShortComplex C) (hS : E.Conflation S) (hT : E.Conflation T)
+    (f : S ⟶ T) [IsIso f.τ₁] [IsIso f.τ₃] : IsIso f.τ₂ := by sorry
+
+def negativeSpace (X : SymmetricSpace D.toStrongCategoryDuality) : SymmetricSpace D.toStrongCategoryDuality := by sorry
+lemma negativeSpace_carrier (X : SymmetricSpace D.toStrongCategoryDuality) :
+    (negativeSpace D X).carrier = X.carrier := by sorry
+lemma symmetric_diagonal_lagrangian (X : SymmetricSpace D.toStrongCategoryDuality) :
+    Nonempty (ExactLagrangian D (orthogonalSum D X (negativeSpace D X))) := by sorry
+lemma isotropic_reduction_metabolic {X : SymmetricSpace D.toStrongCategoryDuality}
+    (L : ExactIsotropicSubobject D X) : Nonempty (ExactLagrangian D
+      (orthogonalSum D X (negativeSpace D (isotropicReduction D L)))) := by sorry
+lemma ExactW0.neg (X : SymmetricSpace D.toStrongCategoryDuality) :
+    ExactW0.of D (negativeSpace D X) = -ExactW0.of D X := by sorry
+lemma hyperbolicSpace_sum (X Y : C) : Nonempty (SymmetricIsometry D (hyperbolicSpace D (X ⊞ Y))
+    (orthogonalSum D (hyperbolicSpace D X) (hyperbolicSpace D Y))) := by sorry
+
+def grothendieckWittForgetful [EssentiallySmall.{w} C] : ExactGW0 D →+ TauCeti.ExactK0 E := by sorry
+lemma grothendieckWittForgetful_of [EssentiallySmall.{w} C] (X : SymmetricSpace D.toStrongCategoryDuality) :
+    grothendieckWittForgetful D (ExactGW0.of D X) = TauCeti.ExactK0.of (E := E) X.carrier := by sorry
+def grothendieckWittHyperbolic [EssentiallySmall.{w} C] : TauCeti.ExactK0 E →+ ExactGW0 D := by sorry
+lemma grothendieckWittHyperbolic_of [EssentiallySmall.{w} C] (X : C) :
+    grothendieckWittHyperbolic D (TauCeti.ExactK0.of (E := E) X) = ExactGW0.of D (hyperbolicSpace D X) := by sorry
+lemma forgetful_hyperbolic [EssentiallySmall.{w} C] (X : C) :
+    grothendieckWittForgetful D (grothendieckWittHyperbolic D (TauCeti.ExactK0.of (E := E) X)) =
+      TauCeti.ExactK0.of (E := E) X + TauCeti.ExactK0.of (E := E) (D.dual.obj (op X)) := by sorry
+example (X : SymmetricSpace D.toStrongCategoryDuality) :
+    ExactW0.of D (orthogonalSum D X (negativeSpace D X)) = 0 := by sorry
+example (X : C) : Nonempty (SymmetricIsometry D (hyperbolicSpace D (X ⊞ X))
+    (orthogonalSum D (hyperbolicSpace D X) (hyperbolicSpace D X))) := by sorry
+example [EssentiallySmall.{w} C] (X : C) :
+    grothendieckWittForgetful D (ExactGW0.of D (hyperbolicSpace D X)) =
+      TauCeti.ExactK0.of (E := E) X + TauCeti.ExactK0.of (E := E) (D.dual.obj (op X)) := by sorry
+
+/-- The square is genuinely bicartesian in the pinned category, not a name for a Prop placeholder. -/
+structure HermitianQSpan (X Y : SymmetricSpace D.toStrongCategoryDuality) where
+  middle : C
+  deflation : middle ⟶ X.carrier
+  inflation : middle ⟶ Y.carrier
+  deflationExact : E.IsDeflation deflation
+  inflationExact : E.IsInflation inflation
+  cartesian : IsPullback inflation deflation
+    (Y.pairing.hom ≫ D.dual.map inflation.op) (X.pairing.hom ≫ D.dual.map deflation.op)
+  cocartesian : IsPushout inflation deflation
+    (Y.pairing.hom ≫ D.dual.map inflation.op) (X.pairing.hom ≫ D.dual.map deflation.op)
+namespace HermitianQSpan
+variable {D}
+def identity (X : SymmetricSpace D.toStrongCategoryDuality) : HermitianQSpan D X X := by sorry
+/-- Exactness supplies the pullback of a deflation along an inflation. -/
+def comp {X Y Z : SymmetricSpace D.toStrongCategoryDuality}
+    (a : HermitianQSpan D X Y) (b : HermitianQSpan D Y Z) : HermitianQSpan D X Z := by sorry
+/-- Representative equivalence retains both span legs. -/
+def equivalent {X Y : SymmetricSpace D.toStrongCategoryDuality}
+    (a b : HermitianQSpan D X Y) : Prop :=
+  ∃ e : a.middle ≅ b.middle, e.hom ≫ b.inflation = a.inflation ∧ e.hom ≫ b.deflation = a.deflation
+lemma comp_congr {X Y Z : SymmetricSpace D.toStrongCategoryDuality}
+    (a a' : HermitianQSpan D X Y) (b b' : HermitianQSpan D Y Z)
+    (ha : a.equivalent a') (hb : b.equivalent b') : (a.comp b).equivalent (a'.comp b') := by sorry
+lemma id_comp {X Y : SymmetricSpace D.toStrongCategoryDuality} (a : HermitianQSpan D X Y) :
+    ((identity X).comp a).equivalent a := by sorry
+lemma comp_id {X Y : SymmetricSpace D.toStrongCategoryDuality} (a : HermitianQSpan D X Y) :
+    (a.comp (identity Y)).equivalent a := by sorry
+lemma assoc {X Y Z W : SymmetricSpace D.toStrongCategoryDuality}
+    (a : HermitianQSpan D X Y) (b : HermitianQSpan D Y Z) (c : HermitianQSpan D Z W) :
+    ((a.comp b).comp c).equivalent (a.comp (b.comp c)) := by sorry
+end HermitianQSpan
+end IsotropicQuotients
+
+section TopologicalGWAdapter
+open scoped unitInterval
+/- Here Qh and Q are the genuine supplied realizations, with the supplied forgetful map.
+The generic realization theorem is requested from H.1 and H.2, not redefined here. -/
+variable {Qh Q : Type*} [TopologicalSpace Qh] [TopologicalSpace Q]
+abbrev grothendieckWittSpace (forget : C(Qh,Q)) (zero : Q) :=
+  {x : Qh × C(I,Q) // x.2 0 = forget x.1 ∧ x.2 1 = zero}
+def grothendieckWittSpace_base (forget : C(Qh,Q)) (zeroForm : Qh) :
+    grothendieckWittSpace forget (forget zeroForm) :=
+  ⟨(zeroForm, ContinuousMap.const I (forget zeroForm)), by simp⟩
+def grothendieckWittSpace_projection (forget : C(Qh,Q)) (zero : Q) :
+    C(grothendieckWittSpace forget zero,Qh) := by sorry
+lemma grothendieckWittSpace_projection_base (forget : C(Qh,Q)) (zeroForm : Qh) :
+    grothendieckWittSpace_projection forget (forget zeroForm) (grothendieckWittSpace_base forget zeroForm) = zeroForm := by sorry
+/-- Native homotopy groups; π0 is only a type until the supplied H-space structure is used. -/
+abbrev higherGrothendieckWittGroup (forget : C(Qh,Q)) (zeroForm : Qh) (i : ℕ) :=
+  HomotopyGroup (Fin i) (grothendieckWittSpace forget (forget zeroForm))
+    (grothendieckWittSpace_base forget zeroForm)
+def higherGrothendieckWittGroup_zero (forget : C(Qh,Q)) (zeroForm : Qh) :
+    higherGrothendieckWittGroup forget zeroForm 0 ≃
+      ZerothHomotopy (grothendieckWittSpace forget (forget zeroForm)) := by sorry
+example (forget : C(Qh,Q)) (zeroForm : Qh) :
+    (grothendieckWittSpace_base forget zeroForm).val.2 1 = forget zeroForm := by sorry
+example (forget : C(Qh,Q)) (zeroForm : Qh) :
+    (grothendieckWittSpace_base forget zeroForm).val.2 0 = forget zeroForm := by sorry
+example (forget : C(Qh,Q)) (zeroForm : Qh) :
+    grothendieckWittSpace_projection forget (forget zeroForm) (grothendieckWittSpace_base forget zeroForm) = zeroForm := by sorry
+end TopologicalGWAdapter
+end TauCeti.GeometryOfNumbersPlan
+
+namespace TauCeti.GeometryOfNumbersPlan
+section HermitianQuotientCategory
+open CategoryTheory CategoryTheory.Limits Opposite
+universe u v
+variable {C : Type u} [Category.{v} C] [Preadditive C] [HasZeroObject C] [HasBinaryBiproducts C]
+  {E : TauCeti.ExactStructure C} (D : ExactCategoryDuality E)
+def hermitianQSpanSetoid (X Y : SymmetricSpace D.toStrongCategoryDuality) : Setoid (HermitianQSpan D X Y) where
+  r := HermitianQSpan.equivalent
+  iseqv := by sorry
+structure HermitianQ where
+  space : SymmetricSpace D.toStrongCategoryDuality
+def hermitianQIdentity (X : HermitianQ D) : Quotient (hermitianQSpanSetoid D X.space X.space) :=
+  Quotient.mk _ (HermitianQSpan.identity X.space)
+def hermitianQComp {X Y Z : HermitianQ D}
+    (f : Quotient (hermitianQSpanSetoid D X.space Y.space))
+    (g : Quotient (hermitianQSpanSetoid D Y.space Z.space)) :
+    Quotient (hermitianQSpanSetoid D X.space Z.space) := by sorry
+instance hermitianQCategory : Category (HermitianQ D) where
+  Hom X Y := Quotient (hermitianQSpanSetoid D X.space Y.space)
+  id X := hermitianQIdentity D X
+  comp f g := hermitianQComp D f g
+  id_comp := by sorry
+  comp_id := by sorry
+  assoc := by sorry
+def HermitianQ.ofSpan {X Y : HermitianQ D} (s : HermitianQSpan D X.space Y.space) : X ⟶ Y :=
+  Quotient.mk _ s
+lemma HermitianQ.ofSpan_comp {X Y Z : HermitianQ D}
+    (s : HermitianQSpan D X.space Y.space) (t : HermitianQSpan D Y.space Z.space) :
+    (HermitianQ.ofSpan D s) ≫ (HermitianQ.ofSpan D t) = HermitianQ.ofSpan D (s.comp t) := by sorry
+lemma HermitianQ.ofSpan_eq_iff {X Y : HermitianQ D} (s t : HermitianQSpan D X.space Y.space) :
+    HermitianQ.ofSpan D s = HermitianQ.ofSpan D t ↔ s.equivalent t := by sorry
+example (X : HermitianQ D) : HermitianQ.ofSpan D (HermitianQSpan.identity X.space) = 𝟙 X := by sorry
+example {X Y : HermitianQ D} (s t : HermitianQSpan D X.space Y.space) :
+    HermitianQ.ofSpan D s = HermitianQ.ofSpan D t ↔
+      ∃ e : s.middle ≅ t.middle, e.hom ≫ t.inflation = s.inflation ∧ e.hom ≫ t.deflation = s.deflation := by sorry
+example {X Y Z W : HermitianQ D} (f : X ⟶ Y) (g : Y ⟶ Z) (h : Z ⟶ W) :
+    (f ≫ g) ≫ h = f ≫ (g ≫ h) := by sorry
+end HermitianQuotientCategory
+
+section ConeDiagrams
+open scoped ZeroObject
+open CategoryTheory CategoryTheory.Limits
+universe u v
+variable {C : Type u} [Category.{v} C] [Preadditive C] [HasZeroObject C] [HasBinaryBiproducts C]
+abbrev ConeIndex := ℕ ⊕ₗ ℕᵒᵈ
+def coneForward (i : ℕ) : ConeIndex := toLex (Sum.inl i)
+def coneBackward (i : ℕ) : ConeIndex := toLex (Sum.inr (OrderDual.toDual i))
+def coneForwardArrow (i j : ℕ) (h : i ≤ j) : coneForward i ⟶ coneForward j := by sorry
+def coneBackwardArrow (i j : ℕ) (h : i ≤ j) : coneBackward j ⟶ coneBackward i := by sorry
+def coneCrossArrow (i j : ℕ) : coneForward i ⟶ coneBackward j := by sorry
+variable (E : TauCeti.ExactStructure C)
+def coneDiagramCondition (F : ConeIndex ⥤ C) : Prop :=
+  (∀ i j h, E.IsInflation (F.map (coneForwardArrow i j h))) ∧
+  (∀ i j h, E.IsDeflation (F.map (coneBackwardArrow i j h))) ∧
+  ∃ k : ℕ, (∀ i, E.IsInflation (F.map (coneCrossArrow i (i+k)))) ∧
+    (∀ i, E.IsDeflation (F.map (coneCrossArrow (i+k) i)))
+abbrev HermitianConeDiagram := CategoryTheory.ObjectProperty.FullSubcategory (coneDiagramCondition E : ObjectProperty (ConeIndex ⥤ C))
+def HermitianConeDiagram.constant (X : C) : HermitianConeDiagram E := by sorry
+lemma HermitianConeDiagram.constant_obj (X : C) (i : ConeIndex) :
+    (HermitianConeDiagram.constant E X).obj.obj i = X := by sorry
+lemma HermitianConeDiagram.crossingBound (U : HermitianConeDiagram E) :
+    ∃ k : ℕ, (∀ i, E.IsInflation (U.obj.map (coneCrossArrow i (i+k)))) ∧
+      (∀ i, E.IsDeflation (U.obj.map (coneCrossArrow (i+k) i))) := U.property.2.2
+def coneLowerShift (k : ℕ) : HermitianConeDiagram E ⥤ HermitianConeDiagram E := by sorry
+def coneUpperShift (k : ℕ) : HermitianConeDiagram E ⥤ HermitianConeDiagram E := by sorry
+def coneLowerShiftMap (k : ℕ) : 𝟭 (HermitianConeDiagram E) ⟶ coneLowerShift E k := by sorry
+def coneUpperShiftMap (k : ℕ) : coneUpperShift E k ⟶ 𝟭 (HermitianConeDiagram E) := by sorry
+lemma coneLowerShift_forward (k i : ℕ) (U : HermitianConeDiagram E) :
+    ((coneLowerShift E k).obj U).obj.obj (coneForward i) = U.obj.obj (coneForward (i+k)) := by sorry
+lemma coneLowerShift_backward (k i : ℕ) (U : HermitianConeDiagram E) :
+    ((coneLowerShift E k).obj U).obj.obj (coneBackward i) = U.obj.obj (coneBackward i) := by sorry
+lemma coneUpperShift_forward (k i : ℕ) (U : HermitianConeDiagram E) :
+    ((coneUpperShift E k).obj U).obj.obj (coneForward i) = U.obj.obj (coneForward i) := by sorry
+lemma coneUpperShift_backward (k i : ℕ) (U : HermitianConeDiagram E) :
+    ((coneUpperShift E k).obj U).obj.obj (coneBackward i) = U.obj.obj (coneBackward (i+k)) := by sorry
+def coneShiftMorphisms : MorphismProperty (HermitianConeDiagram E) :=
+  MorphismProperty.ofHoms (fun z : ℕ × HermitianConeDiagram E => (coneLowerShiftMap E z.1).app z.2) ⊔
+  MorphismProperty.ofHoms (fun z : ℕ × HermitianConeDiagram E => (coneUpperShiftMap E z.1).app z.2)
+abbrev hermitianCone := (coneShiftMorphisms E).Localization
+def hermitianConeLocalization : HermitianConeDiagram E ⥤ hermitianCone E := (coneShiftMorphisms E).Q
+lemma hermitianConeLocalization_inverts {U V : HermitianConeDiagram E} (f : U ⟶ V)
+    (hf : coneShiftMorphisms E f) : IsIso ((hermitianConeLocalization E).map f) := by sorry
+structure ConeFraction (U V : HermitianConeDiagram E) where
+  sourceShift : ℕ
+  targetShift : ℕ
+  map : (coneUpperShift E sourceShift).obj U ⟶ (coneLowerShift E targetShift).obj V
+def ConeFraction.toLocalization {U V : HermitianConeDiagram E} (f : ConeFraction E U V) :
+    (hermitianConeLocalization E).obj U ⟶ (hermitianConeLocalization E).obj V := by sorry
+def ConeFraction.comp {U V W : HermitianConeDiagram E} (f : ConeFraction E U V) (g : ConeFraction E V W) :
+    ConeFraction E U W := by sorry
+lemma ConeFraction.comp_shifts {U V W : HermitianConeDiagram E} (f : ConeFraction E U V) (g : ConeFraction E V W) :
+    (ConeFraction.comp E f g).sourceShift = f.sourceShift+g.sourceShift ∧
+      (ConeFraction.comp E f g).targetShift = f.targetShift+g.targetShift := by sorry
+def coneZeroExtension : HermitianConeDiagram E ⥤ HermitianConeDiagram E := by sorry
+lemma coneZeroExtension_zero (U : HermitianConeDiagram E) :
+    ((coneZeroExtension E).obj U).obj.obj (coneForward 0) = 0 ∧
+      ((coneZeroExtension E).obj U).obj.obj (coneBackward 0) = 0 := by sorry
+lemma coneZeroExtension_successor (U : HermitianConeDiagram E) (i : ℕ) :
+    ((coneZeroExtension E).obj U).obj.obj (coneForward (i+1)) = U.obj.obj (coneForward i) ∧
+      ((coneZeroExtension E).obj U).obj.obj (coneBackward (i+1)) = U.obj.obj (coneBackward i) := by sorry
+variable [HasFiniteBiproducts C]
+def coneSwindle : HermitianConeDiagram E ⥤ HermitianConeDiagram E := by sorry
+lemma coneSwindle_component (U : HermitianConeDiagram E) (i : ℕ) :
+    Nonempty (((coneSwindle E).obj U).obj.obj (coneForward i) ≅
+      biproduct (fun j : Fin (i+1) => U.obj.obj (coneForward (i-j.val)))) := by sorry
+example (X : C) : (HermitianConeDiagram.constant E X).obj.obj (coneForward 0) = X := by sorry
+example (U : HermitianConeDiagram E) : ((coneLowerShift E 0).obj U).obj.obj (coneForward 4) = U.obj.obj (coneForward 4) := by sorry
+example (U : HermitianConeDiagram E) :
+    IsIso ((hermitianConeLocalization E).map ((coneLowerShiftMap E 1).app U)) := by sorry
+example (U : HermitianConeDiagram E) : ((coneZeroExtension E).obj U).obj.obj (coneForward 0) = 0 := by sorry
+example (U : HermitianConeDiagram E) : ((coneZeroExtension E).obj U).obj.obj (coneForward 1) = U.obj.obj (coneForward 0) := by sorry
+example (U : HermitianConeDiagram E) :
+    Nonempty (((coneSwindle E).obj U).obj.obj (coneForward 1) ≅
+      (U.obj.obj (coneForward 1) ⊞ U.obj.obj (coneForward 0))) := by sorry
+end ConeDiagrams
+end TauCeti.GeometryOfNumbersPlan
+
+namespace TauCeti.GeometryOfNumbersPlan
+section Formations
+open CategoryTheory CategoryTheory.Limits Opposite
+universe u v
+variable {C : Type u} [Category.{v} C] [Preadditive C] [HasZeroObject C] [HasBinaryBiproducts C]
+  {E : TauCeti.ExactStructure C} (D : ExactCategoryDuality E)
+structure Formation where
+  space : SymmetricSpace D.toStrongCategoryDuality
+  first : ExactLagrangian D space
+  second : ExactLagrangian D space
+namespace Formation
+variable {D}
+def swap (F : Formation D) : Formation D := ⟨F.space,F.second,F.first⟩
+def diagonal (X : SymmetricSpace D.toStrongCategoryDuality) (L : ExactLagrangian D X) :
+    Formation D := ⟨X,L,L⟩
+def sum (F G : Formation D) : Formation D := by sorry
+end Formation
+structure FormationIsometry (F G : Formation D) where
+  isometry : SymmetricIsometry D F.space G.space
+  first : F.first.carrier ≅ G.first.carrier
+  second : F.second.carrier ≅ G.second.carrier
+  first_comm : first.hom ≫ G.first.inclusion = F.first.inclusion ≫ isometry.iso.hom
+  second_comm : second.hom ≫ G.second.inclusion = F.second.inclusion ≫ isometry.iso.hom
+def formationSetoid : Setoid (Formation D) where
+  r F G := Nonempty (FormationIsometry D F G)
+  iseqv := by sorry
+abbrev FormationClass := Quotient (formationSetoid D)
+def formationClass (F : Formation D) : FormationClass D := Quotient.mk _ F
+/-- The common subobject is admissible inside both named Lagrangians. -/
+structure FormationReduction (F : Formation D) where
+  isotropic : ExactIsotropicSubobject D F.space
+  firstMap : isotropic.carrier ⟶ F.first.carrier
+  secondMap : isotropic.carrier ⟶ F.second.carrier
+  firstInflation : E.IsInflation firstMap
+  secondInflation : E.IsInflation secondMap
+  first_comm : firstMap ≫ F.first.inclusion = isotropic.inclusion ≫ isotropic.orthogonalInclusion
+  second_comm : secondMap ≫ F.second.inclusion = isotropic.inclusion ≫ isotropic.orthogonalInclusion
+def FormationReduction.reduced {F : Formation D} (N : FormationReduction D F) : Formation D := by sorry
+lemma FormationReduction.reduced_space {F : Formation D} (N : FormationReduction D F) :
+    (N.reduced D).space = isotropicReduction D N.isotropic := by sorry
+def formationRelations : Set (FreeAbelianGroup (FormationClass D)) :=
+  {r | (∃ F G, r = FreeAbelianGroup.of (formationClass D (F.sum G)) -
+      FreeAbelianGroup.of (formationClass D F) - FreeAbelianGroup.of (formationClass D G)) ∨
+    (∃ (X : SymmetricSpace D.toStrongCategoryDuality) (L M N : ExactLagrangian D X),
+      r = FreeAbelianGroup.of (formationClass D ⟨X,L,M⟩) +
+        FreeAbelianGroup.of (formationClass D ⟨X,M,N⟩) - FreeAbelianGroup.of (formationClass D ⟨X,L,N⟩)) ∨
+    (∃ (F : Formation D) (N : FormationReduction D F),
+      r = FreeAbelianGroup.of (formationClass D F) - FreeAbelianGroup.of (formationClass D (N.reduced D)))}
+abbrev FormationGroup := FreeAbelianGroup (FormationClass D) ⧸ AddSubgroup.closure (formationRelations D)
+def FormationGroup.of (F : Formation D) : FormationGroup D :=
+  QuotientAddGroup.mk (FreeAbelianGroup.of (formationClass D F))
+lemma FormationGroup.sum (F G : Formation D) :
+    FormationGroup.of D (F.sum G) = FormationGroup.of D F + FormationGroup.of D G := by sorry
+lemma FormationGroup.concat (X : SymmetricSpace D.toStrongCategoryDuality) (L M N : ExactLagrangian D X) :
+    FormationGroup.of D ⟨X,L,M⟩ + FormationGroup.of D ⟨X,M,N⟩ = FormationGroup.of D ⟨X,L,N⟩ := by sorry
+lemma FormationGroup.reduce (F : Formation D) (N : FormationReduction D F) :
+    FormationGroup.of D F = FormationGroup.of D (N.reduced D) := by sorry
+def FormationGroup.lift {A : Type*} [AddCommGroup A] (f : Formation D → A)
+    (hi : ∀ F G, Nonempty (FormationIsometry D F G) → f F = f G)
+    (hs : ∀ F G, f (F.sum G) = f F + f G)
+    (hc : ∀ X (L M N : ExactLagrangian D X), f ⟨X,L,M⟩ + f ⟨X,M,N⟩ = f ⟨X,L,N⟩)
+    (hr : ∀ F (N : FormationReduction D F), f F = f (N.reduced D)) : FormationGroup D →+ A := by sorry
+lemma FormationGroup.lift_of {A : Type*} [AddCommGroup A] (f : Formation D → A)
+    (hi : ∀ F G, Nonempty (FormationIsometry D F G) → f F = f G)
+    (hs : ∀ F G, f (F.sum G) = f F + f G)
+    (hc : ∀ X (L M N : ExactLagrangian D X), f ⟨X,L,M⟩ + f ⟨X,M,N⟩ = f ⟨X,L,N⟩)
+    (hr : ∀ F (N : FormationReduction D F), f F = f (N.reduced D)) (F : Formation D) :
+    FormationGroup.lift D f hi hs hc hr (FormationGroup.of D F) = f F := by sorry
+example (X : C) : (Formation.diagonal (hyperbolicSpace D X) (hyperbolicLagrangian D X)).first.carrier = X := by sorry
+example (F : Formation D) : F.swap.swap = F := by sorry
+example (F : Formation D) : F.swap.first = F.second := by sorry
+example (X : SymmetricSpace D.toStrongCategoryDuality) (L : ExactLagrangian D X) :
+    FormationGroup.of D (Formation.diagonal X L) = 0 := by sorry
+example (F : Formation D) : FormationGroup.of D F.swap = -FormationGroup.of D F := by sorry
+example (F : Formation D) (N : FormationReduction D F) :
+    FormationGroup.of D (N.reduced D) = FormationGroup.of D F := by sorry
+end Formations
+end TauCeti.GeometryOfNumbersPlan
+
+namespace TauCeti.GeometryOfNumbersPlan
+section SignedFieldForms
+variable (K V : Type*) [Field K] [StarRing K] [AddCommGroup V] [Module K V] [FiniteDimensional K V]
+/-- Signed, perfect commutative-field forms. This is not the quaternion order carrier. -/
+structure SignedHermitianSpace (ε : K) where
+  sign : ε = 1 ∨ ε = -1
+  form : V →ₗ⋆[K] V →ₗ[K] K
+  symmetry : ∀ x y, form y x = ε * star (form x y)
+  nondegenerate : ∀ x, (∀ y, form x y = 0) → x = 0
+variable {K V}
+def signedHermitianAdjoint {ε : K} (h : SignedHermitianSpace K V ε) (a : V →ₗ[K] V) : V →ₗ[K] V := by sorry
+lemma signedHermitianAdjoint_apply {ε : K} (h : SignedHermitianSpace K V ε) (a : V →ₗ[K] V) (x y : V) :
+    h.form (a x) y = h.form x (signedHermitianAdjoint h a y) := by sorry
+def signedHermitianTwist {ε : K} (h : SignedHermitianSpace K V ε)
+    (a : V ≃ₗ[K] V) (η : K) (hη : η = 1 ∨ η = -1)
+    (ha : signedHermitianAdjoint h a.toLinearMap = η • a.toLinearMap) :
+    SignedHermitianSpace K V (η*ε) := by sorry
+lemma signedHermitianTwist_apply {ε : K} (h : SignedHermitianSpace K V ε)
+    (a : V ≃ₗ[K] V) (η : K) (hη : η = 1 ∨ η = -1)
+    (ha : signedHermitianAdjoint h a.toLinearMap = η • a.toLinearMap) (x y : V) :
+    (signedHermitianTwist h a η hη ha).form x y = h.form x (a y) := by sorry
+lemma signedHermitianTwist_adjoint {ε : K} (h : SignedHermitianSpace K V ε)
+    (a : V ≃ₗ[K] V) (η : K) (hη : η = 1 ∨ η = -1)
+    (ha : signedHermitianAdjoint h a.toLinearMap = η • a.toLinearMap) (b : V →ₗ[K] V) :
+    signedHermitianAdjoint (signedHermitianTwist h a η hη ha) b =
+      a.symm.toLinearMap.comp ((signedHermitianAdjoint h b).comp a.toLinearMap) := by sorry
+example {ε : K} (h : SignedHermitianSpace K V ε)
+    (ha : signedHermitianAdjoint h LinearMap.id = LinearMap.id) (x y : V) :
+    (signedHermitianTwist h (LinearEquiv.refl K V) 1 (Or.inl rfl) (by simpa using ha)).form x y = h.form x y := by sorry
+example {ε γ : K} (h : SignedHermitianSpace K V ε) (hγ : γ ≠ 0) (hs : star γ = -γ)
+    (a : V ≃ₗ[K] V) (ha : ∀ x, a x = γ • x) :
+    signedHermitianAdjoint h a.toLinearMap = -(a.toLinearMap) := by sorry
+example {ε : K} (h : SignedHermitianSpace K V ε) (x : V) (hx : x ≠ 0) :
+    ¬ ∃ a : V ≃ₗ[K] V, a.toLinearMap = 0 := by sorry
+
+variable (F L : Type*) [Field F] [StarRing F] [Field L] [StarRing L] [Algebra F L]
+  [FiniteDimensional F L] (W : Type*) [AddCommGroup W] [Module F W] [Module L W]
+  [IsScalarTower F L W] [FiniteDimensional L W]
+variable {F L W}
+/-- The functional is explicitly nonzero and involution-equivariant. -/
+def signedHermitianTransfer (ε : F) (h : SignedHermitianSpace L W (algebraMap F L ε))
+    (hε : ε = 1 ∨ ε = -1) (ell : L →ₗ[F] F) (hell : ell ≠ 0)
+    (hs : ∀ x, ell (star x) = star (ell x))
+    (hstar : ∀ x : F, star (algebraMap F L x) = algebraMap F L (star x)) :
+    SignedHermitianSpace F W ε := by sorry
+lemma signedHermitianTransfer_apply (ε : F) (h : SignedHermitianSpace L W (algebraMap F L ε))
+    (hε : ε = 1 ∨ ε = -1) (ell : L →ₗ[F] F) (hell : ell ≠ 0)
+    (hs : ∀ x, ell (star x) = star (ell x))
+    (hstar : ∀ x : F, star (algebraMap F L x) = algebraMap F L (star x)) (x y : W) :
+    (signedHermitianTransfer ε h hε ell hell hs hstar).form x y = ell (h.form x y) := by sorry
+example {ε : F} (h : SignedHermitianSpace F W ε) (hε : ε = 1 ∨ ε = -1) (x y : W) :
+    (signedHermitianTransfer ε h hε LinearMap.id (by sorry) (by simp) (by simp)).form x y = h.form x y := by sorry
+example (h : SignedHermitianSpace L W (algebraMap F L 1)) (hε : (1 : F) = 1 ∨ (1 : F) = -1)
+    (ell : L →ₗ[F] F) (hell : ell ≠ 0) (hs : ∀ x, ell (star x) = star (ell x))
+    (hstar : ∀ x : F, star (algebraMap F L x) = algebraMap F L (star x)) (x : W) :
+    (∀ y, (signedHermitianTransfer 1 h hε ell hell hs hstar).form x y = 0) → x = 0 := by sorry
+example (h : SignedHermitianSpace L W (1 : L)) (x : W) (hx : x ≠ 0) :
+    ¬ (∀ z : W, (∀ y, (0 : L →ₗ[F] F) (h.form z y) = 0) → z = 0) := by sorry
+end SignedFieldForms
+end TauCeti.GeometryOfNumbersPlan
+
+namespace TauCeti.GeometryOfNumbersPlan
+section QuaternionTests
+open scoped Quaternion
+open MulOpposite
+abbrev RationalHamilton := ℍ[ℚ]
+def lipschitzOrder : Subalgebra ℤ RationalHamilton where
+  carrier := {q | (∃ a : ℤ, (a : ℚ)=q.re) ∧ (∃ b : ℤ, (b : ℚ)=q.imI) ∧
+    (∃ c : ℤ, (c : ℚ)=q.imJ) ∧ (∃ d : ℤ, (d : ℚ)=q.imK)}
+  zero_mem' := by sorry
+  one_mem' := by sorry
+  add_mem' := by sorry
+  mul_mem' := by sorry
+  algebraMap_mem' := by sorry
+def lipschitzHermitian : QuaternionicIntegralHermitianLattice ℤ ℚ RationalHamilton RationalHamilton := by sorry
+lemma lipschitzHermitian_order : lipschitzHermitian.order = lipschitzOrder := by sorry
+lemma lipschitzHermitian_carrier : lipschitzHermitian.carrier = lipschitzOrder.toSubmodule := by sorry
+lemma lipschitzHermitian_pairing (x y : RationalHamilton) : lipschitzHermitian.pairing x y = star x * y := by sorry
+example : lipschitzHermitian.pairing (⟨0,1,0,0⟩ : RationalHamilton) ⟨0,1,0,0⟩ = 1 := by sorry
+example : (lipschitzHermitian.pairing (1 : RationalHamilton) 1 +
+    star (lipschitzHermitian.pairing (1 : RationalHamilton) 1)).re = 2 := by sorry
+example : (⟨1/2,1/2,1/2,1/2⟩ : RationalHamilton) ∉ lipschitzHermitian.carrier := by sorry
+end QuaternionTests
+end TauCeti.GeometryOfNumbersPlan
+
+namespace TauCeti.GeometryOfNumbersPlan
+section FiniteFieldExactTests
+open CategoryTheory CategoryTheory.Limits Opposite
+attribute [local instance] HasBinaryBiproducts.of_hasBinaryCoproducts
+/-- The native finite-dimensional vector category and its actual linear dual. -/
+abbrev rationalFiniteDual : (FGModuleCat ℚ)ᵒᵖ ⥤ FGModuleCat ℚ where
+  obj X := FGModuleCat.of ℚ (Module.Dual ℚ X.unop)
+  map f := FGModuleCat.ofHom f.unop.hom.hom.dualMap
+  map_id := by sorry
+  map_comp := by sorry
+abbrev rationalExactDuality : ExactCategoryDuality (TauCeti.ExactStructure.split (FGModuleCat ℚ)) where
+  dual := rationalFiniteDual
+  biddual := by sorry
+  coherence := by sorry
+  additive := by sorry
+  exact := by sorry
+abbrev rationalFormSpace (n : ℕ) (A : Matrix (Fin n) (Fin n) ℚ) (hs : A.transpose=A) (hn : A.det ≠ 0) :
+    SymmetricSpace rationalExactDuality.toStrongCategoryDuality where
+  carrier := FGModuleCat.of ℚ (Fin n → ℚ)
+  pairing := by sorry
+  symmetric := by sorry
+lemma rationalFormSpace_pairing (n : ℕ) (A : Matrix (Fin n) (Fin n) ℚ)
+    (hs : A.transpose=A) (hn : A.det ≠ 0) (x y : Fin n → ℚ) :
+    (rationalFormSpace n A hs hn).pairing.hom.hom.hom x y = ∑ i, ∑ j, x i*A i j*y j := by sorry
+example : Module.finrank ℚ ((rationalFiniteDual.obj (op (FGModuleCat.of ℚ ℚ))) : Type) = 1 := by sorry
+example : (rationalExactDuality.sign.biddual.hom.app (FGModuleCat.of ℚ ℚ)) =
+    -(rationalExactDuality.biddual.hom.app (FGModuleCat.of ℚ ℚ)) := by sorry
+example : (rationalFormSpace 1 (1 : Matrix (Fin 1) (Fin 1) ℚ) (by simp) (by simp)).pairing.hom.hom.hom
+    (fun _ => 2) (fun _ => 3) = 6 := by sorry
+example : ExactW0.of rationalExactDuality
+    (rationalFormSpace 2 (!![0,1;1,0]) (by sorry) (by sorry)) = 0 := by sorry
+example : (rationalFormSpace 0 (1 : Matrix (Fin 0) (Fin 0) ℚ) (by simp) (by simp)).carrier =
+    FGModuleCat.of ℚ (Fin 0 → ℚ) := by sorry
+/-- Finite torsion is not reflexive for Z-linear duality; it is not the finite-projective category. -/
+example : Subsingleton (Module.Dual ℤ (ZMod 2)) := by sorry
+/-- Multiplication by two is injective but not an admissible split inclusion. -/
+example : ¬ (TauCeti.ExactStructure.split (ModuleCat ℤ)).IsInflation
+    (ModuleCat.ofHom (2 • (LinearMap.id : ℤ →ₗ[ℤ] ℤ))) := by sorry
+example : (TauCeti.ExactStructure.split (ModuleCat ℤ)).IsInflation
+    (biprod.inl : ModuleCat.of ℤ ℤ ⟶ ModuleCat.of ℤ ℤ ⊞ ModuleCat.of ℤ ℤ) := by sorry
+end FiniteFieldExactTests
+end TauCeti.GeometryOfNumbersPlan
+
+namespace TauCeti.GeometryOfNumbersPlan
+section AdditionalNativeAPIs
+open CategoryTheory CategoryTheory.Limits Opposite
+open scoped ZeroObject
+universe u v
+variable {C : Type u} [Category.{v} C] [Preadditive C] [HasZeroObject C] [HasBinaryBiproducts C]
+  {E : TauCeti.ExactStructure C} (D : ExactCategoryDuality E)
+lemma orthogonalSum_assoc (X Y Z : SymmetricSpace D.toStrongCategoryDuality) :
+    Nonempty (SymmetricIsometry D (orthogonalSum D (orthogonalSum D X Y) Z)
+      (orthogonalSum D X (orthogonalSum D Y Z))) := by sorry
+lemma orthogonalSum_comm (X Y : SymmetricSpace D.toStrongCategoryDuality) :
+    Nonempty (SymmetricIsometry D (orthogonalSum D X Y) (orthogonalSum D Y X)) := by sorry
+lemma negativeSpace_negative (X : SymmetricSpace D.toStrongCategoryDuality) :
+    Nonempty (SymmetricIsometry D (negativeSpace D (negativeSpace D X)) X) := by sorry
+/-- Carrier equality is used to express the pairing equation with actual maps. -/
+lemma negativeSpace_pairing (X : SymmetricSpace D.toStrongCategoryDuality) :
+    ∃ e : (negativeSpace D X).carrier ≅ X.carrier,
+      e.hom ≫ X.pairing.hom ≫ D.dual.map e.hom.op = -(negativeSpace D X).pairing.hom := by sorry
+def ExactIsotropicSubobject.totalInclusion {X : SymmetricSpace D.toStrongCategoryDuality}
+    (L : ExactIsotropicSubobject D X) : L.carrier ⟶ X.carrier := L.inclusion ≫ L.orthogonalInclusion
+lemma ExactIsotropicSubobject.totalInclusion_inflation {X : SymmetricSpace D.toStrongCategoryDuality}
+    (L : ExactIsotropicSubobject D X) : E.IsInflation (L.totalInclusion D) := by sorry
+/-- The zero space is built from the actual categorical zero object and its dual. -/
+def zeroSymmetricSpace : SymmetricSpace D.toStrongCategoryDuality := by sorry
+lemma zeroSymmetricSpace_carrier : (zeroSymmetricSpace D).carrier = 0 := by sorry
+def zeroIsotropicSubobject (X : SymmetricSpace D.toStrongCategoryDuality) : ExactIsotropicSubobject D X := by sorry
+lemma zeroIsotropicSubobject_quotient (X : SymmetricSpace D.toStrongCategoryDuality) :
+    (zeroIsotropicSubobject D X).quotient = X.carrier := by sorry
+def lagrangianIsotropicSubobject {X : SymmetricSpace D.toStrongCategoryDuality}
+    (L : ExactLagrangian D X) : ExactIsotropicSubobject D X := by sorry
+lemma lagrangianIsotropicSubobject_quotient {X : SymmetricSpace D.toStrongCategoryDuality}
+    (L : ExactLagrangian D X) : IsZero (lagrangianIsotropicSubobject D L).quotient := by sorry
+def HermitianQSpan.ofLagrangian {X : SymmetricSpace D.toStrongCategoryDuality}
+    (L : ExactLagrangian D X) : HermitianQSpan D (zeroSymmetricSpace D) X := by sorry
+lemma HermitianQSpan.ofLagrangian_middle {X : SymmetricSpace D.toStrongCategoryDuality}
+    (L : ExactLagrangian D X) : (HermitianQSpan.ofLagrangian D L).middle = L.carrier := by sorry
+example : Nonempty (SymmetricIsometry D (hyperbolicSpace D (0 : C)) (zeroSymmetricSpace D)) := by sorry
+example (X : C) : Nonempty (SymmetricIsometry D (orthogonalSum D (zeroSymmetricSpace D) (hyperbolicSpace D X))
+    (hyperbolicSpace D X)) := by sorry
+example (X : C) : (isotropicReduction D (zeroIsotropicSubobject D (hyperbolicSpace D X))).carrier =
+    (hyperbolicSpace D X).carrier := by sorry
+example (X : C) : IsZero (isotropicReduction D
+    (lagrangianIsotropicSubobject D (hyperbolicLagrangian D X))).carrier := by sorry
+example (X : C) : (HermitianQSpan.ofLagrangian D (hyperbolicLagrangian D X)).middle = X := by sorry
+end AdditionalNativeAPIs
+
+section AdditionalConeAPIs
+open CategoryTheory CategoryTheory.Limits Opposite
+open scoped ZeroObject
+universe u v
+variable {C : Type u} [Category.{v} C] [Preadditive C] [HasZeroObject C] [HasBinaryBiproducts C]
+  (E : TauCeti.ExactStructure C)
+def HermitianConeDiagram.diagram (U : HermitianConeDiagram E) : ConeIndex ⥤ C := U.obj
+/-- Equality in the actual localization is also eventual equality of fraction representatives. -/
+def ConeFraction.equivalent {U V : HermitianConeDiagram E} (f g : ConeFraction E U V) : Prop :=
+  f.toLocalization E = g.toLocalization E
+lemma ConeFraction.equivalent_iff {U V : HermitianConeDiagram E} (f g : ConeFraction E U V) :
+    f.equivalent E g ↔ ∃ a b : ℕ, f.sourceShift ≤ a ∧ g.sourceShift ≤ a ∧
+      f.targetShift ≤ b ∧ g.targetShift ≤ b ∧
+      ∃ F G : ConeFraction E U V,
+        F.sourceShift=a ∧ G.sourceShift=a ∧ F.targetShift=b ∧ G.targetShift=b ∧
+        F.toLocalization E=f.toLocalization E ∧ G.toLocalization E=g.toLocalization E ∧ HEq F.map G.map := by sorry
+/-- Reindexing functors, rather than component-only data, compose. -/
+def coneLowerShift_add (i j : ℕ) : coneLowerShift E i ⋙ coneLowerShift E j ≅ coneLowerShift E (i+j) := by sorry
+def coneShifts_commute (i j : ℕ) : coneLowerShift E i ⋙ coneUpperShift E j ≅
+    coneUpperShift E j ⋙ coneLowerShift E i := by sorry
+example (X : C) : (HermitianConeDiagram.constant E X).obj.obj (coneBackward 3) = X := by sorry
+example (X : C) : coneDiagramCondition E (HermitianConeDiagram.constant E X).obj := by sorry
+example (U : HermitianConeDiagram E) (k i : ℕ) :
+    ((coneLowerShift E k).obj U).obj.obj (coneBackward i)=U.obj.obj (coneBackward i) := by sorry
+example (U : HermitianConeDiagram E) (k i : ℕ) :
+    ((coneUpperShift E k).obj U).obj.obj (coneForward i)=U.obj.obj (coneForward i) := by sorry
+example (U : HermitianConeDiagram E) :
+    IsIso ((hermitianConeLocalization E).map ((coneUpperShiftMap E 2).app U)) := by sorry
+example (U : HermitianConeDiagram E) :
+    ((coneZeroExtension E).obj U).obj.obj (coneBackward 1)=U.obj.obj (coneBackward 0) := by sorry
+variable [HasFiniteBiproducts C]
+example (U : HermitianConeDiagram E) :
+    Nonempty (((coneSwindle E).obj U).obj.obj (coneForward 0) ≅ U.obj.obj (coneForward 0)) := by sorry
+example (i : ConeIndex) : IsZero (((coneSwindle E).obj (HermitianConeDiagram.constant E 0)).obj.obj i) := by sorry
+end AdditionalConeAPIs
+end TauCeti.GeometryOfNumbersPlan
+
+namespace TauCeti.GeometryOfNumbersPlan
+section ConeExactDuality
+open CategoryTheory CategoryTheory.Limits Opposite
+universe u v
+variable {C : Type u} [Category.{v} C] [Preadditive C] [HasZeroObject C] [HasBinaryBiproducts C]
+  {E : TauCeti.ExactStructure C} (D : ExactCategoryDuality E)
+def coneDiagramDual (D : ExactCategoryDuality E) : (HermitianConeDiagram E)ᵒᵖ ⥤ HermitianConeDiagram E := by sorry
+lemma coneDiagramDual_forward (U : HermitianConeDiagram E) (i : ℕ) :
+    ((coneDiagramDual D).obj (op U)).obj.obj (coneForward i) = D.dual.obj (op (U.obj.obj (coneBackward i))) := by sorry
+lemma coneDiagramDual_backward (U : HermitianConeDiagram E) (i : ℕ) :
+    ((coneDiagramDual D).obj (op U)).obj.obj (coneBackward i) = D.dual.obj (op (U.obj.obj (coneForward i))) := by sorry
+variable [HasFiniteBiproducts C]
+def coneSwindle_duality : (coneSwindle E).op ⋙ coneDiagramDual D ≅ coneDiagramDual D ⋙ coneSwindle E := by sorry
+/-- Exactness and additivity are proved on fraction representatives before introducing these instances. -/
+instance conePreadditive : Preadditive (hermitianCone E) := by sorry
+instance coneHasZeroObject : HasZeroObject (hermitianCone E) := by sorry
+instance coneHasBinaryBiproducts : HasBinaryBiproducts (hermitianCone E) := by sorry
+def hermitianConeExactStructure : TauCeti.ExactStructure (hermitianCone E) := by sorry
+def hermitianConeDuality (D : ExactCategoryDuality E) : ExactCategoryDuality (hermitianConeExactStructure (E := E)) := by sorry
+def localizedConeSwindle : hermitianCone E ⥤ hermitianCone E := by sorry
+def localizedConeZeroExtension : hermitianCone E ⥤ hermitianCone E := by sorry
+def localizedConeSwindle_absorption :
+    𝟭 (hermitianCone E) ⊞ localizedConeSwindle (E := E) ≅ localizedConeSwindle (E := E) := by sorry
+example (U : HermitianConeDiagram E) (i : ℕ) :
+    ((coneDiagramDual D).obj (op U)).obj.obj (coneForward i) = D.dual.obj (op (U.obj.obj (coneBackward i))) := by sorry
+example (U : HermitianConeDiagram E) (i : ℕ) :
+    ((coneDiagramDual D).obj (op ((coneZeroExtension E).obj U))).obj.obj (coneForward (i+1)) =
+      D.dual.obj (op (U.obj.obj (coneBackward i))) := by sorry
+example (U : HermitianConeDiagram E) (i : ℕ) :
+    Nonempty (((coneDiagramDual D).obj (op ((coneSwindle E).obj U))).obj.obj (coneForward i) ≅
+      ((coneSwindle E).obj ((coneDiagramDual D).obj (op U))).obj.obj (coneForward i)) := by sorry
+end ConeExactDuality
+end TauCeti.GeometryOfNumbersPlan
+namespace TauCeti.GeometryOfNumbersPlan
+section MoreExactAPIs
+open CategoryTheory CategoryTheory.Limits Opposite
+universe u v w
+variable {C : Type u} [Category.{v} C] [Preadditive C] [HasZeroObject C] [HasBinaryBiproducts C]
+ {E : TauCeti.ExactStructure C} (D : ExactCategoryDuality E)
+def ExactCategoryDuality.ofExactFunctor (F : Cᵒᵖ ⥤ C) (eta : 𝟭 C ≅ F.rightOp ⋙ F)
+ (hc : ∀ X : C, F.map (eta.hom.app X).op ≫ eta.hom.app (F.obj (op X)) = 𝟙 _)
+ [F.Additive] (hex : TauCeti.ExactStructure.IsConflationExact E.op E F) : ExactCategoryDuality E := by sorry
+def ExactLagrangian.mapIsometry {X Y : SymmetricSpace D.toStrongCategoryDuality}
+ (L : ExactLagrangian D X) (e : SymmetricIsometry D X Y) : ExactLagrangian D Y := by sorry
+lemma ExactLagrangian.mapIsometry_carrier {X Y : SymmetricSpace D.toStrongCategoryDuality}
+ (L : ExactLagrangian D X) (e : SymmetricIsometry D X Y) :
+ (L.mapIsometry D e).carrier = L.carrier := by sorry
+/-- Transported quotients yield an isometry of their descended perfect forms. -/
+def isotropicReduction_isometry {X : SymmetricSpace D.toStrongCategoryDuality}
+ (L M : ExactIsotropicSubobject D X) (e : L.orthogonal ≅ M.orthogonal)
+ (f : L.carrier ≅ M.carrier) (hp : e.hom ≫ M.orthogonalInclusion = L.orthogonalInclusion)
+ (hi : f.hom ≫ M.inclusion = L.inclusion ≫ e.hom) :
+ SymmetricIsometry D (isotropicReduction D L) (isotropicReduction D M) := by sorry
+lemma hyperbolicSpace_lagrangian_zero : ExactW0.of D (hyperbolicSpace D (0 : C)) = 0 := by sorry
+lemma ExactGW0.zero : ExactGW0.of D (zeroSymmetricSpace D) = 0 := by sorry
+lemma ExactW0.zero : ExactW0.of D (zeroSymmetricSpace D) = 0 := by sorry
+lemma witt_hyperbolic_cokernel [EssentiallySmall.{w} C] :
+ metabolicSubgroup D = (grothendieckWittHyperbolic D).range := by sorry
+/-- The categorical identities are inherited by quotient morphisms. -/
+lemma HermitianQ.identity (X : HermitianQ D) :
+ HermitianQ.ofSpan D (HermitianQSpan.identity X.space) = 𝟙 X := by sorry
+/-- Formation boundary is a homomorphism into the actual exact K0. -/
+def FormationGroup.boundary [EssentiallySmall.{w} C] : FormationGroup D →+ TauCeti.ExactK0 E := by sorry
+lemma FormationGroup.boundary_of [EssentiallySmall.{w} C] (F : Formation D) :
+ FormationGroup.boundary D (FormationGroup.of D F) =
+ TauCeti.ExactK0.of (E := E) F.first.carrier - TauCeti.ExactK0.of (E := E) F.second.carrier := by sorry
+lemma FormationGroup.boundary_range [EssentiallySmall.{w} C] :
+ (FormationGroup.boundary D).range = (grothendieckWittHyperbolic D).ker := by sorry
+example : ExactGW0.of D (zeroSymmetricSpace D) = 0 := by sorry
+example : ExactW0.of D (zeroSymmetricSpace D) = 0 := by sorry
+example [EssentiallySmall.{w} C] (X : C) : grothendieckWittForgetful D (grothendieckWittHyperbolic D
+ (TauCeti.ExactK0.of (E := E) X)) = TauCeti.ExactK0.of (E := E) X +
+ TauCeti.ExactK0.of (E := E) (D.dual.obj (op X)) := by sorry
+end MoreExactAPIs
+
+section LLLLoop
+variable {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E] {n : ℕ}
+/-- Fold the descending list of earlier indices; the specified step is the native integer shear. -/
+def lllReduceRow (b : Fin n → E) (i : Fin n) : Fin n → E :=
+  (List.finRange n).reverse.foldl (fun c j =>
+    if j < i then lllShear c i j (lllNearestInteger (lllCoefficient c i j)) else c) b
+lemma lll_reduce_row_size (b : Fin n → E) (hb : LinearIndependent ℝ b) (i j : Fin n) (hj : j < i) :
+ |lllCoefficient (lllReduceRow b i) i j| ≤ 1/2 := by sorry
+lemma lll_reduce_row_certificate (b : Fin n → E) (i : Fin n) :
+ Nonempty (UnimodularBasisCertificate b (lllReduceRow b i)) := by sorry
+lemma lll_reduce_row_other (b : Fin n → E) (i j : Fin n) (h : j ≠ i) :
+ lllReduceRow b i j = b j := by sorry
+lemma lll_reduce_row_potential (b : Fin n → E) (hb : LinearIndependent ℝ b) (i : Fin n) :
+ lllRealPotential (lllReduceRow b i) = lllRealPotential b := by sorry
+def lllPrefixReduced (b : Fin n → E) (k : ℕ) : Prop :=
+ (∀ i j : Fin n, i.val < k → j < i → |lllCoefficient b i j|≤1/2) ∧
+ (∀ i j : Fin n, i.val < k → j.val+1=i.val →
+ (3/4-(lllCoefficient b i j)^2)*‖InnerProductSpace.gramSchmidt ℝ b j‖^2≤
+ ‖InnerProductSpace.gramSchmidt ℝ b i‖^2)
+structure LLLLoopState (E : Type*) [NormedAddCommGroup E] [InnerProductSpace ℝ E] (n : ℕ) where
+ vectors : Fin n → E
+ independent : LinearIndependent ℝ vectors
+ integralGram : ∀ i j, ∃ z : ℤ, inner ℝ (vectors i) (vectors j) = z
+ cursor : ℕ
+ cursorLower : 1 ≤ cursor
+ cursorUpper : cursor ≤ n
+ prefixReduced : lllPrefixReduced vectors cursor
+/-- Both branches use full descending row reduction, a valid variant of the printed loop. -/
+def lllOuterStep (s t : LLLLoopState E n) : Prop :=
+ ∃ (i : Fin n) (hi : i.val=s.cursor),
+ let c := lllReduceRow s.vectors i
+ let j : Fin n := ⟨s.cursor-1, by omega⟩
+ (‖InnerProductSpace.gramSchmidt ℝ c i‖^2 <
+   (3/4-(lllCoefficient c i j)^2)*‖InnerProductSpace.gramSchmidt ℝ c j‖^2 ∧
+   t.vectors=c ∘ Equiv.swap j i ∧ t.cursor=max 1 (s.cursor-1)) ∨
+ ((3/4-(lllCoefficient c i j)^2)*‖InnerProductSpace.gramSchmidt ℝ c j‖^2≤
+   ‖InnerProductSpace.gramSchmidt ℝ c i‖^2 ∧ t.vectors=c ∧ t.cursor=s.cursor+1)
+def lllLoopMeasure (s : LLLLoopState E n) : ℕ × ℕ :=
+ (Int.toNat ⌊lllRealPotential s.vectors⌋,n-s.cursor)
+lemma lll_outer_measure_decreases (s t : LLLLoopState E n) (h : lllOuterStep s t) :
+ Prod.Lex (· < ·) (· < ·) (lllLoopMeasure t) (lllLoopMeasure s) := by sorry
+lemma lll_outer_terminates : WellFounded (fun t s : LLLLoopState E n => lllOuterStep s t) := by sorry
+example : lllPrefixReduced (Fin.elim0 : Fin 0 → ℝ) 0 := by sorry
+example : lllReduceRow (![(1 : ℝ)] : Fin 1 → ℝ) 0 = ![1] := by sorry
+example : lllReduceRow (![(1 : ℝ),3] : Fin 2 → ℝ) 1 = ![1,0] := by sorry
+end LLLLoop
+
+section AdditionalCriticalGaussian
+variable {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E] [FiniteDimensional ℝ E]
+ [MeasurableSpace E] [BorelSpace E]
+local instance : MeasureSpace E := measureSpaceOfInnerProductSpace
+/-- No modulo-rotation quotient is hidden in the sequence: each term is an actual full lattice. -/
+lemma critical_minimizing_sequence (K : CompactStarBody E) :
+ ∃ (L : ℕ → Submodule ℤ E) (hd : ∀ m, DiscreteTopology (L m)) (hf : ∀ m, IsZLattice ℝ (L m)),
+ (∀ m, K.admissible (L m)) ∧
+ Filter.Tendsto (fun m => letI := hd m; letI := hf m; ZLattice.covolume (L m))
+ Filter.atTop (nhds (criticalDeterminant K)) := by sorry
+/-- Uses the native pairing-integral dual submodule. -/
+lemma gaussian_lattice_poisson (L : Submodule ℤ E) [DiscreteTopology L] [IsZLattice ℝ L]
+ (s : ℝ) (hs : 0<s) (u : E) :
+ (latticeGaussianSum L s u : ℂ) = ((ZLattice.covolume L)⁻¹*s^(finrank ℝ E) : ℝ) *
+ ∑' y : LinearMap.BilinForm.dualSubmodule (innerₗ E) L,
+ (Real.exp (-Real.pi*‖(y : E)‖^2*s^2) : ℂ) *
+ Complex.exp (2*Real.pi*Complex.I*(inner ℝ (y : E) u : ℂ)) := by sorry
+lemma gaussian_short_vector_error (L : Submodule ℤ E) [DiscreteTopology L] [IsZLattice ℝ L]
+ (hn : 0<finrank ℝ E) (h : ∀ x∈L, x≠0 → Real.sqrt (finrank ℝ E)<‖x‖) :
+ latticeGaussianSum L 1 0-1 ≤
+ (2*Real.exp (-3*Real.pi/4))^(finrank ℝ E)/(1-(2*Real.exp (-3*Real.pi/4))^(finrank ℝ E)) := by sorry
+lemma gaussian_poisson_error (L : Submodule ℤ E) [DiscreteTopology L] [IsZLattice ℝ L] (u : E) :
+ |latticeGaussianSum (LinearMap.BilinForm.dualSubmodule (innerₗ E) L) 1 u-ZLattice.covolume L| ≤
+ ZLattice.covolume L*(latticeGaussianSum L 1 0-1) := by sorry
+lemma gaussian_covering_contradiction (L : Submodule ℤ E) [DiscreteTopology L] [IsZLattice ℝ L]
+ (hn : 0<finrank ℝ E) (h : ∀ x∈L, x≠0 → Real.sqrt (finrank ℝ E)<‖x‖) (u : E) :
+ ∃ y∈LinearMap.BilinForm.dualSubmodule (innerₗ E) L, ‖y+u‖≤Real.sqrt (finrank ℝ E) := by sorry
+end AdditionalCriticalGaussian
+end TauCeti.GeometryOfNumbersPlan
+namespace TauCeti.GeometryOfNumbersPlan
+section AtomicDVRForms
+variable {R : Type*} [CommRing R] [IsDomain R] [IsDiscreteValuationRing R] {n : ℕ}
+/-- Atomicity is invariant under an integral change of coordinates; it is not a uniqueness assertion. -/
+def IsAtomicIntegralQuadraticForm (q : QuadraticForm R (Fin n → R)) : Prop :=
+ (∃ (a : R) (e : (Fin n → R) ≃ₗ[R] R), IsUnit a ∧ ∀ x, q x = a*(e x)^2) ∨
+ (¬ IsUnit (2 : R) ∧ ∃ (a b c : R) (e : (Fin n → R) ≃ₗ[R] (Fin 2 → R)),
+   IsDiscreteValuationRing.addVal R b < IsDiscreteValuationRing.addVal R (2*a) ∧
+   IsDiscreteValuationRing.addVal R (2*a) ≤ IsDiscreteValuationRing.addVal R (2*c) ∧
+   (IsUnit a ∨ IsUnit b) ∧
+   ∀ x, q x = a*(e x 0)^2 + b*(e x 0)*(e x 1) + c*(e x 1)^2)
+lemma IsAtomicIntegralQuadraticForm.unary (q : QuadraticForm R (Fin n → R))
+ (a : R) (e : (Fin n → R) ≃ₗ[R] R) (ha : IsUnit a) (hq : ∀ x, q x = a*(e x)^2) :
+ IsAtomicIntegralQuadraticForm q := by sorry
+lemma IsAtomicIntegralQuadraticForm.binary (q : QuadraticForm R (Fin n → R))
+ (a b c : R) (e : (Fin n → R) ≃ₗ[R] (Fin 2 → R)) (h2 : ¬ IsUnit (2 : R))
+ (hba : IsDiscreteValuationRing.addVal R b < IsDiscreteValuationRing.addVal R (2*a))
+ (hac : IsDiscreteValuationRing.addVal R (2*a) ≤ IsDiscreteValuationRing.addVal R (2*c))
+ (hab : IsUnit a ∨ IsUnit b) (hq : ∀ x, q x = a*(e x 0)^2+b*(e x 0)*(e x 1)+c*(e x 1)^2) :
+ IsAtomicIntegralQuadraticForm q := by sorry
+example (q : QuadraticForm R (Fin 2 → R)) (h2 : ¬ IsUnit (2 : R))
+ (hq : ∀ x, q x=x 0*x 1) : IsAtomicIntegralQuadraticForm q := by sorry
+example (q : QuadraticForm R (Fin 2 → R)) (h2 : IsUnit (2 : R)) :
+ ¬ IsAtomicIntegralQuadraticForm q := by sorry
+example (q : QuadraticForm R (Fin 0 → R)) : ¬ IsAtomicIntegralQuadraticForm q := by sorry
+/-- The canonical additive DVR valuation of zero is infinity; zero blocks require a separate branch. -/
+example : IsDiscreteValuationRing.addVal R (0 : R)=⊤ := by sorry
+end AtomicDVRForms
+
+section SignedHyperbolicTransfer
+variable {K V : Type*} [Field K] [StarRing K] [AddCommGroup V] [Module K V] [FiniteDimensional K V]
+def SignedHermitianSpace.IsHyperbolic {ε : K} (h : SignedHermitianSpace K V ε) : Prop :=
+ ∃ N : Submodule K V, (N : Set V) = {x | ∀ y∈N, h.form x y=0}
+variable {F L W : Type*} [Field F] [StarRing F] [Field L] [StarRing L] [Algebra F L]
+ [FiniteDimensional F L] [AddCommGroup W] [Module F W] [Module L W]
+ [IsScalarTower F L W] [FiniteDimensional L W]
+lemma signedHermitianTransfer_hyperbolic (ε : F) (h : SignedHermitianSpace L W (algebraMap F L ε))
+ (hε : ε=1 ∨ ε= -1) (ell : L →ₗ[F] F) (hell : ell ≠ 0)
+ (hs : ∀ x, ell (star x)=star (ell x))
+ (hstar : ∀ x : F, star (algebraMap F L x)=algebraMap F L (star x))
+ (hh : h.IsHyperbolic) : (signedHermitianTransfer ε h hε ell hell hs hstar).IsHyperbolic := by sorry
+end SignedHyperbolicTransfer
+end TauCeti.GeometryOfNumbersPlan
+namespace TauCeti.GeometryOfNumbersPlan
+section ReflexiveHermitianDual
+variable {R K V : Type*} [CommRing R] [StarRing R] [IsDedekindDomain R]
+ [Field K] [StarRing K] [Algebra R K] [IsFractionRing R K]
+ [AddCommGroup V] [Module R V] [Module K V] [IsScalarTower R K V]
+lemma IntegralHermitianLattice.dual_dual (L : IntegralHermitianLattice R K V)
+ (hn : ∀ x, (∀ y, L.form x y=0) → x=0) :
+ {x : V | ∀ y∈L.dual L.starCompatible, ∃ r : R, algebraMap R K r=L.form x y} =
+ (L.carrier : Set V) := by sorry
+end ReflexiveHermitianDual
+
+section FibreFunctoriality
+open scoped unitInterval
+variable {Qh Q Qh' Q' : Type*} [TopologicalSpace Qh] [TopologicalSpace Q]
+ [TopologicalSpace Qh'] [TopologicalSpace Q']
+def grothendieckWittSpace_map (forget : C(Qh,Q)) (forget' : C(Qh',Q'))
+ (zero : Q) (zero' : Q') (gh : C(Qh,Qh')) (g : C(Q,Q'))
+ (hs : ∀ x, forget' (gh x)=g (forget x)) (hz : g zero=zero') :
+ C(grothendieckWittSpace forget zero,grothendieckWittSpace forget' zero') := by sorry
+lemma grothendieckWittSpace_map_projection (forget : C(Qh,Q)) (forget' : C(Qh',Q'))
+ (zero : Q) (zero' : Q') (gh : C(Qh,Qh')) (g : C(Q,Q'))
+ (hs : ∀ x, forget' (gh x)=g (forget x)) (hz : g zero=zero')
+ (x : grothendieckWittSpace forget zero) :
+ (grothendieckWittSpace_map forget forget' zero zero' gh g hs hz x).val.1=gh x.val.1 := by sorry
+def higherGrothendieckWittGroup_map (forget : C(Qh,Q)) (forget' : C(Qh',Q'))
+ (zeroForm : Qh) (zeroForm' : Qh') (i : ℕ)
+ (f : C(grothendieckWittSpace forget (forget zeroForm),grothendieckWittSpace forget' (forget' zeroForm')))
+ (hf : f (grothendieckWittSpace_base forget zeroForm)=grothendieckWittSpace_base forget' zeroForm') :
+ higherGrothendieckWittGroup forget zeroForm i → higherGrothendieckWittGroup forget' zeroForm' i := by sorry
+example (i : ℕ) : Subsingleton (higherGrothendieckWittGroup (ContinuousMap.id PUnit) PUnit.unit i) := by sorry
+example (i : ℕ) [Subsingleton Qh] [Subsingleton Q] (forget : C(Qh,Q)) (zeroForm : Qh) :
+ Subsingleton (higherGrothendieckWittGroup forget zeroForm i) := by sorry
+example (forget : C(Qh,Q)) (zeroForm : Qh) :
+ grothendieckWittSpace_map forget forget (forget zeroForm) (forget zeroForm)
+ (ContinuousMap.id Qh) (ContinuousMap.id Q) (by simp) (by simp)=
+ ContinuousMap.id (grothendieckWittSpace forget (forget zeroForm)) := by sorry
+end FibreFunctoriality
+end TauCeti.GeometryOfNumbersPlan
+namespace TauCeti.GeometryOfNumbersPlan
+section ExactFormFunctorAPIs
+open CategoryTheory CategoryTheory.Limits Opposite
+universe u v u' v' w w'
+variable {C : Type u} [Category.{v} C] [Preadditive C] [HasZeroObject C] [HasBinaryBiproducts C]
+ {C' : Type u'} [Category.{v'} C'] [Preadditive C'] [HasZeroObject C'] [HasBinaryBiproducts C']
+ {E : TauCeti.ExactStructure C} {E' : TauCeti.ExactStructure C'}
+ (D : ExactCategoryDuality E) (D' : ExactCategoryDuality E')
+/-- A nonsingular form functor, including the actual bidual compatibility square. -/
+structure ExactFormFunctor where
+ functor : C ⥤ C'
+ additive : functor.Additive
+ exact : @TauCeti.ExactStructure.IsConflationExact _ _ _ _ _ _ _ _ _ _ E E' functor additive
+ duality : D.dual ⋙ functor ≅ functor.op ⋙ D'.dual
+ coherence : ∀ X : C,
+   functor.map (D.biddual.hom.app X) ≫ duality.hom.app (op (D.dual.obj (op X))) ≫
+   D'.dual.map (duality.inv.app (op X)).op = D'.biddual.hom.app (functor.obj X)
+attribute [instance] ExactFormFunctor.additive
+namespace ExactFormFunctor
+variable {D D'}
+def mapSpace (F : ExactFormFunctor D D') (X : SymmetricSpace D.toStrongCategoryDuality) :
+ SymmetricSpace D'.toStrongCategoryDuality := by sorry
+lemma mapSpace_pairing (F : ExactFormFunctor D D') (X : SymmetricSpace D.toStrongCategoryDuality) :
+ HEq (F.mapSpace X).pairing.hom (F.functor.map X.pairing.hom ≫ F.duality.hom.app (op X.carrier)) := by sorry
+def mapLagrangian (F : ExactFormFunctor D D') (X : SymmetricSpace D.toStrongCategoryDuality)
+ (L : ExactLagrangian D X) : ExactLagrangian D' (F.mapSpace X) := by sorry
+def mapGW0 (F : ExactFormFunctor D D') : ExactGW0 D →+ ExactGW0 D' := by sorry
+lemma mapGW0_of (F : ExactFormFunctor D D') (X : SymmetricSpace D.toStrongCategoryDuality) :
+ F.mapGW0 (ExactGW0.of D X)=ExactGW0.of D' (F.mapSpace X) := by sorry
+end ExactFormFunctor
+variable [EssentiallySmall.{w} C] [EssentiallySmall.{w'} C']
+lemma grothendieckWittForgetful_natural (F : ExactFormFunctor D D') (x : ExactGW0 D) :
+ grothendieckWittForgetful D' (F.mapGW0 x)=
+ TauCeti.ExactK0.map F.functor F.exact (grothendieckWittForgetful D x) := by sorry
+lemma grothendieckWittHyperbolic_natural (F : ExactFormFunctor D D') (x : TauCeti.ExactK0 E) :
+ F.mapGW0 (grothendieckWittHyperbolic D x)=
+ grothendieckWittHyperbolic D' (TauCeti.ExactK0.map F.functor F.exact x) := by sorry
+end ExactFormFunctorAPIs
+end TauCeti.GeometryOfNumbersPlan
+
+namespace TauCeti.GeometryOfNumbersPlan
+section NativeNerveAndConstantEmbedding
+open CategoryTheory CategoryTheory.Limits
+universe u v
+variable {C : Type u} [Category.{v} C] [Preadditive C] [HasZeroObject C] [HasBinaryBiproducts C]
+ (E : TauCeti.ExactStructure C) (D : ExactCategoryDuality E)
+/-- GN.6/hermitian-q-nerve-realization: the nerve exists before any realization supplier. -/
+abbrev hermitianQNerve := CategoryTheory.nerve (HermitianQ D)
+def coneConstantFunctor : C ⥤ HermitianConeDiagram E := by sorry
+lemma coneConstantFunctor_obj (X : C) :
+ (coneConstantFunctor E).obj X = HermitianConeDiagram.constant E X := by sorry
+def hermitianConeEmbed : C ⥤ hermitianCone E := coneConstantFunctor E ⋙ hermitianConeLocalization E
+/-- GN.6/cone-constant-fully-faithful: localization preserves constant morphisms. -/
+def hermitianConeEmbed_fullyFaithful : (hermitianConeEmbed E).FullyFaithful := by sorry
+example {X Y : C} (f g : X ⟶ Y) :
+ (hermitianConeEmbed E).map f = (hermitianConeEmbed E).map g ↔ f = g := by sorry
+example (X : C) :
+ (coneConstantFunctor E).obj X = HermitianConeDiagram.constant E X := by sorry
+example (X : C) : (hermitianConeEmbed E).map (𝟙 X) = 𝟙 ((hermitianConeEmbed E).obj X) := by sorry
+end NativeNerveAndConstantEmbedding
+section LLLTransitionInvariant
+variable {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E] {n : ℕ}
+/-- GN.5/lll-prefix-invariant: constructing the successor also establishes its invariant. -/
+lemma lll_outer_step_exists (s : LLLLoopState E n) (h : s.cursor < n) :
+ ∃ t : LLLLoopState E n, lllOuterStep s t := by sorry
+/-- GN.5/lll-lexicographic-termination: rank one needs no outer step. -/
+example (s : LLLLoopState E 1) : s.cursor = 1 := by sorry
+example (s : LLLLoopState E 1) : ¬ ∃ t, lllOuterStep s t := by sorry
+example : IsEmpty (LLLLoopState E 0) := by sorry
+end LLLTransitionInvariant
+end TauCeti.GeometryOfNumbersPlan
+
+/-
+UNMATCHED SUPPLIER SIGNATURES — not typed declarations or elaborated tests.
+The native prototype above elaborates. These mathematical contracts require
+the genuine supplier contexts listed in the packet; their names are not declared.
+
+GeometryOfNumbersAndQuadraticArithmetic:GN.2/lattice-localization
 For a nonzero prime p of R, extend L to L_(p)=L⊗R R_(p), viewed as the span of L in the same K-space; extend its quadratic map and coefficient line by scalar change. Integral values and full finite generation are preserved.
-TauCeti.GeometryOfNumbersPlan.IntegralQuadraticLattice.localize [constructor]: Return the R_(p)-lattice and restricted quadratic form.
-TauCeti.GeometryOfNumbersPlan.IntegralQuadraticLattice.localize_mem_iff [characterisation]: x lies in L_(p) iff s x lies in L for some s∈R\p.
-TauCeti.GeometryOfNumbersPlan.IntegralQuadraticLattice.localize_map [functoriality]: An integral isometry localizes, preserving identity and composition.
-TauCeti.GeometryOfNumbersPlan.lattice_localization_test_1: Z_(2) contains 1/3 and excludes 1/2; this is not Z₂.
-TauCeti.GeometryOfNumbersPlan.lattice_localization_test_2: Localizing a nonprincipal coefficient ideal makes it principal at a nonzero prime of a Dedekind domain.
-TauCeti.GeometryOfNumbersPlan.lattice_localization_test_3: Localizing the zero-dimensional lattice still gives the zero-dimensional lattice.
+Hypothesis: Use localization R_(p), not completion R_p; the latter changes the ambient field.
+Hypothesis: No global freeness is assumed.
+TauCeti.GeometryOfNumbersPlan.IntegralQuadraticLattice.localize: Return the R_(p)-lattice and restricted quadratic form.
+TauCeti.GeometryOfNumbersPlan.IntegralQuadraticLattice.localize_mem_iff: x lies in L_(p) iff s x lies in L for some s∈R\p.
+TauCeti.GeometryOfNumbersPlan.IntegralQuadraticLattice.localize_map: An integral isometry localizes, preserving identity and composition.
+Unmatched test contract TauCeti.GeometryOfNumbersPlan.lattice_localization_test_1: Z_(2) contains 1/3 and excludes 1/2; this is not Z₂.
+Unmatched test contract TauCeti.GeometryOfNumbersPlan.lattice_localization_test_2: Localizing a nonprincipal coefficient ideal makes it principal at a nonzero prime of a Dedekind domain.
+Unmatched test contract TauCeti.GeometryOfNumbersPlan.lattice_localization_test_3: Localizing the zero-dimensional lattice still gives the zero-dimensional lattice.
 
-GeometryOfNumbersAndQuadraticArithmetic:GN.2/lattice-intersection-localizations — Recover a lattice from its localizations
-The exact foreign statement context is not yet expressible against the checked Mathlib-only imports: obtain the listed exact-category, completion/adelic, local density, homogeneous, theta or stable Poincaré supplier interfaces. The complete mathematical declaration is retained below; no placeholder condition or carrier is introduced.
-For a full R-lattice L in a fixed fraction-field K-space over a Dedekind domain, L equals the intersection of its localizations L_(p) over maximal ideals p, as embedded submodules.
-TauCeti.GeometryOfNumbersPlan.lattice_intersection_localizations_test_1: 2Z and Z differ at the prime 2, though their Q-spans coincide.
-TauCeti.GeometryOfNumbersPlan.lattice_intersection_localizations_test_2: For equal embedded localizations the conclusion is L=M; independent local isometries do not supply a single global integral isometry.
-
-GeometryOfNumbersAndQuadraticArithmetic:GN.2/completed-lattice-descent — Descent of a lattice from a DVR completion
-The exact foreign statement context is not yet expressible against the checked Mathlib-only imports: obtain the listed exact-category, completion/adelic, local density, homogeneous, theta or stable Poincaré supplier interfaces. The complete mathematical declaration is retained below; no placeholder condition or carrier is introduced.
-If R is a DVR with fraction field K and completion R̂ with fraction field K̂, extension L↦L⊗R R̂ and intersection N↦N∩V are inverse bijections between full R-lattices in finite-dimensional V and full R̂-lattices in V⊗K K̂.
-TauCeti.GeometryOfNumbersPlan.completed_lattice_descent_test_1: The descent of 2Z₂⊂Q₂ is 2Z_(2)⊂Q, not 2Z as a global lattice.
-TauCeti.GeometryOfNumbersPlan.completed_lattice_descent_test_2: The finite quotient comparison R/p^e≅R̂/p^e for e≥1 is essential to lifting completed generators.
-
-GeometryOfNumbersAndQuadraticArithmetic:GN.2/integral-genus — Integral genus inside a rational quadratic space
-The exact foreign definition/construction context is not yet expressible against the checked Mathlib-only imports: obtain the listed exact-category, completion/adelic, local density, homogeneous, theta or stable Poincaré supplier interfaces. The complete mathematical declaration is retained below; no placeholder condition or carrier is introduced.
+GeometryOfNumbersAndQuadraticArithmetic:GN.2/integral-genus
 Within a fixed nondegenerate quadratic K-space (V,q), two integral R-lattices belong to the same genus when their completed lattices are isometric under O(q_v)(K_v) at every nonzero prime v. If quadratic spaces themselves vary, also require the archimedean signature data and the rational-space identification from GlobalQuadraticForms. Genus classes are integral isometry classes inside this equivalence class.
-TauCeti.GeometryOfNumbersPlan.IntegralGenus.localIsometry [data]: A local isometry at each retained finite place, with archimedean data when spaces vary.
-TauCeti.GeometryOfNumbersPlan.IntegralGenus.equivalence [structure]: The genus relation is an equivalence relation.
-TauCeti.GeometryOfNumbersPlan.IntegralGenus.ofIntegralIsometry [compatibility]: A global integral isometry determines a genus relation.
-TauCeti.GeometryOfNumbersPlan.IntegralGenus.classSet [constructor]: Integral-isometry classes of lattices in the fixed genus.
-TauCeti.GeometryOfNumbersPlan.integral_genus_test_1: In fixed (Q,x²), Z and 2Z are rationally in the same ambient space but not in one integral genus.
-TauCeti.GeometryOfNumbersPlan.integral_genus_test_2: A global integral isometry yields local isometries at every place.
-TauCeti.GeometryOfNumbersPlan.integral_genus_test_3: Opposite real signatures cannot be identified when ambient spaces vary.
+Hypothesis: R is the ring of integers of a number field, or a specified localization with exactly its retained places.
+Hypothesis: Genus, rational isometry and global integral isometry have separate types and separate quotient relations.
+TauCeti.GeometryOfNumbersPlan.IntegralGenus.localIsometry: A local isometry at each retained finite place, with archimedean data when spaces vary.
+TauCeti.GeometryOfNumbersPlan.IntegralGenus.equivalence: The genus relation is an equivalence relation.
+TauCeti.GeometryOfNumbersPlan.IntegralGenus.ofIntegralIsometry: A global integral isometry determines a genus relation.
+TauCeti.GeometryOfNumbersPlan.IntegralGenus.classSet: Integral-isometry classes of lattices in the fixed genus.
+Unmatched test contract TauCeti.GeometryOfNumbersPlan.integral_genus_test_1: In fixed (Q,x²), Z and 2Z are rationally in the same ambient space but not in one integral genus.
+Unmatched test contract TauCeti.GeometryOfNumbersPlan.integral_genus_test_2: A global integral isometry yields local isometries at every place.
+Unmatched test contract TauCeti.GeometryOfNumbersPlan.integral_genus_test_3: Opposite real signatures cannot be identified when ambient spaces vary.
 
-GeometryOfNumbersAndQuadraticArithmetic:GN.2/proper-spinor-genus — Proper spinor genus
-The exact foreign definition/construction context is not yet expressible against the checked Mathlib-only imports: obtain the listed exact-category, completion/adelic, local density, homogeneous, theta or stable Poincaré supplier interfaces. The complete mathematical declaration is retained below; no placeholder condition or carrier is introduced.
+GeometryOfNumbersAndQuadraticArithmetic:GN.2/proper-spinor-genus
 For nondegenerate q in characteristic different from 2, proper spinor genus is the orbit of an integral lattice under SO(q)(K) times the image of Spin(q)(A_f)→SO(q)(A_f), acting on its finite adelic completion. Proper genus uses SO instead of O. Their forgetful maps to ordinary genus are separate.
-TauCeti.GeometryOfNumbersPlan.ProperSpinorGenus.orbit [constructor]: Use global SO and the finite adelic spin image.
-TauCeti.GeometryOfNumbersPlan.ProperSpinorGenus.equivalence [structure]: Orbit relation is reflexive, symmetric and transitive.
-TauCeti.GeometryOfNumbersPlan.ProperSpinorGenus.toGenus [compatibility]: Forget orientation and the spin-image restriction.
-TauCeti.GeometryOfNumbersPlan.proper_spinor_genus_test_1: At a place where a nontrivial spinor-norm class occurs, an SO-point with that norm cannot be inserted into the spin image merely by asserting surjectivity.
-TauCeti.GeometryOfNumbersPlan.proper_spinor_genus_test_2: A proper spinor-genus relation implies genus; the converse is not an API lemma.
-TauCeti.GeometryOfNumbersPlan.proper_spinor_genus_test_3: For rank one the proper orthogonal group is trivial; no higher-rank spin-image claim is inferred from that case.
+Hypothesis: Use the actual local-field image of the spin covering; no blanket surjectivity on local rational points.
+Hypothesis: Dyadic spinor-norm images and signatures are supplied by their owners or left as precise gaps.
+TauCeti.GeometryOfNumbersPlan.ProperSpinorGenus.orbit: Use global SO and the finite adelic spin image.
+TauCeti.GeometryOfNumbersPlan.ProperSpinorGenus.equivalence: Orbit relation is reflexive, symmetric and transitive.
+TauCeti.GeometryOfNumbersPlan.ProperSpinorGenus.toGenus: Forget orientation and the spin-image restriction.
+Unmatched test contract TauCeti.GeometryOfNumbersPlan.proper_spinor_genus_test_1: For q=xy, τ_(1,1)τ_(1,2)=diag(2,1/2) has spinor norm [2]; over Q₂ this is not in the spin image.
+Unmatched test contract TauCeti.GeometryOfNumbersPlan.proper_spinor_genus_test_2: Over Q₃ the same diag(2,1/2) stabilizes Z₃² and has nonsquare unit norm [2], so the integral stabilizer image is nontrivial.
+Unmatched test contract TauCeti.GeometryOfNumbersPlan.proper_spinor_genus_test_3: In rank one SO is trivial and its spinor orbit fixes the lattice.
 
-GeometryOfNumbersAndQuadraticArithmetic:GN.2/integral-hermitian-lattice — Integral hermitian lattices
-Native construction/statement is prototyped. Source-specific completion, quotient, smoothness or classification hypotheses and arithmetic examples beyond the displayed native context remain mathematical contracts in the reader.
-Let K be a field with involution, R⊂K a stable integral subring and V a finite K-space. A hermitian integral lattice consists of native L:Submodule R V, Submodule.IsLattice K L and a native sesquilinear H, conjugate-linear in its first argument and linear in its second, with H(y,x)=star H(x,y) and H(L,L)⊆R. Generic nondegeneracy is distinct from integral self-duality.
-TauCeti.GeometryOfNumbersPlan.IntegralHermitianLattice.ofCarrier [constructor]: Bundle the existing full finite submodule and actual integral star-sesquilinear form.
-TauCeti.GeometryOfNumbersPlan.IntegralHermitianLattice.carrier [projection]: The native R-submodule, with its IsLattice certificate.
-TauCeti.GeometryOfNumbersPlan.IntegralHermitianLattice.ext [extensionality]: For fixed H, equality of native carriers identifies bundled lattice data.
-TauCeti.GeometryOfNumbersPlan.IntegralHermitianLattice.map [functoriality]: Transport along a hermitian isometry; identity and composition laws.
-TauCeti.GeometryOfNumbersPlan.integral_hermitian_lattice_test_1: For rank one over an unramified quadratic extension, H(x,y)=star(x)y on O_F is integral and self-dual.
-TauCeti.GeometryOfNumbersPlan.integral_hermitian_lattice_test_2: Replacing conjugate transpose by ordinary transpose on the complex vector (i) changes its Gram value from 1 to −1.
-TauCeti.GeometryOfNumbersPlan.integral_hermitian_lattice_test_3: An integral hermitian lattice with nonunit Gram determinant is nondegenerate over F but not self-dual over O_F.
-
-GeometryOfNumbersAndQuadraticArithmetic:GN.2/hermitian-dual-lattice — Hermitian dual lattice
-Native construction/statement is prototyped. Source-specific completion, quotient, smoothness or classification hypotheses and arithmetic examples beyond the displayed native context remain mathematical contracts in the reader.
-For a nondegenerate integral hermitian lattice L in V, define L∨={x∈V : H(x,L)⊆R}; under the stable involution this equals the right-dual condition H(L,x)⊆R. This is a full finite R-lattice over a Dedekind domain; integrality is equivalent to L⊆L∨. Self-duality means equality, not just equality of generic spans.
-TauCeti.GeometryOfNumbersPlan.IntegralHermitianLattice.dual [constructor]: The native submodule defined by integral pairings.
-TauCeti.GeometryOfNumbersPlan.IntegralHermitianLattice.mem_dual_iff [characterisation]: Membership is equivalent to all pairings with L lying in R.
-TauCeti.GeometryOfNumbersPlan.IntegralHermitianLattice.dual_dual [relation]: The double dual equals L under the stated Dedekind/nondegeneracy hypotheses.
-TauCeti.GeometryOfNumbersPlan.IntegralHermitianLattice.integral_iff_le_dual [characterisation]: Integrality is exactly L⊆L∨.
-TauCeti.GeometryOfNumbersPlan.hermitian_dual_lattice_test_1: For rank-one Gram π^a over an unramified extension, the dual of O_F e is π^−a O_F e.
-TauCeti.GeometryOfNumbersPlan.hermitian_dual_lattice_test_2: The Gram-1 lattice is self-dual; Gram-π lattice is integral but not self-dual.
-TauCeti.GeometryOfNumbersPlan.hermitian_dual_lattice_test_3: The zero-dimensional lattice equals its dual and has zero discriminant length.
-
-GeometryOfNumbersAndQuadraticArithmetic:GN.2/hermitian-lattice-invariants — Fundamental invariants of a local hermitian lattice
-The exact foreign definition/construction context is not yet expressible against the checked Mathlib-only imports: obtain the listed exact-category, completion/adelic, local density, homogeneous, theta or stable Poincaré supplier interfaces. The complete mathematical declaration is retained below; no placeholder condition or carrier is introduced.
-For an integral nondegenerate O_F-hermitian lattice L of rank n over a DVR, attach the unique ordered a₁≤…≤a_n with a_i≥0 and L∨/L≅⊕O_F/π^{a_i}; define val(L)=Σa_i and t(L)=#{i:a_i>0}. Vertex means a_i∈{0,1}; self-dual means all a_i=0.
-TauCeti.GeometryOfNumbersPlan.HermitianLatticeInvariants.ofDualQuotient [constructor]: The ordered DVR elementary-divisor exponents.
-TauCeti.GeometryOfNumbersPlan.HermitianLatticeInvariants.valuation [data]: Sum of the exponents, equal to O_F-length.
-TauCeti.GeometryOfNumbersPlan.HermitianLatticeInvariants.type [data]: Number of positive exponents.
-TauCeti.GeometryOfNumbersPlan.HermitianLatticeInvariants.selfDual_iff [characterisation]: Self-duality iff valuation is zero.
-TauCeti.GeometryOfNumbersPlan.HermitianLatticeInvariants.vertex_iff [characterisation]: Vertex iff every exponent is 0 or 1.
-TauCeti.GeometryOfNumbersPlan.hermitian_lattice_invariants_test_1: Rank one with Gram π³ has val=3 and type=1; it is not a vertex lattice.
-TauCeti.GeometryOfNumbersPlan.hermitian_lattice_invariants_test_2: Invariants (0,1,1) give val=2, type=2 and a vertex lattice.
-TauCeti.GeometryOfNumbersPlan.hermitian_lattice_invariants_test_3: The cardinality of L∨/L is q^{2 val(L)} in an unramified quadratic extension, not q^{val(L)}.
-
-GeometryOfNumbersAndQuadraticArithmetic:GN.5/lll-coefficient — Gram–Schmidt reduction coefficients
-Native construction/statement is prototyped. Source-specific completion, quotient, smoothness or classification hypotheses and arithmetic examples beyond the displayed native context remain mathematical contracts in the reader.
-For a real inner-product space and a family b:Fin n→V, set μ_{ij}=⟨b_i,b*_j⟩/‖b*_j‖² using the native ordered gramSchmidt b. Reduced-basis theorems require linear independence so denominators for relevant j are nonzero; the total function still uses the native zero-division convention.
-TauCeti.GeometryOfNumbersPlan.lllCoefficient [constructor]: The native Gram–Schmidt inner-product ratio.
-TauCeti.GeometryOfNumbersPlan.lllCoefficient_eq [simp]: Evaluation equals the stated ratio.
-TauCeti.GeometryOfNumbersPlan.lllCoefficient_orthogonal [relation]: Off-diagonal coefficient is zero for an orthogonal family.
-TauCeti.GeometryOfNumbersPlan.lllCoefficient_denominator_pos [relation]: Independent input gives a strictly positive squared denominator.
-TauCeti.GeometryOfNumbersPlan.lll_coefficient_test_1: For b=((1,0),(1/2,1)) the coefficient μ₁₀ is 1/2.
-TauCeti.GeometryOfNumbersPlan.lll_coefficient_test_2: For an orthogonal family, off-diagonal reduction coefficients vanish.
-TauCeti.GeometryOfNumbersPlan.lll_coefficient_test_3: For dependent input b*_j can be zero; the total coefficient does not certify a reduced basis.
-
-GeometryOfNumbersAndQuadraticArithmetic:GN.5/lll-reduced — LLL-reduced independent families
-Native construction/statement is prototyped. Source-specific completion, quotient, smoothness or classification hypotheses and arithmetic examples beyond the displayed native context remain mathematical contracts in the reader.
-An LLL-reduced family at δ=3/4 is linearly independent, has |μ_{ij}|≤1/2 for j<i, and for each adjacent j<i with i=j+1 satisfies ‖b*_i‖²≥(3/4−μ_{ij}²)‖b*_j‖². A basis of the input lattice is required separately by output certificates.
-TauCeti.GeometryOfNumbersPlan.IsLLLReduced [constructor]: The concrete independence, size and Lovász predicate.
-TauCeti.GeometryOfNumbersPlan.IsLLLReduced.linearIndependent [projection]: Return independence.
-TauCeti.GeometryOfNumbersPlan.IsLLLReduced.size [projection]: Return |μ_{ij}|≤1/2 for j<i.
-TauCeti.GeometryOfNumbersPlan.IsLLLReduced.lovasz [projection]: Return the adjacent δ=3/4 inequality.
-TauCeti.GeometryOfNumbersPlan.lll_reduced_test_1: The standard orthonormal basis is reduced.
-TauCeti.GeometryOfNumbersPlan.lll_reduced_test_2: The basis ((2,0),(0,1)) has size coefficients zero but fails the Lovász condition.
-TauCeti.GeometryOfNumbersPlan.lll_reduced_test_3: The dependent family ((1,0),(2,0)) is not reduced even when a zero-denominator convention makes some inequalities vacuous.
-
-GeometryOfNumbersAndQuadraticArithmetic:GN.5/unimodular-basis-certificate — Exact integer change-of-basis certificates
-Native construction/statement is prototyped. Source-specific completion, quotient, smoothness or classification hypotheses and arithmetic examples beyond the displayed native context remain mathematical contracts in the reader.
-A certificate for input b and output c consists of U,V∈Mat_n(Z), UV=VU=I, and c_i=Σ_j U_{ji}b_j. Columns are output coordinates in the input family. This proves equality of integer spans and determinant ±1; determinant −1 is allowed.
-TauCeti.GeometryOfNumbersPlan.UnimodularBasisCertificate.ofMatrices [constructor]: Supply actual integral inverse matrices and the exact output coordinates.
-TauCeti.GeometryOfNumbersPlan.UnimodularBasisCertificate.span_eq [relation]: The input and output Z-spans are equal.
-TauCeti.GeometryOfNumbersPlan.UnimodularBasisCertificate.det_unit [relation]: det U is 1 or −1.
-TauCeti.GeometryOfNumbersPlan.UnimodularBasisCertificate.trans [functoriality]: Compose certificates by matrix multiplication with the correct column order.
-TauCeti.GeometryOfNumbersPlan.unimodular_basis_certificate_test_1: The coordinate swap [[0,1],[1,0]] has determinant −1 and is a valid certificate.
-TauCeti.GeometryOfNumbersPlan.unimodular_basis_certificate_test_2: diag(2,1) is not an integer-invertible basis change.
-TauCeti.GeometryOfNumbersPlan.unimodular_basis_certificate_test_3: A floating matrix approximately inverting U does not inhabit this certificate.
-
-GeometryOfNumbersAndQuadraticArithmetic:GN.5/lll-gram-schmidt-growth — Growth bound for reduced orthogonal lengths
-Native construction/statement is prototyped. Source-specific completion, quotient, smoothness or classification hypotheses and arithmetic examples beyond the displayed native context remain mathematical contracts in the reader.
-For an LLL-reduced family and j<i, ‖b*_j‖²≤2^{i−j}‖b*_i‖².
-TauCeti.GeometryOfNumbersPlan.lll_gram_schmidt_growth_test_1: For orthonormal input the right-hand side is at least the left-hand side.
-TauCeti.GeometryOfNumbersPlan.lll_gram_schmidt_growth_test_2: The exponent is an index difference, not the full ambient dimension.
-
-GeometryOfNumbersAndQuadraticArithmetic:GN.5/lll-short-vector-factor — LLL shortest-vector approximation bound
-Native construction/statement is prototyped. Source-specific completion, quotient, smoothness or classification hypotheses and arithmetic examples beyond the displayed native context remain mathematical contracts in the reader.
-For n≥1 and an LLL-reduced basis b of a full real Euclidean Z-lattice L, every nonzero x∈L satisfies ‖b₀‖²≤2^{n−1}‖x‖². Equivalently b₀ is within factor 2^{(n−1)/2} of the shortest nonzero vector.
-TauCeti.GeometryOfNumbersPlan.lll_short_vector_factor_test_1: For n=1 the factor is 1 and the basis vector is shortest.
-TauCeti.GeometryOfNumbersPlan.lll_short_vector_factor_test_2: Replacing integer coordinates by real coefficients destroys the lower bound on the last nonzero coefficient.
-
-GeometryOfNumbersAndQuadraticArithmetic:GN.5/lll-integer-potential — Integer Gram-prefix potential
-Native construction/statement is prototyped. Source-specific completion, quotient, smoothness or classification hypotheses and arithmetic examples beyond the displayed native context remain mathematical contracts in the reader.
-For independent integer-column input in Euclidean R^n, let d_i be the determinant of the Gram matrix of the first i vectors, d₀=1, and D=∏_{1≤i<n} d_i. Each d_i is a positive integer; in ranks 0 and 1 the empty potential is 1.
-TauCeti.GeometryOfNumbersPlan.lllIntegerPotential [constructor]: Product of positive integral Gram-prefix determinants.
-TauCeti.GeometryOfNumbersPlan.lllIntegerPotential_pos [relation]: The potential is a positive integer for independent integral input.
-TauCeti.GeometryOfNumbersPlan.lllIntegerPotential_sizeReduce [compatibility]: An integer shear within the relevant prefix preserves the potential.
-TauCeti.GeometryOfNumbersPlan.lllIntegerPotential_swap [relation]: A strict Lovász-failing adjacent swap decreases the potential by a factor strictly below 3/4.
-TauCeti.GeometryOfNumbersPlan.lll_integer_potential_test_1: The standard basis has all prefix determinants and potential equal to 1.
-TauCeti.GeometryOfNumbersPlan.lll_integer_potential_test_2: A rational metric with denominator 2 needs a fixed rescaling; its original determinants are not asserted to be integers.
-TauCeti.GeometryOfNumbersPlan.lll_integer_potential_test_3: In ranks 0 and 1 the empty potential is 1, and no adjacent swap exists.
-
-GeometryOfNumbersAndQuadraticArithmetic:GN.5/lll-exact-reduction — Exact terminating LLL reduction
-Native construction/statement is prototyped. Source-specific completion, quotient, smoothness or classification hypotheses and arithmetic examples beyond the displayed native context remain mathematical contracts in the reader.
-Given a nonsingular integer basis matrix (or rational input cleared by a common denominator) in the standard Euclidean metric, compute a reduced output basis together with an exact unimodular-basis certificate. Use nearest-integer size reduction and strict Lovász-failing adjacent swaps at δ=3/4.
-TauCeti.GeometryOfNumbersPlan.exactLLL [constructor]: Return output coordinates, reducedness and the exact integer inverse certificate.
-TauCeti.GeometryOfNumbersPlan.exactLLL_certificate [projection]: Recover the original-lattice certificate.
-TauCeti.GeometryOfNumbersPlan.exactLLL_reduced [projection]: Recover the exact size and Lovász tests.
-TauCeti.GeometryOfNumbersPlan.exactLLL_shortVector [relation]: For positive rank, the first vector satisfies the proven approximation inequality in the original lattice.
-TauCeti.GeometryOfNumbersPlan.lll_exact_reduction_test_1: Input columns (2,0),(0,1) require a swap; the returned certificate may have determinant −1.
-TauCeti.GeometryOfNumbersPlan.lll_exact_reduction_test_2: Rank zero returns an empty reduced basis and empty identity matrices.
-TauCeti.GeometryOfNumbersPlan.lll_exact_reduction_test_3: An output without a proven Lovász condition is rejected even if short in floating-point arithmetic.
-
-GeometryOfNumbersAndQuadraticArithmetic:GN.5/lll-original-lattice-verification — Verify the short output in the original lattice
-The native statement is prototyped using actual fundamental-domain and original-lattice hypotheses. Other source-specific forms and examples retain their explicit refinement obligations.
-If a certified output c is LLL-reduced and b is an independent input basis of L, then c₀∈L is nonzero and for every nonzero x∈L, ‖c₀‖²≤2^{n−1}‖x‖², for n≥1.
-TauCeti.GeometryOfNumbersPlan.lll_original_lattice_verification_test_1: A verified certificate includes both original membership and the approximation factor.
-TauCeti.GeometryOfNumbersPlan.lll_original_lattice_verification_test_2: A short vector in the real span but outside the integer span cannot pass verification.
-
-GeometryOfNumbersAndQuadraticArithmetic:GN.3/hermitian-representation-count — Finite hermitian representation counts
-Native construction/statement is prototyped. Source-specific completion, quotient, smoothness or classification hypotheses and arithmetic examples beyond the displayed native context remain mathematical contracts in the reader.
-For a finite commutative star ring A and hermitian Gram matrices G of size m and B of size n, count all m×n matrices X with XᴴGX=B. This is a finite count of form-preserving maps, including noninjective maps when the source form is degenerate.
-TauCeti.GeometryOfNumbersPlan.hermitianRepresentationCount [constructor]: Finite cardinality of XᴴGX=B.
-TauCeti.GeometryOfNumbersPlan.hermitianRepresentationCount_empty [simp]: The empty source has count 1.
-TauCeti.GeometryOfNumbersPlan.hermitianRepresentationCount_basisChange [functoriality]: Invertible source/target coordinate changes induce a bijection of representation sets.
-TauCeti.GeometryOfNumbersPlan.hermitian_representation_count_test_1: Over Z/3 with trivial star, m=n=1, G=B=1 gives 2 maps.
-TauCeti.GeometryOfNumbersPlan.hermitian_representation_count_test_2: With G=1,B=0 over Z/3 the count is 1: the zero map.
-TauCeti.GeometryOfNumbersPlan.hermitian_representation_count_test_3: For n=0 there is one empty-column representation, for every ambient rank.
-
-GeometryOfNumbersAndQuadraticArithmetic:GN.3/hermitian-embedding-count — Finite hermitian embedding counts
-Native construction/statement is prototyped. Source-specific completion, quotient, smoothness or classification hypotheses and arithmetic examples beyond the displayed native context remain mathematical contracts in the reader.
-For the same finite matrices, count solutions XᴴGX=B whose associated A-linear map A^n→A^m is injective. Over finite fields this is equivalent to column rank n; with a degenerate source it is stronger than the representation equation.
-TauCeti.GeometryOfNumbersPlan.hermitianEmbeddingCount [constructor]: Finite count with the actual injectivity condition.
-TauCeti.GeometryOfNumbersPlan.hermitianEmbeddingCount_empty [simp]: Count is 1 for n=0.
-TauCeti.GeometryOfNumbersPlan.hermitianEmbeddingCount_le [relation]: Embedding count is at most representation count.
-TauCeti.GeometryOfNumbersPlan.hermitianEmbeddingCount_eq_of_nonsingular [compatibility]: Over a field with nonsingular source, every representation is injective.
-TauCeti.GeometryOfNumbersPlan.hermitian_embedding_count_test_1: Over Z/3, G=1,B=0 at rank one gives 0 embeddings but 1 representation.
-TauCeti.GeometryOfNumbersPlan.hermitian_embedding_count_test_2: For an empty source the unique map is injective and the count is 1.
-TauCeti.GeometryOfNumbersPlan.hermitian_embedding_count_test_3: When n>m over a field the embedding count is zero.
-
-GeometryOfNumbersAndQuadraticArithmetic:GN.3/finite-hermitian-isometry-formula — Finite-field hermitian isometry formula
-The exact foreign statement context is not yet expressible against the checked Mathlib-only imports: obtain the listed exact-category, completion/adelic, local density, homogeneous, theta or stable Poincaré supplier interfaces. The complete mathematical declaration is retained below; no placeholder condition or carrier is introduced.
-For an n-dimensional F_{q²}/F_q-hermitian source with radical dimension a and a nondegenerate m-dimensional target, m≥n, the number of injective isometries is q^{n(2m−n)} ∏_{i=0}^{n+a−1}(1−(−q)^{i−m}).
-TauCeti.GeometryOfNumbersPlan.finite_hermitian_isometry_formula_test_1: n=m=1,a=0 gives q+1 norm-one elements.
-TauCeti.GeometryOfNumbersPlan.finite_hermitian_isometry_formula_test_2: n=m=1,a=1 gives 0 embeddings.
-TauCeti.GeometryOfNumbersPlan.finite_hermitian_isometry_formula_test_3: n=0,a=0 gives the empty product 1.
-
-GeometryOfNumbersAndQuadraticArithmetic:GN.3/normalized-hermitian-count — Normalized finite-level hermitian counts
-Native construction/statement is prototyped. Source-specific completion, quotient, smoothness or classification hypotheses and arithmetic examples beyond the displayed native context remain mathematical contracts in the reader.
-For N≥1 let A_N=O_F/π^N, reduce fixed integral source/target Gram matrices of ranks n≤m to A_N, and let q=#k_{F₀}. Set a_N=hermitianRepresentationCount(G_N,B_N)/q^{N n(2m−n)}. Equivalently its numerator is #Rep_{M,L}(O_{F₀}/π^N), because the representation scheme is over O_{F₀}; it is not #Rep_{M,L}(A_N). The denominator uses q, not q².
-TauCeti.GeometryOfNumbersPlan.normalizedHermitianCount [constructor]: Finite count divided by q^{N n(2m−n)}.
-TauCeti.GeometryOfNumbersPlan.normalizedHermitianCount_empty [simp]: The empty-source count is 1.
-TauCeti.GeometryOfNumbersPlan.normalizedHermitianCount_basisChange [compatibility]: Integral invertible basis changes preserve every normalized count.
-TauCeti.GeometryOfNumbersPlan.normalized_hermitian_count_test_1: For n=0 the normalized count is 1 at every level.
-TauCeti.GeometryOfNumbersPlan.normalized_hermitian_count_test_2: For m=n=1 the exponent is N, not 2N.
-TauCeti.GeometryOfNumbersPlan.normalized_hermitian_count_test_3: A generic empty representation problem is not treated as a smooth nonempty scheme of the stated dimension.
-
-GeometryOfNumbersAndQuadraticArithmetic:GN.3/hermitian-local-density — Hermitian local representation density
-The exact foreign definition/construction context is not yet expressible against the checked Mathlib-only imports: obtain the listed exact-category, completion/adelic, local density, homogeneous, theta or stable Poincaré supplier interfaces. The complete mathematical declaration is retained below; no placeholder condition or carrier is introduced.
+GeometryOfNumbersAndQuadraticArithmetic:GN.3/hermitian-local-density
 In the stated unramified local-field setting, Den(M,L) is the limit of normalized finite-level representation counts. For nonempty generic fibre use its specified dimension and the source existence theorem. For empty generic fibre set Den(M,L)=0; eventual emptiness of the finite-level counts proves agreement with the limit for any fixed exponent. Its finite value and integral-basis independence are part of the construction.
-TauCeti.GeometryOfNumbersPlan.hermitianLocalDensity [constructor]: The proved limit of normalized counts.
-TauCeti.GeometryOfNumbersPlan.hermitianLocalDensity_tendsto [characterisation]: The normalized sequence tends to the stated density.
-TauCeti.GeometryOfNumbersPlan.hermitianLocalDensity_basisChange [compatibility]: Integral isometries preserve the density.
-TauCeti.GeometryOfNumbersPlan.hermitianLocalDensity_emptyGeneric [simp]: An empty generic representation fibre has density zero.
-TauCeti.GeometryOfNumbersPlan.hermitian_local_density_test_1: Density of the empty source is 1.
-TauCeti.GeometryOfNumbersPlan.hermitian_local_density_test_2: The denominator and measure use q=#k_{F₀}; substituting q² changes the limit.
-TauCeti.GeometryOfNumbersPlan.hermitian_local_density_test_3: A ramified quadratic extension cannot reuse the unramified formula without a new theorem.
-TauCeti.GeometryOfNumbersPlan.hermitian_local_density_test_4: An empty generic representation fibre has density zero, although initial finite reductions can still admit solutions.
+Hypothesis: The unramified analytic density branch allows residue characteristic 2; geometric §3.4 hypotheses are not imported into all of §3.
+Hypothesis: Haar measures on lattice coordinates assign volume 1 to the integral coordinate lattice before any self-dual Fourier normalization is applied.
+TauCeti.GeometryOfNumbersPlan.hermitianLocalDensity: The proved limit of normalized counts.
+TauCeti.GeometryOfNumbersPlan.hermitianLocalDensity_tendsto: The normalized sequence tends to the stated density.
+TauCeti.GeometryOfNumbersPlan.hermitianLocalDensity_basisChange: Integral isometries preserve the density.
+TauCeti.GeometryOfNumbersPlan.hermitianLocalDensity_emptyGeneric: An empty generic representation fibre has density zero.
+Unmatched test contract TauCeti.GeometryOfNumbersPlan.hermitian_local_density_test_1: Density of the empty source is 1.
+Unmatched test contract TauCeti.GeometryOfNumbersPlan.hermitian_local_density_test_2: The denominator and measure use q=#k_{F₀}; substituting q² changes the limit.
+Unmatched test contract TauCeti.GeometryOfNumbersPlan.hermitian_local_density_test_3: A ramified quadratic extension cannot reuse the unramified formula without a new theorem.
+Unmatched test contract TauCeti.GeometryOfNumbersPlan.hermitian_local_density_test_4: An empty generic representation fibre has density zero, although initial finite reductions can still admit solutions.
 
-GeometryOfNumbersAndQuadraticArithmetic:GN.3/normalized-siegel-polynomial — Normalized hermitian Siegel polynomial
-The exact foreign definition/construction context is not yet expressible against the checked Mathlib-only imports: obtain the listed exact-category, completion/adelic, local density, homogeneous, theta or stable Poincaré supplier interfaces. The complete mathematical declaration is retained below; no placeholder condition or carrier is introduced.
+GeometryOfNumbersAndQuadraticArithmetic:GN.3/normalized-siegel-polynomial
 For an integral nondegenerate unramified hermitian lattice L of rank n, construct the unique D_L∈Z[X] such that D_L((−q)^−k)=Den(⟨1⟩_{n+k},L)/Den(⟨1⟩_{n+k},⟨1⟩_n) for every integer k≥0. The denominator is ∏_{i=1}^n(1−(−q)^−i(−q)^−k).
-TauCeti.GeometryOfNumbersPlan.normalizedSiegelPolynomial [constructor]: The integral normalized density polynomial.
-TauCeti.GeometryOfNumbersPlan.normalizedSiegelPolynomial_eval [characterisation]: Evaluate at (−q)^−k to recover the specified density ratio.
-TauCeti.GeometryOfNumbersPlan.normalizedSiegelPolynomial_selfDual [simp]: Polynomial equals 1 for a self-dual lattice.
-TauCeti.GeometryOfNumbersPlan.normalizedSiegelPolynomial_isometry [functoriality]: Integral hermitian isometries preserve the polynomial.
-TauCeti.GeometryOfNumbersPlan.normalized_siegel_polynomial_test_1: For a rank-one lattice with valuation a, D_L(X)=Σ_{i=0}^a(−X)^i.
-TauCeti.GeometryOfNumbersPlan.normalized_siegel_polynomial_test_2: A self-dual lattice has polynomial 1.
-TauCeti.GeometryOfNumbersPlan.normalized_siegel_polynomial_test_3: Using q^−k instead of (−q)^−k loses the alternating sign.
+Hypothesis: q≥2 and the extension is unramified quadratic.
+Hypothesis: The interpolating polynomial and its integral coefficients require a proof, not a generic choice of a function through finitely many values.
+TauCeti.GeometryOfNumbersPlan.normalizedSiegelPolynomial: The integral normalized density polynomial.
+TauCeti.GeometryOfNumbersPlan.normalizedSiegelPolynomial_eval: Evaluate at (−q)^−k to recover the specified density ratio.
+TauCeti.GeometryOfNumbersPlan.normalizedSiegelPolynomial_selfDual: Polynomial equals 1 for a self-dual lattice.
+TauCeti.GeometryOfNumbersPlan.normalizedSiegelPolynomial_isometry: Integral hermitian isometries preserve the polynomial.
+Unmatched test contract TauCeti.GeometryOfNumbersPlan.normalized_siegel_polynomial_test_1: For a rank-one lattice with valuation a, D_L(X)=Σ_{i=0}^a(−X)^i.
+Unmatched test contract TauCeti.GeometryOfNumbersPlan.normalized_siegel_polynomial_test_2: A self-dual lattice has polynomial 1.
+Unmatched test contract TauCeti.GeometryOfNumbersPlan.normalized_siegel_polynomial_test_3: Using q^−k instead of (−q)^−k loses the alternating sign.
 
-GeometryOfNumbersAndQuadraticArithmetic:GN.3/cho-yamauchi-weight — Cho–Yamauchi weight polynomial
-Native construction/statement is prototyped. Source-specific completion, quotient, smoothness or classification hypotheses and arithmetic examples beyond the displayed native context remain mathematical contracts in the reader.
-For q≥2 and a∈N define m_q(a;X)=∏_{i=0}^{a−1}(1−(−q)^i X) in Z[X], with empty product m_q(0;X)=1. The derivative weight is −m_q(a;X)′ at X=1; for a=0 it is 0, and for a≥1 it is ∏_{i=1}^{a−1}(1−(−q)^i).
-TauCeti.GeometryOfNumbersPlan.choYamauchiWeight [constructor]: The native integral polynomial finite product.
-TauCeti.GeometryOfNumbersPlan.choYamauchiWeight_zero [simp]: Empty polynomial weight is 1.
-TauCeti.GeometryOfNumbersPlan.choYamauchiWeight_succ [relation]: m(a+1;X)=m(a;X)(1−(−q)^a X).
-TauCeti.GeometryOfNumbersPlan.choYamauchiWeight_derivative [relation]: The negative derivative at 1 is 0 for a=0 and the stated product for a>0.
-TauCeti.GeometryOfNumbersPlan.cho_yamauchi_weight_test_1: m_q(0;X)=1, derivative weight 0.
-TauCeti.GeometryOfNumbersPlan.cho_yamauchi_weight_test_2: m_q(1;X)=1−X, derivative weight 1.
-TauCeti.GeometryOfNumbersPlan.cho_yamauchi_weight_test_3: m_q(2;X)=(1−X)(1+qX), derivative weight 1+q.
-
-GeometryOfNumbersAndQuadraticArithmetic:GN.3/cho-yamauchi-overlattice-formula — Cho–Yamauchi hermitian density formula
-The exact foreign statement context is not yet expressible against the checked Mathlib-only imports: obtain the listed exact-category, completion/adelic, local density, homogeneous, theta or stable Poincaré supplier interfaces. The complete mathematical declaration is retained below; no placeholder condition or carrier is introduced.
-D_L(X)=Σ_{L⊆L′⊆(L′)∨} X^{2 length_{O_F}(L′/L)} m_q(t(L′);X), summing over integral overlattices of L. The sum is finite because every such L′ lies between L and L∨.
-TauCeti.GeometryOfNumbersPlan.cho_yamauchi_overlattice_formula_test_1: For valuation-one rank one, D=1−X and the negative derivative is 1.
-TauCeti.GeometryOfNumbersPlan.cho_yamauchi_overlattice_formula_test_2: For valuation-three rank one, D=1−X+X²−X³ and the negative derivative is 2.
-TauCeti.GeometryOfNumbersPlan.cho_yamauchi_overlattice_formula_test_3: A self-dual L contributes just L with type 0 and polynomial 1.
-
-GeometryOfNumbersAndQuadraticArithmetic:GN.3/siegel-polynomial-functional-equation — Hermitian Siegel polynomial functional equation
-The exact foreign statement context is not yet expressible against the checked Mathlib-only imports: obtain the listed exact-category, completion/adelic, local density, homogeneous, theta or stable Poincaré supplier interfaces. The complete mathematical declaration is retained below; no placeholder condition or carrier is introduced.
-For integral nondegenerate L, D_L(X)=(−X)^{val(L)}D_L(X^−1), interpreted in the Laurent polynomial ring. If val(L) is odd then D_L(1)=0.
-TauCeti.GeometryOfNumbersPlan.siegel_polynomial_functional_equation_test_1: Rank-one D=1−X at valuation 1 satisfies D(X)=−X D(X^−1).
-TauCeti.GeometryOfNumbersPlan.siegel_polynomial_functional_equation_test_2: At valuation 2, D=1−X+X² and D(1)=1, so the odd-valuation vanishing does not extend to even valuation.
-
-GeometryOfNumbersAndQuadraticArithmetic:GN.6/strong-category-duality — Strong duality on a category
-Native construction/statement is prototyped. Source-specific completion, quotient, smoothness or classification hypotheses and arithmetic examples beyond the displayed native context remain mathematical contracts in the reader.
-A strong duality on a category C is a functor D:Cᵒᵖ→C and a natural isomorphism η:Id_C→D D with D(η_X)∘η_{DX}=id_{DX}. This is classical categorical duality, distinct from a stable Poincaré infinity-category.
-TauCeti.GeometryOfNumbersPlan.StrongCategoryDuality [constructor]: The actual contravariant functor, natural isomorphism and coherence equation.
-TauCeti.GeometryOfNumbersPlan.StrongCategoryDuality.dual [projection]: Return D:Cᵒᵖ→C.
-TauCeti.GeometryOfNumbersPlan.StrongCategoryDuality.biddual [projection]: Return the natural double-dual isomorphism.
-TauCeti.GeometryOfNumbersPlan.StrongCategoryDuality.coherence [relation]: D(η_X)η_{DX}=id_{DX}.
-TauCeti.GeometryOfNumbersPlan.strong_category_duality_test_1: Identity double-dual data on a discrete one-object category is a strong duality.
-TauCeti.GeometryOfNumbersPlan.strong_category_duality_test_2: The functor reverses morphism composition.
-TauCeti.GeometryOfNumbersPlan.strong_category_duality_test_3: A natural transformation that is not invertible gives the source’s weak duality, not this strong-duality structure.
-
-GeometryOfNumbersAndQuadraticArithmetic:GN.6/exact-category-duality — Exact category with strong duality
-The exact foreign definition/construction context is not yet expressible against the checked Mathlib-only imports: obtain the listed exact-category, completion/adelic, local density, homogeneous, theta or stable Poincaré supplier interfaces. The complete mathematical declaration is retained below; no placeholder condition or carrier is introduced.
-On an existing TauCeti.ExactStructure on a preadditive category E, equip a strong duality D that is additive and sends each conflation X→Y→Z to the reversed dual conflation DZ→DY→DX. The coefficient sign −η gives the alternating variant when D is additive.
-TauCeti.GeometryOfNumbersPlan.ExactCategoryDuality.ofExactFunctor [constructor]: An additive conflation-exact strong duality on the existing exact category.
-TauCeti.GeometryOfNumbersPlan.ExactCategoryDuality.dualConflation [functoriality]: Reverse a conflation to its dual conflation.
-TauCeti.GeometryOfNumbersPlan.ExactCategoryDuality.signTwist [constructor]: The sign-twisted duality with double dual −η.
-TauCeti.GeometryOfNumbersPlan.exact_category_duality_test_1: Finite projective R-modules with Hom_R(−,R) form the split exact example; arbitrary finite modules need not have invertible biduality.
-TauCeti.GeometryOfNumbersPlan.exact_category_duality_test_2: Over Z the hyperbolic symmetric plane is available without 1/2.
-TauCeti.GeometryOfNumbersPlan.exact_category_duality_test_3: Changing η to −η changes the symmetry equation and does not identify symmetric and quadratic refinements at 2.
-
-GeometryOfNumbersAndQuadraticArithmetic:GN.6/symmetric-space — Nondegenerate symmetric spaces
-Native construction/statement is prototyped. Source-specific completion, quotient, smoothness or classification hypotheses and arithmetic examples beyond the displayed native context remain mathematical contracts in the reader.
-For strong duality (D,η), a symmetric space is (X,φ) with an isomorphism φ:X→DX satisfying D(φ)η_X=φ. A form-preserving map f:X→Y satisfies φ_X=D(f)φ_Y f; an isometry is such a map whose underlying morphism is an isomorphism.
-TauCeti.GeometryOfNumbersPlan.SymmetricSpace [constructor]: Object, pairing isomorphism and typed symmetry equation.
-TauCeti.GeometryOfNumbersPlan.SymmetricSpace.pairing [projection]: The actual map X≅DX.
-TauCeti.GeometryOfNumbersPlan.SymmetricSpace.preserves [characterisation]: Form-preservation is the displayed categorical equation.
-TauCeti.GeometryOfNumbersPlan.SymmetricSpace.preserves_id [simp]: Identity preserves a symmetric space.
-TauCeti.GeometryOfNumbersPlan.SymmetricSpace.preserves_comp [functoriality]: The composite of form-preserving maps preserves the forms.
-TauCeti.GeometryOfNumbersPlan.symmetric_space_test_1: The rank-one pairing xy on Z is nondegenerate; 2xy is separating but not a pairing isomorphism over Z.
-TauCeti.GeometryOfNumbersPlan.symmetric_space_test_2: The identity map preserves every symmetric space.
-TauCeti.GeometryOfNumbersPlan.symmetric_space_test_3: A noninvertible form-preserving map is not called an isometry.
-
-GeometryOfNumbersAndQuadraticArithmetic:GN.6/exact-lagrangian — Admissible Lagrangians
-The exact foreign definition/construction context is not yet expressible against the checked Mathlib-only imports: obtain the listed exact-category, completion/adelic, local density, homogeneous, theta or stable Poincaré supplier interfaces. The complete mathematical declaration is retained below; no placeholder condition or carrier is introduced.
-A Lagrangian of (X,φ) is an admissible inflation i:L→X such that L→X→DL, with second map D(i)φ, is a conflation. Thus L is its own orthogonal, in the actual exact structure. A space is metabolic when a Lagrangian exists.
-TauCeti.GeometryOfNumbersPlan.ExactLagrangian.ofConflation [constructor]: A conflation L→X→DL with the displayed second map.
-TauCeti.GeometryOfNumbersPlan.ExactLagrangian.isotropic [relation]: D(i)φi=0.
-TauCeti.GeometryOfNumbersPlan.ExactLagrangian.mapIsometry [functoriality]: An isometry transports the admissible Lagrangian.
-TauCeti.GeometryOfNumbersPlan.exact_lagrangian_test_1: The first summand of the hyperbolic plane is a Lagrangian.
-TauCeti.GeometryOfNumbersPlan.exact_lagrangian_test_2: 2Z⊂Z is not an admissible summand in the split exact category of projectives.
-TauCeti.GeometryOfNumbersPlan.exact_lagrangian_test_3: An isotropic subobject of too small a rank is not a Lagrangian.
-
-GeometryOfNumbersAndQuadraticArithmetic:GN.6/hyperbolic-space — Hyperbolic symmetric space
-The exact foreign definition/construction context is not yet expressible against the checked Mathlib-only imports: obtain the listed exact-category, completion/adelic, local density, homogeneous, theta or stable Poincaré supplier interfaces. The complete mathematical declaration is retained below; no placeholder condition or carrier is introduced.
-For X in an exact category with duality, H(X) has underlying object X⊕DX and pairing matrix [[0,1],[η_X,0]] to DX⊕DDX, with its actual biproduct identifications. The inclusion of X is an admissible Lagrangian.
-TauCeti.GeometryOfNumbersPlan.hyperbolicSpace [constructor]: The native biproduct with the off-diagonal perfect pairing.
-TauCeti.GeometryOfNumbersPlan.hyperbolicSpace_lagrangian [projection]: The first summand is an admissible Lagrangian.
-TauCeti.GeometryOfNumbersPlan.hyperbolicSpace_sum [compatibility]: Hyperbolic construction carries sums to orthogonal sums.
-TauCeti.GeometryOfNumbersPlan.hyperbolic_space_test_1: Over Z, H(Z) has Gram [[0,1],[1,0]] and is even unimodular.
-TauCeti.GeometryOfNumbersPlan.hyperbolic_space_test_2: H(0) is the zero symmetric space.
-TauCeti.GeometryOfNumbersPlan.hyperbolic_space_test_3: H(X⊕Y) is isometric to H(X)⊥H(Y).
-
-GeometryOfNumbersAndQuadraticArithmetic:GN.6/isotropic-reduction — Isotropic reduction of a symmetric space
-The exact foreign definition/construction context is not yet expressible against the checked Mathlib-only imports: obtain the listed exact-category, completion/adelic, local density, homogeneous, theta or stable Poincaré supplier interfaces. The complete mathematical declaration is retained below; no placeholder condition or carrier is introduced.
-For an admissible totally isotropic L⊂X with L⊂L⊥ also an inflation, there is a unique nondegenerate symmetric form on L⊥/L pulling back to the restricted form.
-TauCeti.GeometryOfNumbersPlan.isotropicReduction [constructor]: The unique induced perfect symmetric quotient form.
-TauCeti.GeometryOfNumbersPlan.isotropicReduction_pullback [characterisation]: Its pullback is the restricted pairing.
-TauCeti.GeometryOfNumbersPlan.isotropicReduction_isometry [functoriality]: An isometry carrying one admissible isotropic subobject to another induces an isometry of their perfect quotient forms.
-TauCeti.GeometryOfNumbersPlan.isotropic_reduction_test_1: For L=0 the quotient is X and X⊥−X is metabolic.
-TauCeti.GeometryOfNumbersPlan.isotropic_reduction_test_2: For a Lagrangian L the quotient L⊥/L is zero.
-TauCeti.GeometryOfNumbersPlan.isotropic_reduction_test_3: For a nonadmissible inclusion the quotient construction cannot be invoked.
-
-GeometryOfNumbersAndQuadraticArithmetic:GN.6/exact-grothendieck-witt-group — Degree-zero Grothendieck–Witt group of an exact category
-The exact foreign definition/construction context is not yet expressible against the checked Mathlib-only imports: obtain the listed exact-category, completion/adelic, local density, homogeneous, theta or stable Poincaré supplier interfaces. The complete mathematical declaration is retained below; no placeholder condition or carrier is introduced.
-GW₀(E) is the group completion of isometry classes of nondegenerate symmetric spaces modulo [M]=[H(L)] for every metabolic M with an admissible Lagrangian L. Orthogonal sum is addition. This extra relation is essential in a nonsplit exact category.
-TauCeti.GeometryOfNumbersPlan.ExactGrothendieckWittGroup [constructor]: The presented additive group.
-TauCeti.GeometryOfNumbersPlan.ExactGrothendieckWittGroup.ofSpace [constructor]: The generator class of a symmetric space.
-TauCeti.GeometryOfNumbersPlan.ExactGrothendieckWittGroup.orthogonalSum [simp]: Orthogonal sum becomes addition.
-TauCeti.GeometryOfNumbersPlan.ExactGrothendieckWittGroup.metabolic [relation]: [M]=[H(L)] for an admissible Lagrangian.
-TauCeti.GeometryOfNumbersPlan.ExactGrothendieckWittGroup.lift [universal-property]: Descend exactly the additive invariants satisfying the metabolic relation.
-TauCeti.GeometryOfNumbersPlan.exact_grothendieck_witt_group_test_1: A metabolic space with Lagrangian L has the same GW class as H(L).
-TauCeti.GeometryOfNumbersPlan.exact_grothendieck_witt_group_test_2: Over a split exact projective category, stable metabolic cancellation yields the usual group completion.
-TauCeti.GeometryOfNumbersPlan.exact_grothendieck_witt_group_test_3: Over Z the symmetric and quadratic-refined group presentations are not conflated.
-
-GeometryOfNumbersAndQuadraticArithmetic:GN.6/exact-witt-group — Witt group of an exact category
-The exact foreign definition/construction context is not yet expressible against the checked Mathlib-only imports: obtain the listed exact-category, completion/adelic, local density, homogeneous, theta or stable Poincaré supplier interfaces. The complete mathematical declaration is retained below; no placeholder condition or carrier is introduced.
+GeometryOfNumbersAndQuadraticArithmetic:GN.6/exact-witt-group
 W0(E) is the orthogonal-sum monoid of symmetric-space isometry classes modulo metabolic spaces, equipped with its abelian group structure: the negative form supplies the inverse, as proved by symmetric-diagonal-lagrangian.
-TauCeti.GeometryOfNumbersPlan.ExactWittGroup [constructor]: The metabolic quotient group.
-TauCeti.GeometryOfNumbersPlan.ExactWittGroup.ofSpace [constructor]: The Witt class of a symmetric space.
-TauCeti.GeometryOfNumbersPlan.ExactWittGroup.metabolic_eq_zero [simp]: Metabolic spaces have zero class.
-TauCeti.GeometryOfNumbersPlan.ExactWittGroup.neg [relation]: Negating the pairing gives the additive inverse.
-TauCeti.GeometryOfNumbersPlan.ExactWittGroup.fieldComparison [compatibility]: For fields in the existing owner’s scope, recover its Witt group.
-TauCeti.GeometryOfNumbersPlan.exact_witt_group_test_1: A hyperbolic plane has zero Witt class.
-TauCeti.GeometryOfNumbersPlan.exact_witt_group_test_2: The inverse of [X,φ] is [X,−φ].
-TauCeti.GeometryOfNumbersPlan.exact_witt_group_test_3: W=GW is false: over R the hyperbolic plane has nonzero rank in GW but zero Witt class.
+Hypothesis: The diagonal Lagrangian proof uses the actual perfect pairing and split exactness of its short sequence.
+TauCeti.GeometryOfNumbersPlan.ExactW0.fieldComparison: For fields in the existing owner’s scope, recover its Witt group.
+Unmatched test contract TauCeti.GeometryOfNumbersPlan.exact_witt_group_test_1: A hyperbolic plane has zero Witt class.
+Unmatched test contract TauCeti.GeometryOfNumbersPlan.exact_witt_group_test_2: The inverse of [X,φ] is [X,−φ].
+Unmatched test contract TauCeti.GeometryOfNumbersPlan.exact_witt_group_test_3: W=GW is false: over R the hyperbolic plane has nonzero rank in GW but zero Witt class.
 
-GeometryOfNumbersAndQuadraticArithmetic:GN.6/hyperbolic-forgetful-relations — Hyperbolic and forgetful maps in degree zero
-The exact foreign statement context is not yet expressible against the checked Mathlib-only imports: obtain the listed exact-category, completion/adelic, local density, homogeneous, theta or stable Poincaré supplier interfaces. The complete mathematical declaration is retained below; no placeholder condition or carrier is introduced.
-The composite of the forgetful and hyperbolic maps is F H=1+D on the exact Grothendieck group: F H([X])=[X]+[DX]. It specializes to multiplication by two only when D acts trivially.
-TauCeti.GeometryOfNumbersPlan.hyperbolic_forgetful_relations_test_1: Over a field with trivial rank-duality action, F H doubles rank.
-TauCeti.GeometryOfNumbersPlan.hyperbolic_forgetful_relations_test_2: The hyperbolic image maps to zero in W₀.
-TauCeti.GeometryOfNumbersPlan.hyperbolic_forgetful_relations_test_3: For a nontrivial K₀ involution, the equation is 1+D and cannot be simplified without proof.
-
-GeometryOfNumbersAndQuadraticArithmetic:GN.6/hermitian-q-construction — Hermitian Q-construction
-The exact foreign definition/construction context is not yet expressible against the checked Mathlib-only imports: obtain the listed exact-category, completion/adelic, local density, homogeneous, theta or stable Poincaré supplier interfaces. The complete mathematical declaration is retained below; no placeholder condition or carrier is introduced.
+GeometryOfNumbersAndQuadraticArithmetic:GN.6/hermitian-q-construction
 Qʰ(E) has symmetric spaces as objects. A morphism X→Y is an isomorphism class of spans X←p U→i Y with p an admissible deflation and i an admissible inflation, satisfying the matching restricted pairings and ker p≅ker(D(i)φ_Y). Equivalently the corresponding pairing square is bicartesian. Composition is the imported Q pullback composition.
-TauCeti.GeometryOfNumbersPlan.HermitianQ [constructor]: The native category of hermitian Q-spans.
-TauCeti.GeometryOfNumbersPlan.HermitianQ.ofSpan [constructor]: A span with its actual bicartesian pairing condition.
-TauCeti.GeometryOfNumbersPlan.HermitianQ.forget [functoriality]: Forget the pairings to the existing Q-construction.
-TauCeti.GeometryOfNumbersPlan.HermitianQ.identity [simp]: Identity is the identity span.
-TauCeti.GeometryOfNumbersPlan.hermitian_q_construction_test_1: A Lagrangian gives a Qʰ path from zero to its metabolic space.
-TauCeti.GeometryOfNumbersPlan.hermitian_q_construction_test_2: The identity span gives the identity morphism.
-TauCeti.GeometryOfNumbersPlan.hermitian_q_construction_test_3: A Q-span with incompatible pairing or wrong kernel is not a hermitian morphism.
+Hypothesis: Use the actual pairing square and exact-category quotient data; not every ordinary Q-span lifts.
+TauCeti.GeometryOfNumbersPlan.HermitianQ.forget: Forget the pairings to the existing Q-construction.
+Unmatched test contract TauCeti.GeometryOfNumbersPlan.hermitian_q_construction_test_1: A Lagrangian gives a Qʰ path from zero to its metabolic space.
+Unmatched test contract TauCeti.GeometryOfNumbersPlan.hermitian_q_construction_test_2: The identity span gives the identity morphism.
+Unmatched test contract TauCeti.GeometryOfNumbersPlan.hermitian_q_construction_test_3: A Q-span with incompatible pairing or wrong kernel is not a hermitian morphism.
 
-GeometryOfNumbersAndQuadraticArithmetic:GN.6/grothendieck-witt-space — Grothendieck–Witt space of an exact category
-The exact foreign definition/construction context is not yet expressible against the checked Mathlib-only imports: obtain the listed exact-category, completion/adelic, local density, homogeneous, theta or stable Poincaré supplier interfaces. The complete mathematical declaration is retained below; no placeholder condition or carrier is introduced.
+GeometryOfNumbersAndQuadraticArithmetic:GN.6/grothendieck-witt-space
 GW(E) is the pointed homotopy fibre over the zero object of |Qʰ(E)|→|Q(E)|.
-TauCeti.GeometryOfNumbersPlan.grothendieckWittSpace [constructor]: The specified pointed homotopy fibre.
-TauCeti.GeometryOfNumbersPlan.grothendieckWittSpace_fibration [relation]: GW(E)→|QʰE|→|QE| is the defining fibre sequence.
-TauCeti.GeometryOfNumbersPlan.grothendieckWittSpace_map [functoriality]: Nonsingular exact form functors induce pointed maps.
-TauCeti.GeometryOfNumbersPlan.grothendieck_witt_space_test_1: The base point is the zero object, not an arbitrary unrecorded form.
-TauCeti.GeometryOfNumbersPlan.grothendieck_witt_space_test_2: For the hyperbolic category HE, GW(HE)≃K(E).
-TauCeti.GeometryOfNumbersPlan.grothendieck_witt_space_test_3: GW_i is a homotopy degree; a four-periodic shifted-duality statement does not say GW_i≅GW_{i+4}.
+Hypothesis: Use actual nerve realization, homotopy fibre and homotopy groups from the topology owners.
+Hypothesis: No assumption 2 is invertible is needed for Schlichting’s exact-category model.
+TauCeti.GeometryOfNumbersPlan.grothendieckWittSpace_fibration: GW(E)→|QʰE|→|QE| is the defining fibre sequence.
+Unmatched test contract TauCeti.GeometryOfNumbersPlan.grothendieck_witt_space_test_1: The base point is the zero object, not an arbitrary unrecorded form.
+Unmatched test contract TauCeti.GeometryOfNumbersPlan.grothendieck_witt_space_test_2: For the hyperbolic category HE, GW(HE)≃K(E).
+Unmatched test contract TauCeti.GeometryOfNumbersPlan.grothendieck_witt_space_test_3: GW_i is a homotopy degree; a four-periodic shifted-duality statement does not say GW_i≅GW_{i+4}.
 
-GeometryOfNumbersAndQuadraticArithmetic:GN.6/grothendieck-witt-space-components — Degree-zero comparison for the GW space
-The exact foreign statement context is not yet expressible against the checked Mathlib-only imports: obtain the listed exact-category, completion/adelic, local density, homogeneous, theta or stable Poincaré supplier interfaces. The complete mathematical declaration is retained below; no placeholder condition or carrier is introduced.
-There is a natural additive isomorphism π₀GW(E)≅GW₀(E) with the previously defined metabolic presentation, compatible with forgetful and hyperbolic maps.
-TauCeti.GeometryOfNumbersPlan.grothendieck_witt_space_components_test_1: The comparison respects the hyperbolic image of an actual exact object.
-TauCeti.GeometryOfNumbersPlan.grothendieck_witt_space_components_test_2: The degree-zero class is the metabolic GW presentation, not just unconstrained free isometry classes.
+GeometryOfNumbersAndQuadraticArithmetic:GN.2/quaternionic-integral-hermitian-data
+An embedded full central-ring lattice L in a right quaternion module is stable under the chosen star-stable quaternion order O. A nondegenerate pairing h has h(xa,yb)=star(a)h(x,y)b and h(y,x)=star(h(x,y)); integrality means h(L,L)⊂O. The right module is represented by the native opposite-ring action and the quaternion algebra and standard involution by an actual algebra-isomorphism model.
+Hypothesis: Characteristic-zero central fraction field, standard-involution quaternion algebra, order full over the central ring, and a right module whose opposite-ring action is compatible with central scalar multiplication. The pairing is perfect on the generic space; integral regularity is an additional condition.
+TauCeti.GeometryOfNumbersPlan.QuaternionicIntegralHermitianLattice.localize: Localize order, lattice and pairing simultaneously.
+Unmatched test contract TauCeti.GeometryOfNumbersPlan.quaternionic_integral_hermitian_data_test_1: For a star-stable quaternion order O, H(x,y)=star(x)y on O satisfies the integral pairing condition.
+Unmatched test contract TauCeti.GeometryOfNumbersPlan.quaternionic_integral_hermitian_data_test_2: Taking reduced trace of H(1,1)=1 gives 2, so reduced-trace metric normalization is a separate comparison.
+Unmatched test contract TauCeti.GeometryOfNumbersPlan.quaternionic_integral_hermitian_data_test_3: Changing the order changes the integral-isometry problem even when the ambient quaternion algebra is unchanged.
 
-GeometryOfNumbersAndQuadraticArithmetic:GN.2/quaternionic-integral-hermitian-data — Quaternionic integral hermitian lattices
-The exact foreign definition/construction context is not yet expressible against the checked Mathlib-only imports: obtain the listed exact-category, completion/adelic, local density, homogeneous, theta or stable Poincaré supplier interfaces. The complete mathematical declaration is retained below; no placeholder condition or carrier is introduced.
-For a quaternion algebra B over a characteristic-not-two number field K, a fixed star-stable R-order O⊂B, a finite right B-module V and nondegenerate hermitian H:V×V→B satisfying H(xa,yb)=star(a)H(x,y)b, specify a full finite R-lattice L stable under right O with H(L,L)⊆O. The integral-isometry and local-genus data retain O, its involution and the hermitian sign.
-TauCeti.GeometryOfNumbersPlan.QuaternionicIntegralHermitianLattice.ofOrderStableCarrier [constructor]: The actual O-stable native R-lattice and quaternionic pairing.
-TauCeti.GeometryOfNumbersPlan.QuaternionicIntegralHermitianLattice.order [projection]: Retain the coefficient order and its involution.
-TauCeti.GeometryOfNumbersPlan.QuaternionicIntegralHermitianLattice.localize [functoriality]: Localize order, lattice and pairing simultaneously.
-TauCeti.GeometryOfNumbersPlan.quaternionic_integral_hermitian_data_test_1: For a star-stable quaternion order O, H(x,y)=star(x)y on O satisfies the integral pairing condition.
-TauCeti.GeometryOfNumbersPlan.quaternionic_integral_hermitian_data_test_2: Taking reduced trace of H(1,1)=1 gives 2, so reduced-trace metric normalization is a separate comparison.
-TauCeti.GeometryOfNumbersPlan.quaternionic_integral_hermitian_data_test_3: Changing the order changes the integral-isometry problem even when the ambient quaternion algebra is unchanged.
-
-GeometryOfNumbersAndQuadraticArithmetic:GN.2/dyadic-atomic-form — Atomic integral quadratic forms over a local PID
-The exact foreign definition/construction context is not yet expressible against the checked Mathlib-only imports: obtain the listed exact-category, completion/adelic, local density, homogeneous, theta or stable Poincaré supplier interfaces. The complete mathematical declaration is retained below; no placeholder condition or carrier is introduced.
-Over a local PID R with valuation v and uniformizer π, an atomic quadratic form is either ⟨a⟩ with a a unit, or, when 2 is not a unit, a binary [a,b,c] satisfying v(b)<v(2a)≤v(2c) and v(a)v(b)=0. These are integral quadratic maps; the polar pairing is not divided by two.
-TauCeti.GeometryOfNumbersPlan.IsAtomicIntegralQuadraticForm [constructor]: The exact unary or dyadic binary valuation predicate.
-TauCeti.GeometryOfNumbersPlan.IsAtomicIntegralQuadraticForm.unary [characterisation]: Unary atomic forms have unit coefficient.
-TauCeti.GeometryOfNumbersPlan.IsAtomicIntegralQuadraticForm.binary [characterisation]: The binary alternative includes 2 nonunit and all valuation inequalities.
-TauCeti.GeometryOfNumbersPlan.dyadic_atomic_form_test_1: Over Z₂ the hyperbolic quadratic form xy is an atomic binary form.
-TauCeti.GeometryOfNumbersPlan.dyadic_atomic_form_test_2: Over a ring with 2 invertible only the rank-one unit alternative occurs.
-TauCeti.GeometryOfNumbersPlan.dyadic_atomic_form_test_3: A field diagonal basis need not be an integral diagonal basis over Z₂.
-
-GeometryOfNumbersAndQuadraticArithmetic:GN.2/integral-normalized-form — Normalized integral quadratic form
-The exact foreign statement context is not yet expressible against the checked Mathlib-only imports: obtain the listed exact-category, completion/adelic, local density, homogeneous, theta or stable Poincaré supplier interfaces. The complete mathematical declaration is retained below; no placeholder condition or carrier is introduced.
-Every finite-projective quadratic form over a local PID has an integral basis giving an orthogonal sum π^{e₁}Q₁⊥…⊥π^{e_s}Q_s of atomic unary/binary forms, with ordered exponents e_i≥0, allowing the zero blocks specified by the source infinity convention. This normalized form is not asserted unique.
-TauCeti.GeometryOfNumbersPlan.integral_normalized_form_test_1: The binary hyperbolic dyadic block cannot be discarded in favour of an unsupported integral diagonalization.
-TauCeti.GeometryOfNumbersPlan.integral_normalized_form_test_2: The zero quadratic map requires the specified zero-block convention.
-
-GeometryOfNumbersAndQuadraticArithmetic:GN.3/definite-integral-isometry-finite — Finite integral isometry stabilizers
-The exact foreign statement context is not yet expressible against the checked Mathlib-only imports: obtain the listed exact-category, completion/adelic, local density, homogeneous, theta or stable Poincaré supplier interfaces. The complete mathematical declaration is retained below; no placeholder condition or carrier is introduced.
-For a full Z-lattice in a positive-definite real Euclidean space, its integral isometry group is finite. For a totally positive number-field quadratic lattice, restriction through all real embeddings gives the corresponding finite stabilizer.
-TauCeti.GeometryOfNumbersPlan.definite_integral_isometry_finite_test_1: For (Z,x²) the isometry group is {±1}, so its mass weight is 1/2.
-TauCeti.GeometryOfNumbersPlan.definite_integral_isometry_finite_test_2: Positive definiteness cannot be dropped: Pell-type indefinite rank-two lattices have infinite stabilizers.
-
-GeometryOfNumbersAndQuadraticArithmetic:GN.3/definite-genus-class-finite — Finiteness of a positive-definite genus class set
-The exact foreign statement context is not yet expressible against the checked Mathlib-only imports: obtain the listed exact-category, completion/adelic, local density, homogeneous, theta or stable Poincaré supplier interfaces. The complete mathematical declaration is retained below; no placeholder condition or carrier is introduced.
-The integral-isometry class set of a fixed positive-definite quadratic genus over Z, and of a fixed totally positive genus over a number ring, is finite.
-TauCeti.GeometryOfNumbersPlan.definite_genus_class_finite_test_1: Infinitely many embedded coordinate changes can represent one integral-isometry class.
-TauCeti.GeometryOfNumbersPlan.definite_genus_class_finite_test_2: The rank-one positive unimodular Z-genus has one class, though its isometry group has two elements.
-
-GeometryOfNumbersAndQuadraticArithmetic:GN.3/genus-mass — Weighted genus mass
-Native construction/statement is prototyped. Source-specific completion, quotient, smoothness or classification hypotheses and arithmetic examples beyond the displayed native context remain mathematical contracts in the reader.
-For a positive-definite genus with its proved finite class set, mass(L)=Σ_[M] 1/|O(M)| as a positive rational number. Proper mass uses proper classes and SO(M) separately; neither is substituted for the other without an index comparison.
-TauCeti.GeometryOfNumbersPlan.genusMass [constructor]: Finite sum of rational reciprocal integral-isometry stabilizer orders.
-TauCeti.GeometryOfNumbersPlan.genusMass_representative [compatibility]: The summand is independent of the chosen representative.
-TauCeti.GeometryOfNumbersPlan.genusMass_singleton [simp]: A singleton class set has mass the reciprocal stabilizer order.
-TauCeti.GeometryOfNumbersPlan.genusMass_pos [relation]: A nonempty finite positive genus has strictly positive mass.
-TauCeti.GeometryOfNumbersPlan.genus_mass_test_1: The rank-one positive unimodular genus has ordinary mass 1/2, not class number 1.
-TauCeti.GeometryOfNumbersPlan.genus_mass_test_2: For proper rank-one classes the stabilizer is trivial and proper mass is 1.
-TauCeti.GeometryOfNumbersPlan.genus_mass_test_3: Changing representatives cannot change the stabilizer cardinality.
-
-GeometryOfNumbersAndQuadraticArithmetic:GN.3/adelic-mass-identity — Adelic weighted mass identity
-The exact foreign statement context is not yet expressible against the checked Mathlib-only imports: obtain the listed exact-category, completion/adelic, local density, homogeneous, theta or stable Poincaré supplier interfaces. The complete mathematical declaration is retained below; no placeholder condition or carrier is introduced.
-Let q be totally positive over a totally real number field, G=SO(q), and K_f the integral stabilizer of a fixed lattice in its finite adelic genus. For compatible product Haar measures with convergent product vol(K_f), proper mass equals vol(G(K)\G(A))/(vol(G(K∞))·vol(K_f)). Every double-coset contribution is the reciprocal order of the proper integral stabilizer.
-TauCeti.GeometryOfNumbersPlan.adelic_mass_identity_test_1: Rescaling one local Haar measure changes the numerator and local factor compatibly.
-TauCeti.GeometryOfNumbersPlan.adelic_mass_identity_test_2: For proper rank-one classes the SO stabilizer is trivial and mass equals class count. A proper class whose stabilizer has order four contributes 1/4; for example SO(Z^2,x^2+y^2) has order four.
-TauCeti.GeometryOfNumbersPlan.adelic_mass_identity_test_3: The numerical constant 2 is not an assumption-free formula for SO of rank 1 or 2.
-
-GeometryOfNumbersAndQuadraticArithmetic:GN.3/theta-lattice-coefficient-interface — Integral lattice theta coefficient interface
-The exact foreign statement context is not yet expressible against the checked Mathlib-only imports: obtain the listed exact-category, completion/adelic, local density, homogeneous, theta or stable Poincaré supplier interfaces. The complete mathematical declaration is retained below; no placeholder condition or carrier is introduced.
-For a positive-definite even integral Z-lattice, the imported convergent theta kernel specializes to the lattice theta series whose coefficient at m is #{x∈L:q(x)=m}, with q(x)=B(x,x)/2. Scalar weight, level and Weil-representation/discriminant conventions are inherited from the theta owner.
-TauCeti.GeometryOfNumbersPlan.theta_lattice_coefficient_interface_test_1: For an even lattice q=B(x,x)/2 is integer valued.
-TauCeti.GeometryOfNumbersPlan.theta_lattice_coefficient_interface_test_2: For an odd rank-one Gram-1 lattice the half-norm is not integral, so its level/exponent conventions require a different specialization.
-
-GeometryOfNumbersAndQuadraticArithmetic:GN.4/davenport-semialgebraic-count — Davenport semialgebraic multiset estimate
-The exact foreign statement context is not yet expressible against the checked Mathlib-only imports: obtain the listed exact-category, completion/adelic, local density, homogeneous, theta or stable Poincaré supplier interfaces. The complete mathematical declaration is retained below; no placeholder condition or carrier is introduced.
-For n≥1, a bounded semialgebraic multiset R⊂R^n with maximum multiplicity m, given by at most k polynomial inequalities of degrees≤ell, and an upper or lower triangular unipotent image R′, the multiplicity-weighted integer count differs from vol(R) by at most C(n,m,k,ell)·max(1,max_{1≤d<n}vol_d(proj_d R)). Projections are coordinate projections of the original region R.
-TauCeti.GeometryOfNumbersPlan.davenport_semialgebraic_count_test_1: For an interval [0,N] with N integral, count−length=1.
-TauCeti.GeometryOfNumbersPlan.davenport_semialgebraic_count_test_2: Counting a region twice multiplies both volume and point count; ignoring multiset multiplicity is wrong.
-TauCeti.GeometryOfNumbersPlan.davenport_semialgebraic_count_test_3: The projection error for a triangular image refers to the original region as in Proposition 2.5.
-
-GeometryOfNumbersAndQuadraticArithmetic:GN.4/howe-moore-mixing — Howe–Moore matrix-coefficient decay
-The exact foreign statement context is not yet expressible against the checked Mathlib-only imports: obtain the listed exact-category, completion/adelic, local density, homogeneous, theta or stable Poincaré supplier interfaces. The complete mathematical declaration is retained below; no placeholder condition or carrier is introduced.
-For a connected noncompact almost-simple real Lie group G with finite centre and a strongly continuous unitary representation on a Hilbert space with no nonzero G-invariant vector, every matrix coefficient tends to 0 as g leaves all compact subsets of G.
-TauCeti.GeometryOfNumbersPlan.howe_moore_mixing_test_1: A constant vector in the full L² quotient space has a nondecaying coefficient; remove constants before applying the theorem.
-TauCeti.GeometryOfNumbersPlan.howe_moore_mixing_test_2: Escaping only one factor of a product does not justify the unqualified product theorem.
-
-GeometryOfNumbersAndQuadraticArithmetic:GN.4/homogeneous-ergodicity — Ergodicity of a noncompact subgroup action
-The exact foreign statement context is not yet expressible against the checked Mathlib-only imports: obtain the listed exact-category, completion/adelic, local density, homogeneous, theta or stable Poincaré supplier interfaces. The complete mathematical declaration is retained below; no placeholder condition or carrier is introduced.
-Let G be connected noncompact almost-simple with finite centre, Γ a lattice and μ the invariant probability measure on G/Γ. Every closed noncompact subgroup H acts ergodically on (G/Γ,μ).
-TauCeti.GeometryOfNumbersPlan.homogeneous_ergodicity_test_1: A compact subgroup does not meet the noncompactness hypothesis.
-TauCeti.GeometryOfNumbersPlan.homogeneous_ergodicity_test_2: For a semisimple product, a lattice quotient with factor-invariant functions requires an irreducibility/factor version instead.
-
-GeometryOfNumbersAndQuadraticArithmetic:GN.4/unipotent-nondivergence — Dani–Margulis recurrence in the lattice space
-The exact foreign statement context is not yet expressible against the checked Mathlib-only imports: obtain the listed exact-category, completion/adelic, local density, homogeneous, theta or stable Poincaré supplier interfaces. The complete mathematical declaration is retained below; no placeholder condition or carrier is introduced.
-For d≥2, X=SL_d(R)/SL_d(Z), a one-parameter unipotent subgroup u_t, x∈X and epsilon>0, there exists a compact K⊂X such that for every T>0, Leb{t∈[0,T]:u_t x∈K}/T≥1−epsilon.
-TauCeti.GeometryOfNumbersPlan.unipotent_nondivergence_test_1: A diagonal flow can diverge and cannot replace the unipotent flow.
-TauCeti.GeometryOfNumbersPlan.unipotent_nondivergence_test_2: The statement controls every T>0 with a compact set containing the necessary initial trajectory segment.
-
-GeometryOfNumbersAndQuadraticArithmetic:GN.4/ratner-orbit-closure — Ratner orbit-closure theorem
-The exact foreign statement context is not yet expressible against the checked Mathlib-only imports: obtain the listed exact-category, completion/adelic, local density, homogeneous, theta or stable Poincaré supplier interfaces. The complete mathematical declaration is retained below; no placeholder condition or carrier is introduced.
-For a connected linear semisimple real Lie group G, a lattice Γ, a connected subgroup U generated by one-parameter unipotent subgroups and x=gΓ, the closure of Ux is Lx for a connected closed subgroup L containing U, with L∩gΓg^−1 a lattice in L.
-TauCeti.GeometryOfNumbersPlan.ratner_orbit_closure_test_1: The orbit closure carries a finite L-invariant measure, not just an unspecified closed set.
-TauCeti.GeometryOfNumbersPlan.ratner_orbit_closure_test_2: Diagonal-flow fractal orbit closures show why the unipotent-generation hypothesis is retained.
-
-GeometryOfNumbersAndQuadraticArithmetic:GN.4/ratner-measure-classification — Ratner invariant-measure classification
-The exact foreign statement context is not yet expressible against the checked Mathlib-only imports: obtain the listed exact-category, completion/adelic, local density, homogeneous, theta or stable Poincaré supplier interfaces. The complete mathematical declaration is retained below; no placeholder condition or carrier is introduced.
-In the preceding homogeneous setting, every ergodic U-invariant probability measure on G/Γ is the unique normalized L-invariant measure on a closed finite-volume orbit Lx for a closed subgroup L containing U.
-TauCeti.GeometryOfNumbersPlan.ratner_measure_classification_test_1: A convex combination of different homogeneous orbit measures need not be ergodic.
-TauCeti.GeometryOfNumbersPlan.ratner_measure_classification_test_2: Replacing probability by an arbitrary infinite invariant measure is outside the statement.
-
-GeometryOfNumbersAndQuadraticArithmetic:GN.4/ratner-unipotent-equidistribution — Equidistribution of a unipotent orbit
-The exact foreign statement context is not yet expressible against the checked Mathlib-only imports: obtain the listed exact-category, completion/adelic, local density, homogeneous, theta or stable Poincaré supplier interfaces. The complete mathematical declaration is retained below; no placeholder condition or carrier is introduced.
-For a one-parameter unipotent flow u_t and x∈G/Γ, there is a closed finite-volume homogeneous orbit Lx containing u_t x and a normalized invariant probability μ_L such that T^−1∫_0^T f(u_t x)dt→∫f dμ_L for every continuous compactly supported f.
-TauCeti.GeometryOfNumbersPlan.ratner_unipotent_equidistribution_test_1: A closed periodic unipotent orbit equidistributes on itself, not on the full quotient.
-TauCeti.GeometryOfNumbersPlan.ratner_unipotent_equidistribution_test_2: The limiting measure has mass 1; vague convergence with escaped mass would not satisfy the statement.
-
-GeometryOfNumbersAndQuadraticArithmetic:GN.4/oppenheim-values — Margulis’s theorem on irrational quadratic values
-Native construction/statement is prototyped. Source-specific completion, quotient, smoothness or classification hypotheses and arithmetic examples beyond the displayed native context remain mathematical contracts in the reader.
-For n≥3, a real nondegenerate indefinite quadratic form q on R^n that is not proportional to a form with rational coefficients has q(Z^n) dense in R.
-TauCeti.GeometryOfNumbersPlan.oppenheim_values_test_1: An integral form has discrete values and is excluded.
-TauCeti.GeometryOfNumbersPlan.oppenheim_values_test_2: Positive-definite forms do not have values dense in all R.
-TauCeti.GeometryOfNumbersPlan.oppenheim_values_test_3: The n=2 form x²−(3+2√2)y² shows why dimension≥3 is required.
-
-GeometryOfNumbersAndQuadraticArithmetic:GN.4/duke-spherical-equidistribution — Duke spherical lattice-point equidistribution
-The exact foreign statement context is not yet expressible against the checked Mathlib-only imports: obtain the listed exact-category, completion/adelic, local density, homogeneous, theta or stable Poincaré supplier interfaces. The complete mathematical declaration is retained below; no placeholder condition or carrier is introduced.
-As n→∞ through positive square-free integers n not congruent to 7 modulo 8, the normalized counting measure on {v/√n:v∈Z³,‖v‖²=n} converges to normalized rotation-invariant surface measure on S².
-TauCeti.GeometryOfNumbersPlan.duke_spherical_equidistribution_test_1: n≡7 mod8 has no three-square representations and is excluded.
-TauCeti.GeometryOfNumbersPlan.duke_spherical_equidistribution_test_2: A measure on primitive representations for nonsquare-free n is a different theorem.
-
-GeometryOfNumbersAndQuadraticArithmetic:GN.4/packing-radius — Euclidean lattice packing radius
-Native construction/statement is prototyped. Source-specific completion, quotient, smoothness or classification hypotheses and arithmetic examples beyond the displayed native context remain mathematical contracts in the reader.
-For a positive-dimensional full Euclidean lattice L, its packing radius is half the attained shortest nonzero norm. In dimension zero set it to zero.
-TauCeti.GeometryOfNumbersPlan.latticePackingRadius [constructor]: Half the attained first Euclidean minimum, zero in rank zero.
-TauCeti.GeometryOfNumbersPlan.latticePackingRadius_eq_half [characterisation]: In positive rank it is half the first Euclidean minimum.
-TauCeti.GeometryOfNumbersPlan.latticePackingRadius_smul [functoriality]: Positive scalar multiplication multiplies the packing radius by that scalar.
-TauCeti.GeometryOfNumbersPlan.packing_radius_test_1: For aZ in R, a>0, the packing radius is a/2.
-TauCeti.GeometryOfNumbersPlan.packing_radius_test_2: For Z² the packing radius is 1/2.
-TauCeti.GeometryOfNumbersPlan.packing_radius_test_3: In dimension zero the packing radius is zero.
-
-GeometryOfNumbersAndQuadraticArithmetic:GN.4/compact-star-body — Compact star bodies from homogeneous gauges
-Native construction/statement is prototyped. Source-specific completion, quotient, smoothness or classification hypotheses and arithmetic examples beyond the displayed native context remain mathematical contracts in the reader.
-A compact star body is specified by a continuous positive homogeneous function p:V→R_{≥0} with p(x)=0 iff x=0, p(t x)=t p(x) for t≥0, and compact unit sublevel K={p≤1}. Convexity is not assumed. Nonzero lattice avoidance and critical determinants use this body, rather than the convex-body API without its hypotheses.
-TauCeti.GeometryOfNumbersPlan.CompactStarBody.ofGauge [constructor]: The actual continuous definite homogeneous gauge and compact unit sublevel.
-TauCeti.GeometryOfNumbersPlan.CompactStarBody.radial [characterisation]: Positive radial scaling is governed by p(tx)=t p(x).
-TauCeti.GeometryOfNumbersPlan.CompactStarBody.admissible [data]: No nonzero lattice point in the interior.
-TauCeti.GeometryOfNumbersPlan.CompactStarBody.convexComparison [compatibility]: When the unit sublevel is convex, compare to the native ConvexBody.
-TauCeti.GeometryOfNumbersPlan.compact_star_body_test_1: The Euclidean norm gives a convex star body.
-TauCeti.GeometryOfNumbersPlan.compact_star_body_test_2: p(x,y)=(√|x|+√|y|)² gives a compact nonconvex star body: (1,0),(0,1) lie in it but their midpoint does not.
-TauCeti.GeometryOfNumbersPlan.compact_star_body_test_3: A gauge vanishing along a nonzero ray fails the stated definiteness/compactness conditions.
-
-GeometryOfNumbersAndQuadraticArithmetic:GN.4/dual-transference-lower — Polar-body transference lower inequality
-The exact foreign statement context is not yet expressible against the checked Mathlib-only imports: obtain the listed exact-category, completion/adelic, local density, homogeneous, theta or stable Poincaré supplier interfaces. The complete mathematical declaration is retained below; no placeholder condition or carrier is introduced.
-For a full real Euclidean lattice L and symmetric convex body K with nonempty interior, λ_i(K,L)·λ_{n+1−i}(K°,L*)≥1 for 1≤i≤n, where K° is the inner-product polar and L* the pairing-integral dual.
-TauCeti.GeometryOfNumbersPlan.dual_transference_lower_test_1: For L=Z^n and K=product_i[-a_i,a_i], a_i>0, the polar is the cross-polytope sum_i a_i|y_i|<=1. The ordered minima of K are sorted reciprocals 1/a_i and those of its polar are sorted a_i, so the oppositely indexed products equal one.
-TauCeti.GeometryOfNumbersPlan.dual_transference_lower_test_2: An arbitrary real pairing has no integer ≥1 floor.
-
-GeometryOfNumbersAndQuadraticArithmetic:GN.4/mahler-compactness — Mahler compactness criterion
-The exact foreign statement context is not yet expressible against the checked Mathlib-only imports: obtain the listed exact-category, completion/adelic, local density, homogeneous, theta or stable Poincaré supplier interfaces. The complete mathematical declaration is retained below; no placeholder condition or carrier is introduced.
-For n≥2 and X_n=SL_n(R)/SL_n(Z), the closed set of covolume-one lattices whose shortest nonzero norm is at least epsilon>0 is compact. A subset is relatively compact iff its first minimum is uniformly bounded below away from zero.
-TauCeti.GeometryOfNumbersPlan.mahler_compactness_test_1: diag(t,t^−1)Z² escapes compact sets as t→∞ because its first minimum tends to 0.
-TauCeti.GeometryOfNumbersPlan.mahler_compactness_test_2: A nonclosed subset with a uniform first-minimum bound is relatively compact, but need not be compact.
-
-GeometryOfNumbersAndQuadraticArithmetic:GN.4/siegel-mean-value — Siegel lattice mean-value theorem
-The exact foreign statement context is not yet expressible against the checked Mathlib-only imports: obtain the listed exact-category, completion/adelic, local density, homogeneous, theta or stable Poincaré supplier interfaces. The complete mathematical declaration is retained below; no placeholder condition or carrier is introduced.
-For n≥2, invariant probability μ on X_n=SL_n(R)/SL_n(Z), and integrable f:R^n→R, its lattice transform Σ_{v∈L\{0}}f(v) is integrable on X_n and its μ-integral equals the Lebesgue integral of f. For nonnegative measurable f the Tonelli version permits infinity.
-TauCeti.GeometryOfNumbersPlan.siegel_mean_value_test_1: Including v=0 adds f(0) and changes the formula.
-TauCeti.GeometryOfNumbersPlan.siegel_mean_value_test_2: In dimension one the single lattice Z does not give the Lebesgue mean-value formula.
-
-GeometryOfNumbersAndQuadraticArithmetic:GN.4/construction-a-real-lattice-interface — Construction A real-lattice comparison
-The exact foreign statement context is not yet expressible against the checked Mathlib-only imports: obtain the listed exact-category, completion/adelic, local density, homogeneous, theta or stable Poincaré supplier interfaces. The complete mathematical declaration is retained below; no placeholder condition or carrier is introduced.
-For a linear code C⊂F_p^n, import the completed Construction A lattice and identify its unscaled real realization {x∈Z^n:x mod p∈C} with covolume p^{n−dim C}. The rescaled realization p^−1/2L has covolume p^{n/2−dim C}; unimodularity/integrality/evenness require the supplier’s exact self-duality and parity hypotheses.
-TauCeti.GeometryOfNumbersPlan.construction_a_real_lattice_interface_test_1: For the zero code, the unscaled lattice is pZ^n and has covolume p^n.
-TauCeti.GeometryOfNumbersPlan.construction_a_real_lattice_interface_test_2: For the whole code it is Z^n with covolume 1.
-
-GeometryOfNumbersAndQuadraticArithmetic:GN.6/dedekind-residue-duality-line — Canonical residue duality coefficient
-The exact foreign statement context is not yet expressible against the checked Mathlib-only imports: obtain the listed exact-category, completion/adelic, local density, homogeneous, theta or stable Poincaré supplier interfaces. The complete mathematical declaration is retained below; no placeholder condition or carrier is introduced.
-For a Dedekind ring R, nonzero prime p and line bundle M with involution, the right adjoint residue dual coefficient RHom_R(R/p,M) is canonically (p^−1M/M)[−1]. A choice of uniformizer identifies p^−1M/M with M/pM; this last identification is not canonically natural under ramified base change.
-TauCeti.GeometryOfNumbersPlan.dedekind_residue_duality_line_test_1: The residue term has a −1 duality shift, not degree zero.
-TauCeti.GeometryOfNumbersPlan.dedekind_residue_duality_line_test_2: For Z→Z[i] at 2, the integer 2 does not become a uniformizer at (1+i), so the naive residue-field identity is not the induced map.
-
-GeometryOfNumbersAndQuadraticArithmetic:GN.6/dedekind-symmetric-localization — Symmetric Grothendieck–Witt localization for Dedekind rings
-The exact foreign statement context is not yet expressible against the checked Mathlib-only imports: obtain the listed exact-category, completion/adelic, local density, homogeneous, theta or stable Poincaré supplier interfaces. The complete mathematical declaration is retained below; no placeholder condition or carrier is introduced.
-For R,M as above, a set S of nonzero primes and every duality shift r, there is a canonical fibre sequence ⊕_{p∈S}GW(R/p;Q^s_{RHom_R(R/p,M)}[r])→GW(R;Q^s_M[r])→GW(R_S;Q^s_{M_S}[r]). With chosen uniformizers the left coefficient is (M/pM)[r−1].
-TauCeti.GeometryOfNumbersPlan.dedekind_symmetric_localization_test_1: The left shift is r−1 after a uniformizer choice.
-TauCeti.GeometryOfNumbersPlan.dedekind_symmetric_localization_test_2: Quadratic L-theory at the prime 2 cannot simply replace symmetric L-theory in this sequence.
-
-GeometryOfNumbersAndQuadraticArithmetic:GN.6/schlichting-filtering-localization — Hermitian filtering localization
-The exact foreign statement context is not yet expressible against the checked Mathlib-only imports: obtain the listed exact-category, completion/adelic, local density, homogeneous, theta or stable Poincaré supplier interfaces. The complete mathematical declaration is retained below; no placeholder condition or carrier is introduced.
-For a duality-preserving s-filtering inclusion A⊂U of exact categories with strong duality, with A idempotent complete, |QʰA|→|QʰU|→|Qʰ(U/A)| is a pointed homotopy fibre sequence over zero.
-TauCeti.GeometryOfNumbersPlan.schlichting_filtering_localization_test_1: A fully exact inclusion without the four s-filtering conditions is not enough.
-TauCeti.GeometryOfNumbersPlan.schlichting_filtering_localization_test_2: Idempotent completeness of A is an explicit hypothesis.
-
-GeometryOfNumbersAndQuadraticArithmetic:GN.6/shifted-karoubi-periodicity — Source-scoped shifted Karoubi periodicity
-The exact foreign statement context is not yet expressible against the checked Mathlib-only imports: obtain the listed exact-category, completion/adelic, local density, homogeneous, theta or stable Poincaré supplier interfaces. The complete mathematical declaration is retained below; no placeholder condition or carrier is introduced.
-For a dg category with weak equivalences and duality whose mapping complexes are uniquely 2-divisible, the shifted classical GW spectra satisfy GW^[r+4](A) equivalent to GW^[r](A). This shifts the duality index, not the higher homotopy degree.
-TauCeti.GeometryOfNumbersPlan.shifted_karoubi_periodicity_test_1: The equality relates shift r with r+4 while keeping homotopy degree fixed.
-TauCeti.GeometryOfNumbersPlan.shifted_karoubi_periodicity_test_2: The hypothesis 2 invertible cannot be removed by citing the characteristic-free exact-category definitions.
-
-GeometryOfNumbersAndQuadraticArithmetic:GN.6/number-ring-homotopy-limit — Number-ring homotopy-limit comparison
-The exact foreign statement context is not yet expressible against the checked Mathlib-only imports: obtain the listed exact-category, completion/adelic, local density, homogeneous, theta or stable Poincaré supplier interfaces. The complete mathematical declaration is retained below; no placeholder condition or carrier is introduced.
-For a Dedekind ring R whose fraction field is a number field, a line bundle M with involution ±1 and any duality shift r, GW(R;Q^s_M[r])→K(R;Q^s_M[r])^{hC₂} is a 2-adic equivalence. Its classical symmetric connective-cover specialization is an equivalence in nonnegative degrees after 2-completion.
-TauCeti.GeometryOfNumbersPlan.number_ring_homotopy_limit_test_1: A number ring with real places requires 2-completion; the rational signature contribution prevents the unqualified integral statement.
-TauCeti.GeometryOfNumbersPlan.number_ring_homotopy_limit_test_2: Classical connective groups give the nonnegative-degree specialization.
-
-GeometryOfNumbersAndQuadraticArithmetic:GN.6/number-ring-invert-two-comparison — Berrick–Karoubi comparison after inverting two
-The exact foreign statement context is not yet expressible against the checked Mathlib-only imports: obtain the listed exact-category, completion/adelic, local density, homogeneous, theta or stable Poincaré supplier interfaces. The complete mathematical declaration is retained below; no placeholder condition or carrier is introduced.
-For a Dedekind ring R with number-field fraction field and epsilon=±1, GW^s(R;epsilon)→GW^s(R[1/2];epsilon) is a 2-local equivalence on connected covers, hence in strictly positive homotopy degrees, and is injective in degree zero.
-TauCeti.GeometryOfNumbersPlan.number_ring_invert_two_comparison_test_1: The map on π₀ is injective; it need not be surjective.
-TauCeti.GeometryOfNumbersPlan.number_ring_invert_two_comparison_test_2: The theorem compares R with R[1/2], not GW with ordinary K without duality.
-
-GeometryOfNumbersAndQuadraticArithmetic:GN.4/covering-radius — Euclidean lattice covering radius
-Native construction/statement is prototyped. Source-specific completion, quotient, smoothness or classification hypotheses and arithmetic examples beyond the displayed native context remain mathematical contracts in the reader.
-For a full Euclidean lattice L, μ(L)=sup_x inf_{v∈L} ‖x−v‖. It is the maximum of the continuous periodic distance-to-L function on the compact quotient; dimension zero gives zero.
-TauCeti.GeometryOfNumbersPlan.latticeCoveringRadius [constructor]: Supremum of the native distance-to-lattice function.
-TauCeti.GeometryOfNumbersPlan.latticeCoveringRadius_attained [relation]: A point in a compact fundamental domain attains the radius.
-TauCeti.GeometryOfNumbersPlan.latticeCoveringRadius_smul [functoriality]: Positive scalar multiplication multiplies μ by the same scalar.
-TauCeti.GeometryOfNumbersPlan.covering_radius_test_1: For aZ in R with a>0, μ=a/2.
-TauCeti.GeometryOfNumbersPlan.covering_radius_test_2: For Z², μ=√2/2, larger than its packing radius 1/2.
-TauCeti.GeometryOfNumbersPlan.covering_radius_test_3: In dimension zero μ=0; a non-full-rank subgroup in positive dimension can have infinite ambient covering radius.
-
-GeometryOfNumbersAndQuadraticArithmetic:GN.4/dual-transference-upper — Euclidean successive-minima transference
-Native construction/statement is prototyped. Source-specific completion, quotient, smoothness or classification hypotheses and arithmetic examples beyond the displayed native context remain mathematical contracts in the reader.
-For a full rank-n Euclidean lattice L, n≥1, and 1≤i≤n, λ_i(L)λ_(n+1−i)(L*)≤n, where L* is defined by integral inner products and both bodies are the Euclidean unit ball.
-TauCeti.GeometryOfNumbersPlan.dual_transference_upper_test_1: For aZ in R, the product is one.
-TauCeti.GeometryOfNumbersPlan.dual_transference_upper_test_2: For Zⁿ, each product is one and is at most n.
-TauCeti.GeometryOfNumbersPlan.dual_transference_upper_test_3: In dimension one every full lattice has paired Euclidean minima product one, attaining the upper bound n=1.
-
-GeometryOfNumbersAndQuadraticArithmetic:GN.4/covering-dual-transference — Covering radius and reciprocal shortest vector
-Native construction/statement is prototyped. Source-specific completion, quotient, smoothness or classification hypotheses and arithmetic examples beyond the displayed native context remain mathematical contracts in the reader.
-For a full rank-n Euclidean lattice L, n≥1, 1/2≤μ(L)λ_1(L*)≤n. This pass chooses Regev’s weaker uniform upper constant n; it does not claim that the scanned original proof of the sharper n/2 bound has been checked.
-TauCeti.GeometryOfNumbersPlan.covering_dual_transference_test_1: For aZ in R the product is 1/2.
-TauCeti.GeometryOfNumbersPlan.covering_dual_transference_test_2: For Zⁿ the product is √n/2.
-TauCeti.GeometryOfNumbersPlan.covering_dual_transference_test_3: An asymptotic 0.1275+o(1) constant from Aggarwal–Stephens-Davidowitz is not a uniform small-rank constant.
-
-GeometryOfNumbersAndQuadraticArithmetic:GN.3/maximal-integral-mass-formula — Mass formula for maximal integral lattices
-The exact foreign statement context is not yet expressible against the checked Mathlib-only imports: obtain the listed exact-category, completion/adelic, local density, homogeneous, theta or stable Poincaré supplier interfaces. The complete mathematical declaration is retained below; no placeholder condition or carrier is introduced.
-Let K be totally real of degree d≥2, Q a totally positive nondegenerate m-dimensional form, m≥3, and Λ the genus of maximal integral O_K-lattices. With ordinary O-isometry mass, r=floor(m/2), G=SO(Q), 2 mass(Λ)=2 γ_G^d |disc K|^(dim G/2) L(G) ∏_p λ_p(Q). Here dim G=r(2r−(−1)^m); γ_G=∏_(i=1)^r(2i−1)!/(2π)^(r(r+1)) for odd m and (r−1)!∏_(i=1)^(r−1)(2i−1)!/(2π)^(r²) for even m. L(G)=∏_(i=1)^r ζ_K(2i) for odd m; ζ_K(r)∏_(i=1)^(r−1)ζ_K(2i) for even m with square discriminant; otherwise [ζ_E(r)/ζ_K(r)] N(d_E/K)^(r−1/2)∏_(i=1)^(r−1)ζ_K(2i), E=K(√disc Q). The local λ_p are exactly the table in Definition 3.1, not the hermitian normalized density polynomial of GN.3.
-TauCeti.GeometryOfNumbersPlan.maximal_integral_mass_formula_test_1: Class number one implies mass=1/|Aut L|; it is not an unweighted class count.
-TauCeti.GeometryOfNumbersPlan.maximal_integral_mass_formula_test_2: The formula is restricted to m≥3; binary zeta-at-one substitution is excluded.
-TauCeti.GeometryOfNumbersPlan.maximal_integral_mass_formula_test_3: A dyadic exceptional factor is retained rather than set to one.
-
-GeometryOfNumbersAndQuadraticArithmetic:GN.6/higher-grothendieck-witt-groups — Higher Grothendieck–Witt groups
-The exact foreign definition/construction context is not yet expressible against the checked Mathlib-only imports: obtain the listed exact-category, completion/adelic, local density, homogeneous, theta or stable Poincaré supplier interfaces. The complete mathematical declaration is retained below; no placeholder condition or carrier is introduced.
-For i≥0, GW_i(E)=π_i of the pointed Grothendieck–Witt fibre space; in degree zero use its canonical abelian H-space component group, not a shifted-duality index.
-TauCeti.GeometryOfNumbersPlan.higherGrothendieckWittGroup [constructor]: Pointed homotopy group of the Grothendieck–Witt fibre.
-TauCeti.GeometryOfNumbersPlan.higherGrothendieckWittGroup_map [functoriality]: Nonsingular exact form functors induce group maps.
-TauCeti.GeometryOfNumbersPlan.higherGrothendieckWittGroup_zero [compatibility]: The component group agrees with exact-category GW_0.
-TauCeti.GeometryOfNumbersPlan.higher_grothendieck_witt_groups_test_1: GW_0 agrees with the exact presentation, including metabolic relations.
-TauCeti.GeometryOfNumbersPlan.higher_grothendieck_witt_groups_test_2: For HE the higher groups agree with ordinary K_i(E).
-TauCeti.GeometryOfNumbersPlan.higher_grothendieck_witt_groups_test_3: Four-periodicity of duality shifts does not imply four-periodicity of i.
-
-GeometryOfNumbersAndQuadraticArithmetic:GN.6/hermitian-suspension — Hermitian suspension of an exact category
-The exact foreign definition/construction context is not yet expressible against the checked Mathlib-only imports: obtain the listed exact-category, completion/adelic, local density, homogeneous, theta or stable Poincaré supplier interfaces. The complete mathematical declaration is retained below; no placeholder condition or carrier is introduced.
+GeometryOfNumbersAndQuadraticArithmetic:GN.6/hermitian-suspension
 For idempotent-complete exact E with strong exact duality, S_h E=C(E,E)/E is Schlichting's hermitian suspension, the actual filtering exact quotient of the diagram cone, equipped with its induced strong exact duality.
-TauCeti.GeometryOfNumbersPlan.hermitianSuspension [constructor]: The specified exact quotient with induced strong duality.
-TauCeti.GeometryOfNumbersPlan.hermitianSuspension_map [functoriality]: Compatible exact form functors induce suspension form functors.
-TauCeti.GeometryOfNumbersPlan.hermitianSuspension_duality [compatibility]: The quotient form functor from the cone intertwines the induced suspension duality with the cone duality.
-TauCeti.GeometryOfNumbersPlan.hermitian_suspension_test_1: The cone GW space is contractible by id⊥T≅T.
-TauCeti.GeometryOfNumbersPlan.hermitian_suspension_test_2: The quotient is by the embedded E and retains exact duality.
-TauCeti.GeometryOfNumbersPlan.hermitian_suspension_test_3: No ordinary K carrier is asserted to equal this hermitian suspension.
+Hypothesis: C(E,E) is the filtered diagram/cone category of §9, not a ring of dummy symbols.
+Hypothesis: Do not replace a hermitian cone by the ordinary K-theory cone without a duality comparison.
+TauCeti.GeometryOfNumbersPlan.hermitianSuspension: The specified exact quotient with induced strong duality.
+TauCeti.GeometryOfNumbersPlan.hermitianSuspension_map: Compatible exact form functors induce suspension form functors.
+TauCeti.GeometryOfNumbersPlan.hermitianSuspension_duality: The quotient form functor from the cone intertwines the induced suspension duality with the cone duality.
+Unmatched test contract TauCeti.GeometryOfNumbersPlan.hermitian_suspension_test_1: The cone GW space is contractible by id⊥T≅T.
+Unmatched test contract TauCeti.GeometryOfNumbersPlan.hermitian_suspension_test_2: The quotient is by the embedded E and retains exact duality.
+Unmatched test contract TauCeti.GeometryOfNumbersPlan.hermitian_suspension_test_3: Every constant diagram from E has zero image in the filtering quotient C(E,E)/E.
 
-GeometryOfNumbersAndQuadraticArithmetic:GN.6/hermitian-suspension-delooping — Hermitian suspension delooping
-The exact foreign statement context is not yet expressible against the checked Mathlib-only imports: obtain the listed exact-category, completion/adelic, local density, homogeneous, theta or stable Poincaré supplier interfaces. The complete mathematical declaration is retained below; no placeholder condition or carrier is introduced.
-For idempotent-complete exact E with strong exact duality, GW(E) is equivalent to Omega GW(S_h E).
-TauCeti.GeometryOfNumbersPlan.hermitian_suspension_delooping_test_1: Idempotent completion is explicitly retained before iteration.
-TauCeti.GeometryOfNumbersPlan.hermitian_suspension_delooping_test_2: The analogous Ω|Qʰ(S_h E)| completion map is not always a π_0 isomorphism.
-
-GeometryOfNumbersAndQuadraticArithmetic:GN.6/nonconnective-hermitian-spectrum — Nonconnective hermitian spectrum
-The exact foreign definition/construction context is not yet expressible against the checked Mathlib-only imports: obtain the listed exact-category, completion/adelic, local density, homogeneous, theta or stable Poincaré supplier interfaces. The complete mathematical declaration is retained below; no placeholder condition or carrier is introduced.
+GeometryOfNumbersAndQuadraticArithmetic:GN.6/nonconnective-hermitian-spectrum
 Iterating idempotent-completed hermitian suspension gives the Omega-spectrum with levels GW(E), GW(completion(S_h E)), GW(completion(S_h^2 E)), and so on, and structure equivalences induced by hermitian delooping. Its homotopy groups in all integer degrees are the nonconnective hermitian groups.
-TauCeti.GeometryOfNumbersPlan.nonconnectiveHermitianSpectrum [constructor]: The completed hermitian-suspension Ω-spectrum.
-TauCeti.GeometryOfNumbersPlan.nonconnectiveHermitianSpectrum_loop [relation]: Each adjacent structure map is a loop equivalence.
-TauCeti.GeometryOfNumbersPlan.nonconnectiveHermitianSpectrum_homotopy [characterisation]: The homotopy group in any integer degree is the corresponding nonconnective hermitian group, with the fixed suspension convention.
-TauCeti.GeometryOfNumbersPlan.nonconnective_hermitian_spectrum_test_1: Degree-zero recovery does not require this construction.
-TauCeti.GeometryOfNumbersPlan.nonconnective_hermitian_spectrum_test_2: For HE negative groups recover nonconnective K groups.
-TauCeti.GeometryOfNumbersPlan.nonconnective_hermitian_spectrum_test_3: Qʰ-only levels can fail the Ω-spectrum condition when negative K groups are nonzero.
+Hypothesis: Keep hermitian structure maps and all idempotent completions.
+Hypothesis: The sequence of |Qʰ(˜S_hⁿ E)| spaces alone is generally not an Ω-spectrum.
+TauCeti.GeometryOfNumbersPlan.nonconnectiveHermitianSpectrum: The completed hermitian-suspension Ω-spectrum.
+TauCeti.GeometryOfNumbersPlan.nonconnectiveHermitianSpectrum_loop: Each adjacent structure map is a loop equivalence.
+TauCeti.GeometryOfNumbersPlan.nonconnectiveHermitianSpectrum_homotopy: The homotopy group in any integer degree is the corresponding nonconnective hermitian group, with the fixed suspension convention.
+Unmatched test contract TauCeti.GeometryOfNumbersPlan.nonconnective_hermitian_spectrum_test_1: For the zero exact category, all integer-degree nonconnective hermitian groups are zero.
+Unmatched test contract TauCeti.GeometryOfNumbersPlan.nonconnective_hermitian_spectrum_test_2: For HE negative groups recover nonconnective K groups.
+Unmatched test contract TauCeti.GeometryOfNumbersPlan.nonconnective_hermitian_spectrum_test_3: If an exact category has nonzero negative K group, its hyperbolic Qh-only tower fails an adjacent loop equivalence; replacing the fibre levels by Qh levels loses that group.
 
-GeometryOfNumbersAndQuadraticArithmetic:GN.0/mixed-embedding-normalization — Mixed embedding covolume normalization
-Native construction/statement is prototyped. Source-specific completion, quotient, smoothness or classification hypotheses and arithmetic examples beyond the displayed native context remain mathematical contracts in the reader.
-For a number field K and an invertible fractional O_K-ideal I, use the existing mixed real/complex embedding and its real Haar measure. Its lattice covolume is absNorm(I)·2^(−r₂)·√|disc K|, and its real ambient dimension is [K:Q]. A complex coordinate contributes two real dimensions; replacing the metric or embedding coordinates requires the actual real determinant factor.
-TauCeti.GeometryOfNumbersPlan.mixed_embedding_normalization_test_1: The complex-place factor is 2^(-r₂), not 2^(r₂).
-TauCeti.GeometryOfNumbersPlan.mixed_embedding_normalization_test_2: Real dimension is r₁+2r₂, not r₁+r₂.
-
-GeometryOfNumbersAndQuadraticArithmetic:GN.1/blichfeldt-native-interface — Blichfeldt native interface
-The native statement is prototyped using actual fundamental-domain and original-lattice hypotheses. Other source-specific forms and examples retain their explicit refinement obligations.
-Under the pinned countable additive action, invariant measure and actual fundamental-domain hypotheses, a null-measurable S with μ(F)<μ(S) has two distinct lattice translates that intersect. For a subgroup acting by translations this gives distinct points of S whose difference is a nonzero lattice element.
-TauCeti.GeometryOfNumbersPlan.blichfeldt_native_interface_test_1: The strict volume comparison is retained.
-TauCeti.GeometryOfNumbersPlan.blichfeldt_native_interface_test_2: Two distinct lattice translations produce a nonzero difference.
-
-GeometryOfNumbersAndQuadraticArithmetic:GN.1/minkowski-first-native-interface — Minkowski first theorem boundary interface
-The native statement is prototyped using actual fundamental-domain and original-lattice hypotheses. Other source-specific forms and examples retain their explicit refinement obligations.
-For a countable additive lattice subgroup L of a finite-dimensional real normed space, a convex symmetric set S with μ(F)·2^dim<μ(S) contains a nonzero lattice point. For a compact S and discrete L, in a nontrivial ambient space, the non-strict ≥ threshold suffices. Dimension zero does not satisfy the compact theorem’s nontrivial-space hypothesis.
-TauCeti.GeometryOfNumbersPlan.minkowski_first_native_interface_test_1: For Z in R and S=[−1,1], the non-strict theorem finds ±1.
-TauCeti.GeometryOfNumbersPlan.minkowski_first_native_interface_test_2: The open interval (−1,1) at equality cannot use the compact variant.
-TauCeti.GeometryOfNumbersPlan.minkowski_first_native_interface_test_3: No nonzero vector is asserted in zero dimension.
-
-GeometryOfNumbersAndQuadraticArithmetic:GN.1/ideal-class-application-import — Bounded ideal-class representatives
-Native construction/statement is prototyped. Source-specific completion, quotient, smoothness or classification hypotheses and arithmetic examples beyond the displayed native context remain mathematical contracts in the reader.
-For a number field K of degree d, every ideal class of O_K has a nonzero integral representative I with N(I)≤(4/π)^r₂·d!/d^d·√|disc K|. The ideal class group is already finite in Mathlib. Geometry supplies this bound; no new class-group carrier is planned here.
-TauCeti.GeometryOfNumbersPlan.ideal_class_application_import_test_1: The representative is nonzero integral, not an arbitrary fractional-ideal placeholder.
-TauCeti.GeometryOfNumbersPlan.ideal_class_application_import_test_2: The factor d!/d^d and complex-place factor are retained.
-
-GeometryOfNumbersAndQuadraticArithmetic:GN.1/unit-application-import — Dirichlet unit rank import
-Native construction/statement is prototyped. Source-specific completion, quotient, smoothness or classification hypotheses and arithmetic examples beyond the displayed native context remain mathematical contracts in the reader.
-The native quotient of O_K^× by its torsion subgroup is a finitely generated free abelian group of rank r₁+r₂−1; use the existing NumberField.Units Dirichlet API, not a new logarithmic unit lattice carrier.
-TauCeti.GeometryOfNumbersPlan.unit_application_import_test_1: For Q the unit rank is zero.
-TauCeti.GeometryOfNumbersPlan.unit_application_import_test_2: A complex place contributes one logarithmic unit coordinate even though it contributes two real embedding dimensions.
-
-GeometryOfNumbersAndQuadraticArithmetic:GN.3/empty-generic-density-zero — Eventually empty integral representation counts
-Reviewer-added declaration: obtain the actual supplier context and write the precise signature; the checked mathematical statement is retained below.
-For complete discrete valuation fields in the stated unramified hermitian setting, if the generic representation scheme Rep(M,L)(F0) is empty, there is N0 such that every integral Gram representation count modulo pi^N is zero for N>=N0. Consequently every fixed-power normalized count is eventually zero and its limit is zero.
-TauCeti.GeometryOfNumbersPlan.empty_generic_density_zero_test: For a rank-one target of norm 1 and source of norm pi, reduction modulo pi has a zero-vector solution, while modulo pi^2 no solution can have norm of valuation one. Generic emptiness implies eventual zero, not zero at every finite level.
-
-GeometryOfNumbersAndQuadraticArithmetic:GN.2/lattice-inclusion-localizations — Integral lattice inclusion detected locally
-Reviewer-added declaration: obtain the actual supplier context and write the precise signature; the checked mathematical statement is retained below.
-For full R-lattices L,M in a fixed fraction-field K-space over a Dedekind domain, L is contained in M iff L_(p) is contained in M_(p) for every maximal ideal p.
-
-GeometryOfNumbersAndQuadraticArithmetic:GN.6/isotropic-reduction-metabolic — Metabolic comparison for isotropic reduction
-Reviewer-added declaration: obtain the actual supplier context and write the precise signature; the checked mathematical statement is retained below.
-For the admissible isotropic subobject L and induced perfect quotient form of isotropic-reduction, X orthogonally summed with the negative quotient form is metabolic, with admissible Lagrangian L-perp mapped by inclusion and quotient.
-
-GeometryOfNumbersAndQuadraticArithmetic:GN.6/symmetric-diagonal-lagrangian — Diagonal Lagrangian for opposite forms
-Reviewer-added declaration: obtain the actual supplier context and write the precise signature; the checked mathematical statement is retained below.
-For a symmetric space X in an exact category with strong exact duality, the diagonal X into X orthogonally summed with -X is an admissible Lagrangian.
-
-GeometryOfNumbersAndQuadraticArithmetic:GN.6/grothendieck-witt-forgetful-map — Forgetful map on Grothendieck–Witt groups
-Reviewer-added declaration: obtain the actual supplier context and write the precise signature; the checked mathematical statement is retained below.
-For a small exact category E with strong exact duality, the underlying-object assignment induces the group homomorphism F:GW0(E)->K0(E).
-TauCeti.GeometryOfNumbersPlan.grothendieckWittForgetful [constructor]: The underlying-object group homomorphism.
-TauCeti.GeometryOfNumbersPlan.grothendieckWittForgetful_ofSpace [simp]: F([X,phi])=[X].
-TauCeti.GeometryOfNumbersPlan.grothendieckWittForgetful_natural [functoriality]: Commutes with exact form functors and their underlying exact functors.
-TauCeti.GeometryOfNumbersPlan.grothendieck_witt_forgetful_test_1: F of the zero space is zero.
-TauCeti.GeometryOfNumbersPlan.grothendieck_witt_forgetful_test_2: Over a field, a nonsingular one-dimensional form has underlying K0 rank one.
-TauCeti.GeometryOfNumbersPlan.grothendieck_witt_forgetful_test_3: F of a metabolic space with Lagrangian L is [L]+[DL].
-
-GeometryOfNumbersAndQuadraticArithmetic:GN.6/grothendieck-witt-hyperbolic-map — Hyperbolic map from the exact Grothendieck group
-Reviewer-added declaration: obtain the actual supplier context and write the precise signature; the checked mathematical statement is retained below.
-For a small exact category E with strong exact duality, X maps to H(X) and induces a group homomorphism H:K0(E)->GW0(E).
-TauCeti.GeometryOfNumbersPlan.grothendieckWittHyperbolic [constructor]: The hyperbolic group homomorphism.
-TauCeti.GeometryOfNumbersPlan.grothendieckWittHyperbolic_ofObject [simp]: H([X])=[H(X)].
-TauCeti.GeometryOfNumbersPlan.grothendieckWittHyperbolic_natural [functoriality]: Commutes with nonsingular exact form functors.
-TauCeti.GeometryOfNumbersPlan.grothendieck_witt_hyperbolic_test_1: H(0)=0.
-TauCeti.GeometryOfNumbersPlan.grothendieck_witt_hyperbolic_test_2: Over a field the underlying rank of H of a rank-one class is two.
-TauCeti.GeometryOfNumbersPlan.grothendieck_witt_hyperbolic_test_3: For each exact conflation X->Y->Z, H([Y])=H([X])+H([Z]).
-
-GeometryOfNumbersAndQuadraticArithmetic:GN.6/witt-hyperbolic-cokernel — Witt group as the hyperbolic cokernel
-Reviewer-added declaration: obtain the actual supplier context and write the precise signature; the checked mathematical statement is retained below.
-For a small exact category with strong exact duality, K0(E) --H--> GW0(E) -> W0(E) -> 0 is exact.
-
-GeometryOfNumbersAndQuadraticArithmetic:GN.6/classical-dg-bott-triangle — Classical hermitian Bott triangle
-Reviewer-added declaration: obtain the actual supplier context and write the precise signature; the checked mathematical statement is retained below.
-For the uniquely 2-divisible dg category with weak equivalences and duality in Schlichting Theorem 6.1, GW^[r](A) -> K(A) -> GW^[r+1](A) -> Sigma GW^[r](A) is an exact triangle, with forgetful and hyperbolic maps.
-
-GeometryOfNumbersAndQuadraticArithmetic:GN.6/hermitian-cone-category — Hermitian cone category
-Reviewer-added declaration: obtain the actual supplier context and write the precise signature; the checked mathematical statement is retained below.
-For the small exact category E with strong exact duality, C(E,E) is the exact diagram category of Schlichting section 9.1, localized at its specified shift morphisms, with induced strong exact duality and its embedded copy of E.
-TauCeti.GeometryOfNumbersPlan.hermitianCone [constructor]: The diagram cone category with exact structure and strong duality.
-TauCeti.GeometryOfNumbersPlan.hermitianCone_embed [data]: The full exact form functor embedding E.
-TauCeti.GeometryOfNumbersPlan.hermitianCone_shift [functoriality]: The source duality-preserving shift on diagrams.
-TauCeti.GeometryOfNumbersPlan.hermitian_cone_test_1: The cone of the zero exact category is equivalent to the zero exact category.
-TauCeti.GeometryOfNumbersPlan.hermitian_cone_test_2: The shift maps chosen for localization become isomorphisms.
-TauCeti.GeometryOfNumbersPlan.hermitian_cone_test_3: The embedded E objects retain their original morphisms, exact conflations and pairings.
-
-GeometryOfNumbersAndQuadraticArithmetic:GN.6/hermitian-cone-contractible — Contractibility of the hermitian cone space
-Reviewer-added declaration: obtain the actual supplier context and write the precise signature; the checked mathematical statement is retained below.
-GW(C(E,E)) is contractible, using the source exact form endofunctor T and its natural form isomorphism id orthogonal-sum T isomorphic to T.
-
-GeometryOfNumbersAndQuadraticArithmetic:GN.6/hermitian-suspension-completion — Loop comparison under hermitian completion
-Reviewer-added declaration: obtain the actual supplier context and write the precise signature; the checked mathematical statement is retained below.
-The idempotent-completion map Omega GW(S_h E) -> Omega GW(completion(S_h E)) is an equivalence, by hermitian cofinality.
-
-GeometryOfNumbersAndQuadraticArithmetic:GN.6/nonconnective-hyperbolic-comparison — Nonconnective hyperbolic comparison
-Reviewer-added declaration: obtain the actual supplier context and write the precise signature; the checked mathematical statement is retained below.
-For the hyperbolic exact category HE with its exchange duality, the completed-suspension nonconnective hermitian spectrum is naturally equivalent to the imported Frobenius-pair nonconnective K spectrum of E.
-
+GeometryOfNumbersAndQuadraticArithmetic:GN.2/signed-hermitian-transfer
+For finite E/F with extending involutions and a nonzero involution-equivariant F-linear map λ:E→F, restriction of scalars with λ∘h gives a perfect ε-hermitian form. It sends a hyperbolic E-plane to [E:F] hyperbolic F-planes and induces a Witt homomorphism.
+Hypothesis: Nonarchimedean local fields of odd residue characteristic; commutative trivial or quadratic extension with its specified involution.
+TauCeti.GeometryOfNumbersPlan.signedHermitianTransfer_witt: The induced additive map on the exact Witt quotients.
+Unmatched test contract TauCeti.GeometryOfNumbersPlan.signed_hermitian_transfer_test_1: E=F and λ=id give the identity.
+Unmatched test contract TauCeti.GeometryOfNumbersPlan.signed_hermitian_transfer_test_2: A hyperbolic plane transfers to degree-many hyperbolic planes.
+Unmatched test contract TauCeti.GeometryOfNumbersPlan.signed_hermitian_transfer_test_3: The zero linear functional on a positive-rank space is degenerate and is excluded.
 -/
