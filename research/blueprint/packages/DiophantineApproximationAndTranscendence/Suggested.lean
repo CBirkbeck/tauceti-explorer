@@ -1,0 +1,6064 @@
+import Mathlib
+
+/-!
+# DiophantineApproximationAndTranscendence: representative target signatures
+
+The roadmap is README.md. This file suggests definitions and theorem signatures
+statable against the pinned APIs, with discriminating examples. It is not
+exhaustive. Primitive polynomials have positive leading coefficient, heights
+retain their relative or absolute normalization, derivatives are divided when
+specified, and logarithms carry their branches. Admitted bodies give signatures,
+not implementations.
+-/
+
+namespace TauCetiRoadmap.DiophantineApproximationAndTranscendence
+
+noncomputable section
+
+/-! ## Layer 0: heights and approximation exponents -/
+
+
+open Polynomial NumberField Filter
+open scoped ENNReal NNReal Topology
+
+
+namespace DiophantineApproximation
+
+open TauCetiRoadmap.DiophantineApproximationAndTranscendence.DiophantineApproximation
+
+
+section Heights
+
+variable {F : Type*} [Field F] [CharZero F]
+variable {F' : Type*} [Field F'] [CharZero F']
+
+open Classical in
+/-- The primitive minimal polynomial `F_x ∈ ℤ[X]` of `x` over `ℚ` (Evertse ch. 3, p. 41):
+primitive, positive leading coefficient, a `ℚ`-multiple of `minpoly ℚ x`.
+Junk value `1` when `x` is transcendental. -/
+def primitiveMinpoly (x : F) : ℤ[X] :=
+  if IsAlgebraic ℚ x then
+    (if 0 < (IsLocalization.integerNormalization (nonZeroDivisors ℤ)
+          (minpoly ℚ x)).primPart.leadingCoeff then
+        (IsLocalization.integerNormalization (nonZeroDivisors ℤ) (minpoly ℚ x)).primPart
+      else -(IsLocalization.integerNormalization (nonZeroDivisors ℤ) (minpoly ℚ x)).primPart)
+  else 1
+
+/-- For algebraic x, F_x(x) = 0. -/
+theorem aeval_primitiveMinpoly (x : F) (hx : IsAlgebraic ℚ x) :
+    aeval x (primitiveMinpoly x) = 0 := by sorry
+
+/-- F_x is primitive. -/
+theorem isPrimitive_primitiveMinpoly (x : F) : (primitiveMinpoly x).IsPrimitive := by sorry
+
+/-- The leading coefficient a₀ of F_x is positive. -/
+theorem leadingCoeff_primitiveMinpoly_pos (x : F) : 0 < (primitiveMinpoly x).leadingCoeff := by
+  sorry
+
+/-- For algebraic x, F_x is irreducible in ℤ[X]. -/
+theorem irreducible_primitiveMinpoly (x : F) (hx : IsAlgebraic ℚ x) :
+    Irreducible (primitiveMinpoly x) := by sorry
+
+/-- deg F_x = deg minpoly ℚ x. -/
+theorem natDegree_primitiveMinpoly (x : F) :
+    (primitiveMinpoly x).natDegree = (minpoly ℚ x).natDegree := by sorry
+
+/-- Layer 0 map primitive minpoly: `F_x = a₀ · minpoly ℚ x`; its complex roots are the conjugates. -/
+theorem map_primitiveMinpoly (x : F) (hx : IsAlgebraic ℚ x) :
+    (primitiveMinpoly x).map (Int.castRingHom ℚ) =
+      C ((primitiveMinpoly x).leadingCoeff : ℚ) * minpoly ℚ x := by sorry
+
+/-- For algebraic x and P ∈ ℤ[X]: F_x ∣ P in ℤ[X] ↔ P(x) = 0. -/
+theorem primitiveMinpoly_dvd_iff (x : F) (hx : IsAlgebraic ℚ x) (P : ℤ[X]) :
+    primitiveMinpoly x ∣ P ↔ aeval x P = 0 := by sorry
+
+/-- A primitive irreducible P ∈ ℤ[X] with positive leading coefficient and P(x) = 0 equals F_x. -/
+theorem primitiveMinpoly_eq_of_isPrimitive {x : F} {P : ℤ[X]} (hP : P.IsPrimitive)
+    (hlc : 0 < P.leadingCoeff) (hirr : Irreducible P) (hPx : aeval x P = 0) :
+    primitiveMinpoly x = P := by sorry
+
+/-- For x integral over ℤ, F_x = minpoly ℤ x. -/
+theorem primitiveMinpoly_eq_minpoly_int {x : F} (hx : IsIntegral ℤ x) :
+    primitiveMinpoly x = minpoly ℤ x := by sorry
+
+/-- F_{p/q} = qX − p for q ∈ ℚ written in lowest terms (den q)X − num q. -/
+theorem primitiveMinpoly_ratCast (q : ℚ) :
+    primitiveMinpoly (q : F) = C (q.den : ℤ) * X - C q.num := by sorry
+
+/-- For a ring homomorphism f : F → F' of characteristic-zero fields, F_{f(x)} = F_x. -/
+theorem primitiveMinpoly_map (f : F →+* F') (x : F) :
+    primitiveMinpoly (f x) = primitiveMinpoly x := by sorry
+
+/-- If minpoly ℚ x = minpoly ℚ y (x, y possibly in different fields) then F_x = F_y; in particular conjugates share F. -/
+theorem primitiveMinpoly_eq_of_minpoly_eq {x : F} {y : F'} (h : minpoly ℚ x = minpoly ℚ y) :
+    primitiveMinpoly x = primitiveMinpoly y := by sorry
+
+/-- F_x = 1 for x transcendental over ℚ. -/
+theorem primitiveMinpoly_of_not_isAlgebraic {x : F} (hx : ¬ IsAlgebraic ℚ x) :
+    primitiveMinpoly x = 1 := by sorry
+
+/-- For x algebraic over ℚ, a₀·x is integral over ℤ (Evertse Lemma 3.7). Algebraicity is required: the transcendental junk polynomial has leading coefficient 1. -/
+theorem isIntegral_leadingCoeff_primitiveMinpoly_smul (x : F) (hx : IsAlgebraic ℚ x) :
+    IsIntegral ℤ ((primitiveMinpoly x).leadingCoeff • x) := by sorry
+
+/-- For x algebraic over ℚ, Algebra.natDenominator x divides a₀. A transcendental x has denominator 0 and junk leading coefficient 1, so the unconditional assertion would be false. -/
+theorem natDenominator_dvd_leadingCoeff_primitiveMinpoly (x : F) (hx : IsAlgebraic ℚ x) :
+    (Algebra.natDenominator x : ℤ) ∣ (primitiveMinpoly x).leadingCoeff := by sorry
+
+/-- Test `test_primitiveMinpoly_twoThirds` (computation). -/
+example : primitiveMinpoly (((2 : ℚ) / 3 : ℚ) : ℝ) = C 3 * X - C 2 := by sorry
+/-- Test `test_primitiveMinpoly_evertseExample` (computation). -/
+example : primitiveMinpoly ((1 + 2 * Real.sqrt 3) / 5) = C 25 * X ^ 2 - C 10 * X - C 11 := by
+  sorry
+/-- Test `test_primitiveMinpoly_transcendental_denominator` (non-example): the junk
+polynomial cannot provide unconditional integrality or denominator divisibility. -/
+example : ¬ IsIntegral ℤ (liouvilleNumber 10) ∧
+    Algebra.natDenominator (liouvilleNumber 10) = 0 := by sorry
+
+/-- Test `test_primitiveMinpoly_transcendental` (degenerate). -/
+example : primitiveMinpoly (liouvilleNumber 10) = 1 := by sorry
+/-- Test `test_primitiveMinpoly_half_ne_minpolyInt` (non-example). -/
+example : primitiveMinpoly (((1 : ℚ) / 2 : ℚ) : ℝ) ≠ minpoly ℤ (((1 : ℚ) / 2 : ℚ) : ℝ) := by sorry
+/-- Test `test_primitiveMinpoly_sqrtTwo` (compatibility). -/
+example : primitiveMinpoly (Real.sqrt 2) = minpoly ℤ (Real.sqrt 2) := by sorry
+
+/-- The naive height `H(x)`: the maximum of the absolute values of the coefficients of the
+primitive minimal polynomial (Evertse ch. 3, p. 41), as Mathlib's `Polynomial.supNorm`. -/
+def naiveHeight (x : F) : ℝ := (primitiveMinpoly x).supNorm
+
+/-- H(x) = sup_i |coeff_i F_x|. -/
+theorem naiveHeight_eq_iSup (x : F) :
+    naiveHeight x = ⨆ i, |((primitiveMinpoly x).coeff i : ℝ)| := by sorry
+
+/-- 1 ≤ H(x). -/
+theorem one_le_naiveHeight (x : F) : 1 ≤ naiveHeight x := by sorry
+
+/-- H(x⁻¹) = H(x) (Evertse Exercise 3.1(i)). -/
+theorem naiveHeight_inv (x : F) : naiveHeight x⁻¹ = naiveHeight x := by sorry
+
+/-- H(f x) = H(x) for a ring homomorphism f of characteristic-zero fields. -/
+theorem naiveHeight_map (f : F →+* F') (x : F) : naiveHeight (f x) = naiveHeight x := by sorry
+
+/-- Conjugates (equal minimal polynomials) have equal naive height. -/
+theorem naiveHeight_eq_of_minpoly_eq {x : F} {y : F'} (h : minpoly ℚ x = minpoly ℚ y) :
+    naiveHeight x = naiveHeight y := by sorry
+
+/-- (H(x) + 1)⁻¹ ≤ |x| for nonzero algebraic x ∈ ℂ (Evertse Exercise 3.1(ii)). -/
+theorem inv_naiveHeight_add_one_le_norm {x : ℂ} (hx : IsAlgebraic ℚ x) (h0 : x ≠ 0) :
+    (naiveHeight x + 1)⁻¹ ≤ ‖x‖ := by sorry
+
+/-- |x| ≤ H(x) + 1 for algebraic x ∈ ℂ (Evertse Exercise 3.1(ii)). -/
+theorem norm_le_naiveHeight_add_one {x : ℂ} (hx : IsAlgebraic ℚ x) :
+    ‖x‖ ≤ naiveHeight x + 1 := by sorry
+
+/-- den(x) ≤ H(x) for algebraic x. -/
+theorem natDenominator_le_naiveHeight (x : F) (hx : IsAlgebraic ℚ x) :
+    (Algebra.natDenominator x : ℝ) ≤ naiveHeight x := by sorry
+
+/-- H(n) = max(|n|, 1) for n ∈ ℤ. -/
+theorem naiveHeight_intCast (n : ℤ) : naiveHeight (n : F) = max |(n : ℝ)| 1 := by sorry
+
+/-- Test `test_naiveHeight_evertseExample` (computation). -/
+example : naiveHeight ((1 + 2 * Real.sqrt 3) / 5) = 25 := by sorry
+/-- Test `test_naiveHeight_zero` (degenerate). -/
+example : naiveHeight (0 : ℝ) = 1 := by sorry
+/-- Test `test_naiveHeight_sqrtTwo` (computation). -/
+example : naiveHeight (Real.sqrt 2) = 2 := by sorry
+/-- Test `test_naiveHeight_sqrtTwo_ne_absHeight` (non-example). -/
+example : naiveHeight (Real.sqrt 2) ≠ NumberField.absMulHeight₁ (Real.sqrt 2) := by sorry
+/-- Test `test_naiveHeight_twoThirds_eq_mulHeight` (compatibility). -/
+example : naiveHeight (((2 : ℚ) / 3 : ℚ) : ℝ) = Height.mulHeight₁ ((2 : ℚ) / 3) := by sorry
+
+/-- Layer 0 naive height of rational: `H(p/q) = max(|p|, q)`, equal to Mathlib's height of a
+rational number. -/
+theorem naiveHeight_ratCast (q : ℚ) :
+    naiveHeight (q : F) = max |(q.num : ℝ)| (q.den : ℝ) ∧
+      naiveHeight (q : F) = Height.mulHeight₁ q := by sorry
+
+/-- The Mahler measure `M(x) = a₀ ∏ max(1, |x⁽ⁱ⁾|)` of an algebraic number
+(Evertse ch. 6, p. 108): Mathlib's Mahler measure of `F_x` mapped to `ℂ`. -/
+def mahlerMeasure (x : F) : ℝ := (primitiveMinpoly x).mapMahlerMeasure (Int.castRingHom ℂ)
+
+/-- M(x) = a₀ · ∏ over the complex roots z of minpoly ℚ x of max(1, |z|). -/
+theorem mahlerMeasure_eq_leadingCoeff_mul_prod (x : F) :
+    mahlerMeasure x = ((primitiveMinpoly x).leadingCoeff : ℝ) *
+      (((minpoly ℚ x).aroots ℂ).map fun z => max 1 ‖z‖).prod := by sorry
+
+/-- 1 ≤ M(x). -/
+theorem one_le_mahlerMeasure (x : F) : 1 ≤ mahlerMeasure x := by sorry
+
+/-- a₀ ≤ M(x). -/
+theorem leadingCoeff_le_mahlerMeasure (x : F) :
+    ((primitiveMinpoly x).leadingCoeff : ℝ) ≤ mahlerMeasure x := by sorry
+
+/-- M(p/q) = max(|p|, q) for p/q in lowest terms. -/
+theorem mahlerMeasure_ratCast (q : ℚ) :
+    mahlerMeasure (q : F) = max |(q.num : ℝ)| (q.den : ℝ) := by sorry
+
+/-- M(x⁻¹) = M(x). -/
+theorem mahlerMeasure_inv (x : F) : mahlerMeasure x⁻¹ = mahlerMeasure x := by sorry
+
+/-- M(f x) = M(x) for ring homomorphisms of characteristic-zero fields. -/
+theorem mahlerMeasure_map (f : F →+* F') (x : F) : mahlerMeasure (f x) = mahlerMeasure x := by
+  sorry
+
+/-- Conjugates have equal Mahler measure. -/
+theorem mahlerMeasure_eq_of_minpoly_eq {x : F} {y : F'} (h : minpoly ℚ x = minpoly ℚ y) :
+    mahlerMeasure x = mahlerMeasure y := by sorry
+
+/-- For algebraic x: M(x) = 1 ↔ x = 0 or x is a root of unity (Kronecker). -/
+theorem mahlerMeasure_eq_one_iff {x : F} (hx : IsAlgebraic ℚ x) :
+    mahlerMeasure x = 1 ↔ x = 0 ∨ ∃ n : ℕ, 0 < n ∧ x ^ n = 1 := by sorry
+
+/-- Finitely many algebraic z ∈ ℂ of degree ≤ d with M(z) ≤ B (Northcott for M). -/
+theorem finite_setOf_mahlerMeasure_le (d : ℕ) (B : ℝ) :
+    {z : ℂ | IsAlgebraic ℚ z ∧ (minpoly ℚ z).natDegree ≤ d ∧ mahlerMeasure z ≤ B}.Finite := by
+  sorry
+
+/-- Test `test_mahlerMeasure_half` (computation). -/
+example : mahlerMeasure (((1 : ℚ) / 2 : ℚ) : ℝ) = 2 := by sorry
+/-- Test `test_mahlerMeasure_sqrtTwo` (computation). -/
+example : mahlerMeasure (Real.sqrt 2) = 2 := by sorry
+/-- Test `test_mahlerMeasure_goldenRatio` (computation). -/
+example : mahlerMeasure Real.goldenRatio = Real.goldenRatio := by sorry
+/-- Test `test_mahlerMeasure_I` (degenerate). -/
+example : mahlerMeasure Complex.I = 1 := by sorry
+/-- Test `test_mahlerMeasure_zero` (degenerate). -/
+example : mahlerMeasure (0 : ℝ) = 1 := by sorry
+/-- Test `test_mahlerMeasure_half_ne_norm` (non-example). -/
+example : mahlerMeasure (((1 : ℚ) / 2 : ℚ) : ℝ) ≠ |Algebra.norm ℚ ((1 : ℚ) / 2)| := by sorry
+
+/-- The house `⌈x⌉`: the largest absolute value of a complex conjugate of `x`
+(Evertse ch. 3, p. 52), independent of any number field; junk value `0` for
+transcendental `x`. -/
+def house (x : F) : ℝ := ⨆ z : (minpoly ℚ x).rootSet ℂ, ‖(z : ℂ)‖
+
+/-- Layer 0 house eq numberField house (Evertse (3.2)). -/
+theorem house_eq_numberField_house {K : Type*} [Field K] [NumberField K] (x : K) :
+    house x = NumberField.house x := by sorry
+
+/-- 0 ≤ ⌈x⌉. -/
+theorem house_nonneg (x : F) : 0 ≤ house x := by sorry
+
+/-- |x| ≤ ⌈x⌉ for algebraic x ∈ ℂ. -/
+theorem norm_le_house {x : ℂ} (hx : IsAlgebraic ℚ x) : ‖x‖ ≤ house x := by sorry
+
+/-- ⌈f x⌉ = ⌈x⌉ for ring homomorphisms of characteristic-zero fields. -/
+theorem house_map (f : F →+* F') (x : F) : house (f x) = house x := by sorry
+
+/-- Conjugates have equal house. -/
+theorem house_eq_of_minpoly_eq {x : F} {y : F'} (h : minpoly ℚ x = minpoly ℚ y) :
+    house x = house y := by sorry
+
+/-- ⌈xy⌉ ≤ ⌈x⌉⌈y⌉ for algebraic x, y ∈ ℂ. -/
+theorem house_mul_le {x y : ℂ} (hx : IsAlgebraic ℚ x) (hy : IsAlgebraic ℚ y) :
+    house (x * y) ≤ house x * house y := by sorry
+
+/-- ⌈x + y⌉ ≤ ⌈x⌉ + ⌈y⌉ for algebraic x, y ∈ ℂ. -/
+theorem house_add_le {x y : ℂ} (hx : IsAlgebraic ℚ x) (hy : IsAlgebraic ℚ y) :
+    house (x + y) ≤ house x + house y := by sorry
+
+/-- ⌈x^n⌉ = ⌈x⌉^n for algebraic x ∈ ℂ. -/
+theorem house_pow {x : ℂ} (hx : IsAlgebraic ℚ x) (n : ℕ) : house (x ^ n) = house x ^ n := by
+  sorry
+
+/-- ⌈q⌉ = |q| for q ∈ ℚ. -/
+theorem house_ratCast (q : ℚ) : house (q : F) = |(q : ℝ)| := by sorry
+
+/-- 1 ≤ ⌈x⌉ for a nonzero algebraic integer (Evertse Lemma 3.6). -/
+theorem one_le_house {x : F} (hx : IsIntegral ℤ x) (h0 : x ≠ 0) : 1 ≤ house x := by sorry
+
+/-- For a nonzero algebraic integer: ⌈x⌉ = 1 ↔ x is a root of unity (Kronecker). -/
+theorem house_eq_one_iff {x : F} (hx : IsIntegral ℤ x) (h0 : x ≠ 0) :
+    house x = 1 ↔ ∃ n : ℕ, 0 < n ∧ x ^ n = 1 := by sorry
+
+/-- ⌈x⌉ ≤ M(x) for algebraic integers. -/
+theorem house_le_mahlerMeasure {x : F} (hx : IsIntegral ℤ x) : house x ≤ mahlerMeasure x := by
+  sorry
+
+/-- M(x) ≤ a₀ · max(1, ⌈x⌉)^{deg x}. -/
+theorem mahlerMeasure_le_leadingCoeff_mul_max_one_house_pow (x : F) :
+    mahlerMeasure x ≤
+      ((primitiveMinpoly x).leadingCoeff : ℝ) * max 1 (house x) ^ (minpoly ℚ x).natDegree := by
+  sorry
+
+/-- Test `test_house_sqrtTwo` (computation). -/
+example : house (Real.sqrt 2) = Real.sqrt 2 := by sorry
+/-- Test `test_house_conjugateGolden` (computation). -/
+example : house ((1 - Real.sqrt 5) / 2) = (1 + Real.sqrt 5) / 2 := by sorry
+/-- Test `test_house_ne_abs` (non-example). -/
+example : |(1 - Real.sqrt 5) / 2| < house ((1 - Real.sqrt 5) / 2) := by sorry
+/-- Test `test_house_zero` (degenerate). -/
+example : house (0 : ℂ) = 0 := by sorry
+/-- Test `test_house_I` (computation). -/
+example : house Complex.I = 1 := by sorry
+/-- Test `test_house_two_eq_numberFieldHouse` (compatibility). -/
+example : house (2 : ℚ) = NumberField.house (2 : ℚ) := by sorry
+
+end Heights
+
+
+section Comparison
+
+/-- Layer 0 infinite places over: regrouping a product over the infinite places of `L`
+along the places of `K` below them. -/
+theorem prod_infinitePlace_comap_pow_mult {K L : Type*} [Field K] [NumberField K] [Field L]
+    [NumberField L] [Algebra K L] {M : Type*} [CommMonoid M] (g : InfinitePlace K → M) :
+    ∏ w : InfinitePlace L, g (w.comap (algebraMap K L)) ^ w.mult =
+      ∏ v : InfinitePlace K, g v ^ (v.mult * Module.finrank K L) := by sorry
+
+-- The restriction of a finite place along `K → L` is Mathlib's
+-- `NumberField.FinitePlace.equivHeightOneSpectrum_symm_apply_algebraMap`; it is consumed, not restated.
+
+/-- Layer 0 mul height algebra map: the relative multiplicative height of a tuple is multiplied
+by the degree under a finite extension. -/
+theorem mulHeight_algebraMap {K L : Type*} [Field K] [NumberField K] [Field L] [NumberField L]
+    [Algebra K L] {ι : Type*} [Finite ι] (x : ι → K) :
+    Height.mulHeight (algebraMap K L ∘ x) = Height.mulHeight x ^ Module.finrank K L := by sorry
+
+/-- The scalar case of Layer 0 mul height algebra map (via `Height.mulHeight₁_eq_mulHeight`). -/
+theorem mulHeight₁_algebraMap {K L : Type*} [Field K] [NumberField K] [Field L] [NumberField L]
+    [Algebra K L] (x : K) :
+    Height.mulHeight₁ (algebraMap K L x) = Height.mulHeight₁ x ^ Module.finrank K L := by sorry
+
+/-- Layer 0 mul height ring equiv: heights are invariant under isomorphisms of number fields. -/
+theorem mulHeight_ringEquiv {K K' : Type*} [Field K] [NumberField K] [Field K']
+    [NumberField K'] (e : K ≃+* K') {ι : Type*} [Finite ι] (x : ι → K) :
+    Height.mulHeight (e ∘ x) = Height.mulHeight x := by sorry
+
+/-- Layer 0 abs mul height eq rpow: Mathlib's absolute height computed in any number field. -/
+theorem absMulHeight₁_eq_rpow {K : Type*} [Field K] [NumberField K] (x : K) :
+    NumberField.absMulHeight₁ x = Height.mulHeight₁ x ^ ((Module.finrank ℚ K : ℝ)⁻¹) := by sorry
+
+/-- Layer 0 abs mul height eq of minpoly eq: the absolute height depends only on the minimal
+polynomial (conjugates and embeddings do not change it). -/
+theorem absMulHeight₁_eq_of_minpoly_eq {F F' : Type*} [Field F] [CharZero F] [Field F']
+    [CharZero F'] {x : F} {y : F'} (h : minpoly ℚ x = minpoly ℚ y) :
+    NumberField.absMulHeight₁ x = NumberField.absMulHeight₁ y := by sorry
+
+/-- Layer 0 gauss norm primitive finite place. -/
+theorem gaussNorm_map_eq_one_of_isPrimitive {L : Type*} [Field L] [NumberField L]
+    (w : FinitePlace L) {P : ℤ[X]} (hP : P.IsPrimitive) :
+    (P.map (Int.castRingHom L)).gaussNorm w 1 = 1 := by sorry
+
+/-- Layer 0 finite place gauss theorem: Gauss's theorem at a finite place for a split primitive
+polynomial. -/
+theorem finitePlace_leadingCoeff_mul_prod_max_eq_one {L : Type*} [Field L] [NumberField L]
+    (w : FinitePlace L) {P : ℤ[X]} (hP : P.IsPrimitive) {a : L} {s : Multiset L}
+    (h : P.map (Int.castRingHom L) = C a * (s.map fun b => X - C b).prod) :
+    w a * (s.map fun b => max (w b) 1).prod = 1 := by sorry
+
+variable {F : Type*} [Field F] [CharZero F]
+
+/-- Layer 0 height comparisons: `M(x) = H_abs(x)^d` with `d = deg x`
+(both sides are `1` for transcendental `x`). -/
+theorem mahlerMeasure_eq_absMulHeight₁_pow (x : F) :
+    mahlerMeasure x = NumberField.absMulHeight₁ x ^ (minpoly ℚ x).natDegree := by sorry
+
+/-- Layer 0 naive height le choose mul mahler measure. -/
+theorem naiveHeight_le_choose_mul_mahlerMeasure (x : F) :
+    naiveHeight x ≤
+      ((minpoly ℚ x).natDegree.choose ((minpoly ℚ x).natDegree / 2) : ℝ) * mahlerMeasure x := by
+  sorry
+
+/-- Layer 0 mahler measure le sqrt mul naive height (Landau). -/
+theorem mahlerMeasure_le_sqrt_mul_naiveHeight (x : F) :
+    mahlerMeasure x ≤ Real.sqrt ((minpoly ℚ x).natDegree + 1) * naiveHeight x := by sorry
+
+/-- Layer 0 naive height abs height comparison. -/
+theorem naiveHeight_absMulHeight₁_comparison (x : F) :
+    (2 : ℝ)⁻¹ ^ (minpoly ℚ x).natDegree * naiveHeight x ≤
+        NumberField.absMulHeight₁ x ^ (minpoly ℚ x).natDegree ∧
+      NumberField.absMulHeight₁ x ^ (minpoly ℚ x).natDegree ≤
+        Real.sqrt ((minpoly ℚ x).natDegree + 1) * naiveHeight x := by sorry
+
+/-- Layer 0 northcott naive height (with Evertse's count, Theorem 1.7 proof). -/
+theorem finite_setOf_naiveHeight_le (d : ℕ) (B : ℝ) :
+    {z : ℂ | IsAlgebraic ℚ z ∧ (minpoly ℚ z).natDegree ≤ d ∧ naiveHeight z ≤ B}.Finite ∧
+      {z : ℂ | IsAlgebraic ℚ z ∧ (minpoly ℚ z).natDegree ≤ d ∧ naiveHeight z ≤ B}.ncard ≤
+        d * (2 * ⌊B⌋₊ + 1) ^ (d + 1) := by sorry
+
+/-- Layer 0 northcott absolute height: Northcott over `ℚ̄` for Mathlib's absolute height. -/
+theorem finite_setOf_absMulHeight₁_le (d : ℕ) (B : ℝ) :
+    {z : ℂ | IsAlgebraic ℚ z ∧ (minpoly ℚ z).natDegree ≤ d ∧
+      NumberField.absMulHeight₁ z ≤ B}.Finite := by sorry
+
+/-- Layer 0 central binomial sqrt bound. -/
+theorem choose_half_mul_sqrt_le_two_pow (k : ℕ) :
+    (k.choose (k / 2) : ℝ) * Real.sqrt (k + 1) ≤ 2 ^ k := by sorry
+
+/-- Layer 0 gelfond inequality: heights of the factors of a product of complex polynomials. -/
+theorem gelfond_inequality (s : Multiset ℂ[X]) :
+    (s.map Polynomial.supNorm).prod ≤ 2 ^ s.prod.natDegree * s.prod.supNorm ∧
+      s.prod.supNorm ≤ 2 ^ s.prod.natDegree * (s.map Polynomial.supNorm).prod := by sorry
+
+/-- Layer 0 naive height le two mul house pow (Evertse, Exercise 3.6(ii)). -/
+theorem naiveHeight_le_two_mul_house_pow {x : F} (hx : IsIntegral ℤ x) (h0 : x ≠ 0) :
+    naiveHeight x ≤ (2 * house x) ^ (minpoly ℚ x).natDegree := by sorry
+
+/-- Layer 0 finite algebraic integers house le (Evertse, Exercise 3.6(iii)). -/
+theorem finite_setOf_isIntegral_house_le (d : ℕ) (C : ℝ) :
+    {z : ℂ | IsIntegral ℤ z ∧ (minpoly ℚ z).natDegree ≤ d ∧ house z ≤ C}.Finite ∧
+      {z : ℂ | IsIntegral ℤ z ∧ (minpoly ℚ z).natDegree ≤ d ∧ house z ≤ C}.ncard ≤
+        ∑ k ∈ Finset.range (d + 1), k * (2 * ⌊(2 * max C 1) ^ k⌋₊ + 1) ^ k := by sorry
+
+/-- Layer 0 liouville size bound (Evertse, Exercise 3.7(i)). -/
+theorem natDenominator_zpow_mul_house_zpow_le_norm {z : ℂ} (hz : IsAlgebraic ℚ z) (h0 : z ≠ 0) :
+    (Algebra.natDenominator z : ℝ) ^ (-((minpoly ℚ z).natDegree : ℤ)) *
+      house z ^ (1 - ((minpoly ℚ z).natDegree : ℤ)) ≤ ‖z‖ := by sorry
+
+/-- Layer 0 liouville size bound embedding: the same bound for the conjugates of an element of a
+number field, with the field degree in the exponents. -/
+theorem natDenominator_zpow_mul_house_zpow_le_norm_embedding {K : Type*} [Field K]
+    [NumberField K] {x : K} (h0 : x ≠ 0) (σ : K →+* ℂ) :
+    (Algebra.natDenominator x : ℝ) ^ (-(Module.finrank ℚ K : ℤ)) *
+      NumberField.house x ^ (1 - (Module.finrank ℚ K : ℤ)) ≤ ‖σ x‖ := by sorry
+
+end Comparison
+
+
+section Siegel
+
+variable {K : Type*} [Field K] [NumberField K]
+
+/-- Layer 0 small integral element eq zero (Evertse, Lemma 3.19). -/
+theorem eq_zero_of_forall_abs_re_im_le (α : 𝓞 K)
+    (h : ∀ σ : K →+* ℂ, |(σ α).re| ≤ 2 / 3 ∧ |(σ α).im| ≤ 2 / 3) : α = 0 := by sorry
+
+/-- Layer 0 siegel theorem number field (Evertse, Theorem 3.20). -/
+theorem exists_ne_zero_int_vec_abs_le_of_house_le {M N : ℕ} (a : Fin M → Fin N → 𝓞 K)
+    {A : ℝ} (hA : 1 ≤ A) (hM : 0 < M) (hMN : Module.finrank ℚ K * M < N)
+    (ha : ∀ i j, NumberField.house (a i j : K) ≤ A) :
+    ∃ x : Fin N → ℤ, x ≠ 0 ∧ (∀ i, ∑ j, (x j : 𝓞 K) * a i j = 0) ∧
+      ∀ j, (|x j| : ℝ) ≤ (3 * N * A) ^
+        (((Module.finrank ℚ K * M : ℕ) : ℝ) / ((N : ℝ) - (Module.finrank ℚ K * M : ℕ))) := by
+  sorry
+
+end Siegel
+
+
+section Dirichlet
+
+/-- Layer 0 dirichlet approximation from minkowski: Dirichlet's theorem for a system of `m`
+linear forms in `n` variables, finite-`Q` form (Evertse, Exercise 2.6 / proof of
+Corollary 2.7). -/
+theorem dirichlet_linearForms {m n : ℕ} (hm : 0 < m) (hn : 0 < n) (A : Matrix (Fin m) (Fin n) ℝ)
+    {Q : ℝ} (hQ : 1 < Q) :
+    ∃ (y : Fin n → ℤ) (x : Fin m → ℤ), y ≠ 0 ∧ (∀ j, (|y j| : ℝ) ≤ Q) ∧
+      ∀ i, |∑ j, A i j * y j - x i| ≤ Q ^ (-(n : ℝ) / m) := by sorry
+
+/-- Layer 0 dirichlet linear forms infinitely many (Evertse, Exercise 2.6). -/
+theorem dirichlet_linearForms_infinite {m n : ℕ} (hm : 0 < m) (hn : 0 < n)
+    (A : Matrix (Fin m) (Fin n) ℝ)
+    (hA : ∀ y : Fin n → ℤ, (∀ i, ∃ k : ℤ, ∑ j, A i j * y j = k) → y = 0) :
+    {p : (Fin n → ℤ) × (Fin m → ℤ) | p.1 ≠ 0 ∧
+      ∀ i, |∑ j, A i j * p.1 j - p.2 i| ≤ ‖p.1‖ ^ (-(n : ℝ) / m)}.Infinite := by sorry
+
+/-- Layer 0 simultaneous dirichlet theorem (Evertse, Theorem 1.4(i)). -/
+theorem simultaneous_dirichlet {n : ℕ} (hn : 0 < n) (α : Fin n → ℝ) {Q : ℝ} (hQ : 1 < Q) :
+    ∃ (x : Fin n → ℤ) (y : ℤ), 0 < y ∧ (y : ℝ) ≤ Q ^ n ∧
+      ∀ i, |(x i : ℝ) - α i * y| ≤ Q⁻¹ := by sorry
+
+/-- Layer 0 simultaneous dirichlet infinitely many (Evertse, Theorem 1.4(ii), Corollary 2.7(i)). -/
+theorem simultaneous_dirichlet_infinite {n : ℕ} (hn : 0 < n) (α : Fin n → ℝ)
+    (hα : ∃ i, Irrational (α i)) :
+    {p : (Fin n → ℤ) × ℤ | 0 < p.2 ∧ gcd (Finset.univ.gcd p.1) p.2 = 1 ∧
+      ∀ i, |α i - p.1 i / p.2| ≤ (p.2 : ℝ) ^ (-1 - 1 / (n : ℝ))}.Infinite := by sorry
+
+/-- Layer 0 dirichlet linear form infinitely many (Evertse, Corollary 2.7(ii); the input of
+Lemma 7.6). -/
+theorem dirichlet_linearForm_infinite {n : ℕ} (hn : 0 < n) (α : Fin n → ℝ)
+    (hα : ∀ y : Fin n → ℤ, (∃ k : ℤ, ∑ j, α j * y j = k) → y = 0) :
+    {p : ℤ × (Fin n → ℤ) | p.2 ≠ 0 ∧
+      |∑ j, α j * p.2 j - p.1| ≤ ‖p.2‖ ^ (-(n : ℝ))}.Infinite := by sorry
+
+/-- Layer 0 irrationality criterion (Evertse, Lemma 1.9). -/
+theorem irrational_of_tendsto_abs_sub {α : ℝ} (x y : ℕ → ℤ) (hy : ∀ k, 0 < y k)
+    (hne : ∀ k, (x k : ℝ) / y k ≠ α)
+    (h : Tendsto (fun k => |(x k : ℝ) - α * y k|) atTop (𝓝 0)) : Irrational α := by sorry
+
+/-- Layer 0 kronecker approximation theorem (Evertse, Theorem 2.22). -/
+theorem kronecker_approximation {n : ℕ} (α θ : Fin n → ℝ)
+    (hα : LinearIndependent ℚ (Fin.cons (1 : ℝ) α : Fin (n + 1) → ℝ)) {ε : ℝ} (hε : 0 < ε) :
+    {p : (Fin n → ℤ) × ℤ | ∀ i, |α i * p.2 - p.1 i - θ i| ≤ ε}.Infinite := by sorry
+
+end Dirichlet
+
+
+section Exponents
+
+/-- The irrationality exponent `μ(ξ) ∈ [1, ∞]`: the supremum of the `p` with
+`LiouvilleWith p ξ`. -/
+def irrationalityExponent (ξ : ℝ) : ℝ≥0∞ :=
+  ⨆ (p : ℝ) (_ : LiouvilleWith p ξ), ENNReal.ofReal p
+
+/-- 1 ≤ μ(ξ). -/
+theorem one_le_irrationalityExponent (ξ : ℝ) : 1 ≤ irrationalityExponent ξ := by sorry
+
+/-- LiouvilleWith p ξ → ofReal p ≤ μ(ξ). -/
+theorem le_irrationalityExponent_of_liouvilleWith {p ξ : ℝ} (h : LiouvilleWith p ξ) :
+    ENNReal.ofReal p ≤ irrationalityExponent ξ := by sorry
+
+/-- ofReal p < μ(ξ) → LiouvilleWith p ξ. -/
+theorem liouvilleWith_of_lt_irrationalityExponent {p ξ : ℝ}
+    (h : ENNReal.ofReal p < irrationalityExponent ξ) : LiouvilleWith p ξ := by sorry
+
+/-- For irrational ξ: μ(ξ) = sup of the p such that |ξ − r| < den(r)^{-p} for infinitely many r ∈ ℚ. -/
+theorem irrationalityExponent_eq_iSup_infinite {ξ : ℝ} (hξ : Irrational ξ) :
+    irrationalityExponent ξ =
+      ⨆ (p : ℝ) (_ : {r : ℚ | |ξ - r| < (r.den : ℝ) ^ (-p)}.Infinite), ENNReal.ofReal p := by
+  sorry
+
+/-- μ(ξ) = ⊤ ↔ Liouville ξ. -/
+theorem irrationalityExponent_eq_top_iff (ξ : ℝ) :
+    irrationalityExponent ξ = ⊤ ↔ Liouville ξ := by sorry
+
+/-- μ(q) = 1 for q ∈ ℚ. -/
+theorem irrationalityExponent_ratCast (q : ℚ) : irrationalityExponent q = 1 := by sorry
+
+/-- 2 ≤ μ(ξ) ↔ ξ irrational. -/
+theorem two_le_irrationalityExponent_iff (ξ : ℝ) :
+    2 ≤ irrationalityExponent ξ ↔ Irrational ξ := by sorry
+
+/-- μ(ξ + r) = μ(ξ) for r ∈ ℚ. -/
+theorem irrationalityExponent_add_ratCast (ξ : ℝ) (r : ℚ) :
+    irrationalityExponent (ξ + r) = irrationalityExponent ξ := by sorry
+
+/-- μ(rξ) = μ(ξ) for r ∈ ℚ, r ≠ 0. -/
+theorem irrationalityExponent_ratCast_mul (ξ : ℝ) {r : ℚ} (hr : r ≠ 0) :
+    irrationalityExponent (r * ξ) = irrationalityExponent ξ := by sorry
+
+/-- μ(−ξ) = μ(ξ). -/
+theorem irrationalityExponent_neg (ξ : ℝ) :
+    irrationalityExponent (-ξ) = irrationalityExponent ξ := by sorry
+
+/-- μ(ξ) = 2 for Lebesgue-almost every ξ. -/
+theorem ae_irrationalityExponent_eq_two : ∀ᵐ ξ : ℝ, irrationalityExponent ξ = 2 := by sorry
+
+/-- Test `test_irrationalityExponent_half` (degenerate). -/
+example : irrationalityExponent (1 / 2) = 1 := by sorry
+/-- Test `test_irrationalityExponent_sqrtTwo` (computation). -/
+example : irrationalityExponent (Real.sqrt 2) = 2 := by sorry
+/-- Test `test_irrationalityExponent_liouvilleNumber` (computation). -/
+example : irrationalityExponent (liouvilleNumber 10) = ⊤ := by sorry
+/-- Test `test_irrationalityExponent_zero_ne_top` (non-example). -/
+example : irrationalityExponent 0 ≠ ⊤ := by sorry
+
+/-- The exponent `w(θ)` of approximation of zero by the linear form
+`x₀ + x₁θ₁ + ⋯ + xₙθₙ` (Bugeaud, Definition 2.1, for a general vector). -/
+def linearFormExponent {n : ℕ} (θ : Fin n → ℝ) : ℝ≥0∞ :=
+  ⨆ (w : ℝ) (_ : {x : Fin (n + 1) → ℤ |
+      0 < |∑ j, (x j : ℝ) * (Fin.cons (1 : ℝ) θ : Fin (n + 1) → ℝ) j| ∧
+      |∑ j, (x j : ℝ) * (Fin.cons (1 : ℝ) θ : Fin (n + 1) → ℝ) j| ≤ ‖x‖ ^ (-w)}.Infinite),
+    ENNReal.ofReal w
+
+/-- Mahler's exponent `w_n(ξ) = w(ξ, ξ², …, ξⁿ)`. -/
+abbrev mahlerExponent (n : ℕ) (ξ : ℝ) : ℝ≥0∞ :=
+  linearFormExponent (fun j : Fin n => ξ ^ ((j : ℕ) + 1))
+
+/-- For irrational ξ: w(ξ) + 1 = μ(ξ). -/
+theorem linearFormExponent_one_add {ξ : ℝ} (hξ : Irrational ξ) :
+    linearFormExponent ![ξ] + 1 = irrationalityExponent ξ := by sorry
+
+/-- If the solution set for w is infinite then ofReal w ≤ w(θ). -/
+theorem le_linearFormExponent_of_infinite {n : ℕ} (θ : Fin n → ℝ) {w : ℝ}
+    (h : {x : Fin (n + 1) → ℤ |
+      0 < |∑ j, (x j : ℝ) * (Fin.cons (1 : ℝ) θ : Fin (n + 1) → ℝ) j| ∧
+      |∑ j, (x j : ℝ) * (Fin.cons (1 : ℝ) θ : Fin (n + 1) → ℝ) j| ≤ ‖x‖ ^ (-w)}.Infinite) :
+    ENNReal.ofReal w ≤ linearFormExponent θ := by sorry
+
+/-- w_m(ξ) ≤ w_n(ξ) for m ≤ n. -/
+theorem mahlerExponent_mono {m n : ℕ} (h : m ≤ n) (ξ : ℝ) :
+    mahlerExponent m ξ ≤ mahlerExponent n ξ := by sorry
+
+/-- Test `test_linearFormExponent_sqrtTwo` (computation). -/
+example : linearFormExponent ![Real.sqrt 2] = 1 := by sorry
+/-- Test `test_linearFormExponent_half` (non-example). -/
+example : linearFormExponent ![(1 / 2 : ℝ)] = 0 := by sorry
+/-- Test `test_linearFormExponent_empty` (degenerate). -/
+example : linearFormExponent (Fin.elim0 : Fin 0 → ℝ) = 0 := by sorry
+/-- Test `test_linearFormExponent_liouvilleNumber` (compatibility). -/
+example : linearFormExponent ![liouvilleNumber 10] = ⊤ := by sorry
+
+/-- The exponent `λ(θ)` of simultaneous rational approximation to `θ₁, …, θₙ`
+(Bugeaud, Definition 2.2, for a general vector). -/
+def simultaneousExponent {n : ℕ} (θ : Fin n → ℝ) : ℝ≥0∞ :=
+  ⨆ (l : ℝ) (_ : {x : ℤ × (Fin n → ℤ) | x.1 ≠ 0 ∧
+      ∀ j, |(x.1 : ℝ) * θ j - x.2 j| ≤ |(x.1 : ℝ)| ^ (-l)}.Infinite), ENNReal.ofReal l
+
+/-- For irrational ξ: λ(ξ) + 1 = μ(ξ). -/
+theorem simultaneousExponent_one_add {ξ : ℝ} (hξ : Irrational ξ) :
+    simultaneousExponent ![ξ] + 1 = irrationalityExponent ξ := by sorry
+
+/-- λ(θ) = ⊤ when every θ_j is rational. -/
+theorem simultaneousExponent_eq_top_of_forall_rat {n : ℕ} (θ : Fin n → ℝ)
+    (hθ : ∀ j, ∃ q : ℚ, θ j = q) : simultaneousExponent θ = ⊤ := by sorry
+
+/-- λ(θ) ≤ λ(θ ∘ f) for an injective reindexing f : Fin m → Fin n. -/
+theorem simultaneousExponent_le_comp {m n : ℕ} (θ : Fin n → ℝ) {f : Fin m → Fin n}
+    (hf : Function.Injective f) : simultaneousExponent θ ≤ simultaneousExponent (θ ∘ f) := by
+  sorry
+
+/-- Test `test_simultaneousExponent_sqrtTwo` (computation). -/
+example : simultaneousExponent ![Real.sqrt 2] = 1 := by sorry
+/-- Test `test_simultaneousExponent_rationals` (degenerate). -/
+example : simultaneousExponent ![(1 / 2 : ℝ), 1 / 3] = ⊤ := by sorry
+/-- Test `test_simultaneousExponent_empty` (degenerate). -/
+example : simultaneousExponent (Fin.elim0 : Fin 0 → ℝ) = ⊤ := by sorry
+/-- Test `test_simultaneousExponent_sqrtTwo_sqrtThree` (computation). -/
+example : simultaneousExponent ![Real.sqrt 2, Real.sqrt 3] ≤ 1 := by sorry
+
+/-- The exponent `w*_n(ξ)` of approximation by algebraic numbers of degree at most `n`,
+measured with the naive height (Bugeaud, Definition 2.1). -/
+def algebraicApproximationExponent (n : ℕ) (ξ : ℝ) : ℝ≥0∞ :=
+  ⨆ (w : ℝ) (_ : {α : ℂ | IsAlgebraic ℚ α ∧ (minpoly ℚ α).natDegree ≤ n ∧
+      0 < ‖(ξ : ℂ) - α‖ ∧ ‖(ξ : ℂ) - α‖ ≤ naiveHeight α ^ (-w - 1)}.Infinite), ENNReal.ofReal w
+
+/-- The strict source convention changes the approximant set by at most `{ξ}`.
+Unlike denominators or coefficient vectors, these are distinct algebraic numbers. -/
+theorem algebraicApproximation_infinite_iff_allow_eq (n : ℕ) (ξ w : ℝ) :
+    {α : ℂ | IsAlgebraic ℚ α ∧ (minpoly ℚ α).natDegree ≤ n ∧
+      0 < ‖(ξ : ℂ) - α‖ ∧ ‖(ξ : ℂ) - α‖ ≤ naiveHeight α ^ (-w - 1)}.Infinite ↔
+    {α : ℂ | IsAlgebraic ℚ α ∧ (minpoly ℚ α).natDegree ≤ n ∧
+      ‖(ξ : ℂ) - α‖ ≤ naiveHeight α ^ (-w - 1)}.Infinite := by sorry
+
+/-- For irrational ξ: w*_1(ξ) + 1 = μ(ξ). -/
+theorem algebraicApproximationExponent_one_add {ξ : ℝ} (hξ : Irrational ξ) :
+    algebraicApproximationExponent 1 ξ + 1 = irrationalityExponent ξ := by sorry
+
+/-- w*_m(ξ) ≤ w*_n(ξ) for m ≤ n. -/
+theorem algebraicApproximationExponent_mono {m n : ℕ} (h : m ≤ n) (ξ : ℝ) :
+    algebraicApproximationExponent m ξ ≤ algebraicApproximationExponent n ξ := by sorry
+
+/-- Test `test_algebraicApproximationExponent_sqrtTwo` (computation). -/
+example : algebraicApproximationExponent 1 (Real.sqrt 2) = 1 := by sorry
+/-- Test `test_algebraicApproximationExponent_zero` (degenerate). -/
+example (ξ : ℝ) : algebraicApproximationExponent 0 ξ = 0 := by sorry
+/-- Test `test_algebraicApproximationExponent_half` (degenerate). -/
+example : algebraicApproximationExponent 1 (1 / 2) = 0 := by sorry
+/-- Test `test_algebraicApproximationExponent_liouvilleNumber` (compatibility). -/
+example : algebraicApproximationExponent 1 (liouvilleNumber 10) = ⊤ := by sorry
+
+/-- Test `test_algebraicApproximation_exact_point_not_infinite` (non-example).
+An exact algebraic approximant contributes one point to the set. -/
+example : ¬ {α : ℂ | IsAlgebraic ℚ α ∧ (minpoly ℚ α).natDegree ≤ 1 ∧
+    ‖(1 / 2 : ℂ) - α‖ ≤ naiveHeight α ^ (-2 : ℝ)}.Infinite := by sorry
+
+/-- Layer 0 simultaneous exponent dirichlet bound (Bugeaud, Theorem 2.5, lower bound). -/
+theorem inv_le_simultaneousExponent {n : ℕ} (hn : 0 < n) (θ : Fin n → ℝ) :
+    ENNReal.ofReal (1 / n) ≤ simultaneousExponent θ := by sorry
+
+/-- Layer 0 linear form exponent dirichlet bound (Bugeaud, Theorem 2.5, lower bound). -/
+theorem natCast_le_linearFormExponent {n : ℕ} (hn : 0 < n) (θ : Fin n → ℝ)
+    (hθ : LinearIndependent ℚ (Fin.cons (1 : ℝ) θ : Fin (n + 1) → ℝ)) :
+    (n : ℝ≥0∞) ≤ linearFormExponent θ := by sorry
+
+/-- Layer 0 algebraic exponent le mahler exponent (Bugeaud, Theorem 2.5, `w*_n ≤ w_n`). -/
+theorem algebraicApproximationExponent_le_mahlerExponent {n : ℕ} (hn : 0 < n) {ξ : ℝ}
+    (hξ : ¬ (IsAlgebraic ℚ ξ ∧ (minpoly ℚ ξ).natDegree ≤ n)) :
+    algebraicApproximationExponent n ξ ≤ mahlerExponent n ξ := by sorry
+
+/-- Layer 0 convergent error lower bound (Evertse, Exercise 1.7(iv)–(v); Sondow (5)). -/
+theorem one_div_den_mul_add_lt_abs_sub_convergent {ξ : ℝ} (hξ : Irrational ξ) (k : ℕ) :
+    1 / (((ξ.convergent k).den : ℝ) * ((ξ.convergent k).den + (ξ.convergent (k + 1)).den)) <
+      |ξ - ξ.convergent k| := by sorry
+
+/-- Layer 0 irrationality exponent continued fraction (Sondow, Theorem 1). -/
+theorem irrationalityExponent_eq_one_add_limsup {ξ : ℝ} (hξ : Irrational ξ) :
+    irrationalityExponent ξ = 1 + limsup (fun k : ℕ => ENNReal.ofReal
+      (Real.log (ξ.convergent (k + 1)).den / Real.log (ξ.convergent k).den)) atTop := by sorry
+
+/-- An irrational number `ξ` is badly approximable if `q‖qξ‖ ≥ c > 0` for all `q ≥ 1`
+(Evertse ch. 2, p. 23). -/
+def BadlyApproximable (ξ : ℝ) : Prop :=
+  Irrational ξ ∧ ∃ c : ℝ, 0 < c ∧ ∀ q : ℕ, 0 < q → c ≤ q * |q * ξ - round (q * ξ)|
+
+/-- Irrational real algebraic numbers of degree 2 are badly approximable. -/
+theorem badlyApproximable_of_natDegree_minpoly_eq_two {ξ : ℝ} (hξ : Irrational ξ)
+    (halg : IsAlgebraic ℚ ξ) (hdeg : (minpoly ℚ ξ).natDegree = 2) : BadlyApproximable ξ := by
+  sorry
+
+namespace BadlyApproximable
+
+/-- `BadlyApproximable.irrationalityExponent_eq`: badly approximable ⇒ `μ(ξ) = 2`. -/
+theorem irrationalityExponent_eq {ξ : ℝ} (h : BadlyApproximable ξ) :
+    irrationalityExponent ξ = 2 := by sorry
+
+/-- `BadlyApproximable.not_liouville`: badly approximable numbers are not Liouville numbers. -/
+theorem not_liouville {ξ : ℝ} (h : BadlyApproximable ξ) : ¬ Liouville ξ := by
+  sorry
+
+/-- `BadlyApproximable.add_ratCast`: stable under `ξ ↦ ξ + r`, `r ∈ ℚ`. -/
+theorem add_ratCast {ξ : ℝ} (h : BadlyApproximable ξ) (r : ℚ) :
+    BadlyApproximable (ξ + r) := by sorry
+
+/-- `BadlyApproximable.ratCast_mul`: stable under `ξ ↦ rξ`, `r ∈ ℚ^×`. -/
+theorem ratCast_mul {ξ : ℝ} (h : BadlyApproximable ξ) {r : ℚ} (hr : r ≠ 0) :
+    BadlyApproximable (r * ξ) := by sorry
+
+end BadlyApproximable
+
+/-- Test `test_badlyApproximable_sqrtTwo` (computation). -/
+example : BadlyApproximable (Real.sqrt 2) := by sorry
+/-- Test `test_not_badlyApproximable_rat` (degenerate). -/
+example (q : ℚ) : ¬ BadlyApproximable q := by sorry
+/-- Test `test_not_badlyApproximable_liouvilleNumber` (non-example). -/
+example : ¬ BadlyApproximable (liouvilleNumber 10) := by sorry
+/-- Test `test_badlyApproximable_goldenRatio` (computation). -/
+example : BadlyApproximable Real.goldenRatio := by sorry
+
+/-- Littlewood's conjecture (Evertse ch. 2, p. 23), as a statement. -/
+def LittlewoodConjecture : Prop :=
+  ∀ α β : ℝ, ∀ ε > 0, ∃ y : ℕ, 0 < y ∧
+    (y : ℝ) * |y * α - round (y * α)| * |y * β - round (y * β)| < ε
+
+/-- For α not badly approximable, every β and ε > 0, some y ≥ 1 has y‖yα‖‖yβ‖ < ε. -/
+theorem littlewood_of_not_badlyApproximable {α : ℝ} (hα : ¬ BadlyApproximable α) (β : ℝ)
+    {ε : ℝ} (hε : 0 < ε) :
+    ∃ y : ℕ, 0 < y ∧ (y : ℝ) * |y * α - round (y * α)| * |y * β - round (y * β)| < ε := by sorry
+
+/-- For all α, β, infinitely many y ≥ 1 satisfy y‖yα‖‖yβ‖ ≤ 1. -/
+theorem infinite_setOf_mul_le_one (α β : ℝ) :
+    {y : ℕ | 0 < y ∧ (y : ℝ) * |y * α - round (y * α)| * |y * β - round (y * β)| ≤ 1}.Infinite := by
+  sorry
+
+/-- Test `test_littlewood_rat` (degenerate). -/
+example (q : ℚ) (β : ℝ) {ε : ℝ} (hε : 0 < ε) :
+    ∃ y : ℕ, 0 < y ∧ (y : ℝ) * |y * (q : ℝ) - round (y * (q : ℝ))| * |y * β - round (y * β)| < ε := by
+  sorry
+/-- Test `test_littlewood_liouvilleNumber` (computation). -/
+example (β : ℝ) {ε : ℝ} (hε : 0 < ε) :
+    ∃ y : ℕ, 0 < y ∧ (y : ℝ) * |y * liouvilleNumber 10 - round (y * liouvilleNumber 10)| *
+      |y * β - round (y * β)| < ε := by sorry
+/-- Test `test_littlewood_oneDimensional_false` (non-example). -/
+example : ¬ ∀ α : ℝ, ∀ ε > 0, ∃ y : ℕ, 0 < y ∧ (y : ℝ) * |y * α - round (y * α)| < ε := by sorry
+
+end Exponents
+
+end DiophantineApproximation
+
+/-! ## Layer 1: auxiliary polynomials and Roth’s theorem -/
+
+
+open scoped ENNReal
+
+
+namespace Polynomial
+
+open _root_.Polynomial
+open TauCetiRoadmap.DiophantineApproximationAndTranscendence.Polynomial
+
+section l1Norm
+
+variable {A : Type*} [SeminormedRing A]
+
+/-- The `ℓ¹`-norm `‖p‖ = ∑ᵢ ‖pᵢ‖` of a polynomial (Mahler's *length*). -/
+noncomputable def l1Norm (p : A[X]) : ℝ := p.sum fun _ a => ‖a‖
+
+/-- The zero polynomial has coefficient ℓ¹-norm zero. -/
+@[simp] theorem l1Norm_zero : l1Norm (0 : A[X]) = 0 := sorry
+
+/-- 0 ≤ ‖P‖. -/
+theorem l1Norm_nonneg (p : A[X]) : 0 ≤ l1Norm p := sorry
+
+/-- ‖P‖ = ∑_{i=0}^{natDegree P} ‖coeff P i‖. -/
+theorem l1Norm_eq_sum_range (p : A[X]) :
+    l1Norm p = ∑ i ∈ Finset.range (p.natDegree + 1), ‖p.coeff i‖ := sorry
+
+/-- The coefficient ℓ¹-norm of a constant is its norm. -/
+@[simp] theorem l1Norm_C (a : A) : l1Norm (_root_.Polynomial.C a) = ‖a‖ := sorry
+
+/-- The coefficient ℓ¹-norm of a monomial is its coefficient norm. -/
+@[simp] theorem l1Norm_monomial (n : ℕ) (a : A) : l1Norm (_root_.Polynomial.monomial n a) = ‖a‖ := sorry
+
+/-- Negation preserves coefficient ℓ¹-norm. -/
+@[simp] theorem l1Norm_neg (p : A[X]) : l1Norm (-p) = l1Norm p := sorry
+
+/-- ‖coeff P i‖ ≤ ‖P‖. -/
+theorem norm_coeff_le_l1Norm (p : A[X]) (i : ℕ) : ‖p.coeff i‖ ≤ l1Norm p := sorry
+
+/-- Mathlib's supNorm P ≤ ‖P‖. -/
+theorem supNorm_le_l1Norm (p : A[X]) : p.supNorm ≤ l1Norm p := sorry
+
+/-- ‖P‖ ≤ (natDegree P + 1) supNorm P. -/
+theorem l1Norm_le_mul_supNorm (p : A[X]) : l1Norm p ≤ (p.natDegree + 1) * p.supNorm := sorry
+
+/-- Over a normed ring, ‖P‖ = 0 iff P = 0. -/
+theorem l1Norm_eq_zero_iff {B : Type*} [NormedRing B] (p : B[X]) : l1Norm p = 0 ↔ p = 0 := sorry
+
+/-- For P ∈ ℂ[X], M(P) ≤ ‖P‖ (Mathlib's mahlerMeasure_le_sum_norm_coeff). -/
+theorem mahlerMeasure_le_l1Norm (p : ℂ[X]) : p.mahlerMeasure ≤ l1Norm p := sorry
+
+/-- (6.14), additivity. -/
+theorem l1Norm_add_le (p q : A[X]) : l1Norm (p + q) ≤ l1Norm p + l1Norm q := sorry
+
+/-- (6.14), submultiplicativity. -/
+theorem l1Norm_mul_le (p q : A[X]) : l1Norm (p * q) ≤ l1Norm p * l1Norm q := sorry
+
+end l1Norm
+
+section l1NormField
+
+variable {𝕜 : Type*} [NormedField 𝕜]
+
+/-- (6.13) -/
+theorem norm_eval_le_l1Norm_mul (p : 𝕜[X]) (z : 𝕜) :
+    ‖p.eval z‖ ≤ l1Norm p * max 1 ‖z‖ ^ p.natDegree := sorry
+
+/-- (6.15): the Taylor shift `P(X + a)`. -/
+theorem l1Norm_taylor_le (p : 𝕜[X]) (a : 𝕜) :
+    l1Norm (taylor a p) ≤ l1Norm p * (1 + ‖a‖) ^ p.natDegree := sorry
+
+/-- (6.16): divided derivatives. -/
+theorem l1Norm_hasseDeriv_le (p : 𝕜[X]) (k : ℕ) :
+    l1Norm (_root_.Polynomial.hasseDeriv k p) ≤ 2 ^ p.natDegree * l1Norm p := sorry
+
+end l1NormField
+
+
+/-- Unit test `Polynomial.l1Norm.test_X_sub_one_sq`: ‖(X − 1)^2‖ = 4 in ℤ[X]. -/
+example : l1Norm ((_root_.Polynomial.X - 1) ^ 2 : ℤ[X]) = 4 := sorry
+/-- Unit test `Polynomial.l1Norm.test_one`: ‖1‖ = 1 in ℤ[X]. -/
+example : l1Norm (1 : ℤ[X]) = 1 := sorry
+/-- Unit test `Polynomial.l1Norm.test_supNorm_X_sub_two`: For X − 2 ∈ ℂ[X]: supNorm = 2 and ‖X − 2‖
+= 3, so the ℓ¹-norm is not Mathlib's sup norm. -/
+example : (_root_.Polynomial.X - _root_.Polynomial.C (2 : ℂ)).supNorm = 2 ∧ l1Norm (_root_.Polynomial.X - _root_.Polynomial.C (2 : ℂ)) = 3 := sorry
+/-- Unit test `Polynomial.l1Norm.test_not_multiplicative`: ‖(X + 1)(X − 1)‖ = 2 < 4 = ‖X + 1‖ ‖X −
+1‖: the norm is only submultiplicative. -/
+example : l1Norm ((_root_.Polynomial.X + 1) * (_root_.Polynomial.X - 1) : ℤ[X]) < l1Norm (_root_.Polynomial.X + 1 : ℤ[X]) * l1Norm (_root_.Polynomial.X - 1 : ℤ[X]) :=
+  sorry
+
+
+section hasseWronskian
+
+variable {R : Type*} [CommRing R]
+
+/-- The Wronskian of a family of one-variable polynomials, built from divided derivatives:
+`det (hasseDeriv k (g l))`. -/
+noncomputable def hasseWronskian {m : ℕ} (g : Fin m → R[X]) : R[X] :=
+  Matrix.det (Matrix.of fun (k l : Fin m) => _root_.Polynomial.hasseDeriv (k : ℕ) (g l))
+
+/-- W(a, b) = Mathlib's wronskian a b = a b' − a' b. -/
+theorem hasseWronskian_fin_two (a b : R[X]) : hasseWronskian ![a, b] = _root_.Polynomial.wronskian a b := sorry
+
+/-- The empty divided Wronskian equals one. -/
+@[simp] theorem hasseWronskian_fin_zero (g : Fin 0 → R[X]) : hasseWronskian g = 1 := sorry
+
+/-- The one-column divided Wronskian is its polynomial. -/
+@[simp] theorem hasseWronskian_fin_one (g : Fin 1 → R[X]) : hasseWronskian g = g 0 := sorry
+
+/-- (∏_k k!) W(g) = det(derivative^[k] g_l), the classical Wronskian (Remark 3.3.6). -/
+theorem prod_factorial_mul_hasseWronskian {m : ℕ} (g : Fin m → R[X]) :
+    _root_.Polynomial.C (∏ k : Fin m, ((k : ℕ).factorial : R)) * hasseWronskian g =
+      (Matrix.of fun (k l : Fin m) => _root_.Polynomial.derivative^[k] (g l)).det := sorry
+
+/-- Linearly dependent families have W = 0 (Lemma 3.3.2). -/
+theorem hasseWronskian_eq_zero_of_not_linearIndependent {K : Type*} [Field K] {m : ℕ}
+    (g : Fin m → K[X]) (h : ¬ LinearIndependent K g) : hasseWronskian g = 0 := sorry
+
+/-- Permuting the family multiplies W by the sign. -/
+theorem hasseWronskian_comp_perm {m : ℕ} (g : Fin m → R[X]) (π : Equiv.Perm (Fin m)) :
+    hasseWronskian (g ∘ π) = (Equiv.Perm.sign π : ℤ) • hasseWronskian g := sorry
+
+/-- W commutes with coefficient ring maps. -/
+theorem hasseWronskian_map {S : Type*} [CommRing S] (f : R →+* S) {m : ℕ} (g : Fin m → R[X]) :
+    (hasseWronskian g).map f = hasseWronskian fun l => (g l).map f := sorry
+
+end hasseWronskian
+
+
+/-- Unit test `Polynomial.hasseWronskian.test_one_X_X_sq`: W(1, X, X^2) = 1 over ℚ. -/
+example : hasseWronskian ![1, _root_.Polynomial.X, _root_.Polynomial.X ^ 2] = (1 : ℚ[X]) := sorry
+/-- Unit test `Polynomial.hasseWronskian.test_dependent`: W(X, 2X) = 0. -/
+example : hasseWronskian ![_root_.Polynomial.X, 2 * _root_.Polynomial.X] = (0 : ℚ[X]) := sorry
+/-- Unit test `Polynomial.hasseWronskian.test_one_X`: W(1, X) = 1. -/
+example : hasseWronskian ![1, _root_.Polynomial.X] = (1 : ℚ[X]) := sorry
+/-- Reversing the two columns changes W(1,X)=1 to W(X,1)=−1. -/
+example : hasseWronskian ![_root_.Polynomial.X, 1] = (-1 : ℚ[X]) := sorry
+
+/-- Unit test `Polynomial.hasseWronskian.test_classical_normalisation`: The classical Wronskian
+det(derivative^[k] g_l) of (1, X, X^2) is 2, not 1: the normalisation matters. -/
+example : (Matrix.of fun (k l : Fin 3) => _root_.Polynomial.derivative^[k] (![1, _root_.Polynomial.X, _root_.Polynomial.X ^ 2] l)).det = (2 : ℚ[X]) :=
+  sorry
+
+/-- The Wronskian criterion (Pottmeyer, Proposition 3.3.3), characteristic zero. -/
+theorem linearIndependent_iff_hasseWronskian_ne_zero {K : Type*} [Field K] [CharZero K] {m : ℕ}
+    (g : Fin m → K[X]) : LinearIndependent K g ↔ hasseWronskian g ≠ 0 := sorry
+
+
+section logHeight
+
+variable {K : Type*} [Field K] [Height.AdmissibleAbsValues K]
+
+/-- The (projective, logarithmic) height of a polynomial: the height of its coefficient vector. -/
+noncomputable def logHeight (p : K[X]) : ℝ := Finsupp.logHeight p.toFinsupp.coeff
+
+/-- h(p) ≥ 0. -/
+theorem logHeight_nonneg (p : K[X]) : 0 ≤ TauCetiRoadmap.DiophantineApproximationAndTranscendence.Polynomial.logHeight p := sorry
+
+/-- The zero coefficient vector has logarithmic height zero. -/
+@[simp] theorem logHeight_zero : TauCetiRoadmap.DiophantineApproximationAndTranscendence.Polynomial.logHeight (0 : K[X]) = 0 := sorry
+
+/-- h(cp) = h(p) for c ≠ 0. -/
+theorem logHeight_C_mul (c : K) (hc : c ≠ 0) (p : K[X]) : TauCetiRoadmap.DiophantineApproximationAndTranscendence.Polynomial.logHeight (_root_.Polynomial.C c * p) = TauCetiRoadmap.DiophantineApproximationAndTranscendence.Polynomial.logHeight p :=
+  sorry
+
+/-- h(X − β) = logHeight₁ β (Mathlib's height of β). -/
+theorem logHeight_X_sub_C (β : K) : TauCetiRoadmap.DiophantineApproximationAndTranscendence.Polynomial.logHeight (_root_.Polynomial.X - _root_.Polynomial.C β) = Height.logHeight₁ β := sorry
+
+/-- Embedding a univariate polynomial in one multivariate coordinate preserves coefficient height. -/
+theorem logHeight_toMvPolynomial {σ : Type*} (i : σ) (p : K[X]) :
+    Finsupp.logHeight (p.toMvPolynomial i).coeff = TauCetiRoadmap.DiophantineApproximationAndTranscendence.Polynomial.logHeight p := sorry
+
+end logHeight
+
+
+/-- Unit test `Polynomial.logHeight.test_X_sub_two`: h(X − 2) = log 2 over ℚ. -/
+example : TauCetiRoadmap.DiophantineApproximationAndTranscendence.Polynomial.logHeight (_root_.Polynomial.X - _root_.Polynomial.C (2 : ℚ)) = Real.log 2 := sorry
+/-- Unit test `Polynomial.logHeight.test_C_seven`: h(7) = 0. -/
+example : TauCetiRoadmap.DiophantineApproximationAndTranscendence.Polynomial.logHeight (_root_.Polynomial.C (7 : ℚ)) = 0 := sorry
+/-- Unit test `Polynomial.logHeight.test_X_sq_sub_quarter`: h(X^2 − 1/4) = log 4 (the primitive
+multiple is 4X^2 − 1). -/
+example : TauCetiRoadmap.DiophantineApproximationAndTranscendence.Polynomial.logHeight (_root_.Polynomial.X ^ 2 - _root_.Polynomial.C (1 / 4 : ℚ)) = Real.log 4 := sorry
+/-- Unit test `Polynomial.logHeight.test_X_sub_half`: h(X − 1/2) = log 2, although every coefficient
+has absolute value ≤ 1: the height sees denominators. -/
+example : TauCetiRoadmap.DiophantineApproximationAndTranscendence.Polynomial.logHeight (_root_.Polynomial.X - _root_.Polynomial.C (1 / 2 : ℚ)) = Real.log 2 := sorry
+
+/-- Pottmeyer, Lemma 3.2.8. -/
+theorem choose_half_mul_choose_half_le (a b : ℕ) :
+    a.choose (a / 2) * b.choose (b / 2) ≤ (a + b).choose ((a + b) / 2) := sorry
+
+
+/-- Pottmeyer, Lemma 3.2.10 for one variable. -/
+theorem supNorm_mul_supNorm_le (f g : ℂ[X]) :
+    f.supNorm * g.supNorm ≤ 2 ^ (f * g).natDegree * (f * g).supNorm := sorry
+
+/-- Gelfond's theorem in one variable (Pottmeyer, Proposition 3.2.12), relative heights over a
+number field `K`. -/
+theorem logHeight_add_logHeight_le {K : Type*} [Field K] [NumberField K] (f g : K[X])
+    (hf : f ≠ 0) (hg : g ≠ 0) :
+    TauCetiRoadmap.DiophantineApproximationAndTranscendence.Polynomial.logHeight f + TauCetiRoadmap.DiophantineApproximationAndTranscendence.Polynomial.logHeight g ≤
+      TauCetiRoadmap.DiophantineApproximationAndTranscendence.Polynomial.logHeight (f * g) + Module.finrank ℚ K * (f * g).natDegree * Real.log 2 := sorry
+
+/-- Roth's theorem in one variable (Pottmeyer, Lemma 3.4.3). -/
+theorem rootMultiplicity_mul_logHeight₁_le {K : Type*} [Field K] [NumberField K] (P : K[X])
+    (hP : P ≠ 0) (r : ℕ) (hr : P.natDegree ≤ r) (β : K) :
+    (P.rootMultiplicity β : ℝ) * Height.logHeight₁ β ≤
+      Polynomial.logHeight P + Module.finrank ℚ K * r * Real.log 2 := sorry
+
+end Polynomial
+
+
+namespace MvPolynomial
+
+open _root_.MvPolynomial
+open TauCetiRoadmap.DiophantineApproximationAndTranscendence.MvPolynomial
+
+section hasseDeriv
+
+variable {R σ : Type*} [CommSemiring R]
+
+/-- The divided (Hasse) partial derivative `∂^d`, sending `X^m` to
+`(∏ⱼ (mⱼ choose dⱼ)) X^(m - d)` (Pottmeyer, (2.34)). -/
+noncomputable def hasseDeriv (d : σ →₀ ℕ) : MvPolynomial σ R →ₗ[R] MvPolynomial σ R where
+  toFun P := ∑ m ∈ P.support, _root_.MvPolynomial.monomial (m - d) (P.coeff m * d.prod fun j dj => ((m j).choose dj : R))
+  map_add' := sorry
+  map_smul' := sorry
+
+/-- ∂^d(a x^m) = (∏_j binom(m_j, d_j)) a x^{m−d}. -/
+theorem hasseDeriv_monomial (d m : σ →₀ ℕ) (a : R) :
+    TauCetiRoadmap.DiophantineApproximationAndTranscendence.MvPolynomial.hasseDeriv d (_root_.MvPolynomial.monomial m a) =
+      _root_.MvPolynomial.monomial (m - d) ((d.prod fun j dj => ((m j).choose dj : R)) * a) := sorry
+
+/-- The coefficient at m of the d-th divided derivative is binom(m+d,d) times the coefficient at m+d. -/
+theorem coeff_hasseDeriv (d m : σ →₀ ℕ) (P : MvPolynomial σ R) :
+    (TauCetiRoadmap.DiophantineApproximationAndTranscendence.MvPolynomial.hasseDeriv d P).coeff m = (d.prod fun j dj => ((m j + dj).choose dj : R)) * P.coeff (m + d) :=
+  sorry
+
+/-- The divided derivative of multi-order zero is the identity. -/
+@[simp] theorem hasseDeriv_zero :
+    TauCetiRoadmap.DiophantineApproximationAndTranscendence.MvPolynomial.hasseDeriv (0 : σ →₀ ℕ) = (LinearMap.id : MvPolynomial σ R →ₗ[R] MvPolynomial σ R) := sorry
+
+/-- k! ∂^{k e_i} P = (∂/∂x_i)^k P (Mathlib's pderiv iterated). -/
+theorem factorial_smul_hasseDeriv_single (i : σ) (k : ℕ) (P : MvPolynomial σ R) :
+    k.factorial • TauCetiRoadmap.DiophantineApproximationAndTranscendence.MvPolynomial.hasseDeriv (Finsupp.single i k) P = (_root_.MvPolynomial.pderiv i)^[k] P := sorry
+
+/-- Composing divided derivatives of orders a and b introduces the multi-binomial coefficient binom(a+b,a). -/
+theorem hasseDeriv_hasseDeriv (a b : σ →₀ ℕ) (P : MvPolynomial σ R) :
+    TauCetiRoadmap.DiophantineApproximationAndTranscendence.MvPolynomial.hasseDeriv a (TauCetiRoadmap.DiophantineApproximationAndTranscendence.MvPolynomial.hasseDeriv b P) =
+      ((a + b).prod fun j n => (n.choose (a j) : R)) • TauCetiRoadmap.DiophantineApproximationAndTranscendence.MvPolynomial.hasseDeriv (a + b) P := sorry
+
+/-- The divided product rule sums over all decompositions of the multi-index. -/
+theorem hasseDeriv_mul [DecidableEq σ] (d : σ →₀ ℕ) (P Q : MvPolynomial σ R) :
+    TauCetiRoadmap.DiophantineApproximationAndTranscendence.MvPolynomial.hasseDeriv d (P * Q) = ∑ x ∈ Finset.HasAntidiagonal.antidiagonal d, TauCetiRoadmap.DiophantineApproximationAndTranscendence.MvPolynomial.hasseDeriv x.1 P * TauCetiRoadmap.DiophantineApproximationAndTranscendence.MvPolynomial.hasseDeriv x.2 Q := sorry
+
+/-- If deg_{x_i} P < d_i then ∂^d P = 0. -/
+theorem hasseDeriv_eq_zero_of_degreeOf_lt {d : σ →₀ ℕ} {P : MvPolynomial σ R} (i : σ)
+    (h : P.degreeOf i < d i) : TauCetiRoadmap.DiophantineApproximationAndTranscendence.MvPolynomial.hasseDeriv d P = 0 := sorry
+
+/-- deg_{x_i}(∂^d P) ≤ deg_{x_i} P − d_i. -/
+theorem degreeOf_hasseDeriv_le (d : σ →₀ ℕ) (P : MvPolynomial σ R) (i : σ) :
+    (TauCetiRoadmap.DiophantineApproximationAndTranscendence.MvPolynomial.hasseDeriv d P).degreeOf i ≤ P.degreeOf i - d i := sorry
+
+/-- Divided derivatives commute with coefficient ring homomorphisms. -/
+theorem map_hasseDeriv {S : Type*} [CommSemiring S] (f : R →+* S) (d : σ →₀ ℕ)
+    (P : MvPolynomial σ R) : _root_.MvPolynomial.map f (TauCetiRoadmap.DiophantineApproximationAndTranscendence.MvPolynomial.hasseDeriv d P) = TauCetiRoadmap.DiophantineApproximationAndTranscendence.MvPolynomial.hasseDeriv d (_root_.MvPolynomial.map f P) := sorry
+
+/-- Differentiating in the embedded coordinate agrees with the univariate divided derivative. -/
+theorem hasseDeriv_single_toMvPolynomial (i : σ) (k : ℕ) (p : Polynomial R) :
+    TauCetiRoadmap.DiophantineApproximationAndTranscendence.MvPolynomial.hasseDeriv (Finsupp.single i k) (p.toMvPolynomial i) =
+      (Polynomial.hasseDeriv k p).toMvPolynomial i := sorry
+
+/-- Taylor expansion with divided derivatives (Pottmeyer, (3.35)). -/
+theorem eval_add_eq_finsum_hasseDeriv (P : MvPolynomial σ R) (a y : σ → R) :
+    _root_.MvPolynomial.eval (a + y) P = ∑ᶠ d : σ →₀ ℕ, _root_.MvPolynomial.eval a (TauCetiRoadmap.DiophantineApproximationAndTranscendence.MvPolynomial.hasseDeriv d P) * d.prod fun j k => y j ^ k := sorry
+
+/-- Coefficients of divided derivatives under an arbitrary absolute value. -/
+theorem abv_coeff_hasseDeriv_le {K : Type*} [CommRing K] (v : AbsoluteValue K ℝ)
+    (d m : σ →₀ ℕ) (P : MvPolynomial σ K) :
+    v ((TauCetiRoadmap.DiophantineApproximationAndTranscendence.MvPolynomial.hasseDeriv d P).coeff m) ≤ 2 ^ (m + d).degree * v (P.coeff (m + d)) := sorry
+
+/-- Coefficients of divided derivatives under a nonarchimedean absolute value. -/
+theorem abv_coeff_hasseDeriv_le_of_isNonarchimedean {K : Type*} [CommRing K]
+    (v : AbsoluteValue K ℝ) (hv : IsNonarchimedean v) (d m : σ →₀ ℕ) (P : MvPolynomial σ K) :
+    v ((TauCetiRoadmap.DiophantineApproximationAndTranscendence.MvPolynomial.hasseDeriv d P).coeff m) ≤ v (P.coeff (m + d)) := sorry
+
+end hasseDeriv
+
+
+/-- Unit test `MvPolynomial.hasseDeriv.test_X0_cube_X1`: ∂^{(2,0)}(x_0^3 x_1) = 3 x_0 x_1 over ℤ. -/
+example : TauCetiRoadmap.DiophantineApproximationAndTranscendence.MvPolynomial.hasseDeriv (Finsupp.single 0 2) (_root_.MvPolynomial.X 0 ^ 3 * _root_.MvPolynomial.X 1 : MvPolynomial (Fin 2) ℤ) =
+    3 * (_root_.MvPolynomial.X 0 * _root_.MvPolynomial.X 1) := sorry
+/-- Unit test `MvPolynomial.hasseDeriv.test_one`: ∂^d 1 = 0 for d ≠ 0. -/
+example (d : Fin 2 →₀ ℕ) (hd : d ≠ 0) : TauCetiRoadmap.DiophantineApproximationAndTranscendence.MvPolynomial.hasseDeriv d (1 : MvPolynomial (Fin 2) ℤ) = 0 := sorry
+/-- Unit test `MvPolynomial.hasseDeriv.test_divided_not_ordinary`: ∂^{(2)}(x_0^2) = 1 while
+(∂/∂x_0)^2 x_0^2 = 2: the divided derivative is not the ordinary one. -/
+example : TauCetiRoadmap.DiophantineApproximationAndTranscendence.MvPolynomial.hasseDeriv (Finsupp.single 0 2) (_root_.MvPolynomial.X 0 ^ 2 : MvPolynomial (Fin 1) ℚ) = 1 ∧
+    (_root_.MvPolynomial.pderiv 0)^[2] (_root_.MvPolynomial.X 0 ^ 2 : MvPolynomial (Fin 1) ℚ) = 2 := sorry
+/-- Unit test `MvPolynomial.hasseDeriv.test_one_variable`: ∂^{e_1}((X^2)(x_1)) = (2X)(x_1):
+agreement with Mathlib's univariate Hasse derivative. -/
+example : TauCetiRoadmap.DiophantineApproximationAndTranscendence.MvPolynomial.hasseDeriv (Finsupp.single 1 1)
+      ((Polynomial.X ^ 2 : Polynomial ℚ).toMvPolynomial 1 : MvPolynomial (Fin 2) ℚ) =
+    (2 * Polynomial.X : Polynomial ℚ).toMvPolynomial 1 := sorry
+
+section weightedIndex
+
+variable {R σ : Type*} [CommRing R]
+
+/-- The index of `P` at the point `a` with respect to the weights `r` (Pottmeyer, Definition
+2.6.2): the least value of `∑ⱼ iⱼ / rⱼ` over the `i` with `(∂^i P)(a) ≠ 0`; it is `⊤` at `P = 0`. -/
+noncomputable def weightedIndex (r : σ → ℕ) (a : σ → R) (P : MvPolynomial σ R) : ℝ≥0∞ :=
+  ⨅ (i : σ →₀ ℕ) (_ : _root_.MvPolynomial.eval a (TauCetiRoadmap.DiophantineApproximationAndTranscendence.MvPolynomial.hasseDeriv i P) ≠ 0), ∑ j ∈ i.support, ((i j : ℝ≥0∞) / (r j : ℝ≥0∞))
+
+/-- The zero polynomial has infinite weighted index. -/
+@[simp] theorem weightedIndex_zero (r : σ → ℕ) (a : σ → R) :
+    weightedIndex r a (0 : MvPolynomial σ R) = ⊤ := sorry
+
+/-- An index lower bound is equivalent to vanishing of all Taylor coefficients of smaller weight. -/
+theorem le_weightedIndex_iff (r : σ → ℕ) (a : σ → R) (P : MvPolynomial σ R) (t : ℝ≥0∞) :
+    t ≤ weightedIndex r a P ↔
+      ∀ i : σ →₀ ℕ, (∑ j ∈ i.support, ((i j : ℝ≥0∞) / (r j : ℝ≥0∞))) < t →
+        _root_.MvPolynomial.eval a (TauCetiRoadmap.DiophantineApproximationAndTranscendence.MvPolynomial.hasseDeriv i P) = 0 := sorry
+
+/-- For r_j ≠ 0: Ind_{a,r}(P) = 0 iff P(a) ≠ 0. -/
+theorem weightedIndex_eq_zero_iff (r : σ → ℕ) (hr : ∀ j, r j ≠ 0) (a : σ → R)
+    (P : MvPolynomial σ R) : weightedIndex r a P = 0 ↔ _root_.MvPolynomial.eval a P ≠ 0 := sorry
+
+/-- For r_j ≠ 0 and P ≠ 0 the index is finite. -/
+theorem weightedIndex_ne_top (r : σ → ℕ) (hr : ∀ j, r j ≠ 0) (a : σ → R) {P : MvPolynomial σ R}
+    (hP : P ≠ 0) : weightedIndex r a P ≠ ⊤ := sorry
+
+/-- The weighted index of a nonzero polynomial is bounded by the sum of its coordinate degrees divided by the weights. -/
+theorem weightedIndex_le_sum_degreeOf [Fintype σ] (r : σ → ℕ) (a : σ → R)
+    {P : MvPolynomial σ R} (hP : P ≠ 0) :
+    weightedIndex r a P ≤ ∑ j, (P.degreeOf j : ℝ≥0∞) / (r j : ℝ≥0∞) := sorry
+
+/-- For an injective ring map f: Ind_{f∘a,r}(map f P) = Ind_{a,r}(P). -/
+theorem weightedIndex_map {S : Type*} [CommRing S] (f : R →+* S) (hf : Function.Injective f)
+    (r : σ → ℕ) (a : σ → R) (P : MvPolynomial σ R) :
+    weightedIndex r (f ∘ a) (_root_.MvPolynomial.map f P) = weightedIndex r a P := sorry
+
+/-- Additivity of the index (Pottmeyer, Exercise 2.19). -/
+theorem weightedIndex_mul [IsDomain R] (r : σ → ℕ) (hr : ∀ j, r j ≠ 0) (a : σ → R)
+    (P Q : MvPolynomial σ R) :
+    weightedIndex r a (P * Q) = weightedIndex r a P + weightedIndex r a Q := sorry
+
+/-- The ultrametric inequality for the index (Pottmeyer, Exercise 3.6). -/
+theorem min_weightedIndex_le_weightedIndex_add (r : σ → ℕ) (a : σ → R)
+    (P Q : MvPolynomial σ R) :
+    min (weightedIndex r a P) (weightedIndex r a Q) ≤ weightedIndex r a (P + Q) := sorry
+
+/-- The index under a divided derivative (Pottmeyer, proof of (3.24) and (3.32)). -/
+theorem weightedIndex_le_weightedIndex_hasseDeriv_add [IsDomain R] [CharZero R]
+    (r : σ → ℕ) (a : σ → R) (d : σ →₀ ℕ) (P : MvPolynomial σ R) :
+    weightedIndex r a P ≤
+      weightedIndex r a (TauCetiRoadmap.DiophantineApproximationAndTranscendence.MvPolynomial.hasseDeriv d P) + ∑ j ∈ d.support, ((d j : ℝ≥0∞) / (r j : ℝ≥0∞)) := sorry
+
+/-- The index does not see variables that do not occur. -/
+theorem weightedIndex_rename {τ : Type*} (f : τ → σ) (hf : Function.Injective f) (r : σ → ℕ)
+    (a : σ → R) (Q : MvPolynomial τ R) :
+    weightedIndex r a (_root_.MvPolynomial.rename f Q) = weightedIndex (r ∘ f) (a ∘ f) Q := sorry
+
+/-- Scaling the weights. -/
+theorem weightedIndex_smul_weights (c : ℕ) (hc : c ≠ 0) (r : σ → ℕ) (a : σ → R)
+    (P : MvPolynomial σ R) :
+    weightedIndex (c • r) a P = weightedIndex r a P / (c : ℝ≥0∞) := sorry
+
+/-- One variable: the index is the order of vanishing divided by the weight. -/
+theorem weightedIndex_toMvPolynomial (r : σ → ℕ) (a : σ → R) (i : σ) {p : Polynomial R}
+    (hp : p ≠ 0) :
+    weightedIndex r a (p.toMvPolynomial i) = (p.rootMultiplicity (a i) : ℝ≥0∞) / (r i : ℝ≥0∞) :=
+  sorry
+
+end weightedIndex
+
+
+/-- Unit test `MvPolynomial.weightedIndex.test_X0_cube_sub_X1_sq`: Ind_{(0,0),(3,3)}(x_0^3 − x_1^2)
+= 2/3 over ℚ. -/
+example : weightedIndex ![3, 3] 0 (_root_.MvPolynomial.X 0 ^ 3 - _root_.MvPolynomial.X 1 ^ 2 : MvPolynomial (Fin 2) ℚ) = 2 / 3 := sorry
+/-- Unit test `MvPolynomial.weightedIndex.test_one`: Ind_{a,r}(1) = 0 for all a, r. -/
+example (r : Fin 2 → ℕ) (a : Fin 2 → ℚ) : weightedIndex r a (1 : MvPolynomial (Fin 2) ℚ) = 0 :=
+  sorry
+/-- Unit test `MvPolynomial.weightedIndex.test_X0_X1`: Ind_{(0,0),(1,2)}(x_0 x_1) = 3/2, not the
+total order of vanishing 2: the index is weighted. -/
+example : weightedIndex ![1, 2] 0 (_root_.MvPolynomial.X 0 * _root_.MvPolynomial.X 1 : MvPolynomial (Fin 2) ℚ) = 3 / 2 := sorry
+/-- Unit test `MvPolynomial.weightedIndex.test_X_sub_C_pow`: In one variable, Ind_{β,r}((x_0 − β)^m)
+= m/r (order of vanishing divided by the weight). -/
+example (β : ℚ) (m r : ℕ) (hr : r ≠ 0) :
+    weightedIndex ![r] ![β] ((_root_.MvPolynomial.X 0 - _root_.MvPolynomial.C β) ^ m : MvPolynomial (Fin 1) ℚ) =
+      (m : ℝ≥0∞) / (r : ℝ≥0∞) := sorry
+
+section logHeight
+
+variable {σ K : Type*} [Field K] [Height.AdmissibleAbsValues K]
+
+/-- The (projective, logarithmic) height of a polynomial in several variables: the height of its
+coefficient vector (Pottmeyer, Definition 3.2.1, relative to `K`). -/
+noncomputable def logHeight (P : MvPolynomial σ K) : ℝ := Finsupp.logHeight P.coeff
+
+/-- h(p) ≥ 0. -/
+theorem logHeight_nonneg (P : MvPolynomial σ K) : 0 ≤ logHeight P := sorry
+
+/-- The zero coefficient vector has logarithmic height zero. -/
+@[simp] theorem logHeight_zero : logHeight (0 : MvPolynomial σ K) = 0 := sorry
+
+/-- h(cp) = h(p) for c ≠ 0. -/
+theorem logHeight_C_mul (c : K) (hc : c ≠ 0) (P : MvPolynomial σ K) :
+    logHeight (_root_.MvPolynomial.C c * P) = logHeight P := sorry
+
+/-- A constant multivariate polynomial has projective logarithmic height zero. -/
+@[simp] theorem logHeight_C (c : K) : logHeight (_root_.MvPolynomial.C c : MvPolynomial σ K) = 0 := sorry
+
+/-- h is invariant under injective renaming of variables. -/
+theorem logHeight_rename {τ : Type*} (f : σ → τ) (hf : Function.Injective f)
+    (P : MvPolynomial σ K) : logHeight (_root_.MvPolynomial.rename f P) = logHeight P := sorry
+
+/-- The place-by-place formula over a number field (Mathlib's NumberField.mulHeight_eq). -/
+theorem logHeight_eq_of_numberField {L : Type*} [Field L] [NumberField L] {P : MvPolynomial σ L}
+    (hP : P ≠ 0) :
+    logHeight P =
+      ∑ w : NumberField.InfinitePlace L, w.mult * Real.log (⨆ m : P.support, w (P.coeff m)) +
+        ∑ᶠ v : NumberField.FinitePlace L, Real.log (⨆ m : P.support, v (P.coeff m)) := sorry
+
+/-- Heights of products in disjoint sets of variables (Pottmeyer, Exercise 3.3). -/
+theorem logHeight_mul_of_disjoint_vars [DecidableEq σ] {P Q : MvPolynomial σ K} (hP : P ≠ 0)
+    (hQ : Q ≠ 0) (hPQ : Disjoint P.vars Q.vars) :
+    logHeight (P * Q) = logHeight P + logHeight Q := sorry
+
+end logHeight
+
+/-- The height of an integer polynomial is at most the logarithm of its largest coefficient. -/
+theorem logHeight_map_intCast_le {σ : Type*} {P : MvPolynomial σ ℤ} (hP : P ≠ 0) :
+    logHeight (P.map (Int.castRingHom ℚ)) ≤ Real.log (⨆ m, (|P.coeff m| : ℝ)) := sorry
+
+
+/-- Unit test `MvPolynomial.logHeight.test_two_X_add_four`: h(2x_0 + 4) = log 2 over ℚ. -/
+example : logHeight (2 * _root_.MvPolynomial.X 0 + 4 : MvPolynomial (Fin 1) ℚ) = Real.log 2 := sorry
+/-- Unit test `MvPolynomial.logHeight.test_C_five`: h(5) = 0. -/
+example : logHeight (_root_.MvPolynomial.C 5 : MvPolynomial (Fin 1) ℚ) = 0 := sorry
+/-- Unit test `MvPolynomial.logHeight.test_X_sub_C`: h(x_0 − q) = Mathlib's logHeight₁ q for q ∈ ℚ.
+-/
+example (q : ℚ) : logHeight (_root_.MvPolynomial.X 0 - _root_.MvPolynomial.C q : MvPolynomial (Fin 1) ℚ) = Height.logHeight₁ q := sorry
+/-- Unit test `MvPolynomial.logHeight.test_two_X_add_two`: h(2x_0 + 2) = 0, not log 2 = log of the
+largest coefficient: the height is projective. -/
+example : logHeight (2 * _root_.MvPolynomial.X 0 + 2 : MvPolynomial (Fin 1) ℚ) = 0 := sorry
+
+/-- Pottmeyer, Remark 3.2.11: coefficients of a product, for an arbitrary absolute value. -/
+theorem abv_coeff_prod_le {R ι σ : Type*} [CommRing R] [IsDomain R] [Fintype σ]
+    (v : AbsoluteValue R ℝ)
+    (s : Finset ι) (f : ι → MvPolynomial σ R) (m : σ →₀ ℕ) :
+    v ((∏ k ∈ s, f k).coeff m) ≤
+      2 ^ (∑ j, (∏ k ∈ s, f k).degreeOf j) * ∏ k ∈ s, ⨆ n, v ((f k).coeff n) := sorry
+
+section genWronskian
+
+variable {R σ : Type*} [CommRing R]
+
+/-- A generalized Wronskian `W_D(f) = det (∂^{D k} (f l))` (Pottmeyer, Definition 3.3.5); the
+admissibility condition `(D k).degree ≤ k` is a hypothesis of the theorems, not of the
+definition. -/
+noncomputable def genWronskian {m : ℕ} (D : Fin m → σ →₀ ℕ) (f : Fin m → MvPolynomial σ R) :
+    MvPolynomial σ R :=
+  Matrix.det (Matrix.of fun k l => TauCetiRoadmap.DiophantineApproximationAndTranscendence.MvPolynomial.hasseDeriv (D k) (f l))
+
+/-- Linearly dependent families have all W_D = 0. -/
+theorem genWronskian_eq_zero_of_not_linearIndependent {K : Type*} [Field K] {m : ℕ}
+    (D : Fin m → σ →₀ ℕ) (f : Fin m → MvPolynomial σ K) (h : ¬ LinearIndependent K f) :
+    genWronskian D f = 0 := sorry
+
+/-- The empty generalized Wronskian equals one. -/
+@[simp] theorem genWronskian_fin_zero (D : Fin 0 → σ →₀ ℕ) (f : Fin 0 → MvPolynomial σ R) :
+    genWronskian D f = 1 := sorry
+
+/-- W_{(0)}(f_0) = f_0. -/
+theorem genWronskian_fin_one (D : Fin 1 → σ →₀ ℕ) (hD : D 0 = 0) (f : Fin 1 → MvPolynomial σ R) :
+    genWronskian D f = f 0 := sorry
+
+/-- A generalized m-column Wronskian has coordinate degree at most m times the common degree bound. -/
+theorem degreeOf_genWronskian_le {m : ℕ} (D : Fin m → σ →₀ ℕ) (f : Fin m → MvPolynomial σ R)
+    (i : σ) (N : ℕ) (hN : ∀ l, (f l).degreeOf i ≤ N) : (genWronskian D f).degreeOf i ≤ m * N :=
+  sorry
+
+/-- W_D commutes with coefficient ring maps. -/
+theorem map_genWronskian {S : Type*} [CommRing S] (φ : R →+* S) {m : ℕ} (D : Fin m → σ →₀ ℕ)
+    (f : Fin m → MvPolynomial σ R) :
+    _root_.MvPolynomial.map φ (genWronskian D f) = genWronskian D fun l => _root_.MvPolynomial.map φ (f l) := sorry
+
+/-- With D_k = k e_i and one-variable g_l placed in x_i, W_D is the one-variable Wronskian placed in x_i. -/
+theorem genWronskian_single_toMvPolynomial (i : σ) {m : ℕ} (g : Fin m → Polynomial R) :
+    genWronskian (fun k => Finsupp.single i (k : ℕ)) (fun l => (g l).toMvPolynomial i) =
+      (Polynomial.hasseWronskian g).toMvPolynomial i := sorry
+
+end genWronskian
+
+
+/-- Unit test `MvPolynomial.genWronskian.test_X0_X1`: W_{(0, e_0)}(x_0, x_1) = −x_1. -/
+example : genWronskian ![0, Finsupp.single 0 1] ![_root_.MvPolynomial.X 0, _root_.MvPolynomial.X 1] = -(_root_.MvPolynomial.X 1 : MvPolynomial (Fin 2) ℚ) :=
+  sorry
+/-- Unit test `MvPolynomial.genWronskian.test_empty`: For m = 0 the generalized Wronskian is 1. -/
+example (D : Fin 0 → Fin 2 →₀ ℕ) (f : Fin 0 → MvPolynomial (Fin 2) ℚ) : genWronskian D f = 1 :=
+  sorry
+/-- Unit test `MvPolynomial.genWronskian.test_dependent`: W_D(x_0, x_0) = 0 for every D. -/
+example (D : Fin 2 → Fin 2 →₀ ℕ) : genWronskian D ![_root_.MvPolynomial.X 0, _root_.MvPolynomial.X 0] = (0 : MvPolynomial (Fin 2) ℚ) :=
+  sorry
+/-- Unit test `MvPolynomial.genWronskian.test_one_X0`: W_{(0, e_0)}(1, x_0) = 1, the one-variable
+Wronskian W(1, X). -/
+example : genWronskian ![0, Finsupp.single 0 1] ![1, _root_.MvPolynomial.X 0] = (1 : MvPolynomial (Fin 1) ℚ) := sorry
+
+/-- Kronecker substitution preserves linear (in)dependence (Pottmeyer, Exercise 3.5(a)). -/
+theorem linearIndependent_aeval_kronecker_iff {K : Type*} [Field K] {n m B : ℕ}
+    (f : Fin m → MvPolynomial (Fin n) K) (hB : ∀ l i, (f l).degreeOf i < B) :
+    LinearIndependent K
+        (fun l => aeval (fun i : Fin n => (Polynomial.X : Polynomial K) ^ (B ^ (i : ℕ))) (f l)) ↔
+      LinearIndependent K f := sorry
+
+/-- Derivatives of a Kronecker substitution (Pottmeyer, Exercise 3.5(b)). -/
+theorem exists_iterate_derivative_aeval_kronecker {K : Type*} [Field K] (n B k : ℕ) :
+    ∃ a : (Fin n →₀ ℕ) → Polynomial K, (∀ d, k < d.degree → a d = 0) ∧
+      ∀ f : MvPolynomial (Fin n) K,
+        Polynomial.derivative^[k]
+            (aeval (fun i : Fin n => (Polynomial.X : Polynomial K) ^ (B ^ (i : ℕ))) f) =
+          ∑ᶠ d, a d *
+            aeval (fun i : Fin n => (Polynomial.X : Polynomial K) ^ (B ^ (i : ℕ)))
+              (TauCetiRoadmap.DiophantineApproximationAndTranscendence.MvPolynomial.hasseDeriv d f) := sorry
+
+/-- The generalized Wronskian criterion (Pottmeyer, Theorem 3.3.7). -/
+theorem linearIndependent_iff_exists_genWronskian_ne_zero {K : Type*} [Field K] [CharZero K]
+    {n m : ℕ} (f : Fin m → MvPolynomial (Fin n) K) :
+    LinearIndependent K f ↔
+      ∃ D : Fin m → Fin n →₀ ℕ, (∀ k, (D k).degree ≤ k) ∧ genWronskian D f ≠ 0 := sorry
+
+/-- Separation of one variable (Pottmeyer, Lemma 3.3.8). -/
+theorem exists_sum_mul_linearIndependent {K σ : Type*} [Field K] [DecidableEq σ]
+    {P : MvPolynomial σ K} (hP : P ≠ 0) (i₀ : σ) :
+    ∃ s : ℕ, s ≤ P.degreeOf i₀ ∧ ∃ f g : Fin (s + 1) → MvPolynomial σ K,
+      (∀ k, i₀ ∉ (f k).vars) ∧ (∀ k, (g k).vars ⊆ {i₀}) ∧ LinearIndependent K f ∧
+        LinearIndependent K g ∧ P = ∑ k, f k * g k := sorry
+
+/-- The Wronskian factorisation for separated variables (Pottmeyer, Lemma 3.3.9). -/
+theorem genWronskian_mul_genWronskian {R σ : Type*} [CommRing R] [DecidableEq σ] {m : ℕ}
+    (i₀ : σ) (f g : Fin m → MvPolynomial σ R) (hf : ∀ k, i₀ ∉ (f k).vars)
+    (hg : ∀ k, (g k).vars ⊆ {i₀}) (D : Fin m → σ →₀ ℕ) (hD : ∀ k, D k i₀ = 0) :
+    genWronskian D f * genWronskian (fun k => Finsupp.single i₀ (k : ℕ)) g =
+      (Matrix.of fun k l : Fin m =>
+        TauCetiRoadmap.DiophantineApproximationAndTranscendence.MvPolynomial.hasseDeriv (D k + Finsupp.single i₀ (l : ℕ)) (∑ j, f j * g j)).det := sorry
+
+/-- Height of a determinant of divided derivatives of one polynomial (Pottmeyer, §3.4.6,
+(3.21) with the corrected archimedean factor). -/
+theorem logHeight_det_hasseDeriv_le {K σ : Type*} [Field K] [NumberField K] [Fintype σ] {m : ℕ}
+    (P : MvPolynomial σ K) (E : Fin m → Fin m → σ →₀ ℕ) :
+    logHeight (Matrix.of fun k l => TauCetiRoadmap.DiophantineApproximationAndTranscendence.MvPolynomial.hasseDeriv (E k l) P).det ≤
+      m * logHeight P +
+        Module.finrank ℚ K *
+          (2 * m * (∑ j, (P.degreeOf j : ℝ)) * Real.log 2 + Real.log (m.factorial)) := sorry
+
+end MvPolynomial
+
+
+namespace DiophantineApproximation
+
+open TauCetiRoadmap.DiophantineApproximationAndTranscendence.DiophantineApproximation
+
+open Polynomial
+
+/-- Pottmeyer, Lemma 3.4.8. -/
+theorem sum_max_sub_div_ge (k : ℕ) (δ : ℝ) :
+    (k + 1 : ℝ) * min (δ / 2) (δ ^ 2 / 2) ≤ ∑ i ∈ Finset.range (k + 1), max (δ - i / k) 0 := sorry
+
+/-- **Roth's theorem** (Pottmeyer, Theorem 3.4.1), relative heights over a number field `K`. -/
+theorem roth_lemma {K : Type*} [Field K] [NumberField K] {n : ℕ} (hn : 0 < n)
+    (P : MvPolynomial (Fin n) K) (hP : P ≠ 0) (β : Fin n → K) (σ : ℝ) (hσ₀ : 0 < σ)
+    (hσ : σ ≤ 1 / 2) (r : Fin n → ℕ) (hr : ∀ i, 0 < r i)
+    (h₁ : ∀ i, P.degreeOf i ≤ r i)
+    (h₂ : ∀ i j : Fin n, (j : ℕ) = i + 1 → (r j : ℝ) ≤ σ * r i)
+    (h₃ : ∀ i, σ⁻¹ * (MvPolynomial.logHeight P + 4 * n * r ⟨0, hn⟩ * Module.finrank ℚ K) ≤
+      r i * Height.logHeight₁ (β i)) :
+    MvPolynomial.weightedIndex r β P ≤ ENNReal.ofReal (2 * n * σ ^ ((1 : ℝ) / 2 ^ (n - 1))) :=
+  sorry
+
+
+/-- The bound (6.2): a homogenized integer polynomial at an integer point `(x, y)`, `y > 0`,
+controls the distance from `x / y` to a root (for coprime `x, y` the maximum is `H(x / y)`). -/
+theorem abs_eval_homogenize_le (f : ℤ[X]) (hf : 1 ≤ f.natDegree) (α : ℂ) (hα : aeval α f = 0)
+    (x : ℤ) (y : ℕ) (hy : 0 < y) :
+    |(MvPolynomial.eval ![x, (y : ℤ)] (f.homogenize f.natDegree) : ℝ)| ≤
+      2 ^ (f.natDegree - 1) * (f.map (Int.castRingHom ℂ)).mahlerMeasure *
+        max |(x : ℝ)| (y : ℝ) ^ f.natDegree * ‖α - (x : ℂ) / (y : ℂ)‖ := sorry
+
+/-- **Liouville's inequality** with the explicit constant `2^(1-d) M(α)⁻¹` (Evertse,
+Theorem 6.1); `f` is the primitive minimal polynomial of `α`, so `M(f) = M(α)`. -/
+theorem liouville_explicit (f : ℤ[X]) (hprim : f.IsPrimitive) (hirr : Irreducible f)
+    (hlead : 0 < f.leadingCoeff) (α : ℂ) (hα : aeval α f = 0) (ξ : ℚ) (hξ : (ξ : ℂ) ≠ α) :
+    (2 : ℝ) ^ (1 - (f.natDegree : ℤ)) * ((f.map (Int.castRingHom ℂ)).mahlerMeasure)⁻¹ *
+        Height.mulHeight₁ ξ ^ (-(f.natDegree : ℤ)) ≤ ‖(ξ : ℂ) - α‖ := sorry
+
+/-- Evertse, Lemma 6.10: Thue's auxiliary polynomials. The constant can be taken to be
+`C₁ = (48 b max(1, house α))^(d (1 + 1/ε))`, `b` a denominator of `α`. -/
+theorem exists_thue_auxiliary_polynomials (α : ℂ) (hα : IsAlgebraic ℚ α) (ε : ℝ) (hε₀ : 0 < ε)
+    (hε : ε < 1 / 2) :
+    ∃ C₁ : ℝ, 0 < C₁ ∧ ∀ r : ℕ, 0 < r → ∃ P Q : ℤ[X], (P ≠ 0 ∨ Q ≠ 0) ∧
+      (P.natDegree : ℝ) ≤ ⌊(1 / 2 + ε) * (minpoly ℚ α).natDegree * r⌋₊ ∧
+      (Q.natDegree : ℝ) ≤ ⌊(1 / 2 + ε) * (minpoly ℚ α).natDegree * r⌋₊ ∧
+      (X - C α) ^ r ∣ P.map (Int.castRingHom ℂ) - C α * Q.map (Int.castRingHom ℂ) ∧
+      l1Norm P ≤ C₁ ^ r ∧ l1Norm Q ≤ C₁ ^ r := sorry
+
+/-- Evertse, Lemma 6.11. -/
+theorem minpoly_pow_dvd_of_X_sub_C_pow_dvd {F : ℚ[X]} {β : ℂ} (hβ : IsIntegral ℚ β) {m : ℕ}
+    (h : (X - C β) ^ m ∣ F.map (algebraMap ℚ ℂ)) : minpoly ℚ β ^ m ∣ F := sorry
+
+/-- Evertse, Lemma 6.12 (non-vanishing of a divided derivative of bounded order). -/
+theorem exists_hasseDeriv_eval_ne (α : ℂ) (hα : IsAlgebraic ℚ α)
+    (hd : 2 ≤ (minpoly ℚ α).natDegree) (ε : ℝ) (hε₀ : 0 < ε) (hε : ε < 1 / 2) (r : ℕ) (hr : 0 < r)
+    (P Q : ℤ[X]) (hPQ : P ≠ 0 ∨ Q ≠ 0)
+    (hP : (P.natDegree : ℝ) ≤ (1 / 2 + ε) * (minpoly ℚ α).natDegree * r)
+    (hQ : (Q.natDegree : ℝ) ≤ (1 / 2 + ε) * (minpoly ℚ α).natDegree * r)
+    (hdvd : (X - C α) ^ r ∣ P.map (Int.castRingHom ℂ) - C α * Q.map (Int.castRingHom ℂ))
+    (ξ₁ ξ₂ : ℚ) :
+    ∃ k : ℕ, (k : ℝ) ≤ (minpoly ℚ α).natDegree * (2 * ε * r + 1) ∧
+      (hasseDeriv k (P.map (Int.castRingHom ℚ))).eval ξ₁ ≠
+        ξ₂ * (hasseDeriv k (Q.map (Int.castRingHom ℚ))).eval ξ₁ := sorry
+
+/-- Evertse, Lemma 6.13, with `C₂ = 2^((1/2+ε)d) (1+|α|)^(1+(1/2+ε)d) C₁`. -/
+theorem thue_remainder_bounds (α : ℂ) (d : ℕ) (ε C₁ : ℝ) (hC₁ : 0 ≤ C₁) (r k : ℕ) (hr : 0 < r) (hk : k ≤ r)
+    (P Q : ℤ[X]) (hP : (P.natDegree : ℝ) ≤ (1 / 2 + ε) * d * r)
+    (hQ : (Q.natDegree : ℝ) ≤ (1 / 2 + ε) * d * r) (hP₁ : l1Norm P ≤ C₁ ^ r)
+    (hQ₁ : l1Norm Q ≤ C₁ ^ r) (V : ℂ[X])
+    (hV : hasseDeriv k (P.map (Int.castRingHom ℂ)) - C α * hasseDeriv k (Q.map (Int.castRingHom ℂ)) =
+      V * (X - C α) ^ (r - k))
+    (z : ℂ) (hz : ‖z - α‖ ≤ 1) :
+    ‖V.eval z‖ ≤ (2 ^ ((1 / 2 + ε) * d) * (1 + ‖α‖) ^ (1 + (1 / 2 + ε) * d) * C₁) ^ r ∧
+      ‖(hasseDeriv k (Q.map (Int.castRingHom ℂ))).eval z‖ ≤
+        (2 ^ ((1 / 2 + ε) * d) * (1 + ‖α‖) ^ (1 + (1 / 2 + ε) * d) * C₁) ^ r := sorry
+
+/-- Evertse, Theorem 6.14: an effective gap principle for the solutions of `|ξ - α| ≤ H(ξ)^(-κ)`,
+for `κ > d/2 + 1`. -/
+theorem thue_gap_principle (α : ℂ) (hα : IsAlgebraic ℚ α) (hd : 2 ≤ (minpoly ℚ α).natDegree)
+    (κ : ℝ) (hκ : (minpoly ℚ α).natDegree / 2 + 1 < κ) :
+    ∃ C lam : ℝ, 1 ≤ C ∧ 1 ≤ lam ∧ ∀ ξ₁ ξ : ℚ,
+      ‖(ξ₁ : ℂ) - α‖ ≤ Height.mulHeight₁ ξ₁ ^ (-κ) → C ≤ Height.mulHeight₁ ξ₁ →
+      ‖(ξ : ℂ) - α‖ ≤ Height.mulHeight₁ ξ ^ (-κ) → ξ ≠ ξ₁ →
+      Height.mulHeight₁ ξ ≤ Height.mulHeight₁ ξ₁ ^ lam := sorry
+
+/-- **Thue's approximation theorem** (Evertse, Theorem 6.9). -/
+theorem thue_approximation (α : ℝ) (hα : IsAlgebraic ℚ α) (hd : 3 ≤ (minpoly ℚ α).natDegree)
+    (κ : ℝ) (hκ : (minpoly ℚ α).natDegree / 2 + 1 < κ) :
+    {ξ : ℚ | |(ξ : ℝ) - α| ≤ Height.mulHeight₁ ξ ^ (-κ)}.Finite := sorry
+
+/-- Pottmeyer, Lemma 2.6.4: few lattice points of small weighted size. -/
+theorem card_filter_sum_div_le {n : ℕ} (r : Fin n → ℕ) (hr : ∀ i, 0 < r i) (ε : ℝ) (hε₀ : 0 < ε)
+    (hε : ε < 1) :
+    (((Fintype.piFinset fun i => Finset.range (r i + 1)).filter
+        fun d => ∑ i, (d i : ℝ) / r i ≤ n / 2 * (1 - ε)).card : ℝ) ≤
+      (∏ i, ((r i : ℝ) + 1)) * Real.exp (-(ε ^ 2 * n / 4)) := sorry
+
+/-- Roth's auxiliary polynomial (Pottmeyer, Theorem 2.6.5, with Siegel's theorem in Evertse's form):
+`C` depends only on `α` (one may take `C = 12 b max(1, house α)`, `b` a denominator of `α`). -/
+theorem exists_roth_auxiliary_polynomial (α : ℝ) (hα : IsAlgebraic ℚ α) (ε : ℝ) (hε₀ : 0 < ε)
+    (hε : ε < 1) (n : ℕ) (hn : 2 * ((minpoly ℚ α).natDegree : ℝ) ≤ Real.exp (ε ^ 2 * n / 4)) :
+    ∃ C : ℝ, 1 ≤ C ∧ ∀ r : Fin n → ℕ, (∀ i, 0 < r i) →
+      ∃ P : MvPolynomial (Fin n) ℤ, P ≠ 0 ∧ (∀ i, P.degreeOf i ≤ r i) ∧
+        ENNReal.ofReal (n / 2 * (1 - ε)) ≤
+          MvPolynomial.weightedIndex r (fun _ => α) (P.map (Int.castRingHom ℝ)) ∧
+        ∀ m, (|P.coeff m| : ℝ) ≤ C ^ (∑ i, r i) := sorry
+
+/-- Pottmeyer, §3.5.6 over `ℚ`: an infinite set of rationals contains rapidly increasing
+chains of heights (Northcott). -/
+theorem exists_rapidly_increasing_heights {S : Set ℚ} (hS : S.Infinite) (n : ℕ) (L M : ℝ) :
+    ∃ β : Fin n → ℚ, (∀ i, β i ∈ S) ∧ (∀ i, L ≤ Height.logHeight₁ (β i)) ∧
+      ∀ i j : Fin n, (j : ℕ) = i + 1 → M * Height.logHeight₁ (β i) ≤ Height.logHeight₁ (β j) :=
+  sorry
+
+/-- Pottmeyer, §3.5.2: the weights `rᵢ = ⌊D / h(βᵢ)⌋` satisfy the hypotheses of Roth's theorem. -/
+theorem roth_weights_spec {n : ℕ} (hn : 0 < n) (ε : ℝ) (hε₀ : 0 < ε) (hε : ε < 1 / 12)
+    (C₁ L M D : ℝ) (hC₁ : 0 ≤ C₁) (hM : 2 * ((5 / 4 * ε) ^ (2 ^ (n - 1)))⁻¹ ≤ M)
+    (hL : ((5 / 4 * ε) ^ (2 ^ (n - 1)))⁻¹ * (5 / 2 * C₁ + 5 * n) ≤ L) (hL₀ : 0 < L)
+    (β : Fin n → ℚ) (h₁ : ∀ i, L ≤ Height.logHeight₁ (β i))
+    (h₂ : ∀ i j : Fin n, (j : ℕ) = i + 1 → M * Height.logHeight₁ (β i) ≤ Height.logHeight₁ (β j))
+    (hD : ∀ i, 5 * Height.logHeight₁ (β i) ≤ D) :
+    let r : Fin n → ℕ := fun i => ⌊D / Height.logHeight₁ (β i)⌋₊
+    let σ : ℝ := (5 / 4 * ε) ^ (2 ^ (n - 1))
+    (∀ i, 0 < r i) ∧ (∑ i, (r i : ℝ)) ≤ 2 * D / L ∧
+      (∀ i j : Fin n, (j : ℕ) = i + 1 → (r j : ℝ) ≤ σ * r i) ∧
+      ∀ H : ℝ, H ≤ C₁ * ∑ i, (r i : ℝ) →
+        ∀ i, σ⁻¹ * (H + 4 * n * r ⟨0, hn⟩) ≤ r i * Height.logHeight₁ (β i) := sorry
+
+/-- Pottmeyer, Lemma 3.5.7 (a derivative of the auxiliary polynomial that does not vanish at the
+approximations). -/
+theorem exists_hasseDeriv_eval_ne_zero {n : ℕ} (α : ℝ) (β : Fin n → ℚ) (ε C₁ D L : ℝ)
+    (hC₁ : Real.log 2 ≤ C₁) (P : MvPolynomial (Fin n) ℤ) (r : Fin n → ℕ) (hr : ∀ i, 0 < r i)
+    (hdeg : ∀ i, P.degreeOf i ≤ r i) (hsum : (∑ i, (r i : ℝ)) ≤ 2 * D / L)
+    (hcoeff : ∀ m, Real.log (|P.coeff m| : ℝ) ≤ C₁ * ∑ i, (r i : ℝ))
+    (hα : ENNReal.ofReal (n / 2 * (1 - ε)) ≤
+      MvPolynomial.weightedIndex r (fun _ => α) (P.map (Int.castRingHom ℝ)))
+    (hβ : MvPolynomial.weightedIndex r β (P.map (Int.castRingHom ℚ)) ≤
+      ENNReal.ofReal (5 / 2 * n * ε)) :
+    ∃ Q : MvPolynomial (Fin n) ℤ, (∀ i, Q.degreeOf i ≤ r i) ∧
+      ENNReal.ofReal ((1 / 2 - 3 * ε) * n) ≤
+        MvPolynomial.weightedIndex r (fun _ => α) (Q.map (Int.castRingHom ℝ)) ∧
+      MvPolynomial.eval β (Q.map (Int.castRingHom ℚ)) ≠ 0 ∧
+      ∀ m, Real.log (|Q.coeff m| : ℝ) ≤ 4 * C₁ * D / L := sorry
+
+/-- Pottmeyer, (3.35)–(3.39) and Exercise 3.10 at the archimedean place of `ℚ`: the Taylor
+expansion at `α` bounds a polynomial of large index at good approximations. -/
+theorem log_abs_eval_le {n : ℕ} (α : ℝ) (Q : MvPolynomial (Fin n) ℤ) (r : Fin n → ℕ)
+    (hr : ∀ i, 0 < r i) (hdeg : ∀ i, Q.degreeOf i ≤ r i) (t : ℝ) (ht : 0 ≤ t)
+    (hind : ENNReal.ofReal t ≤
+      MvPolynomial.weightedIndex r (fun _ => α) (Q.map (Int.castRingHom ℝ)))
+    (β : Fin n → ℚ) (κ D' : ℝ) (hκ : 0 ≤ κ) (hD' : 0 ≤ D')
+    (hβ : ∀ i, |(β i : ℝ) - α| ≤ Height.mulHeight₁ (β i) ^ (-κ))
+    (hD : ∀ i, D' ≤ r i * Height.logHeight₁ (β i))
+    (hne : MvPolynomial.eval (fun i => (β i : ℝ)) (Q.map (Int.castRingHom ℝ)) ≠ 0) :
+    Real.log |MvPolynomial.eval (fun i => (β i : ℝ)) (Q.map (Int.castRingHom ℝ))| ≤
+      Real.log (⨆ m, (|Q.coeff m| : ℝ)) +
+        (∑ i, (r i : ℝ)) * (Real.log 2 + Real.log (max 1 |α|)) +
+        2 * ∑ i, Real.log (r i + 1) - κ * D' * t := sorry
+
+/-- The value of an integer polynomial at a rational point is either zero or at least the inverse
+of the product of the denominators (the product formula over `ℚ`). -/
+theorem neg_sum_log_den_le_log_abs_eval {n : ℕ} (Q : MvPolynomial (Fin n) ℤ) (r : Fin n → ℕ)
+    (hdeg : ∀ i, Q.degreeOf i ≤ r i) (β : Fin n → ℚ)
+    (hne : MvPolynomial.eval β (Q.map (Int.castRingHom ℚ)) ≠ 0) :
+    -∑ i, (r i : ℝ) * Real.log (β i).den ≤
+      Real.log |(MvPolynomial.eval β (Q.map (Int.castRingHom ℚ)) : ℝ)| := sorry
+
+/-- **Roth's theorem** (Roth 1955): for a real algebraic irrational `α` and `κ > 2`, only finitely
+many rationals satisfy `|α - ξ| ≤ H(ξ)^(-κ)`. The proof gives no way to list them. -/
+theorem roth (α : ℝ) (hα : IsAlgebraic ℚ α) (hirr : Irrational α) (κ : ℝ) (hκ : 2 < κ) :
+    {ξ : ℚ | |(ξ : ℝ) - α| ≤ Height.mulHeight₁ ξ ^ (-κ)}.Finite := sorry
+
+/-- Roth's theorem in the form of Evertse, Theorem 6.2. -/
+theorem roth_lower_bound (α : ℝ) (hα : IsAlgebraic ℚ α) (hirr : Irrational α) (κ : ℝ)
+    (hκ : 2 < κ) :
+    ∃ c : ℝ, 0 < c ∧ ∀ ξ : ℚ, c * Height.mulHeight₁ ξ ^ (-κ) ≤ |(ξ : ℝ) - α| := sorry
+
+/-- Roth's lower bound for every algebraic number (Evertse, remarks after Theorem 6.2). -/
+theorem roth_lower_bound_of_isAlgebraic (α : ℂ) (hα : IsAlgebraic ℚ α) (κ : ℝ) (hκ : 2 < κ) :
+    ∃ c : ℝ, 0 < c ∧ ∀ ξ : ℚ, (ξ : ℂ) ≠ α → c * Height.mulHeight₁ ξ ^ (-κ) ≤ ‖(ξ : ℂ) - α‖ :=
+  sorry
+
+/-- Roth's theorem in Mathlib's vocabulary: a real algebraic number is not `LiouvilleWith p`
+for any `p > 2`. -/
+theorem not_liouvilleWith_of_isAlgebraic (α : ℝ) (hα : IsAlgebraic ℚ α) {p : ℝ} (hp : 2 < p) :
+    ¬ LiouvilleWith p α := sorry
+
+/-- Evertse, Exercise 6.5: `∑ₖ b^(-3^k)` is transcendental. -/
+theorem transcendental_tsum_inv_pow_three_pow (b : ℕ) (hb : 2 ≤ b) :
+    Transcendental ℚ (∑' k : ℕ, ((b : ℝ)⁻¹) ^ (3 ^ (k + 1))) := sorry
+
+/-- A binary form over `ℂ` with no repeated linear factor and not divisible by `Y` is a product
+of pairwise non-proportional linear forms. -/
+theorem exists_linear_factorisation (F : MvPolynomial (Fin 2) ℂ) (d : ℕ) (hF : F.IsHomogeneous d)
+    (hsq : ∀ a b : ℂ, (a, b) ≠ (0, 0) →
+      ¬ (MvPolynomial.C a * MvPolynomial.X 0 + MvPolynomial.C b * MvPolynomial.X 1) ^ 2 ∣ F)
+    (hY : ¬ MvPolynomial.X 1 ∣ F) (hF₀ : F ≠ 0) :
+    ∃ (a₀ : ℂ) (α : Fin d → ℂ), a₀ ≠ 0 ∧ Function.Injective α ∧
+      F = MvPolynomial.C a₀ * ∏ i, (MvPolynomial.X 0 - MvPolynomial.C (α i) * MvPolynomial.X 1) :=
+  sorry
+
+/-- Evertse, Theorem 6.3. -/
+theorem binary_form_lower_bound (F : MvPolynomial (Fin 2) ℤ) (d : ℕ) (hF : F.IsHomogeneous d)
+    (hd : 3 ≤ d)
+    (hsq : ∀ a b : ℂ, (a, b) ≠ (0, 0) →
+      ¬ (MvPolynomial.C a * MvPolynomial.X 0 + MvPolynomial.C b * MvPolynomial.X 1) ^ 2 ∣
+        MvPolynomial.map (Int.castRingHom ℂ) F)
+    (κ : ℝ) (hκ : 2 < κ) :
+    ∃ c : ℝ, 0 < c ∧ ∀ x y : ℤ, MvPolynomial.eval ![x, y] F ≠ 0 →
+      c * max |(x : ℝ)| |(y : ℝ)| ^ ((d : ℝ) - κ) ≤ |(MvPolynomial.eval ![x, y] F : ℝ)| := sorry
+
+/-- The square-free part of a binary form (the reduction in the proof of Evertse,
+Corollary 6.4). -/
+theorem exists_squarefree_dvd (F : MvPolynomial (Fin 2) ℤ) (d : ℕ) (hF : F.IsHomogeneous d)
+    (hroots : 3 ≤
+      ((MvPolynomial.aeval ![Polynomial.X, 1] F : ℤ[X]).map (Int.castRingHom ℂ)).roots.toFinset.card) :
+    ∃ (G : MvPolynomial (Fin 2) ℤ) (e : ℕ), 3 ≤ e ∧ G.IsHomogeneous e ∧ G ∣ F ∧
+      ∀ a b : ℂ, (a, b) ≠ (0, 0) →
+        ¬ (MvPolynomial.C a * MvPolynomial.X 0 + MvPolynomial.C b * MvPolynomial.X 1) ^ 2 ∣
+          MvPolynomial.map (Int.castRingHom ℂ) G := sorry
+
+/-- **Thue's theorem on Thue equations** (Evertse, Corollary 6.4); ineffective. -/
+theorem thue_equation_finite (F : MvPolynomial (Fin 2) ℤ) (d : ℕ) (hF : F.IsHomogeneous d)
+    (hroots : 3 ≤
+      ((MvPolynomial.aeval ![Polynomial.X, 1] F : ℤ[X]).map (Int.castRingHom ℂ)).roots.toFinset.card)
+    (m : ℤ) (hm : m ≠ 0) :
+    {p : ℤ × ℤ | MvPolynomial.eval ![p.1, p.2] F = m}.Finite := sorry
+
+end DiophantineApproximation
+
+
+namespace MvPolynomial
+
+open _root_.MvPolynomial
+open TauCetiRoadmap.DiophantineApproximationAndTranscendence.MvPolynomial
+section BlockLinearJets
+
+variable {R : Type*} [CommSemiring R] {m N r : ℕ}
+variable (A : Fin m → Fin N → Fin r → R)
+local notation "ℒ" => (fun p : Fin m × Fin N =>
+  (∑ a : Fin r, _root_.MvPolynomial.C (A (Prod.fst p) (Prod.snd p) a) * _root_.MvPolynomial.X (Prod.fst p, a) :
+    MvPolynomial (Fin m × Fin r) R))
+
+/-- Layer 1 block linear monomial support. -/
+theorem block_sum_eq_of_coeff_linear_monomial_ne_zero
+    (e : Fin m × Fin N →₀ ℕ) (k : Fin m × Fin r →₀ ℕ)
+    (hc : (e.prod fun p n => ℒ p ^ n).coeff k ≠ 0) :
+    ∀ h, ∑ a : Fin r, k (h, a) = ∑ l : Fin N, e (h, l) := by sorry
+
+/-- Layer 1 block linear hasse chain rule. E is a finite coordinate box with the exact
+block-sum equalities imposed; no infinite sum or preselected nonzero coefficient. -/
+theorem hasseDeriv_eval₂_blockLinear
+    (F : MvPolynomial (Fin m × Fin N) R)
+    (i : Fin m × Fin N →₀ ℕ) (k : Fin m × Fin r →₀ ℕ) :
+    let E := (Finset.Iic (Finsupp.equivFunOnFinite.symm
+      (fun p : Fin m × Fin N => ∑ a : Fin r, k (p.1, a)))).filter
+        (fun e => ∀ h, ∑ l : Fin N, e (h, l) = ∑ a : Fin r, k (h, a))
+    TauCetiRoadmap.DiophantineApproximationAndTranscendence.MvPolynomial.hasseDeriv k (_root_.MvPolynomial.eval₂ _root_.MvPolynomial.C ℒ (TauCetiRoadmap.DiophantineApproximationAndTranscendence.MvPolynomial.hasseDeriv i F)) =
+      ∑ e ∈ E, _root_.MvPolynomial.C ((e.prod fun p n => ℒ p ^ n).coeff k *
+        ((i + e).prod fun p n => (n.choose (i p) : R))) *
+        _root_.MvPolynomial.eval₂ _root_.MvPolynomial.C ℒ (TauCetiRoadmap.DiophantineApproximationAndTranscendence.MvPolynomial.hasseDeriv (i + e) F) := by sorry
+
+/-- Layer 1 nonzero block linear jet extraction. -/
+theorem exists_nonzero_hasseDeriv_of_blockLinear
+    (F : MvPolynomial (Fin m × Fin N) R)
+    (i : Fin m × Fin N →₀ ℕ) (k : Fin m × Fin r →₀ ℕ)
+    (y : Fin m × Fin r → R)
+    (hn : _root_.MvPolynomial.eval y (TauCetiRoadmap.DiophantineApproximationAndTranscendence.MvPolynomial.hasseDeriv k (_root_.MvPolynomial.eval₂ _root_.MvPolynomial.C ℒ (TauCetiRoadmap.DiophantineApproximationAndTranscendence.MvPolynomial.hasseDeriv i F))) ≠ 0) :
+    ∃ e : Fin m × Fin N →₀ ℕ,
+      (∀ h, ∑ l : Fin N, e (h, l) = ∑ a : Fin r, k (h, a)) ∧
+      _root_.MvPolynomial.eval (fun p => ∑ a : Fin r, A p.1 p.2 a * y (p.1, a))
+        (TauCetiRoadmap.DiophantineApproximationAndTranscendence.MvPolynomial.hasseDeriv (i + e) F) ≠ 0 := by sorry
+
+/-- Layer 1 block linear degree bound. Upper block-degree support suffices;
+zero polynomials and rank-deficient maps are allowed. -/
+theorem degreeOf_eval₂_blockLinear_le
+    (F : MvPolynomial (Fin m × Fin N) R) (d : Fin m → ℕ)
+    (hF : ∀ μ ∈ F.support, ∀ h, ∑ l : Fin N, μ (h, l) ≤ d h)
+    (q : Fin m × Fin r) :
+    (_root_.MvPolynomial.eval₂ _root_.MvPolynomial.C ℒ F).degreeOf q ≤ d q.1 := by sorry
+
+end BlockLinearJets
+
+/-- Layer 1 hasse residual block degrees. Do not infer the order bound from a zero jet. -/
+theorem hasseDeriv_block_degrees {R : Type*} [CommSemiring R] {m N : ℕ}
+    (F : MvPolynomial (Fin m × Fin N) R) (d : Fin m → ℕ)
+    (hF : ∀ μ ∈ F.support, ∀ h, ∑ l : Fin N, μ (h, l) = d h)
+    (j : Fin m × Fin N →₀ ℕ) (hj : TauCetiRoadmap.DiophantineApproximationAndTranscendence.MvPolynomial.hasseDeriv j F ≠ 0) :
+    (∀ h, ∑ l : Fin N, j (h, l) ≤ d h) ∧
+    (∀ μ ∈ (TauCetiRoadmap.DiophantineApproximationAndTranscendence.MvPolynomial.hasseDeriv j F).support, ∀ h,
+      ∑ l : Fin N, μ (h, l) = d h - ∑ l : Fin N, j (h, l)) := by sorry
+
+/-- Layer 1 zero block forces degree zero. -/
+theorem block_degree_eq_zero_of_eval_ne_zero {R : Type*} [CommSemiring R] {m N : ℕ}
+    (H : MvPolynomial (Fin m × Fin N) R) (δ : Fin m → ℕ)
+    (hH : ∀ μ ∈ H.support, ∀ h, ∑ l : Fin N, μ (h, l) = δ h)
+    (x : Fin m × Fin N → R) (hx : _root_.MvPolynomial.eval x H ≠ 0) (h : Fin m)
+    (hz : ∀ l, x (h, l) = 0) : δ h = 0 := by sorry
+
+/-- Layer 1 zero degree block independence. All degree-zero blocks can change at once. -/
+theorem eval_eq_of_eq_on_nonzero_degree_blocks {R : Type*} [CommSemiring R] {m N : ℕ}
+    (H : MvPolynomial (Fin m × Fin N) R) (δ : Fin m → ℕ)
+    (hH : ∀ μ ∈ H.support, ∀ h, ∑ l : Fin N, μ (h, l) = δ h)
+    (x y : Fin m × Fin N → R)
+    (hxy : ∀ h, δ h ≠ 0 → ∀ l, x (h, l) = y (h, l)) :
+    _root_.MvPolynomial.eval x H = _root_.MvPolynomial.eval y H := by sorry
+
+end MvPolynomial
+
+namespace MvPolynomial
+
+open _root_.MvPolynomial
+open TauCetiRoadmap.DiophantineApproximationAndTranscendence.MvPolynomial
+/-- MvPolynomial.test_linear_support_square -/
+example : ((_root_.MvPolynomial.X (0 : Fin 2) + _root_.MvPolynomial.X 1)^2 : MvPolynomial (Fin 2) ℚ).coeff
+    (Finsupp.single 0 1 + Finsupp.single 1 1) = 2 := by sorry
+/-- MvPolynomial.test_linear_support_wrong_degree -/
+example : ((_root_.MvPolynomial.X (0 : Fin 2) + _root_.MvPolynomial.X 1)^2 : MvPolynomial (Fin 2) ℚ).coeff
+    (Finsupp.single 0 1) = 0 := by sorry
+/-- MvPolynomial.test_chain_binomial_factor -/
+example : TauCetiRoadmap.DiophantineApproximationAndTranscendence.MvPolynomial.hasseDeriv (Finsupp.single 0 1)
+    (_root_.MvPolynomial.eval₂ _root_.MvPolynomial.C (fun _ : Fin 1 => 2 * _root_.MvPolynomial.X (0 : Fin 1))
+      (TauCetiRoadmap.DiophantineApproximationAndTranscendence.MvPolynomial.hasseDeriv (Finsupp.single 0 1) (_root_.MvPolynomial.X 0 ^ 2 : MvPolynomial (Fin 1) ℚ))) = 4 := by sorry
+/-- MvPolynomial.test_chain_zero_map -/
+example : TauCetiRoadmap.DiophantineApproximationAndTranscendence.MvPolynomial.hasseDeriv (Finsupp.single 0 1)
+    (_root_.MvPolynomial.eval₂ _root_.MvPolynomial.C (fun _ : Fin 1 => (0 : MvPolynomial (Fin 1) ℚ))
+      (TauCetiRoadmap.DiophantineApproximationAndTranscendence.MvPolynomial.hasseDeriv 0 (_root_.MvPolynomial.X 0 ^ 2 + 1 : MvPolynomial (Fin 1) ℚ))) = 0 := by sorry
+/-- MvPolynomial.test_chain_cancellation -/
+example : _root_.MvPolynomial.eval₂ _root_.MvPolynomial.C (fun _ : Fin 2 => _root_.MvPolynomial.X (0 : Fin 1))
+    (_root_.MvPolynomial.X 0 - _root_.MvPolynomial.X 1 : MvPolynomial (Fin 2) ℚ) = 0 ∧
+    TauCetiRoadmap.DiophantineApproximationAndTranscendence.MvPolynomial.hasseDeriv (Finsupp.single 0 1) (_root_.MvPolynomial.X 0 - _root_.MvPolynomial.X 1 : MvPolynomial (Fin 2) ℚ) = 1 ∧
+    TauCetiRoadmap.DiophantineApproximationAndTranscendence.MvPolynomial.hasseDeriv (Finsupp.single 1 1) (_root_.MvPolynomial.X 0 - _root_.MvPolynomial.X 1 : MvPolynomial (Fin 2) ℚ) = -1 := by sorry
+/-- MvPolynomial.test_chain_order_zero -/
+example : _root_.MvPolynomial.eval (fun _ : Fin 1 => (2 : ℚ))
+    (TauCetiRoadmap.DiophantineApproximationAndTranscendence.MvPolynomial.hasseDeriv 0 (_root_.MvPolynomial.eval₂ _root_.MvPolynomial.C _root_.MvPolynomial.X (_root_.MvPolynomial.X 0 ^ 2 : MvPolynomial (Fin 1) ℚ))) = 4 := by sorry
+/-- MvPolynomial.test_residual_two_blocks -/
+example : TauCetiRoadmap.DiophantineApproximationAndTranscendence.MvPolynomial.hasseDeriv (Finsupp.single (0, 0) 1)
+    (_root_.MvPolynomial.X (0,0)^2 * _root_.MvPolynomial.X (1,0) : MvPolynomial (Fin 2 × Fin 1) ℚ) =
+    2 * _root_.MvPolynomial.X (0,0) * _root_.MvPolynomial.X (1,0) := by sorry
+/-- MvPolynomial.test_residual_zero_derivative -/
+example : TauCetiRoadmap.DiophantineApproximationAndTranscendence.MvPolynomial.hasseDeriv (Finsupp.single 0 3) (_root_.MvPolynomial.X 0^2 : MvPolynomial (Fin 1) ℚ) = 0 ∧
+    ¬ (3 : ℕ) ≤ 2 := by sorry
+/-- MvPolynomial.test_substitution_merges_degrees -/
+example : _root_.MvPolynomial.eval₂ _root_.MvPolynomial.C (fun _ : Fin 2 => _root_.MvPolynomial.X (0 : Fin 1))
+    (_root_.MvPolynomial.X 0 * _root_.MvPolynomial.X 1 : MvPolynomial (Fin 2) ℚ) = _root_.MvPolynomial.X 0^2 ∧
+    (_root_.MvPolynomial.eval₂ _root_.MvPolynomial.C (fun _ : Fin 2 => _root_.MvPolynomial.X (0 : Fin 1))
+      (_root_.MvPolynomial.X 0 * _root_.MvPolynomial.X 1 : MvPolynomial (Fin 2) ℚ)).degreeOf 0 = 2 := by sorry
+/-- MvPolynomial.test_substitution_zero_polynomial -/
+example (q : Fin 2 × Fin 1) : (0 : MvPolynomial (Fin 2 × Fin 1) ℚ).degreeOf q = 0 := by sorry
+/-- MvPolynomial.test_positive_degree_zero_block -/
+example : _root_.MvPolynomial.eval (fun _ : Fin 1 × Fin 1 => (0 : ℚ))
+    (_root_.MvPolynomial.X (0,0)^2 : MvPolynomial (Fin 1 × Fin 1) ℚ) = 0 := by sorry
+/-- MvPolynomial.test_constant_empty_block -/
+example : _root_.MvPolynomial.eval (fun p : Fin 1 × Fin 0 => Fin.elim0 p.2)
+    (_root_.MvPolynomial.C 3 : MvPolynomial (Fin 1 × Fin 0) ℚ) = 3 := by sorry
+/-- MvPolynomial.test_degree_zero_block_ignored -/
+example : _root_.MvPolynomial.eval (fun p : Fin 2 × Fin 1 => if p.1 = 0 then (0 : ℚ) else 2)
+    (_root_.MvPolynomial.X (1,0)^2) = 4 ∧
+    _root_.MvPolynomial.eval (fun p : Fin 2 × Fin 1 => if p.1 = 0 then (-3 : ℚ) else 2)
+    (_root_.MvPolynomial.X (1,0)^2) = 4 := by sorry
+/-- MvPolynomial.test_nonhomogeneous_replacement_failure -/
+example : _root_.MvPolynomial.eval (fun _ : Fin 1 => (0 : ℚ)) (1 + _root_.MvPolynomial.X 0) = 1 ∧
+    _root_.MvPolynomial.eval (fun _ : Fin 1 => (-1 : ℚ)) (1 + _root_.MvPolynomial.X 0) = 0 := by sorry
+end MvPolynomial
+
+/-! ## Layer 2: subspace theorems and multiplicative groups -/
+
+
+
+open NumberField Matrix
+
+namespace DiophantineApproximation
+
+open TauCetiRoadmap.DiophantineApproximationAndTranscendence.DiophantineApproximation
+
+
+section GeneralPosition
+
+variable {F : Type*} [Field F] {ι : Type*} {n : ℕ}
+
+/-- A family of linear forms (coefficient vectors) is in general position if every
+`n`-element subfamily is linearly independent. -/
+def InGeneralPosition (L : ι → Fin n → F) : Prop :=
+  ∀ s : Finset ι, s.card = n → LinearIndependent F (fun i : s ↦ L i)
+
+namespace InGeneralPosition
+
+/-- If InGeneralPosition L and S : Finset ι has #S = n then the subfamily (L i)_{i ∈ S} is linearly independent. -/
+theorem linearIndependent {L : ι → Fin n → F} (h : InGeneralPosition L)
+    (s : Finset ι) (hs : s.card = n) : LinearIndependent F (fun i : s ↦ L i) :=
+  h s hs
+
+end InGeneralPosition
+
+/-- InGeneralPosition L ↔ for every injective e : Fin n → ι, det (fun k j ↦ L (e k) j) ≠ 0. -/
+theorem inGeneralPosition_iff_det_ne_zero (L : ι → Fin n → F) :
+    InGeneralPosition L ↔
+      ∀ e : Fin n → ι, Function.Injective e → (Matrix.of fun k j ↦ L (e k) j).det ≠ 0 := by
+  sorry
+
+/-- If Fintype.card ι = n then InGeneralPosition L ↔ LinearIndependent F L. -/
+theorem inGeneralPosition_iff_linearIndependent [Fintype ι] (hι : Fintype.card ι = n)
+    (L : ι → Fin n → F) : InGeneralPosition L ↔ LinearIndependent F L := by
+  sorry
+
+/-- For n = 2: InGeneralPosition L ↔ for all i ≠ j the vectors L i and L j are linearly independent (no two forms are proportional). -/
+theorem inGeneralPosition_two_iff (L : ι → Fin 2 → F) :
+    InGeneralPosition L ↔ ∀ i j, i ≠ j → LinearIndependent F ![L i, L j] := by
+  sorry
+
+namespace InGeneralPosition
+
+/-- If InGeneralPosition L and e : κ → ι is injective then InGeneralPosition (L ∘ e). -/
+theorem comp_injective {κ : Type*} {L : ι → Fin n → F}
+    (h : InGeneralPosition L) {e : κ → ι} (he : Function.Injective e) :
+    InGeneralPosition (L ∘ e) := by
+  sorry
+
+/-- Multiplying each form by a nonzero scalar preserves general position. -/
+theorem smul {L : ι → Fin n → F} (h : InGeneralPosition L) (c : ι → F)
+    (hc : ∀ i, c i ≠ 0) : InGeneralPosition (fun i ↦ c i • L i) := by
+  sorry
+
+/-- A field embedding preserves general position. -/
+theorem map {F' : Type*} [Field F'] {L : ι → Fin n → F}
+    (h : InGeneralPosition L) (σ : F →+* F') : InGeneralPosition (fun i ↦ σ ∘ L i) := by
+  sorry
+
+/-- General position is preserved by the invertible linear change of variables `x ↦ A x`. -/
+theorem comp_matrix {L : ι → Fin n → F} (h : InGeneralPosition L)
+    (A : Matrix (Fin n) (Fin n) F) (hA : IsUnit A.det) :
+    InGeneralPosition (fun i ↦ Aᵀ *ᵥ L i) := by
+  sorry
+
+end InGeneralPosition
+
+/-- The forms `X_1, …, X_n, X_1 + ⋯ + X_n`. -/
+theorem inGeneralPosition_coords_add_sum :
+    InGeneralPosition (fun i : Option (Fin n) ↦
+      (i.elim (fun _ ↦ (1 : F)) (fun k ↦ Pi.single k 1) : Fin n → F)) := by
+  sorry
+
+/-- The forms X,Y,X+Y are in general position over ℚ. -/
+example : InGeneralPosition (F := ℚ) ![![1, 0], ![0, 1], ![1, 1]] := by sorry
+
+/-- Repeating X among X,Y,X destroys general position. -/
+example : ¬ InGeneralPosition (F := ℚ) ![![1, 0], ![0, 1], ![1, 0]] := by sorry
+
+/-- The forms X,Y,X+Y in three coordinates are dependent, although a fourth form supplies the missing coordinate. -/
+example : ¬ InGeneralPosition (F := ℚ) ![![1, 0, 0], ![0, 1, 0], ![1, 1, 0], ![0, 0, 1]] := by
+  sorry
+
+/-- Coordinate forms are in general position in every dimension. -/
+example : InGeneralPosition (F := F) (fun k : Fin n ↦ (Pi.single k 1 : Fin n → F)) := by
+  sorry
+
+/-- The three quadratic-irrational forms are independent. -/
+example : InGeneralPosition (F := ℝ)
+    ![![1, √2, √3], ![1, -√2, √3], ![1, -√2, -√3]] := by
+  sorry
+
+/-- The displayed quadratic-irrational forms have determinant +4√6. -/
+example : (!![1, Real.sqrt 2, Real.sqrt 3; 1, -Real.sqrt 2, Real.sqrt 3;
+    1, -Real.sqrt 2, -Real.sqrt 3] : Matrix (Fin 3) (Fin 3) ℝ).det =
+    4 * Real.sqrt 6 := sorry
+
+/-- Swapping the last two rows reverses the determinant sign. -/
+example : (!![1, Real.sqrt 2, Real.sqrt 3; 1, -Real.sqrt 2, -Real.sqrt 3;
+    1, -Real.sqrt 2, Real.sqrt 3] : Matrix (Fin 3) (Fin 3) ℝ).det =
+    -4 * Real.sqrt 6 := sorry
+
+end GeneralPosition
+
+
+/-- `Layer 2 sup norm bounded by independent forms` (Evertse Lemmas 7.5, 8.9). -/
+theorem exists_abv_le_mul_iSup_of_linearIndependent {F : Type*} [Field F]
+    (abv : AbsoluteValue F ℝ) {n : ℕ} (M : Fin n → Fin n → F) (hM : LinearIndependent F M) :
+    ∃ C > 0, ∀ x : Fin n → F, ∀ k, abv (x k) ≤ C * ⨆ j, abv (M j ⬝ᵥ x) := by
+  sorry
+
+
+/-- `Layer 2 absolute value continuation exists`, part (a). -/
+theorem exists_absoluteValue_eq_padicNorm (K : Type*) [Field K] [NumberField K]
+    (p : ℕ) [Fact p.Prime] : ∃ v : AbsoluteValue K ℝ, ∀ q : ℚ, v (q : K) = padicNorm p q := by
+  sorry
+
+/-- `Layer 2 absolute value continuation exists`, part (b). -/
+theorem exists_absoluteValue_eq_abs (K : Type*) [Field K] [NumberField K] :
+    ∃ v : AbsoluteValue K ℝ, ∀ q : ℚ, v (q : K) = |(q : ℝ)| := by
+  sorry
+
+/-- `Layer 2 absolute value extends to algebraic closure`, non-archimedean case. -/
+theorem exists_ringHom_padicAlgCl_of_eq_padicNorm (K : Type*) [Field K] [NumberField K]
+    (p : ℕ) [Fact p.Prime] (v : AbsoluteValue K ℝ) (hv : ∀ q : ℚ, v (q : K) = padicNorm p q) :
+    ∃ τ : AlgebraicClosure K →+* PadicAlgCl p,
+      ∀ x : K, v x = ‖τ (algebraMap K (AlgebraicClosure K) x)‖ := by
+  sorry
+
+/-- `Layer 2 absolute value extends to algebraic closure`, archimedean case. -/
+theorem exists_ringHom_complex_of_eq_abs (K : Type*) [Field K] [NumberField K]
+    (v : AbsoluteValue K ℝ) (hv : ∀ q : ℚ, v (q : K) = |(q : ℝ)|) :
+    ∃ τ : AlgebraicClosure K →+* ℂ, ∀ x : K, v x = ‖τ (algebraMap K (AlgebraicClosure K) x)‖ := by
+  sorry
+
+/-- `Layer 2 rational s unit product criterion` (Evertse Lemma 8.11). -/
+theorem exists_eq_pm_prod_zpow_iff (S : Finset ℕ) (hS : ∀ p ∈ S, p.Prime) (u : ℚ) :
+    (∃ w : S → ℤ, u = ∏ p : S, ((p : ℕ) : ℚ) ^ w p ∨ u = -∏ p : S, ((p : ℕ) : ℚ) ^ w p) ↔
+      |u| * ∏ p ∈ S, padicNorm p u = 1 := by
+  sorry
+
+
+/-- `Layer 2 subspace theorem and its exceptional subspaces` (Schmidt; Evertse Theorem 7.1). -/
+theorem subspace_theorem {n : ℕ} (hn : 2 ≤ n) (L : Fin n → Fin n → ℂ)
+    (halg : ∀ i j, IsAlgebraic ℚ (L i j)) (hL : LinearIndependent ℂ L) {C δ : ℝ}
+    (hC : 0 < C) (hδ : 0 < δ) :
+    ∃ T : Finset (Submodule ℚ (Fin n → ℚ)), (∀ V ∈ T, V ≠ ⊤) ∧
+      ∀ x : Fin n → ℤ, ‖∏ i, L i ⬝ᵥ (fun j ↦ (x j : ℂ))‖ ≤ C * ‖x‖ ^ (-δ) →
+        ∃ V ∈ T, (fun j ↦ (x j : ℚ)) ∈ V := by
+  sorry
+
+/-- `Layer 2 subspace theorem general position` (Evertse Theorem 7.4). -/
+theorem subspace_theorem_general_position {n r : ℕ} (hn : 2 ≤ n) (hr : n ≤ r)
+    (L : Fin r → Fin n → ℂ) (halg : ∀ i j, IsAlgebraic ℚ (L i j)) (hL : InGeneralPosition L)
+    {C δ : ℝ} (hC : 0 < C) (hδ : 0 < δ) :
+    ∃ T : Finset (Submodule ℚ (Fin n → ℚ)), (∀ V ∈ T, V ≠ ⊤) ∧
+      ∀ x : Fin n → ℤ, ‖∏ i, L i ⬝ᵥ (fun j ↦ (x j : ℂ))‖ ≤ C * ‖x‖ ^ ((r : ℝ) - n - δ) →
+        ∃ V ∈ T, (fun j ↦ (x j : ℚ)) ∈ V := by
+  sorry
+
+section PAdic
+
+variable {K : Type*} [Field K] [NumberField K]
+
+/-- `Layer 2 p adic subspace theorem` (Schlickewei; Evertse Theorem 8.7). The index `none`
+stands for the infinite place, `some p` for the prime `p ∈ S`; `v` are the chosen
+continuations (notation (8.4)). -/
+theorem padic_subspace_theorem {n : ℕ} (hn : 2 ≤ n) (S : Finset ℕ) (hS : ∀ p ∈ S, p.Prime)
+    (v : Option S → AbsoluteValue K ℝ) (hvInf : ∀ q : ℚ, v none (q : K) = |(q : ℝ)|)
+    (hvp : ∀ (p : S) (q : ℚ), v (some p) (q : K) = padicNorm p q)
+    (L : Option S → Fin n → Fin n → K) (hL : ∀ p, LinearIndependent K (L p))
+    {C ε : ℝ} (hC : 0 < C) (hε : 0 < ε) :
+    ∃ T : Finset (Submodule ℚ (Fin n → ℚ)), (∀ V ∈ T, V ≠ ⊤) ∧
+      ∀ x : Fin n → ℤ,
+        ∏ p, ∏ i, v p (L p i ⬝ᵥ (fun j ↦ (x j : K))) ≤ C * ‖x‖ ^ (-ε) →
+          ∃ V ∈ T, (fun j ↦ (x j : ℚ)) ∈ V := by
+  sorry
+
+/-- `Layer 2 p adic subspace theorem general position` (Evertse Theorem 8.8). -/
+theorem padic_subspace_theorem_general_position {n : ℕ} (hn : 2 ≤ n) (S : Finset ℕ)
+    (hS : ∀ p ∈ S, p.Prime) (v : Option S → AbsoluteValue K ℝ)
+    (hvInf : ∀ q : ℚ, v none (q : K) = |(q : ℝ)|)
+    (hvp : ∀ (p : S) (q : ℚ), v (some p) (q : K) = padicNorm p q)
+    (r : Option S → ℕ) (hr : ∀ p, n ≤ r p) (L : (p : Option S) → Fin (r p) → Fin n → K)
+    (hL : ∀ p, InGeneralPosition (L p)) {C ε : ℝ} (hC : 0 < C) (hε : 0 < ε) :
+    ∃ T : Finset (Submodule ℚ (Fin n → ℚ)), (∀ V ∈ T, V ≠ ⊤) ∧
+      ∀ x : Fin n → ℤ, Finset.univ.gcd x = 1 →
+        ∏ p, ∏ i, v p (L p i ⬝ᵥ (fun j ↦ (x j : K))) ≤ C * ‖x‖ ^ ((r none : ℝ) - n - ε) →
+          ∃ V ∈ T, (fun j ↦ (x j : ℚ)) ∈ V := by
+  sorry
+
+/-- `Layer 2 finite simplex discretisation`: the finite grid theorem used in the
+product-to-systems reduction, without a sharp cardinality bound. -/
+theorem exists_finite_simplex_discretisation {q : ℕ} (hq : 0 < q)
+    {γ : ℝ} (hγ : 1 / 2 ≤ γ) (hγ1 : γ < 1) :
+    ∃ D : Finset (Fin q → ℝ),
+      (∀ Γ ∈ D, (∀ i, 0 ≤ Γ i) ∧ ∑ i, Γ i = γ) ∧
+      ∀ y : Fin q → ℝ, (∀ i, 0 ≤ y i) → 0 < ∑ i, y i →
+        ∃ Γ ∈ D, ∀ i, Γ i * (∑ j, y j) ≤ y i := by sorry
+
+/-- `Layer 2 product inequality reduces to systems` (Mahler; Evertse–Schlickewei §21). -/
+theorem exists_finite_systems_of_product_inequality {n : ℕ} (hn : 2 ≤ n) (S : Finset ℕ)
+    (hS : ∀ p ∈ S, p.Prime) (v : Option S → AbsoluteValue K ℝ)
+    (hvInf : ∀ q : ℚ, v none (q : K) = |(q : ℝ)|)
+    (hvp : ∀ (p : S) (q : ℚ), v (some p) (q : K) = padicNorm p q)
+    (L : Option S → Fin n → Fin n → K) (hL : ∀ p, LinearIndependent K (L p))
+    {C ε : ℝ} (hC : 0 < C) (hε : 0 < ε) (hε1 : ε ≤ 1) :
+    ∃ (B : ℝ) (D : Set (Option S → Fin n → ℝ)), 1 ≤ B ∧ D.Finite ∧
+      (∀ d ∈ D, (∀ p i, d p i ≤ 0) ∧ ∑ p, ∑ i, d p i = -(n : ℝ) - ε / 2) ∧
+      ∀ x : Fin n → ℤ, Finset.univ.gcd x = 1 → B ≤ ‖x‖ →
+        (∀ p i, L p i ⬝ᵥ (fun j ↦ (x j : K)) ≠ 0) →
+        ∏ p, ∏ i, v p (L p i ⬝ᵥ (fun j ↦ (x j : K))) ≤ C * ‖x‖ ^ (-ε) →
+        ∃ d ∈ D, ∀ p i, v p (L p i ⬝ᵥ (fun j ↦ (x j : K))) ≤
+          n * max 1 (⨆ j, v p (L p i j)) * (⨆ j, v p (x j : K)) * ‖x‖ ^ d p i := by
+  sorry
+
+/-- `Layer 2 p adic roth theorem` (Ridout; Evertse Theorem 8.6). -/
+theorem padic_roth (S : Finset ℕ) (hS : ∀ p ∈ S, p.Prime) (v : Option S → AbsoluteValue K ℝ)
+    (hvInf : ∀ q : ℚ, v none (q : K) = |(q : ℝ)|)
+    (hvp : ∀ (p : S) (q : ℚ), v (some p) (q : K) = padicNorm p q)
+    (α : Option S → K) {C κ : ℝ} (hC : 0 < C) (hκ : 2 < κ) :
+    {ξ : ℚ | ∏ p, v p (α p - ξ) ≤ C * Height.mulHeight₁ ξ ^ (-κ)}.Finite := by
+  sorry
+
+end PAdic
+
+/-- `Layer 2 vojta effective exceptional subspaces` (Evertse Theorem 7.14); the effectivity of
+the subspaces is not expressible here and is omitted. -/
+theorem exists_exceptional_subspaces_general_position {n r : ℕ} (hn : 2 ≤ n) (hr : n ≤ r)
+    (L : Fin r → Fin n → ℂ) (halg : ∀ i j, IsAlgebraic ℚ (L i j)) (hL : InGeneralPosition L) :
+    ∃ U : Finset (Submodule ℚ (Fin n → ℚ)), (∀ V ∈ U, V ≠ ⊤) ∧
+      ∀ C δ : ℝ, 0 < C → 0 < δ →
+        {x : Fin n → ℤ | ‖∏ i, L i ⬝ᵥ (fun j ↦ (x j : ℂ))‖ ≤ C * ‖x‖ ^ ((r : ℝ) - n - δ) ∧
+          ∀ V ∈ U, (fun j ↦ (x j : ℚ)) ∉ V}.Finite := by
+  sorry
+
+
+/-- `Layer 2 vanishing form gives infinitely many solutions`. -/
+theorem infinite_solutions_of_form_vanishes {n : ℕ} (hn : 2 ≤ n) (L : Fin n → Fin n → ℂ)
+    {C δ : ℝ} (hC : 0 < C) (hδ : 0 < δ) (i : Fin n) (x₀ : Fin n → ℤ) (hx₀ : x₀ ≠ 0)
+    (hLx₀ : L i ⬝ᵥ (fun j ↦ (x₀ j : ℂ)) = 0) :
+    {x : Fin n → ℤ | ‖∏ i, L i ⬝ᵥ (fun j ↦ (x j : ℂ))‖ ≤ C * ‖x‖ ^ (-δ)}.Infinite := by
+  sorry
+
+/-- The three forms of Evertse (7.5). -/
+def formsExample75 : Fin 3 → Fin 3 → ℝ := ![![1, √2, √3], ![1, -√2, √3], ![1, -√2, -√3]]
+
+/-- `Layer 2 exceptional subspace example three forms` (Evertse Example (7.5)). -/
+theorem infinite_solutions_example75 {δ : ℝ} (hδ₀ : 0 < δ) (hδ₁ : δ < 1) :
+    {x : Fin 3 → ℤ | x 2 = 0 ∧
+      0 < |∏ i, formsExample75 i ⬝ᵥ (fun j ↦ (x j : ℝ))| ∧
+      |∏ i, formsExample75 i ⬝ᵥ (fun j ↦ (x j : ℝ))| ≤ ‖x‖ ^ (-δ)}.Infinite := by
+  sorry
+
+/-- `Layer 2 two form strict inequality finite` (Evertse Lemma 7.3). -/
+theorem finite_two_forms_strict (L : Fin 2 → Fin 2 → ℂ) (halg : ∀ i j, IsAlgebraic ℚ (L i j))
+    (hL : LinearIndependent ℂ L) {C δ : ℝ} (hC : 0 < C) (hδ : 0 < δ) :
+    {x : Fin 2 → ℤ | 0 < ‖∏ i, L i ⬝ᵥ (fun j ↦ (x j : ℂ))‖ ∧
+      ‖∏ i, L i ⬝ᵥ (fun j ↦ (x j : ℂ))‖ ≤ C * ‖x‖ ^ (-δ)}.Finite := by
+  sorry
+
+/-- `Layer 2 roth from subspace theorem` (Evertse Corollary 7.2). -/
+theorem roth_of_subspace_theorem (α : ℂ) (hα : IsAlgebraic ℚ α) {C κ : ℝ} (hC : 0 < C)
+    (hκ : 2 < κ) : {ξ : ℚ | ‖(ξ : ℂ) - α‖ ≤ C * Height.mulHeight₁ ξ ^ (-κ)}.Finite := by
+  sorry
+
+/-- `Layer 2 linear form dirichlet exponent` (Evertse Lemma 7.6). -/
+theorem exists_infinite_small_linear_form {n : ℕ} (hn : 2 ≤ n) (α : Fin n → ℝ)
+    (hα : LinearIndependent ℚ α) :
+    ∃ C > 0, {x : Fin n → ℤ | |∑ i, α i * x i| ≤ C * ‖x‖ ^ (1 - (n : ℝ))}.Infinite := by
+  sorry
+
+/-- `Layer 2 single linear form inequality finite` (Evertse Theorem 7.7). -/
+theorem finite_small_linear_form {n : ℕ} (α : Fin n → ℂ) (hα : ∀ i, IsAlgebraic ℚ (α i))
+    {C δ : ℝ} (hC : 0 < C) (hδ : 0 < δ) :
+    {x : Fin n → ℤ | 0 < ‖∑ i, α i * x i‖ ∧
+      ‖∑ i, α i * x i‖ ≤ C * ‖x‖ ^ (1 - (n : ℝ) - δ)}.Finite := by
+  sorry
+
+/-- `Layer 2 approximation by algebraic numbers of bounded degree` (Evertse Theorem 7.8), in the
+equivalent form counting the primitive minimal polynomials `F` (the height of a root of `F` is
+the maximum of the absolute values of the coefficients of `F`). -/
+theorem finite_approximation_bounded_degree (α : ℂ) (hα : IsAlgebraic ℚ α) (d : ℕ)
+    {C κ : ℝ} (hC : 0 < C) (hκ : (d : ℝ) + 1 < κ) :
+    {F : Polynomial ℤ | F.IsPrimitive ∧ Irreducible F ∧ 0 < F.leadingCoeff ∧ F.natDegree ≤ d ∧
+      ∃ ξ : ℂ, Polynomial.aeval ξ F = 0 ∧
+        ‖ξ - α‖ ≤ C * ((F.support.sup fun i ↦ (F.coeff i).natAbs : ℕ) : ℝ) ^ (-κ)}.Finite := by
+  sorry
+
+
+section NormForm
+
+variable {K : Type*} [Field K] [NumberField K]
+
+/-- `Layer 2 embedding vectors linearly independent` (Evertse Lemma 7.10). -/
+theorem linearIndependent_embeddingVectors {n : ℕ} (α : Fin n → K)
+    (hα : LinearIndependent ℚ α) :
+    LinearIndependent ℂ (fun i ↦ fun σ : K →+* ℂ ↦ σ (α i)) := by
+  sorry
+
+/-- `Layer 2 norm form linear factors general position` (Evertse Lemma 7.11). -/
+theorem inGeneralPosition_normFormFactors (θ : K) (hθ : IntermediateField.adjoin ℚ {θ} = ⊤)
+    [Fact (((minpoly ℚ θ).map (algebraMap ℚ ℂ)).Splits)]
+    (hS : Function.Surjective (Polynomial.Gal.galActionHom (minpoly ℚ θ) ℂ)) {n : ℕ}
+    (α : Fin n → K) (hα : LinearIndependent ℚ α) :
+    InGeneralPosition (fun σ : K →+* ℂ ↦ fun j ↦ σ (α j)) := by
+  sorry
+
+/-- `Layer 2 norm form equation finite full symmetric group` (Evertse Theorem 7.9). -/
+theorem finite_normForm_of_symmetric (θ : K) (hθ : IntermediateField.adjoin ℚ {θ} = ⊤)
+    [Fact (((minpoly ℚ θ).map (algebraMap ℚ ℂ)).Splits)]
+    (hS : Function.Surjective (Polynomial.Gal.galActionHom (minpoly ℚ θ) ℂ)) {n : ℕ}
+    (hn : n < Module.finrank ℚ K) (α : Fin n → K) (hα : LinearIndependent ℚ α) (c : ℚ) :
+    {x : Fin n → ℤ | Algebra.norm ℚ (∑ i, (x i : K) * α i) = c}.Finite := by
+  sorry
+
+
+/-- `Layer 2 degenerate module norm form infinitely many solutions` (Evertse 7.13, (ii) ⇒ (i)). -/
+theorem infinite_normForm_of_containsScaledOrder {n : ℕ} (α : Fin n → K)
+    (hα : LinearIndependent ℚ α) (μ : K) (hμ : μ ≠ 0) (L : IntermediateField ℚ K)
+    (hL : L ≠ ⊥) (hLq : ¬ (Module.finrank ℚ L = 2 ∧ IsTotallyComplex L))
+    (hM : ∀ y : 𝓞 L, μ * ((y : L) : K) ∈ Submodule.span ℤ (Set.range α)) :
+    {ξ : K | ξ ∈ Submodule.span ℤ (Set.range α) ∧
+      Algebra.norm ℚ ξ = Algebra.norm ℚ μ}.Infinite := by
+  sorry
+
+/-- `Layer 2 schmidt norm form theorem` (Schmidt 1972; Evertse 7.13, (i) ⇒ (ii)). -/
+theorem schmidt_normForm {n : ℕ} (α : Fin n → K) (hα : LinearIndependent ℚ α)
+    (h : ¬ ∃ μ : K, μ ≠ 0 ∧ ∃ L : IntermediateField ℚ K, L ≠ ⊥ ∧
+      ¬ (Module.finrank ℚ L = 2 ∧ IsTotallyComplex L) ∧
+        ∀ y : 𝓞 L, μ * ((y : L) : K) ∈ Submodule.span ℤ (Set.range α))
+    (c : ℚ) (hc : c ≠ 0) :
+    {ξ : K | ξ ∈ Submodule.span ℤ (Set.range α) ∧ Algebra.norm ℚ ξ = c}.Finite := by
+  sorry
+
+end NormForm
+
+
+/-- `Layer 2 squarefree binary form linear factors`. -/
+theorem exists_linear_factors_of_squarefree (F : MvPolynomial (Fin 2) ℤ) {n : ℕ}
+    (hn : 1 ≤ n) (hF : F.IsHomogeneous n)
+    (hsq : Squarefree (MvPolynomial.map (Int.castRingHom ℚ) F)) :
+    ∃ β γ : Fin n → ℂ, (∀ i, IsAlgebraic ℚ (β i) ∧ IsAlgebraic ℚ (γ i)) ∧
+      (∀ x y : ℤ, ((MvPolynomial.eval ![x, y] F : ℤ) : ℂ) = ∏ i, (β i * x - γ i * y)) ∧
+      InGeneralPosition (fun i ↦ ![β i, -γ i]) := by
+  sorry
+
+/-- `Layer 2 thue mahler finiteness` (Mahler; Evertse Theorem 8.10). -/
+theorem finite_thueMahler (F : MvPolynomial (Fin 2) ℤ) {n : ℕ} (hn : 3 ≤ n)
+    (hF : F.IsHomogeneous n) (hsq : Squarefree (MvPolynomial.map (Int.castRingHom ℚ) F))
+    (S : Finset ℕ) (hS : ∀ p ∈ S, p.Prime) :
+    {xz : (ℤ × ℤ) × (S → ℤ) | IsCoprime xz.1.1 xz.1.2 ∧
+      ((|MvPolynomial.eval ![xz.1.1, xz.1.2] F| : ℤ) : ℚ) =
+        ∏ p : S, ((p : ℕ) : ℚ) ^ xz.2 p}.Finite := by
+  sorry
+
+/-- `Layer 2 two term unit equation over rationals` (Lang; Evertse Theorem 8.12 for `Γ ⊂ ℚ^*`). -/
+theorem finite_two_term_unit_equation_rat (a b : ℚ) (ha : a ≠ 0) (hb : b ≠ 0)
+    (Γ : Subgroup ℚˣ) (hΓ : Γ.FG) :
+    {xy : Γ × Γ | a * ((xy.1 : ℚˣ) : ℚ) + b * ((xy.2 : ℚˣ) : ℚ) = 1}.Finite := by
+  sorry
+
+
+section Nondegenerate
+
+variable {K : Type*} [Field K] {ι : Type*} [Fintype ι]
+
+/-- `Layer 2 nondegenerate solution`: `Σ αᵢ xᵢ = 1` with no vanishing non-empty subsum. -/
+def IsNondegenerateSolution (α x : ι → K) : Prop :=
+  ∑ i, α i * x i = 1 ∧ ∀ I : Finset ι, I.Nonempty → ∑ i ∈ I, α i * x i ≠ 0
+
+namespace IsNondegenerateSolution
+
+/-- IsNondegenerateSolution α x → Σ_i α_ix_i = 1. -/
+theorem sum_eq_one {α x : ι → K} (h : IsNondegenerateSolution α x) :
+    ∑ i, α i * x i = 1 :=
+  h.1
+
+/-- IsNondegenerateSolution α x → I.Nonempty → Σ_{i ∈ I} α_ix_i ≠ 0. -/
+theorem subsum_ne_zero {α x : ι → K}
+    (h : IsNondegenerateSolution α x) {I : Finset ι} (hI : I.Nonempty) :
+    ∑ i ∈ I, α i * x i ≠ 0 :=
+  h.2 I hI
+
+/-- The singleton subsums: every term `αᵢ xᵢ` is non-zero. -/
+theorem ne_zero {α x : ι → K} (h : IsNondegenerateSolution α x)
+    (i : ι) : α i * x i ≠ 0 := by
+  sorry
+
+/-- For a ring homomorphism φ : K →+* K' that is injective on the finitely many elements Σ_{i∈I} α_ix_i, IsNondegenerateSolution α x → IsNondegenerateSolution (φ ∘ α) (φ ∘ x) (the specialisation step of ESS §3). -/
+theorem map {K' : Type*} [Field K'] {α x : ι → K}
+    (h : IsNondegenerateSolution α x) (φ : K →+* K')
+    (hφ : ∀ I : Finset ι, I.Nonempty → φ (∑ i ∈ I, α i * x i) ≠ 0) :
+    IsNondegenerateSolution (φ ∘ α) (φ ∘ x) := by
+  sorry
+
+/-- If the subsum of a solution over `I` vanishes and no non-empty subsum of the complementary
+part does, the complementary part is a non-degenerate solution of `Σ_{i ∉ I} αᵢ xᵢ = 1` (the
+decomposition behind the induction in Evertse–Schlickewei–Schmidt §4). -/
+theorem restrict [DecidableEq ι] {α x : ι → K} (I : Finset ι)
+    (hsum : ∑ i, α i * x i = 1) (hI : ∑ i ∈ I, α i * x i = 0)
+    (hnd : ∀ J : Finset ι, J.Nonempty → (J ⊆ Iᶜ) → ∑ i ∈ J, α i * x i ≠ 0) :
+    IsNondegenerateSolution (fun i : {i // i ∉ I} ↦ α i) (fun i ↦ x i) := by
+  sorry
+
+end IsNondegenerateSolution
+
+/-- If ι has one element and α_i x_i = 1 then IsNondegenerateSolution α x. -/
+theorem isNondegenerateSolution_of_subsingleton [Subsingleton ι] {α x : ι → K}
+    (h : ∑ i, α i * x i = 1) : IsNondegenerateSolution α x := by
+  sorry
+
+/-- The two terms 1/2 and 1/2 give a nondegenerate sum one. -/
+example : IsNondegenerateSolution (K := ℚ) ![1, 1] ![1 / 2, 1 / 2] := by
+  sorry
+
+/-- The sum 2−2+1=1 has a vanishing nonempty subsum. -/
+example : ¬ IsNondegenerateSolution (K := ℚ) ![1, -1, 1] ![2, 2, 1] := by
+  sorry
+
+/-- A singleton a·a⁻¹=1 is nondegenerate when a is nonzero. -/
+example (a : K) (ha : a ≠ 0) : IsNondegenerateSolution ![a] ![a⁻¹] := by
+  sorry
+
+/-- A two-term sum one is nondegenerate exactly when both terms are nonzero. -/
+example (a b x y : K) :
+    IsNondegenerateSolution ![a, b] ![x, y] ↔ a * x + b * y = 1 ∧ a * x ≠ 0 ∧ b * y ≠ 0 := by
+  sorry
+
+/-- `Layer 2 nondegenerate homogeneous solution`: `Σ αᵢ xᵢ = 0` with no vanishing proper
+non-empty subsum. -/
+def IsNondegenerateHomogeneousSolution (α x : ι → K) : Prop :=
+  ∑ i, α i * x i = 0 ∧
+    ∀ I : Finset ι, I.Nonempty → I ≠ Finset.univ → ∑ i ∈ I, α i * x i ≠ 0
+
+namespace IsNondegenerateHomogeneousSolution
+
+/-- Σ_i α_ix_i = 0. -/
+theorem sum_eq_zero {α x : ι → K}
+    (h : IsNondegenerateHomogeneousSolution α x) : ∑ i, α i * x i = 0 :=
+  h.1
+
+/-- For λ ≠ 0, IsNondegenerateHomogeneousSolution α x → IsNondegenerateHomogeneousSolution α (λ • x). -/
+theorem smul {α x : ι → K}
+    (h : IsNondegenerateHomogeneousSolution α x) {c : K} (hc : c ≠ 0) :
+    IsNondegenerateHomogeneousSolution α (c • x) := by
+  sorry
+
+end IsNondegenerateHomogeneousSolution
+
+/-- For ι = Option κ, α none = −1 and x none = 1: IsNondegenerateHomogeneousSolution α x ↔ IsNondegenerateSolution (α ∘ some) (x ∘ some). -/
+theorem isNondegenerateHomogeneousSolution_iff_cons {κ : Type*} [Fintype κ] (α x : κ → K) :
+    IsNondegenerateHomogeneousSolution (fun i : Option κ ↦ i.elim (-1) α)
+        (fun i : Option κ ↦ i.elim 1 x) ↔
+      IsNondegenerateSolution α x := by
+  sorry
+
+namespace IsNondegenerateHomogeneousSolution
+
+/-- If `x_p = β x_q` with `p ≠ q`, dropping `x_p` and replacing `α_q` by `α_q + β α_p` gives a
+non-degenerate solution with one unknown fewer (proof of Evertse Theorem 8.14). -/
+theorem merge [DecidableEq ι] {α x : ι → K} (h : IsNondegenerateHomogeneousSolution α x)
+    {p q : ι} (hpq : p ≠ q) {β : K} (hx : x p = β * x q) :
+    IsNondegenerateHomogeneousSolution
+      (fun i : {i // i ≠ p} ↦ if (i : ι) = q then α q + β * α p else α i)
+      (fun i ↦ x i) := by
+  sorry
+
+/-- With at least two unknowns, every `xᵢ` with `αᵢ ≠ 0` is non-zero. -/
+theorem ne_zero {α x : ι → K}
+    (h : IsNondegenerateHomogeneousSolution α x) (hι : 2 ≤ Fintype.card ι) {i : ι}
+    (hα : α i ≠ 0) : x i ≠ 0 := by
+  sorry
+
+end IsNondegenerateHomogeneousSolution
+
+/-- The relation 1+1−2=0 has no vanishing proper nonempty subsum. -/
+example : IsNondegenerateHomogeneousSolution (K := ℚ) ![1, 1, -1] ![1, 1, 2] := by
+  sorry
+
+/-- The relation 1−1+1−1=0 has a vanishing proper subsum. -/
+example : ¬ IsNondegenerateHomogeneousSolution (K := ℚ) ![1, -1, 1, -1] ![1, 1, 1, 1] := by
+  sorry
+
+/-- Two nonzero terms summing to zero form a nondegenerate homogeneous relation. -/
+example (a b x y : K) (ha : a ≠ 0) (hb : b ≠ 0) (hx : x ≠ 0) (hy : y ≠ 0)
+    (h : a * x + b * y = 0) : IsNondegenerateHomogeneousSolution ![a, b] ![x, y] := by
+  sorry
+
+/-- Adjoining −1 to the sum 1/2+1/2=1 gives the homogeneous relation. -/
+example : IsNondegenerateHomogeneousSolution (K := ℚ) ![-1, 1, 1] ![1, 1 / 2, 1 / 2] ↔
+    IsNondegenerateSolution (K := ℚ) ![1, 1] ![1 / 2, 1 / 2] := by
+  sorry
+
+end Nondegenerate
+
+
+/-- `Layer 2 homogeneous unit equation subspace cover` (Evertse Lemma 8.15). -/
+theorem exists_subspaces_homogeneous_unit_equation {n : ℕ} (hn : 2 ≤ n)
+    (α : Fin (n + 1) → ℚ) (hα : ∀ i, α i ≠ 0) (Γ : Subgroup ℚˣ) (hΓ : Γ.FG) :
+    ∃ T : Finset (Submodule ℚ (Fin (n + 1) → ℚ)),
+      (∀ V ∈ T, V < LinearMap.ker (Fintype.linearCombination ℚ α)) ∧
+      ∀ x : Fin (n + 1) → Γ, ∑ i, α i * ((x i : ℚˣ) : ℚ) = 0 →
+        ∃ V ∈ T, (fun i ↦ ((x i : ℚˣ) : ℚ)) ∈ V := by
+  sorry
+
+/-- `Layer 2 homogeneous unit equation ratio theorem` (Evertse Lemma 8.16). -/
+theorem exists_ratio_set {n : ℕ} (hn : 1 ≤ n) (α : Fin (n + 1) → ℚ) (hα : ∀ i, α i ≠ 0)
+    (Γ : Subgroup ℚˣ) (hΓ : Γ.FG) :
+    ∃ U : Finset ℚ, ∀ x : Fin (n + 1) → Γ, ∑ i, α i * ((x i : ℚˣ) : ℚ) = 0 →
+      ∃ i j, i ≠ j ∧ ((x i : ℚˣ) : ℚ) / ((x j : ℚˣ) : ℚ) ∈ U := by
+  sorry
+
+/-- `Layer 2 nondegenerate solutions have finitely many ratios` (Evertse Theorem 8.14). -/
+theorem exists_ratio_set_of_nondegenerate {n : ℕ} (hn : 1 ≤ n) (α : Fin (n + 1) → ℚ)
+    (hα : ∀ i, α i ≠ 0) (Γ : Subgroup ℚˣ) (hΓ : Γ.FG) :
+    ∃ U : Finset ℚ, ∀ x : Fin (n + 1) → Γ,
+      IsNondegenerateHomogeneousSolution α (fun i ↦ ((x i : ℚˣ) : ℚ)) →
+        ∀ i j, ((x i : ℚˣ) : ℚ) / ((x j : ℚˣ) : ℚ) ∈ U := by
+  sorry
+
+/-- `Layer 2 s unit equation over rationals` (Evertse Theorem 8.13 for `Γ ⊂ ℚ^*`). -/
+theorem finite_nondegenerate_solutions_rat {n : ℕ} (α : Fin n → ℚ) (hα : ∀ i, α i ≠ 0)
+    (Γ : Subgroup ℚˣ) (hΓ : Γ.FG) :
+    {x : Fin n → Γ | IsNondegenerateSolution α (fun i ↦ ((x i : ℚˣ) : ℚ))}.Finite := by
+  sorry
+
+/-- `Layer 2 specialization to algebraic numbers` (Evertse–Schlickewei–Schmidt Lemma 3.1). -/
+theorem nonempty_specialization {K : Type*} [Field K] [IsAlgClosed K] [CharZero K]
+    [Algebra (AlgebraicClosure ℚ) K] (U : Finset K) :
+    Nonempty (Algebra.adjoin (AlgebraicClosure ℚ) (U : Set K) →ₐ[AlgebraicClosure ℚ]
+      AlgebraicClosure ℚ) := by
+  sorry
+
+/-- `Layer 2 unit equation subspace bound algebraic` (Evertse–Schlickewei–Schmidt Theorem 2.1),
+in the case `z = (1, …, 1)` used downstream (the height condition on `z` needs absolute heights
+of tuples in `Q̄`, which Mathlib does not yet provide). -/
+theorem exists_subspaces_unit_equation_algebraic {n : ℕ} (hn : 2 ≤ n)
+    (Γ : Subgroup (Fin n → (AlgebraicClosure ℚ)ˣ)) (r : ℕ)
+    (hΓ : Module.rank ℤ (Additive Γ) ≤ r) :
+    ∃ T : Finset (Submodule (AlgebraicClosure ℚ) (Fin n → AlgebraicClosure ℚ)),
+      (T.card : ℝ) ≤ Real.exp ((5 * n : ℝ) ^ (3 * n) * (r + 1)) ∧ (∀ V ∈ T, V ≠ ⊤) ∧
+      ∀ x ∈ Γ, ∑ i, ((x i : (AlgebraicClosure ℚ)ˣ) : AlgebraicClosure ℚ) = 1 →
+        ∃ V ∈ T, (fun i ↦ ((x i : (AlgebraicClosure ℚ)ˣ) : AlgebraicClosure ℚ)) ∈ V := by
+  sorry
+
+/-- `Layer 2 uniform bound nondegenerate solutions` (Evertse–Schlickewei–Schmidt Theorem 1.1). -/
+theorem card_nondegenerate_solutions_le {K : Type*} [Field K] [CharZero K] {n : ℕ}
+    (Γ : Subgroup (Fin n → Kˣ)) (r : ℕ) (hΓ : Module.rank ℤ (Additive Γ) ≤ r)
+    (a : Fin n → Kˣ) (M : Finset (Fin n → Kˣ))
+    (hM : ∀ x ∈ M, x ∈ Γ ∧ IsNondegenerateSolution (fun i ↦ (a i : K)) (fun i ↦ (x i : K))) :
+    (M.card : ℝ) ≤ Real.exp ((6 * n : ℝ) ^ (3 * n) * (r + 1)) := by
+  sorry
+
+/-- `Layer 2 s unit equation finiteness` (Evertse Theorem 8.13). -/
+theorem finite_nondegenerate_solutions {K : Type*} [Field K] [CharZero K] {n : ℕ}
+    (α : Fin n → K) (hα : ∀ i, α i ≠ 0) (Γ : Subgroup Kˣ) (hΓ : Γ.FG) :
+    {x : Fin n → Γ | IsNondegenerateSolution α (fun i ↦ ((x i : Kˣ) : K))}.Finite := by
+  sorry
+
+/-- `Layer 2 s unit equation finiteness`, the case `n = 2` (Lang; Evertse Theorem 8.12). -/
+theorem finite_two_term_unit_equation {K : Type*} [Field K] [CharZero K] (a b : K)
+    (ha : a ≠ 0) (hb : b ≠ 0) (Γ : Subgroup Kˣ) (hΓ : Γ.FG) :
+    {xy : Γ × Γ | a * ((xy.1 : Kˣ) : K) + b * ((xy.2 : Kˣ) : K) = 1}.Finite := by
+  sorry
+
+
+namespace LinearRecurrence
+
+/-- `Layer 2 nondegenerate linear recurrence`. -/
+def IsNondegenerate (E : _root_.LinearRecurrence ℂ) : Prop :=
+  E.charPoly.coeff 0 ≠ 0 ∧
+    ∀ θ ∈ E.charPoly.roots, ∀ θ' ∈ E.charPoly.roots, θ ≠ θ' → ¬ IsOfFinOrder (θ / θ')
+
+namespace IsNondegenerate
+
+/-- E.IsNondegenerate → θ ∈ E.charPoly.roots → θ ≠ 0. -/
+theorem root_ne_zero {E : _root_.LinearRecurrence ℂ}
+    (h : IsNondegenerate E) {θ : ℂ} (hθ : θ ∈ E.charPoly.roots) : θ ≠ 0 := by
+  sorry
+
+/-- E.IsNondegenerate → θ, θ' distinct roots → ¬ IsOfFinOrder (θ / θ'). -/
+theorem not_isOfFinOrder_div {E : _root_.LinearRecurrence ℂ}
+    (h : IsNondegenerate E) {θ θ' : ℂ} (hθ : θ ∈ E.charPoly.roots)
+    (hθ' : θ' ∈ E.charPoly.roots) (hne : θ ≠ θ') : ¬ IsOfFinOrder (θ / θ') :=
+  h.2 θ hθ θ' hθ' hne
+
+/-- Passage to the minimal recurrence. -/
+theorem of_dvd {E E' : _root_.LinearRecurrence ℂ}
+    (h : IsNondegenerate E) (hdvd : E'.charPoly ∣ E.charPoly)
+    (h0 : E'.charPoly.coeff 0 ≠ 0) : IsNondegenerate E' := by
+  sorry
+
+end IsNondegenerate
+
+/-- E.IsNondegenerate ↔ constant term non-zero and for distinct roots θ, θ' and every N ≥ 1, θ^N ≠ θ'^N. -/
+theorem isNondegenerate_iff_pow (E : _root_.LinearRecurrence ℂ) :
+    IsNondegenerate E ↔ E.charPoly.coeff 0 ≠ 0 ∧
+      ∀ θ ∈ E.charPoly.roots, ∀ θ' ∈ E.charPoly.roots, θ ≠ θ' →
+        ∀ N : ℕ, 0 < N → θ ^ N ≠ θ' ^ N := by
+  sorry
+
+/-- A recurrence of order `≤ 1` with non-zero constant term is non-degenerate. -/
+theorem isNondegenerate_of_order_le_one (E : _root_.LinearRecurrence ℂ)
+    (hE : E.order ≤ 1) (h0 : E.charPoly.coeff 0 ≠ 0) : IsNondegenerate E := by
+  sorry
+
+end LinearRecurrence
+
+/-- The Fibonacci roots have no root-of-unity quotient. -/
+example : LinearRecurrence.IsNondegenerate ⟨2, ![1, 1]⟩ := by sorry
+
+/-- The recurrence with roots ±i is degenerate. -/
+example : ¬ LinearRecurrence.IsNondegenerate ⟨2, ![-1, 0]⟩ := by
+  sorry
+
+/-- The order-one recurrence with root two is nondegenerate. -/
+example : LinearRecurrence.IsNondegenerate ⟨1, ![2]⟩ := by sorry
+
+/-- Repeated roots alone do not violate nondegeneracy: the sole distinct root is one. -/
+example : LinearRecurrence.IsNondegenerate ⟨2, ![-1, 2]⟩ := by sorry
+
+/-- `Layer 2 skolem mahler lech simple roots` (Evertse Theorem 8.18, simple roots). -/
+theorem finite_zeros_simple_exponential_polynomial {m : ℕ} (g θ : Fin m → ℂ) (hg : g ≠ 0)
+    (hθ : ∀ i, θ i ≠ 0) (hnd : ∀ i j, i ≠ j → ¬ IsOfFinOrder (θ i / θ j)) :
+    {h : ℕ | ∑ i, g i * θ i ^ h = 0}.Finite := by
+  sorry
+
+/-- `Layer 2 skolem mahler lech simple roots`, recurrence form. -/
+theorem skolem_mahler_lech_simple (E : _root_.LinearRecurrence ℂ)
+    (hE : LinearRecurrence.IsNondegenerate E) (hsep : E.charPoly.Separable) (u : ℕ → ℂ)
+    (hu : E.IsSolution u) (hu₀ : u ≠ 0) : {h : ℕ | u h = 0}.Finite := by
+  sorry
+
+/-- `Layer 2 uniform bound zeros simple recurrence` (Evertse–Schlickewei–Schmidt Theorem 1.2):
+the zero set of a simple recurrence of order `n ≥ 3` is a union of at most `exp((6n)^{3n})`
+points and arithmetic progressions. -/
+theorem zeros_simple_recurrence_eq_union {K : Type*} [Field K] [IsAlgClosed K] [CharZero K]
+    {n : ℕ} (hn : 3 ≤ n) (a α : Fin n → K) (ha : ∀ i, a i ≠ 0) (hα : ∀ i, α i ≠ 0)
+    (hinj : Function.Injective α) :
+    ∃ (q₁ q₂ : ℕ) (k : Fin q₁ → ℤ) (b v : Fin q₂ → ℤ), (∀ i, v i ≠ 0) ∧
+      ((q₁ + q₂ : ℕ) : ℝ) ≤ Real.exp ((6 * n : ℝ) ^ (3 * n)) ∧
+      {m : ℤ | ∑ i, a i * α i ^ m = 0} =
+        Set.range k ∪ ⋃ i, {m : ℤ | ∃ t : ℤ, m = b i + t * v i} := by
+  sorry
+
+/-- `Layer 2 uniform bound zeros simple recurrence`, non-degenerate case. -/
+theorem ncard_zeros_simple_recurrence_le {K : Type*} [Field K] [IsAlgClosed K] [CharZero K]
+    {n : ℕ} (hn : 3 ≤ n) (a α : Fin n → K) (ha : ∀ i, a i ≠ 0) (hα : ∀ i, α i ≠ 0)
+    (hnd : ∀ i j, i ≠ j → ¬ IsOfFinOrder (α i / α j)) :
+    {m : ℤ | ∑ i, a i * α i ^ m = 0}.Finite ∧
+      ({m : ℤ | ∑ i, a i * α i ^ m = 0}.ncard : ℝ) ≤ Real.exp ((6 * n : ℝ) ^ (3 * n)) := by
+  sorry
+
+
+/-- A recurrence with nonzero constant characteristic coefficient has an exponential-polynomial
+closed form, with polynomial degree below each root multiplicity (Evertse §8.4). -/
+theorem closedFormRecurrence (E : _root_.LinearRecurrence ℂ)
+    (hE : E.charPoly.coeff 0 ≠ 0) (u : ℕ → ℂ) (hu : E.IsSolution u) :
+    ∃ P : ℂ → ℂ[X],
+      (∀ θ ∈ E.charPoly.roots, (P θ).degree < (E.charPoly.rootMultiplicity θ : WithBot ℕ)) ∧
+      ∀ n : ℕ, u n = ∑ θ ∈ E.charPoly.roots.toFinset, (P θ).eval (n : ℂ) * θ ^ n := sorry
+
+/-- A repeated root one needs the polynomial coefficient X to represent u(n)=n. -/
+example (n : ℕ) : (Polynomial.X : ℂ[X]).eval (n : ℂ) * (1 : ℂ) ^ n = n := sorry
+
+section TwistedHeight
+
+variable {K : Type*} [Field K] [NumberField K]
+
+/-- Place notation with infinite places first, identified with the unified place carrier
+by swapping summands and applying `FinitePlace.equivHeightOneSpectrum`. -/
+abbrev Place (K : Type*) [Field K] [NumberField K] := InfinitePlace K ⊕ FinitePlace K
+
+/-- The normalised absolute value `‖x‖_v` of Evertse–Ferretti §1.1. -/
+def normAbs : Place K → K → ℝ
+  | .inl w, x => w x ^ ((w.mult : ℝ) / Module.finrank ℚ K)
+  | .inr v, x => v x ^ ((1 : ℝ) / Module.finrank ℚ K)
+
+/-- In degree two, a real place gives the square roots √2 and 2 on the rational scalars 2 and 4. -/
+example (w : InfinitePlace K) (hd : Module.finrank ℚ K = 2) (hw : w.mult = 1) :
+    normAbs (.inl w) (2 : K) = Real.sqrt 2 ∧ normAbs (.inl w) (4 : K) = 2 := sorry
+
+/-- In degree two, a complex place's multiplicity cancels the degree root on 2 and 4. -/
+example (w : InfinitePlace K) (hd : Module.finrank ℚ K = 2) (hw : w.mult = 2) :
+    normAbs (.inl w) (2 : K) = 2 ∧ normAbs (.inl w) (4 : K) = 4 := sorry
+
+/-- Every normalized place sends zero to zero and one to one. -/
+example (v : Place K) : normAbs v (0 : K) = 0 ∧ normAbs v (1 : K) = 1 := sorry
+
+variable {n : ℕ}
+
+open Classical in
+/-- `Layer 2 twisted height`: `H_{L,c,Q}(x) = ∏_v max_i ‖L_i^{(v)}(x)‖_v Q^{-c_{iv}}` on `K^n`,
+with `H(0) = 0` (Evertse–Ferretti's convention; the `finprod` would give the junk value `1`). -/
+def twistedHeight (L : Place K → Fin n → Fin n → K) (c : Place K → Fin n → ℝ) (Q : ℝ)
+    (x : Fin n → K) : ℝ :=
+  if x = 0 then 0 else ∏ᶠ v, ⨆ i, normAbs v (L v i ⬝ᵥ x) * Q ^ (-(c v i))
+
+/-- The coordinate forms at every place. -/
+def coordForms (K : Type*) [Field K] [NumberField K] (n : ℕ) : Place K → Fin n → Fin n → K :=
+  fun _ i ↦ Pi.single i 1
+
+/-- twistedHeight L c Q 0 = 0 (n ≥ 1). -/
+theorem twistedHeight_zero [NeZero n] (L : Place K → Fin n → Fin n → K)
+    (c : Place K → Fin n → ℝ) (Q : ℝ) : twistedHeight L c Q 0 = 0 := by
+  sorry
+
+/-- Under (2.5)–(2.7), x ≠ 0 → 0 < twistedHeight L c Q x. -/
+theorem twistedHeight_pos (L : Place K → Fin n → Fin n → K) (c : Place K → Fin n → ℝ)
+    (hL : ∀ v, LinearIndependent K (L v)) (hfin : (Set.range L).Finite)
+    (hc : {v | c v ≠ 0}.Finite) {Q : ℝ} (hQ : 1 ≤ Q) {x : Fin n → K} (hx : x ≠ 0) :
+    0 < twistedHeight L c Q x := by
+  sorry
+
+/-- Under (2.5)–(2.7), for a ∈ K^*: twistedHeight L c Q (a • x) = twistedHeight L c Q x (product formula). -/
+theorem twistedHeight_smul (L : Place K → Fin n → Fin n → K) (c : Place K → Fin n → ℝ)
+    (hL : ∀ v, LinearIndependent K (L v)) (hfin : (Set.range L).Finite)
+    (hc : {v | c v ≠ 0}.Finite) (Q : ℝ) (x : Fin n → K) {a : K} (ha : a ≠ 0) :
+    twistedHeight L c Q (a • x) = twistedHeight L c Q x := by
+  sorry
+
+/-- If L v i = X_i for all v, i and c = 0 then twistedHeight L 0 Q x = (Height.mulHeight x)^{1/[K:ℚ]}, the absolute multiplicative height. -/
+theorem twistedHeight_coords_zero (Q : ℝ) {x : Fin n → K} (hx : x ≠ 0) :
+    twistedHeight (coordForms K n) 0 Q x =
+      Height.mulHeight x ^ ((1 : ℝ) / Module.finrank ℚ K) := by
+  sorry
+
+/-- EF Lemma 7.2(i): under (2.5)–(2.7), if d_{iv} = c_{iv} − θ_v with finitely many θ_v ≠ 0 and Θ = Σ_v θ_v, then twistedHeight L d Q x = Q^Θ · twistedHeight L c Q x. -/
+theorem twistedHeight_shift (L : Place K → Fin n → Fin n → K) (c : Place K → Fin n → ℝ)
+    (hL : ∀ v, LinearIndependent K (L v)) (hfin : (Set.range L).Finite)
+    (hc : {v | c v ≠ 0}.Finite) (θ : Place K → ℝ) (hθ : {v | θ v ≠ 0}.Finite) {Q : ℝ}
+    (hQ : 0 < Q) (x : Fin n → K) :
+    twistedHeight L (fun v i ↦ c v i - θ v) Q x = Q ^ (∑ᶠ v, θ v) * twistedHeight L c Q x := by
+  sorry
+
+/-- EF Lemma 7.3(i): under (2.5)–(2.7), for an invertible K-linear φ of K^n, twistedHeight (L ∘ φ) c Q x = twistedHeight L c Q (φ x). -/
+theorem twistedHeight_comp (L : Place K → Fin n → Fin n → K) (c : Place K → Fin n → ℝ)
+    (hL : ∀ v, LinearIndependent K (L v)) (hfin : (Set.range L).Finite)
+    (hc : {v | c v ≠ 0}.Finite) (φ : (Fin n → K) ≃ₗ[K] (Fin n → K)) (Q : ℝ) (x : Fin n → K) :
+    twistedHeight (fun v i ↦ fun j ↦ L v i ⬝ᵥ φ (Pi.single j 1)) c Q x =
+      twistedHeight L c Q (φ x) := by
+  sorry
+
+/-- For x ≠ 0: twistedHeight L c 1 x = ∏ᶠ v, max_i ‖L v i ⬝ᵥ x‖_v (independent of c). -/
+theorem twistedHeight_one (L : Place K → Fin n → Fin n → K) (c : Place K → Fin n → ℝ)
+    {x : Fin n → K} (hx : x ≠ 0) :
+    twistedHeight L c 1 x = ∏ᶠ v, ⨆ i, normAbs v (L v i ⬝ᵥ x) := by
+  sorry
+
+/-- Exponents of the unit tests over `ℚ`: `c_∞ = (1/2, -1/2)`, `0` at the primes. -/
+def cExample (a : ℝ) : Place ℚ → Fin 2 → ℝ
+  | .inl _, i => if i = 0 then a else -a
+  | .inr _, _ => 0
+
+/-- At (1,0), weights (1/2,−1/2) give twisted height Q^(−1/2). -/
+example {Q : ℝ} (hQ : 1 ≤ Q) :
+    twistedHeight (coordForms ℚ 2) (cExample (1 / 2)) Q ![1, 0] = Q ^ (-(1 / 2 : ℝ)) := by
+  sorry
+
+/-- At Q=1 the twisted height is independent of all weights. -/
+example (L : Place K → Fin n → Fin n → K) (c c' : Place K → Fin n → ℝ) (x : Fin n → K) :
+    twistedHeight L c 1 x = twistedHeight L c' 1 x := by
+  sorry
+
+/-- For a primitive integer vector, unweighted coordinate height equals the maximum coordinate modulus. -/
+example (x : Fin n → ℤ) (hx : Finset.univ.gcd x = 1) (Q : ℝ) :
+    twistedHeight (coordForms ℚ n) 0 Q (fun j ↦ (x j : ℚ)) = ⨆ i, |(x i : ℝ)| := by
+  sorry
+
+/-- Projective coordinate height is unchanged by multiplying (1,0) by two. -/
+example (Q : ℝ) :
+    twistedHeight (coordForms ℚ 2) 0 Q ((2 : ℚ) • ![1, 0]) =
+      twistedHeight (coordForms ℚ 2) 0 Q ![1, 0] := by
+  sorry
+
+/-- `Layer 2 successive infima of twisted height` (the `K`-rational version of Evertse–Ferretti §9). -/
+def rationalSuccessiveInfimum (L : Place K → Fin n → Fin n → K) (c : Place K → Fin n → ℝ) (Q : ℝ)
+    (i : ℕ) : ℝ :=
+  sInf {t : ℝ | 0 ≤ t ∧
+    i ≤ Module.finrank K (Submodule.span K {x | twistedHeight L c Q x ≤ t})}
+
+/-- The space `T_i(Q) = ⋂_{t > λ_i(Q)} span {x | H(x) ≤ t}`. -/
+def rationalInfimumSpace (L : Place K → Fin n → Fin n → K) (c : Place K → Fin n → ℝ) (Q : ℝ)
+    (i : ℕ) : Submodule K (Fin n → K) :=
+  ⨅ (t : ℝ) (_ : rationalSuccessiveInfimum L c Q i < t), Submodule.span K {x | twistedHeight L c Q x ≤ t}
+
+/-- Rational successive infima increase with the number of independent vectors required. -/
+theorem rationalSuccessiveInfimum_mono (L : Place K → Fin n → Fin n → K) (c : Place K → Fin n → ℝ)
+    (Q : ℝ) {i j : ℕ} (hij : i ≤ j) (hj : j ≤ n) :
+    rationalSuccessiveInfimum L c Q i ≤ rationalSuccessiveInfimum L c Q j := by
+  sorry
+
+/-- Rational successive infima are nonnegative. -/
+theorem rationalSuccessiveInfimum_nonneg (L : Place K → Fin n → Fin n → K) (c : Place K → Fin n → ℝ)
+    (Q : ℝ) (i : ℕ) : 0 ≤ rationalSuccessiveInfimum L c Q i := by
+  sorry
+
+/-- A strict gap at k gives the rational infimum space dimension k. -/
+theorem finrank_rationalInfimumSpace_of_lt (L : Place K → Fin n → Fin n → K)
+    (c : Place K → Fin n → ℝ) (Q : ℝ) {k : ℕ} (hk : k < n)
+    (hlt : rationalSuccessiveInfimum L c Q k < rationalSuccessiveInfimum L c Q (k + 1)) :
+    Module.finrank K (rationalInfimumSpace L c Q k) = k := by
+  sorry
+
+/-- Unweighted coordinate forms have every nontrivial rational successive infimum equal to one. -/
+theorem rationalSuccessiveInfimum_coords_zero (Q : ℝ) {i : ℕ} (hi₁ : 1 ≤ i) (hi : i ≤ n) :
+    rationalSuccessiveInfimum (coordForms K n) 0 Q i = 1 := by
+  sorry
+
+/-- Every coordinate successive infimum is one. -/
+example (Q : ℝ) {i : ℕ} (hi₁ : 1 ≤ i) (hi : i ≤ n) :
+    rationalSuccessiveInfimum (coordForms ℚ n) 0 Q i = 1 := by sorry
+
+/-- The zeroth rational successive infimum is zero. -/
+example (L : Place K → Fin n → Fin n → K) (c : Place K → Fin n → ℝ) (Q : ℝ) :
+    rationalSuccessiveInfimum L c Q 0 = 0 := by sorry
+
+/-- Weights (1/2,−1/2) give successive infima Q^(−1/2) and Q^(1/2). -/
+example {Q : ℝ} (hQ : 1 ≤ Q) :
+    rationalSuccessiveInfimum (coordForms ℚ 2) (cExample (1 / 2)) Q 1 = Q ^ (-(1 / 2 : ℝ)) ∧
+      rationalSuccessiveInfimum (coordForms ℚ 2) (cExample (1 / 2)) Q 2 = Q ^ (1 / 2 : ℝ) := by
+  sorry
+
+/-- For Q>1 the two weighted coordinate infima are distinct. -/
+example {Q : ℝ} (hQ : 1 < Q) :
+    rationalSuccessiveInfimum (coordForms ℚ 2) (cExample (1 / 2)) Q 2 ≠
+      rationalSuccessiveInfimum (coordForms ℚ 2) (cExample (1 / 2)) Q 1 := by
+  sorry
+
+/-- With zero weights, the zeroth threshold space is zero. -/
+example (Q : ℝ) : rationalInfimumSpace (coordForms ℚ n) 0 Q 0 = ⊥ := sorry
+
+/-- With zero weights, the first threshold space is the whole space when n≥1. -/
+example (Q : ℝ) (hn : 1 ≤ n) : rationalInfimumSpace (coordForms ℚ n) 0 Q 1 = ⊤ := sorry
+
+/-- A strict weighted coordinate gap singles out the first coordinate line. -/
+example {Q : ℝ} (hQ : 1 < Q) :
+    rationalInfimumSpace (coordForms ℚ 2) (cExample (1 / 2)) Q 1 =
+      ℚ ∙ (![1, 0] : Fin 2 → ℚ) := sorry
+
+/-- The Euclidean projective height `H_2` of a K-rational vector. -/
+def height2 {ι : Type*} [Fintype ι] (y : ι → K) : ℝ :=
+  (∏ w : InfinitePlace K,
+      (∑ i, ‖w.embedding (y i)‖ ^ 2) ^ ((w.mult : ℝ) / (2 * Module.finrank ℚ K))) *
+    ∏ᶠ v : FinitePlace K, (⨆ i, v (y i)) ^ ((1 : ℝ) / Module.finrank ℚ K)
+
+/-- Plücker coordinates: the `p × p` minors of the matrix with rows `x i`. -/
+def plucker {p : ℕ} (x : Fin p → Fin n → K) : {s : Finset (Fin n) // s.card = p} → K :=
+  fun s ↦ Matrix.det (Matrix.of fun i j ↦ x i (s.1.orderEmbOfFin s.2 j))
+
+/-- The zero vector has Euclidean projective height zero. -/
+example : height2 (0 : Fin 2 → ℚ) = 0 := sorry
+
+/-- The vector (1,1) has Euclidean projective height √2. -/
+example : height2 (![1, 1] : Fin 2 → ℚ) = √2 := sorry
+
+/-- Scaling (1,1) to (2,2) does not double Euclidean projective height. -/
+example : height2 (![2, 2] : Fin 2 → ℚ) = √2 := sorry
+
+/-- The primitive vector (3,4) has Euclidean projective height five. -/
+example : height2 (![3, 4] : Fin 2 → ℚ) = 5 := sorry
+
+/-- The zero-row Plücker coordinate is the determinant of the empty matrix, hence one. -/
+example : plucker (Fin.elim0 : Fin 0 → Fin 2 → ℚ) ⟨∅, by simp⟩ = 1 := sorry
+
+/-- The identity matrix has its sole full Plücker coordinate equal to one. -/
+example : plucker (!![(1 : ℚ), 0; 0, 1]) ⟨Finset.univ, by simp⟩ = 1 := sorry
+
+/-- Swapping the identity rows reverses the Plücker sign. -/
+example : plucker (!![(0 : ℚ), 1; 1, 0]) ⟨Finset.univ, by simp⟩ = -1 := sorry
+
+open Classical in
+/-- The Euclidean projective height `H_2(T)` of a subspace. -/
+def subspaceHeight (T : Submodule K (Fin n → K)) : ℝ :=
+  if T = ⊥ ∨ T = ⊤ then 1 else
+    height2 (plucker fun i : Fin (Module.finrank K T) ↦
+      ((Module.finBasis K T i : T) : Fin n → K))
+
+/-- The orthogonal complement for the dot product. -/
+def dotOrthogonal (T : Submodule K (Fin n → K)) : Submodule K (Fin n → K) where
+  carrier := {y | ∀ x ∈ T, y ⬝ᵥ x = 0}
+  add_mem' := by sorry
+  zero_mem' := by sorry
+  smul_mem' := by sorry
+
+/-- Every vector is perpendicular to the zero space. -/
+example : dotOrthogonal (⊥ : Submodule K (Fin n → K)) = ⊤ := sorry
+
+/-- Only zero is perpendicular to the whole space for the nondegenerate dot product. -/
+example : dotOrthogonal (⊤ : Submodule K (Fin n → K)) = ⊥ := sorry
+
+/-- The perpendicular to the rational line (1,2) is the line (−2,1). -/
+example : dotOrthogonal (ℚ ∙ (![1, 2] : Fin 2 → ℚ)) =
+    ℚ ∙ (![-2, 1] : Fin 2 → ℚ) := sorry
+
+/-- subspaceHeight ⊥ = 1. -/
+theorem subspaceHeight_bot : subspaceHeight (⊥ : Submodule K (Fin n → K)) = 1 := by
+  sorry
+
+/-- subspaceHeight ⊤ = 1. -/
+theorem subspaceHeight_top : subspaceHeight (⊤ : Submodule K (Fin n → K)) = 1 := by
+  sorry
+
+/-- For x ≠ 0 and n ≥ 2, subspaceHeight (K ∙ x) = height2 x. -/
+theorem subspaceHeight_span_singleton (hn : 2 ≤ n) {x : Fin n → K} (hx : x ≠ 0) :
+    subspaceHeight (K ∙ x) = height2 x := by
+  sorry
+
+/-- EF (6.11): for linearly independent x_1, …, x_p spanning T, subspaceHeight T ≤ ∏_i height2 (x_i). -/
+theorem subspaceHeight_le_prod {p : ℕ} (x : Fin p → Fin n → K) (hx : LinearIndependent K x) :
+    subspaceHeight (Submodule.span K (Set.range x)) ≤ ∏ i, height2 (x i) := by
+  sorry
+
+/-- EF (6.13): subspaceHeight T^⊥ = subspaceHeight T, where T^⊥ = {y | ∀ x ∈ T, y ⬝ᵥ x = 0}. -/
+theorem subspaceHeight_orthogonal (T : Submodule K (Fin n → K)) :
+    subspaceHeight (dotOrthogonal T) = subspaceHeight T := by
+  sorry
+
+/-- Struppeck–Vaaler (EF (6.12)): subspaceHeight (T₁ ⊓ T₂) · subspaceHeight (T₁ ⊔ T₂) ≤ subspaceHeight T₁ · subspaceHeight T₂. -/
+theorem subspaceHeight_inf_mul_sup_le (T₁ T₂ : Submodule K (Fin n → K)) :
+    subspaceHeight (T₁ ⊓ T₂) * subspaceHeight (T₁ ⊔ T₂) ≤
+      subspaceHeight T₁ * subspaceHeight T₂ := by
+  sorry
+
+/-- 1 ≤ subspaceHeight T. -/
+theorem one_le_subspaceHeight (T : Submodule K (Fin n → K)) : 1 ≤ subspaceHeight T := by
+  sorry
+
+/-- Northcott for subspaces (Schmidt 1967): for every B the set of subspaces T of K^n with subspaceHeight T ≤ B is finite. -/
+theorem finite_subspaceHeight_le (B : ℝ) :
+    {T : Submodule K (Fin n → K) | subspaceHeight T ≤ B}.Finite := by
+  sorry
+
+/-- For a rational subspace, `H_2(T)` is the Euclidean norm of the wedge of a `ℤ`-basis of
+`T ∩ ℤ^n`, i.e. the covolume of that lattice (GeometryOfNumbersAndQuadraticArithmetic Layer 0). -/
+theorem subspaceHeight_rat_eq_covolume (T : Submodule ℚ (Fin n → ℚ)) (hT : T ≠ ⊥) (p : ℕ)
+    (b : Fin p → Fin n → ℤ) (hb : ∀ y : Fin n → ℤ, (fun j ↦ (y j : ℚ)) ∈ T ↔
+      ∃ c : Fin p → ℤ, y = ∑ i, c i • b i) (hbi : LinearIndependent ℤ b) :
+    subspaceHeight T =
+      Real.sqrt (∑ s, ((plucker fun i j ↦ (b i j : ℚ)) s : ℝ) ^ 2) := by
+  sorry
+
+/-- The line spanned by (1,1) has Euclidean height √2. -/
+example : subspaceHeight (ℚ ∙ (![1, 1] : Fin 2 → ℚ)) = √2 := by
+  sorry
+
+/-- The zero and whole subspaces have height one. -/
+example : subspaceHeight (⊥ : Submodule K (Fin n → K)) = 1 ∧
+    subspaceHeight (⊤ : Submodule K (Fin n → K)) = 1 := by sorry
+
+/-- Every coordinate plane has Euclidean height one. -/
+example {p : ℕ} (hp : p ≤ n) :
+    subspaceHeight (Submodule.span ℚ
+      (Set.range fun i : Fin p ↦ (Pi.single (Fin.castLE hp i) 1 : Fin n → ℚ))) = 1 := by
+  sorry
+
+/-- Rescaling the generator to (2,2) preserves line height √2. -/
+example : subspaceHeight (ℚ ∙ (![2, 2] : Fin 2 → ℚ)) = √2 := by
+  sorry
+
+/-- The orthogonal hyperplane to (1,2,2) has height three. -/
+example : subspaceHeight (dotOrthogonal (ℚ ∙ (![1, 2, 2] : Fin 3 → ℚ))) = 3 := by
+  sorry
+
+/-- `Layer 2 weight and exceptional subspace`: the local weight `w_v(U)`. -/
+def localWeight (L : Place K → Fin n → Fin n → K) (c : Place K → Fin n → ℝ) (v : Place K)
+    (U : Submodule K (Fin n → K)) : ℝ :=
+  sInf ((fun s : Finset (Fin n) ↦ ∑ i ∈ s, c v i) ''
+    {s | s.card = Module.finrank K U ∧
+      LinearIndependent K (fun i : s ↦ (Fintype.linearCombination K (L v i)).domRestrict U)})
+
+/-- The weight `w(U) = Σ_v w_v(U)`. -/
+def weight (L : Place K → Fin n → Fin n → K) (c : Place K → Fin n → ℝ)
+    (U : Submodule K (Fin n → K)) : ℝ :=
+  ∑ᶠ v, localWeight L c v U
+
+/-- The normalised weight `(w(U) - w(K^n)) / (n - dim U)` maximised by the exceptional
+subspace; it is `-µ(K^n, U)` in the notation of Evertse–Ferretti §15 and equals
+`w(U) / (n - dim U)` under the normalisation (2.8). -/
+def weightRatio (L : Place K → Fin n → Fin n → K) (c : Place K → Fin n → ℝ)
+    (U : Submodule K (Fin n → K)) : ℝ :=
+  (weight L c U - weight L c ⊤) / ((n : ℝ) - Module.finrank K U)
+
+/-- For n≥1, independent local systems and finite support of c, there exists a proper T maximising weightRatio among proper subspaces and of minimal dimension among maximisers. Supermodularity gives uniqueness. These data hypotheses cannot be dropped. -/
+theorem exists_exceptionalSubspace [NeZero n] (L : Place K → Fin n → Fin n → K)
+    (c : Place K → Fin n → ℝ) (hL : ∀ v, LinearIndependent K (L v))
+    (hc : {v | c v ≠ 0}.Finite) :
+    ∃ T : Submodule K (Fin n → K), T ≠ ⊤ ∧
+      (∀ U, U ≠ ⊤ → weightRatio L c U ≤ weightRatio L c T) ∧
+      ∀ T', T' ≠ ⊤ → (∀ U, U ≠ ⊤ → weightRatio L c U ≤ weightRatio L c T') →
+        Module.finrank K T ≤ Module.finrank K T' := by
+  sorry
+
+open Classical in
+/-- The exceptional subspace `T(L, c)` of Evertse–Ferretti (2.21). -/
+def exceptionalSubspace [NeZero n] (L : Place K → Fin n → Fin n → K)
+    (c : Place K → Fin n → ℝ) : Submodule K (Fin n → K) :=
+  if h : (∀ v, LinearIndependent K (L v)) ∧ {v | c v ≠ 0}.Finite then
+    Classical.choose (exists_exceptionalSubspace L c h.1 h.2)
+  else ⊥
+
+/-- weight L c ⊥ = 0. -/
+theorem weight_bot (L : Place K → Fin n → Fin n → K) (c : Place K → Fin n → ℝ) :
+    weight L c ⊥ = 0 := by
+  sorry
+
+/-- weight L c ⊤ = Σᶠ v, Σ_i c v i (= 0 under (2.8)). -/
+theorem weight_top (L : Place K → Fin n → Fin n → K) (c : Place K → Fin n → ℝ)
+    (hL : ∀ v, LinearIndependent K (L v)) :
+    weight L c ⊤ = ∑ᶠ v, ∑ i, c v i := by
+  sorry
+
+/-- EF Lemma 15.1: weight (U₁ ⊓ U₂) + weight (U₁ ⊔ U₂) ≥ weight U₁ + weight U₂. -/
+theorem weight_inf_add_weight_sup (L : Place K → Fin n → Fin n → K)
+    (c : Place K → Fin n → ℝ) (hL : ∀ v, LinearIndependent K (L v))
+    (hc : {v | c v ≠ 0}.Finite) (U₁ U₂ : Submodule K (Fin n → K)) :
+    weight L c U₁ + weight L c U₂ ≤ weight L c (U₁ ⊓ U₂) + weight L c (U₁ ⊔ U₂) := by
+  sorry
+
+/-- exceptionalSubspace L c ≠ ⊤. -/
+theorem exceptionalSubspace_ne_top [NeZero n] (L : Place K → Fin n → Fin n → K)
+    (c : Place K → Fin n → ℝ) : exceptionalSubspace L c ≠ ⊤ := by sorry
+
+/-- For independent local systems and finite-support c, every proper U satisfies weightRatio U≤weightRatio T, and T has minimal dimension among maximisers. Under Σ_i c_iv=0 this is the source’s w(U)/(n−dim U) comparison. -/
+theorem exceptionalSubspace_spec [NeZero n] (L : Place K → Fin n → Fin n → K)
+    (c : Place K → Fin n → ℝ) (hL : ∀ v, LinearIndependent K (L v))
+    (hc : {v | c v ≠ 0}.Finite) (U : Submodule K (Fin n → K)) (hU : U ≠ ⊤) :
+    weightRatio L c U ≤ weightRatio L c (exceptionalSubspace L c) := by sorry
+
+/-- Under (2.8): exceptionalSubspace L c = ⊥ ↔ ∀ U ≠ ⊤, weight L c U ≤ 0 (semistability, EF (8.9)). -/
+theorem exceptionalSubspace_eq_bot_iff [NeZero n] (L : Place K → Fin n → Fin n → K)
+    (c : Place K → Fin n → ℝ) (hL : ∀ v, LinearIndependent K (L v))
+    (hc : {v | c v ≠ 0}.Finite) (hsum : ∀ v, ∑ i, c v i = 0) :
+    exceptionalSubspace L c = ⊥ ↔ ∀ U, U ≠ ⊤ → weight L c U ≤ 0 := by
+  sorry
+
+/-- EF Lemma 7.2(iii): shifting c_{iv} by θ_v (independent of i) does not change the exceptional subspace. -/
+theorem exceptionalSubspace_shift [NeZero n] (L : Place K → Fin n → Fin n → K)
+    (c : Place K → Fin n → ℝ) (hL : ∀ v, LinearIndependent K (L v))
+    (hc : {v | c v ≠ 0}.Finite) (θ : Place K → ℝ) (hθ : {v | θ v ≠ 0}.Finite) :
+    exceptionalSubspace L (fun v i ↦ c v i - θ v) = exceptionalSubspace L c := by
+  sorry
+
+/-- EF Lemma 7.3(iii): exceptionalSubspace (L ∘ φ) c = (exceptionalSubspace L c).comap φ for invertible φ over K. -/
+theorem exceptionalSubspace_comp [NeZero n] (L : Place K → Fin n → Fin n → K)
+    (c : Place K → Fin n → ℝ) (hL : ∀ v, LinearIndependent K (L v))
+    (hc : {v | c v ≠ 0}.Finite) (φ : (Fin n → K) ≃ₗ[K] (Fin n → K)) :
+    exceptionalSubspace (fun v i ↦ fun j ↦ L v i ⬝ᵥ φ (Pi.single j 1)) c =
+      (exceptionalSubspace L c).comap (φ : (Fin n → K) →ₗ[K] (Fin n → K)) := by
+  sorry
+
+/-- EF Lemma 15.3: if every L^{(v)} consists of forms among X_1, …, X_n, X_1 + ⋯ + X_n, the exceptional subspace is cut out by equations Σ_{j ∈ I_i} x_j = 0 for pairwise disjoint I_i. -/
+theorem exceptionalSubspace_coords_sum [NeZero n] (L : Place K → Fin n → Fin n → K)
+    (c : Place K → Fin n → ℝ) (hLi : ∀ v, LinearIndependent K (L v))
+    (hc : {v | c v ≠ 0}.Finite) (hsum : ∀ v, ∑ i, c v i = 0)
+    (hL : ∀ v i, L v i = (fun _ ↦ 1) ∨ ∃ k, L v i = Pi.single k 1) :
+    ∃ (p : ℕ) (I : Fin p → Finset (Fin n)), Pairwise (fun a b ↦ Disjoint (I a) (I b)) ∧
+      exceptionalSubspace L c =
+        ⨅ a, LinearMap.ker (Fintype.linearCombination K fun j ↦ if j ∈ I a then (1 : K) else 0) := by
+  sorry
+
+/-- Zero weights make the exceptional subspace zero. -/
+example [NeZero n] (L : Place K → Fin n → Fin n → K) (hL : ∀ v, LinearIndependent K (L v)) :
+    exceptionalSubspace L 0 = ⊥ := by sorry
+
+/-- Exponents `c_∞ = (-1, 1)` over `ℚ`. -/
+def cExample' : Place ℚ → Fin 2 → ℝ := cExample (-1)
+
+/-- Weights (−1,1) select the second coordinate line. -/
+example : exceptionalSubspace (coordForms ℚ 2) cExample' = ℚ ∙ (![0, 1] : Fin 2 → ℚ) := by
+  sorry
+
+/-- Weights (−1,1) give weight −1 on (1,1) and +1 on (0,1). -/
+example : weight (coordForms ℚ 2) cExample' (ℚ ∙ (![1, 1] : Fin 2 → ℚ)) = -1 ∧
+    weight (coordForms ℚ 2) cExample' (ℚ ∙ (![0, 1] : Fin 2 → ℚ)) = 1 := by
+  sorry
+
+/-- Exponents `c_∞ = (-1, 0, 1)` over `ℚ`. -/
+def cExample3 : Place ℚ → Fin 3 → ℝ
+  | .inl _, i => (i : ℝ) - 1
+  | .inr _, _ => 0
+
+/-- Weights (−1,0,1) select the last two-coordinate plane by weight ratio. -/
+example : exceptionalSubspace (coordForms ℚ 3) cExample3 =
+    Submodule.span ℚ {(![0, 1, 0] : Fin 3 → ℚ), ![0, 0, 1]} := by
+  sorry
+
+/-- `Layer 2 twisted height filtration` (Evertse–Ferretti Lemma 15.4). -/
+def twistedFiltration (L : Place K → Fin n → Fin n → K) (c : Place K → Fin n → ℝ) :
+    List (Submodule K (Fin n → K)) :=
+  sorry
+
+/-- The first term of twistedFiltration L c is ⊥. -/
+theorem twistedFiltration_head (L : Place K → Fin n → Fin n → K) (c : Place K → Fin n → ℝ) :
+    (twistedFiltration L c).head? = some ⊥ := by
+  sorry
+
+/-- The last term of twistedFiltration L c is ⊤. -/
+theorem twistedFiltration_last (L : Place K → Fin n → Fin n → K) (c : Place K → Fin n → ℝ) :
+    (twistedFiltration L c).getLast? = some ⊤ := by
+  sorry
+
+/-- twistedFiltration L c is a strictly increasing chain (List.Chain' (· < ·)). -/
+theorem twistedFiltration_chain (L : Place K → Fin n → Fin n → K) (c : Place K → Fin n → ℝ) :
+    List.IsChain (· < ·) (twistedFiltration L c) := by
+  sorry
+
+/-- If r ≥ 1, the term T_{r−1} equals exceptionalSubspace L c. -/
+theorem twistedFiltration_penultimate [NeZero n] (L : Place K → Fin n → Fin n → K)
+    (c : Place K → Fin n → ℝ) (hL : ∀ v, LinearIndependent K (L v))
+    (hc : {v | c v ≠ 0}.Finite) :
+    (twistedFiltration L c).dropLast.getLast? = some (exceptionalSubspace L c) := by
+  sorry
+
+/-- The points (finrank T_l, weight T_l) are exactly the vertices of the upper convex hull of {(finrank U, weight U)}. -/
+theorem twistedFiltration_vertices [NeZero n] (L : Place K → Fin n → Fin n → K)
+    (c : Place K → Fin n → ℝ) (hL : ∀ v, LinearIndependent K (L v))
+    (hc : {v | c v ≠ 0}.Finite) (U : Submodule K (Fin n → K)) :
+    ∃ (l : ℕ) (hl : l + 1 < (twistedFiltration L c).length),
+      Module.finrank K (twistedFiltration L c)[l] ≤ Module.finrank K U ∧
+      Module.finrank K U ≤ Module.finrank K (twistedFiltration L c)[l + 1] ∧
+      ((Module.finrank K (twistedFiltration L c)[l + 1] : ℝ) -
+          Module.finrank K (twistedFiltration L c)[l]) * weight L c U ≤
+        ((Module.finrank K (twistedFiltration L c)[l + 1] : ℝ) - Module.finrank K U) *
+            weight L c (twistedFiltration L c)[l] +
+          ((Module.finrank K U : ℝ) - Module.finrank K (twistedFiltration L c)[l]) *
+            weight L c (twistedFiltration L c)[l + 1] := by
+  sorry
+
+/-- The slopes µ(T_l, T_{l−1}) are strictly decreasing in l. -/
+theorem twistedFiltration_slope_antitone (L : Place K → Fin n → Fin n → K)
+    (c : Place K → Fin n → ℝ) (hL : ∀ v, LinearIndependent K (L v))
+    (hc : {v | c v ≠ 0}.Finite) {i : ℕ} (hi : i + 2 < (twistedFiltration L c).length) :
+    (weight L c (twistedFiltration L c)[i + 2] - weight L c (twistedFiltration L c)[i + 1]) /
+        ((Module.finrank K (twistedFiltration L c)[i + 2] : ℝ) -
+          Module.finrank K (twistedFiltration L c)[i + 1]) <
+      (weight L c (twistedFiltration L c)[i + 1] - weight L c (twistedFiltration L c)[i]) /
+        ((Module.finrank K (twistedFiltration L c)[i + 1] : ℝ) -
+          Module.finrank K (twistedFiltration L c)[i]) := by
+  sorry
+
+/-- Zero weights give just the zero and whole subspaces in positive dimension. -/
+example [NeZero n] (L : Place K → Fin n → Fin n → K) (hL : ∀ v, LinearIndependent K (L v)) :
+    twistedFiltration L 0 = [⊥, ⊤] := by sorry
+
+/-- Weights (−1,1) insert the second-coordinate line in the filtration. -/
+example : twistedFiltration (coordForms ℚ 2) cExample' = [⊥, ℚ ∙ (![0, 1] : Fin 2 → ℚ), ⊤] := by
+  sorry
+
+/-- A strictly increasing filtration has length at most n+1. -/
+example (L : Place K → Fin n → Fin n → K) (c : Place K → Fin n → ℝ) :
+    (twistedFiltration L c).length ≤ n + 1 := by sorry
+
+/-- The zero-weight filtration is not a complete flag when n≥2. -/
+example (hn : 2 ≤ n) (L : Place K → Fin n → Fin n → K) (hL : ∀ v, LinearIndependent K (L v)) :
+    (twistedFiltration L 0).length ≠ n + 1 := by sorry
+
+
+/-- `Δ_L = ∏_v ‖det(L^{(v)})‖_v`. -/
+def deltaL (L : Place K → Fin n → Fin n → K) : ℝ :=
+  ∏ᶠ v, normAbs v (Matrix.of fun i j ↦ L v i j).det
+
+/-- The conditions (2.4)–(2.9) on `(L, c)`. -/
+structure IsTwistedData (L : Place K → Fin n → Fin n → K) (c : Place K → Fin n → ℝ) : Prop where
+  two_le : 2 ≤ n
+  linearIndependent : ∀ v, LinearIndependent K (L v)
+  finite_forms : (Set.range L).Finite
+  finite_support : {v | c v ≠ 0}.Finite
+  sum_eq_zero : ∀ v, ∑ i, c v i = 0
+  sum_max_le_one : ∑ᶠ v, (⨆ i, c v i) ≤ 1
+
+/-- `Layer 2 twisted height gap principle` (Evertse–Ferretti Proposition 4.2), `K`-rational. -/
+theorem exists_subspace_gap_principle (L : Place K → Fin n → Fin n → K)
+    (c : Place K → Fin n → ℝ) (hLc : IsTwistedData L c) {δ A : ℝ} (hδ : 0 < δ) (hδ1 : δ ≤ 1)
+    (hA : (n : ℝ) ^ (1 / δ) ≤ A) :
+    ∃ T₀ : Submodule K (Fin n → K), T₀ ≠ ⊤ ∧ ∀ Q, A ≤ Q → Q < A ^ (1 + δ / 2) →
+      {x | twistedHeight L c Q x ≤ deltaL L ^ ((1 : ℝ) / n) * Q ^ (-δ)} ⊆ T₀ := by
+  sorry
+
+/-- `Layer 2 parametric subspace theorem` (Evertse–Ferretti Theorem 2.1), `K`-rational and
+qualitative in `Q_0`. -/
+theorem parametric_subspace_theorem (L : Place K → Fin n → Fin n → K)
+    (c : Place K → Fin n → ℝ) (hLc : IsTwistedData L c) {δ : ℝ} (hδ : 0 < δ) (hδ1 : δ ≤ 1)
+    (R : ℕ) (hR : Nat.card (Set.range fun p : Place K × Fin n ↦ L p.1 p.2) ≤ R) :
+    ∃ (Q₀ : ℝ) (T : Finset (Submodule K (Fin n → K))), (∀ V ∈ T, V ≠ ⊤) ∧
+      (T.card : ℝ) ≤ 10 ^ 6 * 2 ^ (2 * n) * (n : ℝ) ^ 10 * δ ^ (-3 : ℝ) *
+        Real.log (3 * R / δ) * Real.log (Real.log (3 * R) / δ) ∧
+      ∀ Q, Q₀ ≤ Q → ∃ V ∈ T,
+        {x | twistedHeight L c Q x ≤ deltaL L ^ ((1 : ℝ) / n) * Q ^ (-δ)} ⊆ V := by
+  sorry
+
+/-- `Layer 2 interval result` (Evertse–Ferretti Theorem 2.3), `K`-rational and qualitative. -/
+theorem interval_result [NeZero n] (L : Place K → Fin n → Fin n → K)
+    (c : Place K → Fin n → ℝ) (hLc : IsTwistedData L c) {δ : ℝ} (hδ : 0 < δ) (hδ1 : δ ≤ 1)
+    (R : ℕ) (hR : Nat.card (Set.range fun p : Place K × Fin n ↦ L p.1 p.2) ≤ R) :
+    ∃ (C₀ : ℝ) (m : ℕ) (Qs : Fin m → ℝ),
+      (m : ℝ) ≤ 10 ^ 5 * 2 ^ (2 * n) * (n : ℝ) ^ 10 * δ ^ (-2 : ℝ) * Real.log (3 * R / δ) ∧
+      (∀ h, C₀ ≤ Qs h) ∧
+      ∀ Q, 1 ≤ Q →
+        ¬ {x | twistedHeight L c Q x ≤ deltaL L ^ ((1 : ℝ) / n) * Q ^ (-δ)} ⊆
+            (exceptionalSubspace L c : Set (Fin n → K)) →
+          Q < C₀ ∨ ∃ h, Qs h ≤ Q ∧ Q < Qs h ^ (Real.log (3 * R) / δ) := by
+  sorry
+
+/-- `Layer 2 interval result semistable case` (Evertse–Ferretti Theorem 8.1), `K`-rational,
+with `v₀` the non-archimedean place of (8.8). -/
+theorem interval_result_semistable [NeZero n] (L : Place K → Fin n → Fin n → K)
+    (c : Place K → Fin n → ℝ) (hLc : IsTwistedData L c) {δ : ℝ} (hδ : 0 < δ) (hδ1 : δ ≤ 1)
+    (R : ℕ) (hnR : n ≤ R) (hR : Nat.card (Set.range fun p : Place K × Fin n ↦ L p.1 p.2) ≤ R)
+    (v₀ : FinitePlace K) (hv₀ : c (.inr v₀) = 0 ∧ L (.inr v₀) = coordForms K n (.inr v₀))
+    (hss : exceptionalSubspace L c = ⊥) :
+    let m₂ : ℕ := ⌊61 * (n : ℝ) ^ 6 * 2 ^ (2 * n) * δ ^ (-2 : ℝ) *
+      Real.log (22 * (n : ℝ) ^ 2 * 2 ^ n * R / δ)⌋₊
+    ∃ (C₂ : ℝ) (Qs : Fin m₂ → ℝ), (∀ h, C₂ ≤ Qs h) ∧
+      ∀ Q, 1 ≤ Q → {x | twistedHeight L c Q x ≤ Q ^ (-δ)} ≠ {0} →
+        Q < C₂ ∨ ∃ h, Qs h ≤ Q ∧ Q < Qs h ^ ((m₂ : ℝ) ^ (5 / 2 : ℝ)) := by
+  sorry
+
+/-- `Layer 2 height bound for filtration subspaces` (Evertse–Ferretti Proposition 17.5). -/
+theorem subspaceHeight_twistedFiltration_le [NeZero n] (L : Place K → Fin n → Fin n → K)
+    (c : Place K → Fin n → ℝ) (hL : ∀ v, LinearIndependent K (L v))
+    (hfin : (Set.range L).Finite) (hc : {v | c v ≠ 0}.Finite) (H : ℝ)
+    (hH : ∀ v i, height2 (L v i) ≤ H) (T : Submodule K (Fin n → K))
+    (hT : T ∈ twistedFiltration L c) : subspaceHeight T ≤ H ^ (4 ^ n) := by
+  sorry
+
+/-- `Layer 2 sharp roths theorem` (Evertse 1995), `K`-rational, with absolute heights
+`H = height2` (Euclidean at infinite places): `F` has index `< mΘ` at `x`, i.e.
+some partial derivative `∂^i F` with `Σ_h (i_{h0} + i_{h1}) / d_h < mΘ` does not vanish at `x`
+(dividing by factorials does not affect non-vanishing in characteristic zero). -/
+theorem sharp_roths_lemma {m : ℕ} (hm : 2 ≤ m) (d : Fin m → ℕ) (hd : ∀ h, 0 < d h) {Θ : ℝ}
+    (hΘ : 0 < Θ) (hΘ1 : Θ ≤ 1)
+    (hdd : ∀ h h' : Fin m, h'.val = h.val + 1 → 2 * (m : ℝ) ^ 2 / Θ ≤ (d h : ℝ) / d h')
+    (F : MvPolynomial (Fin m × Fin 2) K) (hF : F ≠ 0)
+    (hFh : ∀ μ ∈ F.support, ∀ h, μ (h, 0) + μ (h, 1) = d h) (x : Fin m → Fin 2 → K)
+    (hx : ∀ h, x h ≠ 0)
+    (hH : ∀ h, (Real.exp (∑ h, (d h : ℝ)) *
+        height2 (fun μ : F.support ↦ F.coeff μ)) ^
+          ((3 * (m : ℝ) ^ 2 / Θ) ^ m) ≤
+        height2 (x h) ^ d h) :
+    ∃ i : Fin m × Fin 2 → ℕ, ∑ h, ((i (h, 0) + i (h, 1) : ℕ) : ℝ) / d h < m * Θ ∧
+      MvPolynomial.eval (fun p ↦ x p.1 p.2)
+        (((Finset.univ : Finset (Fin m × Fin 2)).toList.map fun p ↦
+          (MvPolynomial.pderiv p).toLinearMap ^ i p).prod F) ≠ 0 := by
+  sorry
+
+/-- `Layer 2 bombieri vaaler siegel theorem` (Evertse–Ferretti Lemma 13.1). -/
+theorem exists_ne_zero_height2_le {U V : ℕ} (hUV : U < V) (hU : 0 < U)
+    (L : Fin U → Fin V → K) (hL : ∀ i, L i ≠ 0) :
+    ∃ x : Fin V → K, x ≠ 0 ∧ (∀ i, L i ⬝ᵥ x = 0) ∧
+      height2 x ≤ Real.sqrt V * |(NumberField.discr K : ℝ)| ^ ((1 : ℝ) / (2 * Module.finrank ℚ K)) *
+        (∏ i, height2 (L i)) ^ ((1 : ℝ) / (V - U)) := by
+  sorry
+
+/-- `Layer 2 nonvanishing on grids` (Evertse–Ferretti Proposition 12.1; Evertse 1996 Lemma 26),
+`K`-rational: some divided derivative with small weighted order does not vanish at grid points of
+the hyperplanes `T_h` (for any choice of bases of the `T_h`). -/
+theorem nonvanishing_on_grids {m N : ℕ} (hm : 2 ≤ m) (hN : 2 ≤ N) {ε : ℝ} (hε : 0 < ε)
+    (hε1 : ε ≤ 1) (r : Fin m → ℕ) (hr : ∀ h, 0 < r h)
+    (hrr : ∀ h h' : Fin m, h'.val = h.val + 1 → 2 * (m : ℝ) ^ 2 / ε ≤ (r h : ℝ) / r h')
+    (P : MvPolynomial (Fin m × Fin N) K) (hP : P ≠ 0)
+    (hPh : ∀ μ ∈ P.support, ∀ h, ∑ l, μ (h, l) = r h)
+    (T : Fin m → Submodule K (Fin N → K)) (hT : ∀ h, Module.finrank K (T h) = N - 1)
+    (hH : ∀ h, (Real.exp (∑ h, (r h : ℝ)) * height2 (fun μ : P.support ↦ P.coeff μ)) ^
+        ((N - 1 : ℝ) * (3 * (m : ℝ) ^ 2 / ε) ^ m) ≤ subspaceHeight (T h) ^ r h)
+    (b : (h : Fin m) → Fin (N - 1) → Fin N → K)
+    (hb : ∀ h, LinearIndependent K (b h) ∧ Submodule.span K (Set.range (b h)) = T h) :
+    ∃ (z : Fin m → Fin (N - 1) → ℤ) (i : Fin m × Fin N → ℕ),
+      (∀ h, z h ≠ 0 ∧ ∀ j, ((z h j).natAbs : ℝ) ≤ N / ε) ∧
+      ∑ h, (∑ l, (i (h, l) : ℝ)) / r h ≤ 2 * m * ε ∧
+      MvPolynomial.eval (fun p ↦ ∑ j, (z p.1 j : K) * b p.1 j p.2)
+        (((Finset.univ : Finset (Fin m × Fin N)).toList.map fun p ↦
+          (MvPolynomial.pderiv p).toLinearMap ^ i p).prod P) ≠ 0 := by
+  sorry
+
+open Classical in
+/-- The exponents `c` of Evertse–Ferretti (5.2) attached to a system with exponents `d` on the
+set of places `S` (base field `K' = K`, forms over `K`). -/
+def systemExponents (S : Finset (Place K)) (d : Place K → Fin n → ℝ) (ε : ℝ) :
+    Place K → Fin n → ℝ :=
+  fun v i ↦ if v ∈ S then (n / (n + ε)) * (d v i - (1 / n) * ∑ j, d v j) else 0
+
+open Classical in
+/-- The forms of Evertse–Ferretti (5.1): `L` on `S`, the coordinates elsewhere. -/
+def systemForms (S : Finset (Place K)) (L : Place K → Fin n → Fin n → K) :
+    Place K → Fin n → Fin n → K :=
+  fun v ↦ if v ∈ S then L v else coordForms K n v
+
+/-- `Layer 2 twisted height of system solutions` (Evertse–Ferretti Lemma 5.1), for forms and points
+over `K`. -/
+theorem twistedHeight_le_of_system [NeZero n] (S : Finset (Place K))
+    (L : Place K → Fin n → Fin n → K) (hL : ∀ v ∈ S, LinearIndependent K (L v))
+    (d : Place K → Fin n → ℝ) {ε : ℝ} (hε : 0 < ε) (hε1 : ε ≤ 1)
+    (hd : ∑ v ∈ S, ∑ i, d v i = -(n : ℝ) - ε) (hd0 : ∀ v ∈ S, ∀ i, d v i ≤ 0)
+    (x : Fin n → K) (hx : x ≠ 0)
+    (hsys : ∀ v ∈ S, ∀ i, normAbs v (L v i ⬝ᵥ x) ≤
+      (⨆ j, normAbs v (x j)) * normAbs v (Matrix.of fun i j ↦ L v i j).det ^ ((1 : ℝ) / n) *
+        (Height.mulHeight x ^ ((1 : ℝ) / Module.finrank ℚ K)) ^ d v i) :
+    twistedHeight (systemForms S L) (systemExponents S d ε)
+        ((Height.mulHeight x ^ ((1 : ℝ) / Module.finrank ℚ K)) ^ (1 + ε / n)) x ≤
+      deltaL (systemForms S L) ^ ((1 : ℝ) / n) *
+        ((Height.mulHeight x ^ ((1 : ℝ) / Module.finrank ℚ K)) ^ (1 + ε / n)) ^ (-(ε / (n + ε))) := by
+  sorry
+
+/-- `Layer 2 absolute subspace theorem for systems` (Evertse–Ferretti Theorem 3.1), for forms and
+points over `K` (`D = 1`); `H^*` bounds the absolute heights of `(1, α_1, …, α_n)`. -/
+theorem subspace_theorem_for_systems [NeZero n] (hn : 2 ≤ n) (S : Finset (Place K))
+    (L : Place K → Fin n → Fin n → K) (hL : ∀ v ∈ S, LinearIndependent K (L v))
+    (d : Place K → Fin n → ℝ) {ε : ℝ} (hε : 0 < ε) (hε1 : ε ≤ 1)
+    (hd : ∑ v ∈ S, ∑ i, d v i = -(n : ℝ) - ε) (hd0 : ∀ v ∈ S, ∀ i, d v i ≤ 0)
+    (R : ℕ) (hR : Nat.card (Set.range fun p : S × Fin n ↦ L p.1 p.2) ≤ R) (Hs : ℝ)
+    (hHs : ∀ v ∈ S, ∀ i, Height.mulHeight (Fin.cons 1 (L v i) : Fin (n + 1) → K) ^
+      ((1 : ℝ) / Module.finrank ℚ K) ≤ Hs) :
+    ∃ T : Finset (Submodule K (Fin n → K)), (∀ V ∈ T, V ≠ ⊤) ∧
+      (T.card : ℝ) ≤ 10 ^ 9 * 2 ^ (2 * n) * (n : ℝ) ^ 14 * ε ^ (-3 : ℝ) *
+        Real.log (3 * R / ε) * Real.log (Real.log (3 * R) / ε) ∧
+      ∀ x : Fin n → K, x ≠ 0 →
+        max (Hs ^ ((1 : ℝ) / (3 * R))) ((n : ℝ) ^ ((n : ℝ) / ε)) ≤
+          Height.mulHeight x ^ ((1 : ℝ) / Module.finrank ℚ K) →
+        (∀ v ∈ S, ∀ i, normAbs v (L v i ⬝ᵥ x) ≤
+          (⨆ j, normAbs v (x j)) * normAbs v (Matrix.of fun i j ↦ L v i j).det ^ ((1 : ℝ) / n) *
+            (Height.mulHeight x ^ ((1 : ℝ) / Module.finrank ℚ K)) ^ d v i) →
+        ∃ V ∈ T, x ∈ V := by
+  sorry
+
+/-- `Layer 2 faltings wustholz interval refinement` (Evertse–Ferretti Theorem 3.3), for forms and
+points over `K`. -/
+theorem exists_subspace_interval_refinement [NeZero n] (hn : 2 ≤ n) (S : Finset (Place K))
+    (L : Place K → Fin n → Fin n → K) (hL : ∀ v ∈ S, LinearIndependent K (L v))
+    (d : Place K → Fin n → ℝ) {ε : ℝ} (hε : 0 < ε) (hε1 : ε ≤ 1)
+    (hd : ∑ v ∈ S, ∑ i, d v i = -(n : ℝ) - ε) (hd0 : ∀ v ∈ S, ∀ i, d v i ≤ 0) :
+    ∃ (T : Submodule K (Fin n → K)) (C₁ : ℝ) (m : ℕ) (Hs : Fin m → ℝ), T ≠ ⊤ ∧
+      ∀ x : Fin n → K, x ≠ 0 →
+        (∀ v ∈ S, ∀ i, normAbs v (L v i ⬝ᵥ x) ≤
+          (⨆ j, normAbs v (x j)) * normAbs v (Matrix.of fun i j ↦ L v i j).det ^ ((1 : ℝ) / n) *
+            (Height.mulHeight x ^ ((1 : ℝ) / Module.finrank ℚ K)) ^ d v i) →
+        x ∈ T ∨ Height.mulHeight x ^ ((1 : ℝ) / Module.finrank ℚ K) < C₁ ∨
+          ∃ h, Hs h ≤ Height.mulHeight x ^ ((1 : ℝ) / Module.finrank ℚ K) ∧
+            Height.mulHeight x ^ ((1 : ℝ) / Module.finrank ℚ K) <
+              Hs h ^ (3 * n / ε * Real.log (3 * Nat.card (Set.range fun p : S × Fin n ↦ L p.1 p.2))) := by
+  sorry
+
+end TwistedHeight
+
+end DiophantineApproximation
+
+
+namespace DiophantineApproximation
+
+open TauCetiRoadmap.DiophantineApproximationAndTranscendence.DiophantineApproximation
+
+/-- Layer 2 grid floor capacity: the corrected degree count has factor b + 1,
+not the printed 2 * b + 1. -/
+theorem grid_floor_capacity (s : ℕ) (B : ℝ) (hB : 0 < B) :
+    (s : ℝ) < (2 * (⌊B⌋₊ : ℝ) + 1) * ((⌊(s : ℝ) / B⌋₊ : ℝ) + 1) := by
+  sorry
+
+end DiophantineApproximation
+
+namespace Polynomial
+
+open _root_.Polynomial
+open TauCetiRoadmap.DiophantineApproximationAndTranscendence.Polynomial
+
+/-- Layer 2 univariate integer grid jet: a nonzero divided jet in the degree/budget box. -/
+theorem exists_int_grid_hasseDeriv_ne_zero {R : Type*}
+    [CommRing R] [IsDomain R] [CharZero R] (P : Polynomial R)
+    (hP : P ≠ 0) (s : ℕ) (hs : P.natDegree ≤ s) (B : ℝ) (hB : 0 < B) :
+    ∃ (z : ℤ) (i : ℕ), (z.natAbs : ℝ) ≤ B ∧ (i : ℝ) ≤ (s : ℝ) / B ∧
+      (_root_.Polynomial.hasseDeriv i P).eval (z : R) ≠ 0 := by
+  sorry
+
+/-- Polynomial.test_grid_values_insufficient: a value-only conclusion fails: every point of the B = 1 grid is a root. -/
+example : (∀ z ∈ ({-1, 0, 1} : Finset ℤ),
+    (_root_.Polynomial.X * (_root_.Polynomial.X - 1) * (_root_.Polynomial.X + 1) : Polynomial ℚ).eval (z : ℚ) = 0) ∧
+    (_root_.Polynomial.hasseDeriv 1 (_root_.Polynomial.X * (_root_.Polynomial.X - 1) * (_root_.Polynomial.X + 1) : Polynomial ℚ)).eval 0 = -1 := by
+  sorry
+
+/-- Polynomial.test_grid_radius_below_one: for B = 1/2 and X^3 the only point is zero, and a higher jet is necessary. -/
+example : (∀ i < 3, (_root_.Polynomial.hasseDeriv i (_root_.Polynomial.X ^ 3 : Polynomial ℚ)).eval 0 = 0) ∧
+    (_root_.Polynomial.hasseDeriv 3 (_root_.Polynomial.X ^ 3 : Polynomial ℚ)).eval 0 = 1 ∧
+    (3 : ℝ) ≤ 3 / (1 / 2) := by
+  sorry
+
+/-- Polynomial.test_grid_characteristic_two: characteristic zero is essential: at B = 3, s = 2 over F_2 only order
+zero is allowed, and X^2 - X vanishes at every integer image. -/
+example : (_root_.Polynomial.X ^ 2 - _root_.Polynomial.X : Polynomial (ZMod 2)) ≠ 0 ∧
+    ∀ (z : ℤ) (i : ℕ), (i : ℝ) ≤ (2 : ℝ) / 3 →
+      (_root_.Polynomial.hasseDeriv i (_root_.Polynomial.X ^ 2 - _root_.Polynomial.X : Polynomial (ZMod 2))).eval (z : ZMod 2) = 0 := by
+  sorry
+
+end Polynomial
+
+namespace MvPolynomial
+
+open _root_.MvPolynomial
+open TauCetiRoadmap.DiophantineApproximationAndTranscendence.MvPolynomial
+
+/-- Layer 2 partial specialization jet: separating the first-coordinate jet
+from the residual multi-index introduces no factorial or binomial factor. -/
+theorem hasseDeriv_partial_specialization {R : Type*} [CommSemiring R]
+    {n : ℕ} (P : MvPolynomial (Fin (n + 1)) R) (a : R) (k : ℕ)
+    (d : Fin n →₀ ℕ) :
+    TauCetiRoadmap.DiophantineApproximationAndTranscendence.MvPolynomial.hasseDeriv d
+      (_root_.MvPolynomial.eval₂ _root_.MvPolynomial.C (Fin.cases (_root_.MvPolynomial.C a) _root_.MvPolynomial.X) (TauCetiRoadmap.DiophantineApproximationAndTranscendence.MvPolynomial.hasseDeriv (Finsupp.single 0 k) P)) =
+    _root_.MvPolynomial.eval₂ _root_.MvPolynomial.C (Fin.cases (_root_.MvPolynomial.C a) _root_.MvPolynomial.X) (TauCetiRoadmap.DiophantineApproximationAndTranscendence.MvPolynomial.hasseDeriv (d.cons k) P) := by
+  sorry
+
+/-- Layer 2 nonzero partial grid specialization: retain a nonzero residual
+polynomial and all remaining coordinate-degree bounds. -/
+theorem exists_int_partial_grid_jet {R : Type*}
+    [CommRing R] [IsDomain R] [CharZero R] {n : ℕ}
+    (P : MvPolynomial (Fin (n + 1)) R) (hP : P ≠ 0)
+    (s : ℕ) (hs : P.degreeOf 0 ≤ s) (B : ℝ) (hB : 0 < B) :
+    ∃ (z : ℤ) (k : ℕ), (z.natAbs : ℝ) ≤ B ∧ (k : ℝ) ≤ (s : ℝ) / B ∧
+      let Q := _root_.MvPolynomial.eval₂ _root_.MvPolynomial.C (Fin.cases (_root_.MvPolynomial.C (z : R)) _root_.MvPolynomial.X)
+        (TauCetiRoadmap.DiophantineApproximationAndTranscendence.MvPolynomial.hasseDeriv (Finsupp.single 0 k) P)
+      Q ≠ 0 ∧ ∀ j : Fin n, Q.degreeOf j ≤ P.degreeOf j.succ := by
+  sorry
+
+/-- Layer 2 rectangular integer grid jet: Evertse's Lemma 25 in divided-derivative
+form; includes constants and the zero-variable case. -/
+theorem exists_rectangular_int_grid_jet {R : Type*}
+    [CommRing R] [IsDomain R] [CharZero R] {n : ℕ}
+    (P : MvPolynomial (Fin n) R) (hP : P ≠ 0)
+    (s : Fin n → ℕ) (hs : ∀ j, P.degreeOf j ≤ s j)
+    (B : Fin n → ℝ) (hB : ∀ j, 0 < B j) :
+    ∃ (z : Fin n → ℤ) (d : Fin n →₀ ℕ),
+      (∀ j, (z j).natAbs ≤ B j) ∧
+      (∀ j, (d j : ℝ) ≤ (s j : ℝ) / B j) ∧
+      _root_.MvPolynomial.eval (fun j => (z j : R)) (TauCetiRoadmap.DiophantineApproximationAndTranscendence.MvPolynomial.hasseDeriv d P) ≠ 0 := by
+  sorry
+
+/-- MvPolynomial.test_grid_zero_variables: a nonzero constant in zero variables already supplies the zero jet. -/
+example (c : ℚ) (hc : c ≠ 0) :
+    _root_.MvPolynomial.eval (fun j : Fin 0 => Fin.elim0 j)
+      (TauCetiRoadmap.DiophantineApproximationAndTranscendence.MvPolynomial.hasseDeriv 0 (_root_.MvPolynomial.C c : MvPolynomial (Fin 0) ℚ)) = c := by
+  sorry
+
+/-- MvPolynomial.test_grid_mixed_jet: mixed jets really are needed: all values on {-1,0,1} × {0} vanish,
+but the (1,2) divided jet of (X_0^3-X_0) X_1^2 at (0,0) is -1. -/
+example :
+    (∀ z : Fin 2 → ℤ, ((z 0).natAbs : ℝ) ≤ 1 → ((z 1).natAbs : ℝ) ≤ 1 / 2 →
+      _root_.MvPolynomial.eval (fun j => (z j : ℚ))
+        ((_root_.MvPolynomial.X 0 ^ 3 - _root_.MvPolynomial.X 0) * _root_.MvPolynomial.X 1 ^ 2 : MvPolynomial (Fin 2) ℚ) = 0) ∧
+    _root_.MvPolynomial.eval (fun _ : Fin 2 => (0 : ℚ))
+      (TauCetiRoadmap.DiophantineApproximationAndTranscendence.MvPolynomial.hasseDeriv (Finsupp.single 0 1 + Finsupp.single 1 2)
+        ((_root_.MvPolynomial.X 0 ^ 3 - _root_.MvPolynomial.X 0) * _root_.MvPolynomial.X 1 ^ 2 : MvPolynomial (Fin 2) ℚ)) = -1 ∧
+    (1 : ℝ) ≤ 3 / 1 ∧ (2 : ℝ) ≤ 2 / (1 / 2) := by
+  sorry
+
+end MvPolynomial
+
+
+namespace DiophantineApproximation
+
+open TauCetiRoadmap.DiophantineApproximationAndTranscendence.DiophantineApproximation
+
+/-- Layer 2 block linear jet weight budget. The real bound is strict without any rounding. -/
+theorem block_jet_weight_budget {m N : ℕ} (hm : 0 < m) (hN : 2 ≤ N)
+    (d : Fin m → ℕ) (hd : ∀ h, 0 < d h) (ε : ℝ) (hε : 0 < ε)
+    (i e : Fin m × Fin N →₀ ℕ) (k : Fin m × Fin (N - 1) →₀ ℕ)
+    (hi : (∑ h, (∑ l : Fin N, (i (h, l) : ℝ)) / d h) < m * ε)
+    (he : ∀ h, ∑ l : Fin N, e (h, l) = ∑ a : Fin (N - 1), k (h, a))
+    (hk : ∀ h a, (k (h, a) : ℝ) ≤ d h * ε / N) :
+    (∑ h, (∑ l : Fin N, ((i + e) (h, l) : ℝ)) / d h) <
+      (2 - 1 / (N : ℝ)) * m * ε ∧
+    (2 - 1 / (N : ℝ)) * m * ε < 2 * m * ε := by sorry
+
+/-- Layer 2 nonzero block grid replacement. Only linear independence, not an ambient
+subspace or a particular basis representation, is needed. -/
+theorem exists_nonzero_block_grid_same_eval {K : Type*} [Field K] {m N r : ℕ}
+    (a₀ : Fin r) (b : Fin m → Fin r → Fin N → K)
+    (hb : ∀ h, LinearIndependent K (b h)) (B : ℝ) (hB : 1 ≤ B)
+    (H : MvPolynomial (Fin m × Fin N) K) (δ : Fin m → ℕ)
+    (hH : ∀ μ ∈ H.support, ∀ h, ∑ l : Fin N, μ (h, l) = δ h)
+    (z : Fin m → Fin r → ℤ) (hz : ∀ h a, ((z h a).natAbs : ℝ) ≤ B)
+    (hn : MvPolynomial.eval (fun p => ∑ a, (z p.1 a : K) * b p.1 a p.2) H ≠ 0) :
+    ∃ z' : Fin m → Fin r → ℤ,
+      (∀ h a, ((z' h a).natAbs : ℝ) ≤ B) ∧
+      (∀ h, (fun l => ∑ a, (z' h a : K) * b h a l) ≠ 0) ∧
+      MvPolynomial.eval (fun p => ∑ a, (z' p.1 a : K) * b p.1 a p.2) H =
+        MvPolynomial.eval (fun p => ∑ a, (z p.1 a : K) * b p.1 a p.2) H := by sorry
+
+/-- Layer 2 conditional nonzero block grid jet. The actual nonzero restriction is an
+input, not a replacement for the missing hyperplane-height proof of Lemma 24. -/
+theorem exists_nonzero_block_grid_jet_of_restriction {K : Type*} [Field K] [CharZero K]
+    {m N : ℕ} (hm : 0 < m) (hN : 2 ≤ N)
+    (d : Fin m → ℕ) (hd : ∀ h, 0 < d h) (ε : ℝ) (hε : 0 < ε) (hε1 : ε ≤ 1)
+    (F : MvPolynomial (Fin m × Fin N) K)
+    (hF : ∀ μ ∈ F.support, ∀ h, ∑ l : Fin N, μ (h, l) = d h)
+    (b : Fin m → Fin (N - 1) → Fin N → K)
+    (hb : ∀ h, LinearIndependent K (b h))
+    (i : Fin m × Fin N →₀ ℕ)
+    (hi : (∑ h, (∑ l : Fin N, (i (h, l) : ℝ)) / d h) < m * ε)
+    (hn : MvPolynomial.eval₂ MvPolynomial.C
+      (fun p : Fin m × Fin N => ∑ a : Fin (N - 1),
+        MvPolynomial.C (b p.1 a p.2) * MvPolynomial.X (p.1, a))
+      (MvPolynomial.hasseDeriv i F) ≠ 0) :
+    ∃ (z : Fin m → Fin (N - 1) → ℤ) (j : Fin m × Fin N →₀ ℕ),
+      (∀ h a, ((z h a).natAbs : ℝ) ≤ N / ε) ∧
+      (∀ h, (fun l => ∑ a, (z h a : K) * b h a l) ≠ 0) ∧
+      (∑ h, (∑ l : Fin N, (j (h, l) : ℝ)) / d h) <
+        (2 - 1 / (N : ℝ)) * m * ε ∧
+      MvPolynomial.eval (fun p => ∑ a, (z p.1 a : K) * b p.1 a p.2)
+        (MvPolynomial.hasseDeriv j F) ≠ 0 := by sorry
+
+end DiophantineApproximation
+
+
+namespace DiophantineApproximation
+
+open TauCetiRoadmap.DiophantineApproximationAndTranscendence.DiophantineApproximation
+open _root_.MvPolynomial
+open TauCetiRoadmap.DiophantineApproximationAndTranscendence.MvPolynomial
+/-- DiophantineApproximation.test_grid_small_order_bound -/
+example (k : ℕ) (hk : (k : ℝ) ≤ 1 / 2) : k = 0 := by sorry
+/-- DiophantineApproximation.test_grid_weight_numerical -/
+example : (1 : ℝ) / 4 < (2 - 1 / 2) * (1 / 2) ∧
+    (2 - 1 / 2) * (1 / 2) < (1 : ℝ) := by sorry
+/-- DiophantineApproximation.test_all_zero_blocks_constant -/
+example : _root_.MvPolynomial.eval (fun _ : Fin 2 × Fin 2 => (0 : ℚ)) (1 : MvPolynomial _ ℚ) = 1 ∧
+    _root_.MvPolynomial.eval (fun p : Fin 2 × Fin 2 => if p.2 = 0 then (1 : ℚ) else 0)
+      (1 : MvPolynomial _ ℚ) = 1 ∧
+    (fun l : Fin 2 => if l = 0 then (1 : ℚ) else 0) ≠ 0 := by sorry
+/-- DiophantineApproximation.test_mixed_zero_block_replacement -/
+example : MvPolynomial.eval (fun p : Fin 2 × Fin 2 => if p.1 = 1 ∧ p.2 = 0 then (2 : ℚ) else 0)
+    (_root_.MvPolynomial.X (1,0)^2) = 4 ∧
+    MvPolynomial.eval (fun p : Fin 2 × Fin 2 => if p.2 = 0 then
+      (if p.1 = 0 then (1 : ℚ) else 2) else 0) (_root_.MvPolynomial.X (1,0)^2) = 4 := by sorry
+/-- DiophantineApproximation.test_conditional_line_grid_witness -/
+example : MvPolynomial.eval (fun p : Fin 1 × Fin 2 => if p.2 = 0 then (1 : ℚ) else 0)
+    (MvPolynomial.hasseDeriv 0 (_root_.MvPolynomial.X (0,0)^2)) = 1 ∧ (0 : ℝ) < (2 - 1 / 2) := by sorry
+/-- DiophantineApproximation.test_nonzero_not_nonzero_restriction -/
+example : (_root_.MvPolynomial.X 1 : MvPolynomial (Fin 2) ℚ) ≠ 0 ∧
+    MvPolynomial.eval₂ MvPolynomial.C (fun l : Fin 2 => if l = 0 then _root_.MvPolynomial.X (0 : Fin 1) else 0)
+      (_root_.MvPolynomial.X 1 : MvPolynomial (Fin 2) ℚ) = 0 := by sorry
+end DiophantineApproximation
+
+
+namespace DiophantineApproximation
+
+open TauCetiRoadmap.DiophantineApproximationAndTranscendence.DiophantineApproximation
+section HyperplaneHeights
+variable {K : Type*} [Field K] [NumberField K]
+
+/-- Layer 2 height2 zero extension. -/
+theorem height2_zero_extension {I J : Type*} [Fintype I] [Fintype J]
+    (f : I → J) (hf : Function.Injective f) (x : I → K) (hx : x ≠ 0)
+    (y : J → K) (hy : ∀ i, y (f i) = x i)
+    (hz : ∀ j, j ∉ Set.range f → y j = 0) : height2 y = height2 x := by sorry
+
+/-- Layer 2 height2 subvector. -/
+theorem height2_comp_le {I J : Type*} [Fintype I] [Fintype J]
+    (f : I → J) (hf : Function.Injective f) (y : J → K)
+    (hy : y ∘ f ≠ 0) : height2 (y ∘ f) ≤ height2 y := by sorry
+
+/-- Layer 2 height2 scalar invariance. -/
+theorem height2_smul {I : Type*} [Fintype I] (a : K) (ha : a ≠ 0)
+    (x : I → K) (hx : x ≠ 0) : height2 (a • x) = height2 x := by sorry
+
+/-- Layer 2 height2 binary normal vector. -/
+theorem height2_pair_swap_neg (a b : K) :
+    height2 (![b, -a] : Fin 2 → K) = height2 (![a, b] : Fin 2 → K) := by sorry
+
+open Classical in
+/-- Layer 2 height2 normalized pair product. -/
+theorem height2_le_prod_pairs {N : ℕ} (hN : 2 ≤ N) (b : Fin N → K)
+    (p : Fin N) (hp : b p ≠ 0) :
+    height2 b ≤ ∏ q ∈ Finset.univ.erase p, height2 (![b p, b q] : Fin 2 → K) := by sorry
+
+/-- Layer 2 large height binary direction. -/
+theorem exists_large_height2_pair {N : ℕ} (hN : 2 ≤ N) (b : Fin N → K)
+    (p : Fin N) (hp : b p ≠ 0) :
+    ∃ q : Fin N, q ≠ p ∧
+      height2 b ≤ height2 (![b q, -b p] : Fin 2 → K) ^ (N - 1) ∧
+      (![b q, -b p] : Fin 2 → K) ≠ 0 ∧ b p * b q + b q * (-b p) = 0 := by sorry
+
+open Classical in
+/-- Layer 2 height2 monomial multiplication. -/
+theorem height2_coeff_monomial_mul {S : Type*} [Fintype S]
+    (P : MvPolynomial S K) (hP : P ≠ 0) (a : S →₀ ℕ) :
+    let Q := MvPolynomial.monomial a (1 : K) * P
+    height2 (fun u : Q.support => Q.coeff u) =
+      height2 (fun u : P.support => P.coeff u) := by sorry
+
+open Classical in
+/-- Layer 2 height2 coefficient slice. -/
+theorem height2_sumAlgEquiv_coeff_le {E B : Type*} [Fintype E] [Fintype B]
+    (F : MvPolynomial (E ⊕ B) K) (e : E →₀ ℕ)
+    (he : (MvPolynomial.sumAlgEquiv K E B F).coeff e ≠ 0) :
+    let P := (MvPolynomial.sumAlgEquiv K E B F).coeff e
+    height2 (fun u : P.support => P.coeff u) ≤
+      height2 (fun u : F.support => F.coeff u) := by sorry
+
+end HyperplaneHeights
+end DiophantineApproximation
+
+namespace MvPolynomial
+
+open _root_.MvPolynomial
+open TauCetiRoadmap.DiophantineApproximationAndTranscendence.MvPolynomial
+
+/-- Layer 2 hasse derivative coefficient slice. -/
+theorem hasseDeriv_sumAlgEquiv_coeff {R E B : Type*} [CommSemiring R]
+    (F : MvPolynomial (E ⊕ B) R) (e : E →₀ ℕ) (i : B →₀ ℕ) :
+    (sumAlgEquiv R E B (TauCetiRoadmap.DiophantineApproximationAndTranscendence.MvPolynomial.hasseDeriv (i.mapDomain Sum.inr) F)).coeff e =
+      TauCetiRoadmap.DiophantineApproximationAndTranscendence.MvPolynomial.hasseDeriv i ((sumAlgEquiv R E B F).coeff e) := by sorry
+
+/-- Layer 2 lowest degree affine coefficient. -/
+theorem coeff_eval₂_affine_of_min_degree {R E B : Type*} [CommSemiring R]
+    [Fintype E] [Fintype B] (Q : MvPolynomial E (MvPolynomial B R))
+    (e : E →₀ ℕ) (he : ∀ u ∈ Q.support, e.degree ≤ u.degree)
+    (x : B → R) (A : B → E → R) :
+    (_root_.MvPolynomial.eval₂ (eval₂Hom _root_.MvPolynomial.C (fun b => _root_.MvPolynomial.C (x b) + ∑ j, _root_.MvPolynomial.C (A b j) * _root_.MvPolynomial.X j)) _root_.MvPolynomial.X Q).coeff e =
+      _root_.MvPolynomial.eval x (Q.coeff e) := by sorry
+
+/-- Layer 2 binary slice block degrees. -/
+theorem block_degrees_sumAlgEquiv_coeff {R : Type*} [CommSemiring R] {m r : ℕ}
+    (F : MvPolynomial ((Fin m × Fin r) ⊕ (Fin m × Fin 2)) R)
+    (d : Fin m → ℕ)
+    (hF : ∀ u ∈ F.support, ∀ h,
+      (∑ a : Fin r, u (.inl (h, a))) + u (.inr (h, 0)) + u (.inr (h, 1)) = d h)
+    (e : Fin m × Fin r →₀ ℕ)
+    (he : (sumAlgEquiv R (Fin m × Fin r) (Fin m × Fin 2) F).coeff e ≠ 0) :
+    (∀ h, (∑ a : Fin r, e (h, a)) ≤ d h) ∧
+    (∀ v ∈ ((sumAlgEquiv R (Fin m × Fin r) (Fin m × Fin 2) F).coeff e).support,
+      ∀ h, v (h, 0) + v (h, 1) = d h - ∑ a : Fin r, e (h, a)) := by sorry
+
+/-- Layer 2 binary slice vanishing. A single slice works for all indices in J. -/
+theorem exists_binary_slice_vanishing {K E B : Type*} [Field K] [Infinite K]
+    [Fintype E] [Fintype B] (F : MvPolynomial (E ⊕ B) K) (hF : F ≠ 0)
+    (J : Set (B →₀ ℕ)) (x : B → K) (A : B → E → K)
+    (hv : ∀ i ∈ J, ∀ u : E → K,
+      _root_.MvPolynomial.eval (Sum.elim u (fun b => x b + ∑ j, A b j * u j))
+        (TauCetiRoadmap.DiophantineApproximationAndTranscendence.MvPolynomial.hasseDeriv (i.mapDomain Sum.inr) F) = 0) :
+    ∃ e : E →₀ ℕ, e ∈ (sumAlgEquiv K E B F).support ∧
+      (∀ u ∈ (sumAlgEquiv K E B F).support, e.degree ≤ u.degree) ∧
+      (sumAlgEquiv K E B F).coeff e ≠ 0 ∧
+      ∀ i ∈ J, _root_.MvPolynomial.eval x (TauCetiRoadmap.DiophantineApproximationAndTranscendence.MvPolynomial.hasseDeriv i ((sumAlgEquiv K E B F).coeff e)) = 0 := by sorry
+
+/-- Layer 2 restore binary multihomogeneity. -/
+theorem block_degrees_monomial_mul {R : Type*} [CommSemiring R] [Nontrivial R] {m : ℕ}
+    (P : MvPolynomial (Fin m × Fin 2) R) (hP : P ≠ 0) (δ a : Fin m → ℕ)
+    (hδ : ∀ v ∈ P.support, ∀ h, v (h, 0) + v (h, 1) = δ h) :
+    let t : Fin m × Fin 2 →₀ ℕ := Finsupp.equivFunOnFinite.symm
+      (fun p => if p.2 = 0 then a p.1 else 0)
+    let Q := _root_.MvPolynomial.monomial t (1 : R) * P
+    Q ≠ 0 ∧ ∀ v ∈ Q.support, ∀ h, v (h, 0) + v (h, 1) = δ h + a h := by sorry
+
+end MvPolynomial
+
+namespace DiophantineApproximation
+
+open TauCetiRoadmap.DiophantineApproximationAndTranscendence.DiophantineApproximation
+section HyperplaneNonvanishing
+variable {K : Type*} [Field K] [NumberField K]
+
+open Classical in
+/-- Layer 2 hyperplane nonvanishing. Evertse Lemma 24, through the sharp Roth node. -/
+theorem nonvanishing_on_hyperplanes {m N : ℕ} (hm : 2 ≤ m) (hN : 2 ≤ N)
+    (d : Fin m → ℕ) (hd : ∀ h, 0 < d h) {Θ : ℝ} (hΘ : 0 < Θ) (hΘ1 : Θ ≤ 1)
+    (hdd : ∀ h h' : Fin m, h'.val = h.val + 1 → 2 * (m : ℝ)^2 / Θ ≤ (d h : ℝ) / d h')
+    (F : MvPolynomial (Fin m × Fin N) K) (hF : F ≠ 0)
+    (hFh : ∀ u ∈ F.support, ∀ h, ∑ l, u (h, l) = d h)
+    (b : Fin m → Fin N → K) (hb : ∀ h, b h ≠ 0)
+    (hH : ∀ h, (Real.exp (∑ h, (d h : ℝ)) * height2 (fun u : F.support => F.coeff u)) ^
+      (((N : ℝ) - 1) * (3 * (m : ℝ)^2 / Θ)^m) ≤ height2 (b h)^d h) :
+    ∃ (x : Fin m → Fin N → K) (i : Fin m × Fin N →₀ ℕ),
+      (∀ h, ∑ l, b h l * x h l = 0) ∧
+      (∑ h, (∑ l, (i (h,l) : ℝ)) / d h) < m * Θ ∧
+      MvPolynomial.eval (fun p => x p.1 p.2) (MvPolynomial.hasseDeriv i F) ≠ 0 := by sorry
+
+/-- Layer 2 hyperplane normal height. -/
+theorem exists_normal_height2 {N : ℕ} (hN : 2 ≤ N) (T : Submodule K (Fin N → K))
+    (hT : Module.finrank K T = N - 1) :
+    ∃ b : Fin N → K, b ≠ 0 ∧ T = dotOrthogonal (K ∙ b) ∧
+      subspaceHeight T = height2 b := by sorry
+
+open Classical in
+/-- Layer 2 hyperplane jet restriction. The exact polynomial input of the grid theorem. -/
+theorem exists_nonzero_hyperplane_jet_restriction {m N : ℕ} (hm : 2 ≤ m) (hN : 2 ≤ N)
+    (d : Fin m → ℕ) (hd : ∀ h, 0 < d h) {Θ : ℝ} (hΘ : 0 < Θ) (hΘ1 : Θ ≤ 1)
+    (hdd : ∀ h h' : Fin m, h'.val = h.val + 1 → 2 * (m : ℝ)^2 / Θ ≤ (d h : ℝ) / d h')
+    (F : MvPolynomial (Fin m × Fin N) K) (hF : F ≠ 0)
+    (hFh : ∀ u ∈ F.support, ∀ h, ∑ l, u (h,l) = d h)
+    (b : Fin m → Fin N → K) (hb : ∀ h, b h ≠ 0)
+    (hH : ∀ h, (Real.exp (∑ h, (d h : ℝ)) * height2 (fun u : F.support => F.coeff u)) ^
+      (((N : ℝ) - 1) * (3 * (m : ℝ)^2 / Θ)^m) ≤ height2 (b h)^d h)
+    (a : Fin m → Fin (N - 1) → Fin N → K)
+    (ha : ∀ h, LinearIndependent K (a h) ∧
+      Submodule.span K (Set.range (a h)) = dotOrthogonal (K ∙ b h)) :
+    ∃ i : Fin m × Fin N →₀ ℕ,
+      (∑ h, (∑ l, (i (h,l) : ℝ)) / d h) < m * Θ ∧
+      MvPolynomial.eval₂ MvPolynomial.C
+        (fun p : Fin m × Fin N => ∑ j : Fin (N-1),
+          MvPolynomial.C (a p.1 j p.2) * MvPolynomial.X (p.1,j))
+        (MvPolynomial.hasseDeriv i F) ≠ 0 := by sorry
+
+end HyperplaneNonvanishing
+end DiophantineApproximation
+
+
+namespace DiophantineApproximation
+
+open TauCetiRoadmap.DiophantineApproximationAndTranscendence.DiophantineApproximation
+open _root_.MvPolynomial
+open TauCetiRoadmap.DiophantineApproximationAndTranscendence.MvPolynomial
+/-- DiophantineApproximation.test_height2_pivot_product -/
+example : height2 (![1,2,2] : Fin 3 → ℚ) = 3 ∧
+    height2 (![1,2] : Fin 2 → ℚ)^2 = 5 := by sorry
+/-- DiophantineApproximation.test_height2_scaled_pivot -/
+example : height2 (![2,4,4] : Fin 3 → ℚ) = 3 ∧
+    height2 (![2,-1] : Fin 2 → ℚ)^2 = 5 := by sorry
+/-- DiophantineApproximation.test_height2_not_max_height -/
+example : height2 (![1,1,1] : Fin 3 → ℚ)^2 = 3 ∧
+    Height.mulHeight (![1,1,1] : Fin 3 → ℚ) = 1 := by sorry
+/-- DiophantineApproximation.test_height2_zero_padding -/
+example : height2 (![0,1,2,0] : Fin 4 → ℚ) = height2 (![1,2] : Fin 2 → ℚ) := by sorry
+/-- DiophantineApproximation.test_height2_zero_vector -/
+example : height2 (![0,0] : Fin 2 → ℚ) = 0 := by sorry
+end DiophantineApproximation
+
+namespace MvPolynomial
+
+open _root_.MvPolynomial
+open TauCetiRoadmap.DiophantineApproximationAndTranscendence.MvPolynomial
+/-- MvPolynomial.test_hasse_binary_slice -/
+example : (sumAlgEquiv ℚ (Fin 1) (Fin 1)
+    (TauCetiRoadmap.DiophantineApproximationAndTranscendence.MvPolynomial.hasseDeriv (Finsupp.single (.inr 0) 2)
+      (_root_.MvPolynomial.X (.inl 0)^2 * _root_.MvPolynomial.X (.inr 0)^3 : MvPolynomial ((Fin 1) ⊕ (Fin 1)) ℚ))).coeff
+        (Finsupp.single 0 2) = 3 * _root_.MvPolynomial.X 0 := by sorry
+/-- MvPolynomial.test_slice_before_specialization -/
+example :
+    let F : MvPolynomial ((Fin 1) ⊕ (Fin 2)) ℚ :=
+      _root_.MvPolynomial.X (.inl 0)^2 * (_root_.MvPolynomial.X (.inr 0) - 2 * _root_.MvPolynomial.X (.inr 1) + _root_.MvPolynomial.X (.inl 0))^3
+    (sumAlgEquiv ℚ (Fin 1) (Fin 2) F).coeff 0 = 0 ∧
+    (sumAlgEquiv ℚ (Fin 1) (Fin 2) F).coeff (Finsupp.single 0 2) =
+      (_root_.MvPolynomial.X 0 - 2 * _root_.MvPolynomial.X 1)^3 := by sorry
+/-- MvPolynomial.test_slice_strict_boundary -/
+example : _root_.MvPolynomial.eval (![2,1] : Fin 2 → ℚ)
+      (TauCetiRoadmap.DiophantineApproximationAndTranscendence.MvPolynomial.hasseDeriv (Finsupp.single 0 2) ((_root_.MvPolynomial.X 0 - 2 * _root_.MvPolynomial.X 1)^3)) = 0 ∧
+    _root_.MvPolynomial.eval (![2,1] : Fin 2 → ℚ)
+      (TauCetiRoadmap.DiophantineApproximationAndTranscendence.MvPolynomial.hasseDeriv (Finsupp.single 0 3) ((_root_.MvPolynomial.X 0 - 2 * _root_.MvPolynomial.X 1)^3)) = 1 := by sorry
+/-- MvPolynomial.test_affine_minimum_needed -/
+example :
+    let F : MvPolynomial ((Fin 1) ⊕ (Fin 1)) ℚ := _root_.MvPolynomial.X (.inr 0) + _root_.MvPolynomial.X (.inl 0)
+    (_root_.MvPolynomial.eval₂ _root_.MvPolynomial.C (Sum.elim _root_.MvPolynomial.X (fun _ : Fin 1 => _root_.MvPolynomial.X (0 : Fin 1))) F).coeff
+        (Finsupp.single 0 1) = 2 ∧
+    _root_.MvPolynomial.eval (fun _ : Fin 1 => (0 : ℚ))
+      ((sumAlgEquiv ℚ (Fin 1) (Fin 1) F).coeff (Finsupp.single 0 1)) = 1 := by sorry
+/-- MvPolynomial.test_restored_binary_index -/
+example : weightedIndex (![5,5] : Fin 2 → ℕ) (![2,1] : Fin 2 → ℚ)
+    (_root_.MvPolynomial.X 0^2 * (_root_.MvPolynomial.X 0 - 2 * _root_.MvPolynomial.X 1)^3) = (3 : ℝ≥0∞) / 5 := by sorry
+/-- MvPolynomial.test_zero_extra_variables -/
+example : (sumAlgEquiv ℚ (Fin 0) (Fin 1)
+    (_root_.MvPolynomial.X (.inr 0)^2 : MvPolynomial ((Fin 0) ⊕ (Fin 1)) ℚ)).coeff 0 = _root_.MvPolynomial.X 0^2 := by sorry
+/-- MvPolynomial.test_slice_cancellation -/
+example : (sumAlgEquiv ℚ (Fin 1) (Fin 1)
+    (_root_.MvPolynomial.X (.inl 0) * _root_.MvPolynomial.X (.inr 0) - _root_.MvPolynomial.X (.inl 0) * _root_.MvPolynomial.X (.inr 0) + _root_.MvPolynomial.X (.inl 0)^2)).coeff
+      (Finsupp.single 0 1) = 0 ∧
+    (sumAlgEquiv ℚ (Fin 1) (Fin 1)
+    (_root_.MvPolynomial.X (.inl 0) * _root_.MvPolynomial.X (.inr 0) - _root_.MvPolynomial.X (.inl 0) * _root_.MvPolynomial.X (.inr 0) + _root_.MvPolynomial.X (.inl 0)^2)).coeff
+      (Finsupp.single 0 2) = 1 := by sorry
+end MvPolynomial
+
+
+namespace MvPolynomial
+
+open _root_.MvPolynomial
+open TauCetiRoadmap.DiophantineApproximationAndTranscendence.MvPolynomial
+section BlockHomogenization
+variable {B S R : Type*} [Fintype B] [Fintype S] [DecidableEq B] [DecidableEq S]
+  [CommRing R]
+
+/-- Layer 2 block homogenization. Terms exceeding any block degree are discarded. -/
+noncomputable def blockHomogenize (b : S → B) (d : B → ℕ)
+    (f : MvPolynomial S R) : MvPolynomial (B ⊕ S) R := by
+  classical
+  exact ∑ e ∈ f.support, if ∀ h, (∑ j with b j = h, e j) ≤ d h then
+    _root_.MvPolynomial.monomial (Finsupp.sumElim
+      (Finsupp.equivFunOnFinite.symm fun h => d h - ∑ j with b j = h, e j) e) (f.coeff e)
+    else 0
+
+/-- H_d(0)=0. -/
+theorem blockHomogenize_zero (b : S → B) (d : B → ℕ) :
+    blockHomogenize b d (0 : MvPolynomial S R) = 0 := by sorry
+/-- H_d(f+g)=H_d(f)+H_d(g), without degree hypotheses. -/
+theorem blockHomogenize_add (b : S → B) (d : B → ℕ) (f g : MvPolynomial S R) :
+    blockHomogenize b d (f + g) = blockHomogenize b d f + blockHomogenize b d g := by sorry
+/-- H_d(c·f)=c·H_d(f) for c∈R. -/
+theorem blockHomogenize_smul (b : S → B) (d : B → ℕ) (c : R) (f : MvPolynomial S R) :
+    blockHomogenize b d (c • f) = c • blockHomogenize b d f := by sorry
+/-- For a unital ring map φ:R→A, H_d(map φ f)=map φ(H_d(f)). Zero coefficients created by φ are harmless. -/
+theorem blockHomogenize_map {A : Type*} [CommRing A] (φ : R →+* A)
+    (b : S → B) (d : B → ℕ) (f : MvPolynomial S R) :
+    blockHomogenize b d (_root_.MvPolynomial.map φ f) = _root_.MvPolynomial.map φ (blockHomogenize b d f) := by sorry
+/-- H_d(cY^e)=cX^{A_d(e)} if every t_h(e)≤d_h, and 0 otherwise. -/
+theorem blockHomogenize_monomial (b : S → B) (d : B → ℕ) (e : S →₀ ℕ) (c : R) :
+    blockHomogenize b d (_root_.MvPolynomial.monomial e c) =
+      if ∀ h, (∑ j with b j = h, e j) ≤ d h then
+        _root_.MvPolynomial.monomial (Finsupp.sumElim
+          (Finsupp.equivFunOnFinite.symm fun h => d h - ∑ j with b j = h, e j) e) c
+      else 0 := by sorry
+/-- H_d(c)=c∏_h X_h0^{d_h}. -/
+theorem blockHomogenize_C (b : S → B) (d : B → ℕ) (c : R) :
+    blockHomogenize b d (_root_.MvPolynomial.C c) = _root_.MvPolynomial.C c * ∏ h, _root_.MvPolynomial.X (Sum.inl h) ^ d h := by sorry
+/-- H_d(1)=∏_h X_h0^{d_h}. -/
+theorem blockHomogenize_one (b : S → B) (d : B → ℕ) :
+    blockHomogenize b d (1 : MvPolynomial S R) = ∏ h, _root_.MvPolynomial.X (Sum.inl h) ^ d h := by sorry
+/-- H_0(f)=coeff_0(f), as a constant polynomial. -/
+theorem blockHomogenize_degree_zero (b : S → B) (f : MvPolynomial S R) :
+    blockHomogenize b (fun _ => 0) f = _root_.MvPolynomial.C (f.coeff 0) := by sorry
+
+/-- Layer 2 block homogenization coefficients. -/
+theorem coeff_blockHomogenize (b : S → B) (d : B → ℕ) (f : MvPolynomial S R)
+    (u : B ⊕ S →₀ ℕ) :
+    (blockHomogenize b d f).coeff u =
+      if ∀ h, u (Sum.inl h) + (∑ j with b j = h, u (Sum.inr j)) = d h then
+        f.coeff (Finsupp.equivFunOnFinite.symm fun j => u (Sum.inr j)) else 0 := by sorry
+
+/-- Layer 2 block homogenization support. -/
+theorem bijOn_support_blockHomogenize (b : S → B) (d : B → ℕ) (f : MvPolynomial S R)
+    (hf : ∀ e ∈ f.support, ∀ h, (∑ j with b j = h, e j) ≤ d h) :
+    Set.BijOn (fun e : S →₀ ℕ => Finsupp.sumElim
+      (Finsupp.equivFunOnFinite.symm fun h => d h - ∑ j with b j = h, e j) e)
+      (↑f.support : Set (S →₀ ℕ))
+      (↑(blockHomogenize b d f).support : Set (B ⊕ S →₀ ℕ)) := by sorry
+
+/-- Layer 2 block homogenization dehomogenization. -/
+theorem aeval_blockHomogenize_one_X (b : S → B) (d : B → ℕ) (f : MvPolynomial S R)
+    (hf : ∀ e ∈ f.support, ∀ h, (∑ j with b j = h, e j) ≤ d h) :
+    aeval (Sum.elim (fun _ : B => 1) (_root_.MvPolynomial.X : S → MvPolynomial S R))
+      (blockHomogenize b d f) = f := by sorry
+
+/-- Layer 2 block homogenization univariate. Native coordinate 0 is affine. -/
+theorem rename_blockHomogenize_unique (n : ℕ) (f : Polynomial R) :
+    _root_.MvPolynomial.rename (Sum.elim (fun _ : Unit => (1 : Fin 2)) (fun _ : Unit => (0 : Fin 2)))
+      (blockHomogenize (id : Unit → Unit) (fun _ => n)
+        ((uniqueAlgEquiv R Unit).symm f)) = f.homogenize n := by sorry
+
+/-- Layer 2 block homogenization homogeneous. -/
+theorem isWeightedHomogeneous_blockHomogenize (b : S → B) (d : B → ℕ)
+    (f : MvPolynomial S R) (h : B) :
+    IsWeightedHomogeneous
+      (Sum.elim (fun k : B => if k = h then (1 : ℕ) else 0)
+        (fun j : S => if b j = h then (1 : ℕ) else 0))
+      (blockHomogenize b d f) (d h) := by sorry
+
+/-- Layer 2 block homogeneous reconstruction. -/
+theorem blockHomogenize_aeval_one_X (b : S → B) (d : B → ℕ)
+    (F : MvPolynomial (B ⊕ S) R)
+    (hF : ∀ h, IsWeightedHomogeneous
+      (Sum.elim (fun k : B => if k = h then (1 : ℕ) else 0)
+        (fun j : S => if b j = h then (1 : ℕ) else 0)) F (d h)) :
+    blockHomogenize b d
+      (aeval (Sum.elim (fun _ : B => 1) (_root_.MvPolynomial.X : S → MvPolynomial S R)) F) = F := by sorry
+
+/-- Layer 2 block homogeneous centered taylor. A polynomial identity over R. -/
+theorem blockHomogenize_centered_taylor (b : S → B) (d : B → ℕ)
+    (f : MvPolynomial S R) (a : S → R)
+    (hf : ∀ e ∈ f.support, ∀ h, (∑ j with b j = h, e j) ≤ d h) :
+    blockHomogenize b d f =
+      ∑ γ ∈ (Finset.Iic (Finsupp.equivFunOnFinite.symm fun j => d (b j))).filter
+        (fun γ => ∀ h, (∑ j with b j = h, γ j) ≤ d h),
+        _root_.MvPolynomial.C (_root_.MvPolynomial.eval a (TauCetiRoadmap.DiophantineApproximationAndTranscendence.MvPolynomial.hasseDeriv γ f)) *
+          (∏ h, _root_.MvPolynomial.X (Sum.inl h) ^ (d h - ∑ j with b j = h, γ j)) *
+          ∏ j, (_root_.MvPolynomial.X (Sum.inr j) - _root_.MvPolynomial.C (a j) * _root_.MvPolynomial.X (Sum.inl (b j))) ^ γ j := by sorry
+
+/-- Layer 2 block homogeneous hasse jets. Bounds are total within a block. -/
+theorem eval_hasseDeriv_blockHomogenize (b : S → B) (d : B → ℕ)
+    (f : MvPolynomial S R) (a : S → R) (κ : B →₀ ℕ) (β : S →₀ ℕ)
+    (hf : ∀ e ∈ f.support, ∀ h, (∑ j with b j = h, e j) ≤ d h) :
+    _root_.MvPolynomial.eval (Sum.elim (fun _ : B => 1) a)
+      (TauCetiRoadmap.DiophantineApproximationAndTranscendence.MvPolynomial.hasseDeriv (Finsupp.sumElim κ β) (blockHomogenize b d f)) =
+      ∑ γ ∈ (Finset.Iic (Finsupp.equivFunOnFinite.symm fun j => d (b j))).filter
+        (fun γ => (∀ h, (∑ j with b j = h, γ j) ≤ d h) ∧ β ≤ γ ∧
+          ∀ h, (∑ j with b j = h, γ j - β j) ≤ κ h),
+        _root_.MvPolynomial.eval a (TauCetiRoadmap.DiophantineApproximationAndTranscendence.MvPolynomial.hasseDeriv γ f) *
+          (∏ j, (Nat.choose (γ j) (β j) : R) * (-a j) ^ (γ j - β j)) *
+          ∏ h, (Nat.choose (d h - ∑ j with b j = h, γ j)
+            (κ h - ∑ j with b j = h, γ j - β j) : R) := by sorry
+
+/-- Layer 2 block homogeneous affine jets. -/
+theorem eval_hasseDeriv_blockHomogenize_inr (b : S → B) (d : B → ℕ)
+    (f : MvPolynomial S R) (a : S → R) (β : S →₀ ℕ)
+    (hf : ∀ e ∈ f.support, ∀ h, (∑ j with b j = h, e j) ≤ d h) :
+    _root_.MvPolynomial.eval (Sum.elim (fun _ : B => 1) a)
+      (TauCetiRoadmap.DiophantineApproximationAndTranscendence.MvPolynomial.hasseDeriv (Finsupp.sumElim 0 β) (blockHomogenize b d f)) =
+        _root_.MvPolynomial.eval a (TauCetiRoadmap.DiophantineApproximationAndTranscendence.MvPolynomial.hasseDeriv β f) := by sorry
+
+/-- Layer 2 block homogeneous strict vanishing. -/
+theorem blockHomogenize_strict_vanishing_iff (b : S → B) (d : B → ℕ)
+    (hd : ∀ h, 0 < d h) (f : MvPolynomial S R) (a : S → R) (t : ℝ≥0∞)
+    (hf : ∀ e ∈ f.support, ∀ h, (∑ j with b j = h, e j) ≤ d h) :
+    (∀ i : B ⊕ S →₀ ℕ,
+      (∑ j ∈ i.support, (i j : ℝ≥0∞) / ((Sum.elim d (fun k => d (b k)) j : ℕ) : ℝ≥0∞)) < t →
+      _root_.MvPolynomial.eval (Sum.elim (fun _ : B => 1) a) (TauCetiRoadmap.DiophantineApproximationAndTranscendence.MvPolynomial.hasseDeriv i (blockHomogenize b d f)) = 0) ↔
+    (∀ γ : S →₀ ℕ, (∑ j ∈ γ.support, (γ j : ℝ≥0∞) / (d (b j) : ℝ≥0∞)) < t →
+      _root_.MvPolynomial.eval a (TauCetiRoadmap.DiophantineApproximationAndTranscendence.MvPolynomial.hasseDeriv γ f) = 0) := by sorry
+
+/-- Layer 2 block homogeneous weighted index. Includes the zero polynomial. -/
+theorem weightedIndex_blockHomogenize (b : S → B) (d : B → ℕ)
+    (hd : ∀ h, 0 < d h) (f : MvPolynomial S R) (a : S → R)
+    (hf : ∀ e ∈ f.support, ∀ h, (∑ j with b j = h, e j) ≤ d h) :
+    weightedIndex (Sum.elim d (fun j => d (b j))) (Sum.elim (fun _ : B => 1) a)
+      (blockHomogenize b d f) = weightedIndex (fun j => d (b j)) a f := by sorry
+end BlockHomogenization
+end MvPolynomial
+
+namespace DiophantineApproximation
+
+open TauCetiRoadmap.DiophantineApproximationAndTranscendence.DiophantineApproximation
+/-- Layer 2 block homogeneous coefficient height. -/
+theorem height2_coeff_blockHomogenize {B S K : Type*} [Fintype B] [Fintype S]
+    [DecidableEq B] [DecidableEq S] [Field K] [NumberField K]
+    (b : S → B) (d : B → ℕ) (f : MvPolynomial S K) (hf0 : f ≠ 0)
+    (hf : ∀ e ∈ f.support, ∀ h, (∑ j with b j = h, e j) ≤ d h) :
+    height2 (fun u : (MvPolynomial.blockHomogenize b d f).support =>
+      (MvPolynomial.blockHomogenize b d f).coeff u) =
+        height2 (fun e : f.support => f.coeff e) := by sorry
+end DiophantineApproximation
+
+namespace MvPolynomial
+
+open _root_.MvPolynomial
+open TauCetiRoadmap.DiophantineApproximationAndTranscendence.MvPolynomial
+/-- MvPolynomial.test_blockHomogenize_quadratic -/
+example : blockHomogenize (id : Fin 1 → Fin 1) (fun _ => 2)
+    (_root_.MvPolynomial.X 0 ^ 2 - _root_.MvPolynomial.X 0 : MvPolynomial (Fin 1) ℚ) =
+      _root_.MvPolynomial.X (Sum.inr 0) ^ 2 - _root_.MvPolynomial.X (Sum.inl 0) * _root_.MvPolynomial.X (Sum.inr 0) := by sorry
+/-- MvPolynomial.test_blockHomogenize_zero -/
+example : blockHomogenize (id : Fin 1 → Fin 1) (fun _ => 2)
+    (0 : MvPolynomial (Fin 1) ℚ) = 0 := by sorry
+/-- MvPolynomial.test_blockHomogenize_truncation -/
+example : blockHomogenize (id : Fin 1 → Fin 1) (fun _ => 1)
+    (_root_.MvPolynomial.X 0 ^ 2 + 1 : MvPolynomial (Fin 1) ℚ) = _root_.MvPolynomial.X (Sum.inl 0) := by sorry
+/-- MvPolynomial.test_blockHomogenize_joint_degree -/
+example : blockHomogenize (fun _ : Fin 2 => (0 : Fin 1)) (fun _ => 1)
+    (_root_.MvPolynomial.X 0 * _root_.MvPolynomial.X 1 : MvPolynomial (Fin 2) ℚ) = 0 := by sorry
+/-- MvPolynomial.test_blockHomogenize_separate_blocks -/
+example : blockHomogenize (id : Fin 2 → Fin 2) (fun _ => 1)
+    (_root_.MvPolynomial.X 0 * _root_.MvPolynomial.X 1 : MvPolynomial (Fin 2) ℚ) = _root_.MvPolynomial.X (Sum.inr 0) * _root_.MvPolynomial.X (Sum.inr 1) := by sorry
+/-- MvPolynomial.test_blockHomogenize_degree_zero -/
+example : blockHomogenize (id : Fin 1 → Fin 1) (fun _ => 0)
+    (_root_.MvPolynomial.X 0 + 3 : MvPolynomial (Fin 1) ℚ) = 3 := by sorry
+/-- MvPolynomial.test_blockHomogenize_empty_affine_block -/
+example : blockHomogenize (Fin.elim0 : Fin 0 → Fin 1) (fun _ => 2)
+    (1 : MvPolynomial (Fin 0) ℚ) = _root_.MvPolynomial.X (Sum.inl 0) ^ 2 := by sorry
+/-- MvPolynomial.test_blockHomogenize_native_orientation -/
+example : _root_.MvPolynomial.rename (Sum.elim (fun _ : Unit => (1 : Fin 2)) (fun _ : Unit => (0 : Fin 2)))
+    (blockHomogenize (id : Unit → Unit) (fun _ => 3)
+      ((uniqueAlgEquiv ℚ Unit).symm (Polynomial.X + 1))) =
+        (Polynomial.X + 1 : Polynomial ℚ).homogenize 3 := by sorry
+/-- MvPolynomial.test_blockHomogenize_cross_jet -/
+example :
+    _root_.MvPolynomial.eval (fun _ : Fin 2 => (1 : ℚ))
+      (TauCetiRoadmap.DiophantineApproximationAndTranscendence.MvPolynomial.hasseDeriv (Finsupp.single 0 1) (_root_.MvPolynomial.X 1 ^ 2 - _root_.MvPolynomial.X 0 * _root_.MvPolynomial.X 1)) = -1 ∧
+    _root_.MvPolynomial.eval (fun _ : Fin 1 => (1 : ℚ)) (_root_.MvPolynomial.X 0 ^ 2 - _root_.MvPolynomial.X 0) = 0 := by sorry
+/-- MvPolynomial.test_blockHomogenize_index_boundary -/
+example : weightedIndex (fun _ : Fin 2 => 2) (fun _ : Fin 2 => (1 : ℚ))
+    (_root_.MvPolynomial.X 1 ^ 2 - _root_.MvPolynomial.X 0 * _root_.MvPolynomial.X 1) = (1 : ℝ≥0∞) / 2 := by sorry
+/-- MvPolynomial.test_blockHomogenize_positive_characteristic -/
+example : _root_.MvPolynomial.eval (fun _ : Fin 1 => (1 : ZMod 2))
+    (TauCetiRoadmap.DiophantineApproximationAndTranscendence.MvPolynomial.hasseDeriv (Finsupp.single 0 2) (_root_.MvPolynomial.X 0 ^ 2 - 1)) = 1 := by sorry
+end MvPolynomial
+
+
+
+/-! ## Layer 3: transcendence and logarithmic forms -/
+
+
+
+open Complex Polynomial
+
+
+namespace Transcendence
+
+/-- The `ℚ`-vector space `𝓛 = {λ : exp λ is algebraic}` of logarithms of algebraic numbers
+(any branch). -/
+def algebraicLogs : Submodule ℚ ℂ where
+  carrier := {l | IsAlgebraic ℚ (exp l)}
+  add_mem' := sorry
+  zero_mem' := sorry
+  smul_mem' := sorry
+
+/-- λ ∈ 𝓛 ↔ IsAlgebraic ℚ (exp λ). -/
+theorem mem_algebraicLogs {l : ℂ} : l ∈ algebraicLogs ↔ IsAlgebraic ℚ (exp l) := Iff.rfl
+
+/-- For α ≠ 0 algebraic, Complex.log α ∈ 𝓛. -/
+theorem log_mem_algebraicLogs {α : ℂ} (hα : IsAlgebraic ℚ α) (h0 : α ≠ 0) :
+    Complex.log α ∈ algebraicLogs := sorry
+
+/-- λ ∈ 𝓛 ↔ ∃ α ≠ 0 algebraic, ∃ k : ℤ, λ = Complex.log α + k·2πi. -/
+theorem mem_algebraicLogs_iff_exists_int {l : ℂ} :
+    l ∈ algebraicLogs ↔
+      ∃ α : ℂ, IsAlgebraic ℚ α ∧ α ≠ 0 ∧ ∃ k : ℤ, l = Complex.log α + k * (2 * Real.pi * I) :=
+  sorry
+
+/-- k·2πi ∈ 𝓛 for every k : ℤ. -/
+theorem intCast_mul_two_pi_I_mem_algebraicLogs (k : ℤ) :
+    (k : ℂ) * (2 * Real.pi * I) ∈ algebraicLogs := sorry
+
+/-- λ ∈ 𝓛 → conj λ ∈ 𝓛 (exp commutes with complex conjugation, conjugates of algebraic numbers are algebraic). -/
+theorem conj_mem_algebraicLogs {l : ℂ} (hl : l ∈ algebraicLogs) :
+    (starRingEnd ℂ) l ∈ algebraicLogs := sorry
+
+/-- For a positive rational q, (Real.log q : ℂ) ∈ 𝓛. -/
+theorem ofReal_log_mem_algebraicLogs {q : ℚ} (hq : 0 < q) :
+    ((Real.log q : ℝ) : ℂ) ∈ algebraicLogs := sorry
+
+/-- Unit test `Transcendence.zero_mem_algebraicLogs`: (degenerate) 0 ∈ algebraicLogs. -/
+example : (0 : ℂ) ∈ algebraicLogs := sorry
+
+/-- Unit test `Transcendence.pi_mul_I_mem_algebraicLogs`: (computation) π·i ∈ algebraicLogs, since
+exp(πi) = −1. -/
+example : (Real.pi : ℂ) * I ∈ algebraicLogs := sorry
+
+/-- Unit test `Transcendence.two_pi_I_mem_algebraicLogs_not_mem_range_log`: (non-example) 2πi ∈
+algebraicLogs but 2πi ∉ Set.range Complex.log: a definition by principal logarithms only is
+wrong. -/
+example : 2 * (Real.pi : ℂ) * I ∈ algebraicLogs ∧ 2 * (Real.pi : ℂ) * I ∉ Set.range Complex.log :=
+  sorry
+
+/-- Unit test `Transcendence.ofReal_log_two_mem_algebraicLogs`: (compatibility) ((Real.log 2 : ℝ) :
+ℂ) ∈ algebraicLogs, and it equals Complex.log 2. -/
+example : ((Real.log 2 : ℝ) : ℂ) ∈ algebraicLogs ∧ ((Real.log 2 : ℝ) : ℂ) = Complex.log 2 := sorry
+
+/-- Unit test `Transcendence.one_not_mem_algebraicLogs`: (non-example) 1 ∉ algebraicLogs (exp 1 = e
+is transcendental, Layer 3 hermite transcendence of e): 𝓛 is
+not the set of algebraic numbers. -/
+example : (1 : ℂ) ∉ algebraicLogs := sorry
+
+/-- A finite set of algebraic numbers lies in a finite Galois subfield of `ℂ`. -/
+theorem exists_isGalois_superset (S : Finset ℂ) (hS : ∀ s ∈ S, IsAlgebraic ℚ s) :
+    ∃ L : IntermediateField ℚ ℂ, FiniteDimensional ℚ L ∧ IsGalois ℚ L ∧ ∀ s ∈ S, s ∈ L :=
+  sorry
+
+/-- Evertse, Lemma 3.6, inside a Galois subfield of `ℂ`. -/
+theorem exists_one_le_norm_algEquiv (L : IntermediateField ℚ ℂ) [FiniteDimensional ℚ L]
+    [IsGalois ℚ L] {x : L} (hx : IsIntegral ℤ x) (h0 : x ≠ 0) :
+    ∃ τ : L ≃ₐ[ℚ] L, 1 ≤ ‖((τ x : L) : ℂ)‖ := sorry
+
+/-- The size inequality (fundamental inequality of transcendence). -/
+theorem one_le_pow_mul_norm_mul_house_pow {K : Type*} [Field K] [NumberField K]
+    (σ : K →+* ℂ) {x : K} (hx : x ≠ 0) {m : ℕ} (hm : 0 < m) (hint : IsIntegral ℤ ((m : K) * x)) :
+    1 ≤ (m : ℝ) ^ Module.finrank ℚ K * ‖σ x‖ *
+      NumberField.house x ^ (Module.finrank ℚ K - 1) := sorry
+
+end Transcendence
+
+
+/-- Hermite's theorem (Evertse Theorem 4.1); name and form as in Mathlib PR #28013. -/
+theorem transcendental_e : Transcendental ℤ (exp 1) := sorry
+
+namespace LindemannWeierstrass
+
+/-- Hermite's integral `F_f(z) = ∫₀^z e^{z-u} f(u) du` along the segment. -/
+def hermiteIntegral (f : ℂ[X]) (z : ℂ) : ℂ :=
+  z * ∫ t in (0 : ℝ)..1, exp (z * (1 - t)) * f.eval (z * t)
+
+/-- The Hermite transform equals the exponential times the derivative sum at zero minus its value at z. -/
+theorem hermiteIntegral_eq_sumIDeriv (f : ℂ[X]) (z : ℂ) :
+    hermiteIntegral f z = exp z * (sumIDeriv f).eval 0 - (sumIDeriv f).eval z := sorry
+
+/-- A uniform bound on the disc of radius ‖z‖ bounds the Hermite transform by ‖z‖exp(‖z‖)C. -/
+theorem norm_hermiteIntegral_le (f : ℂ[X]) (z : ℂ) {C : ℝ}
+    (hC : ∀ u : ℂ, ‖u‖ ≤ ‖z‖ → ‖f.eval u‖ ≤ C) :
+    ‖hermiteIntegral f z‖ ≤ ‖z‖ * Real.exp ‖z‖ * C := sorry
+
+/-- F_{f+g} = F_f + F_g. -/
+theorem hermiteIntegral_add (f g : ℂ[X]) (z : ℂ) :
+    hermiteIntegral (f + g) z = hermiteIntegral f z + hermiteIntegral g z := sorry
+
+/-- F_{c•f} = c • F_f. -/
+theorem hermiteIntegral_smul (c : ℂ) (f : ℂ[X]) (z : ℂ) :
+    hermiteIntegral (c • f) z = c • hermiteIntegral f z := sorry
+
+/-- F_f(0) = 0. -/
+theorem hermiteIntegral_zero_right (f : ℂ[X]) : hermiteIntegral f 0 = 0 := sorry
+
+/-- F_{C c}(z) = c (e^z − 1). -/
+theorem hermiteIntegral_C (c z : ℂ) : hermiteIntegral (C c) z = c * (exp z - 1) := sorry
+
+/-- Unit test `LindemannWeierstrass.hermiteIntegral_one`: (computation) hermiteIntegral 1 z = exp z
+− 1. -/
+example (z : ℂ) : hermiteIntegral 1 z = exp z - 1 := sorry
+
+/-- Unit test `LindemannWeierstrass.hermiteIntegral_X_one`: (computation) hermiteIntegral X 1 = exp
+1 − 2. -/
+example : hermiteIntegral X 1 = exp 1 - 2 := sorry
+
+/-- Unit test `LindemannWeierstrass.hermiteIntegral_at_zero`: (degenerate) hermiteIntegral f 0 =
+0. -/
+example (f : ℂ[X]) : hermiteIntegral f 0 = 0 := sorry
+
+/-- Unit test `LindemannWeierstrass.hermiteIntegral_X_one_ne`: (non-example) hermiteIntegral X 1 ≠ ∫
+u in 0..1, exp u * u (= 1): the kernel is e^{z−u}, not e^u. -/
+example : hermiteIntegral X 1 ≠ ∫ u in (0 : ℝ)..1, exp (u : ℂ) * u := sorry
+
+/-- Unit test `LindemannWeierstrass.hermiteIntegral_eq_exp_mul`: (compatibility) hermiteIntegral f z
+= exp z * (z * ∫ x in 0..1, exp (−(x • z)) * f.eval (x • z)), the expression in
+LindemannWeierstrass.integral_exp_mul_eval. -/
+example (f : ℂ[X]) (z : ℂ) :
+    hermiteIntegral f z = exp z * (z * ∫ x in (0 : ℝ)..1, exp (-(x • z)) * f.eval (x • z)) :=
+  sorry
+
+/-- Evertse Corollary 4.3 and Lemma 4.12(i). -/
+theorem sum_mul_hermiteIntegral_eq {ι : Type*} (s : Finset ι) (γ δ : ι → ℂ)
+    (h : ∑ i ∈ s, δ i * exp (γ i) = 0) (f : ℂ[X]) :
+    ∑ i ∈ s, δ i * hermiteIntegral f (γ i) = -∑ i ∈ s, δ i * (sumIDeriv f).eval (γ i) := sorry
+
+variable (L : IntermediateField ℚ ℂ)
+
+/-- Evaluation of formal exponential sums: `[γ] ↦ e^γ`. -/
+def expEval : AddMonoidAlgebra L L →ₐ[L] ℂ :=
+  AddMonoidAlgebra.lift L ℂ L
+    (Complex.expMonoidHom.comp (AddMonoidHom.toMultiplicative (algebraMap L ℂ).toAddMonoidHom))
+
+variable {L}
+
+/-- expEval L (single γ c) = c * exp γ. -/
+theorem expEval_single (γ c : L) :
+    expEval L (AddMonoidAlgebra.single γ c) = (c : ℂ) * exp (γ : ℂ) := sorry
+
+/-- expEval L x = Σ_{γ ∈ x.coeff.support} x.coeff γ * exp γ. -/
+theorem expEval_apply (x : AddMonoidAlgebra L L) :
+    expEval L x = ∑ γ ∈ x.coeff.support, ((x.coeff γ : L) : ℂ) * exp (γ : ℂ) := sorry
+
+/-- expEval L (x * y) = expEval L x * expEval L y. -/
+theorem expEval_mul (x y : AddMonoidAlgebra L L) :
+    expEval L (x * y) = expEval L x * expEval L y := map_mul _ _ _
+
+/-- expEval L (algebraMap L L[L] c) = c. -/
+theorem expEval_algebraMap (c : L) :
+    expEval L (algebraMap L (AddMonoidAlgebra L L) c) = (c : ℂ) := sorry
+
+/-- Unit test `LindemannWeierstrass.expEval_single_zero`: (degenerate) expEval L (single 0 c) =
+c. -/
+example (c : L) : expEval L (AddMonoidAlgebra.single 0 c) = (c : ℂ) := sorry
+
+/-- Unit test `LindemannWeierstrass.expEval_single_mul_single`: (computation) expEval L (single γ 1
+* single γ' 1) = exp γ * exp γ' = exp (γ + γ'). -/
+example (γ γ' : L) :
+    expEval L (AddMonoidAlgebra.single γ 1 * AddMonoidAlgebra.single γ' 1) =
+        exp (γ : ℂ) * exp (γ' : ℂ) ∧
+      expEval L (AddMonoidAlgebra.single γ 1 * AddMonoidAlgebra.single γ' 1) =
+        exp ((γ : ℂ) + γ') := sorry
+
+/-- Unit test `LindemannWeierstrass.expEval_top_single_pi_mul_I`: (computation) expEval ⊤ (single (π
+I) 1) = −1. -/
+example : expEval (⊤ : IntermediateField ℚ ℂ)
+    (AddMonoidAlgebra.single ⟨(Real.pi : ℂ) * I, trivial⟩ 1) = -1 := sorry
+
+/-- Unit test `LindemannWeierstrass.expEval_top_not_injective`: (non-example) For L = ⊤: single 0 1
+− single (2π I) 1 ≠ 0 but its image is 0; injectivity of expEval (the Lindemann-Weierstrass theorem)
+needs L ⊆ ℚ̄. -/
+example :
+    (AddMonoidAlgebra.single (0 : (⊤ : IntermediateField ℚ ℂ)) (1 : (⊤ : IntermediateField ℚ ℂ)) -
+        AddMonoidAlgebra.single ⟨2 * (Real.pi : ℂ) * I, trivial⟩ 1) ≠ 0 ∧
+      expEval ⊤ (AddMonoidAlgebra.single (0 : (⊤ : IntermediateField ℚ ℂ))
+        (1 : (⊤ : IntermediateField ℚ ℂ)) -
+          AddMonoidAlgebra.single ⟨2 * (Real.pi : ℂ) * I, trivial⟩ 1) = 0 := sorry
+
+/-- Unit test `LindemannWeierstrass.expEval_eq_lift`: (compatibility) expEval L =
+AddMonoidAlgebra.lift L ℂ L (expMonoidHom.comp (inclusion as a Multiplicative hom)). -/
+example : expEval L = AddMonoidAlgebra.lift L ℂ L
+    (Complex.expMonoidHom.comp (AddMonoidHom.toMultiplicative (algebraMap L ℂ).toAddMonoidHom)) :=
+  rfl
+
+/-- Galois conjugation `Σ δ_γ [γ] ↦ Σ τ(δ_γ) [τ γ]`. -/
+def galConj (τ : L ≃ₐ[ℚ] L) : AddMonoidAlgebra L L ≃+* AddMonoidAlgebra L L :=
+  (AddMonoidAlgebra.mapDomainRingEquiv L τ.toRingEquiv.toAddEquiv).trans
+    (AddMonoidAlgebra.mapRingEquiv L τ.toRingEquiv)
+
+/-- galConj τ (single γ δ) = single (τ γ) (τ δ). -/
+theorem galConj_single (τ : L ≃ₐ[ℚ] L) (γ δ : L) :
+    galConj τ (AddMonoidAlgebra.single γ δ) = AddMonoidAlgebra.single (τ γ) (τ δ) := sorry
+
+/-- (galConj τ x).coeff (τ γ) = τ (x.coeff γ). -/
+theorem coeff_galConj (τ : L ≃ₐ[ℚ] L) (x : AddMonoidAlgebra L L) (γ : L) :
+    (galConj τ x).coeff (τ γ) = τ (x.coeff γ) := sorry
+
+/-- galConj (AlgEquiv.refl) = RingEquiv.refl. -/
+theorem galConj_refl : galConj (AlgEquiv.refl : L ≃ₐ[ℚ] L) = RingEquiv.refl _ := sorry
+
+/-- galConj (τ.trans σ) = (galConj τ).trans (galConj σ). -/
+theorem galConj_trans (τ σ : L ≃ₐ[ℚ] L) :
+    galConj (τ.trans σ) = (galConj τ).trans (galConj σ) := sorry
+
+/-- (galConj τ x).coeff.support = (x.coeff.support).map τ. -/
+theorem support_galConj (τ : L ≃ₐ[ℚ] L) (x : AddMonoidAlgebra L L) :
+    (galConj τ x).coeff.support = x.coeff.support.map τ.toEquiv.toEmbedding := sorry
+
+/-- (∀ τ, galConj τ x = x) ↔ ∀ τ γ, x.coeff (τ γ) = τ (x.coeff γ). -/
+theorem forall_galConj_eq_iff (x : AddMonoidAlgebra L L) :
+    (∀ τ : L ≃ₐ[ℚ] L, galConj τ x = x) ↔
+      ∀ (τ : L ≃ₐ[ℚ] L) (γ : L), x.coeff (τ γ) = τ (x.coeff γ) := sorry
+
+/-- For finite L/ℚ: galConj σ (∏_τ galConj τ x) = ∏_τ galConj τ x (reindex τ ↦ τ.trans σ). -/
+theorem galConj_prod_galConj [FiniteDimensional ℚ L] (σ : L ≃ₐ[ℚ] L)
+    (x : AddMonoidAlgebra L L) :
+    galConj σ (∏ τ : L ≃ₐ[ℚ] L, galConj τ x) = ∏ τ : L ≃ₐ[ℚ] L, galConj τ x := sorry
+
+/-- Unit test `LindemannWeierstrass.galConj_single_ratCast`: (degenerate) galConj τ (single 0 (q :
+L)) = single 0 (q : L) for q ∈ ℚ. -/
+example (τ : L ≃ₐ[ℚ] L) (q : ℚ) :
+    galConj τ (AddMonoidAlgebra.single 0 (q : L)) = AddMonoidAlgebra.single 0 (q : L) := sorry
+
+/-- Unit test `LindemannWeierstrass.galConj_single_I`: (computation) If I ∈ L and τ I = −I then
+galConj τ (single I I) = single (−I) (−I). -/
+example (hI : I ∈ L) (τ : L ≃ₐ[ℚ] L) (hτ : τ ⟨I, hI⟩ = -⟨I, hI⟩) :
+    galConj τ (AddMonoidAlgebra.single ⟨I, hI⟩ ⟨I, hI⟩) =
+      AddMonoidAlgebra.single (-⟨I, hI⟩) (-⟨I, hI⟩) := sorry
+
+/-- Unit test `LindemannWeierstrass.galConj_fixed_of_quadratic`: (characterisation) If [L : ℚ] = 2,
+s ∈ L and τ s = −s for the nontrivial τ, then single s 1 + single (−s) 1 is fixed by every galConj
+τ. -/
+example (hL : Module.finrank ℚ L = 2) (s : L) (hs : ∀ τ : L ≃ₐ[ℚ] L, τ ≠ AlgEquiv.refl → τ s = -s) :
+    ∀ τ : L ≃ₐ[ℚ] L,
+      galConj τ (AddMonoidAlgebra.single s 1 + AddMonoidAlgebra.single (-s) 1) =
+        AddMonoidAlgebra.single s 1 + AddMonoidAlgebra.single (-s) 1 := sorry
+
+/-- Unit test `LindemannWeierstrass.expEval_galConj_ne`: (non-example) If √2 ∈ L and τ √2 = −√2 then
+expEval L (galConj τ (single √2 1)) = e^{−√2} ≠ e^{√2} = expEval L (single √2 1): evaluation is not
+Galois-equivariant. -/
+example (s : L) (hs : (s : ℂ) = Real.sqrt 2) (τ : L ≃ₐ[ℚ] L) (hτ : τ s = -s) :
+    expEval L (galConj τ (AddMonoidAlgebra.single s 1)) = exp (-(Real.sqrt 2 : ℂ)) ∧
+      exp (-(Real.sqrt 2 : ℂ)) ≠ exp (Real.sqrt 2 : ℂ) ∧
+      exp (Real.sqrt 2 : ℂ) = expEval L (AddMonoidAlgebra.single s 1) := sorry
+
+/-- Evertse's auxiliary polynomial `f_k` (with `γ_k = γ`, `t = |S|`). -/
+def auxPoly (S : Finset L) (l p : ℕ) (γ : L) : L[X] :=
+  C ((l : L) ^ (S.card * p) / ((p - 1).factorial : L)) * (X - C γ) ^ (p - 1) *
+    ∏ γ' ∈ S.erase γ, (X - C γ') ^ p
+
+/-- γ ∈ S, l ≠ 0, 1 ≤ p ⇒ natDegree (auxPoly S l p γ) = S.card * p − 1. -/
+theorem natDegree_auxPoly {S : Finset L} {γ : L} (hγ : γ ∈ S) {l p : ℕ} (hl : l ≠ 0)
+    (hp : 1 ≤ p) : (auxPoly S l p γ).natDegree = S.card * p - 1 := sorry
+
+/-- (auxPoly S l p γ).map τ = auxPoly (S.map τ) l p (τ γ) for τ : L ≃ₐ[ℚ] L. -/
+theorem auxPoly_map (τ : L ≃ₐ[ℚ] L) (S : Finset L) (l p : ℕ) (γ : L) :
+    (auxPoly S l p γ).map (τ : L →+* L) = auxPoly (S.map τ.toEquiv.toEmbedding) l p (τ γ) := sorry
+
+/-- Evertse Lemma 4.13: values of the derivatives of `f_γ` at the points of `S`. -/
+theorem eval_iterate_derivative_auxPoly {S : Finset L} {γ : L} (hγ : γ ∈ S) {l : ℕ}
+    (hl : 1 ≤ l) (hint : ∀ γ' ∈ S, IsIntegral ℤ ((l : L) * γ')) {p : ℕ} (hp : p.Prime) :
+    (derivative^[p - 1] (auxPoly S l p γ)).eval γ =
+        ((l : L) ^ S.card * ∏ γ' ∈ S.erase γ, (γ - γ')) ^ p ∧
+      IsIntegral ℤ ((l : L) ^ S.card * ∏ γ' ∈ S.erase γ, (γ - γ')) ∧
+      (∀ γ' ∈ S, ∀ j < p, (γ', j) ≠ (γ, p - 1) → (derivative^[j] (auxPoly S l p γ)).eval γ' = 0) ∧
+      (∀ γ' ∈ S, ∀ j, p ≤ j → IsIntegral ℤ ((derivative^[j] (auxPoly S l p γ)).eval γ' / p)) :=
+  sorry
+
+/-- Unit test `LindemannWeierstrass.auxPoly_singleton`: (degenerate) auxPoly {γ} l p γ = C
+(l^p/(p−1)!) * (X − C γ)^(p−1). -/
+example (γ : L) (l p : ℕ) :
+    auxPoly {γ} l p γ = C ((l : L) ^ p / ((p - 1).factorial : L)) * (X - C γ) ^ (p - 1) := sorry
+
+/-- Unit test `LindemannWeierstrass.auxPoly_hermite`: (compatibility) For L = ⊥, S = {0,1,…,n}, l =
+1, γ = 0: auxPoly S 1 p 0 = C (1/(p−1)!) * X^(p−1) * ∏_{a=1}^n (X − C a)^p (Evertse (4.3)). -/
+example (n p : ℕ) :
+    auxPoly (L := ⊥) ((Finset.range (n + 1)).image (fun a : ℕ ↦ (a : (⊥ : IntermediateField ℚ ℂ))))
+        1 p 0 =
+      C (1 / ((p - 1).factorial : (⊥ : IntermediateField ℚ ℂ))) * X ^ (p - 1) *
+        ∏ a ∈ Finset.Icc 1 n, (X - C (a : (⊥ : IntermediateField ℚ ℂ))) ^ p := sorry
+
+/-- Unit test `LindemannWeierstrass.auxPoly_zero_one`: (computation) auxPoly {0, 1} 1 2 0 = X^3 −
+2X^2 + X. -/
+example : auxPoly (L := L) {0, 1} 1 2 0 = X ^ 3 - 2 * X ^ 2 + X := sorry
+
+/-- Unit test `LindemannWeierstrass.auxPoly_not_integral`: (non-example) auxPoly {0} 1 3 0 = C (1/2)
+* X^2: the coefficients are not algebraic integers, so the factor 1/(p−1)! must be tracked (Lemma
+4.13(iii) divides by (p−1)!, not by p!). -/
+example : auxPoly (L := L) {0} 1 3 0 = C (1 / 2 : L) * X ^ 2 := sorry
+
+/-- Evertse's numbers `M_γ`, taken in their algebraic form (Lemma 4.12(i)). -/
+def auxValue (x : AddMonoidAlgebra L L) (l p : ℕ) (γ : L) : L :=
+  -∑ γ' ∈ x.coeff.support, x.coeff γ' * (sumIDeriv (auxPoly x.coeff.support l p γ)).eval γ'
+
+/-- Evertse Lemma 4.12(i). -/
+theorem coe_auxValue_eq_sum_hermiteIntegral {x : AddMonoidAlgebra L L} (hx : expEval L x = 0)
+    (l p : ℕ) (γ : L) :
+    ((auxValue x l p γ : L) : ℂ) = ∑ γ' ∈ x.coeff.support, ((x.coeff γ' : L) : ℂ) *
+      hermiteIntegral ((auxPoly x.coeff.support l p γ).map (algebraMap L ℂ)) (γ' : ℂ) := sorry
+
+/-- Evertse Lemma 4.12(ii). -/
+theorem auxValue_galConj {x : AddMonoidAlgebra L L} (hx : ∀ τ : L ≃ₐ[ℚ] L, galConj τ x = x)
+    (l p : ℕ) {γ : L} (hγ : γ ∈ x.coeff.support) (τ : L ≃ₐ[ℚ] L) :
+    τ (auxValue x l p γ) = auxValue x l p (τ γ) ∧ τ γ ∈ x.coeff.support := sorry
+
+/-- Evertse Lemma 4.14, integrality. -/
+theorem isIntegral_auxValue [FiniteDimensional ℚ L] {x : AddMonoidAlgebra L L}
+    (hx : ∀ γ, IsIntegral ℤ (x.coeff γ)) {l : ℕ} (hl : 1 ≤ l)
+    (hint : ∀ γ ∈ x.coeff.support, IsIntegral ℤ ((l : L) * γ)) {p : ℕ} (hp : p.Prime) (γ : L) :
+    IsIntegral ℤ (auxValue x l p γ) := sorry
+
+/-- Evertse Lemma 4.14, nonvanishing for large primes. -/
+theorem auxValue_ne_zero [FiniteDimensional ℚ L] {x : AddMonoidAlgebra L L}
+    (hx : ∀ γ, IsIntegral ℤ (x.coeff γ)) {l : ℕ} (hl : 1 ≤ l)
+    (hint : ∀ γ ∈ x.coeff.support, IsIntegral ℤ ((l : L) * γ)) {γ : L}
+    (hγ : γ ∈ x.coeff.support) {p : ℕ} (hp : p.Prime)
+    (hpbig : |Algebra.norm ℚ (x.coeff γ) *
+      Algebra.norm ℚ ((l : L) ^ x.coeff.support.card * ∏ γ' ∈ x.coeff.support.erase γ, (γ - γ'))|
+        < p) :
+    auxValue x l p γ ≠ 0 := sorry
+
+/-- Evertse Lemma 4.15 (Exercise 4.3). -/
+theorem norm_auxValue_le {x : AddMonoidAlgebra L L} (hx : expEval L x = 0) {l : ℕ} (hl : 1 ≤ l) :
+    ∃ C c : ℝ, 0 < C ∧ 0 < c ∧ ∀ p : ℕ, 1 ≤ p → ∀ γ ∈ x.coeff.support,
+      ‖((auxValue x l p γ : L) : ℂ)‖ ≤ C * c ^ p / (p - 1).factorial := sorry
+
+/-- Unit test `LindemannWeierstrass.auxValue_single_zero`: (computation) auxValue (single 0 1) l p 0
+= −l^p for p ≥ 1. -/
+example (l p : ℕ) (hp : 1 ≤ p) :
+    auxValue (AddMonoidAlgebra.single (0 : L) 1) l p 0 = -((l : L) ^ p) := sorry
+
+/-- Unit test `LindemannWeierstrass.auxValue_zero`: (degenerate) auxValue 0 l p γ = 0. -/
+example (l p : ℕ) (γ : L) : auxValue (0 : AddMonoidAlgebra L L) l p γ = 0 := sorry
+
+/-- Unit test `LindemannWeierstrass.auxValue_single_zero_two`: (non-example) auxValue (single 0 1) 2
+p 0 = −2^p ≠ −1 = auxValue (single 0 1) 1 p 0 for p ≥ 1: M depends on the auxiliary integer l and is
+not an invariant of x. -/
+example (p : ℕ) (hp : 1 ≤ p) :
+    auxValue (AddMonoidAlgebra.single (0 : L) 1) 2 p 0 = -((2 : L) ^ p) ∧
+      -((2 : L) ^ p) ≠ -1 ∧ -1 = auxValue (AddMonoidAlgebra.single (0 : L) 1) 1 p 0 := sorry
+
+/-- Unit test `LindemannWeierstrass.auxValue_compat_hermiteIntegral`: (compatibility) If expEval L x
+= 0 then (auxValue x l p γ : ℂ) = Σ_{γ'} (x.coeff γ' : ℂ) * hermiteIntegral ((auxPoly S l p γ).map
+(algebraMap L ℂ)) γ' (Lemma 4.12(i)). -/
+example {x : AddMonoidAlgebra L L} (hx : expEval L x = 0) (l p : ℕ) (γ : L) :
+    ((auxValue x l p γ : L) : ℂ) = ∑ γ' ∈ x.coeff.support, ((x.coeff γ' : L) : ℂ) *
+      hermiteIntegral ((auxPoly x.coeff.support l p γ).map (algebraMap L ℂ)) (γ' : ℂ) :=
+  coe_auxValue_eq_sum_hermiteIntegral hx l p γ
+
+/-- The weak Lindemann-Weierstrass theorem (Evertse Theorem 4.11). -/
+theorem expEval_ne_zero_of_forall_galConj_eq [FiniteDimensional ℚ L] [IsGalois ℚ L]
+    {x : AddMonoidAlgebra L L} (hx : x ≠ 0) (hfix : ∀ τ : L ≃ₐ[ℚ] L, galConj τ x = x) :
+    expEval L x ≠ 0 := sorry
+
+end LindemannWeierstrass
+
+/-- The Lindemann-Weierstrass theorem in Baker's form (Evertse Theorem 4.8); name and signature
+as in Mathlib PR #28013. -/
+theorem linearIndependent_exp {ι : Type*} (u : ι → integralClosure ℚ ℂ) (u_inj : u.Injective) :
+    LinearIndependent (integralClosure ℚ ℂ) fun i ↦ exp (u i) := sorry
+
+/-- Hermite-Lindemann (Evertse Corollary 4.9(i)). -/
+theorem transcendental_exp {a : ℂ} (a0 : a ≠ 0) (ha : IsAlgebraic ℤ a) :
+    Transcendental ℤ (exp a) := sorry
+
+/-- Lindemann (Evertse Corollary 4.9(ii)). -/
+theorem transcendental_pi : Transcendental ℤ Real.pi := sorry
+
+/-- Lindemann-Weierstrass, algebraic independence form (Evertse Corollary 4.10). -/
+theorem algebraicIndependent_exp {ι : Type*} (u : ι → integralClosure ℚ ℂ)
+    (hu : LinearIndependent ℕ u) :
+    AlgebraicIndependent (integralClosure ℚ ℂ) fun i ↦ exp (u i) := sorry
+
+namespace Transcendence
+
+/-- Every nonzero logarithm of an algebraic number is transcendental (Evertse Exercise 4.6(ii)). -/
+theorem transcendental_of_mem_algebraicLogs {l : ℂ} (hl : l ∈ algebraicLogs) (h0 : l ≠ 0) :
+    Transcendental ℚ l := sorry
+
+/-- Schanuel's conjecture, as a proposition (never assumed). -/
+def SchanuelConjecture : Prop :=
+  ∀ (n : ℕ) (x : Fin n → ℂ), LinearIndependent ℚ x →
+    (n : Cardinal) ≤ Algebra.trdeg ℚ
+      (IntermediateField.adjoin ℚ (Set.range x ∪ Set.range (fun i ↦ exp (x i))))
+
+namespace SchanuelConjecture
+
+/-- Applying the hypothesis to a ℚ-linearly independent tuple. -/
+theorem le_trdeg (h : SchanuelConjecture) {n : ℕ} {x : Fin n → ℂ}
+    (hx : LinearIndependent ℚ x) :
+    (n : Cardinal) ≤ Algebra.trdeg ℚ
+      (IntermediateField.adjoin ℚ (Set.range x ∪ Set.range (fun i ↦ exp (x i)))) := h n x hx
+
+end SchanuelConjecture
+
+/-- The unconditional case n = 1. -/
+theorem schanuel_ineq_one {x : ℂ} (hx : x ≠ 0) :
+    (1 : Cardinal) ≤ Algebra.trdeg ℚ (IntermediateField.adjoin ℚ ({x, exp x} : Set ℂ)) := sorry
+
+/-- The unconditional case of algebraic x. -/
+theorem schanuel_ineq_of_isAlgebraic {n : ℕ} {x : Fin n → ℂ} (hx : LinearIndependent ℚ x)
+    (halg : ∀ i, IsAlgebraic ℚ (x i)) :
+    (n : Cardinal) ≤ Algebra.trdeg ℚ
+      (IntermediateField.adjoin ℚ (Set.range x ∪ Set.range (fun i ↦ exp (x i)))) := sorry
+
+/-- Unit test `Transcendence.schanuelConjecture_zero`: (degenerate) The n = 0 instance of the
+inequality holds trivially (0 ≤ trdeg). -/
+example (x : Fin 0 → ℂ) :
+    ((0 : ℕ) : Cardinal) ≤ Algebra.trdeg ℚ
+      (IntermediateField.adjoin ℚ (Set.range x ∪ Set.range (fun i ↦ exp (x i)))) := sorry
+
+/-- Unit test `Transcendence.schanuelConjecture_one_variable_unconditional`: (computation)
+Unconditionally, for x = 1: 1 ≤ Algebra.trdeg ℚ ℚ(1, e) (e is transcendental). -/
+example : (1 : Cardinal) ≤ Algebra.trdeg ℚ
+    (IntermediateField.adjoin ℚ ({(1 : ℂ), exp 1} : Set ℂ)) := sorry
+
+/-- Unit test `Transcendence.schanuelConjecture_algebraic_unconditional`: (compatibility)
+Unconditionally, for x = (1, √2): 2 ≤ trdeg ℚ ℚ(1, √2, e, e^{√2}) (agreement with
+algebraicIndependent_exp). -/
+example : ((2 : ℕ) : Cardinal) ≤ Algebra.trdeg ℚ (IntermediateField.adjoin ℚ
+    (Set.range ![(1 : ℂ), Real.sqrt 2] ∪ Set.range (fun i ↦ exp (![(1 : ℂ), Real.sqrt 2] i)))) :=
+  sorry
+
+/-- Unit test `Transcendence.not_schanuel_of_distinct`: (non-example) The variant with 'pairwise
+distinct' instead of 'linearly independent over ℚ' is false: x = (0) gives trdeg ℚ(0, 1) = 0 < 1
+(Evertse Exercise 4.4). -/
+example :
+    ¬ (∀ (n : ℕ) (x : Fin n → ℂ), Function.Injective x →
+        (n : Cardinal) ≤ Algebra.trdeg ℚ
+          (IntermediateField.adjoin ℚ (Set.range x ∪ Set.range (fun i ↦ exp (x i))))) ∧
+      Algebra.trdeg ℚ (IntermediateField.adjoin ℚ
+        (Set.range ![(0 : ℂ)] ∪ Set.range (fun i ↦ exp (![(0 : ℂ)] i)))) = 0 := sorry
+
+/-- The proposition. -/
+theorem SchanuelConjecture.algebraicIndependent_exp_one_pi (h : SchanuelConjecture) :
+    AlgebraicIndependent ℚ ![exp 1, (Real.pi : ℂ)] := sorry
+
+/-- The proposition. -/
+theorem SchanuelConjecture.algebraicIndependent_of_mem_algebraicLogs (h : SchanuelConjecture)
+    {n : ℕ} {l : Fin n → ℂ} (hl : ∀ i, l i ∈ algebraicLogs) (hind : LinearIndependent ℚ l) :
+    AlgebraicIndependent ℚ l := sorry
+
+end Transcendence
+
+
+namespace Transcendence
+
+/-- Rolle's theorem, counting form. -/
+theorem exists_finset_card_deriv_zeros (f : ℝ → ℝ) (hf : Differentiable ℝ f) (S : Finset ℝ)
+    (hS : S.Nonempty) (h0 : ∀ x ∈ S, f x = 0) :
+    ∃ T : Finset ℝ, T.card + 1 = S.card ∧ ∀ x ∈ T, deriv f x = 0 := sorry
+
+/-- Evertse Lemma 4.23: a real exponential polynomial `Σ p_k(x) e^{γ_k x}` has at most
+`Σ (1 + deg p_k) - 1` real zeros. -/
+theorem card_zeros_expPoly_le {r : ℕ} (hr : 0 < r) (γ : Fin r → ℝ) (hγ : Function.Injective γ)
+    (p : Fin r → ℝ[X]) (hp : ∀ k, p k ≠ 0) (S : Finset ℝ)
+    (hS : ∀ x ∈ S, ∑ k, (p k).eval x * Real.exp (γ k * x) = 0) :
+    S.card + 1 ≤ ∑ k, ((p k).natDegree + 1) := sorry
+
+/-- Evertse Lemma 4.24 with multiplicities. -/
+theorem exists_differentiable_eq_mul_prod_pow (f : ℂ → ℂ) (hf : Differentiable ℂ f)
+    (a : Finset ℂ) (k : ℂ → ℕ) (hk : ∀ x ∈ a, ∀ j < k x, iteratedDeriv j f x = 0) :
+    ∃ g : ℂ → ℂ, Differentiable ℂ g ∧ ∀ z, f z = g z * ∏ x ∈ a, (z - x) ^ k x := sorry
+
+/-- Evertse Lemma 4.26 with multiplicities. -/
+theorem norm_le_of_zeros (f : ℂ → ℂ) (hf : Differentiable ℂ f) (a : Finset ℂ) (k : ℂ → ℕ)
+    (hk : ∀ x ∈ a, ∀ j < k x, iteratedDeriv j f x = 0) {R T M : ℝ} (hR : 0 < R)
+    (hRT : 3 * R ≤ T) (ha : ∀ x ∈ a, ‖x‖ ≤ R) (hM : ∀ w : ℂ, ‖w‖ = T → ‖f w‖ ≤ M) :
+    ∀ z : ℂ, ‖z‖ ≤ R → ‖f z‖ ≤ M * (3 * R / T) ^ (∑ x ∈ a, k x) := sorry
+
+/-- A nontrivial exponential sum with distinct frequencies is not identically zero. -/
+theorem sum_mul_exp_ne_zero {N : ℕ} (ρ : Fin N → ℂ) (hρ : Function.Injective ρ)
+    (c : Fin N → ℂ) (hc : c ≠ 0) : (fun z : ℂ ↦ ∑ i, c i * exp (ρ i * z)) ≠ 0 := sorry
+
+end Transcendence
+
+namespace GelfondSchneider
+
+open NumberField
+
+variable {K : Type*} [Field K] [NumberField K] (σ : K →+* ℂ)
+
+/-- Schneider’s nonzero integral-coefficient auxiliary exponential polynomial,
+vanishing on the L by L grid, with an exponential house bound (Evertse Lemma 4.22). -/
+theorem exists_schneider_auxiliary (l : ℂ) (α' β' γ' : K) (hα : σ α' = exp l)
+    (hγ : σ γ' = exp (σ β' * l)) :
+    ∃ c₁ : ℝ, 0 < c₁ ∧ ∀ L D₁ D₂ : ℕ, 3 ≤ L → 2 * Module.finrank ℚ K * L ^ 2 ≤ D₁ * D₂ →
+      ∃ a : Fin D₁ → Fin D₂ → K, a ≠ 0 ∧ (∀ i j, IsIntegral ℤ (a i j)) ∧
+        (∀ i j, house (a i j) ≤ Real.exp (c₁ * ((D₁ : ℝ) * Real.log L + (D₂ : ℝ) * L))) ∧
+        ∀ u v : ℕ, 1 ≤ u → u ≤ L → 1 ≤ v → v ≤ L →
+          ∑ i, ∑ j, σ (a i j) * ((u : ℂ) + v * σ β') ^ (i : ℕ) *
+            exp ((j : ℂ) * l * ((u : ℂ) + v * σ β')) = 0 := sorry
+
+/-- Evertse Lemma 4.27(i): extrapolation to the points `a + bβ`, `1 ≤ a, b ≤ cL`. -/
+theorem norm_schneider_auxiliary_le (l : ℂ) (α' β' γ' : K) (hα : σ α' = exp l)
+    (hγ : σ γ' = exp (σ β' * l)) (hβ : ∀ q : ℚ, σ β' ≠ q) (c₁ : ℝ) (hc₁ : 0 < c₁) :
+    ∃ c₄ : ℝ, ∀ M : ℕ, 1 ≤ M →
+      let d : ℕ := Module.finrank ℚ K
+      let L : ℕ := 2 * d * M ^ 2
+      let D₁ : ℕ := (2 * d) ^ 2 * M ^ 3
+      let D₂ : ℕ := 2 * d * M
+      let c : ℕ := 1 + ⌊Real.sqrt (2 * (d : ℝ))⌋₊
+      ∀ a : Fin D₁ → Fin D₂ → K,
+        (∀ i j, house (a i j) ≤ Real.exp (c₁ * ((D₁ : ℝ) * Real.log L + (D₂ : ℝ) * L))) →
+        (∀ u v : ℕ, 1 ≤ u → u ≤ L → 1 ≤ v → v ≤ L →
+          ∑ i, ∑ j, σ (a i j) * ((u : ℂ) + v * σ β') ^ (i : ℕ) *
+            exp ((j : ℂ) * l * ((u : ℂ) + v * σ β')) = 0) →
+        ∀ u v : ℕ, 1 ≤ u → u ≤ c * L → 1 ≤ v → v ≤ c * L →
+          ‖∑ i, ∑ j, σ (a i j) * ((u : ℂ) + v * σ β') ^ (i : ℕ) *
+            exp ((j : ℂ) * l * ((u : ℂ) + v * σ β'))‖ ≤
+            Real.exp (c₄ * (L : ℝ) ^ (3 / 2 : ℝ) * Real.log L - (L : ℝ) ^ 2) := sorry
+
+/-- Evertse Lemma 4.27(ii): conjugates of the values `y_{ab}`. -/
+theorem norm_embedding_schneider_value_le (α' β' γ' : K) (c₁ : ℝ) (hc₁ : 0 < c₁) :
+    ∃ c₅ : ℝ, ∀ M : ℕ, 1 ≤ M →
+      let d : ℕ := Module.finrank ℚ K
+      let L : ℕ := 2 * d * M ^ 2
+      let D₁ : ℕ := (2 * d) ^ 2 * M ^ 3
+      let D₂ : ℕ := 2 * d * M
+      let c : ℕ := 1 + ⌊Real.sqrt (2 * (d : ℝ))⌋₊
+      ∀ a : Fin D₁ → Fin D₂ → K,
+        (∀ i j, house (a i j) ≤ Real.exp (c₁ * ((D₁ : ℝ) * Real.log L + (D₂ : ℝ) * L))) →
+        ∀ (τ : K →+* ℂ) (u v : ℕ), 1 ≤ u → u ≤ c * L → 1 ≤ v → v ≤ c * L →
+          ‖τ (∑ i, ∑ j, a i j * ((u : K) + v * β') ^ (i : ℕ) * α' ^ (u * j) * γ' ^ (v * j))‖ ≤
+            Real.exp (c₅ * (L : ℝ) ^ (3 / 2 : ℝ) * Real.log L) := sorry
+
+/-- Evertse Lemma 4.27(iii): denominators of the values `y_{ab}`. -/
+theorem isIntegral_pow_mul_schneider_value (α' β' γ' : K) {m : ℕ} (hm : 0 < m)
+    (hα : IsIntegral ℤ ((m : K) * α')) (hβ : IsIntegral ℤ ((m : K) * β'))
+    (hγ : IsIntegral ℤ ((m : K) * γ')) (D₁ D₂ L c : ℕ) (a : Fin D₁ → Fin D₂ → K)
+    (ha : ∀ i j, IsIntegral ℤ (a i j)) (u v : ℕ) (hu : u ≤ c * L) (hv : v ≤ c * L) :
+    IsIntegral ℤ ((m : K) ^ (D₁ + 2 * c * L * D₂) *
+      ∑ i, ∑ j, a i j * ((u : K) + v * β') ^ (i : ℕ) * α' ^ (u * j) * γ' ^ (v * j)) := sorry
+
+/-- Evertse Theorem 4.21 (Schneider's proof in the real case). -/
+theorem transcendental_rpow {α β : ℝ} (hα : IsAlgebraic ℚ α) (hβ : IsAlgebraic ℚ β)
+    (h0 : 0 < α) (h1 : α ≠ 1) (hirr : Irrational β) : Transcendental ℚ (α ^ β) := sorry
+
+/-- Derivatives of Gelfond's auxiliary function at integers. -/
+theorem iteratedDeriv_gelfond (l β : ℂ) {q : ℕ} (η : Fin q → Fin q → ℂ) (k t : ℕ) :
+    iteratedDeriv k (fun z : ℂ ↦ ∑ a : Fin q, ∑ b : Fin q,
+        η a b * exp (((a : ℂ) + 1 + ((b : ℂ) + 1) * β) * l * z)) t =
+      l ^ k * ∑ a : Fin q, ∑ b : Fin q, η a b * ((a : ℂ) + 1 + ((b : ℂ) + 1) * β) ^ k *
+        exp l ^ (((a : ℕ) + 1) * t) * exp (β * l) ^ (((b : ℕ) + 1) * t) := sorry
+
+/-- Gelfond's auxiliary function via Siegel's theorem over `𝓞 K` (Setting G, `m = 2h + 2`). -/
+theorem exists_gelfond_auxiliary (l : ℂ) (hl : l ≠ 0) (α' β' γ' : K) (hα : σ α' = exp l)
+    (hγ : σ γ' = exp (σ β' * l)) (hβ : ∀ q : ℚ, σ β' ≠ q) :
+    ∃ c₁ : ℝ, 1 ≤ c₁ ∧ ∀ n q : ℕ, 0 < n → q ^ 2 = 2 * (2 * Module.finrank ℚ K + 2) * n →
+      ∃ η : Fin q → Fin q → K, η ≠ 0 ∧ (∀ a b, IsIntegral ℤ (η a b)) ∧
+        (∀ a b, house (η a b) ≤ c₁ ^ n * (n : ℝ) ^ (((n : ℝ) + 1) / 2)) ∧
+        ∀ k < n, ∀ t : ℕ, 1 ≤ t → t ≤ 2 * Module.finrank ℚ K + 2 →
+          iteratedDeriv k (fun z : ℂ ↦ ∑ a : Fin q, ∑ b : Fin q,
+            σ (η a b) * exp (((a : ℂ) + 1 + ((b : ℂ) + 1) * σ β') * l * z)) t = 0 := sorry
+
+/-- The first nonvanishing derivative at the points `1, …, m`. -/
+theorem exists_first_nonvanishing_derivative (l : ℂ) (hl : l ≠ 0) (β : ℂ)
+    (hβ : ∀ q : ℚ, β ≠ q) {q n m : ℕ} (hm : 1 ≤ m) (η : Fin q → Fin q → ℂ) (hη : η ≠ 0)
+    (hvan : ∀ k < n, ∀ t : ℕ, 1 ≤ t → t ≤ m → iteratedDeriv k (fun z : ℂ ↦ ∑ a : Fin q,
+      ∑ b : Fin q, η a b * exp (((a : ℂ) + 1 + ((b : ℂ) + 1) * β) * l * z)) t = 0) :
+    ∃ r : ℕ, n ≤ r ∧ ∃ t₀ : ℕ, 1 ≤ t₀ ∧ t₀ ≤ m ∧
+      (∀ k < r, ∀ t : ℕ, 1 ≤ t → t ≤ m → iteratedDeriv k (fun z : ℂ ↦ ∑ a : Fin q,
+        ∑ b : Fin q, η a b * exp (((a : ℂ) + 1 + ((b : ℂ) + 1) * β) * l * z)) t = 0) ∧
+      iteratedDeriv r (fun z : ℂ ↦ ∑ a : Fin q, ∑ b : Fin q,
+        η a b * exp (((a : ℂ) + 1 + ((b : ℂ) + 1) * β) * l * z)) t₀ ≠ 0 := sorry
+
+/-- Liouville lower bound for `ρ = Σ η_{ab} (a + bβ)^r α^{a t₀} γ^{b t₀}`. -/
+theorem norm_gelfond_value_ge (α' β' γ' : K) (c₁ : ℝ) :
+    ∃ c₂ : ℝ, 1 ≤ c₂ ∧ ∀ (n q r t₀ : ℕ) (η : Fin q → Fin q → K),
+      q ^ 2 = 2 * (2 * Module.finrank ℚ K + 2) * n → 1 ≤ n → n ≤ r →
+      1 ≤ t₀ → t₀ ≤ 2 * Module.finrank ℚ K + 2 → (∀ a b, IsIntegral ℤ (η a b)) →
+      (∀ a b, house (η a b) ≤ c₁ ^ n * (n : ℝ) ^ (((n : ℝ) + 1) / 2)) →
+      ∑ a : Fin q, ∑ b : Fin q, η a b * ((a : K) + 1 + ((b : K) + 1) * β') ^ r *
+          α' ^ (((a : ℕ) + 1) * t₀) * γ' ^ (((b : ℕ) + 1) * t₀) ≠ 0 →
+      c₂⁻¹ ^ r * (r : ℝ)⁻¹ ^ ((Module.finrank ℚ K - 1) * (r + 1) : ℕ) ≤
+        ‖σ (∑ a : Fin q, ∑ b : Fin q, η a b * ((a : K) + 1 + ((b : K) + 1) * β') ^ r *
+          α' ^ (((a : ℕ) + 1) * t₀) * γ' ^ (((b : ℕ) + 1) * t₀))‖ := sorry
+
+/-- Analytic upper bound for the same number, by the maximum modulus principle. -/
+theorem norm_gelfond_value_le (l : ℂ) (hl : l ≠ 0) (α' β' γ' : K) (hα : σ α' = exp l)
+    (hγ : σ γ' = exp (σ β' * l)) (c₁ : ℝ) :
+    ∃ c₃ : ℝ, 1 ≤ c₃ ∧ ∀ (n q r t₀ : ℕ) (η : Fin q → Fin q → K),
+      q ^ 2 = 2 * (2 * Module.finrank ℚ K + 2) * n → 1 ≤ n → n ≤ r →
+      1 ≤ t₀ → t₀ ≤ 2 * Module.finrank ℚ K + 2 →
+      (∀ a b, house (η a b) ≤ c₁ ^ n * (n : ℝ) ^ (((n : ℝ) + 1) / 2)) →
+      (∀ k < r, ∀ t : ℕ, 1 ≤ t → t ≤ 2 * Module.finrank ℚ K + 2 →
+        iteratedDeriv k (fun z : ℂ ↦ ∑ a : Fin q, ∑ b : Fin q,
+          σ (η a b) * exp (((a : ℂ) + 1 + ((b : ℂ) + 1) * σ β') * l * z)) t = 0) →
+      ‖σ (∑ a : Fin q, ∑ b : Fin q, η a b * ((a : K) + 1 + ((b : K) + 1) * β') ^ r *
+          α' ^ (((a : ℕ) + 1) * t₀) * γ' ^ (((b : ℕ) + 1) * t₀))‖ ≤
+        c₃ ^ r * (r : ℝ) ^ (((3 - (2 * (Module.finrank ℚ K : ℝ) + 2)) * r + 1) / 2) := sorry
+
+end GelfondSchneider
+
+namespace Transcendence
+
+/-- The Gelfond-Schneider theorem for any nonzero logarithm (Evertse Theorem 4.16). -/
+theorem transcendental_exp_mul_of_mem_algebraicLogs {l β : ℂ} (hl : l ∈ algebraicLogs)
+    (hl0 : l ≠ 0) (hβ : IsAlgebraic ℚ β) (hβq : ∀ q : ℚ, β ≠ q) :
+    Transcendental ℚ (exp (β * l)) := sorry
+
+/-- `e^{πα}` is transcendental for algebraic `α ∉ ℚ i` (Evertse Corollary 4.17). -/
+theorem transcendental_exp_pi_mul {α : ℂ} (hα : IsAlgebraic ℚ α) (h : ∀ q : ℚ, α ≠ q * I) :
+    Transcendental ℚ (exp (Real.pi * α)) := sorry
+
+/-- Two `ℚ`-linearly independent logarithms are `ℚ̄`-linearly independent (Evertse
+Corollary 4.18, Waldschmidt Theorem 1.4). -/
+theorem linearIndependent_integralClosure_of_two (l : Fin 2 → ℂ) (hl : ∀ i, l i ∈ algebraicLogs)
+    (hind : LinearIndependent ℚ l) : LinearIndependent (integralClosure ℚ ℂ) l := sorry
+
+end Transcendence
+
+/-- Gelfond-Schneider for `Complex.cpow` (principal branch); name and signature of the
+Karatarakis-Wiedijk formalization. -/
+theorem transcendental_cpow_of_isAlgebraic_of_irrational (α β : ℂ) (hα : IsAlgebraic ℚ α)
+    (hβ : IsAlgebraic ℚ β) (htriv : α ≠ 0 ∧ α ≠ 1) (hirr : ∀ i j : ℤ, β ≠ i / j) :
+    Transcendental ℚ (α ^ β) := sorry
+
+
+namespace Baker
+
+open Metric
+
+variable {n : ℕ}
+
+/-- Multi-index partial derivative `D^σ f = ∂₁^{σ₁} ⋯ ∂ₙ^{σₙ} f` on `ℂⁿ = Fin n → ℂ`. -/
+def mDeriv (σ : Fin n → ℕ) (f : (Fin n → ℂ) → ℂ) : (Fin n → ℂ) → ℂ :=
+  (List.finRange n).foldr
+    (fun i g ↦ (fun (g' : (Fin n → ℂ) → ℂ) (z : Fin n → ℂ) ↦ fderiv ℂ g' z (Pi.single i 1))^[σ i] g) f
+
+/-- D^0 f = f. -/
+theorem mDeriv_zero (f : (Fin n → ℂ) → ℂ) : mDeriv 0 f = f := sorry
+
+/-- For entire f: D^{σ + e_i} f = ∂_i (D^σ f). -/
+theorem mDeriv_add_single {f : (Fin n → ℂ) → ℂ} (hf : Differentiable ℂ f) (σ : Fin n → ℕ)
+    (i : Fin n) :
+    mDeriv (σ + Pi.single i 1) f = fun z ↦ fderiv ℂ (mDeriv σ f) z (Pi.single i 1) := sorry
+
+/-- D^σ (f + g) = D^σ f + D^σ g for entire f, g. -/
+theorem mDeriv_add {f g : (Fin n → ℂ) → ℂ} (hf : Differentiable ℂ f) (hg : Differentiable ℂ g)
+    (σ : Fin n → ℕ) : mDeriv σ (f + g) = mDeriv σ f + mDeriv σ g := sorry
+
+/-- D^σ f is entire when f is. -/
+theorem differentiable_mDeriv {f : (Fin n → ℂ) → ℂ} (hf : Differentiable ℂ f)
+    (σ : Fin n → ℕ) : Differentiable ℂ (mDeriv σ f) := sorry
+
+/-- D^σ (z ↦ e^{w·z}) = w^σ e^{w·z}. -/
+theorem mDeriv_exp_dotProduct (w : Fin n → ℂ) (σ : Fin n → ℕ) :
+    mDeriv σ (fun z ↦ exp (∑ i, w i * z i)) =
+      fun z ↦ (∏ i, w i ^ σ i) * exp (∑ i, w i * z i) := sorry
+
+/-- Unit test `Baker.mDeriv_zero_example`: (degenerate) mDeriv 0 f = f. -/
+example (f : (Fin n → ℂ) → ℂ) : mDeriv 0 f = f := mDeriv_zero f
+
+/-- Unit test `Baker.mDeriv_single_mul`: (computation) For f(z) = z_0 z_1 on ℂ^2: mDeriv (Pi.single
+0 1) f = fun z ↦ z 1. -/
+example : mDeriv (Pi.single 0 1) (fun z : Fin 2 → ℂ ↦ z 0 * z 1) = fun z ↦ z 1 := sorry
+
+/-- Unit test `Baker.mDeriv_one_variable`: (compatibility) For n = 1 and entire g : ℂ → ℂ: mDeriv
+(fun _ ↦ k) (fun z ↦ g (z 0)) = fun z ↦ iteratedDeriv k g (z 0). -/
+example (g : ℂ → ℂ) (hg : Differentiable ℂ g) (k : ℕ) :
+    mDeriv (fun _ : Fin 1 ↦ k) (fun z ↦ g (z 0)) = fun z ↦ iteratedDeriv k g (z 0) := sorry
+
+/-- Unit test `Baker.mDeriv_ne_total_derivative`: (non-example) For f(z) = z_0^2 on ℂ^2, mDeriv ![1,
+1] f = 0 while iteratedFDeriv ℂ 2 f z ![e_0, e_0] = 2: D^σ is a mixed partial of multi-order σ, not
+the total derivative of order ‖σ‖ along one direction. -/
+example : mDeriv ![1, 1] (fun z : Fin 2 → ℂ ↦ z 0 ^ 2) = 0 ∧
+    ∀ z : Fin 2 → ℂ, iteratedFDeriv ℂ 2 (fun z : Fin 2 → ℂ ↦ z 0 ^ 2) z
+      ![Pi.single 0 1, Pi.single 0 1] = 2 := sorry
+
+/-- Division by `z_k - ζ` with bounds (Waldschmidt, Lemma 4.8, Step 2.4, `p = 1`). -/
+theorem exists_div_sub_single (f : (Fin n → ℂ) → ℂ) (hf : Differentiable ℂ f) (k : Fin n)
+    (ζ : ℂ) :
+    ∃ g : (Fin n → ℂ) → ℂ, Differentiable ℂ g ∧
+      (∀ z, f z = f (Function.update z k ζ) + (z k - ζ) * g z) ∧
+      (∀ r R M : ℝ, ‖ζ‖ ≤ r → r < R → (∀ z ∈ closedBall (0 : Fin n → ℂ) R, ‖f z‖ ≤ M) →
+        ∀ z ∈ closedBall (0 : Fin n → ℂ) R, ‖g z‖ ≤ 2 * M / (R - r)) ∧
+      (∀ (j : Fin n) (e : ℕ), (∀ z', ∃ P : ℂ[X], P.natDegree ≤ e ∧
+          ∀ w, f (Function.update z' j w) = P.eval w) →
+        ∀ z', ∃ P : ℂ[X], P.natDegree ≤ e ∧ ∀ w, g (Function.update z' j w) = P.eval w) := sorry
+
+/-- Division by `P(z_k)` with bounds (Waldschmidt, Lemma 4.8, case `m = n`). -/
+theorem exists_div_polynomial (P : ℂ[X]) (hP : P.Monic) {r R : ℝ} (hr : 0 < r)
+    (hR : 5 * r ≤ R) (hroots : ∀ ζ ∈ P.roots, ‖ζ‖ ≤ r) (k : Fin n) (f : (Fin n → ℂ) → ℂ)
+    (hf : Differentiable ℂ f) :
+    ∃ f₀ f₁ : (Fin n → ℂ) → ℂ, Differentiable ℂ f₀ ∧ Differentiable ℂ f₁ ∧
+      (∀ z, f z = f₀ z + f₁ z * P.eval (z k)) ∧
+      (∀ z', ∃ Q : ℂ[X], Q.degree < P.natDegree ∧ ∀ w, f₀ (Function.update z' k w) = Q.eval w) ∧
+      (∀ M : ℝ, (∀ z ∈ closedBall (0 : Fin n → ℂ) R, ‖f z‖ ≤ M) →
+        (∀ z ∈ closedBall (0 : Fin n → ℂ) R, ‖f₀ z‖ ≤ 3 ^ P.natDegree * M) ∧
+        ∀ z ∈ closedBall (0 : Fin n → ℂ) R, ‖f₁ z‖ ≤ (3 / R) ^ P.natDegree * M) ∧
+      ((∀ ζ ∈ P.roots, ∀ κ < P.rootMultiplicity ζ, ∀ z,
+          mDeriv (Pi.single k κ) f (Function.update z k ζ) = 0) → f₀ = 0) := sorry
+
+/-- Division by `P₁(z₁), …, Pₙ(zₙ)` with bounds (Waldschmidt, Lemma 4.8, case `m = 1`). -/
+theorem exists_div_cartesian (P : Fin n → ℂ[X]) (hP : ∀ i, (P i).Monic) {r R : ℝ} (hr : 0 < r)
+    (hR : 5 * r ≤ R) (hroots : ∀ i, ∀ ζ ∈ (P i).roots, ‖ζ‖ ≤ r) (f : (Fin n → ℂ) → ℂ)
+    (hf : Differentiable ℂ f) :
+    ∃ F : Option (Fin n) → (Fin n → ℂ) → ℂ, (∀ o, Differentiable ℂ (F o)) ∧
+      (∀ z, f z = F none z + ∑ i, F (some i) z * (P i).eval (z i)) ∧
+      (∀ (j : Fin n) (z' : Fin n → ℂ), ∃ Q : ℂ[X], Q.degree < (P j).natDegree ∧
+        ∀ w, F none (Function.update z' j w) = Q.eval w) ∧
+      (∀ M : ℝ, (∀ z ∈ closedBall (0 : Fin n → ℂ) R, ‖f z‖ ≤ M) →
+        (∀ z ∈ closedBall (0 : Fin n → ℂ) R,
+          ‖F none z‖ ≤ 9 ^ (n * Finset.univ.sup (fun i ↦ (P i).natDegree)) * M) ∧
+        ∀ i, ∀ z ∈ closedBall (0 : Fin n → ℂ) R, ‖F (some i) z‖ ≤
+          9 ^ (n * Finset.univ.sup (fun i ↦ (P i).natDegree)) * M / R ^ (P i).natDegree) ∧
+      ((∀ ζ : Fin n → ℂ, (∀ i, ζ i ∈ (P i).roots) → ∀ κ : Fin n → ℕ,
+          (∀ i, κ i < (P i).rootMultiplicity (ζ i)) → mDeriv κ f ζ = 0) → F none = 0) := sorry
+
+/-- Schwarz theorem for Cartesian products (Waldschmidt, Proposition 4.7). -/
+theorem norm_le_of_vanishing_cartesian (E : Fin n → Finset ℂ) {S₀ S₁ : ℕ}
+    (hE : ∀ i, (E i).card = S₁) {r R M : ℝ} (hr : 0 < r) (hEr : ∀ i, ∀ ζ ∈ E i, ‖ζ‖ ≤ r)
+    (hR : 18 ^ n * r ≤ R) (f : (Fin n → ℂ) → ℂ) (hf : Differentiable ℂ f)
+    (hvan : ∀ ξ : Fin n → ℂ, (∀ i, ξ i ∈ E i) → ∀ σ : Fin n → ℕ, (∀ i, σ i < S₀) →
+      mDeriv σ f ξ = 0)
+    (hM : ∀ z ∈ closedBall (0 : Fin n → ℂ) R, ‖f z‖ ≤ M) :
+    ∀ z ∈ closedBall (0 : Fin n → ℂ) r, ‖f z‖ ≤ M * (18 ^ n * r / R) ^ (S₀ * S₁) := sorry
+
+/-- Derivatives of `z^τ e^{(tx)·z}` at `sy` (Waldschmidt, Lemma 4.9). -/
+theorem mDeriv_monomial_mul_exp {d₁ ℓ₁ : ℕ} (x : Fin d₁ → Fin n → ℂ) (y : Fin ℓ₁ → Fin n → ℂ)
+    (τ σ : Fin n → ℕ) (t : Fin d₁ → ℤ) (s : Fin ℓ₁ → ℤ) (T S : ℝ)
+    (hT : 1 ≤ T) (hTt : ∑ i, (|t i| : ℝ) ≤ T) (hS : 1 ≤ S) (hSs : ∑ j, (|s j| : ℝ) ≤ S) :
+    ∃ P : MvPolynomial ((Fin n × Fin d₁) ⊕ (Fin n × Fin ℓ₁)) ℤ,
+      mDeriv σ (fun z ↦ (∏ ν, z ν ^ τ ν) * exp (∑ ν, (∑ i, (t i : ℂ) * x i ν) * z ν))
+          (fun ν ↦ ∑ j, (s j : ℂ) * y j ν) =
+        MvPolynomial.eval₂ (Int.castRingHom ℂ) (Sum.elim (fun p ↦ x p.2 p.1) (fun p ↦ y p.2 p.1)) P *
+          ∏ i, ∏ j, exp ((∑ ν, x i ν * y j ν) * ((t i : ℂ) * s j)) ∧
+      (∀ m ∈ P.support, ∑ v ∈ m.support.filter (fun v ↦ v.isLeft), m v ≤ ∑ ν, σ ν) ∧
+      (∀ m ∈ P.support, ∑ v ∈ m.support.filter (fun v ↦ v.isRight), m v ≤ ∑ ν, τ ν) ∧
+      ∑ m ∈ P.support, (|P.coeff m| : ℝ) ≤ T ^ (∑ ν, σ ν) * S ^ (∑ ν, τ ν) *
+        min ((1 + ((Finset.univ.sup τ : ℕ) : ℝ) / (T * S)) ^ (∑ ν, σ ν))
+          ((1 + ((Finset.univ.sup σ : ℕ) : ℝ) / (T * S)) ^ (∑ ν, τ ν)) := sorry
+
+/-- Thue-Siegel theorem for real linear inequalities (Waldschmidt, Lemma 4.11). -/
+theorem exists_int_vec_small_real {ν μ : ℕ} (v : Fin ν → Fin μ → ℝ) (U X ℓ : ℕ) (hU : 0 < U)
+    (hUv : ∀ j, ∑ i, |v i j| ≤ U) (hX : 0 < X) (hℓ : 0 < ℓ) (hcard : ℓ ^ μ < (X + 1) ^ ν) :
+    ∃ ξ : Fin ν → ℤ, ξ ≠ 0 ∧ (∀ i, |ξ i| ≤ X) ∧
+      ∀ j, |∑ i, v i j * ξ i| ≤ (U : ℝ) * X / ℓ := sorry
+
+/-- Small integer combinations of complex vectors (Waldschmidt, Lemma 4.12). -/
+theorem exists_int_vec_small_complex {ν μ : ℕ} (hν : 0 < ν) (u : Fin ν → Fin μ → ℂ) (X : ℕ) (hX : 0 < X)
+    (U V : ℝ) (hUpos : 0 < U) (hVpos : 0 < V)
+    (hU : ∀ j, ∑ i, ‖u i j‖ ≤ Real.exp U)
+    (h : (Real.sqrt 2 * X * Real.exp (U + V) + 1) ^ (2 * μ) ≤ ((X : ℝ) + 1) ^ ν) :
+    ∃ ξ : Fin ν → ℤ, ξ ≠ 0 ∧ (∀ i, |ξ i| ≤ X) ∧
+      ∀ j, ‖∑ i, u i j * ξ i‖ ≤ Real.exp (-V) := sorry
+
+/-- Cauchy's inequalities on polydiscs. -/
+theorem norm_mDeriv_le (f : (Fin n → ℂ) → ℂ) (hf : Differentiable ℂ f) {r M : ℝ} (hr : 0 < r)
+    (hM : ∀ z ∈ closedBall (0 : Fin n → ℂ) r, ‖f z‖ ≤ M) (σ : Fin n → ℕ) :
+    ‖mDeriv σ f 0‖ ≤ (∏ i, ((σ i).factorial : ℝ)) * M / r ^ (∑ i, σ i) ∧
+      ∀ ζ : Fin n → ℂ, 1 + ‖ζ‖ ≤ r →
+        ‖mDeriv σ f ζ‖ ≤ (∏ i, ((σ i).factorial : ℝ)) * M / (r - ‖ζ‖) ^ (∑ i, σ i) := sorry
+
+/-- Interpolation by the truncated Taylor expansion (Waldschmidt, Lemma 4.13, with `1 + T`). -/
+theorem norm_le_truncatedTaylor (F : (Fin n → ℂ) → ℂ) (hF : Differentiable ℂ F) {r R M : ℝ}
+    (hr : 0 < r) (hrR : r < R) (T : ℕ) (hT : 1 ≤ T)
+    (hM : ∀ z ∈ closedBall (0 : Fin n → ℂ) R, ‖F z‖ ≤ M) :
+    ∀ z ∈ closedBall (0 : Fin n → ℂ) r, ‖F z‖ ≤ (1 + T) * (r / R) ^ T * M +
+      ∑ τ ∈ Finset.univ.filter (fun τ : Fin n → Fin T ↦ ∑ i, (τ i : ℕ) < T),
+        ‖mDeriv (fun i ↦ (τ i : ℕ)) F 0‖ * r ^ (∑ i, (τ i : ℕ)) / ∏ i, ((τ i : ℕ).factorial : ℝ) :=
+  sorry
+
+/-- An integer combination of entire functions that is small on a polydisc
+(Waldschmidt, Proposition 4.10). -/
+theorem exists_auxiliary_small {L : ℕ} (hn : 1 ≤ n) (N U V R r : ℝ) (hN : 0 < N) (hU : 0 < U)
+    (hV : 0 < V) (hr : 0 < r) (φ : Fin L → (Fin n → ℂ) → ℂ) (hφ : ∀ l, Differentiable ℂ (φ l))
+    (hW : 12 * (n : ℝ) ^ 2 ≤ N + U + V) (hRr : Real.exp 1 ≤ R / r)
+    (hRr' : R / r ≤ Real.exp ((N + U + V) / 6))
+    (hφR : ∃ B : Fin L → ℝ, (∀ l, ∀ z ∈ closedBall (0 : Fin n → ℂ) R, ‖φ l z‖ ≤ B l) ∧
+      ∑ l, B l ≤ Real.exp U)
+    (hmain : (2 * (N + U + V)) ^ (n + 1) ≤ L * N * Real.log (R / r) ^ n) :
+    ∃ p : Fin L → ℤ, p ≠ 0 ∧ (∀ l, |(p l : ℝ)| ≤ Real.exp N) ∧
+      ∀ z ∈ closedBall (0 : Fin n → ℂ) r, ‖∑ l, (p l : ℂ) * φ l z‖ ≤ Real.exp (-V) := sorry
+
+/-- An exponential polynomial with distinct frequencies vanishes identically only if all its
+coefficients vanish. -/
+theorem eq_zero_of_sum_polynomial_mul_exp {r : ℕ} (w : Fin r → ℂ) (hw : Function.Injective w)
+    (p : Fin r → ℂ[X]) (h : ∀ s : ℂ, ∑ k, (p k).eval s * exp (w k * s) = 0) : p = 0 := sorry
+
+/-- The functions `z^τ e^{(tx)·z}` are linearly independent. -/
+theorem linearIndependent_monomial_exp {d₀ d₁ : ℕ} (hd : d₀ ≤ n) (x : Fin d₁ → Fin n → ℂ)
+    (hx : LinearIndependent ℚ x) :
+    LinearIndependent ℂ (fun (τt : (Fin d₀ → ℕ) × (Fin d₁ → ℕ)) (z : Fin n → ℂ) ↦
+      (∏ h, z (Fin.castLE hd h) ^ τt.1 h) * exp (∑ ν, (∑ i, (τt.2 i : ℂ) * x i ν) * z ν)) := sorry
+
+section SchneiderLang
+
+variable {d₀ d₁ : ℕ} (hd₀ : d₀ ≤ n) (x : Fin d₁ → Fin n → ℂ) (y : Fin n → Fin n → ℂ)
+  {K : Type*} [Field K] [NumberField K] (ι : K →+* ℂ)
+
+/-- Liouville lower bound, Waldschmidt §4.6 Step 2, (4.14). -/
+theorem schneiderLang_liouville_bound
+    (hK : (∀ h j, y j (Fin.castLE hd₀ h) ∈ Set.range ι) ∧
+      (∀ i j, exp (∑ ν, x i ν * y j ν) ∈ Set.range ι) ∧ ∀ i ν, x i ν ∈ Set.range ι) :
+    ∃ c₁ : ℝ, 1 ≤ c₁ ∧ ∀ (T₀ T₁ S₁ : ℕ) (N : ℝ)
+      (p : (Fin d₀ → Fin (T₀ + 1)) × (Fin d₁ → Fin (T₁ + 1)) → ℤ) (σ s : Fin n → ℕ),
+      2 ≤ T₀ → 2 ≤ T₁ → 0 < N →
+      (∀ l, |(p l : ℝ)| ≤ Real.exp N) → (∀ j, s j < S₁) →
+      mDeriv σ (fun z ↦ ∑ l, (p l : ℂ) * ((∏ h, z (Fin.castLE hd₀ h) ^ (l.1 h : ℕ)) *
+          exp (∑ ν, (∑ i, ((l.2 i : ℕ) : ℂ) * x i ν) * z ν))) (∑ j, (s j : ℂ) • y j) ≠ 0 →
+      -c₁ * (N + (∑ ν, σ ν) * Real.log T₁ + T₀ * Real.log (S₁ + ∑ ν, σ ν) + T₁ * S₁) ≤
+        Real.log ‖mDeriv σ (fun z ↦ ∑ l, (p l : ℂ) * ((∏ h, z (Fin.castLE hd₀ h) ^ (l.1 h : ℕ)) *
+          exp (∑ ν, (∑ i, ((l.2 i : ℕ) : ℂ) * x i ν) * z ν))) (∑ j, (s j : ℂ) • y j)‖ := sorry
+
+/-- Waldschmidt §4.6 Steps 3–4, with the uniform polydisc output and the
+large-`L` cutoff. `c₁` is a fixed witness of (4.14), chosen before the parameters.
+The larger `c₇` absorbs `log (n+1)` in the Cauchy/Liouville comparison; `c₈`
+also supplies the coefficient budget for the corrected total-order Step 5. -/
+theorem schneiderLang_exists_vanishing (hn : 1 ≤ n) (hd : n < d₀ + d₁)
+    (hK : (∀ h j, y j (Fin.castLE hd₀ h) ∈ Set.range ι) ∧
+      (∀ i j, exp (∑ ν, x i ν * y j ν) ∈ Set.range ι) ∧ ∀ i ν, x i ν ∈ Set.range ι)
+    (hx : LinearIndependent ℚ x) (hy : LinearIndependent ℂ y)
+    (c₁ : ℝ) (hc₁ : 1 ≤ c₁)
+    (hliouville : ∀ (T₀ T₁ S₁ : ℕ) (N : ℝ)
+      (p : (Fin d₀ → Fin (T₀ + 1)) × (Fin d₁ → Fin (T₁ + 1)) → ℤ) (σ s : Fin n → ℕ),
+      2 ≤ T₀ → 2 ≤ T₁ → 0 < N →
+      (∀ l, |(p l : ℝ)| ≤ Real.exp N) → (∀ j, s j < S₁) →
+      mDeriv σ (fun z ↦ ∑ l, (p l : ℂ) * ((∏ h, z (Fin.castLE hd₀ h) ^ (l.1 h : ℕ)) *
+          exp (∑ ν, (∑ i, ((l.2 i : ℕ) : ℂ) * x i ν) * z ν))) (∑ j, (s j : ℂ) • y j) ≠ 0 →
+      -c₁ * (N + (∑ ν, σ ν) * Real.log T₁ + T₀ * Real.log (S₁ + ∑ ν, σ ν) + T₁ * S₁) ≤
+        Real.log ‖mDeriv σ (fun z ↦ ∑ l, (p l : ℂ) * ((∏ h, z (Fin.castLE hd₀ h) ^ (l.1 h : ℕ)) *
+          exp (∑ ν, (∑ i, ((l.2 i : ℕ) : ℂ) * x i ν) * z ν))) (∑ j, (s j : ℂ) • y j)‖) :
+    ∃ c₂ c₃ c₄ c₅ c₆ c₇ c₈ : ℝ,
+      c₂ = (∑ j, ‖y j‖) + 2 ∧ c₄ = 1 / (2 * c₁) ∧
+      c₃ = c₄ ^ (1 / (n : ℝ)) * (6 : ℝ) ^ (-1 - 1 / (n : ℝ)) ∧
+      c₆ = c₂ * ((d₀ : ℝ) + d₁ + ∑ i, ∑ ν, ‖x i ν‖) ∧ c₅ = c₃ / c₆ ∧
+      0 < c₃ ∧ 0 < c₄ ∧ 0 < c₅ ∧ 0 < c₆ ∧
+      c₅⁻¹ ≤ c₇ ∧ (2 * c₁ / c₃) * ((n : ℝ) + 1 + Real.log (n + 1)) ≤ c₇ ∧
+      1 + 2 * n * c₃ ≤ c₈ ∧
+      ∀ (T₀ T₁ S₀ S₁ : ℕ) (E : ℝ),
+        2 ≤ T₀ → 2 ≤ T₁ → 2 ≤ S₀ → 2 ≤ S₁ → Real.exp 1 ≤ E →
+        let L : ℝ := ((T₀ + 1 : ℕ) : ℝ) ^ d₀ * ((T₁ + 1 : ℕ) : ℝ) ^ d₁
+        (6 : ℝ) ^ (2 * n + 2) * (n : ℝ) ^ (2 * n) * c₁ ≤ L →
+        T₀ * Real.log (S₁ * E) + T₁ * S₁ * E ≤ c₅ * L ^ (1 / (n : ℝ)) * Real.log E →
+        c₇ * (S₀ * Real.log (S₀ * T₁) + T₀ * Real.log (S₀ * S₁ * E) + T₁ * S₁ * E) <
+          L ^ (1 / (n : ℝ)) * Real.log E →
+        c₈ * L ^ (1 / (n : ℝ)) ≤ S₀ * S₁ →
+        let U : ℝ := c₃ * L ^ (1 / (n : ℝ)) * Real.log E
+        let N : ℝ := c₄ * U
+        ∃ p : (Fin d₀ → Fin (T₀ + 1)) × (Fin d₁ → Fin (T₁ + 1)) → ℤ,
+          let F : (Fin n → ℂ) → ℂ := fun z ↦ ∑ l, (p l : ℂ) *
+            ((∏ h, z (Fin.castLE hd₀ h) ^ (l.1 h : ℕ)) *
+              exp (∑ ν, (∑ i, ((l.2 i : ℕ) : ℂ) * x i ν) * z ν))
+          p ≠ 0 ∧ (∀ l, |(p l : ℝ)| ≤ Real.exp N) ∧ F ≠ 0 ∧
+          (∀ z ∈ closedBall (0 : Fin n → ℂ) (c₂ * S₁), ‖F z‖ ≤ Real.exp (-U)) ∧
+          (∀ σ t : Fin n → ℕ, (∀ ν, σ ν < S₀) → (∀ j, t j < S₁) →
+            mDeriv σ F (∑ j, (t j : ℂ) • y j) = 0) ∧
+          ∀ E' : ℝ, E ≤ E' → N ≤ (S₀ * S₁ / (2 * n)) * Real.log E' := sorry
+
+/-- Upper bound for the first nonvanishing derivative, Waldschmidt §4.6 Step 5 (corrected:
+vanishing measured by the total order `‖σ‖`, exponent `S₀' S₁ / (2n)`). -/
+theorem schneiderLang_upper_bound (hn : 1 ≤ n) (hy : LinearIndependent ℂ y) :
+    ∃ c₉ c₁₀ : ℝ, 0 < c₉ ∧ 0 < c₁₀ ∧ ∀ (T₀ T₁ S₁ S₀' : ℕ) (N E' : ℝ)
+      (p : (Fin d₀ → Fin (T₀ + 1)) × (Fin d₁ → Fin (T₁ + 1)) → ℤ) (σ0 s0 : Fin n → ℕ),
+      2 ≤ T₀ → 2 ≤ T₁ → 2 ≤ S₁ → 1 ≤ S₀' →
+      Real.exp 1 ≤ E' → (∀ l, |(p l : ℝ)| ≤ Real.exp N) →
+      N ≤ (S₀' * S₁ / (2 * n)) * Real.log E' →
+      (∀ σ s : Fin n → ℕ, ∑ ν, σ ν < S₀' → (∀ j, s j < S₁) →
+        mDeriv σ (fun z ↦ ∑ l, (p l : ℂ) * ((∏ h, z (Fin.castLE hd₀ h) ^ (l.1 h : ℕ)) *
+          exp (∑ ν, (∑ i, ((l.2 i : ℕ) : ℂ) * x i ν) * z ν))) (∑ j, (s j : ℂ) • y j) = 0) →
+      ∑ ν, σ0 ν = S₀' → (∀ j, s0 j < S₁) →
+      mDeriv σ0 (fun z ↦ ∑ l, (p l : ℂ) * ((∏ h, z (Fin.castLE hd₀ h) ^ (l.1 h : ℕ)) *
+        exp (∑ ν, (∑ i, ((l.2 i : ℕ) : ℂ) * x i ν) * z ν))) (∑ j, (s0 j : ℂ) • y j) ≠ 0 →
+      Real.log ‖mDeriv σ0 (fun z ↦ ∑ l, (p l : ℂ) * ((∏ h, z (Fin.castLE hd₀ h) ^ (l.1 h : ℕ)) *
+          exp (∑ ν, (∑ i, ((l.2 i : ℕ) : ℂ) * x i ν) * z ν))) (∑ j, (s0 j : ℂ) • y j)‖ ≤
+        -(S₀' * S₁ / (2 * n)) * Real.log E' + c₉ * S₀' * Real.log S₀' +
+          c₁₀ * (T₀ * Real.log (S₁ * E') + T₁ * S₁ * E') := sorry
+
+end SchneiderLang
+
+/-- The criterion of Schneider-Lang for `ℂ^{d₀} × (ℂ^×)^{d₁}` (Waldschmidt, Corollary 4.2). -/
+theorem schneiderLang_cartesian {d₀ d₁ : ℕ} (hd₀ : d₀ ≤ n) (hn : n < d₀ + d₁)
+    (x : Fin d₁ → Fin n → ℂ) (hxalg : ∀ i ν, IsAlgebraic ℚ (x i ν)) (hx : LinearIndependent ℚ x)
+    (y : Fin n → Fin n → ℂ) (hy : LinearIndependent ℂ y) :
+    ¬ ((∀ (h : Fin d₀) j, IsAlgebraic ℚ (y j (Fin.castLE hd₀ h))) ∧
+        ∀ i j, IsAlgebraic ℚ (exp (∑ ν, x i ν * y j ν))) := sorry
+
+/-- Waldschmidt, Corollary 4.3. -/
+theorem schneiderLang_homogeneous {d ℓ : ℕ} (x : Fin d → Fin n → ℂ)
+    (hxalg : ∀ i ν, IsAlgebraic ℚ (x i ν))
+    (hrank : n + 1 ≤ Module.finrank ℚ (Submodule.span ℚ (Set.range x)))
+    (y : Fin ℓ → Fin n → ℂ) (hy : Submodule.span ℂ (Set.range y) = ⊤) :
+    ∃ i j, (∑ ν, x i ν * y j ν) ∉ Transcendence.algebraicLogs := sorry
+
+/-- Waldschmidt, Corollary 4.4. -/
+theorem schneiderLang_inhomogeneous {d : ℕ} (hd : 0 < d) (x : Fin d → Fin d → ℂ)
+    (hxalg : ∀ i ν, IsAlgebraic ℚ (x i ν)) (hx : LinearIndependent ℚ x) (y : Fin d → Fin d → ℂ)
+    (hy : LinearIndependent ℂ y) (hy₁ : ∀ j, IsAlgebraic ℚ (y j ⟨0, hd⟩)) :
+    ∃ i j, (∑ ν, x i ν * y j ν) ∉ Transcendence.algebraicLogs := sorry
+
+/-- Bertrand-Masser (Waldschmidt, Theorem 4.5). -/
+theorem eq_zero_of_isAlgebraic_sum_basis_mul (K : IntermediateField ℚ ℂ) [FiniteDimensional ℚ K]
+    {d : ℕ} (b : Module.Basis (Fin d) ℚ K) (ℓ : Fin d → ℂ)
+    (hℓ : ∀ i, ℓ i ∈ Transcendence.algebraicLogs) (h : IsAlgebraic ℚ (∑ i, (b i : ℂ) * ℓ i)) :
+    ℓ = 0 := sorry
+
+end Baker
+
+namespace Transcendence
+
+/-- Baker's theorem (Evertse Theorem 5.1, Waldschmidt Theorem 1.6). -/
+theorem linearIndependent_cons_one_of_linearIndependent_rat {m : ℕ} (l : Fin m → ℂ)
+    (hl : ∀ i, l i ∈ algebraicLogs) (hind : LinearIndependent ℚ l) :
+    LinearIndependent (integralClosure ℚ ℂ) (Fin.cons 1 l : Fin (m + 1) → ℂ) := sorry
+
+/-- Evertse Theorem 4.19. -/
+theorem transcendental_sum_mul_of_linearIndependent {m : ℕ} (hm : 0 < m) (l : Fin m → ℂ)
+    (hl : ∀ i, l i ∈ algebraicLogs) (hind : LinearIndependent ℚ l) (β : Fin m → ℂ)
+    (hβ : ∀ i, IsAlgebraic ℚ (β i)) (hβ0 : β ≠ 0) :
+    Transcendental ℚ (∑ i, β i * l i) := sorry
+
+/-- Evertse Corollary 4.20. -/
+theorem transcendental_exp_sum_mul {m : ℕ} (l : Fin m → ℂ) (hl : ∀ i, l i ∈ algebraicLogs)
+    (hmul : ∀ k : Fin m → ℤ, ∏ i, exp (l i) ^ k i = 1 → k = 0) (β : Fin m → ℂ)
+    (hβ : ∀ i, IsAlgebraic ℚ (β i)) (hβq : ¬ ∀ i, ∃ q : ℚ, β i = q) :
+    Transcendental ℚ (exp (∑ i, β i * l i)) := sorry
+
+end Transcendence
+
+
+namespace LogarithmicForms
+
+open NumberField Transcendence
+
+/-- Waldschmidt's measure (DALAG Theorem 9.1 with `C(m) = 2^{m+25} m^{3m+9}`, Proposition 9.18);
+`β₀` is the constant term and `k = m - 1` indexes `λ_m`. -/
+theorem waldschmidt_measure {m : ℕ} (hm : 1 ≤ m) (l : Fin m → ℂ) (hl : ∀ j, l j ∈ algebraicLogs)
+    (hind : LinearIndependent ℚ l) (β₀ : ℂ) (β : Fin m → ℂ) (hβ₀ : IsAlgebraic ℚ β₀)
+    (hβ : ∀ j, IsAlgebraic ℚ (β j)) (hne : β₀ ≠ 0 ∨ β ≠ 0) (D : ℕ)
+    (hD : D = Module.finrank ℚ (IntermediateField.adjoin ℚ
+      (Set.range (fun j ↦ exp (l j)) ∪ Set.range β ∪ {β₀})))
+    (B E Estar : ℝ) (A : Fin m → ℝ) (hB : Real.exp 1 ≤ B) (hE : Real.exp 1 ≤ E)
+    (hEstar : Real.exp 1 ≤ Estar)
+    (hA : ∀ j, max (absLogHeight₁ (exp (l j))) (max (E * ‖l j‖ / D) (Real.log E / D)) ≤
+      Real.log (A j))
+    (hEs : max (Real.log E / D) (Real.log (D / Real.log E)) ≤ Real.log Estar) (hBE : Estar ≤ B)
+    (hcase : ((∀ j, D * Real.log (A j) / Real.log E ≤ B) ∧ absLogHeight₁ β₀ ≤ Real.log B ∧
+        ∀ j, absLogHeight₁ (β j) ≤ Real.log B) ∨
+      (β₀ = 0 ∧ (∀ j, ∃ b : ℤ, β j = b) ∧ β ⟨m - 1, by omega⟩ ≠ 0 ∧
+        ∀ j : Fin m, (j : ℕ) < m - 1 → (‖β ⟨m - 1, by omega⟩‖ / Real.log (A j) +
+          ‖β j‖ / Real.log (A ⟨m - 1, by omega⟩)) * Real.log E / D ≤ B)) :
+    β₀ + ∑ j, β j * l j ≠ 0 ∧
+      Real.exp (-(2 ^ (m + 25) * (m : ℝ) ^ (3 * m + 9)) * (D : ℝ) ^ (m + 2) * Real.log B *
+          (∏ j, Real.log (A j)) * Real.log Estar * Real.log E ^ (-((m : ℤ) + 1))) <
+        ‖β₀ + ∑ j, β j * l j‖ := sorry
+
+/-- Baker's lower bound (Evertse Theorem 5.2), with the absolute multiplicative height. -/
+theorem baker_lower_bound {m : ℕ} (l : Fin m → ℂ) (hl : ∀ j, l j ∈ algebraicLogs) (D : ℕ) :
+    ∃ C : ℝ, 0 < C ∧ ∀ (γ : ℂ) (β : Fin m → ℂ) (B : ℝ), IsAlgebraic ℚ γ →
+      (∀ i, IsAlgebraic ℚ (β i)) → (minpoly ℚ γ).natDegree ≤ D →
+      (∀ i, (minpoly ℚ (β i)).natDegree ≤ D) → 1 ≤ B → absMulHeight₁ γ ≤ B →
+      (∀ i, absMulHeight₁ (β i) ≤ B) → γ + ∑ i, β i * l i ≠ 0 →
+      (Real.exp 1 * B) ^ (-C) ≤ ‖γ + ∑ i, β i * l i‖ := sorry
+
+/-- Evertse Corollary 5.3. -/
+theorem baker_lower_bound_prod_sub_one {m : ℕ} (α : Fin m → ℂ) (hα : ∀ i, IsAlgebraic ℚ (α i))
+    (h0 : ∀ i, α i ≠ 0) :
+    ∃ C : ℝ, 0 < C ∧ ∀ b : Fin m → ℤ, ∏ i, α i ^ b i ≠ 1 →
+      (Real.exp 1 * ((Finset.univ.sup fun i ↦ (b i).natAbs : ℕ) : ℝ)) ^ (-C) ≤
+        ‖∏ i, α i ^ b i - 1‖ := sorry
+
+open Classical in
+/-- Matveev's Corollary 2.3 (Izv. Math. 64 (2000)); `κ = 1` for a real field, `2` otherwise. -/
+theorem matveev {n : ℕ} (hn : 1 ≤ n) {K : Type*} [Field K] [NumberField K] (ι : K →+* ℂ)
+    (α : Fin n → K) (l : Fin n → ℂ) (hl : ∀ j, exp (l j) = ι (α j)) (hl0 : ∀ j, l j ≠ 0)
+    (b : Fin n → ℤ) (hΛ : ∑ j, (b j : ℂ) * l j ≠ 0) (A : Fin n → ℝ)
+    (hA : ∀ j, max (Module.finrank ℚ K * absLogHeight₁ (α j)) (max ‖l j‖ 0.16) ≤ A j)
+    (κ : ℕ) (hκ : κ = if ∀ x : K, (ι x).im = 0 then 1 else 2) :
+    -(min ((1 / (κ : ℝ)) * (Real.exp 1 * n / 2) ^ κ * 30 ^ (n + 3) * (n : ℝ) ^ (3.5 : ℝ))
+          (2 ^ (6 * n + 20))) * (Module.finrank ℚ K : ℝ) ^ 2 * (∏ j, A j) *
+        Real.log (Real.exp 1 * Module.finrank ℚ K) *
+        Real.log (Real.exp 1 * ((Finset.univ.sup fun j ↦ (b j).natAbs : ℕ) : ℝ)) <
+      Real.log ‖∑ j, (b j : ℂ) * l j‖ := sorry
+
+/-- Evertse Theorem 5.4 (Matveev for rationals), with the factor `2/3` of the derivation. -/
+theorem matveev_rat {m : ℕ} (a : Fin m → ℚ) (ha : ∀ i, a i ≠ 0) (b : Fin m → ℤ)
+    (h : ∏ i, (a i : ℝ) ^ b i ≠ 1) :
+    2 / 3 * (Real.exp 1 * ((Finset.univ.sup fun i ↦ (b i).natAbs : ℕ) : ℝ)) ^
+        (-(Real.exp 1 / 2 * (m : ℝ) ^ (4.5 : ℝ) * 30 ^ (m + 3) *
+          ∏ i, max 1 (Real.log (max (a i).num.natAbs (a i).den)))) ≤
+      |∏ i, (a i : ℝ) ^ b i - 1| := sorry
+
+/-- Matveev for `α₁^{b₁} ⋯ αₙ^{bₙ} - 1` over a number field (Bugeaud-Mignotte-Siksek,
+Theorem 9.4); principal logarithms. -/
+theorem matveev_prod_sub_one {n : ℕ} (hn : 1 ≤ n) {K : Type*} [Field K] [NumberField K]
+    (ι : K →+* ℂ) (α : Fin n → K) (hα : ∀ j, α j ≠ 0) (b : Fin n → ℤ)
+    (hΛ : ∏ j, ι (α j) ^ b j ≠ 1) (A : Fin n → ℝ)
+    (hA : ∀ j, max (Module.finrank ℚ K * absLogHeight₁ (α j))
+      (max ‖Complex.log (ι (α j))‖ 0.16) ≤ A j) :
+    let D : ℝ := Module.finrank ℚ K
+    let B : ℝ := ((Finset.univ.sup fun j ↦ (b j).natAbs : ℕ) : ℝ)
+    (-(3 * 30 ^ (n + 4) * ((n : ℝ) + 1) ^ (5.5 : ℝ)) * D ^ 2 * (1 + Real.log D) *
+        (1 + Real.log (n * B)) * ∏ j, A j < Real.log ‖∏ j, ι (α j) ^ b j - 1‖) ∧
+      ((∀ x : K, (ι x).im = 0) →
+        -(1.4 * 30 ^ (n + 3) * (n : ℝ) ^ (4.5 : ℝ)) * D ^ 2 * (1 + Real.log D) *
+          (1 + Real.log B) * ∏ j, A j < Real.log ‖∏ j, ι (α j) ^ b j - 1‖) := sorry
+
+/-- Laurent-Mignotte-Nesterenko (Evertse Exercise 5.4). -/
+theorem laurent_mignotte_nesterenko (a₁ a₂ : ℚ) (h₁ : 0 < a₁) (h₂ : 0 < a₂) (h₁' : a₁ ≠ 1)
+    (h₂' : a₂ ≠ 1) (b₁ b₂ : ℤ) (hb₁ : b₁ ≠ 0) (hb₂ : b₂ ≠ 0)
+    (hΛ : b₁ * Real.log a₁ - b₂ * Real.log a₂ ≠ 0) :
+    let H₁ : ℝ := max a₁.num.natAbs a₁.den
+    let H₂ : ℝ := max a₂.num.natAbs a₂.den
+    (-24.34) * (max (Real.log (abs (b₁ : ℝ) / Real.log H₂ + abs (b₂ : ℝ) / Real.log H₁) + 0.14) 21) ^ 2 *
+        Real.log H₁ * Real.log H₂ ≤ Real.log (abs (b₁ * Real.log a₁ - b₂ * Real.log a₂)) := sorry
+
+/-- Yu's explicit `𝔭`-adic bound (Compositio 91 (1994), §0.1), stated through the `𝔭`-adic
+absolute value with base `N𝔭 = p^{f_𝔭}`: `ord_𝔭(Λ) < Φ log(dB)`. -/
+theorem yu {K : Type*} [Field K] [NumberField K] (ι : K →+* ℂ) {n : ℕ} (hn : 2 ≤ n)
+    (α : Fin n → K) (hα : ∀ j, α j ≠ 0) (hgen : IntermediateField.adjoin ℚ (Set.range α) = ⊤)
+    (p : ℕ) [Fact p.Prime] (v : IsDedekindDomain.HeightOneSpectrum (𝓞 K))
+    (hv : (p : 𝓞 K) ∈ v.asIdeal) (hb1 : 1 < ((Ideal.absNorm v.asIdeal : ℕ) : NNReal))
+    (b : Fin n → ℤ) (hΛ : ∏ j, α j ^ b j ≠ 1) (h : Fin n → ℝ)
+    (hh : ∀ j, max (absLogHeight₁ (α j))
+      (max (‖Complex.log (ι (α j))‖ / (10 * Module.finrank ℚ K)) (Real.log p)) ≤ h j) :
+    let d : ℝ := Module.finrank ℚ K
+    let B : ℝ := max ((Finset.univ.sup fun j ↦ (b j).natAbs : ℕ) : ℝ) 3
+    let h' : ℝ := max (Finset.univ.sup' ⟨⟨0, by omega⟩, Finset.mem_univ _⟩ h) 1
+    let Φ : ℝ := 22000 * (9.5 * (n + 1) * d / Real.sqrt (Real.log p)) ^ (2 * (n + 1)) *
+      ((Ideal.absNorm v.asIdeal : ℝ) - 1) * (∏ j, h j) * Real.log (10 * n * d * h')
+    ((Ideal.absNorm v.asIdeal : ℕ) : ℝ) ^ (-(Φ * Real.log (d * B))) <
+      v.adicAbv hb1 (∏ j, α j ^ b j - 1) := sorry
+
+/-- Evertse Exercise 5.9(i): lifting the exponent. -/
+theorem padicNorm_one_add_pow_sub_one (p : ℕ) [Fact p.Prime] (a : ℤ) (ha : a ≠ 0)
+    (hpa : (Odd p ∧ (p : ℤ) ∣ a) ∨ (p = 2 ∧ 4 ∣ a)) (b : ℕ) (hb : 1 ≤ b) :
+    padicNorm p ((1 + a) ^ b - 1) = padicNorm p (a * b) ∧
+      1 / |((a * b : ℤ) : ℚ)| ≤ padicNorm p (a * b) := sorry
+
+/-- The case `m = 1` of Yu's theorem for rationals, by lifting the exponent. -/
+theorem padicNorm_pow_sub_one_ge (p : ℕ) [Fact p.Prime] (a : ℚ) (ha : padicNorm p a = 1) :
+    ∃ c : ℚ, 0 < c ∧ c ≤ 1 ∧ ∀ b : ℤ, a ^ b ≠ 1 → c * padicNorm p b ≤ padicNorm p (a ^ b - 1) :=
+  sorry
+
+/-- Yu's `p`-adic lower bound for rationals (Evertse Theorem 5.16). -/
+theorem yu_rat (p : ℕ) [Fact p.Prime] {m : ℕ} (a : Fin m → ℚ) (ha : ∀ i, padicNorm p (a i) = 1) :
+    ∃ C : ℝ, 0 < C ∧ ∀ b : Fin m → ℤ, ∏ i, a i ^ b i ≠ 1 →
+      (Real.exp 1 * ((Finset.univ.sup fun i ↦ (b i).natAbs : ℕ) : ℝ)) ^ (-C) ≤
+        (padicNorm p (∏ i, a i ^ b i - 1) : ℝ) := sorry
+
+end LogarithmicForms
+
+/-! ## Layer 4: effective Diophantine equations -/
+
+
+open NumberField NumberField.Units NumberField.InfinitePlace
+open NumberField.Units.dirichletUnitTheorem
+open scoped NumberField Classical
+
+
+namespace DiophantineApproximation
+
+open TauCetiRoadmap.DiophantineApproximationAndTranscendence.DiophantineApproximation
+
+
+/-- The group `U_S` of rational `S`-units: nonzero rationals whose `p`-adic valuation vanishes
+for every prime `p ∉ S` (Evertse, §5.4). -/
+def ratSUnits (S : Finset ℕ) : Subgroup ℚˣ where
+  carrier := {x | ∀ p : ℕ, p.Prime → p ∉ S → padicValRat p (x : ℚ) = 0}
+  one_mem' := sorry
+  mul_mem' := sorry
+  inv_mem' := sorry
+
+/-- x ∈ U_S ↔ ∀ p prime, p ∉ S → padicValRat p x = 0. -/
+theorem mem_ratSUnits_iff {S : Finset ℕ} {x : ℚˣ} :
+    x ∈ ratSUnits S ↔ ∀ p : ℕ, p.Prime → p ∉ S → padicValRat p (x : ℚ) = 0 := sorry
+
+/-- Assuming every p∈S is prime: x ∈ U_S ↔ |num x| and den x lie in Nat.factoredNumbers S. -/
+theorem mem_ratSUnits_iff_num_den {S : Finset ℕ} (hS : ∀ p ∈ S, p.Prime) {x : ℚˣ} :
+    x ∈ ratSUnits S ↔
+      (x : ℚ).num.natAbs ∈ Nat.factoredNumbers S ∧ (x : ℚ).den ∈ Nat.factoredNumbers S := sorry
+
+/-- If S consists of primes: x ∈ U_S ↔ x = ε·∏_{p∈S} p^{z_p} for some sign ε and z ∈ ℤ^S (Evertse's definition). -/
+theorem mem_ratSUnits_iff_eq_sign_mul_prod {S : Finset ℕ} (hS : ∀ p ∈ S, p.Prime) {x : ℚˣ} :
+    x ∈ ratSUnits S ↔
+      ∃ (ε : ℤˣ) (z : S → ℤ), (x : ℚ) = (ε : ℚ) * ∏ p : S, ((p : ℕ) : ℚ) ^ z p := sorry
+
+/-- S ⊆ T implies U_S ≤ U_T. -/
+theorem ratSUnits_mono {S T : Finset ℕ} (h : S ⊆ T) : ratSUnits S ≤ ratSUnits T := sorry
+
+/-- x ∈ U_∅ ↔ x = ±1. -/
+theorem ratSUnits_empty (x : ℚˣ) : x ∈ ratSUnits ∅ ↔ (x : ℚ) = 1 ∨ (x : ℚ) = -1 := sorry
+
+/-- If S consists of primes, U_S ≃* ℤˣ × Multiplicative (S → ℤ) via x ↦ (sign x, (v_p(x))_p); in particular U_S is finitely generated of rank |S|. -/
+theorem ratSUnits_mulEquiv (S : Finset ℕ) (hS : ∀ p ∈ S, p.Prime) :
+    Nonempty (ratSUnits S ≃* (ℤˣ × Multiplicative (S → ℤ))) := sorry
+
+/-- If S consists of primes, U_S = Set.unit S' ℚ where S' ⊆ HeightOneSpectrum (𝓞 ℚ) corresponds to S under Rat.HeightOneSpectrum.primesEquiv. -/
+theorem ratSUnits_eq_setUnit (S : Finset ℕ) (hS : ∀ p ∈ S, p.Prime) (x : ℚˣ) :
+    x ∈ ratSUnits S ↔
+      x ∈ Set.unit ((Rat.HeightOneSpectrum.primesEquiv (R := 𝓞 ℚ)).symm ''
+        {p : Nat.Primes | (p : ℕ) ∈ S}) ℚ := sorry
+
+/-- Assuming every p∈S is prime: For x ∈ U_S: H(x) = max(∏_{p∈S} p^{max(v_p x,0)}, ∏_{p∈S} p^{max(−v_p x,0)}), with H = Height.mulHeight₁ = max(|num|, den). -/
+theorem mulHeight₁_ratSUnits (S : Finset ℕ) (hS : ∀ p ∈ S, p.Prime) (x : ℚˣ) (hx : x ∈ ratSUnits S) :
+    Height.mulHeight₁ (x : ℚ) =
+      max (∏ p ∈ S, (p : ℝ) ^ (padicValRat p (x : ℚ)).toNat)
+        (∏ p ∈ S, (p : ℝ) ^ (-padicValRat p (x : ℚ)).toNat) := sorry
+
+/-- Unit test `ratSUnits.test_twelve_fifths`: 12/5 ∈ U_{2,3,5}. -/
+example : (Units.mk0 (12 / 5 : ℚ) (by norm_num)) ∈ ratSUnits {2, 3, 5} := sorry
+
+/-- Unit test `ratSUnits.test_seven`: 7 ∉ U_{2,3}; a definition that only asks the primes of S to
+divide num·den (and forgets the other primes) accepts it. -/
+example : (Units.mk0 (7 : ℚ) (by norm_num)) ∉ ratSUnits {2, 3} := sorry
+
+/-- Unit test `ratSUnits.test_empty`: x ∈ U_∅ ↔ x = 1 ∨ x = −1; a definition as the positive
+S-smooth rationals would lose −1. -/
+example (x : ℚˣ) : x ∈ ratSUnits ∅ ↔ x = 1 ∨ x = -1 := sorry
+
+/-- Unit test `ratSUnits.test_setUnit`: For S consisting of primes, x ∈ U_S ↔ x ∈ Set.unit S' ℚ
+(Mathlib's S-units for 𝓞 ℚ ⊂ ℚ). -/
+example (S : Finset ℕ) (hS : ∀ p ∈ S, p.Prime) :
+    ∀ x : ℚˣ, x ∈ ratSUnits S ↔
+      x ∈ Set.unit ((Rat.HeightOneSpectrum.primesEquiv (R := 𝓞 ℚ)).symm ''
+        {p : Nat.Primes | (p : ℕ) ∈ S}) ℚ :=
+  fun x => ratSUnits_eq_setUnit S hS x
+
+/-- Unit test `ratSUnits.test_composite_boundary`: the valuation definition ignores
+composite support entries; applying the prime-only height product to `{2,4}` fails. -/
+example : (Units.mk0 (4 : ℚ) (by norm_num)) ∈ ratSUnits {2, 4} ∧
+    (padicValRat 2 (4 : ℚ) = 2) ∧ (padicValRat 4 (4 : ℚ) = 1) ∧
+    Height.mulHeight₁ (4 : ℚ) = 4 ∧
+    (∏ q ∈ ({2, 4} : Finset ℕ), (q : ℝ) ^ max (padicValRat q (4 : ℚ)) 0) = 16 := sorry
+
+
+/-- If `x ≤ a + b log x` then `x ≤ 2a + 2b (log (2b) - 1)`. -/
+theorem le_two_mul_add_of_le_add_mul_log {a b x : ℝ} (hb : 0 < b) (hx : 0 < x)
+    (h : x ≤ a + b * Real.log x) : x ≤ 2 * a + 2 * b * (Real.log (2 * b) - 1) := sorry
+
+/-- Conjugates share the minimal polynomial, hence degree, naive height and Mahler measure
+(the latter two are the Layer 0 definitions). -/
+theorem minpoly_embedding_eq {K : Type*} [Field K] [NumberField K] (σ : K →+* ℂ) (α : K) :
+    minpoly ℚ (σ α) = minpoly ℚ α := sorry
+
+/-- Every unit conjugate has absolute logarithm bounded by (d−1) times the logarithm of its house. -/
+theorem abs_log_norm_embedding_unit_le {K : Type*} [Field K] [NumberField K]
+    (u : (𝓞 K)ˣ) (σ : K →+* ℂ) :
+    |Real.log ‖σ (u : K)‖| ≤ (Module.finrank ℚ K - 1 : ℝ) * Real.log (house (u : K)) := sorry
+
+/-- In degree at least two a unit has a conjugate of modulus at most house^(−1/(d−1)). -/
+theorem exists_norm_embedding_le_house_rpow {K : Type*} [Field K] [NumberField K]
+    (hd : 2 ≤ Module.finrank ℚ K) (y : (𝓞 K)ˣ) :
+    ∃ σ : K →+* ℂ, ‖σ (y : K)‖ ≤
+      house (y : K) ^ (-(1 / ((Module.finrank ℚ K : ℝ) - 1))) := sorry
+
+/-- Evertse, Lemma 5.9: the exponents of a unit with respect to a family of maximal rank are
+bounded by an explicit multiple of the logarithm of its house. -/
+theorem abs_exponent_le_log_house {K : Type*} [Field K] [NumberField K]
+    {u : Fin (rank K) → (𝓞 K)ˣ} (hu : IsMaxRank u) (x ζ : (𝓞 K)ˣ) (hζ : ζ ∈ torsion K)
+    (e : Fin (rank K) → ℤ) (hx : x = ζ * ∏ j, u j ^ e j) (j : Fin (rank K)) :
+    |(e j : ℝ)| ≤ 2 * (Module.finrank ℚ K - 1 : ℝ) *
+      ‖((basisOfIsMaxRank hu).equivFunL : logSpace K →L[ℝ] (Fin (rank K) → ℝ))‖ *
+        Real.log (house (x : K)) := sorry
+
+/-- The log-unit lattice approximates every vector with error bounded by the sum of fundamental-unit log norms. -/
+theorem exists_zpow_prod_near_logEmbedding {K : Type*} [Field K] [NumberField K]
+    {u : Fin (rank K) → (𝓞 K)ˣ} (hu : IsMaxRank u) (v : logSpace K) :
+    ∃ n : Fin (rank K) → ℤ,
+      ‖v - logEmbedding K (Additive.ofMul (∏ j, u j ^ n j))‖ ≤
+        ∑ j, ‖logEmbedding K (Additive.ofMul (u j))‖ := sorry
+
+/-- Evertse, Lemma 5.10, with the explicit constant `rank K * ∑ ‖logEmbedding (u j)‖`. -/
+theorem exists_unit_mul_balanced {K : Type*} [Field K] [NumberField K]
+    {u : Fin (rank K) → (𝓞 K)ˣ} (hu : IsMaxRank u) {α : 𝓞 K} (hα : α ≠ 0) :
+    ∃ n : Fin (rank K) → ℤ, ∀ w : InfinitePlace K,
+      |Real.log (w (((∏ j, u j ^ n j : (𝓞 K)ˣ) : K) * (α : K))) -
+          Real.log |Algebra.norm ℚ (α : K)| / Module.finrank ℚ K| ≤
+        rank K * ∑ j, ‖logEmbedding K (Additive.ofMul (u j))‖ := sorry
+
+/-- The finite set of representatives of the divisors of `α` up to units (Evertse,
+Corollary 5.11): divisors whose house is at most `exp c₁ · |N(α)|^{1/d}`. -/
+def boundedDivisors {K : Type*} [Field K] [NumberField K]
+    (u : Fin (rank K) → (𝓞 K)ˣ) (α : 𝓞 K) : Set (𝓞 K) :=
+  {γ | γ ∣ α ∧ house (γ : K) ≤
+    Real.exp (rank K * ∑ j, ‖logEmbedding K (Additive.ofMul (u j))‖) *
+      |(Algebra.norm ℚ (α : K) : ℝ)| ^ (1 / (Module.finrank ℚ K : ℝ))}
+
+/-- γ ∈ D_u(α) ↔ γ ∣ α ∧ house γ ≤ e^{c₁(u)}|N(α)|^{1/d}. -/
+theorem mem_boundedDivisors {K : Type*} [Field K] [NumberField K]
+    (u : Fin (rank K) → (𝓞 K)ˣ) (α γ : 𝓞 K) :
+    γ ∈ boundedDivisors u α ↔ γ ∣ α ∧ house (γ : K) ≤
+      Real.exp (rank K * ∑ j, ‖logEmbedding K (Additive.ofMul (u j))‖) *
+        |(Algebra.norm ℚ (α : K) : ℝ)| ^ (1 / (Module.finrank ℚ K : ℝ)) := Iff.rfl
+
+/-- α ≠ 0 ⟹ D_u. -/
+theorem boundedDivisors_finite {K : Type*} [Field K] [NumberField K]
+    (u : Fin (rank K) → (𝓞 K)ˣ) {α : 𝓞 K} (hα : α ≠ 0) :
+    (boundedDivisors u α).Finite := sorry
+
+/-- u of maximal rank, α ≠ 0, β ∣ α ⟹ β = ε·γ with γ ∈ D_u(α), ε a unit. -/
+theorem exists_mem_boundedDivisors_of_dvd {K : Type*} [Field K] [NumberField K]
+    {u : Fin (rank K) → (𝓞 K)ˣ} (hu : IsMaxRank u) {α β : 𝓞 K} (hα : α ≠ 0) (hβ : β ∣ α) :
+    ∃ γ ∈ boundedDivisors u α, ∃ ε : (𝓞 K)ˣ, β = ε * γ := sorry
+
+/-- D_u(α) ⊆ {γ : γ ∣ α}. -/
+theorem boundedDivisors_subset_dvd {K : Type*} [Field K] [NumberField K]
+    (u : Fin (rank K) → (𝓞 K)ˣ) (α : 𝓞 K) : boundedDivisors u α ⊆ {γ | γ ∣ α} := sorry
+
+/-- α ≠ 0 ⟹ 1 ∈ D_u(α) (since |N(α)| ≥ 1 and house 1 = 1). -/
+theorem one_mem_boundedDivisors {K : Type*} [Field K] [NumberField K]
+    (u : Fin (rank K) → (𝓞 K)ˣ) {α : 𝓞 K} (hα : α ≠ 0) : 1 ∈ boundedDivisors u α := sorry
+
+/-- D_u(ηα) = D_u(α) for every unit η. -/
+theorem boundedDivisors_mul_unit {K : Type*} [Field K] [NumberField K]
+    (u : Fin (rank K) → (𝓞 K)ˣ) (α : 𝓞 K) (η : (𝓞 K)ˣ) :
+    boundedDivisors u ((η : 𝓞 K) * α) = boundedDivisors u α := sorry
+
+/-- Unit test `boundedDivisors.test_rat`: For K = ℚ and m ≠ 0: D(m) = {γ : γ ∣ m ∧ |γ| ≤ |m|}. -/
+example (u : Fin (rank ℚ) → (𝓞 ℚ)ˣ) (m : 𝓞 ℚ) (hm : m ≠ 0) :
+    boundedDivisors u m = {γ | γ ∣ m ∧ |((γ : ℚ) : ℝ)| ≤ |((m : ℚ) : ℝ)|} := sorry
+
+/-- Unit test `boundedDivisors.test_six`: For K = ℚ: D(6) = {±1, ±2, ±3, ±6}. -/
+example (u : Fin (rank ℚ) → (𝓞 ℚ)ˣ) :
+    ((↑) : 𝓞 ℚ → ℚ) '' boundedDivisors u 6 = {1, -1, 2, -2, 3, -3, 6, -6} := sorry
+
+/-- Unit test `boundedDivisors.test_unit`: If α is a unit then every element of D_u(α) is a unit. -/
+example {K : Type*} [Field K] [NumberField K] (u : Fin (rank K) → (𝓞 K)ˣ) (α : (𝓞 K)ˣ) :
+    ∀ γ ∈ boundedDivisors u (α : 𝓞 K), IsUnit γ := sorry
+
+/-- Unit test `boundedDivisors.test_all_divisors_infinite`: If rank K ≥ 1 then {γ : γ ∣ 1} (all
+units) is infinite; a definition without the house bound would not give a finite set. -/
+example {K : Type*} [Field K] [NumberField K] (hr : 1 ≤ rank K) :
+    {γ : 𝓞 K | γ ∣ 1}.Infinite := sorry
+
+/-- The contribution ord_p(n)log p to a positive integer’s logarithm is at most log n. -/
+theorem padicValNat_mul_log_le_log {p n : ℕ} (hp : p.Prime) (hn : n ≠ 0) :
+    (padicValNat p n : ℝ) * Real.log p ≤ Real.log n := sorry
+
+
+/-- A uniform logarithmic lower bound controls the difference of two unequal positive powers relative to their maximum. -/
+theorem max_pow_mul_le_abs_pow_sub_pow {a b : ℕ} (ha : 2 ≤ a) (hb : 2 ≤ b) {C₁ : ℝ}
+    (hC₁ : 0 < C₁)
+    (hLB : ∀ k l : ℤ, (b : ℝ) ^ k * (a : ℝ) ^ (-l) ≠ 1 →
+      (Real.exp 1 * max 1 (max |(k : ℝ)| |(l : ℝ)|)) ^ (-C₁) ≤
+        |(b : ℝ) ^ k * (a : ℝ) ^ (-l) - 1|)
+    {m n : ℕ} (hm : 0 < m) (hn : 0 < n) (hne : a ^ m ≠ b ^ n) :
+    max ((a : ℝ) ^ m) ((b : ℝ) ^ n) * (Real.exp 1 * max m n) ^ (-C₁) ≤
+      |(a : ℝ) ^ m - (b : ℝ) ^ n| := sorry
+
+/-- A logarithmic lower bound gives an explicit bound for exponents in a^m−b^n=k with k nonzero. -/
+theorem max_le_of_pow_sub_pow_eq {a b : ℕ} (ha : 2 ≤ a) (hb : 2 ≤ b) {C₁ : ℝ} (hC₁ : 0 < C₁)
+    (hLB : ∀ k l : ℤ, (b : ℝ) ^ k * (a : ℝ) ^ (-l) ≠ 1 →
+      (Real.exp 1 * max 1 (max |(k : ℝ)| |(l : ℝ)|)) ^ (-C₁) ≤
+        |(b : ℝ) ^ k * (a : ℝ) ^ (-l) - 1|)
+    {k : ℤ} (hk : k ≠ 0) {m n : ℕ} (hm : 0 < m) (hn : 0 < n)
+    (h : (a : ℤ) ^ m - (b : ℤ) ^ n = k) :
+    (max m n : ℝ) ≤ 2 * (Real.log |(k : ℝ)| + C₁) / Real.log 2 +
+      2 * (C₁ / Real.log 2) * (Real.log (2 * C₁ / Real.log 2) - 1) := sorry
+
+/-- Evertse, Corollary 5.5, made explicit with Matveev's constant (Theorem 5.4, `m = 2`). -/
+theorem pow_sub_pow_eq_finite {a b : ℕ} (ha : 2 ≤ a) (hb : 2 ≤ b) {k : ℤ} (hk : k ≠ 0) :
+    {mn : ℕ × ℕ | 0 < mn.1 ∧ 0 < mn.2 ∧ (a : ℤ) ^ mn.1 - (b : ℤ) ^ mn.2 = k}.Finite ∧
+      ∀ mn ∈ {mn : ℕ × ℕ | 0 < mn.1 ∧ 0 < mn.2 ∧ (a : ℤ) ^ mn.1 - (b : ℤ) ^ mn.2 = k},
+        let C₁ : ℝ := 1 + Real.exp 1 / 2 * 2 ^ (4.5 : ℝ) * 30 ^ 5 *
+          max 1 (Real.log a) * max 1 (Real.log b)
+        (max mn.1 mn.2 : ℝ) ≤ 2 * (Real.log |(k : ℝ)| + C₁) / Real.log 2 +
+          2 * (C₁ / Real.log 2) * (Real.log (2 * C₁ / Real.log 2) - 1) := sorry
+
+/-- Two distinct positive integers supported on a finite prime set satisfy the displayed relative gap bound. -/
+theorem sub_ge_of_mem_factoredNumbers (S : Finset ℕ) (hS : ∀ p ∈ S, p.Prime) {C : ℝ}
+    (hC : 0 < C)
+    (hLB : ∀ b : S → ℤ, (∏ p : S, ((p : ℕ) : ℝ) ^ b p) ≠ 1 →
+      (Real.exp 1 * ((Finset.univ.sup fun p => (b p).natAbs : ℕ) : ℝ)) ^ (-C) ≤
+        |∏ p : S, ((p : ℕ) : ℝ) ^ b p - 1|)
+    {x y : ℕ} (hx : x ∈ Nat.factoredNumbers S) (hy : y ∈ Nat.factoredNumbers S) (hxy : x < y) :
+    (y : ℝ) * (Real.exp 1 * Real.log y / Real.log 2) ^ (-C) ≤ y - x := sorry
+
+/-- Evertse, Theorem 5.6 (Tijdeman). -/
+theorem tijdeman_gap (S : Finset ℕ) (hS : ∀ p ∈ S, p.Prime) :
+    ∃ c₁ c₂ : ℝ, 0 < c₁ ∧ 0 < c₂ ∧ ∀ x ∈ Nat.factoredNumbers S, ∀ y ∈ Nat.factoredNumbers S,
+      x < y → (y : ℝ) / (c₁ * Real.log y ^ c₂) ≤ y - x := sorry
+
+
+/-- Uniform bounds for logarithmic forms give an explicit exponent bound for a rank-positive unit equation. -/
+theorem unitEquation_exponent_bound {K : Type*} [Field K] [NumberField K]
+    {u : Fin (rank K) → (𝓞 K)ˣ} (hu : IsMaxRank u) (hr : 1 ≤ rank K)
+    {α β : K} (hα : α ≠ 0) (hβ : β ≠ 0) {C' : ℝ} (hC' : 0 < C')
+    (hLB : ∀ (σ : K →+* ℂ) (γ : K), (∃ ζ ∈ torsion K, γ = α * (ζ : K) ∨ γ = β * (ζ : K)) →
+      ∀ e : Fin (rank K) → ℤ, σ (γ * ∏ j, ((u j : 𝓞 K) : K) ^ e j) ≠ 1 →
+        (Real.exp 1 * max 1 ((Finset.univ.sup fun j => (e j).natAbs : ℕ) : ℝ)) ^ (-C') ≤
+          ‖σ (γ * ∏ j, ((u j : 𝓞 K) : K) ^ e j) - 1‖)
+    (x y : (𝓞 K)ˣ) (hxy : α * (x : K) + β * (y : K) = 1)
+    (ζx ζy : (𝓞 K)ˣ) (hζx : ζx ∈ torsion K) (hζy : ζy ∈ torsion K)
+    (ex ey : Fin (rank K) → ℤ) (hx : x = ζx * ∏ j, u j ^ ex j) (hy : y = ζy * ∏ j, u j ^ ey j) :
+    let d : ℝ := Module.finrank ℚ K
+    let κ : ℝ := 2 * (d - 1) *
+      ‖((basisOfIsMaxRank hu).equivFunL : logSpace K →L[ℝ] (Fin (rank K) → ℝ))‖
+    let A : ℝ := κ * (d - 1) * (Real.log (max (house α) (house β)) + C')
+    let B : ℝ := κ * (d - 1) * C'
+    ((Finset.univ.sup fun j => max (ex j).natAbs (ey j).natAbs : ℕ) : ℝ) ≤
+      max 1 (2 * A + 2 * B * (Real.log (2 * B) - 1)) := sorry
+
+/-- Evertse, Theorem 5.12: the unit equation has finitely many solutions, with exponent vectors
+(with respect to `fundSystem K`) bounded by the bound of `unitEquation_exponent_bound` for a
+constant supplied by Corollary 5.3. -/
+theorem unitEquation_finite {K : Type*} [Field K] [NumberField K] {α β : K}
+    (hα : α ≠ 0) (hβ : β ≠ 0) :
+    {p : (𝓞 K)ˣ × (𝓞 K)ˣ | α * (p.1 : K) + β * (p.2 : K) = 1}.Finite := sorry
+
+
+/-- The three differences of roots give a vanishing three-term linear relation between the factors X−a_iY. -/
+theorem siegel_identity {R : Type*} [CommRing R] (a₁ a₂ a₃ X Y : R) :
+    (a₂ - a₃) * (X - a₁ * Y) + (a₃ - a₁) * (X - a₂ * Y) + (a₁ - a₂) * (X - a₃ * Y) = 0 := by
+  ring
+
+/-- Integral normalization multiplies the binary form value by the leading coefficient to power d−1. -/
+theorem thue_integralNormalization_iff {f : Polynomial ℤ} {d : ℕ} (hd : f.natDegree = d)
+    (hd1 : 1 ≤ d) (x y m : ℤ) :
+    MvPolynomial.eval ![x, y] (f.homogenize d) = m ↔
+      MvPolynomial.eval ![f.leadingCoeff * x, y] (f.integralNormalization.homogenize d) =
+        f.leadingCoeff ^ (d - 1) * m := sorry
+
+/-- A monic split polynomial’s binary form is the product of its integral linear factors. -/
+theorem thue_form_eq_prod {K : Type*} [Field K] [NumberField K] {g : Polynomial ℤ}
+    (hg : g.Monic) (θ : Fin g.natDegree → 𝓞 K)
+    (hθ : g.map (algebraMap ℤ (𝓞 K)) = ∏ i, (Polynomial.X - Polynomial.C (θ i))) (x y : ℤ) :
+    ((MvPolynomial.eval ![x, y] (g.homogenize g.natDegree) : ℤ) : 𝓞 K) =
+      ∏ i, ((x : 𝓞 K) - θ i * y) := sorry
+
+/-- Three distinct roots reduce a nonzero Thue equation to a unit equation, after choosing balanced divisors. -/
+theorem thue_reduction_to_unitEquation {K : Type*} [Field K] [NumberField K]
+    {g : Polynomial ℤ} (hg : g.Monic) (θ : Fin 3 → 𝓞 K) (hθ : Function.Injective θ)
+    (hroot : ∀ i, Polynomial.aeval (θ i : K) g = 0) {m : ℤ} (hm : m ≠ 0) {x y : ℤ}
+    (hxy : MvPolynomial.eval ![x, y] (g.homogenize g.natDegree) = m) :
+    ∃ μ : Fin 3 → 𝓞 K, (∀ i, μ i ∈ boundedDivisors (fundSystem K) (m : 𝓞 K)) ∧
+      ∃ ε : Fin 3 → (𝓞 K)ˣ, (∀ i, (x : 𝓞 K) - θ i * y = μ i * ε i) ∧
+        ((θ 1 - θ 2 : K) / (θ 1 - θ 0) * ((μ 0 : K) / μ 2)) * (((ε 0 / ε 2 : (𝓞 K)ˣ) : 𝓞 K) : K) +
+          ((θ 2 - θ 0 : K) / (θ 1 - θ 0) * ((μ 1 : K) / μ 2)) *
+            (((ε 1 / ε 2 : (𝓞 K)ˣ) : 𝓞 K) : K) = 1 := sorry
+
+/-- The relative height of a rational scalar in K is its rational height to power [K:ℚ]. -/
+theorem mulHeight₁_ratCast {K : Type*} [Field K] [NumberField K] (q : ℚ) :
+    Height.mulHeight₁ (q : K) = Height.mulHeight₁ q ^ Module.finrank ℚ K := sorry
+
+/-- An integral scalar’s relative logarithmic height is bounded by its degree times the nonnegative logarithm of its house. -/
+theorem logHeight₁_le_finrank_mul_log_house {K : Type*} [Field K] [NumberField K]
+    (α : 𝓞 K) :
+    Height.logHeight₁ (α : K) ≤ Module.finrank ℚ K * max 0 (Real.log (house (α : K))) := sorry
+
+/-- Evertse, Theorem 5.13 (Thue equations; the effective box is assembled from
+`thue_reduction_to_unitEquation`, `unitEquation_exponent_bound`, `mulHeight₁_ratCast` and
+`logHeight₁_le_finrank_mul_log_house`). -/
+theorem thueEquation_finite {f : Polynomial ℤ} {d : ℕ} (hd : f.natDegree = d)
+    (h3 : 3 ≤ (f.aroots ℂ).toFinset.card) {m : ℤ} (hm : m ≠ 0) :
+    {p : ℤ × ℤ | MvPolynomial.eval ![p.1, p.2] (f.homogenize d) = m}.Finite := sorry
+
+/-- The worked example `y³ = 2x(x − 3)` of Evertse §5.3 reduces to finitely many Thue
+equations `a u³ − 2 b v³ = 6`. -/
+theorem superelliptic_example_reduction {x y : ℤ} (h : y ^ 3 = 2 * x * (x - 3)) :
+    ∃ a b u v : ℤ,
+      (∃ k l : ℕ, k ≤ 2 ∧ l ≤ 2 ∧ (a = 2 ^ k * 3 ^ l ∨ a = -(2 ^ k * 3 ^ l))) ∧
+      (∃ k l : ℕ, k ≤ 2 ∧ l ≤ 2 ∧ (b = 2 ^ k * 3 ^ l ∨ b = -(2 ^ k * 3 ^ l))) ∧
+      2 * x = a * u ^ 3 ∧ x - 3 = b * v ^ 3 ∧ a * u ^ 3 - 2 * b * v ^ 3 = 6 := sorry
+
+/-- Evertse, Theorem 5.14 (Baker, 1968). -/
+theorem baker_superelliptic {f : Polynomial ℤ} (hsep : (f.map (Int.castRingHom ℚ)).Separable)
+    {n : ℕ} (hn : 2 ≤ n) (hdeg : (3 ≤ n → 2 ≤ f.natDegree) ∧ (n = 2 → 3 ≤ f.natDegree))
+    {b : ℤ} (hb : b ≠ 0) :
+    {p : ℤ × ℤ | b * p.2 ^ n = f.eval p.1}.Finite := sorry
+
+/-- Evertse, Theorem 5.15 (Schinzel–Tijdeman, 1976). -/
+theorem schinzel_tijdeman {f : Polynomial ℤ} (hsep : (f.map (Int.castRingHom ℚ)).Separable)
+    (hdeg : 2 ≤ f.natDegree) {b : ℤ} (hb : b ≠ 0) :
+    ∃ C : ℕ, ∀ (n : ℕ) (x y : ℤ), b * y ^ n = f.eval x → y ≠ 0 → y ≠ 1 → y ≠ -1 → n ≤ C :=
+  sorry
+
+/-- Tijdeman (1976), as reported in Evertse §5.1: Catalan's equation has effectively bounded
+solutions. -/
+theorem tijdeman_catalan :
+    ∃ C : ℕ, ∀ x y m n : ℕ, 2 ≤ x → 2 ≤ y → 2 ≤ m → 2 ≤ n →
+      (x : ℤ) ^ m - (y : ℤ) ^ n = 1 → x ^ m ≤ C ∧ y ^ n ≤ C := sorry
+
+
+/-- Evertse, Exercise 5.9 (i): the elementary one-term `p`-adic lower bound. -/
+theorem padicValInt_one_add_pow_sub_one {p : ℕ} [Fact p.Prime] {a : ℤ} (ha0 : a ≠ 0)
+    (ha : (p : ℤ) ∣ a) (h2 : p = 2 → (4 : ℤ) ∣ a) {b : ℕ} (hb : 0 < b) :
+    padicValInt p ((1 + a) ^ b - 1) = padicValInt p a + padicValNat p b := sorry
+
+/-- A rational S-unit equation gives a pairwise coprime integer triple supported on S. -/
+theorem sUnitEquation_coprime_reduction (S : Finset ℕ) (hS : ∀ p ∈ S, p.Prime) (x y : ℚˣ) (hx : x ∈ ratSUnits S)
+    (hy : y ∈ ratSUnits S) (hxy : (x : ℚ) + y = 1) :
+    ∃ u v w : ℤ, 0 < w ∧ u + v = w ∧ IsCoprime u v ∧ IsCoprime u w ∧ IsCoprime v w ∧
+      (x : ℚ) = u / w ∧ (y : ℚ) = v / w ∧ u.natAbs ∈ Nat.factoredNumbers S ∧
+      v.natAbs ∈ Nat.factoredNumbers S ∧ w.natAbs ∈ Nat.factoredNumbers S := sorry
+
+/-- Uniform prime-adic logarithmic bounds bound all valuations of solutions to the rational S-unit equation. -/
+theorem sUnitEquation_exponent_bound (S : Finset ℕ) (hS : ∀ p ∈ S, p.Prime) {C : ℝ}
+    (hC : 0 < C)
+    (hLB : ∀ p ∈ S, ∀ (ε : ℤˣ) (b : S → ℤ), (∀ hp : p ∈ S, b ⟨p, hp⟩ = 0) →
+      (ε : ℚ) * ∏ q : S, ((q : ℕ) : ℚ) ^ b q ≠ 1 →
+      (Real.exp 1 * max 1 ((Finset.univ.sup fun q => (b q).natAbs : ℕ) : ℝ)) ^ (-C) ≤
+        ((padicNorm p ((ε : ℚ) * ∏ q : S, ((q : ℕ) : ℚ) ^ b q - 1) : ℚ) : ℝ))
+    (x y : ℚˣ) (hx : x ∈ ratSUnits S) (hy : y ∈ ratSUnits S) (hxy : (x : ℚ) + y = 1)
+    (p : ℕ) :
+    (|padicValRat p (x : ℚ)| : ℝ) ≤ max 1 (2 * C / Real.log 2 * Real.log (2 * C / Real.log 2)) ∧
+      (|padicValRat p (y : ℚ)| : ℝ) ≤
+        max 1 (2 * C / Real.log 2 * Real.log (2 * C / Real.log 2)) := sorry
+
+/-- Evertse, Theorem 5.17. -/
+theorem sUnitEquation_finite (S : Finset ℕ) (hS : ∀ p ∈ S, p.Prime) :
+    {xy : ℚˣ × ℚˣ | xy.1 ∈ ratSUnits S ∧ xy.2 ∈ ratSUnits S ∧ (xy.1 : ℚ) + xy.2 = 1}.Finite :=
+  sorry
+
+
+/-- An S-unit has logarithmic product sum zero and height given by its positive local logarithms. -/
+theorem sum_log_place_eq_zero_of_sUnit {K : Type*} [Field K] [NumberField K]
+    (S : Finset (FinitePlace K)) {y : K} (hy : y ≠ 0) (hS : ∀ v : FinitePlace K, v ∉ S → v y = 1) :
+    (∑ w : InfinitePlace K, (w.mult : ℝ) * Real.log (w y)) + ∑ v ∈ S, Real.log (v y) = 0 ∧
+      Height.logHeight₁ y =
+        (∑ w : InfinitePlace K, max 0 ((w.mult : ℝ) * Real.log (w y))) +
+          ∑ v ∈ S, max 0 (Real.log (v y)) := sorry
+
+/-- Some infinite place or place of S has weighted logarithm at most minus the height divided by the number of places. -/
+theorem exists_small_place_of_sUnit {K : Type*} [Field K] [NumberField K]
+    (S : Finset (FinitePlace K)) {y : K} (hy : y ≠ 0) (hS : ∀ v : FinitePlace K, v ∉ S → v y = 1) :
+    (∃ w : InfinitePlace K, (w.mult : ℝ) * Real.log (w y) ≤
+        -Height.logHeight₁ y / (S.card + Fintype.card (InfinitePlace K))) ∨
+      (∃ v ∈ S, Real.log (v y) ≤
+        -Height.logHeight₁ y / (S.card + Fintype.card (InfinitePlace K))) := sorry
+
+/-- Multiplicative independence modulo torsion bounds every exponent by a fixed multiple of relative height. -/
+theorem exists_exponent_le_logHeight {K : Type*} [Field K] [NumberField K] {t : ℕ}
+    (γ : Fin t → K) (hγ0 : ∀ j, γ j ≠ 0)
+    (hind : ∀ z : Fin t → ℤ, (∃ n : ℕ, 0 < n ∧ (∏ j, γ j ^ z j) ^ n = 1) → z = 0) :
+    ∃ κ : ℝ, 0 < κ ∧ ∀ (ζ : K), (∃ n : ℕ, 0 < n ∧ ζ ^ n = 1) → ∀ (z : Fin t → ℤ) (j : Fin t),
+      |(z j : ℝ)| ≤ κ * Height.logHeight₁ (ζ * ∏ i, γ i ^ z i) := sorry
+
+/-- Archimedean and finite-place lower bounds give an explicit exponent bound for a finitely generated S-unit equation. -/
+theorem gyoryEquation_exponent_bound {K : Type*} [Field K] [NumberField K] {t : ℕ}
+    (γ : Fin t → K) (hγ0 : ∀ j, γ j ≠ 0) (S : Finset (FinitePlace K))
+    (hS : ∀ j, ∀ v : FinitePlace K, v ∉ S → v (γ j) = 1) {κ : ℝ} (hκ : 0 < κ)
+    (hκbound : ∀ (ζ : K), (∃ n : ℕ, 0 < n ∧ ζ ^ n = 1) → ∀ (z : Fin t → ℤ) (j : Fin t),
+      |(z j : ℝ)| ≤ κ * Height.logHeight₁ (ζ * ∏ i, γ i ^ z i))
+    {a b : K} (ha : a ≠ 0) (hb : b ≠ 0) {C : ℝ} (hC : 0 < C)
+    (hLBinf : ∀ (σ : K →+* ℂ) (c : K), (∃ ζ : K, (∃ n : ℕ, 0 < n ∧ ζ ^ n = 1) ∧
+        (c = a * ζ ∨ c = b * ζ)) → ∀ z : Fin t → ℤ, c * ∏ j, γ j ^ z j ≠ 1 →
+      (Real.exp 1 * max 1 ((Finset.univ.sup fun j => (z j).natAbs : ℕ) : ℝ)) ^ (-C) ≤
+        ‖σ (c * ∏ j, γ j ^ z j) - 1‖)
+    (hLBfin : ∀ v ∈ S, ∀ (c : K), (∃ ζ : K, (∃ n : ℕ, 0 < n ∧ ζ ^ n = 1) ∧
+        (c = a * ζ ∨ c = b * ζ)) → ∀ z : Fin t → ℤ, c * ∏ j, γ j ^ z j ≠ 1 →
+      (Real.exp 1 * max 1 ((Finset.univ.sup fun j => (z j).natAbs : ℕ) : ℝ)) ^ (-C) ≤
+        v (c * ∏ j, γ j ^ z j - 1))
+    (ζx ζy : K) (hζx : ∃ n : ℕ, 0 < n ∧ ζx ^ n = 1) (hζy : ∃ n : ℕ, 0 < n ∧ ζy ^ n = 1)
+    (zx zy : Fin t → ℤ)
+    (hxy : a * (ζx * ∏ j, γ j ^ zx j) + b * (ζy * ∏ j, γ j ^ zy j) = 1) :
+    let s : ℝ := S.card + Fintype.card (InfinitePlace K)
+    let M : ℝ := max (max (house a) (house b)) (⨆ v ∈ S, max (v a) (v b))
+    let A : ℝ := 2 * κ * s * (Real.log M + C)
+    let B : ℝ := 2 * κ * s * C
+    ((Finset.univ.sup fun j => max (zx j).natAbs (zy j).natAbs : ℕ) : ℝ) ≤
+      max 1 (2 * A + 2 * B * (Real.log (2 * B) - 1)) := sorry
+
+/-- Evertse, Theorem 5.18 (Győry, 1979). -/
+theorem gyoryEquation_finite {K : Type*} [Field K] [NumberField K] (Γ : Subgroup Kˣ)
+    (hΓ : Γ.FG) {a b : K} (ha : a ≠ 0) (hb : b ≠ 0) :
+    {p : Kˣ × Kˣ | p.1 ∈ Γ ∧ p.2 ∈ Γ ∧ a * (p.1 : K) + b * (p.2 : K) = 1}.Finite := sorry
+
+
+/-- Elements whose principal ideal divides (m) outside P have finitely many representatives modulo a finitely generated subgroup containing the units. -/
+theorem exists_mem_smul_of_dvd_sUnit {K : Type*} [Field K] [NumberField K]
+    (P : Finset (IsDedekindDomain.HeightOneSpectrum (𝓞 K))) {m : 𝓞 K} (hm : m ≠ 0) :
+    ∃ (M : Finset (𝓞 K)) (Γ : Subgroup Kˣ), Γ.FG ∧
+      (∀ ε : (𝓞 K)ˣ, Units.map (algebraMap (𝓞 K) K : 𝓞 K →* K) ε ∈ Γ) ∧
+      ∀ β : 𝓞 K, β ≠ 0 →
+        (∀ v : IsDedekindDomain.HeightOneSpectrum (𝓞 K), v ∉ P →
+          v.intValuation m ≤ v.intValuation β) →
+        ∃ μ ∈ M, ∃ g ∈ Γ, (β : K) = μ * (g : K) := sorry
+
+/-- A binary form with at least three distinct complex roots has finitely many primitive Thue–Mahler solutions for nonzero right-hand coefficient. -/
+theorem thueMahler_finite {f : Polynomial ℤ} {d : ℕ} (hd : f.natDegree = d)
+    (h3 : 3 ≤ (f.aroots ℂ).toFinset.card) {m : ℤ} (hm : m ≠ 0) (S : Finset ℕ)
+    (hS : ∀ p ∈ S, p.Prime) :
+    {p : ℤ × ℤ × (S → ℕ) | IsCoprime p.1 p.2.1 ∧
+      MvPolynomial.eval ![p.1, p.2.1] (f.homogenize d) = m * ∏ q : S, (q : ℤ) ^ p.2.2 q}.Finite :=
+  sorry
+
+end DiophantineApproximation
+
+/-! ## Layer 5: special functions and functional transcendence -/
+
+
+open scoped RatFunc LaurentSeries Classical
+set_option synthInstance.maxHeartbeats 100000
+open PowerSeries
+
+
+namespace DiophantineApproximation
+
+open TauCetiRoadmap.DiophantineApproximationAndTranscendence.DiophantineApproximation
+
+/-- The algebraic numbers inside `ℂ`, as a subfield. -/
+abbrev Qbar : Subfield ℂ := (algebraicClosure ℚ ℂ).toSubfield
+
+
+/-- Cauchy's theorem for linear systems with holomorphic coefficients on a disc. -/
+theorem existsUnique_analytic_solution_linearSystem {n : ℕ} (A : Matrix (Fin n) (Fin n) (ℂ → ℂ))
+    (z₀ : ℂ) (r : ℝ) (hr : 0 < r)
+    (hA : ∀ i j, AnalyticOnNhd ℂ (A i j) (Metric.ball z₀ r)) (y₀ : Fin n → ℂ) :
+    ∃ y : Fin n → ℂ → ℂ,
+      ((∀ i, AnalyticOnNhd ℂ (y i) (Metric.ball z₀ r)) ∧ (∀ i, y i z₀ = y₀ i) ∧
+        ∀ z ∈ Metric.ball z₀ r, ∀ i, deriv (y i) z = ∑ j, A i j z * y j z) ∧
+      ∀ y' : Fin n → ℂ → ℂ,
+        (∀ i, AnalyticOnNhd ℂ (y' i) (Metric.ball z₀ r)) → (∀ i, y' i z₀ = y₀ i) →
+        (∀ z ∈ Metric.ball z₀ r, ∀ i, deriv (y' i) z = ∑ j, A i j z * y' j z) →
+        ∀ i, Set.EqOn (y i) (y' i) (Metric.ball z₀ r) := sorry
+
+/-- Kähler differentials of a finitely generated extension in characteristic zero. -/
+theorem rank_kaehlerDifferential_eq_trdeg (C E : Type*) [Field C] [Field E] [Algebra C E]
+    [CharZero C] [Algebra.EssFiniteType C E] :
+    Module.rank E (Ω[E⁄C]) = Algebra.trdeg C E := sorry
+
+/-- Fibres of a torsion-free finitely generated family over the affine line. -/
+theorem ringKrullDim_quotient_add_one_eq (K : Type*) [Field K] (A : Type*) [CommRing A] [IsDomain A]
+    [Algebra (Polynomial K) A] [Algebra.FiniteType (Polynomial K) A]
+    [Module.IsTorsionFree (Polynomial K) A] (ξ : K)
+    (h : Ideal.span {algebraMap (Polynomial K) A (Polynomial.X - Polynomial.C ξ)} ≠ ⊤) :
+    ringKrullDim (A ⧸ Ideal.span {algebraMap (Polynomial K) A (Polynomial.X - Polynomial.C ξ)}) + 1 =
+      ringKrullDim A := sorry
+
+
+/-- `f` is D-finite (holonomic) over the subfield `k ⊆ ℂ`: it satisfies a nonzero linear
+differential equation with polynomial coefficients in `k[z]`. -/
+def IsDFinite (k : Subfield ℂ) (f : PowerSeries ℂ) : Prop :=
+  ∃ (n : ℕ) (p : Fin (n + 1) → Polynomial ℂ), (∀ i m, (p i).coeff m ∈ k) ∧
+    p (Fin.last n) ≠ 0 ∧ ∑ i, (p i : PowerSeries ℂ) * (⇑(PowerSeries.derivative ℂ))^[i] f = 0
+
+namespace IsDFinite
+
+/-- Sums of D-finite series are D-finite. -/
+theorem add {k : Subfield ℂ} {f g : PowerSeries ℂ} (hf : IsDFinite k f)
+    (hg : IsDFinite k g) : IsDFinite k (f + g) := sorry
+
+/-- Products of D-finite series over the same subfield are D-finite. -/
+theorem mul {k : Subfield ℂ} {f g : PowerSeries ℂ} (hf : IsDFinite k f)
+    (hg : IsDFinite k g) : IsDFinite k (f * g) := sorry
+
+/-- The derivative of a D-finite series is D-finite. -/
+theorem derivative {k : Subfield ℂ} {f : PowerSeries ℂ} (hf : IsDFinite k f) :
+    IsDFinite k (PowerSeries.derivative ℂ f) := sorry
+
+/-- D-finiteness over `k` implies D-finiteness over any larger subfield `k′`. -/
+theorem mono {k k' : Subfield ℂ} (h : k ≤ k') {f : PowerSeries ℂ}
+    (hf : IsDFinite k f) : IsDFinite k' f := sorry
+
+end IsDFinite
+
+/-- A polynomial with coefficients in k is D-finite over k. -/
+theorem isDFinite_polynomial {k : Subfield ℂ} (p : Polynomial ℂ) (hp : ∀ m, p.coeff m ∈ k) :
+    IsDFinite k (p : PowerSeries ℂ) := sorry
+
+/-- For f with coefficients in k: D-finite over k iff the coefficient sequence is P-recursive with polynomial coefficients in k[X]. -/
+theorem isDFinite_iff_pRecursive {k : Subfield ℂ} {f : PowerSeries ℂ}
+    (hf : ∀ m, coeff m f ∈ k) :
+    IsDFinite k f ↔ ∃ (r : ℕ) (q : Fin (r + 1) → Polynomial ℂ), (∀ i m, (q i).coeff m ∈ k) ∧
+      q (Fin.last r) ≠ 0 ∧ ∀ n : ℕ, ∑ i : Fin (r + 1), (q i).eval (n : ℂ) * coeff (n + i) f = 0 :=
+  sorry
+
+/-- Unit test `IsDFinite.test_exp`: PowerSeries.exp ℂ is D-finite over ℚ (f′ − f = 0). -/
+example : IsDFinite ⊥ (PowerSeries.exp ℂ) := sorry
+
+/-- Unit test `IsDFinite.test_polynomial`: Every polynomial with coefficients in Q̄ is D-finite over
+Q̄ (p f′ − p′ f = 0). -/
+example (p : Polynomial ℂ) (hp : ∀ m, p.coeff m ∈ Qbar) : IsDFinite Qbar (p : PowerSeries ℂ) :=
+  isDFinite_polynomial p hp
+
+/-- Unit test `IsDFinite.test_geometric`: Σ zⁿ is D-finite over ℚ ((1 − z) f′ − f = 0). -/
+example : IsDFinite ⊥ (PowerSeries.mk fun _ => (1 : ℂ)) := sorry
+
+/-- Unit test `IsDFinite.test_lacunary`: Σ z^{2^n} is not D-finite even over ℂ; a definition
+allowing the coefficients p_i to be arbitrary power series (rather than polynomials) would accept
+it. -/
+example : ¬ IsDFinite ⊤ (PowerSeries.mk fun m => if ∃ k : ℕ, m = 2 ^ k then (1 : ℂ) else 0) :=
+  sorry
+
+/-- The order of the minimal differential equation of a D-finite power series. -/
+def dfiniteOrder (k : Subfield ℂ) (f : PowerSeries ℂ) (hf : IsDFinite k f) : ℕ := Nat.find hf
+
+/-- A point `ξ` is a singular point of the minimal equation of `f` if the leading coefficient
+of every minimal-order equation vanishes at `ξ`. -/
+def IsMinimalSingularPoint (k : Subfield ℂ) (f : PowerSeries ℂ) (hf : IsDFinite k f)
+    (ξ : ℂ) : Prop :=
+  ∀ p : Fin (dfiniteOrder k f hf + 1) → Polynomial ℂ, (∀ i m, (p i).coeff m ∈ k) →
+    p (Fin.last _) ≠ 0 → ∑ i, (p i : PowerSeries ℂ) * (⇑(PowerSeries.derivative ℂ))^[i] f = 0 →
+      (p (Fin.last _)).eval ξ = 0
+
+/-- There is an equation of order dfiniteOrder. -/
+theorem exists_minimal_equation (k : Subfield ℂ) (f : PowerSeries ℂ) (hf : IsDFinite k f) :
+    ∃ p : Fin (dfiniteOrder k f hf + 1) → Polynomial ℂ, (∀ i m, (p i).coeff m ∈ k) ∧
+      p (Fin.last _) ≠ 0 ∧ ∑ i, (p i : PowerSeries ℂ) * (⇑(PowerSeries.derivative ℂ))^[i] f = 0 := sorry
+
+/-- Every equation has order ≥ dfiniteOrder. -/
+theorem dfiniteOrder_le (k : Subfield ℂ) (f : PowerSeries ℂ) (hf : IsDFinite k f) {n : ℕ}
+    (p : Fin (n + 1) → Polynomial ℂ) (hk : ∀ i m, (p i).coeff m ∈ k) (hp : p (Fin.last n) ≠ 0)
+    (heq : ∑ i, (p i : PowerSeries ℂ) * (⇑(PowerSeries.derivative ℂ))^[i] f = 0) :
+    dfiniteOrder k f hf ≤ n := sorry
+
+/-- For coefficient tuples p,p′ over the same field k, both with nonzero leading coefficients and annihilating f at the minimal order ord_k(f), one has p′_n p_i = p_n p′_i for all i. The coefficient-field hypotheses are essential. -/
+theorem minimal_equation_unique (k : Subfield ℂ) (f : PowerSeries ℂ) (hf : IsDFinite k f)
+    (p p' : Fin (dfiniteOrder k f hf + 1) → Polynomial ℂ)
+    (hpk : ∀ i m, (p i).coeff m ∈ k)
+    (hpk' : ∀ i m, (p' i).coeff m ∈ k)
+    (hplead : p (Fin.last _) ≠ 0) (hplead' : p' (Fin.last _) ≠ 0)
+    (hp : ∑ i, (p i : PowerSeries ℂ) * (⇑(PowerSeries.derivative ℂ))^[i] f = 0)
+    (hp' : ∑ i, (p' i : PowerSeries ℂ) * (⇑(PowerSeries.derivative ℂ))^[i] f = 0) :
+    ∀ i, p' (Fin.last _) * p i = p (Fin.last _) * p' i := sorry
+
+/-- dfiniteOrder = 0 iff f = 0. -/
+theorem dfiniteOrder_eq_zero_iff (k : Subfield ℂ) (f : PowerSeries ℂ) (hf : IsDFinite k f) :
+    dfiniteOrder k f hf = 0 ↔ f = 0 := sorry
+
+/-- Unit test `dfiniteOrder.test_exp`: exp has minimal order 1. -/
+example (h : IsDFinite ⊥ (PowerSeries.exp ℂ)) : dfiniteOrder ⊥ (PowerSeries.exp ℂ) h = 1 := sorry
+
+/-- Unit test `dfiniteOrder.test_apparent`: (z − 1)eᶻ has order 1 and 1 is a singular point of its
+minimal equation (an apparent one). -/
+example (h : IsDFinite ⊥ ((Polynomial.X - 1 : Polynomial ℂ) * PowerSeries.exp ℂ)) :
+    dfiniteOrder ⊥ _ h = 1 ∧ IsMinimalSingularPoint ⊥ _ h 1 := sorry
+
+/-- Unit test `dfiniteOrder.test_zero`: The zero series has order 0. -/
+example (h : IsDFinite ⊥ (0 : PowerSeries ℂ)) : dfiniteOrder ⊥ 0 h = 0 := sorry
+
+/-- Unit test `dfiniteOrder.test_no_singularity_exp`: exp has no finite singular point; a definition
+of 'singular point' using an arbitrary (non-minimal) equation such as (z − 1)(f′ − f) = 0 would
+wrongly report z = 1. -/
+example (h : IsDFinite ⊥ (PowerSeries.exp ℂ)) (ξ : ℂ) :
+    ¬ IsMinimalSingularPoint ⊥ (PowerSeries.exp ℂ) h ξ := sorry
+
+
+/-- The power series `∑ a n zⁿ / n!`. -/
+def ePowerSeries (a : ℕ → ℂ) : PowerSeries ℂ := PowerSeries.mk fun n => a n / n.factorial
+
+/-- The entire function `z ↦ ∑ a n zⁿ / n!`. -/
+def eFun (a : ℕ → ℂ) (z : ℂ) : ℂ := ∑' n, a n * z ^ n / n.factorial
+
+/-- Siegel's E-functions (in the geometric normalisation of Shidlovskii, André and Beukers):
+algebraic coefficients, a linear differential equation over `Q̄(z)`, and coefficients whose
+conjugates and common denominators grow at most geometrically. -/
+structure IsEFunction (a : ℕ → ℂ) : Prop where
+  isAlgebraic : ∀ n, IsAlgebraic ℚ (a n)
+  isDFinite : IsDFinite Qbar (ePowerSeries a)
+  size_le : ∃ C : ℝ, 0 < C ∧ ∀ n, ∀ z ∈ (minpoly ℚ (a n)).aroots ℂ, ‖z‖ ≤ C ^ (n + 1)
+  den_le : ∃ D : ℝ, 0 < D ∧ ∃ d : ℕ → ℕ, ∀ n, 1 ≤ d n ∧ (d n : ℝ) ≤ D ^ (n + 1) ∧
+    ∀ m ≤ n, IsIntegral ℤ ((d n : ℂ) * a m)
+
+/-- The Hurwitz (binomial) product of coefficient sequences: `ePowerSeries (hurwitzMul a b)` is
+the product of the two power series. -/
+def hurwitzMul (a b : ℕ → ℂ) (n : ℕ) : ℂ := ∑ k ∈ Finset.range (n + 1), (n.choose k : ℂ) * a k * b (n - k)
+
+/-- ePowerSeries (hurwitzMul a b) = ePowerSeries a * ePowerSeries b. -/
+theorem ePowerSeries_hurwitzMul (a b : ℕ → ℂ) :
+    ePowerSeries (hurwitzMul a b) = ePowerSeries a * ePowerSeries b := sorry
+
+namespace IsEFunction
+
+/-- Sums of E-functions are E-functions. -/
+theorem add {a b : ℕ → ℂ} (ha : IsEFunction a) (hb : IsEFunction b) :
+    IsEFunction (a + b) := sorry
+
+/-- Products of E-functions are E-functions. -/
+theorem hurwitzMul {a b : ℕ → ℂ} (ha : IsEFunction a) (hb : IsEFunction b) :
+    IsEFunction (DiophantineApproximation.hurwitzMul a b) := sorry
+
+/-- The derivative (shifted coefficients) of an E-function is an E-function. -/
+theorem shift {a : ℕ → ℂ} (ha : IsEFunction a) : IsEFunction (fun n => a (n + 1)) :=
+  sorry
+
+/-- An E-function is entire. -/
+theorem differentiable {a : ℕ → ℂ} (ha : IsEFunction a) :
+    Differentiable ℂ (eFun a) := sorry
+
+/-- The series `∑ aₙ zⁿ / n!` converges to `eFun a z` for every `z`. -/
+theorem hasSum {a : ℕ → ℂ} (ha : IsEFunction a) (z : ℂ) :
+    HasSum (fun n => a n * z ^ n / n.factorial) (eFun a z) := sorry
+
+/-- Applying a ring automorphism `σ` of `ℂ` to the coefficients gives an E-function (the Galois
+conjugate `f^σ`). -/
+theorem map_ringEquiv {a : ℕ → ℂ} (ha : IsEFunction a) (σ : ℂ ≃+* ℂ) :
+    IsEFunction fun n => σ (a n) := sorry
+
+/-- All coefficients of an E-function lie in one number field. -/
+theorem exists_numberField {a : ℕ → ℂ} (ha : IsEFunction a) :
+    ∃ K : IntermediateField ℚ ℂ, FiniteDimensional ℚ K ∧ ∀ n, a n ∈ K := sorry
+
+end IsEFunction
+
+/-- Unit test `IsEFunction.test_exp`: The constant sequence 1 (the exponential) is an E-function. -/
+example : IsEFunction fun _ => 1 := sorry
+
+/-- Unit test `IsEFunction.test_linear_factor`: a_n = n − 1 ((z − 1)eᶻ) is an E-function. -/
+example : IsEFunction fun n => (n : ℂ) - 1 := sorry
+
+/-- Unit test `IsEFunction.test_exp_sq`: e^{z²} (a_{2k} = (2k)!/k!, a_{odd} = 0) is not an
+E-function in this normalisation; Siegel's (n!)^ε definition would also reject it, but a definition
+bounding |a_n/n!| instead of |a_n| would accept it. -/
+example : ¬ IsEFunction fun n => if Even n then ((n.factorial : ℂ) / (n / 2).factorial) else 0 :=
+  sorry
+
+/-- Unit test `IsEFunction.test_geometric`: a_n = n! (the series 1/(1 − z)) is not an E-function;
+forgetting the factorial normalisation would accept it. -/
+example : ¬ IsEFunction fun n => (n.factorial : ℂ) := sorry
+
+/-- Siegel's G-functions: `∑ a n zⁿ` with the same arithmetic conditions (no factorials). -/
+structure IsGFunction (a : ℕ → ℂ) : Prop where
+  isAlgebraic : ∀ n, IsAlgebraic ℚ (a n)
+  isDFinite : IsDFinite Qbar (PowerSeries.mk a)
+  size_le : ∃ C : ℝ, 0 < C ∧ ∀ n, ∀ z ∈ (minpoly ℚ (a n)).aroots ℂ, ‖z‖ ≤ C ^ (n + 1)
+  den_le : ∃ D : ℝ, 0 < D ∧ ∃ d : ℕ → ℕ, ∀ n, 1 ≤ d n ∧ (d n : ℝ) ≤ D ^ (n + 1) ∧
+    ∀ m ≤ n, IsIntegral ℤ ((d n : ℂ) * a m)
+
+/-- IsGFunction a ↔ IsEFunction a (Borel transform). -/
+theorem isGFunction_iff_isEFunction (a : ℕ → ℂ) :
+    IsGFunction a ↔ IsEFunction a := sorry
+
+namespace IsGFunction
+
+/-- Sums of G-functions are G-functions. -/
+theorem add {a b : ℕ → ℂ} (ha : IsGFunction a) (hb : IsGFunction b) :
+    IsGFunction (a + b) := sorry
+
+/-- The Cauchy product of two G-functions is a G-function. -/
+theorem mul {a b : ℕ → ℂ} (ha : IsGFunction a) (hb : IsGFunction b) :
+    IsGFunction (fun n => ∑ k ∈ Finset.range (n + 1), a k * b (n - k)) := sorry
+
+/-- A G-function converges on a disc of positive radius. -/
+theorem hasRadius {a : ℕ → ℂ} (ha : IsGFunction a) :
+    ∃ ρ : ℝ, 0 < ρ ∧ ∀ z : ℂ, ‖z‖ < ρ → Summable fun n => a n * z ^ n := sorry
+
+end IsGFunction
+
+/-- Unit test `IsGFunction.test_log`: Σ_{n≥1} zⁿ/n = −log(1 − z) is a G-function. -/
+example : IsGFunction fun n => if n = 0 then 0 else 1 / (n : ℂ) := sorry
+
+/-- Unit test `IsGFunction.test_geometric`: Σ zⁿ (a_n = 1) is a G-function. -/
+example : IsGFunction fun _ => 1 := sorry
+
+/-- Unit test `IsGFunction.test_exp`: a_n = 1/n! is not a G-function (its denominators n! grow
+faster than Dⁿ); a definition without the denominator condition would accept exp. -/
+example : ¬ IsGFunction fun n => 1 / (n.factorial : ℂ) := sorry
+
+/-- Unit test `IsGFunction.test_borel`: Σ zⁿ is a G-function exactly when Σ zⁿ/n! = eᶻ is an
+E-function. -/
+example : IsGFunction (fun _ => 1) ↔ IsEFunction (fun _ => 1) := isGFunction_iff_isEFunction _
+
+
+/-- For power series with algebraic coefficients, algebraic independence over `ℂ(z)` is
+algebraic independence over `Q̄[z]`. -/
+theorem algebraicIndependent_ratFunc_iff_of_isAlgebraic_coeff {n : ℕ}
+    (f : Fin n → PowerSeries ℂ) (hf : ∀ i m, IsAlgebraic ℚ (coeff m (f i))) :
+    AlgebraicIndependent (RatFunc ℂ) (fun i => ((f i : PowerSeries ℂ) : ℂ⸨X⸩)) ↔
+      ∀ P : MvPolynomial (Fin n) (Polynomial ℂ), (∀ e j, IsAlgebraic ℚ ((P.coeff e).coeff j)) →
+        MvPolynomial.eval₂ Polynomial.coeToPowerSeries.ringHom f P = 0 → P = 0 := sorry
+
+
+/-- The vector of power series `F` solves `T F' = M F` with polynomial `T`, `M`. -/
+def SolvesSystem {ι : Type*} [Fintype ι] (T : Polynomial ℂ) (M : Matrix ι ι (Polynomial ℂ))
+    (F : ι → PowerSeries ℂ) : Prop :=
+  ∀ i, (T : PowerSeries ℂ) * PowerSeries.derivative ℂ (F i) =
+    ∑ j, (M i j : PowerSeries ℂ) * F j
+
+/-- For `G = M / T`, these are `T^m B_m`, where `y^(m) / m! = B_m y`.
+The factorial is already included. AWS §4.4 uses unnormalised matrices, whereas
+Lemma 5.2.1 uses divided matrices. The multiplication order is `B_m * G`. -/
+def scaledDividedSystemIterates {ι : Type*} [Fintype ι] [DecidableEq ι]
+    (T : Polynomial ℂ) (M : Matrix ι ι (Polynomial ℂ)) : ℕ → Matrix ι ι (Polynomial ℂ)
+  | 0 => 1
+  | m + 1 => fun i j =>
+      Polynomial.C (1 / ((m + 1 : ℕ) : ℂ)) *
+        (T * (scaledDividedSystemIterates T M m i j).derivative +
+          ∑ k, scaledDividedSystemIterates T M m i k * M k j -
+          Polynomial.C (m : ℂ) * T.derivative * scaledDividedSystemIterates T M m i j)
+
+/-- P₀ = I. -/
+theorem scaledDividedSystemIterates_zero {ι : Type*} [Fintype ι] [DecidableEq ι]
+    (T : Polynomial ℂ) (M : Matrix ι ι (Polynomial ℂ)) :
+    scaledDividedSystemIterates T M 0 = 1 := by sorry
+
+/-- (m+1)P_{m+1} = T P′_m + P_m M − m T′ P_m. -/
+theorem scaledDividedSystemIterates_succ {ι : Type*} [Fintype ι] [DecidableEq ι]
+    (T : Polynomial ℂ) (M : Matrix ι ι (Polynomial ℂ)) (m : ℕ) (i j : ι) :
+    Polynomial.C ((m + 1 : ℕ) : ℂ) * scaledDividedSystemIterates T M (m + 1) i j =
+      T * (scaledDividedSystemIterates T M m i j).derivative +
+        ∑ k, scaledDividedSystemIterates T M m i k * M k j -
+        Polynomial.C (m : ℂ) * T.derivative * scaledDividedSystemIterates T M m i j := by sorry
+
+/-- Equal T and M give equal iterate families. -/
+theorem scaledDividedSystemIterates_congr {ι : Type*} [Fintype ι] [DecidableEq ι]
+    {T T' : Polynomial ℂ} {M M' : Matrix ι ι (Polynomial ℂ)}
+    (hT : T = T') (hM : M = M') :
+    scaledDividedSystemIterates T M = scaledDividedSystemIterates T' M' := by sorry
+
+/-- For the scalar system T=1−z, M=1, every P_m=1. -/
+theorem scaledDividedSystemIterates_geometric (m : ℕ) (i j : Fin 1) :
+    scaledDividedSystemIterates (1 - Polynomial.X) (fun _ _ : Fin 1 => 1) m i j = 1 := by sorry
+
+/-- `scaledDividedSystemIterates.test_geometric` (computation). -/
+example (m : ℕ) (i j : Fin 1) :
+    scaledDividedSystemIterates (1 - Polynomial.X) (fun _ _ : Fin 1 => 1) m i j = 1 := by sorry
+
+/-- `scaledDividedSystemIterates.test_exponential` (non-example). -/
+example (i j : Fin 1) :
+    scaledDividedSystemIterates 1 (fun _ _ : Fin 1 => 1) 2 i j = Polynomial.C (1 / 2) := by sorry
+
+/-- `scaledDividedSystemIterates.test_zero` (degenerate). -/
+example {ι : Type*} [Fintype ι] [DecidableEq ι] (m : ℕ) :
+    scaledDividedSystemIterates 1 (0 : Matrix ι ι (Polynomial ℂ)) 0 = 1 ∧
+      scaledDividedSystemIterates 1 (0 : Matrix ι ι (Polynomial ℂ)) (m + 1) = 0 := by sorry
+
+/-- Galochkin's condition with a single factorial normalisation. The positive integer
+`q` clears coefficients of the scaled divided iterates, rather than dividing them again. -/
+def GalochkinCondition {ι : Type*} [Fintype ι] [DecidableEq ι]
+    (T : Polynomial ℂ) (M : Matrix ι ι (Polynomial ℂ)) : Prop :=
+  T ≠ 0 ∧ ∃ C : ℝ, 0 < C ∧ ∀ s : ℕ, 1 ≤ s → ∃ q : ℕ,
+    0 < q ∧ (q : ℝ) ≤ C ^ s ∧ ∀ m : ℕ, m ≤ s → ∀ i j k,
+      IsIntegral ℤ ((q : ℂ) * (scaledDividedSystemIterates T M m i j).coeff k)
+
+/-- The nonzero-T and exponential common-integral-multiplier predicate. -/
+theorem GalochkinCondition.ne_zero {ι : Type*} [Fintype ι] [DecidableEq ι]
+    {T : Polynomial ℂ} {M : Matrix ι ι (Polynomial ℂ)} (h : GalochkinCondition T M) :
+    T ≠ 0 := h.1
+
+/-- The nonzero-T and exponential common-integral-multiplier predicate. -/
+theorem GalochkinCondition.exists_integral_multiplier {ι : Type*} [Fintype ι] [DecidableEq ι]
+    {T : Polynomial ℂ} {M : Matrix ι ι (Polynomial ℂ)} (h : GalochkinCondition T M) :
+    ∃ C : ℝ, 0 < C ∧ ∀ s : ℕ, 1 ≤ s → ∃ q : ℕ,
+      0 < q ∧ (q : ℝ) ≤ C ^ s ∧ ∀ m : ℕ, m ≤ s → ∀ i j k,
+        IsIntegral ℤ ((q : ℂ) * (scaledDividedSystemIterates T M m i j).coeff k) := h.2
+
+/-- Equal T,M give equivalent conditions. -/
+theorem galochkinCondition_congr {ι : Type*} [Fintype ι] [DecidableEq ι]
+    {T T' : Polynomial ℂ} {M M' : Matrix ι ι (Polynomial ℂ)}
+    (hT : T = T') (hM : M = M') : GalochkinCondition T M ↔ GalochkinCondition T' M' := by sorry
+
+/-- The scalar system y′=y/(1−z) satisfies the condition with q=1. -/
+theorem galochkinCondition_geometric :
+    GalochkinCondition (1 - Polynomial.X) (fun _ _ : Fin 1 => 1) := by sorry
+
+/-- `GalochkinCondition.test_geometric` (computation). -/
+example : GalochkinCondition (1 - Polynomial.X) (fun _ _ : Fin 1 => 1) := by sorry
+
+/-- `GalochkinCondition.test_exponential` (non-example): the least denominator is `s!`. -/
+example : ¬ GalochkinCondition 1 (fun _ _ : Fin 1 => 1) := by sorry
+
+/-- `GalochkinCondition.test_zero` (degenerate). -/
+example {ι : Type*} [Fintype ι] [DecidableEq ι] :
+    GalochkinCondition 1 (0 : Matrix ι ι (Polynomial ℂ)) := by sorry
+
+/-- `GalochkinCondition.test_zeroDenominator` (non-example). -/
+example {ι : Type*} [Fintype ι] [DecidableEq ι] (M : Matrix ι ι (Polynomial ℂ)) :
+    ¬ GalochkinCondition 0 M := by sorry
+
+/-- Chudnovsky, AWS Theorem 4.4.3. Independence over `Q̄(z)` is written after
+clearing polynomial denominators, keeping the source's scalar field explicit.
+The common multiplier clears every divided iterate up to s. -/
+theorem chudnovsky_galochkin_condition {n : ℕ} (a : Fin n → ℕ → ℂ)
+    (ha : ∀ i, IsGFunction (a i)) (T : Polynomial ℂ)
+    (M : Matrix (Fin n) (Fin n) (Polynomial ℂ)) (hT0 : T ≠ 0)
+    (hT : ∀ k, IsIntegral ℤ (T.coeff k))
+    (hM : ∀ i j k, IsIntegral ℤ ((M i j).coeff k))
+    (hsys : SolvesSystem T M fun i => PowerSeries.mk (a i))
+    (hind : ∀ P : Fin n → Polynomial ℂ, (∀ i k, IsAlgebraic ℚ ((P i).coeff k)) →
+      ∑ i, (P i : PowerSeries ℂ) * PowerSeries.mk (a i) = 0 → P = 0) :
+    GalochkinCondition T M := by sorry
+
+/-- Homogeneous monomials in solutions of a differential system solve the induced symmetric-power system. -/
+theorem isEFunction_monomials_solveSystem {n : ℕ} (a : Fin n → ℕ → ℂ) (T : Polynomial ℂ)
+    (M : Matrix (Fin n) (Fin n) (Polynomial ℂ))
+    (hsys : SolvesSystem T M fun i => ePowerSeries (a i)) (N : ℕ) :
+    ∃ M' : Matrix {e : Fin n → Fin (N + 1) // ∑ i, (e i : ℕ) = N}
+        {e : Fin n → Fin (N + 1) // ∑ i, (e i : ℕ) = N} (Polynomial ℂ),
+      SolvesSystem T M' fun e => ∏ i, ePowerSeries (a i) ^ (e.1 i : ℕ) := sorry
+
+/-- Dividing a rational-coefficient E-function vanishing at one by 1−z preserves the E-function conditions. -/
+theorem isEFunction_div_one_sub {a : ℕ → ℂ} (ha : IsEFunction a) (hq : ∀ n, ∃ q : ℚ, a n = q)
+    (h1 : eFun a 1 = 0) :
+    IsEFunction (fun n => (n.factorial : ℂ) * ∑ k ∈ Finset.range (n + 1), a k / k.factorial) :=
+  sorry
+
+/-- The minimal equation of a G-function satisfies the regular-singularity order inequalities at zero. -/
+theorem minimal_equation_regularSingular_of_isGFunction {a : ℕ → ℂ} (ha : IsGFunction a)
+    (hf : IsDFinite Qbar (PowerSeries.mk a))
+    (p : Fin (dfiniteOrder Qbar _ hf + 1) → Polynomial ℂ)
+    (hp : ∑ i, (p i : PowerSeries ℂ) * (⇑(PowerSeries.derivative ℂ))^[i] (PowerSeries.mk a) = 0)
+    (hlast : p (Fin.last _) ≠ 0) (i : Fin (dfiniteOrder Qbar _ hf + 1)) (hi : p i ≠ 0) :
+    (p (Fin.last _)).natTrailingDegree ≤
+      (p i).natTrailingDegree + (dfiniteOrder Qbar _ hf - (i : ℕ)) :=
+  sorry
+
+/-- For the exponential transform 1/(x−1), multiplication by x subtracts the initial value 1. -/
+example (x : ℝ) (hx : 1 < x) :
+    x * (x - 1)⁻¹ - 1 = (x - 1)⁻¹ := sorry
+
+/-- The Laplace transform of an E-function is x⁻¹ times the associated G-series at x⁻¹ for sufficiently large real x. -/
+theorem laplace_eFun_eq {a : ℕ → ℂ} (ha : IsEFunction a) :
+    ∃ R : ℝ, 0 < R ∧ ∀ x : ℝ, R < x →
+      ∫ t in Set.Ioi (0 : ℝ), Complex.exp (-(x : ℂ) * t) * eFun a t =
+        (1 / (x : ℂ)) * ∑' n, a n * (1 / (x : ℂ)) ^ n :=
+  sorry
+
+/-- André's theorem: an E-function satisfies a differential equation whose only singularities
+are `0` and `∞`. -/
+theorem andre_eFunction_equation {a : ℕ → ℂ} (ha : IsEFunction a) :
+    ∃ (m : ℕ) (q : Fin m → Polynomial ℂ), (∀ k, (q k).natDegree ≤ m - (k : ℕ)) ∧
+      (∀ k j, IsAlgebraic ℚ ((q k).coeff j)) ∧
+      (PowerSeries.X ^ m * (⇑(PowerSeries.derivative ℂ))^[m] (ePowerSeries a) +
+        ∑ k : Fin m, (PowerSeries.X ^ (k : ℕ) * (q k : PowerSeries ℂ)) *
+          (⇑(PowerSeries.derivative ℂ))^[k] (ePowerSeries a) = 0) := sorry
+
+/-- Polynomial functional relations admit a basis retaining full row rank at every complex specialization. -/
+theorem exists_relation_basis_full_rank_specialisation {n : ℕ} (f : Fin n → PowerSeries ℂ) :
+    ∃ (r : ℕ) (C : Fin r → Fin n → Polynomial ℂ),
+      (∀ j, ∑ i, (C j i : PowerSeries ℂ) * f i = 0) ∧
+      (∀ c : Fin n → Polynomial ℂ, ∑ i, (c i : PowerSeries ℂ) * f i = 0 →
+        c ∈ Submodule.span (Polynomial ℂ) (Set.range C)) ∧
+      ∀ ξ : ℂ, LinearIndependent ℂ (fun j => fun i => (C j i).eval ξ) := sorry
+
+/-- Beukers, Theorem 3.2: every linear relation over `Q̄` between values at a regular algebraic
+point comes from a functional relation. -/
+theorem beukers_linear_relation {n : ℕ} (a : Fin n → ℕ → ℂ) (ha : ∀ i, IsEFunction (a i))
+    (T : Polynomial ℂ) (M : Matrix (Fin n) (Fin n) (Polynomial ℂ))
+    (hT : ∀ j, IsAlgebraic ℚ (T.coeff j)) (hM : ∀ i k j, IsAlgebraic ℚ ((M i k).coeff j))
+    (hsys : SolvesSystem T M fun i => ePowerSeries (a i)) {ξ : ℂ} (hξ : IsAlgebraic ℚ ξ)
+    (hξT : ξ * T.eval ξ ≠ 0) (lam : Fin n → ℂ) (hlam : ∀ i, IsAlgebraic ℚ (lam i))
+    (hrel : ∑ i, lam i * eFun (a i) ξ = 0) :
+    ∃ c : Fin n → Polynomial ℂ, (∀ i j, IsAlgebraic ℚ ((c i).coeff j)) ∧
+      ∑ i, (c i : PowerSeries ℂ) * ePowerSeries (a i) = 0 ∧ ∀ i, (c i).eval ξ = lam i := sorry
+
+/-- Beukers' refined Siegel–Shidlovskii theorem (Theorem 1.3). -/
+theorem beukers_refined_siegel_shidlovskii {n : ℕ} (a : Fin n → ℕ → ℂ)
+    (ha : ∀ i, IsEFunction (a i)) (T : Polynomial ℂ) (M : Matrix (Fin n) (Fin n) (Polynomial ℂ))
+    (hT : ∀ j, IsAlgebraic ℚ (T.coeff j)) (hM : ∀ i k j, IsAlgebraic ℚ ((M i k).coeff j))
+    (hsys : SolvesSystem T M fun i => ePowerSeries (a i)) {ξ : ℂ} (hξ : IsAlgebraic ℚ ξ)
+    (hξT : ξ * T.eval ξ ≠ 0) (P : MvPolynomial (Fin n) ℂ) (hPalg : ∀ e, IsAlgebraic ℚ (P.coeff e))
+    {d : ℕ} (hPhom : MvPolynomial.IsHomogeneous P d) (hP : MvPolynomial.eval (fun i => eFun (a i) ξ) P = 0) :
+    ∃ Q : MvPolynomial (Fin n) (Polynomial ℂ),
+      (∀ e j, IsAlgebraic ℚ ((Q.coeff e).coeff j)) ∧ MvPolynomial.IsHomogeneous Q d ∧
+      MvPolynomial.eval₂ Polynomial.coeToPowerSeries.ringHom (fun i => ePowerSeries (a i)) Q = 0 ∧
+      MvPolynomial.map (Polynomial.evalRingHom ξ) Q = P := sorry
+
+/-- The Siegel–Shidlovskii theorem. -/
+theorem siegel_shidlovskii {n : ℕ} (a : Fin n → ℕ → ℂ) (ha : ∀ i, IsEFunction (a i))
+    (T : Polynomial ℂ) (M : Matrix (Fin n) (Fin n) (Polynomial ℂ))
+    (hT : ∀ j, IsAlgebraic ℚ (T.coeff j)) (hM : ∀ i k j, IsAlgebraic ℚ ((M i k).coeff j))
+    (hsys : SolvesSystem T M fun i => ePowerSeries (a i)) {ξ : ℂ} (hξ : IsAlgebraic ℚ ξ)
+    (hξT : ξ * T.eval ξ ≠ 0) :
+    Algebra.trdeg ℚ (IntermediateField.adjoin ℚ (Set.range fun i => eFun (a i) ξ)) =
+      Algebra.trdeg (RatFunc ℂ) (IntermediateField.adjoin (RatFunc ℂ)
+        (Set.range fun i => ((ePowerSeries (a i) : PowerSeries ℂ) : ℂ⸨X⸩))) := sorry
+
+/-- Dividing an E-function by a linear factor at a nonzero algebraic zero preserves the E-function conditions. -/
+theorem isEFunction_div_linear {a : ℕ → ℂ} (ha : IsEFunction a) {ξ : ℂ} (hξ : IsAlgebraic ℚ ξ)
+    (hξ0 : ξ ≠ 0) (h : eFun a ξ = 0) :
+    ∃ b : ℕ → ℂ, IsEFunction b ∧ ∀ z, eFun a z = (z - ξ) * eFun b z := sorry
+
+/-- Beukers, Theorem 1.5: removal of the nonzero singularities. -/
+theorem beukers_removal_of_singularities {n : ℕ} (a : Fin n → ℕ → ℂ)
+    (ha : ∀ i, IsEFunction (a i)) (T : Polynomial ℂ) (M : Matrix (Fin n) (Fin n) (Polynomial ℂ))
+    (hT0 : T ≠ 0) (hT : ∀ j, IsAlgebraic ℚ (T.coeff j))
+    (hM : ∀ i k j, IsAlgebraic ℚ ((M i k).coeff j))
+    (hsys : SolvesSystem T M fun i => ePowerSeries (a i))
+    (hind : LinearIndependent (RatFunc ℂ) fun i => ((ePowerSeries (a i) : PowerSeries ℂ) : ℂ⸨X⸩)) :
+    ∃ (e : Fin n → ℕ → ℂ) (B : Matrix (Fin n) (Fin n) (Polynomial ℂ)) (k : ℕ)
+      (N : Matrix (Fin n) (Fin n) (Polynomial ℂ)),
+      (∀ i, IsEFunction (e i)) ∧ B.det ≠ 0 ∧
+      (∀ i, ePowerSeries (a i) = ∑ j, (B i j : PowerSeries ℂ) * ePowerSeries (e j)) ∧
+      SolvesSystem (Polynomial.X ^ k) N fun i => ePowerSeries (e i) := sorry
+
+/-- Lindemann–Weierstrass as a special case of Beukers' theorem. -/
+theorem linearIndependent_exp_of_isAlgebraic {n : ℕ} (β : Fin n → ℂ)
+    (hβ : ∀ i, IsAlgebraic ℚ (β i)) (hinj : Function.Injective β) :
+    LinearIndependent (algebraicClosure ℚ ℂ) fun i => Complex.exp (β i) := sorry
+
+/-- Galochkin–Chudnovsky: values of G-functions at rationals very close to `0`. -/
+theorem galochkin_chudnovsky {n : ℕ} (a : Fin n → ℕ → ℂ) (ha : ∀ i, IsGFunction (a i))
+    (hrat : ∀ i m, ∃ q : ℚ, a i m = q) (T : Polynomial ℂ) (M : Matrix (Fin n) (Fin n) (Polynomial ℂ))
+    (hT0 : T ≠ 0) (hT : ∀ j, IsAlgebraic ℚ (T.coeff j))
+    (hM : ∀ i k j, IsAlgebraic ℚ ((M i k).coeff j))
+    (hsys : SolvesSystem T M fun i => PowerSeries.mk (a i))
+    (hind : LinearIndependent (RatFunc ℂ) fun i => ((PowerSeries.mk (a i) : PowerSeries ℂ) : ℂ⸨X⸩)) :
+    ∃ C : ℝ, 0 < C ∧ ∀ p q : ℤ, 0 < q → p ≠ 0 → C * |(p : ℝ)| ^ (n + 1) < q →
+      LinearIndependent ℚ fun i => ∑' m, a i m * ((p : ℂ) / q) ^ m := sorry
+
+
+/-- The power series `f(z^r)`. -/
+def expandPow (r : ℕ) (f : PowerSeries ℂ) : PowerSeries ℂ :=
+  PowerSeries.mk fun m => if r ∣ m then coeff (m / r) f else 0
+
+/-- `f` is a `q`-Mahler function: algebraic coefficients and a nontrivial linear relation
+`∑ pᵢ(z) f(z^{qⁱ}) = 0` with polynomial coefficients over `Q̄`. -/
+def IsMahlerFunction (q : ℕ) (f : PowerSeries ℂ) : Prop :=
+  2 ≤ q ∧ (∀ m, IsAlgebraic ℚ (coeff m f)) ∧
+    ∃ (n : ℕ) (p : Fin (n + 1) → Polynomial ℂ), (∀ i m, IsAlgebraic ℚ ((p i).coeff m)) ∧
+      (∃ i, p i ≠ 0) ∧ ∑ i, (p i : PowerSeries ℂ) * expandPow (q ^ (i : ℕ)) f = 0
+
+namespace IsMahlerFunction
+
+/-- Sums of `q`-Mahler functions are `q`-Mahler. -/
+theorem add {q : ℕ} {f g : PowerSeries ℂ} (hf : IsMahlerFunction q f)
+    (hg : IsMahlerFunction q g) : IsMahlerFunction q (f + g) := sorry
+
+/-- Products of q-Mahler functions are q-Mahler. -/
+theorem mul {q : ℕ} {f g : PowerSeries ℂ} (hf : IsMahlerFunction q f)
+    (hg : IsMahlerFunction q g) : IsMahlerFunction q (f * g) := sorry
+
+/-- f(z^q) is q-Mahler if f is. -/
+theorem expandPow {q : ℕ} {f : PowerSeries ℂ} (hf : IsMahlerFunction q f) :
+    IsMahlerFunction q (DiophantineApproximation.expandPow q f) := sorry
+
+end IsMahlerFunction
+
+/-- Polynomials with algebraic coefficients are q-Mahler. -/
+theorem isMahlerFunction_of_polynomial (q : ℕ) (hq : 2 ≤ q) (p : Polynomial ℂ)
+    (hp : ∀ m, IsAlgebraic ℚ (p.coeff m)) : IsMahlerFunction q (p : PowerSeries ℂ) := sorry
+
+/-- f is q-Mahler iff it is the first coordinate of a solution of F(z) = A(z)F(z^q) with A invertible over ℂ(z) (and algebraic entries). -/
+theorem isMahlerFunction_iff_system (q : ℕ) (hq : 2 ≤ q) (f : PowerSeries ℂ) :
+    IsMahlerFunction q f ↔ ∃ (n : ℕ) (F : Fin (n + 1) → PowerSeries ℂ)
+      (A : Matrix (Fin (n + 1)) (Fin (n + 1)) (RatFunc ℂ)),
+      (∀ i m, IsAlgebraic ℚ (coeff m (F i))) ∧
+      (∀ i j m, IsAlgebraic ℚ ((A i j).num.coeff m) ∧
+        IsAlgebraic ℚ ((A i j).denom.coeff m)) ∧ IsUnit A.det ∧ F 0 = f ∧
+        (fun i => ((F i : PowerSeries ℂ) : ℂ⸨X⸩)) =
+          (A.map (algebraMap (RatFunc ℂ) ℂ⸨X⸩)).mulVec
+            (fun i => ((expandPow q (F i) : PowerSeries ℂ) : ℂ⸨X⸩)) := sorry
+
+/-- Unit test `IsMahlerFunction.test_transcendental_constant`: a transcendental
+constant solves an identity system but fails the algebraic coefficient condition. -/
+example (c : ℂ) (hc : Transcendental ℚ c) :
+    ¬ IsMahlerFunction 2 (PowerSeries.C c) := sorry
+
+/-- Unit test `IsMahlerFunction.test_fredholm`: Σ z^{2^n} is 2-Mahler. -/
+example : IsMahlerFunction 2 (PowerSeries.mk fun m => if ∃ k : ℕ, m = 2 ^ k then (1 : ℂ) else 0) :=
+  sorry
+
+/-- Unit test `IsMahlerFunction.test_thue_morse`: A series with f = (1 − z)f(z²) and algebraic
+coefficients is 2-Mahler. -/
+example (f : PowerSeries ℂ) (hf : ∀ m, IsAlgebraic ℚ (coeff m f))
+    (h : f = (1 - PowerSeries.X) * expandPow 2 f) : IsMahlerFunction 2 f := sorry
+
+/-- Unit test `IsMahlerFunction.test_exp`: exp is not q-Mahler for any q ≥ 2 (the exponentials of the distinct monomials z^(q^i) admit no polynomial-coefficient linear relation); a definition allowing
+transcendental-coefficient relations with p_i power series would accept it. -/
+example (q : ℕ) (hq : 2 ≤ q) : ¬ IsMahlerFunction q (PowerSeries.exp ℂ) := sorry
+
+/-- Unit test `IsMahlerFunction.test_polynomial`: z is q-Mahler (z^q·z − z·z^q = 0 is trivial; use
+p₀ = z^q, p₁ = −z). -/
+example (q : ℕ) (hq : 2 ≤ q) : IsMahlerFunction q (PowerSeries.X : PowerSeries ℂ) := sorry
+
+/-- A point of the punctured unit disc is regular for the Mahler system `f(z) = A(z) f(z^q)` if no
+`α^{q^ℓ}` is a pole of an entry of `A` or of `A⁻¹`. -/
+def IsMahlerRegularPoint {n : ℕ} (q : ℕ) (A : Matrix (Fin n) (Fin n) (RatFunc ℂ)) (α : ℂ) : Prop :=
+  0 < ‖α‖ ∧ ‖α‖ < 1 ∧ ∀ ℓ : ℕ, ∀ i j,
+    (A i j).denom.eval (α ^ q ^ ℓ) ≠ 0 ∧ (A⁻¹ i j).denom.eval (α ^ q ^ ℓ) ≠ 0
+
+/-- Unfolding: 0 < |α| < 1 and no α^{q^ℓ} is a zero of the denominator of an entry of A or A⁻¹. -/
+theorem isMahlerRegularPoint_iff {n : ℕ} (q : ℕ) (A : Matrix (Fin n) (Fin n) (RatFunc ℂ))
+    (α : ℂ) : IsMahlerRegularPoint q A α ↔ 0 < ‖α‖ ∧ ‖α‖ < 1 ∧ ∀ ℓ : ℕ, ∀ i j,
+      (A i j).denom.eval (α ^ q ^ ℓ) ≠ 0 ∧ (A⁻¹ i j).denom.eval (α ^ q ^ ℓ) ≠ 0 := Iff.rfl
+
+/-- IsMahlerRegularPoint q A α. -/
+theorem IsMahlerRegularPoint.pow {n q : ℕ} {A : Matrix (Fin n) (Fin n) (RatFunc ℂ)} {α : ℂ}
+    (hq : 1 ≤ q) (h : IsMahlerRegularPoint q A α) : IsMahlerRegularPoint q A (α ^ q) := sorry
+
+/-- For polynomial A with unit determinant every α in the punctured disc is regular. -/
+theorem isMahlerRegularPoint_of_polynomial {n q : ℕ} (A : Matrix (Fin n) (Fin n) (Polynomial ℂ))
+    (hdet : IsUnit A.det) {α : ℂ} (h0 : 0 < ‖α‖) (h1 : ‖α‖ < 1) :
+    IsMahlerRegularPoint q (A.map (algebraMap (Polynomial ℂ) (RatFunc ℂ))) α := sorry
+
+/-- Unit test `IsMahlerRegularPoint.test_fredholm`: For A = [[1, 0], [z, 1]] every 0 < |α| < 1 is
+regular. -/
+example (α : ℂ) (h0 : 0 < ‖α‖) (h1 : ‖α‖ < 1) :
+    IsMahlerRegularPoint 2 (!![1, 0; RatFunc.X, 1] : Matrix (Fin 2) (Fin 2) (RatFunc ℂ)) α := sorry
+
+/-- Unit test `IsMahlerRegularPoint.test_iterate`: For A = (1 − 2z)⁻¹, α = 2^{−1/2} is not regular;
+a definition testing only ℓ = 0 would call it regular. -/
+example : ¬ IsMahlerRegularPoint 2 (!![(1 - 2 * RatFunc.X)⁻¹] : Matrix (Fin 1) (Fin 1) (RatFunc ℂ))
+    ((Real.sqrt 2)⁻¹ : ℂ) := sorry
+
+/-- Unit test `IsMahlerRegularPoint.test_empty`: For the 0 × 0 system every point of the punctured
+disc is regular. -/
+example (q : ℕ) (A : Matrix (Fin 0) (Fin 0) (RatFunc ℂ)) (α : ℂ) (h0 : 0 < ‖α‖) (h1 : ‖α‖ < 1) :
+    IsMahlerRegularPoint q A α := sorry
+
+/-- Nishioka's theorem (Mahler's method). -/
+theorem nishioka {n q : ℕ} (hq : 2 ≤ q) (f : Fin n → PowerSeries ℂ)
+    (hf : ∀ i m, IsAlgebraic ℚ (coeff m (f i))) (A : Matrix (Fin n) (Fin n) (RatFunc ℂ))
+    (hAalg : ∀ i j m, IsAlgebraic ℚ ((A i j).num.coeff m) ∧
+      IsAlgebraic ℚ ((A i j).denom.coeff m)) (hA : IsUnit A.det)
+    (hsys : (fun i => ((f i : PowerSeries ℂ) : ℂ⸨X⸩)) =
+      (A.map (algebraMap (RatFunc ℂ) ℂ⸨X⸩)).mulVec fun i => ((expandPow q (f i) : PowerSeries ℂ) : ℂ⸨X⸩))
+    (ρ : ℝ) (hρ : 0 < ρ) (hconv : ∀ i (z : ℂ), ‖z‖ < ρ → Summable fun m => coeff m (f i) * z ^ m)
+    {α : ℂ} (hα : IsAlgebraic ℚ α) (hαρ : ‖α‖ < ρ) (hreg : IsMahlerRegularPoint q A α) :
+    Algebra.trdeg ℚ (IntermediateField.adjoin ℚ (Set.range fun i => ∑' m, coeff m (f i) * α ^ m)) =
+      Algebra.trdeg (RatFunc ℂ) (IntermediateField.adjoin (RatFunc ℂ)
+        (Set.range fun i => ((f i : PowerSeries ℂ) : ℂ⸨X⸩))) := sorry
+
+/-- Philippon, Adamczewski–Faverjon (Theorem 1.4): homogeneous relations lift. -/
+theorem mahler_homogeneous_lifting {n q : ℕ} (hq : 2 ≤ q) (f : Fin n → PowerSeries ℂ)
+    (hf : ∀ i m, IsAlgebraic ℚ (coeff m (f i))) (A : Matrix (Fin n) (Fin n) (RatFunc ℂ))
+    (hAalg : ∀ i j m, IsAlgebraic ℚ ((A i j).num.coeff m) ∧
+      IsAlgebraic ℚ ((A i j).denom.coeff m)) (hA : IsUnit A.det)
+    (hsys : (fun i => ((f i : PowerSeries ℂ) : ℂ⸨X⸩)) =
+      (A.map (algebraMap (RatFunc ℂ) ℂ⸨X⸩)).mulVec fun i => ((expandPow q (f i) : PowerSeries ℂ) : ℂ⸨X⸩))
+    (hconv : ∀ i (z : ℂ), ‖z‖ < 1 → Summable fun m => coeff m (f i) * z ^ m)
+    {α : ℂ} (hα : IsAlgebraic ℚ α) (hreg : IsMahlerRegularPoint q A α)
+    (P : MvPolynomial (Fin n) ℂ) (hPalg : ∀ e, IsAlgebraic ℚ (P.coeff e)) {d : ℕ}
+    (hPhom : MvPolynomial.IsHomogeneous P d)
+    (hP : MvPolynomial.eval (fun i => ∑' m, coeff m (f i) * α ^ m) P = 0) :
+    ∃ Q : MvPolynomial (Fin n) (Polynomial ℂ),
+      (∀ e j, IsAlgebraic ℚ ((Q.coeff e).coeff j)) ∧ MvPolynomial.IsHomogeneous Q d ∧
+      MvPolynomial.eval₂ Polynomial.coeToPowerSeries.ringHom f Q = 0 ∧
+      MvPolynomial.map (Polynomial.evalRingHom α) Q = P := sorry
+
+/-- Adamczewski–Faverjon, Corollary 1.5: linear relations between values lift. -/
+theorem mahler_linear_relation {n q : ℕ} (hq : 2 ≤ q) (f : Fin n → PowerSeries ℂ)
+    (hf : ∀ i m, IsAlgebraic ℚ (coeff m (f i))) (A : Matrix (Fin n) (Fin n) (RatFunc ℂ))
+    (hAalg : ∀ i j m, IsAlgebraic ℚ ((A i j).num.coeff m) ∧
+      IsAlgebraic ℚ ((A i j).denom.coeff m)) (hA : IsUnit A.det)
+    (hsys : (fun i => ((f i : PowerSeries ℂ) : ℂ⸨X⸩)) =
+      (A.map (algebraMap (RatFunc ℂ) ℂ⸨X⸩)).mulVec fun i => ((expandPow q (f i) : PowerSeries ℂ) : ℂ⸨X⸩))
+    (hconv : ∀ i (z : ℂ), ‖z‖ < 1 → Summable fun m => coeff m (f i) * z ^ m)
+    {α : ℂ} (hα : IsAlgebraic ℚ α) (hreg : IsMahlerRegularPoint q A α) (lam : Fin n → ℂ)
+    (hlam : ∀ i, IsAlgebraic ℚ (lam i)) (hrel : ∑ i, lam i * ∑' m, coeff m (f i) * α ^ m = 0) :
+    ∃ c : Fin n → Polynomial ℂ, (∀ i j, IsAlgebraic ℚ ((c i).coeff j)) ∧
+      ∑ i, (c i : PowerSeries ℂ) * f i = 0 ∧ ∀ i, (c i).eval α = lam i := sorry
+
+/-- Adamczewski–Faverjon, Corollary 1.8: a Mahler value is transcendental or lies in the
+number field of the data. -/
+theorem mahler_value_transcendental_or_mem {q : ℕ} (hq : 2 ≤ q) {f : PowerSeries ℂ}
+    (hf : IsMahlerFunction q f) {α : ℂ} (hα : IsAlgebraic ℚ α) (h0 : 0 < ‖α‖) (h1 : ‖α‖ < 1)
+    (hconv : Summable fun m => coeff m f * α ^ m) (K : IntermediateField ℚ ℂ)
+    (hK : FiniteDimensional ℚ K) (hαK : α ∈ K) (hfK : ∀ m, coeff m f ∈ K) :
+    Transcendental ℚ (∑' m, coeff m f * α ^ m) ∨ (∑' m, coeff m f * α ^ m) ∈ K := sorry
+
+/-- The series supported on powers of two is not a rational function. -/
+theorem lacunary_not_rational :
+    ¬ ∃ p r : Polynomial ℂ, r ≠ 0 ∧
+      (r : PowerSeries ℂ) * PowerSeries.mk (fun m => if ∃ k : ℕ, m = 2 ^ k then (1 : ℂ) else 0) =
+        (p : PowerSeries ℂ) := sorry
+
+/-- Mahler (1929): `∑ α^{2ⁿ}` is transcendental for algebraic `0 < |α| < 1`. -/
+theorem transcendental_fredholm {α : ℂ} (hα : IsAlgebraic ℚ α) (h0 : 0 < ‖α‖) (h1 : ‖α‖ < 1) :
+    Transcendental ℚ (∑' n : ℕ, α ^ 2 ^ n) := sorry
+
+
+/-- Nesterenko (1996): for `q = e^{2πiτ}`, three of `q, E₂(τ), E₄(τ), E₆(τ)` are algebraically
+independent. -/
+theorem nesterenko (τ : UpperHalfPlane) :
+    ∃ s : Finset (Fin 4), s.card = 3 ∧ AlgebraicIndependent ℚ fun i : s =>
+      (![Function.Periodic.qParam 1 τ, EisensteinSeries.E2 τ, ModularForm.E₄ τ, ModularForm.E₆ τ] :
+        Fin 4 → ℂ) i := sorry
+
+/-- At i, E₂=3/π, E₆=0 and the Fourier parameter is exp(−2π). -/
+theorem eisenstein_values_at_i :
+    EisensteinSeries.E2 UpperHalfPlane.I = 3 / Real.pi ∧ ModularForm.E₆ UpperHalfPlane.I = 0 ∧
+      Function.Periodic.qParam 1 (UpperHalfPlane.I : ℂ) = (Real.exp (-2 * Real.pi) : ℂ) := sorry
+
+/-- The real numbers π and exp π are algebraically independent. -/
+theorem algebraicIndependent_pi_exp_pi :
+    AlgebraicIndependent ℚ ![Real.pi, Real.exp Real.pi] := sorry
+
+
+section AlgebraicCartan
+
+variable {C F : Type*} [Field C] [Field F] [Algebra C F] [CharZero C]
+
+/-- The algebraic exterior differential on the exterior algebra of Kähler one-forms,
+C-linear and of degree +1, with d(a)=da and d(db)=0. -/
+noncomputable def algebraicExteriorDifferential :
+    ExteriorAlgebra F Ω[F⁄C] →+ ExteriorAlgebra F Ω[F⁄C] := sorry
+
+/-- Differentiating a scalar gives its universal one-form. -/
+theorem algebraicExteriorDifferential_algebraMap (a : F) :
+    algebraicExteriorDifferential (C := C) (algebraMap F (ExteriorAlgebra F Ω[F⁄C]) a) =
+      ExteriorAlgebra.ι F (KaehlerDifferential.D C F a) := sorry
+
+/-- Differentiating an exact one-form gives zero. -/
+theorem algebraicExteriorDifferential_exact (a : F) :
+    algebraicExteriorDifferential (ExteriorAlgebra.ι F (KaehlerDifferential.D C F a)) = 0 := sorry
+
+/-- The exterior differential squares to zero in every degree. -/
+theorem algebraicExteriorDifferential_square (ω : ExteriorAlgebra F Ω[F⁄C]) :
+    algebraicExteriorDifferential (algebraicExteriorDifferential ω) = 0 := sorry
+
+/-- The differential is linear over the constant field. -/
+theorem algebraicExteriorDifferential_const_mul (c : C) (ω : ExteriorAlgebra F Ω[F⁄C]) :
+    algebraicExteriorDifferential ((algebraMap F _ (algebraMap C F c)) * ω) =
+      (algebraMap F _ (algebraMap C F c)) * algebraicExteriorDifferential ω := sorry
+
+/-- On a generator a db, the exterior differential gives da ∧ db. -/
+theorem algebraicExteriorDifferential_mul_exact (a b : F) :
+    algebraicExteriorDifferential ((algebraMap F _ a) *
+      ExteriorAlgebra.ι F (KaehlerDifferential.D C F b)) =
+      ExteriorAlgebra.ι F (KaehlerDifferential.D C F a) *
+        ExteriorAlgebra.ι F (KaehlerDifferential.D C F b) := sorry
+
+/-- A scalar constant one has exterior differential zero. -/
+example : algebraicExteriorDifferential (1 : ExteriorAlgebra F Ω[F⁄C]) = 0 := sorry
+
+/-- The differential of a scalar t is its one-form dt. -/
+example (t : F) :
+    algebraicExteriorDifferential (C := C) (algebraMap F (ExteriorAlgebra F Ω[F⁄C]) t) =
+      ExteriorAlgebra.ι F (KaehlerDifferential.D C F t) := sorry
+
+/-- Swapping the generators reverses the sign of d(t du). -/
+example (t u : F) :
+    algebraicExteriorDifferential ((algebraMap F _ t) *
+      ExteriorAlgebra.ι F (KaehlerDifferential.D C F u)) =
+      -(algebraicExteriorDifferential ((algebraMap F _ u) *
+        ExteriorAlgebra.ι F (KaehlerDifferential.D C F t))) := sorry
+
+/-- There is a unique C-linear Lie derivative on one-forms satisfying the derivation rule
+on generators a·db (Kirby §3.3, Lemma 3.2). -/
+theorem exists_lieDerivativeOneForm (D : Derivation C F F) :
+    ∃! L : Ω[F⁄C] →ₗ[C] Ω[F⁄C], ∀ a b : F,
+      L (a • KaehlerDifferential.D C F b) =
+        D a • KaehlerDifferential.D C F b + a • KaehlerDifferential.D C F (D b) := sorry
+
+/-- The algebraic Lie derivative on Kähler one-forms, linear over the constant field C. -/
+noncomputable def lieDerivativeOneForm (D : Derivation C F F) : Ω[F⁄C] →ₗ[C] Ω[F⁄C] := sorry
+
+/-- Lie differentiation of a generator a·db differentiates both a and b. -/
+theorem lieDerivativeOneForm_smul_D (D : Derivation C F F) (a b : F) :
+    lieDerivativeOneForm D (a • KaehlerDifferential.D C F b) =
+      D a • KaehlerDifferential.D C F b + a • KaehlerDifferential.D C F (D b) := sorry
+
+/-- The Lie derivative satisfies a Leibniz rule for scalar multiplication by F. -/
+theorem lieDerivativeOneForm_smul (D : Derivation C F F) (a : F) (ω : Ω[F⁄C]) :
+    lieDerivativeOneForm D (a • ω) = D a • ω + a • lieDerivativeOneForm D ω := sorry
+
+/-- Evaluation on a second derivation fixes the minus sign of the derivation bracket. -/
+theorem lieDerivativeOneForm_evaluate (D D' : Derivation C F F) (ω : Ω[F⁄C]) :
+    D'.liftKaehlerDifferential (lieDerivativeOneForm D ω) =
+      D (D'.liftKaehlerDifferential ω) - (⁅D, D'⁆).liftKaehlerDifferential ω := sorry
+
+/-- The zero derivation has zero Lie derivative on every one-form. -/
+example (ω : Ω[F⁄C]) : lieDerivativeOneForm (0 : Derivation C F F) ω = 0 := sorry
+
+/-- For D(t)=1, L_D(t dt)=dt is nonzero, while t L_D(dt)=0: L_D is not F-linear. -/
+example (D : Derivation C F F) (t : F) (ht : D t = 1) :
+    lieDerivativeOneForm D (t • KaehlerDifferential.D C F t) = KaehlerDifferential.D C F t ∧
+      lieDerivativeOneForm D (t • KaehlerDifferential.D C F t) ≠
+        t • lieDerivativeOneForm D (KaehlerDifferential.D C F t) := sorry
+
+/-- For the Euler derivation D(t)=t, L_D(t dt)=2t dt. -/
+example (D : Derivation C F F) (t : F) (ht : D t = t) :
+    lieDerivativeOneForm D (t • KaehlerDifferential.D C F t) =
+      (2 * t) • KaehlerDifferential.D C F t := sorry
+
+/-- D(t)=1 and D′(t)=t fix the bracket direction: the two evaluations are 1 and 1. -/
+example (D D' : Derivation C F F) (t : F) (ht : D t = 1) (ht' : D' t = t) :
+    D (D' t) = 1 ∧ (⁅D, D'⁆) t = 1 ∧
+      D'.liftKaehlerDifferential (lieDerivativeOneForm D (KaehlerDifferential.D C F t)) = 0 := sorry
+
+end AlgebraicCartan
+
+/-- A nonzero dependence of the exponential differential forms descends to coefficients in the common constant field. -/
+theorem ax_constant_coefficients {F : Type*} [Field F] [CharZero F] {k : ℕ}
+    (D : Fin k → Derivation ℤ F F) (C : Subfield F) (hC : ∀ c, c ∈ C ↔ ∀ j, D j c = 0) {n : ℕ}
+    (x y : Fin n → F) (hy : ∀ i, y i ≠ 0) (hxy : ∀ j i, D j (x i) = D j (y i) / y i)
+    (c : Fin n → F) (hc : c ≠ 0)
+    (hdep : ∑ i, c i • ((y i)⁻¹ • KaehlerDifferential.D C F (y i) -
+      KaehlerDifferential.D C F (x i)) = 0) :
+    ∃ c' : Fin n → F, c' ≠ 0 ∧ (∀ i, c' i ∈ C) ∧
+      ∑ i, c' i • ((y i)⁻¹ • KaehlerDifferential.D C F (y i) - KaehlerDifferential.D C F (x i)) = 0 :=
+  sorry
+
+/-- A nonzero constant-coefficient dependence of the exponential forms yields a nonzero integral combination of the arguments in the constant field. -/
+theorem ax_integer_relation_of_constant_relation {F : Type*} [Field F] [CharZero F] {k : ℕ}
+    (D : Fin k → Derivation ℤ F F) (C : Subfield F) (hC : ∀ c, c ∈ C ↔ ∀ j, D j c = 0) {n : ℕ}
+    (x y : Fin n → F) (hy : ∀ i, y i ≠ 0) (hxy : ∀ j i, D j (x i) = D j (y i) / y i)
+    (c : Fin n → F) (hc : c ≠ 0) (hcC : ∀ i, c i ∈ C)
+    (hdep : ∑ i, c i • ((y i)⁻¹ • KaehlerDifferential.D C F (y i) -
+      KaehlerDifferential.D C F (x i)) = 0) :
+    ∃ z : Fin n → ℤ, z ≠ 0 ∧ ∑ i, (z i : F) * x i ∈ C := sorry
+
+/-- Ax's theorem (Ax–Schanuel for the exponential, differential-field form). -/
+theorem ax_schanuel {F : Type*} [Field F] [CharZero F] {k : ℕ} (D : Fin k → Derivation ℤ F F)
+    (C : Subfield F) (hC : ∀ c, c ∈ C ↔ ∀ j, D j c = 0) {n : ℕ} (x y : Fin n → F)
+    (hy : ∀ i, y i ≠ 0) (hxy : ∀ j i, D j (x i) = D j (y i) / y i)
+    (hlin : ∀ z : Fin n → ℚ, (∑ i, (z i : F) * x i) ∈ C → z = 0) :
+    ((n + (Matrix.of fun j i => D j (x i)).rank : ℕ) : Cardinal) ≤
+      Algebra.trdeg C (IntermediateField.adjoin C (Set.range x ∪ Set.range y)) := sorry
+
+/-- Ax–Schanuel for formal power series in one variable. -/
+theorem ax_schanuel_powerSeries {n : ℕ} (hn : 1 ≤ n) (f : Fin n → PowerSeries ℂ)
+    (hf0 : ∀ i, constantCoeff (f i) = 0) (hlin : LinearIndependent ℚ f) :
+    ((n + 1 : ℕ) : Cardinal) ≤
+      Algebra.trdeg ℂ (Algebra.adjoin ℂ (Set.range f ∪ Set.range fun i => (exp ℂ).subst (f i))) :=
+  sorry
+
+/-- For independent zero-constant formal arguments, the sum of argument and exponential transcendence degrees is at least n+1. -/
+theorem weak_ax_schanuel_powerSeries {n : ℕ} (hn : 1 ≤ n) (f : Fin n → PowerSeries ℂ)
+    (hf0 : ∀ i, constantCoeff (f i) = 0) (hlin : LinearIndependent ℚ f) :
+    ((n + 1 : ℕ) : Cardinal) ≤ Algebra.trdeg ℂ (Algebra.adjoin ℂ (Set.range f)) +
+      Algebra.trdeg ℂ (Algebra.adjoin ℂ (Set.range fun i => (exp ℂ).subst (f i))) := sorry
+
+/-- Ax–Lindemann–Weierstrass: if the `fᵢ` generate a field of transcendence degree one (an
+algebraic curve germ) and are `ℚ`-linearly independent, their exponentials are algebraically
+independent. -/
+theorem ax_lindemann_weierstrass {n : ℕ} (hn : 1 ≤ n) (f : Fin n → PowerSeries ℂ)
+    (hf0 : ∀ i, constantCoeff (f i) = 0) (hlin : LinearIndependent ℚ f)
+    (hcurve : Algebra.trdeg ℂ (Algebra.adjoin ℂ (Set.range f)) = 1) :
+    AlgebraicIndependent ℂ fun i => (exp ℂ).subst (f i) := sorry
+
+
+/-- Layer 5 notation for Schanuel’s proposition from Layer 3. -/
+abbrev SchanuelConjecture : Prop := Transcendence.SchanuelConjecture
+
+/-- The conjecture on algebraic independence of logarithms of algebraic numbers. -/
+def LogarithmsAlgebraicIndependenceConjecture : Prop :=
+  ∀ (n : ℕ) (ℓ : Fin n → ℂ), (∀ i, IsAlgebraic ℚ (Complex.exp (ℓ i))) →
+    LinearIndependent ℚ ℓ → AlgebraicIndependent ℚ ℓ
+
+/-- The Schanuel inequality holds unconditionally for algebraic arguments (Lindemann–Weierstrass, Layer 3). -/
+theorem schanuel_inequality_of_isAlgebraic (n : ℕ) (z : Fin n → ℂ)
+    (hz : ∀ i, IsAlgebraic ℚ (z i)) (hlin : LinearIndependent ℚ z) :
+    (n : Cardinal) ≤
+      Algebra.trdeg ℚ (IntermediateField.adjoin ℚ (Set.range z ∪ Set.range (Complex.exp ∘ z))) :=
+  sorry
+
+namespace SchanuelConjecture
+
+/-- Applying Schanuel's conjecture to a `ℚ`-linearly independent tuple. -/
+theorem le_trdeg (h : SchanuelConjecture) (n : ℕ) (z : Fin n → ℂ)
+    (hlin : LinearIndependent ℚ z) :
+    (n : Cardinal) ≤
+      Algebra.trdeg ℚ (IntermediateField.adjoin ℚ (Set.range z ∪ Set.range (Complex.exp ∘ z))) :=
+  h n z hlin
+
+end SchanuelConjecture
+
+/-- Unit test `SchanuelConjecture.test_hermite`: For n = 1, z = 1 the inequality says e is
+transcendental, which holds unconditionally. -/
+example : ((1 : ℕ) : Cardinal) ≤ Algebra.trdeg ℚ (IntermediateField.adjoin ℚ
+    (Set.range (fun _ : Fin 1 => (1 : ℂ)) ∪ Set.range (Complex.exp ∘ fun _ : Fin 1 => (1 : ℂ)))) :=
+  sorry
+
+/-- Unit test `SchanuelConjecture.test_dependent`: For the ℚ-dependent z = (1, 2): trdeg ℚ(1, 2, e,
+e²) = 1 < 2; dropping linear independence makes the statement false. -/
+example : Algebra.trdeg ℚ (IntermediateField.adjoin ℚ
+    (Set.range ![(1 : ℂ), 2] ∪ Set.range (Complex.exp ∘ ![(1 : ℂ), 2]))) = 1 := sorry
+
+/-- Unit test `SchanuelConjecture.test_zero`: n = 0: the inequality 0 ≤ trdeg is trivial. -/
+example : (0 : Cardinal) ≤ Algebra.trdeg ℚ (IntermediateField.adjoin ℚ
+    (Set.range (Fin.elim0 : Fin 0 → ℂ) ∪ Set.range (Complex.exp ∘ (Fin.elim0 : Fin 0 → ℂ)))) :=
+  zero_le
+
+/-- Unit test `SchanuelConjecture.test_lindemann`: For z = (iπ) the inequality reads trdeg ℚ(iπ, −1)
+≥ 1, i.e. π is transcendental (true, Lindemann). -/
+example : ((1 : ℕ) : Cardinal) ≤ Algebra.trdeg ℚ (IntermediateField.adjoin ℚ
+    (Set.range (fun _ : Fin 1 => Complex.I * Real.pi) ∪
+      Set.range (Complex.exp ∘ fun _ : Fin 1 => Complex.I * Real.pi))) := sorry
+
+namespace LogarithmsAlgebraicIndependenceConjecture
+
+/-- Under the conjecture, the quotient of two `ℚ`-linearly independent logarithms of algebraic
+numbers is transcendental (unconditionally this is Gelfond–Schneider, Layer 3). -/
+theorem transcendental_div
+    (h : LogarithmsAlgebraicIndependenceConjecture) (ℓ₁ ℓ₂ : ℂ)
+    (h₁ : IsAlgebraic ℚ (Complex.exp ℓ₁)) (h₂ : IsAlgebraic ℚ (Complex.exp ℓ₂))
+    (hlin : LinearIndependent ℚ ![ℓ₁, ℓ₂]) : Transcendental ℚ (ℓ₁ / ℓ₂) := sorry
+
+end LogarithmsAlgebraicIndependenceConjecture
+
+/-- The case n = 1 holds unconditionally (a nonzero logarithm of an algebraic number is transcendental). -/
+theorem logarithmsConjecture_one (ℓ : Fin 1 → ℂ) (hℓ : IsAlgebraic ℚ (Complex.exp (ℓ 0)))
+    (hlin : LinearIndependent ℚ ℓ) : AlgebraicIndependent ℚ ℓ := sorry
+
+/-- Unit test `LogarithmsAlgebraicIndependenceConjecture.test_one`: A nonzero ℓ with e^ℓ algebraic
+is transcendental (Hermite–Lindemann), unconditionally. -/
+example (ℓ : ℂ) (h : IsAlgebraic ℚ (Complex.exp ℓ)) (h0 : ℓ ≠ 0) : Transcendental ℚ ℓ := sorry
+
+/-- Unit test `LogarithmsAlgebraicIndependenceConjecture.test_dependent`: log 2 and log 4 are
+algebraically dependent, so ℚ-linear independence cannot be dropped. -/
+example : ¬ AlgebraicIndependent ℚ ![(Real.log 2 : ℂ), (Real.log 4 : ℂ)] := sorry
+
+/-- Unit test `LogarithmsAlgebraicIndependenceConjecture.test_log2_log3`: The conjecture implies
+that log 2 and log 3 are algebraically independent. -/
+example (h : LogarithmsAlgebraicIndependenceConjecture) :
+    AlgebraicIndependent ℚ ![(Real.log 2 : ℂ), (Real.log 3 : ℂ)] := sorry
+
+/-- SchanuelConjecture → e and π algebraically independent. -/
+theorem algebraicIndependent_e_pi_of_schanuel (h : SchanuelConjecture) :
+    AlgebraicIndependent ℚ ![Real.exp 1, Real.pi] := sorry
+
+/-- Schanuel's conjecture implies it. -/
+theorem logarithmsConjecture_of_schanuel (h : SchanuelConjecture) :
+    LogarithmsAlgebraicIndependenceConjecture := by
+  intro n ℓ halg hlin
+  exact Transcendence.SchanuelConjecture.algebraicIndependent_of_mem_algebraicLogs h
+    (fun i => halg i) hlin
+
+end DiophantineApproximation
+
+/- The README also specifies absoluteTwistedHeight, absoluteHeight2,
+absoluteSuccessiveInfimum, absoluteInfimumSpace, absoluteTwistedFiltration,
+absoluteDavenportBasis, absoluteExceptionalSubspaceDescends,
+absolutePerturbedUnitEquation, absoluteMinkowskiSecondTheorem, absoluteGapPrinciple,
+absoluteFiltrationAsymptotics, absoluteAlgebraicSystemTransport,
+absoluteSubspaceTheoremForSystems, absoluteSystemIntervalRefinement,
+absoluteParametricSubspaceTheorem,
+absoluteIntervalSemistable, absoluteIntervalResult,
+formalLaplaceOperatorTransfer, IsApparentSingularity,
+algebraicCartanDegreeShift and axSchanuelMultivariateSeries.
+Their full signatures use the place-extension, analytic solution-basis and graded
+algebraic differential-form constructions of Layers 2 and 5. -/
+
+end
+
+end TauCetiRoadmap.DiophantineApproximationAndTranscendence
