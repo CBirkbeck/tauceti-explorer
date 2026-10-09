@@ -37091,7 +37091,8 @@
     "DESIGN-PotentialAutomorphyInfrastructurePartII~3"
    ],
    "prompt": "research/blueprint/prompts/REV-DESIGN-PotentialAutomorphyInfrastructurePartII~3.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7530"
   },
   {
    "kind": "design",
@@ -39139,8 +39140,9 @@
     "BP-GeneralizedHeegnerCycles--GH.0~2"
    ],
    "prompt": "research/blueprint/prompts/REV-GeneralizedHeegnerCycles--GH.0~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7051"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7051",
+   "finishedAt": "2026-10-09T08:18:46Z"
   },
   {
    "kind": "blueprint",
@@ -40230,8 +40232,9 @@
     "BP-LanglandsParameterStacks~2"
    ],
    "prompt": "research/blueprint/prompts/REV-LanglandsParameterStacks~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7072"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7072",
+   "finishedAt": "2026-10-09T08:18:50Z"
   },
   {
    "kind": "blueprint",
