@@ -14,7 +14,7 @@ Modularity over imaginary quadratic fields belongs to `EllipticCurveModularityIm
 
 Use the upstream Elliptic curves roadmap for isogenies, dual isogenies, rational and geometric torsion, the Weil pairing, local reduction, Tate curves and twists. Use Modular forms for native cusp forms, primitive newforms, integral Hecke coefficients, coefficient fields, Galois conjugation and the characteristic-zero Sturm comparison. Use `ArithmeticGaloisRepresentations:R01.3` for local conductors, `ArithmeticGaloisRepresentations:R01.4` for the finite-image and oddness arguments, and `SerreWeightAndLevelOptimisation:R20.2`, `R20.3`, `R20.6` for the precise level and weight interfaces.
 
-General Cartan correspondences and Chen's isogeny, the integral winding quotient, semistable cotangent comparison and the higher-dimensional rank-zero theorem are prerequisites of the last layer. They are supplied through the extensions of ModularCurvesPartII and the corresponding modular-abelian BSD theory described below. In particular, the Hecke-equivariant correspondence vanishing on the old part does not itself establish the isogeny on the new quotient. Every use of that isogeny requires the separate theorem.
+General Cartan correspondences and Chen's isogeny, the integral winding quotient, semistable cotangent comparison and the higher-dimensional rank-zero theorem are prerequisites of the last layer. They require the extensions of ModularCurvesPartII and the corresponding modular-abelian BSD theory described below. In particular, the Hecke-equivariant correspondence vanishing on the old part does not itself establish the isogeny on the new quotient. Every use of that isogeny requires the separate theorem.
 
 | Layer here | Mathematical output | Owning layer |
 | --- | --- | --- |
@@ -40,7 +40,7 @@ Fix an algebraic closure of ℚ. All elliptic curves are over ℚ unless another
 - Mixed modular curves are smooth projective normalizations of the indicated fibre products. Write X₀⁺(rp²)=X₀(rp²)/w_{p²}; this involution preserves the r-level.
 - F, G and H are real-valued. Division by 6 is real division, the square root precedes the power, and every comparison with ℓ is strict. In G, use lcm(N,4).
 
-Suggested home for the imported interfaces: the modules and namespace of EllipticModularityEffectiveComparisons, including `TauCeti.EffectiveEllipticComparison`. This roadmap adds no parallel arithmetic or geometric carriers. [Suggested.lean](Suggested.lean) records the Mathlib arithmetic checks for the imports. It is not an exhaustive specification; this document gives the mathematical requirements, including imports whose native signatures belong to their supplying roadmap.
+Suggested home for the imported interfaces: the modules and namespace of EllipticModularityEffectiveComparisons, including `TauCeti.EffectiveEllipticComparison`. This roadmap adds no parallel arithmetic or geometric carriers. [Suggested.lean](Suggested.lean) presents the supplier’s six Mathlib-expressible arithmetic definitions, their API lemmas and examples under the supplier’s own proposed names, followed by proved arithmetic checks. Use this standalone presentation or the supplying modules, rather than importing both. It is not an exhaustive specification; this document gives the mathematical requirements, including imports whose native signatures belong to their supplying roadmap.
 
 ## Layers
 
@@ -324,7 +324,7 @@ For r ∈ {2, 3, 5, 7, 13}, prime p > 37 and prime q ≡ ±1 mod p, let A be the
 
 For r ∈ {2, 3, 5, 7, 13}, a prime p > 37, and E/ℚ with a rational cyclic r-isogeny whose mod-p image lies in the normalizer of a nonsplit Cartan subgroup, j(E) ∈ ℤ[1/p].
 
-**Source:** [Lemos](#references), Theorem 1.4, p. 3; §3 conclusion, p. 10 (v2); indexed range restricted to p > 37.
+**Source:** [Lemos](#references), Theorem 1.4, p. 3; §3 conclusion, p. 10 (v2); specialization to p > 37.
 
 **Imports and prerequisites:** `EllipticModularityEffectiveComparisons:EC.5/cartan-denominator-exclusion`.
 
@@ -334,7 +334,7 @@ For r ∈ {2, 3, 5, 7, 13}, a prime p > 37, and E/ℚ with a rational cyclic r-i
 
 For r ∈ {2, 3, 5, 7, 13}, a prime p > 37, and E/ℚ without complex multiplication, with a rational cyclic r-isogeny and a mod-p representation that is not surjective, j(E) is an integer.
 
-**Source:** [Lemos](#references), §2, Proposition 2.1, p. 4; Theorem 2.3, p. 6 (v2); indexed range restricted to p > 37.
+**Source:** [Lemos](#references), §2, Proposition 2.1, p. 4; Theorem 2.3, p. 6 (v2); specialization to p > 37.
 
 **Imports and prerequisites:** `EllipticModularityEffectiveComparisons:EC.5/integral-j-forcing`.
 
@@ -442,7 +442,7 @@ For N>0 let (S,I,A,B,M) be the coordinatewise product of localTerms(p,N.factoriz
 
 For N>0 put I(N)=[SL2(Z):Gamma0(N)] using the native subgroup index, and g(N)=finrank_C(cuspFormsNew(N,2)∩cuspFormCharSpace(2,1)). Define krausF(N)=(sqrt(I(N)/6)+1)^(2g(N)).
 
-**Sources:** [BS](#references), §2, equation (5), the three threshold displays and Theorem 4, p.360.
+**Sources:** [Kraus](#references), §3.1, equation (7), p.1143.
 
 **Required API:**
 
@@ -462,7 +462,7 @@ For N>0 put I(N)=[SL2(Z):Gamma0(N)] using the native subgroup index, and g(N)=fi
 
 For N>0 define krausG(N)=(sqrt(I(lcm(N,4))/6)+1)^2, where I is the native Gamma0 index. The lcm is essential and is not replaced by 4N.
 
-**Sources:** [BS](#references), §2, equation (5), the three threshold displays and Theorem 4, p.360.
+**Sources:** [Kraus](#references), §3.1, equation (8), p.1144.
 
 **Required API:**
 
@@ -482,7 +482,7 @@ For N>0 define krausG(N)=(sqrt(I(lcm(N,4))/6)+1)^2, where I is the native Gamma0
 
 For N>0 define krausH(N)=max(krausF(N),krausG(N)).
 
-**Sources:** [BS](#references), §2, equation (5), the three threshold displays and Theorem 4, p.360.
+**Sources:** [Kraus](#references), §3.1, equation (9), p.1144.
 
 **Required API:**
 
@@ -570,14 +570,15 @@ For Kraus's comparison, the level-and-weight interface provides a primitive weig
 
 For the isogeny classification, the prime-degree Eisenstein argument and the composite-degree rational-point arguments are distinct. The half-character case uses the global imaginary-quadratic class-number-one classification; the finite-character case uses global triviality of characters unramified at every finite prime. Local inertia calculations alone do not provide either conclusion. The composite classification also needs the point tables and descent exclusions at levels 26, 35, 39, 50, 65, 91, 125 and 169. These enter through `EllipticModularityEffectiveComparisons:EC.4/mazur-prime-isogeny-classification` and `EC.4/mazur-kenku-cyclic-degrees`.
 
-For Cartan uniformity, the ModularCurvesPartII continuation supplies the prime-to-p Hecke-equivariant Chen isogeny, integral winding-annihilator quotient, smooth integral models and semistable cotangent injection. Its winding input includes the nonzero order-p cuspidal boundary divisor, projection to the full-new part and the characteristic-q coefficient-support/degeneracy statement. The r=5,7,13 cases require these calculations at their own levels. The rank-zero input applies to modular abelian factors of arbitrary dimension occurring in that quotient. It enters through `EllipticModularityEffectiveComparisons:EC.5/winding-class-nonzero`, `EC.5/finite-winding-quotient` and `EC.5/cartan-cusp-formal-immersion`.
+For Cartan uniformity, the required ModularCurvesPartII continuation must supply the prime-to-p Hecke-equivariant Chen isogeny, integral winding-annihilator quotient, smooth integral models and semistable cotangent injection. Its winding input includes the nonzero order-p cuspidal boundary divisor, projection to the full-new part and the characteristic-q coefficient-support/degeneracy statement. The r=5,7,13 cases require these calculations at their own levels. The rank-zero input applies to modular abelian factors of arbitrary dimension occurring in that quotient. It enters through `EllipticModularityEffectiveComparisons:EC.5/winding-class-nonzero`, `EC.5/finite-winding-quotient` and `EC.5/cartan-cusp-formal-immersion`.
 
 The proper-image classification uses quantitative split-Cartan estimates and a certified finite sieve, through `EllipticModularityEffectiveComparisons:EC.5/split-cartan-exclusion`. The finite j-value step uses the actual modular coordinate maps and rational-point tables, followed by all-primes image certificates. A computation of the five polynomials establishes their arithmetic properties; the coordinate comparison establishes that they give the modular j-map. Likewise, the image certificates must bound every possible exceptional prime. These two comparisons are part of the imported statements, not consequences of checking a finite collection of values or Frobenius traces.
 
 ## Arithmetic examples in Suggested.lean
 
-The namespace `EllipticCurveModularityPartIIAcceptance` contains proved arithmetic lemmas used to check the conventions above. They supplement the native interfaces and do not replace their geometric comparison statements.
+The namespace `EllipticCurveModularityPartIIAcceptance` contains the proposed integral norm estimate and proved arithmetic lemmas used to check the conventions above. They supplement the native interfaces and do not replace their geometric comparison statements.
 
+- `norm_bound` states the two-sided norm estimate using a nonzero element of the native ring of integers, a nonzero prime ideal whose contraction to ℤ is (ℓ), and a bound under every complex embedding. Its proof is proposed with `sorry`.
 - `sqrt_two_add_one_sq` and `sqrt_twelve_add_one_sq` identify the level-11 expressions as F(11)=3+2√2 and G(11)=13+4√3 after the native index and dimension evaluations. `krausF_eleven_lt_krausG_eleven` checks the strict inequality, so H(11)=G(11).
 - `two_mul_sub_one_le_of_mod_eq` proves that primes p≥11 and q with q≡±1 modulo p satisfy q≥2p−1. In the formal-immersion application, q is consequently larger than 13 and than 3; the small residue characteristics do not occur.
 - `int_of_eval_div_self_int` works for any monic integer polynomial of degree at least two. For nonzero rational t with f(t)/t integral it proves that t is a nonzero integer dividing f(0). The example f=X+1, t=1/2 shows why the degree hypothesis is necessary. The five modular numerators satisfy it, but the lemma alone does not identify a modular coordinate.

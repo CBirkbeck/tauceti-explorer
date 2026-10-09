@@ -5,27 +5,202 @@ import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Defs
 import Mathlib.RingTheory.Polynomial.RationalRoot
 import Mathlib.Tactic
 
+import Mathlib.Data.Fin.VecNotation
+import Mathlib.Data.Nat.Factorization.Defs
+import Mathlib.NumberTheory.ModularForms.CongruenceSubgroups
+import Mathlib.NumberTheory.NumberField.Norm
+import Mathlib.RingTheory.Ideal.Norm.AbsNorm
+import Mathlib.RingTheory.Norm.Transitivity
+
 /-!
 This file is not the roadmap and is not exhaustive. README.md is definitive.
 These statements suggest Lean forms so that contributors and reviewers converge
 on names and signatures.
 
-The six layers of this roadmap import the definitions and theorems of
-EllipticModularityEffectiveComparisons, whose namespace is
-`TauCeti.EffectiveEllipticComparison`. Use those interfaces in their supplying
-modules; this file does not restate them behind parallel carriers. The native
-modular, elliptic and Cartan signatures belong to that supplying roadmap.
+The six layers import EllipticModularityEffectiveComparisons. The arithmetic
+prototypes below use that supplier's namespace and proposed names; they are a
+standalone presentation of its interfaces, not a second development to import
+alongside it. Use the supplying modules when those declarations are implemented.
+The native newspace, elliptic and Cartan comparisons require their supplier
+interfaces before their full hypotheses can be expressed here.
 
-The declarations below are the Mathlib arithmetic examples for the imported
-interfaces: threshold identities at level 11, the residue-prime bound, integral
-polynomial parameters, and the mod-four matrix argument for a two-isogeny.
-Their conclusions are arithmetic statements. They do not construct an elliptic
-curve, identify a modular j-map, or prove the geometric comparison theorems.
+The last namespace contains proved arithmetic checks for threshold notation,
+integral polynomial parameters and the mod-four two-isogeny matrix argument.
+These checks do not construct elliptic curves or modular j-maps.
 -/
+
+noncomputable section
+open scoped BigOperators
+
+namespace TauCeti.EffectiveEllipticComparison
+
+/-- Martin's five rational prime-power factors, in the order s, v∞, v₂, v₃, μ. -/
+def localTerms (p e : ℕ) : Fin 5 → ℚ := by sorry
+
+lemma localTerms_zeroExponent (p : ℕ) : localTerms p 0 = 1 := by sorry
+lemma localTerms_nonprime (p e : ℕ) (hp : ¬ p.Prime) (he : 0 < e) :
+    localTerms p e = 0 := by sorry
+lemma localTerms_table (p e : ℕ) (hp : p.Prime) (he : 0 < e) :
+    localTerms p e = ![
+      (if e = 1 then 1 - 1 / (p : ℚ) else if e = 2 then
+        1 - 1 / (p : ℚ) - 1 / (p : ℚ)^2 else
+        (1 - 1 / (p : ℚ)) * (1 - 1 / (p : ℚ)^2)),
+      (if e % 2 = 1 then 0 else if e = 2 then (p : ℚ) - 2 else
+        (p : ℚ)^(e / 2 - 2) * ((p : ℚ) - 1)^2),
+      (if p = 2 then (if e = 1 ∨ e = 2 then -1 else if e = 3 then 1 else 0)
+        else if p % 4 = 1 then (if e = 2 then -1 else 0)
+        else (if e = 1 then -2 else if e = 2 then 1 else 0)),
+      (if p = 3 then (if e = 1 ∨ e = 2 then -1 else if e = 3 then 1 else 0)
+        else if p % 3 = 1 then (if e = 2 then -1 else 0)
+        else (if e = 1 then -2 else if e = 2 then 1 else 0)),
+      (if e = 1 then -1 else 0)] := by sorry
+
+-- TauCeti.EffectiveEllipticComparison.tests.local_zero_exponent
+example : localTerms 0 0 = ![1, 1, 1, 1, 1] := by sorry
+-- TauCeti.EffectiveEllipticComparison.tests.local_two_square
+example : localTerms 2 2 = ![1/4, 0, -1, 1, 0] := by sorry
+-- TauCeti.EffectiveEllipticComparison.tests.local_three_square
+example : localTerms 3 2 = ![5/9, 1, 1, -1, 0] := by sorry
+-- TauCeti.EffectiveEllipticComparison.tests.local_two_cube
+example : localTerms 2 3 = ![3/8, 0, 1, 0, 0] := by sorry
+
+def martinValue (N : ℕ) : ℚ := by sorry
+lemma martinValue_zero : martinValue 0 = 0 := by sorry
+lemma martinValue_one : martinValue 1 = 0 := by sorry
+lemma martinValue_formula (N : ℕ) (hN : 0 < N) :
+    martinValue N =
+      let T : Fin 5 → ℚ := fun j => ∏ p ∈ N.primeFactors, localTerms p (N.factorization p) j
+      (N : ℚ) * T 0 / 12 - T 1 / 2 - T 2 / 4 - T 3 / 3 + T 4 := by sorry
+
+-- TauCeti.EffectiveEllipticComparison.tests.dimension_level_one
+example : martinValue 1 = 0 := by sorry
+-- TauCeti.EffectiveEllipticComparison.tests.dimension_eleven
+example : martinValue 11 = 1 := by sorry
+-- TauCeti.EffectiveEllipticComparison.tests.dimension_thirtyfive
+example : martinValue 35 = 3 := by sorry
+-- TauCeti.EffectiveEllipticComparison.tests.dimension_thirty
+example : martinValue 30 = 1 := by sorry
+
+def krausG (N : ℕ) [NeZero N] : ℝ := by sorry
+lemma krausG_eq (N : ℕ) [NeZero N] :
+    krausG N = (Real.sqrt (((CongruenceSubgroup.Gamma0 (N.lcm 4)).index : ℝ)/6) + 1)^2 := by sorry
+lemma one_le_krausG (N : ℕ) [NeZero N] : 1 ≤ krausG N := by sorry
+lemma krausG_of_four_dvd (N : ℕ) [NeZero N] (h : 4 ∣ N) :
+    krausG N = (Real.sqrt (((CongruenceSubgroup.Gamma0 N).index : ℝ)/6) + 1)^2 := by sorry
+-- TauCeti.EffectiveEllipticComparison.tests.krausG_one
+example : krausG 1 = 4 := by sorry
+-- TauCeti.EffectiveEllipticComparison.tests.krausG_four
+example : krausG 4 = 4 ∧ (Real.sqrt ((24 : ℝ)/6) + 1)^2 = 9 := by sorry
+-- TauCeti.EffectiveEllipticComparison.tests.krausG_eleven
+example : krausG 11 = 13 + 4 * Real.sqrt 3 := by sorry
+
+open Polynomial
+
+def krausLocalFilters {R : Type*} [CommRing R] (p e : ℕ) (a : R) :
+    Polynomial R × Polynomial R := by sorry
+
+lemma krausLocalFilters_two {R : Type*} [CommRing R] (e : ℕ) (a : R) :
+    krausLocalFilters 2 e a =
+      (if e = 0 then (1 - C a * X + 2 * X ^ 2, 1)
+       else if e = 1 then (1 - C a * X, 1) else (1, 1)) := by sorry
+lemma krausLocalFilters_odd {R : Type*} [CommRing R] (p e : ℕ) (hp : p ≠ 2) (a : R) :
+    krausLocalFilters p e a =
+      (if e = 0 then (1, 1)
+       else if e = 1 then (1, 1 - C ((p : R) + 1 - a) * X)
+       else (1, 1 - C ((p : R) + 1) * X + C (p : R) * X ^ 2)) := by sorry
+lemma krausLocalFilters_constant {R : Type*} [CommRing R] (p e : ℕ) (a : R) :
+    (krausLocalFilters p e a).1.coeff 0 = 1 ∧
+      (krausLocalFilters p e a).2.coeff 0 = 1 := by sorry
+lemma krausLocalFilters_map {R S : Type*} [CommRing R] [CommRing S]
+    (φ : R →+* S) (p e : ℕ) (a : R) :
+    ((krausLocalFilters p e a).1.map φ, (krausLocalFilters p e a).2.map φ) =
+      krausLocalFilters p e (φ a) := by sorry
+
+-- TauCeti.EffectiveEllipticComparison.tests.filters_two_unramified
+example : krausLocalFilters 2 0 (3 : ℤ) = (1 - 3 * X + 2 * X ^ 2, 1) := by sorry
+-- TauCeti.EffectiveEllipticComparison.tests.filters_two_square
+example : krausLocalFilters 2 2 (0 : ℤ) = (1, 1) := by sorry
+-- TauCeti.EffectiveEllipticComparison.tests.filters_three_once
+example : krausLocalFilters 3 1 (-1 : ℤ) = (1, 1 - 5 * X) := by sorry
+-- TauCeti.EffectiveEllipticComparison.tests.filters_three_square
+example : krausLocalFilters 3 2 (0 : ℤ) = (1, 1 - 4 * X + 3 * X ^ 2) := by sorry
+
+def lemosNumerator (r : ℕ) : Polynomial ℤ := by sorry
+lemma lemosNumerator_table :
+    lemosNumerator 2 = (X + 16) ^ 3 ∧
+    lemosNumerator 3 = (X + 27) * (X + 3) ^ 3 ∧
+    lemosNumerator 5 = (X ^ 2 + 10 * X + 5) ^ 3 ∧
+    lemosNumerator 7 = (X ^ 2 + 5 * X + 1) ^ 3 * (X ^ 2 + 13 * X + 49) ∧
+    lemosNumerator 13 = (X ^ 4 + 7 * X ^ 3 + 20 * X ^ 2 + 19 * X + 1) ^ 3 *
+      (X ^ 2 + 5 * X + 13) := by sorry
+lemma lemosNumerator_monic (r : ℕ) (hr : r ∈ ({2, 3, 5, 7, 13} : Finset ℕ)) :
+    (lemosNumerator r).Monic ∧ (lemosNumerator r).natDegree = r + 1 := by sorry
+lemma lemosNumerator_constant :
+    (lemosNumerator 2).coeff 0 = 4096 ∧
+    (lemosNumerator 3).coeff 0 = 729 ∧
+    (lemosNumerator 5).coeff 0 = 125 ∧
+    (lemosNumerator 7).coeff 0 = 49 ∧
+    (lemosNumerator 13).coeff 0 = 13 := by sorry
+lemma lemosNumerator_other (r : ℕ) (hr : r ∉ ({2, 3, 5, 7, 13} : Finset ℕ)) :
+    lemosNumerator r = 0 := by sorry
+
+-- TauCeti.EffectiveEllipticComparison.tests.j_two_constant
+example : (lemosNumerator 2).eval 0 = 4096 := by sorry
+-- TauCeti.EffectiveEllipticComparison.tests.j_seven_degree
+example : (lemosNumerator 7).natDegree = 8 ∧ (lemosNumerator 7).coeff 0 = 49 := by sorry
+-- TauCeti.EffectiveEllipticComparison.tests.j_thirteen_degree
+example : (lemosNumerator 13).natDegree = 14 ∧ (lemosNumerator 13).coeff 0 = 13 := by sorry
+-- TauCeti.EffectiveEllipticComparison.tests.j_eleven_other
+example : lemosNumerator 11 = 0 := by sorry
+
+def lemosIntegralJ (r : ℕ) : Finset ℤ := by sorry
+lemma mem_lemosIntegralJ (r : ℕ) (j : ℤ) :
+    j ∈ lemosIntegralJ r ↔ r ∈ ({2, 3, 5, 7, 13} : Finset ℕ) ∧
+      ∃ t : ℤ, t ≠ 0 ∧ t ∣ (lemosNumerator r).coeff 0 ∧
+        j = (lemosNumerator r).eval t / t := by sorry
+lemma lemosIntegralJ_other (r : ℕ) (hr : r ∉ ({2, 3, 5, 7, 13} : Finset ℕ)) :
+    lemosIntegralJ r = ∅ := by sorry
+lemma lemosIntegralJ_cards :
+    (lemosIntegralJ 2).card = 25 ∧ (lemosIntegralJ 3).card = 13 ∧
+    (lemosIntegralJ 5).card = 8 ∧ (lemosIntegralJ 7).card = 6 ∧
+    (lemosIntegralJ 13).card = 4 := by sorry
+
+-- TauCeti.EffectiveEllipticComparison.tests.integral_j_two
+example : (lemosIntegralJ 2).card = 25 ∧ 0 ∈ lemosIntegralJ 2 ∧
+    1728 ∈ lemosIntegralJ 2 := by sorry
+-- TauCeti.EffectiveEllipticComparison.tests.integral_j_five
+example : (lemosIntegralJ 5).card = 8 ∧ 64 ∈ lemosIntegralJ 5 := by sorry
+-- TauCeti.EffectiveEllipticComparison.tests.integral_j_thirteen
+example : lemosIntegralJ 13 = {-64 * 9 * 4079 ^ 3, 576, 4096 * 27 * 19,
+    4096 * 27 * 19 * 991 ^ 3} := by sorry
+-- TauCeti.EffectiveEllipticComparison.tests.integral_j_other
+example : lemosIntegralJ 11 = ∅ := by sorry
+
+end TauCeti.EffectiveEllipticComparison
 
 open Polynomial
 
 namespace EllipticCurveModularityPartIIAcceptance
+
+/-! ### The integral norm estimate
+
+The prime ideal uses the native ring of integers and its contraction to ℤ.
+The upper bound quantifies over every complex embedding of the number field.
+-/
+
+section Norm
+open scoped NumberField
+
+theorem norm_bound {K : Type*} [Field K] [NumberField K]
+    (ell : ℕ) (hell : ell.Prime) (I : Ideal (𝓞 K))
+    (hI : I.IsPrime) (hI0 : I ≠ ⊥)
+    (habove : Ideal.comap (Int.castRingHom (𝓞 K)) I = Ideal.span {(ell : ℤ)})
+    (x : 𝓞 K) (hx : x ∈ I) (hx0 : x ≠ 0) (B : ℝ)
+    (hB : ∀ σ : K →ₐ[ℚ] ℂ, ‖σ (x : K)‖ ≤ B) :
+    (ell : ℝ) ≤ |(Algebra.norm ℚ (x : K) : ℝ)| ∧
+      |(Algebra.norm ℚ (x : K) : ℝ)| ≤ B ^ Module.finrank ℚ K := by sorry
+
+end Norm
 
 /-! ### The thresholds at level 11 in the two notations
 

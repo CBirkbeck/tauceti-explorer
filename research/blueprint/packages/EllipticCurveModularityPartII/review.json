@@ -1,0 +1,8 @@
+{
+  "review": {
+    "status": "needs_changes",
+    "reviewer": "independent-review-REV-PKG-EllipticCurveModularityPartII",
+    "date": "2026-10-09",
+    "notes": "Completed independent review of all six package requirements, 31 target statements, 66 imports plus two Mathlib references, and eight displayed definition interfaces (27 APIs, 29 tests). Corrected three threshold API citations to Kraus originals, clarified required supplier extensions, removed process wording, joined six native arithmetic supplier prototypes with 20 APIs and 23 examples, and added the general number-field norm signature. Final lean-check exited 0 with zero errors and 50 sorry-only warnings at pinned Mathlib. README, source fidelity, ownership, style and math.NT metadata pass. Item 5 remains unsatisfied: F/H, seven APIs and six tests and most native theorem targets have no signatures; arithmetic calculations do not express newspace, elliptic or modular-curve comparisons. Completed negative review, not a checkpoint; accepted import plan and supplier gaps unchanged."
+  }
+}
