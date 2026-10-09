@@ -45898,7 +45898,8 @@
     "PKG-AutomorphicBundles"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-AutomorphicBundles.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7505"
   },
   {
    "id": "PKG-AutomorphicGaloisRepresentations",
@@ -45916,8 +45917,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-AutomorphicGaloisRepresentations.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7458"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7458",
+   "finishedAt": "2026-10-09T02:24:12Z"
   },
   {
    "id": "REV-PKG-AutomorphicGaloisRepresentations",
@@ -47706,7 +47708,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-VStackSheavesAndLisseCategories.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7497"
   },
   {
    "id": "REV-PKG-VStackSheavesAndLisseCategories",
