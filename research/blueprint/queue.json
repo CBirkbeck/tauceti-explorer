@@ -34322,8 +34322,9 @@
    ],
    "avoidAccountOf": "BP-SchemeAndStackFoundations--SF.5",
    "prompt": "research/blueprint/prompts/REV-SchemeAndStackFoundations--SF.5.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6287"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6287",
+   "finishedAt": "2026-10-09T17:15:34Z"
   },
   {
    "id": "BP-SchemeAndStackFoundations--SF.6",
@@ -43348,7 +43349,8 @@
     "BP-GeometryOfNumbersAndQuadraticArithmetic~2"
    ],
    "prompt": "research/blueprint/prompts/REV-GeometryOfNumbersAndQuadraticArithmetic~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6468"
   },
   {
    "kind": "blueprint",
