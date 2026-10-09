@@ -27,19 +27,21 @@ section 20): a README, a `Suggested.lean` and the unit tests of every
 definition. A roadmap goes to Tau Ceti only once every roadmap it depends on is
 already a Tau Ceti roadmap. The order is in
 [upstream/CaraianiNewton.md](upstream/CaraianiNewton.md): the 94 roadmaps that
-Caraiani–Newton needs, in tiers, with tightly coupled roadmaps merged into one
-package. The `top` list in `focus.json` is the current tiers. Finish their
+Caraiani–Newton needs, in tiers. Tightly coupled roadmaps form a bundle: each
+keeps its own package, may cite the other roadmaps of its bundle, and goes to
+Tau Ceti together with them in one pull request. The `top` list in `focus.json` is the current tiers. Finish their
 plans, fixes and packages before anything else.
 
-A plan in the current tier cites only Mathlib, Tau Ceti and roadmaps of a lower
-tier (the order file lists, for each roadmap, the citations that point upward).
+A plan in the current tier cites only Mathlib, Tau Ceti, roadmaps of its own
+bundle and roadmaps of a lower tier (the order file lists, for each roadmap, the citations that point upward).
 When it needs a definition or result that a higher roadmap plans, it plans that
 notion itself, and the higher roadmap imports it from here: the notion moves
 down. Never cite the higher roadmap. Record each move in your handoff note, so
 that the higher roadmap's plan can be pointed at its new owner.
 
 A package (PROTOCOL.md section 20) cites, for each target, only Mathlib, Tau
-Ceti, its own layers and the layers of lower-tier packages. Two citations are
+Ceti, its own layers, the other roadmaps of its bundle and the layers of
+lower-tier packages. Two citations are
 replaced as the package is written:
 - `FoundationsAndLibraryIntegration` is bookkeeping for "what the libraries
   already have", not a roadmap that goes to Tau Ceti. Replace each of its stage
