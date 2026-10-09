@@ -27,21 +27,21 @@
       },
       {
         "ref": "mathlib:CategoryTheory.Functor.relativelyRepresentable.fst",
-        "kind": "def",
+        "kind": "abbrev",
         "module": "Mathlib/CategoryTheory/MorphismProperty/Representable.lean",
         "provides": "The representing presheaf maps to the source of the given morphism.",
         "checked": "Statement read in the shared source tree at the recorded Mathlib pin on 2026-10-09; the suggested file is checked against that build."
       },
       {
         "ref": "mathlib:CategoryTheory.Functor.relativelyRepresentable.snd",
-        "kind": "def",
+        "kind": "abbrev",
         "module": "Mathlib/CategoryTheory/MorphismProperty/Representable.lean",
         "provides": "The representing scheme maps to the test scheme.",
         "checked": "Statement read in the shared source tree at the recorded Mathlib pin on 2026-10-09; the suggested file is checked against that build."
       },
       {
         "ref": "mathlib:CategoryTheory.Functor.relativelyRepresentable.isPullback",
-        "kind": "def",
+        "kind": "lemma",
         "module": "Mathlib/CategoryTheory/MorphismProperty/Representable.lean",
         "provides": "The chosen cone is a genuine categorical pullback.",
         "checked": "Statement read in the shared source tree at the recorded Mathlib pin on 2026-10-09; the suggested file is checked against that build."
@@ -357,6 +357,11 @@
           "statement": "For any presheaf V with v:V→B, maps V→Mor_B(Z,X) over B are naturally equivalent to maps V×_B Z→X over B. In objects over B, relative Hom is right adjoint to V↦V×_B Z, with that product regarded over B."
         },
         {
+          "name": "TauCeti.AlgebraicGeometry.ModuliDescent.relativeHomHomEquiv_points",
+          "role": "characterisation",
+          "statement": "For a scheme test T and a point (a,b), the universal-property equivalence sends its Yoneda morphism to b, after precomposition with the canonical isomorphism from the chosen scheme Z_T to the presheaf pullback. This evaluation equation fixes the actual equivalence, rather than an arbitrary bijection of the same Hom sets."
+        },
+        {
           "name": "TauCeti.AlgebraicGeometry.ModuliDescent.relativeHomMap",
           "role": "functoriality",
           "statement": "An actual target morphism over the relevant base induces postcomposition, retaining the base point."
@@ -416,7 +421,7 @@
         "SchemeAndStackFoundations:SF.1"
       ],
       "proofSteps": [
-        "For separated etale W→Z, identify a section with its open and closed image inside W_T. Use the requested finite-part sheaf and the open locus where its map to Z_T is an isomorphism.",
+        "For separated etale W→Z, identify a section with its open and closed image inside W_T. Use the requested finite-part sheaf and the open locus where its map to Z_T is an isomorphism. For the finite open subspace Z′ of W_T, its map to T is flat and locally of finite presentation because it is open in W_T and W_T→Z_T→T has those properties; finiteness makes it universally closed. The target Z_T→T is finite, hence closed, separated and locally of finite type. These are exactly the hypotheses of 05XD.",
         "For general W, choose a separated scheme etale atlas W′→W. Sections of W′ give a representable-by-spaces etale cover of the section sheaf: its fibre over a section is the separated case for W′_T×_{W_T}Z_T.",
         "Surjectivity follows by splitting the finitely many source-fibre points after an etale neighbourhood of U (05XQ). Apply SF.1 Artin bootstrap and etale locality on the source."
       ],
@@ -472,7 +477,7 @@
         "The functor is an fppf sheaf by gluing the base map and then the relative morphism. Work etale locally on B to make B affine and Z finite free.",
         "Choose an etale atlas X′→X that is a disjoint union of affine schemes. For a point represented by b:Z_T→X, the pullback of Mor_B(Z,X′)→Mor_B(Z,X) is the section space for Z_T×_X X′→Z_T; r093-etale-sections proves etale representability by spaces and surjectivity.",
         "For a finite collection of atlas components the target disjoint union is affine; its relative morphism space is represented by the arbitrary-algebra affine restriction supplied by RG2.0a. Maps landing in that finite union form an open subfunctor: the complement projects closed under the finite map Z_T→T.",
-        "On affine scheme tests T the finite source Z_T is quasi-compact, so a finite collection of components suffices. These open pieces therefore cover as sheaves. Glue their representers and apply Artin bootstrap to the etale cover, then descend from the etale base chart."
+        "On affine scheme tests T the finite source Z_T is quasi-compact, so a finite collection of components suffices. These open pieces therefore cover as sheaves. Glue their representers and apply Artin bootstrap to the etale cover, then descend from the etale base chart. The atlas-component index and its finite subsets stay in the fixed universe; each arbitrary-generator affine representer also stays there. Thus the covering coproduct meets the same size bounds as the source proof, 05Y7 footnote 3, p.16; no unrestricted larger-universe atlas is silently assumed."
       ],
       "sources": [
         {
@@ -577,6 +582,11 @@
           "name": "TauCeti.AlgebraicGeometry.ModuliDescent.weilRestrictionHomEquiv",
           "role": "universal-property",
           "statement": "For any presheaf V→B, maps V→Res_{Z/B}(X) over B are naturally equivalent to maps V×_B Z→X over Z."
+        },
+        {
+          "name": "TauCeti.AlgebraicGeometry.ModuliDescent.weilRestrictionHomEquiv_points",
+          "role": "characterisation",
+          "statement": "For a scheme test T and a point (a,b), the universal-property equivalence sends its Yoneda morphism to b, after precomposition with the canonical isomorphism from the chosen scheme Z_T to the presheaf pullback. This evaluation equation fixes the actual equivalence, rather than an arbitrary bijection of the same Hom sets."
         },
         {
           "name": "TauCeti.AlgebraicGeometry.ModuliDescent.weilRestrictionMap",
@@ -898,7 +908,7 @@
         "AlgebraicModuliForArithmeticGeometry:R09.3/finite-locally-free-descent"
       ],
       "proofSteps": [
-        "Use the SF.1 equivalence between QCoh(X) and modules on the etale presentation, and the inherited full fpqc descent comparison; do not rebuild quasi-coherent descent.",
+        "Use the SF.1 equivalence between QCoh(X) and modules on the etale presentation, and the inherited full fpqc descent comparison; do not rebuild quasi-coherent descent. Use the fpqc cover and U×_X X_i in step 4 of 04W8, as corrected in the predecessor’s source issue AlgebraicModuliForArithmeticGeometry/E4; the printed fppf label does not strengthen an arbitrary fpqc cover.",
         "Apply 07UB on the locally Noetherian charts. Finite presentation descends by the inherited finite-presentation theorem, so the equivalence restricts to coherent objects in both directions.",
         "Etale pullback is exact, and the coherent category is abelian (07UC). The equivalence therefore preserves kernels and cokernels.",
         "Use a common refinement of two presentations; full faithfulness fixes its natural comparisons and the triple-refinement coherence. Base change preserves finite presentation, and 07UB identifies coherence when the new space is locally Noetherian."
@@ -1031,7 +1041,7 @@
         "Discharge the two exact SF.1 extensions for section spaces and general fppf polarized objects.",
         "Complete the three concrete supplier signatures recorded in the suggested-file comments and verify them against the single common space/module carriers.",
         "Reconcile and implement the inherited native module adapters without creating another quasi-coherent descent theory; transport the comonad structure and comparison functor explicitly.",
-        "Independently review this target plan and its ownership graph; no implementation or signature completeness is inferred from successful elaboration."
+        "Implement the specified maps and comparisons and discharge their proofs; successful signature elaboration and acceptance of this plan establish neither implementation nor signature completeness."
       ]
     }
   ],
@@ -1111,7 +1121,7 @@
     {
       "id": "AlgebraicModuliForArithmeticGeometry:R09.3/r093-gap-native-geometric-specializations",
       "title": "Concrete supplier signatures are pending common carrier implementation",
-      "detail": "The suggested file gives both native small-presheaf definitions, all 18 API items and seven tests, the sheaf/diagonal/atlas algebraicity conditions and the etale-section signature, plus native evaluation and quotient universal properties for affine and finite-quotient comparisons. Three concrete signatures still require supplier declarations absent at the pins: the small-etale coherent-space equivalence, polarized-pair comparison and finite-structured MC0E/SF.1 comparison. Their exact full mathematical signatures are recorded under their proposed names in comments, never fabricated Prop fields. Elaboration does not certify these omitted signatures or any proofs.",
+      "detail": "The suggested file gives both native small-presheaf definitions, all 20 API items and seven tests, the sheaf/diagonal/atlas algebraicity conditions and the etale-section signature, plus native evaluation and quotient universal properties for affine and finite-quotient comparisons. Three concrete signatures still require supplier declarations absent at the pins: the small-etale coherent-space equivalence, polarized-pair comparison and finite-structured MC0E/SF.1 comparison. Their exact full mathematical signatures are recorded under their proposed names in comments, never fabricated Prop fields. Elaboration does not certify these omitted signatures or any proofs.",
       "nodes": [
         "AlgebraicModuliForArithmeticGeometry:R09.3/r093-coherent-presentation-descent",
         "AlgebraicModuliForArithmeticGeometry:R09.3/r093-polarized-descent-comparison",
@@ -1132,7 +1142,13 @@
       "searched": [
         "Current chapter PDF retrieved 2026-10-09",
         "Current Stacks tag 05XQ and its displayed comments"
-      ]
+      ],
+      "source": "StacksCriteria",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The maps have domains W→Z and Z→U; the composite to U must have that order. Independently reread Lemma 9.1 p.12.",
+        "by": "REV-AlgebraicModuliForArithmeticGeometry--R09.3"
+      }
     },
     {
       "id": "AlgebraicModuliForArithmeticGeometry/E-R093-2",
@@ -1146,7 +1162,13 @@
       "searched": [
         "Current chapter PDF retrieved 2026-10-09",
         "Current Stacks tag 05XR and its displayed comments"
-      ]
+      ],
+      "source": "StacksCriteria",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The lemma permits nonseparated W→Z. A separated scheme atlas W′ over the base makes W′→W and W′→Z separated; these are the maps used to reduce the fibre to the separated case. Independently reread Lemma 9.2 pp.13–14.",
+        "by": "REV-AlgebraicModuliForArithmeticGeometry--R09.3"
+      }
     },
     {
       "id": "AlgebraicModuliForArithmeticGeometry/E-R093-3",
@@ -1160,7 +1182,13 @@
       "searched": [
         "Current chapter PDF retrieved 2026-10-09",
         "Current Stacks tag 05XR and its displayed comments"
-      ]
+      ],
+      "source": "StacksCriteria",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The finite locally free map fixed in Lemma 9.2 is p:Z→U. The letter B is not a base of this lemma; the flatness and finite-presentation deduction uses p. Independently reread p.13.",
+        "by": "REV-AlgebraicModuliForArithmeticGeometry--R09.3"
+      }
     }
   ],
   "restructure": [
@@ -1203,6 +1231,134 @@
     }
   ],
   "review": {
-    "status": "pending"
-  }
+    "status": "accepted",
+    "reviewer": "independent-review-REV-AlgebraicModuliForArithmeticGeometry--R09.3",
+    "date": "2026-10-09",
+    "notes": "Independent review of all 13 new targets, all 19 pinned baseline declarations, all supplier contracts, 20 definition API entries, seven suggested tests, six planets, eight hash-matched public source PDFs, three source misprints and confirmed findings /1, /10, /11, /12. Corrected three baseline declaration kinds, added two evaluation-characterisation API signatures, made section-locus hypotheses and atlas size explicit, carried forward predecessor E4 and removed the completed review from remaining work. Suggested Lean elaborates with only the expected admitted-proof warnings. Accepted as a complete target-planning pass; R09.3 stays planned, not closed, with four explicit supplier/interface/proof gaps. No nodes, proofs or inherited adapters are certified implemented.",
+    "checked": [
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.3/r093-relative-hom",
+        "verdict": "corrected",
+        "note": "Checked formulas 10.0.2 and 05Y3, pp.14–15. Native small points retain the base and B-relative map. Added the evaluation equation for the actual Hom equivalence; existing identity, empty and split-two tests constrain the intended functor."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.3/r093-etale-sections",
+        "verdict": "corrected",
+        "note": "Checked 05XQ/05XR pp.12–14, finite-part 04QH p.19 and isomorphism locus 05XD p.122. Made every 05XD hypothesis explicit. No separatedness of W→Z is introduced; exact SF.1 extensions remain requested."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.3/r093-relative-hom-algebraicity",
+        "verdict": "corrected",
+        "note": "Checked 05Y5/05Y7 pp.15–16 and affine 05Y6/0BL3 pp.208–209. RG2.0a supplies arbitrary affine algebras, not just MC0F finite presentation. Added the atlas-size justification from 05Y7 footnote 3. The sections-supplier gap remains open."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.3/r093-weil-restriction",
+        "verdict": "corrected",
+        "note": "Checked formulas 11.0.1–11.0.2 and 05YB pp.16–17. The equality is over Z, not merely over B. Added evaluation of the actual Hom equivalence; four existing tests distinguish section restriction from relative Hom."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.3/r093-restriction-sheaf",
+        "verdict": "verified",
+        "note": "Checked 05YB p.17: glue the base first and then maps on its pulled-back cover; the section equality is local. Scheme-representability is enough; no finite-source assumption is needed."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.3/r093-restriction-base-change",
+        "verdict": "verified",
+        "note": "Checked 05YC p.17 and the suggested point-preserving pullback isomorphism. Preservation of the same section fixes target naturality and unit/composition comparisons by uniqueness."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.3/r093-restriction-cartesian",
+        "verdict": "verified",
+        "note": "Checked 05YE p.18. The specified postcomposition and identity maps make the pullback condition exactly z∘b=pr_Z; the suggested maps retain this evaluation, so the square is the intended one."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.3/r093-restriction-algebraicity",
+        "verdict": "verified",
+        "note": "Checked 05YF p.18 and SF.1 fibre products. It follows from both relative Hom spaces and the cartesian square, including rank-zero source components and arbitrary X. Its inherited sections-supplier dependency remains recorded."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.3/r093-affine-restriction-comparison",
+        "verdict": "verified",
+        "note": "Read MC0F and RG2.0a supplier contracts. Comparison is evaluation-preserving on each actual domain; arbitrary affine algebras are not imputed to MC0F. Overlap, target naturality and arbitrary base change follow by Yoneda uniqueness with Spec variance retained."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.3/r093-finite-quotient-comparison",
+        "verdict": "verified",
+        "note": "Read MC0C and SF.1 quotient contracts and 02VG/03C5 pp.39–40. The fppf projection and actual kernel pair give the sheaf coequalizer. Current invariant-ring quotient APIs do not imply this comparison for stabilizers; the plan excludes that claim."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.3/r093-coherent-presentation-descent",
+        "verdict": "corrected",
+        "note": "Checked 04W8 pp.3–4, 060V–060X pp.5–6 and 07UB/07UC p.19. All module maps descend, not only isomorphisms; locally Noetherian hypotheses give coherence. Explicitly carried forward predecessor E4’s fpqc correction. Common-carrier signature and native-adapter obligations remain recorded."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.3/r093-polarized-descent-comparison",
+        "verdict": "verified",
+        "note": "Checked 0D3C pp.21–22, 0ADT pp.35–36, MC0E and SR Layer 2. The invertible-sheaf lift and cocycle are separate data. General fppf polarized effectivity is the precise requested SF.1 extension, not inferred from narrower curve or etale suppliers."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.3/r093-finite-moduli-descent-comparison",
+        "verdict": "verified",
+        "note": "Read MC0E, SF.1 affine/space descent and inherited finite locally free descent. The comparison is the unique local identity on the whole tuple, preserving the immersion, operations, torsor action, sections and equations. Concrete supplier signature remains explicitly omitted, not fabricated."
+      }
+    ]
+  },
+  "sourceVersions": [
+    {
+      "kind": "published",
+      "url": "https://stacks.math.columbia.edu/download/criteria.pdf",
+      "citation": "The Stacks Project — Criteria for Representability; live chapter PDF, printed chapter-local numbering.",
+      "read": "2026-10-09",
+      "sha256": "f1d9946d39d17967dd9da00c65ed4829a6796a815c727f11c8475df8cd9517e3"
+    },
+    {
+      "kind": "published",
+      "url": "https://stacks.math.columbia.edu/download/more-morphisms.pdf",
+      "citation": "The Stacks Project — More on Morphisms; live chapter PDF, printed chapter-local numbering.",
+      "read": "2026-10-09",
+      "sha256": "59df05f5d52f453b17677398c72a51fe156367f460f6dcfdf764d9631b7c787c"
+    },
+    {
+      "kind": "published",
+      "url": "https://stacks.math.columbia.edu/download/spaces.pdf",
+      "citation": "The Stacks Project — Algebraic Spaces; live chapter PDF, printed chapter-local numbering.",
+      "read": "2026-10-09",
+      "sha256": "fdb58265a054c38a25718a40c67e9e101842bda00517e8c8482df8f6ad5b176d"
+    },
+    {
+      "kind": "published",
+      "url": "https://stacks.math.columbia.edu/download/groupoids.pdf",
+      "citation": "The Stacks Project — Groupoid Schemes; live chapter PDF, printed chapter-local numbering.",
+      "read": "2026-10-09",
+      "sha256": "4506a39201063afc270cbb68c9c0c1d3c90937c03f98cfee074605b402e7a30f"
+    },
+    {
+      "kind": "published",
+      "url": "https://stacks.math.columbia.edu/download/spaces-descent.pdf",
+      "citation": "The Stacks Project — Descent and Algebraic Spaces; live chapter PDF, printed chapter-local numbering.",
+      "read": "2026-10-09",
+      "sha256": "5c8408a876c17c258f78ac2cc8241662a4b089a8d33f787eefbdf27c0d782335"
+    },
+    {
+      "kind": "published",
+      "url": "https://stacks.math.columbia.edu/download/spaces-cohomology.pdf",
+      "citation": "The Stacks Project — Cohomology of Algebraic Spaces; live chapter PDF, printed chapter-local numbering.",
+      "read": "2026-10-09",
+      "sha256": "2527d16049bf6782594126a5ddd44bb43ac65736e8e411d7375765d65bc6e91b"
+    },
+    {
+      "kind": "published",
+      "url": "https://stacks.math.columbia.edu/download/spaces-more-groupoids.pdf",
+      "citation": "The Stacks Project — More on Groupoids in Spaces; live chapter PDF, printed chapter-local numbering.",
+      "read": "2026-10-09",
+      "sha256": "5345c7115ed66a84a3ebfd92a468c4aa5f3c0aa8ec9f0b89cb57482065058971"
+    },
+    {
+      "kind": "published",
+      "url": "https://stacks.math.columbia.edu/download/spaces-more-morphisms.pdf",
+      "citation": "The Stacks Project — More on Morphisms of Spaces; live chapter PDF, printed chapter-local numbering.",
+      "read": "2026-10-09",
+      "sha256": "152272f3994152ca69d168788884b9631345fd720bcbe755cc5132ac71efc818"
+    }
+  ]
 }

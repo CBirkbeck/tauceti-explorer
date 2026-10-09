@@ -79,6 +79,17 @@ def relativeHomHomEquiv {V : P.{u}} (v : V ⟶ B) :
     { c : V ⟶ relativeHom f x hf // c ≫ relativeHomToBase f x hf = v } ≃
       { b : pullback v f ⟶ X // b ≫ x = pullback.fst v f ≫ v } := sorry
 
+/-- The universal-property equivalence evaluates to the morphism stored by a point. -/
+lemma relativeHomHomEquiv_points (T : Scheme.{u}) (a : B.obj (op T))
+    (b : X.obj (op (hf.pullback (yonedaEquiv.symm a))))
+    (hb : x.app _ b = yonedaEquiv (hf.fst (yonedaEquiv.symm a) ≫ f)) :
+    let v := yonedaEquiv.symm a
+    let c := yonedaEquiv.symm
+      (⟨a, ⟨b, hb⟩⟩ : (relativeHom f x hf).obj (op T))
+    pullback.lift (yoneda.map (hf.snd v)) (hf.fst v) (hf.isPullback v).w.symm ≫
+      ((relativeHomHomEquiv f x hf v) ⟨c, by sorry⟩).val =
+        yonedaEquiv.symm b := sorry
+
 def relativeHomMap {X' : P.{u}} (x' : X' ⟶ B) (m : X ⟶ X') (hm : m ≫ x' = x) :
     relativeHom f x hf ⟶ relativeHom f x' hf := sorry
 
@@ -152,6 +163,17 @@ lemma weilRestriction_ext (T : Scheme.{u})
 def weilRestrictionHomEquiv {V : P.{u}} (v : V ⟶ B) :
     { c : V ⟶ weilRestriction f hf z // c ≫ weilRestrictionToBase f hf z = v } ≃
       { b : pullback v f ⟶ X // b ≫ z = pullback.snd v f } := sorry
+
+/-- The universal-property equivalence evaluates to the actual Z-section stored by a point. -/
+lemma weilRestrictionHomEquiv_points (T : Scheme.{u}) (a : B.obj (op T))
+    (b : X.obj (op (hf.pullback (yonedaEquiv.symm a))))
+    (hb : z.app _ b = yonedaEquiv (hf.fst (yonedaEquiv.symm a))) :
+    let v := yonedaEquiv.symm a
+    let c := yonedaEquiv.symm
+      (⟨a, ⟨b, hb⟩⟩ : (weilRestriction f hf z).obj (op T))
+    pullback.lift (yoneda.map (hf.snd v)) (hf.fst v) (hf.isPullback v).w.symm ≫
+      ((weilRestrictionHomEquiv f hf z v) ⟨c, by sorry⟩).val =
+        yonedaEquiv.symm b := sorry
 
 def weilRestrictionMap {X' : P.{u}} (z' : X' ⟶ Z) (m : X ⟶ X') (hm : m ≫ z' = z) :
     weilRestriction f hf z ⟶ weilRestriction f hf z' := sorry
