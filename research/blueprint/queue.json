@@ -45944,7 +45944,8 @@
     "PKG-AutomorphicGaloisRepresentations"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-AutomorphicGaloisRepresentations.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7506"
   },
   {
    "id": "PKG-AutomorphicGaloisRepresentationsPartII",
@@ -47508,8 +47509,9 @@
     "PKG-PerfectoidQuotients"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-PerfectoidQuotients.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7526"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7526",
+   "finishedAt": "2026-10-09T02:28:22Z"
   },
   {
    "id": "PKG-PotentialAutomorphyInfrastructure",
