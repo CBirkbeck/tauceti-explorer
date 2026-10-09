@@ -1638,6 +1638,10 @@ example (a : ℕ → Δ) : (fun n => a (2 * n + 1)) ∈ kernel 2 a := by sorry
 /-- Unit test `isAutomatic_parity`: `n ↦ n mod 2` is `2`-automatic (read the last digit). -/
 example : IsAutomatic 2 (fun n : ℕ => n % 2) := by sorry
 
+/-- Unit test `isAutomatic_unary_mod_three`: base one reads a unary word;
+the eventually periodic constructor must cover this case separately. -/
+example : IsAutomatic 1 (fun n : ℕ => n % 3) := by sorry
+
 /-- **Eilenberg's theorem.** A sequence is `k`-automatic iff its `k`-kernel is finite. -/
 theorem isAutomatic_iff_finite_kernel (hk : 2 ≤ k) (a : ℕ → Δ) :
     IsAutomatic k a ↔ (kernel k a).Finite := by sorry
@@ -4020,9 +4024,10 @@ rests on (`IsDedekindDomain.HeightOneSpectrum.classGroupMk`,
 `TauCeti.NumberTheory.NumberField.Quadratic.RingOfIntegers`; Tau Ceti is not built in the
 environment that checked this file, so the statements are phrased in Mathlib vocabulary.
 
-The certified-output interpretation of `ComputationalNumberTheory:CN.2`
-(CA.5/certified-number-field-output-interpretation) is not prototyped here: its statement is about
-the certificate types that layer defines, which do not exist yet.
+CA.5/certified-number-field-output-interpretation consists of the four intrinsic comparison
+criteria stated in this section: integral bases, ideal matrices, complete class-group relations
+and fundamental units. Their signatures take the certified properties as explicit hypotheses.
+ComputationalNumberTheory later produces data satisfying them and imports these criteria.
 -/
 
 noncomputable section
@@ -4888,6 +4893,11 @@ example : rootPowPoly (cyclotomic 3 ℤ) (cyclotomic.monic 3 ℤ) 2 = cyclotomic
 
 /-- Unit test `rootPowPoly.test_one`: the empty product, `1_m = 1`. -/
 example (m : ℕ) : rootPowPoly (1 : ℤ[X]) monic_one m = 1 := by sorry
+
+/-- Unit test `rootPowPoly.test_nonreduced`: the construction and its power identities
+also apply over a ring with nilpotents, where a field-only roots argument is insufficient. -/
+example : rootPowPoly (X ^ 2 - C 2 : (ZMod 4)[X])
+    (monic_X_pow_sub_C 2 (by norm_num)) 2 = X ^ 2 := by sorry
 
 /-- Unit test `rootPowPoly.test_ne_comp`: `P_2` is not `P(X²)`: for `P = X² + 1`,
 `P_2 = (X + 1)² ≠ X⁴ + 1`. -/
