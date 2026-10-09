@@ -38764,8 +38764,9 @@
    ],
    "revisionOf": "BP-EtaleDualityAndPerverseSheaves--EDC.4",
    "prompt": "research/blueprint/prompts/BP-EtaleDualityAndPerverseSheaves--EDC.4~3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7558"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7558",
+   "finishedAt": "2026-10-09T05:48:17Z"
   },
   {
    "priority": 2,
@@ -45746,7 +45747,8 @@
     "PKG-AdicCoefficientsAndComparisons"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-AdicCoefficientsAndComparisons.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7502"
   },
   {
    "id": "PKG-AdicEtaleGeometry",
