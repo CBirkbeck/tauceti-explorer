@@ -13,7 +13,7 @@
     "ExcursionOperatorsAndSpectralAction:ES3",
     "ExcursionOperatorsAndSpectralAction:ES4"
   ],
-  "summary": "Revision 2 checkpoint: all 42 target specifications and eight planned stages are retained, with the independent review unchanged. Synchronizes the four reviewer corrections, removes the now-resolved LP2 reindexing request, and adds genuine pretriangulated central-support signatures and concrete scalar-module tests. Full section 13 coverage remains blocked by missing E5/HS/LP enhanced category, coherent action and derived stacky Perf types; this packet is not complete.",
+  "summary": "Revision 2 independently reviewed: all 42 unchecked target specifications and eight planned stages retained; eight nodes corrected and three stale supplier requests resolved using current VS4/VS5 and HS3 nodes. Four explicit gaps and sixteen open requests remain. Review needs_changes because the mandatory full Lean node/API/test signatures are still incomplete, not because the plan honestly records mathematical refinements. The generic pretriangulated support theorem is present; the enhanced Bun_G specialization and coherent action/derived stacky Perf interfaces remain pending.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -22,166 +22,166 @@
         "ref": "mathlib:CategoryTheory.CatCenter",
         "module": "Mathlib/CategoryTheory/Center/Basic.lean",
         "provides": "The ordinary center consists of natural endomorphisms of the identity functor. This is the ordinary Bernstein center in VIII.4.1, already provided at the pin; ES plans its enhanced degree-zero counterpart and comparison.",
-        "checked": "Independently reread the declaration statement at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-07 by REV-ExcursionOperatorsAndSpectralAction--ES0."
+        "checked": "Independently reread the declaration statement at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-09 by REV-ExcursionOperatorsAndSpectralAction--ES0~2."
       },
       {
         "ref": "mathlib:CategoryTheory.CatCenter.app",
         "module": "Mathlib/CategoryTheory/Center/Basic.lean",
         "provides": "Evaluation of a central element at an object. This is the pinned form of the distinction the roadmap insists on, between a natural endomorphism of the identity and an endomorphism of one object.",
-        "checked": "Independently reread the declaration statement at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-07 by REV-ExcursionOperatorsAndSpectralAction--ES0."
+        "checked": "Independently reread the declaration statement at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-09 by REV-ExcursionOperatorsAndSpectralAction--ES0~2."
       },
       {
         "ref": "mathlib:CategoryTheory.CatCenter.naturality",
         "module": "Mathlib/CategoryTheory/Center/Basic.lean",
         "provides": "Naturality of a central element, from which centrality follows. Already proved at the pins, so this packet does not plan it.",
-        "checked": "Independently reread the declaration statement at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-07 by REV-ExcursionOperatorsAndSpectralAction--ES0."
+        "checked": "Independently reread the declaration statement at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-09 by REV-ExcursionOperatorsAndSpectralAction--ES0~2."
       },
       {
         "ref": "mathlib:CategoryTheory.Linear.toCatCenter",
         "module": "Mathlib/CategoryTheory/Center/Linear.lean",
         "provides": "The scalar ring map into the center of an R-linear preadditive category. ES imports this existing scalar structure.",
-        "checked": "Independently reread the declaration statement at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-07 by REV-ExcursionOperatorsAndSpectralAction--ES0."
+        "checked": "Independently reread the declaration statement at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-09 by REV-ExcursionOperatorsAndSpectralAction--ES0~2."
       },
       {
         "ref": "mathlib:CategoryTheory.Functor",
         "module": "Mathlib/CategoryTheory/Functor/Basic.lean",
         "provides": "Functors. The identity functor of C, whose endomorphisms are the Bernstein centre, and the Hecke functors T_V are objects of this type.",
-        "checked": "Independently reread the declaration statement at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-07 by REV-ExcursionOperatorsAndSpectralAction--ES0."
+        "checked": "Independently reread the declaration statement at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-09 by REV-ExcursionOperatorsAndSpectralAction--ES0~2."
       },
       {
         "ref": "mathlib:CategoryTheory.NatTrans",
         "module": "Mathlib/CategoryTheory/NatTrans.lean",
         "provides": "Natural transformations. An element of the Bernstein centre is a natural endomorphism of the identity; the pinned definition already carries the naturality that this roadmap insists distinguishes it from an endomorphism of one object.",
-        "checked": "Independently reread the declaration statement at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-07 by REV-ExcursionOperatorsAndSpectralAction--ES0."
+        "checked": "Independently reread the declaration statement at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-09 by REV-ExcursionOperatorsAndSpectralAction--ES0~2."
       },
       {
         "ref": "mathlib:CategoryTheory.Preadditive",
         "module": "Mathlib/CategoryTheory/Preadditive/Basic.lean",
         "provides": "Preadditive categories. End(id_C) is a ring because C is preadditive; the pinned class supplies that structure on hom-sets.",
-        "checked": "Independently reread the declaration statement at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-07 by REV-ExcursionOperatorsAndSpectralAction--ES0."
+        "checked": "Independently reread the declaration statement at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-09 by REV-ExcursionOperatorsAndSpectralAction--ES0~2."
       },
       {
         "ref": "mathlib:CategoryTheory.CatCenter.ext",
         "module": "Mathlib/CategoryTheory/Center/Basic.lean",
         "provides": "Equality from all object components; applies to the ordinary homotopy-category comparison only.",
-        "checked": "Independently reread the declaration statement at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-07 by REV-ExcursionOperatorsAndSpectralAction--ES0."
+        "checked": "Independently reread the declaration statement at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-09 by REV-ExcursionOperatorsAndSpectralAction--ES0~2."
       },
       {
         "ref": "mathlib:Ideal",
         "module": "Mathlib/RingTheory/Ideal/Defs.lean",
         "provides": "Left ideals as submodules; in commutative coordinate rings these give annihilator ideals.",
-        "checked": "Independently reread the declaration statement at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-07 by REV-ExcursionOperatorsAndSpectralAction--ES0."
+        "checked": "Independently reread the declaration statement at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-09 by REV-ExcursionOperatorsAndSpectralAction--ES0~2."
       },
       {
         "ref": "mathlib:PrimeSpectrum",
         "module": "Mathlib/RingTheory/Spectrum/Prime/Defs.lean",
         "provides": "Prime ideals of a commutative ring, used for reduced central support on the invariant quotient.",
-        "checked": "Independently reread the declaration statement at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-07 by REV-ExcursionOperatorsAndSpectralAction--ES0."
+        "checked": "Independently reread the declaration statement at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-09 by REV-ExcursionOperatorsAndSpectralAction--ES0~2."
       },
       {
         "ref": "mathlib:PrimeSpectrum.zeroLocus",
         "module": "Mathlib/RingTheory/Spectrum/Prime/Basic.lean",
         "provides": "V(s) is the set of prime ideals containing s.",
-        "checked": "Independently reread the declaration statement at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-07 by REV-ExcursionOperatorsAndSpectralAction--ES0."
+        "checked": "Independently reread the declaration statement at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-09 by REV-ExcursionOperatorsAndSpectralAction--ES0~2."
       },
       {
         "ref": "mathlib:PrimeSpectrum.mem_zeroLocus",
         "module": "Mathlib/RingTheory/Spectrum/Prime/Basic.lean",
         "provides": "Membership in V(s) iff s is contained in the prime ideal.",
-        "checked": "Independently reread the declaration statement at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-07 by REV-ExcursionOperatorsAndSpectralAction--ES0."
+        "checked": "Independently reread the declaration statement at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-09 by REV-ExcursionOperatorsAndSpectralAction--ES0~2."
       },
       {
         "ref": "mathlib:PrimeSpectrum.zeroLocus_radical",
         "module": "Mathlib/RingTheory/Spectrum/Prime/Basic.lean",
         "provides": "The zero locus of the radical of an ideal equals its zero locus.",
-        "checked": "Independently reread the declaration statement at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-07 by REV-ExcursionOperatorsAndSpectralAction--ES0."
+        "checked": "Independently reread the declaration statement at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-09 by REV-ExcursionOperatorsAndSpectralAction--ES0~2."
       },
       {
         "ref": "mathlib:PrimeSpectrum.zeroLocus_inf",
         "module": "Mathlib/RingTheory/Spectrum/Prime/Basic.lean",
         "provides": "V(I intersect J)=V(I) union V(J), used for finite direct sums.",
-        "checked": "Independently reread the declaration statement at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-07 by REV-ExcursionOperatorsAndSpectralAction--ES0."
+        "checked": "Independently reread the declaration statement at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-09 by REV-ExcursionOperatorsAndSpectralAction--ES0~2."
       },
       {
         "ref": "mathlib:PrimeSpectrum.zeroLocus_mul",
         "module": "Mathlib/RingTheory/Spectrum/Prime/Basic.lean",
         "provides": "V(I J)=V(I) union V(J), used after the exact-triangle product-ideal argument.",
-        "checked": "Independently reread the declaration statement at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-07 by REV-ExcursionOperatorsAndSpectralAction--ES0."
+        "checked": "Independently reread the declaration statement at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-09 by REV-ExcursionOperatorsAndSpectralAction--ES0~2."
       },
       {
         "ref": "mathlib:RingHom.ker",
         "module": "Mathlib/RingTheory/Ideal/Maps.lean",
         "provides": "The kernel of an evaluated central ring map is an ideal.",
-        "checked": "Independently reread the declaration statement at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-07 by REV-ExcursionOperatorsAndSpectralAction--ES0."
+        "checked": "Independently reread the declaration statement at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-09 by REV-ExcursionOperatorsAndSpectralAction--ES0~2."
       },
       {
         "ref": "mathlib:RingHom.mem_ker",
         "module": "Mathlib/RingTheory/Ideal/Maps.lean",
         "provides": "Membership in the kernel is equivalent to evaluation being zero.",
-        "checked": "Independently reread the declaration statement at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-07 by REV-ExcursionOperatorsAndSpectralAction--ES0."
+        "checked": "Independently reread the declaration statement at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-09 by REV-ExcursionOperatorsAndSpectralAction--ES0~2."
       },
       {
         "ref": "mathlib:PrimeSpectrum.zeroLocus_subset_zeroLocus_iff",
         "module": "Mathlib/RingTheory/Spectrum/Prime/Basic.lean",
         "provides": "V(I) subset V(J) iff J is contained in the radical of I, supplying the principal support/localization criterion.",
-        "checked": "Independently reread the declaration statement at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-07 by REV-ExcursionOperatorsAndSpectralAction--ES0."
+        "checked": "Independently reread the declaration statement at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-09 by REV-ExcursionOperatorsAndSpectralAction--ES0~2."
       },
       {
         "ref": "mathlib:CategoryTheory.Pretriangulated.Triangle",
         "module": "Mathlib/CategoryTheory/Triangulated/Basic.lean",
         "provides": "Three objects with maps to form a triangle, ending in the integer shift of the first object; no distinguishedness is built into this carrier.",
-        "checked": "Declaration statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-09 by Codex, codex-urAc32."
+        "checked": "Independently reread the declaration statement at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-09 by REV-ExcursionOperatorsAndSpectralAction--ES0~2."
       },
       {
         "ref": "mathlib:CategoryTheory.Pretriangulated",
         "module": "Mathlib/CategoryTheory/Triangulated/Pretriangulated.lean",
         "provides": "Distinguished triangles in a preadditive category with a zero object and additive integer shifts; rotation and completion of triangle morphisms supply the support argument.",
-        "checked": "Declaration statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-09 by Codex, codex-urAc32."
+        "checked": "Independently reread the declaration statement at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-09 by REV-ExcursionOperatorsAndSpectralAction--ES0~2."
       },
       {
         "ref": "mathlib:CategoryTheory.Pretriangulated.Triangle.yoneda_exact₂",
         "module": "Mathlib/CategoryTheory/Triangulated/Pretriangulated.lean",
         "provides": "A morphism out of the middle object that vanishes after the first triangle map factors through the second map, for a distinguished triangle.",
-        "checked": "Declaration statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-09 by Codex, codex-urAc32."
+        "checked": "Independently reread the declaration statement at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-09 by REV-ExcursionOperatorsAndSpectralAction--ES0~2."
       },
       {
         "ref": "mathlib:CategoryTheory.shiftFunctor",
         "module": "Mathlib/CategoryTheory/Shift/Basic.lean",
         "provides": "The functor indexed by a shift element, with coherent composition and zero-shift comparisons supplied by HasShift.",
-        "checked": "Declaration statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-09 by Codex, codex-urAc32."
+        "checked": "Independently reread the declaration statement at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-09 by REV-ExcursionOperatorsAndSpectralAction--ES0~2."
       },
       {
         "ref": "mathlib:CategoryTheory.Limits.biprod",
         "module": "Mathlib/CategoryTheory/Limits/Shapes/BinaryBiproducts.lean",
         "provides": "The chosen binary biproduct with its inclusion and projection maps; used to compute the intersection of annihilators.",
-        "checked": "Declaration statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-09 by Codex, codex-urAc32."
+        "checked": "Independently reread the declaration statement at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-09 by REV-ExcursionOperatorsAndSpectralAction--ES0~2."
       },
       {
         "ref": "mathlib:PrimeSpectrum.comap",
         "module": "Mathlib/RingTheory/Spectrum/Prime/RingHom.lean",
         "provides": "Contravariant map on prime spectra given by inverse image of prime ideals under a commutative ring map.",
-        "checked": "Declaration statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-09 by Codex, codex-urAc32."
+        "checked": "Independently reread the declaration statement at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-09 by REV-ExcursionOperatorsAndSpectralAction--ES0~2."
       },
       {
         "ref": "mathlib:ModuleCat.of",
         "module": "Mathlib/Algebra/Category/ModuleCat/Basic.lean",
         "provides": "Bundles an additive commutative group with its module structure as an object of ModuleCat; used for concrete rank-one test objects.",
-        "checked": "Declaration statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-09 by Codex, codex-urAc32."
+        "checked": "Independently reread the declaration statement at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-09 by REV-ExcursionOperatorsAndSpectralAction--ES0~2."
       },
       {
         "ref": "mathlib:DualNumber",
         "module": "Mathlib/Algebra/DualNumber.lean",
         "provides": "The trivial square-zero extension of a coefficient ring by itself; its distinguished epsilon has zero first coordinate.",
-        "checked": "Declaration statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-09 by Codex, codex-urAc32."
+        "checked": "Independently reread the declaration statement at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-09 by REV-ExcursionOperatorsAndSpectralAction--ES0~2."
       },
       {
         "ref": "mathlib:TrivSqZeroExt.fstHom",
         "module": "Mathlib/Algebra/TrivSqZeroExt/Basic.lean",
         "provides": "The algebra projection from a trivial square-zero extension to its first coordinate; supplies the central action through the residue field in the nilpotent test.",
-        "checked": "Declaration statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-09 by Codex, codex-urAc32."
+        "checked": "Independently reread the declaration statement at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-09 by REV-ExcursionOperatorsAndSpectralAction--ES0~2."
       }
     ],
-    "audit": "Reviewed AUDIT-20 entries in data/library-coverage.json read. The ordinary categorical center is already present. No TauCeti declaration is needed as a direct prerequisite; smooth categories and their enhanced dictionary are requested rather than inferred from IsSmoothDiscrete.",
+    "audit": "Reviewed AUDIT-20 entries in data/library-coverage.json read. The ordinary categorical center is already present. No TauCeti declaration is needed as a direct prerequisite; smooth categories and their enhanced dictionary are requested rather than inferred from IsSmoothDiscrete. Revision 2 review independently reread the eight ES stage entries of AUDIT-20 and confirmed the ordinary-center baseline at the exact Mathlib pin.",
     "search": "Pinned declarations.tsv and source trees searched for excursion, Bernstein center, enhanced center, spectral action, support, Perf and smooth categories. TauCeti Bernstein names concern Bernstein functions; the genuine CatCenter is Mathlib. The reviewed audit’s LP4 duplicate recommendation is superseded for Chapter X by RT-AREA-geomlanglands/6’s verified primary fix."
   },
   "sources": [
@@ -611,14 +611,14 @@
         "ExcursionOperatorsAndSpectralAction:ES0/bernstein-center-of-a-category",
         "ExcursionOperatorsAndSpectralAction:ES0/enhanced-to-homotopy-center",
         "VStackSheavesAndLisseCategories:VS4/strata-are-classifying-stacks",
-        "VStackSheavesAndLisseCategories:VS4",
+        "VStackSheavesAndLisseCategories:VS4/lisse-stratum-left-adjoint",
         "SmoothRepresentationsOfLocalGroups:SR.0:derived-extension",
         "SmoothRepresentationsOfLocalGroups:SR.1"
       ],
       "sources": [
         {
           "sourceId": "FS-geometrization",
-          "locator": "IX.5 p. 329; VII.7.2 pp. 271–273",
+          "locator": "IX.5 p. 329; Proposition VII.7.2 pp. 272–273",
           "match": "The stated source result supplies this target with the hypotheses listed here."
         }
       ],
@@ -923,7 +923,8 @@
         "ExcursionOperatorsAndSpectralAction:ES1:finite-ramification/center-on-finite-wild-pieces",
         "ExcursionOperatorsAndSpectralAction:ES0/excursion-algebra-to-bernstein-center",
         "LanglandsParameterStacks:LP2:integral-invariants/integral-invariant-theorem",
-        "HeckeStacksAndLocalShtukas:HS4/monoidal-and-finite-set-functoriality"
+        "HeckeStacksAndLocalShtukas:HS4/monoidal-and-finite-set-functoriality",
+        "GeometricSatakeAndFusion:GS4:integral-dual-group"
       ],
       "sources": [
         {
@@ -1773,7 +1774,7 @@
         "This is a comparison of actions through the supplied base-change functors, not an unrestricted assertion Perf commutes with every scalar tensor product."
       ],
       "proofSteps": [
-        "Compare the normalized HS kernels and universal evaluation on generators.",
+        "Compare the normalized HS kernels with the universal evaluation of the integral approximation (perfApprox_evaluation) and the LP4 integral universal representation bundles. The ES2 characteristic-zero family is not an integral input.",
         "Apply the equivalence of coherent-data anima to lift that comparison uniquely to the action.",
         "Use its functorial inverse to prove coherence of identity and composite comparisons.",
         "For degree zero repeat the generator proof of the rational center agreement in the eligible invariant range."
@@ -1785,11 +1786,12 @@
       "prerequisites": [
         "ExcursionOperatorsAndSpectralAction:ES3/integral-spectral-action",
         "ExcursionOperatorsAndSpectralAction:ES3/integral-universal-action",
-        "ExcursionOperatorsAndSpectralAction:ES2/universal-parameter-hecke-family",
+        "ExcursionOperatorsAndSpectralAction:ES3/sifted-colimit-approximation",
         "ExcursionOperatorsAndSpectralAction:ES1:spectral-center/spectral-to-geometric-center-map",
         "LanglandsParameterStacks:LP2:integral-invariants/integral-invariant-theorem",
         "HeckeStacksAndLocalShtukas:HS4/monoidal-and-finite-set-functoriality",
-        "LanglandsParameterStacks:LP4/generation-and-module-comparison"
+        "LanglandsParameterStacks:LP4/generation-and-module-comparison",
+        "LanglandsParameterStacks:LP4/rep-action-on-perf"
       ],
       "sources": [
         {
@@ -1872,7 +1874,8 @@
         "HeckeStacksAndLocalShtukas:HS1/condensed-enrichment",
         "EnhancedDerivedSheaves:E5:abstract",
         "EnhancedDerivedSheaves:E5:presentability",
-        "VStackSheavesAndLisseCategories:VS4/compact-generation-and-compact-objects"
+        "VStackSheavesAndLisseCategories:VS4/compact-generation-and-compact-objects",
+        "HeckeStacksAndLocalShtukas:HS1"
       ],
       "sources": [
         {
@@ -1961,7 +1964,7 @@
         "SmoothRepresentationsOfLocalGroups:SR.2",
         "SmoothRepresentationsOfLocalGroups:SR.0:abelian-category",
         "VStackSheavesAndLisseCategories:VS4/strata-are-classifying-stacks",
-        "VStackSheavesAndLisseCategories:VS4",
+        "VStackSheavesAndLisseCategories:VS4/lisse-stratum-left-adjoint",
         "EnhancedDerivedSheaves:E5:presentability"
       ],
       "sources": [
@@ -2153,7 +2156,7 @@
         "Rotate the distinguished triangle, using the specified shift compatibility for the two other support inclusions. Iterate the binary biproduct law for finite sums; the empty sum uses the zero-object law."
       ],
       "acceptance": [
-        "For 0->k->k[epsilon]/epsilon^2->k->0 over k[epsilon]/epsilon^2, epsilon kills the endpoints but need not kill the middle; epsilon^2 does.",
+        "The exact sequence 0->k->R->k->0 for R=k[epsilon]/epsilon^2 gives a triangle in D(R): epsilon kills the endpoints but need not kill the middle; epsilon^2 does. This tests the general central-action lemma on possibly noncompact objects; k is not perfect over R. For a compact nilpotent-support test use Perf(k) with the central R action through R->k, as in finite-wild-central-support.",
         "Check zero and finite direct sums.",
         "If both endpoint identities are zero, the distinguished triangle has empty middle support. The Lean example support_triangle_zero_ends states this on an actual triangle without assuming the annihilator-product conclusion."
       ],
@@ -2287,7 +2290,7 @@
       "hypotheses": [
         "E is a nonarchimedean local field of residue characteristic p and residue cardinality q; ell != p. Fix a square root of q in each coefficient algebra used for the normalized Hecke family.",
         "G/E is connected reductive, H = dual G is its split pinned dual group over Z_ell, and W_E -> Q is the finite quotient defining the pinned action on H. All nonsplit formulas use H semidirect Q and the prescribed projection to Q.",
-        "Use the lisse compact BZ-duality equivalence, not only the etched-sheaf Verdier statements currently written in the supplier packet."
+        "Use VS5/lisse-bernstein-zelevinsky-duality, the compact lisse BZ-duality equivalence of VII.7.6, with its biduality and coefficient range."
       ],
       "proofSteps": [
         "Pull creation, annihilation and the Weil action through BZ duality.",
@@ -2302,14 +2305,14 @@
       "prerequisites": [
         "ExcursionOperatorsAndSpectralAction:ES1:spectral-center/spectral-to-geometric-center-map",
         "ExcursionOperatorsAndSpectralAction:ES0/excursion-datum-and-operator",
-        "VStackSheavesAndLisseCategories:VS5",
+        "VStackSheavesAndLisseCategories:VS5/lisse-bernstein-zelevinsky-duality",
         "GeometricSatakeAndFusion:GS4:integral-dual-group",
         "LanglandsParameterStacks:LP2:excursion-presentation/invariant-function-and-independence"
       ],
       "sources": [
         {
           "sourceId": "FS-geometrization",
-          "locator": "IX.5.3 pp. 329–330; VI.12.1 pp. 239–241",
+          "locator": "Proposition IX.5.3 pp. 329–330; Proposition VI.12.1 pp. 239–241; Theorem VII.7.6 pp. 274–275",
           "match": "The stated source result supplies this target with the hypotheses listed here."
         }
       ],
@@ -2332,7 +2335,7 @@
       "hypotheses": [
         "E is a nonarchimedean local field of residue characteristic p and residue cardinality q; ell != p. Fix a square root of q in each coefficient algebra used for the normalized Hecke family.",
         "G/E is connected reductive, H = dual G is its split pinned dual group over Z_ell, and W_E -> Q is the finite quotient defining the pinned action on H. All nonsplit formulas use H semidirect Q and the prescribed projection to Q.",
-        "HS3 supplies the general multi-leg local-shtuka/Hecke comparison IX.3.2, not only the minuscule E=Q_p compactness theorem IX.3.1."
+        "Use HS3/hecke-cohomology-comparison for general multi-leg IX.3.2, HS3/general-bound-compactness for pro-p K, and HS3/level-trace-and-pullback for tower maps and their index normalization."
       ],
       "proofSteps": [
         "Apply the natural central transformations to the HS compact induced Hecke object.",
@@ -2349,16 +2352,16 @@
         "ExcursionOperatorsAndSpectralAction:ES0/excursion-datum-and-operator",
         "ExcursionOperatorsAndSpectralAction:ES0/excursion-algebra-to-bernstein-center",
         "ExcursionOperatorsAndSpectralAction:ES1:finite-ramification/uniform-wild-subgroup",
-        "HeckeStacksAndLocalShtukas:HS3",
-        "HeckeStacksAndLocalShtukas:HS3/compactness-of-shtuka-cohomology",
-        "HeckeStacksAndLocalShtukas:HS3/admissibility-duality-and-adjunction",
+        "HeckeStacksAndLocalShtukas:HS3/hecke-cohomology-comparison",
+        "HeckeStacksAndLocalShtukas:HS3/general-bound-compactness",
+        "HeckeStacksAndLocalShtukas:HS3/level-trace-and-pullback",
         "HeckeStacksAndLocalShtukas:HS4/monoidal-and-finite-set-functoriality",
         "VStackSheavesAndLisseCategories:VS4/strata-are-classifying-stacks"
       ],
       "sources": [
         {
           "sourceId": "FS-geometrization",
-          "locator": "IX.3.1–IX.3.2 pp. 324–327; I.9 pp. 35–36",
+          "locator": "Proposition IX.3.2 pp. 326–327; I.9 pp. 35–36",
           "match": "The stated source result supplies this target with the hypotheses listed here."
         }
       ],
@@ -2653,7 +2656,7 @@
         "ExcursionOperatorsAndSpectralAction:ES4/basic-decomposition-of-an-elliptic-component"
       ],
       "remaining": [
-        "Lisse VS5 duality, full multi-leg HS3 comparison, elliptic deformation proof refinement and qualified endomorphism base-change."
+        "Elliptic deformation proof refinement, qualified endomorphism base-change and full enhanced signatures; the lisse duality and multi-leg comparison are imported from current named VS/HS nodes."
       ]
     }
   ],
@@ -2689,14 +2692,6 @@
         "ExcursionOperatorsAndSpectralAction:ES4/elliptic-parameter-component"
       ],
       "detail": "LP1 supplies the deformation complex and local Tate duality statement. The proof-interior identification of the unramified twists with the entire connected component in X.2’s footnote needs expansion, including H^0, H^1 and H^2 calculations and the residual stack stabilizer. It is an explicit refinement of the stated target, not a conjectural packet equivalence."
-    },
-    {
-      "title": "Supplier lisse duality and multi-leg shtukas",
-      "neededBy": [
-        "ExcursionOperatorsAndSpectralAction:ES4/duality-and-the-chevalley-involution",
-        "ExcursionOperatorsAndSpectralAction:ES4/local-shtuka-excursion-compatibility"
-      ],
-      "detail": "The current VS5 nodes concern etched sheaves, while this target needs VII.7’s lisse BZ duality. HS3’s named nodes give minuscule compactness and adjunction, while the local-shtuka target needs full multi-leg IX.3.2 with tower transition compatibility. Both missing exports are precisely requested."
     }
   ],
   "requests": [
@@ -2757,26 +2752,21 @@
       "neededBy": [
         "ExcursionOperatorsAndSpectralAction:ES2/universal-parameter-hecke-family",
         "ExcursionOperatorsAndSpectralAction:ES4/duality-and-the-chevalley-involution",
-        "ExcursionOperatorsAndSpectralAction:ES4/elliptic-parameters-and-components"
+        "ExcursionOperatorsAndSpectralAction:ES4/elliptic-parameters-and-components",
+        "ExcursionOperatorsAndSpectralAction:ES1:spectral-center/spectral-to-geometric-center-map"
       ],
       "status": "open"
     },
     {
       "supplier": "HeckeStacksAndLocalShtukas:HS1",
-      "need": "IX.1.2 relatively discrete condensed animated Hom(A,B) for compact A, and the pro-p quotient-equivariant pullback full faithfulness used in IX.5.1. Also derived coefficient-change of the normalized HS kernels and their square-root-q convention.",
+      "need": "Import the existing HS1/condensed-enrichment relatively discrete animated Hom(A,B) for compact A. Still export the pro-p quotient-equivariant pullback full faithfulness used in IX.5.1, with its enhanced homotopies, and derived coefficient-change of normalized HS kernels with the square-root-q convention.",
       "neededBy": [
         "ExcursionOperatorsAndSpectralAction:ES0/continuity-of-excursion-evaluations",
         "ExcursionOperatorsAndSpectralAction:ES1:finite-ramification/uniform-wild-subgroup",
         "ExcursionOperatorsAndSpectralAction:ES1:spectral-center/center-change-of-data",
-        "ExcursionOperatorsAndSpectralAction:ES3/derived-reduction-and-rationalization"
-      ],
-      "status": "open"
-    },
-    {
-      "supplier": "HeckeStacksAndLocalShtukas:HS3",
-      "need": "The full IX.3.2 multi-leg local-shtuka/Hecke identification, with level transitions, two smooth group actions in the appropriate level/tower domains, and condensed Weil actions. Current named nodes cover IX.3.1 and its minuscule adjunction application, not this whole comparison.",
-      "neededBy": [
-        "ExcursionOperatorsAndSpectralAction:ES4/local-shtuka-excursion-compatibility"
+        "ExcursionOperatorsAndSpectralAction:ES3/derived-reduction-and-rationalization",
+        "ExcursionOperatorsAndSpectralAction:ES3/action-change-of-data",
+        "ExcursionOperatorsAndSpectralAction:ES1:finite-ramification/finite-wild-Hecke-category"
       ],
       "status": "open"
     },
@@ -2800,7 +2790,8 @@
         "ExcursionOperatorsAndSpectralAction:ES3/sifted-colimit-approximation",
         "ExcursionOperatorsAndSpectralAction:ES3/free-group-case",
         "ExcursionOperatorsAndSpectralAction:ES3/derived-reduction-and-rationalization",
-        "ExcursionOperatorsAndSpectralAction:ES4/elliptic-parameters-and-components"
+        "ExcursionOperatorsAndSpectralAction:ES4/elliptic-parameters-and-components",
+        "ExcursionOperatorsAndSpectralAction:ES3/action-change-of-data"
       ],
       "status": "open"
     },
@@ -2820,7 +2811,8 @@
       "supplier": "LanglandsParameterStacks:LP4",
       "need": "The general affine-quotient Ind module-category/compact comparison used by X.1.2, and the algebraic base-change interfaces. Retain VIII.5.1 generation/module comparison, but remove the duplicated Chapter X action universality as resolved by the verifier.",
       "neededBy": [
-        "ExcursionOperatorsAndSpectralAction:ES2/pushout-of-affine-quotients"
+        "ExcursionOperatorsAndSpectralAction:ES2/pushout-of-affine-quotients",
+        "ExcursionOperatorsAndSpectralAction:ES3/action-change-of-data"
       ],
       "status": "open"
     },
@@ -2871,23 +2863,6 @@
       "need": "Identify the eligible relative scalar-extension category of D_lis with the geometric coefficient-change category, including the exact derived reduction range. No unrestricted Perf/D_lis tensor identity is assumed.",
       "neededBy": [
         "ExcursionOperatorsAndSpectralAction:ES3/derived-reduction-and-rationalization"
-      ],
-      "status": "open"
-    },
-    {
-      "supplier": "VStackSheavesAndLisseCategories:VS4",
-      "need": "The enhanced fully faithful b-stratum adjunction of VII.7.2, especially j_! at b=1, and the precise restriction functors used for local-shtuka comparison. The named compact-generation and classifying-stack nodes alone do not specify this embedding.",
-      "neededBy": [
-        "ExcursionOperatorsAndSpectralAction:ES0:classical-center/map-to-the-classical-bernstein-center",
-        "ExcursionOperatorsAndSpectralAction:ES2/whittaker-sheaf"
-      ],
-      "status": "open"
-    },
-    {
-      "supplier": "VStackSheavesAndLisseCategories:VS5",
-      "need": "The lisse compact Bernstein–Zelevinsky duality of VII.7.6–VII.7.10 needed by IX.5.3; the packet’s currently etched-sheaf duality nodes are insufficient (RT-AREA-geomlanglands/29).",
-      "neededBy": [
-        "ExcursionOperatorsAndSpectralAction:ES4/duality-and-the-chevalley-involution"
       ],
       "status": "open"
     },
@@ -3073,12 +3048,20 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Independently checked the square in the hash-identified author manuscript and the trivial-group fold-map counterexample. Only the accessible author-copy assertion is confirmed false; the published passage was not inspected.",
-        "by": "REV-ExcursionOperatorsAndSpectralAction--ES0"
-      }
+        "reason": "Independently reread the proof square on printed p. 292 in the hash-identified author manuscript. Enumerating the fold-map example over F2 gives eight pullback pairs versus two source scalars, including an off-diagonal witness. The following proof needs commutativity. Fresh publisher, arXiv and author-page checks found no correction; only the public publisher sample was readable, so the published passage remains unverified.",
+        "by": "REV-ExcursionOperatorsAndSpectralAction--ES0~2",
+        "date": "2026-10-09"
+      },
+      "reviewHistory": [
+        {
+          "verdict": "confirmed",
+          "reason": "Independently checked the square in the hash-identified author manuscript and the trivial-group fold-map counterexample. Only the accessible author-copy assertion is confirmed false; the published passage was not inspected.",
+          "by": "REV-ExcursionOperatorsAndSpectralAction--ES0"
+        }
+      ]
     }
   ],
-  "sourceIssuesNote": "The independently confirmed source E1 is retained with its author-copy publication limit. Revision 2 reread the square and the counterexample. The current LP2 supplier now uses commutativity, resolving that planning-interface request; the source finding itself remains.",
+  "sourceIssuesNote": "Revision 2 independent review reconfirms E1 with its author-copy publication limit and the explicit F2 counterexample. The current LP2 supplier uses commutativity. The source finding remains; its planning-interface correction is resolved.",
   "redTeamHandling": {
     "RT-AREA-geomlanglands/5": "Imported abstract LP2 construction and removed two duplicate ES nodes; enhanced Bun_G specialization remains.",
     "RT-AREA-geomlanglands/6": "Verified primary ownership fix followed; Chapter X stays in ES2/ES3 and LP4 keeps VIII.5.1.",
@@ -3226,7 +3209,9 @@
       "result": "exit 0; 48 proof-placeholder warnings and no other warnings or errors",
       "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
       "taucetiImports": false,
-      "note": "The shared build has the exact pinned Mathlib checkout. Its TauCeti checkout differs from the packet pin; this file imports only Mathlib, so no unpinned TauCeti declaration was used."
+      "note": "The shared build has the exact pinned Mathlib checkout. Its TauCeti checkout differs from the packet pin; this file imports only Mathlib, so no unpinned TauCeti declaration was used.",
+      "reviewedBy": "REV-ExcursionOperatorsAndSpectralAction--ES0~2",
+      "date": "2026-10-09"
     }
   },
   "sourceVersions": [
@@ -3250,223 +3235,230 @@
       "read": "2026-10-09",
       "sha256": "9ab9efbd0df251bfa3b610d1d1d88a8dfb1bdf7c397bd04f4c277280d98ae905",
       "note": "Same hash-identified manuscript as the original review. Ranges are recorded in revisionReading; the source E1 counterexample and the four corrected specifications were checked. No full published text or byte-equivalent arXiv copy was assumed."
+    },
+    {
+      "kind": "independent revision 2 review",
+      "url": "https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf",
+      "read": "2026-10-09",
+      "sha256": "9ab9efbd0df251bfa3b610d1d1d88a8dfb1bdf7c397bd04f4c277280d98ae905",
+      "note": "Independently read the source ranges supporting all 42 ES targets, including VII.7 stratum adjunction/duality, VIII.1–4 excursion interfaces, IX.1–5 Hecke comparison/center and X.0–3 action/elliptic arguments. The public publisher sample, arXiv record and both author publication pages were rechecked for E1; no full published text or arXiv byte equivalence is asserted."
     }
   ],
   "review": {
     "status": "needs_changes",
-    "reviewer": "independent-review-REV-ExcursionOperatorsAndSpectralAction--ES0",
-    "date": "2026-10-07",
-    "notes": "Completed independent pass of all 42 nodes, 18 baseline declarations, eight stage targets, supplier/closure contracts, 38 APIs, 31 tests, 26 planets and red-team findings. Four clear node corrections and one confirmed author-copy source misprint recorded. The mathematical plan has explicit open refinements, but section 13 is unsatisfied: full definitions/theorems and many API/example signatures occur only in comments; some declared forms are weaker observations. Resolve signature coverage and synchronize the read-only reader in revision; correct the LP2 reindexing supplier. This is a finished review, not a checkpoint.",
+    "reviewer": "independent-review-REV-ExcursionOperatorsAndSpectralAction--ES0~2",
+    "date": "2026-10-09",
+    "notes": "Completed independent review of all 42 nodes, 27 exact-pin baseline declarations, eight planned stages, 38 APIs, 31 tests, 26 planets, the preceding review and assigned red-team findings. Corrected eight nodes; imported current VS4/VS5/HS3 contracts, resolving three stale requests and one gap; reconfirmed author-copy source issue E1. Four gaps and sixteen open requests remain honestly recorded. Mandatory section 13 signature coverage remains incomplete: 35 node names, 16 API names and 18 test labels are absent, and several declared forms are weaker ordinary observations. This is a finished needs_changes review, not a review checkpoint.",
     "checked": [
       {
         "nodeId": "ExcursionOperatorsAndSpectralAction:ES0/bernstein-center-of-a-category",
         "verdict": "verified",
-        "note": "IX.0.2 and IX.5 distinguish pi_0 enhanced End(id) from ordinary CatCenter. E2 commutativity and Ind mapping equivalence have explicit E5 requests; four APIs and three tests are mathematically sound. Full enhancedCenter signature is absent."
+        "note": "IX.0.2 and IX.5 (pp. 317–319, 328) specify the enhanced degree-zero identity endomorphisms. Ordinary CatCenter is imported. E2 commutativity and Ind mapping equivalence remain precise E5 inputs; all four APIs and three tests have the intended mathematical meaning."
       },
       {
         "nodeId": "ExcursionOperatorsAndSpectralAction:ES0/enhanced-to-homotopy-center",
         "verdict": "verified",
-        "note": "Taking components gives a natural ring map to CatCenter(hC); no isomorphism is claimed. The pinned ordinary evaluation/naturality declarations support the comparison. Higher signature absent."
+        "note": "IX.5 p. 328 supports evaluation into the ordinary homotopy-category center. The statement asserts a natural ring map and does not infer an isomorphism. Pinned evaluation and scalar maps have the required ordinary scope."
       },
       {
         "nodeId": "ExcursionOperatorsAndSpectralAction:ES0/excursion-datum-and-operator",
-        "verdict": "corrected",
-        "note": "Corrected the excerpt to the literal VIII.4.2 label in range. Arbitrary diagonal-invariant alpha/beta, semidirect Q and HS4 fusion match the source; tests include nonidentity beta alpha and two-leg trace. Function/fusion signatures are missing."
+        "verdict": "verified",
+        "note": "VIII.4.2 p. 292 and IX.5 p. 328 support the coherent Hecke specialization. Arbitrary diagonal-invariant creation/annihilation maps, twisted Q action, nonidentity beta-alpha and the two-leg trace test are retained. LP2 owns coefficient independence and relations."
       },
       {
         "nodeId": "ExcursionOperatorsAndSpectralAction:ES0/excursion-algebra-to-bernstein-center",
-        "verdict": "corrected",
-        "note": "Corrected strict-sounding relation wording to coherent comparisons yielding equal pi_0 classes. VIII.4.1/IX.5 supply this lift without a good-prime condition. New LP2 request excludes its false cartesian assertion. Higher signature absent."
+        "verdict": "verified",
+        "note": "VIII.4.1 pp. 291–293 and IX.5 p. 328 supply the enhanced lift through coherent relation comparisons. No good-prime assumption is added. The current LP2 contract uses commutative reindexing; source issue E1 is confirmed separately."
       },
       {
         "nodeId": "ExcursionOperatorsAndSpectralAction:ES0/continuity-of-excursion-evaluations",
         "verdict": "verified",
-        "note": "IX.1.2/IX.5 make compact Hom relatively discrete; composition gives condensed continuity. Schur evaluation and flat-target qualifications are retained. Higher signature absent."
+        "note": "IX.1.2 pp. 320–321 and IX.5 p. 328 give relatively discrete compact Hom and continuity of evaluation. Schur evaluation and the flat-target qualification remain explicit; continuous and discrete Weil inputs are distinguished."
       },
       {
         "nodeId": "ExcursionOperatorsAndSpectralAction:ES0/discretisation-of-the-weil-group",
         "verdict": "verified",
-        "note": "VIII.1.3 and VIII.3.7 justify intrinsic cocycles and only the torsion-free excursion comparison outside the invariant-isomorphism range. LP0 remains the single owner. Higher signature absent."
+        "note": "VIII.1.3 pp. 280–282 and VIII.3.7 pp. 288–290 justify intrinsic cocycles and the qualified excursion comparison. Outside rational/good-prime ranges only the torsion-free quotient is canonically compared. LP0 is the sole owner of discretization."
       },
       {
         "nodeId": "ExcursionOperatorsAndSpectralAction:ES0:classical-center/map-to-the-classical-bernstein-center",
-        "verdict": "verified",
-        "note": "IX.0.2, VII.7.1-2 and IX.5 give restriction to j_! and then the smooth heart, not an enhanced/ordinary center isomorphism. SR1 export explicitly requested. Higher signature absent."
+        "verdict": "corrected",
+        "note": "VII.7.2 pp. 272–273 and IX.5 p. 329 justify restriction through a fully faithful enhanced stratum adjunction followed by the smooth heart. Replaced the vague VS4 input with its current lisse-stratum-left-adjoint node and tightened the locator; SR1 owns the abelian target."
       },
       {
         "nodeId": "ExcursionOperatorsAndSpectralAction:ES0:classical-center/complex-block-comparison",
         "verdict": "verified",
-        "note": "Abstract chosen Qbar_ell-to-C field transport preserves ordinary smooth modules/center and depends on iota; it does not transport condensed topology. SR0/SR3 exports requested. Higher signature absent."
+        "note": "IX.5 p. 329 uses a chosen abstract field isomorphism for ordinary smooth centers. The packet correctly keeps the choice explicit and imports the complex block dictionary from SR3; it does not transfer condensed topology."
       },
       {
         "nodeId": "ExcursionOperatorsAndSpectralAction:ES1/spectral-and-geometric-centers",
         "verdict": "verified",
-        "note": "IX.0.2(ii)-(iii)/IX.5.2 give the function ring and stronger Hecke-commutation condition. Four APIs/three tests discriminate identity, scalar and product-switch cases; executable definition is only the ordinary projection."
+        "note": "IX.0.2 pp. 317–319 and IX.5.2 p. 329 distinguish spectral functions, geometric center and Hecke-compatible center. Unit/scalar/commutation APIs and the product-switch test enforce the stronger compatibility, which the ordinary prototype only projects."
       },
       {
         "nodeId": "ExcursionOperatorsAndSpectralAction:ES1:finite-ramification/uniform-wild-subgroup",
         "verdict": "verified",
-        "note": "IX.5.1 has forall compact A exists P forall I,V, with tensor-generator and pro-p homology arguments. No global cutoff on Ind objects is asserted. Exact HS1 export requested. Higher signature absent."
+        "note": "IX.5.1 pp. 327–328 has forall compact A, exists eligible P, forall finite I and V. Tensor-generator and pro-p/pro-ell arguments are the stated mechanism. No common cutoff for all Ind objects is inferred."
       },
       {
         "nodeId": "ExcursionOperatorsAndSpectralAction:ES1:finite-ramification/component-decomposition",
         "verdict": "verified",
-        "note": "IX.5 splits clopen component idempotents, compact direct sum and Ind product. Universal homeomorphism suffices even at excluded primes. Ind comparison requested. Higher signature absent."
+        "note": "IX.5 p. 328 gives clopen idempotent factors, compact direct sum and Ind product. The VIII.3 universal homeomorphism comparison suffices for components; a coordinate-ring isomorphism at every prime is not assumed."
       },
       {
         "nodeId": "ExcursionOperatorsAndSpectralAction:ES1:finite-ramification/center-on-finite-wild-pieces",
         "verdict": "verified",
-        "note": "IX.5/VIII.3.7 give compatible finite-wild evaluations, with invariant-coordinate comparisons qualified separately. Identity/composition acceptance is explicit. Higher signature absent."
+        "note": "IX.5 pp. 328–329 supplies compatible enhanced evaluations on finite-wild compact pieces. Separate invariant-coordinate qualifications are preserved. The dependency on the enhanced algebra map and finite-wild descent is explicit."
       },
       {
         "nodeId": "ExcursionOperatorsAndSpectralAction:ES1:spectral-center/spectral-to-geometric-center-map",
-        "verdict": "verified",
-        "note": "IX.5.2 imposes invertibility of |pi_0 Z(G)| and lands in Hecke-compatible center. Finite cutoff imported; general Psi^b belongs to ES7. Higher signature absent."
+        "verdict": "corrected",
+        "note": "IX.5.2 p. 329 imposes invertibility of the center-component order and gives the Hecke-compatible center map. Added the GS4 dual-group prerequisite and its request consumer to support the stated center-order/root-datum comparison. General Psi^b remains ES7 work."
       },
       {
         "nodeId": "ExcursionOperatorsAndSpectralAction:ES1:spectral-center/center-change-of-data",
         "verdict": "verified",
-        "note": "Compatibility target is explicitly derived from the shared composites and supplier kernel changes; it asserts no unrestricted invariant base-change isomorphism. New LP2 commutativity correction required. Higher signature absent."
+        "note": "IX.5 p. 329 provides the common operator construction from which these added compatibility diagrams are derived. Exact kernel/coordinate comparison functors are requested; no arbitrary invariant scalar-extension equality is claimed."
       },
       {
         "nodeId": "ExcursionOperatorsAndSpectralAction:ES1:spectral-center/excursion-algebra-without-the-coefficient-condition",
         "verdict": "verified",
-        "note": "IX.6 opening retains the excursion-only and idempotent route at excluded primes without a spectral coordinate ring map. No semisimple assignment is re-owned. Higher signature absent."
+        "note": "IX.6 opening pp. 330–331 keeps the excursion route at excluded primes. The idempotent construction uses the weaker universal homeomorphism rather than the unavailable invariant-ring isomorphism; semisimple parameter assignment stays downstream."
       },
       {
         "nodeId": "ExcursionOperatorsAndSpectralAction:ES2/compactly-supported-actions",
         "verdict": "verified",
-        "note": "X opening defines objectwise orbit factorization. Common refinement gives finite-sum API, while the unbounded-family test excludes a uniform global cutoff. Ordinary functor-factorization prototype omits exact action coherence."
+        "note": "Chapter X opening pp. 339–341 defines objectwise compact support of an action. Common finite-wild refinement gives finite sums, while the unbounded-family test excludes a global cutoff. The ordinary functor-factorization prototype is explicitly weaker."
       },
       {
         "nodeId": "ExcursionOperatorsAndSpectralAction:ES2/universal-parameter-hecke-family",
         "verdict": "verified",
-        "note": "X.1.1 supplies stacky universal evaluation and coCartesian finite-set data; point/empty/free-loop tests distinguish the actual family. The executable composition prototype is weaker; unit/fusion APIs absent."
+        "note": "X.1.1 pp. 341–342 uses universal stacky representation evaluation with finite-set cocartesian coherence over a characteristic-zero field. Four APIs and three tests specify point, unit, fusion and free-loop behavior; the composition prototype does not supply that enhancement."
       },
       {
         "nodeId": "ExcursionOperatorsAndSpectralAction:ES2/universal-action-theorem",
         "verdict": "verified",
-        "note": "X.1.1 is an equivalence of full action/coherent-data anima under characteristic-zero reductivity, not just isomorphism classes. Sifted finite-set reduction and inverse coherences are specified. Higher signature absent."
+        "note": "X.1.1 pp. 341–342 classifies the full coherent action anima. The characteristic-zero reductive hypotheses and inverse coherences are present; an equivalence of sets of actions would be insufficient."
       },
       {
         "nodeId": "ExcursionOperatorsAndSpectralAction:ES2/mapping-stack-commutes-with-sifted-colimits",
         "verdict": "verified",
-        "note": "X.1.2 distinguishes sifted colimits in stable categories from all colimits in symmetric monoidal categories. Affine quotient pushout is separately supplied. Higher signature absent."
+        "note": "X.1.2 pp. 342–343 distinguishes sifted stable-category colimits from all symmetric-monoidal-category colimits. The pro-reductive affine-quotient comparison is a separate prerequisite rather than hidden routine algebra."
       },
       {
         "nodeId": "ExcursionOperatorsAndSpectralAction:ES2/pushout-of-affine-quotients",
         "verdict": "verified",
-        "note": "X.1.2 proof uses pro-reductivity, derived fiber products and relative tensor of quotient Perf; rational invariants and Ind module comparisons are requested. Higher signature absent."
+        "note": "X.1.2 proof pp. 342–343 uses derived affine fiber products, exact rational invariants and the relative tensor product of Perf categories. LP3 and E5 refinements state these inputs, and the target does not assert an underived pushout theorem."
       },
       {
         "nodeId": "ExcursionOperatorsAndSpectralAction:ES2/spectral-action-rational",
         "verdict": "verified",
-        "note": "X.1.3 gives the rational compactly supported Bun_G action for all ell != p, via uniform cutoff and intrinsic cocycles. No full faithfulness is inferred. Higher signature absent."
+        "note": "X.1.3 p. 343 gives the rational compactly supported Bun_G action for every ell distinct from p. Uniform wild cutoff and intrinsic continuous cocycles are imported; no full faithfulness or integral excluded-prime extension is claimed."
       },
       {
         "nodeId": "ExcursionOperatorsAndSpectralAction:ES2/degree-zero-center-agreement",
         "verdict": "verified",
-        "note": "This is labelled an added comparison, not a numbered FS theorem: both constructions evaluate identical invariant generators. ES1 conditional-center and HS4 inputs are explicit. LP2 correction requested. Higher signature absent."
+        "note": "IX.5.2 p. 329 and X.1.3 p. 343 provide the two constructions compared on identical invariant generators. This is labelled a derived roadmap comparison rather than falsely numbered as an FS theorem; the center range stays explicit."
       },
       {
         "nodeId": "ExcursionOperatorsAndSpectralAction:ES3/sifted-colimit-approximation",
         "verdict": "verified",
-        "note": "X.3 defines the animation of finite Q-torsor-set Perf, its comparison and universal transformation property, without an actual mapping-scheme approximation. Four APIs/three tests are sound; perfApprox and all signatures absent."
+        "note": "X.3 pp. 347–348 animates the finite Q-torsor-set Perf construction and supplies its universal comparison. The four APIs and three tests address the approximation, not a purported underived mapping scheme. Its executable type is still absent."
       },
       {
         "nodeId": "ExcursionOperatorsAndSpectralAction:ES3/integral-universal-action",
         "verdict": "verified",
-        "note": "X.3.1 uses the approximation and coherent-data anima; no good-prime assumption is added until generation. Exact representation extension request is explicit. Higher signature absent."
+        "note": "X.3.1 p. 348 gives the integral approximation action/coherent-data equivalence. The good-prime condition is postponed to actual-Perf generation. LP3 representation extension and higher coherence remain named supplier inputs."
       },
       {
         "nodeId": "ExcursionOperatorsAndSpectralAction:ES3/approximation-commutes-with-colimits",
         "verdict": "verified",
-        "note": "X.3.2 needs the DVR highest-weight tensor identity, not field semisimplicity. Existing gap and LP3 request correctly identify the missing export. Higher signature absent."
+        "note": "X.3.2 pp. 348–349 needs the DVR highest-weight tensor equivalence. The LP3 request and filtration gap distinguish this from field semisimplicity; the target-level proof identifies the missing nonroutine input honestly."
       },
       {
         "nodeId": "ExcursionOperatorsAndSpectralAction:ES3/free-group-case",
         "verdict": "verified",
-        "note": "X.3.3 identifies compact O(H^n)-modules and only the representation-generated image, with sigma-twisted conjugation and n=0 allowed. It is not full faithfulness of the Bun action. Higher signature absent."
+        "note": "X.3.3 p. 349 treats the free-group quotient with twisted conjugation, including n=0. Its image is the representation-generated perfect subcategory, not an arbitrary full Bun_G action. The integral representation and module comparisons are listed."
       },
       {
         "nodeId": "ExcursionOperatorsAndSpectralAction:ES3/discrete-group-presentation",
         "verdict": "verified",
-        "note": "X.3.4 uses the sifted free-group resolution and animated equivariant algebra, not only invariant degree zero. E5 resolution/compact module exports requested. Higher signature absent."
+        "note": "X.3.4 pp. 349–350 uses the sifted free-group resolution and animated equivariant algebra. E5 animation and compact module comparisons are imported; degree-zero invariant coordinates alone do not prove it."
       },
       {
         "nodeId": "ExcursionOperatorsAndSpectralAction:ES3/discrete-integral-spectral-action",
         "verdict": "verified",
-        "note": "X.0.2/X.3 ending use VIII.5.1 at ell not dividing pi_1(H)_tors to identify the approximation with all Perf. Integral generation is not proved by rationalizing. Higher signature absent."
+        "note": "X.0.2 p. 340 and X.3 ending p. 350 use VIII.5.1 generation at ell not dividing dual fundamental-group torsion. That is the actual-Perf comparison step; rationalization is not used to prove integral generation."
       },
       {
         "nodeId": "ExcursionOperatorsAndSpectralAction:ES3/integral-spectral-action",
         "verdict": "verified",
-        "note": "X.0.1 and IX.5.1 give abstract continuous-data equivalence and its Bun specialization. Relatively discrete enrichment and finite-wild factorization are explicitly required; rational variant separate. Higher signature absent."
+        "note": "X.0.1 pp. 339–340 and IX.5.1 pp. 327–328 give the continuous coherent-data theorem and Bun_G specialization. The eligible DVR/good-prime conditions, relative discreteness and finite-wild descent are retained."
       },
       {
         "nodeId": "ExcursionOperatorsAndSpectralAction:ES3/action-change-of-data",
-        "verdict": "verified",
-        "note": "Universal coherent-data equivalence supplies conditional coefficient/Q/P comparison and coherence. Both integral endpoints and separate center condition are retained. Higher signature absent."
+        "verdict": "corrected",
+        "note": "X.0.1 pp. 339–340 and X.3.1 pp. 348–349 support the conditional action comparisons. Removed the characteristic-zero ES2 family dependency in favor of the integral approximation and LP4 universal representation bundles; added precise LP1/LP4/HS1 request consumers. Both integral endpoints and the separate center condition remain required."
       },
       {
         "nodeId": "ExcursionOperatorsAndSpectralAction:ES3/derived-reduction-and-rationalization",
         "verdict": "verified",
-        "note": "Conditional module-category scalar extension uses derived tensor and explicit Perf/geometric comparison equivalences. Reduction does not assert X.0.1 for arbitrary B. Existing gap honest. Higher signature absent."
+        "note": "X.0.1 and X.3 provide the eligible action being transported. This added comparison explicitly assumes the required Perf and geometric derived scalar-extension equivalences; derived reduction is not asserted for arbitrary geometric coefficients. The range is an exact gap."
       },
       {
         "nodeId": "ExcursionOperatorsAndSpectralAction:ES1:finite-ramification/finite-wild-Hecke-category",
-        "verdict": "verified",
-        "note": "IX.5 defines simultaneous enhanced quotient-equivariant descent, stable/retract closure and inclusion under smaller P. Four APIs/three tests discriminate ordinary triviality from enhanced descent; finiteWildCategory absent."
+        "verdict": "corrected",
+        "note": "IX.5 pp. 327–328 defines simultaneous enhanced quotient-equivariant descent, which is stronger than ordinary trivial P action. Added the HS1 requested stage and its consumer for pro-p quotient pullback full faithfulness. All four APIs and three tests address the simultaneous descent category."
       },
       {
         "nodeId": "ExcursionOperatorsAndSpectralAction:ES2/whittaker-sheaf",
-        "verdict": "verified",
-        "note": "X.1/X.3.5 use closed-subgroup compact induction and j_!; torus test is regular compact induction, and no compactness of W_psi is asserted. Ind action belongs to eligible extension. Executable image prototype is weaker; two APIs/two examples absent."
+        "verdict": "corrected",
+        "note": "X.1 pp. 343–344 and X.3.5 p. 350 construct closed-unipotent-subgroup compact induction followed by open-stratum extension. Replaced the vague VS4 input with lisse-stratum-left-adjoint. The torus test uses regular compact induction, and compactness or categorical LLC is not presumed."
       },
       {
         "nodeId": "ExcursionOperatorsAndSpectralAction:ES4/finite-wild-central-support",
-        "verdict": "corrected",
-        "note": "Corrected nilpotent test to C=Perf(k) with R action through R->k, so A=k is compact; k is not asserted perfect over dual numbers. Kernel/zero locus, four APIs and radical support agree with pinned Mathlib."
+        "verdict": "verified",
+        "note": "IX.5 p. 329 motivates the evaluated central action; the kernel zero-locus construction and four APIs use existing Mathlib ideals and spectra. The revision corrected the compact nilpotent test to Perf(k) with the dual-number ring acting through R to k; ModuleCat observations do not identify ModuleCat with Perf."
       },
       {
         "nodeId": "ExcursionOperatorsAndSpectralAction:ES4/support-exact-operations",
-        "verdict": "verified",
-        "note": "Triangle proof uses Ann(A) Ann(C), not intersection, via Hom exactness and naturality; direct-sum/retract/shift laws follow from stable action. Executable signature only assumes ideal containment and omits the categorical laws."
+        "verdict": "corrected",
+        "note": "The elementary triangle proof now uses actual distinguished-triangle Hom exactness to obtain annihilator-product containment; shifts require explicit central compatibility. Corrected the dual-number exact-sequence acceptance test to D(R) with possibly noncompact k, distinct from the compact Perf(k) support test. Biproduct, retract and cyclic triangle signatures have genuine categorical hypotheses."
       },
       {
         "nodeId": "ExcursionOperatorsAndSpectralAction:ES4/support-coefficient-change",
         "verdict": "verified",
-        "note": "Flatness plus actual degree-zero End base-change isomorphism gives kernel equality; compatible actions alone give only containment. No unqualified derived-reduction support equality is claimed. Higher signature absent."
+        "note": "Compatible actions give support containment. Flatness and an actual degree-zero endomorphism scalar-extension isomorphism give the stronger kernel/support equality. The packet states these conditions and records the missing geometric comparison range rather than assuming it."
       },
       {
         "nodeId": "ExcursionOperatorsAndSpectralAction:ES4/central-localization",
         "verdict": "verified",
-        "note": "Telescope/compactness turns vanishing into some f^n id=0; pinned radical zero-locus direction is correct. Idempotent localization imports component factors. E5 telescope interface requested. Higher signature absent."
+        "note": "The telescope argument uses compactness to turn localized vanishing into annihilation by a power. Mathlib radical/zero-locus statements have the stated direction. The executable principal criterion is an algebraic observation; the full enhanced telescope signature remains absent."
       },
       {
         "nodeId": "ExcursionOperatorsAndSpectralAction:ES4/duality-and-the-chevalley-involution",
-        "verdict": "verified",
-        "note": "IX.5.3/VI.12.1 retain rho-hat(-1) before quotient and lisse BZ duality, with VS5 refinement explicitly requested. General smooth-dual parameter compatibility remains ES7. Higher signature absent."
+        "verdict": "corrected",
+        "note": "IX.5.3 pp. 329–330 and VI.12.1 pp. 239–241 retain the rho-hat(-1) correction before conjugation quotienting. Replaced the stale etched-only VS5 premise with the current lisse BZ-duality node (VII.7.6 pp. 274–275) and resolved its planning request. General contragredient parameter compatibility stays in ES7."
       },
       {
         "nodeId": "ExcursionOperatorsAndSpectralAction:ES4/local-shtuka-excursion-compatibility",
-        "verdict": "verified",
-        "note": "IX.3.2 and I.9 identify excursions on the general multi-leg complex. Smooth G_b action is at level; G action at tower colimit; no uniform tower cutoff. Current minuscule HS3 is insufficient and precisely requested. Higher signature absent."
+        "verdict": "corrected",
+        "note": "IX.3.2 pp. 326–327 and I.9 pp. 35–36 compare the normalized multi-leg complex. Replaced minuscule/vague HS3 inputs with current general comparison, pro-p compactness and trace/pullback nodes. Their actions occur on the stated level/tower domains, with index normalization and continuous Weil action; no tower-wide compact cutoff is inferred."
       },
       {
         "nodeId": "ExcursionOperatorsAndSpectralAction:ES4/elliptic-parameters-and-components",
-        "verdict": "corrected",
-        "note": "Corrected fixed-center quotient explanation: it removes central stabilizers from the finiteness test, while unramified twists vary the component. X.2.1 semisimplicity plus finite centralizer quotient is correct; abstract Finite(points) prototype is weaker."
+        "verdict": "verified",
+        "note": "X.2.1 pp. 344–345 defines ellipticity using semisimplicity and finite algebraic centralizer quotient by the fixed center. Central twists preserve the condition. The revision correctly says quotienting removes central stabilizers from this finiteness test, and does not assert the whole component has no central twists."
       },
       {
         "nodeId": "ExcursionOperatorsAndSpectralAction:ES4/elliptic-parameter-component",
         "verdict": "verified",
-        "note": "X.2 and its footnote give the unramified-twist component, with H2/Tate-duality deformation refinement explicitly a gap; finite fixed center retains BS_phi. No stabilizer is erased. Higher signature absent."
+        "note": "X.2 pp. 345–346 and its deformation footnote identify the unramified-twist component. The residual stack stabilizer is retained. LP1 deformation/Tate-duality calculations are a precise refinement gap; this is distinct from the conjectural categorical LLC equivalence."
       },
       {
         "nodeId": "ExcursionOperatorsAndSpectralAction:ES4/basic-decomposition-of-an-elliptic-component",
         "verdict": "verified",
-        "note": "X.2 gives nonbasic vanishing/supercuspidal compact decomposition via ES7 parabolic factorization and SR Ext calculation; the Irr(S_phi) bijection remains conjectural. Exact supplier refinements requested. Higher signature absent."
+        "note": "X.2 pp. 345–347 gives nonbasic vanishing and basic/supercuspidal compact decomposition through ES7 parabolic factorization and SR Ext inputs. Finite fixed-center hypotheses are stated. The source does not prove the desired Irr(S_phi) packet bijection, which remains a conjectural statement in the register."
       }
     ]
   },
@@ -3486,6 +3478,45 @@
         "ExcursionOperatorsAndSpectralAction:ES4/duality-and-the-chevalley-involution",
         "ExcursionOperatorsAndSpectralAction:ES4/elliptic-parameter-component"
       ]
+    },
+    {
+      "supplier": "HeckeStacksAndLocalShtukas:HS3",
+      "need": "The full IX.3.2 multi-leg local-shtuka/Hecke identification, with level transitions, two smooth group actions in the appropriate level/tower domains, and condensed Weil actions. Current named nodes cover IX.3.1 and its minuscule adjunction application, not this whole comparison.",
+      "neededBy": [
+        "ExcursionOperatorsAndSpectralAction:ES4/local-shtuka-excursion-compatibility"
+      ],
+      "status": "resolved at the planning-interface level",
+      "suppliedBy": [
+        "HeckeStacksAndLocalShtukas:HS3/hecke-cohomology-comparison",
+        "HeckeStacksAndLocalShtukas:HS3/general-bound-compactness",
+        "HeckeStacksAndLocalShtukas:HS3/level-trace-and-pullback"
+      ],
+      "evidence": "The accepted complete HS packet supplies the IX.3.2 normalized multi-leg comparison for general E, pro-p compactness, smooth level/tower actions, partial Frobenius/Weil compatibility, and trace/pullback maps with index restrictions. Independently read on 2026-10-09 by REV-ExcursionOperatorsAndSpectralAction--ES0~2. This resolves the mathematical planning request, not the missing executable supplier types; no supplier file was edited."
+    },
+    {
+      "supplier": "VStackSheavesAndLisseCategories:VS4",
+      "need": "The enhanced fully faithful b-stratum adjunction of VII.7.2, especially j_! at b=1, and the precise restriction functors used for local-shtuka comparison. The named compact-generation and classifying-stack nodes alone do not specify this embedding.",
+      "neededBy": [
+        "ExcursionOperatorsAndSpectralAction:ES0:classical-center/map-to-the-classical-bernstein-center",
+        "ExcursionOperatorsAndSpectralAction:ES2/whittaker-sheaf"
+      ],
+      "status": "resolved at the planning-interface level",
+      "suppliedBy": [
+        "VStackSheavesAndLisseCategories:VS4/lisse-stratum-left-adjoint"
+      ],
+      "evidence": "The accepted complete VS packet supplies the fully faithful enhanced left adjoint of VII.7.2, its unit equivalence, derived coefficient compatibility and its agreement with j_! on the open trivial stratum. Independently read on 2026-10-09 by REV-ExcursionOperatorsAndSpectralAction--ES0~2. This resolves the mathematical planning request, not the missing executable supplier types; no supplier file was edited."
+    },
+    {
+      "supplier": "VStackSheavesAndLisseCategories:VS5",
+      "need": "The lisse compact Bernstein–Zelevinsky duality of VII.7.6–VII.7.10 needed by IX.5.3; the packet’s currently etched-sheaf duality nodes are insufficient (RT-AREA-geomlanglands/29).",
+      "neededBy": [
+        "ExcursionOperatorsAndSpectralAction:ES4/duality-and-the-chevalley-involution"
+      ],
+      "status": "resolved at the planning-interface level",
+      "suppliedBy": [
+        "VStackSheavesAndLisseCategories:VS5/lisse-bernstein-zelevinsky-duality"
+      ],
+      "evidence": "The accepted complete VS packet supplies the compact lisse duality of VII.7.6, its pairing and biduality, and comparison on open basic strata. Its scope includes lisse objects, beyond etched-sheaf Verdier duality. Independently read on 2026-10-09 by REV-ExcursionOperatorsAndSpectralAction--ES0~2. This resolves the mathematical planning request, not the missing executable supplier types; no supplier file was edited."
     }
   ],
   "revisionReading": {
@@ -3522,5 +3553,239 @@
       "Removed source excerpt fields under the standing paraphrase rule and tightened four Chapter X page locators."
     ],
     "remaining": "Obtain real enhanced supplier interfaces, replace all omitted/ordinary signatures with full section 13 signatures and tests, and then complete revision 2. Do not certify closure or acceptance from this checkpoint."
-  }
+  },
+  "resolvedGaps": [
+    {
+      "title": "Supplier lisse duality and multi-leg shtukas",
+      "neededBy": [
+        "ExcursionOperatorsAndSpectralAction:ES4/duality-and-the-chevalley-involution",
+        "ExcursionOperatorsAndSpectralAction:ES4/local-shtuka-excursion-compatibility"
+      ],
+      "status": "resolved at the planning-interface level",
+      "resolution": "Current accepted VS4/VS5 and HS3 nodes supply the previously missing mathematical contracts; see resolvedRequests. Enhanced executable interfaces remain covered by the distinct section 13 gap.",
+      "by": "REV-ExcursionOperatorsAndSpectralAction--ES0~2",
+      "date": "2026-10-09",
+      "previousDetail": "The current VS5 nodes concern etched sheaves, while this target needs VII.7’s lisse BZ duality. HS3’s named nodes give minuscule compactness and adjunction, while the local-shtuka target needs full multi-leg IX.3.2 with tower transition compatibility. Both missing exports are precisely requested."
+    }
+  ],
+  "reviewHistory": [
+    {
+      "status": "needs_changes",
+      "reviewer": "independent-review-REV-ExcursionOperatorsAndSpectralAction--ES0",
+      "date": "2026-10-07",
+      "notes": "Completed independent pass of all 42 nodes, 18 baseline declarations, eight stage targets, supplier/closure contracts, 38 APIs, 31 tests, 26 planets and red-team findings. Four clear node corrections and one confirmed author-copy source misprint recorded. The mathematical plan has explicit open refinements, but section 13 is unsatisfied: full definitions/theorems and many API/example signatures occur only in comments; some declared forms are weaker observations. Resolve signature coverage and synchronize the read-only reader in revision; correct the LP2 reindexing supplier. This is a finished review, not a checkpoint.",
+      "checked": [
+        {
+          "nodeId": "ExcursionOperatorsAndSpectralAction:ES0/bernstein-center-of-a-category",
+          "verdict": "verified",
+          "note": "IX.0.2 and IX.5 distinguish pi_0 enhanced End(id) from ordinary CatCenter. E2 commutativity and Ind mapping equivalence have explicit E5 requests; four APIs and three tests are mathematically sound. Full enhancedCenter signature is absent."
+        },
+        {
+          "nodeId": "ExcursionOperatorsAndSpectralAction:ES0/enhanced-to-homotopy-center",
+          "verdict": "verified",
+          "note": "Taking components gives a natural ring map to CatCenter(hC); no isomorphism is claimed. The pinned ordinary evaluation/naturality declarations support the comparison. Higher signature absent."
+        },
+        {
+          "nodeId": "ExcursionOperatorsAndSpectralAction:ES0/excursion-datum-and-operator",
+          "verdict": "corrected",
+          "note": "Corrected the excerpt to the literal VIII.4.2 label in range. Arbitrary diagonal-invariant alpha/beta, semidirect Q and HS4 fusion match the source; tests include nonidentity beta alpha and two-leg trace. Function/fusion signatures are missing."
+        },
+        {
+          "nodeId": "ExcursionOperatorsAndSpectralAction:ES0/excursion-algebra-to-bernstein-center",
+          "verdict": "corrected",
+          "note": "Corrected strict-sounding relation wording to coherent comparisons yielding equal pi_0 classes. VIII.4.1/IX.5 supply this lift without a good-prime condition. New LP2 request excludes its false cartesian assertion. Higher signature absent."
+        },
+        {
+          "nodeId": "ExcursionOperatorsAndSpectralAction:ES0/continuity-of-excursion-evaluations",
+          "verdict": "verified",
+          "note": "IX.1.2/IX.5 make compact Hom relatively discrete; composition gives condensed continuity. Schur evaluation and flat-target qualifications are retained. Higher signature absent."
+        },
+        {
+          "nodeId": "ExcursionOperatorsAndSpectralAction:ES0/discretisation-of-the-weil-group",
+          "verdict": "verified",
+          "note": "VIII.1.3 and VIII.3.7 justify intrinsic cocycles and only the torsion-free excursion comparison outside the invariant-isomorphism range. LP0 remains the single owner. Higher signature absent."
+        },
+        {
+          "nodeId": "ExcursionOperatorsAndSpectralAction:ES0:classical-center/map-to-the-classical-bernstein-center",
+          "verdict": "verified",
+          "note": "IX.0.2, VII.7.1-2 and IX.5 give restriction to j_! and then the smooth heart, not an enhanced/ordinary center isomorphism. SR1 export explicitly requested. Higher signature absent."
+        },
+        {
+          "nodeId": "ExcursionOperatorsAndSpectralAction:ES0:classical-center/complex-block-comparison",
+          "verdict": "verified",
+          "note": "Abstract chosen Qbar_ell-to-C field transport preserves ordinary smooth modules/center and depends on iota; it does not transport condensed topology. SR0/SR3 exports requested. Higher signature absent."
+        },
+        {
+          "nodeId": "ExcursionOperatorsAndSpectralAction:ES1/spectral-and-geometric-centers",
+          "verdict": "verified",
+          "note": "IX.0.2(ii)-(iii)/IX.5.2 give the function ring and stronger Hecke-commutation condition. Four APIs/three tests discriminate identity, scalar and product-switch cases; executable definition is only the ordinary projection."
+        },
+        {
+          "nodeId": "ExcursionOperatorsAndSpectralAction:ES1:finite-ramification/uniform-wild-subgroup",
+          "verdict": "verified",
+          "note": "IX.5.1 has forall compact A exists P forall I,V, with tensor-generator and pro-p homology arguments. No global cutoff on Ind objects is asserted. Exact HS1 export requested. Higher signature absent."
+        },
+        {
+          "nodeId": "ExcursionOperatorsAndSpectralAction:ES1:finite-ramification/component-decomposition",
+          "verdict": "verified",
+          "note": "IX.5 splits clopen component idempotents, compact direct sum and Ind product. Universal homeomorphism suffices even at excluded primes. Ind comparison requested. Higher signature absent."
+        },
+        {
+          "nodeId": "ExcursionOperatorsAndSpectralAction:ES1:finite-ramification/center-on-finite-wild-pieces",
+          "verdict": "verified",
+          "note": "IX.5/VIII.3.7 give compatible finite-wild evaluations, with invariant-coordinate comparisons qualified separately. Identity/composition acceptance is explicit. Higher signature absent."
+        },
+        {
+          "nodeId": "ExcursionOperatorsAndSpectralAction:ES1:spectral-center/spectral-to-geometric-center-map",
+          "verdict": "verified",
+          "note": "IX.5.2 imposes invertibility of |pi_0 Z(G)| and lands in Hecke-compatible center. Finite cutoff imported; general Psi^b belongs to ES7. Higher signature absent."
+        },
+        {
+          "nodeId": "ExcursionOperatorsAndSpectralAction:ES1:spectral-center/center-change-of-data",
+          "verdict": "verified",
+          "note": "Compatibility target is explicitly derived from the shared composites and supplier kernel changes; it asserts no unrestricted invariant base-change isomorphism. New LP2 commutativity correction required. Higher signature absent."
+        },
+        {
+          "nodeId": "ExcursionOperatorsAndSpectralAction:ES1:spectral-center/excursion-algebra-without-the-coefficient-condition",
+          "verdict": "verified",
+          "note": "IX.6 opening retains the excursion-only and idempotent route at excluded primes without a spectral coordinate ring map. No semisimple assignment is re-owned. Higher signature absent."
+        },
+        {
+          "nodeId": "ExcursionOperatorsAndSpectralAction:ES2/compactly-supported-actions",
+          "verdict": "verified",
+          "note": "X opening defines objectwise orbit factorization. Common refinement gives finite-sum API, while the unbounded-family test excludes a uniform global cutoff. Ordinary functor-factorization prototype omits exact action coherence."
+        },
+        {
+          "nodeId": "ExcursionOperatorsAndSpectralAction:ES2/universal-parameter-hecke-family",
+          "verdict": "verified",
+          "note": "X.1.1 supplies stacky universal evaluation and coCartesian finite-set data; point/empty/free-loop tests distinguish the actual family. The executable composition prototype is weaker; unit/fusion APIs absent."
+        },
+        {
+          "nodeId": "ExcursionOperatorsAndSpectralAction:ES2/universal-action-theorem",
+          "verdict": "verified",
+          "note": "X.1.1 is an equivalence of full action/coherent-data anima under characteristic-zero reductivity, not just isomorphism classes. Sifted finite-set reduction and inverse coherences are specified. Higher signature absent."
+        },
+        {
+          "nodeId": "ExcursionOperatorsAndSpectralAction:ES2/mapping-stack-commutes-with-sifted-colimits",
+          "verdict": "verified",
+          "note": "X.1.2 distinguishes sifted colimits in stable categories from all colimits in symmetric monoidal categories. Affine quotient pushout is separately supplied. Higher signature absent."
+        },
+        {
+          "nodeId": "ExcursionOperatorsAndSpectralAction:ES2/pushout-of-affine-quotients",
+          "verdict": "verified",
+          "note": "X.1.2 proof uses pro-reductivity, derived fiber products and relative tensor of quotient Perf; rational invariants and Ind module comparisons are requested. Higher signature absent."
+        },
+        {
+          "nodeId": "ExcursionOperatorsAndSpectralAction:ES2/spectral-action-rational",
+          "verdict": "verified",
+          "note": "X.1.3 gives the rational compactly supported Bun_G action for all ell != p, via uniform cutoff and intrinsic cocycles. No full faithfulness is inferred. Higher signature absent."
+        },
+        {
+          "nodeId": "ExcursionOperatorsAndSpectralAction:ES2/degree-zero-center-agreement",
+          "verdict": "verified",
+          "note": "This is labelled an added comparison, not a numbered FS theorem: both constructions evaluate identical invariant generators. ES1 conditional-center and HS4 inputs are explicit. LP2 correction requested. Higher signature absent."
+        },
+        {
+          "nodeId": "ExcursionOperatorsAndSpectralAction:ES3/sifted-colimit-approximation",
+          "verdict": "verified",
+          "note": "X.3 defines the animation of finite Q-torsor-set Perf, its comparison and universal transformation property, without an actual mapping-scheme approximation. Four APIs/three tests are sound; perfApprox and all signatures absent."
+        },
+        {
+          "nodeId": "ExcursionOperatorsAndSpectralAction:ES3/integral-universal-action",
+          "verdict": "verified",
+          "note": "X.3.1 uses the approximation and coherent-data anima; no good-prime assumption is added until generation. Exact representation extension request is explicit. Higher signature absent."
+        },
+        {
+          "nodeId": "ExcursionOperatorsAndSpectralAction:ES3/approximation-commutes-with-colimits",
+          "verdict": "verified",
+          "note": "X.3.2 needs the DVR highest-weight tensor identity, not field semisimplicity. Existing gap and LP3 request correctly identify the missing export. Higher signature absent."
+        },
+        {
+          "nodeId": "ExcursionOperatorsAndSpectralAction:ES3/free-group-case",
+          "verdict": "verified",
+          "note": "X.3.3 identifies compact O(H^n)-modules and only the representation-generated image, with sigma-twisted conjugation and n=0 allowed. It is not full faithfulness of the Bun action. Higher signature absent."
+        },
+        {
+          "nodeId": "ExcursionOperatorsAndSpectralAction:ES3/discrete-group-presentation",
+          "verdict": "verified",
+          "note": "X.3.4 uses the sifted free-group resolution and animated equivariant algebra, not only invariant degree zero. E5 resolution/compact module exports requested. Higher signature absent."
+        },
+        {
+          "nodeId": "ExcursionOperatorsAndSpectralAction:ES3/discrete-integral-spectral-action",
+          "verdict": "verified",
+          "note": "X.0.2/X.3 ending use VIII.5.1 at ell not dividing pi_1(H)_tors to identify the approximation with all Perf. Integral generation is not proved by rationalizing. Higher signature absent."
+        },
+        {
+          "nodeId": "ExcursionOperatorsAndSpectralAction:ES3/integral-spectral-action",
+          "verdict": "verified",
+          "note": "X.0.1 and IX.5.1 give abstract continuous-data equivalence and its Bun specialization. Relatively discrete enrichment and finite-wild factorization are explicitly required; rational variant separate. Higher signature absent."
+        },
+        {
+          "nodeId": "ExcursionOperatorsAndSpectralAction:ES3/action-change-of-data",
+          "verdict": "verified",
+          "note": "Universal coherent-data equivalence supplies conditional coefficient/Q/P comparison and coherence. Both integral endpoints and separate center condition are retained. Higher signature absent."
+        },
+        {
+          "nodeId": "ExcursionOperatorsAndSpectralAction:ES3/derived-reduction-and-rationalization",
+          "verdict": "verified",
+          "note": "Conditional module-category scalar extension uses derived tensor and explicit Perf/geometric comparison equivalences. Reduction does not assert X.0.1 for arbitrary B. Existing gap honest. Higher signature absent."
+        },
+        {
+          "nodeId": "ExcursionOperatorsAndSpectralAction:ES1:finite-ramification/finite-wild-Hecke-category",
+          "verdict": "verified",
+          "note": "IX.5 defines simultaneous enhanced quotient-equivariant descent, stable/retract closure and inclusion under smaller P. Four APIs/three tests discriminate ordinary triviality from enhanced descent; finiteWildCategory absent."
+        },
+        {
+          "nodeId": "ExcursionOperatorsAndSpectralAction:ES2/whittaker-sheaf",
+          "verdict": "verified",
+          "note": "X.1/X.3.5 use closed-subgroup compact induction and j_!; torus test is regular compact induction, and no compactness of W_psi is asserted. Ind action belongs to eligible extension. Executable image prototype is weaker; two APIs/two examples absent."
+        },
+        {
+          "nodeId": "ExcursionOperatorsAndSpectralAction:ES4/finite-wild-central-support",
+          "verdict": "corrected",
+          "note": "Corrected nilpotent test to C=Perf(k) with R action through R->k, so A=k is compact; k is not asserted perfect over dual numbers. Kernel/zero locus, four APIs and radical support agree with pinned Mathlib."
+        },
+        {
+          "nodeId": "ExcursionOperatorsAndSpectralAction:ES4/support-exact-operations",
+          "verdict": "verified",
+          "note": "Triangle proof uses Ann(A) Ann(C), not intersection, via Hom exactness and naturality; direct-sum/retract/shift laws follow from stable action. Executable signature only assumes ideal containment and omits the categorical laws."
+        },
+        {
+          "nodeId": "ExcursionOperatorsAndSpectralAction:ES4/support-coefficient-change",
+          "verdict": "verified",
+          "note": "Flatness plus actual degree-zero End base-change isomorphism gives kernel equality; compatible actions alone give only containment. No unqualified derived-reduction support equality is claimed. Higher signature absent."
+        },
+        {
+          "nodeId": "ExcursionOperatorsAndSpectralAction:ES4/central-localization",
+          "verdict": "verified",
+          "note": "Telescope/compactness turns vanishing into some f^n id=0; pinned radical zero-locus direction is correct. Idempotent localization imports component factors. E5 telescope interface requested. Higher signature absent."
+        },
+        {
+          "nodeId": "ExcursionOperatorsAndSpectralAction:ES4/duality-and-the-chevalley-involution",
+          "verdict": "verified",
+          "note": "IX.5.3/VI.12.1 retain rho-hat(-1) before quotient and lisse BZ duality, with VS5 refinement explicitly requested. General smooth-dual parameter compatibility remains ES7. Higher signature absent."
+        },
+        {
+          "nodeId": "ExcursionOperatorsAndSpectralAction:ES4/local-shtuka-excursion-compatibility",
+          "verdict": "verified",
+          "note": "IX.3.2 and I.9 identify excursions on the general multi-leg complex. Smooth G_b action is at level; G action at tower colimit; no uniform tower cutoff. Current minuscule HS3 is insufficient and precisely requested. Higher signature absent."
+        },
+        {
+          "nodeId": "ExcursionOperatorsAndSpectralAction:ES4/elliptic-parameters-and-components",
+          "verdict": "corrected",
+          "note": "Corrected fixed-center quotient explanation: it removes central stabilizers from the finiteness test, while unramified twists vary the component. X.2.1 semisimplicity plus finite centralizer quotient is correct; abstract Finite(points) prototype is weaker."
+        },
+        {
+          "nodeId": "ExcursionOperatorsAndSpectralAction:ES4/elliptic-parameter-component",
+          "verdict": "verified",
+          "note": "X.2 and its footnote give the unramified-twist component, with H2/Tate-duality deformation refinement explicitly a gap; finite fixed center retains BS_phi. No stabilizer is erased. Higher signature absent."
+        },
+        {
+          "nodeId": "ExcursionOperatorsAndSpectralAction:ES4/basic-decomposition-of-an-elliptic-component",
+          "verdict": "verified",
+          "note": "X.2 gives nonbasic vanishing/supercuspidal compact decomposition via ES7 parabolic factorization and SR Ext calculation; the Irr(S_phi) bijection remains conjectural. Exact supplier refinements requested. Higher signature absent."
+        }
+      ]
+    }
+  ]
 }

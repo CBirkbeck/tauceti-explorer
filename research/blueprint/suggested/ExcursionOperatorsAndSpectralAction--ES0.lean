@@ -15,6 +15,15 @@ mathematical statements are copied into named comments from the packet. No
 True conclusion, arbitrary Prop-valued structure field, or ordinary-category
 alias is used to pretend that the missing enhanced construction exists.
 
+Revision 2 independent review (REV-ExcursionOperatorsAndSpectralAction--ES0~2,
+2026-10-09) completed with needs_changes: 35 node, 16 API and 18 test
+signatures remain omitted. Eight packet nodes have corrected supplier or test
+contracts; the corresponding reader is synchronized. The dual-number exact
+sequence tests the generic lemma in D(R), where its endpoint k need not be
+compact; the compact nilpotent example instead uses the central R action on
+Perf(k) through R -> k. Named current VS/HS planning contracts do not supply
+the missing executable enhanced types.
+
 This is a partial revision checkpoint. The declarations below express ordinary
 observations and the generic pretriangulated support theorem. In particular,
 ordinary quotient-action triviality is not a substitute for coherent enhanced
