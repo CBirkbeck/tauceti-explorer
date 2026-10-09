@@ -35899,7 +35899,8 @@
    ],
    "followUpOf": "BP-KTheoryLowDegrees--U.1",
    "prompt": "research/blueprint/prompts/BP-KTheoryLowDegrees--U.3.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7559"
   },
   {
    "id": "REV-KTheoryLowDegrees--U.3",
@@ -35943,7 +35944,8 @@
    ],
    "followUpOf": "BP-KTheoryLowDegrees--U.1",
    "prompt": "research/blueprint/prompts/BP-KTheoryLowDegrees--U.4.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7560"
   },
   {
    "id": "REV-KTheoryLowDegrees--U.4",
@@ -46511,8 +46513,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-EllipticCurveModularity.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7469"
+   "state": "pending",
+   "note": "released on GitHub issue #7469"
   },
   {
    "id": "REV-PKG-EllipticCurveModularity",
@@ -47375,8 +47377,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-MetaplecticAutomorphicForms.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7492"
+   "state": "pending",
+   "note": "released on GitHub issue #7492"
   },
   {
    "id": "REV-PKG-MetaplecticAutomorphicForms",
@@ -47811,8 +47813,9 @@
     "PKG-VectorBundlesAndIsocrystals"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-VectorBundlesAndIsocrystals.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7542"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7542",
+   "finishedAt": "2026-10-09T04:16:20Z"
   },
   {
    "id": "PKG-WeightsInEtaleCohomology",
