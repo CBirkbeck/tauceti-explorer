@@ -2448,12 +2448,21 @@ instance : MeasurableSpace
       (AdelicPoints F H ⧸ AdelicPoints.SplitComponent F H)) := borel _
 
 /-- Its transport to `G(F)A_G(ℝ)^0\G(𝔸_F)` along the norm-one comparison. -/
-theorem measure_split [Algebra.FiniteType F H]
+def measure_split [Algebra.FiniteType F H]
     (hred : TauCeti.reductiveCommHopfAlgProperty F (AdelicPoints.finiteTypeObj F H))
     (μ : Measure (AdelicPoints F H)) :
-    ∃ ν : Measure (MulAction.orbitRel.Quotient (AdelicPoints.diagonal F H).range
-        (AdelicPoints F H ⧸ AdelicPoints.SplitComponent F H)),
-      ν = Measure.map (AdelicPoints.normOneQuotientHomeomorph F H hred) (measure F H hred μ) := by
+    Measure (MulAction.orbitRel.Quotient (AdelicPoints.diagonal F H).range
+      (AdelicPoints F H ⧸ AdelicPoints.SplitComponent F H)) :=
+  Measure.map (AdelicPoints.normOneQuotientHomeomorph F H hred) (measure F H hred μ)
+
+/-- The transported measure is invariant under right translation by `G(𝔸_F)`. -/
+theorem measure_split_invariant [Algebra.FiniteType F H]
+    (hred : TauCeti.reductiveCommHopfAlgProperty F (AdelicPoints.finiteTypeObj F H))
+    (μ : Measure (AdelicPoints F H)) [μ.IsHaarMeasure] (g : AdelicPoints F H) :
+    Measure.map (Quotient.map' (fun x : AdelicPoints F H ⧸ AdelicPoints.SplitComponent F H =>
+        (Quotient.liftOn' x (fun y => ((y * g : AdelicPoints F H) :
+          AdelicPoints F H ⧸ AdelicPoints.SplitComponent F H)) (by sorry))) (by sorry))
+      (measure_split F H hred μ) = measure_split F H hred μ := by
   sorry
 
 -- Test AutomorphicQuotient.semisimple: without rational characters `G(𝔸)^1 = G(𝔸)`.
@@ -4243,8 +4252,20 @@ theorem quotientHomeomorph_mk (x : AdelicPoints F (LaurentPolynomial F)) :
     quotientHomeomorph F (Quotient.mk'' x) = QuotientGroup.mk (AdelicPoints.gmEquiv F x) := by
   sorry
 
-/-- The idele with component `t > 0` at every archimedean place and `1` at every finite place. -/
-def archimedeanScalar (t : ℝ) : IdeleGroup (RingOfIntegers F) F := sorry
+/-- The real number `t` in the completion `F_w`. -/
+def archComponent (t : ℝ) (w : InfinitePlace F) : w.Completion :=
+  if hw : w.IsReal then (InfinitePlace.Completion.ringEquivRealOfIsReal hw).symm t
+  else (InfinitePlace.Completion.ringEquivComplexOfIsComplex
+    (InfinitePlace.not_isReal_iff_isComplex.mp hw)).symm (t : ℂ)
+
+/-- The idele with component `t` at every archimedean place and `1` at every finite place
+(for `t = 0` the junk value `1`). -/
+def archimedeanScalar (t : ℝ) : IdeleGroup (RingOfIntegers F) F :=
+  if ht : t = 0 then 1 else
+    { val := ((fun w => archComponent F t w : InfiniteAdeleRing F), 1)
+      inv := ((fun w => archComponent F t⁻¹ w : InfiniteAdeleRing F), 1)
+      val_inv := by sorry
+      inv_val := by sorry }
 
 /-- `ℝ_{>0}`, embedded diagonally at the archimedean places. -/
 def posRealsDiag : Subgroup (IdeleGroup (RingOfIntegers F) F) where
