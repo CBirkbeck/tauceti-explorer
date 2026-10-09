@@ -29954,7 +29954,8 @@
    ],
    "avoidAccountOf": "BP-SmoothRepresentationsOfLocalGroups--SR.0",
    "prompt": "research/blueprint/prompts/REV-SmoothRepresentationsOfLocalGroups--SR.0.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #494"
   },
   {
    "id": "BP-SmoothRepresentationsOfLocalGroups--SR.4",
@@ -34388,8 +34389,9 @@
    ],
    "followUpOf": "BP-AlgebraicModuliForArithmeticGeometry--A0-extension",
    "prompt": "research/blueprint/prompts/BP-AlgebraicModuliForArithmeticGeometry--A0-extension-2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6332"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6332",
+   "finishedAt": "2026-10-09T14:45:04Z"
   },
   {
    "id": "REV-AlgebraicModuliForArithmeticGeometry--A0-extension-2",
