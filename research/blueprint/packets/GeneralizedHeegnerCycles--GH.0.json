@@ -23,63 +23,63 @@
         "kind": "structure",
         "module": "TauCeti/AlgebraicGeometry/AbelianVariety/Basic.lean",
         "provides": "A proper geometrically integral group object over Spec K, for a field K; smoothness and the dimension interface are already available.",
-        "checked": "Full statement and supporting interface read at f790474821cf4256814db967cb154e7af3d0c369. Independently confirmed by REV-GeneralizedHeegnerCycles--GH.0 on 2026-10-07; source statement and citing use checked, not inferred from a name search."
+        "checked": "Full declaration and relevant parameters/interface independently read at f790474821cf4256814db967cb154e7af3d0c369 by REV-GeneralizedHeegnerCycles--GH.0~2 on 2026-10-09; checked against its citing uses, not inferred from a name search."
       },
       {
         "ref": "tauceti:TauCeti.AlgebraicGeometry.AbelianVariety.End",
         "kind": "def",
         "module": "TauCeti/AlgebraicGeometry/AbelianVariety/End/Basic.lean",
         "provides": "Additive endomorphism ring of the existing abelian variety object, including toHom and integer multiplication.",
-        "checked": "Full declaration and ring/action convention read at f790474821cf4256814db967cb154e7af3d0c369. Independently confirmed by REV-GeneralizedHeegnerCycles--GH.0 on 2026-10-07; source statement and citing use checked, not inferred from a name search."
+        "checked": "Full declaration and relevant parameters/interface independently read at f790474821cf4256814db967cb154e7af3d0c369 by REV-GeneralizedHeegnerCycles--GH.0~2 on 2026-10-09; checked against its citing uses, not inferred from a name search."
       },
       {
         "ref": "tauceti:TauCeti.AlgebraicGeometry.AbelianVariety.mulBy",
         "kind": "def",
         "module": "TauCeti/AlgebraicGeometry/AbelianVariety/End/Basic.lean",
         "provides": "mulBy A n is End.toHom of the integer n in End A; used by the scalar endomorphism compatibility test.",
-        "checked": "Definition read at f790474821cf4256814db967cb154e7af3d0c369. Independently confirmed by REV-GeneralizedHeegnerCycles--GH.0 on 2026-10-07; source statement and citing use checked, not inferred from a name search."
+        "checked": "Full declaration and relevant parameters/interface independently read at f790474821cf4256814db967cb154e7af3d0c369 by REV-GeneralizedHeegnerCycles--GH.0~2 on 2026-10-09; checked against its citing uses, not inferred from a name search."
       },
       {
         "ref": "mathlib:LinearMap",
         "kind": "structure",
         "module": "Mathlib/Algebra/Module/LinearMap/Defs.lean",
         "provides": "The bundled semilinear map extends AddHom and MulActionHom; the identity-ring case supplies linear correspondence realizations.",
-        "checked": "Structure and its module parameters read at 082e2d37e8b0463410cdb532e111cd43d5a66174. Independently confirmed by REV-GeneralizedHeegnerCycles--GH.0 on 2026-10-07; source statement and citing use checked, not inferred from a name search."
+        "checked": "Full declaration and relevant parameters/interface independently read at 082e2d37e8b0463410cdb532e111cd43d5a66174 by REV-GeneralizedHeegnerCycles--GH.0~2 on 2026-10-09; checked against its citing uses, not inferred from a name search."
       },
       {
         "ref": "mathlib:LinearMap.range",
         "kind": "def",
         "module": "Mathlib/Algebra/Module/Submodule/Range.lean",
         "provides": "The image submodule of a linear map, with membership equivalent to existence of a preimage.",
-        "checked": "Definition and mem_range read at 082e2d37e8b0463410cdb532e111cd43d5a66174. Independently confirmed by REV-GeneralizedHeegnerCycles--GH.0 on 2026-10-07; source statement and citing use checked, not inferred from a name search."
+        "checked": "Full declaration and relevant parameters/interface independently read at 082e2d37e8b0463410cdb532e111cd43d5a66174 by REV-GeneralizedHeegnerCycles--GH.0~2 on 2026-10-09; checked against its citing uses, not inferred from a name search."
       },
       {
         "ref": "mathlib:Submodule.span",
         "kind": "def",
         "module": "Mathlib/LinearAlgebra/Span/Defs.lean",
         "provides": "The infimum of submodules containing a supplied set; used for the coefficient eigenline and Selmer generation statements.",
-        "checked": "Definition read at 082e2d37e8b0463410cdb532e111cd43d5a66174. Independently confirmed by REV-GeneralizedHeegnerCycles--GH.0 on 2026-10-07; source statement and citing use checked, not inferred from a name search."
+        "checked": "Full declaration and relevant parameters/interface independently read at 082e2d37e8b0463410cdb532e111cd43d5a66174 by REV-GeneralizedHeegnerCycles--GH.0~2 on 2026-10-09; checked against its citing uses, not inferred from a name search."
       },
       {
         "ref": "mathlib:AlgebraicGeometry.Smooth",
         "kind": "class",
         "module": "Mathlib/AlgebraicGeometry/Morphisms/Smooth.lean",
         "provides": "Smooth scheme morphisms, with composition and pullback stability already in the baseline.",
-        "checked": "Class, smooth_comp and both pullback projection instances read at 082e2d37e8b0463410cdb532e111cd43d5a66174. Independently confirmed by REV-GeneralizedHeegnerCycles--GH.0 on 2026-10-07; source statement and citing use checked, not inferred from a name search."
+        "checked": "Full declaration and relevant parameters/interface independently read at 082e2d37e8b0463410cdb532e111cd43d5a66174 by REV-GeneralizedHeegnerCycles--GH.0~2 on 2026-10-09; checked against its citing uses, not inferred from a name search."
       },
       {
         "ref": "mathlib:AlgebraicGeometry.IsProper",
         "kind": "class",
         "module": "Mathlib/AlgebraicGeometry/Morphisms/Proper.lean",
         "provides": "Proper scheme morphisms, defined by separatedness, universal closedness and local finite type; composition and pullback stability are already available.",
-        "checked": "Class and composition/pullback instances read at 082e2d37e8b0463410cdb532e111cd43d5a66174. Independently confirmed by REV-GeneralizedHeegnerCycles--GH.0 on 2026-10-07; source statement and citing use checked, not inferred from a name search."
+        "checked": "Full declaration and relevant parameters/interface independently read at 082e2d37e8b0463410cdb532e111cd43d5a66174 by REV-GeneralizedHeegnerCycles--GH.0~2 on 2026-10-09; checked against its citing uses, not inferred from a name search."
       },
       {
         "ref": "tauceti:TauCeti.AlgebraicGeometry.AbelianVariety.IsIsogeny",
         "kind": "abbrev",
         "module": "TauCeti/AlgebraicGeometry/AbelianVariety/Isogeny.lean",
         "provides": "The existing isogeny predicate is finiteness and surjectivity of the underlying scheme homomorphism; identities, composition and base change are already available.",
-        "checked": "Definition, isIsogeny_iff, isIsogeny_id and IsIsogeny.comp read at f790474821cf4256814db967cb154e7af3d0c369. Independently confirmed by REV-GeneralizedHeegnerCycles--GH.0 on 2026-10-07; source statement and citing use checked, not inferred from a name search."
+        "checked": "Full declaration and relevant parameters/interface independently read at f790474821cf4256814db967cb154e7af3d0c369 by REV-GeneralizedHeegnerCycles--GH.0~2 on 2026-10-09; checked against its citing uses, not inferred from a name search."
       }
     ]
   },
@@ -266,7 +266,8 @@
         "HeegnerPointEulerSystems:HE.1/canonical-model-cm-descent",
         "ComplexMultiplicationAndExplicitReciprocity:CM.1",
         "tauceti:TauCeti.AlgebraicGeometry.AbelianVariety.mulBy",
-        "mathlib:Submodule.span"
+        "mathlib:Submodule.span",
+        "DerivedDeRhamCohomology:DD.2"
       ],
       "sources": [
         {
@@ -359,7 +360,7 @@
         "Idempotence: j is a character of Ξ_r, so ε_A = (1/|Ξ_r|) Σ j(ξ)ξ is the idempotent of the character j in ℚ[Ξ_r].",
         "Künneth: H^*(A^r) = ⊕ H^{i_1} ⊗ … ⊗ H^{i_r}, and [−1] acts on H^i by (−1)^i. So the μ_2^r-part of ε_A kills every summand with some i_k ≠ 1, leaving H¹^{⊗r}.",
         "On H¹^{⊗r}, the geometric action of σ ∈ S_r is sgn(σ) times the permutation of tensor factors (odd classes anticommute). The j-twisted average is therefore the symmetrizer, with image Sym^r H¹.",
-        "Correspondences: ε_A is an element of the ring of correspondences on A^r with ℚ-coefficients, acting on every cohomology theory by functoriality (MotivicEtaleKTheory M.4)."
+        "Use SF.5 for rational graph correspondences and their composition; use DD.2 for the correspondence-compatible de Rham realization and graded Künneth action. Other realizations require their own compatible product export."
       ],
       "acceptance": [
         "r = 2: ε_A H²(A²) = Sym² H¹(A), of dimension 3, while H²(A²) has dimension 6.",
@@ -369,7 +370,8 @@
         "GeneralizedHeegnerCycles:GH.0/cm-elliptic-curve-and-its-hodge-splitting",
         "SchemeAndStackFoundations:SF.5",
         "mathlib:LinearMap",
-        "mathlib:LinearMap.range"
+        "mathlib:LinearMap.range",
+        "DerivedDeRhamCohomology:DD.2"
       ],
       "sources": [
         {
@@ -885,7 +887,8 @@
         "HeegnerPointEulerSystems:HE.1/canonical-model-cm-descent",
         "HeegnerPointEulerSystems:HE.0/ring-class-tower-quotients",
         "ComplexMultiplicationAndExplicitReciprocity:CM.1",
-        "tauceti:TauCeti.AlgebraicGeometry.AbelianVariety.IsIsogeny"
+        "tauceti:TauCeti.AlgebraicGeometry.AbelianVariety.IsIsogeny",
+        "GeneralizedHeegnerCycles:GH.0/cm-elliptic-curve-and-its-hodge-splitting"
       ],
       "sources": [
         {
@@ -1312,7 +1315,8 @@
         "PadicHodgeTheory:R06.5",
         "EtaleDualityAndPerverseSheaves:EDC.2:pairings/adic-and-rational-poincare-duality",
         "PadicHodgeRegulators:L1/bloch-kato-logarithm",
-        "GeneralizedHeegnerCycles:GH.0/projected-hodge-filtration"
+        "GeneralizedHeegnerCycles:GH.0/projected-hodge-filtration",
+        "GeneralizedHeegnerCycles:GH.0/self-duality-of-the-projected-cohomology"
       ],
       "sources": [
         {
@@ -1411,7 +1415,7 @@
       "sources": [
         {
           "sourceId": "castella-hsieh",
-          "locator": "§4.4, (4.5)–(4.7), pp.17–18",
+          "locator": "§4.4–4.5, (4.5)–(4.7), pp.17–20",
           "match": "The Weil restriction supplies a G_K action that A/H alone does not have."
         }
       ],
@@ -1498,7 +1502,7 @@
       "sources": [
         {
           "sourceId": "bertolini-darmon-prasanna-generalized-heegner",
-          "locator": "§3.5, Propositions 3.9–3.10, pp.1073–1074",
+          "locator": "§3.5, Propositions 3.9–3.10, pp.1074–1075",
           "match": "The cup product is calculated as a sum of annular residues."
         }
       ],
@@ -2130,7 +2134,7 @@
       "sources": [
         {
           "sourceId": "castella-hsieh",
-          "locator": "§5.2, following Lemma 5.3 and (5.8), pp.23–24",
+          "locator": "§5.2, (5.1), (5.5) and Lemma 5.4, pp.23–24",
           "match": "The norm-compatible class is the input to the big logarithm."
         }
       ],
@@ -2215,7 +2219,7 @@
       "sources": [
         {
           "sourceId": "longo-vigni",
-          "locator": "§4.1, Lemmas 4.1–4.2, pp.12–13",
+          "locator": "§4.2, Lemmas 4.1–4.2, p.12",
           "match": "Controls the remainder and q_m modulo p."
         }
       ],
@@ -2298,7 +2302,7 @@
       "sources": [
         {
           "sourceId": "longo-vigni",
-          "locator": "§4.1, Corollary 4.3, pp.12–13",
+          "locator": "§4.2, Corollary 4.3, p.12",
           "match": "Identifies ΦM with the intersection of γ_mM."
         }
       ],
@@ -2339,7 +2343,7 @@
       "sources": [
         {
           "sourceId": "longo-vigni",
-          "locator": "§4.2, Definition 4.4 and Proposition 4.5, pp.13–14",
+          "locator": "§4.2, Definition 4.4 and Proposition 4.5, p.13",
           "match": "Constructs the compatible β[n] and fixes its bottom value."
         }
       ],
@@ -2676,7 +2680,7 @@
       "sources": [
         {
           "sourceId": "longo-vigni",
-          "locator": "§2.2, Definition 2.1 and Remark 2.2, pp.4–5",
+          "locator": "§2.2, Definition 2.1 and Remark 2.2, pp.3–4",
           "match": "The exceptional set and four clauses fix the application’s hypotheses."
         }
       ],
@@ -2791,7 +2795,7 @@
       "kind": "comparison",
       "statement": "LV Assumption 3.2 requires V crystalline at p; a rank-one ordinary filtration of T whose F⁻T has trivial inertia; F⁺T and F⁺A exact annihilators under local duality; and finiteness of H⁰(K_{∞,v},F⁻A) and H⁰(K_v,F⁻A). These clauses are kept as application hypotheses. For the self-dual higher-weight twist, the untwisted ordinary quotient’s unramifiedness is not itself proof of trivial inertia on F⁻T: its Tate character must be tracked. Resolve this with the edition’s representation convention or a stronger applicable control theorem before claiming the unconditional application.",
       "hypotheses": [
-        "LV §3.1 Assumption 3.2, rather than ordinarity alone; explicit local representation convention."
+        "LV §3.3 Assumption 3.2, rather than ordinarity alone; explicit local representation convention."
       ],
       "proofSteps": [
         "Write the local ordinary characters before and after the Tate twist.",
@@ -2807,7 +2811,7 @@
       "sources": [
         {
           "sourceId": "longo-vigni",
-          "locator": "§3.1, Assumption 3.2, pp.8–9",
+          "locator": "§3.3, Assumption 3.2, p.9",
           "match": "All local clauses are necessary in the theorem’s hypothesis package."
         }
       ],
@@ -2847,7 +2851,7 @@
       "sources": [
         {
           "sourceId": "longo-vigni",
-          "locator": "§3.1, Proposition 3.4, pp.10–11",
+          "locator": "§3.4, Proposition 3.4, pp.10–11",
           "match": "Provides bounded control outside finitely many primes."
         }
       ],
@@ -2980,7 +2984,7 @@
       "sources": [
         {
           "sourceId": "longo-vigni",
-          "locator": "§3.1, Theorem 3.5, pp.11–12",
+          "locator": "§3.4, Theorem 3.5, p.11",
           "match": "States the rank, paired torsion structure and oriented divisibility."
         }
       ],
@@ -3109,7 +3113,7 @@
       "sources": [
         {
           "sourceId": "castella-hsieh",
-          "locator": "§6, Theorem 6.2 and proof, p.27; §7.3, Theorem 7.9, p.32",
+          "locator": "§6, Theorem 6.2 and proof, p.27; §7.4, Theorem 7.9, p.33",
           "match": "The ordinary central-value implication uses the specialized local class."
         }
       ],
@@ -3245,7 +3249,7 @@
       "sources": [
         {
           "sourceId": "longo-vigni",
-          "locator": "§4.4, Definition 4.10 and Theorem 4.12, pp.16–18",
+          "locator": "§4.3, Definition 4.10 and Theorem 4.12, pp.16–18",
           "match": "Gives freeness and generation, a stronger statement than nonvanishing."
         }
       ],
@@ -3307,7 +3311,7 @@
       ],
       "title": "Critical character and CM family twist",
       "kind": "construction",
-      "statement": "Fix the Hida component and a lift i modulo 2(p−1). Castella’s critical character is Θ=ω^{i/2}[⟨ε_cyc⟩^{1/2}]. Extend the branch to include the CM character λ, and construct Ξ and ξ=Ξ/Ξ̄ as in §2.6. The self-dual family is T†=T⊗Θ^{-1}; the regulator line is in T†|_{G_K}⊗ξ^{-1}. The induced unramified rank-one character Ψ at p, its Frobenius value and λ_reg=Ψ(Fr_p)−1 must be tracked through this precise twist. ξ is not substituted for an arbitrary anticyclotomic character.",
+      "statement": "Fix the Hida component and a lift i modulo 2(p−1). Castella’s critical character is Θ=ω^{i/2}[⟨ε_cyc⟩^{1/2}]. Extend the branch to include the CM character λ, and construct Ξ and ξ=Ξ/Ξ̄ as in §2.6. The critically twisted family is T†=T⊗Θ^{-1}, with determinant ε_f ε_cyc; the self-dual convention requires trivial nebentypus ε_f=1. Keep ε_f in the general family determinant; the regulator line is in T†|_{G_K}⊗ξ^{-1}. The induced unramified rank-one character Ψ at p, its Frobenius value and λ_reg=Ψ(Fr_p)−1 must be tracked through this precise twist. ξ is not substituted for an arbitrary anticyclotomic character.",
       "hypotheses": [
         "Fixed branch, geometric reciprocity, square-root lift and CM character λ; ordinary residual irreducible and p-distinguished family."
       ],
@@ -3325,12 +3329,13 @@
       "sources": [
         {
           "sourceId": "castella-variation",
-          "locator": "§2.6, (2.8)–(2.10); §4.1 and §5.1, pp.9–10,18,21",
+          "locator": "§2.6, Definition 2.8, p.10; §4.1, Theorem 4.3, pp.18–19; §5.1, p.21",
           "match": "The family CM character and critical twist determine the regulator normalization."
         }
       ],
       "acceptance": [
-        "Different lifts of i modulo 2(p−1) can change the half-weight character; a square-root choice must be fixed."
+        "Different lifts of i modulo 2(p−1) can change the half-weight character; a square-root choice must be fixed.",
+        "A nontrivial ε_f remains in det(T†); the general family reciprocity does not imply a trivial-nebentypus global self-duality theorem."
       ],
       "implementationStatus": "unchecked",
       "library": {
@@ -3350,7 +3355,7 @@
         {
           "name": "TauCeti.GeneralizedHeegner.criticalTwist_selfDual",
           "role": "compatibility",
-          "statement": "If the untwisted determinant character δ=Θ²ε_cyc, twisting by Θ⁻¹ξ⁻¹ gives determinant ε_cyc ξ⁻². This records the actual determinant relation, not just the square of an arbitrary inverse character."
+          "statement": "If the untwisted determinant character δ=ε_f Θ²ε_cyc, twisting by Θ⁻¹ξ⁻¹ gives determinant ε_f ε_cyc ξ⁻². Setting ε_f=1 recovers the self-dual convention; a nontrivial nebentypus factor survives the critical twist."
         },
         {
           "name": "TauCeti.GeneralizedHeegner.criticalTwist_specialize",
@@ -3373,6 +3378,11 @@
           "name": "TauCeti.GeneralizedHeegner.criticalTwist_order",
           "kind": "compatibility",
           "statement": "The CM and critical inverse factors commute in the coefficient unit group."
+        },
+        {
+          "name": "TauCeti.GeneralizedHeegner.criticalTwist_nebentypus",
+          "kind": "non-example",
+          "statement": "On G=Q× with ε_f the identity character and Θ=ξ=ε_cyc=1, the twisted determinant at −1 remains −1. Dropping ε_f would incorrectly give 1."
         }
       ],
       "uses": [
@@ -3614,7 +3624,7 @@
       "sources": [
         {
           "sourceId": "castella-variation",
-          "locator": "§3.3, Proposition 3.5 and Corollary 3.6, pp.15–16",
+          "locator": "§3.3, Proposition 3.5 and (3.6), p.15",
           "match": "The infinite unramified coefficient module is part of the construction."
         }
       ],
@@ -3636,9 +3646,10 @@
       ],
       "title": "Two-variable regulator checkpoint",
       "kind": "comparison",
-      "statement": "With G=U×Γ_cyc and λ_reg=Ψ(Fr_p)−1, the supplier map of Castella Theorem 3.7 has target λ_reg^{-1}J(D⊗Ô_{F∞}[[G]]), is injective, and interpolates the logarithm for w>0 at nonexceptional characters. Corollary 3.9 gives the dual exponential range w≤0 with its factorial and Euler factors. Keep the conductor-zero exceptional denominator and the integral ideal J; the target is not an unlocalized unrestricted coefficient algebra.",
+      "statement": "With G=U×Γ_cyc and λ_reg=Ψ(Fr_p)−1, the supplier map of Castella Theorem 3.7 has target λ_reg^{-1}J(D⊗Ô_{F∞}[[G]]), is injective, and interpolates the logarithm for w>0 at nonexceptional characters. For a p-old arithmetic specialization ν, Corollary 3.9 gives the dual exponential range w≤0 with its factorial and Euler factors. Keep the conductor-zero exceptional denominator and the integral ideal J; the target is not an unlocalized unrestricted coefficient algebra.",
       "hypotheses": [
-        "The rank-one unramified ordinary line, Yager covariance and nonexceptional arithmetic specialization; all §3 conventions."
+        "The rank-one unramified ordinary line, Yager covariance and nonexceptional arithmetic specialization; all §3 conventions.",
+        "The dual-exponential conclusion of Corollary 3.9 additionally requires ν to be p-old."
       ],
       "proofSteps": [
         "Combine the requested exponential and Yager module into the two-variable regulator.",
@@ -3756,9 +3767,10 @@
       ],
       "title": "Ordinary localization injectivity",
       "kind": "lemma",
-      "statement": "For the ordinary fixed-weight specialization with residual restriction to G_K irreducible, Castella Lemma 6.4 makes the localization Sel_Gr(K_{c₀p∞}/K_{c₀},T_f(r))→H¹_Iw(local,F⁺T_f(r)) injective. The proof uses Λ-torsion freeness and infinitely many arithmetic specializations where the global rank-one class and its local logarithm are nonzero. This additional result is what turns equality of local regulator images into equality of global classes.",
+      "statement": "For an ordinary fixed-weight form f of even weight at least two and trivial nebentypus with residual restriction to G_K irreducible, Castella Lemma 6.4 makes the localization Sel_Gr(K_{c₀p∞}/K_{c₀},T_f(r))→H¹_Iw(local,F⁺T_f(r)) injective. The proof uses Λ-torsion freeness and infinitely many arithmetic specializations where the global rank-one class and its local logarithm are nonzero. This additional result is what turns equality of local regulator images into equality of global classes.",
       "hypotheses": [
-        "Residual |G_K irreducibility, ordinary filtration, torsion-free global module and nonzero local classes at infinitely many finite characters."
+        "Residual |G_K irreducibility, ordinary filtration, torsion-free global module and nonzero local classes at infinitely many finite characters.",
+        "The fixed-weight form f in Castella §6.2 has even weight at least two and trivial nebentypus; this is separate from the trivial arithmetic character at ν."
       ],
       "proofSteps": [
         "Use the fixed-weight nonvanishing/reciprocity and Selmer rank-one result to show the finite-character localization kernels vanish.",
@@ -3769,12 +3781,13 @@
         "GeneralizedHeegnerCycles:GH.6/selmer-rank-one",
         "GeneralizedHeegnerCycles:GH.4/castella-hsieh-abel-jacobi-formula-and-big-logarithm-reciprocity",
         "SelmerIwasawaCohomology:L2/galois-selmer-group",
-        "SelmerIwasawaCohomology:L3/iwasawa-cohomology"
+        "SelmerIwasawaCohomology:L3/iwasawa-cohomology",
+        "SelmerIwasawaCohomology:L4"
       ],
       "sources": [
         {
           "sourceId": "castella-variation",
-          "locator": "§6.1, Lemma 6.4, pp.26–27",
+          "locator": "§6.2, Lemma 6.4, p.27",
           "match": "Localization injectivity is a distinct ingredient in the global comparison."
         }
       ],
@@ -3796,9 +3809,10 @@
       ],
       "title": "Initial family specialization",
       "kind": "theorem",
-      "statement": "Under Castella Theorem 6.5, at an arithmetic ν of trivial character and weight 2rν>2 with 2rν≡k mod 2(p−1), ν(Z_{c₀,0})=(1−p^{rν−1}/ν(a_p))² AJ_et(Δ_heeg_{rν})/[u_{c₀}(2√−D_K)^{rν−1}], u_{c₀}=|O_{c₀}×|/2. Require k≡2 mod p−1, residual |G_K irreducibility, p-distinguishedness and ramification at every q|(D_K,N), with Castella’s odd-discriminant Heegner and split-p setup. The weight-two p-new exceptional prime is outside this theorem.",
+      "statement": "Under Castella Theorem 6.5, at an arithmetic ν of trivial character and weight 2rν>2 with 2rν≡k mod 2(p−1), ν(Z_{c₀,0})=(1−p^{rν−1}/ν(a_p))² AJ_et(Δ_heeg_{rν})/[u_{c₀}(2√−D_K)^{rν−1}], u_{c₀}=|O_{c₀}×|/2. Require trivial nebentypus of the fixed-weight form f, k≡2 mod p−1, residual |G_K irreducibility, p-distinguishedness and ramification at every q|(D_K,N), with Castella’s odd-discriminant Heegner and split-p setup. The weight-two p-new exceptional prime is outside this theorem.",
       "hypotheses": [
-        "All Castella §6.2 hypotheses; α=ν(a_p) is the ordinary root; period and cycle normalization fixed."
+        "All Castella §6.2 hypotheses; α=ν(a_p) is the ordinary root; period and cycle normalization fixed.",
+        "The fixed-weight form f in Castella §6.2 has even weight at least two and trivial nebentypus; this is separate from the trivial arithmetic character at ν."
       ],
       "proofSteps": [
         "Specialize family reciprocity and match it with CH’s fixed-weight identity using the normalization adapter.",
@@ -3815,7 +3829,7 @@
       "sources": [
         {
           "sourceId": "castella-variation",
-          "locator": "§6.2, Theorem 6.5 and proof, pp.27–28",
+          "locator": "§6.2, Theorem 6.5 and proof, p.28",
           "match": "The first specialization and its stronger residual hypotheses are explicit."
         }
       ],
@@ -3842,7 +3856,8 @@
       "kind": "theorem",
       "statement": "Under the same source-qualified hypotheses as the initial formula, c₀^{rν−1}ν(Z_{c₀,∞})=z_{fν,c₀,α} in the strict Greenberg Iwasawa Selmer module, α=ν(a_p). The system comparison is global: it uses the family local reciprocity, CH’s fixed-weight reciprocity, exact differential and c₀ normalization, plus localization injectivity. It includes finite conductor moments through Shapiro and the specified character twists, while keeping λ_reg exceptional primes outside the localized comparison.",
       "hypotheses": [
-        "Castella Theorem 6.5: weight and parity congruence, trivial arithmetic character, residual |G_K irreducibility, p-distinguishedness, required bad-prime ramification, odd CM discriminant, split p, c₀ prime to Np."
+        "Castella Theorem 6.5: weight and parity congruence, trivial arithmetic character, residual |G_K irreducibility, p-distinguishedness, required bad-prime ramification, odd CM discriminant, split p, c₀ prime to Np.",
+        "The fixed-weight form f in Castella §6.2 has even weight at least two and trivial nebentypus; this is separate from the trivial arithmetic character at ν."
       ],
       "proofSteps": [
         "Compare both local regulator images at each nonexceptional arithmetic specialization with the exact c₀^{rν−1} factor.",
@@ -3859,7 +3874,7 @@
       "sources": [
         {
           "sourceId": "castella-variation",
-          "locator": "§6.2, Theorem 6.5, (6.7), pp.27–28",
+          "locator": "§6.2, Theorem 6.5 and (6.7), p.28",
           "match": "Gives the full higher-weight Iwasawa class comparison, with c₀^{rν−1}."
         }
       ],
@@ -3921,11 +3936,13 @@
     },
     {
       "supplier": "DerivedDeRhamCohomology:DD.2",
-      "need": "Scheme-level algebraic de Rham realization for smooth proper schemes, filtered Künneth for W_m×A^m, cup product, compatibility with correspondence action and the classical smooth de Rham complex. Extend DD.2 beyond its present algebra/complex interface if this global filtered Künneth theorem is not yet included. Include the cycle-class and correspondence compatibility required for de Rham homological triviality.",
+      "need": "Scheme-level algebraic de Rham realization for smooth proper schemes, filtered Künneth for W_m×A^m, cup product, compatibility with correspondence action and the classical smooth de Rham complex. Extend DD.2 beyond its present algebra/complex interface if this global filtered Künneth theorem is not yet included. Include the cycle-class and correspondence compatibility required for de Rham homological triviality. Also export the normalized H¹ Hodge splitting and cup pairing of the specified CM curve and graded Künneth for A^m used by ε_A.",
       "neededBy": [
         "GeneralizedHeegnerCycles:GH.0/cohomology-of-the-generalized-kuga-sato-variety",
         "GeneralizedHeegnerCycles:GH.0/projected-hodge-filtration",
-        "GeneralizedHeegnerCycles:GH.1/homological-triviality-of-generalized-heegner-cycles"
+        "GeneralizedHeegnerCycles:GH.1/homological-triviality-of-generalized-heegner-cycles",
+        "GeneralizedHeegnerCycles:GH.0/cm-elliptic-curve-and-its-hodge-splitting",
+        "GeneralizedHeegnerCycles:GH.0/cm-projector-and-symmetric-power"
       ]
     },
     {
@@ -3975,7 +3992,7 @@
     },
     {
       "supplier": "PadicHodgeRegulators:L3",
-      "need": "Part II of Padic Hodge regulators: integral relative Lubin–Tate Perrin–Riou twists Ω with coefficient-lattice and finite pairing compatibility (KO 3.7, 4.7, 4.10); CH Theorem 5.1 relative regulator with its two interpolation ranges; Castella Theorem 3.4 exponential on J=(Ψ(Fr_p)−1,γ₀−1) with injectivity and pseudo-null cokernel; Yager trace module for the unramified Z_p tower, its rank-one freeness and y^u=[u]y covariance; Theorem 3.7 two-variable map into λ_reg^{-1}J and Corollary 3.9, with arithmetic exceptional denominators. The accepted L3 packet is strictly cyclotomic and finite unramified scalar extension is not an infinite unramified tower. This extension is the preferred local owner required by RT-iwasawa-1/27; AC L2 keeps bounded fixed-weight BK logarithms.",
+      "need": "Part II of Padic Hodge regulators: integral relative Lubin–Tate Perrin–Riou twists Ω with coefficient-lattice and finite pairing compatibility (KO 3.7, 4.7, 4.10); CH Theorem 5.1 relative regulator with its two interpolation ranges; Castella Theorem 3.4 exponential on J=(Ψ(Fr_p)−1,γ₀−1) with injectivity and pseudo-null cokernel; Yager trace module for the unramified Z_p tower, its rank-one freeness and y^u=[u]y covariance; Theorem 3.7 two-variable map into λ_reg^{-1}J and Corollary 3.9, with arithmetic exceptional denominators and its additional p-old specialization hypothesis. The accepted L3 packet is strictly cyclotomic and finite unramified scalar extension is not an infinite unramified tower. This extension is the preferred local owner required by RT-iwasawa-1/27; AC L2 keeps bounded fixed-weight BK logarithms.",
       "neededBy": [
         "GeneralizedHeegnerCycles:GH.2/local-condition-at-p-and-the-castella-hsieh-corrections",
         "GeneralizedHeegnerCycles:GH.4/dual-exponential-special-value",
@@ -4024,9 +4041,10 @@
     },
     {
       "supplier": "SelmerIwasawaCohomology:L4",
-      "need": "Corrected Nekovář family parity theorem (Nek07 Corollary 5.3.2 with Nek09 correction), including the precise self-dual induced family and local plus-module hypotheses used by CH §6.4. This is a proposed Part II arithmetic-consequence extension, not an assertion that RJW criticality examples already prove family parity.",
+      "need": "Corrected Nekovář family parity theorem (Nek07 Corollary 5.3.2 with Nek09 correction), including the precise self-dual induced family and local plus-module hypotheses used by CH §6.4. This is a proposed Part II arithmetic-consequence extension, not an assertion that RJW criticality examples already prove family parity. Supply the source-scoped equality of Greenberg and Bloch–Kato local/Selmer conditions used in Castella Lemma 6.4 (Howard 2007, Eq. (23)), with exact ordinary/weight/twist hypotheses. Propagating the definition of H¹_f alone does not prove this equality.",
       "neededBy": [
-        "GeneralizedHeegnerCycles:GH.6/selmer-parity"
+        "GeneralizedHeegnerCycles:GH.6/selmer-parity",
+        "GeneralizedHeegnerCycles:GH.7/ordinary-localization-injective"
       ]
     },
     {
@@ -4309,9 +4327,10 @@
       "title": "Hida point and representation tower exports",
       "neededBy": [
         "GeneralizedHeegnerCycles:GH.7/howard-family-tower",
-        "GeneralizedHeegnerCycles:GH.7/family-representation-specialization"
+        "GeneralizedHeegnerCycles:GH.7/family-representation-specialization",
+        "GeneralizedHeegnerCycles:GH.7/ordinary-localization-injective"
       ],
-      "detail": "Extend the finite-level CM point interface to shared p-parts of conductor/level; provide the ordinary rank-two Hida representation and specialization with its bad-prime residual hypotheses. A weight-two Hecke representation and fixed-weight Hida control alone do not give the complete tower contract.",
+      "detail": "Extend the finite-level CM point interface to shared p-parts of conductor/level; provide the ordinary rank-two Hida representation and specialization with its bad-prime residual hypotheses. A weight-two Hecke representation and fixed-weight Hida control alone do not give the complete tower contract. The global comparison also needs the source-specific Greenberg/Bloch–Kato equality in Lemma 6.4, requested from Selmer L4; its definition and a generic ordinary filtration do not prove the comparison.",
       "stages": [
         "GeneralizedHeegnerCycles:GH.7"
       ]
@@ -4346,7 +4365,7 @@
       "review": {
         "verdict": "confirmed",
         "reason": "A root number +1 gives eventual rank-zero characters and slope 0; root number −1 gives rank-one characters and slope 1.",
-        "by": "REV-GeneralizedHeegnerCycles--GH.0"
+        "by": "REV-GeneralizedHeegnerCycles--GH.0~2"
       }
     },
     {
@@ -4367,14 +4386,14 @@
       "review": {
         "verdict": "confirmed",
         "reason": "Relative unramifiedness over a ramified conductor field does not put the base in the Fontaine–Laffaille setting; the authors explicitly state that the ramified version of Lemma 7.5 is not known.",
-        "by": "REV-GeneralizedHeegnerCycles--GH.0"
+        "by": "REV-GeneralizedHeegnerCycles--GH.0~2"
       }
     },
     {
       "id": "GeneralizedHeegnerCycles/E3",
       "source": "castella-hsieh-erratum",
       "kind": "misprint",
-      "locator": "Lemma 7.10 and explanation; author copy pp.32–33; third erratum item",
+      "locator": "Lemma 7.10 and explanation; July 2, 2022 author copy p.34; third erratum item",
       "printed": "Lemma 7.10 describes the extension as p-ramified.",
       "correction": "The p-ramified extension in the lemma is abelian.",
       "reason": "The character/class-field argument uses abelianity; it does not classify arbitrary p-ramified extensions.",
@@ -4387,7 +4406,7 @@
       "review": {
         "verdict": "confirmed",
         "reason": "The character/class-field argument uses abelianity; it does not classify arbitrary p-ramified extensions.",
-        "by": "REV-GeneralizedHeegnerCycles--GH.0"
+        "by": "REV-GeneralizedHeegnerCycles--GH.0~2"
       }
     },
     {
@@ -4409,14 +4428,14 @@
       "review": {
         "verdict": "confirmed",
         "reason": "The preceding paragraph gives dimension 0 for root sign +1 and dimension 1 for root sign −1. Both +1 and −1 are odd, so the printed residue cannot encode the former case.",
-        "by": "REV-GeneralizedHeegnerCycles--GH.0"
+        "by": "REV-GeneralizedHeegnerCycles--GH.0~2"
       }
     },
     {
       "id": "GeneralizedHeegnerCycles/E5",
       "source": "longo-vigni",
       "kind": "misprint",
-      "locator": "arXiv:1605.03168v1, §5.1, p.18, opening paragraph; published text not accessible in this run",
+      "locator": "arXiv:1605.03168v1, §4.2 Corollary 4.3 p.12 and §5.1 opening paragraph p.18; published text not collated in this run",
       "printed": "The source cites Assumption 2.3, item (5).",
       "correction": "Refer to the ordinarity clause (4) of Definition 2.1, imposed by Assumption 2.3.",
       "reason": "Assumption 2.3 merely states admissibility; Definition 2.1 has four clauses, and its fourth clause is a_p a unit. This corrects the reference only; whether the self-dual twist satisfies the local quotient clause remains a separate recorded gap.",
@@ -4430,14 +4449,14 @@
       "review": {
         "verdict": "confirmed",
         "reason": "Assumption 2.3 merely states admissibility; Definition 2.1 has four clauses, and its fourth clause is a_p a unit. This corrects the reference only; whether the self-dual twist satisfies the local quotient clause remains a separate recorded gap.",
-        "by": "REV-GeneralizedHeegnerCycles--GH.0"
+        "by": "REV-GeneralizedHeegnerCycles--GH.0~2"
       }
     },
     {
       "id": "GeneralizedHeegnerCycles/E6",
       "source": "longo-vigni",
       "kind": "misprint",
-      "locator": "arXiv:1605.03168v1, §4.4, p.18, proof of Theorem 4.12, Claim 2; published text not accessible in this run",
+      "locator": "arXiv:1605.03168v1, §4.3, p.18, proof of Theorem 4.12, Claim 2; published text not collated in this run",
       "printed": "The augmented trace-polynomial values are asserted equal as scalars.",
       "correction": "Use equality of generated ideals aug(γ_ℓ)O_p=aug(Φ)O_p for all sufficiently large ℓ, as in the preceding paragraph. Scalar values need not become equal.",
       "reason": "Corollary 4.3 and the recurrence prove eventual equality of ideals, with a unit factor permitted. For example, a nonzero scalar sequence satisfying x_(m+2)=a_p x_(m+1)−p^(k−1)x_m cannot be eventually constant unless a_p−p^(k−1)=1. The lifting argument only needs ideal equality.",
@@ -4450,8 +4469,8 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Corollary 4.3 and the recurrence prove eventual equality of ideals, with a unit factor permitted. For example, a nonzero scalar sequence satisfying x_(m+2)=a_p x_(m+1)−p^(k−1)x_m cannot be eventually constant unless a_p−p^(k−1)=1. The lifting argument only needs ideal equality. The corrected locator is §4.4 Claim 2 on p.18, not §5.1 p.19.",
-        "by": "REV-GeneralizedHeegnerCycles--GH.0"
+        "reason": "Corollary 4.3 and the recurrence prove eventual equality of ideals, with a unit factor permitted. For example, a nonzero scalar sequence satisfying x_(m+2)=a_p x_(m+1)−p^(k−1)x_m cannot be eventually constant unless a_p−p^(k−1)=1. The lifting argument only needs ideal equality.",
+        "by": "REV-GeneralizedHeegnerCycles--GH.0~2"
       }
     },
     {
@@ -4472,7 +4491,7 @@
       "review": {
         "verdict": "confirmed",
         "reason": "Write h=[H_K:K] and m=2r−2. The rational ranks are binomial(2h+m−1,m) and h(m+1). For h=2,m=2 they are 10 and 6, and for m=0 they are 1 and h. A Tate twist and coefficient extension do not change ranks. Symmetric powers do not commute with induction. The character projection on the literal full Sym can be checked separately and is the requested CM.1 adapter.",
-        "by": "REV-GeneralizedHeegnerCycles--GH.0"
+        "by": "REV-GeneralizedHeegnerCycles--GH.0~2"
       }
     }
   ],
@@ -4481,50 +4500,57 @@
       "kind": "published",
       "url": "https://www.math.mcgill.ca/darmon/pub/Articles/Research/51.BDP1/duke-publishedversion.pdf",
       "citation": "Published Duke Math. J. 162 (2013), 1033–1148; 116 pages",
-      "read": "2026-10-07",
+      "read": "2026-10-09",
       "sha256": "223bfdad6571c211a1b3e11c4688f2831f06a642eafef7c3552c9506a7188fbc"
     },
     {
       "kind": "author copy",
       "url": "https://www.math.ntu.edu.tw/~mlhsieh/research/HCES.pdf",
       "citation": "Author copy dated July 2, 2022, 40 pages; distinct from Math. Ann. 370 (2018)",
-      "read": "2026-10-07",
+      "read": "2026-10-09",
       "sha256": "5c85ea3c0d53ce4825ade4213b930c6542bf628cba6d506bb8c3e46960f02bba"
     },
     {
       "kind": "author copy",
       "url": "https://www.math.ntu.edu.tw/~mlhsieh/research/erratum2.pdf",
       "citation": "One-page author-hosted erratum",
-      "read": "2026-10-07",
+      "read": "2026-10-09",
       "sha256": "2a8b615daf100b0f2e8ee5890462a91dde9c860492ec920d2a1a7d5827028678"
     },
     {
       "kind": "preprint",
       "url": "https://arxiv.org/pdf/1605.03168",
       "citation": "arXiv:1605.03168v1, May 10, 2016; findings and obligations refer to this edition",
-      "read": "2026-10-07",
+      "read": "2026-10-09",
       "sha256": "afc1a2146cae0397c5aabb337f5955d182a0dab3dd50949ec2e274426a9a5c75"
     },
     {
       "kind": "author copy",
       "url": "https://web.math.ucsb.edu/~castella/Heegner.pdf",
       "citation": "31-page author-hosted copy of J. Inst. Math. Jussieu 19 (2020), 2127–2164",
-      "read": "2026-10-07",
+      "read": "2026-10-09",
       "sha256": "6ebd71311d6841d15d653183e9ca3adaabbe9720416e86f6731e7c1ecbb1156d"
     },
     {
       "kind": "author copy",
       "url": "https://www.math.keio.ac.jp/~kurihara/20.ASPMstyle.pdf",
       "citation": "Author-hosted proceedings copy, 58 pages, cited by CH erratum",
-      "read": "2026-10-07",
+      "read": "2026-10-09",
       "sha256": "377cf3e5c53b00bed813a06e18ad8dac9315997497f2dabe57a435664b9764b4"
     },
     {
       "kind": "published",
       "url": "https://web.math.ucsb.edu/~castella/HeegnerCycles-print.pdf",
       "citation": "Publisher-formatted Math. Ann. 370 (2018), 567–628; author-hosted 62-page print copy",
-      "read": "2026-10-07",
+      "read": "2026-10-09",
       "sha256": "be67ffe80a7fa346e8cb0733f38c776268174eebc6277a85bfa9b91c49073ade"
+    },
+    {
+      "kind": "author copy",
+      "url": "https://web.math.ucsb.edu/~castella/erratum.pdf",
+      "citation": "Older one-page author-hosted CH correction notice, referring to the KO preprint Lemma 5.7; collated with the newer notice pointing to proceedings Lemma 4.10",
+      "read": "2026-10-09",
+      "sha256": "1009040cec4e147c3a0dec8377e7f880f9eb4d8d3302f22213c861063a640de7"
     }
   ],
   "restructure": [
@@ -4641,340 +4667,340 @@
     "checkedPortion": "Mathlib-only portion: all displayed declarations except the two abelian-variety structures and their API/tests; checked with lean-check against Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174. This is not a full-file compilation claim."
   },
   "review": {
-    "status": "needs_changes",
-    "reviewer": "independent-review-REV-GeneralizedHeegnerCycles--GH.0",
-    "date": "2026-10-07",
-    "notes": "Completed independent target-level review of all 66 nodes, 86 source citations, 9 pinned baseline declarations, supplier contracts, audit, APIs/tests, suggested file, planets and all four assigned red-team obligations. Clear mathematical/dependency/API errors are corrected in place; all seven source issues are confirmed, including new E7. Five native interface/test contracts remain unverifiable and the uneditable reader still contains the corrected mathematical errors. Existing proof-closure gaps alone are not grounds for this verdict. Packet remains a complete pass with eight planned stages; no implementation is certified. lean-check before/after stopped at a missing shared AbelianVariety.Isogeny object file before the body. See the report and revision handoff.",
+    "status": "accepted",
+    "reviewer": "independent-review-REV-GeneralizedHeegnerCycles--GH.0~2",
+    "date": "2026-10-09",
+    "notes": "Independent target-level review of all 66 nodes, 86 source citations, nine exact-pin baseline declarations, supplier contracts, AUDIT-24, 66 API items, 58 tests, suggested file, 36 planets and all four assigned red-team obligations. All five previously unverifiable object/test contracts are repaired. Corrected source locators, explicit geometric dependencies, general family nebentypus determinant, p-old dual-exponential hypothesis, trivial base-nebentypus specialization assumptions and the Greenberg/Bloch–Kato supplier obligation. Confirmed all seven source issues. Accepted as a complete planning pass: eight planned stages, seventeen precise gaps and eighteen requests; no proof closure or implementation certified. Full lean-check fails before the body at the missing shared Isogeny.olean import; a Mathlib-only projection excluding seven native-dependent blocks elaborates with zero errors and 229 admitted-proof warnings. See the review report and handoff for source and check limits.",
     "checked": [
       {
         "nodeId": "GeneralizedHeegnerCycles:GH.0/cm-elliptic-curve-and-its-hodge-splitting",
-        "verdict": "unverifiable",
-        "note": "BDP §1.4 gives the normalized CM action and both Hodge lines. Added eigenvector naturality and scalar-normalization uniqueness. The i-action example contains no curve or CM action, and the normalization example does not use etaOfOmega; opposite CM normalization cannot be detected. Revise the geometric tests."
+        "verdict": "corrected",
+        "note": "BDP §1.4 pp.1051–1052: normalized identity/conjugate eigenlines and cup pairing. The revised i-test calls A.cm and fixes the original realization when conjugating the CM action; eta normalization calls its constructor. Native geometry remains a source-checked owner adapter. Added direct DD.2 realization dependency."
       },
       {
         "nodeId": "GeneralizedHeegnerCycles:GH.0/cm-projector-and-symmetric-power",
-        "verdict": "unverifiable",
-        "note": "BDP (1.4.4) and Lemma 1.8 require the signed permutation projector. Added equivariant-map naturality. The unsigned permutation average passes the displayed cardinality, unique-group and scalar double-minus examples; a genuine tensor/permutation fixture is still required."
+        "verdict": "corrected",
+        "note": "BDP (1.4.4), Lemma 1.8 p.1052: inversion and permutation characters, denominator, graded Künneth sign and symmetric image. The actual S₃ tensor-cube action distinguishes rank four from the zero unsigned average. Replaced the stray M.4 proof reference with SF.5/DD.2 and recorded graded realization imports."
       },
       {
         "nodeId": "GeneralizedHeegnerCycles:GH.0/cm-character-decomposition",
-        "verdict": "corrected",
-        "note": "Corrected the proof: distinct joint algebraic characters do not mean distinct values at every noninteger α. At K=Q(i), α=i and r=2, the extreme eigenvalues coincide. Added the normalized CM eigenbasis prerequisite; the symmetric-power monomial basis proves independence."
+        "verdict": "verified",
+        "note": "BDP (1.4.6) p.1053: factorial averaging, monomial basis, joint CM characters and inverse differential rescaling. A single CM element need not separate all characters; the i-example retains this distinction."
       },
       {
         "nodeId": "GeneralizedHeegnerCycles:GH.0/generalized-kuga-sato-variety-and-its-projector",
-        "verdict": "corrected",
-        "note": "BDP §2.1–2.2 and the R14.3 request supply the two factor correspondences, with clearing denominator N^m2^{2m}(m!)². The commutation prototype now explicitly assumes commutation of its linear inputs; the geometric fact remains a factor-action theorem. No global model of X is claimed."
+        "verdict": "verified",
+        "note": "BDP §2.1–2.2 pp.1057,1060–1061: imported universal family, CM product and commuting projectors. Dimensions and N^m 2^(2m)(m!)² product denominator are consistent. R14.3 is requested to supply the higher-weight family rather than duplicated here."
       },
       {
         "nodeId": "GeneralizedHeegnerCycles:GH.0/cohomology-of-the-generalized-kuga-sato-variety",
         "verdict": "verified",
-        "note": "BDP Proposition 2.4 and Lemma 1.8 give concentration in degree 2m+1 and the parabolic tensor factor. Rational étale and filtered de Rham Künneth are precise EDC.6/DD.2 requests; the modular higher-fiber-power export remains a gap."
+        "note": "BDP Proposition 2.4 pp.1061–1062: degree 2m+1 concentration, parabolic tensor and vanishing in degree 2m+2. Filtered de Rham/rational étale product exports are explicit requests, including correspondence compatibility."
       },
       {
         "nodeId": "GeneralizedHeegnerCycles:GH.0/projected-hodge-filtration",
         "verdict": "verified",
-        "note": "BDP Proposition 2.5 gives the full CM symmetric factor in Fil^{m+1}, rather than only its holomorphic line. The separate filtration theorem is the correct input to the AJ quotient."
+        "note": "BDP Proposition 2.5 p.1062: all of Sym^m H¹(A), including the η line, occurs in Fil^(m+1). The m=1 dimension test excludes keeping only the holomorphic CM line."
       },
       {
         "nodeId": "GeneralizedHeegnerCycles:GH.0/self-duality-of-the-projected-cohomology",
-        "verdict": "corrected",
-        "note": "Replaced the irrelevant Proposition 2.7 citation by BDP §3.4 projected Poincaré duality and exact annihilators. Added the self-transpose projector prerequisite. EDC.2 rational duality matches the Tate target Q_p(1) after twisting."
+        "verdict": "verified",
+        "note": "BDP (2.2.3), (3.4.1)–(3.4.2) pp.1061,1070: transpose invariance restricts Poincaré duality; twisting by m+1 gives target Qp(1). The negative weight and annihilator filtration are consistent."
       },
       {
         "nodeId": "GeneralizedHeegnerCycles:GH.0/newform-cm-projector",
-        "verdict": "corrected",
-        "note": "Clarified that identity for the trivial CM character is on its selected component. Higher-weight modular/lattice data are requested from R14.3. Added auxiliary fine-level descent for source levels N≤4; N>4 is a model condition, not CH (H)."
+        "verdict": "verified",
+        "note": "CH §4.2 pp.14–15 and the Scholl supplier: m=2r−2, modular twist V_f(r), Hecke/CM factorization and stable lattice. Geometric factorial denominators do not clear Hecke congruence denominators; N≤4 descent is an explicit supplier gap."
       },
       {
         "nodeId": "GeneralizedHeegnerCycles:GH.0/cm-product-good-model",
-        "verdict": "corrected",
-        "note": "Corrected the local source page to 1067. Separate good models of W and A, finite unramified F and p∤cNd_K in the canonical application are retained. The native scheme-property baseline is used, rather than re-planned."
+        "verdict": "verified",
+        "note": "BDP §3.2 p.1067 and Conrad appendix pp.1139–1144: the universal factor model is imported. The CM factor needs its own smooth proper model and unramified local comparison data. Both positive and bad-twist examples exercise that requirement."
       },
       {
         "nodeId": "GeneralizedHeegnerCycles:GH.1/isogenies-of-conductor-c-prime-to-n",
-        "verdict": "unverifiable",
-        "note": "Corrected ker φ∩A[𝔑]=0, the marked ideal notation and the invertible-ideal semigroup prime to 𝔑∩O_c. The native identity test checks a morphism, not conductor 1; the degree test takes three unrelated degree functions. Neither verifies the promised conductor/degree contract."
+        "verdict": "corrected",
+        "note": "BDP Assumption 1.9 pp.1053–1054: target End order is literally Z+cO_K, marked subgroup is A[𝔑], and kernel avoids it. Revised tests use native geometric points, target order, actual kernel cardinality/degree and marked injectivity. Added the direct CMCurve dependency; native elaboration remains unavailable."
       },
       {
         "nodeId": "GeneralizedHeegnerCycles:GH.1/generalized-heegner-cycle",
-        "verdict": "corrected",
-        "note": "Corrected the clearing denominator to N^m2^{2m}(m!)², the dimension indices and SF.5 ownership. Strengthened the projected test with gHC(id,g)=g, which detects the identically zero construction as well as an unprojected graph. The geometric graph and Chow carrier remain supplied."
+        "verdict": "verified",
+        "note": "BDP §2.3 pp.1062–1063: graph-product pushforward and ε_X act in the requested rational Chow carrier. The m=0 cusp correction, field, graph order and codimension m+1 are kept separate from the higher-weight null-homology argument."
       },
       {
         "nodeId": "GeneralizedHeegnerCycles:GH.1/field-of-definition-of-generalized-heegner-cycles",
-        "verdict": "corrected",
-        "note": "BDP Remark 2.6 gives H̃·H_c. Added the general CM.1 descent request beyond HE.1’s restricted unit fields, and corrected the marked-ideal notation. No descent from invariance alone is used."
+        "verdict": "verified",
+        "note": "BDP Remark 2.6 p.1063: marked-isogeny descent gives the specified compositum and kernel reciprocity action. General unit fields are requested from CM.1 rather than inferred from HE.1’s restricted application."
       },
       {
         "nodeId": "GeneralizedHeegnerCycles:GH.1/homological-triviality-of-generalized-heegner-cycles",
-        "verdict": "corrected",
-        "note": "Corrected m/r indices and added rational étale/de Rham cycle-class compatibility prerequisites. The zero projected cohomology proves triviality; the Betti realization compatibility is explicitly a gap rather than a consequence of torsion purity."
+        "verdict": "verified",
+        "note": "BDP Proposition 2.7 p.1063: ε_X kills the cycle degree for m≥1, while m=0 uses degree zero. Rational étale, de Rham and Betti cycle-class compatibility are named supplier obligations, not consequences of torsion purity alone."
       },
       {
         "nodeId": "GeneralizedHeegnerCycles:GH.1/etale-abel-jacobi-map",
-        "verdict": "corrected",
-        "note": "EDC.3 only supplies finite Gysin, and R02.2 compact five-term is not continuous Ext¹=H¹. Added the EDC.6 rational/support adapter and precise R02.1 request, retaining Chow rational-equivalence and the m=0 Jacobian comparison. These are honest open exports."
+        "verdict": "verified",
+        "note": "BDP Definition 3.1 and Remark 3.2 pp.1065–1067: support Gysin extension pulled back by a null-homologous Chow class. Rational derived-limit Gysin, continuous Ext¹/H¹, rational-equivalence independence and divisor/Kummer compatibility are precise requests."
       },
       {
         "nodeId": "GeneralizedHeegnerCycles:GH.1/extensions-of-filtered-frobenius-modules",
         "verdict": "verified",
-        "note": "BDP Proposition 3.5 uses the F-linear iterate of crystalline Frobenius, negative weight and holomorphic-minus-Frobenius lift. The R06.2 request is the required filtered-extension theorem; the quotient prototype only models lift independence."
+        "note": "BDP Proposition 3.5 pp.1068–1069: negative weight, F-linear iterate Φ₀^[F:Qp], and holomorphic-minus-Frobenius lift modulo Fil⁰. The packet does not replace this with semilinear invariants or reverse the sign."
       },
       {
         "nodeId": "GeneralizedHeegnerCycles:GH.1/p-adic-abel-jacobi-map",
         "verdict": "corrected",
-        "note": "Corrected the R06.6 proof reference to the actual R06.5 request and consistent m indices. Made D_cris^{φ=1}=0 and H¹_f=H¹_e explicit for the imported L1 logarithm; the quotient uses the separate projected filtration theorem."
+        "note": "BDP Theorem 3.3 and §3.4 pp.1067–1070: crystalline extension comparison and projected dual functional have the correct finite/unramified presentation and H_e=H_f input. Added direct projected self-duality dependency; general ramified finite-class comparison remains separately requested."
       },
       {
         "nodeId": "GeneralizedHeegnerCycles:GH.1/integral-abel-jacobi-comparison",
         "verdict": "verified",
-        "note": "CH (4.2) uses an integral f lattice and the full symmetric-power Tate twist. The existing denominator and coefficient-invariant gaps are real: R02.2 supplies a descent sequence, not automatic descent. The rationalization prototype does not prove this missing geometry."
+        "note": "CH (4.2) pp.14–15: lattice projection and K̃_c/K_c descent require invariant vanishing and denominators. The rational BDP map is not claimed integral merely by avoiding 2Nm!."
       },
       {
         "nodeId": "GeneralizedHeegnerCycles:GH.1/character-projected-heegner-class",
         "verdict": "corrected",
-        "note": "Corrected χ_t to finite order of the same conductor, unique only up to a Hilbert class character, and separated finite-level (4.6) from global (4.7). Kept literal full Sym(T_p(Res A)); recorded false printed Sym/Ind identity as E7. Strengthened the eigen API to the character-action law. Integral inclusion/projector remains a precise CM.1 gap."
+        "note": "CH (4.5)–(4.7) pp.17–20: literal full symmetric Weil-restriction coefficient, χ_t of the same conductor with Hilbert-character ambiguity, χ projector and corestriction. E7’s false Sym/Ind identification is excluded. Extended locator through the global class formula on p.20."
       },
       {
         "nodeId": "GeneralizedHeegnerCycles:GH.1/parabolic-residue-pairing",
-        "verdict": "verified",
-        "note": "BDP Propositions 3.9–3.10 use vanishing annular/cusp residues and the Cech cup-product formula. RD.4 is a precise wide-open comparison request; RD.3’s F-isocrystal alone is not asserted to prove residues."
+        "verdict": "corrected",
+        "note": "BDP Propositions 3.9–3.10 pp.1074–1075: annular residues compute the parabolic pairing using the requested wide-open comparison. Corrected the page range; the F-isocrystal carrier alone is insufficient."
       },
       {
         "nodeId": "GeneralizedHeegnerCycles:GH.1/coleman-primitive",
-        "verdict": "unverifiable",
-        "note": "The source specifies an admissible Frobenius-normalized Coleman primitive (weight zero modulo constants). The native zero construction passes all three named examples: only the zero example references colemanPrimitive. A nonzero differential/primitive fixture and actual admissibility data are missing."
+        "verdict": "verified",
+        "note": "BDP Lemma 3.14, Theorem 3.15 and Remarks 3.16–3.17 pp.1076–1078: admissible input is in the connection image and normalization selects the kernel complement. Revised dX test uses nonzero connection, Φ and annihilating polynomial, calls the primitive constructor and excludes zero."
       },
       {
         "nodeId": "GeneralizedHeegnerCycles:GH.1/coleman-abel-jacobi-formula",
         "verdict": "verified",
-        "note": "BDP Propositions 3.18, 3.21 and Lemma 3.22 supply graph-cycle evaluation and the degree^j factor. The ordinary marked-isogeny and normalized differential assumptions are preserved; the residue/Coleman inputs are explicit preceding targets."
+        "note": "BDP Propositions 3.18,3.21 and Lemma 3.22 pp.1078–1084: primitive paired with the CM differential yields the AJ evaluation. Local trace, isogeny degree and normalized sections remain explicit; source hypotheses are supplied by the preceding geometry and primitive nodes."
       },
       {
         "nodeId": "GeneralizedHeegnerCycles:GH.1/coleman-depletion-calculation",
         "verdict": "verified",
-        "note": "BDP Proposition 3.24 gives j!θ^{−1−j}f♭ via the component recurrence. Depletion and negative θ powers are supplied by the modular/measure owner request, not a private GH measure."
+        "note": "BDP Proposition 3.24 pp.1086–1088: p-depletion, normalized primitive and θ powers agree on CM disks with the stated weight/factorial convention. The ordinary-locus differential operator and measure belong to the named R14.3/L3h exports."
       },
       {
         "nodeId": "GeneralizedHeegnerCycles:GH.1/syntomic-abel-jacobi-comparison",
         "verdict": "verified",
-        "note": "The packet accurately records the higher-dimensional syntomic comparison as a D.2 request/gap. The existing Spec O_F Tate and K₂ curve statements are insufficient; no proof is claimed from them."
+        "note": "BDP §3.4 pp.1068–1070 describes the comparison to be transported. The higher-dimensional Chow syntomic regulator is explicitly a D.2 extension request, with its Frobenius normalization; Tate and K₂ curve regulators are not treated as that theorem."
       },
       {
         "nodeId": "GeneralizedHeegnerCycles:GH.1/classical-generalized-cycle-comparison",
         "verdict": "verified",
-        "note": "Castella’s use of BDP2017 Proposition 4.1.2 and its half-unit normalization is read. The primary BDP2017 comparison is explicitly unread and recorded as a gap; the 2013 paper is not substituted for it."
+        "note": "Castella Theorem 6.5 proof p.28 fixes the degree and CM differential factor. The primary BDP 2017 Proposition 4.1.2 is explicitly unread; this is a planned comparison with a named source gap, not attributed to BDP 2013."
       },
       {
         "nodeId": "GeneralizedHeegnerCycles:GH.2/cycle-norm-relations",
         "verdict": "verified",
-        "note": "CH Proposition 4.4 has n>1 for split p and the inert-prime recurrence. The first step and unit indices are separately assigned to the adapter, and the cycle proof needs graph/NS compatibility beyond the imported CM point trace."
+        "note": "CH Proposition 4.4 pp.15–17: tame inert relation and p-conductor recurrence with the stated exponent. Unit orbit factors and the exceptional bottom step are retained in the later first-step adapter."
       },
       {
         "nodeId": "GeneralizedHeegnerCycles:GH.2/cycle-conjugation",
         "verdict": "verified",
-        "note": "CH Lemma 4.6 changes χ to χ^{-1}, with w_f and the Artin class. The canonical CM real descent is a CM.1 input; there is no unjustified same-character conjugation identity."
+        "note": "CH Lemma 4.6 p.18: τ takes χ to χ⁻¹ and introduces the Atkin–Lehner/Artin factor. The node retains the real canonical CM model and avoids declaring an arbitrary χ-class a τ eigenvector."
       },
       {
         "nodeId": "GeneralizedHeegnerCycles:GH.2/cycle-frobenius-congruence",
         "verdict": "verified",
-        "note": "CH Lemma 4.7 is an equality after local restriction, not a global congruence modulo ℓ. The graph reduction and character triviality at the inert place are matched to HE.2 and the comparison request."
+        "note": "CH Lemma 4.7 pp.18–19: local restriction after Frobenius at an inert good prime. The exact HE.2 reduction statement is consumed with good-reduction and reciprocity conversions; it is not a global trace equality."
       },
       {
         "nodeId": "GeneralizedHeegnerCycles:GH.2/finite-local-abel-jacobi-class",
         "verdict": "verified",
-        "note": "CH Lemma 7.5/Proposition 7.6 are checked with the erratum: absolute unramifiedness over Q_p is required for Fontaine–Laffaille. Ramified conductor derivatives are handled in the next node, not by extending that lemma."
+        "note": "CH Lemma 7.5 and Proposition 7.6 p.31 with erratum: absolute unramifiedness is required for the Fontaine–Laffaille derivative argument. Geometric H_f membership over ramified support fields is separately requested from R06.5, without extending the invalid derivative proof."
       },
       {
         "nodeId": "GeneralizedHeegnerCycles:GH.2/local-condition-at-p-and-the-castella-hsieh-corrections",
-        "verdict": "corrected",
-        "note": "Corrected KO locator through p.45 and removed the unrelated clean Howard prerequisite. The integral Ω lifting/orthogonality route uses KO Condition 2.3 and the PHR L3 request; matching its regulator-image lattice to CH remains explicitly open."
+        "verdict": "verified",
+        "note": "KO Lemmas 4.7,4.10 pp.42,44–45: integral Ω lifting, auxiliary unramified trace and duality/orthogonality replace the ramified Fontaine–Laffaille argument. KO Condition 2.3 and identification with CH/LV local lattices remain explicit verification gaps."
       },
       {
         "nodeId": "GeneralizedHeegnerCycles:GH.3/ordinary-stabilized-class",
         "verdict": "verified",
-        "note": "CH Definition 5.2 fixes the upper subtraction and the separate bottom Euler operators, with r≥1 and ordinary unit root. The scalar tests detect the weight-two normalization; the first conductor trace remains a named adapter rather than a hidden assumption."
+        "note": "CH Definition 5.2 p.22: α unit root, predecessor coefficient p^(2r−2)/α and two bottom Euler operators with full unit count. Tests discriminate the positive conductor and bottom formulas."
       },
       {
         "nodeId": "GeneralizedHeegnerCycles:GH.3/stabilized-first-step-adapter",
         "verdict": "verified",
-        "note": "CH Lemma 5.3’s first-step obligation is not supplied by the revised Proposition 4.4 n>1 proof. The gap names the missing neighbor/unit calculation and full-unit versus half-unit scaling."
+        "note": "CH Lemma 5.3 pp.22–23 asserts the first step; the missing n=1 calculation and full versus half unit conventions are kept as a precise gap. The HE.2 conductor classification supplies the point-level input only."
       },
       {
         "nodeId": "GeneralizedHeegnerCycles:GH.3/iwasawa-heegner-class",
-        "verdict": "verified",
-        "note": "CH (5.8) and the imported Iwasawa carrier give α^{-n} normalization after the first-step adapter. The α=2 test distinguishes inverse powers from positive powers. Finite Δ, Γ and Shapiro conventions remain separate."
+        "verdict": "corrected",
+        "note": "CH §5.2 pp.23–24: α^(-n) normalized tower, finite Δ and Shapiro conventions retained. Replaced irrelevant (5.8) dual-exponential citation with (5.1),(5.5),Lemma 5.4; first-step closure still depends on its explicit adapter."
       },
       {
         "nodeId": "GeneralizedHeegnerCycles:GH.3/longo-vigni-trace-polynomials",
         "verdict": "corrected",
-        "note": "LV Lemmas 4.1–4.2 specify the actual initial terms and δ. Corrected the error-power test: the displayed exponent 2 does not forbid additional p⁴ divisibility in a particular remainder. The recursive prototype tests the recurrence, not the geometric δ."
+        "note": "LV §4.2 Lemmas 4.1–4.2 p.12: recurrence in a common group algebra with the Δ factor. The API and examples retain p^(k−1) in the raw recurrence; corrected section/page locator."
       },
       {
         "nodeId": "GeneralizedHeegnerCycles:GH.3/trace-polynomial-intersection",
         "verdict": "corrected",
-        "note": "LV Corollary 4.3 is equality of images/submodules. Corrected the locator to pp.12–13. Augmented ideals, not literally stabilized scalars, are used downstream (E6)."
+        "note": "LV §4.2 Corollary 4.3 p.12: intersection of trace-polynomial ideals is Φ times the algebra, with unit conditions. Equality is of ideals, not eventual equality of scalar augmentations; corrected locator."
       },
       {
         "nodeId": "GeneralizedHeegnerCycles:GH.3/universal-norm-heegner-class",
-        "verdict": "unverifiable",
-        "note": "LV Proposition 4.5 concerns a specified tower H_m[n], Φz_n and simultaneous tame compatibility. universalNormClass(z) has no norm tower input, while its APIs quantify over unrelated cor maps. A coherent nonzero-bottom construction cannot satisfy those APIs for both identity and zero cor maps. Revise the carrier and tests."
+        "verdict": "corrected",
+        "note": "LV §4.2 Definition 4.4,Proposition 4.5 p.13: one jointly compatible compact tower, tame/vertical commutation and finite-height simultaneous solvability. Revised Z/5 fixture has nonzero bottom, nonconstant Φ and correlated tame/vertical coordinates, rejecting separate choices; corrected locator."
       },
       {
         "nodeId": "GeneralizedHeegnerCycles:GH.4/bdp-special-value-formula",
         "verdict": "verified",
-        "note": "BDP Assumption 5.12/Theorem 5.13 give a squared special value with the factorial, Euler factors and differential normalization. The GL₂ square-root distribution is imported from L3h; GH owns this geometric value identity."
+        "note": "BDP Assumption 5.12,Theorem 5.13 pp.1137–1139: squared AJ value, factorial, period, unramified Euler, degree and toric normalization retained. The measure is consumed from L3h; m=0 routes to GZ.9 without rebuilding it."
       },
       {
         "nodeId": "GeneralizedHeegnerCycles:GH.4/cm-differential-scaling",
-        "verdict": "corrected",
-        "note": "Corrected scaling locator to (1.4.2) and (1.4.6), not (1.4.3). Reciprocal normalization gives signed exponent 2j−m and its doubled square exponent, consistent with the period factor."
+        "verdict": "verified",
+        "note": "BDP (1.4.2),(1.4.6) pp.1052–1053: ω rescaling forces inverse η rescaling and the 2j−m exponent. This supplies the period/cycle normalization checks rather than silently identifying two differential choices."
       },
       {
         "nodeId": "GeneralizedHeegnerCycles:GH.4/ramified-character-abel-jacobi-formula",
         "verdict": "verified",
-        "note": "CH Theorem 4.9 is in the critical interval with ramified conductor n≥1. The packet explicitly retains the n=1 versus n>1 cancellation gap and does not replace the unramified BDP Euler formula."
+        "note": "CH Theorem 4.9 pp.19–21: Gauss sum, c₀ power, ψp value, factorial and negative period exponent retained. The statement n≥1 versus proof n>1 cancellation is openly recorded as the conductor-one gap."
       },
       {
         "nodeId": "GeneralizedHeegnerCycles:GH.4/fixed-weight-regulator-adapter",
         "verdict": "verified",
-        "note": "The source’s relative Lubin–Tate regulator and ordinary coefficient functional are matched through a named PHR Part II request. The accepted cyclotomic L3 theorem is not treated as this relative map."
+        "note": "CH Theorem 5.1,Lemma 5.5 and Theorem 5.7 proof pp.21–25: exact relative Lubin–Tate character, Shapiro inverse and pairing convention. Generic construction remains PHR Part II; finite unramified scalar extension is not claimed to construct the full regulator."
       },
       {
         "nodeId": "GeneralizedHeegnerCycles:GH.4/castella-hsieh-abel-jacobi-formula-and-big-logarithm-reciprocity",
         "verdict": "verified",
-        "note": "CH Theorem 5.7 is linear with −c₀^{r−1}, σ_{−1,p} and its specified t power. Interpolation uses the exact source character range and measure normalization; it is not inferred from a squared identity alone."
+        "note": "CH Theorem 5.7 pp.24–25: linear square-root measure times −c₀^(r−1)σ_(−1,p), not its square. Ordinary class normalization and the regulator adapter are explicit prerequisites."
       },
       {
         "nodeId": "GeneralizedHeegnerCycles:GH.4/dual-exponential-special-value",
         "verdict": "verified",
-        "note": "CH Corollary 5.8 is the dual-exponential range, with its factorial/Euler factors and ordinary hypothesis. It is linked to the regulator request and is not the critical-interval logarithm formula."
+        "note": "CH Corollary 5.8 pp.25–26: complementary range with exact factorial/Euler factors and inverse character. This supplies rank-zero descent rather than transporting the logarithmic formula into the wrong range."
       },
       {
         "nodeId": "GeneralizedHeegnerCycles:GH.5/longo-vigni-admissible-triple",
         "verdict": "corrected",
-        "note": "LV Definition 2.1 includes the exceptional set, determinant-restricted big image, p∤h_K, unramified coefficient field, split p and unit a_p. Corrected the API to the bottom Hilbert class quotient, not every auxiliary ring class quotient. Missing owner field types in the prototype are permitted by §13."
+        "note": "LV Definition 2.1,Remark 2.2 pp.3–4: four clauses, determinant-restricted big image, p∤h_K and coefficient unramifiedness, ordinary unit and excluded CM unit fields. Corrected the locator to include the exceptional-set definition."
       },
       {
         "nodeId": "GeneralizedHeegnerCycles:GH.5/higher-weight-howard-hypotheses",
         "verdict": "verified",
-        "note": "The exact ES.5 H0–H5 statement is read, together with LV §5.1, Lemma 2.4 and Proposition 3.3. Pairing, local Cartesian propagation and solvable-tower invariants are verification obligations, not consequences of irreducibility alone."
+        "note": "LV Lemma 2.4 p.5 and §5.1 pp.18–19 compared with exact ES.5/howard-hypotheses. Freeness, residual cohomology, Cartesian local conditions, pairing and τ action are all actual instance obligations; clean Howard descent is not used for the weaker CH theorem."
       },
       {
         "nodeId": "GeneralizedHeegnerCycles:GH.5/longo-vigni-local-assumptions",
-        "verdict": "verified",
-        "note": "LV Assumption 3.2 includes trivial inertia on F⁻T and both local H⁰ finiteness clauses. The packet retains the self-dual Tate-twist conflict as a gap; an untwisted unramified quotient is not used to discharge it."
+        "verdict": "corrected",
+        "note": "LV §3.3 Assumption 3.2 p.9: crystalline representation, inertia-trivial quotient, exact annihilators and two finite H⁰ groups. The self-dual Tate-twist conflict remains an honest applicability gap; corrected section/page in both source and hypothesis references."
       },
       {
         "nodeId": "GeneralizedHeegnerCycles:GH.5/specialization-control",
         "verdict": "corrected",
-        "note": "Removed ES.8’s final Λ bound from the prerequisites of the control input used to prove that bound. Added compact inflation–restriction instead. LV Proposition 3.4 retains the finite exceptional set and bounded finite kernel/cokernel."
+        "note": "LV §3.4 Proposition 3.4 pp.10–11: finite bounded kernel/cokernel outside finitely many height-one primes, with local assumptions and invariant vanishing. Corrected section reference; no universal specialization isomorphism is asserted."
       },
       {
         "nodeId": "GeneralizedHeegnerCycles:GH.5/higher-weight-kolyvagin-class",
         "verdict": "verified",
-        "note": "LV §4.3 derivative descent, coefficient ideals and units are supplied to the imported ES.3 Kolyvagin-system carrier. The inverse-unit scalar adapter and generator-change tests are valid; local membership and residual descent remain explicit source-specific obligations."
+        "note": "LV Lemma 4.6,Theorem 4.7 pp.14–16: derivative, descent and reciprocal finite–singular correction units in the actual imported KS module. The empty product preserves κ₁ and its nonvanishing is a separate theorem input."
       },
       {
         "nodeId": "GeneralizedHeegnerCycles:GH.5/longo-vigni-admissibility-and-the-lambda-adic-bound",
-        "verdict": "verified",
-        "note": "LV Theorem 3.5 is a conditional application of ES.5/ES.8 after all patching hypotheses. The paired torsion pseudo-isomorphism and ideal containment direction are correct; no main-conjecture equality is asserted."
+        "verdict": "corrected",
+        "note": "LV §3.4 Theorem 3.5 p.11 and ES.8 exact contract: conditional clean Howard instance, bounded control, nonzero κ₁, paired torsion structure and correct ideal containment direction. Corrected locator; no circular use of GH.6 nonvanishing."
       },
       {
         "nodeId": "GeneralizedHeegnerCycles:GH.6/anticyclotomic-nonvanishing",
         "verdict": "verified",
-        "note": "CH Theorem 3.9 uses the extra coprimality and auxiliary residual nonvanishing input. The unread Hsieh theorem is requested from L3h and is an explicit gap; nonzero cycles are not inferred merely from complex analytic rank one."
+        "note": "CH Theorem 3.9 p.14 and Theorem 6.1(2) p.27: extra level/discriminant and auxiliary-prime hypotheses, bounded nonzero measure and Weierstrass route. Hsieh Theorem C remains requested, not replaced by assuming μ=0."
       },
       {
         "nodeId": "GeneralizedHeegnerCycles:GH.6/selmer-rank-one",
-        "verdict": "corrected",
-        "note": "Removed the stronger clean Howard-hypotheses prerequisite and directed the proof to the distinct requested CH bounded-error descent. Theorem 6.1(1) is the nonordinary nonzero-class implication under CH (H), with local conditions checked via 7.7."
+        "verdict": "verified",
+        "note": "CH Theorem 6.1(1) p.27 and Theorem 7.7 pp.31–32: nonzero bottom class under CH (H) spans the conjugate self-dual Selmer space; no ordinarity or LV big image is silently imposed. Source-specific bounded-error ES.5 descent remains requested."
       },
       {
         "nodeId": "GeneralizedHeegnerCycles:GH.6/selmer-rank-zero",
         "verdict": "corrected",
-        "note": "Removed the stronger clean Howard-hypotheses prerequisite and specified CH bounded-error descent. The ordinary outside-critical-range Theorem 6.2 uses dual exponential and the repaired Proposition 7.8 local input."
+        "note": "CH Theorem 6.2 p.27 and §7.4 Theorem 7.9 p.33: ordinary complementary range, nonzero central value and corrected p-local derivative argument. Corrected the theorem locator; this keeps the weaker CH hypothesis package separate from clean Howard."
       },
       {
         "nodeId": "GeneralizedHeegnerCycles:GH.6/selmer-consequences-with-the-corrected-dimension-formula",
         "verdict": "verified",
-        "note": "CH corrected Theorem 6.3 and erratum give slope (1−ε)/2 and a constant e. Both signs and finite-character decomposition are consistent; E1 is independently confirmed."
+        "note": "CH Theorem 6.3 p.27 and erratum item one: eventual slope (1−ε)/2 times tower degree plus constant. ±1 themselves cannot serve as the slope; the rational Selmer dimension and tower convention agree."
       },
       {
         "nodeId": "GeneralizedHeegnerCycles:GH.6/selmer-parity",
         "verdict": "verified",
-        "note": "CH Theorem 6.4 requires the separately requested corrected Nekovář parity theorem. The final proof-line residue is (1−ε)/2 (E4), not ±1 modulo 2. The unread parity supplier is honestly a gap."
+        "note": "CH Theorem 6.4 pp.27–28: correct parity statement and residue (1−ε)/2; proof-line typo E4 independently confirmed. Corrected Nekovář family parity is an exact Selmer L4 extension request."
       },
       {
         "nodeId": "GeneralizedHeegnerCycles:GH.6/universal-norm-module-rank-one",
-        "verdict": "verified",
-        "note": "LV Theorem 4.12 uses universal norms, the Φ intersection, nonvanishing and Nakayama to identify the full module, not just a nonzero class. The existing universal-norm identification gap is essential; E6 is confirmed at its corrected location."
+        "verdict": "corrected",
+        "note": "LV §4.3 Definition 4.10,Theorem 4.12 pp.16–18: generation of H∞ by κ̃₁, not mere nonvanishing. Augmented ideal equality, finite Δ, p∤h_K and Perrin–Riou/Nakayama input remain recorded; corrected the nonexistent §4.4 reference."
       },
       {
         "nodeId": "GeneralizedHeegnerCycles:GH.6/lambda-structure-consequence",
         "verdict": "verified",
-        "note": "LV Theorem 1.1 is a conditional consumer of the generic Λ bound and H∞=Λκ̃₁. Local/control and normalization gaps remain visible; the characteristic-ideal equality is identified as a conjecture."
+        "note": "LV Theorem 1.1 p.2 and §5.1 pp.18–19: conditional imported Λ bound after verified higher-weight inputs and universal-norm generation. The paired torsion and oriented divisibility are distinct from the unproved main-conjecture equality."
       },
       {
         "nodeId": "GeneralizedHeegnerCycles:GH.7/critical-character-twist",
         "verdict": "corrected",
-        "note": "The critical Θ and CM ξ twists follow Castella §2.6/§4.1. Corrected the self-dual API and Lean signature to use δ=Θ²ε_cyc and compute the twisted determinant ε_cycξ^{-2}; squaring arbitrary inverses was insufficient."
+        "note": "Castella Definition 2.8 p.10,Theorem 4.3 p.19 and §5.1 p.21: fixed square-root/CM character and ordinary Ψ. Corrected determinant to retain ε_f; self-duality convention now requires ε_f=1. Added a nontrivial-character test and corrected the source locator."
       },
       {
         "nodeId": "GeneralizedHeegnerCycles:GH.7/howard-family-tower",
-        "verdict": "corrected",
-        "note": "Corrected the locator: Proposition 4.4, Definitions 4.5–4.6 and Proposition 4.8 through p.21. HE.1 supplies the requested point tower, R19.6 its representation and GH the U_p^{1−t} class adapter; the three scalar tests fix that normalization."
+        "verdict": "verified",
+        "note": "Castella Proposition 4.4,Definitions 4.5–4.6,Proposition 4.8 pp.19–21: shared p-parts of conductor/level, diamond square-root, horizontal U_p trace and U_p^(1−t) normalization. Bad-prime Greenberg input and HE.1 tower extension remain explicit."
       },
       {
         "nodeId": "GeneralizedHeegnerCycles:GH.7/family-representation-specialization",
-        "verdict": "corrected",
-        "note": "Corrected Theorem 4.3 page to 19. Rank-two freeness, geometric Frobenius inverse and the ordinary quotient are requested from the family representation owner, not proved by weight-two H¹ reconstruction alone."
+        "verdict": "verified",
+        "note": "Castella Theorem 4.3 p.19: rank two, arithmetic Frℓ⁻¹ trace/determinant, unramified ordinary quotient and fixed-weight identification. R19.6/PadicFamilies supplies this extension; current fixed-level Hida control is not silently sufficient."
       },
       {
         "nodeId": "GeneralizedHeegnerCycles:GH.7/family-measure-specialization",
-        "verdict": "corrected",
-        "note": "Defined ψ=ξνφ in the displayed Euler factors. Castella Theorem 2.11 and Remark 2.12 distinguish square-root measure, squared interpolation and the central-value norm shift; this is a consumer checkpoint for L3h."
+        "verdict": "verified",
+        "note": "Castella Theorem 2.11,Remark 2.12 pp.11–12: squared family measure, Ω exponent, both conductor Euler cases and χν norm shift. The sole distribution owner remains L3h; this node is a specialization checkpoint."
       },
       {
         "nodeId": "GeneralizedHeegnerCycles:GH.7/ochiai-exponential-checkpoint",
         "verdict": "verified",
-        "note": "Castella Theorem 3.4 has the ideal J source and pseudo-null cokernel. The requested PHR extension retains this integral domain and both exponential conductor ranges."
+        "note": "Castella Theorem 3.4 pp.14–15: ideal J domain, injection and pseudo-null cokernel before localization, with separate conductor-zero/positive-conductor interpolation. Generic exponential is a PHR L3 extension request."
       },
       {
         "nodeId": "GeneralizedHeegnerCycles:GH.7/yager-unramified-checkpoint",
-        "verdict": "verified",
-        "note": "Castella Proposition 3.5/Corollary 3.6 provide the infinite unramified Yager trace module and y^u=[u]y covariance. A finite unramified scalar extension of the cyclotomic map is explicitly ruled out as a substitute."
+        "verdict": "corrected",
+        "note": "Castella §3.3 Proposition 3.5,(3.6) p.15: trace limit, rank-one module and y^u=[u]y covariance. Replaced nonexistent Corollary 3.6 with the actual equation; the infinite unramified tower is not finite base change."
       },
       {
         "nodeId": "GeneralizedHeegnerCycles:GH.7/two-variable-regulator-checkpoint",
-        "verdict": "verified",
-        "note": "Castella Theorem 3.7/Corollary 3.9 require λ_reg^{-1}J, nonexceptional arithmetic interpolation and the two local ranges. These are exact PHR owner requests, not an unrestricted coefficient-ring map."
+        "verdict": "corrected",
+        "note": "Castella Theorem 3.7,Corollary 3.9 pp.16–17: λ_reg⁻¹J target, injection, exceptional denominator and complementary interpolation ranges. Added the p-old arithmetic specialization hypothesis required for the dual exponential and carried it into the supplier request."
       },
       {
         "nodeId": "GeneralizedHeegnerCycles:GH.7/family-regulator-localization",
         "verdict": "verified",
-        "note": "Castella Lemma 5.1/Proposition 5.2 pair with the canonical family differential. Injectivity after anticyclotomic descent uses the H²/H⁰ correction, not just tensoring an injective map."
+        "note": "Castella Lemma 5.1,Proposition 5.2 pp.21–22: canonical differential functional, localized target, pseudo-null error and H²/H⁰ quotient argument. Injectivity is not inferred by arbitrary tensoring or quotienting."
       },
       {
         "nodeId": "GeneralizedHeegnerCycles:GH.7/two-variable-explicit-reciprocity",
-        "verdict": "corrected",
-        "note": "Corrected Theorem 5.4 to Proposition 5.4. Castella Theorem 5.3 has σ_{−1,p} and no CH −c₀^{r−1} prefactor; density, source-qualified plus restriction and normalization are separate inputs."
+        "verdict": "verified",
+        "note": "Castella Theorem 5.3,Proposition 5.4 pp.23–25: linear family measure times σ_(−1,p), without the CH raw-class factor. The two normalizations are compared through a named adapter before specialization."
       },
       {
         "nodeId": "GeneralizedHeegnerCycles:GH.7/ordinary-localization-injective",
-        "verdict": "verified",
-        "note": "Castella Lemma 6.4 is the additional global-to-local injectivity input, using infinitely many nonzero specializations and torsion freeness. Matching local regulator values alone would not give the global conclusion."
+        "verdict": "corrected",
+        "note": "Castella §6.2 Lemma 6.4 p.27: trivial nebentypus, even-weight ordinary form, residual |G_K irreducibility, torsion freeness and infinitely many nonzero local specializations. Added missing source hypotheses and exact Selmer L4 Greenberg/Bloch–Kato comparison request; corrected locator."
       },
       {
         "nodeId": "GeneralizedHeegnerCycles:GH.7/initial-family-specialization",
-        "verdict": "verified",
-        "note": "Castella Theorem 6.5 keeps weight >2, congruence and residual/bad-prime hypotheses, the squared initial Euler factor and half-unit normalization. The BDP2017 adapter is still a source gap; exceptional p-new weight two is excluded."
+        "verdict": "corrected",
+        "note": "Castella Theorem 6.5 p.28: trivial base nebentypus, trivial arithmetic character, higher weight/parity congruence, residual/bad-prime assumptions, squared Euler factor and half-unit CM normalization. Added explicit base-nebentypus condition and corrected page; GH.8 exceptional branch remains excluded."
       },
       {
         "nodeId": "GeneralizedHeegnerCycles:GH.7/higher-weight-family-specialization",
-        "verdict": "verified",
-        "note": "Castella (6.7)/Theorem 6.5 compares the actual global systems with c₀^{r−1}, character twists, conductor moments and localization injectivity. It does not identify unnormalized CH/Castella towers or include exceptional regulator primes."
+        "verdict": "corrected",
+        "note": "Castella Theorem 6.5,(6.7) p.28: same trivial-base-nebentypus/source hypotheses, c₀^(rν−1) normalization and global Iwasawa equality via localization injectivity. Added explicit base condition and corrected page; finite moments keep the same Shapiro/character convention."
       }
     ]
   }
