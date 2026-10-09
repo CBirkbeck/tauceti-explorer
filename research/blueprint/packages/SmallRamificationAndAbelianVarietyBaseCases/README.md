@@ -102,6 +102,15 @@ Tau Ceti supplies finite locally free commutative affine group schemes, Cartier
 duality, abelian varieties, unit filtrations, some different estimates, and the
 positive-definite Fourier tools. These objects are used directly.
 
+General local invariants belong to LocalFieldsRamification. Its native
+interfaces include `TauCeti.differentExponent`, `TauCeti.ramificationIndex`,
+`TauCeti.LocalFieldsRamification.lowerRamificationGroup` and
+`TauCeti.differentExponent_le_ramificationIndex_sub_one_add_natCastValuation`.
+They use compatible local-field valuations and give the general different
+estimate $d\le e-1+v_E(e)$. These supplier interfaces replace the local-data
+stand-ins in the pinned prototype as its baseline advances; they are not
+targets to develop again here.
+
 The new work is the local representation-specific different bounds, the
 explicit discriminant inequalities and certificates, the finite-flat
 classification and filtration arguments, and the terminal applications. The
@@ -675,6 +684,23 @@ so `not_isAbsolutelyIrreducible_cyclic_cubic_mod_two` must reject it.
 This prevents accidental replacement of absolute irreducibility by
 irreducibility over the displayed coefficient field.
 
+The test objects are specified independently of their expected properties.
+`oneAddCyclotomic 3 F` sends $\sigma$ to
+$\operatorname{diag}(1,\bar\omega_3(\sigma))$.
+`realCubicModTwo` uses the mod-nine cyclotomic character modulo $\{\pm1\}$:
+the cosets $\{1,8\}$, $\{2,7\}$ and $\{4,5\}$ map to $1$, A and $A^2$,
+where $A=\left(\begin{smallmatrix}0&1\\1&1\end{smallmatrix}\right)$.
+Its kernel field is tested to equal $\mathbb Q(\zeta_9)^+$ and to have degree
+three. For the conductor-eleven example, `x0Eleven` is the displayed
+Weierstrass equation, `X0ElevenTwoTorsion` is its actual geometric two-torsion
+point group, and `x0ElevenTwoTorsionRep` writes the coordinate Galois action
+in a chosen $\mathbb F_2$-basis. A basis-existence theorem accompanies the
+construction, and the test holds for every such basis. Mathlib's
+`WeierstrassCurve.Affine.Point.map`, `AddSubgroup.torsionBy` and
+`Matrix.GeneralLinearGroup.toLin'` provide these underlying constructions.
+The generic-fibre point representation does not supply an integral group
+scheme over $\mathbb Z[1/11]$.
+
 ### Determinant and the tame case
 
 `R25.2/determinant-level-one-mod-two` asserts that a characteristic-two
@@ -999,6 +1025,16 @@ $J_0(11)[2]$ is a simple order-four object of D(2,11)
 include eleven. See Schoof, §2.1–2.3, p. 849, and the introduction,
 p. 848, for these examples.
 
+The twist test uses the finite étale scheme whose geometric point module is
+$\mathbb F_3$ with the quadratic character of $\mathbb Q(\sqrt{-7})$;
+R07.1 supplies its descent and the equivariant point identification.
+The eleven test uses the kernel of multiplication by two on the
+abelian-scheme model of the actual $J_0(11)$ over $\mathbb Z[1/11]$;
+R11.1 and A3 supply that model and its finite flat kernel, with R07.1's
+generic-fibre comparison. These are tests of the identified schemes.
+Suggested.lean's header records their intended statements and the supplier
+construction interfaces needed to express them.
+
 `R25.4/torsion-of-semistable-abelian-varieties-in-d` proves that if
 A/ℚ has good reduction away from ℓ and semistable reduction at ℓ, its
 abelian-scheme model over ℤ[1/ℓ] has $A[p^n]\in D(p,\ell)$ of rank
@@ -1156,7 +1192,10 @@ an unramified quadratic extension. There is a unique prime above three,
 with residue field 𝔽₃, and the unit −1 maps to its nontrivial residue
 unit. Thus the prime-to-three ray class quotient there is trivial,
 excluding a ramified quadratic extension as well. The result is
-`fieldCriterion_two_three`. Its inputs are the field criterion,
+`fieldCriterion_two_three`, together with
+`fieldCriterion_two_three_eq_auxiliaryField`. The latter uses the concrete
+subfield `schoofFieldTwoThree` of $\overline{\mathbb Q}$ and concludes both
+$L=M$ and $[L:\mathbb Q]=6$. Its inputs are the field criterion,
 class-number theorem, local/global different formulas, ray class theory
 and degree line (a). See Schoof, §6, the case ℓ=2, p=3, p. 855.
 
@@ -1166,7 +1205,9 @@ two and the strict two-adic bound gives
 $\operatorname{rd}(L)<\sqrt3\cdot4<6.93$. Line (b) gives degree at
 most ten; divisibility by four leaves only four or eight. Both are
 powers of two, so no class-field calculation is needed for this
-criterion. The declaration is `fieldCriterion_three_two`, using the
+criterion. The declarations are `fieldCriterion_three_two` and its
+companion `fieldCriterion_three_two_degree`, using the concrete subfield
+`schoofFieldThreeTwo` and concluding degree four or eight. They use the
 same different and field interfaces with degree line (b). See Schoof,
 §6, ℓ=3, p=2, pp. 855–856.
 
@@ -1181,10 +1222,20 @@ unramified part. At the unique prime above two, the residue field is
 $\eta^2=\eta+1$, generating 𝔽₄×. Units therefore kill the possible
 tame cubic ray-class quotient, excluding degree twelve. The remaining
 degrees are four, eight and sixteen. The declaration is
-`fieldCriterion_five_two`; use line (c), the class-number certificate,
+`fieldCriterion_five_two`, with `fieldCriterion_five_two_degree` stating
+the three degree possibilities for the concrete field `schoofFieldFiveTwo`.
+Use line (c), the class-number certificate,
 reciprocity and the different formulas. See Schoof, §6, ℓ=5, p=2,
 pp. 856–857. The degree conclusion does not require a stronger bound
 than nineteen.
+
+All three companion statements take a finite Galois subfield
+$L\subseteq\overline{\mathbb Q}$ containing the specified M. They assume
+$L/M$ is unramified away from p and
+$v_p(d_L)/[L:\mathbb Q]<1+1/(p-1)$. The relative unramifiedness premise
+means that, at every prime $q\ne p$, an inertia element fixing M also fixes L.
+It retains the ramification already present in M at $\ell$; it does not
+assert that L is unramified there over $\mathbb Q$.
 
 ### The pair (7,3)
 
@@ -1387,6 +1438,17 @@ The zero abelian variety admits no such structure because a number
 field has positive degree. These examples distinguish the arithmetic
 dimension requirement from the mere existence of an endomorphism
 action.
+
+The $J_0(23)$ test uses the modular Jacobian itself and its Hecke embedding
+$\mathbb Q(\sqrt5)\hookrightarrow\operatorname{End}^0_{\mathbb Q}(J_0(23))$.
+Tau Ceti's ModularCurves Layer 10 supplies the compactified curve, and
+JacobianChallenge Layer E supplies its Jacobian. The Hecke action on that
+Jacobian requires a separate geometric Hecke interface: ModularCurves'
+“Mazur interface” assigns it to a downstream Eisenstein-ideal supplier,
+using ModularForms' Hecke theory. The prototype header specifies these
+construction interfaces together with the exact dimension-two test. An
+existence statement about an unspecified abelian surface would not test
+this example.
 
 ### Descent of a realisation
 
