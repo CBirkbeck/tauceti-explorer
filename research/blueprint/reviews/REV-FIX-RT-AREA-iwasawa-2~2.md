@@ -1,114 +1,61 @@
-# REV-FIX-RT-AREA-iwasawa-2~2 — independent review
+# REV-FIX-RT-AREA-iwasawa-2~2 — independent fix review
 
-Codex, session `codex-KQjyXV`, 9 October 2026, issue [#6219](https://github.com/CBirkbeck/tauceti-explorer/issues/6219). Input commit: `2a38118862ebfcc8d34e96438ab58cd077626d7b`.
+Codex, session `codex-7UQW2R`, 9 October 2026, issue [#6219](https://github.com/CBirkbeck/tauceti-explorer/issues/6219). Input commit `b65dedeec52845a846eea49bc135c8609e047200`. The bot confirmed [claim comment 6085903650](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6085903650). This session did none of Claude Code's original fix (`claude-6ZAIEy`, [PR #6786](https://github.com/CBirkbeck/tauceti-explorer/pull/6786)) or the previous reviews.
 
-This is an independent recheck of Claude Code's `FIX-RT-AREA-iwasawa-2~2`, session `claude-6ZAIEy`, [PR #6786](https://github.com/CBirkbeck/tauceti-explorer/pull/6786). This session wrote none of that fix or its earlier reviews. The input includes the corrections from [PR #7313](https://github.com/CBirkbeck/tauceti-explorer/pull/7313), the earlier review [PR #7969](https://github.com/CBirkbeck/tauceti-explorer/pull/7969), and the L4 revision [PR #7967](https://github.com/CBirkbeck/tauceti-explorer/pull/7967). Those are inherited work, not corrections made here.
+**Both named packets are accepted within this fix review's scope.** The PMIA objection in the previous checkpoint is resolved by the newer accepted revision review, `independent-review-REV-PadicMeasuresIwasawaAlgebras~2`. This submission remains a **checkpoint for the queue/issue scope mismatch**, not a request for another duplicate L6 audit. All named mathematical review work is complete.
 
-The named two-packet review is complete. A queue/issue scope discrepancy prevents completing the queue's additional outputs without further authorization; the submission is a checkpoint for that administrative blocker. The mathematical verdicts below do not await another pass over these same fixes.
+## Continuation and inherited evidence
 
-## Verdicts and scope
+Read the confirmed findings, round-two fix report, previous fix-review report/handoff and the newer revision-review report. The earlier fix reviews corrected and independently checked 50 L6 nodes, their 172 API items and 57 tests, including 174 direct baseline references. That completed work is retained; its receipts and limitations remain in packet `reviewHistory` and the ledger below. No claim is made that this continuation reread all 487 PMIA nodes, all 537 PMIA baselines or all 1,663 L3 nodes.
 
-| Packet | Verdict | Reason |
+The newer PMIA revision review resolves the fourteen missing L4 declarations and eight missing examples (twelve packet test records), authenticates NSW and records the remaining eighteen proof/stage gaps. The current interfaces and test examples were inspected. In particular, generator change preserves μ and λ while changing the polynomial from T−p to T−(2p+p²); the ramified coefficient test normalizes μ at the uniformizer; the norm test gives T²+p²; and Λ/(p,T) has unit characteristic ideal and a proper initial Fitting ideal. These distinguish the intended definitions. The review's source authentication is inherited evidence, not a new NSW reading. Bourbaki and Coates–Sujatha proof-input gaps remain recorded. Nothing now warrants retaining the previous scoped `needs_changes` verdict solely for absent interfaces or NSW authentication.
+
+The current accepted comprehensive PMIA review is preserved intact in `reviewHistory` before the current scoped review is written. Its 487-row audit is not relabeled as this session's work. L4 and the remaining partial layers keep their coverage and precise gaps.
+
+## Finding verdicts
+
+| Finding | Verdict on the fix | Reason and remaining owner obligation |
 |---|---|---|
-| `DirichletPadicLFunctions--L3.json` | **accepted** within this fix review | Findings /1 and /2 have accurate, explicit handoffs to L3-2 and RD.6. Their remaining obligations are not claimed discharged. This is not a new review of all 1,663 nodes. |
-| `PadicMeasuresIwasawaAlgebras.json` | **needs_changes** | Finding /4's corrected L6 algebra is sound. The whole packet still has unresolved L4 declaration/test correspondence and source/proof inputs. This review does not accept its other 436 nodes. |
+| /1: Morita Gamma and Gross–Koblitz | Correct scoped handoff; partially discharged | L3 retains unit-valued continuous Gamma, uniqueness and both recurrence branches. Normalized roots keep the integral second-order congruence, the Gauss sum has the source-negative sign, and the exponent-zero value is +1. Robert's comparison explicitly requires RD.6's coefficient bound and chosen-root splitting-value identity. L3-2 owns root-ideal, congruence and dyadic interfaces; none is newly accepted here. |
+| /2: Ferrero–Greenberg | Correct assignment; still open | L3 explicitly points to L3-2's derivative declarations, rather than treating Gamma or a value-at-one formula as the derivative theorem. The general correction term, exceptional specialization, branch/derivative coordinates, source prime range and separate nonvanishing input remain obligations of that owner. This continuation does not authenticate Ferrero–Greenberg/Zhao or accept L3-2. |
+| /3: classical log-syntomic input | Correct outside-owner handoff | D.1's newer accepted independent review is preserved. Its requested early CohomologyComparisons Part II producers, not proper rational CP.4 alone, must supply the integral/open construction, modified twists and correct comparison ranges. No D.1 review object is overwritten to satisfy bookkeeping. |
+| /4: Dasgupta–Kakde algebra | Accepted after inherited corrections | L6 supplies image character rings, the square-presentation/Fitting algebra, compound matrices and presentation-dependent transpose. Central contracts freshly match the public v3 source; details below. Initial Fitting stays with StableReduction Layer 1, the transpose uses Tau Ceti's existing carrier, and I.6/I.7 remain arithmetic consumers. |
+| /5: finite-slope perfect complexes | Correct outside-owner assignment; still open | Job #641 retains representative-independent cohomological spectral support, the separate solid derived localization and early shared Stein foundations. The fix does not claim that degreewise Fredholm data or merely inverting the monoid supplies the 2025 construction. No new functional-analysis source audit is claimed. |
+| /6: duplicate endpoint | Verifier rejection retained | Accepted RS-16 deliberately keeps the independent Hecke/congruence and cyclotomic Euler-system proof routes. No endpoint deletion or new dependency is justified. |
 
-All 50 L6 nodes were independently reread with their statements, proof steps, 172 API items, 57 tests, locators, prerequisites and ownership. No new mathematical correction was necessary. L6's five planets and its partial status do not imply completion of the exterior-bidual/order targets left as gaps. Implementation statuses remain unchecked.
+## Fresh source and library checks for /4
 
-## Verified findings
+Read [Dasgupta–Kakde, arXiv:2010.00657v3](https://arxiv.org/pdf/2010.00657v3), accessed 9 October 2026, PDF SHA-256 `c1fe1cd8e1d218b4d44c58b1171c561b5955261340e345e51f9c82fa33b63099`: §§2.2–2.3, printed/PDF pp. 15–18; Lemma 3.9 and proof, pp. 25–26; §6.1 and Lemma 6.1, p. 40. The published Annals full text was not read. No claim is newly attributed to that version.
 
-### /1 — Morita Gamma and Gross–Koblitz: correct handoff; partial discharge
+The source's odd prime, finite abelian group and sufficient coefficient-root setting remains explicit. R_Ψ is the image of evaluation, with its congruences; it is not replaced by the product or assumed Gorenstein. The norm-element kernel and component quotient retain the stated character subset. Lemmas 2.4–2.5 keep regularity and finite quotients. The repaired finite-ideal reduction covers finite PID factors, where regularity on a subring alone need not imply regularity on the ambient product. Lemmas 2.6–2.7 use square presentations and the imported finite-presentation Fitting carrier.
 
-L3 retains the signed natural values, continuous unit-valued extension on Z_p, uniqueness and both recurrence branches. Its Morita locators are §1, published pp. 255–256. Global analyticity is not inferred from continuity.
+For Lemma 3.9 the corrected preimage is ι_J(adj_r(A_J)x). Applying the rectangular compound matrix gives C_r(A_J)adj_r(A_J)x = det(A_J)x. The source's displayed left multiplication alone does not construct that preimage. The supplied proof also treats r above the number of generators and an insufficient number of relations explicitly. For §6.1 the map reverses the presentation under duality; inversion transports scalars from R_Ψ to R_(Ψ⁻¹). Adding a free relation changes the transpose, so the zeroth Fitting equality concerns the stated quadratic presentation. The higher-Fitting/projective-localization proof remains supported by the earlier independent Appendix B audit.
 
-The Robert comparison retains the trace character, chosen root with π^(p−1)=−p, coefficient field, q=p^f and the source-negative Gauss convention. Its source locators are Robert (2001), pp. 164–169, and the previously recorded Robert (2000), VII.2.4/2.6. The all-prime comparison is conditional on RD.6's exact Dwork coefficient bound and splitting-value identity for that chosen root. The elementary normalized-root/Gauss-pair arguments separately impose odd p. The exponent range includes zero and excludes q−1; the Gamma multiplication-product node is not mislabeled as Gross–Koblitz Theorem 1.7.
+Freshly read the central Tau Ceti source modules for `DiagonalizableGroup.point` and its generator evaluations, `CommGroup.sum_inv_mul_monoidHom_apply_eq_ite`, and `AuslanderReitenTranspose` with its quotient and presentation-equivalence API. Their shared-build source bytes match Git objects at `f790474821cf4256814db967cb154e7af3d0c369`. The character orthogonality statement has exactly the finite commutative-group/domain/enough-roots hypotheses; the transpose carrier is available without a minimality assumption. Other L6 baseline checks are the retained prior audit. Mathlib's shared checkout is `082e2d37e8b0463410cdb532e111cd43d5a66174`.
 
-L3's coverage names `rjw2-gk-root-ideals`, `rjw2-gk-root-congruence` and `rjw2-gk-dyadic-root` in L3-2. Those nodes and the RD.6 producers remain review/implementation obligations. The finding is partially discharged, not closed. No new Morita/Robert source confirmation or L3-2 acceptance is recorded here.
+Read the reviewed library-coverage entries for L3, L4 and L6, and current upstream StableReduction and QuiverRepresentations documents and relevant suggested signatures. No new carrier or node was planned. The upstream Fitting and transpose ownership boundaries remain intact. All 57 L6 test names are present in the current suggested file; that inventory complements the retained signature audit and is not a proof of the tests.
 
-### /2 — Ferrero–Greenberg: correct assignment; still open
-
-L3 points explicitly to L3-2's twelve derivative/nonvanishing nodes. It does not treat a value-at-one formula or the Gamma construction as the derivative-at-zero theorem. The assigned general formula retains `(1−χ(p)) B_(1,χ) log_p N`, uses the even character χω, and removes that correction only under χ(p)=1. Nonvanishing has separate Jacobi/Gauss-ideal and logarithmic-independence inputs.
-
-The L3-2 review must authenticate the source's any-prime range, particularly p=2 and ω of conductor 4; add/check the original Ferrero–Greenberg (1978) proposition missing from its source list; and reconcile the source branch and derivative coordinate with RJW. This session did not reread Ferrero–Greenberg/Zhao and does not certify L3-2. The finding remains open under its assigned owner.
-
-### /3 — log-syntomic input: correct outside-owner handoff
-
-D.1 already has an accepted independent review dated 8 October, `independent-review-REV-PadicHodgeRegulators--D.1~2`. Its acceptance is a specification verdict, not implementation of the requested producers.
-
-D.2's log-syntomic and period-map contracts request early `CohomologyComparisonsPartII:CS.0/CS.1` after CR.5/CR.6. They preserve divided versus undivided complexes, comparison direction and modified integral twists. Small-weight and all-weight scopes must remain distinct. Proper rational CP.4 does not supply the general integral/open construction. D.2/D.5 are consumers. No change in the two named packets is required, and D.1's newer review is preserved.
-
-### /4 — Dasgupta–Kakde algebra: correct after inherited repairs
-
-The fresh primary-source reading was [arXiv:2010.00657v3](https://arxiv.org/pdf/2010.00657v3), PDF SHA-256 `c1fe1cd8e1d218b4d44c58b1171c561b5955261340e345e51f9c82fa33b63099`: §§2.2–2.3, pp. 15–18; Lemma 3.9, pp. 25–26; §§5.1–5.2, pp. 32–34; §6.1, p. 40; §7.2.9, p. 49; the residue-ring step in Lemma 8.22's proof, p. 64; Lemma A.5/Remark A.7, pp. 85–86; Appendix B.2/Lemma B.4/(171), pp. 93–94. Derived helper lemmas are supplied proofs, not separately stated source theorems. Published Annals full text was not read; no finding is newly attributed to that version.
-
-The current contracts pass the independent check:
-
-- R_Ψ is the character-evaluation image with its congruences. Joint injectivity uses the pinned roots-of-unity and character-duality assumptions. Inversion transports R_Ψ to R_(Ψ⁻¹); a self-map requires inverse stability. No general Gorenstein claim survives.
-- Lemmas 2.4–2.5 retain regularity and finite-quotient hypotheses. The repaired cardinality proof covers finite-field PID factors through a finite-ideal reduction, rather than imposing extra infinitude on the general theorem.
-- Square presentations, finite presentation at Fitting operations, the extension relation matrix's off-diagonal sign, and the crossed-product consequence of Lemmas 2.6–2.7 are explicit.
-- Basic Fitting ideals remain owned by StableReduction Layer 1 under accepted RS-16. Higher ideals, redundant-generator comparison, independence and base change are separate L6 nodes.
-- Compound matrices reuse exterior-power/minor APIs. Both higher-adjugate multiplication identities are stated; the annihilator argument supplies an actual preimage using the right-sided identity and extension by zero.
-- Transpose reuses `TauCeti.AuslanderReitenTranspose` and its quotient API. Presentation dependence is modulo projective stabilization. The (171) comparison covers finite projective presentations of constant rank, with a separate free case.
-
-StableReduction Layer 1, QuiverRepresentations Layer 6 and ProfiniteProPGroups' completed algebra contracts were inspected for ownership. Existing upstream mathematics is not replanned. IntegralIwasawaTheory I.6/I.7 remain arithmetic consumers. Cross-owner import adjustments and the other partial L6 targets are follow-ups, not implicit additions to this review.
-
-The fresh reading also reconfirms the already registered preprint findings:
-
-| Finding | Locator | Independent check |
-|---|---|---|
-| E17, proof gap | Lemma 3.9, p. 26 | The displayed left-sided adjugate identity does not itself supply a preimage. Extend `adj_r(A′)x` by zero and use `C_r(A′) adj_r(A′)=det(A′)I`. |
-| E18, proof error | Lemma 2.4, (27)–(28), pp. 16–17 | For the graph subring of Z×F_p and x=(p,0), x is regular on the subring but kills the finite-field factor. The asserted multiplier quotient is not injective. Reduce by the finite ideal before applying the infinite-PID argument. |
-| E19, misprint | §6.1, (80)–(81), p. 40 | The literal Z[G]-dual vanishes for the relevant prime-to-p divisible module. Use Hom_R(M,R) and transport scalars to R^#. |
-| E20, misprint | §2.3, p. 16 | The square-presentation prose/display use inconsistent module letters. The plan consistently uses N. |
-
-For E18, regularity makes multiplication by x bijective on the finite ideal K. The adjugate identity then makes the presentation matrix bijective on K^m. The cokernels descend to B/K, where the remaining ambient PID factors are infinite and x remains regular. This repairs the argument while retaining the theorem. Earlier author-copy/TeX receipts remain historical; no source-finding field was changed here.
-
-### /5 — finite-slope perfect complexes: correct assignment; still open
-
-Job #641 owns the finite-slope carrier. Its unexamined functional-analysis sources are not certified by this fix review. Raw degreewise Fredholm products are auxiliary data dependent on a representative; cohomological spectral support must be invariant. The BCGP25 solid derived `f_* f^*` construction is stronger than monoid inversion. Shared Stein/quasi-Stein foundations need an early dependency prefix. These are the verified contract's requirements, not a claim of a fresh BCGP25 source audit. No authorized file here supplies that producer.
-
-### /6 — duplicate cyclotomic endpoint: verifier rejection retained
-
-Accepted RS-16 allows independent Hecke-congruence and cyclotomic Euler-system proof routes to a common endpoint. The fix correctly keeps both routes. No endpoint or ownership mutation is needed.
-
-## Validation and exact edit inventory
-
-The direct L6 baseline audit inspected 174 declaration statements in 94 modules, including aliases and instances. Shared source bytes matched the Git objects at Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`. This covers L6's direct references, not all 536 packet baseline entries. Reviewed library-coverage rows were read before making the verdict. No new definition or baseline was planned.
-
-The namespace-aware suggested-file inventory accounts for all 172 L6 API items: 169 explicit commands and three generated `QuadraticPresentation` projections (`size`, `rel`, `gen`). All 57 node-tagged examples are present. The signatures and mathematical contracts were read; a lexical match alone is not a semantic proof.
+## Validation and exact changes
 
 | Check | Fresh result |
 |---|---|
-| PMIA packet checker | 486 nodes, 536 baseline entries; zero errors/warnings |
-| L3 packet checker | 1,663 nodes; zero errors, 26 inherited short-API warnings |
-| Native PMIA `lean-check` | Exit 0; 1,041 warnings, all admitted proofs; no other warning |
-| Native L3 `lean-check` | Exit 1 before declarations: missing planned `research` dependency artifacts |
-| Exact integer controls, seed 6219 | Both compound/adjugate identities in 112 square cases; explicit rectangular preimages in 320 cases |
-| Lean sign-parsing control | The two complementary index sums have the intended exponent; exit 0 |
+| PMIA `check_blueprint.py` | 487 nodes, 537 baseline entries, 18 gaps, 3 requests; zero errors and warnings |
+| L3 `check_blueprint.py` | 1,663 nodes; zero errors, 26 inherited short-API warnings |
+| PMIA native `lean-check` | Exit 0; 1,075 warnings, all `sorry`; no errors or other warnings |
+| L3 native `lean-check` | Exit 1 at import resolution: the existing shared build lacks the planned `research` dependency artifacts; no declarations elaborated |
+| Standing source-text rule | No `excerpt` key in either edited packet; no source passage introduced |
 
-The integer and sign controls check order/sign errors; they do not prove the general results. No concatenation harness was run in this session. PR #7969's L1/L2 diagnostics remain historical follow-ups and do not establish native L3 compilation.
+L3's 26 warnings concern inherited short API outlines outside the /1-/2 fix scope, chiefly Kubert/Cartan auxiliary constructions. They are reported, not silently presented as a clean warning-free packet. Both packets' mathematical records, source findings, coverage, gaps, requests, readers and Lean files are unchanged. Only their current `review` objects/history, this report and the handoff change. The verdict is a planning/fix verdict, not a claim of implementation or proof completion.
 
-Only four files changed: the two top-level packet review objects/history, this report and the handoff. The previous current review objects are appended to `reviewHistory`; PMIA's 50 current node verdicts record retained correct contracts rather than claiming inherited edits as new corrections. All node records, baselines, prerequisites, requests, source findings, gaps, coverage, suggested files and reader documents are unchanged.
+## Administrative blocker
 
-## Remaining packet obligations
+The live issue's deliverables and full instructions name only L3 and PMIA packets/suggested files plus this report. The queue also requires L3-2 and D.1 packets/suggested files. `issues.deliverables_complete` requires this exact review identifier on all four packets, so completing the two explicitly named reviews still produces a checkpoint. WORKERS.md's rule is “Edit only the files the issue names, plus your own scratch space.”
 
-PMIA's current L4 inventory still names these 14 absent declaration interfaces, all under `TauCeti.Iwasawa`:
+Additional scope was requested from the maintainer during this continuation; no answer has been received. No extra packet, queue entry, issue body or label is changed. D.1 already has a newer accepted review, which is preserved. To finish this job administratively, reconcile the queue to the two named packets or explicitly authorize the additional independent scoped reviews. Do not replace those reviews merely to make the predicate pass. The named work needs no further duplicate L6 audit.
 
-`card_quotient_omega_eq`, `charIdeal_baseChange`, `charIdeal_restrictScalars`, `character_orbit_coefficients`, `characteristic_finite_fitting_control`, `coinvariants_euler_product`, `delta_cyclotomic_elementary_factors`, `disjoint_torsion_extension`, `finite_coinvariants_iff`, `finite_index_inclusion`, `invariants_coinvariants_six_term_exact`, `invariants_generator_indep`, `pseudoiso_maximal_ideal_control`, `regular_parameter_reflexivity_criterion`.
+## Retained prior L6 audit ledger
 
-There are 12 absent annotated test records across five nodes: `generator_dependence` and `ramified_normalisation` on each of `iwasawa-invariants`, `iwasawa-invariants-api-1`, `iwasawa-invariants-api-2`; `finite_vs_fitting` and `norm_formula` on `characteristic-ideal`; `order_two`, `teichmuller`, `p_divides`, `trivial_group` on `character-decomposition`. Reconcile equivalent existing declarations/tests where appropriate: absence of an exact name/tag alone does not prove absence of its mathematics. The current inventory and `handoff/BP-PadicMeasuresIwasawaAlgebras~2.md` still leave that correspondence and precise proof/source inputs unresolved. NSW, Bourbaki and Coates–Sujatha were not freshly authenticated here. The `needs_changes` verdict concerns those concrete interface and authentication obligations, not the layer's partial label.
-
-L3-2/RD.6, shared log-syntomic producers and #641 retain their assigned obligations above. Preserve PR #7967's reader repair and L4 projector ownership. The packet does not need another duplicate generic projector or basic Fitting carrier.
-
-## Queue blocker and where to resume
-
-The bot confirmed this session's claim in [comment 6080449449](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6080449449). The live issue names L3 and PMIA packets/suggested files plus this report. The local queue additionally requires L3-2 and D.1 packets/suggested files. Its `deliverables_complete` predicate requires this exact review identifier on every listed packet. That makes the authorized two-packet result incomplete in queue terms, as happened to PR #7969.
-
-WORKERS restricts edits to named deliverables. Additional scope was requested, but no authorization had arrived when this submission was prepared. Neither the extra packets nor the queue is changed. In particular D.1's newer accepted review must not be replaced merely to satisfy the predicate. The maintainer must reconcile the queue with the live issue or authorize the additional independent review scope. Resume at that decision, not by repeating the completed L6 audit. The handoff retains all material follow-ups without depending on scratch artifacts.
-
-## L6 rereading ledger
-
-Each node has prefix `PadicMeasuresIwasawaAlgebras:L6/`. All verdicts below are this session's planning checks of the inherited corrected contracts. Implementation remains unchecked.
+Each node has prefix `PadicMeasuresIwasawaAlgebras:L6/`. The following ledger is retained from Codex session codex-KQjyXV's independent audit, not claimed as a new full audit by this continuation. Implementation remains unchecked.
 
 | Node | Current verdict | Source locator / supplied proof boundary |
 |---|---|---|
