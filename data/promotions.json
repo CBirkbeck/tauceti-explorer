@@ -344,6 +344,18 @@
     "roadmaps/PerfectoidQuotients/metadata.toml"
    ]
   },
+  "research/blueprint/packages/VStackSheavesAndLisseCategories/review.json": {
+   "promotedAt": "2026-10-09T03:14:02Z",
+   "review": "524bce593d36d703",
+   "reviewDate": "2026-10-09",
+   "reviewer": "independent-review-REV-PKG-VStackSheavesAndLisseCategories",
+   "sha256": "6d4fdf77aa9523a131a4390980e935fb9cbd4be7a1338ae3c8a46fd2592ddbe8",
+   "to": [
+    "roadmaps/VStackSheavesAndLisseCategories/README.md",
+    "roadmaps/VStackSheavesAndLisseCategories/Suggested.lean",
+    "roadmaps/VStackSheavesAndLisseCategories/metadata.toml"
+   ]
+  },
   "research/blueprint/packages/WeightsInEtaleCohomology/review.json": {
    "promotedAt": "2026-10-09T00:52:17Z",
    "review": "fdcd8b1ece6277b6",
