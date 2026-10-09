@@ -9,7 +9,7 @@
     "ExcursionOperatorsAndSpectralAction:ES6:functoriality"
   ],
   "status": "complete",
-  "summary": "Target-level revision retaining all 21 accepted node ids and the independent review. The universal-coefficient torus operator/sign proof is retained and checked. The arbitrary-local-field rational-central-character comparison now uses a torus central pushout, a quotient of a restricted irreducible representation, and central-cocycle comparison of parameter lifts. It needs neither extension of the original representation nor a centre flat-H1 bijection. All four stages are planned with precise owner requests; no implementation or closure is claimed.",
+  "summary": "A complete target-level plan for Schur parameters, functoriality and duality, with all 21 nodes independently reviewed. The universal-coefficient torus operator is derived from the Hecke endpoints and Lubin–Tate frame transport. Rational central characters over every local field follow through a central torus pushout, a quotient of a restricted irreducible representation, and comparison of central crossed cocycles. All four stages are planned with precise owner requests; no implementation or closure is claimed.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -18,163 +18,163 @@
         "ref": "mathlib:Representation",
         "module": "Mathlib/RepresentationTheory/Basic.lean",
         "provides": "A monoid homomorphism G to the algebra of linear endomorphisms of a module; smoothness, admissibility and irreducibility are additional representation-theoretic inputs.",
-        "checked": "Independently confirmed by REV-ExcursionOperatorsAndSpectralAction--ES5 from the declaration statement at the recorded pinned commit; limitations in provides were checked against its consumers. Statement re-read at the recorded exact pin on 2026-10-09 by Codex codex-IQAcr9."
+        "checked": "Independently confirmed by REV-ExcursionOperatorsAndSpectralAction--ES5~2 from the declaration statement at the recorded exact pin on 2026-10-09; its hypotheses and the limitations in provides were checked against its consumers."
       },
       {
         "ref": "mathlib:Representation.IntertwiningMap",
         "module": "Mathlib/RepresentationTheory/Intertwining.lean",
         "provides": "Equivariant linear maps between representations, including the endomorphism algebra used in the global-point prototype. This does not prove Schur’s lemma.",
-        "checked": "Independently confirmed by REV-ExcursionOperatorsAndSpectralAction--ES5 from the declaration statement at the recorded pinned commit; limitations in provides were checked against its consumers. Statement re-read at the recorded exact pin on 2026-10-09 by Codex codex-IQAcr9."
+        "checked": "Independently confirmed by REV-ExcursionOperatorsAndSpectralAction--ES5~2 from the declaration statement at the recorded exact pin on 2026-10-09; its hypotheses and the limitations in provides were checked against its consumers."
       },
       {
         "ref": "mathlib:MonoidHom",
         "module": "Mathlib/Algebra/Group/Hom/Defs.lean",
         "provides": "Bundled group homomorphisms, their composition, products, kernels and ranges. A parameter also needs the prescribed projection, semisimplicity and condensed continuity from LP0/LP2.",
-        "checked": "Independently confirmed by REV-ExcursionOperatorsAndSpectralAction--ES5 from the declaration statement at the recorded pinned commit; limitations in provides were checked against its consumers. Statement re-read at the recorded exact pin on 2026-10-09 by Codex codex-IQAcr9."
+        "checked": "Independently confirmed by REV-ExcursionOperatorsAndSpectralAction--ES5~2 from the declaration statement at the recorded exact pin on 2026-10-09; its hypotheses and the limitations in provides were checked against its consumers."
       },
       {
         "ref": "mathlib:AlgHom",
         "module": "Mathlib/Algebra/Algebra/Hom.lean",
         "provides": "Algebra homomorphisms, for excursion characters and all centre comparison diagrams.",
-        "checked": "Independently confirmed by REV-ExcursionOperatorsAndSpectralAction--ES5 from the declaration statement at the recorded pinned commit; limitations in provides were checked against its consumers. Statement re-read at the recorded exact pin on 2026-10-09 by Codex codex-IQAcr9."
+        "checked": "Independently confirmed by REV-ExcursionOperatorsAndSpectralAction--ES5~2 from the declaration statement at the recorded exact pin on 2026-10-09; its hypotheses and the limitations in provides were checked against its consumers."
       },
       {
         "ref": "mathlib:Condensed",
         "module": "Mathlib/Condensed/Basic.lean",
         "provides": "C-valued sheaves on CompHaus for its coherent topology. This supplies condensed algebras when C is AlgCat; it supplies neither animated enhancement nor D_lis.",
-        "checked": "Independently confirmed by REV-ExcursionOperatorsAndSpectralAction--ES5 from the declaration statement at the recorded pinned commit; limitations in provides were checked against its consumers. Statement re-read at the recorded exact pin on 2026-10-09 by Codex codex-IQAcr9."
+        "checked": "Independently confirmed by REV-ExcursionOperatorsAndSpectralAction--ES5~2 from the declaration statement at the recorded exact pin on 2026-10-09; its hypotheses and the limitations in provides were checked against its consumers."
       },
       {
         "ref": "mathlib:AlgCat",
         "module": "Mathlib/Algebra/Category/AlgCat/Basic.lean",
         "provides": "The category of associative R-algebras and algebra homomorphisms, used as values of the actual condensed scalar and endomorphism algebras.",
-        "checked": "Independently confirmed by REV-ExcursionOperatorsAndSpectralAction--ES5 from the declaration statement at the recorded pinned commit; limitations in provides were checked against its consumers. Statement re-read at the recorded exact pin on 2026-10-09 by Codex codex-IQAcr9."
+        "checked": "Independently confirmed by REV-ExcursionOperatorsAndSpectralAction--ES5~2 from the declaration statement at the recorded exact pin on 2026-10-09; its hypotheses and the limitations in provides were checked against its consumers."
       },
       {
         "ref": "mathlib:CategoryTheory.IsIso",
         "module": "Mathlib/CategoryTheory/Iso.lean",
         "provides": "Invertibility of the scalar unit in the category of condensed algebras; Schur irreducibility is this property of a specified unit, not a chosen abstract algebra equivalence.",
-        "checked": "Independently confirmed by REV-ExcursionOperatorsAndSpectralAction--ES5 from the declaration statement at the recorded pinned commit; limitations in provides were checked against its consumers. Statement re-read at the recorded exact pin on 2026-10-09 by Codex codex-IQAcr9."
+        "checked": "Independently confirmed by REV-ExcursionOperatorsAndSpectralAction--ES5~2 from the declaration statement at the recorded exact pin on 2026-10-09; its hypotheses and the limitations in provides were checked against its consumers."
       },
       {
         "ref": "mathlib:CategoryTheory.CatCenter",
         "module": "Mathlib/CategoryTheory/Center/Basic.lean",
         "provides": "Natural endomorphisms of the identity of an ordinary category. The enhanced degree-zero centre and its comparison are owned by ES0.",
-        "checked": "Independently confirmed by REV-ExcursionOperatorsAndSpectralAction--ES5 from the declaration statement at the recorded pinned commit; limitations in provides were checked against its consumers. Statement re-read at the recorded exact pin on 2026-10-09 by Codex codex-IQAcr9."
+        "checked": "Independently confirmed by REV-ExcursionOperatorsAndSpectralAction--ES5~2 from the declaration statement at the recorded exact pin on 2026-10-09; its hypotheses and the limitations in provides were checked against its consumers."
       },
       {
         "ref": "mathlib:Module.End",
         "module": "Mathlib/Algebra/Module/LinearMap/End.lean",
         "provides": "Linear endomorphism rings. Equivariant endomorphisms, rather than all linear endomorphisms, enter Schur’s lemma for a representation.",
-        "checked": "Independently confirmed by REV-ExcursionOperatorsAndSpectralAction--ES5 from the declaration statement at the recorded pinned commit; limitations in provides were checked against its consumers. Statement re-read at the recorded exact pin on 2026-10-09 by Codex codex-IQAcr9."
+        "checked": "Independently confirmed by REV-ExcursionOperatorsAndSpectralAction--ES5~2 from the declaration statement at the recorded exact pin on 2026-10-09; its hypotheses and the limitations in provides were checked against its consumers."
       },
       {
         "ref": "mathlib:CategoryTheory.Adjunction",
         "module": "Mathlib/CategoryTheory/Adjunction/Basic.lean",
         "provides": "Unit/counit adjunctions; the enriched stratum adjunction and its invertible unit remain a VS4 input.",
-        "checked": "Independently confirmed by REV-ExcursionOperatorsAndSpectralAction--ES5 from the declaration statement at the recorded pinned commit; limitations in provides were checked against its consumers. Statement re-read at the recorded exact pin on 2026-10-09 by Codex codex-IQAcr9."
+        "checked": "Independently confirmed by REV-ExcursionOperatorsAndSpectralAction--ES5~2 from the declaration statement at the recorded exact pin on 2026-10-09; its hypotheses and the limitations in provides were checked against its consumers."
       },
       {
         "ref": "mathlib:TensorProduct",
         "module": "Mathlib/LinearAlgebra/TensorProduct/Defs.lean",
         "provides": "Algebraic tensor products; this is the algebraic substrate of the product-centre diagram, not an exterior-product theorem for sheaves.",
-        "checked": "Independently confirmed by REV-ExcursionOperatorsAndSpectralAction--ES5 from the declaration statement at the recorded pinned commit; limitations in provides were checked against its consumers. Statement re-read at the recorded exact pin on 2026-10-09 by Codex codex-IQAcr9."
+        "checked": "Independently confirmed by REV-ExcursionOperatorsAndSpectralAction--ES5~2 from the declaration statement at the recorded exact pin on 2026-10-09; its hypotheses and the limitations in provides were checked against its consumers."
       },
       {
         "ref": "mathlib:MonoidAlgebra",
         "module": "Mathlib/Algebra/MonoidAlgebra/Defs.lean",
         "provides": "Group algebras of arbitrary discrete quotient groups T(E)/K; no finiteness of those quotients is assumed.",
-        "checked": "Independently confirmed by REV-ExcursionOperatorsAndSpectralAction--ES5 from the declaration statement at the recorded pinned commit; limitations in provides were checked against its consumers. Statement re-read at the recorded exact pin on 2026-10-09 by Codex codex-IQAcr9."
+        "checked": "Independently confirmed by REV-ExcursionOperatorsAndSpectralAction--ES5~2 from the declaration statement at the recorded exact pin on 2026-10-09; its hypotheses and the limitations in provides were checked against its consumers."
       },
       {
         "ref": "mathlib:Subgroup",
         "module": "Mathlib/Algebra/Group/Subgroup/Defs.lean",
         "provides": "Subgroups including the finite-index free subgroup in the excursion-colimit comparison.",
-        "checked": "Independently confirmed by REV-ExcursionOperatorsAndSpectralAction--ES5 from the declaration statement at the recorded pinned commit; limitations in provides were checked against its consumers. Statement re-read at the recorded exact pin on 2026-10-09 by Codex codex-IQAcr9."
+        "checked": "Independently confirmed by REV-ExcursionOperatorsAndSpectralAction--ES5~2 from the declaration statement at the recorded exact pin on 2026-10-09; its hypotheses and the limitations in provides were checked against its consumers."
       },
       {
         "ref": "mathlib:IsFreeGroup",
         "module": "Mathlib/GroupTheory/FreeGroup/IsFreeGroup.lean",
         "provides": "A group with a free basis. The subgroup instance is supplied by Mathlib/GroupTheory/FreeGroup/NielsenSchreier.lean, read together with this definition.",
-        "checked": "Independently confirmed by REV-ExcursionOperatorsAndSpectralAction--ES5 from the declaration statement at the recorded pinned commit; limitations in provides were checked against its consumers. Statement re-read at the recorded exact pin on 2026-10-09 by Codex codex-IQAcr9."
+        "checked": "Independently confirmed by REV-ExcursionOperatorsAndSpectralAction--ES5~2 from the declaration statement at the recorded exact pin on 2026-10-09; its hypotheses and the limitations in provides were checked against its consumers."
       },
       {
         "ref": "mathlib:Subgroup.fg_of_index_ne_zero",
         "module": "Mathlib/GroupTheory/Schreier.lean",
         "provides": "A finite-index subgroup of a finitely generated group is finitely generated. Together with Nielsen–Schreier this supplies exactly the finite-generation/freeness input of IX.6.3; no rank formula is needed.",
-        "checked": "Independently confirmed by REV-ExcursionOperatorsAndSpectralAction--ES5 from the declaration statement at the recorded pinned commit; limitations in provides were checked against its consumers. Statement re-read at the recorded exact pin on 2026-10-09 by Codex codex-IQAcr9."
+        "checked": "Independently confirmed by REV-ExcursionOperatorsAndSpectralAction--ES5~2 from the declaration statement at the recorded exact pin on 2026-10-09; its hypotheses and the limitations in provides were checked against its consumers."
       },
       {
         "ref": "mathlib:groupCohomology.coindIso",
         "module": "Mathlib/RepresentationTheory/Homological/GroupCohomology/Shapiro.lean",
         "provides": "Abelian Shapiro cohomology in all degrees. The nonabelian cocycle/quotient-stack comparison in IX.6.3 is stronger and is planned at its use here, not identified with this declaration. Retained as a background contrast only, not a proof prerequisite of nonabelian Shapiro.",
-        "checked": "Independently confirmed by REV-ExcursionOperatorsAndSpectralAction--ES5 from the declaration statement at the recorded pinned commit; limitations in provides were checked against its consumers. Statement re-read at the recorded exact pin on 2026-10-09 by Codex codex-IQAcr9; the contrast-only Shapiro entry is not used as a nonabelian supplier."
+        "checked": "Independently confirmed by REV-ExcursionOperatorsAndSpectralAction--ES5~2 from the declaration statement at the recorded exact pin on 2026-10-09; its hypotheses and the limitations in provides were checked against its consumers."
       },
       {
         "ref": "tauceti:TauCeti.IsSmoothDiscrete",
         "module": "TauCeti/RepresentationTheory/Homological/ContCohomology/SmoothDiscrete.lean",
         "provides": "A TopRep object with discrete module topology and open stabilizers. It does not supply admissibility, scalar endomorphisms or a sheaf equivalence.",
-        "checked": "Independently confirmed by REV-ExcursionOperatorsAndSpectralAction--ES5 from the declaration statement at the recorded pinned commit; limitations in provides were checked against its consumers. Statement re-read at the recorded exact pin on 2026-10-09 by Codex codex-IQAcr9."
+        "checked": "Independently confirmed by REV-ExcursionOperatorsAndSpectralAction--ES5~2 from the declaration statement at the recorded exact pin on 2026-10-09; its hypotheses and the limitations in provides were checked against its consumers."
       },
       {
         "ref": "tauceti:TauCeti.SmoothDiscreteTopRep",
         "module": "TauCeti/RepresentationTheory/Homological/ContCohomology/SmoothDiscrete.lean",
         "provides": "The full subcategory of smooth discrete TopRep objects. Derived enhancement and the arbitrary-coefficient Bernstein centre are imported from their respective owners.",
-        "checked": "Independently confirmed by REV-ExcursionOperatorsAndSpectralAction--ES5 from the declaration statement at the recorded pinned commit; limitations in provides were checked against its consumers. Statement re-read at the recorded exact pin on 2026-10-09 by Codex codex-IQAcr9."
+        "checked": "Independently confirmed by REV-ExcursionOperatorsAndSpectralAction--ES5~2 from the declaration statement at the recorded exact pin on 2026-10-09; its hypotheses and the limitations in provides were checked against its consumers."
       },
       {
         "ref": "tauceti:TauCeti.ClassFieldTheory.Formation",
         "module": "TauCeti/NumberTheory/ClassFieldTheory/Formation/Basic.lean",
         "provides": "The smooth discrete integral coefficient carrier for class formations. This is existing class-field-theory infrastructure, not the local Artin reciprocity isomorphism needed for tori.",
-        "checked": "Independently confirmed by REV-ExcursionOperatorsAndSpectralAction--ES5 from the declaration statement at the recorded pinned commit; limitations in provides were checked against its consumers. Statement re-read at the recorded exact pin on 2026-10-09 by Codex codex-IQAcr9."
+        "checked": "Independently confirmed by REV-ExcursionOperatorsAndSpectralAction--ES5~2 from the declaration statement at the recorded exact pin on 2026-10-09; its hypotheses and the limitations in provides were checked against its consumers."
       },
       {
         "ref": "mathlib:subgroupIsFreeOfIsFree",
         "module": "Mathlib/GroupTheory/FreeGroup/NielsenSchreier.lean",
         "provides": "For a subgroup H of a group G with IsFreeGroup G, gives IsFreeGroup H, with no finite-index hypothesis. Combined with Subgroup.fg_of_index_ne_zero it supplies the finite free subgroup used in IX.6.3.",
-        "checked": "Independently read the exact instance statement at the pinned Mathlib commit by REV-ExcursionOperatorsAndSpectralAction--ES5. Statement re-read at the recorded exact pin on 2026-10-09 by Codex codex-IQAcr9."
+        "checked": "Independently confirmed by REV-ExcursionOperatorsAndSpectralAction--ES5~2 from the declaration statement at the recorded exact pin on 2026-10-09; its hypotheses and the limitations in provides were checked against its consumers."
       },
       {
         "ref": "mathlib:Representation.leftRegular",
         "module": "Mathlib/RepresentationTheory/Basic.lean",
         "provides": "The actual left regular representation on MonoidAlgebra R A, induced by left multiplication, for a semiring R and monoid A; no finite quotient hypothesis.",
-        "checked": "Read the exact declaration and coefficient/basis formulas at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-08 by Codex codex-f3HUtZ. Statement re-read at the recorded exact pin on 2026-10-09 by Codex codex-IQAcr9."
+        "checked": "Independently confirmed by REV-ExcursionOperatorsAndSpectralAction--ES5~2 from the declaration statement at the recorded exact pin on 2026-10-09; its hypotheses and the limitations in provides were checked against its consumers."
       },
       {
         "ref": "mathlib:MonoidAlgebra.mapDomainLinearMap",
         "module": "Mathlib/Algebra/MonoidAlgebra/Module.lean",
         "provides": "Pushforward of finitely supported coefficients along a map of index sets. It sends single a r to single (f a) r, so supplies quotient-transition transport for regular modules.",
-        "checked": "Read the exact declaration and coefficient/basis formulas at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-08 by Codex codex-f3HUtZ. Statement re-read at the recorded exact pin on 2026-10-09 by Codex codex-IQAcr9."
+        "checked": "Independently confirmed by REV-ExcursionOperatorsAndSpectralAction--ES5~2 from the declaration statement at the recorded exact pin on 2026-10-09; its hypotheses and the limitations in provides were checked against its consumers."
       },
       {
         "ref": "mathlib:MonoidAlgebra.mapRingHom",
         "module": "Mathlib/Algebra/MonoidAlgebra/MapDomain.lean",
         "provides": "Coefficient-ring transport R[A] to S[A], sending single a r to single a (f r), for a ring homomorphism f.",
-        "checked": "Read the exact declaration and coefficient/basis formulas at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-08 by Codex codex-f3HUtZ. Statement re-read at the recorded exact pin on 2026-10-09 by Codex codex-IQAcr9."
+        "checked": "Independently confirmed by REV-ExcursionOperatorsAndSpectralAction--ES5~2 from the declaration statement at the recorded exact pin on 2026-10-09; its hypotheses and the limitations in provides were checked against its consumers."
       },
       {
         "ref": "mathlib:MonoidAlgebra.mapDomainRingHom",
         "module": "Mathlib/Algebra/MonoidAlgebra/MapDomain.lean",
         "provides": "The group-algebra ring homomorphism induced by a monoid homomorphism. It supplies quotient-coordinate transitions; coefficients remain unchanged.",
-        "checked": "Read the exact declaration and coefficient/basis formulas at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-08 by Codex codex-f3HUtZ. Statement re-read at the recorded exact pin on 2026-10-09 by Codex codex-IQAcr9."
+        "checked": "Independently confirmed by REV-ExcursionOperatorsAndSpectralAction--ES5~2 from the declaration statement at the recorded exact pin on 2026-10-09; its hypotheses and the limitations in provides were checked against its consumers."
       },
       {
         "ref": "mathlib:IsAlgClosed.exists_pow_nat_eq",
         "module": "Mathlib/FieldTheory/IsAlgClosed/Basic.lean",
         "provides": "Over an algebraically closed field every element has an nth root for n greater than zero. For a unit the root is nonzero, giving divisibility of the multiplicative unit group in every characteristic.",
-        "checked": "Read the exact declaration at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-08 by Codex codex-f3HUtZ. Statement re-read at the recorded exact pin on 2026-10-09 by Codex codex-IQAcr9."
+        "checked": "Independently confirmed by REV-ExcursionOperatorsAndSpectralAction--ES5~2 from the declaration statement at the recorded exact pin on 2026-10-09; its hypotheses and the limitations in provides were checked against its consumers."
       },
       {
         "ref": "mathlib:AddCommGrpCat.injective_of_divisible",
         "module": "Mathlib/Algebra/Category/Grp/Injective.lean",
         "provides": "An additive abelian group divisible by the integers is an injective object of AddCommGrpCat. Apply the additive type tag to the multiplicative group of coefficient-field units.",
-        "checked": "Read the exact declaration at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-08 by Codex codex-f3HUtZ. Statement re-read at the recorded exact pin on 2026-10-09 by Codex codex-IQAcr9."
+        "checked": "Independently confirmed by REV-ExcursionOperatorsAndSpectralAction--ES5~2 from the declaration statement at the recorded exact pin on 2026-10-09; its hypotheses and the limitations in provides were checked against its consumers."
       },
       {
         "ref": "mathlib:CategoryTheory.Injective.factorThru",
         "module": "Mathlib/CategoryTheory/Preadditive/Injective/Basic.lean",
         "provides": "Given an injective target, a morphism to it extends along any monomorphism; comp_factorThru states that restriction equals the original morphism. This is the discrete character extension, not a smoothness theorem.",
-        "checked": "Read the exact declaration at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-08 by Codex codex-f3HUtZ. Statement re-read at the recorded exact pin on 2026-10-09 by Codex codex-IQAcr9."
+        "checked": "Independently confirmed by REV-ExcursionOperatorsAndSpectralAction--ES5~2 from the declaration statement at the recorded exact pin on 2026-10-09; its hypotheses and the limitations in provides were checked against its consumers."
       }
     ]
   },
@@ -191,7 +191,7 @@
         "II.2.1, pp. 58–61: the height-one Lubin–Tate universal cover, O(1) sections and the E-times torsor on Div1.",
         "III.2, p. 91; VI.1.6–VI.1.9, pp. 193–194 and VI.2.2–VI.2.4, pp. 197–198: degree versus Kottwitz sign, completed lattices, and first-bundle relative position.",
         "VI.12.1 and its complete proof, pp. 239–241: switching, Chevalley and the rho(-1) sign.",
-        "VII.7.1–VII.7.2 and proofs, pp. 271–273; VII.7.9–VII.7.10, pp. 275–276: stratum equivalence, relative-homology left adjoint and exterior Hom comparison.",
+        "VII.7.1–VII.7.2 and proofs, pp. 271–273; VII.7.6 and VII.7.9–VII.7.10, pp. 274–276: stratum equivalence, relative-homology left adjoint and exterior Hom comparison.",
         "VIII.3.7–VIII.3.8 with all three clauses and both relations, pp. 288–290; VIII.4 and VIII.4.3, pp. 290–293.",
         "IX.1–IX.2, pp. 320–323: condensed enhancement and relative-homology Hecke operators.",
         "IX.4–IX.6, pp. 327–333, including complete proofs of IX.6.1–IX.6.5. IX.6.2 display visually checked and compared with arXiv v4.",
@@ -252,7 +252,7 @@
       "id": "Henniart-Vigneras-2025",
       "title": "Representations of SL₂(F)",
       "authors": "Guy Henniart, Marie-France Vignéras",
-      "edition": "Published open-access Pacific Journal of Mathematics 335(2) (2025), 229–285; DOI 10.2140/pjm.2025.335.229. Locators use printed journal pages.",
+      "edition": "Published open-access Pacific Journal of Mathematics 335(2) (2025), 229–286; DOI 10.2140/pjm.2025.335.229. Locators use printed journal pages.",
       "url": "https://msp.org/pjm/2025/335-2/pjm-v335-n2-p02-s.pdf",
       "sha256": "55f167816a1ba5a084a8bf19ac9786a8d443e45e72bff9a789c39709ade87095",
       "accessed": "2026-10-09",
@@ -279,17 +279,18 @@
       "sourceId": "FS-geometrization",
       "kind": "author copy",
       "url": "https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf",
-      "read": "2026-10-08",
-      "sha256": "9ab9efbd0df251bfa3b610d1d1d88a8dfb1bdf7c397bd04f4c277280d98ae905"
+      "read": "2026-10-09",
+      "sha256": "9ab9efbd0df251bfa3b610d1d1d88a8dfb1bdf7c397bd04f4c277280d98ae905",
+      "collation": "Independently checked the proof-critical sections in this review; E2–E6 collated at author/arXiv-v4 pp. 276, 331, 333. Full published volume not read."
     },
     {
       "sourceId": "FS-geometrization",
       "kind": "preprint",
-      "read": "2026-10-07",
+      "read": "2026-10-09",
       "url": "https://arxiv.org/pdf/2102.13459v4",
       "sha256": "1f8040751d3424f59ae56651d990d7b2d5030e6b7cae58bc2fc683358dfc2027",
       "accessed": "2026-10-07",
-      "collation": "VIII.3.8 and IX.6 agree with the author copy; the repeated G1 in IX.6.2 is present in both."
+      "collation": "Independently checked the proof-critical sections in this review; E2–E6 collated at author/arXiv-v4 pp. 276, 331, 333. Full published volume not read."
     },
     {
       "sourceId": "FS-geometrization",
@@ -305,7 +306,7 @@
       "url": "https://msp.org/pjm/2025/335-2/pjm-v335-n2-p02-s.pdf",
       "read": "2026-10-09",
       "sha256": "55f167816a1ba5a084a8bf19ac9786a8d443e45e72bff9a789c39709ade87095",
-      "collation": "Read the public published PDF directly at the sections/pages recorded in sources; no comparison with an earlier edition is asserted."
+      "collation": "Read sections 2–3, pp. 234–240 independently; source proof corrections E7–E9 and adjacent misprint E10 recorded and collated with arXiv v2 and author proof copy."
     },
     {
       "sourceId": "Vigneras-2023",
@@ -314,6 +315,22 @@
       "read": "2026-10-09",
       "sha256": "7db5e703a2d1c29e902731d82a744c2a860a5d8eaf8ae2c50c2c841eeeca4936",
       "collation": "Read the public published PDF directly at the sections/pages recorded in sources; no comparison with an earlier edition is asserted."
+    },
+    {
+      "sourceId": "Henniart-Vigneras-2025",
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/2404.11188v2",
+      "read": "2026-10-09",
+      "sha256": "3fc175b04bc7727faa2f925ae3cf8ef8b67ae7277af14aaf4e9991408fe57558",
+      "collation": "Proposition 3.3 and adjacent square-class formula independently collated against the published journal PDF; E7–E11 persist. Author copy uses temporary proof pagination."
+    },
+    {
+      "sourceId": "Henniart-Vigneras-2025",
+      "kind": "author copy",
+      "url": "https://perso.imj-prg.fr/mariefrance-vigneras/wp-content/uploads/sites/74/2025/04/SL2-final.pdf",
+      "read": "2026-10-09",
+      "sha256": "feb4011f9ff070426d96fb3cbc86e9ae4924b06805fa44bd7a6e3c8c40e13758",
+      "collation": "Proposition 3.3 and adjacent square-class formula independently collated against the published journal PDF; E7–E11 persist. Author copy uses temporary proof pagination."
     }
   ],
   "nodes": [
@@ -1438,7 +1455,7 @@
       ],
       "proofSteps": [
         "Construct the requested all-field pushout from a torus embedding of Z: choose a finite Galois splitting group and a surjection from a finite permutation lattice onto X*(Z). Its kernel is a free lattice, so duality embeds Z in an E-torus T with torus quotient C. Central fppf pushout gives the connected reductive Gplus, centre T, Gplus/G=C and the unchanged adjoint group. This elementary part of the construction does not use Kaletha Proposition 5.2’s p-adic H1-killing step. Route the construction and dual exact sequence to RG2.6 rather than defining another local reductive-group theory.",
-        "Let H=i(G(E))T(E), the rational image of the surjective central morphism G times T to Gplus. Henniart–Vignéras Lemma 3.1 and Proposition 3.3 make H closed and normal with compact abelian quotient. G(E) and Z(E) have their closed-subgroup topologies. The continuous surjection G(E) times T(E) to H is open by the locally compact sigma-compact group open-mapping argument: for a neighbourhood U choose compact K with K K^-1 contained in U; countably many translates of K cover the source, so Baire category gives interior to its compact image, and image(U) is a neighbourhood. This is openness onto H, even for nonsmooth Z, not smoothness of the algebraic morphism.",
+        "Let H=i(G(E))T(E), the rational image of the surjective central morphism G times T to Gplus. Henniart–Vignéras Lemma 3.1 and Proposition 3.3 make H closed and normal with compact abelian quotient. G(E) and Z(E) have their closed-subgroup topologies. The continuous surjection G(E) times T(E) to H is open by the locally compact sigma-compact group open-mapping argument: for a neighbourhood U choose compact K with K K^-1 contained in U; countably many translates of K cover the source, so Baire category gives interior to its compact image, and image(U) is a neighbourhood. This is openness onto H, even for nonsmooth Z, not smoothness of the algebraic morphism. Apply Proposition 3.3 with corrections E7–E9: choose a minimal parabolic and a maximal split source torus mapping onto the target split torus, rather than taking its full inverse image. The valuation map has finite-index image and compact unit representatives, so its rational split-torus cokernel is compact, possibly infinite. The unipotent isomorphism, compact Levi quotient and Iwasawa decomposition give the required compact quotient by H.",
         "Extend omega_pi from Z(E) to a smooth omega_T on T(E). Choose compact open U in T(E) whose intersection with Z(E) is killed; use divisibility of L-times to extend the character from Z(E)U/U to the discrete quotient T(E)/U, then inflate. Define tau(t i(g))=omega_T(t) pi(g) on H. Its definition is independent of the factorization since the intersection is Z(E); openness of the quotient makes tau smooth. It is irreducible because the extra T(E) factors act scalarly. For compact open J in H, tau^J is contained in pi^(J intersect G(E)), proving admissibility.",
         "Apply Henniart–Vignéras section 2.2.4(2), not Theorem 3.2. Smooth Ind_H^Gplus tau is nonzero and admissible: for each compact open K, the compact quotient gives finitely many H\\Gplus(E)/K double cosets, and its K-invariants are a finite sum of tau-invariant spaces under compact open subgroups H intersect g K g^-1. A nonzero finitely generated subrepresentation is admissible and has finite length by the early SR.3b input, so contains an irreducible admissible Pi. Right-adjoint Frobenius reciprocity gives a nonzero H-map Pi|H to tau, hence a surjection. Restrict it to G(E) to obtain Pi|G to pi. This constructs a quotient lift without claiming an extension or irreducible restriction. Vignéras section 5, p. 340 is the freely read finite-length source; the noetherianity property (2-2) and its later ES6-dependent sources are unused.",
         "Transport the excursion action along i using HS4 clause (d) and adjoint-isomorphism compatibility. Pull back j_Gplus,! Pi, then restrict to the neutral open G stratum via VS4. It is Pi|G on that stratum; the whole inverse image need not be neutral. Natural central operators commute with the surjection to pi, so their scalar characters agree after the dual projection. ES5 uniqueness gives dual i composed with phi_Pi = phi_pi. Apply the smooth torus-centre theorem to Pi: its dual central projection gives Omega_Pi on T(E), and the same surjection gives Omega_Pi|Z(E)=omega_pi.",
@@ -1477,7 +1494,7 @@
         {
           "sourceId": "Henniart-Vigneras-2025",
           "locator": "Section 2.2.4(2), p. 236; section 3 and Lemma 3.1, pp. 238–239; Proposition 3.3 and proof, pp. 239–240",
-          "match": "Supplies the weaker quotient lift from a closed normal cocompact rational image using only finite length of finitely generated admissible representations, and proves the required image is closed with compact abelian quotient for surjective central maps over all local fields. The stronger noetherianity-dependent restriction theorem is unused."
+          "match": "Supplies the weaker quotient lift from a closed normal cocompact rational image using only finite length of finitely generated admissible representations, and proves the required image is closed with compact abelian quotient for surjective central maps over all local fields. The stronger noetherianity-dependent restriction theorem is unused. Use the corrected compactness proof in E7–E9; the split-torus cokernel is not asserted finite."
         },
         {
           "sourceId": "Vigneras-2023",
@@ -1667,7 +1684,7 @@
     },
     {
       "supplier": "BunGAndNewtonStrata:BG1/abelianization-identification",
-      "need": "The torus specialization B(T)=pi_1(T)_Gamma and all degree components, compatible with the already supplied torsor and stratum equivalences; give the maps used by torus resolutions.",
+      "need": "The torus specialization B(T)=pi_1(T)_Gamma and all degree components, compatible with the already supplied torsor and stratum equivalences; give the maps used by torus resolutions. Extend the current p-adic statement to every nonarchimedean local E, including positive characteristic.",
       "neededBy": [
         "ExcursionOperatorsAndSpectralAction:ES6:functoriality/tori-spectral-center",
         "ExcursionOperatorsAndSpectralAction:ES6:functoriality/tori-diagonal-embedding"
@@ -1696,7 +1713,7 @@
     },
     {
       "supplier": "ReductiveGroupsPartII:RG2.5",
-      "need": "Expose the all-field rational image of a surjective central reductive morphism as a closed normal subgroup with compact abelian quotient (Henniart–Vignéras Lemma 3.1 and Proposition 3.3, pp. 238–240). For G times T to Gplus identify its image H=i(G(E))T(E), intersection Z(E), closed inclusions and the open map onto H by the locally compact sigma-compact open-mapping argument. H need not be open in Gplus(E). For actual p-adic z-embeddings retain Kaletha 5.2 finite-H1/norm-kernel construction and the stronger open rational factorization/common-refinement interfaces. Do not request the impossible full flat-H1 transfer for mu_p over equal-characteristic E.",
+      "need": "Expose the all-field rational image of a surjective central reductive morphism as a closed normal subgroup with compact abelian quotient (Henniart–Vignéras Lemma 3.1 and Proposition 3.3, pp. 238–240). For G times T to Gplus identify its image H=i(G(E))T(E), intersection Z(E), closed inclusions and the open map onto H by the locally compact sigma-compact open-mapping argument. H need not be open in Gplus(E). For actual p-adic z-embeddings retain Kaletha 5.2 finite-H1/norm-kernel construction and the stronger open rational factorization/common-refinement interfaces. Do not request the impossible full flat-H1 transfer for mu_p over equal-characteristic E. Import Proposition 3.3 with the proof corrections E7–E9: minimal parabolic, chosen maximal split source torus, and compact (possibly infinite) split-torus cokernel from finite-index valuation image and compact units.",
       "neededBy": [
         "ExcursionOperatorsAndSpectralAction:ES6:functoriality/z-embedding",
         "ExcursionOperatorsAndSpectralAction:ES6:functoriality/z-embedding-central-character-comparison"
@@ -1889,7 +1906,7 @@
       "source": "FS-geometrization",
       "kind": "misprint",
       "locator": "FS author-hosted 356-page PDF and arXiv:2102.13459v4, Proposition IX.6.2 display, p. 331; not checked in the full 2026 published edition.",
-      "printed": "Z geom (G1 , Λ) ⊗Λ Z geom (G1 , Λ)",
+      "printed": "The displayed geometric tensor product uses the first group for both factors.",
       "correction": "The second factor is the geometric centre for G2.",
       "reason": "The product is G1 times G2. The canonical factor map and the very next parameter sentence distinguish the two factors. Visual examination of the author PDF and separate collation with arXiv v4 show this is present in the display, not an extraction artifact.",
       "affects": "nothing",
@@ -1902,8 +1919,8 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Independently visible on author PDF p. 331 and separately collated in arXiv v4 p. 331. The second factor is the geometric centre for G2. Context and displayed domains determine the correction. The published sample does not contain this passage; no verdict on the full published edition.",
-        "by": "REV-ExcursionOperatorsAndSpectralAction--ES5"
+        "reason": "Rechecked independently on 2026-10-09: visually inspected the author PDF at the recorded page and collated arXiv v4 text separately. The second factor is the geometric centre for G2. The product is G1 times G2. The canonical factor map and the very next parameter sentence distinguish the two factors. Visual examination of the author PDF and separate collation with arXiv v4 show this is present in the display, not an extraction artifact. No verdict on the full published FS edition.",
+        "by": "REV-ExcursionOperatorsAndSpectralAction--ES5~2"
       }
     },
     {
@@ -1911,7 +1928,7 @@
       "source": "FS-geometrization",
       "kind": "misprint",
       "locator": "FS author-hosted 356-page PDF and arXiv:2102.13459v4, Proposition IX.6.2, parameter consequence, p. 331. Full published passage unavailable.",
-      "printed": "A1 , A2 ∈ Dlis (BunG , L)",
+      "printed": "The parameter consequence places both input sheaves on the product group instead of their respective factor groups.",
       "correction": "A_i lies in D_lis(Bun_(G_i),L), for i=1,2.",
       "reason": "The external product A1 external-tensor A2 is an object on Bun_(G1) times Bun_(G2)=Bun_G. Both factors on Bun_G would give an object on Bun_G times Bun_G and parameters for the wrong groups. The author PDF was visually checked and arXiv v4 collated.",
       "affects": "nothing",
@@ -1924,8 +1941,8 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Independently visible on author PDF p. 331 and separately collated in arXiv v4 p. 331. A_i lies in D_lis(Bun_(G_i),L), for i=1,2. Context and displayed domains determine the correction. The published sample does not contain this passage; no verdict on the full published edition.",
-        "by": "REV-ExcursionOperatorsAndSpectralAction--ES5"
+        "reason": "Rechecked independently on 2026-10-09: visually inspected the author PDF at the recorded page and collated arXiv v4 text separately. A_i lies in D_lis(Bun_(G_i),L), for i=1,2. The external product A1 external-tensor A2 is an object on Bun_(G1) times Bun_(G2)=Bun_G. Both factors on Bun_G would give an object on Bun_G times Bun_G and parameters for the wrong groups. The author PDF was visually checked and arXiv v4 collated. No verdict on the full published FS edition.",
+        "by": "REV-ExcursionOperatorsAndSpectralAction--ES5~2"
       }
     },
     {
@@ -1933,7 +1950,7 @@
       "source": "FS-geometrization",
       "kind": "misprint",
       "locator": "FS author-hosted 356-page PDF and arXiv:2102.13459v4, proof of IX.6.1, paragraph following the factorization of pi_H, p. 331. Full published passage unavailable.",
-      "printed": "The source uses a map G → G′ giving isomorphisms between the adjoint groups.",
+      "printed": "The Satake prose reverses the group morphism used by the theorem and its displayed Grassmannian map.",
       "correction": "The group morphism has direction Gprime to G; its dual has direction Ghat to Gprimehat.",
       "reason": "The theorem starts with Gprime to G. It induces the printed Grassmannian map Gr_Gprime to Gr_G and the pushforward comparison. The prose reverses that morphism while the displayed geometric maps have the correct direction. Visual inspection and arXiv v4 collation confirm the prose.",
       "affects": "nothing",
@@ -1946,8 +1963,8 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Independently visible on author PDF p. 331 and separately collated in arXiv v4 p. 331. The group morphism has direction Gprime to G; its dual has direction Ghat to Gprimehat. Context and displayed domains determine the correction. The published sample does not contain this passage; no verdict on the full published edition.",
-        "by": "REV-ExcursionOperatorsAndSpectralAction--ES5"
+        "reason": "Rechecked independently on 2026-10-09: visually inspected the author PDF at the recorded page and collated arXiv v4 text separately. The group morphism has direction Gprime to G; its dual has direction Ghat to Gprimehat. The theorem starts with Gprime to G. It induces the printed Grassmannian map Gr_Gprime to Gr_G and the pushforward comparison. The prose reverses that morphism while the displayed geometric maps have the correct direction. Visual inspection and arXiv v4 collation confirm the prose. No verdict on the full published FS edition.",
+        "by": "REV-ExcursionOperatorsAndSpectralAction--ES5~2"
       }
     },
     {
@@ -1968,8 +1985,8 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Independently read and visually checked the author passage, then collated the same wording in arXiv v4. Kaletha Definition 5.1 and Corollary 5.3 construct an injection into a group with connected centre. A surjective z-extension with torus kernel and simply connected derived group is a different object and does not guarantee connected centre. The citation and intended application identify the nomenclature slip; extension beyond the p-adic field range is a separate blueprint gap. Scoped to those versions only.",
-        "by": "REV-ExcursionOperatorsAndSpectralAction--ES5"
+        "reason": "Rechecked independently on 2026-10-09: visually inspected the author PDF at the recorded page and collated arXiv v4 text separately. Use injective z-embeddings as defined in Kaletha §5.1, with its p-adic hypotheses. Kaletha Definition 5.1 and Corollary 5.3 construct an injection into a group with connected centre. A surjective z-extension with torus kernel and simply connected derived group is a different object and does not guarantee connected centre. The citation and intended application identify the nomenclature slip; extension beyond the p-adic field range is a separate blueprint gap. No verdict on the full published FS edition.",
+        "by": "REV-ExcursionOperatorsAndSpectralAction--ES5~2"
       }
     },
     {
@@ -1977,7 +1994,7 @@
       "source": "FS-geometrization",
       "kind": "misprint",
       "locator": "VII.7.10 compact exterior-product clause, author PDF and arXiv v4 p. 276; full published passage not read",
-      "printed": "A1 ⊠ A2 ∈ D_et(Bun_G,Λ)",
+      "printed": "The compact exterior-product clause labels the result as étale although its functor and generators are lisse.",
       "correction": "The compact exterior product and generators are in D_lis(Bun_G,Λ).",
       "reason": "The preceding displayed functor has D_lis source and target and the inputs are arbitrary compact lisse objects. The theorem proves compact generation of this lisse category for general Λ; an étale-torsion target cannot replace it. This is the carryover label from the parallel torsion Proposition V.7.2.",
       "affects": "nothing",
@@ -1990,8 +2007,118 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Independently read and visually checked the author passage, then collated the same wording in arXiv v4. The preceding displayed functor has D_lis source and target and the inputs are arbitrary compact lisse objects. The theorem proves compact generation of this lisse category for general Λ; an étale-torsion target cannot replace it. This is the carryover label from the parallel torsion Proposition V.7.2. Scoped to those versions only.",
-        "by": "REV-ExcursionOperatorsAndSpectralAction--ES5"
+        "reason": "Rechecked independently on 2026-10-09: visually inspected the author PDF at the recorded page and collated arXiv v4 text separately. The compact exterior product and generators are in D_lis(Bun_G,Λ). The preceding displayed functor has D_lis source and target and the inputs are arbitrary compact lisse objects. The theorem proves compact generation of this lisse category for general Λ; an étale-torsion target cannot replace it. This is the carryover label from the parallel torsion Proposition V.7.2. No verdict on the full published FS edition.",
+        "by": "REV-ExcursionOperatorsAndSpectralAction--ES5~2"
+      }
+    },
+    {
+      "id": "ExcursionOperatorsAndSpectralAction/E7",
+      "source": "Henniart-Vigneras-2025",
+      "kind": "error",
+      "locator": "Proposition 3.3 proof, journal p. 240; arXiv v2 p. 11; author proof p. 112",
+      "printed": "The proof infers finiteness of the split-torus rational-point cokernel from its valuation lattice.",
+      "correction": "Use compactness of that cokernel. A surjective map of split tori has full-rank, finite-index image on the valuation lattice; compact unit representatives then give a compact set surjecting onto the cokernel. Compactness suffices for the subsequent Levi and Iwasawa steps.",
+      "reason": "Over F_q((t)), the pth-power map G_m to G_m is surjective and central as a scheme morphism, but E-times/(E-times)^p is infinite: units 1+t^n for distinct positive n prime to p have distinct classes. Its valuation quotient is finite and its unit quotient compact. Thus the asserted finiteness is false in the explicit field range of section 3, while Proposition 3.3 remains correct.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "MSP journal article and DOI 10.2140/pjm.2025.335.229, 2026-10-09; no linked correction found.",
+        "https://arxiv.org/abs/2404.11188, 2026-10-09: v2 (20 February 2025) is the latest listed version; its PDF has the same slips in Proposition 3.3, pp. 10–11 and the adjacent (4.1), p. 11.",
+        "https://perso.imj-prg.fr/mariefrance-vigneras/publications/, 2026-10-09: entry 80 links an author proof copy, SL2-final.pdf; the same passages remain on temporary proof pages 111–112, with no linked erratum.",
+        "Web search by both authors, title, Proposition 3.3 and erratum, 2026-10-09; no relevant correction located."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read in the journal version, separately collated with arXiv v2 and the author proof copy; Over F_q((t)), the pth-power map G_m to G_m is surjective and central as a scheme morphism, but E-times/(E-times)^p is infinite: units 1+t^n for distinct positive n prime to p have distinct classes. Its valuation quotient is finite and its unit quotient compact. Thus the asserted finiteness is false in the explicit field range of section 3, while Proposition 3.3 remains correct.",
+        "by": "REV-ExcursionOperatorsAndSpectralAction--ES5~2"
+      }
+    },
+    {
+      "id": "ExcursionOperatorsAndSpectralAction/E8",
+      "source": "Henniart-Vigneras-2025",
+      "kind": "error",
+      "locator": "Proposition 3.3 proof, journal p. 239; arXiv v2 p. 11; author proof p. 111",
+      "printed": "The proof identifies the full inverse image of a maximal split torus with a maximal split torus and allows an unspecified parabolic containing it.",
+      "correction": "Choose a maximal split torus in the inverse image, mapping surjectively onto the target split torus, and choose a minimal parabolic containing the target torus. Its centralizer is the required Levi; the source centralizer and inverse-image parabolic give the central Levi map and unipotent isomorphism used in the proof.",
+      "reason": "Projection G_m times A to G_m, for a nontrivial anisotropic E-torus A, is surjective central. The full inverse image of G_m is G_m times A and is not split. The split-subtorus choice repairs this. Also an arbitrary larger parabolic need not have the displayed centralizer as its Levi; minimality supplies this identification and compactness modulo the maximal split torus.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "MSP journal article and DOI 10.2140/pjm.2025.335.229, 2026-10-09; no linked correction found.",
+        "https://arxiv.org/abs/2404.11188, 2026-10-09: v2 (20 February 2025) is the latest listed version; its PDF has the same slips in Proposition 3.3, pp. 10–11 and the adjacent (4.1), p. 11.",
+        "https://perso.imj-prg.fr/mariefrance-vigneras/publications/, 2026-10-09: entry 80 links an author proof copy, SL2-final.pdf; the same passages remain on temporary proof pages 111–112, with no linked erratum.",
+        "Web search by both authors, title, Proposition 3.3 and erratum, 2026-10-09; no relevant correction located."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read in the journal version, separately collated with arXiv v2 and the author proof copy; Projection G_m times A to G_m, for a nontrivial anisotropic E-torus A, is surjective central. The full inverse image of G_m is G_m times A and is not split. The split-subtorus choice repairs this. Also an arbitrary larger parabolic need not have the displayed centralizer as its Levi; minimality supplies this identification and compactness modulo the maximal split torus.",
+        "by": "REV-ExcursionOperatorsAndSpectralAction--ES5~2"
+      }
+    },
+    {
+      "id": "ExcursionOperatorsAndSpectralAction/E9",
+      "source": "Henniart-Vigneras-2025",
+      "kind": "misprint",
+      "locator": "Proposition 3.3 proof, opening paragraph, journal p. 239; arXiv v2 p. 10; author proof p. 111",
+      "printed": "The commutator lift uses an unbound h in place of its second argument, then places the image subgroup in the source group and abbreviates its cokernel by dividing by the source.",
+      "correction": "The lifted expression is the commutator of x and y; the image f(H) is a subgroup of G; the rational-point quotient is G/f(H).",
+      "reason": "The declared domain of the central morphism and the immediately following commutator calculation fix all three symbols. The proposition itself and the final compactness target use the correct ambient group and quotient.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "MSP journal article and DOI 10.2140/pjm.2025.335.229, 2026-10-09; no linked correction found.",
+        "https://arxiv.org/abs/2404.11188, 2026-10-09: v2 (20 February 2025) is the latest listed version; its PDF has the same slips in Proposition 3.3, pp. 10–11 and the adjacent (4.1), p. 11.",
+        "https://perso.imj-prg.fr/mariefrance-vigneras/publications/, 2026-10-09: entry 80 links an author proof copy, SL2-final.pdf; the same passages remain on temporary proof pages 111–112, with no linked erratum.",
+        "Web search by both authors, title, Proposition 3.3 and erratum, 2026-10-09; no relevant correction located."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read in the journal version, separately collated with arXiv v2 and the author proof copy; The declared domain of the central morphism and the immediately following commutator calculation fix all three symbols. The proposition itself and the final compactness target use the correct ambient group and quotient.",
+        "by": "REV-ExcursionOperatorsAndSpectralAction--ES5~2"
+      }
+    },
+    {
+      "id": "ExcursionOperatorsAndSpectralAction/E10",
+      "source": "Henniart-Vigneras-2025",
+      "kind": "misprint",
+      "locator": "Adjacent formula (4-1), journal p. 240; arXiv v2 formula (4.1), p. 11; author proof p. 112",
+      "printed": "Both branches of the square-class dimension formula are assigned to characteristic different from two.",
+      "correction": "The infinite-dimensional second branch belongs to characteristic two.",
+      "reason": "The two characteristic conditions must partition the local-field range. In characteristic two, units with distinct odd leading exponents give infinitely many square classes. This adjacent formula is not a supplier for the plan; the separate finite-branch error is E11.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "MSP journal article and DOI 10.2140/pjm.2025.335.229, 2026-10-09; no linked correction found.",
+        "https://arxiv.org/abs/2404.11188, 2026-10-09: v2 (20 February 2025) is the latest listed version; its PDF has the same slips in Proposition 3.3, pp. 10–11 and the adjacent (4.1), p. 11.",
+        "https://perso.imj-prg.fr/mariefrance-vigneras/publications/, 2026-10-09: entry 80 links an author proof copy, SL2-final.pdf; the same passages remain on temporary proof pages 111–112, with no linked erratum.",
+        "Web search by both authors, title, Proposition 3.3 and erratum, 2026-10-09; no relevant correction located."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read in the journal version, separately collated with arXiv v2 and the author proof copy; The two characteristic conditions must partition the local-field range. In characteristic two, units with distinct odd leading exponents give infinitely many square classes. This adjacent formula is not a supplier for the plan; the separate finite-branch error is E11.",
+        "by": "REV-ExcursionOperatorsAndSpectralAction--ES5~2"
+      }
+    },
+    {
+      "id": "ExcursionOperatorsAndSpectralAction/E11",
+      "source": "Henniart-Vigneras-2025",
+      "kind": "error",
+      "locator": "Adjacent formula (4-1), finite branch and definition of e, journal p. 240; arXiv v2 formula (4.1), p. 11; author proof p. 112",
+      "printed": "The finite square-class dimension branch uses two plus the ramification index defined by the ideal generated by two.",
+      "correction": "For characteristic zero and residue characteristic two, use two plus [F:Q_2], equivalently two plus ramification index times residue degree. For odd residue characteristic the dimension is two; characteristic two has the infinite branch as corrected in E10.",
+      "reason": "Take the unramified quadratic extension of Q_2, with residue field F_4 and ramification index e=1. Let U_j=1+2^j O_F. Squaring maps U_2 onto U_3. Modulo U_3 the squares from U_1 correspond to the image of a to a+a^2 in F_4, which has size two. Hence U_1/U_1^2 has size eight, and the odd-order residue units do not change the square quotient. The valuation factor doubles it to sixteen, of dimension four, whereas the displayed 2+e gives three. This unused adjacent result does not alter any planned target.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "MSP journal article and DOI 10.2140/pjm.2025.335.229, 2026-10-09; no linked correction found.",
+        "https://arxiv.org/abs/2404.11188, 2026-10-09: v2 (20 February 2025) is the latest listed version; its PDF has the same slips in Proposition 3.3, pp. 10–11 and the adjacent (4.1), p. 11.",
+        "https://perso.imj-prg.fr/mariefrance-vigneras/publications/, 2026-10-09: entry 80 links an author proof copy, SL2-final.pdf; the same passages remain on temporary proof pages 111–112, with no linked erratum.",
+        "Web search by both authors, title, Proposition 3.3 and erratum, 2026-10-09; no relevant correction located."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read in the journal version, separately collated with arXiv v2 and the author proof copy; Take the unramified quadratic extension of Q_2, with residue field F_4 and ramification index e=1. Let U_j=1+2^j O_F. Squaring maps U_2 onto U_3. Modulo U_3 the squares from U_1 correspond to the image of a to a+a^2 in F_4, which has size two. Hence U_1/U_1^2 has size eight, and the odd-order residue units do not change the square quotient. The valuation factor doubles it to sixteen, of dimension four, whereas the displayed 2+e gives three. This unused adjacent result does not alter any planned target.",
+        "by": "REV-ExcursionOperatorsAndSpectralAction--ES5~2"
       }
     }
   ],
@@ -2006,115 +2133,115 @@
     }
   ],
   "review": {
-    "status": "needs_changes",
-    "reviewer": "independent-review-REV-ExcursionOperatorsAndSpectralAction--ES5",
-    "date": "2026-10-07",
-    "notes": "Completed independent review of all 21 nodes, 31 source excerpts, 20 pinned declarations, 16 requests, 22 API entries, 12 planned tests and 13 planets. Clear fixes are applied. The torus endpoint/universal-coefficient operator proof remains unverified; the former all-field connected-centre cover was false and has been removed. ES6:functoriality and the packet are partial because a target is still absent. Reader synchronization and the exact revision requirements are recorded in the review report. Open owner-interface requests and honest Lean omissions alone are not grounds for this verdict.",
+    "status": "accepted",
+    "reviewer": "independent-review-REV-ExcursionOperatorsAndSpectralAction--ES5~2",
+    "date": "2026-10-09",
+    "notes": "Independently reviewed all 21 nodes, 27 exact-pin baseline statements, 22 definition/construction API entries, 12 named tests, 13 planets, 14 requests, 9 gaps and all four planned stages. Read the seven public sources and proof-critical supplier statements. Confirmed E2–E6; added and confirmed E7–E11 in Henniart–Vignéras, correcting the central-map compactness proof in place. The torus universal-coefficient endpoint/sign proof and the all-field quotient-lift/choice comparison are verified at planning level. Reader synchronized. Suggested file elaborated with only proof-placeholder warnings. No implementation or closure claimed.",
     "checked": [
       {
         "nodeId": "ExcursionOperatorsAndSpectralAction:ES5/schur-irreducible-object",
         "verdict": "verified",
-        "note": "Condensed scalar unit is the defining isomorphism; five API entries and three negative/positive tests distinguish it from an abstract ring isomorphism."
+        "note": "The specified scalar unit is an isomorphism in condensed algebras, tested on all sections; zero and point-only alternatives fail the stated tests."
       },
       {
         "nodeId": "ExcursionOperatorsAndSpectralAction:ES5/condensed-schur-from-admissibility",
-        "verdict": "corrected",
-        "note": "Added direct SR.2, VS4 and condensed-enrichment supplier dependencies; all-coefficient admissibility and noncompact enrichment remain explicitly requested."
+        "verdict": "verified",
+        "note": "The nonzero finite-dimensional fixed-vector space gives an eigenvalue and irreducibility propagates it; enriched fixed-vector evaluation gives the relatively discrete scalar family. The noncompact owner refinement remains explicit."
       },
       {
         "nodeId": "ExcursionOperatorsAndSpectralAction:ES5/excursion-character-of-a-schur-object",
         "verdict": "verified",
-        "note": "Checked the fixed-vector/enrichment direct prerequisite and scalar-unit inversion, which preserves the two ordered finite-leg relations."
+        "note": "Inverting the actual condensed scalar unit transports the excursion algebra action and both ordered tuple relations, preserving family continuity."
       },
       {
         "nodeId": "ExcursionOperatorsAndSpectralAction:ES5/abstract-semisimple-parameter",
-        "verdict": "corrected",
-        "note": "Replaced the Bun_G compact action prerequisite by abstract LP2 action/presentation; requested the missing arbitrary-discrete-W classifier variant explicitly."
+        "verdict": "verified",
+        "note": "Uses the group-independent excursion action and precisely requested arbitrary-discrete-W LP2 classifier; no Bun_G compactness assumption or abelian Shapiro substitute."
       },
       {
         "nodeId": "ExcursionOperatorsAndSpectralAction:ES5/parameter-of-a-schur-irreducible-sheaf",
         "verdict": "verified",
-        "note": "IX.4.1 and VIII.3.8 supply the stated local continuous closed-orbit parameter, conditional on the exact LP2 interface; no characteristic-zero Reynolds transfer."
+        "note": "FS VIII.3.8 and IX.4.1 give the continuous prescribed-projection semisimple parameter; the modular local supplier is distinguished from Lafforgue’s characteristic-zero Reynolds step."
       },
       {
         "nodeId": "ExcursionOperatorsAndSpectralAction:ES5/parameter-of-an-irreducible-smooth-representation",
-        "verdict": "corrected",
-        "note": "Added centre-independence and the requested VS4 adjunction as direct prerequisites; noncompact smooth representations are not assumed compact."
+        "verdict": "verified",
+        "note": "The existing fully faithful stratum left adjoint carries the scalar unit; centre restriction and uniqueness identify the parameter without compactness of pi."
       },
       {
         "nodeId": "ExcursionOperatorsAndSpectralAction:ES5/stratum-centre-embedding-independence",
-        "verdict": "corrected",
-        "note": "Added LP2 uniqueness and VS4 enriched stratum comparison as direct prerequisites; independence is of eligible extensions through the central action."
+        "verdict": "verified",
+        "note": "The two fully faithful extensions compare through restriction and the adjunction triangles; natural central actions, not arbitrary categorical extensions, give independence."
       },
       {
         "nodeId": "ExcursionOperatorsAndSpectralAction:ES5/invariance-and-coefficient-transport",
-        "verdict": "corrected",
-        "note": "Coefficient transport retains the Schur and base-change hypotheses; the suggested algebraic fragment now uses an actual coefficient-field extension square."
+        "verdict": "verified",
+        "note": "Isomorphism invariance and coefficient extension retain Schur and the exact base-change square. The prototype uses genuine coefficient-field maps."
       },
       {
         "nodeId": "ExcursionOperatorsAndSpectralAction:ES6/coefficient-policy-for-the-functorial-diagrams",
         "verdict": "verified",
-        "note": "Excursion relations have general coefficients; the spectral map retains the component-order hypothesis from ES1. No categorical prime hypothesis is inserted into scalar reconstruction."
+        "note": "The component-order hypothesis is attached to each spectral-centre diagram; scalar excursion reconstruction keeps every ell different from p."
       },
       {
         "nodeId": "ExcursionOperatorsAndSpectralAction:ES6:functoriality/isogenies",
         "verdict": "verified",
-        "note": "IX.6.1 proof and adjoint-isomorphism/Satake suppliers checked; the stronger HS4 kernel comparison remains an explicit request."
+        "note": "Checked FS IX.6.1 projection formula against HS4 clause (d), Satake adjoint naturality and VS4 neutral restriction; actual restriction may have other strata."
       },
       {
         "nodeId": "ExcursionOperatorsAndSpectralAction:ES6:functoriality/products",
-        "verdict": "corrected",
-        "note": "Corrected source-finding reference to E2; IX.6.2 uses both distinct factors and compact exterior generators, without claiming the tensor map exhausts the centre."
+        "verdict": "verified",
+        "note": "Distinct factors, exterior Satake kernels and compact lisse generators give the centre tensor map and constituent parameters; no centre tensor isomorphism is claimed."
       },
       {
         "nodeId": "ExcursionOperatorsAndSpectralAction:ES6:functoriality/weil-restriction",
-        "verdict": "corrected",
-        "note": "Replaced abelian Shapiro as proof input by the existing subgroup freeness instance, retaining finite-index finite generation; nonabelian stack/coinduction proof is planned locally."
+        "verdict": "verified",
+        "note": "Finite separability, common normal wild subgroup, explicit nonabelian coset cocycle, fppf conjugacy transport, and compatible q-half normalization give the Shapiro comparison."
       },
       {
         "nodeId": "ExcursionOperatorsAndSpectralAction:ES6:functoriality/tori-spectral-center",
         "verdict": "corrected",
-        "note": "Added RG2.5 and BG1 supplier request dependencies. Completed quotient group algebras allow infinite T(E)/K; full equal-characteristic reciprocity remains requested."
+        "note": "The centre has all torus strata and possibly infinite Laurent quotients. Induced-torus resolution, nonsplit crossed cocycles, all-E BG1 and full reciprocity are exact owner requests; made BG1 field extension explicit."
       },
       {
         "nodeId": "ExcursionOperatorsAndSpectralAction:ES6:functoriality/torus-two-leg-calculation",
-        "verdict": "unverifiable",
-        "note": "Corrected geometric Artin normalization to arithmetic Artin precomposed with inversion. The actual Hecke endpoint sign and the universal-coefficient regular-module operator identity have not been established."
+        "verdict": "verified",
+        "note": "Checked actual Std input O(d+1)(-D), its ideal-sheaf frame, scaling and inverse residue-Frobenius descent. Independent legs give the claimed regular-module translation over arbitrary Lambda."
       },
       {
         "nodeId": "ExcursionOperatorsAndSpectralAction:ES6:functoriality/tori-diagonal-embedding",
-        "verdict": "unverifiable",
-        "note": "Replaced invalid scalar-to-integral inference by the required regular-module operator/generator proof and recorded its gap. This essential calculation remains unverified; the suggested fragment does not discharge it."
+        "verdict": "verified",
+        "note": "Compact finite-wild factorization precedes generation; group-algebra basis actions determine each faithful regular coordinate, including nilpotents, in every physical degree."
       },
       {
         "nodeId": "ExcursionOperatorsAndSpectralAction:ES6:functoriality/central-characters-and-twisting",
         "verdict": "verified",
-        "note": "Connected-centre factorization follows the torus and adjoint-isomorphism diagrams; general induced-torus/resolution inputs are explicitly requested."
+        "note": "For a smooth torus centre, multiplication Z times G to G and dual central projection compare actual rational central characters; nonsmooth connected mu_p is not silently a torus."
       },
       {
         "nodeId": "ExcursionOperatorsAndSpectralAction:ES6:functoriality/twisting-by-abelianized-characters",
         "verdict": "verified",
-        "note": "IX.6.5 twisting proof uses the normalized torus action and mixed Satake compatibility; scalar twisting does not assert a disconnected centre is a torus."
+        "note": "The graph into G times its abelianization and product compatibility multiply only the dual-group component by the central cocycle, leaving the Weil projection fixed."
       },
       {
         "nodeId": "ExcursionOperatorsAndSpectralAction:ES6:functoriality/z-embedding",
         "verdict": "verified",
-        "note": "Kaletha Definition 5.1 and Corollary 5.3 provide the p-adic injective construction with induced quotient and H1 comparison; modular character extension is separately requested."
+        "note": "Kaletha Definition 5.1, Proposition 5.2 and Corollary 5.3 checked in their p-adic range. Definition/API/tests preserve injection, torus quotient and H1 comparison; modular extension is separately proved/requested."
       },
       {
         "nodeId": "ExcursionOperatorsAndSpectralAction:ES6:functoriality/z-embedding-central-character-comparison",
         "verdict": "corrected",
-        "note": "Removed the unsupported connected-centre surjective cover and restricted the theorem to the conditional p-adic injective comparison. An all-field target is explicitly left open."
+        "note": "Verified all-field central torus pushout, smooth character extension, closed-cocompact quotient lift using only finite length, geometric restriction to a scalar quotient, central crossed-cocycle comparison and common pushout. Corrected supplier proof slips E7–E9 explicitly; kept the flat-Kummer obstruction."
       },
       {
         "nodeId": "ExcursionOperatorsAndSpectralAction:ES6:duality/bernstein-zelevinsky-duals",
-        "verdict": "corrected",
-        "note": "Added VS5 stage dependency and precise lisse/general-coefficient BZ request; checked the full IX.5.3 proof and its enhanced-centre domain."
+        "verdict": "verified",
+        "note": "Checked full FS VI.12.1 and IX.5.3 proofs, rho(-1) inner correction, compact lisse BZ supplier, enhanced-centre domain and exact ES1 input; noncompact enrichment remains requested."
       },
       {
         "nodeId": "ExcursionOperatorsAndSpectralAction:ES6:duality/smooth-duals",
-        "verdict": "corrected",
-        "note": "Added VS5 lisse dependency and all-coefficient duality/admissibility request. The IX.2 all-Hecke argument and late ES7 parabolic return are explicit, with no reverse dependency from ES6 functoriality."
+        "verdict": "verified",
+        "note": "All-Hecke smooth duality uses the admissible contragredient dictionary and late ES7 parabolic support argument. No reverse ES7 or SR.6 edge enters ES6 functoriality."
       }
     ]
   }
