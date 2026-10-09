@@ -37801,7 +37801,8 @@
    ],
    "revisionOf": "BP-PadicMeasuresIwasawaAlgebras",
    "prompt": "research/blueprint/prompts/BP-PadicMeasuresIwasawaAlgebras~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6472"
   },
   {
    "priority": 2,
@@ -46298,8 +46299,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-AdelicAlgebraicGroups.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7453"
+   "state": "pending",
+   "note": "released on GitHub issue #7453"
   },
   {
    "id": "REV-PKG-AdelicAlgebraicGroups",
