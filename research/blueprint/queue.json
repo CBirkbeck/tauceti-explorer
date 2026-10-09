@@ -46443,8 +46443,8 @@
     "PKG-DiamondEtaleCohomology"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-DiamondEtaleCohomology.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7512"
+   "state": "pending",
+   "note": "released on GitHub issue #7512"
   },
   {
    "id": "PKG-DiamondsAndVStacks",
@@ -47806,7 +47806,8 @@
     "PKG-VectorBundlesAndIsocrystals"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-VectorBundlesAndIsocrystals.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7542"
   },
   {
    "id": "PKG-WeightsInEtaleCohomology",
