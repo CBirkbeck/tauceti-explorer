@@ -1,8 +1,8 @@
 # REV-FIX-RT-AREA-langlands-2~3
 
-Current blocked checkpoint: Codex session `codex-IfSuv6`, 9 October 2026,
-issue #5871, base `e57e29c1f813ea669d9f7e9de986223e0b987862`.
-Before this update, all seven authorized files matched merged checkpoint PR #7795.
+Current blocked checkpoint: Codex session `codex-dnaUzE`, 9 October 2026,
+issue #5871, base `0e85566a5f0de7f88ac03a80f6eeedb51ed290b0`.
+Before this update, all seven authorized files matched merged checkpoint PR #7798.
 This continuation reproduces the unresolved intake-scope blocker and preserves
 all mathematical verdicts and reviewer objects. Maintainer metadata repair is
 required before another worker continuation can complete intake.
@@ -504,14 +504,12 @@ remain historical evidence. No fresh primary-source reading, pinned-library
 review or graph audit is claimed. The next action remains maintainer repair
 of the metadata, rather than another unchanged-input continuation.
 
-## Current blocker receipt, 9 October 2026 — codex-IfSuv6
+## Current blocker receipt, 9 October 2026 — codex-dnaUzE
 
-Claim confirmed at [comment 6074977052](https://github.com/CBirkbeck/tauceti-explorer/issues/5871#issuecomment-6074977052).
+Claim confirmed at [comment 6075437662](https://github.com/CBirkbeck/tauceti-explorer/issues/5871#issuecomment-6075437662).
 Re-read the confirmed live issue and inherited handoff. All seven issue outputs
-were byte-for-byte identical to [PR #7795](https://github.com/CBirkbeck/tauceti-explorer/pull/7795),
-merge commit `244b3bc00`, before this update. The three packets and three
-suggested files also match [PR #7780](https://github.com/CBirkbeck/tauceti-explorer/pull/7780),
-merge commit `80353a01e61bff319775e0fbafaaddb43d5fae78`.
+were byte-for-byte identical to [PR #7798](https://github.com/CBirkbeck/tauceti-explorer/pull/7798),
+merge commit `45c6dba4738a26d32829e0ee89eed2a0f707b5b4`, before this update.
 
 Read `issues.deliverables_complete`, the intake allowlist and the historical
 `make_queue.fix_rounds` path. The current review queue entry is pending and
@@ -527,7 +525,8 @@ requiring maintainer repair.
 
 Fresh validation: all three `check_blueprint.py` runs report zero errors and
 zero warnings; all 177 nodes remain unchecked; no packet contains an excerpt
-field; all forty confirmed findings have exactly one report disposition.
+field; the finding and verification files contain the same forty identifiers,
+all confirmed; all forty findings have exactly one report disposition.
 Existing verdicts remain CSM accepted, Global accepted, GL2 needs_changes.
 The GL2 negative verdict is a completed review outcome, not the reason intake
 fails. This run changes only the report and handoff. It does not claim fresh
