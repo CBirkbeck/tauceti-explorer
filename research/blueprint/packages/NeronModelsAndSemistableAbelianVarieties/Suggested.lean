@@ -18,11 +18,10 @@ The file makes the following design choices explicit.
   and every uniqueness statement is a statement about marked models.
 * Finite type is enforced by `QuasiCompact` on top of `Smooth` (which already gives locally finite
   presentation); a locally-finite-type model is not a model in the sense of this file.
-* The lattice-level part of the monodromy theory (character lattices, the integral monodromy
-  pairing, its cokernel and discriminant pairing, the cycle lattice of a dual multigraph and the
-  intersection-matrix quotient) is stated over `ℤ` with no geometric carrier, so that the
+* The lattice-level part of the monodromy theory (the integral pairing, its cokernel and
+  two-lattice discriminant pairing, and the cycle lattice of a dual multigraph) is stated over `ℤ` with no geometric carrier, so that the
   arithmetic computations of the roadmap's checks are already meaningful.
-* The intersection-matrix description of the component group of a Jacobian is stated against Tau
+* The intersection-matrix comparison of the component group of a Jacobian uses Tau
   Ceti's numerical Picard group `TauCeti.NumericalType.Pic` and its degree map, which are pinned
   and not redefined.
 -/
@@ -50,38 +49,48 @@ namespace NeronMappingProperty
 
 variable {j} {X Y : Over S}
 
+/-- Generic restriction is bijective on the specified class of test objects. -/
 theorem bijective (h : NeronMappingProperty j X) (hY : Smooth Y.hom) :
     Function.Bijective (fun f : Y ⟶ X => (Over.pullback j).map f) := by sorry
 
+/-- Generic restriction distinguishes morphisms from a permitted test object. -/
 theorem injective (h : NeronMappingProperty j X) (hY : Smooth Y.hom) :
     Function.Injective (fun f : Y ⟶ X => (Over.pullback j).map f) := by sorry
 
+/-- Every generic morphism from a permitted test object extends. -/
 theorem surjective (h : NeronMappingProperty j X) (hY : Smooth Y.hom) :
     Function.Surjective (fun f : Y ⟶ X => (Over.pullback j).map f) := by sorry
 
+/-- A generic morphism from a permitted test object has exactly one extension. -/
 theorem existsUnique (h : NeronMappingProperty j X) (hY : Smooth Y.hom)
     (f : (Over.pullback j).obj Y ⟶ (Over.pullback j).obj X) :
     ∃! g : Y ⟶ X, (Over.pullback j).map g = f := by sorry
 
+/-- Morphisms from a permitted test object are equal when their generic restrictions agree. -/
 theorem hom_ext (h : NeronMappingProperty j X) (hY : Smooth Y.hom)
     (f g : Y ⟶ X) (e : (Over.pullback j).map f = (Over.pullback j).map g) :
     f = g := by sorry
 
+/-- The mapping property is equivalent to unique extension for every smooth test object. -/
 theorem iff_existsUnique : NeronMappingProperty j X ↔
     ∀ Y : Over S, Smooth Y.hom →
       ∀ f : (Over.pullback j).obj Y ⟶ (Over.pullback j).obj X,
         ∃! g : Y ⟶ X, (Over.pullback j).map g = f := by sorry
 
+/-- An isomorphism of targets preserves the Néron mapping property. -/
 theorem of_iso {X' : Over S} (e : X ≅ X') (h : NeronMappingProperty j X) :
     NeronMappingProperty j X' := by sorry
 
+/-- A generically identity endomorphism of a smooth object with the mapping property is the identity. -/
 theorem identityRestriction (h : NeronMappingProperty j X) (hX : Smooth X.hom)
     (f : X ⟶ X) (e : (Over.pullback j).map f = 𝟙 _) : f = 𝟙 X := by sorry
 
+/-- A smooth test object with noninjective restriction refutes the mapping property. -/
 theorem not_of_restriction_not_injective (hY : Smooth Y.hom)
     (h : ¬ Function.Injective (fun f : Y ⟶ X => (Over.pullback j).map f)) :
     ¬ NeronMappingProperty j X := by sorry
 
+/-- A smooth test object with nonsurjective restriction refutes the mapping property. -/
 theorem not_of_restriction_not_surjective (hY : Smooth Y.hom)
     (h : ¬ Function.Surjective (fun f : Y ⟶ X => (Over.pullback j).map f)) :
     ¬ NeronMappingProperty j X := by sorry
@@ -120,28 +129,38 @@ namespace NeronModel
 
 variable {j} {A : Over η} (M : NeronModel j A)
 
+/-- The structure morphism of a marked model is smooth. -/
 theorem smooth_model : Smooth M.model.hom := by sorry
 
+/-- The structure morphism of a marked model is separated. -/
 theorem separated_model : IsSeparated M.model.hom := by sorry
 
+/-- The structure morphism of a marked model is quasi-compact. -/
 theorem quasiCompact_model : QuasiCompact M.model.hom := by sorry
 
+/-- A marked Néron model satisfies the full smooth-test mapping property. -/
 theorem mappingProperty : NeronMappingProperty j M.model := by sorry
 
+/-- The marking followed by its inverse is the identity of the generic model. -/
 theorem generic_hom_inv : M.genericIso.hom ≫ M.genericIso.inv = 𝟙 _ := by sorry
 
+/-- The inverse marking followed by the marking is the identity of the given generic object. -/
 theorem generic_inv_hom : M.genericIso.inv ≫ M.genericIso.hom = 𝟙 _ := by sorry
 
+/-- Morphisms from a permitted test object are equal when their generic restrictions agree. -/
 theorem hom_ext (Y : Over S) (hY : Smooth Y.hom) (f g : Y ⟶ M.model)
     (e : (Over.pullback j).map f ≫ M.genericIso.hom =
       (Over.pullback j).map g ≫ M.genericIso.hom) : f = g := by sorry
 
+/-- A map to the marked generic object extends uniquely from any smooth test object. -/
 theorem extension_existsUnique (Y : Over S) (hY : Smooth Y.hom)
     (f : (Over.pullback j).obj Y ⟶ A) :
     ∃! g : Y ⟶ M.model, (Over.pullback j).map g ≫ M.genericIso.hom = f := by sorry
 
+/-- The forward morphism of the marking is an isomorphism. -/
 theorem genericIso_isIso : IsIso M.genericIso.hom := by sorry
 
+/-- An endomorphism preserving the marking is the identity. -/
 theorem identity_unique (f : M.model ⟶ M.model)
     (h : (Over.pullback j).map f ≫ M.genericIso.hom = M.genericIso.hom) :
     f = 𝟙 M.model := by sorry
@@ -163,41 +182,51 @@ noncomputable def extend (Y : Over S) (hY : Smooth Y.hom)
     (f : (Over.pullback j).obj Y ⟶ A) : Y ⟶ M.model :=
   Classical.choose (ExistsUnique.exists (M.extension_existsUnique Y hY f))
 
+/-- The marked generic restriction of the chosen extension is the given morphism. -/
 theorem extend_restrict (Y : Over S) (hY : Smooth Y.hom)
     (f : (Over.pullback j).obj Y ⟶ A) :
     (Over.pullback j).map (M.extend Y hY f) ≫ M.genericIso.hom = f := by sorry
 
+/-- Any morphism with the prescribed marked restriction is the chosen extension. -/
 theorem extend_unique (Y : Over S) (hY : Smooth Y.hom)
     (f : (Over.pullback j).obj Y ⟶ A) (g : Y ⟶ M.model)
     (h : (Over.pullback j).map g ≫ M.genericIso.hom = f) :
     g = M.extend Y hY f := by sorry
 
+/-- Extending the marked restriction of an existing morphism returns that morphism. -/
 theorem extend_map (Y : Over S) (hY : Smooth Y.hom) (f : Y ⟶ M.model) :
     M.extend Y hY ((Over.pullback j).map f ≫ M.genericIso.hom) = f := by sorry
 
+/-- Extending the model’s own marking returns its identity. -/
 theorem extend_identity :
     M.extend M.model M.smooth M.genericIso.hom = 𝟙 M.model := by sorry
 
+/-- Extension commutes with precomposition by a morphism between smooth test objects. -/
 theorem extend_precomp (Y Z : Over S) (hY : Smooth Y.hom) (hZ : Smooth Z.hom)
     (g : Z ⟶ Y) (f : (Over.pullback j).obj Y ⟶ A) :
     M.extend Z hZ ((Over.pullback j).map g ≫ f) = g ≫ M.extend Y hY f := by sorry
 
+/-- The chosen extension is independent of the proof of smoothness. -/
 theorem extend_proof_irrel (Y : Over S) (hY hY' : Smooth Y.hom)
     (f : (Over.pullback j).obj Y ⟶ A) : M.extend Y hY f = M.extend Y hY' f := by sorry
 
+/-- The canonical map from another marked model respects both markings. -/
 theorem extend_to_model (N : NeronModel j A) :
     (Over.pullback j).map (M.extend N.model N.smooth N.genericIso.hom) ≫
       M.genericIso.hom = N.genericIso.hom := by sorry
 
+/-- The composite of canonical maps of marked models is the canonical map. -/
 theorem extend_comp_model (N P : NeronModel j A) :
     N.extend P.model P.smooth P.genericIso.hom ≫
       M.extend N.model N.smooth N.genericIso.hom =
       M.extend P.model P.smooth P.genericIso.hom := by sorry
 
+/-- The two canonical maps between marked models compose to the identity. -/
 theorem extend_inverse_model (N : NeronModel j A) :
     M.extend N.model N.smooth N.genericIso.hom ≫
       N.extend M.model M.smooth M.genericIso.hom = 𝟙 N.model := by sorry
 
+/-- The canonical map between two marked Néron models is an isomorphism. -/
 theorem extend_isIso (N : NeronModel j A) :
     IsIso (M.extend N.model N.smooth N.genericIso.hom) := by sorry
 
@@ -237,29 +266,39 @@ namespace WeakNeronModel
 
 variable {j} {A : Over η} (W : WeakNeronModel j A)
 
+/-- The structure morphism of a marked model is smooth. -/
 theorem smooth_model : Smooth W.model.hom := by sorry
 
+/-- The structure morphism of a marked model is separated. -/
 theorem separated_model : IsSeparated W.model.hom := by sorry
 
+/-- The structure morphism of a marked model is quasi-compact. -/
 theorem quasiCompact_model : QuasiCompact W.model.hom := by sorry
 
+/-- The marking followed by its inverse is the identity of the generic model. -/
 theorem generic_hom_inv : W.genericIso.hom ≫ W.genericIso.inv = 𝟙 _ := by sorry
 
+/-- The inverse marking followed by the marking is the identity of the given generic object. -/
 theorem generic_inv_hom : W.genericIso.inv ≫ W.genericIso.hom = 𝟙 _ := by sorry
 
+/-- Generic restriction is bijective on the specified class of test objects. -/
 theorem bijective (Y : Over S) (hY : Etale Y.hom) :
     Function.Bijective (fun f : Y ⟶ W.model => (Over.pullback j).map f) := by sorry
 
+/-- Generic restriction distinguishes morphisms from a permitted test object. -/
 theorem injective (Y : Over S) (hY : Etale Y.hom) :
     Function.Injective (fun f : Y ⟶ W.model => (Over.pullback j).map f) := by sorry
 
+/-- Every generic morphism from a permitted test object extends. -/
 theorem surjective (Y : Over S) (hY : Etale Y.hom) :
     Function.Surjective (fun f : Y ⟶ W.model => (Over.pullback j).map f) := by sorry
 
+/-- A generic morphism from a permitted test object has exactly one extension. -/
 theorem existsUnique (Y : Over S) (hY : Etale Y.hom)
     (f : (Over.pullback j).obj Y ⟶ A) :
     ∃! g : Y ⟶ W.model, (Over.pullback j).map g ≫ W.genericIso.hom = f := by sorry
 
+/-- Morphisms from a permitted test object are equal when their generic restrictions agree. -/
 theorem hom_ext (Y : Over S) (hY : Etale Y.hom) (f g : Y ⟶ W.model)
     (e : (Over.pullback j).map f ≫ W.genericIso.hom =
       (Over.pullback j).map g ≫ W.genericIso.hom) : f = g := by sorry
@@ -326,9 +365,11 @@ ramification index `e`: on `ℤ/n → ℤ/(e·n)` it is multiplication by `e` (C
 noncomputable def componentMap (n e : ℕ) : ZMod n →+ ZMod (e * n) :=
   ZMod.lift n ⟨zmultiplesHom _ (e : ZMod (e * n)), by sorry⟩
 
+/-- Ramified Tate base change sends the residue class of `r` to that of `e*r`. -/
 theorem componentMap_apply (n e : ℕ) (r : ℤ) :
     componentMap n e (r : ZMod n) = ((e * r : ℤ) : ZMod (e * n)) := by sorry
 
+/-- Positive ramification index makes the Tate component map injective, including `n = 0` algebraically. -/
 theorem componentMap_injective (n e : ℕ) (he : 0 < e) :
     Function.Injective (componentMap n e) := by sorry
 
@@ -359,6 +400,18 @@ source and target maps. Loops and parallel edges are allowed. -/
 noncomputable def boundary (src tgt : E → V) : (E →₀ ℤ) →ₗ[ℤ] (V →₀ ℤ) :=
   Finsupp.linearCombination ℤ fun e => Finsupp.single (tgt e) 1 - Finsupp.single (src e) 1
 
+/-- A loop has zero boundary. -/
+example : boundary (fun _ : Unit => ()) (fun _ : Unit => ()) (Finsupp.single () 1) = 0 := by
+  sorry
+
+/-- An oriented edge has boundary `target - source`; reversing this sign fails the test. -/
+example : boundary (fun _ : Unit => (0 : Fin 2)) (fun _ => 1) (Finsupp.single () 1) =
+    Finsupp.single 1 1 - Finsupp.single 0 1 := by sorry
+
+/-- Two parallel edges with coefficients `1,-1` cancel at both endpoints. -/
+example : boundary (fun _ : Fin 2 => (0 : Fin 2)) (fun _ => 1)
+    (Finsupp.single 0 1 - Finsupp.single 1 1) = 0 := by sorry
+
 /-- The cycle lattice `H₁(Γ, ℤ) = ker ∂` of a finite multigraph; it is the character lattice of the
 toric part of the generalised Jacobian of a nodal curve with dual graph `Γ`
 (SGA 7 I, Exposé IX, 12.3.7). -/
@@ -371,6 +424,7 @@ noncomputable def edgeForm (len : E → ℕ) : (E →₀ ℤ) →ₗ[ℤ] (E →
   LinearMap.mk₂ ℤ (fun c d => ∑ e, (len e : ℤ) * c e * d e) (by sorry) (by sorry) (by sorry)
     (by sorry)
 
+/-- The weighted edge form is symmetric on the edge module. -/
 theorem edgeForm_symm (len : E → ℕ) (c d : E →₀ ℤ) :
     edgeForm len c d = edgeForm len d c := by sorry
 
@@ -394,6 +448,18 @@ same vertices would give rank `0`. -/
 example : Module.finrank ℤ (cycleLattice (fun _ : Fin 2 => (0 : Fin 2)) (fun _ => 1)) = 1 := by
   sorry
 
+/-- A loop of length `5` gives `5` on its unit cycle and `10` on coefficients `1,2`. -/
+example : edgeForm (fun _ : Unit => 5) (Finsupp.single () 1) (Finsupp.single () 1) = 5 ∧
+    edgeForm (fun _ : Unit => 5) (Finsupp.single () 1) (Finsupp.single () 2) = 10 := by sorry
+
+/-- A zero edge length makes the form zero, even on a nonzero cycle. -/
+example : edgeForm (fun _ : Unit => 0) (Finsupp.single () 1) (Finsupp.single () 1) = 0 := by
+  sorry
+
+/-- Opposite coefficients on the two arguments change the sign; simultaneous reversal does not. -/
+example : edgeForm (fun _ : Unit => 5) (Finsupp.single () 1) (Finsupp.single () (-1)) = -5 := by
+  sorry
+
 /-- The Betti number: for a connected multigraph with nonempty vertex set the cycle lattice has
 rank `#E − #V + 1`. -/
 theorem finrank_cycleLattice [Nonempty V] (src tgt : E → V)
@@ -412,7 +478,7 @@ namespace LatticePairing
 
 variable {X Y : Type*} [AddCommGroup X] [AddCommGroup Y] [Module ℤ X] [Module ℤ Y]
 
-/-- The adjoint `u♯ : Y → Hom(X, ℤ)` of an integral pairing `u : Y × X → ℤ`. -/
+/-- The adjoint `u♯ : Y → Hom(X, ℤ)` of an integral pairing `u : Y × X → ℤ`. Here `Y = X_{A^∨}` and `X = X_A`. -/
 def adjoint (u : Y →ₗ[ℤ] X →ₗ[ℤ] ℤ) : Y →ₗ[ℤ] Module.Dual ℤ X := u
 
 /-- The component group attached to an integral pairing: the cokernel of its adjoint. For the
@@ -421,19 +487,38 @@ the geometric component group of the Néron model (SGA 7 I, Exposé IX, Theorem 
 abbrev componentGroup (u : Y →ₗ[ℤ] X →ₗ[ℤ] ℤ) :=
   Module.Dual ℤ X ⧸ LinearMap.range (adjoint u)
 
+variable [Module.Free ℤ X] [Module.Finite ℤ X] [Module.Free ℤ Y] [Module.Finite ℤ Y]
+
 /-- The discriminant pairing `coker(u♯) × coker((uᵀ)♯) → ℚ/ℤ` of a nondegenerate integral pairing
-of finite free lattices. For the monodromy pairing it is Grothendieck's pairing on component
-groups (SGA 7 I, Exposé IX, §1.2 and Theorem 11.5). -/
+of two finite free lattices, with the positive inverse-form convention. The geometric
+comparison belongs to README Layer 4; no symmetry of the original pairing is assumed. -/
 noncomputable def discriminantPairing (u : Y →ₗ[ℤ] X →ₗ[ℤ] ℤ)
     (hinj : Function.Injective (adjoint u)) (hfin : Finite (componentGroup u)) :
     componentGroup u →+ (componentGroup u.flip →+ AddCircle (1 : ℚ)) := by sorry
 
+/-- The inverse-form pairing vanishes when its first cokernel class is zero. -/
 theorem discriminantPairing_zero_left (u : Y →ₗ[ℤ] X →ₗ[ℤ] ℤ)
     (hinj : Function.Injective (adjoint u)) (hfin : Finite (componentGroup u))
     (b : componentGroup u.flip) : discriminantPairing u hinj hfin 0 b = 0 := by sorry
 
+/-- Evaluation on specified quotient representatives pins the positive inverse pairing.
+If `u♯ y = m a`, then the value at `[a], [b]` is `b(y)/m` modulo the integers. -/
+theorem discriminantPairing_mk (u : Y →ₗ[ℤ] X →ₗ[ℤ] ℤ)
+    (hinj : Function.Injective (adjoint u)) (hfin : Finite (componentGroup u))
+    (a : Module.Dual ℤ X) (b : Module.Dual ℤ Y) (m : ℤ) (hm : m ≠ 0)
+    (y : Y) (hy : adjoint u y = m • a) :
+    discriminantPairing u hinj hfin (Submodule.Quotient.mk a) (Submodule.Quotient.mk b) =
+      ((b y : ℚ) / m : ℚ) := by sorry
+
 /-- The rank-one pairing `(y, x) ↦ n·x·y` on `ℤ × ℤ`. -/
 noncomputable def rankOne (n : ℕ) : ℤ →ₗ[ℤ] ℤ →ₗ[ℤ] ℤ := (n : ℤ) • LinearMap.mul ℤ ℤ
+
+/-- Rank-one evaluation specifies the adjoint: at `n = 5`, `y = 1`, `x = 2` its value is `10`. -/
+example : adjoint (rankOne 5) 1 2 = 10 := by sorry
+
+/-- At modulus `1` the adjoint is the identity functional; at modulus `0` it is zero. -/
+example (y x : ℤ) : adjoint (rankOne 1) y x = y * x ∧
+    adjoint (rankOne 0) y x = 0 := by sorry
 
 /-- For the split Tate curve with `ord(q) = n` the pairing is multiplication by `n` and the
 component group is `ℤ/n`. -/
@@ -449,12 +534,39 @@ example : Subsingleton (componentGroup (0 : PUnit →ₗ[ℤ] PUnit →ₗ[ℤ] 
 infinite, so the discriminant pairing needs the finiteness hypothesis. -/
 example : ¬ Finite (componentGroup (rankOne 0)) := by sorry
 
-/-- The pairing of residue classes `r, s` in `ℤ/n` is `r·s/n` modulo `ℤ`, up to the fixed sign
-convention. -/
-example (n : ℕ) (hn : 0 < n) (r s : ℤ) :
-    ∃ (hinj : Function.Injective (adjoint (rankOne n))) (hfin : Finite (componentGroup (rankOne n)))
-      (a : componentGroup (rankOne n)) (b : componentGroup (rankOne n).flip),
-      discriminantPairing (rankOne n) hinj hfin a b = ((r * s : ℚ) / n : ℚ) := by sorry
+/-- The class of the dual functional `x ↦ r*x` in the first rank-one cokernel. -/
+noncomputable def rankOneClass (n : ℕ) (r : ℤ) : componentGroup (rankOne n) :=
+  Submodule.Quotient.mk (r • (LinearMap.id : Module.Dual ℤ ℤ))
+
+/-- The same specified functional in the transposed rank-one cokernel. -/
+noncomputable def rankOneDualClass (n : ℕ) (s : ℤ) : componentGroup (rankOne n).flip :=
+  Submodule.Quotient.mk (s • (LinearMap.id : Module.Dual ℤ ℤ))
+
+/-- The classes are the zero classes at residue `0`. -/
+example (n : ℕ) : rankOneClass n 0 = 0 ∧ rankOneDualClass n 0 = 0 := by sorry
+
+/-- Adding the modulus to a representative preserves each class. -/
+example (n : ℕ) (r : ℤ) : rankOneClass n (r + n) = rankOneClass n r ∧
+    rankOneDualClass n (r + n) = rankOneDualClass n r := by sorry
+
+/-- At modulus `5` the class of `1` is nonzero in either cokernel. -/
+example : rankOneClass 5 1 ≠ 0 ∧ rankOneDualClass 5 1 ≠ 0 := by sorry
+
+/-- The value on the specified classes `r, s` is positive `r*s/n` modulo the integers. -/
+theorem discriminantPairing_rankOne (n : ℕ) (hn : 0 < n)
+    (hinj : Function.Injective (adjoint (rankOne n)))
+    (hfin : Finite (componentGroup (rankOne n))) (r s : ℤ) :
+    discriminantPairing (rankOne n) hinj hfin (rankOneClass n r) (rankOneDualClass n s) =
+      ((r * s : ℚ) / n : ℚ) := by sorry
+
+/-- At modulus `5`, the values at `(1, 1)` and `(1, 2)` are `1/5` and `2/5`; this
+distinguishes the positive inverse form from its negative and from the zero pairing. -/
+example (hinj : Function.Injective (adjoint (rankOne 5)))
+    (hfin : Finite (componentGroup (rankOne 5))) :
+    discriminantPairing (rankOne 5) hinj hfin (rankOneClass 5 1) (rankOneDualClass 5 1) =
+      (1 / 5 : ℚ) ∧
+    discriminantPairing (rankOne 5) hinj hfin (rankOneClass 5 1) (rankOneDualClass 5 2) =
+      (2 / 5 : ℚ) := by sorry
 
 /-- Replacing `r` by `r + n` changes `r·s/n` by the integer `s`, so the value in `ℚ/ℤ` is
 unchanged. -/
@@ -472,10 +584,6 @@ end LatticePairing
 
 /-! ## Layer 5: Tate modules, conductors and local factors -/
 
--- The conductor and the local Euler factor of an abelian variety are defined by
--- ArithmeticGaloisRepresentations (R01.2, R01.3, R01.6); this roadmap states their values for
--- semistable varieties and their ℓ-independence through the Raynaud extension, and types none of
--- it here: the Tate module of an abelian variety with its inertia action is not pinned.
 
 /-! ## Layer 6: interfaces for modularity and finiteness -/
 
@@ -495,36 +603,52 @@ example : ∃ ρ : Multiplicative (ZMod 3) →* ((Fin 2 → ZMod 2) →ₗ[ZMod 
 
 /-- The image of `Gal(K(J[N])/K)` in `GSp_{2g}(ℤ/N)` has order less than `N^{4g²}`: the crude bound
 used for the degree of a full-level extension (Yuan, Lemma 4.9). -/
-theorem card_lt_of_subgroup_matrix (N g : ℕ) (hN : 1 < N)
+theorem card_lt_of_subgroup_matrix (N g : ℕ) (hN : 1 < N) (hg : 0 < g)
     (H : Subgroup (Matrix (Fin (2 * g)) (Fin (2 * g)) (ZMod N))ˣ) :
-    Nat.card H < N ^ (4 * g ^ 2) + 1 := by sorry
+    Nat.card H < N ^ (4 * g ^ 2) := by sorry
+
+/-- Dimension zero refutes the strict bound: the group of units of `0×0` matrices has
+order `1`, and `N^0 = 1`. -/
+example : Nat.card (Matrix (Fin 0) (Fin 0) (ZMod 3))ˣ = 1 ∧
+    ¬ Nat.card (Matrix (Fin 0) (Fin 0) (ZMod 3))ˣ < 3 ^ (4 * 0 ^ 2) := by sorry
+
+/-- The finite-group intersection used in the ordinary residual-point theorem: the
+centraliser of three disjoint transpositions has order `48`, while its point stabiliser
+has order `8` (BCGP 2025, Lemma 9.1.8). -/
+example (τ : Equiv.Perm (Fin 6))
+    (hτ : τ = Equiv.swap 0 1 * Equiv.swap 2 3 * Equiv.swap 4 5) :
+    Nat.card {σ : Equiv.Perm (Fin 6) // σ * τ = τ * σ} = 48 ∧
+    Nat.card {σ : Equiv.Perm (Fin 6) // σ * τ = τ * σ ∧ σ 0 = 0} = 8 := by sorry
+
+/-- Coordinate scaling `x = u²x'`, `y = u³y'` multiplies `dx/(2y)` by `u⁻¹`. -/
+example (u : ℚ) (hu : u ≠ 0) : u ^ 2 / u ^ 3 = u⁻¹ := by sorry
+
+/-- The two directions at `u = 5` have reciprocal factors, not the same factor. -/
+example : (5 : ℚ) ^ 2 / 5 ^ 3 = 1 / 5 ∧ (5 : ℚ) ^ 3 / 5 ^ 2 = 5 := by sorry
 
 end Interfaces
 
 /-!
-## Statements not typed at the pinned libraries
+## Further targets in README.md
 
-The following targets of `README.md` have no signature in this file because their carriers
-(abelian schemes over a Dedekind base, smooth group schemes over a discrete valuation ring and
-their identity components, tori and character lattices with Galois action, Tate modules of abelian
-varieties with inertia action, formal completions and Raynaud extensions, relative Picard
-functors of semistable curves, Artin and Swan conductors, period rings) are not available in the
-pinned Mathlib and Tau Ceti: the group law on a Néron model and the extension of homomorphisms;
-weak-model smoothening and local existence over an excellent discrete valuation ring; spreading
-out and the Dedekind local-to-global construction; étale base change; the invariant-differential
-lattice; the identity component, the component group, the Chevalley decomposition and the toric
-character lattice; isogeny functoriality; the elliptic reduction filtration, the smooth locus of
-the minimal regular model, the geometric Kodaira configurations and their component groups; the
-semistable reduction predicate and its isogeny and base-change properties; the toric–finite Tate
-filtration, Weil orthogonality, unipotence of inertia, the monodromy criterion, semistable
-reduction after a finite extension and the full-level criterion; the Raynaud extension and the
-polarised uniformisation; the degree-zero Picard scheme of a semistable curve, the normalisation
-sequence, the Picard–Néron identity comparison, the geometric monodromy pairing and the
-intersection-matrix comparison with the actual Jacobian; the one-node hyperelliptic curve, its
-generalised Jacobian, two-torsion and odd-factor torsors; the stable-family Picard and Hodge
-comparison; Néron–Ogg–Shafarevich, isogeny invariance of good reduction, the p-adic comparisons,
-the conductor interface, the semistable conductor formula, the Galois-theoretic Euler polynomial
-and the residual conductor; and the Layer 6 exports.
+Geometric definitions and comparisons are recorded there rather than typed here:
+`GoodReduction`, `WeakNeronBlowup`, `DifferentialLattice`, `IdentityComponent`,
+the geometric `ComponentGroup`, `Chevalley`, `ToricCharacter`,
+`SemistableReduction` and `henselization_iff`, `RaynaudExtensionComparison`,
+`PolarizedUniformization`, `PicardZero`,
+`IntegralMonodromyPairing`, `ComponentPairing`, `RegularPicardNeronQuotient`,
+`BgwNodalPinch`, `BgwGeneralizedJacobian`, `BgwOddFactorTorsors`, `StableFamilyPicard`,
+`B_cris`, `B_st`, `D_cris`, `D_st`, `D_dR`, the crystalline, semistable and de Rham predicates,
+the `PeriodRealization` API and `AbelianVariety.deRham`, and `SemistableOrdinaryAdapter`.
+Their geometric Checks are likewise in README.md.
+
+The corresponding untyped theorems include `GroupLaw`, `Smoothening`, `LocalExistence`,
+`AbelianSchemeModel`, `SpreadAbelian`, `DedekindGluing`, `EtaleBasechange`,
+`JacobianIsogenyFactor`, `FiniteSeparableSemistableExtension`, `MonodromyCriterion`,
+`GraphMonodromy`, `ComponentCokernel`, `IntersectionComponentQuotient`, the Picard–Néron
+comparison, Néron–Ogg–Shafarevich, `PadicComparison`, conductor and local-factor comparisons,
+and the geometric exports of Layer 6. The signed comparisons of `IntegralMonodromyPairing`
+and `ComponentPairing` remain explicit gaps in README 4.3 and 4.6.
 -/
 
 end TauCetiRoadmap.NeronModelsAndSemistableAbelianVarieties

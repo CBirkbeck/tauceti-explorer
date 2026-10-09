@@ -42,8 +42,7 @@ The roadmap owns:
   functoriality under isogeny with the correct (non-exact) statements;
 - for elliptic curves: the identification of the equation-level filtration `E₁ ⊂ E₀ ⊂ E` with
   the Néron model, the smooth locus of the minimal regular model as the Néron model, the
-  geometric configurations attached to the reduction symbol in every residue characteristic,
-  and the geometric component groups by type;
+  geometric component groups by type, using the Kodaira geometry from StableReduction Layer 5;
 - the semistable reduction predicate and its invariance under isogeny and identity-model base
   change; the toric–finite filtration of the Tate module, Weil orthogonality, unipotence of
   inertia, Grothendieck's monodromy criterion, semistable reduction after a finite separable
@@ -82,9 +81,16 @@ It leaves to other roadmaps, and consumes from them:
   its Betti number, stable curves, blow-ups and intersection theory on arithmetic surfaces,
   regular and minimal models with their components and multiplicities, numerical types and the
   numerical Picard group `TauCeti.NumericalType.Pic` with its degree map and torsion, semistable
-  reduction of curves and the curve–Jacobian criterion. StableReduction's introduction assigns
-  the geometric meaning of the elliptic reduction symbol to its Layer 5 without listing it as a
-  target; this roadmap states that dictionary (2.8) on top of Layer 5's minimal regular model.
+  reduction of curves and the curve–Jacobian criterion. StableReduction Layer 5 owns the geometric interpretation of
+  `ReductionSymbol`, including Kodaira fibre configurations; this roadmap consumes that
+  interpretation and owns the smooth-locus and component-group comparisons.
+  Checks on this supplied dictionary that those comparisons must preserve are:
+  `I₀`, `I₁` and `II` each have one component but different normalisations and
+  singularities, so the intersection matrix alone cannot distinguish them;
+  `I₂` has two components meeting twice, hence a double edge;
+  `I₀*`, `IV*`, `III*`, `II*` have respectively `5`, `7`, `8`, `9` components,
+  and component count alone does not determine the type. These are also the counts
+  consumed by EllipticCurves Layer 4 in `v(Δ) − m + 1`.
 - **JacobianChallenge** (Tau Ceti), Layers D–F: the Picard functor, Jacobian and Abel–Jacobi map
   of a smooth proper curve over a field.
 - **AlgebraicCurves** (Tau Ceti), Layer 10: hyperelliptic models.
@@ -122,7 +128,7 @@ It leaves to other roadmaps, and consumes from them:
   configurations, and the explicit models over `𝔽₂`. Part II consumes Layers 2 and 4 of this
   roadmap.
 - **JacobianChallenge Part II**: the comparison of the Hodge line `det e^*Ω¹` of the Picard
-  scheme of a stable family with `det π_*ω`; it consumes 4.15.
+  scheme of a stable family with `det π_*ω`; it consumes 4.13.
 - **ModularCurvesPartII**, **SerreWeightAndLevelOptimisation**, **ArakelovGeometryAndAbelianHeights**,
   **FaltingsFinitenessAndIsogenyTheorems**, **SmallRamificationAndAbelianVarietyBaseCases**,
   **HeegnerPointEulerSystems**, **GrossZagierAndArithmeticHeights**,
@@ -168,11 +174,17 @@ structure morphism, over an arbitrary base morphism `j`, and with the mapping pr
 marked extensionality and uniqueness are `ext_of_genericFiberι_eq` and `Model.subsingleton_iso`
 over `Spec R` and are derived from the mapping property over arbitrary `j` (1.2, 1.4); the
 component group of 2.2 is for smooth finite-type groups over any field and agrees with
-`componentGroupScheme` in the affine algebraically-closed case; the cycle lattice of 4.3 is the
+`componentGroupScheme` in the affine algebraically-closed case; the cycle lattice of 4.2 is the
 integral `H₁` of StableReduction's dual graph, of which that roadmap records only the Betti
-number; the intersection-matrix description of 4.9 is a comparison with `NumericalType.Pic`, not
+number; the intersection-matrix description of 4.7 is a comparison with `NumericalType.Pic`, not
 a second numerical Picard group; the semistable predicate of 3.1 is for abelian varieties and
 restricts, for elliptic curves, to the local form of `WeierstrassCurve.IsSemistable`.
+The existing symmetric discriminant form is
+`TauCeti.LinearAlgebra.IntegralLattice.Discriminant.Bilinear:IntegralLattice.discriminantPairing`
+and `discriminantPairing_mk` (IntegralLattices Layer 1D and Completed/IntegralLattices
+Layer 1.4). The retained pairing in 4.6 is between cokernels of a pairing of two possibly
+different lattices, without a symmetry hypothesis; it does not reconstruct the symmetric
+lattice theory.
 
 Nothing here is "optional": the sequencing is by layer, and every item belongs to exactly one
 layer.
@@ -203,7 +215,11 @@ layer.
 7. **Lattices and pairings.** Character lattices are free `ℤ`-modules with continuous residue
    Galois action. The monodromy pairing `u : X_{A^∨} × X_A → ℤ` is integral; its adjoint `u♯`
    is injective with finite cokernel; the discriminant pairing on cokernels takes values in `ℚ/ℤ`
-   with the sign convention of SGA 7 I, Exposé IX. No integral unimodularity is assumed.
+   with the positive inverse-form convention: for `u = [5]`, the specified classes of `1, 1`
+   have value `1/5`, and those of `1, 2` have value `2/5`. Here `u` is normalised by the
+   valuation pairing of the Raynaud `1`-motive, so a split Tate curve gives `[ord(q)]`.
+   The exact signed comparison with the inertia operator and the biextension obstruction
+   is the explicit comparison gap in 4.3 and 4.6. No integral unimodularity is assumed.
 8. **Dual graphs.** The dual graph of a nodal curve is a finite connected multigraph: vertices
    the components of the normalisation, edges the nodes, loops and parallel edges allowed, with a
    chosen orientation; `H₁(Γ, ℤ) = ker(∂ : ℤ^E → ℤ^V)`; a non-regular node `xy = π^m` is an edge
@@ -217,7 +233,7 @@ layer.
     Weierstrass model; "good reduction" means the multiplicative valuation of the discriminant
     is `1`, that is, the discriminant is a unit. The reduction symbol is EllipticCurves'
     `ReductionSymbol`; "Kodaira type" is used here only for the geometric configuration attached
-    to it (2.8).
+    to it by StableReduction Layer 5.
 11. **Names.** All new declarations live under `TauCeti.AlgebraicGeometry.Neron` (the mapping
     property, models, components, semistability and monodromy) and
     `TauCeti.AlgebraicGeometry.Curves.SemistablePicard` (the Picard theory of Layer 4); Lean
@@ -239,7 +255,7 @@ restriction; its action on morphisms is the restriction map of 1.1. `Over.cartes
 `HasAdditiveReduction`, `hasGoodReduction_iff_isElliptic_reduction`, `localPolynomial`: the
 equation-level predicates compared in Layer 6; `localPolynomial` reads the residue cardinality
 as `Nat.card`, which is `0` for an infinite residue field. `BrauerGroup`: the target of the
-connecting map of 4.14. `BDeRham`, `WittVector.fontaineTheta`: the only period-ring material
+connecting map of 4.12. `BDeRham`, `WittVector.fontaineTheta`: the only period-ring material
 available for 5.3. `Finsupp.linearCombination`, `LinearMap.ker`, `Module.Dual`, `AddCircle`,
 `ZMod`: the lattice-level carriers of Layer 4 and the component-group arithmetic of Layer 2.
 
@@ -275,8 +291,8 @@ Layer 0: `FamilyOfCurves`, generic and special fibres, `FiniteDVRExtension`, mod
 change. Layer 1: at-worst-nodal families, the étale-local normal form `uv = π^n`, normalisation,
 nodes and branches, the dual graph with loops, valence and `b₁`. Layer 3: stable curves. Layer 4:
 blow-ups, strict transforms, intersection multiplicities and the resolution of `xy = π^n`.
-Layer 5: regular and minimal proper models of a positive-genus curve, their uniqueness, components,
-multiplicities, `div(π) = Σ m_i C_i`, adjunction and the genus formula. Layer 6: `NumericalType`,
+Layer 5: regular and minimal proper models of a positive-genus curve, their uniqueness, the
+geometric Kodaira interpretation of elliptic `ReductionSymbol`, components, multiplicities, `div(π) = Σ m_i C_i`, adjunction and the genus formula. Layer 6: `NumericalType`,
 its Picard group, degree map and torsion. Layer 7: semistable reduction of curves after a finite
 separable extension and the curve–Jacobian criterion with its residue-field hypotheses. All over
 an arbitrary discrete valuation ring unless stated.
@@ -304,7 +320,7 @@ SF.1c (T178–T188), SF.2f (Brauer groups), SF.3 (T353–T355, T361), SF.4b (T37
 (T386–T393), SF.4d (T398–T403). AlgebraicModuli T526, T527, T539, T543. AbelianSchemes A1–A3 as
 described above. ArithmeticGaloisRepresentations R01.2 (inertia, quasi-unipotence, Weil–Deligne
 representations and their local Euler factors), R01.3 (Artin and Swan conductors, residual
-conductors, Ogg's formula in every residue characteristic, which consumes 2.7, 2.8 and 2.10),
+conductors, Ogg's formula in every residue characteristic, which consumes 2.7, StableReduction Layer 5 and 2.9),
 R01.6 (Tate modules of abelian varieties, the Weil pairing on Tate modules, the good-reduction
 Frobenius polynomial, which consumes 1.9, and the local Euler factor of an abelian variety with
 its comparison with Mathlib's `localPolynomial`). A prerequisite to a roadmap layer refers to
@@ -317,9 +333,10 @@ proves uniqueness, extension and the group law, constructs models locally and gl
 extracts the differential lattice. Layer 2 builds the identity component, the component group,
 the Chevalley decomposition and the toric character lattice, and compares the elliptic
 equation-level objects with the model. Layer 3 defines semistability, proves the Tate-module
-filtration, Grothendieck's criterion and semistable reduction after a finite extension, and
+filtration, the Picard–Néron identity comparison, semistable reduction after a finite
+extension and then Grothendieck's criterion, and
 compares the formal identity model with the Raynaud extension and the rigid uniformisation.
-Layer 4 builds the Picard theory of a regular semistable curve, the integral monodromy pairing of
+Layer 4 builds the graph and monodromy theory of a regular semistable curve, the integral pairing of
 any semistable abelian variety, the component group as its cokernel, Grothendieck's pairing, the
 intersection-matrix description, and the one-node hyperelliptic curves. Layer 5 proves
 Néron–Ogg–Shafarevich, isogeny invariance of good reduction, the `p`-adic comparison, the
@@ -456,7 +473,7 @@ base and the group objects of `Over S`; Mathlib `GrpObj`, `IsCommMonObj`.
 
 - The extension of the zero homomorphism `A → B` is the zero homomorphism of models.
 - The extension of the group law restricts to the group law of `A` on the generic fibre.
-- A translation `x ↦ x + a` by a `K`-point `a` of `A` extends as a morphism of `S`-schemes but
+- A translation `x ↦ x + a` by a nonzero `K`-point `a` of `A` extends as a morphism of `S`-schemes but
   is not a homomorphism; the extension functor does not turn scheme maps into group maps.
 
 ### 1.6 Weak Néron models
@@ -479,6 +496,13 @@ strictly henselian base changes. A weak model need not be unique. Prove the proj
   extension.
 - `identity_base_test` (degenerate) — for `j = 𝟙 S` every smooth separated quasi-compact `X` is
   its own weak model; as in 1.1 the degenerate base carries no arithmetic content.
+- `WeakNeronBlowup` (non-example) — over a complete strictly henselian discrete
+  valuation ring, blow up one closed point of the special fibre of a good elliptic
+  model and take its smooth locus. Every section lifts into that smooth locus, but
+  the identity on the generic elliptic curve does not extend from the original
+  smooth model: the ideal `(π, t)` of the centre is not invertible on it. Thus this
+  is weak and fails the full mapping property. Prove this local blowup calculation
+  using the weak definition (BLR §1.2, p. 12) and StableReduction Layer 4.
 
 ### 1.7 Smoothening and local existence
 
@@ -511,33 +535,7 @@ special fibre are SchemeAndStackFoundations SF.4c (modifications).
 - For a split torus over `K` the boundedness hypothesis fails, and the construction does not
   apply; the finite-type existence statement is false for it.
 
-### 1.8 Spreading out and the Dedekind local-to-global construction
-
-Prove `SpreadAbelian`: for `A` over `K` and `S` connected Dedekind, there is a nonempty open
-`U ⊂ S` and an abelian scheme `A_U` over `U` with generic fibre `A`; the group law, the identity
-section and the smooth proper geometrically connected fibres spread out together with the scheme,
-by finite presentation of the defining equations and of the group morphisms and by shrinking `U`
-until the group identities and the fibre conditions hold (Bosch–Lütkebohmert–Raynaud, §1.4,
-Proposition 2 and Theorem 3, pp. 18–20). The complement of `U` is a finite set of closed points. A
-stalk-level spreading lemma for a single morphism (Mathlib `AlgebraicGeometry/SpreadingOut.lean`)
-is an input, not a substitute. Then prove `DedekindGluing`: if `A` admits an abelian-scheme model over some dense open `U ⊂ S` and has finite-type Néron models over the local rings at the finitely many
-closed points outside `U`, then these glue to a finite-type `S`-model with the full mapping
-property; the gluing spreads each local model and its marking to an open neighbourhood
-(Bosch–Lütkebohmert–Raynaud, §1.2, Lemma 5, pp. 13–14), uses 1.4 for the transition isomorphisms
-and their cocycle condition, and checks the mapping property locally on the finite open cover
-(Bosch–Lütkebohmert–Raynaud, §1.4, Proposition 1 and Theorem 3, pp. 18–20). Apply it to the ring
-of integers and the rings of `S`-integers of a number field. *Needs:* 1.4, 1.7, 1.9;
-`AbelianSchemesAndArithmeticModuli:A1`; Mathlib `AlgebraicGeometry.Scheme.OpenCover`, `Scheme.GlueData`.
-
-**Checks.**
-
-- Only finitely many closed points of `S` lie outside `U`.
-- The localisation of the glued model at a closed point `s ∉ U` is the prescribed local model at
-  `s`, and at `s ∈ U` it is the abelian scheme.
-- A model glued from infinitely many local pieces, or whose mapping property was checked only at
-  the generic point, is not finite type over `S` and fails the global property.
-
-### 1.9 Abelian schemes are Néron models
+### 1.8 Abelian schemes are Néron models
 
 Prove `AbelianSchemeModel`: an abelian scheme `𝒜` over `S` (smooth proper group scheme with
 geometrically connected fibres, `AbelianSchemesAndArithmeticModuli:A1`) satisfies the Néron
@@ -558,6 +556,34 @@ there), which is part of this target, followed by 1.4. Good reduction of `A` at 
 - A smooth proper model whose special fibre is not geometrically connected is not an abelian
   scheme, and this target says nothing about it.
 
+### 1.9 Spreading out and the Dedekind local-to-global construction
+
+Prove `SpreadAbelian`: for `A` over `K` and `S` connected Dedekind, there is a nonempty open
+`U ⊂ S` and an abelian scheme `A_U` over `U` with generic fibre `A`; the group law, the identity
+section and the smooth proper geometrically connected fibres spread out together with the scheme,
+by finite presentation of the defining equations and of the group morphisms and by shrinking `U`
+until the group identities and the fibre conditions hold (Bosch–Lütkebohmert–Raynaud, §1.4,
+Proposition 2 and Theorem 3, pp. 18–20). The complement of `U` is a finite set of closed points. A
+stalk-level spreading lemma for a single morphism (Mathlib `AlgebraicGeometry/SpreadingOut.lean`)
+is an input, not a substitute. Then prove `DedekindGluing`: if `A` admits an abelian-scheme model over some dense open `U ⊂ S` and has finite-type Néron models over the local rings at the finitely many
+closed points outside `U`, then these glue to a finite-type `S`-model with the full mapping
+property; the gluing spreads each local model and its marking to an open neighbourhood
+(Bosch–Lütkebohmert–Raynaud, §1.2, Lemma 5, pp. 13–14), uses 1.4 for the transition isomorphisms
+and their cocycle condition, and checks the mapping property locally on the finite open cover
+(Bosch–Lütkebohmert–Raynaud, §1.4, Proposition 1 and Theorem 3, pp. 18–20). Apply it to the ring
+of integers and the rings of `S`-integers of a number field. *Needs:* 1.4, 1.7, 1.8;
+`AbelianSchemesAndArithmeticModuli:A1`; Mathlib `AlgebraicGeometry.Scheme.OpenCover`, `Scheme.GlueData`.
+
+**Checks.**
+
+- Only finitely many closed points of `S` lie outside `U`.
+- The localisation of the glued model at a closed point `s ∉ U` is the prescribed local model at
+  `s`, and at `s ∈ U` it is the abelian scheme.
+- Gluing over an infinite open cover does not itself refute finite type: quasi-compactness
+  must be proved. In contrast, infinitely many disjoint nonempty special-fibre components
+  refute quasi-compactness, and checking only the generic fibre does not establish the mapping
+  property.
+
 ### 1.10 Étale and unramified base change
 
 Prove `EtaleBasechange`: for an étale morphism `S' → S` of Dedekind schemes, the base change of a
@@ -566,7 +592,7 @@ unramified extension of discrete valuation rings (Bosch–Lütkebohmert–Raynau
 Proposition 2(c), p. 13). A smooth `S'`-scheme is smooth over `S`, its generic morphism extends by
 the mapping property over `S`, and the structure morphism to `S'` is forced by the extension;
 separatedness and finite type survive base change. Arbitrary ramified base change of the full
-model is false and is not asserted; 3.4 and 3.5 give the identity-component statement that does
+model is false and is not asserted; 3.3 and 3.4 give the identity-component statement that does
 hold. *Needs:* 1.2, 1.4; Mathlib `AlgebraicGeometry.Etale`, `Smooth` (composition and base change
 instances).
 
@@ -576,7 +602,7 @@ instances).
 - For an unramified extension of discrete valuation rings the special fibre of the base-changed
   model is the base change of the special fibre; the component group of 2.2 does not change.
 - (non-example) For a split Tate curve with `ord(q) = n` and a ramified extension of index `e`
-  the component group becomes `ℤ/en` (3.5), so the base-changed model is not the Néron model;
+  the component group becomes `ℤ/en` (3.4), so the base-changed model is not the Néron model;
   the étale hypothesis cannot be dropped.
 
 ### 1.11 The invariant-differential lattice
@@ -595,14 +621,14 @@ with `det_localize`, `etale_basechange` (compatibility with the base change of 1
 section with augmentation `ε : B → R`, the conormal module `ker ε / (ker ε)²` is `ω_M`; the chart
 need not be a group scheme or carry a Hopf algebra). On `S = Spec R` the module `ω_M` is a finite
 projective `R`-lattice in the `K`-vector space of invariant differentials and is not asserted to
-be free. *Needs:* 1.5, 1.8; SchemeAndStackFoundations T361; Mathlib `KaehlerDifferential` on
+be free. *Needs:* 1.5, 1.9; SchemeAndStackFoundations T361; Mathlib `KaehlerDifferential` on
 affine charts.
 
 **Checks.**
 
 - `zero_dimension` (degenerate) — the zero abelian variety has `ω_M = 0` and trivial Hodge line.
 - `localization_test` — over a discrete valuation ring with good elliptic reduction the minimal
-  invariant differential of EllipticCurves Layer 1 is a basis of `ω_M` (the comparison is 6.10).
+  invariant differential of EllipticCurves Layer 1 is a basis of `ω_M` (the comparison is 6.9).
 - `projective_test` (non-example) — for `S = Spec R` with `det ω_M` of nonzero class in `Pic R`,
   the lattice `ω_M` is finite projective and not free; a definition carrying a free module would be
   wrong for such `R`.
@@ -610,9 +636,9 @@ affine charts.
 ### Examples
 
 - Over `ℤ_p` an elliptic curve with good reduction has as Néron model the smooth proper
-  Weierstrass model, which is an abelian scheme (1.9).
+  Weierstrass model, which is an abelian scheme (1.8).
 - Over `ℤ[1/N]` the Néron model of an abelian variety with good reduction outside `N` is an
-  abelian scheme, and the Dedekind construction of 1.8 glues it with the local models at the
+  abelian scheme, and the Dedekind construction of 1.9 glues it with the local models at the
   primes dividing `N`.
 - A split torus `𝔾_m` over `ℚ_p` has no finite-type Néron model: its locally-finite-type Néron
   model (ReductiveGroupsPartII RG2.3.2) has special fibre `𝔾_m × ℤ`, which is not quasi-compact.
@@ -749,8 +775,9 @@ not preserve exact sequences: Yuan–Zhang's erratum withdraws exactly that step
 **Checks.**
 
 - The component map `Φ_A → Φ_B` of an isogeny has a kernel and cokernel that must be computed;
-  for isogenous Tate curves with `ord(q) = n` and `ord(q') = mn` the map `ℤ/n → ℤ/mn` is
-  neither surjective nor zero.
+  for the isogeny `E_q → E_{q^m}`, `[z] ↦ [z^m]`, with `ord(q) = n > 1` and `m > 1`,
+  the component map `ℤ/n → ℤ/mn`, `r ↦ mr`, is neither surjective nor zero. For `n = 1`
+  it is zero, and for `m = 1` it is the identity.
 - For an isogeny between abelian varieties with good reduction the induced map of abelian
   special fibres is an isogeny of abelian varieties over `k`.
 - (non-example) A short exact sequence `0 → A' → A → A'' → 0` of abelian varieties does not give
@@ -765,9 +792,9 @@ Layer 4; Tau Ceti `kerReduction`, with `formalPointAddEquivKerReduction` identif
 formal group on the maximal ideal) is the kernel of `M⁰(R) → M_k⁰(k)`; and for finite `k`,
 `E(K)/E₀(K) ≅ Φ_E(k)` (Tate, §4, Theorems 4.1–4.2 and §6, pp. 41–46). The comparison of sections
 uses smooth lifting over the complete base and the mapping property; for finite `k` the
-surjectivity of `M⁰(R) → M_k⁰(k)` on the identity component uses `H¹(k, M_k⁰) = 0` (Lang's
-theorem for connected smooth groups over a finite field), which is part of this target. Over an
-arbitrary residue field the rational lifting obstruction is retained and `E(K)/E₀(K) → Φ_E(k)`
+surjectivity of `M_k(k) → Φ_E(k)` uses `H¹(k, M_k⁰) = 0` (Lang's
+theorem for connected smooth groups over a finite field), which is part of this target. Smoothness over the henselian base already gives the lifting
+`M⁰(R) → M_k⁰(k)`; it does not use Lang's theorem. Over an arbitrary residue field the rational lifting obstruction is retained and `E(K)/E₀(K) → Φ_E(k)`
 is only injective. *Needs:* 2.1, 2.2; EllipticCurves Layers 1 and 4; Tau Ceti `kerReduction`,
 `formalPointAddEquivKerReduction`.
 
@@ -796,41 +823,7 @@ genus-one curve).
 - For good reduction `X_sm = X` is the smooth proper model.
 - The generic fibre of `X_sm` is `E`, and the zero section lies in `X_sm`.
 
-### 2.8 The geometric Kodaira configurations
-
-Under the hypotheses of 2.7, attach to each value of EllipticCurves' `ReductionSymbol`
-(`I₀, Iₙ, II, III, IV, I₀*, Iₙ*, IV*, III*, II*`) the geometry of the special fibre `X_k`: its
-reduced irreducible components, their singularities, intersections and multiplicities, and prove
-`KodairaGeometricConfigurations` (Tate, §6, geometric rows of the table, p. 46, which lie above
-the characteristic restriction and so hold in every residue characteristic). Explicitly: `I₀` is a
-smooth genus-one curve; `I₁` a nodal rational curve; `II` a cuspidal rational curve; `Iₙ`
-(`n ≥ 2`) a cycle of `n` smooth rational curves, with two intersection points for `n = 2`; `III`
-two smooth rational curves tangent at one point; `IV` three smooth rational curves through one
-point; `I₀*` the affine `D̃₄` configuration with central multiplicity `2` and four ends of
-multiplicity `1`; `Iₙ*` four ends of multiplicity `1` and `n + 1` inner components of
-multiplicity `2`; `IV*`, `III*`, `II*` the affine `Ẽ₆`, `Ẽ₇`, `Ẽ₈` configurations with
-multiplicity multisets `{1,1,1,2,2,2,3}`, `{1,1,2,2,2,3,3,4}`, `{1,2,2,3,3,4,4,5,6}`. The number
-`m` of geometric irreducible components is `1` for `I₀, I₁, II`; `n` for `Iₙ`; `2` for `III`;
-`3` for `IV`; `5` for `I₀*`; `n + 5` for `Iₙ*`; `7, 8, 9` for `IV*, III*, II*`. StableReduction
-Layer 5 supplies the minimal regular model with its components, multiplicities, intersection
-relations and genus formula, and Layer 4 the resolution by blow-ups; StableReduction's
-introduction assigns the geometric meaning of the reduction symbol to that roadmap without listing
-it as a target, and this roadmap states the dictionary. Numerical types (StableReduction
-Layer 6) are a consequence, not the classifier: `I₀`, `I₁` and `II` have the same numerical type.
-*Needs:* 2.7; EllipticCurves Layer 4 (`ReductionSymbol`, Tate's algorithm); StableReduction
-Layers 4–6.
-
-**Checks.**
-
-- `I₀`, `I₁` and `II` each have one component but different normalisations and singularities;
-  a classifier reading only the intersection matrix cannot separate them.
-- `I₂` has two components meeting in two points: the dual graph has a double edge, not a simple
-  edge.
-- `I₀*` has five components and `IV*`, `III*`, `II*` have `7`, `8`, `9`; the count `m` alone
-  does not determine the type, and it is the count EllipticCurves Layer 4 uses in its
-  algorithmic exponent `v(Δ) − m + 1`.
-
-### 2.9 Geometric component groups by type
+### 2.8 Geometric component groups by type
 
 Under the hypotheses of 2.7, prove `KodairaComponentGroups`: `Φ_E(k̄)` is `0` for `I₀`, `ℤ/n`
 for `Iₙ`, `0` for `II` and `II*`, `ℤ/2` for `III` and `III*`, `ℤ/3` for `IV` and `IV*`, `(ℤ/2)²`
@@ -838,7 +831,7 @@ for `Iₙ*` with `n` even and `ℤ/4` for `Iₙ*` with `n` odd (Tate, §6, compo
 p. 46). The group law on the multiplicity-one components meeting `X_sm` is computed from the
 smooth-locus group of 2.7; the orders agree with the torsion of StableReduction Layer 6's
 numerical Picard group of the fibre, and the group structure is determined here. These are
-geometric groups; rational component groups need the Galois action of 2.2. *Needs:* 2.2, 2.8;
+geometric groups; rational component groups need the Galois action of 2.2. *Needs:* 2.2, StableReduction Layer 5;
 StableReduction Layer 6.
 
 **Checks.**
@@ -847,15 +840,22 @@ StableReduction Layer 6.
 - `I₁` has trivial component group although the fibre is singular.
 - `I₃*` has group `ℤ/4`, not `(ℤ/2)²`: the parity of `n` matters.
 
-### 2.10 Wild primes in the elliptic comparison
+### 2.9 Wild primes in the elliptic comparison
 
-Prove `WildKodairaComparison`: the dictionary of 2.8 and the groups of 2.9 are stated for every
+Prove `WildKodairaComparison`: the Kodaira geometry supplied by StableReduction Layer 5 and the groups of 2.8 are stated for every
 residue characteristic, including `2` and `3`, with the reduction symbol produced by the full
 Tate algorithm of EllipticCurves Layer 4; the tame discriminant valuations (`II: 2`, `III: 3`,
 `IV: 4`, `I₀*: 6`, `Iₙ*: n + 6`, `IV*: 8`, `III*: 9`, `II*: 10`) and the tame additive conductor
 value `2` are consequences only when `char k ≠ 2, 3` and are not copied into the wild cases
-(Tate, §6, the restriction below the table and §7, pp. 46–52). *Needs:* 2.8, 2.9; EllipticCurves
+(Tate, §6, the restriction below the table and §§7–8, pp. 46–52). *Needs:* StableReduction Layer 5, 2.8; EllipticCurves
 Layer 4.
+
+**Source gap.** The original Tate table and the algorithm in §§7–8 could not be
+independently opened for this comparison. The wild geometric and discriminant dictionary
+needs that source check; neither the tame table nor BLR §1.5's short-Weierstrass
+calculation in residue characteristic different from `2, 3` proves it. This gap also
+affects the Tate-table citations in 2.8 and 6.7–6.9; the finite-residue point-to-component
+argument of 2.6 is separately supplied by smooth lifting and Lang's theorem.
 
 **Checks.**
 
@@ -867,7 +867,7 @@ Layer 4.
 ### Examples
 
 - `X₀(11)` over `ℚ_{11}`: split multiplicative, `Φ(k̄) = ℤ/5`, `Φ(𝔽_{11}) = ℤ/5`.
-- The curve `y² = x³ − x² − 10x − 20` (`11a1`) has `I₅` at `11`; the curve `y² + y = x³ − x²`
+- The curve `y² + y = x³ − x² − 10x − 20` (`11a1`) has `I₅` at `11`; the curve `y² + y = x³ − x²`
   (`11a3`) has `I₁` at `11`, trivial component group, and is isogenous to it (2.5).
 - An elliptic curve with nonsplit `I₂` reduction over `𝔽_p` has `Φ(k̄) = ℤ/2` and
   `Φ(𝔽_p) = ℤ/2`; with nonsplit `I₃` it has `Φ(𝔽_p) = 0`.
@@ -882,8 +882,8 @@ groups, character lattices, `kerReduction` and `formalPointAddEquivKerReduction`
 
 Semistability is a property of the identity component of the special fibre: it is semi-abelian.
 This layer defines the predicate, proves what survives isogeny and base change, builds the
-toric–finite filtration of the Tate module and Grothendieck's monodromy criterion, proves
-semistable reduction after a finite extension, and compares the formal completion of the
+toric–finite filtration of the Tate module, establishes the Picard identity comparison and
+semistable reduction after a finite extension, and then proves Grothendieck's monodromy criterion, and compares the formal completion of the
 semistable identity model with the Raynaud extension and the rigid uniformisation. Throughout,
 `R` is a discrete valuation ring with fraction field `K` and residue field `k`, `A` an abelian
 variety over `K` with Néron model `M` (Layer 1), identity model `M⁰` and component group `Φ_A`
@@ -898,15 +898,21 @@ Theorem 3.1, pp. 6–7, and §4, p. 9). The predicate is applied to the identity
 the whole fibre, and it is a condition over the actual residue field `k`: by 2.4 the torus and the
 abelian quotient descend to `k` even when `k` is imperfect. Prove `SemistableReduction.iff_identity`
 (the predicate is equivalent to the identity special fibre being semi-abelian), `good` (good
-reduction, an abelian-scheme model as in 1.9, implies semistability), `no_unipotent` (over perfect
+reduction, an abelian-scheme model as in 1.8, implies semistability), `no_unipotent` (over perfect
 `k`, semistability is equivalent to the vanishing of the unipotent part in the Chevalley
 decomposition of 2.3), `dimension` (for semistable `A` of dimension `g` with toric rank `t` and
 abelian rank `a`, `g = t + a`), `isogeny` (3.2), `dual` (`A` is semistable if and only if its
-dual is), `finite_basechange` (3.4), `identity_basechange` (3.4), `toric_zero` (for semistable
+dual is), `finite_basechange` (3.3), `identity_basechange` (3.3), `toric_zero` (for semistable
 `A`, toric rank zero is equivalent to good reduction) and `product` (a product is semistable if
-and only if both factors are, via the product model and its connected special fibre). Good
-reduction is not a consequence of semistability; it requires the abelian-scheme model of 1.9.
-*Needs:* 2.1, 2.3, 2.4; `AbelianSchemesAndArithmeticModuli:A3` for the dual abelian
+and only if both factors are, via the product model and its connected special fibre).
+For an excellent `R`, prove `SemistableReduction.henselization_iff`: semistability over
+`R` is equivalent to semistability over its henselisation. Extend 1.10 to this filtered
+étale limit using finite presentation, and descend the semi-abelian special fibre by
+2.4; the residue field is unchanged (Conrad, §4, p. 9; the limit construction is
+SchemeAndStackFoundations SF.0 §5). Good
+reduction is not a consequence of semistability; it requires the abelian-scheme model of 1.8.
+*Needs:* 1.10, 2.1, 2.3, 2.4; SchemeAndStackFoundations SF.0 §5;
+`AbelianSchemesAndArithmeticModuli:A3` for the dual abelian
 variety.
 
 **Checks.**
@@ -954,7 +960,7 @@ lifting used in the open-immersion step.
 - For good reduction the base change of the abelian scheme is the abelian scheme over `R'`, and
   the statement reduces to 1.10 without the étale hypothesis.
 - For a split Tate curve with `ord(q) = n` and ramification index `e`, the identity fibre stays
-  `𝔾_m` while the component group becomes `ℤ/en` (3.5).
+  `𝔾_m` while the component group becomes `ℤ/en` (3.4).
 - (non-example) For an elliptic curve with additive reduction that acquires good reduction over
   `K'`, the identity fibres are `𝔾_a` and an elliptic curve; the map of identity models is not an
   isomorphism, so the semistability hypothesis cannot be dropped.
@@ -1024,7 +1030,10 @@ integral Weil pairing with its dual and Tate twist.
 Under the hypotheses of 3.5 with `ℓ ≠ char k`, prove `InertiaSquareZero`: every element `σ` of
 the inertia group acts on `T_ℓ(A)` with `(σ − 1)² = 0`, and `σ − 1` factors through the toric
 part (Conrad, Remark 5.6, p. 18). Inertia fixes `T_f` by 3.5 and acts trivially on the quotient
-by 3.6, so `σ − 1` maps `T_ℓ(A)` into `T_f` and kills `T_f`. *Needs:* 3.5, 3.6.
+by 3.6, so `σ − 1` maps `T_ℓ(A)` into `T_f` and kills `T_f`. For the stronger
+toric-image assertion, pair with the inertia-fixed `T_f(A^∨)` using the invariant Weil
+pairing (the prime-to-residue Tate twist is unramified): its annihilator is `T_t(A)`
+by 3.6. *Needs:* 3.5, 3.6.
 
 **Checks.**
 
@@ -1033,153 +1042,11 @@ by 3.6, so `σ − 1` maps `T_ℓ(A)` into `T_f` and kills `T_f`. *Needs:* 3.5, 
 - For good reduction `σ − 1 = 0`.
 - The image of `σ − 1` lies in `T_t`, not merely in `T_f`.
 
-### 3.8 Grothendieck's monodromy criterion
+### 3.8 The degree-zero Picard scheme of a semistable curve
 
-Let `R` be henselian and `ℓ ≠ char k`. Prove `MonodromyCriterion`: `A` is semistable over `R` if
-and only if inertia acts unipotently on `T_ℓ(A)`, and in that case with exponent at most two
-(Conrad, Theorem 5.8 and proof, pp. 20–22; SGA 7 I, Exposé IX). The forward direction is 3.7. The
-converse is a geometric theorem: from a unipotent inertia action one descends the saturated
-inertia-invariant sub-Tate-module, together with its compatible system of divisible torsion
-subgroups, to a semi-abelian subgroup of the identity fibre; the step "equal rational fixed spaces
-give equal `A[ℓⁿ](K)` and `A[ℓⁿ](K')` at every level" that the source prints at p. 21 is not valid
-(on `ℤ_ℓ²` the matrices `[[1, ℓ], [0, 1]]` and its `ℓ`-th power have the same rational fixed line
-but different fixed points modulo `ℓ²`), and the correct integral descent of the divisible
-subsystem is part of this target. The proof order must also be independent of 3.9: the source
-proves the criterion assuming potential semistability, so the converse here is established
-directly, or through the curve-and-Picard route of Layer 4 for Jacobians followed by descent.
-*Needs:* 3.7; `ArithmeticGaloisRepresentations:R01.6`.
-
-**Checks.**
-
-- No criterion of this form holds at `ℓ = char k`; the statement carries `ℓ ≠ char k`.
-- Triviality of inertia on `A[ℓ]` alone does not give semistability (3.10 needs `N ≥ 3`).
-- For a Tate curve the criterion holds with the unipotent operator of 3.7, exponent exactly two.
-
-### 3.9 Semistable reduction after a finite separable extension
-
-Let `R` be an excellent discrete valuation ring. Prove `FiniteSeparableSemistableExtension`: there
-is a finite separable extension `K'/K` such that `A ×_K K'` is semistable at every discrete
-valuation ring of the integral closure of `R` in `K'` lying over `R` (Conrad, Theorem 4.2 and
-Lemma 4.3, pp. 9–10; §7, pp. 24–35). Quasi-unipotence of the inertia action
-(`ArithmeticGaloisRepresentations:R01.2`) gives an open subgroup of inertia acting unipotently;
-its fixed field is separable, and 3.8 applies at each valuation after passing to the
-henselisation. The integral closure of an excellent `R` in `K'` is finite over `R` and semilocal,
-so every prime above `R` is checked; this finiteness and the descent of semistability from the
-henselisation are part of this target. *Needs:* 3.8; `ArithmeticGaloisRepresentations:R01.2`;
-SchemeAndStackFoundations SF.0 §5–§6 (henselisation, excellence and finiteness of integral closure).
-
-**Checks.**
-
-- The extension is separable; a purely inseparable extension does not change the inertia action
-  on `T_ℓ` and would not help.
-- For an elliptic curve with additive reduction and `j ∈ R`, a finite extension gives good
-  reduction; the theorem asserts only semistability.
-- For a non-henselian `R` with two primes above it in `K'`, semistability is checked at both.
-
-### 3.10 Full level forces semistability
-
-Let `N ≥ 3` be invertible in `k`. Prove `FiniteTorsionSemistability`: if inertia acts trivially on
-`A[N](K^sep)`, then `A` is semistable over `R`; in particular `A` acquires semistable reduction at
-every place not dividing `N` after adjoining its `N`-torsion (Conrad, Proposition 6.5 and proof,
-pp. 23–24). By quasi-unipotence some power of each inertia matrix is unipotent; the congruence to
-the identity modulo `N` bounds every eigenvalue in the valuation ring of `Q̄_ℓ` (in `1 + ℓ𝒪` at an
-odd prime `ℓ ∣ N`, in `1 + 4𝒪` for `ℓ = 2`), no nontrivial root of unity satisfies the bound, so
-the eigenvalues are `1` and 3.8 applies. The integral matrix argument at level `N` is part of
-this target; torsion-freeness of a group of scalar units is not the argument. No good reduction is
-claimed. *Needs:* 3.8; `ArithmeticGaloisRepresentations:R01.2`, `R01.6`.
-
-**Checks.**
-
-- `N = 2` is excluded (non-example): the quadratic twist of an elliptic curve with good
-  reduction by a ramified quadratic character has additive reduction, yet inertia acts on its
-  `2`-torsion through `−1 ≡ 1`, trivially; the eigenvalue bound `1 + 2𝒪` admits `−1`, and the
-  conclusion is false for `N = 2`.
-- A Tate curve with `N ∣ ord(q)` has unramified `N`-torsion and is semistable but not good.
-- For `A` with good reduction the hypothesis holds for every `N` prime to `char k`.
-
-### 3.11 The Raynaud extension
-
-Let `R` be complete with `char k > 0` and `A` semistable. Prove `RaynaudExtensionComparison`: the
-maximal torus `T` of the special fibre `M_k⁰` lifts uniquely to a formal torus `𝒯` in the formal
-completion `M̂⁰` of the identity model along its special fibre, the quotient `M̂⁰/𝒯` is a formal
-abelian scheme `ℬ̂`, and the extension `0 → 𝒯 → M̂⁰ → ℬ̂ → 0` algebraises to an extension
-`0 → T_R → G → B → 0` of an abelian scheme `B` over `R` by a torus `T_R` over `R`, the Raynaud
-extension of `A` (Raynaud 1994, §4.2 (i)–(iv), pp. 302–303; Theorem 4.2.2, p. 304;
-Definition 4.2.3, p. 305). The formal completion, the lifting of tori and abelian schemes along
-nilpotent thickenings, and the algebraisation theorem are SchemeAndStackFoundations SF.4b
-inputs; the comparison between `M̂⁰` and `Ĝ` is the content here. The generic fibre of `G` is
-not `A`, and no rigid generic fibre is assumed. *Needs:* 2.4, 3.1; SchemeAndStackFoundations
-SF.4b (formal schemes, formal completion, algebraisation).
-
-**Checks.**
-
-- For good reduction `T = 0` and `G = B` is the abelian scheme.
-- For a split Tate curve `G = 𝔾_m` over `R` and `B = 0`.
-- The comparison concerns the identity model only: the component group of `M` is invisible in
-  `M̂⁰`, and a statement identifying `Ĝ` with the completion of the full model is false whenever
-  `Φ_A ≠ 0`.
-
-### 3.12 Polarised uniformisation
-
-Under the hypotheses of 3.11, prove `RigidUniformisation`: the rigid analytic space `A^an` is the
-quotient of `G^an` by an étale-locally-constant lattice `Y` of rank `t`, that is, there is an
-exact sequence `0 → Y → G^an → A^an → 0` of rigid analytic groups, and the strict `1`-motive
-`[Y → G]` has `A` as its generic realisation (Raynaud 1994, §4.2 (i)–(iv) and Theorem 4.2.2,
-pp. 302–304; §4.3, pp. 308–309). For a polarisation `λ : A → A^∨`, the induced map
-`Y → X^*(T)` and the trivialisation of the pulled-back Poincaré biextension give an integral
-pairing on `Y × Y` (the valuation of the Poincaré trivialisation) that is symmetric and positive
-definite (SGA 7 I, Exposé IX, Theorem 10.4(b), p. 444). When the torus is not split, `Y` is a
-Galois lattice and the statement is obtained by descent; a chosen constant split lattice is not
-the general case. The rigid-analytic quotient and the lattice are the Bosch–Lütkebohmert
-uniformisation inputs cited by Raynaud; they are part of this target, together with the
-positivity of the polarised pairing, which §4.7 of the source does not prove. *Needs:* 2.4,
-3.11; AdicSpaces (the rigid generic fibre of a formal scheme is AdicSpacesPartII:F0 material
-used through 3.11); the `1`-motive carrier `[Y → G]` and its dual are defined here as data, not
-imported.
-
-**Checks.**
-
-- For a split Tate curve `Y = q^ℤ ⊂ 𝔾_m^an` has rank one and the pairing is `ord(q)`.
-- For good reduction `Y = 0` and `A^an = B^an`.
-- For a nonsplit torus the lattice `Y` is not constant: its Galois action is nontrivial, and a
-  construction with a constant lattice would give the wrong abelian variety.
-
-### Examples
-
-- An elliptic curve with multiplicative reduction becomes split after an unramified quadratic
-  extension and is semistable before and after (3.1, 3.3).
-- The Jacobian of a curve with a regular semistable model is semistable (Layer 4) with toric
-  rank the first Betti number of the dual graph (4.3), giving the ranks of 3.5 directly.
-- The elliptic curve `y² = x³ + p` over `ℚ_p` (`p ≥ 5`) has additive reduction, unipotent
-  inertia only after adjoining a sixth root of `p`, and good reduction there (3.9).
-
-### Dependencies
-
-Layer 2 for the identity component, the Chevalley decomposition and the toric character lattice;
-`ArithmeticGaloisRepresentations:R01.2` and `R01.6` for quasi-unipotence and Tate modules;
-`AbelianSchemesAndArithmeticModuli:A3` for finite flat torsion, duals and the Weil pairing;
-SchemeAndStackFoundations SF.0 §5–§7 and SF.4b–c for henselisation, excellence, Zariski's main
-theorem and formal geometry; EllipticCurves Layer 4 for the Tate curve.
-
-## Layer 4: Picard schemes of semistable curves and the monodromy pairing
-
-For a Jacobian the Néron model is computed by the Picard functor of a regular semistable model,
-and the toric part, the monodromy pairing and the component group are read off the dual graph of
-the special fibre. This layer builds the degree-zero Picard scheme of a semistable curve and its
-normalisation sequence, identifies the toric character lattice with the integral first homology
-of the dual graph, constructs Grothendieck's integral monodromy pairing for any semistable
-abelian variety, derives the component group and Grothendieck's pairing on it, proves the
-intersection-matrix description, treats the one-node hyperelliptic curves of Bhargava–Gross–Wang,
-and states the semi-abelian Picard scheme of a stable family. The standing hypotheses for the
-curve statements are: `R` a strictly henselian discrete valuation ring with algebraically closed
-residue field `k`, `X` a proper flat regular curve over `R` with geometrically connected smooth
-generic fibre `X_K` and geometrically reduced nodal special fibre `X_k`; projectivity and a
-section are added where used. The pairing statements are for any semistable abelian variety
-over a henselian `R`.
-
-### 4.1 The degree-zero Picard scheme of a semistable curve
-
-Starting from the relative Picard fppf sheaf `Pic_{X/R}` of `AlgebraicModuliForArithmeticGeometry`
+Let `R` be a strictly henselian discrete valuation ring with algebraically closed residue
+field, and let `X/R` be proper, flat and regular, with geometrically connected smooth
+generic fibre and geometrically reduced nodal special fibre. Starting from the relative Picard fppf sheaf `Pic_{X/R}` of `AlgebraicModuliForArithmeticGeometry`
 (T527 relative Picard sheaf, T539 representability by an algebraic space when
 `𝒪_R ≅ f_*𝒪_X` universally, T543 the open subgroup `Pic^τ` and over a field its identity
 component), construct `PicardZero`, written `Pic⁰_{X/R}`: the open subgroup of `Pic_{X/R}` whose
@@ -1204,8 +1071,193 @@ JacobianChallenge Layer D; `AbelianSchemesAndArithmeticModuli:A2`.
 - `irreducible_node_test` — an irreducible rational curve with one node has `Pic⁰ = 𝔾_m`, not `0`.
 - `tree_test` (degenerate) — a nodal tree of rational curves has `Pic⁰ = 0` although each
   component has nontrivial Picard group; the multidegree condition kills everything.
+### 3.9 The Picard identity component is the Néron identity component
 
-### 4.2 The normalisation sequence
+Under the curve hypotheses of 3.8, prove `PicardNeronIdentity`: `Pic⁰_{X/R}` is canonically the
+identity open subgroup `N⁰` of the Néron model `N` of `Jac(X_K)`, and `N` itself is the
+degree-zero part of the quotient of `Pic_{X/R}` by the closure of the generic identity section
+(SGA 7 I, Exposé IX, Theorem 12.1(a)–(d), pp. 465–467; 12.1.11, p. 468). The quotient `P/E` of the
+relative Picard functor by the subgroup generated by the vertical divisors is shown to have the
+mapping property first (so that 1.4 applies to it and to `N`), and the comparison is then
+restricted to identity components; `Pic⁰_{X/R}` alone has no full mapping property when `Φ ≠ 0`.
+Representability of the quotient and separatedness under the reduced-nodal hypothesis are part
+of this target. *Needs:* 1.4, 3.8.
+
+**Checks.**
+
+- For a split `Iₙ` model, `Pic⁰_{X/R}` has special fibre `𝔾_m` while `N` has `n` geometric
+  components.
+- For a smooth model `Pic⁰_{X/R} = N` is the abelian scheme.
+- The quotient `P/E` and not `Pic⁰_{X/R}` is the full Néron model: a statement giving
+  `Pic⁰_{X/R}` the mapping property is refuted by the `Iₙ` case.
+
+### 3.10 Semistable reduction after a finite separable extension
+
+Let `R` be an excellent discrete valuation ring. Prove `FiniteSeparableSemistableExtension`: there
+is a finite separable extension `K'/K` such that `A ×_K K'` is semistable at every discrete
+valuation ring of the integral closure of `R` in `K'` lying over `R` (Conrad, Theorem 4.2 and
+Proposition 4.3, pp. 9–10; §7, pp. 24–35). The proof is independent of the monodromy criterion.
+First prove `JacobianIsogenyFactor`: over the infinite field `K`, every positive-dimensional
+abelian variety `A` admits a smooth proper geometrically connected curve `C`, an abelian
+variety `B`, and an isogeny `Jac(C) → A × B`. Construct the quotient by Bertini slicing and
+obtain the isogeny by Poincaré reducibility (Conrad, Proposition 4.3 and proof, pp. 9–10;
+Milne, *Jacobian Varieties*, Theorem 10.1 and proof, pp. 33–35, for the Bertini quotient). This reduction lemma
+is a target here; JacobianChallenge supplies the Jacobian, not the Bertini quotient.
+The zero-dimensional abelian variety already has good reduction. For positive dimension,
+this lemma expresses `A` as an isogeny factor of the Jacobian of a
+smooth geometrically connected projective curve (Conrad, Proposition 4.3, pp. 9–10). Apply
+StableReduction Layer 7's curve-reduction existence theorem and Layer 4's resolution to obtain
+a regular semistable model; a section is obtained by a further finite separable extension when
+needed. The semi-abelian Picard identity fibre of 3.8 and its Néron comparison 3.9 make the
+Jacobian semistable. Products and isogeny invariance (3.1–3.2) then give the assertion for `A`.
+Only the curve-reduction existence theorem is consumed here; the later curve–Jacobian criterion,
+which consumes this roadmap, is not an input. The integral closure of an excellent `R` is finite
+and semilocal; check each prime above `R`, and descend the semi-abelian property from the strict
+henselisation. *Needs:* 3.1, 3.2, 3.8, 3.9; StableReduction Layers 4 and 7 (curve existence);
+JacobianChallenge Layers D–F (Jacobians); AbelianSchemesAndArithmeticModuli A3 (isogenies);
+SchemeAndStackFoundations SF.0 §5–§6 (henselisation and finiteness of integral closure).
+
+**Checks.**
+
+- The extension is separable; a purely inseparable extension does not change the inertia action
+  on `T_ℓ` and would not help.
+- For an elliptic curve with additive reduction and `j ∈ R`, a finite extension gives good
+  reduction; the theorem asserts only semistability.
+- For a non-henselian `R` with two primes above it in `K'`, semistability is checked at both.
+
+### 3.11 Grothendieck's monodromy criterion
+
+Let `R` be excellent and henselian and `ℓ ≠ char k`. Prove `MonodromyCriterion`: `A` is semistable over `R` if
+and only if inertia acts unipotently on `T_ℓ(A)`, and in that case with exponent at most two
+(Conrad, Theorem 5.8 and proof, pp. 20–22; SGA 7 I, Exposé IX). The forward direction is 3.7. The
+converse uses potential semistability (3.10), proved independently by the Picard comparison.
+Pass to a strictly henselian base and an extension over which `A` is semistable. The fixed
+rational Tate spaces are equal before and after that extension (Conrad, Lemma 5.9, p. 21);
+intersecting with `T_ℓ(A)` gives equality of the saturated fixed Tate lattices. The divisible
+subgroup obtained from this lattice, namely the image of
+`T_ℓ(A)^I ⊗ (ℚ_ℓ/ℤ_ℓ) → V_ℓ(A)/T_ℓ(A)`, is constant over the original fraction field.
+Use its toric and finite subgroups, the Néron mapping property and étale torsion over the
+strictly henselian ring to descend these divisible systems to the identity special fibre.
+Their Zariski closures and the dimension argument of Conrad, pp. 21–22, give a torus and an
+abelian quotient. The target includes this divisible-system descent, not equality of every
+finite-level torsion group: `[[1, ℓ], [0, 1]]` and its `ℓ`-th power have equal fixed Tate
+lattices but different fixed points modulo `ℓ²`. Thus the finite-level inference printed on
+p. 21 is not used. *Needs:* 3.7, 3.10; `ArithmeticGaloisRepresentations:R01.6`;
+SchemeAndStackFoundations SF.0 §5; the special-fibre group theory of 2.3–2.4.
+
+**Checks.**
+
+- No criterion of this form holds at `ℓ = char k`; the statement carries `ℓ ≠ char k`.
+- Triviality of inertia on `A[ℓ]` alone does not give semistability (3.12 needs `N ≥ 3`).
+- For a Tate curve the criterion holds with the unipotent operator of 3.7, exponent exactly two.
+
+### 3.12 Full level forces semistability
+
+Let `R` be excellent and henselian, and let `N ≥ 3` be invertible in `k`. Prove `FiniteTorsionSemistability`: if inertia acts trivially on
+`A[N](K^sep)`, then `A` is semistable over `R`; in particular `A` acquires semistable reduction at
+every place not dividing `N` after adjoining its `N`-torsion (Conrad, Proposition 6.5 and proof,
+pp. 23–24). By quasi-unipotence some power of each inertia matrix is unipotent; the congruence to
+the identity modulo `N` bounds every eigenvalue in the valuation ring of `Q̄_ℓ` (in `1 + ℓ𝒪` at an
+odd prime `ℓ ∣ N`, in `1 + 4𝒪` for `ℓ = 2`), no nontrivial root of unity satisfies the bound, so
+the eigenvalues are `1` and 3.11 applies. The integral matrix argument at level `N` is part of
+this target; torsion-freeness of a group of scalar units is not the argument. No good reduction is
+claimed. For a non-henselian excellent DVR apply the criterion over its henselisation
+and then `SemistableReduction.henselization_iff` of 3.1.
+*Needs:* 3.1, 3.11; `ArithmeticGaloisRepresentations:R01.2`, `R01.6`.
+
+**Checks.**
+
+- `N = 2` is excluded (non-example): the quadratic twist of an elliptic curve with good
+  reduction by a ramified quadratic character has additive reduction, yet inertia acts on its
+  `2`-torsion through `−1 ≡ 1`, trivially; the eigenvalue bound `1 + 2𝒪` admits `−1`, and the
+  conclusion is false for `N = 2`.
+- For `q = π^N` over a complete discrete valuation field with finite residue field and `N`
+  invertible in it, the Tate curve has unramified `N`-torsion and is semistable but not good.
+- For `A` with good reduction the hypothesis holds for every `N` prime to `char k`.
+
+### 3.13 The Raynaud extension
+
+Let `R` be complete with `char k > 0` and `A` semistable. Prove `RaynaudExtensionComparison`: the
+maximal torus `T` of the special fibre `M_k⁰` lifts uniquely to a formal torus `𝒯` in the formal
+completion `M̂⁰` of the identity model along its special fibre, the quotient `M̂⁰/𝒯` is a formal
+abelian scheme `ℬ̂`, and the extension `0 → 𝒯 → M̂⁰ → ℬ̂ → 0` algebraises to an extension
+`0 → T_R → G → B → 0` of an abelian scheme `B` over `R` by a torus `T_R` over `R`, the Raynaud
+extension of `A` (Raynaud 1994, §4.2 (i)–(iv), pp. 302–303; Theorem 4.2.2, p. 304;
+Definition 4.2.3, p. 305). The formal completion, the lifting of tori and abelian schemes along
+nilpotent thickenings, and the algebraisation theorem are SchemeAndStackFoundations SF.4b
+inputs; the comparison between `M̂⁰` and `Ĝ` is the content here. The generic fibre of `G` is
+not `A`, and no rigid generic fibre is assumed. *Needs:* 2.4, 3.1; SchemeAndStackFoundations
+SF.4b (formal schemes, formal completion, algebraisation).
+
+**Checks.**
+
+- For good reduction `T = 0` and `G = B` is the abelian scheme.
+- For a split Tate curve `G = 𝔾_m` over `R` and `B = 0`.
+- The comparison concerns the identity model only: the component group of `M` is invisible in
+  `M̂⁰`, and a statement identifying `Ĝ` with the completion of the full model is false whenever
+  `Φ_A ≠ 0`.
+
+### 3.14 Polarised uniformisation
+
+Under the hypotheses of 3.13, prove `RigidUniformisation`: the rigid analytic space `A^an` is the
+quotient of `G^an` by an étale-locally-constant lattice `Y` of rank `t`, that is, there is an
+exact sequence `0 → Y → G^an → A^an → 0` of rigid analytic groups, and the strict `1`-motive
+`[Y → G]` has `A` as its generic realisation (Raynaud 1994, §4.2 (i)–(iv) and Theorem 4.2.2,
+pp. 302–304; §4.3, pp. 308–309). For a polarisation `λ : A → A^∨`, the induced map
+`Y → X^*(T)` and the trivialisation of the pulled-back Poincaré biextension give an integral
+pairing on `Y × Y` (the valuation of the Poincaré trivialisation) that is symmetric and positive
+definite (SGA 7 I, Exposé IX, Theorem 10.4(b), p. 444). When the torus is not split, `Y` is a
+Galois lattice and the statement is obtained by descent; a chosen constant split lattice is not
+the general case. The rigid-analytic quotient and the lattice are the Bosch–Lütkebohmert
+uniformisation inputs cited by Raynaud; they are part of this target, together with the
+positivity of the polarised pairing, which §4.5 of the source does not prove. *Needs:* 2.4,
+3.13; AdicSpaces (the rigid generic fibre of a formal scheme is AdicSpacesPartII:F0 material
+used through 3.13); the `1`-motive carrier `[Y → G]` and its dual are defined here as data, not
+imported.
+
+**Checks.**
+
+- For a split Tate curve `Y = q^ℤ ⊂ 𝔾_m^an` has rank one and the pairing is `ord(q)`.
+- For good reduction `Y = 0` and `A^an = B^an`.
+- For a nonsplit torus the lattice `Y` is not constant: its Galois action is nontrivial, and a
+  construction with a constant lattice would give the wrong abelian variety.
+
+### Examples
+
+- An elliptic curve with multiplicative reduction becomes split after an unramified quadratic
+  extension and is semistable before and after (3.1, 3.3).
+- The Jacobian of a curve with a regular semistable model is semistable (Layer 4) with toric
+  rank the first Betti number of the dual graph (4.2), giving the ranks of 3.5 directly.
+- The elliptic curve `y² = x³ + p` over `ℚ_p` (`p ≥ 5`) has additive reduction, unipotent
+  inertia only after adjoining a sixth root of `p`, and good reduction there (3.10).
+
+### Dependencies
+
+Layer 2 for the identity component, the Chevalley decomposition and the toric character lattice;
+`ArithmeticGaloisRepresentations:R01.2` and `R01.6` for quasi-unipotence and Tate modules;
+`AbelianSchemesAndArithmeticModuli:A3` for finite flat torsion, duals and the Weil pairing;
+SchemeAndStackFoundations SF.0 §5–§7 and SF.4b–c for henselisation, excellence, Zariski's main
+theorem and formal geometry; EllipticCurves Layer 4 for the Tate curve; StableReduction Layers
+4 and 7 for curve existence and regular resolution; JacobianChallenge Layers D–F for Jacobians;
+AlgebraicModuliForArithmeticGeometry T527, T539 and T543 for the Picard functor.
+
+## Layer 4: Picard schemes of semistable curves and the monodromy pairing
+
+For a Jacobian the Néron model is computed by the Picard functor of a regular semistable model,
+and the toric part, the monodromy pairing and the component group are read off the dual graph of
+the special fibre. Using the Picard identity comparison of 3.8–3.9, this layer builds the
+normalisation sequence, identifies the toric character lattice with the integral first homology
+of the dual graph, constructs Grothendieck's integral monodromy pairing for any semistable
+abelian variety, derives the component group and Grothendieck's pairing on it, proves the
+intersection-matrix description, treats the one-node hyperelliptic curves of Bhargava–Gross–Wang,
+and states the semi-abelian Picard scheme of a stable family. The standing hypotheses for the
+curve statements are: `R` a strictly henselian discrete valuation ring with algebraically closed
+residue field `k`, `X` a proper flat regular curve over `R` with geometrically connected smooth
+generic fibre `X_K` and geometrically reduced nodal special fibre `X_k`; projectivity and a
+section are added where used. The pairing statements are for any semistable abelian variety
+over a henselian `R`.
+
+### 4.1 The normalisation sequence
 
 For a proper connected nodal curve `C` over an algebraically closed field `k` with normalisation
 components `C_v` (StableReduction Layer 1: normalisation, nodes, branches), prove
@@ -1220,7 +1272,9 @@ where `T_Γ` is a torus whose character lattice is `H₁(Γ, ℤ)` for the dual 
 pp. 469–473). The proof takes cohomology of the units sequence of the normalisation, separates
 constant functions from the gluing scalars at the nodes, and identifies the quotient of the node
 scalars by the vertex rescalings with `T_Γ`; the fppf cohomology of the units sequence and the
-representability of the torus are part of this target. *Needs:* 4.1; StableReduction Layer 1.
+representability of the torus are part of this target. *Needs:*
+AlgebraicModuliForArithmeticGeometry T539 (relative Picard representability);
+JacobianChallenge Layer D; StableReduction Layer 1.
 
 **Checks.**
 
@@ -1229,7 +1283,7 @@ representability of the torus are part of this target. *Needs:* 4.1; StableReduc
 - For two rational curves meeting in two points `H₁ = ℤ` and `Pic⁰ = 𝔾_m`; a simple-graph
   model with one edge would give `0`.
 
-### 4.3 Characters are integral graph cycles
+### 4.2 Characters are integral graph cycles
 
 For a finite multigraph `Γ` with vertex set `V`, edge set `E` and source and target maps
 `src, tgt : E → V` (an orientation of StableReduction Layer 1's dual graph, whose `endpoint`
@@ -1242,90 +1296,88 @@ corresponding sign when an edge is reversed, and it is equivariant for automorph
 for Galois descent; the dual lattice `Hom(X^*(T_Γ), ℤ)` is `H¹(Γ, ℤ)`, not `H₁` (SGA 7 I,
 Exposé IX, 12.3.7 and 12.3.11–12.3.14, pp. 472–473). Prove `finrank_cycleLattice`: for connected
 `Γ` with nonempty vertex set, `rank H₁ + #V = #E + 1`, agreeing with StableReduction's
-`firstBetti`; two vertices with no edge refute the formula, so connectedness is needed. *Needs:* 2.4, 4.2;
+`firstBetti`; two vertices with no edge refute the formula, so connectedness is needed. *Needs:* 2.4, 4.1;
 StableReduction Layer 1 (`DualGraph`, `firstBetti`); Mathlib `Finsupp.linearCombination`,
 `LinearMap.ker`.
 
 **Checks.**
 
-- A single loop has zero boundary and cycle lattice of rank `1`.
+- A single loop has zero boundary and cycle lattice of rank `1`; for a directed edge
+  `0 → 1`, the boundary of its basis vector is `δ₁ − δ₀`, fixing the direction.
 - Two vertices joined by one edge (a tree) have cycle lattice `0`.
-- Two vertices joined by two parallel edges have cycle lattice of rank `1`; a simple graph on
-  the same vertex set would give rank `0`.
+- Two vertices joined by two parallel edges have cycle lattice of rank `1`; the
+  coefficients `(1, −1)` give boundary zero. A simple graph on the same vertex set
+  would give rank `0`.
 - (non-example) Two vertices and no edge: rank `0`, and `0 + 2 ≠ 0 + 1`; the Betti formula
   needs connectedness.
 
-### 4.4 The Picard identity component is the Néron identity component
-
-Under the standing curve hypotheses, prove `PicardNeronIdentity`: `Pic⁰_{X/R}` is canonically the
-identity open subgroup `N⁰` of the Néron model `N` of `Jac(X_K)`, and `N` itself is the
-degree-zero part of the quotient of `Pic_{X/R}` by the closure of the generic identity section
-(SGA 7 I, Exposé IX, Theorem 12.1(a)–(d), pp. 465–467; 12.1.11, p. 468). The quotient `P/E` of the
-relative Picard functor by the subgroup generated by the vertical divisors is shown to have the
-mapping property first (so that 1.4 applies to it and to `N`), and the comparison is then
-restricted to identity components; `Pic⁰_{X/R}` alone has no full mapping property when `Φ ≠ 0`.
-Representability of the quotient and separatedness under the reduced-nodal hypothesis are part
-of this target. *Needs:* 1.4, 4.1.
-
-**Checks.**
-
-- For a split `Iₙ` model, `Pic⁰_{X/R}` has special fibre `𝔾_m` while `N` has `n` geometric
-  components.
-- For a smooth model `Pic⁰_{X/R} = N` is the abelian scheme.
-- The quotient `P/E` and not `Pic⁰_{X/R}` is the full Néron model: a statement giving
-  `Pic⁰_{X/R}` the mapping property is refuted by the `Iₙ` case.
-
-### 4.5 The integral monodromy pairing
+### 4.3 The integral monodromy pairing
 
 Let `R` be henselian and `A` semistable, with toric character lattices `X_A := X^*(T_A)` and
 `X_{A^∨} := X^*(T_{A^∨})` (2.4 applied to `A` and its dual). Construct
 `IntegralMonodromyPairing`, the bilinear map `u : X_{A^∨} × X_A → ℤ` obtained from the valuation
-of the trivialisation of the Poincaré biextension on the Raynaud extensions (SGA 7 I, Exposé IX,
-Theorem 10.4, p. 444; the construction is over the henselian trait, from the dual and Poincaré
-data, and the analytic uniformisation of 3.12 is a comparison, not the construction). Prove
+of the trivialisation of the Poincaré biextension on the Raynaud extensions (Raynaud 1994,
+§4.3, pp. 308–309, for the valuation construction over the completion; descent to the henselian
+trait is part of this target; SGA 7 I, Exposé IX, Theorem 10.4, p. 444, for an integral
+pairing defined from monodromy). Prove
 `NeronMonodromy.bilinear`, `adjoint` (`u♯ : X_{A^∨} → Hom(X_A, ℤ)`), `non_degenerate` (`u♯` is
 injective with finite cokernel), `dual_symmetry` (the pairing of `A^∨` is the transpose of that
 of `A` under biduality), `polarized_symmetric` and `polarized_positive` (for a polarisation
-`λ : A → A^∨`, `(x, y) ↦ u(λ^* x, y)` on `X_A` is symmetric and positive definite over `ℝ`; no
-integral unimodularity is asserted), `prime_adic` (`u ⊗ ℤ_ℓ` is the `ℓ`-adic monodromy pairing
-for every prime `ℓ`, with the `p`-divisible-group construction at the residue prime),
+`λ : A → A^∨`, its contravariant map is `λ^* : X_{A^∨} → X_A`, and
+`(x, y) ↦ u(x, λ^* y)` on `X_{A^∨}` is symmetric and positive definite over `ℝ`; no
+integral unimodularity is asserted), `prime_adic` (comparison of `u ⊗ ℤ_ℓ` with the `ℓ`-adic monodromy pairing,
+with the `p`-divisible-group construction at the residue prime),
 `basechange` (a base change of ramification index `e` multiplies `u` by `e` under the identity
 torus comparison of 3.3), `functorial` (for `f : A → B`, `y ∈ X_{A^∨}` and `x ∈ X_B`,
 `u_A(y, f^* x) = u_B((f^∨)^* y, x)`) and `zero_torus` (zero lattices give the zero pairing with
 zero cokernel). In Lean, the lattice-level objects are `LatticePairing.adjoint`,
 `componentGroup` (the cokernel of `u♯`) and `rankOne n`, the pairing `(y, x) ↦ n·x·y` on
-`ℤ × ℤ`. *Needs:* 2.4, 3.11; `AbelianSchemesAndArithmeticModuli:A3` (dual abelian variety,
-Poincaré biextension); the dual `1`-motive data of 3.12.
+`ℤ × ℤ`. *Needs:* 2.4, 3.13; `AbelianSchemesAndArithmeticModuli:A3` (dual abelian variety,
+Poincaré biextension); the dual `1`-motive data of 3.14.
+
+**Comparison gap.** The positive valuation convention is fixed by the Tate test below.
+The sign relating this convention to the operator defined by `σ − 1` is not supplied by
+merely citing SGA 7 IX, Theorem 10.4: Illusie, *Grothendieck and vanishing cycles*, Theorem
+4.1 and footnote 12, p. 95, gives a negative polarised form for that operator and points
+out the sign issue in SGA 7. The target `prime_adic` requires an explicit identification
+of both character lattices, the Weil pairing and tame character, with a Tate witness; its
+signed formula remains unresolved here. The cokernel is unchanged by negating the pairing.
 
 **Checks.**
 
 - `tate_test` — for a split Tate curve with `ord(q) = n`, the self-dual rank-one pairing is
-  multiplication by `n`.
+  multiplication by `n`; composing with the polarisation `[m]`, `m > 0`, gives the form
+  `[mn]` on `X_{A^∨}`, with value `mn > 0` at `(1, 1)`.
 - `ramification_test` — a base change of ramification index `e` changes the Tate pairing from
   `n` to `en`.
 - `good_test` (degenerate) — good reduction has zero lattices and the zero pairing, not a
-  positive-rank pairing.
+  positive-rank pairing. The adjoint is `y ↦ (x ↦ u(y, x))`: for `rankOne 5`,
+  evaluating at `y = 1`, `x = 2` gives `10`; `rankOne 1` gives the ordinary product,
+  whereas `rankOne 0` is degenerate and has infinite cokernel.
 
-### 4.6 The graph formula for the monodromy pairing of a Jacobian
+### 4.4 The graph formula for the monodromy pairing of a Jacobian
 
 Under the standing curve hypotheses with `X` projective, prove `GraphMonodromy`: under the
-autoduality of the Jacobian and the isomorphism of 4.3, the pairing `u` on `H₁(Γ, ℤ)` is
+autoduality of the Jacobian and the isomorphism of 4.2, the pairing `u` on `H₁(Γ, ℤ)` is
 `u(c, d) = Σ_e c_e d_e`, the edge form with all edge lengths `1`; reversing an edge changes the
 sign of both coordinates and preserves the form (SGA 7 I, Exposé IX, 12.4–12.5, pp. 473–475).
 For a stable model whose node is `xy = π^m` with `m > 1` the regular resolution replaces the
 node by a chain of `m − 1` rational curves, and the formula holds with edge length `m`; this
 weighted form is derived through the subdivision comparison with the regular model
 (StableReduction Layer 4). In Lean the weighted form is `DualGraph.edgeForm len`, with
-`edgeForm_symm` and `edgeForm_neg_coord`. *Needs:* 4.3, 4.4, 4.5; StableReduction Layer 4.
+`edgeForm_symm` and `edgeForm_neg_coord`. *Needs:* 4.2, 3.9, 4.3; StableReduction Layer 4.
 
 **Checks.**
 
-- A single loop of length `n` has pairing `[n]`.
-- A tree has zero cycle lattice and zero pairing.
+- A single loop of length `n` has pairing `[n]`; at length `5` the values on
+  `(1, 1)` and `(1, 2)` are `5` and `10`, fixing bilinearity and the sign.
+- A tree has zero cycle lattice and zero pairing; a zero edge length gives zero
+  form, so positive edge lengths are needed for positive definiteness.
 - Two vertices joined by two edges of lengths `a` and `b` have pairing `[a + b]` on the
-  rank-one cycle lattice.
+  rank-one cycle lattice. A single length-`5` coordinate with coefficients `1` and
+  `−1` gives `−5`; reversing both coefficients gives `5`.
 
-### 4.7 The component group as the cokernel of the monodromy map
+### 4.5 The component group as the cokernel of the monodromy map
 
 Let `R` be henselian and `A` semistable. Prove `ComponentCokernel`: the finite cokernel of
 `u♯ : X_{A^∨} → Hom(X_A, ℤ)`, with its residue Galois action, is canonically `Φ_A(k̄)` as a
@@ -1333,7 +1385,7 @@ Galois module, hence `Φ_A` as a finite étale `k`-group; for every prime `ℓ` 
 is the cokernel of `u♯ ⊗ ℤ_ℓ`, with the `p`-divisible-group description at the residue prime
 (SGA 7 I, Exposé IX, Theorem 11.5, Remark 11.5.2(b) and the opening of 11.6, pp. 455–456). The
 integral statement is the target; a rational isomorphism of lattices says nothing about `Φ`.
-*Needs:* 2.2, 4.5.
+*Needs:* 2.2, 4.3.
 
 **Checks.**
 
@@ -1343,29 +1395,46 @@ integral statement is the target; a rational isomorphism of lattices says nothin
 - Two lattices with a rational isomorphism but integral index `n` have component group `ℤ/n`,
   not `0`.
 
-### 4.8 Grothendieck's pairing on component groups
+### 4.6 Grothendieck's pairing on component groups
 
 Construct `ComponentPairing`: the canonical pairing `Φ_A × Φ_{A^∨} → ℚ/ℤ` defined by the
 obstruction to extending the Poincaré biextension to the Néron models (SGA 7 I, Exposé IX,
-§§1.2–1.3, pp. 323–324), and prove that for semistable `A` it is perfect and equals the
-discriminant pairing induced by `u` on the two cokernels of 4.7 (SGA 7 I, Exposé IX,
-Theorem 11.5, p. 455). Prove `NeronComponentPairing.bilinear`, `galois` (residue Galois
+§§1.2–1.3, pp. 323–324). Prove that for semistable `A` it is perfect and determine its
+signed comparison with the discriminant pairing induced by `u` on the two cokernels of
+4.5 (SGA 7 I, Exposé IX, §11.4, p. 454, and Theorem 11.5, p. 455, construct the perfect
+cokernel pairing; the obstruction comparison is a separate theorem). Prove `NeronComponentPairing.bilinear`, `galois` (residue Galois
 equivariance), `dual` (the pairing of `A^∨` is the transpose), `perfect_semistable`,
-`discriminant` (on cokernel classes the value is the fractional value of the inverse of `u`
-modulo `ℤ`), `independent_lifts` (changing a representative by an element of the image of `u♯`
+`discriminant` (identify the obstruction pairing with the positive inverse pairing
+or its negative, using the character and biduality identifications of 4.3), `independent_lifts` (changing a representative by an element of the image of `u♯`
 changes the rational value by an integer), `zero_left`, `zero_right`, `functorial`
 (`⟨f_* a, b⟩_B = ⟨a, (f^∨)_* b⟩_A`) and `good` (good reduction has the zero pairing on zero
 groups). Perfectness beyond the semistable case is not asserted. In Lean the lattice-level
-pairing is `LatticePairing.discriminantPairing`. *Needs:* 4.5, 4.7.
+pairing is `LatticePairing.discriminantPairing`. Its defining evaluation theorem is
+`discriminantPairing_mk`: if `u♯ y = m a` with `m ≠ 0`, the value on the specified functional
+classes `[a], [b]` is `b(y)/m` modulo `ℤ`. The rank-one classes `rankOneClass n r` and
+`rankOneDualClass n s` are the classes of the functionals `x ↦ r x` and `y ↦ s y`;
+`discriminantPairing_rankOne` gives `rs/n` for `n > 0`. *Needs:* 4.3, 4.5.
+
+**Comparison gap.** SGA 7 IX, §11.4, p. 454, leaves comparison with the biextension
+obstruction of §1.2 up to sign. Theorem 11.5 alone does not resolve it. Illusie, §4.3,
+pp. 97–98, refers to Werner, *On Grothendieck’s pairing of component groups in the
+semistable reduction case*, J. reine angew. Math. 486 (1997), pp. 205–215, for this
+comparison. A signed formula under the positive valuation and Poincaré conventions here
+is still needed; the following computations specify the lattice pairing, not an unproved
+signed identification with the obstruction pairing.
 
 **Checks.**
 
-- `tate_test` — on `ℤ/n × ℤ/n` the value at residue classes `r, s` is `rs/n` modulo `ℤ`, up to
-  the fixed sign convention.
+- `tate_test` — on the specified rank-one classes the lattice value is `rs/n` modulo `ℤ`.
+  At `n = 5`, `(r, s) = (1, 1)` gives `1/5` and `(1, 2)` gives `2/5`; the negative and zero
+  forms fail these two tests.
 - `lift_test` — replacing `r` by `r + n` changes `rs/n` by the integer `s`.
 - `n1_test` (degenerate) — for `n = 1` both groups and the pairing are zero.
+- `class_test` — in either rank-one cokernel the class of `0` is zero, adding `n` to a
+  representative preserves its class, and the class of `1` at modulus `5` is nonzero.
+  These distinguish the chosen quotient representatives from arbitrary existential classes.
 
-### 4.9 The intersection-matrix description of the component group
+### 4.7 The intersection-matrix description of the component group
 
 Let `R` be strictly henselian with algebraically closed residue field, `X` a regular proper flat
 curve over `R` with smooth geometrically connected generic fibre, `f_*𝒪_X = 𝒪_R`, special-fibre
@@ -1373,13 +1442,19 @@ components `C_v` with multiplicities `m_v` of greatest common divisor `1`, and i
 `I`. Prove `IntersectionComponentQuotient`: the component group `Φ_J(k)` of the Jacobian is the
 finite group `ker(d : ℤ^V → ℤ) / im(I)` with `d(a) = Σ_v m_v a_v` (SGA 7 I, Exposé IX,
 Theorem 12.1(a)–(d), pp. 465–467, with `d = d^t = 1` from the hypotheses), and that for reduced
-nodal fibres this is the discriminant group of 4.6. The numerical side is StableReduction
+nodal fibres this is the discriminant group of 4.4. The numerical side is StableReduction
 Layer 6's numerical Picard group `TauCeti.NumericalType.Pic` with its degree map
 `TauCeti.NumericalType.degree` (the quotient by the rows `a_{ij}/w_j` of the weighted
 intersection matrix): the target is the comparison of the kernel of the degree map with `Φ_J(k)`,
-through the Picard quotient of 4.4; the multiplicity relation `I·m = 0` and connectedness give
+through the degree-zero part of the general Picard quotient `P/E` of SGA 7 I,
+Exposé IX, Theorem 12.1(b)–(d), pp. 466–467. Prove `RegularPicardNeronQuotient` here under
+these regular, possibly nonreduced-fibre hypotheses: `E` is the schematic closure of the
+identity in the relative Picard scheme `P`, and the kernel of the degree map on `P/E` is the
+Néron model of `J`. The semistable identity comparison 3.9 alone does not supply this
+nonreduced case. The multiplicity relation `I·m = 0` and connectedness give
 finiteness, which is not a formal consequence of the quotient syntax. Fibres whose multiplicities
-have greatest common divisor greater than one are not treated here. *Needs:* 2.2, 4.4;
+have greatest common divisor greater than one are not treated here. *Needs:* 2.2;
+AlgebraicModuliForArithmeticGeometry T527, T539 and T543;
 StableReduction Layer 6; Tau Ceti `NumericalType.Pic`, `NumericalType.degree`.
 
 **Checks.**
@@ -1388,9 +1463,9 @@ StableReduction Layer 6; Tau Ceti `NumericalType.Pic`, `NumericalType.degree`.
 - A cycle of `n` reduced components gives `ℤ/n`; two components meeting in two points give
   `ℤ/2`.
 - The `I₀*` configuration (five components, central multiplicity `2`) gives `(ℤ/2)²`, matching
-  2.9; a computation ignoring the multiplicities would give the wrong group.
+  2.8; a computation ignoring the multiplicities would give the wrong group.
 
-### 4.10 The one-node hyperelliptic curve
+### 4.8 The one-node hyperelliptic curve
 
 Let `char K ≠ 2`, `g ≥ 1`, and `f(x, y)` a binary form of degree `2g + 2` over `K` with nonzero
 discriminant and leading coefficient `f₀ ≠ 0`; let `C` be the smooth hyperelliptic curve
@@ -1412,16 +1487,16 @@ Layer 1 (nodes and normalisation); AlgebraicCurves Layer 10 (hyperelliptic model
 - The arithmetic genus of `C_m` is `g + 1`, one more than that of `C`.
 - Away from `[1 : 0 : 0]` the normalisation map is an isomorphism.
 
-### 4.11 The generalised Jacobian of the one-node curve
+### 4.9 The generalised Jacobian of the one-node curve
 
 With `J = Pic⁰(C)` and `J_m = Pic⁰(C_m)`, prove `BgwGeneralizedJacobian`: there is an exact
 sequence of fppf group schemes `0 → (Res_{D/K} 𝔾_m)/𝔾_m → J_m → J → 0`, and the torus is
 canonically the norm-one torus `R¹_{D/K} 𝔾_m` of ReductiveGroupsPartII RG2.0a (`NormTorus.normOne`)
-(Bhargava–Gross–Wang, §3, pp. 10–11). The sequence is 4.2 descended to `K` along the quadratic
+(Bhargava–Gross–Wang, §3, pp. 10–11). The sequence is 4.1 descended to `K` along the quadratic
 algebra, and the identification of the quotient torus uses `a/b ↦ a/σ(a)` under the quadratic
 involution; the statement is an isomorphism of group schemes, not merely a surjection on
 `K`-points. Rational points of `J` and `J_m` need not come from `K`-line bundles (SF.3 T354). *Needs:*
-4.2, 4.10; ReductiveGroupsPartII RG2.0a (norm-one tori and Weil restriction);
+4.1, 4.8; ReductiveGroupsPartII RG2.0a (norm-one tori and Weil restriction);
 SchemeAndStackFoundations T354.
 
 **Checks.**
@@ -1432,7 +1507,7 @@ SchemeAndStackFoundations T354.
   right is controlled by `H¹(K, R¹_{D/K} 𝔾_m) = K^×/N(D^×)` (Hilbert 90 for the norm-one torus).
 - `J_m` has dimension `g + 1` and `J` dimension `g`.
 
-### 4.12 Two-torsion of the one-node curve
+### 4.10 Two-torsion of the one-node curve
 
 Let `L = K[t]/(f(t, 1)/f₀)`, an étale algebra of degree `2g + 2`. Prove `BgwTwoTorsion`:
 `J_m[2] ≅ ker(N : Res_{L/K} μ₂ → μ₂)` and `J[2]` is that kernel modulo the diagonal `μ₂`, as
@@ -1441,7 +1516,7 @@ points of `J[2]` correspond to even-cardinality subsets of the roots of `f` modu
 and a `K`-rational point of `J[2]` may come from a subset that is Galois-stable as an unordered
 pair of complementary subsets without either being `K`-rational (Bhargava–Gross–Wang, §3,
 Proposition 22, p. 11; divisor proof p. 12). Galois fixed points do not commute with the
-quotient by `μ₂`. *Needs:* 4.11; `ArithmeticGaloisRepresentations:R01.6`,
+quotient by `μ₂`. *Needs:* 4.9; `ArithmeticGaloisRepresentations:R01.6`,
 `AbelianSchemesAndArithmeticModuli:A3` (torsion and the Weil pairing).
 
 **Checks.**
@@ -1449,18 +1524,20 @@ quotient by `μ₂`. *Needs:* 4.11; `ArithmeticGaloisRepresentations:R01.6`,
 - For `g = 1` the geometric orders are `8` and `4`.
 - The diagonal `μ₂` is nontrivial and is divided out only for `J[2]`, not for `J_m[2]`.
 - A quadratic factorisation `f = f₁ f₂` with `f₁, f₂` conjugate over a quadratic extension gives
-  a `K`-rational point of `J[2]` with no `K`-rational odd factor.
+  a nonzero `K`-rational point of `J[2]` when the conjugate factors have positive even degree;
+  neither chosen factor need be defined over `K`. Odd-degree factors instead give points
+  of the torsor of 4.11.
 
-### 4.13 Odd-factor torsors
+### 4.11 Odd-factor torsors
 
 Let `d` be the class of the hyperelliptic line bundle of degree `2`. Prove `BgwOddFactorTorsors`:
-`Pic(C)/ℤd = J ⊔ J¹` with `J¹` the degree-one component, a `J`-torsor (SchemeAndStackFoundations
-T353, Picard torsors without a rational point), and likewise for `C_m`; the kernel `W[2]` of
-multiplication by two on `J¹` is a `J[2]`-torsor, and `W_m[2]` a `J_m[2]`-torsor; `W_m[2](K)`
+`Pic_{C/K}/ℤd = J ⊔ J¹` with `J¹` the degree-one component, a `J`-torsor (SchemeAndStackFoundations
+T353, Picard torsors without a rational point), and likewise for `C_m`; `W[2] := {c ∈ Pic¹_{C/K} : 2c = d}` (equivalently the zero fibre of
+`[2] : J¹ → J` in the quotient by `ℤd`) is a `J[2]`-torsor, and `W_m[2]` a `J_m[2]`-torsor; `W_m[2](K)`
 corresponds to odd-degree factors of `f` over `K`, whereas `W[2](K)` corresponds to odd unordered
 factorisations including pairs of factors conjugate over a quadratic extension
 (Bhargava–Gross–Wang, §3, Proposition 22(3)–(4), p. 11). A torsor without a `K`-point has no
-zero element and is not a group. *Needs:* 4.12; SchemeAndStackFoundations T353, T355(ii).
+zero element and is not a group. *Needs:* 4.10; SchemeAndStackFoundations T353, T355(ii).
 
 **Checks.**
 
@@ -1470,14 +1547,15 @@ zero element and is not a group. *Needs:* 4.12; SchemeAndStackFoundations T353, 
 - An odd factorisation into two conjugate factors gives a point of `W[2](K)` not in the image
   of `W_m[2](K)`.
 
-### 4.14 The connecting class of the two-torsion sequence
+### 4.12 The connecting class of the two-torsion sequence
 
 Prove `BgwBoundaryCupProduct`: the exact sequence `0 → μ₂ → J_m[2] → J[2] → 0` has connecting
 map `H¹(K, J[2]) → H²(K, μ₂) = Br(K)[2]` equal, under the Weil self-duality of `J[2]`, to the cup
 product with the class of the torsor `W[2]`; its kernel is the image of `H¹(K, J_m[2])`
-(Bhargava–Gross–Wang, end of §3, p. 12, citing their Proposition 10.3, whose proof is part of
-this target). The connecting class is not represented by a rational divisor without the Brauer
-obstruction of SF.3 T354. *Needs:* 4.12, 4.13; Mathlib `BrauerGroup`, cup products in Galois
+(Bhargava–Gross–Wang, end of §3, p. 12, citing Poonen–Schaefer, Proposition 10.3;
+the statement is on pp. 18–19 of their author manuscript of 10 February 1997,
+with the cocycle comparison proved on pp. 19–20). The connecting class is not represented by a rational divisor without the Brauer
+obstruction of SF.3 T354. *Needs:* 4.10, 4.11; Mathlib `BrauerGroup`, cup products in Galois
 cohomology (ProfiniteCohomology Layer 2); SchemeAndStackFoundations T354.
 
 **Checks.**
@@ -1485,37 +1563,41 @@ cohomology (ProfiniteCohomology Layer 2); SchemeAndStackFoundations T354.
 - If `W[2]` is a trivial torsor, the connecting map is zero and
   `H¹(K, J_m[2]) → H¹(K, J[2])` is surjective.
 - If `C` has a `K`-rational Weierstrass point, `W[2]` is trivial.
-- The connecting map lands in `Br(K)[2]` and is killed by base change to `D`.
+- The connecting map lands in `Br(K)[2]`; for split `D = K × K`, splitting the torus
+  does not by itself trivialise `W[2]` or this boundary. The Picard–Brauer obstruction killed
+  over `D` (SF.3 T354–T355) is a different map.
 
-### 4.15 The Picard scheme of a stable family
+### 4.13 The Picard scheme of a stable family
 
 Let `S` be an integral Noetherian scheme and `X → S` a stable curve of genus `g > 1`
 (StableReduction Layer 3; the moduli of stable curves is SchemeAndStackFoundations SF.4d). Prove
 `StableFamilyPicard`: the fibrewise identity component `Pic⁰_{X/S}` is a smooth separated
 semi-abelian group scheme over `S` (Yuan, §3.1.3 and Lemma 3.4, pp. 43–44, citing
-Bosch–Lütkebohmert–Raynaud, §9.4, Theorem 1). The total space need not be regular, unlike in 4.4,
+Bosch–Lütkebohmert–Raynaud, §9.4, Theorem 1, p. 259). The total space need not be regular, unlike in 3.9,
 and the base is not Dedekind: representability is AlgebraicModuliForArithmeticGeometry T539, and
-the semi-abelian structure of the fibres is 4.1 fibre by fibre. The comparison of the Hodge line
-`det e^*Ω¹` with `det π_*ω_{X/S}` belongs to JacobianChallenge Part II, which consumes this
-target. *Needs:* 4.1; AlgebraicModuliForArithmeticGeometry T539; StableReduction Layer 3.
+the semi-abelian structure of the geometric fibres follows from 4.1. Here semi-abelian means
+fibrewise: the toric rank can jump, so a single global extension by an `S`-torus of constant
+rank is not required. *Needs:* 4.1; AlgebraicModuliForArithmeticGeometry T539; StableReduction Layer 3.
 
 **Checks.**
 
 - A stable nodal family `xy = π^m` with `m > 1` has singular total space and still satisfies the
-  statement; it is not a model to which 4.4 applies.
+  statement; it is not a model to which 3.9 applies.
 - Over a point `s` with smooth fibre `Pic⁰_{X_s}` is the Jacobian.
-- Over a point with a one-node irreducible fibre the fibre of `Pic⁰_{X/S}` has toric rank `1`.
+- Over a point with a one-node irreducible fibre the fibre of `Pic⁰_{X/S}` has toric rank `1`;
+  a smoothing can have generic toric rank `0`, refuting a definition requiring a global torus
+  of constant rank.
 
 ### Examples
 
 - For a regular model with special fibre two rational curves meeting in two points: toric rank
-  `1`, pairing `[2]`, `Φ = ℤ/2` (4.3, 4.6, 4.7, 4.9).
+  `1`, pairing `[2]`, `Φ = ℤ/2` (4.2, 4.4, 4.5, 4.7).
 - For a regular model whose special fibre is a tree of rational curves: cycle lattice `0`,
   `Pic⁰` of the fibre trivial, `Φ = 0`.
-- `X₀(11)` over `ℤ_{11}`: the stable model has special fibre two rational curves crossing at the
+- `X₀(11)` over `ℤ_{11}`: its semistable modular model has special fibre two rational curves crossing at the
   two supersingular points `j = 1728` and `j = 0`, with thicknesses `2` and `3`; `H₁(Γ, ℤ) = ℤ`,
   the weighted edge form is `[2 + 3] = [5]`, and the component group of `J₀(11)` at `11` is
-  `ℤ/5` (4.6, 4.7).
+  `ℤ/5` (4.4, 4.5).
 
 ### Dependencies
 
@@ -1535,31 +1617,35 @@ prime; the statements that need a finite residue field, a complete `R` or `ℓ �
 
 ### 5.1 Néron–Ogg–Shafarevich
 
-Let `R` be henselian and `ℓ ≠ char k`. Prove `NeronOggShafarevich`: `A` has good reduction over
-`R` (an abelian-scheme model, 1.9) if and only if the inertia group acts trivially on `T_ℓ(A)`
-(Conrad, §4, discussion before Lemma 4.3, pp. 9–10; Theorem 5.8, pp. 20–22; SGA 7 I, Exposé IX,
+Let `R` be excellent and henselian and `ℓ ≠ char k`. Prove `NeronOggShafarevich`: `A` has good reduction over
+`R` (an abelian-scheme model, 1.8) if and only if the inertia group acts trivially on `T_ℓ(A)`
+(Conrad, §4, discussion before Proposition 4.3, pp. 9–10; Theorem 5.8, pp. 20–22; SGA 7 I, Exposé IX,
 Theorem 10.4, p. 444). Good reduction makes the prime-to-`char k` torsion finite étale over `R`,
-hence unramified. Conversely an unramified action is unipotent, so `A` is semistable by 3.8; the
-monodromy pairing of 4.5 is then zero, its nondegeneracy forces `t = 0`, and `A` has good
+hence unramified. Conversely an unramified action is unipotent, so `A` is semistable by 3.11; the
+monodromy pairing of 4.3 is then zero, its nondegeneracy forces `t = 0`, and `A` has good
 reduction by `toric_zero` of 3.1. The identification of the inertia operator of 3.7 with the
-monodromy pairing of 4.5 is part of this target. The statement concerns the whole `ℓ`-adic
-representation; triviality on one torsion level `A[N]` is a different hypothesis (3.10). For a
-non-henselian discrete valuation ring the good-reduction predicate descends from the
-henselisation, and this descent is stated explicitly in 5.2. *Needs:* 1.9, 3.8, 4.5;
+monodromy pairing of 4.3 is part of this target. The statement concerns the whole `ℓ`-adic
+representation; triviality on one torsion level `A[N]` is a different hypothesis (3.12). For a
+non-henselian excellent discrete valuation ring the good-reduction predicate descends from the
+henselisation, and this descent is stated explicitly in 5.2. *Needs:* 1.8, 3.11, 4.3;
 `ArithmeticGaloisRepresentations:R01.6`.
 
 **Checks.**
 
 - A split Tate curve has nontrivial inertia action on `T_ℓ` for every `ℓ` and bad reduction.
-- For an elliptic curve with additive reduction the inertia action on `T_ℓ` is not unipotent, so
+- For an elliptic curve with additive reduction and perfect residue field the inertia action
+  on `T_ℓ`, `ℓ ≠ char k`, is not unipotent, so
   neither direction of the criterion is vacuous.
 - (non-example) Unramified `A[N]` for one `N` does not imply good reduction: a Tate curve with
-  `N ∣ ord(q)` has unramified `N`-torsion.
+  `q = π^N` over a complete discrete valuation ring with finite residue field and
+  `N ≥ 3` prime to its characteristic has unramified `N`-torsion: the required root
+  `q^{1/N} = π` is in `K` and `μ_N` is unramified. Divisibility of `ord(q)` alone
+  does not guarantee that the unit part has an unramified `N`th root.
 
 ### 5.2 Good reduction is isogeny invariant
 
-Prove `GoodIsogeny`: isogenous abelian varieties over `K` have good reduction over the same
-discrete valuation rings (Conrad, Proposition 4.1, pp. 8–9, and pp. 9–10). An isogeny induces an
+Let `R` be an excellent discrete valuation ring. Prove `GoodIsogeny`: isogenous abelian
+varieties over `K` have good reduction over `R` (Conrad, Proposition 4.1, pp. 8–9, and pp. 9–10). An isogeny induces an
 isomorphism of the rational Tate modules `V_ℓ(A) ≅ V_ℓ(B)` even when `ℓ` divides its degree,
 inertia acts trivially on the torsion-free lattice `T_ℓ(A)` if and only if it does on `V_ℓ(A)`,
 and 5.1 applies; for a non-henselian `R` the abelian-scheme model descends from the henselisation
@@ -1577,26 +1663,50 @@ and 5.1 applies; for a non-henselian `R` the abelian-scheme model descends from 
 
 ### 5.3 Period rings and the `p`-adic comparison at the residue prime
 
-Let `K` be a finite extension of `ℚ_p`. Define Fontaine's period rings `B_cris ⊂ B_st ⊂ B_dR`
-over `K` (Fontaine, *Le corps des périodes p-adiques*, Astérisque 223 (1994), §§1–3; Mathlib has
-`B_dR^+` and `B_dR` in `RingTheory/Perfectoid`, and the crystalline and semistable rings with
-their Frobenius `φ` and monodromy `N` are built here), the functors `D_cris`, `D_st`, `D_dR` on
+Let `K` be a finite extension of `ℚ_p`, and `K₀` its maximal unramified subfield. Choose a
+branch of the `p`-adic logarithm extending the usual logarithm on units to fix the embedding
+`B_st → B_dR`; it is not an unchosen canonical inclusion. Define Fontaine's period rings
+`B_cris ⊂ B_st`, with their Frobenius `φ`, monodromy `N` and comparison to the supplied
+`B_dR` (Fontaine, *Le corps des périodes p-adiques*, Astérisque 223 (1994),
+§§1–3 and §4.2, pp. 59–101), the functors `D_cris`, `D_st`, `D_dR` on
 continuous `ℚ_p`-representations of `Gal(K̄/K)`, and the predicates crystalline, semistable and
-de Rham (dimension of the functor value equal to the dimension of the representation). Then
+de Rham (dimension over `K₀` for `D_cris` and `D_st`, over `K` for `D_dR`, equal to the
+`ℚ_p`-dimension of the representation). The functors, dimensions and relation
+`D_cris(V) = ker(N : D_st(V) → D_st(V))` use Fontaine, *Représentations p-adiques
+semi-stables*, Astérisque 223 (1994), §3.1 and §§5.1.1–5.1.7, pp. 136–137 and 155–157. Prove
+`PeriodRealization.map_id`, `map_comp`, `zero`, `trivial`, `dim_le`,
+`crystalline_implies_semistable`, `semistable_implies_deRham` and
+`potentially_deRham_iff_deRham`; the last is descent through a finite extension
+(Fontaine, §3.9(ii), p. 143). On the admissible subcategories prove
+`PeriodRealization.tensor` and `dual` (Fontaine, Theorem 3.8, p. 142, and the theorem
+after §5.1.7, p. 158). In particular potential semistability from 3.10 gives
+`AbelianVariety.deRham` for every `A`. Then
 prove `PadicComparison`: if `A` has good reduction then `V_p(A)` is crystalline, and if `A` has
-semistable reduction then `V_p(A)` is semistable, with `D_st(V_p(A))` the Dieudonné module of
-the Raynaud extension of 3.11 and `N` the monodromy operator induced by the lattice `Y` of 3.12
-(Fontaine, *Sur certains types de représentations p-adiques…*, Ann. of Math. 115 (1982), §6, for
-the crystalline case via `p`-divisible groups; Coleman–Iovita, *The Frobenius and monodromy
+semistable reduction then `V_p(A)` is semistable, with `D_st(V_p(A))` the filtered `(φ, N)` realisation of the full Raynaud `1`-motive
+`[Y → G]` of 3.14 (dimension `2g`, including the lattice contribution) and `N` the monodromy operator induced by the lattice `Y` of 3.14
+(Coleman–Iovita, *The Frobenius and monodromy
 operators for curves and abelian varieties*, Duke Math. J. 97 (1999), main theorem of the
-introduction, for the semistable case; the statement and its use are in
-Boxer–Calegari–Gee–Pilloni 2021, proof of Proposition 2.8.1, pp. 194–195). The convention for
+introduction, for the semistable case: the public arXiv version math/9701229v1, introduction,
+pp. 2–3, states the comparison with `D_st(V_p(A))^*` and the crystalline criterion.
+Its semistable comparison is stated for split semistable reduction; for the general
+semistable case, pass to a finite unramified extension splitting the Raynaud torus and
+lattice, then descend the comparison and semistable admissibility, retaining their
+Galois action. This descent is part of `PadicComparison` (Fontaine Exposé III,
+§1.8.6, p. 135, gives admissibility descent when the extension acts faithfully on
+the period-ring scalar field, as for an unramified extension);
+Boxer–Calegari–Gee–Pilloni 2021, Proposition 2.8.1, pp. 194–195, uses the associated
+Weil–Deligne systems rather than stating this period-ring comparison). The convention for
 the dual: `V_p(A)` is the homological Tate module and `H¹_ét(A_{K̄}, ℚ_p)` its dual, so
-`D_cris(H¹)` is the dual Dieudonné module with the opposite Hodge weights. *Needs:* 1.9, 3.1,
-3.11, 3.12; Mathlib `BDeRham`, `WittVector.fontaineTheta`.
+`D_cris(H¹)` is the dual Dieudonné module with the opposite Hodge weights. *Needs:* 1.8, 1.10, 3.1,
+3.10, 3.13, 3.14; Mathlib `BDeRham`, `WittVector.fontaineTheta`.
 
 **Checks.**
 
+- `B_st^{N=0} = B_cris`, and `N(1) = 0`; identifying the two rings would lose the
+  nonzero-monodromy Tate representation.
+- For the trivial representation `ℚ_p`, `D_st = D_cris = K₀` and `D_dR = K`; a ramified
+  `K/ℚ_p` distinguishes the scalar fields. For the zero representation all three functors
+  give zero, and all three dimension predicates hold.
 - `V_p(A)` is de Rham for every `A`, and a de Rham representation is not automatically
   crystalline: an elliptic curve with additive reduction at `p` gives a representation that is de
   Rham but not semistable.
@@ -1612,10 +1722,13 @@ representation attached to `H¹_ét(A_{K̄}, ℚ_ℓ)` (the dual of `V_ℓ(A)`);
 Weil–Deligne representation are `ArithmeticGaloisRepresentations:R01.3` and `R01.6` and are not
 redefined here (Calegari–Geraghty, Appendix, Lemma A.7 and its proof, p. 89). Prove
 `ConductorInterface.independent_of_ell` for `dim A > 1` (the exponent is independent of `ℓ`:
-after a finite extension `A` is semistable by 3.9 and the exponent is computed from the Raynaud
-extension of 3.11, whose toric and abelian ranks do not depend on `ℓ`), `dual` (`A` and `A^∨`
+after a finite extension `A` is semistable by 3.10; retain the finite inertia action on
+the strict `1`-motive of 3.14 and its Weil–Deligne realisations, not just the ranks
+after extension. The finite inertia characters and nilpotent operator determine the
+Artin and Swan terms over the original field and are independent of `ℓ`, by Raynaud
+1994, §§4.7.3–4.7.4, p. 317, and Noot 2013, Corollary 2.7, pp. 256–257), `dual` (`A` and `A^∨`
 have the same conductor) and `isogeny` (isogenous varieties have the same conductor, by 5.2 and
-the isomorphism of rational Tate modules). *Needs:* 3.9, 3.11, 5.2;
+the isomorphism of rational Tate modules). *Needs:* 3.10, 3.13, 3.14, 5.2;
 `ArithmeticGaloisRepresentations:R01.3`, `R01.6`.
 
 **Checks.**
@@ -1652,12 +1765,12 @@ Weil–Deligne factor of `R01.2`, and its agreement with Mathlib's
 `LocalEulerPolynomial`: for semistable `A`, the inertia invariants of `H¹` are the dual of
 `T_ℓ(A)/T_t` (3.5, 3.6), geometric Frobenius acts on the toric character contribution with
 eigenvalues of weight `0` and on the abelian contribution with eigenvalues of weight `1` (through
-the Raynaud extension of 3.11), hence `P_v(A, T)` has integer coefficients independent of `ℓ`;
-for arbitrary `A` the same follows after the finite extension of 3.9 by descent; and the
+the Raynaud extension of 3.13), hence `P_v(A, T)` has integer coefficients independent of `ℓ`;
+for arbitrary `A` the same follows after the finite extension of 3.10 by descent; and the
 inertia semisimplification alone does not determine `P_v` (Raynaud 1994, Proposition 4.6.1,
 p. 315, and Proposition 4.7.4, p. 317, which act on the homological realisation with arithmetic
 Frobenius; the passage to the cohomological dual with geometric Frobenius is part of this
-target). *Needs:* 3.5, 3.6, 3.9, 3.11; `ArithmeticGaloisRepresentations:R01.2`, `R01.6`.
+target). *Needs:* 3.5, 3.6, 3.10, 3.13, 4.3; `ArithmeticGaloisRepresentations:R01.2`, `R01.6`.
 
 **Checks.**
 
@@ -1674,9 +1787,9 @@ dividing the order of `Φ_{A^∨}(k̄)`. Prove `ResidualConductorComponents`: th
 of the residual representation `A[ℓ]` have the same dimension as those of `V_ℓ(A)`, so the
 residual and characteristic-zero conductor exponents agree (Calegari–Geraghty, Appendix,
 Lemma A.7 and proof, p. 89). The defect of reduction of the saturated invariant submodule is
-measured by the `ℓ`-primary part of the cokernel of the monodromy map (4.7), which vanishes
-under the hypothesis; by the perfect pairing of 4.8 one may use `#Φ_A(k̄)` in place of
-`#Φ_{A^∨}(k̄)`, but that is a consequence of 4.8 and not an assumption. *Needs:* 3.5, 4.7, 4.8,
+measured by the `ℓ`-primary part of the cokernel of the monodromy map (4.5), which vanishes
+under the hypothesis; by the perfect pairing of 4.6 one may use `#Φ_A(k̄)` in place of
+`#Φ_{A^∨}(k̄)`, but that is a consequence of 4.6 and not an assumption. *Needs:* 3.5, 4.5, 4.6,
 5.4; `ArithmeticGaloisRepresentations:R01.3` (conductors of residual representations).
 
 **Checks.**
@@ -1719,9 +1832,9 @@ the intended instances) be given. Prove `DegeneracyFunctoriality`: each homomorp
 extends to the Néron models (1.5) and induces the contravariant character map
 `f_T^* : X_B → X_A` (2.4), the covariant component map `f_* : Φ_A → Φ_B` (2.2), the dual maps for
 `f^∨`, and the commutative diagrams `u_A(y, f^* x) = u_B((f^∨)^* y, x)` and
-`⟨f_* a, b⟩_B = ⟨a, (f^∨)_* b⟩_A` of 4.5 and 4.8 (SGA 7 I, Exposé IX, 10.2.6–10.2.8, p. 441;
+`⟨f_* a, b⟩_B = ⟨a, (f^∨)_* b⟩_A` of 4.3 and 4.6 (SGA 7 I, Exposé IX, 10.2.6–10.2.8, p. 441;
 §1.2, p. 323). No level-lowering statement and no exactness of Néron models is asserted.
-*Needs:* 1.5, 2.2, 2.4, 4.5, 4.8.
+*Needs:* 1.5, 2.2, 2.4, 4.3, 4.6.
 
 **Checks.**
 
@@ -1735,13 +1848,14 @@ extends to the Néron models (1.5) and induces the contravariant character map
 
 Given an exact sequence of tori `0 → T₁ → T → T₂ → 0` over `k`, prove `CharacterExactSequences`:
 the character lattices form an exact sequence `0 → X^*(T₂) → X^*(T) → X^*(T₁) → 0` (the exactness
-of the character functor is ReductiveGroups Layer 4), and, given compatible integral monodromy
-maps for the three tori, the snake lemma on the lattices gives the induced sequence of component
+of the character functor is ReductiveGroups Layer 4), and, given a commutative diagram of two short exact sequences of finite free lattices
+`0 → L₁ → L → L₂ → 0` and `0 → D₁ → D → D₂ → 0`, with vertical maps
+`u₁, u, u₂` identified with the relevant monodromy adjoints, the snake lemma gives the induced sequence of component
 groups with its kernel and cokernel terms (SGA 7 I, Exposé IX, 10.2.6–10.2.8, p. 441;
 Theorem 11.5, p. 455). Applied to degeneracy maps between modular Jacobians, the exactness of the
 torus sequence and the saturation of the lattices are hypotheses that the consumer establishes;
 they are not consequences of an exact sequence of abelian varieties (Yuan–Zhang, Erratum,
-introduction, p. 1). *Needs:* 4.7, 6.1; ReductiveGroups Layer 4.
+introduction, p. 1). *Needs:* 4.5, 6.1; ReductiveGroups Layer 4.
 
 **Checks.**
 
@@ -1749,7 +1863,9 @@ introduction, p. 1). *Needs:* 4.7, 6.1; ReductiveGroups Layer 4.
 - For `T₁ = μ_n`-type non-torus kernels the hypothesis fails and nothing is asserted: the
   sequence must consist of tori.
 - The finite cokernels of the three monodromy maps are not erased: the snake lemma relates
-  three component groups and two further finite terms.
+  three component groups in a short exact sequence when both lattice rows are short exact
+  and all three vertical monodromy maps are injective. Nonzero vertical kernels produce the
+  usual connecting term; they must be specified rather than inserted by assumption.
 
 ### 6.3 Semistable base change of the differential lattice
 
@@ -1765,7 +1881,8 @@ and the full models do not pull back. *Needs:* 1.11, 3.3.
 
 - For a Tate curve the differential `du/u` on the identity torus is unchanged by ramified base
   change while the component group grows; no identification with `dq/q` is claimed.
-- For good reduction everywhere the statement is 1.10 applied to abelian schemes.
+- For good reduction everywhere the statement is base change of abelian schemes and 1.8;
+  the extension need not be étale.
 - Without semistability the identity model can change (additive reduction becoming good), and
   the statement fails.
 
@@ -1776,8 +1893,13 @@ models, and `f : A → B` an isogeny. Prove `IsogenyDifferentialExport`: `f` ext
 homomorphism of Néron models and induces an inclusion `f^* : ω_B → ω_A` of finite projective
 lattices of the same rank with torsion cokernel, invertible after tensoring with `K`; the length
 of the cokernel at each finite place is the local datum the height theory consumes, and no
-degree-only formula and no vanishing of the `p`-primary contributions is asserted (Yuan–Zhang,
-Erratum, introduction, p. 1, and Theorems 1–2, p. 2). *Needs:* 1.5, 1.11, 5.2.
+degree-only formula and no vanishing of the `p`-primary contributions is asserted.
+Derive the inclusion from 1.5 and the isogeny identity `f′ ∘ f = [deg f]`: on the generic
+cotangent spaces multiplication by the nonzero integer `deg f` is invertible in characteristic
+zero, and the lattices are torsion-free by 1.11. This is a formal consequence of those targets,
+not the general statement of Yuan–Zhang's specialised CM erratum (introduction, p. 1,
+Theorems 1–2, p. 2); that erratum supplies the warning against exactness of Néron models.
+*Needs:* 1.5, 1.11, 5.2; AbelianSchemesAndArithmeticModuli A3 (the isogeny identity).
 
 **Checks.**
 
@@ -1794,10 +1916,10 @@ curve `E` over `K`. Prove `EquationGoodComparison`: Mathlib's `WeierstrassCurve.
 (the multiplicative valuation of the discriminant is `1`, that is, `ord(Δ) = 0`; equivalently
 `hasGoodReduction_iff_isElliptic_reduction`) holds if and only if the smooth proper Weierstrass
 scheme of `W` over `R` (ModularCurves Layer 1 and `AbelianSchemesAndArithmeticModuli:A1`) is an
-abelian scheme, if and only if `E` has good reduction in the sense of 1.9; the scheme-level
+abelian scheme, if and only if `E` has good reduction in the sense of 1.8; the scheme-level
 property is independent of the chosen minimal model (Bosch–Lütkebohmert–Raynaud, §1.5,
 pp. 20–23). Where the geometric input is stated over a strictly henselian base (2.7), base change
-there and descend. *Needs:* 1.9, 2.7; Mathlib `WeierstrassCurve.HasGoodReduction`,
+there and descend. *Needs:* 1.8, 2.7; Mathlib `WeierstrassCurve.HasGoodReduction`,
 `hasGoodReduction_iff_isElliptic_reduction`; EllipticCurves Layer 4; ModularCurves Layer 1.
 
 **Checks.**
@@ -1811,11 +1933,19 @@ there and descend. *Needs:* 1.9, 2.7; Mathlib `WeierstrassCurve.HasGoodReduction
 
 ### 6.6 Equation-level and toric multiplicative reduction
 
-Prove `EquationMultiplicativeComparison`: Mathlib's `HasMultiplicativeReduction R W`
+For a minimal integral Weierstrass equation `W` over a discrete valuation ring `R`,
+prove `EquationMultiplicativeComparison`: Mathlib's `HasMultiplicativeReduction R W`
 (`ord(Δ) > 0`, `ord(c₄) = 0`) holds if and only if the reduced cubic is nodal and the identity
 fibre `M_k⁰` is a one-dimensional torus; the residual quadratic of Mathlib's
 `HasSplitMultiplicativeReduction` (Tau Ceti's `nodePolynomial`) splits if and only if that torus
-is split, so equation-level splitness is torus splitness (Tate, §4, p. 41). *Needs:* 2.6, 2.8;
+is split, so equation-level splitness is torus splitness (Tate, §4, p. 41;
+Bosch–Lütkebohmert–Raynaud, §1.5, p. 23, gives the split comparison in residue characteristic
+different from `2, 3`).
+
+**Source gap.** The all-characteristic nodal and splitness comparison cited to Tate is not
+verified here; BLR p. 23 does not cover residue characteristic `2` or `3` or residue-field
+descent. Those cases require the equation-to-smooth-locus comparison with its node polynomial,
+not the short-Weierstrass argument valid only away from `2, 3`. *Needs:* 2.6, StableReduction Layer 5;
 Mathlib `HasMultiplicativeReduction`, `HasSplitMultiplicativeReduction`; Tau Ceti
 `nodePolynomial`; EllipticCurves Layer 4.
 
@@ -1832,10 +1962,10 @@ Mathlib `HasMultiplicativeReduction`, `HasSplitMultiplicativeReduction`; Tau Cet
 Prove `EquationDiscriminantComparison`: EllipticCurves' `localMinimalDiscriminant` valuation
 `v(Δ_min)` (Tau Ceti `localMinimalDiscriminantValuation`) is invariant under changes of minimal
 equation, equals `n` for type `Iₙ`, and for the additive types equals the tame table values of
-2.10 when `char k ≠ 2, 3`, the wild values being those of the full Tate algorithm (Tate, §6,
+2.9 when `char k ≠ 2, 3`, the wild values being those of the full Tate algorithm (Tate, §6,
 discriminant row and the restriction, p. 46). The relation with the conductor,
 `v(Δ_min) = f(E) + m − 1` (Ogg's formula), is `ArithmeticGaloisRepresentations:R01.3`, which
-consumes 2.8 and 2.10 and is not restated. *Needs:* 2.8, 2.10; EllipticCurves Layer 4; Tau Ceti
+consumes StableReduction Layer 5 and 2.9 and is not restated. *Needs:* StableReduction Layer 5, 2.9; EllipticCurves Layer 4; Tau Ceti
 `localMinimalDiscriminantValuation`.
 
 **Checks.**
@@ -1850,7 +1980,7 @@ consumes 2.8 and 2.10 and is not restated. *Needs:* 2.8, 2.10; EllipticCurves La
 Let `R` be complete with finite residue field `k`. Prove `EquationComponentComparison`:
 EllipticCurves Layer 4's local index `c_p = [E(K) : E₀(K)]` equals `#Φ_E(k)`, through 2.6; the
 geometric component count `m` and `#Φ_E(k̄)` are different invariants (Tate, §§4–6, pp. 41–46).
-*Needs:* 2.2, 2.6, 2.9; EllipticCurves Layer 4.
+*Needs:* 2.2, 2.6, 2.8; EllipticCurves Layer 4.
 
 **Checks.**
 
@@ -1865,7 +1995,10 @@ Let `R` be a discrete valuation ring and `W` a minimal integral Weierstrass equa
 `EquationMinimalDifferential`: the invariant differential `dx/(2y + a₁x + a₃)` of EllipticCurves
 Layer 1, with its alternative expression on the chart where that denominator vanishes, is a
 basis of the local lattice `ω_E` of 1.11; under a change between minimal equations it is
-multiplied by the unit `u` of the change of variables (Tate, Theorem 4.2 and the differential
+scaled according to the explicit convention
+`x = u²x' + r`, `y = u³y' + s u²x' + t`: the old differential pulls back to
+`u⁻¹` times the primed differential (and `Δ_old = u¹² Δ_primed`); for two minimal
+equations `u` is a unit (Tate, Theorem 4.2 and the differential
 computation, pp. 42–43). The comparison identifies the smooth-locus charts of the Weierstrass
 scheme with charts of the Néron model (2.7) and the pullback of `Ω¹` along the identity section
 (SchemeAndStackFoundations T361); it is not `dq/q` of a Tate parameter. *Needs:* 1.11, 2.7;
@@ -1875,8 +2008,10 @@ EllipticCurves Layer 1; SchemeAndStackFoundations T361.
 
 - In residue characteristic `2` or `3` the chart with denominator `3x² + 2a₂x + a₄ − a₁y` is
   used where `2y + a₁x + a₃` vanishes; no division by a vanishing denominator occurs.
-- A non-minimal equation with `u ∈ 𝔪` gives a differential that is `π`-times a generator, not a
-  generator.
+- For residue characteristic at least `5`, compare `y'² = x'³ + 1` with
+  `y² = x³ + π⁶`, under `x = π²x'`, `y = π³y'`. The second discriminant has valuation
+  `12`, and its differential pulls back to `π⁻¹ω_min`; it lies outside the Néron lattice,
+  so it is not a generator. Reversing the coordinate map reverses the scaling direction.
 - For good reduction the basis element is the Néron differential of the abelian scheme.
 
 ### 6.10 The compatible system of an abelian variety
@@ -1888,11 +2023,18 @@ representations, pure of weight `i`, with the Weil–Deligne conventions of
 `ArithmeticGaloisRepresentations:R01.2`; `H¹` is the dual of the homological Tate module, and
 for an abelian surface the `GSp₄` multiplier of `H¹` is `ε_ℓ^{-1}`
 (Boxer–Calegari–Gee–Pilloni 2021, Proposition 2.8.1, Definition 2.8.2 and Remark 2.8.3,
-pp. 194–195; the printed `dim X` is `dim A`). The inputs are 3.9 and 3.12 for the local
+pp. 194–195; the printed `dim X` is `dim A`). The inputs are 3.10 and 3.14 for the local
 description at places of bad reduction through the strict `1`-motive, 5.3 at places above `ℓ`,
 and the `ℓ`-independence of 5.6; the compatibility across `ℓ` at the coefficient prime (Noot,
-Saito's base-change argument) is part of this target. *Needs:* 3.9, 3.12, 5.3, 5.6;
+Saito's base-change argument) is part of this target. *Needs:* 3.10, 3.14, 5.3, 5.6;
 `ArithmeticGaloisRepresentations:R01.2`.
+
+**Source gap.** The statement of BCGP Proposition 2.8.1 and its references were checked,
+and Noot 2013, Corollary 2.7, pp. 256–257, supplies the `ℓ ≠ p` strict-`1`-motive input.
+The original coefficient-prime input, Noot 2017, Corollary 2.2, has not been independently
+collated: the public author page supplies an abstract but no manuscript. Its statement
+and hypotheses, and the subsequent base-change trace argument, remain source proof
+inputs to verify before completing this target.
 
 **Checks.**
 
@@ -1924,7 +2066,7 @@ Let `B` be a principally polarised abelian surface over `ℚ₂` with semistable
 Prove `OrdinaryIsotropicFiltration`: `T₂(B)` contains a saturated `Gal(ℚ̄₂/ℚ₂)`-stable isotropic
 submodule of rank two whose reduction is a Galois-stable Lagrangian subspace of `B[2]`: for toric
 rank `t = 2` it is the toric part `T_t` of 3.5 (of rank `2`; the whole `T₂(B)` has rank `4` and
-is not isotropic), for `t = 1` the lift of the rank-one connected part of `T_f/T_t`, and for
+is not isotropic), for `t = 1` the full inverse image in `T_f` of the rank-one connected part of `T_f/T_t`, and for
 `t = 0` the connected part of the ordinary `2`-divisible group (Boxer–Calegari–Gee–Pilloni 2025,
 proof of Lemma 9.1.8, p. 191, where the toric subscript is missing). *Needs:* 3.5, 3.6, 6.11.
 
@@ -1940,7 +2082,10 @@ Under the hypotheses of 6.12 and the identification `S₆ ≅ GSp₄(𝔽₂)` f
 `OrdinaryResidualPointExport`: if the image of the residual representation on `B[2]` lies in the
 subgroup `S₅(b)` (one of the two conjugacy classes of `S₅` in `S₆`), then that image is a
 `2`-group and `B[2](ℚ₂) ≠ 0` (Boxer–Calegari–Gee–Pilloni 2025, Lemma 9.1.8, p. 191). By 6.12 the
-image lies in a Siegel parabolic, whose intersection with `S₅(b)` has order `48` and is a
+image lies in a Siegel parabolic of order `48`, identified in `S₆` with the centraliser
+of `(12)(34)(56)`. Here `S₅(b)` is the standard point stabiliser. Its intersection with
+that centraliser has order `8`: fixing one point forces its partner to be fixed, leaving
+two pairs with independent swaps and a permutation of those pairs. In particular it is a
 `2`-group; a `2`-group acting on a nonzero `𝔽₂`-vector space fixes a nonzero vector
 (`Interfaces.exists_ne_zero_fixed_of_two_group`). The choice of `S₅(b)` and the order of the
 intersection are finite-group inputs supplied with the statement. *Needs:* 6.12; Mathlib finite
@@ -1952,19 +2097,22 @@ group theory.
   the three nonzero vectors of `𝔽₂²` fixes none (negative control for the `2`-group hypothesis).
 - A rational Weierstrass point of the curve alone, without the ordinary hypothesis, does not give
   the conclusion.
-- The other `S₅` conjugacy class is not asserted to give a `2`-group.
+- The Siegel parabolic has order `48 = 16·3`, so it is not a `2`-group; its point-stabiliser
+  intersection has order `8`. The other `S₅` conjugacy class is not asserted to give a `2`-group.
 
 ### 6.14 Full-level extension for curves
 
-Let `K` be a function field of one variable over a field `k`, `C` a smooth projective
+Let `K` be a function field of one variable over a perfect field `k`, `C` a smooth projective
 geometrically integral curve of genus `g > 1` over `K`, `J = Jac(C)`, `N ≥ 3` prime to `char K`
 (`N = 3` if `char K ≠ 3`, else `N = 4`), and `K' = K(J[N])`. Prove `YuanFullLevelExtension`:
-`J ×_K K'` is semistable at every valuation of `K'` trivial on `k` (3.10 at the valuations prime
+`J ×_K K'` is semistable at every valuation of `K'` trivial on `k` (3.12 at the valuations prime
 to `N`); `C ×_K K'` is semistable at those valuations by the curve–Jacobian criterion of
-StableReduction Layer 7, with that criterion's residue-field hypotheses as explicit hypotheses
-here; and `[K' : K] < N^{4g²}` because `Gal(K'/K)` injects into `GSp_{2g}(ℤ/N)`
+StableReduction Layer 7. Here the residue fields at these places are finite over
+the perfect constant field. Deligne–Mumford, §2, Theorem 2.4, pp. 87–90, states the
+criterion with algebraically closed residue field; passage to a strict henselisation and
+descent of the stable model give this perfect-residue-field form; and `[K' : K] < N^{4g²}` because `Gal(K'/K)` injects into `GSp_{2g}(ℤ/N)`
 (`Interfaces.card_lt_of_subgroup_matrix`) (Yuan, Lemma 4.9 and the full-level paragraph, p. 75,
-where `J` is the Jacobian of `C`). No height lower bound is asserted. *Needs:* 3.10;
+where `J` is the Jacobian of `C`). No height lower bound is asserted. *Needs:* 3.12;
 StableReduction Layer 7; `ArithmeticGaloisRepresentations:R01.6`,
 `AbelianSchemesAndArithmeticModuli:A3` (the Galois action on `J[N]` preserves the Weil pairing).
 
@@ -1985,7 +2133,7 @@ ramified base change); nonsplit multiplicative `Iₙ` over a finite residue fiel
 Frobenius `−1` on `Φ(k̄)`, `c_p ∈ {1, 2}`, `P_v = 1 + T`); and a regular semistable curve over a
 strictly henselian base with algebraically closed residue field whose special fibre has two
 components meeting twice (toric rank `1`, cycle pairing `[2]`, `Φ = ℤ/2`), against a rational
-tree (`H₁ = 0`, `Pic⁰ = 0`, `Φ = 0`). The unramified-`3`-torsion example of 3.10 (a split Tate
+tree (`H₁ = 0`, `Pic⁰ = 0`, `Φ = 0`). The unramified-`3`-torsion example of 3.12 (a split Tate
 curve over `ℚ₂` with `q = 8` has unramified `E[3]` and multiplicative reduction: semistable, not
 good) is the `N = 3`, `k = 𝔽₂` instance used by the abelian-surface modularity consumer.
 
@@ -2005,46 +2153,46 @@ Layer 1; StableReduction Layer 7; SchemeAndStackFoundations T361;
   reciprocity): the identity component, component group and rational-versus-geometric
   distinction of 2.1–2.2 and the elliptic comparisons of 2.6 and 6.8.
 - **ModularCurvesPartII** (Jacobians and integral Hecke actions): the Picard–Néron identity
-  comparison 4.4, the character lattices 4.3 and the degeneracy functoriality 6.1–6.2 for
+  comparison 3.9, the character lattices 4.2 and the degeneracy functoriality 6.1–6.2 for
   modular Jacobians.
 - **GrossZagierAndArithmeticHeights** (admissible pairings on arithmetic surfaces; local
-  arithmetic identities): the monodromy pairing 4.5–4.6, the component pairing 4.8 and the
-  intersection-matrix description 4.9.
+  arithmetic identities): the monodromy pairing 4.3–4.4, the component pairing 4.6 and the
+  intersection-matrix description 4.7.
 - **RankZeroOneBSD** (arithmetic invariants; the Heegner index formula): the Tamagawa numbers of
   6.8 and the component groups of Layer 4.
 - **SerreWeightAndLevelOptimisation** (level-changing algebra): the character exact sequences
-  and monodromy adjoints of 6.1–6.2 and the component cokernel 4.7.
+  and monodromy adjoints of 6.1–6.2 and the component cokernel 4.5.
 - **SmallRamificationAndAbelianVarietyBaseCases** (Schoof's semistable small-prime theorem):
-  the semistable reduction predicate 3.1, the full-level criterion 3.10 and the conductor
+  the semistable reduction predicate 3.1, the full-level criterion 3.12 and the conductor
   formula 5.5.
 - **FaltingsFinitenessAndIsogenyTheorems** (height finiteness on arithmetic moduli): the
   isogeny differential export 6.4, isogeny invariance of good reduction 5.2 and semistable
-  reduction after a finite extension 3.9.
+  reduction after a finite extension 3.10.
 - **ComplexMultiplicationAndExplicitReciprocity** (reduction, isogenies and certified
   computation): Néron–Ogg–Shafarevich 5.1 and the good-reduction comparison 6.5.
 - **ArithmeticGaloisRepresentations** R01.3 and R01.6: the minimal regular smooth locus 2.7, the
-  geometric configurations 2.8 and the wild comparison 2.10 for Ogg's formula; the
-  abelian-scheme model 1.9 and the group law 1.5 for the good-reduction Frobenius polynomial.
+  geometric configurations StableReduction Layer 5 and the wild comparison 2.9 for Ogg's formula; the
+  abelian-scheme model 1.8 and the group law 1.5 for the good-reduction Frobenius polynomial.
 - **PadicHodgeTheory** R06.6: the semistable reduction predicate 3.1, which that roadmap uses to
   state its semistable comparison.
 - **StableReduction** Layer 7 (the curve–Jacobian criterion): local existence 1.7, the
-  semistable predicate 3.1 and the Picard–Néron comparison 4.4.
+  semistable predicate 3.1 and the Picard–Néron comparison 3.9.
 - **NeronModelsAndSemistableAbelianVarieties Part II** and **JacobianChallenge Part II**: the
   component groups and configurations of Layer 2, the Picard theory of Layer 4 and the stable
-  Picard scheme 4.15.
+  Picard scheme 4.13.
 - The modularity of abelian surfaces over `ℚ` (through PotentialModularityAndCompatibleSystems
   and its successors): the compatible system 6.10, the ordinary adapters 6.11–6.13 and the
-  unramified-`3`-torsion example of 3.10.
+  unramified-`3`-torsion example of 3.12.
 
 ## References
 
 - S. Bosch, W. Lütkebohmert and M. Raynaud, *Néron Models*, Ergebnisse der Mathematik 21,
-  Springer, 1990. Chapter 1 (§§1.1–1.5) for Layer 1 and 2.7; §9.4 (cited through Yuan) for 4.15;
+  Springer, 1990. Chapter 1 (§§1.1–1.5) for Layer 1 and 2.7; §9.4, Theorem 1, p. 259, for 4.13;
   p. 190, Example 8, for the failure of exactness.
 - B. Conrad, *Semistable reduction for abelian varieties*, lecture notes, Stanford, 2011
   (35 pages). §§2–7 for Layers 2–5. The corank in the paragraph after Lemma 5.4 (p. 18) reads
   `2g − (2t + a)` and should read `2g − (t + 2a) = t`; the inference at p. 21 from equal rational
-  fixed spaces to equal finite-level torsion is not valid and is replaced in 3.8.
+  fixed spaces to equal finite-level torsion is not valid and is replaced in 3.11.
 - A. Grothendieck, *Groupes de monodromie en géométrie algébrique I* (SGA 7 I), Exposé IX,
   Lecture Notes in Mathematics 288, Springer, 1972: §1 (pp. 321–324), Theorem 10.4 (p. 444),
   Theorem 11.5 and §11.6 (pp. 455–456), Theorem 12.1 (pp. 465–467), §§12.3–12.5 (pp. 469–475).
@@ -2069,8 +2217,19 @@ Layer 1; StableReduction Layer 7; SchemeAndStackFoundations T361;
 - G. Boxer, F. Calegari, T. Gee and V. Pilloni, *Modularity theorems for abelian surfaces*,
   arXiv:2502.20645v1 (2025): Definition 9.1.7, Lemma 9.1.8 (pp. 190–191; the proof omits the
   toric subscript on `T₂(B)`), Lemma 9.2.2 (p. 192).
+- B. Poonen and E. Schaefer, *Explicit descent for Jacobians of cyclic covers of the
+  projective line*, author manuscript of 10 February 1997: Proposition 10.3 and proof, pp. 18–20.
+- J. S. Milne, *Jacobian varieties*, revised author notes: Theorem 10.1 and proof, pp. 33–35.
+- R. Noot, *The system of representations of the Weil–Deligne group associated to an abelian variety*,
+  Algebra & Number Theory 7 (2013): Corollary 2.7, pp. 256–257.
+- L. Illusie, *Grothendieck and vanishing cycles*, Annales de la Faculté des Sciences de
+  Toulouse 30 (2021): Theorem 4.1 and footnote 12, p. 95; §4.3, pp. 97–98.
+- P. Deligne and D. Mumford, *The irreducibility of the space of curves of given genus*,
+  Publ. Math. IHÉS 36 (1969): §2, Theorem 2.4, pp. 87–90.
 - J.-M. Fontaine, *Sur certains types de représentations p-adiques du groupe de Galois d'un corps
   local; construction d'un anneau de Barsotti–Tate*, Annals of Mathematics 115 (1982), 529–577;
-  and *Le corps des périodes p-adiques*, Astérisque 223 (1994), 59–111.
+  and *Le corps des périodes p-adiques*, Astérisque 223 (1994), 59–111;
+  *Représentations p-adiques semi-stables*, same volume, 113–184, §§3.1, 3.8–3.9,
+  5.1.1–5.1.7 and the following theorem (pp. 136–137, 142–143, 155–158).
 - R. Coleman and A. Iovita, *The Frobenius and monodromy operators for curves and abelian
   varieties*, Duke Mathematical Journal 97 (1999), 171–215.
