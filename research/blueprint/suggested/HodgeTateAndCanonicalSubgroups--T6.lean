@@ -23,7 +23,7 @@ item appear as `example`s whose docstring begins `Test <name>`; API items realis
 a declaration with a different name are marked `API <name>`.
 
 The final contract catalogue, generated from the packet, includes EVERY packet
-declaration, API item and test under its proposed name; 117 of the 406 names have
+declaration, API item and test under its proposed name; 123 of the 406 names have
 a typed component above. An item marked "not stated" is an explicit signature
 omission, not an elaborated theorem. Conditions that cannot be stated are left out,
 not replaced by uninterpreted Prop fields or assumed comparison conclusions. Stating
@@ -220,10 +220,6 @@ variable {fsharp : M →* N} {beta : N →* B}
 @[ext] theorem ext {D D' : ContinuousLogDerivation (A := A) (E := E) fsharp beta}
     (hd : D.d = D'.d) (hdelta : D.delta = D'.delta) : D = D' := by sorry
 
-/-- API TauCeti.LogAdic.ContinuousLogDerivation.toDerivation (projection): `(d, δ) ↦ d`. -/
-def toDerivation (D : ContinuousLogDerivation (A := A) (E := E) fsharp beta) :
-    Derivation A B E := D.d
-
 /-- API TauCeti.LogAdic.ContinuousLogDerivation.deltaGp (group component): the group map
 `N^gp → E` extending `δ` (here on `N^gp`; the logification `ᵃN` is not encoded). -/
 def deltaGp (D : ContinuousLogDerivation (A := A) (E := E) fsharp beta) :
@@ -238,7 +234,84 @@ theorem map_structural (D : ContinuousLogDerivation (A := A) (E := E) fsharp bet
     (n : N) : D.d (beta n) = beta n • (D.delta n).toAdd := by sorry
 
 /-- The pair of zero maps. -/
-def zeroDerivation : ContinuousLogDerivation (A := A) (E := E) fsharp beta := by sorry
+def zeroDerivation : ContinuousLogDerivation (A := A) (E := E) fsharp beta where
+  d := 0
+  continuous_d := by sorry
+  delta := 1
+  relative_zero := by sorry
+  structural := by sorry
+
+/-- Componentwise addition: logarithmic components add in the underlying additive module. -/
+instance : Add (ContinuousLogDerivation (A := A) (E := E) fsharp beta) where
+  add D D' :=
+    { d := D.d + D'.d
+      continuous_d := by sorry
+      delta := D.delta * D'.delta
+      relative_zero := by sorry
+      structural := by sorry }
+
+instance : Zero (ContinuousLogDerivation (A := A) (E := E) fsharp beta) :=
+  ⟨zeroDerivation⟩
+
+instance : Neg (ContinuousLogDerivation (A := A) (E := E) fsharp beta) where
+  neg D :=
+    { d := -D.d
+      continuous_d := by sorry
+      delta := D.delta⁻¹
+      relative_zero := by sorry
+      structural := by sorry }
+
+instance : AddCommGroup (ContinuousLogDerivation (A := A) (E := E) fsharp beta) where
+  add_assoc := by sorry
+  zero_add := by sorry
+  add_zero := by sorry
+  neg_add_cancel := by sorry
+  add_comm := by sorry
+  nsmul := nsmulRec
+  zsmul := zsmulRec
+
+instance : SMul B (ContinuousLogDerivation (A := A) (E := E) fsharp beta) where
+  smul b D :=
+    { d := b • D.d
+      continuous_d := by sorry
+      delta :=
+        { toFun n := Multiplicative.ofAdd (b • (D.delta n).toAdd)
+          map_one' := by sorry
+          map_mul' := by sorry }
+      relative_zero := by sorry
+      structural := by sorry }
+
+/-- API TauCeti.LogAdic.ContinuousLogDerivation.instModule (full affine module component):
+operations on both components, with continuity and the two defining equations preserved. -/
+instance instModule : Module B
+    (ContinuousLogDerivation (A := A) (E := E) fsharp beta) where
+  one_smul := by sorry
+  mul_smul := by sorry
+  smul_zero := by sorry
+  smul_add := by sorry
+  add_smul := by sorry
+  zero_smul := by sorry
+
+/-- The existing derivation carrier cut out by continuity, rather than all derivations. -/
+def continuousDerivations : Submodule B (Derivation A B E) where
+  carrier := {d | Continuous d}
+  zero_mem' := by sorry
+  add_mem' := by sorry
+  smul_mem' := by sorry
+
+/-- API TauCeti.LogAdic.ContinuousLogDerivation.toDerivation (affine component): the
+B-linear forgetful map to continuous A-derivations. -/
+def toDerivation : ContinuousLogDerivation (A := A) (E := E) fsharp beta →ₗ[B]
+    continuousDerivations (A := A) (B := B) (E := E) where
+  toFun D := ⟨D.d, D.continuous_d⟩
+  map_add' := by sorry
+  map_smul' := by sorry
+
+theorem add_delta (D D' : ContinuousLogDerivation (A := A) (E := E) fsharp beta) (n : N) :
+    ((D + D').delta n).toAdd = (D.delta n).toAdd + (D'.delta n).toAdd := by sorry
+
+theorem smul_delta (b : B) (D : ContinuousLogDerivation (A := A) (E := E) fsharp beta)
+    (n : N) : ((b • D).delta n).toAdd = b • (D.delta n).toAdd := by sorry
 
 /-- Test TauCeti.LogAdic.ContinuousLogDerivation.zero: the zero pair is a log derivation. -/
 example : (zeroDerivation (A := A) (E := E) (fsharp := fsharp) (beta := beta)).d = 0 ∧
@@ -270,7 +343,15 @@ variable {E' : Type*} [AddCommGroup E'] [Module B E'] [Module A E']
 
 def postcompose (D : ContinuousLogDerivation (A := A) (E := E) fsharp beta)
     (g : E →ₗ[B] E') (hg : Continuous g) :
-    ContinuousLogDerivation (A := A) (E := E') fsharp beta := by sorry
+    ContinuousLogDerivation (A := A) (E := E') fsharp beta where
+  d := g.compDer D.d
+  continuous_d := by sorry
+  delta :=
+    { toFun n := Multiplicative.ofAdd (g (D.delta n).toAdd)
+      map_one' := by sorry
+      map_mul' := by sorry }
+  relative_zero := by sorry
+  structural := by sorry
 
 theorem postcompose_d (D : ContinuousLogDerivation (A := A) (E := E) fsharp beta)
     (g : E →ₗ[B] E') (hg : Continuous g) (b : B) :
@@ -278,6 +359,14 @@ theorem postcompose_d (D : ContinuousLogDerivation (A := A) (E := E) fsharp beta
 
 theorem postcompose_id (D : ContinuousLogDerivation (A := A) (E := E) fsharp beta) :
     postcompose D LinearMap.id continuous_id = D := by sorry
+variable {E'' : Type*} [AddCommGroup E''] [Module B E''] [Module A E'']
+  [IsScalarTower A B E''] [UniformSpace E''] [IsUniformAddGroup E''] [ContinuousSMul B E'']
+  [CompleteSpace E''] [T2Space E'']
+
+/-- API TauCeti.LogAdic.ContinuousLogDerivation.postcompose (composition clause). -/
+theorem postcompose_comp (D : ContinuousLogDerivation (A := A) (E := E) fsharp beta)
+    (g : E →ₗ[B] E') (hg : Continuous g) (h : E' →ₗ[B] E'') (hh : Continuous h) :
+    postcompose (postcompose D g hg) h hh = postcompose D (h.comp g) (hh.comp hg) := by sorry
 end ContinuousLogDerivation
 end ContinuousDerivations
 
@@ -1005,6 +1094,34 @@ example (chi : G →* Kˣ) (rho : Representation K G V) (g : G) (v : V) (g' : G)
     (hg' : (chi g' : K) ≠ 1) :
     FiniteLeviComparison chi 1 rho g v = (chi g : K) • rho g v ∧
       FiniteLeviComparison chi 1 (Representation.trivial K G K) g' 1 ≠ 1 := by sorry
+/-- Change of a local Tate-torsor section acts on a weight-w associated fibre by u^w.
+This is the scalar component of the contracted-product trivialization, not a torsor theorem. -/
+def generatorChange (u : Kˣ) (w : ℤ) : V ≃ₗ[K] V where
+  toFun v := ((u ^ w : Kˣ) : K) • v
+  invFun v := ((u ^ (-w) : Kˣ) : K) • v
+  left_inv := by sorry
+  right_inv := by sorry
+  map_add' := by sorry
+  map_smul' := by sorry
+
+/-- Change-of-generator formula (weight-space component):
+the new section differs by the central action through µ, retaining its exponent. -/
+theorem change_generator (u : Kˣ) (w : ℤ) (v : V) :
+    generatorChange (V := V) u w v = ((u ^ w : Kˣ) : K) • v := by sorry
+
+/-- Successive changes of section compose with multiplication of the units. -/
+theorem generatorChange_mul (u u' : Kˣ) (w : ℤ) :
+    (generatorChange (V := V) u' w).trans (generatorChange u w) =
+      generatorChange (u * u') w := by sorry
+
+/-- Test TauCeti.LogAdic.FiniteLeviComparison.change_generator (weight-one component):
+changing the section by a nontrivial unit acts by that unit, rather than the identity. -/
+example (u : Kˣ) (hu : (u : K) ≠ 1) :
+    generatorChange (V := K) u 1 1 = (u : K) ∧
+      generatorChange (V := K) u 1 1 ≠ 1 := by sorry
+
+/-- At weight −1, changing the generator by 2 multiplies the associated line by 1/2. -/
+example : generatorChange (V := ℚ) (Units.mk0 (2 : ℚ) (by norm_num)) (-1) 1 = 1 / 2 := by sorry
 end FiniteLeviComparison
 end CentralTwist
 
@@ -1161,18 +1278,99 @@ example : mem (weightFil (K := ℚ) ![1, 0]) (weightFil ![1, 0])
       (Matrix.toLin' !![(1 : ℚ), 1; 0, 1]) ∧
     ¬ mem (weightFil (K := ℚ) ![1, 0]) (weightFil ![1, 0])
       (Matrix.toLin' !![(1 : ℚ), 0; 1, 1]) := by sorry
+/-- Coordinate characterization of the prescribed flag. -/
+theorem mem_weightFil {n : ℕ} (wt : Fin n → ℤ) (i : ℤ) (v : Fin n → K) :
+    v ∈ weightFil wt i ↔ ∀ j, wt j < -i → v j = 0 := by sorry
+
+/-- The explicit projector onto the allowed weight coordinates. -/
+def weightProjection {n : ℕ} (wt : Fin n → ℤ) (i : ℤ) :
+    (Fin n → K) →ₗ[K] (Fin n → K) where
+  toFun v j := if -i ≤ wt j then v j else 0
+  map_add' := by sorry
+  map_smul' := by sorry
+
+/-- API TauCeti.LogAdic.LatticeHTFiltration.locally_split (split pointwise component):
+a weight flag is the range of an idempotent projection. The geometric lattice theorem
+still needs the canonical comparison and the local splitting argument in the reader. -/
+theorem weightFil_split {n : ℕ} (wt : Fin n → ℤ) (i : ℤ) :
+    LinearMap.range (weightProjection (K := K) wt i) = weightFil (K := K) wt i ∧
+      (weightProjection (K := K) wt i).comp (weightProjection wt i) = weightProjection wt i := by sorry
 end HodgeTateReduction
 end HodgeTateFlag
+
+/-! ### Split two-lattice model linking lattice intersections to weight flags -/
+
+section SplitLattices
+open scoped LaurentSeries PowerSeries
+variable (K : Type*) [Field K] {n : ℕ}
+
+/-- Compatibility of the existing coefficient and power-series scalar actions. -/
+local instance : IsScalarTower K K⟦X⟧ K⸨X⸩ where
+  smul_assoc := by sorry
+
+/-- The diagonal rank-n model has M = K⟦t⟧^n and
+Fil^j M⁰ = ⊕_q t^(j-wt(q)) K⟦t⟧ e_q in K⸨t⸩^n.
+The sign makes weight +1 contribute at HT index −1. -/
+def splitLattices (wt : Fin n → ℤ) : TwoDeRhamLattices K⟦X⟧ (Fin n → K⸨X⸩) where
+  first := Submodule.span K⟦X⟧ (Set.range fun q : Fin n =>
+    Pi.single q (HahnSeries.single 0 1))
+  firstFilOne := (Submodule.span K⟦X⟧ (Set.range fun q : Fin n =>
+    Pi.single q (HahnSeries.single 1 1))).comap (Submodule.subtype _)
+  secondFil j := Submodule.span K⟦X⟧ (Set.range fun q : Fin n =>
+    Pi.single q (HahnSeries.single (j - wt q) 1))
+  antitone_second := by sorry
+
+/-- Reduction of the standard lattice modulo t, on the scalar field K. -/
+def splitReduction (wt : Fin n → ℤ) :
+    ((splitLattices K wt).first ⧸ (splitLattices K wt).firstFilOne) →ₗ[K] (Fin n → K) :=
+  let coeff : (splitLattices K wt).first →ₗ[K] (Fin n → K) :=
+    { toFun m q := (m.val q).coeff 0
+      map_add' := by sorry
+      map_smul' := by sorry }
+  ((splitLattices K wt).firstFilOne.restrictScalars K).liftQ coeff (by sorry)
+
+/-- The quotient is exactly the n-dimensional residue vector space, not an ambient
+Laurent-series module. -/
+theorem splitReduction_bijective (wt : Fin n → ℤ) :
+    Function.Bijective (splitReduction K wt) := by sorry
+
+/-- API TauCeti.LogAdic.TwoDeRhamLattices.first_quotient (split model): reduction gives
+the quotient M/tM, with the scalar K-vector-space structure made explicit. -/
+def splitQuotientEquiv (wt : Fin n → ℤ) :
+    ((splitLattices K wt).first ⧸ (splitLattices K wt).firstFilOne) ≃ₗ[K] (Fin n → K) :=
+  LinearEquiv.ofBijective (splitReduction K wt) (splitReduction_bijective K wt)
+
+/-- API TauCeti.LogAdic.TwoDeRhamLattices.common_localization (split model): both lattices
+span the full Laurent-series vector space after inverting t. -/
+theorem split_common_localization (wt : Fin n → ℤ) :
+    Submodule.span K⸨X⸩ ((splitLattices K wt).first : Set (Fin n → K⸨X⸩)) = ⊤ ∧
+    Submodule.span K⸨X⸩ ((splitLattices K wt).secondFil 0 : Set (Fin n → K⸨X⸩)) = ⊤ := by sorry
+
+/-- The lattice image formula recovers the cocharacter weight flag in the split model. -/
+theorem split_flag (wt : Fin n → ℤ) (i : ℤ) :
+    ((LatticeHTFiltration _ _ (splitLattices K wt) i).restrictScalars K).map
+      (splitReduction K wt) = HodgeTateReduction.weightFil wt i := by sorry
+
+/-- Test TauCeti.LogAdic.LatticeHTFiltration.siegel_h1 (linear split component): the
+homological weights (1,0) give F_−2=0, F_−1=K·e₀ and F₀=K². Recovering Lie(A)(1)
+and ω_{Aᵗ} as those pieces requires the geometric T2 comparison, which is omitted. -/
+example :
+    ((LatticeHTFiltration _ _ (splitLattices K ![1, 0]) (-2)).restrictScalars K).map
+      (splitReduction K ![1, 0]) = ⊥ ∧
+    ((LatticeHTFiltration _ _ (splitLattices K ![1, 0]) (-1)).restrictScalars K).map
+      (splitReduction K ![1, 0]) = Submodule.span K {![(1 : K), 0]} ∧
+    ((LatticeHTFiltration _ _ (splitLattices K ![1, 0]) 0).restrictScalars K).map
+      (splitReduction K ![1, 0]) = ⊤ := by sorry
+end SplitLattices
 
 end TauCeti.LogAdic
 
 /-! ## Complete packet contract catalogue
 
-The catalogue records mathematical signatures that need imported geometry.
-It is not elaborated Lean. For a name with a component above, the statement
-below is the full geometric target; the component alone does not prove it.
-For a name marked not stated, no declaration or `example` is claimed.
-The missing interfaces are precisely the prerequisites and gaps in the packet.
+This catalogue records the full packet contracts; it is not elaborated Lean.
+A component above renders only the part stated in its docstring. A name marked
+not stated has no declaration or example for its full geometric contract.
+The reproducible synchronization recipe is in the round-2 handoff.
 -/
 
 /-
@@ -1443,7 +1641,7 @@ d(βn)=βn·δ(n).
 TauCeti.LogAdic.ContinuousLogDerivation.postcompose [functoriality]: component above; full contract follows.
 A continuous B-linear map L→L′ induces a log derivation to L′; identity and composite maps agree.
 
-TauCeti.LogAdic.ContinuousLogDerivation.instModule [instance]: not stated; depends on the full geometric constructor.
+TauCeti.LogAdic.ContinuousLogDerivation.instModule [instance]: component above; full contract follows.
 Der^log_A(B,L) is a B-module, with operations computed componentwise on d and δ (Definition 3.2.2).
 
 TauCeti.LogAdic.ContinuousLogDerivation.toDerivation [projection]: component above; full contract follows.
@@ -2857,7 +3055,7 @@ Hypotheses: X proper over k and K the completion of k̄ for every conclusion; L|
 
 Suppliers and local inputs: HodgeTateAndCanonicalSubgroups:T6:comparison/proper-padic-boundary-cohomology, HodgeTateAndCanonicalSubgroups:T6:comparison/log-primitive-comparison, HodgeTateAndCanonicalSubgroups:T6:comparison/constant-log-periods, HodgeTateAndCanonicalSubgroups:T6:comparison/log-poincare, HodgeTateAndCanonicalSubgroups:T6:comparison/log-riemann-hilbert, HodgeTateAndCanonicalSubgroups:T6:comparison/log-oc-pushforward, HodgeTateAndCanonicalSubgroups:T6:comparison/log-higgs-functor, HodgeTateAndCanonicalSubgroups:T6:comparison/arithmetic-log-de-rham, PadicHodgeTheory:P8/de-rham-lisse-sheaf, EnhancedDerivedSheaves:E1, EnhancedDerivedSheaves:E2, AdicSpacesPartII:R3/kiehl-proper-mapping-theorem, AdicSpacesPartII:R3/proper-coherent-cohomology-field-extension.
 
-Sources: DLLZ-RH Theorem 3.2.3(3), p. 25; DLLZ-RH Lemma 3.6.1, p. 42; DLLZ-RH §3.6, after Lemma 3.6.2, p. 42; DLLZ-RH Theorem 3.2.7(3), p. 26.
+Sources: DLLZ-RH Theorem 3.2.3(3), p. 25; DLLZ-RH Lemma 3.6.1, pp. 41–42; DLLZ-RH §3.6, after Lemma 3.6.2, p. 42; DLLZ-RH Theorem 3.2.7(3), p. 26.
 -/
 
 /-
@@ -2974,10 +3172,10 @@ Suppliers and local inputs: HodgeTateAndCanonicalSubgroups:T6:comparison/canonic
 TauCeti.LogAdic.TwoDeRhamLattices [constructor]: component above; full contract follows.
 The common localized module with M, M⁰ and their specified filtrations.
 
-TauCeti.LogAdic.TwoDeRhamLattices.common_localization [compatibility]: not stated; depends on the full geometric constructor.
+TauCeti.LogAdic.TwoDeRhamLattices.common_localization [compatibility]: component above; full contract follows.
 Inverting t identifies both lattice localizations with the association’s period local system.
 
-TauCeti.LogAdic.TwoDeRhamLattices.first_quotient [projection]: not stated; depends on the full geometric constructor.
+TauCeti.LogAdic.TwoDeRhamLattices.first_quotient [projection]: component above; full contract follows.
 M/Fil¹M identifies with W_p⊗Ô.
 
 TauCeti.LogAdic.TwoDeRhamLattices.map [functoriality]: not stated; depends on the full geometric constructor.
@@ -3032,7 +3230,7 @@ With the displayed BP indexing, its graded identification has the Tate twist (j)
 TauCeti.LogAdic.LatticeHTFiltration.map [functoriality]: component above; full contract follows.
 Compatible maps of the two filtered lattices induce filtered quotient maps.
 
-TauCeti.LogAdic.LatticeHTFiltration.locally_split [structure]: not stated; depends on the full geometric constructor.
+TauCeti.LogAdic.LatticeHTFiltration.locally_split [structure]: component above; full contract follows.
 Each F_i is a locally direct-summand Ô-submodule, F_i=0 for i below the lowest Hodge jump and F_i=Ŵ_p⊗Ô from the highest jump on.
 
 TauCeti.LogAdic.LatticeHTFiltration.weight_zero [degenerate]: component example above; full test follows.
@@ -3047,7 +3245,7 @@ The quotient kernel at −j is Fil¹M∩Fil^jM⁰, not all of Fil¹M when that i
 TauCeti.LogAdic.LatticeHTFiltration.tate_line [computation]: component example above; full test follows.
 For the associated pair Ŵ_p≅Q_p(1), W_dR=(O,d) with Gr^{−1}W_dR=W_dR, F_{−2}=0 and F_{−1}=Ô(1), so Gr_{−1}(−1)≅Ô≅Gr^{−1}W_dR⊗Ô; a convention with F_j in place of F_{−j} would put the jump at +1.
 
-TauCeti.LogAdic.LatticeHTFiltration.siegel_h1 [compatibility]: not stated as an example; needs the full geometric constructor.
+TauCeti.LogAdic.LatticeHTFiltration.siegel_h1 [compatibility]: component example above; full test follows.
 On the open Siegel variety, for the pair (H₁(A,Q_p),H_{1,dR}(A)) of the universal abelian scheme, F_{−2}=0, F_{−1}=Lie(A)⊗Ô(1) and F₀=H₁(A,Q_p)⊗Ô, recovering 0→Lie(A)⊗Ô(1)→H₁(A,Q_p)⊗Ô→ω_{A^t}⊗Ô→0 (BP §4.4.8, p. 67).
 
 Sources: BP text after Remark 4.4.39, p. 79; BP text after Remark 4.4.39, p. 79.
@@ -3063,7 +3261,7 @@ Hypotheses: Use canonical unipotent tensor association; this is not a tensor the
 
 Suppliers and local inputs: HodgeTateAndCanonicalSubgroups:T6:comparison/lattice-hodge-tate-filtration, HodgeTateAndCanonicalSubgroups:T6:comparison/two-de-rham-lattices, HodgeTateAndCanonicalSubgroups:T6:comparison/canonical-log-period-comparison, HodgeTateAndCanonicalSubgroups:T6:comparison/unipotent-log-tensor, HodgeTateAndCanonicalSubgroups:T2, AutomorphicBundles:B2/coefficient-tensor-hecke, HodgeTateAndCanonicalSubgroups:T6:comparison/log-rh-pullback.
 
-Source: BP text after Remark 4.4.39, p. 80.
+Sources: BP text after Remark 4.4.39, p. 80.
 -/
 
 /-
@@ -3140,7 +3338,7 @@ For central weight zero the cyclotomic twist is trivial.
 TauCeti.LogAdic.FiniteLeviComparison.weight_one [computation]: component example above; full test follows.
 On a central weight-one character the contracted product is the associated Tate line, not an untwisted line with the same Galois action.
 
-TauCeti.LogAdic.FiniteLeviComparison.change_generator [characterisation]: not stated as an example; needs the full geometric constructor.
+TauCeti.LogAdic.FiniteLeviComparison.change_generator [characterisation]: component example above; full test follows.
 Replacing a cyclotomic generator by u times it changes the trivialized comparison by µ(u); there is no generator-independent untwisted equality.
 
 TauCeti.LogAdic.FiniteLeviComparison.graded_compatibility [compatibility]: not stated as an example; needs the full geometric constructor.
@@ -3155,7 +3353,7 @@ TauCeti.LogAdic.hodge_type_comparison_agreement: not stated; needs the geometric
 
 Let (G,X) be of Hodge type (Gᶜ=G) with a Siegel embedding, faithful symplectic representation V₀ and universal abelian scheme f:A→S_K, with V₀ realized by H₁(A)=(R¹f_*)^∨ as in BP §4.4.8 and AutomorphicBundles:B1/hodge-tensor-realizations (DLLZ-RH (5.5.2) use the contragredient normalization V₀↦R¹f_*; the argument of their Lemma 5.5.3 applies verbatim to the dual realizations), so that the realizations of V₀^{⊗m}(−t) are the duals of the cohomology of A^m, up to Tate twist. On the open Shimura variety: (i) for W=V₀^{⊗m}(−t) the canonical isomorphism p-W_dR≃W_dR of canonical-log-period-comparison is the one induced by Scholze’s relative de Rham comparison for A^m, and for every irreducible W∈Rep(G) it is induced from these by the Hodge tensor s_W cutting W out of some V₀^{⊗m_W}(−t_W) (Lemma 5.5.6, Corollary 5.5.7), hence for every W∈Rep(G) by additivity; (ii) hence on S_K the period isomorphism Ŵ_p⊗OB_dR≃W_dR⊗OB_dR is the abelian-scheme comparison with Hodge tensors (Caraiani–Scholze §§2.2–2.3), and the lattice HT filtration, P_HT and the Levi comparison restrict to those built from A and its tensors.
 
-Hypotheses: Hodge type with a fixed Siegel embedding and neat K; the statement is on the open Shimura variety S_K only (BP Remark 4.4.39: “outside of the boundary”). The identification of the lattice HT filtration of (H₁(A,Q_p),H_{1,dR}(A)) with the relative Hodge–Tate filtration of A is T2’s (Caraiani–Scholze §2.2), imported, not re-proved.
+Hypotheses: Hodge type with a fixed Siegel embedding and neat K; the statement is on the open Shimura variety S_K only (BP Remark 4.4.39, p. 79). The identification of the lattice HT filtration of (H₁(A,Q_p),H_{1,dR}(A)) with the relative Hodge–Tate filtration of A is T2’s (Caraiani–Scholze §2.2), imported, not re-proved.
 
 Suppliers and local inputs: HodgeTateAndCanonicalSubgroups:T6:comparison/canonical-log-period-comparison, HodgeTateAndCanonicalSubgroups:T6:comparison/canonical-arithmetic-monodromy, HodgeTateAndCanonicalSubgroups:T6:comparison/special-point-comparison, HodgeTateAndCanonicalSubgroups:T6:comparison/lattice-hodge-tate-filtration, HodgeTateAndCanonicalSubgroups:T6:comparison/hodge-tate-parabolic-reduction, HodgeTateAndCanonicalSubgroups:T6:comparison/finite-levi-torsor, PadicHodgeTheory:P8/relative-de-rham-comparison, AutomorphicBundles:B1/hodge-tensor-realizations, AutomorphicBundles:B1/absolute-hodge-propagation, HodgeTateAndCanonicalSubgroups:T2.
 

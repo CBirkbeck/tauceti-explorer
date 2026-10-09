@@ -18,63 +18,63 @@
         "kind": "structure",
         "module": "TauCeti/RingTheory/Huber/Pair.lean",
         "provides": "Huber pair with an explicit open integrally closed plus subring contained in the power-bounded subring.",
-        "checked": "Actual declaration statement and surrounding hypotheses read at the pinned commit on 2026-10-07; this is a carrier/API, not a claim that the logarithmic geometric construction exists."
+        "checked": "Actual declaration statement and surrounding hypotheses re-read at the pinned commit on 2026-10-09; this supplies the stated carrier/API, not the logarithmic geometry or a comparison theorem."
       },
       {
         "ref": "tauceti:TauCeti.Huber.Pair.Hom",
         "kind": "structure",
         "module": "TauCeti/RingTheory/Huber/Pair.lean",
         "provides": "Continuous ring map respecting the specified plus subrings.",
-        "checked": "Actual declaration statement and surrounding hypotheses read at the pinned commit on 2026-10-07; this is a carrier/API, not a claim that the logarithmic geometric construction exists."
+        "checked": "Actual declaration statement and surrounding hypotheses re-read at the pinned commit on 2026-10-09; this supplies the stated carrier/API, not the logarithmic geometry or a comparison theorem."
       },
       {
         "ref": "tauceti:TauCeti.Huber.Pair.Hom.spaComap",
         "kind": "def",
         "module": "TauCeti/AlgebraicGeometry/AdicSpace/Spa/HuberPair.lean",
         "provides": "Contravariant continuous map on Spa attached to a pair homomorphism; only affinoid spectra, not a log adic site.",
-        "checked": "Actual declaration statement and surrounding hypotheses read at the pinned commit on 2026-10-07; this is a carrier/API, not a claim that the logarithmic geometric construction exists."
+        "checked": "Actual declaration statement and surrounding hypotheses re-read at the pinned commit on 2026-10-09; this supplies the stated carrier/API, not the logarithmic geometry or a comparison theorem."
       },
       {
         "ref": "mathlib:CategoryTheory.GrothendieckTopology",
         "kind": "structure",
         "module": "Mathlib/CategoryTheory/Sites/Grothendieck.lean",
         "provides": "Covering sieves with maximality, pullback stability and transitivity.",
-        "checked": "Actual declaration statement and surrounding hypotheses read at the pinned commit on 2026-10-07; this is a carrier/API, not a claim that the logarithmic geometric construction exists."
+        "checked": "Actual declaration statement and surrounding hypotheses re-read at the pinned commit on 2026-10-09; this supplies the stated carrier/API, not the logarithmic geometry or a comparison theorem."
       },
       {
         "ref": "mathlib:CategoryTheory.Sheaf",
         "kind": "abbrev",
         "module": "Mathlib/CategoryTheory/Sites/Sheaf.lean",
         "provides": "Sheaves of objects of a category on a Grothendieck site, implemented by the full subcategory of presheaves satisfying the sheaf condition.",
-        "checked": "Actual declaration statement and surrounding hypotheses read at the pinned commit on 2026-10-07; this is a carrier/API, not a claim that the logarithmic geometric construction exists."
+        "checked": "Actual declaration statement and surrounding hypotheses re-read at the pinned commit on 2026-10-09; this supplies the stated carrier/API, not the logarithmic geometry or a comparison theorem."
       },
       {
         "ref": "mathlib:Derivation",
         "kind": "structure",
         "module": "Mathlib/RingTheory/Derivation/Basic.lean",
         "provides": "An R-linear derivation A→M with Leibniz rule; continuity is extra data in the analytic refinement.",
-        "checked": "Actual declaration statement and surrounding hypotheses read at the pinned commit on 2026-10-07; this is a carrier/API, not a claim that the logarithmic geometric construction exists."
+        "checked": "Actual declaration statement and surrounding hypotheses re-read at the pinned commit on 2026-10-09; this supplies the stated carrier/API, not the logarithmic geometry or a comparison theorem."
       },
       {
         "ref": "mathlib:AdicCompletion",
         "kind": "def",
         "module": "Mathlib/RingTheory/AdicCompletion/Basic.lean",
         "provides": "Inverse limit of M/IⁿM for an ideal I, including the completion ring when M is the ring. Not the Banach completed tensor product.",
-        "checked": "Actual declaration statement and surrounding hypotheses read at the pinned commit on 2026-10-07; this is a carrier/API, not a claim that the logarithmic geometric construction exists."
+        "checked": "Actual declaration statement and surrounding hypotheses re-read at the pinned commit on 2026-10-09; this supplies the stated carrier/API, not the logarithmic geometry or a comparison theorem."
       },
       {
         "ref": "mathlib:BDeRhamPlus",
         "kind": "def",
         "module": "Mathlib/RingTheory/Perfectoid/BDeRham.lean",
         "provides": "Completion at ker θ after inverting p in Witt vectors of the pretilt of a p-adically complete ring; the declaration alone supplies no field, principal-kernel or sheaf theorem.",
-        "checked": "Actual declaration statement and surrounding hypotheses read at the pinned commit on 2026-10-07; this is a carrier/API, not a claim that the logarithmic geometric construction exists."
+        "checked": "Actual declaration statement and surrounding hypotheses re-read at the pinned commit on 2026-10-09; this supplies the stated carrier/API, not the logarithmic geometry or a comparison theorem."
       },
       {
         "ref": "mathlib:fontaineThetaInvertP",
         "kind": "def",
         "module": "Mathlib/RingTheory/Perfectoid/BDeRham.lean",
         "provides": "Localized Fontaine map from p-inverted Witt vectors to R[1/p], under the prime, nonunit-p and p-adic-completeness hypotheses.",
-        "checked": "Actual declaration statement and surrounding hypotheses read at the pinned commit on 2026-10-07; this is a carrier/API, not a claim that the logarithmic geometric construction exists."
+        "checked": "Actual declaration statement and surrounding hypotheses re-read at the pinned commit on 2026-10-09; this supplies the stated carrier/API, not the logarithmic geometry or a comparison theorem."
       }
     ]
   },
@@ -86,7 +86,7 @@
       "edition": "Public author copy, 100 pages; arXiv:1912.09836v2 final-version record (2022-10-30); published chapter DOI 10.1007/978-3-031-21550-6_3 (2022), text not served by publisher",
       "url": "https://www.kwlan.org/articles/log-adic.pdf",
       "sha256": "209e59836048eabbbf9735012a38c7c393fb2a30f69ce50ffac7e83b37ee1105",
-      "accessed": "2026-10-07",
+      "accessed": "2026-10-09",
       "readSections": [
         "§§2.1–2.3 (log structures, charts, analytic pairs, saturated products)",
         "§§3.1–3.3 (log smoothness and continuous differentials)",
@@ -102,7 +102,7 @@
       "edition": "Public author copy, 80 pages; J. Amer. Math. Soc. 36 (2023), DOI 10.1090/jams/1002; publisher access refused",
       "url": "https://www.kwlan.org/articles/log-RH.pdf",
       "sha256": "dccd18f6605380a92e6fa9e2143547b7cfa12ddb01b08ff5af0e083818539d04",
-      "accessed": "2026-10-07",
+      "accessed": "2026-10-09",
       "readSections": [
         "§§2.1–2.4 (period sheaves, local coordinates, Poincaré)",
         "§§3.1–3.6 (functors, decompletion inputs, residue normalization, tensor/pullback restrictions, proper comparison)",
@@ -114,10 +114,10 @@
       "id": "BP",
       "title": "Higher Coleman theory",
       "authors": "George Boxer, Vincent Pilloni",
-      "edition": "Public author manuscript, §4.4.5; read the finite-level results independently of the infinite-level theorem",
+      "edition": "Public author manuscript, 180 pages; §4.4.38 and Remark 4.4.39, pp. 79–80 (finite-level comparison); Theorem 4.4.40, p. 80 (ownership boundary)",
       "url": "https://www.imo.universite-paris-saclay.fr/~vincent.pilloni/HigherColeman.pdf",
       "sha256": "d340c9a020cc5fdbca781a8630b6fae35e14607142bed700d6ab82334faa80ae",
-      "accessed": "2026-10-07",
+      "accessed": "2026-10-09",
       "readSections": [
         "§4.4.38 (General Shimura varieties), Remark 4.4.39 and the text following it up to Theorem 4.4.40, pp. 79–80",
         "Theorem 4.4.40, p. 80: ownership boundary only",
@@ -5559,7 +5559,7 @@
         },
         {
           "sourceId": "DLLZ-RH",
-          "locator": "Lemma 3.6.1, p. 42",
+          "locator": "Lemma 3.6.1, pp. 41–42",
           "match": "The B_dR⁺ upgrade of the log primitive comparison, the node's first proof step."
         },
         {
@@ -6486,7 +6486,7 @@
       "kind": "theorem",
       "statement": "Let (G,X) be of Hodge type (Gᶜ=G) with a Siegel embedding, faithful symplectic representation V₀ and universal abelian scheme f:A→S_K, with V₀ realized by H₁(A)=(R¹f_*)^∨ as in BP §4.4.8 and AutomorphicBundles:B1/hodge-tensor-realizations (DLLZ-RH (5.5.2) use the contragredient normalization V₀↦R¹f_*; the argument of their Lemma 5.5.3 applies verbatim to the dual realizations), so that the realizations of V₀^{⊗m}(−t) are the duals of the cohomology of A^m, up to Tate twist. On the open Shimura variety: (i) for W=V₀^{⊗m}(−t) the canonical isomorphism p-W_dR≃W_dR of canonical-log-period-comparison is the one induced by Scholze’s relative de Rham comparison for A^m, and for every irreducible W∈Rep(G) it is induced from these by the Hodge tensor s_W cutting W out of some V₀^{⊗m_W}(−t_W) (Lemma 5.5.6, Corollary 5.5.7), hence for every W∈Rep(G) by additivity; (ii) hence on S_K the period isomorphism Ŵ_p⊗OB_dR≃W_dR⊗OB_dR is the abelian-scheme comparison with Hodge tensors (Caraiani–Scholze §§2.2–2.3), and the lattice HT filtration, P_HT and the Levi comparison restrict to those built from A and its tensors.",
       "hypotheses": [
-        "Hodge type with a fixed Siegel embedding and neat K; the statement is on the open Shimura variety S_K only (BP Remark 4.4.39: “outside of the boundary”).",
+        "Hodge type with a fixed Siegel embedding and neat K; the statement is on the open Shimura variety S_K only (BP Remark 4.4.39, p. 79).",
         "The identification of the lattice HT filtration of (H₁(A,Q_p),H_{1,dR}(A)) with the relative Hodge–Tate filtration of A is T2’s (Caraiani–Scholze §2.2), imported, not re-proved."
       ],
       "proofSteps": [
@@ -6923,21 +6923,21 @@
       "kind": "author copy",
       "url": "https://www.kwlan.org/articles/log-adic.pdf",
       "citation": "Public author copy, 100 pages; arXiv:1912.09836v2 final-version record (2022-10-30); published chapter DOI 10.1007/978-3-031-21550-6_3 (2022), text not served by publisher",
-      "read": "2026-10-07",
+      "read": "2026-10-09",
       "sha256": "209e59836048eabbbf9735012a38c7c393fb2a30f69ce50ffac7e83b37ee1105"
     },
     {
       "kind": "author copy",
       "url": "https://www.kwlan.org/articles/log-RH.pdf",
       "citation": "Public author copy, 80 pages; J. Amer. Math. Soc. 36 (2023), DOI 10.1090/jams/1002; publisher access refused",
-      "read": "2026-10-07",
+      "read": "2026-10-09",
       "sha256": "dccd18f6605380a92e6fa9e2143547b7cfa12ddb01b08ff5af0e083818539d04"
     },
     {
       "kind": "author copy",
       "url": "https://www.imo.universite-paris-saclay.fr/~vincent.pilloni/HigherColeman.pdf",
-      "citation": "Public author manuscript, §4.4.5; read the finite-level results independently of the infinite-level theorem",
-      "read": "2026-10-07",
+      "citation": "Public author manuscript, 180 pages; §4.4.38 and Remark 4.4.39, pp. 79–80 (finite-level comparison); Theorem 4.4.40, p. 80 (ownership boundary)",
+      "read": "2026-10-09",
       "sha256": "d340c9a020cc5fdbca781a8630b6fae35e14607142bed700d6ab82334faa80ae"
     },
     {
@@ -6955,7 +6955,7 @@
       "locator": "Author copy log-adic.pdf, Corollary 6.3.4, p. 88; compare Remark 6.2.2, p. 85. Published chapter not collated.",
       "printed": "The source asserts finiteness of the Zp-modules for every i ≥ 0.",
       "correction": "Require X proper for the finiteness assertion. Keep the local-system extension equivalence without that extra hypothesis; do not silently infer nonproper cohomological finiteness.",
-      "reason": "The hypotheses are those of Theorem 4.6.1 (\"Let k, X, and U be as in Theorem 4.6.1\": X smooth over k with a normal crossings divisor as in Example 2.3.17, char(k)=0, k⁺=O_k), not properness; no properness appears at the start of §6, §6.1 or §6.3 or in the conventions. Definition 6.3.1 allows torsion Z_p-systems. For the nonproper closed unit disc with empty boundary and the constant F_p-system, Remark 6.2.2 explicitly states that H¹(D,F_p) is infinite. The printed proof invokes Theorem 6.2.1, which assumes X proper, both for the limit argument and for the finiteness. The extension statements and the first comparison hold levelwise without properness. DLLZ-RH applies the corollary only with a proper compactification (Corollary 3.2.10), so DLLZ-RH is unaffected.",
+      "reason": "The hypotheses are those of Theorem 4.6.1 (X smooth over k with a normal crossings divisor as in Example 2.3.17, char(k)=0, k⁺=O_k), not properness; no properness appears at the start of §6, §6.1 or §6.3 or in the conventions. Definition 6.3.1 allows torsion Z_p-systems. For the nonproper closed unit disc with empty boundary and the constant F_p-system, Remark 6.2.2 explicitly states that H¹(D,F_p) is infinite. The printed proof invokes Theorem 6.2.1, which assumes X proper, both for the limit argument and for the finiteness. The extension statements and the first comparison hold levelwise without properness. DLLZ-RH applies the corollary only with a proper compactification (Corollary 3.2.10), so DLLZ-RH is unaffected.",
       "affects": "a stated result",
       "known": "new",
       "searched": [
@@ -6976,7 +6976,7 @@
       "locator": "Definition 3.2.4 and the paragraph after (3.2.8), p. 27; Proposition 3.2.9 and Theorem 3.2.18",
       "printed": "The source asserts that Ω^log_{B/A} is finite over B and deduces that its natural B-module topology is complete and that d_{B/A} is continuous.",
       "correction": "Add Huber's standing assumption ([Hub96, (1.1.1)]: A has a noetherian ring of definition or is strongly noetherian Tate) to the tft setting of Definition 3.2.4, or state Proposition 3.2.9 and Theorem 3.2.18 for such A; all later uses (§3.3, locally noetherian log adic spaces) satisfy it.",
-      "reason": "The presentation (3.2.7) uses Huber's continuous differentials Ω_{B/A} ([Hub96, (1.6.2)]), which are defined and finite under (1.1.1), and the deduction 'finite, therefore complete' needs finite modules over B to be complete in the natural topology, which holds for B of noetherian type but not for an arbitrary complete Huber ring; Definition 3.2.4 only asks A, B complete and A→B tft.",
+      "reason": "The presentation (3.2.7) uses Huber's continuous differentials Ω_{B/A} ([Hub96, (1.6.2)]), which are defined and finite under (1.1.1), and the inference from finite generation to completeness needs finite modules over B to be complete in the natural topology, which holds for B of noetherian type but not for an arbitrary complete Huber ring; Definition 3.2.4 only asks A, B complete and A→B tft.",
       "affects": "the proof",
       "known": "new",
       "searched": [
