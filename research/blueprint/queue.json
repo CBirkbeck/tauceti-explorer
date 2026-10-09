@@ -45992,8 +45992,9 @@
     "PKG-AutomorphicGaloisRepresentationsPartII"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-AutomorphicGaloisRepresentationsPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7507"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7507",
+   "finishedAt": "2026-10-09T03:19:59Z"
   },
   {
    "id": "PKG-ClassicalGroupsPartII",
@@ -46415,8 +46416,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-DiamondEtaleCohomology.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7466"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7466",
+   "finishedAt": "2026-10-09T03:20:03Z"
   },
   {
    "id": "REV-PKG-DiamondEtaleCohomology",
@@ -47363,7 +47365,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-MetaplecticAutomorphicForms.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7492"
   },
   {
    "id": "REV-PKG-MetaplecticAutomorphicForms",
@@ -77495,8 +77498,8 @@
     "FIX-RT-AREA-langlands-2~3"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-langlands-2~3.md",
-   "state": "pending",
-   "note": "released on GitHub issue #5871"
+   "state": "external",
+   "note": "claimed on GitHub issue #5871"
   },
   {
    "id": "FIX-RT-AREA-langlands-2~4",
