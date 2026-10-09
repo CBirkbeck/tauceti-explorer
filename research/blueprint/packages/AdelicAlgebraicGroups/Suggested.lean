@@ -2335,20 +2335,36 @@ theorem integral_eq_zero_of_average_eq_zero (μ : Measure G) (ν : Measure H)
     ∫ g, f g ∂μ = 0 := by
   sorry
 
+/-- The canonical identification of `H` with its copy inside `H₂`. -/
+def subgroupOfEquiv (H₂ : Subgroup G) (hle : H ≤ H₂) : H ≃ₜ* H.subgroupOf H₂ :=
+  sorry
+
+theorem subgroupOfEquiv_apply (H₂ : Subgroup G) (hle : H ≤ H₂) (h : H) :
+    ((subgroupOfEquiv H H₂ hle h : H₂) : G) = h := by
+  sorry
+
 /-- `AA.2/quotient-measure-transitivity`: integration over `H₁\G` in stages through `H₂\G` and
-`H₁\H₂`, stated for nonnegative measurable functions on `G`. -/
+`H₁\H₂`, for nonnegative measurable functions on `H₁\G`. The smaller subgroup's Haar measure
+is transported to its copy inside `H₂`; the inner measure is the resulting quotient measure. -/
 theorem lintegral_trans (H₂ : Subgroup G) [Fact (IsClosed (H₂ : Set G))] [LocallyCompactSpace H₂]
     (hle : H ≤ H₂) (μ : Measure G) (ν₂ : Measure H₂) (ν₁ : Measure H)
     (hμ : IsRightHaar μ) (hν₂ : IsRightHaar ν₂) (hν₁ : IsRightHaar ν₁)
     (hmod₂ : ∀ h : H₂, Measure.modularCharacter (h : G) = Measure.modularCharacter h)
     (hmod₁ : ∀ h : H, Measure.modularCharacter (h : G) = Measure.modularCharacter h)
-    (f : G → ℝ≥0∞) (hf : Measurable f) :
-    (∫⁻ g, f g ∂μ) =
-      ∫⁻ q, Quotient.liftOn q (fun g => ∫⁻ h₂ : H₂, ∫⁻ h₁ : H, f (h₁ * h₂ * g) ∂ν₁ ∂ν₂)
-        (by sorry) ∂(measure H₂ μ ν₂ hμ hν₂ hmod₂) ∧
-    (∫⁻ g, f g ∂μ) =
-      ∫⁻ q, Quotient.liftOn q (fun g => ∫⁻ h₁ : H, f (h₁ * g) ∂ν₁) (by sorry)
-        ∂(measure H μ ν₁ hμ hν₁ hmod₁) := by
+    (f : Cosets H → ℝ≥0∞) (hf : Measurable f) :
+    let H₁₂ := H.subgroupOf H₂
+    letI : Fact (IsClosed (H₁₂ : Set H₂)) := ⟨by sorry⟩
+    letI : LocallyCompactSpace H₁₂ := by sorry
+    let ν₁₂ := Measure.map (subgroupOfEquiv H H₂ hle) ν₁
+    let hν₁₂ : IsRightHaar ν₁₂ := by sorry
+    let hmod₁₂ : ∀ h : H₁₂,
+        Measure.modularCharacter (h : H₂) = Measure.modularCharacter h := by sorry
+    (∫⁻ q, f q ∂(measure H μ ν₁ hμ hν₁ hmod₁)) =
+      ∫⁻ q₂, Quotient.liftOn q₂ (fun g =>
+        ∫⁻ q₁₂, Quotient.liftOn q₁₂
+          (fun h₂ : H₂ => f (Quotient.mk _ ((h₂ : G) * g))) (by sorry)
+          ∂(measure H₁₂ ν₂ ν₁₂ hν₂ hν₁₂ hmod₁₂)) (by sorry)
+        ∂(measure H₂ μ ν₂ hμ hν₂ hmod₂) := by
   sorry
 
 end QuotientMeasure
@@ -3040,12 +3056,11 @@ theorem exists_finite_invariant_measure_projection {A B : Type*} [Group A] [Grou
     [LocallyCompactSpace A] [LocallyCompactSpace B] [SecondCountableTopology A]
     [SecondCountableTopology B] [T2Space A] [T2Space B]
     (Γ : Subgroup (A × B)) (hΓ : DiscreteTopology Γ)
-    [MeasurableSpace (MulAction.orbitRel.Quotient Γ (A × B))]
-    (μ : Measure (MulAction.orbitRel.Quotient Γ (A × B))) [IsFiniteMeasure μ] (hμ : μ ≠ 0)
+    (μ : Measure (QuotientMeasure.Cosets Γ)) [IsFiniteMeasure μ] [μ.Regular] (hμ : μ ≠ 0)
     (hμinv : ∀ x : A × B, Measure.map (Quotient.map' (· * x) (by sorry)) μ = μ)
-    [MeasurableSpace (MulAction.orbitRel.Quotient (Γ.map (MonoidHom.snd A B)).topologicalClosure B)] :
-    ∃ ν : Measure (MulAction.orbitRel.Quotient (Γ.map (MonoidHom.snd A B)).topologicalClosure B),
-      ν ≠ 0 ∧ IsFiniteMeasure ν ∧ ∀ b : B, Measure.map (Quotient.map' (· * b) (by sorry)) ν = ν := by
+    : ∃ ν : Measure (QuotientMeasure.Cosets (Γ.map (MonoidHom.snd A B)).topologicalClosure),
+      ν ≠ 0 ∧ IsFiniteMeasure ν ∧ ν.Regular ∧
+        ∀ b : B, Measure.map (Quotient.map' (· * b) (by sorry)) ν = ν := by
   sorry
 
 /-! ## AA.4 Torsors -/
@@ -3526,7 +3541,7 @@ namespace LevelMaps
 
 /-- `AA.4/hecke-degree-double-coset`: `UgU` is the union of `[U : U ∩ gUg⁻¹]` left cosets `ugU`. -/
 theorem card_doubleCoset_cosets {G : Type*} [Group G] (U : Subgroup G) (g : G)
-    [(U ⊓ U.map (MulAut.conj g).toMonoidHom).FiniteIndex] :
+    [((U ⊓ U.map (MulAut.conj g).toMonoidHom).subgroupOf U).FiniteIndex] :
     Nat.card (Set.range (fun u : U => ((u * g : G) : G ⧸ U))) =
       (U ⊓ U.map (MulAut.conj g).toMonoidHom).relIndex U := by
   sorry
@@ -3679,7 +3694,14 @@ theorem arithmeticQuotient_finite_volume [Algebra.FiniteType F H]
     ∃ ν : MeasureTheory.Measure (MulAction.orbitRel.Quotient
         ((levelArithmetic F H 1 U).map (infiniteDiagonal F H))
         (InfinitePoints F H ⧸ (SplitComponent F H).comap (infiniteEmbed F H))),
-      ν ≠ 0 ∧ MeasureTheory.IsFiniteMeasure ν := by
+      ν ≠ 0 ∧ MeasureTheory.IsFiniteMeasure ν ∧ ν.Regular ∧
+        ∀ g : InfinitePoints F H,
+          MeasureTheory.Measure.map (Quotient.map'
+            (fun x : InfinitePoints F H ⧸ (SplitComponent F H).comap (infiniteEmbed F H) =>
+              Quotient.liftOn' x
+                (fun y => ((y * g : InfinitePoints F H) :
+                  InfinitePoints F H ⧸ (SplitComponent F H).comap (infiniteEmbed F H)))
+                (by sorry)) (by sorry)) ν = ν := by
   sorry
 
 /-- `AA.3/arithmetic-quotient-compact`: that quotient is compact exactly when `G(F)` has no nontrivial
@@ -4583,19 +4605,20 @@ def nrd {R : Type*} [CommRing R] {c₁ c₂ : R} (x : ℍ[R, c₁, c₂]) : R :=
 
 omit ha hb in
 /-- `AA.4/quaternion-reduced-norm-image`: `Nrd(B_p^×) = ℚ_p^×` at every prime. -/
-theorem nrd_surjective_local (a b : ℚ) (p : ℕ) [Fact p.Prime] (c : ℚ_[p]) (hc : c ≠ 0) :
+theorem nrd_surjective_local (a b : ℚ) (ha : a ≠ 0) (hb : b ≠ 0)
+    (p : ℕ) [Fact p.Prime] (c : ℚ_[p]) (hc : c ≠ 0) :
     ∃ x : ℍ[ℚ_[p], (a : ℚ_[p]), (b : ℚ_[p])], x ≠ 0 ∧ nrd x = c := by
   sorry
 
 omit ha hb in
 /-- At `∞`, `Nrd(B_∞^×)` is `ℝ^×` if `B` splits at `∞` and `ℝ_{>0}` otherwise. -/
-theorem nrd_image_real (a b : ℚ) (c : ℝ) (hc : c ≠ 0) :
+theorem nrd_image_real (a b : ℚ) (ha : a ≠ 0) (hb : b ≠ 0) (c : ℝ) (hc : c ≠ 0) :
     (∃ x : ℍ[ℝ, (a : ℝ), (b : ℝ)], x ≠ 0 ∧ nrd x = c) ↔ (0 < c ∨ ¬ (a < 0 ∧ b < 0)) := by
   sorry
 
 omit ha hb in
 /-- Hasse–Schilling–Maass: `Nrd(B^×)` is `ℚ^×` if `B` splits at `∞` and `ℚ_{>0}` otherwise. -/
-theorem nrd_image_global (a b : ℚ) (c : ℚ) (hc : c ≠ 0) :
+theorem nrd_image_global (a b : ℚ) (ha : a ≠ 0) (hb : b ≠ 0) (c : ℚ) (hc : c ≠ 0) :
     (∃ x : ℍ[ℚ, a, b], x ≠ 0 ∧ nrd x = c) ↔ (0 < c ∨ ¬ (a < 0 ∧ b < 0)) := by
   sorry
 
