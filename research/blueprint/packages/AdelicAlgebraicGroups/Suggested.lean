@@ -11,6 +11,8 @@ import TauCeti.Algebra.AlgebraicGroup.HopfIdeal.Points.Basic
 import TauCeti.Algebra.AlgebraicGroup.HopfIdeal.Central
 import TauCeti.Algebra.AlgebraicGroup.Reductive.Basic
 import TauCeti.Algebra.AlgebraicGroup.Product
+import TauCeti.Algebra.AlgebraicGroup.Torus.Basic
+import TauCeti.Algebra.AlgebraicGroup.Unipotent.Basic
 import TauCeti.NumberTheory.LocalField.NormalizedValuation
 import TauCeti.RingTheory.DedekindDomain.AdicValuation.ValuativeRel
 
@@ -24,6 +26,7 @@ import Mathlib.NumberTheory.NumberField.Units.DirichletTheorem
 import Mathlib.NumberTheory.NumberField.CanonicalEmbedding.Basic
 import Mathlib.NumberTheory.SumPrimeReciprocals
 import Mathlib.NumberTheory.Padics.PadicIntegers
+import Mathlib.NumberTheory.Padics.Complex
 import Mathlib.Topology.LocallyConstant.Algebra
 import Mathlib.NumberTheory.Modular
 import Mathlib.NumberTheory.ModularForms.CongruenceSubgroups
@@ -2701,6 +2704,944 @@ example (ρ : WithConv (F →ₐ[F] F) →* GL (Fin n) ℂ)
   sorry
 end Neat
 
+/-! ## AA.4 Approximation
+
+`G(F_S) = ∏_{w ∈ S_∞} G(F_w) × ∏_{v ∈ S_f} G(F_v)` for a finite set of archimedean places `S_∞` and
+of finite places `S_f`. Strong approximation is stated for sets `S` containing every archimedean
+place, the case the sources use, in the equivalent form "`G(F) G(F_S)` is dense in `G(𝔸_F)`". -/
+
+namespace Approximation
+
+open NumberField
+
+variable (F : Type) [Field F] [NumberField F] (H : Type) [CommRing H] [HopfAlgebra F H]
+
+/-- `G(F_w)` at an archimedean place, with the evaluation topology. -/
+abbrev ArchPoints (w : InfinitePlace F) :=
+  TauCeti.HopfAlgebra.points (H := H) (CommAlgCat.of F w.Completion)
+
+instance (w : InfinitePlace F) : TopologicalSpace (ArchPoints F H w) :=
+  AdelicPoints.evalTopology F H w.Completion
+
+/-- The diagonal `G(F) → G(F_S)`. -/
+def diagonalS (Sinf : Finset (InfinitePlace F))
+    (Sf : Finset (IsDedekindDomain.HeightOneSpectrum (RingOfIntegers F)))
+    (g : WithConv (H →ₐ[F] F)) :
+    (∀ w : Sinf, ArchPoints F H w) × (∀ v : Sf, AdelicPoints.LocalPoints F H v) :=
+  (fun w => TauCeti.AlgHom.mapValue (H := H) (Algebra.ofId F _) g,
+    fun v => TauCeti.AlgHom.mapValue (H := H) (Algebra.ofId F _) g)
+
+/-- `AA.4/weak-approximation-property`: `G(F)` is dense in `G(F_S)`. -/
+def HasWeakApproximation (Sinf : Finset (InfinitePlace F))
+    (Sf : Finset (IsDedekindDomain.HeightOneSpectrum (RingOfIntegers F))) : Prop :=
+  DenseRange (diagonalS F H Sinf Sf)
+
+variable {F H}
+
+theorem HasWeakApproximation.mono {Sinf Sinf' : Finset (InfinitePlace F)}
+    {Sf Sf' : Finset (IsDedekindDomain.HeightOneSpectrum (RingOfIntegers F))}
+    (h : HasWeakApproximation F H Sinf Sf) (hinf : Sinf' ⊆ Sinf) (hf : Sf' ⊆ Sf) :
+    HasWeakApproximation F H Sinf' Sf' := by
+  sorry
+
+theorem HasWeakApproximation.prod {H' : Type} [CommRing H'] [HopfAlgebra F H']
+    {Sinf : Finset (InfinitePlace F)} {Sf : Finset (IsDedekindDomain.HeightOneSpectrum (RingOfIntegers F))}
+    (h : HasWeakApproximation F H Sinf Sf) (h' : HasWeakApproximation F H' Sinf Sf) :
+    HasWeakApproximation F (TensorProduct F H H') Sinf Sf := by
+  sorry
+
+theorem HasWeakApproximation.of_iso {H' : Type} [CommRing H'] [HopfAlgebra F H']
+    (e : H ≃ₐc[F] H') {Sinf : Finset (InfinitePlace F)}
+    {Sf : Finset (IsDedekindDomain.HeightOneSpectrum (RingOfIntegers F))}
+    (h : HasWeakApproximation F H Sinf Sf) : HasWeakApproximation F H' Sinf Sf := by
+  sorry
+
+variable (F)
+
+-- Test Approximation.hasWeakApproximation_empty.
+example : HasWeakApproximation F H ∅ ∅ := by
+  sorry
+
+-- Test Approximation.hasWeakApproximation_ga: `G_a` has weak approximation for every finite `S`.
+example (Sinf : Finset (InfinitePlace F))
+    (Sf : Finset (IsDedekindDomain.HeightOneSpectrum (RingOfIntegers F))) :
+    HasWeakApproximation F (SymmetricAlgebra F F) Sinf Sf := by
+  sorry
+
+-- Test Approximation.not_hasWeakApproximation_mu2: `μ_2 = Spec ℚ[ℤ/2]` fails for `S = {∞, 2}`.
+example : ∃ (Sinf : Finset (InfinitePlace ℚ))
+    (Sf : Finset (IsDedekindDomain.HeightOneSpectrum (RingOfIntegers ℚ))),
+    Sinf.card = 1 ∧ Sf.card = 1 ∧
+      ¬ HasWeakApproximation ℚ (MonoidAlgebra ℚ (Multiplicative (ZMod 2))) Sinf Sf := by
+  sorry
+
+/-- `AA.4/weak-approximation-gln`: `GL_n`, `SL_n`, `G_a` and split tori have weak approximation. -/
+theorem hasWeakApproximation_gln (n : ℕ) (Sinf : Finset (InfinitePlace F))
+    (Sf : Finset (IsDedekindDomain.HeightOneSpectrum (RingOfIntegers F))) :
+    HasWeakApproximation F (TauCeti.GeneralLinear.coordinateHopfAlgebra F n) Sinf Sf := by
+  sorry
+
+theorem hasWeakApproximation_sln (n : ℕ) (Sinf : Finset (InfinitePlace F))
+    (Sf : Finset (IsDedekindDomain.HeightOneSpectrum (RingOfIntegers F))) :
+    HasWeakApproximation F (TauCeti.SpecialLinear.coordinateHopfAlgebra F n) Sinf Sf := by
+  sorry
+
+theorem hasWeakApproximation_splitTorus (r : ℕ) (Sinf : Finset (InfinitePlace F))
+    (Sf : Finset (IsDedekindDomain.HeightOneSpectrum (RingOfIntegers F))) :
+    HasWeakApproximation F (MonoidAlgebra F (Multiplicative (Fin r → ℤ))) Sinf Sf := by
+  sorry
+
+variable (H)
+
+/-- Points of `G(𝔸_F)` supported at `∞ ∪ S_f`. -/
+def supportedAt (Sf : Finset (IsDedekindDomain.HeightOneSpectrum (RingOfIntegers F))) :
+    Subgroup (AdelicPoints F H) where
+  carrier := {x | ∀ v ∉ Sf, AdelicPoints.proj F H v x = 1}
+  one_mem' := sorry
+  mul_mem' := sorry
+  inv_mem' := sorry
+
+/-- `AA.4/strong-approximation-property`, for `S = ∞ ∪ S_f`: `G(F) G(F_S)` is dense in `G(𝔸_F)`;
+equivalently `G(F)` is dense in `G(𝔸_F^S)`. -/
+def HasStrongApproximation (Sf : Finset (IsDedekindDomain.HeightOneSpectrum (RingOfIntegers F))) :
+    Prop :=
+  Dense {x : AdelicPoints F H | ∃ g y, y ∈ supportedAt F H Sf ∧ x = AdelicPoints.diagonal F H g * y}
+
+variable {F H}
+
+theorem HasStrongApproximation.mono
+    {Sf Sf' : Finset (IsDedekindDomain.HeightOneSpectrum (RingOfIntegers F))}
+    (h : HasStrongApproximation F H Sf) (hS : Sf ⊆ Sf') : HasStrongApproximation F H Sf' := by
+  sorry
+
+/-- For every open subgroup `U` of `G(𝔸_F)`, `G(𝔸_F) = G(F) G(F_S) U`. -/
+theorem HasStrongApproximation.mul_open
+    {Sf : Finset (IsDedekindDomain.HeightOneSpectrum (RingOfIntegers F))}
+    (h : HasStrongApproximation F H Sf) (U : Subgroup (AdelicPoints F H))
+    (hU : IsOpen (U : Set (AdelicPoints F H))) (x : AdelicPoints F H) :
+    ∃ g, ∃ y ∈ supportedAt F H Sf, ∃ u ∈ U, x = AdelicPoints.diagonal F H g * y * u := by
+  sorry
+
+/-- With `S = ∞`, the class set `G(F)\G(𝔸_f)/U` is a point for every compact open `U`. -/
+theorem HasStrongApproximation.classNumber_one (h : HasStrongApproximation F H ∅)
+    (U : Subgroup (AdelicPoints.FiniteAdelicPoints F H))
+    (hU : IsOpen (U : Set (AdelicPoints.FiniteAdelicPoints F H))) :
+    Subsingleton (DoubleCoset.Quotient
+      ((AdelicPoints.finiteDiagonal F H).range : Set (AdelicPoints.FiniteAdelicPoints F H)) U) := by
+  sorry
+
+variable (F)
+
+-- Test Approximation.hasStrongApproximation_ga: `G_a` has strong approximation for `S = ∞`.
+example : HasStrongApproximation F (SymmetricAlgebra F F) ∅ := by
+  sorry
+
+-- Test Approximation.hasStrongApproximation_sl2_rat: `SL_2` over `ℚ`, `S = ∞`; the surjectivity
+-- of `SL_2(ℤ) → SL_2(ℤ/d)` alone gives only density of `SL_2(ℤ)` in `SL_2(ℤ̂)`.
+example : HasStrongApproximation ℚ (TauCeti.SpecialLinear.coordinateHopfAlgebra ℚ 2) ∅ := by
+  sorry
+
+-- Test Approximation.not_hasStrongApproximation_gm: `G_m` over `ℚ` fails for `S = ∞`.
+example : ¬ HasStrongApproximation ℚ (LaurentPolynomial ℚ) ∅ := by
+  sorry
+
+-- Acceptance of `AA.4/strong-approximation-theorem` at `SL_n`, `n ≥ 2`, `S = ∞`.
+example (n : ℕ) (hn : 2 ≤ n) :
+    HasStrongApproximation F (TauCeti.SpecialLinear.coordinateHopfAlgebra F n) ∅ := by
+  sorry
+
+/-- `AA.4/ga-strong-approximation`: smooth unipotent groups have strong approximation for every
+`S ⊇ ∞`. -/
+theorem hasStrongApproximation_of_unipotent [Algebra.FiniteType F H]
+    (hN : TauCeti.smoothUnipotentCommHopfAlgProperty F (AdelicPoints.finiteTypeObj F H))
+    (Sf : Finset (IsDedekindDomain.HeightOneSpectrum (RingOfIntegers F))) :
+    HasStrongApproximation F H Sf := by
+  sorry
+
+/-- `AA.4/torus-strong-approximation-failure`: a nontrivial torus never has strong approximation
+for a finite `S`. -/
+theorem not_hasStrongApproximation_of_torus [Algebra.FiniteType F H]
+    (hT : TauCeti.torusCommHopfAlgProperty F (AdelicPoints.finiteTypeObj F H))
+    (hnontriv : ¬ Subsingleton (WithConv (H →ₐ[F] AlgebraicClosure F)))
+    (Sf : Finset (IsDedekindDomain.HeightOneSpectrum (RingOfIntegers F))) :
+    ¬ HasStrongApproximation F H Sf := by
+  sorry
+
+end Approximation
+
+namespace AdelicPoints
+
+variable (F : Type) [Field F] [NumberField F] (H : Type) [CommRing H] [HopfAlgebra F H]
+
+/-- The archimedean embedding `G(F_∞) → G(𝔸_F)`, `x ↦ (x, 1)`. -/
+def infiniteEmbed : InfinitePoints F H →* AdelicPoints F H where
+  toFun x := WithConv.toConv {
+    toFun h := (x.ofConv h, (1 : FiniteAdelicPoints F H).ofConv h)
+    map_zero' := by sorry
+    map_one' := by sorry
+    map_add' := by sorry
+    map_mul' := by sorry
+    commutes' := by sorry }
+  map_one' := by sorry
+  map_mul' := by sorry
+
+theorem infiniteEmbed_infinite (x : InfinitePoints F H) :
+    infiniteProjection F H (infiniteEmbed F H x) = x := by
+  sorry
+
+theorem infiniteEmbed_finite (x : InfinitePoints F H) :
+    finiteProjection F H (infiniteEmbed F H x) = 1 := by
+  sorry
+
+theorem continuous_infiniteEmbed : Continuous (infiniteEmbed F H) := by
+  sorry
+
+end AdelicPoints
+
+/-- `AA.4/open-finite-covolume-finite-index`: an open subgroup `Δ` of a locally compact group with
+a nonzero finite invariant Radon measure on `G/Δ` has finite index. -/
+theorem Subgroup.finiteIndex_of_finite_covolume {G : Type*} [Group G] [TopologicalSpace G]
+    [IsTopologicalGroup G] [LocallyCompactSpace G]
+    (Δ : Subgroup G) (hΔ : IsOpen (Δ : Set G)) [MeasurableSpace (G ⧸ Δ)] [BorelSpace (G ⧸ Δ)]
+    (μ : Measure (G ⧸ Δ)) [IsFiniteMeasure μ] [μ.Regular] (hμ : μ ≠ 0)
+    (hinv : ∀ g : G, Measure.map (fun x : G ⧸ Δ => g • x) μ = μ) : Δ.FiniteIndex := by
+  sorry
+
+/-! ## AA.4 Torsors -/
+
+namespace Approximation
+
+/-- `AA.4/group-torsor`: a torsor under the affine group `Spec H` over a field `k`: a nonzero
+finitely generated algebra `A` with a coassociative, counital coaction `A → A ⊗ H`, trivialized as a
+comodule algebra over an algebraic closure. -/
+structure Torsor (k : Type) [Field k] (H : Type) [CommRing H] [HopfAlgebra k H] where
+  /-- The coordinate algebra of the torsor. -/
+  A : Type
+  [commRing : CommRing A]
+  [algebra : Algebra k A]
+  [nontrivial : Nontrivial A]
+  finiteType : Algebra.FiniteType k A
+  /-- The coaction `A → A ⊗ H`, a right action of `G` on `Spec A`. -/
+  coaction : A →ₐ[k] TensorProduct k A H
+  coassoc : (TensorProduct.map coaction.toLinearMap LinearMap.id) ∘ₗ coaction.toLinearMap =
+    (TensorProduct.assoc k A H H).symm.toLinearMap ∘ₗ
+      (TensorProduct.map LinearMap.id (Coalgebra.comul (R := k) (A := H))) ∘ₗ coaction.toLinearMap
+  counit : (TensorProduct.rid k A).toLinearMap ∘ₗ
+      (TensorProduct.map LinearMap.id (Coalgebra.counit (R := k) (A := H))) ∘ₗ
+        coaction.toLinearMap = LinearMap.id
+  /-- `Spec A × G → Spec A × Spec A`, `(x, g) ↦ (x, x g)`, is an isomorphism; over a field this is
+  equivalent to a comodule-algebra trivialization over an algebraic closure. -/
+  bijective_actionMap :
+    Function.Bijective (Algebra.TensorProduct.productMap Algebra.TensorProduct.includeLeft coaction)
+
+attribute [instance] Torsor.commRing Torsor.algebra Torsor.nontrivial
+
+variable {k : Type} [Field k] {H : Type} [CommRing H] [HopfAlgebra k H]
+
+/-- A torsor is trivial when it has a `k`-point. -/
+def Torsor.IsTrivial (X : Torsor k H) : Prop := Nonempty (X.A →ₐ[k] k)
+
+/-- `G` acting on itself. -/
+def Torsor.self [Algebra.FiniteType k H] [Nontrivial H] : Torsor k H := sorry
+
+/-- An isomorphism of torsors: an algebra isomorphism commuting with the coactions. -/
+def Torsor.Iso (X Y : Torsor k H) : Prop :=
+  ∃ e : X.A ≃ₐ[k] Y.A, (Algebra.TensorProduct.map e.toAlgHom (AlgHom.id k H)).comp X.coaction =
+    Y.coaction.comp e.toAlgHom
+
+theorem Torsor.trivial_iff_iso [Algebra.FiniteType k H] [Nontrivial H] (X : Torsor k H) :
+    X.IsTrivial ↔ X.Iso Torsor.self := by
+  sorry
+
+/-- Base change of a torsor along a field extension `k → k'`. -/
+def Torsor.baseChange (k' : Type) [Field k'] [Algebra k k'] (X : Torsor k H) :
+    Torsor k' (TensorProduct k k' H) :=
+  sorry
+
+-- Test Approximation.Torsor.self_trivial.
+example [Algebra.FiniteType k H] [Nontrivial H] : (Torsor.self (k := k) (H := H)).IsTrivial := by
+  sorry
+
+-- Test Approximation.Torsor.mu2_sqrt: `ℚ[x]/(x² - 2)` with `x ↦ x ⊗ g` is a nontrivial
+-- `μ_2`-torsor over `ℚ`.
+example : ∃ X : Torsor ℚ (MonoidAlgebra ℚ (Multiplicative (ZMod 2))),
+    Nonempty (X.A ≃ₐ[ℚ] AdjoinRoot (Polynomial.X ^ 2 - Polynomial.C (2 : ℚ))) ∧ ¬ X.IsTrivial := by
+  sorry
+
+-- Test Approximation.Torsor.not_torsor_two_orbits: `G_m` acting on `A¹` by scaling is not a torsor.
+example : ¬ ∃ X : Torsor ℚ (LaurentPolynomial ℚ), ∃ e : X.A ≃ₐ[ℚ] Polynomial ℚ,
+    (Algebra.TensorProduct.map e.toAlgHom (AlgHom.id ℚ (LaurentPolynomial ℚ))).comp X.coaction =
+      (Polynomial.aeval (Polynomial.X ⊗ₜ[ℚ] LaurentPolynomial.T 1 :
+        TensorProduct ℚ (Polynomial ℚ) (LaurentPolynomial ℚ))).comp e.toAlgHom := by
+  sorry
+
+end Approximation
+
+/-! ## AA.4 Neatness: stability, p-adic criteria and existence -/
+
+namespace Neat
+
+variable {F : Type} [Field F] [NumberField F] {H : Type} [CommRing H] [HopfAlgebra F H]
+  (n : ℕ) (ρ : WithConv (H →ₐ[F] F) →* GL (Fin n) ℂ)
+
+/-- `AA.4/neat-stability`: subgroups of neat subgroups are neat. -/
+theorem IsNeatSubgroup.mono {Γ Γ' : Subgroup (WithConv (H →ₐ[F] F))} (h : IsNeatSubgroup n ρ Γ)
+    (hle : Γ' ≤ Γ) : IsNeatSubgroup n ρ Γ' := by
+  sorry
+
+/-- Conjugates of neat subgroups by rational points are neat. -/
+theorem IsNeatSubgroup.conj {Γ : Subgroup (WithConv (H →ₐ[F] F))} (h : IsNeatSubgroup n ρ Γ)
+    (γ : WithConv (H →ₐ[F] F)) : IsNeatSubgroup n ρ (Γ.map (MulAut.conj γ).toMonoidHom) := by
+  sorry
+
+/-- Images of neat subgroups under homomorphisms of algebraic groups are neat, for faithful
+algebraic representations over the same embedding `τ`. -/
+theorem IsNeatSubgroup.map {H' : Type} [CommRing H'] [HopfAlgebra F H'] [Algebra.FiniteType F H]
+    [Algebra.FiniteType F H'] (τ : F →+* ℂ) (m : ℕ) (ρ' : WithConv (H' →ₐ[F] F) →* GL (Fin m) ℂ)
+    (hρ : IsFaithfulAlgebraicPointHom τ n ρ) (hρ' : IsFaithfulAlgebraicPointHom τ m ρ')
+    (φ : H' →ₐc[F] H) {Γ : Subgroup (WithConv (H →ₐ[F] F))} (h : IsNeatSubgroup n ρ Γ) :
+    IsNeatSubgroup m ρ' (Γ.map (TauCeti.AlgHom.mapDomain (R := F) (H₁ := H') (H₂ := H) (A := F) φ)) := by
+  sorry
+
+/-- `AA.4/algebraic-tensor-eigenvalues`: for faithful algebraic `ρ` and algebraic `σ`, every
+eigenvalue of `σ(g)` lies in the group generated by the eigenvalues of `ρ(g)`. -/
+theorem eigenvalue_mem_closure [Algebra.FiniteType F H] (τ : F →+* ℂ) (m : ℕ)
+    (σ : WithConv (H →ₐ[F] F) →* GL (Fin m) ℂ) (hρ : IsFaithfulAlgebraicPointHom τ n ρ)
+    (hσ : IsAlgebraicPointHom τ m σ) (g : WithConv (H →ₐ[F] F)) (μ : ℂˣ)
+    (hμ : Module.End.HasEigenvalue (Matrix.toLin' (σ g : Matrix (Fin m) (Fin m) ℂ)) μ) :
+    μ ∈ Subgroup.closure
+      {z : ℂˣ | Module.End.HasEigenvalue (Matrix.toLin' (ρ g : Matrix (Fin n) (Fin n) ℂ)) z} := by
+  sorry
+
+/-- The value algebra map `𝔸_{F,f} → F_v`. -/
+def finiteValue (v : IsDedekindDomain.HeightOneSpectrum (NumberField.RingOfIntegers F)) :
+    IsDedekindDomain.FiniteAdeleRing (NumberField.RingOfIntegers F) F →ₐ[F] v.adicCompletion F where
+  toFun x := x v
+  map_zero' := by sorry
+  map_one' := by sorry
+  map_add' := by sorry
+  map_mul' := by sorry
+  commutes' := by sorry
+
+/-- The projection `G(𝔸_{F,f}) → G(F_v)`. -/
+def finiteProj (v : IsDedekindDomain.HeightOneSpectrum (NumberField.RingOfIntegers F)) :
+    AdelicPoints.FiniteAdelicPoints F H →* AdelicPoints.LocalPoints F H v :=
+  TauCeti.AlgHom.mapValue (H := H) (finiteValue v)
+
+/-- `AA.4/neat-criterion-one-prime`: if at one place `v | p` with `p ≥ 3` every element of `U` acts
+in `1 + p M_n(𝒪_v)` through the faithful algebraic representation, then `U` is neat. -/
+theorem isNeatLevel_of_congruence [Algebra.FiniteType F H] (τ : F →+* ℂ)
+    (r : TauCeti.GeneralLinear.coordinateHopfAlgebra F n →ₐc[F] H)
+    (hr : Function.Surjective r) (hρ : ρ = algebraicPointMap τ n r)
+    (U : Subgroup (AdelicPoints.FiniteAdelicPoints F H))
+    (hU : IsCompact (U : Set (AdelicPoints.FiniteAdelicPoints F H)))
+    (v : IsDedekindDomain.HeightOneSpectrum (NumberField.RingOfIntegers F)) (p : ℕ) [Fact p.Prime]
+    (hp : 3 ≤ p) (hv : (p : NumberField.RingOfIntegers F) ∈ v.asIdeal)
+    (hcong : ∀ u ∈ U, ∀ i j, ∃ y ∈ v.adicCompletionIntegers F,
+      ((TauCeti.GeneralLinear.pointsMulEquiv (R := F) n
+          (TauCeti.AlgHom.mapDomain r (finiteProj v u)) :
+            Matrix (Fin n) (Fin n) (v.adicCompletion F)) - 1) i j = (p : v.adicCompletion F) * y) :
+    IsNeatLevel n ρ U := by
+  sorry
+
+/-- `AA.4/neat-level-exists`: every compact open level contains a neat open normal subgroup of
+finite index. -/
+theorem exists_isNeatLevel [Algebra.FiniteType F H] (τ : F →+* ℂ)
+    (hρ : IsFaithfulAlgebraicPointHom τ n ρ) (U : Subgroup (AdelicPoints.FiniteAdelicPoints F H))
+    (hU : IsCompact (U : Set (AdelicPoints.FiniteAdelicPoints F H)))
+    (hUo : IsOpen (U : Set (AdelicPoints.FiniteAdelicPoints F H))) :
+    ∃ U' : Subgroup (AdelicPoints.FiniteAdelicPoints F H), U' ≤ U ∧
+      IsOpen (U' : Set (AdelicPoints.FiniteAdelicPoints F H)) ∧ (U'.subgroupOf U).Normal ∧
+      (U'.subgroupOf U).FiniteIndex ∧ IsNeatLevel n ρ U' := by
+  sorry
+
+end Neat
+
+/-! p-adic inputs to the one-prime criterion. `PadicAlgCl p` is Mathlib's algebraic closure of
+`ℚ_p` with the extended absolute value. -/
+
+namespace NeatPadic
+
+variable (p : ℕ) [Fact p.Prime]
+
+/-- `AA.4/padic-root-unity-distance`: a root of unity `ζ ≠ 1` satisfies `|ζ - 1| ≥ p^{-1/(p-1)}`. -/
+theorem le_norm_sub_one {ζ : PadicAlgCl p} (hζ : ζ ≠ 1) {m : ℕ} (hm : 0 < m) (hζm : ζ ^ m = 1) :
+    (p : ℝ) ^ (-(1 / ((p : ℝ) - 1))) ≤ ‖ζ - 1‖ := by
+  sorry
+
+/-- A primitive `p^k`-th root of unity has distance `p^{-1/(p^{k-1}(p-1))}` from `1`. -/
+theorem norm_sub_one_of_primitive_pow {ζ : PadicAlgCl p} {k : ℕ} (hk : 0 < k)
+    (hζ : IsPrimitiveRoot ζ (p ^ k)) :
+    ‖ζ - 1‖ = (p : ℝ) ^ (-(1 / ((p : ℝ) ^ (k - 1) * ((p : ℝ) - 1)))) := by
+  sorry
+
+/-- A root of unity of order prime to `p`, other than `1`, has distance one from `1`. -/
+theorem norm_sub_one_of_coprime {ζ : PadicAlgCl p} {m : ℕ} (hm : IsPrimitiveRoot ζ m)
+    (hcop : Nat.Coprime m p) (h1 : 1 < m) : ‖ζ - 1‖ = 1 := by
+  sorry
+
+/-- `AA.4/padic-ball-torsion-free`: the ball `|λ - 1| < p^{-1/(p-1)}` has no nontrivial roots of
+unity. -/
+theorem eq_one_of_norm_sub_one_lt {ζ : PadicAlgCl p}
+    (hζ : ‖ζ - 1‖ < (p : ℝ) ^ (-(1 / ((p : ℝ) - 1)))) {m : ℕ} (hm : 0 < m) (hζm : ζ ^ m = 1) :
+    ζ = 1 := by
+  sorry
+
+/-- `AA.4/congruence-matrix-eigenvalue-bound`: eigenvalues of `M ∈ 1 + p^a M_n(ℤ_p)` satisfy
+`|λ - 1| ≤ p^{-a}`. -/
+theorem norm_eigenvalue_sub_one_le {n : ℕ} (a : ℕ) (M : Matrix (Fin n) (Fin n) ℤ_[p])
+    (hM : ∀ i j, ∃ y : ℤ_[p], (M - 1) i j = (p : ℤ_[p]) ^ a * y) (ev : PadicAlgCl p)
+    (hev : Module.End.HasEigenvalue
+      (Matrix.toLin' (M.map fun x => algebraMap ℚ_[p] (PadicAlgCl p) (x : ℚ_[p]))) ev) :
+    ‖ev - 1‖ ≤ (p : ℝ) ^ (-(a : ℤ)) := by
+  sorry
+
+/-- `AA.4/compact-stable-padic-lattice`: a compact subgroup of `GL_n(ℚ_p)` stabilizes a lattice,
+so it is conjugate into `GL_n(ℤ_p)`. -/
+theorem exists_conj_le_integral {n : ℕ} (C : Subgroup (GL (Fin n) ℚ_[p]))
+    (hC : IsCompact (C : Set (GL (Fin n) ℚ_[p]))) :
+    ∃ g : GL (Fin n) ℚ_[p], ∀ c ∈ C, g * c * g⁻¹ ∈
+      (Matrix.GeneralLinearGroup.map (algebraMap ℤ_[p] ℚ_[p])).range := by
+  sorry
+
+end NeatPadic
+
+/-! ## AA.4 Level quotients, groupoids and Hecke correspondences
+
+For a compact open `U ⊂ G(𝔸_{F,f})` and a closed `K∞ ⊂ G(F_∞)`, `X_U = G(F)\G(𝔸_F)/K∞U`. -/
+
+namespace LevelMaps
+
+open AdelicPoints
+
+variable (F : Type) [Field F] [NumberField F] (H : Type) [CommRing H] [HopfAlgebra F H]
+
+/-- The subgroup `K∞U` of `G(𝔸_F)`. -/
+def levelSubgroup (U : Subgroup (FiniteAdelicPoints F H)) (Kinf : Subgroup (InfinitePoints F H)) :
+    Subgroup (AdelicPoints F H) :=
+  Kinf.map (infiniteEmbed F H) ⊔ U.map (finiteEmbed F H)
+
+/-- `x ∼ γ x k` for `γ ∈ G(F)` and `k ∈ K∞U`. -/
+def levelSetoid (U : Subgroup (FiniteAdelicPoints F H)) (Kinf : Subgroup (InfinitePoints F H)) :
+    Setoid (AdelicPoints F H) where
+  r x y := ∃ γ, ∃ k ∈ levelSubgroup F H U Kinf, y = diagonal F H γ * x * k
+  iseqv := sorry
+
+/-- `AA.4/level-quotient`: `X_U = G(F)\G(𝔸_F)/K∞U`, with the quotient topology. -/
+abbrev LevelQuotient (U : Subgroup (FiniteAdelicPoints F H)) (Kinf : Subgroup (InfinitePoints F H)) :=
+  Quotient (levelSetoid F H U Kinf)
+
+variable {F H}
+
+/-- The projection `G(𝔸_F) → X_U`. -/
+def LevelQuotient.mk (U : Subgroup (FiniteAdelicPoints F H)) (Kinf : Subgroup (InfinitePoints F H))
+    (x : AdelicPoints F H) : LevelQuotient F H U Kinf :=
+  Quotient.mk _ x
+
+theorem LevelQuotient.mk_rational (U : Subgroup (FiniteAdelicPoints F H))
+    (Kinf : Subgroup (InfinitePoints F H)) (γ : WithConv (H →ₐ[F] F)) (x : AdelicPoints F H) :
+    LevelQuotient.mk U Kinf (diagonal F H γ * x) = LevelQuotient.mk U Kinf x := by
+  sorry
+
+/-- Hecke translation `X_{gUg⁻¹} ≃ X_U`, `[x] ↦ [x g]`. -/
+def LevelQuotient.rightTranslate (U : Subgroup (FiniteAdelicPoints F H))
+    (Kinf : Subgroup (InfinitePoints F H)) (g : FiniteAdelicPoints F H) :
+    LevelQuotient F H (U.map (MulAut.conj g).toMonoidHom) Kinf ≃ₜ LevelQuotient F H U Kinf :=
+  sorry
+
+theorem LevelQuotient.rightTranslate_mk (U : Subgroup (FiniteAdelicPoints F H))
+    (Kinf : Subgroup (InfinitePoints F H)) (g : FiniteAdelicPoints F H) (x : AdelicPoints F H) :
+    LevelQuotient.rightTranslate U Kinf g (LevelQuotient.mk _ Kinf x) =
+      LevelQuotient.mk U Kinf (x * finiteEmbed F H g) := by
+  sorry
+
+/-- The level map `X_{U'} → X_U` for `U' ≤ U`. -/
+def LevelQuotient.levelMap {U U' : Subgroup (FiniteAdelicPoints F H)} (h : U' ≤ U)
+    (Kinf : Subgroup (InfinitePoints F H)) :
+    LevelQuotient F H U' Kinf → LevelQuotient F H U Kinf :=
+  Quotient.map' id (by sorry)
+
+/-- `AA.4/level-quotient-hausdorff`: for compact open `U` and `K∞` containing `A_G(ℝ)^0` and compact
+modulo it, `X_U` is Hausdorff and locally compact. -/
+theorem LevelQuotient.t2Space_locallyCompact [Algebra.FiniteType F H]
+    (U : Subgroup (FiniteAdelicPoints F H)) (hU : IsCompact (U : Set (FiniteAdelicPoints F H)))
+    (hUo : IsOpen (U : Set (FiniteAdelicPoints F H))) (Kinf : Subgroup (InfinitePoints F H))
+    (hKc : IsClosed (Kinf : Set (InfinitePoints F H)))
+    (hA : (SplitComponent F H).comap (infiniteEmbed F H) ≤ Kinf)
+    (hK : IsCompact ((fun k : InfinitePoints F H =>
+      (k : InfinitePoints F H ⧸ (SplitComponent F H).comap (infiniteEmbed F H))) ''
+        (Kinf : Set (InfinitePoints F H)))) :
+    T2Space (LevelQuotient F H U Kinf) ∧ LocallyCompactSpace (LevelQuotient F H U Kinf) := by
+  sorry
+
+/-- `AA.4/rational-stabilizer-finite`: the full stabilizer `G(F) ∩ g K∞U g⁻¹` is finite. -/
+theorem finite_rationalStabilizer [Algebra.FiniteType F H]
+    (U : Subgroup (FiniteAdelicPoints F H)) (hU : IsCompact (U : Set (FiniteAdelicPoints F H)))
+    (hUo : IsOpen (U : Set (FiniteAdelicPoints F H))) (Kinf : Subgroup (InfinitePoints F H))
+    (hKc : IsClosed (Kinf : Set (InfinitePoints F H)))
+    (hA : (SplitComponent F H).comap (infiniteEmbed F H) ≤ Kinf)
+    (hK : IsCompact ((fun k : InfinitePoints F H =>
+      (k : InfinitePoints F H ⧸ (SplitComponent F H).comap (infiniteEmbed F H))) ''
+        (Kinf : Set (InfinitePoints F H))))
+    (g : AdelicPoints F H) :
+    Finite (((levelSubgroup F H U Kinf).map (MulAut.conj g).toMonoidHom).comap (diagonal F H)) := by
+  sorry
+
+/-- `AA.4/compact-kernel-split-centre`: `K∞ ∩ ker H_{G,∞}` is compact and
+`K∞ ≃ A_G(ℝ)^0 × (K∞ ∩ ker H_{G,∞})`. -/
+theorem isCompact_inf_ker_logHeight [Algebra.FiniteType F H]
+    (hred : TauCeti.reductiveCommHopfAlgProperty F (finiteTypeObj F H))
+    (Kinf : Subgroup (InfinitePoints F H)) (hKc : IsClosed (Kinf : Set (InfinitePoints F H)))
+    (hA : (SplitComponent F H).comap (infiniteEmbed F H) ≤ Kinf)
+    (hK : IsCompact ((fun k : InfinitePoints F H =>
+      (k : InfinitePoints F H ⧸ (SplitComponent F H).comap (infiniteEmbed F H))) ''
+        (Kinf : Set (InfinitePoints F H)))) :
+    IsCompact ((Kinf ⊓ ((logHeight F H).comp (infiniteEmbed F H)).ker : Subgroup _) :
+      Set (InfinitePoints F H)) ∧
+    ∀ k ∈ Kinf, ∃! ak : (SplitComponent F H).comap (infiniteEmbed F H) ×
+        (Kinf ⊓ ((logHeight F H).comp (infiniteEmbed F H)).ker : Subgroup _),
+      k = (ak.1 : InfinitePoints F H) * ak.2 := by
+  sorry
+
+/-- `AA.4/level-covering-map`: at neat level the level map is a finite covering of degree
+`[U : U']`. -/
+theorem LevelQuotient.isCoveringMap_levelMap [Algebra.FiniteType F H] (n : ℕ)
+    (ρ : WithConv (H →ₐ[F] F) →* GL (Fin n) ℂ) (τ : F →+* ℂ)
+    (hρ : Neat.IsFaithfulAlgebraicPointHom τ n ρ)
+    {U U' : Subgroup (FiniteAdelicPoints F H)} (h : U' ≤ U)
+    (hU : IsCompact (U : Set (FiniteAdelicPoints F H))) (hUo : IsOpen (U : Set (FiniteAdelicPoints F H)))
+    (hU'o : IsOpen (U' : Set (FiniteAdelicPoints F H))) (hneat : Neat.IsNeatLevel n ρ U)
+    (Kinf : Subgroup (InfinitePoints F H)) (hKc : IsClosed (Kinf : Set (InfinitePoints F H)))
+    (hA : (SplitComponent F H).comap (infiniteEmbed F H) ≤ Kinf)
+    (hK : IsCompact ((fun k : InfinitePoints F H =>
+      (k : InfinitePoints F H ⧸ (SplitComponent F H).comap (infiniteEmbed F H))) ''
+        (Kinf : Set (InfinitePoints F H)))) :
+    IsCoveringMap (LevelQuotient.levelMap h Kinf) ∧
+      ∀ x, Nat.card (LevelQuotient.levelMap h Kinf ⁻¹' {x}) = U'.relIndex U := by
+  sorry
+
+/-- `AA.4/level-action-free-at-neat`: for `U'` normal in a neat `U`, the right action of `U` on
+`X_{U'}` factors through `U/U'` and is free. -/
+theorem LevelQuotient.action_free [Algebra.FiniteType F H] (n : ℕ)
+    (ρ : WithConv (H →ₐ[F] F) →* GL (Fin n) ℂ) (τ : F →+* ℂ)
+    (hρ : Neat.IsFaithfulAlgebraicPointHom τ n ρ)
+    {U U' : Subgroup (FiniteAdelicPoints F H)} (h : U' ≤ U) (hnorm : (U'.subgroupOf U).Normal)
+    (hneat : Neat.IsNeatLevel n ρ U) (Kinf : Subgroup (InfinitePoints F H))
+    (hA : (SplitComponent F H).comap (infiniteEmbed F H) ≤ Kinf)
+    (hK : IsCompact ((fun k : InfinitePoints F H =>
+      (k : InfinitePoints F H ⧸ (SplitComponent F H).comap (infiniteEmbed F H))) ''
+        (Kinf : Set (InfinitePoints F H))))
+    (u : FiniteAdelicPoints F H) (hu : u ∈ U) (x : AdelicPoints F H)
+    (hfix : LevelQuotient.mk U' Kinf (x * finiteEmbed F H u) = LevelQuotient.mk U' Kinf x) :
+    u ∈ U' := by
+  sorry
+
+/-- `AA.4/level-quotient-groupoid`: the action groupoid of `G(F)` on `G(𝔸_F)/K∞U`. -/
+abbrev levelGroupoid (U : Subgroup (FiniteAdelicPoints F H)) (Kinf : Subgroup (InfinitePoints F H)) :=
+  CategoryTheory.ActionCategory (diagonal F H).range (AdelicPoints F H ⧸ levelSubgroup F H U Kinf)
+
+/-- The automorphisms of an object are its stabilizer `G(F) ∩ x K∞U x⁻¹`. -/
+def levelGroupoid_aut (U : Subgroup (FiniteAdelicPoints F H)) (Kinf : Subgroup (InfinitePoints F H))
+    (x : AdelicPoints F H ⧸ levelSubgroup F H U Kinf) :
+    MulAction.stabilizer (diagonal F H).range x ≃*
+      CategoryTheory.Aut (CategoryTheory.ActionCategory.objEquiv (diagonal F H).range _ x) :=
+  sorry
+
+/-- Its isomorphism classes are the points of `X_U`. -/
+def levelGroupoid_isoClasses (U : Subgroup (FiniteAdelicPoints F H))
+    (Kinf : Subgroup (InfinitePoints F H)) :
+    Quotient (CategoryTheory.isIsomorphicSetoid (levelGroupoid (F := F) (H := H) U Kinf)) ≃
+      LevelQuotient F H U Kinf :=
+  sorry
+
+theorem levelGroupoid_finite_aut [Algebra.FiniteType F H]
+    (U : Subgroup (FiniteAdelicPoints F H)) (hU : IsCompact (U : Set (FiniteAdelicPoints F H)))
+    (hUo : IsOpen (U : Set (FiniteAdelicPoints F H))) (Kinf : Subgroup (InfinitePoints F H))
+    (hKc : IsClosed (Kinf : Set (InfinitePoints F H)))
+    (hA : (SplitComponent F H).comap (infiniteEmbed F H) ≤ Kinf)
+    (hK : IsCompact ((fun k : InfinitePoints F H =>
+      (k : InfinitePoints F H ⧸ (SplitComponent F H).comap (infiniteEmbed F H))) ''
+        (Kinf : Set (InfinitePoints F H))))
+    (x : AdelicPoints F H ⧸ levelSubgroup F H U Kinf) :
+    Finite (MulAction.stabilizer (diagonal F H).range x) := by
+  sorry
+
+/-- `AA.4/hecke-correspondence`: `T_g` is `X_U ← X_{U ∩ gUg⁻¹} → X_U`, `[x] ↦ [x]` and
+`[x] ↦ [x g]`. -/
+def hecke (U : Subgroup (FiniteAdelicPoints F H)) (Kinf : Subgroup (InfinitePoints F H))
+    (g : FiniteAdelicPoints F H) :
+    (LevelQuotient F H (U ⊓ U.map (MulAut.conj g).toMonoidHom) Kinf → LevelQuotient F H U Kinf) ×
+      (LevelQuotient F H (U ⊓ U.map (MulAut.conj g).toMonoidHom) Kinf → LevelQuotient F H U Kinf) :=
+  (Quotient.map' id (by sorry), Quotient.map' (· * finiteEmbed F H g) (by sorry))
+
+theorem hecke_fst (U : Subgroup (FiniteAdelicPoints F H)) (Kinf : Subgroup (InfinitePoints F H))
+    (g : FiniteAdelicPoints F H) (x : AdelicPoints F H) :
+    (hecke U Kinf g).1 (LevelQuotient.mk _ Kinf x) = LevelQuotient.mk U Kinf x := by
+  sorry
+
+theorem hecke_snd (U : Subgroup (FiniteAdelicPoints F H)) (Kinf : Subgroup (InfinitePoints F H))
+    (g : FiniteAdelicPoints F H) (x : AdelicPoints F H) :
+    (hecke U Kinf g).2 (LevelQuotient.mk _ Kinf x) = LevelQuotient.mk U Kinf (x * finiteEmbed F H g) := by
+  sorry
+
+/-- At neat level the first leg has degree `[U : U ∩ gUg⁻¹]`. -/
+theorem hecke_degree [Algebra.FiniteType F H] (n : ℕ) (ρ : WithConv (H →ₐ[F] F) →* GL (Fin n) ℂ)
+    (τ : F →+* ℂ) (hρ : Neat.IsFaithfulAlgebraicPointHom τ n ρ)
+    (U : Subgroup (FiniteAdelicPoints F H)) (hU : IsCompact (U : Set (FiniteAdelicPoints F H)))
+    (hUo : IsOpen (U : Set (FiniteAdelicPoints F H))) (hneat : Neat.IsNeatLevel n ρ U)
+    (Kinf : Subgroup (InfinitePoints F H))
+    (hA : (SplitComponent F H).comap (infiniteEmbed F H) ≤ Kinf)
+    (hK : IsCompact ((fun k : InfinitePoints F H =>
+      (k : InfinitePoints F H ⧸ (SplitComponent F H).comap (infiniteEmbed F H))) ''
+        (Kinf : Set (InfinitePoints F H))))
+    (g : FiniteAdelicPoints F H) (x : LevelQuotient F H U Kinf) :
+    Nat.card ((hecke U Kinf g).1 ⁻¹' {x}) = (U ⊓ U.map (MulAut.conj g).toMonoidHom).relIndex U := by
+  sorry
+
+-- Test LevelMaps.hecke_one: for `g = 1` the two legs agree.
+example (U : Subgroup (FiniteAdelicPoints F H)) (Kinf : Subgroup (InfinitePoints F H)) :
+    (hecke U Kinf 1).1 = (hecke U Kinf 1).2 := by
+  sorry
+
+/-- `AA.4/hecke-cartesian`: for neat `U` and `U' L = U`, the square of level maps through
+`X_{U' ∩ L}` is Cartesian. -/
+theorem levelMap_cartesian [Algebra.FiniteType F H] (n : ℕ)
+    (ρ : WithConv (H →ₐ[F] F) →* GL (Fin n) ℂ) (τ : F →+* ℂ)
+    (hρ : Neat.IsFaithfulAlgebraicPointHom τ n ρ)
+    {U U' L : Subgroup (FiniteAdelicPoints F H)} (hU' : U' ≤ U) (hL : L ≤ U)
+    (hprod : ∀ u ∈ U, ∃ a ∈ U', ∃ b ∈ L, u = a * b) (hneat : Neat.IsNeatLevel n ρ U)
+    (hU : IsCompact (U : Set (FiniteAdelicPoints F H)))
+    (hopen : IsOpen (U' : Set (FiniteAdelicPoints F H)) ∧ IsOpen (L : Set (FiniteAdelicPoints F H)))
+    (Kinf : Subgroup (InfinitePoints F H))
+    (hA : (SplitComponent F H).comap (infiniteEmbed F H) ≤ Kinf)
+    (hK : IsCompact ((fun k : InfinitePoints F H =>
+      (k : InfinitePoints F H ⧸ (SplitComponent F H).comap (infiniteEmbed F H))) ''
+        (Kinf : Set (InfinitePoints F H)))) :
+    Function.Bijective (fun y : LevelQuotient F H (U' ⊓ L) Kinf =>
+      (⟨(LevelQuotient.levelMap inf_le_left Kinf y, LevelQuotient.levelMap inf_le_right Kinf y),
+        by sorry⟩ : {p : LevelQuotient F H U' Kinf × LevelQuotient F H L Kinf //
+          LevelQuotient.levelMap hU' Kinf p.1 = LevelQuotient.levelMap hL Kinf p.2})) := by
+  sorry
+
+variable (F H)
+
+-- Test LevelMaps.LevelQuotient.trivial_group: for the trivial group `X_U` is a point.
+example (U : Subgroup (FiniteAdelicPoints F F)) (Kinf : Subgroup (InfinitePoints F F)) :
+    Subsingleton (LevelQuotient F F U Kinf) := by
+  sorry
+
+-- Test LevelMaps.LevelQuotient.not_finite_adelic_only: for `SL_2/ℚ` with `K∞ = 1`, `X_U` is not a
+-- point (it contains `SL_2(ℤ)\SL_2(ℝ)`), unlike `SL_2(ℚ)\SL_2(𝔸_f)/U`.
+example (U : Subgroup (FiniteAdelicPoints ℚ (TauCeti.SpecialLinear.coordinateHopfAlgebra ℚ 2)))
+    (hU : IsCompact (U : Set (FiniteAdelicPoints ℚ (TauCeti.SpecialLinear.coordinateHopfAlgebra ℚ 2))))
+    (hUo : IsOpen (U : Set (FiniteAdelicPoints ℚ (TauCeti.SpecialLinear.coordinateHopfAlgebra ℚ 2)))) :
+    ¬ Subsingleton (LevelQuotient ℚ (TauCeti.SpecialLinear.coordinateHopfAlgebra ℚ 2) U ⊥) := by
+  sorry
+
+end LevelMaps
+
+namespace LevelMaps
+
+/-- `AA.4/hecke-degree-double-coset`: `UgU` is the union of `[U : U ∩ gUg⁻¹]` left cosets `ugU`. -/
+theorem card_doubleCoset_cosets {G : Type*} [Group G] (U : Subgroup G) (g : G)
+    [(U ⊓ U.map (MulAut.conj g).toMonoidHom).FiniteIndex] :
+    Nat.card (Set.range (fun u : U => ((u * g : G) : G ⧸ U))) =
+      (U ⊓ U.map (MulAut.conj g).toMonoidHom).relIndex U := by
+  sorry
+
+/-- `AA.4/finite-support-product-index`: the index of a product subgroup equal to the ambient one
+outside a finite set `B` is the product of the local indices over `B`. -/
+theorem relIndex_pi {ι : Type*} {G : ι → Type*} [∀ i, Group (G i)] (K K' : ∀ i, Subgroup (G i))
+    (hle : ∀ i, K' i ≤ K i) (B : Finset ι) (hB : ∀ i ∉ B, K' i = K i) :
+    (Subgroup.pi Set.univ K').relIndex (Subgroup.pi Set.univ K) =
+      ∏ i ∈ B, (K' i).relIndex (K i) := by
+  sorry
+
+end LevelMaps
+
+/-! ## AA.3 Arithmetic subgroups, class numbers, finiteness and compactness, heights and real
+reduction for `GL_n`
+
+Statements needing rational parabolic subgroups, relative roots or Siegel sets (ReductiveGroupsPartII,
+RG2.1) are specified in the catalogue below. -/
+
+namespace Reduction
+
+open AdelicPoints
+
+variable (F : Type) [Field F] [NumberField F] (H : Type) [CommRing H] [HopfAlgebra F H]
+
+/-- The diagonal `G(F) → G(F_∞)`. -/
+def infiniteDiagonal : WithConv (H →ₐ[F] F) →* InfinitePoints F H :=
+  TauCeti.AlgHom.mapValue (H := H) (Algebra.ofId F _)
+
+/-- `AA.3/arithmetic-subgroup-of-level`: `Γ_{x,U} = G(F) ∩ x U x⁻¹`. -/
+def levelArithmetic (x : FiniteAdelicPoints F H) (U : Subgroup (FiniteAdelicPoints F H)) :
+    Subgroup (WithConv (H →ₐ[F] F)) :=
+  (U.map (MulAut.conj x).toMonoidHom).comap (finiteDiagonal F H)
+
+variable {F H}
+
+theorem levelArithmetic_eq_rationalLevelAt (x : FiniteAdelicPoints F H)
+    (U : Subgroup (FiniteAdelicPoints F H)) :
+    levelArithmetic F H x U = Neat.rationalLevelAt U x := by
+  sorry
+
+theorem levelArithmetic_discrete [Algebra.FiniteType F H] (x : FiniteAdelicPoints F H)
+    (U : Subgroup (FiniteAdelicPoints F H)) (hU : IsCompact (U : Set (FiniteAdelicPoints F H))) :
+    DiscreteTopology ((levelArithmetic F H x U).map (infiniteDiagonal F H)) := by
+  sorry
+
+theorem levelArithmetic_conj (x : FiniteAdelicPoints F H) (U : Subgroup (FiniteAdelicPoints F H))
+    (γ : WithConv (H →ₐ[F] F)) {u : FiniteAdelicPoints F H} (hu : u ∈ U) :
+    levelArithmetic F H (finiteDiagonal F H γ * x * u) U =
+      (levelArithmetic F H x U).map (MulAut.conj γ).toMonoidHom := by
+  sorry
+
+theorem levelArithmetic_commensurable [Algebra.FiniteType F H] (x : FiniteAdelicPoints F H)
+    {U U' : Subgroup (FiniteAdelicPoints F H)} (h : U' ≤ U)
+    (hU : IsCompact (U : Set (FiniteAdelicPoints F H))) (hU'o : IsOpen (U' : Set (FiniteAdelicPoints F H))) :
+    (levelArithmetic F H x U').relIndex (levelArithmetic F H x U) ≠ 0 := by
+  sorry
+
+/-- `AA.3/class-number-finite`: `G(F)\G(𝔸_{F,f})/U` is finite. -/
+theorem finite_classes [Algebra.FiniteType F H] (U : Subgroup (FiniteAdelicPoints F H))
+    (hU : IsCompact (U : Set (FiniteAdelicPoints F H))) (hUo : IsOpen (U : Set (FiniteAdelicPoints F H))) :
+    Finite (DoubleCoset.Quotient ((finiteDiagonal F H).range : Set (FiniteAdelicPoints F H)) U) := by
+  sorry
+
+/-- `AA.3/unipotent-class-number-one`: for smooth unipotent `N`, `N(𝔸_f) = N(F) U`. -/
+theorem classes_subsingleton_of_unipotent [Algebra.FiniteType F H]
+    (hN : TauCeti.smoothUnipotentCommHopfAlgProperty F (finiteTypeObj F H))
+    (U : Subgroup (FiniteAdelicPoints F H)) (hUo : IsOpen (U : Set (FiniteAdelicPoints F H))) :
+    Subsingleton (DoubleCoset.Quotient ((finiteDiagonal F H).range : Set (FiniteAdelicPoints F H)) U) := by
+  sorry
+
+/-- `AA.3/component-decomposition`: for representatives `x_c` of the classes,
+`[g_∞] ↦ [(g_∞, x_c)]` is a homeomorphism `⊔_c Γ_{x_c,U}\G(F_∞) ≃ G(F)\G(𝔸_F)/U`. -/
+def componentHomeomorph [Algebra.FiniteType F H] (U : Subgroup (FiniteAdelicPoints F H))
+    (hU : IsCompact (U : Set (FiniteAdelicPoints F H))) (hUo : IsOpen (U : Set (FiniteAdelicPoints F H)))
+    (rep : DoubleCoset.Quotient ((finiteDiagonal F H).range : Set (FiniteAdelicPoints F H)) U →
+      FiniteAdelicPoints F H)
+    (hrep : ∀ c, DoubleCoset.mk (finiteDiagonal F H).range U (rep c) = c) :
+    (Σ c, MulAction.orbitRel.Quotient ((levelArithmetic F H (rep c) U).map (infiniteDiagonal F H))
+      (InfinitePoints F H)) ≃ₜ LevelMaps.LevelQuotient F H U ⊥ :=
+  sorry
+
+theorem componentHomeomorph_mk [Algebra.FiniteType F H] (U : Subgroup (FiniteAdelicPoints F H))
+    (hU : IsCompact (U : Set (FiniteAdelicPoints F H))) (hUo : IsOpen (U : Set (FiniteAdelicPoints F H)))
+    (rep : DoubleCoset.Quotient ((finiteDiagonal F H).range : Set (FiniteAdelicPoints F H)) U →
+      FiniteAdelicPoints F H)
+    (hrep : ∀ c, DoubleCoset.mk (finiteDiagonal F H).range U (rep c) = c) (c) (g : InfinitePoints F H) :
+    componentHomeomorph U hU hUo rep hrep ⟨c, Quotient.mk'' g⟩ =
+      LevelMaps.LevelQuotient.mk U ⊥ (infiniteEmbed F H g * finiteEmbed F H (rep c)) := by
+  sorry
+
+/-- `AA.3/finite-volume`: `G(F)\G(𝔸_F)^1` has finite positive volume. -/
+theorem finite_volume [Algebra.FiniteType F H]
+    (hred : TauCeti.reductiveCommHopfAlgProperty F (finiteTypeObj F H))
+    (μ : MeasureTheory.Measure (AdelicPoints F H)) [μ.IsHaarMeasure] :
+    0 < AutomorphicQuotient.measure F H hred μ Set.univ ∧
+      AutomorphicQuotient.measure F H hred μ Set.univ < ⊤ := by
+  sorry
+
+/-- `AA.3/tamagawa-number-finite`. -/
+theorem tamagawa_number_lt_top [Algebra.FiniteType F H]
+    (hred : TauCeti.reductiveCommHopfAlgProperty F (finiteTypeObj F H))
+    (ω : GaugeForm F H) (hω : ω ≠ 0) : Tamagawa.number F H hred ω < ⊤ := by
+  sorry
+
+/-- Right translation on `G(F)\G(𝔸_F)`. -/
+def rightAct (g : AdelicPoints F H) :
+    MulAction.orbitRel.Quotient (diagonal F H).range (AdelicPoints F H) →
+      MulAction.orbitRel.Quotient (diagonal F H).range (AdelicPoints F H) :=
+  Quotient.map' (· * g) (by sorry)
+
+instance : MeasurableSpace (MulAction.orbitRel.Quotient (diagonal F H).range (AdelicPoints F H)) :=
+  borel _
+
+/-- `AA.3/finite-volume-criterion`: for connected `G`, `G(F)\G(𝔸_F)` carries a nonzero finite
+invariant Radon measure exactly when `X*_F(G) = 0`. -/
+theorem finite_volume_iff [Algebra.FiniteType F H]
+    (hconn : TauCeti.geometricallyConnectedCommHopfAlgProperty F (CommHopfAlgCat.of F H)) :
+    (∃ ν : MeasureTheory.Measure (MulAction.orbitRel.Quotient (diagonal F H).range (AdelicPoints F H)),
+      ν ≠ 0 ∧ MeasureTheory.IsFiniteMeasure ν ∧ ν.Regular ∧
+        ∀ g, MeasureTheory.Measure.map (rightAct g) ν = ν) ↔
+      Subsingleton (RationalCharacter F H) := by
+  sorry
+
+/-- Unipotent rational points, through a faithful algebraic representation. -/
+def IsUnipotentPoint (n : ℕ) (ρ : WithConv (H →ₐ[F] F) →* GL (Fin n) ℂ)
+    (γ : WithConv (H →ₐ[F] F)) : Prop :=
+  IsNilpotent ((ρ γ : Matrix (Fin n) (Fin n) ℂ) - 1)
+
+/-- `AA.3/compactness-isotropic` (Godement's criterion): `G(F)\G(𝔸_F)^1` is compact exactly when
+`G(F)` has no nontrivial unipotent element. -/
+theorem compactSpace_normOneQuotient_iff [Algebra.FiniteType F H]
+    (hred : TauCeti.reductiveCommHopfAlgProperty F (finiteTypeObj F H)) (n : ℕ)
+    (ρ : WithConv (H →ₐ[F] F) →* GL (Fin n) ℂ) (τ : F →+* ℂ)
+    (hρ : Neat.IsFaithfulAlgebraicPointHom τ n ρ) :
+    CompactSpace (AutomorphicQuotient.NormOneQuotient F H) ↔
+      ∀ γ, IsUnipotentPoint n ρ γ → γ = 1 := by
+  sorry
+
+/-- `AA.3/arithmetic-quotient-finite-volume`: `Γ\(G(F_∞)/A_G(ℝ)^0)` carries a nonzero finite
+invariant measure for `Γ = G(F) ∩ U`. -/
+theorem arithmeticQuotient_finite_volume [Algebra.FiniteType F H]
+    (hred : TauCeti.reductiveCommHopfAlgProperty F (finiteTypeObj F H))
+    (U : Subgroup (FiniteAdelicPoints F H)) (hU : IsCompact (U : Set (FiniteAdelicPoints F H)))
+    (hUo : IsOpen (U : Set (FiniteAdelicPoints F H))) :
+    letI : MeasurableSpace (MulAction.orbitRel.Quotient
+        ((levelArithmetic F H 1 U).map (infiniteDiagonal F H))
+        (InfinitePoints F H ⧸ (SplitComponent F H).comap (infiniteEmbed F H))) := borel _
+    ∃ ν : MeasureTheory.Measure (MulAction.orbitRel.Quotient
+        ((levelArithmetic F H 1 U).map (infiniteDiagonal F H))
+        (InfinitePoints F H ⧸ (SplitComponent F H).comap (infiniteEmbed F H))),
+      ν ≠ 0 ∧ MeasureTheory.IsFiniteMeasure ν := by
+  sorry
+
+/-- `AA.3/arithmetic-quotient-compact`: that quotient is compact exactly when `G(F)` has no nontrivial
+unipotent element. -/
+theorem arithmeticQuotient_compact_iff [Algebra.FiniteType F H]
+    (hred : TauCeti.reductiveCommHopfAlgProperty F (finiteTypeObj F H)) (n : ℕ)
+    (ρ : WithConv (H →ₐ[F] F) →* GL (Fin n) ℂ) (τ : F →+* ℂ)
+    (hρ : Neat.IsFaithfulAlgebraicPointHom τ n ρ)
+    (U : Subgroup (FiniteAdelicPoints F H)) (hU : IsCompact (U : Set (FiniteAdelicPoints F H)))
+    (hUo : IsOpen (U : Set (FiniteAdelicPoints F H))) :
+    CompactSpace (MulAction.orbitRel.Quotient ((levelArithmetic F H 1 U).map (infiniteDiagonal F H))
+        (InfinitePoints F H ⧸ (SplitComponent F H).comap (infiniteEmbed F H))) ↔
+      ∀ γ, IsUnipotentPoint n ρ γ → γ = 1 := by
+  sorry
+
+/-- `AA.3/cocompact-no-unipotents`: over `ℚ`, if `Γ\G(ℝ)` is compact then `Γ = G(ℚ) ∩ U` has no
+nontrivial unipotent element. -/
+theorem no_unipotent_of_cocompact {H : Type} [CommRing H] [HopfAlgebra ℚ H] [Algebra.FiniteType ℚ H]
+    (hred : TauCeti.reductiveCommHopfAlgProperty ℚ (finiteTypeObj ℚ H)) (n : ℕ)
+    (ρ : WithConv (H →ₐ[ℚ] ℚ) →* GL (Fin n) ℂ) (hρ : Neat.IsFaithfulAlgebraicPointHom (Rat.castHom ℂ) n ρ)
+    (U : Subgroup (FiniteAdelicPoints ℚ H)) (hU : IsCompact (U : Set (FiniteAdelicPoints ℚ H)))
+    (hUo : IsOpen (U : Set (FiniteAdelicPoints ℚ H)))
+    (hcpt : CompactSpace (MulAction.orbitRel.Quotient ((levelArithmetic ℚ H 1 U).map
+      (infiniteDiagonal ℚ H)) (InfinitePoints ℚ H)))
+    (γ : WithConv (H →ₐ[ℚ] ℚ)) (hγ : γ ∈ levelArithmetic ℚ H 1 U) (hu : IsUnipotentPoint n ρ γ) :
+    γ = 1 := by
+  sorry
+
+/-- `AA.3/adelic-height`: `‖x‖_r = ∏_v ‖r(x)_v‖_v` for the algebraic representation with coordinate
+map `r`, with entrywise maxima of normalized absolute values at finite places and Hilbert–Schmidt
+norms raised to `[F_w : ℝ]` at archimedean places. Properness uses an `r` containing `σ ⊕ σ^∨` for a
+closed embedding `σ`, which makes the height symmetric under inversion. -/
+def height {m : ℕ} (r : TauCeti.GeneralLinear.coordinateHopfAlgebra F m →ₐc[F] H) :
+    AdelicPoints F H → ℝ :=
+  sorry
+
+theorem height_mul_le {m : ℕ} (r : TauCeti.GeneralLinear.coordinateHopfAlgebra F m →ₐc[F] H)
+    (x y : AdelicPoints F H) : height r (x * y) ≤ height r x * height r y := by
+  sorry
+
+theorem height_inv_le {m : ℕ} (r : TauCeti.GeneralLinear.coordinateHopfAlgebra F m →ₐc[F] H) :
+    ∃ C N : ℝ, 0 < C ∧ ∀ x, height r x⁻¹ ≤ C * height r x ^ N := by
+  sorry
+
+theorem isCompact_height_le [Algebra.FiniteType F H] {m : ℕ}
+    (r : TauCeti.GeneralLinear.coordinateHopfAlgebra F m →ₐc[F] H) (hr : Function.Surjective r)
+    (hdual : ∀ x, height r x⁻¹ = height r x) (t : ℝ) : IsCompact {x | height r x ≤ t} := by
+  sorry
+
+theorem card_rational_height_le [Algebra.FiniteType F H] {m : ℕ}
+    (r : TauCeti.GeneralLinear.coordinateHopfAlgebra F m →ₐc[F] H) (hr : Function.Surjective r)
+    (hdual : ∀ x, height r x⁻¹ = height r x) :
+    ∃ C N : ℝ, ∀ t : ℝ, 1 ≤ t → ({γ | height r (diagonal F H γ) ≤ t}.ncard : ℝ) ≤ C * t ^ N := by
+  sorry
+
+/-- `AA.3/height-representation-comparison`: heights for two faithful representations are
+polynomially equivalent. -/
+theorem height_le_pow [Algebra.FiniteType F H] {m m' : ℕ}
+    (r : TauCeti.GeneralLinear.coordinateHopfAlgebra F m →ₐc[F] H) (hr : Function.Surjective r)
+    (r' : TauCeti.GeneralLinear.coordinateHopfAlgebra F m' →ₐc[F] H) :
+    ∃ C N : ℝ, 0 < C ∧ ∀ x, height r' x ≤ C * height r x ^ N := by
+  sorry
+
+theorem height_mul_compact_le {m : ℕ} (r : TauCeti.GeneralLinear.coordinateHopfAlgebra F m →ₐc[F] H)
+    (K : Set (AdelicPoints F H)) (hK : IsCompact K) :
+    ∃ C : ℝ, 0 < C ∧ ∀ x, ∀ k ∈ K, height r (x * k) ≤ C * height r x ∧ height r (k * x) ≤ C * height r x := by
+  sorry
+
+-- Test Reduction.height_one: over `ℚ` with `r` the standard representation of `GL_2`, the
+-- Hilbert–Schmidt factor gives `height 1 = √2`, not `1`.
+example : height (F := ℚ) (H := TauCeti.GeneralLinear.coordinateHopfAlgebra ℚ 2)
+    (BialgHom.id ℚ _) 1 = Real.sqrt 2 := by
+  sorry
+
+-- Test Reduction.height_not_finite_only: for `G(F_∞)` noncompact the height is unbounded; a
+-- height built from the finite places alone would be bounded on `G(F_∞)`.
+example (n : ℕ) (hn : 1 ≤ n) :
+    ¬ BddAbove (Set.range (height (F := ℚ) (H := TauCeti.GeneralLinear.coordinateHopfAlgebra ℚ n)
+      (BialgHom.id ℚ _))) := by
+  sorry
+
+end Reduction
+
+namespace RealSiegel
+
+open Matrix
+
+variable {n : ℕ}
+
+/-- `AA.3/gram-diagonal-lower-bound`: if `∏ B_kk ≤ D det B` then `aᵀ B a ≥ a_k² B_kk / D`. -/
+theorem quadForm_ge_diag (B : Matrix (Fin n) (Fin n) ℝ) (hB : B.PosDef) (D : ℝ) (hD : 1 ≤ D)
+    (hdet : ∏ k, B k k ≤ D * B.det) (a : Fin n → ℝ) (k : Fin n) :
+    a k ^ 2 * B k k / D ≤ a ⬝ᵥ (B *ᵥ a) := by
+  sorry
+
+/-- `AA.3/gram-offdiagonal-transfer`: bounds for the Gram matrix in one basis transfer to another
+basis, with the explicit constant `C'³ L_i L_j m_i⁻²`. -/
+theorem gram_offdiag_transfer (B : Matrix (Fin n) (Fin n) ℝ) (hB : B.PosDef) (C' : ℝ) (hC' : 1 ≤ C')
+    (h1 : ∀ a b, |B a b| ≤ C' * B a a) (h2 : ∀ a b, a < b → B a a ≤ C' * B b b)
+    (h3 : ∏ a, B a a ≤ C' * B.det) (A : Matrix (Fin n) (Fin n) ℝ) (k : Fin n → Fin n)
+    (hk : ∀ i, A (k i) i ≠ 0 ∧ ∀ a, k i < a → A a i = 0) (i j : Fin n) :
+    |(Aᵀ * B * A) i j| ≤ C' ^ 3 * (∑ a, |A a i|) * (∑ a, |A a j|) * |A (k i) i|⁻¹ ^ 2 *
+      (Aᵀ * B * A) i i := by
+  sorry
+
+/-- `AA.3/basis-change-reducedness`: with determinant control, reducedness in one basis gives
+reducedness in a reordering of another, with a constant depending only on the data. -/
+theorem exists_perm_isReduced (C C' : ℝ) (hC : 1 ≤ C) (hC' : 1 ≤ C') (A : GL (Fin n) ℚ) :
+    ∃ C'' : ℝ, ∀ b : Matrix (Fin n) (Fin n) ℝ, b.PosDef → IsReduced C' b →
+      let bA := ((A.map (algebraMap ℚ ℝ) : GL (Fin n) ℝ) : Matrix (Fin n) (Fin n) ℝ)ᵀ * b *
+        ((A.map (algebraMap ℚ ℝ) : GL (Fin n) ℝ) : Matrix (Fin n) (Fin n) ℝ)
+      ∏ i, bA i i ≤ C * bA.det →
+        ∃ σ : Equiv.Perm (Fin n), IsReduced C'' (bA.submatrix σ σ) := by
+  sorry
+
+/-- `AA.3/gln-real-reduction`: every positive definite form is `GL_n(ℤ)`-equivalent to a reduced
+one. -/
+theorem exists_reduced_GLZ : ∃ C : ℝ, 0 < C ∧ ∀ b : Matrix (Fin n) (Fin n) ℝ, b.PosDef →
+    ∃ γ : GL (Fin n) ℤ, IsReduced C
+      (((γ.map (Int.castRingHom ℝ) : GL (Fin n) ℝ) : Matrix (Fin n) (Fin n) ℝ)ᵀ * b *
+        ((γ.map (Int.castRingHom ℝ) : GL (Fin n) ℝ) : Matrix (Fin n) (Fin n) ℝ)) := by
+  sorry
+
+end RealSiegel
+
+namespace Reduction
+
+/-- `AA.3/gln-finite-class-number-one`: `GL_n(𝔸_{ℚ,f}) = GL_n(ℚ) GL_n(ℤ̂)`, for the standard model. -/
+theorem gln_classes_subsingleton (n : ℕ) :
+    Subsingleton (DoubleCoset.Quotient
+      ((AdelicPoints.finiteDiagonal ℚ (TauCeti.GeneralLinear.coordinateHopfAlgebra ℚ n)).range :
+        Set (AdelicPoints.FiniteAdelicPoints ℚ (TauCeti.GeneralLinear.coordinateHopfAlgebra ℚ n)))
+      (IntegralModel.standardGLn (F := ℚ) (S := ∅) n).integralLevel) := by
+  sorry
+
+theorem gln_levelArithmetic (n : ℕ) :
+    (levelArithmetic ℚ (TauCeti.GeneralLinear.coordinateHopfAlgebra ℚ n) 1
+        (IntegralModel.standardGLn (F := ℚ) (S := ∅) n).integralLevel).map
+      (TauCeti.GeneralLinear.pointsMulEquiv (R := ℚ) n).toMonoidHom =
+      (Matrix.GeneralLinearGroup.map (Int.castRingHom ℚ)).range := by
+  sorry
+
+end Reduction
+
 /-! ## AA.5 GL₂ over ℚ: components, congruence groups and change of level
 
 `GL (Fin 2) 𝔸_f` carries the topology of units of the matrix ring over Mathlib's finite adeles,
@@ -3050,6 +3991,40 @@ example : Nat.card (Components (principalLevel 5)) = 4 ∧
     Nat.card (ComponentsO2 (principalLevel 5)) = 2 := by
   sorry
 
+/-! Neatness and Hecke degrees at `GL₂` levels, for the standard representation. -/
+
+/-- The standard representation `GL₂(ℚ) → GL₂(ℂ)`. -/
+def toComplex : GL (Fin 2) ℚ →* GL (Fin 2) ℂ := Matrix.GeneralLinearGroup.map (Rat.castHom ℂ)
+
+-- Test Neat.isNeatLevel_U3: `U(3) = K(3)` is neat: every `GL₂(ℚ) ∩ x K(3) x⁻¹` is neat.
+example (x : GL (Fin 2) Af) :
+    ∀ γ ∈ ((principalLevel 3).map (MulAut.conj x).toMonoidHom).comap diag,
+      Neat.IsNeatAut (toComplex γ) := by
+  sorry
+
+-- Test Neat.not_isNeatLevel_GL2Zhat: `GL₂(ℤ̂)` is not neat, since it contains `-1 ∈ GL₂(ℤ)`.
+example : -1 ∈ GL2Zhat.comap diag ∧ ¬ Neat.IsNeatAut (toComplex (-1)) := by
+  sorry
+
+/-- `diag(p, 1)`. -/
+def diagP (p : ℕ) [Fact p.Prime] : GL (Fin 2) Af :=
+  diag (Matrix.GeneralLinearGroup.mkOfDetNeZero !![(p : ℚ), 0; 0, 1] (by sorry))
+
+-- Test LevelMaps.hecke_Tp_degree: for `U = GL₂(ℤ̂)` and `g = diag(p, 1)`, `[U : U ∩ gUg⁻¹] = p + 1`.
+example (p : ℕ) [Fact p.Prime] :
+    (GL2Zhat ⊓ GL2Zhat.map (MulAut.conj (diagP p)).toMonoidHom).relIndex GL2Zhat = p + 1 := by
+  sorry
+
+-- Test Reduction.levelArithmetic_gl2: `GL₂(ℚ) ∩ GL₂(ℤ̂) = GL₂(ℤ)`.
+example : GL2Zhat.comap diag = (Matrix.GeneralLinearGroup.map (Int.castRingHom ℚ)).range := by
+  sorry
+
+-- Test Reduction.levelArithmetic_not_conj_invariant: the arithmetic group depends on `x`: at
+-- `x = diag(p, 1)` it is `diag(p,1) GL₂(ℤ) diag(p,1)⁻¹ ≠ GL₂(ℤ)`.
+example (p : ℕ) [Fact p.Prime] :
+    (GL2Zhat.map (MulAut.conj (diagP p)).toMonoidHom).comap diag ≠ GL2Zhat.comap diag := by
+  sorry
+
 end AdelicExamples.GL2
 
 /-! ## AA.5 GL₁ over a number field: idele classes, units and the quotients `X_Q`
@@ -3122,6 +4097,11 @@ def integralUnits : Subgroup (IsDedekindDomain.FiniteAdeleRing (RingOfIntegers F
   mul_mem' := sorry
   inv_mem' := sorry
 
+-- Test LevelMaps.LevelQuotient.gl1_rat: for `GL_1/ℚ`, `U = ℤ̂^×` and `K∞ = ℝ^×`, `X_U` is a point.
+example : Subsingleton (LevelMaps.LevelQuotient ℚ (LaurentPolynomial ℚ)
+    ((integralUnits ℚ).comap (AdelicPoints.gmFiniteEquiv ℚ).toMonoidHom) ⊤) := by
+  sorry
+
 /-- `AA.5/gl1-class-number`: `F^×\𝔸_{F,f}^×/Ô^× ≃ Cl(𝒪_F)`. -/
 def classGroupEquiv :
     ((IsDedekindDomain.FiniteAdeleRing (RingOfIntegers F) F)ˣ ⧸
@@ -3133,6 +4113,19 @@ theorem card_classes :
     Nat.card ((IsDedekindDomain.FiniteAdeleRing (RingOfIntegers F) F)ˣ ⧸
       ((IsDedekindDomain.FiniteAdeleRing.unitEmbedding (RingOfIntegers F) F).range ⊔
         integralUnits F)) = classNumber F := by
+  sorry
+
+-- Test Reduction.levelArithmetic_trivial_group: `ℚ^× ∩ ℤ̂^× = {±1}`, and with the congruence
+-- condition `u ≡ 1 mod N`, `N ≥ 3`, the intersection is trivial.
+example : (integralUnits ℚ).comap (IsDedekindDomain.FiniteAdeleRing.unitEmbedding (RingOfIntegers ℚ) ℚ) =
+    Subgroup.zpowers (-1) := by
+  sorry
+
+example (N : ℕ) (hN : 3 ≤ N) :
+    {q : ℚˣ | IsDedekindDomain.FiniteAdeleRing.unitEmbedding (RingOfIntegers ℚ) ℚ q ∈ integralUnits ℚ ∧
+      ∀ v : IsDedekindDomain.HeightOneSpectrum (RingOfIntegers ℚ),
+        (algebraMap ℚ (v.adicCompletion ℚ) (N : ℚ))⁻¹ * (algebraMap ℚ (v.adicCompletion ℚ) q - 1) ∈
+          v.adicCompletionIntegers ℚ} = {1} := by
   sorry
 
 /-- The global units in a subgroup `U ≤ Ô^×`: `Γ_U = F^× ∩ U`, as units of `𝒪_F`. -/
@@ -3356,6 +4349,27 @@ theorem mass_le (U U' : Subgroup ℍ[Af, algebraMap ℚ Af a, algebraMap ℚ Af 
       ∑ᶠ c : Classes a b U,
         ((Nat.card (stab a b U (Quotient.out c)) : ℚ) / Nat.card ↥(stab a b U 1 ⊓
           (Units.map (algebraMap ℚ ℍ[ℚ, a, b]).toMonoidHom).range))⁻¹ := by
+  sorry
+
+/-- The reduced norm `Nrd(x) = x x̄` of a quaternion algebra. -/
+def nrd {R : Type*} [CommRing R] {c₁ c₂ : R} (x : ℍ[R, c₁, c₂]) : R := (x * star x).re
+
+omit ha hb in
+/-- `AA.4/quaternion-reduced-norm-image`: `Nrd(B_p^×) = ℚ_p^×` at every prime. -/
+theorem nrd_surjective_local (a b : ℚ) (p : ℕ) [Fact p.Prime] (c : ℚ_[p]) (hc : c ≠ 0) :
+    ∃ x : ℍ[ℚ_[p], (a : ℚ_[p]), (b : ℚ_[p])], x ≠ 0 ∧ nrd x = c := by
+  sorry
+
+omit ha hb in
+/-- At `∞`, `Nrd(B_∞^×)` is `ℝ^×` if `B` splits at `∞` and `ℝ_{>0}` otherwise. -/
+theorem nrd_image_real (a b : ℚ) (c : ℝ) (hc : c ≠ 0) :
+    (∃ x : ℍ[ℝ, (a : ℝ), (b : ℝ)], x ≠ 0 ∧ nrd x = c) ↔ (0 < c ∨ ¬ (a < 0 ∧ b < 0)) := by
+  sorry
+
+omit ha hb in
+/-- Hasse–Schilling–Maass: `Nrd(B^×)` is `ℚ^×` if `B` splits at `∞` and `ℚ_{>0}` otherwise. -/
+theorem nrd_image_global (a b : ℚ) (c : ℚ) (hc : c ≠ 0) :
+    (∃ x : ℍ[ℚ, a, b], x ≠ 0 ∧ nrd x = c) ↔ (0 < c ∨ ¬ (a < 0 ∧ b < 0)) := by
   sorry
 
 end AdelicExamples.DefiniteQuaternion
