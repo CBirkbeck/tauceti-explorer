@@ -45738,7 +45738,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-AdicEtaleGeometry.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7455"
   },
   {
    "id": "REV-PKG-AdicEtaleGeometry",
@@ -46781,8 +46782,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-GeometricSatakeAndFusion.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7473"
+   "state": "pending",
+   "note": "released on GitHub issue #7473"
   },
   {
    "id": "REV-PKG-GeometricSatakeAndFusion",
@@ -47036,8 +47037,9 @@
     "PKG-HeckeStacksAndLocalShtukas"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-HeckeStacksAndLocalShtukas.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7521"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7521",
+   "finishedAt": "2026-10-09T04:04:08Z"
   },
   {
    "id": "PKG-HeegnerPointEulerSystems",
@@ -47373,8 +47375,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-MetaplecticAutomorphicForms.md",
-   "state": "pending",
-   "note": "released on GitHub issue #7492"
+   "state": "external",
+   "note": "claimed on GitHub issue #7492"
   },
   {
    "id": "REV-PKG-MetaplecticAutomorphicForms",
