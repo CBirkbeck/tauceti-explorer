@@ -17,8 +17,8 @@ perfectoid category and its morphism classes once PerfectoidSpaces supplies them
 is a definition of perfectoid spaces. Third, the pro-category is carried by `(Ind Cᵒᵖ)ᵒᵖ`, so that
 it agrees with Mathlib's `Ind` and no separate Hom formula has to be postulated.
 
-Statements whose geometric carriers do not exist at the pins are absent from this file; the closing
-comment names them.
+Statements without the required geometric carriers or comparison interfaces are absent from this
+file; the closing comment names them.
 -/
 
 noncomputable section
@@ -171,7 +171,7 @@ theorem SpectralComponentsProfinite (X : Type u) [TopologicalSpace X] [SpectralS
 
 /-- Quotients by pro-constructible equivalence relations (ECD Lemma 2.7). For a quasi-separated
 locally spectral `X` and an equivalence relation `r` whose graph is closed in the constructible
-topology of `X × X` and whose two projections are quasi-compact (spectral in the relative sense)
+topology of `X × X` and whose two projections are quasi-compact, spectral in the relative sense
 and generalizing, the quotient is `T0`, and every quasi-compact open `W` lies in an open
 `r`-invariant `U` contained in an `r`-invariant intersection `E'` of a nonempty family of
 quasi-compact opens. -/
@@ -180,6 +180,10 @@ theorem ProConstructibleEquivalenceRelation {X : Type u} [TopologicalSpace X]
     (hR : IsClosed[constructibleTopology (X × X)] {p : X × X | r p.1 p.2})
     (hs : IsSpectralMap.locally (fun p : {p : X × X // r p.1 p.2} => p.1.1))
     (ht : IsSpectralMap.locally (fun p : {p : X × X // r p.1 p.2} => p.1.2))
+    (hqs : ∀ V : Set X, IsOpen V → IsCompact V →
+      IsCompact ((fun p : {p : X × X // r p.1 p.2} => p.1.1) ⁻¹' V))
+    (hqt : ∀ V : Set X, IsOpen V → IsCompact V →
+      IsCompact ((fun p : {p : X × X // r p.1 p.2} => p.1.2) ⁻¹' V))
     (hgs : GeneralizingMap (fun p : {p : X × X // r p.1 p.2} => p.1.1))
     (hgt : GeneralizingMap (fun p : {p : X × X // r p.1 p.2} => p.1.2)) :
     T0Space (Quotient r) ∧
@@ -210,6 +214,10 @@ theorem SpectralQuotientCriterion.of_isOpenMap {X : Type u} [TopologicalSpace X]
     (hR : IsClosed[constructibleTopology (X × X)] {p : X × X | r p.1 p.2})
     (hs : IsSpectralMap.locally (fun p : {p : X × X // r p.1 p.2} => p.1.1))
     (ht : IsSpectralMap.locally (fun p : {p : X × X // r p.1 p.2} => p.1.2))
+    (hqs : ∀ V : Set X, IsOpen V → IsCompact V →
+      IsCompact ((fun p : {p : X × X // r p.1 p.2} => p.1.1) ⁻¹' V))
+    (hqt : ∀ V : Set X, IsOpen V → IsCompact V →
+      IsCompact ((fun p : {p : X × X // r p.1 p.2} => p.1.2) ⁻¹' V))
     (hgs : GeneralizingMap (fun p : {p : X × X // r p.1 p.2} => p.1.1))
     (hgt : GeneralizingMap (fun p : {p : X × X // r p.1 p.2} => p.1.2))
     (hos : IsOpenMap (fun p : {p : X × X // r p.1 p.2} => p.1.1))
@@ -218,6 +226,11 @@ theorem SpectralQuotientCriterion.of_isOpenMap {X : Type u} [TopologicalSpace X]
       IsOpenMap (Quotient.mk r) ∧ IsSpectralMap.locally (Quotient.mk r) ∧
       ∀ V : Set (Quotient r), IsOpen V → IsCompact V → IsCompact (Quotient.mk r ⁻¹' V) := by
   sorry
+
+/-- Local spectrality of a relation projection does not imply quasi-compactness: the universal
+relation on the infinite discrete space has an infinite fibre over a compact singleton. -/
+example : IsSpectralMap.locally (fun p : ℕ × ℕ => p.1) ∧
+    ¬ IsCompact ((fun p : ℕ × ℕ => p.1) ⁻¹' ({0} : Set ℕ)) := by sorry
 
 /-- A spectral submersion: a surjective spectral map of spectral spaces along which quasi-compact
 openness of preimages descends to openness (Arc Definition 2.14, stated topologically). -/
@@ -251,6 +264,13 @@ example {X Y : Type u} [TopologicalSpace X] [TopologicalSpace Y]
     [SpectralSpace X] [SpectralSpace Y] (f : X → Y) (hf : IsSpectralMap f)
     (hg : GeneralizingMap f) (hs : Function.Surjective f) :
     IsSpectralSubmersion f := by sorry
+
+/-- Arc Remark 2.18: spectral submersions need not be ordinary quotient maps. -/
+example : ∃ (X Y : TopCat.{0}) (_ : SpectralSpace X) (_ : SpectralSpace Y)
+    (f : X ⟶ Y), IsSpectralSubmersion f ∧ ¬ IsQuotientMap f := by sorry
+
+/-- A spectral map which misses a point fails the surjectivity requirement. -/
+example : ¬ IsSpectralSubmersion (fun _ : PUnit => false) := by sorry
 
 section Limits
 
@@ -772,7 +792,7 @@ def finiteQCcover {X : C} {ι : Type u} (U : ι → C) (f : ∀ i, U i ⟶ X) : 
   ∀ V : Set (sp.obj X), IsOpen V → IsCompact V →
     ∃ s : Finset ι, ∃ W : ∀ i, Set (sp.obj (U i)),
       (∀ i ∈ s, IsOpen (W i) ∧ IsCompact (W i)) ∧
-      V = ⋃ i ∈ s, (sp.map (f i)) '' (W i)
+      V ⊆ ⋃ i ∈ s, (sp.map (f i)) '' (W i)
 
 namespace Perfd
 
@@ -1097,6 +1117,8 @@ multiplicative seminorms `φ` with `φ ϖ = 1/2`, topologized by pointwise conve
 structure BerkovichSpectrum (R : Type u) [CommRing R] [TopologicalSpace R] (ϖ : R) where
   /-- The seminorm. -/
   seminorm : MulRingSeminorm R
+  /-- The nonarchimedean triangle inequality. -/
+  nonarchimedean : ∀ x y, seminorm (x + y) ≤ max (seminorm x) (seminorm y)
   /-- It is continuous. -/
   continuous : Continuous seminorm
   /-- The normalization. -/
@@ -1111,8 +1133,9 @@ instance : TopologicalSpace (BerkovichSpectrum R ϖ) :=
 
 /-- For a complete Tate ring, presented by an open subring `A₀` containing the topologically
 nilpotent unit `ϖ` with the `ϖ`-adic topology, the Berkovich spectrum is compact Hausdorff
-(ECD Proposition 13.9). -/
-theorem compactSpace_t2Space [IsTopologicalRing R] [T2Space R]
+(KL15 §2.3; ECD Proposition 13.9 for the perfectoid case). -/
+theorem compactSpace_t2Space {R : Type u} [CommRing R] [UniformSpace R]
+    [IsUniformAddGroup R] [CompleteSpace R] [IsTopologicalRing R] [T2Space R] (ϖ : R)
     (A₀ : Subring R) (hopen : IsOpen (A₀ : Set R)) (hmem : ϖ ∈ A₀)
     (hadic : IsAdic (Ideal.span {(⟨ϖ, hmem⟩ : A₀)})) (hunit : IsUnit ϖ) :
     CompactSpace (BerkovichSpectrum R ϖ) ∧ T2Space (BerkovichSpectrum R ϖ) := by sorry
@@ -1124,13 +1147,28 @@ def changeNormalization [IsTopologicalRing R] (ϖ' : R)
     (hu : IsUnit ϖ) (hu' : IsUnit ϖ') :
     BerkovichSpectrum R ϖ ≃ₜ BerkovichSpectrum R ϖ' := by sorry
 
-/-- A nonarchimedean field with its absolute value normalized at a pseudo-uniformizer has a
-one-point Berkovich spectrum. -/
-example (K : Type u) [Field K] [TopologicalSpace K] [IsTopologicalRing K] (ϖ : K)
-    (hϖ : IsTopologicallyNilpotent ϖ) (hu : IsUnit ϖ)
-    (hK : ∀ φ ψ : MulRingSeminorm K, Continuous φ → Continuous ψ → φ ϖ = ψ ϖ → φ ϖ ≠ 0 →
-      φ = ψ) :
-    Subsingleton (BerkovichSpectrum K ϖ) := by sorry
+/-- The point of the spectrum of a nonarchimedean field, with its norm rescaled to send the
+chosen topologically nilpotent element to `1/2`. -/
+def fieldPoint (K : Type u) [NontriviallyNormedField K] [IsUltrametricDist K]
+    [CompleteSpace K] (ϖ : K) (hϖ : 0 < ‖ϖ‖ ∧ ‖ϖ‖ < 1) :
+    BerkovichSpectrum K ϖ := by sorry
+
+/-- The normalization exponent is defined: `0 < ‖ϖ‖ < 1` makes its logarithm nonzero. -/
+theorem fieldPoint_apply (K : Type u) [NontriviallyNormedField K] [IsUltrametricDist K]
+    [CompleteSpace K] (ϖ : K) (hϖ : 0 < ‖ϖ‖ ∧ ‖ϖ‖ < 1) (x : K) :
+    (fieldPoint K ϖ hϖ).seminorm x = ‖x‖ ^ (Real.log (1 / 2) / Real.log ‖ϖ‖) := by sorry
+
+/-- A complete nonarchimedean field has exactly one normalized point; uniqueness is a conclusion. -/
+example (K : Type u) [NontriviallyNormedField K] [IsUltrametricDist K] [CompleteSpace K]
+    (ϖ : K) (hϖ : 0 < ‖ϖ‖ ∧ ‖ϖ‖ < 1) :
+    Nonempty (BerkovichSpectrum K ϖ) ∧ Subsingleton (BerkovichSpectrum K ϖ) := by sorry
+
+/-- Squaring the normalizing unit requires taking the square root of every seminorm value. -/
+example (φ : BerkovichSpectrum R ϖ) : ∃ ψ : BerkovichSpectrum R (ϖ ^ 2),
+    ∀ x, ψ.seminorm x = Real.sqrt (φ.seminorm x) := by sorry
+
+/-- Normalization at `1` is impossible, since every multiplicative ring seminorm sends it to `1`. -/
+example : IsEmpty (BerkovichSpectrum R (1 : R)) := by sorry
 
 end BerkovichSpectrum
 
@@ -1234,9 +1272,10 @@ end PreAdic
 /-!
 ## Statements not typed here
 
-Their hypotheses and conclusions are fixed in `README.md`. They need the perfectoid category with
-its affinoid rings, residue fields, rational localizations, tilting and pro-étale limits, or the
-pre-adic and rigid-analytic interfaces, none of which exist at the pins:
+Their hypotheses and conclusions are fixed in `README.md`. The ordinary foundation comparisons
+listed first are not represented by signatures here. The geometric statements require the
+perfectoid category with its affinoid rings, residue fields, rational localizations, tilting and
+pro-étale limits, or the pre-adic and rigid-analytic interfaces:
 
 * D0.14 ordinal assembly, D0.19 Čech-to-derived and Leray comparisons, D0.21 limits of coherent
   topoi, D0.22 sheaves on profinite sets;
@@ -1249,7 +1288,8 @@ pre-adic and rigid-analytic interfaces, none of which exist at the pins:
   Hausdorff diamonds, small v-stacks and their quotients);
 * D5.2–D5.7, D5.10–D5.12, D5.14, D5.15 (permanence, limits, universally open presentations,
   local structure, relative representability, the Berkovich functor on v-sheaves and Hausdorff
-  reduction), and the map from `Spa (R, R⁺)` in D5.13;
+  reduction, including `Perf.minimalPlusExtension` and `Perf.berkovich_stalkComparison`), and
+  the map from `Spa (R, R⁺)` in D5.13;
 * D6.1–D6.9 beyond the generic marked-map presheaf (Spd, untilt descent, gluing, étale-site
   comparison, integral Galois quotient, topological comparison, seminormal full faithfulness).
 -/
