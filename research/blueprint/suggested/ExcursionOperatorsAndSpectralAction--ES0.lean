@@ -15,9 +15,10 @@ mathematical statements are copied into named comments from the packet. No
 True conclusion, arbitrary Prop-valued structure field, or ordinary-category
 alias is used to pretend that the missing enhanced construction exists.
 
-The elaborating declarations below express ordinary observations of the
-planned constructions. In particular, ordinary quotient-action triviality
-is not a substitute for coherent enhanced equivariant descent. The orbit
+This is a partial revision checkpoint. The declarations below express ordinary
+observations and the generic pretriangulated support theorem. In particular,
+ordinary quotient-action triviality is not a substitute for coherent enhanced
+equivariant descent. The orbit
 factorization uses actual functors and natural isomorphisms, while its higher
 coherence remains an omitted condition. EllipticCentralizerFinite below is
 only the finite-quotient part of ellipticity, not its semisimplicity condition.
@@ -27,8 +28,12 @@ import Mathlib.CategoryTheory.Center.Linear
 import Mathlib.CategoryTheory.Preadditive.AdditiveFunctor
 import Mathlib.CategoryTheory.Linear.LinearFunctor
 import Mathlib.RingTheory.Spectrum.Prime.Basic
+import Mathlib.RingTheory.Spectrum.Prime.RingHom
 import Mathlib.RingTheory.Ideal.Maps
 import Mathlib.GroupTheory.QuotientGroup.Defs
+import Mathlib.CategoryTheory.Triangulated.Pretriangulated
+import Mathlib.Algebra.Category.ModuleCat.Basic
+import Mathlib.Algebra.DualNumber
 
 open CategoryTheory
 open scoped IsMulCommutative
@@ -258,7 +263,7 @@ example (a : R →+* CatCenter C) (X : C) (h : 𝟙 X = 0) :
     centralSupport a X = ∅ := by
   sorry
 
--- centralSupport_free: faithful scalar action at the rank-one free object.
+-- The faithful-action support criterion.
 example (a : R →+* CatCenter C) (X : C)
     (h : Function.Injective ((centerEvaluation X).comp a)) :
     centralSupport a X = Set.univ := by
@@ -269,14 +274,119 @@ lemma centralSupport_retract (a : R →+* CatCenter C) {X Y : C}
     centralSupport a X ⊆ centralSupport a Y := by
   sorry
 
-/-- Algebraic conclusion used after the enhanced exact-triangle factorization.
-The product-ideal hypothesis is that factorization, not a replacement for it. -/
-lemma support_exact_operations (I J K : Ideal R) (h : I * K ≤ J) :
+/-- The zero-locus step, separate from the distinguished-triangle theorem below. -/
+lemma support_of_annihilator_product (I J K : Ideal R) (h : I * K ≤ J) :
     PrimeSpectrum.zeroLocus (J : Set R) ⊆
       PrimeSpectrum.zeroLocus (I : Set R) ∪ PrimeSpectrum.zeroLocus (K : Set R) := by
   sorry
 
 end CentralSupport
+
+section ExactSupport
+open CategoryTheory.Limits CategoryTheory.Pretriangulated
+variable {R : Type w} [CommRing R]
+variable {C : Type u} [Category.{v} C] [Preadditive C]
+
+lemma centralAnnihilator_biprod (a : R →+* CatCenter C) (X Y : C)
+    [HasBinaryBiproduct X Y] :
+    centralAnnihilator a (X ⊞ Y) = centralAnnihilator a X ⊓ centralAnnihilator a Y := by
+  sorry
+
+lemma centralSupport_biprod (a : R →+* CatCenter C) (X Y : C)
+    [HasBinaryBiproduct X Y] :
+    centralSupport a (X ⊞ Y) = centralSupport a X ∪ centralSupport a Y := by
+  sorry
+
+variable [HasZeroObject C] [HasShift C ℤ]
+variable [∀ n : ℤ, (shiftFunctor C n).Additive] [Pretriangulated C]
+
+/-- A scalar killed on the first vertex factors through the third vertex.
+This uses Hom exactness of a distinguished triangle, not an assumed ideal inclusion. -/
+lemma centralAnnihilator_triangle_factor (a : R →+* CatCenter C)
+    (T : Triangle C) (hT : T ∈ distTriang C) (f : R)
+    (hf : f ∈ centralAnnihilator a T.obj₁) :
+    ∃ g : T.obj₃ ⟶ T.obj₂, (a f).app T.obj₂ = T.mor₂ ≫ g := by
+  sorry
+
+lemma centralAnnihilator_triangle_mul (a : R →+* CatCenter C)
+    (T : Triangle C) (hT : T ∈ distTriang C) :
+    centralAnnihilator a T.obj₁ * centralAnnihilator a T.obj₃ ≤
+      centralAnnihilator a T.obj₂ := by
+  sorry
+
+lemma centralSupport_shift (a : R →+* CatCenter C)
+    (hshift : ∀ (r : R) (X : C) (n : ℤ),
+      (a r).app (X⟦n⟧) = (shiftFunctor C n).map ((a r).app X))
+    (X : C) (n : ℤ) : centralSupport a (X⟦n⟧) = centralSupport a X := by
+  sorry
+
+/-- The complete exact-operation statement on the homotopy-category input.
+The central action and its suspension compatibility are actual mathematical data.
+Its application to D_lis still requires the E5/HS enhanced comparison. -/
+lemma support_exact_operations (a : R →+* CatCenter C)
+    (hshift : ∀ (r : R) (X : C) (n : ℤ),
+      (a r).app (X⟦n⟧) = (shiftFunctor C n).map ((a r).app X))
+    [HasBinaryBiproducts C] :
+    (∀ (X : C) (n : ℤ), centralSupport a (X⟦n⟧) = centralSupport a X) ∧
+    (∀ X Y : C, centralSupport a (X ⊞ Y) = centralSupport a X ∪ centralSupport a Y) ∧
+    (∀ (X Y : C) (i : X ⟶ Y) (r : Y ⟶ X), i ≫ r = 𝟙 X →
+      centralSupport a X ⊆ centralSupport a Y) ∧
+    (∀ (T : Triangle C), T ∈ distTriang C →
+      centralSupport a T.obj₂ ⊆ centralSupport a T.obj₁ ∪ centralSupport a T.obj₃) ∧
+    (∀ (T : Triangle C), T ∈ distTriang C →
+      centralSupport a T.obj₁ ⊆ centralSupport a T.obj₂ ∪ centralSupport a T.obj₃) ∧
+    (∀ (T : Triangle C), T ∈ distTriang C →
+      centralSupport a T.obj₃ ⊆ centralSupport a T.obj₁ ∪ centralSupport a T.obj₂) := by
+  sorry
+
+-- support_triangle_zero_ends: distinguishes triangle support from a mere ideal lemma.
+example (a : R →+* CatCenter C) (T : Triangle C) (hT : T ∈ distTriang C)
+    (h₁ : 𝟙 T.obj₁ = 0) (h₃ : 𝟙 T.obj₃ = 0) :
+    centralSupport a T.obj₂ = ∅ := by
+  sorry
+
+end ExactSupport
+
+section SupportComparisons
+variable {R S : Type*} [CommRing R] [CommRing S]
+variable {C D : Type*} [Category C] [Category D] [Preadditive C] [Preadditive D]
+
+/-- The compatible-action containment does not need flatness.
+The stronger endomorphism tensor comparison remains a supplier-dependent signature. -/
+lemma centralSupport_map (a : R →+* CatCenter C) (b : S →+* CatCenter D)
+    (φ : R →+* S) (F : C ⥤ D) [F.Additive]
+    (h : ∀ r X, (b (φ r)).app (F.obj X) = F.map ((a r).app X)) (X : C) :
+    centralSupport b (F.obj X) ⊆ (PrimeSpectrum.comap φ) ⁻¹' centralSupport a X := by
+  sorry
+
+/-- The ring-theoretic half of localization; this does not construct a telescope. -/
+lemma centralSupport_subset_principal_iff (a : R →+* CatCenter C) (X : C) (f : R) :
+    centralSupport a X ⊆ PrimeSpectrum.zeroLocus ({f} : Set R) ↔
+      ∃ n : ℕ, (a (f ^ n)).app X = 0 := by
+  sorry
+
+end SupportComparisons
+
+section ModuleSupportExamples
+variable (R : Type u) [CommRing R]
+
+-- centralSupport_free: the concrete rank-one scalar module computation.
+example : centralAnnihilator (Linear.toCatCenter R (ModuleCat R)) (ModuleCat.of R R) = ⊥ ∧
+    centralSupport (Linear.toCatCenter R (ModuleCat R)) (ModuleCat.of R R) = Set.univ := by
+  sorry
+
+variable (k : Type u) [Field k]
+
+-- centralSupport_nilpotent: degree-zero observation of k compact in Perf(k).
+-- The scalar category is ModuleCat k; k is not asserted to be perfect over k[ε].
+example :
+    let a : DualNumber k →+* CatCenter (ModuleCat k) :=
+      (Linear.toCatCenter k (ModuleCat k)).comp (TrivSqZeroExt.fstHom k k k).toRingHom
+    centralAnnihilator a (ModuleCat.of k k) = Ideal.span ({DualNumber.eps} : Set (DualNumber k)) ∧
+      centralSupport a (ModuleCat.of k k) = Set.univ := by
+  sorry
+
+end ModuleSupportExamples
 
 section EllipticObservation
 variable {H : Type*} [Group H] (S : Subgroup H) (Z : Subgroup S) [Z.Normal]
@@ -324,7 +434,7 @@ lemma centralSupport_idempotent {R : Type*} [CommRing R]
       centralSupport a Y ⊆ PrimeSpectrum.zeroLocus ({e} : Set R) := by
   sorry
 
--- centralSupport_nilpotent: the dual-number computation in a general form.
+-- Support of a prescribed principal square-zero annihilator.
 example {R : Type*} [CommRing R] (a : R →+* CatCenter C)
     (X : C) (epsilon : R) (h : epsilon ^ 2 = 0)
     (hAnn : centralAnnihilator a X = Ideal.span ({epsilon} : Set R)) :
@@ -348,7 +458,9 @@ ordinary observation above still needs the higher conditions stated here.
 All other higher signatures are explicitly OMITTED pending the supplier types.
 Independent review REV-ExcursionOperatorsAndSpectralAction--ES0 records needs_changes:
 this comment register is not the actual signatures required by PROTOCOL section 13.
-See the review report for the complete declaration/API/example inventory.
+The updated executable inventory and exact omissions are in the packet and revision handoff.
+The generic support theorem now uses actual triangles and shift compatibility;
+its application to the enhanced D_lis action still needs E5/HS supplier types.
 The register is not a family of assumed propositions or formalized proofs.
 
 ExcursionOperatorsAndSpectralAction:ES0/bernstein-center-of-a-category
@@ -846,7 +958,8 @@ here.
 
 ExcursionOperatorsAndSpectralAction:ES4/support-exact-operations
 Proposed declaration: support_exact_operations
-Ordinary observation declared above; full enhanced conditions remain unavailable.
+The full generic pretriangulated statement is declared above;
+its D_lis enhanced instantiation remains pending.
 For the fixed central R_P action, support is invariant under isomorphism and shifts, support of a
 finite direct sum is the union, and a retract has support contained in that of its source. For an
 exact triangle A->B->C->A[1], Supp(B)⊂Supp(A) union Supp(C), and the cyclic variants hold.

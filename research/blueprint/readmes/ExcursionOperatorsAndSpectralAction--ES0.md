@@ -1,8 +1,8 @@
 # Excursion operators and the spectral action: ES0–ES4
 
-This is the completed target-level plan for part ES0 of the roadmap. All eight stages are **planned**; none is closed. The packet records five explicit gaps and twenty supplier requests. Every mathematical node is unchecked. The source and the node specifications below are definitive for this part.
+This is a **partial revision 2 checkpoint** for part ES0. All eight stages retain planned target coverage; none is closed. The packet contains 42 unchecked nodes, five explicit gaps and nineteen open supplier requests. The blocking task is PROTOCOL section 13: the full enhanced Lean signatures cannot yet be stated with the current supplier interfaces. The mathematical specifications below remain the targets, with their signature status recorded separately.
 
-The source is Fargues–Scholze, [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), identified by the recorded SHA-256 and read on 7 October 2026. Its exact statements and the additional roadmap obligations are distinguished in each node’s source match. The document follows the mathematical-definition/API/test style of the upstream AdicSpaces and CharacterTheory roadmaps.
+The source is Fargues–Scholze, [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), identified by the recorded SHA-256. The original 7 October reading receipt is retained; revision 2 reread the specific ranges recorded below on 9 October 2026. Its exact statements and the additional roadmap obligations are distinguished in each node’s source match. The revision also read the upstream ReductiveGroups and SemisimpleAlgebras roadmaps in full for declaration, proof and API density.
 
 ## Conventions and coefficient ranges
 
@@ -26,7 +26,9 @@ The center-order condition |pi_0 Z(G)| invertible is distinct from the DVR integ
 
 The reviewed audit already finds the ordinary Mathlib center. It is imported. The verifier’s primary fix for RT-AREA-geomlanglands/6 overrides the older overlapping LP4 action-universality draft: this part owns Chapter X, while LP4 supplies VIII.5.1 generation and module comparison. LP2 retains the full abstract excursion construction; SR.1 owns the ordinary ring-valued smooth center; ES7 owns the general spectral stratum composites. No other packet or atlas data is edited.
 
-A complete planning pass can contain requested inputs and exact gaps. “Planned” below means every target is specified with its prerequisite chain ending in a library declaration, a precise imported node, a requested stage, or a stated gap. It does not mean proof closure or formalization.
+A target-level planning pass can contain requested inputs and exact gaps. “Planned” below means every target is specified with its prerequisite chain ending in a library declaration, a precise imported node, a requested stage, or a stated gap. It does not mean proof closure or formalization.
+
+The current LP2 invariant-function-and-independence node supplies commutative reindexing, so its former correction request is resolved. The author-copy misprint remains recorded separately. The independent review object is preserved for the next reviewer.
 
 ## ES0
 
@@ -82,6 +84,8 @@ Direct prerequisites: `EnhancedDerivedSheaves:E5:abstract`, `EnhancedDerivedShea
 
 Source: IX.1 pp. 320–321; IX.5 p. 328; VIII.4.1 p. 291. FS specifies the enhanced center pi_0 End(id). The E_2 and Ind mapping-object facts are requested from E5; the Perf(A) test uses Hochschild cohomology in degree zero, not an asserted comparison with all homotopy-category centers.
 
+Lean signature status: Full signature omitted pending actual supplier types.
+
 Atlas planet: **Enhanced Bernstein center**.
 
 ### Comparison with the homotopy-category center
@@ -108,6 +112,8 @@ Direct prerequisites: `ExcursionOperatorsAndSpectralAction:ES0/bernstein-center-
 
 Source: IX.5 p. 328; Mathlib Center/Basic and Center/Linear at the pins. The stated source result supplies this target with the hypotheses listed here.
 
+Lean signature status: Full signature omitted pending actual supplier types.
+
 ### Excursion operators on Bun_G
 
 `ExcursionOperatorsAndSpectralAction:ES0/excursion-datum-and-operator` · construction · proposed name `bunExcursionOperator`
@@ -116,6 +122,8 @@ Apply the imported LP2 excursion-datum construction to the HS1/HS4 coherent Heck
 
 Hypotheses and interfaces:
 
+- E is a nonarchimedean local field of residue characteristic p and residue cardinality q; ell != p. Fix a square root of q in each coefficient algebra used for the normalized Hecke family.
+- G/E is connected reductive, H = dual G is its split pinned dual group over Z_ell, and W_E -> Q is the finite quotient defining the pinned action on H. All nonsplit formulas use H semidirect Q and the prescribed projection to Q.
 - The matrix-coefficient datum, the invariant function and its abstract relations are imported from LP2. Alpha and beta are arbitrary diagonal-invariant maps, not necessarily adjunction units/counits.
 
 Construction or proof:
@@ -150,7 +158,9 @@ Acceptance:
 
 Direct prerequisites: `LanglandsParameterStacks:LP2:excursion-presentation/map-to-a-bernstein-center`, `LanglandsParameterStacks:LP2:excursion-presentation/invariant-function-and-independence`, `HeckeStacksAndLocalShtukas:HS4/monoidal-and-finite-set-functoriality`, `HeckeStacksAndLocalShtukas:HS1/condensed-enrichment`, `EnhancedDerivedSheaves:E5:abstract`, `ExcursionOperatorsAndSpectralAction:ES0/bernstein-center-of-a-category`.
 
-Source: VIII.4.2 pp. 291–292; IX.2 pp. 321–324. Only the Bun_G kernel/condensed specialization is owned here. LP2 owns Definition VIII.4.2 and its abstract independence and relation proofs.
+Source: VIII.4.2 pp. 291–292; IX.2 pp. 321–324. VIII.4.2 defines the abstract datum and operator; IX.2 supplies the normalized enhanced Bun_G Hecke family. Only the specialization is owned here.
+
+Lean signature status: Ordinary observation declared; full enhanced signature pending.
 
 Atlas planet: **Excursion operators**.
 
@@ -158,17 +168,19 @@ Atlas planet: **Excursion operators**.
 
 `ExcursionOperatorsAndSpectralAction:ES0/excursion-algebra-to-bernstein-center` · theorem · proposed name `excursion_algebra_to_bernstein_center`
 
-For a finite-wild compact Hecke category D^P, the LP2 algebra Exc(W,H) tensor Lambda maps naturally to Z_enh(D^P) by f_D,gamma |-> [S_D]. Its projection to CatCenter(hD^P) is the imported VIII.4.1 map. Relations are enforced on enhanced natural transformations before pi_0; no Perf action or good-prime hypothesis is needed.
+For a finite-wild compact Hecke category D^P, the LP2 algebra Exc(W,H) tensor Lambda maps naturally to Z_enh(D^P) by f_D,gamma |-> [S_D]. Its projection to CatCenter(hD^P) is the imported VIII.4.1 map. Coherent HS4 comparisons between enhanced natural transformations give equal classes in pi_0, where the excursion algebra relations hold; no Perf action or good-prime hypothesis is needed.
 
 Hypotheses and interfaces:
 
+- E is a nonarchimedean local field of residue characteristic p and residue cardinality q; ell != p. Fix a square root of q in each coefficient algebra used for the normalized Hecke family.
+- G/E is connected reductive, H = dual G is its split pinned dual group over Z_ell, and W_E -> Q is the finite quotient defining the pinned action on H. All nonsplit formulas use H semidirect Q and the prescribed projection to Q.
 - P is open normal in wild inertia, acts trivially on the pinned H action, and D^P consists of compact A whose entire Hecke family descends to W_E/P.
 - W is a dense discrete tame discretization of W_E/P.
 
 Construction or proof:
 
 1. Use the LP2 presentation and relations on the coherent HS4 family.
-2. Lift the composites and their comparisons using the supplied enhanced natural transformations.
+2. Construct the enhanced composites and coherent HS4 comparisons; equality of their classes supplies each relation in the degree-zero center. Strict equality of enhanced morphisms or a map of algebra spectra is not asserted.
 3. Take pi_0 to obtain the algebra map and verify its homotopy-center projection.
 
 Acceptance:
@@ -176,10 +188,13 @@ Acceptance:
 - Check additivity, multiplication and unit on the LP2 generators.
 - For a noninjective leg map check the same HS4 fusion diagram, not a separately assumed relation.
 - At a forbidden integral prime retain this algebra map without asserting an invariant-ring isomorphism.
+- Use the current LP2 commutative reindexing square, including for a noninjective leg map. Do not strengthen it to a pullback assertion; see author-copy source issue ExcursionOperatorsAndSpectralAction/E1. The supplier correction request has been resolved in LP2.
 
 Direct prerequisites: `ExcursionOperatorsAndSpectralAction:ES0/excursion-datum-and-operator`, `ExcursionOperatorsAndSpectralAction:ES0/bernstein-center-of-a-category`, `ExcursionOperatorsAndSpectralAction:ES0/enhanced-to-homotopy-center`, `LanglandsParameterStacks:LP2:excursion-presentation/excursion-algebra-and-universal-homeomorphism`, `LanglandsParameterStacks:LP2:excursion-presentation/universal-property-of-the-excursion-algebra`, `LanglandsParameterStacks:LP2:excursion-presentation/map-to-a-bernstein-center`, `HeckeStacksAndLocalShtukas:HS4/monoidal-and-finite-set-functoriality`, `EnhancedDerivedSheaves:E5:abstract`, `ExcursionOperatorsAndSpectralAction:ES1:finite-ramification/finite-wild-Hecke-category`.
 
 Source: VIII.4.1 pp. 291–293; IX.5 p. 328. The stated source result supplies this target with the hypotheses listed here.
+
+Lean signature status: Full signature omitted pending actual supplier types.
 
 Atlas planet: **Excursion algebra action**.
 
@@ -188,6 +203,11 @@ Atlas planet: **Excursion algebra action**.
 `ExcursionOperatorsAndSpectralAction:ES0/continuity-of-excursion-evaluations` · theorem · proposed name `continuity_of_excursion_evaluations`
 
 For every compact A and each fixed finite-leg invariant coefficient, the map (W_E/P)^I -> pi_0 End(A) given by the creation–Weil–annihilation operator is a map of condensed sets, whenever P is the uniform cutoff of A. Evaluation along a Schur scalar identification is therefore continuous. The full excursion algebra need not be canonically independent of discretization at bad primes.
+
+Hypotheses and interfaces:
+
+- E is a nonarchimedean local field of residue characteristic p and residue cardinality q; ell != p. Fix a square root of q in each coefficient algebra used for the normalized Hecke family.
+- G/E is connected reductive, H = dual G is its split pinned dual group over Z_ell, and W_E -> Q is the finite quotient defining the pinned action on H. All nonsplit formulas use H semidirect Q and the prescribed projection to Q.
 
 Construction or proof:
 
@@ -205,11 +225,18 @@ Direct prerequisites: `ExcursionOperatorsAndSpectralAction:ES0/excursion-datum-a
 
 Source: IX.1.2 pp. 320–321; IX.5.1 pp. 327–328; VIII.3.7 pp. 288–290. The stated source result supplies this target with the hypotheses listed here.
 
+Lean signature status: Full signature omitted pending actual supplier types.
+
 ### Comparison of discretizations
 
 `ExcursionOperatorsAndSpectralAction:ES0/discretisation-of-the-weil-group` · comparison · proposed name `discretisation_of_the_weil_group`
 
 Two choices of tame discretization yield canonically identified cocycle schemes by restriction and unique continuous extension. Their excursion evaluations on flat relatively discrete targets agree through the ell-torsion-free quotient of Exc, which is independent of discretization. At good primes (ell not dividing |pi_1(H)_tors|) or after inverting ell, Exc itself identifies with the invariant algebra, so the corresponding comparison is an isomorphism. At other primes full-algebra independence is not asserted; condensed operator evaluation and component idempotents remain intrinsic.
+
+Hypotheses and interfaces:
+
+- E is a nonarchimedean local field of residue characteristic p and residue cardinality q; ell != p. Fix a square root of q in each coefficient algebra used for the normalized Hecke family.
+- G/E is connected reductive, H = dual G is its split pinned dual group over Z_ell, and W_E -> Q is the finite quotient defining the pinned action on H. All nonsplit formulas use H semidirect Q and the prescribed projection to Q.
 
 Construction or proof:
 
@@ -225,6 +252,8 @@ Acceptance:
 Direct prerequisites: `LanglandsParameterStacks:LP0/discretization-and-unique-extension`, `LanglandsParameterStacks:LP0/change-of-discretization`, `LanglandsParameterStacks:LP2:integral-invariants/transition-and-continuity`, `LanglandsParameterStacks:LP2:integral-invariants/integral-invariant-theorem`, `ExcursionOperatorsAndSpectralAction:ES0/excursion-algebra-to-bernstein-center`.
 
 Source: VIII.3.7 pp. 288–290; IX.5 p. 328. The stated source result supplies this target with the hypotheses listed here.
+
+Lean signature status: Full signature omitted pending actual supplier types.
 
 ## ES0:classical-center
 
@@ -242,6 +271,8 @@ For the fully faithful stratum embedding j_!:D(G(E),Lambda)->D_lis(Bun_G,Lambda)
 
 Hypotheses and interfaces:
 
+- E is a nonarchimedean local field of residue characteristic p and residue cardinality q; ell != p. Fix a square root of q in each coefficient algebra used for the normalized Hecke family.
+- G/E is connected reductive, H = dual G is its split pinned dual group over Z_ell, and W_E -> Q is the finite quotient defining the pinned action on H. All nonsplit formulas use H semidirect Q and the prescribed projection to Q.
 - Use the specified b=1 stratum embedding and its fully faithful enhanced adjunction.
 - SR.1 supplies the abelian center over rings with a cofinal family of compact opens of invertible pro-order.
 
@@ -260,6 +291,8 @@ Acceptance:
 Direct prerequisites: `ExcursionOperatorsAndSpectralAction:ES0/bernstein-center-of-a-category`, `ExcursionOperatorsAndSpectralAction:ES0/enhanced-to-homotopy-center`, `VStackSheavesAndLisseCategories:VS4/strata-are-classifying-stacks`, `VStackSheavesAndLisseCategories:VS4`, `SmoothRepresentationsOfLocalGroups:SR.0:derived-extension`, `SmoothRepresentationsOfLocalGroups:SR.1`.
 
 Source: IX.5 p. 329; VII.7.2 pp. 271–273. The stated source result supplies this target with the hypotheses listed here.
+
+Lean signature status: Full signature omitted pending actual supplier types.
 
 Atlas planet: **Smooth center comparison**.
 
@@ -289,6 +322,8 @@ Direct prerequisites: `ExcursionOperatorsAndSpectralAction:ES0:classical-center/
 
 Source: IX.5 p. 329; roadmap ES0:classical-center coefficient dictionary. FS supplies the map to the smooth center, not the complex block theorem. SR.3 and the requested coefficient dictionary supply this roadmap-added comparison.
 
+Lean signature status: Full signature omitted pending actual supplier types.
+
 ## ES1
 
 Write the spectral and geometric centers using the already supplied LP global-function algebra and ES0 enhanced center. The Hecke-compatible center imposes the stronger equality between the central action after a Hecke functor and the Hecke functor applied to the original action. A natural transformation on the category need not commute with every endofunctor: switching the factors of Perf(k) × Perf(k) reduces the product center to its diagonal subalgebra.
@@ -305,6 +340,8 @@ Write Z_spec = Gamma([Z^1(W_E,H)_Lambda/H],O) and Z_geom = Z_enh(D_lis(Bun_G,Lam
 
 Hypotheses and interfaces:
 
+- E is a nonarchimedean local field of residue characteristic p and residue cardinality q; ell != p. Fix a square root of q in each coefficient algebra used for the normalized Hecke family.
+- G/E is connected reductive, H = dual G is its split pinned dual group over Z_ell, and W_E -> Q is the finite quotient defining the pinned action on H. All nonsplit formulas use H semidirect Q and the prescribed projection to Q.
 - Use the imported global-function ring; do not identify its infinite parameter union with one finite-type affine scheme.
 
 Construction or proof:
@@ -340,6 +377,8 @@ Direct prerequisites: `ExcursionOperatorsAndSpectralAction:ES0/bernstein-center-
 
 Source: IX.5 pp. 328–329. The stated source result supplies this target with the hypotheses listed here.
 
+Lean signature status: Ordinary observation declared; full enhanced signature pending.
+
 Atlas planet: **Spectral center**.
 
 ## ES1:finite-ramification
@@ -355,6 +394,11 @@ Coverage: **planned**. Refinement contract: HS1 relatively discrete Hom and quot
 `ExcursionOperatorsAndSpectralAction:ES1:finite-ramification/uniform-wild-subgroup` · theorem · proposed name `uniform_wild_subgroup`
 
 For every compact A in D_lis(Bun_G,Lambda), there is an open normal subgroup P of wild inertia, contained in the kernel of W_E->Q, such that for every finite set I and every V in Rep((H semidirect Q)^I), T_V(A) descends to an object equivariant for (W_E/P)^I. The subgroup depends on A and works simultaneously for all I,V.
+
+Hypotheses and interfaces:
+
+- E is a nonarchimedean local field of residue characteristic p and residue cardinality q; ell != p. Fix a square root of q in each coefficient algebra used for the normalized Hecke family.
+- G/E is connected reductive, H = dual G is its split pinned dual group over Z_ell, and W_E -> Q is the finite quotient defining the pinned action on H. All nonsplit formulas use H semidirect Q and the prescribed projection to Q.
 
 Construction or proof:
 
@@ -374,6 +418,8 @@ Direct prerequisites: `HeckeStacksAndLocalShtukas:HS4/monoidal-and-finite-set-fu
 
 Source: IX.5.1 pp. 327–328. The stated source result supplies this target with the hypotheses listed here.
 
+Lean signature status: Full signature omitted pending actual supplier types.
+
 Atlas planet: **Finite wild ramification**.
 
 ### Component decomposition
@@ -381,6 +427,11 @@ Atlas planet: **Finite wild ramification**.
 `ExcursionOperatorsAndSpectralAction:ES1:finite-ramification/component-decomposition` · theorem · proposed name `component_decomposition`
 
 For D^P consisting of compact A with the uniform P-Hecke cutoff, the enhanced excursion map and LP2’s universal homeomorphism identify component idempotents. Splitting them gives D^P = direct sum_c D^c over pi_0 Z^1(W_E/P,H)_Lambda. Taking the union over P gives the direct sum decomposition of D_lis^omega by parameter components; its Ind-category is the product of the Ind(D^c). Every compact has finitely many nonzero components. A Schur object has exactly one nonzero component.
+
+Hypotheses and interfaces:
+
+- E is a nonarchimedean local field of residue characteristic p and residue cardinality q; ell != p. Fix a square root of q in each coefficient algebra used for the normalized Hecke family.
+- G/E is connected reductive, H = dual G is its split pinned dual group over Z_ell, and W_E -> Q is the finite quotient defining the pinned action on H. All nonsplit formulas use H semidirect Q and the prescribed projection to Q.
 
 Construction or proof:
 
@@ -399,6 +450,8 @@ Direct prerequisites: `ExcursionOperatorsAndSpectralAction:ES1:finite-ramificati
 
 Source: IX.5 pp. 328–329. The stated source result supplies this target with the hypotheses listed here.
 
+Lean signature status: Full signature omitted pending actual supplier types.
+
 Atlas planet: **Component decomposition**.
 
 ### Compatibility of finite-wild centers
@@ -406,6 +459,11 @@ Atlas planet: **Component decomposition**.
 `ExcursionOperatorsAndSpectralAction:ES1:finite-ramification/center-on-finite-wild-pieces` · theorem · proposed name `center_on_finite_wild_pieces`
 
 If P′⊂P are eligible wild subgroups, the inclusion D^P⊂D^P′ intertwines the excursion evaluation maps through restriction of the universal parameter and the dense discretizations. In the coefficient range of the invariant-ring comparison it also intertwines the spectral function actions. The component summands consequently glue independently of choices. Every compact is evaluated on some D^P; no common P for all Ind objects is required.
+
+Hypotheses and interfaces:
+
+- E is a nonarchimedean local field of residue characteristic p and residue cardinality q; ell != p. Fix a square root of q in each coefficient algebra used for the normalized Hecke family.
+- G/E is connected reductive, H = dual G is its split pinned dual group over Z_ell, and W_E -> Q is the finite quotient defining the pinned action on H. All nonsplit formulas use H semidirect Q and the prescribed projection to Q.
 
 Construction or proof:
 
@@ -422,6 +480,8 @@ Direct prerequisites: `ExcursionOperatorsAndSpectralAction:ES1:finite-ramificati
 
 Source: IX.5 pp. 328–329; VIII.3.7 pp. 288–290. The stated source result supplies this target with the hypotheses listed here.
 
+Lean signature status: Full signature omitted pending actual supplier types.
+
 ### Finite-wild Hecke subcategory
 
 `ExcursionOperatorsAndSpectralAction:ES1:finite-ramification/finite-wild-Hecke-category` · definition · proposed name `finiteWildCategory`
@@ -430,6 +490,8 @@ For eligible P, define D^P as the full subcategory of compact D_lis objects A su
 
 Hypotheses and interfaces:
 
+- E is a nonarchimedean local field of residue characteristic p and residue cardinality q; ell != p. Fix a square root of q in each coefficient algebra used for the normalized Hecke family.
+- G/E is connected reductive, H = dual G is its split pinned dual group over Z_ell, and W_E -> Q is the finite quotient defining the pinned action on H. All nonsplit formulas use H semidirect Q and the prescribed projection to Q.
 - P is open normal in wild inertia and lies in the pinned action kernel.
 
 Construction or proof:
@@ -465,6 +527,8 @@ Direct prerequisites: `HeckeStacksAndLocalShtukas:HS4/monoidal-and-finite-set-fu
 
 Source: IX.5 pp. 327–328. The stated source result supplies this target with the hypotheses listed here.
 
+Lean signature status: Full signature omitted pending actual supplier types.
+
 ## ES1:spectral-center
 
 The invariant-coordinate center map carries the exact hypothesis that |pi_0 Z(G)| be invertible in Lambda. Compare it with the excursion construction on each finite-wild piece and glue by component idempotents. It lands in the Hecke-compatible geometric center.
@@ -481,6 +545,8 @@ Assume |pi_0 Z(G)| is invertible in Lambda. There is a natural Lambda-algebra ma
 
 Hypotheses and interfaces:
 
+- E is a nonarchimedean local field of residue characteristic p and residue cardinality q; ell != p. Fix a square root of q in each coefficient algebra used for the normalized Hecke family.
+- G/E is connected reductive, H = dual G is its split pinned dual group over Z_ell, and W_E -> Q is the finite quotient defining the pinned action on H. All nonsplit formulas use H semidirect Q and the prescribed projection to Q.
 - Use the exact center-order condition from IX.5.2; GS supplies its relation to the dual root datum.
 
 Construction or proof:
@@ -499,6 +565,8 @@ Direct prerequisites: `ExcursionOperatorsAndSpectralAction:ES1/spectral-and-geom
 
 Source: IX.5.2 p. 329. The stated source result supplies this target with the hypotheses listed here.
 
+Lean signature status: Full signature omitted pending actual supplier types.
+
 Atlas planet: **Spectral center action**.
 
 ### Center compatibility under change of data
@@ -509,6 +577,8 @@ For an extension Lambda->Lambda′ in the eligible IX.5.2 range, the scalar-exte
 
 Hypotheses and interfaces:
 
+- E is a nonarchimedean local field of residue characteristic p and residue cardinality q; ell != p. Fix a square root of q in each coefficient algebra used for the normalized Hecke family.
+- G/E is connected reductive, H = dual G is its split pinned dual group over Z_ell, and W_E -> Q is the finite quotient defining the pinned action on H. All nonsplit formulas use H semidirect Q and the prescribed projection to Q.
 - Use supplier coefficient-change functors, their normalized kernel comparisons, and the same square root of q.
 
 Construction or proof:
@@ -526,11 +596,18 @@ Direct prerequisites: `ExcursionOperatorsAndSpectralAction:ES1:spectral-center/s
 
 Source: IX.5.2 p. 329; VIII.4.2 pp. 291–293. Roadmap compatibility obligation derived from the shared excursion construction and the imported normalized kernel comparisons, rather than a separately numbered FS theorem.
 
+Lean signature status: Full signature omitted pending actual supplier types.
+
 ### Excursions at excluded center primes
 
 `ExcursionOperatorsAndSpectralAction:ES1:spectral-center/excursion-algebra-without-the-coefficient-condition` · comparison · proposed name `excursion_algebra_without_the_coefficient_condition`
 
 Without |pi_0 Z(G)| invertible, retain the enhanced excursion action on each D^P and its compatible component idempotents. No Z_spec -> Z_geom map is asserted by this route. These operators suffice for the characteristic-ell Schur parameter theorem of ES5 and for its operator-level compatibility diagrams.
+
+Hypotheses and interfaces:
+
+- E is a nonarchimedean local field of residue characteristic p and residue cardinality q; ell != p. Fix a square root of q in each coefficient algebra used for the normalized Hecke family.
+- G/E is connected reductive, H = dual G is its split pinned dual group over Z_ell, and W_E -> Q is the finite quotient defining the pinned action on H. All nonsplit formulas use H semidirect Q and the prescribed projection to Q.
 
 Construction or proof:
 
@@ -546,6 +623,8 @@ Acceptance:
 Direct prerequisites: `ExcursionOperatorsAndSpectralAction:ES0/excursion-algebra-to-bernstein-center`, `LanglandsParameterStacks:LP2:excursion-presentation/excursion-algebra-and-universal-homeomorphism`, `ExcursionOperatorsAndSpectralAction:ES1:finite-ramification/component-decomposition`.
 
 Source: IX.6 opening p. 330. The stated source result supplies this target with the hypotheses listed here.
+
+Lean signature status: Full signature omitted pending actual supplier types.
 
 ## ES2
 
@@ -565,6 +644,8 @@ An action of Perf(Z/H) on a small stable category C is compactly supported if fo
 
 Hypotheses and interfaces:
 
+- E is a nonarchimedean local field of residue characteristic p and residue cardinality q; ell != p. Fix a square root of q in each coefficient algebra used for the normalized Hecke family.
+- G/E is connected reductive, H = dual G is its split pinned dual group over Z_ell, and W_E -> Q is the finite quotient defining the pinned action on H. All nonsplit formulas use H semidirect Q and the prescribed projection to Q.
 - Use the open-and-closed finite-wild exhaustion of the parameter stack.
 
 Construction or proof:
@@ -598,6 +679,8 @@ Acceptance:
 Direct prerequisites: `LanglandsParameterStacks:LP1/decomposition-by-wild-kernel`, `EnhancedDerivedSheaves:E5:abstract`, `EnhancedDerivedSheaves:E5:presentability`.
 
 Source: X opening p. 339. The verifier of RT-AREA-geomlanglands/6 assigns Chapter X universal action mathematics to ES2/ES3. The duplicate LP4 compact-support node is proposed for removal, while LP1 retains the geometric exhaustion.
+
+Lean signature status: Ordinary observation declared; full enhanced signature pending.
 
 Atlas planet: **Compactly supported action**.
 
@@ -643,7 +726,9 @@ Acceptance:
 
 Direct prerequisites: `LanglandsParameterStacks:LP1`, `LanglandsParameterStacks:LP4/rep-action-on-perf`, `EnhancedDerivedSheaves:E5:abstract`, `GeometricSatakeAndFusion:GS4:integral-dual-group`.
 
-Source: X.1.1 pp. 340–342. The stated source result supplies this target with the hypotheses listed here.
+Source: X.1.1 pp. 341–342. The stated source result supplies this target with the hypotheses listed here.
+
+Lean signature status: Ordinary observation declared; full enhanced signature pending.
 
 ### Rational universal action theorem
 
@@ -671,7 +756,9 @@ Acceptance:
 
 Direct prerequisites: `ExcursionOperatorsAndSpectralAction:ES2/universal-parameter-hecke-family`, `ExcursionOperatorsAndSpectralAction:ES2/mapping-stack-commutes-with-sifted-colimits`, `EnhancedDerivedSheaves:E5:abstract`, `EnhancedDerivedSheaves:E5:presentability`, `LanglandsParameterStacks:LP1`.
 
-Source: X.1.1 pp. 340–343. The stated source result supplies this target with the hypotheses listed here.
+Source: X.1.1 pp. 341–342; Lemma X.1.2 pp. 342–343 for the proof. The stated source result supplies this target with the hypotheses listed here.
+
+Lean signature status: Full signature omitted pending actual supplier types.
 
 Atlas planet: **Universal action theorem**.
 
@@ -701,6 +788,8 @@ Direct prerequisites: `ExcursionOperatorsAndSpectralAction:ES2/pushout-of-affine
 
 Source: X.1.2 pp. 342–343. The stated source result supplies this target with the hypotheses listed here.
 
+Lean signature status: Full signature omitted pending actual supplier types.
+
 Atlas planet: **Rational colimit theorem**.
 
 ### Tensor product for affine quotient pushouts
@@ -729,6 +818,8 @@ Direct prerequisites: `EnhancedDerivedSheaves:E5:presentability`, `LanglandsPara
 
 Source: X.1.2 proof p. 343. The stated source result supplies this target with the hypotheses listed here.
 
+Lean signature status: Full signature omitted pending actual supplier types.
+
 Atlas planet: **Affine quotient pushout**.
 
 ### Rational spectral action on Bun_G
@@ -739,6 +830,8 @@ For any field L over Q_ell(sqrt(q)), the coherent HS4 Hecke family gives a natur
 
 Hypotheses and interfaces:
 
+- E is a nonarchimedean local field of residue characteristic p and residue cardinality q; ell != p. Fix a square root of q in each coefficient algebra used for the normalized Hecke family.
+- G/E is connected reductive, H = dual G is its split pinned dual group over Z_ell, and W_E -> Q is the finite quotient defining the pinned action on H. All nonsplit formulas use H semidirect Q and the prescribed projection to Q.
 - No ell restriction involving pi_1(H)_tors is imposed in this rational theorem.
 
 Construction or proof:
@@ -756,7 +849,9 @@ Acceptance:
 
 Direct prerequisites: `ExcursionOperatorsAndSpectralAction:ES2/universal-action-theorem`, `ExcursionOperatorsAndSpectralAction:ES2/compactly-supported-actions`, `ExcursionOperatorsAndSpectralAction:ES1:finite-ramification/uniform-wild-subgroup`, `LanglandsParameterStacks:LP0/discretization-and-unique-extension`, `LanglandsParameterStacks:LP1`, `HeckeStacksAndLocalShtukas:HS4/monoidal-and-finite-set-functoriality`, `LanglandsParameterStacks:LP4/generation-and-module-comparison`.
 
-Source: X.1.3 pp. 343–344. The stated source result supplies this target with the hypotheses listed here.
+Source: X.1.3 p. 343. The stated source result supplies this target with the hypotheses listed here.
+
+Lean signature status: Full signature omitted pending actual supplier types.
 
 Atlas planet: **Rational spectral action**.
 
@@ -765,6 +860,11 @@ Atlas planet: **Rational spectral action**.
 `ExcursionOperatorsAndSpectralAction:ES2/degree-zero-center-agreement` · theorem · proposed name `degree_zero_center_agreement`
 
 In the rational coefficient range, the map from degree-zero functions on the parameter stack to Z_enh(D_lis) induced by the spectral action equals the IX.5.2 spectral-center map. Pulling representation bundles along universal evaluation recovers exactly the normalized Satake/Hecke operations, including the chosen square root of q.
+
+Hypotheses and interfaces:
+
+- E is a nonarchimedean local field of residue characteristic p and residue cardinality q; ell != p. Fix a square root of q in each coefficient algebra used for the normalized Hecke family.
+- G/E is connected reductive, H = dual G is its split pinned dual group over Z_ell, and W_E -> Q is the finite quotient defining the pinned action on H. All nonsplit formulas use H semidirect Q and the prescribed projection to Q.
 
 Construction or proof:
 
@@ -779,7 +879,9 @@ Acceptance:
 
 Direct prerequisites: `ExcursionOperatorsAndSpectralAction:ES2/spectral-action-rational`, `ExcursionOperatorsAndSpectralAction:ES2/universal-parameter-hecke-family`, `ExcursionOperatorsAndSpectralAction:ES1:spectral-center/spectral-to-geometric-center-map`, `LanglandsParameterStacks:LP2:excursion-presentation/invariant-function-and-independence`, `LanglandsParameterStacks:LP2:integral-invariants/integral-invariant-theorem`, `HeckeStacksAndLocalShtukas:HS4/monoidal-and-finite-set-functoriality`, `ExcursionOperatorsAndSpectralAction:ES0/bernstein-center-of-a-category`.
 
-Source: X.1.3 p. 344; IX.5.2 p. 329. A roadmap-added comparison deduced from FS’s uniqueness and the two constructions’ shared excursion generators; not a separately numbered assertion in FS.
+Source: X.1.3 p. 343; IX.5.2 p. 329. A roadmap-added comparison deduced from FS’s uniqueness and the two constructions’ shared excursion generators; not a separately numbered assertion in FS.
+
+Lean signature status: Full signature omitted pending actual supplier types.
 
 ### Whittaker sheaf
 
@@ -789,6 +891,8 @@ For G quasisplit with a specified Whittaker datum (B,U,psi) imported from SR, de
 
 Hypotheses and interfaces:
 
+- E is a nonarchimedean local field of residue characteristic p and residue cardinality q; ell != p. Fix a square root of q in each coefficient algebra used for the normalized Hecke family.
+- G/E is connected reductive, H = dual G is its split pinned dual group over Z_ell, and W_E -> Q is the finite quotient defining the pinned action on H. All nonsplit formulas use H semidirect Q and the prescribed projection to Q.
 - Use coefficients containing the values of the smooth generic character psi. The rational source uses Qbar_ell; the integral conjectural context uses O_L[1/|pi_0 Z(G)|].
 
 Construction or proof:
@@ -823,6 +927,8 @@ Acceptance:
 Direct prerequisites: `SmoothRepresentationsOfLocalGroups:SR.2`, `SmoothRepresentationsOfLocalGroups:SR.0:abelian-category`, `VStackSheavesAndLisseCategories:VS4/strata-are-classifying-stacks`, `VStackSheavesAndLisseCategories:VS4`, `EnhancedDerivedSheaves:E5:presentability`.
 
 Source: X.1 pp. 343–344; X.3.5 p. 350. The stated source result supplies this target with the hypotheses listed here.
+
+Lean signature status: Ordinary observation declared; full enhanced signature pending.
 
 Atlas planet: **Whittaker sheaf**.
 
@@ -879,6 +985,8 @@ Direct prerequisites: `EnhancedDerivedSheaves:E5:abstract`, `EnhancedDerivedShea
 
 Source: X.3 pp. 348–349. The stated source result supplies this target with the hypotheses listed here.
 
+Lean signature status: Full signature omitted pending actual supplier types.
+
 Atlas planet: **Sifted-colimit approximation**.
 
 ### Integral universal action on the approximation
@@ -905,6 +1013,8 @@ Acceptance:
 Direct prerequisites: `ExcursionOperatorsAndSpectralAction:ES3/sifted-colimit-approximation`, `EnhancedDerivedSheaves:E5:abstract`, `EnhancedDerivedSheaves:E5:presentability`, `LanglandsParameterStacks:LP3`.
 
 Source: X.3.1 pp. 348–349. The stated source result supplies this target with the hypotheses listed here.
+
+Lean signature status: Full signature omitted pending actual supplier types.
 
 Atlas planet: **Integral universal action**.
 
@@ -933,6 +1043,8 @@ Acceptance:
 Direct prerequisites: `ExcursionOperatorsAndSpectralAction:ES3/sifted-colimit-approximation`, `LanglandsParameterStacks:LP3`, `EnhancedDerivedSheaves:E5:presentability`.
 
 Source: X.3.2 p. 349. The stated source result supplies this target with the hypotheses listed here.
+
+Lean signature status: Full signature omitted pending actual supplier types.
 
 Atlas planet: **Integral colimit theorem**.
 
@@ -963,6 +1075,8 @@ Direct prerequisites: `ExcursionOperatorsAndSpectralAction:ES3/approximation-com
 
 Source: X.3.3 pp. 349–350. The stated source result supplies this target with the hypotheses listed here.
 
+Lean signature status: Full signature omitted pending actual supplier types.
+
 Atlas planet: **Free-group comparison**.
 
 ### Discrete-group module presentation
@@ -990,6 +1104,8 @@ Direct prerequisites: `ExcursionOperatorsAndSpectralAction:ES3/free-group-case`,
 
 Source: X.3.4 p. 350. The stated source result supplies this target with the hypotheses listed here.
 
+Lean signature status: Full signature omitted pending actual supplier types.
+
 Atlas planet: **Discrete-group presentation**.
 
 ### Integral discrete-group action comparison
@@ -1000,6 +1116,8 @@ Let Lambda be the integers of a finite extension of Q_ell(sqrt(q)), and ell not 
 
 Hypotheses and interfaces:
 
+- E is a nonarchimedean local field of residue characteristic p and residue cardinality q; ell != p. Fix a square root of q in each coefficient algebra used for the normalized Hecke family.
+- G/E is connected reductive, H = dual G is its split pinned dual group over Z_ell, and W_E -> Q is the finite quotient defining the pinned action on H. All nonsplit formulas use H semidirect Q and the prescribed projection to Q.
 - This comparison is the point where the good-prime integral generation input is used.
 
 Construction or proof:
@@ -1017,6 +1135,8 @@ Direct prerequisites: `ExcursionOperatorsAndSpectralAction:ES3/discrete-group-pr
 
 Source: X.0.2 p. 340; X.3 closing p. 350; VIII.5.1 p. 293. The stated source result supplies this target with the hypotheses listed here.
 
+Lean signature status: Full signature omitted pending actual supplier types.
+
 ### Integral spectral action on Bun_G
 
 `ExcursionOperatorsAndSpectralAction:ES3/integral-spectral-action` · theorem · proposed name `integral_spectral_action`
@@ -1025,6 +1145,8 @@ Under the X.0.1 coefficient hypotheses (Lambda the integers of a finite extensio
 
 Hypotheses and interfaces:
 
+- E is a nonarchimedean local field of residue characteristic p and residue cardinality q; ell != p. Fix a square root of q in each coefficient algebra used for the normalized Hecke family.
+- G/E is connected reductive, H = dual G is its split pinned dual group over Z_ell, and W_E -> Q is the finite quotient defining the pinned action on H. All nonsplit formulas use H semidirect Q and the prescribed projection to Q.
 - For the general C version, use its relatively discrete condensed enrichment as in the reduction via IX.5.1; E5 must supply the finite-wild factorization of its Hecke orbit data.
 
 Construction or proof:
@@ -1044,6 +1166,8 @@ Direct prerequisites: `ExcursionOperatorsAndSpectralAction:ES3/discrete-integral
 
 Source: X.0.1 pp. 339–340; X.3 closing p. 350. The stated source result supplies this target with the hypotheses listed here.
 
+Lean signature status: Full signature omitted pending actual supplier types.
+
 Atlas planet: **Integral spectral action**.
 
 ### Compatibility of integral action comparisons
@@ -1054,6 +1178,8 @@ For the integral action, extension of DVR coefficient rings satisfying X.0.1, re
 
 Hypotheses and interfaces:
 
+- E is a nonarchimedean local field of residue characteristic p and residue cardinality q; ell != p. Fix a square root of q in each coefficient algebra used for the normalized Hecke family.
+- G/E is connected reductive, H = dual G is its split pinned dual group over Z_ell, and W_E -> Q is the finite quotient defining the pinned action on H. All nonsplit formulas use H semidirect Q and the prescribed projection to Q.
 - Both integral endpoints retain ell not dividing |pi_1(H)_tors|.
 - This is a comparison of actions through the supplied base-change functors, not an unrestricted assertion Perf commutes with every scalar tensor product.
 
@@ -1073,6 +1199,8 @@ Direct prerequisites: `ExcursionOperatorsAndSpectralAction:ES3/integral-spectral
 
 Source: X.0.1 pp. 339–340; X.3.1 pp. 348–349. The roadmap asks for these coherence diagrams. FS provides their universal action characterization; the precise LP and HS base-change interfaces are requested.
 
+Lean signature status: Full signature omitted pending actual supplier types.
+
 ### Derived coefficient reduction and rationalization
 
 `ExcursionOperatorsAndSpectralAction:ES3/derived-reduction-and-rationalization` · theorem · proposed name `derived_reduction_and_rationalization`
@@ -1081,6 +1209,8 @@ Let the integral action be given. For a coefficient map Lambda->B and the suppli
 
 Hypotheses and interfaces:
 
+- E is a nonarchimedean local field of residue characteristic p and residue cardinality q; ell != p. Fix a square root of q in each coefficient algebra used for the normalized Hecke family.
+- G/E is connected reductive, H = dual G is its split pinned dual group over Z_ell, and W_E -> Q is the finite quotient defining the pinned action on H. All nonsplit formulas use H semidirect Q and the prescribed projection to Q.
 - Use derived tensor products. Identify the scalar-extended geometric category only in the cases established by VS and HS.
 
 Construction or proof:
@@ -1097,6 +1227,8 @@ Acceptance:
 Direct prerequisites: `ExcursionOperatorsAndSpectralAction:ES3/action-change-of-data`, `ExcursionOperatorsAndSpectralAction:ES2/spectral-action-rational`, `EnhancedDerivedSheaves:E5:presentability`, `LanglandsParameterStacks:LP1`, `VStackSheavesAndLisseCategories:VS3`, `HeckeStacksAndLocalShtukas:HS1`.
 
 Source: X.0.1 pp. 339–340; IX.2 pp. 321–322. A conditional roadmap coefficient-comparison target; the supplied higher-category base-change equivalences are open requests rather than unproved theorem fields.
+
+Lean signature status: Full signature omitted pending actual supplier types.
 
 ## ES4
 
@@ -1118,6 +1250,8 @@ For a compact A with eligible cutoff P in the invariant-coordinate range, let R_
 
 Hypotheses and interfaces:
 
+- E is a nonarchimedean local field of residue characteristic p and residue cardinality q; ell != p. Fix a square root of q in each coefficient algebra used for the normalized Hecke family.
+- G/E is connected reductive, H = dual G is its split pinned dual group over Z_ell, and W_E -> Q is the finite quotient defining the pinned action on H. All nonsplit formulas use H semidirect Q and the prescribed projection to Q.
 - The center-order condition is imposed whenever R_P is used. Without it an analogous support can be formed for the excursion algebra, with comparison of underlying points through the universal homeomorphism.
 
 Construction or proof:
@@ -1142,18 +1276,19 @@ Unit tests:
 
 - `centralSupport_zero` (degenerate): The zero object has annihilator R_P and empty support.
 - `centralSupport_free` (computation): For C=Perf(R_P) with its scalar action, the rank-one module R_P has annihilator zero and support all Spec R_P.
-- `centralSupport_nilpotent` (computation): For R=k[epsilon]/(epsilon^2) and A=k, Ann(A)=(epsilon) but Supp(A)=Spec R as an underlying set; the support does not retain the nilpotent thickening.
+- `centralSupport_nilpotent` (computation): For R=k[epsilon]/(epsilon^2), take C=Perf(k) with its R-linear action through R->k and A=k, which is compact in C. Then Ann_R(A)=(epsilon) but Supp_R(A)=Spec R as an underlying set; the support does not retain the nilpotent thickening. Do not take k to be a perfect R-module.
 
 Acceptance:
 
 - Verify the full statement, including its coefficient and continuity hypotheses.
 - Check the displayed construction on the unit and its compatibility with the cited supplier maps.
+- At degree zero, compute the scalar action on the concrete rank-one ModuleCat module. For the dual numbers compose its projection to k with the scalar center of ModuleCat(k), obtaining annihilator (epsilon) and full reduced spectrum. These are observations of the Perf tests, not an identification of ModuleCat with Perf.
 
-Direct prerequisites: `ExcursionOperatorsAndSpectralAction:ES1:spectral-center/spectral-to-geometric-center-map`, `ExcursionOperatorsAndSpectralAction:ES1:finite-ramification/center-on-finite-wild-pieces`, `mathlib:Ideal`, `mathlib:PrimeSpectrum`, `mathlib:PrimeSpectrum.zeroLocus`, `mathlib:PrimeSpectrum.mem_zeroLocus`, `mathlib:RingHom.ker`, `mathlib:RingHom.mem_ker`.
+Direct prerequisites: `ExcursionOperatorsAndSpectralAction:ES1:spectral-center/spectral-to-geometric-center-map`, `ExcursionOperatorsAndSpectralAction:ES1:finite-ramification/center-on-finite-wild-pieces`, `mathlib:Ideal`, `mathlib:PrimeSpectrum`, `mathlib:PrimeSpectrum.zeroLocus`, `mathlib:PrimeSpectrum.mem_zeroLocus`, `mathlib:RingHom.ker`, `mathlib:RingHom.mem_ker`, `mathlib:ModuleCat.of`, `mathlib:DualNumber`, `mathlib:TrivSqZeroExt.fstHom`.
 
-Source: IX.5 pp. 328–329; Mathlib RingTheory/Spectrum/Prime/Basic.lean at 082e2d3. This is a roadmap-added central annihilator support built from the FS center action and the pinned zero-locus definition. It is not attributed to FS VIII.2’s singular-support formalism.
+Source: IX.5 pp. 328–329; Mathlib RingTheory/Spectrum/Prime/Basic.lean at 082e2d3. This is a roadmap-added central annihilator support built from the FS center action and the pinned zero-locus definition. It is not attributed to FS VIII.2’s singular-support formalism. zeroLocus, mem_zeroLocus, zeroLocus_mul, zeroLocus_inf, zeroLocus_radical. Supplies the existing closed-set and radical ideal operations used by this central support, not enhanced sheaf geometry.
 
-Source: zeroLocus, mem_zeroLocus, zeroLocus_mul, zeroLocus_inf, zeroLocus_radical. Supplies the existing closed-set and radical ideal operations used by this central support, not enhanced sheaf geometry.
+Lean signature status: Ordinary observation declared; full enhanced signature pending.
 
 Atlas planet: **Central support**.
 
@@ -1166,24 +1301,27 @@ For the fixed central R_P action, support is invariant under isomorphism and shi
 Hypotheses and interfaces:
 
 - The stable action is exact and the central transformations commute coherently with suspension and triangles.
+- On the homotopy category use the supplied pretriangulated structure, additive integer shifts and the actual ring map to CatCenter. Require its components to commute with each shift functor; ordinary naturality alone does not supply suspension compatibility.
 
 Construction or proof:
 
 1. Use naturality and retract maps for the annihilator comparison.
-2. For f annihilating A and g annihilating C, use exactness of Hom and the commuting natural transformations to factor f_B through C; then g_B f_B=0.
+2. Use the distinguished-triangle Hom exactness supplied by Pretriangulated.Triangle.yoneda_exact₂: if f kills A, naturality gives A->B followed by f_B equal to zero, so f_B factors as B->C->B. If g kills C, naturality then makes g_B composed with f_B zero. Extend to the product of the endpoint ideals.
 3. Pass from the product-ideal containment to zero loci and use the pinned radical/product formulas.
 4. Use the biproduct projections/inclusions to identify the direct-sum annihilator intersection.
+5. Rotate the distinguished triangle, using the specified shift compatibility for the two other support inclusions. Iterate the binary biproduct law for finite sums; the empty sum uses the zero-object law.
 
 Acceptance:
 
 - For 0->k->k[epsilon]/epsilon^2->k->0 over k[epsilon]/epsilon^2, epsilon kills the endpoints but need not kill the middle; epsilon^2 does.
 - Check zero and finite direct sums.
+- If both endpoint identities are zero, the distinguished triangle has empty middle support. The Lean example support_triangle_zero_ends states this on an actual triangle without assuming the annihilator-product conclusion.
 
-Direct prerequisites: `ExcursionOperatorsAndSpectralAction:ES4/finite-wild-central-support`, `EnhancedDerivedSheaves:E5:abstract`, `mathlib:PrimeSpectrum.zeroLocus_mul`, `mathlib:PrimeSpectrum.zeroLocus_inf`.
+Direct prerequisites: `ExcursionOperatorsAndSpectralAction:ES4/finite-wild-central-support`, `EnhancedDerivedSheaves:E5:abstract`, `mathlib:PrimeSpectrum.zeroLocus_mul`, `mathlib:PrimeSpectrum.zeroLocus_inf`, `mathlib:CategoryTheory.Pretriangulated.Triangle`, `mathlib:CategoryTheory.Pretriangulated`, `mathlib:CategoryTheory.Pretriangulated.Triangle.yoneda_exact₂`, `mathlib:CategoryTheory.shiftFunctor`, `mathlib:CategoryTheory.Limits.biprod`.
 
-Source: IX.5 p. 329; Mathlib Prime/Basic zeroLocus_mul and zeroLocus_inf. Elementary consequences of the defined central action, not a separate source theorem. The triangle product-ideal argument is supplied explicitly.
+Source: IX.5 p. 329; Mathlib Prime/Basic zeroLocus_mul and zeroLocus_inf. Elementary consequences of the defined central action, not a separate source theorem. The triangle product-ideal argument is supplied explicitly. zeroLocus, mem_zeroLocus, zeroLocus_mul, zeroLocus_inf, zeroLocus_radical. Supplies the existing closed-set and radical ideal operations used by this central support, not enhanced sheaf geometry.
 
-Source: zeroLocus, mem_zeroLocus, zeroLocus_mul, zeroLocus_inf, zeroLocus_radical. Supplies the existing closed-set and radical ideal operations used by this central support, not enhanced sheaf geometry.
+Lean signature status: Full generic homotopy-category operation statement; D_lis enhanced instantiation pending.
 
 ### Support under coefficient change
 
@@ -1205,12 +1343,13 @@ Acceptance:
 
 - Keep the flatness and actual endomorphism comparison hypotheses in the equality statement.
 - For reduction modulo ell do not assert equality merely from exactness of the categorical action.
+- The suggested compatible-action functor statement centralSupport_map encodes the unconditional containment only. The flat endomorphism-tensor comparison and resulting equality are still absent from Lean.
 
-Direct prerequisites: `ExcursionOperatorsAndSpectralAction:ES4/finite-wild-central-support`, `ExcursionOperatorsAndSpectralAction:ES1:spectral-center/center-change-of-data`, `ExcursionOperatorsAndSpectralAction:ES3/derived-reduction-and-rationalization`, `EnhancedDerivedSheaves:E5:presentability`.
+Direct prerequisites: `ExcursionOperatorsAndSpectralAction:ES4/finite-wild-central-support`, `ExcursionOperatorsAndSpectralAction:ES1:spectral-center/center-change-of-data`, `ExcursionOperatorsAndSpectralAction:ES3/derived-reduction-and-rationalization`, `EnhancedDerivedSheaves:E5:presentability`, `mathlib:PrimeSpectrum.comap`.
 
-Source: IX.5.2 p. 329; X.0.1 pp. 339–340. Roadmap-added elementary support comparison. The stronger equality is deliberately qualified by the exact algebraic kernel hypotheses.
+Source: IX.5.2 p. 329; X.0.1 pp. 339–340. Roadmap-added elementary support comparison. The stronger equality is deliberately qualified by the exact algebraic kernel hypotheses. zeroLocus, mem_zeroLocus, zeroLocus_mul, zeroLocus_inf, zeroLocus_radical. Supplies the existing closed-set and radical ideal operations used by this central support, not enhanced sheaf geometry.
 
-Source: zeroLocus, mem_zeroLocus, zeroLocus_mul, zeroLocus_inf, zeroLocus_radical. Supplies the existing closed-set and radical ideal operations used by this central support, not enhanced sheaf geometry.
+Lean signature status: Full signature omitted pending actual supplier types.
 
 ### Central localization and component summands
 
@@ -1234,10 +1373,13 @@ Acceptance:
 - For C=Perf(R), localization agrees with Perf(R[f^-1]).
 - For f=1 the kernel is zero; for f=0 every object maps to zero.
 - For an idempotent recover the two component factors.
+- The suggested centralSupport_subset_principal_iff states only the radical/power criterion. A category with an actual telescope localization and its compact-kernel comparison is still required.
 
 Direct prerequisites: `ExcursionOperatorsAndSpectralAction:ES4/finite-wild-central-support`, `ExcursionOperatorsAndSpectralAction:ES4/support-exact-operations`, `ExcursionOperatorsAndSpectralAction:ES1:finite-ramification/component-decomposition`, `EnhancedDerivedSheaves:E5:presentability`, `mathlib:PrimeSpectrum.zeroLocus_radical`, `mathlib:PrimeSpectrum.zeroLocus_subset_zeroLocus_iff`.
 
 Source: IX.5 pp. 328–329; X.0 p. 339; Mathlib Prime/Basic zero-locus radical criterion. The source supplies the idempotent case; general single-function localization is the explicit E5-backed roadmap obligation.
+
+Lean signature status: Full signature omitted pending actual supplier types.
 
 Atlas planet: **Central localization**.
 
@@ -1249,6 +1391,8 @@ In the eligible center range, Bernstein–Zelevinsky duality induces D_geom on t
 
 Hypotheses and interfaces:
 
+- E is a nonarchimedean local field of residue characteristic p and residue cardinality q; ell != p. Fix a square root of q in each coefficient algebra used for the normalized Hecke family.
+- G/E is connected reductive, H = dual G is its split pinned dual group over Z_ell, and W_E -> Q is the finite quotient defining the pinned action on H. All nonsplit formulas use H semidirect Q and the prescribed projection to Q.
 - Use the lisse compact BZ-duality equivalence, not only the etched-sheaf Verdier statements currently written in the supplier packet.
 
 Construction or proof:
@@ -1267,6 +1411,8 @@ Direct prerequisites: `ExcursionOperatorsAndSpectralAction:ES1:spectral-center/s
 
 Source: IX.5.3 pp. 329–330; VI.12.1 pp. 239–241. The stated source result supplies this target with the hypotheses listed here.
 
+Lean signature status: Full signature omitted pending actual supplier types.
+
 Atlas planet: **Duality and Chevalley involution**.
 
 ### Excursions on local shtuka cohomology
@@ -1277,6 +1423,8 @@ For HS3’s local-shtuka complex identified as i_b^* T_V(j_! c-Ind_K^G(E) Lambda
 
 Hypotheses and interfaces:
 
+- E is a nonarchimedean local field of residue characteristic p and residue cardinality q; ell != p. Fix a square root of q in each coefficient algebra used for the normalized Hecke family.
+- G/E is connected reductive, H = dual G is its split pinned dual group over Z_ell, and W_E -> Q is the finite quotient defining the pinned action on H. All nonsplit formulas use H semidirect Q and the prescribed projection to Q.
 - HS3 supplies the general multi-leg local-shtuka/Hecke comparison IX.3.2, not only the minuscule E=Q_p compactness theorem IX.3.1.
 
 Construction or proof:
@@ -1296,16 +1444,20 @@ Direct prerequisites: `ExcursionOperatorsAndSpectralAction:ES0/excursion-datum-a
 
 Source: IX.3.1–IX.3.2 pp. 324–327; I.9 pp. 35–36. The stated source result supplies this target with the hypotheses listed here.
 
+Lean signature status: Full signature omitted pending actual supplier types.
+
 Atlas planet: **Local shtuka excursions**.
 
 ### Elliptic L-parameters
 
 `ExcursionOperatorsAndSpectralAction:ES4/elliptic-parameters-and-components` · definition · proposed name `ellipticParameter`
 
-For an algebraically closed characteristic-zero coefficient field L, a continuous parameter phi with the prescribed pinned Weil projection is elliptic if it is semisimple and S_phi/Z(H)^Gamma is finite, where S_phi is the H-centralizer of the full twisted parameter. The centralizer is a group scheme; quotienting by the fixed center removes central unramified twists. The connected-component assertion is a separate theorem.
+For an algebraically closed characteristic-zero coefficient field L, a continuous parameter phi with the prescribed pinned Weil projection is elliptic if it is semisimple and S_phi/Z(H)^Gamma is finite, where S_phi is the H-centralizer of the full twisted parameter. The centralizer is a group scheme; quotienting the centralizer by the fixed center removes the central stabilizer from the finiteness test. Unramified central twists still vary the parameter in its connected component. The connected-component assertion is a separate theorem.
 
 Hypotheses and interfaces:
 
+- E is a nonarchimedean local field of residue characteristic p and residue cardinality q; ell != p. Fix a square root of q in each coefficient algebra used for the normalized Hecke family.
+- G/E is connected reductive, H = dual G is its split pinned dual group over Z_ell, and W_E -> Q is the finite quotient defining the pinned action on H. All nonsplit formulas use H semidirect Q and the prescribed projection to Q.
 - Use LP2’s semisimplicity/G-complete reducibility notion, not merely that Frobenius is diagonalizable.
 
 Construction or proof:
@@ -1339,6 +1491,8 @@ Direct prerequisites: `LanglandsParameterStacks:LP2:semisimple-characters/semisi
 
 Source: X.2.1 p. 346. The stated source result supplies this target with the hypotheses listed here.
 
+Lean signature status: Full signature omitted pending actual supplier types.
+
 Atlas planet: **Elliptic L-parameters**.
 
 ### Component of an elliptic parameter
@@ -1349,6 +1503,8 @@ For elliptic phi over Qbar_ell, its unramified central twists form the connected
 
 Hypotheses and interfaces:
 
+- E is a nonarchimedean local field of residue characteristic p and residue cardinality q; ell != p. Fix a square root of q in each coefficient algebra used for the normalized Hecke family.
+- G/E is connected reductive, H = dual G is its split pinned dual group over Z_ell, and W_E -> Q is the finite quotient defining the pinned action on H. All nonsplit formulas use H semidirect Q and the prescribed projection to Q.
 - Use the LP deformation complex and local Tate duality in its exact Weil-group coefficient range.
 
 Construction or proof:
@@ -1366,6 +1522,8 @@ Direct prerequisites: `ExcursionOperatorsAndSpectralAction:ES4/elliptic-paramete
 
 Source: X.2.1 pp. 346–347. The stated source result supplies this target with the hypotheses listed here.
 
+Lean signature status: Full signature omitted pending actual supplier types.
+
 ### Basic decomposition of an elliptic component
 
 `ExcursionOperatorsAndSpectralAction:ES4/basic-decomposition-of-an-elliptic-component` · theorem · proposed name `basic_decomposition_of_an_elliptic_component`
@@ -1374,6 +1532,8 @@ For elliptic phi and A in D_lis^(C_phi), restriction to any nonbasic b is zero. 
 
 Hypotheses and interfaces:
 
+- E is a nonarchimedean local field of residue characteristic p and residue cardinality q; ell != p. Fix a square root of q in each coefficient algebra used for the normalized Hecke family.
+- G/E is connected reductive, H = dual G is its split pinned dual group over Z_ell, and W_E -> Q is the finite quotient defining the pinned action on H. All nonsplit formulas use H semidirect Q and the prescribed projection to Q.
 - Import the proved ES7 parabolic parameter compatibility and SR supercuspidal block structure in characteristic zero.
 
 Construction or proof:
@@ -1388,87 +1548,112 @@ Acceptance:
 - Do not identify the indexing representations with Irr(S_phi) without Conjecture X.2.2.
 - The finite-center case retains possible automorphism groups of parameters.
 
-Direct prerequisites: `ExcursionOperatorsAndSpectralAction:ES4/elliptic-parameter-component`, `ExcursionOperatorsAndSpectralAction:ES7:parabolic`, `VStackSheavesAndLisseCategories:VS4/compact-generation-and-compact-objects`, `VStackSheavesAndLisseCategories:VS4/strata-are-classifying-stacks`, `SmoothRepresentationsOfLocalGroups:SR.3`.
+Direct prerequisites: `ExcursionOperatorsAndSpectralAction:ES4/elliptic-parameter-component`, `ExcursionOperatorsAndSpectralAction:ES7:parabolic/constant-term-computation`, `ExcursionOperatorsAndSpectralAction:ES7:parabolic/parabolic-induction`, `VStackSheavesAndLisseCategories:VS4/compact-generation-and-compact-objects`, `VStackSheavesAndLisseCategories:VS4/strata-are-classifying-stacks`, `SmoothRepresentationsOfLocalGroups:SR.3`.
 
 Source: X.2 pp. 346–348. The stated source result supplies this target with the hypotheses listed here.
+
+Lean signature status: Full signature omitted pending actual supplier types.
 
 Atlas planet: **Basic elliptic decomposition**.
 
 ## Source statements outside acceptance
 
-These statements are recorded because the added source route requires them. They are not new implementation targets. Proved action consequences are distinguished from conjectural equivalences and nonvanishing claims.
+These contextual statements retain their original roles; conjectures are excluded from acceptance and no categorical equivalence follows from existence of an action.
 
 ### I.9.5
 
-I.9.5 pp. 35–36 · conjecture; not a target.
+conjecture; not a target; I.9.5 pp. 35–36.
 
 There is a unique Q(sqrt(q))-algebra map Z_spec(G,Q(sqrt(q)))->Z(G(E),Q(sqrt(q))) whose extension to every Q_ell(sqrt(q)), ell != p, recovers the geometric spectral-center composite. This is not proved here. Haines’ stable-center conjecture is routed to the accepted StableCenter Part II, not to ES acceptance.
 
 ### X.1.4
 
-X.1.4 p. 344 · conjecture; not a target.
+conjecture; not a target; X.1.4 p. 344.
 
 For quasisplit G over Qbar_ell with W_psi, the colimit-preserving functor D_qcoh(Z/H)->D_lis, M |-> M*W_psi, has right adjoint fully faithful on compact objects and induces D_lis^omega ≃ D_coh^(b,qc)(Z/H). Neither full faithfulness nor the equivalence follows from the constructed action.
 
 ### X.1.5
 
-X.1.5 p. 344 · source remark; not a target.
+source remark; not a target; X.1.5 p. 344.
 
 The compact geometric category decomposes by pi_1(G)_Gamma=pi_0(Bun_G), while coherent spectral sheaves decompose by characters of Z(H)^Gamma. With pi_1(G)_Gamma=X^*(Z(H)^Gamma), the categorical conjecture predicts these gradings match. Bun_G component geometry is requested from BG3, not redefined here.
 
 ### X.1.6
 
-X.1.6 p. 344 · conditional consequence; not a target.
+conditional consequence; not a target; X.1.6 p. 344.
 
 Under categorical full faithfulness, End(W_psi)=Z_spec. This equality is not obtained merely by evaluation of the center at W_psi.
 
 ### X.1.7
 
-X.1.7 pp. 344–345 · conditional consequence; not a target.
+conditional consequence; not a target; X.1.7 pp. 344–345.
 
 For an L-morphism f:^L H -> ^L G of quasisplit reductive groups over E, the induced parameter-stack map gives pushforward on Ind(D_coh^(b,qc)). Under the conjectural categorical equivalences this yields D_lis(Bun_H,Qbar_ell)->D_lis(Bun_G,Qbar_ell). BZ self-duality and VII.7.10 express it by a kernel A_f in D_lis(Bun_H times Bun_G,Qbar_ell); up to the source’s stated minor twists, its spectral image should be the structure sheaf of the graph. Restriction to the trivial strata predicts classical functoriality. The singularity-handling qualification and quasisplit Whittaker normalization of X.1.8 are retained; no kernel is constructed here from the action alone.
 
 ### Aut_phi
 
-X.1 pp. 345–346 · source construction and conditional nonvanishing; not a target.
+source construction and conditional nonvanishing; not a target; X.1 pp. 345–346.
 
 For i:Spec Qbar_ell->Z/H with parameter phi, set E_phi=i_* Qbar_ell in D_qcoh, with its S_phi action, and Aut_phi=E_phi*W_psi using the Ind extension. The projection formula proves the Hecke eigenvalue phi, but Aut_phi may be zero; nonvanishing and packet conclusions require the categorical conjecture.
 
 ### elliptic-action-shift
 
-X.2 pp. 347–348 · proved source consequence; recorded, not a target.
+proved source consequence; recorded, not a target; X.2 pp. 347–348.
 
 Assume phi elliptic and Z(H)^Gamma finite. For basic b, a supercuspidal pi_b with parameter phi, and W in Rep(S_phi) isotypic on Z(H)^Gamma with character chi, Act_W(pi_b) is concentrated on b′=b+b_chi under pi_1(G)_Gamma=X^*(Z(H)^Gamma)=B(G)_basic. It is a sum of perfect multiplicity complexes tensored with supercuspidals of G_b′(E) having parameter phi. This does not prove the conjectural packet bijection.
 
 ### elliptic-Hecke-compatibility
 
-X.2 p. 348 · proved source consequence; recorded, not a target.
+proved source consequence; recorded, not a target; X.2 p. 348.
 
 In the finite-fixed-center elliptic setting, restriction V|S_phi carries the commuting Weil action phi. If it decomposes as direct sum_i W_i tensor sigma_i as S_phi times W_E representation, then T_V(pi) is the direct sum_i Act_W_i(pi) tensor sigma_i. This is proved spectral-action compatibility; interpreting the W_i as packet constituents additionally uses X.2.2.
 
 ### X.2.2
 
-X.2.2 pp. 347–348 · conjecture; not a target.
+conjecture; not a target; X.2.2 pp. 347–348.
 
 For quasisplit G, fixed Whittaker datum and finite Z(H)^Gamma, an elliptic phi has a unique generic supercuspidal pi and W |-> Act_W(pi) gives a t-exact equivalence Perf(BS_phi) ≃ D_lis^(C_phi), normalized to send the trivial S_phi representation to the generic member. This is not proved by basic-stratum vanishing.
 
 ### I.10.2-and-X.3.5
 
-I.10.2 p. 38; X.3.5 p. 350 · conjecture; not a target.
+conjecture; not a target; I.10.2 p. 38; X.3.5 p. 350.
 
 For quasisplit G, integral Whittaker data and Lambda=O_L[1/n], n=|pi_0 Z(G)|, M |-> M*W_psi on IndPerf^qc(Z/H) has a right adjoint fully faithful on compact objects and induces D_lis^omega ≃ D_coh,Nilp^(b,qc)(Z/H). Nilpotent singular support and the bad-prime caveat are retained. This is not ES4’s reduced central support and is not an action-existence theorem.
 
+## Source reading and confirmed issue
+
+The author manuscript has SHA-256 `9ab9efbd0df251bfa3b610d1d1d88a8dfb1bdf7c397bd04f4c277280d98ae905`. Printed and PDF page numbers agree. Revision 2 independently read:
+
+- I.9.5 pp. 35–36; I.10.2 p. 38: recorded conjectures.
+- VI.12 pp. 239–241: Chevalley comparison and its inner-conjugation correction.
+- VII.7 pp. 271–276: stratum adjunction, compact generation, lisse BZ duality and product interfaces.
+- VIII.3.5–VIII.3.8 pp. 288–290; VIII.4 pp. 290–293: continuous qualifications and excursion relations, including the p. 292 misprint.
+- IX.1–IX.3 pp. 320–327; IX.5 pp. 327–329: normalized Hecke, condensed enrichment, multi-leg comparison and finite-wild proof.
+- X.0–X.3 pp. 339–350: universal/action/colimit statements and proofs, Whittaker sheaf, elliptic context and conjectures.
+
+The published edition’s relevant passage was unavailable in the original review; the finding is scoped to the author copy. No comparison with unavailable published bytes is asserted.
+
+### ExcursionOperatorsAndSpectralAction/E1
+
+Author-hosted 356-page manuscript, SHA-256 9ab9efbd0df251bfa3b610d1d1d88a8dfb1bdf7c397bd04f4c277280d98ae905, printed p. 292, proof of VIII.4.1, reindexing square after VIII.4.2. Published passage unavailable.
+
+The diagram commutes. Do not assert a cartesian square for arbitrary finite-set reindexing.
+
+Take H=Q=1, W=C2, C=Vect_L and the trivial W-equivariant tensor family. End(id_C)=L and every left function ring is L. For I={1,2}, J={1}, g:I->J the fold map, the left vertical arrow is id_L; the right is diagonal restriction Map(W^2,L)->Map(W,L). Both horizontal maps send scalars to constant functions. The pullback consists of (a,f) with f(w,w)=a; off-diagonal values are arbitrary. In particular (0,f) with f(1,t)=1 and f zero elsewhere lies in the pullback but not in the image of L. Thus the square is commutative and not cartesian. Over F2 it has 8 pullback elements versus 2 source elements. The subsequent fusion proof only uses commutativity.
+
+Independent verdict: confirmed. Independently checked the square in the hash-identified author manuscript and the trivial-group fold-map counterexample. Only the accessible author-copy assertion is confirmed false; the published passage was not inspected.
+
 ## Pinned library baseline
 
-The exact declaration statements were read at the recorded pins. The Tau Ceti source/index search and reviewed audit were also checked; its smoothness predicates do not supply the missing locally profinite smooth category or enhanced center.
+The packet records 27 baseline declarations. Their statements were read at Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`. The TauCeti pin and reviewed audit were searched for missing interfaces; no TauCeti declaration is imported by this suggested file. The following are existing library inputs, not new ES targets.
 
-- `mathlib:CategoryTheory.CatCenter` — THE BERNSTEIN CENTRE OF A CATEGORY, ALREADY IN MATHLIB: `abbrev CatCenter := End (1_C)`. This is exactly the object Theorem VIII.4.1 calls the Bernstein centre of C, and the reviewed audit AUDIT-20 records this target as PARTIAL for that reason. This packet therefore cites it and plans only what is missing: the enhanced, degree-zero version on D_lis(Bun_G,Lambda). (Mathlib/CategoryTheory/Center/Basic.lean)
+- `mathlib:CategoryTheory.CatCenter` — The ordinary center consists of natural endomorphisms of the identity functor. This is the ordinary Bernstein center in VIII.4.1, already provided at the pin; ES plans its enhanced degree-zero counterpart and comparison. (Mathlib/CategoryTheory/Center/Basic.lean)
 - `mathlib:CategoryTheory.CatCenter.app` — Evaluation of a central element at an object. This is the pinned form of the distinction the roadmap insists on, between a natural endomorphism of the identity and an endomorphism of one object. (Mathlib/CategoryTheory/Center/Basic.lean)
 - `mathlib:CategoryTheory.CatCenter.naturality` — Naturality of a central element, from which centrality follows. Already proved at the pins, so this packet does not plan it. (Mathlib/CategoryTheory/Center/Basic.lean)
-- `mathlib:CategoryTheory.Linear.toCatCenter` — `def toCatCenter [Linear R C] : R ->+* CatCenter C`, the scalar structure on the centre of an R-linear category. The Lambda-algebra structure on the Bernstein centre is this map and is not planned again. (Mathlib/CategoryTheory/Center/Linear.lean)
+- `mathlib:CategoryTheory.Linear.toCatCenter` — The scalar ring map into the center of an R-linear preadditive category. ES imports this existing scalar structure. (Mathlib/CategoryTheory/Center/Linear.lean)
 - `mathlib:CategoryTheory.Functor` — Functors. The identity functor of C, whose endomorphisms are the Bernstein centre, and the Hecke functors T_V are objects of this type. (Mathlib/CategoryTheory/Functor/Basic.lean)
 - `mathlib:CategoryTheory.NatTrans` — Natural transformations. An element of the Bernstein centre is a natural endomorphism of the identity; the pinned definition already carries the naturality that this roadmap insists distinguishes it from an endomorphism of one object. (Mathlib/CategoryTheory/NatTrans.lean)
-- `mathlib:CategoryTheory.Preadditive` — Preadditive categories. End(id_C) is a ring because C is additive; the pinned class supplies that structure on hom-sets. (Mathlib/CategoryTheory/Preadditive/Basic.lean)
+- `mathlib:CategoryTheory.Preadditive` — Preadditive categories. End(id_C) is a ring because C is preadditive; the pinned class supplies that structure on hom-sets. (Mathlib/CategoryTheory/Preadditive/Basic.lean)
 - `mathlib:CategoryTheory.CatCenter.ext` — Equality from all object components; applies to the ordinary homotopy-category comparison only. (Mathlib/CategoryTheory/Center/Basic.lean)
 - `mathlib:Ideal` — Left ideals as submodules; in commutative coordinate rings these give annihilator ideals. (Mathlib/RingTheory/Ideal/Defs.lean)
 - `mathlib:PrimeSpectrum` — Prime ideals of a commutative ring, used for reduced central support on the invariant quotient. (Mathlib/RingTheory/Spectrum/Prime/Defs.lean)
@@ -1480,13 +1665,21 @@ The exact declaration statements were read at the recorded pins. The Tau Ceti so
 - `mathlib:RingHom.ker` — The kernel of an evaluated central ring map is an ideal. (Mathlib/RingTheory/Ideal/Maps.lean)
 - `mathlib:RingHom.mem_ker` — Membership in the kernel is equivalent to evaluation being zero. (Mathlib/RingTheory/Ideal/Maps.lean)
 - `mathlib:PrimeSpectrum.zeroLocus_subset_zeroLocus_iff` — V(I) subset V(J) iff J is contained in the radical of I, supplying the principal support/localization criterion. (Mathlib/RingTheory/Spectrum/Prime/Basic.lean)
+- `mathlib:CategoryTheory.Pretriangulated.Triangle` — Three objects with maps to form a triangle, ending in the integer shift of the first object; no distinguishedness is built into this carrier. (Mathlib/CategoryTheory/Triangulated/Basic.lean)
+- `mathlib:CategoryTheory.Pretriangulated` — Distinguished triangles in a preadditive category with a zero object and additive integer shifts; rotation and completion of triangle morphisms supply the support argument. (Mathlib/CategoryTheory/Triangulated/Pretriangulated.lean)
+- `mathlib:CategoryTheory.Pretriangulated.Triangle.yoneda_exact₂` — A morphism out of the middle object that vanishes after the first triangle map factors through the second map, for a distinguished triangle. (Mathlib/CategoryTheory/Triangulated/Pretriangulated.lean)
+- `mathlib:CategoryTheory.shiftFunctor` — The functor indexed by a shift element, with coherent composition and zero-shift comparisons supplied by HasShift. (Mathlib/CategoryTheory/Shift/Basic.lean)
+- `mathlib:CategoryTheory.Limits.biprod` — The chosen binary biproduct with its inclusion and projection maps; used to compute the intersection of annihilators. (Mathlib/CategoryTheory/Limits/Shapes/BinaryBiproducts.lean)
+- `mathlib:PrimeSpectrum.comap` — Contravariant map on prime spectra given by inverse image of prime ideals under a commutative ring map. (Mathlib/RingTheory/Spectrum/Prime/RingHom.lean)
+- `mathlib:ModuleCat.of` — Bundles an additive commutative group with its module structure as an object of ModuleCat; used for concrete rank-one test objects. (Mathlib/Algebra/Category/ModuleCat/Basic.lean)
+- `mathlib:DualNumber` — The trivial square-zero extension of a coefficient ring by itself; its distinguished epsilon has zero first coordinate. (Mathlib/Algebra/DualNumber.lean)
+- `mathlib:TrivSqZeroExt.fstHom` — The algebra projection from a trivial square-zero extension to its first coordinate; supplies the central action through the residue field in the nilpotent test. (Mathlib/Algebra/TrivSqZeroExt/Basic.lean)
 
 ## Supplier contracts
 
 - `EnhancedDerivedSheaves:E5:abstract`: Enhanced exact endofunctor/mapping categories, Lambda-linear E_2 endomorphisms of the identity and their commutative pi_0, coherent finite-set action anima; no equivalence of underlying types substitutes for a higher equivalence.
 - `EnhancedDerivedSheaves:E5:animation`: Animation of finite Q-torsor sets over BQ and the sifted free-group resolution BGamma = colim_(F_n->Gamma) BF_n with its animated algebra compatibility.
 - `EnhancedDerivedSheaves:E5:presentability`: Ind mapping-object equivalence for exact functors, relative tensor/base-change module categories, Barr–Beck comparisons, compact objects under coordinate-algebra colimits, and the f-localization telescope Hom formula. For support equality provide the stated endomorphism scalar-extension isomorphism in its valid range.
-- `ExcursionOperatorsAndSpectralAction:ES7:parabolic`: Proved nonbasic-stratum and unnormalized parabolic parameter factorization, retaining the twisted Levi inclusion, used to deduce elliptic support and supercuspidality.
 - `GeometricSatakeAndFusion:GS4:integral-dual-group`: Pinned dual group/semidirect action and normalized representation categories, the center-order/dual torsion relation in its exact scope, and VI.12.1 switching equals Chevalley up to conjugation by rho-hat(-1).
 - `HeckeStacksAndLocalShtukas:HS1`: IX.1.2 relatively discrete condensed animated Hom(A,B) for compact A, and the pro-p quotient-equivariant pullback full faithfulness used in IX.5.1. Also derived coefficient-change of the normalized HS kernels and their square-root-q convention.
 - `HeckeStacksAndLocalShtukas:HS3`: The full IX.3.2 multi-leg local-shtuka/Hecke identification, with level transitions, two smooth group actions in the appropriate level/tower domains, and condensed Weil actions. Current named nodes cover IX.3.1 and its minuscule adjunction application, not this whole comparison.
@@ -1504,11 +1697,15 @@ The exact declaration statements were read at the recorded pins. The Tau Ceti so
 - `VStackSheavesAndLisseCategories:VS5`: The lisse compact Bernstein–Zelevinsky duality of VII.7.6–VII.7.10 needed by IX.5.3; the packet’s currently etched-sheaf duality nodes are insufficient (RT-AREA-geomlanglands/29).
 - `BunGAndNewtonStrata:BG3`: For the recorded X.1.5 grading statement, pi_0(Bun_G)=pi_1(G)_Gamma via the Kottwitz map (IV.1.23), and the basic-class grading shift used in X.2. This supports recorded source statements, not a new ES target.
 
+### Resolved LP2 contract
+
+Reread the current LP2 invariant-function-and-independence node on 2026-10-09: its statement and proof use commutativity, its API is Theta.reindex, and no cartesian-square test remains. The LP2 abstract owner is preserved; no supplier file was edited. Source issue ExcursionOperatorsAndSpectralAction/E1 remains confirmed and author-copy scoped.
+
 ## Exact gaps and refinement
 
 ### Enhanced signatures at the pins
 
-Pinned Mathlib has ordinary categories and quasicategories, but no supplied Lambda-linear stable infinity-category/action anima or condensed enhanced functor mapping objects. The suggested Lean file must identify every unavailable higher signature rather than insert True or arbitrary Prop fields. Compilable ordinary observable signatures are distinguished from the complete mathematical statements. Resume after E5 and HS1 supply the exact enhanced types.
+The blocking section 13 deficit is explicit: 35 node names, 16 API names and 18 test labels have no executable declaration/example. The seven named node forms and 22 named APIs that do exist generally express ordinary observations. support_exact_operations now states the genuine generic pretriangulated theorem with real Hom exactness and shift compatibility. Its Bun_G instantiation still needs E5/HS. The E5 packet is partial and exports no Lean declarations for a Lambda-linear stable infinity-category, enhanced exact functor mapping objects, Ind mapping-object comparisons or coherent action anima. LP has no supplied derived stacky Perf interface. Implementing these foundations is supplier work outside this issue’s four authorized paths. Resume with those actual interfaces; conditions that cannot be stated must be omitted under section 13 rather than replaced by arbitrary proposition fields.
 
 ### DVR representation filtration
 
@@ -1528,11 +1725,13 @@ The current VS5 nodes concern etched sheaves, while this target needs VII.7’s 
 
 ## Suggested Lean and validation
 
-The pins lack E5/HS/LP enhanced and stacky types. The file contains concrete ordinary-category, orbit-factorization, quotient-action and prime-spectrum observations, with full mathematical statements and every proposed name in an explicit higher-signature register. These observations do not encode the full higher action theorems. The enhancedCenter/perfApprox/finiteWildCategory/ellipticParameter full definitions and dependent higher APIs/tests await supplier types; see the enhanced-signature gap. Elaborating the file does not assert those full signatures were checked.
+The generic support theorem now takes actual distinguished triangles, additive shifts with explicit central compatibility, biproducts and retracts; it no longer assumes the desired annihilator-product containment. Separate signatures state the Hom factorization and product containment, compatible-functor support inclusion, and the principal radical/power criterion. Concrete scalar-module examples compute free and dual-number support. These improvements do not supply enhanced categories, derived stacky Perf, coherent action anima, elliptic algebraic centralizers or localization telescopes.
 
-The suggested file’s named register contains every node, API item and unit test, including the full mathematical statement for each unavailable higher signature. Its ordinary declarations use real natural transformations, additive functors, ring kernels, prime zero loci and functor factorizations. An omitted higher condition is identified explicitly. Checking these signatures is syntax/type validation, not a proof of any target.
+The original needs_changes review is retained. Its signature-coverage finding remains open: all 42 mathematical targets are specified, but the named register is prose and cannot count as Lean declarations. No empty proposition fields or ordinary aliases are introduced to claim higher coverage.
 
-The packet checker uses the pinned declaration index and currently reports zero errors and zero warnings. The handoff records the final Lean elaboration result and its limitations.
+The executable inventory has seven proposed node names, 22 proposed API names and 15 examples carrying 13 of the 31 proposed test labels; three extra examples support the ordinary observations. These are upper bounds on full coverage. The register is prose. The exact missing names are recorded in the packet and revision handoff.
+
+The suggested file elaborated through `lean-check` with exit 0 and only 48 `sorry` warnings. It imports the exact pinned Mathlib; the shared TauCeti checkout differs from the recorded pin but is unused. The packet checker result is recorded in the handoff. No theorem is claimed proved.
 
 ## Structural proposals and verification
 
@@ -1573,4 +1772,4 @@ Preserved 23 correct checkpoint node identifiers. The three removed duplicates a
 - `ExcursionOperatorsAndSpectralAction:ES0/excursion-relations-and-the-algebra-map` → `LanglandsParameterStacks:LP2:excursion-presentation/map-to-a-bernstein-center`: Abstract relation/algebra-map ownership remains in LP2; ES owns only its enhanced Bun_G lift.
 - `ExcursionOperatorsAndSpectralAction:ES0:classical-center/the-classical-center-as-a-limit-over-levels` → `SmoothRepresentationsOfLocalGroups:SR.1`: The verifier assigns the ordinary smooth-center/Hecke-corner theorem to SR.1.
 
-No new source issue was found in this part’s inspected passages. The checkpoint’s invalid stronger claims were planning errors; they are corrected here rather than entered as paper errata.
+The independently confirmed author-copy source issue E1 is retained above. Its supplier correction is now resolved in LP2; the review’s mathematical and ownership corrections remain in force.
