@@ -13,7 +13,7 @@
     "GeneralizedHeegnerCycles:GH.7"
   ],
   "status": "complete",
-  "summary": "A complete target-level pass over GH.0–GH.7 in 66 declaration nodes. It retains and corrects the 13 checkpoint nodes, plans the cycle, local-condition, ordinary/universal-norm, explicit-reciprocity, higher-weight descent and Hida-family interfaces, and maps all six integrated source units to refinements. Every prerequisite chain ends in a checked baseline, an exact supplier node/request or a named gap. Complete denotes the finished planning pass, not proof closure: all eight stages are planned, none is closed, and every implementationStatus is unchecked.",
+  "summary": "A complete target-level pass over GH.0–GH.7 in 66 declaration nodes. It retains and corrects the 13 checkpoint nodes, plans the cycle, local-condition, ordinary/universal-norm, explicit-reciprocity, higher-weight descent and Hida-family interfaces, and maps all six integrated source units to refinements. Every prerequisite chain ends in a checked baseline, an exact supplier node/request or a named gap. Complete denotes the finished planning pass, not proof closure: all eight stages are planned, none is closed, and every implementationStatus is unchecked. Revision 2 repairs the five reviewed object contracts with tower/operator-dependent inputs and discriminating fixtures, and synchronizes the reader with the independent review. The existing review verdict is retained for fresh independent assessment.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -190,7 +190,8 @@
       "statement": "A CM elliptic curve is an elliptic abelian variety A/H, with H containing the Hilbert class field of the imaginary quadratic K, and a specified isomorphism O_K ≅ End_H(A), normalized so [α]*ω=αω. For F⊇H, H¹_dR(A/F)=Fω⊕Fη, where η lies on the conjugate CM eigenline and ⟨ω,η⟩=1. At an ordinary good split prime this conjugate eigenline is the unit-root line. No good model is inferred from the level N.",
       "hypotheses": [
         "The normalization of the O_K-action is on differentials: [α]^*ω = αω. The opposite normalization swaps H^{1,0} and H^{0,1}.",
-        "Existence of A over H with End_H(A) = O_K, and its descent, are HeegnerPointEulerSystems HE.1's and ComplexMultiplicationAndExplicitReciprocity CM.1's."
+        "Existence of A over H with End_H(A) = O_K, and its descent, are HeegnerPointEulerSystems HE.1's and ComplexMultiplicationAndExplicitReciprocity CM.1's.",
+        "The two-character coordinate fixture is a realization of the specified CM endomorphisms through A.cm, not a construction of H¹_dR. Its comparison with the geometric carrier is imported from CM.1 and the de Rham owner."
       ],
       "api": [
         {
@@ -210,13 +211,18 @@
         },
         {
           "name": "TauCeti.GeneralizedHeegner.CMCurve.etaOfOmega",
-          "role": "characterisation",
-          "statement": "Dividing η by ⟨ω,η⟩ gives cup product 1. It is the unique scalar multiple aη with cup product 1; on the one-dimensional conjugate eigenline this gives the unique normalized vector."
+          "role": "constructor",
+          "statement": "CMCurve.etaOfOmega(b,ω,η) is b(ω,η)⁻¹η, using an actual nonzero vector on the conjugate CM eigenline."
         },
         {
           "name": "TauCeti.GeneralizedHeegner.CMCurve.map_eigenvector",
           "role": "functoriality",
           "statement": "A linear realization map commuting with the CM action transports a character eigenvector to an eigenvector with the same character value."
+        },
+        {
+          "name": "TauCeti.GeneralizedHeegner.CMCurve.etaOfOmega_spec",
+          "role": "characterisation",
+          "statement": "When b(ω,η) is nonzero, the constructed vector pairs to 1 and is the unique scalar multiple of η that does so."
         }
       ],
       "uses": [
@@ -233,17 +239,17 @@
         {
           "name": "TauCeti.GeneralizedHeegner.cmCurve_i_action",
           "kind": "computation",
-          "statement": "For the ordered CM eigenbasis at K=Q(i), [i]* acts diagonally by i and −i."
+          "statement": "For a CM curve A with O_K=Z[i], realize the actual endomorphism A.cm(i) by the two characters through A.cm⁻¹. On the ordered basis it sends (1,0) to (i,0) and (0,1) to (0,−i). Conjugate the CM isomorphism on the same curve, keep A’s original realization fixed, and check the new i-endomorphism sends (1,0) to (−i,0), unequal to (i,0). This rejects the opposite CM normalization; the geometric realization identification is the CM.1/de Rham export."
         },
         {
           "name": "TauCeti.GeneralizedHeegner.cmCurve_normalization",
           "kind": "characterisation",
-          "statement": "Scaling ω by a≠0 scales its normalized η by a⁻¹, preserving the cup product 1."
+          "statement": "For the determinant cup pairing on C², compute CMCurve.etaOfOmega((2,0),(0,1))=(0,1/2). Check its pairing with (2,0) is 1 and the i-action has conjugate eigenvalue −i. The test calls the normalization constructor itself."
         },
         {
           "name": "TauCeti.GeneralizedHeegner.cmCurve_scalar_endomorphism",
           "kind": "compatibility",
-          "statement": "Integer multiplication on the CM curve agrees with the existing abelian variety mulBy map."
+          "statement": "The specified ring isomorphism sends the integer n to the endomorphism whose underlying map is the native mulBy(A,n), so the CM and abelian-variety scalar actions agree."
         }
       ],
       "proofSteps": [
@@ -336,7 +342,7 @@
         {
           "name": "TauCeti.GeneralizedHeegner.epsA_order",
           "kind": "computation",
-          "statement": "For m=2 the character average has denominator 8."
+          "statement": "On the eight word tensors of a rank-two vector space cubed, use the actual S_3 action ρ(σ)v(w)=sgn(σ)v(w∘σ). The signed epsA average sends e_001 to (e_001+e_010+e_100)/3 and fixes e_000. The inversion part is already identity on this all-H¹ summand of the full Ξ_3 average, whose denominator is 48."
         },
         {
           "name": "TauCeti.GeneralizedHeegner.epsA_weight_zero",
@@ -346,7 +352,7 @@
         {
           "name": "TauCeti.GeneralizedHeegner.epsA_koszul",
           "kind": "non-example",
-          "statement": "A transposition acts with −1 on H¹⊗H¹; multiplying by its character sign therefore selects symmetric tensors."
+          "statement": "For that same graded S_3 action, epsA with the sign character has image dimension 4, while epsA with the trivial character is the zero operator: Λ³ of a rank-two space vanishes. This distinguishes symmetric projection from unsigned geometric averaging."
         }
       ],
       "proofSteps": [
@@ -356,7 +362,8 @@
         "Correspondences: ε_A is an element of the ring of correspondences on A^r with ℚ-coefficients, acting on every cohomology theory by functoriality (MotivicEtaleKTheory M.4)."
       ],
       "acceptance": [
-        "r = 2: ε_A H²(A²) = Sym² H¹(A), of dimension 3, while H²(A²) has dimension 6."
+        "r = 2: ε_A H²(A²) = Sym² H¹(A), of dimension 3, while H²(A²) has dimension 6.",
+        "At m=3 the signed average has rank 4 on the eight-dimensional all-H¹ tensor space; omitting its permutation character gives rank 0. Both are computed from the same action, not a detached sign identity."
       ],
       "prerequisites": [
         "GeneralizedHeegnerCycles:GH.0/cm-elliptic-curve-and-its-hodge-splitting",
@@ -807,23 +814,29 @@
       "statement": "Assume the Heegner hypothesis: there is an ideal 𝔑 ⊂ O_K with O_K/𝔑 ≅ ℤ/Nℤ. Fix A with End(A) = O_K and a Γ₁(N)-level structure t_A ∈ A[𝔑] over the field H̃ ⊇ H over which A[𝔑] becomes constant. Isog(A) is the set of isomorphism classes of pairs (φ, A′) with φ : A → A′ an isogeny over K̄. (φ, A′) has conductor c if End(A′) = O_c = ℤ + cO_K. Isog^𝔑(A) consists of the pairs with ker φ ∩ A[𝔑] = 0, and Isog_c^𝔑(A) = Isog_c(A) ∩ Isog^𝔑(A). For (φ, A′) ∈ Isog^𝔑(A), (A′, φ(t_A)) is a Γ₁(N)-structure and determines a point P_{A′} of C = X₁(N). The semigroup P(O_c) of invertible integral O_c-ideals relatively prime to 𝔑_c=𝔑∩O_c acts on Isog_c^𝔑(A) by 𝔞 ⋆ (φ, A′) = (φ_𝔞φ, A′/A′[𝔞]).",
       "hypotheses": [
         "The kernel condition ker φ ∩ A[𝔑] = 0 makes φ(t_A) a point of exact order N.",
-        "The conductor c is determined by End(A′), an order of K."
+        "The conductor c is determined by End(A′), an order of K.",
+        "The suggested carrier uses native group-scheme rational points over the chosen field; in the degree comparison this field is algebraically closed of characteristic zero. Its target_cm field identifies the literal order Z+cO_K with End(A′), and its marked subgroup is ideal torsion generated by t_A. Generic ring parameters omit CM.1’s quadratic maximal-order classification, which remains a source hypothesis."
       ],
       "api": [
         {
           "name": "TauCeti.GeneralizedHeegner.IsogPair.conductor",
           "role": "data",
-          "statement": "The target endomorphism order is O_c; the conductor is preserved under isomorphism of marked targets."
+          "statement": "The conductor is the positive index c in the specified ring isomorphism O_c=Z+cO_K ≅ End(A′), and is invariant under marked-target isomorphism by the imported quadratic-order classification."
         },
         {
           "name": "TauCeti.GeneralizedHeegner.IsogPair.level",
           "role": "projection",
-          "statement": "The kernel condition ker φ∩A[𝔑]=0 transports the marked point of exact order N to a point of exact order N."
+          "statement": "On the actual group-scheme point carrier, ker(φ)∩A[𝔑]=0 and A[𝔑]=Z·t_A imply addOrder(φ(t_A))=N."
         },
         {
           "name": "TauCeti.GeneralizedHeegner.IsogPair.idealAction",
           "role": "functoriality",
-          "statement": "The ideal-action transports the isogeny pair through the commutative CM reciprocity square."
+          "statement": "Compose the marked pair with the CM.1 ideal quotient isogeny, carrying its target-order identification and the prime-to-mark kernel proof. The CM.1 theorem supplies the quotient, invertible ideal condition and reciprocity square."
+        },
+        {
+          "name": "TauCeti.GeneralizedHeegner.IsogPair.degree",
+          "role": "data",
+          "statement": "In the characteristic-zero geometric-point presentation, degree is the cardinality of ker(φ). The single kernel-cardinality operation is used for every map; CM.1 supplies its comparison with finite morphism degree and multiplicativity."
         }
       ],
       "uses": [
@@ -840,23 +853,29 @@
         {
           "name": "TauCeti.GeneralizedHeegner.isog_identity_conductor",
           "kind": "degenerate",
-          "statement": "The identity isogeny of A has target order O_K, conductor 1."
+          "statement": "Construct IsogPair.identity with target A, c=1 and target CM order (Z+O_K)≅O_K≅End(A). Check its conductor is 1, its order identification sends 1 to 1, and its actual point map fixes the chosen cyclic level generator."
         },
         {
           "name": "TauCeti.GeneralizedHeegner.isog_level_failure",
           "kind": "non-example",
-          "statement": "Multiplication by N kills an N-torsion level point and cannot satisfy the prime-to-N condition."
+          "statement": "For a nonzero ideal-torsion point t_A killed by N, the native multiplication-by-N endomorphism has nontrivial intersection of its point-map kernel with A[𝔑]. It therefore cannot inhabit the marked IsogPair carrier."
         },
         {
           "name": "TauCeti.GeneralizedHeegner.isog_degree_multiplicativity",
           "kind": "compatibility",
-          "statement": "Composing finite isogenies multiplies their degree, in agreement with the elliptic-curve isogeny degree API supplied upstream."
+          "statement": "Use the same kernelDegree as the isogeny point map on the finite-kernel fixture Z/6→Z/3→Z/1. The actual quotient maps have kernel cardinalities 2,3 and 6, so composition has the product degree. This tests the cardinality adapter; the finite-morphism degree comparison remains a named CM.1 export, and no elliptic curve is constructed by this fixture."
+        },
+        {
+          "name": "TauCeti.GeneralizedHeegner.isog_conductor_order_test",
+          "kind": "non-example",
+          "statement": "For the literal Gaussian target order O_c=Z+cZ[i], i belongs to O_1 and is excluded from O_2, while 2i belongs to O_2. This tests the actual order used by target_cm and rejects a constant maximal-order conductor model."
         }
       ],
       "proofSteps": [
         "The endomorphism ring of an isogenous curve is an order of K, hence O_c for a unique c ≥ 1.",
         "φ is injective on A[𝔑] and t_A has order N, so φ(t_A) has order N.",
-        "For an invertible integral O_c-ideal 𝔞 relatively prime to 𝔑_c, the quotient isogeny φ_𝔞 preserves the marked cyclic level subgroup and the target endomorphism order. Import the ideal-action theorem from CM.1, including exceptional unit fields; primality to the whole integer cN is not the definition of P(O_c)."
+        "For an invertible integral O_c-ideal 𝔞 relatively prime to 𝔑_c, the quotient isogeny φ_𝔞 preserves the marked cyclic level subgroup and the target endomorphism order. Import the ideal-action theorem from CM.1, including exceptional unit fields; primality to the whole integer cN is not the definition of P(O_c).",
+        "For degree, use the geometric-point exact kernel sequence for two surjective finite isogenies. Kernel cardinalities multiply; the characteristic-zero finite-morphism degree comparison is supplied by CM.1. Never quantify over unrelated numerical degree functions."
       ],
       "acceptance": [
         "K = ℚ(i), N = 5 = (2 + i)(2 − i): 𝔑 = (2 + i), with O_K/𝔑 ≅ ℤ/5ℤ.",
@@ -1503,11 +1522,13 @@
       "kind": "construction",
       "statement": "For ω_f valued in L_m choose a Frobenius annihilator P killing its parabolic cohomology class, invertible on horizontal sections, with P(1)≠0. The Coleman primitive F_f is the locally analytic section with ∇F_f=ω_f and P(Φ)F_f rigid analytic on a Frobenius neighborhood. Weight separation and gluing make it choice independent; for m>0 it is unique and for m=0 unique modulo constants. Evaluation uses the specified ordinary CM residue disk and normalized basis.",
       "hypotheses": [
-        "The good unramified local model and overconvergent Frobenius isocrystal are supplied; the weight-separation lemma applies."
+        "The good unramified local model and overconvergent Frobenius isocrystal are supplied; the weight-separation lemma applies.",
+        "For the available section/differential prototype, supply the connection, F-linear Frobenius, annihilator polynomial P with P(1)≠0, rigid section submodule and a normalization complement disjoint from the connection kernel. The input is in the range of the connection on normalized sections satisfying P(Φ)F∈rigid. BDP Theorem 3.15 and the requested RD.4 comparison must produce this range witness for ω_f; the constructor does not claim every arbitrary differential is integrable."
       ],
       "proofSteps": [
         "Import overconvergent Frobenius and solve locally by an analytic primitive.",
-        "Invert P(Φ) on horizontal sections to impose the rigid condition; glue and track the m=0 constant ambiguity."
+        "Invert P(Φ) on horizontal sections to impose the rigid condition; glue and track the m=0 constant ambiguity.",
+        "Express the normalized analytic construction on the image of the admissible connection, rather than claiming a right inverse for an arbitrary map. The zero-kernel complement makes this preimage unique. A finite affine-disk realization tests the operator and normalization; it does not prove the global wide-open modular input theorem."
       ],
       "prerequisites": [
         "GeneralizedHeegnerCycles:GH.1/parabolic-residue-pairing",
@@ -1537,34 +1558,39 @@
         {
           "name": "TauCeti.GeneralizedHeegner.colemanPrimitive_differential",
           "role": "characterisation",
-          "statement": "The Gauss–Manin connection of F_f is ω_f."
+          "statement": "For the selected datum C and its integrable differential input ω, C.connection(colemanPrimitive(C,ω))=ω."
         },
         {
           "name": "TauCeti.GeneralizedHeegner.colemanPrimitive_frobenius",
           "role": "characterisation",
-          "statement": "P(Φ)F_f is a rigid section on a Frobenius neighborhood."
+          "statement": "Evaluate the datum’s actual polynomial P on its Frobenius operator: P(Φ)colemanPrimitive(C,ω) lies in C.rigid."
         },
         {
           "name": "TauCeti.GeneralizedHeegner.colemanPrimitive_choice",
           "role": "extensionality",
-          "statement": "Any two admissible primitives differ by a global horizontal section."
+          "statement": "Any section with the same differential differs from the constructed primitive by a section in the kernel of C.connection. Within the selected normalization complement this difference vanishes; globally weight zero retains constant ambiguity."
         }
       ],
       "tests": [
         {
           "name": "TauCeti.GeneralizedHeegner.colemanPrimitive_zero",
           "kind": "degenerate",
-          "statement": "With the zero normalization the zero differential has zero Coleman primitive."
+          "statement": "In the affine disk fixture of sections a+bX with evaluation-at-zero normalization, the constructed primitive of the zero differential is zero."
         },
         {
           "name": "TauCeti.GeneralizedHeegner.colemanPrimitive_constants",
           "kind": "non-example",
-          "statement": "In weight zero adding a horizontal constant preserves the differential, so uniqueness without normalization is false."
+          "statement": "For the constructed primitive of dX, adding the actual constant section 1 preserves the connection value 1 but changes the section and makes its value at zero equal to 1. Thus the unnormalized weight-zero uniqueness claim fails."
         },
         {
           "name": "TauCeti.GeneralizedHeegner.colemanPrimitive_residue_test",
           "kind": "compatibility",
-          "statement": "Changing a primitive by a horizontal constant does not change its pairing with a zero-residue differential."
+          "statement": "For the same constructed primitive of dX, a constant change c contributes c times the X⁻¹ coefficient of dX to the residue pairing. That coefficient is zero, so the change contributes zero; no assumed zero bilinear pairing replaces the residue functional."
+        },
+        {
+          "name": "TauCeti.GeneralizedHeegner.colemanPrimitive_nonzero",
+          "kind": "computation",
+          "statement": "On affine sections a+bX, use ∇(a+bX)=b dX, Φ(X)=5X, P(T)=T−5 and F(0)=0. Compute colemanPrimitive(dX)=X, its connection is dX and P(Φ)X=0; P(1)=−4 is nonzero. An identically zero primitive fails this nonzero-input test."
         }
       ],
       "uses": [
@@ -2296,12 +2322,13 @@
       "kind": "construction",
       "statement": "Let H_m[n] be the O_p[Gal(K_m[n]/K)] submodule generated by the restrictions of z_n and by the trace classes α_j[n], j≤m, and H_∞[n]=lim_cor H_m[n]. LV Proposition 4.5 constructs β[n]∈H_∞[n] with β₀[n]=Φz_n and cor_{K_∞[nℓ]/K_∞[n]}β[nℓ]=a_ℓβ[n] for the permitted inert ℓ. The finite Δ corestriction and p∤h_K are retained; this construction is not identified with the CH α-stabilized sequence without the normalization comparison.",
       "hypotheses": [
-        "LV admissible triple; finite quotient of order prime to p; tower control."
+        "LV admissible triple; finite quotient of order prime to p; tower control.",
+        "The additive suggested realization takes a specific compact Hausdorff norm tower, closed level subgroups, continuous vertical/tame maps, the input z and its operator Φ. Finite solvability is joint: for every finite conductor/edge set and finite height there is a partial family satisfying membership, bottom, norm and tame equations. The source trace modules prove this finite condition before compactness supplies the infinite family. This is weaker than assuming the desired infinite lift; independent choices at each conductor are insufficient. Vertical and tame maps preserve their selected level groups and the vertical/tame corestriction square commutes."
       ],
       "proofSteps": [
-        "Use the trace-polynomial stable image to make each finite bottom lift nonempty.",
-        "Use compactness of the inverse system of finite lift sets for a simultaneous norm-compatible class.",
-        "Transport the tame trace relation through the universal lift construction."
+        "Use LV Corollary 4.3 and the presented trace modules in Proposition 4.5 to lift Φx at every finite height. This verifies finite solvability, not surjectivity of arbitrary corestriction maps.",
+        "For a fixed finite divisor set, transport a common presented-module lift through its conductor maps. Their commuting tame squares give a jointly compatible family; separate conductor-by-conductor choices do not provide this.",
+        "Use compactness first for the height limit and then for all finite divisor sets. Closed coordinate constraints give a family in the actual inverse-limit carrier with the prescribed bottom and tame laws. The suggested common-carrier additive version is a testable realization, while varying Galois cohomology carriers and coefficient linearity are imported from SelmerIwasawaCohomology:L3."
       ],
       "prerequisites": [
         "GeneralizedHeegnerCycles:GH.3/trace-polynomial-intersection",
@@ -2332,34 +2359,44 @@
         {
           "name": "TauCeti.GeneralizedHeegner.universalNormClass_bottom",
           "role": "projection",
-          "statement": "β₀[n]=Φz_n."
+          "statement": "The constructed joint family has β₀[n]=Φz_n, using the Φ and z supplied to that construction."
         },
         {
           "name": "TauCeti.GeneralizedHeegner.universalNormClass_norm",
           "role": "relation",
-          "statement": "Each upper component corestricts to the preceding component."
+          "statement": "The supplied tower’s cor_m[n] sends β_{m+1}[n] to β_m[n]; these are not laws for subsequently chosen unrelated maps."
         },
         {
           "name": "TauCeti.GeneralizedHeegner.universalNormClass_tame",
           "role": "functoriality",
-          "statement": "Corestriction along an inert auxiliary prime is multiplication by a_ℓ."
+          "statement": "For an edge nℓ→n of the same supplied tower, its tame corestriction sends β_m[nℓ] to a_ℓβ_m[n]. Both values belong to one simultaneously selected family."
+        },
+        {
+          "name": "TauCeti.GeneralizedHeegner.universalNormClass_exists",
+          "role": "constructor",
+          "statement": "Joint finite solvability in a compact Hausdorff tower implies a nonempty carrier of families satisfying every bottom, membership, vertical norm and tame equation. The proof uses closed constraints and the finite intersection property."
         }
       ],
       "tests": [
         {
           "name": "TauCeti.GeneralizedHeegner.universalNormClass_bottom_test",
           "kind": "characterisation",
-          "statement": "The zero-level projection keeps Φ rather than dropping it."
+          "statement": "In the compact Z/5 fixture with Φ=2, z_0=1 and z_n=3 for n>0, the actual constructed bottom values are β_0[0]=2 and β_0[1]=1; β_0[0] differs from z_0. This detects dropping Φ."
         },
         {
           "name": "TauCeti.GeneralizedHeegner.universalNormClass_zero",
           "kind": "degenerate",
-          "statement": "Choosing the zero lift for zero geometric input gives the zero sequence."
+          "statement": "The constructor explicitly selects the zero family for zero geometric input, in the same fixed norm tower."
         },
         {
           "name": "TauCeti.GeneralizedHeegner.universalNormClass_two_steps",
           "kind": "compatibility",
-          "statement": "Two successive corestrictions equal the corestriction across two levels."
+          "statement": "In that fixture the vertical norm is multiplication by 2. The constructed components at conductor 0 are β_1=1 and β_2=3, and two applications of the actual corestriction give β_0=2. Replacing corestriction by zero fails the first nonzero bottom constraint."
+        },
+        {
+          "name": "TauCeti.GeneralizedHeegner.universalNormClass_tame_test",
+          "kind": "compatibility",
+          "statement": "In the same simultaneously constructed Z/5 family, the tame edge 1→0 has identity corestriction and a_ℓ=3. At height 1, β_1[1]=3 while β_1[0]=1, so the actual tame equation is 3=3·1."
         }
       ],
       "uses": [
@@ -3872,7 +3909,7 @@
     },
     {
       "supplier": "ComplexMultiplicationAndExplicitReciprocity:CM.1",
-      "need": "General CM A/H with End_H(A)=O_K, including exceptional unit fields; normalized Hodge characters and ideal action; the Tate module and CM character of B=Res_{H_K/K}A; decomposition of its full Sym^{2r−2} Tate module after coefficient extension, the G_K-equivariant χ projector after the finite-order twist χ_t (same conductor as χ, unique up to a Hilbert class character), and integral projector/class-inclusion denominators. Do not infer this from the false Sym/Ind isomorphism in CH §4.4. Also supply marked-isogeny descent to H̃·H_c beyond HE.1’s restricted unit fields.",
+      "need": "General CM A/H with End_H(A)=O_K, including exceptional unit fields; normalized Hodge characters and ideal action; the Tate module and CM character of B=Res_{H_K/K}A; decomposition of its full Sym^{2r−2} Tate module after coefficient extension, the G_K-equivariant χ projector after the finite-order twist χ_t (same conductor as χ, unique up to a Hilbert class character), and integral projector/class-inclusion denominators. Do not infer this from the false Sym/Ind isomorphism in CH §4.4. Also supply marked-isogeny descent to H̃·H_c beyond HE.1’s restricted unit fields. Supply the algebraically closed characteristic-zero point realization, target-order classification and the equality between finite-isogeny degree and geometric-kernel cardinality, with composition and marked ideal-torsion compatibility.",
       "neededBy": [
         "GeneralizedHeegnerCycles:GH.0/cm-elliptic-curve-and-its-hodge-splitting",
         "GeneralizedHeegnerCycles:GH.1/character-projected-heegner-class",
@@ -3923,7 +3960,7 @@
     },
     {
       "supplier": "PadicDifferentialEquationsAndRigidCohomology:RD.4",
-      "need": "BDP §3.5 algebraic/rigid wide-open curve comparison with overconvergent coefficients, invariance under shrinking Frobenius neighborhoods, annular and cusp residues, rigid residue theorem and the Cech–de Rham cup-product formula. RD.3 supplies the F-isocrystal carrier separately; these exact wide-open comparisons need proof, not just a formal site map.",
+      "need": "BDP §3.5 algebraic/rigid wide-open curve comparison with overconvergent coefficients, invariance under shrinking Frobenius neighborhoods, annular and cusp residues, rigid residue theorem and the Cech–de Rham cup-product formula. RD.3 supplies the F-isocrystal carrier separately; these exact wide-open comparisons need proof, not just a formal site map. Export the actual locally analytic/rigid section and differential carriers, connection and F-linear Frobenius polynomial action, and the admissible image witness for the modular differential (BDP Lemma 3.14/Theorem 3.15), including weight-zero normalization and the residue-disk comparison.",
       "neededBy": [
         "GeneralizedHeegnerCycles:GH.1/coleman-primitive",
         "GeneralizedHeegnerCycles:GH.1/parabolic-residue-pairing"
@@ -4014,8 +4051,7 @@
       "status": "planned",
       "remaining": [
         "Higher-weight universal-family export",
-        "Product realizations and CM good model",
-        "Suggested interfaces and discriminating geometric tests"
+        "Product realizations and CM good model"
       ],
       "note": "Every target has a declaration node; proof closure awaits the recorded supplier exports and named refinements."
     },
@@ -4028,8 +4064,7 @@
         "Geometric syntomic regulator comparison",
         "Classical-cycle source comparison",
         "Wide-open residue and Coleman comparison export",
-        "Rational Gysin and continuous extension adapter",
-        "Suggested interfaces and discriminating geometric tests"
+        "Rational Gysin and continuous extension adapter"
       ],
       "note": "Every target has a declaration node; proof closure awaits the recorded supplier exports and named refinements."
     },
@@ -4046,8 +4081,7 @@
       "status": "planned",
       "remaining": [
         "Bottom conductor and full/half unit normalization",
-        "LV universal-norm identification",
-        "Suggested interfaces and discriminating geometric tests"
+        "LV universal-norm identification"
       ],
       "note": "Every target has a declaration node; proof closure awaits the recorded supplier exports and named refinements."
     },
@@ -4292,22 +4326,6 @@
       "stages": [
         "GeneralizedHeegnerCycles:GH.1"
       ]
-    },
-    {
-      "title": "Suggested interfaces and discriminating geometric tests",
-      "neededBy": [
-        "GeneralizedHeegnerCycles:GH.0/cm-elliptic-curve-and-its-hodge-splitting",
-        "GeneralizedHeegnerCycles:GH.0/cm-projector-and-symmetric-power",
-        "GeneralizedHeegnerCycles:GH.1/isogenies-of-conductor-c-prime-to-n",
-        "GeneralizedHeegnerCycles:GH.1/coleman-primitive",
-        "GeneralizedHeegnerCycles:GH.3/universal-norm-heegner-class"
-      ],
-      "detail": "The CM action, signed permutation, marked conductor, admissible Coleman primitive and inverse-limit norm carrier are not tested by the current named arithmetic/linear examples. Replace the detached identities with fixtures referring to these objects; include a nonzero primitive test and a norm tower whose maps and bottom constraint are part of the universalNormClass input. Protocol §13 permits missing owner conditions, but does not make unrelated examples tests of an object. See the completed independent review for exact examples and the reader synchronization required.",
-      "stages": [
-        "GeneralizedHeegnerCycles:GH.0",
-        "GeneralizedHeegnerCycles:GH.1",
-        "GeneralizedHeegnerCycles:GH.3"
-      ]
     }
   ],
   "sourceIssues": [
@@ -4377,7 +4395,7 @@
       "source": "castella-hsieh",
       "kind": "misprint",
       "locator": "July 2, 2022 author copy, proof of Theorem 6.4, p.28, final displayed congruence; not a finding against the 2018 version of record",
-      "printed": "dimF Sel(K, Vf,χ ) ≡ dimF (φ) Sel(K, Vf,χφ ) ≡ \u000f(Vf,χ ) (mod 2),",
+      "printed": "The final displayed congruence in the proof uses the root sign ε as the parity residue.",
       "correction": "The final parity residue is (1−ε(V_f,χ))/2 modulo 2, rather than ε(V_f,χ) modulo 2. The statement of Theorem 6.4 remains the parity equality.",
       "reason": "The preceding paragraph gives dimension 0 for root sign +1 and dimension 1 for root sign −1. Both +1 and −1 are odd, so the printed residue cannot encode the former case.",
       "affects": "the proof",
@@ -4420,7 +4438,7 @@
       "source": "longo-vigni",
       "kind": "misprint",
       "locator": "arXiv:1605.03168v1, §4.4, p.18, proof of Theorem 4.12, Claim 2; published text not accessible in this run",
-      "printed": "aug(γℓ ) = aug(Φ)",
+      "printed": "The augmented trace-polynomial values are asserted equal as scalars.",
       "correction": "Use equality of generated ideals aug(γ_ℓ)O_p=aug(Φ)O_p for all sufficiently large ℓ, as in the preceding paragraph. Scalar values need not become equal.",
       "reason": "Corollary 4.3 and the recurrence prove eventual equality of ideals, with a unit factor permitted. For example, a nonzero scalar sequence satisfying x_(m+2)=a_p x_(m+1)−p^(k−1)x_m cannot be eventually constant unless a_p−p^(k−1)=1. The lifting argument only needs ideal equality.",
       "affects": "the proof",
@@ -4441,7 +4459,7 @@
       "source": "castella-hsieh",
       "kind": "error",
       "locator": "July 2, 2022 author copy §4.4 p.17; same display in author-hosted publisher-formatted Math. Ann. 370 (2018), §4.4 p.593 (castella-hsieh-published)",
-      "printed": "Sym^{2r−2} T_p(B)(1−r) ⊗ O_F ≃ Ind_{G_H_K}^{G_K} S^{r−1}(A) ⊗ O_F",
+      "printed": "The display identifies the full symmetric power of the Weil-restriction Tate module with induction of the corresponding symmetric-power module of A.",
       "correction": "Delete the asserted isomorphism for the literal full symmetric-power carrier. If an induced symmetric-power carrier is intended instead, it must be defined separately with its own character projection and class inclusion; this review does not identify it with the full symmetric power.",
       "reason": "Write h=[H_K:K] and m=2r−2. The rational ranks are binomial(2h+m−1,m) and h(m+1). For h=2,m=2 they are 10 and 6, and for m=0 they are 1 and h. A Tate twist and coefficient extension do not change ranks. Symmetric powers do not commute with induction. The character projection on the literal full Sym can be checked separately and is the requested CM.1 adapter.",
       "affects": "the proof",
