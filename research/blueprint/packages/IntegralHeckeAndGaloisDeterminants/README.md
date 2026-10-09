@@ -17,21 +17,20 @@ This roadmap owns determinant polynomial laws and their particular reconstructio
 | Mathlib module and derived categories | `ModuleCat`, `DerivedCategory`, `DerivedCategory.Q`, `DerivedCategory.Qh` and `ModuleCat.finite_ext`. Build finite derived morphism modules by truncation induction. Reuse `ModuleCat.restrictScalars`, `Module.compHom` and `CategoryTheory.Functor.mapExtLinearMap` for GMA extensions with their actual module actions. |
 | Mathlib quotient, local and topological algebra | `TwoSidedIdeal`, `TwoSidedIdeal.span`, `Submodule.mkQ`, `IsIdempotentElem.Corner`, `HenselianLocalRing`, `IsDiscreteValuationRing`, `IsFractionRing`, `IsAdicComplete`, `IsAdic`, `Continuous.ext_on`, and `RingTheory.Sequence.IsWeaklyRegular`. A corner has identity e; it is not a unital subalgebra with identity 1. |
 | Tau Ceti **SemisimpleAlgebras**, layers 0, 2, 3 and 4 | Jacobson radical unit criteria; Artin–Wedderburn at its artinian hypotheses; density and double centralizers after the appropriate dimension bound; finite-dimensional central-simple splitting over the center. The determinant-specific boundedness and inseparable norm factors are developed here. |
-| **SemisimpleAlgebrasPartII:SA2, SA3** | Morita and characteristic-coefficient descent for Azumaya algebras. General faithfully flat or étale matrix splitting and reduced-norm descent extend that same owner, using its shared `SchemeAndStackFoundations:key/scheme-brauer` carrier. Reuse Mathlib `IsAzumaya`. |
+| Mathlib `IsAzumaya` | The Azumaya predicate: finite projective, faithful, with `R ⊗ Rᵒᵖ → End(R)` bijective. The faithfully flat matrix splitting it does not provide is a target of IHG.0. |
 | Tau Ceti **ReductiveGroups**, layer 9 | Integral reductive group schemes and the GLₙ/GSp₂ₙ point and coordinate dictionaries. Use the genuine group-scheme carrier, with an invertible alternating form for symplectic similitudes. |
-| **LanglandsParameterStacks:LP3** | Invariant coordinate rings O[Hᵐ]^(H⁰), reindexing and multiplication pullbacks, closed-orbit separation, disconnected complete reducibility, finite generation, and free-orbit formal slices. Its integral rational comodule theory must supply derived scheme invariants, induction, good filtrations, tensor closure, universal coefficients and cohomological products. |
+| Tau Ceti `TauCeti.Comodule` (`Algebra/Coalgebra/Comodule/`) | Right comodules over a coalgebra, the fixed subcomodule `Comodule.fixedSubcomodule`, the abelian category of comodules over a flat coalgebra, `Comodule.tensor` and `Comodule.cofree`. Conjugation invariants, rational cohomology and good filtrations are built on these in IHG.0 and IHG.6. |
 | **ReductiveGroupsPartII:RG2.2, RG2.3** | Bounded-action building fixed points and passage, after finite field extension and conjugation, to a hyperspecial integral model. |
-| **SmoothRepresentationsOfLocalGroups:SR.4** | Integral spherical double-coset generators and normalized Satake with vol(K)=1, after adjoining an invertible square root of q. Apply its general construction to GLₙ and the two specified GSp₄ representations. |
+| **SmoothRepresentationsOfLocalGroups:SR.4** | Integral spherical double-coset generators and normalized Satake with vol(K)=1, after adjoining an invertible square root of q; the GSp₄ spin polynomial with constant term 1, its reciprocal monic form and the comparison with the Calegari–Geraghty normalisation. Apply its general construction to GLₙ and the two specified GSp₄ representations. |
 | Tau Ceti **ClassFieldTheory**, layer 7 | Local Artin reciprocity with an explicit Frobenius normalization and its inverse conversion. |
 | Tau Ceti **Chebotarev**, layer 10 | Density of conjugacy classes of unramified Frobenius in every finite quotient of G_{F,S}. |
 | **PadicMeasuresIwasawaAlgebras:L1** | Completed group algebras over complete adic coefficients and their completed tensor-product comparison with finite coefficient/group quotients. |
-| **VStackSheavesAndLisseCategories:VS2** | Analytic operator localization A[T]→A[T,T⁻¹], comparison with ordinary localization on discrete finite objects, and its needed limit and colimit compatibility. |
-| **ArithmeticGaloisDuality:R02.1** | Continuous H¹, cocycles, coboundaries, twists, restrictions and equivariant maps for topological coefficient modules. A finite module means finitely generated over its coefficient ring, and can be infinite as a set. |
-| **DerivedDeRhamCohomology:DD.1/koszul-complex** and **DD.1/ordinary-quotient-completion** | The single shared Koszul complex, its regular-sequence augmentation to the ordinary quotient, and bounded finite free tensor/K-flat comparison. The higher-rank Buchsbaum–Rim complexes and their specific regularity arguments are constructed here. |
+| Tau Ceti **ProfiniteCohomology**, layer 2 | Explicit continuous cochains, 1-cocycles, coboundaries and H¹ for a topological group acting continuously on a topological module, with restriction and coefficient maps; the cocycle identity is Mathlib's `groupCohomology.IsCocycle₁`, `f(gh) = g • f(h) + f(g)`. A finite module means finitely generated over its coefficient ring, and can be infinite as a set. |
+| Tau Ceti `TauCeti.fittingIdeal` (`RingTheory/FittingIdeal/Basic.lean`, `BaseChange.lean`, `Generators.lean`) | Fitting ideals of a finite module: independence of the presentation (`fittingIdeal_eq_minorsIdeal_ker`), the minors of relation vectors (`Submodule.det_mem_minorsIdeal`, `fittingIdeal_eq_minorsIdealOfSet`) and base change (`fittingIdeal_baseChange`). Fitt₀ below is `fittingIdeal A M 0`. |
 
-The applications to locally symmetric spaces, higher coherent cohomology, automorphic congruences, Iwasawa theory and Galois deformation spaces supply their own geometric Hecke comparisons and classical congruence witnesses. This roadmap specifies the exact algebraic inputs those applications must provide. It does not infer them from the existence of characteristic-zero eigenforms.
+Tau Ceti's `HeckeRing.GL2.Newform.satakeParameters` carries the classical rank-two polynomial X²−a_pX+χ(p)p^(k−1) over ℂ; the rank-two normalisation in IHG.3a only matches coefficient conventions against it. The applications to locally symmetric spaces, higher coherent cohomology, automorphic congruences, Iwasawa theory and Galois deformation spaces supply their own geometric Hecke comparisons and classical congruence witnesses. This roadmap specifies the exact algebraic inputs those applications must provide. It does not infer them from the existence of characteristic-zero eigenforms.
 
-The library vocabulary in this document is that of Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`. A prerequisite to a Tau Ceti roadmap layer refers to that layer's stated development, rather than an assertion that its whole theory is already implemented. A Mathlib prerequisite refers only to the named declaration's scope. In particular, `ModuleCat.finite_ext` needs a noetherian base and two finite modules; it does not assert finite projective dimension. `Module.free_of_flat_of_isLocalRing` also requires finite generation. `IsAzumaya` bundles finite projectivity, faithfulness and the double-sided endomorphism isomorphism, and does not by itself provide a chosen matrix splitting.
+The library vocabulary is that of Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`. A prerequisite to a Tau Ceti roadmap layer refers to that layer's stated development, not to an implemented theory; a Mathlib prerequisite refers only to the named declaration. `ModuleCat.finite_ext` needs a noetherian base and two finite modules and does not assert finite projective dimension; `Module.free_of_flat_of_isLocalRing` requires finite generation; `IsAzumaya` bundles finite projectivity, faithfulness and the two-sided endomorphism isomorphism without a chosen matrix splitting.
 
 ## Conventions and construction order
 
@@ -43,7 +42,7 @@ For group determinants, A[G] is Mathlib's `MonoidAlgebra A G`. The dual pulls ba
 
 Write ε for the p-adic cyclotomic character. At an unramified place with residue cardinality q, arithmetic Frobenius has ε=q and geometric Frobenius has ε=q⁻¹. They are inverse conjugacy classes. A chosen Artin map must name its convention. Normalize spherical Haar measure by vol(K)=1, write T₀=1 for GLₙ, and take s²=q with s a unit in the Satake coefficient ring. For GSp₄, T₀ denotes the central double coset and is invertible; the full multiplier μ is retained separately from detρ=μ². Tensoring a contragredient with θ gives multiplier μ⁻¹θ².
 
-Complete local rings carry their maximal-ideal-adic topology, unless another specified ideal supplies it. Continuous determinant means continuity of each group characteristic coefficient. Galois interpolation fixes the same finite ramification set S throughout a limit. Fitting ideals are zeroth Fitting ideals; for a finite module a finite list of generators is enough, while its relation module can be infinitely generated. All maximal minors of finite relation selections are then used.
+Complete local rings carry their maximal-ideal-adic topology, unless another specified ideal supplies it. Continuous determinant means continuity of each group characteristic coefficient. Galois interpolation fixes the same finite ramification set S throughout a limit. Fitting ideals are zeroth Fitting ideals, Tau Ceti's `TauCeti.fittingIdeal A M 0`; for a finite module a finite list of generators is enough, while its relation module can be infinitely generated. All maximal minors of finite relation selections are then used.
 
 For Ribet modules let α=χψ⁻¹ and use the left action g·m=α(g)m. The cocycle equation is κ(gh)=κ(g)+α(g)κ(h), and the coboundary attached to y is (α(g)−1)y. Local quotient relations use κ(g)−(α(g)−1)y. Keep the quotient constituent's actual vector module and its S_J-action in every Ext statement; the image in ambient Ext consists exactly of extensions restricting from that same quotient.
 
@@ -479,37 +478,65 @@ Tests: On an invertible rank-one module, scalar a has determinant a. The identit
 
 Uses: `exteriorPower.map`, [The determinant of a matrix representation](#target6). Sources: [Chenevier](#ref-chenevier-det), §1.5 matrix example and its local finite-projective extension, p.9.
 
+<a id="target254"></a>
+
+**Faithfully flat matrix splitting of an Azumaya algebra.** Let R be an Azumaya A-algebra (Mathlib's IsAzumaya) of constant rank d². There is a faithfully flat commutative A-algebra A′, a finite product of finite étale algebras over the members of a Zariski cover of Spec A, with an A′-algebra isomorphism A′⊗_A R≅M_d(A′). Conversely, a finite projective A-algebra with such a splitting is Azumaya of constant rank d².
+
+Localize at a prime and split along a maximal étale subalgebra; the fibrewise central-simple criterion gives the converse.
+
+Uses: `IsAzumaya`, `Module.Finite`, `Module.Projective`. Sources: [Grothendieck](#ref-groth66), Théorème 5.1, conditions (ii), (iii) and (iii) bis, p.210.
+
 <a id="target119"></a>
 
 **Azumaya reduced-norm determinant.** For an Azumaya A-algebra R of constant rank d², its reduced norm Nrd_R:R→A is the unique degree-d determinant law that becomes Matrix.det under every faithfully flat matrix splitting. Its representing coordinate ring Γ^d_A(R)^ab is canonically A.
 
-Use the matrix-splitting and reduced-norm descent interface of SemisimpleAlgebrasPartII:SA2/SA3. Its general splitting-existence theorem must be provided for this use, rather than assumed from the IsAzumaya predicate.
+Define the law after a faithfully flat matrix splitting and descend it; two splittings differ by an automorphism of a matrix algebra, which preserves the determinant.
 
 API: `Determinant.ofAzumaya`: The degree-d reduced-norm determinant; `Determinant.ofAzumaya_split`: Under a matrix splitting it becomes Matrix.det; `Determinant.ofAzumaya_unique`: Every degree-d determinant on R equals the reduced norm.
 
 Tests: For R=M₂(A), the norm is ad−bc. For R=A,d=1, the norm is the identity. For the Hamilton quaternion algebra over R, Nrd(a+bi+cj+dk)=a²+b²+c²+d².
 
-Uses: `IsAzumaya`, [Determinant coordinate ring](#target113), [The determinant of a matrix representation](#target6). Sources: [Chenevier](#ref-chenevier-det), Example 1.7(ii), p.10 and Example 2.5, p.24.
+Uses: [Faithfully flat matrix splitting of an Azumaya algebra](#target254), [Determinant coordinate ring](#target113), [The determinant of a matrix representation](#target6). Sources: [Chenevier](#ref-chenevier-det), Example 1.7(ii), p.10 and Example 2.5, p.24.
 
 ### Generalized reductive invariant evaluations
 
+<a id="target257"></a>
+
+**Invariant coordinate algebras under conjugation.** Let O be a commutative ring, H an affine O-group scheme with Hopf algebra O[H] (Tau Ceti ReductiveGroups, layer 9, for the split reductive ones), and N≤H a closed subgroup scheme given by a Hopf-algebra surjection O[H]→O[N]. For m≥1, O[H^m]=O[H]^(⊗m) is a right O[N]-comodule (Tau Ceti `TauCeti.Comodule`) through simultaneous conjugation (h₁,…,h_m)↦(nh₁n⁻¹,…,nh_mn⁻¹), and C_m=O[H^m]^N is its fixed subcomodule (`TauCeti.Comodule.fixedSubcomodule`). A map of index sets ζ:{1,…,n}→{1,…,m} induces the pullback O[H^n]→O[H^m] along H^m→H^n, (h_i)↦(h_ζ(j)), and multiplication of the last two coordinates induces O[H^(n+1)]→O[H^(n+2)]; both are N-equivariant and restrict to C_n→C_m and C_(n+1)→C_(n+2). Evaluation at points h∈H(A)^m satisfies the reindexing and multiplication equations of the next target. For generalized reductive H, N is the identity component H⁰, given as data; for split connected H (GLₙ, GSp₄), N=H.
+
+API: `InvariantCoordinate.ofGroupScheme`: The family C_m with its reindexing and multiplication pullbacks, as an `InvariantCoordinateInput`; `InvariantCoordinate.mem_iff`: f∈C_m iff the coaction of simultaneous conjugation sends f to f⊗1; `InvariantCoordinate.eval`: Evaluation at H(A)^m is a compatible invariant-coordinate evaluation.
+
+Tests: For H=N=G_m, C_m is all of O[t₁^(±1),…,t_m^(±1)], since conjugation is trivial. For H=N=GL₂ and m=1, the trace a+d and the determinant ad−bc lie in C₁ and the coordinate a does not. For N trivial, C_m=O[H^m], and the pullback along multiplication evaluates at (h₁,h₂) as f evaluates at h₁h₂.
+
+Uses: [ReductiveGroups, layer 9][reductivegroups9], `TauCeti.Comodule`, `TauCeti.Comodule.fixedSubcomodule`, `HopfAlgebra`. Sources: [Quast](#ref-q23), Definition 3.1, pp.10–11; [DKSW](#ref-dksw23), Definition 4.1, p.22 (the comodule form of a GL₂/ℤ-module).
+
+<a id="target256"></a>
+
+**Rational cohomology of a flat affine group scheme.** For a flat affine O-group scheme H, the H-modules are the right O[H]-comodules (Tau Ceti `TauCeti.Comodule`, an abelian category for flat O[H]), with invariants V^H the fixed subcomodule. The rational cohomology groups H^i(H,V) are the right derived functors of V↦V^H on this abelian category; H^0(H,V)=V^H, a short exact sequence of H-modules gives a long exact cohomology sequence, and the cofree comodules V⊗_O O[H] are injective, so cohomology is computed by cofree resolutions.
+
+API: `RationalCohomology`: H^i(H,V) as the i-th right derived functor of invariants; `RationalCohomology.zero`: H^0(H,V)=V^H; `RationalCohomology.longExactSequence`: The long exact sequence of a short exact sequence of H-modules; `RationalCohomology.cofree_acyclic`: H^i(H,V⊗_O O[H])=0 for i>0.
+
+Tests: For the trivial group scheme every H^i, i>0, vanishes and H^0(H,V)=V. For G=GL₂/ℤ acting on its adjoint representation ℤA⊕ℤB⊕ℤC⊕ℤD, H^0(G,−) is the scalar line ℤ(A+D). For the lower Borel B of GL₂/ℤ and the character ℤ(1)=ℤB, H^0(B,ℤ(1))=0 while H^1(B,ℤ(1))≅ℤ.
+
+Uses: `TauCeti.Comodule`, `TauCeti.Comodule.fixedSubcomodule`, `TauCeti.Comodule.cofree`, `CategoryTheory.Abelian`. Sources: [DKSW](#ref-dksw23), Definition 4.3, p.23; Example 4.2, p.22; Lemma 4.12, pp.24–25.
+
 <a id="target120"></a>
 
-**Compatible invariant-coordinate evaluation.** For the H⁰-invariant coordinate algebras Cₙ=O[Hⁿ]^(H⁰), the group H(A), and a commutative O-algebra A, compatible evaluation is a family Eₙ:Cₙ→Map(H(A)ⁿ,A) of O-algebra maps satisfying Eₘ(C(ζ)f)(h)=Eₙ(f)(h∘ζ) for every coordinate reindexing ζ, and Eₙ₊₂(C(mul)f)(h)=Eₙ₊₁(f)(mergeLast(h)). Evaluation at the actual scheme points has these equations. The supplied coordinate carrier and evaluation must be those of H; the equations are expressible before LP3 supplies the scheme interface.
+**Compatible invariant-coordinate evaluation.** For the H⁰-invariant coordinate algebras Cₙ=O[Hⁿ]^(H⁰), the group H(A), and a commutative O-algebra A, compatible evaluation is a family Eₙ:Cₙ→Map(H(A)ⁿ,A) of O-algebra maps satisfying Eₘ(C(ζ)f)(h)=Eₙ(f)(h∘ζ) for every coordinate reindexing ζ, and Eₙ₊₂(C(mul)f)(h)=Eₙ₊₁(f)(mergeLast(h)). Evaluation at the actual scheme points has these equations. The coordinate carrier is the family C_n of the preceding target and evaluation is at its scheme points.
 
-API: `InvariantEvaluation`: Bundle the evaluation algebra maps with their explicit reindexing and multiplication equations; `InvariantEvaluation.reindex_eq`: Evaluation of a coordinate pullback is evaluation on the reindexed tuple; `InvariantEvaluation.multiply_eq`: Evaluation of the final-product pullback is evaluation on the tuple with its last two entries multiplied; `InvariantEvaluation.IsRegularMatrixInvariant`: Over an algebraically closed field k, each evaluated GL_d invariant is a polynomial in entries and inverse determinants, invariant under simultaneous conjugation. This condition suffices for the GL₂ unipotent orbit-degeneration examples.
+API: `InvariantEvaluation`: The evaluation algebra maps with their reindexing and multiplication equations; `InvariantEvaluation.reindex_eq`: Evaluating a coordinate pullback is evaluating on the reindexed tuple; `InvariantEvaluation.multiply_eq`: Evaluating the final-product pullback is evaluating on the tuple with its last two entries multiplied; `InvariantEvaluation.IsRegularMatrixInvariant`: Over algebraically closed k, each evaluated GL_d invariant is a polynomial in entries and inverse determinants, invariant under simultaneous conjugation; this suffices for the GL₂ unipotent orbit-degeneration examples.
 
-Tests: Swapping the two coordinates before evaluating gives the same value as evaluating on the swapped point tuple. For f in the one-coordinate invariant algebra, its multiplication pullback evaluates at (h₁,h₂) as f evaluates at h₁h₂. An algebra-map family with a witnessed failure of a reindexing equation cannot be the evaluation family of any compatible evaluation datum.
+Tests: Swapping the two coordinates before evaluating equals evaluating on the swapped tuple. For f in the one-coordinate invariant algebra, its multiplication pullback evaluates at (h₁,h₂) as f at h₁h₂. A family of algebra maps violating a reindexing equation is not a compatible evaluation.
 
-Uses: `LanglandsParameterStacks:LP3`, `MvPolynomial`. Sources: [Quast](#ref-q23), Definition 3.1 and the representation evaluation immediately following it, pp.11–12; [BHKT](#ref-bhkt19), Definition 4.1 and Lemma 4.3, pp.13–14.
+Uses: [Invariant coordinate algebras under conjugation](#target257), `MvPolynomial`. Sources: [Quast](#ref-q23), Definition 3.1 and the representation evaluation immediately following it, pp.11–12; [BHKT](#ref-bhkt19), Definition 4.1 and Lemma 4.3, pp.13–14.
 
 <a id="target121"></a>
 
 **Generalized reductive pseudocharacter.** Let O be noetherian and H a generalized reductive O-group scheme: affine smooth, H⁰ reductive, and H/H⁰ finite étale. An H-pseudocharacter of Γ with values in a commutative O-algebra A is a family of O-algebra maps Θ_m:O[H^m]^(H⁰)→Map(Γ^m,A), m≥1, compatible with every reindexing of coordinates and with multiplication of the final two coordinates. Conjugation is by H⁰, including when H is disconnected.
 
-Assumptions: For construction from ρ:Γ→H(A), supply compatible invariant-coordinate evaluation E; an arbitrary family of algebra homomorphisms is insufficient.
+Assumptions: H⁰≤H is the identity component, given as the closed normal subgroup scheme datum of [Invariant coordinate algebras under conjugation](#target257), with H⁰ reductive and H/H⁰ finite étale as hypotheses on that datum. For construction from ρ:Γ→H(A), supply compatible invariant-coordinate evaluation E; an arbitrary family of algebra homomorphisms is insufficient.
 
-API: `ReductivePseudocharacter`: The family Θ_m with reindexing and multiplication equations; `ReductivePseudocharacter.ofRepresentation`: For ρ:Γ→H(A) and compatible evaluation E, Θρ,ₙ(f)(γ)=Eₙ(f)(ρ∘γ). The bundled equations and the homomorphism law prove the pseudocharacter axioms; `ReductivePseudocharacter.ext`: Equality is pointwise equality of every Θ_m on every invariant and tuple; `ReductivePseudocharacter.map`: A coefficient map A→B postcomposes every Θ_m; a group map restricts it; a group-scheme map H→H′ pulls back invariants; `ReductivePseudocharacter.ofRepresentation_theta`: For compatible E, the constructor evaluates as Θρ,ₙ(f)(γ)=Eₙ(f)(ρ∘γ).
+API: `ReductivePseudocharacter`: The family Θ_m with reindexing and multiplication equations; `ReductivePseudocharacter.ofRepresentation`: For ρ:Γ→H(A) and compatible evaluation E, Θρ,ₙ(f)(γ)=Eₙ(f)(ρ∘γ); the equations and the homomorphism law give the axioms; `ReductivePseudocharacter.ext`: Pointwise equality of every Θ_m; `ReductivePseudocharacter.map`: Coefficient maps postcompose, group maps restrict, group-scheme maps pull back invariants; `ReductivePseudocharacter.ofRepresentation_theta`: Θρ,ₙ(f)(γ)=Eₙ(f)(ρ∘γ).
 
 Tests: For H=G_m, it is a unit character Γ→Aˣ. With compatible E, the trivial representation evaluates f at the identity tuple. Over algebraically closed k with regular simultaneous-conjugation-invariant GL₂ evaluation E, the nontrivial upper-unipotent representation of Z and the trivial rank-two representation have equal pseudocharacters.
 
@@ -543,7 +570,7 @@ Uses: [Generalized reductive pseudocharacter](#target121). Sources: [Quast](#ref
 
 **Determinants and GLn excursion pseudocharacters.** For every commutative ring A, group Γ and d≥1, Chenevier determinants on A[Γ] are naturally in bijection with GL_d-valued Lafforgue pseudocharacters. This comparison needs no invertibility of d! and is distinct from comparison with the trace-only pseudocharacter.
 
-Uses: [Generalized reductive pseudocharacter](#target121), [Vaccarino universal determinant theorem](#target115). Sources: [Emerson–Morel](#ref-em23), Theorem 4.1 and proof, pp.13–14.
+Uses: [Generalized reductive pseudocharacter](#target121), [Vaccarino universal determinant theorem](#target115). Sources: [Emerson–Morel](#ref-em23), Theorem 4.1 and proof, pp.13–15.
 
 <a id="target125"></a>
 
@@ -559,7 +586,7 @@ Uses: [Continuous reductive pseudocharacter](#target122). Sources: [Paškūnas�
 
 ## IHG.3a — Hecke polynomial and multiplier conventions
 
-This algebraic part of IHG.3 precedes reconstruction so its full multiplier identity can be used in symplectic coefficient descent. Satake and reciprocity are imported with the stated normalization; the explicit coefficient comparisons are proved here.
+This algebraic part of IHG.3 precedes reconstruction so its full multiplier identity can be used in symplectic coefficient descent. Satake, reciprocity and the GSp₄ spin polynomial with its Satake interpretation are imported from SmoothRepresentationsOfLocalGroups:SR.4 with the stated normalization; the explicit coefficient comparisons are proved here.
 
 <a id="target50"></a>
 
@@ -619,35 +646,19 @@ Uses: [Integral GLn Hecke polynomial](#target50), [Arithmetic and geometric Frob
 
 Assumptions: The classical geometric owner supplies its eigenvalues and the stated arithmetic Frobenius characteristic polynomial; this comparison only identifies the two coefficient conventions.
 
-Uses: [Integral GLn Hecke polynomial](#target50), [Arithmetic and geometric Frobenius conversion](#target55). Sources: [ACC](#ref-acc23), §2.2.5, equation (2.2.6), n=2 specialization, pp.921–922.
+Uses: [Integral GLn Hecke polynomial](#target50), [Arithmetic and geometric Frobenius conversion](#target55), `HeckeRing.GL2.Newform.satakeParameters`. Sources: [ACC](#ref-acc23), §2.2.5, equation (2.2.6), n=2 specialization, pp.921–922.
 
 ### Spin, dual-spin and full multiplier
 
-<a id="target59"></a>
-
-**GSp4 spin Hecke polynomial.** For q and commuting T_0,T_1,T_2, define Q(X)=X⁴−T_1X³+(qT_2+(q³+q)T_0)X²−q³T_0T_1X+q⁶T_0². At an unramified GSp4 place these are the double cosets of diag(q,q,q,q), diag(q,q,1,1), diag(q²,q,q,1), respectively, with q replaced in the matrices by the uniformizer.
-
-API: `Spherical.gsp4SpinPolynomial`: The displayed degree-four Q; `Spherical.gsp4SpinPolynomial_constant`: Q(0)=q⁶T_0²; `Spherical.gsp4SpinPolynomial_map`: Every coefficient map transports Q with q,T_0,T_1,T_2.
-
-Tests: For q=T_0=1,T_1=4,T_2=4, Q=(X−1)⁴. The constant term is the square of q³T_0. Its X² coefficient contains (q³+q)T_0, so it is not the GL4 polynomial with the same three symbols.
-
-Uses: [Integral GLn Hecke polynomial](#target50). Sources: [BCGP](#ref-bcgp25), §1.8.27, pp.16–17; [Genestier–Tilouine](#ref-gt05), §3, pp.193–196; [Calegari–Geraghty 2020](#ref-cg20), Definition 6.7, p.838.
-
-<a id="target60"></a>
-
-**Satake interpretation of the spin polynomial.** With the spin identification of the dual GSp4 from BCGP25 §1.8.8, Q(X)=q⁶ det(Xq^{-3/2}−spin(t)), after applying the normalized Satake isomorphism and adjoining √q. Its four roots are q^{3/2} times the spin roots. Its similitude is q³T_0, including the central Hecke character.
-
-Uses: [GSp4 spin Hecke polynomial](#target59). Sources: [BCGP](#ref-bcgp25), §1.8.8 and §1.8.27, pp.9–10, 16–17; [Genestier–Tilouine](#ref-gt05), §3, pp.193–196.
-
 <a id="target61"></a>
 
-**GSp4 dual-spin Hecke polynomial.** Assume q,T_0 are units. Define P(X)=X⁴−T_0^{-1}T_1X³+T_0^{-2}(qT_2+(q³+q)T_0)X²−q³T_0^{-2}T_1X+q⁶T_0^{-2}. It satisfies P(X)=X⁴Q(q³/X)/Q(0). Its roots are q³ divided by the spin-Q roots.
+**GSp4 dual-spin Hecke polynomial.** Let Q(X)=X⁴−T_1X³+(qT_2+(q³+q)T_0)X²−q³T_0T_1X+q⁶T_0² be the monic spin polynomial of SmoothRepresentationsOfLocalGroups:SR.4 (its `SpinPolynomial.reciprocal`), with T_0, T_1, T_2 the double cosets of diag(q,q,q,q), diag(q,q,1,1), diag(q²,q,q,1), that is SR.4's T0, T2, T1. Assume q,T_0 are units. Define P(X)=X⁴−T_0^{-1}T_1X³+T_0^{-2}(qT_2+(q³+q)T_0)X²−q³T_0^{-2}T_1X+q⁶T_0^{-2}. It satisfies P(X)=X⁴Q(q³/X)/Q(0). Its roots are q³ divided by the spin-Q roots.
 
 API: `Spherical.gsp4DualSpinPolynomial`: The displayed polynomial P with inverted central operator T_0; `Spherical.gsp4DualSpinPolynomial_reciprocal`: P(X)=X⁴Q(q³/X)/Q(0); `Spherical.gsp4DualSpinPolynomial_constant`: P(0)=q⁶T_0^{-2}.
 
 Tests: For q=T_0=1, P=Q. For roots β_j of Q, P has roots q³β_j^{-1}. If T_0 is not fixed to 1, P and Q have different X³ coefficients, −T_1/T_0 and −T_1.
 
-Uses: [GSp4 spin Hecke polynomial](#target59), [Normalized reciprocal characteristic polynomial](#target54). Sources: [BCGP](#ref-bcgp25), Equation (1.8.27) and Lemma 1.8.28, p.17.
+Uses: `SmoothRepresentationsOfLocalGroups:SR.4`, [Normalized reciprocal characteristic polynomial](#target54). Sources: [BCGP](#ref-bcgp25), Equation (1.8.27) and Lemma 1.8.28, p.17.
 
 <a id="target62"></a>
 
@@ -660,16 +671,6 @@ Uses: [GSp4 dual-spin Hecke polynomial](#target61), [Characteristic polynomial u
 **Full similitude character under duality and twist.** If ρ:G→GSp4(A) has similitude μ:G→A×, then ρ∨⊗θ has similitude μ^{-1}θ². In particular the cohomological dual-spin representation ρ∨⊗ε^{-3} has μ^{-1}ε^{-6}. At BCGP25 geometric Frobenius these values are q³T_0 for ρ and q³T_0^{-1} for the converted representation. The determinant μ² does not determine μ, especially at residue characteristic two.
 
 Uses: [Geometric-Frobenius dual-spin conversion](#target62), [ReductiveGroups, layer 9][reductivegroups9]. Sources: [BCGP](#ref-bcgp25), §1.8.7–8 and Lemma 1.8.28, pp.9–10, 16–17.
-
-<a id="target250"></a>
-
-**Reversed spin Hecke polynomial.** With Q the monic spin polynomial above, define Q_rev(X)=X⁴Q(X⁻¹)=1−T₁X+(qT₂+(q³+q)T₀)X²−q³T₀T₁X³+q⁶T₀²X⁴. Pilloni’s indexing is T_(ℓ,2)=T₁, T_(ℓ,1)=T₂, T_(ℓ,0)=T₀. This polynomial has constant term 1 and corresponds to det(1−Xr); it is distinct from the monic inverse-root polynomial.
-
-API: `Spherical.gsp4ReversedSpinPolynomial`: The constant-one polynomial displayed above; `Spherical.gsp4ReversedSpinPolynomial_constant`: Its constant coefficient is 1; `Spherical.gsp4ReversedSpinPolynomial_det`: For charpoly(r)=Q, det(1−Xr)=Q_rev.
-
-Tests: The coefficient of X⁰ is 1 and of X⁴ is q⁶T₀². Pilloni’s T_(ℓ,2) is the coefficient paired with X¹, matching CG20’s T₁. For q=2,T₀=1, the leading coefficient is 64; Q_rev is not the monic characteristic polynomial of r⁻¹.
-
-Uses: [GSp4 spin Hecke polynomial](#target59), [Normalized reciprocal characteristic polynomial](#target54). Sources: [Pilloni](#ref-pilloni20), §5.1.3 pp.21–23; §15.2 p.107.
 
 ## IHG.1 — Cayley–Hamilton algebras and reconstruction
 
@@ -827,11 +828,11 @@ Uses: [Semisimple reconstruction of field determinants](#target139). Sources: [C
 
 <a id="target141"></a>
 
-**Residual determinant properties.** For D:R→A with A local and residue field k, its residual determinant is D̄:R/mR→k. It is split when its faithful quotient (R/mR)/ker(D̄) is a finite product of full matrix algebras over k; absolutely irreducible if its reconstructed representation over k̄ is irreducible; multiplicity-free if that representation has pairwise inequivalent irreducible constituents of multiplicity one. Splitness and absolute irreducibility are separate conditions. Existence of any k-representation realizing D̄ is weaker than splitness.
+**Residual determinant properties.** For D:R→A with A local and residue field k, the residual determinant is D̄:R/mR→k. It is split when its faithful quotient (R/mR)/ker(D̄) is a finite product of full matrix algebras over k; absolutely irreducible if its reconstructed representation over k̄ is irreducible; multiplicity-free if that representation has pairwise inequivalent irreducible constituents. Splitness and absolute irreducibility are independent; a k-representation realizing D̄ is weaker than splitness.
 
 API: `Determinant.residual`: Scalar extension to A/m; `Determinant.IsSplit`: The faithful quotient is a finite product of full matrix algebras over k, expressed by a surjective map with kernel ker D; mere k-linear realizability is insufficient; `Determinant.IsAbsolutelyIrreducible`: Positive-dimensional irreducibility after algebraically closed coefficient extensions, independently of splitness over the base field; `Determinant.IsMultiplicityFree`: Every simple constituent occurs once after algebraic closure.
 
-Tests: A one-dimensional character determinant is split and absolutely irreducible. χ² is split but not multiplicity-free, including in characteristic two. χψ for two distinct k-valued characters is split multiplicity-free and reducible. The degree-two Hamilton quaternion reduced norm over ℝ is absolutely irreducible after algebraic closure and is not split over ℝ. The norm ℂ→ℝ is realized by the real regular two-dimensional representation and is geometrically multiplicity-free, but its faithful quotient ℂ is not a product of full matrix algebras over ℝ, so it is not split.
+Tests: A one-dimensional character determinant is split and absolutely irreducible. χ² is split but not multiplicity-free, including in characteristic two. χψ for distinct k-valued characters is split, multiplicity-free and reducible. The Hamilton quaternion reduced norm over ℝ is absolutely irreducible and not split over ℝ. The norm ℂ→ℝ is realized by the real regular representation and is geometrically multiplicity-free, but its faithful quotient ℂ is not a product of matrix algebras over ℝ, so it is not split.
 
 Uses: [Scalar extension of determinants](#target9), [Semisimple reconstruction of field determinants](#target139). Sources: [Chenevier](#ref-chenevier-det), Definition-Proposition 2.18 and Definition 2.19, pp.32–33; corrected splitness equivalence (E17).
 
@@ -903,9 +904,9 @@ Uses: [Adapted GMA representation ring](#target149), [The determinant of a matri
 
 <a id="target151"></a>
 
-**Ordered residual GMA constituents.** For henselian local A with residue field k and chosen GMA data E on S with block sizes nᵢ, the residual dictionary consists of the actual algebra representations ρ̄ᵢ:k⊗ₐS→M_nᵢ(k). Their determinants are absolutely irreducible, the vector modules are pairwise nonisomorphic, ρ̄ᵢ(eⱼ)=δᵢⱼ, the diagonal matrix identifications reduce to ρ̄ᵢ on eᵢSeᵢ, and the residual GMA determinant equals the product of these determinants as a law after every commutative k-algebra extension. For J⊆mₐ, reduce a factor over A/J through the canonical coefficient map A/J→k and the canonical tensor reassociation k⊗_(A/J)((A/J)⊗ₐS)≅k⊗ₐS.
+**Ordered residual GMA constituents.** For henselian local A with residue field k and GMA data E on S with block sizes nᵢ, the residual dictionary consists of algebra representations ρ̄ᵢ:k⊗ₐS→M_nᵢ(k) whose determinants are absolutely irreducible, whose vector modules are pairwise nonisomorphic, with ρ̄ᵢ(eⱼ)=δᵢⱼ, the diagonal identifications reducing to ρ̄ᵢ on eᵢSeᵢ, and the residual GMA determinant equal to the product of these determinants as a law. For J⊆mₐ, a factor over A/J is reduced through A/J→k and k⊗_(A/J)((A/J)⊗ₐS)≅k⊗ₐS.
 
-API: `GMA.ResidualData`: The ordered residual representations, absolute irreducibility, nonisomorphism, projector equations, diagonal compatibility and full-law product; `GMA.quotientResidue`: For J⊆mₐ, the coefficient algebra map A/J→k induced by A→k; `GMA.quotientResidualTransport`: The k-algebra tensor reassociation k⊗_(A/J)((A/J)⊗ₐS)≅k⊗ₐS, for associative S; `GMA.residualFactor`: Reduce an entire determinant over A/J to k⊗ₐS using the canonical reassociation.
+API: `GMA.ResidualData`: The ordered residual representations with absolute irreducibility, nonisomorphism, projector equations, diagonal compatibility and the full-law product; `GMA.quotientResidue`: A/J→k for J⊆mₐ; `GMA.quotientResidualTransport`: k⊗_(A/J)((A/J)⊗ₐS)≅k⊗ₐS for associative S; `GMA.residualFactor`: Reduce a determinant over A/J to k⊗ₐS along it.
 
 Tests: On the i-th residual constituent, eᵢ has characteristic polynomial (X−1)^nᵢ and eⱼ, j≠i, has characteristic polynomial X^nᵢ. For S the upper triangular algebra over a field and x=[[a,b],[0,c]], the ordered residual characters evaluate at a and c and their determinant product evaluates at ac. Two labelled isomorphic residual modules cannot be residual dictionary data, even if the determinant product has the requested total degree.
 
@@ -921,7 +922,7 @@ Uses: [Henselian irreducible reconstruction](#target146), [Ordered residual GMA 
 
 <a id="target153"></a>
 
-**Partition reducibility for determinants.** For henselian local A, a determinant D with split multiplicity-free residual law ∏det ρ̄ᵢ and a partition P of these labelled constituents into nonempty parts, there is a canonical ideal I_P. For each J⊆mₐ, I_P⊆J iff a unique family of full determinant factors F_m of degrees ∑_(i∈P_m)nᵢ satisfies D mod J=∏F_m and F_m mod mₐ=∏_(i∈P_m)det ρ̄ᵢ. The kernel of D mod J lies in every factor kernel. For any quotient R→S with CH(D)⊆ker(R→S)⊆ker D and adapted residual GMA data E, I_P is the sum of opposite primitive-entry pairing ideals between different parts; it is independent of the quotient and adapted data. If d! is invertible, taking traces recovers BC09 Proposition 1.5.1.
+**Partition reducibility for determinants.** For henselian local A, a determinant D with split multiplicity-free residual law ∏det ρ̄ᵢ and a partition P of these labelled constituents into nonempty parts, there is a canonical ideal I_P: for each J⊆mₐ, I_P⊆J iff a unique family of determinant factors F_m of degrees ∑_(i∈P_m)nᵢ satisfies D mod J=∏F_m and F_m mod mₐ=∏_(i∈P_m)det ρ̄ᵢ; the kernel of D mod J lies in every factor kernel. For any quotient R→S with CH(D)⊆ker(R→S)⊆ker D and adapted residual GMA data E, I_P is the sum of opposite primitive-entry pairing ideals between different parts, independent of the quotient and the data. If d! is invertible, traces recover BC09 Proposition 1.5.1.
 
 Assumptions: A henselian local; D̄ split multiplicity-free; partition parts nonempty and labelled; J⊆mₐ. The trace corollary alone requires d! invertible.
 
@@ -973,7 +974,7 @@ Uses: [GMA extension module](#target155), [GMA quotient constituent module](#tar
 
 <a id="target156"></a>
 
-**Off-diagonal extension injection.** Let A be henselian local, D a split residually multiplicity-free determinant on R, and q:R→S a surjective chosen quotient with CH(D)⊆ker q⊆ker D, GMA data E and its ordered residual dictionary, and D_E∘q=D as full laws. Let P have distinct singleton parts {i},{j}, and let I_P⊆J⊆mₐ. With Eᵢⱼ=Aᵢⱼ/∑_(k≠i,j)AᵢkA_kⱼ and the actual quotient vector modules Mᵢ,Mⱼ over S_J, there is an injective (A/J)-linear map Hom_A(Eᵢⱼ,A/J)→Ext¹_(R_J)(q_J* Mⱼ,q_J* Mᵢ). Its image equals the range of the restriction-of-scalars map Ext¹_(S_J)(Mⱼ,Mᵢ)→Ext¹_(R_J)(q_J* Mⱼ,q_J* Mᵢ).
+**Off-diagonal extension injection.** Let A be henselian local, D a split residually multiplicity-free determinant on R, q:R→S a surjective quotient with CH(D)⊆ker q⊆ker D, GMA data E with its ordered residual dictionary and D_E∘q=D as laws. Let P have distinct singleton parts {i},{j} and I_P⊆J⊆mₐ. With Eᵢⱼ=Aᵢⱼ/∑_(k≠i,j)AᵢkA_kⱼ and the quotient vector modules Mᵢ,Mⱼ over S_J, there is an injective (A/J)-linear map Hom_A(Eᵢⱼ,A/J)→Ext¹_(R_J)(q_J* Mⱼ,q_J* Mᵢ) whose image is the range of restriction of scalars Ext¹_(S_J)(Mⱼ,Mᵢ)→Ext¹_(R_J)(q_J* Mⱼ,q_J* Mᵢ).
 
 Assumptions: Use the same chosen Cayley–Hamilton quotient, labelled residual dictionary, singleton parts and quotient constituent modules throughout. Neither Ext endpoint is an arbitrary module.
 
@@ -1003,7 +1004,7 @@ Uses: [Two-block determinant reducibility ideal](#target152), [Off-diagonal exte
 
 Assumptions: Specialization is along an explicit coefficient algebra map φ:Z(G,d)→B, and Dφ is the determinant represented by that same map. Matrix specialization assumes B henselian local, d>0, and Dφ residual split absolutely irreducible.
 
-API: `CayleyHamilton.universalAlgebra`: The actual CH quotient R(G,d) over Z(G,d); `CayleyHamilton.universalAlgebra_quotientMap`: The canonical quotient map Z(G,d)[G]→R(G,d); `CayleyHamilton.universalSpecialization`: For the explicit coefficient map φ:Z(G,d)→B, the determinant Dφ represented by φ; `CayleyHamilton.universalAlgebra_lift`: With D_S Cayley–Hamilton and full-law compatibility D_S∘r=Dφ, induce the coefficient-compatible map R(G,d)→S; `CayleyHamilton.universalAlgebra_lift_single`: The lift sends each coefficient c times group element g to r(φ(c)⊗g); `CayleyHamilton.universalAlgebra_lift_unique`: A coefficient-compatible map with these values on every group-algebra coefficient equals the induced lift; `CayleyHamilton.universalAlgebra_baseChange`: Scalar extension B⊗_(Z(G,d))R(G,d) along the specified φ; `CayleyHamilton.universalAlgebra_specializationEquiv`: Identify this scalar extension with B[G]/CH(Dφ).
+API: `CayleyHamilton.universalAlgebra`: The CH quotient R(G,d) over Z(G,d); `CayleyHamilton.universalAlgebra_quotientMap`: Z(G,d)[G]→R(G,d); `CayleyHamilton.universalSpecialization`: The determinant Dφ represented by φ:Z(G,d)→B; `CayleyHamilton.universalAlgebra_lift`: For Cayley–Hamilton D_S with D_S∘r=Dφ as laws, the coefficient-compatible map R(G,d)→S; `CayleyHamilton.universalAlgebra_lift_single`: It sends c·g to r(φ(c)⊗g); `CayleyHamilton.universalAlgebra_lift_unique`: A coefficient-compatible map with these values equals the lift; `CayleyHamilton.universalAlgebra_baseChange`: B⊗_(Z(G,d))R(G,d) along φ; `CayleyHamilton.universalAlgebra_specializationEquiv`: It is B[G]/CH(Dφ).
 
 Tests: For d=1 the universal Cayley–Hamilton algebra equals the universal character ring. For G={1}, R(G,d)=Z for d≥1. For henselian local B and d>0, if the specialized universal determinant Dφ has split absolutely irreducible residue, B⊗_(Z(G,d))R(G,d)≅M_d(B). The coefficient map φ and residual properties belong to Dφ itself.
 
@@ -1015,7 +1016,7 @@ Uses: [The kernel contains the Cayley–Hamilton ideal](#target35), [Henselian i
 
 Prove the finite-H¹ radical-cotangent bound, finite residual dimension in the profinite Cayley–Hamilton algebra, and topological Nakayama. The argument in small characteristic requires its own proof. Also prove the generated Cayley–Hamilton ideal is closed and the three topologies agree; a bounded-sum image assertion does not establish closedness.
 
-Uses: [Universal Cayley–Hamilton algebra](#target160), `ArithmeticGaloisDuality:R02.1`. Sources: [Wang–Erickson](#ref-we18), Proposition 3.6 and proof, pp.21–23.
+Uses: [Universal Cayley–Hamilton algebra](#target160), [ProfiniteCohomology, layer 2][profinitecohomology2]. Sources: [Wang–Erickson](#ref-we18), Proposition 3.6 and proof, pp.21–23.
 
 <a id="target162"></a>
 
@@ -1033,7 +1034,7 @@ Uses: [Henselian irreducible reconstruction](#target146), [The trace of a determ
 
 **Symplectic coefficient descent with prescribed multiplier.** Let A⊂B be complete noetherian local rings with their maximal-ideal adic topologies and the same residue field of characteristic p>2, with the inclusion inducing that residue identification. Let G be profinite and ρ:G→GL₄(B) continuous and residually absolutely irreducible, with all traces in A. Fix a nondegenerate alternating form J over A and a continuous full multiplier ν:G→Aˣ such that ρ(g)ᵗJρ(g)=ν(g)J over B. There are a continuous A-valued representation ρ_A with this same form and full multiplier and a conjugating P∈GSp(J,B), P≡1 mod m_B, with ρ_A(g)=Pρ(g)P⁻¹.
 
-Assumptions: The inclusion is injective, local and residue-compatible; both coefficient rings are complete noetherian local and carry their adic topologies. G is compact Hausdorff and totally disconnected; the matrix representation and full multiplier are continuous. J is alternating and invertible. The multiplier is the specified A-valued unit character, including its sign. Residual absolute irreducibility is the actual residual determinant predicate; residue characteristic is strictly greater than two.
+Assumptions: The inclusion is injective, local and residue-compatible; both rings are complete noetherian local with adic topologies; G is profinite; ρ and ν are continuous; J is alternating and invertible; ν is the specified A-valued unit character, sign included; residual absolute irreducibility is the residual determinant predicate; the residue characteristic exceeds two.
 
 First descend in GL₄. Then construct the descended invertible alternating form with the prescribed multiplier and select a symplectic basis, controlling the near-identity conjugator. The p>2 hypothesis in this general result is essential to the cited argument.
 
@@ -1081,9 +1082,9 @@ Uses: `Matrix.toLinAlgEquiv'`, `Module.Projective`, `Module.free_of_flat_of_isLo
 
 <a id="target171"></a>
 
-**Local lifts compatible with global quotient reconstruction.** In CN23 §3.2, let Ã→A be the local surjection between finite flat coefficient O-algebras, with Ã[1/p]=∏Kᵢ, global A-representation ρ with absolutely irreducible residue, and integral generic 2n-dimensional determinant D̃ whose reduction factors as detρ times the other prescribed determinant. Let H⊂G have disjoint residual constituents for the two selected factors and a selected H-stable n-dimensional generic subrepresentation in each Kᵢ. The common GMA corner construction gives an integral H-representation λ over Ã and a global compressed A-representation σ with full determinant detρ. There is an Ã-valued local representation reducing exactly to ρ|H, conjugate over Ã to λ, whose each generic fiber is conjugate to the selected subrepresentation.
+**Local lifts compatible with global quotient reconstruction.** In CN23 §3.2, let Ã→A be the local surjection between finite flat coefficient O-algebras with Ã[1/p]=∏Kᵢ, ρ a global A-representation with absolutely irreducible residue, and D̃ an integral generic 2n-dimensional determinant whose reduction is detρ times the other prescribed determinant. Let H⊂G have disjoint residual constituents for the two factors and a selected H-stable n-dimensional generic subrepresentation in each Kᵢ. The common GMA corner gives an integral H-representation λ over Ã and a compressed A-representation σ with determinant detρ. There is an Ã-valued local representation reducing to ρ|H, conjugate over Ã to λ, each of whose generic fibers is conjugate to the selected subrepresentation.
 
-Assumptions: The direction is a surjective local coefficient map Ã→A; Ã and A are complete noetherian local with adic topologies. The local integral projectors and compression constructions supply one chosen labelled residual GMA dictionary and corner basis; return products vanish in ker(Ã→A). A residual separator in the H-group algebra acts as identity on the selected constituent and zero on the other; the local residual constituents are disjoint. The global compressed σ and local integral λ use that same corner. Their reduction relation is exact and detσ=detρ as full laws, with ρ residually absolutely irreducible. Each generic fiber of λ is identified by a chosen corner basis with its selected local constituent. All representations, residual labels and corner identifications are part of the input.
+Assumptions: Ã→A is a surjective local map of complete noetherian local rings with adic topologies. The local projectors and compressions supply one labelled residual GMA dictionary and corner basis, with return products in ker(Ã→A); a residual separator in the H-group algebra is the identity on the selected constituent and zero on the other, and the local residual constituents are disjoint. σ and λ use that corner, their reduction relation is exact, detσ=detρ as full laws, ρ is residually absolutely irreducible, and each generic fiber of λ is identified by a chosen corner basis with its selected constituent. All representations, labels and corner identifications are input.
 
 Uses: [Global compression modulo reducibility](#target168), [Integral compression on a stable local summand](#target169), [Absolutely irreducible coefficient descent](#target163), [GMA quotient constituent module](#target154), [Inner conjugacy of local matrix algebras](#target170). Sources: [Caraiani–Newton](#ref-cn23), Proposition 3.2.4(3), p.50.
 
@@ -1119,7 +1120,7 @@ Uses: [One-entry extension of a stable tuple](#target174). Sources: [Quast](#ref
 
 **Multiplicativity of reconstructed points.** The assignments γ↦h from one-entry-extension satisfy ρ(γγ′)=ρ(γ)ρ(γ′), ρ(1)=1 and Θ_ρ=Θ.
 
-Assumptions: Representation evaluation is the compatible point-evaluation datum of the actual invariant coordinate algebras, as in IHG.0/invariant-evaluation. The prototype still omits unavailable LP3 group-scheme and orbit hypotheses explicitly.
+Assumptions: H and its invariant coordinate algebras are as in [Invariant coordinate algebras under conjugation](#target257); evaluation is at scheme points ([Compatible invariant-coordinate evaluation](#target120)).
 
 Uses: [Two-entry extension of a stable tuple](#target175). Sources: [Quast](#ref-q23), End of proof of Theorem 3.7, p.15.
 
@@ -1127,7 +1128,7 @@ Uses: [Two-entry extension of a stable tuple](#target175). Sources: [Quast](#ref
 
 **Reductive pseudocharacter reconstruction.** For generalized reductive H over noetherian O, any H-pseudocharacter of Γ with values in an algebraically closed O-field k is realized by an H-completely reducible homomorphism Γ→H(k), unique up to H⁰(k)-conjugation. This uses full invariant tuples, not only the trace of a chosen linear representation.
 
-Assumptions: Representation evaluation is the compatible point-evaluation datum of the actual invariant coordinate algebras, as in IHG.0/invariant-evaluation. The prototype still omits unavailable LP3 group-scheme and orbit hypotheses explicitly.
+Assumptions: H and its invariant coordinate algebras are as in [Invariant coordinate algebras under conjugation](#target257); evaluation is at scheme points ([Compatible invariant-coordinate evaluation](#target120)).
 
 Uses: [Multiplicativity of reconstructed points](#target176). Sources: [Quast](#ref-q23), Theorem 3.7, pp.13–15.
 
@@ -1135,7 +1136,7 @@ Uses: [Multiplicativity of reconstructed points](#target176). Sources: [Quast](#
 
 **Discrete continuity of reductive reconstruction.** For a split connected reductive H/Z, profinite Γ and algebraically closed discrete field k, a continuous H-pseudocharacter reconstructs a continuous H-completely reducible representation. It factors through a finite quotient of Γ.
 
-Assumptions: Representation evaluation is the compatible point-evaluation datum of the actual invariant coordinate algebras, as in IHG.0/invariant-evaluation. The prototype still omits unavailable LP3 group-scheme and orbit hypotheses explicitly.
+Assumptions: H and its invariant coordinate algebras are as in [Invariant coordinate algebras under conjugation](#target257); evaluation is at scheme points ([Compatible invariant-coordinate evaluation](#target120)).
 
 Uses: [Reductive pseudocharacter reconstruction](#target177), [Continuous reductive pseudocharacter](#target122). Sources: [BHKT](#ref-bhkt19), Proposition 4.7(iii) and proof, p.16.
 
@@ -1143,7 +1144,7 @@ Uses: [Reductive pseudocharacter reconstruction](#target177), [Continuous reduct
 
 **Characteristic-zero valued continuity of reconstruction.** For split connected reductive H/Z, profinite Γ and algebraically closed characteristic-zero field k carrying a rank-one valuation topology, continuity of the H-pseudocharacter implies continuity of its H-completely reducible realization.
 
-Assumptions: Representation evaluation is the compatible point-evaluation datum of the actual invariant coordinate algebras, as in IHG.0/invariant-evaluation. The prototype still omits unavailable LP3 group-scheme and orbit hypotheses explicitly.
+Assumptions: H and its invariant coordinate algebras are as in [Invariant coordinate algebras under conjugation](#target257); evaluation is at scheme points ([Compatible invariant-coordinate evaluation](#target120)).
 
 Prove continuity from the invariant evaluation functions using the valued reconstruction argument. Compactness or boundedness of the reconstructed image must be derived rather than assumed during that proof.
 
@@ -1177,7 +1178,7 @@ Uses: [Universal reductive pseudocharacter ring](#target181), [Continuous reduct
 
 **Schur-type reductive deformation comparison.** Let H/O be split connected reductive, O a complete DVR, and ρ̄:Γ→H(k) absolutely H-completely reducible with trivial scheme-theoretic centralizer in H_ad. Under the smooth free-orbit slice hypotheses of BHKT19 Theorem 4.10, strict H_ad-deformations of ρ̄ and pseudodeformations of Θ_ρ̄ are naturally equivalent.
 
-Assumptions: Representation evaluation is the compatible point-evaluation datum of the actual invariant coordinate algebras, as in IHG.0/invariant-evaluation. The prototype still omits unavailable LP3 group-scheme and orbit hypotheses explicitly.
+Assumptions: H and its invariant coordinate algebras are as in [Invariant coordinate algebras under conjugation](#target257); evaluation is at scheme points ([Compatible invariant-coordinate evaluation](#target120)).
 
 Uses: [Reductive pseudocharacter reconstruction](#target177), [Universal reductive pseudocharacter ring](#target181). Sources: [BHKT](#ref-bhkt19), Theorem 4.10 and proof, pp.17–18.
 
@@ -1215,7 +1216,7 @@ Uses: `DerivedCategory`. Sources: [Bökstedt–Neeman](#ref-bn93), Proposition 3
 
 **Chain Hecke image.** For an A-linear chain complex C and a commutative A-algebra action α:H→End_Ch(A)(C), define T_ch(C)=im(α) as an A-subalgebra of the chain endomorphism ring.
 
-API: `HeckeImage.chain`: For an A-linear chain complex C and a commutative A-algebra action α:H→End_Ch(A)(C), define T_ch(C)=im(α) as an A-subalgebra of the chain endomorphism ring; `HeckeImage.mem_chain`: Membership is existence of a preimage h∈H; `HeckeImage.chain_quotient`: The image is H modulo the kernel of the specified action.
+API: `HeckeImage.chain`: T_ch(C); `HeckeImage.mem_chain`: Membership is existence of a preimage h∈H; `HeckeImage.chain_quotient`: The image is H modulo the kernel of the specified action.
 
 Tests: For the zero complex the chain image is the zero ring. The scalar action on A in degree zero has image A. For C=(A --1→ A), the identity chain map is nonzero if A≠0 although its homotopy and cohomology images are zero.
 
@@ -1225,7 +1226,7 @@ Uses: `CochainComplex`, `AlgHom.range`. Sources: [ACC](#ref-acc23), §2.1.2, pp.
 
 **Homotopy Hecke image.** For an A-linear chain action on C, define T_hom(C) as the image of H in End_K(A)(C), after passing to chain-homotopy classes.
 
-API: `HeckeImage.homotopy`: For an A-linear chain action on C, define T_hom(C) as the image of H in End_K(A)(C), after passing to chain-homotopy classes; `HeckeImage.mem_homotopy`: Membership is existence of a preimage h∈H; `HeckeImage.homotopy_quotient`: The image is H modulo the kernel of the specified action.
+API: `HeckeImage.homotopy`: T_hom(C); `HeckeImage.mem_homotopy`: Membership is existence of a preimage h∈H; `HeckeImage.homotopy_quotient`: The image is H modulo the kernel of the specified action.
 
 Tests: For a contractible complex the homotopy image is the zero ring. For A in degree zero, the scalar image is A. Chain-homotopic actions of each h give the same homotopy-image action; equal cohomology alone does not imply this.
 
@@ -1245,7 +1246,7 @@ Uses: `DerivedCategory`. Sources: [ACC](#ref-acc23), §2.2.3 immediately before 
 
 **Cohomology Hecke image.** For an A-linear action on C, define T_coh(C) as the image of H in the product ring ∏_iEnd_A(H^i(C)). For bounded cohomology only finitely many nonzero factors contribute.
 
-API: `HeckeImage.cohomology`: For an A-linear action on C, define T_coh(C) as the image of H in the product ring ∏_iEnd_A(H^i(C)). For bounded cohomology only finitely many nonzero factors contribute; `HeckeImage.mem_cohomology`: Membership is existence of a preimage h∈H; `HeckeImage.cohomology_quotient`: The image is H modulo the kernel of the specified action.
+API: `HeckeImage.cohomology`: T_coh(C); `HeckeImage.mem_cohomology`: Membership is existence of a preimage h∈H; `HeckeImage.cohomology_quotient`: The image is H modulo the kernel of the specified action.
 
 Tests: Every acyclic complex has zero cohomology image. For A in degree zero the scalar image is A. The nonzero off-diagonal Ext¹ ghost in the two-degree example maps to zero in the cohomology action.
 
@@ -1253,7 +1254,7 @@ Uses: `DerivedCategory.homologyFunctor`, `AlgHom.range`. Sources: [ACC](#ref-acc
 
 <a id="target40"></a>
 
-**Finite generation of the derived Hecke image.** If A is commutative noetherian and C has bounded finite cohomology, T_der(C) is a finite A-module for every commutative A-algebra action H→End_D(A)(C).
+**Finite generation of the derived Hecke image.** If A is commutative noetherian and C has bounded finite cohomology, T_der(C) is a finite A-module for every commutative A-algebra action H→End_D(A)(C). The source states this for a complete noetherian local ring and a perfect complex; the form here is a submodule of the finite module End_D(A)(C) of the preceding target.
 
 Uses: [Derived Hecke image](#target39), [Finite morphism modules for bounded finite cohomology](#target37). Sources: [ACC](#ref-acc23), §1.2, p.905.
 
@@ -1347,7 +1348,7 @@ Uses: [Localized summands of a derived Hecke action](#target47). Sources: [Caleg
 
 <a id="target68"></a>
 
-**Ordinary part of a bounded finite complex.** For artinian local A and C with bounded finite cohomology, the ordinary localization C⊗_{A[T]}A[T,T^{-1}] is e_TC, with the complementary summand killed by a power of T. Its cohomology is the ordinary direct factor of H^i(C). The solid analytic localization of BP26 agrees on these discrete finite objects.
+**Ordinary part of a bounded finite complex.** For artinian local A and C with bounded finite cohomology, the ordinary localization C⊗_{A[T]}A[T,T^{-1}] is e_TC, with the complementary summand killed by a power of T. Its cohomology is the ordinary direct factor of H^i(C). On these discrete finite objects this is also what the analytic localization of Boxer–Pilloni computes.
 
 For a finite module over an artinian coefficient ring, the complementary factor is genuinely nilpotent and its telescope vanishes. Over a complete local ring topological nilpotence alone is insufficient: the telescope of multiplication by p on ℤₚ is ℚₚ.
 
@@ -1439,9 +1440,9 @@ Uses: [Compatible finite-quotient determinants](#target74), [Roby algebra of mul
 
 <a id="target76"></a>
 
-**Uniform congruence witnesses for classical systems.** For each quotient A/J_r, a congruence witness is a finite family of classical continuous determinants over coefficient rings B_{r,i}, an injective closed ring map A/J_r→∏B_{r,i}, and the assertion that the tuple of every Frobenius characteristic-polynomial coefficient lies in its image. Witnesses include a uniform modulus and compatibility between quotient levels. Geometric density supplies a witness only if it proves these integral congruences.
+**Uniform congruence witnesses for classical systems.** For each quotient A/J_r, a congruence witness is a finite family of classical continuous determinants over coefficient rings B_{r,i}, an injective closed ring map A/J_r→∏B_{r,i}, and the assertion that the tuple of every Frobenius characteristic-polynomial coefficient lies in its image, with a uniform modulus and compatibility between levels. Geometric density supplies a witness only if it proves these integral congruences.
 
-API: `Interpolation.CongruenceWitness`: A single quotient-level witness carries compact Hausdorff coefficients, Hausdorff classical coefficient rings, continuous coefficient embeddings and classical determinants, conjugacy-dense Frobenius, injectivity and coefficient membership. The cross-level uniform modulus remains geometric input; `Interpolation.CongruenceWitness.determinant`: Apply gluing to obtain D_r over A/J_r; `Interpolation.CongruenceWitness.compatible`: Under levelwise congruence compatibility, reductions of the D_r agree by Frobenius uniqueness; `Interpolation.CongruenceWitness.determinant_continuous`: The glued determinant is continuous; `Interpolation.CongruenceWitness.determinant_classical`: Every coefficient extension of the glued determinant equals the prescribed classical determinant as a whole law.
+API: `Interpolation.CongruenceWitness`: One quotient-level witness: compact Hausdorff coefficients, Hausdorff classical coefficient rings, continuous embeddings and classical determinants, conjugacy-dense Frobenius, injectivity and coefficient membership; the cross-level uniform modulus is geometric input; `Interpolation.CongruenceWitness.determinant`: The glued D_r over A/J_r; `Interpolation.CongruenceWitness.compatible`: Levelwise compatible witnesses have compatible reductions, by Frobenius uniqueness; `Interpolation.CongruenceWitness.determinant_continuous`: D_r is continuous; `Interpolation.CongruenceWitness.determinant_classical`: Each coefficient extension of D_r is the prescribed classical determinant as a law.
 
 Tests: One classical determinant already over A/J_r gives the identity embedding witness. Compatible systems over A/I and A/J give the intersection-quotient witness. All field points of k[ε]/ε² see ε as zero; they cannot certify a coefficient ε or a nilpotent perturbation integrally.
 
@@ -1553,39 +1554,17 @@ Uses: [Determinant from a quantified Hecke comparison](#target83), [Henselian ir
 
 **Local conditions and change of lattice.** For a supplied integral block lattice giving a cocycle c:G→M(χ/ψ), the restriction to H is a coboundary exactly when there is y∈M with c(h)=((χ/ψ)(h)−1)y for all h∈H. A lattice change inducing a G-equivariant module map transports the class and these restrictions; a diagonal rescaling multiplies the off-diagonal cocycle by the corresponding ratio. No invariance of Fitting ideals is asserted for nonisomorphic lattice modules.
 
-Uses: [Classical Ribet lattice](#target159), `ArithmeticGaloisDuality:R02.1`. Sources: [DKSW](#ref-dksw23), Theorem 2.1, conditions (ii)–(iv), pp.2–3, 7–8.
+Uses: [Classical Ribet lattice](#target159), [ProfiniteCohomology, layer 2][profinitecohomology2]. Sources: [DKSW](#ref-dksw23), Theorem 2.1, conditions (ii)–(iv), pp.2–3, 7–8.
 
 ## IHG.6 — Integral Ribet modules and Fitting ideals
 
-Construct the cocycle module and its local quotient, then prove the weighted Fitting containment through stabilized relation minors. The proof uses integral scheme invariants and two explicit relation complexes, with generic regularity providing exactness only for the upper-entry complex. Assemble the local and global extension theorems last.
-
-<a id="target94"></a>
-
-**Zeroth Fitting ideal.** For a commutative ring A and a finitely generated A-module M, Fitt₀_A(M) is the ideal generated by all n×n determinants of n relation vectors in the kernel of a chosen surjection A^n→M. The definition permits infinitely many relations and is independent of the chosen finite generating family.
-
-API: `Fitting.zero`: The zeroth Fitting ideal of a finite module; `Fitting.mem_of_relations`: For n generators of M and n relations, their determinant belongs to Fitt₀(M); `Fitting.baseChange`: For any A→B, Fitt₀_B(B⊗_A M)=Fitt₀_A(M)B.
-
-Tests: Fitt₀_Z(Z/6Z)=(6). Fitt₀_A(0)=A, whereas Fitt₀_A(A)=0 for A≠0. For M=(Z/6Z)², Fitt₀_Z(M)=(36), strictly smaller than Ann_Z(M)=(6).
-
-Uses: `Submodule.mkQ`, `Matrix.det`. Sources: [DKSW](#ref-dksw23), §2.2, pp.10–11.
-
-<a id="target184"></a>
-
-**Presentation independence of maximal-minor ideals.** The ideal of maximal relation minors for a finite generating surjection A^n→M is unchanged by adding a redundant generator and its defining relation, changing the generating basis or changing the relation generators. It therefore depends only on M.
-
-Uses: [Zeroth Fitting ideal](#target94). Sources: [DKSW](#ref-dksw23), §2.2, pp.10–11.
+Fitting ideals are Tau Ceti's `TauCeti.fittingIdeal`; only the annihilator bound is added. Construct the cocycle module and its local quotient, then prove the weighted Fitting containment through stabilized relation minors. The proof uses integral scheme invariants and two explicit relation complexes, with generic regularity providing exactness only for the upper-entry complex. Assemble the local and global extension theorems last.
 
 <a id="target185"></a>
 
 **Fitting ideal annihilates a finite module.** For finite M over commutative A, Fitt₀_A(M)⊆Ann_A(M). Equality is not asserted.
 
-Uses: [Presentation independence of maximal-minor ideals](#target184). Sources: [DKSW](#ref-dksw23), Introduction, p.5.
-
-<a id="target186"></a>
-
-**Fitting ideals under scalar extension.** For every A→B and finite A-module M, Fitt₀_B(B⊗_AM)=Fitt₀_A(M)B. In particular Fitt₀_(A/J)(M/JM) is the image of Fitt₀_A(M).
-
-Uses: [Presentation independence of maximal-minor ideals](#target184). Sources: [DKSW](#ref-dksw23), Introduction, p.5; §2.2.
+Uses: `TauCeti.fittingIdeal_eq_minorsIdeal_ker`. Sources: [DKSW](#ref-dksw23), Introduction, p.5.
 
 ### Character differences and the Ribet cocycle
 
@@ -1629,7 +1608,7 @@ API: `IntegralRibet.canonicalCocycle`: The cocycle κ₀ with scalar action χψ
 
 Tests: κ₀(1)=0. For the integral upper-unipotent representation of Z with χ=ψ=1, κ₀(n)=n in M₀≅Z. The underlying function satisfies the continuous cochain API’s twisted cocycle equation, with α(g), rather than α(h), multiplying κ₀(h).
 
-Uses: `ArithmeticGaloisDuality:R02.1`, [Initial Ribet quotient module](#target246). Sources: [DKSW](#ref-dksw23), Lemma 2.3 and proof, p.9.
+Uses: [ProfiniteCohomology, layer 2][profinitecohomology2], [Initial Ribet quotient module](#target246). Sources: [DKSW](#ref-dksw23), Lemma 2.3 and proof, p.9.
 
 <a id="target99"></a>
 
@@ -1653,7 +1632,7 @@ Uses: [Ribet module with local conditions](#target99). Sources: [DKSW](#ref-dksw
 
 **Every cocycle representative generates.** Let (T,m) be local, M a finite T-module and α:G→Tˣ with α(g)≡1 modulo m. If a cocycle κ has T-span M, every cohomologous cocycle κ′(g)=κ(g)+(α(g)−1)y also has T-span M.
 
-Uses: `ArithmeticGaloisDuality:R02.1`. Sources: [DKSW](#ref-dksw23), Theorem 1.1 and §2.1, pp.3,9.
+Uses: [ProfiniteCohomology, layer 2][profinitecohomology2]. Sources: [DKSW](#ref-dksw23), Theorem 1.1 and §2.1, pp.3,9.
 
 <a id="target102"></a>
 
@@ -1661,7 +1640,7 @@ Uses: `ArithmeticGaloisDuality:R02.1`. Sources: [DKSW](#ref-dksw23), Theorem 1.1
 
 Choose a residual character separator, lift its two spectral roots henselianly, and control the products of opposite off-diagonal entries. Use the upper-entry lattice in that basis and its separate local-condition calculation.
 
-Uses: [Zeroth Fitting ideal](#target94), [Character congruence on the group algebra](#target95), `ArithmeticGaloisDuality:R02.1`, [Henselian lifting of matrix units](#target143). Sources: [DKSW](#ref-dksw23), Introduction, pp.4–5.
+Uses: `TauCeti.fittingIdeal`, [Character congruence on the group algebra](#target95), [ProfiniteCohomology, layer 2][profinitecohomology2], [Henselian lifting of matrix units](#target143). Sources: [DKSW](#ref-dksw23), Introduction, pp.4–5.
 
 ### Relation minors and the auxiliary matrices
 
@@ -1669,13 +1648,13 @@ Uses: [Zeroth Fitting ideal](#target94), [Character congruence on the group alge
 
 **Five types of Ribet module relations.** Choose ρ_i=ρ(g_i)−ψ(g_i) spanning Δψ and adjoin y_v. A presentation of N has: (I) linear relations among ρ_i; (II) coefficients δ_ijk from (ρ_i+ν_i)ρ_j=∑δ_ijkρ_k; (III) coefficients of ρ(σ)−ψ(σ), σ∈G_v₀; (IV) those for σ∈I_v; (V) those for σ∈G_v together with ψ(σ)−χ(σ) in the y_v column. Here ν_i=ψ(g_i)−χ(g_i).
 
-Uses: [Ribet module with local conditions](#target99), [Zeroth Fitting ideal](#target94). Sources: [DKSW](#ref-dksw23), §2.2, equations (18)–(24), pp.10–11.
+Uses: [Ribet module with local conditions](#target99), `TauCeti.fittingIdeal`. Sources: [DKSW](#ref-dksw23), §2.2, equations (18)–(24), pp.10–11.
 
 <a id="target188"></a>
 
 **Stabilization of local relation rows.** Adding each locally appearing ρ(σ)−ψ(σ) as a new generator, with a defining relation and a pivot row, changes the presentation but preserves its square relation determinant up to a chosen row/column ordering sign. Local rows then have one pivot and at most one y_v entry.
 
-Uses: [Five types of Ribet module relations](#target187), [Presentation independence of maximal-minor ideals](#target184). Sources: [DKSW](#ref-dksw23), §2.3, pp.11–12.
+Uses: [Five types of Ribet module relations](#target187), `TauCeti.fittingIdeal_eq_minorsIdeal_ker`. Sources: [DKSW](#ref-dksw23), §2.3, pp.11–12.
 
 <a id="target189"></a>
 
@@ -1743,7 +1722,7 @@ Uses: [Formal Ribet matrix ring](#target193). Sources: [DKSW](#ref-dksw23), §3.
 
 **Polarized local character congruence.** For a local triangularization with characters η,ξ and χ,ψ congruence, (ξ(σ)−χ(σ))(ξ(τ)−ψ(τ))+(ξ(τ)−χ(τ))(ξ(σ)−ψ(σ))≡0 modulo Ĩ. Thus if τ∈I_v and ξ(τ)≡χ(τ), the first product vanishes even when σ is outside I_v.
 
-Uses: [Character congruence on the group algebra](#target95). Sources: [DKSW](#ref-dksw23), Lemma 3.2, last local step, equation (47), p.20.
+Uses: [Character congruence on the group algebra](#target95). Sources: [DKSW](#ref-dksw23), Lemma 3.2, last local step, equation (47), pp.20–21.
 
 <a id="target198"></a>
 
@@ -1757,19 +1736,29 @@ Uses: [Trace and determinant invariant subring](#target196), [Trace congruences 
 
 **Integral restriction to the lower Borel.** For G=GL₂/ℤ, its lower Borel B, every rational G-module V and every i≥0, restriction Hᶦ(G,V)→Hᶦ(B,V) is an isomorphism. Cohomology is derived scheme invariants, not cohomology of G(ℤ).
 
-Uses: `LanglandsParameterStacks:LP3`. Sources: [DKSW](#ref-dksw23), Theorem 4.4, p.23.
+Uses: [Rational cohomology of a flat affine group scheme](#target256), [Invariant coordinate algebras under conjugation](#target257). Sources: [DKSW](#ref-dksw23), Theorem 4.4, p.23.
 
 <a id="target200"></a>
 
 **Adjoint weight and dual identities.** For the inverse-conjugation coordinate representation A of B, the submodule V=ℤA⊕ℤB has action A↦A+(y/x)B, B↦(z/x)B. Write ℤ(1)=ℤB. Then ∧²V≅ℤ(1), V*≅V(−1), V⊗V*≅A, and V⊗V≅A(1).
 
-Uses: `LanglandsParameterStacks:LP3`. Sources: [DKSW](#ref-dksw23), Example 4.2, p.22; Lemma 5.10, p.42.
+Uses: `TauCeti.Comodule`, [Rational cohomology of a flat affine group scheme](#target256). Sources: [DKSW](#ref-dksw23), Example 4.2, p.22; Lemma 5.10, p.42.
+
+<a id="target258"></a>
+
+**Good filtrations and acyclicity.** For G=GL₂/ℤ with lower Borel B, algebraic induction of a B-module W is Ind_B^G(W)=(O[G]⊗_ℤW)^B. A homogeneous G-module V has a good filtration if it has a finite filtration whose successive quotients are Ind_B^G(−λ) for dominant weights λ; a G-module has a good filtration if each of its central-weight components does. A G-module with a good filtration is G-acyclic, H^i(G,V)=0 for i>0, and the tensor product of two G-modules with good filtrations has a good filtration.
+
+API: `GoodFiltration`: The predicate, for homogeneous and for arbitrary G-modules; `GoodFiltration.acyclic`: H^i(G,V)=0 for i>0 when V has a good filtration; `GoodFiltration.tensor`: Closure under tensor products.
+
+Tests: The trivial module ℤ=Ind_B^G(0) has a good filtration. The standard representation ℤ² has a good filtration with one step. A module with H^1(G,V)≠0 has no good filtration.
+
+Uses: [Rational cohomology of a flat affine group scheme](#target256), [Adjoint weight and dual identities](#target200). Sources: [DKSW](#ref-dksw23), Definition 4.6 and Theorem 4.7, p.23; Theorem 4.8, p.24.
 
 <a id="target201"></a>
 
 **Good filtrations on adjoint tensor powers.** The integral adjoint representation of GL₂ and each A^⊗k admit good filtrations. Both the standard representation and its dual are dual Weyl modules; the dual is not identified with the standard representation.
 
-Uses: [Adjoint weight and dual identities](#target200). Sources: [DKSW](#ref-dksw23), Corollary 4.9, p.24.
+Uses: [Good filtrations and acyclicity](#target258). Sources: [DKSW](#ref-dksw23), Corollary 4.9, p.24.
 
 <a id="target202"></a>
 
@@ -1809,7 +1798,7 @@ Uses: [Vanishing above the Borel twist](#target203). Sources: [DKSW](#ref-dksw23
 
 **Acyclic triangular matrix coordinate modules.** Let S=ℤ[a_i,b_i,c_i,d_i]/(b₁,…,b_k), with B conjugation, and W a ℤ-flat integral good G-module. Then W⊗ℤS is B-acyclic.
 
-Uses: [Acyclicity from a twisted good resolution](#target206), [Good filtrations on matrix polynomials](#target202), `DerivedDeRhamCohomology:DD.1/koszul-complex`. Sources: [DKSW](#ref-dksw23), Theorem 4.15, p.26.
+Uses: [Acyclicity from a twisted good resolution](#target206), [Good filtrations on matrix polynomials](#target202), [Koszul complex of a finite sequence](#target259). Sources: [DKSW](#ref-dksw23), Theorem 4.15, p.26.
 
 <a id="target208"></a>
 
@@ -1817,7 +1806,7 @@ Uses: [Acyclicity from a twisted good resolution](#target206), [Good filtrations
 
 Prove the integral trace/determinant generator theorem with its relations, then commute flat extension with the invariant equalizer. The standard GL₂ representation and its dual are distinct integral representations.
 
-Uses: `LanglandsParameterStacks:LP3`, [Trace and determinant invariant subring](#target196). Sources: [DKSW](#ref-dksw23), Theorem 4.16, pp.26–27.
+Uses: [Rational cohomology of a flat affine group scheme](#target256), [Trace and determinant invariant subring](#target196). Sources: [DKSW](#ref-dksw23), Theorem 4.16, pp.26–27.
 
 <a id="target209"></a>
 
@@ -1829,31 +1818,41 @@ Uses: [Adjoint weight and dual identities](#target200). Sources: [DKSW](#ref-dks
 
 **Invariants of the formal Ribet ring.** For the formal ring R with the chosen b_τ=0 constraints, H⁰(B,R)=A₀[d_τ], the subring specified above.
 
-Uses: [Integral trace and determinant invariants](#target208), [Invariants of entirely triangular matrices](#target209), [Products generating boundary cohomology](#target205), `DerivedDeRhamCohomology:DD.1/koszul-complex`. Sources: [DKSW](#ref-dksw23), Corollary 4.17, pp.27–28.
+Uses: [Integral trace and determinant invariants](#target208), [Invariants of entirely triangular matrices](#target209), [Products generating boundary cohomology](#target205), [Koszul complex of a finite sequence](#target259). Sources: [DKSW](#ref-dksw23), Corollary 4.17, pp.27–28.
 
 <a id="target211"></a>
 
 **Lower-Borel stability of relation ideals.** Under g=[[x,0],[y,z]], each relation quadruple transforms by inverse conjugation: A↦A+(y/x)B, B↦(z/x)B, C↦(x/z)C−(y/z)A−(y²/xz)B+(y/z)D, D↦D−(y/x)B. Thus J and its b-entry ideal J′ are B-stable.
 
-Uses: [Formal Ribet relation ideals](#target194), [Adjoint weight and dual identities](#target200). Sources: [DKSW](#ref-dksw23), Lemma 4.18, pp.29–30.
+Uses: [Formal Ribet relation ideals](#target194), [Adjoint weight and dual identities](#target200). Sources: [DKSW](#ref-dksw23), Lemma 4.18, pp.29–30; Example 4.2, p.22, for the action formulas.
 
 ### Buchsbaum–Rim complexes and generic regularity
+
+<a id="target259"></a>
+
+**Koszul complex of a finite sequence.** For a commutative ring A and x=(x₁,…,xₙ) in A, K(x) is the exterior algebra ⋀(Aⁿ) with the degree −1 derivation determined by e_i↦x_i, as a nonnegative chain complex with K(x)_k=⋀^kAⁿ. Its first differential is v↦∑x_iv_i, H₀(K(x))=A/(x), and K(x,y)=K(x)⊗_AK(y) for concatenated sequences. A linear map g:Aⁿ→A^(n′) with x′∘g=x induces a chain map K(x)→K(x′). If x is weakly regular, H_k(K(x))=0 for k>0, so K(x)→A/(x) is a finite free resolution.
+
+API: `Koszul.complex`: K(x); `Koszul.complex_d_one`: d₁(v)=∑x_iv_i; `Koszul.map`: Functoriality in the sequence; `Koszul.homology_zero`: H₀=A/(x); `Koszul.complex_append`: K(x,y)≅K(x)⊗K(y); `Koszul.isZero_homology_of_isWeaklyRegular`: Acyclicity in positive degrees for a weakly regular sequence.
+
+Tests: K(x) for a single element is A --x→ A in degrees 1,0. K of the empty sequence is A in degree 0. Over ℤ, K(2) has H₁=0 while K(0) has H₁=ℤ; over ℤ/4, K(2) has H₁≅ℤ/2, so acyclicity needs regularity.
+
+Uses: `ExteriorAlgebra`, `exteriorPower.map`, `RingTheory.Sequence.IsWeaklyRegular`. Sources: [Stacks](#ref-stacks), Definitions 15.29.1–15.29.2 (tags 0622, 0623), Lemma 15.29.3 (tag 0624), Lemma 15.29.12 (tag 0664) and Lemma 15.31.2 (tag 062F).
 
 <a id="target212"></a>
 
 **Composition of exterior contractions.** For a module U over a commutative ring, λ₁,…,λ_r homogeneous alternating forms on U and β∈∧U, determinant contraction satisfies ω(λ₁∧…∧λ_r)(β)=(−1)^(r+1)ω(λ₁)…ω(λ_r)(β), with the sign convention of Buchsbaum §1. The formula defines all signs in the bar differential.
 
-Uses: `DerivedDeRhamCohomology:DD.1/koszul-complex`. Sources: [Buchsbaum](#ref-buch64), Lemma 1.1, pp.184–185.
+Uses: [Koszul complex of a finite sequence](#target259). Sources: [Buchsbaum](#ref-buch64), Lemma 1.1, pp.184–185.
 
 <a id="target213"></a>
 
 **Buchsbaum–Rim module complex.** For R commutative and f:U=Rⁿ→W=Rᵐ, 1≤m≤n, define BR(f)=K(f;1,m) using the exterior-bar mapping cone of Buchsbaum §1. Its degrees 0,1 are W,U with d₁=f, and d₂:∧ᵐW*⊗∧^(m+1)U→U is the signed maximal-minor contraction. For m=2 it sends the basis triple to r_ij e_k+r_jk e_i+r_ki e_j.
 
-API: `BuchsbaumRim.moduleComplex`: BR(f)=K(f;1,m), a nonnegative finite free chain complex; `BuchsbaumRim.moduleComplex_d_one`: Its degree-one differential is f; `BuchsbaumRim.moduleComplex_rank_one`: For m=1 this is the imported Koszul complex.
+API: `BuchsbaumRim.moduleComplex`: BR(f)=K(f;1,m), a nonnegative finite free chain complex; `BuchsbaumRim.moduleComplex_d_one`: Its degree-one differential is f; `BuchsbaumRim.moduleComplex_rank_one`: For m=1 this is K(x) of the row x.
 
 Tests: For f=id:R²→R², the complex is the exact two-term identity complex. For f=0:R³→R², H₁(BR(f))=R³, so it is not exact unless R is zero. For columns (b_i,b′_i), d₂ on e₁∧e₂∧e₃ is r₁₂e₃+r₂₃e₁+r₃₁e₂, and f(d₂)=0.
 
-Uses: [Composition of exterior contractions](#target212), `exteriorPower.map`. Sources: [Buchsbaum](#ref-buch64), §1 pp.185–187; DKSW23 §5.3.1 equation (60).
+Uses: [Composition of exterior contractions](#target212), [Koszul complex of a finite sequence](#target259), `exteriorPower.map`. Sources: [Buchsbaum](#ref-buch64), §1 pp.185–187; DKSW23 §5.3.1 equation (60).
 
 <a id="target214"></a>
 
@@ -1985,7 +1984,7 @@ Uses: [Upper-entry relation complex](#target230), [Mixed minor and linear resolu
 
 **Extension to adjoint multilinear terms.** Extend each b-entry linear/product relation f from ℤ(1) to the full adjoint A using its four coefficients. Koszul functoriality maps Koszul(f) into the subcomplex of Koszul(f̃) whose degree k terms choose at most one vector from each relation block; these terms are sums of A^⊗k⊗R.
 
-Uses: `DerivedDeRhamCohomology:DD.1/koszul-complex`, [Good filtrations on adjoint tensor powers](#target201), [Lower-Borel stability of relation ideals](#target211). Sources: [DKSW](#ref-dksw23), Lemmas 5.6–5.7, pp.40–41.
+Uses: [Koszul complex of a finite sequence](#target259), [Good filtrations on adjoint tensor powers](#target201), [Lower-Borel stability of relation ideals](#target211). Sources: [DKSW](#ref-dksw23), Lemmas 5.6–5.7, pp.40–41.
 
 <a id="target233"></a>
 
@@ -2151,7 +2150,7 @@ Page numbers below refer to the stated public text. Preprint pagination is used 
 
 <a id="ref-em23"></a>
 
-**Emerson–Morel** — A. J. Emerson and Sophie Morel. [Comparison of different definitions of pseudocharacters](https://arxiv.org/pdf/2310.03869v2). arXiv:2310.03869v2, 17 October 2023
+**Emerson–Morel** — Kathleen Emerson and Sophie Morel. [Comparison of different definitions of pseudocharacters](https://arxiv.org/pdf/2310.03869v2). arXiv:2310.03869v2, 17 October 2023
 
 <a id="ref-q23"></a>
 
@@ -2205,6 +2204,14 @@ Page numbers below refer to the stated public text. Preprint pagination is used 
 
 **Calegari–Geraghty 2020** — Frank Calegari and David Geraghty. [Modularity lifting for non-regular symplectic representations](https://arxiv.org/pdf/1907.08691). Duke Mathematical Journal 169 (2020), 801–896; public author manuscript
 
+<a id="ref-groth66"></a>
+
+**Grothendieck** — Alexander Grothendieck. [Le groupe de Brauer I: Algèbres d'Azumaya et interprétations diverses](http://www.numdam.org/item/SB_1964-1966__9__199_0.pdf). Séminaire Bourbaki 9 (1964–1966), exposé 290, 199–219; Numdam version of record
+
+<a id="ref-stacks"></a>
+
+**Stacks** — The Stacks Project authors. [The Stacks Project](https://stacks.math.columbia.edu). More on Algebra, §15.29 The Koszul complex and §15.31 Koszul regular sequences; cited by tag
+
 <a id="ref-ant20"></a>
 
 **Allen–Newton–Thorne** — Patrick B. Allen, James Newton and Jack A. Thorne. [Automorphy lifting for residually reducible l-adic Galois representations, II](https://arxiv.org/pdf/1912.11269v2). Accepted version, arXiv:1912.11269v2, 13 August 2020
@@ -2216,3 +2223,4 @@ Page numbers below refer to the stated public text. Preprint pagination is used 
 [semisimplealgebras2]: https://github.com/TauCetiProject/TauCetiRoadmap/blob/fa4d030/RepresentationTheory/SemisimpleAlgebras/README.md#layer-2-artin-wedderburn-assembled-with-uniqueness
 [semisimplealgebras4]: https://github.com/TauCetiProject/TauCetiRoadmap/blob/fa4d030/RepresentationTheory/SemisimpleAlgebras/README.md#layer-4-central-simple-algebras-and-their-tensor-products
 [chebotarev10]: https://github.com/TauCetiProject/TauCetiRoadmap/blob/fa4d030/Chebotarev/README.md#layer-10-dirichlet-density-chebotarev
+[profinitecohomology2]: https://github.com/TauCetiProject/TauCetiRoadmap/blob/fa4d030/ProfiniteCohomology/README.md#layer-2-the-explicit-low-degree-complex-and-its-functoriality
