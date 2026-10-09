@@ -35435,7 +35435,8 @@
    ],
    "avoidAccountOf": "BP-ClassicalAdicEtaleCohomology--H3",
    "prompt": "research/blueprint/prompts/REV-ClassicalAdicEtaleCohomology--H3.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7035"
   },
   {
    "id": "BP-ColemanPowerSeries--L0",
@@ -47649,8 +47650,9 @@
    ],
    "revisionOf": "PKG-DiamondsAndVStacks",
    "prompt": "research/blueprint/prompts/PKG-DiamondsAndVStacks~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7897"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7897",
+   "finishedAt": "2026-10-09T17:33:03Z"
   },
   {
    "id": "REV-PKG-DiamondsAndVStacks~2",
@@ -79856,8 +79858,8 @@
     "FIX-RT-AREA-iwasawa-2~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-2~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #6219"
+   "state": "external",
+   "note": "claimed on GitHub issue #6219"
   },
   {
    "id": "RT-AREA-iwasawa-3",
