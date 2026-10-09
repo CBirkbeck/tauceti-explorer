@@ -36016,8 +36016,9 @@
    ],
    "avoidAccountOf": "BP-KTheoryLowDegrees--U.5",
    "prompt": "research/blueprint/prompts/REV-KTheoryLowDegrees--U.5.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7549"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7549",
+   "finishedAt": "2026-10-09T05:34:58Z"
   },
   {
    "id": "BP-KTheoryLowDegrees--U.6",
@@ -77532,8 +77533,8 @@
     "FIX-RT-AREA-langlands-2~3"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-langlands-2~3.md",
-   "state": "pending",
-   "note": "released on GitHub issue #5871"
+   "state": "external",
+   "note": "claimed on GitHub issue #5871"
   },
   {
    "id": "FIX-RT-AREA-langlands-2~4",
