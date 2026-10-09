@@ -34695,7 +34695,8 @@
    ],
    "avoidAccountOf": "BP-AlgebraicModuliForArithmeticGeometry--R09.6",
    "prompt": "research/blueprint/prompts/REV-AlgebraicModuliForArithmeticGeometry--R09.6.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6295"
   },
   {
    "id": "BP-AlgebraicModuliForArithmeticGeometry--R09.7",
@@ -105023,9 +105024,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/REV-PKG-GeometryOfNumbersAndQuadraticArithmetic~adv.md",
-   "note": "claimed on GitHub issue #8031"
+   "note": "deliverables arrived from an external worker on issue #8031",
+   "finishedAt": "2026-10-09T17:09:22Z"
   }
  ]
 }
