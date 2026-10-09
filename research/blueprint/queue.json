@@ -43137,7 +43137,8 @@
     "BP-ClassicalArithmeticCompletion~2"
    ],
    "prompt": "research/blueprint/prompts/REV-ClassicalArithmeticCompletion~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6465"
   },
   {
    "kind": "blueprint",
@@ -105345,9 +105346,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/PKG-DiophantineApproximationAndTranscendence~codex.md",
-   "note": "claimed on GitHub issue #8075"
+   "note": "deliverables arrived from an external worker on issue #8075",
+   "finishedAt": "2026-10-09T21:07:21Z"
   }
  ]
 }
