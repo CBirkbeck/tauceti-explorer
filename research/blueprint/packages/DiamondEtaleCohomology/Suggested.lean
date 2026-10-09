@@ -9,6 +9,9 @@ Scope: DiamondEtaleCohomology C0–C9, from Scholze's Étale cohomology of diamo
 Pinned Mathlib: 082e2d37e8b0463410cdb532e111cd43d5a66174.
 Pinned Tau Ceti: f790474821cf4256814db967cb154e7af3d0c369.
 Only individual Mathlib modules are imported.
+The shared coefficient carrier is commutative because it also supports tensor and perfect
+complexes. For the site comparisons allowing arbitrary rings in README.md, these prototypes
+display the commutative case; the README retains the full mathematical generality.
 
 The geometric signatures use the data-only supplier interface `Carriers`: categories,
 functors and fixed-cutoff skeleta supplied by DiamondsAndVStacks, PerfectoidSpaces and
@@ -2178,7 +2181,7 @@ to Mathlib's derived category of sheaves of Λ-modules on `|X|`. -/
 example (X : S.Std) : (stdSpaceDet S Λ X).IsEquivalence := by sorry
 
 /-- test Det_condensed_nonexample (non-example): for `Y = Spa(C, O_C)` the v-sheaf
-`S ↦ C(|S|, Λ)` is not in `D_ét(Y, Λ)`. The packet takes `Λ = Z_p`; stated for any first countable
+`S ↦ C(|S|, Λ)` is not in `D_ét(Y, Λ)`. The README's example takes `Λ = Z_p`; stated for any first countable
 non-discrete profinite coefficient ring (the properties of `Z_p` that the argument uses). -/
 example [TopologicalSpace Λ] [IsTopologicalRing Λ] [CompactSpace Λ] [T2Space Λ]
     [TotallyDisconnectedSpace Λ]
@@ -5501,8 +5504,8 @@ ambient normed field supplies completeness with the subspace metric.
 Important proof boundary: the pinned `IsAlgClosed.of_denseRange` requires `CharZero`.
 It cannot discharge the positive-characteristic completion step needed here. Conrad's
 "Completion of algebraic closure", Section 2, supplies a characteristic-independent
-root-approximation proof; its adaptation and the remaining proof leaves are recorded in
-the handoff, not assumed to be compiled library results.
+root-approximation proof; its adaptation and the other required proofs are specified in
+README.md and are not assumed to be compiled library results.
 -/
 section CompleteFields
 variable (K L M : Type u)
@@ -5548,7 +5551,8 @@ lemma topologicalIndependenceDegree_mono [Algebra K L] [Algebra L M] [Algebra K 
 example [Algebra K L] (hKL : Isometry (algebraMap K L)) :
     topologicalTrdeg K L = 0 ↔ Function.Surjective (algebraMap K L) := by sorry
 
-/-- ECD's paragraph after Question 21.4, using Temkin 3.2.3 and 2.2.2.
+/-- `DiamondEtaleCohomology:C8/topological-trdeg-finite-monotonicity`.
+ECD's paragraph after Question 21.4, using Temkin 3.2.3 and 2.2.2.
 The finiteness assumption is on the intermediate extension, not only the ambient one. -/
 lemma topologicalTrdeg_mono_of_lt_top [Algebra K L] [Algebra L M] [Algebra K M]
     [IsScalarTower K L M]
@@ -5601,6 +5605,7 @@ variable (K L : Type u) [NontriviallyNormedField K] [NontriviallyNormedField L]
 variable [CompleteSpace K] [CompleteSpace L] [IsUltrametricDist K] [IsUltrametricDist L]
 variable [IsAlgClosed K] [IsAlgClosed L] [Algebra K L]
 
+/-- `DiamondEtaleCohomology:C8/modified-topological-trdeg`. -/
 def modifiedTopologicalTrdeg (K L : Type u)
     [NontriviallyNormedField K] [NontriviallyNormedField L] [Algebra K L] : ℕ∞ :=
   ⨅ (n : ℕ) (_ : ∃ E : CompleteACExtension K L, topologicalTrdeg K E.Field ≤ n), (n : ℕ∞)
@@ -5624,11 +5629,13 @@ lemma modifiedTopologicalTrdeg_equiv
     (e : L ≃ₐ[K] M) (he : Isometry e) :
     modifiedTopologicalTrdeg K L = modifiedTopologicalTrdeg K M := by sorry
 
-/-- The finite-degree case does not assert an answer to Question 21.4. -/
+/-- `DiamondEtaleCohomology:C8/modified-trdeg-finite-equality`.
+The finite-degree case does not assert an answer to Question 21.4. -/
 lemma modifiedTopologicalTrdeg_eq_of_lt_top (hKL : Isometry (algebraMap K L))
     (hfinite : topologicalTrdeg K L < ⊤) :
     modifiedTopologicalTrdeg K L = topologicalTrdeg K L := by sorry
 
+/-- `DiamondEtaleCohomology:C8/modified-trdeg-tower`. -/
 lemma modified_topological_trdeg_tower
     (M : Type u) [NontriviallyNormedField M] [CompleteSpace M]
     [IsUltrametricDist M] [IsAlgClosed M] [Algebra L M] [Algebra K M]
@@ -5637,6 +5644,7 @@ lemma modified_topological_trdeg_tower
     modifiedTopologicalTrdeg K M ≤
       modifiedTopologicalTrdeg L M + modifiedTopologicalTrdeg K L := by sorry
 
+/-- `DiamondEtaleCohomology:C8/modified-trdeg-base-change`. -/
 lemma modified_topological_trdeg_base_change
     (K' L' : Type u) [NontriviallyNormedField K'] [NontriviallyNormedField L']
     [CompleteSpace K'] [CompleteSpace L'] [IsUltrametricDist K'] [IsUltrametricDist L']
@@ -6019,7 +6027,7 @@ end SharedCohomology
 end TauCeti.DiamondEtale
 
 /-
-Omitted signatures under PROTOCOL §13. The common étale categories,
+Signatures requiring further supplier interfaces. The common étale categories,
 cohomology functors and constructibility predicates above now support the displayed C8–C9
 comparison signatures. The following 32 nodes still need interfaces absent from `Carriers`: the
 completed algebraic residue-field choices and their normed embeddings; faithful profinite
