@@ -105089,8 +105089,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/REV-PKG-ArithmeticGaloisRepresentations~adv.md"
+   "state": "external",
+   "prompt": "research/blueprint/prompts/REV-PKG-ArithmeticGaloisRepresentations~adv.md",
+   "note": "claimed on GitHub issue #8066"
   }
  ]
 }
