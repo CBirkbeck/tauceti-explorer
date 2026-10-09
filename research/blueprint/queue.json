@@ -22403,9 +22403,9 @@
     "REV-RS-08"
    ],
    "prompt": "research/blueprint/prompts/BP-ArithmeticGaloisDuality.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [],
-   "note": "released on GitHub issue #675"
+   "note": "claimed on GitHub issue #675"
   },
   {
    "id": "REV-ArithmeticGaloisDuality",
@@ -29524,11 +29524,11 @@
     "REV-RS-08"
    ],
    "prompt": "research/blueprint/prompts/BP-SelmerIwasawaCohomology.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-PadicMeasuresIwasawaAlgebras"
    ],
-   "note": "released on GitHub issue #988"
+   "note": "claimed on GitHub issue #988"
   },
   {
    "id": "REV-SelmerIwasawaCohomology",
@@ -30860,7 +30860,7 @@
     "REV-RS-29"
    ],
    "prompt": "research/blueprint/prompts/BP-InverseGaloisAndArithmeticFundamentalGroups.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [
     "BP-AlgebraicModuliForArithmeticGeometry--A0-extension",
     "BP-AlgebraicModuliForArithmeticGeometry--R09.7a",
@@ -30868,7 +30868,8 @@
     "BP-FoundationsAndLibraryIntegration",
     "BP-SchemeAndStackFoundations"
    ],
-   "note": "claimed on GitHub issue #1013"
+   "note": "deliverables arrived from an external worker on issue #1013",
+   "finishedAt": "2026-10-09T22:40:30Z"
   },
   {
    "id": "REV-InverseGaloisAndArithmeticFundamentalGroups",
@@ -34904,8 +34905,9 @@
    ],
    "avoidAccountOf": "BP-ArithmeticGaloisRepresentations--R01.2",
    "prompt": "research/blueprint/prompts/REV-ArithmeticGaloisRepresentations--R01.2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7947"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7947",
+   "finishedAt": "2026-10-09T22:40:31Z"
   },
   {
    "id": "BP-ArithmeticGaloisRepresentations--R01.3",
@@ -34951,8 +34953,9 @@
    ],
    "avoidAccountOf": "BP-ArithmeticGaloisRepresentations--R01.3",
    "prompt": "research/blueprint/prompts/REV-ArithmeticGaloisRepresentations--R01.3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7948"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7948",
+   "finishedAt": "2026-10-09T22:40:34Z"
   },
   {
    "id": "BP-ArithmeticGaloisRepresentations--R01.4",
@@ -49371,7 +49374,8 @@
     "PKG-NeronModelsAndSemistableAbelianVarieties"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-NeronModelsAndSemistableAbelianVarieties.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7608"
   },
   {
    "id": "PKG-PerfectoidQuotients",
