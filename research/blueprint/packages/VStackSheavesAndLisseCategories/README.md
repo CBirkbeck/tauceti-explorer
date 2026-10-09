@@ -1053,7 +1053,7 @@ Generate the lisse category under sums and stable operations, and glue its right
 
 ### VS3.3. Torsion, adic and rational comparisons and coefficient change
 
-Use the completed ULA comparison below before the torsion/adic comparisons in this section. Scalar extension sends a smooth generator to the corresponding generator over the new ring; only derived-complete objects are detected by all ℓ-power reductions.
+Use the [completed ULA comparison in VS3.1](#completed-ula-solid-duality) before the torsion/adic comparisons in this section. Scalar extension sends a smooth generator to the corresponding generator over the new ring; only derived-complete objects are detected by all ℓ-power reductions.
 
 <a id="lisse-comparisons"></a>
 
