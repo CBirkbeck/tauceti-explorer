@@ -35047,7 +35047,8 @@
    ],
    "avoidAccountOf": "BP-ArithmeticGaloisRepresentations--R01.5",
    "prompt": "research/blueprint/prompts/REV-ArithmeticGaloisRepresentations--R01.5.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7950"
   },
   {
    "id": "BP-ArithmeticGaloisRepresentations--R01.6",
@@ -49376,8 +49377,9 @@
     "PKG-NeronModelsAndSemistableAbelianVarieties"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-NeronModelsAndSemistableAbelianVarieties.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7608"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7608",
+   "finishedAt": "2026-10-09T23:05:51Z"
   },
   {
    "id": "PKG-PerfectoidQuotients",
