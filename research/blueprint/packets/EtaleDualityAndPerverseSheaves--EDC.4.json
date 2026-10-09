@@ -9,8 +9,8 @@
     "EtaleDualityAndPerverseSheaves:EDC.7",
     "EtaleDualityAndPerverseSheaves:EDC.8"
   ],
-  "status": "complete",
-  "summary": "Finished revision-three target-level pass for EDC.4–EDC.8. Ambient tensor, RHom and coefficient transitions are distinguished from their bounded restrictions; descent preserves prescribed transitions; the general recollement and adapted semismall targets have active signatures. All 117 existing node IDs and the previous independent review are retained for the next reviewer. Five stages are planned, with seventeen supplier requests and seven inherited gaps. Complete records this planning pass, not an implementation or an independent acceptance.",
+  "status": "partial",
+  "summary": "Independent revision-three review completed for all 117 targets. Ambient tensor/RHom/reduction, transition-compatible descent and general recollement now have the required forms. Clear coefficient, trace-construction, source, dependency and hypothesis repairs are synchronized with the reader and suggested file. The general adapted-stratification semismall costalk argument remains unverified, recorded as a precise eighth gap; EDC.5 and the packet are partial. Four other stages are planned, with seventeen supplier requests. All implementation statuses remain unchecked and the review verdict is needs_changes.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -20,77 +20,77 @@
         "kind": "lemma",
         "module": "Mathlib/AlgebraicGeometry/Morphisms/ClosedImmersion.lean",
         "provides": "A morphism is a closed immersion iff it is affine and surjective on sections over affine opens; used to see that a closed subscheme of an affine scheme maps to it by an affine morphism.",
-        "checked": "Declaration and surrounding hypotheses independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-08 by Codex — codex-VOPIeM. Its stated contribution is confirmed; no Tau Ceti declaration is cited in this baseline. Rechecked with surrounding hypotheses at the same local Mathlib commit on 2026-10-09 by Codex — codex-BONvP3; the contribution and limits are retained."
+        "checked": "Declaration and surrounding hypotheses independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-09 by Codex — codex-plXW3i. The contribution and limits stated here match the pin; no Tau Ceti declaration is cited."
       },
       {
         "ref": "mathlib:AlgebraicGeometry.isAffine_of_isAffineHom",
         "kind": "lemma",
         "module": "Mathlib/AlgebraicGeometry/Morphisms/Affine.lean",
         "provides": "Given an affine morphism f : X → Y and an affine Y, X is affine. For the Lefschetz complement, first express U as a closed subscheme of the affine projective basic open; this lemma does not assert that arbitrary open subschemes are affine.",
-        "checked": "Declaration and surrounding hypotheses independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-08 by Codex — codex-VOPIeM. Its stated contribution is confirmed; no Tau Ceti declaration is cited in this baseline. Rechecked with surrounding hypotheses at the same local Mathlib commit on 2026-10-09 by Codex — codex-BONvP3; the contribution and limits are retained."
+        "checked": "Declaration and surrounding hypotheses independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-09 by Codex — codex-plXW3i. The contribution and limits stated here match the pin; no Tau Ceti declaration is cited."
       },
       {
         "ref": "mathlib:AlgebraicGeometry.Proj.basicOpenIsoSpec",
         "kind": "def",
         "module": "Mathlib/AlgebraicGeometry/ProjectiveSpectrum/Basic.lean",
         "provides": "For a homogeneous element of positive degree, the native basic open D_+(f) is isomorphic to Spec of the degree-zero localization. With the graded projective-space bridge this gives the affine hyperplane complement; it does not supply that geometric bridge by itself.",
-        "checked": "Declaration and surrounding hypotheses independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-08 by Codex — codex-VOPIeM. Its stated contribution is confirmed; no Tau Ceti declaration is cited in this baseline. Rechecked with surrounding hypotheses at the same local Mathlib commit on 2026-10-09 by Codex — codex-BONvP3; the contribution and limits are retained."
+        "checked": "Declaration and surrounding hypotheses independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-09 by Codex — codex-plXW3i. The contribution and limits stated here match the pin; no Tau Ceti declaration is cited."
       },
       {
         "ref": "mathlib:CategoryTheory.Triangulated.TStructure",
         "kind": "structure",
         "module": "Mathlib/CategoryTheory/Triangulated/TStructure/Basic.lean",
         "provides": "t-structures on a pretriangulated category, given by the predicates le n and ge n with shift, orthogonality and truncation-triangle axioms; the carrier of every t-structure in EDC.5.",
-        "checked": "Declaration and surrounding hypotheses independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-08 by Codex — codex-VOPIeM. Its stated contribution is confirmed; no Tau Ceti declaration is cited in this baseline. Rechecked with surrounding hypotheses at the same local Mathlib commit on 2026-10-09 by Codex — codex-BONvP3; the contribution and limits are retained."
+        "checked": "Declaration and surrounding hypotheses independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-09 by Codex — codex-plXW3i. The contribution and limits stated here match the pin; no Tau Ceti declaration is cited."
       },
       {
         "ref": "mathlib:CategoryTheory.Triangulated.TStructure.heart",
         "kind": "def",
         "module": "Mathlib/CategoryTheory/Triangulated/TStructure/Heart.lean",
         "provides": "The heart t.le 0 ⊓ t.ge 0 of a t-structure as an object property; the Heart class identifies a category with it.",
-        "checked": "Declaration and surrounding hypotheses independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-08 by Codex — codex-VOPIeM. Its stated contribution is confirmed; no Tau Ceti declaration is cited in this baseline. Rechecked with surrounding hypotheses at the same local Mathlib commit on 2026-10-09 by Codex — codex-BONvP3; the contribution and limits are retained."
+        "checked": "Declaration and surrounding hypotheses independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-09 by Codex — codex-plXW3i. The contribution and limits stated here match the pin; no Tau Ceti declaration is cited."
       },
       {
         "ref": "mathlib:CategoryTheory.Triangulated.AbelianSubcategory.abelian",
         "kind": "def",
         "module": "Mathlib/CategoryTheory/Triangulated/TStructure/AbelianSubcategory.lean",
         "provides": "An additive fully faithful inclusion into a triangulated category, with additive shifts, vanishing negative shifted Hom and admissibility of every morphism, equips the included category with Abelian. The heart must first satisfy these hypotheses; Heart.lean does not supply its abelian instance at the pin.",
-        "checked": "Declaration and surrounding hypotheses independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-08 by Codex — codex-VOPIeM. Its stated contribution is confirmed; no Tau Ceti declaration is cited in this baseline. Rechecked with surrounding hypotheses at the same local Mathlib commit on 2026-10-09 by Codex — codex-BONvP3; the contribution and limits are retained."
+        "checked": "Declaration and surrounding hypotheses independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-09 by Codex — codex-plXW3i. The contribution and limits stated here match the pin; no Tau Ceti declaration is cited."
       },
       {
         "ref": "mathlib:CategoryTheory.Functor.IsHomological",
         "kind": "class",
         "module": "Mathlib/CategoryTheory/Triangulated/HomologicalFunctor.lean",
         "provides": "A functor from a pretriangulated to an abelian category is homological if it sends distinguished triangles to exact sequences; the property of H⁰_t.",
-        "checked": "Declaration and surrounding hypotheses independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-08 by Codex — codex-VOPIeM. Its stated contribution is confirmed; no Tau Ceti declaration is cited in this baseline. Rechecked with surrounding hypotheses at the same local Mathlib commit on 2026-10-09 by Codex — codex-BONvP3; the contribution and limits are retained."
+        "checked": "Declaration and surrounding hypotheses independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-09 by Codex — codex-plXW3i. The contribution and limits stated here match the pin; no Tau Ceti declaration is cited."
       },
       {
         "ref": "mathlib:DerivedCategory.TStructure.t",
         "kind": "def",
         "module": "Mathlib/Algebra/Homology/DerivedCategory/TStructure.lean",
         "provides": "The canonical t-structure on the derived category D(C) of an abelian category; the comparison object of the unit tests of EDC.5.",
-        "checked": "Declaration and surrounding hypotheses independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-08 by Codex — codex-VOPIeM. Its stated contribution is confirmed; no Tau Ceti declaration is cited in this baseline. Rechecked with surrounding hypotheses at the same local Mathlib commit on 2026-10-09 by Codex — codex-BONvP3; the contribution and limits are retained."
+        "checked": "Declaration and surrounding hypotheses independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-09 by Codex — codex-plXW3i. The contribution and limits stated here match the pin; no Tau Ceti declaration is cited."
       },
       {
         "ref": "mathlib:CategoryTheory.Functor.IsTriangulated",
         "kind": "class",
         "module": "Mathlib/CategoryTheory/Triangulated/Functor.lean",
         "provides": "Triangulated functors (sending distinguished triangles to distinguished triangles); the six functors of a recollement are triangulated.",
-        "checked": "Declaration and surrounding hypotheses independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-08 by Codex — codex-VOPIeM. Its stated contribution is confirmed; no Tau Ceti declaration is cited in this baseline. Rechecked with surrounding hypotheses at the same local Mathlib commit on 2026-10-09 by Codex — codex-BONvP3; the contribution and limits are retained."
+        "checked": "Declaration and surrounding hypotheses independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-09 by Codex — codex-plXW3i. The contribution and limits stated here match the pin; no Tau Ceti declaration is cited."
       },
       {
         "ref": "mathlib:Matrix.charpoly_transpose",
         "kind": "theorem",
         "module": "Mathlib/LinearAlgebra/Matrix/Charpoly/Basic.lean",
         "provides": "charpoly(Mᵀ) = charpoly(M); used for the reciprocity of characteristic polynomials of a pairing similitude.",
-        "checked": "Declaration and surrounding hypotheses independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-08 by Codex — codex-VOPIeM. Its stated contribution is confirmed; no Tau Ceti declaration is cited in this baseline. Rechecked with surrounding hypotheses at the same local Mathlib commit on 2026-10-09 by Codex — codex-BONvP3; the contribution and limits are retained."
+        "checked": "Declaration and surrounding hypotheses independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-09 by Codex — codex-plXW3i. The contribution and limits stated here match the pin; no Tau Ceti declaration is cited."
       },
       {
         "ref": "mathlib:LinearMap.det_dualMap",
         "kind": "theorem",
         "module": "Mathlib/LinearAlgebra/Determinant.lean",
         "provides": "The determinant of the dual map of an endomorphism of a finite free module equals its determinant.",
-        "checked": "Declaration and surrounding hypotheses independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-08 by Codex — codex-VOPIeM. Its stated contribution is confirmed; no Tau Ceti declaration is cited in this baseline. Rechecked with surrounding hypotheses at the same local Mathlib commit on 2026-10-09 by Codex — codex-BONvP3; the contribution and limits are retained."
+        "checked": "Declaration and surrounding hypotheses independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-09 by Codex — codex-plXW3i. The contribution and limits stated here match the pin; no Tau Ceti declaration is cited."
       }
     ]
   },
@@ -1552,7 +1552,8 @@
       "proofSteps": [
         "Define j_!* as the image in the abelian heart (EDC.5/t-structure-heart-abelian) of pj_!B → pj_*B, the map adjoint to B → j^*pj_*B.",
         "Characterisations: BBD 1.4.23 (truncation descriptions j_!*B = τ^F_{≤−1}j_*B and = τ^F_{≥1}j_!B for the glued truncations) and 1.4.24–1.4.25 (no sub/quotient from D_F, uniqueness).",
-        "Simple objects: BBD 1.4.26 via the exact sequences relating pj_!, j_!*, pj_* with i_*-terms."
+        "Simple objects: BBD 1.4.26 via the exact sequences relating pj_!, j_!*, pj_* with i_*-terms.",
+        "A map on the open induces a map between the canonical images; restriction is faithful because its kernel and image defects would be closed-supported subobjects or quotients. This proves full faithfulness from the characterization in 1.4.25, p.55."
       ],
       "acceptance": [
         "Z = ∅: j_!* = identity up to the equivalence j^*."
@@ -1635,7 +1636,7 @@
       "sources": [
         {
           "sourceId": "BBD-1982",
-          "locator": "Définition 1.4.22, p. 54",
+          "locator": "Définition 1.4.22, Propositions 1.4.23 and 1.4.26, Corollaires 1.4.24–1.4.25, pp.54–55",
           "match": "j_!*B is the image of pj_!B in pj_*B."
         }
       ],
@@ -1806,7 +1807,8 @@
       "proofSteps": [
         "Define Perv(X, Λ) as the heart; abelian by EDC.5/t-structure-heart-abelian.",
         "Stack property: for K ∈ pD^{≤0}, L ∈ pD^{≥0}, the complex RHom(K, L) has no cohomology in negative degrees (BBD 2.1.21), so ℋ⁰RHom(K, L) is the sheaf of morphisms (2.1.22); gluing of objects (2.1.23) follows by the standard descent argument for objects of a heart with vanishing negative Exts.",
-        "For object descent, use a finite étale refinement with common cohomological bounds and vanishing negative Hom between local perverse components on overlaps. Apply the conditional ordinary-derived descent theorem of BBD 3.2.4, then the étale-local perverse inequalities of 2.2.19. The resulting identifications must respect the supplied transition isomorphisms, not merely identify each component."
+        "For object descent, use a finite étale refinement with common cohomological bounds and vanishing negative Hom between local perverse components on overlaps. Apply the conditional ordinary-derived descent theorem of BBD 3.2.4, then the étale-local perverse inequalities of 2.2.19. The resulting identifications must respect the supplied transition isomorphisms, not merely identify each component.",
+        "Compute restrictions and the Hom-presheaf in the coefficient-derived category on each object of the small étale site: finite coefficients use small-étale module sheaves, while O/E use pro-étale modules over O_V/E_V. The étale topology indexes this presheaf; it does not change its adic coefficient category (Bhatt–Scholze 6.8.1–6.8.2, p.58 and 6.8.15, p.62)."
       ],
       "acceptance": [
         "Perv(Spec Ω, Λ) ≃ finitely generated Λ-modules for Ω separably closed."
@@ -1910,7 +1912,7 @@
         {
           "name": "TauCeti.EtaleDuality.perverseHomPresheaf",
           "role": "data",
-          "statement": "The presheaf on the small etale site has value Hom of the two actual etale restrictions of P and Q; its sheaf property is PerverseSheaf.hom_isSheaf."
+          "statement": "The presheaf on the small étale site has value Hom of the two actual restrictions of P and Q in the appropriate coefficient-derived category on V. Finite coefficients use small-étale module sheaves; O/E use pro-étale modules over the completed coefficient sheaf. Its sheaf property is PerverseSheaf.hom_isSheaf."
         },
         {
           "name": "TauCeti.EtaleDuality.perverse_effective_descent",
@@ -2305,7 +2307,7 @@
         },
         {
           "sourceId": "Zhu-2017",
-          "locator": "Appendix A.3.1, p. 54 (arXiv v3)",
+          "locator": "Appendix A.3.1, pp.54–55 (arXiv v3; IC normalization display on p.55)",
           "match": "Zhu uses perverse sheaves, intermediate extension and IC on (models of) perfect spaces exactly as defined here; the perfect-space transport is the proposed Part II."
         }
       ],
@@ -2443,7 +2445,8 @@
         "EtaleDualityAndPerverseSheaves:EDC.4/affine-vanishing-hypercohomology",
         "EtaleDualityAndPerverseSheaves:EDC.5/verdier-duality-perverse",
         "SchemeAndStackFoundations:SF.2",
-        "EtaleDualityAndPerverseSheaves:EDC.5/api-perverse-t-structure-le-iff"
+        "EtaleDualityAndPerverseSheaves:EDC.5/api-perverse-t-structure-le-iff",
+        "EtaleDualityAndPerverseSheaves:EDC.5/perverse-amplitude-estimates"
       ],
       "sources": [
         {
@@ -2468,7 +2471,7 @@
       ],
       "title": "Perverse amplitude of pushforward and pullback",
       "kind": "theorem",
-      "statement": "Let f : X → Y be a morphism of schemes of finite type over k whose fibres have dimension ≤ d, and Λ as in EDC.5/perverse-t-structure. Then (BBD 4.2.4): f^* sends pD^{≤0} to pD^{≤d} and f^! sends pD^{≥0} to pD^{≥−d}; Rf_! sends pD^{≤0} to pD^{≤d} and Rf_* sends pD^{≥0} to pD^{≥−d}. If f is smooth of pure relative dimension d, f^*[d] ≅ f^![−d](−d) is t-exact and, for f moreover with geometrically connected fibres, f^*[d] : Perv(Y) → Perv(X) is fully faithful (BBD 4.2.5). For f finite, f_* = Rf_* = Rf_! is t-exact; for i a closed immersion i_* : Perv(Z) → Perv(X) is fully faithful; étale pullback is t-exact.",
+      "statement": "Let f : X → Y be a morphism of schemes of finite type over k whose fibres have dimension ≤ d, and Λ as in EDC.5/perverse-t-structure. Then (BBD 4.2.4): f^* sends pD^{≤0} to pD^{≤d} and f^! sends pD^{≥0} to pD^{≥−d}; Rf_! sends pD^{≤0} to pD^{≤d} and Rf_* sends pD^{≥0} to pD^{≥−d}. If f is smooth of pure relative dimension d, f^*[d] ≅ f^![−d](−d) is t-exact and, for f moreover surjective with geometrically connected fibres, f^*[d] : Perv(Y) → Perv(X) is fully faithful (BBD 4.2.5). For f finite, f_* = Rf_* = Rf_! is t-exact; for i a closed immersion i_* : Perv(Z) → Perv(X) is fully faithful; étale pullback is t-exact.",
       "hypotheses": [
         "f a morphism of finite type schemes over k with fibre dimension ≤ d; Λ as in EDC.5/perverse-t-structure.",
         "The base field, separated finite-type and rational coefficient-category hypotheses are those of the corrected EDC.5/perverse-t-structure; broader field variants require the perfect-closure or modern-category argument explicitly."
@@ -2476,7 +2479,7 @@
       "proofSteps": [
         "The estimate for f^* from the stalk condition: dim of the closure of a point of X is at most dim of its image plus d (BBD 4.2.4); the other three by duality and adjunction (EDC.5/t-exact-functor adjoint criterion).",
         "Smooth f: smooth purity f^! = f^*(d)[2d] (EDC.2:trace-purity/smooth-purity) makes the two one-sided estimates meet.",
-        "Full faithfulness for smooth f with connected fibres: BBD 4.2.5 (Hom computed by f_*f^* on ℋ⁰RHom).",
+        "Full faithfulness for smooth surjective f with geometrically connected fibres: BBD 4.2.5 (Hom computed by f_*f^* on ℋ⁰RHom); surjectivity prevents an empty source from discarding a nonzero target object.",
         "Finite f: fibres of dimension 0 give both estimates."
       ],
       "acceptance": [
@@ -2494,7 +2497,7 @@
       "sources": [
         {
           "sourceId": "BBD-1982",
-          "locator": "4.2.4, p. 108",
+          "locator": "4.2.4–4.2.6, pp.108–110, especially 4.2.5, pp.108–109",
           "match": "Amplitude estimates for f_!, f^!, f^*, f_* when the fibres have dimension ≤ d; duality exchanges them."
         }
       ],
@@ -3710,7 +3713,7 @@
       "sources": [
         {
           "sourceId": "BBD-1982",
-          "locator": "Théorème 6.2.5, p. 163",
+          "locator": "Théorème 6.2.5, p.163, and 6.2.10, p.165",
           "match": "The decomposition theorem for proper maps over ℂ and complexes of geometric origin."
         }
       ],
@@ -4053,7 +4056,7 @@
       "sources": [
         {
           "sourceId": "Varshavsky-LV-2007",
-          "locator": "Definition 1.5.1(a), p. 14 (arXiv v2)",
+          "locator": "1.1.9, p.8; Definition 1.5.1(a), p.14; 1.5.6, p.16 (arXiv v2)",
           "match": "Restriction of correspondences to open and closed subschemes; locally invariant subschemes."
         }
       ],
@@ -4152,7 +4155,7 @@
         {
           "name": "TauCeti.EtaleDuality.CohCorr.externalProduct",
           "role": "structure",
-          "statement": "With finite Tor amplitude on the two source inputs, the external product has product support and legs and the tensor external-product morphism obtained by the six-operation exchange maps."
+          "statement": "With finite Tor amplitude on the two source and two target inputs, as required by the active bounded external-product receipts, the external product has product support and legs and the tensor external-product morphism obtained by the six-operation exchange maps."
         },
         {
           "name": "TauCeti.EtaleDuality.CohCorr.id_comp",
@@ -4188,7 +4191,7 @@
       ],
       "title": "The trace of a cohomological self-correspondence",
       "kind": "construction",
-      "statement": "Let k be separably closed, c : C → X × X a self-correspondence, Fix(c) := C ×_{X×X} Δ_X the fixed-point scheme with Δ′ : Fix(c) → C, and L ∈ D_ctf(X, Λ) (or D^b_c with Λ a field). The trace map Tr_c : Hom(←c^*L, →c^!L) → H⁰(Fix(c), K_{Fix(c)}) is the composite of the identification Hom(←c^*L, →c^!L) ≅ H⁰(C, c^!(D_X L ⊠ L)) (Künneth and biduality), the restriction to Fix(c) via Δ′^* and the evaluation pairing Δ^*(D_X L ⊠ L) = D_X L ⊗ L → K_X, giving H⁰(Fix(c), Δ′^*c^!(D_X L ⊠ L)) → H⁰(Fix(c), K_{Fix(c)}) (Varshavsky 1.2.2, (1.2)–(1.4)). For β ⊂ Fix(c) open and closed and proper over k, the local term is LT_β(u) := ∫_β Tr_c(u)|_β ∈ Λ (trace H⁰(β, K_β) → Λ for β proper). The trace map is compatible with restriction to open subschemes of C and is linear in u.",
+      "statement": "Let k be separably closed, c : C → X × X a self-correspondence, Fix(c) := C ×_{X×X} Δ_X the fixed-point scheme, Δ′ : Fix(c) → C its closed immersion and c′ : Fix(c) → X the induced map. Let L ∈ D_ctf(X, Λ), or L ∈ D^b_c(X, O/E) in the adic regime. Identify Hom(←c^*L, →c^!L) with H⁰(C,c^!(D_X L ⊠ L)) by Künneth and biduality. The diagonal adjunction and evaluation give D_X L ⊠ L → Δ_*K_X. Applying c^! and proper base change gives c^!(D_X L ⊠ L) → c^!Δ_*K_X ≅ Δ′_*c′^!K_X = Δ′_*K_Fix(c). Taking H⁰ is the linear trace map Tr_c into H⁰(Fix(c),K_Fix(c)), evaluated at u for the trace class (Varshavsky 1.2.2(b), formula (1.4), p.9). For a clopen proper β ⊂ Fix(c), LT_β(u) is the restriction of this class integrated by the proper dualizing counit. The construction commutes with open restriction and is linear in u. Cohomology and dualizing objects are computed in the same finite or completed adic coefficient category as L; ordinary small-étale constant-O sheaves are not used for adic traces.",
       "hypotheses": [
         "k a field (separably closed for traces and local terms), Λ a torsion noetherian ring killed by an integer invertible in k (or O_E, E by passage to the limit, EDC.6/adic-transport-of-duality-and-classes); all schemes separated of finite type over k.",
         "L of finite Tor-dimension (or Λ a field) so that biduality and Künneth hold (EDC.1:biduality).",
@@ -4196,7 +4199,7 @@
       ],
       "proofSteps": [
         "Künneth for D(X × X): Hom(←c^*L, →c^!L) ≅ H⁰(C, c^!(D_X L ⊠ L)) (Varshavsky 1.2.1–1.2.2; the formula RHom(pr₁^*L, pr₂^!L) ≅ D_X L ⊠ L uses EDC.1:biduality/constructible-biduality and the Künneth formula for f^!, EDC.1:biduality/duality-exchange-isomorphisms).",
-        "Evaluation: D_X L ⊗ L → K_X (EDC.1:adjoint/verdier-dual) and base change Δ′^*c^! → Δ_{Fix}^!… along the cartesian square defining Fix(c) (EDC.1:adjoint/base-change-exchange-maps).",
+        "Evaluation and diagonal adjunction give D_X L ⊠ L → Δ_*K_X. Apply c^!, then the proper exchange isomorphism c^!Δ_*K_X ≅ Δ′_*c′^!K_X = Δ′_*K_Fix(c); taking global H⁰ gives the trace class. This uses the proper diagonal and its actual fixed-point pullback square, not an unrestricted map from Δ′^*c^! to a dualizing complex.",
         "Local terms by the trace H⁰(β, K_β) → Λ for β proper over k (EDC.1:biduality/relative-and-geometric-duality)."
       ],
       "acceptance": [
@@ -4249,7 +4252,9 @@
         "EtaleDualityAndPerverseSheaves:EDC.1:adjoint/base-change-exchange-maps",
         "EtaleDualityAndPerverseSheaves:EDC.1:biduality/relative-and-geometric-duality",
         "SchemeAndStackFoundations:SF.0",
-        "EtaleDualityAndPerverseSheaves:EDC.0/constructible-ctf-complexes"
+        "EtaleDualityAndPerverseSheaves:EDC.0/constructible-ctf-complexes",
+        "SchemeAndStackFoundations:SF.2",
+        "EtaleDualityAndPerverseSheaves:EDC.6/adic-transport-of-duality-and-classes"
       ],
       "api": [
         {
@@ -4260,7 +4265,7 @@
         {
           "name": "TauCeti.EtaleDuality.CohCorr.traceMap",
           "role": "constructor",
-          "statement": "For c=(C,left,right,u) and a finite-Tor input L over a separably closed k, the linear map from Hom(left^*L,right^!L) to H^0(Fix(c),K_Fix(c)) is obtained by evaluation and diagonal base change. The trace class is its value at the actual u."
+          "statement": "For c=(C,left,right,u) and finite-Tor L over separably closed k, apply c^! to the adjoint diagonal evaluation D_X L ⊠ L → Δ_*K_X, then proper base change to Δ′_*K_Fix(c), and take H⁰ in the coefficient-derived category. This gives a linear map Hom(left^*L,right^!L) → H⁰(Fix(c),K_Fix(c)); its value at u is the trace class."
         },
         {
           "name": "TauCeti.EtaleDuality.CohCorr.localTerm",
@@ -4372,7 +4377,7 @@
       ],
       "title": "True and naive local terms agree for automorphisms of finite prime-to-p order",
       "kind": "theorem",
-      "statement": "Let X be of finite type over an algebraically closed field k of characteristic p, g an automorphism of X of finite order prime to p, A ∈ D^b_c(X, Λ) (Λ = ℤ/ℓ^n, ℤ_ℓ or ℚ_ℓ) with u : g^*A → A, and x an isolated fixed point of g. Then the local term of the cohomological correspondence (graph of g, u) at x equals the naive local term: LT_x(u) = Tr(u_x | A_x) (Varshavsky, Local terms, Theorem 4.10(b) and Corollary 5.4(b)). Consequently, for X proper, Tr(g | RΓ(X, A)) = Σ_{x ∈ X^g} Tr(u_x | A_x) when X^g is finite. The extension to perfect schemes (Hansen–Kaletha–Weinstein, Proposition 5.6.2) is transported in the Part II of EtaleDualityAndPerverseSheaves on perfect schemes.",
+      "statement": "Let X be of finite type over an algebraically closed field k of characteristic p, g an automorphism of X of finite order prime to p, A ∈ D_ctf(X, Λ) for Λ = ℤ/ℓ^n, or A ∈ D^b_c(X, Λ) for Λ = ℤ_ℓ or ℚ_ℓ with u : g^*A → A, and x an isolated fixed point of g. Then the local term of the cohomological correspondence (graph of g, u) at x equals the naive local term: LT_x(u) = Tr(u_x | A_x) (Varshavsky, Local terms, Theorem 4.10(b) and Corollary 5.4(b)). Consequently, for X proper, Tr(g | RΓ(X, A)) = Σ_{x ∈ X^g} Tr(u_x | A_x) when X^g is finite. The extension to perfect schemes (Hansen–Kaletha–Weinstein, Proposition 5.6.2) is transported in the Part II of EtaleDualityAndPerverseSheaves on perfect schemes.",
       "hypotheses": [
         "Finite order is an equality g^n=id in the category of k-schemes, with n positive and invertible in k. It is not a condition on the underlying topological map.",
         "The graph correspondence uses the supplied u:g^*A→A, with finite Tor amplitude in the finite-coefficient range. The isolated proper fixed component is identified with Spec k. Numerical suggested forms specialize to finite rational coefficients with finite integer cohomological support.",
@@ -5560,7 +5565,7 @@
       "sources": [
         {
           "sourceId": "BBD-1982",
-          "locator": "Définition 1.4.22, p. 54",
+          "locator": "Définition 1.4.22, Propositions 1.4.23 and 1.4.26, Corollaires 1.4.24–1.4.25, pp.54–55",
           "match": "j_!*B is the image of pj_!B in pj_*B."
         }
       ],
@@ -5598,7 +5603,7 @@
       "sources": [
         {
           "sourceId": "BBD-1982",
-          "locator": "Définition 1.4.22, p. 54",
+          "locator": "Définition 1.4.22, Propositions 1.4.23 and 1.4.26, Corollaires 1.4.24–1.4.25, pp.54–55",
           "match": "j_!*B is the image of pj_!B in pj_*B."
         }
       ],
@@ -5636,7 +5641,7 @@
       "sources": [
         {
           "sourceId": "BBD-1982",
-          "locator": "Définition 1.4.22, p. 54",
+          "locator": "Définition 1.4.22, Propositions 1.4.23 and 1.4.26, Corollaires 1.4.24–1.4.25, pp.54–55",
           "match": "j_!*B is the image of pj_!B in pj_*B."
         }
       ],
@@ -5674,7 +5679,7 @@
       "sources": [
         {
           "sourceId": "BBD-1982",
-          "locator": "Définition 1.4.22, p. 54",
+          "locator": "Définition 1.4.22, Propositions 1.4.23 and 1.4.26, Corollaires 1.4.24–1.4.25, pp.54–55",
           "match": "j_!*B is the image of pj_!B in pj_*B."
         }
       ],
@@ -5712,7 +5717,7 @@
       "sources": [
         {
           "sourceId": "BBD-1982",
-          "locator": "Définition 1.4.22, p. 54",
+          "locator": "Définition 1.4.22, Propositions 1.4.23 and 1.4.26, Corollaires 1.4.24–1.4.25, pp.54–55",
           "match": "j_!*B is the image of pj_!B in pj_*B."
         }
       ],
@@ -6170,7 +6175,7 @@
         },
         {
           "sourceId": "Zhu-2017",
-          "locator": "Appendix A.3.1, p. 54 (arXiv v3)",
+          "locator": "Appendix A.3.1, pp.54–55 (arXiv v3; IC normalization display on p.55)",
           "match": "Zhu uses perverse sheaves, intermediate extension and IC on (models of) perfect spaces exactly as defined here; the perfect-space transport is the proposed Part II."
         }
       ],
@@ -6214,7 +6219,7 @@
         },
         {
           "sourceId": "Zhu-2017",
-          "locator": "Appendix A.3.1, p. 54 (arXiv v3)",
+          "locator": "Appendix A.3.1, pp.54–55 (arXiv v3; IC normalization display on p.55)",
           "match": "Zhu uses perverse sheaves, intermediate extension and IC on (models of) perfect spaces exactly as defined here; the perfect-space transport is the proposed Part II."
         }
       ],
@@ -6846,7 +6851,7 @@
       "sources": [
         {
           "sourceId": "Varshavsky-LV-2007",
-          "locator": "Definition 1.5.1(a), p. 14 (arXiv v2)",
+          "locator": "1.1.9, p.8; Definition 1.5.1(a), p.14; 1.5.6, p.16 (arXiv v2)",
           "match": "Restriction of correspondences to open and closed subschemes; locally invariant subschemes."
         }
       ],
@@ -6884,7 +6889,7 @@
       "sources": [
         {
           "sourceId": "Varshavsky-LV-2007",
-          "locator": "Definition 1.5.1(a), p. 14 (arXiv v2)",
+          "locator": "1.1.9, p.8; Definition 1.5.1(a), p.14; 1.5.6, p.16 (arXiv v2)",
           "match": "Restriction of correspondences to open and closed subschemes; locally invariant subschemes."
         }
       ],
@@ -7135,9 +7140,10 @@
     },
     {
       "stageId": "EtaleDualityAndPerverseSheaves:EDC.5",
-      "status": "planned",
+      "status": "partial",
       "remaining": [
-        "Absolute perverse scheme targets are planned. The recorded stack, perfect/equivariant and relative-perverse/ULA extensions have distinct owners or Part II proposals."
+        "Absolute perverse scheme targets other than the unverified general semismall claim are planned. The recorded stack, perfect/equivariant and relative-perverse/ULA extensions have distinct owners or Part II proposals.",
+        "The general adapted-stratification semismall target still needs a justified costalk estimate under its exact coefficient and local-geometry hypotheses; see the general semismall gap. The smooth-source constant-field and small-map targets are separately justified."
       ]
     },
     {
@@ -7223,6 +7229,14 @@
         "EtaleDualityAndPerverseSheaves:EDC.7/characteristic-zero-decomposition"
       ],
       "detail": "BBD 6.2.4–6.2.10 prove the complex-coefficient semisimple geometric-origin statement via a chosen identification with Qbar_ell and finite coefficient descent of its finite construction data. A uniform rational-coefficient or finite-adic coefficient theorem over arbitrary characteristic-zero bases, without these choices and identifications, needs a separate descent argument. It is not inferred from a blanket restricted-category equivalence."
+    },
+    {
+      "title": "General stratified semismall cosupport and coefficient-adapted local geometry",
+      "neededBy": [
+        "EtaleDualityAndPerverseSheaves:EDC.5/semismall-pushforward-perverse"
+      ],
+      "detail": "The proposed general semismall_pushforward_perverse signature has only lisse ordinary stalk cohomology on source strata and separate product charts for their fibre intersections. Its proof has not established the costalk bound or costalk local constancy needed to test cosupport stratumwise. BBD 4.2.8, p.112 assumes lisse cohomology of both i_s^*K and i_s^!K; Mirković–Vilonen §4, Lemma 4.3, pp.14–15 uses a locally trivial stratified map in the complex topology, stronger than the separate scheme product charts supplied here. For fields the duality argument needs adaptation of D K, which is not a consequence proved by IsAdapted. For O the reference to an Ext-one term supplies neither its degrees nor a vanishing estimate. Supply a precise coefficient-adapted stratified local triviality hypothesis and a costalk/localization proof (or an exact étale source with matching hypotheses), including the integral p range. The smooth-source constant-field special case remains separately justified by de Cataldo–Migliorini 4.2.1, p.56. No counterexample to the proposed general scheme theorem is asserted.",
+      "addedBy": "REV-EtaleDualityAndPerverseSheaves--EDC.4~3"
     }
   ],
   "restructure": [
@@ -7236,7 +7250,7 @@
         "RamifiedGeometricClassFieldTheory"
       ],
       "detail": "Confirmed finding RT-AREA-etale/3, for the stages of this part: EDC.5, EDC.7 and EDC.8 are scheme-only, yet GlobalShtukas GS.1 and GS.3, ET.2b and the EDC.8 stack items (YUN-ZHANG-17/35, YUN-ZHANG-19/120, LAFFORGUE-18/48) apply their outputs on stacks.",
-      "proposal": "Endorse part EDC.0's proposal 'Étale duality, cycle classes and perverse sheaves, Part II: Artin and Deligne–Mumford stacks'. Its perverse layer imports EDC.5/perverse-t-structure, EDC.5/intermediate-extension and EDC.5/intersection-complex by smooth descent; its decomposition layer imports EDC.7/proper-direct-image-decomposition for proper representable maps of DM stacks; its trace layer imports EDC.8/cohomological-correspondence, EDC.8/correspondence-trace and EDC.8/lefschetz-verdier-formula (Varshavsky, Behrend). Edges from the Part II to GS.1, GS.3, ET.2b; LAFFORGUE-18/48 is re-routed there as missing. The same stack Part II supplies the stack sheaf/IC/trace inputs to ShtukaSpecialCyclesAndHigherSiegelWeil and RamifiedGeometricClassFieldTheory; their sources do not become scheme-only theorems by citation."
+      "proposal": "Endorse part EDC.0's proposal 'Étale duality, cycle classes and perverse sheaves, Part II: Artin and Deligne–Mumford stacks'. Its perverse layer imports EDC.5/perverse-t-structure, EDC.5/intermediate-extension and EDC.5/intersection-complex by smooth descent; its decomposition layer imports EDC.7/proper-direct-image-decomposition for proper representable maps of DM stacks; its trace layer imports EDC.8/cohomological-correspondence, EDC.8/correspondence-trace and EDC.8/lefschetz-verdier-formula (Varshavsky, Behrend). Edges from the Part II to GS.1, GS.3, ET.2b; LAFFORGUE-18/48 is re-routed there as missing. The same stack Part II supplies the stack sheaf/IC/trace inputs to ShtukaSpecialCyclesAndHigherSiegelWeil and RamifiedGeometricClassFieldTheory; their sources do not become scheme-only theorems by citation. The extension must retain ambient unbounded Artin-stack categories and state stabilizer, representability, coefficient and support gates separately; it does not promise that all six operations preserve D_c^b on arbitrary Artin stacks. Proper smooth separated DM correspondences are a distinct immediate consumer."
     },
     {
       "action": "rescope",
@@ -7245,7 +7259,7 @@
         "GeometricSatakeAndFusion"
       ],
       "detail": "Confirmed finding RT-AREA-etale/16: PAPER-ZHU-17 route 7 adds perfect-scheme, equivariant and hyperbolic-localization items outside EDC's scope.",
-      "proposal": "Endorse part EDC.0's proposal 'Étale duality, cycle classes and perverse sheaves, Part II: perfect schemes, equivariant coefficients and hyperbolic localization', importing GeometricSatakeAndFusion:GS0:Witt-geometry's perfect-space carrier and AdicCoefficientsAndComparisons L2's perfection invariance. It receives Zhu E01–E03, E07–E14, the equivariant items, characteristic-classes-of-torsors, E09 (Braden's hyperbolic localization for schemes, planned nowhere else) and PAPER-HANSEN-KALETHA-WEINSTEIN-22/091. Zhu E04, E05, E06 stay as sources of EDC.5/perverse-t-structure, EDC.5/intersection-complex and EDC.7/proper-direct-image-decomposition on finite-type models; IC-stalk-parity moves to GeometricSatakeAndFusion. Zhu A.3.3 does not provide a model-independent scalar trace: use geometric components and retain chosen model normalizations or p-power scaling (sourceIssues E14/E15; PAPER-ZHU-17/E26/E27)."
+      "proposal": "Endorse part EDC.0's proposal 'Étale duality, cycle classes and perverse sheaves, Part II: perfect schemes, equivariant coefficients and hyperbolic localization', importing GeometricSatakeAndFusion:GS0:Witt-geometry's perfect-space carrier and AdicCoefficientsAndComparisons L2's perfection invariance. It receives Zhu E01–E03, E07–E14, the equivariant items, characteristic-classes-of-torsors, E09 (Braden's hyperbolic localization for schemes, planned nowhere else) and PAPER-HANSEN-KALETHA-WEINSTEIN-22/091. Zhu E04, E05, E06 stay as sources of EDC.5/perverse-t-structure, EDC.5/intersection-complex and EDC.7/proper-direct-image-decomposition on finite-type models; IC-stalk-parity moves to GeometricSatakeAndFusion. Zhu A.3.3 does not provide a model-independent scalar trace: use geometric components and retain chosen model normalizations or p-power scaling (sourceIssues E14/E15; PAPER-ZHU-17/E26/E27). The hyperbolic-localization theorem must retain the G_m-monodromic hypothesis, and equivariant finite-level descent is shared with the stack extension."
     },
     {
       "action": "rescope",
@@ -7295,8 +7309,8 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "The two inequality directions disagree with 2.2.2 and 4.0.1–4.0.2 on the page image. The shifted skyscraper Λ_x[1] detects the upper-aisle error; the previous degree-zero witness was invalid.",
-        "by": "REV-EtaleDualityAndPerverseSheaves--EDC.4~2"
+        "reason": "The correct cutoff agrees with BBD 2.2.2 and 4.0.1–4.0.2. At a closed point with cutoff zero, the skyscraper Λ_x[1] has cohomology only in degree -1: it belongs to the upper aisle but violates the printed vanishing-below-cutoff condition. An unshifted degree-zero skyscraper satisfies both inequalities and therefore does not detect this misprint. Independently checked against the BBD p.71 page image on 2026-10-09, including the shifted-skyscraper test.",
+        "by": "REV-EtaleDualityAndPerverseSheaves--EDC.4~3"
       }
     },
     {
@@ -7314,8 +7328,8 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "The first-edition page image uses the unbarred field in 4.3.1(ii), while 4.0 fixes algebraic-closure coefficients. This is a coefficient-label misprint in that context, not a denial of the valid finite-E simple classification.",
-        "by": "REV-EtaleDualityAndPerverseSheaves--EDC.4~2"
+        "reason": "4.0 fixes ℚ̄_ℓ coefficients for the whole section; the classification of simple objects is over ℚ̄_ℓ. Independently checked against the BBD p.112 page image and §4.0 on 2026-10-09. This confirms the coefficient-label misprint, not a denial of the corresponding finite-extension coefficient theory.",
+        "by": "REV-EtaleDualityAndPerverseSheaves--EDC.4~3"
       }
     },
     {
@@ -7335,8 +7349,8 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Both arXiv v3 p.55 and the published p.478 give the smooth dualizing normalization where the perverse IC restriction is required. The correct unnormalized IC restriction is the constant sheaf shifted by dim X. This confirms the existing PAPER-ZHU-17/E25.",
-        "by": "REV-EtaleDualityAndPerverseSheaves--EDC.4~2"
+        "reason": "IC_X = j_!*ℚ̄_ℓ[dim X] restricts to ℚ̄_ℓ[dim X] on the smooth open U (EDC.5/intersection-complex); the printed shift 2 dim X is not perverse. Independently checked in both the public v3 preprint p.55 and the published p.478 on 2026-10-09; the ordinary IC shift is dim X.",
+        "by": "REV-EtaleDualityAndPerverseSheaves--EDC.4~3"
       }
     },
     {
@@ -7356,15 +7370,15 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Over F_q the irreducible zero-dimensional scheme Spec F_(q²) becomes two points over the algebraic closure, giving two-dimensional H_c^0. The appendix permits any perfect base field in A.1.2; irreducibility over that field is insufficient.",
-        "by": "REV-EtaleDualityAndPerverseSheaves--EDC.4~2"
+        "reason": "Over F_q the irreducible zero-dimensional scheme Spec F_(q²) becomes two points over the algebraic closure, giving two-dimensional H_c^0. The appendix permits any perfect base field in A.1.2; irreducibility over that field is insufficient. Independently checked against published A.1.2, p.465 and A.3.3, pp.479–480 on 2026-10-09; the geometric-component counterexample uses the permitted perfect base field.",
+        "by": "REV-EtaleDualityAndPerverseSheaves--EDC.4~3"
       }
     },
     {
       "id": "EtaleDualityAndPerverseSheaves/E15",
       "source": "Zhu-2017-published",
       "kind": "error",
-      "locator": "A.3.3, published p.480 first paragraph; arXiv v3 p.56",
+      "locator": "A.3.3, published p.480 first paragraph; arXiv v3 pp.55–56",
       "printed": "The model construction treats pullback on the top cohomology line as preserving the ordinary trace normalization for every comparison of models.",
       "correction": "Retain a chosen finite-type model and its ordinary trace, or track the powers of p by which model comparisons rescale that trace. An intrinsic automorphism-invariant scalar normalization on the perfection is unavailable.",
       "reason": "For the k-linear relative Frobenius of P¹, pullback sends O(1) to O(p) and multiplies H²(P¹,Qbar_ell(1)) by p. Its perfection is an automorphism, so changing the model by this automorphism changes the transferred trace by a nontrivial p-power. Ordinary scheme trace has the correct degree-scaling law and is unaffected.",
@@ -7377,8 +7391,8 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "For the k-linear relative Frobenius of P¹, pullback sends O(1) to O(p) and multiplies H²(P¹,Qbar_ell(1)) by p. Its perfection is an automorphism, so changing the model by this automorphism changes the transferred trace by a nontrivial p-power. Ordinary scheme trace has the correct degree-scaling law and is unaffected.",
-        "by": "REV-EtaleDualityAndPerverseSheaves--EDC.4~2"
+        "reason": "For the k-linear relative Frobenius of P¹, pullback sends O(1) to O(p) and multiplies H²(P¹,Qbar_ell(1)) by p. Its perfection is an automorphism, so changing the model by this automorphism changes the transferred trace by a nontrivial p-power. Ordinary scheme trace has the correct degree-scaling law and is unaffected. Independently checked against published A.3.3, p.480 and the preprint pp.55–56 on 2026-10-09, using the degree-p action on top cohomology of P¹.",
+        "by": "REV-EtaleDualityAndPerverseSheaves--EDC.4~3"
       }
     }
   ],
@@ -7388,160 +7402,183 @@
       "url": "https://www.numdam.org/item/AST_1982__100__1_0.pdf",
       "read": "2026-10-06",
       "sha256": "b1e10440e13cb6bf307f74030b577e0cf5056e41b35ca56640dc2f0d2109b9e0",
-      "citation": "BBD, Astérisque 100 (1982), first edition, Numdam scan"
+      "citation": "BBD, Astérisque 100 (1982), first edition, Numdam scan",
+      "independentReview": "Public copy independently fetched and the relevant node locators checked on 2026-10-09 for REV-EtaleDualityAndPerverseSheaves--EDC.4~3; sha256 matches the incoming receipt."
     },
     {
       "kind": "preprint",
       "url": "https://arxiv.org/pdf/1407.8519v3",
       "read": "2026-10-06",
       "sha256": "2c23e397d21e84812daec2c637e2a763eec54ef0d784748eb74e3b2093de1e5b",
-      "citation": "Zhu, arXiv v3 (the published Annals version was not compared)"
+      "citation": "Zhu, arXiv v3 (the published Annals version was not compared)",
+      "independentReview": "Public copy independently fetched and the relevant node locators checked on 2026-10-09 for REV-EtaleDualityAndPerverseSheaves--EDC.4~3; sha256 matches the incoming receipt."
     },
     {
       "kind": "published",
       "url": "https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf",
       "read": "2026-10-06",
-      "sha256": "b06eea61bf9cb2b596c162f5befcf85d1be69828910a6107c8aa3a99c4afcc71"
+      "sha256": "b06eea61bf9cb2b596c162f5befcf85d1be69828910a6107c8aa3a99c4afcc71",
+      "independentReview": "Public copy independently fetched and the relevant node locators checked on 2026-10-09 for REV-EtaleDualityAndPerverseSheaves--EDC.4~3; sha256 matches the incoming receipt."
     },
     {
       "sourceId": "BBD-1982",
       "kind": "published",
       "url": "https://www.numdam.org/item/AST_1982__100__1_0.pdf",
       "read": "2026-10-08",
-      "sha256": "b1e10440e13cb6bf307f74030b577e0cf5056e41b35ca56640dc2f0d2109b9e0"
+      "sha256": "b1e10440e13cb6bf307f74030b577e0cf5056e41b35ca56640dc2f0d2109b9e0",
+      "independentReview": "Public copy independently fetched and the relevant node locators checked on 2026-10-09 for REV-EtaleDualityAndPerverseSheaves--EDC.4~3; sha256 matches the incoming receipt."
     },
     {
       "sourceId": "Deligne-WeilII-1980",
       "kind": "published",
       "url": "https://www.numdam.org/article/PMIHES_1980__52__137_0.pdf",
       "read": "2026-10-08",
-      "sha256": "b06eea61bf9cb2b596c162f5befcf85d1be69828910a6107c8aa3a99c4afcc71"
+      "sha256": "b06eea61bf9cb2b596c162f5befcf85d1be69828910a6107c8aa3a99c4afcc71",
+      "independentReview": "Public copy independently fetched and the relevant node locators checked on 2026-10-09 for REV-EtaleDualityAndPerverseSheaves--EDC.4~3; sha256 matches the incoming receipt."
     },
     {
       "sourceId": "Deligne-WeilI-1974",
       "kind": "published",
       "url": "https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf",
       "read": "2026-10-08",
-      "sha256": "8392b345d4854e6dc55fb42cfc0b616d941935983723627237239a87348f42e5"
+      "sha256": "8392b345d4854e6dc55fb42cfc0b616d941935983723627237239a87348f42e5",
+      "independentReview": "Public copy independently fetched and the relevant node locators checked on 2026-10-09 for REV-EtaleDualityAndPerverseSheaves--EDC.4~3; sha256 matches the incoming receipt."
     },
     {
       "sourceId": "Milne-LEC-v2.21",
       "kind": "author copy",
       "url": "https://www.jmilne.org/math/CourseNotes/LEC.pdf",
       "read": "2026-10-08",
-      "sha256": "ac4f122f371d38a44c58c296b7dbf88081d89d2de2334070bff3606771c01077"
+      "sha256": "ac4f122f371d38a44c58c296b7dbf88081d89d2de2334070bff3606771c01077",
+      "independentReview": "Public copy independently fetched and the relevant node locators checked on 2026-10-09 for REV-EtaleDualityAndPerverseSheaves--EDC.4~3; sha256 matches the incoming receipt."
     },
     {
       "sourceId": "SGA4-XIV",
       "kind": "author copy",
       "url": "https://www.normalesup.org/~forgogozo/SGA4/14/14.pdf",
       "read": "2026-10-08",
-      "sha256": "491af30c246e3aedfc717e1dd957cc634c6befba469e980c4ef7e01412bb0f94"
+      "sha256": "491af30c246e3aedfc717e1dd957cc634c6befba469e980c4ef7e01412bb0f94",
+      "independentReview": "Public copy independently fetched and the relevant node locators checked on 2026-10-09 for REV-EtaleDualityAndPerverseSheaves--EDC.4~3; sha256 matches the incoming receipt."
     },
     {
       "sourceId": "SGA4-XVI",
       "kind": "author copy",
       "url": "https://www.normalesup.org/~forgogozo/SGA4/16/16.pdf",
       "read": "2026-10-08",
-      "sha256": "d93c3cee9212b35a031559fdf2b9556f96678522791fa7ca836710fc921af96a"
+      "sha256": "d93c3cee9212b35a031559fdf2b9556f96678522791fa7ca836710fc921af96a",
+      "independentReview": "Public copy independently fetched and the relevant node locators checked on 2026-10-09 for REV-EtaleDualityAndPerverseSheaves--EDC.4~3; sha256 matches the incoming receipt."
     },
     {
       "sourceId": "Stacks-Morphisms",
       "kind": "author copy",
       "url": "https://stacks.math.columbia.edu/download/morphisms.pdf",
       "read": "2026-10-08",
-      "sha256": "0bebe1d93baa7e4e99cb4f36fe50c7bcb6094772b8a2f760885a492892eca75f"
+      "sha256": "0bebe1d93baa7e4e99cb4f36fe50c7bcb6094772b8a2f760885a492892eca75f",
+      "independentReview": "Public copy independently fetched and the relevant node locators checked on 2026-10-09 for REV-EtaleDualityAndPerverseSheaves--EDC.4~3; sha256 matches the incoming receipt."
     },
     {
       "sourceId": "Varshavsky-LV-2007",
       "kind": "preprint",
       "url": "https://arxiv.org/pdf/math/0505564v2",
       "read": "2026-10-08",
-      "sha256": "8b4cb7ee9b1726cc998fc4d952a2542576e85ebe21e70b0f5c9f31c4682b8ac6"
+      "sha256": "8b4cb7ee9b1726cc998fc4d952a2542576e85ebe21e70b0f5c9f31c4682b8ac6",
+      "independentReview": "Public copy independently fetched and the relevant node locators checked on 2026-10-09 for REV-EtaleDualityAndPerverseSheaves--EDC.4~3; sha256 matches the incoming receipt."
     },
     {
       "sourceId": "Varshavsky-LocalTerms-2020",
       "kind": "preprint",
       "url": "https://arxiv.org/pdf/2003.06815v3",
       "read": "2026-10-08",
-      "sha256": "6a2c74173b5cbd164d28eb5a7669af5102d0ecb570d108eb71969e7c10e0ed8e"
+      "sha256": "6a2c74173b5cbd164d28eb5a7669af5102d0ecb570d108eb71969e7c10e0ed8e",
+      "independentReview": "Public copy independently fetched and the relevant node locators checked on 2026-10-09 for REV-EtaleDualityAndPerverseSheaves--EDC.4~3; sha256 matches the incoming receipt."
     },
     {
       "sourceId": "Hansen-Kaletha-Weinstein-2022",
       "kind": "preprint",
       "url": "https://arxiv.org/pdf/1709.06651v4",
       "read": "2026-10-08",
-      "sha256": "d37e986ef599420a8e206dc289e18965422b03ec923184737fbcead2abc0bd5c"
+      "sha256": "d37e986ef599420a8e206dc289e18965422b03ec923184737fbcead2abc0bd5c",
+      "independentReview": "Public copy independently fetched and the relevant node locators checked on 2026-10-09 for REV-EtaleDualityAndPerverseSheaves--EDC.4~3; sha256 matches the incoming receipt."
     },
     {
       "sourceId": "Lu-Zheng-2022",
       "kind": "preprint",
       "url": "https://arxiv.org/pdf/2005.08522v4",
       "read": "2026-10-08",
-      "sha256": "be71f418bdc0a5524e50aff00f2105313efc4759575276e252821b721a56db98"
+      "sha256": "be71f418bdc0a5524e50aff00f2105313efc4759575276e252821b721a56db98",
+      "independentReview": "Public copy independently fetched and the relevant node locators checked on 2026-10-09 for REV-EtaleDualityAndPerverseSheaves--EDC.4~3; sha256 matches the incoming receipt."
     },
     {
       "sourceId": "Caraiani-Scholze-2017",
       "kind": "preprint",
       "url": "https://arxiv.org/pdf/1511.02418v1",
       "read": "2026-10-08",
-      "sha256": "aa93df3947e57ab78b070a82d638e70c25ae2ae15aeb60346575e74fdf85b349"
+      "sha256": "aa93df3947e57ab78b070a82d638e70c25ae2ae15aeb60346575e74fdf85b349",
+      "independentReview": "Public copy independently fetched and the relevant node locators checked on 2026-10-09 for REV-EtaleDualityAndPerverseSheaves--EDC.4~3; sha256 matches the incoming receipt."
     },
     {
       "sourceId": "Mirkovic-Vilonen-2007",
       "kind": "preprint",
       "url": "https://arxiv.org/pdf/math/0401222v5",
       "read": "2026-10-08",
-      "sha256": "b3fa89de4f2aeefadaba248aba2e942a20fc0895b8a218dfcab93322b4140e21"
+      "sha256": "b3fa89de4f2aeefadaba248aba2e942a20fc0895b8a218dfcab93322b4140e21",
+      "independentReview": "Public copy independently fetched and the relevant node locators checked on 2026-10-09 for REV-EtaleDualityAndPerverseSheaves--EDC.4~3; sha256 matches the incoming receipt."
     },
     {
       "sourceId": "deCataldo-Migliorini-2009",
       "kind": "preprint",
       "url": "https://arxiv.org/pdf/0712.0349v2",
       "read": "2026-10-08",
-      "sha256": "171415a41c8e6aaf90e227b4003de9611c249a88b94a93550d7500ead6996e5f"
+      "sha256": "171415a41c8e6aaf90e227b4003de9611c249a88b94a93550d7500ead6996e5f",
+      "independentReview": "Public copy independently fetched and the relevant node locators checked on 2026-10-09 for REV-EtaleDualityAndPerverseSheaves--EDC.4~3; sha256 matches the incoming receipt."
     },
     {
       "sourceId": "Yun-Zhang-2019",
       "kind": "published",
       "url": "https://math.mit.edu/~zyun/GZW_ramified_published.pdf",
       "read": "2026-10-08",
-      "sha256": "700e0b09f2320912b75f5a16968c5aa3f96a0ad74e3ca375aacedec7e85d296c"
+      "sha256": "700e0b09f2320912b75f5a16968c5aa3f96a0ad74e3ca375aacedec7e85d296c",
+      "independentReview": "Public copy independently fetched and the relevant node locators checked on 2026-10-09 for REV-EtaleDualityAndPerverseSheaves--EDC.4~3; sha256 matches the incoming receipt."
     },
     {
       "sourceId": "Liu-Tian-Xiao-Zhang-Zhu-2022",
       "kind": "preprint",
       "url": "https://arxiv.org/pdf/1912.11942v3",
       "read": "2026-10-08",
-      "sha256": "84dc7c8369298314bd4e7ece5a45e5e096f39bd376f08c4c489950873c46fe86"
+      "sha256": "84dc7c8369298314bd4e7ece5a45e5e096f39bd376f08c4c489950873c46fe86",
+      "independentReview": "Public copy independently fetched and the relevant node locators checked on 2026-10-09 for REV-EtaleDualityAndPerverseSheaves--EDC.4~3; sha256 matches the incoming receipt."
     },
     {
       "sourceId": "Zhu-2017",
       "kind": "preprint",
       "url": "https://arxiv.org/pdf/1407.8519v3",
       "read": "2026-10-08",
-      "sha256": "2c23e397d21e84812daec2c637e2a763eec54ef0d784748eb74e3b2093de1e5b"
+      "sha256": "2c23e397d21e84812daec2c637e2a763eec54ef0d784748eb74e3b2093de1e5b",
+      "independentReview": "Public copy independently fetched and the relevant node locators checked on 2026-10-09 for REV-EtaleDualityAndPerverseSheaves--EDC.4~3; sha256 matches the incoming receipt."
     },
     {
       "sourceId": "Bhatt-Scholze-proetale-2015",
       "kind": "preprint",
       "url": "https://arxiv.org/pdf/1309.1198v2",
       "read": "2026-10-08",
-      "sha256": "ae0960a28f0f25300211569cd350def057d6c0f781f635694182868e766d3c84"
+      "sha256": "ae0960a28f0f25300211569cd350def057d6c0f781f635694182868e766d3c84",
+      "independentReview": "Public copy independently fetched and the relevant node locators checked on 2026-10-09 for REV-EtaleDualityAndPerverseSheaves--EDC.4~3; sha256 matches the incoming receipt."
     },
     {
       "sourceId": "Scholze-ECD-2026",
       "kind": "author copy",
       "url": "https://people.mpim-bonn.mpg.de/scholze/EtCohDiamonds.pdf",
       "read": "2026-10-08",
-      "sha256": "4ce3d1232a6e9e186d1a36da5cc659616569ac8dd2bb263510247c07995a26c1"
+      "sha256": "4ce3d1232a6e9e186d1a36da5cc659616569ac8dd2bb263510247c07995a26c1",
+      "independentReview": "Public copy independently fetched and the relevant node locators checked on 2026-10-09 for REV-EtaleDualityAndPerverseSheaves--EDC.4~3; sha256 matches the incoming receipt."
     },
     {
       "sourceId": "Zhu-2017-published",
-      "kind": "version of record",
+      "kind": "published",
       "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v185-n2-p02-p.pdf",
       "read": "2026-10-08",
-      "sha256": "5d50b415048f3a5ad14bccf1c8da83fc5a680fcf13b60911ca269daa474431a7"
+      "sha256": "5d50b415048f3a5ad14bccf1c8da83fc5a680fcf13b60911ca269daa474431a7",
+      "independentReview": "Public copy independently fetched and the relevant node locators checked on 2026-10-09 for REV-EtaleDualityAndPerverseSheaves--EDC.4~3; sha256 matches the incoming receipt."
     },
     {
       "sourceId": "BBD-1982",
@@ -7549,7 +7586,8 @@
       "url": "https://www.numdam.org/item/AST_1982__100__1_0.pdf",
       "read": "2026-10-09",
       "sha256": "b1e10440e13cb6bf307f74030b577e0cf5056e41b35ca56640dc2f0d2109b9e0",
-      "note": "Revision-three rereading: 1.4.16–1.4.19, pp.51–53; 2.2.14, p.71; 3.2.2–3.2.5, pp.86–87; 3.2.17–3.2.18 and proof completion, pp.95–97; 5.1.2.3–5.1.2.5, pp.123–124; 5.4.10–5.4.15, pp.144–147. Earlier reading receipts are retained."
+      "note": "Revision-three rereading: 1.4.16–1.4.19, pp.51–53; 2.2.14, p.71; 3.2.2–3.2.5, pp.86–87; 3.2.17–3.2.18 and proof completion, pp.95–97; 5.1.2.3–5.1.2.5, pp.123–124; 5.4.10–5.4.15, pp.144–147. Earlier reading receipts are retained.",
+      "independentReview": "Public copy independently fetched and the relevant node locators checked on 2026-10-09 for REV-EtaleDualityAndPerverseSheaves--EDC.4~3; sha256 matches the incoming receipt."
     },
     {
       "sourceId": "Mirkovic-Vilonen-2007",
@@ -7557,7 +7595,8 @@
       "url": "https://arxiv.org/pdf/math/0401222v5",
       "read": "2026-10-09",
       "sha256": "b3fa89de4f2aeefadaba248aba2e942a20fc0895b8a218dfcab93322b4140e21",
-      "note": "Revision-three rereading of the specific correction locators; earlier reading receipts are retained."
+      "note": "Revision-three rereading of the specific correction locators; earlier reading receipts are retained.",
+      "independentReview": "Public copy independently fetched and the relevant node locators checked on 2026-10-09 for REV-EtaleDualityAndPerverseSheaves--EDC.4~3; sha256 matches the incoming receipt."
     },
     {
       "sourceId": "Bhatt-Scholze-proetale-2015",
@@ -7565,7 +7604,8 @@
       "url": "https://arxiv.org/pdf/1309.1198v2",
       "read": "2026-10-09",
       "sha256": "ae0960a28f0f25300211569cd350def057d6c0f781f635694182868e766d3c84",
-      "note": "Revision-three rereading of the coefficient-category and correspondence locators; earlier receipts remain the provenance for other locations."
+      "note": "Revision-three rereading of the coefficient-category and correspondence locators; earlier receipts remain the provenance for other locations.",
+      "independentReview": "Public copy independently fetched and the relevant node locators checked on 2026-10-09 for REV-EtaleDualityAndPerverseSheaves--EDC.4~3; sha256 matches the incoming receipt."
     },
     {
       "sourceId": "Varshavsky-LV-2007",
@@ -7573,7 +7613,8 @@
       "url": "https://arxiv.org/pdf/math/0505564v2",
       "read": "2026-10-09",
       "sha256": "8b4cb7ee9b1726cc998fc4d952a2542576e85ebe21e70b0f5c9f31c4682b8ac6",
-      "note": "Revision-three rereading of the coefficient-category and correspondence locators; earlier receipts remain the provenance for other locations."
+      "note": "Revision-three rereading of the coefficient-category and correspondence locators; earlier receipts remain the provenance for other locations.",
+      "independentReview": "Public copy independently fetched and the relevant node locators checked on 2026-10-09 for REV-EtaleDualityAndPerverseSheaves--EDC.4~3; sha256 matches the incoming receipt."
     },
     {
       "sourceId": "SGA4-XIV",
@@ -7581,599 +7622,600 @@
       "url": "https://www.normalesup.org/~forgogozo/SGA4/14/14.pdf",
       "read": "2026-10-09",
       "sha256": "491af30c246e3aedfc717e1dd957cc634c6befba469e980c4ef7e01412bb0f94",
-      "note": "Revision-three verification of Théorème 3.1 and Corollaire 3.2, with margin pagination 159–160; the public PDF matches the incoming hash."
+      "note": "Revision-three verification of Théorème 3.1 and Corollaire 3.2, with margin pagination 159–160; the public PDF matches the incoming hash.",
+      "independentReview": "Public copy independently fetched and the relevant node locators checked on 2026-10-09 for REV-EtaleDualityAndPerverseSheaves--EDC.4~3; sha256 matches the incoming receipt."
     }
   ],
   "review": {
     "status": "needs_changes",
-    "reviewer": "independent-review-REV-EtaleDualityAndPerverseSheaves--EDC.4~2",
-    "date": "2026-10-08",
-    "notes": "Independent target-level review of all 117 nodes, all API/test forms, 11 pinned baseline declarations, 58 incoming fine supplier statements (all 55 still referenced after corrections), 20 public source copies and all four handed red-team findings. Clear source, dependency, coefficient-regime and native-map repairs were made in place; all five source issues are confirmed. Remaining contradictions in bounded coefficient operations, transition-compatible descent and general recollement/semismall signatures are recorded as three additional precise gaps. Complete/planned statuses describe the finished target-level pass with those explicit gaps, not acceptance, closure or implementation. The previous report remains historical evidence; this object is the current independent verdict.",
+    "reviewer": "independent-review-REV-EtaleDualityAndPerverseSheaves--EDC.4~3",
+    "date": "2026-10-09",
+    "notes": "Independent revision-three target-level review of all 117 nodes and their active forms, 128 API entries, 87 named tests, 21 planets, eleven exact pinned baseline declarations, all consumed fine supplier statements and seventeen stage requests, and twenty public source copies. The prior ambient-operation, transition-compatible descent and general recollement failures are repaired. Clear coefficient-carrier, trace-construction, finite-Tor API, hypothesis, source and dependency corrections were made in place; all five source issues are independently confirmed. The general stratified semismall theorem remains unverifiable because its exact stalk-adapted/product-chart hypotheses do not yet justify the costalk and integral argument. EDC.5 and the packet are partial with a precise remaining entry; this independent review itself is finished, not a checkpoint. No implementation is claimed.",
     "checked": [
       {
         "nodeId": "EtaleDualityAndPerverseSheaves:EDC.4/affine-vanishing-hypercohomology",
-        "verdict": "corrected",
-        "note": "SGA 4 XIV 3.2 p.160 and the bounded spectral sequence give the support-sensitive total bound. Nonzero-sheaf hypothesis and genuine coefficients now appear in the active form."
+        "verdict": "verified",
+        "note": "SGA 4 XIV 3.2, p.160 and the bounded hypercohomology spectral sequence give the support-sensitive bound. The active form bounds only nonzero ordinary cohomology sheaves."
       },
       {
         "nodeId": "EtaleDualityAndPerverseSheaves:EDC.4/compact-support-vanishing-smooth-affine",
         "verdict": "verified",
-        "note": "Weil II 4.1.6 pp.218–219 and derived smooth duality give the low compact range. The integral Hom/Ext-one degrees and finite-free lisse input are correct."
+        "note": "Weil II 4.1.6, pp.218–219 and EDC.2 derived duality give the low compact range. The integral Hom and Ext-one indices and finite-free lisse hypothesis are retained."
       },
       {
         "nodeId": "EtaleDualityAndPerverseSheaves:EDC.4/weak-lefschetz",
         "verdict": "verified",
-        "note": "Weil II 4.1.6 p.218 permits a singular hyperplane section. Localization on the affine complement gives the stated bijective/injective range with lisse input."
+        "note": "Weil II 4.1.6, pp.218–219 allows a singular section. Compact localization on the smooth affine complement gives precisely the bijective and injective ranges."
       },
       {
         "nodeId": "EtaleDualityAndPerverseSheaves:EDC.4/weak-lefschetz-gysin",
         "verdict": "verified",
-        "note": "The smooth-section dual Gysin range, including middle surjectivity, follows from compact localization and purity; no high integral hyperplane generator is assumed."
+        "note": "Purity and compact localization give the high Gysin range, including middle surjectivity, without assuming an integral high hyperplane-power basis."
       },
       {
         "nodeId": "EtaleDualityAndPerverseSheaves:EDC.4/weak-lefschetz-integral",
         "verdict": "verified",
-        "note": "The universal-coefficient sequence gives the claimed torsion-free low groups and saturated middle cokernel. Its adic category is an explicit supplier request."
+        "note": "The integral universal-coefficient calculation gives torsion-free low groups and saturated middle cokernel. The adic finiteness input is an explicit SF.2 request."
       },
       {
         "nodeId": "EtaleDualityAndPerverseSheaves:EDC.4/ample-divisor-weak-lefschetz",
         "verdict": "verified",
-        "note": "Stacks Tag 0EKE p.106 supplies affineness of the section complement under properness. The actual line, section, zero scheme and Veronese bridge are requested from their owners."
+        "note": "Stacks Tag 0EKE, Lemma 44.18, p.106 supplies the affine complement under properness. Actual line/section/zero-scheme and Veronese bridges are requested, not assumed supplied by native Proj alone."
       },
       {
         "nodeId": "EtaleDualityAndPerverseSheaves:EDC.4/complete-intersection-cohomology",
         "verdict": "verified",
-        "note": "Successive weak Lefschetz and duality give low hyperplane generators and high dual generators. Degree-unit splitting and the conic mod-two diagnostic repair the earlier false integral basis."
+        "note": "Successive weak Lefschetz and duality identify low hyperplane powers and high dual generators. The degree-unit splitting and mod-two conic test exclude a false integral basis."
       },
       {
         "nodeId": "EtaleDualityAndPerverseSheaves:EDC.4/projective-bundle-decomposition",
         "verdict": "verified",
-        "note": "Milne 23.2 pp.139–140 and EDC.3 supply the specified cup-power columns. Line convention, plus-sign Chern relation, lower integration zeros and Frobenius twists agree."
+        "note": "Milne 23.2, pp.139–140 and the EDC.3 supplier justify actual cup-power columns, the line convention and plus-sign Chern relation. Integration zeros and Frobenius twists match."
       },
       {
         "nodeId": "EtaleDualityAndPerverseSheaves:EDC.4/blowup-direct-images",
         "verdict": "verified",
-        "note": "Proper base change checks the specified unit/Gysin map on every fibre. Exceptional self-intersection gives minus zeta, matching the active columns and the normal-bundle request."
+        "note": "Milne 33.2, pp.193–194, proper base change and the supplied exceptional self-intersection identify the specified unit/Gysin isomorphism, with minus-zeta exceptional restrictions."
       },
       {
         "nodeId": "EtaleDualityAndPerverseSheaves:EDC.4/blowup-formula",
         "verdict": "verified",
-        "note": "The full cohomological split is induced by the actual derived columns. The unit column has the proper trace inverse and the exceptional twists are retained."
+        "note": "The actual derived columns induce the ordinary and compact splits; proper trace retracts the unit column. All exceptional degrees and twists agree with the fibre computation."
       },
       {
         "nodeId": "EtaleDualityAndPerverseSheaves:EDC.4/pencil-axis-blowup",
         "verdict": "verified",
-        "note": "This is the codimension-two blow-up calculation, with n≥2. Pencil incidence geometry remains LPV.3 rather than a duplicate EDC construction."
+        "note": "Weil I 7.1, p.299 and Milne 33.2, pp.193–194 identify the codimension-two axis blow-up terms. The dimension gate is explicit; pencil incidence remains owned by LPV.3."
       },
       {
         "nodeId": "EtaleDualityAndPerverseSheaves:EDC.4/pullback-injective-blowup-bundle",
         "verdict": "verified",
-        "note": "Ordinary, compact and closed-support splits use the proper bundle/blow-up retractions and all nonzero extra summands; the low-degree bound is consistent."
+        "note": "The proper bundle/blow-up splittings give ordinary, compact and closed-support retractions and the full cokernel. LTXZZ 5.11.3, p.98 supports the intended low-range application."
       },
       {
         "nodeId": "EtaleDualityAndPerverseSheaves:EDC.4/vanishing-and-restriction-subspaces",
         "verdict": "verified",
-        "note": "Actual image/kernel submodules and Gysin adjunction give orthogonality. The quadric F₂ example correctly excludes an automatic direct sum."
+        "note": "Weil II §4.3, pp.222–223 and EDC.3 adjunction justify actual image/kernel submodules and orthogonality. The quadric F₂ witness correctly excludes automatic complementary summands."
       },
       {
         "nodeId": "EtaleDualityAndPerverseSheaves:EDC.5/t-structure-heart-abelian",
         "verdict": "verified",
-        "note": "BBD 1.3.6 pp.29–30 and native AbelianSubcategory.abelian provide the route after proving admissibility. The heart definition alone is not credited with Abelian."
+        "note": "BBD 1.3.6, pp.31–32 and native AbelianSubcategory.abelian supply abelianness after admissibility. The heart predicate is not mistaken for an existing abelian instance."
       },
       {
         "nodeId": "EtaleDualityAndPerverseSheaves:EDC.5/t-cohomology-functor",
         "verdict": "verified",
-        "note": "BBD 1.3.6–1.3.17 pp.29–38 supports the heart-valued shifted functors, long exactness and two-sided bounded detection. The canonical-heart equivalence uses native derived homology."
+        "note": "BBD 1.3.6–1.3.7, pp.31–33 gives heart-valued homology and detection under two-sided bounds. Canonical derived homology is compared by a natural isomorphism."
       },
       {
         "nodeId": "EtaleDualityAndPerverseSheaves:EDC.5/t-exact-functor",
         "verdict": "verified",
-        "note": "The computed aisle predicates, adjoint direction, composition and finite limit/colimit conclusions agree with BBD 1.3.16–1.3.17 pp.36–38."
+        "note": "BBD 1.3.16–1.3.17, pp.36–38 agrees with the computed aisle predicates, adjoint direction and finite limit/colimit consequences. Shift tests distinguish the two directions."
       },
       {
         "nodeId": "EtaleDualityAndPerverseSheaves:EDC.5/recollement-data",
         "verdict": "verified",
-        "note": "BBD 1.4.3 pp.43–44 supplies all six functors, four adjunctions, full faithfulness and actual unit/counit triangles. The missing-adjoint nonexample is discriminating."
+        "note": "BBD 1.4.3, pp.43–44 supplies the six functors, four adjunctions, fully faithful embeddings and actual localization triangles. The missing-right-adjoint test is a mathematical nonexample."
       },
       {
         "nodeId": "EtaleDualityAndPerverseSheaves:EDC.5/glued-t-structure",
         "verdict": "verified",
-        "note": "BBD 1.4.10–1.4.13 pp.46–49 gives the two glued aisles and directional exactness; boundedness is conditional on the input bounds."
+        "note": "BBD 1.4.10–1.4.13, pp.48–50 gives the glued aisles and directional exactness. Boundedness is conditional on the two supplied bounds."
       },
       {
         "nodeId": "EtaleDualityAndPerverseSheaves:EDC.5/abstract-intermediate-extension",
-        "verdict": "verified",
-        "note": "The actual image, restriction, no closed subobject/quotient, uniqueness and simple classification match BBD 1.4.22–1.4.26 pp.53–55."
+        "verdict": "corrected",
+        "note": "Expanded the citation to BBD 1.4.22–1.4.26, pp.54–55 and supplied the full-faithfulness argument from the no-closed-subobject/quotient characterization; the definition alone did not support the entire API."
       },
       {
         "nodeId": "EtaleDualityAndPerverseSheaves:EDC.5/perverse-t-structure",
-        "verdict": "corrected",
-        "note": "Stalk/costalk signs, closure dimensions and the BBD field finiteness convention check out against 2.2.12–2.2.17 and 4.0. Narrowed the finite-ring branch to finite fields; DVR quotients remain a separate branch."
+        "verdict": "verified",
+        "note": "BBD 2.2.12–2.2.18, pp.71–73 and 4.0, pp.101–102 support the corrected stalk/costalk signs, closure dimensions and coefficient gates. Integral p is kept distinct from its dual tilt."
       },
       {
         "nodeId": "EtaleDualityAndPerverseSheaves:EDC.5/perverse-sheaves",
-        "verdict": "unverifiable",
-        "note": "The point category and Hom-sheaf target are correct. Restricted the ordinary-derived supplier request using BBD 3.2.4, but the active descent conclusion still lacks compatibility with transitions; see the descent gap."
+        "verdict": "corrected",
+        "note": "The explicit cocycle and CompatibleTrivialization now satisfy BBD 3.2.4, pp.86–87 with common bounds and negative-Ext vanishing. Corrected the Hom-presheaf carrier to use completed pro-étale coefficients for O/E on every small-étale object."
       },
       {
         "nodeId": "EtaleDualityAndPerverseSheaves:EDC.5/lisse-shift-is-perverse",
         "verdict": "verified",
-        "note": "BBD 2.2.5–2.2.6 pp.68–69 gives L[d] on smooth pure-dimension strata. The revised active theorem handles an actual lisse input."
+        "note": "BBD 2.2.5–2.2.6, pp.68–69 and smooth purity give arbitrary lisse L[d] in the heart. Actual lisse input and pure dimension occur in the active form."
       },
       {
         "nodeId": "EtaleDualityAndPerverseSheaves:EDC.5/perverse-recollement",
-        "verdict": "unverifiable",
-        "note": "BBD 1.4.19 pp.51–53 gives the two planned general five-term sequences. The active affine-open pj!A→pj*A sequence is a different statement; the general named target is not yet represented."
+        "verdict": "verified",
+        "note": "Both general five-term sequences for arbitrary perverse K now match BBD 1.4.19, p.52. The separate affine-open comparison is retained without imposing boundary amplitude one."
       },
       {
         "nodeId": "EtaleDualityAndPerverseSheaves:EDC.5/intermediate-extension",
         "verdict": "verified",
-        "note": "BBD 2.1.11 pp.59–60 and 2.2.17 pp.72–73 give image, strict boundary inequalities and transitivity. The ordinary truncation formula keeps its source bound and smooth boundary."
+        "note": "BBD 2.1.9–2.1.11, pp.59–60 and 2.2.17, pp.72–73 justify image, strict boundary bounds and transitivity. The standard truncation formula retains its input bound and smooth boundary."
       },
       {
         "nodeId": "EtaleDualityAndPerverseSheaves:EDC.5/intersection-complex",
-        "verdict": "verified",
-        "note": "IC uses the same dense-open lisse object shifted by dimension, not an arbitrary perverse input. Shrinking and finite-birational comparisons retain the needed extension of the local system."
+        "verdict": "corrected",
+        "note": "The shifted dense-open lisse input and same-local-system shrinking are correct. Expanded Zhu A.3.1 to pp.54–55, locating its normalization display on p.55; BBD 4.3.1, p.112 supplies classification."
       },
       {
         "nodeId": "EtaleDualityAndPerverseSheaves:EDC.5/simple-perverse-sheaves",
-        "verdict": "corrected",
-        "note": "BBD 4.3.1 p.112 gives finite length and the full IC classification. Corrected the curve acceptance example to account for closed-point Galois representations over a general base."
+        "verdict": "verified",
+        "note": "BBD 4.3.1, p.112 supplies finite length and IC classification; the quotient case follows the finite scalar-torsion filtration. Closed-point Galois representations are retained over a general base."
       },
       {
         "nodeId": "EtaleDualityAndPerverseSheaves:EDC.5/verdier-duality-perverse",
         "verdict": "verified",
-        "note": "BBD 2.2.18 p.73 and 4.3.1 support field-coefficient self-duality and IC duality with the dimension Tate twist. Integral p/p-plus remain separate."
+        "note": "BBD 2.2.18, p.73 and 4.0, pp.101–102 give field-coefficient p self-duality and the dimension twist for IC duals. Integral coefficients use p/p-plus instead."
       },
       {
         "nodeId": "EtaleDualityAndPerverseSheaves:EDC.5/affine-perverse-artin-vanishing",
         "verdict": "corrected",
-        "note": "BBD 4.1.1–4.1.4 pp.102–103 supports the two directions and geometric vanishing. Added the missing active quasi-finite affine t-exactness form."
+        "note": "Added the direct perverse-amplitude prerequisite used for the quasi-finite direction. BBD 4.1.1–4.1.4, pp.102–103 supports the affine estimates and geometric cohomology vanishing."
       },
       {
         "nodeId": "EtaleDualityAndPerverseSheaves:EDC.5/perverse-amplitude-estimates",
-        "verdict": "verified",
-        "note": "BBD 4.2.4–4.2.6 pp.109–111 gives all four fibre bounds, smooth shifts, connected-fibre full faithfulness and finite exactness. Native geometric fibres are used."
+        "verdict": "corrected",
+        "note": "Added surjectivity to the smooth connected-fibre full-faithfulness claim, matching its active signature and BBD 4.2.5, pp.108–109. The four fibre bounds, finite exactness and smooth shifts are correct."
       },
       {
         "nodeId": "EtaleDualityAndPerverseSheaves:EDC.5/generic-degree-concentration",
         "verdict": "verified",
-        "note": "BBD 4.1.5 p.104 gives concentration at the generic geometric point of a maximal support component, including the equality degree."
+        "note": "BBD 4.1.5, p.104 proves generic concentration on a maximal-dimensional support component; Caraiani–Scholze after 6.1.4, p.87 is the stated application."
       },
       {
         "nodeId": "EtaleDualityAndPerverseSheaves:EDC.5/semismall-pushforward-perverse",
         "verdict": "unverifiable",
-        "note": "The étale dimension argument needs proper base change and compact-support bounds on adapted strata; these are now explicit. The active form still treats only smooth-source constants, rather than the planned general stratified target."
+        "note": "The general signature is now present, but IsAdapted controls stalk cohomology only. Separate fibre-piece product charts do not establish costalk adaptation or the integral lower estimate. BBD 4.2.8, p.112 requires both restrictions and exceptional restrictions lisse; MV 4.3, pp.14–15 has stronger stratified topological geometry. The smooth-source field specialization is separately verified."
       },
       {
         "nodeId": "EtaleDualityAndPerverseSheaves:EDC.5/small-map-intersection-complex",
-        "verdict": "corrected",
-        "note": "Smallness plus a dense finite-étale locus gives the strict boundary IC characterization, as in de Cataldo–Migliorini 4.2.4 p.56 and Yun–Zhang §7.1 p.507. Added the zero-dimensional boundary-fibre step; the main constant-input signature is present."
+        "verdict": "verified",
+        "note": "The strict boundary estimate and actual dense finite-étale square identify the small-map IC, including zero-dimensional boundary fibres, as in de Cataldo–Migliorini 4.2.4, p.56 and Yun–Zhang 7.1, p.507. It uses the separately justified smooth-source result."
       },
       {
         "nodeId": "EtaleDualityAndPerverseSheaves:EDC.5/integral-perverse-torsion-pair",
-        "verdict": "corrected",
-        "note": "BBD 3.3.4 pp.99–100 supports the actual scalar torsion pair and dual tilt. Added both one-sided residue-reduction forms; rationalization from both t-structures was already active."
+        "verdict": "verified",
+        "note": "BBD 3.3.4, pp.99–100 gives the scalar torsion pair and dual tilt. The point torsion/free tests and both one-sided residue-reduction forms have the correct signs."
       },
       {
         "nodeId": "EtaleDualityAndPerverseSheaves:EDC.6/scheme-adic-diamond-operation-comparisons-index",
-        "verdict": "unverifiable",
-        "note": "Exact L2/L3/L4/L6/H5 suppliers and ECD 27.1–27.4 pp.163–165 support the recovery direction and unbounded Rc-star codomain. The bounded RHom stand-in used as input still needs the ambient-operation repair."
+        "verdict": "verified",
+        "note": "The exact L2/L3/L4/L6/H5 suppliers and ECD 27.1–27.4, pp.163–165 distinguish recovery from strong pullback transport. Ambient tensor/RHom inputs are now genuinely unbounded; the stronger result remains a separate gap."
       },
       {
         "nodeId": "EtaleDualityAndPerverseSheaves:EDC.6/classical-and-proetale-adic-categories",
-        "verdict": "unverifiable",
-        "note": "Bhatt–Scholze 6.6.11 and 6.8.14–6.8.15 pp.55–62 supports the stated normalized constructible comparison, not a bare unrestricted inverse limit. The current all-input bounded levelReduction makes its suggested model invalid."
+        "verdict": "verified",
+        "note": "Bhatt–Scholze 6.6.11, p.54 and 6.8.14–6.8.15, pp.61–62 justify normalized constructible comparison with common strata/bounds. Level reductions now have ambient codomains and actual restriction receipts."
       },
       {
         "nodeId": "EtaleDualityAndPerverseSheaves:EDC.6/adic-transport-of-duality-and-classes",
         "verdict": "verified",
-        "note": "BBD 6.1.3–6.1.4 pp.150–153 and the named SF.2 supplier support geometric finiteness, derived coefficient exact sequences and trace/class compatibilities in the stated integral regime."
+        "note": "BBD 6.1.3–6.1.4, pp.150–153, Bhatt–Scholze 6.7, pp.55–58 and the precise SF.2 request support integral duality, trace/classes and coefficient compatibility, with geometric finiteness."
       },
       {
         "nodeId": "EtaleDualityAndPerverseSheaves:EDC.6/rational-perverse-coefficient-extension",
         "verdict": "verified",
-        "note": "BBD 6.1.2 p.150 supports exact finite field extension, Hom base change, IC/j-middle compatibility and faithfulness. The actual rational coefficient data are retained."
+        "note": "BBD 6.1.2, pp.149–150 supports finite faithful rational coefficient extension, Hom base change and IC/j-middle compatibility. The field data and rank/faithfulness tests are explicit."
       },
       {
         "nodeId": "EtaleDualityAndPerverseSheaves:EDC.6/complex-analytic-comparison",
-        "verdict": "unverifiable",
-        "note": "SGA 4 XVI 4.1 pp.233–234, BBD 6.1.2 and Bhatt–Scholze support finite/integral comparison and rational stable-lattice essential image. Its unrestricted bounded analytic tensor/RHom forms remain invalid over quotient coefficients."
+        "verdict": "verified",
+        "note": "SGA 4 XVI 4.1, pp.233–234 and BBD 6.1.2, pp.149–150 support finite comparison and the stable-lattice adic essential image. Analytic tensor/RHom are now ambient operations with qualified bounded restrictions."
       },
       {
         "nodeId": "EtaleDualityAndPerverseSheaves:EDC.6/trace-orientation-comparison",
         "verdict": "verified",
-        "note": "Milne 27.13 pp.158–159 and the chosen positive analytic orientation fix the degree-one trace. This finite-type comparison does not repair model-dependent perfect-space orientation."
+        "note": "BBD 6.1.2(B′), p.149 and the positive analytic Chern orientation identify the degree-one trace. This finite-type comparison does not claim a model-independent orientation on perfections."
       },
       {
         "nodeId": "EtaleDualityAndPerverseSheaves:EDC.6/complete-intersection-betti-comparison",
         "verdict": "verified",
-        "note": "Smooth proper specialization and the connected multidegree parameter family give every outside-middle rank and the middle rank. The hypersurface Euler-characteristic formula is still an honestly recorded external gap."
+        "note": "Milne §16, p.110 and the smooth proper family request give outside-middle and middle Betti independence. The Euler-characteristic formula remains an honestly separate gap."
       },
       {
         "nodeId": "EtaleDualityAndPerverseSheaves:EDC.6/diamond-transport-of-duality",
-        "verdict": "unverifiable",
-        "note": "The revised recovery through Rc-star agrees with ECD 27.1–27.4; strong c-star duality transport remains a separate gap. Its bounded scheme RHom input still needs the same ambient-category correction."
+        "verdict": "verified",
+        "note": "ECD 27.2–27.4, pp.163–165 gives the right-adjoint dualizing/RHom recovery exactly as typed. Full faithfulness is not used to invert an arbitrary counit; strong c-star transport remains separately requested."
       },
       {
         "nodeId": "EtaleDualityAndPerverseSheaves:EDC.7/weights-and-perverse-truncation",
         "verdict": "verified",
-        "note": "BBD 5.4.1 p.142 and DWP.8 give both perverse-cohomology criteria, shifts/twists and all four directional estimates. Purity is not replaced by singular stalkwise purity."
+        "note": "BBD 5.4.1, pp.141–142 and the DWP.8 directional supplier give both weight criteria, shifted/twisted perverse homology and the four estimates. Purity is not replaced by singular stalkwise purity."
       },
       {
         "nodeId": "EtaleDualityAndPerverseSheaves:EDC.7/ext-vanishing-weights",
-        "verdict": "corrected",
-        "note": "Corrected the Hochschild–Serre attribution and both adjacent geometric groups using BBD 5.1.2.5 p.124 and 5.1.15 p.129. Added the precise constructible-derived supplier request; the lisse-only Ext node was insufficient."
+        "verdict": "verified",
+        "note": "BBD 5.1.2.5, p.124 and 5.1.15, p.129 give the adjacent invariants/coinvariants sequence and strict weight Ext vanishing. The SF.2 constructible-Hom request is distinct from lisse Ext-one."
       },
       {
         "nodeId": "EtaleDualityAndPerverseSheaves:EDC.7/mixed-perverse-weight-filtration",
         "verdict": "verified",
-        "note": "BBD 5.3.5–5.3.6 pp.135–136 gives the finite arithmetic flag, unique pure cokernel grades and strict morphisms. Its owner construction now directly requests finite length and Ext ordering."
+        "note": "BBD 5.3.5–5.3.6, pp.135–136 gives the finite arithmetic weight flag, pure cokernel grades, uniqueness and strictness. Finite length and strict weight ordering are direct prerequisites."
       },
       {
         "nodeId": "EtaleDualityAndPerverseSheaves:EDC.7/ic-purity",
         "verdict": "verified",
-        "note": "BBD 5.3.1 pp.134–135 proves purity of the actual intermediate extension; the dimension shift and arbitrary lisse normalization agree with the active IC form."
+        "note": "BBD 5.3.1–5.3.2, pp.134–135 gives purity of intermediate extension. The ordinary lisse weight plus dimension and the active IC normalization agree."
       },
       {
         "nodeId": "EtaleDualityAndPerverseSheaves:EDC.7/geometric-semisimplicity",
         "verdict": "verified",
-        "note": "BBD 5.3.8 p.138 gives semisimplicity after the specified geometric base change. Arithmetic unipotence and geometric elliptic Ext tests distinguish the two categories."
+        "note": "BBD 5.3.8, p.138 gives geometric semisimplicity after the specified base change. Arithmetic unipotence and nonzero geometric genus-one Ext tests distinguish the relevant claims."
       },
       {
         "nodeId": "EtaleDualityAndPerverseSheaves:EDC.7/pure-complex-decomposition",
         "verdict": "verified",
-        "note": "BBD 5.4.5 p.142 gives one simultaneous finite sum of all shifted perverse cohomology, with vanishing outside the support. The active full biproduct and semisimple summands repair the old retract-only form."
+        "note": "BBD 5.4.5–5.4.6, pp.142–143 gives the full finite perverse-homology split with simultaneous vanishing outside support. The splitting is not claimed canonical or reduced to an arbitrary retract."
       },
       {
         "nodeId": "EtaleDualityAndPerverseSheaves:EDC.7/proper-direct-image-decomposition",
         "verdict": "verified",
-        "note": "BBD 5.4.6 p.143 combines proper purity preservation with full geometric decomposition and semisimplicity. Projectivity is reserved for the later Chern-operator theorem."
+        "note": "BBD 5.4.5, p.142 and directional proper-weight stability give the full semisimple geometric direct-image decomposition. Zhu 2.11, p.26 is a use on finite-type models, not an imported perfect-space theorem."
       },
       {
         "nodeId": "EtaleDualityAndPerverseSheaves:EDC.7/relative-hard-lefschetz",
-        "verdict": "corrected",
-        "note": "Replaced the unsupported fibrewise proof sketch by BBD 5.4.11–5.4.15 pp.145–147 and added the amplitude, geometric semisimplicity, projective-bundle and projection-formula dependencies. The actual chosen Chern powers and equal weight w-r are correct."
+        "verdict": "verified",
+        "note": "BBD 5.4.10–5.4.15, pp.144–147 supplies the universal-hyperplane proof, smooth full faithfulness, amplitude and projective-bundle/projection-formula inputs. The chosen ample line supplies the actual twisted Chern operator."
       },
       {
         "nodeId": "EtaleDualityAndPerverseSheaves:EDC.7/relative-primitive-decomposition",
         "verdict": "verified",
-        "note": "Actual eta kernels and primitive string columns reduce to the categorical decomposition, not DWP.9’s vector-space theorem. Twists and a full finite degreewise split are represented."
+        "note": "The primitive strings follow from the separately planned categorical split-kernel argument and relative hard Lefschetz. Primitive columns are powers of the actual eta and preserve Tate twists."
       },
       {
         "nodeId": "EtaleDualityAndPerverseSheaves:EDC.7/spreading-out-to-finite-fields",
         "verdict": "verified",
-        "note": "BBD 6.1.8–6.1.10 pp.155–159 supplies selected residual extension categories and genuine trait squares. The revised request keeps generator Ext/base-change and Rqj-star closure gates rather than asserting all-category equivalence."
+        "note": "BBD 6.1.8–6.1.10, pp.155–159 and 6.2.4–6.2.6, pp.162–164 justify selected good-model categories, trait squares and allowed shrinking. No equivalence of all constructible categories is asserted."
       },
       {
         "nodeId": "EtaleDualityAndPerverseSheaves:EDC.7/characteristic-zero-decomposition",
-        "verdict": "verified",
-        "note": "BBD 6.2.4–6.2.10 pp.162–165 supports the chosen complex/Qbar-ell geometric-origin theorem via pure arithmetic specialization. Full decomposition and chosen-class relative Lefschetz are present; broader coefficient descent remains a gap."
+        "verdict": "corrected",
+        "note": "Expanded the locator to include BBD 6.2.10, p.165 for relative hard Lefschetz, alongside 6.2.5, p.163 for decomposition. Complex coefficients and chosen origin specialization witnesses are explicit."
       },
       {
         "nodeId": "EtaleDualityAndPerverseSheaves:EDC.8/cohomological-correspondence",
-        "verdict": "corrected",
-        "note": "Lu–Zheng 2.6 p.13 and Varshavsky 1.1.4 p.7 fix the adjoint convention. Corrected the graph example; SupportEquiv and proper-support maps retain the actual u."
+        "verdict": "verified",
+        "note": "Varshavsky 1.1.4–1.1.6, p.7 and Lu–Zheng 2.6, p.13 justify the adjoint orientation and proper-support mate. SupportEquiv preserves the actual u and both legs; graph and arbitrary-u tests agree."
       },
       {
         "nodeId": "EtaleDualityAndPerverseSheaves:EDC.8/correspondence-pushforward",
         "verdict": "verified",
-        "note": "Varshavsky 1.1.6 pp.7–8 gives the three admissibility alternatives and the exchange/adjunction composite. Revised identity/composition compare the actual morphism after coefficient transports."
+        "note": "Varshavsky 1.1.6, p.7 gives the proper/Cartesian pushforward mate and functoriality. Equal outer maps are explicit when transporting a self-correspondence trace."
       },
       {
         "nodeId": "EtaleDualityAndPerverseSheaves:EDC.8/correspondence-restriction",
-        "verdict": "verified",
-        "note": "Varshavsky 1.1.6–1.1.8 pp.8–9 gives the invariant directions, reduced closed support and complementary open support. The fixed-point endomorphism is arbitrary, not only identity."
+        "verdict": "corrected",
+        "note": "Expanded the source locator to Varshavsky 1.1.9, p.8 and 1.5.6, p.16. Closed and complementary-open invariance orientations, reduced closed support and intersection open support are correct."
       },
       {
         "nodeId": "EtaleDualityAndPerverseSheaves:EDC.8/correspondence-composition",
-        "verdict": "unverifiable",
-        "note": "The specified fibre-product mate and u-sensitive coherence are correct in the ambient formalism; added a native IsPullback constraint on its projections. The unrestricted bounded external tensor product still prevents acceptance of the active model."
+        "verdict": "corrected",
+        "note": "Lu–Zheng 2.6, p.13 and the six-operation exchange maps give the actual fibre-product composite. Associativity/unit comparisons transport u and the native projection pullback square is required. Aligned the external-product API with its active bounded receipts by stating finite-Tor hypotheses on both source and target pairs."
       },
       {
         "nodeId": "EtaleDualityAndPerverseSheaves:EDC.8/correspondence-trace",
-        "verdict": "unverifiable",
-        "note": "Varshavsky 1.2.1–1.2.4 pp.9–10 supports the evaluation/Künneth trace and proper component integration. H-zero uses the unbounded dualizing object, but input tensor/RHom and the finite-Tor predicate still use the invalid bounded stand-ins."
+        "verdict": "corrected",
+        "note": "Corrected the trace construction to c^! applied to the diagonal-adjoint evaluation followed by proper base change (Varshavsky 1.2.2(b), p.9). Corrected dualizing H0 to use the same finite/completed-adic coefficient category as L, and added its supplier prerequisites."
       },
       {
         "nodeId": "EtaleDualityAndPerverseSheaves:EDC.8/lefschetz-verdier-formula",
-        "verdict": "unverifiable",
-        "note": "Varshavsky 1.2.5–1.2.6 p.10 gives trace-class pushforward and the numerical formula. Corrected the two outer maps to be equal; the active finite-Tor predicate still requires the ambient-category repair."
+        "verdict": "verified",
+        "note": "Varshavsky 1.2.5–1.2.6, p.10 gives proper trace pushforward and proper clopen-component integration. Finite-Tor finite inputs and all integer cohomological degrees are retained."
       },
       {
         "nodeId": "EtaleDualityAndPerverseSheaves:EDC.8/local-terms-finite-order",
-        "verdict": "unverifiable",
-        "note": "Varshavsky local-terms Corollaries 4.10–4.11 p.10 gives equality with the arbitrary stalk endomorphism trace for isolated fixed components. Actual scheme order is now correct; its finite-Tor input remains the defective predicate."
+        "verdict": "corrected",
+        "note": "Made the finite-coefficient D_ctf restriction explicit in the statement. Varshavsky Local terms 5.3–5.6 and 4.11, pp.10–11 give the normal-cone tame-order argument; HKW 5.6.2, p.61 is kept in the perfect-space transport boundary."
       },
       {
         "nodeId": "EtaleDualityAndPerverseSheaves:EDC.8/similitude-reciprocal-charpoly",
         "verdict": "verified",
-        "note": "Weil II 4.3.2 pp.222–223 gives reciprocal eigenvalues. The active determinant polynomial and generalized multiplicities do not assume semisimplicity; native transpose/determinant identities suffice."
+        "note": "Weil I 2.6, p.282 and transpose/dual determinant identities give reciprocal characteristic polynomials for an arbitrary pairing similitude; nonsemisimple input is allowed."
       },
       {
         "nodeId": "EtaleDualityAndPerverseSheaves:EDC.8/middle-degree-determinant",
         "verdict": "verified",
-        "note": "Weil II 4.3.2–4.3.3 pp.222–223 and symplectic linear algebra give the symmetric sign and alternating determinant. Generalized eigenspaces and the characteristic assumptions are retained."
+        "note": "Milne 27.13, p.159 and the symmetric/alternating determinant calculation retain the even-dimensional sign and eliminate it in the alternating case. The nonsplit quadric test detects the sign."
       },
       {
         "nodeId": "EtaleDualityAndPerverseSheaves:EDC.8/poincare-pairing-reciprocity-export",
         "verdict": "verified",
-        "note": "Weil II 4.3.1–4.3.3 pp.222–223 gives actual geometric Frobenius similitude and the determinant export. The exponent in Delta² is -dχ, and the active geometric base change is explicit."
+        "note": "Pairing reciprocity degree by degree and Poincaré Betti symmetry give Delta²=q^(-d chi). Negative signs and the P¹ check agree with geometric Frobenius and E(1) conventions."
       },
       {
         "nodeId": "EtaleDualityAndPerverseSheaves:EDC.6/normalized-adic-system",
-        "verdict": "unverifiable",
-        "note": "Uniform ordinary/Tor bounds and common finite strata are the correct extra conditions beyond E4 reconstruction. The current derived reduction and Tor tests are defined through already-bounded operations; their model is not verified."
+        "verdict": "verified",
+        "note": "Bhatt–Scholze §§6.5–6.8, pp.49–62 and enhanced E4 reconstruction justify the proposed normalized carrier with ambient reduction, identity/triple coherence and uniform ordinary/Tor bounds. The nonperfect Z/ell² test rules out a bounded ambient substitute."
       },
       {
         "nodeId": "EtaleDualityAndPerverseSheaves:EDC.7/perverse-weight-filtration-data",
-        "verdict": "corrected",
-        "note": "The actual Subobject flag and cokernel grades are appropriate. Added finite length and strict-order Ext dependencies for the constructor’s non-routine existence claim; BBD 5.3.5 p.136 supplies it."
+        "verdict": "verified",
+        "note": "BBD 5.3.5–5.3.6, pp.135–136 supplies an actual finite filtration by subobjects with pure cokernel grades. The zero, two-weight and arithmetic-unipotent tests constrain the intended object."
       },
       {
         "nodeId": "EtaleDualityAndPerverseSheaves:EDC.7/categorical-graded-lefschetz",
         "verdict": "verified",
-        "note": "The actual graded objects, Tate powers, hard-Lefschetz isomorphism predicate, primitive kernels and cup-power columns have coherent sources/targets. Boundedness is part of the data."
+        "note": "BBD 5.4.10, p.144 motivates finite graded Tate-shifted eta data; iterates use the specified associator and kernels are native abelian kernels. The active one-string and zero-operator tests discriminate hard Lefschetz."
       },
       {
         "nodeId": "EtaleDualityAndPerverseSheaves:EDC.7/categorical-primitive-decomposition",
-        "verdict": "corrected",
-        "note": "Corrected the false BBD 5.4.9 attribution to a formal deduction from 5.4.10 p.144. Recorded the explicit split-kernel argument and bounded iteration producing the specified full columns."
+        "verdict": "verified",
+        "note": "The finite primitive split follows from the hard-Lefschetz kernel/retraction argument in an abelian category, without claiming BBD 5.4.9 proves it. All summands and actual eta-power columns occur."
       },
       {
         "nodeId": "EtaleDualityAndPerverseSheaves:EDC.7/geometric-origin",
         "verdict": "verified",
-        "note": "BBD 6.2.4–6.2.5 pp.162–163 supports simple constituents and the closure operations. Arbitrary constituents are not silently declared simple; semisimple-origin complexes use finite perverse constituents."
+        "note": "BBD 6.2.4, p.162 defines the least closure of simple objects under the specified operations. Origin-simple and constituent APIs agree; semisimple complexes retain full finite perverse support."
       },
       {
         "nodeId": "EtaleDualityAndPerverseSheaves:EDC.7/restricted-residual-constructibility",
         "verdict": "verified",
-        "note": "BBD 6.1.3–6.1.4 and 6.1.8–6.1.10 pp.150–159 supports selected residual extension classes and the Rqj-star closure gate. Actual generators, reductions and trait maps are retained."
+        "note": "BBD 6.1.8–6.1.10, pp.155–159 gives the residual extension-class predicate on chosen smooth strata and generators. Empty-generator and excluded-constituent tests distinguish actual restrictions from nominal labels."
       },
       {
         "nodeId": "EtaleDualityAndPerverseSheaves:EDC.7/geometric-origin-pure-specialization",
         "verdict": "verified",
-        "note": "BBD 6.2.6–6.2.9 pp.163–164 gives a separate pure, geometrically simple arithmetic specialization. The spread witness does not assume its purity conclusion and uses the stated chosen coefficient identification."
+        "note": "BBD 6.2.6–6.2.9, pp.163–164 proves pure specialization from the supplied finite origin witness, coefficient identification and good model. Purity and geometric simplicity are conclusions, not witness assumptions."
       },
       {
         "nodeId": "EtaleDualityAndPerverseSheaves:EDC.5/api-t-structure-homology-zero-is-homological",
         "verdict": "verified",
-        "note": "The truncation construction sends each distinguished triangle to the actual heart-valued exact sequence (BBD 1.3.6)."
+        "note": "BBD 1.3.6, pp.31–32: heart-valued H0 sends every distinguished triangle to an exact sequence; this is the native IsHomological property."
       },
       {
         "nodeId": "EtaleDualityAndPerverseSheaves:EDC.5/api-t-structure-is-zero-of-homology-is-zero",
         "verdict": "verified",
-        "note": "Two-sided boundedness excludes degenerate invisible objects; successive truncation triangles prove zero detection."
+        "note": "BBD 1.3.7, pp.32–33: two-sided boundedness lets vanishing of all t-homology detect the zero object; the one-sided counterexample remains active."
       },
       {
         "nodeId": "EtaleDualityAndPerverseSheaves:EDC.5/api-t-structure-is-l-e-iff-homology",
         "verdict": "verified",
-        "note": "Under the stated boundedness, high heart cohomology detects the upper aisle; the one-sided-bound nonexample is valid."
+        "note": "BBD 1.3.7, pp.32–33: under the stated two-sided bound, aisle membership is equivalent to homology vanishing above the cutoff."
       },
       {
         "nodeId": "EtaleDualityAndPerverseSheaves:EDC.5/api-functor--is-right-t-exact-comp",
         "verdict": "verified",
-        "note": "Composition preserves the computed upper-aisle condition by applying it twice."
+        "note": "BBD 1.3.16–1.3.17, pp.36–38: the composite preserves the upper aisle because both functors do."
       },
       {
         "nodeId": "EtaleDualityAndPerverseSheaves:EDC.5/api-functor--is-left-t-exact-comp",
         "verdict": "verified",
-        "note": "Composition preserves the computed lower-aisle condition by applying it twice."
+        "note": "BBD 1.3.16–1.3.17, pp.36–38: the composite preserves the lower aisle because both functors do."
       },
       {
         "nodeId": "EtaleDualityAndPerverseSheaves:EDC.5/api-functor-is-right-t-exact-iff-is-left-t-exact-of-adjunction",
         "verdict": "verified",
-        "note": "Adjunction and aisle orthogonality give the stated opposing exactness directions."
+        "note": "BBD 1.3.17, pp.37–38: the upper-aisle preservation condition on a left adjoint is equivalent to lower-aisle preservation by its right adjoint."
       },
       {
         "nodeId": "EtaleDualityAndPerverseSheaves:EDC.5/api-functor-heart-functor-preserves-finite-colimits",
         "verdict": "verified",
-        "note": "The induced heart functor from the stated right-exact input preserves finite cokernels and coproducts, with the native assumptions retained."
+        "note": "BBD 1.3.17, pp.37–38: a right t-exact triangulated functor induces a right-exact heart functor, hence preserves finite colimits."
       },
       {
         "nodeId": "EtaleDualityAndPerverseSheaves:EDC.5/api-functor-heart-functor-preserves-finite-limits",
         "verdict": "verified",
-        "note": "The induced heart functor from the stated left-exact input preserves finite kernels and products, with the native assumptions retained."
+        "note": "BBD 1.3.17, pp.37–38: a left t-exact triangulated functor induces a left-exact heart functor, hence preserves finite limits."
       },
       {
         "nodeId": "EtaleDualityAndPerverseSheaves:EDC.5/api-recollement-triangle-lower-shriek-distinguished",
         "verdict": "verified",
-        "note": "This is the actual counit/unit localization triangle included in Recollement, not an arbitrary triangle."
+        "note": "BBD 1.4.3, pp.43–44: the stated lower-shriek triangle is the actual adjunction localization triangle, with distinguishedness as recollement data."
       },
       {
         "nodeId": "EtaleDualityAndPerverseSheaves:EDC.5/api-recollement-triangle-upper-shriek-distinguished",
         "verdict": "verified",
-        "note": "The second adjunction triangle is actual and distinguished by the recollement data."
+        "note": "BBD 1.4.3, pp.43–44: the stated upper-shriek triangle is the other actual adjunction localization triangle."
       },
       {
         "nodeId": "EtaleDualityAndPerverseSheaves:EDC.5/api-recollement-upper-star-lower-shriek-eq-zero",
         "verdict": "verified",
-        "note": "The closed pullback of open extension by zero vanishes by the localization identities."
+        "note": "BBD 1.4.3, pp.43–44: the vanishing composite follows from the specified adjunctions and localization, not from unidentified functors."
       },
       {
         "nodeId": "EtaleDualityAndPerverseSheaves:EDC.5/api-recollement-upper-star-intermediate-extension",
-        "verdict": "verified",
-        "note": "Exact open restriction sends the defining image to the input; full faithfulness gives the canonical isomorphism."
+        "verdict": "corrected",
+        "note": "Expanded to BBD 1.4.22–1.4.25, pp.54–55: exact open restriction carries the canonical image to the original heart object."
       },
       {
         "nodeId": "EtaleDualityAndPerverseSheaves:EDC.5/api-recollement-intermediate-extension-no-sub-quotient",
-        "verdict": "verified",
-        "note": "The image lies between the open shriek/star extensions and has neither a closed subobject nor closed quotient."
+        "verdict": "corrected",
+        "note": "Expanded to BBD 1.4.24–1.4.25, p.55 for the no-closed-subobject/quotient characterization; the definition alone was insufficient source support."
       },
       {
         "nodeId": "EtaleDualityAndPerverseSheaves:EDC.5/api-recollement-intermediate-extension-unique",
-        "verdict": "verified",
-        "note": "The no-closed-subobject/quotient characterization forces the two extension maps to be isomorphisms."
+        "verdict": "corrected",
+        "note": "Expanded to BBD 1.4.24–1.4.25, p.55: uniqueness retains the prescribed open restriction identification."
       },
       {
         "nodeId": "EtaleDualityAndPerverseSheaves:EDC.5/api-recollement-intermediate-extension-fully-faithful",
-        "verdict": "verified",
-        "note": "Open restriction and the no-closed-subquotient property identify Hom, giving full faithfulness."
+        "verdict": "corrected",
+        "note": "Expanded to BBD 1.4.25, p.55: functorial images extend open maps and the no-closed-subobject/quotient property gives faithfulness and uniqueness."
       },
       {
         "nodeId": "EtaleDualityAndPerverseSheaves:EDC.5/api-recollement-simple-classification",
-        "verdict": "verified",
-        "note": "BBD 1.4.26 separates closed simple images from open simple intermediate extensions; the actual object isomorphisms are present."
+        "verdict": "corrected",
+        "note": "Expanded to BBD 1.4.26, p.55 for the full simple-object classification into closed-supported and intermediate-extension cases."
       },
       {
         "nodeId": "EtaleDualityAndPerverseSheaves:EDC.5/api-perverse-t-structure-le-iff",
         "verdict": "verified",
-        "note": "The computed native geometric-stalk cutoff has the correct greater-than vanishing sign."
+        "note": "BBD 2.2.12–2.2.14, p.71 and 4.0.1, p.102: the upper aisle uses stalk vanishing strictly above minus closure dimension."
       },
       {
         "nodeId": "EtaleDualityAndPerverseSheaves:EDC.5/api-perverse-t-structure-ge-iff-verdier-dual",
         "verdict": "verified",
-        "note": "The dual reformulation is restricted to field coefficients; it does not incorrectly identify integral p with its dual."
+        "note": "BBD 2.2.18, p.73 and 4.0, pp.101–102: field-coefficient Verdier duality interchanges the two perverse aisles. Integral p is not included."
       },
       {
         "nodeId": "EtaleDualityAndPerverseSheaves:EDC.5/api-perverse-t-structure-bounded",
         "verdict": "verified",
-        "note": "Finite ordinary amplitude and finite-dimensional support give both perverse bounds."
+        "note": "BBD 2.2.14–2.2.16, pp.71–72: finite constructible strata and the coefficient bounds give two-sided perverse boundedness."
       },
       {
         "nodeId": "EtaleDualityAndPerverseSheaves:EDC.5/api-perverse-t-structure-glue",
         "verdict": "verified",
-        "note": "The stalk/costalk construction satisfies the actual closed/open glued-aisle characterizations."
+        "note": "BBD 2.2.16, p.72: the absolute perverse t-structure agrees with gluing across the actual closed/open localization recollement."
       },
       {
         "nodeId": "EtaleDualityAndPerverseSheaves:EDC.5/api-perverse-sheaf-hom-is-sheaf",
-        "verdict": "verified",
-        "note": "Negative Ext between local perverse objects makes the actual étale Hom presheaf a sheaf; object effectivity is a separate remaining issue."
+        "verdict": "corrected",
+        "note": "BBD 2.1.21–2.1.23, pp.64–65 and 2.2.19, p.74 give morphism descent. Its actual Hom-presheaf now uses coefficientDerivedRestriction and the correct completed adic carrier."
       },
       {
         "nodeId": "EtaleDualityAndPerverseSheaves:EDC.5/api-intermediate-extension-eq-image",
         "verdict": "verified",
-        "note": "The active map is the actual perverse j!→j* comparison, whose native image defines j-middle."
+        "note": "BBD 2.1.9, p.59 and 1.4.22, p.54: intermediate extension is the actual image of the canonical map in the abelian heart."
       },
       {
         "nodeId": "EtaleDualityAndPerverseSheaves:EDC.5/api-restrict-intermediate-extension",
         "verdict": "verified",
-        "note": "Open restriction of that image is canonically the original perverse object."
+        "note": "BBD 2.1.9–2.1.11, pp.59–60: exact open restriction identifies the image with the original perverse input."
       },
       {
         "nodeId": "EtaleDualityAndPerverseSheaves:EDC.5/api-intermediate-extension-stalk-bound",
         "verdict": "verified",
-        "note": "No closed quotient gives strict upper boundary stalk inequality."
+        "note": "BBD 2.2.17, pp.72–73: the boundary stalk inequality is strict, excluding closed-supported quotients."
       },
       {
         "nodeId": "EtaleDualityAndPerverseSheaves:EDC.5/api-intermediate-extension-costalk-bound",
         "verdict": "verified",
-        "note": "No closed subobject gives strict lower boundary costalk inequality."
+        "note": "BBD 2.2.17, pp.72–73: the boundary costalk inequality is strict, excluding closed-supported subobjects."
       },
       {
         "nodeId": "EtaleDualityAndPerverseSheaves:EDC.5/api-intermediate-extension-comp",
         "verdict": "verified",
-        "note": "The unique no-boundary-subquotient extension commutes with successive locally closed extensions."
+        "note": "BBD 2.1.11, pp.59–60: iterated intermediate extension has the same prescribed restriction and strict boundary characterization."
       },
       {
         "nodeId": "EtaleDualityAndPerverseSheaves:EDC.5/api-intersection-complex-restrict",
-        "verdict": "verified",
-        "note": "The restriction is the same lisse object L[d], including its actual shift."
+        "verdict": "corrected",
+        "note": "Expanded Zhu A.3.1 to pp.54–55: IC restricts to the same lisse object shifted by dimension, rather than to the dualizing shift."
       },
       {
         "nodeId": "EtaleDualityAndPerverseSheaves:EDC.5/api-intersection-complex-simple",
-        "verdict": "verified",
-        "note": "An irreducible lisse object has a simple intermediate extension by the BBD simple-object classification."
+        "verdict": "corrected",
+        "note": "Expanded Zhu A.3.1 to pp.54–55; BBD 4.3.1, p.112: an irreducible dense-open lisse input gives simple IC."
       },
       {
         "nodeId": "EtaleDualityAndPerverseSheaves:EDC.6/api-normalized-system-reduction",
-        "verdict": "unverifiable",
-        "note": "The mathematical reduction comparison is right, but the levelReduction stand-in assumes bounded output for all inputs; repair it in the ambient category."
+        "verdict": "verified",
+        "note": "Bhatt–Scholze §6.5, pp.49–52 and enhanced E4: reduction is the specified ambient derived base change identified with its bounded level by a receipt."
       },
       {
         "nodeId": "EtaleDualityAndPerverseSheaves:EDC.6/api-normalized-system-uniform-bounds",
-        "verdict": "unverifiable",
-        "note": "The claimed Tor bound is currently tested after a universally bounded tensor stand-in, so the active predicate does not encode the needed ambient Tor condition."
+        "verdict": "verified",
+        "note": "Bhatt–Scholze 6.6.11, p.54: uniform ordinary and Tor intervals are real fields of IsNormalized, not boundedness tested in an already bounded category."
       },
       {
         "nodeId": "EtaleDualityAndPerverseSheaves:EDC.6/api-normalized-system-common-strata",
-        "verdict": "unverifiable",
-        "note": "The intended common-stratum condition is explicit, but this lemma’s NormalizedSystem carrier still depends on the invalid reduction/Tor model."
+        "verdict": "verified",
+        "note": "Bhatt–Scholze 6.6.11, p.54: one finite algebraic stratification works at every level; the API exposes that common stratification."
       },
       {
         "nodeId": "EtaleDualityAndPerverseSheaves:EDC.7/api-weight-filtration-unique",
         "verdict": "verified",
-        "note": "Strict-order Hom vanishing forces equality of the finite pure-graded Subobject flags (BBD 5.3.5)."
+        "note": "BBD 5.3.5, pp.135–136: weight separation identifies each filtered subobject uniquely."
       },
       {
         "nodeId": "EtaleDualityAndPerverseSheaves:EDC.7/api-weight-filtration-strict",
         "verdict": "verified",
-        "note": "Applying weight ordering to image and cokernel identifies the image/intersection flags for any morphism (BBD 5.3.6)."
+        "note": "BBD 5.3.5–5.3.6, pp.135–136: morphisms of mixed perverse objects are strict for the actual subobject weight flags."
       },
       {
         "nodeId": "EtaleDualityAndPerverseSheaves:EDC.7/api-graded-tate-lefschetz-eta-power-succ",
         "verdict": "verified",
-        "note": "The eta recursion agrees with the actual shift-and-Tate composition of the specified graded operator."
+        "note": "BBD 5.4.10, p.144 motivates the graded operator; the successor formula is the actual eta iteration with Tate/shift coherence."
       },
       {
         "nodeId": "EtaleDualityAndPerverseSheaves:EDC.7/api-graded-tate-lefschetz-primitive-kernel",
         "verdict": "verified",
-        "note": "The primitive object is the native kernel of eta^(r+1), including its actual inclusion."
+        "note": "The primitive object is the native kernel of the indicated eta power; its inclusion has precisely the kernel universal property in the abelian category."
       },
       {
         "nodeId": "EtaleDualityAndPerverseSheaves:EDC.7/api-graded-tate-lefschetz-primitive-column-formula",
         "verdict": "verified",
-        "note": "Each string column is eta^a after that kernel inclusion with the correct Tate twist."
+        "note": "The primitive columns are powers of the actual eta applied to native kernel inclusions, with specified twists; they are not arbitrary splitting maps."
       },
       {
         "nodeId": "EtaleDualityAndPerverseSheaves:EDC.7/api-geometric-origin-simple",
         "verdict": "verified",
-        "note": "The GeometricOrigin constructor retains simplicity, rather than permitting arbitrary origin objects to be called simple."
+        "note": "BBD 6.2.4, p.162: geometric-origin perverse inputs are simple by the inductive definition, with the zero complex handled separately."
       },
       {
         "nodeId": "EtaleDualityAndPerverseSheaves:EDC.7/api-geometric-origin-constituent",
         "verdict": "verified",
-        "note": "The closure operation extracts an actual simple constituent through subobject/quotient data (BBD 6.2.4)."
+        "note": "BBD 6.2.4, p.162: simple perverse constituents of the specified permitted operations are in the least geometric-origin closure."
       },
       {
         "nodeId": "EtaleDualityAndPerverseSheaves:EDC.7/api-restricted-by-iso",
         "verdict": "verified",
-        "note": "Residual membership is invariant under an actual isomorphism because reductions preserve it."
+        "note": "BBD 6.1.8–6.1.10, pp.155–159: actual residual restrictions and their extension-class membership are invariant under isomorphism."
       },
       {
         "nodeId": "EtaleDualityAndPerverseSheaves:EDC.7/api-restricted-by-constituents",
         "verdict": "verified",
-        "note": "The selected extension-closed residual category contains the actual simple constituents after finite-level reduction."
+        "note": "BBD 6.1.8–6.1.10, pp.155–159: the RestrictedBy condition is exactly membership of all actual residual cohomology constituents in the chosen classes."
       },
       {
         "nodeId": "EtaleDualityAndPerverseSheaves:EDC.8/api-coh-corr-proper-support-map-id",
         "verdict": "verified",
-        "note": "Unit/counit identities make the actual proper-support map preserve u under the identity."
+        "note": "Varshavsky 1.1.6, p.7: identity units/counits make the proper-support identity map preserve u, after the canonical support transport."
       },
       {
         "nodeId": "EtaleDualityAndPerverseSheaves:EDC.8/api-coh-corr-proper-support-map-comp",
         "verdict": "verified",
-        "note": "Adjunction pseudofunctor coherence compares the actual u after composable proper support maps."
+        "note": "Varshavsky 1.1.6, p.7: composition of proper-support units/counits gives the composite mate, including u and both legs."
       },
       {
         "nodeId": "EtaleDualityAndPerverseSheaves:EDC.8/api-coh-corr-pushforward-morphism",
         "verdict": "verified",
-        "note": "The active formula records the exchange/adjunction composite, rather than only identifying the support."
+        "note": "Varshavsky 1.1.6, p.7: the target morphism is the actual outer-pushforward base-change mate with the correct adjunction orientation."
       },
       {
         "nodeId": "EtaleDualityAndPerverseSheaves:EDC.8/api-coh-corr-pushforward-comp",
         "verdict": "verified",
-        "note": "The active SupportEquiv includes equality of transported u for two successive pushforwards."
+        "note": "Varshavsky 1.1.6, p.7: coherent outer pushforward and adjunction composition identify successive and composite pushforward, including u."
       },
       {
         "nodeId": "EtaleDualityAndPerverseSheaves:EDC.8/api-coh-corr-restrict-closed-support",
-        "verdict": "verified",
-        "note": "The reduced closed support uses the correct preimage and invariant containment direction."
+        "verdict": "corrected",
+        "note": "Expanded to Varshavsky 1.1.9, p.8 and 1.5.6, p.16: the reduced right inverse image is the closed support and carries the actual restricted u."
       },
       {
         "nodeId": "EtaleDualityAndPerverseSheaves:EDC.8/api-coh-corr-restrict-open-support",
-        "verdict": "verified",
-        "note": "The complementary open restriction is the actual support open after removing the source boundary."
+        "verdict": "corrected",
+        "note": "Expanded to Varshavsky 1.1.9, p.8 and 1.5.6, p.16: both inverse images determine open support, reduced to the left inverse image by complementary invariance."
       },
       {
         "nodeId": "EtaleDualityAndPerverseSheaves:EDC.8/api-coh-corr-trace-restrict-open",
-        "verdict": "unverifiable",
-        "note": "Open trace restriction is correct in the source formalism, but the current trace construction still depends on the invalid bounded tensor/RHom model."
+        "verdict": "verified",
+        "note": "Varshavsky 1.2.2, p.9: evaluation, proper diagonal base change and H0 commute with support-open restriction in the corrected coefficient category."
       },
       {
         "nodeId": "EtaleDualityAndPerverseSheaves:EDC.8/api-coh-corr-local-term-sum",
-        "verdict": "unverifiable",
-        "note": "Linearity and proper integration give finite additivity mathematically; the active trace domain still uses the defective finite-Tor predicate."
+        "verdict": "verified",
+        "note": "Varshavsky 1.2.2, p.9 and proper dualizing integration: a finite clopen partition decomposes the full trace class and integration is additive."
       }
     ]
   },

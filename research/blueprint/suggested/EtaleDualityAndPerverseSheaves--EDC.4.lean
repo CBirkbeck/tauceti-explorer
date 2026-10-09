@@ -487,11 +487,11 @@ abbrev SchemeEtaleDerived (Λ : Type u) [CommRing Λ] (X : Geo k) :=
 finite torsion coefficients, and modules over the completed coefficient sheaf O_X or E_X
 on the pro-etale site for integral/rational coefficients (Bhatt–Scholze 6.8.15, p.62).
 The category is unbounded before constructibility or derived-completeness is imposed. -/
-def CoefficientModuleSheaves (Λ : Type u) [CommRing Λ] (X : Geo k) : Type (u + 1) := sorry
-instance (Λ : Type u) [CommRing Λ] (X : Geo k) : Category.{u} (CoefficientModuleSheaves Λ X) := sorry
-instance (Λ : Type u) [CommRing Λ] (X : Geo k) : Abelian (CoefficientModuleSheaves Λ X) := sorry
+def CoefficientModuleSheaves (Λ : Type u) [CommRing Λ] (X : Scheme.{u}) : Type (u + 1) := sorry
+instance (Λ : Type u) [CommRing Λ] (X : Scheme.{u}) : Category.{u} (CoefficientModuleSheaves Λ X) := sorry
+instance (Λ : Type u) [CommRing Λ] (X : Scheme.{u}) : Abelian (CoefficientModuleSheaves Λ X) := sorry
 abbrev CoefficientDerived (Λ : Type u) [CommRing Λ] (X : Geo k) :=
-  DerivedCategory (CoefficientModuleSheaves Λ X)
+  DerivedCategory (CoefficientModuleSheaves Λ X.space)
 
 section Imported
 variable {Λ : Type u} [CommRing Λ]
@@ -518,7 +518,7 @@ def finiteCoefficientEquivalence (n : ℕ) (hn : 0 < n) (hkill : (n : Λ) = 0)
 lemma finiteCoefficientEquivalence_tExact (n : ℕ) (hn : 0 < n) (hkill : (n : Λ) = 0)
     (hunit : IsUnit (n : k)) (X : Geo k) :
     Functor.IsTExact (finiteCoefficientEquivalence n hn hkill hunit X).functor
-      (DerivedCategory.TStructure.t (C := CoefficientModuleSheaves Λ X))
+      (DerivedCategory.TStructure.t (C := CoefficientModuleSheaves Λ X.space))
       (DerivedCategory.TStructure.t (C := Sheaf X.space.smallEtaleTopology (ModuleCat.{u} Λ))) := sorry
 lemma finiteCoefficientEquivalence_realization (n : ℕ) (hn : 0 < n) (hkill : (n : Λ) = 0)
     (hunit : IsUnit (n : k)) (X : Geo k) :
@@ -566,7 +566,7 @@ def restrictLisse {U X : Geo k} (j : U ⟶ X) [Etale j.hom.left] : Lisse Λ X �
 /-- EDC.0 ambient derived tensor. The native standard t-structure tests its actual amplitude. -/
 def derivedTensor {X : Geo k} : CoefficientDerived Λ X → CoefficientDerived Λ X → CoefficientDerived Λ X := sorry
 abbrev ambientStandardT (Λ : Type u) [CommRing Λ] (X : Geo k) :=
-  DerivedCategory.TStructure.t (C := CoefficientModuleSheaves Λ X)
+  DerivedCategory.TStructure.t (C := CoefficientModuleSheaves Λ X.space)
 lemma coefficientRealization_bounds {X : Geo k} (K : Dbc Λ X) (a b : ℤ) :
     ((standardTStructure Λ X).IsGE K a ∧ (standardTStructure Λ X).IsLE K b) ↔
       ((ambientStandardT Λ X).IsGE ((coefficientRealization X).obj K) a ∧
@@ -671,16 +671,17 @@ lemma PerverseSheaf.hom_isSheaf {V X : Geo k} (f : V ⟶ X) [Etale f.hom.left] [
     (h : (PerverseSheaf.restrictEtale f).map g = (PerverseSheaf.restrictEtale f).map g') : g = g' := sorry
 lemma PerverseSheaf.isIso_of_restrictEtale {V X : Geo k} (f : V ⟶ X) [Etale f.hom.left] [Surjective f.hom.left]
     {K L : PerverseSheaf Λ X} (g : K ⟶ L) [IsIso ((PerverseSheaf.restrictEtale f).map g)] : IsIso g := sorry
-/-- SF.2 derived restriction to an arbitrary object of the small étale site. -/
-def etaleDerivedRestriction {X : Geo k} (V : X.space.Etale) :
-    DerivedCategory (Sheaf X.space.smallEtaleTopology (ModuleCat.{u} Λ)) ⥤
-      DerivedCategory (Sheaf V.left.smallEtaleTopology (ModuleCat.{u} Λ)) := sorry
+/-- SF.2 restriction along an object of the small etale site. For O/E this
+uses the completed pro-etale coefficient sheaf on V.left, rather than the
+ordinary small-etale constant-coefficient category. -/
+def coefficientDerivedRestriction {X : Geo k} (V : X.space.Etale) :
+    CoefficientDerived Λ X ⥤ DerivedCategory (CoefficientModuleSheaves Λ V.left) := sorry
 /-- The full sheaf assertion includes gluing, beyond the preceding faithfulness corollary. -/
 def perverseHomPresheaf {X : Geo k} (K L : PerverseSheaf Λ X) : X.space.Etaleᵒᵖ ⥤ Type u := sorry
 lemma perverseHomPresheaf_value {X : Geo k} (K L : PerverseSheaf Λ X) (V : X.space.Etale) :
     Nonempty ((perverseHomPresheaf K L).obj (Opposite.op V) ≃
-      ((etaleDerivedRestriction V).obj ((etaleRealization X).obj K.obj) ⟶
-        (etaleDerivedRestriction V).obj ((etaleRealization X).obj L.obj))) := sorry
+      ((coefficientDerivedRestriction V).obj ((coefficientRealization X).obj K.obj) ⟶
+        (coefficientDerivedRestriction V).obj ((coefficientRealization X).obj L.obj))) := sorry
 lemma PerverseSheaf.hom_presheaf_isSheaf {X : Geo k} (K L : PerverseSheaf Λ X) :
     Presheaf.IsSheaf X.space.smallEtaleTopology (perverseHomPresheaf K L) := sorry
 
@@ -1138,7 +1139,9 @@ def IsStratifiedSemismall {X Y : Geo k} (f : X ⟶ Y)
       (x.map (T.toAlgebraicStratification.inclusion t))) + T.dimension t ≤ S.dimension s
 /-- EDC.5/semismall-pushforward-perverse. MV 4.3, p.14 supplies the complex-topological
 model; the etale form is a dimensional argument from proper base change and localization.
-It acts on arbitrary adapted perverse input, with all geometry in the hypotheses. -/
+The general signature below is unverified: stalk adaptation and separate fibre-piece
+charts do not yet justify its costalk argument. See the packet gap; the smooth-source
+constant-field specialization below has separate source support. -/
 theorem semismall_pushforward_perverse {X Y : Geo k} (f : X ⟶ Y)
     [IsProper f.hom.left] (S : SmoothStratification X) (T : SmoothStratification Y)
     (hlocal : Nonempty (StratifiedLocalTriviality f S T)) (hsmall : IsStratifiedSemismall f S T)
@@ -2125,9 +2128,13 @@ example [IsSepClosed k] (ell : ℕ) (hp : ell.Prime) (hunit : IsUnit (ell : k)) 
         (derivedTensor ((coefficientRealization _).obj K) ((coefficientRealization _).obj K)) ≅ ModuleCat.of R M)) ∧
       (∀ q : ℕ, Nonempty (coefficientHypercohomology (q : ℤ)
         (derivedInternalHom ((coefficientRealization _).obj K) ((coefficientRealization _).obj K)) ≅ ModuleCat.of R M)) := sorry
-/-- EDC.1 dualizing H0; its input need not be placed in Dbc. -/
+/-- EDC.1 relative dualizing object realized in the finite or adic coefficient
+category. The ordinary small-etale version above is for finite comparison. -/
+def coefficientDualizing (X : Geo k) : CoefficientDerived Λ X :=
+  (coefficientRealization X).obj ((upperShriek (toBasePoint X)).obj (constant (basePoint k)))
+/-- EDC.1 dualizing H0 in the same coefficient category as the correspondence. -/
 def dualizingCohomology (X : Geo k) : ModuleCat.{u} Λ :=
-  etaleHypercohomology 0 (schemeEtaleDualizing X)
+  coefficientHypercohomology 0 (coefficientDualizing X)
 /-- ECD 27.2–27.4 with n killed in Λ and n prime to p. -/
 theorem diamond_transport_of_duality (p n : ℕ) [CharP k p] (hp : p.Prime)
     (hn : 0 < n) (hkill : (n : Λ) = 0) (hunit : IsUnit (n : k))
@@ -3050,7 +3057,9 @@ variable [IsSepClosed k]
 /-- Numerical integration is defined only for an actual proper component. -/
 def dualizingIntegration (X : Geo k) [IsProper X.structural] :
     dualizingCohomology (Λ := Λ) X ⟶ ModuleCat.of Λ Λ := sorry
-/-- EDC.1 evaluation, diagonal base change and dualizing counit give this linear trace map. -/
+/-- Adjunction sends the diagonal evaluation to D L external-tensor L → Δ_* K_X.
+Apply c^! and proper base change c^! Δ_* K_X ≅ Δ'_∗ K_Fix(c), then take H0
+in the correct coefficient category (Varshavsky 1.2.2(b), formula (1.4), p.9). -/
 def CohCorr.traceMap {X : Geo k} {L : Dbc Λ X} (c : CohCorr L L)
     (hL : HasFiniteTorAmplitude L) :
     ModuleCat.of Λ ((pullback c.left).obj L ⟶ (upperShriek c.right).obj L) ⟶
