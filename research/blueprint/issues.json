@@ -4255,5 +4255,17 @@
  "REV-PKG-AlgebraicModuliForArithmeticGeometry~adv": 8027,
  "REV-PKG-NeronModelsAndSemistableAbelianVarieties~adv": 8029,
  "REV-PKG-GeometryOfNumbersAndQuadraticArithmetic~adv": 8031,
- "REV-PKG-ArithmeticGaloisRepresentations~adv": 8066
+ "REV-PKG-ArithmeticGaloisRepresentations~adv": 8066,
+ "FIX-PKG-AlgebraicModuliForArithmeticGeometry~adv": 8070,
+ "FIX-PKG-DiamondsAndVStacks~adv": 8071,
+ "FIX-PKG-GeometryOfNumbersAndQuadraticArithmetic~adv": 8072,
+ "FIX-PKG-LocallyAnalyticDistributions~adv": 8073,
+ "FIX-PKG-NeronModelsAndSemistableAbelianVarieties~adv": 8074,
+ "PKG-DiophantineApproximationAndTranscendence~codex": 8075,
+ "PKG-GeneralAlgebraicKTheory~codex": 8076,
+ "PKG-StableHomotopyKTheory~codex": 8077,
+ "REV-PKG-DerivedDeRhamCohomology~adv": 8078,
+ "REV-PKG-MetaplecticAutomorphicForms~adv": 8079,
+ "REV-PKG-PerfectoidQuotients~adv": 8080,
+ "REV-PKG-PerfectoidSpaces~adv": 8081
 }
