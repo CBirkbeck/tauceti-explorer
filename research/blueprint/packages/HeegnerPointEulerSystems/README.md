@@ -1,0 +1,2250 @@
+# Heegner-point Euler systems and arithmetic descent
+
+Heegner points relate the geometry of complex multiplication to the arithmetic of an elliptic curve. A point of conductor one alone does not provide a descent argument: one needs its full conductor family, exact trace and reduction identities, derivative classes with the right coefficients, and compatible local Selmer conditions. This roadmap constructs that arithmetic family and uses it to control Mordell–Weil rank and Tate–Shafarevich groups. Its second branch carries the same geometry into an anticyclotomic tower, where nonvanishing, characteristic ideals and determinant lattices give increasingly precise descent statements.
+
+The finite branch starts with transported quadratic orders and ring-class fields, constructs integral CM divisor classes, and differentiates their Kummer images. It includes the clean elliptic rank-one theorem, residual indivisibility for modular forms of GL₂ type, and error-tolerant descent at exceptional primes, including the dyadic and CM cases. The anticyclotomic branch builds coherent norm families and Λ-adic classes before proving nonvanishing or using any main conjecture. It treats both the split-prime equality results and the refined equivalence at unramified primes, with the inert case retaining its conjectural hypothesis.
+
+The general theories have other owners. GlobalNumberFields supplies orders and Picard groups; ClassFieldTheory supplies the fields and reciprocity maps. ComplexMultiplicationAndExplicitReciprocity and the modular and quaternionic curve roadmaps supply moduli, canonical models and level structures. EllipticCurves supplies Tate modules, Kummer sequences and Mordell–Weil theory. SelmerIwasawaCohomology and ArithmeticGaloisDuality supply continuous cohomology, local conditions and duality. EulerSystemsAndKolyvaginSystems supplies derivative operators, abstract descent and rigidity. The task here is to construct the actual Heegner objects and verify those theories' arithmetic hypotheses. Heights and explicit reciprocity come from GrossZagierAndArithmeticHeights; the Gross–Zagier formula is not needed to construct the Euler system or to prove descent from an already non-torsion point.
+
+Generic automorphic transfer, level raising, congruence modules and p-adic L-functions likewise remain with their respective roadmaps. The equality in HE.8b is anticyclotomic: it must not import a cyclotomic return theorem whose proof already uses it. The early Eisenstein equality supplied by `RankZeroOneBSD:BSD.7a` may use the classes and geometric nonvanishing in HE.8, but must precede the late nonvanishing and refined-divisibility applications. The independent definite-period result `RankZeroOneBSD:BSD.3a/definite-congruence-period` precedes Zhang's HE.6 argument; a final BSD formula proved from that argument cannot serve as its input.
+
+## Conventions and mathematical contexts
+
+Fix fields inside separable closures and retain the actual inclusion and restriction maps. For the classical modular branch, E/ℚ has conductor N, K is imaginary quadratic of signed discriminant D_K<0 with D_K≠−3,−4, and every prime of N splits in K. For c prime to N, write O_c=ℤ+cO_K and K[c] for its ring-class field. P_c lies in E(K[c]); the point used over K is separately defined by y_K=Tr_{K[1]/K}P_1. An index in E(K)/E(K)_tors is a free-lattice index. It differs from the full-group index by the torsion factor, which is retained whenever cardinalities are compared.
+
+The modular quotient φ, integral cusp or Hodge basepoint, denominator-clearing integer d, degree and differential normalization remain fixed throughout a conductor family. For a quaternionic curve, the rational Hodge class must first be multiplied by a suitable d. Replacing φ by an isogeny or a p-divisible multiple changes integral divisibility. No such change is treated as multiplication by a unit without a proof. Finite Artin actions use the arithmetic convention; a source using geometric Frobenius is transported by inversion. An Artin automorphism and the power map on a special fibre are compared through reduction, rather than identified by notation.
+
+For finite descent, p is the specified coefficient prime and T is the actual Tate lattice, or the stated GL₂-type lattice over a coefficient DVR. An admissible squarefree conductor n has inert auxiliary primes ℓ. Write I_ℓ=(a_ℓ,ℓ+1) and I_n=Σ_{ℓ∣n}I_ℓ in ℤ_p. Thus I_1=0. For n>1 its exponent M(n) is the minimum of the coefficient valuations at all its prime factors. Reduction modulo p^m requires M(n)≥m. The derivative class includes its tensor of cyclic Galois groups; changing a cyclic generator transforms the scalar class and the tensor factor together.
+
+Howard's clean theorem assumes an odd p coprime to ND_K and surjectivity G_K→GL₂(ℤ_p). Gross's mod-p theorem uses its own residual hypotheses and a nonzero bottom class modulo p. Neither theorem automatically supplies Zhang's hypotheses. For Zhang, V is the two-dimensional representation over k₀ attached to the coefficient prime of a weight-two newform g and its quotient A_g. The factor N⁻ is squarefree, of even parity for an indefinite quaternion algebra and odd parity for a definite one. The three clauses of Hypothesis ♥ are stated at their uses. A statement about E[p]/ℤ_p is not silently substituted for V/k₀.
+
+For Zhang's notation, let Ram(ρ) consist of residual-ramified primes with exact exponent one in N. Hypothesis ♥ has three requirements: first, every ℓ∥N⁺ and every ℓ∣N⁻ with ℓ≡±1 mod p belongs to Ram(ρ); second, if N is nonsquarefree then Ram(ρ) is nonempty, and either one of its primes divides N⁻ or N⁺ has at least two prime factors of exponent one; third, at every ℓ²∣N⁺ both H¹(ℚ_ℓ,V) and V^{G_ℚ_ℓ} vanish. The second alternative in the middle requirement does not require both of those N⁺ primes to be residually ramified. Hypothesis ♠ for elliptic E imposes the first two requirements, with the additive-local calculation providing the third. These are Zhang, Notations (xv), pp.202–203, and Introduction, pp.194–195.
+
+Write 𝒩 for the squarefree products of inert Kolyvagin primes ℓ∤ND_Kp with a_ℓ≡ℓ+1≡0 mod 𝔭, and 𝒩′ for products of inert level-raising primes q∤ND_Kp with p∤q²−1 and a_q²≡(q+1)² mod 𝔭. The two prime sets are disjoint. The superscripts ± on 𝒩′ specify the parity of the number of factors; a level m∈𝒩′⁺ gives the indefinite curve. This avoids confusing the conductor set denoted Λ in Zhang with the Iwasawa algebra Λ used below. Coefficient fields, embeddings and derivative generators are fixed when comparing level-raised forms. See Zhang, Notations (vi)–(xiv), pp.200–202, and §3.1, pp.204–205.
+
+The integral RM branch has a different geometric context: F is totally real of degree d, B splits at exactly one real place τ₁, and its finite ramification set S_B satisfies #S_B≡d−1 mod 2. Fix the admissible level U, the F-simple Hecke-linear quotient A of the Jacobian with End_F(A)=O_L and [L:ℚ]=dim A, an integral quotient morphism and the chosen integral multiple of the cusp or Hodge divisor. K/F is CM, every prime of S_B is inert or ramified in K, and the embedding K↪B and the CM point x are specified. The trace y of this particular divisor class is non-torsion, and A does not acquire CM over K. These assumptions belong to the integral error and RM conclusions; they are not imposed on an unrelated weak-torsion anticyclotomic theorem.
+
+For an elliptic curve with CM, the endomorphism field M is distinguished from the Heegner field K. The conductor comparison |D_M|∣N, together with the split Heegner hypothesis, gives M≠K. Over KM the Tate module has conjugate character components; over K their descent retains its semilinear action. Full GL₂ image is never assumed for this branch. At p=2 use the integral operators 1±τ and explicit restriction/corestriction errors, without division by two.
+
+In the ordinary anticyclotomic branch, D_K is odd, p is odd and prime to ND_K, and E has good ordinary reduction at p. Put Γ=Gal(K∞/K)≃ℤ_p, Λ=ℤ_p⟦Γ⟧ and ι(γ)=γ⁻¹. The action on T⊗Λ uses the specified inverse character. The unit root α_p satisfies α_p²−a_pα_p+p=0, with other root β_p=p/α_p. The actual ring-class layer containing K_k, and its class-number shift d(k), are retained. The finite ring-class group G(n), the first-step degree group Δ, and Γ are separate groups. Unless a target explicitly weakens them, its ordinary arithmetic context is the one just given; the additional torsion or image hypothesis is then stated at that target.
+
+For Cornut–Vatsal, F is totally real, K/F is CM, π has parallel weight two and finite-order everywhere-unramified central character ω, and P is the moving conductor prime. A primitive stratum has exact P-conductor and prescribed torsion character χ₀ satisfying χ₀ω=1 on A_F×. The generic sign counts all real places and the specified inert finite places. The definite branch assumes π≠π⊗η; the indefinite derivative statement assumes ω=1 and N,D_(K/F),P pairwise coprime. The conclusion produces a nonvanishing character in each sufficiently large permitted stratum. It does not say every character is nonvanishing.
+
+The compact ordinary Selmer module S and its Heegner line H=Λy∞ are distinguished from their discrete duals. For BCGS/BCS the torsion Greenberg module has the (0,∅) condition: strict at one prime over p and unrestricted at the other. The Castella–Sano complex instead uses the strict ordinary cone at every prime over p and has a rank-one dual with torsion part. Its finite quotient called X_BK uses propagated local conditions; for general twists it need not be the Bloch–Kato Selmer quotient. Rational equalities extend ideals to Λ⊗ℚ_p. Integral equalities retain every p-factor. The BDP square-root convention and the single-power convention for its square are reconciled only after coefficient, period and primitive-factor comparisons.
+
+The Lean names in HE.0–HE.7 are in namespace `TauCeti.Heegner`; those in HE.8 and HE.8b are in `TauCeti.Heegner.Anticyclotomic`. The short names below are interpreted in those namespaces.
+
+`Suggested.lean` proposes interfaces and admitted examples using existing algebraic carriers. The complete arithmetic conditions are the ones in this document. When a missing supplier prevents them from being typed, the file explicitly omits those conditions; its admitted carrier identity is not an unconditional arithmetic theorem. In particular, geometric points, continuous cohomology, crystalline characters and determinant lattices must eventually be identified with their actual supplier objects.
+
+## Existing library and prerequisite interfaces
+
+Use Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`. Mathlib already supplies the algebraic carriers and elementary operations below. Their arithmetic interpretation still requires the named supplier layers. A subring preimage does not construct a full integral order, a group ring does not construct Λ, and compactness does not prove that the arithmetic constraints have the finite intersection property.
+| Declaration at the Mathlib pin | Use |
+| --- | --- |
+| [`Subring.comap`](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Ring/Subring/Basic.lean) | Preimage subring along a ring homomorphism. |
+| [`ClassGroup.equivPic`](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/PicardGroup.lean) | ClassGroup R ≃* CommRing.Pic R for any commutative domain R. |
+| [`CommRing.Pic.mapRingHom`](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/PicardGroup.lean) | Pic R →* Pic S for f:R→+*S between commutative semirings,. |
+| [`PadicInt`](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/NumberTheory/Padics/PadicIntegers.lean) | The bounded subtype of Q_p defining Z_p under Fact p.Prime,. This definition alone does not supply DVR ideal/valuation theorems; cite the two separately checked declarations below for HE.4. |
+| [`WeierstrassCurve.Affine.Point`](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/AlgebraicGeometry/EllipticCurve/Affine/Point.lean) | Nonsingular points with infinity,. |
+| [`Module.length`](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Length.lean) | Module length in ℕ∞ for a ring, additive group and module,. |
+| [`Nat.primeFactorsList`](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Data/Nat/Factors.lean) | The sorted list of prime factors with multiplicity. Taking toFinset/card counts distinct conductor primes. |
+| [`PadicInt.ideal_eq_span_pow_p`](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/NumberTheory/Padics/PadicIntegers.lean) | For a nonzero ideal s of Z_p, there exists n with s=span{p^n}; s≠⊥ is essential.. |
+| [`PadicInt.mem_span_pow_iff_le_valuation`](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/NumberTheory/Padics/PadicIntegers.lean) | For x≠0, x∈span{p^n} iff n≤x.valuation; the zero case must be handled separately.. |
+| [`DihedralGroup.sr_mul_r`](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/GroupTheory/SpecificGroups/Dihedral.lean) | Existing dihedral rotation/reflection algebra. Used only to transport a cyclic quotient of the arithmetic conjugation action. |
+| [`DihedralGroup.sr_mul_sr`](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/GroupTheory/SpecificGroups/Dihedral.lean) | Existing dihedral rotation/reflection algebra. Used only to transport a cyclic quotient of the arithmetic conjugation action. |
+| [`DihedralGroup.inv_r`](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/GroupTheory/SpecificGroups/Dihedral.lean) | Existing dihedral rotation/reflection algebra. Used only to transport a cyclic quotient of the arithmetic conjugation action. |
+| [`DihedralGroup.inv_sr`](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/GroupTheory/SpecificGroups/Dihedral.lean) | Existing dihedral rotation/reflection algebra. Used only to transport a cyclic quotient of the arithmetic conjugation action. |
+| [`PadicInt.isUnit_iff`](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/NumberTheory/Padics/PadicIntegers.lean) | An element of ℤ_p is a unit iff its p-adic norm is1; used to distinguish the β-unit factors from the possibly nonunit Φ. |
+| [`MonoidAlgebra.single`](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/MonoidAlgebra/Defs.lean) | The finite group-ring basis element r·g; this is not a completed arithmetic Iwasawa algebra. |
+| [`Submodule.span`](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/LinearAlgebra/Span/Defs.lean) | The smallest module containing a supplied subset; useful for the Heegner line, without asserting arithmetic saturation. |
+| [`LinearMap`](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Module/LinearMap/Defs.lean) | Bundled semilinear/linear maps between actual modules; used for supplied corestriction and localization maps. |
+| [`MonoidHom`](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Group/Hom/Defs.lean) | Bundled multiplicative homomorphisms; finite CM character and character-power algebra. Continuity/topology of Γ remains a supplier condition. |
+| [`TensorProduct.tmul`](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/LinearAlgebra/TensorProduct/Defs.lean) | The canonical bilinear tensor of actual modules; it supplies the algebraic Heegner tensor, not a Selmer determinant comparison. |
+| [`Module.finrank`](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/LinearAlgebra/Dimension/Finrank.lean) | Finite rank obtained from cardinal rank; use rank assertions on supplied fraction-field modules, never assumed to make the integral Selmer lattice free. |
+| [`ENat`](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Data/ENat/Defs.lean) | Extended naturals ℕ∪{∞}; records zero-system divisibility and empty-stratum minima. |
+| [`Pi.compactSpace`](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Compactness/Compact.lean) | Dependent products of compact spaces are compact; no surjectivity of transition maps is required. |
+| [`IsCompact.inter_iInter_nonempty`](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Compactness/Compact.lean) | A compact set meets an intersection of closed constraints when every finite subfamily has nonempty intersection. |
+
+The following interfaces determine the ownership boundary and the necessary order of construction. Each target below also lists its direct prerequisites by layer or declaration identifier.
+
+- `TauCetiRoadmap/GlobalNumberFields#layer-11-orders-and-picard-groups` supplies full orders, proper invertible ideals, the idele–ideal comparison, unit-index exact sequences, trace duals and ideal norm maps. `ClassFieldTheory#layer-12-separate-arithmetic-global-existence-the-norm-index-and-the-global-correspondence` supplies relative CM existence; `ClassFieldTheory#layer-13-norm-theorems-and-class-fields` supplies actual ring-class fields, finite Galois quotients and compatible Artin maps. Reciprocity for an already supplied extension does not establish the required existence theorem.
+- `ComplexMultiplicationAndExplicitReciprocity:CM.1, CM.2` supplies ideal actions and reciprocity on level-structured elliptic curves. Its `CM.4` and `ArithmeticGaloisRepresentations:R01.3` supply CM Tate characters and the conductor induction formula, including ramified and dyadic primes. These are required to identify the endomorphism field in the CM elliptic branch.
+- `ModularCurvesPartII:R14.1, R14.6` supplies cyclic-isogeny moduli, the rational cusp map and integral Hecke specialization. `HilbertModularVarietiesAndShimuraCurves:R18.1–R18.5` supplies the admissible quaternionic level, canonical curves, definite sets, integral models, local embedding and degeneracy maps, and Čerednik–Drinfeld specialization. `ShimuraVarieties:V5` supplies canonical-model descent. A complex double coset by itself is insufficient for a rational CM point.
+- `EllipticCurveModularity:R29.5` supplies the actual quotient, differential and Hecke/Fricke equivariance. `GrossZagierAndArithmeticHeights:GZ.0, GZ.3` supplies periods, Hodge denominator and quotient-degree normalization. `GZ.4, GZ.5, GZ.8` supplies the exact signs, definite special-value formula and quaternionic height formula. These inputs retain stabilizers, CM units, discriminants and primitive integral test vectors.
+- The upstream `EllipticCurves` layers 2, 4, 6 and 7 supply torsion and Tate modules, local reduction and Tate uniformization, finite generation, and Selmer–Sha exact sequences. `NeronModelsAndSemistableAbelianVarieties:R11.2, R11.4, R11.5, R11.6` supplies the integral component/Kummer comparison, graph-monodromy presentation, ordinary reduction and quaternionic specialization. Rational component-group points and geometric component groups must be distinguished at a nonsplit multiplicative prime.
+- `SelmerIwasawaCohomology:L0–L4` supplies continuous inverse limits, saturated lattices, propagated local conditions, Iwasawa–Shapiro, semilocal cohomology and descent. `FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4` supplies the crystalline integral Kummer comparison. `ArithmeticGaloisDuality:R02.2, R02.4` supplies change of group, local and global duality, and real Tate corrections. Its `D7` supplies derived continuous Selmer complexes and perfect specialization. The inertia-kernel Greenberg condition must be compared with the image of H¹(Fil⁺) through exact local sequences, retaining H⁰ and H² terms.
+- `EulerSystemsAndKolyvaginSystems:ES.1–ES.5, ES.8` supplies local finite/singular and transverse modules, cyclic derivatives and tensor factors, error-tolerant descent, Howard's hypothesis record and DVR theorem, residual rigidity and height-one specialization. The self-dual equality uses the Howard-system primitivity notion over K, not merely the rank-one Mazur–Rubin theorem over ℚ. The exact paired-length route through BCGS Lemma 2.2.4 requires p>3; the arithmetic common-multiple bound has constants independent of the multiplying power.
+- `FaltingsFinitenessAndIsogenyTheorems:R28.4` routes the open-image extension needed here: residual surjectivity almost everywhere, integral openness at each prime, homothety bounds and the GL₂-type matrix evaluation estimates. `ArithmeticGaloisRepresentations:R01.4` identifies the actual image and determinant. Tate's isogeny theorem alone supplies none of these uniform bounds. The absence of CM over K, rather than geometric non-CM in every situation, is the relevant condition for the integral RM matrix-algebra argument.
+- `SerreWeightAndLevelOptimisation:R20.2` supplies exact-level weight-two raising, prescribed local types, multiplicity-one identifications and the quaternionic cohomological congruence. `GL2AutomorphicRepresentationsAndTransfer:R17.3/global-jl` and `R17.3/multiplicity-one` supply Jacquet–Langlands transfer. The congruence requires the actual two-dimensional V/k₀ and Hypothesis ♥; merely obtaining a q-new representation is insufficient.
+- `ModularIwasawaMainConjectures:L1`, `KatoEulerSystems:L4` and `SelmerIwasawaCohomology:L4` supply the Skinner–Urban integral ordinary equality, its compatible Kato integral bound and the GL₂-type rank-zero control formula for both g and g_K. The integral Kato comparison uses free rank-one coinvariants where full SL₂(ℤ_p) image is unavailable. `RankZeroOneBSD:BSD.3a/definite-congruence-period` supplies the independent period identity with geometric Tamagawa factors and the nonsquarefree extension; a squarefree Pollack–Weston proof cannot alone supply that extension.
+- `PadicMeasuresIwasawaAlgebras:L0a, L1, L4, L5` supplies arithmetic character evaluation, completed group rings, characteristic ideals, Weierstrass zero isolation, simultaneous compact lifting and determinant base change. Accumulating nonzero evaluations do not by themselves prove that an integral series is a unit. A compactness argument needs simultaneous solvability of all finite norm constraints, in addition to continuity and compact carriers.
+- `GeometryOfNumbersAndQuadraticArithmetic:GN.4` needs the S-arithmetic unipotent-orbit and twisted-diagonal results for products of cocompact SL₂(F_P) quotients used in Cornut–Vatsal, Theorem 2.29 and Lemma 2.30. Its real Lie-group statements do not provide these. For F_P=ℚ_p the cited Ratner theorem is the relevant input; extension to a general finite F_P requires a precise matching theorem before the general-F nonvanishing statements can be completed.
+- `PadicHodgeRegulators:L3` and `GrossZagierAndArithmeticHeights:GZ.9/bloch-kato-logarithm-of-heegner-class` supply the integral family big logarithm and explicit reciprocity law of Castella–Hsieh, Theorem 5.7, with the chosen distinguished lattice and regulator cokernel. A rational finite-point logarithm formula does not supply the integral family identity. `KatoEulerSystems:L4` supplies Wüthrich's distinguished lattice and étale-isogeny comparison; arbitrary isogenous Tate lattices are not integrally equal.
+- `SelmerIwasawaCohomology:L3/iwasawa-descent` needs two separate exact specialization interfaces: the JSW formula for the (0,∅) condition with its C², Tamagawa and H⁰ factors, and perfect specialization for the all-p strict ordinary complex. `ModularIwasawaMainConjectures:L0` supplies determinant and characteristic-ideal formulations. Integral BCK comparison retains its p>3 standing hypotheses; the odd-prime CGLS comparison after inverting p does not remove those integral restrictions.
+- `AutomorphicCongruences:L5a` supplies the BCS two-variable four-term comparison (Theorem 4.1.3 and Corollary 4.1.4), restriction (Lemma 5.1.1) and factorization (Lemma 5.1.2). `L5w` supplies the Wan divisibility with Fujiwara (H1)–(H3), ramification and residual restrictions. `AutomorphicPadicLFunctions:L3h` supplies Hsieh's toric μ=0 and the projection comparison with primitive period conventions. The completed cyclotomic return in `L5b` is not a prerequisite of the anticyclotomic argument.
+- `RankZeroOneBSD:BSD.7a` supplies the independent CGS Eisenstein equality under its exact kernel-character restrictions. It needs the imaginary-quadratic elliptic-unit main-conjecture and Katz μ inputs, together with the integral Wüthrich/Kato branch. Those arithmetic inputs must be constructed by their owners before this equality is used. The direct Nekovář CM descent in HE.7 does not require an elliptic-unit main conjecture.
+- The upstream `Chebotarev#layer-10-dirichlet-density-chebotarev` supplies qualitative prime selection with finitely many prescribed Frobenius and avoidance conditions. Heegner arguments verify the finite fields, their disjointness and the required conjugacy classes; no second general Chebotarev theory is introduced.
+
+The classical error-tolerant argument gives a uniform exponent. Its stronger global cardinality estimate additionally uses Kolyvagin's classical square-index theorem, quoted as Theorem A on p.95 of the structure paper. Its original proof is a separate prerequisite of `EulerSystemsAndKolyvaginSystems:ES.4`; a uniform exponent cannot be promoted to that cardinality estimate. Likewise, neither an unspecified elliptic-unit theorem nor a real Ratner theorem supplies the unresolved arithmetic interfaces described above.
+
+
+## Layers
+
+- [HE.0: Quadratic orders and CM conductor towers](#he-0)
+- [HE.1: CM points and integral quotient maps](#he-1)
+- [HE.2: Hecke correspondences, traces and reduction](#he-2)
+- [HE.3: Heegner Kummer classes and Selmer conditions](#he-3)
+- [HE.4: Derivative coefficients and descent to K](#he-4)
+- [HE.5: Corrected local relations and arithmetic descent hypotheses](#he-5)
+- [HE.6: Finite descent, residual support and indivisibility](#he-6)
+- [HE.7: Exceptional primes, CM and RM descent](#he-7)
+- [HE.8: Anticyclotomic families, nonvanishing and refined descent](#he-8)
+- [HE.8b: Split-prime anticyclotomic equalities and applications](#he-8b)
+
+<a id="he-0"></a>
+
+## HE.0: Quadratic orders and CM conductor towers
+
+Construct the order attached to the actual torus embedding and adelic translate, then identify its ideal classes and class fields. The quadratic étale local algebra may be split. The global transported order must be recovered from all its local conditions; intersecting only the original maximal order gives a different object. The relative CM tower is needed independently of the classical quadratic tower, because the quaternionic and general-F branches have distinct level subgroups.
+
+<a id="he-0-1"></a>
+
+### Local toral order
+
+For a specified embedding ι:E_v↪B_v of a quadratic étale Q_v-algebra, a maximal Z_v-order O_v⊂B_v and g_v∈B_v×, the Heegner local order is ι⁻¹(g_v O_v g_v⁻¹). It is a full Z_v-order of the form Z_v+f_v O_{E_v}, is stable under quadratic conjugation, and is maximal away from finitely many places for a rational embedding and restricted adelic g.
+
+Lean interface: `local_toral_order`.
+
+Sources: [khayutin](#source-khayutin), §2.4.4, Definition2.1 and Proposition2.2 p.165; Lemma2.3 p.166.
+
+Prerequisites: `Subring.comap` (Mathlib); `TauCetiRoadmap/GlobalNumberFields#layer-11-orders-and-picard-groups`.
+
+<a id="he-0-2"></a>
+
+### Transported global order
+
+For a rational quadratic embedding E↪B and a restricted adelic g, Λ=E∩∏_v Λ_v is a finite-index Z-order in O_E, with Λ⊗Z_v≃Λ_v. Its Picard group is the existing CommRing.Pic Λ, equivalently ClassGroup Λ; only invertible proper fractional ideals occur.
+
+Lean interface: `transported_global_order`.
+
+Sources: [khayutin](#source-khayutin), §2.4.4, Definition2.6 p.166 and its following paragraph p.167.
+
+Prerequisites: [Local toral order](#he-0-1); `TauCetiRoadmap/GlobalNumberFields#layer-11-orders-and-picard-groups`; `ClassGroup.equivPic` (Mathlib).
+
+<a id="he-0-3"></a>
+
+### Toral packet and ideal-class comparison
+
+For the imaginary quadratic transported order Λ, map a finite invertible idele t to the locally principal fractional ideal E∩t∏_v Λ_v. Taking the double quotient E×\A_E,f×/Λ̂× gives Pic(Λ); the S={∞} toral packet quotient C_S has the same ideal-class description. The compact stabilizer uses the unit subgroup of the transported order. The torus covering E×→E×/Q× is used explicitly; kernel triviality uses the class number one of Q.
+
+Lean interface: `idele_ideal_class_comparison`.
+
+Sources: [khayutin](#source-khayutin), §2.4.3 p.165; §2.4.4, Remark2.7 and Definition2.8 p.167.
+
+Prerequisites: [Transported global order](#he-0-2); `TauCetiRoadmap/GlobalNumberFields#layer-11-orders-and-picard-groups`.
+
+<a id="he-0-4"></a>
+
+### Conductor-change kernel
+
+Let K/Q be imaginary quadratic, c≥1 and ℓ prime. Extension of invertible ideals gives Pic(O_cℓ)→Pic(O_c), surjectively. If ℓ∤c, its kernel is (O_c/ℓO_c)×/((Z/ℓZ)×·image(O_c×)); thus u_c,ℓ·#ker=ℓ−χ_K(ℓ), where u_c,ℓ=[O_c×:O_cℓ×]. If ℓ|c, u_c,ℓ·#ker=ℓ. χ takes −1,0,1 in inert, ramified, split cases. Every quotient and map is induced by the actual inclusions of orders.
+
+Lean interface: `conductor_change_kernel`.
+
+Sources: [cornut-vatsal](#source-cornut-vatsal), §2.3 p.24 (successive local unit quotient); Appendix6.1 pp.61–63 (quadratic local orders).
+
+Prerequisites: `TauCetiRoadmap/GlobalNumberFields#layer-11-orders-and-picard-groups`; `CommRing.Pic.mapRingHom` (Mathlib).
+
+<a id="he-0-5"></a>
+
+### Ring-class tower and finite Galois quotients
+
+Using the ring-class existence theorem imported from CFT13, realize every K[c] in a fixed separable closure of K. For c|d, O_d⊂O_c gives K[c]⊂K[d] and restriction Gal(K[d]/K)→Gal(K[c]/K), compatible under composition and with ideal extension under Artin. Its kernel is Gal(K[d]/K[c]), and [K[cℓ]:K[c]] equals the kernel cardinal computed in conductor-change-kernel. Splitting of a prime away from the conductor is equivalent to its invertible ideal class being trivial; K[c]/K is unramified outside c and the exact local ramification is supplied by local unit reciprocity.
+
+Lean interface: `ring_class_tower_quotients`.
+
+Sources: [gross](#source-gross), §3 pp.238–240; Cornut–Vatsal §2 pp.20–23
+
+Prerequisites: [Conductor-change kernel](#he-0-4); `TauCetiRoadmap/ClassFieldTheory#layer-13-norm-theorems-and-class-fields`.
+
+<a id="he-0-6"></a>
+
+### Dihedral action on the tower
+
+For imaginary quadratic K/Q, K[c]/Q is Galois and a chosen complex conjugation τ satisfies τστ⁻¹=σ⁻¹ for σ∈Gal(K[c]/K). The conjugation is attached to an archimedean embedding and compatible throughout the tower. Do not equip a general ring class field with IsCMField: it need not be a CM field.
+
+Lean interface: `dihedral_conjugation`.
+
+Sources: [gross](#source-gross), §3, printed p.238 (conjugation action); Lemma4.3 proof p.242 (dihedral quotient).
+
+Prerequisites: [Ring-class tower and finite Galois quotients](#he-0-5); `TauCetiRoadmap/ClassFieldTheory#layer-13-norm-theorems-and-class-fields`; `DihedralGroup.sr_mul_r` (Mathlib); `DihedralGroup.sr_mul_sr` (Mathlib); `DihedralGroup.inv_r` (Mathlib); `DihedralGroup.inv_sr` (Mathlib).
+
+<a id="he-0-7"></a>
+
+### Relative CM conductor tower
+
+Let F be totally real, K/F totally imaginary quadratic and P a finite prime of F of residue characteristic p. The imported orders O_Pn=O_F+PⁿO_K and class fields K[Pⁿ] have a compatible Galois inverse limit G∞. The finite idele/unit quotient realizes this limit; G∞ has finite torsion subgroup G0 and G∞/G0≃Z_p^[F_P:Q_p]. For sufficiently large n, [K[Pⁿ⁺¹]:K[Pⁿ]]=N(P), with the finite initial global-unit indices retained. The admissible level subgroup is the intersection with the specified quaternionic level, not an arbitrary replacement.
+
+Lean interface: `relative_cm_conductor_tower`.
+
+Sources: [cornut-vatsal](#source-cornut-vatsal), §2 pp.20–23, Lemmas2.1–2.9; §1.1 p.4
+
+Prerequisites: `TauCetiRoadmap/GlobalNumberFields#layer-11-orders-and-picard-groups`; `TauCetiRoadmap/ClassFieldTheory#layer-12-separate-arithmetic-global-existence-the-norm-index-and-the-global-correspondence`; `HilbertModularVarietiesAndShimuraCurves:R18.1`.
+
+<a id="he-0-8"></a>
+
+### Norm, reciprocity and level compatibility
+
+For the relative CM towers and an inclusion of admissible finite-level subgroups, field restriction, finite idele quotient projection and order ideal extension commute under Artin. For a finite extension of CM bases, field norm and ideal norm agree with the imported functorial Artin map on the relevant finite quotient. Cornut–Vatsal uses geometric Frobenius: the arithmetic-Frobenius version here inverts the reciprocity/Frobenius arguments before using any pointwise identity.
+
+Lean interface: `norm_reciprocity_level_compatibility`.
+
+Sources: [cornut-vatsal](#source-cornut-vatsal), §1.7 p.19, §2.1 pp.20–21, §3.8 p.35
+
+Prerequisites: [Relative CM conductor tower](#he-0-7); `TauCetiRoadmap/ClassFieldTheory#layer-13-norm-theorems-and-class-fields`; `GrossZagierAndArithmeticHeights:GZ.0/artin-map-convention`.
+
+<a id="he-0-9"></a>
+
+### Different of the local toral order
+
+For the local quadratic étale order Λ_v, define its trace dual Λ_v∨={a∈E_v:Tr(aΛ_v)⊆Z_v} using the imported lattice/trace pairing. Its inverse different is a principal invertible fractional Λ_v-ideal; the different is its inverse. The ideal norm (equivalently the absolute local discriminant valuation) agrees with the order discriminant. This does not identify the signed field norm of a generator with a positive discriminant; in a split conductor-π order a generator (π,−π) has norm −π².
+
+Lean interface: `local_different_discriminant`.
+
+Sources: [khayutin](#source-khayutin), §5.2, Definition5.7 and Lemma5.8, printed p.184.
+
+Prerequisites: [Local toral order](#he-0-1); `TauCetiRoadmap/GlobalNumberFields#layer-11-orders-and-picard-groups`.
+
+<a id="he-1"></a>
+
+## HE.1: CM points and integral quotient maps
+
+Pass from an ideal action on a moduli point to a point over its specified canonical class field. For modular curves use the rational cusp; for quaternionic curves first clear the Hodge denominator. The quotient map is fixed before points of different conductors are compared. Its degree and possible torsion basepoint errors will return in the integral descent bounds.
+
+<a id="he-1-1"></a>
+
+### CM cyclic-isogeny pair
+
+Assume K imaginary quadratic of discriminant different from −3,−4, N≥1 with every prime dividing N split, c prime to N, and an invertible O_c-ideal 𝔑_c with O_c/𝔑_c≃Z/NZ. For a proper invertible fractional ideal a, the pair C/a→C/(𝔑_c⁻¹a) is cyclic of degree N and gives the corresponding existing X₀(N) moduli point. The endomorphism ring is O_c; replacing a by αa gives the same level pair. Changing 𝔑 or its orientation is an explicitly recorded Galois/Fricke action, not literal equality.
+
+Lean interface: `cm_cyclic_isogeny_pair`.
+
+Sources: [gross](#source-gross), §3, printed p.238 (the order and cyclic N-isogeny defining x_n).
+
+Prerequisites: [Ring-class tower and finite Galois quotients](#he-0-5); `ComplexMultiplicationAndExplicitReciprocity:CM.1`; `ModularCurvesPartII:R14.1`.
+
+<a id="he-1-2"></a>
+
+### Optimal embeddings and quaternionic CM points
+
+For F totally real, K/F CM, B ramified at all but one real place and specified finite places, and Eichler order R, an optimal embedding O_C↪R is an F-algebra embedding K↪B satisfying K∩R=O_C. K splits B iff K_v is a field at every ramified finite place (and the archimedean embedding condition holds). The CM double-coset description K×\B̂×/R̂× with a specified archimedean CM type identifies the complex CM points, with local optimal-embedding conditions required by the chosen Eichler level. It has not yet asserted rationality.
+
+Lean interface: `optimal_embedding_cm_points`.
+
+Sources: [cornut-vatsal](#source-cornut-vatsal), §3.8 pp.34–35; Zhang §3.2 pp.205–206
+
+Prerequisites: [Relative CM conductor tower](#he-0-7); `HilbertModularVarietiesAndShimuraCurves:R18.1`; `HilbertModularVarietiesAndShimuraCurves:R18.4`; `ShimuraVarieties:V5`.
+
+<a id="he-1-3"></a>
+
+### CM descent to the canonical tower
+
+For the CM level points above, the imported main CM theorem/canonical model reciprocity shows x_C∈X(K[C]) in the actual HE.0 tower. Its stabilizer is K× times the intersection of the finite torus with the chosen level; σ=rec_K(t) acts by x(g)↦x(t^εg) in Cornut–Vatsal’s geometric convention. Convert to arithmetic reciprocity with the inverse convention before comparison. The statement concerns the cyclic-isogeny pair or optimal embedding, not only j(E).
+
+Lean interface: `canonical_model_cm_descent`.
+
+Sources: [cornut-vatsal](#source-cornut-vatsal), §3.8 p.35; Howard §1.7 p.19
+
+Prerequisites: [CM cyclic-isogeny pair](#he-1-1); [Optimal embeddings and quaternionic CM points](#he-1-2); [Norm, reciprocity and level compatibility](#he-0-8); `ComplexMultiplicationAndExplicitReciprocity:CM.2`; `ShimuraVarieties:V5`.
+
+<a id="he-1-4"></a>
+
+### Jacobian basepoint and Hodge denominators
+
+For X₀(N) use the rational cusp ∞ to form [x−∞]. For a compact quaternionic curve use the imported normalized rational Hodge class ξ=(K_X+B_X)/deg(K_X+B_X), componentwise of degree one; x↦[x−ξ] lies in J⊗Q. Choose a nonzero integer d clearing the denominators to obtain the integral class [d x−d ξ]. Do not erase d. For an auxiliary ℓ₀, (ℓ₀+1−Tℓ₀)x is degree zero; after quotienting by an eigenform g, division by ℓ₀+1−aℓ₀ is valid integrally at p only if it is a p-adic unit.
+
+Lean interface: `jacobian_basepoint_denominators`.
+
+Sources: [cornut-vatsal](#source-cornut-vatsal), §3.5 pp.29–32; Zhang Remark6 pp.205–206
+
+Prerequisites: [CM descent to the canonical tower](#he-1-3); `GrossZagierAndArithmeticHeights:GZ.3`; `EllipticCurveModularity:R29.5`; `ModularCurvesPartII:R14.6/rational-cusp-abel-jacobi`.
+
+<a id="he-1-5"></a>
+
+### Heegner point family
+
+Fix the descended CM family x_c, the level orientation, the integral cusp or d-cleared Hodge construction, and an actual fixed modular quotient φ:J→A defined over the base. Define P_c=φ([d x_c−d ξ])∈A(K[c]); the modular cusp branch has d=1. Keep deg φ and any Manin constant as data. Define y_K=Tr_{K[1]/K}P_1 separately: P_1 is generally not K-rational.
+
+Lean interface: `conductorPoint`.
+
+The interface needs the following laws:
+
+- `conductorPoint` (constructor): For a specified descended CM family x and the fixed integral Jacobian/modular map φ, conductorPoint φ x c=φ(x_c).
+- `conductorPoint_apply` (simp): Evaluation is the composite φ(x_c), with the d-cleared Jacobian class included in φ.
+- `conductorPoint_postcompose` (functoriality): Postcomposing φ by a defined homomorphism f carries each point to f(P_c).
+- `conductorPoint_galois` (compatibility): For a Galois-equivariant φ and action on the descended CM family, conductorPoint commutes with that action.
+
+Examples and tests:
+
+- `conductorPoint_cusp`: For the classical cusp map, conductorPoint is φ([x_c−∞]); no Hodge denominator occurs.
+- `conductorPoint_zero_quotient`: A zero quotient map yields the zero point at every conductor.
+- `conductorPoint_trace_not_basepoint`: For the two-element group acting on ℤ by negation, the selected point is 1 and its orbit trace is 1+(−1)=0. The point-family constructor returns 1, not its trace.
+
+Sources: [howard](#source-howard), §1.7 p.19; Gross §1 p.236; Zhang §3.7 p.213
+
+Prerequisites: [CM descent to the canonical tower](#he-1-3); [Jacobian basepoint and Hodge denominators](#he-1-4); `EllipticCurveModularity:R29.5`; `EllipticCurveModularity:R29.5/modular-parametrisation`; `ModularCurvesPartII:R14.6/rational-cusp-abel-jacobi`.
+
+<a id="he-1-6"></a>
+
+### Parametrization choice, degree and torsion
+
+For the fixed Heegner family, ideal-class translation gives the corresponding Galois translation; a Fricke/orientation change acts by the recorded eigenvalue and rational cusp-torsion translation. Multiplying the modular parametrization or clearing Hodge denominators scales P_c and the bottom trace by that integer. For Gross’s rational optimal curve, φ*ω_E=c_φ·(2πif(z)dz), with positive integral Manin constant c_φ; the index I_K/c_φ is invariant under the appropriate isogeny change, not I_K alone.
+
+Lean interface: `parameter_choice_and_degree`.
+
+Sources: [gross](#source-gross), §1 pp.236–237; §5 pp.243–244; Zhang Remarks6–7
+
+Prerequisites: [Heegner point family](#he-1-5); `EllipticCurveModularity:R29.5`; `GrossZagierAndArithmeticHeights:GZ.3`.
+
+<a id="he-2"></a>
+
+## HE.2: Hecke correspondences, traces and reduction
+
+The Euler-system relations come from classifying Hecke neighbours by their order conductor. Separate a new inert prime, a first split or ramified step, and a repeated conductor step. Their degrees and predecessor terms are different. Transport divisor identities through the fixed eigenquotient, and only then compare integral reduction and Frobenius. Local recurrences at nonmaximal level are retained for the relative CM nonvanishing argument.
+
+<a id="he-2-1"></a>
+
+### Hecke neighbors of a CM point
+
+At a finite prime P where B is split and the Eichler level is maximal, let ε_P=−1,0,1 for inert, ramified, split K/F. A level-zero CM lattice has 1+ε_P horizontal neighbors and N(P)−ε_P ascending neighbors of conductor P. At positive conductor n it has one predecessor of conductor n−1 and N(P) ascending neighbors of conductor n+1. The ascending set is a torsor for O_n×/O_n+1×. Global unit stabilizers must be divided out when converting this local sum into a field trace.
+
+Lean interface: `cm_hecke_conductor_classification`.
+
+Sources: [cornut-vatsal](#source-cornut-vatsal), Appendix6.1–6.2 pp.62–64
+
+Prerequisites: [Optimal embeddings and quaternionic CM points](#he-1-2); [Conductor-change kernel](#he-0-4); `HilbertModularVarietiesAndShimuraCurves:R18.4`.
+
+<a id="he-2-2"></a>
+
+### Inert Heegner norm relation
+
+Under the classical Heegner hypothesis, ℓ prime with ℓ∤cN and inert in K, the compatible cusp-normalized family satisfies u_c,ℓ·Tr_{K[cℓ]/K[c]}P_cℓ=a_ℓP_c. With ordinary units u=1 this is the Gross/Howard equality. For a d-cleared Hodge family, first prove that the chosen basepoint is a Hecke eigenclass and transport the divisor relation; retain any integral torsion difference if only a rational eigenclass identity is known.
+
+Lean interface: `norm_relation_and_reduction_congruence`.
+
+Sources: [gross](#source-gross), Proposition3.7(i), pp.240–241; Howard §1.7 p.19
+
+Prerequisites: [Hecke neighbors of a CM point](#he-2-1); [Heegner point family](#he-1-5); [Conductor-change kernel](#he-0-4); `EllipticCurveModularity:R29.5`.
+
+<a id="he-2-3"></a>
+
+### Split and ramified first-step relations
+
+For ℓ∤cN, the local divisor trace with u_c,ℓ retained equals T_ℓx_c−(σ_ℓ+σ_ℓbar)x_c in the split case and T_ℓx_c−σ_ℓx_c in the ramified case. Here Frobenius on the lower-conductor field is unramified at ℓ; the ramified case refers to K/Q ramification, not ramification of K[c]/K away from c. Use the specified reciprocity convention. After the fixed eigenquotient replace T_ℓ by a_ℓ only with the exact Jacobian basepoint corrections.
+
+Lean interface: `split_ramified_first_step_recurrence`.
+
+Sources: [cornut-vatsal](#source-cornut-vatsal), Corollary6.6, p.64
+
+Prerequisites: [Hecke neighbors of a CM point](#he-2-1); [Norm, reciprocity and level compatibility](#he-0-8); [Heegner point family](#he-1-5).
+
+<a id="he-2-4"></a>
+
+### Repeated-conductor predecessor relation
+
+At maximal local quaternionic level and conductor exponent n≥2, the local unit trace of a CM point x of conductor n is T_P^lower(pr^upper x)−pr^lower(pr^upper x). On a coherent chosen chain this gives the repeated-conductor recurrence, with predecessor and central scaling specified. Passing to the global field trace divides the orbit by the actual global-unit stabilizer; it must not simply copy the first-step inert ℓ+1 formula.
+
+Lean interface: `repeated_conductor_predecessor_recurrence`.
+
+Sources: [cornut-vatsal](#source-cornut-vatsal), Corollary6.6, p.64
+
+Prerequisites: [Hecke neighbors of a CM point](#he-2-1); [Conductor-change kernel](#he-0-4); [Heegner point family](#he-1-5).
+
+<a id="he-2-5"></a>
+
+### Distribution at nonmaximal local level
+
+For a prime P with Eichler level exponent δ=1, orient the lattice pair and its type I/II. For conductor ≥2, its unit trace equals the appropriate upper/lower Hecke operator on its predecessor and becomes −pr(x) in the P-new quotient. For δ≥2, type I/II points have zero trace in the P-new quotient; type III is excluded. Reversing the orientation exchanges types I and II. These are divisor-module statements before any abelian quotient.
+
+Lean interface: `nonmaximal_level_distribution`.
+
+Sources: [cornut-vatsal](#source-cornut-vatsal), Appendix6.3–6.4 pp.65–67
+
+Prerequisites: [Optimal embeddings and quaternionic CM points](#he-1-2); [Hecke neighbors of a CM point](#he-2-1); `HilbertModularVarietiesAndShimuraCurves:R18.4`.
+
+<a id="he-2-6"></a>
+
+### Heegner reduction congruence
+
+For the classical compatible family, ℓ∤cND inert, choose compatible primes λ_cℓ|λ_c over ℓ and the actual good-reduction specialization maps. Then red_λcℓ(P_cℓ)=Frob_λc(red_λc(P_c)) after the specified residue-field identifications; Frobenius is the ℓ-power geometric endomorphism on the reduction of the modular/elliptic curve as fixed in Gross’s convention. State separately the Artin arithmetic-Frobenius conversion. This is pointwise, not merely an equality of traces.
+
+Lean interface: `inert_reduction_frobenius_congruence`.
+
+Sources: [gross](#source-gross), Proposition3.7(ii) and proof, pp.240–241
+
+Prerequisites: [Inert Heegner norm relation](#he-2-2); `NeronModelsAndSemistableAbelianVarieties:R11.2`; `ModularCurvesPartII:R14.6/special-fibre-eichler-shimura`; `ModularCurvesPartII:R14.6/neron-hecke-extension`.
+
+<a id="he-2-7"></a>
+
+### Quaternionic CM reduction and specialization
+
+For Zhang’s m∈Λ′+ and an admissible q∤m, reduction of x_m(n) at q is x_mq(n) in the definite Shimura set, using the matched optimal embedding and supersingular identification. For q|m, specialization is x_m/q(n) on the chosen vertex copy of the semistable reduction graph. Both formulas require the same CM/basepoint identifications and the prime λ=qO_K splitting completely in the CM fields of definition over K (in particular K[n]/K, since q∤n). Rational q is inert in K/Q; reduction uses residue field F_q².
+
+Additional hypotheses: q is an admissible prime, n∈𝒩 and m∈𝒩′+, so q∤n by disjointness of 𝒩 and 𝒩′. The chosen prime above λ and the conventions above are fixed.
+
+Lean interface: `quaternionic_reduction_specialization`.
+
+Sources: [zhang](#source-zhang), §§3.4–3.6, pp.207–211, Theorem3.1
+
+Prerequisites: [Optimal embeddings and quaternionic CM points](#he-1-2); [CM descent to the canonical tower](#he-1-3); `NeronModelsAndSemistableAbelianVarieties:R11.6`; `HilbertModularVarietiesAndShimuraCurves:R18.2`; `HilbertModularVarietiesAndShimuraCurves:R18.3`; `HilbertModularVarietiesAndShimuraCurves:R18.5`.
+
+<a id="he-3"></a>
+
+## HE.3: Heegner Kummer classes and Selmer conditions
+
+Apply the continuous Kummer map to the integral point family. Good primes, bad component groups, coefficient primes and real places require separate local comparisons. The image in the rational finite condition does not automatically identify an integral Kummer lattice. Each saturation and local torsion defect must be retained before claiming that a descended class belongs to the intended Selmer group.
+
+<a id="he-3-1"></a>
+
+### Heegner Kummer classes
+
+Apply the imported finite Kummer injection E(K[c])/p^mE(K[c])→H¹_cont(K[c],E[p^m]) to P_c. Apply the imported p-adic Kummer map to the compatible p-completion to obtain the integral T_pE class. The finite classes are its actual coefficient reductions, and restriction/corestriction commute with the field maps/point trace, including all trace/unit constants from HE.2. The Tate module has its inverse-limit topology and finite torsion coefficients their discrete topology.
+
+Lean interface: `kummer_classes_and_the_modified_selmer_conditions`.
+
+Sources: [howard](#source-howard), §§1.1,1.7 pp.5–8,19–21; Gross §4 pp.241–243
+
+Prerequisites: [Heegner point family](#he-1-5); [Inert Heegner norm relation](#he-2-2); `TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4`; `SelmerIwasawaCohomology:L0`.
+
+<a id="he-3-2"></a>
+
+### Good-place Kummer condition
+
+For ℓ≠p of good reduction, the finite Kummer image E(K_v)/p^m agrees with H¹_unr(K_v,E[p^m]); in particular P_c’s Kummer class is unramified at such v, after transfer to the relevant field. The proof uses the Néron model and unramified torsion, not a claim that all local cohomology is unramified.
+
+Lean interface: `good_place_kummer_unramified`.
+
+Sources: [gross](#source-gross), §7 pp.247–249
+
+Prerequisites: [Heegner Kummer classes](#he-3-1); `TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4`; `SelmerIwasawaCohomology:L1`.
+
+<a id="he-3-3"></a>
+
+### Component obstruction at bad places
+
+For finite v∤p, compare the local point Kummer image with the propagated rational unramified condition. The discrepancy factors through the p-primary component group of the Néron model, together with the precise local invariants/quotient torsion terms. Equality requires the appropriate obstruction to vanish; residual irreducibility alone does not remove it. For Gross’s derived d(n), the cusp-divisor and connected-Néron-model argument proves local triviality away from n even at primes dividing N.
+
+Lean interface: `bad_place_component_obstruction`.
+
+Sources: [gross](#source-gross), Proposition6.2 and proof, pp.244–247
+
+Prerequisites: [Heegner Kummer classes](#he-3-1); `NeronModelsAndSemistableAbelianVarieties:R11.2`; `TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4`; `NeronModelsAndSemistableAbelianVarieties:R11.2/component-group`; `NeronModelsAndSemistableAbelianVarieties:R11.2/elliptic-filtration`; `SelmerIwasawaCohomology:L2/finite-unramified-comparison`.
+
+<a id="he-3-4"></a>
+
+### Kummer condition at the coefficient prime
+
+At v|p with good reduction, the actual Kummer class of P_c satisfies the finite/crystalline rational condition and its integral propagated Kummer condition. In the good ordinary branch compare with the Greenberg filtration only under the exact ordinary/crystalline comparison hypotheses and retain local-torsion error terms. A rational equality after tensoring with Q_p is not an equality of integral lattices.
+
+Lean interface: `coefficient_prime_local_condition`.
+
+Sources: [howard](#source-howard), §1.6, Theorem1.6.5 proof, pp.18–19
+
+Prerequisites: [Heegner Kummer classes](#he-3-1); `TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4`; `SelmerIwasawaCohomology:L2`; `SelmerIwasawaCohomology:L2/condition-propagation`; `SelmerIwasawaCohomology:L2/greenberg-condition`; `SelmerIwasawaCohomology:L4/bloch-kato-condition`; `FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4`.
+
+<a id="he-3-5"></a>
+
+### Saturated integral Kummer comparison
+
+Compare the actual finite/p-adic Heegner Kummer classes in the Selmer lattice with E(K)⊗Z_p, V_pE, and E[p∞]. Use the Kummer exact sequence to identify the quotient by the Mordell–Weil lattice with the appropriate Sha group. Saturation is a separate integral assertion; the finite cokernel and local component-group defects must be retained before rationalizing.
+
+Lean interface: `saturated_integral_kummer_lattice`.
+
+Sources: [howard](#source-howard), Introduction pp.1–3; §1.6 pp.18–19
+
+Prerequisites: [Heegner Kummer classes](#he-3-1); [Component obstruction at bad places](#he-3-3); [Kummer condition at the coefficient prime](#he-3-4); `TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4`; `SelmerIwasawaCohomology:L0`; `SelmerIwasawaCohomology:L2/lattice-passage`; `SelmerIwasawaCohomology:L2/elliptic-selmer-instance`.
+
+<a id="he-3-6"></a>
+
+### Archimedean Tate correction
+
+Over imaginary quadratic K all archimedean completions are C, so the relevant local H¹ vanishes. In descent to Q at a real place use the real/Tate local condition on the actual E[p^m] module. Odd p permits the usual conjugation eigenspace splitting; at p=2 its kernel/cokernel must be retained and one cannot divide by two on an integral Z₂ lattice.
+
+Lean interface: `archimedean_tate_correction`.
+
+Sources: [gross](#source-gross), Proposition6.2, p.245; §8 p.249
+
+Prerequisites: [Heegner Kummer classes](#he-3-1); `ArithmeticGaloisDuality:R02.4`.
+
+<a id="he-4"></a>
+
+## HE.4: Derivative coefficients and descent to K
+
+Use the conductor coefficient ideal and the cyclic derivative operators from the abstract Euler-system theory. Invariance is proved modulo the sum of local coefficient ideals; unique descent uses the actual torsion-invariant vanishing. The bottom class is the Kummer image of a trace, not of a raw conductor-one point. Generator changes are absorbed in cyclic tensor coefficients, and reduction is allowed only at sufficiently deep auxiliary primes.
+
+<a id="he-4-1"></a>
+
+### Heegner conductor coefficient ideal
+
+Fix an odd prime p and an actual Hecke eigenvalue function a_ℓ. Set I_ℓ=(a_ℓ,ℓ+1)⊂Z_p and I_n=Σ_{ℓ|n}I_ℓ for squarefree n of admissible inert primes. The quotient is Z_p/I_n. For n=1 the empty sum is zero, so the coefficient module is the full Tate lattice, not its residual reduction. If n>1 then I_n=(p^M(n)) with M(n)=min_{ℓ|n}min(v_p(a_ℓ),v_p(ℓ+1)). An intersection/product would give the wrong modulus.
+
+Lean interface: `coefficientIdeal`.
+
+The interface needs the following laws:
+
+- `coefficientIdeal` (constructor): For the finite prime set s and eigenvalues a, coefficientIdeal p a s=Σ_{ℓ∈s}span{a_ℓ,ℓ+1} in Z_p.
+- `coefficientIdeal_empty` (simp): coefficientIdeal p a ∅=0.
+- `coefficientIdeal_insert` (relation): For ℓ∉s, the ideal for insert ℓ s is span{a_ℓ,ℓ+1}+the ideal for s.
+- `coefficientIdeal_le_of_subset` (functoriality): s⊆t implies I_s≤I_t, hence there is the quotient map Z_p/I_s→Z_p/I_t.
+
+Examples and tests:
+
+- `coefficientIdeal_conductor_one`: The empty conductor has zero ideal, so it does not force p to vanish.
+- `coefficientIdeal_prime_five`: For p=5, s={19}, a_19=10, the ideal is (5).
+- `coefficientIdeal_min_not_max`: For p=5, s={19,149}, a_19=10,a_149=25, the ideal is (5), not (25); the sum takes the minimum valuation.
+
+Sources: [howard](#source-howard), §1.7 pp.19–20; Zhang §1 p.194 and Notations p.202
+
+Prerequisites: `PadicInt` (Mathlib); `EulerSystemsAndKolyvaginSystems:ES.3`; `PadicInt.ideal_eq_span_pow_p` (Mathlib); `PadicInt.mem_span_pow_iff_le_valuation` (Mathlib).
+
+<a id="he-4-2"></a>
+
+### Differentiated point invariance
+
+For the actual squarefree ring-class conductor n, let G_n=Gal(K[n]/K[1]) be the product of its cyclic inert factors and 𝒢_n=Gal(K[n]/K). Under ordinary units and the clean torsion-image hypotheses, choose generators σ_ℓ and coset representatives S for 𝒢_n/G_n. Use ES3’s D_n=∏D_ℓ and set the differentiated point ˜P_n=Σ_{s∈S}sD_nP_n. Its class modulo I_n is 𝒢_n-invariant and independent of S. Use the full 𝒢_n action, not merely invariance under G_n. Exceptional-unit factors require a modified bounded-denominator construction, not an assumed direct product.
+
+Lean interface: `differentiated_point_invariance`.
+
+Sources: [howard](#source-howard), Lemma1.7.1 pp.19–20; Gross §4 pp.241–243
+
+Prerequisites: [Heegner conductor coefficient ideal](#he-4-1); [Inert Heegner norm relation](#he-2-2); `EulerSystemsAndKolyvaginSystems:ES.3`; [Ring-class tower and finite Galois quotients](#he-0-5).
+
+<a id="he-4-3"></a>
+
+### Vanishing of ring-class torsion invariants
+
+Under Gross’s odd-p full residual image hypothesis or Howard’s full G_K Tate-image hypothesis, E[p^m](K[n])=0 for the relevant ring-class towers and all m≥1. The residual case uses the generalized-dihedral nature of K[n]/Q and the irreducible two-dimensional image; bootstrap finite exponent using multiplication by p. This statement is not implied by residual irreducibility for arbitrary field extensions.
+
+Lean interface: `ring_class_torsion_invariants`.
+
+Sources: [gross](#source-gross), Lemma4.3, statement p.241 and proof p.242; Howard Lemma1.7.1 proof p.20.
+
+Prerequisites: [Dihedral action on the tower](#he-0-6); `ArithmeticGaloisRepresentations:R01.4`.
+
+<a id="he-4-4"></a>
+
+### Descended Heegner derivative class
+
+Under the proved torsion-invariant vanishing, inflation–restriction gives res:H¹_cont(K,E[p^m])≃H¹_cont(K[n],E[p^m])^𝒢_n for m≤M(n). Define c_m(n) as res⁻¹ of the Kummer class of ˜P_n. For integral conductor-one use the T_pE Kummer class of y_K. Without invariant vanishing, keep the H¹/H² kernel/cokernel terms and use the separate error-tolerant ES3/4 construction; there is no unrestricted unique inverse.
+
+Lean interface: `descendedClass`.
+
+The interface needs the following laws:
+
+- `descendedClass` (constructor): descendedClass resInv z is the unique class whose restriction is the invariant differentiated Kummer class z.
+- `descendedClass_restrict` (characterisation): Its actual restriction equals z.
+- `descendedClass_unique` (extensionality): Any class with restriction z equals descendedClass resInv z.
+- `descendedClass_natural` (functoriality): A commuting coefficient/restriction square carries descendedClass to the class obtained by descending the reduced differentiated Kummer class.
+
+Examples and tests:
+
+- `descendedClass_zero`: The zero invariant differentiated Kummer class descends to zero.
+- `descendedClass_identity`: For the trivial field extension, resInv=id and descendedClass is the Kummer class itself.
+- `descendedClass_noninjective_obstruction`: A restriction map with nonzero kernel does not define a unique descended class; the constructor requires the proved additive equivalence.
+
+Sources: [gross](#source-gross), §4 pp.242–243; Howard Lemmas1.7.1–1.7.2 p.20; Zhang(3.21) p.213
+
+Prerequisites: [Differentiated point invariance](#he-4-2); [Vanishing of ring-class torsion invariants](#he-4-3); [Heegner Kummer classes](#he-3-1); `EulerSystemsAndKolyvaginSystems:ES.3`; `ArithmeticGaloisDuality:R02.2/five-term-transgression`.
+
+<a id="he-4-5"></a>
+
+### Explicit cocycle and divisibility criterion
+
+Choose p^mQ=˜P_n over the separable closure. The class c_m(n) is represented by σQ−Q−(σ˜P_n−˜P_n)/p^m, where the last quotient is the uniquely specified K[n]-rational division term under torsion vanishing. Hence c_m(n)=0 iff ˜P_n∈p^mE(K[n]); its image d_m(n) in H¹(K,E)[p^m] vanishes iff ˜P_n∈p^mE(K[n])+E(K), with descent interpreted through the actual restriction map.
+
+Lean interface: `explicit_cocycle_divisibility`.
+
+Sources: [gross](#source-gross), Explicit cocycle (4.6) and Proposition4.7, printed p.242; Howard Lemma1.7.2 p.20.
+
+Prerequisites: [Descended Heegner derivative class](#he-4-4); [Vanishing of ring-class torsion invariants](#he-4-3); [Heegner Kummer classes](#he-3-1).
+
+<a id="he-4-6"></a>
+
+### Bottom class is the trace Kummer class
+
+At n=1, D_1=1 and the sum over 𝒢_1 gives y_K=Tr_{K[1]/K}P_1. Thus c_m(1)=δ_m(y_K) and the integral bottom class κ_1=δ_T(y_K), while d_m(1)=0. This is not δ(P_1) over K unless P_1 already descends.
+
+Lean interface: `bottom_trace_class`.
+
+Sources: [gross](#source-gross), Definition(4.1), printed p.241, and note after Proposition4.7 p.242; Howard §1.7 p.20; Zhang(3.22) p.213.
+
+Prerequisites: [Descended Heegner derivative class](#he-4-4); [Heegner conductor coefficient ideal](#he-4-1); [Heegner Kummer classes](#he-3-1).
+
+<a id="he-4-7"></a>
+
+### Generator change and intrinsic tensor coefficient
+
+After tensoring with G(n)=⊗_{ℓ|n}Gal(K[ℓ]/K[1]), the Heegner derivative class has the prescribed ES3 generator-change transformation law; changing σ_ℓ to σ_ℓ^u changes the derivative class by the inverse unit factor modulo I_n and the cyclic tensor generator by the compensating factor. State compatibility with lift/coset choices separately. Do not assert raw scalar classes are generator-independent.
+
+Lean interface: `generator_tensor_choice_independence`.
+
+Sources: [howard](#source-howard), Theorem1.7.5 pp.20–21; Gross §4 p.242
+
+Prerequisites: [Descended Heegner derivative class](#he-4-4); `EulerSystemsAndKolyvaginSystems:ES.3`; [Ring-class tower and finite Galois quotients](#he-0-5).
+
+<a id="he-4-8"></a>
+
+### Coefficient reduction and auxiliary-prime restriction
+
+For m′≤m≤M(n), reduction E[p^m]→E[p^m′] takes c_m(n) to c_m′(n) under the exact chosen division/Kummer conventions. Restricting the permitted auxiliary-prime set restricts the same family; adding primes extends the family only when the conductor/norm/reduction hypotheses and tensor factors are proved for them. No map removing a prime factor of n is assumed without the local system relation.
+
+Lean interface: `coefficient_and_prime_set_compatibility`.
+
+Sources: [zhang](#source-zhang), §3.7 pp.211–213; Howard §1.7 pp.19–21
+
+Prerequisites: [Descended Heegner derivative class](#he-4-4); [Heegner conductor coefficient ideal](#he-4-1); `EulerSystemsAndKolyvaginSystems:ES.3`; `EulerSystemsAndKolyvaginSystems:ES.2`.
+
+<a id="he-4-9"></a>
+
+### Parity of the Heegner derivative class
+
+For odd p and the clean classical branch, if ε is the Fricke eigenvalue of the eigenquotient, τc_m(n)=ε(−1)^ν(n)c_m(n); equivalently using the global root number w=−ε, this is w(−1)^(ν(n)+1). The torsion term from the basepoint/Fricke relation is removed only after its prime-to-p proof. At p=2 this formula does not yield an integral direct-sum eigenspace decomposition.
+
+Lean interface: `complex_conjugation_parity`.
+
+Sources: [gross](#source-gross), Proposition5.4 pp.243–244; Zhang(3.24) p.213
+
+Prerequisites: [Parametrization choice, degree and torsion](#he-1-6); [Descended Heegner derivative class](#he-4-4); `EulerSystemsAndKolyvaginSystems:ES.3`; [Archimedean Tate correction](#he-3-6).
+
+<a id="he-5"></a>
+
+## HE.5: Corrected local relations and arithmetic descent hypotheses
+
+The raw derivative relation contains Howard's local correction automorphism. Construct that automorphism on the actual finite local coefficient module and verify its finite/singular comparison. A global correction needs the G_ℚ change-of-group action and its localization square: a merely G_K-linear operation is not enough. The exact global compatibility remains an additional supplier proof obligation. Verify Howard's H.0–H.5 and distinguish the clean arithmetic branch from local error terms; a Tamagawa defect is not erased by choosing a convenient Selmer carrier.
+
+<a id="he-5-1"></a>
+
+### Transverse condition of the descended class
+
+For ℓ|n an inert auxiliary prime under Howard’s odd-p clean hypotheses, the localization of c(n) restricts to zero over the specified totally ramified local ring-class extension K[n]_λ/K_λ. Thus it lies in the transverse condition used by ES1. Away from n it lies in the propagated finite local condition established in HE3. The p-odd identity Σ_{i=1}^{ℓ}i=ℓ(ℓ+1)/2 enters the transverse proof and cannot be copied integrally at p=2.
+
+Lean interface: `heegner_transverse_local_condition`.
+
+Sources: [howard](#source-howard), Lemma1.7.3 and proof, pp.20–21
+
+Prerequisites: [Explicit cocycle and divisibility criterion](#he-4-5); [Heegner reduction congruence](#he-2-6); [Component obstruction at bad places](#he-3-3); `EulerSystemsAndKolyvaginSystems:ES.1`.
+
+<a id="he-5-2"></a>
+
+### Heegner finite–singular correction automorphism
+
+At inert ℓ, define Howard’s automorphism χ_ℓ on T/I_ℓT through local reduction, projection to the p-primary subgroup, p^−M(a_ℓ−(ℓ+1)Fr_ℓ), and the canonical torsion lift. The valuation/cyclic Frobenius-eigenspace calculation proves it is invertible. With all chosen cyclic generators retained, χ_ℓ(κ_n(Fr_λ))=κ_nℓ(σ_ℓ) is the actual Heegner finite–singular relation. This is an arithmetic correction to ES1’s generic comparison, not an assertion that raw classes already form a strong system.
+
+Lean interface: `local_heegner_chi_automorphism`.
+
+Sources: [howard](#source-howard), Proposition1.7.4, preprint p.21; published pp.1457–1458.
+
+Prerequisites: [Transverse condition of the descended class](#he-5-1); [Heegner reduction congruence](#he-2-6); [Heegner conductor coefficient ideal](#he-4-1); `EulerSystemsAndKolyvaginSystems:ES.1`.
+
+<a id="he-5-3"></a>
+
+### Corrected Heegner Kolyvagin system
+
+For the actual descended Heegner family κ_n, construct commuting global cohomology automorphisms χ_ℓ inducing the specified local Howard correction. Let χ_n=∏_{ℓ|n}χ_ℓ. Define κ′_n=χ_n⁻¹(κ_n)⊗σ_n in the cyclic tensor target. Then κ′ satisfies the strong ES1/3 edge relation and κ′_1=κ_1, so κ′ is a Kolyvagin system for the Selmer triple (T,F,𝓛) in the sense of EulerSystemsAndKolyvaginSystems:ES.5/howard-hypotheses (Howard Definition1.2.3 and Theorem1.7.5). A local non-G_K-linear coefficient automorphism alone cannot be postcomposed with global cocycles; a legitimate change-of-group action and its localization comparison must be supplied.
+
+Lean interface: `correctedClass`.
+
+The interface needs the following laws:
+
+- `correctedClass` (constructor): correctedClass χ κ=χ⁻¹κ for the proved global additive automorphism χ; the cyclic tensor is retained in the supplied target.
+- `correctedClass_apply` (simp): correctedClass χ κ is evaluation of χ.symm at κ.
+- `correctedClass_uncorrect` (characterisation): χ(correctedClass χ κ)=κ.
+- `correctedClass_comp` (compatibility): For commuting χ,ψ, correction by their product equals successive correction by ψ then χ.
+
+Examples and tests:
+
+- `correctedClass_bottom`: At the empty conductor χ_1=id, so the bottom class is unchanged.
+- `correctedClass_zero`: The zero class remains zero under correction.
+- `correctedClass_involution`: For χ=−id on an additive group, correcting κ gives −κ; raw and corrected classes need not coincide.
+
+Sources: [howard](#source-howard), Theorem1.7.5 pp.20–21 and published p.1458
+
+Prerequisites: [Heegner finite–singular correction automorphism](#he-5-2); [Generator change and intrinsic tensor coefficient](#he-4-7); `EulerSystemsAndKolyvaginSystems:ES.3`; `EulerSystemsAndKolyvaginSystems:ES.5/howard-hypotheses`.
+
+<a id="he-5-4"></a>
+
+### Tate coefficient and big-image hypotheses
+
+Under Howard TheoremA’s full G_K→GL₂(Z_p) surjectivity, p odd and p∤DN, T=T_pE is free rank two (H0), T/pT is absolutely irreducible (H1), and the auxiliary extension F/Q containing K used in H2 trivializes T and has H¹(F(μ_p∞)/K,T/pT)=0. The central scalar subgroup of order p−1 kills this cohomology. Full Tate-image surjectivity is stronger than residual irreducibility or residual surjectivity and is stated separately. H.0–H.2 are those of the hypothesis record EulerSystemsAndKolyvaginSystems:ES.5/howard-hypotheses.
+
+Lean interface: `actual_tate_hypotheses_h0_h2`.
+
+Sources: [howard](#source-howard), H.0–H.2 pp.8–9, Theorem1.6.5 proof pp.18–19
+
+Prerequisites: [Vanishing of ring-class torsion invariants](#he-4-3); `TauCetiRoadmap/EllipticCurves#layer-2-torsion-the-weil-pairing-and-the-tate-module-aec-iii68`; `ArithmeticGaloisDuality:R02.2`; `EulerSystemsAndKolyvaginSystems:ES.5/howard-hypotheses`.
+
+<a id="he-5-5"></a>
+
+### Cartesian, self-dual and conjugation local conditions
+
+For the same actual T, verify H3 cartesian propagation at every quotient of the DVR, H4 the symmetric twisted Weil pairing (s,t)=e(s,τt) and exact orthogonality at conjugate places, and H5 extension of the residual representation to G_Q with one-dimensional τ± eigenspaces, G_Q-stability of local conditions and the required pairing/conjugation identity. Use the rational finite local conditions and their exact integral/torsion propagation; the hypothesis record H.0–H.5 is EulerSystemsAndKolyvaginSystems:ES.5/howard-hypotheses, and Howard’s abstract theorem is not defined or reproved here.
+
+Lean interface: `actual_local_hypotheses_h3_h5`.
+
+Sources: [howard](#source-howard), H.3–H.5 pp.8–9, Theorem1.6.5 proof pp.18–19
+
+Prerequisites: [Tate coefficient and big-image hypotheses](#he-5-4); [Kummer condition at the coefficient prime](#he-3-4); [Saturated integral Kummer comparison](#he-3-5); `EulerSystemsAndKolyvaginSystems:ES.5/howard-hypotheses`; `SelmerIwasawaCohomology:L1`; `SelmerIwasawaCohomology:L2/lattice-passage`; `SelmerIwasawaCohomology:L2/finite-condition-lattice-duality`; `SelmerIwasawaCohomology:L1/lattice-pairing-compatibility`.
+
+<a id="he-5-6"></a>
+
+### Residual Kummer field and detection pairing
+
+In Gross’s odd-p full residual-image setting let L=K(E[p]). For a finite F_p-subspace S⊂H¹(K,E[p]), let L_S be the fixed field of the intersection of the kernels of the restricted homomorphisms G_L→E[p]. Restriction identifies classes with the equivariant Hom space, and the evaluation pairing gives Gal(L_S/L)≃Hom_Fp(S,E[p]) compatibly with the residual Galois action. The proof uses that the subquotients of the direct sum E[p]^r are sums of this simple module, not general semisimplicity of arbitrary F_p[GL₂(F_p)]-modules.
+
+Lean interface: `residual_kummer_field_pairing`.
+
+Sources: [gross](#source-gross), §9 pp.250–252, Lemma9.1 and Proposition9.3
+
+Prerequisites: [Vanishing of ring-class torsion invariants](#he-4-3); `ArithmeticGaloisDuality:R02.2`; `EulerSystemsAndKolyvaginSystems:ES.1`.
+
+<a id="he-5-7"></a>
+
+### Heegner class detection by auxiliary primes
+
+Let M=L_S for a finite Selmer subspace S and let I fix the Kummer field generated by a pth division point of y_K. For τ acting on Gal(M/L), the square (τh)² detects the positive component used by Gross. Chebotarev primes whose Frobenius is the prescribed class of τh are inert auxiliary primes, avoid any specified finite set, and their localizations detect the corresponding evaluation annihilator. To detect a second independent class, use the correctly formed composite and the proved disjointness of its Kummer field.
+
+Lean interface: `chebotarev_heegner_class_detection`.
+
+Sources: [gross](#source-gross), Propositions9.5–9.6 and Claims10.1/10.3, pp.251–254
+
+Prerequisites: [Residual Kummer field and detection pairing](#he-5-6); `EulerSystemsAndKolyvaginSystems:ES.1`; `TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev`.
+
+<a id="he-5-8"></a>
+
+### Arithmetic local error lengths
+
+For the actual Heegner Tate representation, compare ES4’s restriction/invariant/local-condition errors with p-primary local torsion, the p-part of the Néron component group, and the index of the integral finite/ordinary lattice. Record each finite kernel/cokernel as a separate length or annihilator constant. Equality with an error-free theorem requires the relevant quantities to vanish, not just the global residual image hypothesis.
+
+Lean interface: `arithmetic_local_error_comparison`.
+
+Sources: [howard](#source-howard), §1.1 pp.5–8; Gross Proposition6.2 pp.244–247
+
+Prerequisites: [Component obstruction at bad places](#he-3-3); [Kummer condition at the coefficient prime](#he-3-4); [Saturated integral Kummer comparison](#he-3-5); `EulerSystemsAndKolyvaginSystems:ES.4`; `NeronModelsAndSemistableAbelianVarieties:R11.2`; `NeronModelsAndSemistableAbelianVarieties:R11.2/component-group`; `SelmerIwasawaCohomology:L2/finite-unramified-comparison`.
+
+<a id="he-5-9"></a>
+
+### Tamagawa and local torsion obstruction examples
+
+For a split Tate curve over a local field of residue characteristic ℓ≠p with parameter q, its component group has order v(q); choose v(q)=p to get a nonzero p-component defect. If the same local field contains μ_p, the Tate uniformization supplies nonzero local E[p] even with a prime-to-p component order (for example v(q)=1). These distinct examples must fail the corresponding error-free local hypotheses. Neither local phenomenon follows or disappears from a global residual-irreducibility label.
+
+Lean interface: `tamagawa_and_local_torsion_tests`.
+
+Sources: [zhang](#source-zhang), §6.3 pp.228–229, local monodromy/Tamagawa description
+
+Prerequisites: `TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv`; [Arithmetic local error lengths](#he-5-8).
+
+<a id="he-6"></a>
+
+## HE.6: Finite descent, residual support and indivisibility
+
+There are two related but distinct endpoints. Howard and Gross give the clean elliptic rank-one conclusions, with an index inequality unless primitivity is established. Zhang works over the residue field of a GL₂-type newform, using level raising, residual local reciprocity, rank lowering, special values and an independent period identity. Vanishing order and base locus organize the residual induction; they do not replace the actual Heegner relations. Prove the independent period and cyclotomic rank-zero inputs before the final indivisibility theorem.
+
+<a id="he-6-1"></a>
+
+### Howard’s Heegner rank-one theorem
+
+Assume E/Q conductor N, imaginary quadratic K discriminant D≠−3,−4 with all N-primes split, p odd, p,D,N pairwise coprime, and full Tate representation G_K→GL₂(Z_p) surjective. If the actual bottom Heegner Kummer class κ_1≠0, the compact Selmer group is free rank one and the discrete Selmer group is Q_p/Z_p⊕M⊕M for a finite Z_p-module M with length M≤length(H¹_F(K,T_pE)/Z_pκ_1). This is Howard TheoremA after the actual arithmetic H0–H5 checks and corrected system construction; the abstract self-dual theorem is EulerSystemsAndKolyvaginSystems:ES.5/howard-dvr-theorem (Howard Theorem1.6.1), imported and not reproved here.
+
+Lean interface: `clean_rank_one_descent_theorem_A`.
+
+Sources: [howard](#source-howard), TheoremA pp.1–2, Theorem1.6.5 pp.18–19
+
+Prerequisites: [Corrected Heegner Kolyvagin system](#he-5-3); [Tate coefficient and big-image hypotheses](#he-5-4); [Cartesian, self-dual and conjugation local conditions](#he-5-5); [Saturated integral Kummer comparison](#he-3-5); `EulerSystemsAndKolyvaginSystems:ES.5/howard-dvr-theorem`.
+
+<a id="he-6-3"></a>
+
+### Opposite Selmer eigenspace vanishing
+
+Under Gross’s clean mod-p hypotheses, the ε-opposite Selmer eigenspace is zero. Choose a prime using the actual Kummer field M and positive component outside I. Its d(ℓ) is locally nonzero and supported only at λ; global reciprocity forces every Selmer class in that eigenspace to localize to zero. The Kummer-field annihilator calculation then forces the global eigenspace to vanish.
+
+Lean interface: `gross_opposite_eigenspace_vanishing`.
+
+Sources: [gross](#source-gross), Proposition8.2 pp.249–250; Claim10.1 pp.252–253
+
+Prerequisites: [Heegner class detection by auxiliary primes](#he-5-7); [Parity of the Heegner derivative class](#he-4-9); `EulerSystemsAndKolyvaginSystems:ES.1`; `SelmerIwasawaCohomology:L1`; [Component obstruction at bad places](#he-3-3); [Explicit cocycle and divisibility criterion](#he-4-5); [Heegner reduction congruence](#he-2-6).
+
+<a id="he-6-4"></a>
+
+### Same Selmer eigenspace generation
+
+Under the same clean hypotheses, the remaining Selmer eigenspace equals F_p·δ(y_K). If a second independent class existed, choose the first auxiliary prime with nonzero local Heegner derivative and form its Kummer extension L′. Prove L′ is disjoint from the Selmer field over L in the relevant character, then choose a second simultaneous Frobenius in the composite. The finite/singular relation and reciprocity force incompatible localizations, so the second class cannot exist.
+
+Lean interface: `gross_same_eigenspace_generation`.
+
+Sources: [gross](#source-gross), Claim10.3 and proof, pp.253–254
+
+Prerequisites: [Opposite Selmer eigenspace vanishing](#he-6-3); [Heegner class detection by auxiliary primes](#he-5-7); [Parity of the Heegner derivative class](#he-4-9); `EulerSystemsAndKolyvaginSystems:ES.1`; `SelmerIwasawaCohomology:L1`; [Explicit cocycle and divisibility criterion](#he-4-5); [Bottom class is the trace Kummer class](#he-4-6).
+
+<a id="he-6-2"></a>
+
+### Gross’s clean mod-p descent
+
+Assume Gross’s classical standing hypotheses and non-CM E, p odd, Q(E[p])/Q has full GL₂(F_p) group, and y_K∉pE(K). Then Sel_p(E/K) is the cyclic F_p-space generated by δ(y_K), rank E(K)=1 and Sha(E/K)[p]=0. This clean theorem requires neither p∤N nor full p-adic surjectivity as an extra hypothesis; do not replace its hypothesis table with Howard’s.
+
+Lean interface: `gross_clean_mod_p_descent`.
+
+Sources: [gross](#source-gross), Propositions2.1/2.3 pp.237–238, Claims10.1/10.3 pp.252–254
+
+Prerequisites: [Heegner class detection by auxiliary primes](#he-5-7); [Bottom class is the trace Kummer class](#he-4-6); [Component obstruction at bad places](#he-3-3); [Opposite Selmer eigenspace vanishing](#he-6-3); [Same Selmer eigenspace generation](#he-6-4); `TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4`; `TauCetiRoadmap/EllipticCurves#layer-6-the-mordellweil-theorem-aec-viii`.
+
+<a id="he-6-5"></a>
+
+### Sha square-index bound
+
+Under HowardA with non-torsion y_K, the finite p-primary Sha group is the paired finite part of the discrete Selmer group. Thus length_Zp Sha[p∞]≤2·length_Zp(E(K)⊗Z_p/Z_py_K), after proving the exact integral Kummer-lattice identification. Equivalently its order divides the p-part of the square of the corresponding finite index. If a local or parametrization defect is present, insert its proved error term before this comparison.
+
+Lean interface: `sha_square_index_bound`.
+
+Sources: [howard](#source-howard), Introduction, finite/p-adic Kummer exact sequences and TheoremA, PDF pp.1–2.
+
+Prerequisites: [Howard’s Heegner rank-one theorem](#he-6-1); [Saturated integral Kummer comparison](#he-3-5); [Arithmetic local error lengths](#he-5-8).
+
+<a id="he-6-6"></a>
+
+### Primitivity and sharpness comparison
+
+A nonzero κ_1 yields an upper bound, not equality. Residual primitivity of the actual corrected system, under the self-dual hypotheses H.0–H.5 and for p≥5, gives the corresponding equality of finite length and corrected index (Zanarella Theorem2.3.6). Scaling the parametrization/system by p preserves non-torsion but increases the leading-class index, so cannot preserve an unsupported sharpness assertion. Zhang’s indivisibility conclusion proves a stronger property only under its enumerated hypotheses.
+
+Lean interface: `primitivity_versus_nonzero`.
+
+Sources: [howard](#source-howard), TheoremA, PDF pp.1–2 (upper bound, not a primitivity equality).; [zhang](#source-zhang), Theorem9.3 p.243; §10 pp.245–246.; [zanarella](#source-zanarella), Theorem2.3.6, with Definition2.3.2 and Proposition2.3.3, arXiv v1 pp.19–20
+
+Prerequisites: [Howard’s Heegner rank-one theorem](#he-6-1); [Parametrization choice, degree and torsion](#he-1-6); `EulerSystemsAndKolyvaginSystems:ES.5`; `EulerSystemsAndKolyvaginSystems:ES.5/howard-dvr-theorem`; `EulerSystemsAndKolyvaginSystems:ES.5/divisibility-invariants`.
+
+<a id="he-6-7"></a>
+
+### Zhang’s Heegner congruence after level raising
+
+Let g,K,p satisfy Zhang’s Notations and Hypothesis♥, with m∈𝒩′+ and distinct admissible q₁,q₂∤m. Fix the residual V over k₀, matched optimal embeddings and derivative generators. Then loc_q₁ c(n,m) lies in H¹(K_q₁,k₀) and loc_q₂ c(n,mq₁q₂) in H¹(K_q₂,k₀(1)); under fixed identifications with k₀ the two are equal up to a fixed nonzero scalar. The generic level-raising, definite/indefinite Jacquet–Langlands, multiplicity-one and Ihara statements are imported.
+
+Lean interface: `zhang_cohomological_congruence`.
+
+Sources: [zhang](#source-zhang), Theorem4.3 and proof, pp.218–221; Lemma3.3 p.215; [zhang](#source-zhang), §2, Theorem2.1 and proof, pp.203–204; (4.7)–(4.9), pp.218–219
+
+Prerequisites: [Quaternionic CM reduction and specialization](#he-2-7); [Descended Heegner derivative class](#he-4-4); `SerreWeightAndLevelOptimisation:R20.2`; `GL2AutomorphicRepresentationsAndTransfer:R17.3/global-jl`; `SerreWeightAndLevelOptimisation:R20.2/level-raising-diamond`; `GL2AutomorphicRepresentationsAndTransfer:R17.3/multiplicity-one`; `HilbertModularVarietiesAndShimuraCurves:R18.3`.
+
+<a id="he-6-8"></a>
+
+### Heegner rank lowering through an admissible prime
+
+Under Zhang Hypothesis♥, local Selmer conditions for g and its admissible level-raised g′ have k₀-rational structures agreeing away from q. At q they are the finite k₀ line and the singular k₀(1) line respectively. If loc_q on the rational residual Selmer group is nonzero, it is surjective and the raised Selmer group is its kernel, so its dimension decreases by one. Hypothesis♥(3) requires H¹(Q_ℓ,V)=V^GQℓ=0 at ℓ²|N+; for elliptic E and p≥5 the additive-reduction argument verifies this. Do not apply the ℓ≠p Euler characteristic formula at ℓ=p.
+
+Lean interface: `zhang_local_conditions_rank_lowering`.
+
+Sources: [zhang](#source-zhang), Lemma5.1, Theorem5.2, Proposition5.4, pp.222–225
+
+Prerequisites: [Zhang’s Heegner congruence after level raising](#he-6-7); [Kummer condition at the coefficient prime](#he-3-4); `SelmerIwasawaCohomology:L1`; `EulerSystemsAndKolyvaginSystems:ES.1`.
+
+<a id="he-6-9"></a>
+
+### Auxiliary rank-zero formula over K
+
+For a weight-two newform g and its GL₂-type A_g/Q with coefficient prime 𝔭|p≥3, K as in Zhang’s Notations with p∤D_K, good ordinary p, residual image containing SL₂(F_p), and a residually ramified ℓ||N, L(g/K,1)≠0 iff Sel_𝔭∞(A_g/K) is finite. When finite, v_𝔭(L(g/K,1)/Ω_g^can)=length_O𝔭 Sel_𝔭∞(A_g/K)+Σ_{ℓ|N}t_g(ℓ). This is over A_g/K, not E/Q. It is derived from the rank-zero formula over Q for g and for its quadratic twist g_K (Skinner TheoremB) and the GL₂-type period comparison. That formula follows, by control at the trivial character, from the ordinary main conjecture in its Skinner–Urban form with Kato’s divisibility. These inputs need residual irreducibility and the residually ramified ℓ||N, and no image containing SL₂(Z_p).
+
+Lean interface: `zhang_rank_zero_over_K`.
+
+Sources: [zhang](#source-zhang), Theorem7.1 and proof, pp.231–232; [skinner](#source-skinner), Introduction, TheoremB, arXiv v1 p.2; §2.5, discussion after Theorem2.5.2, pp.15–16; §3.2, pp.20–21
+
+Prerequisites: `ModularIwasawaMainConjectures:L1`; `KatoEulerSystems:L4`; `KatoEulerSystems:L4/ordinary-selmer-divisibility`; `SelmerIwasawaCohomology:L4`; `GrossZagierAndArithmeticHeights:GZ.0`.
+
+<a id="he-6-10"></a>
+
+### Jochnowitz unit criterion
+
+For g as in Zhang’s Notations satisfying Hypothesis♥, with N− squarefree and ν(N−) even, and an admissible q, the Heegner bottom class is locally nonzero at q iff L^alg(g′/K,1) is a 𝔭′-adic unit. Here g′ is the chosen raised form, Ω_g′^can=〈g′,g′〉_Pet/η_g′(Nq), ξ_g′ is the norm of the integral primitive definite eigenfunction, η_g′,N+,N−q=η_g′(Nq)/ξ_g′, and L^alg=L/Ω^can·η_ratio⁻¹. Its integrality/unit status is proved by the explicit Waldspurger/Gross formula, not built into a definition.
+
+Lean interface: `zhang_jochnowitz_special_value`.
+
+Sources: [zhang](#source-zhang), §6.1–6.4, pp.226–231, Corollary6.2 and Theorem6.5
+
+Prerequisites: [Zhang’s Heegner congruence after level raising](#he-6-7); `GrossZagierAndArithmeticHeights:GZ.5`; `GL2AutomorphicRepresentationsAndTransfer:R17.3/global-jl`; `GL2AutomorphicRepresentationsAndTransfer:R17.3/multiplicity-one`; `HilbertModularVarietiesAndShimuraCurves:R18.3`; `SerreWeightAndLevelOptimisation:R20.2`.
+
+<a id="he-6-11"></a>
+
+### Ribet–Takahashi period and Tamagawa comparison
+
+For g of weight2 and trivial nebentypus, p≥5 with p∤ND_K and surjective ρ_g,𝔭:G_Q→GL₂(k₀), K as in Zhang’s Notations, N⁻ squarefree of odd prime count, and all three clauses of Hypothesis♥, let η_g(N) be the full-level Hecke congruence ideal generator and ξ_g(N⁺,N⁻) the pairing norm of a primitive integral definite quaternionic eigenfunction. The period ratio is η_g,N⁺,N⁻=η_g(N)/ξ_g(N⁺,N⁻), not the raw congruence ideal. Then v_𝔭(η_g,N⁺,N⁻)=Σ_{ℓ|N⁻}t_g(ℓ), where t_g(ℓ)=length_O𝔭 Φ(A_g/K_ℓ)_𝔭. The identity is RankZeroOneBSD:BSD.3a/definite-congruence-period and is imported. K_ℓ is the unramified quadratic extension of Q_ℓ, since ℓ|N⁻ is inert in K, so t_g(ℓ) is the length of the geometric component group and not of its Q_ℓ-rational points. For nonsquarefree N require Ram(ρ)≠∅ and either a ramified ℓ||N⁻ or at least two primes ℓ||N⁺, as in ♥(2). The last clause does not itself assert residual ramification of both primes. At split additive ℓ²|N⁺, ♥(3) and finite-residue cohomology eliminate the rational component factor; decomposition-invariant vanishing is not inertia-invariant vanishing.
+
+Lean interface: `ribet_takahashi_tamagawa_comparison`.
+
+Sources: [zhang](#source-zhang), Theorem6.4 and proof, pp.229–230; §7.2 p.233; [pollack-weston](#source-pollack-weston), §§6.2–6.5, preprint pp.18–21: Theorem6.2, Propositions6.3–6.7 and Theorem6.8.
+
+Prerequisites: `NeronModelsAndSemistableAbelianVarieties:R11.4`; `GrossZagierAndArithmeticHeights:GZ.3`; `RankZeroOneBSD:BSD.3a/definite-congruence-period`.
+
+<a id="he-6-14"></a>
+
+### Heegner-system vanishing order
+
+For the actual residual Heegner family κ={c(n):n∈𝒩}, define ν(κ)=min{#prime divisors of n:n∈𝒩,c(n)≠0}, valued in ℕ∪{∞}, with ν(0)=∞. The count is of distinct primes in the squarefree conductor, not multiplicity or number of nonzero classes. This is Zhang’s finite-residual support invariant, distinguished from the p-adic divisibility sequence M_r and its M∞.
+
+Additional hypotheses: Use the actual residual Heegner system and its localization maps.
+
+Lean interface: `vanishingOrder`.
+
+The interface needs the following laws:
+
+- `vanishingOrder` (constructor): The infimum of the distinct-prime count of a conductor n∈Λ with c(n)≠0, with empty infimum ∞.
+- `vanishingOrder_formula` (characterisation): It is sInf{v:ℕ∞:∃n∈Λ,c(n)≠0 and v=#prime divisors(n)}.
+- `vanishingOrder_bottom` (simp): If 1∈Λ and c(1)≠0, ν(κ)=0.
+- `vanishingOrder_support_congr` (extensionality): Families with the same zero/nonzero support on Λ have the same vanishing order.
+
+Examples and tests:
+
+- `vanishingOrder_empty`: The empty conductor-index set has vanishing order ∞.
+- `vanishingOrder_bottom_nonzero`: A nonzero conductor-one class has vanishing order zero.
+- `vanishingOrder_conductor_six`: A family supported only at squarefree conductor 6 has vanishing order two.
+
+Sources: [zhang](#source-zhang), Definition8.3, published p.236, PDF46; Lemma8.4 and proof pp.236–239.
+
+Prerequisites: [Descended Heegner derivative class](#he-4-4); `EulerSystemsAndKolyvaginSystems:ES.1`; `Nat.primeFactorsList` (Mathlib).
+
+<a id="he-6-15"></a>
+
+### Heegner-system base locus
+
+For the actual family and localization maps, B(κ) is the set of primes ℓ∤D_KNp such that loc_ℓc(n)=0 for every n∈𝒩. These are arbitrary good primes, not only Kolyvagin primes. The dependent local cohomology carriers may vary with ℓ. This locus determines exactly which local conditions are relaxed in Zhang Lemma8.4.
+
+Additional hypotheses: Use the actual residual Heegner system and its localization maps.
+
+Lean interface: `baseLocus`.
+
+The interface needs the following laws:
+
+- `baseLocus` (constructor): The good primes outside D_KNp with all actual Heegner-class localizations zero.
+- `baseLocus_mem` (characterisation): ℓ∈B iff ℓ is prime, ℓ∤D_KNp, and every n∈Λ has loc_ℓc(n)=0.
+- `baseLocus_support_congr` (extensionality): If the localizations of two families agree at every good prime and conductor in Λ, their base loci agree.
+- `baseLocus_zero` (simp): The zero family has every prime outside D_KNp in its base locus.
+
+Examples and tests:
+
+- `baseLocus_zero_system`: For the zero class family, membership is exactly primality and prime-to-D_KNp.
+- `baseLocus_nonzero_localization`: One nonzero localization at a conductor n∈Λ excludes that prime from the locus.
+- `baseLocus_coefficient_prime`: The coefficient prime p is never in the locus; in particular 5 is excluded when p=5 even if all classes vanish.
+
+Sources: [zhang](#source-zhang), Definition8.3, published p.236, PDF46; Lemma8.4 and proof pp.236–239.
+
+Prerequisites: [Descended Heegner derivative class](#he-4-4); `EulerSystemsAndKolyvaginSystems:ES.1`; `Nat.primeFactorsList` (Mathlib).
+
+<a id="he-6-16"></a>
+
+### Residual Heegner local pairing
+
+Let g be a weight-two newform of trivial nebentypus, K imaginary quadratic with (D_K,N)=1, N=N⁺N⁻ with N⁻ squarefree of even prime count, and p≥5, p∤ND_K, good ordinary for g. Let k₀ be the finite field generated by the residual Hecke eigenvalues, V its two-dimensional representation, with ρ:G_Q→GL₂(k₀) surjective and A_g[𝔭]≃V⊗k₀k; impose all three clauses of Hypothesis♥. For each inert Kolyvagin prime ℓ∤ND_Kp with a_ℓ≡ℓ+1≡0 mod𝔭, H¹(K_ℓ,V) has dimension4 over k₀, with finite and transverse two-dimensional maximal isotropic subspaces. Each ± conjugation component of either subspace has dimension1, and local Tate duality pairs the same signs perfectly. The pairing V×V→k₀(1) is alternating, G_Q-equivariant; conjugation acts by −1 on its values.
+
+Lean interface: `zhang_residual_local_pairing`.
+
+Sources: [zhang](#source-zhang), §8.1 pp.234–235; Notations §1.4 pp.199–203; §5 pp.222–225
+
+Prerequisites: `SelmerIwasawaCohomology:L1`; `EulerSystemsAndKolyvaginSystems:ES.1`; [Heegner rank lowering through an admissible prime](#he-6-8).
+
+<a id="he-6-17"></a>
+
+### Residual Heegner reciprocity
+
+Let g be a weight-two newform of trivial nebentypus, K imaginary quadratic with (D_K,N)=1, N=N⁺N⁻ with N⁻ squarefree of even prime count, and p≥5, p∤ND_K, good ordinary for g. Let k₀ be the finite field generated by the residual Hecke eigenvalues, V its two-dimensional representation, with ρ:G_Q→GL₂(k₀) surjective and A_g[𝔭]≃V⊗k₀k; impose all three clauses of Hypothesis♥. The actual k₀-rational derivative classes c(n) satisfy c(n)_v∈H¹_fin(K_v,V) for v∤n, c(n)_ℓ∈H¹_tr(K_ℓ,V) for ℓ|n, and c(nℓ)_ℓ=ψ_ℓ(c(n)_ℓ) when ℓ∤n, where ψ_ℓ:H¹_fin≃H¹_tr is the normalized finite/transverse comparison. Conjugation acts on c(n) by ε_n=w_g(−1)^(ν(n)+1), where w_g is Zhang’s root number convention. All bad places and v|p use the actual Kummer condition; the relation is not inferred from Howard’s elliptic full-Tate-image correction.
+
+Lean interface: `zhang_residual_heegner_relations`.
+
+Sources: [zhang](#source-zhang), §8.1, equation(8.1), printed p.235; equation(3.24), printed p.213.
+
+Prerequisites: [Residual Heegner local pairing](#he-6-16); [Zhang’s Heegner congruence after level raising](#he-6-7); [Quaternionic CM reduction and specialization](#he-2-7); [Descended Heegner derivative class](#he-4-4); `EulerSystemsAndKolyvaginSystems:ES.3`.
+
+<a id="he-6-18"></a>
+
+### Simultaneous residual prime detection
+
+Let g be a weight-two newform of trivial nebentypus, K imaginary quadratic with (D_K,N)=1, N=N⁺N⁻ with N⁻ squarefree of even prime count, and p≥5, p∤ND_K, good ordinary for g. Let k₀ be the finite field generated by the residual Hecke eigenvalues, V its two-dimensional representation, with ρ:G_Q→GL₂(k₀) surjective and A_g[𝔭]≃V⊗k₀k; impose all three clauses of Hypothesis♥. For two k₀-linearly independent classes c₁,c₂∈H¹(K,V) and any finite excluded set, there is a positive-density set of inert Kolyvagin primes ℓ outside it with loc_ℓ(c₁)≠0 and loc_ℓ(c₂)≠0. In particular nonzero classes in opposite conjugation eigenspaces can be detected simultaneously.
+
+Lean interface: `zhang_two_class_prime_detection`.
+
+Sources: [zhang](#source-zhang), Lemma8.1, p.235; proof refers to McCallum Proposition3.1
+
+Prerequisites: [Residual Heegner local pairing](#he-6-16); `EulerSystemsAndKolyvaginSystems:ES.1`; `ArithmeticGaloisDuality:R02.2`; `TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev`.
+
+<a id="he-6-19"></a>
+
+### Residual ramification selection
+
+Let g be a weight-two newform of trivial nebentypus, K imaginary quadratic with (D_K,N)=1, N=N⁺N⁻ with N⁻ squarefree of even prime count, and p≥5, p∤ND_K, good ordinary for g. Let k₀ be the finite field generated by the residual Hecke eigenvalues, V its two-dimensional representation, with ρ:G_Q→GL₂(k₀) surjective and A_g[𝔭]≃V⊗k₀k; impose all three clauses of Hypothesis♥. For a Kolyvagin prime ℓ and a finite set S of other Kolyvagin primes, each conjugation eigenspace contains a nonzero global class with finite local condition outside S∪{ℓ}, transverse condition at S, and no condition at ℓ. This existence statement does not assert that its singular localization at ℓ is nonzero.
+
+Lean interface: `zhang_prescribed_ramification_class`.
+
+Sources: [zhang](#source-zhang), Lemma8.2 and proof, p.235; Lemma8.4 pp.236–239
+
+Prerequisites: [Residual Heegner local pairing](#he-6-16); `EulerSystemsAndKolyvaginSystems:ES.1`; `SelmerIwasawaCohomology:L1`.
+
+<a id="he-6-12"></a>
+
+### Triangular Heegner Selmer basis
+
+For g as in Zhang’s Notations with N− squarefree and ν(N−) even, and a nonzero residual Heegner system κ_g satisfying Hypothesis♥, let ν=min{ν(n):c(n)≠0}, ε_ν=w_g(−1)^(ν+1) and B(κ) its base locus of vanishing localizations away from DKNp. The ε_ν Selmer eigenspace has dimension ν+1 and a triangular basis of ν+1 actual c(n_i), detected at selected 2ν+1 auxiliary primes. The opposite eigenspace has dimension ≤ν. Relaxing at the base locus does not enlarge the first eigenspace and preserves that opposite bound.
+
+Lean interface: `zhang_triangular_selmer_basis`.
+
+Sources: [zhang](#source-zhang), Lemma8.4 and proof, pp.236–239
+
+Prerequisites: [Zhang’s Heegner congruence after level raising](#he-6-7); `EulerSystemsAndKolyvaginSystems:ES.1`; [Heegner-system vanishing order](#he-6-14); [Heegner-system base locus](#he-6-15); `SelmerIwasawaCohomology:L1`; [Residual Heegner reciprocity](#he-6-17); [Simultaneous residual prime detection](#he-6-18); [Residual ramification selection](#he-6-19).
+
+<a id="he-6-13"></a>
+
+### Zhang’s Heegner indivisibility theorem
+
+Assume E/Q conductor N, K imaginary quadratic with gcd(D_K,N)=1, N− squarefree with even number of prime factors, full residual GL₂(F_p) image, p≥5 good ordinary and p∤D_KN. Hypothesis♠ requires residual ramification at every ℓ||N+ and every ℓ|N− with ℓ≡±1 mod p; if N is nonsquarefree require a nonempty Ram set and either a ramified ℓ||N− or at least two factors ℓ||N+. Then c_1(n)≠0 for some squarefree Kolyvagin conductor n, so M∞=0. For the auxiliary GL₂-type forms use the stronger Hypothesis♥, including the additive-prime local invariant vanishing.
+
+Lean interface: `zhang_indivisibility`.
+
+Sources: [zhang](#source-zhang), Theorems1.1,9.1–9.3 and proofs, pp.195,240–243
+
+Prerequisites: [Heegner rank lowering through an admissible prime](#he-6-8); [Auxiliary rank-zero formula over K](#he-6-9); [Jochnowitz unit criterion](#he-6-10); [Ribet–Takahashi period and Tamagawa comparison](#he-6-11); [Triangular Heegner Selmer basis](#he-6-12).
+
+<a id="he-7"></a>
+
+## HE.7: Exceptional primes, CM and RM descent
+
+A non-torsion trace and open-image inputs remove all but finitely many primary components. The remaining primes require integral image and evaluation bounds, component errors and a two-prime descent that works without dividing by two. In the RM context fixed above, keep C₀ for point divisibility, C₁ for components, C₂ for homothety/restriction, C₃ for matrix evaluation and C₆ for polarization degree. For the trivial character C₅=0. A uniform exponent together with finite Selmer at that exponent proves primary finiteness; then almost-all vanishing proves full finiteness. The classical square-index cardinality estimate has its own additional theorem input.
+
+<a id="he-7-1"></a>
+
+### Prime divisibility of the non-torsion Heegner point
+
+For non-torsion y_K∈E(K), Mordell–Weil finite generation implies y_K∉pE(K) for every prime outside a finite set. This is proved before assuming rank one or a finite Heegner index: project to the free Mordell–Weil quotient and use a nonzero coordinate. Once rank one has been proved, the index of Z·y_K in the free quotient is finite; it is distinct from an index in E(K) that includes rational torsion.
+
+Lean interface: `non_torsion_point_prime_divisibility`.
+
+Sources: [gross](#source-gross), §2 pp.237–238; §1 pp.236–237
+
+Prerequisites: `TauCetiRoadmap/EllipticCurves#layer-6-the-mordellweil-theorem-aec-viii`; [Gross’s clean mod-p descent](#he-6-2).
+
+<a id="he-7-2"></a>
+
+### Non-CM open-image application
+
+For non-CM E/Q, import Serre’s open-image theorem to conclude that Q(E[p])/Q has full GL₂(F_p) image for all but finitely many p, and apply it to the actual Heegner setting. More generally obtain the required uniform cohomological restriction/invariant bounds from the open adelic/Tate image over a number field, retaining the cyclotomic determinant and base-field index. For admissible GL₂-type RM quotients import the precise Ribet big-image variant; do not replan either generic theorem in HE.7.
+
+Lean interface: `non_cm_open_image_application`.
+
+Sources: [gross](#source-gross), §2 p.237; §12 pp.254–256
+
+Prerequisites: [Prime divisibility of the non-torsion Heegner point](#he-7-1); `FaltingsFinitenessAndIsogenyTheorems:R28.4`; `ArithmeticGaloisRepresentations:R01.4`.
+
+<a id="he-7-10"></a>
+
+### Integral Tate image errors
+
+In the integral RM context above, for each coefficient prime 𝔭 of O_L, T=T_𝔭A is free rank2 over O_𝔭. For H_M=K(A[𝔭^M]), there are C₂(𝔭),C₃(𝔭)≥0 independent of M such that restriction H¹(K,A[𝔭^M])→H¹(H_M,A[𝔭^M]) has kernel killed by 𝔭^C₂ and the image of O_𝔭[G_K] in End_O𝔭(T) contains 𝔭^C₃ End_O𝔭(T). Both constants vanish for all but finitely many 𝔭. The image assertion uses absence of CM over K, not absence of geometric CM.
+
+Lean interface: `integral_tate_image_errors`.
+
+Sources: [nekovar](#source-nekovar), §§6.1–6.2, pp.35–37, Propositions6.1.2,6.2.1–6.2.2; locators use the 53-page author preprint, not published pagination.
+
+Prerequisites: `FaltingsFinitenessAndIsogenyTheorems:R28.4`; `ArithmeticGaloisRepresentations:R01.4`; `ComplexMultiplicationAndExplicitReciprocity:CM.4`; `ArithmeticGaloisDuality:R02.2`; [Parametrization choice, degree and torsion](#he-1-6).
+
+<a id="he-7-11"></a>
+
+### Integral CM prime detection
+
+In the integral RM context above, for M≫0 with 𝔭^M principal, and a finite O_𝔭/𝔭^M-submodule W₀ of H¹(K,A[𝔭^M]), the actual finite Kummer extension over H_M has an evaluation map whose kernel loss is bounded by C₂ and whose evaluation cokernel is killed by 𝔭^C₃. For ρ-stable W₀, conjugation-compatible detection uses integral 1±ρ and factors2,4,16, with loss C₂+C₃+4v_𝔭(2). It supplies inert good primes in S₁(M), excluding any fixed finite set, with the prescribed detections. S₁(M) requires Frobenius conjugate to ρ in K(x)(A[𝔭^(M+M₀)])/F, M₀=v_𝔭(u₀), hence a_ℓ≡0 and Nℓ+1≡0 mod𝔭^(M+M₀).
+
+Lean interface: `integral_cm_prime_detection`.
+
+Sources: [nekovar](#source-nekovar), §§5.1–5.2 pp.27–28; §§6.3–6.5 pp.37–41; locators use the 53-page author preprint, not published pagination.
+
+Prerequisites: [Integral Tate image errors](#he-7-10); `EulerSystemsAndKolyvaginSystems:ES.4`; `TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev`; [Relative CM conductor tower](#he-0-7).
+
+<a id="he-7-4"></a>
+
+### Arithmetic derivative denominators at exceptional primes
+
+In the integral RM context above, for each 𝔭 and each M≫0 with 𝔭^M principal, the actual CM tower supplies integral c(n)∈H¹(K(x),A[𝔭^M]) without requiring vanishing of torsion invariants. At v∤n its image in H¹(K(x)_v,A)[𝔭^M] is an unramified component-group class, killed by 𝔭^C₁,v where C₁,v kills the geometric 𝔭-primary Néron component group. With C₁=max_v C₁,v, κ_n=𝔭^C₁ cor_K(x)/K c(n) satisfies the actual finite Kummer conditions outside n, κ₁=𝔭^C₁δ(y), and its singular localization at ℓ is −Φ_ℓ Fr(ℓ)κ_n/ℓ. C₁ is independent of M,n and zero for almost all 𝔭; cusp/Hodge and quotient denominators are fixed in ι_A. For classical E use its given modular quotient, absorbing the fixed cusp annihilator and isogeny degree. C₂,C₃ bound evaluation errors, not an inverse of restriction.
+
+Lean interface: `bounded_arithmetic_derivative_denominators`.
+
+Sources: [nekovar](#source-nekovar), §1.19 pp.14–15; §§4.8–4.13 pp.25–27; §§5.8–5.12 pp.29–30; §§5.15–5.18 pp.31–33; §7.2.1 p.44; locators use the 53-page author preprint, not published pagination.
+
+Prerequisites: [Differentiated point invariance](#he-4-2); [Jacobian basepoint and Hodge denominators](#he-1-4); [Parametrization choice, degree and torsion](#he-1-6); [Relative CM conductor tower](#he-0-7); [Quaternionic CM reduction and specialization](#he-2-7); [Integral CM prime detection](#he-7-11); `EulerSystemsAndKolyvaginSystems:ES.3`; `NeronModelsAndSemistableAbelianVarieties:R11.2`; `ArithmeticGaloisDuality:R02.2`.
+
+<a id="he-7-5"></a>
+
+### Dyadic integral conjugation descent
+
+In the integral RM context above, the integral two-prime descent applies at every coefficient prime, including 𝔭|2. Write C₀=max{c:y∈A(K)_tors+𝔭^cA(K)}, C₆=v_𝔭(degφ) for a fixed F-polarization, and C₁,C₂,C₃ as above; C₅=v_𝔭[K:K]=0 in this trivial-character part. For M≫0, 2²¹𝔭^(2C₀+2C₁+4C₂+4C₃+C₅+C₆) annihilates Sel(A/K,𝔭^M)/O_𝔭κ₁. Thus B=2C₀+2C₁+4C₂+4C₃+C₆+21v_𝔭(2) is independent of M. Integral (1±ρ) is retained; no decomposition using (1±ρ)/2 is made. All archimedean places of K are complex, so their local H¹ is zero. Any comparison back to a real place of F uses the fixed Tate correction killed by2, as specified in HE.3, rather than an odd-prime invariant argument.
+
+Lean interface: `dyadic_integral_conjugation_descent`.
+
+Sources: [nekovar](#source-nekovar), §5.19 pp.33–34; Proposition7.2.3 pp.44–45; §§7.4–7.5 pp.45–47; locators use the 53-page author preprint, not published pagination.
+
+Prerequisites: [Arithmetic derivative denominators at exceptional primes](#he-7-4); [Integral CM prime detection](#he-7-11); `EulerSystemsAndKolyvaginSystems:ES.4`; `SelmerIwasawaCohomology:L1`; [Archimedean Tate correction](#he-3-6); `ArithmeticGaloisDuality:R02.4`.
+
+<a id="he-7-7"></a>
+
+### Exceptional primary Sha exponent bound
+
+In the integral RM context above, for each 𝔭 the finite-level Selmer quotient by κ₁ is killed uniformly by 𝔭^B, with B=2C₀+2C₁+4C₂+4C₃+C₆+21v_𝔭2. Since κ₁ lies in the Kummer image, Sha(A/K)[𝔭^M] is killed by 𝔭^B for every sufficiently large principal M, hence the entire 𝔭-primary group is killed by 𝔭^B. Finite-level Selmer finiteness at this fixed bound makes the primary group finite. The cofinal principal exponents are sufficient; separate finiteness at each M without a uniform B is insufficient.
+
+Lean interface: `exceptional_primary_sha_bound`.
+
+Sources: [nekovar](#source-nekovar), §3.5 p.19; §7.1.2 p.43; Theorem7.3 and proof pp.45–47; locators use the 53-page author preprint, not published pagination.
+
+Prerequisites: [Dyadic integral conjugation descent](#he-7-5); `EulerSystemsAndKolyvaginSystems:ES.4`; `SelmerIwasawaCohomology:L0`; `ArithmeticGaloisDuality:R02.2`.
+
+<a id="he-7-12"></a>
+
+### CM and Heegner fields
+
+Let E/Q have CM by an imaginary quadratic field M, conductor N, and let K be a classical Heegner field in which every prime dividing N splits. Then M≠K, M∩K=Q, and E does not acquire its CM endomorphisms over K. Over KM the coefficient-extension Tate representation splits into the two conjugate CM characters; G_K exchanges them through Gal(KM/K), so the rational representation over K is absolutely irreducible. This verifies the α=1 condition(?) and matrix-algebra hypothesis of the integral descent, although its residual image need not be full GL₂.
+
+Lean interface: `cm_heegner_field_disjointness`.
+
+Sources: [nekovar](#source-nekovar), §3.2 pp.18–19; Proposition6.2.1 pp.35–36 (CM/self-twist/irreducibility dictionary); locators use the 53-page author preprint, not published pagination.
+
+Prerequisites: `ComplexMultiplicationAndExplicitReciprocity:CM.4`; `ArithmeticGaloisRepresentations:R01.3`; [Integral Tate image errors](#he-7-10).
+
+<a id="he-7-6"></a>
+
+### CM character descent and error bounds
+
+For a classical CM E/Q, K as in the CM/Heegner-field theorem, and non-torsion bottom Heegner point, the two conjugate CM Tate characters over KM verify the integral matrix-algebra and homothety bounds over K. The explicit cocycle classes and the integral two-prime descent give the same uniform exponent B at all rational primes, including 2. C₀,C₁,C₂,C₃,C₆ and v_p2 are zero outside a finite set, so Sha(E/K)[p∞]=0 there. This branch uses the semilinear CM character representation, not Serre’s non-CM GL₂ surjectivity.
+
+Lean interface: `cm_character_error_descent`.
+
+Sources: [nekovar](#source-nekovar), Theorem3.2 pp.18–19; §§6.1–6.2 pp.35–37; Theorem7.3 and §7.5 pp.45–47; locators use the 53-page author preprint, not published pagination.
+
+Prerequisites: [CM and Heegner fields](#he-7-12); [Integral Tate image errors](#he-7-10); [Arithmetic derivative denominators at exceptional primes](#he-7-4); [Dyadic integral conjugation descent](#he-7-5); `ComplexMultiplicationAndExplicitReciprocity:CM.4`; `EulerSystemsAndKolyvaginSystems:ES.4`.
+
+<a id="he-7-3"></a>
+
+### Almost-all primary Sha vanishing
+
+For the classical non-CM non-torsion Heegner setting, outside a finite set of primes the Gross clean theorem gives Sha(E/K)[p]=0. Since Sha is torsion, this implies Sha(E/K)[p∞]=0: any nonzero p-primary element would yield nonzero p-torsion after taking a suitable p-power multiple. This does not require proving finite p-primary groups first. For CM E use the separate CM-character branch: the uniform integral constants vanish outside a finite set and the finite-level Kummer quotient then forces Sha[p∞]=0. For the specified RM quotients the same reasoning applies at coefficient primes 𝔭; there are finitely many exceptional coefficient primes, not a tacit residual-surjectivity assumption.
+
+Lean interface: `almost_all_primary_sha_vanishing`.
+
+Sources: [gross](#source-gross), §2 pp.237–238 and Proposition2.1; [nekovar](#source-nekovar), §3.5.2 p.19; §§6.1–6.2 pp.35–37; §7.4 p.45; locators use the 53-page author preprint, not published pagination.
+
+Prerequisites: [Non-CM open-image application](#he-7-2); [Gross’s clean mod-p descent](#he-6-2); `TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4`; [CM character descent and error bounds](#he-7-6); [Exceptional primary Sha exponent bound](#he-7-7).
+
+<a id="he-7-8"></a>
+
+### Classical full Sha finiteness
+
+Let E/Q have a fixed modular quotient X₀(N)→E, K imaginary quadratic with D_K≠−3,−4 and all N-primes split, and y_K=Tr_K[1]/K P₁ of infinite order. Then rank E(K)=1 and the entire Sha(E/K) is finite, including CM E and p=2. The uniform integral Selmer bound gives rank1: the non-torsion Kummer line has finite-index quotient at any coefficient prime; it also gives finite exceptional primary groups and almost-all primary vanishing. The quantitative square-index order theorem is stated separately and is not inferred from this exponent argument.
+
+Lean interface: `classical_full_sha_finiteness`.
+
+Sources: [nekovar](#source-nekovar), Theorem3.2 pp.18–19; §7.4 p.45; §7.5 pp.45–47; locators use the 53-page author preprint, not published pagination.; [gross](#source-gross), Theorem1.3 pp.236–237 (quoted classical endpoint)
+
+Prerequisites: [Almost-all primary Sha vanishing](#he-7-3); [Exceptional primary Sha exponent bound](#he-7-7); [CM and Heegner fields](#he-7-12); `TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4`; `TauCetiRoadmap/EllipticCurves#layer-6-the-mordellweil-theorem-aec-viii`.
+
+<a id="he-7-9"></a>
+
+### Admissible RM Kolyvagin–Logachev application
+
+In the integral RM context above, A(K)/O_Ly is finite, rank_Z A(K)=[L:Q]=dim A, and the entire Sha(A/K) is finite. This is the trivial-character specialization of Nekovář3.2 and includes the specified quaternionic/RM quotients, with field, ramification, central quotient, maximal endomorphism order, Hecke map and integral Hodge normalization stated above. An analytic rank-d conclusion additionally requires a supplier height formula proving this particular y is non-torsion from ord_s=1 L(A/K,s)=d; analytic rank alone is not an input to descent.
+
+Lean interface: `admissible_rm_kolyvagin_logachev`.
+
+Sources: [nekovar](#source-nekovar), §§3.1–3.2 pp.18–19; §7.1 pp.43–44; §§7.3–7.5 pp.45–47; locators use the 53-page author preprint, not published pagination.
+
+Prerequisites: [Integral Tate image errors](#he-7-10); [Arithmetic derivative denominators at exceptional primes](#he-7-4); [Exceptional primary Sha exponent bound](#he-7-7); [Almost-all primary Sha vanishing](#he-7-3); `EulerSystemsAndKolyvaginSystems:ES.4`; `HilbertModularVarietiesAndShimuraCurves:R18.1`; `HilbertModularVarietiesAndShimuraCurves:R18.4`; `GrossZagierAndArithmeticHeights:GZ.8`; `SelmerIwasawaCohomology:L0`.
+
+<a id="he-7-13"></a>
+
+### Classical square-index bound
+
+In the classical setting of the full-finiteness theorem, put O=End_overlineQ(E), Q_O=O⊗Q, embedded in overlineQ through the chosen CM type when O≠Z. Let B(E) consist of odd primes ℓ∤disc(O) such that the O_ℓ-linear representation G_Q_O→Aut_Oℓ(T_ℓE) is surjective. There is a positive integer d_E independent of K with v_ℓ(d_E)=0 for ℓ∈B(E) and #Sha(E/K) dividing d_E I_K², where I_K=[E(K):Zy_K] includes rational torsion and is defined after rank1 is proved. For non-CM E, Q_O=Q and Aut_Oℓ=GL₂(Z_ℓ); for CM E use the linear Cartan action over Q_O, not full GL₂ over Q. B(E) is a full Tate-image criterion and is not silently replaced by a residual-image criterion at the small primes. Gross writes the related error bound as t_E/K I_K²; no explicit value or optimality of either constant is asserted.
+
+Lean interface: `classical_square_index_error_bound`.
+
+Sources: [gross](#source-gross), Theorem1.3, p.236; [kolyvagin-structure](#source-kolyvagin-structure), TheoremA, p.95; introduction pp.94–97
+
+Prerequisites: [Classical full Sha finiteness](#he-7-8); [Arithmetic derivative denominators at exceptional primes](#he-7-4); [CM character descent and error bounds](#he-7-6); `EulerSystemsAndKolyvaginSystems:ES.4`.
+
+<a id="he-8"></a>
+
+## HE.8: Anticyclotomic families, nonvanishing and refined descent
+
+Start with the Euler factor, ordinary stabilization and a simultaneous compact norm family. Construct its Kummer class and derivative system before any main-conjecture equality. The geometric nonvanishing branch uses exact primitive character strata and quaternionic distribution. Height-one descent then gives Howard's divisibility, with a distinct weaker-torsion localized branch. The later logarithm, control and determinant statements are conditional implications from explicitly named main conjectures. At split primes use crystalline algebraic-Hecke characters for the BDP calculation; the Castella–Sano determinant argument instead allows continuous near-identity characters at any unramified p. These are separate specialization routes.
+
+<a id="he-8-1"></a>
+
+### Heegner initial Euler factor
+
+For every permitted n, in ℤ_p[G(n)] with G(n)=Gal(K[n]/K), define Φ=(p+1)²−a_p² if p is inert; if p splits define Φ=(p−a_pσ+σ²)(p−a_pσ*+σ*²), with σ,σ* the specified Artin elements. The augmentation is (p+1−a_p)² in the split case, not necessarily a unit. Keep the finite ring-class group, its Artin action and the initial unit index; it differs from Howard’s first-step degree group Δ=(O_K/pO_K)×/(ℤ/pℤ)×.
+
+Lean interface: `initialFactor`.
+
+The interface needs the following laws:
+
+- `initialFactor_inert` (simp): Inert Φ=(p+1)²−a_p².
+- `initialFactor_split` (simp): Split Φ is the product of the two Artin quadratic factors, not its augmentation.
+- `initialFactor_augmentation` (compatibility): Augmentation of the split factor is (p+1−a_p)²; inert augmentation is unchanged.
+- `initialFactor_natural` (functoriality): A coefficient-ring map and compatible finite ring-class group map carry Φ to the corresponding factor.
+
+Examples and tests:
+
+- `initialFactor_split_anomalous`: For p=5,a_p=1 and σ=σ*=1, Φ=25, a nonunit in ℤ_5.
+- `initialFactor_inert_value`: For p=5,a_p=1, inert Φ=35, distinct from the split augmentation25.
+- `initialFactor_reciprocity`: Replacing both Artin elements by inverses transforms Φ by that involution; it does not permit replacing σ by1.
+
+Sources: [howard](#source-howard), §2.3, before Lemma 2.3.2; PDF pp.28–29
+
+Prerequisites: [Ring-class tower and finite Galois quotients](#he-0-5); `MonoidAlgebra.single` (Mathlib).
+
+<a id="he-8-2"></a>
+
+### Ordinary stabilization of Heegner points
+
+Let α_p∈ℤ_p× be the unit root of X²−a_pX+p and β_p=p/α_p. For k≥1 put P[p^k]_α=P[p^k]−α_p⁻¹P[p^(k−1)] and scale by α_p⁻k. At k=0 use u_K⁻¹(1−α_p⁻¹σ)(1−α_p⁻¹σ*)P[1] in the split case and u_K⁻¹(1−α_p⁻²)P[1] in the inert case. Trace to K_k with the actual smallest d(k) such that K_k⊂K[p^d(k)], including p-primary class-number shifts.
+
+Additional hypotheses: E(K)[p]=0.
+
+Lean interface: `stabilizedPoint`.
+
+The interface needs the following laws:
+
+- `stabilizedPoint_succ` (projection): At k≥1 the scaled point is α_p⁻k(P[p^k]−α_p⁻¹P[p^(k−1)]).
+- `stabilizedPoint_map` (functoriality): An equivariant ℤ_p-linear map commutes with stabilization.
+- `stabilizedPoint_change_unit` (compatibility): A unit rescaling of all raw points rescales every stabilized point by that unit.
+- `stabilizedPoint_initial` (relation): The conductor-zero value uses its separate split/inert correction with u_K.
+
+Examples and tests:
+
+- `stabilizedPoint_zero`: All raw points zero give every stabilized point zero.
+- `stabilizedPoint_predecessor`: Over ℚ with unit 2 and raw P_1=4,P_0=2, the k=1 stabilized value is 3/2, not 2 or 3; this is an algebraic normalization example, not an arithmetic unit-root assertion.
+- `stabilizedPoint_first_level`: At initial level the prescribed Euler-corrected P[1] is used; the positive-level recurrence is not evaluated at a nonexistent predecessor.
+
+Sources: [cgls](#source-cgls), Remark 4.1.3; PDF pp.28
+
+Prerequisites: [Heegner initial Euler factor](#he-8-1); [Repeated-conductor predecessor relation](#he-2-4); [Split and ramified first-step relations](#he-2-3); `PadicHodgeRegulators:L3`; `PadicInt` (Mathlib).
+
+<a id="he-8-3"></a>
+
+### Norm compatibility of stabilized Heegner points
+
+The stabilized points traced to the anticyclotomic layers satisfy Cor_(K_(k+1)/K_k)y_(k+1)=y_k. The first trace uses the initial correction in ordinary-stabilized-point; a shift d(k) is required when p divides h_K. This construction does not assert Howard Theorem B under the weakened class-number hypothesis.
+
+Additional hypotheses: E(K)[p]=0. Use the actual linear trace maps on the common ambient point-completion and the compatibly included raw points. The unit root α satisfies α²−a_pα+p=0; at positive level cor[k+1](raw[k+2])=a_p raw[k+1]−raw[k] and cor[k+1](raw[k+1])=p raw[k+1]. At the first step cor[0](raw[1])−α⁻¹cor[0](raw[0])=α·initial, with initial the separately corrected point. Identify anticyclotomic traces using the actual d(k).
+
+Lean interface: `stabilized_corestriction`.
+
+Sources: [cgls](#source-cgls), Remark 4.1.3 and proof of Theorem 4.1.1; PDF pp.27–28
+
+Prerequisites: [Ordinary stabilization of Heegner points](#he-8-2); [Norm, reciprocity and level compatibility](#he-0-8).
+
+<a id="he-8-4"></a>
+
+### Compact lift of the simultaneous Heegner norm constraints
+
+For the actual compact Hausdorff inverse-limit groups L[n], fix the continuous bottom projections π[n], prescribed values Φ[n]P[n], permitted conductor edges j, continuous auxiliary traces tr[j] and integer scalars a[j]. If every finite list of bottom equations π[n]q[n]=Φ[n]P[n] and auxiliary equations tr[j]q[target j]=a[j]q[source j] has a common solution, there is a family q satisfying every equation. Apply compactness to the bottom fibres and auxiliary-trace equalizers in the dependent product. The general inverse-limit and Tychonoff theorems are imported.
+
+Additional hypotheses: The indices and actual groups/maps are those of the ordinary Heegner tower; all L[n] are compact Hausdorff topological additive groups, all initial groups P[n] are Hausdorff, and π[n] and tr[j] are continuous. Every finite list of the two kinds of constraints is simultaneously solvable. Howard’s common free presentation and its compatible conductor maps establish this arithmetic input; CGLS uses the actual class-number shifts.
+
+Lean interface: `universalNormFamily_exists`.
+
+Sources: [howard](#source-howard), Lemmas2.3.2–2.3.3; PDF pp.29–30; [cgls](#source-cgls), Theorem 4.1.1, proof and class-number-shift/local-condition adaptation; PDF pp.27–28
+
+Prerequisites: `Pi.compactSpace` (Mathlib); `IsCompact.inter_iInter_nonempty` (Mathlib); `PadicMeasuresIwasawaAlgebras:L5`.
+
+<a id="he-8-5"></a>
+
+### Howard universal-norm Heegner family
+
+Under the ordinary Heegner conditions and E(K)[p]=0, construct Q[n] in lim_k H_k[n], the inverse limit of the ℤ_p[Gal(K_k[n]/K)]-modules generated by P[n] and P_j[n]. Its level-zero projection is ΦP[n], and Cor_(K∞[nℓ]/K∞[n])Q[nℓ]=a_ℓQ[n] for every permitted auxiliary ℓ. Choices arise from compactness, not uniqueness. Howard proves this under full G_K image and p∤h_K; CGLS Theorem 4.1.1 gives the weaker construction with the actual class-number conductor shifts, without extending Howard’s divisibility theorem. The construction takes these fixed maps and scalars together with finite solvability; its APIs use the same data. For actual level projections pr[n,k] and transitions cor[n,k], require cor[n,k]∘pr[n,k+1]=pr[n,k]. Differences between two choices with these same bottom and auxiliary constraints have zero bottom projection and obey tr[j](Q[target j]−Q′[target j])=a[j](Q[source j]−Q′[source j]).
+
+Additional hypotheses: E(K)[p]=0. The conductor index I and permitted auxiliary-edge index J, their source/target maps, actual compact Hausdorff inverse-limit groups L[n], initial groups P[n], continuous bottom projections π[n], Artin-factor actions Φ[n], points P[n], continuous auxiliary traces tr[j], and scalars a[j] are fixed before choosing the family. Every finite list of bottom and auxiliary constraints has a simultaneous solution, as established by the common free-presentation argument; no uniqueness or surjectivity of arbitrary projections is assumed.
+
+Lean interface: `universalNormFamily`.
+
+The interface needs the following laws:
+
+- `universalNormFamily_level_zero` (projection): For the fixed data and the finite-solvability witness used by the construction, π[n](Q[n])=Φ[n]P[n].
+- `universalNormFamily_trace` (relation): For each edge j of the supplied permitted-edge index, the fixed trace tr[j] sends Q[target j] to a[j]Q[source j].
+- `universalNormFamily_corestriction` (compatibility): For the actual supplied level projections and transitions, assume cor[n,k]∘pr[n,k+1]=pr[n,k]; then cor[n,k](pr[n,k+1](Q[n]))=pr[n,k](Q[n]).
+- `universalNormFamily_choice` (characterisation): For two families satisfying the same bottom and fixed auxiliary constraints, their difference has zero bottom projection and satisfies the same homogeneous auxiliary trace relations; it need not be zero.
+- `universalNormFamily_exists` (constructor): For the fixed continuous projection/auxiliary data on actual compact Hausdorff limits, simultaneous solvability of every finite list of constraints gives a family satisfying all bottom and auxiliary constraints.
+
+Examples and tests:
+
+- `universalNormFamily_bottom`: On the finite compact group ℤ/7, with one conductor, no auxiliary edges, π=id, Φ=5·id and initial point 1, the chosen bottom is 5 rather than 1; the finite-solvability witness is the constant family 5.
+- `universalNormFamily_auxiliary`: For a fixed permitted auxiliary edge j with a[j]=0, and the same finite-solvability input used by the construction, tr[j](Q[target j])=0.
+- `universalNormFamily_nonunique`: With one conductor and one self-edge on the finite compact group ℤ/2, bottom projection zero, prescribed bottom zero, trace id and scalar 1, the distinct families 0 and 1 satisfy both constraints, and their difference satisfies both homogeneous laws.
+- `universalNormFamily_impossible_bottom`: On ℤ/7 with π=0 and prescribed bottom 1, even the singleton bottom constraint has no solution, so no finite-solvability witness can be passed to the constructor.
+- `universalNormFamily_incompatible_auxiliary`: On ℤ/7 with π=id, prescribed bottom 1, a self-edge with trace id and scalar 0, the singleton bottom and auxiliary constraints cannot be solved simultaneously.
+
+Sources: [howard](#source-howard), Lemmas2.3.2–2.3.3; PDF pp.29–30; [cgls](#source-cgls), Theorem 4.1.1, proof and class-number-shift/local-condition adaptation; PDF pp.27–28
+
+Prerequisites: [Compact lift of the simultaneous Heegner norm constraints](#he-8-4); [Heegner initial Euler factor](#he-8-1); [Inert Heegner norm relation](#he-2-2); `PadicMeasuresIwasawaAlgebras:L1`; `PadicMeasuresIwasawaAlgebras:L5`.
+
+<a id="he-8-6"></a>
+
+### Anticyclotomic Heegner class
+
+Apply the integral Kummer map to the stabilized norm-compatible points and the imported Iwasawa–Shapiro comparison to obtain y∞∈H¹_Iw(K∞/K,T)=H¹_cont(K,T⊗Λ(tautological inverse)). The actual tower class lies in the specified ordinary Selmer structure. Its projection to level k is the Kummer class of y_k. There is no assertion that each character specialization is nonzero.
+
+Additional hypotheses: E(K)[p]=0.
+
+Lean interface: `heegnerIwasawaClass`.
+
+The interface needs the following laws:
+
+- `heegnerIwasawaClass_level` (projection): Under Iwasawa–Shapiro, level k equals the Kummer class of y_k.
+- `heegnerIwasawaClass_scalar` (functoriality): An equivariant quotient or scalar transport commutes with the class construction.
+- `heegnerIwasawaClass_restrict` (compatibility): Changing the tower by a finite initial norm gives the imported corestriction comparison, with its degree/factor.
+- `heegnerIwasawaClass_zero` (simp): The identically zero compatible point family has zero class.
+
+Examples and tests:
+
+- `heegnerIwasawaClass_trace`: Conductor one specializes to the corrected trace over its ring-class field, not an assumed K-rational raw point.
+- `heegnerIwasawaClass_isogeny`: A p-isogeny acts by the actual lattice map; a nonunit scalar can change the integral index.
+- `heegnerIwasawaClass_nonzero_not_all_specializations`: In the supplied two-coordinate cohomology model, the image of (1,0) under the identity Iwasawa comparison is nonzero, but its second-coordinate specialization is zero. The test invokes heegnerIwasawaClass and detects both a zero construction and an assertion that all projections are nonzero.
+
+Sources: [cgls](#source-cgls), Theorem 4.1.1 and Remark 4.1.3; PDF pp.27–28
+
+Prerequisites: [Norm compatibility of stabilized Heegner points](#he-8-3); [Heegner Kummer classes](#he-3-1); `SelmerIwasawaCohomology:L3/iwasawa-cohomology`; `SelmerIwasawaCohomology:L3/iwasawa-shapiro`.
+
+<a id="he-8-7"></a>
+
+### Primitive CM character stratum
+
+For the imported relative ring-class tower G∞ with finite torsion G₀, define P(n,χ₀) as the finite-order characters of G(n) restricting to χ₀ on G₀ and not factoring through G(n−1). The character satisfies χ₀ω=1 on the embedded A_F×. Conductor is the largest F-ideal in the order, and primitivity is exact level, not merely conductor dividing P^n. Small n before G₀ embeds are excluded.
+
+Additional hypotheses: F totally real, K/F CM, P a finite prime; n is large enough to identify G₀ in G(n).
+
+Lean interface: `cmCharacterStratum`.
+
+The interface needs the following laws:
+
+- `cmCharacterStratum_mem` (characterisation): Membership is fixed torsion restriction together with failure to factor through G(n−1).
+- `cmCharacterStratum_torsion` (projection): Every member restricts to χ₀ on G₀.
+- `cmCharacterStratum_not_old` (relation): Every pullback from G(n−1) is excluded.
+- `cmCharacterStratum_transport` (equivalence): Compatible isomorphisms of tower quotients and torsion subgroups identify the strata.
+
+Examples and tests:
+
+- `cmCharacterStratum_identity_quotient`: When the preceding-level quotient map is the identity, the primitive stratum is empty.
+- `cmCharacterStratum_wrong_torsion`: A character with the wrong restriction to G₀ is excluded even if it is primitive.
+- `cmCharacterStratum_first_nontrivial`: For G(n)=C₂, preceding quotient1, trivial torsion subgroup and identity character C₂→C₂, the character belongs to the exact-level stratum.
+
+Sources: [cv](#source-cv), §1.1, equations(3)–(4), and Lemma 2.8; PDF pp.3–6,23
+
+Prerequisites: [Relative CM conductor tower](#he-0-7); [Norm, reciprocity and level compatibility](#he-0-8).
+
+<a id="he-8-8"></a>
+
+### Generic CM root-number parity
+
+For cuspidal parallel-weight-two π over F with finite-order everywhere-unramified central character ω, and prime-to-P conductor N′ coprime to D_(K/F), let S be all real places and the finite inert Q≠P for which ord_Q(N) is odd. For sufficiently ramified compatible ring-class χ, ε(π,χ)=(-1)^|S|. The source’s S_χ equals S at every level if P∤N or P splits in K. Even |S| is definite and odd |S| indefinite.
+
+Additional hypotheses: π cuspidal parallel weight two; ω finite-order everywhere unramified; N′ and D_(K/F) coprime.
+
+Lean interface: `cm_generic_root_number`.
+
+Sources: [cv](#source-cv), §1.1, Lemma 1.1 and definitions of S,Sχ; PDF pp.4–5
+
+Prerequisites: [Primitive CM character stratum](#he-8-7); `GrossZagierAndArithmeticHeights:GZ.4`.
+
+<a id="he-8-9"></a>
+
+### Joint distribution of CM reductions
+
+Let F be totally real, K/F CM, and B/F a quaternion algebra split by K and at P, with a fixed K-embedding. Choose a nonempty finite collection 𝒮 of finite sets S of finite places v≠P with B_v split, K_v a field, and |S|+|Ram_f(B)|+[F:ℚ] even; fix the source’s totally definite B_S and compatible local embeddings. Let R⊂Gal(K^ab/K) be nonempty finite and pairwise distinct modulo P-rational elements rec_K(λ), characterized by λ_P∈K×·F_P×. Form the actual simultaneous Red:CM→X(𝒮,R) and component map C with fibre probability measures μ_z. For compact-open G⊂Gal(K^ab/K) with probability Haar dg, a P-isogeny class ℋ, and continuous f:X(𝒮,R)→ℂ, the difference ∫_G f(Red(gx))dg−∫_G∫_(C⁻¹(gx̄))f dμ_(gx̄)dg tends to zero as x escapes compact subsets of ℋ. Here x̄=C(Red(x)); prohibited components are retained.
+
+Additional hypotheses: B split by K and at P; each auxiliary set satisfies S1–S3 and excludes P, as specified in the statement. R is nonempty and pairwise P-irrational; G is compact open. Artin reciprocity sends uniformizers to geometric Frobenius.
+
+Lean interface: `joint_cm_equidistribution`.
+
+Sources: [cv-dynamics](#source-cv-dynamics), Theorem 2.9; §§2.5 and2.7; PDF pp.11–12,24–35
+
+Prerequisites: [Relative CM conductor tower](#he-0-7); [Optimal embeddings and quaternionic CM points](#he-1-2); `HilbertModularVarietiesAndShimuraCurves:R18.1`; `HilbertModularVarietiesAndShimuraCurves:R18.2`; `GeometryOfNumbersAndQuadraticArithmetic:GN.4`.
+
+<a id="he-8-10"></a>
+
+### Surjectivity onto CM reduction fibres
+
+At fixed finite level and with the joint CM distribution hypotheses, Red(Gx) equals the fibre C⁻¹(Gx̄) for every x outside a finite subset of its P-isogeny class. The right side retains the component map C and does not assert independent reductions in forbidden components.
+
+Lean interface: `joint_cm_orbit_surjectivity`.
+
+Sources: [cv-dynamics](#source-cv-dynamics), Corollary 2.10; PDF pp.12
+
+Prerequisites: [Joint distribution of CM reductions](#he-8-9).
+
+<a id="he-8-12"></a>
+
+### Definite primitive-character toric nonvanishing
+
+For the definite quaternion algebra and CV(H1),(H2), a nonzero P-new vector θ in the Jacquet–Langlands representation of a nonexceptional pair (π,K), and a good CM point x at large conductor, some χ∈P(n,χ₀) has Σ_(σ∈G(n))χ(σ)θ(σx)≠0. Nonexceptionality is π≇π⊗η_(K/F); it cannot be suppressed.
+
+Additional hypotheses: Definite parity, CV(H1),(H2), nonexceptional π, P-new θ, admissible χ₀ and good CM points.
+
+Lean interface: `definite_cm_character_period`.
+
+Sources: [cv](#source-cv), Proposition 5.6; Corollary 5.7; Proposition 5.8; Lemma 5.9; Theorem 5.10; PDF pp.55–58
+
+Prerequisites: [Surjectivity onto CM reduction fibres](#he-8-10); [Primitive CM character stratum](#he-8-7); [Distribution at nonmaximal local level](#he-2-5); `GL2AutomorphicRepresentationsAndTransfer:R17.3`; `HilbertModularVarietiesAndShimuraCurves:R18.3`; `HilbertModularVarietiesAndShimuraCurves:R18.4`.
+
+<a id="he-8-13"></a>
+
+### Cornut–Vatsal definite nonvanishing
+
+With F,K,π,ω,P,N′,D as in cm-generic-root-number, |S| even and (π,K) nonexceptional, for every sufficiently large n there exists χ∈P(n,χ₀) with L(π,χ,1/2)≠0. This is existence within each fixed-torsion conductor stratum; it is not nonvanishing of all characters.
+
+Lean interface: `definite_rankin_nonvanishing`.
+
+Sources: [cv](#source-cv), Theorem 1.4 and §5; PDF pp.6,50–58
+
+Prerequisites: [Definite primitive-character toric nonvanishing](#he-8-12); [Generic CM root-number parity](#he-8-8); `GrossZagierAndArithmeticHeights:GZ.5`.
+
+<a id="he-8-20"></a>
+
+### Unit comparison of Heegner normalizations
+
+Howard’s universal-norm bottom and the ordinary stabilized family generate the same Λ-line: the comparison factor is u_Kα_p²(β_p−1)² when p splits, and u_Kα_p²(β_p²−1) when p is inert. Since β_p∈pℤ_p and u_K is a p-unit in the allowed discriminants, the factor is a unit. This comparison does not make Φ a unit.
+
+Additional hypotheses: E(K)[p]=0.
+
+Lean interface: `howard_stabilization_unit_comparison`.
+
+Sources: [cgls](#source-cgls), Remark 4.1.3; PDF pp.28
+
+Prerequisites: [Heegner initial Euler factor](#he-8-1); [Ordinary stabilization of Heegner points](#he-8-2); [Howard universal-norm Heegner family](#he-8-5); [Anticyclotomic Heegner class](#he-8-6); `PadicInt.isUnit_iff` (Mathlib).
+
+<a id="he-8-23"></a>
+
+### Crystalline characters near the identity
+
+Choose γ∈Γ, a p-adic unit u generating the prescribed subgroup, and h with γ^h equal to its Artin image. Let ξ_n(γ)=u^n have infinity type (hn,−hn). For m≥1 define α_m=ξ_(p−1)p^(m−1); these are nontrivial crystalline anticyclotomic characters congruent to1 modulo p^m and approach1. Retain h and the chosen embeddings. No finite-order character is substituted for these crystalline twists.
+
+Additional hypotheses: E(K)[p]=0. p splits as v v̄ in K.
+
+Lean interface: `nearTrivialCharacter`.
+
+The interface needs the following laws:
+
+- `nearTrivialCharacter_apply` (projection): α_m(γ)=u^((p−1)p^(m−1)), with its chosen Artin/infinity-type h.
+- `nearTrivialCharacter_succ` (relation): α_(m+1)=α_m^p for m≥1.
+- `nearTrivialCharacter_congruent` (compatibility): α_m≡1 modulo p^m, by the unit-power congruence.
+- `nearTrivialCharacter_nontrivial` (characterisation): For non-torsion u, α_m is nontrivial for every m≥1; its limit is1, which is not a member.
+
+Examples and tests:
+
+- `nearTrivialCharacter_first`: For p=5,m=1 the exponent is4, not1 or5.
+- `nearTrivialCharacter_next`: For p=5,m=2 the exponent is20, exactly five times the first exponent.
+- `nearTrivialCharacter_torsion_counterexample`: If the supplied character has order dividing p−1, α_1 is trivial; non-torsion and arithmetic construction hypotheses are essential.
+
+Sources: [bcgs](#source-bcgs), Definition 1.2.2; PDF pp.10–11
+
+Prerequisites: `PadicMeasuresIwasawaAlgebras:L0a`; `PadicHodgeRegulators:L3`; [Norm, reciprocity and level compatibility](#he-0-8); `PadicInt` (Mathlib).
+
+<a id="he-8-26"></a>
+
+### Heegner divisibility profile
+
+For the actual finite Heegner derivative system define M_r=min_(ν(n)=r) ind(κ_n), with values in ℕ∪{∞}; ind is the largest allowed p-divisibility in the coefficient module, and ind(0)=∞. Set M∞=inf_r M_r. Prime restrictions, coefficient ideals I_n and p-optimal parametrization are part of the data. M_0 is the bottom Heegner index and need not equal M∞.
+
+Additional hypotheses: E(K)[p]=0.
+
+Lean interface: `heegnerDivisibilityProfile`.
+
+The interface needs the following laws:
+
+- `heegnerDivisibilityProfile_at` (projection): M_r is the infimum of the supplied actual indices at ν(n)=r.
+- `heegnerDivisibilityProfile_bottom` (simp): At r=0 the only conductor is1, so M₀=ind κ₁.
+- `heegnerDivisibilityProfile_top` (characterisation): M_r=∞ iff every permitted class at level r is zero, with empty strata giving∞.
+- `heegnerDivisibilityProfile_rescale` (compatibility): Common p^t-rescaling adds t to indices when coefficient depth allows it; truncation at the quotient depth is retained.
+
+Examples and tests:
+
+- `heegnerDivisibilityProfile_zero`: The zero system has M_r=∞ for every r and M∞=∞.
+- `heegnerDivisibilityProfile_bottom_vs_infimum`: A system with indices3 at conductor1 and1 at one-prime support has M₀=3 and M∞≤1.
+- `heegnerDivisibilityProfile_sum_not_max`: For indices2 and5 in one stratum the minimum is2; neither their sum nor maximum is the divisibility index.
+
+Sources: [bcgs](#source-bcgs), Introduction definitions of M_r,M∞; §2.2; PDF pp.2–3,17–20
+
+Prerequisites: [Heegner conductor coefficient ideal](#he-4-1); `EulerSystemsAndKolyvaginSystems:ES.4`; `Submodule.span` (Mathlib).
+
+<a id="he-8-27"></a>
+
+### Optimal and distinguished lattice comparison
+
+For E₀ optimal on X₀(N), E₁ optimal on X₁(N), and the distinguished E_• with T_f identified integrally with T_pE_•, the prescribed isogeny E₀→E_• is étale at odd p. For crystalline α as in BCGS Lemma 1.2.3 with L_BDP(α⁻¹)≠0 and α sufficiently near1, I_•(α)C_•(α)=I₀(α)C₀(α), where I is the bottom-class index and C the finite-cokernel local index modulo torsion. Neither factor is individually asserted equal under arbitrary isogeny.
+
+Additional hypotheses: E(K)[p]=0. p splits as v v̄ in K. α is crystalline at both primes above p and comes from a Hecke character of infinity type (n,−n), with n≥0 and n divisible by p−1, as in BCGS Theorem 1.2.1 and Lemma 1.2.3. Assume L_BDP(α⁻¹)≠0; for the displayed near-identity formulas take α≡1 modulo p^m with m sufficiently large.
+
+Lean interface: `optimal_lattice_isogeny_comparison`.
+
+Sources: [bcgs](#source-bcgs), §1.2.2 and Lemma 1.2.5; PDF pp.12; [wuthrich](#source-wuthrich), Theorem 4, published p.384 (PDF p.4), proof pp.386–387
+
+Prerequisites: [Anticyclotomic Heegner class](#he-8-6); `KatoEulerSystems:L4`; `GrossZagierAndArithmeticHeights:GZ.9/isogeny-and-differential-compatibility`; [Crystalline characters near the identity](#he-8-23).
+
+<a id="he-8-30"></a>
+
+### Tamagawa factors near the identity
+
+For α≡1 modulo p^m the twisted local Tamagawa p-factor c_w^(p)(α) is congruent to the untwisted c_w^(p) modulo p^m. For m greater than the total relevant valuations this gives equality of the product of p-parts. Keep w|N over K; under the Heegner hypothesis its untwisted product is the square of the rational Tamagawa p-part.
+
+Additional hypotheses: E(K)[p]=0.
+
+Lean interface: `near_trivial_tamagawa_stability`.
+
+Sources: [bcgs](#source-bcgs), Lemma 1.2.8; PDF pp.14
+
+Prerequisites: [Component obstruction at bad places](#he-3-3); `NeronModelsAndSemistableAbelianVarieties:R11.2`; `PadicMeasuresIwasawaAlgebras:L0a`.
+
+<a id="he-8-36"></a>
+
+### Arithmetic strict ordinary Selmer complex comparison
+
+For CS coefficients X=T⊗Λ and twists T_α, instantiate the imported Selmer complex as the cone of global cochains mapping to ⊕_(v|p)RΓ(K_v,X/X_v⁺) and ⊕_(v|N)Cone(RΓ_ur→RΓ). Its H¹ is the strict ordinary Selmer lattice S; its H² is related by Poitou–Tate to the all-p ordinary discrete dual X_Gr(A). This rank-one dual is distinct from BCS’s torsion (0,empty) Greenberg module.
+
+Additional hypotheses: E(K)[p]=0. p unramified in K.
+
+Lean interface: `strict_ordinary_selmer_complex`.
+
+Sources: [cs](#source-cs), §3.2, equations (3.6)–(3.8), Theorem 3.2.1; PDF pp.13–14
+
+Prerequisites: [Anticyclotomic Heegner class](#he-8-6); `SelmerIwasawaCohomology:L3/iwasawa-descent`; `SelmerIwasawaCohomology:L2/selmer-structure-poitou-tate`; `ArithmeticGaloisDuality:D7`; `ModularIwasawaMainConjectures:L0`.
+
+<a id="he-8-39"></a>
+
+### Ordinary local specialization defect
+
+For near-trivial nontrivial α, the local finite/ordinary comparison at v|p contributes the p-part of #Ẽ(𝔽_v), identified with the corresponding H⁰(K_v,A_v⁻(α±)). Set L_p=∏_(v|p)#Ẽ(𝔽_v). For split p v_p(Φ)=v_p(L_p)=2v_p(#Ẽ(𝔽_p)); for inert p use #Ẽ(𝔽_(p²))=(p+1)²−a_p². Retain both signs of the twist.
+
+Additional hypotheses: E(K)[p]=0. p unramified in K; α sufficiently near1.
+
+Lean interface: `ordinary_local_specialization_defect`.
+
+Sources: [cs](#source-cs), Lemma 3.3.3 and proof of TheoremC; PDF pp.16–17
+
+Prerequisites: [Heegner initial Euler factor](#he-8-1); `ArithmeticGaloisDuality:R02.4`; `NeronModelsAndSemistableAbelianVarieties:R11.5`; `PadicMeasuresIwasawaAlgebras:L0a`.
+
+<a id="he-8-43"></a>
+
+### Q[n]_0=ΦP[n]
+
+For the family chosen from the fixed continuous projection and permitted auxiliary-trace data with simultaneous finite solvability, its actual bottom projection satisfies π[n](Q[n])=Φ[n]P[n]. This is the same interface as universalNormFamily_level_zero in the construction API.
+
+Additional hypotheses: E(K)[p]=0. The conductor index I and permitted auxiliary-edge index J, their source/target maps, actual compact Hausdorff inverse-limit groups L[n], initial groups P[n], continuous bottom projections π[n], Artin-factor actions Φ[n], points P[n], continuous auxiliary traces tr[j], and scalars a[j] are fixed before choosing the family. Every finite list of bottom and auxiliary constraints has a simultaneous solution, as established by the common free-presentation argument; no uniqueness or surjectivity of arbitrary projections is assumed.
+
+Lean interface: `universalNormFamily_level_zero`.
+
+Sources: [howard](#source-howard), Lemmas2.3.2–2.3.3; PDF pp.29–30; [cgls](#source-cgls), Theorem 4.1.1, proof and class-number-shift/local-condition adaptation; PDF pp.27–28
+
+Prerequisites: [Howard universal-norm Heegner family](#he-8-5).
+
+<a id="he-8-44"></a>
+
+### Under Iwasawa–Shapiro, level k equals the Kummer class of y_k
+
+Under Iwasawa–Shapiro, level k equals the Kummer class of y_k.
+
+Additional hypotheses: E(K)[p]=0.
+
+Lean interface: `heegnerIwasawaClass_level`.
+
+Sources: [cgls](#source-cgls), Theorem 4.1.1 and Remark 4.1.3; PDF pp.27–28
+
+Prerequisites: [Anticyclotomic Heegner class](#he-8-6).
+
+<a id="he-8-46"></a>
+
+### α_m≡1 modulo p^m, by the unit-power congruence
+
+α_m≡1 modulo p^m, by the unit-power congruence.
+
+Additional hypotheses: E(K)[p]=0. p splits as v v̄ in K.
+
+Lean interface: `nearTrivialCharacter_congruent`.
+
+Sources: [bcgs](#source-bcgs), Definition 1.2.2; PDF pp.10–11
+
+Prerequisites: [Crystalline characters near the identity](#he-8-23).
+
+<a id="he-8-48"></a>
+
+### Finite torsion in the relative ring-class tower
+
+For the CV relative CM tower K[P^∞]/K and an abelian variety A/K, A(K[P^∞])_tors is finite. Choose two good-reduction places of K above distinct residue characteristics and primes Q≠P of F that do not split in K. CV Lemma 2.7 bounds their local extension degrees in the tower; prime-to-residue-characteristic reduction injectivity at these two places bounds all torsion. This is a statement about this tower, not torsion over every abelian extension.
+
+Additional hypotheses: F totally real, K/F CM, P a fixed finite prime, and the relative ring-class tower and its reciprocity identification of HE.0. A/K an abelian variety; choose two distinct residue characteristics away from P and the bad reduction set.
+
+Lean interface: `relative_ring_class_tower_torsion_finite`.
+
+Sources: [cv](#source-cv), Lemma 2.7 and proof of Proposition 4.4, PDF pp.22,38; used again before Corollary 4.18
+
+Prerequisites: [Relative CM conductor tower](#he-0-7); [Ring-class tower and finite Galois quotients](#he-0-5); `NeronModelsAndSemistableAbelianVarieties:R11.5`; `TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev`.
+
+<a id="he-8-11"></a>
+
+### Indefinite primitive-character Heegner nonvanishing
+
+In CV §4, require (H1) an Eichler order at P in a split B_P, (H2) maximal split level at primes ramifying in K, a P-new nonzero ω-isotypic quotient α:J_H→A, and good CM points x of conductor P^n. For n sufficiently large and fixed admissible χ₀, some χ∈P(n,χ₀) has e_χα(x)≠0 in the Mordell–Weil space tensored with the character field. Weighted traces are non-torsion, not merely nonzero torsion points.
+
+Additional hypotheses: CV(H1),(H2), P-new quotient and good CM point; χ₀ω=1 on A_F×.
+
+Lean interface: `indefinite_cm_character_point`.
+
+Sources: [cv](#source-cv), Theorem 4.1; Theorem 4.10; Lemmas4.12–4.15 and Proposition 4.17; PDF pp.37,41–49
+
+Prerequisites: [Surjectivity onto CM reduction fibres](#he-8-10); [Primitive CM character stratum](#he-8-7); [Distribution at nonmaximal local level](#he-2-5); `HilbertModularVarietiesAndShimuraCurves:R18.4`; [Finite torsion in the relative ring-class tower](#he-8-48).
+
+<a id="he-8-14"></a>
+
+### Cornut–Vatsal indefinite nonvanishing
+
+Under the same initial CV data, assume |S| odd, ω=1, and N,D_(K/F),P pairwise coprime. For every sufficiently large n there exists χ∈P(n,χ₀) such that L′(π,χ,1/2)≠0. Use the geometric character-point theorem and the precise generalized Gross–Zagier identity. The definite branch has a separate theorem.
+
+Additional hypotheses: ω=1; N,D,P pairwise coprime; |S| odd; χ₀ compatible with central character.
+
+Lean interface: `cornut_vatsal_indefinite_nonvanishing`.
+
+Sources: [cv](#source-cv), Theorem 1.5 and §4; PDF pp.7,37–49
+
+Prerequisites: [Indefinite primitive-character Heegner nonvanishing](#he-8-11); [Generic CM root-number parity](#he-8-8); `GrossZagierAndArithmeticHeights:GZ.8/general-quaternionic-gross-zagier-identity`.
+
+<a id="he-8-15"></a>
+
+### Cornut’s higher Heegner point theorem
+
+In the classical modular Heegner setting with p∤N, the ring-class p-power tower contains a conductor for which the appropriate trace of the modular Heegner point to the anticyclotomic layer is non-torsion. Keep the finite torsion/trace quotient in Cornut’s statement. This does not require the Heegner point of conductor one to be non-torsion and does not say every trace is non-torsion.
+
+Lean interface: `cornut_tower_trace_nontorsion`.
+
+Sources: [cornut](#source-cornut), Introduction main theorem; PDF pp.2–3; [howard](#source-howard), Theorem 2.3.7, initial invocation of Cornut; PDF pp.34
+
+Prerequisites: [Indefinite primitive-character Heegner nonvanishing](#he-8-11); [Heegner point family](#he-1-5).
+
+<a id="he-8-16"></a>
+
+### Non-torsion Λ-adic bottom class
+
+For the actual ordinary Heegner family y∞ under E(K)[p]=0, Λy∞ is free of rank one and y∞ is not Λ-torsion. CGLS gives this nonzero family with the actual class-number conductor shifts. No completed main conjecture, full integral image or p∤h_K assumption is used for this assertion.
+
+Additional hypotheses: E(K)[p]=0.
+
+Lean interface: `lambda_bottom_class_nontorsion`.
+
+Sources: [cgls](#source-cgls), Theorem 4.1.1 and Remark 4.1.3; PDF pp.27–28
+
+Prerequisites: [Anticyclotomic Heegner class](#he-8-6); [Cornut’s higher Heegner point theorem](#he-8-15); `PadicMeasuresIwasawaAlgebras:L4`.
+
+<a id="he-8-25"></a>
+
+### Nonzero bottom classes near the identity
+
+There is a neighbourhood of1 such that every nontrivial α in it has κ^Heeg_1(α)≠0. This follows from a non-Λ-torsion family and the finite zero set of a nonzero one-variable series. The specialization at α=1 is not included: its nonvanishing is equivalent to the appropriate analytic-rank-one condition.
+
+Additional hypotheses: E(K)[p]=0.
+
+Lean interface: `near_trivial_bottom_nonvanishing`.
+
+Sources: [bcgs](#source-bcgs), Theorem 1.1.6; PDF pp.10
+
+Prerequisites: [Non-torsion Λ-adic bottom class](#he-8-16); `PadicMeasuresIwasawaAlgebras:L4`; [Under Iwasawa–Shapiro, level k equals the Kummer class of y_k](#he-8-44); `PadicMeasuresIwasawaAlgebras:L0a`.
+
+<a id="he-8-28"></a>
+
+### Near-trivial logarithm index formula
+
+With E_• and crystalline α as in BCGS Lemma 1.2.3 sufficiently close to1, L_BDP(α⁻¹)≠0 and κ_1^•(α)≠0, let t_α=length_(ℤ_p^ur)(ℤ_p^ur/L_BDP(α⁻¹)), q_•=#H⁰(ℚ_p,E_•[p∞]), I_•=#(S_α/ℤ_pκ_1^•(α)), and C_•=#coker(loc_v) modulo torsion. Then p^tα q_•=I_•C_•. Use the source’s coefficient extension and square-root BDP normalization.
+
+Additional hypotheses: E(K)[p]=0. p splits as v v̄ in K. α is crystalline at both primes above p and comes from a Hecke character of infinity type (n,−n), with n≥0 and n divisible by p−1, as in BCGS Theorem 1.2.1 and Lemma 1.2.3. Assume L_BDP(α⁻¹)≠0; for the displayed near-identity formulas take α≡1 modulo p^m with m sufficiently large.
+
+Lean interface: `twisted_logarithm_index_formula`.
+
+Sources: [bcgs](#source-bcgs), Lemma 1.2.3; PDF pp.11–12
+
+Prerequisites: [Nonzero bottom classes near the identity](#he-8-25); [Optimal and distinguished lattice comparison](#he-8-27); `GrossZagierAndArithmeticHeights:GZ.9/bloch-kato-logarithm-of-heegner-class`; `PadicHodgeRegulators:L3`; `SelmerIwasawaCohomology:L3/semilocal-cohomology`; [Crystalline characters near the identity](#he-8-23).
+
+<a id="he-8-29"></a>
+
+### Twisted anticyclotomic control formula
+
+For m≫0, crystalline α=α_m and L_BDP(α⁻¹)≠0, a characteristic generator F_E of the strict-at-v, unrestricted-at-v̄ Greenberg dual satisfies #(ℤ_p/F_E(α⁻¹))=#Sha(W_α⁻¹/K)·C_α²·∏_(w|N)c_w^(p)(α⁻¹)·q_E². The finite Sha is the source’s propagated Selmer quotient. The formula is integral and uses all K-primes over N and the finite/torsion local cokernel.
+
+Additional hypotheses: E(K)[p]=0. p splits as v v̄ in K. α is crystalline at both primes above p and comes from a Hecke character of infinity type (n,−n), with n≥0 and n divisible by p−1, as in BCGS Theorem 1.2.1 and Lemma 1.2.3. Assume L_BDP(α⁻¹)≠0; for the displayed near-identity formulas take α≡1 modulo p^m with m sufficiently large.
+
+Lean interface: `twisted_anticyclotomic_control`.
+
+Sources: [bcgs](#source-bcgs), Theorem 1.2.7 (JSW control theorem as used there); PDF pp.13–14
+
+Prerequisites: [Crystalline characters near the identity](#he-8-23); [Nonzero bottom classes near the identity](#he-8-25); `SelmerIwasawaCohomology:L3/iwasawa-descent`; `SelmerIwasawaCohomology:L2/selmer-structure-poitou-tate`; [α_m≡1 modulo p^m, by the unit-power congruence](#he-8-46).
+
+<a id="he-8-33"></a>
+
+### Integral main conjecture and twisted index square
+
+Assume the integral anticyclotomic Greenberg main conjecture in Λ^ur with the BCGS square-root convention. For crystalline α_m sufficiently close to1 with L_BDP(α_m⁻¹)≠0, the p-optimal curve satisfies I₀(α)²=#Sha(W_α⁻¹/K)·∏_(w|N)c_w^(p)(α⁻¹)·q₀⁴. A rational main conjecture supplies only a bounded p-power error; it does not supply this exact equality.
+
+Additional hypotheses: E(K)[p]=0. p splits as v v̄ in K. Integral anticyclotomic Greenberg main conjecture and the p-optimal lattice. α is crystalline at both primes above p and comes from a Hecke character of infinity type (n,−n), with n≥0 and n divisible by p−1, as in BCGS Theorem 1.2.1 and Lemma 1.2.3. Assume L_BDP(α⁻¹)≠0; for the displayed near-identity formulas take α≡1 modulo p^m with m sufficiently large.
+
+Lean interface: `integral_main_conjecture_index_square`.
+
+Sources: [bcgs](#source-bcgs), Corollary 1.2.12; Remark 1.2.11; PDF pp.14
+
+Prerequisites: [Near-trivial logarithm index formula](#he-8-28); [Twisted anticyclotomic control formula](#he-8-29); [Tamagawa factors near the identity](#he-8-30); [Optimal and distinguished lattice comparison](#he-8-27); `ModularIwasawaMainConjectures:L0`; [Crystalline characters near the identity](#he-8-23).
+
+<a id="he-8-37"></a>
+
+### Determinantal Heegner element
+
+Under the source’s rank-one and perfectness assumptions, use the canonical rational isomorphism Q(Λ)⊗det_Λ⁻¹ RΓ̃_f(K,T⊗Λ) ≃ Q(Λ)⊗(S⊗_Λ S^ι). Define z̃∞ as the inverse image of y∞⊗y∞ under this isomorphism. The main conjecture asserts z̃∞ generates the integral determinant lattice, not merely its rationalization.
+
+Additional hypotheses: E(K)[p]=0. p unramified in K; the source’s rational determinant comparison.
+
+Lean interface: `determinantalHeegnerElement`.
+
+The interface needs the following laws:
+
+- `determinantalHeegnerElement_image` (projection): The rational determinant map sends z̃∞ to y∞⊗y∞ with the second factor ι-twisted.
+- `determinantalHeegnerElement_unique` (characterisation): It is the unique rational determinant preimage of that Heegner tensor.
+- `determinantalHeegnerElement_rescale` (functoriality): Rescaling y∞ by a multiplies z̃∞ by a·ι(a), not merely a.
+- `determinantalHeegnerElement_baseChange` (compatibility): Compatible derived base change and determinant comparison carry z̃∞ to the tensor of the specialized bottom classes.
+
+Examples and tests:
+
+- `determinantalHeegnerElement_zero`: The zero Heegner class gives the zero determinant element.
+- `determinantalHeegnerElement_scalar_square`: With identity involution and y rescaled by p, the element scales by p².
+- `determinantalHeegnerElement_rational_not_basis`: Under the identity tensor comparison over ℤ, the Heegner determinant for (5,1) has coefficient 5 under ℤ⊗ℤ≃ℤ: nonzero after rationalization and a nonunit integrally. This tests the construction rather than an unrelated integer and catches an erroneous normalization to a basis.
+
+Sources: [cs](#source-cs), Conjecture 3.2.2 and preceding determinant isomorphism; PDF pp.13–14
+
+Prerequisites: [Arithmetic strict ordinary Selmer complex comparison](#he-8-36); [Non-torsion Λ-adic bottom class](#he-8-16); `ModularIwasawaMainConjectures:L0`; `PadicMeasuresIwasawaAlgebras:L5`.
+
+<a id="he-8-47"></a>
+
+### The rational determinant map sends z̃∞ to y∞⊗y∞ with the second factor ι-twisted
+
+The rational determinant map sends z̃∞ to y∞⊗y∞ with the second factor ι-twisted.
+
+Additional hypotheses: E(K)[p]=0. p unramified in K; the source’s rational determinant comparison.
+
+Lean interface: `determinantalHeegnerElement_image`.
+
+Sources: [cs](#source-cs), Conjecture 3.2.2 and preceding determinant isomorphism; PDF pp.13–14
+
+Prerequisites: [Determinantal Heegner element](#he-8-37).
+
+<a id="he-8-38"></a>
+
+### Heegner determinant and characteristic ideals
+
+The assertion that z̃∞ is an integral determinant basis is equivalent to char_Λ(S/Λy∞)·char_Λ(S/Λy∞)^ι=char_Λ(X_Gr(A)_tors) for the CS all-p ordinary dual. Writing a square requires the source’s ι-invariance; rational equality cannot certify an integral basis.
+
+Additional hypotheses: E(K)[p]=0.
+
+Lean interface: `determinant_characteristic_ideal_comparison`.
+
+Sources: [cs](#source-cs), Proposition 3.2.3; PDF pp.14
+
+Prerequisites: [Determinantal Heegner element](#he-8-37); [Arithmetic strict ordinary Selmer complex comparison](#he-8-36); `PadicMeasuresIwasawaAlgebras:L4`; `PadicMeasuresIwasawaAlgebras:L5`; [The rational determinant map sends z̃∞ to y∞⊗y∞ with the second factor ι-twisted](#he-8-47).
+
+<a id="he-8-40"></a>
+
+### Specialized Heegner determinant lattice
+
+For a continuous α:Γ→ℤ_p× with α≡1 modulo p^m, m≫0 and κ₁,Λ^Heeg(α)≠0, the source proves that both S_(α±1) are free of rank one. Then the specialized rational determinant map to S_α⊗S_α⁻¹ sends the integral determinant lattice, up to a ℤ_p-unit, to L_p²·Tam_E²·#X_BK(T_α*/K) times that tensor lattice. Here X_BK is the finite quotient of the propagated Selmer group in CS; for a general twist it need not be the Bloch–Kato group. Tam_E=∏_(ℓ|N)c_ℓ over ℚ.
+
+Additional hypotheses: E(K)[p]=0. p unramified in K; α continuous with α≡1 modulo p^m; κ₁,Λ^Heeg(α)≠0; m sufficiently large.
+
+Lean interface: `determinant_specialization_lattice`.
+
+Sources: [cs](#source-cs), Proposition 3.3.2; PDF pp.14–15
+
+Prerequisites: [Arithmetic strict ordinary Selmer complex comparison](#he-8-36); [Determinantal Heegner element](#he-8-37); [Ordinary local specialization defect](#he-8-39); [Tamagawa factors near the identity](#he-8-30); `SelmerIwasawaCohomology:L3/iwasawa-descent`; `ArithmeticGaloisDuality:R02.4`; `PadicMeasuresIwasawaAlgebras:L5`; [The rational determinant map sends z̃∞ to y∞⊗y∞ with the second factor ι-twisted](#he-8-47); `PadicMeasuresIwasawaAlgebras:L0a`.
+
+<a id="he-8-49"></a>
+
+### Universal-norm auxiliary trace relation
+
+For the family chosen with fixed projections, permitted auxiliary traces and simultaneous finite solvability, tr[j](Q[target j])=a[j]Q[source j] for every supplied edge j. In the actual Heegner tower this is Cor_(K∞[nℓ]/K∞[n])Q[nℓ]=a_ℓQ[n]. It uses exactly universalNormFamily_trace from the construction API.
+
+Additional hypotheses: E(K)[p]=0. The conductor index I and permitted auxiliary-edge index J, their source/target maps, actual compact Hausdorff inverse-limit groups L[n], initial groups P[n], continuous bottom projections π[n], Artin-factor actions Φ[n], points P[n], continuous auxiliary traces tr[j], and scalars a[j] are fixed before choosing the family. Every finite list of bottom and auxiliary constraints has a simultaneous solution, as established by the common free-presentation argument; no uniqueness or surjectivity of arbitrary projections is assumed.
+
+Lean interface: `universalNormFamily_trace`.
+
+Sources: [howard](#source-howard), Lemmas2.3.2–2.3.3; PDF pp.29–30; [cgls](#source-cgls), Theorem 4.1.1, proof and class-number-shift/local-condition adaptation; PDF pp.27–28
+
+Prerequisites: [Howard universal-norm Heegner family](#he-8-5).
+
+<a id="he-8-17"></a>
+
+### Λ-adic Heegner derivative class
+
+For each squarefree allowed n, apply the imported derivative operator to Q[n] (or the normalized ordinary family), sum the finite ring-class torsion orbit, and descend its invariant Kummer class through the actual restriction isomorphism. Obtain κ^Λ_n in the generic Λ-adic Kolyvagin-system coefficient. Preserve the cyclic-Galois tensor and the finite/singular correction maps; the bottom is the specified Heegner Λ-line.
+
+Additional hypotheses: E(K)[p]=0.
+
+Lean interface: `lambdaDerivativeClass`.
+
+The interface needs the following laws:
+
+- `lambdaDerivativeClass_restrict` (projection): Restriction recovers the invariant differentiated Kummer class.
+- `lambdaDerivativeClass_generator` (compatibility): Changing a cyclic generator transforms the class together with the specified tensor factor.
+- `lambdaDerivativeClass_coefficients` (functoriality): Coefficient reduction commutes with the class when the quotient ideals are ordered correctly.
+- `lambdaDerivativeClass_bottom` (simp): At empty auxiliary support, use the actual universal-norm Heegner bottom class.
+
+Examples and tests:
+
+- `lambdaDerivativeClass_empty`: The empty derivative acts as identity before the actual restriction inverse.
+- `lambdaDerivativeClass_zero`: A zero point family gives zero derivative class.
+- `lambdaDerivativeClass_restriction_obstruction`: A noninjective restriction map with two distinct preimages forbids unique descent; the tor hypothesis cannot be omitted.
+
+Sources: [howard](#source-howard), §2.3, construction following Lemma 2.3.3; PDF pp.30; [cgls](#source-cgls), Theorem 4.1.1, proof and class-number-shift/local-condition adaptation; PDF pp.27–28
+
+Prerequisites: [Howard universal-norm Heegner family](#he-8-5); [Anticyclotomic Heegner class](#he-8-6); [Descended Heegner derivative class](#he-4-4); [Generator change and intrinsic tensor coefficient](#he-4-7); `EulerSystemsAndKolyvaginSystems:ES.3`; `EulerSystemsAndKolyvaginSystems:ES.8`; [Universal-norm auxiliary trace relation](#he-8-49).
+
+<a id="he-8-45"></a>
+
+### Restriction recovers the invariant differentiated Kummer class
+
+Restriction recovers the invariant differentiated Kummer class.
+
+Additional hypotheses: E(K)[p]=0.
+
+Lean interface: `lambdaDerivativeClass_restrict`.
+
+Sources: [howard](#source-howard), §2.3, construction following Lemma 2.3.3; PDF pp.30; [cgls](#source-cgls), Theorem 4.1.1, proof and class-number-shift/local-condition adaptation; PDF pp.27–28
+
+Prerequisites: [Λ-adic Heegner derivative class](#he-8-17).
+
+<a id="he-8-18"></a>
+
+### Λ-adic Heegner local conditions
+
+The constructed derivative classes satisfy the transverse condition at ℓ|n, unramified condition away from pNn, and the prescribed propagated condition at bad primes. At v|p the image lies in the ordinary Fil⁺ condition. The proof treats finite decomposition at bad primes and finite ordinary-reduction torsion; it does not replace integral Kummer conditions by rational ones.
+
+Additional hypotheses: Howard’s clean image hypothesis for the direct proof; weaker local verification uses the exact CGLS Theorem 4.1.1 adaptation.
+
+Lean interface: `lambda_heegner_local_conditions`.
+
+Sources: [howard](#source-howard), Lemma 2.3.4; PDF pp.30–32; [cgls](#source-cgls), Theorem 4.1.1, proof and class-number-shift/local-condition adaptation; PDF pp.27–28
+
+Prerequisites: [Λ-adic Heegner derivative class](#he-8-17); [Transverse condition of the descended class](#he-5-1); `SelmerIwasawaCohomology:L3/universal-norms-unramified`; `SelmerIwasawaCohomology:L2/greenberg-condition`; `ArithmeticGaloisDuality:R02.4`; [Under Iwasawa–Shapiro, level k equals the Kummer class of y_k](#he-8-44); [Restriction recovers the invariant differentiated Kummer class](#he-8-45).
+
+<a id="he-8-19"></a>
+
+### Λ-adic finite/singular Heegner compatibility
+
+The corrected Λ-adic derivative system satisfies the generic finite/singular comparison at each allowed ℓ. Its arithmetic reduction congruence and the local χ_ℓ identification must commute with localization through the actual Galois change-of-group action. A merely local matrix is not a global G_K-equivariant coefficient endomorphism.
+
+Lean interface: `lambda_finite_singular_relation`.
+
+Sources: [howard](#source-howard), Lemmas2.3.5–2.3.6; PDF pp.32–34; [cgls](#source-cgls), Theorem 4.1.1, proof and class-number-shift/local-condition adaptation; PDF pp.27–28
+
+Prerequisites: [Λ-adic Heegner derivative class](#he-8-17); [Λ-adic Heegner local conditions](#he-8-18); [Heegner finite–singular correction automorphism](#he-5-2); [Corrected Heegner Kolyvagin system](#he-5-3); `EulerSystemsAndKolyvaginSystems:ES.3`; [Restriction recovers the invariant differentiated Kummer class](#he-8-45); [Universal-norm auxiliary trace relation](#he-8-49).
+
+<a id="he-8-21"></a>
+
+### Howard’s anticyclotomic divisibility theorem
+
+Under Howard’s TheoremA hypotheses, p odd good ordinary, p∤h_K, p,N,D_K pairwise coprime and G_K→GL₂(ℤ_p) surjective, S=H¹_FΛ(K,T⊗Λ) is Λ-torsion-free of rank one, and its discrete dual X is pseudo-isomorphic to Λ⊕M⊕M for a finitely generated torsion Λ-module M with char(M)=char(M)^ι. Moreover char(M) divides char(S/H), H the actual Heegner Λ-line. Equality and integral primitivity are not conclusions.
+
+Additional hypotheses: G_K→GL₂(ℤ_p) surjective; p∤h_K; p,D_K,N pairwise coprime.
+
+Lean interface: `lambda_adic_heegner_kolyvagin_system_and_theorem_B`.
+
+Sources: [howard](#source-howard), TheoremB; Proposition 2.1.3; Lemma 2.2.7–Theorem 2.2.10; PDF pp.2–3,23,25–28
+
+Prerequisites: [Non-torsion Λ-adic bottom class](#he-8-16); [Λ-adic finite/singular Heegner compatibility](#he-8-19); [Unit comparison of Heegner normalizations](#he-8-20); `EulerSystemsAndKolyvaginSystems:ES.8`; `SelmerIwasawaCohomology:L3/iwasawa-descent`; `PadicMeasuresIwasawaAlgebras:L4`.
+
+<a id="he-8-22"></a>
+
+### Weaker torsion hypothesis and localized bound
+
+Under ordinary Heegner conditions and E(K)[p]=0, the CGLS Heegner family exists and the rank-one paired-torsion bound holds over Λ[1/p,1/(γ−1)]. The augmentation inversion can be removed under the source’s extra corank-one condition. The BCS/CGS error-controlled bounds supply stronger assertions in their stated branches; class-number retention alone does not do so.
+
+Additional hypotheses: E(K)[p]=0.
+
+Lean interface: `weak_torsion_localized_divisibility`.
+
+Sources: [cgls](#source-cgls), Theorems4.1.1–4.1.2; PDF pp.27–28
+
+Prerequisites: [Anticyclotomic Heegner class](#he-8-6); [Non-torsion Λ-adic bottom class](#he-8-16); [Λ-adic Heegner local conditions](#he-8-18); `EulerSystemsAndKolyvaginSystems:ES.8`.
+
+<a id="he-8-24"></a>
+
+### Heegner specialization with the initial factor
+
+If α≡1 modulo p^m and M(n)≥m, then κ^Λ_n(α)≡C_pκ_n^Heeg modulo p^m. Here C_p=(α_p−1)²(β_p−1)² for split p and C_p=Φ=(p+1)²−a_p² for inert p, in the prescribed normalization. The reduction exists because I_n⊂p^mℤ_p. C_p can be a nonunit; at split p its valuation is twice v_p(#Ẽ(𝔽_p)).
+
+Additional hypotheses: E(K)[p]=0. α is an anticyclotomic twist sufficiently close to1; M(n)≥m.
+
+Lean interface: `near_trivial_heegner_specialization`.
+
+Sources: [bcgs](#source-bcgs), Lemma 1.1.5 (split-prime branch); PDF pp.9; [cs](#source-cs), Lemma 3.1.1 and equation (3.5), both unramified splitting types; PDF pp.12–13
+
+Prerequisites: [Λ-adic Heegner derivative class](#he-8-17); [Unit comparison of Heegner normalizations](#he-8-20); [Coefficient reduction and auxiliary-prime restriction](#he-4-8); [Q[n]_0=ΦP[n]](#he-8-43); [Restriction recovers the invariant differentiated Kummer class](#he-8-45); `PadicMeasuresIwasawaAlgebras:L0a`.
+
+<a id="he-8-31"></a>
+
+### Uniform arithmetic Kolyvagin error bound
+
+There exist M and E depending only on T_pE such that, for α≡1 modulo p^m with m≥M and a collection κ̃_n∈H¹(K,T_α/I_nT_α) on a permitted prime set containing every sufficiently deep L_e, with κ̃₁≠0 and one fixed t≥0 for which {p^tκ̃_n}_n is an ordinary Kolyvagin system, H¹_Ford(K,T_α) has ℤ_p-rank one and the discrete ordinary Selmer group H¹_Ford(K,W_α⁻¹) is ℚ_p/ℤ_p⊕M_α⊕M_α, with length M_α≤ind(κ̃₁)+E. The constants are independent of m, the prime set and t. The divided collection itself need not be an integral Kolyvagin system. Under the source’s surjectivity hypothesis E=0.
+
+Additional hypotheses: E(K)[p]=0. The allowed prime set contains L_e for all sufficiently large e. The collection has nonzero bottom class and one common multiple p^tκ̃ satisfying every Kolyvagin-system relation, with t independent of n.
+
+Lean interface: `arithmetic_rescaled_kolyvagin_bound`.
+
+Sources: [bcgs](#source-bcgs), Theorem 1.3.1 and its cited CGS proof; PDF pp.15
+
+Prerequisites: [Λ-adic Heegner local conditions](#he-8-18); [Λ-adic finite/singular Heegner compatibility](#he-8-19); `EulerSystemsAndKolyvaginSystems:ES.4`; [α_m≡1 modulo p^m, by the unit-power congruence](#he-8-46).
+
+<a id="he-8-32"></a>
+
+### Exact paired Selmer length for a Heegner system
+
+For p>3, a surjective residual representation and the generic self-dual rank-one hypotheses, the specialized actual anticyclotomic Heegner system over a finite DVR R with κ₁≠0 gives length_R Sha(W_α/K)=2(M₀(α)−M∞(α)). No near-triviality is needed in the generic theorem; near-trivial α is used in the arithmetic application. The deep-prime restriction and rigidity hypotheses remain explicit. BCGS states Theorem 2.2.2 for p≥3 through Proposition 2.2.1, but its proof invokes Lemma 2.2.4, stated only for p>3. The p=3 proof extension remains a additional proof obligation.
+
+Additional hypotheses: E(K)[p]=0. Residual G_Q representation surjective; R finite DVR; the source’s self-dual/cartesian hypotheses and κ₁≠0. p>3 for the verified proof route.
+
+Lean interface: `heegner_exact_sha_length`.
+
+Sources: [bcgs](#source-bcgs), Proposition 2.2.1; Theorem 2.2.2; Lemma 2.2.4; PDF pp.17–19
+
+Prerequisites: [Heegner divisibility profile](#he-8-26); [Λ-adic Heegner derivative class](#he-8-17); [Λ-adic Heegner local conditions](#he-8-18); [Λ-adic finite/singular Heegner compatibility](#he-8-19); `EulerSystemsAndKolyvaginSystems:ES.4`.
+
+<a id="he-8-34"></a>
+
+### BCGS nonvanishing from the main conjecture
+
+Under (Heeg),(disc),(tor), p odd good ordinary and split in K, the rational anticyclotomic main conjecture (indeed its required lower divisibility after inverting p) implies κ_n^Heeg≠0 for some squarefree n of allowed Kolyvagin primes. No analytic-rank-one hypothesis is made and κ₁ may vanish.
+
+Additional hypotheses: E(K)[p]=0. p splits as v v̄ in K. Rational anticyclotomic main conjecture, kept as a theorem hypothesis.
+
+Lean interface: `bcgs_conditional_kolyvagin_nonvanishing`.
+
+Sources: [bcgs](#source-bcgs), TheoremA and §2.1; PDF pp.2,15–16
+
+Prerequisites: [Heegner specialization with the initial factor](#he-8-24); [Nonzero bottom classes near the identity](#he-8-25); [Near-trivial logarithm index formula](#he-8-28); [Twisted anticyclotomic control formula](#he-8-29); [Tamagawa factors near the identity](#he-8-30); [Uniform arithmetic Kolyvagin error bound](#he-8-31); [Heegner divisibility profile](#he-8-26).
+
+<a id="he-8-35"></a>
+
+### BCGS refined divisibility from the integral conjecture
+
+Assume p>3, surjective residual G_Q→GL₂(𝔽_p), good ordinary p split in K, (Heeg),(disc),(tor), a p-optimal parametrization, and the integral anticyclotomic main conjecture. Then M∞ of the finite Heegner system is finite and equals Σ_(ℓ|N)v_p(c_ℓ(E/ℚ)). This is half the sum over K-primes; it is neither M₀ nor the order of Sha.
+
+Additional hypotheses: E(K)[p]=0. p splits as v v̄ in K. p>3; residual surjectivity; p-optimal parametrization; integral main conjecture.
+
+Lean interface: `bcgs_conditional_refined_divisibility`.
+
+Sources: [bcgs](#source-bcgs), TheoremB and §2.2; PDF pp.3,17–20
+
+Prerequisites: [BCGS nonvanishing from the main conjecture](#he-8-34); [Integral main conjecture and twisted index square](#he-8-33); [Exact paired Selmer length for a Heegner system](#he-8-32); [Heegner specialization with the initial factor](#he-8-24); [Tamagawa factors near the identity](#he-8-30); [Heegner divisibility profile](#he-8-26).
+
+<a id="he-8-41"></a>
+
+### Twisted index square from the determinant conjecture
+
+If z̃∞ generates the integral Selmer determinant and α is sufficiently close to1 but nontrivial, then the square of the Heegner bottom index equals L_p² Tam_E² #X_BK(T_α*/K), up to a ℤ_p-unit (equivalently as p-valuations). The transported Φ comparison and unit normalization remain explicit.
+
+Additional hypotheses: E(K)[p]=0. Integral determinantal main conjecture; p unramified in K.
+
+Lean interface: `determinantal_twisted_index_square`.
+
+Sources: [cs](#source-cs), Corollary 3.3.4; PDF pp.16
+
+Prerequisites: [Specialized Heegner determinant lattice](#he-8-40); [Determinantal Heegner element](#he-8-37); [Nonzero bottom classes near the identity](#he-8-25); [Heegner specialization with the initial factor](#he-8-24).
+
+<a id="he-8-42"></a>
+
+### Castella–Sano refined conjecture equivalence
+
+For p>3, residual G_Q surjectivity, good ordinary p unramified in K, (Heeg),(disc), and a parametrization whose Manin constant is prime to p, M∞=v_p(Tam_E) holds if and only if the integral determinantal Heegner main conjecture of CS3.2.2 holds. The theorem permits inert p; it does not prove that conjecture at inert p.
+
+Additional hypotheses: E(K)[p]=0. p>3; residual G_Q surjectivity; p unramified in K; p∤Manin constant.
+
+Lean interface: `castella_sano_refined_equivalence`.
+
+Sources: [cs](#source-cs), TheoremC; §3.3 proof; PDF pp.4–5,16–17
+
+Prerequisites: [Twisted index square from the determinant conjecture](#he-8-41); [Heegner determinant and characteristic ideals](#he-8-38); [Exact paired Selmer length for a Heegner system](#he-8-32); [Heegner specialization with the initial factor](#he-8-24); [Ordinary local specialization defect](#he-8-39); [Uniform arithmetic Kolyvagin error bound](#he-8-31); [Heegner divisibility profile](#he-8-26); `PadicMeasuresIwasawaAlgebras:L4`.
+
+<a id="he-8b"></a>
+
+## HE.8b: Split-prime anticyclotomic equalities and applications
+
+Reconcile BDP conventions and local conditions first. The Euler-system bound gives one divisibility; the BCS auxiliary-field, congruence and μ argument gives the other. Rational equality needs residual irreducibility, while the integral branch uses the stronger image and lattice hypotheses. The independent early Eisenstein equality is a separate supplied branch. Only after the appropriate equality has been proved may the conditional BCGS and Castella–Sano implications from HE.8 be applied as unconditional split-prime results.
+
+<a id="he-8b-1"></a>
+
+### BDP square-root convention comparison
+
+After the same coefficient extension and primitive/imprimitive local normalizations, BCS’s single-power anticyclotomic L-function generates the same ideal as (L_BDP^BCGS)² in Λ^ur. Period/unit conventions are compared as ideals, not by arbitrary exact equality of functions. All nonunit Euler factors in changes of local condition remain visible.
+
+Lean interface: `bdp_function_convention_comparison`.
+
+Sources: [bcgs](#source-bcgs), Theorem 1.2.1 and Conjecture 1.2.10; PDF pp.10,14; [bcs](#source-bcs), Conjecture 1.2.1, following Remark 1.2.3, and Theorem 1.2.4; PDF pp.3
+
+Prerequisites: `GrossZagierAndArithmeticHeights:GZ.9/bdp-square-root-comparison`; `GrossZagierAndArithmeticHeights:GZ.9/imprimitive-function-dictionary`; `AutomorphicPadicLFunctions:L3h`.
+
+<a id="he-8b-2"></a>
+
+### Anticyclotomic main-conjecture comparison
+
+In the classical N⁻=1 split ordinary setting with p>3 and H⁰(G_K,E[p])=0, the integral Heegner-index divisibility char(X_tors) ⊃ char(S/Λy∞)² is equivalent to the corresponding Greenberg/BDP divisibility char(X_(0,empty))Λ^ur ⊃ (L_BDP²), with the reverse divisibilities also equivalent (BCK Theorem 5.2). Retain the coefficient extension, finite local cokernels, ι and nonunit Euler factors. This comparison does not itself prove either divisibility. Separately, CGLS Proposition 4.2.1 proves the analogous comparison after inverting p under E(K)[p]=0 for odd p. The general weak-torsion p=3 integral extension is not established by these hypotheses; an exact integral comparison must be supplied before using that extension.
+
+Additional hypotheses: E(K)[p]=0. p splits as v v̄ in K. For the integral statement p>3; for the rational CGLS variant p is odd and both characteristic ideals are extended to Λ⊗ℚ_p.
+
+Lean interface: `anticyclotomic_formulation_comparison`.
+
+Sources: [cgls](#source-cgls), Proposition 4.2.1 (rational comparison); PDF pp.28–29; [bck](#source-bck), Theorem 5.2 and proof, published pp.1646–1647; standing p>3 and §5 split-prime hypotheses; PDF pp.20–21
+
+Prerequisites: [Anticyclotomic Heegner class](#he-8-6); [Λ-adic Heegner local conditions](#he-8-18); [Near-trivial logarithm index formula](#he-8-28); [BDP square-root convention comparison](#he-8b-1); `SelmerIwasawaCohomology:L2/change-of-conditions`; `SelmerIwasawaCohomology:L2/selmer-structure-poitou-tate`; `PadicHodgeRegulators:L3`; `ModularIwasawaMainConjectures:L0`.
+
+<a id="he-8b-3"></a>
+
+### Auxiliary quadratic fields for BCS descent
+
+For the BCS irreducible branch, choose the auxiliary real quadratic F with p inert, D_F odd and every D_F-prime split in K; for ℓ|N choose ℓ inert in F when ℓ≡−1 modulo p and split otherwise. Retain irreducibility after restricting to G_(FK) and G_(F(ζ_p)), the p=5 exceptional real field exclusion and finite discriminant avoidance. These are the precise hypotheses used by the Hilbert/quartic-CM supplier.
+
+Additional hypotheses: E(K)[p]=0. p splits as v v̄ in K. p>3; E[p] irreducible over G_Q; the source’s auxiliary-field and Fujiwara(H1)–(H3) assumptions.
+
+Lean interface: `auxiliary_quadratic_field_verification`.
+
+Sources: [bcs](#source-bcs), Proposition 5.2.1; Lemma 5.2.3; PDF pp.9–11
+
+Prerequisites: `TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev`; `AutomorphicCongruences:L5w`.
+
+<a id="he-8b-4"></a>
+
+### Heegner Euler-system divisibility for BCS
+
+Under p odd ordinary, (Heeg),(disc) and E[p] irreducible over G_K, the actual Heegner family gives rank one and char(X_tors) ⊃ char(S/Λy∞)² after inverting p. In the split case the equivalent Greenberg/BDP bound holds. Under residual G_Q surjectivity the bounds are integral. This is the weak-hypothesis CGS/BCS bound, not Howard B with its hypotheses silently removed.
+
+Additional hypotheses: E[p] irreducible over G_K; integral branch additionally has G_Q residual surjectivity.
+
+Lean interface: `anticyclotomic_euler_system_divisibility`.
+
+Sources: [bcs](#source-bcs), Theorem 4.2.1 (using CGS Theorem 5.5.2); PDF pp.8–9
+
+Prerequisites: [Anticyclotomic Heegner class](#he-8-6); [Non-torsion Λ-adic bottom class](#he-8-16); [Λ-adic finite/singular Heegner compatibility](#he-8-19); [Uniform arithmetic Kolyvagin error bound](#he-8-31); `EulerSystemsAndKolyvaginSystems:ES.8`; [Anticyclotomic main-conjecture comparison](#he-8b-2).
+
+<a id="he-8b-5"></a>
+
+### BCS anticyclotomic reverse divisibility
+
+For the chosen auxiliary F, the imported Wan/Fujiwara quartic-CM theorem, shared two-variable restriction/factorization, and anticyclotomic projection imply the reverse product divisibility for E/K and E^F/K against their BDP functions. Specialize the Greenberg local conditions exactly as in BCS §5, and obtain individual reverse divisibilities by combining the opposite Euler-system bounds and cancelling nonzero factors. Integral cancellation uses μ=0 and the source’s period/regulator hypotheses.
+
+Additional hypotheses: E(K)[p]=0. p splits as v v̄ in K. p>3; irreducible residual G_Q representation; all auxiliary-field and period hypotheses of the suppliers.
+
+Lean interface: `anticyclotomic_reverse_product_divisibility`.
+
+Sources: [bcs](#source-bcs), §5.1–§5.3; Proposition 5.2.1; proof of Theorems1.2.2/1.2.4; PDF pp.9–11
+
+Prerequisites: [Auxiliary quadratic fields for BCS descent](#he-8b-3); [Heegner Euler-system divisibility for BCS](#he-8b-4); [Anticyclotomic main-conjecture comparison](#he-8b-2); [BDP square-root convention comparison](#he-8b-1); `AutomorphicCongruences:L5a`; `AutomorphicCongruences:L5w`; `AutomorphicPadicLFunctions:L3h`; `PadicMeasuresIwasawaAlgebras:L4`.
+
+<a id="he-8b-6"></a>
+
+### Rational Heegner-point main conjecture
+
+For p>3 good ordinary, (disc),(Heeg),(spl), and E[p] irreducible over G_Q, S and X have Λ-rank one and char_Λ(X_tors)=char_Λ(S/Λy∞)² in Λ[1/p]. No analytic-rank condition, p∤h_K assumption or residual surjectivity is added; integrality is a different branch.
+
+Additional hypotheses: E(K)[p]=0. p splits as v v̄ in K. p>3; E[p] irreducible over G_Q.
+
+Lean interface: `rational_heegner_main_conjecture`.
+
+Sources: [bcs](#source-bcs), Theorem 1.2.2(a); PDF pp.3
+
+Prerequisites: [BCS anticyclotomic reverse divisibility](#he-8b-5); [Heegner Euler-system divisibility for BCS](#he-8b-4); [Unit comparison of Heegner normalizations](#he-8-20).
+
+<a id="he-8b-7"></a>
+
+### Integral Heegner-point main conjecture
+
+For the same ordinary split setting with p>3 and residual G_Q→GL₂(𝔽_p) surjective, S and X have Λ-rank one and char_Λ(X_tors)=char_Λ(S/Λy∞)² integrally in Λ. The integral period, μ and generic descent hypotheses are those verified in the BCS supplier chain.
+
+Additional hypotheses: E(K)[p]=0. p splits as v v̄ in K. p>3; residual G_Q representation surjective.
+
+Lean interface: `integral_heegner_main_conjecture`.
+
+Sources: [bcs](#source-bcs), Theorem 1.2.2(b); PDF pp.3
+
+Prerequisites: [BCS anticyclotomic reverse divisibility](#he-8b-5); [Heegner Euler-system divisibility for BCS](#he-8b-4); [Unit comparison of Heegner normalizations](#he-8-20).
+
+<a id="he-8b-8"></a>
+
+### Rational Greenberg–BDP main conjecture
+
+Under the rational Heegner main-conjecture hypotheses, X_(0,empty) is Λ-torsion and char_Λ(X_(0,empty))Λ^ur=(L_BDP²) in Λ^ur[1/p], where L_BDP is BCGS’s square-root function. This torsion module is not CS’s all-p ordinary rank-one dual.
+
+Additional hypotheses: E(K)[p]=0. p splits as v v̄ in K. p>3; residual irreducibility over G_Q.
+
+Lean interface: `rational_greenberg_bdp_main_conjecture`.
+
+Sources: [bcs](#source-bcs), Theorem 1.2.4(a); PDF pp.3
+
+Prerequisites: [Rational Heegner-point main conjecture](#he-8b-6); [Anticyclotomic main-conjecture comparison](#he-8b-2); [BDP square-root convention comparison](#he-8b-1).
+
+<a id="he-8b-9"></a>
+
+### Integral Greenberg–BDP main conjecture
+
+Under the integral Heegner main-conjecture hypotheses, X_(0,empty) is Λ-torsion and char_Λ(X_(0,empty))Λ^ur=(L_BDP²) integrally. The coefficient ring Λ^ur and p-primary content are retained.
+
+Additional hypotheses: E(K)[p]=0. p splits as v v̄ in K. p>3; residual G_Q surjectivity.
+
+Lean interface: `integral_greenberg_bdp_main_conjecture`.
+
+Sources: [bcs](#source-bcs), Theorem 1.2.4(b); PDF pp.3
+
+Prerequisites: [Integral Heegner-point main conjecture](#he-8b-7); [Anticyclotomic main-conjecture comparison](#he-8b-2); [BDP square-root convention comparison](#he-8b-1).
+
+<a id="he-8b-10"></a>
+
+### Eisenstein anticyclotomic theorem interface
+
+For CGS Theorem C, E/ℚ has a rational p-isogeny with kernel character φ, p∤2N, K satisfies (disc),(Heeg),(spl), and φ|_(G_p)≠1,ω. Its integral Heegner/Greenberg equality, in the agreed coefficient and BDP conventions, supplies BCGS Theorem 1.2.13(i). This is an adapter of the independently supplied theorem, not a duplicate proof or an extension to excluded local characters.
+
+Additional hypotheses: E(K)[p]=0. p splits as v v̄ in K. A rational p-isogeny with kernel character φ and φ|G_p≠1,ω; p∤2N and (disc),(Heeg),(spl). No analytic-rank-one (Sel) hypothesis is added.
+
+Lean interface: `eisenstein_main_conjecture_adapter`.
+
+Sources: [bcgs](#source-bcgs), Theorem 1.2.13(i), citing CGS TheoremsA/C; PDF pp.14; [cgs](#source-cgs), Theorem C and ensuing Greenberg reformulation, author copy pp.3–4; PDF pp.3–4
+
+Prerequisites: `RankZeroOneBSD:BSD.7a`; [Anticyclotomic Heegner class](#he-8-6); [BDP square-root convention comparison](#he-8b-1); [Anticyclotomic main-conjecture comparison](#he-8b-2).
+
+<a id="he-8b-11"></a>
+
+### Split-prime Kolyvagin nonvanishing branches
+
+BCGS finite-system nonvanishing is unconditional in each specified main-conjecture branch: (i) the supplied CGS Eisenstein local-character branch; (ii) p>3 and residual G_Q irreducibility; (iii) p>3 and residual surjectivity. In each case apply the conditional TheoremA with the exact branch hypotheses. No p=3 irreducible branch is inferred from BCS.
+
+Additional hypotheses: E(K)[p]=0. p splits as v v̄ in K.
+
+Lean interface: `split_kolyvagin_nonvanishing_branches`.
+
+Sources: [bcgs](#source-bcgs), Theorem 1.2.13 and TheoremA; PDF pp.2,14–16
+
+Prerequisites: [BCGS nonvanishing from the main conjecture](#he-8-34); [Rational Greenberg–BDP main conjecture](#he-8b-8); [Integral Greenberg–BDP main conjecture](#he-8b-9); [Eisenstein anticyclotomic theorem interface](#he-8b-10).
+
+<a id="he-8b-12"></a>
+
+### Split-prime refined Kolyvagin divisibility
+
+For p>3 residual G_Q surjective, ordinary split Heegner setting and p-optimal parametrization, M∞=Σ_(ℓ|N)v_p(c_ℓ(E/ℚ)). The integral BCS theorem discharges the conditional TheoremB; rational irreducibility alone does not discharge it.
+
+Additional hypotheses: E(K)[p]=0. p splits as v v̄ in K. p>3; residual surjectivity; p-optimal parametrization.
+
+Lean interface: `split_refined_kolyvagin_divisibility`.
+
+Sources: [bcgs](#source-bcgs), TheoremB and Theorem 1.2.13(iii); PDF pp.3,14,19–20
+
+Prerequisites: [BCGS refined divisibility from the integral conjecture](#he-8-35); [Integral Greenberg–BDP main conjecture](#he-8b-9).
+
+<a id="he-8b-13"></a>
+
+### Split determinantal Heegner main conjecture
+
+In the CS TheoremC setting with p split in K, the integral BCS Heegner main conjecture and determinant/characteristic comparison show z̃∞ generates its integral Selmer determinant. Consequently the refined finite Heegner index equals v_p(Tam_E). For inert p the main-conjecture hypothesis is still unproved by this chain.
+
+Additional hypotheses: E(K)[p]=0. p splits as v v̄ in K. p>3; residual surjectivity; p∤Manin constant.
+
+Lean interface: `split_determinantal_heegner_main_conjecture`.
+
+Sources: [cs](#source-cs), TheoremC; Proposition 3.2.3; PDF pp.4–5,14
+
+Prerequisites: [Integral Heegner-point main conjecture](#he-8b-7); [Heegner determinant and characteristic ideals](#he-8-38); [Castella–Sano refined conjecture equivalence](#he-8-42).
+
+## References
+
+Locators refer to the editions below. A preprint page is its printed PDF page, not the pagination of a later journal edition. The January 2026 BCGS author copy is a collation source; arithmetic assertions use the explicitly versioned arXiv text where indicated. Castella–Sano is cited as a preprint. For the classical square-index theorem, the quoted statement and its original proof source are distinguished.
+
+<a id="source-gross"></a>
+
+- **gross**: Benedict H. Gross, *[Kolyvagin’s work on modular elliptic curves](https://www.wstein.org/papers/bib/gross-kolyvagins_work_on_modular_elliptic_curves.pdf)*. L-functions and Arithmetic, LMS Lecture Note Series 153 (1991), pp.235–256; scanned published article.
+
+<a id="source-howard"></a>
+
+- **howard**: Benjamin Howard, *[The Heegner point Kolyvagin system](https://arxiv.org/pdf/1202.6340v1)*. arXiv:1202.6340v1, 28 February 2012; Compositio Math.140 (2004),1439–1472.
+
+<a id="source-howard-published"></a>
+
+- **howard-published**: Benjamin Howard, *[The Heegner point Kolyvagin system](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/1BF8414258216C1575963BBDA814CB2F/S0010437X04000569a.pdf/the-heegner-point-kolyvagin-system.pdf)*. Compositio Math.140 (2004),1439–1472, version of record.
+
+<a id="source-khayutin"></a>
+
+- **khayutin**: Ilya Khayutin, *[Joint equidistribution of CM points](https://annals.math.princeton.edu/wp-content/uploads/annals-v189-n1-p04-s.pdf)*. Annals of Mathematics189 (2019),145–276, version of record.
+
+<a id="source-cornut-vatsal"></a>
+
+- **cornut-vatsal**: Christophe Cornut; Vinayak Vatsal, *[Nontriviality of Rankin–Selberg L-functions and CM points](https://personal.math.ubc.ca/~vatsal/research/part1.pdf)*. Author preprint, 1 April 2005; published LMS Lecture Notes320 (2007),121–186.
+
+<a id="source-zhang"></a>
+
+- **zhang**: Wei Zhang, *[Selmer groups and the indivisibility of Heegner points](https://archive.intlpress.com/site/pub/files/_fulltext/journals/cjm/2014/0002/0002/CJM-2014-0002-0002-a002.pdf)*. Cambridge Journal of Mathematics2(2) (2014),191–253, version of record.
+
+<a id="source-nekovar"></a>
+
+- **nekovar**: Jan Nekovář, *[The Euler system method for CM points on Shimura curves](https://web.archive.org/web/20221115094729id_/https://webusers.imj-prg.fr/~jan.nekovar/pu/euler.pdf)*. Author preprint, 23 May 2007, 53 PDF pages; published in L-functions and Galois representations, LMS Lecture Note Series 320 (2007), pp.471–547, DOI10.1017/CBO9780511721267.014.
+
+<a id="source-pollack-weston"></a>
+
+- **pollack-weston**: Robert Pollack; Tom Weston, *[On anticyclotomic μ-invariants of modular forms](https://arxiv.org/pdf/math/0610694v1)*. arXiv:math/0610694v1, 23 October 2006; locators use preprint pagination.
+
+<a id="source-kolyvagin-structure"></a>
+
+- **kolyvagin-structure**: V. A. Kolyvagin, *[On the structure of Shafarevich–Tate groups](https://www.wstein.org/papers/bib/kolyvagin-structure_of_sha.pdf)*. Algebraic Geometry, Lecture Notes in Mathematics1479 (1991), pp.94–121; scanned published article.
+
+<a id="source-skinner"></a>
+
+- **skinner**: Christopher Skinner, *[Multiplicative reduction and the cyclotomic main conjecture for GL₂](https://arxiv.org/pdf/1407.1093v1)*. arXiv:1407.1093v1, 4 July 2014; published Pacific J. Math.283 (2016),171–200; locators use the arXiv pagination.
+
+<a id="source-zanarella"></a>
+
+- **zanarella**: Murilo Zanarella, *[On Howard’s main conjecture and the Heegner point Kolyvagin system](https://arxiv.org/pdf/1908.09197v1)*. arXiv:1908.09197v1, 24 August 2019; locators use the arXiv pagination.
+
+<a id="source-cornut"></a>
+
+- **cornut**: Christophe Cornut, *[Mazur’s conjecture on higher Heegner points](https://webusers.imj-prg.fr/~christophe.cornut/papers/mcinv.pdf)*. Invent. Math.148 (2002),495–523; author manuscript.
+
+<a id="source-cv"></a>
+
+- **cv**: Christophe Cornut; Vinayak Vatsal, *[Nontriviality of Rankin–Selberg L-functions and CM points](https://personal.math.ubc.ca/~vatsal/research/part1.pdf)*. Author manuscript, 1 April 2005; LMS Lecture Note Series320 (2007),121–186.
+
+<a id="source-cv-dynamics"></a>
+
+- **cv-dynamics**: Christophe Cornut; Vinayak Vatsal, *[CM points and quaternion algebras](https://webusers.imj-prg.fr/~christophe.cornut/papers/part2.pdf)*. Author manuscript, 3 April 2005; Documenta Math.10 (2005),263–309.
+
+<a id="source-bcgs"></a>
+
+- **bcgs**: Ashay Burungale; Francesc Castella; Giada Grossi; Christopher Skinner, *[Non-vanishing of Kolyvagin systems and Iwasawa theory](https://arxiv.org/pdf/2312.09301v2)*. arXiv:2312.09301v2, January 2026; published CJM14(2) (2026),285–348.
+
+<a id="source-bcgs-published-author"></a>
+
+- **bcgs-published-author**: Ashay Burungale; Francesc Castella; Giada Grossi; Christopher Skinner, *[Non-vanishing of Kolyvagin systems and Iwasawa theory](https://web.math.ucsb.edu/~castella/Kolyvagin.pdf)*. Author copy dated 2 January 2026, linked by Castella alongside CJM publication; not certified as the publisher PDF.
+
+<a id="source-bcs"></a>
+
+- **bcs**: Ashay Burungale; Francesc Castella; Christopher Skinner, *[Base change and Iwasawa main conjectures for GL2](https://arxiv.org/pdf/2405.00270v2)*. arXiv:2405.00270v2, March 2025; theorem numbering belongs to v2.
+
+<a id="source-cgls"></a>
+
+- **cgls**: Francesc Castella; Giada Grossi; Jaehoon Lee; Christopher Skinner, *[On the anticyclotomic Iwasawa theory of rational elliptic curves at Eisenstein primes](https://web.math.ucsb.edu/~castella/Eisenstein.pdf)*. Invent. Math.227 (2022),517–580; author copy.
+
+<a id="source-cs"></a>
+
+- **cs**: Francesc Castella; Takamichi Sano, *[On refined nonvanishing conjectures by Kurihara and Kolyvagin](https://web.math.ucsb.edu/~castella/Kurihara.pdf)*. Author manuscript dated 20 January 2026, arXiv:2601.14504v1.
+
+<a id="source-wuthrich"></a>
+
+- **wuthrich**: Christian Wüthrich, *[On the integrality of modular symbols and Kato’s Euler system for elliptic curves](https://www.maths.tcd.ie/EMIS/journals/DMJDMV/vol-19/12.pdf)*. Documenta Math.19 (2014),381–402, published PDF.
+
+<a id="source-bck"></a>
+
+- **bck**: Ashay Burungale, Francesc Castella, Chan-Ho Kim, *[A proof of Perrin-Riou’s Heegner point main conjecture](https://web.math.ucsb.edu/~castella/PRconj-print.pdf)*. Published author-served copy, Algebra & Number Theory15(7) (2021),1627–1653, DOI10.2140/ant.2021.15.1627.
+
+<a id="source-cgs"></a>
+
+- **cgs**: Francesc Castella, Giada Grossi, Christopher Skinner, *[Mazur’s main conjecture at Eisenstein primes](https://web.math.ucsb.edu/~castella/Mazur.pdf)*. Author-served copy linked to Math. Ann.393(2) (2025),2451–2506; not certified as publisher PDF.
