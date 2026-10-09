@@ -34346,7 +34346,8 @@
    ],
    "avoidAccountOf": "BP-SchemeAndStackFoundations--SF.6",
    "prompt": "research/blueprint/prompts/REV-SchemeAndStackFoundations--SF.6.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6288"
   },
   {
    "id": "BP-AlgebraicModuliForArithmeticGeometry--A0-extension-2",
@@ -40241,8 +40242,9 @@
     "BP-HodgeTateAndCanonicalSubgroups--T6~2"
    ],
    "prompt": "research/blueprint/prompts/REV-HodgeTateAndCanonicalSubgroups--T6~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7067"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7067",
+   "finishedAt": "2026-10-09T10:56:41Z"
   },
   {
    "kind": "blueprint",
