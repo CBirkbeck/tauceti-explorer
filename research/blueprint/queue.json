@@ -34779,7 +34779,8 @@
    ],
    "followUpOf": "BP-ArithmeticGaloisRepresentations",
    "prompt": "research/blueprint/prompts/BP-ArithmeticGaloisRepresentations--G7.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7954"
   },
   {
    "id": "REV-ArithmeticGaloisRepresentations--G7",
@@ -105264,9 +105265,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/FIX-PKG-DiamondsAndVStacks~adv.md",
-   "note": "claimed on GitHub issue #8071"
+   "note": "deliverables arrived from an external worker on issue #8071",
+   "finishedAt": "2026-10-09T20:43:06Z"
   },
   {
    "id": "FIX-PKG-NeronModelsAndSemistableAbelianVarieties~adv",
