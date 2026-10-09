@@ -1,0 +1,8 @@
+{
+  "review": {
+    "status": "needs_changes",
+    "reviewer": "independent-review-REV-PKG-AdelicAlgebraicGroups",
+    "date": "2026-10-09",
+    "notes": "Checked all 264 accepted targets, 231 API outlines, hypotheses, boundaries/link maps, upstream form, own-word source locators, metadata and the active Lean interfaces. Corrected quotient-measure transitivity, canonical/regular projection measures, arithmetic quotient invariance/regularity, the Hecke relative finite-index hypothesis, and nonzero quaternion parameters. Final lean-check exits 0: no errors, 542 warnings, all sorry. Acceptance fails: 14 definition/construction targets, 87 lemma/theorem targets, 66 API items and 49 unit tests remain only in the commented catalogue, with further partial measure-transport, split-centre and GL2 complex-structure targets. See REV-PKG-AdelicAlgebraicGroups.md for the complete omission index and required revisions. The README AA.5.2 targets fully replace the old ModularCurvesPartII:R12.2 analytic Gamma(N)/Gamma0/Gamma1 request, including complex structures and functorial maps; a packet revision can drop that upward request. Their Lean complex-analytic portions still require the R2 revision."
+  }
+}
