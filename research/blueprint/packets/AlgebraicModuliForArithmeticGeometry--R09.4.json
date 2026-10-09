@@ -70,6 +70,18 @@
         "module": "Mathlib/CategoryTheory/Monoidal/Mon.lean",
         "provides": "The existing predicate that a morphism preserves the unit and multiplication of native monoid objects; used for zero-preserving abelian morphisms.",
         "checked": "Actual statement at lines 212–215 read at the pinned commit on 2026-10-09."
+      },
+      {
+        "ref": "mathlib:LocallyConstant",
+        "module": "Mathlib/Topology/LocallyConstant/Basic.lean",
+        "provides": "Bundled functions on a topological space whose fibres are locally constant, with pointwise algebraic operations; component labels for arbitrary affine bases.",
+        "checked": "Exact structure fields and pointwise group substrate read at the pinned commit and matched byte-for-byte against the shared build on 2026-10-09."
+      },
+      {
+        "ref": "mathlib:PrimeSpectrum",
+        "module": "Mathlib/RingTheory/Spectrum/Prime/Defs.lean",
+        "provides": "Native prime spectrum carrier, with Zariski topology imported from Mathlib/RingTheory/Spectrum/Prime/Topology.lean; no substitute connected-component set.",
+        "checked": "Exact structure fields and topology read at the pinned commit and matched byte-for-byte against the shared build on 2026-10-09."
       }
     ]
   },
@@ -78,7 +90,7 @@
       "id": "ces",
       "title": "A modular description of X_0(n)",
       "authors": "Kęstutis Česnavičius",
-      "edition": "arXiv:1511.07475v2, 5 October 2017; printed pagination 1–65",
+      "edition": "arXiv:1511.07475v2, 5 October 2017; printed pagination 1–67",
       "url": "https://arxiv.org/pdf/1511.07475v2",
       "readDate": "2026-10-09",
       "readSections": [
@@ -91,12 +103,12 @@
       "id": "con",
       "title": "Arithmetic moduli of generalized elliptic curves",
       "authors": "Brian Conrad",
-      "edition": "Author copy of J. Inst. Math. Jussieu 6 (2007), 209–278; citations use author-copy pages",
+      "edition": "Author copy dated 18 July 2006 of J. Inst. Math. Jussieu 6 (2007), 209–278; citations use author-copy pages",
       "url": "https://math.stanford.edu/~conrad/papers/kmpaper.pdf",
       "readDate": "2026-10-09",
       "readSections": [
         "§2.1, pp.4–7; §2.2, pp.7–10",
-        "§3.2, pp.23–26, especially Theorems 3.2.2 and 3.2.4"
+        "§3.2, pp.23–26, especially Theorem 3.2.2 pp.23–24 and Theorem 3.2.4 pp.24–25"
       ],
       "sha256": "f53e4ff819d534926e6ee59874cbce4e7bad4a315cbd6d05984b8405b11f15d8"
     },
@@ -134,7 +146,8 @@
       "readDate": "2026-10-09",
       "readSections": [
         "§2.3, Lemma 2.3.2, pp.282–284",
-        "§2.4, Theorem 2.4.1 and proof of the separable-polarization implication, pp.286–287"
+        "§2.4, Theorem 2.4.1 and proof of the separable-polarization implication, pp.286–287",
+        "Remark after Corollary 2.4.2, p.288: symmetric tangent coordinates"
       ],
       "sha256": "d26f4320669876099dfbcab554bea1b2f4f90eb714bfdd22badc6a6cc9817c8c"
     },
@@ -160,7 +173,8 @@
       "readDate": "2026-10-09",
       "readSections": [
         "§16, Proposition 16.1 and Corollary 16.2, pp.67–68",
-        "§17, Theorem 17.1 and Remark 17.2, pp.69–71; these do not supply a proof of the arbitrary-base dual theorem"
+        "§17, Theorem 17.1 and Remark 17.2, pp.69–71; these do not supply a proof of the arbitrary-base dual theorem",
+        "§6, pp.30–31, and Theorem 11.1, p.54: statement-level ample embedding and cohomology inputs; original proofs not supplied"
       ],
       "sha256": "f5ca4e63e5092a4b102daad1470e4cbed5fe8f82115e3a28c8881e3f67f6aaef"
     },
@@ -174,8 +188,10 @@
       "readSections": [
         "V.1.1–V.1.5, pp.DeRa92–94 (PDF indices 91–93), browser PDF text; displayed formulas can be absent in OCR",
         "II.2.3–II.2.6, pp.DeRa44–46 (PDF indices 43–45); III.2.5–III.2.6, pp.DeRa61–62 (PDF indices 60–61), read for Pic⁰ action and one-gon algebraicity",
-        "IV.1.1–IV.1.3, pp.DeRa63–65 (PDF indices 62–64), including the contraction existence and uniqueness proof; IV.1.6, pp.DeRa65–67, read for the trait-model argument"
-      ]
+        "IV.1.1–IV.1.3, pp.DeRa63–65 (PDF indices 62–64), including the contraction existence and uniqueness proof; IV.1.6, pp.DeRa65–67, read for the trait-model argument",
+        "Original scan images of DeRa63–64 and DeRa93 viewed independently to check omitted OCR formulas and hypotheses"
+      ],
+      "sha256": "201e758341c69fc4cd635104b965a67beddaf93c295fbeea36ca37118e174864"
     },
     {
       "id": "stacks",
@@ -234,9 +250,9 @@
         "tauceti:TauCetiRoadmap/ModularCurves#0a-relative-effective-cartier-divisors"
       ],
       "proofSteps": [
-        "Build the node chart Spec(O_S[x,y]/xy) and glue its punctured branches to the standard projective-line charts; for n=1 use the same two branches on one normalization component.",
+        "Construct the cyclic coequalizer of the disjoint union of projective lines by identifying the indicated pairs of sections, including two sections on the same line for n=1. Obtain split nodal charts étale locally; do not glue a reducible affine xy=0 neighborhood as a Zariski open in the irreducible one-gon.",
         "Prove properness and flatness from the canonical relative-normalization/gluing construction, with normalization sequence giving genus one.",
-        "Descend (u,i)·(t,j)=(ut,i+j) from the normalization; compare the smooth-locus point group with native units and ZMod."
+        "Descend the multiplication formula on the smooth group scheme G_m×(Z/nZ)_S. On Spec R, a section of the constant component scheme is a locally constant label, not necessarily a single element of ZMod n; the two-factor algebra formula applies to constant labels."
       ],
       "sources": [
         {
@@ -269,7 +285,7 @@
         {
           "name": "StandardNgon.smoothPoints",
           "role": "compatibility",
-          "statement": "On affine test rings R the smooth-point group is Rˣ×Multiplicative(ZMod n), naturally in R."
+          "statement": "On affine test rings R the smooth-point group is Rˣ × Multiplicative(LocallyConstant(Spec R, ZMod n)), naturally in R. Constant labels give Rˣ × Multiplicative(ZMod n) only when Spec R is connected and nonempty; over a disconnected base labels may differ between clopen pieces."
         },
         {
           "name": "StandardNgon.normalization",
@@ -279,7 +295,7 @@
         {
           "name": "StandardNgon.nodeCharts",
           "role": "characterisation",
-          "statement": "Every node has the standard xy=0 chart; n=1 still has two normalization flags."
+          "statement": "Étale locally at each node the split nodal model is xy=0, with two relative-normalization flags, including n=1. A Zariski xy=0 neighborhood is not asserted for the irreducible one-gon."
         }
       ],
       "tests": [
@@ -296,7 +312,17 @@
         {
           "name": "StandardNgon.base_change_nonreduced",
           "kind": "compatibility",
-          "statement": "The same normalization and xy=0 node charts persist over k[ε]/ε²; the construction does not discard nilpotents."
+          "statement": "The same relative normalization and étale-local split xy=0 node models persist over k[ε]/ε²; the construction does not discard nilpotents."
+        },
+        {
+          "name": "StandardNgon.disconnected_points",
+          "kind": "non-example",
+          "statement": "For R=F₂×F₂ and n=2, C₂^sm(R) has four points: its two connected base pieces independently choose a label. Rˣ×Z/2Z has only two. Thus constant-label formulas do not enumerate all R-points."
+        },
+        {
+          "name": "StandardNgon.onegon_etale_chart",
+          "kind": "non-example",
+          "statement": "Over an algebraically closed field C₁ is irreducible. Every nonempty Zariski open is irreducible, whereas a neighborhood of the crossing in xy=0 is reducible. Its split nodal chart is étale local, with two flags on the relative normalization."
         }
       ],
       "uses": [
@@ -546,8 +572,9 @@
       ],
       "kind": "construction",
       "title": "Contraction of polygon components",
-      "statement": "For a proper flat finitely presented semistable genus-one curve E/S and a relative effective Cartier divisor D⊂E^sm finite locally free of positive rank, construct c_D(E) by contracting precisely fibre components disjoint from D, uniquely as the relative projective contraction and compatibly with arbitrary base change. Its smooth locus is the image of the open subgroup of E^sm consisting of retained components when E is generalized elliptic and D=G is a finite locally free subgroup. In that subgroup case the contraction inherits a unique generalized law and action, G becomes ample, and the map restricts to an isomorphism from the retained-component open in E^sm onto c_G(E)^sm.",
+      "statement": "For a proper flat finitely presented Deligne–Rapoport semistable genus-one curve E/S (geometric fibres smooth connected genus one or Néron polygons) and a relative effective Cartier divisor D⊂E^sm finite locally free of positive rank, construct c_D(E) by contracting precisely fibre components disjoint from D, uniquely as the relative projective contraction and compatibly with arbitrary base change. Its smooth locus is the image of the open subgroup of E^sm consisting of retained components when E is generalized elliptic and D=G is a finite locally free subgroup. In that subgroup case the contraction inherits a unique generalized law and action, G becomes ample, and the map restricts to an isomorphism from the retained-component open in E^sm onto c_G(E)^sm.",
       "hypotheses": [
+        "The DR fibre condition is required: geometric fibres are connected nodal genus-one curves with trivial dualizing bundle. General semistable genus-one curves with rational tails are excluded.",
         "The general divisor construction yields a curve, not an asserted group object. The subgroup case uses a generalized elliptic input and a finite locally free subgroup. The contraction is not the scheme quotient E/G."
       ],
       "prerequisites": [
@@ -583,6 +610,11 @@
           "sourceId": "dr",
           "locator": "IV.1.1–IV.1.3, pp.DeRa63–65 (PDF indices 62–64)",
           "match": "The proof reduces to noetherian bases, constructs the graded section algebra with compatible base change, proves uniqueness and transports the subgroup action."
+        },
+        {
+          "sourceId": "con",
+          "locator": "Definition 2.1.2, p.4; contraction discussion pp.7–8",
+          "match": "The divisor contraction assumes DR semistability, which excludes rational tails. DR IV.1.1–1.2 uses the same fibre class under its older stable-curve terminology."
         }
       ],
       "acceptance": [
@@ -598,7 +630,7 @@
         {
           "name": "GenusOneCurve.contractDivisor",
           "role": "constructor",
-          "statement": "Construct the relative projective contraction for a positive finite locally free smooth Cartier divisor; with a subgroup divisor it agrees with GeneralizedEllipticCurve.contract."
+          "statement": "For a DR semistable genus-one family construct the relative projective contraction for a positive finite locally free smooth Cartier divisor; with a subgroup divisor it agrees with GeneralizedEllipticCurve.contract."
         },
         {
           "name": "GeneralizedEllipticCurve.contract",
@@ -640,7 +672,12 @@
         {
           "name": "GenusOneCurve.divisor_without_law",
           "kind": "non-example",
-          "statement": "A divisor meeting selected components of a bare semistable genus-one curve produces its curve contraction, but supplies neither a zero nor a group action; the output is not automatically generalized elliptic."
+          "statement": "A divisor meeting selected components of a bare DR semistable genus-one curve produces its curve contraction, but supplies neither a zero nor a group action; the output is not automatically generalized elliptic."
+        },
+        {
+          "name": "GenusOneCurve.rational_tail_excluded",
+          "kind": "non-example",
+          "statement": "Attach P¹ to a smooth elliptic curve at one node and put D at a smooth point on the P¹ tail. This connected nodal genus-one curve is not DR: its dualizing multidegrees are 1 on the elliptic component and −1 on the tail. For m>0, H¹(O(mD)) has dimension one, so the DR vanishing argument cannot be applied."
         }
       ],
       "uses": [
@@ -680,7 +717,7 @@
       "sources": [
         {
           "sourceId": "ces",
-          "locator": "§3.1, pp.15–16; Proposition 3.1.5, p.17",
+          "locator": "§3.1, pp.15–16; Proposition 3.1.5, p.16",
           "match": "The fixed-polygon stack and the n-ordinary open have different object sets."
         }
       ],
@@ -822,7 +859,7 @@
       "sources": [
         {
           "sourceId": "ces",
-          "locator": "Proof of Proposition 3.1.5, pp.17–18",
+          "locator": "Proof of Proposition 3.1.5, pp.16–17",
           "match": "The B₁=E_1 base is used before the general auxiliary equivalence."
         },
         {
@@ -871,7 +908,7 @@
       "sources": [
         {
           "sourceId": "ces",
-          "locator": "§3.1, pp.16–17; Proposition 3.1.5",
+          "locator": "§3.1, pp.15–16; Proposition 3.1.5",
           "match": "This auxiliary subgroup space supplies the n-ordinary fppf presentation."
         }
       ],
@@ -970,7 +1007,7 @@
         },
         {
           "sourceId": "ces",
-          "locator": "Proposition 3.1.5, p.17",
+          "locator": "Proposition 3.1.5, p.16",
           "match": "Restates the DM and smoothness conclusion without inverting n."
         }
       ],
@@ -1011,7 +1048,7 @@
       "sources": [
         {
           "sourceId": "ces",
-          "locator": "Proposition 3.1.5 and proof, pp.17–18",
+          "locator": "Proposition 3.1.5 and proof, pp.16–17",
           "match": "States the representability, range and fppf properties needed for this cover."
         }
       ],
@@ -1055,7 +1092,7 @@
       "sources": [
         {
           "sourceId": "ces",
-          "locator": "Theorem 3.1.6(a) and proof, pp.18–19",
+          "locator": "Theorem 3.1.6(a) and proof, pp.17–18",
           "match": "The fixed-count stack is smooth and algebraic even with non-smooth inertia."
         },
         {
@@ -1105,12 +1142,12 @@
       "sources": [
         {
           "sourceId": "con",
-          "locator": "Theorem 3.2.4 and proof, pp.25–26",
+          "locator": "Theorem 3.2.4 and proof, pp.24–25",
           "match": "The matched-count hypothesis gives finite relative Isom."
         },
         {
           "sourceId": "ces",
-          "locator": "Proposition 3.1.8, p.19",
+          "locator": "Proposition 3.1.8, pp.18–19",
           "match": "Compatible degeneracy counts give finite representability over arbitrary schemes."
         }
       ],
@@ -1147,13 +1184,14 @@
       "proofSteps": [
         "For an elliptic curve over a trait fraction field, use semistable reduction after a finite field extension.",
         "Ramify further until the special polygon count is divisible by n, choose a finite locally free subgroup meeting n components, and contract to an n-gon; supply the component-count/ramification input in G-trait-model.",
+        "If the generic object is already singular, pass to a finite field extension trivializing its form of the standard n-gon (the fppf torsor under µ_n×C₂ has a point after a finite extension). The constant standard polygon then supplies an extension over the new trait. Include this case as well as smooth elliptic generic fibres.",
         "The finite diagonal supplies the separatedness part of the stack valuative criterion. Quasi-compactness follows from the smooth moduli plus the single standard-polygon boundary class; local finite presentation follows from smoothness.",
         "Apply the existence-after-extension valuative criterion for proper algebraic stacks requested from SF.1."
       ],
       "sources": [
         {
           "sourceId": "ces",
-          "locator": "Theorem 3.1.6(a) and proof, pp.18–19",
+          "locator": "Theorem 3.1.6(a) and proof, pp.17–18",
           "match": "Semistable reduction and prescribed polygon contraction prove properness."
         }
       ],
@@ -1194,7 +1232,7 @@
       "sources": [
         {
           "sourceId": "ces",
-          "locator": "Theorem 3.1.6(a), p.18",
+          "locator": "Theorem 3.1.6(b), p.17",
           "match": "Specifies the exact largest DM open."
         }
       ],
@@ -1238,8 +1276,8 @@
       "sources": [
         {
           "sourceId": "ces",
-          "locator": "Theorem 3.1.6(b)–(c), pp.18–19",
-          "match": "States the boundary gerbe, its relative Cartier structure and its smoothness."
+          "locator": "Theorem 3.1.6(c)–(d), pp.17–18; Lemma 2.1.6, p.7",
+          "match": "Parts (c) and (d) give the finite-flat polygon presentation, smoothness and reduced Cartier boundary; Lemma 2.1.6 identifies the band µ_n×C₂, yielding its classifying-stack description."
         }
       ],
       "acceptance": [
@@ -1336,7 +1374,7 @@
         },
         {
           "sourceId": "ols",
-          "locator": "Definition 2.1.1, p.297",
+          "locator": "§2.1.4, p.298",
           "match": "The proper smooth connected-fibre group is the unpolarized relative carrier."
         }
       ],
@@ -1477,7 +1515,7 @@
         {
           "sourceId": "milne",
           "locator": "§16, Proposition 16.1 and Corollary 16.2, pp.67–68",
-          "match": "The field case is already owned; it is not enough by itself over a nonreduced base."
+          "match": "Proposition 16.1 and Corollary 16.2 concern rigidity for families over varieties, not the multiplication degree or arbitrary nonreduced bases. Kass supplies relative rigidity; Corollary 1 there states relative multiplication as an exercise, tracked by G-relative-torsion."
         },
         {
           "sourceId": "ols",
@@ -1519,23 +1557,24 @@
         "AlgebraicModuliForArithmeticGeometry:R09.4/arith-relative-abelian-rigidity",
         "tauceti:TauCetiRoadmap/JacobianChallenge#layer-e-abelian-varieties",
         "tauceti:TauCetiRoadmap/JacobianChallenge#layer-c-relative-coherent-cohomology-and-base-change",
-        "AlgebraicModuliForArithmeticGeometry:R09.1"
+        "AlgebraicModuliForArithmeticGeometry:A0-extension/section-rigidified-picard",
+        "AlgebraicModuliForArithmeticGeometry:A0-extension/relative-picard-sheaf"
       ],
       "proofSteps": [
-        "Define the rigidified Picard functor with its theorem-of-the-cube group law.",
+        "Use the existing relative Picard sheaf and zero-section rigidification from A0-extension; tensor product is its group law. Restrict to fibrewise algebraically trivial classes. The theorem of the cube supplies additional abelian identities, not the tensor group law itself.",
         "Use the abelian-specific relative representability argument, not merely the unproved blanket Picard representability target; G-dual records the missing proof from arbitrary bases.",
         "Construct normalized Poincaré data and evaluate against it to prove base change and biduality by fibre comparison plus rigidity."
       ],
       "sources": [
         {
           "sourceId": "ols",
-          "locator": "§2.1.3, p.298",
+          "locator": "§2.1.4, p.298",
           "match": "States relative duality and the normalized universal line bundle."
         },
         {
           "sourceId": "kass",
-          "locator": "§3, Theorems 3–5, pp.5–6",
-          "match": "Confirms the dual and Poincaré statements but does not supply the omitted representability proof."
+          "locator": "§3, Theorems 5–7, pp.5–6, and final paragraph before Theorem 8, p.7",
+          "match": "Theorems 5–7 concern field Picard representability, the dual and biduality. The p.7 paragraph only asserts the relative theory; none supplies the arbitrary-base representability proof (G-dual)."
         }
       ],
       "acceptance": [
@@ -1622,12 +1661,12 @@
       "proofSteps": [
         "Define φ_L by the normalized Poincaré universal property and the theorem of the cube.",
         "Require fibrewise ample representability and the finite-flat degree condition.",
-        "Use fibre Riemann–Roch and the existing field polarization degree theorem to relate rank ker λ and h⁰(L)."
+        "Use fibre Riemann–Roch and the existing field polarization degree theorem to relate rank ker λ and h⁰(L). The field Riemann–Roch and ample-vanishing proofs are G-field-ample; they are not certified by the current field roadmap specification."
       ],
       "sources": [
         {
           "sourceId": "ols",
-          "locator": "§2.1.5–§2.1.7, pp.298–300",
+          "locator": "§2.1.1–§2.1.7, pp.297–299",
           "match": "The homomorphism definition and square degree convention are the intended moduli data; E1 corrects its global translation claim."
         }
       ],
@@ -1720,14 +1759,14 @@
       ],
       "proofSteps": [
         "Construct a canonical bundle representing 2λ from (id,λ)*Poincaré.",
-        "Its square-root torsor under A∨[2] supplies the local representative; this torsor is étale when 2 is invertible.",
-        "For a prescribed residue bundle use Oort Lemma 2.3.2 and the Picard exact sequence.",
+        "Over a field, the square-root sheaf of the canonical doubled bundle is a torsor under A∨[2]; finite flatness gives fppf local representatives and, when 2 is invertible, finite étaleness gives separable local representatives.",
+        "For general S, realize the required finite residue-field extension by a quasi-finite flat neighborhood (étale in the separable case), then extend the chosen fibre representative using Olsson Lemma 2.1.8. That step uses limits, Artin approximation, compatible lifts over Artin quotients by Oort Lemma 2.3.2, and formal effectivity; G-local-polarization-lifting records these unsupplied inputs.",
         "The correct translation criterion is the image of λ on S-sections, not all of A∨(S); use E1 to test the global distinction."
       ],
       "sources": [
         {
           "sourceId": "ols",
-          "locator": "Lemmas 2.1.8–2.1.9, pp.300–301; Remark 2.1.6, p.299",
+          "locator": "Lemma 2.1.8 and proof, pp.299–300; Lemma 2.1.9 and proof, pp.300–301; Remark 2.1.6, p.299",
           "match": "The local conclusions are valid; E1 supplies the correction to the global translation sentence."
         },
         {
@@ -1768,13 +1807,18 @@
       "proofSteps": [
         "Compute φ_M=2λ with the Poincaré identities and check positivity on every fibre.",
         "Apply the abelian very-ampleness theorem to M³ on fibres; relative base change makes the embedding uniform.",
-        "Use higher-cohomology vanishing and Riemann–Roch on every abelian fibre, then coherent base change, to obtain ranks and the fixed polynomial."
+        "Use higher-cohomology vanishing and Riemann–Roch on every abelian fibre, then coherent base change, to obtain ranks and the fixed polynomial. G-field-ample records the field vanishing, Riemann–Roch, degree-square and cubic-embedding proof inputs; current Layer E does not explicitly supply them."
       ],
       "sources": [
         {
           "sourceId": "ols",
-          "locator": "§2.1.7–§2.1.10, pp.300–302",
+          "locator": "§2.1.4, pp.298–299, and proof of Theorem 2.1.11, p.302",
           "match": "The canonical doubled line bundle and its cubic embedding produce bounded projective data."
+        },
+        {
+          "sourceId": "milne",
+          "locator": "§6, ample-divisor discussion pp.30–31; Theorem 11.1, p.54",
+          "match": "States cubic very ampleness and the field degree/Euler-characteristic, Riemann–Roch and index results, referring to Mumford for proofs. These are not supplied by current JacobianChallenge Layer E; G-field-ample records proof closure."
         }
       ],
       "acceptance": [
@@ -2336,7 +2380,7 @@
       "sources": [
         {
           "sourceId": "oort",
-          "locator": "Theorem 2.4.1, implication (a)⇒(c), pp.286–287; Lemma 2.3.2, pp.282–284",
+          "locator": "Theorem 2.4.1, separable ⇒ formally smooth direction, pp.286–287; Lemma 2.3.2, pp.282–284",
           "match": "The separable-polarization implication is the exact smoothness input required here."
         }
       ],
@@ -2384,6 +2428,11 @@
           "sourceId": "oort",
           "locator": "Theorem 2.4.1, pp.286–287",
           "match": "Provides unobstructedness for separable polarizations."
+        },
+        {
+          "sourceId": "oort",
+          "locator": "Remark following Corollary 2.4.2, p.288",
+          "match": "The symmetric tangent-coordinate description supplies the dimension g(g+1)/2, including characteristic two; its deformation prerequisites remain G-abelian-deformation."
         }
       ],
       "acceptance": [
@@ -2437,7 +2486,7 @@
         },
         {
           "sourceId": "ces",
-          "locator": "Theorem 3.1.6, pp.18–19",
+          "locator": "Theorem 3.1.6, pp.17–18",
           "match": "The generalized-elliptic boundary explains the missing properness in the smooth elliptic open."
         }
       ],
@@ -2468,7 +2517,14 @@
         "https://library.slmath.org/books/Book59/files/65olsson.pdf",
         "https://sites.google.com/berkeley.edu/martin-olsson/articles-and-notes",
         "Web search: Olsson Compactifications of moduli of abelian varieties errata"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed against the accessed MSRI survey. On the real elliptic curve the nonidentity component cannot lie in the doubling image; both positive degree-two bundles have the same polarization. Equality of homomorphisms gives a dual section, not a global preimage under λ.",
+        "reviewer": "independent-review-REV-AlgebraicModuliForArithmeticGeometry--R09.4",
+        "date": "2026-10-09",
+        "by": "REV-AlgebraicModuliForArithmeticGeometry--R09.4"
+      }
     },
     {
       "id": "AlgebraicModuliForArithmeticGeometry/E2",
@@ -2479,12 +2535,19 @@
       "correction": "Use the split nodal cubic y²z+xyz=x³. Its normalization has x=u(u+1), y=u²(u+1) with the two preimages u=0,−1 of the node; a projective change of parameter identifies these with 0 and ∞.",
       "reason": "At the printed cubic’s node in characteristic two the tangent cone is (y+x)², and its parameterization has only one geometric preimage: it is cuspidal rather than nodal. Over R its tangent cone y²+x² is nonsplit, whereas the standard one-gon is split. The corrected tangent cone y(y+x) has distinct rational branches in every characteristic.",
       "affects": "a stated result",
-      "known": "No public correction found on the author paper page or by the title/errata search on 2026-10-09. The same equation occurs in the higher ModularCurvesPartII packet; its consumer should use this corrected owner.",
+      "known": "No public correction found on the author paper page or by the title/errata search on 2026-10-09. The same equation occurs in the higher ModularCurvesPartII packet; its consumer should use this corrected owner. Independently checked only in the author copy dated 18 July 2006; the published journal artifact was not read.",
       "searched": [
         "https://math.stanford.edu/~conrad/papers/kmpaper.pdf",
         "https://math.stanford.edu/~conrad/papers/",
         "Web search: Conrad arithmetic moduli generalized elliptic curves errata nodal cubic"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in the author copy dated 18 July 2006, p.5. The printed tangent cone is nonsplit over R and a repeated line in characteristic two. The corrected y²+xy=x³ has two split branches even in characteristic two. No claim is made about an unread publisher artifact.",
+        "reviewer": "independent-review-REV-AlgebraicModuliForArithmeticGeometry--R09.4",
+        "date": "2026-10-09",
+        "by": "REV-AlgebraicModuliForArithmeticGeometry--R09.4"
+      }
     },
     {
       "id": "AlgebraicModuliForArithmeticGeometry/E3",
@@ -2499,7 +2562,14 @@
       "searched": [
         "https://people.ucsc.edu/~jelkass/files/AbelianSchemes.pdf",
         "Web search: Notes on Abelian Schemes Kass correction rigidity"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in the 10 May 2014 notes, Lemma 1 proof p.2. The final pushforward has the wrong sheaf domain; η_*O_S has the required type.",
+        "reviewer": "independent-review-REV-AlgebraicModuliForArithmeticGeometry--R09.4",
+        "date": "2026-10-09",
+        "by": "REV-AlgebraicModuliForArithmeticGeometry--R09.4"
+      }
     },
     {
       "id": "AlgebraicModuliForArithmeticGeometry/E4",
@@ -2515,7 +2585,14 @@
         "https://arxiv.org/pdf/1511.07475v2",
         "https://msp.org/ant/2017/11-9/ant-v11-n9-p02-s.pdf",
         "Web search: A modular description of X_0(n) errata contraction"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed as an ambient-locus clarification in arXiv v2 p.19 and published p.2025. For the identity contraction of a full-component subgroup, the proper polygon cannot equal its smooth group. The intended open lies in E^sm; the contraction theorem itself remains valid.",
+        "reviewer": "independent-review-REV-AlgebraicModuliForArithmeticGeometry--R09.4",
+        "date": "2026-10-09",
+        "by": "REV-AlgebraicModuliForArithmeticGeometry--R09.4"
+      }
     }
   ],
   "requests": [
@@ -2577,7 +2654,7 @@
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity",
-      "need": "Import relative curve cohomology, duality, positivity and section/base-change arguments used in DR IV.1.2. General positive-divisor genus-one contraction is owned by arith-contraction, with the graded relative-Proj construction and the arbitrary-base approximation proof now outlined from the original source.",
+      "need": "Import relative curve cohomology, duality, positivity and section/base-change arguments used in DR IV.1.2. Positive-divisor contraction of DR semistable genus-one families is owned by arith-contraction, with the graded relative-Proj construction and the arbitrary-base approximation proof now outlined from the original source.",
       "usedBy": [
         "AlgebraicModuliForArithmeticGeometry:R09.4"
       ],
@@ -2625,15 +2702,15 @@
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-e-abelian-varieties",
-      "need": "Import field abelian duality, polarization degree, Riemann–Roch/vanishing and cubic very-ampleness from the existing field direction; combine with native field abelian varieties. Relative duals, torsion and minimum polarized rigidity have the local lower-tier owner here; do not import higher arithmetic-moduli or Rosati plans.",
+      "need": "Import the existing field abelian carrier, duality, cube/square, polarizations and multiplication isogenies. Current Layer E does not explicitly include ample higher-cohomology vanishing, Riemann–Roch/degree-square or cubic very ampleness: G-field-ample requests those exact additional exports, without claiming they are already planned or proved. Relative duals, torsion and minimum polarized rigidity retain the local lower owner.",
       "usedBy": [
         "AlgebraicModuliForArithmeticGeometry:R09.4"
       ],
       "status": "requested"
     },
     {
-      "supplier": "AlgebraicModuliForArithmeticGeometry:R09.1",
-      "need": "Use its existing relative Picard-functor interface to state the rigidified algebraically trivial functor; G-dual requires the abelian-specific representability proof and must not be discharged by a blanket Picard assertion.",
+      "supplier": "AlgebraicModuliForArithmeticGeometry:A0-extension",
+      "need": "Import relative-picard-sheaf, relative-picard-base-change and section-rigidified-picard: the fppf sheaf of line-bundle classes, tensor law, restriction and zero-section rigidification. These do not represent the fibrewise algebraically trivial functor; that abelian-specific theorem remains G-dual. R09.1 has no relative Picard target.",
       "usedBy": [
         "AlgebraicModuliForArithmeticGeometry:R09.4"
       ],
@@ -2680,13 +2757,21 @@
         "AlgebraicModuliForArithmeticGeometry:R09.4/arith-onegon-weierstrass"
       ],
       "status": "requested"
+    },
+    {
+      "supplier": "SchemeAndStackFoundations:SF.4",
+      "need": "For Olsson Lemma 2.1.8, pp.299–300, provide exact Artin approximation for the locally finitely presented representative-line-bundle functor after finite-presentation limits. Identify a supplier of polarized Grothendieck formal effectivity to turn compatible Oort lifts over complete local Artin quotients into a line bundle on A. Neither result is asserted to be supplied by the current deformation or Picard target; G-local-polarization-lifting remains until both contracts and proofs are checked.",
+      "usedBy": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/arith-local-ample-representatives"
+      ],
+      "status": "requested"
     }
   ],
   "gaps": [
     {
       "id": "AlgebraicModuliForArithmeticGeometry/G-native",
       "title": "Native signatures for unimplemented geometric carriers",
-      "detail": "The pinned baseline has neither the SF.1 stack carrier nor a bundled generalized elliptic curve, relative Picard/Poincaré bundle, relative Cartier divisor contraction or fixed-dimension predicate in the form required here. The suggested file explicitly names every omitted definition, theorem, API and test, and its exact mathematical contract. Only the native abelian-scheme carrier and field adapters and the polygon smooth-point formulas are typed; no omitted hypothesis is replaced by an arbitrary proposition. Elaborating this partial signature file does not certify any omitted statement.",
+      "detail": "The pinned baseline has neither the SF.1 stack carrier nor a bundled generalized elliptic curve, relative Picard/Poincaré bundle, relative Cartier divisor contraction or fixed-dimension predicate in the form required here. The suggested file explicitly names every omitted definition, theorem, API and test, and its exact mathematical contract. Only the native abelian-scheme carrier and field adapters and the general polygon point-group carrier and narrower constant-label action formulas are typed; no omitted hypothesis is replaced by an arbitrary proposition. Elaborating this partial signature file does not certify any omitted statement.",
       "affectedNodes": [
         "AlgebraicModuliForArithmeticGeometry:R09.4/arith-standard-ngon",
         "AlgebraicModuliForArithmeticGeometry:R09.4/arith-generalized-elliptic",
@@ -2726,7 +2811,7 @@
     {
       "id": "AlgebraicModuliForArithmeticGeometry/G-cyclic-cover",
       "title": "Pointed cyclic cover across the one-gon",
-      "detail": "Reconstruct DR V.1.4’s inverse: the unique pointed finite étale cyclic cover of the irreducible generalized elliptic curve dual to the selected multiplicative subgroup, including its group/action extension on n-gons, in families and with base change. The DR scan’s OCR drops displayed formulas; the auxiliary equivalence is read but this reconstruction is not established.",
+      "detail": "Reconstruct DR V.1.4’s inverse: the unique pointed finite étale cyclic cover of the irreducible generalized elliptic curve dual to the selected multiplicative subgroup, including its group/action extension on n-gons, in families and with base change. The original scan at DeRa93 was viewed independently in this review, so the missing input is the relative construction and proof, not merely OCR access. The auxiliary equivalence is read but this reconstruction is not established.",
       "affectedNodes": [
         "AlgebraicModuliForArithmeticGeometry:R09.4/arith-cyclic-atlas-dm"
       ]
@@ -2812,6 +2897,23 @@
         "AlgebraicModuliForArithmeticGeometry:R09.4/arith-fixed-elliptic-moduli",
         "AlgebraicModuliForArithmeticGeometry:R09.4/arith-polarized-abelian-moduli"
       ]
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry/G-local-polarization-lifting",
+      "title": "Extend a chosen fibre representative on an étale neighborhood",
+      "detail": "Olsson Lemma 2.1.8, pp.299–300, reduces by limits, applies Artin approximation and uses compatible Oort lifts plus effectivity over complete local bases. The field square-root torsor does not alone supply these arbitrary-base steps. Obtain exact approximation and polarized formal-effectivity supplier statements and read their proofs; do not discharge this with field Picard representability or ordinary coherent base change.",
+      "affectedNodes": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/arith-local-ample-representatives"
+      ]
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry/G-field-ample",
+      "title": "Field ample abelian cohomology and uniform cubic embedding",
+      "detail": "For every ample L on a g-dimensional abelian variety over any field, supply H^i(A,L)=0 for i>0, χ(L^m)=m^gχ(L), rank ker φ_L=χ(L)^2, and very ampleness of L³. Olsson §§2.1.1–2.1.4, pp.297–299, and p.302, and Milne Theorem 11.1, p.54, and §6 pp.30–31 state or invoke these but refer elsewhere for proof. Current JacobianChallenge Layer E owns field dual/polarization theory but does not explicitly contain these exports; its curve Riemann–Roch is insufficient when g>1. Request the exports from that existing direction without duplicating the field theory; this review has not read their original proof.",
+      "affectedNodes": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4/arith-polarization",
+        "AlgebraicModuliForArithmeticGeometry:R09.4/arith-canonical-bounded-bundle"
+      ]
     }
   ],
   "coverage": [
@@ -2819,7 +2921,7 @@
       "stageId": "AlgebraicModuliForArithmeticGeometry:R09.4",
       "status": "planned",
       "remaining": [
-        "Discharge the twelve recorded gaps and satisfy the twenty precise supplier requests. No target-level node remains unwritten.",
+        "Discharge the fourteen recorded gaps and satisfy the twenty-one precise supplier requests. No existing target-level node remains unwritten; new proof inputs are recorded as exact open supplier obligations.",
         "Apply the single-owner rewiring for SF.1, StableReductionPartII and the higher arithmetic suppliers. This packet does not modify those packets or close their reviews.",
         "Retain the accepted A0-extension R09.4 gerbe frontier and its open gaps; this arithmetic completion is not a certificate for it."
       ]
@@ -2938,22 +3040,242 @@
     {
       "roadmap": "tauceti:TauCetiRoadmap/StableReduction",
       "detail": "Its object-level curve/contraction/reduction roadmaps are imported. Moduli stacks stay with the existing StableReduction Part II proposal, whose review must be repaired."
+    },
+    {
+      "roadmap": "tauceti:TauCetiRoadmap/JacobianChallenge",
+      "detail": "Current Layer E explicitly lists field duality, polarizations and cube/square, but does not state the ample vanishing/Riemann–Roch/degree-square/cubic-embedding exports required by bounded arithmetic moduli. G-field-ample and the request identify the exact additional field exports; no existing upstream target is replanned and no upstream file is edited."
     }
   ],
   "validation": {
-    "blueprint": "check_blueprint.py passed with zero errors and zero warnings; final counts recorded in the handoff.",
-    "suggestedLean": "lean-check succeeded at the pinned baseline with only warnings for admitted proofs; all unstateable geometric signatures are explicitly named omissions under G-native.",
+    "blueprint": "Independent review: check_blueprint.py passes with zero errors and zero warnings; 33 nodes, 68 API items, 43 tests, 12 baseline declarations, 14 gaps, 21 requests and one new planet.",
+    "suggestedLean": "Independent review: lean-check succeeded at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 / Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 with only warnings for admitted proofs. It checks native signatures and admitted example statements, not proof correctness or the named geometric omissions. General locally constant component labels replace the false arbitrary-ring constant-label identification.",
     "currentUpstreamAudit": {
-      "roadmapCommit": "3b51bbf9a925f23bca922570bea8d641b6ec712d",
+      "roadmapCommit": "de435a569d325b365a30fe83269ce34674eaea80",
       "tauCetiCommit": "a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039",
       "read": [
         "AlgebraicVectorBundles README and Suggested",
         "StableReduction README and Suggested",
         "ModularCurves object/group/quotient/moduli sections and Suggested",
-        "EllipticCurves relevant object and moduli sections"
+        "EllipticCurves relevant object and moduli sections",
+        "JacobianChallenge complete README, especially B–E; A0-extension relative-picard-sheaf, relative-picard-base-change and section-rigidified-picard exact contracts"
       ],
       "rule": "These read-only current-main inputs are not rebuilt. No native relative stack/dual/generalized carrier was found."
     },
     "reviewedAudit": "data/library-coverage.json, R09.4: partly built, with native Cat-valued descent but missing arithmetic stack applications."
+  },
+  "sourceVersions": [
+    {
+      "sourceId": "ces",
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/1511.07475v2",
+      "citation": "A modular description of X_0(n); arXiv:1511.07475v2, 5 October 2017; printed pagination 1–67",
+      "read": "2026-10-09",
+      "sha256": "94d0532f68812cd97a2fc119377c2adff529d5a2fa03fbda4fe8c2623ba4d0bd"
+    },
+    {
+      "sourceId": "con",
+      "kind": "author copy",
+      "url": "https://math.stanford.edu/~conrad/papers/kmpaper.pdf",
+      "citation": "Arithmetic moduli of generalized elliptic curves; Author copy dated 18 July 2006 of J. Inst. Math. Jussieu 6 (2007), 209–278; citations use author-copy pages",
+      "read": "2026-10-09",
+      "sha256": "f53e4ff819d534926e6ee59874cbce4e7bad4a315cbd6d05984b8405b11f15d8"
+    },
+    {
+      "sourceId": "ols",
+      "kind": "author copy",
+      "url": "https://library.slmath.org/books/Book59/files/65olsson.pdf",
+      "citation": "Compactifications of moduli of abelian varieties: an introduction; MSRI Publications 59, PDF masthead 2011; Cambridge print publication 2012, pp.295–348",
+      "read": "2026-10-09",
+      "sha256": "e9fb8d71139b90c14c57c68c4d5048a929c7135447b6372e4c5df097cf78bbf4"
+    },
+    {
+      "sourceId": "kass",
+      "kind": "author copy",
+      "url": "https://people.ucsc.edu/~jelkass/files/AbelianSchemes.pdf",
+      "citation": "Notes on Abelian Schemes; Author notes dated 10 May 2014, 8 pages",
+      "read": "2026-10-09",
+      "sha256": "53cc9465c948918bda905bf3ed2dc2ab45b726c9b0b4f2ebd57c24102f4463c8"
+    },
+    {
+      "sourceId": "ces-pub",
+      "kind": "published",
+      "url": "https://msp.org/ant/2017/11-9/ant-v11-n9-p02-s.pdf",
+      "citation": "A modular description of X_0(n); Algebra & Number Theory 11(9) (2017), 2001–2089; published version used only for the contraction wording comparison",
+      "read": "2026-10-09",
+      "sha256": "ccb6ebe7e478e67d20701e9e7cbffc0525a97bf5b02e6e2aa9511272d254ed1c"
+    }
+  ],
+  "review": {
+    "status": "needs_changes",
+    "reviewer": "independent-review-REV-AlgebraicModuliForArithmeticGeometry--R09.4",
+    "date": "2026-10-09",
+    "notes": "Completed independent review of all 33 arithmetic nodes, source locators, 10 original and two added pinned baseline declarations, exact supplier contracts, 68 API entries, 43 tests, source findings and RT /1 and /17. Corrected the packet and prototype in the permitted paths. The definitive reader is outside this issue’s deliverables and still asserts the false arbitrary-ring point formula, unrestricted contraction hypothesis and unsupported supplier/proof shortcuts; synchronize it using the report before acceptance. The 14 honest gaps, 21 requests, native omissions and planned stage are not themselves grounds for rejection. No inherited gerbe plan was rereviewed or certified.",
+    "checked": [
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.4/arith-standard-ngon",
+        "verdict": "corrected",
+        "note": "Corrected arbitrary-ring points to units times locally constant spectrum labels and split-node charts to étale locality; cyclic coequalizer remains the construction. Added disconnected-base and irreducible-one-gon controls."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.4/arith-generalized-elliptic",
+        "verdict": "verified",
+        "note": "Verified that the action and Pic⁰ condition are genuine defining data, beyond the DR fibre shape; existing smooth carrier and native pullback are reused."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.4/arith-degeneracy",
+        "verdict": "verified",
+        "note": "Verified the relative Fitting-ideal singular scheme, schematic degeneracy image and fppf polygon triviality, with arbitrary base change requiring the generalized action."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.4/arith-polygon-automorphisms",
+        "verdict": "verified",
+        "note": "Verified µ_n×C₂ as group schemes, including infinitesimal roots. Inversion changes both index and coordinate, so conjugation fixes the scaling root. Typed formulas now explicitly cover constant labels only."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.4/arith-contraction",
+        "verdict": "corrected",
+        "note": "Restricted the positive-divisor contraction to DR families; rational tails invalidate the stated vanishing. Original DR scan confirms this scope and retained smooth open. Added the elliptic-core/tail control."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.4/arith-fixed-elliptic-moduli",
+        "verdict": "corrected",
+        "note": "Verified fixed singular polygon count and inclusion of all smooth fibres; the n-ordinary open excludes only supersingular smooth points at primes dividing n. Corrected source page."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.4/arith-elliptic-descent",
+        "verdict": "verified",
+        "note": "Verified fpqc effective descent includes the curve, group, action and count; ample torsion supplies projective descent beyond bare sheaf descent."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.4/arith-onegon-weierstrass",
+        "verdict": "corrected",
+        "note": "Verified the (Δ,c₄)=1 open excludes cusps in all characteristics and uses the existing smooth Weierstrass owner with a local nodal extension; no circular use of E_n algebraicity. Corrected source pages."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.4/arith-cyclic-atlas-moduli",
+        "verdict": "corrected",
+        "note": "Verified ample finite étale cyclic subgroup without chosen generator and without inverting n. Tests distinguish infinitesimal µ_p, ordinary and supersingular cases. Corrected source pages."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.4/arith-cyclic-atlas-dm",
+        "verdict": "corrected",
+        "note": "Verified the auxiliary DM/smooth conclusion in DR V.1.4 and Česnavičius Proposition 3.1.5; inverse pointed-cover construction remains G-cyclic-cover, despite independently viewing DeRa93. Corrected source page."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.4/arith-cyclic-atlas-cover",
+        "verdict": "corrected",
+        "note": "Verified representable separated quasi-finite fppf presentation of the n-ordinary locus, not an étale map or a supersingular cover. Corrected source pages."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.4/arith-fixed-elliptic-algebraic",
+        "verdict": "corrected",
+        "note": "Verified the two-open cover and Stacks 06DC fppf recognition route; smoothness descends separately. SF.1 must supply that exact criterion. Corrected source pages."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.4/arith-elliptic-finite-diagonal",
+        "verdict": "corrected",
+        "note": "Verified matched-count finite Isom and finite diagonal over arbitrary bases. Corrected Conrad to pp.24–25 and Česnavičius to pp.18–19; trait extension remains G-trait-isom."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.4/arith-elliptic-proper",
+        "verdict": "corrected",
+        "note": "Added the singular generic-fibre case: trivialize the polygon form after finite extension and use the constant polygon. Smooth generic prescribed-count ramification remains G-trait-model. Corrected source pages."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.4/arith-elliptic-dm-locus",
+        "verdict": "corrected",
+        "note": "Verified the maximal DM open removes only p|n cusp points; smooth supersingular points remain DM. Corrected source to Theorem 3.1.6(b), p.17."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.4/arith-elliptic-cusp",
+        "verdict": "corrected",
+        "note": "Verified the gerbe band, rank-2n finite-flat presentation, smooth dimension-zero boundary, reducedness and relative Cartier condition. Corrected to Theorem 3.1.6(c)–(d), pp.17–18, plus Lemma 2.1.6."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.4/arith-elliptic-tame",
+        "verdict": "verified",
+        "note": "Verified diagonalizable µ_n is linearly reductive even when nonétale; C₂ makes the cusp wild only at 2. Away from 2,3 the smooth stabilizers are tame. DM and tame are independent."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.4/arith-abelian-scheme",
+        "verdict": "corrected",
+        "note": "Verified native Over/GrpObj/Smooth/IsProper/GeometricallyConnected carrier, field adapters and g=0 object; no private geometric replacement. Corrected Olsson relative definition to §2.1.4, p.298."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.4/arith-relative-abelian-rigidity",
+        "verdict": "corrected",
+        "note": "Verified relative zero-preserving rigidity and automatic commutativity. Corrected Milne match to reduced variety-base rigidity; it does not prove arbitrary-base multiplication. Relative finite-flat torsion remains G-relative-torsion."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.4/arith-relative-dual",
+        "verdict": "corrected",
+        "note": "Corrected source locators to Olsson §2.1.4 and Kass Theorems 5–7 plus p.7 assertion; replaced nonexistent R09.1 Picard supplier with exact A0-extension sheaf/rigidification nodes. Tensor is the group law; relative dual proof remains G-dual."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.4/arith-polarization",
+        "verdict": "corrected",
+        "note": "Verified geometric ample-homomorphism definition, dual-compatible arrows and d² kernel convention, including g=0. Exposed field ample cohomology/degree proof inputs as G-field-ample, not supplied field roadmap results."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.4/arith-local-ample-representatives",
+        "verdict": "corrected",
+        "note": "Separated field square-root torsor from arbitrary-base chosen-representative extension. Added G-local-polarization-lifting for approximation and formal effectivity. Corrected Lemma 2.1.8 pages; confirmed E1 global-translation correction."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.4/arith-canonical-bounded-bundle",
+        "verdict": "corrected",
+        "note": "Verified φ_M=2λ and Hilbert polynomial d(6t)^g, including ranks 6 and 12 in elliptic cases and rank one at g=0. Corrected source to p.302 and added precise field ample proof gap and locators."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.4/arith-polarized-abelian-moduli",
+        "verdict": "verified",
+        "note": "Verified groupoid objects retain λ and automorphisms, not a global ample bundle or coarse classes; empty g=0,d>1 and pullback tests discriminate the definition."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.4/arith-full-level",
+        "verdict": "verified",
+        "note": "Verified prime-to-characteristic full ordered basis and GL change-of-basis action, without a symplectic condition. Definition admits N=1,2; scheme rigidity separately needs N≥3."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.4/arith-polarized-automorphism-rigidity",
+        "verdict": "verified",
+        "note": "Verified positive polarization gives finite étale field automorphisms, relative infinitesimal rigidity and full-level rigidity; the finite-group/congruence proof including N=4 remains G-level-rigidity."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.4/arith-framed-polarized-parameter",
+        "verdict": "verified",
+        "note": "Verified canonical projective frames modulo scalars, rank d6^g and PGL torsor. Hilbert polynomial alone omits zero/law/λ; actual locus construction remains G-framed-locus."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.4/arith-fine-polarized-scheme",
+        "verdict": "verified",
+        "note": "Verified quasi-projective fine scheme statement in Olsson and Kass with N≥3. Trivial inertia alone yields only an algebraic space; stable GIT quotient and scheme proof remain G-fine-level."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.4/arith-polarized-algebraic-dm",
+        "verdict": "verified",
+        "note": "Verified GL quotient after inverting N and levels 3/4 covering Spec Z, producing an étale scheme atlas. Constant GL group need not have invertible order; no tame inference is made."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.4/arith-polarized-finite-diagonal",
+        "verdict": "verified",
+        "note": "Verified finite unramified polarized Isom needs proper trait extension, not merely finite field stabilizers. Relative good-reduction Hom extension remains G-good-reduction-extension."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.4/arith-polarized-small-extension-lifting",
+        "verdict": "corrected",
+        "note": "Verified the separable-polarization direction of Oort Theorem 2.4.1 and chosen representative lifting in Lemma 2.3.2; corrected nonexistent implication label. Relative abelian deformation/obstruction comparison remains G-abelian-deformation."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.4/arith-polarized-smooth",
+        "verdict": "corrected",
+        "note": "Verified smoothness only after inverting d, dimension g(g+1)/2 and no added level tangent directions; added Oort p.288 symmetric-coordinate locator, including characteristic two."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.4/arith-abelian-separation-tameness",
+        "verdict": "corrected",
+        "note": "Verified finite diagonal, characteristic-zero tameness, positive-characteristic stabilizer-order test and multiplicative degeneration refuting properness of A_{1,1}. Corrected generalized-elliptic source pages."
+      }
+    ]
   }
 }
