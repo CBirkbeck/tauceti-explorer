@@ -37841,7 +37841,8 @@
     "BP-PadicMeasuresIwasawaAlgebras~2"
    ],
    "prompt": "research/blueprint/prompts/REV-PadicMeasuresIwasawaAlgebras~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6415"
   },
   {
    "kind": "blueprint",
@@ -81045,8 +81046,9 @@
     "FIX-RT-AREA-algebraicgeometry"
    ],
    "prompt": "research/blueprint/prompts/FIX-RT-AREA-algebraicgeometry~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5701"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5701",
+   "finishedAt": "2026-10-09T11:43:26Z"
   },
   {
    "id": "REV-FIX-RT-AREA-algebraicgeometry~2",
