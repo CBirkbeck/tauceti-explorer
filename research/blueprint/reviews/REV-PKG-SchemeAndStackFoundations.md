@@ -35,7 +35,7 @@ Verdict: **accepted** (`review.json`). Everything below the "Remaining" heading 
    distinct kinds; the packets' statements are of the required shape (computed values, degenerate
    cases, agreement with the nearest library notion, non-examples). In the README 90 of the 98 test
    lists are cut off mid-sentence by the size cap (see Remaining).
-5. **Lean.** `/home/chris/atlas-workers/bin/lean-check …/Suggested.lean`: exit 0, 935 warnings, all
+5. **Lean.** `lean-check …/Suggested.lean`: exit 0, 935 warnings, all
    `declaration uses sorry`, 0 errors (run twice: on the received file and on the edited one). No
    `: Prop := sorry` body and no `True` placeholder (the `def … : Prop :=` declarations have real
    bodies). Spot-checked ten declarations against the README statements: `relativeSpec` (T004),
