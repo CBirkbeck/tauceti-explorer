@@ -46481,8 +46481,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-AdicSpacesPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7533"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7533",
+   "finishedAt": "2026-10-09T14:41:35Z"
   },
   {
    "id": "REV-PKG-AdicSpacesPartII",
