@@ -535,8 +535,9 @@ theorem deletion_level_exact_adapter (E : Curve) (ell : ℕ) [Fact ell.Prime]
       (multiplicativeReduction E ell ∧ ell ∣ discriminantValuation E ell)) :
     deletionLevel E ell = residualConductor E ell := by sorry
 
+/-- Kraus §3.1, p.1143, under the standing irreducibility hypothesis. -/
 theorem weight_two_reduction_alternative (E : Curve) (ell : ℕ) [Fact ell.Prime]
-    (hell : 11 ≤ ell) (hweight : serreWeight E ell = 2) :
+    (hell : 11 ≤ ell) (hirr : Irreducible E ell) (hweight : serreWeight E ell = 2) :
     goodReduction E ell ∨
       (multiplicativeReduction E ell ∧ ell ∣ discriminantValuation E ell) := by sorry
 
@@ -1056,8 +1057,8 @@ lemma residualConductor_exponent (E : Curve) (ell q : ℕ) [Fact ell.Prime]
     (hq : q.Prime) (hne : q ≠ ell) :
     (residualConductor E ell).factorization q = residualArtinExponent E ell q := by sorry
 
-/-- Elliptic curves' projective group scheme, with its native point comparison.
-This previews the existing upstream equation-to-scheme interface. -/
+/-- Projective Weierstrass group scheme and its native point comparison,
+supplied by ModularCurves layers 1A and 1D. -/
 def ellipticVariety (E : Curve) : AV := by sorry
 lemma ellipticVariety_dimension (E : Curve) : (ellipticVariety E).dim = 1 := by sorry
 def ellipticVariety_points (E : Curve) (K : Type) [Field K] [Algebra ℚ K] :
@@ -1069,7 +1070,7 @@ lemma rationalPrime_above (q : ℕ) [Fact q.Prime] :
     Ideal.comap (Int.castRingHom (𝓞 ℚ)) (rationalPrime q).asIdeal = Ideal.span {(q : ℤ)} := by sorry
 abbrev rationalLocalRing (q : ℕ) [Fact q.Prime] := LocalIntegers ℚ (rationalPrime q)
 
-/-- Minimal regular proper model, imported from Elliptic curves Layer 4.5b.
+/-- Minimal regular proper model, imported from StableReduction Layer 5.
 Its generic fibre is the actual elliptic group scheme, not an arbitrary curve. -/
 def minimalRegularModel (E : Curve) (q : ℕ) [Fact q.Prime] :
     Over (Spec (.of (rationalLocalRing q))) := by sorry

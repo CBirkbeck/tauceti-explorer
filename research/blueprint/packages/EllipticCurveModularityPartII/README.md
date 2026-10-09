@@ -14,6 +14,8 @@ Modularity over imaginary quadratic fields belongs to `EllipticCurveModularityIm
 
 Use the upstream Elliptic curves roadmap for isogenies, dual isogenies, rational and geometric torsion, the Weil pairing, local reduction, Tate curves and twists. Use Modular forms for native cusp forms, primitive newforms, integral Hecke coefficients, coefficient fields, Galois conjugation and the characteristic-zero Sturm comparison. Use `ArithmeticGaloisRepresentations:R01.3` for local conductors, `ArithmeticGaloisRepresentations:R01.4` for the finite-image and oddness arguments, and `SerreWeightAndLevelOptimisation:R20.2`, `R20.3`, `R20.6` for the precise level and weight interfaces.
 
+The projective Weierstrass scheme and its group law come from ModularCurves layers 1A and 1D. Minimal regular proper models come from StableReduction Layer 5; their geometric fibre components enter the local conductor comparison supplied by `ArithmeticGaloisRepresentations:R01.3`.
+
 General Cartan correspondences and Chen's isogeny, the integral winding quotient, semistable cotangent comparison and the higher-dimensional rank-zero theorem are prerequisites of the last layer. They require the extensions of ModularCurvesPartII and the corresponding modular-abelian BSD theory described below. In particular, the Hecke-equivariant correspondence vanishing on the old part does not itself establish the isogeny on the new quotient. Every use of that isogeny requires the separate theorem.
 
 | Layer here | Mathematical output | Owning layer |
@@ -216,7 +218,7 @@ Kraus's theorems are stated at the prime-to-ℓ conductor N(E[ℓ]) and Serre we
 
 **Imports and prerequisites:** `EllipticModularityEffectiveComparisons:EC.3/deletion-conductor-away`, `EllipticModularityEffectiveComparisons:EC.3/deletion-level-exact-adapter`.
 
-**Construction or proof route.** Use the away-from-ℓ conductor formula first. For ℓ≥5, the adapter gives M₀=N(E[ℓ]) if E has good reduction at ℓ, or multiplicative reduction there with ℓ|ord_ℓ(Δ). For ℓ≥11, the specified local weight-two theorem supplies this reduction alternative. For ℓ=5 or 7, retain it as an explicit hypothesis. An additive prime ℓ can remain in M₀ even though N(E[ℓ]) is prime to ℓ.
+**Construction or proof route.** Use the away-from-ℓ conductor formula first. For ℓ≥5, the adapter gives M₀=N(E[ℓ]) if E has good reduction at ℓ, or multiplicative reduction there with ℓ|ord_ℓ(Δ). For ℓ≥11 and the irreducible representation in Kraus's comparison, the specified local weight-two theorem supplies this reduction alternative. For ℓ=5 or 7, retain it as an explicit hypothesis. An additive prime ℓ can remain in M₀ even though N(E[ℓ]) is prime to ℓ.
 
 ### EC.5. Uniform two-torsion irreducibility
 
