@@ -1,5 +1,77 @@
 # PKG-EllipticCurveModularity — checkpoint
 
+Agent: Codex. Session: `codex-6PzyiM`. Date: 2026-10-09.
+Issue: #7469. Branch: `codex-6PzyiM-elliptic-curve-modularity-package`.
+The bot confirmed this session's claim on
+[claim comment 6074065234](https://github.com/CBirkbeck/tauceti-explorer/issues/7469#issuecomment-6074065234).
+
+**Still blocked on the shared build; this is not a completed package.**
+The existing README and Suggested.lean are retained. This continuation fixes
+six README notation-rendering slips: the constant Euler-polynomial values,
+the ring-of-integers math delimiters, and the commands for the twist
+character, divisor-count function and Tate-module dimension. Their mathematical
+values, hypotheses and dependencies are unchanged. Suggested.lean is unchanged.
+
+## Fresh validation
+
+- Ran `lean-check research/blueprint/packages/EllipticCurveModularity/Suggested.lean`.
+  It exited 1 at the import block with:
+  `error: object file of module TauCeti.NumberTheory.ModularForms.Newforms.Newform does not exist`.
+  The diagnostic's machine-specific path is omitted. The file did not elaborate;
+  there is no evidence yet about errors after this import.
+- Available memory before this run was 114 GB, so memory did not cause the refusal.
+  No Lean process from this run remains active.
+- Checked the default shared build's revisions: Mathlib is
+  `082e2d37e8b0463410cdb532e111cd43d5a66174`, as required, but Tau Ceti is
+  `cf386627e9176a3827c1a5fe804989fd94a4d216`, rather than
+  `f790474821cf4256814db967cb154e7af3d0c369`.
+- A read-only scan of the existing source/build trees found eleven Tau Ceti
+  object files for the required Newform module. Their builds use one of
+  Mathlib `dc4b8d60d5edb3c493c3662126b1b7ccae7d67cf`,
+  `f6090c7095e1e56b3464c1daba5f24631f1290d2`, or
+  `159df8fb17773d80f548b65a74fecbe90283eb19`. None supplies the required
+  pinned check. An AINTLIB object has a different module name and also cannot
+  supply the Tau Ceti import. No libraries or object files were built, copied,
+  replaced or downloaded.
+- Read the actual Newform structure at the required Tau Ceti commit: it extends
+  EigenformAwayFromLevel with new-subspace membership and first-coefficient
+  normalization, with the nebentypus and underlying cusp form inherited. The
+  package keeps this library type; substituting a private newform structure
+  would not discharge the compilation requirement.
+- Ran `python3 scripts/check_blueprint.py research/blueprint/packets/EllipticCurveModularity.json`:
+  **0 errors, 0 warnings**. The unchanged input has 23 nodes, 23 API items,
+  19 tests, six planned stages, 11 supplier requests and two recorded gaps.
+- Rechecked correspondence: all 23 API names and all 19 named tests occur in
+  both package files; the six layer headings occur once in order; all 18
+  imports are distinct. Suggested.lean has 23 direct examples, including the
+  19 definition/construction tests. This is a textual check, not elaboration.
+- Read both upstream examples ConformalMapping and
+  RepresentationTheory/SemisimpleAlgebras in full, the package README and
+  Suggested.lean, and the relevant R28.6 library-audit and cross-roadmap links.
+  The README has no packet or checkpoint narrative, and no source excerpt
+  was introduced. The source inspection and arithmetic checks reported below
+  belong to the previous session; this continuation does not claim to repeat
+  those checks.
+
+## Resume only when the dependency is available
+
+The remaining prerequisite is an existing shared build with both required pins
+and compiled `TauCeti.NumberTheory.ModularForms.Newforms.Newform` and its
+imports. Supply it through `lean-check`'s existing build selection. The default
+build currently cannot do this; the alternative builds found above have the
+wrong Mathlib. Workers must not build the library to remedy it.
+
+When that build is supplied, run the full package through `lean-check`, fix
+any signature errors in this package only, and require no errors and only
+sorry warnings. Then create `metadata.toml` with `topic = "math.NT"` and
+record completion. Metadata remains absent because package intake infers
+completion from deliverable existence and would otherwise misclassify this
+unelaborated package. No change to a packet, queue, shared build or another
+job's files is needed from the next worker. The prior checkpoint below retains
+the mathematical boundaries, target map and source identities needed to resume.
+
+# Previous checkpoint: codex-ZSEmbF
+
 Agent: Codex. Session: `codex-ZSEmbF`. Date: 2026-10-09.
 Issue: #7469. Branch: `codex-ZSEmbF-elliptic-curve-modularity-package`.
 Claim confirmed by the bot on

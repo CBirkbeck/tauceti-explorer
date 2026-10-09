@@ -124,9 +124,9 @@ four possibilities are
 | Reduction of $E$ at ℓ | $a_\ell(E)$ | $P_\ell(E,T)$ |
 | --- | --- | --- |
 | good | $\ell+1-\#\widetilde E(\mathbb F_\ell)$ | $1-a_\ell(E)T+\ell T^2$ |
-| split multiplicative | (1) | $1-T$ |
+| split multiplicative | $1$ | $1-T$ |
 | nonsplit multiplicative | $-1$ | $1+T$ |
-| additive | (0) | (1) |
+| additive | $0$ | $1$ |
 
 For the homological representation $V_r(E)$ and arithmetic Frobenius the local
 polynomial is obtained on inertia **coinvariants**. Equivalently it is obtained from the
@@ -804,7 +804,7 @@ needed in the following tests.
 * `newformOf_twist`: if $E'$ is the twist of 11a1 by $-1$,
   presented as $y^2=x^3+4x^2-160x+1264$, then
   $A_\ell(F_{E'})=\chi_{-4}(\ell)A_\ell(F_{11a1})$ for every prime
-  $\ell\nmid2\cdot11$. Here $chi_{-4}$ is the nontrivial
+  $\ell\nmid2\cdot11$. Here $\chi_{-4}$ is the nontrivial
   character modulo 4, matching Mathlib's `ZMod.χ₄`. The excluded
   primes are the ones where this simple good-reduction twist
   formula does not apply.
@@ -932,7 +932,7 @@ information; the local-factor interface must preserve it too.
 
 The statement compares Mathlib's minimal model over ℤℓ with its local polynomial.
 Mathlib's number-field Euler product instead uses completions at height-one prime ideals
-of \$\mathcal O_{\mathbb Q}\$. The identification of that completion and its valuation
+of $\mathcal O_{\mathbb Q}$. The identification of that completion and its valuation
 ring with ℚℓ and ℤℓ is part of the arithmetic comparison interface. It transports the
 curve, minimal model, residue-field point count and polynomial. Treating the completion
 identification as definitional would leave a gap between the local polynomial theorem
@@ -1174,7 +1174,7 @@ J_0(N')\sim_{\mathbb Q}
 $$
 
 The inner product runs over Galois orbits of normalized weight-two newforms of exact
-level $M$ with trivial character, and $sigma_0$ counts positive divisors. The powers
+level $M$ with trivial character, and $\sigma_0$ counts positive divisors. The powers
 record oldform multiplicity. They are essential even for rational newforms. The
 decomposition must exhaust the whole Jacobian up to ℚ-isogeny; a comparison for one
 selected orbit or for J₁ does not suffice to select a constituent of a general map out
@@ -1233,7 +1233,7 @@ Two examples test the scope of the decomposition:
   gives an elliptic quotient 11a1. The level-11
   form occurs twice, through $f(z)$ and $f(2z)$,
   and the level-22 new part is zero. Thus
-  $dim V_r(J_0(22))=4$; putting only one copy
+  $\dim V_r(J_0(22))=4$; putting only one copy
   of the primitive form in the decomposition
   would incorrectly give dimension two. The
   form recovered by the converse has level 11,
