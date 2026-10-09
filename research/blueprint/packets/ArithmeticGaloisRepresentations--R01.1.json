@@ -16,252 +16,252 @@
         "kind": "theorem",
         "module": "Mathlib/Order/JordanHolder.lean",
         "provides": "Jordan–Hölder for any JordanHolderLattice: two composition series with the same head and last are Equivalent, i.e. there is a bijection of steps matching them under the abstract relation JordanHolderLattice.Iso (not yet an isomorphism of quotient modules).",
-        "checked": "Statement read at the pinned commit on 2026-10-09; the handoff distinguishes algebraic input from the added continuity or finite-length target."
+        "checked": "Independently read at the exact pinned commit on 2026-10-09 by REV-ArithmeticGaloisRepresentations--R01.1 (codex-iDbwVY); scope and hypotheses recorded in the review report."
       },
       {
         "ref": "mathlib:ContRepresentation",
         "kind": "structure",
         "module": "Mathlib/RepresentationTheory/Continuous/Basic.lean",
         "provides": "A monoid hom G →* (V →L[R] V): each operator continuous, no joint continuity; compatibility target of ContinuousRep.",
-        "checked": "Statement read at the pinned commit on 2026-10-09; the handoff distinguishes algebraic input from the added continuity or finite-length target."
+        "checked": "Independently read at the exact pinned commit on 2026-10-09 by REV-ArithmeticGaloisRepresentations--R01.1 (codex-iDbwVY); scope and hypotheses recorded in the review report."
       },
       {
         "ref": "mathlib:ContRepresentation.coind",
         "kind": "def",
         "module": "Mathlib/RepresentationTheory/Continuous/Basic.lean",
         "provides": "Coinduced continuous representation along a continuous homomorphism φ : G →ₜ* H of topological groups, on the submodule {f ∈ C(H, V) : f(φ g * h) = π g (f h)} of C(H, V) with the topology induced from the compact-open topology, H acting by right translation.",
-        "checked": "Statement read at the pinned commit on 2026-10-09; the handoff distinguishes algebraic input from the added continuity or finite-length target."
+        "checked": "Independently read at the exact pinned commit on 2026-10-09 by REV-ArithmeticGaloisRepresentations--R01.1 (codex-iDbwVY); scope and hypotheses recorded in the review report."
       },
       {
         "ref": "mathlib:IsLocalRing",
         "kind": "class",
         "module": "Mathlib/RingTheory/LocalRing/Defs.lean",
         "provides": "Local rings.",
-        "checked": "Statement read at the pinned commit on 2026-10-09; the handoff distinguishes algebraic input from the added continuity or finite-length target."
+        "checked": "Independently read at the exact pinned commit on 2026-10-09 by REV-ArithmeticGaloisRepresentations--R01.1 (codex-iDbwVY); scope and hypotheses recorded in the review report."
       },
       {
         "ref": "mathlib:IsModuleTopology",
         "kind": "class",
         "module": "Mathlib/Topology/Algebra/Module/ModuleTopology.lean",
         "provides": "The topology on a module is the module topology.",
-        "checked": "Statement read at the pinned commit on 2026-10-09; the handoff distinguishes algebraic input from the added continuity or finite-length target."
+        "checked": "Independently read at the exact pinned commit on 2026-10-09 by REV-ArithmeticGaloisRepresentations--R01.1 (codex-iDbwVY); scope and hypotheses recorded in the review report."
       },
       {
         "ref": "mathlib:IsModuleTopology.continuous_bilinear_of_finite_left",
         "kind": "theorem",
         "module": "Mathlib/Topology/Algebra/Module/ModuleTopology.lean",
         "provides": "Bilinear maps A × B → C with A finite and module topologies are continuous.",
-        "checked": "Statement read at the pinned commit on 2026-10-09; the handoff distinguishes algebraic input from the added continuity or finite-length target."
+        "checked": "Independently read at the exact pinned commit on 2026-10-09 by REV-ArithmeticGaloisRepresentations--R01.1 (codex-iDbwVY); scope and hypotheses recorded in the review report."
       },
       {
         "ref": "mathlib:IsModuleTopology.continuous_of_linearMap",
         "kind": "theorem",
         "module": "Mathlib/Topology/Algebra/Module/ModuleTopology.lean",
         "provides": "Every linear map out of a module with the module topology into a topological module is continuous.",
-        "checked": "Statement read at the pinned commit on 2026-10-09; the handoff distinguishes algebraic input from the added continuity or finite-length target."
+        "checked": "Independently read at the exact pinned commit on 2026-10-09 by REV-ArithmeticGaloisRepresentations--R01.1 (codex-iDbwVY); scope and hypotheses recorded in the review report."
       },
       {
         "ref": "mathlib:IsModuleTopology.instQuot",
         "kind": "instance",
         "module": "Mathlib/Topology/Algebra/Module/ModuleTopology.lean",
         "provides": "Quotients of a module with the module topology carry the module topology.",
-        "checked": "Statement read at the pinned commit on 2026-10-09; the handoff distinguishes algebraic input from the added continuity or finite-length target."
+        "checked": "Independently read at the exact pinned commit on 2026-10-09 by REV-ArithmeticGaloisRepresentations--R01.1 (codex-iDbwVY); scope and hypotheses recorded in the review report."
       },
       {
         "ref": "mathlib:LinearMap.charpoly_baseChange",
         "kind": "lemma",
         "module": "Mathlib/LinearAlgebra/Charpoly/BaseChange.lean",
         "provides": "For commutative rings R and A with an R-algebra structure on A, a finite free R-module M and an R-linear endomorphism f of M: the characteristic polynomial of f.baseChange A (on A ⊗_R M) is the image of the characteristic polynomial of f under Polynomial.map (algebraMap R A). A simp lemma; M must be free and finite, A is an explicit argument.",
-        "checked": "Statement read at the pinned commit on 2026-10-09; the handoff distinguishes algebraic input from the added continuity or finite-length target."
+        "checked": "Independently read at the exact pinned commit on 2026-10-09 by REV-ArithmeticGaloisRepresentations--R01.1 (codex-iDbwVY); scope and hypotheses recorded in the review report."
       },
       {
         "ref": "mathlib:LinearMap.det",
         "kind": "irreducible_def",
         "module": "Mathlib/LinearAlgebra/Determinant.lean",
         "provides": "Determinant of an endomorphism; equals 1 when there is no finite basis, so it is used only for free modules.",
-        "checked": "Statement read at the pinned commit on 2026-10-09; the handoff distinguishes algebraic input from the added continuity or finite-length target."
+        "checked": "Independently read at the exact pinned commit on 2026-10-09 by REV-ArithmeticGaloisRepresentations--R01.1 (codex-iDbwVY); scope and hypotheses recorded in the review report."
       },
       {
         "ref": "mathlib:LinearMap.det_baseChange",
         "kind": "lemma",
         "module": "Mathlib/LinearAlgebra/Charpoly/BaseChange.lean",
         "provides": "For an endomorphism f of a finite free R-module and an R-algebra A: LinearMap.det (f.baseChange A) = algebraMap R A (LinearMap.det f).",
-        "checked": "Statement read at the pinned commit on 2026-10-09; the handoff distinguishes algebraic input from the added continuity or finite-length target."
+        "checked": "Independently read at the exact pinned commit on 2026-10-09 by REV-ArithmeticGaloisRepresentations--R01.1 (codex-iDbwVY); scope and hypotheses recorded in the review report."
       },
       {
         "ref": "mathlib:Matrix.GeneralLinearGroup",
         "kind": "abbrev",
         "module": "Mathlib/LinearAlgebra/Matrix/GeneralLinearGroup/Defs.lean",
         "provides": "GL_n(R) as the units of the matrix ring.",
-        "checked": "Statement read at the pinned commit on 2026-10-09; the handoff distinguishes algebraic input from the added continuity or finite-length target."
+        "checked": "Independently read at the exact pinned commit on 2026-10-09 by REV-ArithmeticGaloisRepresentations--R01.1 (codex-iDbwVY); scope and hypotheses recorded in the review report."
       },
       {
         "ref": "mathlib:Module.free_of_finite_type_torsion_free'",
         "kind": "instance",
         "module": "Mathlib/LinearAlgebra/FreeModule/PID.lean",
         "provides": "Over a principal ideal domain R: [Module.Finite R M] [IsTorsionFree R M] : Module.Free R M.",
-        "checked": "Statement read at the pinned commit on 2026-10-09; the handoff distinguishes algebraic input from the added continuity or finite-length target."
+        "checked": "Independently read at the exact pinned commit on 2026-10-09 by REV-ArithmeticGaloisRepresentations--R01.1 (codex-iDbwVY); scope and hypotheses recorded in the review report."
       },
       {
         "ref": "mathlib:Rep.indCoindIso",
         "kind": "def",
         "module": "Mathlib/RepresentationTheory/FiniteIndex.lean",
         "provides": "For a finite-index subgroup S ≤ G and A : Rep.{max w u} k S: an isomorphism ind S.subtype A ≅ coind S.subtype A in Rep k G (coind = functions f : G → A with f(s g) = ρ(s) f(g), G acting by right translation).",
-        "checked": "Statement read at the pinned commit on 2026-10-09; the handoff distinguishes algebraic input from the added continuity or finite-length target."
+        "checked": "Independently read at the exact pinned commit on 2026-10-09 by REV-ArithmeticGaloisRepresentations--R01.1 (codex-iDbwVY); scope and hypotheses recorded in the review report."
       },
       {
         "ref": "mathlib:Rep.indResAdjunction",
         "kind": "def",
         "module": "Mathlib/RepresentationTheory/Induced.lean",
         "provides": "Ind ⊣ Res (Frobenius reciprocity, algebraic).",
-        "checked": "Statement read at the pinned commit on 2026-10-09; the handoff distinguishes algebraic input from the added continuity or finite-length target."
+        "checked": "Independently read at the exact pinned commit on 2026-10-09 by REV-ArithmeticGaloisRepresentations--R01.1 (codex-iDbwVY); scope and hypotheses recorded in the review report."
       },
       {
         "ref": "mathlib:Rep.resCoindAdjunction",
         "kind": "abbrev",
         "module": "Mathlib/RepresentationTheory/Coinduced.lean",
         "provides": "Res ⊣ Coind (Frobenius reciprocity, algebraic).",
-        "checked": "Statement read at the pinned commit on 2026-10-09; the handoff distinguishes algebraic input from the added continuity or finite-length target."
+        "checked": "Independently read at the exact pinned commit on 2026-10-09 by REV-ArithmeticGaloisRepresentations--R01.1 (codex-iDbwVY); scope and hypotheses recorded in the review report."
       },
       {
         "ref": "mathlib:Representation.IsSemisimpleRepresentation",
         "kind": "abbrev",
         "module": "Mathlib/RepresentationTheory/Semisimple.lean",
         "provides": "Semisimplicity: every subrepresentation has a complement.",
-        "checked": "Statement read at the pinned commit on 2026-10-09; the handoff distinguishes algebraic input from the added continuity or finite-length target."
+        "checked": "Independently read at the exact pinned commit on 2026-10-09 by REV-ArithmeticGaloisRepresentations--R01.1 (codex-iDbwVY); scope and hypotheses recorded in the review report."
       },
       {
         "ref": "mathlib:Representation.dual",
         "kind": "def",
         "module": "Mathlib/RepresentationTheory/Basic.lean",
         "provides": "Dual representation (dual ρ) g f = f ∘ ρ g⁻¹.",
-        "checked": "Statement read at the pinned commit on 2026-10-09; the handoff distinguishes algebraic input from the added continuity or finite-length target."
+        "checked": "Independently read at the exact pinned commit on 2026-10-09 by REV-ArithmeticGaloisRepresentations--R01.1 (codex-iDbwVY); scope and hypotheses recorded in the review report."
       },
       {
         "ref": "mathlib:Representation.linHom",
         "kind": "def",
         "module": "Mathlib/RepresentationTheory/Basic.lean",
         "provides": "Hom representation f ↦ ρW g ∘ f ∘ ρV g⁻¹.",
-        "checked": "Statement read at the pinned commit on 2026-10-09; the handoff distinguishes algebraic input from the added continuity or finite-length target."
+        "checked": "Independently read at the exact pinned commit on 2026-10-09 by REV-ArithmeticGaloisRepresentations--R01.1 (codex-iDbwVY); scope and hypotheses recorded in the review report."
       },
       {
         "ref": "mathlib:Representation.tprod",
         "kind": "def",
         "module": "Mathlib/RepresentationTheory/Basic.lean",
         "provides": "Tensor product representation g ↦ ρV g ⊗ ρW g.",
-        "checked": "Statement read at the pinned commit on 2026-10-09; the handoff distinguishes algebraic input from the added continuity or finite-length target."
+        "checked": "Independently read at the exact pinned commit on 2026-10-09 by REV-ArithmeticGaloisRepresentations--R01.1 (codex-iDbwVY); scope and hypotheses recorded in the review report."
       },
       {
         "ref": "mathlib:Submodule.closed_of_finiteDimensional",
         "kind": "theorem",
         "module": "Mathlib/Topology/Algebra/Module/FiniteDimension.lean",
         "provides": "Over a complete nontrivially normed field 𝕜, for a Hausdorff topological vector space E: [T2Space E] (s : Submodule 𝕜 E) [FiniteDimensional 𝕜 s] : IsClosed (s : Set E).",
-        "checked": "Statement read at the pinned commit on 2026-10-09; the handoff distinguishes algebraic input from the added continuity or finite-length target."
+        "checked": "Independently read at the exact pinned commit on 2026-10-09 by REV-ArithmeticGaloisRepresentations--R01.1 (codex-iDbwVY); scope and hypotheses recorded in the review report."
       },
       {
         "ref": "mathlib:Subrepresentation",
         "kind": "structure",
         "module": "Mathlib/RepresentationTheory/Subrepresentation.lean",
         "provides": "Subrepresentations of ρ : Representation A G W as a bounded lattice (SetLike, Lattice, BoundedOrder), order-isomorphic to submodules of the A[G]-module ρ.asModule by subrepresentationSubmoduleOrderIso; no modular-lattice instance is provided.",
-        "checked": "Statement read at the pinned commit on 2026-10-09; the handoff distinguishes algebraic input from the added continuity or finite-length target."
+        "checked": "Independently read at the exact pinned commit on 2026-10-09 by REV-ArithmeticGaloisRepresentations--R01.1 (codex-iDbwVY); scope and hypotheses recorded in the review report."
       },
       {
         "ref": "mathlib:cyclotomicCharacter",
         "kind": "def",
         "module": "Mathlib/NumberTheory/Cyclotomic/CyclotomicCharacter.lean",
         "provides": "cyclotomicCharacter L p : (L ≃+* L) →* ℤ_[p]ˣ for a commutative domain L and a prime p: the p-adic cyclotomic character; by definition the trivial character when L lacks a primitive p^i-th root of unity for some i.",
-        "checked": "Statement read at the pinned commit on 2026-10-09; the handoff distinguishes algebraic input from the added continuity or finite-length target."
+        "checked": "Independently read at the exact pinned commit on 2026-10-09 by REV-ArithmeticGaloisRepresentations--R01.1 (codex-iDbwVY); scope and hypotheses recorded in the review report."
       },
       {
         "ref": "mathlib:cyclotomicCharacter.continuous",
         "kind": "lemma",
         "module": "Mathlib/NumberTheory/Cyclotomic/CyclotomicCharacter.lean",
         "provides": "Continuity of the cyclotomic character on Gal(L/K) with the Krull topology.",
-        "checked": "Statement read at the pinned commit on 2026-10-09; the handoff distinguishes algebraic input from the added continuity or finite-length target."
+        "checked": "Independently read at the exact pinned commit on 2026-10-09 by REV-ArithmeticGaloisRepresentations--R01.1 (codex-iDbwVY); scope and hypotheses recorded in the review report."
       },
       {
         "ref": "mathlib:cyclotomicCharacter.spec",
         "kind": "theorem",
         "module": "Mathlib/NumberTheory/Cyclotomic/CyclotomicCharacter.lean",
         "provides": "If L has enough p^i-th roots of unity for all i ([∀ i, HasEnoughRootsOfUnity L (p ^ i)]), then for g : L ≃+* L and t with t^(p^n) = 1: g t = t ^ m, m the natural-number representative of χ(g) mod p^n.",
-        "checked": "Statement read at the pinned commit on 2026-10-09; the handoff distinguishes algebraic input from the added continuity or finite-length target."
+        "checked": "Independently read at the exact pinned commit on 2026-10-09 by REV-ArithmeticGaloisRepresentations--R01.1 (codex-iDbwVY); scope and hypotheses recorded in the review report."
       },
       {
         "ref": "mathlib:frobeniusEquiv",
         "kind": "def",
         "module": "Mathlib/FieldTheory/Perfect.lean",
         "provides": "The Frobenius ring automorphism x ↦ x^p of a perfect ring of characteristic p.",
-        "checked": "Statement read at the pinned commit on 2026-10-09; the handoff distinguishes algebraic input from the added continuity or finite-length target."
+        "checked": "Independently read at the exact pinned commit on 2026-10-09 by REV-ArithmeticGaloisRepresentations--R01.1 (codex-iDbwVY); scope and hypotheses recorded in the review report."
       },
       {
         "ref": "tauceti:ContRepresentation.conj_linHom",
         "kind": "theorem",
         "module": "TauCeti/RepresentationTheory/Continuous/LinHom.lean",
         "provides": "For 𝕜 a complete nontrivially normed field, V, W normed spaces with both V and W finite-dimensional, π, ρ ContRepresentations: (LinearMap.toContinuousLinearMap).conj (Representation.linHom π.toRepresentation ρ.toRepresentation g) = linHom π ρ g as linear maps.",
-        "checked": "Statement read at the pinned commit on 2026-10-09; the handoff distinguishes algebraic input from the added continuity or finite-length target."
+        "checked": "Independently read at the exact pinned commit on 2026-10-09 by REV-ArithmeticGaloisRepresentations--R01.1 (codex-iDbwVY); scope and hypotheses recorded in the review report."
       },
       {
         "ref": "tauceti:ContRepresentation.linHom",
         "kind": "def",
         "module": "TauCeti/RepresentationTheory/Continuous/LinHom.lean",
         "provides": "Hom representation T ↦ ρ g ∘ T ∘ π g⁻¹ on the operator space V →L[𝕜] W, for a group G and normed spaces V, W over a nontrivially normed field (norms are part of the data; no continuity in g is assumed). The comparison with Mathlib's Representation.linHom in finite dimension is ContRepresentation.conj_linHom.",
-        "checked": "Statement read at the pinned commit on 2026-10-09; the handoff distinguishes algebraic input from the added continuity or finite-length target."
+        "checked": "Independently read at the exact pinned commit on 2026-10-09 by REV-ArithmeticGaloisRepresentations--R01.1 (codex-iDbwVY); scope and hypotheses recorded in the review report."
       },
       {
         "ref": "tauceti:Representation.asAlgebraHom_surjective_of_isIrreducible",
         "kind": "theorem",
         "module": "TauCeti/RepresentationTheory/Irreducible.lean",
         "provides": "Burnside: for a field k, a monoid G, [IsAlgClosed k] [FiniteDimensional k V] and ρ : Representation k G V irreducible, ρ.asAlgebraHom : k[G] → End_k(V) is surjective.",
-        "checked": "Statement read at the pinned commit on 2026-10-09; the handoff distinguishes algebraic input from the added continuity or finite-length target."
+        "checked": "Independently read at the exact pinned commit on 2026-10-09 by REV-ArithmeticGaloisRepresentations--R01.1 (codex-iDbwVY); scope and hypotheses recorded in the review report."
       },
       {
         "ref": "tauceti:Representation.baseChange",
         "kind": "def",
         "module": "TauCeti/RepresentationTheory/BaseChange.lean",
         "provides": "Representation.baseChange (A) [CommSemiring A] [Algebra R A] (ρ : Representation R G V) : Representation A G (A ⊗[R] V), for commutative semirings R, A and a monoid G: each ρ(g) is base-changed (Module.End.baseChangeHom).",
-        "checked": "Statement read at the pinned commit on 2026-10-09; the handoff distinguishes algebraic input from the added continuity or finite-length target."
+        "checked": "Independently read at the exact pinned commit on 2026-10-09 by REV-ArithmeticGaloisRepresentations--R01.1 (codex-iDbwVY); scope and hypotheses recorded in the review report."
       },
       {
         "ref": "tauceti:Representation.finrank_intertwiningMap_baseChange",
         "kind": "theorem",
         "module": "TauCeti/RepresentationTheory/BaseChange.lean",
         "provides": "Intertwiner dimensions are unchanged by field extension for finite-dimensional representations of a finite monoid; the arbitrary-monoid statement is a new target here.",
-        "checked": "Statement read at the pinned commit on 2026-10-09; the handoff distinguishes algebraic input from the added continuity or finite-length target."
+        "checked": "Independently read at the exact pinned commit on 2026-10-09 by REV-ArithmeticGaloisRepresentations--R01.1 (codex-iDbwVY); scope and hypotheses recorded in the review report."
       },
       {
         "ref": "tauceti:TauCeti.Representation.isIrreducible_of_asAlgebraHom_surjective",
         "kind": "theorem",
         "module": "TauCeti/RepresentationTheory/Irreducible.lean",
         "provides": "For a field k, a monoid G, [Nontrivial V] and ρ : Representation k G V: if ρ.asAlgebraHom is surjective then ρ is irreducible.",
-        "checked": "Statement read at the pinned commit on 2026-10-09; the handoff distinguishes algebraic input from the added continuity or finite-length target."
+        "checked": "Independently read at the exact pinned commit on 2026-10-09 by REV-ArithmeticGaloisRepresentations--R01.1 (codex-iDbwVY); scope and hypotheses recorded in the review report."
       },
       {
         "ref": "tauceti:TauCeti.eq_teichmuller",
         "kind": "theorem",
         "module": "TauCeti/NumberTheory/LocalField/Teichmuller.lean",
         "provides": "A (q−1)-torsion unit lifting α is teichmuller K α.",
-        "checked": "Statement read at the pinned commit on 2026-10-09; the handoff distinguishes algebraic input from the added continuity or finite-length target."
+        "checked": "Independently read at the exact pinned commit on 2026-10-09 by REV-ArithmeticGaloisRepresentations--R01.1 (codex-iDbwVY); scope and hypotheses recorded in the review report."
       },
       {
         "ref": "tauceti:TauCeti.jordanHolderMultiplicity",
         "kind": "def",
         "module": "TauCeti/RingTheory/CompositionSeries/Multiplicity.lean",
         "provides": "jordanHolderMultiplicity R M S : ℕ for a ring R, an R-module M that is Noetherian and Artinian, and a module S: the number of factors isomorphic to S in a composition series of M from ⊥ to ⊤; independent of the series (compositionMultiplicity_eq_jordanHolderMultiplicity).",
-        "checked": "Statement read at the pinned commit on 2026-10-09; the handoff distinguishes algebraic input from the added continuity or finite-length target."
+        "checked": "Independently read at the exact pinned commit on 2026-10-09 by REV-ArithmeticGaloisRepresentations--R01.1 (codex-iDbwVY); scope and hypotheses recorded in the review report."
       },
       {
         "ref": "tauceti:TauCeti.residue_teichmuller",
         "kind": "theorem",
         "module": "TauCeti/NumberTheory/LocalField/Teichmuller.lean",
         "provides": "The Teichmüller lift is a section of reduction.",
-        "checked": "Statement read at the pinned commit on 2026-10-09; the handoff distinguishes algebraic input from the added continuity or finite-length target."
+        "checked": "Independently read at the exact pinned commit on 2026-10-09 by REV-ArithmeticGaloisRepresentations--R01.1 (codex-iDbwVY); scope and hypotheses recorded in the review report."
       },
       {
         "ref": "tauceti:TauCeti.teichmuller",
         "kind": "def",
         "module": "TauCeti/NumberTheory/LocalField/Teichmuller.lean",
         "provides": "Teichmüller lift 𝓀[K]ˣ →* 𝒪[K]ˣ of a nonarchimedean local field K (IsNonarchimedeanLocalField; 𝒪[K] and 𝓀[K] are the ValuativeRel integer ring and residue field), defined as the inverse of reduction on μ_{q−1}(𝒪[K]). For K = ℚ_2 it is the trivial map.",
-        "checked": "Statement read at the pinned commit on 2026-10-09; the handoff distinguishes algebraic input from the added continuity or finite-length target."
+        "checked": "Independently read at the exact pinned commit on 2026-10-09 by REV-ArithmeticGaloisRepresentations--R01.1 (codex-iDbwVY); scope and hypotheses recorded in the review report."
       }
     ]
   },
@@ -286,7 +286,8 @@
       "url": "https://arxiv.org/pdf/1609.03491v2",
       "sha256": "ec54cf92ce04146c73b48945be2765f675359255d46cc94a0aa35a39229743b9",
       "readSections": [
-        "§3.1, Definitions 3.3 and 3.5 and Proposition 3.6, pp.8–9; §4, Definition 4.1, Lemma 4.4, Theorems 4.5 and 4.8 and Definition 4.9, pp.13–17"
+        "§3.1, Definitions 3.3 and 3.5 and Proposition 3.6, pp.8–9; §4, Definition 4.1, Lemma 4.4, Theorems 4.5 and 4.8 and Definition 4.9, pp.13–17",
+        "§10, Lemma 10.5 and proof, pp.55–56 (algebraic induction motivation, not the topology comparison)"
       ],
       "readDate": "2026-10-09"
     },
@@ -298,7 +299,7 @@
       "url": "https://arxiv.org/pdf/0809.0415v2",
       "sha256": "f3c0e0d86e803301c617d3023d425752e30da46673ed5af932647eb284286953",
       "readSections": [
-        "§1.10, Lemma 1.12(ii) and Corollary 1.14, pp.12–14; Theorem 2.12 and Corollary 2.13, pp.28–30; Example 2.34, p.39"
+        "§1.10, Lemma 1.12(ii) and Corollary 1.14, pp.12–14; Theorem 2.12 and Corollary 2.13, pp.28–31; Example 2.34, p.39"
       ],
       "readDate": "2026-10-09"
     },
@@ -436,7 +437,8 @@
       "acceptance": [
         "det A(χ) = χ, including the cyclotomic character.",
         "The zero representation has determinant one.",
-        "In a finite frame its determinant equals Matrix.det of the representing matrix."
+        "In a finite frame its determinant equals Matrix.det of the representing matrix.",
+        "For A=F₃×F₃ and the nonfree finite projective ideal P=(1,0)A, the generator of C₂ acting as −id has determinant (−1,1), while LinearMap.det returns 1 because P has no finite basis."
       ],
       "sources": [
         {
@@ -497,6 +499,11 @@
           "name": "R011Tests.det_free",
           "kind": "compatibility",
           "statement": "In a finite frame its determinant equals Matrix.det of the representing matrix."
+        },
+        {
+          "name": "R011Tests.det_projective_corner",
+          "kind": "non-example",
+          "statement": "For A=F₃×F₃ and the nonfree finite projective ideal P=(1,0)A, the generator of C₂ acting as −id has determinant (−1,1), while LinearMap.det returns 1 because P has no finite basis."
         }
       ],
       "uses": [
@@ -1703,7 +1710,7 @@
       "acceptance": [
         "The dual of the standard lattice O^n is its standard dual lattice.",
         "The dual of the zero lattice is zero.",
-        "The dual of cΛ is c⁻¹Λ∨, so scaling the dual by c gives the wrong answer."
+        "For c∈Eˣ, (cΛ)∨=c⁻¹Λ∨. On the standard one-dimensional lattice, c equal to a uniformizer distinguishes inverse scaling from direct scaling; units need not distinguish them."
       ],
       "sources": [
         {
@@ -1758,7 +1765,7 @@
         {
           "name": "R011Tests.dual_lattice_scaled",
           "kind": "non-example",
-          "statement": "The dual of cΛ is c⁻¹Λ∨, so scaling the dual by c gives the wrong answer."
+          "statement": "For c∈Eˣ, (cΛ)∨=c⁻¹Λ∨. On the standard one-dimensional lattice, c equal to a uniformizer distinguishes inverse scaling from direct scaling; units need not distinguish them."
         }
       ],
       "uses": [
@@ -1788,12 +1795,12 @@
       ],
       "proofSteps": [
         "Use Mathlib Subrepresentation for the algebraic carrier.",
-        "A finite-dimensional subspace is a direct summand; its subspace topology equals its module topology. Restrict the jointly continuous action."
+        "Choose a linear projection V→W splitting the inclusion. Its continuity for the canonical module topology, together with continuity of the inclusion, identifies that topology on W with the subspace topology. This uses no complete normed-field assumption. Restrict the jointly continuous action."
       ],
       "prerequisites": [
-        "ArithmeticGaloisRepresentations:R01.1/semisimplification",
+        "ArithmeticGaloisRepresentations:R01.1/continuous-representation",
         "mathlib:Subrepresentation",
-        "mathlib:Submodule.closed_of_finiteDimensional",
+        "mathlib:IsModuleTopology.continuous_of_linearMap",
         "ArithmeticGaloisRepresentations:R01.1/refined-continuity-interface"
       ],
       "acceptance": [
@@ -1819,6 +1826,11 @@
         "namespace": "TauCeti.ContinuousRep"
       },
       "api": [
+        {
+          "name": "TauCeti.ContinuousRep.submodule_moduleTopology",
+          "role": "compatibility",
+          "statement": "Every subspace W of a finite-dimensional module over a Hausdorff topological field has IsModuleTopology k W for its induced subspace topology; no separate instance is a mathematical hypothesis."
+        },
         {
           "name": "TauCeti.ContinuousRep.subrep",
           "role": "constructor",
@@ -1888,7 +1900,7 @@
         "The quotient topology is the module topology; identify the kernel with W."
       ],
       "prerequisites": [
-        "ArithmeticGaloisRepresentations:R01.1/semisimplification",
+        "ArithmeticGaloisRepresentations:R01.1/continuous-representation",
         "ArithmeticGaloisRepresentations:R01.1/refined-subrepresentation",
         "mathlib:IsModuleTopology.instQuot"
       ],
@@ -1984,7 +1996,7 @@
         "Transport the finite collection of subquotients through the representation/group-algebra dictionary."
       ],
       "prerequisites": [
-        "ArithmeticGaloisRepresentations:R01.1/semisimplification",
+        "ArithmeticGaloisRepresentations:R01.1/continuous-representation",
         "ArithmeticGaloisRepresentations:R01.1/refined-subrepresentation",
         "ArithmeticGaloisRepresentations:R01.1/refined-quotient",
         "mathlib:CompositionSeries.jordan_holder",
@@ -2088,7 +2100,6 @@
         "For perfect k, import the parent finite image-algebra proof of preservation of semisimplicity; do not assert it for imperfect k."
       ],
       "prerequisites": [
-        "ArithmeticGaloisRepresentations:R01.1/semisimplification",
         "ArithmeticGaloisRepresentations:R01.1/semisimple-representations-over-perfect-fields",
         "ArithmeticGaloisRepresentations:R01.1/refined-composition-factors",
         "ArithmeticGaloisRepresentations:R01.1/refined-sum",
@@ -3173,7 +3184,7 @@
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-4-the-tame-quotient-of-the-absolute-galois-group",
-      "need": "The inertia subgroup I_K as the kernel of G_K → Gal(k̄/k), so that two lifts of arithmetic Frobenius differ by an element of I_K.",
+      "need": "Import the existing inertia/Frobenius contract. Current Tau Ceti a91d3aa, NumberTheory/LocalField/Unramified/Inertia/Basic.lean, already proves ker_restrictMaximalUnramifiedHom and IsArithFrobeniusLift.isArithFrobeniusLift_iff_inv_mul_mem. Via the Layer 2 residue-field identification, these give the kernel and lift-coset assertions used here. No new inertia construction or coset theorem is planned.",
       "neededBy": [
         "ArithmeticGaloisRepresentations:R01.1/refined-galois-coefficient-reduction"
       ]
@@ -3235,15 +3246,15 @@
     },
     {
       "id": "ArithmeticGaloisRepresentations:R01.1/equivariant-functions-are-continuous",
-      "reason": "Reviewed parent target retained; its exact hypotheses, sources and proof leaves remain in the parent packet."
+      "reason": "Reviewed parent target retained. Its historical source/proof-route wording is corrected in this reader and assembly.sourceOverrides; use those overrides when assembling the parent packet."
     },
     {
       "id": "ArithmeticGaloisRepresentations:R01.1/evaluation-at-a-transversal-is-a-homeomorphism",
-      "reason": "Reviewed parent target retained; its exact hypotheses, sources and proof leaves remain in the parent packet."
+      "reason": "Reviewed parent target retained. Its historical source/proof-route wording is corrected in this reader and assembly.sourceOverrides; use those overrides when assembling the parent packet."
     },
     {
       "id": "ArithmeticGaloisRepresentations:R01.1/induced-module-versus-coind",
-      "reason": "Reviewed parent target retained; its exact hypotheses, sources and proof leaves remain in the parent packet."
+      "reason": "Reviewed parent target retained. Its historical source/proof-route wording is corrected in this reader and assembly.sourceOverrides; use those overrides when assembling the parent packet."
     },
     {
       "id": "ArithmeticGaloisRepresentations:R01.1/mackey-decomposition",
@@ -3315,7 +3326,7 @@
     },
     {
       "id": "ArithmeticGaloisRepresentations:R01.1/brauer-nesbitt",
-      "reason": "Reviewed parent target retained; its exact hypotheses, sources and proof leaves remain in the parent packet."
+      "reason": "Reviewed parent target retained. Its historical source/proof-route wording is corrected in this reader and assembly.sourceOverrides; use those overrides when assembling the parent packet."
     },
     {
       "id": "ArithmeticGaloisRepresentations:R01.1/brauer-nesbitt-traces",
@@ -3433,6 +3444,23 @@
         "supplier": "IntegralHeckeAndGaloisDeterminants:IHG.1/algebraically-closed-reconstruction",
         "export": "Theorems.algebraically_closed_reconstruction; use the arithmetic bridge of this packet."
       }
+    ],
+    "sourceOverrides": [
+      {
+        "parents": [
+          "ArithmeticGaloisRepresentations:R01.1/continuous-induction",
+          "ArithmeticGaloisRepresentations:R01.1/equivariant-functions-are-continuous",
+          "ArithmeticGaloisRepresentations:R01.1/evaluation-at-a-transversal-is-a-homeomorphism",
+          "ArithmeticGaloisRepresentations:R01.1/induced-module-versus-coind"
+        ],
+        "correction": "BHKT Lemma 10.5, pp.55–56, supplies algebraic induction motivation only. The reader derives the topological comparison from the finite-transversal maps and pinned ContRepresentation.coind; do not carry forward the historical attribution of that topology to the lemma."
+      },
+      {
+        "parents": [
+          "ArithmeticGaloisRepresentations:R01.1/brauer-nesbitt"
+        ],
+        "correction": "Use the IHG Amitsur/reconstruction supplier override for the algebraically closed comparison. Retain separating-idempotent multiplicity descent over arbitrary fields; Noether–Deuring is the actual-isomorphism descent in the perfect-field refinement. The historical claim that this plan avoids determinant theory is superseded."
+      }
     ]
   },
   "confirmedFindings": [
@@ -3461,6 +3489,181 @@
     {
       "roadmap": "ReductiveGroupsPartII",
       "note": "RG2.3 compact-elements-in-hyperspecial-subgroups (2) already states compact-subgroup containment after extension and flags its rational-fixed-point/ramification-rescaling reference gap. This packet imports that target, with the totally ramified specialization for an already split group required by BHKT Theorem 4.8(ii)."
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-4-the-tame-quotient-of-the-absolute-galois-group",
+      "note": "Independent review checked current Tau Ceti a91d3aa: Unramified/Inertia/Basic.lean implements inertia, continuous surjective unramified restriction, its kernel, Frobenius lift existence and the lift coset, with restrictNormal_smul_residueField_eq_pow on every finite normal coefficient field. Import them through this owner; only comparison with the fixed algebraic residue field remains in the Layer 2 request."
+    },
+    {
+      "supplier": "tauceti:LinearMap.continuous_baseChange",
+      "note": "Current Tau Ceti a91d3aa, Topology/Algebra/Module/BaseChange.lean, already supplies continuity of extension of endomorphisms and linear automorphisms for canonical module topologies and a continuous scalar map. Reuse this at an updated library pin when packaging refined-scalar-extension-interface; the arithmetic bundle and its functorial comparison remain the local interface."
+    },
+    {
+      "supplier": "tauceti:TauCeti.exteriorPower.equivBaseChange",
+      "note": "Current Tau Ceti a91d3aa, LinearAlgebra/ExteriorPower/BaseChange.lean, implements exterior-power base change over arbitrary commutative rings, including its pure-tensor formula and map compatibility. Basic.lean also implements the top-exterior determinant comparison for a finite basis. Reuse those pieces; general finite-projective finiteness/projectivity and the invertible determinant object stay at AlgebraicVectorBundles L0C."
     }
-  ]
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-ArithmeticGaloisRepresentations--R01.1",
+    "date": "2026-10-09",
+    "notes": "Complete independent target-level review of all 31 nodes, all 36 pinned baseline declarations, the retained target catalogue, sources, current suppliers, API/tests and suggested Lean. Eight nodes corrected and 23 verified; no new nodes. The synchronized packet and reader retain planned coverage with two explicit general-reductive supplier/source gaps and six requests. Acceptance does not assert closed coverage or implementation. See the review report and handoff for evidence and assembly overrides.",
+    "checked": [
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.1/refined-continuity-interface",
+        "verdict": "verified",
+        "note": "Finite generators and a split finite presentation give joint continuity; the ContRepresentation comparison correctly distinguishes continuous operators from continuity in the group variable."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.1/refined-determinant",
+        "verdict": "corrected",
+        "note": "Added the F₃×F₃ idempotent-ideal test to detect the nonfree LinearMap.det fallback. Complement determinants allow varying rank; fixed-rank exterior powers remain an owner import."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.1/refined-framing",
+        "verdict": "verified",
+        "note": "The change-of-basis matrix P=b.toMatrix b′ gives P⁻¹ρP; inverse matrix continuity follows from group inversion. Rank-zero and conjugacy-over-A checks are meaningful."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.1/refined-scalar-extension-interface",
+        "verdict": "verified",
+        "note": "The scalar map is continuous, tensor products use module topologies, and characteristic-polynomial comparison assumes freeness. Current Tau Ceti continuity infrastructure is identified for reuse."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.1/refined-invariants-hom",
+        "verdict": "verified",
+        "note": "The conjugation action uses the inverse on the source. For arbitrary monoids, finitely many linear equations define the same intertwiner kernel; the pinned finite-monoid result is not overclaimed."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.1/refined-restriction",
+        "verdict": "verified",
+        "note": "A continuous group homomorphism pulls back the action on the same carrier; identity, trivial group and underlying algebraic action are tested."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.1/refined-sum",
+        "verdict": "verified",
+        "note": "The action is componentwise; determinant and free-module characteristic polynomials multiply. The second line and zero summand are preserved by the examples."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.1/refined-tensor",
+        "verdict": "verified",
+        "note": "The diagonal tensor action agrees on pure tensors and uses the finite-projective module topology. Rank exponents in the determinant formula have the correct orientation."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.1/refined-dual",
+        "verdict": "verified",
+        "note": "The contragredient uses g⁻¹, with the evaluation pairing and bidual map; the determinant is inverted and the tests distinguish the inverse action."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.1/refined-internal-hom",
+        "verdict": "verified",
+        "note": "The source is acted on inversely and the target directly; evaluation is equivariant and Hom agrees with dual tensor target. The normed pinned comparison is used within its hypotheses."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.1/refined-character-twist",
+        "verdict": "verified",
+        "note": "The character multiplies the original action, with determinant exponent equal to rank. The identity character, line product and nontrivial action tests distinguish it."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.1/refined-zl-one",
+        "verdict": "verified",
+        "note": "The inverse limit is a topological additive group of compatible roots, with transition ζ↦ζ^ℓ and equivariance through the pinned cyclotomic character; the chosen generator is explicitly noncanonical."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.1/refined-tate-twists",
+        "verdict": "verified",
+        "note": "Positive tensor powers, negative dual powers and degree zero give χ_cyc^n. Duality and addition of twist degrees have typed comparisons."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.1/refined-induction-interface",
+        "verdict": "corrected",
+        "note": "The topology comparison is derived from equivariant functions and finite right-coset evaluation. Corrected the inherited BHKT Lemma 10.5 attribution; algebraic transitivity/projection maps remain upstream imports."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.1/refined-lattice-saturation",
+        "verdict": "verified",
+        "note": "Λ∩W is saturated and full in W, while its quotient in Λ is torsion-free over the DVR; generic-fibre and coordinate-line tests use the correct quotient lattice."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.1/refined-lattice-dual",
+        "verdict": "corrected",
+        "note": "Specified c∈Eˣ and removed the false assertion that every direct scaling differs. Added a typed uniformizer case distinguishing c from c⁻¹ alongside the general dual-scaling identity."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.1/refined-subrepresentation",
+        "verdict": "corrected",
+        "note": "Replaced the complete normed-field closedness leaf by a linear-splitting/module-topology argument at the stated generality. Added the topology theorem to the API/prototype and removed the coarse semisimplification prerequisite."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.1/refined-quotient",
+        "verdict": "corrected",
+        "note": "Removed the coarse semisimplification prerequisite: the quotient action precedes composition factors. The open linear quotient and canonical quotient topology justify joint continuity without an equivariant complement."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.1/refined-composition-factors",
+        "verdict": "corrected",
+        "note": "Removed the coarse semisimplification prerequisite. The finite-dimensional image algebra gives finite length, and existing Jordan–Hölder/multiplicity infrastructure supplies the multiset independently of a series."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.1/refined-algebraic-semisimplification",
+        "verdict": "corrected",
+        "note": "Removed its own parent semisimplification carrier as a proof prerequisite. Factors precede their direct sum; imperfect-field scalar extension retains the second semisimplification, and perfect-field preservation is imported separately."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.1/refined-absolute-irreducibility",
+        "verdict": "verified",
+        "note": "Nonzero modules are required. The operator-span criterion, Schur/density criterion and algebraic extension tests distinguish rational irreducibility from absolute irreducibility without putting topology on an algebraic closure."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.1/refined-local-reduction",
+        "verdict": "verified",
+        "note": "An open maximal ideal and discrete residue topology suffice over a local coefficient ring; DVR or completeness is not silently imposed. Reduction is scalar extension, with matrix and rank-zero tests."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.1/refined-lattice-reduction",
+        "verdict": "verified",
+        "note": "Chosen-lattice reduction is distinguished from its semisimplification. The two unipotent lattices exhibit different raw reductions and the generic-fibre comparison preserves the full characteristic polynomial."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.1/refined-perfect-field-brauer-nesbitt",
+        "verdict": "verified",
+        "note": "Full characteristic polynomials, not traces, give determinant laws by IHG Amitsur. Import IHG reconstruction; perfect-field preservation plus Noether–Deuring on the simultaneous finite-dimensional image algebra descends the isomorphism. Dimension zero is separate."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.1/refined-lattice-independence-by-determinants",
+        "verdict": "verified",
+        "note": "Both lattices have the same reduced characteristic polynomial from the common generic fibre. The perfect-field bridge supplies an equivariant isomorphism, continuous for the discrete residue field; no factorial bound is inserted."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.1/refined-residual",
+        "verdict": "verified",
+        "note": "Baire coefficient descent, a stable lattice, scalar extension to the fixed algebraic residue field and semisimplification give a choice-independent isomorphism class. Compactness gives finite image; no canonical chosen basis is asserted."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.1/refined-coefficient-twist",
+        "verdict": "verified",
+        "note": "Twisting is scalar extension along the coefficient automorphism, with entrywise matrix action and order σ∘τ for successive twists. It does not precompose the group representation."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.1/refined-residual-frobenius",
+        "verdict": "verified",
+        "note": "Over a perfect discrete field, entries are raised to p-th powers. The Fp² line distinguishes this from the identity coefficient twist; restriction does not change the group variable."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.1/refined-galois-coefficient-reduction",
+        "verdict": "corrected",
+        "note": "Identified the implemented inertia/Frobenius kernel and lift-coset APIs in current Tau Ceti. Only comparison with the fixed algebraic residue field remains an owner request; the Lean compatibility square retains actual integral/residue automorphisms."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.1/refined-finite-teichmuller-character",
+        "verdict": "verified",
+        "note": "The finite-field torsion section is already implemented; this target applies it to continuous characters. Residue, q−1 torsion and coefficient-change tests use the section’s uniqueness."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.1/refined-algebraic-teichmuller-character",
+        "verdict": "verified",
+        "note": "Finite image gives a finite residue subfield; uniqueness on prime-to-ℓ torsion glues the sections and makes the lift independent of that field. The fixed residue identification remains explicit."
+      }
+    ]
+  }
 }
