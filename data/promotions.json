@@ -3040,6 +3040,13 @@
    "reviewDate": "2026-10-09",
    "reviewer": "independent-review-REV-PKG-AdelicAlgebraicGroups~2"
   },
+  "research/blueprint/packages/IntegralHeckeAndGaloisDeterminants/review.json": {
+   "at": "2026-10-09T14:48:55Z",
+   "reason": "REV-PKG-IntegralHeckeAndGaloisDeterminants~2 is not a job of the queue",
+   "review": "77a04be6dc713beb",
+   "reviewDate": "2026-10-09",
+   "reviewer": "independent-review-REV-PKG-IntegralHeckeAndGaloisDeterminants~2"
+  },
   "research/blueprint/packages/PadicMeasuresIwasawaAlgebras/review.json": {
    "at": "2026-10-09T13:18:03Z",
    "reason": "REV-PKG-PadicMeasuresIwasawaAlgebras is not a job of the queue",
