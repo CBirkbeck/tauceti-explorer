@@ -1,8 +1,8 @@
 # REV-FIX-RT-AREA-langlands-2~3
 
-Current blocked checkpoint: Codex session `codex-dnaUzE`, 9 October 2026,
-issue #5871, base `0e85566a5f0de7f88ac03a80f6eeedb51ed290b0`.
-Before this update, all seven authorized files matched merged checkpoint PR #7798.
+Current blocked checkpoint: Codex session `codex-0XpONo`, 9 October 2026,
+issue #5871, base `078ff6223c4a4b88037da93e2e56b5460071b6e5`.
+Before this update, all seven authorized files matched merged checkpoint PR #7806.
 This continuation reproduces the unresolved intake-scope blocker and preserves
 all mathematical verdicts and reviewer objects. Maintainer metadata repair is
 required before another worker continuation can complete intake.
@@ -504,12 +504,12 @@ remain historical evidence. No fresh primary-source reading, pinned-library
 review or graph audit is claimed. The next action remains maintainer repair
 of the metadata, rather than another unchanged-input continuation.
 
-## Current blocker receipt, 9 October 2026 — codex-dnaUzE
+## Current blocker receipt, 9 October 2026 — codex-0XpONo
 
-Claim confirmed at [comment 6075437662](https://github.com/CBirkbeck/tauceti-explorer/issues/5871#issuecomment-6075437662).
+The bot confirmed the claim at [comment 6076590888](https://github.com/CBirkbeck/tauceti-explorer/issues/5871#issuecomment-6076590888).
 Re-read the confirmed live issue and inherited handoff. All seven issue outputs
-were byte-for-byte identical to [PR #7798](https://github.com/CBirkbeck/tauceti-explorer/pull/7798),
-merge commit `45c6dba4738a26d32829e0ee89eed2a0f707b5b4`, before this update.
+were byte-for-byte identical to [PR #7806](https://github.com/CBirkbeck/tauceti-explorer/pull/7806),
+merge commit `e1959b18832421791ab0cc21a944012b9e645425`, before this update.
 
 Read `issues.deliverables_complete`, the intake allowlist and the historical
 `make_queue.fix_rounds` path. The current review queue entry is pending and
@@ -521,7 +521,8 @@ missing files or unfinished verdicts for this review. The parent fix is done
 but still lists 40 outputs. Neither queue nor generator repair is an authorized
 issue edit, and both paths fail the intake allowlist. The handoff gives the
 exact seven review and ten parent-fix paths and the regeneration code path
-requiring maintainer repair.
+requiring maintainer repair. The intake's `--complete` option only updates
+legacy link-map status; it supplies no completion override for this review.
 
 Fresh validation: all three `check_blueprint.py` runs report zero errors and
 zero warnings; all 177 nodes remain unchecked; no packet contains an excerpt
