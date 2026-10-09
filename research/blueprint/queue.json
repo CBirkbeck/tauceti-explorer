@@ -21711,11 +21711,11 @@
     "REV-RS-16"
    ],
    "prompt": "research/blueprint/prompts/BP-LocallyAnalyticDistributions.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-PadicMeasuresIwasawaAlgebras"
    ],
-   "note": "released on GitHub issue #641"
+   "note": "claimed on GitHub issue #641"
   },
   {
    "id": "REV-LocallyAnalyticDistributions",
@@ -29928,9 +29928,9 @@
     "REV-RS-21"
    ],
    "prompt": "research/blueprint/prompts/BP-SmoothRepresentationsOfLocalGroups--SR.0.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [],
-   "note": "released on GitHub issue #996"
+   "note": "claimed on GitHub issue #996"
   },
   {
    "id": "REV-SmoothRepresentationsOfLocalGroups--SR.0",
@@ -34055,8 +34055,8 @@
    ],
    "followUpOf": "BP-SchemeAndStackFoundations",
    "prompt": "research/blueprint/prompts/BP-SchemeAndStackFoundations--SF.0.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6325"
+   "state": "pending",
+   "note": "released on GitHub issue #6325"
   },
   {
    "id": "REV-SchemeAndStackFoundations--SF.0",
@@ -34192,8 +34192,9 @@
    ],
    "followUpOf": "BP-SchemeAndStackFoundations",
    "prompt": "research/blueprint/prompts/BP-SchemeAndStackFoundations--SF.3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6328"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6328",
+   "finishedAt": "2026-10-09T12:04:52Z"
   },
   {
    "id": "REV-SchemeAndStackFoundations--SF.3",
@@ -41387,8 +41388,9 @@
    ],
    "revisionOf": "BP-PrismaticCohomology--PR.0",
    "prompt": "research/blueprint/prompts/BP-PrismaticCohomology--PR.0~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7001"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7001",
+   "finishedAt": "2026-10-09T12:04:54Z"
   },
   {
    "priority": 2,
@@ -46348,7 +46350,8 @@
     "PKG-AdelicAlgebraicGroups"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-AdelicAlgebraicGroups.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7501"
   },
   {
    "id": "PKG-AdicCoefficientsAndComparisons",
@@ -79796,8 +79799,8 @@
     "FIX-RT-AREA-iwasawa-2~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-2~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #6219"
+   "state": "external",
+   "note": "claimed on GitHub issue #6219"
   },
   {
    "id": "RT-AREA-iwasawa-3",
