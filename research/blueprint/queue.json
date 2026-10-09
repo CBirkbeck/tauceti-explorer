@@ -35970,8 +35970,9 @@
    ],
    "avoidAccountOf": "BP-KTheoryLowDegrees--U.4",
    "prompt": "research/blueprint/prompts/REV-KTheoryLowDegrees--U.4.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7548"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7548",
+   "finishedAt": "2026-10-09T06:52:08Z"
   },
   {
    "id": "BP-KTheoryLowDegrees--U.5",
@@ -38085,7 +38086,8 @@
    ],
    "revisionOf": "BP-AutomorphicSpectralTheory",
    "prompt": "research/blueprint/prompts/BP-AutomorphicSpectralTheory~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6927"
   },
   {
    "priority": 2,
