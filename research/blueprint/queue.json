@@ -34953,7 +34953,8 @@
    ],
    "followUpOf": "BP-ClassicalAdicEtaleCohomology--H0",
    "prompt": "research/blueprint/prompts/BP-ClassicalAdicEtaleCohomology--H3.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6948"
   },
   {
    "id": "REV-ClassicalAdicEtaleCohomology--H3",
@@ -38116,8 +38117,9 @@
     "BP-AutomorphicSpectralTheory~2"
    ],
    "prompt": "research/blueprint/prompts/REV-AutomorphicSpectralTheory~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7031"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7031",
+   "finishedAt": "2026-10-09T08:59:38Z"
   },
   {
    "kind": "blueprint",
@@ -38891,8 +38893,9 @@
    ],
    "revisionOf": "BP-ExcursionOperatorsAndSpectralAction--ES0",
    "prompt": "research/blueprint/prompts/BP-ExcursionOperatorsAndSpectralAction--ES0~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6960"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6960",
+   "finishedAt": "2026-10-09T08:59:41Z"
   },
   {
    "priority": 2,
@@ -42220,7 +42223,8 @@
    ],
    "revisionOf": "BP-OverconvergentAutomorphicForms--O0",
    "prompt": "research/blueprint/prompts/BP-OverconvergentAutomorphicForms--O0~3.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7569"
   },
   {
    "priority": 2,
