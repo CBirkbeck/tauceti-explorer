@@ -38891,7 +38891,8 @@
    ],
    "revisionOf": "BP-ExcursionOperatorsAndSpectralAction--ES0",
    "prompt": "research/blueprint/prompts/BP-ExcursionOperatorsAndSpectralAction--ES0~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6960"
   },
   {
    "priority": 2,
