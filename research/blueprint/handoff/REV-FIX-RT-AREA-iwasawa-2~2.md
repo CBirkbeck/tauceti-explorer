@@ -1,19 +1,28 @@
 # Handoff: REV-FIX-RT-AREA-iwasawa-2~2
 
-Codex, session `codex-7PpFhN`, 9 October 2026. Issue [#6219](https://github.com/CBirkbeck/tauceti-explorer/issues/6219), input commit `0dd979cd4dbf3dd27e761bd581e724a7f45ed155`. Claim confirmed for comment 6086683565. **Blocked checkpoint; no second job claimed.**
+Codex, session `codex-p9uw1D`, 9 October 2026. Issue [#6219](https://github.com/CBirkbeck/tauceti-explorer/issues/6219), input commit `dfd35f2a06b8d9f4268196ed46bf680027032b72`. Bot confirmation: [6090969769](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6090969769). **Blocked checkpoint; no second job claimed.**
 
-## Resume only after the scope decision
+## Resume only after scope reconciliation
 
-Both issue-named packet reviews are already accepted under this job's identity. Their completed mathematical audit, per-finding verdicts, source/library receipts and native Lean limitations are preserved with their original attribution in `reviews/REV-FIX-RT-AREA-iwasawa-2~2.md`. No mathematical record or suggested file changed in this continuation.
+Both issue-named packets already carry this job's accepted reviews. Their mathematical verdicts and prior audit attribution remain intact in `reviews/REV-FIX-RT-AREA-iwasawa-2~2.md`. The latest section adds fresh scoped Dasgupta–Kakde and pinned-source checks, plus full native compilation receipts. No packet, reader, suggested file or verdict was changed.
 
-Fresh checks reproduce zero errors for both packets; PMIA has zero warnings and L3 has 26 inherited short-API warnings. The actual completion predicate returns `False` for the queue's nine outputs and `True` for the live issue's five. The report now includes executable read-only reproduction code and confirms the intake consequence: another merged submission is automatically released as a checkpoint. The extra packets are L3-2 (no review) and D.1 (a newer accepted review by another job). The queue's referenced prompt file is absent.
+The complete live issue still has five outputs; the queue has nine. The actual completion predicate returns `True` for the live issue and `False` for the queue. All paths exist. The unmatched packets are:
 
-The live issue and its full instructions still omit those packets and their suggested files. WORKERS.md permits edits only to issue-named files. A scope decision was requested from the manager and remains pending. No queue, omitted packet, issue body or label was changed.
+- `DirichletPadicLFunctions--L3-2.json`: no review object.
+- `PadicHodgeRegulators--D.1.json`: newer accepted `independent-review-REV-PadicHodgeRegulators--D.1~2`.
 
-The report contains the exact five-path `outputs` replacement for the maintainer if the live issue scope is intended. If the queue scope is intended, explicitly authorize the additional L3-2 and D.1 reviews and update the live issue before dispatching another continuation. Preserve D.1's accepted review in history if replacing it, and conduct actual reviews rather than relabeling verdicts. No scratch artifact is needed to resume.
+WORKERS.md permits edits only to issue-named files. Authorization for the extra reviews was requested and had not arrived at submission. Do not silently replace D.1's verdict or label L3-2 reviewed. The previous report includes the exact five-output queue replacement if the live issue is authoritative. Otherwise authorize the two extra packet/suggested-file reviews and refresh the issue before dispatching another continuation. Another unchanged two-packet review cannot complete the current nine-output job.
 
-## Mathematical boundaries
+## Fresh verification
 
-Findings /1–/2 retain open Gross–Koblitz coefficient/splitting and root interfaces in RD.6/L3-2, and Ferrero–Greenberg source range, correction term, coordinate and nonvanishing obligations. /3 requires early classical log-syntomic producers; D.1's newer review remains intact. /4's corrected L6 algebra was accepted; exterior-bidual/order targets and arithmetic I.6/I.7 imports remain honestly recorded. /5 stays with the finite-slope/solid/Stein owners. The verifier rejected /6.
+- PMIA checker: 487 nodes, zero errors and warnings.
+- L3 checker: 1,663 nodes, zero errors and 26 inherited short-API warnings outside this fix's scope.
+- Full PMIA `lean-check`: exit 0, 1,075 warnings, all `sorry`; no errors or other warnings.
+- Full L3 `lean-check`: exit 1, unknown module prefix `research`; none of its declarations elaborated.
+- Checks ran sequentially with more than 20 GB available; no build or language server. No process remains running for this job.
 
-Inherited native Lean receipts: PMIA elaborated with only `sorry` warnings; L3 failed at import resolution because the shared build lacks planned `research` artifacts. No new Lean process was started for these documentation changes.
+Fresh source: Dasgupta–Kakde arXiv v3 §§2.2–2.3 pp.15–18, Lemma 3.9 pp.25–26, §6.1/Lemma 6.1 p.40. SHA-256 and URL are in the report. Scoped library checks used Git objects at Tau Ceti f790474, not the current upstream tree. No fresh all-node audit is claimed. No scratch artifact is needed to resume.
+
+## Mathematical boundaries retained
+
+/1–/2 preserve the RD.6 coefficient/splitting requests, normalized-root obligations and Ferrero–Greenberg source-range/correction/coordinate/nonvanishing work at L3-2. /3 requires the early classical log-syntomic supplier; D.1's newer review is preserved. /4's corrected L6 algebra remains accepted, with its existing order/exterior-bidual gaps and arithmetic I.6/I.7 owner imports. /5 remains with the complex finite-slope, solid and Stein owners. The verifier rejected /6. Administrative reconciliation does not discharge any mathematical gap.

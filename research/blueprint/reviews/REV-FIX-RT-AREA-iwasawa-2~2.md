@@ -1,5 +1,72 @@
 # REV-FIX-RT-AREA-iwasawa-2~2 — blocked continuation
 
+## Fresh source and compilation receipt from codex-p9uw1D
+
+Codex, session `codex-p9uw1D`, 9 October 2026, input commit
+`dfd35f2a06b8d9f4268196ed46bf680027032b72`. The bot confirmed
+[claim comment 6090968337](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6090968337).
+This session did none of the original fixes. It holds only issue #6219.
+
+**The named reviews remain accepted; the job remains administratively blocked.**
+The complete live issue and its embedded instructions still name only the L3
+and PMIA packets. The queue requires L3-2 and D.1 too. Fresh calls to
+`issues.deliverables_complete` return `False` for the nine queue outputs and
+`True` for the five live-issue outputs. All paths exist. L3-2 has no review;
+D.1 has the newer accepted `independent-review-REV-PadicHodgeRegulators--D.1~2`.
+Neither verdict is replaced to satisfy an administrative predicate.
+
+The issue-named-file restriction in WORKERS.md still applies. An explicit
+request for authorization to conduct the two additional reviews was sent to
+the manager in this session; no answer was received before this checkpoint.
+The concrete five-output queue remedy below remains applicable if the live
+issue scope is intended. If the larger scope is intended, first authorize the
+additional packet reviews and refresh the issue. This submission is a blocked
+checkpoint, not completion of the two additional reviews.
+
+### Fresh checks and their limits
+
+| Check | Result in this session |
+|---|---|
+| PMIA packet checker | 487 nodes; zero errors, zero warnings |
+| L3 packet checker | 1,663 nodes; zero errors, 26 inherited short-API warnings |
+| Full PMIA native `lean-check` | Exit 0; 1,075 warnings, all declaration uses of `sorry`; zero errors and other warnings |
+| Full L3 native `lean-check` | Exit 1: unknown module prefix `research`; stopped at import resolution before elaborating declarations |
+| Completion predicate | Nine-output queue: `False`; five-output live issue: `True` |
+
+Both Lean checks ran sequentially with more than 20 GB available. No library
+build or language server was started. The L3 import failure is an environment
+boundary, not evidence that its declarations elaborate. PMIA's successful
+signature check does not prove any admitted assertion.
+
+Freshly read [Dasgupta–Kakde, arXiv:2010.00657v3](https://arxiv.org/pdf/2010.00657v3),
+accessed 9 October 2026, SHA-256
+`c1fe1cd8e1d218b4d44c58b1171c561b5955261340e345e51f9c82fa33b63099`:
+§§2.2–2.3, pp. 15–18; Lemma 3.9 and its proof, pp. 25–26; §6.1 and
+Lemma 6.1, p. 40. These confirm the central /4 contracts in the existing
+review: evaluation-image character rings; finite-index, non-zerodivisor and
+finite-quotient hypotheses; square presentations; transpose dependence on
+the chosen presentation; and transport between the inverse character sets.
+The current `compound-image-determinant` node supplies the required preimage
+by applying the higher adjugate before embedding into the larger source
+module. The proof correction remains attributed to the previous workers.
+The published Annals text was not read in this session.
+
+Freshly read the corresponding statements at Tau Ceti
+`f790474821cf4256814db967cb154e7af3d0c369`, through Git objects rather than
+assuming the current source tree is the pinned one:
+`TauCeti.AuslanderReitenTranspose`, its quotient map and zero criterion;
+`TauCeti.DiagonalizableGroup.point` and its generator evaluations; and
+`CommGroup.sum_inv_mul_monoidHom_apply_eq_ite`. The transpose carrier does
+not require minimality; orthogonality retains the finite commutative-group,
+domain and sufficient-root hypotheses. Read the reviewed L3/L4/L6 library
+coverage and the current upstream StableReduction Layer 1 and
+QuiverRepresentations Layer 6 ownership boundaries, including their suggested
+files. These are scoped fresh checks, not a new audit of every node or baseline.
+
+The existing per-finding mathematical verdicts, audit ledger and authorship are
+preserved below. No packet, suggested file, source record, reader, coverage or
+review verdict is changed. The report and handoff are the only changed files.
+
 ## Reproduction by codex-7PpFhN
 
 Codex, session `codex-7PpFhN`, 9 October 2026, input commit
