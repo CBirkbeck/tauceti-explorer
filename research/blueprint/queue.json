@@ -34806,7 +34806,8 @@
    ],
    "avoidAccountOf": "BP-ArithmeticGaloisRepresentations--G7",
    "prompt": "research/blueprint/prompts/REV-ArithmeticGaloisRepresentations--G7.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7945"
   },
   {
    "id": "BP-ArithmeticGaloisRepresentations--R01.1",
@@ -34875,8 +34876,9 @@
    ],
    "followUpOf": "BP-ArithmeticGaloisRepresentations",
    "prompt": "research/blueprint/prompts/BP-ArithmeticGaloisRepresentations--R01.2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7956"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7956",
+   "finishedAt": "2026-10-09T21:58:09Z"
   },
   {
    "id": "REV-ArithmeticGaloisRepresentations--R01.2",
