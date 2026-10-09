@@ -46562,7 +46562,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-EllipticCurveModularityPartII.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7471"
   },
   {
    "id": "REV-PKG-EllipticCurveModularityPartII",
