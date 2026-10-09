@@ -2448,13 +2448,14 @@ theorem classical_good_dihedral_insertion {p : ℕ} [Fact p.Prime]
         IsGoodDihedralPrime (s.member w).residual galoisInertia (s.member w).p
           (artinConductor (s.member w).residual) q := by sorry
 
-/-- R27.4: the full split auxiliary characteristic, not just its size inequality. -/
+/-- R27.4: the full split auxiliary characteristic for the weight-two system of
+Khare–Wintenberger Theorem 5.1(2), not just its size inequality. -/
 theorem classical_auxiliary_characteristic {p : ℕ} [Fact p.Prime]
     (ρ : GQ →* GL (Fin 2) (FpBar p)) (hS : IsSType ρ)
     (hlarge : if p = 2 then ¬ Group.IsSolvable ρ.range else
       IsIrreducible (ρ.comp (cyclotomicSubgroup p).subtype))
     (s : CompatibleSystem) (v : s.Place) (hlift : (s.member v).Lifts ρ)
-    (hweight : s.HasWeight (if p = 2 then 2 else serreWeight ρ))
+    (hweight : s.HasWeight 2)
     (hnormal : p ≠ 2 → 2 ≤ serreWeight ρ ∧ serreWeight ρ ≤ p+1)
     (hram : ∀ r ∈ s.S, r ∣ artinConductor ρ * p) :
     IsModular ρ ∨ ∃ (p' : ℕ) (_ : Fact p'.Prime) (w : s.Place),
