@@ -7,14 +7,14 @@ The baseline is Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369` with Mathlib
 ## Scope and boundaries
 
 - **In scope.** Locally profinite groups and their compact open subgroups; smooth representations over any commutative ring; invariants, averaging and admissibility; the smooth dual; the categorical and Λ-linear Bernstein centre; the derived category with K-injective resolutions, dg enhancement and derived invariants; Hecke algebras by convolution and by permutation modules, and their comparison with the double-coset ring; idempotented algebras and nondegenerate modules; Iwahori decompositions, positive Hecke homomorphisms, the Iwahori–Matsumoto and Bernstein presentations; smooth and compact induction, Frobenius reciprocity, Mackey theory, Jacquet modules, parabolic induction, first adjointness, the geometric lemma, Casselman's pairing and the canonical lifting; cuspidal theory, Harish-Chandra compactness, admissibility of irreducibles, uniform admissibility; cuspidal support, the Bernstein decomposition and centre, temperedness, the Langlands classification and the Iwahori block; stabilisation, Jacquet duality and second adjointness over ℂ.
-- **Imported.** Profinite discrete modules, their canonical carrier, coinduction and continuous cohomology (Tau Ceti ProfiniteCohomology Layers 0, 1, 7, 10); supernatural orders and pro-p groups (ProfiniteProPGroups Layer 1); algebraic induction in stages and the Mackey decomposition (RepresentationTheory/InductionRestriction Layers 0 and 3); the double-coset Hecke ring (ModularForms Layer 2); split reductive structure theory (ReductiveGroups Layer 7); topologies on rational points, relative root data, parahoric and congruence subgroups and the Iwasawa, Cartan and Iwahori–Bruhat decompositions (ReductiveGroupsPartII RG2.0, RG2.1, RG2.3, RG2.4).
+- **Imported.** Profinite discrete modules, their canonical carrier, coinduction and continuous cohomology (Tau Ceti ProfiniteCohomology Layers 0, 1, 7, 10 and 12); supernatural orders and pro-p groups (ProfiniteProPGroups Layer 1); algebraic induction in stages and the Mackey decomposition (RepresentationTheory/InductionRestriction Layers 0 and 3); the double-coset Hecke ring (ModularForms Layer 2); split reductive structure theory (ReductiveGroups Layer 7); topologies on rational points, relative root data, parahoric and congruence subgroups and the Iwasawa, Cartan and Iwahori–Bruhat decompositions (ReductiveGroupsPartII RG2.0, RG2.1, RG2.3, RG2.4).
 - **Not here.** The Satake transform and spherical comparison z ↦ e_K z (SR.4); derivatives, co-Whittaker modules and integral GL_n families (SR.5); integral centre finiteness and integral second adjointness (SR.6); the ∞-categorical enhancement and the comparison with étale sheaves on [∗/G] (EnhancedDerivedSheaves and the V-stack roadmaps); the Plancherel theorem and Harish-Chandra's classification of tempered representations; Bushnell–Kutzko types beyond the Iwahori case.
 
 ## Conventions that change the mathematics
 
 **Groups.** G is a locally profinite group: a Hausdorff topological group in which the compact open subgroups form a basis of neighbourhoods of 1. For a locally compact totally disconnected group this is van Dantzig's theorem (`van-dantzig`); Mathlib's `NonarchimedeanGroup` supplies open subgroups but not their compactness. Reductive statements concern G = 𝐆(F) for a connected reductive 𝐆 over a nonarchimedean local field F with residue cardinality q, topologised by ReductiveGroupsPartII RG2.0. Unit tests for reductive groups are stated for GL_n(ℚ_p), realised as the units of the matrix ring.
 
-**Coefficients.** A is any commutative ring. Results that need averaging assume a cofinal family of compact open subgroups of pro-order invertible in A. For a locally pro-p group this means p ∈ Aˣ. Results that do not need it, such as the permutation-module Hecke algebra, Frobenius reciprocity for compact induction and right exactness of Jacquet modules, are stated over every A, including F_p for p-adic G. Normalised parabolic induction and Jacquet functors need a chosen q^{1/2} ∈ Aˣ; unnormalised versions are always available. SR.3a, SR.3 and SR.2a are over ℂ. The Λ-linear centre uses Λ with p ∈ Λˣ, for instance ℤ_ℓ[√q] with ℓ ≠ p.
+**Coefficients.** A is any commutative ring. Results that need averaging assume a cofinal family of compact open subgroups of pro-order invertible in A. For a locally pro-p group p ∈ Aˣ suffices; it is necessary if G is non-discrete. A discrete group always has the good compact open subgroup {1}. Results that do not need it, such as the permutation-module Hecke algebra, Frobenius reciprocity for compact induction and right exactness of Jacquet modules, are stated over every A, including F_p for p-adic G. Normalised parabolic induction and Jacquet functors need a chosen q^{1/2} ∈ Aˣ; unnormalised versions are always available. SR.3a, SR.3 and SR.2a are over ℂ. The Λ-linear centre uses Λ with p ∈ Λˣ, for instance ℤ_ℓ[√q] with ℓ ≠ p.
 
 **Measures and modulus.** An A-valued Haar measure is a finitely additive left-invariant function on compact open subsets. It is normalised by μ(U₀) = 1 on a compact open subgroup U₀ of invertible pro-order. The modulus δ_P of a parabolic P = MN is the factor by which conjugation by p scales a Haar measure of N: δ_P(p) = |det Ad(p)|_{Lie N}|_F, so δ_B(diag(p, 1)) = p⁻¹ in GL_2(ℚ_p). It equals Mathlib's `modularCharacter` of P, and δ_{P̄} = δ_P⁻¹ on M. Normalised induction is i_P σ = Ind_P^G(δ_P^{1/2} ⊗ σ) and normalised Jacquet is r_P V = δ_P^{−1/2} ⊗ V_N.
 
@@ -22,7 +22,7 @@ The baseline is Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369` with Mathlib
 
 **Adjunctions.** First adjointness is r_P ⊣ i_P (Jacquet functor left adjoint to induction, along the same parabolic). Second adjointness is i_P ⊣ r_{P̄}, along the opposite parabolic. Frobenius reciprocity for compact induction from an open subgroup is c-Ind ⊣ Res; for smooth induction from a closed subgroup it is Res ⊣ Ind.
 
-**Centres.** The centre of a category is Mathlib's `CatCenter`, End of the identity functor. The Bernstein centre over ℂ is the centre of SmoothRep ℂ G. The Λ-linear Bernstein centre is π₀End of the identity of D(G, Λ), and it equals lim_K Z(e_K H(G, Λ) e_K) over pro-p K.
+**Centres.** The centre of a category is Mathlib's `CatCenter`, End of the identity functor. The Bernstein centre over ℂ is the centre of SmoothRep ℂ G. Fargues–Scholze define the Λ-linear Bernstein centre as π₀End of the identity of the enhanced D(G, Λ). The ordinary smooth centre has the corner-limit formula; comparison with the enhanced centre is an explicit gap. The unenhanced triangulated CatCenter is not substituted for π₀End(id).
 
 ## Existing library at the baseline
 
@@ -103,19 +103,27 @@ The baseline is Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369` with Mathlib
 | `mathlib:Module.End.instDivisionRing` | instance | The endomorphism ring of a simple module is a division ring (Schur's lemma). |
 | `mathlib:Transcendental.linearIndependent_sub_inv` | theorem | For x transcendental over F, the elements (x − a)⁻¹ (a ∈ F) are F-linearly independent: the input of the countable-dimension Schur lemma. |
 | `mathlib:Module.Finite.toModuleEnd_moduleEnd_surjective` | theorem | Jacobson density for a module finite over its endomorphism ring: the map to the double centraliser is surjective (Burnside's theorem for finite-dimensional simple modules over an algebraically closed field). |
+| `mathlib:CategoryTheory.Simple` | class | An object is simple when each monomorphism into it is an isomorphism exactly when that morphism is nonzero. |
+| `mathlib:Unitization` | structure | The A-unitization of a non-unital A-algebra H has underlying A × H, with a new unit; its ideal inclusion H supplies the A-linear module carrier. |
+| `mathlib:Rep.quotientToCoinvariantsFunctor` | def | For a normal subgroup N of a group G, takes a G-representation to the G/N-representation on its N-coinvariants. Smoothness and exactness are separate planned assertions. |
+| `mathlib:Rep.quotientToInvariantsFunctor` | def | For a normal subgroup N of G, takes N-invariants with their induced G/N-action; its right derived functor retains the quotient-group action. |
+| `mathlib:Representation.tprod` | def | The tensor-product representation acts on V ⊗_A W through the tensor product of the two action maps. Smoothness is an additional planned assertion. |
+| `mathlib:MonoidAlgebra.mapDomainRingHom` | def | A monoid homomorphism induces a ring homomorphism on monoid algebras by mapping basis indices. |
+| `mathlib:Module.compHom` | abbrev | Restricts an existing module action along a ring homomorphism. The centre subtype map gives the precise scalar action for finiteness over a Hecke centre. |
+| `mathlib:CategoryTheory.Abelian.Ext.comp` | def | Given Ext classes of degrees a and b, composition is the second class after the first, in degree a+b. This fixes the derived-Hecke opposite convention. |
 
 ## Layer order and stage coverage
 
 The layers depend on one another in the order SR.0:abelian-category → SR.1 → SR.0:derived-extension → SR.2 → SR.3a → SR.3 → SR.2a. The position of SR.2a after SR.3a and SR.3 is forced by the mathematics. Bernstein's stabilisation theorem, the only complete public route to second adjointness for a general reductive group, uses uniform admissibility, the Bernstein decomposition, noetherianity and generic irreducibility. Bezrukavnikov–Kazhdan's geometric proof uses noetherianity of Hecke algebras. Uniform admissibility needs only cuspidal theory and first adjointness, and the Bernstein centre is proved by Bernstein–Deligne without second adjointness. Cuspidal theory, Harish-Chandra compactness and admissibility of irreducibles are planned in SR.3a and realise SR.3 as well.
 
 - **SR.0: planned.** SR.0 is the compatibility name of SR.0:abelian-category (REV-RS-21): its nodes realise both ids and nothing further is planned under SR.0 alone.
-- **SR.0:abelian-category: planned.** Topological smooth representations on topological modules beyond the profinite comparison of PC1 (only the algebraic carrier is planned).
-- **SR.0:derived-extension: planned.** The ∞-categorical enhancement of D(Rep^sm) and its comparison with sheaves on [*/G] belong to EnhancedDerivedSheaves:E1 and the V-stack roadmaps; here the dg enhancement is the Hom-complex model on K-injective complexes.
-- **SR.1: planned.** The spherical comparison z ↦ e_K z with the Satake transform and the integral spherical presentations belong to SR.4.
-- **SR.2: planned.** Uniqueness of Whittaker models for general quasi-split G (gap).
-- **SR.2a: planned.** The integral (ℓ ≠ p) second adjointness belongs to SR.6 and compares with this adjunction.
-- **SR.3: planned.** Harish-Chandra's classification of tempered representations, the input to langlands-classification (gap).
-- **SR.3a: planned.**
+- **SR.0:abelian-category: planned.** Topological smooth representations on topological modules beyond the profinite comparison of PC1 (only the algebraic carrier is planned). Instantiate the GL₂ compact-open invariant test with the requested Cartan representatives and GL₂(ℤ_p) subgroup, listed in the omission ledger.
+- **SR.0:derived-extension: planned.** Complete the equivariant K-flat replacement, tensor totalisation and derived internal-Hom construction (recorded gap). The ∞-categorical enhancement and comparison with sheaves on [*/G] are supplied by EnhancedDerivedSheaves:E1 and the V-stack roadmaps; this part owns the dg model and ordinary derived functors. Instantiate the double-coset derived-Hecke product with ProfiniteCohomology Layers 10 and 12 and prove compatibility with the chosen Yoneda opposite convention.
+- **SR.1: planned.** Prove the general positive Levi Hecke embedding by transfer of Levi structure constants (recorded gap); the normaliser/torus product is the stated special case. Construct the enhanced degree-zero centre comparison with the ordinary corner centre (recorded gap). Use the requested ReductiveGroupsPartII parabolic, Iwahori and root-data carriers to instantiate the named signatures in the omission ledger. The spherical comparison and integral spherical presentations are SR.4 targets.
+- **SR.2: planned.** Supply multiplicity one and Rodier heredity for general quasi-split groups and the degenerate Whittaker inputs (recorded gaps). Specify the smooth equivariant l-sheaf category, its compactly supported sections and equivariance, then instantiate the sheaf and Mackey signatures listed in the omission ledger. Instantiate parabolic induction, generic root characters, Jacquet normalisations and Casselman statements with the requested reductive supplier carriers.
+- **SR.2a: planned.** Instantiate stabilisation, canonical lifting, Jacquet duality and second-adjunction unit/counit with the requested parabolic-pair and positive-cone carriers. The integral (ℓ ≠ p) second adjointness is supplied by SR.6 and compares with this complex-coefficient adjunction.
+- **SR.3: planned.** Supply Harish-Chandra’s classification of tempered representations and the Schwartz/tempered projectivity input (recorded gaps). Instantiate cuspidal-data, inertial-class, affine-torus and quotient-variety carriers, and the associated block, centre, Langlands and Steinberg signatures in the omission ledger.
+- **SR.3a: planned.** Use the requested rational-point, Levi, Cartan-cone and congruence-subgroup carriers to extend the concrete GL_n(ℚ_p) signatures to general reductive G(F) and instantiate the remaining cuspidal signatures in the omission ledger.
 
 ## Declaration plan
 
@@ -123,7 +131,7 @@ Each block is one planned declaration. Prerequisites are direct edges: nodes of 
 
 ### SR.0:abelian-category (also SR.0). The smooth category and its basic API
 
-Smooth representations of a locally profinite group G on modules over an arbitrary commutative ring A. The carrier is the full subcategory of Mathlib's `Rep A G` on the representations all of whose vectors have open stabilisers. It is abelian, closed under colimits, and coreflective: the smooth vectors form the right adjoint of the inclusion, which gives limits. Invariants V^U under a compact open subgroup U are defined for every A. They are cut out by an averaging idempotent, and form an exact functor, exactly when U has pro-order invertible in A. For a p-adic group over F_p no such U exists, and the theory continues without averaging. Admissibility, finiteness conditions, smooth characters, the smooth contragredient, change of coefficients and the categorical centre complete the basic API. The unqualified stage SR.0 is this layer under its compatibility name; its nodes realise both ids.
+Smooth representations of a locally profinite group G on modules over an arbitrary commutative ring A. The carrier is the full subcategory of Mathlib's `Rep A G` on the representations all of whose vectors have open stabilisers. It is abelian, closed under colimits, and coreflective: the smooth vectors form the right adjoint of the inclusion, which gives limits. Invariants V^U under a compact open subgroup U are defined for every A. They are cut out by an averaging idempotent, and form an exact functor, exactly when U has pro-order invertible in A. For a non-discrete locally pro-p group over F_p no such U exists, and the theory continues without averaging. Admissibility, finiteness conditions, smooth characters, the smooth contragredient, change of coefficients and the categorical centre complete the basic API. The unqualified stage SR.0 is this layer under its compatibility name; its nodes realise both ids.
 
 **Planets of this layer:** Smooth representations (`is-smooth`); Category of smooth representations (`smooth-rep-category`); Compact open invariants (`compact-open-invariants`); Admissible representations (`admissible`); Smooth contragredient (`smooth-dual`); Centre of the smooth category (`smooth-centre`).
 
@@ -352,7 +360,7 @@ For a locally profinite G, a commutative ring A and a compact open subgroup U �
 4. Union description: a smooth v has open stabiliser, which contains a member of any basis of compact open subgroups (van-dantzig); conversely V^U ⊆ V^∞ since U is open. Directedness: U ∩ U' contains a basis member.
 5. Compatibility with the profinite statement: when G is compact, open normal subgroups are cofinal among compact open subgroups (normal core of finite index), so the two suprema agree.
 
-**Direct prerequisites.** `SmoothRepresentationsOfLocalGroups:SR.0:abelian-category/smooth-rep-category`, `SmoothRepresentationsOfLocalGroups:SR.0:abelian-category/van-dantzig`, `mathlib:Representation.invariants`, `tauceti:TauCeti.iSup_fixedPoints_openNormal_eq_top`, `tauceti:TauCeti.directed_fixedPoints_addSubgroup`, `tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-0-discrete-modules-and-continuous-sections`.
+**Direct prerequisites.** `SmoothRepresentationsOfLocalGroups:SR.0:abelian-category/smooth-rep-category`, `SmoothRepresentationsOfLocalGroups:SR.0:abelian-category/van-dantzig`, `mathlib:Representation.invariants`, `tauceti:TauCeti.iSup_fixedPoints_openNormal_eq_top`, `tauceti:TauCeti.directed_fixedPoints_addSubgroup`, `tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-0-discrete-modules-and-continuous-sections`, `ReductiveGroupsPartII:RG2.4` (GL₂ unit tests).
 
 **API.**
 
@@ -388,14 +396,14 @@ For a locally profinite G, a commutative ring A and a compact open subgroup U �
 
 **Identifier:** `SmoothRepresentationsOfLocalGroups:SR.0:abelian-category/unit-pro-order`. **Kind:** definition. **Proposed name:** `TauCeti.HasUnitProOrder`. **Module:** `TauCeti/RepresentationTheory/Smooth/Basic`. **Realises:** `SR.0`, `SR.0:abelian-category`.
 
-Let U be a profinite group and A a commutative ring. U has pro-order invertible in A if for every open subgroup U' ≤ U the index [U : U'] (finite, U being compact) is a unit of A; equivalently every prime in the support of the supernatural order of U (ProfiniteProPGroups Layer 1) is a unit in A. A locally profinite group G has a cofinal family of compact open subgroups of invertible pro-order in A if every neighbourhood of 1 contains such a subgroup; for a locally pro-p group (some compact open subgroup is pro-p) this holds exactly when p ∈ A^×.
+Let U be a profinite group and A a commutative ring. U has pro-order invertible in A if for every open subgroup U' ≤ U the index [U : U'] (finite, U being compact) is a unit of A; equivalently every prime in the support of the supernatural order of U (ProfiniteProPGroups Layer 1) is a unit in A. A locally profinite group G has a cofinal family of compact open subgroups of invertible pro-order in A if every neighbourhood of 1 contains such a subgroup; for a locally pro-p group (some compact open subgroup is pro-p) p ∈ A^× suffices. The converse holds if G is non-discrete: then every open pro-p subgroup is nontrivial and has a finite quotient of order divisible by p. A discrete group has the cofinal compact open subgroup {1} over every A.
 
 **Hypotheses.** U a compact (profinite) group; A a commutative ring.
 
 **Construction or proof.**
 1. Indices of open subgroups of a compact group are finite.
 2. Equivalence with the supernatural formulation: the supernatural order is the lcm of the orders of finite quotients, and every index of an open subgroup divides it (ProfiniteProPGroups Layer 1, Lagrange and agreement with Subgroup.index).
-3. Open subgroups of a pro-p group have p-power index, so invertibility of p suffices; conversely a nontrivial pro-p group has an open subgroup of index p.
+3. Open subgroups of a pro-p group have p-power index, so invertibility of p suffices. A nontrivial profinite pro-p group has an open normal subgroup of index p. For the converse concerning a locally pro-p G, assume G non-discrete; intersect any good compact open subgroup with a fixed pro-p one, obtaining a nontrivial open pro-p subgroup. Discrete groups are the exception.
 
 **Direct prerequisites.** `SmoothRepresentationsOfLocalGroups:SR.0:abelian-category/van-dantzig`, `mathlib:OpenSubgroup`, `tauceti:TauCeti.profiniteOrder`, `tauceti:TauCeti.ofNat_card_quotient_le_profiniteOrder`, `tauceti:TauCeti.IsProP`, `tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-1-supernatural-order-and-index`.
 
@@ -419,7 +427,7 @@ Let U be a profinite group and A a commutative ring. U has pro-order invertible 
 
 - ℤ_p has invertible pro-order in ℤ[1/p] and in F_ℓ (ℓ ≠ p), not in ℤ or F_p.
 - A finite group of order n has invertible pro-order in A iff n is a unit of A.
-- GL_2(ℚ_p) has a cofinal family of pro-p compact open subgroups (1 + p^k M_2(ℤ_p), k ≥ 1), so the hypothesis holds over any ℤ[1/p]-algebra, while GL_2(ℤ_p) itself does not have invertible pro-order in ℤ[1/p] (its order involves the order of GL_2(F_p)).
+- GL_2(ℚ_p) has a cofinal family of pro-p compact open subgroups (1 + p^k M_2(ℤ_p), k ≥ 1), so the hypothesis holds over any ℤ[1/p]-algebra, while GL_2(ℤ_p) itself does not have invertible pro-order in ℤ[1/p] (its finite quotient GL_2(F_p) has prime factors other than p).
 
 **Uses.** SmoothRepresentationsOfLocalGroups:SR.0:abelian-category/averaging-projector: the averaging operator over U is defined when the indices of open subgroups are units. SmoothRepresentationsOfLocalGroups:SR.1/a-valued-haar-measure: existence of an A-valued Haar measure normalised on such a U. SmoothRepresentationsOfLocalGroups:SR.1/hecke-module-equivalence: the hypothesis of the smooth/nondegenerate-module equivalence. HeckeStacksAndLocalShtukas:HS3: averaging by [K : K']⁻¹ for pro-p K over Λ with p invertible. He 2018, §1.2: normalisation of Haar measures in ℤ[1/p] using a pro-p Iwahori subgroup.
 
@@ -497,13 +505,13 @@ If U is a compact open subgroup of a locally profinite G with pro-order invertib
 
 **Identifier:** `SmoothRepresentationsOfLocalGroups:SR.0:abelian-category/admissible`. **Kind:** definition. **Proposed name:** `TauCeti.Representation.IsAdmissible`. **Module:** `TauCeti/RepresentationTheory/Smooth/Basic`. **Realises:** `SR.0`, `SR.0:abelian-category`.
 
-A smooth representation V of a locally profinite group G over a commutative ring A is admissible if for every compact open subgroup U the A-module V^U is finitely generated. Over a field this says dim V^U < ∞ (Casselman's definition). It suffices to check U in any neighbourhood basis of compact open subgroups when these have pro-order invertible in A, since then V^{U} is a direct summand of V^{U'} for U' ≤ U. Finite direct sums of admissible representations are admissible; over a noetherian A subrepresentations are admissible; quotients are admissible when invariants are exact (invariants-exact).
+A smooth representation V of a locally profinite group G over a commutative ring A is admissible if for every compact open subgroup U the A-module V^U is finitely generated. Over a field this says dim V^U < ∞ (Casselman's definition). It suffices to check a neighbourhood basis if A is noetherian, since V^U is a submodule of V^{U'} for U' ≤ U. Over a general ring it suffices instead to assume every compact open U has invertible pro-order; averaging over that U makes V^U a direct summand of V^{U'}. Cofinal good subgroups alone do not justify this direct-summand argument for a larger bad U. Finite direct sums of admissible representations are admissible; over a noetherian A subrepresentations are admissible; quotients are admissible when invariants are exact (invariants-exact).
 
 **Hypotheses.** G locally profinite; A a commutative ring; V smooth.
 
 **Construction or proof.**
 1. Define IsAdmissible ρ :⇔ IsSmooth ρ ∧ ∀ U compact open, Module.Finite A (V^U).
-2. Basis criterion: V^U = e_U V^{U'} is a direct summand of V^{U'} when U' ≤ U and HasUnitProOrder A U.
+2. Basis criterion: over noetherian A, V^U embeds into the finite module V^{U'} for a smaller basis subgroup U'. Alternatively, if the larger U has invertible pro-order, e_U retracts V^{U'} onto V^U; use this for every compact open U.
 3. Subrepresentations: W^U ⊆ V^U is a submodule of a finitely generated module over a noetherian ring.
 4. Quotients: (V/W)^U = V^U/W^U by exactness, a quotient of a finitely generated module.
 
@@ -512,7 +520,7 @@ A smooth representation V of a locally profinite group G over a commutative ring
 **API.**
 
 - `TauCeti.Representation.IsAdmissible` (data): IsAdmissible ρ :⇔ IsSmooth ρ ∧ ∀ U compact open, Module.Finite A (V^U).
-- `TauCeti.Representation.isAdmissible_iff_basis` (characterisation): Under HasCofinalUnitProOrder, it suffices to check U in a neighbourhood basis.
+- `TauCeti.Representation.isAdmissible_iff_basis` (characterisation): Over a noetherian A, it suffices to check the compact open U in any neighbourhood basis. Over arbitrary A the alternative basis criterion requires HasUnitProOrder A U for every compact open U, including those outside the chosen basis.
 - `TauCeti.Representation.IsAdmissible.subrepresentation` (relation): Over a noetherian A, subrepresentations of admissible representations are admissible.
 - `TauCeti.Representation.IsAdmissible.quotient` (relation): Quotients of admissible representations are admissible when every compact open subgroup has invertible pro-order.
 - `TauCeti.Representation.IsAdmissible.prod` (relation): Finite direct sums of admissible representations are admissible.
@@ -529,7 +537,7 @@ A smooth representation V of a locally profinite group G over a commutative ring
 
 **Acceptance checks.**
 
-- For G compact and U' ≤ G open normal, A[G/U'] is admissible: A[G/U']^U is a submodule of the finite free module A[G/U'].
+- For G compact and U' ≤ G open normal, A[G/U'] is admissible: A[G/U']^U is finite free on the finitely many U-orbit sums in G/U'.
 - For G = ℚ_p (non-compact), c-Ind_{ℤ_p}^{ℚ_p} 1 = A[ℚ_p/ℤ_p] is not admissible over a field: its ℤ_p-invariants have infinite dimension.
 - A smooth character is admissible; an infinite direct sum of copies of the trivial representation is not.
 
@@ -543,7 +551,7 @@ A smooth representation V of a locally profinite group G over a commutative ring
 
 **Identifier:** `SmoothRepresentationsOfLocalGroups:SR.0:abelian-category/finiteness-conditions`. **Kind:** definition. **Proposed name:** `TauCeti.Representation.IsLocallyAdmissible`. **Module:** `TauCeti/RepresentationTheory/Smooth/Basic`. **Realises:** `SR.0`, `SR.0:abelian-category`.
 
-Two finiteness conditions are kept separate from admissibility. A smooth representation V is finitely generated if ρ.asModule is a finitely generated A[G]-module (Mathlib's Module.Finite over MonoidAlgebra A G). V is locally admissible if every v ∈ V generates an admissible subrepresentation A[G]·v. Admissible ⇒ locally admissible over a noetherian A; finitely generated and locally admissible ⇒ admissible over a noetherian A; neither admissibility nor finite generation implies the other.
+Two finiteness conditions are kept separate from admissibility. A smooth representation V is finitely generated if ρ.asModule is a finitely generated A[G]-module (Mathlib's Module.Finite over MonoidAlgebra A G). V is locally admissible if every v ∈ V generates an admissible subrepresentation A[G]·v. Admissible ⇒ locally admissible over a noetherian A; finitely generated and locally admissible ⇒ admissible over a noetherian A when every compact open subgroup has invertible pro-order; neither admissibility nor finite generation implies the other.
 
 **Hypotheses.** G locally profinite; A a commutative (noetherian, for the comparison statements) ring.
 
@@ -560,19 +568,19 @@ Two finiteness conditions are kept separate from admissibility. A smooth represe
 - `TauCeti.Representation.IsAdmissible.isLocallyAdmissible` (relation): Admissible ⇒ locally admissible over a noetherian ring.
 - `TauCeti.Representation.isAdmissible_of_fg_of_locallyAdmissible` (relation): Finitely generated and locally admissible ⇒ admissible over a noetherian ring with invertible pro-orders.
 - `TauCeti.Representation.fg_iff_module_finite` (characterisation): Finite generation is Module.Finite (MonoidAlgebra A G) ρ.asModule; equivalently V is a quotient of ⊕_{i≤n} A[G/U_i] for compact open U_i.
-- `TauCeti.Representation.IsLocallyAdmissible.subrepresentation` (relation): Subrepresentations and quotients (with exact invariants) of locally admissible representations are locally admissible.
+- `TauCeti.Representation.IsLocallyAdmissible.subrepresentation` (relation): Over noetherian A, subrepresentations of locally admissible representations are locally admissible. Quotients have this property when every compact open subgroup has invertible pro-order.
 
 **Unit tests.**
 
 - `TauCeti.Representation.fg_not_admissible` (non-example): ℚ[ℚ_p ⧸ ℤ_p] is finitely generated and not admissible.
-- `TauCeti.Representation.admissible_not_fg` (non-example): ⊕_{n≥1} of characters of ℤ_p of exact conductor p^n (over ℚ(μ_{p^∞})) is admissible and not finitely generated.
-- `TauCeti.Representation.isLocallyAdmissible_trivial` (degenerate): The trivial representation is locally admissible and finitely generated.
+- `TauCeti.Representation.admissible_not_fg` (non-example): Over ℂ, the direct sum of one character of ℤ_p of exact conductor p^(n+1) for each n ≥ 0 is admissible but is not finitely generated.
+- `TauCeti.Representation.isLocallyAdmissible_trivial` (degenerate): The rank-one trivial representation on A is locally admissible and finitely generated.
 - `TauCeti.Representation.fg_iff_quotient_permutation` (characterisation): A smooth representation is finitely generated iff it is a quotient of a finite direct sum of permutation modules A[G/U] with U compact open.
 
 **Acceptance checks.**
 
 - A[G/U] for G = ℚ_p, U = ℤ_p is finitely generated (by one coset) but not admissible.
-- An infinite direct sum of pairwise distinct smooth characters of ℤ_p is admissible (each V^U is finite) but not finitely generated.
+- Over ℂ, choose one character of ℤ_p of exact conductor p^n for every n ≥ 1. Their direct sum is admissible (only finitely many are trivial on any fixed open subgroup) but is not finitely generated.
 - For G compact every smooth representation over a field with invertible pro-order is locally admissible.
 
 **Uses.** Calegari–Geraghty 2018, Definition 9.11 and §9.2.2 (arXiv v2): the category 𝒞 of locally admissible smooth representations over O/ϖ^k. Bernstein 1992, Ch. II Definition 16, p. 36: cuspidal means quasi-cuspidal and finitely generated. HeckeStacksAndLocalShtukas:HS3: finitely generated admissible representations have finite length (via SR.3). SmoothRepresentationsOfLocalGroups:SR.3/finite-length: finitely generated admissible complex representations have finite length.
@@ -598,21 +606,21 @@ A smooth character of G with values in A is a group homomorphism χ : G →* Aˣ
 - `TauCeti.IsSmoothCharacter` (data): IsSmoothCharacter χ :⇔ IsOpen (χ.ker : Set G).
 - `TauCeti.SmoothRep.ofCharacter` (constructor): The smooth rank-one representation A(χ).
 - `TauCeti.SmoothRep.twist` (functoriality): The exact autoequivalence V ↦ V ⊗ χ with twist χ ∘ twist χ⁻¹ ≅ id and twist (χψ) ≅ twist χ ∘ twist ψ.
-- `TauCeti.IsSmoothCharacter.mul` (relation): Products and inverses of smooth characters are smooth.
+- `TauCeti.IsSmoothCharacter.mul` (relation): The product of two smooth characters is smooth; apply the same open-kernel argument to inverses.
 - `TauCeti.SmoothRep.invariants_twist` (compatibility): (V ⊗ χ)^U = V^U for U ≤ ker χ.
 
 **Unit tests.**
 
 - `TauCeti.isSmoothCharacter_unramified` (computation): x ↦ t^{v_p(x)} on ℚ_p^× is a smooth character for any t ∈ Aˣ.
 - `TauCeti.isSmoothCharacter_one` (degenerate): The trivial character is smooth and twisting by it is the identity.
-- `TauCeti.not_isSmoothCharacter_padicExp` (non-example): x ↦ (1+p)^x, ℤ_p → ℤ_p^×, is not smooth with ℤ_p^× discrete.
+- `TauCeti.not_isSmoothCharacter_padicIdentity` (non-example): The identity character on (ℚ_p)^× is not smooth; continuity into its p-adic target does not imply an open kernel.
 - `TauCeti.SmoothRep.twist_ofCharacter` (compatibility): A(χ) ⊗ ψ = A(χψ).
 
 **Acceptance checks.**
 
-- For G = ℚ_p^× the unramified characters x ↦ t^{v(x)}, t ∈ A^×, are smooth (kernel ℤ_p^× open).
+- For G = ℚ_p^× the unramified characters x ↦ t^{v(x)}, t ∈ A^×, are smooth (its kernel contains the open subgroup ℤ_p^×).
 - The character ℚ_p^× → ℝ_{>0}^× ⊂ ℂ^×, x ↦ |x|^s, is smooth for every complex s.
-- A continuous character ℤ_p → ℤ_p^× of infinite order (e.g. x ↦ (1+p)^x) is not smooth for the discrete topology.
+- The identity character (ℚ_p)^× → (ℚ_p)^× is continuous for the p-adic topology but is not smooth: its kernel {1} is not open.
 
 **Uses.** SmoothRepresentationsOfLocalGroups:SR.2/modulus-character: the modulus character δ_P and its square root are smooth characters of P. SmoothRepresentationsOfLocalGroups:SR.3/unramified-characters: unramified characters of a Levi subgroup and the twisting action on supercuspidal supports. Ding 2025, §3.1.1, pp. 33–34: generic smooth characters of T(K) and the smooth principal series. Treumann–Venkatesh 2016, §2.9: unramified characters of a torus.
 
@@ -721,7 +729,7 @@ The centre of the smooth category is Z(G, A) := CatCenter (SmoothRep A G) = End(
 2. Restriction to subobjects: naturality applied to the inclusion; to quotients: naturality applied to the projection.
 3. Abelian G: Z(G, A) acts on each generator A[G/U] by an element of End_G(A[G/U]) = A[G/U] (commutative), compatible along U' ≤ U; conversely an element of lim_U A[G/U] acts on every smooth module through its U-components. The description for general G by Hecke corners is SR.1's bernstein-centre-corners.
 
-**Direct prerequisites.** `SmoothRepresentationsOfLocalGroups:SR.0:abelian-category/smooth-rep-abelian`, `mathlib:CategoryTheory.CatCenter`, `mathlib:CategoryTheory.Linear.toCatCenter`.
+**Direct prerequisites.** `SmoothRepresentationsOfLocalGroups:SR.0:abelian-category/smooth-rep-abelian`, `mathlib:CategoryTheory.CatCenter`, `mathlib:CategoryTheory.Linear.toCatCenter`; `mathlib:MonoidAlgebra.mapDomainRingHom`.
 
 **API.**
 
@@ -737,7 +745,7 @@ The centre of the smooth category is Z(G, A) := CatCenter (SmoothRep A G) = End(
 
 - `TauCeti.SmoothCentre.trivialGroup` (degenerate): For G trivial, SmoothCentre A G ≅ A.
 - `TauCeti.SmoothCentre.finite_eq_center` (compatibility): For G finite discrete, SmoothCentre A G ≅ the centre of A[G] (Mathlib Subring.center of MonoidAlgebra).
-- `TauCeti.SmoothCentre.int_discrete` (computation): For G = ℤ discrete and A a field, SmoothCentre A G ≅ A[t, t⁻¹].
+- `TauCeti.SmoothCentre.int_discrete` (computation): For G = ℤ discrete, the category centre is the commutative group algebra A[ℤ], hence the Laurent polynomial ring over A.
 - `TauCeti.SmoothCentre.padicInt_ne_groupRing` (non-example): For G = ℤ_p and A = ℚ(μ_{p^∞}), the map ℚ(μ_{p^∞})[ℤ_p] → SmoothCentre is not surjective (the idempotent of a single character is central but not in the group ring).
 
 **Acceptance checks.**
@@ -852,7 +860,7 @@ Let G be locally profinite and A a commutative ring. An A-valued (left) Haar mea
 - `TauCeti.HaarMeasureWithValues.apply_subgroup` (simp): μ(U) = [U : U ∩ U₀]·[U₀ : U ∩ U₀]⁻¹ for the normalised measure.
 - `TauCeti.HaarMeasureWithValues.isUnit_apply_iff` (characterisation): μ(U) ∈ Aˣ iff HasUnitProOrder A U (for the normalised measure).
 - `TauCeti.HaarMeasureWithValues.map` (functoriality): Base change along a ring homomorphism A → B; the normalised measure over ℤ[1/p] base-changes to the normalised measure over any ℤ[1/p]-algebra.
-- `TauCeti.HaarMeasureWithValues.modularCharacter` (data): Δ_μ : G → Aˣ with μ(Kg) = Δ_μ(g)μ(K) when μ takes unit values on a basis of subgroups; Δ_μ = 1 iff G is unimodular.
+- `TauCeti.HaarMeasureWithValues.modularCharacter` (data): Δ_μ : G → Aˣ is determined by μ(Kg⁻¹) = Δ_μ(g)μ(K) when μ takes unit values on a basis of subgroups. Thus μ(Kg) = Δ_μ(g)⁻¹μ(K), agreeing with Mathlib’s modularCharacter convention. The image in Aˣ can lose information; Δ_μ = 1 does not characterise real unimodularity in positive characteristic.
 - `TauCeti.HaarMeasureWithValues.eq_haarMeasure` (compatibility): For A = ℝ, μ(K) = (haarMeasure K₀ K)/(haarMeasure K₀ U₀) for compact open K.
 
 **Unit tests.**
@@ -938,7 +946,7 @@ For an A-valued Haar measure μ on G, the Hecke algebra H(G, A) = C_c^∞(G, A) 
 - `TauCeti.HeckeAlgebra.indicator_mul_indicator` (simp): 1_U * 1_U = μ(U) 1_U for a compact open subgroup U.
 - `TauCeti.HeckeAlgebra.involution` (other): f ↦ f^∨, f^∨(g) = f(g⁻¹)Δ(g⁻¹), an anti-automorphism; for unimodular G simply f(g⁻¹).
 - `TauCeti.HeckeAlgebra.smul` (data): The action f·v = ∫ f(g) ρ(g) v dμ(g) on a smooth representation, natural in V.
-- `TauCeti.HeckeAlgebra.baseChangeEquiv` (functoriality): H(G, A) ⊗_A B ≃ H(G, B) for the base-changed measure.
+- `TauCeti.HeckeAlgebra.baseChangeEquiv` (functoriality): B ⊗_A H(G,A) ≃ H(G,B) for the pushed-forward Haar measure, B-linearly and multiplicatively; pure tensors satisfy (b ⊗ f)(b′ ⊗ f′) ↦ (b b′) times the image of f*f′.
 - `TauCeti.HeckeAlgebra.equivMonoidAlgebra` (compatibility): For G finite discrete with counting measure, H(G, A) ≃ MonoidAlgebra A G as algebras.
 - `TauCeti.HeckeAlgebra.withCentralCharacter` (other): For a closed central subgroup Z and a smooth character ω of Z, the variant of functions compactly supported modulo Z with f(zg) = ω(z)⁻¹f(g), with the same convolution over G/Z.
 
@@ -1040,21 +1048,21 @@ Let S be a discrete G-set with compact open stabilisers and A a commutative ring
 4. Right module structure on V^U via composition in Hom_G(A[G/U], V), with the explicit formula of Treumann–Venkatesh (2.10.2) summed over U\G rather than G/U (the printed sum over G/U is not well defined).
 5. Level change: compose with the two G-maps between permutation modules; the composite A[G/U] → A[G/U'] → A[G/U] is multiplication by [U : U'].
 
-**Direct prerequisites.** `SmoothRepresentationsOfLocalGroups:SR.1/hecke-triple-compact-open`, `SmoothRepresentationsOfLocalGroups:SR.0:abelian-category/compact-open-invariants`, `mathlib:Representation.ofMulAction`.
+**Direct prerequisites.** `SmoothRepresentationsOfLocalGroups:SR.1/hecke-triple-compact-open`, `SmoothRepresentationsOfLocalGroups:SR.0:abelian-category/compact-open-invariants`, `mathlib:Representation.ofMulAction`, `ReductiveGroupsPartII:RG2.4` (GL₂ unit tests).
 
 **API.**
 
 - `TauCeti.FunG` (data): Fun_G(S × S, A) with the matrix product.
 - `TauCeti.FunG.actPermutation` (data): The left action on A[S], h * s = Σ_t h(t, s) t.
 - `TauCeti.FunG.equivEnd` (equivalence): For S with finitely many G-orbits, Fun_G(S × S, A) ≃ End_G(A[S]) as A-algebras.
-- `TauCeti.HeckeAlgebraLevel` (data): H(G, U; A) := Fun_G(G/U × G/U, A), finitely supported functions on U\G/U.
+- `TauCeti.HeckeAlgebraLevel` (data): H(G,U;A) uses the existing HeckeRing multiplication; its kernel model is Fun_G(G/U × G/U,A), with [UgU] represented by h(U,gU) = 1. The comparison identifies H with End_G(A[G/U]) using inverse representatives on the permutation basis.
 - `TauCeti.HeckeAlgebraLevel.doubleCoset` (constructor): The basis element [UgU].
 - `TauCeti.HeckeAlgebraLevel.basis` (characterisation): {[UgU]} over U\G/U is an A-basis.
 - `TauCeti.SmoothRep.invariantsHeckeModule` (data): The right H(G, U; A)-module structure on V^U, v * h = Σ_{Ug ∈ U\G} h(U, gU) ρ(g)⁻¹ v.
 - `TauCeti.SmoothRep.invariantsHeckeModule_natural` (functoriality): G-maps V → W induce H(G, U; A)-linear maps V^U → W^U.
 - `TauCeti.SmoothRep.traceLevel` (data): tr_{U/U'} : V^{U'} → V^U, v ↦ Σ_{u ∈ U/U'} ρ(u) v, with tr ∘ incl = [U : U'] and transitivity for U'' ≤ U' ≤ U.
 - `TauCeti.HeckeAlgebraLevel.opposite` (other): The anti-involution [UgU] ↦ [Ug⁻¹U], an isomorphism H(G, U; A) ≃ H(G, U; A)ᵐᵒᵖ.
-- `TauCeti.HeckeAlgebraLevel.baseChange` (functoriality): H(G, U; A) ⊗_A B ≃ H(G, U; B).
+- `TauCeti.HeckeAlgebraLevel.baseChange` (functoriality): H(G,U;A) ⊗_A B ≃ H(G,U;B), with multiplication carried to multiplication; on pure tensors b ⊗ h the coefficients are mapped to B and multiplied by b.
 
 **Unit tests.**
 
@@ -1106,7 +1114,7 @@ For a compact open subgroup U of a locally profinite G, the Hecke algebra H(G, U
 
 **Identifier:** `SmoothRepresentationsOfLocalGroups:SR.1/locally-unital-algebra`. **Kind:** definition. **Proposed name:** `TauCeti.NondegMod`. **Module:** `TauCeti/RepresentationTheory/Smooth/Hecke`.
 
-An A-algebra H (not necessarily unital) is idempotented (locally unital) if every finite subset {x_i} admits an idempotent e with e x_i = x_i = x_i e; then H = ⋃_e eHe. A left H-module M is nondegenerate if HM = M, equivalently M = ⋃_e eM. The nondegenerate modules form a full abelian subcategory NondegMod H of H-modules, closed under subquotients, direct sums and filtered colimits, with projective generators He (Hom_H(He, M) = eM), products given by nondegenerate parts of products, and a centre identified with the bimodule endomorphisms of H.
+An A-algebra H (not necessarily unital) is idempotented (locally unital) if every finite subset {x_i} admits an idempotent e with e x_i = x_i = x_i e; then H = ⋃_e eHe. A left H-module M is nondegenerate if HM = M, equivalently M = ⋃_e eM. A-linear H-modules are represented by modules over the A-unitization A ⊕ H, whose adjoined unit acts as the identity; H acts through the ideal summand. The nondegenerate modules form a full abelian subcategory NondegMod H of these modules, closed under subquotients, direct sums and filtered colimits, with projective generators He (Hom_H(He, M) = eM), products given by nondegenerate parts of products, and a centre identified with the bimodule endomorphisms of H.
 
 **Hypotheses.** A commutative; H an idempotented A-algebra.
 
@@ -1115,12 +1123,12 @@ An A-algebra H (not necessarily unital) is idempotented (locally unital) if ever
 2. Projective generators: Hom_H(He, M) = eM is exact in M; every m lies in some eM.
 3. Centre: an endomorphism of the identity is determined by its value on the generators He, giving a bimodule endomorphism of H (Bernstein 1987 §1.8).
 
-**Direct prerequisites.** `mathlib:CategoryTheory.CatCenter`.
+**Direct prerequisites.** `mathlib:CategoryTheory.CatCenter`; `mathlib:Unitization`.
 
 **API.**
 
 - `TauCeti.IsIdempotented` (data): Every finite subset is fixed on both sides by an idempotent.
-- `TauCeti.NondegMod` (data): The full subcategory of H-modules with HM = M.
+- `TauCeti.NondegMod` (data): The full subcategory of ModuleCat(Unitization A H) on modules with HM = M; the A-linear H-action is the restriction along h ↦ (0,h).
 - `TauCeti.NondegMod.instAbelian` (instance): NondegMod H is abelian with exact filtered colimits.
 - `TauCeti.NondegMod.homProjEquiv` (characterisation): Hom_H(He, M) ≃ eM; He is a finitely generated projective object.
 - `TauCeti.NondegMod.nondegPart` (functoriality): The right adjoint M ↦ HM to the inclusion into all H-modules; products are nondegenerate parts of products.
@@ -1184,7 +1192,7 @@ Let U be a compact open subgroup with μ(U) ∈ Aˣ. The functor V ↦ V^U = e_U
 3. Irreducibility and the bijection: Bernstein 1992 Ch. I Lemma 7 — for w₁, w₂ ∈ V^U pick h with h w₁ = w₂, then e_U h e_U w₁ = w₂; a simple M gives the irreducible quotient of H ⊗ M with U-invariants M.
 4. Splitting: when U splits M(G), the subcategory generated by U-invariants is equivalent to modules over e_U H e_U (Bernstein 1987 §1.7–1.8 and §3.1).
 
-**Direct prerequisites.** `SmoothRepresentationsOfLocalGroups:SR.1/hecke-module-equivalence`, `SmoothRepresentationsOfLocalGroups:SR.1/permutation-hecke-algebra`, `SmoothRepresentationsOfLocalGroups:SR.0:abelian-category/invariants-exact`.
+**Direct prerequisites.** `SmoothRepresentationsOfLocalGroups:SR.1/hecke-module-equivalence`, `SmoothRepresentationsOfLocalGroups:SR.1/permutation-hecke-algebra`, `SmoothRepresentationsOfLocalGroups:SR.0:abelian-category/invariants-exact`; `mathlib:CategoryTheory.Simple`.
 
 **Acceptance checks.**
 
@@ -1198,12 +1206,12 @@ Let U be a compact open subgroup with μ(U) ∈ Aˣ. The functor V ↦ V^U = e_U
 
 **Identifier:** `SmoothRepresentationsOfLocalGroups:SR.1/bernstein-centre-corners`. **Kind:** theorem. **Proposed name:** `TauCeti.SmoothCentre.equivLimCornerCentre`. **Module:** `TauCeti/RepresentationTheory/Smooth/Hecke`.
 
-Let G be locally profinite with a cofinal family 𝒦 of compact open subgroups of pro-order invertible in the commutative ring Λ (for G locally pro-p: the open pro-p subgroups, with p ∈ Λˣ). Restricting z ∈ Z(G, Λ) = CatCenter(SmoothRep Λ G) (SR.0 smooth-centre) to the generators Λ[G/K] gives Z(G, Λ) ≅ lim_{K ∈ 𝒦} Z(H(G, K; Λ)), the transition map for K' ≤ K being z ↦ e_K z (Z(H(G,K'; Λ)) → Z(H(G,K; Λ))). The isomorphism is compatible with coefficient change: for Λ → Λ' there is a natural ring map Z(G, Λ) → Z(G, Λ') induced by Z(H(G,K;Λ)) ⊗ Λ' → Z(H(G,K;Λ')). For G abelian, Z(G, Λ) ≅ lim_K Λ[G/K]. This is the Λ-linear Bernstein centre of Fargues–Scholze (Definition I.9.2) for Λ a ℤ_ℓ[√q]-algebra, ℓ ≠ p.
+Let G be locally profinite with a cofinal family 𝒦 of compact open subgroups of pro-order invertible in the commutative ring Λ (for G locally pro-p: the open pro-p subgroups, with p ∈ Λˣ). Restricting z ∈ Z(G, Λ) = CatCenter(SmoothRep Λ G) (SR.0 smooth-centre) to the generators Λ[G/K] gives Z(G, Λ) ≅ lim_{K ∈ 𝒦} Z(H(G, K; Λ)), the transition map for K' ≤ K being z ↦ e_K z (Z(H(G,K'; Λ)) → Z(H(G,K; Λ))). The isomorphism is compatible with coefficient change: for Λ → Λ' there is a natural ring map Z(G, Λ) → Z(G, Λ') induced by Z(H(G,K;Λ)) ⊗ Λ' → Z(H(G,K;Λ')). For G abelian, Z(G, Λ) ≅ lim_K Λ[G/K]. Fargues–Scholze Definition I.9.2 identifies the same corner limit with π₀End(id) of the enhanced Λ-linear derived category. The present generator argument proves the ordinary centre formula. The enhanced comparison is a separate gap, and is not asserted for the unenhanced triangulated CatCenter(D(G,Λ)).
 
 **Hypotheses.** G locally profinite; Λ commutative with HasCofinalUnitProOrder Λ G.
 
 **Construction or proof.**
-1. End_G(Λ[G/K]) = H(G, K; Λ)ᵒᵖ (permutation-hecke-algebra) and Λ[G/K] = H e_K is a projective generator of the factor it generates (hecke-module-equivalence).
+1. End_G(Λ[G/K]) ≅ H(G,K;Λ) in the SR.1 matrix convention. Each Λ[G/K] is projective because K has invertible pro-order, and the family over the cofinal basis generates SmoothRep. One individual K need not split the category.
 2. An element of the centre gives, on each Λ[G/K], an endomorphism commuting with all endomorphisms, i.e. an element of Z(H(G, K; Λ)); compatibility with the maps Λ[G/K'] ⇄ Λ[G/K] gives the transition maps z ↦ e_K z.
 3. Conversely a compatible family acts on every smooth V = ⋃_K e_K V via the corners, naturally (Bernstein 1987 §1.8: the centre of M(H) is the bimodule endomorphisms of H, and H = ⋃ e_K H e_K).
 4. Abelian case: H(G, K; Λ) = Λ[G/K] is commutative.
@@ -1298,13 +1306,13 @@ Let P = M ⋉ N and P̄ = M ⋉ N̄ be closed subgroups of a locally profinite G
 
 **Identifier:** `SmoothRepresentationsOfLocalGroups:SR.1/positive-hecke-homomorphism`. **Kind:** theorem. **Proposed name:** `TauCeti.positiveHeckeHom`. **Module:** `TauCeti/RepresentationTheory/Smooth/Hecke`.
 
-Let U have an Iwahori decomposition with respect to (P, P̄) and let H(Δ_M⁺, U_M) ⊆ H(M, U_M) and H(Δ⁺, U) ⊆ H(G, U) be the ℤ-spans of the double cosets [U_M m U_M] (m ∈ Δ_M⁺) and [U δ U] (δ ∈ Δ⁺). Then: (1) for m, m' ∈ Δ_M⁺, U m U m' U = U m m' U and [U m U][U m' U] = [U m m' U] in H(G, U; ℤ); (2) the ℤ-linear map t : H(Δ_M⁺, U_M) → H(Δ⁺, U), [U_M m U_M] ↦ [U m U], is an injective ring homomorphism; (3) with 𝒮 = r_M ∘ r_P the restriction–integration map, t ∘ 𝒮 and 𝒮 ∘ t multiply [U m U], resp. [U_M m U_M], by |δ_P(m)|⁻¹ = #(U_N / m U_N m⁻¹). In particular the span of {[U m U] : m in a commutative submonoid of Δ_M⁺} is a commutative subalgebra of H(G, U; ℤ). For M = T a maximal torus of a split group, U = K_p with an Iwahori decomposition relative to (B, B̄) and T⁺ the monoid of t with t U_{K_p} t⁻¹ ⊆ U_{K_p} and t⁻¹ Ū_{K_p} t ⊆ Ū_{K_p}, t ↦ [K_p t K_p] is an algebra homomorphism ℤ[T⁺/T_{K_p}] → H(G, K_p; ℤ). The two contraction conditions are needed: the product decomposition alone does not make t ↦ [K_p t K_p] multiplicative.
+Let U have an Iwahori decomposition with respect to (P, P̄) and let H(Δ_M⁺, U_M) ⊆ H(M, U_M) and H(Δ⁺, U) ⊆ H(G, U) be the ℤ-spans of the double cosets [U_M m U_M] (m ∈ Δ_M⁺) and [U δ U] (δ ∈ Δ⁺). Then: (1) for m, m' ∈ Δ_M⁺, U m U m' U = U m U_M m' U; if m and m' also normalise U_M, this becomes U m m' U and [U m U][U m' U] = [U m m' U] in H(G, U; ℤ); (2) the ℤ-linear map t : H(Δ_M⁺, U_M) → H(Δ⁺, U), [U_M m U_M] ↦ [U m U], is an injective ring homomorphism; (3) with 𝒮 = r_M ∘ r_P the restriction–integration map, t ∘ 𝒮 and 𝒮 ∘ t multiply [U m U], resp. [U_M m U_M], by |δ_P(m)|⁻¹ = #(U_N / m U_N m⁻¹). In particular the span of {[U m U] : m in a commutative submonoid of Δ_M⁺ that normalises U_M} is a commutative subalgebra of H(G, U; ℤ). For M = T a maximal torus of a split group, U = K_p with an Iwahori decomposition relative to (B, B̄) and T⁺ the monoid of t with t U_{K_p} t⁻¹ ⊆ U_{K_p} and t⁻¹ Ū_{K_p} t ⊆ Ū_{K_p}, t ↦ [K_p t K_p] is an algebra homomorphism ℤ[T⁺/T_{K_p}] → H(G, K_p; ℤ). The two contraction conditions are needed: the product decomposition alone does not make t ↦ [K_p t K_p] multiplicative.
 
 **Hypotheses.** G locally profinite; (P, P̄) a parabolic pair; U compact open with an Iwahori decomposition.
 
 **Construction or proof.**
-1. (1) U m U m' U = U m U_N U_M U_{N̄} m' U = U (m U_N m⁻¹) m m' (m'⁻¹ U_{N̄} m') U ⊆ U m m' U, using positivity; the reverse inclusion is clear, and counting cosets gives the coefficient 1.
-2. (2) follows from (1) and linear independence of distinct double cosets (Bushnell–Kutzko, cited as [BK98, Cor. 6.12] by Allen et al. Lemma 2.1.12).
+1. Positivity gives U m U m' U = U m U_M m' U (Allen et al. Lemma 2.1.10). The middle U_M cannot be discarded for an arbitrary Levi. If m,m' normalise U_M, double-coset counting gives coefficient one and the single-coset product.
+2. For the general t, transfer the Levi structure constants using both Iwahori factorisations, retaining the U_M double-coset multiplicities. Allen et al. Lemma 2.1.12 cites Bushnell–Kutzko Corollary 6.12 instead of supplying this calculation. A complete proof of that transfer is an explicit gap; the torus/normaliser calculation does not close it.
 3. (3) direct computation of r_M ∘ r_P on [U m U] (Allen et al. §2.1.9).
 4. Torus case: the contraction conditions defining T⁺ say exactly that T⁺ ⊆ Δ_T⁺; dominance of the valuation of t gives them for the standard depth-n Iwahori subgroups, not for an arbitrary K_p with an Iwahori decomposition.
 
@@ -1314,7 +1322,7 @@ Let U have an Iwahori decomposition with respect to (P, P̄) and let H(Δ_M⁺, 
 
 - `TauCeti.positiveHeckeHom` (data): t : H(Δ_M⁺, U_M; ℤ) →+* H(Δ⁺, U; ℤ), [U_M m U_M] ↦ [U m U].
 - `TauCeti.positiveHeckeHom_injective` (relation): t is injective.
-- `TauCeti.doubleCoset_mul_of_positive` (simp): [U m U][U m' U] = [U m m' U] for m, m' ∈ Δ_M⁺.
+- `TauCeti.doubleCoset_mul_of_positive` (simp): For m,m' ∈ Δ_M⁺ that normalise U_M, [U m U][U m' U] = [U m m' U]. Without the normaliser hypothesis use the Levi structure constants via positiveHeckeHom, not a single-coset formula.
 - `TauCeti.positiveHeckeHom_comp_restrict` (relation): t ∘ 𝒮 = |δ_P|⁻¹ · and 𝒮 ∘ t = |δ_P|⁻¹ · on basis elements.
 
 **Acceptance checks.**
@@ -1558,7 +1566,7 @@ For a compact open subgroup U, RΓ(U, −) : D⁺(G, A) → D⁺(A) is the right
 5. Invertible pro-order: invariants-exact.
 6. Composition: Γ(U, −) = Γ(U/N, −) ∘ Γ(N, −), and Γ(N, −) : SmoothRep A U → SmoothRep A (U/N) is right adjoint to the exact inflation, hence preserves injectives.
 
-**Direct prerequisites.** `SmoothRepresentationsOfLocalGroups:SR.0:derived-extension/grothendieck-abelian`, `SmoothRepresentationsOfLocalGroups:SR.0:derived-extension/derived-smooth-category`, `SmoothRepresentationsOfLocalGroups:SR.0:abelian-category/invariants-exact`, `mathlib:CategoryTheory.Functor.rightDerivedFunctorPlus`, `mathlib:Rep.invariantsFunctor`, `mathlib:continuousCohomology`, `tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-7-coinduced-modules-and-shapiros-lemma`, `tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees`.
+**Direct prerequisites.** `SmoothRepresentationsOfLocalGroups:SR.0:derived-extension/grothendieck-abelian`, `SmoothRepresentationsOfLocalGroups:SR.0:derived-extension/derived-smooth-category`, `SmoothRepresentationsOfLocalGroups:SR.0:abelian-category/invariants-exact`, `mathlib:CategoryTheory.Functor.rightDerivedFunctorPlus`, `mathlib:Rep.invariantsFunctor`, `mathlib:continuousCohomology`, `tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-7-coinduced-modules-and-shapiros-lemma`, `tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees`; `mathlib:Rep.quotientToInvariantsFunctor`.
 
 **API.**
 
@@ -1597,7 +1605,7 @@ In a Grothendieck abelian category 𝒜 every (unbounded) cochain complex X admi
 **Hypotheses.** 𝒜 a Grothendieck abelian category (Mathlib's IsGrothendieckAbelian).
 
 **Construction or proof.**
-1. Spaltenstein–Serpé: write X as the homotopy colimit of its truncations; choose compatible injective resolutions of the bounded-below truncations (isKInjective_of_injective) and take the homotopy limit; K-injectives are closed under homotopy limits of towers of degreewise split surjections.
+1. Follow Stacks Theorem 19.12.6 (Tag 079P): choose a cardinal controlling a generator and small acyclic complexes. Successively enlarge a complex by injective quasi-isomorphisms to make terms injective and annihilate maps from those acyclic test complexes. Take exact filtered colimits at limit ordinals; a sufficiently large cofinality ensures K-injectivity. This is a transfinite construction, not an unjustified homotopy-limit argument.
 2. Hom into a K-injective complex is computed in the homotopy category (CohomologyClass.equivOfIsKInjective).
 3. Derived functors: apply F to a functorial K-injective resolution; independence of choices by uniqueness up to homotopy.
 
@@ -1615,16 +1623,16 @@ In a Grothendieck abelian category 𝒜 every (unbounded) cochain complex X admi
 
 **Identifier:** `SmoothRepresentationsOfLocalGroups:SR.0:derived-extension/dg-enhancement`. **Kind:** construction. **Proposed name:** `TauCeti.SmoothRep.rHom`. **Module:** `TauCeti/RepresentationTheory/Smooth/Derived`.
 
-The derived smooth category is enhanced by the dg category whose objects are K-injective complexes of smooth representations and whose Hom complexes are Mathlib's CochainComplex.HomComplex. Its homotopy category is equivalent to D(G, A). For complexes V, W of smooth representations, RHom_G(V, W) := HomComplex(V, I_W) with I_W a K-injective resolution is a complex of A-modules, functorial in both variables up to homotopy, with H^n RHom_G(V, W) = Hom_{D(G,A)}(V, W[n]). The forgetful functor to complexes of A-modules, restriction to open subgroups, derived invariants and derived tensor products over A are dg functors or are computed by K-flat/K-injective replacements in this model.
+The derived smooth category is enhanced by the dg category whose objects are K-injective complexes of smooth representations and whose Hom complexes are Mathlib's CochainComplex.HomComplex. Its homotopy category is equivalent to D(G, A). For complexes V, W of smooth representations, RHom_G(V, W) := HomComplex(V, I_W) with I_W a K-injective resolution is a complex of A-modules, functorial in both variables up to homotopy, with H^n RHom_G(V, W) = Hom_{D(G,A)}(V, W[n]). The forgetful functor to complexes of A-modules, restriction to open subgroups, derived invariants and derived tensor products over A are dg functors or are computed by K-flat/K-injective replacements in this model. The tensor and internal-Hom adjunction remain conditional on the equivariant K-flat construction in the gaps list.
 
 **Hypotheses.** G locally profinite; A a commutative ring.
 
 **Construction or proof.**
 1. Objects and Hom complexes from k-injective-resolutions applied to SmoothRep A G.
 2. Equivalence with D(G, A): every complex is quasi-isomorphic to a K-injective one, and maps into K-injectives are computed up to homotopy.
-3. Functoriality: dg functors on complexes preserve the structure; derived functors are obtained by precomposing with K-injective (or, for ⊗, K-flat) replacement.
+3. Hom complexes into a K-injective replacement give derived Hom. A-linear products and differentials lift the baseline AddCommGrpCat-valued HomComplex to ModuleCat A. Total tensor products require their Koszul signs and direct-sum totalisation; equivariant K-flat replacements are a separate missing input recorded below, not a consequence of K-injective resolution alone.
 
-**Direct prerequisites.** `SmoothRepresentationsOfLocalGroups:SR.0:derived-extension/k-injective-resolutions`, `SmoothRepresentationsOfLocalGroups:SR.0:derived-extension/derived-smooth-category`, `SmoothRepresentationsOfLocalGroups:SR.0:derived-extension/derived-invariants`, `mathlib:CochainComplex.HomComplex`.
+**Direct prerequisites.** `SmoothRepresentationsOfLocalGroups:SR.0:derived-extension/k-injective-resolutions`, `SmoothRepresentationsOfLocalGroups:SR.0:derived-extension/derived-smooth-category`, `SmoothRepresentationsOfLocalGroups:SR.0:derived-extension/derived-invariants`, `mathlib:CochainComplex.HomComplex`; `mathlib:Representation.tprod`.
 
 **API.**
 
@@ -1640,7 +1648,7 @@ The derived smooth category is enhanced by the dg category whose objects are K-i
 - `TauCeti.SmoothRep.homology_rHom_zero` (degenerate): H⁰ RHom_G(A, A) = A for the trivial representation of any G.
 - `TauCeti.SmoothRep.rHom_padicInt_fp` (computation): For G = ℤ_p and A = F_p, H¹ RHom_G(F_p, F_p) = F_p.
 - `TauCeti.SmoothRep.rHom_discrete_compat` (compatibility): For G finite discrete, RHom_G agrees with RHom over A[G] after Rep.equivalenceModuleMonoidAlgebra.
-- `TauCeti.SmoothRep.rHom_semisimple` (computation): For G = ℤ_p and A = F_ℓ (ℓ ≠ p), H^n RHom_G(V, W) = 0 for n ≠ 0.
+- `TauCeti.SmoothRep.rHom_semisimple` (computation): For G = ℤ_p and A = F_ℓ (ℓ ≠ p), representations V and W placed in degree zero satisfy H^n RHom_G(V, W) = 0 for n ≠ 0. This does not assert vanishing for arbitrary shifted complexes.
 
 **Acceptance checks.**
 
@@ -1650,7 +1658,7 @@ The derived smooth category is enhanced by the dg category whose objects are K-i
 
 **Uses.** VStackSheavesAndLisseCategories:VS4: an enhancement of the smooth derived category with derived invariants. ExcursionOperatorsAndSpectralAction:ES0: the enhanced derived smooth category, whose degree-zero centre is compared with the abelian centre. HeckeStacksAndLocalShtukas:HS3: derived Hom of smooth representations. Fargues–Scholze 2021, Ch. V §1, Corollary V.1.4: the adjunction Hom(B, (A*)^sm) = Hom(B ⊗^L A, Λ) used to identify smooth duality.
 
-**Sources.** `STACKS`, Tag 070Y and Tag 079P: K-injective complexes and their existence in Grothendieck abelian categories give the Hom complexes computing derived Hom. `FS21`, Ch. V §1, Corollary V.1.4 and its proof, pp. 170–171: Uses the derived tensor product of smooth representations and the adjunction for (A*)^sm on D(G, Λ).
+**Sources.** `STACKS`, Tag 070Y and Tag 079P: K-injective complexes and their existence in Grothendieck abelian categories give the Hom complexes computing derived Hom. `FS21`, Ch. V §1, Corollary V.1.4 and its proof, pp. 170–171: Uses the derived tensor product of smooth representations and the adjunction for (A*)^sm on D(G, Λ). `STACKS`, Section 20.26, Definition 20.26.2 (Tag 06Y9), Lemmas 20.26.11–12 (Tags 079T, 06YF); chapter PDF pp. 55–57, version ed88ff78 (14 Jul 2026): Defines K-flatness through acyclic total tensor products and constructs non-equivariant flat replacements. The smooth equivariant version is an explicit gap in this packet.
 
 #### Compact induction from pro-p subgroups generates the derived category
 
@@ -1688,7 +1696,7 @@ On D(G, A) the derived smooth dual is the right derived functor of the left exac
 **Hypotheses.** G locally profinite with HasCofinalUnitProOrder A G (e.g. locally pro-p and p ∈ A^×).
 
 **Construction or proof.**
-1. The functor V ↦ (V*)^sm is left exact (smooth-dual); derive it with K-injective resolutions (k-injective-resolutions).
+1. Construct the derived internal Hom against the unit A using a K-flat replacement of the contravariant argument and a suitable injective model of the target; apply the derived smooth-part functor. Replacing V by a K-injective complex alone does not derive the contravariant functor Hom_A(V,A). The equivariant tensor/internal-Hom construction is an explicit gap.
 2. Adjunction: in degree 0, Hom_G(B, (V*)^sm) = Hom_G(B ⊗_A V, A) (smooth-dual (1)); derive both sides.
 3. Invariants: for K of invertible pro-order, (V*)^K = Hom_A(V^K, A) (smooth-dual (3)); deriving gives 𝔻(V)^K ≅ RHom_A(V^K, A).
 4. Reflexivity: for a perfect complex P of A-modules, P → RHom_A(RHom_A(P, A), A) is an isomorphism; apply at every level K and use generation (compact-generation).
@@ -1699,7 +1707,7 @@ On D(G, A) the derived smooth dual is the right derived functor of the left exac
 
 - `TauCeti.SmoothRep.derivedSmoothDual` (data): 𝔻 : D(G, A)ᵒᵖ ⥤ D(G, A), the derived functor of V ↦ (V*)^sm.
 - `TauCeti.SmoothRep.hom_derivedSmoothDual` (universal-property): Hom(B, 𝔻V) ≅ Hom(B ⊗^L_A V, A), natural in B and V.
-- `TauCeti.SmoothRep.IsAdmissibleComplex` (data): V^K is perfect over A for every K in the cofinal family.
+- `TauCeti.SmoothRep.IsAdmissibleComplex` (data): RΓ(K,V) is perfect over A for every compact open K of invertible pro-order; equivalently this can be checked on a cofinal basis of such K, since averaging makes each larger good-K complex a direct summand.
 - `TauCeti.SmoothRep.invariants_derivedSmoothDual` (characterisation): 𝔻(V)^K ≅ RHom_A(V^K, A) for K of invertible pro-order.
 - `TauCeti.SmoothRep.IsAdmissibleComplex.derivedSmoothDual` (relation): The dual of an admissible complex is admissible.
 - `TauCeti.SmoothRep.toDoubleDual_isIso` (relation): V → 𝔻𝔻V is an isomorphism for admissible V.
@@ -1720,7 +1728,7 @@ On D(G, A) the derived smooth dual is the right derived functor of the left exac
 
 **Uses.** Fargues–Scholze 2021, Ch. V §1, Corollary V.1.4: smooth duality on D(G, Λ) corresponds to RHom_Λ(−, Λ) on [∗/G]. Fargues–Scholze 2021, Theorem I.5.1(v): admissible complexes: K-invariants perfect for all pro-p K; universally locally acyclic sheaves. HeckeStacksAndLocalShtukas:HS3: admissible complexes are reflexive and their smooth duals are admissible. IgusaVarietiesAndTorsionConcentration:IG.7: reflexive smooth duality for a bounded admissible complex. VStackSheavesAndLisseCategories:VS5: Verdier biduality and reflexivity on strata.
 
-**Sources.** `FS21`, Ch. V §1, Corollary V.1.4 and proof, pp. 170–171: For G locally pro-p and Λ killed by an integer prime to p, the derived functor of the left-exact smooth duality V ↦ (V*)^sm on D(G, Λ) corresponds to RHom_Λ(−, Λ) on [∗/G]; its proof uses the adjunction Hom(B, (A*)^sm) = Hom(B ⊗^L A, Λ). `FS21`, Ch. I §5, Theorem I.5.1(v), p. 25: An object is admissible when its K-invariants are perfect for all pro-p open subgroups K.
+**Sources.** `FS21`, Ch. V §1, Corollary V.1.4 and proof, pp. 170–171: For G locally pro-p and Λ killed by an integer prime to p, the derived functor of the left-exact smooth duality V ↦ (V*)^sm on D(G, Λ) corresponds to RHom_Λ(−, Λ) on [∗/G]; its proof uses the adjunction Hom(B, (A*)^sm) = Hom(B ⊗^L A, Λ). `FS21`, Ch. I §5, Theorem I.5.1(v), p. 25: An object is admissible when its K-invariants are perfect for all pro-p open subgroups K. `STACKS`, Section 20.26, Definition 20.26.2 (Tag 06Y9), Lemmas 20.26.11–12 (Tags 079T, 06YF); chapter PDF pp. 55–57, version ed88ff78 (14 Jul 2026): Defines K-flatness through acyclic total tensor products and constructs non-equivariant flat replacements. The smooth equivariant version is an explicit gap in this packet.
 
 #### Central characters separate Ext groups
 
@@ -1749,7 +1757,7 @@ Let z ∈ Z(G, A) (smooth-centre) act on smooth V by a scalar a and on W by a sc
 
 **Identifier:** `SmoothRepresentationsOfLocalGroups:SR.0:derived-extension/derived-hecke-algebra`. **Kind:** construction. **Proposed name:** `TauCeti.SmoothRep.derivedHecke`. **Module:** `TauCeti/RepresentationTheory/Smooth/Derived`.
 
-For a compact open U ≤ G and a commutative ring S, the derived Hecke algebra is the graded S-algebra H*(G, U; S) := Ext*_{SmoothRep S G}(S[G/U], S[G/U]) under Yoneda composition (opposite convention as in Venkatesh). It acts on the derived invariants H*(U, V) = Ext*_G(S[G/U], V) of every smooth V. Its degree-zero part is the Hecke algebra End_G(S[G/U]) (SR.1 permutation-hecke-algebra). Shapiro's lemma gives the invariant-function model H*(G, U; S) ≅ ⊕_{x ∈ U\G/U} H*(U ∩ xUx⁻¹, S) as graded S-modules, with product given by restriction, conjugation and corestriction along double cosets (the double-coset model). More generally, for compact open U₁, U₂ the derived bimodules Ext*(S[G/U₁], S[G/U₂]) make H*(G, U₁) and H*(G, U₂) act compatibly, as for the derived Iwahori–Hecke algebra and its spherical bimodules.
+For a compact open U ≤ G and a commutative ring S, the derived Hecke algebra is the graded S-algebra H*(G, U; S) := Ext*_{SmoothRep S G}(S[G/U], S[G/U]) with product α · β = β after α under Yoneda composition (the opposite of the usual endomorphism-ring convention). It acts on the derived invariants H*(U, V) = Ext*_G(S[G/U], V) of every smooth V. Its degree-zero part is End_G(S[G/U])ᵒᵖ, hence H(G,U;S)ᵒᵖ in the SR.1 matrix convention. The inversion anti-isomorphism identifies it with H(G,U;S) if the basis convention is reversed explicitly. Shapiro's lemma gives the invariant-function model H*(G, U; S) ≅ ⊕_{x ∈ U\G/U} H*(U ∩ xUx⁻¹, S) as graded S-modules, with product given by restriction, conjugation and corestriction along double cosets (the double-coset model). More generally, for compact open U₁, U₂ the derived bimodules Ext*(S[G/U₁], S[G/U₂]) make H*(G, U₁) and H*(G, U₂) act compatibly, as for the derived Iwahori–Hecke algebra and its spherical bimodules.
 
 **Hypotheses.** G locally profinite; S a commutative ring; U, U₁, U₂ compact open.
 
@@ -1757,26 +1765,26 @@ For a compact open U ≤ G and a commutative ring S, the derived Hecke algebra i
 1. Ext groups exist (grothendieck-abelian); Yoneda composition makes Ext*(X, X) a graded ring.
 2. Shapiro: Ext*_G(S[G/U], W) ≅ H*(U, W) (derived-invariants); for W = S[G/U] = ⊕ over U-orbits on G/U, the orbit of xU is S[U/(U ∩ xUx⁻¹)], whose U-cohomology is H*(U ∩ xUx⁻¹, S).
 3. Products: compute the Yoneda product on the U-orbit decomposition, giving sums over double cosets of restriction, conjugation by x and corestriction (Venkatesh §2.4 and Appendix A).
-4. Degree zero: Ext⁰ = End_G(S[G/U]), the Hecke algebra of SR.1.
+4. Degree zero: the Ext⁰ identification is additive and respects α · β = β after α, giving End_G(S[G/U])ᵒᵖ. SR.1 identifies the matrix Hecke algebra with End_G(S[G/U]); inversion of double cosets gives the opposite comparison.
 
-**Direct prerequisites.** `SmoothRepresentationsOfLocalGroups:SR.0:derived-extension/derived-invariants`, `SmoothRepresentationsOfLocalGroups:SR.0:derived-extension/grothendieck-abelian`, `SmoothRepresentationsOfLocalGroups:SR.1/permutation-hecke-algebra`, `mathlib:CategoryTheory.Abelian.Ext`.
+**Direct prerequisites.** `SmoothRepresentationsOfLocalGroups:SR.0:derived-extension/derived-invariants`, `SmoothRepresentationsOfLocalGroups:SR.0:derived-extension/grothendieck-abelian`, `SmoothRepresentationsOfLocalGroups:SR.1/permutation-hecke-algebra`, `mathlib:CategoryTheory.Abelian.Ext`; `mathlib:CategoryTheory.Abelian.Ext.comp`, `tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees`, `tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-12-the-graded-cup-product-in-all-degrees`.
 
 **API.**
 
-- `TauCeti.SmoothRep.derivedHecke` (data): H*(G, U; S) := Ext*_G(S[G/U], S[G/U]) with Yoneda product.
-- `TauCeti.SmoothRep.derivedHecke_zero` (simp): The degree-zero part is End_G(S[G/U]), the Hecke algebra of SR.1.
+- `TauCeti.SmoothRep.derivedHecke` (data): H*(G,U;S) := Ext*_G(S[G/U],S[G/U]); α · β is β after α, with the Koszul grading.
+- `TauCeti.SmoothRep.derivedHecke_zero` (simp): The degree-zero ring is End_G(S[G/U])ᵒᵖ ≅ H(G,U;S)ᵒᵖ in the matrix convention of SR.1.
 - `TauCeti.SmoothRep.derivedHeckeAction` (data): The graded action of H*(G, U; S) on H*(U, V) = Ext*_G(S[G/U], V), natural in V.
 - `TauCeti.SmoothRep.derivedHecke_equiv_doubleCoset` (characterisation): H*(G, U; S) ≅ ⊕_{x ∈ U\G/U} H*(U ∩ xUx⁻¹, S) as graded S-modules (Shapiro).
 - `TauCeti.SmoothRep.derivedHecke_mul_doubleCoset` (relation): The product in the double-coset model is a sum over double cosets of restriction, conjugation and corestriction (Venkatesh §2.4, (25)).
-- `TauCeti.SmoothRep.derivedBimodule` (data): Ext*_G(S[G/U₁], S[G/U₂]) as an (H*(G,U₂), H*(G,U₁))-bimodule; at U₁ = U₂ it is derivedHecke.
+- `TauCeti.SmoothRep.derivedBimodule` (data): Ext*_G(S[G/U₁],S[G/U₂]) has the left H*(G,U₁) action by precomposition and the right H*(G,U₂) action by postcomposition for the stated Yoneda product; at U₁ = U₂ it is derivedHecke.
 - `TauCeti.SmoothRep.derivedHecke_of_unit` (relation): If HasUnitProOrder S U the derived Hecke algebra is concentrated in degree 0.
 
 **Unit tests.**
 
 - `TauCeti.SmoothRep.derivedHecke_padicInt` (computation): For G = U = ℤ_p and S = F_p, H¹(G, U; F_p) ≅ F_p and H^i = 0 for i ≥ 2.
 - `TauCeti.SmoothRep.derivedHecke_unit_degree_zero` (degenerate): For U of invertible pro-order in S, H^i(G, U; S) = 0 for i > 0.
-- `TauCeti.SmoothRep.derivedHecke_zero_compat` (compatibility): H⁰(G, U; S) is the double-coset Hecke ring 𝕋 of the Hecke pair (U, G) over S (via SR.1 hecke-ring-comparison).
-- `TauCeti.SmoothRep.derivedHecke_normal` (computation): For U normal in G, H*(G, U; S) is the twisted tensor product of H*(U, S) with S[G/U] (crossed product).
+- `TauCeti.SmoothRep.derivedHecke_zero_compat` (compatibility): H⁰(G,U;S) ≅ H(G,U;S)ᵒᵖ, where H is the double-coset Hecke ring of SR.1 with its matrix convention. Inversion gives a second identification with H and must not silently change the chosen basis.
+- `TauCeti.SmoothRep.derivedHecke_normal` (computation): For G = ℤ_p × D with D discrete and S = F_p, degree n identifies as an S-module with S[D] ⊗_S H^n_cont(ℤ_p,S). The graded product uses the stated Yoneda opposite convention. A non-split normal extension also requires conjugation and extension cocycles.
 
 **Acceptance checks.**
 
@@ -2092,7 +2100,7 @@ Let P = M ⋉ N be closed subgroups of G (N normal in P). For a smooth P-represe
 2. Right exactness and colimits: coinvariants are a left adjoint (Rep.coinvariantsAdjunction).
 3. Finite generation: G = P K₀ with K₀ compact open, and V generated by finitely many vectors is generated over P by their K₀-translates, finitely many modulo a smaller open subgroup.
 
-**Direct prerequisites.** `SmoothRepresentationsOfLocalGroups:SR.0:abelian-category/smooth-rep-category`, `SmoothRepresentationsOfLocalGroups:SR.2/modulus-character`, `mathlib:Representation.Coinvariants`, `mathlib:Rep.coinvariantsFunctor`.
+**Direct prerequisites.** `SmoothRepresentationsOfLocalGroups:SR.0:abelian-category/smooth-rep-category`, `SmoothRepresentationsOfLocalGroups:SR.2/modulus-character`, `mathlib:Representation.Coinvariants`, `mathlib:Rep.coinvariantsFunctor`; `mathlib:Rep.quotientToCoinvariantsFunctor`.
 
 **API.**
 
@@ -2541,7 +2549,7 @@ Every irreducible smooth complex representation V of G(F) is admissible: dim V^K
 3. Schur: End_G(V) is a division algebra of countable dimension over ℂ (V is countably generated), hence ℂ, because otherwise a transcendental element x would give uncountably many linearly independent (x − a)⁻¹.
 4. Contragredient: admissible + irreducible ⇒ Ṽ irreducible (smooth-dual).
 
-**Direct prerequisites.** `SmoothRepresentationsOfLocalGroups:SR.3a/jacquet-subrepresentation`, `SmoothRepresentationsOfLocalGroups:SR.3a/harish-chandra-compactness`, `SmoothRepresentationsOfLocalGroups:SR.2/parabolic-induction`, `SmoothRepresentationsOfLocalGroups:SR.0:abelian-category/admissible`, `SmoothRepresentationsOfLocalGroups:SR.0:abelian-category/smooth-dual`, `SmoothRepresentationsOfLocalGroups:SR.1/corner-irreducibles`, `mathlib:Module.End.instDivisionRing`, `mathlib:Transcendental.linearIndependent_sub_inv`.
+**Direct prerequisites.** `SmoothRepresentationsOfLocalGroups:SR.3a/jacquet-subrepresentation`, `SmoothRepresentationsOfLocalGroups:SR.3a/harish-chandra-compactness`, `SmoothRepresentationsOfLocalGroups:SR.2/parabolic-induction`, `SmoothRepresentationsOfLocalGroups:SR.0:abelian-category/admissible`, `SmoothRepresentationsOfLocalGroups:SR.0:abelian-category/smooth-dual`, `SmoothRepresentationsOfLocalGroups:SR.1/corner-irreducibles`, `mathlib:Module.End.instDivisionRing`, `mathlib:Transcendental.linearIndependent_sub_inv`; `mathlib:CategoryTheory.Simple`.
 
 **Acceptance checks.**
 
@@ -2935,7 +2943,7 @@ For every compact open K: (1) only finitely many inertial classes s have blocks 
 2. (2): cuspidal case from Π(D) = ℂ[Λ] ⊗ ρ, general case by embedding into induced and induction preserving admissibility (Bernstein–Deligne Proposition 3.3).
 3. (3), (4): apply (2) to ℂ[G/K] (Bernstein–Deligne Corollaire 3.4).
 
-**Direct prerequisites.** `SmoothRepresentationsOfLocalGroups:SR.3/bernstein-centre-blocks`, `SmoothRepresentationsOfLocalGroups:SR.3/noetherian`, `SmoothRepresentationsOfLocalGroups:SR.2/induced-invariants`, `SmoothRepresentationsOfLocalGroups:SR.3a/finitely-many-cuspidals`.
+**Direct prerequisites.** `SmoothRepresentationsOfLocalGroups:SR.3/bernstein-centre-blocks`, `SmoothRepresentationsOfLocalGroups:SR.3/noetherian`, `SmoothRepresentationsOfLocalGroups:SR.2/induced-invariants`, `SmoothRepresentationsOfLocalGroups:SR.3a/finitely-many-cuspidals`; `mathlib:Module.compHom`.
 
 **Acceptance checks.**
 
@@ -3166,7 +3174,7 @@ For a split reductive G with Borel B, the Steinberg representation is St_G = C^�
 
 **Identifier:** `SmoothRepresentationsOfLocalGroups:SR.3/isotypic-quotient-regular`. **Kind:** theorem. **Proposed name:** `TauCeti.SmoothRep.isotypicQuotient_regular`. **Module:** `TauCeti/RepresentationTheory/Smooth/Bernstein`.
 
-Let σ be an irreducible smooth complex representation of G. The map C_c^∞(G) → End(σ)^∞ = σ ⊗ σ̃, f ↦ σ(f), is surjective and G × G-equivariant (left and right translation), and the maximal σ-isotypic quotient of C_c^∞(G) for the right translation action is σ̃ ⊗ σ (σ̃ for the left action). For σ compact (e.g. cuspidal with compact centre) the map splits and C_c^∞(G) = (σ ⊗ σ̃) ⊕ (complement), giving the formal degree.
+Let σ be an irreducible admissible smooth complex representation of a locally profinite G (in particular an irreducible representation of reductive G(F)). The map C_c^∞(G) → End(σ)^∞ = σ ⊗ σ̃, f ↦ σ(f), is surjective and G × G-equivariant (left and right translation), and the maximal σ-isotypic quotient of C_c^∞(G) for the right translation action is σ̃ ⊗ σ (σ̃ for the left action). For σ compact (e.g. cuspidal with compact centre) the map splits and C_c^∞(G) = (σ ⊗ σ̃) ⊕ (complement), giving the formal degree.
 
 **Hypotheses.** G reductive over F (σ admissible suffices); complex coefficients.
 
@@ -3340,7 +3348,7 @@ For a connected reductive group G over a nonarchimedean local field F, opposite 
 - **`tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-0-discrete-modules-and-continuous-sections`.** For a profinite group, a module is discrete exactly when it is the union of the fixed points of the open normal subgroups (TauCeti.iSup_fixedPoints_openNormal_eq_top), with the predicate TauCeti.IsSmoothDiscrete; SR.0 extends this exhaustion from profinite to locally profinite groups through compact open subgroups. Needed by `SR.0:abelian-category/compact-open-invariants`, `SR.2/induction-exactness`.
 - **`tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-1-the-canonical-carrier-and-its-functoriality`.** The canonical carrier SmoothDiscreteTopRep of discrete modules and the equivalence discreteRepEquivSmoothTopRep with smooth topological modules, to compare SR.0's algebraic smooth category with it for profinite G. Needed by `SR.0:abelian-category/smooth-discrete-comparison`.
 - **`tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-7-coinduced-modules-and-shapiros-lemma`.** Coinduced discrete modules of a profinite group and Shapiro's lemma, used to compute the derived invariants of a compact open subgroup on coinduced smooth representations. Needed by `SR.0:derived-extension/derived-invariants`.
-- **`tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees`.** Continuous cohomology H^n(K, M) of a profinite group K with discrete coefficients in all degrees, with its long exact sequences and its identification with the right derived functors of K-invariants on discrete modules. Needed by `SR.0:derived-extension/derived-invariants`.
+- **`tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees`.** Continuous cohomology H^n(K, M) of a profinite group K with discrete coefficients in all degrees, with its long exact sequences and its identification with the right derived functors of K-invariants on discrete modules. For the derived-Hecke double-coset product also supply all-degree restriction, conjugation, Shapiro and open-subgroup corestriction, with transitivity, Mackey and derived-invariant compatibilities. Needed by `SR.0:derived-extension/derived-invariants`.
 - **`tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-1-supernatural-order-and-index`.** The supernatural order of a profinite group (TauCeti.profiniteOrder), the divisibility of finite indices [K : K'] into it (ofNat_card_quotient_le_profiniteOrder) and pro-p groups (IsProP), used to define compact open subgroups of pro-order invertible in A. Needed by `SR.0:abelian-category/unit-pro-order`.
 - **`tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-0-the-functorial-core----transitivity-and-the-projection-formula`.** Transitivity of induction for representations of groups (Rep.indFunctorCompIso), applied to open subgroups to give induction in stages for compact induction. Needed by `SR.2/induction-in-stages`.
 - **`tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-3-the-mackey-decomposition-formula`.** The Mackey decomposition of a restricted induced representation over double cosets (Rep.mackeyDecomposition), applied to open subgroups of a locally profinite group. Needed by `SR.2/mackey-filtration`.
@@ -3350,6 +3358,8 @@ For a connected reductive group G over a nonarchimedean local field F, opposite 
 - **`ReductiveGroupsPartII:RG2.1`.** The maximal split torus A_G of the centre and the lattice X_*(A_G) used to describe G(F)/G(F)° and the unramified characters of G(F). Needed by `SR.3/unramified-characters`.
 - **`ReductiveGroupsPartII:RG2.3`.** Parahoric, Iwahori, pro-p Iwahori and congruence subgroups K_n of G(F), with Iwahori factorisations K = (K ∩ N)(K ∩ M)(K ∩ N̄) for every parabolic pair (P, P̄) containing the reference torus, and a neighbourhood basis of 1 consisting of such subgroups that are normal in a maximal compact one. Needed by `SR.1/iwahori-decomposition`, `SR.1/pro-iwahori-torus`, `SR.1/iwahori-matsumoto`, `SR.2/borel-casselman-invariants`, `SR.3a/harish-chandra-compactness`, `SR.3a/hecke-algebra-decomposition`.
 - **`ReductiveGroupsPartII:RG2.4`.** The Iwasawa decomposition G = P K₀ for a special maximal compact K₀, the Cartan decomposition G = K₀ A⁺ K₀ with the dominant cone, the Iwahori–Bruhat decomposition G = ⊔ I w I over the extended affine Weyl group, and finiteness of P\G/K for compact open K. Needed by `SR.1/iwahori-matsumoto`, `SR.2/induced-invariants`, `SR.2/parabolic-induction`, `SR.2/geometric-lemma`, `SR.3a/harish-chandra-compactness`, `SR.3a/hecke-algebra-decomposition`, `SR.3/casselman-criterion`.
+
+- **`ProfiniteCohomology`, Layer 12.** The all-degree continuous cup product for a continuous equivariant coefficient pairing, with its restriction, conjugation and corestriction projection formulas. The derived-Hecke double-coset product consumes this interface; SR.0 proves agreement with Yoneda composition under its derived-invariants comparison and does not re-plan cup products. Needed by `SR.0:derived-extension/derived-hecke-algebra`.
 
 ## Gaps
 
@@ -3371,7 +3381,15 @@ Mœglin–Waldspurger degenerate Whittaker models, used by Gan–Savin for the e
 
 ### Bushnell's localisation proof of second adjointness and the Bushnell–Kutzko Hecke-algebra embeddings
 
-Bushnell (J. London Math. Soc. 63 (2001)) was not obtained in a public copy, and Bushnell–Kutzko's 1998 paper on types (cited by Allen et al. as [BK98, Cor. 6.12]) is not public; the positive Hecke homomorphism is proved here directly from the Iwahori factorisation, and second adjointness by Bernstein's route. Neither source is cited as support. Needed by `SR.1/positive-hecke-homomorphism`, `SR.2a/second-adjointness`.
+Bushnell (J. London Math. Soc. 63 (2001)) was not obtained in a public copy, and Bushnell–Kutzko 1998 (Allen et al. [BK98, Cor. 6.12]) was not read. The normaliser/torus single-coset calculation is planned, but a proof of the general positive Levi Hecke embedding by transfer of structure constants remains missing. Second adjointness follows Bernstein’s route; neither unread source is claimed as read proof support. Needed by `SR.1/positive-hecke-homomorphism`, `SR.2a/second-adjointness`.
+
+### Equivariant K-flat replacements and derived tensor/internal Hom
+
+The pinned libraries contain neither total tensor products of smooth complexes nor equivariant K-flat replacement. Stacks Section 20.26 (Tag 06Y7) supplies the non-equivariant definition and tensor criterion. The suggested file states concrete smooth tensor complexes, direct-sum totalisation, the acyclic-tensor K-flat predicate, replacement data and the derived internal-Hom adjunction. A complete equivariant construction and proof that replacements remain smooth are still missing; K-injective resolutions alone do not provide them. Needed by `SR.0:derived-extension/dg-enhancement`, `SR.0:derived-extension/derived-smooth-dual`.
+
+### Enhanced degree-zero Bernstein centre comparison
+
+The ordinary SmoothRep centre is planned as a compatible family of corner centres. To identify this with Fargues–Scholze’s π₀End(id), construct the dg/enhanced natural transformation object and prove that restriction to the heart induces an isomorphism in degree zero. The unenhanced triangulated CatCenter can have additional transformations and is not used as a substitute. This is the remaining early-owner input for RT-AREA-geomlanglands/9 and the higher ES0 comparison. Needed by `SR.1/bernstein-centre-corners`.
 
 ## Restructuring proposals
 
@@ -3405,8 +3423,10 @@ The nodes use the corrected statements below.
 - **SmoothRepresentationsOfLocalGroups/E21** (misprint; `CASSELMAN80`, Proposition 2.5, p. 396). The source says: The statement is made for arbitrary v ∈ V and ends with the Jacquet-module action on v. Correction: It is for v ∈ V^B, ending with π_N(m) applied to the image u of v in V_N. Reason: The proof begins with v ∈ V^B, and π_N acts on V_N, not on V. Affects: nothing.
 - **SmoothRepresentationsOfLocalGroups/E22** (misprint; `GS23`, proof of Lemma 5.6, p. 19 (arXiv v1)). The source says: The Ext computation out of an induced representation uses the Jacquet module r_P. Correction: Second adjointness gives the opposite Jacquet module r_{P̄}. Reason: Second adjointness makes i_P left adjoint to the opposite Jacquet functor r_{P̄}; the first adjunction r_P ⊣ i_P computes maps into, not out of, i_P. Affects: nothing.
 - **SmoothRepresentationsOfLocalGroups/E23** (misprint; `HE18`, proof of Lemma 16, p. 18 (published); arXiv v3 p. 14). The source says: The count of cosets obtained from Lemma 15 is written for the Iwahori double coset I ṡ I / I. Correction: It is I_n ṡ I_n / I_n, the congruence-level double coset. Reason: The preceding line computes the I_n-level count, Lemma 15 concerns I_n-double cosets, and the conclusion drawn is #(I_n ṡ I_n / I_n) = q^{ℓ(s)}. Affects: nothing.
-- **SmoothRepresentationsOfLocalGroups/E24** (gap; `FS21`, Definition I.9.2(i), p. 34, and Definition IX.0.2, p. 318 (arXiv v4)). The source says: The Bernstein centre over Λ, defined as π₀End of the identity functor, is equated with the inverse limit over pro-p K of the centres of Λ[K\G/K]. Correction: The identification needs that D(G, Λ) is generated by the c-Ind_K Λ, that the corner categories are equivalent to modules over e_K H e_K, and that restriction between levels is compatible; the packet proves it (bernstein-centre-corners). Reason: No proof or reference is given at either place. Affects: nothing.
+- **SmoothRepresentationsOfLocalGroups/E24** (gap; `FS21`, Definition I.9.2(i), p. 34, and Definition IX.0.2, p. 318 (arXiv v4)). The source says: The Bernstein centre over Λ, defined as π₀End of the identity functor, is equated with the inverse limit over pro-p K of the centres of Λ[K\G/K]. Correction: The identification needs that D(G, Λ) is generated by the c-Ind_K Λ, that the corner categories are equivalent to modules over e_K H e_K, and that restriction between levels is compatible; the ordinary corner formula is planned in bernstein-centre-corners; comparison with the enhanced π₀End(id) is a recorded gap. Reason: No proof or reference is given at either place. Affects: nothing.
 - **SmoothRepresentationsOfLocalGroups/E25** (gap; `FS21`, proof of Theorem IX.7.2, p. 335, and of Corollary IX.7.3, p. 337 (arXiv v4)). The source says: The Bernstein centre over Λ = ℤ_ℓ[√q] is treated as ℓ-adically separated, reducing to torsion coefficients. Correction: Separatedness follows from freeness of each Hecke algebra Λ[K\G/K] over Λ; the packet proves it (l-adic-separatedness). Reason: The property is used without proof. Affects: nothing.
+
+- **SmoothRepresentationsOfLocalGroups/E26** (misprint; `STACKS`, Lemma 20.26.7 (Tag 0G6U), proof, displayed tensor sequence; chapter PDF Lemma 26.7, p. 56, version ed88ff78 (14 Jul 2026)). In the proof, all three terms of the tensor-totalisation short exact sequence have the first complex as their second tensor factor. Correction: The second and third terms use the second and third complexes respectively; tensoring the given sequence gives totalisations in the order K₁, K₂, K₃. Reason: Termwise flatness of the third complex preserves the original short exact sequence under tensoring; repeating K₁ does not express that sequence. The intended long-exact-cohomology argument is unchanged. Affects: nothing. No correction was found in the official HTML comments, chapter PDF or project search.
 
 ## References
 
@@ -3440,3 +3460,11 @@ The nodes use the corrected statements below.
 - **`KALETHA16`**: T. Kaletha, *Rigid inner forms of real and p-adic groups*. arXiv:1304.3292v5 (9 Feb 2015; published Ann. of Math. 184 (2016), not compared). https://arxiv.org/pdf/1304.3292v5
 - **`PAN26`**: L. Pan, *On locally analytic vectors of the completed cohomology of modular curves II*. arXiv:2209.06366v1 (14 Sep 2022). https://arxiv.org/pdf/2209.06366v1
 - **`STACKS`**: The Stacks project authors, *The Stacks project*. Online, read 2026-10-09. https://stacks.math.columbia.edu
+
+## Suggested signatures and proof boundaries
+
+The suggested file checks the early category, invariants, Haar and Hecke constructions, induction, normal-subgroup coinvariants, derived Hom, tensor and dual signatures against the pinned libraries. It uses the existing Hecke ring and the A-unitization carrier for nondegenerate modules. Its concrete general-linear-group signatures cover admissibility, uniform bounds, noetherianity and finiteness over the Hecke centre. Admitted signatures are planning data and claim no implementation.
+
+The omission ledger names each remaining declaration, API item and test whose condition or carrier cannot yet be stated at the pins. General reductive statements require the requested parabolic-pair, relative root-data, Iwahori, positive-cone and cuspidal-data interfaces; the sheaf statements require smooth equivariance and compactly supported sections, beyond a plain sheaf on a topological space. The double-coset product requires the restriction, conjugation, cup-product and corestriction interfaces from ProfiniteCohomology Layers 10 and 12, named in the requests. These entries are comments, not elaborated examples. They are explicit refinements in the stage coverage records; no arbitrary proposition stands in for a missing condition.
+
+Equivariant K-flat replacement and the enhanced degree-zero centre comparison remain proof gaps. The general positive Levi homomorphism also requires the structure-constant transfer not proved in Allen et al. Lemma 2.1.12. Its normaliser and torus formula has the smaller stated hypotheses. The stage order preserves these proof boundaries rather than making second adjointness a prerequisite of the Bernstein centre.
