@@ -47855,7 +47855,8 @@
     "PKG-WeilConjectures"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-WeilConjectures.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7544"
   },
   {
    "id": "KEYDEF-algebraicgeometry",
