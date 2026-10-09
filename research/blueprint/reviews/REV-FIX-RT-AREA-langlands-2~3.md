@@ -1,8 +1,8 @@
 # REV-FIX-RT-AREA-langlands-2~3
 
-Current blocked checkpoint: Codex session `codex-pUhc7Z`, 9 October 2026,
-issue #5871, base `94404825e616d3808274c3ab1898841f796c44bb`.
-Before this update, all seven authorized files matched merged checkpoint PR #7780.
+Current blocked checkpoint: Codex session `codex-IfSuv6`, 9 October 2026,
+issue #5871, base `e57e29c1f813ea669d9f7e9de986223e0b987862`.
+Before this update, all seven authorized files matched merged checkpoint PR #7795.
 This continuation reproduces the unresolved intake-scope blocker and preserves
 all mathematical verdicts and reviewer objects. Maintainer metadata repair is
 required before another worker continuation can complete intake.
@@ -504,23 +504,26 @@ remain historical evidence. No fresh primary-source reading, pinned-library
 review or graph audit is claimed. The next action remains maintainer repair
 of the metadata, rather than another unchanged-input continuation.
 
-## Current blocker receipt, 9 October 2026 — codex-pUhc7Z
+## Current blocker receipt, 9 October 2026 — codex-IfSuv6
 
-Claim confirmed at [comment 6074706916](https://github.com/CBirkbeck/tauceti-explorer/issues/5871#issuecomment-6074706916).
+Claim confirmed at [comment 6074977052](https://github.com/CBirkbeck/tauceti-explorer/issues/5871#issuecomment-6074977052).
 Re-read the confirmed live issue and inherited handoff. All seven issue outputs
-were byte-for-byte identical to [PR #7780](https://github.com/CBirkbeck/tauceti-explorer/pull/7780),
-merge commit `80353a01e61bff319775e0fbafaaddb43d5fae78`, before this update.
-The three packets and three suggested files also match PR #7776.
+were byte-for-byte identical to [PR #7795](https://github.com/CBirkbeck/tauceti-explorer/pull/7795),
+merge commit `244b3bc00`, before this update. The three packets and three
+suggested files also match [PR #7780](https://github.com/CBirkbeck/tauceti-explorer/pull/7780),
+merge commit `80353a01e61bff319775e0fbafaaddb43d5fae78`.
 
 Read `issues.deliverables_complete`, the intake allowlist and the historical
 `make_queue.fix_rounds` path. The current review queue entry is pending and
-lists 27 existing outputs. Its completion check is false; replacing only its
-outputs in memory with the seven paths parsed from the live issue makes it
-true. The ten extra packets name other review jobs, as the handoff's table
-records. The parent fix is done but still lists 40 outputs. Neither queue nor
-generator repair is an authorized issue edit, and both paths fail the intake
-allowlist. The handoff gives the exact seven review and ten parent-fix paths
-and the regeneration code path requiring maintainer repair.
+lists 27 existing outputs. Its completion check is **false**; replacing only
+its outputs in memory with the seven paths parsed from the live issue makes
+it **true**. Both results were asserted in the same process. The ten extra
+packets name other review jobs, as the handoff's table records; they are not
+missing files or unfinished verdicts for this review. The parent fix is done
+but still lists 40 outputs. Neither queue nor generator repair is an authorized
+issue edit, and both paths fail the intake allowlist. The handoff gives the
+exact seven review and ten parent-fix paths and the regeneration code path
+requiring maintainer repair.
 
 Fresh validation: all three `check_blueprint.py` runs report zero errors and
 zero warnings; all 177 nodes remain unchecked; no packet contains an excerpt
