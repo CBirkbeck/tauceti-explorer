@@ -449,7 +449,7 @@ and Leray in unrelated senses. **No target was removed.**
   SchemeAndStackFoundations (tier 2). No `UPSTREAM:` ids remain.
 - Unit tests: 120 (116 + 4 for D5.13), each discriminating; 23 typed as
   `example`s.
-- Lean: `/home/chris/atlas-workers/bin/lean-check …/Suggested.lean` → exit 0,
+- Lean: `lean-check …/Suggested.lean` → exit 0,
   104 `declaration uses sorry` warnings, nothing else; 150 declarations.
   Ten signatures spot-checked against the README (D0.1, D0.5, D0.8, D0.9,
   D0.11, D0.17, D0.18, D1.2, D4.1, D5.13): hypotheses present, nothing vacuous,
