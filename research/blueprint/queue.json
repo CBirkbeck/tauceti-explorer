@@ -34752,7 +34752,8 @@
    ],
    "avoidAccountOf": "BP-AlgebraicModuliForArithmeticGeometry--R09.7",
    "prompt": "research/blueprint/prompts/REV-AlgebraicModuliForArithmeticGeometry--R09.7.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6296"
   },
   {
    "id": "BP-ArithmeticGaloisRepresentations--G7",
@@ -35439,8 +35440,9 @@
    ],
    "avoidAccountOf": "BP-ClassicalAdicEtaleCohomology--H3",
    "prompt": "research/blueprint/prompts/REV-ClassicalAdicEtaleCohomology--H3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7035"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7035",
+   "finishedAt": "2026-10-09T17:57:09Z"
   },
   {
    "id": "BP-ColemanPowerSeries--L0",
