@@ -2723,6 +2723,13 @@ example : ExactW0.of rationalExactDuality
     (rationalFormSpace 2 (!![0,1;1,0]) (by sorry) (by sorry)) = 0 := by sorry
 example : (rationalFormSpace 0 (1 : Matrix (Fin 0) (Fin 0) ℚ) (by simp) (by simp)).carrier =
     FGModuleCat.of ℚ (Fin 0 → ℚ) := by sorry
+/-- Packet contract orthogonal_sum_test_3: rank adds, whereas Gram determinant multiplies. -/
+example :
+    Module.finrank ℚ ((orthogonalSum rationalExactDuality
+      (rationalFormSpace 1 (!![2] : Matrix (Fin 1) (Fin 1) ℚ) (by sorry) (by sorry))
+      (rationalFormSpace 1 (!![3] : Matrix (Fin 1) (Fin 1) ℚ) (by sorry) (by sorry))).carrier : Type) = 2 ∧
+    (Matrix.fromBlocks (!![2] : Matrix (Fin 1) (Fin 1) ℚ) 0 0
+      (!![3] : Matrix (Fin 1) (Fin 1) ℚ)).det = 6 := by sorry
 /-- Finite torsion is not reflexive for Z-linear duality; it is not the finite-projective category. -/
 example : Subsingleton (Module.Dual ℤ (ZMod 2)) := by sorry
 /-- Multiplication by two is injective but not an admissible split inclusion. -/
