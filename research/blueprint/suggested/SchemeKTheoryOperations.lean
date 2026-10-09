@@ -3602,6 +3602,7 @@ GeneralAlgebraicKTheory:K.6).
 -- AlgebraicModuliForArithmeticGeometry:R09.1).
 -- `quillenT_exact`: not stated here; needs `quillenT` and `MR(E)` (supplier:
 -- AlgebraicModuliForArithmeticGeometry:R09.1).
+-- Its vector-bundle specialization uses `MR_VB(E)`; the coherent category targets `Coh(X)`.
 -- `quillenT_zero`: not stated here; needs `quillenT` (supplier:
 -- AlgebraicModuliForArithmeticGeometry:R09.1).
 -- `quillenT_pullback`: not stated here; needs `quillenT` (supplier:
@@ -5441,7 +5442,8 @@ end TauCeti
 -- (supplier: GeneralAlgebraicKTheory:K.2:plus).
 -- `TauCeti.KTheory.LambdaOperations.classifyingMap_natural`: not stated here; needs
 -- `classifyingMap` (supplier: GeneralAlgebraicKTheory:K.2:plus).
--- `TauCeti.KTheory.LambdaOperations.stableMap`: not stated here; needs `[BGL(A)^+, BGL(A)^+]`
+-- `TauCeti.KTheory.LambdaOperations.stableMap`: not stated here; needs the compatible family
+-- `lim_N [BGL_N(A), BGL(A)^+]`; a genuine self-map uses the separate Hiller input
 -- (supplier: StableHomotopyKTheory:H.4/gl-telescope-plus-comparison); its source `R_ℤ(GL)` is
 -- `TauCeti.RepresentationRing.stableGL` above.
 -- `TauCeti.KTheory.LambdaOperations.stableMap_id`: not stated here; needs `stableMap` (supplier:
@@ -5455,7 +5457,7 @@ end TauCeti
 -- test classifyingMap_restrict_compat (compatibility): not stated here; needs `r_{A,N}` (supplier:
 -- GeneralAlgebraicKTheory:K.2:plus).
 -- `TauCeti.KTheory.LambdaOperations.op`: not stated here; needs `τ_A ∈ [BGL(A)^+, BGL(A)^+]`
--- (supplier: GeneralAlgebraicKTheory:K.2:plus).
+-- (supplier: GeneralAlgebraicKTheory:K.2:plus and S.6/hiller-universality, an explicit source gap).
 -- `TauCeti.KTheory.LambdaOperations.lambda`: not stated here; needs `K_m(A) = π_m BGL(A)^+`
 -- (supplier: GeneralAlgebraicKTheory:K.2:plus).
 -- `TauCeti.KTheory.LambdaOperations.gamma`: not stated here; needs `K_m(A)` (supplier:
@@ -6189,19 +6191,21 @@ end TauCeti.AlgebraicGeometry.KTheory
 
 
 /-!
-# Current packet contracts — independent review REV-SchemeKTheoryOperations~2
+# Current packet contracts — independent review REV-SchemeKTheoryOperations~3
 
-This is the single current catalogue of all 284 node contracts. The native prototypes above
-use existing ordinary-category and degree-zero carriers. Enhanced categories, higher K-theory,
-formal Witt geometry, projective/flag bundle sheaves and supported Chow operations still need
-the named suppliers. Where a signature cannot yet be expressed on a pinned carrier, the
-mathematical contract, proposed API names and example specifications are recorded here as
-explicit omissions under PROTOCOL §13. They are not executable declarations or tests.
+This is the current catalogue of all 284 node contracts. The native prototypes above use
+ordinary-category and degree-zero carriers from the pinned libraries. Enhanced categories,
+higher K-theory, formal Witt geometry, projective/flag bundle sheaves and supported Chow
+operations require the named suppliers. These comment contracts and test specifications
+are explicit omissions under PROTOCOL §13, not executable declarations or tests.
 
-S.6/sheaf-level-k-theory-model and S.6/scheme-and-support-k-coherence use the ample-family
-scope. Every higher-operation scheme consumer below carries this scope, or derives it from
-its existing separated regular hypotheses. Full weighted-filtration and coefficient inputs
-remain explicit. No implementation or full-file elaboration is claimed.
+The target-level plan is independently accepted with 42 explicit gaps and 42 requests.
+S.6's sheaf model and its scheme-operation consumers require the stated ample-family scope.
+Compatible finite-rank representation classes are kept separate from genuine CW operations;
+the latter require the conditional Hiller lifting and uniqueness input. Proper transfer uses
+bounded-below flasque representatives, or the explicit TT B.11 deployment argument.
+No implementation or full-file elaboration is claimed: the existing build lacks a required
+Tau Ceti olean. The packet's current review records 264 verified and 20 corrected nodes.
 -/
 
 /-!
@@ -6273,7 +6277,7 @@ Conventions of this layer: X is a scheme; an O_X-module is an object of Mathlib'
 - [Stacks.cohomology.2026](https://stacks.math.columbia.edu/download/cohomology.pdf), Cohomology of Sheaves, Lemma 49.3 (tag 0BCJ). On a locally ringed space the local models may be taken to be finite complexes of finite locally free modules, which justifies the scheme-level formulation.
 - [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), Definition 2.2.2, p. 285. Thomason–Trobaugh's name and definition, with algebraic vector bundle meaning locally free O_X-module of finite type (TT 2.1.3(b)).
 
-**Review note.** Checked Stacks.cohomology.2026 Cohomology of Sheaves, Definition 46.1 (tag 08C4); Stacks.cohomology.2026 Cohomology of Sheaves, Lemma 49.3 (tag 0BCJ). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps. Reviewed all API roles and discriminating examples; unavailable Lean carriers remain explicit omissions.
+**Review note.** Independently reread Stacks.cohomology.2026 Cohomology of Sheaves, Definition 46.1 (tag 08C4); Stacks.cohomology.2026 Cohomology of Sheaves, Lemma 49.3 (tag 0BCJ); ThomasonTrobaugh.1990 Definition 2.2.2, p. 285. Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs. Checked API use cases and the discriminating test specifications; these are mathematical specifications, not execution receipts.
 
 **Planet:** Strictly perfect complex.
 
@@ -6318,14 +6322,14 @@ Let X be a scheme and let E•, F• be strictly perfect complexes on X. Then (a
 - [Stacks.cohomology.2026](https://stacks.math.columbia.edu/download/cohomology.pdf), Cohomology of Sheaves, Lemma 46.4 (tag 09U6). Part (d).
 - [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), 2.5.1, p. 303. Part (e) for pullback: the underived pullback computes the derived one on strictly perfect complexes.
 
-**Review note.** Checked Stacks.cohomology.2026 Cohomology of Sheaves, Lemma 46.2 (tag 08C5); Stacks.cohomology.2026 Cohomology of Sheaves, Lemma 46.3 (tag 09J2). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread Stacks.cohomology.2026 Cohomology of Sheaves, Lemma 46.2 (tag 08C5); Stacks.cohomology.2026 Cohomology of Sheaves, Lemma 46.3 (tag 09J2); Stacks.cohomology.2026 Cohomology of Sheaves, Lemma 46.4 (tag 09U6); ThomasonTrobaugh.1990 2.5.1, p. 303. Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
 /-!
 ### Maps out of strictly perfect complexes are locally chain maps
 
-**Id:** `SchemeKTheoryOperations:S.1/strictly-perfect-local-lifting`. **Kind:** lemma. **Review:** corrected. Implementation unchecked.
+**Id:** `SchemeKTheoryOperations:S.1/strictly-perfect-local-lifting`. **Kind:** lemma. **Review:** verified. Implementation unchecked.
 
 Let X be a scheme (more generally a ringed space), E• a strictly perfect complex and F• any complex of O_X-modules. (1) For every morphism α : E• → F• in D(O_X) there is an open covering X = ⋃ U_i such that each α|U_i is represented by a map of complexes E•|U_i → F•|U_i. (2) If a map of complexes α : E• → F• is zero in D(O_X), then there is an open covering on whose members α is homotopic to zero. (3) If E^j = 0 for j < a and f : G• → F• is a map of complexes with H^j(f) an isomorphism for j > a and surjective for j = a, then every map of complexes E• → F• lifts locally, up to homotopy, through f.
 
@@ -6356,7 +6360,7 @@ Let X be a scheme (more generally a ringed space), E• a strictly perfect compl
 - [Stacks.cohomology.2026](https://stacks.math.columbia.edu/download/cohomology.pdf), Cohomology of Sheaves, Lemma 46.8 (tag 08C9). Part (1).
 - [Stacks.cohomology.2026](https://stacks.math.columbia.edu/download/cohomology.pdf), Cohomology of Sheaves, Lemma 46.8 (tag 08C9). Part (2); the proof of (2) is omitted in the source and is supplied here by Lemma 46.6 (tag 08C7) applied to the null-homotopic composite with a quasi-isomorphism.
 
-**Review note.** Separated the local theorem from global affine lifting against termwise quasi-coherent targets.
+**Review note.** Independently reread Stacks.cohomology.2026 Cohomology of Sheaves, Lemma 46.8 (tag 08C9); Stacks.cohomology.2026 Cohomology of Sheaves, Lemma 46.8 (tag 08C9). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -6426,7 +6430,7 @@ Conventions of this layer: X is a scheme; an O_X-module is an object of Mathlib'
 - [Stacks.perfect.2026](https://stacks.math.columbia.edu/download/perfect.pdf), Derived Categories of Schemes, Lemma 10.3 (tag 08E8). The noetherian characterisation (for E ∈ D_QCoh on a noetherian scheme).
 - [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), 2.2.8, p. 289. Thomason–Trobaugh's form of the noetherian characterisation, used for G-theory.
 
-**Review note.** Checked Stacks.cohomology.2026 Cohomology of Sheaves, Definition 47.1(2) (tag 08CB); Stacks.perfect.2026 Derived Categories of Schemes, Lemma 10.3 (tag 08E8). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps. Reviewed all API roles and discriminating examples; unavailable Lean carriers remain explicit omissions.
+**Review note.** Independently reread Stacks.cohomology.2026 Cohomology of Sheaves, Definition 47.1(2) (tag 08CB); Stacks.perfect.2026 Derived Categories of Schemes, Lemma 10.3 (tag 08E8); ThomasonTrobaugh.1990 2.2.8, p. 289. Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs. Checked API use cases and the discriminating test specifications; these are mathematical specifications, not execution receipts.
 
 -/
 
@@ -6495,7 +6499,7 @@ Conventions of this layer: X is a scheme; an O_X-module is an object of Mathlib'
 - [Stacks.cohomology.2026](https://stacks.math.columbia.edu/download/cohomology.pdf), Cohomology of Sheaves, Definition 48.1(3) (tag 08CG). The local version, part (3).
 - [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), Definition 2.2.11, p. 290. Thomason–Trobaugh's definition, which TT 3.1 uses globally for K(X).
 
-**Review note.** Checked Stacks.cohomology.2026 Cohomology of Sheaves, Definition 48.1 (tag 08CG); Stacks.cohomology.2026 Cohomology of Sheaves, Definition 48.1(3) (tag 08CG). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps. Reviewed all API roles and discriminating examples; unavailable Lean carriers remain explicit omissions.
+**Review note.** Independently reread Stacks.cohomology.2026 Cohomology of Sheaves, Definition 48.1 (tag 08CG); Stacks.cohomology.2026 Cohomology of Sheaves, Definition 48.1(3) (tag 08CG); ThomasonTrobaugh.1990 Definition 2.2.11, p. 290. Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs. Checked API use cases and the discriminating test specifications; these are mathematical specifications, not execution receipts.
 
 -/
 
@@ -6569,7 +6573,7 @@ Conventions of this layer: X is a scheme; an O_X-module is an object of Mathlib'
 - [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), Definition 2.2.10, p. 290. Thomason–Trobaugh's equivalent definition (SGA 6 I 4.2).
 - [Stacks.cohomology.2026](https://stacks.math.columbia.edu/download/cohomology.pdf), Cohomology of Sheaves, Lemma 49.3 (tag 0BCJ). The scheme form: local models are finite complexes of finite locally free modules.
 
-**Review note.** Checked Stacks.cohomology.2026 Cohomology of Sheaves, Definition 49.1 (tag 08CM); ThomasonTrobaugh.1990 Definition 2.2.10, p. 290. The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps. Reviewed all API roles and discriminating examples; unavailable Lean carriers remain explicit omissions.
+**Review note.** Independently reread Stacks.cohomology.2026 Cohomology of Sheaves, Definition 49.1 (tag 08CM); ThomasonTrobaugh.1990 Definition 2.2.10, p. 290; Stacks.cohomology.2026 Cohomology of Sheaves, Lemma 49.3 (tag 0BCJ). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs. Checked API use cases and the discriminating test specifications; these are mathematical specifications, not execution receipts.
 
 **Planet:** Perfect complex.
 
@@ -6609,7 +6613,7 @@ Let X be a scheme and E an object of D(O_X). (1) If there are an open covering X
 - [Stacks.cohomology.2026](https://stacks.math.columbia.edu/download/cohomology.pdf), Cohomology of Sheaves, Lemma 49.2(2) (tag 08CN). Part (2).
 - [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), Lemma 2.2.9, p. 290. Thomason–Trobaugh's equivalence of the chain-level and derived-level local conditions.
 
-**Review note.** Checked Stacks.cohomology.2026 Cohomology of Sheaves, Lemma 49.2(1) (tag 08CN); Stacks.cohomology.2026 Cohomology of Sheaves, Lemma 49.2(2) (tag 08CN). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread Stacks.cohomology.2026 Cohomology of Sheaves, Lemma 49.2(1) (tag 08CN); Stacks.cohomology.2026 Cohomology of Sheaves, Lemma 49.2(2) (tag 08CN); ThomasonTrobaugh.1990 Lemma 2.2.9, p. 290. Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -6651,7 +6655,7 @@ Let X be a scheme and E an object of D(O_X). Then E is perfect iff E is pseudo-c
 - [Stacks.cohomology.2026](https://stacks.math.columbia.edu/download/cohomology.pdf), Cohomology of Sheaves, Lemma 49.4 (tag 08CP). The sharp form.
 - [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), Proposition 2.2.12, p. 290. Thomason–Trobaugh's statement (SGA 6 I 5.8.1).
 
-**Review note.** Checked Stacks.cohomology.2026 Cohomology of Sheaves, Lemma 49.5 (tag 08CQ); Stacks.cohomology.2026 Cohomology of Sheaves, Lemma 49.4 (tag 08CP). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread Stacks.cohomology.2026 Cohomology of Sheaves, Lemma 49.5 (tag 08CQ); Stacks.cohomology.2026 Cohomology of Sheaves, Lemma 49.4 (tag 08CP); ThomasonTrobaugh.1990 Proposition 2.2.12, p. 290. Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -6691,7 +6695,7 @@ Let X be a scheme. (1) If E is perfect then so is E[k] for every k ∈ ℤ. (2) 
 - [Stacks.cohomology.2026](https://stacks.math.columbia.edu/download/cohomology.pdf), Cohomology of Sheaves, Lemma 49.9 (tag 08CS). Part (3).
 - [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), Proposition 2.2.13(b), p. 291. Thomason–Trobaugh's statement.
 
-**Review note.** Checked Stacks.cohomology.2026 Cohomology of Sheaves, Lemma 49.7 (tag 08CR); Stacks.cohomology.2026 Cohomology of Sheaves, Lemma 49.9 (tag 08CS). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread Stacks.cohomology.2026 Cohomology of Sheaves, Lemma 49.7 (tag 08CR); Stacks.cohomology.2026 Cohomology of Sheaves, Lemma 49.9 (tag 08CS); ThomasonTrobaugh.1990 Proposition 2.2.13(b), p. 291. Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -6730,21 +6734,21 @@ Let X be a scheme. If K, L are perfect objects of D(O_X), then K ⊗^L_{O_X} L i
 - [Stacks.cohomology.2026](https://stacks.math.columbia.edu/download/cohomology.pdf), Cohomology of Sheaves, Lemma 49.8 (tag 09J5). The main statement.
 - [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), 2.5.1, p. 303. The mixed statement used for the K(X)-module structure of G(X).
 
-**Review note.** Checked Stacks.cohomology.2026 Cohomology of Sheaves, Lemma 49.8 (tag 09J5); ThomasonTrobaugh.1990 2.5.1, p. 303. The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread Stacks.cohomology.2026 Cohomology of Sheaves, Lemma 49.8 (tag 09J5); ThomasonTrobaugh.1990 2.5.1, p. 303. Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
 /-!
 ### Derived pullback preserves perfect complexes
 
-**Id:** `SchemeKTheoryOperations:S.1/perfect-derived-pullback`. **Kind:** lemma. **Review:** verified. Implementation unchecked.
+**Id:** `SchemeKTheoryOperations:S.1/perfect-derived-pullback`. **Kind:** lemma. **Review:** corrected. Implementation unchecked.
 
 Let f : X → Y be an arbitrary morphism of schemes and Lf* : D(O_Y) → D(O_X) the derived pullback of EnhancedDerivedSheaves E1 (computed on K-flat complexes). If E ∈ D(O_Y) is perfect then Lf*E is perfect; if E is m-pseudo-coherent then so is Lf*E; tor-amplitude in [a, b] is preserved. For a strictly perfect complex E• on Y, the degreewise pullback f*E• is strictly perfect and represents Lf*E•. Lf* restricts to a triangulated functor D_perf(O_Y) → D_perf(O_X), and L(g∘f)* ≅ Lf*∘Lg* on perfect objects.
 
 **Hypotheses.**
 
 - No hypothesis on f: not flat, not of finite type, not quasi-compact. This is the 'arbitrary derived pullback' of the layer.
-- The degreewise pullback computes Lf* only on complexes of flat modules; on a general perfect complex one first passes to a flat (K-flat) representative.
+- Degreewise pullback computes Lf* on K-flat representatives, in particular bounded-above complexes of flat modules. An arbitrary unbounded complex with flat terms requires the K-flat condition; on a general perfect object first choose an appropriate representative.
 
 **Direct prerequisites.**
 
@@ -6774,7 +6778,7 @@ Let f : X → Y be an arbitrary morphism of schemes and Lf* : D(O_Y) → D(O_X) 
 - [Stacks.cohomology.2026](https://stacks.math.columbia.edu/download/cohomology.pdf), Cohomology of Sheaves, Lemma 49.6 (tag 09UA). The main statement, for an arbitrary morphism of ringed spaces.
 - [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), 2.5.1, p. 303. Thomason–Trobaugh's statement (SGA 6 I 2).
 
-**Review note.** Checked Stacks.cohomology.2026 Cohomology of Sheaves, Lemma 49.6 (tag 09UA); ThomasonTrobaugh.1990 2.5.1, p. 303. The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread Stacks.cohomology.2026 Cohomology of Sheaves, Lemma 49.6 (tag 09UA); ThomasonTrobaugh.1990 2.5.1, p. 303. Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs. Correction: Require a K-flat representative for underived pullback to compute derived pullback; bounded-above flat representatives suffice. Termwise flatness alone is not the unbounded criterion.
 
 -/
 
@@ -6812,7 +6816,7 @@ Let X be a scheme. The derived category D(O_X) has countable (indeed arbitrary) 
 - [Stacks.derived.2026](https://stacks.math.columbia.edu/download/derived.pdf), Derived Categories, Lemma 4.14 (tag 05QW). The Karoubian criterion.
 - [Stacks.perfect.2026](https://stacks.math.columbia.edu/download/perfect.pdf), Derived Categories of Schemes, proof of Lemma 3.1 (tag 08DT). Existence of direct sums in D(O_X).
 
-**Review note.** Checked Stacks.derived.2026 Derived Categories, Lemma 4.14 (tag 05QW); Stacks.perfect.2026 Derived Categories of Schemes, proof of Lemma 3.1 (tag 08DT). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread Stacks.derived.2026 Derived Categories, Lemma 4.14 (tag 05QW); Stacks.perfect.2026 Derived Categories of Schemes, proof of Lemma 3.1 (tag 08DT). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -6852,7 +6856,7 @@ Let X be a scheme and E ∈ D(O_X) perfect. (1) Every cohomology sheaf H^i(E) is
 - [Stacks.cohomology.2026](https://stacks.math.columbia.edu/download/cohomology.pdf), Cohomology of Sheaves, remark after Definition 49.1. Part (2).
 - [Stacks.perfect.2026](https://stacks.math.columbia.edu/download/perfect.pdf), Derived Categories of Schemes, Lemma 11.6 (tag 0FXU). Part (3).
 
-**Review note.** Checked Stacks.perfect.2026 Derived Categories of Schemes, Lemma 10.1 (tag 08E5); Stacks.cohomology.2026 Cohomology of Sheaves, remark after Definition 49.1. The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread Stacks.perfect.2026 Derived Categories of Schemes, Lemma 10.1 (tag 08E5); Stacks.cohomology.2026 Cohomology of Sheaves, remark after Definition 49.1; Stacks.perfect.2026 Derived Categories of Schemes, Lemma 11.6 (tag 0FXU). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -6927,7 +6931,7 @@ Import Perf(A) from DGAInfinity layer5 for an associative ring A viewed as a deg
 - [Stacks.more-algebra.2026](https://stacks.math.columbia.edu/download/more-algebra.pdf), More on Algebra, Lemma 76.3 (tag 066Q). The module case.
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Example V.2.7.2 (PDF p. 391). The K-book's definition, used for K(R) ≃ K Ch_perf(R).
 
-**Review note.** Checked Stacks.more-algebra.2026 More on Algebra, Definition 76.1 (tag 0657); Stacks.more-algebra.2026 More on Algebra, Lemma 76.2 (tag 0658). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread Stacks.more-algebra.2026 More on Algebra, Definition 76.1 (tag 0657); Stacks.more-algebra.2026 More on Algebra, Lemma 76.2 (tag 0658); Stacks.more-algebra.2026 More on Algebra, Lemma 76.3 (tag 066Q); Kbook.2013 Example V.2.7.2 (PDF p. 391). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs. Checked API use cases and the discriminating test specifications; these are mathematical specifications, not execution receipts.
 
 -/
 
@@ -6969,7 +6973,7 @@ Let X be a scheme and Q_X : Mod(O_X) → QCoh(O_X) the coherator, the right adjo
 - [Stacks.perfect.2026](https://stacks.math.columbia.edu/download/perfect.pdf), Derived Categories of Schemes, Proposition 7.5 (tag 08DB). Part (1).
 - [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), Proposition B.16, p. 416. Thomason–Trobaugh's bounded-below version, for X quasi-compact and semi-separated or noetherian.
 
-**Review note.** Checked Stacks.perfect.2026 Derived Categories of Schemes, Proposition 7.5 (tag 08DB); ThomasonTrobaugh.1990 Proposition B.16, p. 416. The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread Stacks.perfect.2026 Derived Categories of Schemes, Proposition 7.5 (tag 08DB); ThomasonTrobaugh.1990 Proposition B.16, p. 416. Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -7014,7 +7018,7 @@ Let A be a commutative ring and X = Spec A. The tilde functor M ↦ M~, applied 
 - [Stacks.perfect.2026](https://stacks.math.columbia.edu/download/perfect.pdf), Derived Categories of Schemes, Lemma 3.8(2) (tag 08DW). Lf* corresponds to −⊗^L_A B (the commutative diagram of the lemma).
 - [Stacks.perfect.2026](https://stacks.math.columbia.edu/download/perfect.pdf), Derived Categories of Schemes, Lemma 3.7 (tag 0DJK). Rf_* corresponds to restriction of scalars D(B) → D(A).
 
-**Review note.** Checked Stacks.perfect.2026 Derived Categories of Schemes, proof of Lemma 3.5 (tag 06Z0); Stacks.perfect.2026 Derived Categories of Schemes, Lemma 3.8(2) (tag 08DW). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread Stacks.perfect.2026 Derived Categories of Schemes, proof of Lemma 3.5 (tag 06Z0); Stacks.perfect.2026 Derived Categories of Schemes, Lemma 3.8(2) (tag 08DW); Stacks.perfect.2026 Derived Categories of Schemes, Lemma 3.7 (tag 0DJK). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -7055,7 +7059,7 @@ Let A be an arbitrary commutative ring and X = Spec A. Under the equivalence D(A
 - [Stacks.perfect.2026](https://stacks.math.columbia.edu/download/perfect.pdf), Derived Categories of Schemes, Lemma 10.7 (tag 08EB). The comparison, for an arbitrary ring A.
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Exercise II.9.10(a) (PDF p. 180). The degree-zero shadow, proved by the approximation theorem applied to Ch_perf(R) ⊂ Ch_perf(X).
 
-**Review note.** Checked Stacks.perfect.2026 Derived Categories of Schemes, Lemma 10.7 (tag 08EB); Kbook.2013 Exercise II.9.10(a) (PDF p. 180). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread Stacks.perfect.2026 Derived Categories of Schemes, Lemma 10.7 (tag 08EB); Kbook.2013 Exercise II.9.10(a) (PDF p. 180). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 **Planet:** Perfect complexes on an affine scheme.
 
@@ -7133,7 +7137,7 @@ Conventions of this layer: X is a scheme; an O_X-module is an object of Mathlib'
 - [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), 1.2.11, p. 255. Weak equivalences of a complicial biWaldhausen category.
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), V.3.8 (PDF p. 400). The criterion showing w^{-1}Perf(X) → D(O_X) is fully faithful.
 
-**Review note.** Checked ThomasonTrobaugh.1990 Definition 3.1, p. 312; ThomasonTrobaugh.1990 1.2.11, p. 255. The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps. Reviewed all API roles and discriminating examples; unavailable Lean carriers remain explicit omissions.
+**Review note.** Independently reread ThomasonTrobaugh.1990 Definition 3.1, p. 312; ThomasonTrobaugh.1990 1.2.11, p. 255; Kbook.2013 V.3.8 (PDF p. 400). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs. Checked API use cases and the discriminating test specifications; these are mathematical specifications, not execution receipts.
 
 **Planet:** Waldhausen category of perfect complexes.
 
@@ -7176,7 +7180,7 @@ Let X be a quasi-compact scheme. The inclusions of the following complicial biWa
 - [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), Proof of Lemma 3.5, p. 314. The homotopy-category statement this node records.
 - [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), Lemma 3.8, p. 316. The strict perfect model under an ample family; this node uses the more general resolution property through Stacks 0F8I.
 
-**Review note.** Checked ThomasonTrobaugh.1990 Lemma 3.5, p. 314; ThomasonTrobaugh.1990 Proof of Lemma 3.5, p. 314. The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread ThomasonTrobaugh.1990 Lemma 3.5, p. 314; ThomasonTrobaugh.1990 Proof of Lemma 3.5, p. 314; ThomasonTrobaugh.1990 Lemma 3.8, p. 316. Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -7242,14 +7246,14 @@ Let X be a quasi-compact quasi-separated scheme. Declare a sequence in Perf(X) a
 - [Schlichting.2003](https://webhomes.maths.ed.ac.uk/~v1ranick/papers/schlneg.pdf), 5.10, p. 13. The pair and its derived category.
 - [Schlichting.2003](https://webhomes.maths.ed.ac.uk/~v1ranick/papers/schlneg.pdf), 5.10, p. 13. The pair is the one built on TT 3.1's Perf(X); 'seperated' is the source's spelling.
 
-**Review note.** Checked Schlichting.2003 5.10, p. 13; Schlichting.2003 5.10, p. 13. The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps. Reviewed all API roles and discriminating examples; unavailable Lean carriers remain explicit omissions.
+**Review note.** Independently reread Schlichting.2003 5.10, p. 13; Schlichting.2003 5.10, p. 13; Schlichting.2003 5.10, p. 13. Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs. Checked API use cases and the discriminating test specifications; these are mathematical specifications, not execution receipts.
 
 -/
 
 /-!
 ### Perfect complexes inside the enhanced derived category
 
-**Id:** `SchemeKTheoryOperations:S.1/perfect-enhanced-subcategory`. **Kind:** construction. **Review:** corrected. Implementation unchecked.
+**Id:** `SchemeKTheoryOperations:S.1/perfect-enhanced-subcategory`. **Kind:** construction. **Review:** verified. Implementation unchecked.
 
 Let X be a scheme and D^∞(O_X) the enhanced derived category of EnhancedDerivedSheaves E1: the dg nerve of the K-injective model of complexes of O_X-modules (E0's dg nerve), a stable ∞-category whose homotopy category is Mathlib's D(O_X). D^∞_perf(O_X) is its full sub-∞-category on the perfect objects. It is a stable sub-∞-category closed under retracts (idempotent complete), its homotopy category is D_perf(O_X) with the triangulated structure identified with the pinned one by E0's sign comparison, and for quasi-compact quasi-separated X it is essentially small (SchemeKTheoryOperations:S.1/perfect-essentially-small). Its mapping spaces are the Dold–Kan spaces of the truncated derived Hom complexes RHom(E, F) (E1).
 
@@ -7309,7 +7313,7 @@ Let X be a scheme and D^∞(O_X) the enhanced derived category of EnhancedDerive
 - [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), Introduction, p. 248. The objects singled out in the enhancement are TT's perfect complexes.
 - [Stacks.cohomology.2026](https://stacks.math.columbia.edu/download/cohomology.pdf), Cohomology of Sheaves, Lemma 49.9 (tag 08CS). Closure under retracts, which makes the sub-∞-category idempotent complete.
 
-**Review note.** Compactness is in enhanced D_QCoh on qcqs schemes; the ambient all-sheaf category has no such blanket assertion. Reviewed all API roles and discriminating examples; unavailable Lean carriers remain explicit omissions.
+**Review note.** Independently reread ThomasonTrobaugh.1990 Introduction, p. 248; Stacks.cohomology.2026 Cohomology of Sheaves, Lemma 49.9 (tag 08CS). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs. Checked API use cases and the discriminating test specifications; these are mathematical specifications, not execution receipts.
 
 -/
 
@@ -7350,7 +7354,7 @@ Let X be a quasi-compact quasi-separated scheme. The three models of perfect com
 - [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), 1.9.6, p. 269. The homotopy category of the Waldhausen model.
 - [Schlichting.2003](https://webhomes.maths.ed.ac.uk/~v1ranick/papers/schlneg.pdf), 5.10, p. 13. Identification of the Frobenius-pair derived category with the Waldhausen homotopy category.
 
-**Review note.** Checked ThomasonTrobaugh.1990 1.9.6, p. 269; Schlichting.2003 5.10, p. 13. The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread ThomasonTrobaugh.1990 1.9.6, p. 269; Schlichting.2003 5.10, p. 13. Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -7397,7 +7401,7 @@ Let X be a quasi-compact quasi-separated scheme whose O_X-modules form a categor
 - [Stacks.perfect.2026](https://stacks.math.columbia.edu/download/perfect.pdf), Derived Categories of Schemes, Theorem 15.3 (tag 09IS). The alternative route through a perfect generator.
 - [Stacks.perfect.2026](https://stacks.math.columbia.edu/download/perfect.pdf), Derived Categories of Schemes, Remark 17.2 (tag 0GEF). D_perf is the thick closure of the generator.
 
-**Review note.** Checked ThomasonTrobaugh.1990 Lemma 2.4.1.7, proof, p. 299; ThomasonTrobaugh.1990 1.4, p. 259. The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread ThomasonTrobaugh.1990 Lemma 2.4.1.7, proof, p. 299; ThomasonTrobaugh.1990 1.4, p. 259; Stacks.perfect.2026 Derived Categories of Schemes, Theorem 15.3 (tag 09IS); Stacks.perfect.2026 Derived Categories of Schemes, Remark 17.2 (tag 0GEF). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -7434,7 +7438,7 @@ Let X be a quasi-compact quasi-separated scheme and U_1 ⊂ U_2 two Grothendieck
 - [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), Appendix F, p. 431. Part (e), the statement of this node.
 - [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), Appendix F, p. 431. The K-theoretic consequence, recorded in S.2.
 
-**Review note.** Checked ThomasonTrobaugh.1990 Appendix F, p. 431; ThomasonTrobaugh.1990 Appendix F, p. 431. The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread ThomasonTrobaugh.1990 Appendix F, p. 431; ThomasonTrobaugh.1990 Appendix F, p. 431. Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -7503,7 +7507,7 @@ A scheme X has the resolution property if every quasi-coherent O_X-module of fin
 - [Stacks.perfect.2026](https://stacks.math.columbia.edu/download/perfect.pdf), Derived Categories of Schemes, Lemma 36.7 (tag 0GMM). Ample families.
 - [Stacks.perfect.2026](https://stacks.math.columbia.edu/download/perfect.pdf), Derived Categories of Schemes, Lemma 36.8 (tag 0F8A). The regular case used for arithmetic schemes.
 
-**Review note.** Checked Stacks.perfect.2026 Derived Categories of Schemes, Definition 36.1 (tag 0F86); Stacks.perfect.2026 Derived Categories of Schemes, Lemma 36.7 (tag 0GMM). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps. Reviewed all API roles and discriminating examples; unavailable Lean carriers remain explicit omissions.
+**Review note.** Independently reread Stacks.perfect.2026 Derived Categories of Schemes, Definition 36.1 (tag 0F86); Stacks.perfect.2026 Derived Categories of Schemes, Lemma 36.7 (tag 0GMM); Stacks.perfect.2026 Derived Categories of Schemes, Lemma 36.8 (tag 0F8A). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs. Checked API use cases and the discriminating test specifications; these are mathematical specifications, not execution receipts.
 
 **Planet:** Resolution property.
 
@@ -7546,7 +7550,7 @@ Let X be a quasi-compact quasi-separated scheme with the resolution property. Th
 - [Stacks.perfect.2026](https://stacks.math.columbia.edu/download/perfect.pdf), Derived Categories of Schemes, proof of Lemma 36.10. The non-noetherian reduction is only sketched in the source.
 - [Totaro.2004](https://arxiv.org/pdf/math/0207210), Proposition 1.3, p. 2. Totaro's statement, of which Stacks 0F8C is the scheme case.
 
-**Review note.** Checked Stacks.perfect.2026 Derived Categories of Schemes, Lemma 36.10 (tag 0F8C); Stacks.perfect.2026 Derived Categories of Schemes, proof of Lemma 36.10. The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread Stacks.perfect.2026 Derived Categories of Schemes, Lemma 36.10 (tag 0F8C); Stacks.perfect.2026 Derived Categories of Schemes, proof of Lemma 36.10; Totaro.2004 Proposition 1.3, p. 2. Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -7588,7 +7592,7 @@ Let X be a quasi-compact quasi-separated scheme with the resolution property. (1
 - [Stacks.perfect.2026](https://stacks.math.columbia.edu/download/perfect.pdf), Derived Categories of Schemes, Lemma 37.3 (tag 0F8G). Part (3).
 - [Stacks.perfect.2026](https://stacks.math.columbia.edu/download/perfect.pdf), Derived Categories of Schemes, Lemma 37.4 (tag 0F8H). Part (4).
 
-**Review note.** Checked Stacks.perfect.2026 Derived Categories of Schemes, Lemma 37.1 (tag 0F8E); Stacks.perfect.2026 Derived Categories of Schemes, Lemma 37.2 (tag 0F8F). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread Stacks.perfect.2026 Derived Categories of Schemes, Lemma 37.1 (tag 0F8E); Stacks.perfect.2026 Derived Categories of Schemes, Lemma 37.2 (tag 0F8F); Stacks.perfect.2026 Derived Categories of Schemes, Lemma 37.3 (tag 0F8G); Stacks.perfect.2026 Derived Categories of Schemes, Lemma 37.4 (tag 0F8H). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -7629,7 +7633,7 @@ Let X be a quasi-compact quasi-separated scheme with the resolution property, A 
 - [Stacks.perfect.2026](https://stacks.math.columbia.edu/download/perfect.pdf), Derived Categories of Schemes, Proposition 37.5 (tag 0F8I). The comparison, for qcqs X with the resolution property ('trianglated' is the source's misprint for 'triangulated').
 - [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), Proposition 2.3.1(d), p. 293. Thomason–Trobaugh's version for a quasi-compact quasi-separated scheme with an ample family of line bundles.
 
-**Review note.** Checked Stacks.perfect.2026 Derived Categories of Schemes, Proposition 37.5 (tag 0F8I); ThomasonTrobaugh.1990 Proposition 2.3.1(d), p. 293. The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread Stacks.perfect.2026 Derived Categories of Schemes, Proposition 37.5 (tag 0F8I); ThomasonTrobaugh.1990 Proposition 2.3.1(d), p. 293. Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 **Planet:** Vector-bundle comparison under the resolution property.
 
@@ -7676,7 +7680,7 @@ Let k be a field, n ≥ 2 and X = A^n ∪_{A^n ∖ 0} A^n the affine n-space wit
 - [Totaro.2004](https://arxiv.org/pdf/math/0207210), §1, p. 2. Failure of the resolution property and the n = 1 contrast.
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Example II.8.2.4 (PDF p. 155). The K-book's version, whose K_0 computation is Ex. II.9.10(d).
 
-**Review note.** Checked ThomasonTrobaugh.1990 Exercise 8.6, p. 374; ThomasonTrobaugh.1990 Exercise 8.6, hint, p. 374. The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread ThomasonTrobaugh.1990 Exercise 8.6, p. 374; ThomasonTrobaugh.1990 Exercise 8.6, hint, p. 374; Totaro.2004 §1, p. 2; Kbook.2013 Example II.8.2.4 (PDF p. 155). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -7721,7 +7725,7 @@ Let S = lim_{i∈I} S_i be the limit of a directed inverse system of quasi-compa
 - [Stacks.perfect.2026](https://stacks.math.columbia.edu/download/perfect.pdf), Derived Categories of Schemes, Lemma 29.2 (tag 09RE). Part (1), case E_0 perfect and K_0 ∈ D_QCoh.
 - [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), Proposition 3.20.1, p. 324. Thomason–Trobaugh's form, with the supports version (3) in the next sentence of 3.20.1.
 
-**Review note.** Checked Stacks.perfect.2026 Derived Categories of Schemes, Lemma 29.3 (tag 09RF); Stacks.perfect.2026 Derived Categories of Schemes, Lemma 29.2 (tag 09RE). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread Stacks.perfect.2026 Derived Categories of Schemes, Lemma 29.3 (tag 09RF); Stacks.perfect.2026 Derived Categories of Schemes, Lemma 29.2 (tag 09RE); ThomasonTrobaugh.1990 Proposition 3.20.1, p. 324. Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -7795,7 +7799,7 @@ K-theory conventions: for a small complicial biWaldhausen category A (small rela
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), V.2.7.3 (PDF p. 391). The K-book's definition.
 - [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), Definition 3.2, p. 313. The naive variant, kept distinct from K(X).
 
-**Review note.** Checked ThomasonTrobaugh.1990 Definition 3.1, p. 312; Kbook.2013 V.2.7.3 (PDF p. 391). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps. Reviewed all API roles and discriminating examples; unavailable Lean carriers remain explicit omissions.
+**Review note.** Independently reread ThomasonTrobaugh.1990 Definition 3.1, p. 312; Kbook.2013 V.2.7.3 (PDF p. 391); ThomasonTrobaugh.1990 Definition 3.2, p. 313. Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs. Checked API use cases and the discriminating test specifications; these are mathematical specifications, not execution receipts.
 
 **Planet:** K-theory of a scheme.
 
@@ -7837,7 +7841,7 @@ Let X be a quasi-compact scheme. The inclusions of the model subcategories of Sc
 - [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), Theorem 1.9.8, p. 271. The derived invariance used, for a complicial exact functor inducing an equivalence of derived homotopy categories.
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Theorem V.3.9 (PDF p. 400). The K-book's form (Thomason–Trobaugh resolution theorem).
 
-**Review note.** Checked ThomasonTrobaugh.1990 Lemma 3.5, p. 314; ThomasonTrobaugh.1990 Theorem 1.9.8, p. 271. The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread ThomasonTrobaugh.1990 Lemma 3.5, p. 314; ThomasonTrobaugh.1990 Theorem 1.9.8, p. 271; Kbook.2013 Theorem V.3.9 (PDF p. 400). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -7879,7 +7883,7 @@ Let X be a quasi-compact quasi-separated scheme. The map sending the class of E 
 - [Stacks.perfect.2026](https://stacks.math.columbia.edu/download/perfect.pdf), Derived Categories of Schemes, Definition 38.2 (tag 0FDG). Stacks' K_0(X), with which π_0 K(X) is identified.
 - [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), 3.1.1, p. 313. Thomason–Trobaugh's identification.
 
-**Review note.** Checked Stacks.perfect.2026 Derived Categories of Schemes, Definition 38.2 (tag 0FDG); ThomasonTrobaugh.1990 3.1.1, p. 313. The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread Stacks.perfect.2026 Derived Categories of Schemes, Definition 38.2 (tag 0FDG); ThomasonTrobaugh.1990 3.1.1, p. 313. Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -7947,7 +7951,7 @@ For qcqs X define 𝕂(X) to be K.6’s IK-spectrum of the Frobenius pair from S
 - [Schlichting.2003](https://webhomes.maths.ed.ac.uk/~v1ranick/papers/schlneg.pdf), 5.10, p. 13. The Frobenius-pair model of the nonconnective theory of X.
 - [Schlichting.2003](https://webhomes.maths.ed.ac.uk/~v1ranick/papers/schlneg.pdf), Theorem 7.1, p. 14. Agreement with Thomason's negative K-groups.
 
-**Review note.** Checked Schlichting.2003 5.10, p. 13; Schlichting.2003 Theorem 7.1, p. 14. The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps. Reviewed all API roles and discriminating examples; unavailable Lean carriers remain explicit omissions.
+**Review note.** Independently reread Schlichting.2003 5.10, p. 13; Schlichting.2003 Theorem 7.1, p. 14. Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs. Checked API use cases and the discriminating test specifications; these are mathematical specifications, not execution receipts.
 
 -/
 
@@ -8014,7 +8018,7 @@ Let X be a noetherian scheme and Coh(X) the abelian category of coherent O_X-mod
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Definition IV.6.3.4 (PDF p. 328). The definition, M(X) being the coherent O_X-modules.
 - [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), Definition 3.3, p. 313. The complicial model, equivalent to Quillen's for noetherian X (TT 3.13).
 
-**Review note.** Checked Kbook.2013 Definition IV.6.3.4 (PDF p. 328); ThomasonTrobaugh.1990 Definition 3.3, p. 313. The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps. Reviewed all API roles and discriminating examples; unavailable Lean carriers remain explicit omissions.
+**Review note.** Independently reread Kbook.2013 Definition IV.6.3.4 (PDF p. 328); ThomasonTrobaugh.1990 Definition 3.3, p. 313. Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs. Checked API use cases and the discriminating test specifications; these are mathematical specifications, not execution receipts.
 
 **Planet:** G-theory of a noetherian scheme.
 
@@ -8023,9 +8027,9 @@ Let X be a noetherian scheme and Coh(X) the abelian category of coherent O_X-mod
 /-!
 ### Models of G-theory: bounded complexes of coherent sheaves and pseudo-coherent complexes
 
-**Id:** `SchemeKTheoryOperations:S.2/g-theory-models`. **Kind:** lemma. **Review:** verified. Implementation unchecked.
+**Id:** `SchemeKTheoryOperations:S.2/g-theory-models`. **Kind:** lemma. **Review:** corrected. Implementation unchecked.
 
-Let X be a noetherian scheme. The exact inclusions Coh(X) → Ch^b(Coh(X)) → PsCoh^b(X) (bounded complexes of coherent sheaves; cohomologically bounded pseudo-coherent complexes of O_X-modules) induce homotopy equivalences G(X) = K(Coh X) ≃ K(Ch^b Coh X) ≃ K(PsCoh^b(X)) (TT 3.11–3.13; K-book V.3.10.2). Also the flasque model (cohomologically bounded pseudo-coherent complexes of flasque O_X-modules, TT 3.11.5) and the bounded-above flat model (TT 3.11.3) have K-theory G(X). For Z ⊂ X closed, the same holds for complexes acyclic on X ∖ Z.
+Let X be a noetherian scheme. The exact inclusions Coh(X) → Ch^b(Coh(X)) → PsCoh^b(X) (bounded complexes of coherent sheaves; cohomologically bounded pseudo-coherent complexes of O_X-modules) induce homotopy equivalences G(X) = K(Coh X) ≃ K(Ch^b Coh X) ≃ K(PsCoh^b(X)) (TT 3.11–3.13; K-book V.3.10.2). Also the flasque model (cohomologically bounded pseudo-coherent complexes of flasque O_X-modules, TT 3.11.5) and the bounded-above flat model (TT 3.11.3) have K-theory G(X). For Z ⊂ X closed, the same holds for complexes acyclic on X ∖ Z. For direct-image constructions choose the bounded-below flasque submodel (TT 3.16.1); the broader flasque model uses the finite-cohomological-dimension argument of TT Appendix B.11. Pseudo-coherence is a local resolution condition, not the existence of a global bounded-above vector-bundle resolution without an ample-family hypothesis.
 
 **Hypotheses.**
 
@@ -8054,9 +8058,9 @@ Let X be a noetherian scheme. The exact inclusions Coh(X) → Ch^b(Coh(X)) → P
 **Source locators.**
 
 - [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), Corollary 3.13, p. 317. The comparison of the complicial model with Quillen's G.
-- [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Example V.3.10.2 (PDF p. 402). The K-book's form for noetherian X.
+- [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Example V.3.10.2 (PDF p. 402). The G-theory comparison is valid using local pseudo-coherence and the coherent derived-category comparison. Its parenthetical global vector-bundle description needs an additional hypothesis; see E52.
 
-**Review note.** Checked ThomasonTrobaugh.1990 Corollary 3.13, p. 317; Kbook.2013 Example V.3.10.2 (PDF p. 402). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread ThomasonTrobaugh.1990 Corollary 3.13, p. 317; Kbook.2013 Example V.3.10.2 (PDF p. 402). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs. Correction: Separate local pseudo-coherence from a global vector-bundle resolution, and identify the bounded-below flasque submodel used for proper transfer.
 
 -/
 
@@ -8123,7 +8127,7 @@ Let f : X → Y be an arbitrary morphism of schemes. On the model Perf^flat(Y) o
 
 - [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), 3.14, pp. 317–318. The construction.
 
-**Review note.** Checked ThomasonTrobaugh.1990 3.14, pp. 317–318. The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps. Reviewed all API roles and discriminating examples; unavailable Lean carriers remain explicit omissions.
+**Review note.** Independently reread ThomasonTrobaugh.1990 3.14, pp. 317–318. Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs. Checked API use cases and the discriminating test specifications; these are mathematical specifications, not execution receipts.
 
 -/
 
@@ -8191,7 +8195,7 @@ For every morphism of schemes f : X → Y, the complicial exact functor f* of Sc
 - [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), 3.14, pp. 317–318. Contravariant functoriality of K.
 - [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), 1.5.4, pp. 260–261. Why composition holds up to homotopy.
 
-**Review note.** Checked ThomasonTrobaugh.1990 3.14, pp. 317–318; ThomasonTrobaugh.1990 1.5.4, pp. 260–261. The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps. Reviewed all API roles and discriminating examples; unavailable Lean carriers remain explicit omissions.
+**Review note.** Independently reread ThomasonTrobaugh.1990 3.14, pp. 317–318; ThomasonTrobaugh.1990 1.5.4, pp. 260–261. Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs. Checked API use cases and the discriminating test specifications; these are mathematical specifications, not execution receipts.
 
 -/
 
@@ -8256,7 +8260,7 @@ Let f : X → Y be a morphism of noetherian schemes of finite Tor-dimension (O_X
 - [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), 3.14.1, p. 318. The key finiteness; the rest of 3.14.1 draws the conclusion f* : G(X′) → G(X).
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Base change maps for G∗(X) V.3.6 (PDF p. 397). The K-book's statement.
 
-**Review note.** Checked ThomasonTrobaugh.1990 3.14.1, p. 318; Kbook.2013 Base change maps for G∗(X) V.3.6 (PDF p. 397). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps. Reviewed all API roles and discriminating examples; unavailable Lean carriers remain explicit omissions.
+**Review note.** Independently reread ThomasonTrobaugh.1990 3.14.1, p. 318; Kbook.2013 Base change maps for G∗(X) V.3.6 (PDF p. 397). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs. Checked API use cases and the discriminating test specifications; these are mathematical specifications, not execution receipts.
 
 -/
 
@@ -8298,7 +8302,7 @@ Let f : X → Y be a quasi-compact quasi-separated morphism of schemes and Rf_* 
 - [Stacks.perfect.2026](https://stacks.math.columbia.edu/download/perfect.pdf), Derived Categories of Schemes, Lemma 4.1(2) (tag 08D5). Part (2).
 - [Stacks.perfect.2026](https://stacks.math.columbia.edu/download/perfect.pdf), Derived Categories of Schemes, Lemma 4.5 (tag 08DZ). Part (3).
 
-**Review note.** Checked Stacks.perfect.2026 Derived Categories of Schemes, Lemma 4.1(1) (tag 08D5); Stacks.perfect.2026 Derived Categories of Schemes, Lemma 4.1(2) (tag 08D5). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread Stacks.perfect.2026 Derived Categories of Schemes, Lemma 4.1(1) (tag 08D5); Stacks.perfect.2026 Derived Categories of Schemes, Lemma 4.1(2) (tag 08D5); Stacks.perfect.2026 Derived Categories of Schemes, Lemma 4.5 (tag 08DZ). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -8336,7 +8340,7 @@ Let f : X → Y be a proper morphism of schemes with Y noetherian (more generall
 - [Stacks.perfect.2026](https://stacks.math.columbia.edu/download/perfect.pdf), Derived Categories of Schemes, Lemma 11.3 (tag 08E2). The statement (S noetherian, f locally of finite type).
 - [Stacks.perfect.2026](https://stacks.math.columbia.edu/download/perfect.pdf), Derived Categories of Schemes, Remark 38.7 (tag 0FDL). The coherence input and the G_0 formula.
 
-**Review note.** Checked Stacks.perfect.2026 Derived Categories of Schemes, Lemma 11.3 (tag 08E2); Stacks.perfect.2026 Derived Categories of Schemes, Remark 38.7 (tag 0FDL). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread Stacks.perfect.2026 Derived Categories of Schemes, Lemma 11.3 (tag 08E2); Stacks.perfect.2026 Derived Categories of Schemes, Remark 38.7 (tag 0FDL). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -8380,16 +8384,16 @@ Let f : X → Y be a proper morphism of schemes with Y noetherian (or f projecti
 - [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), Theorem 2.5.4, p. 304. The statement.
 - [Stacks.perfect.2026](https://stacks.math.columbia.edu/download/perfect.pdf), Derived Categories of Schemes, Lemma 27.1 (tag 08EV). The form used in the proof (S noetherian, f locally of finite type).
 
-**Review note.** Checked ThomasonTrobaugh.1990 Theorem 2.5.4, p. 304; Stacks.perfect.2026 Derived Categories of Schemes, Lemma 27.1 (tag 08EV). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread ThomasonTrobaugh.1990 Theorem 2.5.4, p. 304; Stacks.perfect.2026 Derived Categories of Schemes, Lemma 27.1 (tag 08EV). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
 /-!
 ### Proper pushforward on G-theory
 
-**Id:** `SchemeKTheoryOperations:S.2/g-theory-proper-pushforward`. **Kind:** construction. **Review:** verified. Implementation unchecked.
+**Id:** `SchemeKTheoryOperations:S.2/g-theory-proper-pushforward`. **Kind:** construction. **Review:** corrected. Implementation unchecked.
 
-Let f : X → Y be a proper morphism of noetherian schemes. On the model of cohomologically bounded pseudo-coherent complexes of flasque O_X-modules (SchemeKTheoryOperations:S.2/g-theory-models), the degreewise direct image f_* is a complicial exact functor to the corresponding model on Y (flasque sheaves are f_*-acyclic, f_* preserves flasqueness, and Rf_* preserves bounded pseudo-coherence by SchemeKTheoryOperations:S.2/proper-pushforward-coherent); it induces the proper transfer f_* : G(X) → G(Y) (TT 3.16.1; K-book V.3.7, V.3.11). Using the Godement resolution T, Rf_* = f_*∘T is exact on all complexes and induces the same map (K-book V.3.11.1). On G_0, f_*[F] = Σ_i (−1)^i [R^if_*F] (Stacks 0FDL).
+Let f : X → Y be a proper morphism of noetherian schemes. On the model of bounded-below, cohomologically bounded pseudo-coherent complexes of flasque O_X-modules (SchemeKTheoryOperations:S.2/g-theory-models), the degreewise direct image f_* is a complicial exact functor to the corresponding model on Y (flasque sheaves are f_*-acyclic, f_* preserves flasqueness, and Rf_* preserves bounded pseudo-coherence by SchemeKTheoryOperations:S.2/proper-pushforward-coherent); it induces the proper transfer f_* : G(X) → G(Y) (TT 3.16.1; K-book V.3.7, V.3.11). Using Godement resolutions of bounded-below representatives gives the same transfer (K-book V.3.11.1). The unbounded flasque variant requires the deployment argument of TT Appendix B.11, not termwise acyclicity alone. On G_0, f_*[F] = Σ_i (−1)^i [R^if_*F] (Stacks 0FDL).
 
 **Hypotheses.**
 
@@ -8451,7 +8455,7 @@ Let f : X → Y be a proper morphism of noetherian schemes. On the model of coho
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Proposition V.3.7 (PDF p. 397). The K-book's statement.
 - [Stacks.perfect.2026](https://stacks.math.columbia.edu/download/perfect.pdf), Derived Categories of Schemes, Remark 38.7 (tag 0FDL). The G_0 formula.
 
-**Review note.** Checked ThomasonTrobaugh.1990 3.16.1, p. 319; Kbook.2013 Proposition V.3.7 (PDF p. 397). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps. Reviewed all API roles and discriminating examples; unavailable Lean carriers remain explicit omissions.
+**Review note.** Independently reread ThomasonTrobaugh.1990 3.16.1, p. 319; Kbook.2013 Proposition V.3.7 (PDF p. 397); Stacks.perfect.2026 Derived Categories of Schemes, Remark 38.7 (tag 0FDL). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs. Checked API use cases and the discriminating test specifications; these are mathematical specifications, not execution receipts. Correction: Use bounded-below flasque representatives for the elementary acyclicity argument; broader unbounded deployment requires TT B.11.
 
 **Planet:** Proper pushforward on G-theory.
 
@@ -8460,9 +8464,9 @@ Let f : X → Y be a proper morphism of noetherian schemes. On the model of coho
 /-!
 ### Pushforward on K-theory along proper perfect morphisms
 
-**Id:** `SchemeKTheoryOperations:S.2/k-theory-proper-pushforward`. **Kind:** construction. **Review:** verified. Implementation unchecked.
+**Id:** `SchemeKTheoryOperations:S.2/k-theory-proper-pushforward`. **Kind:** construction. **Review:** corrected. Implementation unchecked.
 
-Let f : X → Y be a proper perfect morphism of noetherian schemes (proper, of finite Tor-dimension). Then f_* = Rf_* restricts to a complicial exact functor on the flasque models of perfect complexes (TT 3.5.5), because Rf_* preserves perfection (SchemeKTheoryOperations:S.2/proper-perfect-pushforward-perfect), and induces f_* : K(X) → K(Y) (TT 3.16.4; K-book V.3.7.1, V.3.11). Variants with the same construction: perfect projective morphisms and flat proper finitely presented morphisms of qcqs schemes (TT 3.16.5; the unrestricted wording of 3.16.6 needs correction), and the maps on K(X on Z). On K_0, f_*[E] = [Rf_*E]. It is compatible with the G-pushforward through the Cartan maps: c_Y∘f_* ≃ f_*∘c_X.
+Let f : X → Y be a proper perfect morphism of noetherian schemes (proper, of finite Tor-dimension). Then f_* = Rf_* restricts to a complicial exact functor on the bounded-below flasque models of perfect complexes (TT 3.5.5), because Rf_* preserves perfection (SchemeKTheoryOperations:S.2/proper-perfect-pushforward-perfect), and induces f_* : K(X) → K(Y) (TT 3.16.4; K-book V.3.7.1, V.3.11). Variants with the same construction: perfect projective morphisms and flat proper finitely presented morphisms of qcqs schemes (TT 3.16.5; the unrestricted wording of 3.16.6 needs correction), and the maps on K(X on Z). On K_0, f_*[E] = [Rf_*E]. It is compatible with the G-pushforward through the Cartan maps: c_Y∘f_* ≃ f_*∘c_X.
 
 **Hypotheses.**
 
@@ -8480,8 +8484,8 @@ Let f : X → Y be a proper perfect morphism of noetherian schemes (proper, of f
 
 **Proof route.**
 
-- The flasque models 3.5.5 compute K (SchemeKTheoryOperations:S.1/perfect-waldhausen-models, SchemeKTheoryOperations:S.2/k-theory-model-invariance).
-- f_* is exact on flasque complexes, preserves flasqueness and cohomological boundedness, and preserves perfection (SchemeKTheoryOperations:S.2/proper-perfect-pushforward-perfect), so it is a complicial exact functor; apply K (K.4).
+- The flasque models 3.5.5 compute K (SchemeKTheoryOperations:S.1/perfect-waldhausen-models, SchemeKTheoryOperations:S.2/k-theory-model-invariance). Use their bounded-below submodels for the direct-image argument, as in TT 3.16; for the broader unbounded model cite Appendix B.11.
+- f_* is exact on bounded-below flasque complexes, preserves flasqueness and cohomological boundedness, and preserves perfection (SchemeKTheoryOperations:S.2/proper-perfect-pushforward-perfect), so it is a complicial exact functor; apply K (K.4).
 
 **Acceptance conditions.**
 
@@ -8522,14 +8526,14 @@ Let f : X → Y be a proper perfect morphism of noetherian schemes (proper, of f
 - [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), 3.16.4, p. 320. The construction's output.
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Proposition V.3.7.1 (PDF p. 397). The K-book's statement.
 
-**Review note.** Checked ThomasonTrobaugh.1990 3.16.4, p. 320; Kbook.2013 Proposition V.3.7.1 (PDF p. 397). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps. Reviewed all API roles and discriminating examples; unavailable Lean carriers remain explicit omissions.
+**Review note.** Independently reread ThomasonTrobaugh.1990 3.16.4, p. 320; Kbook.2013 Proposition V.3.7.1 (PDF p. 397). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs. Checked API use cases and the discriminating test specifications; these are mathematical specifications, not execution receipts. Correction: Specify the bounded-below flasque perfect submodel on which termwise direct image represents Rf_*.
 
 -/
 
 /-!
 ### Functoriality of proper pushforward
 
-**Id:** `SchemeKTheoryOperations:S.2/pushforward-functoriality`. **Kind:** lemma. **Review:** verified. Implementation unchecked.
+**Id:** `SchemeKTheoryOperations:S.2/pushforward-functoriality`. **Kind:** lemma. **Review:** corrected. Implementation unchecked.
 
 For proper morphisms f : X → Y and g : Y → Z of noetherian schemes, (g∘f)_* ≃ g_*∘f_* : G(X) → G(Z) and id_* ≃ id; if f and g are moreover perfect, the same holds on K. After the usual rectification making f_*g_* = (fg)_* strictly on O-modules, the flasque-model construction is strictly functorial (TT 3.16.1; K-book V.3.11). On G_0 this is the Grothendieck spectral sequence identity Σ(−1)^n[R^n(gf)_*F] = Σ(−1)^{p+q}[R^pg_*R^qf_*F].
 
@@ -8546,8 +8550,8 @@ For proper morphisms f : X → Y and g : Y → Z of noetherian schemes, (g∘f)_
 
 **Proof route.**
 
-- On flasque models (g∘f)_* = g_*∘f_* as functors of complexes after rectification, and f_* preserves flasqueness (SchemeKTheoryOperations:S.2/g-theory-proper-pushforward); an equality or natural isomorphism of exact functors gives equal or homotopic maps on K (TT 1.5.4, K.4).
-- For K use the same argument on flasque perfect complexes (SchemeKTheoryOperations:S.2/k-theory-proper-pushforward).
+- On bounded-below flasque models (g∘f)_* = g_*∘f_* as functors of complexes after rectification, and f_* preserves flasqueness (SchemeKTheoryOperations:S.2/g-theory-proper-pushforward); an equality or natural isomorphism of exact functors gives equal or homotopic maps on K (TT 1.5.4, K.4).
+- For K use the same argument on bounded-below flasque perfect complexes (SchemeKTheoryOperations:S.2/k-theory-proper-pushforward).
 
 **Acceptance conditions.**
 
@@ -8559,7 +8563,7 @@ For proper morphisms f : X → Y and g : Y → Z of noetherian schemes, (g∘f)_
 - [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), 3.16.1, note, p. 319. Strict functoriality on G.
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), V.3.11 (PDF p. 403). The K-book's statement; the same argument gives K on perfect proper maps.
 
-**Review note.** Checked ThomasonTrobaugh.1990 3.16.1, note, p. 319; Kbook.2013 V.3.11 (PDF p. 403). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread ThomasonTrobaugh.1990 3.16.1, note, p. 319; Kbook.2013 V.3.11 (PDF p. 403). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs. Correction: Keep the composed pushforward argument in the bounded-below flasque models already selected.
 
 -/
 
@@ -8601,7 +8605,7 @@ Consider a cartesian square of schemes X′ = X ×_Y Y′ with g : Y′ → Y, f
 - [Stacks.perfect.2026](https://stacks.math.columbia.edu/download/perfect.pdf), Derived Categories of Schemes, Lemma 22.5 (tag 08IB). The statement.
 - [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), Theorem 2.5.6, p. 305. Thomason–Trobaugh's statement (SGA 6 IV 3.1).
 
-**Review note.** Checked Stacks.perfect.2026 Derived Categories of Schemes, Lemma 22.5 (tag 08IB); ThomasonTrobaugh.1990 Theorem 2.5.6, p. 305. The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread Stacks.perfect.2026 Derived Categories of Schemes, Lemma 22.5 (tag 08IB); ThomasonTrobaugh.1990 Theorem 2.5.6, p. 305. Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -8630,7 +8634,7 @@ Consider a cartesian square X′ = X ×_Y Y′ of noetherian schemes with f : X 
 
 **Proof route.**
 
-- Build the model of G(X) whose objects are data (E, F → f_*E, g′*E → G) with E bounded above pseudo-coherent flat, F flat on Y and G flasque on X′, with quasi-isomorphisms (TT 3.18 proof, K-book Ex. V.3.11 (a)–(b)); it has the derived category of the pseudo-coherent model, hence K-theory G(X) (K.4 derived invariance).
+- First form a cohomologically bounded pseudo-coherent E deployed for both Rf_* and Lg′*: TT 3.18 takes the sum-total Godement resolution of a bounded-above flat representative. Its stalkwise chain homotopy with that representative proves pullback deployment; TT Appendix B.11 supplies direct-image deployment even when the total complex is unbounded below. Then form data (E, F → f_*E, g′*E → G), where F is bounded-above degreewise flat on Y and G bounded-below degreewise flasque on X′, with both arrows quasi-isomorphisms (TT 3.18, printed pp.321–322). Derived invariance identifies its K-theory with G(X); use the analogous perfect submodel for K.
 - On this model g*f_* is represented by (E, F, G) ↦ g*F and f′_*g′* by (E, F, G) ↦ f′_*G; Deligne's base-change transformation g*F → g*f_*E → f′_*g′*E → f′_*G is a natural quasi-isomorphism by SchemeKTheoryOperations:S.2/derived-tor-independent-base-change.
 - A natural weak equivalence of exact functors gives a homotopy of maps of K-theory spectra (TT 1.5.4); the same argument on perfect complexes gives (2).
 
@@ -8641,10 +8645,10 @@ Consider a cartesian square X′ = X ×_Y Y′ of noetherian schemes with f : X 
 
 **Source locators.**
 
-- [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), Proposition 3.18, p. 321. The conclusion, under the Tor-independence and Tor-dimension hypotheses stated there.
+- [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), Proposition 3.18 and its bideployed-model proof, pp.321–322 (PDF pp.75–76). The conclusion, under the Tor-independence and Tor-dimension hypotheses stated there.
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Base change Theorem V.3.7.2 (PDF p. 398). The K-book's statement for quasi-projective schemes, extended to noetherian schemes in Ex. V.3.11.
 
-**Review note.** Corrected the base-change map target to G(V).
+**Review note.** Independently reread ThomasonTrobaugh.1990 Proposition 3.18 and its bideployed-model proof, pp.321–322 (PDF pp.75–76); Kbook.2013 Base change Theorem V.3.7.2 (PDF p. 398). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs. Correction: Correct the simultaneous deployment model: E is deployed for f_* and g′*, F is bounded-above flat and G bounded-below flasque, as in TT 3.18.
 
 -/
 
@@ -8683,7 +8687,7 @@ Let f : X → Y be a quasi-compact quasi-separated morphism of schemes. For E �
 - [Stacks.perfect.2026](https://stacks.math.columbia.edu/download/perfect.pdf), Derived Categories of Schemes, Lemma 22.1 (tag 08EU). The statement.
 - [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), Theorem 2.5.5, p. 304. Thomason–Trobaugh's statement.
 
-**Review note.** Checked Stacks.perfect.2026 Derived Categories of Schemes, Lemma 22.1 (tag 08EU); ThomasonTrobaugh.1990 Theorem 2.5.5, p. 304. The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread Stacks.perfect.2026 Derived Categories of Schemes, Lemma 22.1 (tag 08EU); ThomasonTrobaugh.1990 Theorem 2.5.5, p. 304. Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -8755,7 +8759,7 @@ Let X be a scheme. The derived tensor product, realised on the flat model Perf^f
 - [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), 3.15, p. 318. The construction.
 - [Stacks.perfect.2026](https://stacks.math.columbia.edu/download/perfect.pdf), Derived Categories of Schemes, Remark 38.6 (tag 0FDK). The degree-zero product; Stacks also gives the K_0(X)-module structure on K′_0(X) for noetherian X.
 
-**Review note.** Checked ThomasonTrobaugh.1990 3.15, p. 318; Stacks.perfect.2026 Derived Categories of Schemes, Remark 38.6 (tag 0FDK). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps. Reviewed all API roles and discriminating examples; unavailable Lean carriers remain explicit omissions.
+**Review note.** Independently reread ThomasonTrobaugh.1990 3.15, p. 318; Stacks.perfect.2026 Derived Categories of Schemes, Remark 38.6 (tag 0FDK). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs. Checked API use cases and the discriminating test specifications; these are mathematical specifications, not execution receipts.
 
 -/
 
@@ -8797,7 +8801,7 @@ Let f : X → Y be a proper morphism of noetherian schemes. Then f_* : G_*(X) �
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Projection Formula V.3.12 (PDF p. 403). The statement in all degrees.
 - [Stacks.perfect.2026](https://stacks.math.columbia.edu/download/perfect.pdf), Derived Categories of Schemes, Lemma 38.8 (tag 0FDM). Degree zero, for proper f between locally noetherian schemes.
 
-**Review note.** Checked ThomasonTrobaugh.1990 Proposition 3.17, p. 320; Kbook.2013 Projection Formula V.3.12 (PDF p. 403). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread ThomasonTrobaugh.1990 Proposition 3.17, p. 320; Kbook.2013 Projection Formula V.3.12 (PDF p. 403); Stacks.perfect.2026 Derived Categories of Schemes, Lemma 38.8 (tag 0FDM). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 **Planet:** Projection formula.
 
@@ -8850,7 +8854,7 @@ K-theory conventions: for a small complicial biWaldhausen category A (small rela
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Example V.2.7.2 (PDF p. 391). The ring-level chain of equivalences.
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Exercise II.9.10(a) (PDF p. 180). The affine comparison in degree zero; the hint is the approximation theorem for Ch_perf(R) ⊂ Ch_perf(X).
 
-**Review note.** Checked Stacks.perfect.2026 Derived Categories of Schemes, Lemma 38.3 (tag 0FDH); Kbook.2013 Example V.2.7.2 (PDF p. 391). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread Stacks.perfect.2026 Derived Categories of Schemes, Lemma 38.3 (tag 0FDH); Kbook.2013 Example V.2.7.2 (PDF p. 391); Kbook.2013 Exercise II.9.10(a) (PDF p. 180). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -8890,16 +8894,16 @@ Let φ : A → B be a homomorphism of commutative rings and g = Spec φ : Spec B
 - [Stacks.perfect.2026](https://stacks.math.columbia.edu/download/perfect.pdf), Derived Categories of Schemes, Lemma 3.8(2) (tag 08DW). Lf* corresponds to − ⊗^L_A B under D(A) ≃ D_QCoh.
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Base change maps for G∗(R) V.3.5 (PDF p. 395). The ring-level base change on G, compatible with composition.
 
-**Review note.** Checked Stacks.perfect.2026 Derived Categories of Schemes, Lemma 3.8(2) (tag 08DW); Kbook.2013 Base change maps for G∗(R) V.3.5 (PDF p. 395). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread Stacks.perfect.2026 Derived Categories of Schemes, Lemma 3.8(2) (tag 08DW); Kbook.2013 Base change maps for G∗(R) V.3.5 (PDF p. 395). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
 /-!
 ### Pushforward along a finite flat morphism of affine schemes is the module transfer
 
-**Id:** `SchemeKTheoryOperations:S.2/affine-pushforward-is-transfer`. **Kind:** comparison. **Review:** verified. Implementation unchecked.
+**Id:** `SchemeKTheoryOperations:S.2/affine-pushforward-is-transfer`. **Kind:** comparison. **Review:** corrected. Implementation unchecked.
 
-Let φ : A → B be a finite homomorphism of commutative rings and f = Spec φ. (1) If B is a finitely generated projective A-module (φ finite flat of finite presentation) then f is proper and perfect, and under SchemeKTheoryOperations:S.2/affine-k-theory-comparison, f_* : K(Spec B) → K(Spec A) is homotopic to the transfer K(B) → K(A) induced by restriction of scalars P(B) → P(A) (K-book IV.6.3.2); on K_0 it is KTheoryLowDegrees Z.1's ring-k0-transfer. More generally, if A is noetherian and B has a finite resolution by finitely generated projective A-modules, f_* is the transfer K(B) → KH(A) ≃ K(A) of K-book V.3.3.2 (GeneralAlgebraicKTheory K.3's resolution theorem). (2) If A is noetherian, f_* : G(Spec B) → G(Spec A) is induced by the exact restriction of scalars mod B → mod A (K-book V.3.3.1).
+Let φ : A → B be a finite homomorphism of commutative rings and f = Spec φ. (1) If B is a finitely generated projective A-module (φ finite flat of finite presentation) then f is proper and perfect, and under SchemeKTheoryOperations:S.2/affine-k-theory-comparison, f_* : K(Spec B) → K(Spec A) is homotopic to the transfer K(B) → K(A) induced by restriction of scalars P(B) → P(A) (K-book IV.6.3.2); on K_0 it is KTheoryLowDegrees Z.1's ring-k0-transfer. More generally, if A is noetherian and B has a finite resolution by finitely generated projective A-modules, f_* is the transfer K(B) → K(H(A)) ≃ K(A) of K-book V.3.3.2 (GeneralAlgebraicKTheory K.3's resolution theorem). (2) If A is noetherian, f_* : G(Spec B) → G(Spec A) is induced by the exact restriction of scalars mod B → mod A (remark after K-book V.3.5, PDF p.396).
 
 **Hypotheses.**
 
@@ -8934,10 +8938,10 @@ Let φ : A → B be a finite homomorphism of commutative rings and f = Spec φ. 
 **Source locators.**
 
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Transfer Maps for K∗(R) V.3.3.2 (PDF p. 394). The ring-level transfer.
-- [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Corollary V.3.3.1 (PDF p. 394). The G-theory transfer for finite maps.
+- [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Remark after Base change maps V.3.5 (book p.388, PDF p.396). The G-theory transfer for finite maps.
 - [Stacks.perfect.2026](https://stacks.math.columbia.edu/download/perfect.pdf), Derived Categories of Schemes, Lemma 3.7 (tag 0DJK). Rf_* corresponds to restriction of scalars.
 
-**Review note.** Checked Kbook.2013 Transfer Maps for K∗(R) V.3.3.2 (PDF p. 394); Kbook.2013 Corollary V.3.3.1 (PDF p. 394). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread Kbook.2013 Transfer Maps for K∗(R) V.3.3.2 (PDF p. 394); Kbook.2013 Remark after Base change maps V.3.5 (book p.388, PDF p.396); Stacks.perfect.2026 Derived Categories of Schemes, Lemma 3.7 (tag 0DJK). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs. Correction: Distinguish K(H(A)) from homotopy K-theory KH(A), and replace the incorrect finite-G-transfer citation by the remark following V.3.5.
 
 -/
 
@@ -8980,7 +8984,7 @@ Let X be a quasi-compact quasi-separated scheme with the resolution property (fo
 - [Totaro.2004](https://arxiv.org/pdf/math/0207210), §2, p. 4. The statement in all degrees, attributed to Thomason.
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), V.2.7.3 (PDF p. 391). The K-book's argument, for qcqs X in which every coherent sheaf is a quotient of a vector bundle.
 
-**Review note.** Checked Stacks.perfect.2026 Derived Categories of Schemes, Lemma 38.5 (tag 0FDJ); Totaro.2004 §2, p. 4. The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread Stacks.perfect.2026 Derived Categories of Schemes, Lemma 38.5 (tag 0FDJ); Totaro.2004 §2, p. 4; Kbook.2013 V.2.7.3 (PDF p. 391). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -9052,7 +9056,7 @@ K-theory conventions: for a small complicial biWaldhausen category A (small rela
 - [Stacks.perfect.2026](https://stacks.math.columbia.edu/download/perfect.pdf), Derived Categories of Schemes, discussion before Lemma 38.4. The degree-zero Cartan map.
 - [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), Theorem 3.21, p. 328. The canonical map K(X) → G(X) of TT, induced by the inclusion of perfect complexes into cohomologically bounded pseudo-coherent ones.
 
-**Review note.** Checked Stacks.perfect.2026 Derived Categories of Schemes, discussion before Lemma 38.4; ThomasonTrobaugh.1990 Theorem 3.21, p. 328. The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps. Reviewed all API roles and discriminating examples; unavailable Lean carriers remain explicit omissions.
+**Review note.** Independently reread Stacks.perfect.2026 Derived Categories of Schemes, discussion before Lemma 38.4; ThomasonTrobaugh.1990 Theorem 3.21, p. 328. Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs. Checked API use cases and the discriminating test specifications; these are mathematical specifications, not execution receipts.
 
 **Planet:** Cartan map.
 
@@ -9099,14 +9103,14 @@ Let X be a quasi-compact scheme such that for every x ∈ X every finitely prese
 - [Stacks.perfect.2026](https://stacks.math.columbia.edu/download/perfect.pdf), Derived Categories of Schemes, Lemma 11.8 (tag 0FDC). The regular noetherian form.
 - [Stacks.more-algebra.2026](https://stacks.math.columbia.edu/download/more-algebra.pdf), More on Algebra, Lemma 76.14 (tag 066Z). The affine input, proved from finite global dimension of regular local rings.
 
-**Review note.** Checked ThomasonTrobaugh.1990 Theorem 3.21, proof, p. 328; Stacks.perfect.2026 Derived Categories of Schemes, Lemma 11.8 (tag 0FDC). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread ThomasonTrobaugh.1990 Theorem 3.21, proof, p. 328; Stacks.perfect.2026 Derived Categories of Schemes, Lemma 11.8 (tag 0FDC); Stacks.more-algebra.2026 More on Algebra, Lemma 76.14 (tag 066Z). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
 /-!
 ### Poincaré duality: the Cartan map is an equivalence for regular schemes
 
-**Id:** `SchemeKTheoryOperations:S.2/cartan-equivalence`. **Kind:** theorem. **Review:** corrected. Implementation unchecked.
+**Id:** `SchemeKTheoryOperations:S.2/cartan-equivalence`. **Kind:** theorem. **Review:** verified. Implementation unchecked.
 
 Let X be a quasi-compact scheme such that every finitely presented module over every local ring O_{X,x} has finite Tor-dimension; in particular let X be a regular noetherian scheme (of any Krull dimension, not necessarily separated). Then the Cartan map c_X : K(X) → G(X) is a homotopy equivalence (TT 3.21, 'Poincaré duality'), so K_n(X) ≅ G_n(X) for all n ≥ 0; on K_0 this is Stacks 0FDI. Moreover the negative groups of 𝕂(X) vanish for X regular noetherian, so 𝕂(X) ≃ K(X) ≃ G(X). For separated regular noetherian X the equivalence also follows from Quillen's resolution theorem applied to Vect(X) ⊂ Coh(X) (K-book V.3.4). In the first, potentially nonnoetherian branch, G(X) means TT 3.3’s Waldhausen K-theory of cohomologically bounded pseudo-coherent complexes; it is not the noetherian-only Coh(X) construction of S.2/g-theory-of-a-scheme.
 
@@ -9143,7 +9147,7 @@ Let X be a quasi-compact scheme such that every finitely presented module over e
 - [Stacks.perfect.2026](https://stacks.math.columbia.edu/download/perfect.pdf), Derived Categories of Schemes, Lemma 38.4 (tag 0FDI). Degree zero.
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Theorem V.3.4 (PDF p. 395). The separated case via vector bundles.
 
-**Review note.** The rank summand is ℤ only for a connected curve.
+**Review note.** Independently reread ThomasonTrobaugh.1990 Theorem 3.21, p. 328; ThomasonTrobaugh.1990 Theorem 3.21, p. 328; Stacks.perfect.2026 Derived Categories of Schemes, Lemma 38.4 (tag 0FDI); Kbook.2013 Theorem V.3.4 (PDF p. 395). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 **Planet:** Poincaré duality K ≃ G.
 
@@ -9191,7 +9195,7 @@ Let R be a noetherian commutative ring and X = Spec R. Under the identifications
 - [Stacks.perfect.2026](https://stacks.math.columbia.edu/download/perfect.pdf), Derived Categories of Schemes, Lemma 38.3 (tag 0FDH). The two affine identifications in degree zero.
 - [Stacks.more-algebra.2026](https://stacks.math.columbia.edu/download/more-algebra.pdf), More on Algebra, Lemma 76.14 (tag 066Z). Regular rings satisfy the finite-resolution hypothesis of Tau Ceti's cartanMap_bijective.
 
-**Review note.** Checked Stacks.perfect.2026 Derived Categories of Schemes, Lemma 38.3 (tag 0FDH); Stacks.more-algebra.2026 More on Algebra, Lemma 76.14 (tag 066Z). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread Stacks.perfect.2026 Derived Categories of Schemes, Lemma 38.3 (tag 0FDH); Stacks.more-algebra.2026 More on Algebra, Lemma 76.14 (tag 066Z). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -9233,7 +9237,7 @@ Let k be a field, R = k[ε]/(ε²) and X = Spec R. Then K_0(X) ≅ ℤ generated
 - [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), Theorem 3.21, p. 328. The hypothesis that fails for k[ε]/(ε²): the residue field has infinite Tor-dimension.
 - [Totaro.2004](https://arxiv.org/pdf/math/0207210), §2, p. 4. The comparison is for regular schemes; outside regularity it is not asserted.
 
-**Review note.** Checked ThomasonTrobaugh.1990 Theorem 3.21, p. 328; Totaro.2004 §2, p. 4. The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread ThomasonTrobaugh.1990 Theorem 3.21, p. 328; Totaro.2004 §2, p. 4. Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -9282,7 +9286,7 @@ Let X be a quasi-compact quasi-separated scheme. D_QCoh(O_X) has arbitrary direc
 - [Stacks.cohomology.2026](https://stacks.math.columbia.edu/download/cohomology.pdf), Cohomology of Sheaves, Lemma 50.5 (tag 08DQ). Duality for perfect objects, used for perfect ⇒ compact.
 - [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), 2.4.4, p. 302. Thomason–Trobaugh's form of the characterisation (finitely presented = Mor out of them preserves direct colimits).
 
-**Review note.** Checked Stacks.perfect.2026 Derived Categories of Schemes, Proposition 17.1 (tag 09M1); Stacks.more-algebra.2026 More on Algebra, Proposition 80.3 (tag 07LT). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread Stacks.perfect.2026 Derived Categories of Schemes, Proposition 17.1 (tag 09M1); Stacks.more-algebra.2026 More on Algebra, Proposition 80.3 (tag 07LT); Stacks.cohomology.2026 Cohomology of Sheaves, Lemma 50.5 (tag 08DQ); ThomasonTrobaugh.1990 2.4.4, p. 302. Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -9332,7 +9336,7 @@ Let X = lim_α X_α be the limit of a directed inverse system of quasi-compact q
 - [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), Theorem 7.2 (Continuity), p. 364. The hypotheses of the nonconnective statement for K^B.
 - [Schlichting.2003](https://webhomes.maths.ed.ac.uk/~v1ranick/papers/schlneg.pdf), Lemma 6.3, p. 13. Filtered colimits of Frobenius pairs, used for the nonpositive degrees.
 
-**Review note.** Checked ThomasonTrobaugh.1990 3.20.2, p. 324; ThomasonTrobaugh.1990 Proof of 3.20, p. 324. The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread ThomasonTrobaugh.1990 3.20.2, p. 324; ThomasonTrobaugh.1990 Proof of 3.20, p. 324; ThomasonTrobaugh.1990 Theorem 7.2 (Continuity), p. 364; Schlichting.2003 Lemma 6.3, p. 13. Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -9412,7 +9416,7 @@ Let X be a scheme and Z ⊆ X a closed subset, with open complement j: U = X ∖
 - [Stacks.perfect.2026](https://stacks.math.columbia.edu/download/perfect.pdf), Remark 38.9 (tag 0FDN). The same subcategory, described by supports of cohomology sheaves.
 - [Stacks.perfect.2026](https://stacks.math.columbia.edu/download/perfect.pdf), Definition 6.1 (tag 08DA). The support condition used in the characterisation.
 
-**Review note.** Checked ThomasonTrobaugh.1990 Definition 3.1 (p. 313); Stacks.perfect.2026 Remark 38.9 (tag 0FDN). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps. Reviewed all API roles and discriminating examples; unavailable Lean carriers remain explicit omissions.
+**Review note.** Independently reread ThomasonTrobaugh.1990 Definition 3.1 (p. 313); Stacks.perfect.2026 Remark 38.9 (tag 0FDN); Stacks.perfect.2026 Definition 6.1 (tag 08DA). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs. Checked API use cases and the discriminating test specifications; these are mathematical specifications, not execution receipts.
 
 -/
 
@@ -9493,7 +9497,7 @@ For a quasi-compact quasi-separated scheme X and a closed subset Z ⊆ X with X 
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Definition V.7.6.3 (PDF p. 434). The nonconnective support spectrum and its connective cover; here the nonconnective spectrum is IK of the support category, identified with this fibre by S.3/localisation-fibre-sequence.
 - [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), 3.15 (pp. 318-319). The pairing on support K-theory from the tensor product.
 
-**Review note.** Checked ThomasonTrobaugh.1990 Definition 3.1 (p. 313); Kbook.2013 Definition V.7.6.3 (PDF p. 434). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps. Reviewed all API roles and discriminating examples; unavailable Lean carriers remain explicit omissions.
+**Review note.** Independently reread ThomasonTrobaugh.1990 Definition 3.1 (p. 313); Kbook.2013 Definition V.7.6.3 (PDF p. 434); ThomasonTrobaugh.1990 3.15 (pp. 318-319). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs. Checked API use cases and the discriminating test specifications; these are mathematical specifications, not execution receipts.
 
 **Planet:** K-theory with supports.
 
@@ -9502,7 +9506,7 @@ For a quasi-compact quasi-separated scheme X and a closed subset Z ⊆ X with X 
 /-!
 ### Extending perfect complexes from a quasi-compact open of an affine scheme
 
-**Id:** `SchemeKTheoryOperations:S.3/affine-extension-of-perfect`. **Kind:** lemma. **Review:** corrected. Implementation unchecked.
+**Id:** `SchemeKTheoryOperations:S.3/affine-extension-of-perfect`. **Kind:** lemma. **Review:** verified. Implementation unchecked.
 
 Let X = Spec A be affine, U ⊆ X a quasi-compact open and T ⊆ X a closed subset with X ∖ T quasi-compact. (a) For every perfect F in D(O_U) there are r ∈ ℤ and a finite locally free O_U-module 𝓕 with 𝓕[−r] ⊕ F the restriction of a perfect object of D(O_X) (Stacks 08EG). (b) F ⊕ F[1] is the restriction of a perfect object of D(O_X) (Stacks 08EI). (c) If F is supported on T ∩ U, then F ⊕ F[1] is the restriction of a perfect object E of D(O_X) supported on T (Stacks 08EK).
 
@@ -9538,7 +9542,7 @@ Let X = Spec A be affine, U ⊆ X a quasi-compact open and T ⊆ X a closed subs
 - [Stacks.perfect.2026](https://stacks.math.columbia.edu/download/perfect.pdf), Lemma 36.13.8 (tag 08EI). Part (b).
 - [Stacks.perfect.2026](https://stacks.math.columbia.edu/download/perfect.pdf), Lemma 36.13.10 (tag 08EK). Part (c), with supports.
 
-**Review note.** Corrected the supported cone count and final projection; retained the affine hypothesis.
+**Review note.** Independently reread Stacks.perfect.2026 Lemma 36.13.6 (tag 08EG); Stacks.perfect.2026 Lemma 36.13.8 (tag 08EI); Stacks.perfect.2026 Lemma 36.13.10 (tag 08EK). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -9578,7 +9582,7 @@ Let X = Spec A be affine and U ⊆ X a quasi-compact open. (a) For E, E' in D_QC
 - [Stacks.perfect.2026](https://stacks.math.columbia.edu/download/perfect.pdf), Lemma 36.13.7 (tag 08EH). Part (a), including the final perfect replacement complex I.
 - [Stacks.perfect.2026](https://stacks.math.columbia.edu/download/perfect.pdf), Lemma 36.13.9 (tag 08EJ). Part (b).
 
-**Review note.** Checked Stacks.perfect.2026 Lemma 36.13.7 (tag 08EH); Stacks.perfect.2026 Lemma 36.13.9 (tag 08EJ). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread Stacks.perfect.2026 Lemma 36.13.7 (tag 08EH); Stacks.perfect.2026 Lemma 36.13.9 (tag 08EJ). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -9620,7 +9624,7 @@ Let X be quasi-compact and quasi-separated, U ⊆ X a quasi-compact open and T �
 - [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), Lemma 5.5.1 (p. 343). The original statement, first for X with an ample family of line bundles; TT 5.6 removes that hypothesis.
 - [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), 5.5.2 (p. 343). Its role in the localisation theorem.
 
-**Review note.** Checked Stacks.perfect.2026 Lemma 36.13.11 (tag 09IM); ThomasonTrobaugh.1990 Lemma 5.5.1 (p. 343). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread Stacks.perfect.2026 Lemma 36.13.11 (tag 09IM); ThomasonTrobaugh.1990 Lemma 5.5.1 (p. 343); ThomasonTrobaugh.1990 5.5.2 (p. 343). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -9661,7 +9665,7 @@ Let X be quasi-compact and quasi-separated and T ⊆ X closed with X ∖ T quasi
 - [Stacks.perfect.2026](https://stacks.math.columbia.edu/download/perfect.pdf), Lemma 36.15.4 (tag 0A9A). The statement.
 - [Stacks.perfect.2026](https://stacks.math.columbia.edu/download/perfect.pdf), Lemma 36.15.2 (tag 09IR). The affine Koszul input, for the Koszul complex K on f_1, …, f_r with U = D(f_1) ∪ ⋯ ∪ D(f_r).
 
-**Review note.** Checked Stacks.perfect.2026 Lemma 36.15.4 (tag 0A9A); Stacks.perfect.2026 Lemma 36.15.2 (tag 09IR). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread Stacks.perfect.2026 Lemma 36.15.4 (tag 0A9A); Stacks.perfect.2026 Lemma 36.15.2 (tag 09IR). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -9707,7 +9711,7 @@ Let X be quasi-compact and quasi-separated, T ⊆ X closed with U = X ∖ T quas
 - [Stacks.perfect.2026](https://stacks.math.columbia.edu/download/perfect.pdf), Proposition 36.17.1 (tag 09M1). The compactness of O_X and of perfect objects used in the proof.
 - [Stacks.derived.2026](https://stacks.math.columbia.edu/download/derived.pdf), Lemmas 13.37.3–13.37.4 (tags 09SN, 09SP). Cellular telescopes and compact factorisation through the thick subcategory are the two generic inputs of the proof of 0A9C.
 
-**Review note.** Checked Stacks.perfect.2026 Lemma 36.17.5 (tag 0A9C); Stacks.perfect.2026 Proposition 36.17.1 (tag 09M1). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread Stacks.perfect.2026 Lemma 36.17.5 (tag 0A9C); Stacks.perfect.2026 Proposition 36.17.1 (tag 09M1); Stacks.derived.2026 Lemmas 13.37.3–13.37.4 (tags 09SN, 09SP). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -9753,7 +9757,7 @@ Let X be quasi-compact and quasi-separated, j: U → X a quasi-compact open with
 - [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), Proposition 5.2.4 (p. 339). Faithfulness, in TT's form (continued: j*(c) an isomorphism).
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Theorem V.7.7 (PDF p. 434). The K-book's statement of the same result, quoted from TT 5.2.2-5.2.4 with its proof omitted as outside the K-book’s developed treatment.
 
-**Review note.** Checked ThomasonTrobaugh.1990 Proposition 5.2.3 (pp. 338-339); ThomasonTrobaugh.1990 Proposition 5.2.4 (p. 339). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread ThomasonTrobaugh.1990 Proposition 5.2.3 (pp. 338-339); ThomasonTrobaugh.1990 Proposition 5.2.4 (p. 339); Kbook.2013 Theorem V.7.7 (PDF p. 434). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -9791,7 +9795,7 @@ Let X be quasi-compact and quasi-separated, j: U → X a quasi-compact open and 
 - [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), Key Proposition 5.2.2 (p. 338). Part (a); part (b) is the version with supports in Z, proved by the same argument (TT 5.5.5, 5.6.2(a)).
 - [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), Proposition 5.5.4 (p. 344). The route: summand extension, two out of three, and Grayson's monoid.
 
-**Review note.** Checked ThomasonTrobaugh.1990 Key Proposition 5.2.2 (p. 338); ThomasonTrobaugh.1990 Proposition 5.5.4 (p. 344). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread ThomasonTrobaugh.1990 Key Proposition 5.2.2 (p. 338); ThomasonTrobaugh.1990 Proposition 5.5.4 (p. 344). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -9833,14 +9837,14 @@ Let X be quasi-compact and quasi-separated, U ⊆ X a quasi-compact open with co
 - [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), 5.2 (p. 338). The triangulated input to the localisation theorem, TT's connective formulation (equivalence onto the objects whose K_0 class lies in the image).
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Proof of Theorem V.7.6 (PDF p. 434). The same reduction in the K-book.
 
-**Review note.** Checked ThomasonTrobaugh.1990 5.2 (p. 338); Kbook.2013 Proof of Theorem V.7.6 (PDF p. 434). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread ThomasonTrobaugh.1990 5.2 (p. 338); Kbook.2013 Proof of Theorem V.7.6 (PDF p. 434). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
 /-!
 ### The Thomason–Trobaugh localisation theorem
 
-**Id:** `SchemeKTheoryOperations:S.3/localisation-fibre-sequence`. **Kind:** theorem. **Review:** corrected. Implementation unchecked.
+**Id:** `SchemeKTheoryOperations:S.3/localisation-fibre-sequence`. **Kind:** theorem. **Review:** verified. Implementation unchecked.
 
 Let X be quasi-compact and quasi-separated, j: U → X an open immersion with U quasi-compact, Y = X ∖ U, and Z ⊆ X closed with X ∖ Z quasi-compact. Then K(X on Y ∩ Z) → K(X on Z) → K(U on U ∩ Z) is a homotopy fibre sequence of nonconnective K-theory spectra (S.3/support-k-theory), the null-homotopy of the composite being the canonical one (a complex acyclic off Y ∩ Z is naturally acyclic on U). In particular (Z = X) K(X on Y) → K(X) → K(U) is a fibre sequence, with a long exact sequence ⋯ → K_n(X on Y) → K_n(X) → K_n(U) →∂ K_{n−1}(X on Y) → ⋯ in all degrees n ∈ ℤ; there is no surjectivity condition on K_0(X) → K_0(U).
 
@@ -9876,7 +9880,7 @@ Let X be quasi-compact and quasi-separated, j: U → X an open immersion with U 
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Theorem V.7.6 (PDF p. 433). The K-book's statement (connective, with the K_0 caveat of TT 5.1).
 - [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), 5.1.5 (p. 337). The role of the theorem.
 
-**Review note.** The Frobenius localisation theorem supplies the fibre directly; removed the forward scheme-Bass comparison input.
+**Review note.** Independently reread ThomasonTrobaugh.1990 Theorem 7.4 (p. 365); Kbook.2013 Theorem V.7.6 (PDF p. 433); ThomasonTrobaugh.1990 5.1.5 (p. 337). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 **Planet:** Thomason–Trobaugh localisation theorem.
 
@@ -9918,7 +9922,7 @@ In the setting of S.3/localisation-fibre-sequence, the connective (Waldhausen) K
 - [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), Theorem 5.1 (p. 337). The connective statement, with the covering-spectrum correction in degree 0.
 - [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), 5.2 (p. 338). The first step of the proof.
 
-**Review note.** Checked ThomasonTrobaugh.1990 Theorem 5.1 (p. 337); ThomasonTrobaugh.1990 5.2 (p. 338). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread ThomasonTrobaugh.1990 Theorem 5.1 (p. 337); ThomasonTrobaugh.1990 5.2 (p. 338). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -9985,7 +9989,7 @@ In the setting of S.3/localisation-fibre-sequence, the connecting map ∂: K_n(U
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Theorem V.7.6 (PDF p. 433). The boundary ∂ in the K-book's notation (there Z is the closed complement).
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Example V.6.1.2 (PDF p. 414). The normalisation of the degree-one boundary that fixes the sign.
 
-**Review note.** Checked ThomasonTrobaugh.1990 Theorem 7.4, (7.4.2) (p. 365); Kbook.2013 Theorem V.7.6 (PDF p. 433). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps. Reviewed all API roles and discriminating examples; unavailable Lean carriers remain explicit omissions.
+**Review note.** Independently reread ThomasonTrobaugh.1990 Theorem 7.4, (7.4.2) (p. 365); Kbook.2013 Theorem V.7.6 (PDF p. 433); Kbook.2013 Example V.6.1.2 (PDF p. 414). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs. Checked API use cases and the discriminating test specifications; these are mathematical specifications, not execution receipts.
 
 -/
 
@@ -10025,7 +10029,7 @@ Let f: X' → X be a morphism of quasi-compact quasi-separated schemes, U ⊆ X 
 - [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), Proof of Theorem 7.4 (p. 365). Naturality of the null-homotopy, hence of the fibre sequences.
 - [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), 3.14 (pp. 317-318). Pullback on support K-theory (TT's f: X → X').
 
-**Review note.** Checked ThomasonTrobaugh.1990 Proof of Theorem 7.4 (p. 365); ThomasonTrobaugh.1990 3.14 (pp. 317-318). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread ThomasonTrobaugh.1990 Proof of Theorem 7.4 (p. 365); ThomasonTrobaugh.1990 3.14 (pp. 317-318). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -10067,7 +10071,7 @@ In the setting of S.3/localisation-fibre-sequence let W ⊆ X be closed with X �
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Exercise V.5.3 (PDF p. 413). The general mechanism for a biexact pairing of a localisation sequence (the printed indices n+i should read n+j and n+j−1).
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), V.6.6.1 (PDF p. 417). The DVR form, used on {π, u}.
 
-**Review note.** Checked Kbook.2013 Exercise V.8.2 (PDF p. 442); Kbook.2013 Exercise V.5.3 (PDF p. 413). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread Kbook.2013 Exercise V.8.2 (PDF p. 442); Kbook.2013 Exercise V.5.3 (PDF p. 413); Kbook.2013 V.6.6.1 (PDF p. 417). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -10112,7 +10116,7 @@ Let f: X' → X be a quasi-separated morphism of quasi-compact schemes and i: Y 
 - [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), Theorem 2.6.3 (pp. 307-308). Part (a); parts (b)-(d) as stated in the node.
 - [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), Examples 3.19.2 (p. 323). The completion example (with the henselisation and open-immersion examples in the same paragraph).
 
-**Review note.** Checked ThomasonTrobaugh.1990 Definition 2.6.2.1 (p. 306); ThomasonTrobaugh.1990 Theorem 2.6.3 (pp. 307-308). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread ThomasonTrobaugh.1990 Definition 2.6.2.1 (p. 306); ThomasonTrobaugh.1990 Theorem 2.6.3 (pp. 307-308); ThomasonTrobaugh.1990 Examples 3.19.2 (p. 323). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -10151,7 +10155,7 @@ Let f: X' → X be a morphism of quasi-compact quasi-separated schemes and Y ⊆
 - [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), Theorem 7.1 (p. 364). The nonconnective statement.
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Proposition V.7.9 (PDF p. 435). Case (i).
 
-**Review note.** Checked ThomasonTrobaugh.1990 Proposition 3.19 (p. 322); ThomasonTrobaugh.1990 Theorem 7.1 (p. 364). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread ThomasonTrobaugh.1990 Proposition 3.19 (p. 322); ThomasonTrobaugh.1990 Theorem 7.1 (p. 364); Kbook.2013 Proposition V.7.9 (PDF p. 435). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 **Planet:** Excision.
 
@@ -10194,7 +10198,7 @@ Let X be quasi-compact and quasi-separated and Z_1, Z_2 ⊆ X disjoint closed su
 - [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), Proof of Theorem 10.3, (10.3.9) (p. 385). The additivity over disjoint closed pieces, used in the coniveau decomposition (TT derive it from the Mayer–Vietoris spectral sequence; the node gives the direct argument).
 - [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), Corollary 8.1.4 (p. 368). The closed Mayer–Vietoris square K^B(X on Y_1 ∩ Y_2) → K^B(X on Y_1), K^B(X on Y_2) → K^B(X on Y_1 ∪ Y_2), of which the disjoint case is this lemma.
 
-**Review note.** Checked ThomasonTrobaugh.1990 Proof of Theorem 10.3, (10.3.9) (p. 385); ThomasonTrobaugh.1990 Corollary 8.1.4 (p. 368). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread ThomasonTrobaugh.1990 Proof of Theorem 10.3, (10.3.9) (p. 385); ThomasonTrobaugh.1990 Corollary 8.1.4 (p. 368). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -10230,14 +10234,14 @@ Let R be a commutative ring and s ∈ R, X = Spec R, Z = V(s), S = {s^n}. Under 
 
 **Acceptance conditions.**
 
-- For a nonzerodivisor s in regular R, the supported category agrees with coherent modules on R/s, by regular dévissage.
+- For a nonzerodivisor s in regular noetherian R, dévissage identifies the supported K-theory spectrum with G(R/s); it does not identify the supported perfect category with Coh(R/s). If R/s is regular, its Cartan comparison also gives K(R/s).
 - The nonconnective fibre is K(X on V(s)); its connective cover agrees with the bounded-projective support model. In the connective localisation sequence the target space is the cover of K(R[1/s]) selected by im(K₀(R)→K₀(R[1/s])); a full connective spectrum fibre sequence is not asserted.
 
 **Source locators.**
 
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Theorem V.2.6.3 (PDF p. 390). The ring-level sequence identified with the affine case.
 
-**Review note.** The connective support category is the connective cover of the nonconnective fibre; retained the K₀-image cover in the connective localisation statement.
+**Review note.** Independently reread Kbook.2013 Theorem V.2.6.3 (PDF p. 390). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs. Correction: Replace the false categorical identification with the K-theory dévissage equivalence; supported perfect complexes are not the coherent category of R/s.
 
 -/
 
@@ -10279,7 +10283,7 @@ Let X be a quasi-compact quasi-separated scheme with an ample family of line bun
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Exercise V.3.16 (PDF p. 407). The proof route (an exercise with hints).
 - [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), Exercise 5.7 (p. 350). The general regular-immersion version (continued: the additional global Tor-dimension bound k); this node uses k = 1.
 
-**Review note.** Checked Kbook.2013 Corollary V.7.6.1 (PDF p. 433); Kbook.2013 Exercise V.3.16 (PDF p. 407). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread Kbook.2013 Corollary V.7.6.1 (PDF p. 433); Kbook.2013 Exercise V.3.16 (PDF p. 407); ThomasonTrobaugh.1990 Exercise 5.7 (p. 350). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -10344,7 +10348,7 @@ For a noetherian scheme X and a closed subset Z ⊆ X, Coh_Z(X) is the full subc
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Example V.6.11 (PDF p. 423). The definition.
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Application II.6.4.2 (PDF p. 129). The Serre property.
 
-**Review note.** Checked Kbook.2013 Example V.6.11 (PDF p. 423); Kbook.2013 Application II.6.4.2 (PDF p. 129). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps. Reviewed all API roles and discriminating examples; unavailable Lean carriers remain explicit omissions.
+**Review note.** Independently reread Kbook.2013 Example V.6.11 (PDF p. 423); Kbook.2013 Application II.6.4.2 (PDF p. 129). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs. Checked API use cases and the discriminating test specifications; these are mathematical specifications, not execution receipts.
 
 -/
 
@@ -10382,7 +10386,7 @@ Let X be a noetherian scheme, Z ⊆ X closed and j: U = X ∖ Z → X. Restricti
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Application II.6.4.2 (PDF p. 129). The statement (attributed to Gabriel).
 - [Stacks.Properties](https://stacks.math.columbia.edu/download/properties.pdf), Lemma 28.23.2 (tag 01PF). The extension of coherent sheaves used for essential surjectivity (X qcqs, U quasi-compact).
 
-**Review note.** Checked Kbook.2013 Application II.6.4.2 (PDF p. 129); Stacks.Properties Lemma 28.23.2 (tag 01PF). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread Kbook.2013 Application II.6.4.2 (PDF p. 129); Stacks.Properties Lemma 28.23.2 (tag 01PF). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -10419,7 +10423,7 @@ Let X be noetherian, Z ⊆ X closed, and i: Z → X any closed subscheme with un
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Exercise V.4.3 (PDF p. 410). The statement (an exercise; the proof is the dévissage argument of Application V.4.4).
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Application V.4.4 (PDF p. 409). The affine case, from which the scheme case follows as stated.
 
-**Review note.** Checked Kbook.2013 Exercise V.4.3 (PDF p. 410); Kbook.2013 Application V.4.4 (PDF p. 409). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread Kbook.2013 Exercise V.4.3 (PDF p. 410); Kbook.2013 Application V.4.4 (PDF p. 409). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -10463,7 +10467,7 @@ Let X be a noetherian scheme, i: Z → X a closed subscheme and j: U = X ∖ Z �
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Example V.6.11 (PDF p. 424). The module structure.
 - [Quillen.1973](https://www.sas.rochester.edu/mth/sites/doug-ravenel/otherpapers/Quillen-Higher-I.pdf), §7, 3.2 and Proposition 3.1 context (printed p. 120). Quillen's own derivation of the G-theory localisation sequence from his localisation theorem.
 
-**Review note.** Checked Kbook.2013 Example V.6.11 (PDF p. 423); Kbook.2013 Example V.6.11 (PDF p. 424). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread Kbook.2013 Example V.6.11 (PDF p. 423); Kbook.2013 Example V.6.11 (PDF p. 424); Quillen.1973 §7, 3.2 and Proposition 3.1 context (printed p. 120). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 **Planet:** Quillen's localisation sequence.
 
@@ -10508,7 +10512,7 @@ Let X be a noetherian scheme, Z ⊆ X closed, U = X ∖ Z. The Cartan maps K(X) 
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Remark V.7.6.2 (PDF p. 433). The regular case of the comparison, via the G-theory sequence.
 - [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), Theorem 3.21 (p. 328). Poincaré duality, for X quasi-compact with all local rings of finite Tor-dimension on finitely presented modules (e.g. regular noetherian), used on X and U.
 
-**Review note.** Checked Kbook.2013 Remark V.7.6.2 (PDF p. 433); ThomasonTrobaugh.1990 Theorem 3.21 (p. 328). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread Kbook.2013 Remark V.7.6.2 (PDF p. 433); ThomasonTrobaugh.1990 Theorem 3.21 (p. 328). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -10557,7 +10561,7 @@ Let X be a regular noetherian scheme and Z ⊆ X closed. Then K(X on Z) ≃ G(Z)
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Exercise III.4.4 (PDF p. 223). K_{−1} of a one-dimensional noetherian ring with finite normalisation R̃ and conductor I (Bass–Murthy), used for the node non-example: r = 1.
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Example I.3.10.2 (PDF p. 34). The node used as the non-example.
 
-**Review note.** Checked Kbook.2013 Remark V.7.6.2 (PDF p. 433); Kbook.2013 Exercise III.4.4 (PDF p. 223). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread Kbook.2013 Remark V.7.6.2 (PDF p. 433); Kbook.2013 Exercise III.4.4 (PDF p. 223); Kbook.2013 Example I.3.10.2 (PDF p. 34). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 **Planet:** Regular dévissage.
 
@@ -10602,7 +10606,7 @@ Let R be a commutative noetherian ring and s ∈ R, with localisation sequence �
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Exercise V.5.1 (PDF p. 413). The general boundary formula, an exercise with the hint recorded in the proof steps (a gap in the source).
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Exercise IV.7.9 (PDF pp. 340-341). The comparison of the automorphism class in π_2 BQ with the GL class.
 
-**Review note.** Checked Kbook.2013 Example V.6.1.2 (PDF p. 414); Kbook.2013 Exercise V.5.1 (PDF p. 413). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread Kbook.2013 Example V.6.1.2 (PDF p. 414); Kbook.2013 Exercise V.5.1 (PDF p. 413); Kbook.2013 Exercise IV.7.9 (PDF pp. 340-341). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -10639,7 +10643,7 @@ Let (X_i) be a filtered projective system of noetherian schemes with affine flat
 
 - [Quillen.1973](https://www.sas.rochester.edu/mth/sites/doug-ravenel/otherpapers/Quillen-Higher-I.pdf), §7, Proposition 2.2 (printed p. 117). The statement (scan text normalised: the subscripts and the colimit arrows are as printed); the second clause is the G-theory case.
 
-**Review note.** Checked Quillen.1973 §7, Proposition 2.2 (printed p. 117). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread Quillen.1973 §7, Proposition 2.2 (printed p. 117). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -10710,7 +10714,7 @@ For a commutative ring A, λ_A: A^× → K_1(Spec A) = π_1 K(Spec A) sends u to
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Exercise IV.7.9 (PDF p. 340). The π_2 BQ representative of an automorphism class; part (c) of the exercise compares it with the GL class used here.
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Definition IV.1.1 (PDF p. 268). The plus construction and the map GL(R) = π_1BGL(R) → π_1BGL(R)^+ through which λ is defined; its bijectivity onto GL/E is the part owned by KTheoryLowDegrees U.6 and not used.
 
-**Review note.** Checked Kbook.2013 Exercise IV.7.9 (PDF p. 340); Kbook.2013 Definition IV.1.1 (PDF p. 268). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps. Reviewed all API roles and discriminating examples; unavailable Lean carriers remain explicit omissions.
+**Review note.** Independently reread Kbook.2013 Exercise IV.7.9 (PDF p. 340); Kbook.2013 Definition IV.1.1 (PDF p. 268). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs. Checked API use cases and the discriminating test specifications; these are mathematical specifications, not execution receipts.
 
 -/
 
@@ -10755,7 +10759,7 @@ Let O be a discrete valuation ring with fraction field L, residue field k and cl
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Gersten's DVR Conjecture 6.9 (PDF p. 421). The sequence.
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Dedekind domains, (6.6) (PDF p. 417). Regularity reduces the K-sequence to the G-sequence (the source's 'and' is 'are').
 
-**Review note.** Checked Kbook.2013 Gersten's DVR Conjecture 6.9 (PDF p. 421); Kbook.2013 Dedekind domains, (6.6) (PDF p. 417). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread Kbook.2013 Gersten's DVR Conjecture 6.9 (PDF p. 421); Kbook.2013 Dedekind domains, (6.6) (PDF p. 417). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -10830,7 +10834,7 @@ For a discrete valuation ring O with fraction field L and residue field k, ∂_S
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Gersten's DVR Conjecture 6.9 (PDF p. 421). The boundary ∂ of the DVR sequence.
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Proof of Theorem V.6.9.1 (PDF p. 422). The normalisation on a parameter.
 
-**Review note.** Checked Kbook.2013 Gersten's DVR Conjecture 6.9 (PDF p. 421); Kbook.2013 Proof of Theorem V.6.9.1 (PDF p. 422). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps. Reviewed all API roles and discriminating examples; unavailable Lean carriers remain explicit omissions.
+**Review note.** Independently reread Kbook.2013 Gersten's DVR Conjecture 6.9 (PDF p. 421); Kbook.2013 Proof of Theorem V.6.9.1 (PDF p. 422). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs. Checked API use cases and the discriminating test specifications; these are mathematical specifications, not execution receipts.
 
 **Planet:** Valuation boundary of a DVR.
 
@@ -10884,7 +10888,7 @@ Let O be a discrete valuation ring with fraction field L, residue field k and no
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Example V.6.1.2 (PDF p. 414). The boundary of a nonzero element of a domain, the step that computes ∂λ(a).
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), V.6.6 (PDF p. 417). The divisor (valuation) description of the degree-one boundary.
 
-**Review note.** Checked Kbook.2013 Proof of Theorem V.6.9.1 (PDF p. 422); Kbook.2013 Example V.6.1.2 (PDF p. 414). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread Kbook.2013 Proof of Theorem V.6.9.1 (PDF p. 422); Kbook.2013 Example V.6.1.2 (PDF p. 414); Kbook.2013 V.6.6 (PDF p. 417). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -10926,7 +10930,7 @@ Let O be a DVR with fraction field L, residue field k, and u ∈ O^× with resid
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), V.6.6.1 (PDF p. 417). The computation on {π, u} (the source's 'in' is 'is'); the node extends it to {f, u} and records the sign for {u, f}.
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), V.6.6.1 (PDF p. 417). The remaining generator, which uses the Steinberg relation {π, −π} = 0 and is therefore left to K2SymbolsBrauer T.3.
 
-**Review note.** Checked Kbook.2013 V.6.6.1 (PDF p. 417); Kbook.2013 V.6.6.1 (PDF p. 417). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread Kbook.2013 V.6.6.1 (PDF p. 417); Kbook.2013 V.6.6.1 (PDF p. 417). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -10989,7 +10993,7 @@ Let O be a DVR with fraction field L, residue field k and parameter s (a uniform
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), V.6.6.4 (PDF p. 418). The definition.
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), V.6.6.4 (PDF p. 418). The change-of-parameter formula, whose sign the node corrects for even n.
 
-**Review note.** Checked Kbook.2013 V.6.6.4 (PDF p. 418); Kbook.2013 V.6.6.4 (PDF p. 418). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps. Reviewed all API roles and discriminating examples; unavailable Lean carriers remain explicit omissions.
+**Review note.** Independently reread Kbook.2013 V.6.6.4 (PDF p. 418); Kbook.2013 V.6.6.4 (PDF p. 418). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs. Checked API use cases and the discriminating test specifications; these are mathematical specifications, not execution receipts.
 
 -/
 
@@ -11024,7 +11028,7 @@ Let O be a DVR with fraction field L, residue field k, parameter s, j: O → L a
 
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Lemma V.6.7.3 and its proof (PDF pp. 419-420). The statement; the proof is the one-line linearity computation reproduced in the node.
 
-**Review note.** Checked Kbook.2013 Lemma V.6.7.3 and its proof (PDF pp. 419-420). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread Kbook.2013 Lemma V.6.7.3 and its proof (PDF pp. 419-420). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -11062,7 +11066,7 @@ Let k be an algebraically closed field and A a commutative k-algebra (A ≠ 0). 
 
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Corollary V.6.7.4 (PDF p. 420). The corrected nonzero-algebra statement; the printed missing hypothesis is recorded in E41.
 
-**Review note.** Checked Kbook.2013 Corollary V.6.7.4 (PDF p. 420). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread Kbook.2013 Corollary V.6.7.4 (PDF p. 420). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -11113,7 +11117,7 @@ Let X be a noetherian integral scheme with function field F, U ⊆ X a nonempty 
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), V.9.1 (PDF p. 443). The length formula for the degree-one boundary.
 - [Quillen.1973](https://www.sas.rochester.edu/mth/sites/doug-ravenel/otherpapers/Quillen-Higher-I.pdf), §7, Lemma 5.16 (printed p. 128). Quillen's statement for an equicharacteristic one-dimensional local domain (scan text normalised); his proof uses the equicharacteristic hypothesis, which the route through Example V.6.1.2 avoids.
 
-**Review note.** Checked Kbook.2013 V.9.1 (PDF p. 443); Quillen.1973 §7, Lemma 5.16 (printed p. 128). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread Kbook.2013 V.9.1 (PDF p. 443); Quillen.1973 §7, Lemma 5.16 (printed p. 128). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -11153,7 +11157,7 @@ Let p: X' → X be a finite morphism of noetherian schemes, Z ⊆ X closed, Z' =
 
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), V.6.6.3 (PDF p. 418). The statement for Dedekind domains, with the diagram (6.6.4).
 
-**Review note.** Checked Kbook.2013 V.6.6.3 (PDF p. 418). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread Kbook.2013 V.6.6.3 (PDF p. 418). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -11202,14 +11206,14 @@ Let R be a Dedekind domain with fraction field F. Then there is a long exact seq
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), (6.6) (PDF p. 417). The sequence.
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), V.6.6 (PDF p. 417). The degree-one end: the boundary is the divisor map.
 
-**Review note.** Checked Kbook.2013 (6.6) (PDF p. 417); Kbook.2013 V.6.6 (PDF p. 417). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread Kbook.2013 (6.6) (PDF p. 417); Kbook.2013 V.6.6 (PDF p. 417). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
 /-!
 ### The localisation sequence of a one-dimensional noetherian scheme
 
-**Id:** `SchemeKTheoryOperations:S.3/one-dimensional-localisation-sequence`. **Kind:** application. **Review:** corrected. Implementation unchecked.
+**Id:** `SchemeKTheoryOperations:S.3/one-dimensional-localisation-sequence`. **Kind:** application. **Review:** verified. Implementation unchecked.
 
 Let Y be a noetherian scheme of dimension one, with closed points y and generic points η (finitely many). Then there is a long exact sequence ⋯ → ⊕_{y} K_n(k(y)) →⊕(i_y)_* G_n(Y) → ⊕_η K_n(k(η)) →∂ ⊕_y K_{n−1}(k(y)) → ⋯ ending in ⊕_y ℤ → G_0(Y) → ⊕_η ℤ → 0 (sums over closed points y that are not generic, and over generic points η, with G_n(O_{Y,η}) ≅ K_n(k(η)) by dévissage over the artinian local ring). If Y is an integral curve over a field k with function field F, this is ⋯ → ⊕_x K_n(k(x)) → G_n(Y) → K_n(F) →∂ ⊕_x K_{n−1}(k(x)) → ⋯ over the closed points (K-book 6.12), with ∂'s x-component the DVR boundary of O_{Y,x} when Y is regular (then K = G), and in general the boundary of the one-dimensional local domain O_{Y,x} (degree one: the length order ord_x).
 
@@ -11247,7 +11251,7 @@ Let Y be a noetherian scheme of dimension one, with closed points y and generic 
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Smooth Curves 6.12 (PDF p. 424). The curve case.
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Exercise V.6.1 (PDF p. 426). The one-dimensional (possibly singular) affine case.
 
-**Review note.** Added the two-branch characteristic hypothesis to the nodal example.
+**Review note.** Independently reread Kbook.2013 Smooth Curves 6.12 (PDF p. 424); Kbook.2013 Exercise V.6.1 (PDF p. 426). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -11284,14 +11288,14 @@ Let X be a projective curve over a field k (integral, dimension one, proper over
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Weil Reciprocity Formula 6.12.1 (PDF p. 424). The statement (the rendered formula is Σ_{x∈X} N_{k(x)/k}∂_x(a) = 0).
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Proof of 6.12.1 (PDF p. 425). The proof.
 
-**Review note.** Checked Kbook.2013 Weil Reciprocity Formula 6.12.1 (PDF p. 424); Kbook.2013 Proof of 6.12.1 (PDF p. 425). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread Kbook.2013 Weil Reciprocity Formula 6.12.1 (PDF p. 424); Kbook.2013 Proof of 6.12.1 (PDF p. 425). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
 /-!
 ### Localisation on a regular arithmetic surface, with its codimension-two terms
 
-**Id:** `SchemeKTheoryOperations:S.3/arithmetic-surface-localisation`. **Kind:** application. **Review:** corrected. Implementation unchecked.
+**Id:** `SchemeKTheoryOperations:S.3/arithmetic-surface-localisation`. **Kind:** application. **Review:** verified. Implementation unchecked.
 
 Let B = Spec A with A a Dedekind domain (for example O_{F,S}) and p: 𝓧 → B a flat finite-type dominant morphism with 𝓧 an integral regular noetherian scheme of dimension two and every nonempty closed fibre pure of dimension one (for example a regular proper flat model of a curve over F). For a finite set V of closed points of B, U = B ∖ V and 𝓧_v = p^{-1}(v): (a) there is a fibre sequence ∏_{v∈V} G(𝓧_v) → K(𝓧) → K(𝓧_U), i.e. K(𝓧 on 𝓧_V) ≃ ⊕_{v∈V} G(𝓧_v); (b) passing to the colimit over V (continuity), K_n(𝓧) → K_n(𝓧_F) →∂ ⊕_{v} G_{n−1}(𝓧_v) → K_{n−1}(𝓧) → ⋯ with 𝓧_F the generic fibre, in particular K_2(𝓧) → K_2(𝓧_F) → ⊕_v G_1(𝓧_v); (c) the codimension-two terms are retained: for each v, S.3/one-dimensional-localisation-sequence for the curve 𝓧_v gives ⊕_{x∈𝓧_v closed} K_1(k(x)) → G_1(𝓧_v) → ⊕_{C} K_1(k(C)) →∂ ⊕_x K_0(k(x)) → G_0(𝓧_v) → ⊕_C ℤ → 0 over the irreducible components C (generic points c) of 𝓧_v, and G_1(𝓧_v) is not replaced by ⊕_C k(C)^×: its kernel term ⊕_x k(x)^× (each summand finite when its residue field is finite; their direct sum need not be finite) and the cokernel term ⊕_x ℤ are part of the statement.
 
@@ -11326,14 +11330,14 @@ Let B = Spec A with A a Dedekind domain (for example O_{F,S}) and p: 𝓧 → B 
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Example V.6.11 (PDF p. 423). The localisation sequence used for the union of closed fibres, with Z = 𝓧_V.
 - [Quillen.1973](https://www.sas.rochester.edu/mth/sites/doug-ravenel/otherpapers/Quillen-Higher-I.pdf), §7, Proposition 2.2 (printed p. 117). The passage to the generic fibre (scan text normalised).
 
-**Review note.** Rational vacuity at good reduction requires a proper smooth fibre over a finite field.
+**Review note.** Independently reread Kbook.2013 Example V.6.11 (PDF p. 423); Quillen.1973 §7, Proposition 2.2 (printed p. 117). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
 /-!
 ### Vertical residues are local DVR boundaries
 
-**Id:** `SchemeKTheoryOperations:S.3/vertical-residue-compatibility`. **Kind:** lemma. **Review:** corrected. Implementation unchecked.
+**Id:** `SchemeKTheoryOperations:S.3/vertical-residue-compatibility`. **Kind:** lemma. **Review:** verified. Implementation unchecked.
 
 In the setting of S.3/arithmetic-surface-localisation, let C be an irreducible component of a closed fibre 𝓧_v with generic point c (a point of codimension one of 𝓧, so O_{𝓧,c} is a DVR with fraction field k(𝓧) and residue field k(C)). Then the composite K_n(𝓧_U) → G_{n−1}(𝓧_v) → G_{n−1}(O_{𝓧_v, c}) ≅ K_{n−1}(k(C)) (boundary, then restriction to the local scheme at c and dévissage) equals ∂_c ∘ res, where res: K_n(𝓧_U) → K_n(k(𝓧)) is restriction to the generic point and ∂_c is the DVR boundary of O_{𝓧,c} (S.3/dvr-boundary). In degree n = 1 and 2 this identifies the vertical residues of EllipticKTheory E.6: for α ∈ K_2(𝓧_F), ∂_C(α) is ∂_c of α viewed in K_2(k(𝓧)).
 
@@ -11367,7 +11371,7 @@ In the setting of S.3/arithmetic-surface-localisation, let C be an irreducible c
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), V.6.6.1 (PDF p. 417). The same localisation argument for a Dedekind domain; the node applies it at the codimension-one point c of the surface.
 - [Quillen.1973](https://www.sas.rochester.edu/mth/sites/doug-ravenel/otherpapers/Quillen-Higher-I.pdf), §7, 3.4 (printed p. 120). The flat naturality used (scan text normalised).
 
-**Review note.** Required v∈V and qualified the rational arithmetic criterion; a direct sum of finite units is torsion, not finite.
+**Review note.** Independently reread Kbook.2013 V.6.6.1 (PDF p. 417); Quillen.1973 §7, 3.4 (printed p. 120). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -11408,7 +11412,7 @@ Let X be quasi-separated, U, V ⊆ X quasi-compact opens and Z ⊆ U ∪ V close
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Corollary V.7.10 (PDF pp. 435-436). The K-book's statement (the square K^B(X) → K^B(U), K^B(V) → K^B(U ∩ V) is homotopy cartesian).
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Example V.10.3 (PDF p.451, draft p.443). Explains the connective-spectrum obstruction through the cokernel of the K₀ restrictions. The explicit nodal-cover rank calculation is supplied here; the source does not identify the doubled affine plane as a counterexample.
 
-**Review note.** Checked ThomasonTrobaugh.1990 Theorem 8.1 (p. 367); ThomasonTrobaugh.1990 Proof of 8.1 (p. 367). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread ThomasonTrobaugh.1990 Theorem 8.1 (p. 367); ThomasonTrobaugh.1990 Proof of 8.1 (p. 367); Kbook.2013 Corollary V.7.10 (PDF pp. 435-436); Kbook.2013 Example V.10.3 (PDF p.451, draft p.443). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -11444,14 +11448,14 @@ Let X be a noetherian scheme and U, V ⊆ X opens with X = U ∪ V. Then G(X) �
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Mayer-Vietoris Sequences 6.11.2 (PDF p. 424). The statement and proof.
 - [Quillen.1973](https://www.sas.rochester.edu/mth/sites/doug-ravenel/otherpapers/Quillen-Higher-I.pdf), §7, 3.5 (printed p. 120). Quillen's version (for any two opens U, V of X, with U ∪ V in the middle term).
 
-**Review note.** Checked Kbook.2013 Mayer-Vietoris Sequences 6.11.2 (PDF p. 424); Quillen.1973 §7, 3.5 (printed p. 120). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread Kbook.2013 Mayer-Vietoris Sequences 6.11.2 (PDF p. 424); Quillen.1973 §7, 3.5 (printed p. 120). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
 /-!
 ### The Zariski Mayer–Vietoris property of a presheaf of spectra
 
-**Id:** `SchemeKTheoryOperations:S.4/mayer-vietoris-property`. **Kind:** definition. **Review:** corrected. Implementation unchecked.
+**Id:** `SchemeKTheoryOperations:S.4/mayer-vietoris-property`. **Kind:** definition. **Review:** verified. Implementation unchecked.
 
 Let X be a scheme (or a noetherian topological space). A presheaf of spectra F on the opens of X (valued in StableHomotopyKTheory H.5's spectra) has the Mayer–Vietoris property (for the Zariski topology) if for all opens U, V ⊆ X the square F(U ∪ V) → F(U), F(V) → F(U ∩ V) is homotopy cartesian, and F(∅) ≃ 0 (K-book V.10.1). For a noetherian scheme it suffices to ask this for quasi-compact opens. The Nisnevich variant asks the same for every elementary distinguished square of S.4/nisnevich-site (K-book V.10.9), which contains the Zariski one (take the square of an open cover X = U ∪ V). On a qcqs scheme the variant used here is on its basis of quasi-compact opens, whose finite unions and intersections are quasi-compact; this avoids asserting the supported K construction on arbitrary non-quasi-compact opens.
 
@@ -11507,14 +11511,14 @@ Let X be a scheme (or a noetherian topological space). A presheaf of spectra F o
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Definition V.10.1 (PDF p. 451). The definition.
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Definition V.10.9 (PDF p. 456). The Nisnevich variant.
 
-**Review note.** Specified the qc-open basis and nonconnective K in the Mayer–Vietoris examples. Reviewed all API roles and discriminating examples; unavailable Lean carriers remain explicit omissions.
+**Review note.** Independently reread Kbook.2013 Definition V.10.1 (PDF p. 451); Kbook.2013 Definition V.10.9 (PDF p. 456). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs. Checked API use cases and the discriminating test specifications; these are mathematical specifications, not execution receipts.
 
 -/
 
 /-!
 ### The Brown–Gersten vanishing lemma
 
-**Id:** `SchemeKTheoryOperations:S.4/brown-gersten-vanishing`. **Kind:** lemma. **Review:** verified. Implementation unchecked.
+**Id:** `SchemeKTheoryOperations:S.4/brown-gersten-vanishing`. **Kind:** lemma. **Review:** corrected. Implementation unchecked.
 
 Let X be a noetherian topological space of finite Krull dimension and F a presheaf of spectra on X with the Mayer–Vietoris property (S.4/mayer-vietoris-property). If every presheaf of homotopy groups π_qF has zero associated sheaf, then π_qF(X) = 0 for all q (K-book Proposition V.10.8, Brown–Gersten).
 
@@ -11531,10 +11535,11 @@ Let X be a noetherian topological space of finite Krull dimension and F a preshe
 
 **Proof route.**
 
-- Prove by induction on d ≥ 0: for all opens X' ⊆ X, all q and a ∈ π_qF(X') there is an open U ⊆ X' with a|_U = 0 and codim_X(X ∖ U) ≥ d; for d > dim X this gives a = 0.
-- d = 0: U = ∅ (F(∅) ≃ 0).
-- Step: with a|_U = 0 and Z = X ∖ U of codimension ≥ d, the generic points x_1, …, x_n of Z of codimension d have a neighbourhood V with a|_V = 0 (the sheaf a(π_qF) vanishes) and X ∖ V of codimension ≥ d.
-- Mayer–Vietoris: if a|_{U∪V} ≠ 0 then a|_{U∪V} = ∂(z) for z ∈ π_{q+1}F(U ∩ V); by induction z|_W = 0 on an open W ⊆ U ∩ V with complement of codimension ≥ d; remove from V the closure Y of the generic points of (U ∩ V) ∖ W to get V' ∋ x_i with U ∩ V' ⊆ W; then a|_{U∪V'} = ∂(z|_{U∩V'}) = 0, and U ∪ V' misses no x_i, so its complement has codimension > d.
+- For each d ≥ 0 prove P_d: for every open W ⊆ X, every q and a ∈ π_qF(W), there is an open U ⊆ W with a|_U = 0 and every point of W ∖ U of ambient codimension at least d. The complement is W ∖ U, not X ∖ U. P_0 holds with U empty.
+- Assume P_d and put Z = W ∖ U. Noetherianity gives finitely many generic points of Z of ambient codimension d. Treat them successively. For one such x, sheafwise vanishing gives a neighbourhood V ⊆ W of x with a|_V = 0. Remove the closures of the other codimension-d generic points from V, so V contains only the chosen one among them.
+- Mayer–Vietoris gives a|_{U∪V} = ∂z for some z ∈ π_{q+1}F(U∩V). Apply P_d on U∩V to get an open T there with z|_T = 0 and C = (U∩V) ∖ T of ambient codimension at least d. The closure of C in W cannot contain x: C has finitely many generic points, and a proper generalization of x has ambient codimension strictly less than d, whereas x itself is outside U.
+- Set V′ = V ∖ closure_W(C). Then x ∈ V′ and U∩V′ ⊆ T, so naturality of the boundary gives a|_{U∪V′} = 0. Replace U by U∪V′ and repeat for the remaining codimension-d generic points. The new complement has codimension at least d+1. This proves P_{d+1}.
+- For d greater than dim X the complement is empty, hence a = 0. This repairs the shorthand in K-book V.10.8; it does not change the Brown–Gersten theorem.
 
 **Acceptance conditions.**
 
@@ -11543,16 +11548,16 @@ Let X be a noetherian topological space of finite Krull dimension and F a preshe
 
 **Source locators.**
 
-- [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Proposition V.10.8 (PDF p. 455). The statement; the induction on codimension is reproduced in the proof steps.
+- [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Proposition V.10.8 (PDF p. 455). The vanishing statement; E54 records the ambient-open defect in the printed shorthand. The node gives a repaired finite-codimension induction.
 
-**Review note.** Checked Kbook.2013 Proposition V.10.8 (PDF p. 455). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread Kbook.2013 Proposition V.10.8 (PDF p. 455). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs. Correction: Repair the induction on the complement inside the varying open, and efface the codimension-d generic points one at a time. Do not require a single neighbourhood to annihilate a at every generic point.
 
 -/
 
 /-!
 ### The Nisnevich site and elementary distinguished squares
 
-**Id:** `SchemeKTheoryOperations:S.4/nisnevich-site`. **Kind:** definition. **Review:** corrected. Implementation unchecked.
+**Id:** `SchemeKTheoryOperations:S.4/nisnevich-site`. **Kind:** definition. **Review:** verified. Implementation unchecked.
 
 For any scheme X, use the finitely presented étale X-schemes as a basis for the small Nisnevich site. A family covers U iff every x∈U lifts to some component with residue field isomorphic to κ(x). On qcqs schemes the site is generated by finite Zariski covers and elementary distinguished squares U×_X V→V, U→X: U is a quasi-compact open, V→X finitely presented étale, and V×_X(X∖U)_red→(X∖U)_red is an isomorphism. TT E.5 gives a conservative family of points indexed by x and finite étale residue-field extensions k′/κ(x), represented by the corresponding finite unramified extension of O^h_{X,x}. Ordinary henselizations occur for the trivial extension; strict henselizations are different objects.
 
@@ -11618,7 +11623,7 @@ For any scheme X, use the finitely presented étale X-schemes as a basis for the
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), V.10, Nisnevich descent (PDF p. 456). The generation statement (the K-book uses the big site of schemes of finite type; the small site is used here).
 - [Hoyois.2016](https://hoyois.app.uni-regensburg.de/papers/allagree.pdf), Complete note, one page. Extends the splitting-sequence/topology-generation argument from Noetherian to qcqs schemes.
 
-**Review note.** A field cover needs a residue-isomorphic component, not an isomorphism of an entire member. Reviewed all API roles and discriminating examples; unavailable Lean carriers remain explicit omissions.
+**Review note.** Independently reread ThomasonTrobaugh.1990 Appendix E, E.1 (p. 427); Kbook.2013 V.10, Nisnevich descent (PDF p. 456); Kbook.2013 V.10, Nisnevich descent (PDF p. 456); Hoyois.2016 Complete note, one page. Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs. Checked API use cases and the discriminating test specifications; these are mathematical specifications, not execution receipts.
 
 -/
 
@@ -11659,14 +11664,14 @@ Let X be a noetherian scheme. (a) X_Nis has enough points, given by the henselis
 - [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), Lemma E.6 (p. 428). Parts (c) and (d) (scan text normalised).
 - [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), Lemma E.5(c) (p. 428). The points (scan text normalised).
 
-**Review note.** Checked ThomasonTrobaugh.1990 Lemma E.6 (p. 428); ThomasonTrobaugh.1990 Lemma E.5(c) (p. 428). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread ThomasonTrobaugh.1990 Lemma E.6 (p. 428); ThomasonTrobaugh.1990 Lemma E.5(c) (p. 428). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
 /-!
 ### K-theory takes Nisnevich distinguished squares to homotopy cartesian squares
 
-**Id:** `SchemeKTheoryOperations:S.4/nisnevich-excision-square`. **Kind:** theorem. **Review:** corrected. Implementation unchecked.
+**Id:** `SchemeKTheoryOperations:S.4/nisnevich-excision-square`. **Kind:** theorem. **Review:** verified. Implementation unchecked.
 
 Let X be quasi-compact and quasi-separated and U ⊆ X, p: V → X an elementary distinguished square (S.4/nisnevich-site) with U quasi-compact and V quasi-compact and quasi-separated, and let W ⊆ X be closed with X ∖ W quasi-compact. Then the square K(X on W) → K(U on U ∩ W), K(V on p^{-1}W) → K(U ×_X V on (U ×_X V) ∩ p^{-1}W) of restrictions is homotopy cartesian (nonconnective); in particular K(X) → K(U) × K(V) → K(U ×_X V) is a fibre sequence. Hence U ↦ K(U on U ∩ W) has the Nisnevich Mayer–Vietoris property on qcqs étale X-schemes (K-book Example V.10.10.1, TT 10.8).
 
@@ -11699,7 +11704,7 @@ Let X be quasi-compact and quasi-separated and U ⊆ X, p: V → X an elementary
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Example V.10.10.1 (PDF p. 456). The statement for the nonconnective spectrum.
 - [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), Proof of 10.8 (p. 389). The excision mechanism for étale maps inducing isomorphisms over the closed complement (scan text normalised).
 
-**Review note.** The p-adic completion square uses infinitely-near excision directly, rather than an étale limit.
+**Review note.** Independently reread Kbook.2013 Example V.10.10.1 (PDF p. 456); ThomasonTrobaugh.1990 Proof of 10.8 (p. 389). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -11766,7 +11771,7 @@ Let C be a site whose topos has enough points (the Zariski site of a scheme, the
 - [Thomason.1985](http://www.numdam.org/item/10.24033/asens.1495.pdf), Definition 1.33 (printed p. 452). The definition (scan text normalised).
 - [Thomason.1985](http://www.numdam.org/item/10.24033/asens.1495.pdf), Lemma 1.35 (printed p. 452). The exactness properties used by the descent proofs.
 
-**Review note.** Checked Thomason.1985 Definition 1.33 (printed p. 452); Thomason.1985 Lemma 1.35 (printed p. 452). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps. Reviewed all API roles and discriminating examples; unavailable Lean carriers remain explicit omissions.
+**Review note.** Independently reread Thomason.1985 Definition 1.33 (printed p. 452); Thomason.1985 Lemma 1.35 (printed p. 452). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs. Checked API use cases and the discriminating test specifications; these are mathematical specifications, not execution receipts.
 
 -/
 
@@ -11811,7 +11816,7 @@ Let C be a site with enough points and F a presheaf of fibrant spectra on C. The
 - [Thomason.1985](http://www.numdam.org/item/10.24033/asens.1495.pdf), Proposition 1.36 (printed p. 452). The statement (scan text normalised: the OCR of the display is replaced by the rendered formula).
 - [Thomason.1985](http://www.numdam.org/item/10.24033/asens.1495.pdf), Proposition 1.36 (printed p. 452). The convergence hypotheses (scan text normalised).
 
-**Review note.** Checked Thomason.1985 Proposition 1.36 (printed p. 452); Thomason.1985 Proposition 1.36 (printed p. 452). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread Thomason.1985 Proposition 1.36 (printed p. 452); Thomason.1985 Proposition 1.36 (printed p. 452). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -11882,7 +11887,7 @@ For a qcqs scheme X and a closed Y ⊆ X with quasi-compact complement, 𝒦_n^{
 - [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), Remark 10.9 (p. 390). The Nisnevich stalks are henselian local rings.
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), V.9.8 (PDF p. 449). The K-book's definition.
 
-**Review note.** Checked ThomasonTrobaugh.1990 Remark 10.4 (p. 386); ThomasonTrobaugh.1990 Remark 10.9 (p. 390). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps. Reviewed all API roles and discriminating examples; unavailable Lean carriers remain explicit omissions.
+**Review note.** Independently reread ThomasonTrobaugh.1990 Remark 10.4 (p. 386); ThomasonTrobaugh.1990 Remark 10.9 (p. 390); Kbook.2013 V.9.8 (PDF p. 449). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs. Checked API use cases and the discriminating test specifications; these are mathematical specifications, not execution receipts.
 
 -/
 
@@ -11945,7 +11950,7 @@ Let X be a noetherian scheme of finite Krull dimension d and Y ⊆ X closed. For
 
 - [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), (10.3.5) (p. 384). The definition (scan text normalised).
 
-**Review note.** Checked ThomasonTrobaugh.1990 (10.3.5) (p. 384). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps. Reviewed all API roles and discriminating examples; unavailable Lean carriers remain explicit omissions.
+**Review note.** Independently reread ThomasonTrobaugh.1990 (10.3.5) (p. 384). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs. Checked API use cases and the discriminating test specifications; these are mathematical specifications, not execution receipts.
 
 -/
 
@@ -11987,7 +11992,7 @@ In the setting of S.4/codimension-support-filtration there is a homotopy fibre s
 - [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), (10.3.6)-(10.3.7) (p. 384). The statement, with F(x) = K^B(Spec(O_{X,x}) on x) (scan text normalised).
 - [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), Proof of 10.3, (10.3.11) (p. 385). The passage to local rings by excision and continuity (scan text normalised).
 
-**Review note.** Checked ThomasonTrobaugh.1990 (10.3.6)-(10.3.7) (p. 384); ThomasonTrobaugh.1990 Proof of 10.3, (10.3.11) (p. 385). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread ThomasonTrobaugh.1990 (10.3.6)-(10.3.7) (p. 384); ThomasonTrobaugh.1990 Proof of 10.3, (10.3.11) (p. 385). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -12032,7 +12037,7 @@ Let X be a noetherian scheme of finite Krull dimension (more generally a scheme 
 - [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), 10.1 (p. 382). The hypothesis.
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Theorem V.10.2 (PDF p. 451). The Brown–Gersten characterisation, the alternative route.
 
-**Review note.** Checked ThomasonTrobaugh.1990 Theorem 10.3 (p. 383); ThomasonTrobaugh.1990 10.1 (p. 382). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread ThomasonTrobaugh.1990 Theorem 10.3 (p. 383); ThomasonTrobaugh.1990 10.1 (p. 382); Kbook.2013 Theorem V.10.2 (PDF p. 451). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 **Planet:** Zariski descent.
 
@@ -12081,7 +12086,7 @@ Let X be a noetherian scheme of Krull dimension d < ∞ and Y ⊆ X closed. Ther
 - [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), 10.2 (p. 382). Grothendieck vanishing, giving strong convergence (scan text normalised).
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Example V.10.12 (PDF p. 457). The K-book's form.
 
-**Review note.** Checked ThomasonTrobaugh.1990 Theorem 10.3, (10.3.2) (p. 383); ThomasonTrobaugh.1990 10.2 (p. 382). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread ThomasonTrobaugh.1990 Theorem 10.3, (10.3.2) (p. 383); ThomasonTrobaugh.1990 10.2 (p. 382); Kbook.2013 Example V.10.12 (PDF p. 457). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 **Planet:** Brown–Gersten–Thomason spectral sequence.
 
@@ -12128,7 +12133,7 @@ Let X be a noetherian scheme of finite Krull dimension and Y ⊆ X a closed subs
 - [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), Theorem 10.8 (p. 388). The statement: K^B(X) ≃ H_Nis(X; K^B( )) and K^B(X on Y) ≃ H_Nis(X; K^B(( ) on ( ) ×_X Y)) (scan text normalised).
 - [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), Proof of 10.8 (p. 388). Convergence.
 
-**Review note.** Checked ThomasonTrobaugh.1990 Theorem 10.8 (p. 388); ThomasonTrobaugh.1990 Proof of 10.8 (p. 388). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread ThomasonTrobaugh.1990 Theorem 10.8 (p. 388); ThomasonTrobaugh.1990 Proof of 10.8 (p. 388). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 **Planet:** Nisnevich descent.
 
@@ -12199,14 +12204,14 @@ Let X be a noetherian scheme of finite Krull dimension and Y ⊆ X closed. The t
 - [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), (10.3.6)-(10.3.7) (p. 384). The layers of the tower (scan text normalised).
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Proof of Proposition V.9.2 (PDF p. 444). The boundedness and convergence argument for such a finite tower.
 
-**Review note.** Checked ThomasonTrobaugh.1990 (10.3.6)-(10.3.7) (p. 384); Kbook.2013 Proof of Proposition V.9.2 (PDF p. 444). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps. Reviewed all API roles and discriminating examples; unavailable Lean carriers remain explicit omissions.
+**Review note.** Independently reread ThomasonTrobaugh.1990 (10.3.6)-(10.3.7) (p. 384); Kbook.2013 Proof of Proposition V.9.2 (PDF p. 444). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs. Checked API use cases and the discriminating test specifications; these are mathematical specifications, not execution receipts.
 
 -/
 
 /-!
 ### Coherent sheaves supported in codimension at least p
 
-**Id:** `SchemeKTheoryOperations:S.4/coherent-codimension-filtration`. **Kind:** definition. **Review:** corrected. Implementation unchecked.
+**Id:** `SchemeKTheoryOperations:S.4/coherent-codimension-filtration`. **Kind:** definition. **Review:** verified. Implementation unchecked.
 
 Let X be a noetherian scheme. For p ≥ 0, M^p(X) is the full subcategory of Coh(X) of coherent sheaves whose support has codimension ≥ p, the codimension of a closed Z being the infimum of dim O_{X,z} over its generic points z (Quillen §7.5). Each M^p(X) is a Serre subcategory, M^0(X) = Coh(X), M^{p+1}(X) ⊆ M^p(X), and M^p(X) = 0 for p > dim X. K(M^p(X)) = colim_Z G(Z) over closed Z of codimension ≥ p (Quillen (5.1)), via S.3/coherent-support-devissage. Flat pullback preserves M^p (Quillen 5.2). For a ring R, M^p(R) consists of the finitely generated modules whose associated primes have height ≥ p (K-book V.9.1).
 
@@ -12265,7 +12270,7 @@ Let X be a noetherian scheme. For p ≥ 0, M^p(X) is the full subcategory of Coh
 - [Quillen.1973](https://www.sas.rochester.edu/mth/sites/doug-ravenel/otherpapers/Quillen-Higher-I.pdf), §7.5 (printed pp. 122-123). The definition (scan text normalised).
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), V.9 (PDF p. 445). The K-book's definition.
 
-**Review note.** Excluded the component intersection from the codimension-one example. Reviewed all API roles and discriminating examples; unavailable Lean carriers remain explicit omissions.
+**Review note.** Independently reread Quillen.1973 §7.5 (printed pp. 122-123); Kbook.2013 V.9 (PDF p. 445). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs. Checked API use cases and the discriminating test specifications; these are mathematical specifications, not execution receipts.
 
 -/
 
@@ -12305,7 +12310,7 @@ Let X be a noetherian scheme and p ≥ 0. The stalk functor F ↦ (F_x)_{x} over
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), V.9 (PDF p. 445). The statement.
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), V.9.1 (PDF p. 443). The affine form.
 
-**Review note.** Checked Kbook.2013 V.9 (PDF p. 445); Kbook.2013 V.9.1 (PDF p. 443). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread Kbook.2013 V.9 (PDF p. 445); Kbook.2013 V.9.1 (PDF p. 443). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -12389,7 +12394,7 @@ Let X be a noetherian scheme of finite Krull dimension. The localisation sequenc
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Proposition V.9.5 (PDF p. 446). The statement (the rendered E_1 term is ⊕_{codim(x)=p} K_{−p−q}(k(x))).
 - [Quillen.1973](https://www.sas.rochester.edu/mth/sites/doug-ravenel/otherpapers/Quillen-Higher-I.pdf), §7, Theorem 5.4 (printed p. 123). Quillen's statement (scan text normalised).
 
-**Review note.** Checked Kbook.2013 Proposition V.9.5 (PDF p. 446); Quillen.1973 §7, Theorem 5.4 (printed p. 123). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps. Reviewed all API roles and discriminating examples; unavailable Lean carriers remain explicit omissions.
+**Review note.** Independently reread Kbook.2013 Proposition V.9.5 (PDF p. 446); Quillen.1973 §7, Theorem 5.4 (printed p. 123). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs. Checked API use cases and the discriminating test specifications; these are mathematical specifications, not execution receipts.
 
 **Planet:** Coniveau spectral sequence.
 
@@ -12430,14 +12435,14 @@ Let f: X' → X be a flat morphism of noetherian schemes of finite Krull dimensi
 - [Quillen.1973](https://www.sas.rochester.edu/mth/sites/doug-ravenel/otherpapers/Quillen-Higher-I.pdf), §7, 5.2-5.3 (printed p. 123). Flat functoriality (scan text normalised); 5.3 is the limit statement.
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Remark V.9.2.2 (PDF p. 444). The K-book's form.
 
-**Review note.** Checked Quillen.1973 §7, 5.2-5.3 (printed p. 123); Kbook.2013 Remark V.9.2.2 (PDF p. 444). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread Quillen.1973 §7, 5.2-5.3 (printed p. 123); Kbook.2013 Remark V.9.2.2 (PDF p. 444). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
 /-!
 ### The first differential of the coniveau spectral sequence is a sum of residues
 
-**Id:** `SchemeKTheoryOperations:S.4/coniveau-residue-differential`. **Kind:** lemma. **Review:** corrected. Implementation unchecked.
+**Id:** `SchemeKTheoryOperations:S.4/coniveau-residue-differential`. **Kind:** lemma. **Review:** verified. Implementation unchecked.
 
 Let X be a noetherian scheme of finite Krull dimension, y ∈ X of codimension p and x ∈ X of codimension p + 1. The component (d_1)_{yx}: K_n(k(y)) → K_{n−1}(k(x)) of d_1: E_1^{p,−p−n} → E_1^{p+1,−p−n} vanishes unless x lies in the closure Y of y. If x ∈ Y (then x has codimension one in Y, the latter with its reduced structure), (d_1)_{yx} is the boundary of the localisation sequence of the one-dimensional local domain O_{Y,x} with fraction field k(y) and residue field k(x) (S.3/one-dimensional-localisation-sequence); when O_{Y,x} is a DVR it is the DVR boundary ∂_S (S.3/dvr-boundary). In particular, for X regular and p = 0 (X integral with function field F), (d_1)_{ηx} = ∂_x: K_n(F) → K_{n−1}(k(x)), the DVR boundary of O_{X,x}.
 
@@ -12469,7 +12474,7 @@ Let X be a noetherian scheme of finite Krull dimension, y ∈ X of codimension p
 - [Quillen.1973](https://www.sas.rochester.edu/mth/sites/doug-ravenel/otherpapers/Quillen-Higher-I.pdf), Proof of Proposition 5.14 (printed p. 128). The closed-immersion step (Quillen's y has codimension p − 1; scan text normalised).
 - [Quillen.1973](https://www.sas.rochester.edu/mth/sites/doug-ravenel/otherpapers/Quillen-Higher-I.pdf), Proof of Proposition 5.14 (printed p. 128). The localisation step (scan text normalised).
 
-**Review note.** Corrected the coniveau row indexing so the source is K_n and the target K_{n−1}.
+**Review note.** Independently reread Quillen.1973 Proof of Proposition 5.14 (printed p. 128); Quillen.1973 Proof of Proposition 5.14 (printed p. 128). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -12508,7 +12513,7 @@ In the setting of S.4/coniveau-residue-differential, for n = 1 the component (d_
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), V.9.1 (PDF p. 443). The formula.
 - [Quillen.1973](https://www.sas.rochester.edu/mth/sites/doug-ravenel/otherpapers/Quillen-Higher-I.pdf), Proof of Proposition 5.14, (5.15) (printed p. 127). The length order (scan text normalised).
 
-**Review note.** Checked Kbook.2013 V.9.1 (PDF p. 443); Quillen.1973 Proof of Proposition 5.14, (5.15) (printed p. 127). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread Kbook.2013 V.9.1 (PDF p. 443); Quillen.1973 Proof of Proposition 5.14, (5.15) (printed p. 127). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -12546,14 +12551,14 @@ Let X be a noetherian scheme of finite Krull dimension. Then d_1 ∘ d_1 = 0 on 
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Proof of Proposition V.9.2 (PDF p. 444). The exact couple whose E_1 differential squares to zero.
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Proposition V.9.2, the E1 page (PDF p. 444). The low-degree rows, including K_2(F) → ⊕ k(x_1)^× → D^2(R) (rendered: the rows of the E_1 page).
 
-**Review note.** Checked Kbook.2013 Proof of Proposition V.9.2 (PDF p. 444); Kbook.2013 Proposition V.9.2, the E1 page (PDF p. 444). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread Kbook.2013 Proof of Proposition V.9.2 (PDF p. 444); Kbook.2013 Proposition V.9.2, the E1 page (PDF p. 444). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
 /-!
 ### The diagonal of the second page is the Chow group
 
-**Id:** `SchemeKTheoryOperations:S.4/coniveau-chow-group`. **Kind:** lemma. **Review:** corrected. Implementation unchecked.
+**Id:** `SchemeKTheoryOperations:S.4/coniveau-chow-group`. **Kind:** lemma. **Review:** verified. Implementation unchecked.
 
 Let X be a noetherian scheme of finite Krull dimension. Then E_2^{p,−p} of the coniveau spectral sequence is CH^p(X) := Z^p(X)/R^p(X), where Z^p(X) is the free abelian group on points of codimension p (Mathlib's AlgebraicCycle, codimension-p part) and R^p(X) is generated by div_Y(f) = Σ_{x∈Y, codim_X(x)=p} ord_x^Y(f)[x] for Y the closure of a point of codimension p − 1 and f ∈ k(Y)^× (K-book Lemma V.9.1.1, Proposition V.9.5; Fulton's rational equivalence in the form of divisors of rational functions on subvarieties). For X pure-dimensional and of finite type over a field this is Fulton's Chow group of codimension-p cycles (K-book Lemma V.9.4.1, whose comparison with the X × P¹ definition is imported from SchemeAndStackFoundations SF.5). For p = 1 and X normal, CH^1(X) is the Weil divisor class group.
 
@@ -12589,14 +12594,14 @@ Let X be a noetherian scheme of finite Krull dimension. Then E_2^{p,−p} of the
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Proposition V.9.5 (PDF p. 446). The identification on the second page.
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Lemma V.9.4.1 (PDF pp. 445-446). The comparison with Fulton's Chow group, whose proof in the source cites Fulton (a comparison invoked without a proof).
 
-**Review note.** Made the ambient-codimension restriction explicit in the divisor relation.
+**Review note.** Independently reread Kbook.2013 Lemma V.9.1.1 (PDF p. 443); Kbook.2013 Proposition V.9.5 (PDF p. 446); Kbook.2013 Lemma V.9.4.1 (PDF pp. 445-446). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
 /-!
 ### For a one-dimensional scheme the coniveau spectral sequence is the localisation sequence
 
-**Id:** `SchemeKTheoryOperations:S.4/one-dimensional-coniveau`. **Kind:** application. **Review:** corrected. Implementation unchecked.
+**Id:** `SchemeKTheoryOperations:S.4/one-dimensional-coniveau`. **Kind:** application. **Review:** verified. Implementation unchecked.
 
 Let X be a noetherian scheme of dimension one. Its coniveau spectral sequence has two columns: E_1^{0,−n} = ⊕_η K_n(k(η)), E_1^{1,−n−1} = ⊕_{x closed, not generic} K_n(k(x)), d_1 = the residue maps ∂ of S.3/one-dimensional-localisation-sequence; hence E_2 = E_∞ and for every n there is a short exact sequence 0 → coker(∂: ⊕_η K_{n+1}(k(η)) → ⊕_x K_n(k(x))) → G_n(X) → ker(∂: ⊕_η K_n(k(η)) → ⊕_x K_{n−1}(k(x))) → 0, whose maps are those of the localisation sequence, with F^1G_n(X) = im(⊕_x (i_x)_*: ⊕_x K_n(k(x)) → G_n(X)). For X regular (a regular curve), G = K. This is the curve case used directly, without Gersten's conjecture: the exact couple is the single localisation sequence of M^1 ⊆ M^0.
 
@@ -12625,14 +12630,14 @@ Let X be a noetherian scheme of dimension one. Its coniveau spectral sequence ha
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), V.9 introduction (PDF p. 443). The one-dimensional case as the prototype of the coniveau spectral sequence.
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Smooth Curves 6.12 (PDF p. 424). The localisation sequence of a curve, which the two-column spectral sequence reproduces.
 
-**Review note.** Qualified the K rather than G curve example by regularity.
+**Review note.** Independently reread Kbook.2013 V.9 introduction (PDF p. 443); Kbook.2013 Smooth Curves 6.12 (PDF p. 424). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
 /-!
 ### For regular schemes the K-theory coniveau is Quillen's coniveau
 
-**Id:** `SchemeKTheoryOperations:S.4/k-coniveau-first-page-regular`. **Kind:** comparison. **Review:** corrected. Implementation unchecked.
+**Id:** `SchemeKTheoryOperations:S.4/k-coniveau-first-page-regular`. **Kind:** comparison. **Review:** verified. Implementation unchecked.
 
 Let X be a regular noetherian scheme of finite Krull dimension. The Cartan maps with supports give an equivalence of towers S^pK(X) ≃ K(M^p(X)) (S.4/codimension-support-filtration against S.4/coherent-codimension-filtration), with layers K(Spec O_{X,x} on x) ≃ K(k(x)); hence the K-theoretic coniveau spectral sequence of S.4/k-coniveau-spectral-sequence is isomorphic, from E_1 on, to Quillen's G-theoretic one (S.4/g-coniveau-spectral-sequence), and its first page is ⊕_{codim x = p} K_{−p−q}(k(x)). This is the identification 'wherever dévissage applies'; it fails for singular X, where K(O_{X,x} on x) ≠ K(k(x)) in general.
 
@@ -12667,7 +12672,7 @@ Let X be a regular noetherian scheme of finite Krull dimension. The Cartan maps 
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Example V.10.12 (PDF p. 457). The regular setting in which the K-theory and G-theory spectral sequences are identified (the sentence refers to the descent spectral sequence; see S.4/descent-coniveau-e2-comparison).
 - [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), Remark 10.6 (p. 386). K = G for regular schemes transports the G-theory constructions (scan text normalised).
 
-**Review note.** Replaced the vague singular example with the ordinary nodal local ring.
+**Review note.** Independently reread Kbook.2013 Example V.10.12 (PDF p. 457); ThomasonTrobaugh.1990 Remark 10.6 (p. 386). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -12728,7 +12733,7 @@ A noetherian scheme X of finite Krull dimension (in particular Spec R for a noet
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Gersten-Quillen Conjecture 9.3 (PDF p. 444). The conjecture; the node's predicate is its conclusion.
 - [Mochizuki.2016](https://arxiv.org/abs/1608.08114), §1, Conjecture 1.4 (p. 2). The conjecture in the local form, with the survey's list of proved cases.
 
-**Review note.** Checked Kbook.2013 Gersten-Quillen Conjecture 9.3 (PDF p. 444); Mochizuki.2016 §1, Conjecture 1.4 (p. 2). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps. Reviewed all API roles and discriminating examples; unavailable Lean carriers remain explicit omissions.
+**Review note.** Independently reread Kbook.2013 Gersten-Quillen Conjecture 9.3 (PDF p. 444); Mochizuki.2016 §1, Conjecture 1.4 (p. 2). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs. Checked API use cases and the discriminating test specifications; these are mathematical specifications, not execution receipts.
 
 -/
 
@@ -12752,6 +12757,7 @@ For a noetherian scheme X of finite Krull dimension the following are equivalent
 **Proof route.**
 
 - (i) ⇒ short exact sequences: if K_nM^{p+1} → K_nM^p vanishes for all n, the localisation sequence of M^{p+1} ⊆ M^p breaks into 0 → K_nM^p → K_n(M^p/M^{p+1}) → K_{n−1}M^{p+1} → 0; splicing them gives the exact Gersten complex (iii), and the E_1 page is exact except in column 0, giving (ii).
+- (ii) ⇒ (iii): E₂ is the homology of each d₁ row of E₁. Its vanishing in positive columns gives exactness there; the edge isomorphism identifies G_n(X) with the kernel in column zero. Thus the augmented Gersten row is exact.
 - (iii) ⇒ (i): descending induction on p using the long exact sequences (the D_1-maps are determined by the E_1 page and the abutment); Quillen: a deduction from the construction of spectral sequence 5.5
 - For regular R, G = K (S.3/cartan-localisation-comparison).
 
@@ -12765,7 +12771,7 @@ For a noetherian scheme X of finite Krull dimension the following are equivalent
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), V.9.3 (PDF p. 445). The consequence (i) ⇒ (iii).
 - [Mochizuki.2016](https://arxiv.org/abs/1608.08114), §1, Proposition 1.3 (p. 2). The equivalence of the conditions as stated in the survey (item 3 of Proposition 1.3; items 1-2 are the E_2 and complex forms).
 
-**Review note.** The equivalent-condition theorem does not prove Gersten for arbitrary mixed-characteristic DVRs.
+**Review note.** Independently reread Kbook.2013 V.9.3 (PDF p. 445); Mochizuki.2016 §1, Proposition 1.3 (p. 2). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs. Correction: Include the missing (ii) ⇒ (iii) implication by identifying the positive-column E₂ groups with Gersten-row homology and the edge map with the augmentation.
 
 -/
 
@@ -12809,7 +12815,7 @@ Let X be a regular noetherian scheme of finite Krull dimension whose local rings
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Proposition V.9.8.1 (PDF p. 449). The statement (the K-book's first hypothesis 'regular quasi-projective' should be read with 'over a field', where Quillen's theorem applies).
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), V.9.8 (PDF p. 449). Flasqueness of the terms.
 
-**Review note.** Checked Kbook.2013 Proposition V.9.8.1 (PDF p. 449); Kbook.2013 V.9.8 (PDF p. 449). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread Kbook.2013 Proposition V.9.8.1 (PDF p. 449); Kbook.2013 V.9.8 (PDF p. 449). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -12851,7 +12857,7 @@ Let X be a regular scheme of finite type over a field (more generally a regular 
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), V.9.8.1 (PDF p. 449). The name.
 - [Quillen.1973](https://www.sas.rochester.edu/mth/sites/doug-ravenel/otherpapers/Quillen-Higher-I.pdf), §7, Theorem 5.19 (printed p. 129). Quillen's statement (the displayed formula H^p(X, K_p) ≅ A^p(X) is lost in the scan).
 
-**Review note.** Checked Kbook.2013 Proposition V.9.8.1 (PDF p. 449); Kbook.2013 V.9.8.1 (PDF p. 449). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread Kbook.2013 Proposition V.9.8.1 (PDF p. 449); Kbook.2013 V.9.8.1 (PDF p. 449); Quillen.1973 §7, Theorem 5.19 (printed p. 129). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 **Planet:** Bloch's formula.
 
@@ -12860,13 +12866,13 @@ Let X be a regular scheme of finite type over a field (more generally a regular 
 /-!
 ### Quillen's normalisation lemma
 
-**Id:** `SchemeKTheoryOperations:S.4/quillen-presentation-lemma`. **Kind:** lemma. **Review:** verified. Implementation unchecked.
+**Id:** `SchemeKTheoryOperations:S.4/quillen-presentation-lemma`. **Kind:** lemma. **Review:** corrected. Implementation unchecked.
 
 Let R be a smooth finite-type algebra of constant relative dimension r ≥ 1 over a field k, t ∈ R a regular element and S ⊆ Spec R a finite set. Then there are x_1, …, x_{r−1} ∈ R, algebraically independent over k, such that for B = k[x_1, …, x_{r−1}] ⊆ R: (i) R/tR is finite over B, and (ii) R is smooth over B at the points of S (Quillen Lemma 5.12; K-book Lemma V.9.6.2 states it for infinite k in the form: a projection Spec R → A^{r−1} finite on V(t) and smooth at S).
 
 **Hypotheses.**
 
-- k a field (Quillen); the K-book restricts to infinite k and treats finite fields in S.4/quillen-effacement by a transfer argument, which is then not needed.
+- k is any field in Quillen Lemma 5.12. The K-book states only the infinite-field variant; the stronger primary-source lemma supplies the proof here for finite fields as well.
 - R smooth of constant relative dimension r ≥ 1 over k; t regular; S finite (replace each prime by a maximal ideal containing it).
 
 **Direct prerequisites.**
@@ -12893,14 +12899,14 @@ Let R be a smooth finite-type algebra of constant relative dimension r ≥ 1 ove
 - [Quillen.1973](https://www.sas.rochester.edu/mth/sites/doug-ravenel/otherpapers/Quillen-Higher-I.pdf), §7, Lemma 5.12 (printed p. 125). The conclusion, for R smooth of constant relative dimension r ≥ 1 over a field k, t regular and S ⊆ Spec R finite (scan text normalised).
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Lemma V.9.6.2 (PDF p. 447). The K-book's form, restricted to infinite fields, with its proof referred to Quillen 5.12.
 
-**Review note.** Checked Quillen.1973 §7, Lemma 5.12 (printed p. 125); Kbook.2013 Lemma V.9.6.2 (PDF p. 447). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread Quillen.1973 §7, Lemma 5.12 (printed p. 125); Kbook.2013 Lemma V.9.6.2 (PDF p. 447). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs. Correction: Use Quillen’s normalization lemma over every field; its finite-field proof does not require an additional uniform transfer argument.
 
 -/
 
 /-!
 ### Quillen's effacement: supports in a divisor die after localisation
 
-**Id:** `SchemeKTheoryOperations:S.4/quillen-effacement`. **Kind:** lemma. **Review:** verified. Implementation unchecked.
+**Id:** `SchemeKTheoryOperations:S.4/quillen-effacement`. **Kind:** lemma. **Review:** corrected. Implementation unchecked.
 
 Let R be a smooth domain of finite type over a field k and S ⊆ R a multiplicative set with S^{-1}R semilocal. For every t ∈ R ∖ ({0} ∪ S) there is s ∈ S such that for every i the exact functor M^i(R/tR) → M^i(R[1/s]), N ↦ N[1/s] (N viewed as an R-module; codimensions in R/tR shifted into R), induces the zero map on K-groups (K-book Proposition V.9.6.1, Quillen proof of 5.11).
 
@@ -12921,7 +12927,7 @@ Let R be a smooth domain of finite type over a field k and S ⊆ R a multiplicat
 
 - Retraction case: if R contains a subring B mapping isomorphically onto R/tR and R is smooth over B, the kernel I of R → R/tR is locally principal near S (over a field the smooth curve case is Dedekind), so choose s ∈ S with I[1/s] ≅ R[1/s]; for a B-module N the characteristic sequence 0 → I[1/s] ⊗_B N → R[1/s] ⊗_B N → N[1/s] → 0 is an exact sequence of exact functors M^i(B) → M^i(R[1/s]) (R flat over B) whose first two terms are isomorphic, so Additivity (GeneralAlgebraicKTheory:K.3/additivity-for-exact-categories) gives zero on K.
 - By S.4/quillen-presentation-lemma choose A = k[x_1, …, x_{r−1}] ⊆ R with B = R/tR finite over A and R smooth over A at the primes not meeting S; set R' = R ⊗_A B; then R'/R is finite, S^{-1}R' semilocal, R' smooth over B near S and B ⊆ R' is a section of the multiplication map R' = R ⊗_A B → B, whose kernel is locally principal near the relevant points (R'/(t ⊗ 1) is B ⊗_A B, not B), so for suitable s, M^i(B) → M^i(R[1/s]) factors through M^i(R'[1/s]) where the first map is zero by the retraction case.
-- (The K-book states the presentation lemma only for infinite k and adds this step for finite k.) For a prime p let k'' be the infinite p-primary algebraic extension; the result over R ⊗_k k'' gives a finite k' with [k' : k] = p^r and x·p^r ↦ 0 over R ⊗_k k'; the transfer K M^i(R ⊗_k k') → K M^i(R) composed with base change is multiplication by p^r (projection formula for the finite flat R → R ⊗_k k', SchemeKTheoryOperations S.2/projection-formula), so the image of x is p-power torsion for every p, hence zero.
+- Quillen Lemma 5.12 is valid over every field, so the preceding construction applies without an infinite-field reduction. A transfer argument that descends individual classes through finite extensions proves only their vanishing in a colimit unless an additional uniform-stage argument is supplied.
 
 **Acceptance conditions.**
 
@@ -12933,14 +12939,14 @@ Let R be a smooth domain of finite type over a field k and S ⊆ R a multiplicat
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Proposition V.9.6.1 (PDF p. 446). The statement.
 - [Quillen.1973](https://www.sas.rochester.edu/mth/sites/doug-ravenel/otherpapers/Quillen-Higher-I.pdf), Proof of Theorem 5.11 (printed p. 126). Quillen's additivity step (scan text normalised).
 
-**Review note.** Checked Kbook.2013 Proposition V.9.6.1 (PDF p. 446); Quillen.1973 Proof of Theorem 5.11 (printed p. 126). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread Kbook.2013 Proposition V.9.6.1 (PDF p. 446); Quillen.1973 Proof of Theorem 5.11 (printed p. 126). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs. Correction: Remove the unnecessary finite-field transfer step: finite-stage descent of one K-class does not yield a uniform annihilation stage for an entire K-group. Quillen 5.12 already covers all fields.
 
 -/
 
 /-!
 ### Quillen's theorem: Gersten's conjecture for semilocal rings of algebras over a field
 
-**Id:** `SchemeKTheoryOperations:S.4/quillen-gersten-theorem`. **Kind:** theorem. **Review:** corrected. Implementation unchecked.
+**Id:** `SchemeKTheoryOperations:S.4/quillen-gersten-theorem`. **Kind:** theorem. **Review:** verified. Implementation unchecked.
 
 Let R be a finite-type algebra over a field k, S a finite set of primes of R such that R_p is regular for every p ∈ S, and A the regular semilocal ring obtained by localising R at S. Then Spec A satisfies the Gersten–Quillen condition: K_n M^{i+1}(A) → K_n M^i(A) is zero for all n, i (Quillen 5.11, K-book 9.6). Consequently the Gersten complex 0 → K_n(A) → K_n(E) → ⊕_{ht 1} K_{n−1}(k(p)) → ⋯ is exact, and it is even pure exact (K-book Corollary V.9.6.4, Grayson).
 
@@ -12975,7 +12981,7 @@ Let R be a finite-type algebra over a field k, S a finite set of primes of R suc
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Theorem V.9.6 (PDF p. 446). The K-book's statement (the regularity of A at the primes of S is implicit in the Gersten–Quillen condition on A, which concerns regular rings).
 - [Quillen.1973](https://www.sas.rochester.edu/mth/sites/doug-ravenel/otherpapers/Quillen-Higher-I.pdf), §7, Theorem 5.11 (printed p. 125). Quillen's statement (scan text normalised).
 
-**Review note.** For semilocal rings the generic ring is the product of component fraction fields; a single fraction field requires a domain.
+**Review note.** Independently reread Kbook.2013 Theorem V.9.6 (PDF p. 446); Quillen.1973 §7, Theorem 5.11 (printed p. 125). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 **Planet:** Quillen's Gersten theorem.
 
@@ -13018,7 +13024,7 @@ The Gersten–Quillen condition holds for A = k[[x_1, …, x_n]] over a field k,
 - [Quillen.1973](https://www.sas.rochester.edu/mth/sites/doug-ravenel/otherpapers/Quillen-Higher-I.pdf), §7, Theorem 5.13 (printed p. 127). The statement (scan text normalised).
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Exercise V.9.2 (PDF p. 450). The K-book's form (an exercise).
 
-**Review note.** Checked Quillen.1973 §7, Theorem 5.13 (printed p. 127); Kbook.2013 Exercise V.9.2 (PDF p. 450). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread Quillen.1973 §7, Theorem 5.13 (printed p. 127); Kbook.2013 Exercise V.9.2 (PDF p. 450). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -13053,7 +13059,7 @@ Let R be a regular local (or semilocal) ring containing a field. Then R satisfie
 
 - [Mochizuki.2016](https://arxiv.org/abs/1608.08114), §1, Historical Note (p. 2). The statement and its reported proof route; Panin 2003 itself was not read.
 
-**Review note.** Checked Mochizuki.2016 §1, Historical Note (p. 2). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread Mochizuki.2016 §1, Historical Note (p. 2). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -13095,7 +13101,7 @@ Let O be a DVR with fraction field F, residue field k and parameter s, containin
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Proof of Theorem V.6.7 (PDF p. 418). The coefficient-field case.
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Proof of Theorem V.6.7 (PDF p. 419). The reduction step asserted without proof.
 
-**Review note.** Checked Kbook.2013 Theorem V.6.7 (PDF p. 418); Kbook.2013 Proof of Theorem V.6.7 (PDF p. 418). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread Kbook.2013 Theorem V.6.7 (PDF p. 418); Kbook.2013 Proof of Theorem V.6.7 (PDF p. 418); Kbook.2013 Proof of Theorem V.6.7 (PDF p. 419). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -13135,20 +13141,20 @@ Let O be a DVR containing a field. Then ∂_S: K_{n+1}(F) → K_n(k) is onto for
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Corollary V.6.7.2 (PDF p. 419). The statement.
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Gersten's DVR Conjecture 6.9 (PDF p. 421). The scope: the equicharacteristic case is this node; the mixed-characteristic case is open in general.
 
-**Review note.** Checked Kbook.2013 Corollary V.6.7.2 (PDF p. 419); Kbook.2013 Gersten's DVR Conjecture 6.9 (PDF p. 421). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread Kbook.2013 Corollary V.6.7.2 (PDF p. 419); Kbook.2013 Gersten's DVR Conjecture 6.9 (PDF p. 421). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
 /-!
 ### Gillet–Levine: the relative Gersten conjecture for smooth algebras over a DVR
 
-**Id:** `SchemeKTheoryOperations:S.4/gillet-levine-smooth-over-dvr`. **Kind:** theorem. **Review:** verified. Implementation unchecked.
+**Id:** `SchemeKTheoryOperations:S.4/gillet-levine-smooth-over-dvr`. **Kind:** theorem. **Review:** corrected. Implementation unchecked.
 
-Let Λ be a DVR with parameter π, residue field Λ/π of characteristic p > 0 and fraction field of characteristic 0. Let A be a smooth algebra of finite type over Λ and S ⊆ A a multiplicative set with R = S^{-1}A semilocal. If t ∈ A and A/tA is flat over Λ, then every base change K M^i(A/tA) → K M^i(R) is null-homotopic (Gillet–Levine, J. Pure Appl. Algebra 46 (1987) 59–71; K-book Theorem V.9.7; cited, not read).
+Let Λ be a DVR with parameter π, residue field Λ/π of characteristic p > 0 and fraction field of characteristic 0. Let A be a smooth algebra of finite type over Λ and S ⊆ A a multiplicative set with R = S^{-1}A semilocal. If t ∈ A is a nonzerodivisor and A/tA is flat over Λ, then every base change K M^i(A/tA) → K M^i(R) is null-homotopic (Gillet–Levine, J. Pure Appl. Algebra 46 (1987) 59–71; K-book Theorem V.9.7; cited, not read).
 
 **Hypotheses.**
 
-- Λ a mixed-characteristic DVR; A smooth of finite type over Λ; R = S^{-1}A semilocal; t with A/tA flat over Λ.
+- Λ a mixed-characteristic DVR; A smooth of finite type over Λ; R = S^{-1}A semilocal; t with A/tA flat over Λ. Require t to be a nonzerodivisor; this repairs the missing hypothesis in the K-book citation (E53).
 
 **Direct prerequisites.**
 
@@ -13166,13 +13172,14 @@ Let Λ be a DVR with parameter π, residue field Λ/π of characteristic p > 0 a
 
 - A = Λ[x], t = x − π: A/tA ≅ Λ is flat over Λ, and the theorem gives K M^i(Λ) → K M^i(Λ[x]_S) null.
 - t = π is excluded: A/πA is not flat over Λ; that direction is the DVR D = R_(πR) of S.4/mixed-char-gersten-from-dvr.
+- For A = R = Λ and t = 0, the displayed map in degree zero is the identity on ℤ. This excludes the omitted endpoint even though A/tA is Λ-flat.
 
 **Source locators.**
 
-- [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Theorem V.9.7 (PDF p. 448). The statement.
+- [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Theorem V.9.7 (PDF p. 448). The relative effacement conclusion with the omitted nonzerodivisor condition restored (E53); the original Gillet–Levine proof remains an explicit gap.
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), V.9 (PDF p. 448). The source gives no proof.
 
-**Review note.** Checked Kbook.2013 Theorem V.9.7 (PDF p. 448); Kbook.2013 V.9 (PDF p. 448). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread Kbook.2013 Theorem V.9.7 (PDF p. 448); Kbook.2013 V.9 (PDF p. 448). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs. Correction: Exclude t=0 by requiring a nonzerodivisor; otherwise the displayed base-change map can be the identity on K₀. Keep the unread relative presentation theorem as an explicit source gap.
 
 -/
 
@@ -13215,14 +13222,14 @@ Let R=S⁻¹A be a regular semilocal algebra with A smooth of finite type over a
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Corollary V.9.7.1(a) (PDF p. 448). The source states a spectrum nullhomotopy; this node retains the group-level consequence justified by relative effacement and filtered colimits. The stronger coherence requirement is separated explicitly.
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), V.9.7 (PDF p. 448). The DVR D used in the proof.
 
-**Review note.** Checked Kbook.2013 Corollary V.9.7.1(a) (PDF p. 448); Kbook.2013 V.9.7 (PDF p. 448). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread Kbook.2013 Corollary V.9.7.1(a) (PDF p. 448); Kbook.2013 V.9.7 (PDF p. 448). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
 /-!
 ### Mixed characteristic: K_0 of M^i is generated by complete intersections
 
-**Id:** `SchemeKTheoryOperations:S.4/mixed-char-k0-generation`. **Kind:** lemma. **Review:** corrected. Implementation unchecked.
+**Id:** `SchemeKTheoryOperations:S.4/mixed-char-k0-generation`. **Kind:** lemma. **Review:** verified. Implementation unchecked.
 
 Let R be a regular semilocal Λ-algebra as in S.4/gillet-levine-smooth-over-dvr. Then each K_0 M^i(R) is generated by the classes [R/xR] with x = (x_1, …, x_i) a regular sequence of length i in R (K-book Corollary V.9.7.1(b)).
 
@@ -13251,7 +13258,7 @@ Let R be a regular semilocal Λ-algebra as in S.4/gillet-levine-smooth-over-dvr.
 
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Corollary V.9.7.1(b) (PDF p. 448). The statement; the proof on PDF pp. 448-449 is reproduced.
 
-**Review note.** Retained integer coefficients in the induction and used the semilocal total quotient ring.
+**Review note.** Independently reread Kbook.2013 Corollary V.9.7.1(b) (PDF p. 448). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -13287,7 +13294,7 @@ Let R be a regular semilocal Λ-algebra as in S.4/gillet-levine-smooth-over-dvr,
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Corollary V.9.7.1(c) (PDF p. 448). The statement.
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Proof of Corollary V.9.7.1 (PDF p. 449). The criterion.
 
-**Review note.** Checked Kbook.2013 Corollary V.9.7.1(c) (PDF p. 448); Kbook.2013 Proof of Corollary V.9.7.1 (PDF p. 449). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread Kbook.2013 Corollary V.9.7.1(c) (PDF p. 448); Kbook.2013 Proof of Corollary V.9.7.1 (PDF p. 449). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -13325,7 +13332,7 @@ Let R be as in S.4/gillet-levine-smooth-over-dvr. Componentwise, let T avoid all
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Corollary V.9.7.1(d) (PDF p. 448). The statement.
 - [Mochizuki.2016](https://arxiv.org/abs/1608.08114), §1, Historical Note (p. 2). The same reduction as recorded in the survey.
 
-**Review note.** Checked Kbook.2013 Corollary V.9.7.1(d) (PDF p. 448); Mochizuki.2016 §1, Historical Note (p. 2). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread Kbook.2013 Corollary V.9.7.1(d) (PDF p. 448); Mochizuki.2016 §1, Historical Note (p. 2). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -13361,7 +13368,7 @@ Let X be a regular noetherian scheme of finite Krull dimension whose local rings
 
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Example V.10.12 (PDF p. 457). The comparison (cited in the source).
 
-**Review note.** Checked Kbook.2013 Example V.10.12 (PDF p. 457). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread Kbook.2013 Example V.10.12 (PDF p. 457). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -13410,7 +13417,7 @@ Let S = ⊕_{n≥0} S_n be a commutative graded noetherian ring with R := S_0, s
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Exercise V.3.3 (PDF p. 404; author-copy book p. 396). The hint the proof steps follow; the exercise's 'graded B-modules' is read as graded S-modules (source issue).
 - [Quillen.1973](https://www.sas.rochester.edu/mth/sites/doug-ravenel/otherpapers/Quillen-Higher-I.pdf), §6, Lemma 1 and Theorem 6, published pp. 117–118 (PDF pp. 33–34). The Tor-independent filtration has induced subquotients; resolution and additivity yield the graded K-theory isomorphism. The scan also carries an earlier page-number sequence; use the published LNM numbering here.
 
-**Review note.** Checked Kbook.2013 Example V.3.5.2 (PDF p. 396; book p. 388); Kbook.2013 Example V.3.5.2 (PDF p. 396). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread Kbook.2013 Example V.3.5.2 (PDF p. 396; book p. 388); Kbook.2013 Example V.3.5.2 (PDF p. 396); Kbook.2013 Exercise V.3.3 (PDF p. 404; author-copy book p. 396); Quillen.1973 §6, Lemma 1 and Theorem 6, published pp. 117–118 (PDF pp. 33–34). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -13453,7 +13460,7 @@ Let R be a commutative noetherian ring and S := R[st, t] ⊂ R[s, t], graded by 
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Theorem V.6.2, proof (PDF p. 415). Part (b), asserted without proof in the source; the source's Mb_gr(S) must be read as the t-power-torsion modules (source issue).
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Theorem V.6.2, proof (PDF p. 415). Part (c).
 
-**Review note.** Checked Kbook.2013 Theorem V.6.2, proof (PDF p. 415; book p. 407); Kbook.2013 Theorem V.6.2, proof (PDF p. 415). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread Kbook.2013 Theorem V.6.2, proof (PDF p. 415; book p. 407); Kbook.2013 Theorem V.6.2, proof (PDF p. 415); Kbook.2013 Theorem V.6.2, proof (PDF p. 415). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -13499,7 +13506,7 @@ Let R be a commutative noetherian ring and f: R → R[s] the inclusion. The flat
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Theorem V.6.2 (PDF p. 415; book p. 407). The statement, paraphrased.
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Theorem V.6.2, proof (PDF p. 415). The final step of the proof.
 
-**Review note.** Checked Kbook.2013 Theorem V.6.2 (PDF p. 415; book p. 407); Kbook.2013 Theorem V.6.2, proof (PDF p. 415). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread Kbook.2013 Theorem V.6.2 (PDF p. 415; book p. 407); Kbook.2013 Theorem V.6.2, proof (PDF p. 415). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -13542,7 +13549,7 @@ Let X be a scheme, p: X[s] → X the projection and z: X → X[s] the zero secti
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Example V.3.6.1 (PDF p. 397; book p. 389). Part (a); f is the source's name for the zero section.
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Example V.3.5.1 (PDF p. 396). The affine case, for K and G.
 
-**Review note.** Checked Kbook.2013 Example V.3.6.1 (PDF p. 397; book p. 389); Kbook.2013 Example V.3.5.1 (PDF p. 396). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread Kbook.2013 Example V.3.6.1 (PDF p. 397; book p. 389); Kbook.2013 Example V.3.5.1 (PDF p. 396). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -13589,7 +13596,7 @@ For every noetherian scheme X, the flat projection p: X[s] → X induces a homot
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Theorem V.6.13 (PDF p. 425; book p. 417). The statement (first part).
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Theorem V.6.13, proof (PDF p. 425). The two inductions of the proof.
 
-**Review note.** Checked Kbook.2013 Theorem V.6.13 (PDF p. 425; book p. 417); Kbook.2013 Theorem V.6.13, proof (PDF p. 425). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread Kbook.2013 Theorem V.6.13 (PDF p. 425; book p. 417); Kbook.2013 Theorem V.6.13, proof (PDF p. 425). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 **Planet:** Fundamental Theorem for G(X).
 
@@ -13633,7 +13640,7 @@ Let X be noetherian, j: X[s, s⁻¹] → X[s] the open complement of the zero se
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Theorem V.6.13 (PDF p. 425; book p. 417). The statement (second part).
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Theorem V.6.13, proof (PDF p. 425). The splitting step.
 
-**Review note.** Checked Kbook.2013 Theorem V.6.13 (PDF p. 425; book p. 417); Kbook.2013 Theorem V.6.13, proof (PDF p. 425). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread Kbook.2013 Theorem V.6.13 (PDF p. 425; book p. 417); Kbook.2013 Theorem V.6.13, proof (PDF p. 425). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -13691,7 +13698,7 @@ Let X be a regular noetherian scheme (every local ring O_{X,x} is a regular loca
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Corollary V.6.13.2 (PDF p. 425; book p. 417). The K-book's form; K(X) there is KChperf(X) (V.2.7.3), so no separatedness is needed.
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Example III.3.8.1 (PDF p. 215; book p. 207). The non-example, with R = k, N = 2.
 
-**Review note.** Checked ThomasonTrobaugh.1990 Proposition 6.8 (p. 362; PDF p. 116); ThomasonTrobaugh.1990 Proposition 6.8, proof (p. 362; PDF p. 116). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread ThomasonTrobaugh.1990 Proposition 6.8 (p. 362; PDF p. 116); ThomasonTrobaugh.1990 Proposition 6.8, proof (p. 362; PDF p. 116); Kbook.2013 Corollary V.6.13.2 (PDF p. 425; book p. 417); Kbook.2013 Example III.3.8.1 (PDF p. 215; book p. 207). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 **Planet:** Homotopy invariance for regular schemes.
 
@@ -13735,7 +13742,7 @@ Let X be a regular noetherian scheme. Then (jp)^*: K_n(X) → K_n(X[T, T⁻¹]) 
 - [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), Proposition 6.8, proof (p. 363; PDF p. 117). The statement and its degree-zero consequence.
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Corollary V.6.13.2 (PDF p. 425). The decomposition.
 
-**Review note.** Checked ThomasonTrobaugh.1990 Proposition 6.8, proof (p. 363; PDF p. 117); Kbook.2013 Corollary V.6.13.2 (PDF p. 425). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread ThomasonTrobaugh.1990 Proposition 6.8, proof (p. 363; PDF p. 117); Kbook.2013 Corollary V.6.13.2 (PDF p. 425). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -13780,7 +13787,7 @@ Let X be a regular noetherian scheme. Then K_n(X) = 0 for all n < 0 in S.2's non
 - [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), Proposition 6.8, proof (p. 363; PDF p. 117). The proof the steps follow.
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Exercise III.4.12 (PDF p. 224; book p. 216). The non-example.
 
-**Review note.** Checked ThomasonTrobaugh.1990 Proposition 6.8(b) (p. 362; PDF p. 116); ThomasonTrobaugh.1990 Proposition 6.8, proof (p. 363; PDF p. 117). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread ThomasonTrobaugh.1990 Proposition 6.8(b) (p. 362; PDF p. 116); ThomasonTrobaugh.1990 Proposition 6.8, proof (p. 363; PDF p. 117); Kbook.2013 Exercise III.4.12 (PDF p. 224; book p. 216). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -13826,7 +13833,7 @@ Conventions: E is a vector bundle (finite locally free O_X-module) of constant r
 - [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), Recollection 4.5(e) (p. 330; PDF p. 84). The conventions of the formula in (e).
 - [Stacks](https://stacks.math.columbia.edu), Lemma 30.8.4, Tag 01XX (Cohomology of Schemes, Section 30.8). The projective-bundle computation with its proof (rank n + 1 there is r here), which Thomason–Trobaugh cite from EGA III.
 
-**Review note.** Checked ThomasonTrobaugh.1990 Recollection 4.5(b), (e) (p. 330; PDF p. 84); ThomasonTrobaugh.1990 Recollection 4.5(e) (p. 330; PDF p. 84). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread ThomasonTrobaugh.1990 Recollection 4.5(b), (e) (p. 330; PDF p. 84); ThomasonTrobaugh.1990 Recollection 4.5(e) (p. 330; PDF p. 84); Stacks Lemma 30.8.4, Tag 01XX (Cohomology of Schemes, Section 30.8). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -13867,16 +13874,16 @@ Conventions: E is a vector bundle (finite locally free O_X-module) of constant r
 - [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), Section 4.6 (p. 331; PDF p. 85). Exactness and (4.6.1); 'Kozsul' is the source's spelling (source issue).
 - [Stacks](https://stacks.math.columbia.edu), Lemma 30.8.4, proof, Tag 01XX. The local exactness argument.
 
-**Review note.** Checked ThomasonTrobaugh.1990 Section 4.6 (p. 331; PDF p. 85); ThomasonTrobaugh.1990 Section 4.6 (p. 331; PDF p. 85). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread ThomasonTrobaugh.1990 Section 4.6 (p. 331; PDF p. 85); ThomasonTrobaugh.1990 Section 4.6 (p. 331; PDF p. 85); Stacks Lemma 30.8.4, proof, Tag 01XX. Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
 /-!
 ### Castelnuovo–Mumford regularity on a projective bundle
 
-**Id:** `SchemeKTheoryOperations:S.5/mumford-regularity`. **Kind:** definition. **Review:** verified. Implementation unchecked.
+**Id:** `SchemeKTheoryOperations:S.5/mumford-regularity`. **Kind:** definition. **Review:** corrected. Implementation unchecked.
 
-Conventions: E is a vector bundle (finite locally free O_X-module) of constant rank r ≥ 1; π: P(E) = Proj_X(Sym E) → X is its projective bundle with the tautological surjection π^*E → O(1) (Grothendieck's convention: rank-one quotients of E; K-book I.5.8, Thomason–Trobaugh, Stacks), so P(O_X^{⊕r}) = P^{r−1}_X; F(n) := F ⊗ O(n). For m ∈ ℤ, a quasi-coherent O_{P(E)}-module F is m-regular (in the sense of Castelnuovo and Mumford) if R^qπ_*(F(m − q)) = 0 for all q ≥ 1; F is Mumford-regular if it is 0-regular. MR(E) denotes the exact category of 0-regular coherent sheaves (X noetherian), and MR_perf(E) the complicial category of perfect strict bounded complexes of 0-regular coherent sheaves (for the version with supports, also acyclic off π⁻¹(Y) for a closed Y ⊂ X). The K-book's convention (rank E = r + 1, 'Mumford-regular' meaning R^qπ_*F(−q) = 0 for q > 0) is the case m = 0.
+Conventions: E is a vector bundle (finite locally free O_X-module) of constant rank r ≥ 1; π: P(E) = Proj_X(Sym E) → X is its projective bundle with the tautological surjection π^*E → O(1) (Grothendieck's convention: rank-one quotients of E; K-book I.5.8, Thomason–Trobaugh, Stacks), so P(O_X^{⊕r}) = P^{r−1}_X; F(n) := F ⊗ O(n). For m ∈ ℤ, a quasi-coherent O_{P(E)}-module F is m-regular (in the sense of Castelnuovo and Mumford) if R^qπ_*(F(m − q)) = 0 for all q ≥ 1; F is Mumford-regular if it is 0-regular. MR(E) denotes the exact category of 0-regular coherent sheaves (X noetherian), and MR_perf(E) the complicial category of perfect strict bounded complexes of 0-regular coherent sheaves (for the version with supports, also acyclic off π⁻¹(Y) for a closed Y ⊂ X). The K-book's convention (rank E = r + 1, 'Mumford-regular' meaning R^qπ_*F(−q) = 0 for q > 0) is the case m = 0. For the vector-bundle proof write MR_VB(E) := MR(E) ∩ Vect(P(E)), with its inherited exact structure. Quillen’s T_i then land in Vect(X); on the larger coherent category they land only in Coh(X). MR_perf is the separate TT perfect-complex model.
 
 **Hypotheses.**
 
@@ -13892,6 +13899,7 @@ Conventions: E is a vector bundle (finite locally free O_X-module) of constant r
 - Define the predicate by the displayed vanishing condition, for each m.
 - Define MR(E) as the full subcategory of coherent sheaves that are 0-regular; it is closed under extensions by the long exact sequence of the R^qπ_*, hence an exact subcategory.
 - Define MR_perf(E) as the perfect strict bounded complexes whose terms lie in MR(E), with degreewise split monomorphisms as cofibrations and quasi-isomorphisms as weak equivalences (Thomason–Trobaugh 4.9's category A).
+- Define MR_VB(E) by adding finite local freeness to 0-regularity; extensions remain vector bundles. Use this subcategory for maps into vector-bundle K₀, and MR_perf for the TT perfect-complex theorem.
 
 **Acceptance conditions.**
 
@@ -13919,6 +13927,7 @@ Conventions: E is a vector bundle (finite locally free O_X-module) of constant r
 | `MumfordRegular.exists` | other | For X noetherian and F coherent, ∃ m₀, ∀ m ≥ m₀, MumfordRegular m F (4.7.0). |
 | `MumfordRegular.pullback` | example | For N quasi-coherent on X and n ≥ 0, π^*N ⊗ O(n) is 0-regular and π_*(π^*N ⊗ O(n)) ≅ Sym^n E ⊗ N (K-book II.8.7.2). |
 | `MumfordRegular.baseChange` | compatibility | For a flat morphism g: X′ → X, F m-regular ⇒ g′^*F m-regular on P(g^*E) (flat base change of R^qπ_*). |
+| `MumfordRegular.vectorBundleCategory` | constructor | MR_VB(E) is the full exact subcategory of finite locally free, 0-regular sheaves; its inclusion into MR(E) and Vect(P(E)) is exact. |
 
 **Test specifications.** These are mathematical acceptance tests; no execution is claimed.
 
@@ -13928,13 +13937,14 @@ Conventions: E is a vector bundle (finite locally free O_X-module) of constant r
 | `mumfordRegular_rank_one` | degenerate | If r = 1 (π an isomorphism) every quasi-coherent sheaf is m-regular for every m, there being no higher direct images. |
 | `mumfordRegular_field` | compatibility | For X = Spec k and E = k^{⊕r}, F coherent on P^{r−1}_k is 0-regular iff H^q(P^{r−1}_k, F(−q)) = 0 for all q ≥ 1: the classical Castelnuovo–Mumford condition reg(F) ≤ 0. |
 | `mumfordRegular_not_kernel_closed` | non-example | On P¹_k the Euler sequence 0 → O(−1) → O^{⊕2} → O(1) → 0 has O^{⊕2} and O(1) 0-regular but O(−1) not: MR is not closed under kernels of surjections, so the Resolution Theorem cannot replace Quillen's resolution. |
+| `mumfordRegular_coherent_not_vectorBundle` | non-example | A skyscraper sheaf at a k-point of P¹_k is 0-regular, so lies in MR(E), but is not locally free and is excluded from MR_VB(E). This prevents coherent T_i from being treated as vector bundles. |
 
 **Source locators.**
 
 - [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), Section 4.7.0 (p. 331; PDF p. 85). The definition, paraphrased.
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Definition II.8.7.1 (PDF p. 158; book p. 150). The case m = 0, in the K-book's rank convention.
 
-**Review note.** Checked ThomasonTrobaugh.1990 Section 4.7.0 (p. 331; PDF p. 85); Kbook.2013 Definition II.8.7.1 (PDF p. 158; book p. 150). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps. Reviewed all API roles and discriminating examples; unavailable Lean carriers remain explicit omissions.
+**Review note.** Independently reread ThomasonTrobaugh.1990 Section 4.7.0 (p. 331; PDF p. 85); Kbook.2013 Definition II.8.7.1 (PDF p. 158; book p. 150). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs. Checked API use cases and the discriminating test specifications; these are mathematical specifications, not execution receipts. Correction: Distinguish the coherent regular-sheaf exact category from its vector-bundle subcategory and the perfect-complex model.
 
 -/
 
@@ -13977,14 +13987,14 @@ Conventions: E is a vector bundle (finite locally free O_X-module) of constant r
 - [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), Lemma 4.7.1 (p. 332; PDF p. 86). Parts (1a), (1b).
 - [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), Lemma 4.7.2 (p. 332; PDF p. 86). Part (2a); (2b), (2c) follow in the source.
 
-**Review note.** Checked ThomasonTrobaugh.1990 Section 4.7.0 (p. 331; PDF p. 85); ThomasonTrobaugh.1990 Lemma 4.7.1 (p. 332; PDF p. 86). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread ThomasonTrobaugh.1990 Section 4.7.0 (p. 331; PDF p. 85); ThomasonTrobaugh.1990 Lemma 4.7.1 (p. 332; PDF p. 86); ThomasonTrobaugh.1990 Lemma 4.7.2 (p. 332; PDF p. 86). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
 /-!
 ### Quillen's canonical resolution of a regular sheaf
 
-**Id:** `SchemeKTheoryOperations:S.5/quillen-resolution`. **Kind:** construction. **Review:** verified. Implementation unchecked.
+**Id:** `SchemeKTheoryOperations:S.5/quillen-resolution`. **Kind:** construction. **Review:** corrected. Implementation unchecked.
 
 Conventions: E is a vector bundle (finite locally free O_X-module) of constant rank r ≥ 1; π: P(E) = Proj_X(Sym E) → X is its projective bundle with the tautological surjection π^*E → O(1) (Grothendieck's convention: rank-one quotients of E; K-book I.5.8, Thomason–Trobaugh, Stacks), so P(O_X^{⊕r}) = P^{r−1}_X; F(n) := F ⊗ O(n). Let X be noetherian. For quasi-coherent F on P(E) define inductively Z_{−1}F := F, T_nF := π_*((Z_{n−1}F)(n)) (a quasi-coherent O_X-module) and Z_nF := ker(O(−n) ⊗ π^*T_nF → Z_{n−1}F) for n ≥ 0. If F is 0-regular then: (a) each (Z_{n−1}F)(n) is 0-regular, the sequences 0 → (Z_nF)(n) → π^*T_nF → (Z_{n−1}F)(n) → 0 are exact and π_*((Z_nF)(n)) = 0; (b) Z_{r−1}F = 0; (c) T_0, …, T_{r−1} are exact functors from 0-regular coherent sheaves to coherent sheaves on X, with a functorial exact sequence 0 → O(−r + 1) ⊗ π^*T_{r−1}F → ⋯ → O(−1) ⊗ π^*T_1F → O ⊗ π^*T_0F → F → 0; (d) applied degreewise to strict bounded complexes of 0-regular coherent sheaves, the T_i preserve mapping cones, acyclic complexes, quasi-isomorphisms and acyclicity off π⁻¹(Y); (e) for such a complex F^• and 0 ≤ k ≤ r − 1 there is an exact sequence of complexes 0 → T_k(F^•) → E ⊗ T_{k−1}(F^•) → ⋯ → Sym^kE ⊗ T_0(F^•) → π_*F^•(k) → 0, and if F^• is perfect so is every T_k(F^•); (f) if F is a vector bundle, the T_iF are vector bundles.
 
@@ -14020,7 +14030,7 @@ Conventions: E is a vector bundle (finite locally free O_X-module) of constant r
 **Uses.**
 
 - Thomason–Trobaugh 4.9, 4.11: the natural quasi-isomorphism I(A) ≃ Tot[O(−r+1) ⊗ π^*T_{r−1}A → ⋯ → O ⊗ π^*T_0A] and additivity give the splitting map (T_0, −T_1, …, (−1)^{r−1}T_{r−1}) of the projective bundle theorem
-- K-book II.8.5 proof and Theorem V.1.5 proof: the homomorphism t: K_0MR → K_0(X)^{r+1}, [F] ↦ ([T_0F], −[T_1F], …) and its higher analogue
+- K-book II.8.5 proof and Theorem V.1.5 proof: the homomorphism t: K₀(MR_VB(E)) → K₀(Vect X)^r from the vector-bundle T_i, and the analogous map on MR_perf; the coherent MR version instead has coherent/G-theory targets
 - Thomason 1993, Lemma 2.5 and 2.7: the blow-up formula's acyclicity criterion uses the same Koszul and regularity mechanism on P(N)
 
 **API.**
@@ -14030,7 +14040,7 @@ Conventions: E is a vector bundle (finite locally free O_X-module) of constant r
 | `quillenT` | constructor | The functor T_n: 0-regular coherent sheaves on P(E) → coherent sheaves on X, T_nF = π_*((Z_{n−1}F)(n)). |
 | `quillenZ` | constructor | The functor Z_n with Z_{−1} = id and Z_nF = ker(O(−n) ⊗ π^*T_nF → Z_{n−1}F). |
 | `quillenResolution` | data | The natural exact sequence 0 → O(−r+1) ⊗ π^*T_{r−1}F → ⋯ → O ⊗ π^*T_0F → F → 0. |
-| `quillenT_exact` | structure | Each T_i is an exact functor on MR(E), and on MR_perf(E) it preserves cofibrations, cones and quasi-isomorphisms. |
+| `quillenT_exact` | structure | Each T_i is an exact functor on MR(E), and on MR_perf(E) it preserves cofibrations, cones and quasi-isomorphisms. On MR_VB(E) they are exact functors to Vect(X). |
 | `quillenT_zero` | simp | T_0 = π_* on 0-regular sheaves. |
 | `quillenT_pullback` | simp | T_0(π^*N) = N and T_i(π^*N) = 0 for i ≥ 1. |
 | `quillenZ_last` | characterisation | Z_{r−1}F = 0 for F 0-regular. |
@@ -14044,7 +14054,7 @@ Conventions: E is a vector bundle (finite locally free O_X-module) of constant r
 | --- | --- | --- |
 | `quillenResolution_P1_O1` | computation | On P¹_k, F = O(1): T_0F ≅ k², Z_0F ≅ O(−1), T_1F ≅ k, Z_1F = 0, and the resolution is 0 → O(−1) → O^{⊕2} → O(1) → 0. |
 | `quillenResolution_pullback` | degenerate | For F = π^*N: T_0F = N, Z_0F = 0, all higher T_i vanish, and the resolution is the identity π^*N → π^*N. |
-| `quillenResolution_class_compat` | compatibility | Composed with u(a_0, …, a_{r−1}) = Σ π^*a_k ⊗ O(−k), the map [F] ↦ ([T_0F], −[T_1F], …, (−1)^{r−1}[T_{r−1}F]) is the identity on K_0 of 0-regular sheaves; it is the K-book's t of II.8.5 with its rank r + 1 relabelled. |
+| `quillenResolution_class_compat` | compatibility | For F ∈ MR_VB(E), the alternating T_i classes are in K₀(Vect X), and composing with u(a₀,…,a_{r−1}) = Σπ^*a_k⊗O(−k) recovers [F] in K₀(Vect P(E)). For coherent MR(E), the same identity is in coherent G₀; for MR_perf it is in perfect-complex K₀. |
 | `quillenResolution_needs_regularity` | non-example | For F = O(−1) on P¹_k (not 0-regular), T_0F = π_*O(−1) = 0, so Z_0F = 0 and T_1F = 0; the displayed complex is 0 → 0 → 0 → O(−1) → 0, not exact: the construction requires 0-regularity. |
 
 **Source locators.**
@@ -14054,7 +14064,7 @@ Conventions: E is a vector bundle (finite locally free O_X-module) of constant r
 - [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), Section 4.8.5 (p. 334; PDF p. 88). Part (e).
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Theorem II.8.7.8 (PDF p. 159; book p. 151). The K-book's statement, rank r + 1.
 
-**Review note.** Checked ThomasonTrobaugh.1990 Section 4.8 (p. 333; PDF p. 87); ThomasonTrobaugh.1990 Lemma 4.8.4 [4.8.3] (p. 334; PDF p. 88). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps. Reviewed all API roles and discriminating examples; unavailable Lean carriers remain explicit omissions.
+**Review note.** Independently reread ThomasonTrobaugh.1990 Section 4.8 (p. 333; PDF p. 87); ThomasonTrobaugh.1990 Lemma 4.8.4 [4.8.3] (p. 334; PDF p. 88); ThomasonTrobaugh.1990 Section 4.8.5 (p. 334; PDF p. 88); Kbook.2013 Theorem II.8.7.8 (PDF p. 159; book p. 151). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs. Checked API use cases and the discriminating test specifications; these are mathematical specifications, not execution receipts. Correction: Type the vector-bundle K₀ resolution map on MR_VB; its coherent version maps to G₀, and its perfect-complex version maps to perfect K-theory.
 
 **Planet:** Quillen's Resolution Theorem.
 
@@ -14099,7 +14109,7 @@ Conventions: E is a vector bundle (finite locally free O_X-module) of constant r
 - [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), Section 4.10 (p. 335; PDF p. 89). The vanishing that makes the matrix triangular.
 - [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), Section 4.10 (p. 335; PDF p. 89). The conclusion.
 
-**Review note.** Checked ThomasonTrobaugh.1990 Section 4.10 (p. 335; PDF p. 89); ThomasonTrobaugh.1990 Section 4.10 (p. 335; PDF p. 89). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread ThomasonTrobaugh.1990 Section 4.10 (p. 335; PDF p. 89); ThomasonTrobaugh.1990 Section 4.10 (p. 335; PDF p. 89). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -14147,7 +14157,7 @@ Conventions: E is a vector bundle (finite locally free O_X-module) of constant r
 - [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), Section 4.11 (p. 336; PDF p. 90). Part (a) and its reduction.
 - [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), Section 4.11 (p. 336; PDF p. 90). The induction step.
 
-**Review note.** Checked ThomasonTrobaugh.1990 Section 4.9 (p. 335; PDF p. 89); ThomasonTrobaugh.1990 Section 4.11 (p. 336; PDF p. 90). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread ThomasonTrobaugh.1990 Section 4.9 (p. 335; PDF p. 89); ThomasonTrobaugh.1990 Section 4.11 (p. 336; PDF p. 90); ThomasonTrobaugh.1990 Section 4.11 (p. 336; PDF p. 90). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -14185,7 +14195,7 @@ Conventions: E is a vector bundle (finite locally free O_X-module) of constant r
 - [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), Section 4.12 (p. 336; PDF p. 90). The conclusion.
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Variant V.1.5.3 (PDF p. 378; book p. 370). The noetherian generality with K = K of perfect complexes.
 
-**Review note.** Checked ThomasonTrobaugh.1990 Section 4.12 (p. 336; PDF p. 90); Kbook.2013 Variant V.1.5.3 (PDF p. 378; book p. 370). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread ThomasonTrobaugh.1990 Section 4.12 (p. 336; PDF p. 90); Kbook.2013 Variant V.1.5.3 (PDF p. 378; book p. 370). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -14236,7 +14246,7 @@ Conventions: E is a vector bundle (finite locally free O_X-module) of constant r
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Projective Bundle Theorem II.8.5 (PDF p. 157; book p. 149). The degree-zero statement, rank E = r + 1.
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Projective Bundle Theorem V.1.5 (PDF p. 377; book p. 369). The K-book's higher statement.
 
-**Review note.** Checked ThomasonTrobaugh.1990 Theorem 4.1 (p. 329; PDF p. 83); ThomasonTrobaugh.1990 Theorem 7.3 (p. 364; PDF p. 118). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread ThomasonTrobaugh.1990 Theorem 4.1 (p. 329; PDF p. 83); ThomasonTrobaugh.1990 Theorem 7.3 (p. 364; PDF p. 118); ThomasonTrobaugh.1990 Section 4.3 (p. 329; PDF p. 83); Kbook.2013 Projective Bundle Theorem II.8.5 (PDF p. 157; book p. 149); Kbook.2013 Projective Bundle Theorem V.1.5 (PDF p. 377; book p. 369). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 **Planet:** Projective space bundle theorem.
 
@@ -14286,7 +14296,7 @@ Let X be quasi-compact and quasi-separated and π: P¹_X = P(O_X^{⊕2}) → X. 
 - [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), Theorem 6.1, proof (p. 352; PDF p. 106). The basis used by the fundamental theorem.
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Corollary II.8.6 (PDF p. 157; book p. 149). The relation (1 − [O(−1)])² = 0 for r = 1, whose additive form is (b).
 
-**Review note.** Checked Kbook.2013 Theorem V.1.5.4 (PDF p. 379; book p. 371); ThomasonTrobaugh.1990 Theorem 6.1, proof (p. 352; PDF p. 106). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread Kbook.2013 Theorem V.1.5.4 (PDF p. 379; book p. 371); ThomasonTrobaugh.1990 Theorem 6.1, proof (p. 352; PDF p. 106); Kbook.2013 Corollary II.8.6 (PDF p. 157; book p. 149). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -14361,7 +14371,7 @@ For a scheme X put X[T] := X ×_{Spec ℤ} Spec ℤ[T] (Mathlib's affine line �
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Section V.8, Theorem V.8.3 (PDF p. 439; book p. 431). The definition of the extensions.
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Example III.3.8.1 (PDF p. 215; book p. 207). The computational test, with R = k and N = 2.
 
-**Review note.** Checked Kbook.2013 Section V.8, Theorem V.8.3 (PDF p. 439; book p. 431); Kbook.2013 Example III.3.8.1 (PDF p. 215; book p. 207). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps. Reviewed all API roles and discriminating examples; unavailable Lean carriers remain explicit omissions.
+**Review note.** Independently reread Kbook.2013 Section V.8, Theorem V.8.3 (PDF p. 439; book p. 431); Kbook.2013 Example III.3.8.1 (PDF p. 215; book p. 207). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs. Checked API use cases and the discriminating test specifications; these are mathematical specifications, not execution receipts.
 
 -/
 
@@ -14415,7 +14425,7 @@ Let X be quasi-compact and quasi-separated and Z ⊂ X closed with X − Z quasi
 - [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), Theorem 6.1, proof (p. 353; PDF p. 107). The conclusion of the exactness argument.
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Theorem V.8.3 (PDF p. 439; book p. 431). The K-book's form, for quasi-projective X.
 
-**Review note.** Checked ThomasonTrobaugh.1990 Theorem 6.6(b) (p. 361; PDF p. 115); ThomasonTrobaugh.1990 Theorem 6.1, proof (p. 353; PDF p. 107). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread ThomasonTrobaugh.1990 Theorem 6.6(b) (p. 361; PDF p. 115); ThomasonTrobaugh.1990 Theorem 6.1, proof (p. 353; PDF p. 107); ThomasonTrobaugh.1990 Theorem 6.1, proof (p. 353; PDF p. 107); Kbook.2013 Theorem V.8.3 (PDF p. 439; book p. 431). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 **Planet:** Bass fundamental theorem.
 
@@ -14467,7 +14477,7 @@ In the setting of S.5/bass-fundamental-theorem, let [T] ∈ K_1(Spec ℤ[T, T⁻
 - [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), Theorem 6.1, proof (p. 354; PDF p. 108). The sign, asserted without the calculation.
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Theorem V.8.2 (PDF p. 438; book p. 430). The splitting in the K-book's form.
 
-**Review note.** Checked ThomasonTrobaugh.1990 Theorem 6.1(b) (p. 352; PDF p. 106); ThomasonTrobaugh.1990 Theorem 6.1, proof (p. 354; PDF p. 108). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread ThomasonTrobaugh.1990 Theorem 6.1(b) (p. 352; PDF p. 106); ThomasonTrobaugh.1990 Theorem 6.1, proof (p. 354; PDF p. 108); Kbook.2013 Theorem V.8.2 (PDF p. 438; book p. 430). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -14508,7 +14518,7 @@ Let X be quasi-compact and quasi-separated (and Z closed with X − Z quasi-comp
 - [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), Section 6.7 (p. 362; PDF p. 116). The retract statement used for negative degrees.
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Fundamental Theorem for K0 III.3.7 (PDF p. 214; book p. 206). The ring prototype of the four-term decomposition.
 
-**Review note.** Checked ThomasonTrobaugh.1990 Theorem 6.6(d) (p. 361; PDF p. 115); ThomasonTrobaugh.1990 Section 6.7 (p. 362; PDF p. 116). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread ThomasonTrobaugh.1990 Theorem 6.6(d) (p. 361; PDF p. 115); ThomasonTrobaugh.1990 Section 6.7 (p. 362; PDF p. 116); Kbook.2013 Fundamental Theorem for K0 III.3.7 (PDF p. 214; book p. 206). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -14555,7 +14565,7 @@ For X = Spec R with R commutative, under S.2/affine-k-theory-comparison (K(Spec 
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Theorem V.8.2 (PDF p. 438; book p. 430). The ring statement being compared.
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Theorem V.8.3, proof (PDF p. 440; book p. 432). The boundary of the product with t in the scheme proof.
 
-**Review note.** Checked Kbook.2013 Theorem V.8.1 (PDF p. 438; book p. 430); Kbook.2013 Theorem V.8.2 (PDF p. 438; book p. 430). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread Kbook.2013 Theorem V.8.1 (PDF p. 438; book p. 430); Kbook.2013 Theorem V.8.2 (PDF p. 438; book p. 430); Kbook.2013 Theorem V.8.3, proof (PDF p. 440; book p. 432). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -14604,7 +14614,7 @@ Let X be a regular noetherian scheme. Two computations of K_*(X[T, T⁻¹]) = K_
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Theorem V.6.2, proof (PDF p. 415; book p. 407). Computation (i) in G-theory.
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Corollary V.6.3.1 (PDF p. 416; book p. 408). Computation (ii) for regular rings.
 
-**Review note.** Checked Kbook.2013 Example V.6.1.2 (PDF p. 414; book p. 406); Kbook.2013 Theorem V.6.2, proof (PDF p. 415; book p. 407). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread Kbook.2013 Example V.6.1.2 (PDF p. 414; book p. 406); Kbook.2013 Theorem V.6.2, proof (PDF p. 415; book p. 407); Kbook.2013 Corollary V.6.3.1 (PDF p. 416; book p. 408). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -14647,14 +14657,14 @@ Setting: X is quasi-compact and quasi-separated; i: Y → X is a regular closed 
 - [Stacks](https://stacks.math.columbia.edu), Lemma 31.33.4, Tag 02OS (Divisors, Section 31.33). Part (b) for any blow-up.
 - [Stacks](https://stacks.math.columbia.edu), Lemma 10.69.2, Tag 00LN (Algebra, Section 10.69). The graded algebra of a regular ideal is the symmetric algebra of the conormal module.
 
-**Review note.** Checked Thomason.1993 §1.2 (p. 197); Thomason.1993 §1.2 (p. 197). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread Thomason.1993 §1.2 (p. 197); Thomason.1993 §1.2 (p. 197); Stacks Lemma 31.33.4, Tag 02OS (Divisors, Section 31.33); Stacks Lemma 10.69.2, Tag 00LN (Algebra, Section 10.69). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
 /-!
 ### Pullback to the blow-up is fully faithful on perfect complexes
 
-**Id:** `SchemeKTheoryOperations:S.5/blowup-adjunction-lemma`. **Kind:** lemma. **Review:** corrected. Implementation unchecked.
+**Id:** `SchemeKTheoryOperations:S.5/blowup-adjunction-lemma`. **Kind:** lemma. **Review:** verified. Implementation unchecked.
 
 Setting: X is quasi-compact and quasi-separated; i: Y → X is a regular closed immersion (Koszul-regular in the sense of SGA 6 VII 1.4: the ideal J is locally generated by a sequence whose Koszul complex is acyclic in non-zero degrees; for noetherian X, locally generated by a regular sequence) of pure codimension d ≥ 1, with conormal sheaf N := J/J², locally free of rank d on Y; p: X′ := Bl_Y X = Proj_X(⊕_{n≥0} J^n) → X is the blow-up, Y′ := p⁻¹(Y) = X′ ×_X Y with i′: Y′ → X′ and p′: Y′ → Y, and O_{X′}(1) is the tautological invertible sheaf. (a) For every perfect complex F on X, the adjunction η: F → Rp_*Lp^*F = Rp_*(O_{X′} ⊗ Lp^*F) is a quasi-isomorphism. (b) For every perfect complex G on Y, η: G → Rp′_*Lp′^*G = Rp′_*(O_{Y′} ⊗ Lp′^*G) is a quasi-isomorphism, and Rp′_*(O_{Y′}(−i) ⊗ Lp′^*G) ≃ 0 for i = 1, 2, …, d − 1.
 
@@ -14687,7 +14697,7 @@ Setting: X is quasi-compact and quasi-separated; i: Y → X is a regular closed 
 - [Thomason.1993](https://gdz.sub.uni-goettingen.de/download/pdf/PPN356556735_0112/LOG_0023.pdf), Lemme 2.3 (p. 200). Part (a); transcribed from the scan.
 - [Thomason.1993](https://gdz.sub.uni-goettingen.de/download/pdf/PPN356556735_0112/LOG_0023.pdf), Lemme 2.3, démonstration (p. 200). The descending induction and its starting point.
 
-**Review note.** The negative-twist vanishing test requires d≥2; the d=1 range is empty.
+**Review note.** Independently reread Thomason.1993 Lemme 2.3 (p. 200); Thomason.1993 Lemme 2.3, démonstration (p. 200). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -14726,7 +14736,7 @@ Let i: D → W be a regular closed immersion of pure codimension one of quasi-co
 - [Thomason.1993](https://gdz.sub.uni-goettingen.de/download/pdf/PPN356556735_0112/LOG_0023.pdf), Porisme 3.5, (3.5.2) (p. 213). The statement; transcribed from the scan.
 - [Thomason.1993](https://gdz.sub.uni-goettingen.de/download/pdf/PPN356556735_0112/LOG_0023.pdf), Porisme 3.5, démonstration (p. 213). Independence from the K-theoretic statements.
 
-**Review note.** Checked Thomason.1993 Porisme 3.5, (3.5.2) (p. 213); Thomason.1993 Porisme 3.5, démonstration (p. 213). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread Thomason.1993 Porisme 3.5, (3.5.2) (p. 213); Thomason.1993 Porisme 3.5, démonstration (p. 213). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -14767,7 +14777,7 @@ Setting: X is quasi-compact and quasi-separated; i: Y → X is a regular closed 
 - [Thomason.1993](https://gdz.sub.uni-goettingen.de/download/pdf/PPN356556735_0112/LOG_0023.pdf), Lemme 2.4 (a) (p. 200). The property of ∂.
 - [Thomason.1993](https://gdz.sub.uni-goettingen.de/download/pdf/PPN356556735_0112/LOG_0023.pdf), Lemme 2.4 (b) (p. 201). Part (b).
 
-**Review note.** Checked Thomason.1993 Lemme 2.4 (a) (p. 200); Thomason.1993 Lemme 2.4 (a) (p. 200). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread Thomason.1993 Lemme 2.4 (a) (p. 200); Thomason.1993 Lemme 2.4 (a) (p. 200); Thomason.1993 Lemme 2.4 (b) (p. 201). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -14806,7 +14816,7 @@ Setting: X is quasi-compact and quasi-separated; i: Y → X is a regular closed 
 - [Thomason.1993](https://gdz.sub.uni-goettingen.de/download/pdf/PPN356556735_0112/LOG_0023.pdf), Lemme 2.5 (p. 202). Part (b); transcribed from the scan.
 - [Thomason.1993](https://gdz.sub.uni-goettingen.de/download/pdf/PPN356556735_0112/LOG_0023.pdf), Lemme 2.5, démonstration (p. 202). The reduction to the local case.
 
-**Review note.** Checked Thomason.1993 Lemme 2.5 (p. 202); Thomason.1993 Lemme 2.5, démonstration (p. 202). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread Thomason.1993 Lemme 2.5 (p. 202); Thomason.1993 Lemme 2.5, démonstration (p. 202). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -14849,7 +14859,7 @@ Setting: X is quasi-compact and quasi-separated; i: Y → X is a regular closed 
 - [Thomason.1993](https://gdz.sub.uni-goettingen.de/download/pdf/PPN356556735_0112/LOG_0023.pdf), §2.7 (p. 204). The statement; transcribed from the scan.
 - [Thomason.1993](https://gdz.sub.uni-goettingen.de/download/pdf/PPN356556735_0112/LOG_0023.pdf), §2.7 (p. 204). The last step.
 
-**Review note.** Checked Thomason.1993 §2.7 (p. 204); Thomason.1993 §2.7 (p. 204). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread Thomason.1993 §2.7 (p. 204); Thomason.1993 §2.7 (p. 204). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -14896,7 +14906,7 @@ Setting: X is quasi-compact and quasi-separated; i: Y → X is a regular closed 
 - [Thomason.1993](https://gdz.sub.uni-goettingen.de/download/pdf/PPN356556735_0112/LOG_0023.pdf), §2.1.2 (p. 199). The explicit inverse.
 - [Thomason.1993](https://gdz.sub.uni-goettingen.de/download/pdf/PPN356556735_0112/LOG_0023.pdf), §2.6 (p. 203). The extension to non-connective K.
 
-**Review note.** Checked Thomason.1993 Théorème 2.1 (pp. 198–199); Thomason.1993 §2.1.2 (p. 199). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread Thomason.1993 Théorème 2.1 (pp. 198–199); Thomason.1993 §2.1.2 (p. 199); Thomason.1993 §2.6 (p. 203). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 **Planet:** K-groups of a blow-up.
 
@@ -14943,7 +14953,7 @@ Setting: X is quasi-compact and quasi-separated; i: Y → X is a regular closed 
 - [Thomason.1993](https://gdz.sub.uni-goettingen.de/download/pdf/PPN356556735_0112/LOG_0023.pdf), Introduction, (0.2) (p. 195). The formula being tested; transcribed from the scan.
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Example I.5.15.2 (PDF p. 66; book p. 58). The exceptional divisor of a point blow-up.
 
-**Review note.** Checked Thomason.1993 Introduction, (0.2) (p. 195); Kbook.2013 Example I.5.15.2 (PDF p. 66; book p. 58). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread Thomason.1993 Introduction, (0.2) (p. 195); Kbook.2013 Example I.5.15.2 (PDF p. 66; book p. 58). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -14985,7 +14995,7 @@ Setting: X is quasi-compact and quasi-separated; i: Y → X is a regular closed 
 - [Thomason.1993](https://gdz.sub.uni-goettingen.de/download/pdf/PPN356556735_0112/LOG_0023.pdf), Théorème 2.1 and §2.1.2 (p. 199). The factor that survives on the complement; transcribed from the scan.
 - [Thomason.1993](https://gdz.sub.uni-goettingen.de/download/pdf/PPN356556735_0112/LOG_0023.pdf), §1.2 (p. 197). The identification of the complements.
 
-**Review note.** Checked Thomason.1993 Théorème 2.1 and §2.1.2 (p. 199); Thomason.1993 §1.2 (p. 197). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread Thomason.1993 Théorème 2.1 and §2.1.2 (p. 199); Thomason.1993 §1.2 (p. 197). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -15058,7 +15068,7 @@ Let X be a quasi-compact quasi-separated scheme and Y, Z ⊆ X closed subsets wi
 - [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), 3.15, pairings (3.15.4) and (3.15.5) (printed p. 318). The support pairing; (3.15.5) is the G-theory analogue K(X on Y) ∧ G(X on Z) → G(X on Y ∩ Z).
 - [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), 3.15 (printed p. 319). The multiplication statement is used; the assertion of no unit for every proper support is false for a nonempty clopen component. See the source issue below.
 
-**Review note.** Checked ThomasonTrobaugh.1990 3.15, pairings (3.15.4) and (3.15.5) (printed p. 318); ThomasonTrobaugh.1990 3.15 (printed p. 319). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps. Reviewed all API roles and discriminating examples; unavailable Lean carriers remain explicit omissions.
+**Review note.** Independently reread ThomasonTrobaugh.1990 3.15, pairings (3.15.4) and (3.15.5) (printed p. 318); ThomasonTrobaugh.1990 3.15 (printed p. 319). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs. Checked API use cases and the discriminating test specifications; these are mathematical specifications, not execution receipts.
 
 -/
 
@@ -15127,7 +15137,7 @@ Let S be a scheme, X and Z qcqs S-schemes with X flat over S and X ×_S Z qcqs, 
 - [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), 3.15 (printed p. 319). The external pairings (3.15.6) K(X) ∧ K(Z) → K(X ×_S Z) and (3.15.7) K(X) ∧ G(Z) → G(X ×_S Z).
 - [Soule.1985](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/S0008414X00008427), Théorème 7 v) (p. 533). Soulé uses the external product on G-theory and its compatibility with his operations.
 
-**Review note.** Checked ThomasonTrobaugh.1990 3.15 (printed p. 319); Soule.1985 Théorème 7 v) (p. 533). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps. Reviewed all API roles and discriminating examples; unavailable Lean carriers remain explicit omissions.
+**Review note.** Independently reread ThomasonTrobaugh.1990 3.15 (printed p. 319); Soule.1985 Théorème 7 v) (p. 533). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs. Checked API use cases and the discriminating test specifications; these are mathematical specifications, not execution receipts.
 
 -/
 
@@ -15193,7 +15203,7 @@ For a morphism f: X' → X of qcqs schemes define the relative K-theory K(f) as 
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Relative K-groups IV.1.11 (PDF p. 275). Relative K-theory as a homotopy fibre with its long exact sequence; the node applies it to f^* for schemes (K.5 owns the ring and exact-functor versions).
 - [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), 3.15 (printed p. 319). The module-spectrum structures and their compatibility with pullback, used for the relative theory.
 
-**Review note.** Checked Kbook.2013 Relative K-groups IV.1.11 (PDF p. 275); ThomasonTrobaugh.1990 3.15 (printed p. 319). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps. Reviewed all API roles and discriminating examples; unavailable Lean carriers remain explicit omissions.
+**Review note.** Independently reread Kbook.2013 Relative K-groups IV.1.11 (PDF p. 275); ThomasonTrobaugh.1990 3.15 (printed p. 319). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs. Checked API use cases and the discriminating test specifications; these are mathematical specifications, not execution receipts.
 
 -/
 
@@ -15234,7 +15244,7 @@ Let f: X' → X be a morphism of qcqs schemes and Y, Z ⊆ X closed with quasi-c
 - [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), 3.15 (printed p. 319). Part (a).
 - [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), Proposition 3.17 (printed p. 320). The projection formula, whose support version is part (c).
 
-**Review note.** Checked ThomasonTrobaugh.1990 3.15 (printed p. 319); ThomasonTrobaugh.1990 Proposition 3.17 (printed p. 320). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread ThomasonTrobaugh.1990 3.15 (printed p. 319); ThomasonTrobaugh.1990 Proposition 3.17 (printed p. 320). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -15274,7 +15284,7 @@ For a qcqs scheme X the products of S.2/tensor-product-pairings and S.6/support-
 - [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), 3.15 (printed p. 319). The ring structure on K(X), from which graded commutativity of K_*(X) follows.
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Theorem IV.1.10 (PDF p. 274). The affine case (Loday).
 
-**Review note.** Checked ThomasonTrobaugh.1990 3.15 (printed p. 319); Kbook.2013 Theorem IV.1.10 (PDF p. 274). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread ThomasonTrobaugh.1990 3.15 (printed p. 319); Kbook.2013 Theorem IV.1.10 (PDF p. 274). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 **Planet:** Graded-commutative K-theory ring.
 
@@ -15317,7 +15327,7 @@ For a qcqs scheme X: (a) the product on K_0(X) is [E]·[F] = [E ⊗^L F] for per
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Theorem IV.1.10 (PDF p. 274). Loday's product in degree (1, 1), the comparison target of (c).
 - [Riou.2009](https://arxiv.org/pdf/0907.2710), Remark 3.2.2 (p. 13). The cited comparison used in (c).
 
-**Review note.** Checked Kbook.2013 Theorem IV.1.10 (PDF p. 274); Riou.2009 Remark 3.2.2 (p. 13). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread Kbook.2013 Theorem IV.1.10 (PDF p. 274); Riou.2009 Remark 3.2.2 (p. 13). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -15393,7 +15403,7 @@ Let K_0 be a special λ-ring (KTheoryLowDegrees Z.3/special-lambda-ring). A non-
 - [Soule.1985](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/S0008414X00008427), Proposition 4 and its explanation (p. 512). The non-unital version: operations λ^k, k ≥ 1, with the unitalisation ℤ ⊕ K^Y(X) a special λ-ring.
 - [Soule.1985](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/S0008414X00008427), §1.4 (p. 492). K(A) is the unitalisation over K_0(A) of its positive part, with zero products between positive degrees.
 
-**Review note.** Checked Soule.1985 Proposition 4 and its explanation (p. 512); Soule.1985 §1.4 (p. 492). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps. Reviewed all API roles and discriminating examples; unavailable Lean carriers remain explicit omissions.
+**Review note.** Independently reread Soule.1985 Proposition 4 and its explanation (p. 512); Soule.1985 §1.4 (p. 492). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs. Checked API use cases and the discriminating test specifications; these are mathematical specifications, not execution receipts.
 
 -/
 
@@ -15471,7 +15481,7 @@ Let K_0 be a special λ-ring augmented by ε_0: K_0 → H (KTheoryLowDegrees Z.3
 - [Soule.1985](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/S0008414X00008427), §1.5 (p. 493). Soulé's filtration of K(A) = ⊕K_m(A), whose degree-m part is F^i_γK_m(A).
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), IV.5, The γ-filtration (PDF p. 324). The description by generators on the square-zero part K_n(A), n > 0 (text layer).
 
-**Review note.** Checked Soule.1985 §1.5 (p. 493); Kbook.2013 IV.5, The γ-filtration (PDF p. 324). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps. Reviewed all API roles and discriminating examples; unavailable Lean carriers remain explicit omissions.
+**Review note.** Independently reread Soule.1985 §1.5 (p. 493); Kbook.2013 IV.5, The γ-filtration (PDF p. 324). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs. Checked API use cases and the discriminating test specifications; these are mathematical specifications, not execution receipts.
 
 -/
 
@@ -15521,7 +15531,7 @@ Let K be an augmented special λ-ring and n ≥ 1, with k ≥ 1 for the displaye
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Proposition II.4.9 (PDF p. 105). The statement for ψ^k. The printed sign (−1)^k for λ^k disagrees with the proof on the same page, which gives k^n x = (−1)^{k−1}kλ^k(x); the node uses (−1)^{k−1} (recorded in sourceIssues).
 - [Soule.1985](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/S0008414X00008427), §1.5 (p. 493). The general form, with ω_i(ψ^k) = k^i, ω_i(λ^k) = (−1)^{k−1}k^{i−1}, ω_i(γ^i) = (−1)^{i−1}(i − 1)! listed on the same page.
 
-**Review note.** Checked Kbook.2013 Proposition II.4.9 (PDF p. 105); Soule.1985 §1.5 (p. 493). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread Kbook.2013 Proposition II.4.9 (PDF p. 105); Soule.1985 §1.5 (p. 493). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -15563,7 +15573,7 @@ Let K be an augmented special λ-ring (KTheoryLowDegrees Z.3/augmented-lambda-ri
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Proof of Theorem IV.5.11 (PDF p. 324). The same argument applied to J = K_n(A); text layer (rendered: the operator ∏_1^N(ψ^k − k^i)).
 - [GilletSoule.1999](http://web.archive.org/web/20210416024831id_/https://faculty.math.illinois.edu/K-theory/0327/fff.pdf), Proof of Proposition 8 (p. 48). The proof of Proposition 8 uses finite products of Adams factors on a K-coherent mapping model; this is distinct from asserting an unconditional full γ-filtration bound.
 
-**Review note.** Checked Kbook.2013 Theorem II.4.10 (PDF p. 106); Kbook.2013 Proof of Theorem IV.5.11 (PDF p. 324). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread Kbook.2013 Theorem II.4.10 (PDF p. 106); Kbook.2013 Proof of Theorem IV.5.11 (PDF p. 324); GilletSoule.1999 Proof of Proposition 8 (p. 48). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -15634,7 +15644,7 @@ For N ≥ 0 let R_ℤ(GL_N) be the representation ring of GL_N over ℤ (KTheory
 - [Soule.1985](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/S0008414X00008427), §1.1 (p. 490). The levels R_ℤ(GL_N); restriction and R_Z(GL) = lim R_Z(GL_N) follow on pp. 491–492.
 - [Soule.1985](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/S0008414X00008427), §1.3 (p. 492). The element of R_ℤ(GL) attached to a natural operation τ.
 
-**Review note.** Checked Soule.1985 §1.1 (p. 490); Soule.1985 §1.3 (p. 492). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps. Reviewed all API roles and discriminating examples; unavailable Lean carriers remain explicit omissions.
+**Review note.** Independently reread Soule.1985 §1.1 (p. 490); Soule.1985 §1.3 (p. 492). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs. Checked API use cases and the discriminating test specifications; these are mathematical specifications, not execution receipts.
 
 -/
 
@@ -15674,7 +15684,7 @@ The pre-λ-ring R_ℤ(GL) = lim_N R_ℤ(GL_N) of S.6/stable-representation-ring 
 - [Serre.1968](http://www.numdam.org/item/10.1007/BF02684589.pdf), §3.8 (p. 52). Serre's computation of the levels R_ℤ(GL_n), the case of Z.3/serre-representation-ring-theorem used here.
 - [Riou.2009](https://arxiv.org/pdf/0907.2710), 3.3 (p. 13). The limit R_ℤ(GL) as the ring acting on higher K-theory.
 
-**Review note.** Checked Soule.1985 §1.1 (p. 490); Serre.1968 §3.8 (p. 52). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread Soule.1985 §1.1 (p. 490); Serre.1968 §3.8 (p. 52); Riou.2009 3.3 (p. 13). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -15743,7 +15753,7 @@ For a group G and a commutative ring A, R_A(G) is the Grothendieck group of the 
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Ex. II.4.2 (PDF p. 109). The definition (as a group completion; by Ex. II.2.14 short exact sequences split over A but not over AG, and the exact-category K_0 is the one used in IV.5.3).
 - [Kratzer.1980](https://gdz.sub.uni-goettingen.de/download/pdf/PPN358147735_0055/LOG_0018.pdf), §2 (p. 236). Functoriality in G and A.
 
-**Review note.** Checked Kbook.2013 Ex. II.4.2 (PDF p. 109); Kratzer.1980 §2 (p. 236). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps. Reviewed all API roles and discriminating examples; unavailable Lean carriers remain explicit omissions.
+**Review note.** Independently reread Kbook.2013 Ex. II.4.2 (PDF p. 109); Kratzer.1980 §2 (p. 236). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs. Checked API use cases and the discriminating test specifications; these are mathematical specifications, not execution receipts.
 
 -/
 
@@ -15787,16 +15797,16 @@ Let p be a prime. (a) In R_{𝔽_p}(GL_N), ψ^p(id_N) = [id_N^{(p)}], where id_N
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Ex. II.4.2(b) (PDF p. 109). The statement (b); the exercise's hint argues through characters, the node through the Frobenius representation of GL_N.
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Proof of Corollary IV.5.5.2 (PDF p. 322). How the lemma is used for K-theory (KTheoryFiniteLocalFields L.1/adams-psi-p-frobenius).
 
-**Review note.** Checked Kbook.2013 Ex. II.4.2(b) (PDF p. 109); Kbook.2013 Proof of Corollary IV.5.5.2 (PDF p. 322). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread Kbook.2013 Ex. II.4.2(b) (PDF p. 109); Kbook.2013 Proof of Corollary IV.5.5.2 (PDF p. 322). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
 /-!
 ### The classifying map q: R_A(G) → [BG, BGL(A)^+]
 
-**Id:** `SchemeKTheoryOperations:S.6/representation-classifying-map`. **Kind:** construction. **Review:** verified. Implementation unchecked.
+**Id:** `SchemeKTheoryOperations:S.6/representation-classifying-map`. **Kind:** construction. **Review:** corrected. Implementation unchecked.
 
-Let A be a commutative ring. A representation ρ of a group G on a finitely generated projective A-module P, with a choice of P ⊕ Q ≅ A^N, gives BG → B Aut(P) → BGL_N(A) → BGL(A)^+; its pointed homotopy class q(ρ) does not depend on the choices (conjugation acts trivially on [BG, H] for an H-space H). q is additive on direct sums, and (Kratzer, via Quillen) on short exact sequences of representations, so it defines a homomorphism q: R_A(G) → [BG, BGL(A)^+], natural in G and in A. On the augmentation ideal it gives Kratzer's r: IR_A(G) → [BG, BGL(A)^+]; composing with the pullbacks of S.6/representation-ring gives, for each N, r_{A,N}: R_ℤ(GL_N) → [BGL_N(A), BGL(A)^+] (R_ℤ(GL_N) of KTheoryLowDegrees Z.3/representation-ring-of-gl), compatible with restriction in N, and hence r_A: R_ℤ(GL) → lim_N [BGL_N(A), BGL(A)^+] = [BGL(A)^+, BGL(A)^+] on R_ℤ(GL) = lim_N R_ℤ(GL_N) of S.6/stable-representation-ring (weak homotopy classes; universal property of the plus construction).
+Let A be a commutative ring. A representation ρ of a group G on a finitely generated projective A-module P, with a choice of P ⊕ Q ≅ A^N, gives BG → B Aut(P) → BGL_N(A) → BGL(A)^+; its pointed homotopy class q(ρ) does not depend on the choices (conjugation acts trivially on [BG, H] for an H-space H). q is additive on direct sums, and (Kratzer, via Quillen) on short exact sequences of representations, so it defines a homomorphism q: R_A(G) → [BG, BGL(A)^+], natural in G and in A. On the augmentation ideal it gives Kratzer's r: IR_A(G) → [BG, BGL(A)^+]; composing with the pullbacks of S.6/representation-ring gives, for each N, r_{A,N}: R_ℤ(GL_N) → [BGL_N(A), BGL(A)^+] (R_ℤ(GL_N) of KTheoryLowDegrees Z.3/representation-ring-of-gl), compatible with restriction in N, and hence r_A: R_ℤ(GL) → lim_N [BGL_N(A), BGL(A)^+] on R_ℤ(GL) = lim_N R_ℤ(GL_N) of S.6/stable-representation-ring (compatible finite-rank, or weak, homotopy classes). This inverse limit is not identified here with genuine pointed homotopy classes of self-maps; the required lifting and uniqueness input is S.6/hiller-universality.
 
 **Hypotheses.**
 
@@ -15819,12 +15829,12 @@ Let A be a commutative ring. A representation ρ of a group G on a finitely gene
 - Additive on ⊕: block sum is the H-space structure of BGL(A)^+ (GeneralAlgebraicKTheory K.2:plus, StableHomotopyKTheory H.4/gl-telescope-plus-comparison).
 - Exact sequences: reduce by universality to G = G_{m,n}, the block upper-triangular group; the inclusion of the block-diagonal group induces a homology isomorphism in the limit (Quillen; gap), hence equal classes in [lim BG_{m,n}, H] for every connected H-space H (StableHomotopyKTheory H.3/plus-construction-universal-property and Whitehead's theorem for H-spaces).
 - Naturality in G and A is by construction; compatibility of r_{A,N} with restriction because diag(ρ(g), 1) represents ρ ⊕ 1 and the trivial summand contributes the class of the constant map.
-- Passage to the limit over N and to BGL(A)^+: [BGL(A), BGL(A)^+] = lim [BGL_N(A), BGL(A)^+] up to lim¹ (weak homotopy classes, as in Soulé 1.2) and [BGL(A), H] = [BGL(A)^+, H] by the universal property of the plus construction.
+- Passage to the inverse limit yields compatible finite-rank classes only. The restriction map from genuine homotopy classes on the telescope can have a lim¹ ambiguity. The plus universal property does not remove that ambiguity; lifting natural operations with uniqueness is the separate conditional Hiller input.
 
 **Acceptance conditions.**
 
-- For G = GL_N(A) and ρ = id: q(id_N) − N is the class of BGL_N(A) → BGL(A)^+.
-- q(trivial representation on A^N) = N·(constant map).
+- For G = GL_N(A) and ρ = id, q(id_N) is the class of BGL_N(A) → BGL(A)^+. The trivial rank-N representation has q = 0, so subtracting it gives the same reduced class.
+- q(trivial representation on A^N) = 0 in the group of pointed maps to the connected BGL(A)^+; its rank is recorded in the separate K₀ component.
 
 **Uses.**
 
@@ -15839,16 +15849,16 @@ Let A be a commutative ring. A representation ρ of a group G on a finitely gene
 | `TauCeti.KTheory.LambdaOperations.classifyingMap` | constructor | q: R_A(G) → [BG, BGL(A)^+]. |
 | `TauCeti.KTheory.LambdaOperations.classifyingMap_add` | simp | q(ρ ⊕ ρ') = q(ρ) + q(ρ') and q on exact sequences. |
 | `TauCeti.KTheory.LambdaOperations.classifyingMap_natural` | functoriality | Natural in G (restriction) and in A (extension of scalars). |
-| `TauCeti.KTheory.LambdaOperations.stableMap` | constructor | r_A: R_ℤ(GL) → [BGL(A)^+, BGL(A)^+]. |
-| `TauCeti.KTheory.LambdaOperations.stableMap_id` | simp | r_A((id_N − N)_N) is the identity class of BGL(A)^+. |
+| `TauCeti.KTheory.LambdaOperations.stableMap` | constructor | r_A: R_ℤ(GL) → lim_N [BGL_N(A), BGL(A)^+], a compatible finite-rank class; a genuine self-map requires the separate Hiller lifting input. |
+| `TauCeti.KTheory.LambdaOperations.stableMap_id` | simp | r_A((id_N−N)_N) is the restriction family of the identity of BGL(A)^+. |
 
 **Test specifications.** These are mathematical acceptance tests; no execution is claimed.
 
 | Name | Kind | Specification |
 | --- | --- | --- |
 | `classifyingMap_trivial` | degenerate | For the trivial group, q: R_A(1) = K_0(A) → [pt, BGL(A)^+] = 0 kills everything; with the component, R_A(1) → K_0(A) × [pt, BGL(A)^+] is the identity on K_0(A). |
-| `classifyingMap_units` | computation | For G = ℤ acting on A by a unit u (1 ↦ u), q(ρ) − 1 ∈ [S^1, BGL(A)^+] = K_1(A) is the class of u. |
-| `classifyingMap_not_module_only` | non-example | q(ρ) is not determined by the underlying module: for G = ℤ acting on A = ℚ through the units 2 and 3, both representations have underlying module ℚ, but q(ρ) − 1 ∈ [S^1, BGL(ℚ)^+] = K_1(ℚ) = ℚ^× equals 2 and 3 respectively. |
+| `classifyingMap_units` | computation | For G = ℤ acting on A by a unit u (1 ↦ u), q(ρ) ∈ [S^1, BGL(A)^+] = K_1(A) is the class of u. |
+| `classifyingMap_not_module_only` | non-example | q(ρ) is not determined by the underlying module: for G = ℤ acting on A = ℚ through the units 2 and 3, both representations have underlying module ℚ, but q(ρ) ∈ [S^1, BGL(ℚ)^+] = K_1(ℚ) = ℚ^× equals 2 and 3 respectively. |
 | `classifyingMap_restrict_compat` | compatibility | r_{A,N+1}(σ) restricted to BGL_N(A) equals r_{A,N}(restrict σ). |
 
 **Source locators.**
@@ -15857,20 +15867,20 @@ Let A be a commutative ring. A representation ρ of a group G on a finitely gene
 - [Kratzer.1980](https://gdz.sub.uni-goettingen.de/download/pdf/PPN358147735_0055/LOG_0018.pdf), Théorème 3.1 (p. 237). Kratzer's route to additivity rests on the same result of Quillen ([18] = Characteristic classes of representations, LNM 551).
 - [Soule.1985](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/S0008414X00008427), §1.2 (p. 491). Soulé's form, citing Kratzer [16].
 
-**Review note.** Checked Kbook.2013 Proposition IV.5.3 (PDF p. 320); Kratzer.1980 Théorème 3.1 (p. 237). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps. Reviewed all API roles and discriminating examples; unavailable Lean carriers remain explicit omissions.
+**Review note.** Independently reread Kbook.2013 Proposition IV.5.3 (PDF p. 320); Kratzer.1980 Théorème 3.1 (p. 237); Soule.1985 §1.2 (p. 491). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs. Checked API use cases and the discriminating test specifications; these are mathematical specifications, not execution receipts. Correction: Keep the stable target as an inverse limit of finite-rank homotopy classes. No identification with genuine self-map classes is made without a phantom-control input; normalize q on trivial representations.
 
 -/
 
 /-!
 ### λ-operations on the higher K-theory of a commutative ring
 
-**Id:** `SchemeKTheoryOperations:S.6/quillen-hiller-operations`. **Kind:** construction. **Review:** verified. Implementation unchecked.
+**Id:** `SchemeKTheoryOperations:S.6/quillen-hiller-operations`. **Kind:** construction. **Review:** corrected. Implementation unchecked.
 
-For a commutative ring A and a natural operation τ of special λ-rings with τ(0) = 0, let τ_A = r_A((τ(id_N − N))_N) ∈ [BGL(A)^+, BGL(A)^+] (S.6/representation-classifying-map; the element (τ(id_N − N))_N of S.6/stable-representation-ring). For a pointed space X it acts on [X, BGL(A)^+] by composition, and for X = S^m (m ≥ 1) on K_m(A) = π_m BGL(A)^+. The λ-, γ- and Adams operations are the cases τ = λ^k, γ^k, ψ^k. On K_0(A) × [X, BGL(A)^+] the operations are extended by λ^k(a, x) = (λ^k(a), λ^k(x) + a·λ^{k−1}(x) + ⋯ + λ^i(a)λ^{k−i}(x) + ⋯ + λ^{k−1}(a)x), using the product [X, BGL(A)^+] × [X, BGL(A)^+] → [X, BGL(A)^+] from the tensor-product pairing and the K_0(A)-module structure; this gives λ^0(a, x) = (1, 0). The operations are natural in A and in X, and on K_0(A) they are those of KTheoryLowDegrees Z.3/lambda.
+For a commutative ring A and a natural operation τ of special λ-rings with τ(0) = 0, assuming the Hiller lifting and uniqueness input below, let τ_A be the genuine class lifting r_A((τ(id_N − N))_N) ∈ [BGL(A)^+, BGL(A)^+] (S.6/representation-classifying-map; the element (τ(id_N − N))_N of S.6/stable-representation-ring). For a pointed space X it acts on [X, BGL(A)^+] by composition, and for X = S^m (m ≥ 1) on K_m(A) = π_m BGL(A)^+. The λ-, γ- and Adams operations are the cases τ = λ^k, γ^k, ψ^k. On K_0(A) × [X, BGL(A)^+] the operations are extended by λ^k(a, x) = (λ^k(a), λ^k(x) + a·λ^{k−1}(x) + ⋯ + λ^i(a)λ^{k−i}(x) + ⋯ + λ^{k−1}(a)x), using the product [X, BGL(A)^+] × [X, BGL(A)^+] → [X, BGL(A)^+] from the tensor-product pairing and the K_0(A)-module structure; this gives λ^0(a, x) = (1, 0). The operations are natural in A and in X, and on K_0(A) they are those of KTheoryLowDegrees Z.3/lambda.
 
 **Hypotheses.**
 
-- A commutative; X a pointed space (a CW complex in the universal case X = BGL(A)^+).
+- A commutative; X a pointed space. The construction of the genuine universal self-map uses Hiller universality on connected pointed CW complexes; its obstruction-theoretic and phantom-control input remains a recorded source gap. Once that self-map exists, composition is defined for every pointed X.
 
 **Direct prerequisites.**
 
@@ -15879,10 +15889,11 @@ For a commutative ring A and a natural operation τ of special λ-rings with τ(
 - SchemeKTheoryOperations:S.6/product-low-degree-comparison
 - KTheoryLowDegrees:Z.3/lambda
 - GeneralAlgebraicKTheory:K.2:plus
+- SchemeKTheoryOperations:S.6/hiller-universality
 
 **Proof route.**
 
-- The family (τ(id_N − N))_N lies in R_ℤ(GL) (S.6/stable-representation-ring), and r_A gives a weak homotopy class of self-maps of BGL(A)^+.
+- The family (τ(id_N−N))_N gives a compatible finite-rank class through r_A. Apply the conditional Hiller universality input to the natural transformation q∘τ on representation functors, obtaining a genuine pointed self-map with the required uniqueness. Compatible restrictions alone do not justify composition on all CW complexes.
 - Composition gives τ on [X, BGL(A)^+], natural in X; naturality in A because r_A is natural in A (S.6/representation-classifying-map).
 - The extension to K_0(A) × [X, BGL(A)^+] uses the product of S.6/product-low-degree-comparison (Loday's pairing on BGL(A)^+, restricted to [X, −] through the diagonal of X) and is forced by the sum formula once λ^0(a, x) = (1, 0).
 - On K_0(A) (X = S^0 with the component) the operations are λ^k[P] = [Λ^kP], i.e. KTheoryLowDegrees Z.3/lambda (S.6/degree-zero-comparison).
@@ -15924,7 +15935,7 @@ For a commutative ring A and a natural operation τ of special λ-rings with τ(
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), IV.5, before Theorem 5.5 (PDF p. 322). The extension to K_0(A) × [X, BGL(A)^+] (the printed formula lacks its closing parenthesis).
 - [Soule.1985](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/S0008414X00008427), §1.3 (p. 492). Soulé's form for a general natural operation τ.
 
-**Review note.** Checked Kbook.2013 Definition IV.5.4 (PDF p. 321); Kbook.2013 IV.5, before Theorem 5.5 (PDF p. 322). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps. Reviewed all API roles and discriminating examples; unavailable Lean carriers remain explicit omissions.
+**Review note.** Independently reread Kbook.2013 Definition IV.5.4 (PDF p. 321); Kbook.2013 IV.5, before Theorem 5.5 (PDF p. 322); Soule.1985 §1.3 (p. 492). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs. Checked API use cases and the discriminating test specifications; these are mathematical specifications, not execution receipts. Correction: Add Hiller universality as the explicit lifting/uniqueness prerequisite before defining composition on arbitrary pointed spaces.
 
 -/
 
@@ -15938,6 +15949,7 @@ For a commutative ring A and a pointed space X, the operations of S.6/quillen-hi
 **Hypotheses.**
 
 - A commutative. The zero product in positive degrees is the product of the λ-structure, not Loday's product; the compatibility with Loday's product is S.6/adams-product-compatibility.
+- The genuine universal identities require S.6/hiller-universality and its recorded source gap; agreement after every finite-rank restriction alone is insufficient.
 
 **Direct prerequisites.**
 
@@ -15951,10 +15963,11 @@ For a commutative ring A and a pointed space X, the operations of S.6/quillen-hi
 - KTheoryLowDegrees:Z.3/adams-ring-endomorphism
 - KTheoryLowDegrees:Z.3/special-lambda-ring
 - SchemeKTheoryOperations:S.6/non-unital-lambda-algebra
+- SchemeKTheoryOperations:S.6/hiller-universality
 
 **Proof route.**
 
-- Universal case X = BGL(A)^+: every identity of special λ-rings for elements of [X, BGL(A)^+] is the image under r_A of the same identity for the elements (id_N − N) of R_ℤ(GL_N), and for identities in two variables of R_ℤ(GL_N × GL_M) = R_ℤ(GL_N) ⊗ R_ℤ(GL_M) (S.6/representation-classifying-map applied to GL_N(A) × GL_M(A)); these hold because R_ℤ(GL_N), R_ℤ(GL_N × GL_M) are special λ-rings (KTheoryLowDegrees Z.3/serre-representation-ring-theorem, which covers products of general linear groups), and the one-variable identities hold between the elements τ_∞ of R_ℤ(GL) (S.6/stable-representation-ring-special).
+- Universal case X = BGL(A)^+: every identity of special λ-rings for elements of [X, BGL(A)^+] is the image under r_A of the same identity for the elements (id_N − N) of R_ℤ(GL_N), and for identities in two variables of R_ℤ(GL_N × GL_M) = R_ℤ(GL_N) ⊗ R_ℤ(GL_M) (S.6/representation-classifying-map applied to GL_N(A) × GL_M(A)); these hold because R_ℤ(GL_N), R_ℤ(GL_N × GL_M) are special λ-rings (KTheoryLowDegrees Z.3/serre-representation-ring-theorem, which covers products of general linear groups), and the one-variable identities hold between the elements τ_∞ of R_ℤ(GL) (S.6/stable-representation-ring-special). These representation identities give identities of natural transformations. The conditional Hiller uniqueness theorem, also for the product-group universal functors, identifies their genuine classifying maps; the inverse-limit equality by itself is not used.
 - The sum formula λ^k(x + y) = Σλ^i(x)λ^{k−i}(y) comes from λ^k ∘ ⊕ = Σλ^i ⊗ λ^{k−i} in R(GL_m × GL_n); product and composition formulas likewise; λ^k(1) = 0 for k≥2 because the trivial representation of rank 1 is a line element.
 - General X by composition; K_0(A)-coefficients through the extension formula, which is forced by the sum formula.
 - X = S^m: the diagonal S^m → S^m ∧ S^m is null-homotopic (m ≥ 1), so products vanish; then Z.3/adams-square-zero gives additivity of λ^k and ψ^k = (−1)^{k−1}kλ^k, Z.3/adams-add the additivity of ψ^k, Z.3/adams-composition gives ψ^kψ^l = ψ^{kl} and Z.3/adams-ring-endomorphism the K_0(A)-linearity ψ^k(a·x) = ψ^k(a)ψ^k(x).
@@ -15970,7 +15983,7 @@ For a commutative ring A and a pointed space X, the operations of S.6/quillen-hi
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Corollary IV.5.5.1 (PDF p. 322). The consequence for K_n(A), n > 0.
 - [Soule.1985](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/S0008414X00008427), §1.4 (p. 492). Soulé's formulation of the K_0(A)-λ-algebra structure.
 
-**Review note.** Qualified the special λ unit axiom by k≥2.
+**Review note.** Independently reread Kbook.2013 Theorem IV.5.5 (PDF p. 322); Kbook.2013 Corollary IV.5.5.1 (PDF p. 322); Soule.1985 §1.4 (p. 492). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs. Correction: Use the conditional Hiller uniqueness input for identities of genuine maps, rather than concluding equality solely from finite-rank restrictions.
 
 -/
 
@@ -16006,7 +16019,7 @@ For a commutative ring A, the natural transformation R_A(π_1X) → [X, BGL(A)^+
 
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Proposition IV.5.7 (PDF p. 323). The statement; the K-book continues The proof is delegated to Hiller §2.4 and uses an obstruction-theoretic argument.
 
-**Review note.** Checked Kbook.2013 Proposition IV.5.7 (PDF p. 323). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread Kbook.2013 Proposition IV.5.7 (PDF p. 323). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -16045,7 +16058,7 @@ For a commutative ring A, the Adams operations of S.6/quillen-hiller-operations 
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Theorem IV.5.9 (PDF p. 323). The statement; the proof uses Proposition 5.7 and the representation rings of GL_m(A) × GL_n(A).
 - [Soule.1985](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/S0008414X00008427), §1.6 (p. 493). Soulé's statement, followed by the γ-product formula.
 
-**Review note.** Checked Kbook.2013 Theorem IV.5.9 (PDF p. 323); Soule.1985 §1.6 (p. 493). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread Kbook.2013 Theorem IV.5.9 (PDF p. 323); Soule.1985 §1.6 (p. 493). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -16084,7 +16097,7 @@ Let A be a commutative ring. (a) For a unit a ∈ A^× ⊆ K_1(A) (K_1 written a
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Example IV.5.4.1 (PDF p. 321). Part (a); the printed λ^k(a) = a is corrected to λ^k(a) = (−1)^{k−1}a (sourceIssues), since ψ^k = (−1)^{k−1}kλ^k on K_1 (Corollary IV.5.5.1).
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Example IV.5.9.1 (PDF p. 324). Part (b) in degree 2.
 
-**Review note.** Checked Kbook.2013 Example IV.5.4.1 (PDF p. 321); Kbook.2013 Example IV.5.9.1 (PDF p. 324). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread Kbook.2013 Example IV.5.4.1 (PDF p. 321); Kbook.2013 Example IV.5.9.1 (PDF p. 324). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -16127,14 +16140,14 @@ For every commutative ring A: F^1_γK_1(A)/F^2_γK_1(A) ≅ A^× (via the determ
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Proposition IV.5.10 (PDF p. 324). The statement, with the proof via the identity det(id_N) = 1 in R(SL_N).
 - [Soule.1985](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/S0008414X00008427), Proposition 1 (p. 500). The key identity (Soulé writes the resulting splitting as K_1(A) = A^* × F²_γK_1(A)).
 
-**Review note.** Checked Kbook.2013 Proposition IV.5.10 (PDF p. 324); Soule.1985 Proposition 1 (p. 500). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread Kbook.2013 Proposition IV.5.10 (PDF p. 324); Soule.1985 Proposition 1 (p. 500). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
 /-!
 ### Soulé's bound on the length of the γ-filtration of a ring
 
-**Id:** `SchemeKTheoryOperations:S.6/soule-gamma-bound`. **Kind:** theorem. **Review:** corrected. Implementation unchecked.
+**Id:** `SchemeKTheoryOperations:S.6/soule-gamma-bound`. **Kind:** theorem. **Review:** verified. Implementation unchecked.
 
 (i) Let A be a commutative finite R-algebra with dim Max(R) < ∞. For x ∈ K_0(A) with ε(x) = 0 and k ≥ dim Max(R) + 1, γ^k(x) = 0. (ii) Let A be a commutative ring with stable rank r = sr(A) < ∞ (KTheoryLowDegrees U.3/stable-range) and m ≥ 1. For x ∈ K_m(A) and k ≥ m + r, γ^k(x) = 0; hence ″F^{m+r}_γK_m(A) = 0, where ″F^i is the subgroup generated by the individual γ^j(x), j ≥ i. Soulé §1.6 proves that this filtration and the full filtration of S.6/non-unital-gamma-filtration agree after tensoring with ℚ; thus F^{m+r}_γK_m(A)_ℚ = 0. No integral vanishing of the full coefficient filtration is asserted here. Since sr(A) ≤ dim(A) + 1 for noetherian A, γ^k = 0 on K_m(A) for k ≥ m + dim(A) + 1.
 
@@ -16168,7 +16181,7 @@ For every commutative ring A: F^1_γK_1(A)/F^2_γK_1(A) ≅ A^× (via the determ
 - [Soule.1985](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/S0008414X00008427), Théorème 1 (p. 494). Part (ii); part (i) is Théorème 1 i) on the same page.
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Remark IV.5.10.1 (PDF p. 324). The K-book's statement of (ii), with the bound sr(A) ≤ dim(A) + 1 for noetherian A.
 
-**Review note.** Replaced the false tensor-product claim by representation-ring generation.
+**Review note.** Independently reread Soule.1985 Théorème 1 (p. 494); Kbook.2013 Remark IV.5.10.1 (PDF p. 324). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -16211,7 +16224,7 @@ Let A be a commutative ring and m ≥ 1; a single Adams operator used to define 
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Theorem IV.5.11 (PDF p. 324). Part (1) (text layer; rendered K^{(i)}_n(A)).
 - [Soule.1985](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/S0008414X00008427), Corollaire 1 (p. 498). Part (2); 𝒮_n is defined in 2.7 and w_i in the proof on p. 498.
 
-**Review note.** Checked Kbook.2013 Theorem IV.5.11 (PDF p. 324); Soule.1985 Corollaire 1 (p. 498). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread Kbook.2013 Theorem IV.5.11 (PDF p. 324); Soule.1985 Corollaire 1 (p. 498). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -16248,14 +16261,14 @@ Let F be a field. Then K_0(F)_ℚ = K_0^{(0)}, K_1(F)_ℚ = K_1^{(1)}(F)_ℚ = F
 - [Soule.1985](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/S0008414X00008427), Introduction (p. 488). Soulé's description of the top weight for fields (Théorème 2), cited and not planned here.
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Vanishing Conjecture IV.5.12 (PDF p. 325). The conjectural low-weight vanishing, recorded as not claimed.
 
-**Review note.** Checked Soule.1985 Introduction (p. 488); Kbook.2013 Vanishing Conjecture IV.5.12 (PDF p. 325). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread Soule.1985 Introduction (p. 488); Kbook.2013 Vanishing Conjecture IV.5.12 (PDF p. 325). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
 /-!
 ### K_0 of vector bundles is a special λ-ring
 
-**Id:** `SchemeKTheoryOperations:S.6/vector-bundle-lambda-ring`. **Kind:** theorem. **Review:** corrected. Implementation unchecked.
+**Id:** `SchemeKTheoryOperations:S.6/vector-bundle-lambda-ring`. **Kind:** theorem. **Review:** verified. Implementation unchecked.
 
 Let X be a quasi-compact scheme and K_0(Vect X) the Grothendieck group of the exact category of finite locally free O_X-modules. The operations λ^k[E] = [Λ^kE] extend to K_0(Vect X) and make it a special λ-ring (KTheoryLowDegrees Z.3/special-lambda-ring), augmented by the rank to H^0(X, ℤ) (Z.3/augmented-lambda-ring) (locally constant integer functions); line bundles are line elements, and ψ^k[L] = [L^{⊗k}]. For a vector bundle E of constant rank N with a trivialising Zariski cover and cocycle g_{ij} ∈ GL_N(O(U_ij)), and a representation σ of GL_N over ℤ, the associated bundle σ(E) is glued by σ(g_{ij}); E ↦ σ(E) gives a λ-homomorphism R_ℤ(GL_N) → K_0(Vect X) sending id_N to [E], and likewise R_ℤ(GL_N × GL_M) → K_0(Vect X) for a pair (E, F). For X = Spec A this is the special λ-ring K_0(A) of Z.3/ring-k0-special, with the operations of Z.3/lambda, and the associated-bundle map is the scheme version of Z.3/associated-projective-module.
 
@@ -16303,7 +16316,7 @@ Let X be a quasi-compact scheme and K_0(Vect X) the Grothendieck group of the ex
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Proposition II.8.8 (PDF p. 161). The pre-λ-ring structure on K_0(X) = K_0(Vect X); specialness is Corollary II.8.8.2, which the K-book derives from the splitting principle (II.8.8.1) and Fulton–Lang; the node derives it from representation rings instead.
 - [GilletSoule.1999](http://web.archive.org/web/20210416024831id_/https://faculty.math.illinois.edu/K-theory/0327/fff.pdf), Lemma 20 (p. 44). The representation-ring homomorphism whose value on a bundle's classifying map is the associated-bundle map of this node.
 
-**Review note.** Kept λ-operations on vector-bundle K₀ and made its perfect-complex comparison conditional.
+**Review note.** Independently reread Kbook.2013 Proposition II.8.8 (PDF p. 161); GilletSoule.1999 Lemma 20 (p. 44). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -16367,7 +16380,7 @@ Import the complete flag scheme Fl(E) and universal filtration from AlgebraicMod
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Splitting Principle II.8.8.1 (PDF p. 161). The flag bundle and its filtration.
 - [GilletSoule.1999](http://web.archive.org/web/20210416024831id_/https://faculty.math.illinois.edu/K-theory/0327/fff.pdf), 3.3.4 (p. 44). The step of the recursion (Gillet–Soulé use quotient line bundles; the node uses the sub-line O(−1) with the same effect).
 
-**Review note.** Checked Kbook.2013 Splitting Principle II.8.8.1 (PDF p. 161); GilletSoule.1999 3.3.4 (p. 44). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread Kbook.2013 Splitting Principle II.8.8.1 (PDF p. 161); GilletSoule.1999 3.3.4 (p. 44). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs. Checked API use cases and the discriminating test specifications; these are mathematical specifications, not execution receipts.
 
 -/
 
@@ -16407,7 +16420,7 @@ Let X be a quasi-compact quasi-separated scheme, E a vector bundle of constant r
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Splitting Principle II.8.8.1 (PDF p. 161). The K_0 statement; the node uses S.5's projective bundle theorem to extend it to K_* and to supports.
 - [GilletSoule.1999](http://web.archive.org/web/20210416024831id_/https://faculty.math.illinois.edu/K-theory/0327/fff.pdf), 3.3.4 (p. 44). The same induction in Gillet–Soulé's simplicial setting.
 
-**Review note.** Checked Kbook.2013 Splitting Principle II.8.8.1 (PDF p. 161); GilletSoule.1999 3.3.4 (p. 44). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread Kbook.2013 Splitting Principle II.8.8.1 (PDF p. 161); GilletSoule.1999 3.3.4 (p. 44). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -16481,14 +16494,14 @@ For a noetherian finite-dimensional scheme X, take pointed simplicial sheaves on
 - [Soule.1985](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/S0008414X00008427), Proof of Lemme 1 (p. 510). The Brown spectral sequence.
 - [BrownGersten.1973](https://pi.math.cornell.edu/~kbrown/scan/1973.0341.0266.pdf), Theorem 2 and Proposition 1, pp.271–279; Theorem 3 and proof/remark, pp.282–285. The pointed model structure, derived sections and source-scoped unstable Postnikov spectral sequence are distinct inputs.
 
-**Review note.** Checked Soule.1985 4.1 (p. 509); Soule.1985 Proof of Lemme 1 (p. 510). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps. Reviewed all API roles and discriminating examples; unavailable Lean carriers remain explicit omissions.
+**Review note.** Independently reread Soule.1985 4.1 (p. 509); Soule.1985 Proof of Lemme 1 (p. 510); BrownGersten.1973 Theorem 2 and Proposition 1, pp.271–279; Theorem 3 and proof/remark, pp.282–285. Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs. Checked API use cases and the discriminating test specifications; these are mathematical specifications, not execution receipts.
 
 -/
 
 /-!
 ### K-theory with supports as hypercohomology of ℤ × BGL^+
 
-**Id:** `SchemeKTheoryOperations:S.6/sheaf-level-k-theory-model`. **Kind:** comparison. Implementation unchecked.
+**Id:** `SchemeKTheoryOperations:S.6/sheaf-level-k-theory-model`. **Kind:** comparison. **Review:** verified. Implementation unchecked.
 
 Let X be a regular noetherian scheme of finite Krull dimension with an ample family of line bundles and Y ⊆ X closed. Let BGL_N^+ and BGL^+ = colim_N BGL_N^+ be the simplicial sheaves associated to U ↦ BGL_N(Γ(U, O_X))^+ and U ↦ BGL(Γ(U, O_X))^+ for a functorial plus construction (e.g. BGL_N(A)^+ = BGL_N(A) ∪_{BGL_N(ℤ)} BGL_N(ℤ)^+). Then K^Y_m(X) := K_m(X on Y) ≅ H_Y^{−m}(X, ℤ × BGL^+) for m ≥ 0, naturally in (X, Y), compatibly with forgetting supports and with the long exact sequences. Moreover the stabilisation map colim_N H^{−m}_Y(X, ℤ × BGL_N^+) → H^{−m}_Y(X, ℤ × BGL^+) is a bijection of pointed sets, with the group structure on the stable target (Soulé's Lemme 1), and the class of a rank-N vector bundle E in K_0(X) is the image of the class of its classifying map N(𝒰) → BGL_N for a trivialising cover 𝒰.
 
@@ -16531,6 +16544,9 @@ Let X be a regular noetherian scheme of finite Krull dimension with an ample fam
 - [Soule.1985](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/S0008414X00008427), Lemme 1 (p. 510). Stabilisation, proved with the Brown spectral sequence and stability for local rings ('stabilité pour la K-théorie d'un anneau local, voir [33]').
 - [Soule.1985](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/S0008414X00008427), Proof of Lemme 1 (p. 511). The class of a bundle.
 - [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), 2.1.2(e), p.284; 3.8–3.10, p.316; Exercises 8.5–8.6, p.374. The ample family gives the natural global comparison and restricts to opens. The doubled-plane example detects the failure if that hypothesis is removed.
+
+**Review note.** Independently reread Soule.1985 4.2 (p. 509); Soule.1985 Lemme 1 (p. 510); Soule.1985 Proof of Lemme 1 (p. 511); ThomasonTrobaugh.1990 2.1.2(e), p.284; 3.8–3.10, p.316; Exercises 8.5–8.6, p.374. Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
+
 -/
 
 /-!
@@ -16592,14 +16608,14 @@ On a topos T with a sheaf of commutative rings, let K=ℤ×ℤ_∞BGL and K^N=�
 
 - [GilletSoule.1999](http://web.archive.org/web/20210416024831id_/https://faculty.math.illinois.edu/K-theory/0327/fff.pdf), Definition 1, p.38. K-coherence has two independent comparison conditions, and finite cohomological dimension is an additional hypothesis.
 
-**Review note.** Checked GilletSoule.1999 Definition 1, p.38. The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps. Reviewed all API roles and discriminating examples; unavailable Lean carriers remain explicit omissions.
+**Review note.** Independently reread GilletSoule.1999 Definition 1, p.38. Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs. Checked API use cases and the discriminating test specifications; these are mathematical specifications, not execution receipts.
 
 -/
 
 /-!
 ### K-coherence of a scheme and its support cofiber
 
-**Id:** `SchemeKTheoryOperations:S.6/scheme-and-support-k-coherence`. **Kind:** theorem. Implementation unchecked.
+**Id:** `SchemeKTheoryOperations:S.6/scheme-and-support-k-coherence`. **Kind:** theorem. **Review:** verified. Implementation unchecked.
 
 For a regular noetherian finite-dimensional scheme X with an ample family of line bundles, X_+ is K-coherent and has cohomological dimension at most d=dim X. For U=X∖Y, the pointed support cofiber C_Y=cofiber(U_+→X_+) is K-coherent with cohomological dimension at most D=max(dim X,dim U+1). When U=∅ use D=d; when Y=∅ the cofiber is contractible. The sheaf K-model represents K_m^Y(X) by H^{−m}(C_Y,K).
 
@@ -16641,12 +16657,15 @@ For a regular noetherian finite-dimensional scheme X with an ample family of lin
 - [GilletSoule.1999](http://web.archive.org/web/20210416024831id_/https://faculty.math.illinois.edu/K-theory/0327/fff.pdf), Proposition 5 and proof, pp.39–41; §3.2.4, p.42. The uniform stability and finite-diagram arguments are used after restricting X and U to the ample-family range, where TT supplies the required global model comparison. The support cofiber bound follows from its ordinary cohomology sequence.
 - [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), 2.1.1–2.1.2, pp.283–284; 3.8–3.10, p.316; Exercises 8.5–8.6, p.374. The ample-family comparison closes the model identification used here; the counterexample prevents extending it by affine-local agreement alone.
 - [Stacks.Divisors.0GML](https://stacks.math.columbia.edu/tag/0GML), Divisors, Lemma 31.17.8, tag 0GML. A quasi-compact regular scheme with affine diagonal has an ample family. Applied to the doubled affine line, this supplies the nonseparated positive example.
+
+**Review note.** Independently reread GilletSoule.1999 Proposition 5 and proof, pp.39–41; §3.2.4, p.42; ThomasonTrobaugh.1990 2.1.1–2.1.2, pp.283–284; 3.8–3.10, p.316; Exercises 8.5–8.6, p.374; Stacks.Divisors.0GML Divisors, Lemma 31.17.8, tag 0GML. Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
+
 -/
 
 /-!
 ### λ-operations on the higher K-theory of regular schemes
 
-**Id:** `SchemeKTheoryOperations:S.6/soule-scheme-operations`. **Kind:** construction. Implementation unchecked.
+**Id:** `SchemeKTheoryOperations:S.6/soule-scheme-operations`. **Kind:** construction. **Review:** verified. Implementation unchecked.
 
 Let X be regular noetherian of finite Krull dimension with an ample family of line bundles and Y closed. Use K=ℤ×ℤ_∞BGL and its functorial comparison with the stable plus/Q model. A representation GL_N→GL_M over ℤ gives a strict map of classifying presheaves and then a completed sheaf map. Global block-triangular additivity gives a ring map R_ℤ(GL_N)→H⁰(BGL_N,K). For a compatible rank-corrected family τ(id_N−N), with τ(0)=0, extend the reduced map through integral completion and add τ on the constant rank part. The two K-coherence comparisons for C_Y give operations on K_m^Y(X)=H^{−m}(C_Y,K). This constructs λ^k and γ^k for k≥1 and ψ^k for k≠0. The augmentation is rank for m=0 and zero otherwise. The matrix tensor construction, with the requested global product comparison, agrees with the supported K-pairing of S.2/S.6.
 
@@ -16722,13 +16741,16 @@ Let X be regular noetherian of finite Krull dimension with an ample family of li
 - [GilletSoule.1999](http://web.archive.org/web/20210416024831id_/https://faculty.math.illinois.edu/K-theory/0327/fff.pdf), Lemmas 18–20, pp.38–45; §4.2 and Theorem 3 with proof, pp.45–47. The global hypercover/block-triangular diagrams prove additivity; rank correction and K-coherence produce stable operations. Lemma 18 also describes the separately required tensor comparison.
 - [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), 2.1.2(e), p.284; 3.8–3.10, p.316. The ample-family comparison applies to the ambient scheme and its open subschemes. It supplies the model on which the imported higher operations act.
 
+**Review note.** Independently reread Soule.1985 4.3 (p. 511); Soule.1985 4.3 (p. 512); GilletSoule.1999 Theorem 3 (p. 46); GilletSoule.1999 Lemmas 18–20, pp.38–45; §4.2 and Theorem 3 with proof, pp.45–47; ThomasonTrobaugh.1990 2.1.2(e), p.284; 3.8–3.10, p.316. Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs. Checked API use cases and the discriminating test specifications; these are mathematical specifications, not execution receipts.
+
 **Planet:** λ-operations on higher K-theory.
+
 -/
 
 /-!
 ### K-theory with supports is an augmented K_0(X)-λ-algebra
 
-**Id:** `SchemeKTheoryOperations:S.6/scheme-lambda-algebra`. **Kind:** theorem. Implementation unchecked.
+**Id:** `SchemeKTheoryOperations:S.6/scheme-lambda-algebra`. **Kind:** theorem. **Review:** verified. Implementation unchecked.
 
 For X regular noetherian of finite Krull dimension with an ample family of line bundles and Y ⊆ X closed, the operations of S.6/soule-scheme-operations make K^Y(X) = ⊕_{m≥0}K^Y_m(X), with zero product between elements of positive degree and the product K^Y_0(X) × K^Y_m(X) → K^Y_m(X), a (possibly non-unital for proper Y) special λ-ring with involution, augmented by ε: for Y = X it is a K_0(X)-λ-algebra, and for any Y a non-unital λ-algebra over ℤ (S.6/non-unital-lambda-algebra: ℤ ⊕ K^Y(X) is a special λ-ring). Consequently, for m ≥ 1, λ^k is additive on K^Y_m(X), ψ^k = (−1)^{k−1}kλ^k there, ψ^kψ^l = ψ^{kl}, and the γ-filtration F^i_γK^Y_m(X) of S.6/non-unital-gamma-filtration is defined, with ψ^k = k^i on gr^i_γ. For X = Spec A regular affine this is S.6/quillen-hiller-special-lambda.
 
@@ -16766,12 +16788,15 @@ For X regular noetherian of finite Krull dimension with an ample family of line 
 - [Soule.1985](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/S0008414X00008427), Proposition 4 (p. 512). The statement, followed by The affine argument transports universal stable-representation identities to the supported scheme groups..
 - [GilletSoule.1999](http://web.archive.org/web/20210416024831id_/https://faculty.math.illinois.edu/K-theory/0327/fff.pdf), Proof of Theorem 3 (p. 46). The method of proof, carried out in formulas (19)–(22).
 - [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), 2.1.2(e), p.284; 3.8–3.10, p.316. The ample-family comparison applies to the ambient scheme and its open subschemes. It supplies the model on which the imported higher operations act.
+
+**Review note.** Independently reread Soule.1985 Proposition 4 (p. 512); GilletSoule.1999 Proof of Theorem 3 (p. 46); ThomasonTrobaugh.1990 2.1.2(e), p.284; 3.8–3.10, p.316. Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
+
 -/
 
 /-!
 ### Naturality of the operations
 
-**Id:** `SchemeKTheoryOperations:S.6/operations-functoriality`. **Kind:** lemma. Implementation unchecked.
+**Id:** `SchemeKTheoryOperations:S.6/operations-functoriality`. **Kind:** lemma. **Review:** verified. Implementation unchecked.
 
 The operations τ of S.6/soule-scheme-operations commute with: (a) pullback f^*: K^Y_m(X) → K^{f^{−1}Y}_m(X') for every morphism f: X' → X of regular noetherian schemes of finite Krull dimension with ample families of line bundles; (b) forgetting supports K^Y_m(X) → K^{Y'}_m(X) for Y ⊆ Y', and restriction to open subschemes; (c) the localisation boundary ∂: K_{m+1}(X − Y) → K^Y_m(X) of S.3/localisation-boundary, for m ≥ 0 (τ∂ = ∂τ into K-theory with supports); (d) for X = Spec A, with the operations of S.6/quillen-hiller-operations. They need not commute with the dévissage isomorphism j_*: K_m(Z) → K^Z_m(X) for a regular closed immersion: that comparison is S.6/riemann-roch-without-denominators, and the combination of (c) with it is S.6/residue-weight-shift.
 
@@ -16809,14 +16834,17 @@ The operations τ of S.6/soule-scheme-operations commute with: (a) pullback f^*:
 - [Soule.1985](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/S0008414X00008427), Theorem 7, proof step 4 (p. 536). Part (b): changing supports is a map on hypercohomology natural in the coefficients, so every operation commutes with it.
 - [Soule.1985](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/S0008414X00008427), Proposition 4 (p. 512). Part (d).
 - [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), 2.1.2(e), p.284; 3.8–3.10, p.316. The ample-family comparison applies to the ambient scheme and its open subschemes. It supplies the model on which the imported higher operations act.
+
+**Review note.** Independently reread Soule.1985 Theorem 7, proof step 4 (p. 536); Soule.1985 Proposition 4 (p. 512); ThomasonTrobaugh.1990 2.1.2(e), p.284; 3.8–3.10, p.316. Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
+
 -/
 
 /-!
 ### The degree-zero operations are the classical ones
 
-**Id:** `SchemeKTheoryOperations:S.6/degree-zero-comparison`. **Kind:** comparison. Implementation unchecked.
+**Id:** `SchemeKTheoryOperations:S.6/degree-zero-comparison`. **Kind:** comparison. **Review:** corrected. Implementation unchecked.
 
-Let X be a regular noetherian scheme of finite Krull dimension with an ample family of line bundles (e.g. quasi-projective over a regular ring), so that K_0(X) = K_0(Vect X) (S.2/vector-bundle-k-theory-comparison). Then the operations of S.6/soule-scheme-operations on K_0(X) = H^0(X, ℤ × BGL^+) are those of S.6/vector-bundle-lambda-ring: λ^k[E] = [Λ^kE], the augmentation is the rank, and ψ^k[L] = [L^{⊗k}] for line bundles. For X = Spec A (A regular) they are KTheoryLowDegrees Z.3's operations: λ^k = Z.3/lambda, γ^k = Z.3/gamma, the augmentation ideal is Z.3/augmentation and the γ-filtration is Z.3/gamma-filtration, and the determinant det: K_0(A) → Pic(A) of Z.3/determinant-hom equals λ^r on classes of constant rank r and induces F^1_γ/F^2_γ ≅ Pic(A) (Z.3/gamma-first-graded). For arbitrary commutative A (not necessarily regular), the degree-zero part of S.6/quillen-hiller-operations is again Z.3/lambda.
+Let X be a regular noetherian scheme of finite Krull dimension with an ample family of line bundles (e.g. a regular quasi-projective scheme over a regular noetherian ring of finite dimension), so that K_0(X) = K_0(Vect X) (S.2/vector-bundle-k-theory-comparison). Then the operations of S.6/soule-scheme-operations on K_0(X) = H^0(X, ℤ × BGL^+) are those of S.6/vector-bundle-lambda-ring: λ^k[E] = [Λ^kE], the augmentation is the rank, and ψ^k[L] = [L^{⊗k}] for line bundles. For X = Spec A (A regular) they are KTheoryLowDegrees Z.3's operations: λ^k = Z.3/lambda, γ^k = Z.3/gamma, the augmentation ideal is Z.3/augmentation and the γ-filtration is Z.3/gamma-filtration, and the determinant det: K_0(A) → Pic(A) of Z.3/determinant-hom sends an actual finite projective P of constant rank r to its top exterior power Λ^rP, whose bundle class is λ^r[P] and induces F^1_γ/F^2_γ ≅ Pic(A) (Z.3/gamma-first-graded). For arbitrary commutative A (not necessarily regular), the degree-zero part of S.6/quillen-hiller-operations is again Z.3/lambda.
 
 **Hypotheses.**
 
@@ -16856,12 +16884,15 @@ Let X be a regular noetherian scheme of finite Krull dimension with an ample fam
 
 - [Soule.1985](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/S0008414X00008427), Proof of Lemme 1 (p. 511). Bundles in the sheaf model, whence the value of the operations in degree zero.
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Example II.4.1.2 (PDF p. 98). The classical degree-zero normalisation Z.3 implements.
+
+**Review note.** Independently reread Soule.1985 Proof of Lemme 1 (p. 511); Kbook.2013 Example II.4.1.2 (PDF p. 98). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs. Correction: Require a regular quasi-projective example, and restrict the determinant/top-exterior assertion to actual projectives rather than virtual classes of rank r.
+
 -/
 
 /-!
 ### Operations on the K-theory of singular quasi-projective schemes
 
-**Id:** `SchemeKTheoryOperations:S.6/singular-scheme-operations`. **Kind:** construction. Implementation unchecked.
+**Id:** `SchemeKTheoryOperations:S.6/singular-scheme-operations`. **Kind:** construction. **Review:** verified. Implementation unchecked.
 
 Let S be a regular noetherian scheme of finite Krull dimension with an ample family of line bundles and 𝒱_S the category of quasi-projective S-schemes (possibly singular). For X ∈ 𝒱_S, K_m(X) (Quillen K-theory of vector bundles) is the colimit of K_m(M) over the category of morphisms X → M in 𝒱_S with M smooth over S, and the operations τ of S.6/soule-scheme-operations on the K_m(M) induce operations on K_m(X), making K_m(X) a nilpotent augmented K_0(X)-λ-algebra with involution, compatible with pullback along morphisms of 𝒱_S. Nilpotent means: for each x there is N_x with γ^{i_1}(x − ε(x))⋯γ^{i_a}(x − ε(x)) = 0 whenever i_1 + ⋯ + i_a ≥ N_x. Whether the γ-filtration of K_m(X) is finite for singular X is left open by the source and not claimed.
 
@@ -16921,12 +16952,15 @@ Let S be a regular noetherian scheme of finite Krull dimension with an ample fam
 - [Soule.1985](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/S0008414X00008427), Proposition 7 (p. 528). The statement; the proof writes QP(X) = lim QP(M) over smooth M.
 - [Soule.1985](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/S0008414X00008427), Remarque after Proposition 7 (p. 529). Finiteness for singular X is open in the source.
 - [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), 2.1.2(h), p.284; 3.8–3.10, p.316. Quasi-projective schemes over an ample-family base inherit an ample family, so the regular ambient K-theory operations have the required comparison.
+
+**Review note.** Independently reread Soule.1985 Proposition 7 (p. 528); Soule.1985 Remarque after Proposition 7 (p. 529); ThomasonTrobaugh.1990 2.1.2(h), p.284; 3.8–3.10, p.316. Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs. Checked API use cases and the discriminating test specifications; these are mathematical specifications, not execution receipts.
+
 -/
 
 /-!
 ### Adams operations on schemes are multiplicative
 
-**Id:** `SchemeKTheoryOperations:S.6/scheme-adams-multiplicative`. **Kind:** theorem. Implementation unchecked.
+**Id:** `SchemeKTheoryOperations:S.6/scheme-adams-multiplicative`. **Kind:** theorem. **Review:** verified. Implementation unchecked.
 
 For X regular noetherian of finite Krull dimension with an ample family of line bundles and closed Y, Z ⊆ X, the Adams operations satisfy ψ^k(x·y) = ψ^k(x)·ψ^k(y) for x ∈ K^Y_m(X), y ∈ K^Z_n(X) and the product of S.6/support-product-pairings (not the zero product of the λ-structure), and ψ^k(x ⊠ y) = ψ^k(x) ⊠ ψ^k(y) for external products between schemes in this scope whose product scheme is also regular noetherian finite-dimensional with an ample family. Hence K_*(X)_ℚ is bigraded by weight: K^{(i)}_m(X)_ℚ · K^{(j)}_n(X)_ℚ ⊆ K^{(i+j)}_{m+n}(X)_ℚ.
 
@@ -16962,12 +16996,15 @@ For X regular noetherian of finite Krull dimension with an ample family of line 
 - [GilletSoule.1999](http://web.archive.org/web/20210416024831id_/https://faculty.math.illinois.edu/K-theory/0327/fff.pdf), 4.1, after Theorem 3 (p. 48). The statement for the actual product.
 - [Soule.1985](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/S0008414X00008427), Théorème 7 v) (p. 533). The external-product compatibility in Soulé's G-theory version, which rests on ψ^k(α ⊠ β) = ψ^k(α) ⊠ ψ^k(β) (proof of Théorème 7, step 2).
 - [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), 2.1.2(e), p.284; 3.8–3.10, p.316. The ample-family comparison applies to the ambient scheme and its open subschemes. It supplies the model on which the imported higher operations act.
+
+**Review note.** Independently reread GilletSoule.1999 4.1, after Theorem 3 (p. 48); Soule.1985 Théorème 7 v) (p. 533); ThomasonTrobaugh.1990 2.1.2(e), p.284; 3.8–3.10, p.316. Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
+
 -/
 
 /-!
 ### Length of the γ-filtration on the K-theory of a regular scheme
 
-**Id:** `SchemeKTheoryOperations:S.6/scheme-gamma-bound`. **Kind:** theorem. Implementation unchecked.
+**Id:** `SchemeKTheoryOperations:S.6/scheme-gamma-bound`. **Kind:** theorem. **Review:** verified. Implementation unchecked.
 
 Let X be regular noetherian of dimension d with an ample family of line bundles and Y closed. Soulé’s single-operation bounds are γ^k(x)=0 for x∈K_m^Y(X) when m≥2 and k≥m+d+1, or m=1 and k≥d+3. These do not alone assert vanishing of the full γ-filtration with K₀ coefficients. The full bound F_γ^{d+1}K₀(X)=0 needs the separately named K₀ input. For X of finite type over a field, GS99 §5.4 gives F_γ^{m+d+1}K_m(X)=0 without supports, via its Brown/coniveau comparison; that proof is a recorded source bridge, not an inference from the preceding single-operation formula.
 
@@ -17007,12 +17044,15 @@ Let X be regular noetherian of dimension d with an ample family of line bundles 
 - [Soule.1985](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/S0008414X00008427), Proof of Proposition 5 (p. 514). The bounds, with the K_0 bound cited to SGA 6 [14].
 - [GilletSoule.1999](http://web.archive.org/web/20210416024831id_/https://faculty.math.illinois.edu/K-theory/0327/fff.pdf), 5.4 (p. 52). The bound over a field.
 - [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), 2.1.2(e), p.284; 3.8–3.10, p.316. The ample-family comparison applies to the ambient scheme and its open subschemes. It supplies the model on which the imported higher operations act.
+
+**Review note.** Independently reread Soule.1985 Proof of Proposition 5 (p. 514); GilletSoule.1999 5.4 (p. 52); ThomasonTrobaugh.1990 2.1.2(e), p.284; 3.8–3.10, p.316. Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
+
 -/
 
 /-!
 ### Adams weight decomposition of the K-theory of a regular scheme
 
-**Id:** `SchemeKTheoryOperations:S.6/scheme-weight-decomposition`. **Kind:** theorem. Implementation unchecked.
+**Id:** `SchemeKTheoryOperations:S.6/scheme-weight-decomposition`. **Kind:** theorem. **Review:** verified. Implementation unchecked.
 
 Let X be regular noetherian of dimension d with an ample family of line bundles and Y closed. Put D=max(d,dim(X∖Y)+1), taking D=d for Y=X; for empty Y all supported groups vanish. Then K_m^Y(X)_ℚ=⊕_{i=α(m)}^{m+D} K_m^Y(X)_ℚ^{(i)}, with α(0)=0, α(1)=1, α(m)=2 for m≥2, and simultaneous weight ψ^k=k^i for every k≠0. Without supports D=d: K₁(X)_ℚ^{(1)}=Γ(X,O_X^×)⊗ℚ, K₀(X)_ℚ^{(0)}=H⁰(X,ℚ), and K₀(X)_ℚ^{(1)}=Pic(X)⊗ℚ. Soulé’s separate integral F² result gives weights 2,…,m+d for m≥2 modulo 𝒮_{m+d}, weights 2,…,d+2 on F²K₁^Y modulo 𝒮_{d+2}, and weights 2,…,d on F²K₀(X) modulo 𝒮_d. Rational projectors use the actual finite range: π_i=∏_{j≠i}(ψ²−2^j)/(2^i−2^j). A comparison with gr_γ^i requires the weighted λ-module filtration bridge specified below, rather than following from the decomposition alone. Pullback, support-forgetting and products preserve the stated weights.
 
@@ -17056,13 +17096,16 @@ Let X be regular noetherian of dimension d with an ample family of line bundles 
 - [Soule.1985](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/S0008414X00008427), Proposition 5 (p. 513). Part (3), with the K_1 and K_0 cases on the same page.
 - [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), 2.1.2(e), p.284; 3.8–3.10, p.316. The ample-family comparison applies to the ambient scheme and its open subschemes. It supplies the model on which the imported higher operations act.
 
+**Review note.** Independently reread GilletSoule.1999 Proposition 8 (p. 48); Soule.1985 Proposition 5 (p. 513); ThomasonTrobaugh.1990 2.1.2(e), p.284; 3.8–3.10, p.316. Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
+
 **Planet:** Adams weight decomposition.
+
 -/
 
 /-!
 ### Weight decomposition with finite coefficients
 
-**Id:** `SchemeKTheoryOperations:S.6/finite-coefficient-weight-decomposition`. **Kind:** theorem. Implementation unchecked.
+**Id:** `SchemeKTheoryOperations:S.6/finite-coefficient-weight-decomposition`. **Kind:** theorem. **Review:** verified. Implementation unchecked.
 
 Let X be regular noetherian of finite Krull dimension with an ample family of line bundles and m≥2, ν≥1, ℓ odd. Assume the two ℓ-local groups K_m(X)_(ℓ) and K_{m−1}(X)_(ℓ) have integral simultaneous Adams eigenspace decompositions with a common finite weight interval [0,N], and ℓ>N+1. Assume the Moore-space coefficient group B=K_m(X;ℤ/ℓ^ν) is killed by ℓ^ν and that all ψ^r act additively, commute and respect its Bockstein sequence. Then B=⊕_{i=0}^N B_i, where B_i=ker(ψ^k−k^i)^2 for a primitive root k modulo ℓ. This decomposition is independent of k, contains the weight-i quotient K_m(X)_(ℓ)^(i)/ℓ^ν and maps onto K_{m−1}(X)_(ℓ)^(i)[ℓ^ν]. On B_i every ψ^r−r^i has square zero. CRT projectors belong to (ℤ/ℓ^ν)[T]/∏_i(T−k^i)^2. The integral endpoint and coefficient-exponent hypotheses are explicit; the rational or F²-only scheme result is insufficient to remove them. Degree one is excluded from this general deduction.
 
@@ -17103,12 +17146,15 @@ Let X be regular noetherian of finite Krull dimension with an ample family of li
 - [Soule.1985](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/S0008414X00008427), 2.7 (p. 498). The Serre-class prime bounds control the integral F² theorem only. This node states the additional full-endpoint hypotheses explicitly.
 - [Soule.1985](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/S0008414X00008427), 2.7 (p. 498). The finite-coefficient primary-block and primitive-root-independence argument is supplied here as a conditional deduction, not attributed to a source theorem.
 - [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), 2.1.2(e), p.284; 3.8–3.10, p.316. The ample-family comparison applies to the ambient scheme and its open subschemes. It supplies the model on which the imported higher operations act.
+
+**Review note.** Independently reread Soule.1985 2.7 (p. 498); Soule.1985 2.7 (p. 498); ThomasonTrobaugh.1990 2.1.2(e), p.284; 3.8–3.10, p.316. Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
+
 -/
 
 /-!
 ### Uniqueness of operations on the K-theory of smooth schemes (Riou)
 
-**Id:** `SchemeKTheoryOperations:S.6/riou-motivic-uniqueness`. **Kind:** comparison. Implementation unchecked.
+**Id:** `SchemeKTheoryOperations:S.6/riou-motivic-uniqueness`. **Kind:** comparison. **Review:** verified. Implementation unchecked.
 
 Let S be a regular (noetherian, separated) scheme. For X ∈ Sm/S there is a canonical isomorphism Hom_{H•(S)}(S^n ∧ X_+, ℤ × Gr) ≅ K_n(X) (Morel–Voevodsky), and the induced map End_{H(S)}(ℤ × Gr) → End(K_0(−)) (natural transformations of presheaves of sets on Sm/S) is a bijection. Hence every natural operation on K_0 of smooth S-schemes extends uniquely to a natural operation on K_n of smooth S-schemes, for all n, and, when S has finite Krull dimension, the operations of S.6/soule-scheme-operations restricted to Sm/S are these extensions (for elements of R_ℤ(GL) (S.6/stable-representation-ring) of rank zero acting on K_n, n ≥ 1). The same holds for operations in several variables, so the products of S.6/graded-commutative-ring on Sm/S are determined by the product on K_0 (Riou, Proposition 3.2.1: Waldhausen's pairing).
 
@@ -17141,6 +17187,9 @@ Let S be a regular (noetherian, separated) scheme. For X ∈ Sm/S there is a can
 - [Riou.2009](https://arxiv.org/pdf/0907.2710), Theorem 0.2 (p. 2). The uniqueness statement; the displayed bijection is End_{H(S)}(Z × Gr) ≅ End_{Sm/S^opp Sets}(K_0(−)).
 - [Riou.2009](https://arxiv.org/pdf/0907.2710), 3.3 (p. 13). The comparison with Soulé's operations, Theorem 3.3.2.
 - [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), 2.1.2(d), p.284. Regular noetherian separated schemes have ample families, so the finite-dimensional Soulé comparison applies on Sm/S.
+
+**Review note.** Independently reread Riou.2009 Theorem 0.2 (p. 2); Riou.2009 3.3 (p. 13); ThomasonTrobaugh.1990 2.1.2(d), p.284. Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
+
 -/
 
 /-!
@@ -17206,7 +17255,7 @@ Let R be a special λ-ring (KTheoryLowDegrees Z.3/special-lambda-ring), augmente
 - [Soule.1985](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/S0008414X00008427), 4.5 (p. 515). The definition, by θ^k(N) = ∏(1 + L_i + ⋯ + L_i^{k−1}) after splitting; the node defines it by the symmetric polynomial Θ_k, which gives the same element.
 - [Soule.1985](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/S0008414X00008427), Lemme 2 ii) (p. 515). The identities of the node.
 
-**Review note.** Checked Soule.1985 4.5 (p. 515); Soule.1985 Lemme 2 ii) (p. 515). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps. Reviewed all API roles and discriminating examples; unavailable Lean carriers remain explicit omissions.
+**Review note.** Independently reread Soule.1985 4.5 (p. 515); Soule.1985 Lemme 2 ii) (p. 515). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs. Checked API use cases and the discriminating test specifications; these are mathematical specifications, not execution receipts.
 
 -/
 
@@ -17268,7 +17317,7 @@ Let R be a special λ-ring (KTheoryLowDegrees Z.3/special-lambda-ring) and N ∈
 
 - [Soule.1985](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/S0008414X00008427), 4.5 (p. 514). The construction, with the product x_N y = xyλ_{−1}(N) and the characterisation λ^k(N, x)λ_{−1}(N) = λ^k(xλ_{−1}(N)) on the same page.
 
-**Review note.** Checked Soule.1985 4.5 (p. 514). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps. Reviewed all API roles and discriminating examples; unavailable Lean carriers remain explicit omissions.
+**Review note.** Independently reread Soule.1985 4.5 (p. 514). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs. Checked API use cases and the discriminating test specifications; these are mathematical specifications, not execution receipts.
 
 -/
 
@@ -17306,14 +17355,14 @@ In the situation of S.6/twisted-lambda-ring, for x ∈ R and k ≥ 1: ψ^k(N, x)
 
 - [Soule.1985](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/S0008414X00008427), Lemme 2 i) (p. 515). The statement; the proof is on pp. 515–517.
 
-**Review note.** Checked Soule.1985 Lemme 2 i) (p. 515). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread Soule.1985 Lemme 2 i) (p. 515). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
 /-!
 ### Riemann–Roch without denominators for closed immersions
 
-**Id:** `SchemeKTheoryOperations:S.6/riemann-roch-without-denominators`. **Kind:** theorem. Implementation unchecked.
+**Id:** `SchemeKTheoryOperations:S.6/riemann-roch-without-denominators`. **Kind:** theorem. **Review:** verified. Implementation unchecked.
 
 Let S be a regular noetherian scheme of finite Krull dimension, j: Y → X a closed immersion of regular schemes of finite type over S with ample families of line bundles (hence regular, of codimension p on components), N ∈ K_0(Y) the class of the conormal sheaf I/I² of Y in X (Soulé's 'fibré normal' in SGA 6's convention V(I/I²)), and Z ⊆ Y closed. Then j_*: K^Z_m(Y) → K^Z_m(X) is an isomorphism (dévissage) and, for x ∈ K^Z(Y) = ⊕_m K^Z_m(Y) and every natural operation τ, τ(j_*(x)) = j_*(τ(N, x)) with τ(N, x) as in S.6/twisted-lambda-ring. In particular j_*: K^Z(Y)_N → K^Z(X) is a morphism of λ-rings, and ψ^k(j_*x) = j_*(θ^k(N)ψ^k(x)).
 
@@ -17363,13 +17412,16 @@ Let S be a regular noetherian scheme of finite Krull dimension, j: Y → X a clo
 - [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), 2.1.2(e), p.284; 3.8–3.10, p.316. The ample-family comparison applies to the ambient scheme and its open subschemes. It supplies the model on which the imported higher operations act.
 - [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), 2.1.2(e),(g),(h), p.284; 3.8–3.10, p.316. The model comparison holds on the given regular schemes and on the affine/projective/open deformation constructions used in the proof.
 
+**Review note.** Independently reread Soule.1985 Théorème 3 (p. 517); Soule.1985 Proof of Théorème 3 (p. 517); Thomason.1993 Lemme 3.2 and (3.2.6) (pp. 207–208); ThomasonTrobaugh.1990 2.1.2(e), p.284; 3.8–3.10, p.316; ThomasonTrobaugh.1990 2.1.2(e),(g),(h), p.284; 3.8–3.10, p.316. Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
+
 **Planet:** Riemann–Roch without denominators.
+
 -/
 
 /-!
 ### Weight shift of Gysin maps
 
-**Id:** `SchemeKTheoryOperations:S.6/gysin-weight-shift`. **Kind:** theorem. Implementation unchecked.
+**Id:** `SchemeKTheoryOperations:S.6/gysin-weight-shift`. **Kind:** theorem. **Review:** verified. Implementation unchecked.
 
 In the situation of S.6/riemann-roch-without-denominators, with Y of pure codimension c in X: (a) ψ^k(j_*x) = j_*(θ^k(N)ψ^k(x)) for x ∈ K^Z_m(Y), k ≥ 1; (b) if the conormal sheaf is trivial of rank c, ψ^k ∘ j_* = k^c·j_* ∘ ψ^k, so j_* maps K^Z_m(Y)^{(i)} into K^Z_m(X)^{(i+c)} (integrally, on the eigenspaces of S.6/scheme-weight-decomposition); (c) in general, rationally, j_*(K^Z_m(Y)^{(i)}_ℚ) ⊆ ⊕_{i' ≥ i+c}K^Z_m(X)^{(i')}_ℚ, and j_*(F^i_γ) ⊆ F^{i+c}_γ modulo torsion; the exact weight-preserving map is x ↦ j_*(x·θ^k-correction), made precise in S.7/adams-riemann-roch. The operations are not claimed to commute with j_*: the factor θ^k(N) (= k^c for trivial N) is the twist.
 
@@ -17405,12 +17457,15 @@ In the situation of S.6/riemann-roch-without-denominators, with Y of pure codime
 - [Soule.1985](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/S0008414X00008427), Proof of Proposition 6 (p. 520). Part (b) for c = 1, as Soulé applies it.
 - [Soule.1985](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/S0008414X00008427), Remarque after Lemme 2 (p. 517). The γ-version of the shift by the codimension p.
 - [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), 2.1.2(e), p.284; 3.8–3.10, p.316. The ample-family comparison applies to the ambient scheme and its open subschemes. It supplies the model on which the imported higher operations act.
+
+**Review note.** Independently reread Soule.1985 Proof of Proposition 6 (p. 520); Soule.1985 Remarque after Lemme 2 (p. 517); ThomasonTrobaugh.1990 2.1.2(e), p.284; 3.8–3.10, p.316. Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
+
 -/
 
 /-!
 ### Adams operations and finite étale transfers
 
-**Id:** `SchemeKTheoryOperations:S.6/finite-etale-transfer-adams`. **Kind:** lemma. Implementation unchecked.
+**Id:** `SchemeKTheoryOperations:S.6/finite-etale-transfer-adams`. **Kind:** lemma. **Review:** verified. Implementation unchecked.
 
 Let f: X → Y be a finite étale morphism of regular noetherian schemes of finite Krull dimension with ample families of line bundles that factors through a closed immersion into A¹_Y (e.g. X = Y ⊗_k k' for a finite separable extension k'/k of the base field). Then for x ∈ K_m(X) and k ∈ ℤ − {0}: kψ^k(f_*(x)) = kf_*(ψ^k(x)), and for k ≥ 1 the element kγ^k(f_*(x)) − kf_*(γ^k(x)) lies in f_*(F^{k+1}_γK_m(X)). In particular f_* respects the γ-filtration modulo torsion.
 
@@ -17445,12 +17500,15 @@ Let f: X → Y be a finite étale morphism of regular noetherian schemes of fini
 - [Soule.1985](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/S0008414X00008427), Proposition 6 (pp. 519–520). The hypotheses; the conclusion kψ^k(f_*(x)) = kf_*(ψ^k(x)) is on p. 520.
 - [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), 2.1.2(e), p.284; 3.8–3.10, p.316. The ample-family comparison applies to the ambient scheme and its open subschemes. It supplies the model on which the imported higher operations act.
 - [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), 2.1.2(g),(h), p.284. The finite source, affine line and projective line inherit ample families from Y.
+
+**Review note.** Independently reread Soule.1985 Proposition 6 (pp. 519–520); ThomasonTrobaugh.1990 2.1.2(e), p.284; 3.8–3.10, p.316; ThomasonTrobaugh.1990 2.1.2(g),(h), p.284. Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
+
 -/
 
 /-!
 ### Operations on the Gersten–Quillen spectral sequence
 
-**Id:** `SchemeKTheoryOperations:S.6/adams-on-coniveau`. **Kind:** theorem. Implementation unchecked.
+**Id:** `SchemeKTheoryOperations:S.6/adams-on-coniveau`. **Kind:** theorem. **Review:** verified. Implementation unchecked.
 
 Let X be a regular noetherian scheme of finite Krull dimension d with an ample family of line bundles, with the coniveau spectral sequence E_1^{pq}(X) = ⊕_{x∈X^{(p)}} K_{−p−q}(k(x)) ⇒ K_{−p−q}(X) of S.4 (Quillen's, identified with the coniveau filtration of H^*(X, ℤ × BGL^+)). (i) Additive Adams operations ψ^k induce endomorphisms of the abelian coniveau spectral sequence converging to ψ^k. General λ-operations induce maps of the pointed-space exact-couple construction only in its allowed fringe sense; λ^k on K₀ is not additive, so it is not an abelian spectral-sequence endomorphism. (ii) For x ∈ X^{(p)} and α ∈ K_{−p−q}(k(x)), E_1(τ)(α) = τ(p, α) (the twisted operation with N = 1^p trivial of rank p): in particular E_1(ψ^k) = k^pψ^k on the codimension-p column. (iii) For i ≥ 2 and m ≥ i there is, modulo 𝒮_{m+d}, a direct-summand spectral sequence with E_1^{pq} = ⊕_{x∈X^{(p)}} K_{−p−q}(k(x))^{(i−p)} for −m ≤ p + q ≤ 0, converging to K_{−p−q}(X)^{(i)}; the differentials d_r preserve the total weight i. (iv) Degeneration in low degrees: K_0(X) = E_2^{00} ⊕ E_2^{1,−1} ⊕ F^2_γK_0(X), K_1(X) = E_2^{0,−1} ⊕ F^2_γK_1(X), and K_0(X) = ⊕_{p=0}^{d}E_2^{p,−p}(X) modulo 𝒮_d, K_1(X) = ⊕_p E_2^{p,−p−1}(X) and K_2(X) = ⊕_p E_2^{p,−p−2}(X) modulo 𝒮_{d+2}.
 
@@ -17494,12 +17552,15 @@ Let X be a regular noetherian scheme of finite Krull dimension d with an ample f
 - [Soule.1985](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/S0008414X00008427), Proof of Théorème 4 iii) (p. 522). Part (ii) for Adams operations.
 - [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), 2.1.2(e), p.284; 3.8–3.10, p.316. The ample-family comparison applies to the ambient scheme and its open subschemes. It supplies the model on which the imported higher operations act.
 - [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), 2.1.2(e),(g), p.284. Open neighbourhoods and closed subschemes of an ample-family ambient scheme inherit the ample family needed by the operation comparison.
+
+**Review note.** Independently reread Soule.1985 Théorème 4 (p. 521); Soule.1985 Proof of Théorème 4 iii) (p. 522); ThomasonTrobaugh.1990 2.1.2(e), p.284; 3.8–3.10, p.316; ThomasonTrobaugh.1990 2.1.2(e),(g), p.284. Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
+
 -/
 
 /-!
 ### Weight shift of residue maps
 
-**Id:** `SchemeKTheoryOperations:S.6/residue-weight-shift`. **Kind:** theorem. Implementation unchecked.
+**Id:** `SchemeKTheoryOperations:S.6/residue-weight-shift`. **Kind:** theorem. **Review:** verified. Implementation unchecked.
 
 (a) Let O be a discrete valuation ring with fraction field L and residue field k, and ∂: K_{m+1}(L) → K_m(k) the boundary of S.3/dvr-boundary. Then ∂ ∘ ψ^k = k·ψ^k ∘ ∂ for all k ≥ 1 and m ≥ 0; rationally ∂ maps K_{m+1}(L)^{(j)}_ℚ into K_m(k)^{(j−1)}_ℚ. (b) Let X be regular noetherian of finite Krull dimension with an ample family of line bundles; the d_1 differential of the coniveau spectral sequence from ⊕_{x∈X^{(p)}}K_n(k(x)) to ⊕_{y∈X^{(p+1)}}K_{n−1}(k(y)) satisfies d_1 ∘ k^pψ^k = k^{p+1}ψ^k ∘ d_1, so its components (residues) lower the weight of residue-field K-theory by one: d_1(K_n(k(x))^{(j)}) ⊆ ⊕K_{n−1}(k(y))^{(j−1)} rationally. Checks: ∂(u) = v(u) for u ∈ L^× (weight 1 → 0) and the tame symbol ∂{f, u} = ū^{v(f)} (weight 2 → 1): ∂ψ^k{f, u} = ∂(k²{f, u}) = k²ū^{v(f)} = k·ψ^k(ū^{v(f)}).
 
@@ -17538,12 +17599,15 @@ Let X be a regular noetherian scheme of finite Krull dimension d with an ample f
 - [Soule.1985](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/S0008414X00008427), Proof of Théorème 4 iii) (p. 523). Differentials preserve the total weight i, which on the codimension-p column is residue-field weight i − p: residues lower the residue-field weight by one.
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Ex. IV.5.3 (PDF p. 325). A boundary compatibility with a twist in the Laurent case, of the same shape.
 - [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), 2.1.2(b),(e),(g), p.284. The affine DVR case and the neighbourhood/support schemes in the global coniveau case have the required ample families.
+
+**Review note.** Independently reread Soule.1985 Proof of Théorème 4 iii) (p. 523); Kbook.2013 Ex. IV.5.3 (PDF p. 325); ThomasonTrobaugh.1990 2.1.2(b),(e),(g), p.284. Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
+
 -/
 
 /-!
 ### The γ-filtration of a scheme
 
-**Id:** `SchemeKTheoryOperations:S.7/scheme-gamma-filtration`. **Kind:** definition. Implementation unchecked.
+**Id:** `SchemeKTheoryOperations:S.7/scheme-gamma-filtration`. **Kind:** definition. **Review:** verified. Implementation unchecked.
 
 For a quasi-compact scheme X, the γ-filtration F^•_γK_0(X) is the γ-filtration (KTheoryLowDegrees Z.3/gamma-filtration) of the augmented special λ-ring K_0(Vect X) of S.6/vector-bundle-lambda-ring (augmentation in the sense of Z.3/augmented-lambda-ring), with augmentation the rank ε: K_0(Vect X) → H^0(X, ℤ); gr^i_γK_0(X) = F^i_γ/F^{i+1}_γ. When K_0(Vect X) = K_0(X) (X with an ample family, e.g. quasi-projective, or regular separated with the resolution property) this is a filtration of K_0(X); for X regular noetherian of finite Krull dimension with an ample family it is the degree-zero part of the filtration of S.6/scheme-lambda-algebra. It is a filtration by ideals, multiplicative (Z.3/gamma-filtration-mul), with F^1_γ = ker(rank) (Z.3/gamma-filtration-one), contravariant in X, and for X = Spec A it is KTheoryLowDegrees Z.3/gamma-filtration (the normalisation against Z.3 on affines).
 
@@ -17606,7 +17670,10 @@ For a quasi-compact scheme X, the γ-filtration F^•_γK_0(X) is the γ-filtrat
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Corollary II.8.8.2 (PDF p. 161). The γ-filtration of K_0 of a scheme and its first two terms.
 - [Soule.1985](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/S0008414X00008427), Introduction (p. 488). The filtration and the comparison it serves (S.7/gamma-chow-comparison).
 
+**Review note.** Independently reread Kbook.2013 Corollary II.8.8.2 (PDF p. 161); Soule.1985 Introduction (p. 488). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs. Checked API use cases and the discriminating test specifications; these are mathematical specifications, not execution receipts.
+
 **Planet:** γ-filtration.
+
 -/
 
 /-!
@@ -17660,14 +17727,14 @@ For a quasi-compact scheme X: F^0_γ/F^1_γ ≅ H^0(X, ℤ) via the rank; the de
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Theorem II.4.7 (PDF p. 104). The statement for λ-rings with the splitting principle (text layer; rendered L ≅ F^1_γK/F^2_γK). The K-book's proof uses the filtered splitting principle of Fulton–Lang; the node's proof avoids it.
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Theorem II.8.1 (PDF p. 153). The ring map rank ⊕ det (text layer; rendered L_1^{a_2} ⊗ L_2^{a_1}).
 
-**Review note.** Checked Kbook.2013 Theorem II.4.7 (PDF p. 104); Kbook.2013 Theorem II.8.1 (PDF p. 153). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread Kbook.2013 Theorem II.4.7 (PDF p. 104); Kbook.2013 Theorem II.8.1 (PDF p. 153). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
 /-!
 ### The γ-filtration lies in the coniveau filtration
 
-**Id:** `SchemeKTheoryOperations:S.7/gamma-in-coniveau`. **Kind:** theorem. Implementation unchecked.
+**Id:** `SchemeKTheoryOperations:S.7/gamma-in-coniveau`. **Kind:** theorem. **Review:** verified. Implementation unchecked.
 
 Let F^p_cod K_m(X)=∪_{codim Y≥p} ker(K_m(X)→K_m(X∖Y)) be the perfect-complex support filtration. (a) For noetherian X, the image of F^p_γK₀(Vect X) under K₀(Vect X)→K₀(Perf X) lies in F^p_cod K₀(Perf X), using the stated SGA 6/Jussila input. Where the resolution-property comparison is an isomorphism, this identifies the two K₀ models. (b) For regular X of finite type over a field with an ample family of line bundles, F^p_γK_m(X)⊆F^{p−m}_cod K_m(X) for m,p≥0; hence F^{m+d+1}_γK_m(X)=0 for d=dim X. (c) For the same X, the Brown and coniveau filtrations agree and the Quillen and Brown–Gersten spectral sequences agree from E₂ on.
 
@@ -17704,12 +17771,15 @@ Let F^p_cod K_m(X)=∪_{codim Y≥p} ker(K_m(X)→K_m(X∖Y)) be the perfect-com
 - [GilletSoule.1999](http://web.archive.org/web/20210416024831id_/https://faculty.math.illinois.edu/K-theory/0327/fff.pdf), Introduction (p. 1). Part (b); (a) is attributed there to Jussila, SGA 6 Exp. X.
 - [GilletSoule.1999](http://web.archive.org/web/20210416024831id_/https://faculty.math.illinois.edu/K-theory/0327/fff.pdf), Theorem 4 (p. 51). Part (c).
 - [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), 2.1.2(e),(h), p.284; 3.8–3.10, p.316. The higher-operation comparison in (b),(c) is restricted to the ample-family regular range, including its open and flag-bundle constructions.
+
+**Review note.** Independently reread GilletSoule.1999 Introduction (p. 1); GilletSoule.1999 Theorem 4 (p. 51); ThomasonTrobaugh.1990 2.1.2(e),(h), p.284; 3.8–3.10, p.316. Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
+
 -/
 
 /-!
 ### Cycles map onto the coniveau graded pieces of K_0
 
-**Id:** `SchemeKTheoryOperations:S.7/cycle-class-to-graded-k0`. **Kind:** lemma. **Review:** corrected. Implementation unchecked.
+**Id:** `SchemeKTheoryOperations:S.7/cycle-class-to-graded-k0`. **Kind:** lemma. **Review:** verified. Implementation unchecked.
 
 Let X be a noetherian scheme, and for p ≥ 0 let Z^p(X) be the free abelian group on integral closed subschemes of codimension p (Mathlib's AlgebraicCycle with finite support). The map [Z] ↦ [O_Z] induces a surjection Z^p(X) → gr^p_cod G_0(X) = F^p_cod/F^{p+1}_cod, which factors through rational equivalence: CH^p(X) → gr^p_cod G_0(X). For X regular of finite type over a field, CH^p(X) = E_2^{p,−p} of the coniveau spectral sequence and this map is its edge map; with ⊗ℚ it is an isomorphism (S.7/gamma-chow-comparison).
 
@@ -17742,14 +17812,14 @@ Let X be a noetherian scheme, and for p ≥ 0 let Z^p(X) be the free abelian gro
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Proof of Corollary II.8.9.1 (PDF p. 163). The statement for nonsingular X.
 - [Soule.1985](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/S0008414X00008427), Proof of Théorème 5 iii) (p. 527). The identification with the coniveau spectral sequence.
 
-**Review note.** Matched rational equivalence to the ambient codimension relation; the usual Chow comparison retains the dimension formula.
+**Review note.** Independently reread Kbook.2013 Proof of Corollary II.8.9.1 (PDF p. 163); Soule.1985 Proof of Théorème 5 iii) (p. 527). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
 /-!
 ### The Chern character on K_0 and G_0
 
-**Id:** `SchemeKTheoryOperations:S.7/chern-character`. **Kind:** construction. **Review:** corrected. Implementation unchecked.
+**Id:** `SchemeKTheoryOperations:S.7/chern-character`. **Kind:** construction. **Review:** verified. Implementation unchecked.
 
 Let X be a smooth quasi-projective variety over a field (more generally a regular separated noetherian scheme of finite Krull dimension for which SchemeAndStackFoundations SF.5 supplies Chow groups and Chern classes c_i: K_0(Vect X) → CH^i(X) with the Whitney formula, c_1(L) = [D] for L = O(D), and the splitting principle). The Chern character ch: K_0(X) → CH^*(X)_ℚ = ⊕_i CH^i(X) ⊗ ℚ is the unique additive map with ch(L) = exp(c_1(L)) = Σ c_1(L)^n/n! on line bundles and compatible with pullback; for a bundle E with Chern roots a_1, …, a_r, ch(E) = Σ_j exp(a_j), and ch_n(E) = N_n(c_1(E), …, c_n(E))/n! with the Newton polynomial N_n in the Chern classes (ch = rk + c_1 + (c_1² − 2c_2)/2 + (c_1³ − 3c_1c_2 + 3c_3)/6 + ⋯). K/G realisation: through the Cartan isomorphism K_0(X) ≅ G_0(X) (X regular separated) ch is defined on G_0(X), i.e. on classes of coherent sheaves ch[F] = Σ(−1)^i ch[E_i] for a finite locally free resolution E_• → F.
 
@@ -17817,7 +17887,7 @@ Let X be a smooth quasi-projective variety over a field (more generally a regula
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), II.4, Chern character (PDF p. 108). The expansion in Chern classes. The printed degree-two term (c_1² − c_2)/2 is corrected to (c_1² − 2c_2)/2 (sourceIssues): for a sum of two line bundles with roots a, b, (a² + b²)/2 = ((a + b)² − 2ab)/2.
 - [BorelSerre.1958](http://www.numdam.org/item/10.24033/bsmf.1500.pdf), §6 (p. 112). Borel–Serre's definition through Chern roots, with the rank term.
 
-**Review note.** Confirmed the regular separated scope through TT 2.1.2(d), rather than assuming an unproved resolution property. Reviewed all API roles and discriminating examples; unavailable Lean carriers remain explicit omissions.
+**Review note.** Independently reread Kbook.2013 II.4, Chern character (PDF p. 108); BorelSerre.1958 §6 (p. 112). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs. Checked API use cases and the discriminating test specifications; these are mathematical specifications, not execution receipts.
 
 **Planet:** Chern character.
 
@@ -17856,7 +17926,7 @@ In the setting of S.7/chern-character: ch(xy) = ch(x)ch(y), ch(1) = 1, ch(f^*x) 
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Proposition II.4.12 (PDF p. 108). The statement, proved by the splitting principle as here.
 - [BorelSerre.1958](http://www.numdam.org/item/10.24033/bsmf.1500.pdf), §6 (p. 112). Borel–Serre's statement.
 
-**Review note.** Checked Kbook.2013 Proposition II.4.12 (PDF p. 108); BorelSerre.1958 §6 (p. 112). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread Kbook.2013 Proposition II.4.12 (PDF p. 108); BorelSerre.1958 §6 (p. 112). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -17895,7 +17965,7 @@ In the setting of S.7/chern-character, for every k ≥ 1 and n ≥ 0: ch_n(ψ^k(
 
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Proposition II.4.11.3 (PDF p. 107). The statement for Chern classes; Corollary II.4.11.4 and II.4.12.1 give the vanishing on other weights.
 
-**Review note.** Checked Kbook.2013 Proposition II.4.11.3 (PDF p. 107). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread Kbook.2013 Proposition II.4.11.3 (PDF p. 107). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -17933,14 +18003,14 @@ Let X be a smooth quasi-projective variety over a field and Z ⊆ X an integral 
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Ex. II.8.7 (PDF p. 165). The statement with the printed sign (−1)^i, corrected to (−1)^{i−1} (sourceIssues).
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Proof of Corollary II.8.9.1 (PDF p. 163). The reduction to complete intersections; the same sign correction applies.
 
-**Review note.** Checked Kbook.2013 Ex. II.8.7 (PDF p. 165); Kbook.2013 Proof of Corollary II.8.9.1 (PDF p. 163). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread Kbook.2013 Ex. II.8.7 (PDF p. 165); Kbook.2013 Proof of Corollary II.8.9.1 (PDF p. 163). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
 /-!
 ### Grothendieck's comparison of the γ-filtration with Chow groups
 
-**Id:** `SchemeKTheoryOperations:S.7/gamma-chow-comparison`. **Kind:** theorem. Implementation unchecked.
+**Id:** `SchemeKTheoryOperations:S.7/gamma-chow-comparison`. **Kind:** theorem. **Review:** verified. Implementation unchecked.
 
 Let X be a smooth quasi-projective variety over a field k of dimension d (more generally, parts (b),(c) use regular finite-type X over a field with an ample family of line bundles). Then: (a) ch ⊗ ℚ: K_0(X)_ℚ → CH^*(X)_ℚ is an isomorphism of rings, graded for the Adams decomposition: ch_i: K_0(X)^{(i)}_ℚ ≅ CH^i(X)_ℚ; (b) gr^i_γK_0(X)_ℚ ≅ K_0(X)^{(i)}_ℚ ≅ gr^i_cod K_0(X)_ℚ ≅ CH^i(X)_ℚ, with F^i_γK_0(X)_ℚ = F^i_cod K_0(X)_ℚ, where CH^i → gr^i_cod is [Z] ↦ [O_Z] and c_i: gr^i_γ → CH^i is multiplication by (−1)^{i−1}(i − 1)! on the identified groups; (c) integrally, K_0(X) = ⊕_{p=0}^{d} E_2^{p,−p}(X) = ⊕_{p=0}^{d}CH^p(X) modulo 𝒮_d (groups of exponent divisible only by 2 and primes < d). The integral groups gr^i_γK_0(X) and CH^i(X) are not claimed isomorphic (they differ by torsion).
 
@@ -17982,13 +18052,16 @@ Let X be a smooth quasi-projective variety over a field k of dimension d (more g
 - [Soule.1985](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/S0008414X00008427), Théorème 4 iv) (p. 521). Part (c).
 - [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), 2.1.2(h), p.284; 3.8–3.10, p.316. Quasi-projective schemes satisfy the ample-family condition; the stated broader regular case assumes it explicitly.
 
+**Review note.** Independently reread Kbook.2013 Corollary II.8.9.1 (PDF p. 162); Soule.1985 Théorème 4 iv) (p. 521); ThomasonTrobaugh.1990 2.1.2(h), p.284; 3.8–3.10, p.316. Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
+
 **Planet:** γ–Chow comparison.
+
 -/
 
 /-!
 ### The Chern character into the γ-graded K-theory
 
-**Id:** `SchemeKTheoryOperations:S.7/gamma-chern-character`. **Kind:** construction. Implementation unchecked.
+**Id:** `SchemeKTheoryOperations:S.7/gamma-chern-character`. **Kind:** construction. **Review:** verified. Implementation unchecked.
 
 Let K be an augmented special λ-ring (KTheoryLowDegrees Z.3/augmented-lambda-ring), or a non-unital λ-algebra such as K^Y(X) in the ample-family scheme scope or ⊕_{m≥1}K_m(A) with the filtration of S.6/non-unital-gamma-filtration (S.6/non-unital-lambda-algebra) with a γ-filtration of finite length after ⊗ℚ. The γ-Chern character ch = ⊕_{i≥0}ch_i: K → ⊕_i gr^i_γK ⊗ ℚ is ch_0 = ε and, for i > 0, ch_i(x) = the class of (1/i!)N_i(γ^1(x − ε(x)), …, γ^i(x − ε(x))) in gr^i_γ ⊗ ℚ, N_i the Newton polynomial (Z.3/lambda-universal-polynomials). It is a ring homomorphism commuting with all natural operations, ch_i(ψ^kx) = k^ich_i(x), compatible with products on K-theory of schemes and with pullback, and ch ⊗ 1: K_m(X)_ℚ → ⊕_i gr^i_γK_m(X)_ℚ is an isomorphism for X regular noetherian of finite dimension with an ample family, subject to the full bounded weighted λ-module filtration input (also with supports). This is the Chern character in which Soulé states Riemann–Roch with denominators (S.7/g-theory-adams-operations); the higher Chern character into higher Chow groups or motivic cohomology is MotivicEtaleKTheory's.
 
@@ -18054,6 +18127,9 @@ Let K be an augmented special λ-ring (KTheoryLowDegrees Z.3/augmented-lambda-ri
 **Source locators.**
 
 - [Soule.1985](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/S0008414X00008427), 7.1 (p. 532). The definition; Soulé adds that ch is a ring homomorphism commuting with 𝒯, that ch ⊗ 1 is an isomorphism, and that ch(xy) = ch(x)ch(y) on higher K-theory.
+
+**Review note.** Independently reread Soule.1985 7.1 (p. 532). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs. Checked API use cases and the discriminating test specifications; these are mathematical specifications, not execution receipts.
+
 -/
 
 /-!
@@ -18091,14 +18167,14 @@ Let f: X → Y be a proper morphism of noetherian schemes. On π_0, S.2's pushfo
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Example II.8.2.3 (PDF p. 155). The Euler-characteristic form of the pushforward (text layer; rendered Σ(−1)^i[R^if_*F]).
 - [BorelSerre.1958](http://www.numdam.org/item/10.24033/bsmf.1500.pdf), §5d (p. 110). The pushforward f_! used in the classical Riemann–Roch theorem.
 
-**Review note.** Checked Kbook.2013 Example II.8.2.3 (PDF p. 155); BorelSerre.1958 §5d (p. 110). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread Kbook.2013 Example II.8.2.3 (PDF p. 155); BorelSerre.1958 §5d (p. 110). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
 /-!
 ### Grothendieck–Riemann–Roch on the K/G pushforward
 
-**Id:** `SchemeKTheoryOperations:S.7/grothendieck-riemann-roch`. **Kind:** theorem. **Review:** verified. Implementation unchecked.
+**Id:** `SchemeKTheoryOperations:S.7/grothendieck-riemann-roch`. **Kind:** theorem. **Review:** corrected. Implementation unchecked.
 
 Let f: X → Y be a proper morphism of smooth quasi-projective varieties over an algebraically closed field k, treated componentwise. Then for x ∈ K_0(X), ch(f_*(x))·td(T_Y) = f_*(ch(x)·td(T_X)) in CH^*(Y)_ℚ, where f_* on K_0 is the pushforward of SchemeKTheoryOperations S.2 (π_0 of the K-theory pushforward, equal under Cartan to the G-theory one), f_* on CH^* is proper pushforward, ch is S.7/chern-character and td(E) = ∏a_j/(1 − e^{−a_j}) over the Chern roots of E (td = 1 + c_1/2 + (c_1² + c_2)/12 + ⋯). The denominators of td and ch are retained; the integral refinement is S.7/adams-riemann-roch. This node proves the compatibility of the imported geometric GRR (SchemeAndStackFoundations SF.5, for the Euler-characteristic pushforward f_! = Σ(−1)^qR^qf_*) with the actual K/G pushforward; it does not extend SF.5's source scope.
 
@@ -18130,10 +18206,10 @@ Let f: X → Y be a proper morphism of smooth quasi-projective varieties over an
 
 **Source locators.**
 
-- [BorelSerre.1958](http://www.numdam.org/item/10.24033/bsmf.1500.pdf), §7 (p. 113), Lemmas 15–16 and §§9–16 (pp. 114–132). Borel–Serre's statement for f: Y → X proper, X, Y nonsingular quasi-projective irreducible, with f_! the alternating sum of the R^qf_*; T is the Todd class.
+- [BorelSerre.1958](http://www.numdam.org/item/10.24033/bsmf.1500.pdf), §7 (p.113), Lemmas 15–16 and §§9–16 (pp.114–135; PDF pp.19–40). Borel–Serre's statement for f: Y → X proper, X, Y nonsingular quasi-projective irreducible, with f_! the alternating sum of the R^qf_*; T is the Todd class.
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Theorem II.8.10 (PDF p. 163). The relative form; the K-book cites Fulton for it.
 
-**Review note.** Checked BorelSerre.1958 §7 (p. 113), Lemmas 15–16 and §§9–16 (pp. 114–132); Kbook.2013 Theorem II.8.10 (PDF p. 163). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread BorelSerre.1958 §7 (p.113), Lemmas 15–16 and §§9–16 (pp.114–135; PDF pp.19–40); Kbook.2013 Theorem II.8.10 (PDF p. 163). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs. Correction: Extend the Borel–Serre proof locator through the actual end of §16 on printed p.135.
 
 **Planet:** Grothendieck–Riemann–Roch.
 
@@ -18142,7 +18218,7 @@ Let f: X → Y be a proper morphism of smooth quasi-projective varieties over an
 /-!
 ### Hirzebruch–Riemann–Roch and the curve case
 
-**Id:** `SchemeKTheoryOperations:S.7/hirzebruch-riemann-roch`. **Kind:** application. **Review:** corrected. Implementation unchecked.
+**Id:** `SchemeKTheoryOperations:S.7/hirzebruch-riemann-roch`. **Kind:** application. **Review:** verified. Implementation unchecked.
 
 (a) For a smooth projective variety X over an algebraically closed field k and a coherent sheaf F, χ(X, F) = Σ(−1)^i dim_k H^i(X, F) = deg(ch(F)·td(T_X)) (the degree of the dimension-zero component). (b) For a smooth projective geometrically connected curve X of genus g over k and a divisor D: χ(O(D)) = deg D + 1 − g; with Serre duality, dim H^0(O(D)) − dim H^0(O(K − D)) = deg D + 1 − g, which is Tau Ceti's Riemann–Roch for the function field k(X) (TauCeti.exists_isRiemannRochDivisor).
 
@@ -18173,14 +18249,14 @@ Let f: X → Y be a proper morphism of smooth quasi-projective varieties over an
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Theorem II.8.10 (PDF p. 163). Part (a) (text layer; rendered χ(E) = Σ(−1)^i dim H^i(X, E)).
 - [BorelSerre.1958](http://www.numdam.org/item/10.24033/bsmf.1500.pdf), §7 (p. 113). The deduction of (a) from GRR.
 
-**Review note.** Scoped this GRR-derived proof to algebraically closed fields; the arbitrary-field extension needs a descent/base-change proof.
+**Review note.** Independently reread Kbook.2013 Theorem II.8.10 (PDF p. 163); BorelSerre.1958 §7 (p. 113). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
 /-!
 ### Soulé's Adams operations and filtration on G-theory
 
-**Id:** `SchemeKTheoryOperations:S.7/g-theory-adams-operations`. **Kind:** construction. Implementation unchecked.
+**Id:** `SchemeKTheoryOperations:S.7/g-theory-adams-operations`. **Kind:** construction. **Review:** verified. Implementation unchecked.
 
 Let S be a regular noetherian irreducible scheme of finite Krull dimension with an ample family of line bundles and 𝒱_S the category of quasi-projective S-schemes. For X ∈ 𝒱_S there are operations φ^k: K'_m(X) ⊗ ℤ[1/k] → K'_m(X) ⊗ ℤ[1/k] (k ∈ ℤ − {0}), a finite increasing filtration F_jK'_m(X) ⊗ ℚ (j ∈ ℤ) and an isomorphism σ: K'_m(X) ⊗ ℚ → ⊕_j Gr_jK'_m(X) ⊗ ℚ, where K' = G-theory. For a closed immersion f: X → M into M of absolute Krull dimension d, smooth and equidimensional over S, with M → S surjective and f_*: K'_m(X) ≅ K^X_m(M) (dévissage): F^M_jK'_m(X)_ℚ = f_*^{−1}(F^{d−j}_γK^X_m(M)_ℚ), k^{dim S}φ^k_M(α) = f_*^{−1}(ψ^k(f_*α)·θ^k(M)) with θ^k(M) = θ^k(−T^∨_M) ∈ K_0(M) ⊗ ℤ[1/k] (S.6/bott-cannibalistic-class), and σ^M(α) = f_*^{−1}(ch(f_*α)·Td(M)) (S.7/gamma-chern-character, Td(M) the Todd class of T_M relative to S in ⊕gr^i_γK_0(M)_ℚ). These do not depend on the embedding. φ^k preserves F_j and acts on Gr_j by k^{−j}; φ^kφ^l = φ^{kl}; φ^k commutes with σ. Gr_j means F_j/F_{j−1}. In the formula for σ, f_*^{-1} on the right means the inverse induced map on the shifted associated γ-graded groups, not the ungraded K-group inverse.
 
@@ -18248,12 +18324,15 @@ Let S be a regular noetherian irreducible scheme of finite Krull dimension with 
 - [Soule.1985](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/S0008414X00008427), Théorème 7 (p. 533). The statement; i) φ^k(F_j) ⊂ F_j, φ^k acts on Gr_j by k^{−j}, φ^k ∘ φ^l = φ^{kl}, φ^k commutes with σ.
 - [Soule.1985](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/S0008414X00008427), Proof of Théorème 7, step 1 (p. 534). The definition through an embedding.
 - [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), 2.1.2(h), p.284; 3.8–3.10, p.316. Quasi-projective schemes over an ample-family base inherit an ample family, so the regular ambient K-theory operations have the required comparison.
+
+**Review note.** Independently reread Soule.1985 Théorème 7 (p. 533); Soule.1985 Proof of Théorème 7, step 1 (p. 534); ThomasonTrobaugh.1990 2.1.2(h), p.284; 3.8–3.10, p.316. Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs. Checked API use cases and the discriminating test specifications; these are mathematical specifications, not execution receipts.
+
 -/
 
 /-!
 ### Adams–Riemann–Roch for projective morphisms
 
-**Id:** `SchemeKTheoryOperations:S.7/adams-riemann-roch`. **Kind:** theorem. Implementation unchecked.
+**Id:** `SchemeKTheoryOperations:S.7/adams-riemann-roch`. **Kind:** theorem. **Review:** verified. Implementation unchecked.
 
 In the setting of S.7/g-theory-adams-operations: (i) for a projective morphism f of 𝒱_S, φ^kf_* = f_*φ^k, f_*(F_j) ⊆ F_j and σf_* = f_*σ on G-theory; (ii) for an open immersion f, φ^kf^* = f^*φ^k, f^*(F_j) ⊆ F_j, σf^* = f^*σ; (iii) φ^k(α ∩ β) = φ^k(α) ∩ ψ^k(β) and σ(α ∩ β) = σ(α) ∩ ch(β) for the cap product K'_m(X) × K_n(X) → K'_{m+n}(X), and φ^k(α ⊠ β) = φ^k(α) ⊠ φ^k(β); (iv) consequently, for a projective morphism f: X → Y of smooth quasi-projective S-schemes and x ∈ K_m(X): ψ^k(f_*x)·θ^k(Y) = f_*(ψ^k(x)·θ^k(X)) in K_m(Y) ⊗ ℤ[1/k], i.e. ψ^k(f_*x) = f_*(θ^k(−T^∨_f)·ψ^k(x)) with T_f = T_X − f^*T_Y; for a closed immersion this is S.6/gysin-weight-shift, and for m = 0 it is Grothendieck's Adams–Riemann–Roch of SGA 6.
 
@@ -18297,7 +18376,10 @@ In the setting of S.7/g-theory-adams-operations: (i) for a projective morphism f
 - [Soule.1985](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/S0008414X00008427), Proof of Théorème 7, step 5 (p. 537). The GRR input for projective space.
 - [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), 2.1.2(h), p.284; 3.8–3.10, p.316. Quasi-projective schemes over an ample-family base inherit an ample family, so the regular ambient K-theory operations have the required comparison.
 
+**Review note.** Independently reread Soule.1985 Théorème 7 ii) (p. 533); Soule.1985 Proof of Théorème 7, step 5 (p. 537); ThomasonTrobaugh.1990 2.1.2(h), p.284; 3.8–3.10, p.316. Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
+
 **Planet:** Adams–Riemann–Roch.
+
 -/
 
 /-!
@@ -18330,7 +18412,7 @@ In a cartesian square Y' = X' ×_X Y of quasi-compact quasi-separated schemes wi
 
 - [Thomason.1993](https://gdz.sub.uni-goettingen.de/download/pdf/PPN356556735_0112/LOG_0023.pdf), Lemme 3.2 (p. 207). The statement; the proof is on pp. 207–208.
 
-**Review note.** Checked Thomason.1993 Lemme 3.2 (p. 207). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread Thomason.1993 Lemme 3.2 (p. 207). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -18372,7 +18454,7 @@ Let Y' → X' over Y → X be a cartesian square of quasi-compact quasi-separate
 - [Thomason.1993](https://gdz.sub.uni-goettingen.de/download/pdf/PPN356556735_0112/LOG_0023.pdf), Théorème 3.1 (p. 206). The statement, for the cartesian square (3.1.1) of quasi-compact quasi-separated schemes with i, i' regular closed immersions.
 - [Thomason.1993](https://gdz.sub.uni-goettingen.de/download/pdf/PPN356556735_0112/LOG_0023.pdf), Introduction (p. 195). Its role: the higher-K-theory version of SGA 6's 'formule clef'.
 
-**Review note.** Checked Thomason.1993 Théorème 3.1 (p. 206); Thomason.1993 Introduction (p. 195). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread Thomason.1993 Théorème 3.1 (p. 206); Thomason.1993 Introduction (p. 195). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 **Planet:** Excess intersection formula.
 
@@ -18407,7 +18489,7 @@ Let i: Y → X be a regular closed immersion of quasi-compact quasi-separated sc
 
 - [Thomason.1993](https://gdz.sub.uni-goettingen.de/download/pdf/PPN356556735_0112/LOG_0023.pdf), (3.1.4) (p. 207). The statement.
 
-**Review note.** Checked Thomason.1993 (3.1.4) (p. 207). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread Thomason.1993 (3.1.4) (p. 207). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -18439,7 +18521,7 @@ Let X be a regular curve over a field F and P ∈ X(F) a rational point with clo
 
 - [Thomason.1993](https://gdz.sub.uni-goettingen.de/download/pdf/PPN356556735_0112/LOG_0023.pdf), (3.1.4) (p. 207). Specialised to a rational point, whose conormal sheaf is trivial of rank one.
 
-**Review note.** Checked Thomason.1993 (3.1.4) (p. 207). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread Thomason.1993 (3.1.4) (p. 207). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -18499,7 +18581,7 @@ For a qcqs scheme X and integers a≤b, Perf^[a,b](X) is the maximal ∞-groupoi
 
 - [BhattScholze.2017](https://arxiv.org/pdf/1507.06490v3), §11, proof of Theorem11.2(2). Strata are spaces of objects and equivalences inside the enhanced category.
 
-**Review note.** Checked BhattScholze.2017 §11, proof of Theorem11.2(2). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps. Reviewed all API roles and discriminating examples; unavailable Lean carriers remain explicit omissions.
+**Review note.** Independently reread BhattScholze.2017 §11, proof of Theorem11.2(2). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs. Checked API use cases and the discriminating test specifications; these are mathematical specifications, not execution receipts.
 
 -/
 
@@ -18536,7 +18618,7 @@ For perfect E,F of Tor-amplitude[a,b] on any scheme X, Map(E,F) is(b−a)-trunca
 
 - [BhattScholze.2017](https://arxiv.org/pdf/1507.06490v3), Proof of Theorem 11.2(2), numbered assertion (1), PDF p.47, arXiv:1507.06490v3. The mapping-space calculation is correct, but the claimed core bound omits one degree; see the independently confirmed source issue below.
 
-**Review note.** Checked BhattScholze.2017 Proof of Theorem 11.2(2), numbered assertion (1), PDF p.47, arXiv:1507.06490v3. The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread BhattScholze.2017 Proof of Theorem 11.2(2), numbered assertion (1), PDF p.47, arXiv:1507.06490v3. Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -18571,7 +18653,7 @@ For any commutative ring A and E∈Perf(A), E has Tor-amplitude[a,b] iff E⊗ᴸ
 
 - [BhattScholze.2017](https://arxiv.org/pdf/1507.06490v3), §11, proof of Theorem11.2(2), Tor-amplitude argument. The proof tests perfect amplitude on residue fields and passes to arbitrary rings by finite presentation.
 
-**Review note.** Checked BhattScholze.2017 §11, proof of Theorem11.2(2), Tor-amplitude argument. The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread BhattScholze.2017 §11, proof of Theorem11.2(2), Tor-amplitude argument. Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -18606,7 +18688,7 @@ For filtered commutative rings A_i with colimit A, the natural enhanced functor 
 
 - [BhattScholze.2017](https://arxiv.org/pdf/1507.06490v3), §11, proof of Theorem11.2(2), (d). The source needs enhanced continuity, beyond the triangulated Hom-set statement.
 
-**Review note.** Checked BhattScholze.2017 §11, proof of Theorem11.2(2), (d). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread BhattScholze.2017 §11, proof of Theorem11.2(2), (d). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -18642,7 +18724,7 @@ Let f:X→Y be locally of finite type with Y Noetherian. If E has bounded cohere
 
 - [Stacks](https://stacks.math.columbia.edu), Tags0CYS,08DS,08E2; read2026-10-07. Factor through proper closed supports before using the proper coherence theorem.
 
-**Review note.** Checked Stacks Tags0CYS,08DS,08E2; read2026-10-07. The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread Stacks Tags0CYS,08DS,08E2; read2026-10-07. Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -18689,7 +18771,7 @@ For projective perfect f:X→Y over an arbitrary scheme and E perfect on X, loca
 
 - [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), 2.7(a),3.20.1, printed310–312,324–328. The projective proof descends an ambient perfect complex, separately from the Noetherian proof.
 
-**Review note.** Checked ThomasonTrobaugh.1990 2.7(a),3.20.1, printed310–312,324–328. The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread ThomasonTrobaugh.1990 2.7(a),3.20.1, printed310–312,324–328. Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -18724,7 +18806,7 @@ For a Noetherian scheme X, the nonconnective K-spectrum of its coherent sheaves 
 
 - [Schlichting.2003](https://webhomes.maths.ed.ac.uk/~v1ranick/papers/schlneg.pdf), Negative K-theory, vanishing theorem for Noetherian abelian categories. Scheme application is owned here; K.6 retains the categorical theorem.
 
-**Review note.** Checked Schlichting.2003 Negative K-theory, vanishing theorem for Noetherian abelian categories. The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread Schlichting.2003 Negative K-theory, vanishing theorem for Noetherian abelian categories. Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -18789,7 +18871,7 @@ For a perfect F_p-algebra R, Perf(W(R) on R) is the enhanced category of perfect
 
 - [BhattScholze.2017](https://arxiv.org/pdf/1507.06490v3), §4 opening paragraph; §5 after Remark5.4, printed19. Supported perfect complexes, not all perfect complexes over W(R).
 
-**Review note.** Checked BhattScholze.2017 §4 opening paragraph; §5 after Remark5.4, printed19. The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps. Reviewed all API roles and discriminating examples; unavailable Lean carriers remain explicit omissions.
+**Review note.** Independently reread BhattScholze.2017 §4 opening paragraph; §5 after Remark5.4, printed19. Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs. Checked API use cases and the discriminating test specifications; these are mathematical specifications, not execution receipts.
 
 -/
 
@@ -18848,7 +18930,7 @@ For perfect F_p-algebras R, pushforward along i:Spec R→Spec W(R) induces α_R:
 
 - [BhattScholze.2017](https://arxiv.org/pdf/1507.06490v3), §5 after Remark5.4, printed19. The source maps K(R) to supported K by special-fibre pushforward.
 
-**Review note.** Checked BhattScholze.2017 §5 after Remark5.4, printed19. The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps. Reviewed all API roles and discriminating examples; unavailable Lean carriers remain explicit omissions.
+**Review note.** Independently reread BhattScholze.2017 §5 after Remark5.4, printed19. Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs. Checked API use cases and the discriminating test specifications; these are mathematical specifications, not execution receipts.
 
 -/
 
@@ -18888,7 +18970,7 @@ Let π:Y→X be a qcqs morphism of qcqs algebraic spaces and Z⊂X a finitely pr
 - [BhattScholze.2017](https://arxiv.org/pdf/1507.06490v3), §5, proof of Corollary5.6, printed19–20. This is the non-Noetherian completion input used in the Witt comparison.
 - [Scholze.2026](https://people.mpim-bonn.mpg.de/scholze/BerkovichMotives.pdf), §8, Proposition8.8, PDF47. The exact unitization application is recorded as a bridge gap rather than hidden behind the Noetherian theorem.
 
-**Review note.** Checked Bhatt.2014 Lemma5.12 and Remark5.13, PDF23; BhattScholze.2017 §5, proof of Corollary5.6, printed19–20. The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread Bhatt.2014 Lemma5.12 and Remark5.13, PDF23; BhattScholze.2017 §5, proof of Corollary5.6, printed19–20; Scholze.2026 §8, Proposition8.8, PDF47. Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -18925,7 +19007,7 @@ Let A₀ be a p-torsion-free p-adically complete ring with a Frobenius lift φ r
 
 - [BhattScholze.2017](https://arxiv.org/pdf/1507.06490v3), §5, proof of Corollary5.6, printed19–20. A comparison using a supplied lift; the coefficient construction has another owner.
 
-**Review note.** Checked BhattScholze.2017 §5, proof of Corollary5.6, printed19–20. The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread BhattScholze.2017 §5, proof of Corollary5.6, printed19–20. Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -18963,7 +19045,7 @@ If R₀ is any regular F_p-algebra (regular here means Noetherian with regular l
 
 - [BhattScholze.2017](https://arxiv.org/pdf/1507.06490v3), §5, Corollary5.6; proof correction PAPER-BHATT-SCHOLZE-17/E31. The arbitrary regular case cannot be justified by assuming a smooth Frobenius lift exists for every R₀.
 
-**Review note.** Checked BhattScholze.2017 §5, Corollary5.6; proof correction PAPER-BHATT-SCHOLZE-17/E31. The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread BhattScholze.2017 §5, Corollary5.6; proof correction PAPER-BHATT-SCHOLZE-17/E31. Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -19024,7 +19106,7 @@ For a perfect F_p-algebra R, C_R has objects(E₁,E₂,β) with E₁,E₂ finite
 
 - [Zhu.2017](https://annals.math.princeton.edu/wp-content/uploads/annals-v185-n2-p02-p.pdf), RemarkB.3, printed483. The source proposes this exact category and poses the comparison as a question.
 
-**Review note.** Checked Zhu.2017 RemarkB.3, printed483. The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps. Reviewed all API roles and discriminating examples; unavailable Lean carriers remain explicit omissions.
+**Review note.** Independently reread Zhu.2017 RemarkB.3, printed483. Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs. Checked API use cases and the discriminating test specifications; these are mathematical specifications, not execution receipts.
 
 -/
 
@@ -19087,7 +19169,7 @@ For(E₁,E₂,β)∈C_R choose m≥0 such that p^mβ:E₁→E₂ is integral. De
 - [Zhu.2017](https://annals.math.princeton.edu/wp-content/uploads/annals-v185-n2-p02-p.pdf), RemarkB.3, printed483. Construct only the virtual supported K₀ class; the question about K(C_R) is not a theorem.
 - [BhattScholze.2017](https://arxiv.org/pdf/1507.06490v3), §5 and §10, torsion quotients. Integral cones agree with the supported-complex interface used for lattices.
 
-**Review note.** Checked Zhu.2017 RemarkB.3, printed483; BhattScholze.2017 §5 and §10, torsion quotients. The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps. Reviewed all API roles and discriminating examples; unavailable Lean carriers remain explicit omissions.
+**Review note.** Independently reread Zhu.2017 RemarkB.3, printed483; BhattScholze.2017 §5 and §10, torsion quotients. Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs. Checked API use cases and the discriminating test specifications; these are mathematical specifications, not execution receipts.
 
 -/
 
@@ -19144,7 +19226,7 @@ Let O_K be a complete mixed-characteristic DVR with perfect residue field k, fin
 
 - [BhattScholze.2017](https://arxiv.org/pdf/1507.06490v3), §10, proof of Proposition10.1. The ramified supported K-map is restriction of scalars.
 
-**Review note.** Checked BhattScholze.2017 §10, proof of Proposition10.1. The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps. Reviewed all API roles and discriminating examples; unavailable Lean carriers remain explicit omissions.
+**Review note.** Independently reread BhattScholze.2017 §10, proof of Proposition10.1. Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs. Checked API use cases and the discriminating test specifications; these are mathematical specifications, not execution receipts.
 
 -/
 
@@ -19204,7 +19286,7 @@ On qcqs perfect F_p-schemes, a v-cover is a qcqs map for which every map from a 
 
 - [BhattScholze.2017](https://arxiv.org/pdf/1507.06490v3), Definition2.1 and Definition11.1; Lemma2.12. The finite-presentation h basis and arbitrary qcqs v site must be distinguished.
 
-**Review note.** Checked BhattScholze.2017 Definition2.1 and Definition11.1; Lemma2.12. The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps. Reviewed all API roles and discriminating examples; unavailable Lean carriers remain explicit omissions.
+**Review note.** Independently reread BhattScholze.2017 Definition2.1 and Definition11.1; Lemma2.12. Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs. Checked API use cases and the discriminating test specifications; these are mathematical specifications, not execution receipts.
 
 -/
 
@@ -19240,7 +19322,7 @@ Let f:Y→X be an h-cover of Noetherian schemes and E∈D_QCoh(X). If Lf*E is pe
 
 - [BhattScholze.2017](https://arxiv.org/pdf/1507.06490v3), §11, Theorem11.12 and Remark11.13. The Noetherian h theorem concerns derived pullback; it is not the perfect-scheme v theorem.
 
-**Review note.** Checked BhattScholze.2017 §11, Theorem11.12 and Remark11.13. The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread BhattScholze.2017 §11, Theorem11.12 and Remark11.13. Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -19278,7 +19360,7 @@ For an h-cover f:Y→X of classical Noetherian schemes, the enhanced D_QCoh(X) i
 
 - [BhattScholze.2017](https://arxiv.org/pdf/1507.06490v3), Theorem11.12, proof via Proposition11.25; Remark11.13. Čech descent on a derived nerve, distinct from hyperdescent on perfect schemes.
 
-**Review note.** Checked BhattScholze.2017 Theorem11.12, proof via Proposition11.25; Remark11.13. The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread BhattScholze.2017 Theorem11.12, proof via Proposition11.25; Remark11.13. Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -19315,7 +19397,7 @@ On qcqs perfect F_p-schemes, X↦D_QCoh(X) is an h-sheaf of spaces underlying sy
 
 - [BhattScholze.2017](https://arxiv.org/pdf/1507.06490v3), Theorem11.2(1),11.27, proof on printed46. Symmetric monoidal derived h-descent supplies the initial Perf h-descent.
 
-**Review note.** Checked BhattScholze.2017 Theorem11.2(1),11.27, proof on printed46. The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread BhattScholze.2017 Theorem11.2(1),11.27, proof on printed46. Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -19354,7 +19436,7 @@ On qcqs perfect F_p-schemes, the space-valued functor X↦Perf(X) is a hypercomp
 
 - [BhattScholze.2017](https://arxiv.org/pdf/1507.06490v3), Theorem11.2(2), proof on printed46–47. Use strata and uniform bounds to justify hyperdescent.
 
-**Review note.** Checked BhattScholze.2017 Theorem11.2(2), proof on printed46–47. The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread BhattScholze.2017 Theorem11.2(2), proof on printed46–47. Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -19392,7 +19474,7 @@ On qcqs perfect F_p-schemes, X↦Perf(W_n(X)) is a hypercomplete v-sheaf of spac
 
 - [BhattScholze.2017](https://arxiv.org/pdf/1507.06490v3), Theorem11.2(2), final sentence of its proof. This source explicitly lists the Witt variant but abbreviates the additional proof.
 
-**Review note.** Checked BhattScholze.2017 Theorem11.2(2), final sentence of its proof. The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread BhattScholze.2017 Theorem11.2(2), final sentence of its proof. Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -19430,7 +19512,7 @@ On qcqs perfect F_p-schemes, X↦Perf(W(X)) is a hypercomplete v-sheaf of spaces
 
 - [BhattScholze.2017](https://arxiv.org/pdf/1507.06490v3), Theorem11.2(2), final sentence of its proof. This source explicitly lists the Witt variant but abbreviates the additional proof.
 
-**Review note.** Checked BhattScholze.2017 Theorem11.2(2), final sentence of its proof. The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread BhattScholze.2017 Theorem11.2(2), final sentence of its proof. Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -19468,7 +19550,7 @@ On qcqs perfect F_p-schemes, X↦Perf(W(X) on X) is a hypercomplete v-sheaf of s
 
 - [BhattScholze.2017](https://arxiv.org/pdf/1507.06490v3), Theorem11.2(2), final sentence of its proof. This source explicitly lists the Witt variant but abbreviates the additional proof.
 
-**Review note.** Checked BhattScholze.2017 Theorem11.2(2), final sentence of its proof. The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread BhattScholze.2017 Theorem11.2(2), final sentence of its proof. Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -19509,7 +19591,7 @@ On perfect qcqs F_p-schemes, α:K(X)→K(W(X) on X) induces an equivalence after
 
 - [BhattScholze.2017](https://arxiv.org/pdf/1507.06490v3), Theorem5.7, proof. The equivalences appear after sheafifying one-truncations.
 
-**Review note.** Checked BhattScholze.2017 Theorem5.7, proof. The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread BhattScholze.2017 Theorem5.7, proof. Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -19568,7 +19650,7 @@ For perfect qcqs X, define deg:K₀(W(X) on X)→H⁰(X,ℤ_lc) by the inverse o
 
 - [BhattScholze.2017](https://arxiv.org/pdf/1507.06490v3), Remark7.12, printed30; Theorem5.7. The grading is sheaf-local; field lengths normalize it.
 
-**Review note.** Checked BhattScholze.2017 Remark7.12, printed30; Theorem5.7. The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps. Reviewed all API roles and discriminating examples; unavailable Lean carriers remain explicit omissions.
+**Review note.** Independently reread BhattScholze.2017 Remark7.12, printed30; Theorem5.7. Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs. Checked API use cases and the discriminating test specifications; these are mathematical specifications, not execution receipts.
 
 -/
 
@@ -19606,7 +19688,7 @@ A presheaf of spectra F on qcqs schemes is a Nisnevich sheaf iff F(∅) is a zer
 - [Hoyois.2016](https://hoyois.app.uni-regensburg.de/papers/allagree.pdf), Complete note. Proves generation without Noetherianity.
 - [AsokHoyoisWendt.2015](https://arxiv.org/pdf/1506.07093v2), Theorem3.2.5 and Remark3.2.6. Its abstract criterion concerns Čech descent, while boundedness controls the further hyperdescent assertion.
 
-**Review note.** Checked Hoyois.2016 Complete note; AsokHoyoisWendt.2015 Theorem3.2.5 and Remark3.2.6. The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread Hoyois.2016 Complete note; AsokHoyoisWendt.2015 Theorem3.2.5 and Remark3.2.6. Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -19643,7 +19725,7 @@ For qcqs X, Schlichting’s IK-spectrum of S.2 and TT’s K^B spectrum have natu
 - [Schlichting.2003](https://webhomes.maths.ed.ac.uk/~v1ranick/papers/schlneg.pdf), Theorem7.1 and proof. Scheme agreement uses the scheme projective-line input, now placed after S.5.
 - [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), 6.6(b). The iterative Bass cokernel is the comparison target.
 
-**Review note.** Checked Schlichting.2003 Theorem7.1 and proof; ThomasonTrobaugh.1990 6.6(b). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread Schlichting.2003 Theorem7.1 and proof; ThomasonTrobaugh.1990 6.6(b). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -19680,7 +19762,7 @@ GS87’s K₀^Y(X) is generated by globally bounded vector-bundle complexes acyc
 - [GilletSoule.1987](https://gdz.sub.uni-goettingen.de/download/pdf/PPN356556735_0090/LOG_0018.pdf), §1.1–1.9, printed243–248. The first GS model is globally strict; regularity alone is not a global-resolution theorem.
 - [LiLiu.2021](https://www.math.columbia.edu/~chaoli/AIPF.pdf), Appendix B, pp.60–61, paragraph preceding (B.3). Application of the strict-complex comparison in the regular model setting; the general comparison theorem is GS87/TT, not this paragraph.
 
-**Review note.** Checked GilletSoule.1987 §1.1–1.9, printed243–248; LiLiu.2021 Appendix B, pp.60–61, paragraph preceding (B.3). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread GilletSoule.1987 §1.1–1.9, printed243–248; LiLiu.2021 Appendix B, pp.60–61, paragraph preceding (B.3). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -19744,7 +19826,7 @@ For a separated Noetherian regular finite-dimensional scheme X with the resoluti
 
 - [GilletSoule.1987](https://gdz.sub.uni-goettingen.de/download/pdf/PPN356556735_0090/LOG_0018.pdf), §4.6–4.12, printed260–264. GS87 constructs degree-zero polynomial operations and proves their product and Koszul formulas.
 
-**Review note.** Checked GilletSoule.1987 §4.6–4.12, printed260–264. The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps. Reviewed all API roles and discriminating examples; unavailable Lean carriers remain explicit omissions.
+**Review note.** Independently reread GilletSoule.1987 §4.6–4.12, printed260–264. Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs. Checked API use cases and the discriminating test specifications; these are mathematical specifications, not execution receipts.
 
 -/
 
@@ -19780,7 +19862,7 @@ For separated Noetherian regular X of finite Krull dimension d and closed Y⊂X,
 - [GilletSoule.1987](https://gdz.sub.uni-goettingen.de/download/pdf/PPN356556735_0090/LOG_0018.pdf), §5.1–5.2, printed264–265. Uses ambient codimension and generic lengths, not codimension in the support.
 - [LiLiu.2021](https://www.math.columbia.edu/~chaoli/AIPF.pdf), Appendix B, pp.60–61, paragraph preceding (B.3). The application imports the codimension filtration from GS87; (B.2) is a different cohomological diagram.
 
-**Review note.** Checked GilletSoule.1987 §5.1–5.2, printed264–265; LiLiu.2021 Appendix B, pp.60–61, paragraph preceding (B.3). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread GilletSoule.1987 §5.1–5.2, printed264–265; LiLiu.2021 Appendix B, pp.60–61, paragraph preceding (B.3). Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -19816,7 +19898,7 @@ For separated Noetherian regular finite-dimensional X and closed Y, F^p K₀^Y(X
 - [GilletSoule.1987](https://gdz.sub.uni-goettingen.de/download/pdf/PPN356556735_0090/LOG_0018.pdf), Proposition5.3, printed265–266. Rational projectors require finite weights and denominators.
 - [Zhang.2021](https://archive.ymsc.tsinghua.edu.cn/pacm_download/21/12000-annals.2021.193.3.5.pdf), AppendixB.1, printed971–973. The scheme weight splitting is the proved input; formal schemes are separate.
 
-**Review note.** Checked GilletSoule.1987 Proposition5.3, printed265–266; Zhang.2021 AppendixB.1, printed971–973. The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread GilletSoule.1987 Proposition5.3, printed265–266; Zhang.2021 AppendixB.1, printed971–973. Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -19854,7 +19936,7 @@ For separated Noetherian regular finite-dimensional X, closed Y,Z, and a,b≥0, 
 - [LiLiu.2021](https://www.math.columbia.edu/~chaoli/AIPF.pdf), Appendix B, proof of Lemma B.8, p.62. The rational product-filtration inclusion used in the proof of Lemma B.8.
 - [Zhang.2021](https://archive.ymsc.tsinghua.edu.cn/pacm_download/21/12000-annals.2021.193.3.5.pdf), AppendixB.1. The formal analogue is explicitly unproved in the consumer source.
 
-**Review note.** Checked GilletSoule.1987 Propositions4.11,5.3,5.5; Theorem8.3; LiLiu.2021 Appendix B, proof of Lemma B.8, p.62. The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+**Review note.** Independently reread GilletSoule.1987 Propositions4.11,5.3,5.5; Theorem8.3; LiLiu.2021 Appendix B, proof of Lemma B.8, p.62; Zhang.2021 AppendixB.1. Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
 
 -/
 
@@ -19916,14 +19998,14 @@ For separated Noetherian regular finite-dimensional X and closed Y, define cl_K:
 - [LiLiu.2021](https://www.math.columbia.edu/~chaoli/AIPF.pdf), Appendix B, (B.3) and following paragraph, p.61. The supported cycle-to-K-class construction.
 - [GilletSoule.1987](https://gdz.sub.uni-goettingen.de/download/pdf/PPN356556735_0090/LOG_0018.pdf), §5.2 and §8.1–8.2. Generic lengths and the coniveau quotient identify the cycle class.
 
-**Review note.** Checked LiLiu.2021 Appendix B, (B.3) and following paragraph, p.61; GilletSoule.1987 §5.2 and §8.1–8.2. The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps. Reviewed all API roles and discriminating examples; unavailable Lean carriers remain explicit omissions.
+**Review note.** Independently reread LiLiu.2021 Appendix B, (B.3) and following paragraph, p.61; GilletSoule.1987 §5.2 and §8.1–8.2. Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs. Checked API use cases and the discriminating test specifications; these are mathematical specifications, not execution receipts.
 
 -/
 
 /-!
 ### Rational Chow comparison with support
 
-**Id:** `SchemeKTheoryOperations:S.7/supported-chow-k-zero-comparison`. **Kind:** theorem. Implementation unchecked.
+**Id:** `SchemeKTheoryOperations:S.7/supported-chow-k-zero-comparison`. **Kind:** theorem. **Review:** verified. Implementation unchecked.
 
 For separated Noetherian regular finite-dimensional X and closed Y, the cycle map gives CH_Y^p(X)⊗ℚ≃Gr_F^pK₀^Y(X)⊗ℚ. CH_Y^p means ambient codimension-p cycles in Y modulo divisors of rational functions on ambient codimension-(p−1) integral subschemes contained in Y. This is a supported comparison, not automatically CH^p(Y). For equidimensional catenary X of dimension d it identifies with CH_(d−p)(Y)⊗ℚ.
 
@@ -19958,12 +20040,15 @@ For separated Noetherian regular finite-dimensional X and closed Y, the cycle ma
 - [GilletSoule.1987](https://gdz.sub.uni-goettingen.de/download/pdf/PPN356556735_0090/LOG_0018.pdf), §8.1 and Theorem8.2, printed274–275. Use ℚ to avoid misreading the source’s factorial denominator range.
 - [LiLiu.2021](https://www.math.columbia.edu/~chaoli/AIPF.pdf), Appendix B, p.61, paragraph following (B.3). An application of the supported K/G comparison. This passage does not itself state the graded Chow isomorphism; use GS87 Theorem 8.2 for that theorem.
 - [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), 2.1.2(d),(e),(g), p.284; 3.8–3.10, p.316. The existing separated regular ambient scope supplies the ample family needed for the supported operation comparison.
+
+**Review note.** Independently reread GilletSoule.1987 §8.1 and Theorem8.2, printed274–275; LiLiu.2021 Appendix B, p.61, paragraph following (B.3); ThomasonTrobaugh.1990 2.1.2(d),(e),(g), p.284; 3.8–3.10, p.316. Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
+
 -/
 
 /-!
 ### Dimension-one G-theory cycle comparison
 
-**Id:** `SchemeKTheoryOperations:S.7/dimension-one-supported-g-cycle-comparison`. **Kind:** comparison. Implementation unchecked.
+**Id:** `SchemeKTheoryOperations:S.7/dimension-one-supported-g-cycle-comparison`. **Kind:** comparison. **Review:** verified. Implementation unchecked.
 
 Let X be regular, separated, noetherian, catenary and pure-dimensional of dimension d, with dim(closure{x})+codim_X(x)=d, and Y⊆X closed. The support-dimension filtration F_i on G₀(Y) satisfies Gr₁G₀(Y)_ℚ≅CH₁(Y)_ℚ, via generic lengths. Under regular ambient dévissage this is precisely the p=d−1 supported codimension comparison. For Y proper over a Dedekind base, the cycle map to Zhang’s proper one-cycle quotient is retained with its stated vertical rational-equivalence relations; that map is not asserted to be an isomorphism.
 
@@ -19998,4 +20083,7 @@ Let X be regular, separated, noetherian, catenary and pure-dimensional of dimens
 - [Zhang.2021](https://archive.ymsc.tsinghua.edu.cn/pacm_download/21/12000-annals.2021.193.3.5.pdf), §9.1, printed924–925, Gr₁ diagram. The notation is the increasing dimension filtration; the last arrow is a map to proper cycles.
 - [GilletSoule.1987](https://gdz.sub.uni-goettingen.de/download/pdf/PPN356556735_0090/LOG_0018.pdf), Theorem8.2, printed274–275. Ambient codimension comparison yields the dimension-one supported case.
 - [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), 2.1.2(d),(e),(g), p.284; 3.8–3.10, p.316. The existing separated regular ambient scope supplies the ample family needed for the supported operation comparison.
+
+**Review note.** Independently reread Zhang.2021 §9.1, printed924–925, Gr₁ diagram; GilletSoule.1987 Theorem8.2, printed274–275; ThomasonTrobaugh.1990 2.1.2(d),(e),(g), p.284; 3.8–3.10, p.316. Checked the stated hypotheses, model, target-level proof and direct supplier contracts; explicit gaps remain conditional inputs.
+
 -/
