@@ -1,12 +1,12 @@
 # Excursion operators and the spectral action — ES5 and ES6
 
-This revision retains the 21 declaration-sized targets and every accepted node id. ES5, ES6 and ES6:duality are planned with explicit owner requests. ES6:functoriality and the packet remain **partial** because an unconditional arbitrary-local-field disconnected-centre comparison has not been established. The p-adic construction and the conditional comparison below do not fulfill that all-field target. Every implementation status is unchecked.
+This revision retains the 21 declaration-sized targets and every accepted node id. All four stages are planned at target level, and the packet is complete for independent review. The all-field rational-central-character target now has a proof through a central torus pushout and a quotient of a restricted irreducible representation. It requires neither extension of the original representation nor a full centre flat-H1 bijection. The precise owner requests and prototype omissions below remain open; every implementation status is unchecked.
 
 ## Conventions and ownership
 
 Let E be a nonarchimedean local field with residue field F_q of characteristic p, ell different from p, and Lambda an eligible Z_ell[sqrt(q)]-algebra interpreted with the supplier’s relative-discrete convention. L is an algebraically closed such field. Parameters are semisimple conjugacy classes with the prescribed Weil projection. Continuity is a map of condensed sets into relatively discrete coefficients, supplied by LP0/LP2; an abstract discrete-group parameter has no additional continuity assertion.
 
-The spectral-centre map is imported from ES1:spectral-center and requires |pi_0 Z(G)| invertible in Lambda for every group in a centre diagram. Without that hypothesis use excursion operators; the scalar parameter assignment remains valid. No categorical good-prime restriction is inserted into this scalar theorem. Qbar_ell is uncountable; Fbar_ell is countable. The modular admissibility theorem is requested upstream at SR.3b after SR.2, independently of downstream SR.6. Vignéras II.2.8 has not been read in this run and is not asserted as a closed source proof.
+The spectral-centre map is imported from ES1:spectral-center and requires |pi_0 Z(G)| invertible in Lambda for every group in a centre diagram. Without that hypothesis use excursion operators; the scalar parameter assignment remains valid. No categorical good-prime restriction is inserted into this scalar theorem. Qbar_ell is uncountable; Fbar_ell is countable. The modular admissibility theorem is requested upstream at SR.3b after SR.2, independently of downstream SR.6. The public Vignéras 2023 sections 4–5 and Henniart–Vignéras 2025 sections 2–3 have been read for admissibility, finite length and the weaker quotient-lift argument. The old Vignéras book has not been read and is not presented as a checked proof. The supplier extension must be independent of ES6; no noetherianity theorem from SR.6 is imported.
 
 Art_arith sends a uniformizer to arithmetic Frobenius. Define rec_geom(x)=Art_arith(x^-1); it sends a uniformizer to geometric Frobenius. This is precomposition with inversion. The inverse function rec_geom^-1 is used only after this definition. Physical line-bundle degree d is opposite to the Kottwitz label (FS III.2, p. 91). The torus proof fixes the Hecke source frame and associated-representation descent before determining its Weil action.
 
@@ -17,8 +17,8 @@ Art_arith sends a uniformizer to arithmetic Frobenius. Define rec_geom(x)=Art_ar
 | GS4 | Normalized Satake, Chevalley, and adjoint-isomorphism/product/Weil naturality. |
 | HS0, HS1 and HS4 | First-bundle relative position, condensed relative-homology Hecke kernels, creation/annihilation, and current pre-evaluation isogeny/product/Weil diagrams. |
 | VS4 and VS5 | Current stratum equivalence, lisse left adjoint, compact generation, lisse Kunneth and compact lisse BZ duality. Their remaining condensed enrichment and domain refinements are requested precisely. |
-| SR.0–SR.2 and proposed SR.3b | Smooth carriers, abelian Bernstein centre, induction/dual conventions and all-coefficient irreducible admissibility. |
-| BG0/BG1 and RG2.5/proposed RG2.6 | Bundle geometry, torus components, dual/root data and requested induced-torus resolutions/surjective z-extensions. Injective z-embeddings retain their separate application here. |
+| SR.0–SR.2 and proposed SR.3b | Smooth carriers, abelian Bernstein centre, induction/dual conventions, all-coefficient irreducible admissibility, finite length, and closed-cocompact quotient lifts. |
+| BG0/BG1 and RG2.5/proposed RG2.6 | Bundle geometry, torus components, dual/root data and requested induced-torus resolutions, surjective z-extensions, and all-field central pushouts/dual exact sequences. Injective p-adic z-embeddings retain their separate application here. |
 | RF3 and Relative Fargues–Fontaine Part II | Line-bundle signs and the requested coefficient-free Lubin–Tate cover with Frobenius action. |
 | Upstream ClassFieldTheory layer 9 and Part II | Arithmetic normalization/topological Weil abelianization in the proven mixed-characteristic range; full equal-characteristic wild reciprocity needs the extension. |
 | ES7:parabolic | The late return used for general smooth duals. It imports ES6:functoriality; no reverse edge to it from that child is introduced. |
@@ -453,7 +453,7 @@ Every centre diagram below uses the existing map Z_spec(G,Lambda) to Z_geom(G,La
 
 **Node:** `ExcursionOperatorsAndSpectralAction:ES6:functoriality/isogenies`. **Suggested name:** `isogenies`. **Kind:** theorem.
 
-For f:Gprime to G inducing an adjoint-group isomorphism, write dual f:Ghat to Gprimehat and pi:Bun_Gprime to Bun_G. For every A the centre action of Z_spec(Gprime) on pi^*A equals pullback of the Z_spec(G) action along the function map induced by dual f. Before scalar evaluation compare Hecke kernels via pi_H-sharp Sprime_Vprime = h_1^* pi-sharp Lambda tensor Sprime_V, where V is the dual pullback of Vprime. This gives pi-sharp T_Vprime(pi^*A)=T_V(A tensor pi-sharp Lambda). Any Schur constituent on which the induced excursion action is inherited has parameter dual f composed with phi_A.
+For f:Gprime to G inducing an adjoint-group isomorphism, write dual f:Ghat to Gprimehat and pi:Bun_Gprime to Bun_G. For every A the centre action of Z_spec(Gprime) on pi^*A equals pullback of the Z_spec(G) action along the function map induced by dual f. Before scalar evaluation compare Hecke kernels via pi_H-sharp Sprime_Vprime = h_1^* pi-sharp Lambda tensor Sprime_V, where V is the dual pullback of Vprime. This gives pi-sharp T_Vprime(pi^*A)=T_V(A tensor pi-sharp Lambda). Any Schur constituent on which the induced excursion action is inherited has parameter dual f composed with phi_A. On neutral open strata, pull back the open-stratum extension of an irreducible smooth G(E)-representation and then restrict to the neutral Gprime stratum: the resulting smooth representation is ordinary restriction along f on rational points. The centre square therefore passes to any irreducible quotient of that restriction by naturality.
 
 **Hypotheses and conventions.**
 
@@ -465,9 +465,10 @@ For f:Gprime to G inducing an adjoint-group isomorphism, write dual f:Ghat to Gp
 
 1. Import HS4’s Bun/Hecke diagrams and GS4’s exact adjoint-isomorphism Satake naturality.
 2. Factor pi_H through Hck_G times Bun_Gprime. Its first relative-homology pushforward sends the Satake kernel to the pulled-back kernel; apply the projection formula to the second map.
-3. Compute the displayed functor identity using relative-homology base change. It is over the leg divisor space and natural in Vprime and I.
+3. Compute the displayed functor identity using relative-homology base change. It is over the leg divisor space and natural in Vprime and I. Also use HS4 clause (d), T_Vprime(pi^*A)=(pi times id)^*T_V(A), so pi^* preserves D_lis; this direct pullback identity, not only the pushed identity, transports excursion actions.
 4. Compare creation, Weil action and annihilation under this identity, giving the algebra square.
 5. Restrict the scalar action to the specified constituent and use the parameter characterization.
+6. For the representation application, let j and jprime denote the neutral open strata. The Cartesian restriction on that open gives jprime^* pi^* j_! Pi = Res_f Pi under the VS4 classifying-stack dictionary. Other strata can lie in pi^-1(Bun_G^1); no equality of the whole inverse image with the neutral stratum is used. A surjective map from Res_f Pi to pi commutes with the natural centre action, so its scalar excursion character is inherited.
 
 **Direct prerequisites.**
 
@@ -477,12 +478,15 @@ For f:Gprime to G inducing an adjoint-group isomorphism, write dual f:Ghat to Gp
 - `HeckeStacksAndLocalShtukas:HS1/hecke-operator-via-relative-homology`
 - `GeometricSatakeAndFusion:GS4:integral-dual-group/adjoint-isomorphism-naturality`
 - `ExcursionOperatorsAndSpectralAction:ES1:spectral-center/spectral-to-geometric-center-map`
+- `VStackSheavesAndLisseCategories:VS4/strata-are-classifying-stacks`
+- `ExcursionOperatorsAndSpectralAction:ES5/parameter-of-an-irreducible-smooth-representation`
 
 **Acceptance checks.**
 
 - The identity map gives the identity parameter comparison.
 - Central multiplication Z times G to G has an adjoint isomorphism; Z to G alone generally does not.
 - Retain the constituent hypothesis and the sharp functors.
+- An irreducible quotient of a restricted representation is sufficient; neither irreducibility of the restriction nor a single-stratum global pullback is required.
 
 **Source support in own words.**
 
@@ -583,7 +587,7 @@ Let Eprime/E be finite separable, fix an embedding Eprime into a separable closu
 
 **Node:** `ExcursionOperatorsAndSpectralAction:ES6:functoriality/tori-spectral-center`. **Suggested name:** `toriSpectralCenter`. **Kind:** theorem.
 
-For an E-torus T, local reciprocity gives a natural isomorphism Z_spec(T,Lambda) with R_T=lim_K Lambda[T(E)/K], over open subgroups K. These quotient groups are discrete and need not be finite: for T=G_m and K=O_E-times they contain the infinite valuation quotient Z. The geometric category decomposes as the product over b in B(T)=pi_1(T)_Gamma of D(T(E),Lambda), and Z_geom(T,Lambda) is the corresponding product of R_T. The classical abelian-category centre description is imported from SR.1, not the complex Bernstein-block theorem.
+For an E-torus T, local reciprocity gives a natural isomorphism Z_spec(T,Lambda) with R_T=lim_K Lambda[T(E)/K], over open subgroups K. These quotient groups are discrete and need not be finite: for T=G_m and K=O_E-times they contain the infinite valuation quotient Z. The geometric category decomposes as the product over b in B(T)=pi_1(T)_Gamma of D(T(E),Lambda), and Z_geom(T,Lambda) is the corresponding product of R_T. The classical abelian-category centre description is imported from SR.1, not the complex Bernstein-block theorem. On algebraically closed L-points this comparison includes the natural bijection between continuous Weil crossed-cocycle classes in the dual torus and smooth L-valued characters of T(E), with geometric reciprocity convention; it is functorial for every torus homomorphism.
 
 **Hypotheses and conventions.**
 
@@ -597,7 +601,7 @@ For an E-torus T, local reciprocity gives a natural isomorphism Z_spec(T,Lambda)
 1. Use the BG torus classification and VS stratum equivalence for the geometric product.
 2. Import SR.1’s centre as the inverse limit of idempotent Hecke corners; for the abelian group T(E) these identify with group algebras of quotients.
 3. Resolve T by induced tori using the requested reductive-group input, keeping the exact sequence and dual maps.
-4. Use product and Weil restriction to reduce to G_m and apply local reciprocity to the continuous cocycle/character functor.
+4. Use product and Weil restriction to reduce to G_m and apply local reciprocity to the continuous cocycle/character functor. Track the full H1 cocycle/character correspondence, including coboundaries and arbitrary nonsplit tori, not merely Frobenius evaluations. Torus homomorphisms give the pullback of characters and the corresponding dual map of cocycles.
 5. Pass to coordinate algebras and the compatible K-completions. The missing full equal-characteristic reciprocity is a recorded gap, not supplied by a prime-to-p statement.
 
 **Direct prerequisites.**
@@ -618,6 +622,7 @@ For an E-torus T, local reciprocity gives a natural isomorphism Z_spec(T,Lambda)
 - For G_m the unramified quotient contributes Lambda[t,t^-1].
 - Check norm compatibility for an induced torus and restriction to open K.
 - No definition of the general Bernstein centre is duplicated here.
+- For a torus quotient T to C, an arbitrary continuous dual-C crossed cocycle gives the smooth character chi_C, and its dual image in That gives chi_C composed with T(E) to C(E), even when the rational quotient is not surjective.
 
 **Source support in own words.**
 
@@ -721,13 +726,14 @@ Under the spectral isomorphism with R_T and the geometric identification Z_geom(
 
 **Node:** `ExcursionOperatorsAndSpectralAction:ES6:functoriality/central-characters-and-twisting`. **Suggested name:** `centralCharacters`. **Kind:** theorem.
 
-If Z=Z(G) is connected, it is a torus. For irreducible smooth pi with central character omega_pi, the composite of phi_pi with the dual map Ghat to Zhat is the usual parameter of omega_pi. The correct adjoint-isomorphism map is multiplication Z times G to G. Pulling pi back along it identifies its scalar central action with omega_pi external-tensor pi; combine this with the product parameter and torus comparison.
+If the scheme-theoretic centre Z=Z(G) is smooth and connected, it is an E-torus. For irreducible smooth pi with central character omega_pi, the composite of phi_pi with the dual map Ghat to Zhat is the usual parameter of omega_pi. The correct adjoint-isomorphism map is multiplication Z times G to G. Pulling pi back along it identifies its scalar central action with omega_pi external-tensor pi; combine this with the product parameter and torus comparison.
 
 **Hypotheses and conventions.**
 
 - Z to G by itself does not induce an adjoint-group isomorphism.
 - Use the excursion version if ell divides a relevant centre-component order.
 - Smooth central characters and the irreducible scalar action are imported from the representation-theoretic supplier.
+- In positive characteristic connectedness of the centre alone is insufficient. For example Z(SL_p)=mu_p is connected and nonsmooth; use the all-field central-pushout comparison for that case.
 
 **Proof or construction.**
 
@@ -750,6 +756,7 @@ If Z=Z(G) is connected, it is a torus. For irreducible smooth pi with central ch
 - For G=T the statement is the torus result.
 - For a connected-centre group the central dual projection, not restriction of the primal parameter, is used.
 - This proof does not depend on the ES7 parabolic theorem.
+- SL_p over a characteristic-p local field cannot enter this torus-centre theorem merely because mu_p is connected.
 
 **Source support in own words.**
 
@@ -862,48 +869,62 @@ Over a p-adic field F, a pseudo-z-embedding is an injective morphism G to Gz of 
 
 **Planet:** Z-embeddings.
 
-### The disconnected-centre reduction and choice comparison
+### Rational central characters over every local field
 
 **Node:** `ExcursionOperatorsAndSpectralAction:ES6:functoriality/z-embedding-central-character-comparison`. **Suggested name:** `zEmbeddingCentralCharacterComparison`. **Kind:** theorem.
 
-For any local E for which an injective connected-centre comparison G to Gz is supplied with a torus quotient, centre flat-H1 bijection, rational central factorization and its open quotient topology, extend pi by a smooth L-valued central-character extension as constructed in z-embedding. Its connected-centre parameter projects to phi_pi by the adjoint-isomorphism theorem, and comparison on the included rational centre recovers omega_pi. Two extensions differ by a smooth character of C(E); twisting cancels their difference on G. Common pseudo-z refinements with the same rational and open-factorization properties compare embedding choices. Kaletha proves existence of these data for p-adic E. This conditional comparison does not realize the arbitrary-local-field existence target, which remains partial; no connected-centre surjective cover is asserted.
+For every connected reductive G over every nonarchimedean local E, every algebraically closed eligible coefficient field L of characteristic different from p, and every irreducible smooth pi, the semisimple parameter phi_pi recovers its actual rational central character omega_pi. Embed the scheme-theoretic multiplicative-type centre Z into a torus T and form the central pushout Gplus=(G times T)/Z, with centre T and quotient torus C=T/Z. There is an irreducible admissible Pi of Gplus(E) whose restriction to G(E) has pi as a quotient. Its parameter projects to phi_pi, and the torus character obtained from its dual central projection restricts on Z(E) to omega_pi. This restriction depends only on phi_pi, independently of T, Pi and the parameter lift. It defines rational central data for occurring parameters; it does not assign an ordinary torus parameter to a nonsmooth or disconnected Z.
 
 **Hypotheses and conventions.**
 
-- Smooth extension over any algebraically closed L follows from the preceding discrete-quotient/divisibility proof. Smoothness of the difference on C(E) uses the open quotient T(E) to C(E); common refinements must have the same topology and lifting properties.
-- Disconnected Z(G) is not treated as an E-torus with an ordinary torus L-parameter. Central data means its actual scalar character, compared through the injective p-adic z-embedding.
-- Do not deduce a global compatibility from a single chosen extension without the twisting/common-refinement argument.
-- For the conditional arbitrary-E statement, the connected centre of Gz is required to be a torus; scheme-theoretic connectedness alone need not imply smoothness in characteristic p.
+- The all-field central pushout is weaker than a pseudo-z-embedding: require no centre flat-H1 bijection, no rational central factorization of all Gplus(E), no openness of H in Gplus(E), and no surjectivity T(E) to C(E). Keep Kaletha z-embeddings in their p-adic range as a stronger special case.
+- The independent early SR.3b input is all-coefficient irreducible admissibility and finite length of finitely generated admissible representations, together with smooth closed-subgroup induction as the right adjoint of restriction. Do not use noetherianity, finite-length semisimplicity of the restriction, or SR.6.
+- The central pushout/dual exact sequence and rational-image topology belong to proposed RG2.6. Its dual sequence 1 to Chat to Gplushat to Ghat to 1 is central and Weil-equivariant; central quotients preserve the semisimple-parameter convention.
+- Use the excursion variant when a centre-component order is not invertible. The quotient map of smooth representations is in the neutral-stratum heart; no t-structure on all D_lis is asserted.
+- Torus reciprocity for C is the full continuous cocycle/character bijection, including wild equal-characteristic characters and functoriality for T to C. Common pushouts and continuous cocycle difference use their actual owner interfaces.
 
 **Proof or construction.**
 
-1. Use the rational central-factorization lemma to extend pi; irreducibility is preserved because the extra factors act centrally.
-2. Apply the connected-centre theorem to Gz and the adjoint-isomorphism theorem to G to Gz.
-3. The ratio of two extended central characters is trivial on Z(G)(E), hence descends through the surjective open quotient T(E) to C(E). It is smooth on C(E). Apply the twisting theorem for this quotient-torus character and restrict back to G, where the twist is trivial.
-4. Over p-adic E, use Kaletha Fact 5.6: the pushout G1 times_Z(G) Z(G2) is a common pseudo-z refinement. Each quotient is the other original quotient torus; Facts 5.4–5.5 give the needed cohomology and central rational surjectivity. Its centre is a torus; extend characters along the closed centre inclusions by the same discrete-quotient argument. Apply both adjoint-isomorphism comparisons and twisting cancellation. For a conditional all-field comparison include these refinement hypotheses explicitly.
-5. The unresolved all-field existence cannot be replaced by Kaletha’s finite norm-kernel construction: for E=F_q((t)) and the flat Kummer sequence for mu_p inside G_m, H1_fppf(E,mu_p)=E-times/(E-times)^p is infinite. No open subgroup of E-times is contained in the pth powers, since every principal-unit neighbourhood contains 1+t^n with p not dividing n. A finite separable norm image is open by Conrad Lemma 4.1.2(i), p. 19, so it cannot kill this entire connecting image. More decisively, H1(E,T) is finite for every E-torus T by Conrad Proposition 4.1.7(i), p. 22. Thus no torus T can give the required flat-H1 bijection for a centre with this infinite mu_p cohomology. The centre of SL_(p r), for r greater than one prime to p, also has this nonsmooth mu_p part and a disconnected mu_r part, so this is relevant to the general centre target. Since mu_p(E) is trivial, the obstruction does not itself disprove central-character compatibility; it blocks that transfer of Proposition 5.2 and leaves a different comparison argument to be found. A new valid all-field argument remains required.
+1. Construct the requested all-field pushout from a torus embedding of Z: choose a finite Galois splitting group and a surjection from a finite permutation lattice onto X*(Z). Its kernel is a free lattice, so duality embeds Z in an E-torus T with torus quotient C. Central fppf pushout gives the connected reductive Gplus, centre T, Gplus/G=C and the unchanged adjoint group. This elementary part of the construction does not use Kaletha Proposition 5.2’s p-adic H1-killing step. Route the construction and dual exact sequence to RG2.6 rather than defining another local reductive-group theory.
+2. Let H=i(G(E))T(E), the rational image of the surjective central morphism G times T to Gplus. Henniart–Vignéras Lemma 3.1 and Proposition 3.3 make H closed and normal with compact abelian quotient. G(E) and Z(E) have their closed-subgroup topologies. The continuous surjection G(E) times T(E) to H is open by the locally compact sigma-compact group open-mapping argument: for a neighbourhood U choose compact K with K K^-1 contained in U; countably many translates of K cover the source, so Baire category gives interior to its compact image, and image(U) is a neighbourhood. This is openness onto H, even for nonsmooth Z, not smoothness of the algebraic morphism.
+3. Extend omega_pi from Z(E) to a smooth omega_T on T(E). Choose compact open U in T(E) whose intersection with Z(E) is killed; use divisibility of L-times to extend the character from Z(E)U/U to the discrete quotient T(E)/U, then inflate. Define tau(t i(g))=omega_T(t) pi(g) on H. Its definition is independent of the factorization since the intersection is Z(E); openness of the quotient makes tau smooth. It is irreducible because the extra T(E) factors act scalarly. For compact open J in H, tau^J is contained in pi^(J intersect G(E)), proving admissibility.
+4. Apply Henniart–Vignéras section 2.2.4(2), not Theorem 3.2. Smooth Ind_H^Gplus tau is nonzero and admissible: for each compact open K, the compact quotient gives finitely many H\Gplus(E)/K double cosets, and its K-invariants are a finite sum of tau-invariant spaces under compact open subgroups H intersect g K g^-1. A nonzero finitely generated subrepresentation is admissible and has finite length by the early SR.3b input, so contains an irreducible admissible Pi. Right-adjoint Frobenius reciprocity gives a nonzero H-map Pi|H to tau, hence a surjection. Restrict it to G(E) to obtain Pi|G to pi. This constructs a quotient lift without claiming an extension or irreducible restriction. Vignéras section 5, p. 340 is the freely read finite-length source; the noetherianity property (2-2) and its later ES6-dependent sources are unused.
+5. Transport the excursion action along i using HS4 clause (d) and adjoint-isomorphism compatibility. Pull back j_Gplus,! Pi, then restrict to the neutral open G stratum via VS4. It is Pi|G on that stratum; the whole inverse image need not be neutral. Natural central operators commute with the surjection to pi, so their scalar characters agree after the dual projection. ES5 uniqueness gives dual i composed with phi_Pi = phi_pi. Apply the smooth torus-centre theorem to Pi: its dual central projection gives Omega_Pi on T(E), and the same surjection gives Omega_Pi|Z(E)=omega_pi.
+6. For a fixed pushout, compare any two continuous semisimple parameter lifts of the same conjugacy class phi_pi. Lift the conjugacy alignment through Gplushat(L) to Ghat(L), surjective for this central-torus quotient over algebraically closed L. Their pointwise ratio lies in central Chat and satisfies d(w v)=d(w) times w(d(v)); LP0 supplies the continuous crossed-cocycle interpretation. Full torus reciprocity for C gives a smooth character chi_C. Functoriality identifies the difference of their T-central characters with chi_C composed with T(E) to C(E), trivial on Z(E). Thus the restricted character is independent of every parameter lift, without a representation-twist uniqueness theorem or rational quotient surjectivity.
+7. For choices T1 and T2, form the common torus T12=(T1 times T2)/anti-diagonal Z and the pushout G12. Both Gplus_i inject into G12 with unchanged adjoint group and torus quotient T_(other)/Z. Apply the quotient-lift construction to the chosen Pi1 to obtain Pi12. Its parameter projects to phi_Pi1, while projection to Gplus_2 gives another semisimple lift of phi_pi. Compare this lift with phi_Pi2 by the fixed-pushout argument. Torus naturality along T_i to T12 identifies their restrictions to the common Z(E). This proves independence of pushout choice and defines the claimed intrinsic rational central data for occurring parameters. Semisimplicity survives these central dual quotients: pull a containing parabolic back to the source, use the LP2 Levi criterion there, and project its Levi to the target parabolic.
+8. Retain the p-adic z-embedding comparison as the stronger case where H=Gplus(E) and pi itself extends by the central character. Keep the flat Kummer countertest: for E=F_q((t)), H1(E,mu_p)=E-times/(E-times)^p is infinite, whereas torus H1 is finite by Conrad Proposition 4.1.7(i), p. 22. Finite separable norm images are open and cannot lie in all pth powers. Thus a full flat-H1 bijection is impossible for this centre; none of the all-field argument requires it. This obstruction concerns that attempted construction, not rational central-character compatibility.
 
 **Direct prerequisites.**
 
-- `ExcursionOperatorsAndSpectralAction:ES6:functoriality/z-embedding`
 - `ExcursionOperatorsAndSpectralAction:ES6:functoriality/central-characters-and-twisting`
-- `ExcursionOperatorsAndSpectralAction:ES6:functoriality/twisting-by-abelianized-characters`
+- `ExcursionOperatorsAndSpectralAction:ES6:functoriality/tori-spectral-center`
 - `ExcursionOperatorsAndSpectralAction:ES6:functoriality/isogenies`
 - `ReductiveGroupsPartII:RG2.5`
 - `SmoothRepresentationsOfLocalGroups:SR.2`
+- `LanglandsParameterStacks:LP0/condensed-cocycles-and-L-parameters`
+- `VStackSheavesAndLisseCategories:VS4/strata-are-classifying-stacks`
+- `ExcursionOperatorsAndSpectralAction:ES5/parameter-of-an-irreducible-smooth-representation`
+- `mathlib:IsAlgClosed.exists_pow_nat_eq`
+- `mathlib:AddCommGrpCat.injective_of_divisible`
+- `mathlib:CategoryTheory.Injective.factorThru`
+- `LanglandsParameterStacks:LP2:semisimple-characters/semisimple-parameters-and-closed-orbits`
 
 **Acceptance checks.**
 
-- For connected centre the identity embedding gives the earlier result.
-- A quotient character changes the extended parameter but does not change the descended data.
-- No general centre-character parameter for a disconnected finite-type group is silently defined.
-- Use the flat Kummer mu_p example to reject a blind p-adic norm-kernel transfer. A remedy must specify the actual rational centre character statement and deal with nonsmooth centres, rather than rename an impossible cover.
+- For a smooth torus centre, the identity pushout recovers the earlier theorem. For SL_p in characteristic p use SL_p to GL_p: H can be proper and nonopen, but mu_p(E) is trivial and the rational-centre comparison is valid.
+- For SL_(p r) in characteristic p with r greater than one prime to p, the same GL_(p r) pushout treats both nonsmooth mu_p and disconnected mu_r. It recovers the actual character on mu_r(E), without a centre flat-H1 bijection.
+- A surjective intertwiner passes a central scalar from Pi to pi; a mere nonzero non-equivariant map does not. Neither extension of pi nor semisimplicity of Pi|G is an assumption.
+- Two parameter lifts differ by a Weil crossed cocycle in Chat. For a nonsplit quotient torus it must not be replaced by an ordinary homomorphism. Its reciprocal character is trivial on the included Z(E) after pullback.
+- Compare two pushouts through T12 and a quotient lift, keeping torus-character naturality on rational points. Do not assume T(E) to C(E) is onto.
+- Use the flat Kummer countertest to reject full-H1 transfer and the dependency countertest to reject (2-2), Dat noetherianity, SR.6 or ES7 as inputs to this functoriality proof.
 
 **Source support in own words.**
 
-- [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), IX.6 closing paragraph, p. 333: The cited Kaletha section supplies injective p-adic z-embeddings, not a connected-centre surjective cover. The source terminology is recorded in E5; no all-field conclusion is inferred.
-- [Rigid inner forms vs isocrystals](https://arxiv.org/pdf/1502.00650v2), Facts 5.4–5.6 and representation-extension paragraph, pp. 19–20: Existence and common-refinement assertions are used only in their p-adic range. The smooth modular character extension and the flat Kummer obstruction are separate arguments, not results attributed to the complex representation paragraph.
-- **Conrad-finiteness**, Remark 1.2.1, pp. 3–4; Lemma 4.1.2(i), p. 19; Proposition 4.1.7(i), p. 22: Flat torsor cohomology is the convention for nonsmooth centres. Norms from finite separable extensions have open image, and torus H1 is finite. These inputs distinguish the characteristic-p obstruction from a missing proof of the p-adic construction.
+- [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), IX.6.1, pp. 330–331 and IX.6 closing paragraph, p. 333: Provides adjoint-isomorphism compatibility and the torus-centre multiplication comparison. Its Kaletha citation is kept in its p-adic range; the all-field quotient-lift proof is a separate argument.
+- [Representations of SL₂(F)](https://msp.org/pjm/2025/335-2/pjm-v335-n2-p02-s.pdf), Section 2.2.4(2), p. 236; section 3 and Lemma 3.1, pp. 238–239; Proposition 3.3 and proof, pp. 239–240: Supplies the weaker quotient lift from a closed normal cocompact rational image using only finite length of finitely generated admissible representations, and proves the required image is closed with compact abelian quotient for surjective central maps over all local fields. The stronger noetherianity-dependent restriction theorem is unused.
+- [Representations of p-adic groups over commutative rings](https://ems.press/content/book-chapter-files/33125), Sections 4–5, pp. 337–340; finite-length paragraph on p. 340: Freely read early admissibility and finite-length inputs for the requested SR.3b interface. The adjacent second-adjointness/noetherianity results are not prerequisites.
+- [Rigid inner forms vs isocrystals](https://arxiv.org/pdf/1502.00650v2), Definition 5.1, Proposition 5.2, pp. 17–18; Facts 5.4–5.6 and representation-extension paragraph, pp. 19–20: Gives the original stronger p-adic z-embedding and its common refinements. Only the elementary centre-embedding/pushout idea is used for the weaker all-field construction; no all-field H1 assertion is attributed to the paper.
+- [Finiteness theorems for algebraic groups over function fields](https://math.stanford.edu/~conrad/papers/cosetfinite.pdf), Remark 1.2.1, pp. 3–4; Lemma 4.1.2(i), p. 19; Proposition 4.1.7(i), p. 22: Supports the retained flat-Kummer negative test separating the stronger impossible all-field H1 condition from the weaker rational-centre comparison.
 
 ## ES6:duality
 
@@ -917,7 +938,7 @@ The existing spectral-to-geometric centre map intertwines the spectral involutio
 
 - The actual Satake switch is Chevalley up to Ad(rhohat(-1)); the inner automorphism disappears only after conjugacy quotient.
 - Use the coefficient policy for the centre square and its excursion variant for unrestricted L.
-- Import the compact/reflexive domain and extension of BZ duality on D_lis at the actual coefficients from VS5. Its existing bernstein-zelevinsky-duality node states the étale compact result; the lisse extension and its enriched-centre action are requested separately and remain a gap.
+- Import the existing compact lisse BZ duality at integral/rational relative-discrete coefficients from VS5/lisse-bernstein-zelevinsky-duality. Only its condensed mapping compatibility, enhanced-centre involution and exact noncompact/reflexive extension domain remain requested; the compact lisse theorem is not an étale-only gap.
 
 **Proof or construction.**
 
@@ -1027,7 +1048,7 @@ The baseline is Mathlib **082e2d37e8b0463410cdb532e111cd43d5a66174** and Tau Cet
 | `mathlib:AddCommGrpCat.injective_of_divisible` | `Mathlib/Algebra/Category/Grp/Injective.lean` | An additive abelian group divisible by the integers is an injective object of AddCommGrpCat. Apply the additive type tag to the multiplicative group of coefficient-field units. |
 | `mathlib:CategoryTheory.Injective.factorThru` | `Mathlib/CategoryTheory/Preadditive/Injective/Basic.lean` | Given an injective target, a morphism to it extends along any monomorphism; comp_factorThru states that restriction equals the original morphism. This is the discrete character extension, not a smoothness theorem. |
 
-The suggested file gives planning signatures and examples with placeholder proofs. Its arbitrary-ring regular-action fragment strengthens the earlier character-only torus signature. It explicitly checks basis translation, quotient/coefficient transport and faithful multiplication on a nonzero square-zero coefficient. Compilation checks signatures, not the missing geometry.
+The suggested file gives planning signatures and examples with placeholder proofs. Its arbitrary-ring regular-action fragment strengthens the earlier character-only torus signature. It explicitly checks basis translation, quotient/coefficient transport and faithful multiplication on a nonzero square-zero coefficient. Compilation checks signatures, not the missing geometry. All 27 baseline statements were re-read on 2026-10-09 at the exact recorded commits; the source-only Tau Ceti references do not require an unpinned native import.
 
 | Suggested interface | Precisely what the prototype retains | Conditions left out because their carriers/interfaces are unavailable |
 | --- | --- | --- |
@@ -1044,14 +1065,16 @@ The suggested file gives planning signatures and examples with placeholder proof
 | torusTwoLegCalculation | Translation by the specified reciprocity inverse on an actual arbitrary-ring left regular representation, its basis formula, inverse-pair identity, and compatibility with quotient and coefficient transport. | Lubin–Tate geometry and the endpoint/associated-sheaf inversions. The proof plan computes that endpoint sign, while its geometric carrier is still omitted from Lean. |
 | centralCharacters and twisting | Composition with a central dual map, and multiplication of a group homomorphism by a cocycle with genuinely central image in the untwisted group fragment. | Reductive dual/root data, the Weil semidirect product and its action, the graph/multiplication kernel comparisons, and identification with the representation parameter. |
 | ZEmbedding and its API | An exact rational-point sequence with injective inclusion, surjective quotient and surjective restriction of the quotient to the actual group centre. Representation extension uses an actual character and its scalar compatibility on the intersection. | Reductive schemes, connected centre, induced quotient torus, H¹ conditions, topology and smoothness. The identity/product tests are rational-point fragments; connectedness of the algebraic centre is not asserted for an arbitrary abstract group. |
-| zEmbeddingCentralCharacterComparison | Cancellation on the included centre of the difference of two extensions by a quotient character. | The connected-centre parameter comparison, common pseudo-z refinement, geometry of centre inclusions, and the general-field z-extension route. |
+| zEmbeddingCentralCharacterComparison | Cancellation on the included centre of a quotient-character difference, assuming only that the quotient kills the inclusion. It does not assume a z-embedding or central lifting. | The continuous torus-cocycle correspondence, dual-group maps, and common central-pushout parameter comparison. |
+| centralScalarOfSurjectiveIntertwiner | A surjective equivariant map from an actual restricted Mathlib representation transports scalar operators to the quotient. | Smoothness, admissibility, closed-cocompact induction, and the geometric restriction/centre-action comparison producing that map. |
+| sameProjectionCentralDifference | Aligned ordinary group homomorphisms with equal projection differ by a homomorphism into the actual central kernel. | The Weil action and continuous crossed-cocycle version, reductive dual exactness, semisimplicity and the conjugacy alignment supplied by LP0/RG2.6. |
 | bernsteinZelevinskyDuals and smoothDuals | An imported Chevalley pullback equation on characters and its reconstruction naturality. | The actual duality functor, enriched dual kernel, shifts, smooth contragredient, supercuspidal support and ES7's parabolic proof. |
 
 The four definition/construction nodes have 22 API items and 12 unit tests. Every named declaration, API item and test appears in the suggested file. Its examples use actual condensed algebras, algebra homomorphisms, representations or exact group maps where those exist at the pins. None replaces missing geometry by an empty structure or an uninterpreted proposition.
 
 ## Sources and version scope
 
-The five public source PDFs below were read and their hashes reproduced on 2026-10-08. Locators use the identified author/preprint pagination. The independent review’s arXiv-v4 collation and public published-sample records are retained with their original 2026-10-07 provenance; this revision does not claim to have read the full published FS volume. No source excerpts are stored.
+The five inherited public PDF hashes were reproduced and the proof-critical torus, Kaletha and Conrad passages re-read on 2026-10-09. Their full-section receipt dates below remain the earlier reader’s provenance. The two added sources were read directly in their published public PDFs. The independent review’s arXiv-v4 and public published-sample records retain their 2026-10-07 provenance; this revision makes no claim to have read the full published FS volume. No source passages are stored.
 
 - [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), Laurent Fargues, Peter Scholze. Author-hosted 356-page preprint; locators below use its printed pages, which equal PDF pages. Separately collated with arXiv:2102.13459v4 (27 November 2024); not the 2026 published pagination. Read 2026-10-08; SHA-256 `9ab9efbd0df251bfa3b610d1d1d88a8dfb1bdf7c397bd04f4c277280d98ae905`.
   - II.2.1, pp. 58–61: the height-one Lubin–Tate universal cover, O(1) sections and the E-times torsor on Div1.
@@ -1070,9 +1093,13 @@ The five public source PDFs below were read and their hashes reproduced on 2026-
   - Section 2.3, Proposition 2.16 and Remark 2.17, pp. 8–11: universal-cover torsor, ideal-sheaf frames and Frobenius descent.
   - Propositions 3.1 and 3.3 with proof, pp. 12–13: the Weil dictionary and inverse-character/inverse-Artin normalization.
   - Section 5.2, p. 18: geometric reciprocity; Section 6.1, pp. 18–19: explicit equal-characteristic universal-cover geometry. This does not transfer the paper’s Q_ell local-system arguments to arbitrary coefficients.
-
 - [Finiteness theorems for algebraic groups over function fields](https://math.stanford.edu/~conrad/papers/cosetfinite.pdf), Brian Conrad. Author-hosted 84-page manuscript cosetfinite.pdf; locators use its printed pages. Read 2026-10-08; SHA-256 `a1b909e7fdaaf56a21811e0379c9370ae8e9e51e75e047c6f1db927e278fca3c`.
   - Remark 1.2.1, pp. 3–4: the flat cohomology convention. Lemma 4.1.2 and proof, p. 19: openness of smooth surjections on rational points. Proposition 4.1.7 and proof, p. 22: torus H1 finiteness, used to test the all-field comparison interface.
+- [Representations of SL₂(F)](https://msp.org/pjm/2025/335-2/pjm-v335-n2-p02-s.pdf), Guy Henniart, Marie-France Vignéras. Published open-access Pacific Journal of Mathematics 335(2) (2025), 229–285; DOI 10.2140/pjm.2025.335.229. Locators use printed journal pages. Read 2026-10-09; SHA-256 `55f167816a1ba5a084a8bf19ac9786a8d443e45e72bff9a789c39709ade87095`.
+  - Sections 2–3 and proofs, pp. 234–240. Section 2.2.4(2), p. 236 gives a quotient lift using only (2-1), finite length of finitely generated admissible representations. Section 3, p. 238 expressly includes positive-characteristic local fields and coefficients of characteristic different from p.
+  - Lemma 3.1, pp. 238–239 and Proposition 3.3, pp. 239–240: the rational image of a surjective central reductive morphism is closed and normal with compact abelian quotient. The stronger Theorem 3.2 and property (2-2) are not imported: their noetherianity input would create an ES6 dependency.
+- [Representations of p-adic groups over commutative rings](https://ems.press/content/book-chapter-files/33125), Marie-France Vignéras. Published ICM 2022 proceedings, volume 1 (2023), pp. 332–374. The title uses p-adic for groups over nonarchimedean local fields, including positive characteristic; locators use printed pages. Read 2026-10-09; SHA-256 `7db5e703a2d1c29e902731d82a744c2a860a5d8eaf8ae2c50c2c841eeeca4936`.
+  - Sections 4–5, pp. 337–340: irreducible admissibility for algebraically closed coefficients of characteristic different from p; the finite-length statement for finitely generated admissible representations on p. 340. Only these early representation-theoretic inputs are requested, not the adjacent noetherianity/second-adjointness assertions.
 
 **Retained source issues.** The independent verdicts and source-version limits are unchanged. Each record describes the source in our own words.
 
@@ -1084,13 +1111,13 @@ The five public source PDFs below were read and their hashes reproduced on 2026-
 
 ## Remaining owner requests and coverage
 
-The former HS4 kernel request, VS5 lisse Kunneth request and LP2 abstract-action request are supplied by current nodes and removed. Compact lisse BZ and the plain lisse left adjoint are now imported directly; only their exact enrichment/domain refinements remain. The torus regular-module calculation and modular smooth-character extension are explicit local proof plans. The all-field disconnected-centre existence target remains the mathematical block.
+Current HS4 kernels, VS5 lisse Kunneth, compact lisse BZ, the plain lisse left adjoint and LP2 abstract action are imported directly. Their old duplicate requests are discharged. The universal-coefficient torus operator/sign, modular smooth-character extension and all-field rational-centre comparison now have explicit proof plans. Remaining gaps specify missing owner interfaces and prototype carriers; no uncovered target is being hidden by the complete target-level status.
 
 ### Gap 1: All-coefficient admissibility supplier
 
-The current SR.0 defines admissibility and SR.3/SR.3a prove complex results; they do not supply the modular theorem. SR.6 is downstream. Create the proposed independent SR.3b and read Vignéras II.2.8 before treating this input as closed. Qbar_ell is uncountable; the countable-field issue is Fbar_ell.
+The current SR.0 defines admissibility and SR.3/SR.3a cover complex results. Proposed independent SR.3b must supply all-coefficient admissibility, finitely generated admissible finite length and the closed-cocompact induction/quotient-lift interface. Freely readable Vignéras 2023 sections 4–5 and Henniart–Vignéras 2025 section 2.2.4(2) and section 3 have now been read; no unread book passage is asserted as a checked proof. The source-level route is established, but the supplier plan/interface remains to be written. Qbar_ell is uncountable; Fbar_ell is countable. No SR.6 or noetherianity dependency is allowed.
 
-Needed by: `ExcursionOperatorsAndSpectralAction:ES5/condensed-schur-from-admissibility`, `ExcursionOperatorsAndSpectralAction:ES5/parameter-of-an-irreducible-smooth-representation`, `ExcursionOperatorsAndSpectralAction:ES6:duality/smooth-duals`.
+Needed by: `ExcursionOperatorsAndSpectralAction:ES5/condensed-schur-from-admissibility`, `ExcursionOperatorsAndSpectralAction:ES5/parameter-of-an-irreducible-smooth-representation`, `ExcursionOperatorsAndSpectralAction:ES6:duality/smooth-duals`, `ExcursionOperatorsAndSpectralAction:ES6:functoriality/z-embedding-central-character-comparison`.
 
 ### Gap 2: Enriched noncompact Schur and stratum adjunction interfaces
 
@@ -1116,11 +1143,11 @@ RF3 supplies line-bundle signs only. Its Part II must expose the coefficient-fre
 
 Needed by: `ExcursionOperatorsAndSpectralAction:ES6:functoriality/torus-two-leg-calculation`, `ExcursionOperatorsAndSpectralAction:ES6:functoriality/tori-diagonal-embedding`.
 
-### Gap 6: Arbitrary-local-field disconnected-centre comparison
+### Gap 6: All-field central-pushout and quotient-lift owner interfaces
 
-Smooth central-character extension for algebraically closed modular L is now proved through a compact-open discrete quotient. The remaining target is an unconditional all-E comparison with valid nonsmooth-centre flat cohomology and rational/open-factorization data, or another argument proving the same central-character compatibility. Kaletha section 5 supplies only p-adic existence. Over F_q((t)), the connecting image for mu_p inside G_m is E-times/(E-times)^p and cannot be killed by a finite separable norm subgroup. Since torus H1 is finite (Conrad Proposition 4.1.7(i), p. 22), no torus-centre embedding can have the required full flat-H1 bijection in this example. A different argument for the rational central character is required. The conditional comparison does not supply an all-field existence proof; the stage remains partial.
+The all-field rational-centre target now has an explicit proof via a torus central pushout, a quotient of a restricted irreducible representation, and continuous central-cocycle comparison. Implement the requested RG2.6 pushout/dual/rational-image interfaces, early SR.3b closed-cocompact induction and finite-length quotient lift, and LP0 central-cocycle interface. The route does not require a centre flat-H1 bijection or extension of pi. Kaletha’s stronger p-adic construction remains separate, and the flat Kummer obstruction remains a negative test rather than an unresolved all-field mathematical target.
 
-Needed by: `ExcursionOperatorsAndSpectralAction:ES6:functoriality/z-embedding`, `ExcursionOperatorsAndSpectralAction:ES6:functoriality/z-embedding-central-character-comparison`.
+Needed by: `ExcursionOperatorsAndSpectralAction:ES6:functoriality/z-embedding-central-character-comparison`.
 
 ### Gap 7: Prototype geometric conditions unavailable at the pins
 
@@ -1144,7 +1171,7 @@ Needed by: `ExcursionOperatorsAndSpectralAction:ES6:duality/bernstein-zelevinsky
 
 1. **`SmoothRepresentationsOfLocalGroups:SR.0`**. The actual arbitrary-coefficient smooth representation category, its irreducible objects, scalar unit and central characters, compatible with the pinned SmoothDiscreteTopRep carrier.
    Needed by: `ExcursionOperatorsAndSpectralAction:ES5/condensed-schur-from-admissibility`, `ExcursionOperatorsAndSpectralAction:ES5/parameter-of-an-irreducible-smooth-representation`.
-2. **`SmoothRepresentationsOfLocalGroups:SR.2`** (scope extension). Add foundational SR.3b after SR.2: all-coefficient irreducible admissibility and scalar endomorphisms (Vignéras II.2.8 for characteristic ell; uncountability/Dixmier for characteristic-zero Z_ell-fields). Complex SR.3/SR.3a and downstream SR.6 are insufficient. Supply the arbitrary-coefficient duality/induction dictionary. For the central-character application expose the reusable smooth extension lemma for a closed subgroup of a locally profinite abelian group: choose a compact open U killing the restricted character, extend on the discrete quotient using divisibility of L-times, then inflate. Its proof is given in the ES6 application; modular existence is no longer an unresolved mathematical assertion.
+2. **`SmoothRepresentationsOfLocalGroups:SR.2`** (scope extension). Add foundational SR.3b after SR.2: irreducible admissibility and scalar endomorphisms for every algebraically closed coefficient field of characteristic different from p, and finite length of finitely generated admissible representations over every local E. Public sources read here are Vignéras 2023 sections 4–5, pp. 337–340 and Henniart–Vignéras 2025 section 3, p. 238; the characteristic-zero uncountability/Dixmier refinement and duality/induction dictionary must retain their stated hypotheses. Complex SR.3/SR.3a and downstream SR.6 are insufficient. Expose smooth induction for closed normal subgroups with compact quotient, as the right adjoint of restriction, its admissibility, and the irreducible quotient lift of section 2.2.4(2), p. 236. This uses finite length, not noetherianity (2-2). Also expose smooth character extension from a closed subgroup of a locally profinite abelian group by compact-open discrete quotient and divisible L-times; its proof is given in ES6.
    Proposed owner: `SmoothRepresentationsOfLocalGroups:SR.3b`.
    Needed by: `ExcursionOperatorsAndSpectralAction:ES5/condensed-schur-from-admissibility`, `ExcursionOperatorsAndSpectralAction:ES6:functoriality/z-embedding`, `ExcursionOperatorsAndSpectralAction:ES6:functoriality/z-embedding-central-character-comparison`, `ExcursionOperatorsAndSpectralAction:ES6:duality/smooth-duals`.
 3. **`VStackSheavesAndLisseCategories:VS4`**. Refine the current strata-are-classifying-stacks and lisse-stratum-left-adjoint nodes with condensed enrichment: the existing L_b=pi_b-sharp q_b^* and invertible unit must preserve the scalar unit and identify mapping objects for noncompact representations. Supply eligible right extensions/retraction comparisons where defined. The plain lisse adjunction and compact generation are already supplied and imported directly.
@@ -1155,23 +1182,26 @@ Needed by: `ExcursionOperatorsAndSpectralAction:ES6:duality/bernstein-zelevinsky
    Needed by: `ExcursionOperatorsAndSpectralAction:ES5/parameter-of-a-schur-irreducible-sheaf`.
 6. **`SmoothRepresentationsOfLocalGroups:SR.1`** (scope extension). Arbitrary-coefficient abelian-category Bernstein centre and its inverse limit of pro-p idempotent Hecke corners, as in confirmed finding 9; for an abelian locally pro-p group identify these with Lambda[T(E)/K]. SR.3’s complex Bernstein blocks are not the supplier.
    Needed by: `ExcursionOperatorsAndSpectralAction:ES6:functoriality/tori-spectral-center`.
-7. **`ReductiveGroupsPartII:RG2.5`** (scope extension). Proposed foundational RG2.6 after RG2.5: z-extensions with induced-torus kernel and simply connected derived group, induced-torus resolutions, functorial pi_1 and the compatible dual maps. RG2.5 currently supplies only dual/root data. Keep the z-embedding definition in ES6; do not claim RG2.5 already proves any z-extension existence theorem. This foundational surjective z-extension input does not replace the injective connected-centre comparison and is not evidence for an all-field route in ES6.
+7. **`ReductiveGroupsPartII:RG2.5`** (scope extension). Proposed foundational RG2.6 after RG2.5 owns induced-torus resolutions, surjective z-extensions with induced-torus kernel and simply connected derived group, functorial pi_1 and compatible dual maps. Extend this same owner with embeddings of arbitrary multiplicative-type centres into tori and central fppf pushouts G times_Z T over all local E: reductivity, centre T, quotient T/Z, adjoint isomorphism, common pushout T12, and central Weil-equivariant dual exact sequence. No centre flat-H1 bijection is part of this all-field interface. RG2.5 currently supplies dual/root data; keep the distinct Kaletha z-embedding definition and ES6 parameter application here.
    Proposed owner: `ReductiveGroupsPartII:RG2.6`.
    Needed by: `ExcursionOperatorsAndSpectralAction:ES6:functoriality/tori-spectral-center`, `ExcursionOperatorsAndSpectralAction:ES6:functoriality/central-characters-and-twisting`, `ExcursionOperatorsAndSpectralAction:ES6:functoriality/twisting-by-abelianized-characters`, `ExcursionOperatorsAndSpectralAction:ES6:functoriality/z-embedding-central-character-comparison`.
 8. **`BunGAndNewtonStrata:BG1/abelianization-identification`**. The torus specialization B(T)=pi_1(T)_Gamma and all degree components, compatible with the already supplied torsor and stratum equivalences; give the maps used by torus resolutions.
    Needed by: `ExcursionOperatorsAndSpectralAction:ES6:functoriality/tori-spectral-center`, `ExcursionOperatorsAndSpectralAction:ES6:functoriality/tori-diagonal-embedding`.
 9. **`tauceti:TauCetiRoadmap/ClassFieldTheory#layer-9-the-local-weil-group`** (scope extension). Consume the fixed arithmetic Artin and topological Weil abelianization interfaces in their stated field range; supply the consumer conversion rec_geom=Art_arith composed with inversion. Full equal-characteristic wild p-primary reciprocity lies beyond the upstream prime-to-p endpoint and needs a ClassFieldTheory Part II, not a re-plan of upstream layers.
    Proposed owner: `ClassFieldTheoryPartII:full-equal-characteristic-reciprocity`.
-   Needed by: `ExcursionOperatorsAndSpectralAction:ES6:functoriality/tori-spectral-center`, `ExcursionOperatorsAndSpectralAction:ES6:functoriality/torus-two-leg-calculation`, `ExcursionOperatorsAndSpectralAction:ES6:functoriality/z-embedding`.
+   Needed by: `ExcursionOperatorsAndSpectralAction:ES6:functoriality/tori-spectral-center`, `ExcursionOperatorsAndSpectralAction:ES6:functoriality/torus-two-leg-calculation`, `ExcursionOperatorsAndSpectralAction:ES6:functoriality/z-embedding`, `ExcursionOperatorsAndSpectralAction:ES6:functoriality/z-embedding-central-character-comparison`.
 10. **`RelativeFarguesFontaine:RF3/isocrystal-line-bundles-and-sign`** (scope extension). Extend the relative period-geometry direction with FS II.2.2–II.2.4 (pp. 60–61): the height-one Lubin–Tate universal cover as punctured H0(O(1)), the E-times torsor on Div1 identified with Isom(O(-1),O(-D)), and pi times canonical descent/inverse pi^-1 residue-Frobenius transport (Fargues 2.16/2.17, pp. 9–11; 3.3 proof, p. 13). The ES6 proof computes its Hecke endpoint and regular-module action from these interfaces; RF3 currently supplies only line-bundle signs. The interface must be coefficient-free so its associated-module descent applies to arbitrary Lambda.
    Proposed owner: `RelativeFarguesFontainePartII:Lubin-Tate-torsor`.
    Needed by: `ExcursionOperatorsAndSpectralAction:ES6:functoriality/torus-two-leg-calculation`.
-11. **`ReductiveGroupsPartII:RG2.5`** (scope extension). For the p-adic injective construction expose diagonalizable centres, central pushouts, finite centre H1 and norm kernels of Kaletha 5.2, including open rational quotient maps and common refinements. The conditional arbitrary-E comparison must use flat H1 for nonsmooth centres and establish its own lifting/refinement interfaces. The mu_p flat Kummer example over F_q((t)) prevents transfer of the finite norm-kernel construction; no all-field existence theorem or connected-centre surjective cover is requested as if already valid.
+11. **`ReductiveGroupsPartII:RG2.5`** (scope extension). Expose the all-field rational image of a surjective central reductive morphism as a closed normal subgroup with compact abelian quotient (Henniart–Vignéras Lemma 3.1 and Proposition 3.3, pp. 238–240). For G times T to Gplus identify its image H=i(G(E))T(E), intersection Z(E), closed inclusions and the open map onto H by the locally compact sigma-compact open-mapping argument. H need not be open in Gplus(E). For actual p-adic z-embeddings retain Kaletha 5.2 finite-H1/norm-kernel construction and the stronger open rational factorization/common-refinement interfaces. Do not request the impossible full flat-H1 transfer for mu_p over equal-characteristic E.
+   Proposed owner: `ReductiveGroupsPartII:RG2.6`.
    Needed by: `ExcursionOperatorsAndSpectralAction:ES6:functoriality/z-embedding`, `ExcursionOperatorsAndSpectralAction:ES6:functoriality/z-embedding-central-character-comparison`.
 12. **`LanglandsParameterStacks:LP2:semisimple-characters/character-bijection`**. Supply the discrete arbitrary-W variant used in VIII.4.3: prescribed Q-projection, algebraically closed Z_ell-field coefficients, closed-orbit/complete-reducibility convention and conjugacy uniqueness from all tuple invariants. The current node is a condensed local-Weil statement; its generalization must be stated and proved separately in LP2.
    Needed by: `ExcursionOperatorsAndSpectralAction:ES5/abstract-semisimple-parameter`.
 13. **`VStackSheavesAndLisseCategories:VS5`**. Refine the current lisse-bernstein-zelevinsky-duality node with condensed mapping-object compatibility and its induced enhanced-centre involution; state explicitly the domain/extension used for noncompact Schur objects and representation constituents. Compact lisse BZ duality for relative-discrete Lambda is now directly supplied, so no new copy of VII.7.6 is requested. Coordinate this remaining enrichment/domain request with ES0.
    Needed by: `ExcursionOperatorsAndSpectralAction:ES6:duality/bernstein-zelevinsky-duals`, `ExcursionOperatorsAndSpectralAction:ES6:duality/smooth-duals`.
+14. **`LanglandsParameterStacks:LP0/condensed-cocycles-and-L-parameters`**. Refine the supplied cocycle functor for a Weil-equivariant central-torus quotient of dual groups: coefficient-point surjectivity over algebraically closed L permits conjugacy alignment; the ratio of two aligned continuous lifts is a continuous crossed cocycle in the central kernel. Record compatibility of coboundary change with torus-character reciprocity. Semisimple projection is proved separately from the existing LP2 parabolic/Levi criterion and the RG2.6 root-data maps. These are generic parameter-stack interfaces, not new ES6 cocycle definitions.
+   Needed by: `ExcursionOperatorsAndSpectralAction:ES6:functoriality/z-embedding-central-character-comparison`.
 
 ### Coverage
 
@@ -1179,7 +1209,7 @@ Needed by: `ExcursionOperatorsAndSpectralAction:ES6:duality/bernstein-zelevinsky
 | --- | --- | --- |
 | `ExcursionOperatorsAndSpectralAction:ES5` | planned | Close SR.3b admissibility and the enriched fixed-vector/stratum-adjunction supplier requests. Refine the exact LP2 continuity interface and replace omitted geometric prototype conditions. State the exact arbitrary-discrete-W LP2 classifier variant requested by VIII.4.3; its abstract action is already supplied. |
 | `ExcursionOperatorsAndSpectralAction:ES6` | planned | Resolve the requested supplier interfaces used by each excursion/centre comparison. |
-| `ExcursionOperatorsAndSpectralAction:ES6:functoriality` | partial | Current HS4 pre-evaluation diagrams and VS5 lisse Kunneth are imported directly; implement their supplier plans with their stated coefficient/enrichment conventions. Create the RG2.6 and period-geometry extensions; supply BG1 all-E torus classification and full equal-characteristic reciprocity. Implement the coefficient-free Lubin–Tate owner interface used by the explicit universal-coefficient operator/sign proof. Establish an unconditional arbitrary-local-field disconnected-centre comparison. The conditional comparison and p-adic existence do not realize this target; the nonsmooth flat Kummer obstruction rules out the attempted norm-kernel transfer. |
+| `ExcursionOperatorsAndSpectralAction:ES6:functoriality` | planned | Current HS4 pre-evaluation diagrams and VS5 lisse Kunneth are imported directly; implement their supplier plans with their stated coefficient/enrichment conventions. Create the RG2.6 and period-geometry extensions; supply BG1 all-E torus classification and full equal-characteristic reciprocity. Implement the coefficient-free Lubin–Tate owner interface used by the explicit universal-coefficient operator/sign proof. Implement the exact RG2.6 all-field central pushout and rational-image topology, early SR.3b quotient-lift and LP0 central-cocycle interfaces used by the explicit rational-central-character proof; keep the p-adic z-embedding as a stronger special case. |
 | `ExcursionOperatorsAndSpectralAction:ES6:duality` | planned | Supply the all-coefficient admissibility and contragredient/induction dictionary, respecting the late ES7 return. Replace the prototype duality character equations by the actual enhanced duality interfaces. Refine the supplied compact lisse BZ theorem with condensed mapping compatibility, the enhanced-centre involution and the precise noncompact domain. |
 
 ## Structural and red-team obligations
@@ -1191,4 +1221,4 @@ Needed by: `ExcursionOperatorsAndSpectralAction:ES6:duality/bernstein-zelevinsky
 
 RT-AREA-geomlanglands/7 is handled by exact ES1 spectral-map prerequisites in both ES6 children and the coefficient policy; ES2/ES4/ES7 atlas changes belong to their own jobs. Finding /8 routes modular admissibility to independent SR.3b and keeps the condensed refinement here. Finding /10 distinguishes foundational surjective z-extensions/induced resolutions from injective p-adic z-embeddings; a standard z-extension is never claimed to have connected centre. Finding /9 puts the arbitrary-coefficient abelian Bernstein centre in SR.1.
 
-There are 13 planets, at most six per layer. The preserved review is not an acceptance of this revision. The mathematical block is stated in the partial coverage row and the handoff; successful artifact checks do not change that status.
+There are 13 planets, at most six per layer. The preserved review is not an acceptance of this revision. All four stages are planned, with 14 requests and 9 recorded owner/prototype gaps. No stage is closed. The next independent review must check the all-field quotient-lift and choice-comparison argument as well as the torus operator/sign proof; successful artifact checks do not establish those mathematical proofs.

@@ -20,7 +20,10 @@ The reductive-scheme, induced-torus, connected-centre and H1 conditions in the
 document are left out, not replaced by unnamed predicates. Its tests exercise
 this rational-point fragment. The reader contains the synchronized omission ledger. The universal-coefficient
 torus fragment uses actual regular group algebras, but its geometric Hecke
-identification and the unconditional all-field centre comparison remain omitted.
+identification and the geometric/continuous carriers of the all-field centre comparison
+remain omitted. The two new algebraic signatures retain quotient scalar
+transport and the central difference of aligned lifts; they require no
+rational central-factorization or centre-surjectivity hypothesis.
 -/
 import Mathlib.Condensed.Basic
 import Mathlib.Algebra.Category.AlgCat.Basic
@@ -372,14 +375,37 @@ example (G C : Type u) [Group G] [CommGroup C] : ∃ e : ZEmbedding G (G × C) C
 example (q : Gz →* C) (h : ¬ Function.Surjective (q.comp (Subgroup.center Gz).subtype)) :
     ¬ ∃ e : ZEmbedding G Gz C, e.quotient = q := by sorry
 
+/-- Restriction of a quotient-torus difference needs no central lifting. -/
 theorem zEmbeddingCentralCharacterComparison {L : Type u} [Field L]
-    (e : ZEmbedding G Gz C) (χz ψz : Subgroup.center Gz →* Lˣ)
+    (inclusion : G →* Gz) (quotient : Gz →* C)
+    (hquotient : ∀ g, quotient (inclusion g) = 1)
+    (χz ψz : Subgroup.center Gz →* Lˣ)
     (centreMap : Subgroup.center G →* Subgroup.center Gz)
-    (hcentre : ∀ z : Subgroup.center G, (centreMap z : Gz) = e.inclusion z)
+    (hcentre : ∀ z : Subgroup.center G, (centreMap z : Gz) = inclusion z)
     (difference : C →* Lˣ)
-    (h : ∀ z : Subgroup.center Gz, χz z = ψz z * difference (e.quotient z)) :
+    (h : ∀ z : Subgroup.center Gz, χz z = ψz z * difference (quotient z)) :
     χz.comp centreMap = ψz.comp centreMap := by sorry
+
+/-- A quotient of a restriction inherits central scalars. No extension of ρ is used. -/
+theorem centralScalarOfSurjectiveIntertwiner {L Vplus V : Type u} [Field L]
+    [AddCommGroup Vplus] [Module L Vplus] [AddCommGroup V] [Module L V]
+    (inclusion : G →* Gz) (ρplus : Representation L Gz Vplus)
+    (ρ : Representation L G V)
+    (q : Representation.IntertwiningMap (ρplus.comp inclusion) ρ)
+    (hq : Function.Surjective q) (z : G) (a : L)
+    (hscalar : ρplus (inclusion z) = a • 1) : ρ z = a • 1 := by sorry
 end ZEmbeddings
+
+section CentralDifference
+variable {W Hplus H D : Type u} [Group W] [Group Hplus] [Group H] [CommGroup D]
+/-- Untwisted algebraic fragment. The full Weil version is a continuous crossed cocycle. -/
+theorem sameProjectionCentralDifference (centralMap : D →* Hplus)
+    (hinjective : Function.Injective centralMap)
+    (hcentral : ∀ d, centralMap d ∈ Subgroup.center Hplus)
+    (projection : Hplus →* H) (hexact : centralMap.range = projection.ker)
+    (φ ψ : W →* Hplus) (hequal : projection.comp φ = projection.comp ψ) :
+    ∃ difference : W →* D, ∀ w, ψ w = centralMap (difference w) * φ w := by sorry
+end CentralDifference
 
 section Embeddings
 variable {C D : Type u} [Category C] [Category D]
