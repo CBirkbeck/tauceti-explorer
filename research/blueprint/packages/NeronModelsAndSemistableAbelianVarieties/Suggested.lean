@@ -389,6 +389,35 @@ example : ¬ Function.Injective (componentMap 2 0) := by sorry
 
 end RamifiedTate
 
+namespace TateMonodromy
+
+/-- In the ordered toric/period basis, the positive valuation form `[n]` gives
+`N(a,b) = (n*b,0)` for the Kummer direction `σ(root)/root`
+(Raynaud 1994, §4.6 equation (7) and Proposition 4.6.1).
+The arithmetic operator is separate from its geometric comparison. -/
+def operator (n : ℕ) : (ℤ × ℤ) →ₗ[ℤ] (ℤ × ℤ) where
+  toFun v := (n * v.2, 0)
+  map_add' := by sorry
+  map_smul' := by sorry
+
+/-- The period vector maps to a positive multiple of the toric vector. -/
+theorem operator_apply (n : ℕ) (v : ℤ × ℤ) : operator n v = (n * v.2, 0) := by sorry
+
+/-- The image is toric and the operator kills the toric term. -/
+theorem operator_square_zero (n : ℕ) : (operator n).comp (operator n) = 0 := by sorry
+
+/-- At valuation `5`, the period vector has positive toric image. -/
+example : operator 5 (0, 1) = (5, 0) ∧ operator 5 (1, 0) = 0 := by sorry
+
+/-- Zero valuation gives the zero arithmetic operator; there is no multiplicative Tate
+curve with that valuation. -/
+example : operator 0 = 0 := by sorry
+
+/-- The valuation-`5` operator is nonzero but square zero. -/
+example : operator 5 ≠ 0 ∧ (operator 5).comp (operator 5) = 0 := by sorry
+
+end TateMonodromy
+
 /-! ## Layer 4: Picard schemes of semistable curves, character lattices and monodromy -/
 
 namespace DualGraph
@@ -584,6 +613,9 @@ end LatticePairing
 
 /-! ## Layer 5: Tate modules, conductors and local factors -/
 
+/-- At ramification index `2`, the monodromy for `ord(π)=1` is twice the
+monodromy for `ord(p)=1` (Fontaine, Exposé III, §5.2.1, p. 158). -/
+example : (2 : ℚ) * (5 / 2) = 5 ∧ (5 / 2 : ℚ) ≠ 5 := by sorry
 
 /-! ## Layer 6: interfaces for modularity and finiteness -/
 
@@ -626,6 +658,17 @@ example (u : ℚ) (hu : u ≠ 0) : u ^ 2 / u ^ 3 = u⁻¹ := by sorry
 /-- The two directions at `u = 5` have reciprocal factors, not the same factor. -/
 example : (5 : ℚ) ^ 2 / 5 ^ 3 = 1 / 5 ∧ (5 : ℚ) ^ 3 / 5 ^ 2 = 5 := by sorry
 
+/-- The split nodal tangent polynomial in characteristic `2` has two rational roots. -/
+example : (Polynomial.X ^ 2 + Polynomial.X : Polynomial (ZMod 2)).Splits := by sorry
+
+/-- The nonsplit nodal tangent polynomial in characteristic `2` is irreducible. -/
+example : ¬ (Polynomial.X ^ 2 + Polynomial.X + 1 : Polynomial (ZMod 2)).Splits := by sorry
+
+/-- Square discriminants do not detect this distinction in characteristic `2`:
+the nonsplit polynomial takes the value `1` at each element of `𝔽₂`. -/
+example (a : ZMod 2) :
+    (Polynomial.X ^ 2 + Polynomial.X + 1 : Polynomial (ZMod 2)).eval a = 1 := by sorry
+
 end Interfaces
 
 /-!
@@ -647,8 +690,8 @@ The corresponding untyped theorems include `GroupLaw`, `Smoothening`, `LocalExis
 `JacobianIsogenyFactor`, `FiniteSeparableSemistableExtension`, `MonodromyCriterion`,
 `GraphMonodromy`, `ComponentCokernel`, `IntersectionComponentQuotient`, the Picard–Néron
 comparison, Néron–Ogg–Shafarevich, `PadicComparison`, conductor and local-factor comparisons,
-and the geometric exports of Layer 6. The signed comparisons of `IntegralMonodromyPairing`
-and `ComponentPairing` remain explicit gaps in README 4.3 and 4.6.
+and the geometric exports of Layer 6. The Weil-pairing and coefficient-prime comparisons
+of `IntegralMonodromyPairing` remain explicit gaps in README 4.3.
 -/
 
 end TauCetiRoadmap.NeronModelsAndSemistableAbelianVarieties
