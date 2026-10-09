@@ -283,9 +283,11 @@ theorem isOdd_iff_isTotallyOddChar (ρ : ContinuousRep (Field.absoluteGaloisGrou
     IsOdd ρ ↔ IsTotallyOddChar ρ.det :=
   Iff.rfl
 
-/-- Twisting by a continuous character `ψ` preserves oddness: `σ = ρ ⊗ ψ` (on the same carrier,
-`σ(g) = ψ(g) • ρ(g)`) is odd iff `ρ` is, since `det σ(c) = ψ(c)² det ρ(c)` and `ψ(c)² = 1`. -/
-theorem isOdd_tensor_character (hM : Module.finrank A M = 2)
+/-- Twisting a free rank-two representation by a continuous character preserves oddness:
+`det σ(c) = ψ(c)² det ρ(c)` and `ψ(c)² = 1`. The basis supplies constant rank two;
+`Module.finrank A M = 2` alone does not supply it over an arbitrary commutative ring.
+For finite projective modules of constant local rank two, apply this identity locally. -/
+theorem isOdd_tensor_character (b : Module.Basis (Fin 2) A M)
     (ρ σ : ContinuousRep (Field.absoluteGaloisGroup F) A M)
     (ψ : Field.absoluteGaloisGroup F →ₜ* Aˣ) (hσ : ∀ g, σ g = ((ψ g : Aˣ) : A) • ρ g) :
     IsOdd σ ↔ IsOdd ρ := by
@@ -1377,13 +1379,16 @@ theorem nonsplit_GL2NonSplitTorus {E : Type*} [Field E] [Algebra k E]
       TauCeti.GL2NonSplitTorus k E hE := by
   sorry
 
+/-- Compatibility illustration, proved by the existing coordinate trace and norm formulas.
+This conjunction is not an additional library target. -/
 theorem nonsplit_trace_det {E : Type*} [Field E] [Algebra k E]
     (hE : Module.finrank k E = 2) (a : Eˣ) :
     Matrix.trace (TauCeti.GL2NonSplitTorusHom k E hE a : Matrix (Fin 2) (Fin 2) k) =
       Algebra.trace k E (a : E) ∧
     (Matrix.GeneralLinearGroup.det (TauCeti.GL2NonSplitTorusHom k E hE a) : k) =
       Algebra.norm k (a : E) := by
-  sorry
+  exact ⟨TauCeti.GL2NonSplitTorus.trace_gl2NonSplitTorusHom hE a,
+    TauCeti.GL2NonSplitTorus.val_det_gl2NonSplitTorusHom hE a⟩
 
 theorem nonsplit_conj (g : LinearMap.GeneralLinearGroup k V)
     (E E' : Subalgebra k (Module.End k V))
@@ -2017,15 +2022,27 @@ theorem induced_character_data {Γ k : Type*} [Group Γ] [Field k] [IsAlgClosed 
       (∃ ε : Γ →* kˣ, (∀ g, ε g = 1 ↔ g ∈ Δ ∨ (2 : k) = 0) ∧
         Matrix.GeneralLinearGroup.det.comp ρ = ε * χ.transfer) := by sorry
 
-/-- Uniqueness of the induction subgroup, with the Klein-four exception. -/
+/-- Uniqueness for an absolutely irreducible plane representation, with the Klein-four
+exception. The irreducibility hypothesis excludes the affine D₆ image in characteristic three. -/
 theorem induction_subgroup_count {Γ k : Type*} [Group Γ] [Field k] [IsAlgClosed k]
-    (ρ : Γ →* GL (Fin 2) k) [Finite ρ.range] (n : ℕ) (hn : 2 ≤ n)
+    (ρ : Γ →* GL (Fin 2) k) [Finite ρ.range]
+    (hirr : Submodule.span k (Set.range fun g => (ρ g : Matrix (Fin 2) (Fin 2) k)) = ⊤)
+    (n : ℕ) (hn : 2 ≤ n)
     (hproj : Nonempty ((Matrix.ProjGenLinGroup.mk.comp ρ).range ≃* DihedralGroup n)) :
     let choices := {Δ : Subgroup Γ | Δ.index = 2 ∧
       ∃ D : Submodule k (Fin 2 → k), Module.finrank k D = 1 ∧
         (∀ g ∈ Δ, D.map (Matrix.toLin' (ρ g : Matrix (Fin 2) (Fin 2) k)) = D) ∧
         (∀ g ∉ Δ, D.map (Matrix.toLin' (ρ g : Matrix (Fin 2) (Fin 2) k)) ≠ D)}
     (n = 2 → Nat.card choices = 3) ∧ (3 ≤ n → Nat.card choices = 1) := by sorry
+
+/-- Negative acceptance example: in characteristic three the affine D₆ generators
+U and S have a common invariant line. Every U-invariant line is S-invariant, so the
+index-two rotation subgroup supplies no line exchanged by the other coset. -/
+theorem affine_dihedral_three_line_test {k : Type*} [Field k] [CharP k 3]
+    (D : Submodule k (Fin 2 → k)) (hD : Module.finrank k D = 1)
+    (hU : D.map (Matrix.toLin' (!![1, 1; 0, 1] : Matrix (Fin 2) (Fin 2) k)) = D) :
+    D.map (Matrix.toLin' (!![-1, 0; 0, 1] : Matrix (Fin 2) (Fin 2) k)) = D := by
+  sorry
 
 /-- Self-twisting by the nontrivial quadratic character detects index-two induction. -/
 theorem quadratic_self_twist_iff_induced {Γ k : Type*} [Group Γ] [Field k]
