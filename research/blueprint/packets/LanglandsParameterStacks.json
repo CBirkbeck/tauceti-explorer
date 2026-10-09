@@ -20,187 +20,187 @@
         "ref": "mathlib:Representation",
         "module": "Mathlib/RepresentationTheory/Basic.lean",
         "provides": "Abstract group representations on modules. Algebraic regularity, finite-projective coefficient conditions, rational reductive representations and their tensor/derived categories are supplied separately by RG/E5, not by this abstract representation alone.",
-        "checked": "Statement read at the recorded pinned commit by REV-LanglandsParameterStacks; scope and additional supplier obligations are stated in provides."
+        "checked": "Declaration and statement independently read at the recorded pinned commit by REV-LanglandsParameterStacks~2. Its scope is as stated in provides; the enhanced or parameter-specific extensions remain separate requests."
       },
       {
         "ref": "mathlib:MonoidHom",
         "module": "Mathlib/Algebra/Group/Hom/Defs.lean",
         "provides": "Group homomorphisms. A parameter is a cocycle, not a homomorphism, but the sections of the L-group projection and the maps F_n -> W indexing the excursion colimit are homomorphisms, and the distinction is exactly what LP0's first node fixes.",
-        "checked": "Statement read at the recorded pinned commit by REV-LanglandsParameterStacks; scope and additional supplier obligations are stated in provides."
+        "checked": "Declaration and statement independently read at the recorded pinned commit by REV-LanglandsParameterStacks~2. Its scope is as stated in provides; the enhanced or parameter-specific extensions remain separate requests."
       },
       {
         "ref": "mathlib:Subgroup",
         "module": "Mathlib/Algebra/Group/Subgroup/Defs.lean",
         "provides": "Subgroups. The inertia and wild inertia of W_E, the open P inside the wild inertia, the discrete dense W inside W_E/P, the parabolic and Levi subgroups of G-hat semidirect W_E and the fixed-point subgroup G^P are subgroups.",
-        "checked": "Statement read at the recorded pinned commit by REV-LanglandsParameterStacks; scope and additional supplier obligations are stated in provides."
+        "checked": "Declaration and statement independently read at the recorded pinned commit by REV-LanglandsParameterStacks~2. Its scope is as stated in provides; the enhanced or parameter-specific extensions remain separate requests."
       },
       {
         "ref": "mathlib:FreeGroup",
         "module": "Mathlib/GroupTheory/FreeGroup/Basic.lean",
         "provides": "Free groups with their universal property. The excursion algebra is a colimit over (n, F_n -> W), and AUDIT-21 records this as the indexing half of that construction, the cocycle spaces themselves being absent.",
-        "checked": "Statement read at the recorded pinned commit by REV-LanglandsParameterStacks; scope and additional supplier obligations are stated in provides."
+        "checked": "Declaration and statement independently read at the recorded pinned commit by REV-LanglandsParameterStacks~2. Its scope is as stated in provides; the enhanced or parameter-specific extensions remain separate requests."
       },
       {
         "ref": "mathlib:RingHom",
         "module": "Mathlib/Algebra/Ring/Hom/Defs.lean",
         "provides": "Ring homomorphisms. The Theta_n of the universal property are maps of Z_l-algebras, and the comparison Exc -> O(Z^1)^{G-hat} is one.",
-        "checked": "Statement read at the recorded pinned commit by REV-LanglandsParameterStacks; scope and additional supplier obligations are stated in provides."
+        "checked": "Declaration and statement independently read at the recorded pinned commit by REV-LanglandsParameterStacks~2. Its scope is as stated in provides; the enhanced or parameter-specific extensions remain separate requests."
       },
       {
         "ref": "mathlib:MvPolynomial",
         "module": "Mathlib/Algebra/MvPolynomial/Basic.lean",
         "provides": "Polynomial algebras. O(Z^1(F_n,G-hat)) = O(G-hat^n) is a quotient of a polynomial algebra, and the finite presentation of the cocycle scheme is by equations in such a ring.",
-        "checked": "Statement read at the recorded pinned commit by REV-LanglandsParameterStacks; scope and additional supplier obligations are stated in provides."
+        "checked": "Declaration and statement independently read at the recorded pinned commit by REV-LanglandsParameterStacks~2. Its scope is as stated in provides; the enhanced or parameter-specific extensions remain separate requests."
       },
       {
         "ref": "mathlib:AlgebraicGeometry.Scheme",
         "module": "Mathlib/AlgebraicGeometry/Scheme.lean",
         "provides": "Schemes. Z^1(W_E/P,G-hat) is an affine scheme of finite type, Z^1(W_E,G-hat) is a disjoint union of such, and Sing_{X/S} is an affine X-group scheme.",
-        "checked": "Statement read at the recorded pinned commit by REV-LanglandsParameterStacks; scope and additional supplier obligations are stated in provides."
+        "checked": "Declaration and statement independently read at the recorded pinned commit by REV-LanglandsParameterStacks~2. Its scope is as stated in provides; the enhanced or parameter-specific extensions remain separate requests."
       },
       {
         "ref": "mathlib:Module.Flat",
         "module": "Mathlib/RingTheory/Flat/Basic.lean",
         "provides": "Flatness. Z^1(W_E/P,G-hat) is FLAT over Z_l, the excursion algebra is flat under the good-prime hypothesis, and the universal property of its l-torsion-free quotient is for FLAT test algebras.",
-        "checked": "Statement read at the recorded pinned commit by REV-LanglandsParameterStacks; scope and additional supplier obligations are stated in provides."
+        "checked": "Declaration and statement independently read at the recorded pinned commit by REV-LanglandsParameterStacks~2. Its scope is as stated in provides; the enhanced or parameter-specific extensions remain separate requests."
       },
       {
         "ref": "mathlib:RingTheory.Sequence.IsRegular",
         "module": "Mathlib/RingTheory/Regular/RegularSequence.lean",
         "provides": "REGULAR SEQUENCES, at the pins. AUDIT-21 records that Mathlib has no named local-complete-intersection predicate, but that the lci structure CAN be stated as a quotient by a regular sequence; this is the pinned notion that statement would use.",
-        "checked": "Statement read at the recorded pinned commit by REV-LanglandsParameterStacks; scope and additional supplier obligations are stated in provides."
+        "checked": "Declaration and statement independently read at the recorded pinned commit by REV-LanglandsParameterStacks~2. Its scope is as stated in provides; the enhanced or parameter-specific extensions remain separate requests."
       },
       {
         "ref": "mathlib:Algebra.Extension.H1Cotangent",
         "module": "Mathlib/RingTheory/Extension/Cotangent/Basic.lean",
         "provides": "Kernel of the naive extension cotangent-complex differential, the degree-one naive term. The full derived cotangent complex and H^1 of its dual are requested separately, not identified with this kernel.",
-        "checked": "Statement read at the recorded pinned commit by REV-LanglandsParameterStacks; scope and additional supplier obligations are stated in provides."
+        "checked": "Declaration and statement independently read at the recorded pinned commit by REV-LanglandsParameterStacks~2. Its scope is as stated in provides; the enhanced or parameter-specific extensions remain separate requests."
       },
       {
         "ref": "mathlib:groupCohomology",
         "module": "Mathlib/RepresentationTheory/Homological/GroupCohomology/Basic.lean",
         "provides": "Cohomology of an abstract group representation by the inhomogeneous cochain complex. Rational algebraic-group cohomology and condensed continuous Weil cohomology need separate interfaces.",
-        "checked": "Statement read at the recorded pinned commit by REV-LanglandsParameterStacks; scope and additional supplier obligations are stated in provides."
+        "checked": "Declaration and statement independently read at the recorded pinned commit by REV-LanglandsParameterStacks~2. Its scope is as stated in provides; the enhanced or parameter-specific extensions remain separate requests."
       },
       {
         "ref": "mathlib:PrimeSpectrum.isHomeomorph_comap",
         "module": "Mathlib/RingTheory/Spectrum/Prime/Homeomorph.lean",
         "provides": "A ring map with nil kernel (every element of the kernel is nilpotent) and positive powers of every target element in its image induces a homeomorphism on spectra. Universal homeomorphism requires this after every base change; it is not asserted by this declaration alone.",
-        "checked": "Statement read at the recorded pinned commit by REV-LanglandsParameterStacks; scope and additional supplier obligations are stated in provides."
+        "checked": "Declaration and statement independently read at the recorded pinned commit by REV-LanglandsParameterStacks~2. Its scope is as stated in provides; the enhanced or parameter-specific extensions remain separate requests."
       },
       {
         "ref": "mathlib:CategoryTheory.Triangulated.TStructure",
         "module": "Mathlib/CategoryTheory/Triangulated/TStructure/Basic.lean",
         "provides": "t-structures on a triangulated category, at the pins, as the abstract notion only. The GOOD-FILTRATION t-structure is defined against it, and AUDIT-21 records that good filtrations themselves are absent.",
-        "checked": "Statement read at the recorded pinned commit by REV-LanglandsParameterStacks; scope and additional supplier obligations are stated in provides."
+        "checked": "Declaration and statement independently read at the recorded pinned commit by REV-LanglandsParameterStacks~2. Its scope is as stated in provides; the enhanced or parameter-specific extensions remain separate requests."
       },
       {
         "ref": "mathlib:CategoryTheory.Idempotents.Karoubi",
         "module": "Mathlib/CategoryTheory/Idempotents/Karoubi.lean",
         "provides": "The Karoubi envelope. 'Generated under cones and RETRACTS' is an idempotent-completion statement, and the categories of Chapter X are idempotent-complete by hypothesis.",
-        "checked": "Statement read at the recorded pinned commit by REV-LanglandsParameterStacks; scope and additional supplier obligations are stated in provides."
+        "checked": "Declaration and statement independently read at the recorded pinned commit by REV-LanglandsParameterStacks~2. Its scope is as stated in provides; the enhanced or parameter-specific extensions remain separate requests."
       },
       {
         "ref": "mathlib:CategoryTheory.MonoidalCategory",
         "module": "Mathlib/CategoryTheory/Monoidal/Category.lean",
         "provides": "Monoidal categories. Perf(*/G-hat) acts monoidally on Perf of the parameter stack, and the universal property of the colimit theorem is for exact MONOIDAL functors.",
-        "checked": "Statement read at the recorded pinned commit by REV-LanglandsParameterStacks; scope and additional supplier obligations are stated in provides."
+        "checked": "Declaration and statement independently read at the recorded pinned commit by REV-LanglandsParameterStacks~2. Its scope is as stated in provides; the enhanced or parameter-specific extensions remain separate requests."
       },
       {
         "ref": "mathlib:CategoryTheory.Functor.Monoidal",
         "module": "Mathlib/CategoryTheory/Monoidal/Functor.lean",
         "provides": "Monoidal functors, the data the universal property quantifies over.",
-        "checked": "Statement read at the recorded pinned commit by REV-LanglandsParameterStacks; scope and additional supplier obligations are stated in provides."
+        "checked": "Declaration and statement independently read at the recorded pinned commit by REV-LanglandsParameterStacks~2. Its scope is as stated in provides; the enhanced or parameter-specific extensions remain separate requests."
       },
       {
         "ref": "mathlib:CategoryTheory.CatCenter",
         "module": "Mathlib/CategoryTheory/Center/Basic.lean",
         "provides": "Ordinary categorical centre End(id_C). It supplies the ordinary shadow of the excursion target; the stable infinity-category target is π₀End(id_C), whose enhancement is requested from E5.",
-        "checked": "Statement read at the recorded pinned commit by REV-LanglandsParameterStacks; scope and additional supplier obligations are stated in provides."
+        "checked": "Declaration and statement independently read at the recorded pinned commit by REV-LanglandsParameterStacks~2. Its scope is as stated in provides; the enhanced or parameter-specific extensions remain separate requests."
       },
       {
         "ref": "mathlib:Condensed",
         "module": "Mathlib/Condensed/Basic.lean",
         "provides": "Condensed objects, at the pins. A parameter is a CONDENSED cocycle, the coefficient ring is made condensed as Lambda_disc tensor_{Z_l,disc} Z_l, and the evaluations of the excursion algebra over W_E/P are maps of condensed sets.",
-        "checked": "Statement read at the recorded pinned commit by REV-LanglandsParameterStacks; scope and additional supplier obligations are stated in provides."
+        "checked": "Declaration and statement independently read at the recorded pinned commit by REV-LanglandsParameterStacks~2. Its scope is as stated in provides; the enhanced or parameter-specific extensions remain separate requests."
       },
       {
         "ref": "mathlib:CondensedMod",
         "module": "Mathlib/Condensed/Module.lean",
         "provides": "Condensed modules, the ambient category for the condensed coefficient convention.",
-        "checked": "Statement read at the recorded pinned commit by REV-LanglandsParameterStacks; scope and additional supplier obligations are stated in provides."
+        "checked": "Declaration and statement independently read at the recorded pinned commit by REV-LanglandsParameterStacks~2. Its scope is as stated in provides; the enhanced or parameter-specific extensions remain separate requests."
       },
       {
         "ref": "mathlib:Module.Free",
         "module": "Mathlib/LinearAlgebra/FreeModule/Basic.lean",
         "provides": "Free coefficient modules in Weil duality; finite rank is an additional hypothesis. The finite-type submodules of the condensed coefficient convention need not themselves be free.",
-        "checked": "Statement read at the recorded pinned commit by REV-LanglandsParameterStacks; scope and additional supplier obligations are stated in provides."
+        "checked": "Declaration and statement independently read at the recorded pinned commit by REV-LanglandsParameterStacks~2. Its scope is as stated in provides; the enhanced or parameter-specific extensions remain separate requests."
       },
       {
         "ref": "mathlib:RootPairing",
         "module": "Mathlib/LinearAlgebra/RootSystem/Defs.lean",
         "provides": "Root-pairing carrier and RootPairing.flip for dual data. This declaration supplies neither invariant degrees, Chevalley restriction, highest-weight modules nor the algebraic-group fundamental-group calculation. Those are separate supplier obligations, not consequences already available from RootPairing.",
-        "checked": "Statement read at the recorded pinned commit by REV-LanglandsParameterStacks; scope and additional supplier obligations are stated in provides."
+        "checked": "Declaration and statement independently read at the recorded pinned commit by REV-LanglandsParameterStacks~2. Its scope is as stated in provides; the enhanced or parameter-specific extensions remain separate requests."
       },
       {
         "ref": "mathlib:CoxeterSystem",
         "module": "Mathlib/GroupTheory/Coxeter/Basic.lean",
         "provides": "Coxeter-system carrier with its generators and relations. It does not by itself supply the Coxeter-number table or the homogeneous invariant degrees in FS VIII.2.11; those computations are requested from the reductive/root-system owner.",
-        "checked": "Statement read at the recorded pinned commit by REV-LanglandsParameterStacks; scope and additional supplier obligations are stated in provides."
+        "checked": "Declaration and statement independently read at the recorded pinned commit by REV-LanglandsParameterStacks~2. Its scope is as stated in provides; the enhanced or parameter-specific extensions remain separate requests."
       },
       {
         "ref": "tauceti:TauCeti.ContinuousCohomology.continuousCohomologyFunctor",
         "module": "TauCeti/RepresentationTheory/Homological/ContCohomology/Functoriality.lean",
         "provides": "Degree-n continuous cohomology as a coefficient functor from TopRep to TopModuleCat. This is an abelian cohomology interface, not nonabelian cocycles or local Weil duality.",
-        "checked": "Statement read at the recorded pinned commit by REV-LanglandsParameterStacks; scope and additional supplier obligations are stated in provides."
+        "checked": "Declaration and statement independently read at the recorded pinned commit by REV-LanglandsParameterStacks~2. Its scope is as stated in provides; the enhanced or parameter-specific extensions remain separate requests."
       },
       {
         "ref": "mathlib:CategoryTheory.PresheafOfGroups.OneCocycle",
         "module": "Mathlib/CategoryTheory/Sites/NonabelianCohomology/H1.lean",
         "provides": "Nonabelian Čech 1-cocycles of a presheaf of groups on a family of objects. The cocycle, gauge relation and quotient H1 are already supplied; continuous crossed cocycles of a group action are a different input. Their bridge is descent via SF.1.",
-        "checked": "Statement read at the recorded pinned commit by REV-LanglandsParameterStacks; scope and additional supplier obligations are stated in provides."
+        "checked": "Declaration and statement independently read at the recorded pinned commit by REV-LanglandsParameterStacks~2. Its scope is as stated in provides; the enhanced or parameter-specific extensions remain separate requests."
       },
       {
         "ref": "mathlib:SemidirectProduct",
         "module": "Mathlib/GroupTheory/SemidirectProduct.lean",
         "provides": "Group carrier N⋊[α]Γ with multiplication (n,γ)(n′,γ′)=(n α(γ)(n′),γγ′), rightHom projection and its sections. Does not supply a condensed or integral L-group.",
-        "checked": "Statement read at the recorded pinned commit by REV-LanglandsParameterStacks; scope and additional supplier obligations are stated in provides."
+        "checked": "Declaration and statement independently read at the recorded pinned commit by REV-LanglandsParameterStacks~2. Its scope is as stated in provides; the enhanced or parameter-specific extensions remain separate requests."
       },
       {
         "ref": "mathlib:Subalgebra",
         "module": "Mathlib/Algebra/Algebra/Subalgebra/Basic.lean",
         "provides": "Subalgebras containing the base-ring image and closed under zero, one, addition and multiplication. An algebraic invariant ring also requires the rational action supplied by RG.",
-        "checked": "Statement read at the recorded pinned commit by REV-LanglandsParameterStacks; scope and additional supplier obligations are stated in provides."
+        "checked": "Declaration and statement independently read at the recorded pinned commit by REV-LanglandsParameterStacks~2. Its scope is as stated in provides; the enhanced or parameter-specific extensions remain separate requests."
       },
       {
         "ref": "mathlib:CommRingCat.Colimits.hasColimits_commRingCat",
         "module": "Mathlib/Algebra/Category/Ring/Colimits.lean",
         "provides": "Small colimits of commutative rings, with cocone maps and universal descent. The excursion diagram and Z_l-algebra/animated enhancement remain additional inputs.",
-        "checked": "Statement read at the recorded pinned commit by REV-LanglandsParameterStacks; scope and additional supplier obligations are stated in provides."
+        "checked": "Declaration and statement independently read at the recorded pinned commit by REV-LanglandsParameterStacks~2. Its scope is as stated in provides; the enhanced or parameter-specific extensions remain separate requests."
       },
       {
         "ref": "mathlib:Equiv.Perm.cycleFactorsFinset",
         "module": "Mathlib/GroupTheory/Perm/Cycle/Factors.lean",
         "provides": "Finite set of disjoint nontrivial cyclic factors of a finite permutation. Fixed one-cycles must be added separately in the trace identity.",
-        "checked": "Statement read at the recorded pinned commit by REV-LanglandsParameterStacks; scope and additional supplier obligations are stated in provides."
+        "checked": "Declaration and statement independently read at the recorded pinned commit by REV-LanglandsParameterStacks~2. Its scope is as stated in provides; the enhanced or parameter-specific extensions remain separate requests."
       },
       {
         "ref": "tauceti:TauCeti.fixedSubgroup",
         "module": "TauCeti/GroupTheory/FixedSubgroup.lean",
         "provides": "The equaliser of a group endomorphism F and identity; membership is F(g)=g. Point-group compatibility for cyclic fixed loci only; no scheme smoothness, reductivity or connectedness follows.",
-        "checked": "Statement read at the recorded pinned commit by REV-LanglandsParameterStacks; scope and additional supplier obligations are stated in provides."
+        "checked": "Declaration and statement independently read at the recorded pinned commit by REV-LanglandsParameterStacks~2. Its scope is as stated in provides; the enhanced or parameter-specific extensions remain separate requests."
       },
       {
         "ref": "mathlib:MonoidAlgebra",
         "module": "Mathlib/Algebra/MonoidAlgebra/Defs.lean",
         "provides": "The convolution algebra A[Γ], with its finite-support coefficient carrier; its linear trace adapter is specialized from IHG.0.",
-        "checked": "Declaration statement read at Mathlib 082e2d3 on 2026-10-09."
+        "checked": "Declaration and statement independently read at the recorded pinned commit by REV-LanglandsParameterStacks~2. Its scope is as stated in provides; the enhanced or parameter-specific extensions remain separate requests."
       },
       {
         "ref": "mathlib:MonoidAlgebra.of",
         "module": "Mathlib/Algebra/MonoidAlgebra/Defs.lean",
         "provides": "The canonical monoid homomorphism γ↦[γ] into A[Γ]; restriction of an A-linear trace uses this basis map.",
-        "checked": "Declaration statement read at Mathlib 082e2d3 on 2026-10-09."
+        "checked": "Declaration and statement independently read at the recorded pinned commit by REV-LanglandsParameterStacks~2. Its scope is as stated in provides; the enhanced or parameter-specific extensions remain separate requests."
       }
     ]
   },
@@ -320,7 +320,7 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VIII.1.1, p.278",
-          "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
+          "match": "The L-group section formulation gives the crossed multiplication and twisted gauge formulas; restriction and equivariant coefficient transport follow from them."
         }
       ],
       "implementationStatus": "unchecked",
@@ -442,7 +442,7 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VIII.1.1, p.278",
-          "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
+          "match": "The coefficient object is relatively discrete condensed, and parameters are continuous sections over the Weil group with the prescribed finite-quotient projection."
         }
       ],
       "implementationStatus": "unchecked",
@@ -558,7 +558,7 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VIII.1, p.278",
-          "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
+          "match": "The filtered union is indexed by open Weil-normal wild kernels; it bounds wild ramification without requiring a finite image of the whole Weil group."
         }
       ],
       "implementationStatus": "unchecked",
@@ -648,7 +648,7 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Proof of VIII.1.3, pp.279–280",
-          "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
+          "match": "The proof extends a cocycle from the finitely generated dense model by controlling tame powers and finite wild image, with geometric Frobenius inverse to the arithmetic generator."
         }
       ],
       "implementationStatus": "unchecked",
@@ -682,7 +682,7 @@
         {
           "sourceId": "DHKM-parameters",
           "locator": "§4.1, Corollary4.2, pp.30–31",
-          "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
+          "match": "Corollary 4.2 identifies the chosen model after Z_l base change through its universal continuous cocycle; it does not identify every framed model over Z[1/p]."
         }
       ],
       "implementationStatus": "unchecked",
@@ -715,7 +715,7 @@
         {
           "sourceId": "KSS-endo-parameters",
           "locator": "§1.20–§1.21, pp.8–9",
-          "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
+          "match": "The wild-parameter definition is for admissible extending complex parameters of quasisplit classical groups in odd residue characteristic; the wild LLC itself is conjectural."
         }
       ],
       "implementationStatus": "unchecked",
@@ -802,7 +802,7 @@
         {
           "sourceId": "KSS-endo-parameters",
           "locator": "§1.21, p.8",
-          "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
+          "match": "The centralizer fixes the wild L-group image, so the dual-group action is twisted; an extending section supplies the subsequent Weil action."
         }
       ],
       "implementationStatus": "unchecked",
@@ -887,7 +887,7 @@
         {
           "sourceId": "KSS-endo-parameters",
           "locator": "§1.21, equation(1.1), p.8",
-          "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
+          "match": "Equation (1.1) uses the centre of the wild centralizer modulo the invariant dual centre; this is distinct from the component group used for enhancement representations."
         }
       ],
       "implementationStatus": "unchecked",
@@ -968,7 +968,7 @@
         {
           "sourceId": "KSS-endo-parameters",
           "locator": "§1.21, pp.8–9",
-          "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
+          "match": "The extended wild datum restricts an admissible enhanced parameter and its representation to the wild centralizer; irreducibility need not survive restriction."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1054,8 +1054,13 @@
       "sources": [
         {
           "sourceId": "DHKM-parameters",
-          "locator": "§1 and §4.1, pp.4–7,29–31; FS proof VIII.1.3, p.280",
-          "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
+          "locator": "§1, pp.4–7; §4.1, Theorem 4.1, pp.29–30",
+          "match": "The selected dense Weil model has finitely many generators and relations, giving finite-type cocycle equations over Z[1/p] and their coefficient base changes."
+        },
+        {
+          "sourceId": "FS-geometrization",
+          "locator": "Proof of Theorem VIII.1.3, p.280",
+          "match": "The cocycle model is defined over Z[1/p] before its Z_l base changes."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1157,7 +1162,7 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Proof VIII.1.3, pp.279–280",
-          "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
+          "match": "The proof separates prime-to-l finite wild representations into open-and-closed pieces and obtains the parameter scheme as their filtered union."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1194,7 +1199,7 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VIII.1.3 dimension argument and VIII.2.2, pp.280–282",
-          "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
+          "match": "The dimension calculation and continuous duality use perfect Weil cochains of amplitude [0,2] with Euler characteristic zero; abstract group cohomology alone is insufficient."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1230,7 +1235,7 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VIII.1.4 and end of VIII.1.3, p.281",
-          "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
+          "match": "The dimension bound stratifies by finitely many unipotent conjugacy classes and balances the orbit dimension against the transporter dimension in a group with reductive identity."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1268,8 +1273,13 @@
       "sources": [
         {
           "sourceId": "FS-geometrization",
-          "locator": "VIII.1.3, pp.279–281; DHKM Theorem4.1, pp.29–30",
-          "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
+          "locator": "Theorem VIII.1.3 and proof, pp.279–281",
+          "match": "The cocycle equations and fibre dimension bound prove flatness and the local-complete-intersection property, with relative dimension dim H over the coefficient base."
+        },
+        {
+          "sourceId": "DHKM-parameters",
+          "locator": "Theorem 4.1 and proof, pp.29–30",
+          "match": "The independent finite-wild scheme is flat and lci over Z[1/p], with the arithmetic Frobenius normalization and absolute dimension stated in that theorem."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1306,8 +1316,13 @@
       "sources": [
         {
           "sourceId": "DHKM-parameters",
-          "locator": "DHKM §4.1 pp.29–31; FS VIII.1.3 p.280",
-          "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
+          "locator": "§4.1, Theorem 4.1 and Corollary 4.2, pp.29–31",
+          "match": "The independent integral model uses arithmetic Frobenius and an absolute dimension including the base; inversion of Frobenius and subtraction of base dimension reconcile the conventions."
+        },
+        {
+          "sourceId": "FS-geometrization",
+          "locator": "Theorem VIII.1.3 and proof, pp.279–281",
+          "match": "The relative fibre dimension is dim H, agreeing with the integral model after accounting for the one-dimensional base."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1343,8 +1358,13 @@
       "sources": [
         {
           "sourceId": "FS-geometrization",
-          "locator": "VIII.2.1, pp.281–282; Zhu §3.1, Proposition3.7",
-          "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
+          "locator": "Proposition VIII.2.1 and proof, p.281",
+          "match": "The animated cocycle functor is the framed derived mapping problem, followed by the H-quotient; the tangent calculation does not replace this construction."
+        },
+        {
+          "sourceId": "Zhu-arithmetic-parameters",
+          "locator": "§3.1, Remark 3.1, Proposition 3.7 and setup, pp.31–35",
+          "match": "The derived parameter construction uses the fixed C-group norm; Remark 3.1 gives the normalization adapter to the L-group after the stated choice."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1435,8 +1455,13 @@
       "sources": [
         {
           "sourceId": "FS-geometrization",
-          "locator": "VIII.2.1, pp.281–282; Zhu Proposition3.7 and Lemma3.9, pp.32–35",
-          "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
+          "locator": "Proposition VIII.2.1 and proof, p.281",
+          "match": "The derived cocycle problem is classical by the cochain and dimension calculation, rather than merely by agreement of geometric points."
+        },
+        {
+          "sourceId": "Zhu-arithmetic-parameters",
+          "locator": "Proposition 3.7, Lemma 3.9 and proofs, pp.32–35",
+          "match": "The cochain computation proves classicality for the derived fixed-norm C-group problem; transport to LP uses the explicit normalization adapter."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1471,7 +1496,7 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VIII.2.2, p.282",
-          "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
+          "match": "Continuous Weil duality identifies the dual cochain complex with the Tate-twisted dual coefficients shifted by two; the source also gives the direct discretization route."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1508,7 +1533,7 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VIII.2.1–VIII.2.3, pp.281–282",
-          "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
+          "match": "The tangent complex is Weil cochains on the adjoint module shifted by one, and continuous duality gives the displayed cotangent complex with its Tate twist."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1544,7 +1569,7 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VIII.2.4, p.282",
-          "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
+          "match": "The characteristic-zero Weil–Deligne datum separates finite-inertia parameters from nilpotent monodromy; geometric degree requires the reciprocal q-scaling recorded in E5."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1644,8 +1669,8 @@
       "sources": [
         {
           "sourceId": "FS-geometrization",
-          "locator": "VIII.2.1, pp.281–282; Zhu Lemma3.10 (formerly3.1.8), pp.35–36",
-          "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
+          "locator": "Proposition VIII.2.5 and preceding construction, p.282",
+          "match": "The characteristic-zero comparison uses tame logarithm and exponential to pass between continuous parameters and Weil–Deligne pairs; its choices and reciprocal Frobenius convention must be retained."
         },
         {
           "sourceId": "Zhu-arithmetic-parameters",
@@ -1688,8 +1713,8 @@
       "sources": [
         {
           "sourceId": "FS-geometrization",
-          "locator": "VIII.2.2, pp.283–285",
-          "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
+          "locator": "§VIII.2.2, Definitions VIII.2.6 and VIII.2.8, pp.282–285",
+          "match": "The singular-support construction uses the full cotangent complex and gives the parameter obstruction cone in the dual adjoint Lie space, without identifying Lie and dual Lie integrally."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1794,8 +1819,8 @@
       "sources": [
         {
           "sourceId": "FS-geometrization",
-          "locator": "VIII.2.6–VIII.2.10, pp.283–284",
-          "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
+          "locator": "§VIII.2.2.1 and VIII.2.6–VIII.2.10, pp.282–284",
+          "match": "Cotangent extension classes act through Hochschild cohomology, while the syntomic support theorems give finite generation and the perfectness criterion; E4 replaces the erroneous equality by a natural map."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1830,7 +1855,7 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VIII.2.11–VIII.2.13, pp.284–285",
-          "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
+          "match": "The banal root-degree condition bounds the obstruction space by the nilpotent cone, with separate positive-characteristic and characteristic-zero arguments; it is an inclusion, not equality."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1866,8 +1891,13 @@
       "sources": [
         {
           "sourceId": "FS-geometrization",
-          "locator": "VIII.3.1–VIII.3.2, pp.285–287; BHKT3.2 and3.10",
-          "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
+          "locator": "§VIII.3.1, Definition VIII.3.1 and Proposition VIII.3.2, pp.285–287",
+          "match": "The invariant affine quotient has geometric points classified by closed H-orbits without a good-prime restriction; the coefficient-base-change theorem has its own separate hypotheses."
+        },
+        {
+          "sourceId": "BHKT-local-systems",
+          "locator": "Propositions 3.2 and 3.10, pp.11–12,15–16",
+          "match": "Geometric quotient fibres and flat coefficient change are available under their respective field and excellent-DVR hypotheses; they do not assert arbitrary integral base change."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1992,7 +2022,7 @@
         {
           "sourceId": "BHKT-local-systems",
           "locator": "§3.1 Proposition3.2 pp.11–12; §3.2 Proposition3.10 pp.15–16",
-          "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
+          "match": "Field geometric invariant theory gives quotient fibres and closed orbits, whereas the excellent-DVR theorem assumes flat integral input and only asserts general flat algebra base change."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2026,7 +2056,7 @@
         {
           "sourceId": "BHKT-local-systems",
           "locator": "§3.1 Definitions3.3,3.5 pp.11–12",
-          "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
+          "match": "Complete reducibility is defined through containing parabolics and their Levis; irreducibility and the strong variants impose different conditions on subgroups and tuples."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2135,7 +2165,7 @@
         {
           "sourceId": "BHKT-local-systems",
           "locator": "§3.1 Theorem3.4, Proposition3.6, Proposition3.7 pp.12–13",
-          "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
+          "match": "Closed simultaneous conjugation orbits are characterized by complete reducibility in arbitrary characteristic, with the stabilizer statements carrying the additional irreducibility hypotheses."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2168,7 +2198,7 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VIII.3.1, pp.286–287",
-          "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
+          "match": "Semisimplicity uses relative parabolics and Levis in the L-group, and the prescribed projection is part of the parameter problem."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2255,7 +2285,7 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VIII.3.2–VIII.3.3, pp.286–287",
-          "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
+          "match": "Hilbert–Mumford–Kempf and the cocharacter centralizer calculation identify closed parameter orbits with relative complete reducibility; no assumption on the order of Q is imposed."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2286,8 +2316,8 @@
       "sources": [
         {
           "sourceId": "FS-geometrization",
-          "locator": "VIII.3.2, p.287",
-          "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
+          "locator": "§VIII.3.2, p.287",
+          "match": "The index consists of finite free groups mapping to the chosen Weil model, including rank zero; free-group words supply its morphisms and sifted-colimit presentation."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2377,7 +2407,7 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VIII.3.4, p.287",
-          "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
+          "match": "The excursion algebra is the ordinary ring colimit of invariant coordinate rings over free-group presentations, with its canonical comparison to cocycle invariants."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2464,14 +2494,15 @@
       "prerequisites": [
         "LanglandsParameterStacks:LP2:excursion-presentation/excursion-algebra-and-universal-homeomorphism",
         "LanglandsParameterStacks:LP2:excursion-presentation/free-cocycle-index",
+        "LanglandsParameterStacks:LP2:excursion-presentation/free-derived-cocycle-colimit",
         "ReductiveGroupsPartII:RG2.5",
         "mathlib:PrimeSpectrum.isHomeomorph_comap"
       ],
       "sources": [
         {
           "sourceId": "FS-geometrization",
-          "locator": "VIII.3.2, p.287",
-          "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
+          "locator": "§VIII.3.2 and Proposition VIII.3.5, pp.287–288",
+          "match": "Power lifting together with the underlying derived cocycle colimit gives a universal homeomorphism; after inverting l, exactness of invariants gives the algebra isomorphism."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2508,7 +2539,7 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VIII.3.7 and proof, pp.288–289",
-          "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
+          "match": "Reindexing and ordered multiplication characterize algebra maps from the excursion colimit; empty products and the relations recover units, inverses and general word substitutions."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2545,7 +2576,7 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VIII.3.3 after VIII.3.7, pp.289–290",
-          "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
+          "match": "Flat coordinate-ring change and continuous extension give the torsion-free discretization comparison and condensed excursion evaluation; full torsion-sensitive choice independence remains open."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2580,7 +2611,7 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VIII.4 setup, pp.290–291",
-          "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
+          "match": "The input is a coherent family of exact monoidal functors with Weil actions on a stable category; its scalar target is the homotopy ring pi_0 End(id), not an ordinary categorical centre alone."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2670,7 +2701,7 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VIII.4.2, p.291",
-          "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
+          "match": "Finite-projective algebraic representations with diagonal invariant vectors and covectors supply the matrix coefficients used to define excursion operators."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2756,7 +2787,7 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "Proof VIII.4.1, pp.291–292",
-          "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
+          "match": "Regular-function matrix coefficients generate the invariant functions, and representation functoriality makes the operator independent of the chosen realization."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2848,8 +2879,13 @@
       "sources": [
         {
           "sourceId": "FS-geometrization",
-          "locator": "VIII.4.1–VIII.4.2 pp.290–293; Lafforgue Lemma10.1 and Proposition10.8",
-          "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
+          "locator": "Proposition VIII.4.1, Definition VIII.4.2 and proofs, pp.290–293",
+          "match": "The abstract excursion construction produces a scalar algebra homomorphism and its relations; a Bernstein-centre map is obtained only after the ES0 representation-category specialization."
+        },
+        {
+          "sourceId": "Lafforgue-shtukas",
+          "locator": "Lemma 10.1 and Proposition 10.8, pp.133–135,139",
+          "match": "Representation functoriality, coalescence and the tensor-duality relations give the abstract excursion identities; shtuka constructions remain owned by GS.5."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3151,7 +3187,7 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VIII.3.8 and proof, p.290",
-          "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
+          "match": "Characters of the excursion algebra classify semisimple continuous local parameters by algebraic reconstruction followed by the two coefficient-specific continuity arguments."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3190,7 +3226,7 @@
         {
           "sourceId": "Lafforgue-shtukas",
           "locator": "Remark11.8, pp.143–144",
-          "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
+          "match": "The GL trace relations are the signed permutation-cycle identity, including singleton cycles; LP adds the linear group-algebra adapter to the generic IHG trace carrier."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3298,7 +3334,7 @@
         {
           "sourceId": "Lafforgue-shtukas",
           "locator": "Remark11.8 pp.143–144 (Procesi/Taylor inputs)",
-          "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
+          "match": "The characteristic-zero trace comparison imports invariant trace generation and determinant/trace reconstruction; the prescribed component fibre is imposed only in the LP application."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3330,7 +3366,7 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VIII.4.3, p.293",
-          "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
+          "match": "Evaluation of excursion scalars on an object with pi_0 End(X)=L gives a character and hence a semisimple parameter; continuity and discrete-group variants remain separate."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3348,7 +3384,7 @@
       "kind": "construction",
       "statement": "Over algebraically closed L of characteristic l, for G with reductive identity G° and |π₀G| prime to l, IndPerf(BG) carries the good-filtration t-structure: connective M satisfy H^i(G°,M⊗∇_λ)=0 for i>0, coconnective M satisfy H^i(G°,M⊗Δ_λ)=0 for i<0 for all dominant λ. ∇_λ are induced/dual-Weyl modules and Δ_λ their Weyl counterparts. Degree-zero good-filtered modules are connective.",
       "hypotheses": [
-        "Cohomological connective convention D^{≤0}; the t-structure is on IndPerf, not a claim that Perf is closed under truncation. General ∇,Δ, Kempf, Donkin criterion and tensor stability are RG2.6-extension requests."
+        "Cohomological connective convention D^{≤0}; the t-structure is on IndPerf, not a claim that Perf is closed under truncation. General ∇,Δ, Kempf, Donkin criterion and tensor stability extend the accepted ReductiveGroupsIntegralRepresentationsPartII owner, through the registered parent Layer9 request until its DESIGN stages are assigned."
       ],
       "proofSteps": [
         "Import highest-weight modules and their duality/vanishing and construct the orthogonal classes as FS5.4.",
@@ -3364,8 +3400,8 @@
       "sources": [
         {
           "sourceId": "FS-geometrization",
-          "locator": "VIII.5.1, Definition VIII.5.4, pp.294–295",
-          "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
+          "locator": "§VIII.5.1 and Definition VIII.5.4, pp.294–295",
+          "match": "The good-filtration t-structure on IndPerf is tested by dual-Weyl and Weyl objects and uses dominant characters; its truncations need not preserve Perf."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3464,7 +3500,7 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VIII.5.5 and proof, p.295",
-          "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
+          "match": "The induced test modules detect vanishing in the good-filtration t-structure, proving separatedness; the general highest-weight facts remain imported inputs."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3498,8 +3534,8 @@
       "sources": [
         {
           "sourceId": "FS-geometrization",
-          "locator": "VIII.5.6–VIII.5.7, p.296",
-          "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
+          "locator": "Theorem VIII.5.6 and Corollary VIII.5.7, pp.295–296",
+          "match": "The regular representation has a good G-by-G filtration, so tensor stability gives the twisted free-cocycle filtration; passing to G-cohomology requires prime-to-l pi_0."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3533,8 +3569,8 @@
       "sources": [
         {
           "sourceId": "FS-geometrization",
-          "locator": "VIII.5.2, pp.296–297",
-          "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
+          "locator": "§VIII.5.2, definition of Perf^ind, pp.295–296",
+          "match": "The induced-perfect subcategory is generated by pullbacks from BG under finite cones and retracts, and is kept distinct from the whole quotient-stack Perf category."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3636,7 +3672,7 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VIII.5.8–VIII.5.9, pp.296–297",
-          "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
+          "match": "The augmented bar comparison detects induced perfect objects, and conservative restriction to a Borel gives the corresponding descent criterion."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3672,7 +3708,7 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VIII.5.10 and proof, p.297",
-          "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
+          "match": "Under the coordinate-algebra good-filtration and connectivity hypotheses, preservation of connective objects by tensoring characterizes induced perfectness; finite good-filtration dimension and separatedness prove the converse."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3709,7 +3745,7 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VIII.5.11 and proof, pp.297–299",
-          "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
+          "match": "The good torsion-fundamental-group condition, induced unit object and generation of conjugation-stack Perf are equivalent; central covers and Borel flags supply the nonformal implication."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3747,7 +3783,7 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VIII.5.12 and proof, p.299",
-          "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
+          "match": "The free-group case uses products and an equivariant retraction to obtain generation for twisted conjugation, under the good fundamental-group condition."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3786,7 +3822,7 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VIII.5.13 and proof, pp.299–301",
-          "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
+          "match": "The derived unit-fibre argument uses the separated IndCoh quotient and bounded cohomological amplitude, reducing to Borel flags without identifying the ordinary and derived fibres."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3819,8 +3855,8 @@
       "sources": [
         {
           "sourceId": "FS-geometrization",
-          "locator": "End VIII.5.2, p.301, and tame reduction p.312",
-          "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
+          "locator": "End of §VIII.5.2, p.301, and tame reduction, p.312",
+          "match": "Derived pullback of the unit-fibre construction handles the surface and tame relators; the tame case is the relation used in the final Weil generation proof."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3856,7 +3892,7 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VIII.5.14 and proof, pp.301–302",
-          "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
+          "match": "After independently importing smooth fixed-group reductivity, the LP argument proves the prime-to-l component-group bound using finite good-filtration dimension."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3897,7 +3933,7 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VIII.5.16 and proof, pp.304–307",
-          "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
+          "match": "For a cyclic prime-order action, equivariant formal roots and the fixed-locus resolution compare the ideal tensor with its fixed restriction in the indicated IndPro category."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3933,7 +3969,7 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VIII.5.15 and proof, pp.302–304",
-          "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
+          "match": "Solvable prime-to-l automorphisms give a Donkin subgroup by prime cyclic induction and the fixed-locus resolution; the theorem itself has no fundamental-group hypothesis."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3973,7 +4009,7 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VIII.5.17(i)–(iv) and proof, pp.307–310",
-          "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
+          "match": "The induction, counit and generation properties are proved together in the simply connected case via dominant-weight lifts and tensor filtrations, then transferred through central covers."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4010,7 +4046,7 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VIII.5.17(v)–(vi), pp.307–310",
-          "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
+          "match": "Restriction generates fixed-group representations after cones and retracts even when every representation is not an actual restricted quotient; this is the weaker property proved in the proposition."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4044,7 +4080,7 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VIII.5.18, p.308",
-          "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
+          "match": "The characteristic-two quotient of SL_2 squared with swapping involution has the asserted fixed-centre obstruction; it tests the need for the fundamental-group restriction."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4077,7 +4113,7 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VIII.5.19 and proof, pp.310–311",
-          "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
+          "match": "The root-theoretic fixed-group calculation preserves the prime-to-l torsion-fundamental-group property for solvable prime-to-l actions, including the exceptional cases in the proof."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4113,8 +4149,8 @@
       "sources": [
         {
           "sourceId": "FS-geometrization",
-          "locator": "VIII.5.4 pp.311–312; X.3 setup pp.348–349",
-          "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
+          "locator": "§VIII.5.4, pp.311–312; §X.3 setup, pp.348–349",
+          "match": "Map^Sigma is defined by category-valued sifted left Kan extension from finite bases with torsors, not by assuming a representing derived stack or a finite total torsor."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4206,7 +4242,7 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VIII.5.20 and proof, p.312",
-          "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
+          "match": "The free-gerbe comparison is fully faithful with image the induced subcategory; the good fundamental-group condition upgrades it to an equivalence."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4244,7 +4280,7 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VIII.5.21 and proof, pp.313–315",
-          "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
+          "match": "Eliminating a finite solvable prime-to-l normal subgroup gives an equivalence of the approximation categories and transports the reductive and fundamental-group conditions."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4281,7 +4317,7 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VIII.5.2 and concluding proof, pp.294,312–315",
-          "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
+          "match": "The concluding generation argument combines the tame relator with wild-gerbe elimination and the coordinate-algebra colimit under the good fundamental-group hypothesis."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4316,7 +4352,7 @@
         {
           "sourceId": "BHKT-local-systems",
           "locator": "§3.1 Theorem3.8, table and Lemma3.9, pp.13–14",
-          "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
+          "match": "The very-good hypotheses yield separability of centralizers via the cited reductive-pair results; they do not imply that the Lie algebra of every reductive group is semisimple."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4350,8 +4386,8 @@
       "sources": [
         {
           "sourceId": "BHKT-local-systems",
-          "locator": "§3.2 Lemmas3.11–3.12, pp.16–17",
-          "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
+          "locator": "§3.2, Lemmas 3.11–3.12 and proofs, pp.16–18",
+          "match": "The quotient etaleness argument must normalize in the finite relative algebraic closure over the invariant fraction field, then apply the stabilizer criterion in the finite Galois extension."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4387,7 +4423,7 @@
         {
           "sourceId": "BHKT-local-systems",
           "locator": "§3.2 Proposition3.13 and proof, pp.17–19",
-          "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
+          "match": "A transversal and the etale action map identify the quotient formal deformation functor when the residual orbit is closed and its scheme stabilizer is trivial; E10 fixes the source points."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4411,7 +4447,7 @@
       "proofSteps": [
         "Injectivity follows from density of regular semisimple conjugates over Q and torsion-freeness.",
         "Dominant highest-weight characters form a triangular Z-basis of Weyl-invariant torus characters.",
-        "Stable Z-lattices in the corresponding rational representations give integral characters in Z[M]^M, proving surjectivity. The highest-weight integral lattice theory is the RG2.6 request."
+        "Stable Z-lattices in the corresponding rational representations give integral characters in Z[M]^M, proving surjectivity. The highest-weight integral lattice theory extends the accepted ReductiveGroupsIntegralRepresentationsPartII owner through its parent Layer9 request pending DESIGN registration."
       ],
       "prerequisites": [
         "ReductiveGroupsPartII:RG2.5",
@@ -4422,7 +4458,7 @@
         {
           "sourceId": "BHKT-local-systems",
           "locator": "Proposition8.3 and proof, p.53",
-          "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
+          "match": "Integral restriction to the torus is injective by regular semisimple density and surjective by the triangular highest-weight character basis and stable integral lattices, without a good-prime restriction."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4460,7 +4496,7 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VIII.3.5 and proof, p.288",
-          "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
+          "match": "The underlying coordinate algebra commutes with the free-group derived colimit in animated algebras and hence in D(Z_l); this assertion precedes taking invariants."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4498,7 +4534,7 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VIII.3.6 p.288; VIII.5.1–VIII.5.2 pp.293–294,315",
-          "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
+          "match": "Generation and free-cocycle good filtrations promote the underlying colimit to IndPerf(BH) and identify integral excursion invariants when l avoids torsion in pi_1(H)."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4540,7 +4576,7 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VIII.5.1–VIII.5.2 and proof, pp.293–294",
-          "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
+          "match": "The good-prime theorem gives vanishing of higher invariant cohomology and arbitrary coefficient base change for this parameter algebra; it is stronger than the general DVR quotient theorem."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4573,7 +4609,7 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VIII.3.2–VIII.3.8, pp.287–290",
-          "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
+          "match": "The coarse-point, rational-algebra and integral-algebra assertions have different hypotheses: only the last uses the torsion-fundamental-group restriction."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4609,7 +4645,7 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "X introduction, p.340",
-          "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
+          "match": "Universal associated representation bundles give the Rep(H) action on parameter Perf before the generation comparison; this is distinct from the Chapter X action universal property."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4711,7 +4747,7 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VIII.5.1 and reduction proof, pp.293–294",
-          "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
+          "match": "The characteristic-zero generation statement holds at every prime, while the integral statement requires good pi_1; both concern actual Perf after the representation-generation proof."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4750,7 +4786,7 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "VIII.5.1 and proof, p.293",
-          "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
+          "match": "Generation makes the affine adjunction conservative, and monadicity identifies IndPerf of parameters with modules over the cocycle algebra in IndPerf(BH)."
         }
       ],
       "implementationStatus": "unchecked",
@@ -5295,12 +5331,13 @@
       "known": "new",
       "searched": [
         "Public arXiv PDF 1209.5352 read in this pass; the same symbol remains.",
-        "Web search for Lafforgue Proposition11.7/Lemma11.10 corrigendum or erratum; no correction located."
+        "Web search for Lafforgue Proposition11.7/Lemma11.10 corrigendum or erratum; no correction located.",
+        "Independent review on 2026-10-09 re-read the recorded hashed public version and searched for a paper corrigendum; no separate correction to this finding was located. This is a search result, not a claim that no erratum exists."
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Checked Lemma11.10 in the public French arXiv v10 text, p.145: its appended coordinate is in H^{n+1}; the printed G is a symbol slip.",
-        "by": "REV-LanglandsParameterStacks"
+        "reason": "Independently checked the appended-coordinate statement of Lemma 11.10 on p.145: the tuple is in the coefficient group H, so the printed G is a symbol error.",
+        "by": "REV-LanglandsParameterStacks~2"
       },
       "descriptionConvention": "Paraphrase of the defective assertion; no source passage is reproduced."
     },
@@ -5317,12 +5354,13 @@
       "searched": [
         "Published Acta PDF opened at the recorded URL and hash.",
         "Search for BHKT G-local systems erratum/corrigendum; no correction located.",
-        "Michael Harris public publications listing and arXiv search for a correction to this paper."
+        "Michael Harris public publications listing and arXiv search for a correction to this paper.",
+        "Independent review on 2026-10-09 re-read the recorded hashed public version and searched for a paper corrigendum; no separate correction to this finding was located. This is a search result, not a claim that no erratum exists."
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Checked published Acta223 p.14 in the recorded PDF. G=G_m in characteristic3 satisfies the simple-factor restrictions and has a nonzero abelian Lie algebra, disproving semisimplicity for general reductive G.",
-        "by": "REV-LanglandsParameterStacks"
+        "reason": "Independently checked §3.1 p.14. The allowed reductive group G_m in characteristic 3 has a nonzero abelian Lie algebra, disproving the printed semisimplicity assertion.",
+        "by": "REV-LanglandsParameterStacks~2"
       },
       "descriptionConvention": "Paraphrase of the defective assertion; no source passage is reproduced."
     },
@@ -5338,12 +5376,13 @@
       "known": "new",
       "searched": [
         "Author-hosted FS PDF at the recorded hash, proof VIII.4.1.",
-        "Web search for Fargues Scholze VIII.4.1 errata/cartesian square; no correction located."
+        "Web search for Fargues Scholze VIII.4.1 errata/cartesian square; no correction located.",
+        "Independent review on 2026-10-09 re-read the recorded hashed public version and searched for a paper corrigendum; no separate correction to this finding was located. This is a search result, not a claim that no erratum exists."
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Checked VIII.4.1 p.292. The zero-category/fold/G_m example in reason rules out a pullback square; the proof only uses commutativity.",
-        "by": "REV-LanglandsParameterStacks"
+        "reason": "Independently checked the reindexing square in the proof on p.292. For the zero stable category the right rings vanish, whereas folding the G_m example leaves unequal left rings, so only commutativity is valid.",
+        "by": "REV-LanglandsParameterStacks~2"
       },
       "descriptionConvention": "Paraphrase of the defective assertion; no source passage is reproduced."
     },
@@ -5359,12 +5398,13 @@
       "known": "new",
       "searched": [
         "Author-hosted FS PDF at the recorded hash, pp.282–283.",
-        "Web searches for Geometrization Hochschild HH Ext errata and Fargues Scholze VIII.2.2.1 correction; no correction located."
+        "Web searches for Geometrization Hochschild HH Ext errata and Fargues Scholze VIII.2.2.1 correction; no correction located.",
+        "Independent review on 2026-10-09 re-read the recorded hashed public version and searched for a paper corrigendum; no separate correction to this finding was located. This is a search result, not a claim that no erratum exists."
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Checked VIII.2.2.1 pp.282–283. The smooth flat syntomic algebra Q[x,y] has vanishing cotangent Ext1 but nonzero associative Hochschild degree2 from its diagonal Koszul resolution; the natural-map correction suffices for the support action.",
-        "by": "REV-LanglandsParameterStacks"
+        "reason": "Independently checked pp.282–283. For Q[x,y], cotangent Ext^1 vanishes but the diagonal two-variable Koszul resolution gives nonzero associative HH^2; the natural map, rather than equality, supplies the needed action.",
+        "by": "REV-LanglandsParameterStacks~2"
       },
       "descriptionConvention": "Paraphrase of the defective assertion; no source passage is reproduced."
     },
@@ -5381,12 +5421,13 @@
       "searched": [
         "Scholze public papers page https://people.mpim-bonn.mpg.de/scholze/papers.html, opened 2026-10-07; no separate Geometrization correction linked.",
         "arXiv2102.13459 version history, opened 2026-10-07, latest v4 (accepted version, 27 November2024); author-hosted 356-page PDF read at the recorded hash.",
-        "Web searches for Geometrization errata, VIII.2.4 Frobenius sign, and VIII.5.15 correction on 2026-10-07; no correction located."
+        "Web searches for Geometrization errata, VIII.2.4 Frobenius sign, and VIII.5.15 correction on 2026-10-07; no correction located.",
+        "Independent review on 2026-10-09 re-read the recorded hashed public version and searched for a paper corrigendum; no separate correction to this finding was located. This is a search result, not a claim that no erratum exists."
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "VIII.1 uses σ⁻¹τσ=τ^q, so conjugation by geometric σ sends log τ to q⁻¹log τ. IX.7 explicitly sends geometric Frobenius to1. The p.282 positive exponent uses the reciprocal convention without saying so. For split GL₂, N=E₁₂ and φ₀(σ)=diag(q⁻¹,1) give Ad(φ₀(σ))N=q⁻¹N.",
-        "by": "REV-LanglandsParameterStacks"
+        "reason": "Independently compared VIII.1 p.279, VIII.2.4 p.282 and IX.7 p.334. The geometric Frobenius relation forces reciprocal monodromy scaling, agreeing with the GL_2 matrix test.",
+        "by": "REV-LanglandsParameterStacks~2"
       },
       "descriptionConvention": "Paraphrase of the defective assertion; no source passage is reproduced."
     },
@@ -5403,12 +5444,13 @@
       "searched": [
         "Scholze public papers page https://people.mpim-bonn.mpg.de/scholze/papers.html, opened 2026-10-07; no separate Geometrization correction linked.",
         "arXiv2102.13459 version history, opened 2026-10-07, latest v4 (accepted version, 27 November2024); author-hosted 356-page PDF read at the recorded hash.",
-        "Web searches for Geometrization errata, VIII.2.4 Frobenius sign, and VIII.5.15 correction on 2026-10-07; no correction located."
+        "Web searches for Geometrization errata, VIII.2.4 Frobenius sign, and VIII.5.15 correction on 2026-10-07; no correction located.",
+        "Independent review on 2026-10-09 re-read the recorded hashed public version and searched for a paper corrigendum; no separate correction to this finding was located. This is a search result, not a claim that no erratum exists."
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "The line bundle O(λ) is defined by a character T→G_m, belonging to X*(T), not a cocharacter G_m→T in X_*(T). The section explicitly writes G for the group being represented, so dual-side notation does not change its weight lattice.",
-        "by": "REV-LanglandsParameterStacks"
+        "reason": "Independently checked p.294 and p.304. The Borel line bundle is indexed by a character of the torus, not a cocharacter; the good-filtration statements use the corrected weight lattice.",
+        "by": "REV-LanglandsParameterStacks~2"
       },
       "descriptionConvention": "Paraphrase of the defective assertion; no source passage is reproduced."
     },
@@ -5425,12 +5467,13 @@
       "searched": [
         "Scholze public papers page https://people.mpim-bonn.mpg.de/scholze/papers.html, opened 2026-10-07; no separate Geometrization correction linked.",
         "arXiv2102.13459 version history, opened 2026-10-07, latest v4 (accepted version, 27 November2024); author-hosted 356-page PDF read at the recorded hash.",
-        "Web searches for Geometrization errata, VIII.2.4 Frobenius sign, and VIII.5.15 correction on 2026-10-07; no correction located."
+        "Web searches for Geometrization errata, VIII.2.4 Frobenius sign, and VIII.5.15 correction on 2026-10-07; no correction located.",
+        "Independent review on 2026-10-09 re-read the recorded hashed public version and searched for a paper corrigendum; no separate correction to this finding was located. This is a search result, not a claim that no erratum exists."
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "In SL₃ in characteristic different from2, diag(−1,−1,1) induces an inner involution and has a non-torus block centralizer. It is semisimple but not regular. A regular semisimple centralizer would be a maximal torus.",
-        "by": "REV-LanglandsParameterStacks"
+        "reason": "Independently checked the inner case on p.303. The SL_3 involution from diag(-1,-1,1) has a block centralizer, so finite prime-to-characteristic order gives semisimplicity without regularity.",
+        "by": "REV-LanglandsParameterStacks~2"
       },
       "descriptionConvention": "Paraphrase of the defective assertion; no source passage is reproduced."
     },
@@ -5447,12 +5490,13 @@
       "searched": [
         "Scholze public papers page https://people.mpim-bonn.mpg.de/scholze/papers.html, opened 2026-10-07; no separate Geometrization correction linked.",
         "arXiv2102.13459 version history, opened 2026-10-07, latest v4 (accepted version, 27 November2024); author-hosted 356-page PDF read at the recorded hash.",
-        "Web searches for Geometrization errata, VIII.2.4 Frobenius sign, and VIII.5.15 correction on 2026-10-07; no correction located."
+        "Web searches for Geometrization errata, VIII.2.4 Frobenius sign, and VIII.5.15 correction on 2026-10-07; no correction located.",
+        "Independent review on 2026-10-09 re-read the recorded hashed public version and searched for a paper corrigendum; no separate correction to this finding was located. This is a search result, not a claim that no erratum exists."
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "The preceding construction lifts an H-weight µ to a G-weight; the next tensor is ∇λ|H⊗∇λµ|H, used to control ∇λ|H⊗∇Hµ. Lifting λ again would not provide the required H-factor.",
-        "by": "REV-LanglandsParameterStacks"
+        "reason": "Independently checked the tensor argument immediately before Lemma VIII.5.16 on p.304. Its second lifted weight must restrict to the current H-weight mu, not repeat lambda.",
+        "by": "REV-LanglandsParameterStacks~2"
       },
       "descriptionConvention": "Paraphrase of the defective assertion; no source passage is reproduced."
     },
@@ -5461,7 +5505,8 @@
       "url": "https://archive.intlpress.com/site/pub/files/_fulltext/journals/acta/2019/0223/0001/ACTA-2019-0223-0001-a001.pdf",
       "published": "Acta Mathematica 223 (2019), open-access publisher PDF at the recorded source hash.",
       "searched": [
-        "Published Acta text pp.16–19 read directly; RT-PAPER-BOCKLE-HARRIS-KHARE-ETAL-19 independent verifier finding15(f,h) and fixes consulted. No separate publisher erratum is linked in the supplied record."
+        "Published Acta text pp.16–19 read directly; RT-PAPER-BOCKLE-HARRIS-KHARE-ETAL-19 independent verifier finding15(f,h) and fixes consulted. No separate publisher erratum is linked in the supplied record.",
+        "Independent review on 2026-10-09 re-read the recorded hashed public version and searched for a paper corrigendum; no separate correction to this finding was located. This is a search result, not a claim that no erratum exists."
       ],
       "id": "LanglandsParameterStacks/E9",
       "kind": "error",
@@ -5472,8 +5517,8 @@
       "affects": "the proof",
       "review": {
         "verdict": "confirmed",
-        "reason": "L is finite algebraic over K=Frac O[X] but generally has positive transcendence degree over K₀=Frac(O[X]^G). Lemma3.12 requires a finite Galois extension of the fraction field of its base, so it cannot be applied to L/K₀. For connected reductive G, K₀ is relatively algebraically closed in K, and the relative algebraic closure L₀ is the required finite Galois extension.",
-        "by": "REV-LanglandsParameterStacks"
+        "reason": "Independently checked the proof on pp.16–18 and the finite-Galois stabilizer criterion. The full function field may be transcendental over the invariant field; the finite relative algebraic closure is the required normalization field.",
+        "by": "REV-LanglandsParameterStacks~2"
       },
       "known": "Already identified in the atlas by confirmed RT-PAPER-BOCKLE-HARRIS-KHARE-ETAL-19/15(h,f); still present in the published Acta copy. No separate published correction was found in the checked records.",
       "descriptionConvention": "Paraphrase of the defective assertion; no source passage is reproduced."
@@ -5483,7 +5528,8 @@
       "url": "https://archive.intlpress.com/site/pub/files/_fulltext/journals/acta/2019/0223/0001/ACTA-2019-0223-0001-a001.pdf",
       "published": "Acta Mathematica 223 (2019), open-access publisher PDF at the recorded source hash.",
       "searched": [
-        "Published Acta text pp.16–19 read directly; RT-PAPER-BOCKLE-HARRIS-KHARE-ETAL-19 independent verifier finding15(f,h) and fixes consulted. No separate publisher erratum is linked in the supplied record."
+        "Published Acta text pp.16–19 read directly; RT-PAPER-BOCKLE-HARRIS-KHARE-ETAL-19 independent verifier finding15(f,h) and fixes consulted. No separate publisher erratum is linked in the supplied record.",
+        "Independent review on 2026-10-09 re-read the recorded hashed public version and searched for a paper corrigendum; no separate correction to this finding was located. This is a search result, not a claim that no erratum exists."
       ],
       "id": "LanglandsParameterStacks/E10",
       "kind": "misprint",
@@ -5494,8 +5540,8 @@
       "affects": "nothing",
       "review": {
         "verdict": "confirmed",
-        "reason": "The printed points belong to the wrong domains. The proof immediately supplies the intended points and the correct statement of Lemma3.11 already uses the quotient point.",
-        "by": "REV-LanglandsParameterStacks"
+        "reason": "Independently checked Proposition 3.13 on p.18. The action source is the product of the group identity with the transversal point, and the quotient point must be its image in the stated domain.",
+        "by": "REV-LanglandsParameterStacks~2"
       },
       "known": "Already identified in the atlas by confirmed RT-PAPER-BOCKLE-HARRIS-KHARE-ETAL-19/15(h,f); still present in the published Acta copy. No separate published correction was found in the checked records.",
       "descriptionConvention": "Paraphrase of the defective assertion; no source passage is reproduced."
@@ -5546,455 +5592,405 @@
     }
   ],
   "review": {
-    "status": "needs_changes",
-    "reviewer": "independent-review-REV-LanglandsParameterStacks",
-    "date": "2026-10-07",
-    "notes": "Independent review of all 89 nodes, 90 literal excerpts from six hashed public sources, 29 pinned baseline statements, target-level closure, supplier statements, accepted paper routes, APIs/tests, planets and suggested Lean. Clear mathematics, baseline and source corrections applied in place; ten source findings confirmed. The Lean algebraic prototypes elaborate with only warnings for admitted proofs at the pinned Mathlib; missing enhanced signatures and Tau Ceti object checks are disclosed. Not accepted: the reader remains inconsistent with the corrections, primary ES2/ES3 Chapter-X ownership is unresolved (G5), and accepted GIT/IHG routing and residual generic anchor/API ownership require coordinated alignment (G6). Existing honest foundation/source gaps G1–G4 do not independently justify rejection.",
+    "status": "accepted",
+    "reviewer": "independent-review-REV-LanglandsParameterStacks~2",
+    "date": "2026-10-09",
+    "notes": "Independent review by Codex, session codex-BiS4GG, of all 79 retained nodes, 140 API items, 90 tests, 31 planets, 31 pinned declaration statements, seven re-fetched and hash-matched public sources, ten delegations and ten source findings. Corrected mixed and ambiguous locators, replaced boilerplate source matches with specific paraphrases, added the direct derived-cocycle-colimit prerequisite to the universal-homeomorphism proof, aligned two highest-weight ownership sentences and corrected eight copied delegation reasons. Reader and suggested inventory synchronized. The prior local ES/IHG duplication and reader blockers are resolved. Accepted as a complete target-level planning pass with eight planned, unclosed stages; G1–G4 and G6, supplier extensions and omitted enhanced Lean signatures remain explicit. No implementation or external atlas-edge change is certified. Validation and Lean elaboration are recorded in the independent report.",
     "checked": [
       {
         "nodeId": "LanglandsParameterStacks:LP0/functoriality-of-cocycles",
         "verdict": "verified",
-        "note": "Crossed cocycle and L-group section/gauge formulas agree; the C₂ action by negation test distinguishes cocycles from homomorphisms."
+        "note": "The L-group section formulation gives the crossed multiplication and twisted gauge formulas; restriction and equivariant coefficient transport follow from them."
       },
       {
         "nodeId": "LanglandsParameterStacks:LP0/condensed-cocycles-and-L-parameters",
-        "verdict": "corrected",
-        "note": "The condensed coefficient tensor and finite-type continuous sections agree with VIII.1; the Lean continuous-group shadow is explicitly limited by G3. Added the missing user-facing API items and matching signature inventory."
+        "verdict": "verified",
+        "note": "The coefficient object is relatively discrete condensed, and parameters are continuous sections over the Weil group with the prescribed finite-quotient projection."
       },
       {
         "nodeId": "LanglandsParameterStacks:LP0/finite-wild-ramification",
         "verdict": "verified",
-        "note": "Finite wild ramification means triviality on a cofinal open normal wild subgroup, not triviality on all inertia."
+        "note": "The filtered union is indexed by open Weil-normal wild kernels; it bounds wild ramification without requiring a finite image of the whole Weil group."
       },
       {
         "nodeId": "LanglandsParameterStacks:LP0/discretization-and-unique-extension",
-        "verdict": "corrected",
-        "note": "VIII.1 dense-model extension checked; the supplier's arithmetic Frobenius and degree are now explicitly inverted to the LP geometric convention."
+        "verdict": "verified",
+        "note": "The proof extends a cocycle from the finitely generated dense model by controlling tame powers and finite wild image, with geometric Frobenius inverse to the arithmetic generator."
       },
       {
         "nodeId": "LanglandsParameterStacks:LP0/change-of-discretization",
         "verdict": "verified",
-        "note": "Dense-model choices give canonical comparison only after Z_l base change; the integral Z[1/p] framed model is not declared canonical."
+        "note": "Corollary 4.2 identifies the chosen model after Z_l base change through its universal continuous cocycle; it does not identify every framed model over Z[1/p]."
       },
       {
         "nodeId": "LanglandsParameterStacks:LP0/wild-inertial-parameter",
-        "verdict": "corrected",
-        "note": "KSS1.20 scope restored: quasisplit classical groups, odd residual characteristic, complex coefficients. Trivial wild means trivial dual component with prescribed Weil projection."
+        "verdict": "verified",
+        "note": "The wild-parameter definition is for admissible extending complex parameters of quasisplit classical groups in odd residue characteristic; the wild LLC itself is conjectural."
       },
       {
         "nodeId": "LanglandsParameterStacks:LP0/twisted-wild-centralizer",
-        "verdict": "corrected",
-        "note": "The centralizer is twisted inside the L-group and only splits after an actual extending section; trivial-wild tests now retain the projection."
+        "verdict": "verified",
+        "note": "The centralizer fixes the wild L-group image, so the dual-group action is twisted; an extending section supplies the subsequent Weil action."
       },
       {
         "nodeId": "LanglandsParameterStacks:LP0/wild-enhancement-group",
-        "verdict": "corrected",
-        "note": "The enhancement is a centre quotient by the invariant dual centre, distinct from the component-group representation; the trivial-wild test is corrected."
+        "verdict": "verified",
+        "note": "Equation (1.1) uses the centre of the wild centralizer modulo the invariant dual centre; this is distinct from the component group used for enhancement representations."
       },
       {
         "nodeId": "LanglandsParameterStacks:LP0/extended-wild-parameters",
-        "verdict": "corrected",
-        "note": "KSS1.21 scope restored; restriction of an admissible enhanced parameter is existential, and need not remain irreducible or define a bijection."
+        "verdict": "verified",
+        "note": "The extended wild datum restricts an admissible enhanced parameter and its representation to the wild centralizer; irreducibility need not survive restriction."
       },
       {
         "nodeId": "LanglandsParameterStacks:LP1/finite-presentation-over-Z-invert-p",
-        "verdict": "verified",
-        "note": "Finite equations represent the chosen cocycle model over Z[1/p]; Z_l schemes are base changes of that model."
+        "verdict": "corrected",
+        "note": "The selected dense Weil model has finitely many generators and relations, giving finite-type cocycle equations over Z[1/p] and their coefficient base changes. Corrected or disambiguated the source locator."
       },
       {
         "nodeId": "LanglandsParameterStacks:LP1/decomposition-by-wild-kernel",
         "verdict": "verified",
-        "note": "Open wild kernels give clopen finite-type pieces and filtered unions; not all pieces or their union are silently affine/quasi-compact."
+        "note": "The proof separates prime-to-l finite wild representations into open-and-closed pieces and obtains the parameter scheme as their filtered union."
       },
       {
         "nodeId": "LanglandsParameterStacks:LP1/weil-cohomological-dimension-and-euler-characteristic",
-        "verdict": "corrected",
-        "note": "Derived continuous Weil cochains have perfect amplitude [0,2] and Euler characteristic zero; the missing enhanced complex/presentability prerequisite and request are added."
+        "verdict": "verified",
+        "note": "The dimension calculation and continuous duality use perfect Weil cochains of amplitude [0,2] with Euler characteristic zero; abstract group cohomology alone is insufficient."
       },
       {
         "nodeId": "LanglandsParameterStacks:LP1/dimension-bound-lemma",
         "verdict": "verified",
-        "note": "The dimension lemma's finite unipotent classes and fixed-group reductivity come from an independent structural supplier, not later LP3."
+        "note": "The dimension bound stratifies by finitely many unipotent conjugacy classes and balances the orbit dimension against the transporter dimension in a group with reductive identity."
       },
       {
         "nodeId": "LanglandsParameterStacks:LP1/representability-flatness-and-lci",
-        "verdict": "verified",
-        "note": "VIII.1.3 flat lci relative dimension dim H and absolute dimension dim H+1 are distinct; the quotient has relative virtual dimension zero."
+        "verdict": "corrected",
+        "note": "The cocycle equations and fibre dimension bound prove flatness and the local-complete-intersection property, with relative dimension dim H over the coefficient base. Corrected or disambiguated the source locator."
       },
       {
         "nodeId": "LanglandsParameterStacks:LP1/independent-source-and-dimension-normalisation",
-        "verdict": "verified",
-        "note": "DHKM4.1's arithmetic generator is inverse to LP's geometric generator; Gilbert Moss attribution corrected in the source record."
+        "verdict": "corrected",
+        "note": "The independent integral model uses arithmetic Frobenius and an absolute dimension including the base; inversion of Frobenius and subtraction of base dimension reconcile the conventions. Corrected or disambiguated the source locator."
       },
       {
         "nodeId": "LanglandsParameterStacks:LP1/derived-parameter-stack",
         "verdict": "corrected",
-        "note": "Animated framed parameters are distinct from their derived quotient; E5 animation and SF.1 interfaces are explicit extensions under G3."
+        "note": "The animated cocycle functor is the framed derived mapping problem, followed by the H-quotient; the tangent calculation does not replace this construction. Corrected or disambiguated the source locator."
       },
       {
         "nodeId": "LanglandsParameterStacks:LP1/derived-comparison-with-the-classical-scheme",
         "verdict": "corrected",
-        "note": "The revised Zhu source is Proposition3.7, not Theorem3.7; classical equality uses the cochain/dimension theorem, not just a point bijection."
+        "note": "The derived cocycle problem is classical by the cochain and dimension calculation, rather than merely by agreement of geometric points. Corrected or disambiguated the source locator."
       },
       {
         "nodeId": "LanglandsParameterStacks:LP1/local-tate-duality",
         "verdict": "verified",
-        "note": "Continuous local Tate duality has shift 2 and Tate-twisted dual coefficients; ordinary abstract group cohomology alone is insufficient."
+        "note": "Continuous Weil duality identifies the dual cochain complex with the Tate-twisted dual coefficients shifted by two; the source also gives the direct discretization route."
       },
       {
         "nodeId": "LanglandsParameterStacks:LP1/cotangent-complex-and-deformation-theory",
         "verdict": "verified",
-        "note": "The mapping-stack tangent is RΓ(ad φ)[1]; duality gives RΓ(ad φ dual(1))[1] for cotangent without an assumed Lie self-duality."
+        "note": "The tangent complex is Weil cochains on the adjoint module shifted by one, and continuous duality gives the displayed cotangent complex with its Tate twist."
       },
       {
         "nodeId": "LanglandsParameterStacks:LP1/weil-deligne-parameters",
-        "verdict": "corrected",
-        "note": "The geometric degree convention forces q^{−deg} monodromy scaling; a GL₂ q=3 computation is added and source E5 records the printed reciprocal convention. Added the missing user-facing API items and matching signature inventory."
+        "verdict": "verified",
+        "note": "The characteristic-zero Weil–Deligne datum separates finite-inertia parameters from nilpotent monodromy; geometric degree requires the reciprocal q-scaling recorded in E5."
       },
       {
         "nodeId": "LanglandsParameterStacks:LP2:integral-invariants/weil-deligne-and-the-monodromy-map",
         "verdict": "corrected",
-        "note": "Zhu's logarithm/exponential comparison is characteristic zero; explicitly convert its arithmetic Frobenius and keep the chosen tame coordinate."
+        "note": "The characteristic-zero comparison uses tame logarithm and exponential to pass between continuous parameters and Weil–Deligne pairs; its choices and reciprocal Frobenius convention must be retained. Corrected or disambiguated the source locator."
       },
       {
         "nodeId": "LanglandsParameterStacks:LP1/singularities-and-singular-support",
-        "verdict": "verified",
-        "note": "Singular fibres use the dual adjoint Lie module and H⁰; neither Lie self-duality nor equality with the nilpotent cone is silently assumed."
+        "verdict": "corrected",
+        "note": "The singular-support construction uses the full cotangent complex and gives the parameter obstruction cone in the dual adjoint Lie space, without identifying Lie and dual Lie integrally. Corrected or disambiguated the source locator."
       },
       {
         "nodeId": "LanglandsParameterStacks:LP1/hochshild-action-and-support",
-        "verdict": "verified",
-        "note": "HH² receives the natural Ext¹ cotangent map needed for singular support; source E4 rejects the false general equality. The CI/support enhancement remains an explicit extension."
+        "verdict": "corrected",
+        "note": "Cotangent extension classes act through Hochschild cohomology, while the syntomic support theorems give finite generation and the perfectness criterion; E4 replaces the erroneous equality by a natural map. Corrected or disambiguated the source locator."
       },
       {
         "nodeId": "LanglandsParameterStacks:LP1/banal-case-and-the-nilpotent-cone",
         "verdict": "verified",
-        "note": "Banality uses homogeneous invariant degrees and the residue degree of the outer-action extension; the conclusion is only nullcone inclusion."
+        "note": "The banal root-degree condition bounds the obstruction space by the nilpotent cone, with separate positive-characteristic and characteristic-zero arguments; it is an inclusion, not equality."
       },
       {
         "nodeId": "LanglandsParameterStacks:LP2:excursion-presentation/coarse-quotient",
         "verdict": "corrected",
-        "note": "Use scheme coaction invariants, not invariants under H(base) alone; Lean now uses the two-AlgHom equalizer and the G_m/F₂ test detects the old definition. Accepted GIT routes need alignment under G6. Added the missing user-facing API items and matching signature inventory."
+        "note": "The invariant affine quotient has geometric points classified by closed H-orbits without a good-prime restriction; the coefficient-base-change theorem has its own separate hypotheses. Corrected or disambiguated the source locator."
       },
       {
         "nodeId": "LanglandsParameterStacks:LP2:excursion-presentation/quotients-over-fields-and-DVRs",
         "verdict": "verified",
-        "note": "BHKT3.10 normality/finite generation/closed-orbit and flat base-change interfaces checked; arbitrary nonflat invariant base change is not asserted. General GIT is not assigned anew to RG2.6."
+        "note": "Field geometric invariant theory gives quotient fibres and closed orbits, whereas the excellent-DVR theorem assumes flat integral input and only asserts general flat algebra base change."
       },
       {
         "nodeId": "LanglandsParameterStacks:LP2:excursion-presentation/complete-reducibility",
         "verdict": "verified",
-        "note": "G-complete reducibility, strong reductivity and irreducibility are distinct positive-characteristic notions; the accepted field-level GIT routes, not a new RG2.6 owner, supply them."
+        "note": "Complete reducibility is defined through containing parabolics and their Levis; irreducibility and the strong variants impose different conditions on subgroups and tuples."
       },
       {
         "nodeId": "LanglandsParameterStacks:LP2:excursion-presentation/closed-orbit-criterion",
         "verdict": "verified",
-        "note": "BHKT3.4/3.6/3.7 tuple closedness, cocharacter limits and minimal-parabolic Levi arguments retain all-characteristic hypotheses; no false reductive-Zariski-image replacement."
+        "note": "Closed simultaneous conjugation orbits are characterized by complete reducibility in arbitrary characteristic, with the stabilizer statements carrying the additional irreducibility hypotheses."
       },
       {
         "nodeId": "LanglandsParameterStacks:LP2:semisimple-characters/semisimple-parameters-and-closed-orbits",
         "verdict": "verified",
-        "note": "Relative-H parabolic/Levi semisimplicity for H⋊Q agrees with VIII.3.1 and preserves the prescribed Γ→Q projection."
+        "note": "Semisimplicity uses relative parabolics and Levis in the L-group, and the prescribed projection is part of the parameter problem."
       },
       {
         "nodeId": "LanglandsParameterStacks:LP2:excursion-presentation/parameter-closed-orbits",
         "verdict": "verified",
-        "note": "Closed parameter orbits and their semisimple classes hold at every coefficient prime independently of the good-π₁ integral theorem."
+        "note": "Hilbert–Mumford–Kempf and the cocharacter centralizer calculation identify closed parameter orbits with relative complete reducibility; no assumption on the order of Q is imposed."
       },
       {
         "nodeId": "LanglandsParameterStacks:LP2:excursion-presentation/free-cocycle-index",
         "verdict": "corrected",
-        "note": "The free-cocycle index has commuting word maps in the right direction; rank-zero initial object and finite coproducts provide siftedness. Added the missing user-facing API items and matching signature inventory."
+        "note": "The index consists of finite free groups mapping to the chosen Weil model, including rank zero; free-group words supply its morphisms and sifted-colimit presentation. Corrected or disambiguated the source locator."
       },
       {
         "nodeId": "LanglandsParameterStacks:LP2:excursion-presentation/excursion-algebra-and-universal-homeomorphism",
         "verdict": "verified",
-        "note": "The excursion algebra is the colimit of free-cocycle invariant rings; a supplied CommRingCat diagram in Lean is an honest algebraic prototype."
+        "note": "The excursion algebra is the ordinary ring colimit of invariant coordinate rings over free-group presentations, with its canonical comparison to cocycle invariants."
       },
       {
         "nodeId": "LanglandsParameterStacks:LP2:excursion-presentation/universal-homeomorphism",
-        "verdict": "verified",
-        "note": "Power lifting and elementwise nil kernel after every base change give the universal homeomorphism; nilpotence of the whole ideal is not required."
+        "verdict": "corrected",
+        "note": "Power lifting together with the underlying derived cocycle colimit gives a universal homeomorphism; after inverting l, exactness of invariants gives the algebra isomorphism. Added the direct underlying cocycle-colimit prerequisite used by the power-lifting proof. Corrected or disambiguated the source locator."
       },
       {
         "nodeId": "LanglandsParameterStacks:LP2:excursion-presentation/universal-property-of-the-excursion-algebra",
         "verdict": "verified",
-        "note": "The compatible Θ_n relations include finite reindexing and multiplication; unit/inverse relations follow from words and the universal property."
+        "note": "Reindexing and ordered multiplication characterize algebra maps from the excursion colimit; empty products and the relations recover units, inverses and general word substitutions."
       },
       {
         "nodeId": "LanglandsParameterStacks:LP2:integral-invariants/transition-and-continuity",
         "verdict": "verified",
-        "note": "Choice independence and condensed continuity are stated for the torsion-free excursion quotient; full integral choice independence remains the source-open G2."
+        "note": "Flat coordinate-ring change and continuous extension give the torsion-free discretization comparison and condensed excursion evaluation; full torsion-sensitive choice independence remains open."
       },
       {
         "nodeId": "LanglandsParameterStacks:LP2:excursion-presentation/categorical-hecke-datum",
-        "verdict": "corrected",
-        "note": "The generic Hecke datum is now coherent and exact in a stable category, whose excursion target is π₀End(id); ordinary prototypes do not fabricate the enhancement."
+        "verdict": "verified",
+        "note": "The input is a coherent family of exact monoidal functors with Weil actions on a stable category; its scalar target is the homotopy ring pi_0 End(id), not an ordinary categorical centre alone."
       },
       {
         "nodeId": "LanglandsParameterStacks:LP2:excursion-presentation/excursion-datum",
-        "verdict": "corrected",
-        "note": "The excursion datum supplies invariant vector/form and a group tuple; its operator is a coherent natural endomorphism and its stable class lies in π₀End(id)."
+        "verdict": "verified",
+        "note": "Finite-projective algebraic representations with diagonal invariant vectors and covectors supply the matrix coefficients used to define excursion operators."
       },
       {
         "nodeId": "LanglandsParameterStacks:LP2:excursion-presentation/invariant-function-and-independence",
         "verdict": "verified",
-        "note": "Finite-projective regular matrix coefficients and commutativity of the finite-set square give presentation independence; source E3 rejects a false cartesian-square claim."
+        "note": "Regular-function matrix coefficients generate the invariant functions, and representation functoriality makes the operator independent of the chosen realization."
       },
       {
         "nodeId": "LanglandsParameterStacks:LP2:excursion-presentation/map-to-a-bernstein-center",
         "verdict": "corrected",
-        "note": "The algebra map now targets π₀End(id_C) for coherent stable Hecke data; pinned ordinary CatCenter is only its ordinary shadow."
+        "note": "The abstract excursion construction produces a scalar algebra homomorphism and its relations; a Bernstein-centre map is obtained only after the ES0 representation-category specialization. Corrected or disambiguated the source locator."
       },
       {
         "nodeId": "LanglandsParameterStacks:LP2:semisimple-characters/reductive-pseudocharacters",
-        "verdict": "corrected",
-        "note": "Added the existing IHG.0 reductive-pseudocharacter import and prescribed Γ→Q adapter convention; its residual generic API/reader needs G6 alignment."
-      },
-      {
-        "nodeId": "LanglandsParameterStacks:LP2:semisimple-characters/characteristic-zero-anchor",
-        "verdict": "unverifiable",
-        "note": "The characteristic-zero maximal reductive-image anchor mathematics is checked against Lafforgue11.7/11.10, but its generic proof ownership conflicts with the existing IHG owner (G6)."
-      },
-      {
-        "nodeId": "LanglandsParameterStacks:LP2:semisimple-characters/positive-characteristic-anchor",
-        "verdict": "unverifiable",
-        "note": "BHKT4.5 first maximises the dimension of a minimal containing parabolic, then minimises centralizer dimension and components; corrected the reversed direction. Generic anchor ownership still needs G6 alignment."
+        "verdict": "verified",
+        "note": "The general J-pseudocharacter uses connected-component invariants; imposing the Q-coordinate idempotents cuts out exactly the prescribed eta-fibre even when the characteristic divides |Q|."
       },
       {
         "nodeId": "LanglandsParameterStacks:LP2:semisimple-characters/proof-of-the-character-bijection",
-        "verdict": "corrected",
-        "note": "Recast the generic reconstruction step as an import of IHG.1/reductive-reconstruction for H⋊Q; component idempotents enforce the given projection and topological continuity remains separate."
+        "verdict": "verified",
+        "note": "All-characteristic generalized-reductive reconstruction supplies the algebraic homomorphism, and the component idempotents force its projection; LP only specializes the imported theorem."
       },
       {
         "nodeId": "LanglandsParameterStacks:LP2:semisimple-characters/characteristic-zero-continuity",
-        "verdict": "corrected",
-        "note": "Characteristic-zero continuity uses finite-valued coefficient extension and continuous invariant coordinates; existing IHG valued-continuity is imported only in its connected/profinite scope."
+        "verdict": "verified",
+        "note": "The finite-anchor coordinate argument proves valued continuity in characteristic zero; the local relatively discrete finite-Q coefficient statement needs the separately recorded G4 extension."
       },
       {
         "nodeId": "LanglandsParameterStacks:LP2:semisimple-characters/discrete-coefficient-continuity",
-        "verdict": "corrected",
-        "note": "Discrete characteristic-l continuity uses compactness of inertia and yields a finite image/open kernel; the IHG connected/profinite theorem is not silently extended to all finite-Q data."
+        "verdict": "verified",
+        "note": "Discrete-coefficient continuity follows by controlling finitely many invariant coordinates on inertia and then applying the finite-anchor reconstruction; Frobenius need not have finite image."
       },
       {
         "nodeId": "LanglandsParameterStacks:LP2:semisimple-characters/character-bijection",
-        "verdict": "corrected",
-        "note": "The all-prime local character bijection now imports IHG general reconstruction and proves the Weil/projection/continuity specialisation; universal homeomorphism is sufficient, with no good-π₁ assumption."
+        "verdict": "verified",
+        "note": "Characters of the excursion algebra classify semisimple continuous local parameters by algebraic reconstruction followed by the two coefficient-specific continuity arguments."
       },
       {
         "nodeId": "LanglandsParameterStacks:LP2:semisimple-characters/GL-trace-pseudocharacters",
-        "verdict": "corrected",
-        "note": "The trace identity includes fixed one-cycles and τ(1)=rank; it is explicitly the group-algebra adapter of existing IHG.0/pseudocharacter."
+        "verdict": "verified",
+        "note": "The GL trace relations are the signed permutation-cycle identity, including singleton cycles; LP adds the linear group-algebra adapter to the generic IHG trace carrier."
       },
       {
         "nodeId": "LanglandsParameterStacks:LP2:semisimple-characters/GL-trace-comparison",
-        "verdict": "corrected",
-        "note": "Characteristic-zero GL trace/excursion comparison imports IHG determinant-trace bijection and algebraically-closed reconstruction rather than creating a second general reconstruction owner."
+        "verdict": "verified",
+        "note": "The characteristic-zero trace comparison imports invariant trace generation and determinant/trace reconstruction; the prescribed component fibre is imposed only in the LP application."
       },
       {
         "nodeId": "LanglandsParameterStacks:LP2:semisimple-characters/schur-object-parameter",
-        "verdict": "corrected",
-        "note": "Schur parameters require the supplied identification π₀End(X)=L and the separate continuous datum; scalar ordinary endomorphisms are not the complete enhanced hypothesis."
+        "verdict": "verified",
+        "note": "Evaluation of excursion scalars on an object with pi_0 End(X)=L gives a character and hence a semisimple parameter; continuity and discrete-group variants remain separate."
       },
       {
         "nodeId": "LanglandsParameterStacks:LP3/good-filtration-t-structure",
         "verdict": "corrected",
-        "note": "The good-filtration t-structure has the source's ∇/Δ and D^{≤0} convention; highest-weight inputs now extend the already accepted integral-representation Part II."
+        "note": "The good-filtration t-structure on IndPerf is tested by dual-Weyl and Weyl objects and uses dominant characters; its truncations need not preserve Perf. Corrected the two remaining highest-weight ownership references. Corrected or disambiguated the source locator."
       },
       {
         "nodeId": "LanglandsParameterStacks:LP3/good-filtration-separatedness-and-OG",
-        "verdict": "corrected",
-        "note": "Separatedness is detected by all highest-weight test modules; the generic O(G) filtration is imported from the accepted representation owner."
+        "verdict": "verified",
+        "note": "The induced test modules detect vanishing in the good-filtration t-structure, proving separatedness; the general highest-weight facts remain imported inputs."
       },
       {
         "nodeId": "LanglandsParameterStacks:LP3/free-cocycle-good-filtration",
         "verdict": "corrected",
-        "note": "The twisted free coordinate algebra's good filtration follows from O(G) tensor stability; prime-to-l components provide the final full-G cohomological vanishing."
+        "note": "The regular representation has a good G-by-G filtration, so tensor stability gives the twisted free-cocycle filtration; passing to G-cohomology requires prime-to-l pi_0. Corrected or disambiguated the source locator."
       },
       {
         "nodeId": "LanglandsParameterStacks:LP3/induced-perfect-complexes",
-        "verdict": "verified",
-        "note": "Perf^ind is the stable retract-closed subcategory induced from BG; it is not all Perf by definition."
+        "verdict": "corrected",
+        "note": "The induced-perfect subcategory is generated by pullbacks from BG under finite cones and retracts, and is kept distinct from the whole quotient-stack Perf category. Corrected or disambiguated the source locator."
       },
       {
         "nodeId": "LanglandsParameterStacks:LP3/bar-criterion",
-        "verdict": "corrected",
-        "note": "The compact bar criterion is formed in IndPerf(BG); its Borel/Kempf and highest-weight inputs are imported from their single owner."
+        "verdict": "verified",
+        "note": "The augmented bar comparison detects induced perfect objects, and conservative restriction to a Borel gives the corresponding descent criterion."
       },
       {
         "nodeId": "LanglandsParameterStacks:LP3/equivariant-vector-bundles-and-Perf-ind",
-        "verdict": "corrected",
-        "note": "Connective algebra with finite coherent good-filtration dimension gives the tensor criterion; that finite-dimension input is explicitly requested."
+        "verdict": "verified",
+        "note": "Under the coordinate-algebra good-filtration and connectivity hypotheses, preservation of connective objects by tensoring characterizes induced perfectness; finite good-filtration dimension and separatedness prove the converse."
       },
       {
         "nodeId": "LanglandsParameterStacks:LP3/adjoint-unit-generation",
-        "verdict": "corrected",
-        "note": "The adjoint unit is induced perfect iff the good-π₁ torsion condition holds, with the source's finite component hypotheses."
+        "verdict": "verified",
+        "note": "The good torsion-fundamental-group condition, induced unit object and generation of conjugation-stack Perf are equivalent; central covers and Borel flags supply the nonformal implication."
       },
       {
         "nodeId": "LanglandsParameterStacks:LP3/twisted-free-generation",
-        "verdict": "corrected",
-        "note": "Twisted free generation uses the adjoint-unit criterion and has the same π₁/component prime restrictions, not merely smoothness."
+        "verdict": "verified",
+        "note": "The free-group case uses products and an equivariant retraction to obtain generation for twisted conjugation, under the good fundamental-group condition."
       },
       {
         "nodeId": "LanglandsParameterStacks:LP3/derived-unit-fibre",
-        "verdict": "corrected",
-        "note": "Expanded VIII.5.13's relative-bar/separated-IndCoh/bounded-t-amplitude and Borel-flag conservativity proof, and requested the general enhanced interfaces."
+        "verdict": "verified",
+        "note": "The derived unit-fibre argument uses the separated IndCoh quotient and bounded cohomological amplitude, reducing to Borel flags without identifying the ordinary and derived fibres."
       },
       {
         "nodeId": "LanglandsParameterStacks:LP3/surface-and-tame-relations",
         "verdict": "corrected",
-        "note": "Surface and tame relations are derived unit fibres; the tame proof uses BS(1,q), and wild-gerbe reduction belongs later rather than being assumed here."
+        "note": "Derived pullback of the unit-fibre construction handles the surface and tame relators; the tame case is the relation used in the final Weil generation proof. Corrected or disambiguated the source locator."
       },
       {
         "nodeId": "LanglandsParameterStacks:LP3/fixed-points-of-prime-to-l-group-actions",
-        "verdict": "corrected",
-        "note": "Corrected the component-order proof: ambient twisted coordinate algebra has good filtration; O(G/H′) has finite good-filtration dimension, not automatic good filtration as an arbitrary quotient."
+        "verdict": "verified",
+        "note": "After independently importing smooth fixed-group reductivity, the LP argument proves the prime-to-l component-group bound using finite good-filtration dimension."
       },
       {
         "nodeId": "LanglandsParameterStacks:LP3/cyclic-fixed-locus-resolution",
-        "verdict": "corrected",
-        "note": "The cyclic fixed-locus resolution uses exact Ind–Pro constructions and formal rth roots for r prime to l; no averaging over a noninvertible order."
+        "verdict": "verified",
+        "note": "For a cyclic prime-order action, equivariant formal roots and the fixed-locus resolution compare the ideal tensor with its fixed restriction in the indicated IndPro category."
       },
       {
         "nodeId": "LanglandsParameterStacks:LP3/donkin-subgroup-and-generation",
-        "verdict": "corrected",
-        "note": "Donkin restriction/induction for finite solvable prime-to-l P is distinct from good-π₁ generation; highest-weight imports no longer duplicate a new RG2.6 owner."
+        "verdict": "verified",
+        "note": "Solvable prime-to-l automorphisms give a Donkin subgroup by prime cyclic induction and the fixed-locus resolution; the theorem itself has no fundamental-group hypothesis."
       },
       {
         "nodeId": "LanglandsParameterStacks:LP3/fixed-induction-and-counit",
-        "verdict": "corrected",
-        "note": "Expanded the six-equivalence proof through separated bar detection, cyclic simply-connected generation and central-character summands; it no longer assumes the later good-kernel theorem."
+        "verdict": "verified",
+        "note": "The induction, counit and generation properties are proved together in the simply connected case via dominant-weight lifts and tensor filtrations, then transferred through central covers."
       },
       {
         "nodeId": "LanglandsParameterStacks:LP3/fixed-restriction-generation",
-        "verdict": "corrected",
-        "note": "Generation uses the established counit/good-kernel criterion, not a circular proof of its own prerequisite."
+        "verdict": "verified",
+        "note": "Restriction generates fixed-group representations after cones and retracts even when every representation is not an actual restricted quotient; this is the weaker property proved in the proposition."
       },
       {
         "nodeId": "LanglandsParameterStacks:LP3/bad-prime-fixed-counterexample",
-        "verdict": "corrected",
-        "note": "The characteristic-two swap example (SL₂×SL₂)/μ₂ has fixed PGL₂×μ₂ and obstructs generation; central coverings must retain nonsmooth central structure."
+        "verdict": "verified",
+        "note": "The characteristic-two quotient of SL_2 squared with swapping involution has the asserted fixed-centre obstruction; it tests the need for the fundamental-group restriction."
       },
       {
         "nodeId": "LanglandsParameterStacks:LP3/fixed-fundamental-group",
         "verdict": "verified",
-        "note": "Prime-to-l solvable fixed points preserve the good fundamental-group condition by the source's reductions/case calculations; component-order preservation is a separate theorem."
+        "note": "The root-theoretic fixed-group calculation preserves the prime-to-l torsion-fundamental-group property for solvable prime-to-l actions, including the exceptional cases in the proof."
       },
       {
         "nodeId": "LanglandsParameterStacks:LP3/mapping-approximation",
         "verdict": "corrected",
-        "note": "Map^Σ is left Kan extension from finite base sets equipped with Γ-torsors; total torsors can be infinite. It is category-valued, not an asserted representing stack."
+        "note": "Map^Sigma is defined by category-valued sifted left Kan extension from finite bases with torsors, not by assuming a representing derived stack or a finite total torsor. Corrected or disambiguated the source locator."
       },
       {
         "nodeId": "LanglandsParameterStacks:LP3/free-gerbe-comparison",
         "verdict": "verified",
-        "note": "Free-gerbe comparison is fully faithful with the induced image; essential surjectivity requires the source's π₁ hypothesis."
+        "note": "The free-gerbe comparison is fully faithful with image the induced subcategory; the good fundamental-group condition upgrades it to an equivalence."
       },
       {
         "nodeId": "LanglandsParameterStacks:LP3/wild-gerbe-elimination",
         "verdict": "verified",
-        "note": "Finite solvable prime-to-l wild gerbe elimination gives finitely many reductive fixed-group gerbes, and preserves component/π₁ conditions separately."
+        "note": "Eliminating a finite solvable prime-to-l normal subgroup gives an equivalence of the approximation categories and transports the reductive and fundamental-group conditions."
       },
       {
         "nodeId": "LanglandsParameterStacks:LP3/tame-case-and-the-wild-remainder",
         "verdict": "verified",
-        "note": "Wild reduction precedes the tame unit-fibre application; generation over the original Weil piece uses those reductions in order."
+        "note": "The concluding generation argument combines the tame relator with wild-gerbe elimination and the coordinate-algebra colimit under the good fundamental-group hypothesis."
       },
       {
         "nodeId": "LanglandsParameterStacks:LP3/separable-centralizers",
         "verdict": "verified",
-        "note": "BHKT3.8 separability/very-good hypotheses checked, with source E2 rejecting a semisimple-Lie assertion for arbitrary reductive groups."
+        "note": "The very-good hypotheses yield separability of centralizers via the cited reductive-pair results; they do not imply that the Lie algebra of every reductive group is semisimple."
       },
       {
         "nodeId": "LanglandsParameterStacks:LP3/quotient-etale-descent",
         "verdict": "corrected",
-        "note": "Repaired BHKT3.11's quotient normalisation by finite relative algebraic closure L₀ and the image Galois group; source E9 records the invalid direct appeal over the quotient field."
+        "note": "The quotient etaleness argument must normalize in the finite relative algebraic closure over the invariant fraction field, then apply the stabilizer criterion in the finite Galois extension. Corrected or disambiguated the source locator."
       },
       {
         "nodeId": "LanglandsParameterStacks:LP3/formal-etale-slice",
-        "verdict": "corrected",
-        "note": "BHKT3.13 requires scheme-theoretically trivial stabilizer; corrected action/quotient point conventions and recorded the published misprints as E10."
+        "verdict": "verified",
+        "note": "A transversal and the etale action map identify the quotient formal deformation functor when the residual orbit is closed and its scheme stabilizer is trivial; E10 fixes the source points."
       },
       {
         "nodeId": "LanglandsParameterStacks:LP3/integral-chevalley-restriction",
         "verdict": "corrected",
-        "note": "Integral group Chevalley restriction over Z uses highest-weight integral characters from the existing representation Part II; this is not bad-characteristic Lie restriction."
+        "note": "Integral restriction to the torus is injective by regular semisimple density and surjective by the triangular highest-weight character basis and stable integral lattices, without a good-prime restriction. Corrected the two remaining highest-weight ownership references."
       },
       {
         "nodeId": "LanglandsParameterStacks:LP2:excursion-presentation/free-derived-cocycle-colimit",
         "verdict": "verified",
-        "note": "The underlying animated free-coordinate algebra colimit theorem is all-prime and distinct from the equivariant/invariant theorem."
+        "note": "The underlying coordinate algebra commutes with the free-group derived colimit in animated algebras and hence in D(Z_l); this assertion precedes taking invariants."
       },
       {
         "nodeId": "LanglandsParameterStacks:LP2:integral-invariants/integral-invariant-theorem",
-        "verdict": "corrected",
-        "note": "The integral excursion/invariant isomorphism retains exactly l∤|π₁(H)_tors|, separate from rational equality and all-prime geometric equality."
+        "verdict": "verified",
+        "note": "Generation and free-cocycle good filtrations promote the underlying colimit to IndPerf(BH) and identify integral excursion invariants when l avoids torsion in pi_1(H)."
       },
       {
         "nodeId": "LanglandsParameterStacks:LP2:integral-invariants/cohomology-and-base-change",
-        "verdict": "corrected",
-        "note": "Higher rational H-cohomology vanishing and all-coefficient base change are parameter-specific good-filtration results, not a general exactness of reductive invariants."
+        "verdict": "verified",
+        "note": "The good-prime theorem gives vanishing of higher invariant cohomology and arbitrary coefficient base change for this parameter algebra; it is stronger than the general DVR quotient theorem."
       },
       {
         "nodeId": "LanglandsParameterStacks:LP2/three-way-separation",
         "verdict": "verified",
-        "note": "The three mathematical strengths—universal homeomorphism, rational isomorphism, good-prime integral isomorphism—are kept separate."
+        "note": "The coarse-point, rational-algebra and integral-algebra assertions have different hypotheses: only the last uses the torsion-fundamental-group restriction."
       },
       {
         "nodeId": "LanglandsParameterStacks:LP4/rep-action-on-perf",
-        "verdict": "corrected",
-        "note": "Universal torsors give the representation-bundle action at all primes; its existence does not assert generation. Added the missing user-facing API items and matching signature inventory."
+        "verdict": "verified",
+        "note": "Universal associated representation bundles give the Rep(H) action on parameter Perf before the generation comparison; this is distinct from the Chapter X action universal property."
       },
       {
         "nodeId": "LanglandsParameterStacks:LP4/generation-and-module-comparison",
-        "verdict": "corrected",
-        "note": "Representation-bundle generation uses the good-π₁ condition in characteristic l/integrally and has no such restriction in characteristic zero; inputs are imported from the single highest-weight owner."
+        "verdict": "verified",
+        "note": "The characteristic-zero generation statement holds at every prime, while the integral statement requires good pi_1; both concern actual Perf after the representation-generation proof."
       },
       {
         "nodeId": "LanglandsParameterStacks:LP4/module-comparison",
         "verdict": "verified",
-        "note": "The module comparison is inside IndPerf(BH), with Barr–Beck and compactness inputs; it is not merely an ordinary module equivalence."
-      },
-      {
-        "nodeId": "LanglandsParameterStacks:LP4/rational-all-colimits",
-        "verdict": "unverifiable",
-        "note": "X.1.2's rational arbitrary-anima/all-colimit mathematics checked, including pro-reductive finite-dimensional descent; LP4 ownership contradicts the primary ES2 allocation (G5)."
-      },
-      {
-        "nodeId": "LanglandsParameterStacks:LP4/colimit-theorem-and-monoidal-universal-property",
-        "verdict": "unverifiable",
-        "note": "X.1.1's characteristic-zero coherent monoidal universal property checked; the unsupported 'more specific resolution' claim is removed, but generic LP4 ownership remains unaccepted (G5)."
-      },
-      {
-        "nodeId": "LanglandsParameterStacks:LP4/integral-universal-property",
-        "verdict": "unverifiable",
-        "note": "X.3.1's integral universal property is for Map^Σ, not actual Perf of every integral mapping stack; primary ES3 ownership needs coordinated migration (G5)."
-      },
-      {
-        "nodeId": "LanglandsParameterStacks:LP4/approximation-all-colimits",
-        "verdict": "unverifiable",
-        "note": "X.3.2 proves all-colimit preservation for the approximation, with finite bases bearing Q-torsors; primary ES3 ownership remains unresolved in this packet (G5)."
-      },
-      {
-        "nodeId": "LanglandsParameterStacks:LP4/integral-free-group-comparison",
-        "verdict": "unverifiable",
-        "note": "X.3.3 gives full faithfulness for free groups before generation; good-prime essential surjectivity is separate. Generic ES3/LP4 routing remains G5."
-      },
-      {
-        "nodeId": "LanglandsParameterStacks:LP4/sifted-approximation",
-        "verdict": "unverifiable",
-        "note": "X.3.4 identifies sifted animated/equivariant approximation with the stated module construction, not just ordinary-ring colimits; generic ownership remains G5."
-      },
-      {
-        "nodeId": "LanglandsParameterStacks:LP4/weil-approximation-equivalence",
-        "verdict": "unverifiable",
-        "note": "The Weil approximation is an equivalence only under the good-π₁ hypothesis; Bun_G/W→W_E/P is the ES application. Coordinated Chapter-X migration remains G5."
-      },
-      {
-        "nodeId": "LanglandsParameterStacks:LP4/compactly-supported-actions",
-        "verdict": "unverifiable",
-        "note": "Objectwise compact support on the clopen union agrees with X.0.1–X.0.2; no uniform wild bound or universal non-quasi-compactness. Generic action ownership remains G5."
+        "note": "Generation makes the affine adjunction conservative, and monadicity identifies IndPerf of parameters with modules over the cocycle algebra in IndPerf(BH)."
       }
     ]
   },
@@ -6007,10 +6003,10 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "X.1.2 and complete proof, pp.342–343",
-          "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
+          "match": "The rational parameter mapping-stack Perf category commutes with all colimits of the group input; the proof reduces through the free-group and Tannakian presentation."
         }
       ],
-      "reason": "Accepted BHKT ownership fix and accepted IHG revision 2: the general finite-anchor construction is imported from IHG.1, including its disconnected-group component-count criterion."
+      "reason": "The primary confirmed RT-AREA-geomlanglands/6 decision assigns this Chapter X categorical action target to ES2. LP4 keeps the universal representation bundles and VIII.5.1 generation/module comparison, and imports this existing owner. The rational parameter mapping-stack Perf category commutes with all colimits of the group input; the proof reduces through the free-group and Tannakian presentation."
     },
     {
       "formerId": "LanglandsParameterStacks:LP4/colimit-theorem-and-monoidal-universal-property",
@@ -6020,10 +6016,10 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "X.1.1 and proof, pp.340–342",
-          "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
+          "match": "Exact monoidal functors from rational mapping-stack Perf are characterized by a representation functor with a coherent group action, relative to the fixed Q-projection."
         }
       ],
-      "reason": "Accepted BHKT ownership fix and accepted IHG revision 2: the general finite-anchor construction is imported from IHG.1, including its disconnected-group component-count criterion."
+      "reason": "The primary confirmed RT-AREA-geomlanglands/6 decision assigns this Chapter X categorical action target to ES2. LP4 keeps the universal representation bundles and VIII.5.1 generation/module comparison, and imports this existing owner. Exact monoidal functors from rational mapping-stack Perf are characterized by a representation functor with a coherent group action, relative to the fixed Q-projection."
     },
     {
       "formerId": "LanglandsParameterStacks:LP4/integral-universal-property",
@@ -6033,10 +6029,10 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "X.3.1 and proof, pp.348–349",
-          "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
+          "match": "The integral universal action is formulated for the category-valued Map^Sigma approximation over discrete valuation coefficients, before comparison with actual Perf."
         }
       ],
-      "reason": "Accepted BHKT ownership fix and accepted IHG revision 2: the general finite-anchor construction is imported from IHG.1, including its disconnected-group component-count criterion."
+      "reason": "The primary confirmed RT-AREA-geomlanglands/6 decision assigns this Chapter X categorical action target to ES3. LP4 keeps the universal representation bundles and VIII.5.1 generation/module comparison, and imports this existing owner. The integral universal action is formulated for the category-valued Map^Sigma approximation over discrete valuation coefficients, before comparison with actual Perf."
     },
     {
       "formerId": "LanglandsParameterStacks:LP4/approximation-all-colimits",
@@ -6046,10 +6042,10 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "X.3.2 and proof, p.349",
-          "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
+          "match": "The category-valued integral approximation commutes with all colimits; this assertion is not an unconditional colimit theorem for actual mapping-stack Perf."
         }
       ],
-      "reason": "Accepted BHKT ownership fix and accepted IHG revision 2: the general finite-anchor construction is imported from IHG.1, including its disconnected-group component-count criterion."
+      "reason": "The primary confirmed RT-AREA-geomlanglands/6 decision assigns this Chapter X categorical action target to ES3. LP4 keeps the universal representation bundles and VIII.5.1 generation/module comparison, and imports this existing owner. The category-valued integral approximation commutes with all colimits; this assertion is not an unconditional colimit theorem for actual mapping-stack Perf."
     },
     {
       "formerId": "LanglandsParameterStacks:LP4/integral-free-group-comparison",
@@ -6059,10 +6055,10 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "X.3.3 and proof, pp.349–350",
-          "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
+          "match": "For a finite free group, the integral comparison is fully faithful and has image the thick subcategory generated by pulled-back representations."
         }
       ],
-      "reason": "Accepted BHKT ownership fix and accepted IHG revision 2: the general finite-anchor construction is imported from IHG.1, including its disconnected-group component-count criterion."
+      "reason": "The primary confirmed RT-AREA-geomlanglands/6 decision assigns this Chapter X categorical action target to ES3. LP4 keeps the universal representation bundles and VIII.5.1 generation/module comparison, and imports this existing owner. For a finite free group, the integral comparison is fully faithful and has image the thick subcategory generated by pulled-back representations."
     },
     {
       "formerId": "LanglandsParameterStacks:LP4/sifted-approximation",
@@ -6072,10 +6068,10 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "X.3.4 and proof, p.350",
-          "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
+          "match": "The discrete-group presentation expresses the approximation as a sifted colimit of free-group categories, with the animated-coefficient qualification in the source."
         }
       ],
-      "reason": "Accepted BHKT ownership fix and accepted IHG revision 2: the general finite-anchor construction is imported from IHG.1, including its disconnected-group component-count criterion."
+      "reason": "The primary confirmed RT-AREA-geomlanglands/6 decision assigns this Chapter X categorical action target to ES3. LP4 keeps the universal representation bundles and VIII.5.1 generation/module comparison, and imports this existing owner. The discrete-group presentation expresses the approximation as a sifted colimit of free-group categories, with the animated-coefficient qualification in the source."
     },
     {
       "formerId": "LanglandsParameterStacks:LP4/weil-approximation-equivalence",
@@ -6085,10 +6081,10 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "X.0.2 p.340 and final combination p.350",
-          "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
+          "match": "The local Weil comparison follows from generation: integral coefficients need good pi_1, while characteristic-zero coefficients do not; the current ES3 tame scope needs the recorded finite-wild extension."
         }
       ],
-      "reason": "Accepted BHKT ownership fix and accepted IHG revision 2: the general finite-anchor construction is imported from IHG.1, including its disconnected-group component-count criterion.",
+      "reason": "The primary confirmed RT-AREA-geomlanglands/6 decision assigns this Chapter X categorical action target to ES3. LP4 keeps the universal representation bundles and VIII.5.1 generation/module comparison, and imports this existing owner. The local Weil comparison follows from generation: integral coefficients need good pi_1, while characteristic-zero coefficients do not; the current ES3 tame scope needs the recorded finite-wild extension.",
       "requiredExtension": "The existing ES3/discrete-integral-spectral-action contract explicitly says tame W. Extend its X.0.2 formulation to every finite-wild discretization and record the all-prime characteristic-zero coefficient version, using LP3 wild-gerbe elimination and LP4 generation. The former LP target is delegated to this owner, but its broader finite-wild contract is a requested extension, not claimed already supplied."
     },
     {
@@ -6099,10 +6095,10 @@
         {
           "sourceId": "FS-geometrization",
           "locator": "X introduction, pp.339–340",
-          "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
+          "match": "Compact support asks for a wild kernel separately for each object, and the action theorem uses that continuity condition; it does not impose one common kernel on the whole category."
         }
       ],
-      "reason": "Accepted BHKT ownership fix and accepted IHG revision 2: the general finite-anchor construction is imported from IHG.1, including its disconnected-group component-count criterion."
+      "reason": "The primary confirmed RT-AREA-geomlanglands/6 decision assigns this Chapter X categorical action target to ES2. LP4 keeps the universal representation bundles and VIII.5.1 generation/module comparison, and imports this existing owner. Compact support asks for a wild kernel separately for each object, and the action theorem uses that continuity condition; it does not impose one common kernel on the whole category."
     },
     {
       "formerId": "LanglandsParameterStacks:LP2:semisimple-characters/characteristic-zero-anchor",
@@ -6112,7 +6108,7 @@
         {
           "sourceId": "Lafforgue-shtukas",
           "locator": "Proposition11.7, Lemmas11.9–11.10, pp.143–147",
-          "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
+          "match": "The characteristic-zero proof reconstructs from a finite tuple chosen by Zariski-closure dimension and centralizer dimension and component count; its generic anchor is supplied by IHG."
         }
       ],
       "reason": "Accepted BHKT ownership fix and accepted IHG revision 2: the general finite-anchor construction is imported from IHG.1, including its disconnected-group component-count criterion. The imported generalized finite-anchor algorithm replaces the old characteristic-specific local formulation; no second algorithm is needed.",
@@ -6129,7 +6125,7 @@
         {
           "sourceId": "BHKT-local-systems",
           "locator": "Theorem4.5 and proof, pp.20–23",
-          "match": "The passage states the object or result; the proof steps specify the reduction and conventions."
+          "match": "The arbitrary-characteristic proof chooses a finite tuple using maximal minimal-parabolic dimension and minimal centralizer size; the disconnected refinement belongs to IHG."
         }
       ],
       "reason": "Accepted BHKT ownership fix and accepted IHG revision 2: the general finite-anchor construction is imported from IHG.1, including its disconnected-group component-count criterion. The imported generalized finite-anchor algorithm replaces the old characteristic-specific local formulation; no second algorithm is needed.",
@@ -6190,5 +6186,73 @@
       "G4 algebraic finite-Q reconstruction: supplied by accepted IHG revision 2 and Quast Theorem 3.7."
     ],
     "externalChanges": "The restructure proposals describe atlas/supplier changes outside this issue’s deliverables. G6 records the unperformed external prerequisite reconciliation; G4 records only the remaining coefficient-continuity extension."
-  }
+  },
+  "reviewReadings": [
+    {
+      "by": "REV-LanglandsParameterStacks~2",
+      "date": "2026-10-09",
+      "sourceId": "FS-geometrization",
+      "sha256": "9ab9efbd0df251bfa3b610d1d1d88a8dfb1bdf7c397bd04f4c277280d98ae905",
+      "sections": [
+        "VIII introduction, VIII.1–VIII.4, pp.277–293, statements and proofs",
+        "VIII.5, pp.293–315, including fixed groups, Donkin theorem, the cyclic fixed-locus resolution, fundamental groups, gerbes and wild elimination; statements and proofs",
+        "X introduction and X.1, pp.339–343; X.3, pp.348–350, abstract rational and integral universal properties and proofs. X.2 elliptic applications are outside this packet.",
+        "IX.7.1, p.334, geometric degree normalization."
+      ]
+    },
+    {
+      "by": "REV-LanglandsParameterStacks~2",
+      "date": "2026-10-09",
+      "sourceId": "Lafforgue-shtukas",
+      "sha256": "b37715f9c42862b7560d8b71da07924376e3cbbbe862ef9e89a57d8c91a64295",
+      "sections": [
+        "§10, Lemma10.1 and Proposition10.8, pp.133–139, abstract relations; §11, definitions and Proposition11.7 with Lemmas11.9–11.10 and proof, pp.140–147; Remark11.8 trace comparison."
+      ]
+    },
+    {
+      "by": "REV-LanglandsParameterStacks~2",
+      "date": "2026-10-09",
+      "sourceId": "BHKT-local-systems",
+      "sha256": "15c4b9668e335f75225215bb367c1051769990595232f8015f441d2e2c86ba2c",
+      "sections": [
+        "§3.1–§3.2, pp.10–19, all statements and proofs; §4.1–§4.7, pp.19–24, pseudocharacters, reconstruction and all three continuity clauses; Proposition8.3 and proof, p.53."
+      ]
+    },
+    {
+      "by": "REV-LanglandsParameterStacks~2",
+      "date": "2026-10-09",
+      "sourceId": "Zhu-arithmetic-parameters",
+      "sha256": "40b5f906d3238b80cde88e51f917e2c7a0f104a1d98bfb7366ac8dc4c35b79b2",
+      "sections": [
+        "§3.1, pp.31–36: discrete groups, strong continuity, Proposition3.7, Lemmas3.9–3.10, Corollary3.11 and Proposition3.12 and proofs."
+      ]
+    },
+    {
+      "by": "REV-LanglandsParameterStacks~2",
+      "date": "2026-10-09",
+      "sourceId": "DHKM-parameters",
+      "sha256": "70b647bb5fbf924f20784a5084f7f38c9a2faf88e04690f38d76fc0be2a3213c",
+      "sections": [
+        "Introduction, Definition1.1 and main theorems, pp.4–7; §4.1, Theorem4.1 and Corollary4.2 with their proofs, pp.29–31."
+      ]
+    },
+    {
+      "by": "REV-LanglandsParameterStacks~2",
+      "date": "2026-10-09",
+      "sourceId": "KSS-endo-parameters",
+      "sha256": "1cbcbb779d8d4ba8f3339d749b3dd7bc3d2555e6792491338a861d45009d9092",
+      "sections": [
+        "§1.20–§1.21, pp.8–9: enhanced Langlands and extended wild inertial parameters, centralisers, equation(1.1) and restriction."
+      ]
+    },
+    {
+      "by": "REV-LanglandsParameterStacks~2",
+      "date": "2026-10-09",
+      "sourceId": "Quast-pseudocharacters",
+      "sha256": "67eb82118e49df3f7da6c1e211ad9961fc7323fc4d09d0559bcbc2434eead827",
+      "sections": [
+        "Definition 3.1, pp.11–12; Lemmas 3.4–3.6 and Theorem 3.7 with proof, pp.12–15. The beginning of the Theorem 3.8 continuity proof was compared with the accepted IHG E13 finding."
+      ]
+    }
+  ]
 }

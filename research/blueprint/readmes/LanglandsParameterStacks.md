@@ -2,7 +2,7 @@
 
 This roadmap constructs integral local Langlands parameter spaces, their excursion algebra and the representation theory controlling their perfect complexes. The local parameter classification specializes the general reconstruction theorem owned by IntegralHeckeAndGaloisDeterminants. The categorical universal properties of the spectral action belong to ExcursionOperatorsAndSpectralAction.
 
-Revision 2 for issue #6977, by Codex, session `codex-iNzDyp`, 9 October 2026. The complete target-level pass has 79 retained declarations: 14 definitions, 11 constructions, 45 theorems, 7 comparisons and 2 lemmas. It specifies 140 API items and 90 unit tests, with 31 planets and 31 baseline citations. Ten former local targets are explicitly delegated below. All eight stages are **planned**, none is closed, and every implementation remains **unchecked**. The existing independent review is retained as historical review evidence; this revision awaits its own independent review.
+Revision 2 for issue #6977, by Codex, session `codex-iNzDyp`, 9 October 2026. The complete target-level pass has 79 retained declarations: 14 definitions, 11 constructions, 45 theorems, 7 comparisons and 2 lemmas. It specifies 140 API items and 90 unit tests, with 31 planets and 31 baseline citations. Ten former local targets are explicitly delegated below. All eight stages are **planned**, none is closed, and every implementation remains **unchecked**. Independent review REV-LanglandsParameterStacks~2 by Codex, session `codex-BiS4GG`, accepts this complete planning pass after the corrections recorded in its report. Acceptance leaves the five explicit gaps and all implementation and supplier obligations open.
 
 ## Conventions
 
@@ -178,7 +178,7 @@ For a group Γ acting on a group H by α:Γ→Aut(H), CrossedCocycle(α) consist
 2. Use associativity for the gauge action and equivariance for coefficient transport.
 3. Keep this crossed-group interface distinct from the baseline Čech cocycle; compare after the SF.1 descent bridge.
 
-Source: [Laurent Fargues; Peter Scholze, VIII.1.1, p.278](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf). The passage states the object or result; the proof steps specify the reduction and conventions.
+Source: [Laurent Fargues; Peter Scholze, VIII.1.1, p.278](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf). The L-group section formulation gives the crossed multiplication and twisted gauge formulas; restriction and equivariant coefficient transport follow from them.
 
 **API.**
 
@@ -229,7 +229,7 @@ Fix a pinned split dual group H/Z_l with standard algebraic action factoring thr
 1. Import the Weil group and the integral pinned dual, and apply the crossed-cocycle/section equivalence in condensed groups.
 2. Compute the tensor coefficient convention on profinite sets; a faithful linear embedding gives the finite-type continuous matrix-coefficient criterion.
 
-Source: [Laurent Fargues; Peter Scholze, VIII.1.1, p.278](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf). The passage states the object or result; the proof steps specify the reduction and conventions.
+Source: [Laurent Fargues; Peter Scholze, VIII.1.1, p.278](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf). The coefficient object is relatively discrete condensed, and parameters are continuous sections over the Weil group with the prescribed finite-quotient projection.
 
 **API.**
 
@@ -279,7 +279,7 @@ A parameter has finite wild ramification if its restriction to wild inertia P_E 
 1. A continuous image of the pro-p wild group in the l-adic matrix congruence kernel is trivial; compactness and reduction modulo l yield finite wild image.
 2. Shrink a kernel to a W_E-normal open subgroup and require it to kill the fixed finite action.
 
-Source: [Laurent Fargues; Peter Scholze, VIII.1, p.278](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf). The passage states the object or result; the proof steps specify the reduction and conventions.
+Source: [Laurent Fargues; Peter Scholze, VIII.1, p.278](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf). The filtered union is indexed by open Weil-normal wild kernels; it bounds wild ramification without requiring a finite image of the whole Weil group.
 
 **API.**
 
@@ -322,7 +322,7 @@ For open normal P as above choose tame τ and geometric Frobenius σ. The dense 
 
 1. Import the exact tame quotient and its topology. Matrices conjugate to their qth powers have roots-of-unity eigenvalues of order prime to p; a suitable power is unipotent. Extend its powers by the finite binomial formula, then the tame torsion part, giving existence and uniqueness of the extension.
 
-Source: [Laurent Fargues; Peter Scholze, Proof of VIII.1.3, pp.279–280](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf). The passage states the object or result; the proof steps specify the reduction and conventions.
+Source: [Laurent Fargues; Peter Scholze, Proof of VIII.1.3, pp.279–280](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf). The proof extends a cocycle from the finitely generated dense model by controlling tame powers and finite wild image, with geometric Frobenius inverse to the arithmetic generator.
 
 **Acceptance.**
 
@@ -345,7 +345,7 @@ Any two choices of dense discrete W₁,W₂ inside the same W_E/P yield canonica
 
 1. Use the unique extension twice; both compositions are identity because their restrictions extend to the same parameter. Compare DHKM Corollary4.2, which asserts the integral l-adic canonical identification, not choice independence of framed Z[1/p]-models.
 
-Source: [Jean-François Dat; David Helm; Robert Kurinczuk; Gilbert Moss, §4.1, Corollary4.2, pp.30–31](https://arxiv.org/pdf/2009.06708). The passage states the object or result; the proof steps specify the reduction and conventions.
+Source: [Jean-François Dat; David Helm; Robert Kurinczuk; Gilbert Moss, §4.1, Corollary4.2, pp.30–31](https://arxiv.org/pdf/2009.06708). Corollary 4.2 identifies the chosen model after Z_l base change through its universal continuous cocycle; it does not identify every framed model over Z[1/p].
 
 **Acceptance.**
 
@@ -368,7 +368,7 @@ In the complex classical-group setting of KSS, a wild inertial parameter is a ho
 
 1. Restrict an admissible parameter to P_F; require extendibility as part of the definition, not a theorem that arbitrary wild homomorphisms extend.
 
-Source: [Robert Kurinczuk; Daniel Skodlerack; Shaun Stevens, §1.20–§1.21, pp.8–9](https://arxiv.org/pdf/1611.02667). The passage states the object or result; the proof steps specify the reduction and conventions.
+Source: [Robert Kurinczuk; Daniel Skodlerack; Shaun Stevens, §1.20–§1.21, pp.8–9](https://arxiv.org/pdf/1611.02667). The wild-parameter definition is for admissible extending complex parameters of quasisplit classical groups in odd residue characteristic; the wild LLC itself is conjectural.
 
 **API.**
 
@@ -411,7 +411,7 @@ Define C_{{}^LG}(ρ)={(g,w): (g,w)ρ(w⁻¹pw)(g,w)⁻¹=ρ(p) for all p∈P_F}.
 1. Check closure using normality of P_F. The splitting sends w to φ(w), and (g,w) factors uniquely as (gφ(w)⁻¹)φ(w).
 2. Changing the extension changes this chosen splitting; the subgroup defined by the equation is intrinsic.
 
-Source: [Robert Kurinczuk; Daniel Skodlerack; Shaun Stevens, §1.21, p.8](https://arxiv.org/pdf/1611.02667). The passage states the object or result; the proof steps specify the reduction and conventions.
+Source: [Robert Kurinczuk; Daniel Skodlerack; Shaun Stevens, §1.21, p.8](https://arxiv.org/pdf/1611.02667). The centralizer fixes the wild L-group image, so the dual-group action is twisted; an extending section supplies the subsequent Weil action.
 
 **API.**
 
@@ -454,7 +454,7 @@ Set S_ρ=Z(C_{{}^LG}(ρ))/Z(H)^{W_F}. Via a chosen φ, the numerator is Z(C_H(ρ
 1. Take centres of the split extension, noting the projection of any central element to W_F is trivial.
 2. The centre commutes also with φ(SL₂), hence lies in the parameter centralizer. Inflating a representation of S_φ and restricting kills Z(H)^{W_F}.
 
-Source: [Robert Kurinczuk; Daniel Skodlerack; Shaun Stevens, §1.21, equation(1.1), p.8](https://arxiv.org/pdf/1611.02667). The passage states the object or result; the proof steps specify the reduction and conventions.
+Source: [Robert Kurinczuk; Daniel Skodlerack; Shaun Stevens, §1.21, equation(1.1), p.8](https://arxiv.org/pdf/1611.02667). Equation (1.1) uses the centre of the wild centralizer modulo the invariant dual centre; this is distinct from the component group used for enhancement representations.
 
 **API.**
 
@@ -497,7 +497,7 @@ An extended wild parameter is (ρ,χ_ρ), where ρ is wild inertial and χ_ρ is
 1. Use the centre restriction from the preceding construction.
 2. Show conjugation transports the restriction, so Res descends to equivalence classes. Existence of the enhanced extension is retained, whereas irreducibility of the restriction is not.
 
-Source: [Robert Kurinczuk; Daniel Skodlerack; Shaun Stevens, §1.21, pp.8–9](https://arxiv.org/pdf/1611.02667). The passage states the object or result; the proof steps specify the reduction and conventions.
+Source: [Robert Kurinczuk; Daniel Skodlerack; Shaun Stevens, §1.21, pp.8–9](https://arxiv.org/pdf/1611.02667). The extended wild datum restricts an admissible enhanced parameter and its representation to the wild centralizer; irreducibility need not survive restriction.
 
 **API.**
 
@@ -552,7 +552,9 @@ For a split reductive model H over Z[1/p] with finite W-action and a finite-wild
 2. The universal property identifies relations with cocycles, and hence is independent of a presentation of the same W.
 3. Use arithmetic Fr=σ⁻¹ to compare DHKM and FS presentations; apply the unique continuous-extension theorem after base change.
 
-Source: [Jean-François Dat; David Helm; Robert Kurinczuk; Gilbert Moss, §1 and §4.1, pp.4–7,29–31; FS proof VIII.1.3, p.280](https://arxiv.org/pdf/2009.06708). The passage states the object or result; the proof steps specify the reduction and conventions.
+Source: [Jean-François Dat; David Helm; Robert Kurinczuk; Gilbert Moss, §1, pp.4–7; §4.1, Theorem 4.1, pp.29–30](https://arxiv.org/pdf/2009.06708). The selected dense Weil model has finitely many generators and relations, giving finite-type cocycle equations over Z[1/p] and their coefficient base changes.
+
+Source: [Laurent Fargues; Peter Scholze, Proof of Theorem VIII.1.3, p.280](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf). The cocycle model is defined over Z[1/p] before its Z_l base changes.
 
 **API.**
 
@@ -599,7 +601,7 @@ Z¹(W_E,H) is the filtered union of its finite-wild pieces Z¹(W_E/P,H). For P�
 1. The equation φ(γ)=1 is clopen for finite p-power order γ because p is invertible in the coefficient ring. Impose finitely many such equations on P/P′.
 2. Every parameter has an open wild kernel. Separate nested clopen pieces to obtain the disjoint affine cover.
 
-Source: [Laurent Fargues; Peter Scholze, Proof VIII.1.3, pp.279–280](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf). The passage states the object or result; the proof steps specify the reduction and conventions.
+Source: [Laurent Fargues; Peter Scholze, Proof VIII.1.3, pp.279–280](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf). The proof separates prime-to-l finite wild representations into open-and-closed pieces and obtains the parameter scheme as their filtered union.
 
 **Acceptance.**
 
@@ -622,7 +624,7 @@ For a finite-rank free relatively discrete Λ-module M with condensed W_E-action
 1. Kill an open wild kernel; exact invariants for the finite p-group reduce to tame inertia and Frobenius.
 2. Tame l-primary inertia and the Z Frobenius each give two-term resolutions. Their total complex has amplitude [0,2] and alternating rank zero. Compare restriction to the discrete model.
 
-Source: [Laurent Fargues; Peter Scholze, VIII.1.3 dimension argument and VIII.2.2, pp.280–282](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf). The passage states the object or result; the proof steps specify the reduction and conventions.
+Source: [Laurent Fargues; Peter Scholze, VIII.1.3 dimension argument and VIII.2.2, pp.280–282](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf). The dimension calculation and continuous duality use perfect Weil cochains of amplitude [0,2] with Euler characteristic zero; abstract group cohomology alone is insufficient.
 
 **Acceptance.**
 
@@ -646,7 +648,7 @@ Let H/F_l be smooth with reductive identity component. For the prescribed action
 2. Frobenius choices, when nonempty, form a torsor under Z_H(x), so every stratum has dimension dim H.
 3. For the parameter scheme first stratify finite prime-to-l inertia, apply the fixed-group reductivity input, then this lemma. Do not use LP3 to obtain that input.
 
-Source: [Laurent Fargues; Peter Scholze, VIII.1.4 and end of VIII.1.3, p.281](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf). The passage states the object or result; the proof steps specify the reduction and conventions.
+Source: [Laurent Fargues; Peter Scholze, VIII.1.4 and end of VIII.1.3, p.281](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf). The dimension bound stratifies by finitely many unipotent conjugacy classes and balances the orbit dimension against the transporter dimension in a group with reductive identity.
 
 **Acceptance.**
 
@@ -670,7 +672,9 @@ Each finite-wild Z¹(W,H) over Z[1/p] is flat and a relative local complete inte
 2. Use the dimension bound and the tame/wild reduction in DHKM4.1 to get the matching upper bound. The regular-sequence/flatness criterion gives syntomicity.
 3. Base change and clopen gluing give FS VIII.1.3; subtract dim H only for the quotient stack.
 
-Source: [Laurent Fargues; Peter Scholze, VIII.1.3, pp.279–281; DHKM Theorem4.1, pp.29–30](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf). The passage states the object or result; the proof steps specify the reduction and conventions.
+Source: [Laurent Fargues; Peter Scholze, Theorem VIII.1.3 and proof, pp.279–281](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf). The cocycle equations and fibre dimension bound prove flatness and the local-complete-intersection property, with relative dimension dim H over the coefficient base.
+
+Source: [Jean-François Dat; David Helm; Robert Kurinczuk; Gilbert Moss, Theorem 4.1 and proof, pp.29–30](https://arxiv.org/pdf/2009.06708). The independent finite-wild scheme is flat and lci over Z[1/p], with the arithmetic Frobenius normalization and absolute dimension stated in that theorem.
 
 **Acceptance.**
 
@@ -695,7 +699,9 @@ DHKM W_F^0 uses arithmetic Frobenius and the same dense tame subgroup as FS W af
 2. Apply the representing-functor universal property and Corollary4.2 of DHKM.
 3. Record that SR.6 imports the model, retaining DHKM1.7/1.8 finiteness rather than a second construction.
 
-Source: [Jean-François Dat; David Helm; Robert Kurinczuk; Gilbert Moss, DHKM §4.1 pp.29–31; FS VIII.1.3 p.280](https://arxiv.org/pdf/2009.06708). The passage states the object or result; the proof steps specify the reduction and conventions.
+Source: [Jean-François Dat; David Helm; Robert Kurinczuk; Gilbert Moss, §4.1, Theorem 4.1 and Corollary 4.2, pp.29–31](https://arxiv.org/pdf/2009.06708). The independent integral model uses arithmetic Frobenius and an absolute dimension including the base; inversion of Frobenius and subtraction of base dimension reconcile the conventions.
+
+Source: [Laurent Fargues; Peter Scholze, Theorem VIII.1.3 and proof, pp.279–281](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf). The relative fibre dimension is dim H, agreeing with the integral model after accounting for the one-dimensional base.
 
 **Acceptance.**
 
@@ -719,7 +725,9 @@ Construct the derived framed cocycle stack and its quotient as the derived mappi
 2. A base-point framing extracts the derived crossed cocycle functor; quotient by changing framing gives the unframed mapping stack.
 3. Apply the imported descent and perfectness interfaces, without constructing them again in LP1.
 
-Source: [Laurent Fargues; Peter Scholze, VIII.2.1, pp.281–282; Zhu §3.1, Proposition3.7](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf). The passage states the object or result; the proof steps specify the reduction and conventions.
+Source: [Laurent Fargues; Peter Scholze, Proposition VIII.2.1 and proof, p.281](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf). The animated cocycle functor is the framed derived mapping problem, followed by the H-quotient; the tangent calculation does not replace this construction.
+
+Source: [Xinwen Zhu, §3.1, Remark 3.1, Proposition 3.7 and setup, pp.31–35](https://arxiv.org/pdf/2008.02998). The derived parameter construction uses the fixed C-group norm; Remark 3.1 gives the normalization adapter to the L-group after the stated choice.
 
 **API.**
 
@@ -764,7 +772,9 @@ The derived framed cocycle scheme of a finite-wild W is classical and equals Int
 2. The classical scheme is flat lci of that expected dimension; the derived zero-locus presentation has no additional homotopy sheaves.
 3. Use Zhu3.9 strong-continuity comparison to identify the derived continuous and discrete moduli problems.
 
-Source: [Laurent Fargues; Peter Scholze, VIII.2.1, pp.281–282; Zhu Proposition3.7 and Lemma3.9, pp.32–35](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf). The passage states the object or result; the proof steps specify the reduction and conventions.
+Source: [Laurent Fargues; Peter Scholze, Proposition VIII.2.1 and proof, p.281](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf). The derived cocycle problem is classical by the cochain and dimension calculation, rather than merely by agreement of geometric points.
+
+Source: [Xinwen Zhu, Proposition 3.7, Lemma 3.9 and proofs, pp.32–35](https://arxiv.org/pdf/2008.02998). The cochain computation proves classicality for the derived fixed-norm C-group problem; transport to LP uses the explicit normalization adapter.
 
 **Acceptance.**
 
@@ -788,7 +798,7 @@ For a finite-rank free Λ-module M with condensed W_E-action, RΓ(W_E,M) is perf
 2. The tame l-primary generator contributes the Tate twist, and the two cohomological degrees give shift [2].
 3. Alternatively use local Tate duality from the requested cohomology interface; do not depend on D_lis or the spectral-action consumer.
 
-Source: [Laurent Fargues; Peter Scholze, VIII.2.2, p.282](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf). The passage states the object or result; the proof steps specify the reduction and conventions.
+Source: [Laurent Fargues; Peter Scholze, VIII.2.2, p.282](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf). Continuous Weil duality identifies the dual cochain complex with the Tate-twisted dual coefficients shifted by two; the source also gives the direct discretization route.
 
 **Acceptance.**
 
@@ -812,7 +822,7 @@ At φ over Λ the tangent complex of [Z¹(W_E,H)/H] is RΓ(W_E,Lie(H)_{Ad φ})[1
 2. Dualise and apply local Tate duality, obtaining the displayed cotangent shift.
 3. Use the full cotangent construction from DD.0; the naive H1Cotangent declaration alone cannot represent this complex.
 
-Source: [Laurent Fargues; Peter Scholze, VIII.2.1–VIII.2.3, pp.281–282](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf). The passage states the object or result; the proof steps specify the reduction and conventions.
+Source: [Laurent Fargues; Peter Scholze, VIII.2.1–VIII.2.3, pp.281–282](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf). The tangent complex is Weil cochains on the adjoint module shifted by one, and continuous duality gives the displayed cotangent complex with its Tate twist.
 
 **Acceptance.**
 
@@ -835,7 +845,7 @@ Over a Q_l-algebra Λ a Weil–Deligne parameter is (φ₀,N), where φ₀:W_E�
 1. Impose the discrete-cocycle condition and scaling equation. Conjugating exp(xN) using σ⁻¹τσ=τ^q gives Ad(φ₀(σ))(σ·N)=q⁻¹N, fixing the sign of the geometric degree.
 2. Gauge sends (φ₀,N) to (h·φ₀,Ad(h)N); the condition is stable under it.
 
-Source: [Laurent Fargues; Peter Scholze, VIII.2.4, p.282](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf). The passage states the object or result; the proof steps specify the reduction and conventions.
+Source: [Laurent Fargues; Peter Scholze, VIII.2.4, p.282](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf). The characteristic-zero Weil–Deligne datum separates finite-inertia parameters from nilpotent monodromy; geometric degree requires the reciprocal q-scaling recorded in E5.
 
 **API.**
 
@@ -882,7 +892,7 @@ For chosen tame coordinate and Frobenius there is an H-equivariant isomorphism Z
 2. Zhu3.10 constructs the continuous finite-inertia r and inverse exponential formula, with the chosen normal form for elements of the discrete group. Convert any arithmetic Frobenius convention to geometric degree: Ad(φ₀(σ))(σ·N)=q⁻¹N for the LP0 relation.
 3. Check independence of the chosen sufficiently divisible m, then equivariance under gauge.
 
-Source: [Laurent Fargues; Peter Scholze, VIII.2.1, pp.281–282; Zhu Lemma3.10 (formerly3.1.8), pp.35–36](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf). The passage states the object or result; the proof steps specify the reduction and conventions.
+Source: [Laurent Fargues; Peter Scholze, Proposition VIII.2.5 and preceding construction, p.282](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf). The characteristic-zero comparison uses tame logarithm and exponential to pass between continuous parameters and Weil–Deligne pairs; its choices and reciprocal Frobenius convention must be retained.
 
 Source: [Xinwen Zhu, §3.1 Lemma3.10, pp.35–36](https://arxiv.org/pdf/2008.02998). This revised numbering is FS Zhu20 Lemma3.1.8. The finite logarithm/exponential formula gives the inverse comparison.
 
@@ -909,7 +919,7 @@ For X=[Z¹(W_E,H)/H] define Sing_{X/Z_l} by the general syntomic singularity con
 2. Descend from affine syntomic charts using compatibility with smooth pullback.
 3. Define the dual nilpotent locus by orbit closure. An identification with the usual Lie nilpotent cone requires a chosen invariant perfect pairing.
 
-Source: [Laurent Fargues; Peter Scholze, VIII.2.2, pp.283–285](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf). The passage states the object or result; the proof steps specify the reduction and conventions.
+Source: [Laurent Fargues; Peter Scholze, §VIII.2.2, Definitions VIII.2.6 and VIII.2.8, pp.282–285](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf). The singular-support construction uses the full cotangent complex and gives the parameter obstruction cone in the dual adjoint Lie space, without identifying Lie and dual Lie integrally.
 
 **API.**
 
@@ -957,7 +967,7 @@ On any affine syntomic parameter chart B/Z_l, The commutative square-zero-extens
 2. Apply the requested Gulliksen finite-generation and Jørgensen/Arinkin–Gaitsgory perfectness criterion from R03.3.
 3. Smooth pullback compatibility glues the result and identifies the maximal perfectness locus.
 
-Source: [Laurent Fargues; Peter Scholze, VIII.2.6–VIII.2.10, pp.283–284](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf). The passage states the object or result; the proof steps specify the reduction and conventions.
+Source: [Laurent Fargues; Peter Scholze, §VIII.2.2.1 and VIII.2.6–VIII.2.10, pp.282–284](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf). Cotangent extension classes act through Hochschild cohomology, while the syntomic support theorems give finite generation and the perfectness criterion; E4 replaces the erroneous equality by a natural map.
 
 **Acceptance.**
 
@@ -982,7 +992,7 @@ At φ over a Z_l-field L, the fibre of ParameterSingularities is contained in th
 2. If q^{en}−1 is invertible every positive-degree invariant vanishes, giving the nullcone inclusion.
 3. In characteristic zero all q^{en}−1 are nonzero. The source remarks that the correct support condition outside these cases is uncertain.
 
-Source: [Laurent Fargues; Peter Scholze, VIII.2.11–VIII.2.13, pp.284–285](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf). The passage states the object or result; the proof steps specify the reduction and conventions.
+Source: [Laurent Fargues; Peter Scholze, VIII.2.11–VIII.2.13, pp.284–285](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf). The banal root-degree condition bounds the obstruction space by the nilpotent cone, with separate positive-characteristic and characteristic-zero arguments; it is an inclusion, not equality.
 
 **Acceptance.**
 
@@ -1016,7 +1026,7 @@ At every l≠p the excursion comparison is a universal homeomorphism and classif
 1. Combine the unconditional comparison and character theorem with the separately stated good-prime invariant theorem.
 2. Keep the underlying derived cocycle colimit distinct from its stronger IndPerf(BH) version.
 
-Source: [Laurent Fargues; Peter Scholze, VIII.3.2–VIII.3.8, pp.287–290](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf). The passage states the object or result; the proof steps specify the reduction and conventions.
+Source: [Laurent Fargues; Peter Scholze, VIII.3.2–VIII.3.8, pp.287–290](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf). The coarse-point, rational-algebra and integral-algebra assertions have different hypotheses: only the last uses the torsion-fundamental-group restriction.
 
 **Acceptance.**
 
@@ -1051,7 +1061,9 @@ For each finite-wild affine scheme X=Z¹(W,H), let A=O(X) and define X//H=Spec(A
 1. Form the algebraic coaction equaliser defining A^H. It is a subalgebra, and an invariant affine map factors uniquely through it.
 2. Use geometric reductivity for finite generation and the geometric quotient properties; compatible clopen decompositions give the maps for changing wild kernels.
 
-Source: [Laurent Fargues; Peter Scholze, VIII.3.1–VIII.3.2, pp.285–287; BHKT3.2 and3.10](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf). The passage states the object or result; the proof steps specify the reduction and conventions.
+Source: [Laurent Fargues; Peter Scholze, §VIII.3.1, Definition VIII.3.1 and Proposition VIII.3.2, pp.285–287](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf). The invariant affine quotient has geometric points classified by closed H-orbits without a good-prime restriction; the coefficient-base-change theorem has its own separate hypotheses.
+
+Source: [Gebhard Böckle; Michael Harris; Chandrashekhar Khare; Jack A. Thorne, Propositions 3.2 and 3.10, pp.11–12,15–16](https://archive.intlpress.com/site/pub/files/_fulltext/journals/acta/2019/0223/0001/ACTA-2019-0223-0001-a001.pdf). Geometric quotient fibres and flat coefficient change are available under their respective field and excellent-DVR hypotheses; they do not assert arbitrary integral base change.
 
 **API.**
 
@@ -1104,7 +1116,7 @@ For an integral affine finite-type X over a field with reductive G, X//G is inte
 2. Apply BHKT3.10 geometric separation and invariant principal-neighbourhood properties, with flat base change computed as a flat coaction equaliser.
 3. Distinguish closed-orbit point bijections from an isomorphism (A^G)⊗K≃(A⊗K)^{G_K}; the former does not imply the latter.
 
-Source: [Gebhard Böckle; Michael Harris; Chandrashekhar Khare; Jack A. Thorne, §3.1 Proposition3.2 pp.11–12; §3.2 Proposition3.10 pp.15–16](https://archive.intlpress.com/site/pub/files/_fulltext/journals/acta/2019/0223/0001/ACTA-2019-0223-0001-a001.pdf). The passage states the object or result; the proof steps specify the reduction and conventions.
+Source: [Gebhard Böckle; Michael Harris; Chandrashekhar Khare; Jack A. Thorne, §3.1 Proposition3.2 pp.11–12; §3.2 Proposition3.10 pp.15–16](https://archive.intlpress.com/site/pub/files/_fulltext/journals/acta/2019/0223/0001/ACTA-2019-0223-0001-a001.pdf). Field geometric invariant theory gives quotient fibres and closed orbits, whereas the excellent-DVR theorem assumes flat integral input and only asserts general flat algebra base change.
 
 **Acceptance.**
 
@@ -1128,7 +1140,7 @@ For connected reductive G over algebraically closed k and closed H⊂G, H is G-c
 1. Import parabolic, Levi and centralizer geometry from RG. Define the three quantified predicates and the absolute representation predicates.
 2. Use conjugacy of maximal tori to prove independence of S; do not identify complete reducibility with ordinary linear semisimplicity except in GL_n.
 
-Source: [Gebhard Böckle; Michael Harris; Chandrashekhar Khare; Jack A. Thorne, §3.1 Definitions3.3,3.5 pp.11–12](https://archive.intlpress.com/site/pub/files/_fulltext/journals/acta/2019/0223/0001/ACTA-2019-0223-0001-a001.pdf). The passage states the object or result; the proof steps specify the reduction and conventions.
+Source: [Gebhard Böckle; Michael Harris; Chandrashekhar Khare; Jack A. Thorne, §3.1 Definitions3.3,3.5 pp.11–12](https://archive.intlpress.com/site/pub/files/_fulltext/journals/acta/2019/0223/0001/ACTA-2019-0223-0001-a001.pdf). Complete reducibility is defined through containing parabolics and their Levis; irreducibility and the strong variants impose different conditions on subgroups and tuples.
 
 **API.**
 
@@ -1177,7 +1189,7 @@ For a tuple x∈G(k)^n, with G connected reductive and k algebraically closed of
 2. A cocharacter centralising a Levi contracts the unipotent radical to the identity, giving the semisimplification limit and its invariant values.
 3. Apply BHKT3.7: minimal parabolics have a common Levi comparison, and a completely reducible subgroup in such a Levi cannot lie in a proper Levi parabolic.
 
-Source: [Gebhard Böckle; Michael Harris; Chandrashekhar Khare; Jack A. Thorne, §3.1 Theorem3.4, Proposition3.6, Proposition3.7 pp.12–13](https://archive.intlpress.com/site/pub/files/_fulltext/journals/acta/2019/0223/0001/ACTA-2019-0223-0001-a001.pdf). The passage states the object or result; the proof steps specify the reduction and conventions.
+Source: [Gebhard Böckle; Michael Harris; Chandrashekhar Khare; Jack A. Thorne, §3.1 Theorem3.4, Proposition3.6, Proposition3.7 pp.12–13](https://archive.intlpress.com/site/pub/files/_fulltext/journals/acta/2019/0223/0001/ACTA-2019-0223-0001-a001.pdf). Closed simultaneous conjugation orbits are characterized by complete reducibility in arbitrary characteristic, with the stabilizer statements carrying the additional irreducibility hypotheses.
 
 **Acceptance.**
 
@@ -1200,7 +1212,7 @@ For an algebraically closed Z_l-field L, a parameter into H(L)⋊W_E is semisimp
 1. Apply the nonconnected reductive-group interface from RG; pass between action-stable standard parabolics and their conjugates.
 2. Specialise Γ to a discrete finite-wild Weil group and extend to W_E.
 
-Source: [Laurent Fargues; Peter Scholze, VIII.3.1, pp.286–287](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf). The passage states the object or result; the proof steps specify the reduction and conventions.
+Source: [Laurent Fargues; Peter Scholze, VIII.3.1, pp.286–287](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf). Semisimplicity uses relative parabolics and Levis in the L-group, and the prescribed projection is part of the parameter problem.
 
 **API.**
 
@@ -1244,7 +1256,7 @@ For every finite-wild component over algebraically closed L, closed H(L)-orbits 
 2. For dominant λ, lim λ(t)gλ(t)^{−τ} exists iff g lies in P_λ and τλ=λ; the limit is the Levi projection.
 3. Use the nonconnected Richardson/BMR criterion for H⋊Q and the unconditional quotient geometric-point theorem.
 
-Source: [Laurent Fargues; Peter Scholze, VIII.3.2–VIII.3.3, pp.286–287](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf). The passage states the object or result; the proof steps specify the reduction and conventions.
+Source: [Laurent Fargues; Peter Scholze, VIII.3.2–VIII.3.3, pp.286–287](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf). Hilbert–Mumford–Kempf and the cocharacter centralizer calculation identify closed parameter orbits with relative complete reducibility; no assumption on the order of Q is imposed.
 
 **Acceptance.**
 
@@ -1267,7 +1279,7 @@ For any Γ→Q let FreeCocycleIndex(Γ) have objects (n,u:F_n→Γ) and morphism
 1. Use the baseline finite free groups and their universal property to form this category.
 2. Concatenate generator tuples for coproducts; the diagonal has the required finality because finite coproducts exist.
 
-Source: [Laurent Fargues; Peter Scholze, VIII.3.2, p.287](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf). The passage states the object or result; the proof steps specify the reduction and conventions.
+Source: [Laurent Fargues; Peter Scholze, §VIII.3.2, p.287](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf). The index consists of finite free groups mapping to the chosen Weil model, including rank zero; free-group words supply its morphisms and sifted-colimit presentation.
 
 **API.**
 
@@ -1311,7 +1323,7 @@ Define Exc(Γ,H)=colim_{(n,F_n→Γ)} O(Z¹(F_n,H))^H in Z_l-algebras. The actio
 1. Build the invariant diagram over FreeCocycleIndex and take its ring colimit.
 2. Use the universal cocycle evaluation to obtain its compatible cone into the invariant algebra. Keep the universal-homeomorphism assertion as a separate theorem.
 
-Source: [Laurent Fargues; Peter Scholze, VIII.3.4, p.287](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf). The passage states the object or result; the proof steps specify the reduction and conventions.
+Source: [Laurent Fargues; Peter Scholze, VIII.3.4, p.287](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf). The excursion algebra is the ordinary ring colimit of invariant coordinate rings over free-group presentations, with its canonical comparison to cocycle invariants.
 
 **API.**
 
@@ -1348,7 +1360,7 @@ For a finite-wild W, Spec(O(Z¹(W,H))^H)→Spec Exc(W,H) is a universal homeomor
 
 - H reductive, Z_l coefficients, finite-wild W; distinguish a universal homeomorphism from an integral ring isomorphism.
 
-**Direct prerequisites.** `LanglandsParameterStacks:LP2:excursion-presentation/excursion-algebra-and-universal-homeomorphism`, `LanglandsParameterStacks:LP2:excursion-presentation/free-cocycle-index`, `ReductiveGroupsPartII:RG2.5`, `mathlib:PrimeSpectrum.isHomeomorph_comap`.
+**Direct prerequisites.** `LanglandsParameterStacks:LP2:excursion-presentation/excursion-algebra-and-universal-homeomorphism`, `LanglandsParameterStacks:LP2:excursion-presentation/free-cocycle-index`, `LanglandsParameterStacks:LP2:excursion-presentation/free-derived-cocycle-colimit`, `ReductiveGroupsPartII:RG2.5`, `mathlib:PrimeSpectrum.isHomeomorph_comap`.
 
 **Construction or proof.**
 
@@ -1356,7 +1368,7 @@ For a finite-wild W, Spec(O(Z¹(W,H))^H)→Spec Exc(W,H) is a universal homeomor
 2. Geometric reductivity supplies power lifting of invariant functions and nilpotent kernel after every base change, so apply the spectrum criterion base change by base change.
 3. Over Q_l algebraic representations are semisimple, and invariants commute with this colimit, giving a ring isomorphism.
 
-Source: [Laurent Fargues; Peter Scholze, VIII.3.2, p.287](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf). The passage states the object or result; the proof steps specify the reduction and conventions.
+Source: [Laurent Fargues; Peter Scholze, §VIII.3.2 and Proposition VIII.3.5, pp.287–288](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf). Power lifting together with the underlying derived cocycle colimit gives a universal homeomorphism; after inverting l, exactness of invariants gives the algebra isomorphism.
 
 **Acceptance.**
 
@@ -1380,7 +1392,7 @@ Maps Exc(Γ,H)→A correspond to families of Z_l-algebra maps Θ_n:O((H⋊Q)^n//
 2. The ring colimit is exactly the compatible family of maps on all finite words. Reindexing and multiplication give positive words and units.
 3. For inverses, insert the pair (γ,γ⁻¹), multiply it to the unit and apply the group identity; this recovers arbitrary signed word substitution.
 
-Source: [Laurent Fargues; Peter Scholze, VIII.3.7 and proof, pp.288–289](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf). The passage states the object or result; the proof steps specify the reduction and conventions.
+Source: [Laurent Fargues; Peter Scholze, VIII.3.7 and proof, pp.288–289](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf). Reindexing and ordered multiplication characterize algebra maps from the excursion colimit; empty products and the relations recover units, inverses and general word substitutions.
 
 **Acceptance.**
 
@@ -1405,7 +1417,7 @@ The l-torsion-free quotient Exc(W,H)_tf is flat over Z_l and has the universal p
 2. Over torsion-free A, the matrix/binomial extension argument promotes the relations to continuous functions on W_E/P; quotient by l-torsion gives the representing algebra.
 3. Flatness over the DVR is torsion-freeness. Use the power-lifting comparison to identify the nilpotent torsion and unchanged geometric characters.
 
-Source: [Laurent Fargues; Peter Scholze, VIII.3.3 after VIII.3.7, pp.289–290](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf). The passage states the object or result; the proof steps specify the reduction and conventions.
+Source: [Laurent Fargues; Peter Scholze, VIII.3.3 after VIII.3.7, pp.289–290](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf). Flat coordinate-ring change and continuous extension give the torsion-free discretization comparison and condensed excursion evaluation; full torsion-sensitive choice independence remains open.
 
 **Acceptance.**
 
@@ -1428,7 +1440,7 @@ For a Z_l-linear category C, a categorical Hecke datum assigns every finite I a 
 1. Package the representation functors, Γ^I actions and finite-set coherence.
 2. Evaluation on the trivial representation is the identity endofunctor. The diagonal restriction allows invariant α and β to become creation and annihilation natural transformations.
 
-Source: [Laurent Fargues; Peter Scholze, VIII.4 setup, pp.290–291](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf). The passage states the object or result; the proof steps specify the reduction and conventions.
+Source: [Laurent Fargues; Peter Scholze, VIII.4 setup, pp.290–291](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf). The input is a coherent family of exact monoidal functors with Weil actions on a stable category; its scalar target is the homotopy ring pi_0 End(id), not an ordinary categorical centre alone.
 
 **API.**
 
@@ -1472,7 +1484,7 @@ An excursion datum is (I,V,α,β,(γ_i)), with I finite, V a finite-projective r
 1. Use the diagonal invariant maps as creation/annihilation transformations, then compose with the tuple action.
 2. Naturality makes the composite a central natural endomorphism, not merely an endomorphism of one object.
 
-Source: [Laurent Fargues; Peter Scholze, VIII.4.2, p.291](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf). The passage states the object or result; the proof steps specify the reduction and conventions.
+Source: [Laurent Fargues; Peter Scholze, VIII.4.2, p.291](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf). Finite-projective algebraic representations with diagonal invariant vectors and covectors supply the matrix coefficients used to define excursion operators.
 
 **API.**
 
@@ -1515,7 +1527,7 @@ To (I,V,α,β) associate f_D((h_i,q_i))=β(((h_i,q_i))·α), a regular function 
 1. Replace V by the subrepresentation generated by α; the map v↦(g↦β(gv)) identifies its quotient with V_f. Functoriality under the resulting representation maps identifies S_D with the canonical operator.
 2. Finite-set naturality yields a commuting reindexing square. It does not generally make that square a pullback; see source issue E3.
 
-Source: [Laurent Fargues; Peter Scholze, Proof VIII.4.1, pp.291–292](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf). The passage states the object or result; the proof steps specify the reduction and conventions.
+Source: [Laurent Fargues; Peter Scholze, Proof VIII.4.1, pp.291–292](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf). Regular-function matrix coefficients generate the invariant functions, and representation functoriality makes the operator independent of the chosen realization.
 
 **API.**
 
@@ -1561,7 +1573,9 @@ Every categorical Hecke datum for Γ over Q induces a natural Z_l-algebra map Ex
 2. Insert an extra coordinate over 1∈Q to identify the bi-invariant quotient with the simultaneous-conjugation invariant functions on n coordinates.
 3. Reindexing and the evaluation/coevaluation triple-product identity γγ′⁻¹γ″ give the word relations of the universal excursion algebra; apply its universal property.
 
-Source: [Laurent Fargues; Peter Scholze, VIII.4.1–VIII.4.2 pp.290–293; Lafforgue Lemma10.1 and Proposition10.8](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf). The passage states the object or result; the proof steps specify the reduction and conventions.
+Source: [Laurent Fargues; Peter Scholze, Proposition VIII.4.1, Definition VIII.4.2 and proofs, pp.290–293](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf). The abstract excursion construction produces a scalar algebra homomorphism and its relations; a Bernstein-centre map is obtained only after the ES0 representation-category specialization.
+
+Source: [Vincent Lafforgue, Lemma 10.1 and Proposition 10.8, pp.133–135,139](https://arxiv.org/pdf/1209.5352). Representation functoriality, coalescence and the tensor-duality relations give the abstract excursion identities; shtuka constructions remain owned by GS.5.
 
 **Acceptance.**
 
@@ -1585,7 +1599,7 @@ For finite-wild W the natural map colim_{F_n→W} O(Z¹(F_n,H))→O(Z¹(W,H)) is
 1. The colimit is the universal animated algebra with a W-cocycle.
 2. The classical truncation is the ordinary cocycle algebra; the derived deformation calculation and correct lci dimension force the animated algebra to be classical.
 
-Source: [Laurent Fargues; Peter Scholze, VIII.3.5 and proof, p.288](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf). The passage states the object or result; the proof steps specify the reduction and conventions.
+Source: [Laurent Fargues; Peter Scholze, VIII.3.5 and proof, p.288](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf). The underlying coordinate algebra commutes with the free-group derived colimit in animated algebras and hence in D(Z_l); this assertion precedes taking invariants.
 
 **Acceptance.**
 
@@ -1621,7 +1635,7 @@ Assume l∤|π₁(H)_tors|. Then colim_{F_n→W}O(Z¹(F_n,H))→O(Z¹(W,H)) is a
 2. Rational and mod-l reduction detect the cone; use the coefficient/IndPerf base-change interface.
 3. Since the free cocycle algebras and the resulting algebra have good filtrations modulo l, applying H-invariants computes the ordinary invariant ring and commutes with this sifted colimit.
 
-Source: [Laurent Fargues; Peter Scholze, VIII.3.6 p.288; VIII.5.1–VIII.5.2 pp.293–294,315](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf). The passage states the object or result; the proof steps specify the reduction and conventions.
+Source: [Laurent Fargues; Peter Scholze, VIII.3.6 p.288; VIII.5.1–VIII.5.2 pp.293–294,315](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf). Generation and free-cocycle good filtrations promote the underlying colimit to IndPerf(BH) and identify integral excursion invariants when l avoids torsion in pi_1(H).
 
 **Acceptance.**
 
@@ -1646,7 +1660,7 @@ Under the same good-prime hypotheses, the cocycle algebra has no higher rational
 2. Use the equivariant integral colimit and coefficient change to obtain derived invariants and their concentration in degree zero.
 3. Flatness of the coordinate algebra and its invariants identifies derived tensor with ordinary tensor; deduce the displayed map.
 
-Source: [Laurent Fargues; Peter Scholze, VIII.5.1–VIII.5.2 and proof, pp.293–294](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf). The passage states the object or result; the proof steps specify the reduction and conventions.
+Source: [Laurent Fargues; Peter Scholze, VIII.5.1–VIII.5.2 and proof, pp.293–294](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf). The good-prime theorem gives vanishing of higher invariant cohomology and arbitrary coefficient base change for this parameter algebra; it is stronger than the general DVR quotient theorem.
 
 **Acceptance.**
 
@@ -1825,7 +1839,7 @@ For algebraically closed Z_l-field L there are canonical bijections between (i) 
 2. Apply characteristic-zero relatively discrete continuity or discrete characteristic-l continuity as appropriate, and the LP0 dense Weil extension. These are additional topological assertions, not part of the abstract algebraic bijection.
 3. The universal-homeomorphism comparison identifies coarse and excursion geometric points at all primes. No good-π₁ assumption or nonflat invariant-base-change isomorphism is used.
 
-Source: [Laurent Fargues; Peter Scholze, VIII.3.8 and proof, p.290](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf). The passage states the object or result; the proof steps specify the reduction and conventions.
+Source: [Laurent Fargues; Peter Scholze, VIII.3.8 and proof, p.290](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf). Characters of the excursion algebra classify semisimple continuous local parameters by algebraic reconstruction followed by the two coefficient-specific continuity arguments.
 
 **Acceptance.**
 
@@ -1850,7 +1864,7 @@ For a group Γ and commutative coefficient ring A, specialize the imported IHG.0
 2. Extend a group function linearly on the monoid algebra basis. Expand products of finite sums for centrality, and use multilinearity of every signed cycle term for the alternating identity.
 3. The two conversions are inverse by the monoid-algebra basis. The characteristic-zero excursion comparison uses IHG determinant/trace and reconstruction imports.
 
-Source: [Vincent Lafforgue, Remark11.8, pp.143–144](https://arxiv.org/pdf/1209.5352). The passage states the object or result; the proof steps specify the reduction and conventions.
+Source: [Vincent Lafforgue, Remark11.8, pp.143–144](https://arxiv.org/pdf/1209.5352). The GL trace relations are the signed permutation-cycle identity, including singleton cycles; LP adds the linear group-algebra adapter to the generic IHG trace carrier.
 
 **API.**
 
@@ -1899,7 +1913,7 @@ For algebraically closed characteristic-zero L, GL_r-pseudocharacters, r-dimensi
 2. The connected GL_r instance of IHG reductive reconstruction matches the full invariant pseudocharacter. Compare with the excursion evaluation maps; the cycle-trace identity includes fixed one-cycles and inverse-determinant functions.
 3. The group/excursion comparison is restricted to characteristic zero and uses the IHG owners. No local Taylor/Procesi or determinant reconstruction theorem is declared.
 
-Source: [Vincent Lafforgue, Remark11.8 pp.143–144 (Procesi/Taylor inputs)](https://arxiv.org/pdf/1209.5352). The passage states the object or result; the proof steps specify the reduction and conventions.
+Source: [Vincent Lafforgue, Remark11.8 pp.143–144 (Procesi/Taylor inputs)](https://arxiv.org/pdf/1209.5352). The characteristic-zero trace comparison imports invariant trace generation and determinant/trace reconstruction; the prescribed component fibre is imposed only in the LP application.
 
 **Acceptance.**
 
@@ -1922,7 +1936,7 @@ If L is algebraically closed and a categorical Hecke datum acts on C, every obje
 1. Evaluate the abstract centre map on X and compose with End_C(X)≃L.
 2. Apply the universal excursion relations and semisimple reconstruction.
 
-Source: [Laurent Fargues; Peter Scholze, VIII.4.3, p.293](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf). The passage states the object or result; the proof steps specify the reduction and conventions.
+Source: [Laurent Fargues; Peter Scholze, VIII.4.3, p.293](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf). Evaluation of excursion scalars on an object with pi_0 End(X)=L gives a character and hence a semisimple parameter; continuity and discrete-group variants remain separate.
 
 **Acceptance.**
 
@@ -1948,7 +1962,7 @@ Over algebraically closed L of characteristic l, for G with reductive identity G
 
 **Hypotheses and conventions.**
 
-- Cohomological connective convention D^{≤0}; the t-structure is on IndPerf, not a claim that Perf is closed under truncation. General ∇,Δ, Kempf, Donkin criterion and tensor stability are RG2.6-extension requests.
+- Cohomological connective convention D^{≤0}; the t-structure is on IndPerf, not a claim that Perf is closed under truncation. General ∇,Δ, Kempf, Donkin criterion and tensor stability extend the accepted ReductiveGroupsIntegralRepresentationsPartII owner, through the registered parent Layer9 request until its DESIGN stages are assigned.
 
 **Direct prerequisites.** `ReductiveGroupsPartII:RG2.5`, `EnhancedDerivedSheaves:E5:abstract`, `EnhancedDerivedSheaves:E5:presentability`, `mathlib:CategoryTheory.Triangulated.TStructure`, `tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ`.
 
@@ -1957,7 +1971,7 @@ Over algebraically closed L of characteristic l, for G with reductive identity G
 1. Import highest-weight modules and their duality/vanishing and construct the orthogonal classes as FS5.4.
 2. Use generation by the highest-weight test objects to obtain truncations in the presentable Ind category; the finite component group allows passing between G and G°.
 
-Source: [Laurent Fargues; Peter Scholze, VIII.5.1, Definition VIII.5.4, pp.294–295](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf). The passage states the object or result; the proof steps specify the reduction and conventions.
+Source: [Laurent Fargues; Peter Scholze, §VIII.5.1 and Definition VIII.5.4, pp.294–295](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf). The good-filtration t-structure on IndPerf is tested by dual-Weyl and Weyl objects and uses dominant characters; its truncations need not preserve Perf.
 
 **API.**
 
@@ -2004,7 +2018,7 @@ The good-filtration t-structure on IndPerf(BG) is separated: an infinitely conne
 2. Highest-weight generation detects M=0; dual testing gives the other half.
 3. This separatedness justifies later increasing-connectivity bar-cone arguments; it is not merely an assertion of finite amplitude.
 
-Source: [Laurent Fargues; Peter Scholze, VIII.5.5 and proof, p.295](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf). The passage states the object or result; the proof steps specify the reduction and conventions.
+Source: [Laurent Fargues; Peter Scholze, VIII.5.5 and proof, p.295](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf). The induced test modules detect vanishing in the good-filtration t-structure, proving separatedness; the general highest-weight facts remain imported inputs.
 
 **Acceptance.**
 
@@ -2028,7 +2042,7 @@ For every action F_n→Aut(G), O(Z¹(F_n,G)) with twisted diagonal G°-conjugati
 2. Apply Donkin–Mathieu tensor stability to the n factors and the Donkin vanishing criterion.
 3. Use exact finite-component invariants for the final assertion.
 
-Source: [Laurent Fargues; Peter Scholze, VIII.5.6–VIII.5.7, p.296](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf). The passage states the object or result; the proof steps specify the reduction and conventions.
+Source: [Laurent Fargues; Peter Scholze, Theorem VIII.5.6 and Corollary VIII.5.7, pp.295–296](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf). The regular representation has a good G-by-G filtration, so tensor stability gives the twisted free-cocycle filtration; passing to G-cohomology requires prime-to-l pi_0.
 
 **Acceptance.**
 
@@ -2051,7 +2065,7 @@ For X=Spec A with algebraic G-action define Perf^ind(X/G) as the smallest stable
 1. Use the general stable/idempotent closure construction on the image of pullback.
 2. Extend to the Ind category; on bounded induced perfect objects the algebra module comparison is fully faithful.
 
-Source: [Laurent Fargues; Peter Scholze, VIII.5.2, pp.296–297](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf). The passage states the object or result; the proof steps specify the reduction and conventions.
+Source: [Laurent Fargues; Peter Scholze, §VIII.5.2, definition of Perf^ind, pp.295–296](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf). The induced-perfect subcategory is generated by pullbacks from BG under finite cones and retracts, and is kept distinct from the whole quotient-stack Perf category.
 
 **API.**
 
@@ -2098,7 +2112,7 @@ For M∈Perf(X/G), M lies in Perf^ind iff the canonical bar map colim[…→M⊗
 2. Conversely the isomorphism makes the module object M compact, using compactness of the unit and duality; it becomes a retract of a finite induced complex.
 3. For a Borel B⊂G° use Kempf full faithfulness Perf(BG°)→Perf(BB) and conservative finite-component restriction to test the criterion there (VIII.5.9).
 
-Source: [Laurent Fargues; Peter Scholze, VIII.5.8–VIII.5.9, pp.296–297](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf). The passage states the object or result; the proof steps specify the reduction and conventions.
+Source: [Laurent Fargues; Peter Scholze, VIII.5.8–VIII.5.9, pp.296–297](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf). The augmented bar comparison detects induced perfect objects, and conservative restriction to a Borel gives the corresponding descent criterion.
 
 **Acceptance.**
 
@@ -2122,7 +2136,7 @@ Assume A has a good G°-filtration and M∈Perf(X/G) is connective in the good-f
 2. For the converse, approximate the dual bar resolution by finite colimits with increasingly connective cones, using finite good-filtration dimension.
 3. Tensor by M and apply separatedness to recover the bar criterion.
 
-Source: [Laurent Fargues; Peter Scholze, VIII.5.10 and proof, p.297](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf). The passage states the object or result; the proof steps specify the reduction and conventions.
+Source: [Laurent Fargues; Peter Scholze, VIII.5.10 and proof, p.297](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf). Under the coordinate-algebra good-filtration and connectivity hypotheses, preservation of connective objects by tensoring characterizes induced perfectness; finite good-filtration dimension and separatedness prove the converse.
 
 **Acceptance.**
 
@@ -2146,7 +2160,7 @@ For G acting on itself by conjugation, let i:Spec L→G be the unit. With G° re
 2. The diagonal kernel is pulled back from the unit along (g,g′)↦gg′⁻¹; generation of the unit forces the identity functor to factor through the induced subcategory.
 3. For necessity a central cover with l-primary kernel would force invariant functions on that kernel to be surjected by conjugation invariants; their constancy on the unipotent kernel contradicts this, using the tensor criterion.
 
-Source: [Laurent Fargues; Peter Scholze, VIII.5.11 and proof, pp.297–299](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf). The passage states the object or result; the proof steps specify the reduction and conventions.
+Source: [Laurent Fargues; Peter Scholze, VIII.5.11 and proof, pp.297–299](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf). The good torsion-fundamental-group condition, induced unit object and generation of conjugation-stack Perf are equivalent; central covers and Borel flags supply the nonformal implication.
 
 **Acceptance.**
 
@@ -2170,7 +2184,7 @@ If G° is reductive and the orders of π₀G and π₁(G°)_tors are prime to l,
 1. Express the diagonal kernel on the twisted G^n quotient as a pullback of the adjoint unit kernel.
 2. Apply adjoint-unit generation to the kernel and its integral transforms; the induced subcategory then contains the identity image of every perfect object.
 
-Source: [Laurent Fargues; Peter Scholze, VIII.5.12 and proof, p.299](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf). The passage states the object or result; the proof steps specify the reduction and conventions.
+Source: [Laurent Fargues; Peter Scholze, VIII.5.12 and proof, p.299](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf). The free-group case uses products and an equivariant retraction to obtain generation for twisted conjugation, under the good fundamental-group condition.
 
 **Acceptance.**
 
@@ -2195,7 +2209,7 @@ For a G-equivariant map X̃→G with conjugation action on G, put X=X̃×^R_G Sp
 3. Give IndCoh of this self-intersection the t-structure generated by the diagonal image of good-filtration-connective objects, and pass to its separated quotient. Finite good-filtration dimension bounds the t-amplitude of K↦M⊗_A g*K⊗_A M*, so it descends to that quotient.
 4. Prove the forgetful functor on the separated quotient conservative using central-cover reduction and the Borel-invariant Cartier flag from the adjoint-unit proof: its successive derived intersections admit line-bundle resolutions. The colimit of K_n is therefore zero. The bar criterion gives Perf(X/G)=Perf^ind. These are the VIII.5.13 arguments, not an assumption that the geometric fibre is classical.
 
-Source: [Laurent Fargues; Peter Scholze, VIII.5.13 and proof, pp.299–301](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf). The passage states the object or result; the proof steps specify the reduction and conventions.
+Source: [Laurent Fargues; Peter Scholze, VIII.5.13 and proof, pp.299–301](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf). The derived unit-fibre argument uses the separated IndCoh quotient and bounded cohomological amplitude, reducing to Borel flags without identifying the ordinary and derived fibres.
 
 **Acceptance.**
 
@@ -2218,7 +2232,7 @@ The derived character stack of a compact oriented surface with relation ∏[a_i,
 1. Use the free cocycle algebra good filtration and twisted free generation for the source.
 2. Apply the derived-unit-fibre theorem to the surface relation word or tame relation σ⁻¹τσ τ^{-q}. The tame dense group is Z[1/p]⋊Z with the prescribed finite quotient action. The later wild-gerbe elimination theorem handles the full finite-wild piece; no wild passage is needed for this tame unit-fibre argument.
 
-Source: [Laurent Fargues; Peter Scholze, End VIII.5.2, p.301, and tame reduction p.312](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf). The passage states the object or result; the proof steps specify the reduction and conventions.
+Source: [Laurent Fargues; Peter Scholze, End of §VIII.5.2, p.301, and tame reduction, p.312](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf). Derived pullback of the unit-fibre construction handles the surface and tame relators; the tame case is the relation used in the final Weil generation proof.
 
 **Acceptance.**
 
@@ -2243,7 +2257,7 @@ Let L be algebraically closed of characteristic l, G smooth affine with G° redu
 2. Apply TvdK finite good-filtration dimension to equivariant coherent modules on that ambient affine scheme. If π₀H has l-torsion, choose H′ containing H° with π₀H′=C_l. The finite cover G/H′→G/H makes O(G/H′) such a coherent module, so its rational G-cohomology vanishes in sufficiently high degrees.
 3. Shapiro and reductivity of H° identify RΓ(G,O(G/H′)) with RΓ(H′,L) and then RΓ(C_l,L). The latter is nonzero in arbitrarily high degrees, a contradiction. Return to disconnected G using the prime-to-l component hypothesis.
 
-Source: [Laurent Fargues; Peter Scholze, VIII.5.14 and proof, pp.301–302](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf). The passage states the object or result; the proof steps specify the reduction and conventions.
+Source: [Laurent Fargues; Peter Scholze, VIII.5.14 and proof, pp.301–302](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf). After independently importing smooth fixed-group reductivity, the LP argument proves the prime-to-l component-group bound using finite good-filtration dimension.
 
 **Acceptance.**
 
@@ -2268,7 +2282,7 @@ Let Θ have prime order r≠l on G with G° reductive and π₀G prime to l. Put
 2. The formal-unit rth-root map exists because r is invertible, and constructs a (G,C_r)-equivariant retraction of the completion onto X^{C_r}, providing an extra degeneracy.
 3. Use exactness in the Ind–Pro representation enlargement and a faithful GL embedding when needed; this is not averaging without a resolution.
 
-Source: [Laurent Fargues; Peter Scholze, VIII.5.16 and proof, pp.304–307](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf). The passage states the object or result; the proof steps specify the reduction and conventions.
+Source: [Laurent Fargues; Peter Scholze, VIII.5.16 and proof, pp.304–307](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf). For a cyclic prime-order action, equivariant formal roots and the fixed-locus resolution compare the ideal tensor with its fixed restriction in the indicated IndPro category.
 
 **Acceptance.**
 
@@ -2292,7 +2306,7 @@ If P is finite solvable of order prime to l acting on G with G° reductive and �
 2. For permutation actions the fixed identity subgroup is diagonal and tensor stability applies; for simple inner/outer actions use the explicit root/highest-weight calculations in VIII.5.15.
 3. The cyclic fixed-locus resolution gives the good filtration of O(G/H); the highest-weight cohomological criterion gives Donkin restriction/induction.
 
-Source: [Laurent Fargues; Peter Scholze, VIII.5.15 and proof, pp.302–304](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf). The passage states the object or result; the proof steps specify the reduction and conventions.
+Source: [Laurent Fargues; Peter Scholze, VIII.5.15 and proof, pp.302–304](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf). Solvable prime-to-l automorphisms give a Donkin subgroup by prime cyclic induction and the fixed-locus resolution; the theorem itself has no fundamental-group hypothesis.
 
 **Acceptance.**
 
@@ -2317,7 +2331,7 @@ In the solvable prime-to-l fixed-group setting H=G^P, a representation W of H° 
 3. For a central simply connected cover, take the summand with trivial kernel character to descend the good counit-kernel condition. For general G, use its derived group and the linearly reductive quotient (torus identity and prime-to-l components); split the relevant induced representations as retracts. This preserves the actual centre, including non-smooth diagonalizable central kernels, rather than assuming an etale cover.
 4. The identity-group and full-group cases then follow by the prime-to-l component splitting, as in VIII.5.17. The next node uses these established good kernels to build its separated resolution.
 
-Source: [Laurent Fargues; Peter Scholze, VIII.5.17(i)–(iv) and proof, pp.307–310](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf). The passage states the object or result; the proof steps specify the reduction and conventions.
+Source: [Laurent Fargues; Peter Scholze, VIII.5.17(i)–(iv) and proof, pp.307–310](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf). The induction, counit and generation properties are proved together in the simply connected case via dominant-weight lifts and tensor filtrations, then transferred through central covers.
 
 **Acceptance.**
 
@@ -2341,7 +2355,7 @@ In the same solvable prime-to-l setting, Perf(BH°) is generated under cones and
 2. Conservativity of induction supplies generation; compactness cuts the resolution down to finite cones and retracts.
 3. Use simply connected central covers and diagonalizable kernel character decompositions, rather than assume that centres do not matter.
 
-Source: [Laurent Fargues; Peter Scholze, VIII.5.17(v)–(vi), pp.307–310](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf). The passage states the object or result; the proof steps specify the reduction and conventions.
+Source: [Laurent Fargues; Peter Scholze, VIII.5.17(v)–(vi), pp.307–310](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf). Restriction generates fixed-group representations after cones and retracts even when every representation is not an actual restricted quotient; this is the weaker property proved in the proposition.
 
 **Acceptance.**
 
@@ -2364,7 +2378,7 @@ In characteristic2, for G=(SL₂×SL₂)/μ₂ with factor-swap P=C₂, the fixe
 1. For the nontrivial central-character summand of a restricted perfect G-object, homotopy C₂-invariants in PGL₂ remain perfect.
 2. This property is stable under cones and retracts, but fails for the nontrivial central character itself. Keep the full centre, not just the identity component, in the calculation.
 
-Source: [Laurent Fargues; Peter Scholze, VIII.5.18, p.308](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf). The passage states the object or result; the proof steps specify the reduction and conventions.
+Source: [Laurent Fargues; Peter Scholze, VIII.5.18, p.308](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf). The characteristic-two quotient of SL_2 squared with swapping involution has the asserted fixed-centre obstruction; it tests the need for the fundamental-group restriction.
 
 **Acceptance.**
 
@@ -2388,7 +2402,7 @@ If G° is reductive, P is finite solvable of order prime to l and l∤|π₁(G°
 2. Permutation and outer actions preserve the required prime property. For inner actions use the root-subsystem list in VIII.5.19 and track the image of the centre, including exceptional types.
 3. Descend central covers, noting that any new offending prime is the acting prime, already distinct from l.
 
-Source: [Laurent Fargues; Peter Scholze, VIII.5.19 and proof, pp.310–311](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf). The passage states the object or result; the proof steps specify the reduction and conventions.
+Source: [Laurent Fargues; Peter Scholze, VIII.5.19 and proof, pp.310–311](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf). The root-theoretic fixed-group calculation preserves the prime-to-l torsion-fundamental-group property for solvable prime-to-l actions, including the exceptional cases in the proof.
 
 **Acceptance.**
 
@@ -2413,7 +2427,7 @@ For a gerbe 𝒢 over BΓ with fibres a finite union of BG for groups with reduc
 1. Restrict actual Perf mapping categories to finite sets equipped with Γ-torsors and left Kan extend in the specified linear category universe.
 2. Use the universal property to obtain the comparison and its naturality. Ind extends the compact linear-category diagram.
 
-Source: [Laurent Fargues; Peter Scholze, VIII.5.4 pp.311–312; X.3 setup pp.348–349](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf). The passage states the object or result; the proof steps specify the reduction and conventions.
+Source: [Laurent Fargues; Peter Scholze, §VIII.5.4, pp.311–312; §X.3 setup, pp.348–349](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf). Map^Sigma is defined by category-valued sifted left Kan extension from finite bases with torsors, not by assuming a representing derived stack or a finite total torsor.
 
 **API.**
 
@@ -2458,7 +2472,7 @@ For a gerbe 𝒢 over BΓ banded by G with G° reductive and π₀G prime to l, 
 2. Base change the module categories and take products for n generators.
 3. Apply twisted-free-generation for equivalence at good primes; without it retain just full faithfulness and the induced essential image.
 
-Source: [Laurent Fargues; Peter Scholze, VIII.5.20 and proof, p.312](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf). The passage states the object or result; the proof steps specify the reduction and conventions.
+Source: [Laurent Fargues; Peter Scholze, VIII.5.20 and proof, p.312](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf). The free-gerbe comparison is fully faithful with image the induced subcategory; the good fundamental-group condition upgrades it to an equivalence.
 
 **Acceptance.**
 
@@ -2482,7 +2496,7 @@ For finite solvable normal P⊂Γ of order prime to l, and a stack 𝒢 over BΓ
 2. If no extension section exists the mapping stack is empty and geometric reductivity forces the corresponding invariant colimit to vanish.
 3. Induct through a solvable normal series using pushforward and left Kan extension compatibility; use the fixed-fundamental-group theorem for the good-prime clause.
 
-Source: [Laurent Fargues; Peter Scholze, VIII.5.21 and proof, pp.313–315](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf). The passage states the object or result; the proof steps specify the reduction and conventions.
+Source: [Laurent Fargues; Peter Scholze, VIII.5.21 and proof, pp.313–315](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf). Eliminating a finite solvable prime-to-l normal subgroup gives an equivalence of the approximation categories and transports the reductive and fundamental-group conditions.
 
 **Acceptance.**
 
@@ -2507,7 +2521,7 @@ For a finite-wild discrete W with finite normal p-group P and tame W/P, the gerb
 2. Apply the tame unit-fibre result and the free-gerbe module comparison.
 3. Translate the equivalence back to the coordinate-algebra and induced-perfect statements as in the end of VIII.5.2. No LP4 universal property is needed.
 
-Source: [Laurent Fargues; Peter Scholze, VIII.5.2 and concluding proof, pp.294,312–315](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf). The passage states the object or result; the proof steps specify the reduction and conventions.
+Source: [Laurent Fargues; Peter Scholze, VIII.5.2 and concluding proof, pp.294,312–315](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf). The concluding generation argument combines the tame relator with wild-gerbe elimination and the coordinate-algebra colimit under the good fundamental-group hypothesis.
 
 **Acceptance.**
 
@@ -2531,7 +2545,7 @@ Over algebraically closed k, every closed subgroup of reductive G has smooth sch
 2. Check the simple root-system exclusions and Weyl group orders using the RG root datum interface.
 3. Record the torus correction in source issue E2; the quotient/slice statements retain their separate hypotheses.
 
-Source: [Gebhard Böckle; Michael Harris; Chandrashekhar Khare; Jack A. Thorne, §3.1 Theorem3.8, table and Lemma3.9, pp.13–14](https://archive.intlpress.com/site/pub/files/_fulltext/journals/acta/2019/0223/0001/ACTA-2019-0223-0001-a001.pdf). The passage states the object or result; the proof steps specify the reduction and conventions.
+Source: [Gebhard Böckle; Michael Harris; Chandrashekhar Khare; Jack A. Thorne, §3.1 Theorem3.8, table and Lemma3.9, pp.13–14](https://archive.intlpress.com/site/pub/files/_fulltext/journals/acta/2019/0223/0001/ACTA-2019-0223-0001-a001.pdf). The very-good hypotheses yield separability of centralizers via the cited reductive-pair results; they do not imply that the Lie algebra of every reductive group is semisimple.
 
 **Acceptance.**
 
@@ -2556,7 +2570,7 @@ Let G/O be reductive and X,Y normal integral affine flat finite-type O-schemes, 
 2. The map from the full normalisation to the L₀-normalisation sends stabilizers into the image group. Closed residual orbits and orbit injectivity give Stab(z₀)⊂image Gal(L/E), using the same orbit argument as BHKT3.11. Apply SF.4’s finite-Galois intermediate integral-closure criterion to L₀/K₀ to get étaleness at the quotient point.
 3. Use the invariant-neighbourhood property to localise and conclude étaleness as in BHKT3.11.
 
-Source: [Gebhard Böckle; Michael Harris; Chandrashekhar Khare; Jack A. Thorne, §3.2 Lemmas3.11–3.12, pp.16–17](https://archive.intlpress.com/site/pub/files/_fulltext/journals/acta/2019/0223/0001/ACTA-2019-0223-0001-a001.pdf). The passage states the object or result; the proof steps specify the reduction and conventions.
+Source: [Gebhard Böckle; Michael Harris; Chandrashekhar Khare; Jack A. Thorne, §3.2, Lemmas 3.11–3.12 and proofs, pp.16–18](https://archive.intlpress.com/site/pub/files/_fulltext/journals/acta/2019/0223/0001/ACTA-2019-0223-0001-a001.pdf). The quotient etaleness argument must normalize in the finite relative algebraic closure over the invariant fraction field, then apply the stabilizer criterion in the finite Galois extension.
 
 **Acceptance.**
 
@@ -2580,7 +2594,7 @@ Let G/O be reductive, X integral affine smooth finite type over O, and x∈X(k) 
 2. The action G×S→X is étale near (1,x). Use Zariski main/normalisation and the repaired quotient étale descent to compare S with X//G at π(i(1,x)); the published point-name misprints are recorded in E10.
 3. Invariant principal neighbourhoods and formal étaleness identify the completed functors, yielding free formal action and the quotient equivalence.
 
-Source: [Gebhard Böckle; Michael Harris; Chandrashekhar Khare; Jack A. Thorne, §3.2 Proposition3.13 and proof, pp.17–19](https://archive.intlpress.com/site/pub/files/_fulltext/journals/acta/2019/0223/0001/ACTA-2019-0223-0001-a001.pdf). The passage states the object or result; the proof steps specify the reduction and conventions.
+Source: [Gebhard Böckle; Michael Harris; Chandrashekhar Khare; Jack A. Thorne, §3.2 Proposition3.13 and proof, pp.17–19](https://archive.intlpress.com/site/pub/files/_fulltext/journals/acta/2019/0223/0001/ACTA-2019-0223-0001-a001.pdf). A transversal and the etale action map identify the quotient formal deformation functor when the residual orbit is closed and its scheme stabilizer is trivial; E10 fixes the source points.
 
 **Acceptance.**
 
@@ -2603,9 +2617,9 @@ For a split reductive standard dual Levi M over Z, maximal split torus T and Wey
 
 1. Injectivity follows from density of regular semisimple conjugates over Q and torsion-freeness.
 2. Dominant highest-weight characters form a triangular Z-basis of Weyl-invariant torus characters.
-3. Stable Z-lattices in the corresponding rational representations give integral characters in Z[M]^M, proving surjectivity. The highest-weight integral lattice theory is the RG2.6 request.
+3. Stable Z-lattices in the corresponding rational representations give integral characters in Z[M]^M, proving surjectivity. The highest-weight integral lattice theory extends the accepted ReductiveGroupsIntegralRepresentationsPartII owner through its parent Layer9 request pending DESIGN registration.
 
-Source: [Gebhard Böckle; Michael Harris; Chandrashekhar Khare; Jack A. Thorne, Proposition8.3 and proof, p.53](https://archive.intlpress.com/site/pub/files/_fulltext/journals/acta/2019/0223/0001/ACTA-2019-0223-0001-a001.pdf). The passage states the object or result; the proof steps specify the reduction and conventions.
+Source: [Gebhard Böckle; Michael Harris; Chandrashekhar Khare; Jack A. Thorne, Proposition8.3 and proof, p.53](https://archive.intlpress.com/site/pub/files/_fulltext/journals/acta/2019/0223/0001/ACTA-2019-0223-0001-a001.pdf). Integral restriction to the torus is injective by regular semisimple density and surjective by the triangular highest-weight character basis and stable integral lattices, without a good-prime restriction.
 
 **Acceptance.**
 
@@ -2643,7 +2657,7 @@ For X=[Z¹(W,H)/H], evaluation of the universal H⋊Q-torsor gives, for finite I
 2. Tensor I copies and use evaluation/fusion along finite-set maps.
 3. Tensor with the resulting perfect bundle to obtain an exact endofunctor. Use S.1 for local perfectness and pullback stability.
 
-Source: [Laurent Fargues; Peter Scholze, X introduction, p.340](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf). The passage states the object or result; the proof steps specify the reduction and conventions.
+Source: [Laurent Fargues; Peter Scholze, X introduction, p.340](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf). Universal associated representation bundles give the Rep(H) action on parameter Perf before the generation comparison; this is distinct from the Chapter X action universal property.
 
 **API.**
 
@@ -2689,7 +2703,7 @@ For finite-wild W and l∤|π₁(H)_tors|, Perf(Z¹(W,H)/H) over Z_l is generate
 2. Over Z_l reduce perfect amplitude by surjections from induced bundles. A vector bundle splits off an induced bundle rationally, hence up to an l-power.
 3. The remaining mod-l object is induced-generated; devissage and retracts recover integral generation.
 
-Source: [Laurent Fargues; Peter Scholze, VIII.5.1 and reduction proof, pp.293–294](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf). The passage states the object or result; the proof steps specify the reduction and conventions.
+Source: [Laurent Fargues; Peter Scholze, VIII.5.1 and reduction proof, pp.293–294](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf). The characteristic-zero generation statement holds at every prime, while the integral statement requires good pi_1; both concern actual Perf after the representation-generation proof.
 
 **Acceptance.**
 
@@ -2714,7 +2728,7 @@ Under integral good-prime generation, IndPerf(Z¹(W,H)/H)≃Mod_{O(Z¹(W,H))}(In
 2. Apply Barr–Beck–Lurie and identify its monad with tensor by the cocycle coordinate algebra.
 3. The canonical comparison identifies compact objects and the induced action.
 
-Source: [Laurent Fargues; Peter Scholze, VIII.5.1 and proof, p.293](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf). The passage states the object or result; the proof steps specify the reduction and conventions.
+Source: [Laurent Fargues; Peter Scholze, VIII.5.1 and proof, p.293](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf). Generation makes the affine adjunction conservative, and monadicity identifies IndPerf of parameters with modules over the cocycle algebra in IndPerf(BH).
 
 **Acceptance.**
 
@@ -2848,7 +2862,7 @@ Owner-side scope extension of the existing tame-W X.0.2 contract to arbitrary fi
 
 ## Source corrections
 
-The ten inherited confirmed findings are retained. The defective assertions below are paraphrases, with corrected mathematical statements and locators. The historical independent erratum reviews remain attached in the packet.
+The ten inherited findings were independently rechecked and confirmed by REV-LanglandsParameterStacks~2 on 9 October 2026. The defective assertions below are paraphrases, with corrected mathematical statements and locators. Current independent verdicts are attached in the packet.
 
 ### LanglandsParameterStacks/E1 — misprint
 
@@ -2859,6 +2873,8 @@ The appended-coordinate membership uses the symbol of the global automorphic gro
 **Correction.** The appended element belongs to H (the reductive group of Proposition11.7), with the specified component, not the global automorphic group G.
 
 **Reason.** Lemma11.10 is inside the proof for an arbitrary H, and its tuple orbit lies in H^{n+1}; G is not this coefficient group.
+
+**Independent check.** confirmed by REV-LanglandsParameterStacks~2: Independently checked the appended-coordinate statement of Lemma 11.10 on p.145: the tuple is in the coefficient group H, so the printed G is a symbol error.
 
 Applies to: nothing. Correction status: new.
 
@@ -2872,6 +2888,8 @@ The Lie algebra of the reductive group is described as semisimple.
 
 **Reason.** Take G=G_m in characteristic3. There are no simple-factor exclusions, but Lie(G_m) is one-dimensional abelian, so not a nonzero semisimple Lie algebra.
 
+**Independent check.** confirmed by REV-LanglandsParameterStacks~2: Independently checked §3.1 p.14. The allowed reductive group G_m in characteristic 3 has a nonzero abelian Lie algebra, disproving the printed semisimplicity assertion.
+
 Applies to: a stated result. Correction status: new.
 
 ### LanglandsParameterStacks/E3 — misprint
@@ -2883,6 +2901,8 @@ The excursion construction calls the scalar square cartesian.
 **Correction.** The natural reindexing square of invariant functions and maps to End(id_C) is commutative; the required proof uses commutativity, not a pullback property.
 
 **Reason.** Take C the zero stable category, Q=1, H=G_m, Γ=1, and fold a two-element I onto one-element J. The right rings are zero, while the left rings are Z_l[t,t⁻¹] and Z_l. A pullback square would force these two left rings to be isomorphic, which they are not.
+
+**Independent check.** confirmed by REV-LanglandsParameterStacks~2: Independently checked the reindexing square in the proof on p.292. For the zero stable category the right rings vanish, whereas folding the G_m example leaves unequal left rings, so only commutativity is valid.
 
 Applies to: nothing. Correction status: new.
 
@@ -2896,6 +2916,8 @@ The Hochschild degree-two discussion identifies all Hochschild classes with comm
 
 **Reason.** Take A=Q and B=Q[x,y]. The cotangent complex is the free module B dx⊕B dy in degree zero, so Ext¹_B(L,B)=0. Resolve the diagonal B over B⊗_Q B by the two-variable Koszul complex on x⊗1−1⊗x and y⊗1−1⊗y. After Hom(−,B) its differentials vanish, giving HH²(B/Q)≅B, which is nonzero. B is flat and syntomic, so the displayed hypotheses do not repair the equality.
 
+**Independent check.** confirmed by REV-LanglandsParameterStacks~2: Independently checked pp.282–283. For Q[x,y], cotangent Ext^1 vanishes but the diagonal two-variable Koszul resolution gives nonzero associative HH^2; the natural map, rather than equality, supplies the needed action.
+
 Applies to: a stated result. Correction status: new.
 
 ### LanglandsParameterStacks/E5 — misprint
@@ -2907,6 +2929,8 @@ The monodromy display uses the residue-cardinality scaling for the stated geomet
 **Correction.** For the geometric degree used in IX.7, use q^{−deg(σ)}N and replace the preceding conjugation exponent accordingly; alternatively use arithmetic degree in both displays and explicitly invert the Frobenius chosen in VIII.1.
 
 **Reason.** VIII.1 uses σ⁻¹τσ=τ^q, so conjugation by geometric σ sends log τ to q⁻¹log τ. IX.7 explicitly sends geometric Frobenius to1. The p.282 positive exponent uses the reciprocal convention without saying so. For split GL₂, N=E₁₂ and φ₀(σ)=diag(q⁻¹,1) give Ad(φ₀(σ))N=q⁻¹N.
+
+**Independent check.** confirmed by REV-LanglandsParameterStacks~2: Independently compared VIII.1 p.279, VIII.2.4 p.282 and IX.7 p.334. The geometric Frobenius relation forces reciprocal monodromy scaling, agreeing with the GL_2 matrix test.
 
 Applies to: a stated result. Correction status: new.
 
@@ -2920,6 +2944,8 @@ The lattice indexing the induced Borel modules is described using cocharacters.
 
 **Reason.** The line bundle O(λ) is defined by a character T→G_m, belonging to X*(T), not a cocharacter G_m→T in X_*(T). The section explicitly writes G for the group being represented, so dual-side notation does not change its weight lattice.
 
+**Independent check.** confirmed by REV-LanglandsParameterStacks~2: Independently checked p.294 and p.304. The Borel line bundle is indexed by a character of the torus, not a cocharacter; the good-filtration statements use the corrected weight lattice.
+
 Applies to: nothing. Correction status: new.
 
 ### LanglandsParameterStacks/E7 — misprint
@@ -2931,6 +2957,8 @@ The inner-automorphism discussion strengthens semisimplicity of a finite-order e
 **Correction.** Use a semisimple element inducing the prime-order inner automorphism; regularity is not available or needed.
 
 **Reason.** In SL₃ in characteristic different from2, diag(−1,−1,1) induces an inner involution and has a non-torus block centralizer. It is semisimple but not regular. A regular semisimple centralizer would be a maximal torus.
+
+**Independent check.** confirmed by REV-LanglandsParameterStacks~2: Independently checked the inner case on p.303. The SL_3 involution from diag(-1,-1,1) has a block centralizer, so finite prime-to-characteristic order gives semisimplicity without regularity.
 
 Applies to: the proof. Correction status: new.
 
@@ -2944,6 +2972,8 @@ The lifting argument repeats the first character symbol for the second lift.
 
 **Reason.** The preceding construction lifts an H-weight µ to a G-weight; the next tensor is ∇λ|H⊗∇λµ|H, used to control ∇λ|H⊗∇Hµ. Lifting λ again would not provide the required H-factor.
 
+**Independent check.** confirmed by REV-LanglandsParameterStacks~2: Independently checked the tensor argument immediately before Lemma VIII.5.16 on p.304. Its second lifted weight must restrict to the current H-weight mu, not repeat lambda.
+
 Applies to: nothing. Correction status: new.
 
 ### LanglandsParameterStacks/E9 — error
@@ -2956,6 +2986,8 @@ The quotient étaleness proof takes a finite Galois closure of a field extension
 
 **Reason.** L is finite algebraic over K=Frac O[X] but generally has positive transcendence degree over K₀=Frac(O[X]^G). Lemma3.12 requires a finite Galois extension of the fraction field of its base, so it cannot be applied to L/K₀. For connected reductive G, K₀ is relatively algebraically closed in K, and the relative algebraic closure L₀ is the required finite Galois extension.
 
+**Independent check.** confirmed by REV-LanglandsParameterStacks~2: Independently checked the proof on pp.16–18 and the finite-Galois stabilizer criterion. The full function field may be transcendental over the invariant field; the finite relative algebraic closure is the required normalization field.
+
 Applies to: the proof. Correction status: Already identified in the atlas by confirmed RT-PAPER-BOCKLE-HARRIS-KHARE-ETAL-19/15(h,f); still present in the published Acta copy. No separate published correction was found in the checked records..
 
 ### LanglandsParameterStacks/E10 — misprint
@@ -2967,6 +2999,8 @@ The formal-slice proof uses a diagonal-looking source point in place of the prod
 **Correction.** The action map is étale at (1,x), and η//G is étale at π_{X′}(i(1,x)).
 
 **Reason.** The printed points belong to the wrong domains. The proof immediately supplies the intended points and the correct statement of Lemma3.11 already uses the quotient point.
+
+**Independent check.** confirmed by REV-LanglandsParameterStacks~2: Independently checked Proposition 3.13 on p.18. The action source is the product of the group identity with the transversal point, and the quotient point must be its image in the stated domain.
 
 Applies to: nothing. Correction status: Already identified in the atlas by confirmed RT-PAPER-BOCKLE-HARRIS-KHARE-ETAL-19/15(h,f); still present in the published Acta copy. No separate published correction was found in the checked records..
 
@@ -2999,6 +3033,12 @@ R03.3 (or its Part II) supplies the explicit Gulliksen/Jørgensen/Arinkin–Gait
 Finding23 and the old monodromy/continuity placement caused backwards ownership.
 
 Unconditional invariants, coarse quotient, closed orbits, all-prime universal homeomorphism and torsion-free continuity belong in excursion-presentation. Integral-invariants has only good-prime isomorphism/cohomology/base change. Move the legacy monodromy comparison to LP1 and the legacy transition/continuity theorem to excursion-presentation, retaining their IDs and changing parentStageId. No LP3 prerequisite for semisimple reconstruction or coarse points.
+
+## Independent review of revision 2
+
+On 9 October 2026, Codex (`codex-BiS4GG`) independently checked every retained declaration, its proof inputs, API and tests; all 31 declarations were read at the two pinned library commits. All seven public source files were downloaded again and matched their recorded hashes. The source and proof locators above are specific paraphrases of the checked results, including the complete VIII.5 proofs, the Chapter X ownership passages and Quast's disconnected algebraic reconstruction.
+
+The review corrected mixed-source and ambiguous locators, a missing direct coordinate-colimit prerequisite, two obsolete highest-weight ownership sentences and eight copied delegation reasons. Its 79-entry ledger replaces the historical 89-node verdict. The [independent report](../reviews/REV-LanglandsParameterStacks~2.md) records the checks and the [handoff](../handoff/REV-LanglandsParameterStacks~2.md) records the remaining supplier work. The accepted plan keeps every stage planned and every implementation unchecked; closure still requires G1–G4 and G6 to be discharged.
 
 ## Suggested Lean boundary
 
