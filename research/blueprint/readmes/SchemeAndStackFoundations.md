@@ -33,7 +33,7 @@ This definitive document preserves the incoming mathematical plan and adds the f
 ### SchemeAndStackFoundations:SF.4 — not_read
 
 - Formal geometry, deformation/lifting, algebraization, non-Noetherian modifications, strict transforms and source-qualified alterations remain unread at their primary locators.
-- Import NeronModelsAndSemistableAbelianVarieties R11.1/R11.3 and StableReductionLayer7/8/9. Resolve the conflicting confirmed alteration-owner recommendations before adding any alteration dependency.
+- Import NeronModelsAndSemistableAbelianVarieties R11.1/R11.3 and StableReductionLayer7/8/9 where a source theorem uses them. SF.4 is the single owner of the schematic alteration theorems (RS-25; RT-AREA-algebraicgeometry/16; requested by AdicCoefficientsAndComparisons L5 and needed by PadicDifferentialEquationsAndRigidCohomology RD.5). Plan them in the forms that request states, importing blow-ups, strict transforms and flattening from StableReductionLayer4 and the stable pointed-curve stack from StableReductionPartII key/moduli-curves and MC.2 (RT-AREA-algebraicgeometry/17), not from R09.4/R09.5. Import the projective cover of 2.24 from StableReductionPartII MC.4, extended to n ≥ 3 marked points in every genus, only once the SF.5 rescope removes SF.4 → SF.5 (gap: Alteration owner settled; the moduli cover waits for the SF.5 rescope).
 
 ### SchemeAndStackFoundations:SF.5 — not_read
 
@@ -44,6 +44,17 @@ This definitive document preserves the incoming mathematical plan and adds the f
 
 - This is a consumer handoff/process layer according to AUDIT-01: do not invent mathematical nodes for integration itself.
 - Record typed imports and coefficient/comparison contracts from the actual suppliers, including ComplexComparison C5, once the mathematical nodes exist. All arithmetic handoffs in sourceWorklist remain unfinished.
+
+## Round 2 of the algebraic-geometry area fix (2026-10-09)
+
+FIX-RT-AREA-algebraicgeometry~2 (claude-5oyBX2) checked this packet against the confirmed findings RT-AREA-algebraicgeometry/1, /8, /11, /15, /16, /17, /18 and /31. Most were already met by the coverage boundaries above; the changes are these.
+
+- **Alterations (/16, with RT-AREA-etale/21).** SF.4 is the single owner of the schematic alteration theorems of de Jong 1996 (alterations as in 2.20, Theorem 4.1 with Remark 4.2, Theorem 5.8 and Theorem 6.5). Accepted RS-25 keeps them here, and the accepted AdicCoefficientsAndComparisons packet imports them from SF.4 and keeps only comparison descent and local calculations in L5. The schematic prefix carries no H1/H5 dependency, which is what RT-AREA-etale/21 asked for, so no L5:alterations stage is created. PadicDifferentialEquationsAndRigidCohomology still requests the alterations from L5 for RD.5; its blueprint job should retarget the request to SF.4. The former conflict gap now records what remains open.
+- **Stable pointed curves (/17).** Their stack is StableReductionPartII key/moduli-curves (MC.0), proper Deligne–Mumford by MC.2; R09.4 does not plan it. De Jong’s 2.24 also needs a projective scheme finite over that stack with a stable family, built from level-ℓ Jacobian covers. This belongs in StableReductionPartII MC.4, which plans it only for unpointed curves of genus at least 2 and requires SF.5: de Jong’s range, n ≥ 3 marked points in every genus, must be added there, and while the atlas edge SF.4 → SF.5 stands, importing MC.4 into SF.4 would close a cycle.
+- **Inputs of SF.5 (/15).** A rescope proposal replaces SF.4 → SF.5 by SF.3 → SF.5 and AlgebraicModuli R09.1 → SF.5, keeps StableReduction Layer 4 → SF.5, and deletes the RS-25 forwarding links from R11.1, R11.3 and StableReduction Layers 7–9. It also proposes SF.4 → AdicCoefficientsAndComparisons L5, SF.4 → PadicDifferentialEquationsAndRigidCohomology RD.5 and StableReductionPartII MC.2 → SF.4, and MC.4 → SF.4 once SF.4 → SF.5 is gone. In the atlas together with the roadmap definitions this is acyclic.
+- **Already met.** SF.1 owns algebraic spaces and the remaining stack targets (/1); SF.3 leaves Néron–Severi groups and Picard numbers to AbelianSchemes A2 (/8); SF.0 imports Weil restriction from ModularCurves 0F through ReductiveGroupsPartII RG2.0a and R09.3 (/11); SF.2 owns coherent duality through key/coherent-duality (/18); the SF.6 part packet imports ComplexComparisonPartII C5 (/31).
+
+The nodes of SF.1–SF.5 stay with the part jobs BP-SchemeAndStackFoundations--SF.1 to --SF.5.
 
 ## Typed evidence boundary
 
@@ -4706,7 +4717,7 @@ The complete 15.12.1–15.12.8 mathematical text and proofs were freshly read fo
 
 - Formal geometry, deformation/lifting, algebraization, non-Noetherian modifications, strict transforms and source-qualified alterations remain unread at their primary locators.
 
-- Import NeronModelsAndSemistableAbelianVarieties R11.1/R11.3 and StableReductionLayer7/8/9. Resolve the conflicting confirmed alteration-owner recommendations before adding any alteration dependency.
+- Import NeronModelsAndSemistableAbelianVarieties R11.1/R11.3 and StableReductionLayer7/8/9 where a source theorem uses them. SF.4 is the single owner of the schematic alteration theorems (RS-25; RT-AREA-algebraicgeometry/16; requested by AdicCoefficientsAndComparisons L5 and needed by PadicDifferentialEquationsAndRigidCohomology RD.5). Plan them in the forms that request states, importing blow-ups, strict transforms and flattening from StableReductionLayer4 and the stable pointed-curve stack from StableReductionPartII key/moduli-curves and MC.2 (RT-AREA-algebraicgeometry/17), not from R09.4/R09.5. Import the projective cover of 2.24 from StableReductionPartII MC.4, extended to n ≥ 3 marked points in every genus, only once the SF.5 rescope removes SF.4 → SF.5 (gap: Alteration owner settled; the moduli cover waits for the SF.5 rescope).
 
 ### SchemeAndStackFoundations:SF.5 — not_read
 
@@ -4748,7 +4759,7 @@ Reserved IDs:
 
 5. Five reserved definitions are still unplanned. The exact reserved ids key/excellent-schemes, key/scheme-brauer, key/coherent-duality, key/equivariant-sheaf-cohomology and key/galois-gerbs are not nodes in this partial packet. Freshly read each complete key brief and all relevant primary locators, then supply actual carriers, APIs and discriminating examples. Do not certify this issue complete. Needed by: `SchemeAndStackFoundations:SF.0`, `SchemeAndStackFoundations:SF.1`, `SchemeAndStackFoundations:SF.2`.
 
-6. Conflicting confirmed alteration ownership directions. RT-AREA-algebraicgeometry/16 recommends SF.4→L5, while RT-AREA-etale/21 recommends L5:alterations→SF.4. Both findings are confirmed in their inputs. This checkpoint imports neither direction; a coherent accepted ownership decision is needed before this strand can be planned. Other confirmed findings remain the explicit unimplemented matrix below. Needed by: `SchemeAndStackFoundations:SF.4`.
+6. Alteration owner settled; the moduli cover waits for the SF.5 rescope. SF.4 is the single owner of the schematic alteration theorems (de Jong 1996: alterations in the sense of 2.20, Theorem 4.1 with Remark 4.2 over a field, the curve-fibration step 5.8 and Theorem 6.5 over a trait). Accepted RS-25 keeps them here, RT-AREA-algebraicgeometry/16 recommends it, and the accepted AdicCoefficientsAndComparisons packet imports them from SF.4 and keeps only proper-hypercover comparison descent and local calculations in L5. RT-AREA-etale/21 asked that the alteration theorems not inherit H1/H5; a schematic SF.4 prefix meets that, so no L5:alterations stage is created. PadicDifferentialEquationsAndRigidCohomology RD.5 still requests the alterations from L5 and proposes L5 as owner; its blueprint job should retarget that request to SF.4. What remains open: the proofs of Theorems 4.1 and 5.8 use de Jong’s 2.24: the stack of stable pointed curves, and a projective scheme with a finite dominant map to it carrying a stable family, obtained by normalising the stack in the function field of the cover that trivialises ℓ-torsion of the universal Jacobian (two primes ℓ ≥ 3), which is projective (de Jong cites Deligne, ‘Le lemme de Gabber’, with Knudsen as general reference). The stack and its properness are StableReductionPartII key/moduli-curves (MC.0) and MC.2; the level cover and projective cover are planned in MC.4 for unpointed curves of genus at least 2, so the range de Jong uses, n ≥ 3 marked points and every genus g ≥ 0 (genus 0 and 1 included), must be added there (as the AdicCoefficientsAndComparisons request to SF.4 also notes), with torsion of abelian schemes from AbelianSchemes A3. MC.0, MC.2 and A3 do not depend on SF.4, but MC.4 requires SF.5, so while SF.4 → SF.5 stands, importing MC.4 into SF.4 closes the cycle SF.4 → SF.5 → MC.4 → SF.4. The rescope entry for RT-AREA-algebraicgeometry/15 removes SF.4 → SF.5; the import of MC.4 waits for it. Needed by: `SchemeAndStackFoundations:SF.4`.
 
 7. Seven-stage and all routed-source closure. Only one affine henselization strand is developed. All stage remaining lists, all sourceWorklist paper routes, the original roadmap references and every other reserved key must be retained. SF.6 is process/handoff work. No stage, paper or mathematical implementation is claimed closed. Needed by: `SchemeAndStackFoundations:SF.0`, `SchemeAndStackFoundations:SF.1`, `SchemeAndStackFoundations:SF.2`, `SchemeAndStackFoundations:SF.3`, `SchemeAndStackFoundations:SF.4`, `SchemeAndStackFoundations:SF.5`, `SchemeAndStackFoundations:SF.6`.
 
@@ -4756,34 +4767,34 @@ Reserved IDs:
 
 ## Confirmed red-team findings retained
 
-Every listed finding remains unimplemented in this first checkpoint. These are imported verifier-confirmed inputs, not this worker’s independent review. No integrated link is changed.
+The first checkpoint listed every finding as unimplemented. Round 2 of the algebraic-geometry area fix (FIX-RT-AREA-algebraicgeometry~2, 2026-10-09) records the status of the eight algebraic-geometry findings and of RT-AREA-etale/21; the packet’s `confirmedFindings` entries carry the full disposition. No integrated link is changed; the stage-edge changes are proposals.
 
-| Finding | Stage | Required boundary |
-|---|---|---|
+| Finding | Stage | Required boundary | Status after round 2 |
+|---|---|---|---|
 
-| RT-AREA-algebraicgeometry/1 | SchemeAndStackFoundations:SF.1 | General spaces/stacks belong here; R09 receives the exported interface. |
+| RT-AREA-algebraicgeometry/1 | SchemeAndStackFoundations:SF.1 | General spaces/stacks belong here; R09 receives the exported interface. | applied (packet side) |
 
-| RT-AREA-algebraicgeometry/8 | SchemeAndStackFoundations:SF.3 | NS and Picard number remain with A2, not duplicate generic SF.3 theory. |
+| RT-AREA-algebraicgeometry/8 | SchemeAndStackFoundations:SF.3 | NS and Picard number remain with A2, not duplicate generic SF.3 theory. | applied |
 
-| RT-AREA-algebraicgeometry/11 | SchemeAndStackFoundations:SF.0 | Weil restriction follows MC0F → RG2.0a → R09.3; import that owner. |
+| RT-AREA-algebraicgeometry/11 | SchemeAndStackFoundations:SF.0 | Weil restriction follows MC0F → RG2.0a → R09.3; import that owner. | applied (packet side) |
 
-| RT-AREA-algebraicgeometry/15 | SchemeAndStackFoundations:SF.5 | Use genuine SF.3/R09.1/coherent-duality prerequisites and remove spurious reduction paths through the eventual reviewed link changes. |
+| RT-AREA-algebraicgeometry/15 | SchemeAndStackFoundations:SF.5 | Use genuine SF.3/R09.1/coherent-duality prerequisites and remove spurious reduction paths through the eventual reviewed link changes. | recorded |
 
-| RT-AREA-algebraicgeometry/16 | SchemeAndStackFoundations:SF.4 | Recommends SF.4 as single alteration supplier to L5; conflicts with etale/21. |
+| RT-AREA-algebraicgeometry/16 | SchemeAndStackFoundations:SF.4 | SF.4 is the single alteration owner; AdicCoefficientsAndComparisons L5 imports it. | applied |
 
-| RT-AREA-algebraicgeometry/17 | SchemeAndStackFoundations:SF.4 | Use pointed-curve moduli R09.4/R09.5 as alteration inputs, not an SR object theorem. |
+| RT-AREA-algebraicgeometry/17 | SchemeAndStackFoundations:SF.4 | Import the stable pointed-curve stack from StableReductionPartII (key/moduli-curves, MC.2) as alteration input; R09.4 does not plan it. | applied |
 
-| RT-AREA-algebraicgeometry/18 | SchemeAndStackFoundations:SF.2 | General coherent duality extends the curve-scoped SR2 contract. |
+| RT-AREA-algebraicgeometry/18 | SchemeAndStackFoundations:SF.2 | General coherent duality extends the curve-scoped SR2 contract. | applied (packet side) |
 
-| RT-AREA-algebraicgeometry/31 | SchemeAndStackFoundations:SF.6 | Import ComplexComparison C5 for the arithmetic cohomology comparison. |
+| RT-AREA-algebraicgeometry/31 | SchemeAndStackFoundations:SF.6 | Import ComplexComparison C5 for the arithmetic cohomology comparison. | applied (packet side) |
 
-| RT-AREA-etale/2 | SchemeAndStackFoundations:SF.2 | Absolute purity belongs to EtaleDualityAbsolutePurityPartII; split early SF.2 site foundation from late comparison to prevent a cycle. |
+| RT-AREA-etale/2 | SchemeAndStackFoundations:SF.2 | Absolute purity belongs to EtaleDualityAbsolutePurityPartII; split early SF.2 site foundation from late comparison to prevent a cycle. | unimplemented (outside this fix) |
 
-| RT-AREA-etale/21 | SchemeAndStackFoundations:SF.4 | Recommends new L5:alterations as supplier to SF.4; conflicts with algebraicgeometry/16. |
+| RT-AREA-etale/21 | SchemeAndStackFoundations:SF.4 | Settled with algebraicgeometry/16: SF.4 owns the schematic alterations; no L5:alterations stage. | settled |
 
-| RT-AREA-ktheory-2/38 | SchemeAndStackFoundations:SF.2 | General Nisnevich site and henselian point foundation must be supplied here. |
+| RT-AREA-ktheory-2/38 | SchemeAndStackFoundations:SF.2 | General Nisnevich site and henselian point foundation must be supplied here. | unimplemented (outside this fix) |
 
-| RT-AREA-geomlanglands/15 | SchemeAndStackFoundations:SF.5 | Single positivity/Keel supplier here; GS consumes the result. |
+| RT-AREA-geomlanglands/15 | SchemeAndStackFoundations:SF.5 | Single positivity/Keel supplier here; GS consumes the result. | unimplemented (outside this fix) |
 
 
 ## Routed papers still requiring full reading
@@ -5207,7 +5218,7 @@ The reviewed target inventory covers all seven stages, preserving each audit not
 | SF.1 | partial | Algebraic spaces now have concrete native representable-diagonal, etale-atlas and algebraic-space predicates, with twelve named interfaces and ten typed tests. Finish the actual category, relative comparison, quotient/presentation/atlas-independence proof and concrete nonscheme examples. Read and plan the small etale ringed site and chart fibre products requested by R09.3; retain its QCoh and relative Picard constructions as consumers, not duplicate local definitions. Plan the remaining Artin/Deligne-Mumford stack, stabilizer, coarse/fine moduli and effective object-class descent targets, importing MC0E/SR2 and DiamondsAndVStacks:D0 exactly. Generic quotient stacks remain owned by D0. Plan reserved galois-gerbs and all routed quotient/root-stack, perfect-site groupoid and Galois/descent source routes. This stage is partial, not fully planned. |
 | SF.2 | not_read | Plan reserved scheme-brauer, coherent-duality and equivariant-sheaf-cohomology, with their canonical comparison and scope-qualified APIs/tests. Split early site/coefficients from later comparisons: import EDC/CPC and EtaleDualityAbsolutePurityPartII. Preserve coherent-curve SR2 and general coherent-duality distinction; do not create a second six-operations or absolute-purity theory. Retain all site/localization/support/compact support/base-change/Cousin/pro-etale/Nisnevich routes with coefficient distinctions. Henselian points require the still-open affine strand and additional site geometry. |
 | SF.3 | not_read | Import upstream AlgebraicCurves/JacobianChallenge function-field divisors, genus and RR; prove scheme/Picard/line-bundle/coherent-duality comparisons. Do not infer arbitrary-vector-bundle duality from function-field RR. Keep NS/Picard-number theory with A2; retain rational-divisor versus rational-class/Brauer-obstruction and family/Jacobian routes. |
-| SF.4 | not_read | Formal geometry, deformation/lifting, algebraization, non-Noetherian modifications, strict transforms and source-qualified alterations remain unread at their primary locators. Import NeronModelsAndSemistableAbelianVarieties R11.1/R11.3 and StableReductionLayer7/8/9. Resolve the conflicting confirmed alteration-owner recommendations before adding any alteration dependency. |
+| SF.4 | not_read | Formal geometry, deformation/lifting, algebraization, non-Noetherian modifications, strict transforms and source-qualified alterations remain unread at their primary locators. Import NeronModelsAndSemistableAbelianVarieties R11.1/R11.3 and StableReductionLayer7/8/9 where a source theorem uses them. SF.4 is the single owner of the schematic alteration theorems (RS-25; RT-AREA-algebraicgeometry/16; requested by AdicCoefficientsAndComparisons L5 and needed by PadicDifferentialEquationsAndRigidCohomology RD.5). Plan them in the forms that request states, importing blow-ups, strict transforms and flattening from StableReductionLayer4 and the stable pointed-curve stack from StableReductionPartII key/moduli-curves and MC.2 (RT-AREA-algebraicgeometry/17), not from R09.4/R09.5. Import the projective cover of 2.24 from StableReductionPartII MC.4, extended to n ≥ 3 marked points in every genus, only once the SF.5 rescope removes SF.4 → SF.5 (gap: Alteration owner settled; the moduli cover waits for the SF.5 rescope). |
 | SF.5 | not_read | Build on the existing AlgebraicCycle carrier; construct rational equivalence/Chow, pushforward, flat/lci pullback, refined Gysin, intersection/Chern/RR in their actual domains. Import arithmetic-surface intersections from StableReductionLayer4. Retain SF.3/R09.1/coherent-duality inputs, isolated-intersection Bezout inequalities, DM-stack and positivity/Keel routes without requiring unrelated reduction theorems. |
 | SF.6 | not_read | This is a consumer handoff/process layer according to AUDIT-01: do not invent mathematical nodes for integration itself. Record typed imports and coefficient/comparison contracts from the actual suppliers, including ComplexComparison C5, once the mathematical nodes exist. All arithmetic handoffs in sourceWorklist remain unfinished. |
 
