@@ -3625,31 +3625,55 @@ theorem schneiderLang_liouville_bound
         Real.log ‖mDeriv σ (fun z ↦ ∑ l, (p l : ℂ) * ((∏ h, z (Fin.castLE hd₀ h) ^ (l.1 h : ℕ)) *
           exp (∑ ν, (∑ i, ((l.2 i : ℕ) : ℂ) * x i ν) * z ν))) (∑ j, (s j : ℂ) • y j)‖ := sorry
 
-/-- Construction of the auxiliary function and its vanishing, Waldschmidt §4.6 Steps 3-4. -/
-theorem schneiderLang_exists_vanishing
+/-- Waldschmidt §4.6 Steps 3–4, with the uniform polydisc output and the
+large-`L` cutoff. `c₁` is a fixed witness of (4.14), chosen before the parameters.
+The larger `c₇` absorbs `log (n+1)` in the Cauchy/Liouville comparison; `c₈`
+also supplies the coefficient budget for the corrected total-order Step 5. -/
+theorem schneiderLang_exists_vanishing (hn : 1 ≤ n) (hd : n < d₀ + d₁)
     (hK : (∀ h j, y j (Fin.castLE hd₀ h) ∈ Set.range ι) ∧
       (∀ i j, exp (∑ ν, x i ν * y j ν) ∈ Set.range ι) ∧ ∀ i ν, x i ν ∈ Set.range ι)
-    (hx : LinearIndependent ℚ x) (hy : LinearIndependent ℂ y) :
-    ∃ c₃ c₄ c₅ c₇ c₈ c₂ : ℝ, 0 < c₃ ∧ 0 < c₄ ∧ 0 < c₅ ∧ 0 < c₇ ∧ 0 < c₈ ∧ 0 < c₂ ∧
-      ∀ (T₀ T₁ S₀ S₁ : ℕ) (E : ℝ), 2 ≤ T₀ → 2 ≤ T₁ → 2 ≤ S₀ → 2 ≤ S₁ → Real.exp 1 ≤ E →
+    (hx : LinearIndependent ℚ x) (hy : LinearIndependent ℂ y)
+    (c₁ : ℝ) (hc₁ : 1 ≤ c₁)
+    (hliouville : ∀ (T₀ T₁ S₁ : ℕ) (N : ℝ)
+      (p : (Fin d₀ → Fin (T₀ + 1)) × (Fin d₁ → Fin (T₁ + 1)) → ℤ) (σ s : Fin n → ℕ),
+      2 ≤ T₀ → 2 ≤ T₁ → 0 < N →
+      (∀ l, |(p l : ℝ)| ≤ Real.exp N) → (∀ j, s j < S₁) →
+      mDeriv σ (fun z ↦ ∑ l, (p l : ℂ) * ((∏ h, z (Fin.castLE hd₀ h) ^ (l.1 h : ℕ)) *
+          exp (∑ ν, (∑ i, ((l.2 i : ℕ) : ℂ) * x i ν) * z ν))) (∑ j, (s j : ℂ) • y j) ≠ 0 →
+      -c₁ * (N + (∑ ν, σ ν) * Real.log T₁ + T₀ * Real.log (S₁ + ∑ ν, σ ν) + T₁ * S₁) ≤
+        Real.log ‖mDeriv σ (fun z ↦ ∑ l, (p l : ℂ) * ((∏ h, z (Fin.castLE hd₀ h) ^ (l.1 h : ℕ)) *
+          exp (∑ ν, (∑ i, ((l.2 i : ℕ) : ℂ) * x i ν) * z ν))) (∑ j, (s j : ℂ) • y j)‖) :
+    ∃ c₂ c₃ c₄ c₅ c₆ c₇ c₈ : ℝ,
+      c₂ = (∑ j, ‖y j‖) + 2 ∧ c₄ = 1 / (2 * c₁) ∧
+      c₃ = c₄ ^ (1 / (n : ℝ)) * (6 : ℝ) ^ (-1 - 1 / (n : ℝ)) ∧
+      c₆ = c₂ * ((d₀ : ℝ) + d₁ + ∑ i, ∑ ν, ‖x i ν‖) ∧ c₅ = c₃ / c₆ ∧
+      0 < c₃ ∧ 0 < c₄ ∧ 0 < c₅ ∧ 0 < c₆ ∧
+      c₅⁻¹ ≤ c₇ ∧ (2 * c₁ / c₃) * ((n : ℝ) + 1 + Real.log (n + 1)) ≤ c₇ ∧
+      1 + 2 * n * c₃ ≤ c₈ ∧
+      ∀ (T₀ T₁ S₀ S₁ : ℕ) (E : ℝ),
+        2 ≤ T₀ → 2 ≤ T₁ → 2 ≤ S₀ → 2 ≤ S₁ → Real.exp 1 ≤ E →
         let L : ℝ := ((T₀ + 1 : ℕ) : ℝ) ^ d₀ * ((T₁ + 1 : ℕ) : ℝ) ^ d₁
+        (6 : ℝ) ^ (2 * n + 2) * (n : ℝ) ^ (2 * n) * c₁ ≤ L →
         T₀ * Real.log (S₁ * E) + T₁ * S₁ * E ≤ c₅ * L ^ (1 / (n : ℝ)) * Real.log E →
         c₇ * (S₀ * Real.log (S₀ * T₁) + T₀ * Real.log (S₀ * S₁ * E) + T₁ * S₁ * E) <
           L ^ (1 / (n : ℝ)) * Real.log E →
         c₈ * L ^ (1 / (n : ℝ)) ≤ S₀ * S₁ →
-        ∃ p : (Fin d₀ → Fin (T₀ + 1)) × (Fin d₁ → Fin (T₁ + 1)) → ℤ, p ≠ 0 ∧
-          (∀ l, |(p l : ℝ)| ≤ Real.exp (c₄ * c₃ * L ^ (1 / (n : ℝ)) * Real.log E)) ∧
-          (fun z : Fin n → ℂ ↦ ∑ l, (p l : ℂ) * ((∏ h, z (Fin.castLE hd₀ h) ^ (l.1 h : ℕ)) *
-            exp (∑ ν, (∑ i, ((l.2 i : ℕ) : ℂ) * x i ν) * z ν))) ≠ 0 ∧
-          ∀ σ s : Fin n → ℕ, (∀ ν, σ ν < S₀) → (∀ j, s j < S₁) →
-            mDeriv σ (fun z ↦ ∑ l, (p l : ℂ) * ((∏ h, z (Fin.castLE hd₀ h) ^ (l.1 h : ℕ)) *
-              exp (∑ ν, (∑ i, ((l.2 i : ℕ) : ℂ) * x i ν) * z ν))) (∑ j, (s j : ℂ) • y j) = 0 :=
-  sorry
+        let U : ℝ := c₃ * L ^ (1 / (n : ℝ)) * Real.log E
+        let N : ℝ := c₄ * U
+        ∃ p : (Fin d₀ → Fin (T₀ + 1)) × (Fin d₁ → Fin (T₁ + 1)) → ℤ,
+          let F : (Fin n → ℂ) → ℂ := fun z ↦ ∑ l, (p l : ℂ) *
+            ((∏ h, z (Fin.castLE hd₀ h) ^ (l.1 h : ℕ)) *
+              exp (∑ ν, (∑ i, ((l.2 i : ℕ) : ℂ) * x i ν) * z ν))
+          p ≠ 0 ∧ (∀ l, |(p l : ℝ)| ≤ Real.exp N) ∧ F ≠ 0 ∧
+          (∀ z ∈ closedBall (0 : Fin n → ℂ) (c₂ * S₁), ‖F z‖ ≤ Real.exp (-U)) ∧
+          (∀ σ t : Fin n → ℕ, (∀ ν, σ ν < S₀) → (∀ j, t j < S₁) →
+            mDeriv σ F (∑ j, (t j : ℂ) • y j) = 0) ∧
+          ∀ E' : ℝ, E ≤ E' → N ≤ (S₀ * S₁ / (2 * n)) * Real.log E' := sorry
 
 /-- Upper bound for the first nonvanishing derivative, Waldschmidt §4.6 Step 5 (corrected:
 vanishing measured by the total order `‖σ‖`, exponent `S₀' S₁ / (2n)`). -/
 theorem schneiderLang_upper_bound (hn : 1 ≤ n) (hy : LinearIndependent ℂ y) :
-    ∃ c₉ c₁₀ : ℝ, ∀ (T₀ T₁ S₁ S₀' : ℕ) (N E E' : ℝ)
+    ∃ c₉ c₁₀ : ℝ, 0 < c₉ ∧ 0 < c₁₀ ∧ ∀ (T₀ T₁ S₁ S₀' : ℕ) (N E' : ℝ)
       (p : (Fin d₀ → Fin (T₀ + 1)) × (Fin d₁ → Fin (T₁ + 1)) → ℤ) (σ0 s0 : Fin n → ℕ),
       2 ≤ T₀ → 2 ≤ T₁ → 2 ≤ S₁ → 1 ≤ S₀' →
       Real.exp 1 ≤ E' → (∀ l, |(p l : ℝ)| ≤ Real.exp N) →
@@ -3927,6 +3951,13 @@ example (S : Finset ℕ) (hS : ∀ p ∈ S, p.Prime) :
       x ∈ Set.unit ((Rat.HeightOneSpectrum.primesEquiv (R := 𝓞 ℚ)).symm ''
         {p : Nat.Primes | (p : ℕ) ∈ S}) ℚ :=
   fun x => ratSUnits_eq_setUnit S hS x
+
+/-- Unit test `ratSUnits.test_composite_boundary`: the valuation definition ignores
+composite support entries; applying the prime-only height product to `{2,4}` fails. -/
+example : (Units.mk0 (4 : ℚ) (by norm_num)) ∈ ratSUnits {2, 4} ∧
+    (padicValRat 2 (4 : ℚ) = 2) ∧ (padicValRat 4 (4 : ℚ) = 1) ∧
+    Height.mulHeight₁ (4 : ℚ) = 4 ∧
+    (∏ q ∈ ({2, 4} : Finset ℕ), (q : ℝ) ^ max (padicValRat q (4 : ℚ)) 0) = 16 := sorry
 
 /-! ## Height, degree and exponent conversion lemmas -/
 
@@ -4803,7 +4834,8 @@ theorem isMahlerFunction_iff_system (q : ℕ) (hq : 2 ≤ q) (f : PowerSeries �
           (A.map (algebraMap (RatFunc ℂ) ℂ⸨X⸩)).mulVec
             (fun i => ((expandPow q (F i) : PowerSeries ℂ) : ℂ⸨X⸩)) := sorry
 
-/-- A transcendental constant solves an identity system but fails the coefficient condition. -/
+/-- Unit test `IsMahlerFunction.test_transcendental_constant`: a transcendental
+constant solves an identity system but fails the algebraic coefficient condition. -/
 example (c : ℂ) (hc : Transcendental ℚ c) :
     ¬ IsMahlerFunction 2 (PowerSeries.C c) := sorry
 
