@@ -101,6 +101,13 @@
         "module": "Mathlib/CategoryTheory/Yoneda.lean",
         "provides": "The represented presheaf of actual morphisms and its contravariant map.",
         "checked": "Actual statement read in the source tree at the pinned commit; shared Mathlib HEAD and the two Tau Ceti source files were verified against the pins."
+      },
+      {
+        "ref": "mathlib:AdicCompletion.isAdicComplete_of_fg",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/AdicCompletion/LocalRing.lean",
+        "provides": "A local ring with finitely generated maximal ideal has maximal-ideal-complete completion, with the completion’s own maximal ideal.",
+        "checked": "Independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, lines 120–125."
       }
     ]
   },
@@ -133,7 +140,8 @@
         "90.11.11, p. 34",
         "90.15, pp. 44–47",
         "90.18–90.20, pp. 54–60",
-        "90.25–90.26, pp. 65–67"
+        "90.25–90.26, pp. 65–67",
+        "90.29.1–5, pp. 71–73"
       ]
     },
     {
@@ -184,6 +192,18 @@
         "Theorem 1.10 and discussion, pp. 25–26",
         "Corollaries 2.5–2.6 and proof, pp. 28–29"
       ]
+    },
+    {
+      "id": "algebra",
+      "title": "The Stacks Project: Commutative Algebra",
+      "authors": "The Stacks Project authors",
+      "edition": "Chapter PDF compiled July 14, 2026",
+      "url": "https://stacks.math.columbia.edu/download/algebra.pdf",
+      "accessDate": "2026-10-09",
+      "sha256": "b035a1f02104906a1820636cd332a0d7962fef3318d207a056634cb14dc86947",
+      "readSections": [
+        "10.97.4–6, pp. 227–228"
+      ]
     }
   ],
   "nodes": [
@@ -198,11 +218,12 @@
       "leanName": "FramedDeformation",
       "statement": "For a category fibred in groupoids X over S, an object x₀ over k, and a local Artinian S-algebra A with specified residue identification A/m_A≅k, Def_X,x₀(A) has objects (y,α), y∈X(A), α:x₀≅y|k. An arrow f:(y,α)→(z,β) is an isomorphism over A with (f|k)∘α=β. Base change uses the chosen pullback coherence. The set-valued deformation functor is the set of isomorphism classes of this framed groupoid, not the raw set of objects and not the unframed fibre X(A).",
       "hypotheses": [
-        "Fix universes, the S→Spec Λ affine neighbourhood and the residue map Λ→k. The classical C_Λ and its completion are imported from SF.4.",
+        "Fix universes and an affine open Spec Λ⊂S containing the image of the point. Use a Noetherian Λ and finite Λ→k with the Artinian coefficient category and its completion imported from SF.4. The classical hull case additionally requires Λ complete local and Λ→k its residue quotient.",
         "For Stacks 98 use k of finite type over S. For a geometric point with a larger residue field use a specified base change to a k-rational point; do not identify its functor with the completion of the original stalk."
       ],
       "prerequisites": [
         "DiamondsAndVStacks:D0",
+        "SchemeAndStackFoundations:SF.4/artinian-coefficient-category",
         "SchemeAndStackFoundations:SF.4/deformation-functor",
         "mathlib:CategoryTheory.StructuredArrow",
         "mathlib:CategoryTheory.toSkeleton_eq_toSkeleton_iff"
@@ -412,7 +433,7 @@
       "title": "Linearization and vanishing of stabilizers",
       "kind": "theorem",
       "leanName": "infinitesimalStabilizer_linearization",
-      "statement": "If X satisfies the Rim–Schlessinger condition, Inf_x₀(X) has a natural k-vector-space structure and its addition agrees with composition. For a small extension A′→A of kernel I killed by m_A′, Inf(y/z) is canonically the corresponding additive group Inf_x₀(X)⊗_k I, with identity as its origin. If Inf_x₀(X)=0, every framed Artinian fibre is a setoid and Def_X,x₀ is equivalent to its isomorphism-class functor.",
+      "statement": "If X satisfies the Rim–Schlessinger condition, Inf_x₀(X) has a natural k-vector-space structure and its addition agrees with composition. For a surjection A′→A of kernel I killed by m_A′ (in particular a small extension), Inf(y/z) is canonically the corresponding additive group Inf_x₀(X)⊗_k I, with identity as its origin. If Inf_x₀(X)=0, every framed Artinian fibre is a setoid and Def_X,x₀ is equivalent to its isomorphism-class functor.",
       "hypotheses": [
         "k and the coefficient category follow the framed conventions.",
         "RS is an equivalence of groupoids for the prescribed Artinian ring pullbacks, not merely a surjection on classes."
@@ -426,7 +447,7 @@
       "proofSteps": [
         "Apply RS to the automorphism functor at the identity. The two split dual-number directions define addition and scalar multiplication.",
         "Functoriality of composition and its shared identity force vector addition to agree with composition.",
-        "Identify the small-extension kernel with lifts of the identity. Factor arbitrary Artinian surjections into small extensions to propagate vanishing."
+        "Identify the kernel for a surjection annihilated by the maximal ideal with lifts of the identity. Factor arbitrary Artinian surjections into small extensions to propagate vanishing."
       ],
       "acceptance": [
         "For BG_m, the infinitesimal group is (k,+) via a↦1+εa.",
@@ -440,7 +461,7 @@
         {
           "sourceId": "formal-defos",
           "locator": "Lemmas 90.19.6–13, pp. 56–58",
-          "match": "RS linearizes reduction kernels and makes the framed category set-valued exactly when infinitesimal autos vanish."
+          "match": "RS linearizes reduction kernels and makes the framed category set-valued exactly when infinitesimal autos vanish. Use the untensored tangent-space identification in the proof of 90.19.11, as recorded in source issue E6001; tensor with I once."
         }
       ],
       "implementationStatus": "unchecked"
@@ -511,11 +532,13 @@
         "mathlib:AdicCompletion.ext_evalₐ",
         "mathlib:AdicCompletion.isLocalRing_of_fg",
         "mathlib:AdicCompletion.residueField_map_bijective",
-        "SchemeAndStackFoundations:SF.4/formal-scheme"
+        "SchemeAndStackFoundations:SF.4/formal-scheme",
+        "mathlib:AdicCompletion.isAdicComplete_of_fg",
+        "SchemeAndStackFoundations:SF.4"
       ],
       "proofSteps": [
         "Specialize existing adic completion to the scheme stalk and its native maximal ideal.",
-        "Use native quotient evaluations, extensionality and the local-completion instances.",
+        "Use native quotient evaluations, extensionality, localness, residue-field comparison and maximal-ideal completeness. For Noetherianity use the requested SF.4 commutative-algebra completion theorem: the finitely generated associated graded algebra has finitely generated ideals, whose homogeneous generators lift and generate by completeness.",
         "Retain the quotient indexing convention and structural map when converting to formal deformation maps."
       ],
       "acceptance": [
@@ -531,6 +554,11 @@
           "sourceId": "artin",
           "locator": "Lemma 98.12.3 and its proof, pp. 18–19",
           "match": "The completed stalk represents local maps in the deformation comparison."
+        },
+        {
+          "sourceId": "algebra",
+          "locator": "Lemmas 10.97.4–6, pp. 227–228",
+          "match": "Ideal-adic completeness and the Noetherianity of completion supply the remaining ring properties."
         }
       ],
       "implementationStatus": "unchecked",
@@ -554,6 +582,16 @@
           "name": "CompletedLocalRing.ext",
           "role": "extensionality",
           "statement": "Equality of every positive-order jet implies equality in the completion."
+        },
+        {
+          "name": "CompletedLocalRing.isAdicComplete",
+          "role": "compatibility",
+          "statement": "For a Noetherian stalk, its completion is complete for its own maximal ideal, using the native maximal-ideal-completeness theorem."
+        },
+        {
+          "name": "CompletedLocalRing.isNoetherianRing",
+          "role": "structure",
+          "statement": "For a Noetherian stalk, its completed ring is Noetherian, specializing the SF.4 completion theorem."
         }
       ],
       "tests": [
@@ -1062,13 +1100,13 @@
       "sources": [
         {
           "sourceId": "artin",
-          "locator": "Definitions 98.12.1–2, p. 18",
-          "match": "A family is versal through its pointed deformation morphism."
+          "locator": "Definitions 98.12.1–2, p. 18; Lemmas 98.12.3–5, pp. 18–19",
+          "match": "Pointed smoothness defines versality; completion preserves it and RS gives its finite residue-extension compatibility."
         },
         {
           "sourceId": "formal-defos",
-          "locator": "Definition 90.8.1 and Remark 90.8.3, pp. 20–21",
-          "match": "Smoothness is essential surjectivity on the lifting 2-product."
+          "locator": "Definition 90.8.1, Lemma 90.8.2 and Remark 90.8.3, pp. 20–21; Situation 90.29.1 and Lemma 90.29.5, pp. 71–73",
+          "match": "Lifting uses the comparison 2-product; small extensions suffice, and finite residue extension preserves smoothness."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1076,7 +1114,7 @@
         {
           "name": "FamilyVersalAt.smallExtension_iff",
           "role": "characterisation",
-          "statement": "It suffices to test surjections whose kernel is killed by the source maximal ideal."
+          "statement": "It suffices to test small extensions: surjections with nonzero principal kernel killed by the source maximal ideal. Equivalently one may test all surjections with kernel killed by that ideal."
         },
         {
           "name": "FamilyVersalAt.completion_iff",
@@ -1284,7 +1322,8 @@
         "AlgebraicModuliForArithmeticGeometry:R09.6/completion-versality",
         "AlgebraicModuliForArithmeticGeometry:A0-extension/formal-object-approximation",
         "AlgebraicModuliForArithmeticGeometry:A0-extension/g-ring-finite-type",
-        "SchemeAndStackFoundations:SF.0"
+        "SchemeAndStackFoundations:SF.0",
+        "SchemeAndStackFoundations:SF.4"
       ],
       "proofSteps": [
         "Effect ξ by an object over Spec R. Apply the imported A0 approximation theorem at N=2, preserving the second jet and associated graded dimensions.",
@@ -1320,8 +1359,9 @@
       "title": "Formal universal properties of represented parameters",
       "kind": "construction",
       "leanName": "ParameterFormalExports",
-      "statement": "Given a parameter functor F on S-schemes with a supplied natural representation θ:Hom_S(-,P)≅F and a finite-type p∈P, let ξ₀=θ(p). Transport schemeFramedCompletionEquiv through θ to obtain h_(Ô_P,p)≅Def_F,ξ₀. Export the representation, universal object, pullback naturality and this formal comparison under named projective-bundle, Grassmannian, flag, Hilbert, Quot, Hom, Isom and Picard-space interfaces. Space-valued parameters use the pointed étale chart comparison instead. Their original representability and geometric hypotheses remain with R09.1/R09.2/SF.1; this node proves only the uniform point/completion transport.",
+      "statement": "Over a locally Noetherian S, given a locally finite-type parameter scheme P→S and a parameter functor F on S-schemes with a supplied natural representation θ:Hom_S(-,P)≅F and a finite-type p∈P, let ξ₀=θ(p). Transport schemeFramedCompletionEquiv through θ to obtain h_(Ô_P,p)≅Def_F,ξ₀. Export the representation, universal object, pullback naturality and this formal comparison under named projective-bundle, Grassmannian, flag, Hilbert, Quot, Hom, Isom and Picard-space interfaces. Space-valued parameters use the pointed étale chart comparison instead. Their original representability and geometric hypotheses remain with R09.1/R09.2/SF.1; this node proves only the uniform point/completion transport.",
       "hypotheses": [
+        "For the scheme completion use P locally of finite type over a locally Noetherian S and p a finite-type point. For the space version use such a pointed étale chart with the same residue field; a chart with a residue extension is a different coefficient problem.",
         "For projective/Grassmann/flag use the supplier quotient convention: locally free quotients, flags of quotients with compatible kernels.",
         "For Hilbert/Quot use the exact base, projectivity, finite-presentation, sheaf and polynomial conditions from the representing theorem. Hom/Isom require their own representability hypotheses; they are not asserted representable for arbitrary schemes.",
         "Fix the functor’s base-change and isomorphism-class conventions. Universal quotient/family flatness is over P and does not assert P→S flat."
@@ -1490,7 +1530,9 @@
         "SchemeAndStackFoundations:SF.4/grothendieck-existence",
         "SchemeAndStackFoundations:SF.4/effective-formal-deformations-of-curves",
         "AlgebraicModuliForArithmeticGeometry:A0-extension/artin-stack-criterion",
-        "AlgebraicModuliForArithmeticGeometry:A0-extension/artin-space-criterion"
+        "AlgebraicModuliForArithmeticGeometry:A0-extension/artin-space-criterion",
+        "tauceti:TauCetiRoadmap/ModularCurves#7b-local-algebra-and-local-schemes",
+        "tauceti:TauCetiRoadmap/ModularCurves#7d-universal-deformations-of-elliptic-curves"
       ],
       "proofSteps": [
         "Pull each general comparison through the supplied equivalence of framed groupoids, including arrows and universal objects.",
@@ -1498,7 +1540,7 @@
         "Apply the effective-versal theorem with all hypotheses checked. Use only the precise automorphism-rigidity and parameter interfaces supplied for the chosen level."
       ],
       "acceptance": [
-        "Current ModularCurves Layer 7D supplies elliptic deformation; this packet imports it rather than planning it.",
+        "For E₀ over an algebraically closed field k of characteristic p, import ModularCurves 7D’s marked universal deformation over W(k)[[T]] and 7B’s completed strict-henselian local-moduli comparison for a rigidified representing scheme. Transport the universal family and rigidifier through the supplied framed equivalence; do not infer this comparison for an unrigidified coarse space.",
         "Finite residual inertia with Inf=0 is insufficient to assert an unframed fine moduli scheme.",
         "Proper coherent Grothendieck existence is not an assertion that every formal deformation of every higher-dimensional scheme is algebraizable."
       ],
@@ -1543,7 +1585,7 @@
     },
     {
       "supplier": "SchemeAndStackFoundations:SF.4",
-      "need": "Part II: extend its set-valued deformation/hull interfaces to coherent groupoid-valued completion, smooth lifting by essential surjectivity, RS vector-space structures and 2-fibre tangent exactness, plus complete-local Nakayama and quotient presentation coherence. Export its existing proper coherent Grothendieck existence and effective formal curve-deformation theorems with comparison-compatible arrows. Preserve classical equal-residue hull hypotheses versus inseparable minimality.",
+      "need": "Part II: extend its set-valued deformation/hull interfaces to coherent groupoid-valued completion, smooth lifting by essential surjectivity, RS vector-space structures and 2-fibre tangent exactness, plus complete-local Nakayama and quotient presentation coherence. Export its existing proper coherent Grothendieck existence and effective formal curve-deformation theorems with comparison-compatible arrows. Preserve classical equal-residue hull hypotheses versus inseparable minimality. Supply Noetherianity of ideal-adic completion under Noetherianity of the original ring (Stacks 10.97.5–6, pp. 227–228); native Mathlib already supplies maximal-ideal completeness, localness and residue-field comparison.",
       "neededBy": [
         "AlgebraicModuliForArithmeticGeometry:R09.6/formal-object",
         "AlgebraicModuliForArithmeticGeometry:R09.6/family-versality",
@@ -1551,7 +1593,8 @@
         "AlgebraicModuliForArithmeticGeometry:R09.6/tangent-exact-sequence",
         "AlgebraicModuliForArithmeticGeometry:R09.6/atlas-versality",
         "AlgebraicModuliForArithmeticGeometry:R09.6/versal-algebraization",
-        "AlgebraicModuliForArithmeticGeometry:R09.6/arithmetic-comparison-transfer"
+        "AlgebraicModuliForArithmeticGeometry:R09.6/arithmetic-comparison-transfer",
+        "AlgebraicModuliForArithmeticGeometry:R09.6/completed-local-ring"
       ]
     },
     {
@@ -1589,6 +1632,20 @@
       "neededBy": [
         "AlgebraicModuliForArithmeticGeometry:R09.6/versal-algebraization"
       ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/ModularCurves#7b-local-algebra-and-local-schemes",
+      "need": "Import the existing completed strict-henselian local-ring comparison for a geometric point of a rigidified finite moduli scheme, including the universal family, level and change-of-rigidifier compatibility.",
+      "neededBy": [
+        "AlgebraicModuliForArithmeticGeometry:R09.6/arithmetic-comparison-transfer"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/ModularCurves#7d-universal-deformations-of-elliptic-curves",
+      "need": "Import the existing marked elliptic deformation groupoid and universal family over W(k)[[T]] for k algebraically closed of characteristic p. R09.6 supplies only transfer along the given framed equivalence.",
+      "neededBy": [
+        "AlgebraicModuliForArithmeticGeometry:R09.6/arithmetic-comparison-transfer"
+      ]
     }
   ],
   "gaps": [
@@ -1608,13 +1665,14 @@
     },
     {
       "title": "Groupoid deformation and versality supplier extension",
-      "detail": "SF.4 supplies the classical set-valued hull and formal geometry. The groupoid RS, smooth-lifting, completion and formal presentation extension has an exact Part II request. Without it FamilyVersalAt and the tangent/infinitesimal vector-space theorem signatures and tests cannot be realized natively. Complete-local Nakayama and the inseparable-residue convention must be retained.",
+      "detail": "SF.4 supplies the classical set-valued hull and formal geometry. The groupoid RS, smooth-lifting, completion and formal presentation extension has an exact Part II request. Without it FamilyVersalAt and the tangent/infinitesimal vector-space theorem signatures and tests cannot be realized natively. Complete-local Nakayama and the inseparable-residue convention must be retained. The missing general Noetherian-completion theorem is an explicit SF.4 supplier contract, not attributed to the native localness theorem.",
       "neededBy": [
         "AlgebraicModuliForArithmeticGeometry:R09.6/family-versality",
         "AlgebraicModuliForArithmeticGeometry:R09.6/stabilizer-linearization",
         "AlgebraicModuliForArithmeticGeometry:R09.6/tangent-exact-sequence",
         "AlgebraicModuliForArithmeticGeometry:R09.6/atlas-versality",
-        "AlgebraicModuliForArithmeticGeometry:R09.6/versal-algebraization"
+        "AlgebraicModuliForArithmeticGeometry:R09.6/versal-algebraization",
+        "AlgebraicModuliForArithmeticGeometry:R09.6/completed-local-ring"
       ]
     },
     {
@@ -1637,7 +1695,29 @@
       ]
     }
   ],
-  "sourceIssues": [],
+  "sourceIssues": [
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry/E6001",
+      "source": "formal-defos",
+      "kind": "misprint",
+      "locator": "Proof of Lemma 90.19.11, tag 06JY, p. 58, chapter PDF compiled July 14, 2026; current tag page checked 2026-10-09",
+      "printed": "The proof identifies the tangent space TF of the identity-framed automorphism functor with the infinitesimal automorphism space tensored with I, although its preceding lifting action already tensors TF with I.",
+      "correction": "Identify TF with the identity tangent space of Aut(x′), hence with Inf_x₀(F), without tensoring. Then the action on lifts is by TF⊗_k I, with exactly one tensor factor I.",
+      "reason": "For the one-object additive groupoid B G_a, take A′=k[ε₁,ε₂]/(ε₁²,ε₁ε₂,ε₂²)→k. The identity-framed automorphism functor has tangent dimension one, while I has dimension two. The printed intermediate identification would equate dimensions one and two. The lemma’s action statement instead correctly has dimension two.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Current Stacks tag 06JY and its comments (none): the intermediate formula remains as in the PDF.",
+        "Stacks GitHub issues searched for 06JY and 19.11: no correction found.",
+        "Recent formal-defos.tex commit history inspected: its listed corrections concern other tags. Tag history page was unavailable."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The coefficient I belongs to the torsor action, not to the tangent space. The additive-group test and Lemma 90.19.7 identify the intended untensored tangent; the lemma statement remains correct.",
+        "by": "REV-AlgebraicModuliForArithmeticGeometry--R09.6"
+      }
+    }
+  ],
   "targetMatrix": [
     {
       "target": "Deformation groupoids and stabilizers",
@@ -1750,5 +1830,127 @@
       "BG must distinguish its framed reduction kernel from its full residual stabilizer; even a terminal deformation-class functor can have nontrivial arrows."
     ],
     "sourceDiscipline": "Primary sources are paraphrased with numbered locators. No excerpts, PDFs, local source paths or source-section summaries are repository deliverables. No private library book was needed."
+  },
+  "sourceVersions": [
+    {
+      "kind": "published",
+      "url": "https://stacks.math.columbia.edu/download/formal-defos.pdf",
+      "read": "2026-10-09",
+      "sha256": "f6549caab0fa380254eb316265ce14357794224c0e01c517bb0365c708a4c2ea",
+      "scope": "Proof of 90.19.11 on p. 58, checked with 90.19.7–9 and the live 06JY page."
+    }
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-AlgebraicModuliForArithmeticGeometry--R09.6",
+    "date": "2026-10-09",
+    "notes": "Independently checked all 21 target nodes, all original 13 pinned baseline declarations plus one added completion declaration, all APIs/tests and six planets, all supplier contracts, RS-27 and RT-AREA-algebraicgeometry/2. Corrected coefficient conventions, native unique-arrow and evaluation signatures, completion properties/closure, versality locators, parameter hypotheses and existing elliptic imports. Confirmed source misprint E6001. The finished target-level pass remains planned, with three precise open supplier gaps and an honest geometric omission ledger; acceptance makes no implementation or closed-coverage claim. The review report records source versions, validation and reader/package synchronization.",
+    "checked": [
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.6/framed-deformation",
+        "verdict": "corrected",
+        "note": "Stacks 98.3, pp. 4–5, and native StructuredArrow give the actual framed groupoid. Corrected the direction of the affine-open inclusion and separated finite Λ→k coefficients from classical equal-residue hull coefficients. The Lean arrow criterion now asserts the unique lift promised by the API."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.6/framed-functoriality",
+        "verdict": "verified",
+        "note": "Stacks 98.3.2–3, p. 5, identifies the framed 2-product and smooth lifting. D0 coherence and SF.1 representable lifting are explicit suppliers; the comparison isomorphism is retained."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.6/infinitesimal-stabilizer",
+        "verdict": "verified",
+        "note": "Formal Deformation Theory 90.19.1–3, pp. 55–56, matches the reduction kernel of Functor.mapAut and its framed automorphism group. Identity, zero reduction and frame-kernel tests distinguish residual from infinitesimal automorphisms."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.6/stabilizer-linearization",
+        "verdict": "corrected",
+        "note": "Formal Deformation Theory 90.19.6–13, pp. 56–58, proves the vector structure and vanishing criterion. Stated the full maximal-ideal-annihilated surjection hypothesis and recorded the proof misprint E6001; tensor with the kernel once. RS and groupoid suppliers remain explicit."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.6/tangent-exact-sequence",
+        "verdict": "verified",
+        "note": "Artin 98.8.2, p. 11, and Formal Deformation Theory 90.26.2, p. 66, give the six-term exact sequence, with the difference signs and framed boundary. It ends at the displayed tangent space without asserting a final surjection."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.6/completed-local-ring",
+        "verdict": "corrected",
+        "note": "The carrier, jets, localness and residue comparison are native. Added pinned maximal-ideal completeness and its Lean specialization; separated Noetherianity into a precise SF.4 contract with Stacks 10.97.4–6, pp. 227–228, and a real completed-ring theorem signature. Noetherianity is not supplied by the native localness lemma."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.6/scheme-formal-comparison",
+        "verdict": "verified",
+        "note": "Artin 98.12.3 and proof, pp. 18–19, identifies coefficient-compatible Artinian maps with maps from the actual completed stalk. Locally finite-type and locally Noetherian assumptions ensure a Noetherian stalk. The node test concerns a point of a fixed node, not deformation of the node itself."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.6/space-formal-comparison",
+        "verdict": "verified",
+        "note": "Artin 98.3 and 98.12.3, pp. 4–5 and 18–19, with Formal Algebraic Spaces 87.33.3, pp. 74–75, justify transport through a supplied pointed étale chart. The same-residue-field chart is an explicit hypothesis; an arbitrary smooth chart or residue extension is not substituted."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.6/relative-tangent-comparison",
+        "verdict": "verified",
+        "note": "Formal Deformation Theory 90.11.11, p. 34, and Artin 98.12.3 identify dual-number lifts with relative derivations. Read all three Tau Ceti tangent/derivation declarations at f790474. Absolute Zariski tangent identification is restricted to the rational field-base case."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.6/formal-object",
+        "verdict": "corrected",
+        "note": "Artin 98.9.1–4, pp. 11–12, defines coherent formal objects and arrows. Native tower objects retain adjacent isomorphisms and arrow commutation. Strengthened the constant-groupoid automorphism test to require the equivalence to be induced by evaluation at index zero, rather than merely an abstract group equivalence."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.6/effectivity",
+        "verdict": "verified",
+        "note": "Artin 98.9.4, p. 12, is essential image of restriction. The native predicate and EssSurj equivalence preserve isomorphism rather than equality. The empty-source and nonfaithful constant-functor tests distinguish object existence from a restriction equivalence."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.6/space-restriction",
+        "verdict": "verified",
+        "note": "Formal Algebraic Spaces 87.33.2–3, pp. 74–75, proves both injectivity and surjectivity for maps out of a complete Noetherian local ring to any algebraic space. No separatedness, properness or target finite-presentation assumption is needed; the equalizer and finite étale descent supplier is requested."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.6/stack-restriction",
+        "verdict": "verified",
+        "note": "Artin 98.9.5, pp. 12–14, proves full faithfulness using the algebraic-space Isom and existence using a smooth atlas, finite étale extension and fppf descent. It assumes an already algebraic stack, a locally Noetherian base and finite-type residue field, and does not discharge its own Artin effectivity hypothesis."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.6/effectivity-two-fibres",
+        "verdict": "verified",
+        "note": "Artin 98.9.6, p. 14, identifies the two sides as 2-products and uses equivalence in each factor. Essential surjectivity alone is not the stated input."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.6/family-versality",
+        "verdict": "corrected",
+        "note": "Artin 98.12.1–5, pp. 18–19, and Formal Deformation Theory 90.8.1–3 and 90.29.1–5, pp. 20–21 and 71–73, support all three APIs. Added the missing finite-residue-extension locator and the small-extension lemma; specified the nonzero principal kernel convention. The closed-point dual-number and excess-parameter examples are valid."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.6/completion-versality",
+        "verdict": "verified",
+        "note": "Artin 98.12.3–4, pp. 18–19, gives completion equivalence and the smooth scheme-morphism characterization at the specified finite-type point. The statement inherits the family definition’s coefficient and finite-type conventions."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.6/atlas-versality",
+        "verdict": "verified",
+        "note": "Artin 98.3.3 and 98.12.3, pp. 5 and 18–19, gives chart versality. Formal Deformation Theory 90.18.1 and 90.19.12–13, pp. 54 and 58, justify the classical tangent-bijective hull/prorepresentation clauses. Zero infinitesimal automorphisms alone does not remove chart parameters or residual inertia."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.6/completed-atlas-presentation",
+        "verdict": "verified",
+        "note": "Formal Deformation Theory 90.26.1–2, pp. 65–66, supplies a deformation-category presentation from a smooth chart. The completed relation is taken at its identity point, so it retains infinitesimal arrows but does not claim to include other residual automorphisms. D0/SF.1/SF.4 supply the actual geometric quotient coherence."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.6/versal-algebraization",
+        "verdict": "corrected",
+        "note": "Artin 98.12.7–8, pp. 20–21, uses effectivity, versality, G-ring regularity and limit preservation on objects. Read its N=2 approximation, recursive lifting, Nakayama surjection and graded-length comparison. Added the direct SF.4 prerequisite for the complete-local Nakayama step already requested. The completion isomorphism is existential, not a prescribed all-orders coordinate change."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.6/parameter-formal-exports",
+        "verdict": "corrected",
+        "note": "Yoneda transports the supplied representation and universal object; Artin 98.12.3, pp. 18–19, transports the formal point comparison. Added the locally Noetherian base and locally finite-type parameter hypotheses explicitly. All eight geometric interfaces retain their representing theorem’s assumptions. Checked all eight examples, including the nonflat Hilbert base and Picard-space/Picard-stack distinction."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.6/arithmetic-comparison-transfer",
+        "verdict": "corrected",
+        "note": "Artin 98.9.5, 98.12.7, 98.16.1 and 98.17.1, pp. 12–14, 20–21 and 26–27, justifies conditional transfer and the full imported criterion ledger. Added explicit existing ModularCurves 7B/7D imports and their marked elliptic W(k)[[T]] instance with algebraically closed characteristic-p and rigidification hypotheses. Application effectivity and level rigidity remain supplied inputs."
+      }
+    ]
   }
 }
