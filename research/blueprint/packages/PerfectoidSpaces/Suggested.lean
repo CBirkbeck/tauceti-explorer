@@ -2153,8 +2153,8 @@ variable (p : ℕ) [Fact p.Prime] {A B C : Type u}
 
 /-- If
 `Spa(B, B⁺) → Spa(A, A⁺)` is strongly Zariski closed, so is its base change along any
-`Spa(C, C⁺) → Spa(A, A⁺)`, `(C, C⁺) → (B ⊗̂_A C)` (Tor Lemma II.2.9 (ii); fibre products via the
-prelude's completed tensor product). -/
+`Spa(C, C⁺) → Spa(A, A⁺)`, `(C, C⁺) → (B ⊗̂_A C)` (Torsion Lemma II.2.9 (ii); fibre products via the
+completed tensor product of Huber pairs declared above). -/
 theorem IsStronglyZariskiClosed_affinoid.baseChange
     (h : IsStronglyZariskiClosed_affinoid
       (⟨algebraMap A B, IsAdicHom.continuous _, hT⟩ : Pair.Hom S T)) :
@@ -2341,7 +2341,7 @@ structure IsTildeLimit_affinoid [IsFiltered J] : Prop where
 
 /-- If the
 `Spa(A_j, A_j⁺)` are spectral, so is `Spa(R, R⁺)`, and the projections are spectral maps
-(Sch12 Remark 7.15; Stacks Tag 0A2Z; DiamondsAndVStacks:D0/cofiltered-limits-of-spectral-spaces). -/
+(Sch12 Remark 7.15; Stacks Tag 0A2Z; DiamondsAndVStacks D0.10). -/
 theorem IsTildeLimit.spectralSpace_affinoid [IsFiltered J] (h : IsTildeLimit_affinoid P f Q g)
     [∀ j, SpectralSpace (spa (P j).plus)] :
     SpectralSpace (spa Q.plus) ∧ ∀ j, IsSpectralMap (g j).spaComap := sorry
@@ -2595,14 +2595,31 @@ end
 /-!
 ## Not stated here
 
-The following README targets are not stated in this file, because they need carriers that the
+The following README definitions are not stated in this file, because they need carriers that the
 pinned libraries do not have (adic spaces as a category, Huber's tilde-limits, the pro-étale
-site) or because they are long tails of the kept constructions: the perfected Tate algebra and
-the cyclotomic perfectoid field, marked untilts, the comparison of `θ` with
-`WittVector.fontaineTheta`, completed colimits of perfectoid pairs and cofiltered limits of
-affinoid perfectoid spaces, fibre products of perfectoid spaces, finite étale and étale morphisms
-and the étale site, Zariski closed and strongly Zariski closed immersions, separated maps and the
-valuative criterion, the pro-category equivalence for pro-étale maps, Frobenius-controlled towers
-and preperfectoid spaces, categorical quotients and `G`-clean neighbourhoods, and Čech descent
-data for profinite Galois towers.
+site, the derived category of almost modules) or because they are long tails of the kept
+constructions; the README states them in full.
+
+* P0: the left adjoint `B ↦ B_!!` on almost algebras (P0.9); flat, unramified, étale and finite
+  étale morphisms of almost algebras (P0.14); the cotangent complex of a ring map (P0.19) and the
+  almost cotangent complex (P0.20).
+* P1: the tilt of a perfectoid field and its comparison with Mathlib's `Tilt` (P1.15); integral
+  perfectoid rings (P1.24); the perfected Tate algebra, the cyclotomic perfectoid field, marked
+  untilts and the comparison of `θ` with `WittVector.fontaineTheta`.
+* P2: completed colimits of perfectoid pairs and fibre products of perfectoid spaces.
+* P3: finite étale, étale, strongly finite étale and strongly étale morphisms of perfectoid spaces
+  (P3.14–P3.16) and the étale site.
+* P4: affinoid perfectoid fields and `(K, K⁺)`-valued points (P4.1); quasicompact and
+  quasiseparated morphisms (P4.2); the completed residue field point (P4.5); immersions, open and
+  closed immersions (P4.10); Zariski closed subsets and immersions (P4.12); separated morphisms
+  (P4.19) and the valuative criterion.
+* P5: cofiltered limits of affinoid perfectoid spaces.
+* P6: uniformly κ-small perfectoid spaces (P6.2); affinoid pro-étale morphisms and pro-étale
+  presentations (P6.6); pro-étale morphisms (P6.7); the pro-category equivalence.
+* P7: cofinality witnesses for families of compact open subgroups (P7.9); Frobenius-controlled
+  towers and preperfectoid spaces.
+* P8: `G`-clean neighbourhoods (P8.13); Zariski-closed embeddings (P8.14); analytically separated
+  perfectoid spaces (P8.15); categorical quotients.
+* P9: the pro-étale site of a rigid space (P9.1); the Čech descent datum of a pro-étale Galois
+  tower (P9.5).
 -/
