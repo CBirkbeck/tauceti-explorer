@@ -244,7 +244,7 @@ Let X be a quasiseparated locally spectral space and R inside X x X a pro-constr
 
 #### D0.9 — When a quotient by a pro-constructible equivalence relation is spectral, and the open case
 
-Let X be a spectral space and R inside X x X a pro-constructible equivalence relation whose projections s, t are generalizing. Assume X/R has a basis for its topology given by open subsets whose preimages in X are quasicompact. Then X/R is a spectral space and X → X/R is a spectral generalizing map. In the situation of the preceding equivalence-relation criterion, if in addition R → X is open then X/R is locally spectral and quasiseparated and X → X/R is an open spectral qcqs map. Neither statement can be strengthened to 'every quotient of a spectral space by such a relation is spectral'.
+For spectral X, consider a pro-constructible equivalence relation R ⊂ X × X with generalizing projections. Suppose the quotient topology on X/R has an open basis whose inverse images under q:X→X/R are qc. Under this extra condition, X/R is spectral, and q is both spectral and generalizing. There is also a local version: under the qs, locally spectral and qc-projection hypotheses of D0.8, openness of the projections makes X/R locally spectral and qs, with q open, spectral and qcqs. Keep the basis or openness hypothesis; pro-constructibility and generalizing projections alone do not ensure spectrality of the quotient.
 
 **Hypotheses and scope.** The basis hypothesis in the first statement is not automatic; the second statement replaces it by openness of R → X, which is the hypothesis checked in the later geometric applications. ECD Remark 2.8 is the counterexample forbidding the unconditional assertion.
 
@@ -256,7 +256,7 @@ Let X be a spectral space and R inside X x X a pro-constructible equivalence rel
 
 #### D0.10 — Cofiltered inverse limits of spectral spaces along spectral maps
 
-Let X_i, i in I, be a cofiltered inverse system of spectral spaces along spectral maps, with inverse limit X. Then X is spectral, the maps X → X_i are spectral, and a map Y → X from a spectral space is spectral if and only if all composites Y → X_i are. If Y is a spectral space with a spectral map Y → X such that all composites Y → X_i are generalizing then Y → X is generalizing; if in addition Y → X is surjective then it is a quotient map.
+Take a cofiltered diagram (X_i) of spectral spaces with spectral transition maps, and form its inverse limit X. Spectrality is retained by X and by every projection X→X_i. For spectral Y, a continuous map Y→X is spectral precisely when each projected map Y→X_i is spectral. If a spectral map Y→X has generalizing composites with every projection, it is itself generalizing. Such a map is a quotient map whenever it is also surjective.
 
 **Hypotheses and scope.** I cofiltered; all transition maps spectral. The generalizing statement uses Tychonoff for the constructible topologies.
 
@@ -341,7 +341,7 @@ For a category C, the pro-category Pro(C) has as objects cofiltered diagrams in 
 
 Every small cofiltered category with uncountably many objects and arrows, of cardinality λ, is an increasing union of cofiltered subcategories I_α (α<λ), each of cardinality at most max(ℵ₀,|α|), after closing a chosen enumeration under identities, compositions and finite cones. For a countable cofiltered category one constructs a cofinal sequence of cone choices. For any diagram F with the indicated limits, lim_I F ≅ lim_α lim_{I_α} F. This is cardinal induction via ordinal chains of subdiagrams, not the false claim that every cofiltered category admits a cofinal ordinal chain.
 
-**Hypotheses and scope.** Small cofiltered category; chosen enumeration of objects and arrows For uncountable λ use subcategories, not necessarily full subcategories
+**Hypotheses and scope.** Small cofiltered category; chosen enumeration of objects and arrows. For uncountable λ use subcategories, not necessarily full subcategories.
 
 **Construction and auxiliary results.** Closing under finite cones includes equalizers of parallel arrows as well as cones over pairs of objects. Iterate the closure countably many times at each stage to keep the stated cardinal bound. The ordinal chain is a chain of subcategories; it is not itself claimed to be cofinal in the original index category.
 
@@ -379,7 +379,7 @@ Let X be a topological space. The following are equivalent: X is spectral; there
 
 #### D0.16 — Profinite presentations of compact Hausdorff spaces and extremally disconnected covers
 
-For a compact Hausdorff space T, the Stone-Čech compactification of the underlying discrete set of T is a profinite (indeed extremally disconnected) space S with a continuous surjection S → T, and the induced equivalence relation R inside S x S is a closed subspace, hence profinite. Consequently every compact Hausdorff space is a quotient of a profinite set by a profinite equivalence relation. Mathlib has StoneČech, Stonean, the Stonean adjunction and the projective presentation of a compact Hausdorff object; the further construction is the identification of the induced equivalence relation as profinite and the resulting presentation used in ECD Remark 2.8 and Example 11.12.
+For a compact Hausdorff space T, the Stone-Čech compactification of the underlying discrete set of T is a profinite (indeed extremally disconnected) space S with a continuous surjection S → T, and the induced equivalence relation R inside S x S is a closed subspace, hence profinite. Consequently every compact Hausdorff space is a quotient of a profinite set by a profinite equivalence relation. Mathlib has `StoneCech`, `Stonean`, the Stonean adjunction and the projective presentation of a compact Hausdorff object; the further construction is the identification of the induced equivalence relation as profinite and the resulting presentation used in ECD Remark 2.8 and Example 11.12.
 
 **Hypotheses and scope.** T compact Hausdorff. The surjectivity of S → T uses that T is compact Hausdorff and the universal property of the Stone-Čech compactification of a discrete set. The equivalence relation R = S x_T S is closed in S x S because T is Hausdorff.
 
@@ -413,7 +413,7 @@ Let T be a topos. An object X of T is quasicompact if every jointly surjective f
 
 **Hypotheses and scope.** Keep object qc separate from map qc when the final object is not qs, as on the big perfectoid site. The categories of small sheaves attached to large sites in ECD are not quite topoi, so the definitions must be stated for a category with the relevant colimits and pullbacks, not only for a genuine topos.
 
-**Construction and auxiliary results.** Prove composition and base-change stability for the map predicates. Establish the diagonal criterion for qs objects in the algebraic setting and descent of qs through jointly surjective covers. A qc terminal map implies a qc object; the converse needs the relevant assumptions on the final object.
+**Construction and auxiliary results.** Prove composition and base-change stability for the map predicates. Establish the diagonal criterion for qs objects in the algebraic setting and descent of qs through jointly surjective covers. When the terminal object is qc, a qc map X→* makes X qc. The terminal-object hypothesis is essential: the identity of a non-qc terminal object is a qc morphism. The converse needs the relevant assumptions on the final object.
 
 **API.**
 
@@ -471,7 +471,7 @@ For an irreducible topological space X and an abelian group A, the constant shea
 
 **Hypotheses and scope.** Irreducible X; abelian group A
 
-**Sources.** [Stacks constant sheaves](#source-stacks-02uw) — Lemma 20.20.2.
+**Sources.** [Stacks constant sheaves](#source-stacks-02uw) — Lemma 20.20.2, tag 02UW (stable tag pagination).
 
 **Prerequisites.** `mathlib:CategoryTheory.Sheaf.cohomologyPresheaf`, [D0.19](#d0-19).
 
@@ -481,7 +481,7 @@ For an irreducible topological space X and an abelian group A, the constant shea
 
 Let (E_i) be a small cofiltered diagram of coherent topoi with coherent transition morphisms, E its topos limit and p_i:E→E_i. Fix i and an abelian sheaf F_i, and put F=p_i^*F_i. For every n≥0 the canonical colim_{j→i} H^n(E_j,p_{ji}^*F_i) → H^n(E,F) is an isomorphism. More generally allow compatible filtered systems of sheaves as in SGA VI 8.7.7. Coherence supplies the filtered-colimit compatibility of derived direct images required by VI 8.7.1.
 
-**Hypotheses and scope.** Small cofiltered diagram Coherent topoi and coherent transition morphisms Sheaf descends from a stage or compatible system as in VI 8.7.7
+**Hypotheses and scope.** Small cofiltered diagram; coherent topoi and coherent transition morphisms; sheaf descends from a stage or compatible system as in VI 8.7.7.
 
 **Sources.** [SGA 4 VI](#source-sga4vi) — Exposé VI §8.7, Theorem 8.7.1 and Corollary 8.7.7; transcription pp. 223–225 (PDF pp. 229–231), original marginal pagination is separate; [ECD](#source-ecd) — §14, proof of Proposition 14.9, p. 86.
 
@@ -493,7 +493,7 @@ Let (E_i) be a small cofiltered diagram of coherent topoi with coherent transiti
 
 For a profinite set S, ordinary Set- or Ab-valued sheaves are equivalent to contravariant functors on the Boolean algebra of clopens sending the empty set to the terminal object and finite disjoint unions to products. For S=βI (I discrete), clopens identify with subsets of I. For a family of sets or abelian groups A_i, the sheaf J↦∏_{i∈J} A_i has stalk at an ultrafilter U equal to colim_{J∈U}∏_{i∈J}A_i, the ordinary ultraproduct; stalk isomorphisms detect sheaf isomorphisms. No infinity-categorical extension or hypercompletion theorem is asserted here.
 
-**Hypotheses and scope.** S profinite; ordinary Set or Ab coefficients For the ultrafilter formula, I is discrete
+**Hypotheses and scope.** S profinite; ordinary Set or Ab coefficients. For the ultrafilter formula, I is discrete.
 
 **Sources.** [Arc](#source-arc) — §3, Proposition 3.10, Example 3.12, Construction 3.13, Lemma 3.14 and Definition 3.15, pp. 18–20; ordinary Set/Ab specialization.
 
@@ -519,7 +519,7 @@ There is a cofinal class of uncountable cardinals kappa such that: for all cardi
 
 Let κ be an uncountable strong-limit cardinal of uncountable cofinality and λ an infinite cardinal less than κ. If a Hausdorff first-countable topological group has a dense subset A of cardinality at most λ, then its separated completion has cardinality at most λ^ℵ₀ ≤ 2^λ < κ: each point is a limit of a sequence in A. Finite λ is handled separately (a finite dense subset of a Hausdorff space is closed); no false bound λ^ℵ₀ ≤ 2^λ for arbitrary finite λ is used.
 
-**Hypotheses and scope.** Hausdorff first-countable topological group and its separated completion λ is infinite and λ < κ κ is uncountable strong limit with uncountable cofinality
+**Hypotheses and scope.** Hausdorff first-countable topological group and its separated completion; λ is infinite and λ < κ; κ is uncountable strong limit with uncountable cofinality.
 
 **Sources.** [ECD](#source-ecd) — Section 4, Remark 4.3, p. 20.
 
@@ -644,7 +644,7 @@ Let X be spectral. The following are equivalent: every open cover splits; every 
 
 #### D1.3 — Connected components of a totally disconnected perfectoid space, and affinoidness
 
-Let X be a totally disconnected perfectoid space. There is a continuous projection to the profinite set pi_0(X) of connected components, and every fibre is of the form Spa(K, K^+) for a perfectoid field K with an open and bounded valuation subring K^+. Conversely a qcqs perfectoid space all of whose connected components have this form is totally disconnected. Moreover X is affinoid.
+For a totally disconnected perfectoid X, construct the continuous component projection X→π₀(X) and prove that π₀(X) is profinite. Describe its fibres as valuation spectra Spa(K,K⁺), where K is perfectoid and K⁺ is a valuation subring that is open and bounded. The description also characterizes total disconnectedness among qcqs perfectoid spaces: having all components of this form is sufficient. Prove additionally that every totally disconnected perfectoid X is affinoid.
 
 **Hypotheses and scope.** X totally disconnected. For the converse the hypothesis is on all connected components; a qcqs perfectoid space with some component of this form need not be totally disconnected.
 
@@ -656,7 +656,7 @@ Let X be a totally disconnected perfectoid space. There is a continuous projecti
 
 #### D1.4 — Strictly totally disconnected perfectoid spaces
 
-A perfectoid space X is strictly totally disconnected if it is qcqs and every étale cover of X splits. A qcqs perfectoid space is strictly totally disconnected if and only if every connected component is of the form Spa(C, C^+) with C algebraically closed and C^+ an open and bounded valuation subring.
+Define strict total disconnectedness for a perfectoid X by requiring qcqs together with a splitting of each étale covering. Among qcqs perfectoid spaces, an equivalent condition is the following component description: each component is Spa(C,C⁺) for an algebraically closed perfectoid field C and an open bounded valuation subring C⁺.
 
 **Hypotheses and scope.** The condition is on étale covers rather than open covers; it implies total disconnectedness but is strictly stronger. The characterisation uses that finite étale covers of Spa(K, K^+) come from finite extensions of K, so K must be algebraically closed.
 
@@ -698,7 +698,7 @@ Let X be a totally disconnected perfectoid space and U a pro-constructible gener
 
 #### D1.6 — Automatic flatness over a totally disconnected base
 
-Let X = Spa(R, R^+) be a totally disconnected perfectoid space and f : Y = Spa(S, S^+) → X any map from an affinoid perfectoid space. Then S^+/varpi is flat over R^+/varpi for every pseudouniformizer varpi of R. If moreover |f| is surjective then S^+/varpi is faithfully flat over R^+/varpi. This is the algebraic descent input of the theory; it is not the assertion that arbitrary maps of perfectoid rings are flat.
+Choose a totally disconnected affinoid perfectoid base X=Spa(R,R⁺), an affinoid perfectoid Y=Spa(S,S⁺), and a morphism f:Y→X. For any pseudouniformizer varpi in R, reduction of the integral-ring map gives a flat R⁺/varpi-algebra S⁺/varpi. Surjectivity of the underlying map |f| strengthens this to faithful flatness. The conclusion concerns these reduced integral rings over this particular base; it does not assert flatness for arbitrary perfectoid-ring morphisms.
 
 **Hypotheses and scope.** X totally disconnected and Y affinoid perfectoid; no hypothesis at all on f beyond that. Faithful flatness needs surjectivity of |f|, not surjectivity of Spec. The statement is about the integral rings modulo a pseudouniformizer; it says nothing about R → S.
 
@@ -714,7 +714,7 @@ Let X = Spa(R, R^+) be a totally disconnected perfectoid space and f : Y = Spa(S
 
 #### D1.7 — w-local and w-strictly local perfectoid spaces
 
-A perfectoid space X is w-local if its underlying topological space is a w-local spectral space, equivalently if X is qcqs, every open cover splits, and the subset X^c of closed points is closed. A w-local perfectoid space is in particular totally disconnected. A perfectoid space is w-strictly local if it is w-local and for every x the completed residue field K(x) is algebraically closed; a w-strictly local space is in particular strictly totally disconnected. These strengthenings have little further relevance in ECD, which works with the totally disconnected and strictly totally disconnected notions.
+Require three conditions for w-locality of a perfectoid X: X is qcqs, its open coverings split, and its set Xᶜ of closed points is closed. These say exactly that |X| is w-local spectral, and imply total disconnectedness. Define w-strict locality by adding algebraic closedness of every completed residue field K(x); this implies strict total disconnectedness. The stronger predicates supply the w-localization construction, while the later geometric arguments use the two disconnectedness predicates.
 
 **Hypotheses and scope.** The extra condition over total disconnectedness is exactly the closedness of the set of closed points.
 
@@ -807,7 +807,7 @@ Let X be an affinoid perfectoid space. Then there is an affinoid perfectoid spac
 
 #### D1.10 — Quasicompact separated maps to a strictly totally disconnected base are pro-etale iff their rank-one fibres are profinite
 
-Let X be a strictly totally disconnected perfectoid space and f : Y → X a quasicompact separated map of perfectoid spaces. Then f is pro-étale if and only if for every rank-one point x = Spa(C, O_C) of X the fibre Y_x is isomorphic to x x S_x for a profinite set S_x. In that case Y is strictly totally disconnected and Y → X is affinoid pro-étale. The hypothesis holds in particular when Y is affinoid, since any map of affinoid perfectoid spaces is separated.
+Fix a strictly totally disconnected perfectoid base X and a qc separated morphism f : Y → X. The pro-étale condition on f is equivalent to the following fibre condition: at each rank-one point x = Spa(C, O_C), some profinite S_x identifies Y_x with x × S_x. Either condition also makes Y strictly totally disconnected and f affinoid pro-étale. Affinoid Y automatically supplies the separatedness hypothesis, since morphisms between affinoid perfectoid spaces are separated.
 
 **Hypotheses and scope.** X strictly totally disconnected; f quasicompact and separated. Without separatedness the conclusion fails, as Remark 7.21 records on the topological side. Here x x S denotes the limit of x x S_i over a presentation of S as a limit of finite sets.
 
@@ -939,7 +939,7 @@ Let X be a perfectoid space and nu : X_proet → X_et the natural map of sites. 
 
 #### D2.6 — The big pro-etale site is subcanonical
 
-The presheaves O sending X to O_X(X) and O^+ sending X to O^+_X(X) on the big pro-étale site are small sheaves. Moreover the big pro-étale site is subcanonical: for every perfectoid space X the functor Y mapsto Hom(Y, X) is a small sheaf for the big pro-étale topology.
+On the big pro-étale site, both assignments X ↦ O_X(X) and X ↦ O⁺_X(X) satisfy the small-sheaf condition. Representable presheaves also satisfy it: for a perfectoid X, the assignment Y ↦ Hom(Y, X) is a small pro-étale sheaf. Thus this topology is subcanonical.
 
 **Hypotheses and scope.** The reduction to the small site uses that a cover in the big site is also a cover in the small pro-étale site of the target.
 
@@ -981,7 +981,7 @@ Let X be an affinoid perfectoid space. Then H^i_v(X, O) = 0 for i > 0, and H^i_v
 
 For a perfectoid space X, pullback gives equivalences between finite locally free O_X-modules on its analytic site, its étale site, its small pro-étale site (completed structural sheaf), the corresponding big pro-étale site and Perf/X with the v-topology. On an affinoid perfectoid Spa(R,R⁺), these are finite projective R-modules. For a rigid variety X/K, the comparison among the pro-étale versions and the v-site Perf_K/X with completed O also holds, by descent on perfectoid covers. It does not assert that every v-vector bundle on a general rigid X comes from an analytic O_X-vector bundle.
 
-**Hypotheses and scope.** Completed structural sheaves on the pro-étale sites Rigid-site v-objects are perfectoid spaces mapping directly to X; no diamond functor in the construction
+**Hypotheses and scope.** Completed structural sheaves on the pro-étale sites; rigid-site v-objects are perfectoid spaces mapping directly to X; no diamond functor in the construction.
 
 **Construction and auxiliary results.** The substantive v-descent step is convergent matrix descent. Find a stable integral lattice and, locally, a basis for which the two pullback bases differ by a matrix equal to 1 modulo topological nilpotents. Establish this first over perfectoid fields and spread it out. Use higher v-acyclicity to correct the matrix successively, verify convergence in the completed tensor products, and prove effectivity. Import the analytic/étale finite-projective comparison from A1. Ordinary faithfully flat module descent does not replace this completed-cover argument.
 
@@ -1001,7 +1001,7 @@ Subcanonicity gives descent of morphisms immediately, but descent of objects req
 
 #### D3.1 — The prestacks of perfectoid spaces over a base, and full faithfulness of v-descent for morphisms
 
-Let F be the prestack on the category of perfectoid spaces sending X to the groupoid of perfectoid spaces over X, and let Y → X be a v-cover. Then F(X) → F(Y/X) is fully faithful, where F(Y/X) is the category of descent data of ECD 9.1. Equivalently, morphisms of perfectoid spaces glue along v-covers. The same holds for the prestacks of affinoid perfectoid spaces, of separated pro-étale perfectoid spaces, of separated étale perfectoid spaces and of finite étale perfectoid spaces, which are the four prestacks whose effectivity is studied in this layer.
+Assign to each perfectoid base X the groupoid F(X) of perfectoid spaces over X. Restriction to a v-cover Y→X induces a fully faithful functor from F(X) to the descent-data category F(Y/X) of ECD 9.1: compatible morphisms on the cover descend uniquely. Establish the same full-faithfulness statement after restricting the objects to each of four classes: affinoid perfectoid, separated pro-étale perfectoid, separated étale perfectoid, and finite étale perfectoid. The subsequent effectivity statements concern these four restrictions.
 
 **Hypotheses and scope.** The only input is subcanonicity of the v-site; no restriction on the v-cover or on the spaces is needed. The abstract notion of descent data and the assertion that a stack has an equivalence onto it are supplied by Mathlib descent API; apply it to the geometric prestacks.
 
@@ -1013,7 +1013,7 @@ Let F be the prestack on the category of perfectoid spaces sending X to the grou
 
 #### D3.2 — A subset whose preimage is cut out by functions is itself cut out by functions
 
-Let X = Spa(R, R^+) be a totally disconnected affinoid perfectoid space, X tilde = Spa(R tilde, R tilde^+) an affinoid perfectoid space over X, and A a subset of |X tilde|. Assume there is a surjective map Y = Spa(S, S^+) → X such that the preimage B of A in |Y tilde|, where Y tilde = X tilde x_X Y, is an intersection of subsets of the form |g| at most 1 for g in S tilde. Then A is an intersection of subsets of the form |f| at most 1 for f in R tilde. A separate input is that a rational subset of a perfectoid ball over (C, C^+) which surjects onto Spa(C, C^+) admits a (C, C^+)-point.
+Work over a totally disconnected affinoid perfectoid X=Spa(R,R⁺). Let X tilde=Spa(R tilde,R tilde⁺) be affinoid perfectoid over X, with A ⊂ |X tilde|. Suppose an affinoid perfectoid surjection Y=Spa(S,S⁺)→X makes the inverse image of A in |Y tilde|, for Y tilde=X tilde×_X Y, an intersection of inequalities |g|≤1 with g∈S tilde. Then A itself is an intersection of inequalities |f|≤1 for f∈R tilde. Include the auxiliary point-lifting result: a rational subset of a perfectoid ball over (C,C⁺) has a (C,C⁺)-point if it maps onto Spa(C,C⁺).
 
 **Hypotheses and scope.** X totally disconnected; the conclusion is about the ring R tilde, not R tilde^+. The proof has three reduction steps, each of which is a separate argument: to X connected, to the residue field algebraically closed, and then the ball argument.
 
@@ -1027,7 +1027,7 @@ Let X = Spa(R, R^+) be a totally disconnected affinoid perfectoid space, X tilde
 
 #### D3.3 — Effective v-descent for affinoid perfectoid spaces over a totally disconnected base
 
-Let F be the prestack on affinoid perfectoid spaces sending X to the groupoid of affinoid perfectoid spaces over X. Let X be a totally disconnected perfectoid space and Y → X a v-cover with Y affinoid perfectoid. Then F(X) → F(Y/X) is an equivalence of categories. Both the ring and the ring of integral elements must be descended: descent of functions alone does not give effective descent.
+For affinoid perfectoid X, write F(X) for the groupoid of affinoid perfectoid spaces over X. If X is totally disconnected and Y→X is a v-cover with affinoid perfectoid Y, restriction gives an equivalence F(X)≃F(Y/X). Effectivity requires reconstruction of the Tate ring together with its integral subring; a descent theorem for functions alone does not establish this equivalence.
 
 **Hypotheses and scope.** X totally disconnected and Y affinoid: both hypotheses are used, the first for automatic flatness, the second for the almost faithfully flat descent of algebras. The descent of the subring of integral elements is a separate step, carried out by the following lemma on subsets cut out by |f| at most 1.
 
@@ -1041,7 +1041,7 @@ Let F be the prestack on affinoid perfectoid spaces sending X to the groupoid of
 
 #### D3.4 — Effective v-descent for separated pro-etale perfectoid spaces over a strictly totally disconnected base
 
-Let F be the prestack sending a perfectoid space X to the groupoid of separated pro-étale perfectoid spaces over X. Let X be a strictly totally disconnected perfectoid space and Y → X a v-cover. Then F(X) → F(Y/X) is an equivalence of categories.
+For each perfectoid X, let F(X) classify separated pro-étale perfectoid spaces over X. Once X is strictly totally disconnected, any v-cover Y→X gives an equivalence between F(X) and the category F(Y/X) of descent data. Thus the restriction functor is essentially surjective as well as fully faithful under this base hypothesis.
 
 **Hypotheses and scope.** X strictly totally disconnected; the separatedness assumption on the pro-étale objects cannot be dropped, and ECD says so explicitly. One may assume Y strictly totally disconnected as well, by refining along the universally open cover.
 
@@ -1055,7 +1055,7 @@ Let F be the prestack sending a perfectoid space X to the groupoid of separated 
 
 #### D3.5 — Separated etale and finite etale perfectoid spaces form v-stacks
 
-The prestack sending a perfectoid space X to the groupoid of separated étale perfectoid spaces over X is a stack for the v-topology, and so is the prestack of finite étale perfectoid spaces over X. Consequently, for f : Y → X a map of perfectoid spaces and X tilde → X a v-cover with pullback f tilde: if f tilde is pro-étale and X is strictly totally disconnected then f is pro-étale; if f tilde is étale then f is étale; if f tilde is finite étale then f is finite étale.
+Effective v-descent holds for the groupoid of separated étale objects over each perfectoid base, and for the groupoid of finite étale objects. These stack assertions give local criteria for morphisms. Given f : Y → X and a v-cover X̃ → X, write f̃ for the pullback. Étaleness or finite étaleness of f̃ implies the corresponding property of f. If X is strictly totally disconnected, pro-étaleness of f̃ likewise implies pro-étaleness of f.
 
 **Hypotheses and scope.** The étale case needs separatedness, as in the pro-étale case. The finite étale case does not, because finite étale maps are automatically separated. The last three implications are the v-local nature of the three classes of morphisms, which is what makes the definitions of section 10 work.
 
@@ -1196,7 +1196,7 @@ Pass to characteristic p and construct the quotient as an actual sheaf quotient.
 
 #### D4.1 — Diamonds and pro-etale equivalence relations
 
-From here on one works with the full subcategory Perf of perfectoid spaces of characteristic p. A diamond is a sheaf Y for the pro-étale topology on Perf that can be written as a quotient X/R, where X is representable by a perfectoid space and R inside X x X is a representable equivalence relation whose two projections s, t : R → X are pro-étale. Such an R is called a pro-étale equivalence relation on X. No assumption such as representability of the diagonal is made, because there is no good notion of relatively representable morphisms of perfectoid spaces.
+Use Perf, the characteristic-p perfectoid category, for this and the following layers. A pro-étale sheaf Y on Perf is a diamond when it has a sheaf-quotient presentation Y≅X/R with X a perfectoid space and R ⊂ X×X a representable equivalence relation for which both projection maps are pro-étale. Call this a pro-étale equivalence relation. The definition does not impose representability of the diagonal by a perfectoid space.
 
 **Hypotheses and scope.** Characteristic p is part of the setting from section 11 onwards; general analytic adic spaces over Z_p enter only through D6. R is required to be representable and the projections pro-étale; the diagonal of Y is not assumed representable, and ECD says explicitly why.
 
@@ -1238,7 +1238,7 @@ Let X be in Perf and R inside X x X a pro-étale equivalence relation. Then the 
 
 #### D4.3 — A pro-etale sheaf is a diamond exactly when it admits a surjective quasi-pro-etale map from a perfectoid space
 
-Let Y be a pro-étale sheaf on Perf. Then Y is a diamond if and only if there is a surjective quasi-pro-étale morphism X → Y from a perfectoid space X. If X is a disjoint union of strictly totally disconnected spaces then R = X x_Y X inside X x X is a pro-étale equivalence relation with Y = X/R. Consequently: if there is a surjective quasi-pro-étale map Y' → Y with Y' a diamond then Y is a diamond; if f : Y' → Y is quasi-pro-étale and Y is a diamond then Y' is a diamond; and if X is a diamond with an equivalence relation R whose projections are quasi-pro-étale then X/R is a diamond.
+A pro-étale sheaf Y on Perf admits a diamond presentation exactly when it has a quasi-pro-étale atlas q:X→Y with perfectoid X and q surjective as a sheaf map. When X is a coproduct of strictly totally disconnected spaces, its kernel relation R=X×_Y X is pro-étale and the sheaf quotient X/R recovers Y. Deduce three closure statements: a sheaf covered quasi-pro-étale by a diamond is a diamond; a quasi-pro-étale source over a diamond is a diamond; and the sheaf quotient of a diamond by an equivalence relation with quasi-pro-étale projections is a diamond.
 
 **Hypotheses and scope.** The atlas may always be taken to be a disjoint union of strictly totally disconnected perfectoid spaces, which is how every later argument uses it. In the last statement R is only assumed to be a pro-étale sheaf; it is automatically a diamond because s is quasi-pro-étale.
 
@@ -1310,7 +1310,7 @@ Fix a perfectoid field K of characteristic p. The functor sending a compact Haus
 
 #### D4.7 — Small v-sheaves and small v-stacks
 
-A small v-sheaf is a v-sheaf Y on Perf such that there is a surjective map of v-sheaves X → Y from a perfectoid space X. A small v-stack is a v-stack Y on Perf such that there is a surjective map of v-stacks X → Y from a perfectoid space X for which R = X x_Y X is a small v-sheaf. Every diamond is a small v-sheaf; a v-sheaf admitting a surjection from a diamond is a small v-sheaf; and every quasicompact v-sheaf, and more generally every qcqs v-stack, is small.
+For a v-sheaf Y on Perf, smallness means the existence of a perfectoid atlas X→Y that is surjective in v-sheaves. For a v-stack Y, require a surjective perfectoid atlas whose kernel 2-fibre product X×_Y X is a small v-sheaf. Prove that diamonds are small, that a v-sheaf receiving a surjection from a diamond is small, and that qc v-sheaves and qcqs v-stacks satisfy the respective smallness conditions.
 
 **Hypotheses and scope.** The smallness condition on R in the stack case is what makes the notion manageable; without it the 2-fibre product could fail to be small. Quasicompact objects are automatically small, because one may cover by the disjoint union of all maps from perfectoid spaces and then extract a finite subcover.
 
@@ -1353,7 +1353,7 @@ Let Y be a small v-stack with a presentation Y = X/R, X a diamond, R a small v-s
 
 #### D4.9 — Isomorphism and injectivity criteria on geometric points
 
-Let f : Y' → Y be a qcqs map of v-stacks. Then f is an isomorphism if and only if for every algebraically closed perfectoid field K with an open and bounded valuation subring K^+ the map f(K, K^+) : Y'(K, K^+) → Y(K, K^+) is an equivalence of groupoids. Separately, for f a map of small v-sheaves that is either qcqs or between locally spatial objects, the following are equivalent: f is an injective map of v-sheaves; f(K, K^+) is injective for all perfectoid fields K with an open and bounded valuation subring; |f| is injective and f is final among maps from small v-sheaves whose spaces factor continuously through |Y'|, equivalently Y' is the fibre product of Y with |Y'| underline over |Y| underline.
+For a qcqs morphism f:Y′→Y of v-stacks, geometric-point evaluation characterizes isomorphisms: f is an isomorphism exactly when Y′(K,K⁺)→Y(K,K⁺) is an equivalence of groupoids for every algebraically closed perfectoid K and every open bounded valuation subring K⁺. There is a separate injectivity criterion for small v-sheaves. Assume f is qcqs or that both objects are locally spatial. Then sheaf injectivity is equivalent to injectivity of all evaluations on perfectoid fields with open bounded valuation subrings. A third equivalent condition requires both injectivity of |f| and finality of f among maps from small v-sheaves whose underlying spaces factor continuously through |Y′|; equivalently, Y′≅Y×_{underline(|Y|)}underline(|Y′|).
 
 **Hypotheses and scope.** Here quasiseparatedness of a map of stacks is meant in the sense of ECD Convention 8.4. The isomorphism criterion is the tool by which almost every identification in sections 11 to 15 is proved.
 
@@ -1385,7 +1385,7 @@ First establish spatiality, qc injections and finite étale permanence. Then con
 
 #### D5.1 — Spatial and locally spatial diamonds, and spatial v-sheaves
 
-A diamond Y is spatial if Y is quasicompact and quasiseparated and |Y| admits a basis of open subsets given by |U| for quasicompact open immersions U inside Y; Y is locally spatial if it admits an open cover by spatial diamonds. The same definition with 'diamond' replaced by 'v-sheaf' gives spatial and locally spatial v-sheaves, where in the locally spatial case smallness is also required. The condition is sheaf-theoretic: it is not the requirement that |Y| be a spectral space. Any perfectoid space is locally spatial, and it is spatial exactly when it is qcqs.
+Spatiality of a diamond Y requires sheaf-theoretic qcqs and an open basis of |Y| formed by the images |U| of qc open subdiamonds U↪Y. Local spatiality means that spatial open subdiamonds cover Y. Apply the same definitions to v-sheaves, requiring smallness for locally spatial v-sheaves. These conditions involve the subfunctors, rather than spectrality of |Y| alone. Perfectoid spaces are locally spatial; the spatial ones are exactly the qcqs perfectoid spaces.
 
 **Hypotheses and scope.** The basis must consist of qc open subfunctors, with qc and qs in the sheaf-theoretic sense; spectrality of the underlying space alone does not define spatiality. Quasicompactness and quasiseparatedness are meant in the topos sense of D0, applied to the v-topos of Perf.
 
@@ -1446,7 +1446,7 @@ Let Y_i be a cofiltered inverse system of diamonds with qcqs transition maps and
 
 #### D5.4 — The universally open strictly totally disconnected presentation of a spatial diamond, and its converse
 
-Let Y be a spatial diamond. Then there is a strictly totally disconnected perfectoid space X with a surjective and universally open quasi-pro-étale map X → Y that can be written as a cofiltered inverse limit of étale maps which are composites of quasicompact open immersions and finite étale maps; if kappa is a cutoff cardinal and Y is kappa-small, X may be taken kappa-small. Conversely, if Y is a qcqs diamond admitting a surjective and universally open quasi-pro-étale map from a perfectoid space, then Y is spatial. More generally the converse holds with the source a (locally) spatial diamond. The construction rests on the fact that a spatial diamond, all of whose surjective étale covers that are composites of quasicompact open immersions and finite étale maps split, is a strictly totally disconnected perfectoid space.
+Use E for the class of étale maps obtained by composing qc open immersions and finite étale maps. Every spatial diamond Y has a strictly totally disconnected perfectoid presentation X → Y which is universally open, surjective and quasi-pro-étale, with a cofiltered E-presentation. When Y is κ-small for a cutoff cardinal κ, choose X κ-small as well. In the other direction, a qcqs diamond is spatial if it has a universally open surjective quasi-pro-étale cover by a perfectoid space; a (locally) spatial diamond may replace that covering space. The key splitting criterion constructs a strictly totally disconnected perfectoid space from a spatial diamond on which every surjective E-cover has a section.
 
 **Hypotheses and scope.** The class of étale maps used is not all étale maps but those that are composites of quasicompact open immersions and finite étale maps; this is exactly the class produced by the local structure theorem and is what makes the cardinality count work. The converse uses the open case of the spectral quotient criterion.
 
@@ -1460,7 +1460,7 @@ Let Y be a spatial diamond. Then there is a strictly totally disconnected perfec
 
 #### D5.5 — Quasi-pro-etale maps into a locally spatial diamond, and fibre products
 
-Let Y be a locally spatial diamond and Y' → Y a quasi-pro-étale map of pro-étale sheaves, which by Convention 10.2 is locally separated. Then Y' is a locally spatial diamond. A fibre product of (locally) spatial diamonds is (locally) spatial. More generally, if Y is a qcqs diamond admitting a surjective universally open quasi-pro-étale map from a (locally) spatial diamond, then Y is spatial.
+Local spatiality passes from a diamond Y to any pro-étale sheaf Y′ with a quasi-pro-étale morphism Y′ → Y; the morphism includes local separatedness under Convention 10.2. Fibre products preserve spatiality and local spatiality. For a qcqs diamond Y, a universally open surjective quasi-pro-étale cover by a (locally) spatial diamond already forces Y to be spatial.
 
 **Hypotheses and scope.** The proofs use the universally open strictly totally disconnected presentation, which is why these statements come after it and not with the injection and finite étale cases. The last statement is ECD Remark 11.25 and is the form in which the converse of the presentation theorem is applied.
 
@@ -1474,7 +1474,7 @@ Let Y be a locally spatial diamond and Y' → Y a quasi-pro-étale map of pro-é
 
 #### D5.6 — The two-out-of-three property for quasi-pro-etale, etale and finite etale maps
 
-Let f : Y_1 → Y_2 and g : Y_2 → Y_3 be maps of locally spatial diamonds with composite h. Assume f is quasi-pro-étale and surjective, h is quasi-pro-étale, and g is separated. Then g is quasi-pro-étale. If moreover f and h are étale, respectively finite étale, then so is g.
+Consider f : Y₁ → Y₂ and g : Y₂ → Y₃ in locally spatial diamonds, with h=g∘f. Suppose f is a surjective quasi-pro-étale map, h is quasi-pro-étale, and g is separated. These hypotheses force g to be quasi-pro-étale. Requiring f and h both étale forces g to be étale; requiring both finite étale forces g to be finite étale.
 
 **Hypotheses and scope.** All three of the hypotheses on f, g and h are needed; ECD gives no version without the separatedness of g. The proof is a careful reduction to the case of a connected strictly totally disconnected base.
 
@@ -1525,7 +1525,7 @@ For a spatial diamond Y and y∈|Y|, let Y_y be the inverse limit of all qc open
 
 For a locally spatial diamond Y and a locally closed subset D⊆|Y| stable under generalization, the sub-v-sheaf Y_D consists of maps T→Y whose underlying image is contained in D. It is a locally spatial diamond, its underlying space is D with the subspace topology, and it represents this factorization condition. Generalizing means closed under generalizations in |Y|, not under specializations.
 
-**Hypotheses and scope.** Locally spatial Y D locally closed and generalizing
+**Hypotheses and scope.** Locally spatial Y; D locally closed and generalizing.
 
 **API.**
 
@@ -1560,7 +1560,7 @@ For a profinite set P and a locally spatial diamond S, underline(P)×S is locall
 
 #### D5.11 — A spatial v-sheaf with enough quasi-pro-etale points is a spatial diamond
 
-Let Y be a spatial v-sheaf such that there exists a perfectoid space X with a quasi-pro-étale map f : X → Y for which |f| : |X| → |Y| is surjective. Then Y is a spatial diamond. The hypothesis is much weaker than asking f to be surjective as a map of v-sheaves: an equivalent formulation is that for every point y of |Y| there is a quasi-pro-étale map Spa(C, C^+) → Y having y in its image, with C algebraically closed. In particular the condition is only a condition on the points of Y.
+A spatial v-sheaf Y is a spatial diamond if some perfectoid X admits a quasi-pro-étale map f:X→Y that is surjective on underlying points. Sheaf surjectivity of f is not required. Equivalently, each y∈|Y| must occur in the image of a quasi-pro-étale map Spa(C,C⁺)→Y with C algebraically closed. This is a criterion expressed through the points of Y.
 
 **Hypotheses and scope.** The map f is not assumed quasicompact, so Lemma 12.11 does not apply and f need not be a surjection of v-sheaves. The proof needs the analogues for spatial v-sheaves of the finite étale permanence and the limit theorem, which is why those are stated separately.
 
@@ -1656,7 +1656,7 @@ Let Y be a quasicompact separated diamond. Then the map Y → |Y|_B underline is
 
 Let a topological group G act continuously on X and give both orbit spaces their quotient topologies. If B=(ConnectedComponents X)/G is totally disconnected, then the canonical map B→ConnectedComponents(X/G) is a bijection of sets. A sufficient condition is that G-invariant clopens of X separate distinct G-orbits of components. In particular, for spectral X and profinite G with continuous action, B is profinite and the formula holds. For a locally spatial diamond torsor F→Y under noncompact G(Q_p) or Γ_K and connected base Y, the desired conclusion is transitivity on π₀(F); this requires verifying the separation hypothesis or an independent geometric transitivity proof. The printed universal GLX 3.2 is false.
 
-**Hypotheses and scope.** Continuous action The component-orbit space B is totally disconnected, or its stated sufficient separation hypothesis Compact specialization: spectral X and profinite G
+**Hypotheses and scope.** Continuous action; the component-orbit space B is totally disconnected, or its stated sufficient separation hypothesis. Compact specialization: spectral X and profinite G.
 
 **Construction and auxiliary results.** Connected components map into connected components of the orbit space, giving the canonical map of sets. Total disconnectedness of the component-orbit space prevents distinct orbits from acquiring a new connected union. The profinite specialization uses invariant clopens and compactness. For the noncompact G(Q_p) or Γ_K torsors in the cited period-space applications, prove orbit separation or geometric component transitivity separately; the profinite corollary does not establish them. The unrestricted component formula in GLX Lemma 3.2 is false.
 
@@ -1780,7 +1780,7 @@ Let Y be an analytic adic space over Z_p. Then Y diamond is a locally spatial di
 
 Fix a prime p. For any pre-adic space X over Spa(ℤ_p,ℤ_p), define X^diamond on characteristic-p perfectoid S by isomorphism classes of marked untilts (S^sharp,ι:(S^sharp)^flat≅S) over ℤ_p together with a morphism S^sharp→X. Morphisms pull back marked untilts. It is a v-sheaf; X need not be analytic or Tate and X^diamond need not be a diamond. For every complete Huber pair (A,A⁺) over ℤ_p this gives Spd(A,A⁺); on formal schemes use their associated pre-adic space with its full integral locus, not only the analytic generic fibre.
 
-**Hypotheses and scope.** Pre-adic spaces over Spa(ℤ_p,ℤ_p), including nonanalytic loci Marked untilts from P1/P2 Pair morphisms preserve A⁺ and are continuous
+**Hypotheses and scope.** Pre-adic spaces over Spa(ℤ_p,ℤ_p), including nonanalytic loci; marked untilts from P1/P2; pair morphisms preserve A⁺ and are continuous.
 
 **Construction and auxiliary results.** The R2 pre-adic interface must include complete nonnoetherian integral pairs such as (O_C,O_C), gluing, and maps from perfectoid untilts. Apply v-descent of marked untilts and the mapping functor. Compare with analytic diamondification on the analytic locus, and with AdicCoefficientsAndComparisons:L1 on continuous integral maps. Products and finite symmetric-group quotients use D4; the associated divisor geometry belongs to RelativeFarguesFontaine:RF2.
 
@@ -1812,7 +1812,7 @@ Fix a prime p. For any pre-adic space X over Spa(ℤ_p,ℤ_p), define X^diamond 
 
 Let K be a complete nonarchimedean field in which p is topologically nilpotent, C a completed algebraic closure and G_K=Gal(K^sep/K). Then Spd O_C→Spd O_K is a proper v-cover and (Spd O_C)/underline(G_K)≅Spd O_K. This is a sheaf quotient, not a G_K-torsor assertion on the integral special fibre.
 
-**Hypotheses and scope.** Complete nonarchimedean K with topologically nilpotent p C completed algebraic closure; profinite G_K
+**Hypotheses and scope.** Complete nonarchimedean K with topologically nilpotent p; C completed algebraic closure; profinite G_K.
 
 **Construction and auxiliary results.** The Galois quotient is a quotient in small v-sheaves. Establish the proper v-cover and effective quotient through the integral mapping functor. The special-fibre action has stabilizers, so the analytic Galois torsor statement cannot be extended unchanged to the integral locus.
 
@@ -1840,7 +1840,7 @@ For a pre-adic space X over Spa ℤ_p, the point map |X^diamond|→|X| is a cont
 
 Fix a complete nonarchimedean field K over ℚ_p. If X is a seminormal rigid K-variety and Y any rigid K-variety, then Hom_K(X,Y)→Hom_{Spd K}(X^diamond,Y^diamond) is bijective. Diamondification factors through seminormalization, so its restriction to seminormal rigid K-varieties is fully faithful. All maps are over the fixed base Spd K. No full faithfulness on all analytic adic spaces is asserted.
 
-**Hypotheses and scope.** Rigid varieties over a fixed K/ℚ_p Seminormal source X
+**Hypotheses and scope.** Rigid varieties over a fixed K/ℚ_p; seminormal source X.
 
 **Construction and auxiliary results.** Import rigid seminormalization and the equality O_X ≅ ν_*Ô_X for a seminormal source from R0, including perfectoid seminormality and affinoid recovery. Recover morphisms locally from completed structural functions, compare plus rings, and glue. Keep both Hom sets over the fixed K/Spd K base. The geometric result factors through seminormalization.
 
