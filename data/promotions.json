@@ -2214,6 +2214,17 @@
     "data/blueprints/LocalGaloisDeformationRings.md"
    ]
   },
+  "research/blueprint/packets/LocallyAnalyticDistributions.json": {
+   "promotedAt": "2026-10-09T16:52:23Z",
+   "review": "357781d1bd252b6e",
+   "reviewDate": "2026-10-09",
+   "reviewer": "independent-review-REV-LocallyAnalyticDistributions",
+   "sha256": "7a3690d78fb861ede311156bdd63fbf6055df968f6d42e1e96cb261200abdc57",
+   "to": [
+    "data/blueprints/LocallyAnalyticDistributions.json",
+    "data/blueprints/LocallyAnalyticDistributions.md"
+   ]
+  },
   "research/blueprint/packets/MetaplecticAutomorphicForms--MP.0.json": {
    "promotedAt": "2026-10-08T22:43:30Z",
    "review": "e96c94023a50708f",
