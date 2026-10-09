@@ -564,6 +564,28 @@
     "data/blueprints/AlgebraicModuliForArithmeticGeometry--A0-extension.md"
    ]
   },
+  "research/blueprint/packets/AlgebraicModuliForArithmeticGeometry--R09.3.json": {
+   "promotedAt": "2026-10-09T17:46:43Z",
+   "review": "c686baa99f7b597f",
+   "reviewDate": "2026-10-09",
+   "reviewer": "independent-review-REV-AlgebraicModuliForArithmeticGeometry--R09.3",
+   "sha256": "a3057c6a73136d2b47531b7d2de2516dcec48dad9b73da358c3965d1af7bfcac",
+   "to": [
+    "data/blueprints/AlgebraicModuliForArithmeticGeometry--R09.3.json",
+    "data/blueprints/AlgebraicModuliForArithmeticGeometry--R09.3.md"
+   ]
+  },
+  "research/blueprint/packets/AlgebraicModuliForArithmeticGeometry--R09.5.json": {
+   "promotedAt": "2026-10-09T17:46:43Z",
+   "review": "935a8acaa4fb2e11",
+   "reviewDate": "2026-10-09",
+   "reviewer": "independent-review-REV-AlgebraicModuliForArithmeticGeometry--R09.5",
+   "sha256": "df2a07c8256a3768b80bb48e05150cc3d8ab0c6c52e7af6eaaa7afd347878c39",
+   "to": [
+    "data/blueprints/AlgebraicModuliForArithmeticGeometry--R09.5.json",
+    "data/blueprints/AlgebraicModuliForArithmeticGeometry--R09.5.md"
+   ]
+  },
   "research/blueprint/packets/AlgebraicModuliForArithmeticGeometry--R09.6.json": {
    "promotedAt": "2026-10-09T17:33:19Z",
    "review": "5dc07aca99f3e8fb",
@@ -1038,6 +1060,17 @@
    "to": [
     "data/blueprints/DiamondsAndVStacks.json",
     "data/blueprints/DiamondsAndVStacks.md"
+   ]
+  },
+  "research/blueprint/packets/DiophantineApproximationAndTranscendence.json": {
+   "promotedAt": "2026-10-09T17:46:43Z",
+   "review": "c656dc4001e2a599",
+   "reviewDate": "2026-10-09",
+   "reviewer": "independent-review-REV-DiophantineApproximationAndTranscendence~2",
+   "sha256": "d39c33404d01a9b3090d27928d5fa81c5517ea61acbb9fdc3e132cdfe97f7082",
+   "to": [
+    "data/blueprints/DiophantineApproximationAndTranscendence.json",
+    "data/blueprints/DiophantineApproximationAndTranscendence.md"
    ]
   },
   "research/blueprint/packets/DirichletPadicLFunctions--L0.json": {

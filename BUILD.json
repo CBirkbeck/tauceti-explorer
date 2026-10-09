@@ -1,8 +1,8 @@
 {
   "roadmaps": 244,
-  "stages": 5677,
+  "stages": 5718,
   "originalStages": 2207,
-  "sourceRefinements": 3470,
+  "sourceRefinements": 3511,
   "reviewedDecompositions": [
     {
       "roadmap": "AInfCohomology",
@@ -48,13 +48,6 @@
     },
     {
       "roadmap": "CrystallineCohomology",
-      "status": "partial",
-      "nodes": 7,
-      "review": "accepted",
-      "deferredLinks": 0
-    },
-    {
-      "roadmap": "DiophantineApproximationAndTranscendence",
       "status": "partial",
       "nodes": 7,
       "review": "accepted",
@@ -180,14 +173,14 @@
   "editedRoadmapSummaries": 181,
   "curatedStagePresentations": 339,
   "administrativeStages": 101,
-  "mathematicalStars": 5576,
+  "mathematicalStars": 5617,
   "plainTextPlanetLabels": 398,
   "hiddenPlanets": 600,
   "mappedStageStatuses": 350,
   "libraryAuditStatuses": 19,
   "bibliographicSources": 46,
-  "roadmapEdges": 2380,
-  "stageEdges": 14929,
+  "roadmapEdges": 2383,
+  "stageEdges": 14958,
   "reviewedLinkPackets": 25,
   "promotedBlueprints": [
     {
@@ -249,6 +242,18 @@
       "roadmap": "AlgebraicModuliForArithmeticGeometry",
       "nodes": 476,
       "reviewer": "independent-review-REV-AlgebraicModuliForArithmeticGeometry--A0-extension"
+    },
+    {
+      "file": "AlgebraicModuliForArithmeticGeometry--R09.3",
+      "roadmap": "AlgebraicModuliForArithmeticGeometry",
+      "nodes": 13,
+      "reviewer": "independent-review-REV-AlgebraicModuliForArithmeticGeometry--R09.3"
+    },
+    {
+      "file": "AlgebraicModuliForArithmeticGeometry--R09.5",
+      "roadmap": "AlgebraicModuliForArithmeticGeometry",
+      "nodes": 24,
+      "reviewer": "independent-review-REV-AlgebraicModuliForArithmeticGeometry--R09.5"
     },
     {
       "file": "AlgebraicModuliForArithmeticGeometry--R09.6",
@@ -507,6 +512,12 @@
       "roadmap": "DiamondsAndVStacks",
       "nodes": 90,
       "reviewer": "independent-review-REV-DiamondsAndVStacks"
+    },
+    {
+      "file": "DiophantineApproximationAndTranscendence",
+      "roadmap": "DiophantineApproximationAndTranscendence",
+      "nodes": 398,
+      "reviewer": "independent-review-REV-DiophantineApproximationAndTranscendence~2"
     },
     {
       "file": "DirichletPadicLFunctions--L0",
@@ -1422,8 +1433,8 @@
     }
   ],
   "sourceDocuments": 296,
-  "htmlBytes": 37319896,
-  "htmlSha256": "1eeb026dbf3317204487ad141d52850a9949524bdf889c7ea31b0e45940b6d71",
+  "htmlBytes": 37350644,
+  "htmlSha256": "b4cdfea1b47cd951bc44b3c336818088a0c8cc20c95b50fe2fe84d48024c94f6",
   "networkDependencies": 0,
   "localProgressOverridesIncluded": false,
   "assets": {
@@ -1455,7 +1466,7 @@
     "data/roadmap-summaries.json": "c8bdd0a9105f5d3c4a858c8b635990729f8e94497dee784a71fae659b8c05b9f",
     "data/roadmap-classification.json": "2641dbc97eb2566c715162d011b46890d1635629181ef8126ac7aed9e24a3b13",
     "data/classification-estimates.json": "625d35fe6121bf099dc5de9e6a9111793596f9b664e3fbd439841434bb4a57d6",
-    "data/roadmap-distances.json": "30e6979e4dc8ba571c139f6e9f5db9e56f20bf8b2c5e9a3f095af9eb7cc8e4b2",
+    "data/roadmap-distances.json": "cbde9024042dc186731d41055934a6a06e30adf8198134f9deaad89bc897b84b",
     "data/galaxy-layout.json": "2c89ea58b5f5ad9fc7715ddcc8193de9d1fadb2e1fdc452020cd7432f12c819d",
     "data/bibliography.json": "bef230a41fad22d6b790c7564061c4d05c2ae5b78cab53d005eb404afab2b122",
     "NOTICE": "a285b95d5adbf5c2bcc82db36e2a77b797f84a2c5cbb30292efd0bae17cc4f34",
@@ -1533,6 +1544,10 @@
     "data/blueprints/AlgebraicModuliForArithmeticGeometry--A0-extension-2.md": "ce49fda6d9b31a5ccabad46eaf28407c0a969d9894c60c81cf92e270bab16d6b",
     "data/blueprints/AlgebraicModuliForArithmeticGeometry--A0-extension.json": "a4afdb28029c7c16b1de5a6e0a8fcc3f96b809a63cf530cbd476f7fab6243779",
     "data/blueprints/AlgebraicModuliForArithmeticGeometry--A0-extension.md": "db9bd77ccd3372293d1713997157d8a32d5157cb575fa00e3e68144e43ca8fce",
+    "data/blueprints/AlgebraicModuliForArithmeticGeometry--R09.3.json": "7d9a63a750152f7187ef28533e57d60aa0750fee64c4b2eb67497cd0ec18ca77",
+    "data/blueprints/AlgebraicModuliForArithmeticGeometry--R09.3.md": "18abbe5bb8960585de50813e84cc9d49ebf71199b28e7c89e8b2b97f96865fac",
+    "data/blueprints/AlgebraicModuliForArithmeticGeometry--R09.5.json": "e905287c40e5acfc5a08b9b800c75c92858839ccdb01929950286f6c94f00107",
+    "data/blueprints/AlgebraicModuliForArithmeticGeometry--R09.5.md": "98215f24ec946ab7dfa4bfd435f8fac06f98ab2dd24228f823b423981e642421",
     "data/blueprints/AlgebraicModuliForArithmeticGeometry--R09.6.json": "36e3ff49355a498a5918144818da2706a6213fe79a776194f307d07614e0fddb",
     "data/blueprints/AlgebraicModuliForArithmeticGeometry--R09.6.md": "2029c22234ceaac86e19fb75169aa9ca44bf8a79a4bca70b98f8da0bafa214fd",
     "data/blueprints/AnabelianGeometryAndNonabelianChabauty.json": "8f01f09372b0f11e33678f9faf0a7cc96be694202cfc4806eb1faf8242a76974",
@@ -1619,6 +1634,8 @@
     "data/blueprints/DiamondEtaleCohomology--C8.md": "283cd6c3f9c75db4c08d0c53877e7522630f1501f5b73ba0b9dc698af3699c52",
     "data/blueprints/DiamondsAndVStacks.json": "a427a7649fb43e0e20477e090dac6bc8d44ffd73d8fb4be0a65e4afd26b7f4d4",
     "data/blueprints/DiamondsAndVStacks.md": "b932a48cb629f7d75e56e415381ad7382debf1e0696790aa9cbf5020202e9f67",
+    "data/blueprints/DiophantineApproximationAndTranscendence.json": "0aa1631168f3f5b0f2769457c5ac38731b4d7ed605a2683812be0db1118831e6",
+    "data/blueprints/DiophantineApproximationAndTranscendence.md": "e86b0de0be29dd3df46d8f1ff74f8cf568022d45fdc1893130bc296c9b59bb63",
     "data/blueprints/DirichletPadicLFunctions--L0.json": "10da152517514fdfd41c74fffdddccba9ed0d779509f92616575362933eb9a23",
     "data/blueprints/DirichletPadicLFunctions--L0.md": "f4b72a43a58c23643a880c6de3d4ace1819e28d4618955d8616bddb74d9ef25c",
     "data/blueprints/DirichletPadicLFunctions--L1.json": "845e41d0960a803bc3f978f2efabd2de3a34e4c8d0921dce3e57d669dafff785",
