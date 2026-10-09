@@ -36059,7 +36059,8 @@
    ],
    "avoidAccountOf": "BP-KTheoryLowDegrees--U.6",
    "prompt": "research/blueprint/prompts/REV-KTheoryLowDegrees--U.6.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7550"
   },
   {
    "id": "BP-AnabelianGeometryAndNonabelianChabauty--NC.0",
@@ -41474,8 +41475,9 @@
    ],
    "revisionOf": "BP-ShimuraData",
    "prompt": "research/blueprint/prompts/BP-ShimuraData~3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7567"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7567",
+   "finishedAt": "2026-10-09T04:57:39Z"
   },
   {
    "priority": 2,
