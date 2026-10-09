@@ -47118,8 +47118,9 @@
    ],
    "revisionOf": "PKG-ClassicalSerreModularity",
    "prompt": "research/blueprint/prompts/PKG-ClassicalSerreModularity~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7894"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7894",
+   "finishedAt": "2026-10-09T19:24:06Z"
   },
   {
    "id": "REV-PKG-ClassicalSerreModularity~2",
@@ -105252,8 +105253,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/FIX-PKG-DiamondsAndVStacks~adv.md"
+   "state": "external",
+   "prompt": "research/blueprint/prompts/FIX-PKG-DiamondsAndVStacks~adv.md",
+   "note": "claimed on GitHub issue #8071"
   },
   {
    "id": "FIX-PKG-NeronModelsAndSemistableAbelianVarieties~adv",
