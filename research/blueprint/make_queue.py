@@ -403,11 +403,11 @@ Finish with a summary under 200 words."""
 
 PACKAGE_REVIEW_TEMPLATE = """You are an independent reviewer for the Tau Ceti Atlas blueprint programme. You did not write the files you review. You run unattended in a tmux session as job {JOB}. Work in {REPO}. Your scratch directory is {WORKERS}/{JOB} (create it).
 
-READ FIRST (binding): research/blueprint/PROTOCOL.md, sections 5, 13 and 20, and research/blueprint/UPSTREAM_GUIDE.md.
+READ FIRST (binding): research/blueprint/PACKAGE_REVIEW.md (the review method: upstream form, the adversarial mathematics pass, duplication against current Tau Ceti, Suggested.lean form), then research/blueprint/PROTOCOL.md sections 5, 13 and 20, and research/blueprint/UPSTREAM_GUIDE.md.
 
 REVIEW: the roadmap package {PKGDIR}/ (README.md, Suggested.lean, metadata.toml) of {ROADMAP} ("{TITLE}"), against its accepted plan: {PACKETS}.
 {REVISION}Check each item, and correct it in place wherever the fix is clear:
-1. Upstream form. It follows UPSTREAM_GUIDE.md, and its structure, style and density match upstream roadmaps, for example https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ClassFieldTheory/README.md. It is at most 200 KB.
+1. Upstream form. It follows UPSTREAM_GUIDE.md, and its structure, style and density match upstream roadmaps, for example https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/AdicSpaces/README.md (prose per layer; ours keep every definition's API and unit tests). Size is whatever that needs.
 2. Fidelity to the plan. Every target of the plan is in the README, with its exact statement and hypotheses. The README claims nothing the plan does not support. Its boundaries and prerequisites agree with the packets and the link maps.
 3. Own words. There is no passage of a source and no section-by-section summary of one. Every source is cited by theorem, section and page.
 4. No process. There are no packet names, job ids, reviews, checkpoints or coverage statuses.
