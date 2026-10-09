@@ -1268,6 +1268,7 @@ theorem IsWeilNumber.zpow {q : ℝ} {n : ℤ} {α : K} (hα : IsWeilNumber q n �
 theorem IsWeilNumber.reciprocal_sum_totallyReal {q : ℚ} (hq : 1 < q) {n : ℤ} {α : K}
     (hα : IsWeilNumber (q : ℝ) n α) :
     IsAlgebraic ℚ (α + (q : K) ^ n / α) ∧
+      (∀ z ∈ (minpoly ℚ (α + (q : K) ^ n / α)).aroots ℂ, z.im = 0) ∧
       ∀ σ : K →+* ℂ, (σ (α + (q : K) ^ n / α)).im = 0 := by sorry
 
 end ArithmeticComplements
@@ -1857,7 +1858,7 @@ Direct mathematical inputs: LefschetzPencilsAndVanishingCycles:LPV.7:semistable-
 /-
 Target DeligneWeightsAndPurity:DWP.10/mixed-nearby-and-newton-exports
 Mixed nearby cycles and Newton restrictions
-The arithmetic consumers use the already planned DWP.8 theorem that nearby-cycle cohomology sheaves of a mixed sheaf remain mixed, and its proper direct-image purity over ℤ[1/ℓ]. For an integral weight-w eigenvalue, DWP.7’s Newton couple (r,s) satisfies r+s=w and r,s≥0; its cohomological valuation triangles retain the separate compact-support/proper and smooth ordinary hypotheses. DWP.0 supplies the shared numeric Weil/ι-weight predicates to RD.6; RD.6 supplies its own F-isocrystal fibres and defines pointwise purity and mixedness there.
+The arithmetic consumers use DWP.8's mixedness theorem for nearby-cycle cohomology sheaves and its proper direct-image purity over ℤ[1/ℓ]. For an integral weight-w eigenvalue, DWP.7’s Newton couple (r,s) satisfies r+s=w and r,s≥0; its cohomological valuation triangles retain the separate compact-support/proper and smooth ordinary hypotheses. DWP.0 supplies the shared numeric Weil/ι-weight predicates to RD.6; RD.6 supplies its own F-isocrystal fibres and defines pointwise purity and mixedness there.
 Direct mathematical inputs: DeligneWeightsAndPurity:DWP.8/nearby-cycles-preserve-mixedness-6-1-13, DeligneWeightsAndPurity:DWP.8/variant-over-z-one-over-ell-6-2-7, DeligneWeightsAndPurity:DWP.7/newton-couples-3-3-7, DeligneWeightsAndPurity:DWP.7/valuation-triangles-3-3-8, DeligneWeightsAndPurity:DWP.0/weil-q-number, DeligneWeightsAndPurity:DWP.0/iota-weight
 -/
 

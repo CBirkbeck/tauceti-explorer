@@ -1,8 +1,8 @@
 {
   "review": {
-    "status": "needs_changes",
-    "reviewer": "independent-review-REV-PKG-DeligneWeightsAndPurity",
+    "status": "accepted",
+    "reviewer": "independent-review-REV-PKG-DeligneWeightsAndPurity~2",
     "date": "2026-10-09",
-    "notes": "Independently checked all 135 accepted targets, 177 API items, 94 tests and their prerequisites; read all 41 pinned baseline statements and relevant library-audit and link-map boundaries. README passes upstream form, own-words/source-locator and fidelity checks at 199191 bytes; metadata is exactly topic = math.AG. Corrected ordinary-node terminology, links, empty input sentences and the Weil I 6.11 locator; removed process-status comments; added subspace/quotient purity equivalences and weight union; removed the unnecessary characteristic-zero hypothesis from the logarithmic derivative; generalized the root-of-unity example. lean-check exited 0 with 126 sorry warnings and no errors. Needs changes because numerical signatures omit real-weight decomposition/functoriality, several reciprocal-pairing conclusions and upper-degree/orthogonality/symmetry parts of primitive decomposition, plus further numerical clauses detailed in the report. Genuine unavailable geometric supplier types are distinguished from these omissions."
+    "notes": "All six package requirements pass. Independently checked 135 targets, 177 API items, 94 tests, prerequisites, all 41 pinned baseline statements, library-audit/link-map boundaries and current upstream overlap. The prior review's numerical omissions are resolved, including real-weight decomposition, reciprocal generalized-eigenspace pairings and upper-degree primitive decomposition. Corrected the H1 Frobenius explanation, added the intrinsic minimal-polynomial total-reality conclusion, and removed the remaining process phrase. README is 199179 bytes; metadata is exactly topic = math.AG; internal links resolve and API/test statements match their corresponding accepted targets. Both packets have zero errors/warnings. Final lean-check exited 0 with 196 sorry warnings and no other diagnostics. Genuine unavailable geometric/analytic supplier types remain honest specifications under PROTOCOL section 13; no completed formalization is claimed."
   }
 }
