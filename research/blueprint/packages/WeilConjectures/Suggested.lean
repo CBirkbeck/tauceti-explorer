@@ -331,9 +331,13 @@ theorem degreewise_pure_factor_extraction {K : Type*} [Field K] [Algebra ℚ K]
       V.map (Int.castRingHom K) *
         (∏ i ∈ Finset.univ.filter (fun i : Fin r => Odd i.val),
           ∏ j : Fin (b i), (1 - C (α i j) * X))) :
-    ∃ factors : Fin r → Polynomial ℤ, ∀ i,
-      (factors i).map (Int.castRingHom K) = ∏ j : Fin (b i), (1 - C (α i j) * X) ∧
-      (factors i).coeff 0 = 1 ∧ (factors i).natDegree = b i := by
+    ∃! factors : Fin r → Polynomial ℤ,
+      (∀ i,
+        (factors i).map (Int.castRingHom K) = ∏ j : Fin (b i), (1 - C (α i j) * X) ∧
+        (factors i).coeff 0 = 1 ∧ (factors i).natDegree = b i) ∧
+      (∀ i j, i ≠ j → IsCoprime
+        ((factors i).map (Int.castRingHom ℚ))
+        ((factors j).map (Int.castRingHom ℚ))) := by
   sorry
 
 /-! ### WC.5: algebraic cores of the bound and the recurrence -/
