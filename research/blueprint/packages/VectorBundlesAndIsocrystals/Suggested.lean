@@ -788,7 +788,10 @@ source-level theorem appear to elaborate. The geometric realization is specified
 /-
 Node: VectorBundlesAndIsocrystals:VB0/isocrystal-category-and-standard-block
 Finite isocrystals over the completed maximal unramified coefficient field
-Infrastructure for omitted parts: General-E fixed-field/coefficient comparison and categorical E-linearity.
+Infrastructure for omitted parts: Import the completed coefficient field, extended arithmetic
+Frobenius and fixed field from ReductiveGroupsPartII RG2.0.4, and the ramified Witt
+comparison from RF0. Their native coefficient specialization and categorical E-linearity
+are unavailable at the executable baseline; no parallel completion is constructed here.
 
 API FiniteIsocrystal [typed specialization]
 A finite L-module with a σ-semilinear equivalence.
@@ -3367,9 +3370,16 @@ VectorBundlesAndIsocrystals:VB4/slope-zero-local-systems,
 RelativeFarguesFontaine:RF0:integral-Y, DiamondsAndVStacks:D3/locally-profinite-torsors.
 
 VectorBundlesAndIsocrystals:VB4/integral-group-torsors
-Sources: SW20, Proposition 22.6.1, book p. 213.
+Sources: SW20, Proposition 22.6.1, book p. 213; Theorems 19.5.1–19.5.2,
+book pp. 178–180.
 Declaration: IntegralGroupTorsors [omitted signature]
-Missing interface: Smooth affine integral G with connected fibres, actual G(Z_p)-torsors and phi^{-1}-G-torsors on Y_[0,r] are required.
+Missing interface: Smooth affine integral G with connected fibres, actual G(Z_p)-torsors
+and phi^{-1}-G-torsors on Y_[0,r] are required. The target includes reconstruction from
+exact tensor functors on the exact category of finite free Z_p-representations, for
+Z_p-schemes and analytic sousperfectoid Z_p-spaces. Extend the functor to the coordinate
+Hopf algebra by filtered colimits, reconstruct the faithfully flat torsor, and use Lang's
+lemma with connected fibres for pro-etale local identification with the forgetful functor.
+The field-valued dictionary alone does not supply this integral reconstruction.
 Contract: For a smooth affine group scheme G/Z_p with connected fibres, pro-étale
 G(Z_p)-torsors on S are equivalent to φ^{-1}-G-torsors on Y_[0,r](S). For G=GL_n this is
 the integral local-system equivalence. Connectedness of fibres and the integral boundary
@@ -3379,6 +3389,8 @@ a pseudouniformizer ϖ∈R for the construction of the SW space Y_[0,r](S). S pe
 r>0; smooth affine integral model with connected fibres.
 Direct imports: VectorBundlesAndIsocrystals:VB4/integral-boundary-realization,
 tauceti:TauCetiRoadmap/ReductiveGroups#layer-1-representations--comodules,
+tauceti:TauCetiRoadmap/ReductiveGroupsPartII:RG2.3.1 (smooth affine integral models),
+tauceti:TauCetiRoadmap/ReductiveGroupsPartII:RG2.3.7 (Lang's theorem),
 RelativeFarguesFontaine:RF0:integral-Y, DiamondsAndVStacks:D3/locally-profinite-torsors.
 
 VectorBundlesAndIsocrystals:VB3:general-BC/sympathetic-vector-spaces

@@ -1,8 +1,8 @@
 {
   "review": {
-    "status": "needs_changes",
-    "reviewer": "independent-review-REV-PKG-VectorBundlesAndIsocrystals",
+    "status": "accepted",
+    "reviewer": "independent-review-REV-PKG-VectorBundlesAndIsocrystals~2",
     "date": "2026-10-09",
-    "notes": "Completed independent package review of both accepted revision-two parts: 127 targets, 168 APIs and 124 tests/examples; README statements, hypotheses, boundaries, sources and prerequisites checked. Corrected Lubin–Tate/ClassFieldTheory ownership, GLX edition length and consumer locator, and PureModel boundedness to finite-submodule p-power commensurability. Final lean-check exits 0 with 231 sorry warnings only; actual Tau Ceti import closure is byte-identical to the specified pin. Four isolated counterexample checks elaborate without sorry or warnings. Needs changes because executable signatures assert false universal exactness, category equivalences, arbitrary-rank bases, Hom vanishing, arbitrary-invariant identities and arbitrary-profile openness. Explicitly omitted signatures alone are not grounds for this verdict. Full evidence and repair instructions are in the independent review report."
+    "notes": "Completed independent revision-two package review: all 127 targets, 168 APIs, 124 tests/examples, 121 hypothesis entries and 549 original prerequisites transfer. The previous false universal executable signatures are now explicitly omitted or constrained as faithful components; their complete geometric contracts remain. Corrected current upstream ownership of the completed unramified coefficient field (ReductiveGroupsPartII RG2.0.4) and the integral torsor ingredients: import RG2.3.1 models and RG2.3.7 Lang, and include the integral tensor reconstruction in the existing torsor target with SW19.5.1–19.5.2 locators. README is 196551 bytes, its target/source links resolve, metadata is exact, and selected primary-source hypotheses and all 29 pinned baseline statements were checked. Independent lean-check exits 0 with no errors and 156 sorry warnings only; seven transitive Tau Ceti import sources match the pin byte-for-byte. Full evidence and the remaining implementation scope are in the review report."
   }
 }
