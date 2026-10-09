@@ -1,6 +1,7 @@
 /-
-This file is not the roadmap and is not exhaustive. The corresponding R09.4 reader is
-definitive. These statements suggest Lean forms so that contributors and reviewers
+This file is not the roadmap and is not exhaustive. The R09.4 reader is
+definitive but needs the corrections listed in the independent review; the packet and
+contracts here contain the corrected statements. These statements suggest Lean forms so that contributors and reviewers
 converge on names and signatures; they make no implementation claim.
 
 The pinned baseline has schemes, group objects and abelian varieties over fields, but
@@ -16,6 +17,8 @@ import Mathlib.CategoryTheory.Monoidal.Cartesian.Over
 import Mathlib.RingTheory.RootsOfUnity.Basic
 import Mathlib.Algebra.TrivSqZeroExt.Basic
 import Mathlib.Data.ZMod.Basic
+import Mathlib.Topology.LocallyConstant.Basic
+import Mathlib.RingTheory.Spectrum.Prime.Topology
 import TauCeti.AlgebraicGeometry.AbelianVariety.Basic
 
 universe u
@@ -104,34 +107,43 @@ end AbelianScheme
 
 namespace StandardNgon
 
-/-- Only the smooth-locus point group, not a replacement for the glued proper scheme. -/
+/-- Ring points of the smooth group: component labels can vary on clopen base pieces.
+Its geometric identification and naturality still require the omitted scheme carrier. -/
 abbrev smoothPoints (R : Type u) [CommRing R] (n : ℕ) :=
+  Rˣ × Multiplicative (LocallyConstant (PrimeSpectrum R) (ZMod n))
+
+/-- The narrower group used to check constant-label action formulas. It does not
+enumerate all smooth points over an arbitrary disconnected ring. -/
+abbrev constantLabelPoints (R : Type u) [CommRing R] (n : ℕ) :=
   Rˣ × Multiplicative (ZMod n)
 
-def smoothScale {R : Type u} [CommRing R] {n : ℕ} [NeZero n]
-    (ζ : rootsOfUnity n R) : smoothPoints R n ≃* smoothPoints R n := by sorry
+def constantLabelScale {R : Type u} [CommRing R] {n : ℕ} [NeZero n]
+    (ζ : rootsOfUnity n R) : constantLabelPoints R n ≃* constantLabelPoints R n := by sorry
 
-lemma smoothScale_apply {R : Type u} [CommRing R] {n : ℕ} [NeZero n]
+lemma constantLabelScale_apply {R : Type u} [CommRing R] {n : ℕ} [NeZero n]
     (ζ : rootsOfUnity n R) (x : Rˣ) (i : ZMod n) :
-    smoothScale ζ (x, Multiplicative.ofAdd i) =
+    constantLabelScale ζ (x, Multiplicative.ofAdd i) =
       ((ζ : Rˣ) ^ i.val * x, Multiplicative.ofAdd i) := by sorry
 
-def smoothInversion (R : Type u) [CommRing R] (n : ℕ) :
-    smoothPoints R n ≃* smoothPoints R n := by sorry
+def constantLabelInversion (R : Type u) [CommRing R] (n : ℕ) :
+    constantLabelPoints R n ≃* constantLabelPoints R n := by sorry
 
-lemma smoothInversion_apply {R : Type u} [CommRing R] {n : ℕ}
+lemma constantLabelInversion_apply {R : Type u} [CommRing R] {n : ℕ}
     (x : Rˣ) (i : ZMod n) :
-    smoothInversion R n (x, Multiplicative.ofAdd i) =
+    constantLabelInversion R n (x, Multiplicative.ofAdd i) =
       (x⁻¹, Multiplicative.ofAdd (-i)) := by sorry
 
-lemma smoothScale_commutes_inversion {R : Type u} [CommRing R]
+lemma constantLabelScale_commutes_inversion {R : Type u} [CommRing R]
     {n : ℕ} [NeZero n] (ζ : rootsOfUnity n R) :
-    (smoothScale ζ).trans (smoothInversion R n) =
-      (smoothInversion R n).trans (smoothScale ζ) := by sorry
+    (constantLabelScale ζ).trans (constantLabelInversion R n) =
+      (constantLabelInversion R n).trans (constantLabelScale ζ) := by sorry
 
 -- StandardNgon.one_component: the smooth locus of the nodal one-gon is G_m.
 example (R : Type u) [CommRing R] :
     Subsingleton (Multiplicative (ZMod 1)) := by sorry
+
+-- StandardNgon.disconnected_points: F₂×F₂ has two independent label choices.
+example : Nat.card (smoothPoints (ZMod 2 × ZMod 2) 2) = 4 := by sorry
 
 -- PolygonAutomorphisms.one_component: the scaling factor is trivial for n = 1.
 example (R : Type u) [CommRing R] : Subsingleton (rootsOfUnity 1 R) := by sorry
@@ -156,20 +168,23 @@ end TauCeti.ArithmeticModuli
 These are exact mathematical contracts, not Lean declarations. The carrier/condition
 named in each entry must exist before its signature is introduced. No Prop stand-in
 or private substitute is used. A typed fragment is expressly narrower than the full
-geometric contract. The definitive reader contains hypotheses, proofs and sources.
+geometric contract. The packet contains corrected hypotheses and source locators; the independent review
+lists the required synchronization of the definitive reader.
 
 OMITTED construction R094.standard_ngon
   Contract: For every scheme S and integer n≥1 construct the proper flat finitely presented nodal genus-one S-curve C_n by cyclically identifying ∞ on component i of n copies of P¹_S with 0 on component i+1. For n=1 identify the two sections of one P¹. Its smooth locus is the S-group G_m×(Z/nZ)_S with identity (1,0), and its translation action extends to C_n. All constructions commute with arbitrary base change.
   Hypotheses: S arbitrary; n is positive.
   Required carrier/input: mathlib:AlgebraicGeometry.Scheme, ModularCurves#0c-finite-quotients-and-torsors, ModularCurves#0a-relative-effective-cartier-divisors; see G-native and the node-specific gap in the packet.
 OMITTED API StandardNgon.baseChange (functoriality): C_n×_S T is canonically C_n over T, respecting zero and translation.
-PARTIAL API StandardNgon.smoothPoints: the ring-valued smooth group is typed above; its identification with the proper curve smooth-locus functor and its naturality are omitted.
+PARTIAL API StandardNgon.smoothPoints: the locally constant label carrier is typed above. Its scheme-functor identification, pullback naturality and the gluing of componentwise scaling over varying labels are omitted. The constantLabelPoints action fragments apply only to constant labels.
 OMITTED API StandardNgon.normalization (projection): The canonical relative normalization is the disjoint union of n projective lines with the specified two branches at each node; this is not a claim about absolute normalization over a nonnormal base.
-OMITTED API StandardNgon.nodeCharts (characterisation): Every node has the standard xy=0 chart; n=1 still has two normalization flags.
+OMITTED API StandardNgon.nodeCharts (characterisation): Étale locally at each node the split nodal model is xy=0, with two relative-normalization flags, including n=1. A Zariski xy=0 neighborhood is not asserted for the irreducible one-gon.
 OMITTED example StandardNgon.one_component (degenerate): C_1 is the rational nodal genus-one curve; its smooth locus is G_m, not a smooth elliptic curve. A split cubic model over every base is y²z+xyz=x³, with normalization x=u(u+1), y=u²(u+1); the two branches u=0,−1 are distinct even in characteristic two.
   Typed fragments above only test ZMod 1 and the split-cubic parametrization; proper curve/node statements require the missing carrier.
 OMITTED example StandardNgon.two_components (computation): C_2 has two components meeting at two distinct nodes and smooth component group Z/2Z.
-OMITTED example StandardNgon.base_change_nonreduced (compatibility): The same normalization and xy=0 node charts persist over k[ε]/ε²; the construction does not discard nilpotents.
+OMITTED example StandardNgon.base_change_nonreduced (compatibility): The same relative normalization and étale-local split xy=0 node models persist over k[ε]/ε²; the construction does not discard nilpotents.
+OMITTED example StandardNgon.disconnected_points (non-example): For R=F₂×F₂ and n=2, C₂^sm(R) has four points: its two connected base pieces independently choose a label. Rˣ×Z/2Z has only two. Thus constant-label formulas do not enumerate all R-points.
+OMITTED example StandardNgon.onegon_etale_chart (non-example): Over an algebraically closed field C₁ is irreducible. Every nonempty Zariski open is irreducible, whereas a neighborhood of the crossing in xy=0 is reducible. Its split nodal chart is étale local, with two flags on the relative normalization.
 
 OMITTED definition R094.generalized_elliptic
   Contract: A generalized elliptic curve over S is a proper flat finitely presented curve E→S whose geometric fibres are smooth connected genus-one curves or Néron polygons, a commutative group law with zero on E^sm, and an action E^sm×_S E→E extending that law. On polygon fibres translations act by rotations on the cyclic component graph, equivalently trivially on Pic⁰. Isomorphisms are S-isomorphisms respecting zero, law and action. Pullback uses the native scheme fibre product.
@@ -201,10 +216,10 @@ OMITTED theorem R094.polygon_automorphisms
   Required carrier/input: arith-standard-ngon, arith-generalized-elliptic, mathlib:rootsOfUnity; see G-native and the node-specific gap in the packet.
 
 OMITTED construction R094.contraction
-  Contract: For a proper flat finitely presented semistable genus-one curve E/S and a relative effective Cartier divisor D⊂E^sm finite locally free of positive rank, construct c_D(E) by contracting precisely fibre components disjoint from D, uniquely as the relative projective contraction and compatibly with arbitrary base change. Its smooth locus is the image of the open subgroup of E^sm consisting of retained components when E is generalized elliptic and D=G is a finite locally free subgroup. In that subgroup case the contraction inherits a unique generalized law and action, G becomes ample, and the map restricts to an isomorphism from the retained-component open in E^sm onto c_G(E)^sm.
-  Hypotheses: The general divisor construction yields a curve, not an asserted group object. The subgroup case uses a generalized elliptic input and a finite locally free subgroup. The contraction is not the scheme quotient E/G.
+  Contract: For a proper flat finitely presented Deligne–Rapoport semistable genus-one curve E/S (geometric fibres smooth connected genus one or Néron polygons) and a relative effective Cartier divisor D⊂E^sm finite locally free of positive rank, construct c_D(E) by contracting precisely fibre components disjoint from D, uniquely as the relative projective contraction and compatibly with arbitrary base change. Its smooth locus is the image of the open subgroup of E^sm consisting of retained components when E is generalized elliptic and D=G is a finite locally free subgroup. In that subgroup case the contraction inherits a unique generalized law and action, G becomes ample, and the map restricts to an isomorphism from the retained-component open in E^sm onto c_G(E)^sm.
+  Hypotheses: The DR fibre condition is required: geometric fibres are connected nodal genus-one curves with trivial dualizing bundle. General semistable genus-one curves with rational tails are excluded. The general divisor construction yields a curve, not an asserted group object. The subgroup case uses a generalized elliptic input and a finite locally free subgroup. The contraction is not the scheme quotient E/G.
   Required carrier/input: arith-generalized-elliptic, arith-degeneracy, ModularCurves#0a-relative-effective-cartier-divisors, StableReduction#layer-2-coherent-curve-theory-duality-and-positivity, StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves; see G-native and the node-specific gap in the packet.
-OMITTED API GenusOneCurve.contractDivisor (constructor): Construct the relative projective contraction for a positive finite locally free smooth Cartier divisor; with a subgroup divisor it agrees with GeneralizedEllipticCurve.contract.
+OMITTED API GenusOneCurve.contractDivisor (constructor): For a DR semistable genus-one family construct the relative projective contraction for a positive finite locally free smooth Cartier divisor; with a subgroup divisor it agrees with GeneralizedEllipticCurve.contract.
 OMITTED API GeneralizedEllipticCurve.contract (constructor): Construct c_G(E) with its map and smooth law.
 OMITTED API GeneralizedEllipticCurve.contract_baseChange (functoriality): Pullback identifies the contracted curves and maps.
 OMITTED API GeneralizedEllipticCurve.contract_componentCriterion (characterisation): Exactly the components missing G are contracted.
@@ -212,7 +227,8 @@ OMITTED API GeneralizedEllipticCurve.contract_unique (universal-property): The t
 OMITTED example GeneralizedEllipticCurve.contract_smooth (compatibility): On a smooth elliptic curve contraction is the identity.
 OMITTED example GeneralizedEllipticCurve.contract_to_one (degenerate): On C_n the zero subgroup meets only the identity component and contracts to C_1.
 OMITTED example GeneralizedEllipticCurve.contract_all_components (computation): The subgroup {1}×Z/nZ meets every component and the contraction of C_n is the identity.
-OMITTED example GenusOneCurve.divisor_without_law (non-example): A divisor meeting selected components of a bare semistable genus-one curve produces its curve contraction, but supplies neither a zero nor a group action; the output is not automatically generalized elliptic.
+OMITTED example GenusOneCurve.divisor_without_law (non-example): A divisor meeting selected components of a bare DR semistable genus-one curve produces its curve contraction, but supplies neither a zero nor a group action; the output is not automatically generalized elliptic.
+OMITTED example GenusOneCurve.rational_tail_excluded (non-example): Attach P¹ to a smooth elliptic curve at one node and put D at a smooth point on the P¹ tail. This connected nodal genus-one curve is not DR: its dualizing multidegrees are 1 on the elliptic component and −1 on the tail. For m>0, H¹(O(mD)) has dimension one, so the DR vanishing argument cannot be applied.
 
 OMITTED construction R094.fixed_elliptic_moduli
   Contract: For n≥1, form the groupoid-valued contravariant moduli pseudofunctor E_n on schemes over Z: objects are generalized elliptic curves whose singular geometric fibres are n-gons; arrows are the isomorphisms above. Keep all smooth elliptic fibres, including supersingular ones. The closed cusp E_n^∞ is defined by the schematic degeneracy locus. The open E_n^{n-ord} removes only smooth supersingular points in characteristics dividing n.
@@ -311,7 +327,7 @@ OMITTED theorem R094.relative_abelian_rigidity
 OMITTED construction R094.relative_dual
   Contract: For A/S an abelian scheme, represent its fppf sheaf of rigidified fibrewise algebraically trivial line bundles by an abelian scheme A∨/S, with normalized Poincaré line bundle on A×_S A∨. Duals commute with arbitrary base change; evaluation gives A≃A∨∨ and morphisms dualize contravariantly. The field restriction agrees with the dual in JacobianChallenge Layer E.
   Hypotheses: Rigidification along zero and fibrewise algebraic triviality are part of the functor. No higher-tier dual construction is a prerequisite.
-  Required carrier/input: arith-abelian-scheme, arith-relative-abelian-rigidity, JacobianChallenge#layer-e-abelian-varieties, JacobianChallenge#layer-c-relative-coherent-cohomology-and-base-change, AlgebraicModuliForArithmeticGeometry:R09.1; see G-native and the node-specific gap in the packet.
+  Required carrier/input: arith-abelian-scheme, arith-relative-abelian-rigidity, JacobianChallenge#layer-e-abelian-varieties, JacobianChallenge#layer-c-relative-coherent-cohomology-and-base-change, AlgebraicModuliForArithmeticGeometry:A0-extension/section-rigidified-picard, AlgebraicModuliForArithmeticGeometry:A0-extension/relative-picard-sheaf; see G-native and the node-specific gap in the packet.
 OMITTED API AbelianScheme.dual (constructor): Construct the abelian scheme representing the rigidified Pic⁰ sheaf.
 OMITTED API AbelianScheme.poincare (data): Give its line bundle normalized on both zero sections.
 OMITTED API AbelianScheme.dual_baseChange (functoriality): (A_T)∨≃(A∨)_T with the Poincaré data.
